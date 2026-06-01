@@ -1,0 +1,572 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Additions for Exposé III, pages 253--280
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\D}{\mathrm D}
+\providecommand{\Ho}{\mathrm H}
+\providecommand{\RHom}{\mathrm R\!\operatorname{Hom}}
+\providecommand{\parfamp}{\operatorname{parf.amp}}
+\providecommand{\tamp}{\operatorname{tor.amp}}
+\providecommand{\Qcoh}{\operatorname{Qcoh}}
+\providecommand{\Mod}{\operatorname{Mod}}
+\providecommand{\Coh}{\operatorname{Coh}}
+\providecommand{\Lib}{\operatorname{Lib}}
+\providecommand{\Loclib}{\operatorname{Loclib}}
+\providecommand{\qcoh}{\mathrm{qcoh}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\torf}{\mathrm{torf}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rg}{\operatorname{rg}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Cone}{\operatorname{Cone}}
+\providecommand{\pt}{\operatorname{Pt}}
+\providecommand{\ind}{\operatorname{ind}}
+\hbadness=10000
+\emergencystretch=3em
+\begin{center}
+{\Large SGA 6 Exposé III : perfection relative et semi-continuité}\\[0.4em]
+{\large Pages 253--280 du scan original}
+\end{center}
+
+\textbf{Proposition 3.6.} Soit
+\[
+\begin{tikzcd}
+X \arrow[r,"i"] \arrow[d,"f"'] & X' \arrow[dl,"f'"]\\
+Y &
+\end{tikzcd}
+\]
+un triangle commutatif de schémas, où \(i\) est une immersion fermée et \(f'\) un morphisme lisse, et soit \(E\in\Ob D(X)\). Pour que \(E\) soit localement d'amplitude plate finie relativement à \(f\), il faut et il suffit que \(i_*(E)\) soit localement d'amplitude plate finie au sens absolu. Plus précisément, si \(f'\) est de dimension relative \(\leq d\), on a
+\begin{align*}
+\text{(i)}\quad &\tamp(i_*E)\subset[a,b] \Longrightarrow \tamp_f(E)\subset[a,b],\\
+\text{(ii)}\quad &\tamp_f(E)\subset[a,b] \Longrightarrow \tamp(i_*E)\subset[a-d,b].
+\end{align*}
+
+\emph{Preuve.} Si \([m,n]\) est un intervalle de \(\mathbb Z\), on a évidemment
+\[
+ \tamp(E)\subset[m,n]
+ \Longleftrightarrow
+ \tamp(i_*E)\subset[m,n]
+\]
+dans la réduction obtenue après l'immersion fermée; on peut donc supposer que \(X=X'\), \(i=\id_X\), \(f=f'\). La relation (i) résulte trivialement de (3.4.1 a). Pour (ii), on considère la diagonale
+\[
+ s:X\longrightarrow X\times_YX,
+\]
+section des deux projections. Si \(f\) est lisse de dimension relative \(d\), alors, par VII 1.10, \(s\) est une immersion régulière de codimension \(\leq d\), donc de tor-dimension \(\leq d\), comme on le voit à l'aide du complexe de Koszul. D'après (3.5.2),
+\[
+ \tamp_f(E)
+ \subset[a,b]
+ \Longleftrightarrow
+ \tamp_{\operatorname{pr}_2}(\operatorname{pr}_1^*E)
+ \subset[a,b].
+\]
+D'après (3.4.1 b), on en déduit
+\[
+ \tamp(s^*\operatorname{pr}_1^*E)
+ \subset[a-d,b],
+\]
+d'où l'implication (ii), puisque \(s^*\operatorname{pr}_1^*\simeq\id\).
+
+\textbf{Remarque 3.6.1.} L'énoncé (3.6) serait faux si l'on supposait seulement \(f'\) plat; voir (3.4.2).
+
+\textbf{Proposition 3.7 (formule de projection).} Soient \(S\) un schéma quasi-compact, \(f:X\to Y\) un \(S\)-morphisme quasi-compact et quasi-séparé de schémas quasi-compacts sur \(S\), \(E\in\Ob D^{-}(X)_{\qcoh}\), et \(M\in\Ob D^b(S)_{\qcoh}\). Si \(M\) est d'amplitude plate finie, ou si \(E\) est d'amplitude plate finie relativement à \(S\), il existe un isomorphisme fonctoriel canonique dans \(D(Y)_{\qcoh}\)
+\[
+ Rf_*(E)\otimes_S^{\mathbf L}M
+ \xrightarrow{\sim}
+ Rf_*(E\otimes_S^{\mathbf L}M).
+\]
+
+\emph{Preuve.} Il existe, d'après EGA III 1.4.12 et IV 1.7.21, un entier \(N\) tel que \(R^if_*(F)=0\) pour tout \(i>N\) et tout \(\mathcal O_X\)-module quasi-cohérent \(F\). Ainsi \(Rf_*\) envoie \(D^{-}(X)_{\qcoh}\) dans \(D^{-}(Y)_{\qcoh}\). La flèche d'adjonction
+\[
+ Lf^*Rf_*(E)\longrightarrow E
+\]
+définit, par tensorisation par \(M\), une flèche
+\[
+ Lf^*(Rf_*(E)\otimes_S^{\mathbf L}M)
+ \longrightarrow E\otimes_S^{\mathbf L}M,
+\]
+d'où, par adjonction, une flèche canonique
+\[
+ Rf_*(E)\otimes_S^{\mathbf L}M
+ \longrightarrow Rf_*(E\otimes_S^{\mathbf L}M).\tag{*}
+\]
+La source et le but sont à cohomologie quasi-cohérente. La question étant locale sur \(Y\), on peut supposer \(S\) et \(Y\) affines. Dans le cas où \(M\) est d'amplitude plate finie, un dévissage et l'argument « way-out » ramènent à \(M\) module quasi-cohérent ordinaire, puis à \(M\) libre, puis libre de type fini, et finalement à \(M=\mathcal O_S\), où \((*)\) est tautologique. Dans l'autre cas, on se ramène à \(M=P\), où \(P\) est un \(A\)-module plat, \(S=\Spec A\). Posant \(A'=D_A(P)\) (EGA \(0_{\mathrm{IV}}\), 18.2.3) et \(S'=\Spec A'\), il reste à appliquer le changement de base plat
+\[
+ q^*Rf_*(E)\longrightarrow Rf'_*p^*(E),
+\]
+qui est un isomorphisme par EGA III 1.4.15 et IV 1.7.21.
+
+\textbf{Corollaire 3.7.1.} Soient \(S\) un schéma, \(f:X\to Y\) un \(S\)-morphisme quasi-compact et quasi-séparé de schémas quasi-compacts sur \(S\), et \(E\in\Ob D^{-}(X)_{\qcoh}\). Si \(E\) est localement d'amplitude plate finie relativement à \(S\), il en est de même de \(Rf_*(E)\). Plus précisément, si \(S\) est quasi-compact et si \(N\) est tel que \(R^if_*(F)=0\) pour tout \(i>N\) et tout \(\mathcal O_X\)-module quasi-cohérent \(F\), alors
+\[
+ \tamp_S(E)\subset[a,b]
+ \Longrightarrow
+ \tamp_S(Rf_*E)
+ \subset[a,b+N].
+\]
+
+\emph{Preuve.} On se ramène à prouver que \(\tamp_S(E)\subset[a,b]\) entraîne
+\[
+ H^i(Rf_*E\otimes_S^{\mathbf L}M)=0
+\]
+pour \(i\notin[a,b+N]\) et tout \(\mathcal O_S\)-module quasi-cohérent \(M\). Or l'hypothèse donne \(H^i(E\otimes_S^{\mathbf L}M)=0\) pour \(i\notin[a,b]\), et l'on conclut par (3.7).
+
+\textbf{Corollaire 3.7.2.} Soit \(f:X\to Y\) un morphisme quasi-compact, quasi-séparé et localement de tor-dimension finie, et soit \(E\in\Ob D^{-}(X)_{\qcoh}\). Si \(E\) est localement d'amplitude plate finie au sens absolu, il en est de même de \(Rf_*(E)\).
+
+\emph{Preuve.} Conjuguer (3.4.1 a) et (3.7.1).
+
+\section*{4. Perfection relative}
+
+\textbf{Définition 4.1.} Soient \(f:X\to Y\) un morphisme localement de type fini de schémas, \(E\in\Ob D(X)\), et \([a,b]\) un intervalle de \(\mathbb Z\). On dit que \(E\) est d'amplitude parfaite relativement à \(f\), contenue dans \([a,b]\), et l'on écrit
+\[
+ \parfamp_f(E)\subset[a,b],
+\]
+si, relativement à \(f\), \(E\) est pseudo-cohérent (1.2) et d'amplitude plate contenue dans \([a,b]\) (3.1). On dit que \(f\) est d'amplitude parfaite contenue dans \([-n,0]\), ou de dimension parfaite \(\leq n\), si \(\mathcal O_X\) est d'amplitude parfaite contenue dans \([-n,0]\). On dit que \(E\) est d'amplitude parfaite finie relativement à \(f\) s'il existe un intervalle \([a,b]\) tel que \(\parfamp_f(E)\subset[a,b]\). On dit que \(E\) est parfait relativement à \(f\) si \(E\) est localement d'amplitude parfaite finie relativement à \(f\). On dit que \(f\) est parfait si \(\mathcal O_X\) est localement d'amplitude parfaite finie relativement à \(f\).
+
+\textbf{Exemple 4.1.1.} Une immersion régulière de codimension \(d\) (VII 1.4) est de dimension parfaite \(\leq d\), comme on le voit grâce au complexe de Koszul. Un morphisme localement d'intersection complète, c'est-à-dire localement composé d'une immersion régulière et d'un morphisme lisse, est un morphisme parfait.
+
+\textbf{Notation 4.2.} Soit \(f:X\to Y\) localement de type fini. On notera \(D(f)_{\parf}\), \(D(f)_{\mathrm{parf}}\), etc., les sous-catégories pleines de \(D(X)\) formées des complexes parfaits, respectivement d'amplitude parfaite finie, relativement à \(f\). D'après (I 5.3) et (1.4), ce sont des sous-catégories triangulées de \(D(X)\).
+
+\textbf{Proposition 4.3} (cf. I 5.8). Soient \(f:X\to Y\) localement de type fini, \(E\in\Ob D(X)\), \([a,b]\) un intervalle, \(x\in X\), \(y=f(x)\). Les conditions suivantes sont équivalentes:
+\begin{enumerate}[label=\roman*)]
+\item \(\parfamp_f(E)\subset[a,b]\) au voisinage de \(x\);
+\item \(E\) est, au voisinage de \(x\), \((a-1)\)-pseudo-cohérent relativement à \(f\), acyclique en dehors de \([a,b]\), et
+\[
+ \tamp_{\mathcal O_{Y,y}}(E_x)
+ \subset[a,b].
+\]
+\end{enumerate}
+
+\emph{Preuve.} L'implication i) \(\Rightarrow\) ii) est triviale. Pour la réciproque, la question étant locale, on se ramène au cas où \(f\) est lisse. Alors \(E\) est \((a-1)\)-pseudo-cohérent au voisinage de \(x\); quitte à se localiser et à tronquer, on le représente par un complexe nul hors de \([a,b]\), avec termes libres de type fini en degré \(>a\) et terme de présentation finie en degré \(a\). Le critère I 5.1.1 donne la platitude relative du quotient en degré \(a\); une approximation noethérienne après plongement local dans un espace affine au-dessus de \(Y\) donne la pseudo-cohérence voulue, donc l'amplitude parfaite.
+
+\textbf{Corollaire 4.3.1.} Soient \(f:X\to Y\) localement de type fini et \(E\) un \(\mathcal O_X\)-module. Pour qu'on ait \(\parfamp_f(E)\subset[0,0]\), il faut et il suffit que \(E\) soit, relativement à \(f\), plat et de présentation finie. En particulier, \(f\) est de dimension parfaite nulle si et seulement si \(f\) est plat et localement de présentation finie.
+
+\textbf{Corollaire 4.3.2.} Si \(E\) est un complexe de \(\mathcal O_X\)-modules plats et de présentation finie relativement à \(f\), et si \(E^i=0\) pour \(i\notin[a,b]\), alors \(\parfamp_f(E)\subset[a,b]\). Si \(E\) est à degrés bornés supérieurement, \(E\) est pseudo-cohérent relativement à \(f\).
+
+\textbf{Proposition 4.4.} Soit
+\[
+\begin{tikzcd}
+X \arrow[r,"i"] \arrow[d,"f"'] & X' \arrow[dl,"g"]\\
+Y &
+\end{tikzcd}
+\]
+un triangle commutatif de schémas, où \(i\) est une immersion fermée et \(g\) un morphisme lisse, et soit \(E\in\Ob D(X)\). Pour que \(E\) soit parfait relativement à \(f\), il faut et il suffit que \(i_*(E)\) soit parfait au sens absolu. Si \(g\) est de dimension relative \(\leq d\), on a plus précisément
+\begin{align*}
+\parfamp(i_*E)
+  \subset[a,b]&\Longrightarrow \parfamp_f(E)
+  \subset[a,b],\\
+\parfamp_f(E)
+  \subset[a,b]&\Longrightarrow \parfamp(i_*E)
+  \subset[a-d,b].
+\end{align*}
+
+\emph{Preuve.} Conséquence immédiate de (3.6).
+
+\textbf{Proposition 4.5.} Soit
+\[
+\begin{tikzcd}
+X \arrow[r,"f"] \arrow[dr,"h"'] & Y \arrow[d,"g"]\\
+& S
+\end{tikzcd}
+\]
+un triangle commutatif de morphismes localement de type fini de schémas. Soient \(E\in\Ob D(X)\), \(F\in\Ob D(Y)\), et \([a,b]\), \([c,d]\) des intervalles. On a
+\[
+ \parfamp_f(E)\subset[a,b],\quad
+ \parfamp_g(F)\subset[c,d]
+ \Longrightarrow
+ \parfamp_h(E\otimes_Y^{\mathbf L}F)
+ \subset[a+c,b+d].
+\]
+Par suite, si \(E\) est parfait relativement à \(f\) et \(F\) parfait relativement à \(g\), \(E\otimes_Y^{\mathbf L}F\) est parfait relativement à \(h\).
+
+\emph{Preuve.} Conjuguer (1.1) et (3.4).
+
+\textbf{Corollaire 4.5.1.} Sous les hypothèses de (4.5):
+\begin{enumerate}[label=\alph*)]
+\item si \(g\) est de dimension parfaite \(\leq n\), on a
+\[
+ \parfamp_f(E)
+ \subset[a,b]
+ \Longrightarrow
+ \parfamp_h(E)
+ \subset[a-n,b];
+\]
+par suite, si \(g\) est parfait, \(E\) parfait relativement à \(f\) implique \(E\) parfait relativement à \(h\);
+\item si \(f\) est de dimension parfaite \(\leq m\), on a
+\[
+ \parfamp_g(F)
+ \subset[c,d]
+ \Longrightarrow
+ \parfamp_h(Lf^*F)
+ \subset[c-m,d];
+\]
+par suite, si \(f\) est parfait, \(F\) parfait relativement à \(g\) implique \(Lf^*F\) parfait relativement à \(h\).
+\end{enumerate}
+
+\textbf{Remarque 4.5.2.} Si \(g\) est parfait, \(E\) parfait relativement à \(h\) n'implique pas nécessairement \(E\) parfait relativement à \(f\), comme le montre l'exemple usuel d'un point singulier d'un schéma sur un corps. On dispose du critère suivant.
+
+\textbf{Proposition 4.6} (critère de perfection par fibres). Soit
+\[
+\begin{tikzcd}
+X \arrow[r,"f"] \arrow[dr,"h"'] & Y \arrow[d,"g"]\\
+& S
+\end{tikzcd}
+\]
+un triangle commutatif de morphismes de schémas. On suppose \(f\), \(h\) localement de type fini, et \(g\) localement de présentation finie et plat. Soient \(x\in X\), \(y=f(x)\), \(s=h(x)=g(y)\), \(E\in\Ob D(X)\), et \([a,b]\) un intervalle. Si \(f_s:X_s\to Y_s\) est la fibre de \(f\) en \(s\), les conditions suivantes sont équivalentes:
+\begin{enumerate}[label=\roman*)]
+\item \(\parfamp_h(E)\subset[a,b]\) au voisinage de \(x\), et
+\[
+ \tamp_{\mathcal O_{Y_s,y}}(E_x\otimes_{\mathcal O_{Y,y}}^{\mathbf L}\mathcal O_{Y_s,y})
+ \subset[a,b];
+\]
+\item \(\parfamp_f(E)\subset[a,b]\) au voisinage de \(x\).
+\end{enumerate}
+
+\emph{Preuve.} L'implication ii) \(\Rightarrow\) i) résulte de (4.5.1 a) puisque \(g\) est de dimension parfaite nulle, et de (4.3) pour la condition sur la fibre. Pour la réciproque, la question étant locale au voisinage de \(x\), on factorise \(f\) en une immersion fermée suivie d'un morphisme lisse, et l'on se ramène au cas où \(f\) est lisse. Comme \(g\) est parfait et que \(h\) l'est par hypothèse, \(E\) est pseudo-cohérent. Après localisation et troncation, on peut supposer \(E\) strictement pseudo-cohérent, nul en degré \(>b\), et quasi-isomorphe à
+\[
+ E\longrightarrow(0\to E^a/B^a\to E^{a+1}\to\cdots\to E^b\to0).
+\]
+Il reste à montrer que \(E^a/B^a\) est \(f\)-plat au voisinage de \(x\). Si \(i:X_s\to X\) est la flèche canonique, l'hypothèse sur la fibre et (3.5.2) montrent que \(i^*(E^a/B^a)_x\) est plat sur \(\mathcal O_{Y_s,y}\). D'autre part l'hypothèse d'amplitude relative à \(h\) donne la \(h\)-platitude de \(E^a/B^a\). Le critère de platitude par fibres (EGA IV 11.3.10) donne alors la \(f\)-platitude au voisinage de \(x\).
+
+\textbf{Corollaire 4.6.1.} Soient \(f:X\to S\) localement de présentation finie et plat, \(x\in X\), \(s=f(x)\), \(E\in\Ob D(X)\), \([a,b]\) un intervalle, et \(E_s=Li_s^*E\) sur \(X_s\). On a
+\[
+ \parfamp_S(E)\subset[a,b]\text{ au voisinage de }x,
+ \quad
+ \tamp(E_s)\subset[a,b]
+\]
+si et seulement si
+\[
+ \parfamp(E)
+ \subset[a,b]\text{ au voisinage de }x.
+\]
+Par suite, \(E\) est parfait si et seulement si \(E\) est parfait relativement à \(f\) et si \(E_s\) est parfait pour tout \(s\in S\).
+
+\textbf{Remarque 4.6.2.} Si \(f\) est localement de présentation finie, plat, et à fibres des schémas réguliers, alors \(E\) parfait relativement à \(f\) équivaut à \(E\) parfait; ceci résulte de (4.6.1) et de I 5.10. Cette équivalence avait déjà été obtenue en (4.4) pour \(f\) lisse.
+
+\textbf{Proposition 4.7.} Soient \(S\) un schéma et, pour \(i=1,2\), \(f_i:X_i\to Y_i\) un \(S\)-morphisme localement de type fini, \(E_i\in\Ob D(X_i)\), \([a_i,b_i]\) des intervalles. Supposons \(X_1\) et \(X_2\), ainsi que \(Y_1\) et \(Y_2\), tor-indépendants sur \(S\). Posons \(a=a_1+a_2\), \(b=b_1+b_2\), \(f=f_1\times_Sf_2\). Alors:
+\begin{enumerate}[label=\alph*)]
+\item si \(\parfamp_{f_1}(E_1)\subset[a_1,b_1]\), et si \(E_2\) est pseudo-cohérent relativement à \(f_2\) et acyclique hors de \([a_2,b_2]\), alors \(E_1\otimes_S^{\mathbf L}E_2\) est pseudo-cohérent relativement à \(f\) et acyclique hors de \([a,b]\);
+\item si \(\parfamp_{f_i}(E_i)\subset[a_i,b_i]\) pour \(i=1,2\), alors
+\[
+ \parfamp_f(E_1\otimes_S^{\mathbf L}E_2)
+ \subset[a,b].
+\]
+\end{enumerate}
+
+\emph{Preuve.} Conjuguer (1.9) et (3.5).
+
+\textbf{Corollaire 4.7.1.} Si \(f_i\) est de dimension parfaite \(\leq n_i\), alors \(f\) est de dimension parfaite \(\leq n_1+n_2\). En particulier, si \(f_1\) et \(f_2\) sont parfaits, il en est de même de \(f\).
+
+\textbf{Corollaire 4.7.2.} Dans un carré cartésien
+\[
+\begin{tikzcd}
+X' \arrow[r,"g"] \arrow[d,"f'"'] & X \arrow[d,"f"]\\
+Y' \arrow[r,"h"'] & Y,
+\end{tikzcd}
+\]
+où \(f\) est localement de type fini et où \(X\) et \(Y'\) sont tor-indépendants sur \(Y\), on a
+\[
+ \parfamp_f(E)\subset[a,b]
+ \Longrightarrow
+ \parfamp_{f'}(Lg^*E)\subset[a,b].
+\]
+Ainsi \(Lg^*\) envoie les catégories parfaites relatives à \(f\) dans les catégories correspondantes pour \(f'\).
+
+\textbf{Proposition 4.8.} Soient \(S\) un schéma, \(f:X\to Y\) un \(S\)-morphisme propre de \(S\)-schémas localement de type fini, et \(E\in\Ob D^{-}(X)\). Sous réserve de validité de (2.1) pour \(f\) (donc en tout cas si \(S\) est localement noethérien ou si \(f\) est projectif):
+\begin{enumerate}[label=\alph*)]
+\item si \(E\) est parfait relativement à \(S\), il en est de même de \(Rf_*(E)\);
+\item si \(S\) est quasi-compact, \(X\) et \(Y\) de type fini sur \(S\), et si \(N\) est tel que \(R^if_*(M)=0\) pour \(i>N\) et tout module quasi-cohérent \(M\), alors
+\[
+ \parfamp_S(E)\subset[a,b]
+ \Longrightarrow
+ \parfamp_S(Rf_*E)
+ \subset[a,b+N].
+\]
+\end{enumerate}
+
+\emph{Preuve.} L'assertion a) découle de b), et b) s'obtient en conjuguant (2.1) et (3.7).
+
+\textbf{Corollaire 4.8.1.} Soient \(f:X\to Y\) propre et parfait, et \(E\in\Ob D^{-}(X)\). Sous réserve de validité de (2.1) pour \(f\), si \(E\) est parfait, il en est de même de \(Rf_*(E)\); si \(Y\) est quasi-compact, \(Rf_*\) envoie \(D(X)_{\parf}\) dans \(D(Y)_{\parf}\).
+
+\emph{Preuve.} Si \(E\) est parfait, \(E\) est parfait relativement à \(f\) d'après (4.5.1 a).
+
+\textbf{Proposition 4.9.} Soient \(S\) un schéma noethérien, \(X\) et \(Y\) des \(S\)-schémas de type fini, \(f:X\to Y\) un \(S\)-morphisme compactifiable, \(E\in\Ob D(X)\), \(F\in\Ob D^{-}(Y)\). Si \(E\) est parfait relativement à \(f\), et \(F\) parfait relativement à \(S\), alors
+\[
+ \RHom(E,f^!F)
+\]
+est parfait relativement à \(S\).
+
+\emph{Preuve.} Localement sur \(X\), on factorise \(f\) en \(X\xrightarrow{i}X'\xrightarrow{f'}Y\), où \(i\) est une immersion fermée et \(f'\) lisse. Par (4.4), \(E\) est parfait relativement à \(i\), et par (4.5.1 b), \(f'^!F\) est parfait relativement à \(S\), car \(f'^!F\) est localement \(f'^*F\) à translation près. On est donc ramené au cas d'une immersion fermée. Si \(f_*E\) est parfait, la dualité globale ([H] III 6.7) donne
+\[
+ f_*\RHom(E,f^!F)
+ \simeq \RHom(f_*E,F),
+\]
+et, par (I 7.7),
+\[
+ \RHom(f_*E,F)
+ \simeq (f_*E)^{\vee}\otimes^{\mathbf L}F,
+\]
+d'où l'assertion par (4.5).
+
+\textbf{Corollaire 4.9.1.} Sous les hypothèses de (4.8), si \(f\) est parfait, \(f^!\) envoie \(D(Y)_{\parf}\) dans \(D(X)_{\parf}\).
+
+\textbf{Corollaire 4.9.2.} Soient \(S\) noethérien, \(f:X\to S\) compactifiable, \(K_X=f^!(\mathcal O_S)\), et \(D_X=\RHom(\ ,K_X)\). Pour \(E\in\Ob D(f)_{\parf}\), on a \(D_X(E)\in\Ob D(f)_{\parf}\), et la flèche canonique
+\[
+ E\longrightarrow D_XD_X(E)
+\]
+est un isomorphisme.
+
+\emph{Preuve.} La première assertion résulte de (4.9) avec \(Y=S\) et \(F=\mathcal O_S\). Pour la seconde, on se ramène au cas d'une immersion fermée et l'on applique \(f_*\). Par dualité globale, \(f_*D_X=D_Sf_*\), et l'on est ramené à la bidualité ordinaire pour les complexes parfaits.
+
+\section*{5. Applications : théorèmes d'échange et de semi-continuité}
+
+\textbf{Lemme 5.1.} Soit \((X,\mathcal O_X)\) un topos annelé commutatif. Notons \(\Mod(X)\) la catégorie des \(\mathcal O_X\)-modules et \(D(X)=D(\Mod(X))\). Soient \(E\in\Ob D(X)\) et \(p\in\mathbb Z\). Considérons les conditions suivantes:
+\begin{enumerate}[label=\alph*)]
+\item le foncteur \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) est exact à droite;
+\item[\(\mathrm a'\)] la flèche canonique
+\[
+ H^p(E)\otimes M\longrightarrow H^p(E\otimes^{\mathbf L}M)
+\]
+est un isomorphisme pour tout \(M\);
+\item[\(\mathrm b\)] le foncteur \(M\mapsto H^{p+1}(E\otimes^{\mathbf L}M)\) est exact à gauche;
+\item[\(\mathrm b'\)] la flèche canonique
+\[
+ H^{p+1}(E\otimes^{\mathbf L}M)
+ \longrightarrow
+ \Hom(H^{-p-1}(E^{\vee}),M)
+\]
+est un isomorphisme pour tout \(M\).
+\end{enumerate}
+Alors
+\[
+ a\Longleftrightarrow a'\Longleftrightarrow b\Longleftarrow b'.
+\]
+Si \(E\) est pseudo-cohérent, les quatre conditions sont équivalentes.
+
+La flèche de b') est déduite de l'évaluation \(E^{\vee}\otimes^{\mathbf L}E\to\mathcal O_X\), d'où
+\[
+ E\otimes^{\mathbf L}M\longrightarrow \RHom(E^{\vee},M),
+\]
+puis de
+\[
+ \Ext^{p+1}(E^{\vee},M)	o\Hom(H^{-p-1}(E^{\vee}),M).
+\]
+
+\emph{Preuve.} Les implications \(a'\Rightarrow a\Leftrightarrow b\Leftarrow b'\) sont formelles. Pour \(a\Rightarrow a'\), on présente \(M\) par des sommes de faisceaux \(\mathcal O_{U,X}\), puis on se ramène au cas \(M=\mathcal O_{U,X}\), où les deux membres s'identifient au prolongement par zéro depuis \(U\). Si \(E\) est pseudo-cohérent, l'implication \(b\Rightarrow b'\) se vérifie en testant sur \(M\) injectif; on utilise l'isomorphisme
+\[
+ E\otimes^{\mathbf L}M\simeq\RHom(E^{\vee},M)
+\]
+obtenu localement par troncation et dévissage jusqu'au cas \(E=\mathcal O_X\).
+
+\textbf{Remarques 5.2.}
+\begin{enumerate}[label=\roman*)]
+\item Les conditions précédentes sont locales sur le topos.
+\item Si \(x\) est un point de \(X\), les conditions se testent aux fibres lorsque \(X\) a assez de points; si \(E\) est pseudo-cohérent, la condition b') est également équivalente à ses versions ponctuelles.
+\item Le critère EGA III 7.4.2 s'étend mot pour mot: si \(E\) est à composantes plates, la condition a) signifie que \(\Coker(E^p\to E^{p+1})\) est plat. Pour \(E\) parfait, la condition a) en degré \(p\) est duale de la condition correspondante pour \(E^{\vee}\) en degré \(-p-1\).
+\item Si \(X\) est un schéma quasi-séparé et \(E\) à cohomologie localement bornée et quasi-cohérente, les conditions analogues dans \(\Qcoh(X)\), notées \(a_{\qcoh}\), \(a'_{\qcoh}\), etc., sont équivalentes lorsque \(E\) est pseudo-cohérent. On réduit au cas affine, en utilisant II 3.5 et II 2.2.10 a).
+\end{enumerate}
+
+\textbf{Proposition 5.3} (propriété d'échange, EGA III 7.7.5 II). Soient \(f:X\to Y\) un morphisme de schémas quasi-compacts et quasi-séparés, \(E\in\Ob D^{-}(X)\) à cohomologie quasi-cohérente et d'amplitude plate finie relativement à \(f\), et \(p\in\mathbb Z\). Considérons:
+\begin{enumerate}[label=\alph*)]
+\item le foncteur \(M\mapsto R^pf_*(E\otimes_Y^{\mathbf L}M)\) de \(\Qcoh(Y)\) dans \(\Qcoh(Y)\) est exact à droite;
+\item[\(\mathrm a'\)] la flèche canonique
+\[
+ R^pf_*(E)\otimes M
+ \longrightarrow
+ R^pf_*(E\otimes_Y^{\mathbf L}M)
+\]
+est un isomorphisme pour tout \(M\in\Ob\Qcoh(Y)\);
+\item[\(\mathrm b\)] le foncteur \(M\mapsto R^{p+1}f_*(E\otimes_Y^{\mathbf L}M)\) est exact à gauche;
+\item[\(\mathrm b'\)] la flèche canonique
+\[
+ R^{p+1}f_*(E\otimes_Y^{\mathbf L}M)
+ \longrightarrow
+ \Hom(H^{-p-1}((Rf_*E)^{\vee}),M)
+\]
+est un isomorphisme pour tout \(M\in\Ob\Qcoh(Y)\);
+\item[\(\mathrm c\)] pour tout changement de base \(Y'\to Y\), la flèche canonique
+\[
+ R^pf_*(E)\otimes_Y\mathcal O_{Y'}
+ \longrightarrow
+ H^p(Rf_*E\otimes_Y^{\mathbf L}\mathcal O_{Y'})
+\]
+est un isomorphisme.
+\end{enumerate}
+Alors
+\[
+ a\Longleftrightarrow a'\Longleftrightarrow c\Longleftrightarrow b\Longleftarrow b'.
+\]
+En outre, si \(f\) est propre, \(E\) pseudo-cohérent relativement à \(f\), et si (2.1) est valable pour \(f\), les conditions précédentes sont équivalentes.
+
+\emph{Preuve.} Les implications entre a), a'), b), b') résultent de (3.7), (5.1) et (5.2 iv); l'implication \(b\Rightarrow b'\) dans le cas propre pseudo-cohérent vient de (2.1). La comparaison de a') et c) résulte du lemme suivant.
+
+\textbf{Lemme 5.3.1.} Soit \(X\) un schéma quasi-séparé, et soit \(E\in\Ob D^{-}(X)\) à cohomologie localement bornée et quasi-cohérente. Alors la condition (5.1 a) équivaut à:
+\begin{enumerate}[label=\alph*)]
+\setcounter{enumi}{2}
+\item pour tout \(X'\to X\), la flèche canonique
+\[
+ H^p(E)\otimes_X\mathcal O_{X'}
+ \longrightarrow
+ H^p(E\otimes_X^{\mathbf L}\mathcal O_{X'})
+\]
+est un isomorphisme.
+\end{enumerate}
+Si \(E\) est pseudo-cohérent, (5.1 a) entraîne de plus que, pour tout \(X'\to X\),
+\[
+ H^{-p-1}(E^{\vee})\otimes_X\mathcal O_{X'}
+ \longrightarrow
+ H^{-p-1}((E\otimes_X^{\mathbf L}\mathcal O_{X'})^{\vee})
+\tag{5.3.1.1}
+\]
+est un isomorphisme.
+
+\emph{Preuve du lemme.} Pour \(a\Rightarrow c\), on peut supposer \(X=\Spec A\), \(X'=\Spec A'\), et \(E=\widetilde F\); l'hypothèse donne
+\[
+ H^p(F)\otimes_AA'
+ \longrightarrow
+ H^p(F\otimes_A^{\mathbf L}A')
+\]
+isomorphe. Pour \(c\Rightarrow a'_{\qcoh}\), on prend un module quasi-cohérent \(M=\widetilde N\), pose \(A'=D_A(N)\), et applique c) au morphisme \(\Spec A'\to X\). Pour la dernière assertion, on se réduit, par II 2.2.10 b) et troncation, au cas où \(E\) est strictement parfait; alors \((E\otimes_X^{\mathbf L}\mathcal O_{X'})^{\vee}\simeq E^{\vee}\otimes_X^{\mathbf L}\mathcal O_{X'}\), et la flèche à vérifier est la flèche canonique
+\[
+ H^{-p-1}(E^{\vee})\otimes_X\mathcal O_{X'}
+ \longrightarrow
+ H^{-p-1}(E^{\vee}\otimes_X^{\mathbf L}\mathcal O_{X'}).
+\]
+Comme \(E^{\vee}\) vérifie la condition correspondante en degré \(-p-1\) d'après (5.2 iii), la première partie du lemme s'applique.
+
+\textbf{Remarque 5.3.2.} La proposition (5.3) s'applique en particulier lorsque \(E\) est un complexe borné de modules quasi-cohérents plats et de présentation finie relativement à \(f\), car \(E\) est alors d'amplitude parfaite finie relativement à \(f\) par (4.3.2).
+
+\textbf{Définition 5.4.} Soit \(X\) un topos, \(\pt(X)\) l'ensemble de ses points, \(M\) un ensemble ordonné, et \(\varphi:\pt(X)\to M\) une application. On dit que \(\varphi\) est semi-continue supérieurement en \(x\) (resp. inférieurement, resp. localement constante) s'il existe un objet \(x\)-ponctué \(U\) tel que, pour tout point \(y\) de \(U\), on ait \(\varphi(y)\leq\varphi(x)\) (resp. \(\varphi(y)\geq\varphi(x)\), resp. \(\varphi(y)=\varphi(x)\)). Les notions globales sont définies point par point.
+
+\textbf{Exemples 5.4.1.}
+\begin{enumerate}[label=\alph*)]
+\item Si \(\underline M\) est le faisceau constant de valeur \(M\) et si \(s\in H^0(X,\underline M)\), l'application \(x\mapsto x^*s\) est localement constante. Si \(X\) est localement annelé et \(E\) parfait, le rang de \(E\) définit une fonction localement constante sur \(\pt(X)\) à valeurs dans \(\mathbb Z\).
+\item Si \(X\) est localement annelé et si \(P\) est un \(\mathcal O_X\)-module de type fini, alors
+\[
+ x\longmapsto \dim_{k(x)}(P_x\otimes k(x))
+\]
+est semi-continue supérieurement, par le lemme de Nakayama.
+\end{enumerate}
+
+\textbf{Lemme 5.5.} Soient \((X,\mathcal O_X)\) un topos localement annelé, \(E\in\Ob D(X)\), et \(p\in\mathbb Z\). Alors:
+\begin{enumerate}[label=\roman*)]
+\item Si \(E\) est parfait, les \(H^i(E_x\otimes_{\mathcal O_{X,x}}^{\mathbf L}k(x))\) sont des espaces vectoriels de rang fini sur \(k(x)\), nuls sauf un nombre fini, et la fonction
+\[
+ x\longmapsto\sum_i(-1)^i\dim_{k(x)}H^i(E_x\otimes^{\mathbf L}k(x))
+\]
+est localement constante.
+\item Si \(E\) est \((p-1)\)-pseudo-cohérent, \(H^p(E_x\otimes^{\mathbf L}k(x))\) est de rang fini sur \(k(x)\), et sa dimension est semi-continue supérieurement. Si de plus \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) est exact, alors \(H^p(E)\) est localement libre de type fini et la fonction précédente est localement constante.
+\item Si \(E\) est \(p\)-pseudo-cohérent (resp. \((p-1)\)-pseudo-cohérent), et si le foncteur ponctuel correspondant est exact à droite (resp. à gauche), alors cette exactitude vaut sur un objet \(x\)-ponctué convenable.
+\end{enumerate}
+
+\emph{Preuve.} L'assertion i) résulte de la perfection de \(E_x\otimes^{\mathbf L}k(x)\), de l'additivité du rang et de sa compatibilité avec les images inverses (I 6.12). Pour ii), après troncation et translation, on se ramène au cas d'un complexe strictement parfait concentré en degrés \([-1,1]\). L'identité d'Euler pour le rang permet de déduire la semi-continuité de \(H^0\) de celle des cohomologies voisines et de la constance locale du rang. Si le foncteur est exact, les cycles \(Z'^p(E)\) et \(Z'^{p+1}(E)\) sont plats par (5.2 iii), donc localement libres de type fini; la suite exacte
+\[
+0\to H^p(E)\to Z'^p(E)\to E^{p+1}\to Z'^{p+1}(E)\to0
+\]
+donne alors que \(H^p(E)\) est localement libre de type fini. Pour iii), l'exactitude au point équivaut à la platitude du module de cycles correspondant; cette platitude est ouverte par l'argument usuel d'EGA \(0_I\), 5.2.7.
+
+\textbf{Corollaire 5.6} (EGA III 7.6.9). Soient \(X\) un schéma, \(p\in\mathbb Z\), et \(E\in\Ob D(X)\) \((p-1)\)-pseudo-cohérent. Alors:
+\begin{enumerate}[label=\roman*)]
+\item \(H^p(E\otimes_X^{\mathbf L}k(x))\) est de rang fini sur \(k(x)\), et sa dimension est constructible et semi-continue supérieurement.
+\item Si \(X\) est quasi-séparé et \(E\) à cohomologie quasi-cohérente localement bornée, l'exactitude de \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) sur les quasi-cohérents entraîne que la fonction précédente est localement constante et que \(H^p(E)\) est localement libre de type fini. Réciproquement, si \(X\) est localement noethérien et réduit et si cette fonction est localement constante, le foncteur est exact sur les quasi-cohérents.
+\end{enumerate}
+
+\textbf{Proposition 5.7} (EGA III 7.7.5 et 7.9.4). Soient \(f:X\to Y\) propre de schémas quasi-compacts, \(E\in\Ob D(X)_{\parf}\), et \(p\in\mathbb Z\). Sous réserve de validité de (2.1):
+\begin{enumerate}[label=\roman*)]
+\item les \(H^i(Rf_*E\otimes_Y^{\mathbf L}k(y))\) sont de rang fini, nuls sauf un nombre fini, et leur rang alterné est localement constant;
+\item la dimension de \(H^p(Rf_*E\otimes_Y^{\mathbf L}k(y))\) est constructible et semi-continue supérieurement;
+\item si \(Y\) est quasi-séparé et si \(M\mapsto R^pf_*(E\otimes_Y^{\mathbf L}M)\) est exact sur les quasi-cohérents, \(R^pf_*(E)\) est localement libre de type fini; la réciproque vaut si \(Y\) est noethérien et réduit et si la fonction de ii) est localement constante.
+\end{enumerate}
+
+\emph{Preuve.} Par (4.8), \(Rf_*E\) est un complexe parfait. Les deux premières assertions résultent de (5.5 i) et (5.6 i), et la troisième de (5.6 ii) et de la formule de projection (3.7).
+
+\textbf{Remarques 5.8.}
+\begin{enumerate}[label=\alph*)]
+\item Dans la situation de (5.7), si \(i_y:X_y\to X\) est l'inclusion de la fibre au-dessus de \(y\), on a, sous les hypothèses usuelles de platitude, la formule de Künneth
+\[
+ H^i(Rf_*E\otimes_Y^{\mathbf L}k(y))
+ \simeq H^i(X_y,E_y),
+\]
+où \(E_y=Li_y^*E\), ou \(i_y^*E\) dans le cas plat.
+\item On peut développer pour les espaces analytiques complexes une théorie analogue. Les ingrédients essentiels sont le théorème de finitude de Grauert pour les morphismes propres et la formule de projection analytique: pour \(f:X\to Y\), avec \(X\) de dimension majorée, \(E\in\Ob D(X)\), \(M\in\Ob D(Y)_{\coh}\), la flèche
+\[
+ Rf_*E\otimes_Y^{\mathbf L}M
+ \longrightarrow
+ Rf_*(E\otimes_Y^{\mathbf L}M)
+\]
+est un isomorphisme. Contrairement au théorème de Grauert, cet énoncé est essentiellement formel.
+\end{enumerate}
+
+\subsection*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]}]
+\item Grauert, H., \emph{Ein Theorem der Analytischen Garbentheorie}, Publ. IHES, n\textsuperscript{o} 5.
+\item Hartshorne, R., \emph{Residues and Duality}, Lecture Notes in Mathematics, n\textsuperscript{o} 20, Springer, 1966.
+\item Godement, R., \emph{Théorie des faisceaux}, Hermann, 1958.
+\end{enumerate}
+
+\end{document}

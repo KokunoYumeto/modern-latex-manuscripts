@@ -1,19 +1,19 @@
 # Public PDF Surface Audit
 
-Generated: 2026-06-01T01:32:51
+Generated: 2026-06-01T14:32:08
 
 Reader PDF counts by section:
 
 - author-cluster: 10
 - classical: 17
-- deligne: 21
+- deligne: 56
 - ega: 10
 - gauss: 8
-- noether: 40
-- non-european: 60
+- noether: 62
+- non-european: 63
 - riemann: 2
-- sga: 26
-- weber: 14
+- sga: 46
+- weber: 30
 
 Cayley policy: the public reader shelf uses only repaired slice PDFs that render as real mathematical text. Broad cumulative Cayley draft volumes are preserved in source/artifact material rather than promoted as reader PDFs.
 
@@ -39,7 +39,14 @@ Reader PDF health flags:
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
-- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition, Pages 1-205.pdf`: first_page_blankish
+- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition, Pages 1-422.pdf`: first_page_blankish
+- `reader-pdfs/sga/25 SGA 6 - Source Scan Slice for Expose III Pages 253-280.pdf`: first_page_blankish
+- `reader-pdfs/sga/28 SGA 6 - Source Scan Slice for Expose IV Pages 281-303.pdf`: first_page_blankish
+- `reader-pdfs/sga/31 SGA 6 - Source Scan Slice for Expose V Pages 304-330.pdf`: first_page_blankish
+- `reader-pdfs/sga/36 SGA 6 - Source Scan Slice for Expose V Pages 331-353.pdf`: first_page_blankish
+- `reader-pdfs/sga/39 SGA 6 - Source Scan Slice for Expose V Pages 354-371.pdf`: first_page_blankish
+- `reader-pdfs/sga/39C SGA 6 - Source Scan Slice for Expose VI Pages 372-396.pdf`: first_page_blankish
+- `reader-pdfs/sga/39F SGA 6 - Source Scan Slice for Expose VI Pages 397-422.pdf`: first_page_blankish
 - `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish

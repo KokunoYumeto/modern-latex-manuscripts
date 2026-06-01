@@ -1,0 +1,832 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Exposé IV macros
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\Mod}{\operatorname{Mod}}
+\providecommand{\Coh}{\operatorname{Coh}}
+\providecommand{\Loclib}{\operatorname{Loclib}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\naif}{\mathrm{naif}}
+\providecommand{\loc}{\mathrm{loc}}
+\providecommand{\fin}{\mathrm{fin}}
+\providecommand{\clA}{\operatorname{cl}}
+\providecommand{\Rg}{\operatorname{rg}}
+\providecommand{\varinjlim}{\varinjlim}
+\providecommand{\varprojlim}{\varprojlim}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Th}{\operatorname{Th}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Dcat}{\mathrm D}
+\providecommand{\Kcat}{\mathrm K}
+\providecommand{\Kdot}{K_{\bullet}}
+\providecommand{\Kprime}{K'}
+\providecommand{\naif}{\mathrm{na\ddot{\i}f}}
+
+
+\section*{Exposé IV. Grothendieck groups of ringed topoi}
+\begin{center}
+by L. Illusie
+\end{center}
+
+\section*{1. Reminders and generalities on Grothendieck groups}
+
+\textbf{1.1.} Let \(C\) be a triangulated category. Recall that a map \(f\) from \(\Ob C\) to an abelian group \(G\) is called \emph{additive} if
+\[
+ f(E)=f(E')+f(E'')
+\]
+for every distinguished triangle
+\[
+ E'\longrightarrow E\longrightarrow E''\longrightarrow E'[1].
+\]
+The additive maps from \(\Ob C\) to \(G\) form an abelian group, depending functorially on \(G\). The functor so obtained is represented by an abelian group \(k(C)\) and a universal additive map
+\[
+ \cl_C:\Ob C\longrightarrow k(C),
+\]
+which we shall write simply as \(\cl\) when no confusion is possible.
+
+The group \(k(C)\) depends functorially on \(C\) with respect to exact functors. If \(C,C'\) are triangulated categories, two isomorphic exact functors from \(C\) to \(C'\) induce the same homomorphism \(k(C)\to k(C')\); in particular, if \(u:C\to C'\) is an exact equivalence of categories, then \(k(u):k(C)\to k(C')\) is an isomorphism.
+
+\textbf{Lemma 1.2.} Let \(C\) be a triangulated category and let \(L\in\Ob C\).
+\begin{enumerate}[label=\alph*)]
+\item For every \(n\in\mathbb Z\),
+\[
+ \cl(L[n])=(-1)^n\cl(L).
+\]
+If \(L',L''\) are objects of \(C\) such that \(L\simeq L'\oplus L''\), then
+\[
+ \cl(L)=\cl(L')+\cl(L'').
+\]
+\item Suppose that there exists \(n\in\mathbb Z\) such that
+\[
+ \coprod_{i\geq0} L[2ni]
+\]
+is representable. Then \(\cl(L)=0\).
+\end{enumerate}
+
+\emph{Proof.} Assertion a) follows directly from the definitions. For b), it is enough to observe that
+\[
+ \coprod_{i\geq0} L[2ni]\simeq
+ L\oplus\left(\coprod_{i\geq0}L[2ni]\right)[2n],
+\]
+and to apply a).
+
+\textbf{Lemma 1.3.} Let \(C\) be a triangulated category and let \(A\) be a thick subcategory of \(C\) \(([\mathrm V]\ \mathrm{I}\ 2.1)\). The inclusion and quotient functors define an exact sequence
+\[
+ k(A)\longrightarrow k(C)\longrightarrow k(C/A)\longrightarrow 0.
+\]
+
+\emph{Proof.} See SGA 5 VIII 3.1.
+
+\textbf{Lemma 1.4.} Let \(A\) be an additive category, respectively an abelian category, and let \(f\) be an additive function on \(\Ob K^b(A)\), respectively on \(\Ob D^b(A)\). For \(E\in\Ob K^b(A)\), respectively \(E\in\Ob D^b(A)\), one has
+\[
+ f(E)=\sum_i(-1)^i f(E^i),
+\]
+respectively
+\[
+ f(E)=\sum_i(-1)^i f(H^i(E)).
+\]
+
+\emph{Proof.} Left as an exercise to the reader.
+
+\textbf{1.5.} Let \(C\) be an abelian category and let \(A\) be a full subcategory of \(C\), stable under finite sums. A map \(f\) from \(\Ob A\) to an abelian group \(G\) is called \emph{additive} if
+\[
+ \sum_i(-1)^i f(E^i)=0
+\]
+for every acyclic bounded complex \(E\) of \(C\) whose components belong to \(A\). When \(A\) is stable under kernels of epimorphisms (I 1.2), this amounts to saying that
+\[
+ f(L)=f(L')+f(L'')
+\]
+for every exact sequence
+\[
+ 0\longrightarrow L'\longrightarrow L\longrightarrow L''\longrightarrow0
+\]
+in \(C\) whose terms belong to \(A\). The additive maps from \(\Ob A\) to \(G\) form an abelian group depending functorially on \(G\). Denote by \(K^{b,\emptyset}(A)\) the thick subcategory of \(K^b(A)\) consisting of acyclic complexes. It follows easily from (1.3) and (1.4) that the map
+\begin{equation}\tag{1.5.1}
+ \cl_A:\Ob A\longrightarrow k\bigl(K^b(A)/K^{b,\emptyset}(A)\bigr)
+\end{equation}
+induced by \(\cl_{K^b(A)/K^{b,\emptyset}(A)}\) is a universal additive map, i.e. that the pair
+\[
+ \left(k\bigl(K^b(A)/K^{b,\emptyset}(A)\bigr),\cl_A\right)
+\]
+represents the functor which associates to each abelian group \(G\) the abelian group of additive maps from \(\Ob A\) to \(G\). We put
+\begin{equation}\tag{1.5.2}
+ k\bigl(K^b(A)/K^{b,\emptyset}(A)\bigr)=k(A),
+\end{equation}
+and write \(k(A,C)\) instead of \(k(A)\) when it is necessary to avoid ambiguity about the ambient abelian category.\footnote{The notation \(k(A)\) had been introduced in I 6.3 for the group \(k(K^b(A))\), which is not in general isomorphic to the group defined by (1.5.2). We therefore change convention here: in this exposé the notation \(k(A)\) will mean only the group defined by (1.5.2).}
+In particular, for \(A=C\), one has
+\begin{equation}\tag{1.5.3}
+ k(D^b(C))=k(C).
+\end{equation}
+
+\textbf{Lemma 1.6.} Let \(C\) be an abelian category and let \(A\) be a thick abelian subcategory, i.e. a full subcategory stable under kernels, cokernels, and extensions. Let \(D_A(C)\) be the full subcategory of \(D(C)\) formed by the objects \(E\) such that \(H^i(E)\in\Ob A\) for every \(i\). Then \(D_A(C)\) is a triangulated subcategory \(([\mathrm V]\ \mathrm I\ 2.3)\) of \(D(C)\), and the canonical functor
+\[
+ D^b(A)\longrightarrow D_A^b(C)=D^b(C)\cap D_A(C)
+\]
+induces an isomorphism
+\[
+ k(A)\xrightarrow{\sim} k(D_A^b(C)),
+\]
+where \(k(A)\) is defined by (1.5.2).
+
+\emph{Proof.} The first assertion is an immediate consequence of the long exact cohomology sequence. For the second, consider the map
+\[
+ f:\Ob D_A^b(C)\longrightarrow k(A)
+\]
+defined by
+\[
+ f(E)=\sum_i(-1)^i\cl_A(H^i(E)).
+\]
+By the long exact cohomology sequence, \(f\) is additive in the sense of (1.1), hence defines a homomorphism
+\[
+ \varphi:k(D_A^b(C))\longrightarrow k(A).
+\]
+It follows at once from (1.4) that \(\varphi\) is inverse to the canonical homomorphism \(k(A)\to k(D_A^b(C))\).
+
+\textbf{Remark 1.6.1.} In the situation of (1.6), the canonical functor
+\[
+ D^b(A)\longrightarrow D_A^b(C)
+\]
+is not in general an equivalence of categories. This is shown by the example where \(S\) is a scheme, \(C\) is the category of \(\mathcal O_S\)-modules, and \(A\) is the category of quasi-coherent \(\mathcal O_S\)-modules (II App. I 0.3). See, however, the criterion (II 2.1.3).
+
+\textbf{Definition 1.7.} Let \(C\) be a triangulated category, respectively an abelian category, and let \(C'\) be a subset of \(\Ob C\). We shall say that \(C'\) is an \emph{exact subset} if, for every distinguished triangle
+\[
+ E'\longrightarrow E\longrightarrow E''\longrightarrow E'[1],
+\]
+respectively for every exact sequence
+\[
+ 0\longrightarrow E'\longrightarrow E\longrightarrow E''\longrightarrow0,
+\]
+such that two of the terms \(E',E,E''\) belong to \(C'\), the third also belongs to \(C'\). We shall say that \(C'\) is \emph{dense} in \(\Ob C\) if \(\Ob C\) is the smallest exact subset of \(\Ob C\) containing \(C'\).
+
+\textbf{Lemma 1.8.} Let \(C\) be a triangulated category, respectively an abelian category, and let \(C'\) be a dense subset of \(\Ob C\). Then the elements \(\cl_C(E)\), for \(E\in C'\), generate \(k(C)\).
+
+\emph{Proof.} Put \(C'=C_0\), and for \(i\geq1\) define \(C_i\) recursively as the set of objects of \(C\) occurring in a distinguished triangle, respectively a short exact sequence, two of whose terms belong to \(C_{i-1}\). The \(C_i\) form an increasing filtration of \(\Ob C\), which is exhaustive by hypothesis. For \(i\geq0\), let \(k(C)_i\) be the subgroup of \(k(C)\) generated by the elements \(\cl_C(E)\), \(E\in C_i\). It is immediate from the definitions that \(k(C)_i=k(C)_{i+1}\) for every \(i\geq0\), hence \(k(C)_i=k(C)_0\). If \(x\in k(C)\), one can write \(x=\cl(E')-\cl(E'')\) for \(E',E''\in\Ob C\) (in the non-respectable case one may even arrange \(E''=0\)). Since the filtration \((C_i)\) is exhaustive, there exists \(i\geq0\) such that \(E'\) and \(E''\) belong to \(C_i\); hence \(x\in k(C)_i=k(C)_0\), as required.
+
+\textbf{Exercise 1.9.} Let \(C\) be an abelian category and \(A\) a full subcategory stable under finite sums, subobjects, and quotients, such that \(\Ob A\) is dense in \(\Ob C\). Then the homomorphism
+\[
+ k(A,C)\longrightarrow k(C)
+\]
+defined by the additive function \(E\mapsto\cl_C(E)\) on \(\Ob A\) (cf. (1.5)) is an isomorphism.
+
+\emph{Hint.} Put \(A=A_0\), and define \(A_i\), for \(i\geq1\), as the full subcategory of \(C\) consisting of objects of \(C\) which are extensions of two objects of \(A_{i-1}\). Prove that \(A_i\) satisfies the same hypotheses as \(A\), and then prove that the canonical homomorphism
+\[
+ \varinjlim_i k(A_i,C)\longrightarrow k(C)
+\]
+is an isomorphism. The desired conclusion follows at once.
+
+\section*{2. The functors \(K_{\bullet}\) and \(K'\) of a ringed topos}
+
+\textbf{2.1.} Let \((X,A)\) be a ringed topos. Recall the following notation:
+\[
+ D^b(A_X)_{\coh}
+\]
+is the category of pseudo-coherent complexes with bounded cohomology of left \(A\)-modules (I 2.15);
+\[
+ D(A_X)_{\parf}
+\]
+is the category of complexes of left \(A\)-modules of finite perfect amplitude (I 5.8.4);
+\[
+ \Loclib(A_X)
+\]
+is the category of left \(A\)-modules locally direct factors of finite free modules (II 2.0);
+\[
+ \Coh(A_X)
+\]
+is the category of coherent left \(A\)-modules, relative to the category of finite-type free \(A\)-modules (I 3.1).
+
+The last two categories are full subcategories of the category \(\Mod(A_X)\) of left \(A\)-modules, and the first two are full triangulated subcategories of
+\[
+ D(A_X)=D(\Mod(A_X)).
+\]
+
+\textbf{Definition 2.2.} Let \((X,A)\) be a ringed topos. Unless otherwise stated, we shall put
+\[
+ K_{\bullet}(A_X)=k(D^b(A_X)_{\coh}),\qquad
+ K'(A_X)=k(D(A_X)_{\parf}),
+\]
+where \(k(\ )\) is defined in (1.1), and
+\[
+ K_{\bullet}(A_X)_{\naif}=k(\Coh(A_X)),\qquad
+ K'(A_X)_{\naif}=k(\Loclib(A_X)),
+\]
+where \(k(\ )\) is defined by (1.5.2), the ambient abelian category being \(\Mod(A_X)\). We say that \(K_{\bullet}(A_X)\), respectively \(K'(A_X)\), is the Grothendieck group of pseudo-coherent, respectively perfect, \(A\)-module complexes on \(X\), and that \(K_{\bullet}(A_X)_{\naif}\), respectively \(K'(A_X)_{\naif}\), is the Grothendieck group of coherent, respectively locally free, left \(A\)-modules.
+
+\textbf{Remarks 2.3.}
+\begin{enumerate}[label=\alph*)]
+\item One can define variants of \(K_{\bullet}(\ )\) and \(K'(\ )\) by putting
+\[
+ K_{\bullet}^{\loc}(A_X)=k(D^{\loc b}(A_X)_{\coh}),
+\]
+where ``loc \(b\)'' means ``with locally bounded cohomology'', and
+\[
+ K_{\loc}'(A_X)=k(D(A_X)_{\parf}).
+\]
+These groups coincide with those defined in (2.2) when the final object of \(X\) is quasi-compact, but in general they lend themselves less well to computations in intersection theory.
+\item The group \(K_{\bullet}(A_X)_{\naif}\) has practically no interest unless \(A\) is coherent as a left \(A\)-module; otherwise there is a strong risk that very few coherent sheaves exist.
+\item Considering the \(k\) of triangulated categories which are ``too large'' is of no interest. Thus, from (1.2 b), one immediately deduces the relations
+\[
+ k(D(A_X))=
+ k(D^-(A_X))=
+ k(D^+(A_X))=
+ k(D^b(A_X))=
+ k(D^-(A_X)_{\coh})=0,
+\]
+for the last equality observing that \(L\in\Ob D^-(A_X)_{\coh}\) implies
+\[
+ \coprod_{i\geq0}L[2i]\in\Ob D^-(A_X)_{\coh}.
+\]
+\end{enumerate}
+
+\textbf{2.4. Case of a coherent sheaf of rings.} Let \((X,A)\) be a ringed topos, with \(A\) assumed coherent as a left \(A\)-module (I 3.1 and 3.6). Every coherent left \(A\)-module is a pseudo-coherent complex (I 3.5), and one has a fully faithful functor
+\begin{equation}\tag{2.4.1}
+ \Coh(A_X)\longrightarrow D^b(A_X)_{\coh}.
+\end{equation}
+Moreover \(\Coh(A_X)\) is a thick subcategory of \(\Mod(A_X)\) (I 3.4), and, by (I 3.5), \(D^b(A_X)_{\coh}\) is the full subcategory of \(D^b(A_X)\) formed by the objects \(L\) such that \(H^i(L)\in\Ob\Coh(A_X)\) for all \(i\). Consequently, it follows from (1.6) that the homomorphism
+\begin{equation}\tag{2.4.2}
+ K_{\bullet}(A_X)_{\naif}\longrightarrow K_{\bullet}(A_X)
+\end{equation}
+defined by (2.4.1) is an isomorphism.
+
+\textbf{2.5. The homomorphism \(K'\to K_{\bullet}\).} Let \((X,A)\) be a ringed topos. The inclusion functor
+\[
+ D(A_X)_{\parf}\longrightarrow D^b(A_X)_{\coh}
+\]
+defines a homomorphism
+\begin{equation}\tag{2.5.1}
+ K'(A_X)\longrightarrow K_{\bullet}(A_X).
+\end{equation}
+It is not in general injective or surjective. However, assume the following hypotheses:
+\begin{enumerate}[label=(\roman*)]
+\item the final object of \(X\) is quasi-compact;
+\item \(X\) has enough points, and for every point \(x\) of \(X\), every left \(A_x\)-module has finite Tor-dimension.
+\end{enumerate}
+Then, by (I 5.10),
+\[
+ D(A_X)_{\parf}=D^b(A_X)_{\coh},
+\]
+and (2.5.1) is an isomorphism. The hypotheses (i) and (ii) are satisfied, for example, by a compact space ringed by regular local rings.
+
+\textbf{2.6. Pairings between \(K'\) and \(K'\) in the non-commutative case.} Let
+\[
+ f:(X',A')\longrightarrow (X,A)
+\]
+be a morphism of ringed topoi, and denote by \(\Mod(A',X',A)\) the category of bimodules which are left \(A'\)-modules and right \(f^{-1}(A)\)-modules. Let
+\[
+ \Loclib_A^b(A',X',A)
+\]
+be the full subcategory formed by the objects which belong, as objects over \(A'\), to \(\Loclib(A',X')\). By analogy with (2.2), put
+\[
+ K'_{\naif}(A',X',A)_{A'}=k(\Loclib_A^b(A',X',A)).
+\]
+Tensor product
+\[
+ \otimes_A:\Mod(A',X',A)\times\Mod(A_X)\longrightarrow \Mod(A',X')
+\]
+sends
+\[
+ (E',E)\longmapsto E'\otimes_{f^{-1}(A)}f^{-1}(E),
+\]
+and induces a functor
+\begin{equation}\tag{2.6.1}
+ \Loclib_A^b(A',X',A)\times\Loclib(A_X)\longrightarrow\Loclib(A',X').
+\end{equation}
+The map \((E',E)\mapsto\cl(E'\otimes_A E)\) deduced from (2.6.1) is biadditive in the sense of (1.5), and therefore defines a homomorphism
+\begin{equation}\tag{2.6.2}
+ K'_{\naif}(A',X',A)_{A'}\otimes K'_{\naif}(A_X)\longrightarrow K'_{\naif}(A',X').
+\end{equation}
+
+Let \(D^-(A',X',A)\) be the derived category of \(\Mod(A',X',A)\), and let
+\[
+ D^-(A',X',A)_{A'\text{-}\parf}
+\]
+be the full subcategory formed by the complexes of finite perfect amplitude relative to \(A'\), i.e. as objects of \(D^-(A',X')\). Put, as in (2.2),
+\[
+ K'(A',X',A)_{A'}=k(D^-(A',X',A)_{A'\text{-}\parf}).
+\]
+The inclusion functors define evident homomorphisms
+\begin{align}
+ K'_{\naif}(A',X',A)_{A'}&\longrightarrow K'(A',X',A)_{A'}, \tag{2.6.3.1}\\
+ K'_{\naif}(A_X)&\longrightarrow K'(A_X), \tag{2.6.3.2}\\
+ K'_{\naif}(A',X')&\longrightarrow K'(A',X'). \tag{2.6.3.3}
+\end{align}
+On the other hand, one knows (I 4.18, 4.19) that the derived tensor functor
+\[
+ \otimes_A^{\mathbf L}:D^-(A',X',A)\times D^-(A_X)\longrightarrow D^-(A',X')
+\]
+induces an exact functor
+\begin{equation}\tag{2.6.4}
+ D^-(A',X',A)_{A'\text{-}\parf}\times D(A_X)_{\parf}
+ \longrightarrow D(A',X')_{\parf}.
+\end{equation}
+The latter defines a homomorphism
+\begin{equation}\tag{2.6.5}
+ K'(A',X',A)_{A'}\otimes K'(A_X)\longrightarrow K'(A',X').
+\end{equation}
+Since (2.6.1) is induced by (2.6.4), the homomorphisms (2.6.2) and (2.6.5) are compatible with the homomorphisms (2.6.3.1), (2.6.3.2), and (2.6.3.3), in other words one has a commutative diagram
+\[
+\begin{tikzcd}[column sep=large]
+K'_{\naif}(A',X',A)_{A'}\otimes K'_{\naif}(A_X)\arrow[r]\arrow[d]
+&K'_{\naif}(A',X')\arrow[d]\\
+K'(A',X',A)_{A'}\otimes K'(A_X)\arrow[r]
+&K'(A',X'),
+\end{tikzcd}
+\tag{2.6.6}
+\]
+where the upper and lower horizontal arrows are respectively (2.6.2) and (2.6.5), and the vertical arrows are defined by (2.6.3.1), (2.6.3.2), and (2.6.3.3).
+
+\textbf{2.7. Contravariant law and ring structure on \(K'\).} We spell out some important particular cases of the pairings (2.6), although their direct study is immediate.
+\begin{enumerate}[label=\alph*)]
+\item Let
+\[
+ f:(X',A')\longrightarrow (X,A)
+\]
+be a morphism of ringed topoi. The functor
+\[
+ Lf^*:D^-(A_X)\longrightarrow D^-(A',X')
+\]
+sends \(D(A_X)_{\parf}\) to \(D(A',X')_{\parf}\) (I 4.19.1), and likewise sends \(\Loclib(A_X)\) to \(\Loclib(A',X')\). Thus it defines a homomorphism
+\begin{equation}\tag{2.7.1}
+ f^*:K'(A_X)\longrightarrow K'(A',X')
+\end{equation}
+and, respectively,
+\begin{equation}\tag{2.7.2}
+ f^*:K'(A_X)_{\naif}\longrightarrow K'(A',X')_{\naif}.
+\end{equation}
+This can also be interpreted as multiplication by \(\cl(A')\) in (2.6.2), respectively (2.6.5). One has a commutative diagram, a special case of (2.6.6),
+\[
+\begin{tikzcd}
+K'(A_X)_{\naif}\arrow[r,"f^*"]\arrow[d]
+&K'(A',X')_{\naif}\arrow[d]\\
+K'(A_X)\arrow[r,"f^*"]
+&K'(A',X'),
+\end{tikzcd}
+\]
+where the left and right vertical arrows are respectively (2.6.3.2) and (2.6.3.3).
+
+Let \(g:(X,A)\to(X'',A'')\) be a morphism of ringed topoi. The transitivity of inverse-image functors implies that the homomorphisms of type (2.7.1), respectively (2.7.2), satisfy
+\begin{equation}\tag{2.7.3}
+ (gf)^*=f^*g^*.
+\end{equation}
+Thus \(K'(A_X)\), respectively \(K'(A_X)_{\naif}\), is a contravariant functor of \((X,A)\).
+
+\item Let \((X,\mathcal O_X)\) be a commutatively ringed topos. Thanks to the associativity and commutativity of tensor product, (2.6.5), respectively (2.6.2), with \(A=\mathcal O_X\), \((X',A')=(X,A)\), and \(f=\id\), endows \(K'(X)\), respectively \(K'(X)_{\naif}\), with the structure of a commutative ring with unit
+\[
+ 1=\cl(\mathcal O_X).
+\]
+The canonical homomorphism
+\[
+ K'(X)_{\naif}\longrightarrow K'(X)
+\]
+is a homomorphism of unital rings.
+
+If \(f:(X,\mathcal O_X)\to(Y,\mathcal O_Y)\) is a morphism of commutatively ringed topoi, compatibility of tensor product with inverse image shows that
+\[
+ f^*:K'(Y)\longrightarrow K'(X),
+\]
+respectively
+\[
+ f^*:K'(Y)_{\naif}\longrightarrow K'(X)_{\naif},
+\]
+is a homomorphism of unital rings.
+\end{enumerate}
+
+\textbf{2.8. Augmentation of \(K'\) toward \(H^0(\ ,\mathbb Z)\).} Let \((X,\mathcal O_X)\) be a locally ringed topos (I 2.15.1). Recall that one has defined (I 6.11 to 6.14) a homomorphism of unital rings
+\[
+ i:H^0(X,\mathbb Z)\longrightarrow K'(X)_{\naif},
+\]
+thereby endowing \(K'(X)_{\naif}\), and then \(K'(X)\) through the canonical homomorphism \(K'(X)_{\naif}\to K'(X)\), with the structure of a unital algebra over \(H^0(X,\mathbb Z)\). Moreover, \(K'(X)_{\naif}\), respectively \(K'(X)\), is augmented toward \(H^0(X,\mathbb Z)\) by the rank, and the canonical homomorphism \(K'(X)_{\naif}\to K'(X)\) is a homomorphism of augmented algebras.
+
+If \(f:(X,\mathcal O_X)\to(Y,\mathcal O_Y)\) is a morphism of locally ringed topoi, the homomorphisms
+\[
+ f^*:K'(Y)\longrightarrow K'(X),\qquad
+ f^*:K'(Y)_{\naif}\longrightarrow K'(X)_{\naif}
+\]
+are compatible (I 6.12, 6.13) with the preceding augmented-algebra structures; this is expressed by the commutativity of the diagram, where \(\Rg\) denotes the rank,
+\[
+\begin{tikzcd}[column sep=large]
+H^0(Y,\mathbb Z)\arrow[r,"i"]\arrow[d]
+&K'(Y)_{\naif}\arrow[r]\arrow[d]
+&K'(Y)\arrow[r,"\Rg"]\arrow[d]
+&H^0(Y,\mathbb Z)\arrow[d]\\
+H^0(X,\mathbb Z)\arrow[r,"i"]
+&K'(X)_{\naif}\arrow[r]
+&K'(X)\arrow[r,"\Rg"]
+&H^0(X,\mathbb Z).
+\end{tikzcd}
+\]
+Later in the Seminar (V 3.9.1 and VI) one will see that \(K'(X)_{\naif}\) can be endowed with a structure richer than that of an algebra augmented toward \(H^0(X,\mathbb Z)\), namely with a structure of a \(\lambda\)-algebra augmented toward \(H^0(X,\mathbb Z)\), viewed as a binomial ring (V 2.8), this structure being compatible with inverse-image homomorphisms. Deligne has recently proved that \(K'(X)\) can be endowed with an analogous structure, at least when \(X\) is of characteristic \(p\geq0\), and that the canonical homomorphism
+\[
+ K'(X)_{\naif}\longrightarrow K'(X)
+\]
+is a homomorphism of augmented \(\lambda\)-algebras, thereby answering affirmatively a conjecture of Grothendieck (XIV 1).
+
+\textbf{2.9. Comparison of \(K'\) and \(K'_{\naif}\).} Let \((X,A)\) be a ringed topos. There is in general no reason for the canonical homomorphism
+\[
+ K'(X)_{\naif}\longrightarrow K'(X)
+\]
+to be injective or surjective. However, the ``global resolution existence criteria'' of Exposé II show that it is an isomorphism in the following cases:
+\begin{enumerate}[label=(\roman*)]
+\item \(X\) is the Zariski topos of a separated or noetherian divisorial scheme, and \(A=\mathcal O_X\) (II 2.2.9);
+\item \(X\) is the topos defined by a compact space and \(A\) is a soft sheaf (II 2.3.2);
+\item \(X\) is a Stein topos whose final object is quasi-compact and \(A=\mathcal O_X\) (II 2.4.5).
+\end{enumerate}
+
+\textbf{2.10. Pairing between \(K'\) and \(K_{\bullet}\).} Let \((X,\mathcal O_X)\) be a commutatively ringed topos. One knows (I 5.8.4 b) that there is a pairing
+\[
+ \otimes_{\mathcal O_X}^{\mathbf L}:D(X)_{\parf}\times D^b(X)_{\coh}
+ \longrightarrow D^b(X)_{\coh}.
+\]
+It defines a homomorphism
+\begin{equation}\tag{2.10.1}
+ K'(X)\otimes K_{\bullet}(X)\longrightarrow K_{\bullet}(X).
+\end{equation}
+Thanks to associativity of tensor product, (2.10.1) endows \(K_{\bullet}(X)\) with the structure of a \(K'(X)\)-module. More generally, if
+\[
+ f:(X,\mathcal O_X)\longrightarrow (Y,\mathcal O_Y)
+\]
+is a morphism of commutatively ringed topoi, \(K_{\bullet}(X)\) may be regarded as a \(K'(Y)\)-module through the homomorphism
+\[
+ f^*:K'(Y)\longrightarrow K'(X).
+\]
+
+\textbf{2.11. Covariant law on \(K_{\bullet}\) and projection formula.} Let \((X,A)\) be a ringed topos. In contrast with \(K'(A_X)\), the group \(K_{\bullet}(A_X)\) has no natural variance with respect to \((X,A)\). Nevertheless, in algebraic geometry and analytic geometry, \(K_{\bullet}(X)\) tends to be covariant in \(X\) for proper morphisms. We now make this precise.
+
+\textbf{2.11.1.} Let \(f:X\to Y\) be a proper and pseudo-coherent morphism (III 1.2) of quasi-compact schemes. Then, subject to the validity of the finiteness conjecture for \(f\) (III 2.1), hence in particular if \(Y\) is noetherian (in which case the pseudo-coherence hypothesis on \(f\) is automatically verified (III 1.3)) or if \(f\) is projective, the functor \(Rf_*\) induces, by (III 2.6), a functor
+\[
+ Rf_*:D^b(X)_{\coh}\longrightarrow D^b(Y)_{\coh}.
+\]
+It therefore defines a homomorphism
+\begin{equation}\tag{2.11.1.1}
+ f_*:K_{\bullet}(X)\longrightarrow K_{\bullet}(Y).
+\end{equation}
+This homomorphism is \(K'(Y)\)-linear (cf. (2.10)); in other words, for \(y\in K'(Y)\) and \(x\in K_{\bullet}(X)\), one has the \emph{projection formula}
+\begin{equation}\tag{2.11.1.2}
+ f_*(yx)=y f_*(x).
+\end{equation}
+Indeed, if \(x=\cl(E)\) for \(E\in\Ob D^b(X)_{\coh}\) and \(y=\cl(M)\) for \(M\in\Ob D(Y)_{\parf}\), then by (III 3.7) one has
+\[
+ Rf_*(E)\otimes_Y^{\mathbf L}M\simeq
+ Rf_*(E\otimes_Y^{\mathbf L}M).
+\]
+Finally, if \(g:Y\to Z\) is a proper morphism satisfying the same hypotheses as \(f\), and for which the finiteness conjecture (III 2.1) is true, the transitivity of direct-image functors gives, for the homomorphisms (2.11.1.1), the formula
+\begin{equation}\tag{2.11.1.3}
+ g_*f_*=(gf)_*.
+\end{equation}
+
+\textbf{2.11.2.} Let \(f:X\to Y\) be a proper morphism of finite-dimensional analytic spaces. Then, by Grauert's finiteness theorem [2], \(Rf_*\) sends \(D^b(X)_{\coh}\) into \(D^b(Y)_{\coh}\), and hence defines a homomorphism
+\begin{equation}\tag{2.11.2.1}
+ f_*:K_{\bullet}(X)\longrightarrow K_{\bullet}(Y).
+\end{equation}
+Like its algebraic analogue (2.11.1.1), this homomorphism is \(K'(Y)\)-linear; equivalently, formula (2.11.1.2) is valid, as follows from the projection formula at the level of derived categories (III 5.9 b). One also has the transitivity formula (2.11.1.3).
+
+\textbf{2.11.3.} Outside the algebraic or analytic framework, this covariance of \(K_{\bullet}\) for proper morphisms disappears. For instance, let
+\[
+ f:X\to Y
+\]
+be a proper morphism of topological spaces ringed by the sheaves of complex continuous functions. Then, if \(E\in\Ob D^b(X)_{\coh}\), in general \(Rf_*(E)\) need not belong to \(D^b(Y)_{\coh}\), as is already evident for \(E=\mathcal O_X\) and \(Y\) reduced to a point. In fact, the definition (2.2) of \(K_{\bullet}\) is especially adapted to the needs of algebraic and analytic geometry, and a good definition of \(K_{\bullet}\) for a topological space remains to be found. It seems, moreover, that one will have to leave the framework of \(\mathcal O_X\)-linear complexes, and define, for a morphism \(f:X\to Y\) of topological spaces, or of mixed varieties (II App. II), a suitable class of complexes of topological vector-sheaves on \(X\), meant to contain, when \(f\) is the structural morphism of a mixed variety, the elliptic complexes on \(X\) relative to \(Y\). This is suggested by the finiteness theorem (II App. II), as well as by the analogous theorem, where \(Y\) is assumed reduced to a point, proved by Grothendieck in [3].
+
+\textbf{2.12. Unusual variances of \(K'\) and \(K_{\bullet}\).} Let
+\[
+ f:(X,A)\longrightarrow(Y,B)
+\]
+be a morphism of finite Tor-dimension of ringed topoi (III 3.1). The functor
+\[
+ Lf^*:D^-(B_Y)\longrightarrow D^-(A_X)
+\]
+sends \(D^b(B_Y)_{\coh}\) into \(D^b(A_X)_{\coh}\) (I 2.16.1), and therefore defines a homomorphism
+\begin{equation}\tag{2.12.1}
+ f^*:K_{\bullet}(B_Y)\longrightarrow K_{\bullet}(A_X).
+\end{equation}
+If \(A\) and \(B\) are commutative, commutation of inverse image with tensor product shows that (2.12.1) is compatible with the module structures of \(K_{\bullet}(Y)\) and \(K_{\bullet}(X)\) over \(K'(Y)\) and \(K'(X)\) respectively (2.10). In other words, for \(a\in K'(Y)\) and \(y\in K_{\bullet}(Y)\), one has
+\begin{equation}\tag{2.12.2}
+ f^*(ay)=a f^*(y).
+\end{equation}
+If \(g:(Y,B)\to(Z,C)\) is a morphism of finite Tor-dimension of ringed topoi, transitivity of inverse-image functors implies that the homomorphisms (2.12.1) satisfy
+\begin{equation}\tag{2.12.1.1}
+ f^*g^*=(gf)^*.
+\end{equation}
+
+Now suppose that we are in the situation of (2.11.1), respectively (2.11.2), with \(f\) of finite Tor-dimension. Then by (III 4.8.1 and 5.9 b), the functor \(Rf_*\) sends \(D(X)_{\parf}\) into \(D(Y)_{\parf}\), and hence defines a homomorphism
+\begin{equation}\tag{2.12.3}
+ f_*:K'(X)\longrightarrow K'(Y).
+\end{equation}
+This is not generally a ring homomorphism. Nevertheless, for \(y\in K_{\bullet}(Y)\), respectively \(K'(Y)\), and \(x\in K'(X)\), one has
+\begin{equation}\tag{2.12.4}
+ f_*(f^*(y)x)=y f_*(x),
+\end{equation}
+where \(f^*\) is the homomorphism (2.12.1), respectively (2.7.1). The proof is analogous to that of (2.11.1.2). If \(g:Y\to Z\) is a morphism satisfying the same hypotheses as \(f\), the homomorphisms (2.12.3) satisfy the transitivity formula
+\begin{equation}\tag{2.12.3.1}
+ g_*f_*=(gf)_*.
+\end{equation}
+
+The homomorphism (2.12.3) is one of the essential ingredients of the Riemann--Roch theorem, both in algebraic geometry and in analytic geometry, for the indications in the analytic case see Exposé 0, 5.
+
+Suppose that \(X\) and \(Y\) are separated and divisorial schemes (II 2.2.5), for example schemes possessing ample invertible sheaves. Then (2.9 (i)) identifies \(K'(X)\), respectively \(K'(Y)\), with \(K'(X)_{\naif}\), respectively \(K'(Y)_{\naif}\), and (2.12.3) therefore defines a homomorphism
+\begin{equation}\tag{2.12.3'}
+ f_*:K'(X)_{\naif}\longrightarrow K'(Y)_{\naif}.
+\end{equation}
+As was already explained in Exposé 0, 3.1, the definition of (2.12.3') was far from evident a priori. In practice, it is precisely one of the main motivations of this Seminar, from Exposé I through Exposé IV.
+
+\section*{3. Complements on Grothendieck groups of schemes}
+
+The results of this section will not be used in Exposés V to VIII.
+
+\textbf{Proposition 3.1.0.} Let
+\[
+\begin{tikzcd}
+X' \arrow[r,"g"]\arrow[d,"f'"'] & X\arrow[d,"f"]\\
+Y' \arrow[r,"h"'] & Y
+\end{tikzcd}
+\]
+be a cartesian square of schemes, where \(Y\) is quasi-compact and \(f\) is quasi-compact and quasi-separated. Let \(E\in\Ob D^b(X)\) be a complex with quasi-coherent cohomology. Suppose that \(X\) and \(Y'\) are Tor-independent over \(Y\) (III 1.5). Suppose also either that \(h\) has finite Tor-dimension, or that \(E\) has finite flat amplitude relative to \(f\). Under these conditions, the base-change arrow
+\[
+ Lh^*\,Rf_*E\longrightarrow Rf'_*\,Lg^*E
+\]
+is defined and is an isomorphism.
+
+\emph{Proof.} To define the arrow, one uses the trivial duality formula (SGA 4 XVII 2.3) for \(h\), which says that there is a canonical functorial isomorphism
+\[
+ \Hom(Lh^*L,M)\xrightarrow{\sim}\Hom(L,Rh_*M)
+\]
+for \(L\in\Ob D^-(Y)\) and \(M\in\Ob D^+(Y')\). Using (III 3.5.2) and (III 3.7.1), one easily verifies that one may take \(L=Rf_*E\) and \(M=Rf'_*Lg^*E\), so that applying this formula reduces the problem to defining an arrow
+\[
+ Rf_*E\longrightarrow Rf_*Rg_*Lg^*E.
+\]
+For this arrow we take the image under \(Rf_*\) of the adjunction map
+\[
+ E\longrightarrow Rg_*Lg^*E,
+\]
+which comes from the trivial duality formula for \(g\). The base-change arrow is therefore defined.
+
+It remains to show that it is an isomorphism. For this, one may first suppose that \(Y\) and \(Y'\) are affine. Then, by the Leray spectral sequence of an open covering of \(X\), one is reduced to the case where \(X\) and \(X'\) are affine. One thus has a cartesian square of rings
+\[
+\begin{tikzcd}
+B\arrow[r] & B'\\
+A\arrow[u]\arrow[r] & A'\arrow[u],
+\end{tikzcd}
+\]
+and one may suppose that \(E\) is defined by a bounded-above complex of \(B\)-modules. The Tor-independence of \(A'\) and \(B\) over \(A\), written
+\[
+ B\otimes_A^{\mathbf L}A'\xrightarrow{\sim}B',
+\]
+then implies, in \(D(A')\),
+\[
+ E\otimes_A^{\mathbf L}A'\xrightarrow{\sim}E\otimes_B^{\mathbf L}B',
+\]
+which proves the proposition.
+
+Translating (3.1.0) into terms of Grothendieck groups gives:
+
+\textbf{Proposition 3.1.1.} In the cartesian square of schemes
+\[
+\begin{tikzcd}
+X' \arrow[r,"g"]\arrow[d,"f'"'] & X\arrow[d,"f"]\\
+Y' \arrow[r,"h"'] & Y,
+\end{tikzcd}
+\]
+suppose that \(Y\) and \(Y'\) are quasi-compact, that \(X\) and \(Y'\) are Tor-independent over \(Y\) (III 1.5), that \(f\) is proper and pseudo-coherent, and that the finiteness conjecture (III 2.1) is valid for \(f\) and \(f'\), for example if \(Y\) and \(Y'\) are noetherian, or if \(f\) is projective. Then, if \(f\) is perfect, respectively if \(h\) has finite Tor-dimension, for \(x\in K'(X)\), respectively \(x\in K_{\bullet}(X)\), one has
+\[
+ h^* f_*(x)=f'_* g^*(x),
+\]
+where \(h^*,g^*\) are defined by (2.7.1), respectively (2.12.1), and \(f_*,f'_*\) by (2.12.3), respectively (2.11.1.1). Notice that by (III 4.7.1) \(f'\) is perfect if \(f\) is, and by (III 3.5.1) \(g\) has finite Tor-dimension if \(h\) does.
+
+\textbf{3.2. Passage to the limit on \(K'_{\naif}\) and \(K_{\bullet}\).} Let \((X_i,f_{ij})_{i\in I}\) be a filtered projective system of quasi-compact and quasi-separated schemes whose transition morphisms are affine (cf. EGA IV 8.2.2). Put
+\[
+ X=\varprojlim_i X_i,
+\]
+and let \(f_i:X\to X_i\) denote the canonical morphism.
+
+\textbf{3.2.1.} The homomorphisms (2.7.2)
+\[
+ f_i^*:K'(X_i)_{\naif}\longrightarrow K'(X)_{\naif}
+\]
+define, by the transitivity formula (2.7.3), a homomorphism
+\begin{equation}\tag{3.2.1.1}
+ \varinjlim_i K'(X_i)_{\naif}\longrightarrow K'(X)_{\naif}.
+\end{equation}
+I say that this homomorphism is an isomorphism. Indeed, let \(E\) be a locally free \(\mathcal O_X\)-module of finite type. By EGA IV 8.5.2 and 8.5.5, there exists an index \(i\) and a locally free \(\mathcal O_{X_i}\)-module of finite type \(E_i\) such that
+\[
+ E\simeq f_i^*(E_i).
+\]
+By EGA IV 8.5.2.5, the image of \(\cl(E_i)\) in \(\varinjlim_i K'(X_i)_{\naif}\) does not depend on the choice of \(E_i\); denote it by \(u(E)\). By EGA IV 8.5.2 and 8.5.6, the map
+\[
+ u:\Ob\Loclib(X)\longrightarrow \varinjlim_i K'(X_i)_{\naif}
+\]
+so defined is additive in the sense of (1.5). It therefore defines a homomorphism
+\[
+ K'(X)_{\naif}\longrightarrow \varinjlim_i K'(X_i)_{\naif},
+\]
+and one verifies immediately, using EGA IV 8.5.2, that it is inverse to (3.2.1.1). This proves the assertion.
+
+\textbf{3.2.2.} Likewise one defines a canonical homomorphism
+\begin{equation}\tag{3.2.2.1}
+ \varinjlim_i K'(X_i)\longrightarrow K'(X).
+\end{equation}
+Using Deligne's localization technique (SGA 4 XVII), which implies that the category of perfect complexes on \(X\) is equivalent to the category
+\[
+ \varinjlim_i \Parf(X_i)
+\]
+of the analogous categories of perfect complexes on the \(X_i\), one proves again that (3.2.2.1) is an isomorphism.
+
+\textbf{3.2.3.} Suppose that the \(X_i\), and \(X\), are noetherian, and that the morphisms \(f_i\) are flat (then so are the \(f_{ij}\)). Then the homomorphisms (2.12.1)
+\[
+ f_i^*:K_{\bullet}(X_i)\longrightarrow K_{\bullet}(X)
+\]
+define an isomorphism
+\[
+ \varinjlim_i K_{\bullet}(X_i)\xrightarrow{\sim}K_{\bullet}(X).
+\]
+The proof is analogous to that of (3.2.1), using the fact (2.4) that \(K_{\bullet}(X)\simeq K_{\bullet}(X)_{\naif}\) is computed in terms of coherent sheaves on \(X\).
+
+Moreover, the module structures of the \(K_{\bullet}(X_i)\) over the \(K'(X_i)_{\naif}\) are compatible with the inverse images \(f_{ij}^*\) by (2.7.1) and (2.12.2). Passing to the limit, one finds that \(\varinjlim_i K_{\bullet}(X_i)\) is a module over \(\varinjlim_i K'(X_i)_{\naif}\); this is compatible, through the isomorphisms (3.2.1.1) and (3.2.2.1), with the module structure of \(K_{\bullet}(X)\) over \(K'(X)_{\naif}\). In other words, one has a commutative diagram
+\[
+\begin{tikzcd}[column sep=large]
+\varinjlim K'(X_i)_{\naif}\otimes \varinjlim K_{\bullet}(X_i)
+\arrow[r]\arrow[d,"\sim"']
+&\varinjlim K_{\bullet}(X_i)\arrow[d,"\sim"]\\
+K'(X)_{\naif}\otimes K_{\bullet}(X)\arrow[r]
+&K_{\bullet}(X).
+\end{tikzcd}
+\]
+
+\textbf{3.3. Relative Grothendieck groups.}
+
+\textbf{3.3.1.} Let
+\[
+ f:X\longrightarrow Y
+\]
+be a morphism of schemes locally of finite type. Put
+\[
+ K'(f)=k(D(f)_{\parf}),\qquad
+ K_{\bullet}(f)=k(D^b(f)_{\coh}),
+\]
+where \(D^b(f)_{\coh}\) denotes the category of complexes which are pseudo-coherent relative to \(f\) and have bounded cohomology (III 1.2), and \(D(f)_{\parf}\) the category of complexes of finite perfect amplitude relative to \(f\) (III 4.2). When there is no possible ambiguity, we shall sometimes write \(K'(X/Y)\), respectively \(K_{\bullet}(X/Y)\), instead of \(K'(f)\), respectively \(K_{\bullet}(f)\).
+
+The groups \(K'(f)\) and \(K_{\bullet}(f)\) do not possess the rich structure of their absolute analogues \(K'(X)\) and \(K_{\bullet}(X)\), for tensor product does not in general define homomorphisms
+\[
+ K'(f)\otimes K'(f)\longrightarrow K'(f),
+ \qquad
+ K'(f)\otimes K_{\bullet}(f)\longrightarrow K_{\bullet}(f).
+\]
+On the other hand, they satisfy interesting variance properties, which we now review.
+
+\textbf{3.3.2.} Let
+\[
+\begin{tikzcd}
+X\arrow[rr,"f"]\arrow[dr,"h"'] &&Y\arrow[dl,"g"]\\
+&S&
+\end{tikzcd}
+\]
+be a commutative triangle of morphisms locally of finite type of schemes.
+\begin{enumerate}[label=\textbf{3.3.2.\arabic*.}, leftmargin=4em]
+\item If \(g\) is pseudo-coherent, one has
+\[
+ K_{\bullet}(f)=K_{\bullet}(h)
+\]
+(III 1.12). If \(g\) is smooth and \(X\) quasi-compact, one has
+\[
+ K'(f)=K'(h)
+\]
+(III 4.4.1).
+
+\item By (III 1.11 and 4.5), the functor \(\otimes_Y^{\mathbf L}\) defines pairings
+\[
+ D(f)_{\parf}\times D^b(g)_{\coh}\longrightarrow D^b(h)_{\coh},
+\]
+\[
+ D(f)_{\parf}\times D(g)_{\parf}\longrightarrow D(h)_{\parf},
+\]
+which induce homomorphisms
+\[
+ K'(f)\otimes K_{\bullet}(g)\longrightarrow K_{\bullet}(h),
+\]
+\[
+ K'(f)\otimes K'(g)\longrightarrow K'(h).
+\]
+In particular, taking \(X=Y\) and \(f=\id\), one deduces that \(K_{\bullet}(g)\) is a \(K'(Y)\)-module. On the other hand, if \(f\) is perfect, product by
+\[
+ \cl(\mathcal O_X)\in K'(f)
+\]
+defines \(K'(Y)\)-linear homomorphisms
+\[
+ f^*:K_{\bullet}(Y/S)\longrightarrow K_{\bullet}(X/S),
+\]
+and
+\[
+ f^*:K'(Y/S)\longrightarrow K'(X/S).
+\]
+
+\item Suppose \(S\) quasi-compact, \(X\) and \(Y\) of finite type over \(S\), and \(f\) proper. Then, subject to the validity of the finiteness conjecture (III 2.1), in particular if \(Y\) is noetherian or if \(f\) is projective, the functor \(Rf_*\) sends \(D^b(h)_{\coh}\) into \(D^b(g)_{\coh}\), and therefore defines a homomorphism
+\[
+ f_*:K_{\bullet}(X/S)\longrightarrow K_{\bullet}(Y/S).
+\]
+If in addition \(f\) is perfect, \(Rf_*\) sends \(D(h)_{\parf}\) into \(D(g)_{\parf}\) (III 4.8), and defines a homomorphism
+\[
+ f_*:K'(X/S)\longrightarrow K'(Y/S).
+\]
+From the projection formula (III 3.7) one deduces
+\[
+ f_*(a x)=a f_*(x),
+\]
+for \(f\) proper, \(a\in K'(S)\), \(x\in K_{\bullet}(X)\), respectively for \(f\) proper and perfect, \(a\in K_{\bullet}(S)\), \(x\in K'(X/S)\).
+
+\item Suppose \(S\) noetherian, \(X\) and \(Y\) of finite type over \(S\), and \(f\) compactifiable and perfect. Then by (III 4.9.1), the functor \(f^!\) sends \(D(g)_{\parf}\) into \(D(h)_{\parf}\), and defines a homomorphism
+\[
+ f^!:K'(Y/S)\longrightarrow K'(X/S).
+\]
+\end{enumerate}
+
+\textbf{3.3.3.} Under the hypotheses of (III 4.7), the functor \(\otimes_S^{\mathbf L}\) defines pairings
+\[
+ D(f_1)_{\parf}\times D^b(f_2)_{\coh}\longrightarrow D^b(f)_{\coh},
+\]
+\[
+ D(f_1)_{\parf}\times D(f_2)_{\parf}\longrightarrow D(f)_{\parf},
+\]
+which induce homomorphisms
+\[
+ K'(f_1)\otimes K_{\bullet}(f_2)\longrightarrow K_{\bullet}(f),
+\]
+\[
+ K'(f_1)\otimes K'(f_2)\longrightarrow K'(f).
+\]
+Of course, for \(X_i=Y_i=S\), one recovers the \(K'(S)\)-module structure on \(K_{\bullet}(S)\).
+
+If \(X\) is flat over \(S\), one deduces, for \(n\geq1\), homomorphisms
+\[
+ K'(X/S)^{\otimes n}\longrightarrow K'\bigl((X/S)^n\bigr),
+\]
+which should, in a sense, replace the absent ring structure on \(K'(X/S)\).
+
+\subsection*{Bibliography}
+\begin{enumerate}[label={[\arabic*]}]
+\item Deligne, P., papiers secrets.
+\item Grauert, H., \emph{Ein Theorem der Analytischen Garbentheorie}, Publ. Math. IHES, no. 5 (1960).
+\item Grothendieck, A., \emph{Théorèmes de finitude pour la cohomologie des faisceaux}, Bull. Soc. Math. France, 84, 1956, pp. 1--7.
+\item[{[V]}] Verdier, J.-L., \emph{Catégories dérivées}, IHES (1964), miméographié.
+\end{enumerate}
+
+\end{document}
