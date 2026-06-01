@@ -1,20 +1,20 @@
 # Public PDF Surface Audit
 
-Generated: 2026-06-01T17:36:14
+Generated: 2026-06-01T23:17:22
 
 Reader PDF counts by section:
 
 - author-cluster: 10
 - classical: 17
-- deligne: 66
+- deligne: 68
 - ega: 10
 - gauss: 8
-- noether: 65
+- noether: 69
 - non-european: 63
 - riemann: 2
-- sga: 58
-- ukrainian-applied-math: 14
-- weber: 38
+- sga: 61
+- ukrainian-applied-math: 13
+- weber: 40
 
 Cayley policy: the public reader shelf uses only repaired slice PDFs that render as real mathematical text. Broad cumulative Cayley draft volumes are preserved in source/artifact material rather than promoted as reader PDFs.
 
@@ -42,7 +42,7 @@ Reader PDF health flags:
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
-- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition, Pages 1-504.pdf`: first_page_blankish
+- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition through Page 525.pdf`: first_page_blankish
 - `reader-pdfs/sga/25 SGA 6 - Source Scan Slice for Expose III Pages 253-280.pdf`: first_page_blankish
 - `reader-pdfs/sga/28 SGA 6 - Source Scan Slice for Expose IV Pages 281-303.pdf`: first_page_blankish
 - `reader-pdfs/sga/31 SGA 6 - Source Scan Slice for Expose V Pages 304-330.pdf`: first_page_blankish
@@ -54,9 +54,8 @@ Reader PDF health flags:
 - `reader-pdfs/sga/39L SGA 6 - Source Scan Slice for Expose VII Pages 455-472.pdf`: first_page_blankish
 - `reader-pdfs/sga/39O SGA 6 - Source Scan Slice for Expose VIII Pages 473-492.pdf`: first_page_blankish
 - `reader-pdfs/sga/39R SGA 6 - Source Scan Slice for Expose VIII Pages 493-504.pdf`: first_page_blankish
+- `reader-pdfs/sga/39U SGA 6 - Source Scan Slice for Expose IX Pages 505-525.pdf`: first_page_blankish
 - `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/52 SGA 7 Tome 2 - French Reference PDF.pdf`: first_page_blankish
-- `reader-pdfs/ukrainian-applied-math/03 Survey of Software Defined Radio - Ukrainian Core.pdf`: internal_flags=['\\bclaude\\b']
-- `reader-pdfs/ukrainian-applied-math/08 Autonomous Robots Perception and Navigation - Ukrainian.pdf`: internal_flags=['\\bclaude\\b']

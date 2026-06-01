@@ -1,0 +1,58 @@
+\chapter{Event-based sensor fusion і odometry: що треба довести до кінця}
+\sourcebox{Поглиблення на базі вже наявного standalone-модуля arXiv:2410.15480 і sensor-fusion survey arXiv:2506.19769.}
+
+Event camera не є ``швидкою звичайною камерою''. Вона повертає асинхронні події
+\[
+  e_k=(u_k,v_k,t_k,p_k),
+\]
+де $(u_k,v_k)$ --- координата пікселя, $t_k$ --- час, $p_k\in\{-1,+1\}$ --- полярність зміни лог-інтенсивності. Тому звичайна frame-based VO модель не переноситься без змін.
+
+\section*{Мінімальні математичні блоки}
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Часова модель.} Усі сенсори мають свої часові мітки. Для fusion потрібні time offset, interpolation і covariance inflation, якщо синхронізація невизначена.
+\item \textbf{Просторова модель.} Для кожної пари сенсорів потрібна зовнішня калібровка $T_{ab}\in\SE(3)$.
+\item \textbf{Event representation.} Події можна агрегувати у time surface, voxel grid, event frame або напряму використовувати у contrast objective.
+\item \textbf{Backend.} Оцінювання стану може бути EKF/UKF/ESKF або factor graph. Вибір залежить від частоти подій, доступної пам'яті й latency budget.
+\end{enumerate}
+
+\section*{Універсальна residual-форма}
+
+Більшість модулів можна привести до однієї форми:
+\[
+  r_k = z_k - h_k(x_{\tau(k)},\theta),
+  \qquad
+  J_k = \left.\frac{\partial r_k}{\partial \delta x}\right|_{\delta x=0},
+\]
+де $\tau(k)$ вказує, який стан або інтерпольований стан відповідає часовій мітці $t_k$, а $\theta$ містить калібровку сенсорів. Після лінеаризації:
+\[
+  \min_{\delta x}\sum_k \rho\!\left(\|r_k+J_k\delta x\|_{\Sigma_k^{-1}}^2\right).
+\]
+Функція $\rho$ потрібна через outliers: погана подія, пил, blur, неправильна асоціація або рухомий об'єкт не повинні зруйнувати оцінку.
+
+\section*{Checklist для перекладу event-fusion paper}
+
+\begin{longtable}{L{0.30\linewidth}L{0.58\linewidth}}
+\toprule
+Секція & Що зберегти без втрат \\
+\midrule
+Sensor model & Всі визначення подій, часових поверхонь, polarity, camera model. \\
+Fusion pipeline & Де саме відбувається fusion: raw data, feature, state, decision. \\
+IMU integration & Preintegration, covariance, bias update, gravity convention. \\
+Odometry backend & Objective, residuals, Jacobians, outlier handling, marginalization. \\
+Evaluation & Метрики ATE/RPE, latency, compute, dataset, failure cases. \\
+Terminology & Не плутати ``подія'', ``кадр'', ``ознака'', ``воксель'', ``часова поверхня''. \\
+\bottomrule
+\end{longtable}
+
+\section*{Негайна задача для агентів}
+
+Для translation system/local TeX worker/local local organizer треба подавати не весь survey одразу, а одну секцію:
+\begin{lstlisting}
+Process exactly one section of the event-based sensor-fusion/odometry source.
+Translate prose into Ukrainian. Preserve formulas, variables, labels, refs, citations.
+For each sensor model, add a Ukrainian glossary note for: timestamp, polarity,
+extrinsics, covariance, residual, Jacobian, calibration, synchronization.
+Do not add unrelated implementation claims; preserve source notation and formula status.
+Compile under XeLaTeX and write build_status.csv.
+\end{lstlisting}

@@ -1,0 +1,64 @@
+\chapter{Хвильове рівняння: завершення глав 1--3 і що йде після}
+\sourcebox{Source-preserved модуль Zuazua arXiv:2402.17894, глави 1--3; тут подано інтеграційний шар і QA-map.}
+
+Важливе уточнення: це не ``радіохвилі'', а загальна математика хвильового рівняння, керованості й стабілізації. Вона корисна як мова для PDE, energy estimates, observability і boundary/interior control.
+
+\section*{Модель}
+
+Базова форма:
+\[
+\begin{cases}
+  y_{tt}-\Delta y = 0, & (x,t)\in \Omega\times(0,T),\\
+  y=0, & (x,t)\in \partial\Omega\times(0,T),\\
+  y(0)=y^0,
+  \qquad y_t(0)=y^1.
+\end{cases}
+\]
+Енергія:
+\[
+  E(t)=\frac12\int_\Omega\left(|y_t(x,t)|^2+|\nabla y(x,t)|^2\right)\,dx.
+\]
+Для консервативного рівняння без damping $E(t)$ є сталою. Це перша формульна sanity check у перекладі.
+
+\section*{Exact controllability і observability}
+
+У boundary або interior control задача exact controllability полягає в тому, щоб знайти керування $u$ таке, що
+\[
+  (y(T),y_t(T))=(0,0)
+\]
+або інша задана кінцева конфігурація. Метод HUM зводить це до нерівності спостережуваності для спряженого/вільного рівняння:
+\[
+  E(0) \le C\int_0^T\int_{\Gamma_0}|\partial_\nu \varphi|^2\,d\Gamma\,dt
+\]
+у boundary-версії або до інтеграла по підобласті у interior-версії. У перекладі треба не втратити різницю між control region, observation region, boundary trace і normal derivative.
+
+\section*{Stabilization}
+
+Damped wave:
+\[
+  y_{tt}-\Delta y+a(x)y_t=0
+\]
+має energy dissipation:
+\[
+  \frac{d}{dt}E(t)=-\int_\Omega a(x)|y_t|^2\,dx \le 0.
+\]
+Наступний high-utility translation step після глав 1--3: знайти й перекласти частини про stabilization, damping, decay rate і geometric control condition. Це не замінює чисельні PDE; це теорема-рівень, який дає гарантії.
+
+\section*{QA-map для глав 1--3}
+
+\begin{longtable}{L{0.22\linewidth}L{0.34\linewidth}L{0.34\linewidth}}
+\toprule
+Об'єкт & Що перевіряти & Типова помилка machine translation \\
+\midrule
+$H_0^1(\Omega)$, $L^2(\Omega)$ & Функціональні простори й dual spaces. & Перекладати $H$ або $L$ як слова; втрачати індекс $0$. \\
+$\partial_\nu$ & Нормальна похідна на межі. & Плутати з часовою похідною або divergence. \\
+$\Gamma_0$ & Частина межі для control/observation. & Плутати з усією $\partial\Omega$. \\
+HUM & Hilbert Uniqueness Method. & Перекладати як casual acronym без визначення. \\
+Observability & Нерівність, що оцінює енергію через спостереження. & Плутати з observability у Kalman/control state-space. \\
+Interior control & Керування всередині області. & Плутати з boundary control. \\
+\bottomrule
+\end{longtable}
+
+\section*{Практичне рішення по цій доріжці}
+
+Глави 1--3 вже достатньо важливі, щоб вважати їх P0-complete для першого пакета, якщо вони проходять formula/render QA. Не треба далі витрачати перші токени на повторний переклад того самого. Наступні токени краще дати sensor fusion/odometry і Solà/micro-Lie. До Zuazua треба повернутися для stabilization/damping після того, як state-estimation блок стане повнішим.

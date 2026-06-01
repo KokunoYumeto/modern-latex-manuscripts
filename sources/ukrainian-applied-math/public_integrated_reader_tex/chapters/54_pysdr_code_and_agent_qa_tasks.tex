@@ -1,0 +1,60 @@
+
+\chapter{PySDR code QA і наступні завдання для локальних агентів}
+\label{chap:pysdr_code_qa_tasks}
+
+Окрема проблема PySDR-доріжки: частина українського RST уже перекладена, але деякі code blocks могли бути перекладені як звичайна проза. Для навчального тексту це неприйнятно: Python-код має залишатися виконуваним або явно позначеним як псевдокод.
+
+\section{Поточний code-block audit}
+Автоматичний sweep знайшов 69 code-block candidates у вибраних RST-файлах. Прапорці нижче не означають автоматичну помилку; вони означають, що блок треба відкрити й перевірити вручну або через локального code-agent.
+
+
+\begin{longtable}{L{0.38\linewidth}L{0.18\linewidth}L{0.30\linewidth}}
+\toprule
+файл & рядки & що перевірити \\
+\midrule
+\endhead
+\texttt{pulse\_shaping.rst} & 154--173 & translated Python import/for syntax \\
+\texttt{sync.rst} & 33--58 & translated Python import/for syntax \\
+\texttt{sync.rst} & 359--386 & loop code; mostly OK, verify API names \\
+\texttt{filters.rst} & several blocks & comments OK; API names/variables preserved \\
+\bottomrule
+\end{longtable}
+
+Найважливіший конкретний дефект: рядки на кшталт
+\begin{lstlisting}[language=Python]
+з scipy імпортуємо сигнал
+для біта в бітах:
+\end{lstlisting}
+мають бути виправлені на виконуваний Python:
+\begin{lstlisting}[language=Python]
+from scipy import signal
+for bit in bits:
+\end{lstlisting}
+Українські коментарі всередині code blocks допустимі, але службові слова Python, назви бібліотек і API-виклики не перекладаються.
+
+\section{Мінімальний task note для local TeX worker/local organizer}
+\begin{lstlisting}[language={}]
+Task: Convert exactly one PySDR Ukrainian RST file to clean TeX.
+Input: <file>.rst
+Output: <file>.tex
+Rules:
+1. Convert headings, math roles, display math, lists, notes, and code blocks.
+2. Preserve Python code keywords, imports, API calls, variable names, filenames.
+3. Ukrainian comments in code are allowed; translated Python syntax is not.
+4. Replace images with \pysdrfigureplaceholder{source}{caption} unless assets are present.
+5. Compile with XeLaTeX. Write translation_status.csv and code_block_qa.csv.
+6. Do not add unrelated prose; preserve the mathematical and engineering scope of the source.
+\end{lstlisting}
+
+\section{Immediate PySDR file order}
+\begin{enumerate}
+\item \texttt{sampling.rst}: IQ, Nyquist, sample rate; high payoff.
+\item \texttt{frequency\_domain.rst}: DFT/FFT/windows/spectrograms.
+\item \texttt{filters.rst}: FIR/IIR and frequency response; requires code QA.
+\item \texttt{noise.rst}: AWGN, SNR/SINR, dB.
+\item \texttt{digital\_modulation.rst}: constellations and symbols.
+\item \texttt{pulse\_shaping.rst}: useful, but code blocks require correction.
+\item \texttt{sync.rst}: useful, but code blocks require more stringent correction.
+\item \texttt{iq\_files.rst}: file format and SigMF, good for data engineering.
+\end{enumerate}
+
