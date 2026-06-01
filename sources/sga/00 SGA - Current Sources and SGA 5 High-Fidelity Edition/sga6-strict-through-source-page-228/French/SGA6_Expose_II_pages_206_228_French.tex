@@ -1,0 +1,619 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Additions for Expose II, Appendix II
+\providecommand{\cO}{\mathcal O}
+\providecommand{\cE}{\mathscr E}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\cG}{\mathscr G}
+\providecommand{\cH}{\mathcal H}
+\providecommand{\cL}{\mathscr L}
+\providecommand{\cP}{\mathscr P}
+\providecommand{\cM}{\mathscr M}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\providecommand{\Diff}{\operatorname{Diff}}
+\providecommand{\Homop}{\operatorname{Hom}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\ind}{\operatorname{ind}}
+\providecommand{\soft}{\operatorname{soft}}
+\providecommand{\Ban}{\operatorname{Ban}}
+\providecommand{\Lop}{\operatorname{L}}
+\providecommand{\im}{\operatorname{Im}}
+\providecommand{\Parf}{\operatorname{Parf}}
+\providecommand{\id}{\operatorname{id}}
+
+\newpage
+\section*{Exposé II, Appendice II. Définition de l'indice analytique d'un complexe elliptique relatif}
+
+On se propose, dans cet appendice, de montrer que la notion de complexe parfait conduit à une définition simple et naturelle de ``l'indice analytique'' d'une famille continue d'opérateurs différentiels elliptiques, ou plus généralement d'un ``complexe elliptique relatif''. Pour le lecteur initié, disons que la définition donnée ici présente l'avantage sur les définitions classiques (voir par exemple [2][17]) de ne pas nécessiter de déformation du complexe elliptique considéré.
+
+Les §§1 et 2 consistent en rappels sur la notion classique de ``structure mixte''. Nous ne donnons, bien entendu, que le minimum de définitions et résultats requis pour pouvoir énoncer et démontrer, au §3, le théorème central que nous avons en vue, et qui dit, de manière un peu plus précise, que l'image directe, par la projection supposée propre sur la base supposée localement compacte, d'un complexe elliptique relatif est un complexe parfait. Quand la base $S$ est compacte, la définition de l'indice analytique en tant qu'élément de $K(S)$, groupe de Grothendieck des fibrés vectoriels complexes de rang fini sur $S$, découle alors du sorite de globalisation de II 2.3.2.
+
+Dans toute la suite, si $S$ est un espace topologique, on notera $\cO_S$ le faisceau des fonctions continues sur $S$ à valeurs réelles.
+
+\subsection*{1. Le sorite des structures mixtes}
+
+Dans ce numéro, on se fixe un espace topologique $S$.
+
+\subsubsection*{1.1. Définition des variétés mixtes}
+Soit $V$ un ouvert de $\R^n$. Pour $r\in\N$, on note $C^r(V)$ l'espace de Fréchet des fonctions de classe $C^r$ sur $V$ à valeurs réelles. On pose
+\[
+  C^\infty(V)=\varprojlim_r C^r(V).
+\]
+Soit $U$ un ouvert de $S$. Pour $r\in\N\cup\{\infty\}$, on note ${}^r\cO_{U\times V}$ le faisceau d'anneaux sur $U\times V$ défini par
+\[
+  \Gamma(U'\times V',{}^r\cO_{U\times V})=C(U',C^r(V')),
+\]
+où $U'$ et $V'$ sont un ouvert de $U$ et un ouvert de $V$, et où $C(U',C^r(V'))$ désigne l'espace des applications continues de $U'$ dans $C^r(V')$. On a une injection canonique
+\[
+  \pr_1^{-1}(\cO_U)\longrightarrow{}^r\cO_{U\times V},
+\]
+qui fait de $(U\times V,{}^r\cO_{U\times V})$ un espace annelé au-dessus de $U$.
+
+On dit qu'un espace annelé $X$ au-dessus de $S$ est une \emph{variété mixte de classe $C^r$}, $r\in\N\cup\{\infty\}$, si $X$ est localement isomorphe, en tant qu'espace annelé au-dessus de $S$, à un espace du type $(U\times V,{}^r\cO_{U\times V})$. Si $S$ est réduit à un point, une variété mixte de classe $C^r$ au-dessus de $S$ n'est autre qu'une variété de classe $C^r$ au sens usuel.
+
+Soit $f:X\to S$ une variété mixte de classe $C^r$. Pour $s\in S$, la fibre $X_s=f^{-1}(s)$, munie du faisceau
+\[
+  i_s^{-1}(\cO_X)/I_s,
+\]
+où $i_s:X_s\to X$ est l'injection et $I_s$ l'idéal des sections qui s'annulent sur $X_s$, est une variété de classe $C^r$.
+
+\subsubsection*{1.2. Opérateurs différentiels ``relatifs''}
+Il est facile de faire, sur le modèle de la Géométrie Algébrique (EGA IV 16, SGA 3 VII), une étude infinitésimale des variétés mixtes. Nous nous bornerons à passer rapidement en revue les notions dont nous aurons besoin.
+
+\textbf{1.2.1.} Soit $f:X\to S$ une variété mixte de classe $C^\infty$ (1.1). Pour tout $n\in\N$, on définit le faisceau $P^n_{X/S}$ des parties principales à l'ordre $n$ sur $X$. C'est de deux façons différentes, correspondant aux deux projections $\pr_1$ et $\pr_2$ de $X\times_S X$ sur $X$, une $\cO_X$-algèbre augmentée vers $\cO_X$, localement libre de type fini en tant que $\cO_X$-module. Quand nous ne préciserons pas la structure de $\cO_X$-module considérée sur $P^n_{X/S}$, il sera sous-entendu qu'il s'agit de celle provenant de $\pr_1$. On a des isomorphismes canoniques
+\[
+  P^0_{X/S}\simeq\cO_X,
+  \qquad
+  P^1_{X/S}\simeq\cO_X\oplus\Omega^1_{X/S},
+\]
+où $\Omega^1_{X/S}$ est le faisceau des différentielles relatives de $X$ par rapport à $S$, ou faisceau cotangent relatif. On note $T_{X/S}$ le dual de $\Omega^1_{X/S}$, qu'on appelle faisceau tangent relatif. Le faisceau $T_{X/S}$ (resp. $\Omega^1_{X/S}$) est le faisceau des sections d'un fibré vectoriel de rang fini sur $X$, qu'on appelle fibré tangent (resp. cotangent) relatif, et qui est une $S$-variété mixte au-dessus de $X$.
+
+L'homomorphisme $f^{-1}(\cO_S)$-linéaire, correspondant à la structure de $\cO_X$-algèbre définie par $\pr_2$,
+\[
+  d^n_{X/S}:\cO_X\longrightarrow P^n_{X/S},
+\]
+qui, à une section de $\cO_X$, associe sa partie principale à l'ordre $n$, est appelé opérateur différentiel universel d'ordre $n$ sur $X$ relativement à $S$.
+
+\textbf{1.2.2.} Plus généralement, si $E$ est un $\cO_X$-module localement libre de type fini, on peut considérer le faisceau
+\[
+  P^n_{X/S}(E)=P^n_{X/S}\otimes_{\cO_X}E
+\]
+des parties principales à l'ordre $n$ de $E$, le produit tensoriel étant défini au moyen de la deuxième structure de $\cO_X$-module sur $P^n_{X/S}$. On a un opérateur différentiel universel
+\[
+  d^n_{X/S}(E):E\longrightarrow P^n_{X/S}(E).
+\]
+
+Soient $E,F$ des $\cO_X$-modules localement libres de type fini. Par définition, un opérateur différentiel de $E$ dans $F$ d'ordre $\le n$ est un homomorphisme $f^{-1}(\cO_S)$-linéaire de $E$ dans $F$ qui se factorise à travers $d^n_{X/S}(E)$ en un homomorphisme $\cO_X$-linéaire de $P^n_{X/S}(E)$ dans $F$, la factorisation étant alors unique. En d'autres termes, l'opérateur $d^n_{X/S}(E)$ établit une bijection
+\begin{equation}\tag{1.2.2.1}
+  \Homop_{\cO_X}\bigl(P^n_{X/S}(E),F\bigr)
+  \xrightarrow{\sim}
+  \Diff^n(E,F),
+\end{equation}
+où $\Diff^n(E,F)$ désigne l'ensemble des opérateurs différentiels de $E$ dans $F$ d'ordre $\le n$.
+
+\textbf{1.2.3.} Nous aurons aussi à considérer des opérateurs différentiels à coefficients complexes. Notons $\cO_S^\mathbb C$ (resp. $\cO_X^\mathbb C$) le complexifié de $\cO_S$ (resp. $\cO_X$). Soient $E,F$ des $\cO_X^\mathbb C$-modules localement libres de type fini. Par un opérateur différentiel de $E$ dans $F$ d'ordre $\le n$, on entendra un homomorphisme $f^{-1}(\cO_S^\mathbb C)$-linéaire de $E$ dans $F$ qui se factorise à travers $d^n_{X/S}(E)$ en un homomorphisme $\cO_X^\mathbb C$-linéaire de $P^n_{X/S}(E)$ dans $F$. Si l'on désigne par $\Diff^n_\mathbb C(E,F)$ l'ensemble de ces opérateurs, l'opérateur $d^n_{X/S}(E)$ définit donc une bijection
+\begin{equation}\tag{1.2.3.1}
+  \Homop_{\cO_X^\mathbb C}\bigl(P^n_{X/S}(E),F\bigr)
+  \xrightarrow{\sim}
+  \Diff^n_\mathbb C(E,F).
+\end{equation}
+
+\textbf{1.2.4.} Pour $n\ge1$, on a une suite exacte canonique
+\[
+  0\longrightarrow S^n(\Omega^1_{X/S})
+  \longrightarrow P^n_{X/S}
+  \longrightarrow P^{n-1}_{X/S}
+  \longrightarrow 0.
+\]
+D'où, en tensorisant sur $\cO_X$ par un $\cO_X$-module (resp. $\cO_X^\mathbb C$-module) localement libre de type fini $E$, une suite exacte de $\cO_X$-modules (resp. $\cO_X^\mathbb C$-modules)
+\begin{equation}\tag{1.2.4.1}
+  0\longrightarrow S^n(\Omega^1_{X/S})\otimes_{\cO_X}E
+  \longrightarrow P^n_{X/S}(E)
+  \longrightarrow P^{n-1}_{X/S}(E)
+  \longrightarrow 0.
+\end{equation}
+Soit $F$ un $\cO_X$-module (resp. $\cO_X^\mathbb C$-module) localement libre de type fini. Appliquant à (1.2.4.1) le foncteur $\Homop_{\cO_X}(-,F)$ (resp. $\Homop_{\cO_X^\mathbb C}(-,F)$), on en déduit, compte tenu des identifications (1.2.2.1) et (1.2.3.1), une suite exacte
+\begin{equation}\tag{1.2.4.2}
+  0\longrightarrow \Diff^{n-1}(E,F)
+  \longrightarrow \Diff^n(E,F)
+  \xrightarrow{\sigma_n}
+  \Homop_{\cO_X}\bigl(S^n(\Omega^1_{X/S})\otimes E,F\bigr),
+\end{equation}
+et de même avec coefficients complexes. Si $X$ est paracompact et $\cO_X$ mou, on peut compléter cette suite en ajoutant un zéro à droite. L'homomorphisme $\sigma_n$ est appelé symbole; il associe à un opérateur différentiel d'ordre $\le n$ une application polynomiale homogène de degré $n$ sur le fibré cotangent. On peut encore le regarder comme un homomorphisme
+\[
+  p^*(E)\longrightarrow p^*(F),
+\]
+où $p$ est la projection sur $X$ du fibré cotangent relatif, satisfaisant une certaine condition d'homogénéité.
+
+Soient $E,F,G$ des $\cO_X$-modules localement libres de type fini, et $u\in\Diff^m(E,F)$, $v\in\Diff^n(F,G)$; d'où $vu\in\Diff^{m+n}(E,G)$. On vérifie facilement la relation
+\begin{equation}\tag{1.2.4.3}
+  \sigma_{m+n}(vu)=\sigma_n(v)\sigma_m(u).
+\end{equation}
+On a la même relation pour les opérateurs différentiels à coefficients complexes. En particulier, si le composé de deux opérateurs différentiels est nul, le composé de leurs symboles l'est aussi.
+
+\textbf{1.2.5.} Soit $E$ un complexe, à degrés bornés, d'opérateurs différentiels à coefficients complexes sur $X$ relativement à $S$,
+\[
+  d^i:E^i\longrightarrow E^{i+1},
+\]
+$d^i$ étant d'ordre $\le n_i$. D'après (1.2.4.3), on a
+\[
+  \sigma_{n_{i+1}}(d^{i+1})\,\sigma_{n_i}(d^i)=0.
+\]
+On dit que $E$ est un complexe elliptique d'ordre $n=(n_i)$ si le complexe
+\[
+  (p^*E^i,\sigma_{n_i}(d^i))
+\]
+où $p$ est la projection sur $X$ du fibré cotangent, est acyclique en dehors de la section nulle.
+
+Quand $S$ est réduit à un point, la notion précédente de complexe elliptique sur $X$ coïncide avec la notion usuelle.
+
+\textbf{1.2.6.} Soient $s\in S$, $i_s$ l'inclusion de la fibre $X_s$ dans $X$. Pour $n\in\N$, on a un isomorphisme canonique
+\[
+  i_s^*(P^n_{X/S})\simeq P^n_{X_s},
+\]
+d'où un homomorphisme de restriction
+\[
+  i_s^*:\Diff^n(E,F)
+  \longrightarrow
+  \Diff^n\bigl(i_s^*(E),i_s^*(F)\bigr),
+\]
+pour $E,F$ des $\cO_X$-modules localement libres de type fini, et un homomorphisme analogue pour les opérateurs à coefficients complexes. Soit $E$ un complexe, à degrés bornés, d'opérateurs différentiels à coefficients complexes sur $X$; pour que $E$ soit elliptique il faut et il suffit que, pour tout $s\in S$, $i_s^*(E)$ soit un complexe elliptique.
+
+\subsection*{2. Lemmes de rigidité}
+
+\textbf{2.0.} Il est ``bien connu'' que les variétés différentiables compactes sont ``rigides'', c'est-à-dire n'admettent pas de déformation continue autre que triviale. Toutefois, comme ce résultat nous servira de façon essentielle au §3, et que les références semblent assez rares, il n'est peut-être pas inutile de donner des énoncés précis et quelques démonstrations.
+
+On se fixe un espace topologique $S$. Les variétés mixtes dont il sera question seront supposées de classe $C^r$, avec $r\ge1$, éventuellement $r=\infty$.
+
+\textbf{2.1. Notations.} Soient $X,Y$ des $S$-variétés mixtes. On note $\Homop(X,Y)$ l'ensemble des $S$-morphismes de $X$ dans $Y$, et $\underline{\Homop}(X,Y)$ le faisceau sur $X$ des germes de $S$-morphismes de $X$ dans $Y$, défini par
+\[
+  \underline{\Homop}(X,Y)(U)=\Homop(U,Y)
+\]
+pour $U$ ouvert de $X$.
+
+Soit $s\in S$. On note $i_s$ l'inclusion de $X_s$ dans $X$. On a un homomorphisme canonique d'induction
+\begin{equation}\tag{2.1.1}
+  i_s^{-1}\underline{\Homop}(X,Y)
+  \longrightarrow
+  \underline{\Homop}(X_s,Y_s),
+\end{equation}
+qui est un épimorphisme. Dans le cas où $Y=S\times\R$, le faisceau $\underline{\Homop}(X,Y)$ s'identifie canoniquement à $\cO_X$, et l'épimorphisme (2.1.1) à l'épimorphisme
+\[
+  i_s^{-1}(\cO_X)\longrightarrow i_s^*(\cO_X)=\cO_{X_s}
+\]
+considéré en (1.1).
+
+\textbf{Proposition 2.2.} Soient $X,Y$ des $S$-variétés mixtes, et $s\in S$. On suppose que la fibre $X_s$ est paracompacte et que $s$ admet un système fondamental de voisinages paracompacts. Soient $A$ un fermé de $X_s$, et
+\[
+  f\in H^0(A,\underline{\Homop}(X_s,Y_s)).
+\]
+Le sous-faisceau $F$ de $i_s^{-1}\underline{\Homop}(X,Y)$ formé des germes qui prolongent $f$, c'est-à-dire dont l'image par (2.1.1) coïncide avec $f$ au-dessus de $A$, est mou.
+
+\emph{Preuve.} Soit $X'$ un voisinage ouvert de $x$ dans $X$, isomorphe, comme variété mixte, à $S'\times U$, où $S'$ est un voisinage paracompact de $s$ et $U$ un ouvert relativement compact de $\R^m$, tel que l'image par $f$ de $X'_s\cap A$ soit contenue dans un ouvert de $Y$ isomorphe à $S'\times V$, où $V$ est un ouvert convexe de $\R^n$ contenant l'origine. D'après le lemme suivant, il suffit de montrer que toute section de $F$ au-dessus d'un fermé $A_0$ de $X_s$ contenu dans $X'_s$ se prolonge à $X'_s$. Or $X'_s\simeq\{s\}\times U$ est relativement compact, de sorte qu'un fermé de $X_s$ contenu dans $X'_s$ est compact. Identifions $X'$ (resp. $Y'$) à $S'\times U$ (resp. $S'\times V$), posons $A'=A\cap A_0$. Comme $A'$ est fermé dans $\{s\}\times U$, qui est paracompact, on a
+\[
+  H^0\bigl(A',\underline{\Homop}(X_s,Y_s)\bigr)
+  =\varinjlim_{U'\supset A'}\Homop(U',Y'_s),
+\]
+suivant les ouverts $U'$ de $X'_s$ contenant $A'$. De même, comme $A_0$ est fermé dans $S'\times \overline U$, qui est paracompact, on a
+\[
+  H^0\bigl(A_0,i_s^{-1}\underline{\Homop}(X,Y)\bigr)
+  =\varinjlim_{U_0\supset A_0}\Homop(U_0,Y'),
+\]
+suivant les ouverts $U_0$ de $X'$ contenant $A_0$. La proposition est donc conséquence du lemme suivant.
+
+\textbf{Lemme 2.2.1.} Soient $U$ un ouvert de $\R^m$, $V$ un ouvert convexe de $\R^n$ contenant $0$. Soient $A_0\supset A_1$ des fermés de $\{s\}\times U$, soit $U_1$ un ouvert de $S\times U$ contenant $A_0$ (resp. $A_1$). Soit $f_1:U_1\to V$ un morphisme, et soit $f_0:U\to S\times V$ un $S$-morphisme induisant sur $U_0\cap(\{s\}\times U)$ un morphisme définissant le même germe que $f_1$ au voisinage de $A_1$. Il existe alors un ouvert $U'$ de $S\times U$ contenant $\{s\}\times U$, et un $S$-morphisme
+\[
+  \bar f:U'\longrightarrow S\times V
+\]
+tel que le germe de $\bar f$ suivant $\{s\}\times U$ prolonge le germe défini par $f_0$, et que le morphisme induit par $\bar f$ sur $\{s\}\times U$ définisse le même germe que $f_1$ au voisinage de $A_1$.
+
+\emph{Preuve.} Quitte à remplacer $f_1$ par $af_1$, où $a$ est une fonction $C^r$ sur $U$, valant $1$ au voisinage de $A_1$ et à support dans $U_1$, on peut supposer que $U_1=U$. Soit $b$ une fonction $C^r$ sur $U$, valant $1$ sur $A_0$ et à support dans $U_0\cap(\{s\}\times U)$. Alors
+\[
+  U'=U_0\cup(S\times(U-\operatorname{Supp}b))
+\]
+est un ouvert de $S\times U$ contenant $\{s\}\times U$. Le morphisme $\bar f:U'\to S\times V$ défini par
+\[
+  \bar f(t,x)=\bigl(t,\ b(x)\pr_2f_0(t,x)+(1-b(x))f_1(x)\bigr)
+\]
+satisfait visiblement aux conditions.
+
+\textbf{Corollaire 2.3.} Sous les hypothèses de (2.2), les faisceaux
+\[
+  i_s^{-1}\underline{\Homop}(X,Y),\qquad \underline{\Homop}(X_s,Y_s)
+\]
+sont mous. En particulier les faisceaux $i_s^{-1}\cO_X$, $\cO_{X_s}$ sont mous. Pour tout fermé $A$ de $X_s$, l'application
+\[
+  H^0\bigl(X_s,i_s^{-1}\underline{\Homop}(X,Y)\bigr)
+  \longrightarrow
+  H^0\bigl(A,\underline{\Homop}(X_s,Y_s)\bigr)
+\]
+déduite de (2.1.1) est surjective.
+
+\emph{Preuve.} Le fait que $i_s^{-1}\underline{\Homop}(X,Y)$ soit mou résulte de (2.2) appliqué pour $A=\emptyset$; prenant $S=s$, on en déduit que $\underline{\Homop}(X_s,Y_s)$ est mou. La dernière assertion découle de (2.2).
+
+\textbf{Corollaire 2.4.} Sous les hypothèses de (2.2), soit $E$ un $\cO_X$-module. Pour tout fermé $A$ de $X_s$, l'homomorphisme canonique
+\[
+  H^0\bigl(X_s,i_s^{-1}(E)\bigr)
+  \longrightarrow
+  H^0\bigl(A,i_s^*(E)\bigr)
+\]
+déduit de l'épimorphisme
+\[
+  i_s^{-1}(E)\longrightarrow i_s^*(E)
+  =i_s^{-1}(E)\otimes_{i_s^{-1}(\cO_X)}\cO_{X_s}
+\]
+est un épimorphisme.
+
+\emph{Preuve.} Comme $i_s^{-1}\cO_X$ est mou, le foncteur $H^0(A,\cdot)$ est exact sur la catégorie des $i_s^{-1}\cO_X$-modules; donc l'homomorphisme
+\[
+  H^0\bigl(A,i_s^{-1}(E)\bigr)
+  \longrightarrow
+  H^0\bigl(A,i_s^*(E)\bigr)
+\]
+est un épimorphisme. Comme $i_s^{-1}(E)$ est mou, l'homomorphisme
+\[
+  H^0\bigl(X_s,i_s^{-1}(E)\bigr)
+  \longrightarrow
+  H^0\bigl(A,i_s^{-1}(E)\bigr)
+\]
+est un épimorphisme, et l'on gagne.
+
+\textbf{Corollaire 2.5.} Soient $p:X\to S$ une variété mixte, et $s\in S$. On suppose que $s$ admet un système fondamental de voisinages paracompacts $S'$ tels que les $p^{-1}(S')$ forment un système fondamental de voisinages paracompacts de $X_s$, condition réalisée par exemple si $S$ est localement compact et $p$ une application propre d'espaces topologiques. Alors, pour tout $\cO_X$-module $E$, on a
+\[
+  R^i p_*(E)_s=0 \quad \text{pour } i>0.
+\]
+
+\emph{Preuve.} D'après le théorème de faisceaux cité, on a
+\[
+  R^i p_*(E)_s=H^i\bigl(X_s,i_s^{-1}(E)\bigr).
+\]
+Mais, comme $i_s^{-1}\cO_X$ est mou, on a
+\[
+  H^i\bigl(X_s,i_s^{-1}(E)\bigr)=0\quad \text{pour } i>0,
+\]
+d'où l'assertion.
+
+\textbf{Corollaire 2.6.} Soient $X,Y$ des $S$-variétés mixtes, et $s\in S$. On suppose que $X$ satisfait aux hypothèses de (2.5). Pour tout morphisme $f:X_s\to Y_s$, il existe un voisinage ouvert $S'$ de $s$ et un morphisme
+\[
+  \bar f:X|S'\longrightarrow Y|S'
+\]
+tel que $\bar f_s=f$.
+
+\emph{Preuve.} Conséquence immédiate de (2.3), avec $A=X_s$, et du fait que
+\[
+  H^0\bigl(X_s,i_s^{-1}\underline{\Homop}(X,Y)\bigr)
+  =\varinjlim_{S'\ni s}\Homop(X|S',Y).
+\]
+
+\textbf{Proposition 2.7.} Soient $X,Y$ des $S$-variétés mixtes, $f:X\to Y$ un morphisme, $s\in S$, $x\in X_s$. Si l'application linéaire tangente à $f_s:X_s\to Y_s$ est inversible en $x$, alors $f$ est un isomorphisme local en $x$, c'est-à-dire il existe un voisinage ouvert $U$ de $x$ dans $X$ et un ouvert $V$ de $Y$ tels que $f$ induise un isomorphisme de $U$ sur $V$.
+
+\emph{Preuve.} C'est une conséquence facile du théorème des fonctions implicites; les détails sont laissés au lecteur.
+
+\textbf{Corollaire 2.8.} Soient $X,Y$ des $S$-variétés mixtes, et $s\in S$. On suppose que $s$ admet un système fondamental de voisinages $S'$ tels que les $X|S'$ (resp. $Y|S'$) forment un système fondamental de voisinages de $X_s$ (resp. $Y_s$), condition réalisée par exemple si $S$ est localement compact et $X$ (resp. $Y$) propre sur $S$. Soit $f:X\to Y$ un $S$-morphisme tel que $f_s:X_s\to Y_s$ soit un isomorphisme. Il existe alors un voisinage $S'$ de $s$ tel que
+\[
+  f|X|S':X|S'\longrightarrow Y|S'
+\]
+soit un isomorphisme.
+
+\emph{Preuve.} D'après (2.7), il existe un voisinage ouvert $U$ de $X_s$ dans $X$ tel que $f|U$ soit étale, c'est-à-dire un isomorphisme local. On peut supposer que $U=X|S'$, où $S'$ est un voisinage de $s$ dans $S$; autrement dit, quitte à restreindre $S$, on peut supposer que $f$ est étale. On vérifie alors facilement que le produit fibré $Z=X\times_Y X$ est muni naturellement d'une structure de $S$-variété mixte, étale sur $X$ pour chaque projection, et que le morphisme diagonal $\Delta:X\to Z$ est une immersion ouverte. Il est immédiat, d'autre part, que $Z$ vérifie la même hypothèse que $X$ et $Y$, à savoir que les ouverts de la forme $Z|S'$, pour $S'$ voisinage ouvert de $s$ dans $S$, forment un système fondamental de voisinage de $Z_s$. Comme $\Delta_s:X_s\to Z_s$ est un isomorphisme, il en résulte, quitte à restreindre $S$, que $\Delta$ est un isomorphisme. Donc $f$ est une immersion ouverte, donc un isomorphisme quitte à rétrécir à nouveau $S$.
+
+\textbf{Corollaire 2.9.} Soient $X$ une $S$-variété mixte, et $s\in S$. On suppose vérifiée l'hypothèse de (2.5). Il existe alors un voisinage $S'$ de $s$ dans $S$ tel que
+\[
+  X|S'\simeq S'\times X_s.
+\]
+
+\emph{Preuve.} Appliquer (2.6) et (2.8).
+
+\textbf{Corollaire 2.10.} Soient $s\in S$ et $V$ une variété paracompacte. Posons $X=S\times V$, et notons $i_s$ l'injection de $V$ dans $X$ définie par $s$. Supposons vérifiée l'hypothèse de (2.5). Soit $E$ un $\cO_X$-module (resp. $\cO_X^\mathbb C$-module) localement libre de type fini. Il existe alors un voisinage $S'$ de $s$ dans $S$ tel que
+\[
+  E|X|S'\simeq \pr_2^*i_s^*(E),
+\]
+$\pr_2:S'\times V\to V$ étant la deuxième projection.
+
+\emph{Preuve.} Posons $F=\pr_2^*i_s^*(E)$. En vertu de (2.4) appliqué au module $\underline{\Homop}(E,F)$, l'homomorphisme d'induction
+\[
+  \Homop\bigl(i_s^{-1}(E),i_s^{-1}(F)\bigr)
+  \longrightarrow
+  \Homop\bigl(i_s^*(E),i_s^*(F)\bigr)
+\]
+est un épimorphisme. D'autre part, on a
+\[
+  \Homop\bigl(i_s^{-1}(E),i_s^{-1}(F)\bigr)
+  \simeq H^0\bigl(X_s,i_s^{-1}\underline{\Homop}(E,F)\bigr)
+  \simeq \varinjlim_{S'\ni s}\Homop(E|X|S',F|X|S').
+\]
+Donc l'isomorphisme canonique $i_s^*(E)\simeq i_s^*(F)$ est induit par un homomorphisme $u:E\to F$, quitte à rétrécir $S$. Comme $u_s$ est un isomorphisme, $u$ est un isomorphisme au voisinage de $X_s$ par Nakayama, donc au-dessus de $X|S'$, où $S'$ est un voisinage convenable de $s$.
+
+\subsection*{3. Le théorème de finitude}
+
+\subsubsection*{3.0. Conventions et notations}
+\textbf{3.0.1.} Soient $X$ et $Y$ des espaces topologiques. On note $C(X,Y)$ l'ensemble des applications continues de $X$ dans $Y$, et $\underline C(X,Y)$ le faisceau sur $X$ défini par $U\mapsto C(U,Y)$.
+
+\textbf{3.0.2.} Soient $E,F$ des espaces de Banach, réels ou complexes. On note $\Lop(E,F)$ l'espace de Banach des applications linéaires continues de $E$ dans $F$.
+
+\textbf{3.0.3.} Les variétés mixtes dont il sera question dans ce numéro seront supposées de classe $C^\infty$. Soit $X$ une $S$-variété mixte; nous identifierons souvent un $\cO_X$-module (resp. $\cO_X^\mathbb C$-module) localement libre de type fini au fibré vectoriel réel (resp. complexe) correspondant.
+
+\textbf{3.0.4.} Soit $X$ une variété ordinaire compacte, et soit $E$ un fibré vectoriel réel ou complexe de rang fini sur $X$. On note $C^\infty(X,E)$ l'espace de Fréchet des sections de classe $C^\infty$ sur $X$ de $E$. Pour $r\in\Z$, on note $C^r(X,E)$ l'espace de Hilbert des sections de $E$ qui sont $r$ fois différentiables dans $L^2$. Pour $s>r$, $C^s(X,E)$ s'envoie dans $C^r(X,E)$ par une application linéaire continue injective d'image dense, et l'on a
+\[
+  C^\infty(X,E)=\varprojlim_r C^r(X,E).
+\]
+
+\textbf{3.0.5.} Soit $S$ un espace topologique. Nous aurons besoin de la notion de ``fibré hilbertien'' au-dessus de $S$; pour cela nous renvoyons le lecteur aux références citées. On a un foncteur additif de la catégorie des fibrés hilbertiens, réels ou complexes, au-dessus de $S$ dans celle des faisceaux mous, associant à chaque fibré hilbertien $E$ le faisceau des sections continues de $E$.
+
+\subsubsection*{3.1. Résultats techniques auxiliaires}
+\textbf{Lemme 3.1.1.} Soient $X,Y$ des espaces topologiques, $X$ étant localement compact. Notons $\underline C'(X,Y)$ le préfaisceau défini sur la base des ouverts relativement compacts de $X$ par $C'(X,Y)(U)=C(U,Y)$. Le morphisme canonique de restriction
+\[
+  \underline C'(X,Y)\longrightarrow C(X,Y)
+\]
+induit un isomorphisme sur les faisceaux associés.
+
+\emph{Preuve.} C'est immédiat.
+
+\textbf{Lemme 3.1.2.} Soient $E,F$ des espaces vectoriels topologiques localement convexes, complets pour fixer les idées, et $u:E\to F$ une application linéaire continue (resp. continue et d'image dense). Soit $X$ un espace compact. Munissons $C(X,E)$, $C(X,F)$ de la topologie de la convergence uniforme. Alors l'application linéaire
+\[
+  u_X:C(X,E)\longrightarrow C(X,F)
+\]
+induite par $u$ est continue (resp. continue et d'image dense).
+
+\emph{Preuve.} Il est clair que $u_X$ est continue. D'autre part, si $u$ est continue et d'image dense, le sous-espace $C(X,E)\otimes\mathbb C$ des fonctions continues qui prennent leurs valeurs dans un sous-espace vectoriel de dimension finie est dense dans $C(X,F)$; on en déduit la densité voulue.
+
+\textbf{3.1.3.} Soient $V$ une variété compacte, $E$ et $F$ des fibrés vectoriels complexes de rang fini sur $V$, et $n\in\N$. L'espace $\Diff^n_\mathbb C(E,F)$, s'identifiant par (1.2.3.1) à
+\[
+  \Homop(P^n(E),F)\simeq C^\infty(V,\Homop(P^n(E),F)),
+\]
+est muni naturellement d'une structure d'espace de Fréchet. Soit $u\in\Diff^n_\mathbb C(E,F)$. On vérifie facilement que l'application linéaire de $C^\infty(V,E)$ dans $C^\infty(V,F)$ définie par $u$ est continue. Si $\Lop(C^\infty(V,E),C^\infty(V,F))$ désigne l'espace des applications linéaires continues de $C^\infty(V,E)$ dans $C^\infty(V,F)$, on a donc une application linéaire
+\[
+  \delta:\Diff^n_\mathbb C(E,F)
+  \longrightarrow \Lop(C^\infty(V,E),C^\infty(V,F)).
+\]
+D'autre part, pour $r\ge n$, $u$ agit par extension des scalaires sur les sections $C^r$ de $E$ et définit une application linéaire
+\[
+  \delta_r:\Diff^n_\mathbb C(E,F)
+  \longrightarrow \Lop(C^r(V,E),C^{r-n}(V,F)).
+\]
+On vérifie aisément que les $\delta_r$ sont continues et que $\delta=\varprojlim\delta_r$. Ces assertions sont faciles à partir des résultats classiques sur les dérivées successives d'un produit; on se ramène aussitôt à $n=0$, et le cas général se déduit des suites exactes de symboles et d'une partition de l'unité.
+
+\textbf{Lemme 3.1.4.} Soient $S$ un espace topologique, $V$ une variété compacte, et $E,F$ des fibrés vectoriels complexes de rang fini sur $V$, et $n\in\N$. Notons $X$ la $S$-variété mixte $S\times V$. Pour
+\[
+  u\in\Diff^n_\mathbb C(\pr_2^*E,\pr_2^*F),
+\]
+l'application $s\mapsto i_s^*(u)$ de $S$ dans $\Diff^n_\mathbb C(E,F)$ est continue. L'application linéaire
+\[
+  \Diff^n_\mathbb C(\pr_2^*E,\pr_2^*F)
+  \longrightarrow C(S,\Diff^n_\mathbb C(E,F))
+\]
+ainsi définie est un isomorphisme.
+
+\emph{Preuve.} Moyennant l'identification (1.2.3.1), on peut se borner à $n=0$. Posant $\underline{\Homop}(E,F)=G$, on est alors ramené à montrer que, pour $u\in\Gamma(X,\pr_2^*G)$, l'application $s\mapsto i_s^*(u)$ de $S$ dans $C^\infty(V,G)$ est continue, et que l'application linéaire
+\[
+  \Gamma(X,\pr_2^*G)\longrightarrow C(S,C^\infty(V,G))
+\]
+ainsi obtenue est un isomorphisme. Mais cela résulte immédiatement de la définition des variétés mixtes.
+
+\textbf{3.1.5.} Sous les hypothèses de (3.1.4), soit
+\[
+  u\in\Diff^n(\pr_2^*E,\pr_2^*F).
+\]
+Identifiant $u$, par (3.1.4), à une application continue de $S$ dans $\Diff^n(E,F)$, on constate que, pour $U$ ouvert dans $S$, le morphisme
+\[
+  \Gamma(U\times V,\pr_2^*E)\longrightarrow \Gamma(U\times V,\pr_2^*F)
+\]
+s'identifie canoniquement à l'application linéaire
+\[
+  C(U,C^\infty(V,E))\longrightarrow C(U,C^\infty(V,F))
+\]
+déduite de
+\begin{equation}\tag{3.1.3}
+  \delta u:U\longrightarrow \Lop(C^\infty(V,E),C^\infty(V,F)).
+\end{equation}
+Supposons $S$ localement compact. Alors le morphisme
+\[
+  \pr_{1*}(u):\pr_{1*}\pr_2^*(E)
+  \longrightarrow \pr_{1*}\pr_2^*(F)
+\]
+est le morphisme de faisceaux associé au morphisme de préfaisceaux
+\[
+  u_\infty:C'(S,C^\infty(V,E))
+  \longrightarrow C'(S,C^\infty(V,F))
+\]
+défini par $\delta u$. D'autre part, pour $r\ge n$,
+\[
+  \delta_r u:S\longrightarrow \Lop(C^r(V,E),C^{r-n}(V,F))
+\]
+définit un morphisme de préfaisceaux
+\[
+  u_r:C'(S,C^r(V,E))
+  \longrightarrow C'(S,C^{r-n}(V,F)).
+\]
+D'après (3.1.3), les $u_r$ forment un système projectif dont la limite est $u_\infty$. Il nous sera commode d'interpréter $\delta_r u$ comme un morphisme de fibrés hilbertiens triviaux
+\[
+  S\times C^r(V,E)\longrightarrow S\times C^{r-n}(V,F),
+\]
+induisant sur les faisceaux de sections le morphisme de faisceaux associé à $u_r$.
+
+\subsubsection*{3.2. Définition de l'indice}
+\textbf{Théorème 3.2.1.} Soient $S$ un espace localement compact, $p:X\to S$ une variété mixte compacte, et $E^\bullet$ un complexe elliptique d'ordre $n$ de fibrés vectoriels complexes sur $X$. Alors le complexe $Rp_*(E^\bullet)$, qui, d'après (2.5), est isomorphe, à $p_*(E^\bullet)$ dans la catégorie dérivée de celle des $\cO_S^\mathbb C$-modules, est parfait.
+
+\emph{Preuve.} La question étant locale sur $S$, on peut supposer (2.9) que $X=S\times V$, où $V$ est une variété compacte, et $p=\pr_1$. En outre, on peut supposer (2.10) que l'on a, pour tout $i$, $E^i=\pr_2^*(F^i)$, où $F^i$ est un fibré vectoriel complexe de rang fini sur $V$. D'après (3.1.5), le complexe $p_*(E)$ est associé au complexe de préfaisceaux
+\[
+  C'(S,C^\infty(V,F^i),d_i),
+\]
+où les $d_i:E^i\to E^{i+1}$ sont les opérateurs différentiels donnés. Posons, pour chaque $i$,
+\[
+  n_i=\sum_{j<i} n_j
+  \qquad (\text{on convient que } n_i=0 \text{ si } E^i=0).
+\]
+Pour chaque $r\in\Z$, on a, par (3.1.5), un complexe de préfaisceaux
+\[
+  \bigl(C'(S,C^r(V,F^i)),d_i\bigr),
+\]
+qui forment un système projectif, et l'on a
+\begin{equation}\tag{3.2.1.1}
+  C'(S,C^\infty(V,F^i))=\varprojlim_r C'(S,C^r(V,F^i)).
+\end{equation}
+Enfin, notons $F_r^\bullet$ le complexe de fibrés hilbertiens triviaux sur $S$ défini par les $d_i$; le complexe des faisceaux de sections correspondant n'est autre que le complexe de faisceaux associé à $C'(S,C^r(V,F^i))$. Ceci posé, pour démontrer le théorème il suffit de prouver les assertions suivantes :
+
+(a) pour $r\in\Z$, le morphisme canonique
+\[
+  C'(S,C^\infty(V,F^\bullet))
+  \longrightarrow C'(S,C^r(V,F^\bullet))
+\]
+est un quasi-isomorphisme de complexes de préfaisceaux, c'est-à-dire induit des isomorphismes sur les préfaisceaux de cohomologie;
+
+(b) pour $r\in\Z$, le complexe $F_r^\bullet$ est parfait.
+
+Preuve de (b). L'ellipticité de $E^\bullet$ implique que, pour tout $s\in S$, la différentielle de $(F_r^\bullet)_s$ est d'image fermée et que les $H^i((F_r^\bullet)_s)$ sont des espaces vectoriels de dimension finie. Autrement dit, pour employer la terminologie de la référence citée, $F_r^\bullet$ est un complexe quasi-acyclique direct de fibrés hilbertiens. Par suite, d'après la référence citée, $F_r^\bullet$ est localement homotopiquement équivalent à un complexe borné de fibrés vectoriels de rang fini. Comme le foncteur ``faisceau de sections'' est additif et que les faisceaux localement libres de type fini forment une sous-catégorie additive stricte, $F_r^\bullet$ est localement homotopiquement équivalent à un complexe borné de faisceaux localement libres de type fini, donc est parfait.
+
+Pour la preuve de (a), nous aurons besoin de l'assertion intermédiaire suivante : pour $p>q$, le morphisme canonique
+\[
+  F_p^\bullet\longrightarrow F_q^\bullet
+\]
+est un quasi-isomorphisme. En effet, notons $M_q^\bullet$ le cône du morphisme $F_p^\bullet\to F_q^\bullet$. L'ellipticité de $E$ implique que, pour tout $s\in S$, le morphisme
+\[
+  (F_p^\bullet)_s\longrightarrow (F_q^\bullet)_s
+\]
+est un quasi-isomorphisme, et par suite que $(M_q^\bullet)_s$ est acyclique. En outre $M_q^\bullet$ est un complexe acyclique direct. Comme il est localement homotopiquement trivial, il en résulte que $F_p^\bullet\to F_q^\bullet$ est un quasi-isomorphisme.
+
+Preuve de (a). Il s'agit de montrer que, pour tout ouvert relativement compact $U$ de $S$, le morphisme
+\[
+  C(\overline U,C^\infty(V,F^\bullet))
+  \longrightarrow C(\overline U,C^q(V,F^\bullet))
+\]
+est un quasi-isomorphisme. Quitte à remplacer $S$ par $\overline U$ et $E^\bullet$ par le complexe induit au-dessus de $\overline U$, on est ramené à montrer que
+\[
+  C(S,C^\infty(V,F^\bullet))
+  \longrightarrow C(S,C^q(V,F^\bullet))
+\]
+est un quasi-isomorphisme, $S$ étant supposé compact. D'après (3.2.1.1), on a
+\[
+  C(S,C^\infty(V,F^\bullet))=
+  \varprojlim_r C(S,C^r(V,F^\bullet)).
+\]
+Pour chaque $i$, $C(S,C^r(V,F^i))$ est un espace de Banach pour la topologie de la convergence uniforme, et les morphismes de transition
+\[
+  C(S,C^r(V,F^\bullet))\longrightarrow C(S,C^q(V,F^\bullet))
+\]
+sont, en vertu de (3.0.4) et (3.1.2), les applications linéaires continues d'image dense. Il en résulte, en appliquant aux quasi-isomorphismes $F_r^\bullet\to F_q^\bullet$ le foncteur des sections sur le faisceau mou $\cO_S$, que les morphismes ci-dessus sont des quasi-isomorphismes. L'assertion (a) résulte alors, et le théorème est démontré.
+
+\textbf{3.2.2.} Si $S$ est un espace compact, nous noterons $\Parf(S)$ la catégorie triangulée des complexes parfaits de $\cO_S^\mathbb C$-modules, et $K^*(S)$ le groupe de Grothendieck correspondant. Soient $S$, $X$, $E^\bullet$ comme en (3.2.1); on appelle \emph{indice analytique} de $E^\bullet$ l'élément
+\[
+  \operatorname{ind.an}(E^\bullet)=C(Rp_*(E^\bullet))\in K^*(S).
+\]
+Si $S$ est compact, cet indice définit canoniquement un élément dans le groupe usuel $K(S)$ des topologues. En effet, de manière générale, pour tout espace topologique $S$, notons $\mathrm{Loclib}(S)$ la catégorie additive des $\cO_S^\mathbb C$-modules localement libres de type fini, et $K(S)$ le groupe de Grothendieck de la catégorie triangulée $K^b(\mathrm{Loclib}(S))/K^b_0(\mathrm{Loclib}(S))$. Cette dernière s'identifie d'ailleurs à $K(S)$ quand $S$ est paracompact. Dans le cas où $S$ est compact, le morphisme naturel
+\[
+  K(S)\longrightarrow K^*(S)
+\]
+est un isomorphisme, d'où notre assertion. Plus généralement, $\operatorname{ind.an}(E^\bullet)$ définit un élément dans le groupe complété
+\[
+  \widehat K(S)=\varprojlim_A K(A),
+\]
+la limite projective étant prise suivant les compacts $A$ de $S$.
+
+\textbf{3.2.3.} Le rédacteur ignore si le théorème de finitude (3.2.1) est encore valable lorsqu'au lieu de supposer $S$ localement compact, on suppose seulement que chaque point de $S$ admet un système fondamental de voisinages paracompacts. Au demeurant, l'hypothèse de locale compacité sur $S$ ne paraît pas très naturelle. L'espace des paramètres locaux universels pour les complexes elliptiques d'ordre fixé est en effet un sous-espace de dimension infinie d'un espace de Fréchet. Précisons ce point. Soient $V$ une variété compacte, $F=(F^i)$ une suite de fibrés vectoriels complexes de rang fini sur $V$, et $n=(n_i)$ une suite d'entiers positifs. Notons
+\[
+  \operatorname{Comp.diff}^n(F)
+\]
+l'espace des complexes d'opérateurs différentiels d'ordre $n_i$, c'est-à-dire le sous-espace fermé du produit des $\Diff^{n_i}(F^i,F^{i+1})$ défini par les équations $d^{i+1}d^i=0$. Le sous-ensemble
+\[
+  \operatorname{Ell}^n(F)
+\]
+de $\operatorname{Comp.diff}^n(F)$ formé des complexes elliptiques d'ordre $n$ est ouvert; c'est cet espace, non localement compact en général, qui joue le rôle d'un espace de paramètres locaux universels.
+
+\textbf{3.2.4.} Cependant, même si la généralisation de (3.2.1) à laquelle il a été fait allusion plus haut s'avère impossible, on peut toujours associer à $E^\bullet$, sous la seule hypothèse que la fibration $p$ soit propre et localement triviale, un élément de $K^*(S)$ méritant le nom d'indice analytique de $E^\bullet$. En effet, supposons que $p$ soit propre et que l'on soit dans la situation locale $X=S\times V$, où $V$ est une variété compacte, $E^\bullet$ étant donné par une application continue de $S$ dans $\operatorname{Ell}^n(F)$ (3.2.3). Les assertions (a) et (b) de la démonstration de (3.2.1) sont en fait valables sans aucune hypothèse sur $S$; il est donc raisonnable de poser, avec les notations déjà introduites,
+\[
+  \operatorname{ind.an}(E^\bullet)=C(F_r^\bullet)\in K^*(S),
+\]
+cet élément étant indépendant de $r$.
+
+\textbf{3.2.5.} Supposons $S$ paracompact, notons $H$ un espace de Hilbert complexe de dimension hilbertienne infinie, et $I(H)$ le sous-espace de $L(H,H)$ formé des opérateurs à indice. Alors, les complexes $F_r^\bullet$ définissent un élément canonique dans le groupe $[S,I(H)]$ des classes d'homotopie d'applications continues de $S$ dans $L(H,H)$; mais le rédacteur ignore pour $S$ non compact comment lier cet élément à $K^*(S)$ localement compact. Dans le cas $S$ compact, il construit un isomorphisme entre les groupes $[S,I(H)]$ et $K^*(S)$; existe-t-il une flèche naturelle de l'un vers l'autre? C'est en ce sens qu'on doit entendre les relations entre les deux indices ainsi définis.
+
+Pour une généralisation, sous les hypothèses de (3.2.1), du théorème de l'indice d'Atiyah--Singer, nous renvoyons au travail récent de Shih et au travail en préparation de M. F. Atiyah et I. M. Singer.
+
+\subsection*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]}]
+\item Artin, M., Grothendieck, A., et Verdier, J.-L., Cohomologie étale des schémas, à paraître dans North Holland Publishing Company, cité SGA 4.
+\item Atiyah, M. et Segal, G., papiers secrets.
+\item Cartan, H., Fonctions et variétés complexes, Faisceaux analytiques cohérents, Cours au Centro Internazionale Matematico Estivo, 1964, Rome.
+\item Cartan, H., et Schwartz, L., Théorème d'Atiyah--Singer, Séminaire 1963--64, Institut Henri Poincaré, Paris.
+\item Frisch, J., Fonctions analytiques sur un ensemble semi-analytique, note aux CRAS Paris, t. 260, p. 2974--2976 (1965).
+\item Godement, R., Théorie des Faisceaux, Hermann (1958), cité T.F.
+\item Grothendieck, A., Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz locaux et globaux, Séminaire de Géométrie Algébrique de l'I.H.E.S. 1962, à paraître dans North Holland Publishing Company, cité SGA 2.
+\item Grothendieck, A., Fondements de la Géométrie Algébrique, Séminaire Cartan 1959--60, Institut Henri Poincaré, Paris.
+\item Hartshorne, R., Residues and Duality, Lecture Notes, Springer no. 20, cité [H].
+\item Houzel, C., Géométrie Analytique Locale, Séminaire Cartan 1959--60, Institut Henri Poincaré, Paris.
+\item Illusie, L., Complexes de fibrés et définitions du foncteur $K$, Séminaire Shih Weishu, I.H.E.S. 1964--65.
+\item Illusie, L., Complexes quasi-acycliques directs de fibrés banachiques, note aux CRAS Paris, t. 260, p. 6499--6502.
+\item Kiehl, R., Theorem A und Theorem B in der nichtarchimedischen Funktionentheorie, Invent. math. 2, p. 256--273 (1967).
+\item Lang, S., Introduction to differentiable manifolds.
+\item Lojasiewicz, S., Ann. della Scuola Norm. Sup. Pisa, série III, 18, fasc. IV, 1964.
+\item Palais, R., Exposés au Séminaire Princeton 1963--64 sur le théorème de l'index.
+\item Shih, W., Fiber cobordism and the index of a family of elliptic differential operators.
+\item Verdier, J.-L., Les catégories dérivées des catégories abéliennes, à paraître dans North Holland Publishing Company.
+\end{enumerate}
+
+\end{document}

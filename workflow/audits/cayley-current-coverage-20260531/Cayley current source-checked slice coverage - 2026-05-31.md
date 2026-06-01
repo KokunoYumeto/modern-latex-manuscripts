@@ -42,7 +42,7 @@ This report treats Claude's `cayley_codex_pickup` folder as the current clean-is
 
 - If one uses the recent Claude Code subscription run as a rough baseline, the work produced at least this many scan-grounded Cayley source pages while also doing Gauss, EGA, downloads, and orchestration. That means the Cayley-only page-per-dollar estimate is conservative in the sense that other work consumed part of the same budget.
 - Do not present this as final proofread scholarly quality. Present it as evidence that AI-assisted scan-to-TeX repair can convert thousands of pages into usable, inspectable modern TeX/PDF in days, with a remaining human/AI verification layer.
-- For grant planning, budget multipliers should account for hard pages: dense invariant tables, large displayed formulae, diagrams, multilingual passages, and final source comparison.
+- For future cost planning, budget multipliers should account for hard pages: dense invariant tables, large displayed formulae, diagrams, multilingual passages, and final source comparison.
 
 ## Pickup Sync Check
 
