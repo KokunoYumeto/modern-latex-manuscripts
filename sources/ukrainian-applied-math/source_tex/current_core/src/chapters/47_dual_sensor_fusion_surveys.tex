@@ -1,0 +1,52 @@
+\chapter{Два огляди сенсорного злиття: embodied AI і event odometry}
+\label{chap:dual-sensor-fusion}
+
+\sourcebox{Source-preserved модулі: \sourcepath{sensor_fusion_2506.19769/} і \sourcepath{sensor_fusion_2410.15480/}. Другий модуль у цій сесії скомпільовано як окремий IEEE-style PDF.}
+
+Після останнього auxiliary local run payload сенсорне злиття стало окремою сильною віссю корпусу. Є два різні, але взаємодоповнювальні матеріали.
+
+\section{Fusion taxonomy}
+
+Для прикладної математики корисно розділяти рівні злиття:
+\begin{itemize}[leftmargin=*]
+\item \textbf{data-level fusion}: об'єднання сирих або майже сирих вимірювань;
+\item \textbf{feature-level fusion}: об'єднання ознак, embeddings, keypoints, point/voxel/BEV representations;
+\item \textbf{decision-level fusion}: об'єднання уже готових рішень або гіпотез;
+\item \textbf{temporal fusion}: послідовне накопичення інформації в часі;
+\item \textbf{multi-agent fusion}: об'єднання інформації між агентами або платформами.
+\end{itemize}
+
+Ключова математична тема: усе це є різними способами апроксимації умовного розподілу
+\begin{equation}
+  p(x_t\mid z_{1:t}^{(1)},z_{1:t}^{(2)},\ldots,z_{1:t}^{(m)}),
+\end{equation}
+де $x_t$ --- стан, а $z^{(i)}$ --- потік вимірювань $i$-го сенсора.
+
+\section{Калібрування і синхронізація}
+
+Більшість помилок у fusion-системах не є ``помилками нейромережі''. Вони походять з невідомих або змінних параметрів:
+\begin{equation}
+  T_{ab}\in SE(3),\qquad \Delta t_{ab}\in\R,\qquad K, D, b, \sigma.
+\end{equation}
+Тут $T_{ab}$ --- extrinsic transform між сенсорами, $\Delta t_{ab}$ --- часовий offset, $K,D$ --- camera intrinsics/distortion, $b$ --- bias, $\sigma$ --- noise scale. Український корпус має підкреслювати: без калібрування злиття сенсорів створює впевнені, але хибні оцінки.
+
+\section{Подієві камери}
+
+Event camera не повертає стандартний кадр $I(x,y,t)$, а події
+\begin{equation}
+  e_k=(x_k,y_k,t_k,p_k),
+\end{equation}
+коли лог-інтенсивність у пікселі змінюється на поріг. Це створює асинхронний потік з дуже високою часовою роздільністю і високим динамічним діапазоном. Математично це змушує перейти від ``кадрів'' до подій, потоків, часових поверхонь, накопичувальних вікон і неперервно-часового оцінювання.
+
+\section{Практичний міст до ESKF і factor graphs}
+
+Event/Vision/IMU odometry природно зводиться до вже наявних модулів:
+\begin{itemize}[leftmargin=*]
+\item кватерніони та $SE(3)$ для орієнтації й пози;
+\item ESKF для швидкого рекурсивного оцінювання;
+\item factor graphs для batch/smoothing задач;
+\item робастні залишки для outliers;
+\item NIS/NEES для статистичної перевірки.
+\end{itemize}
+
+Отже, цей блок не витісняє Kalman/Lie матеріал, а замикає його на сучасні perception stack задачі.

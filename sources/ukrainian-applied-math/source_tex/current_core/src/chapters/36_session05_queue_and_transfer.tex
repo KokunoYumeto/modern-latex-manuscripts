@@ -1,0 +1,60 @@
+\chapter{Сесія 05: оновлена черга і transfer}
+\label{ch:session05-queue-transfer}
+
+\section{Стан після цієї сесії}
+
+Поточний інтегрований reference має такі робочі доріжки:
+\begin{enumerate}[label=\arabic*.]
+\item ESKF/quaternion/Lie-state-estimation core;
+\item Kalman/EKF/ESKF implementation checks;
+\item DSP/Fourier/IQ/sampling/filtering;
+\item SDR/RF architecture;
+\item Maxwell/antenna vocabulary anchor;
+\item multisensor fusion perception survey layer;
+\item wave equation/control/PDE energy layer;
+\item new digital modulation + information/coding bridge;
+\item new Gaussian-Bayes-to-Kalman and state-space discretization bridge;
+\item new Spark/Codex batch lane.
+\end{enumerate}
+
+\section{Пріоритет перекладу, якщо є сильні auxiliary local run/API tokens}
+
+\begin{longtable}{L{0.12\linewidth}L{0.34\linewidth}L{0.44\linewidth}}
+\toprule
+Priority & Target & Reason \\
+\midrule
+P0 & Solà \texttt{1711.02508}: \texttt{Quaternion.tex}, \texttt{ErrorState.tex}, \texttt{Noise.tex}, \texttt{kinematics.tex} & Це головний source-preserved ESKF документ. \\
+P0 & micro Lie theory: \texttt{SO3.tex}, \texttt{SE3.tex}, \texttt{derivation\_rules.tex}, \texttt{localization.tex} & Потрібний notation spine для SLAM/VIO/state estimation. \\
+P0 & Labbe Kalman: chapters 04, 06, 07, 08, 11 & Практичний доступний Kalman textbook lane; добре йде через Markdown-to-TeX. \\
+P0 & PySDR: \texttt{digital\_modulation.rst}, \texttt{pulse\_shaping.rst}, \texttt{sync.rst}, \texttt{channel\_coding.rst} & Уже українською; треба repair, TeX-normalization, glossary QA. \\
+P1 & Autonomous Robots chapters: kinematics, localization, planning & Широкий engineering-math bridge без оперативної специфіки. \\
+P1 & FDM/FEM selected chapters & Numerical PDE/simulation foundation. \\
+P1 & Open Optimization selected chapters & LP/IP/NLP/least-squares/convexity bridge. \\
+P2 & Deep learning / vision surveys & Після стабілізації foundations. \\
+\bottomrule
+\end{longtable}
+
+\section{Пріоритет, якщо треба спалити Spark/Codex weekly pool}
+
+Spark не ставимо на semantic-heavy full translation. Йому віддаємо:
+\begin{enumerate}[label=\arabic*.]
+\item RST/Markdown-to-TeX conversion для PySDR і Labbe;
+\item TeX compile-error repair на малих modules;
+\item glossary extraction з batch output;
+\item invariant checks: labels, refs, citations, math delimiter balance;
+\item section splitting і release-card generation;
+\item smoke builds і log summarization.
+\end{enumerate}
+
+\section{Definition of done для Spark batch}
+
+Batch вважається завершеним, якщо він дає:
+\begin{enumerate}[label=\arabic*.]
+\item один \texttt{.tex} або малий набір \texttt{.tex} файлів;
+\item \texttt{BUILD.md} з командою компіляції;
+\item \texttt{CHECK\_REPORT.md} з unresolved issues;
+\item \texttt{TERMS.csv} з новими термінами;
+\item no non-source additions;
+\item no unsolicited changes to equations.
+\end{enumerate}
+

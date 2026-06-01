@@ -1,0 +1,155 @@
+\chapter{Кватерніони: угоди, добуток, повороти}
+
+\sourcebox{Джерело для цього модуля: Joan Solà, \emph{Quaternion kinematics for the error-state Kalman filter}, arXiv:1711.02508, файли \texttt{Abstract.tex} і \texttt{Quaternion.tex}. Тут подано українську TeX-версію ядра: угоди, основні операції, матричні форми та практичні попередження для ESKF.}
+
+\section{Навіщо цей модуль у практичному ядрі}
+
+Кватерніони потрібні не як абстрактна алгебра, а як робочий спосіб представляти орієнтацію твердого тіла в просторі без сингулярностей, властивих ейлеровим кутам. У задачах оцінювання стану особливо важливо не переплутати три різні речі:
+\begin{enumerate}[leftmargin=2em]
+\item власне орієнтацію, тобто елемент групи обертань;
+\item параметризацію цієї орієнтації, наприклад одиничним кватерніоном;
+\item малу похибку орієнтації, яку фільтр Калмана може лінеаризувати в дотичному просторі.
+\end{enumerate}
+
+У ESKF велика нелінійна частина руху інтегрується у номінальному стані, а мала похибка живе в мінімальному тривимірному просторі. Саме тому в одному документі треба тримати і кватерніони, і групи Лі, і фільтр стану похибки.
+
+\section{Означення і угода Гамільтона}
+
+Нехай маємо чотири дійсні числа $a,b,c,d\in\R$ і три уявні одиниці $i,j,k$. Кватерніон записується як
+\begin{equation}
+Q=a+bi+cj+dk\in\quat .
+\end{equation}
+У цьому пакеті використовується гамільтонова угода
+\begin{subequations}\label{eq:hamilton_algebra}
+\begin{align}
+i^2=j^2=k^2=ijk=-1,\\
+ij=-ji=k,\qquad jk=-kj=i,\qquad ki=-ik=j.
+\end{align}
+\end{subequations}
+Це не декоративна деталь. Якщо джерело використовує іншу угоду, наприклад ставить скалярну частину останньою або міняє знак добутку $ij$, формули для матриць добутку, похідних і якобіанів змінюються. Для машинного перекладу це треба позначати явно.
+
+Кватерніон можна розбити на скалярну та векторну частини:
+\begin{equation}
+Q=q_w+q_x i+q_y j+q_z k
+  =q_w+\vect{q}_v
+  \quad\Longleftrightarrow\quad
+\vect{q}=\begin{bmatrix}q_w\\q_x\\q_y\\q_z\end{bmatrix}.
+\end{equation}
+Чистий кватерніон має нульову скалярну частину:
+\begin{equation}
+\vect{v}\in\R^3
+\quad\leadsto\quad
+[0,\vect{v}]\in\quat .
+\end{equation}
+
+\section{Добуток кватерніонів}
+
+Для $\vect{p}=(p_w,\vect{p}_v)$ і $\vect{q}=(q_w,\vect{q}_v)$ гамільтонів добуток має вигляд
+\begin{equation}\label{eq:qprod_vec}
+\vect{p}\qmul\vect{q}
+=
+\begin{bmatrix}
+p_wq_w-\vect{p}_v\trans\vect{q}_v\\
+p_w\vect{q}_v+q_w\vect{p}_v+\vect{p}_v\times\vect{q}_v
+\end{bmatrix}.
+\end{equation}
+Через наявність векторного добутку загалом
+\begin{equation}
+\vect{p}\qmul\vect{q}\ne \vect{q}\qmul\vect{p}.
+\end{equation}
+Добуток асоціативний, але не комутативний. У перекладі та коді це означає: не можна ``переставити'' множники заради стилю або компактності.
+
+У координатах формула \eqref{eq:qprod_vec} еквівалентна
+\begin{equation}\label{eq:qprod_coords}
+\vect{p}\qmul\vect{q}
+=
+\begin{bmatrix}
+p_wq_w-p_xq_x-p_yq_y-p_zq_z\\
+p_wq_x+p_xq_w+p_yq_z-p_zq_y\\
+p_wq_y-p_xq_z+p_yq_w+p_zq_x\\
+p_wq_z+p_xq_y-p_yq_x+p_zq_w
+\end{bmatrix}.
+\end{equation}
+
+\section{Ліва і права матриці добутку}
+
+Добуток можна записати як матричне множення двома рівносильними способами:
+\begin{equation}
+\vect{q}_1\qmul\vect{q}_2
+=\mat{Q}_L(\vect{q}_1)\vect{q}_2
+=\mat{Q}_R(\vect{q}_2)\vect{q}_1.
+\end{equation}
+Для гамільтонової угоди
+\begin{equation}\label{eq:ql_qr}
+\mat{Q}_L(\vect{q})=
+\begin{bmatrix}
+q_w&-q_x&-q_y&-q_z\\
+q_x&q_w&-q_z&q_y\\
+q_y&q_z&q_w&-q_x\\
+q_z&-q_y&q_x&q_w
+\end{bmatrix},\qquad
+\mat{Q}_R(\vect{q})=
+\begin{bmatrix}
+q_w&-q_x&-q_y&-q_z\\
+q_x&q_w&q_z&-q_y\\
+q_y&-q_z&q_w&q_x\\
+q_z&q_y&-q_x&q_w
+\end{bmatrix}.
+\end{equation}
+Ці дві матриці часто є місцем помилок у перекладі. Якщо в джерелі формула відрізняється знаком, спочатку перевіряється угода: Hamilton/JPL, scalar-first/scalar-last, активний чи пасивний поворот.
+
+\section{Спряження, норма, обернений кватерніон}
+
+Спряжений кватерніон
+\begin{equation}
+\vect{q}^* = \begin{bmatrix}q_w\\-\vect{q}_v\end{bmatrix}
+\end{equation}
+дає норму
+\begin{equation}
+\|\vect{q}\|^2=\vect{q}\qmul\vect{q}^*=q_w^2+q_x^2+q_y^2+q_z^2.
+\end{equation}
+Якщо $\|\vect{q}\|=1$, то
+\begin{equation}
+\vect{q}^{-1}=\vect{q}^*.
+\end{equation}
+У чисельній інтеграції орієнтації одиничність треба підтримувати нормалізацією або стабільною експоненціальною інтеграцією. Інакше матриця повороту, отримана з кватерніона, поступово перестає бути ортогональною.
+
+\section{Одиничний кватерніон як поворот}
+
+Поворот на кут $\theta$ навколо одиничної осі $\vect{u}$ задається кватерніоном
+\begin{equation}\label{eq:unit_quat_axis_angle}
+\vect{q}=\begin{bmatrix}\cos(\theta/2)\\ \vect{u}\sin(\theta/2)\end{bmatrix}.
+\end{equation}
+Вектор $\vect{v}\in\R^3$ обертається через подвійний добуток
+\begin{equation}\label{eq:quat_rotate_vector}
+[0,\vect{v}'] = \vect{q}\qmul[0,\vect{v}]\qmul\vect{q}^*.
+\end{equation}
+У цій формулі закладено активне обертання вектора. Якщо джерело описує пасивне перетворення координат між системами відліку, порядок або спряження можуть бути іншими. Перекладач не повинен ``виправляти'' це без нотатки.
+
+\section{Мала похибка орієнтації}
+
+У фільтрах стану похибки мала тривимірна похибка $\delta\vect{\theta}\in\R^3$ перетворюється на малий кватерніон
+\begin{equation}\label{eq:small_error_quat}
+\delta\vect{q}
+=\begin{bmatrix}
+\cos(\|\delta\vect{\theta}\|/2)\\
+\frac{\delta\vect{\theta}}{\|\delta\vect{\theta}\|}\sin(\|\delta\vect{\theta}\|/2)
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+1\\ \frac{1}{2}\delta\vect{\theta}
+\end{bmatrix}.
+\end{equation}
+Наближення праворуч корисне лише для лінеаризації та якобіанів. Для накопичення реальної орієнтації краще використовувати експоненту або нормалізований кватерніон.
+
+\section{Практичний QA-блок}
+
+Перед тим як пакетний переклад вважати прийнятним, для кожного фрагмента з кватерніонами треба перевірити:
+\begin{enumerate}[leftmargin=2em]
+\item Чи явно вказано, яка угода використовується: Hamilton або інша.
+\item Чи не змінився порядок добутку $\vect{q}_1\qmul\vect{q}_2$.
+\item Чи не втрачено спряження $\vect{q}^*$ у формулах повороту.
+\item Чи не перекладено \emph{attitude} як ``ставлення'' замість ``орієнтація''.
+\item Чи не переплутано ``error-state'' зі звичайним ``state''.
+\item Чи не замінено малу тривимірну похибку $\delta\vect{\theta}$ на чотиривимірний кватерніон у коваріаційній матриці.
+\end{enumerate}

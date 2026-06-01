@@ -1,0 +1,91 @@
+% !TEX TS-program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguage{english}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm,booktabs,longtable,array,hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,pdftitle={arXiv 1711.02508 — кватерніони та ESKF: український старт}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{^\mathsf{T}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\qmul}{\otimes}
+\newcommand{\hatmap}[1]{\left[#1\right]_\times}
+\newcommand{\dt}{\Delta t}
+\newcommand{\sourcebox}[1]{\par\smallskip\noindent\fbox{\parbox{0.94\linewidth}{\small #1}}\par\smallskip}
+\title{arXiv 1711.02508 — кватерніони та ESKF: український старт}
+\author{Український TeX-first старт перекладу}
+\date{2026-06-01}
+\begin{document}
+\maketitle
+\sourcebox{Джерело: J. Solà, Quaternion kinematics for the error-state Kalman filter, arXiv:1711.02508. Стан: source-preserved draft start.}
+
+\section{Статус}
+
+Це не повний переклад. Це старт для окремої статті, який фіксує терміни й перші практичні формули. Наступна дія: перенести структуру оригінальних файлів \texttt{Abstract.tex}, \texttt{Quaternion.tex}, \texttt{ErrorState.tex}, \texttt{Noise.tex}, \texttt{kinematics.tex} і перекладати їх послідовно.
+
+\section{Анотаційний зміст українською}
+
+Стаття систематично переглядає поняття і формули, пов'язані з кватерніонами, обертаннями у тривимірному просторі та їх правильним використанням у рушіях оцінювання стану, зокрема у похибковому фільтрі Калмана. Центральна практична ідея: орієнтаційна похибка повинна бути малою тривимірною величиною в дотичному просторі, тоді як номінальна орієнтація зберігається як одиничний кватерніон.
+
+\section{Ключова домовленість}
+
+Кватерніон:
+\[
+q=\begin{bmatrix}w\\v\end{bmatrix},\qquad v=\begin{bmatrix}x&y&z\end{bmatrix}\T.
+\]
+Малий кут:
+\[
+\delta q \simeq \begin{bmatrix}1\\\delta\theta/2\end{bmatrix}.
+\]
+Локальна похибка:
+\[
+q_t=q\qmul\delta q.
+\]
+Глобальна похибка:
+\[
+q_t=\delta q\qmul q.
+\]
+Ці два варіанти дають різні знаки і різні Якобіани.
+
+\section{Мінімальна ESKF-схема}
+
+Номінальне передбачення:
+\begin{align}
+p_{k+1} &= p_k+v_k\dt+\frac12(R(q_k)(a_m-b_a)+g)\dt^2,\\
+v_{k+1} &= v_k+(R(q_k)(a_m-b_a)+g)\dt,\\
+q_{k+1} &= q_k\qmul\Exp((\omega_m-b_\omega)\dt).
+\end{align}
+
+Похибкова динаміка:
+\begin{align}
+\dot{\delta p}&=\delta v,\\
+\dot{\delta v}&=-R\hatmap{a_m-b_a}\delta\theta-R\delta b_a+\delta g-Ra_n,\\
+\dot{\delta\theta}&=-\hatmap{\omega_m-b_\omega}\delta\theta-\delta b_\omega-\omega_n.
+\end{align}
+
+\section{Перекладацькі мітки}
+
+\begin{longtable}{p{0.28\linewidth}p{0.30\linewidth}p{0.32\linewidth}}
+\toprule
+Оригінал & Українською & Коментар\\
+\midrule
+error-state & похибковий стан & Не ``стан помилки'' в заголовках; краще технічно.\\
+nominal-state & номінальний стан & Стан без малих шумових членів.\\
+true-state & істинний стан & Математична величина, не обов'язково відома.\\
+bias & зміщення & Для IMU адитивна систематична похибка.\\
+gyrometer & гіроскоп / гірометр & У сучасній мові частіше ``гіроскоп''.\\
+attitude & орієнтація & У авіації ще ``просторова орієнтація''.\\
+\bottomrule
+\end{longtable}
+
+\end{document}

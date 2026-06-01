@@ -1,0 +1,152 @@
+%
+% Ukrainian translation of Peeter Joot's ECE1229 Advanced Antenna Theory notes
+% Source: github.com/peeterjoot/ece1229-antenna
+% File: tschebyscheff.tex — Chebyshev polynomials (for array synthesis)
+% Original © 2015 Peeter Joot. Licensed per repo LICENSE.
+% Translation by auxiliary local run (Anthropic), 2026-06-01.
+%
+\section{Поліноми Чебишева.}
+\index{поліном Чебишева}
+\index{антенна решітка}
+Свого часу (на 2-му курсі) поліноми Чебишева справили на мене велике враження при проектуванні фільтрів нижніх частот. Я використовував чебишевські фільтри в апаратурі для системи розпізнавання мови, що її будувала наша група в навчальній лабораторії. Одна з переваг цих поліномів — коливання в інтервалі \(|x| < 1\) суворо обмежене. Ця сама властивість, а також необмежений характер поза інтервалом \([-1,1]\), має застосування у проектуванні антенних решіток.
+
+Поліноми Чебишева визначено як
+\begin{subequations}
+\label{eqn:chebyscheff:20}
+\begin{equation}\label{eqn:chebyscheff:40}
+T_m(x) = \cos(m \cos^{-1} x), \quad |x| < 1,
+\end{equation}
+\begin{equation}\label{eqn:chebyscheff:60}
+T_m(x) = \cosh(m \cosh^{-1} x), \quad |x| > 1.
+\end{equation}
+\end{subequations}
+
+\paragraph{Обмеження області та гіперболічна форма.}
+У нотатках проф.~Eleftheriades підкреслено визначення в інтервалі \(|x| > 1\), але це може розглядатися як \emph{наслідок}, а не означення, якщо зняти обмеження області. Наприклад, нехай \(x = 7\), і покладемо
+\begin{equation}\label{eqn:chebyscheff:160}
+\cos^{-1} 7 = \theta,
+\end{equation}
+тоді
+\begin{equation}\label{eqn:chebyscheff:180}
+\begin{aligned}
+7
+&= \cos\theta
+\\ &= \frac{e^{j\theta} + e^{-j\theta}}{2}
+\\ &= \cosh(\pm j\theta),
+\end{aligned}
+\end{equation}
+тобто
+\begin{equation}\label{eqn:chebyscheff:200}
+\mp j \cosh^{-1} 7 = \theta.
+\end{equation}
+\begin{equation}\label{eqn:chebyscheff:220}
+\begin{aligned}
+T_m(7)
+&= \cos(\mp m j \cosh^{-1} 7)
+\\ &= \cosh(m \cosh^{-1} 7).
+\end{aligned}
+\end{equation}
+
+Той самий аргумент очевидно застосовний до будь-якого іншого значення поза областю \(|x| < 1\), тож без жодних обмежень ці поліноми можна визначити просто як
+\boxedEquation{eqn:chebyscheff:260}{
+T_m(x) = \cos(m \cos^{-1} x).
+}
+
+\paragraph{Поліноміальний характер.}
+\Cref{eqn:chebyscheff:260} не виглядає очевидно поліномом. Перевіримо поліноміальний характер для перших значень \(m\).
+
+\begin{itemize}
+\item \(m = 0\):
+\begin{equation}\label{eqn:chebyscheff:280}
+\begin{aligned}
+T_0(x) &= \cos(0 \cdot \cos^{-1} x) = \cos(0) = 1.
+\end{aligned}
+\end{equation}
+
+\item \(m = 1\):
+\begin{equation}\label{eqn:chebyscheff:300}
+\begin{aligned}
+T_1(x) &= \cos(1 \cdot \cos^{-1} x) = x.
+\end{aligned}
+\end{equation}
+
+\item \(m = 2\):
+\begin{equation}\label{eqn:chebyscheff:320}
+\begin{aligned}
+T_2(x)
+&= \cos(2 \cos^{-1} x)
+\\ &= 2 \cos^2(\cos^{-1} x) - 1
+\\ &= 2 x^2 - 1.
+\end{aligned}
+\end{equation}
+\end{itemize}
+
+У загальному випадку:
+\begin{equation}\label{eqn:chebyscheff:340}
+\begin{aligned}
+T_m(x)
+&= \cos(m \cos^{-1} x)
+\\ &= \Real e^{j m \cos^{-1} x}
+\\ &= \Real \lr{e^{j \cos^{-1} x}}^m
+\\ &= \Real \lr{\cos \cos^{-1} x + j \sin \cos^{-1} x}^m
+\\ &= \Real \lr{x + j \sqrt{1 - x^2}}^m
+\\ &=
+\Real \Biglr{
+x^m
++ \binom{m}{1} j x^{m-1} (1 - x^2)^{1/2}
+- \binom{m}{2} x^{m-2} (1 - x^2)^{2/2} \\
+&\quad
+- \binom{m}{3} j x^{m-3} (1 - x^2)^{3/2}
++ \binom{m}{4} x^{m-4} (1 - x^2)^{4/2}
++ \cdots
+}
+\\ &=
+x^m
+- \binom{m}{2} x^{m-2} (1 - x^2)
++ \binom{m}{4} x^{m-4} (1 - x^2)^2
+- \cdots
+\end{aligned}
+\end{equation}
+Це розкладання було дещо недбалим щодо знаків членів \(\sin \cos^{-1} x = \sqrt{1 - x^2}\), оскільки знак мінус слід обирати для кореня при \(x \in [-1,0]\). Однак це не має значення наприкінці, бо операція виділення дійсної частини обирає лише парні степені цього кореня.
+
+Кінцевий результат розкладу можна записати як
+\boxedEquation{eqn:chebyscheff:360}{
+T_m(x) = \sum_{k = 0}^{\largestIntLessThan{m/2}} \binom{m}{2 k} (-1)^k x^{m - 2 k} (1 - x^2)^k.
+}
+
+Це чітко показує поліноміальну природу цих функцій і також коректно визначене для будь-якого значення \(x\). У цьому розкладі також явно видно парне/непарне чергування з \(m\).
+
+\paragraph{Кілька графіків.}
+Перші кілька поліномів зображено на~\cref{fig:Chebychev:ChebychevFig1}.
+
+\paragraph{Властивості.}
+\index{поліноми Чебишева!добутки}
+У~\citep{abramowitz1964handbook} наведено такі властивості:
+\begin{subequations}
+\label{eqn:chebyscheff:380}
+\begin{equation}\label{eqn:chebyscheff:100}
+T_m(x) = 2 x T_{m-1}(x) - T_{m-2}(x), \quad \text{(рекурентне співвідношення)}
+\end{equation}
+\begin{equation}\label{eqn:chebyscheff:420}
+0 = (1 - x^2) \frac{d T_m(x)}{dx} + m x T_m(x) - m T_{m-1}(x),
+\end{equation}
+\begin{equation}\label{eqn:chebyscheff:400}
+0 = (1 - x^2) \frac{d^2 T_m(x)}{dx^2} - x \frac{dT_m(x)}{dx} + m^2 T_{m}(x), \quad \text{(ОДУ Чебишева)}
+\end{equation}
+\begin{equation}\label{eqn:chebyscheff:440}
+\begin{aligned}
+\int_{-1}^1 \inv{\sqrt{1 - x^2}} T_m(x) T_n(x)\, dx &=
+\left\{
+\begin{array}{l l}
+0 & \text{якщо } m \neq n, \\
+\pi & \text{якщо } m = n = 0, \\
+\pi/2 & \text{якщо } m = n,\ m \neq 0
+\end{array}
+\right.
+\end{aligned}
+\end{equation}
+\hfill\text{(ортогональність з вагою \(1/\sqrt{1-x^2}\))}
+\end{subequations}
+
+\paragraph{Застосування до синтезу антенних решіток.}
+У теорії антенних решіток рівнобічне поводження Чебишева у смузі \(|x| < 1\) і експоненціальне зростання поза нею використовується для проектування \emph{решіток Дольфа--Чебишева} (Dolph–Chebyshev arrays). Такі решітки мінімізують рівень бокових пелюсток (sidelobes) при заданій ширині головного променя — або, еквівалентно, дають найвузькіший головний промінь при заданому рівні бічних пелюсток. Розглядається полінімом порядку \(N-1\) для решітки з \(N\) елементів, нормуючи рівень бокових пелюсток через значення \(T_{N-1}(x_0)\), де \(x_0 > 1\) — параметр поза смугою.

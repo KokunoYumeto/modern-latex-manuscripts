@@ -1,0 +1,128 @@
+\chapter{Оцінювання стану і фільтр Калмана}
+
+\section{Перекладений фрагмент: постановка задачі оцінювання стану}
+
+\sourcebox{Цей підрозділ є стислим українським перекладом і нормалізацією початку розділу ``Preliminaries'' з arXiv:2411.03951, \emph{Continuous-Time State Estimation Methods in Robotics: A Survey}. Формули і позначення збережено, але текст ущільнено для першого TeX-ядра.}
+
+Оцінювання стану має на меті обчислювально здійсненно оцінити розподіл імовірності скінченного набору неперервних випадкових змінних, які параметризують систему, що нас цікавить. У робототехніці такі змінні можуть належати як лінійним векторним просторам, так і многовидам. Теорія Лі є корисною рамкою для точного опрацювання таких змінних: наприклад, групи $\SO(n)$ та $\SE(n)$ використовують для подання орієнтацій і поз у $n$-вимірному просторі. Оскільки групи Лі є гладкими диференційовними многовидами, вони мають дотичні простори, тобто векторні простори, зручні для операцій лінійної алгебри під час оптимізації.
+
+\subsection{Стан}
+
+Неперервно змінний процес задається двома компонентами. Перша - часовий стан $\vect{x}(t)$, де $t$ - часова змінна. Наприклад, $\vect{x}(t)$ може бути позою системи в $\SE(3)$. Друга - незмінний у часі контекст, тобто набір параметрів $\bm{\theta}$, наприклад параметри калібрування сенсорів або параметри карти.
+
+Не задаючи поки повного зв'язку з траєкторією $\vect{x}(t)$, визначимо скінченний набір змінних
+\begin{equation}
+    \vect{x} = (\vect{x}_0,\dots,\vect{x}_N),
+\end{equation}
+який описує процес. Змінні, що оцінюються, збираємо у множину
+\begin{equation}
+    \bm{\Theta} = \{\vect{x},\bm{\theta}\}.
+\end{equation}
+Оцінити їх можна, поєднавши вимірювання і попереднє знання.
+
+\subsection{Вимірювання}
+
+Модель вимірювання описує, як спостереження $\widetilde{\vect{z}}$ породжується одним або кількома сенсорами. Функція вимірювання
+\begin{equation}
+    \vect{z} = \vect{h}(\vect{x},\bm{\theta},\vect{n})
+\end{equation}
+задає вимірювану величину як функцію стану, параметрів і шуму $\vect{n}$. У типовій першій моделі шум вважають гаусовим і незалежним між вимірюваннями.
+
+Щоб отримати векторну нев'язку, визначають функцію нев'язки
+\begin{equation}
+    \vect{e} = \vect{g}(\vect{z},\widetilde{\vect{z}}).
+\end{equation}
+У простому евклідовому випадку це віднімання. Для змінних на групах Лі використовують узагальнений оператор $\ominus$.
+
+\subsection{Апріорні моделі}
+
+Апріорна модель фіксує припущення про систему до включення вимірювань. Вона може бути записана у тій самій формі, що й модель вимірювання, але $\widetilde{\vect{z}}$ не спостерігається, а задається наперед. На практиці часто потрібне апріорне знання про початкові умови, наприклад позу і швидкість, щоб розв'язок був єдиним.
+
+\subsection{Процесна модель}
+
+Процесна модель, або модель динаміки системи, описує еволюцію стану в часі. Якщо процес марковський, його можна подати через поточний стан $\vect{x}(t)$, вхід $\vect{u}(t)$, нульовий за середнім шум процесу $\vect{w}(t)$ та контекст $\bm{\theta}$:
+\begin{equation}
+    \dot{\vect{x}}(t) = \vect{f}\bigl(\vect{x}(t),\bm{\theta},\vect{u}(t),\vect{w}(t)\bigr).
+    \label{eq:state_continuous_nonlinear}
+\end{equation}
+Після лінеаризації навколо поточної оцінки часто отримують
+\begin{equation}
+    \dot{\vect{x}}(t) \approx \mat{F}(t)\vect{x}(t) + \vect{v}(t) + \mat{L}(t)\vect{w}(t),
+    \label{eq:state_continuous_linearized}
+\end{equation}
+де
+\begin{align}
+    \vect{v}(t) &\coloneqq \vect{f}(\bar{\vect{x}}(t),\vect{u}(t),\vect{0}) - \mat{F}(t)\bar{\vect{x}}(t),\\
+    \mat{F}(t) &\coloneqq \left.\frac{\partial \vect{f}}{\partial \vect{x}}\right|_{\bar{\vect{x}}(t),\vect{u}(t),\vect{0}},
+    &
+    \mat{L}(t) &\coloneqq \left.\frac{\partial \vect{f}}{\partial \vect{w}}\right|_{\bar{\vect{x}}(t),\vect{u}(t),\vect{0}}.
+\end{align}
+
+\section{Лінійний фільтр Калмана}
+
+Нехай дискретна система має вигляд
+\begin{align}
+    \vect{x}_k &= \mat{F}_k\vect{x}_{k-1}+\mat{B}_k\vect{u}_k+\vect{w}_k, & \vect{w}_k &\sim \mathcal{N}(\vect{0},\mat{Q}_k),\\
+    \vect{z}_k &= \mat{H}_k\vect{x}_k+\vect{v}_k, & \vect{v}_k &\sim \mathcal{N}(\vect{0},\mat{R}_k).
+\end{align}
+Тут $\vect{x}_k$ - стан, $\vect{u}_k$ - вхід, $\vect{z}_k$ - вимірювання, $\mat{Q}_k$ - коваріація шуму процесу, $\mat{R}_k$ - коваріація шуму вимірювання.
+
+\subsection{Прогноз}
+
+\begin{align}
+    \hat{\vect{x}}_{k|k-1} &= \mat{F}_k\hat{\vect{x}}_{k-1|k-1}+\mat{B}_k\vect{u}_k,\\
+    \mat{P}_{k|k-1} &= \mat{F}_k\mat{P}_{k-1|k-1}\mat{F}_k\trans + \mat{Q}_k.
+\end{align}
+
+\subsection{Оновлення}
+
+Інновація:
+\begin{equation}
+    \vect{y}_k = \vect{z}_k - \mat{H}_k\hat{\vect{x}}_{k|k-1}.
+\end{equation}
+Коваріація інновації:
+\begin{equation}
+    \mat{S}_k = \mat{H}_k\mat{P}_{k|k-1}\mat{H}_k\trans + \mat{R}_k.
+\end{equation}
+Підсилення Калмана:
+\begin{equation}
+    \mat{K}_k = \mat{P}_{k|k-1}\mat{H}_k\trans \mat{S}_k^{-1}.
+\end{equation}
+Оцінка стану:
+\begin{equation}
+    \hat{\vect{x}}_{k|k}=\hat{\vect{x}}_{k|k-1}+\mat{K}_k\vect{y}_k.
+\end{equation}
+Коваріація. Для чисельної надійності бажано використовувати форму Джозефа:
+\begin{equation}
+    \mat{P}_{k|k}
+    = (\mat{I}-\mat{K}_k\mat{H}_k)\mat{P}_{k|k-1}(\mat{I}-\mat{K}_k\mat{H}_k)\trans
+    + \mat{K}_k\mat{R}_k\mat{K}_k\trans.
+\end{equation}
+
+\section{EKF: мінімальна нелінійна форма}
+
+Для нелінійних моделей
+\begin{align}
+    \vect{x}_k &= \vect{f}(\vect{x}_{k-1},\vect{u}_k)+\vect{w}_k,\\
+    \vect{z}_k &= \vect{h}(\vect{x}_k)+\vect{v}_k,
+\end{align}
+використовують якобіани
+\begin{equation}
+    \mat{F}_k = \left.\frac{\partial \vect{f}}{\partial \vect{x}}\right|_{\hat{\vect{x}}_{k-1|k-1},\vect{u}_k},
+    \qquad
+    \mat{H}_k = \left.\frac{\partial \vect{h}}{\partial \vect{x}}\right|_{\hat{\vect{x}}_{k|k-1}}.
+\end{equation}
+Усі формули прогнозу й оновлення залишаються структурно тими самими, але $\vect{f}$ і $\vect{h}$ обчислюються нелінійно, а коваріації поширюються через лінеаризацію.
+
+\section{Практичні перевірки для перекладу}
+
+\begin{enumerate}[label=\arabic*.]
+  \item \texttt{state} у цьому контексті - «стан», не «держава» і не «статус».
+  \item \texttt{estimate} як іменник - «оцінка», як дієслово - «оцінювати».
+  \item \texttt{covariance} - «коваріація»; \texttt{covariance matrix} - «матриця коваріації».
+  \item \texttt{innovation} у фільтрі Калмана - «інновація» або «нев'язка вимірювання»; потрібно вибрати одне слово в конкретному тексті.
+  \item \texttt{process noise} - «шум процесу», \texttt{measurement noise} - «шум вимірювання».
+  \item \texttt{prior} - «апріорний», \texttt{posterior} - «апостеріорний».
+  \item У формулах $k|k-1$ не замінювати вертикальну риску на дріб або ділення.
+\end{enumerate}
+

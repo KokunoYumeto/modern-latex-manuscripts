@@ -1,0 +1,69 @@
+\chapter{Хвильове рівняння: boundary та interior controllability як практичний міст}
+\label{chap:wave-boundary-interior-bridge}
+
+\sourcebox{Bridge-розділ. Це не повний source-preserved переклад розділів 2--3 Zuazua; відповідні \texttt{chapter02\_uk.tex} і \texttt{chapter03\_uk.tex} не були в завантаженому ZIP.}
+
+Базова модель --- хвильове рівняння в обмеженій області $\Omega\subset\R^n$ з границею $\Gamma$:
+\begin{equation}
+\begin{cases}
+ y_{tt}-\Delta y = 0, & (x,t)\in \Omega\times(0,T),\\
+ y = 0, & (x,t)\in \Gamma\times(0,T),\\
+ y(0)=y^0,\quad y_t(0)=y^1. &
+\end{cases}
+\end{equation}
+Енергія природного розв'язку дорівнює
+\begin{equation}
+E(t)=\frac12\int_\Omega \left(|y_t|^2+|\nabla y|^2\right)\,\dd x.
+\end{equation}
+Для однорідної граничної умови Діріхле маємо збереження $E(t)=E(0)$. Це перший тест на правильність знаків, граничних умов і часової дискретизації.
+
+\section{Граничне керування}
+
+У boundary-control постановці керування діє на частині границі $\Gamma_0\subset\Gamma$:
+\begin{equation}
+\begin{cases}
+ y_{tt}-\Delta y=0, & Q=\Omega\times(0,T),\\
+ y=v, & \Sigma_0=\Gamma_0\times(0,T),\\
+ y=0, & \Sigma_1=(\Gamma\setminus\Gamma_0)\times(0,T),\\
+ y(0)=y^0,\quad y_t(0)=y^1. &
+\end{cases}
+\end{equation}
+Точна керованість до нуля означає: для кожної пари початкових даних існує $v$ таке, що
+\begin{equation}
+ y(T)=0,\qquad y_t(T)=0.
+\end{equation}
+Через оборотність хвильового рівняння це еквівалентно можливості перейти між двома довільними допустимими станами за час $T$.
+
+\section{HUM як операторна схема}
+
+HUM-побудова замінює пошук керування на задачу спостережуваності для спряженої однорідної задачі. Нерівність спостережуваності має форму
+\begin{equation}
+ \|\phi(0)\|_{H^1_0(\Omega)}^2+\|\phi_t(0)\|_{L^2(\Omega)}^2
+ \le C_T\int_0^T\int_{\Gamma_0}|\partial_\nu\phi|^2\,\dd\Gamma\,\dd t.
+\end{equation}
+Інженерна інтерпретація: щоб керувати всіма модами системи, дія на $\Gamma_0$ за час $T$ має бачити всю енергію спряженої хвилі.
+
+\section{Внутрішнє локалізоване керування}
+
+Для internal control керування діє в підобласті $\omega\subset\Omega$:
+\begin{equation}
+\begin{cases}
+ y_{tt}-\Delta y = \chi_\omega u, & (x,t)\in Q,\\
+ y=0, & (x,t)\in\Sigma,\\
+ y(0)=y^0,\quad y_t(0)=y^1. &
+\end{cases}
+\end{equation}
+Тоді спостережуваність для спряженої задачі має внутрішній вигляд:
+\begin{equation}
+ \|\phi(0)\|_{H^1_0(\Omega)}^2+\|\phi_t(0)\|_{L^2(\Omega)}^2
+ \le C_T\int_0^T\int_\omega |\phi(x,t)|^2\,\dd x\,\dd t.
+\end{equation}
+
+\section{Практичні перевірки}
+
+\begin{enumerate}[label=\arabic*.]
+  \item Для некерованого рівняння енергія має зберігатися до чисельної похибки.
+  \item Boundary control живе на $\Gamma_0\times(0,T)$, internal control --- на $\omega\times(0,T)$.
+  \item Через скінченну швидкість поширення не можна вимагати керованості за довільно малий час.
+  \item Невидимі моди або промені руйнують observability inequality.
+\end{enumerate}

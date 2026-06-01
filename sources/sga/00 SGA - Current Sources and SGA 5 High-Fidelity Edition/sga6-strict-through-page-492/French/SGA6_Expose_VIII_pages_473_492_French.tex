@@ -1,0 +1,617 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\hfuzz=20pt
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+
+% Expose VIII macro additions
+\providecommand{\etale}{\'etale}
+\providecommand{\Ch}{\operatorname{Ch}}
+\begin{document}
+
+\begin{center}
+{\Large SGA 6 : Exposé VIII}\par
+{\large Le théorème de Riemann--Roch, énoncé et préliminaires}\par
+{\large Pages 473--492 du scan original}
+\end{center}
+
+
+\section*{Exposé VIII. Le théorème de Riemann--Roch}
+\begin{center}
+par Pierre Berthelot
+\end{center}
+
+\subsection*{1. Morphismes d'intersection complète}
+
+\textbf{Définition 1.1.} Soit $f:X\to Y$ un morphisme de schémas. On dit que $f$ est un \emph{morphisme d'intersection complète} si, pour tout point $x$ de $X$, il existe un voisinage ouvert $U$ de $x$, un $Y$-schéma lisse $V$, tels que la restriction de $f$ à $U$ se factorise en
+\[
+\begin{tikzcd}[column sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+où $i$ est une immersion régulière (VII 1.4). Quitte à remplacer $V$ par un ouvert, on peut supposer que $i$ est une immersion fermée régulière.
+
+On peut dans cette définition remplacer $V$ par un fibré vectoriel $Y[T_1,\ldots,T_n]$. En effet, la notion étant locale, on peut supposer que $V$ est affine, et que son image dans $Y$ est contenue dans un ouvert affine $W$ de $Y$. Il existe alors un entier $n$ et une $W$-immersion fermée
+\[
+V\longrightarrow W[T_1,\ldots,T_n],
+\]
+d'où une $Y$-immersion $V\to Y[T_1,\ldots,T_n]$, qui est régulière d'après VII 1.10. Comme la composée de deux immersions régulières est régulière, on trouve donc une $Y$-immersion régulière
+\[
+U\longrightarrow Y[T_1,\ldots,T_n]
+\]
+factorisant $f$.
+
+\textbf{Proposition 1.2.} Soit $f:X\to Y$ un morphisme d'intersection complète. Alors toute $Y$-immersion $i:X\to Z$ de $X$ dans un $Y$-schéma lisse est régulière.
+
+Nous montrerons d'abord le corollaire suivant.
+
+\textbf{Corollaire 1.3.} Soit le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V
+\end{tikzcd}
+\]
+où $i$ et $j$ sont des immersions, et $p$ un morphisme lisse. Alors, pour que $i$ soit une immersion régulière, il faut et il suffit que $j$ soit une immersion régulière.
+
+(i) Supposons $i$ régulière. Posons $X'=V'\times_V X$. La donnée de $j$ définit une section $j'$ de $X'$ au-dessus de $X$, telle que $j=i'j'$:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+\end{tikzcd}
+\]
+Or $j'$ est une immersion régulière, car c'est une section d'un morphisme lisse (VII 1.10); $i'$ est une immersion régulière car elle est déduite de $i$ par un changement de base lisse, donc plat (VII 1.5). Donc $j$ est une immersion régulière (VII 1.7).
+
+(ii) Supposons $j$ régulière, et $p$ étale. Alors $j'$ est une immersion ouverte (EGA IV 17.9.3), donc un isomorphisme de $X$ sur $j'(X)$; posons $U=j'(X)$. Soit $i''$ la restriction de $i'$ à $U$, et soit $U'$ un ouvert de $V'$ tel que $U=U'\cap X'$. On a alors
+\[
+i''=j\circ(j')^{-1},
+\]
+donc $i''$ est une immersion régulière de $U$ dans $U'$. Or le morphisme $U'\to V$, étant lisse, est plat et de présentation finie, donc ouvert. C'est par conséquent un morphisme fidèlement plat et quasi-compact de $U'$ sur un voisinage ouvert de $X$ dans $V$. Il en résulte (VII 1.5) que $i$ est une immersion régulière.
+
+(iii) Supposons $j$ régulière, et que $V'$ soit un fibré vectoriel sur $V$. Comme la propriété à prouver est locale sur $V$, on peut supposer $V$ affine, $i$ fermée, et $V'=V[T_1,\ldots,T_n]$. Posons $V=\Spec(A)$, $X=\Spec(B)$. On a le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& A[T_1,\ldots,T_n] \arrow[d,"v"]\\
+A \arrow[r] \arrow[ur,"u"] & B,
+\end{tikzcd}
+\]
+où les morphismes $u$ et $v$ sont surjectifs. Soient $t_i$, pour $i=1,\ldots,n$, des éléments de $A$ tels que $u(t_i)=v(T_i)$ pour tout $i$. On définit un homomorphisme
+\[
+w:A[T_1,\ldots,T_n]\longrightarrow A,
+\qquad w(T_i)=t_i.
+\]
+On obtient ainsi une immersion fermée $s:V\to V'$ qui est une section de $p$, et qui est telle que $j=s\circ i$. De plus, étant une section d'un morphisme lisse, c'est une immersion régulière (VII 1.10). Sachant que $s$ et $s\circ i$ sont régulières, on en déduira que $i$ est régulière si l'on montre que la suite
+\[
+0\longrightarrow i^*(K/K^2)\longrightarrow J/J^2\longrightarrow I/I^2\longrightarrow0
+\]
+est exacte et localement scindée, $I,J,K$ désignant respectivement les idéaux définissant $i,j,s$ (VII 1.7). Il suffit pour cela de montrer que $i^*(K/K^2)$ est facteur direct de $J/J^2$. Or $j'$ se déduit de $s$ par le changement de base $i':X'\to V'$. En outre les immersions $j'$ et $s$ sont régulières (VII 1.10). Par conséquent (VII 1.2), l'idéal qui définit $j'$ est $i'^*(K)$, et le faisceau conormal de $j'$ est $i'^*(K/K^2)$. La suite exacte des faisceaux conormaux relative à la décomposition $j=i'j'$ donne donc en particulier un homomorphisme
+\[
+J/J^2\longrightarrow i^*(K/K^2).
+\]
+Il est immédiat de vérifier que le composé
+\[
+i^*(K/K^2)\longrightarrow J/J^2\longrightarrow i^*(K/K^2)
+\]
+est l'identité. Du point de vue affine, cela correspond à la décomposition de $J$ en somme directe d'un idéal de $A$, et de l'idéal engendré par les $T_i-t_i$. On a donc bien ainsi le scindage cherché.
+
+(iv) Supposons enfin $j$ régulière et $p$ lisse. Pour tout $x\in X$, on peut trouver un voisinage ouvert $W$ de $i(x)$, un voisinage ouvert $W'$ de $j(x)$ au-dessus de $W$, et un diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+W' \arrow[r,"q"] \arrow[d,"p"'] & W[T_1,\ldots,T_n] \arrow[d,"p_0"]\\
+W \arrow[r,equal] & W,
+\end{tikzcd}
+\]
+où $p_0$ est le morphisme structural, et $q$ un morphisme étale (EGA IV 17.11.4). On peut alors supposer $V=W$, $V'=W'$. Il est facile de voir que $qj$ est une immersion (introduire le produit fibré $X[T_1,\ldots,T_n]$). Appliquant les résultats (ii) et (iii), on en déduit que $qj$ est régulière, puis que $i$ est régulière.
+
+Montrons maintenant 1.2. La propriété étant locale sur $Z$, on peut, pour la prouver, se placer au voisinage d'un point $x$ de $X$. On peut alors trouver un voisinage ouvert $U$ de $x$ dans $X$, un $Y$-schéma lisse $V$, et une $Y$-immersion régulière $i':U\to V$. On a alors le diagramme commutatif suivant:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i'"] \arrow[d,"i"'] & V \arrow[d]\\
+Z \arrow[r] & Y,
+\end{tikzcd}
+\]
+d'où une immersion fermée $i'':U\to Z\times_Y V$, et le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& U \arrow[dl,"i"'] \arrow[dr,"i'"] &\\
+Z & Z\times_Y V \arrow[l,"p"'] \arrow[r,"p'"] & V.
+\end{tikzcd}
+\]
+Comme $i'$ est régulière, et $p$ et $p'$ lisses, on en déduit d'après 1.3 que $i''$ et $i$ sont régulières.
+
+La proposition qui suit ne sera pas utilisée dans la suite du Séminaire.
+
+\textbf{Proposition 1.4.} Soit $f:X\to Y$ un morphisme plat localement de présentation finie. Pour que $f$ soit un morphisme d'intersection complète au sens de 1.1, il faut et il suffit qu'il soit un morphisme d'intersection complète au sens de EGA IV 19.3.6.
+
+Supposons que $f$ soit un morphisme d'intersection complète au sens de 1.1, et soit $x\in X$. Alors il existe un voisinage ouvert $U$ de $x$, et une factorisation
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+où $i$ est une immersion régulière, et $g$ un morphisme lisse. Soit $y=f(x)$. Alors l'immersion $i_y:U_y\to V_y$ est régulière en $x$. En effet, on peut supposer, quitte à restreindre $V$, qu'il existe un $\mathcal O_V$-module libre de type fini $E$, et un homomorphisme régulier $u:E\to\mathcal O_V$ tel que le complexe de Koszul associé à $u$ soit une résolution de $\mathcal O_U$. On considère alors l'homomorphisme $u_y$ induit sur la fibre en $y$, et le complexe de Koszul associé $K_\bullet(u_y)=K_\bullet(u)_y$. Comme $g$ est lisse, donc plat, $K_\bullet(u)$ est une résolution $Y$-plate de $\mathcal O_U$. Par suite les groupes d'homologie de $K_\bullet(u)_y$ sont les $\Tor_i^{\mathcal O_Y}(\mathcal O_U,k(y))$, où $k(y)$ est le corps résiduel de $\mathcal O_{Y,y}$. Comme $f$ est un morphisme plat, ils sont nuls, et $i_y$ est régulière en $x$. Par ailleurs, comme $g$ est lisse, l'anneau local de $V_y$ en $x$ est régulier. Comme l'anneau local de $U_y$ en $y$ est quotient d'un anneau régulier par un idéal régulier, c'est un anneau d'intersection complète (EGA IV 19.3.2), et par suite $f$ est d'intersection complète en $x$ au sens de EGA IV 19.3.6.
+
+Réciproquement, supposons que $f$ soit un morphisme d'intersection complète au sens de EGA IV 19.3.6, et soit $x\in X$. Soit $U$ un voisinage affine de $x$, au-dessus d'un voisinage affine $U'$ de $y=f(x)$. On peut alors trouver un $U'$-schéma lisse $V$, et une immersion fermée $U\to V$. Nous allons montrer que $i$ est régulière. Or, d'après EGA IV 19.3.7, $i$ est transversalement régulière en $x$, puisque $V$ est lisse sur $Y$, donc $V_y$ régulier en $x$, et $U$ plat sur $Y$. Il résulte alors de EGA IV 19.2.4, a)3c), que $i$ est régulière en $x$. Par suite, $f$ est un morphisme d'intersection complète au sens de 1.1.
+
+\textbf{Proposition 1.5.} Soient $f:X\to Y$ et $g:Y\to Z$ deux morphismes localement d'intersection complète. Alors $gf$ est un morphisme localement d'intersection complète.
+
+Soit $x\in X$. On peut trouver des voisinages ouverts $U,V$ de $x,f(x)$, et des immersions régulières $i,j$ telles qu'on ait les factorisations
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V[T_1,\ldots,T_n] \arrow[d]\\
+& V
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+V \arrow[r,"j"] \arrow[dr,"g"'] & Z[T'_1,\ldots,T'_m] \arrow[d]\\
+& Z.
+\end{tikzcd}
+\]
+On peut compléter ce diagramme par le carré commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V[T_1,\ldots,T_n] \arrow[r,"j'"] \arrow[d] & Z[T'_1,\ldots,T'_m,T_1,\ldots,T_n] \arrow[d]\\
+V \arrow[r,"j"'] & Z[T'_1,\ldots,T'_m],
+\end{tikzcd}
+\]
+où $j'$ est obtenu à partir de $j$ par changement de base. Ce changement de base étant plat, $j'$ est une immersion régulière, et par suite $j'i$ est une immersion régulière de $U$ dans un schéma lisse sur $W$, d'où le résultat.
+
+\textbf{Proposition 1.6.} Soit $f:X\to Y$ un morphisme, et soit $g:Y'\to Y$ un changement de base plat. Si $f$ est d'intersection complète, alors le morphisme
+\[
+f':X\times_Y Y'\to Y'
+\]
+déduit de $f$ l'est aussi. La réciproque est vraie si $g$ est de plus quasi-compact et surjectif.
+
+On peut trouver un recouvrement de $X$ par des ouverts $U_i$ tels que, pour tout $i$, la restriction de $f$ à $U_i$ se factorise en
+\[
+U_i\longrightarrow V_i\longrightarrow Y,
+\]
+où $U_i\to V_i$ est une immersion régulière, et $V_i\to Y$ un morphisme lisse. Les $U_i\times_Y Y'$ forment un recouvrement ouvert de $X\times_Y Y'$, les immersions
+\[
+U_i\times_Y Y'\longrightarrow V_i\times_Y Y'
+\]
+sont régulières d'après VII 1.5, et les morphismes $V_i\times_Y Y'\to Y'$ sont lisses, d'où le premier résultat. Pour la réciproque, on conclut d'abord de EGA IV 2.7.1 (iv) que $f$ est localement de présentation finie, ce qui nous ramène facilement, grâce à 1.2, au cas où $f$ est une immersion fermée, auquel cas l'assertion n'est autre que VII 1.5.
+
+\textbf{Proposition 1.7.} Soit $f:X\to Y$ un morphisme d'intersection complète. Alors $f$ est un morphisme parfait.
+
+La propriété étant locale sur $X$, on peut se placer au voisinage d'un point $x$ de $X$, et supposer qu'il existe un ouvert $U$ contenant $x$ et une factorisation
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+où $i$ est une immersion régulière, et $g$ un morphisme lisse. Comme $g$ est lisse, c'est un morphisme parfait (III 4.1). D'après VII 1.9, $i$ est également un morphisme parfait. Comme le composé de deux morphismes parfaits est parfait (III 4.5), on en déduit la proposition.
+
+\textbf{Proposition 1.8.} Soient $f:X\to Y$ un morphisme d'intersection complète, $x$ un point de $X$, et une factorisation
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y
+\end{tikzcd}
+\]
+où $U$ est un voisinage ouvert de $x$, $i$ une immersion régulière, et $g$ un morphisme lisse. On note $J$ l'idéal de $\mathcal O_V$ définissant $U$. Alors l'entier
+\[
+d_x=\operatorname{rang}\bigl((\Omega^1_{V/Y})_{i(x)}\bigr)-\operatorname{rang}\bigl((J/J^2)_x\bigr)
+\]
+est indépendant de la factorisation choisie de $f$.
+
+Supposons que la restriction de $f$ à $U$ se factorise par deux $Y$-schémas lisses $V$ et $V'$, et posons $V''=V\times_Y V'$. Alors $V''$ est lisse sur $Y$, et aussi sur $V$ et $V'$. De plus, les immersions $X\to V$ et $X\to V'$ définissent une immersion $X\to V''$, régulière d'après 1.2. On peut donc se ramener à comparer les entiers $d_x$ relatifs à deux factorisations de $f$ par des $Y$-schémas lisses $V$ et $V'$ tels qu'il existe un diagramme commutatif au-dessus de $Y$
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V,
+\end{tikzcd}
+\]
+où $p$ est un morphisme lisse. On peut de plus supposer $\Omega^1_{V/Y}$, $\Omega^1_{V'/Y}$, $\Omega^1_{V'/V}$ de rang constant, ainsi que les faisceaux conormaux de $i$ et $j$.
+
+Du diagramme commutatif, où tous les morphismes sont lisses,
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V' \arrow[r,"p"] \arrow[dr] & V \arrow[d]\\
+& Y,
+\end{tikzcd}
+\]
+on déduit
+\begin{equation}\tag{1.8.1}
+\operatorname{rang}(\Omega^1_{V'/Y})=
+\operatorname{rang}(\Omega^1_{V/Y})+
+\operatorname{rang}(\Omega^1_{V'/V}).
+\end{equation}
+Soit $X'=V'\times_V X$; alors le rang de $\Omega^1_{V'/V}$ est égal à celui de $\Omega^1_{X'/X}$. Par ailleurs, $j$ définit une section $j':X\to X'$, qui est une immersion régulière de codimension égale au rang de $\Omega^1_{X'/X}$ (EGA IV 17.10.4). Si $i'$ est l'immersion déduite de $i$ par le changement de base $V'\to V$, on a $j=i'j'$ et par suite (VII 1.7)
+\begin{equation}\tag{1.8.2}
+\operatorname{rang}(N_{V'/X})=
+\operatorname{rang}(N_{V/X})+
+\operatorname{rang}(\Omega^1_{V'/V}).
+\end{equation}
+En comparant (1.8.1) et (1.8.2), on en déduit la proposition.
+
+\textbf{Définition 1.9.} L'entier $d_x$ de la proposition 1.8 s'appelle \emph{dimension relative virtuelle} de $X$ sur $Y$ (ou de $f$) au point $x$.
+
+La dimension relative virtuelle de $X$ sur $Y$ est donc une fonction localement constante sur $X$, à valeurs entières, positives ou négatives. Si $f$ est un morphisme lisse de dimension relative $n$, sa dimension relative virtuelle est $n$. Si $f$ est une immersion régulière de codimension $n$, sa dimension relative virtuelle est $-n$.
+
+\textbf{Proposition 1.10.} Soient $f:X\to Y$ et $g:Y\to Z$ deux morphismes d'intersection complète, et soit $x$ un point de $X$. Alors
+\[
+\operatorname{dim.rel.virt.}_x(gf)=
+\operatorname{dim.rel.virt.}_x(f)+
+\operatorname{dim.rel.virt.}_{f(x)}(g).
+\]
+Cela résulte immédiatement de 1.9 et de la démonstration de 1.5.
+
+\subsection*{2. Complexe cotangent relatif}
+
+\textbf{2.1.} Nous donnerons ici une définition du complexe cotangent qui, sans avoir toute la généralité possible (voir Exp. 0, 4.4), sera suffisante pour les besoins du théorème de Riemann--Roch; bien entendu, la définition donnée dans l'Exp. 0 coïncide dans le cas envisagé avec la définition donnée ici.
+
+Soit $f:X\to Y$ un morphisme lissifiable, c'est-à-dire admettant une factorisation
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+où $g$ est un morphisme lisse, et $i$ une immersion qu'on peut supposer fermée. Soit $J$ l'idéal de $X$ dans $V$. La dérivation canonique
+\[
+d:\mathcal O_V\longrightarrow\Omega^1_{V/Y}
+\]
+définit un homomorphisme
+\[
+J\longrightarrow\mathcal O_V\xrightarrow{d}\Omega^1_{V/Y}\longrightarrow
+\Omega^1_{V/Y}\otimes_{\mathcal O_V}\mathcal O_X
+\]
+qui s'annule sur $J^2$, et définit donc un homomorphisme, encore noté $d$,
+\begin{equation}\tag{2.1.1}
+J/J^2\xrightarrow{d} i^*(\Omega^1_{V/Y}).
+\end{equation}
+On vérifie aisément que cet homomorphisme est $\mathcal O_X$-linéaire. On définit alors un complexe de chaînes $L^{X/Y}_\bullet$ en posant
+\[
+L^{X/Y}_0=i^*(\Omega^1_{V/Y}),\qquad
+L^{X/Y}_1=J/J^2,
+\qquad
+L^{X/Y}_i=0\quad(i\neq0,1),
+\]
+et en prenant comme homomorphisme $L^{X/Y}_1\to L^{X/Y}_0$ l'homomorphisme (2.1.1).
+
+\textbf{Proposition 2.2.} Le complexe $L^{X/Y}_\bullet$ ne dépend pas, à un isomorphisme canonique près dans la catégorie dérivée $D(X)$, de la factorisation choisie par un $Y$-schéma lisse.
+
+Soient $V,V'$ deux $Y$-schémas lisses par lesquels se factorise $f$. Posons $V''=V\times_Y V'$; alors $V''$ est lisse sur $Y$, et aussi sur $V$ et $V'$. De plus, les immersions $X\to V$ et $X\to V'$ définissent une immersion $X\to V''$ qui factorise $f$. On peut donc se ramener à comparer les complexes $L^{X/Y}_\bullet$ relatifs à deux factorisations par des $Y$-schémas lisses $V$ et $V'$, tels qu'il existe un diagramme commutatif au-dessus de $Y$
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V,
+\end{tikzcd}
+\]
+où $i$ et $j$ sont des immersions fermées, et $p$ un morphisme lisse. Par fonctorialité, on obtient alors des homomorphismes
+\[
+I/I^2\longrightarrow J/J^2,
+\qquad
+p^*(\Omega^1_{V/Y})\longrightarrow\Omega^1_{V'/Y},
+\]
+d'où un diagramme
+\begin{equation}\tag{2.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+I/I^2 \arrow[r] \arrow[d,"d"'] & J/J^2 \arrow[d,"d"]\\
+i^*(\Omega^1_{V/Y}) \arrow[r] & j^*(\Omega^1_{V'/Y}).
+\end{tikzcd}
+\end{equation}
+Comme $V$ et $V'$ sont lisses sur $Y$, on obtient la suite exacte
+\[
+0\longrightarrow p^*(\Omega^1_{V/Y})\longrightarrow\Omega^1_{V'/Y}
+\longrightarrow\Omega^1_{V'/V}\longrightarrow0.
+\]
+Comme les modules de différentielles considérés sont localement libres sur $\mathcal O_V$, on trouve, en appliquant le foncteur $j^*$, la suite exacte
+\begin{equation}\tag{2.2.2}
+0\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})
+\longrightarrow j^*(\Omega^1_{V'/V})\longrightarrow0.
+\end{equation}
+Par ailleurs, $j$ définit une section $j'$ de $X'=V'\times_V X$:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+\end{tikzcd}
+\]
+Soient $I,J,K$ les idéaux définissant $i,j,j'$. On a $j=i'j'$, et les immersions $i',j,j'$ sont régulières; de plus, $i'$ est définie par l'idéal $p^*(I)$, car $p$ est plat, et son faisceau conormal est donc
+\[
+i'^*(p^*(I))=p'^*(I/I^2).
+\]
+On obtient alors la suite exacte
+\begin{equation}\tag{2.2.3}
+0\longrightarrow I/I^2\longrightarrow J/J^2\longrightarrow K/K^2\longrightarrow0.
+\end{equation}
+Nous allons montrer que (a) le diagramme (2.2.1) est commutatif, ce qui donnera un morphisme de complexes $\theta$ du complexe $L^{X/Y}_\bullet$ défini par $V$ dans le complexe $L^{X/Y}_\bullet$ défini par $V'$; (b) l'homomorphisme
+\[
+K/K^2\longrightarrow j^*(\Omega^1_{V'/V})
+\]
+défini par (2.2.2), (2.2.3) et (2.2.1) est un isomorphisme. Cela entraînera que le mapping cylinder de $\theta$ est acyclique, donc que $\theta$ est un quasi-isomorphisme, donc définit un isomorphisme dans la catégorie dérivée.
+
+Les propriétés (a) et (b) sont de nature locale sur $X$. On peut donc supposer $X,Y,V$ et $V'$ affines. Posons $Y=\Spec(A)$, $V=\Spec(B)$, $V'=\Spec(B')$, $X=\Spec(C)$, et gardons les mêmes lettres pour noter les homomorphismes et les idéaux correspondants. On a le diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+B\otimes_A B \arrow[r,"p\otimes p"] \arrow[d,"\Delta"'] & B'\otimes_A B' \arrow[d,"\Delta"] & B'\otimes_B B' \arrow[l] \arrow[d]\\
+B \arrow[r,"p"] \arrow[dr,"i"'] & B' \arrow[d,"j"] & B'\otimes_B C = B'/IB' \arrow[dl,"p'" ]\\
+{} & C & {}
+\end{tikzcd}
+\]
+Les deux carrés indiqués sont ceux du diagramme source.
+L'homomorphisme $I/I^2\to J/J^2$ se déduit de l'homomorphisme $IB'\to J$ et coïncide avec celui qui se déduit de $p:I\to J$; l'homomorphisme
+\[
+i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})
+\]
+se déduit du carré commutatif (1). La propriété (a) est donc évidente.
+
+L'homomorphisme $K/K^2\to j^*(\Omega^1_{V'/V})$ considéré dans (b) peut être défini comme suit: soit $\overline x\in K/K^2$, soit $x$ un élément de $J$ remontant $\overline x$ (il en existe car $K=J/IB'$). On associe à $\overline x$ l'image de $x$ par l'homomorphisme composé
+\[
+J\xrightarrow{d}\Omega^1_{B'/A}\otimes_{B'}C
+\longrightarrow\Omega^1_{B'/B}\otimes_{B'}C.
+\]
+Par ailleurs, soit $H$ l'idéal d'augmentation de
+\[
+B'\otimes_B B'\longrightarrow B'.
+\]
+Le carré commutatif (2) donne un homomorphisme $H\to K$, d'où un homomorphisme
+\[
+H/H^2\otimes_{B'}C\longrightarrow K/K^2.
+\]
+Or $H/H^2=\Omega^1_{B'/B}$. Par suite, il suffit de vérifier que les homomorphismes construits sont inverses l'un de l'autre, ce qui se fait sans difficulté.
+
+\textbf{Définition 2.3.} Soit $f:X\to Y$ un morphisme lissifiable. Le complexe $L^{X/Y}_\bullet$, défini à isomorphisme canonique près dans la catégorie dérivée $D(X)$, est appelé complexe cotangent relatif de $X$ sur $Y$ (ou de $f$).
+
+\textbf{Proposition 2.4.} Soit $f:X\to Y$ un morphisme d'intersection complète (1.1) lissifiable. Alors $L^{X/Y}_\bullet$ est parfait. Plus précisément, pour toute factorisation de $f$ comme composée d'une immersion et d'un morphisme lisse, le complexe $L^{X/Y}_\bullet$ défini en 2.1 est strictement parfait.
+
+Soit $f=gi$, où $g$ est un morphisme lisse, et $i$ une immersion. D'après 1.2, $i$ est une immersion régulière. Si $J$ est l'idéal définissant $i$, $J/J^2$ est donc un $\mathcal O_X$-module localement libre de type fini. De même, comme $g:V\to Y$ est lisse, $i^*(\Omega^1_{V/Y})$ est localement libre de type fini, d'où 2.4.
+
+\textbf{Corollaire 2.5.} Soit $f:X\to Y$ un morphisme d'intersection complète lissifiable, et $f=gi$ une factorisation de $f$ par un $Y$-schéma lisse $V$. Soit $J$ l'idéal de $\mathcal O_V$ définissant $i$. Alors, si $K^{\bullet}(X)$ désigne le groupe de Grothendieck des $\mathcal O_X$-modules localement libres de type fini (resp. des complexes parfaits sur $X$), l'élément $T_f\in K^{\bullet}(X)$ défini par
+\[
+T_f=\operatorname{cl}(i^*\Omega^1_{V/Y})-\operatorname{cl}(J/J^2)
+\]
+(resp.
+\[
+T_f=\operatorname{cl}(L^{X/Y}_\bullet)
+\]
+)
+ne dépend pas de la factorisation de $f$ choisie. La valeur en un point $x$ de $X$ de l'augmentation de $T_f$ n'est autre que la dimension relative virtuelle de $X$ sur $Y$ au point $x$ (1.9).
+
+L'élément $T_f$ est bien défini dans les deux cas envisagés d'après 2.4, et sa classe dans $K^{\bullet}(X)$ ne dépend pas de la factorisation, d'après 2.2, dans le cas respé, et d'après la démonstration de 2.2 dans le cas non respé. La dernière assertion de 2.5 est triviale.
+
+\textbf{Proposition 2.6.} Soient $f:X\to Y$, et $g:Y\to Z$ deux morphismes d'intersection complète lissifiables, et supposons de plus la condition suivante remplie:
+
+(G) Il existe un $Y$-schéma lisse $V$, factorisant $f$, tel que pour toute immersion fermée $Y\to V'$ en un $Z$-schéma lisse, on puisse trouver un $V'$-schéma lisse $V''$, avec
+\[
+V\simeq V''\times_{V'}Y.
+\]
+Cette condition est en particulier remplie si $f$ est quasi-projectif et si $Y$ a un faisceau ample, en prenant pour $V$ un $\mathbb P^r_Y$.
+
+Alors $gf$ est d'intersection complète, lissifiable, et on a un triangle distingué
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& L^{X/Y}_\bullet \arrow[dl] \\
+f^*L^{Y/Z}_\bullet \arrow[rr] && L^{X/Z}_\bullet \arrow[ul]
+\end{tikzcd}
+\]
+Soit $V'$ un $Z$-schéma lisse factorisant $g$. On considère le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[r,"j'"] \arrow[d,"p"] & V'' \arrow[d,"p''"]\\
+& Y \arrow[r,"j"] \arrow[dr,"g"'] & V' \arrow[d,"p'"]\\
+& & Z .
+\end{tikzcd}
+\]
+Alors l'immersion $j'$ est régulière, car déduite de $j$ par un changement de base plat. Par suite $j'i$ est une immersion régulière factorisant $gf$, qui est donc lissifiable et d'intersection complète. De plus, on a la suite exacte des faisceaux conormaux
+\[
+0\longrightarrow i^*(J'/J'^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0,
+\]
+en notant $I,J,J',K$ les faisceaux définissant respectivement les immersions $i,j,j',j'i$. Or, $p''$ étant plat, $J'=p''^*(J)$. La suite peut donc s'écrire
+\begin{equation}\tag{2.6.1}
+0\longrightarrow f^*(J/J^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0.
+\end{equation}
+Par ailleurs, $V'$ et $V''$ étant lisses sur $Z$, on a la suite exacte
+\[
+0\longrightarrow p''^*(\Omega^1_{V'/Z})\longrightarrow\Omega^1_{V''/Z}\longrightarrow\Omega^1_{V''/V'}\longrightarrow0.
+\]
+En appliquant $(j'i)^*$, on trouve la suite exacte
+\[
+0\longrightarrow (p''ji)^*(\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/V'})\longrightarrow0.
+\]
+Comme $j'^*(\Omega^1_{V''/V'})=\Omega^1_{V/Y}$ d'après l'hypothèse (G), on obtient
+\begin{equation}\tag{2.6.2}
+0\longrightarrow f^*(j^*\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow0.
+\end{equation}
+En combinant (2.6.1) et (2.6.2), on est ramené à voir que le diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+0 \arrow[r] & f^*(J/J^2) \arrow[r] \arrow[d,"f^*(d)"'] & K/K^2 \arrow[r] \arrow[d,"d"] & I/I^2 \arrow[r] \arrow[d,"d"] & 0\\
+0 \arrow[r] & f^*(j^*\Omega^1_{V'/Z}) \arrow[r] & (j'i)^*\Omega^1_{V''/Z} \arrow[r] & i^*\Omega^1_{V/Y} \arrow[r] & 0
+\end{tikzcd}
+\]
+est commutatif, ce qui se fait localement sans difficulté en revenant aux définitions des morphismes en jeu. De la suite exacte de complexes ainsi obtenue, on déduit le triangle distingué annoncé dans la catégorie dérivée.
+
+\textbf{Corollaire 2.7.} Avec les notations et les hypothèses de 2.6, on a dans $K^{\bullet}(X)$ l'égalité suivante:
+\[
+T_{gf}=T_f+f^*(T_g).
+\]
+
+\subsection*{3. Théorème de Riemann--Roch : énoncé}
+
+\textbf{3.1.} Dans le numéro 3, $Y$ est un schéma quasi-compact ayant un faisceau ample.
+
+Soit $f:X\to Y$ un morphisme projectif, d'intersection complète (1.1); on suppose de plus que la dimension relative virtuelle de $f$ (1.9) est constante sur $X$. Comme $f$ est projectif, il existe une immersion fermée $X\to P$, où $P$ est un fibré projectif sur $Y$, et comme $Y$ a un faisceau ample, on peut supposer que $P=\mathbb P^r_Y$. On a donc une factorisation
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & \mathbb P^r_Y \arrow[d,"g"]\\
+& Y.
+\end{tikzcd}
+\]
+Comme $f$ est d'intersection complète, l'immersion $i$ est régulière (1.2).
+
+D'après 1.7, $f$ est un morphisme parfait. De plus, $Y$ a un faisceau ample et par suite $X$ et $P$ également. On peut alors définir un homomorphisme additif
+\[
+f_*:K^{\bullet}(X)\longrightarrow K^{\bullet}(Y)
+\]
+(IV 2.12), les $K^{\bullet}$ définis en termes de faisceaux localement libres de type fini, ou de complexes parfaits, étant identiques. On peut également définir des homomorphismes additifs
+\[
+i_*:K^{\bullet}(X)\longrightarrow K^{\bullet}(P),
+\qquad
+ g_*:K^{\bullet}(P)\longrightarrow K^{\bullet}(Y),
+\]
+et on a $f_*=g_*i_*$.
+
+Soit $d$ la dimension relative virtuelle de $X$ sur $Y$. La codimension de $i$ est alors $r-d$. D'après VII 4.6, l'homomorphisme $i_*$ donne après tensorisation par $\mathbb Q$ des inclusions
+\[
+i_*\bigl(\Fil^kK^{\bullet}(X)_{\mathbb Q}\bigr)
+\subset
+\Fil^{k+r-d}K^{\bullet}(P)_{\mathbb Q}.
+\]
+D'après VI 5.8, l'homomorphisme $g_*$ donne des inclusions
+\[
+g_*\bigl(\Fil^{k'}K^{\bullet}(P)\bigr)
+\subset
+\Fil^{k'-r}K^{\bullet}(Y).
+\]
+En composant les deux, on obtient donc:
+
+\textbf{Proposition 3.2.} Soit $f:X\to Y$ un morphisme projectif, d'intersection complète, et dont la dimension relative virtuelle $d$ est constante. On suppose que $Y$ est quasi-compact, et admet un faisceau ample. On a alors pour tout $k\in\mathbb Z$:
+\[
+f_*\bigl(\Fil^kK^{\bullet}(X)_{\mathbb Q}\bigr)
+\subset
+\Fil^{k-d}K^{\bullet}(Y)_{\mathbb Q}.
+\]
+On obtient donc en particulier un homomorphisme additif
+\[
+f^{\mathrm{gr}}_*:\Gr K^{\bullet}(X)_{\mathbb Q}\longrightarrow
+\Gr K^{\bullet}(Y)_{\mathbb Q}
+\]
+envoyant $\Gr^kK^{\bullet}(X)_{\mathbb Q}$ dans $\Gr^{k-d}K^{\bullet}(Y)_{\mathbb Q}$.
+
+\textbf{3.3.} Rappelons que nous avons défini dans V 6.1 un foncteur
+\[
+A\longmapsto \operatorname{Ch}(A)
+\]
+sur la catégorie des $K$-algèbres graduées, à valeurs dans la catégorie des $K$-$\lambda$-algèbres augmentées, $K$ étant un anneau binômial (V 2.7). Si $A$ est une $K$-algèbre graduée, on a
+\[
+\operatorname{Ch}(A)=K\times(1+\widehat A^+).
+\]
+Pour toute $K$-$\lambda$-algèbre augmentée $\Lambda$, nous avons défini un $K$-$\lambda$-homomorphisme, nommé classe de Chern complétée (V 6.7):
+\[
+\widetilde c=(\varepsilon,c):\Lambda\longrightarrow\operatorname{Ch}(\Gr_{\Lambda}).
+\]
+Enfin, nous avons défini un homomorphisme d'anneaux, fonctoriel en $A$, et nommé caractère de Chern (V 6.4):
+\[
+\ch:\operatorname{Ch}(A)\longrightarrow K\oplus\widehat A^+_{\mathbb Q},
+\]
+et un endomorphisme de groupes, nommé caractère de Todd (V 1.16):
+\[
+\Todd:1+\widehat A^+\longrightarrow1+\widehat A^+.
+\]
+Nous allons appliquer ces définitions aux $\lambda$-anneaux augmentés $K^{\bullet}(X)$ et $K^{\bullet}(Y)$, les anneaux d'augmentation $H^0(X,\mathbb Z)$ et $H^0(Y,\mathbb Z)$ étant binômiaux (V 2.8). Pour simplifier les notations, nous poserons, pour tout schéma $Z$, et tout $z\in K^{\bullet}(Z)$:
+\[
+\ch(z)=\ch(\widetilde c(z)),
+\qquad
+\Todd(z)=\Todd(c(z)).
+\]
+Nous considérerons pour toute algèbre graduée $A$ le groupe $1+\widehat A^+$ comme contenu dans $\widehat A$. Enfin, si on a un homomorphisme $f:A\to B$, additif et compatible aux graduations à un décalage près, on notera encore $f$ l'homomorphisme $\widehat A\to\widehat B$ qu'on en déduit.
+
+\textbf{3.4.} Soit $X$ un schéma. Pour tout $\mathcal O_X$-module localement libre de type fini $E$, on note $\check E$ la classe dans $K^{\bullet}(X)$ du dual $\check E$ de $E$. Il est clair que la fonction qui à $E$ associe $\check E$ est une fonction additive sur la catégorie des $\mathcal O_X$-modules localement libres de type fini, et par suite définit un endomorphisme de $K^{\bullet}(X)$, qu'on notera $x\mapsto\check x$.
+
+\textbf{Proposition 3.5.} Soit $X$ un schéma quasi-compact. Alors pour tout $x\in K^{\bullet}(X)$ et tout $i\geq0$, on a:
+\[
+c^i(\check x)=(-1)^i c^i(x).
+\]
+La relation à démontrer peut encore s'écrire
+\[
+c_t(\check x)=c_{-t}(x),
+\qquad
+c_t(x)=\sum_{i\geq0}c^i(x)t^i.
+\]
+Par additivité, on peut donc supposer que $x$ est la classe d'un $\mathcal O_X$-module localement libre de type fini $E$. De plus, quitte à remplacer $X$ par le schéma des drapeaux de $E$, ce qui donne une injection sur les $\Gr K^{\bullet}$ (VI 5.5), on peut supposer que $E$ est un faisceau inversible. On a alors $\check E=E^{-1}$, donc $\check x=x^{-1}$.
+
+Les $c^i(\check x)$, $c^j(x)$ sont nuls pour $i,j\geq2$. Il suffit donc de montrer que
+\[
+c^1(x^{-1})=-c^1(x).
+\]
+Or $c^1(x)$ est la classe dans $\Gr^1K^{\bullet}(X)$ de $x-1$, et $c^1(x^{-1})$ celle de $x^{-1}-1$. L'égalité
+\[
+x^{-1}-1=1-x+(x-1)(1-x^{-1})
+\]
+donne
+\[
+x^{-1}-1=1-x\pmod{\Fil^2K^{\bullet}(X)},
+\]
+on en déduit le résultat.
+
+\textbf{Théorème 3.6 (Riemann--Roch).} Soit $f:X\to Y$ un morphisme projectif d'intersection complète (1.1), et dont la dimension relative virtuelle $d$ est constante (1.9). On suppose que $Y$ est quasi-compact et admet un faisceau ample. Avec les notations de 3.3, on a alors pour tout $x\in K^{\bullet}(X)$ la relation:
+\[
+\ch(f_*(x))=f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr),
+\]
+$\check T_f$ désignant l'élément dual de la classe du complexe cotangent relatif $L^{X/Y}_\bullet$ (2.5 et 2.3).
+
+En d'autres termes, le diagramme
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+K^{\bullet}(X) \arrow[r,"\ch\circ\widetilde c"] \arrow[d,"f_*"'] & \Gr K^{\bullet}(X)_{\mathbb Q} \arrow[d,"x\mapsto f^{\mathrm{gr}}_*(x\Todd(\check T_f))"]\\
+K^{\bullet}(Y) \arrow[r,"\ch\circ\widetilde c"'] & \Gr K^{\bullet}(Y)_{\mathbb Q}
+\end{tikzcd}
+\]
+est commutatif.
+
+\end{document}
