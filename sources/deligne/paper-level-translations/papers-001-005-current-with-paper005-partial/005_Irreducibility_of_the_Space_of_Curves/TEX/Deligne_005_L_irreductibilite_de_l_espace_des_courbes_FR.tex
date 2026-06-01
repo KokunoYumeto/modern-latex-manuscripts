@@ -1,0 +1,300 @@
+
+\documentclass[11pt]{article}
+\usepackage[paperwidth=5.5in,paperheight=8.5in,margin=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.28em}
+\allowdisplaybreaks
+\sloppy
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Hilb}{Hilb}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\calX}{\mathcal X}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\calH}{\mathcal H}
+\newcommand{\calZ}{\mathcal Z}
+\newcommand{\calO}{\mathcal O}
+\newcommand{\omegaCS}{\omega_{C/S}}
+\newcommand{\mg}{M_g}
+\newcommand{\Hg}{H_g}
+\newcommand{\Zg}{Z_g}
+\newcommand{\AutS}{\operatorname{Aut}_S}
+\newcommand{\IsomS}{\operatorname{Isom}_S}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+
+\usepackage[french]{babel}
+\begin{document}
+\begin{center}
+{\Large\bfseries L'irréductibilité de l'espace des courbes de genre donné}\\[0.6em]
+{\large P. Deligne et D. Mumford}
+\end{center}
+\vspace{0.7em}
+
+
+Soit \(k\) un corps algébriquement clos. Notons \(M_g\) l'espace des modules des courbes de genre \(g\) sur \(k\). Le résultat principal de cet article est que \(M_g\) est irréductible pour tout \(k\). Bien entendu, l'irréductibilité ne dépend que de la caractéristique de \(k\). En caractéristique \(0\), on peut supposer \(k=\mathbb C\), et le résultat est classique. Une démonstration élémentaire se trouve dans Enriques--Chisini; elle repose sur l'étude des revêtements de \(\mathbb P^1\) de degré donné, avec un nombre fixé de points de branchement ordinaires. Fulton a étendu cette méthode en caractéristique \(p\), en utilisant des spécialisations depuis la caractéristique \(0\), sous l'hypothèse \(p>2g+1\). Pour tous les \(p\), cette voie rencontre les difficultés de la ramification sauvage. La théorie de Teichmüller donne aussi une explication analytique profonde de l'irréductibilité lorsque \(k=\mathbb C\). Notre méthode est plus proche de la démonstration incomplète de Severi et d'une suggestion de Grothendieck: déduire le cas de caractéristique \(p\) du cas de caractéristique \(0\) en construisant des familles de courbes, éventuellement singulières, de genre arithmétique \(g\), au-dessus de schémas de paramètres non singuliers, et contenant assez de courbes singulières pour relier entre elles les composantes éventuelles de \(M_g\).
+
+L'ingrédient nouveau est le théorème de réduction stable pour les variétés abéliennes. Grothendieck l'avait d'abord démontré en caractéristique \(0\), par des méthodes de cohomologie étale, et Mumford l'avait obtenu par la moitié facile du théorème \((2.5)\), qui permet de passer des courbes aux variétés abéliennes. Grothendieck a ensuite renforcé la méthode afin qu'elle fonctionne dans toute caractéristique; Mumford a aussi donné une démonstration par fonctions thêta en caractéristique différente de \(2\).
+
+\begin{theorem*}[Réduction stable pour les variétés abéliennes]
+Soit \(R\) un anneau de valuation discrète, de corps des fractions \(K\). Soit \(A\) une variété abélienne sur \(K\). Il existe une extension algébrique finie \(L/K\) telle que, si \(R_L\) est la clôture intégrale de \(R\) dans \(L\), et si \(\mathcal A\) est le modèle de Néron de \(A_L\) sur \(R_L\), alors la fibre spéciale de \(\mathcal A\) n'a pas de radical unipotent.
+\end{theorem*}
+
+Nous donnerons deux démonstrations apparentées du résultat principal. La première est assez élémentaire: une fois le théorème de réduction stable appliqué aux jacobiennes, on obtient une réduction stable analogue pour les courbes. La seconde est plus puissante et utilise une catégorie plus large que celle des schémas. Cette catégorie est en réalité une \(2\)-catégorie simple: si \(X\) et \(Y\) en sont des objets, \(\Hom(X,Y)\) est une catégorie dont tous les morphismes sont des isomorphismes. Les objets sont les \emph{champs algébriques}. Le schéma \(M_g\) n'est alors que la variété grossière sous-jacente au champ des modules \(\mathcal M_g\). Dans cet article, nous ne donnons que les définitions et les théorèmes généraux nécessaires. Par cette méthode, on prouve non seulement l'irréductibilité de \(M_g\), mais aussi celle des espaces de modules avec structures de niveau.
+
+\section*{1. Courbes stables et leurs modules}
+
+\begin{definition*}
+Soit \(S\) un schéma et soit \(g\geq 2\). Une \emph{courbe stable de genre \(g\) sur \(S\)} est un morphisme propre et plat \(\pi:C\to S\) dont les fibres géométriques sont des schémas réduits, connexes, de dimension \(1\), tels que:
+\begin{enumerate}[label=(\roman*)]
+\item chaque fibre n'a que des points doubles ordinaires;
+\item si \(E\) est une composante rationnelle non singulière d'une fibre \(C_s\), alors \(E\) rencontre les autres composantes de \(C_s\) en plus de deux points;
+\item \(\dim H^1(C_s,\mathcal O_{C_s})=g\).
+\end{enumerate}
+\end{definition*}
+
+Nous étudions trois aspects de ces courbes: les systèmes pluricanoniques, les déformations, et les automorphismes. Si \(\pi:C\to S\) est stable, alors \(\pi\) est localement une intersection complète. Le formalisme de la dualité cohérente fournit un faisceau inversible canonique \(\omega_{C/S}\), seul groupe de cohomologie non nul du complexe \(\pi^!(\mathcal O_S)\). Il jouit des propriétés suivantes. Il commute au changement de base. Si \(S=\Spec k\), avec \(k\) algébriquement clos, et si \(f:C'\to C\) est la normalisation, les points doubles \(z_i\) de \(C\) ayant pour antécédents \(x_i,y_i\), alors \(\omega_C\) est le faisceau des \(1\)-formes sur \(C'\), régulières hors des \(x_i,y_i\), à pôles simples en ces points, et telles que
+\[
+ \operatorname{Res}_{x_i}(\alpha)+\operatorname{Res}_{y_i}(\alpha)=0.
+\]
+Enfin, pour tout faisceau cohérent \(\mathcal F\) sur \(C\), la dualité donne
+\[
+ \Hom_k(H^1(C,\mathcal F),k)\simeq \Hom_C(\mathcal F,\omega_C).
+\]
+
+\begin{theorem*}
+Si \(C\) est une courbe stable de genre \(g\geq 2\) sur un corps algébriquement clos, alors
+\[
+ H^1(C,\omega_C^{\otimes n})=0 \quad (n\geq 2),
+\]
+et \(\omega_C^{\otimes n}\) est très ample pour \(n\geq 3\).
+\end{theorem*}
+
+\begin{proof}
+Sur chaque composante irréductible \(E\) de \(C\), la restriction de \(\omega_C\) est
+\[
+ \omega_E\Bigl(\sum Q_i\Bigr),
+\]
+où les \(Q_i\) sont les points où \(E\) rencontre le reste de la courbe. La stabilité impose que ce faisceau ait un degré strictement positif sur chaque composante; \(\omega_C\) est donc ample. La dualité ci-dessus montre ensuite que \(H^1(C,\omega_C^{\otimes n})\) est dual à \(H^0(C,\omega_C^{\otimes(1-n)})\), qui est nul dès que \(n\geq 2\). Pour la très-amplitude, il suffit de vérifier la séparation de deux points fermés et des vecteurs tangents. Par dualité, cela revient à la nullité de
+\[
+ \Hom(m_xm_y,\omega_C^{1-n})
+\]
+pour les points fermés \(x,y\), avec les variantes usuelles lorsque \(x\) ou \(y\) est un point double. En éclatant les points doubles, on se ramène à contrôler les degrés sur les composantes de la normalisation. Le seul cas limite est \(n=2\), lorsqu'une composante a degré \(1\) et que deux pôles sont admis; mais alors la section s'annule sur les autres composantes et acquiert des zéros supplémentaires aux points de recollement, donc elle est nulle.
+\end{proof}
+
+\begin{corollary*}
+Pour toute courbe stable \(\pi:C\to S\) de genre \(g\geq 2\), le faisceau \(\omega_{C/S}^{\otimes n}\) est relativement très ample pour \(n\geq 3\), et
+\[
+ \pi_*(\omega_{C/S}^{\otimes n})
+\]
+est localement libre de rang \((2n-1)(g-1)\).
+\end{corollary*}
+
+En prenant \(n=3\), toute courbe stable se réalise donc canoniquement comme une famille de courbes dans \(\mathbb P^{5g-6}\) avec polynôme de Hilbert
+\[
+ P_g(n)=(6n-1)(g-1).
+\]
+Il existe un sous-schéma \(H_g\) du schéma de Hilbert, paramétrant les courbes stables tricanoniquement plongées. Si \(Z_g\subset H_g\times \mathbb P^{5g-6}\) désigne la courbe universelle, alors le foncteur des courbes stables est le faisceau associé au quotient \(H_g/\PGL(5g-6)\).
+
+Passons aux déformations. Soit \(X\) un schéma de dimension \(1\), génériquement lisse sur un corps \(k\), et localement intersection complète. Le complexe cotangent se réduit ici au faisceau cohérent des différentielles de Kähler \(\Omega_{X/k}\). De plus:
+\[
+ \Ext^2(\Omega_{X/k},\mathcal O_X)=0.
+\]
+En effet, la suite spectrale
+\[
+ H^p(X,\mathcal Ext^q(\Omega_{X/k},\mathcal O_X))
+ \Rightarrow \Ext^{p+q}(\Omega_{X/k},\mathcal O_X)
+\]
+se réduit aux termes qui s'annulent par dimension, par localisation du support de \(\mathcal Ext^1\), et par le fait que \(\Omega_{X/k}\) a localement une résolution libre de longueur \(2\). Ainsi les obstructions aux déformations disparaissent. Les déformations du premier ordre sont classifiées par
+\[
+ \Ext^1(\Omega_{X/k},\mathcal O_X).
+\]
+Il existe donc une déformation formelle verselle \(\mathfrak X\) de \(X\) au-dessus de
+\[
+ \mathfrak M=\Spec o_k[[t_1,\ldots,t_N]],
+ \qquad
+ N=\dim_k\Ext^1(\Omega_{X/k},\mathcal O_X),
+\]
+où \(o_k=k\) en caractéristique \(0\), et où \(o_k\) est l'anneau de Cohen non ramifié complet de corps résiduel \(k\) en caractéristique \(p\).
+
+Si \(\Ext^0(\Omega_{X/k},\mathcal O_X)=0\), cette déformation verselle est universelle. C'est le cas pour les courbes stables: un élément de ce groupe est un champ de vecteurs régulier sur \(X\); après normalisation, il donne un champ de vecteurs sur chaque composante, s'annulant aux points qui dominent les points doubles. Sur une composante de genre au moins \(2\), il est nul; sur une composante elliptique il a au moins un zéro; sur une composante rationnelle il a au moins trois zéros. Dans tous les cas il est nul.
+
+Il reste à suivre localement les singularités. En un point double rationnel
+\[
+ \widehat{\mathcal O}_{X,x}\simeq k[[u,v]]/(uv),
+\]
+l'espace versel local est donné par
+\[
+ k[[u,v,t]]/(uv-t).
+\]
+Pour les points doubles \(x_1,\ldots,x_r\) d'une courbe stable \(C\), le morphisme de l'espace de déformations global vers le produit des espaces locaux est formellement lisse. Autrement dit, on peut choisir des paramètres \(t_1,\ldots,t_N\) de sorte que, près de \(x_i\), la courbe universelle soit
+\[
+ \widehat{\mathcal O}_{\mathcal C,x_i}
+ \simeq o_k[[u_i,v_i,t_1,\ldots,t_N]]/(u_iv_i-t_i).
+\]
+Ainsi l'équation \(t_i=0\) décrit le lieu où le point double \(x_i\) persiste.
+
+Ces calculs donnent la structure locale du schéma \(H_g\). Si \(x\in H_g\) correspond à une courbe stable \(C\) ayant \(r\) points doubles, alors
+\[
+ \widehat{\mathcal O}_{H_g,x}\simeq o_k[[t_1,\ldots,t_N]]
+\]
+et, pour le point correspondant de \(Z_g\) au-dessus du \(i\)-ième point double,
+\[
+ \widehat{\mathcal O}_{Z_g,z_i}
+ \simeq o_k[[u_i,v_i,t_1,\ldots,t_N]]/(u_iv_i-t_i).
+\]
+Il en résulte que \(H_g\) est lisse sur \(\Spec\mathbb Z\). Si \(H_g^0\) désigne l'ouvert des courbes lisses et \(S^*=H_g\setminus H_g^0\), alors \(S^*\) est un diviseur à croisements normaux relatifs; le lieu singulier \(S\subset Z_g\) est lisse et normalise \(S^*\).
+
+Pour deux courbes stables \(X/S\) et \(Y/S\), le foncteur \(\Isom_S(X,Y)\) est représentable. Les polarisations canoniques assurent la quasi-projectivité, et l'absence de champs de vecteurs assure que ce schéma est non ramifié. Par le critère valuatif, il est propre; donc:
+
+\begin{theorem*}
+Le schéma \(\Isom_S(X,Y)\) est fini et non ramifié sur \(S\).
+\end{theorem*}
+
+Le point crucial du critère valuatif est l'unicité: si \(X\) et \(Y\) sont deux courbes stables sur un anneau de valuation discrète et si leurs fibres génériques lisses sont isomorphes, alors cet isomorphisme s'étend. On le voit en passant au modèle minimal régulier de la fibre générique. Les singularités locales \(uv=\pi^n\) se résolvent par des chaînes de courbes rationnelles; inversement, la contraction des composantes rationnelles qui ne rencontrent le reste de la fibre qu'en deux points redonne la courbe stable. Le modèle stable est donc unique.
+
+Enfin, si \(X\) est une courbe stable sur un corps algébriquement clos, l'action de \(\Aut(X)\) sur \(\Pic^0(X)\) est fidèle. Pour une courbe lisse, c'est la formule des points fixes de Lefschetz--Weil. Pour une courbe irréductible singulière, on passe à la normalisation. Dans le cas général, on associe à \(X\) le graphe dual de ses composantes; un automorphisme agissant trivialement sur \(\Pic^0(X)\) agit trivialement sur \(H^1\) de ce graphe et fixe les sommets de valence \(0,1,2\). Une induction élémentaire sur les graphes montre que l'automorphisme du graphe est trivial; les lemmes précédents forcent alors l'automorphisme de \(X\) lui-même à être l'identité.
+
+\section*{2. Dégénérescences de courbes et de leurs jacobiennes}
+
+Soit \(K\) un corps muni d'une valuation discrète, \(R\) son anneau de valuation, \(k\) le corps résiduel algébriquement clos, \(S=\Spec R\). Soit \(C/K\) une courbe propre, lisse et géométriquement irréductible, de genre \(g\geq 2\), et soit \(J\) sa jacobienne. Notons \(\mathcal J\) le modèle de Néron de \(J\) sur \(R\), et \(\mathcal C\) le modèle minimal régulier de \(C\).
+
+\begin{definition*}
+On dit que \(J\) a réduction stable si la fibre spéciale de \(\mathcal J\) n'a pas de radical unipotent.
+\end{definition*}
+
+\begin{definition*}
+On dit que \(C\) a réduction stable au premier sens si la fibre spéciale de son modèle minimal régulier est réduite et n'a que des points doubles ordinaires. On dit que \(C\) a réduction stable au second sens s'il existe une courbe stable sur \(R\) de fibre générique \(C\).
+\end{definition*}
+
+Ces deux notions sont équivalentes. Si une courbe stable existe, la résolution de ses points doubles donne le modèle minimal; la fibre spéciale de ce modèle est réduite et nodale. Réciproquement, si le modèle minimal a fibre spéciale réduite et nodale, on contracte les chaînes de composantes rationnelles de self-intersection \(-2\) qui ne servent qu'à résoudre des singularités rationnelles de type \(A_n\). On obtient alors une surface normale dont la fibre spéciale est une courbe stable.
+
+\begin{theorem*}
+La jacobienne \(J\) a réduction stable si et seulement si la courbe \(C\) a réduction stable.
+\end{theorem*}
+
+L'outil est un théorème de Raynaud. Si \(\mathcal C\) est le modèle minimal et si le plus grand commun diviseur des multiplicités des composantes de la fibre spéciale est \(1\), alors la composante neutre du modèle de Néron de \(J\) représente le foncteur \(\Pic^0_{\mathcal C/S}\). Si \(C\) a réduction stable, \(\mathcal C_s\) est réduite et nodale, donc \(\Pic^0(\mathcal C_s)\) est une extension d'une variété abélienne par un tore; il n'y a pas de partie unipotente. Ainsi \(J\) a réduction stable.
+
+Réciproquement, supposons \(J\) à réduction stable. Si \(C(K)\ne\varnothing\), le modèle minimal admet une section et le pgcd des multiplicités est \(1\), donc le théorème de Raynaud s'applique. La fibre spéciale \(D\) du modèle minimal satisfait alors que \(\Pic^0(D)\) n'a pas de radical unipotent. Un lemme élémentaire dit que, pour un schéma propre de dimension \(1\) sur \(k\), avec \(H^0(D,\mathcal O_D)=k\), l'absence de radical unipotent dans \(\Pic^0(D)\) implique:
+\[
+ \chi(\mathcal O_D)=\chi(\mathcal O_{D_{\mathrm{red}}})
+\]
+et que les singularités de \(D_{\mathrm{red}}\) sont des croisements transverses de branches lisses. En appliquant la formule d'intersection
+\[
+ \chi(\mathcal O_D)=-\frac{D(D+K)}{2}
+\]
+aux diviseurs verticaux, on montre que toutes les multiplicités de la fibre spéciale sont \(1\); sinon une composante aurait intersection négative avec le diviseur canonique et serait exceptionnelle de première espèce, contradiction avec la minimalité. La fibre est donc réduite et nodale.
+
+Dans le cas général, on fait une extension finie \(K'/K\) telle que \(C(K')\ne\varnothing\). La courbe acquiert alors un modèle stable sur la clôture intégrale de \(R\). L'unicité du modèle stable et la fidélité de l'action sur \(\Pic^0\) permettent de descendre le modèle stable à \(R\). On obtient ainsi l'équivalence annoncée.
+
+\begin{corollary*}
+Soit \(R\) un anneau de valuation discrète, de corps des fractions \(K\), et soit \(C/K\) une courbe propre, lisse et géométriquement irréductible de genre \(g\geq 2\). Il existe une extension finie \(L/K\) telle que \(C_L\) admette une courbe stable sur la clôture intégrale de \(R\) dans \(L\).
+\end{corollary*}
+
+\section*{3. Démonstration élémentaire de l'irréductibilité}
+
+Soit \(k\) algébriquement clos de caractéristique \(p>0\). On note encore \(H_g\) le schéma des courbes stables tricanoniquement plongées sur \(k\), et \(H_g^0\) son ouvert des courbes lisses. Le quotient géométrique grossier \(M_g^0=H_g^0/\PGL(5g-6)\) existe et est le schéma de modules grossier des courbes lisses.
+
+La démonstration procède par récurrence sur \(g\), en utilisant l'irréductibilité en caractéristique \(0\).
+
+\emph{Étape I.} Aucune composante de \(M_g^0\) n'est propre. En effet, on relève \(M_g^0\) sur l'anneau des vecteurs de Witt. La fibre générique est connexe, puisque l'irréductibilité est connue en caractéristique \(0\). Par le théorème de connexité d'Enriques--Zariski, la fibre spéciale d'une compactification projective est connexe. Si une composante de \(M_g^0\) était propre, elle serait ouverte et fermée dans cette fibre spéciale, ce qui forcerait \(M_g^0\) à être propre. Mais l'application qui envoie une courbe sur sa jacobienne aurait alors une image fermée dans l'espace des variétés abéliennes principalement polarisées; or l'adhérence de cette image contient aussi les produits de jacobiennes de dimensions inférieures. Contradiction.
+
+\emph{Étape II.} Chaque composante de \(H_g\) rencontre le bord \(S^*=H_g\setminus H_g^0\). Si une composante n'avait que des courbes lisses, elle donnerait une composante propre de \(M_g^0\). Pour le voir, on prend un arc formel dont le point générique est dans la composante et dont l'image ne s'étend pas à \(M_g^0\); la réduction stable fournit, après extension finie, une famille stable dont la fibre spéciale est nécessairement singulière.
+
+\emph{Étape III.} Le diviseur \(S^*\) est connexe. Son ouvert lisse se décompose selon le type de la courbe à un seul nœud. Il y a le type \(0\), où la courbe est irréductible et sa normalisation a genre \(g-1\), et les types \(k\), \(1\leq k\leq\lfloor g/2\rfloor\), où deux composantes lisses de genres \(k\) et \(g-k\) se rencontrent en un point. Par l'hypothèse de récurrence, chaque stratum de type fixé est irréductible. Pour relier le type \(k\) au type \(0\), on choisit une courbe ayant deux nœuds, avec une composante de genre \(k\) et une autre composante dont la normalisation a genre \(g-k-1\). Les deux branches du diviseur \(S^*\) en ce point correspondent au lissage de l'un ou l'autre nœud; l'une spécialise vers le type \(k\), l'autre vers le type \(0\). Ainsi tous les strata appartiennent à la même composante connexe de \(S^*\).
+
+Comme chaque composante de \(H_g\) rencontre \(S^*\), et que \(S^*\) est connexe, \(H_g\) est irréductible. Le quotient \(M_g^0\) l'est donc également.
+
+\section*{4. Rappels sur les champs algébriques}
+
+On fixe une catégorie \(C\) munie d'une topologie de Grothendieck et admettant produits et produits fibrés. Un champ en groupoïdes sur \(C\) est une catégorie fibrée en groupoïdes \(p:\mathcal F\to C\) telle que les isomorphismes forment des faisceaux et que les données de descente soient effectives. Pour tout objet \(X\) de \(C\), la catégorie des sections sur \(X\) s'identifie à \(\Hom(X,\mathcal F)\). Les champs forment une \(2\)-catégorie avec produits et \(2\)-produits fibrés.
+
+Un morphisme \(F:\mathcal F_1\to\mathcal F_2\) est \emph{représentable} si, pour tout schéma \(X\to\mathcal F_2\), le produit fibré \(X\times_{\mathcal F_2}\mathcal F_1\) est représenté par un schéma. Une propriété locale des morphismes de schémas se transporte alors à un morphisme représentable de champs.
+
+\begin{definition*}
+Un champ \(\mathcal F\) est \emph{quasi-séparé} si sa diagonale \(\mathcal F\to\mathcal F\times\mathcal F\) est représentable, quasi-compacte et séparée. Il est \emph{algébrique} si sa diagonale est représentable et s'il existe un morphisme étale surjectif \(X\to\mathcal F\) avec \(X\) schéma.
+\end{definition*}
+
+Les quotients \([X/G]\), pour un groupe fini étale séparé agissant sur un schéma \(X\), fournissent les exemples de base. Les espaces algébriques sont les champs algébriques dont toutes les catégories de sections sont discrètes.
+
+On définit le site étale d'un champ algébrique \(\mathcal F\) par les morphismes étales \(X\to\mathcal F\) avec \(X\) schéma. Les notions de schéma régulier, normal, noethérien, réduit, de Cohen--Macaulay, ainsi que les propriétés de morphismes plat, lisse, étale, non ramifié, etc., se définissent après passage à une présentation étale. Un morphisme de champs est \emph{propre} s'il est séparé, de type fini, et localement dominé par un morphisme propre représentable. Une forme du lemme de Chow s'applique: pour un morphisme séparé de type fini d'un champ étale vers un schéma noethérien, il existe un schéma propre, surjectif et génériquement fini au-dessus du champ, qui se plonge comme ouvert dans un schéma projectif.
+
+On en déduit la théorie cohérente usuelle: si \(f:\mathcal X\to\mathcal Y\) est propre entre champs algébriques noethériens et \(\mathcal F\) cohérent sur \(\mathcal X\), alors les \(R^if_*\mathcal F\) sont cohérents. La cohomologie peut toutefois contenir des termes de cohomologie de groupes finis, comme dans l'exemple \([\Spec S/G]\).
+
+Les composantes connexes, les composantes irréductibles et la normalisation existent pour les champs localement noethériens. Les composantes connexes d'un champ normal noethérien sont aussi irréductibles. Le théorème de semi-continuité et le théorème de connexité d'Enriques--Zariski s'étendent dans la forme nécessaire ici. On dispose également des critères valuatifs de séparation et de propreté: un morphisme séparé admet au plus un prolongement après passage d'un anneau de valuation à son corps des fractions; un morphisme séparé de type fini est propre si, après extension finie éventuelle du corps des fractions, tout point générique se prolonge.
+
+\section*{5. Deuxième démonstration et structures de niveau}
+
+Le champ \(\mathcal M_g\) des courbes stables de genre \(g\) est le quotient du schéma \(H_g\) par \(\PGL(5g-6)\). Par les résultats précédents, c'est un champ algébrique séparé de type fini sur \(\Spec\mathbb Z\). Il est lisse, puisque \(H_g\) est lisse, et il est propre par le critère valuatif et la réduction stable. L'ouvert \(\mathcal M_g^0\) des courbes lisses est dense; le complément est un diviseur à croisements normaux.
+
+Pour une courbe lisse \(X\), une \emph{structure jacobienne de niveau \(n\)} est un isomorphisme symplectique entre le module \(H_1(X,\mathbb Z/n\mathbb Z)\) et un module symplectique fixé. Si \(n\geq 3\), Serre a montré qu'une courbe stable munie d'une telle structure n'a pas d'automorphisme non trivial. Le foncteur correspondant est alors représentable par un schéma \(\mathcal M_g^{(n)}\), fini étale au-dessus de \(\mathcal M_g\) sur \(\Spec\mathbb Z[1/n]\).
+
+Plus généralement, pour un groupe fini \(G\) d'ordre premier à la caractéristique, une structure de Teichmüller de niveau \(G\) sur une courbe stable \(X/S\) consiste en un revêtement \(Y\to X\), étale au-dessus de la partie lisse, galoisien de groupe \(G\), dont les fibres géométriques correspondent à un revêtement topologique fixé de la surface de genre \(g\). Le faisceau de telles structures est représentable par un schéma fini étale au-dessus du champ des courbes stables lorsque \(|G|\) est inversible. On obtient des revêtements de niveau dont les fibres géométriques sont des schémas lisses.
+
+Il reste à prouver que ces fibres sont irréductibles, ou du moins connexes. On utilise les diviseurs à croisements normaux du bord et un lemme local: pour un diviseur à croisements normaux \(D\) dans un schéma excellent régulier \(X\), un revêtement fini étale de \(X-D\) dont la ramification est modérée s'étend de manière contrôlée après normalisation. Cette description permet de comparer les composantes connexes d'une fibre géométrique d'un espace de niveau lorsqu'on passe d'une caractéristique à une autre. Puisque la caractéristique \(0\) est connue, le nombre de composantes connexes des fibres géométriques reste constant.
+
+Pour la structure jacobienne de niveau \(n\geq 3\), les fibres géométriques sont donc connexes. Comme elles sont lisses, elles sont irréductibles. En oubliant la structure de niveau, on en conclut que l'espace des modules \(M_g\) lui-même est irréductible sur tout corps algébriquement clos.
+
+\begin{theorem*}
+Pour tout corps algébriquement clos \(k\) et tout \(g\geq 2\), l'espace des modules des courbes lisses de genre \(g\) sur \(k\) est irréductible.
+\end{theorem*}
+
+\begin{thebibliography}{99}
+\bibitem{Ab} S. Abhyankar, Resolution of singularities of arithmetical surfaces.
+\bibitem{A1} M. Artin, The implicit function theorem in algebraic geometry.
+\bibitem{A2} M. Artin, Some numerical criteria for contractibility.
+\bibitem{B} J. Bénabou, Thèse, Paris, 1966.
+\bibitem{E} F. Enriques and O. Chisini, Teoria geometrica delle equazioni e delle funzioni algebriche.
+\bibitem{F} W. Fulton, Hurwitz schemes and irreducibility of moduli of algebraic curves.
+\bibitem{G} J. Giraud, Cohomologie non abélienne.
+\bibitem{Gr} A. Grothendieck, Techniques de descente et théorèmes d'existence en géométrie algébrique.
+\bibitem{H} R. Hartshorne, Residues and Duality.
+\bibitem{K} D. Knutson, Algebraic spaces.
+\bibitem{Li} J. Lipman, Rational singularities.
+\bibitem{L} M. Lichtenbaum, Curves over discrete valuation rings.
+\bibitem{Ma} W. Manger, Die Klassen von topologischen Abbildungen einer geschlossenen Fläche auf sich.
+\bibitem{M1} D. Mumford, Geometric Invariant Theory.
+\bibitem{M2} D. Mumford, Notes on seminar on moduli problems.
+\bibitem{M3} D. Mumford, Picard groups of moduli problems.
+\bibitem{N} A. Néron, Modèles minimaux des variétés abéliennes sur les corps locaux et globaux.
+\bibitem{R} M. Raynaud, Spécialisation du foncteur de Picard.
+\bibitem{S} J.-P. Serre, Rigidité du foncteur de Jacobi d'échelon \(n\geq 3\).
+\bibitem{Se} F. Severi and Löffler, Vorlesungen über algebraische Geometrie.
+\bibitem{W} A. Weil, Modules des surfaces de Riemann.
+\end{thebibliography}
+
+
+\end{document}

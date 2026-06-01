@@ -1,0 +1,1094 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Expose V macros
+\providecommand{\Chat}{\widehat C}
+\providecommand{\Ghat}{\widehat G}
+\providecommand{\Gg}{\widehat G_g}
+\providecommand{\Ga}{\widehat G_a}
+\providecommand{\Grhat}{\widehat{\operatorname{Gr}}}
+\providecommand{\Abfil}{\mathrm{Ab\,fil}}
+\providecommand{\Kalgfil}{K\text{-}\mathrm{Alg.fil.}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Sym}{\mathfrak S}
+\providecommand{\id}{\operatorname{Id}}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\Toddc}{\operatorname{Todd}}
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\cG}{\mathcal G}
+\providecommand{\cCzero}{\mathcal C_0}
+\providecommand{\Fil}{\operatorname{Fil}}
+
+
+\begin{center}
+{\Large SGA 6 : Exposé V, pages 304--330}\\[0.4em]
+{\large Généralités sur les \(\lambda\)-anneaux, ouverture}
+\end{center}
+
+
+\section*{Exposé V. Généralités sur les \(\lambda\)-anneaux}
+\begin{center}
+par P. Berthelot
+\end{center}
+
+La théorie des \(\lambda\)-anneaux est utile chaque fois que l'on utilise des anneaux tels que l'anneau des classes de fibrés vectoriels sur un site annelé, l'anneau des représentations d'un groupe, etc., pour lesquels les opérations de puissance extérieure définissent des applications \(\lambda^i\). Nous l'utiliserons abondamment dans la suite du Séminaire; il est donc nécessaire d'en développer d'abord le formalisme général. Cet exposé est donc tout à fait indépendant du reste du Séminaire et peut servir aux utilisateurs de \(\lambda\)-anneaux en dehors de la géométrie algébrique.
+
+Le premier paragraphe donne essentiellement la théorie des « suites multiplicatives de polynômes » de Hirzebruch (cf. [2]); le point de vue fonctoriel adopté ici a l'avantage, outre sa généralité, de réduire notablement les calculs. Les paragraphes suivants montreront comment, à tout \(\lambda\)-anneau augmenté, on peut associer un « anneau de Chern » permettant de développer une théorie des classes de Chern. C'est cette théorie qui nous permettra d'énoncer le théorème de Riemann--Roch sous la forme générale de l'Exp. VIII.
+
+\section*{1. Polynômes universels}
+
+\textbf{1.1.} Soit \(K\) un anneau commutatif à élément unité, fixé dans tout ce paragraphe. On désigne par \(\mathcal C\) la catégorie des \(K\)-algèbres filtrées, commutatives à élément unité, dont la filtration est décroissante et telle que le groupe des éléments de filtration nulle soit l'algèbre entière. On définit un foncteur sur \(\mathcal C\), à valeurs dans la catégorie des groupes abéliens, de la façon suivante : si \(A\in\operatorname{Ob}(\mathcal C)\), on associe à \(A\) l'ensemble des séries formelles \(\psi\in A[[t]]\) vérifiant les conditions suivantes : si
+\[
+  \psi=a_0+a_1t+\cdots+a_nt^n+\cdots,
+\]
+alors
+\begin{equation}\tag{1.1.1}
+  a_0=1,\qquad \forall i\geq 1,\quad a_i\in\Fil^i A .
+\end{equation}
+Cet ensemble sera noté \(\Ghat_K(A)\), ou \(\Ghat(A)\) si aucune confusion n'est possible. Il est clair que c'est un groupe abélien pour la multiplication des séries formelles, et que l'on définit bien ainsi un foncteur
+\[
+  \Ghat_K:K\text{-Alg.fil.}\longrightarrow \mathrm{Ab}.
+\]
+Si \(A\) est munie de la filtration grossière, \(\Ghat(A)\) est le groupe des séries formelles d'augmentation \(1\), qu'on notera aussi
+\[
+  1+A[[t]]^+.
+\]
+
+\textbf{Lemme 1.2.} Le foncteur \(\Ghat_K\) est représentable.
+
+Soit \((X_i)_{i\in\mathbb N,\ i\geq 1}\) une famille d'indéterminées. On attribue le poids \(i\) à \(X_i\), et l'on filtre l'anneau \(K[X_i]_{i\geq 1}\) par le poids par rapport aux \(X_i\). On définit alors une bijection
+\[
+  \Ghat_K(A)\xrightarrow{\sim}
+  \Hom_{K\text{-Alg.fil.}}\bigl(K[X_i]_{i\geq 1},A\bigr)
+\]
+en associant à toute série
+\[
+  \psi=1+a_1t+\cdots+a_nt^n+\cdots\in\Ghat_K(A)
+\]
+l'homomorphisme \(f_\psi\) déterminé par \(f_\psi(X_i)=a_i\). Cet homomorphisme est compatible aux filtrations, et l'on obtient ainsi un isomorphisme de foncteurs.
+
+On pose
+\[
+  \varphi=1+X_1t+\cdots+X_nt^n+\cdots.
+\]
+Pour toute \(K\)-algèbre filtrée \(A\) et toute série \(\psi\in\Ghat(A)\), il existe un homomorphisme et un seul
+\[
+  f_\psi\in K[X_i]_{i\geq 1}\longrightarrow A
+\]
+tel que
+\[
+  \Ghat(f_\psi)(\varphi)=\psi .
+\]
+
+\textbf{1.3.} On définit pour tout \(A\in\operatorname{Ob}(\mathcal C)\) une filtration sur \(\Ghat(A)\) de la façon suivante : une série
+\[
+  \psi=1+a_1t+\cdots
+\]
+sera dite de filtration \(\geq k\) si \(a_i=0\) pour \(1\leq i<k\). On note \(F^k\Ghat(A)\) le sous-groupe ainsi obtenu. C'est un foncteur sur \(\mathcal C\), et nous considérerons désormais \(\Ghat\) comme foncteur à valeurs dans la catégorie \(\Abfil\) des groupes abéliens filtrés grâce à cette filtration, avec \(F^0\Ghat=\Ghat\).
+
+Soit \(H\) un foncteur sur \(\mathcal C\) à valeurs dans \(\Abfil\). Nous supposerons que \(H\) satisfait les deux conditions suivantes :
+\[
+\begin{array}{ll}
+\text{i)} & \forall A\in\operatorname{Ob}(\mathcal C),\ H(A)\text{ est séparé et complet},\\[0.3em]
+\text{ii)} & \text{si }A\in\operatorname{Ob}(\mathcal C)\text{ est une }K\text{-algèbre graduée, munie de la filtration}\\
+& \text{associée à sa graduation, et si }G\text{ est un groupe fini opérant sur }A\\
+& \text{par morphismes gradués, alors }H(A^G)\simeq H(A)^G .
+\end{array}
+\]
+L'exposant \(G\) désigne les invariants sous \(G\).
+
+En fait, nous n'aurons besoin de ces conditions que lorsque \(A\) est un anneau de polynômes et \(G\) un produit fini de groupes symétriques opérant par permutation des indéterminées.
+
+\textbf{Exemples.}
+\[
+\begin{array}{ll}
+1)& H(A)=\Ghat(A),\\
+2)& H(A)=1+A[[t]]^+.
+\end{array}
+\]
+Ce foncteur sera noté \(\Gg\), \(g\) étant l'initiale de « grossière ». Enfin,
+\[
+3)\quad H(A)=\Ga(A),
+\]
+où \(\Ga(A)\) désigne le groupe, pour l'addition, des séries formelles
+\[
+  a=a_0+a_1t+\cdots
+\]
+telles que \(a_0=0\), \(a_i\in\Fil^i A\) pour \(i\geq 1\), muni de la filtration analogue à celle de \(\Ghat\).
+
+\textbf{1.4.} Pour tout \(n\), nous noterons \(f_n\) l'endomorphisme de \(K[X_1,\ldots,X_n]\) défini par
+\[
+  f_n(X_i)=X_i\quad (i<n),\qquad f_n(X_n)=0.
+\]
+Il se factorise par l'inclusion de \(K[X_1,\ldots,X_{n-1}]\) dans \(K[X_1,\ldots,X_n]\), ce qui montre que l'homomorphisme
+\[
+  H(K[X_1,\ldots,X_{n-1}])\longrightarrow H(K[X_1,\ldots,X_n])
+\]
+est injectif. Nous l'identifierons donc à un sous-groupe du second; de même, nous considérerons \(H(K[X_1,\ldots,X_n])\) comme contenu dans \(H(K[X_i]_{i\geq 1})\).
+
+On notera que \(f_1\) n'est autre que l'augmentation de \(K[X]\).
+
+\textbf{1.5.} On plonge \(K[X_1,\ldots,X_n]\) dans \(K[T_1,\ldots,T_n]\) en envoyant \(X_i\) sur la \(i\)-ème fonction symétrique élémentaire des \(T_j\). En faisant opérer le groupe symétrique \(\Sym_n\) par permutation des \(T_j\), et en utilisant le théorème des polynômes symétriques et (1.3.ii), on voit que l'homomorphisme de
+\[
+  H(K[X_1,\ldots,X_n])
+\]
+dans
+\[
+  H(K[T_1,\ldots,T_n])
+\]
+qui s'en déduit est injectif, ce qui permet encore d'identifier le premier à un sous-groupe du second :
+\[
+  H(K[X_1,\ldots,X_n])\simeq H(K[T_1,\ldots,T_n])^{\Sym_n}
+  \subset H(K[T_1,\ldots,T_n]).
+\]
+On note
+\[
+  u_i^n:K[X]\longrightarrow K[T_1,\ldots,T_n]
+\]
+l'homomorphisme défini par \(u_i^n(X)=T_i\), et l'on pose
+\[
+  u_H^n=\sum_{i=1}^n H(u_i^n):H(K[X])\longrightarrow H(K[T_1,\ldots,T_n]).
+\]
+Le groupe symétrique permute les morphismes \(H(u_i^n)\), et laisse donc invariant le morphisme \(u_H^n\), qui par suite prend ses valeurs dans
+\[
+  H(K[T_1,\ldots,T_n])^{\Sym_n}
+  \simeq H(K[X_1,\ldots,X_n])
+\]
+d'après (1.3.ii). Remarquons enfin que si \(H=\Ghat\),
+\[
+  u_H^n(1+Xt)=\prod_{i=1}^n(1+T_it)=1+X_1t+\cdots+X_nt^n.
+\]
+
+\textbf{Théorème 1.6.} L'application de \(\Hom_{\Abfil}(\Ghat,H)\) dans \(H(K[X])\) qui, à un morphisme de foncteurs, associe sa valeur sur l'élément \(1+Xt\) de \(\Ghat(K[X])\), est injective; son image est le sous-groupe de \(H(K[X])\) formé des éléments \(\theta\) tels que, avec les notations de 1.4 pour les \(f_n\),
+\[
+\begin{array}{ll}
+\text{i)}& H(f_1)(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n>1,\quad
+H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
+\pmod{F^nH(K[X_1,\ldots,X_n])}.
+\end{array}
+\]
+
+Montrons d'abord l'injectivité. D'après le lemme 1.2, il suffit de voir qu'un morphisme de foncteurs \(\xi\) nul sur \(1+Xt\) est nul sur
+\[
+  \varphi=1+X_1t+\cdots+X_nt^n+\cdots .
+\]
+Le diagramme commutatif
+\[
+\begin{tikzcd}
+\Ghat(K[X]) \arrow[r,"u^n_{\Ghat}"] \arrow[d,"\xi"'] &
+\Ghat(K[X_1,\ldots,X_n]) \arrow[d,"\xi"]\\
+H(K[X]) \arrow[r,"u_H^n"'] &
+H(K[X_1,\ldots,X_n])
+\end{tikzcd}
+\tag{1.6.1}
+\]
+montre que, pour tout \(n\),
+\[
+  \xi(1+X_1t+\cdots+X_nt^n)=0.
+\]
+Or
+\[
+  \varphi\equiv 1+X_1t+\cdots+X_nt^n
+  \pmod{F^{n+1}\Ghat};
+\]
+donc
+\[
+  \xi(\varphi)\equiv \xi(1+X_1t+\cdots+X_nt^n)
+  \pmod{F^{n+1}H}.
+\]
+Par suite \(\xi(\varphi)\equiv0\pmod{F^{n+1}H}\), pour tout \(n\); comme \(H(K[X_i]_{i\geq 1})\) est séparé et complet, \(\xi(\varphi)=0\).
+
+Soit maintenant \(\xi\) un élément quelconque de \(\Hom(\Ghat,H)\), et soit
+\[
+  \theta=\xi(1+Xt).
+\]
+Montrons que \(\theta\) vérifie i) et ii). On a d'abord
+\[
+  H(f_1)(\theta)=H(f_1)\xi(1+Xt)
+  =\xi\,\Ghat(f_1)(1+Xt)=\xi(1)=0.
+\]
+D'autre part,
+\[
+  u_H^n(\theta)=\xi(1+\cdots+X_nt^n)
+\]
+d'après (1.6.1), et
+\[
+  1+\cdots+X_nt^n\equiv 1+\cdots+X_{n-1}t^{n-1}
+  \pmod{F^n\Ghat},
+\]
+tandis que
+\[
+  1+\cdots+X_{n-1}t^{n-1}=\Ghat(f_n)(1+\cdots+X_nt^n).
+\]
+Comme \(\xi\circ\Ghat(f_n)=H(f_n)\circ\xi\), et que \(\xi\) est un morphisme de foncteurs filtrés, on obtient ii).
+
+Il faut enfin montrer que si \(\theta\in H(K[X])\) vérifie i) et ii), il existe \(\xi\in\Hom(\Ghat,H)\) tel que
+\[
+  \theta=\xi(1+Xt).
+\]
+On détermine d'abord la valeur de \(\xi\) pour l'élément \(1+\cdots+X_nt^n\) de \(\Ghat(K[X_1,\ldots,X_n])\) grâce à (1.6.1); on a donc par définition
+\[
+  \xi(1+\cdots+X_nt^n)
+  =
+  \sum_{i=1}^n \xi(1+T_it),
+\]
+les \(\xi(1+T_it)\) étant connus par fonctorialité au moyen des morphismes \(u_i^n\).
+
+On recolle ensuite les \(\xi(1+\cdots+X_nt^n)\) pour \(n\) variable grâce au diagramme commutatif
+\[
+\begin{tikzcd}
+K[X_1,\ldots,X_n] \arrow[r,"f_n"] \arrow[d,"\sigma_n"'] &
+K[X_1,\ldots,X_n] \arrow[d,"\sigma'_n"]\\
+K[T_1,\ldots,T_n] \arrow[r,"f'_n"'] &
+K[T_1,\ldots,T_n],
+\end{tikzcd}
+\tag{1.6.2}
+\]
+où \(f'_n\) est déterminé par \(f'_n(T_i)=T_i\) si \(i<n\), \(f'_n(T_n)=0\); où \(\sigma_n\) envoie \(X_i\) sur la \(i\)-ème fonction symétrique des \(T_1,\ldots,T_n\); et où \(\sigma'_n\) envoie \(X_i\) sur la \(i\)-ème fonction symétrique des \(T_1,\ldots,T_{n-1}\) pour \(i<n\), et \(X_n\) sur \(0\).
+
+On en déduit
+\[
+\begin{aligned}
+H(f_n)\bigl(\xi(1+\cdots+X_nt^n)\bigr)
+&=H(f'_n)\left(\sum_{i=1}^n \xi(1+T_it)\right)\\
+&=\sum_{i=1}^{n-1}\xi(1+T_it)
+=\xi(1+\cdots+X_{n-1}t^{n-1}),
+\end{aligned}
+\]
+en se plaçant dans \(H(K[T_1,\ldots,T_{n-1}])\) grâce aux identifications 1.4. Compte tenu de 1.6.ii, les \(\xi(1+\cdots+X_nt^n)\) définissent un élément \(\psi\) de \(H(K[X_i]_{i\geq1})\), puisque c'est un groupe séparé complet; on posera donc
+\[
+  \xi(\varphi)=\psi .
+\]
+
+Soient enfin \(A\in\operatorname{Ob}(\mathcal C)\) et \(x\in\Ghat(A)\). On pose
+\[
+  \xi_A(x)=H(f_x)(\psi),
+\]
+\(f_x\) étant l'homomorphisme de \(K[X_i]_{i\geq 1}\) dans \(A\) défini en 1.2. Comme on a déjà défini \(\xi\) sur les éléments \(1+\cdots+X_nt^n=\varphi_n\), il faut vérifier que les deux définitions donnent la même chose, c'est-à-dire que
+\[
+  H(f_{\varphi_n})(\psi)=\xi(1+\cdots+X_nt^n).
+\]
+Or, pour tout \(p\), on a
+\[
+  \psi\equiv \xi(1+\cdots+X_pt^p)
+  \pmod{F^{p+1}H(K[X_i]_{i\geq 1})}.
+\]
+D'où, pour tout \(p\geq n\),
+\[
+  H(f_{\varphi_n})(\psi)\equiv
+  H(f_{\varphi_n})\bigl(\xi(1+\cdots+X_pt^p)\bigr)
+  \pmod{F^{p+1}H(K[X_i]_{i\geq 1})}.
+\]
+Utilisant les identifications de 1.4 et le recollement des \(\xi(\varphi_m)\), on obtient
+\[
+  H(f_{\varphi_n})(\xi(\varphi_p))=\xi(\varphi_n).
+\]
+On a donc finalement
+\[
+  \forall p\geq n,\quad
+  H(f_{\varphi_n})(\psi)\equiv \xi(1+\cdots+X_nt^n)
+  \pmod{F^pH(K[X_1,\ldots,X_n])}.
+\]
+Comme \(H\) est séparé, on en déduit l'égalité cherchée.
+
+On a donc défini ainsi un système d'applications
+\[
+  \xi_A:\Ghat(A)\longrightarrow H(A).
+\]
+Pour vérifier qu'elles constituent un morphisme de foncteurs à valeurs dans les groupes, il faut montrer d'abord que, pour tout morphisme \(h:A\to A'\), le diagramme
+\[
+\begin{tikzcd}
+\Ghat(A) \arrow[r,"\Ghat(h)"] \arrow[d,"\xi_A"'] &
+\Ghat(A') \arrow[d,"\xi_{A'}"]\\
+H(A) \arrow[r,"H(h)"'] & H(A')
+\end{tikzcd}
+\]
+est commutatif. Si \(x\in\Ghat(A)\), alors \(h\circ f_x=f_{\Ghat(h)(x)}\), d'où
+\[
+  H(h)(\xi_A(x))=H(h)H(f_x)(\psi)
+  =H(f_{\Ghat(h)(x)})(\psi)=\xi_{A'}(\Ghat(h)(x)).
+\]
+Il reste donc à montrer que le morphisme de foncteurs ainsi construit est compatible aux structures de groupes filtrés.
+
+Supposons que \(x\in F^n\Ghat(A)\). Dire que \(x\) est de filtration \(>n\) équivaut à dire que \(f_x:K[X_i]_{i\geq 1}\to A\) se factorise par l'endomorphisme \(g_n\) de \(K[X_i]_{i\geq 1}\) défini par
+\[
+  g_n(X_i)=0\quad (1\leq i\leq n-1),\qquad
+  g_n(X_i)=X_i\quad (i\geq n).
+\]
+Pour montrer que \(\xi\) est compatible aux filtrations, il suffit donc de montrer que
+\[
+  H(g_n)(\xi(\varphi))\in F^nH.
+\]
+Or, par construction,
+\[
+  \xi(\varphi)\equiv \xi(1+\cdots+X_{n-1}t^{n-1})
+  \pmod{F^nH}.
+\]
+D'où
+\[
+  H(g_n)(\xi(\varphi))
+  =H(g_n)\bigl(\xi(1+\cdots+X_{n-1}t^{n-1})\bigr)
+  \equiv0\pmod{F^nH}.
+\]
+
+Pour vérifier l'additivité de \(\xi\), il suffit de le faire pour les éléments de degré fini de \(\Ghat(A)\), et de passer ensuite à la limite. Soient donc \(X_1,X_2\) deux éléments de degré \(n\) de \(\Ghat(A)\), et \(X\) leur produit. On considère le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large]
+K[X_1,\ldots,X_{2n}] \arrow[rr,"f_X"] \arrow[d] && A\\
+\bigl(K[T_1,\ldots,T_{2n}]\bigr)^{\Sym_n\times\Sym_n}
+\arrow[urr,"f'_X"'] &&
+\end{tikzcd}
+\]
+où le premier facteur permute \(T_1,\ldots,T_n\) et le second \(T_{n+1},\ldots,T_{2n}\). L'anneau \(K[X_1,\ldots,X_{2n}]\) est plongé dans l'anneau des invariants en envoyant \(X_j\) sur la \(j\)-ème fonction symétrique élémentaire des \(T_i\); \(f'\) envoie la \(i\)-ème fonction symétrique de \(T_1,\ldots,T_n\), respectivement de \(T_{n+1},\ldots,T_{2n}\), sur le \(i\)-ème coefficient de \(X_1\), respectivement de \(X_2\). Alors
+\[
+\begin{aligned}
+\xi(X)
+&=H(f'_X)\left(\xi\left(\prod_{i=1}^{2n}(1+T_it)\right)\right),\\
+\xi(X_1)
+&=H(f'_X)\left(\xi\left(\prod_{i=1}^{n}(1+T_it)\right)\right),
+\end{aligned}
+\]
+et de même pour \(X_2\), avec \(i=n+1,\ldots,2n\). Comme \(H(f'_X)\) est un homomorphisme de groupes, on est ramené au cas où
+\[
+  X=\prod_{i=1}^{2n}(1+T_it),
+\]
+et dans ce cas l'additivité de \(\xi\) résulte de la définition des \(\xi(1+X_1t+\cdots+X_k t^k)\).
+
+\textbf{1.7.} On peut généraliser les considérations précédentes au cas d'un produit de foncteurs \(\Ghat\). Le foncteur \((\Ghat)^k\) est représentable par l'anneau
+\[
+  K[X_i^{(j)}]_{j=1,\ldots,k;\ i\geq 1},
+\]
+où \(X_i^{(j)}\) est de poids \(i\). On notera \(\varphi^{(j)}\) la série
+\[
+  1+X_1^{(j)}t+\cdots+X_n^{(j)}t^n+\cdots.
+\]
+L'élément \((\varphi^{(j)})_j\) de
+\[
+  \bigl(\Ghat(K[X_i^{(j)}])\bigr)^k
+\]
+possède la propriété universelle analogue à celle de \(\varphi\) (cf. 1.2).
+
+On peut introduire les morphismes \(f_n^{(j)}\) et \(u_H^{n,(j)}\) comme précédemment, en refaisant la construction pour chaque famille \((X_i^{(j)})_{i\geq 1}\) séparément. On obtient un résultat analogue au théorème 1.6 en cherchant les homomorphismes de foncteurs de \((\Ghat)^k\) dans \(H\), \(\mathbb Z\)-multilinéaires et compatibles aux filtrations par rapport à chacun des \(k\) arguments séparément : ils sont déterminés par leur valeur pour l'élément
+\[
+  (1+X^{(j)}t)_{j=1,\ldots,k}
+  \in\bigl(\Ghat(K[X^{(j)}]_j)\bigr)^k.
+\]
+Un élément \(\theta\) de \(H(K[X^{(j)}]_j)\) détermine un morphisme de foncteurs si, et seulement si, il vérifie :
+\[
+\begin{array}{ll}
+\text{i)}& \forall j,\quad H(f_1^{(j)})(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n,j,\quad
+H(f_n^{(j)})\bigl(u_H^{n,(j)}(\theta)\bigr)
+\equiv u_H^{n,(j)}(\theta)\pmod{F^nH}.
+\end{array}
+\]
+Le lecteur se convaincra aisément qu'à des complications de notation près, il suffit de recopier la démonstration de 1.6.
+
+\textbf{1.8.} On notera \(\mathcal C_0\) la catégorie des \(K\)-algèbres, et
+\[
+  i:\mathcal C_0\longrightarrow \mathcal C
+\]
+le foncteur qui à une \(K\)-algèbre \(A\) associe la \(K\)-algèbre \(A\) munie de la filtration grossière. On notera
+\[
+  g:\mathcal C\longrightarrow\mathcal C_0
+\]
+le foncteur oubli de la filtration. Ces foncteurs vérifient les relations suivantes :
+\[
+  g\circ i=\id_{\mathcal C_0},\qquad
+  \Ghat\circ i\circ g=\Gg,\qquad
+  \Gg\circ i\circ g=\Gg
+\]
+(cf. 1.3, ex. 2).
+
+\textbf{Lemme 1.9.} Soit \(H:\mathcal C_0\to\Abfil\) un foncteur sur \(\mathcal C_0\). Alors l'homomorphisme canonique
+\[
+  \Hom_{\Abfil}(\Ghat,H\circ g)
+  \longrightarrow
+  \Hom_{\Abfil}(\Ghat\circ i,H)
+\]
+est un isomorphisme.
+
+Pour voir qu'il est injectif, on utilise la suite d'homomorphismes canoniques
+\[
+  \Hom(\Ghat,H\circ g)\to
+  \Hom(\Ghat\circ i,H)\to
+  \Hom(\Gg,H\circ g)\to
+  \Hom(\Ghat,H\circ g),
+\]
+la dernière flèche venant de ce que \(\Ghat\) est un sous-foncteur de \(\Gg\). Pour vérifier que l'homomorphisme composé est l'identité, on remarque qu'un morphisme de foncteurs
+\[
+  \xi:\Ghat\longrightarrow H\circ g
+\]
+est déterminé par sa valeur pour les objets de \(\mathcal C\) dont la filtration est grossière. En effet, soit \(A\in\operatorname{Ob}(\mathcal C)\), et \(A_g\) l'algèbre \(A\) munie de la filtration grossière; le morphisme canonique \(A\to A_g\) définit un diagramme commutatif
+\[
+\begin{tikzcd}
+\Ghat(A) \arrow[r,"\xi_A"] \arrow[d] &
+(H\circ g)(A) \arrow[d]\\
+\Ghat(A_g) \arrow[r,"\xi_{A_g}"'] &
+(H\circ g)(A_g),
+\end{tikzcd}
+\]
+montrant que \(\xi_A\) est la restriction de \(\xi_{A_g}\) à \(\Ghat(A)\).
+
+On considère ensuite l'homomorphisme composé
+\[
+  \Hom(\Ghat\circ i,H)\longrightarrow
+  \Hom(\Gg,H\circ g)\longrightarrow
+  \Hom(\Ghat,H\circ g)\longrightarrow
+  \Hom(\Ghat\circ i,H),
+\]
+et il est clair que c'est l'identité, d'où le résultat annoncé.
+
+\textbf{Théorème 1.10.} Soit \(H\) un foncteur sur la catégorie \(\mathcal C_0\) des \(K\)-algèbres, à valeurs dans la catégorie des groupes abéliens filtrés séparés complets, et commutant aux invariants sous un groupe fini. Alors l'application de
+\[
+  \Hom_{\Abfil}(\Ghat\circ i,H)
+\]
+dans \(H(K[X])\) qui, à un morphisme de foncteurs, associe sa valeur sur l'élément \(1+Xt\) de \(\Ghat\circ i(K[X])\), est injective; son image est le sous-groupe de \(H(K[X])\) formé des éléments \(\theta\) tels que, avec des notations analogues à celles de 1.4 et 1.5,
+\[
+\begin{array}{ll}
+\text{i)}& H(f_1)(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n>1,\quad
+H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
+\pmod{F^nH(K[X_1,\ldots,X_n])}.
+\end{array}
+\]
+Le théorème résulte immédiatement du théorème 1.6 et du lemme 1.9, compte tenu de ce que \(H\circ g(K[X])\) ne dépend pas de la filtration choisie sur \(K[X]\).
+
+Le théorème analogue obtenu en remplaçant \(\Ghat\) par \((\Ghat)^k\) est également vrai (cf. 1.7).
+
+Quand il n'y aura pas de risque de confusion, nous noterons le foncteur \(\Ghat\circ i\) par \(\Ghat\), ce qui est légitime car \(i\) identifie \(\mathcal C_0\) à une sous-catégorie de \(\mathcal C\).
+
+\textbf{1.11.} On notera \(\mathcal C_g\) la catégorie des \(K\)-algèbres graduées, et \(j\) le foncteur de \(\mathcal C_g\) dans \(\mathcal C\) qui, à une \(K\)-algèbre graduée \(B\), associe la \(K\)-algèbre \(B\) munie de la filtration canoniquement définie par sa graduation. Le foncteur gradué associé \(\mathcal C\to\mathcal C_g\) sera noté \(\operatorname{Gr}\). Il existe un isomorphisme de foncteurs
+\[
+  \varepsilon:\id_{\mathcal C_g}\xrightarrow{\sim}\operatorname{Gr}\circ j.
+\]
+Soit \(B\in\operatorname{Ob}(\mathcal C_g)\). On notera
+\[
+  1+\widehat B^+
+\]
+le groupe multiplicatif des éléments de
+\[
+  \prod_{i=0}^{\infty}B^i
+\]
+d'augmentation \(1\). En le munissant de la filtration analogue à celle de \(\Ghat\), on définit ainsi un foncteur \(\mathcal C_g\to\Abfil\). Par ailleurs, on définit pour tout \(A\in\operatorname{Ob}(\mathcal C)\) un homomorphisme de groupes filtrés
+\[
+  \Ghat(A)\longrightarrow 1+\widehat{\operatorname{Gr}A}^{+}
+\]
+en associant à la série \(1+\cdots+a_nt^n+\cdots\) la série \(1+\cdots+\bar a_n+\cdots\), où \(\bar a_n\) est la classe de \(a_n\) dans \(\operatorname{Gr}^nA\). Son noyau est le groupe \(\Ghat'(A)\) des séries formelles telles que
+\[
+  a_0=1,\qquad \forall i\geq1,\quad a_i\in\Fil^{i+1}A.
+\]
+On a donc un isomorphisme, fonctoriel en \(A\),
+\[
+  \Ghat(A)/\Ghat'(A)\xrightarrow{\sim}1+\widehat{\operatorname{Gr}A}^{+}.
+\]
+
+\textbf{Lemme 1.12.} Soit \(H:\mathcal C_g\to\Abfil\) un foncteur sur \(\mathcal C_g\). Alors l'homomorphisme canonique
+\[
+  \rho:\Hom_{\Abfil}(1+\widehat{\,\cdot\,}^{+},H)
+  \longrightarrow
+  \Hom_{\Abfil}(\Ghat,H\circ\operatorname{Gr})
+\]
+est un isomorphisme.
+
+L'homomorphisme \(\rho\) est défini comme étant le composé
+\[
+  \Hom(1+\widehat{\,\cdot\,}^{+},H)
+  \longrightarrow
+  \Hom(1+\widehat{\operatorname{Gr}(\,\cdot\,)}^{+},H\circ\operatorname{Gr})
+  \longrightarrow
+  \Hom(\Ghat,H\circ\operatorname{Gr}),
+\]
+la dernière flèche étant définie par l'homomorphisme
+\[
+  \Ghat\longrightarrow1+\widehat{\operatorname{Gr}(\,\cdot\,)}^{+}.
+\]
+On va construire un morphisme en sens inverse
+\[
+  \rho':\Hom(\Ghat,H\circ\operatorname{Gr})
+  \longrightarrow
+  \Hom(1+\widehat{\,\cdot\,}^{+},H).
+\]
+Pour cela, on montre que tout morphisme de foncteurs de \(\Ghat\) dans \(H\circ\operatorname{Gr}\) se factorise par le morphisme canonique
+\[
+  \Ghat\longrightarrow1+\widehat{\operatorname{Gr}(\,\cdot\,)}^{+},
+\]
+ce qui équivaut à montrer qu'il s'annule sur \(\Ghat'\) d'après 1.11. Soient \(A\in\operatorname{Ob}(\mathcal C)\) et \(x\in\Ghat'(A)\). On définit un homomorphisme de \(K\)-algèbres filtrées
+\[
+  K[X_i]_{i\geq1}\longrightarrow A
+\]
+en envoyant \(X_1\) sur \(0\) et \(X_i\), pour \(i>1\), sur le \((i-1)\)-ième coefficient de \(x\). Utilisant cet homomorphisme, on voit qu'il suffit de vérifier que le morphisme de foncteurs considéré s'annule pour l'élément
+\[
+  1+X_2t+\cdots+X_{n+1}t^n+\cdots.
+\]
+On utilise alors l'endomorphisme \(f\) de \(K[X_i]_{i\geq1}\) défini par
+\[
+  f(X_i)=X_{i+1}\quad\text{pour tout }i,
+\]
+et le diagramme commutatif
+\[
+\begin{tikzcd}
+\Ghat(K[X_i]) \arrow[r] \arrow[d,"\Ghat(f)"'] &
+(H\circ\operatorname{Gr})(K[X_i]) \arrow[d,"H(\operatorname{Gr}(f))"]\\
+\Ghat(K[X_i]) \arrow[r] &
+(H\circ\operatorname{Gr})(K[X_i]).
+\end{tikzcd}
+\]
+Or \(\operatorname{Gr}(f)=\operatorname{Gr}(f_1)\), \(f_1\) étant l'homomorphisme d'augmentation de \(K[X_i]_{i\geq1}\). Comme ce dernier annule \(\varphi\), il résulte du diagramme analogue écrit pour \(f_1\) que \(H(\operatorname{Gr}(f))\) annule l'image de \(\varphi\) dans \(H\circ\operatorname{Gr}(K[X_i]_{i\geq1})\), d'où le résultat.
+
+Par passage au quotient, on associe donc à tout morphisme de foncteurs
+\[
+  \Ghat\longrightarrow H\circ\operatorname{Gr}
+\]
+un morphisme de foncteurs
+\[
+  1+\widehat{\operatorname{Gr}}^{+}\longrightarrow H\circ\operatorname{Gr}.
+\]
+Par composition avec \(j\), et en utilisant l'isomorphisme \(\varepsilon\), on obtient un morphisme
+\[
+  1+\widehat{\,\cdot\,}^{+}\longrightarrow H,
+\]
+ce qui définit l'homomorphisme \(\rho'\) cherché. Il est immédiat de vérifier que \(\rho\) et \(\rho'\) sont inverses l'un de l'autre.
+
+\textbf{Théorème 1.13.} Soit \(H\) un foncteur sur \(\mathcal C_g\), à valeurs dans la catégorie des groupes abéliens filtrés séparés complets, et commutant aux invariants sous un groupe fini. Alors l'application de
+\[
+  \Hom_{\Abfil}(1+\widehat{\,\cdot\,}^{+},H)
+\]
+dans \(H(K[X])\) qui, à un morphisme de foncteurs, associe sa valeur sur l'élément \(1+X\) de \(1+\widehat{K[X]}^+\), est injective; son image est le sous-groupe de \(H(K[X])\) formé des éléments \(\theta\) tels que, avec les notations de 1.4 et 1.5,
+\[
+\begin{array}{ll}
+\text{i)}& H(f_1)(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n>1,\quad
+H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
+\pmod{F^nH(K[X_1,\ldots,X_n])}.
+\end{array}
+\]
+C'est immédiat à partir de 1.6 et 1.12. On a un énoncé analogue en remplaçant \(\Ghat\) par \((\Ghat)^k\).
+
+\textbf{Remarque 1.14.} Si \(H\) est un foncteur sur \(\mathcal C_g\), à valeurs dans la catégorie des groupes abéliens, commutant aux invariants sous un groupe fini, et satisfaisant la condition
+\[
+  \forall B\in\operatorname{Ob}(\mathcal C_g),\qquad
+  H(B)\simeq\varprojlim_n H(B/B^{\geq n}),\qquad
+  B^{\geq n}=\prod_{i\geq n}B^i,
+\]
+alors la condition ii) de 1.13 est toujours vérifiée si l'on prend comme filtration sur \(H\) la filtration par les noyaux des
+\[
+  H(B)\longrightarrow H(B/B^{\geq n}),
+\]
+qui est séparée et complète. Soit en effet \(p_n\) l'homomorphisme canonique
+\[
+  K[X_1,\ldots,X_n]\longrightarrow K[X_1,\ldots,X_n]/K[X_1,\ldots,X_n]^{\geq n}.
+\]
+On a \(p_n\circ f_n=p_n\), d'où
+\[
+  H(p_n)\bigl[H(f_n)\circ u_H^n(\theta)-u_H^n(\theta)\bigr]=0,
+\]
+c'est-à-dire
+\[
+  H(f_n)\circ u_H^n(\theta)-u_H^n(\theta)
+  \in F^nH(K[X_1,\ldots,X_n]).
+\]
+Pour se donner un morphisme de foncteurs de \(1+\widehat{\,\cdot\,}^{+}\) dans \(H\), il suffit donc de se donner un élément de \(H(K[X])\) satisfaisant la seule condition i) de 1.13.
+
+\textbf{1.15.} Soit \(H:\mathcal C\to\Abfil\) (resp. \(\mathcal C_0\to\Abfil\), \(\mathcal C_g\to\Abfil\)) un foncteur satisfaisant les conditions de 1.3 (resp. 1.10, 1.13), et soit
+\[
+  \xi:(\Ghat)^k\to H
+\]
+(resp. \((\Ghat\circ i)^k\to H\), \((1+\widehat{\,\cdot\,}^{+})^k\to H\)) un morphisme de foncteurs. Nous avons vu que \(\xi\) est déterminé par sa valeur sur l'élément
+\[
+  (\varphi^{(j)})_{j=1,\ldots,k}.
+\]
+Supposons que \(H\) soit un foncteur tel que \(\Ghat,\Gg,\Ga,1+\widehat{\operatorname{Gr}}^{+}\), etc. L'élément \(\xi((\varphi^{(j)}))\) est une série formelle à coefficients dans
+\[
+  K[X_i^{(j)}]_{i\geq1,\ j=1,\ldots,k}.
+\]
+Le \(n\)-ième coefficient de cette série sera appelé \(n\)-ième polynôme universel de \(\xi\); la connaissance de ces polynômes équivaut donc à la connaissance de \(\xi\).
+
+D'après la démonstration de 1.6, ces polynômes sont eux-mêmes déterminés par l'élément
+\[
+  \xi(1+X^{(1)}t,\ldots,1+X^{(k)}t).
+\]
+Le calcul s'effectue selon la méthode de la démonstration : on calcule les éléments
+\[
+  \xi(1+X_1^{(1)}t+\cdots+X_n^{(1)}t^n,\ldots,
+  1+X_1^{(k)}t+\cdots+X_n^{(k)}t^n),
+\]
+en décomposant
+\[
+  1+X_1^{(1)}t+\cdots+X_n^{(1)}t^n
+  =
+  \prod_{j=1}^{n}(1+T_j^{(1)}t),
+\]
+et en utilisant l'additivité de \(\xi\). Les polynômes ainsi obtenus sont symétriques par rapport aux \(T_j^{(i)}\) pour \(i\) fixe et \(j\) variable, et s'expriment en fonction des \(X_j^{(i)}\). En recollant grâce à la filtration de \(H\), on détermine ainsi les polynômes universels de \(\xi\). Si
+\[
+  (\psi^{(1)},\ldots,\psi^{(k)})\in(\Ghat(A))^k,
+\]
+le calcul de \(\xi(\psi^{(1)},\ldots,\psi^{(k)})\) se fait en substituant les coefficients des \(\psi^{(i)}\) aux \(X_j^{(i)}\) dans les polynômes universels.
+
+Supposons qu'il existe un entier \(m\) tel que le coefficient de \(t^n\) dans
+\[
+  \theta=\xi(1+X^{(1)}t,\ldots,1+X^{(k)}t)
+\]
+soit un polynôme dont les composantes isobares ont un poids variant entre \(n\) et \(m\). Alors le \(k\)-ième polynôme universel de \(\xi\) a des composantes isobares dont le poids varie entre \(k\) et \(km\). Cela résulte immédiatement du mode de calcul exposé plus haut et du théorème des fonctions symétriques.
+
+Supposons en particulier que \(H=\Ghat\). Alors le \(n\)-ième polynôme universel de \(\xi\) n'a pas de composantes de poids \(<n\). Considérons maintenant le morphisme canonique
+\[
+  H\longrightarrow1+\widehat{\operatorname{Gr}}^{+}.
+\]
+Par composition avec \(\xi\), on obtient un morphisme
+\[
+  (\Ghat)^k\longrightarrow1+\widehat{\operatorname{Gr}}^{+},
+\]
+qui, d'après la démonstration de 1.12, se factorise par \((1+\widehat{\operatorname{Gr}}^{+})^k\) et définit un morphisme
+\[
+  \bar\xi:(1+\widehat{\,\cdot\,}^{+})^k\longrightarrow1+\widehat{\,\cdot\,}^{+}.
+\]
+On voit aussitôt que le \(n\)-ième polynôme universel de \(\bar\xi\) est le même que celui de
+\[
+  (\Ghat)^k\longrightarrow1+\widehat{\operatorname{Gr}}^{+},
+\]
+c'est-à-dire la composante isobare de poids \(n\) du \(n\)-ième polynôme universel de \(\xi\).
+
+Les mêmes remarques s'appliquent au cas \(H=\Ga\). On peut définir un morphisme de foncteurs
+\[
+  H\longrightarrow\widehat{\operatorname{Gr}}^{+}
+\]
+avec \(\widehat B^+=\prod_{i\geq1}B^i\) pour \(B\in\mathcal C_g\), de façon analogue à 1.11; on recopie alors raisonnement et conclusions de l'alinéa précédent.
+
+\textbf{1.16.} Terminons sur un exemple. On suppose que \(K=\mathbb Q\). On définit un endomorphisme du foncteur \(1+\widehat{\,\cdot\,}^{+}\), noté \(\Toddc\), et appelé caractère de Todd, en posant
+\[
+  \Toddc(1+X)=\frac{X}{1-e^{-X}}.
+\]
+Les conditions i) et ii) du théorème 1.13 se vérifient immédiatement, ce qui montre que nous avons bien défini ainsi un endomorphisme de \(1+\widehat{\,\cdot\,}^{+}\).
+
+\section*{2. Définition des \(\lambda\)-anneaux; exemples}
+
+Dans ce paragraphe, l'anneau de base du paragraphe 1 sera \(\mathbb Z\) (sauf en 2.9). On se place sur la catégorie \(\mathcal C_0\) (1.8), et on note \(\Ghat\) la restriction de \(\Ghat\) à \(\mathcal C_0\) (1.10).
+
+\textbf{Définition 2.1.} On appelle pré-\(\lambda\)-anneau un anneau \(K\), commutatif à élément unité, muni d'un homomorphisme de groupes abéliens
+\[
+  \lambda_t:K\longrightarrow1+K[[t]]^+
+\]
+tel que, pour tout \(x\in K\),
+\[
+  \lambda_t(x)=1+xt+\cdots.
+\]
+On posera
+\[
+  \lambda_t(x)=\sum_{i\geq0}\lambda^i(x)t^i.
+\]
+La donnée d'une structure de pré-\(\lambda\)-anneau sur un anneau \(K\) équivaut donc à la donnée d'une famille d'applications
+\[
+  \lambda^i:K\longrightarrow K\qquad (i\in\mathbb N)
+\]
+telles que
+\[
+\begin{array}{ll}
+\text{i)}& \forall x\in K,\quad \lambda^0(x)=1,\\[0.3em]
+\text{ii)}& \forall x\in K,\quad \lambda^1(x)=x,\\[0.3em]
+\text{iii)}& \forall x,y\in K,\ \forall n\in\mathbb N,\quad
+\lambda^n(x+y)=\displaystyle\sum_{p+q=n}\lambda^p(x)\lambda^q(y).
+\end{array}
+\]
+Soient \(K,K'\) deux pré-\(\lambda\)-anneaux et \(f:K\to K'\) un homomorphisme d'anneaux. On dira que \(f\) est un homomorphisme de pré-\(\lambda\)-anneaux, ou encore un \(\lambda\)-homomorphisme, si le diagramme
+\[
+\begin{tikzcd}
+K \arrow[r,"\lambda_t"] \arrow[d,"f"'] &
+1+K[[t]]^+ \arrow[d,"\Ghat(f)"]\\
+K' \arrow[r,"\lambda_t"'] &
+1+K'[[t]]^+
+\end{tikzcd}
+\]
+est commutatif. Ceci équivaut encore aux relations
+\[
+  \forall x\in K,\ \forall i\in\mathbb N,\qquad
+  \lambda^i(f(x))=f(\lambda^i(x)).
+\]
+
+\textbf{Exemples 2.2.}
+\begin{enumerate}[label=\alph*)]
+\item On peut donner toutes les structures de pré-\(\lambda\)-anneau de \(\mathbb Z\). Il suffit pour cela de se donner \(\lambda_t(1)\), qui sera donc une série formelle à coefficients entiers, soumise à la seule condition de commencer par \(1+t\).
+
+\item Soit \((T,A)\) un topos commutativement annelé, et soit \(K\) le « groupe de Grothendieck » des \(A\)-modules localement isomorphes à un facteur direct d'un \(A\)-module libre de type fini. On sait que \(K\) peut être muni d'une structure d'anneau grâce au produit tensoriel (Exp. IV), et nous allons le munir d'une structure de pré-\(\lambda\)-anneau de la façon suivante. Pour tout \(A\)-module \(E\), localement facteur direct d'un module libre de type fini, on désigne par \(\lambda^i(E)\) la classe dans \(K\) de la \(i\)-ième puissance extérieure de \(E\), qui est également localement facteur direct d'un module libre de type fini. Ceci définit une fonction sur la catégorie des \(A\)-modules localement facteurs directs d'un libre de type fini, à valeurs dans le groupe abélien \(1+K[[t]]^+\). Il faut alors montrer que cette fonction est additive, ce qui entraînera qu'elle se factorise par \(K\), d'où la structure cherchée.
+\end{enumerate}
+
+\textbf{Lemme 2.2.1.} Soit
+\[
+  0\longrightarrow E' \xrightarrow{u} E \xrightarrow{v} E''\longrightarrow0
+\]
+une suite exacte de \(A\)-modules qui est localement scindée, par exemple telle que \(E''\) soit localement facteur direct d'un module libre de type fini. Il existe sur \(\Lambda^n(E)\) une filtration finie et des isomorphismes
+\[
+  \Lambda^{n-p}(E')\otimes_A\Lambda^p(E'')
+  \xrightarrow{\sim}
+  \operatorname{Gr}^p\Lambda^n(E).
+\]
+On prend pour \(F^p\Lambda^n(E)\) l'image du morphisme canonique
+\[
+  \Lambda^{n-p}(E')\otimes_A\Lambda^p(E)\longrightarrow\Lambda^n(E)
+  \quad (0\leq p\leq n).
+\]
+Si \(p>n\), \(F^p\Lambda^n(E)=\Lambda^n(E)\), et si \(p<0\), \(F^p\Lambda^n(E)=0\). Ceci définit bien une filtration finie sur \(\Lambda^n(E)\).
+
+On définit un homomorphisme
+\[
+  f_p:\Lambda^{n-p}(E')\otimes_A\Lambda^p(E'')
+  \longrightarrow F^p\Lambda^n(E)/F^{p-1}\Lambda^n(E)
+\]
+en posant
+\[
+  f_p(x'_1\wedge\cdots\wedge x'_{n-p}\otimes x''_1\wedge\cdots\wedge x''_p)
+  =
+  \operatorname{cl}\bigl(u(x'_1)\wedge\cdots\wedge u(x'_{n-p})\wedge x_1\wedge\cdots\wedge x_p\bigr),
+\]
+où les \(x_i\) sont des relèvements dans \(E\) des sections données \(x''_i\) de \(E''\). Cela ne dépend visiblement pas du choix des \(x_i\). Si la suite exacte est localement scindée, \(f_p\) est un isomorphisme, car localement
+\[
+  \Lambda^n(E)\simeq\bigoplus_{p+q=n}\Lambda^p(E')\otimes_A\Lambda^q(E'').
+\]
+
+Dans le cas où \(E',E,E''\) sont localement facteurs directs de modules libres de type fini, les \(\operatorname{Gr}^p\Lambda^n(E)\) sont localement facteurs directs de libres de type fini, donc les \(F^p\Lambda^n(E)\) également. On peut donc écrire dans \(K\)
+\[
+  \lambda^n(E)=\sum_{p=0}^{n}\operatorname{cl}(\operatorname{Gr}^p\Lambda^n(E))
+  =
+  \sum_{p=0}^{n}\lambda^{n-p}(E')\lambda^p(E''),
+\]
+d'où l'additivité.
+
+Soient \((T,A)\), \((T',A')\) deux topos commutativement annelés, et
+\[
+  f:(T,A)\longrightarrow(T',A')
+\]
+un morphisme de topos annelés. On sait (Exp. IV, 2.7) que \(f\) définit un morphisme d'anneaux sur les \(K\) correspondants, soit
+\[
+  f^*:K^*_{\mathrm{naif}}(T',A')\longrightarrow K^*_{\mathrm{naif}}(T,A).
+\]
+Comme l'image inverse commute aux puissances extérieures, le morphisme \(f^*\) correspondant sur les \(K\) est un \(\lambda\)-homomorphisme pour la structure qui vient d'être définie.
+
+Signalons deux cas particuliers :
+\begin{itemize}
+\item Soit \(X\) un schéma. Alors \(K^*_{\mathrm{naif}}(X)\) est ainsi muni d'une structure de pré-\(\lambda\)-anneau; c'est ce cas qui servira dans la suite du Séminaire, et il peut être considéré comme modèle pour la théorie générale des \(\lambda\)-anneaux.
+\item Soit \(A\) un anneau, \(X=\operatorname{Spec}A\); soit d'autre part \(G\) un groupe opérant trivialement sur \(A\). Si l'on prend pour \((T,A)\) le topos des faisceaux d'ensembles sur \(X\) sur lesquels \(G\) opère, l'anneau \(K\) ainsi obtenu est l'anneau des représentations de \(G\) dans les \(A\)-modules projectifs de type fini.
+\end{itemize}
+
+\textbf{2.3.} Soit \(K\) un anneau commutatif à élément unité. On se propose de munir le groupe abélien
+\[
+  \Ghat(K)=1+K[[t]]^+
+\]
+d'une structure de pré-\(\lambda\)-anneau, fonctorielle par rapport à \(K\). À cet effet, nous allons appliquer les résultats de 1.10 au foncteur \(\Ghat\).
+
+On définit d'abord la multiplication en se donnant un morphisme \(\mathbb Z\)-bilinéaire de foncteurs
+\[
+  \Ghat\times\Ghat\longrightarrow\Ghat
+\]
+par l'élément \(1+XYt\) de \(\Ghat(\mathbb Z[X,Y])\). Cet élément vérifie en effet 1.7.i; pour voir qu'il vérifie 1.7.ii, il faut montrer que dans
+\[
+  \prod_{i=1}^{n}(1+T_iYt),
+\]
+exprimé au moyen des fonctions symétriques élémentaires \(X_j\) des \(T_i\), \(X_n\) ne figure pas dans les coefficients de \(t^k\) pour \(k<n\), ce qui est évident pour des raisons de degré.
+
+La loi ainsi définie sera notée par le signe \(\circ\). On a donc par définition :
+\begin{equation}\tag{2.3.1}
+  (1+Xt)\circ(1+Yt)=1+XYt.
+\end{equation}
+Elle est distributive par construction, associative et commutative par les diagrammes
+\[
+\begin{tikzcd}[column sep=large]
+\Ghat\times\Ghat\times\Ghat \arrow[r] \arrow[d] &
+\Ghat\times\Ghat \arrow[d]\\
+\Ghat\times\Ghat \arrow[r] & \Ghat
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large]
+\Ghat\times\Ghat \arrow[r] \arrow[d] &
+\Ghat\times\Ghat \arrow[d]\\
+\Ghat \arrow[r,"\id"'] & \Ghat,
+\end{tikzcd}
+\]
+dont il suffit de vérifier la commutativité pour les éléments \(1+Xt,1+Yt,1+Zt\) de \(\Ghat(\mathbb Z[X,Y,Z])\) (resp. \(1+Xt,1+Xt\) de \(\Ghat(\mathbb Z[X,Y])\)) d'après 1.10, vérification immédiate.
+
+D'après 1.8, le produit par cette loi de deux séries se calcule par substitution de leurs coefficients dans les polynômes universels de la loi. Le \(n\)-ième polynôme universel sera noté \(P_n\); c'est un polynôme de
+\[
+  \mathbb Z[X_i,Y_j]_{1\leq i,j\leq n},
+\]
+isobare de poids \(n\) par rapport à chacun des deux groupes de variables (voir 1.15), et symétrique par rapport à ces deux groupes. Donnons à titre d'exemple la valeur de \(P_2\) :
+\[
+  P_2(X_1,X_2;Y_1,Y_2)=X_2Y_1^2+Y_2X_1^2-2X_2Y_2.
+\]
+On a également la relation suivante : soient \(K\in\operatorname{Ob}(\mathcal C_0)\), \(\psi\in\Ghat(K)\), \(a\in K\); alors
+\begin{equation}\tag{2.3.2}
+  \psi(t)\circ(1+at)=\psi(at).
+\end{equation}
+Comme d'habitude, elle se ramène par l'argument fonctoriel standard au cas \(K=\mathbb Z[X,Y]\), \(\psi=1+Xt\), \(a=Y\), où elle n'est autre que (2.3.1).
+
+Appliquant (2.3.2) à \(\Ghat(K)=1+K[[t]]^+\) et à \(a=1\), on voit que l'élément \(1+t\) est unité pour cette multiplication. Pour éviter des confusions, nous le noterons parfois \(1\), ou encore \(1_\circ\).
+
+Le foncteur \(\Ghat\) peut maintenant être considéré comme foncteur de \(\mathcal C_0\) dans la catégorie des anneaux commutatifs à éléments unité, et par conséquent être composé avec lui-même. Pour éviter des confusions, nous choisirons des indéterminées différentes pour chacun des facteurs du produit de \(\Ghat\) par lui-même, et nous indiquerons l'indéterminée en exposant lorsque ce sera nécessaire :
+\[
+  \Ghat^t,\quad \Ghat^u,\quad\text{etc.}
+\]
+Pour \(A\in\operatorname{Ob}(\mathcal C_0)\), on a donc
+\[
+  \Ghat^u\circ\Ghat^t(A)=1+\{1+A[[t]]^+\}[[u]]^+.
+\]
+Pour définir les opérations \(\lambda^i\) sur \(1+K[[t]]^+\), nous allons nous donner un morphisme de foncteurs
+\[
+  \Ghat\longrightarrow\Ghat^u\circ\Ghat^t.
+\]
+Pour cela, il faut d'abord définir une filtration du foncteur \(\Ghat^u\circ\Ghat^t\) qui permette le recollement de 1.6.
+
+On remarque d'abord que \(F^k\Ghat\) est un idéal pour la loi \(\circ\); cela résulte, pour
+\[
+  \left(1+\sum_{i\geq k}X_i t^i\right)\circ(1+Yt),
+\]
+du fait qu'on est ramené par fonctorialité au cas \(A=\mathbb Z[X_i,Y]_{i\geq1}\), et du produit (2.3.2). On prendra alors pour \(F^n(\Ghat^u\circ\Ghat^t)\) l'ensemble des séries de la forme
+\[
+  1+\psi_1u+\cdots+\psi_i u^i+\cdots,\qquad
+  \psi_i\in F^{[n/i]}\Ghat,
+\]
+\([n/i]\) désignant la partie entière de \(n/i\).
+
+L'élément définissant le morphisme \(\lambda_u\) est
+\[
+  1+\{1+Xt\}u.
+\]
+Le lecteur vérifiera à titre d'exercice que les conditions de 1.6 sont bien remplies (en fait, la filtration est choisie ad hoc).
+
+Ici encore, les opérations \(\lambda^i\) se calculent par substitution à partir de
+\[
+  \lambda_u(1+\cdots+X_nt^n+\cdots),
+\]
+et sont donc déterminées par des polynômes universels. On notera
+\[
+  Q_{i,j}(X_1,\ldots,X_{ij})
+\]
+le coefficient de \(t^j\) dans
+\[
+  \lambda^i(1+\cdots+X_nt^n+\cdots).
+\]
+C'est un polynôme isobare de poids \(ij\) par rapport aux variables \(X_1,\ldots,X_{ij}\) (vérification analogue à celle de 1.15). Il se calcule par fonctions symétriques à partir de l'élément de définition :
+\begin{equation}\tag{2.3.3}
+  \lambda_u(1+Xt)=1+\{1+Xt\}u.
+\end{equation}
+Donnons à titre d'exemple la valeur de \(Q_{2,2}\) :
+\[
+  Q_{2,2}(X_1,X_2,X_3,X_4)=X_1X_3-X_4.
+\]
+
+Indiquons pour finir l'origine des formules (2.3.1) et (2.3.3). On considère l'exemple 2.2.b), où les opérations \(\lambda^i\) sont définies par les puissances extérieures des \(A\)-modules. On souhaite que
+\[
+  \lambda_t:K\longrightarrow\Ghat(K)
+\]
+soit un \(\lambda\)-homomorphisme. On doit donc définir sur \(\Ghat\) des lois telles que, pour tous \(A\)-modules \(E,F\), on ait
+\[
+  \lambda_t(EF)=\lambda_t(E)\circ\lambda_t(F),\qquad
+  \lambda_u(\lambda_t(E))=\Ghat^u_{\lambda_t}\bigl(\lambda_t(\lambda_u(E))\bigr).
+\]
+Les relations (2.3.1) et (2.3.3) sont précisément les relations précédentes appliquées au cas où \(E\) et \(F\) sont des modules inversibles.
+
+Nous verrons dans l'Exp. VI dans quelle mesure la propriété souhaitée est vérifiée.
+
+\textbf{Définition 2.4.} Un pré-\(\lambda\)-anneau \(K\) sera appelé un \(\lambda\)-anneau si l'homomorphisme de groupes abéliens
+\[
+  \lambda_t:K\longrightarrow1+K[[t]]^+
+\]
+est un \(\lambda\)-homomorphisme pour la structure de pré-\(\lambda\)-anneau sur le deuxième membre définie en 2.3. Cela signifie donc que l'on a, pour tous \(x,y\in K\),
+\begin{align}
+  \lambda_t(1)&=1+t,&
+  \lambda_t(xy)&=\lambda_t(x)\circ\lambda_t(y),&
+  \lambda_u(\lambda_t(x))&=\Ghat(\lambda_t)\bigl(\lambda_u(x)\bigr).
+  \tag{2.4.1}
+\end{align}
+En termes des applications \(\lambda^i\), les deux dernières relations équivalent, pour \(x,y\in K\), \(i,j\in\mathbb N\), à :
+\begin{align}
+  \lambda^i(xy)
+  &=P_i(\lambda^1(x),\ldots,\lambda^i(x);
+       \lambda^1(y),\ldots,\lambda^i(y)), \tag{2.4.2}\\
+  \lambda^j(\lambda^i(x))
+  &=Q_{i,j}(\lambda^1(x),\ldots,\lambda^{ij}(x)). \tag{2.4.3}
+\end{align}
+
+On notera que nous nous écartons ici de la terminologie usuelle (cf. [1]), où on appelait \(\lambda\)-anneau ce que nous appelons pré-\(\lambda\)-anneau, et \(\lambda\)-anneaux « spéciaux » nos \(\lambda\)-anneaux; la raison en est que seuls les \(\lambda\)-anneaux « spéciaux » sont utilisables en pratique.
+
+\textbf{Exemples 2.5.}
+\begin{enumerate}[label=\alph*)]
+\item Nous avons déterminé toutes les structures de pré-\(\lambda\)-anneau de \(\mathbb Z\). Il résulte de (2.4.1) que seule celle qui est définie par
+\[
+  \lambda_t(1)=1+t
+\]
+est susceptible d'être une structure de \(\lambda\)-anneau. On a alors
+\[
+  \lambda_t(n)=(1+t)^n,
+\]
+d'où
+\[
+  \forall n,n'\in\mathbb Z,\quad
+  \lambda_t(n)\circ\lambda_t(n')=(1+t)^n\circ(1+t)^{n'}
+  =(1+t)^{nn'}=\lambda_t(nn'),
+\]
+et
+\[
+  \lambda_u((1+t)^n)
+  =
+  (\lambda_u(1+t))^n
+  =
+  (1+\{1+t\}u)^n
+  =
+  \Ghat(\lambda_t)((1+u)^n)
+  =
+  \Ghat(\lambda_t)(\lambda_u(n)).
+\]
+Par suite c'est bien une structure de \(\lambda\)-anneau. Si l'on désigne par \(\binom{X}{k}\) le polynôme à coefficients rationnels
+\[
+  \frac{1}{k!}X(X-1)\cdots(X-k+1),
+\]
+on a donc :
+\begin{equation}\tag{2.5.1}
+  \lambda^i(n)=\binom{n}{i}.
+\end{equation}
+
+\item Pour tout anneau \(K\), le pré-\(\lambda\)-anneau \(1+K[[t]]^+\) est un \(\lambda\)-anneau. D'abord,
+\[
+  \lambda_u(1)=\lambda_u(1+t)=1+\{1+t\}u=1+1\cdot u.
+\]
+On vérifie les autres relations par la commutativité des diagrammes
+\[
+\begin{tikzcd}[column sep=large]
+\Ghat^t\times\Ghat^t \arrow[r,"\lambda_u\times\lambda_u"] \arrow[d,"\circ"'] &
+(\Ghat^u\circ\Ghat^t)\times(\Ghat^u\circ\Ghat^t) \arrow[d,"\circ"]\\
+\Ghat^t \arrow[r,"\lambda_u"'] &
+\Ghat^u\circ\Ghat^t,
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large]
+\Ghat^t \arrow[r,"\lambda_v"] \arrow[d,"\lambda_u"'] &
+\Ghat^v\circ\Ghat^t \arrow[d,"\Ghat^v(\lambda_u)"]\\
+\Ghat^u\circ\Ghat^t \arrow[r,"\lambda_v"'] &
+\Ghat^v\circ\Ghat^u\circ\Ghat^t,
+\end{tikzcd}
+\]
+qui se vérifient d'après 1.10 sur les éléments \(1+Xt,1+Yt\). Pour le premier,
+\[
+\begin{aligned}
+\lambda_u(1+Xt)\circ\lambda_u(1+Yt)
+&=(1+\{Xt\}u)\circ(1+\{1+Yt\}u)\\
+&=1+\{(1+Xt)\circ(1+Yt)\}u\\
+&=1+\{1+XYt\}u\\
+&=\lambda_u((1+Xt)\circ(1+Yt)).
+\end{aligned}
+\]
+Pour le deuxième,
+\[
+  \lambda_v(\lambda_u(1+Xt))
+  =
+  1+\{1+\{1+Xt\}u\}v
+  =
+  \Ghat^v(\lambda_u)\lambda_v(1+Xt).
+\]
+
+\item Les exemples géométriques de 2.2 seront traités plus loin.
+\end{enumerate}
+
+\textbf{2.6.} On peut généraliser l'exemple 2.5.a de la façon suivante. Soit \(K\) un anneau commutatif à élément unité tel que :
+\[
+\begin{array}{ll}
+\text{i)}& K\text{ soit sans torsion},\\
+\text{ii)}& \forall x\in K,\ \forall n\in\mathbb N,\quad \binom{x}{n}\in K.
+\end{array}
+\]
+On pose alors, pour tout \(x\in K\) et tout \(n\in\mathbb N\),
+\[
+  \lambda^n(x)=\binom{x}{n},
+\]
+soit :
+\begin{equation}\tag{2.6.1}
+  \lambda_t(x)=\sum_{n=0}^{\infty}\binom{x}{n}t^n
+  =(1+t)^x=\exp(x\Log(1+t)),
+\end{equation}
+où la dernière identité est considérée dans \(K\otimes_{\mathbb Z}\mathbb Q[[t]]\). D'après la multiplicativité de l'exponentielle, ceci définit une structure de pré-\(\lambda\)-anneau sur \(K\).
+
+Pour voir que c'est une structure de \(\lambda\)-anneau, il faut prouver les relations (2.4.2), et il suffit de les prouver dans \(K\otimes\mathbb Q\), d'après 2.6.i). On est alors ramené par fonctorialité au cas \(K=\mathbb Q[X,Y]\), et aux éléments \(X,Y\). Compte tenu de la définition des \(\lambda^i\), les deux membres des égalités (2.4.2) sont des polynômes en \(X,Y\), à coefficients rationnels. Il suffit donc, pour montrer leur égalité, de montrer qu'ils prennent même valeur pour toutes valeurs entières de \(X,Y\). Mais les relations obtenues par substitution de valeurs entières à \(X,Y\) sont celles qui expriment que le pré-\(\lambda\)-anneau \(\mathbb Z\) de 2.5.a est un \(\lambda\)-anneau; elles sont donc satisfaites.
+
+\textbf{Définition 2.7.} On appelle anneau binomial un anneau vérifiant les conditions 2.6.i) et ii), muni de la structure de \(\lambda\)-anneau définie par (2.6.1).
+
+\textbf{Exemple 2.8.} Soient \(X\) un site, \(K\) un anneau binomial, et \(\mathcal K\) le faisceau associé au préfaisceau constant de valeur \(K\) sur \(X\). Alors \(H^0(X,\mathcal K)\) est un anneau binomial. En effet, les conditions 2.6 se conservent par passage à la limite inductive. En particulier, \(H^0(X,\mathbb Z)\) est un anneau binomial.
+
+\textbf{2.9.} Soient \(K\) un anneau binomial et \(A\) une \(K\)-algèbre. Pour toute série
+\[
+  \varphi\in\Ghat(A),
+\]
+et tout \(a\in K\), on peut définir une série \(\varphi^a\) de la façon usuelle : on écrit \(\varphi=1+\psi\), et l'on pose
+\begin{equation}\tag{2.9.1}
+  \varphi^a=(1+\psi)^a
+  =
+  \sum_{n=0}^{\infty}\binom{a}{n}\psi^n
+  \left(=\exp(a\Log\varphi)\right),
+\end{equation}
+la dernière égalité ne pouvant être écrite que modulo torsion. Ces formules sont obtenues par substitution à partir des formules analogues pour \(\varphi=1+t\). Les relations suivantes, propriétés classiques de l'exponentielle, restent donc encore vraies pour \(a,b\in K\), \(\varphi,\psi\in\Ghat(A)\) :
+\begin{equation}\tag{2.9.2}
+  \varphi^a\varphi^b=\varphi^{a+b},\qquad
+  \varphi^{ab}=(\varphi^a)^b,\qquad
+  \varphi^a\psi^a=(\varphi\psi)^a .
+\end{equation}
+
+\end{document}

@@ -1,0 +1,388 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem*{theorem}{Théorème}
+\newtheorem*{lemma}{Lemme}
+\newtheorem*{corollary}{Corollaire}
+\newtheorem*{definition}{Définition}
+\newtheorem*{remark}{Remarque}
+\newtheorem*{comments}{Commentaires}
+\newcommand{\Bl}{\operatorname{Bl}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\tw}[1]{\widetilde{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+
+\title{Le théorème de plongement de Nagata}
+\author{Pierre Deligne}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Sauf pour quelques corrections ajoutées en 2010, l'article reproduit des notes, envoyées à Nagata dans les années 70, qui étaient une traduction en langage des schémas de ses articles [2] et [3]. Les démonstrations sont une version « constructive » de celles de Nagata. Rendre les démonstrations « constructives » a permis de les débarrasser de l'usage de valuations. Une exposition plus détaillée et des résultats additionnels sont dans Conrad [1]. Sauf mention expresse du contraire, tous les schémas considérés sont supposés noethériens.
+\end{abstract}
+
+\section{Rappels sur les éclatements}
+
+\subsection*{0.1}
+Si \(\mathfrak a\) est un idéal de l'anneau \(A\), le schéma déduit de \(X=\Spec(A)\) en éclatant \(\mathfrak a\) est réunion d'ouverts \(D(x)\), pour \(x\) parcourant un système de générateurs de \(\mathfrak a\), et \(D(x)\) est le spectre du sous-anneau \(A[\mathfrak a x^{-1}]\) de \(A[x^{-1}]\). De plus,
+\[
+D(x)\cap (X-V(\mathfrak a))=\Spec(A[x^{-1}]).
+\]
+Si \(\mathfrak c\) est un second idéal de \(A\), définissant un sous-schéma \(V(\mathfrak c)\) de \(X\), la trace sur \(D(x)\) du transformé pur de \(V(\mathfrak c)\) est définie par l'idéal de \(A[\mathfrak a x^{-1}]\) trace de l'idéal de \(A[x^{-1}]\) engendré par \(\mathfrak c\).
+
+\begin{lemma}[0.2]
+Soient \(X\) un schéma, \(\mathfrak a\) et \(\mathfrak b\) deux faisceaux d'idéaux sur \(X\), et \(\wh X\) le schéma éclaté de \(X\) le long de \(\mathfrak a+\mathfrak b\). Alors l'ouvert de \(\wh X\), réunion des \(D(x)\) pour \(x\in\mathfrak b\), contient le transformé pur de \(V(\mathfrak a)\).
+\end{lemma}
+
+\begin{proof}
+En effet, \(\wh X\) est réunion des \(D(x)\) pour \(x\in\mathfrak a\) ou \(x\in\mathfrak b\), et, pour \(x\in\mathfrak a\), \(D(x)\) est disjoint du transformé pur de \(V(\mathfrak a)\).
+\end{proof}
+
+Le lemme 0.3 du texte original était faux. La version corrigée qui suit du lemme date de mars 1996. Elle a amené un changement de notations. Le lemme original utilisait les notations suivantes, auxquelles la suite du texte réfère : plutôt que \(F\) et \(G\), on considérait leurs compléments \(U\) et \(V\) qui, avec \(Y' := U\cap p^{-1}(Y)\), formaient un diagramme commutatif
+\[
+\begin{tikzcd}
+Y' \ar[r] \ar[d] & Z \ar[d,"p"] \\
+U \ar[r] & X,
+\end{tikzcd}
+\]
+où \(Y'\) est fermé dans \(p^{-1}(V)\).
+
+\begin{lemma}[0.3]
+Soient \(p:Z\to X\), des sous-schémas fermés \(F\supset G\) dans \(X\), et \(Y\) dans \(Z\). On suppose que
+\[
+Y\cap p^{-1}(F)\subset p^{-1}(G)
+\]
+schématiquement. Éclatons \(X\) le long de \(G\) en \(\wh X\), et soit \(\tw p:\wh Z\to\wh X\) déduit de \(p:Z\to X\) par changement de base. Alors l'adhérence de \(Y-p^{-1}(G)\) dans \(\wh Z\) et \(\tw p^{-1}(F-G)\), pris dans \(\wh X\), sont des fermés disjoints de \(\wh Z\).
+\end{lemma}
+
+\begin{proof}
+On peut supposer que \(Z\) et \(X\) sont affines. Soit \(\mathfrak G\) l'idéal de \(G\). Recouvrons \(\wh X\) par les ouverts \(D(g)\), pour \(g\in \mathfrak G\) (un système générateur de \(\mathfrak G\) suffit), et \(X-G\) par les
+\[
+U(g)=D(g)-\text{(image inverse de }G\text{)}.
+\]
+On a
+\[
+\begin{tikzcd}
+X-G \ar[r,hook] & \wh X \\
+U(g) \ar[u,hook] \ar[r,hook] & D(g). \ar[u,hook]
+\end{tikzcd}
+\]
+Il suffit de voir que, pour chaque \(g\), les traces sur \(\tw p^{-1}D(g)\) de \(\tw p^{-1}(F-G)\) et de l'adhérence de \(Y-p^{-1}G\) sont disjointes. Ce sont respectivement l'image inverse de l'adhérence de \(F\cap U(g)\) dans \(D(g)\), et l'adhérence de \(Y\cap p^{-1}(U(g))\) dans \(\tw p^{-1}D(g)\).
+
+Notons par un tilde une image inverse de \(X\) à \(Z\), ou de \(D(g)\) à \(\tw p^{-1}D(g)\). Puisque \(p^{-1}G\supset Y\cap p^{-1}(F)\), l'image inverse \(\tw g\) de \(g\) sur \(Z\) peut s'écrire
+\[
+\tw g=y+f,
+\]
+avec \(y\) nul sur \(Y\) et \(f\) nul sur \(p^{-1}(F)\). Il existe des \(a_i\) sur \(Z\) et des \(f_i\) dans l'idéal de \(F\) tels que
+\[
+f=\sum_i a_i\,\tw f_i.
+\]
+Puisque \(F\supset G\), les \(f_i\) sont dans l'idéal de \(G\) et les \(f_i/g\) sont des fonctions sur \(D(g)\). Elles s'annulent sur \(F\cap U(g)\), donc sur l'adhérence de \(F\cap U(g)\) dans \(D(g)\), et
+\[
+\sum_i a_i(f_i/g)^{\sim}
+\]
+est nul sur \(\tw p^{-1}\cl{F\cap U(g)}\). Sur \(p^{-1}U(g)\), on a
+\[
+1=y/g+f/g=y/g+\sum_i a_i(f_i/g)^{\sim},
+\]
+et la même somme vaut donc \(1\) sur \(Y\cap p^{-1}U(g)\), donc sur son adhérence dans \(\tw p^{-1}D(g)\). Ceci prouve la disjonction requise.
+\end{proof}
+
+\begin{remark}
+Si on se donne plutôt des fermés \(F\supset G_0\) de \(X\), avec \(Y\cap p^{-1}(F)\) contenu ensemblistement dans \(p^{-1}(G_0)\), il existe \(r\) tel que le \(r\)-ième voisinage infinitésimal \(G\) de \(G_0\) dans \(F\) vérifie les hypothèses du lemme. Si \(J\) est l'idéal qui définit \((Y\cap p^{-1}(F))_{\mathrm{red}}\) dans \(Y\cap p^{-1}(F)\), il suffit de prendre \(r\) tel que \(J^{r+1}=0\). Le lemme permet donc, par un éclatement qui ne touche pas au complément \(V\) de \(G_0\), de séparer le transformé pur de \(F\) et l'adhérence de \(Y-p^{-1}(G_0)\) dans \(\wh Z\).
+\end{remark}
+
+\begin{lemma}[0.4]
+Soit un diagramme commutatif de schémas
+\[
+\begin{tikzcd}
+X' \ar[r,"p"] \ar[d,"q"'] & X' \ar[d] \\
+U \ar[r,hook] & X
+\end{tikzcd}
+\]
+avec \(U\) ouvert dense de \(X\) et de \(X'\), \(p\) et \(q\) séparés de type fini, et \(q^{-1}(X)=X'\). Soient \(F\) un fermé de \(X\), et \(G\) un fermé de \(X'\) contenant \(p^{-1}(F)\). Il existe alors un idéal \(\mathfrak a\), avec \(V(\mathfrak a)\subset F-\overline F\), tel qu'après le changement de base par le morphisme d'éclatement défini par \(\mathfrak a\), \(\wh X\to X\), et après avoir remplacé le nouvel \(X'\) par l'adhérence de \(U\), on ait
+\[
+q^{-1}(F)\subset G.
+\]
+\end{lemma}
+
+\begin{proof}
+Dans le langage de Nagata, pour prendre l'adhérence de \(F\) dans l'espace de Zariski--Riemann de \(X\), il suffit de prendre « l'intersection » des adhérences de \(F\) dans les éclatés de \(X\) de centre contenu dans \(F-\overline F\).
+
+Appliquons le lemme 0.3 à
+\[
+\begin{tikzcd}
+X'-q^*F \ar[r] & X'-G \\
+X-F \ar[u] \ar[r] & X-(F-\overline F). \ar[u]
+\end{tikzcd}
+\]
+On trouve \(\mathfrak a\), et, après le changement de base \(\wh X\to X\), la nouvelle adhérence de \(F\) est disjointe de l'image de l'adhérence de l'ancien \(X'-q^*F\) dans \(X'-G\); en particulier, après avoir remplacé \(\wh X\) par \(U\), cette nouvelle adhérence est disjointe de l'image de \(X'-G\), ce qu'on voulait.
+\end{proof}
+
+\begin{lemma}[0.5]
+Soit un diagramme de \(S\)-schémas séparés de type fini
+\[
+\begin{tikzcd}
+X_i \ar[r] & X_i \qquad (1\le i\le n) \\
+U \ar[u] \ar[r] & X \ar[u]
+\end{tikzcd}
+\]
+avec \(X_i\) propre sur \(S\), et \(U\) ouvert dense de \(X\) et des \(X_i\). Soit \(X^*\) l'adhérence de \(U\) dans le produit des \(X_i\). Enfin, soit \(F_i\) un fermé de \(X_i\); on suppose que l'intersection des images inverses des \(F_i\) dans \(X^*\) est vide. Alors, après avoir remplacé \(X_i\) par un éclaté de centre dans \(F_i-\overline{F_i}\), on peut obtenir une situation analogue où l'intersection des images inverses des \(\overline{F_i}\) est vide.
+\end{lemma}
+
+\begin{proof}
+Soit \(X^{**}\) un éclaté de \(X^*\), \(X^{**}\xrightarrow{p_i}X_i\), tel que dans \(X^{**}\) on ait
+\[
+\bigcap_i p_i^{-1}(F_i)=\emptyset
+\]
+(éclater \(\bigcap_i p_i^{-1}(F_i)\)). Appliquons le lemme 0.4 aux diagrammes
+\[
+\begin{tikzcd}
+p_i^{-1}(X_i) \ar[r] & X^{**} \\
+U \ar[u] \ar[r] & X_i \ar[u]
+\end{tikzcd}
+\]
+et à \(F_i\subset X_i\), \(G_i=p_i^{-1}(F_i)\). Ceci nous fournit l'éclatement voulu des \(X_i\). Dans la nouvelle situation, en effet, dans l'adhérence de \(U\) dans \(X^{**}\), on a
+\[
+\bigcap_i p_i^{-1}(\overline{F_i})\subset \bigcap_i G_i=\emptyset.
+\]
+Puisque \(X^{**}\to X^*\) est surjectif, ceci est encore vrai dans \(X^*\).
+\end{proof}
+
+\section{Les théorèmes}
+
+\begin{definition}[1.1]
+Soient \(X\) et \(Y\) deux \(S\)-schémas, avec \(Y\) séparé sur \(S\). Une quasi-domination \(f:X\dashrightarrow Y\) est un couple formé d'un ouvert dense \(U\) de \(X\) et d'un morphisme de \(S\)-schémas \(f:U\to Y\) dont le graphe soit fermé dans \(X\times_S Y\).
+
+Soient \(X\) et \(Y\) deux \(S\)-schémas, avec \(Y\) séparé sur \(S\), \(U\) un ouvert quasi-compact de \(X\) et \(f:U\to Y\). On dit que \(X\) est quasi-dominant sur \(Y\), relativement à \(U\) et \(f\), s'il existe une quasi-domination de l'adhérence schématique \(\overline U\) de \(U\), à valeurs dans \(Y\), qui prolonge \(f\). Il existe au plus une telle quasi-domination, de graphe l'adhérence du graphe de \(f\).
+
+Une quasi-domination \(f\) est dite propre ou complète si le morphisme \(f:U\to Y\) est propre.
+\end{definition}
+
+\begin{theorem}[1.2]
+Soient \(X\) et \(Y\) deux \(S\)-schémas et \(U\subset V\subset X\) deux ouverts denses de \(X\). On suppose \(Y\) séparé de type fini sur \(S\). Soit \(f:U\to Y\) une quasi-domination de \(V\) dans \(Y\). Il existe un idéal \(\mathfrak a\), avec \(V(\mathfrak a)\subset X-V\), tel que l'éclaté \(\wh X\) de \(X\) selon \(V(\mathfrak a)\) quasi-domine \(Y\).
+\end{theorem}
+
+\begin{proof}
+Par le changement de base \(X\to S\), on se ramène à supposer que \(X=S\). \(Y\) est alors un schéma sur \(X\), \(f\) une section de \(Y\) au-dessus de \(U\), et par hypothèse \(f(U)\) est fermé au-dessus de \(V\).
+
+\emph{Cas 1. \(U=V\), \(p:Y\to X\) quasi-affine, \(X\) affine.} Par hypothèse, il existe un diagramme commutatif
+\[
+\begin{tikzcd}
+Y \ar[r] \ar[dr] & E_X \ar[d] \\
+& X,
+\end{tikzcd}
+\]
+avec \(E_X\) un espace affine type sur \(X\). Si \(\wh X\) quasi-domine \(E_X\) relativement à \(f\), alors a fortiori \(\wh X\) quasi-domine \(Y\). On peut donc supposer que \(Y=E_X\). Un éclatement préliminaire permet de supposer que \(X-U\) est un diviseur \(D\). Localement sur \(X\), \(f\) admet donc des coordonnées \((f_i u^{-n})\), où \(u\) est une équation locale de \(D\), où les \(f_i\) sont réguliers et où \(n\) est choisi assez grand une fois pour toutes. Soit \(\mathfrak a\) l'idéal engendré par \(u^n\) et les \(f_i\). Après éclatement de \(V(\mathfrak a)\), \(f\) se prolonge en une section de l'espace projectif complété de \(E_X\), et on a gagné.
+
+\emph{Cas 2. \(U=V\), \(p\) quasi-affine.} D'après le cas 1, si \((U_i)_{0\le i\le n}\) est un recouvrement affine de \(X\), il existe sur \(U_i\) un idéal \(\mathfrak a_i\) qui convient. Cet idéal admet une extension \(\tw{\mathfrak a_i}\) sur \(X\), avec \(V(\tw{\mathfrak a_i})\subset X-V\), et il suffit d'éclater le produit des \(\tw{\mathfrak a_i}\).
+
+\emph{Cas 3. \(p\) quasi-affine.} D'après le lemme 0.3 appliqué à
+\[
+\begin{tikzcd}
+f(U) \ar[r] & Y \ar[d,"p"] \\
+U \ar[r,hook] & V \ar[r,hook] & X,
+\end{tikzcd}
+\]
+un éclatement préliminaire permet de supposer que \(p(f(U))\cap(V-U)=\emptyset\). Il existe donc un ouvert quasi-compact \(X'\) de \(X\) avec \(X'\cap V=U\) et \(p(f(U))\subset X'\). D'après le cas 2, il existe un idéal \(\mathfrak a\) sur \(X'\), avec \(V(\mathfrak a)\subset X'-U\), tel que l'éclaté \(\wh{X'}\) quasi-domine \(Y\), c'est-à-dire \(f(U)\). Reste à prolonger \(\mathfrak a\) en un idéal sur \(X\), avec \(V(\mathfrak a)\subset X-V\).
+
+\emph{Cas général.} Soit \((Y_i)\) un recouvrement fini de \(Y\) par des ouverts affines, et posons
+\[
+U_i=f^{-1}(Y_i),\qquad X_i=\overline{U_i},\qquad V_i=X_i\cap V.
+\]
+Le cas 3 s'applique aux
+\[
+Y_i\cap p^{-1}(X_i),\qquad U_i\subset V_i\subset X_i,
+\]
+d'où un idéal \(\mathfrak a_i\) sur \(X_i\); cet idéal définit un idéal sur \(X\), avec encore \(V(\mathfrak a_i)\subset X-V\). Éclatons le produit des \(\mathfrak a_i\). L'éclatement \(q:\wh X\to X\) obtenu est tel que \(q^{-1}(X_i)\) domine l'éclatement \(\wh X_i\). Si \(X'_i=q^{-1}(X_i)\), il existe donc un ouvert \(U'_i\) de \(X'_i\), avec \(U'_i\supset q^{-1}(U_i)\), tel qu'au-dessus de \(X_i\), \(f(U_i)\) soit une section de \(U'_i\to Y\). On en conclut qu'après éclatement,
+\[
+f(U)=\bigcup_i f_i(U'_i).
+\]
+Pour prouver le théorème 1.2, on a le droit de remplacer \(Y\) par \(f(U)\), et on conclut par le cas 3 et le lemme suivant.
+\end{proof}
+
+\begin{lemma}[1.3]
+\(f(U)\) est quasi-affine sur \(\wh X\).
+\end{lemma}
+\begin{proof}
+En effet, \(f(U)\) est quasi-fini sur \(\wh X\).
+\end{proof}
+
+\begin{corollary}[1.4, une variante du lemme de Chow]
+Soit \(f:X\to S\) un morphisme séparé de type fini. Alors pour tout ouvert \(U\) quasi-projectif sur \(S\) et dense dans \(X\), il existe un diagramme de \(S\)-schémas
+\[
+\begin{tikzcd}
+& X' \ar[dl,"q"'] \ar[dr,hook,"j"] & \\
+X && \overline X,
+\end{tikzcd}
+\]
+avec \(q\) morphisme d'éclatement défini par un idéal \(\mathfrak a\) vérifiant \(V(\mathfrak a)\subset X-U\), et avec \(\overline X\) projectif sur \(S\). En particulier, \(q\) est projectif et surjectif et \(q^{-1}(U)\simeq U\).
+\end{corollary}
+
+\begin{proof}
+Soit \(U^*\) un \(S\)-schéma projectif contenant \(U\) comme ouvert schématiquement dense. D'après le théorème 1.2 appliqué à l'injection de \(U\) dans \(X\), on peut choisir \(U^*\) quasi-dominant sur \(X\) : on dispose d'un diagramme
+\[
+\begin{tikzcd}
+U \ar[r,hook] \ar[d,hook] & V \ar[d,"\varphi"] \\
+U^* \ar[r] & X,
+\end{tikzcd}
+\tag{1.4.1}
+\]
+et ici, puisque \(U^*\) est propre sur \(S\), \(\varphi\) est propre.
+\end{proof}
+
+\begin{lemma}[1.5]
+Soit un diagramme de \(S\)-schémas séparés de type fini
+\[
+\begin{tikzcd}
+U \ar[r,hook] \ar[d,hook] & V \ar[d,"\varphi"] \\
+Y \ar[r] & X
+\end{tikzcd}
+\]
+avec \(U\) dense dans \(X\), dense dans \(Y\), et schématiquement dense dans \(V\), et \(\varphi\) une quasi-domination de \(Y\) dans \(X\). Si \(\mathfrak a\) est un idéal de \(X\), avec \(V(\mathfrak a)\subset X-U\), tel que l'éclaté \(\wh X\) de \(X\) selon \(\mathfrak a\) quasi-domine \(V\) relativement à \(U\), et que \(U\) soit schématiquement dense dans \(\wh X\), d'où un diagramme
+\[
+\begin{tikzcd}
+U \ar[r,hook] \ar[d,hook] & W \ar[d,"\psi"] \\
+\wh X \ar[r] & V,
+\end{tikzcd}
+\]
+alors :
+\begin{enumerate}[label=(\alph*)]
+\item \(\psi\) est le morphisme d'éclatement de \(V\) selon \(\varphi^*\mathfrak a\) ;
+\item le graphe de \(\psi\) est fermé dans \(\wh X\times_S Y\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Soit \(\wh V\) l'éclaté de \(V\) selon \(\varphi^*\mathfrak a\). D'après la propriété universelle de \(\wh X\), on dispose d'un unique \(X\)-morphisme \(\alpha:\wh V\to\wh X\). D'après la propriété universelle de \(\wh V\), on dispose d'un unique \(V\)-morphisme \(\beta:W\to\wh V\). Le diagramme correspondant est
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \ar[r,hook] \ar[d,hook] & W \ar[r,"\beta"] \ar[d,"\psi"'] & \wh V \ar[d,"\alpha"] \\
+V \ar[r,"\varphi"'] & Y & \wh X \ar[ll]
+\end{tikzcd}
+\]
+Le graphe de \(\varphi\) est trivialement propre sur \(V\); il en est de même de son image réciproque sur \(V\times_S\wh X\), et on en déduit que le graphe de \(\psi\) est propre sur \(V\), donc que \(\psi\) est propre. \(\beta\) est donc propre, et d'image schématiquement dense, car déjà \(U\) est schématiquement dense dans \(\wh V\). D'autre part, \(\beta\) est une section locale de \(\alpha\) sur \(W\) (car \(\beta|_U\) en est une sur \(U\)); donc \(\beta\) est un isomorphisme. Par hypothèse, le graphe de \(\psi\) est fermé dans \(V\times_S\wh X\), et contenu dans l'image réciproque du graphe de \(\varphi\), qui est fermé dans \(Y\times X\); on en conclut que \(\Gamma(\psi)\) est fermé dans \(Y\times\wh X\).
+\end{proof}
+
+\begin{lemma}[1.7]
+Soit un diagramme de \(S\)-schémas séparés de type fini
+\[
+X_2 \xleftarrow{\ } U \xrightarrow{\ } X_1,
+\]
+avec \(U\) ouvert dense de \(X_i\). Il existe \(j:U\hookrightarrow X\), avec \(X\) séparé de type fini sur \(S\), \(U\) schématiquement dense dans \(X\), et des quasi-dominations propres \(p_i:X\dashrightarrow X_i\).
+\end{lemma}
+
+\begin{proof}
+D'après le théorème 1.2, éclatant \(X_1\) sans toucher à \(U\), on se ramène à supposer que \(X_1\) quasi-domine \(X_2\) :
+\[
+\begin{tikzcd}
+& X_1 \ar[dr] & \\
+U \ar[ur,hook] \ar[rr,hook] && X_2.
+\end{tikzcd}
+\]
+Appliquons le lemme 1.5 à ce diagramme, de façon à obtenir
+\[
+\begin{tikzcd}
+W \ar[r,"\psi"] & X'_2 \\
+U \ar[u,hook] \ar[r,hook] & V \ar[u], \\
+& X_1 \ar[u]
+\end{tikzcd}
+\]
+où
+\begin{enumerate}[label=(\alph*)]
+\item \(\psi\) est le morphisme d'éclatement d'un idéal \(\mathfrak a\) de \(V\), avec \(V(\mathfrak a)\subset V-U\),
+\item le graphe de \(\psi\) est fermé dans \(X_1\times X'_2\), et
+\item \(X'_2\) est un éclatement de \(X_2\).
+\end{enumerate}
+Soit \(\mathfrak a'\) un idéal de \(X_1\) qui prolonge \(\mathfrak a\), avec \(V(\mathfrak a')\subset X_1-U\), et soit \(q:X'_1\to X_1\) l'éclaté de \(X_1\) selon \(\mathfrak a'\). \(\psi\) induit alors un isomorphisme entre \(W\) et \(q^{-1}(V)\), et le graphe de cet isomorphisme est fermé dans \(X'_1\times X'_2\). On définit \(X\) en recollant \(X'_1\) et \(X'_2\) selon cet isomorphisme.
+\end{proof}
+
+\begin{remark}
+La démonstration montre qu'on peut prendre pour \(p_i:U_i\to X_i\), avec \(U_i\subset X\), un morphisme d'éclatement d'un idéal hors de \(U\).
+\end{remark}
+
+\begin{theorem}[1.6]
+Soit \(f:X\to S\) séparé de type fini. Il existe une immersion de \(X\) dans un \(S\)-schéma propre sur \(S\).
+\end{theorem}
+
+\begin{proof}
+Appliquons le lemme 1.5 au diagramme (1.4.1). Il existe un idéal \(\mathfrak a\) sur \(X\), avec \(V(\mathfrak a)\subset X-U\), tel que l'éclaté \(\widehat X\) quasi-domine \(V\). On peut de plus s'arranger pour que \(U\) soit schématiquement dense dans \(\widehat X\). D'après le lemme 1.5, et parce que \(\varphi\) est propre, \(\widehat X\) est donc l'éclaté de \(V\) selon \(\varphi^*\mathfrak a\). Si \(\mathfrak a'\) est un idéal de \(U^*\) qui prolonge \(\mathfrak a\), avec \(V(\mathfrak a')\subset U^*-U\), on prend alors
+\[
+ X'=\widehat X,\qquad \overline X=\widetilde{U^*}.
+\]
+
+Soit \((U_i)\) un recouvrement ouvert fini de \(X\) par des ouverts quasi-projectifs denses. Pour chaque \(U_i\), il existe, d'après le corollaire 1.4, un diagramme commutatif de \(S\)-schémas
+\[
+\begin{tikzcd}
+X'_i \ar[r,"q_i"] \ar[d,"j_i"'] & X_i \\
+U_i \ar[r,hook] & \overline X_i,
+\end{tikzcd}
+\]
+avec \(q_i\) propre, \(\overline X_i\) propre sur \(S\), et \(U_i\) dense dans \(\overline X_i\). Soient \(F_i=\overline X_i-U_i\) et \(F'_i=q_i^{-1}(F_i)\). Soit enfin \(X^*\) l'adhérence de \(U\) dans le produit des \(\overline X_i\) :
+\[
+p_i:X^*\longrightarrow \overline X_i.
+\]
+D'après le lemme 0.5, un éclatement préliminaire de \(\overline X_i\), ne touchant pas à \(X'_i\), permet de supposer que
+\[
+\bigcap_i p_i^{-1}(F'_i)=\emptyset.
+\]
+Soit \(M_i\) le schéma séparé sur \(S\) obtenu en recollant \(X\) et \(\overline X_i-F'_i\) le long de \(U_i\) :
+\[
+\begin{tikzcd}
+\overline X_i-F'_i && X \\
+& M_i. \ar[ul] \ar[ur]
+\end{tikzcd}
+\]
+Appliquons le lemme 1.7 à \(X\) et aux \(M_i\), pour obtenir \(X\hookrightarrow M\), où \(M\) quasi-domine proprement chacun des \(M_i\). Il reste à prouver que \(M\) est propre sur \(S\).
+
+On dispose en effet d'applications
+\[
+X^*-p_i^{-1}(F'_i)\longrightarrow M_i
+\]
+qui se recollent sur \(U=\bigcap_i U_i\). Remplaçant \(X^*\) par un éclaté \(X^{**}\), on obtient des applications
+\[
+X^{**}-p_i^{-1}(F_i)\longrightarrow M
+\]
+qui se recollent, d'où une application de l'adhérence schématique de \(U\) dans \(X^{**}\), à valeurs dans \(M\). \(M\), image de cette application, est propre sur \(S\).
+\end{proof}
+
+\begin{comments}
+J'espère qu'en étant plus constructifs encore, on pourra prouver le théorème 1.6 pour \(f:X\to S\) séparé de type fini, \(S\) quasi-compact quasi-séparé. Les règles à suivre sont :
+\begin{enumerate}[label=(\alph*)]
+\item considérer uniquement des ouverts quasi-compacts et des fermés définis par des idéaux de type fini ;
+\item ne jamais prendre d'adhérence schématique (on sortirait de (a)), mais prendre seulement un fermé contenant la partie donnée et suffisamment petit pour les constructions ultérieures ;
+\item ne pas parler d'ouvert quasi-projectif dense (cf. (b)). Se rappeler que, pour construire de tels ouverts, on pourrait partir d'un recouvrement affine \((U_i)\), et prendre
+\[
+U=\bigcup_i\left(U_i-\bigcup_{j<i}U_j\right).
+\]
+Traduire les arguments en termes des \(U_i\) de départ, et appliquer (a) et (b).
+\end{enumerate}
+Je n'ai par contre aucune idée dans le cas des espaces algébriques.
+\end{comments}
+
+\paragraph{Remerciements.}
+Les notes originelles étaient manuscrites. Elles ont été dactylographiées par V. Maillot.
+
+\begin{thebibliography}{9}
+\bibitem{Conrad} B. Conrad, Deligne's notes on Nagata compactifications, \emph{J. Ramanujan Math. Soc.} \textbf{22} (2007), 205--257.
+\bibitem{Nagata1} M. Nagata, Imbedding of an abstract variety in a complete variety, \emph{J. Math. Kyoto Univ.} \textbf{2} (1962), 1--10.
+\bibitem{Nagata2} M. Nagata, A generalization of the imbedding problem of an abstract variety in a complete variety, \emph{J. Math. Kyoto Univ.} \textbf{3} (1963), 89--102.
+\end{thebibliography}
+
+\begin{center}
+Institute for Advanced Study, Princeton, New Jersey 08540, USA;\\
+deligne@math.ias.edu
+\end{center}
+
+\end{document}
