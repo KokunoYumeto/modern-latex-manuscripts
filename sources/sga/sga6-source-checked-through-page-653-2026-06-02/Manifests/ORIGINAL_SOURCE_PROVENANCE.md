@@ -1,0 +1,1 @@
+Source anchor: original SGA 6 scan at /mnt/data/sga067_work/SGA6_original_source_scan.pdf. This package uses source scan pages 619--653 and includes both the exact source slice and the cumulative source through page 653.
