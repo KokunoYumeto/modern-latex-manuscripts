@@ -29,7 +29,7 @@ The repository also has volume-level slice readers for Volumes II-XIII under `re
 
 Those broader volume readers are useful public surfaces, but they should not be described as final source-faithful editions. The safer measured progress remains the validated slice/gap-fill layer described in `manifests/cayley_claude_progress_cost_inventory_20260531.md`.
 
-Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. A second local pass added source-checked pages 517-528, replaced the incorrect pages 569-570 text, and then filled pages 529-541 from source-checked TeX. A third pass replaced the defective pages 67-116 slice, whose old PDF rendered but whose TeX source was effectively empty, with a 45-page native source-checked TeX/PDF slice. A fourth pass replaced the unsafe pages 117-166 slice with a 42-page native source-checked TeX/PDF rebuild. A fifth pass replaced the TODO-heavy pages 317-366 slice with a 50-page source-checked semantic TeX/PDF rebuild, including the corrected pp. 353 paragraphs and native table material. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 556 pages; page-count shifts reflect denser repaired TeX rather than omitted source coverage.
+Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. A second local pass added source-checked pages 517-528, replaced the incorrect pages 569-570 text, and then filled pages 529-541 from source-checked TeX. A third pass replaced the defective pages 67-116 slice, whose old PDF rendered but whose TeX source was effectively empty, with a 45-page native source-checked TeX/PDF slice. A fourth pass replaced the unsafe pages 117-166 slice with a 42-page native source-checked TeX/PDF rebuild. A fifth pass replaced the TODO-heavy pages 317-366 slice with a 50-page source-checked semantic TeX/PDF rebuild, including the corrected pp. 353 paragraphs and native table material. A sixth pass replaced the former pages 167-216 and 367-416 public slices with source-checked semantic TeX/PDF rebuilds; both include native diagram/table reconstructions and no image/facsimile stand-ins. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 541 pages; page-count shifts reflect denser repaired TeX rather than omitted source coverage.
 
 ## New Local Cayley Handoff Packet
 
@@ -49,10 +49,9 @@ The packet README states that no fresh Cayley processing run was performed in th
 
 The next productive Cayley work is volume-by-volume continuation. The immediate target should be Volume VIII, because it is public as a 495-page reader but still has source-folder facsimile ranges and TODO-heavy TeX.
 
-Specific Volume VIII targets:
+Specific Volume VIII targets after this pass:
 
-- `sources_tex_Vol_VIII/cayley_vol08_pages_167_216.tex` - current first-priority repair target; dense table/math TODO risk.
-- `sources_tex_Vol_VIII/cayley_vol08_pages_367_416.tex` - compile-log risk from earlier audit: bad math delimiters and hard LaTeX errors.
+- Continue auditing older middle slices such as pages 217-316 and later volumes against the source scan before calling any full volume final.
 
 Local witness scan for Volume VIII:
 
