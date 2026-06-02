@@ -1,0 +1,268 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.05in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{theorem*}{Theorem}
+\setlist[enumerate]{leftmargin=2.4em}
+\renewcommand{\qedsymbol}{}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\card}{\operatorname{card}}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Congruences for the Number of Subgroups\\
+of Order \(p^k\) in a Finite Group\par}
+\vspace{1em}
+by P. Deligne
+\end{center}
+
+\bigskip
+
+The method used by Serre~[1, p.~147] to prove Sylow's theorem gives more
+general results, which we shall make explicit.
+
+We use the following notation: \(p\) denotes a prime number; for every integer
+\(n\), \(v(n)\) is the exponent of the largest power of \(p\) dividing \(n\);
+finally, \(G\) is a finite group of order \(g\).
+
+For completeness, recall the following lemma (Lazard~[2, p.~71]).
+
+\begin{lemma}
+\begin{enumerate}[label=\alph*)]
+\item If \(n=\sum c_i p^i\) with \(0\leq c_i<p\) (the expansion in base \(p\)),
+\[
+        v(n!)=\frac{1}{p-1}\left(n-\sum c_i\right).
+\]
+\item \[
+        v\binom{r}{s}\geq v(r)-v(s).
+\]
+\end{enumerate}
+\end{lemma}
+
+We prove a). One has
+\[
+v(p^k!)=\sum_{i<k} i\bigl(p^{k-i}-p^{k-i-1}\bigr)
+       =\sum_{i=0}^{k-1}p^i=\frac{p^k-1}{p-1},
+\]
+which gives the assertion in this case; it is clear that if \(0<c<p\), then
+\[
+        v\bigl((cp^k)!\bigr)=c\,v(p^k!)
+\]
+and that if \(m<p^{v(n)}\), then
+\[
+        v((n+m)!)=v(n!)+v(m!).
+\]
+These additivity properties are the same as those of the right-hand side; the
+formula follows.
+
+Part b) follows easily by returning to the definitions and taking account of the
+algorithm for computing the digits \(c_i\) of a sum from those of its terms.
+There is equality if \(r\) is a power of \(p\).
+
+\begin{proposition}
+\[
+        \binom{p^k n}{p^k m}\equiv \binom{n}{m}\pmod {p^{v(n)+2}}
+\]
+if \(p\neq2\), or if \(n\) is odd. The congruence is always true modulo
+\(p^{v(n)+1}\).
+\end{proposition}
+
+\begin{proof}
+Let \(X\) and \(Y\) be two indeterminates:
+\[
+        (X+Y)^{p^k}=X^{p^k}+Y^{p^k}+pQ,
+\]
+where \(Q\) is a polynomial of degree less than \(p^k\) in each variable. The
+binomial formula then shows that
+\begin{equation}
+ (X+Y)^{p^k n}
+ =(X^{p^k}+Y^{p^k})^n+
+ np\,(X^{p^k}+Y^{p^k})^{n-1}Q
+\tag{1}
+\end{equation}
+modulo the largest power of \(p\) which divides all the
+\(p^i\binom{n}{i}\) (\(i\geq2\)). These have valuation at least
+\[
+        i+v(n)-v(i)\geq v(n)+2
+\]
+if \(p\neq2\); if \(p=2\), one always has \(i>v(i)\) (Cantor), hence the
+exponent \(v(n)+1\). The coefficient of \(X^{p^k m}Y^{p^k(n-m)}\) in the
+left-hand side is \(\binom{p^k n}{p^k m}\). The second term on the right-hand
+side of (1) contains no term of this type (no exponent occurring there is
+divisible by \(p^k\)), and the coefficient of this monomial in the first term
+on the right-hand side of (1) is therefore \(\binom{n}{m}\). This proves the
+assertion if \(p\neq2\).
+
+If \(p=2\), the preceding argument already proves
+\[
+        Q=X^{2^{k-1}}Y^{2^{k-1}}\pmod 2;
+        \qquad Q^2=X^{2^k}Y^{2^k}\pmod 4,
+\]
+and the next term in the binomial expansion gives
+\[
+        \binom{2^k n}{2^k m}
+        \equiv \binom{n}{m}
+        +2n(n-1)\binom{n-2}{m-1}
+        \pmod {2^{v(n)+2}},
+\]
+which proves the assertion.
+\end{proof}
+
+\begin{theorem*}
+Let \(S\) be a Sylow \(p\)-subgroup of \(G\), let \(s=v(g)\), and let \(d_k\)
+be the number of subgroups of \(G\) of order \(p^{s-k}\), for \(0\leq k\leq s\).
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item \(d_k\equiv1\pmod p\);
+\item if \(S\) is cyclic or abelian of type \((p,\ldots,p)\), then \(d_k\) is
+congruent modulo \(p^{k+1}\) to the number of subgroups of \(S\) of index
+\(p^k\);
+\item if \(S\) is not cyclic, then
+\[
+        d_1\equiv1+p\pmod {p^2}.
+\]
+\end{enumerate}
+\end{theorem*}
+
+Let the group \(G\) act by left translations on the set of its subsets with
+\(p^k\) elements. If such a subset \(P\) of \(G\) has stabilizer \(H\), then it
+is a union of right cosets of \(H\), and \(H\) is therefore a group of order
+\(p^\ell\) with \(\ell\leq k\); \(\ell=k\) if and only if \(P\) is a translate
+(on the right or on the left, which is the same thing) of a subgroup of order
+\(p^k\). The number of elements in the orbit of \(P\) is divisible by
+\(p^{s-\ell}\). Thus \(\binom{g}{p^k}\) is congruent modulo \(p^{s-k+1}\) to
+the number of subsets of \(G\) which are translates of a subgroup of order
+\(p^k\), and by Proposition~1 it is also congruent to \(gp^{-k}\). There are
+\(d_{s-k}gp^{-k}\) such subsets, and
+\[
+        gp^{-k}\equiv d_{s-k}gp^{-k}\pmod {p^{s-k+1}},
+\]
+which proves the first assertion.
+
+We now consider case (ii), with \(S\) abelian of type \((p,\ldots,p)\). The
+number \(G_{ij}\) of subgroups of order \(p^i\) in a subgroup of order \(p^j\)
+is the number of points of a Grassmannian. For \(i>j\), \(G_{ij}=0\); for
+\(i\leq j\),
+\[
+        G_{ij}
+        =\frac{(p^j-1)\cdots(p^j-p^{i-1})}
+              {(p^i-1)\cdots(p^i-p^{i-1})}
+        =G_iG_{j-i}G_j^{-1},
+\]
+where
+\[
+        G_i=\bigl[(p^i-1)\cdots(p-1)\bigr]^{-1}\quad\text{if }i\geq0,
+        \qquad
+        G_i=0\quad\text{if }i<0.
+\]
+
+It is known that \(p^i\) divides the number \(u_i\) of subsets of \(G\) with
+\(p^s\) elements whose stabilizer has order \(p^{s-i}\). Put \(g=p^s h\). By
+counting in two different ways the number of pairs consisting of a subgroup of
+order \(p^{s-i}\) and a subset with \(p^s\) elements that it fixes, one obtains,
+for \(0\leq i,j\leq s\),
+\[
+\left\{
+\begin{aligned}
+ d_i\binom{p^i h}{p^i}&=\sum_j G_{s-i,s-j}u_j &&\text{(2)}\\
+ p^i&\mid u_i &&\text{(3)}\\
+ d_s&=1. &&\text{(4)}
+\end{aligned}
+\right.
+\]
+
+We now work in the localization of \(\Z\) at \(p\) (or in \(\Z_p\)). Let \(e_i\)
+be the quotient of the left-hand side of (2) by
+\(\binom{p^i h}{p^i}G_i\). By Proposition~1 and by the fact that \(G_i\) is
+prime to \(p\) for \(i\geq0\), there exist numbers \(v_i\), \(0\leq i\leq s\),
+such that
+\[
+\left\{
+\begin{aligned}
+ d_i&=G_i e_i \pmod {p^{i+1}} &&\text{(5)}\\
+ e_i&=\sum_j G_{i-j}v_j &&\text{(2')}\\
+ p^i&\mid v_i &&\text{(3')}\\
+ e_s&=G_s^{-1}. &&\text{(4')}
+\end{aligned}
+\right.
+\]
+
+Analogous identities are satisfied in the group \(S\). To show that they
+determine \(d_i\bmod p^{i+1}\), it is enough to check that the identities
+(for \(0\leq i,j\leq s\))
+\[
+\left\{
+\begin{aligned}
+ e_i&=\sum_j G_{i-j}v_j &&\text{(2'')}\\
+ p^i&\mid v_i &&\text{(3'')}\\
+ e_s&=0 &&\text{(4'')}
+\end{aligned}
+\right.
+\]
+imply \(p^{i+1}\mid e_i\). From (2'') one obtains
+\[
+        e_i-e_{i+1}=\sum_j (G_{i-j}-G_{i+1-j})v_j .
+\]
+Since trivially \(G_k^{-1}=G_{k+1}^{-1}\pmod {p^{k+1}}\), one also has
+\[
+        p^{i+1-j}\mid G_{i-j}-G_{i+1-j}
+        \quad\text{and}\quad
+        p^{i+1}\mid e_i-e_{i+1}.
+\]
+We conclude by (4'').
+
+The same technique, in a simpler form, applies if \(S\) is cyclic.
+
+It remains to consider case (iii). The subgroups of \(S\) of index \(p\) are
+all normal. Their intersection \(S'\) is the Fratini subgroup of \(S\). For
+every subgroup \(T\) of \(S\), if \(TS'=S\), then \(T=S\). In particular, if
+\(S\) is not cyclic, then \(S/S'\) is not cyclic either, and the subgroups of
+index \(p\) of \(S\) are identified with the hyperplanes of a \(\Z/p\)-vector
+space of dimension \(>1\); their number is congruent to \(1+p\pmod {p^2}\).
+
+From the preceding equations there remains
+\[
+\left\{
+\begin{aligned}
+ d_0h&=u_0,\\
+ d_1\binom{ph}{p}&=(1+p)u_0+u_1\pmod {p^2},\\
+ \binom{ph}{p}&=u_0+u_1\pmod {p^2}.
+\end{aligned}
+\right.
+\]
+But by Proposition~1,
+\[
+        \binom{ph}{p}\equiv \binom{h}{1}=h\pmod {p^2},
+\]
+and hence
+\[
+        d_1h=(1+p)d_0h+(h-d_0h)\pmod {p^2}
+\]
+and
+\[
+        d_1=1+pd_0\pmod {p^2}.
+\]
+The assertion follows, since \(d_0\equiv1\pmod p\).
+
+\begin{center}
+\rule{0.25\textwidth}{0.4pt}
+\end{center}
+
+\begin{thebibliography}{9}
+\bibitem{Serre}
+J.-P. Serre, \emph{Corps locaux}. Act. sc. et ind., Hermann, 1962.
+
+\bibitem{Lazard}
+M. Lazard, \emph{Groupes analytiques \(p\)-adiques}. Publ. Math. I.H.E.S.,
+no~26, 1965.
+\end{thebibliography}
+
+\end{document}
