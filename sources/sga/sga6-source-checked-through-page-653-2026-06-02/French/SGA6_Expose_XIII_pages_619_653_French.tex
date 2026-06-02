@@ -1,0 +1,359 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\hfuzz=20pt
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Expose XIII local macros
+\providecommand{\Ass}{\operatorname{Ass}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\NS}{\operatorname{NS}}
+\providecommand{\Tors}{\operatorname{Tors}}
+\providecommand{\Picnum}{\operatorname{Pic}^{\mathrm{num}}}
+\providecommand{\Piczero}{\operatorname{Pic}^{0}}
+\providecommand{\Pictau}{\operatorname{Pic}^{\tau}}
+\providecommand{\length}{\operatorname{length}}
+\providecommand{\etale}{\text{\'etale}}
+
+\begin{center}
+{\Large SGA 6 -- Expos\'e XIII}\\[0.4em]
+{\large Source scan pages 619--653}
+\end{center}
+
+\section*{Expos\'e XIII. Les th\'eor\`emes de finitude pour le foncteur de Picard}
+\begin{center}
+par S. Kleiman
+\end{center}
+
+\subsection*{1. Faisceaux limit\'es}
+Soit $k$ un corps alg\'ebriquement clos, et soit $X$ un $k$-sch\'ema projectif muni d'un faisceau inversible ample $\mathcal O_X(1)$.
+
+\textbf{D\'efinition 1.1 (Mumford).} Soit $m\in\mathbb Z$. Un faisceau coh\'erent $F$ sur $X$ est dit \emph{$m$-r\'egulier} si $\mathcal O_X(1)$ est engendr\'e par $H^0(\mathcal O_X(1))$ en tout point du support de $F$, et si, pour tout $q>0$,
+\[
+ H^q(F(m-q))=0.
+\]
+
+\textbf{Lemme 1.2.} Soit
+\[
+0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow 0
+\]
+une suite exacte de faisceaux coh\'erents sur $X$, o\`u la premi\`ere fl\`eche est induite par multiplication par une section de $\mathcal O_X(1)$. Si $F$ est $m$-r\'egulier, alors $G$ l'est aussi. En effet, la suite exacte de cohomologie contient
+\[
+H^q(F(m-q))\longrightarrow H^q(G(m-q))\longrightarrow H^{q+1}(F(m-q-1)),
+\]
+et les deux termes extr\^emes sont nuls par la d\'efinition.
+
+\textbf{Proposition 1.3.} Si $F$ est $m$-r\'egulier, alors, pour tout $n\ge m$,
+\begin{enumerate}[label=\roman*)]
+\item $F$ est $n$-r\'egulier;
+\item l'application de multiplication
+\[
+ H^0(F(n))\otimes H^0(\mathcal O_X(1))\longrightarrow H^0(F(n+1))
+\]
+est surjective;
+\item $F(n)$ est engendr\'e par ses sections globales.
+\end{enumerate}
+
+On raisonne par r\'ecurrence sur $s=\dim\operatorname{Supp}(F)$. Le cas $s=-1$ est vide. On choisit une section $\sigma\in H^0(\mathcal O_X(1))$ ne s'annulant en aucun point de $\Ass(F)$; elle donne
+\[
+0\longrightarrow F(-1)\xrightarrow{\sigma}F\longrightarrow G\longrightarrow 0,
+\]
+et, d'apr\`es le lemme 1.2, $G$ est $m$-r\'egulier, de support de dimension $s-1$. La suite
+\[
+H^q(F(n-q-1))\longrightarrow H^q(F(n-q))\longrightarrow H^q(G(n-q))
+\]
+donne alors (i). Pour (ii), on utilise le diagramme de multiplication
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+H^0(F(n))\otimes H^0(\mathcal O_X(1)) \arrow[r] \arrow[d,"\sigma\otimes 1"'] & H^0(F(n+1)) \arrow[r] \arrow[d,"\sigma"] & H^0(G(n+1)) \arrow[d,"\sigma"] \\
+H^0(F(n+1))\otimes H^0(\mathcal O_X(1)) \arrow[r] & H^0(F(n+2)) \arrow[r] & H^0(G(n+2)).
+\end{tikzcd}
+\]
+Les lignes proviennent des suites exactes pr\'ec\'edentes; la surjectivit\'e pour $G$ est connue par r\'ecurrence. Enfin les morphismes $H^0(F(n))_X\to F(n)$ sont compatibles \`a la multiplication par $H^0(\mathcal O_X(1))$; la surjectivit\'e en un degr\'e entra\^ine celle en tous les degr\'es sup\'erieurs, et le th\'eor\`eme de Serre permet de conclure.
+
+\textbf{Proposition 1.4.} Soit
+\[
+0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow 0
+\]
+exacte. Si $G$ est $m$-r\'egulier, alors :
+\begin{enumerate}[label=\roman*)]
+\item $H^q(F(n))=0$ pour $q\ge2$ et $n\ge m-(q-1)$;
+\item $H^1(F(n-1))\to H^1(F(n))$ est un isomorphisme pour
+\[
+ n\ge (m-1)+h^1(F(m-1));
+\]
+\item $H^1(F(n))=0$ dans le m\^eme domaine.
+\end{enumerate}
+En particulier $F$ est $[(m-1)+h^1(F(m-1))]$-r\'egulier. La d\'emonstration vient de la suite
+\[
+H^{q-1}(G(n))\to H^q(F(n-1))\to H^q(F(n))\to H^q(G(n))
+\]
+et, pour $q=1$, de la suite exacte
+\[
+0\to H^0(F(n-1))\to H^0(F(n))\to H^0(G(n))\to H^1(F(n-1))\to H^1(F(n))\to0.
+\]
+Chaque d\'efaut de surjectivit\'e fait d\'ecro\^itre strictement $h^1$; il ne peut donc s'en produire qu'un nombre fini, born\'e par $h^1(F(m-1))$.
+
+\textbf{D\'efinition 1.5.} Soient $F$ un faisceau coh\'erent sur $X$, $r\ge\dim\operatorname{Supp}(F)$, et $(b)=(b_0,\ldots,b_r)$. On dit que $F$ est un \emph{$(b)$-faisceau} si $\mathcal O_X(1)$ est engendr\'e par ses sections globales sur le support de $F$, si $h^0(F(-1))\le b_0$, et, pour $r\ge1$, s'il existe une section $\sigma\in H^0(\mathcal O_X(1))$ donnant
+\[
+0\to F(-1)\to F\to G\to0
+\]
+avec $G$ un $(b_1,\ldots,b_r)$-faisceau. De fa\c con \'equivalente, il existe une suite $F$-r\'eguli\`ere de sections $\sigma_1,\ldots,\sigma_r$ telle que, pour les restrictions $F_{\sigma_i}$ au lieu commun des z\'eros de $\sigma_1,\ldots,\sigma_i$,
+\[
+ h^0(F_{\sigma_i}(-1))\le b_i\qquad(0\le i\le r).
+\]
+
+\textbf{Proposition 1.6.} Si $F$ est un $(b)$-faisceau, alors toute suite suffisamment g\'en\'erale de sections satisfait les in\'egalit\'es ci-dessus, et tout sous-faisceau $G\subset F$ est encore un $(b)$-faisceau. C'est une cons\'equence de la platitude de la famille obtenue sur l'ouvert des suites r\'eguli\`eres et de la semi-continuit\'e sup\'erieure de $h^0$.
+
+\textbf{Lemme 1.7.} Si $0\to F(-1)\to F\to G\to0$ est exacte et si
+\[
+ \chi(F(n))=\sum_{i=0}^r a_i\binom{n+i}{i},
+\]
+alors
+\[
+ \chi(G(n))=\sum_{i=0}^{r-1}a_{i+1}\binom{n+i}{i}.
+\]
+
+\textbf{Proposition 1.8.} Si $F$ est un $(b)$-faisceau, $s=\dim\operatorname{Supp}(F)$, et
+\[
+ \chi(F(n))=\sum_{i=0}^s a_i\binom{n+i}{i},
+\]
+alors, pour $n\ge-1$,
+\[
+ h^0(F(n))\le \sum_{i=0}^s b_i\binom{n+i}{i},
+\]
+et $a_i\le b_i$ pour tout $i$; de plus $F$ est aussi un $(b_0,\ldots,b_{s-1},a_s)$-faisceau. La preuve est par r\'ecurrence sur $s$, en coupant par une section de $\mathcal O_X(1)$.
+
+\textbf{D\'efinition 1.9.} Les polyn\^omes de $(b)$-r\'egularit\'e sont des polyn\^omes universels \`a coefficients rationnels positifs
+\[
+ P_r(b_0,\ldots,b_{r-1};x),
+\]
+d\'efinis r\'ecursivement \`a partir des estimations pr\'ec\'edentes. On a notamment
+\[
+ P_r\bigl(b_0,\ldots,b_{r-1};P_{r-1}(b_1,\ldots,b_{r-1};0)\bigr)=P_r(b_0,\ldots,b_{r-1};0).
+\]
+
+\textbf{Th\'eor\`eme 1.11.} Soit $F$ un $(b)$-faisceau et
+\[
+ \chi(F(n))=\sum_{i=0}^s a_i\binom{n+i}{i}.
+\]
+Si $(c)=(c_1,\ldots,c_s)\ge(b)-(a)$ et si $m=P_s(c)$, alors $m\ge0$ et $F$ est $m$-r\'egulier. En particulier $F$ est
+\[
+ P_s(a_0,\ldots,a_{s-1};a_s)
+\]
+-r\'egulier lorsque $s=\dim\operatorname{Supp}(F)$.
+
+\textbf{D\'efinition 1.12.} Pour $X\to S$ de type fini, une famille de classes de faisceaux coh\'erents sur les fibres g\'eom\'etriques est une famille stable par extension du corps de base. Elle est \emph{limit\'ee} par un faisceau coh\'erent $F$ sur $X_T$, avec $T$ de type fini sur $S$, si elle est contenue dans la famille des classes des fibres de $F$. Si $X/S$ est projectif et muni de $\mathcal O_X(1)$ relativement ample, on parle de \emph{$(b)$-famille} lorsque les classes sont repr\'esent\'ees, apr\`es extension \`a une cl\^oture alg\'ebrique, par des $(b)$-faisceaux.
+
+\textbf{Th\'eor\`eme 1.13.} Soient $S$ noeth\'erien et $X$ projectif sur $S$, muni de $\mathcal O_X(1)$ ample, les restrictions aux fibres \'etant engendr\'ees par leurs sections globales. Pour une famille $\mathcal F$ de classes de faisceaux coh\'erents sur les fibres de $X/S$, les conditions suivantes sont \'equivalentes :
+\begin{enumerate}[label=\roman*)]
+\item $\mathcal F$ est limit\'ee; si les faisceaux sont localement libres de rang $p$, on peut prendre un faisceau limitant localement libre de rang $p$.
+\item Les polyn\^omes de Hilbert $\chi(F_s(n))$ sont en nombre fini et $\mathcal F$ est une $(b)$-famille.
+\item Les polyn\^omes de Hilbert sont en nombre fini et il existe $m$ tel que tous les faisceaux de la famille soient $m$-r\'eguliers.
+\item La famille est contenue dans la famille des quotients d'un faisceau coh\'erent $E_T$; on peut prendre $T=S$ et $E=\mathcal O_X(-m)^{\oplus M}$.
+\item La famille est contenue dans celle des conoyaux d'homomorphismes $E'_T\to E_T$, avec
+\[
+ E'=\mathcal O_X(-m')^{\oplus M'},\qquad E=\mathcal O_X(-m)^{\oplus M}.
+\]
+\end{enumerate}
+La preuve proc\`ede par stratification, platitude g\'en\'erique, semi-continuit\'e et le th\'eor\`eme 1.11. Les conoyaux sont finalement param\'etr\'es par l'espace affine
+\[
+ V\bigl((f_T)_*\mathcal H\!om(E',E)^*\bigr),
+\]
+qui porte un homomorphisme universel et donc un conoyau universel.
+
+\subsection*{2. Quelques lemmes techniques}
+\textbf{2.1.} Si $X$ est propre sur $k$, si $L_1,\ldots,L_s$ sont inversibles et si $Y$ est ferm\'e de dimension au plus $s$, alors
+\[
+ \langle c_1(L_1)\cdots c_1(L_s)\cdot Y\rangle
+\]
+est le coefficient de $n_1\cdots n_s$ dans
+\[
+ \chi(L_1^{\otimes n_1}\otimes\cdots\otimes L_s^{\otimes n_s}\otimes\mathcal O_Y).
+\]
+
+\textbf{2.2.} D\'esormais, $k$ est alg\'ebriquement clos et $X$ est int\`egre, projectif, de dimension $r$, muni d'un faisceau tr\`es ample $H=\mathcal O_X(1)$. Pour un faisceau inversible $L$, on pose
+\[
+ d(L)=\langle c_1(L)c_1(H)^{r-1}\rangle,
+\]
+et
+\[
+ \chi(L(n))=\sum_{i=0}^r a_i\binom{n+i}{i},\qquad
+ \chi(\mathcal O_X(n))=\sum_{i=0}^r b_i\binom{n+i}{i}.
+\]
+On a $a_r=b_r=d(H)$, et les coefficients suivants se lisent au moyen des produits d'intersection correspondants.
+
+\textbf{Lemmes 2.4--2.11.} Les lemmes techniques suivants donnent les bornes n\'ecessaires. Si $d(L)\le0$ et $H^0(L)\ne0$, alors $L\simeq\mathcal O_X$. Si $d(L)<0$, $L$ est un $(0,\ldots,0,a_r)$-faisceau. En dimension $2$, les $h^1(L(n))$ sont born\'es par des expressions universelles, par exemple
+\[
+ h^1(L(n))\le a_1(a_1+1)a_2-a_0,
+\qquad a_0\le a_1(a_1+1),
+\]
+quand $d(L)\le0$. En dimension sup\'erieure, sous normalit\'e, une r\'ecurrence sur la dimension en coupant par une section hyperplane normale fournit des polyn\^omes universels $\beta_i$ tels que
+\[
+ |a_i|\le\beta_i(a_0,\ldots,a_r).
+\]
+Ainsi, pour une famille de faisceaux inversibles sur les fibres d'un $X/S$ projectif, un nombre fini de polyn\^omes de Hilbert, avec ces bornes universelles, suffit \`a donner une famille limit\'ee.
+
+\subsection*{3. Familles limit\'ees de faisceaux inversibles}
+Les lemmes 3.1, 3.4 et 3.5 expriment que la limitation se conserve par changement de base, se v\'erifie apr\`es une stratification finie, descend par morphisme fini fid\`element plat, et est inchang\'ee par image r\'eciproque par un morphisme fini surjectif.
+
+\textbf{Th\'eor\`eme 3.6.} Pour $S$ noeth\'erien et $X$ propre sur $S$, une famille de classes de faisceaux inversibles sur les fibres g\'eom\'etriques est limit\'ee si et seulement si, apr\`es les r\'eductions usuelles par pr\'esentations de Chow, changement fini plat et passage \`a des mod\`eles projectifs int\`egres, elle l'est dans le cas projectif int\`egre. Dans ce cas, la constance des polyn\^omes
+\[
+ P(q,m)=\chi(L_t^{\otimes q}(m))
+\]
+dans les familles plates connexes, puis l'\'ecriture
+\[
+ \chi(M_t^{\otimes q}(m))=\sum_i a_i(q)\binom{m+i}{i},
+\]
+ram\`enent la limitation au th\'eor\`eme 2.11.
+
+\textbf{Th\'eor\`eme 3.8.} Soit $Y$ projectif sur $S$ noeth\'erien, muni de $\mathcal O_Y(1)$ relativement ample, et soit $X$ le sch\'ema des z\'eros d'une section de $\mathcal O_Y(1)$. Si, fibre par fibre, toute composante irr\'eductible de l'intersection avec une composante de $Y_s$ est de dimension au moins $2$, alors
+\[
+ f^*: \Pic_{Y/S}\longrightarrow\Pic_{X/S}
+\]
+est de type fini. Sur un ouvert non vide d'une base int\`egre, le morphisme induit des foncteurs de Picard repr\'esentables est quasi-affine.
+
+\textbf{Lemme 3.11.} Si $Y$ est normal projectif sur $k$ alg\'ebriquement clos et $X$ une section hyperplane, alors, pour $\dim Y\ge3$, $\Pic_Y\to\Pic_X$ est de type fini \`a noyau fini; pour $\dim Y\ge2$ il en est de m\^eme de $\Pic_Y^0\to\Pic_X^0$. L'argument utilise la th\'eorie de Kummer
+\[
+0\to\mu_\ell\to\mathbb G_m\xrightarrow{\ell}\mathbb G_m\to0
+\]
+et la surjectivit\'e de $\pi_1(X)\to\pi_1(Y)$.
+
+\textbf{Th\'eor\`eme 3.13.} Soit $X$ projectif sur $S$ noeth\'erien, muni de $H=\mathcal O_X(1)$ relativement ample, les fibres g\'eom\'etriques \'etant int\`egres de dimension $r$. Pour une famille $\mathcal L$ de classes de faisceaux inversibles, les conditions suivantes sont \'equivalentes : limitation; bornitude de $a_{r-1}$ et minorations de $a_{r-2}$ dans
+\[
+ \chi(L_s(n))=\sum_{i=0}^r a_i(s)\binom{n+i}{i};
+\]
+bornitude du degr\'e $\langle c_1(L_s)c_1(H_s)^{r-1}\rangle$ et minoration de $\langle c_1(L_s)^2c_1(H_s)^{r-2}\rangle$; enfin existence d'un $N$ tel que $L^{\otimes N}<L<L^{\otimes(-N)}$ pour l'ordre d'amplitude.
+
+\subsection*{4. Th\'eor\`emes de finitude pour $\Pic^\tau_{X/S}$}
+\textbf{4.1.} Pour un foncteur $G$ en groupes commutatifs sur $S$, on note $G^0$ le sous-foncteur form\'e des points reli\'es \`a $0$ par une famille connexe, et $G^\tau$ celui des points dont un multiple non nul appartient \`a $G^0$. Ces constructions commutent au changement de base.
+
+\textbf{Lemme 4.2.} Si $\Phi:G\to G'$ est de type fini sur toutes les fibres alg\'ebriquement closes, alors $\Phi(G^\tau)\subset G'^\tau$. En effet, $g\in G^\tau(K)$ \'equivaut \`a la quasi-compacit\'e de la suite $(ng)_{n\in\mathbb N}$.
+
+\textbf{Lemme 4.3.} Si $f:X\to Y$ est surjectif, ou si $X$ est le sch\'ema des z\'eros d'une section d'un faisceau ample sur $Y$, alors
+\[
+ (f^*)^{-1}(\Pic^\tau_{X/S})=\Pic^\tau_{Y/S}.
+\]
+
+\textbf{4.4.} Pour $X$ propre sur $k$ alg\'ebriquement clos, un faisceau inversible $L$ est alg\'ebriquement \'equivalent \`a z\'ero s'il est sp\'ecialis\'e de $\mathcal O_X$ dans une famille connexe; il est $\tau$-\'equivalent \`a z\'ero si une puissance tensorielle non nulle l'est. Il est num\'eriquement \'equivalent \`a z\'ero si
+\[
+ \langle c_1(L)\cdot Y\rangle=0
+\]
+pour toute courbe int\`egre ferm\'ee $Y\subset X$.
+
+\textbf{Proposition 4.5.} La $\tau$-\'equivalence et l'\'equivalence num\'erique se conservent par image r\'eciproque; r\'eciproquement, si $f:X'\to X$ est surjectif et si $f^*L$ est trivial au sens consid\'er\'e, alors $L$ l'est. Pour les courbes, la formule clef est
+\[
+ \langle c_1(f^*L)\cdot Y'\rangle=[k(Y'):k(Y)]\langle c_1(L)\cdot Y\rangle.
+\]
+
+\textbf{Th\'eor\`eme 4.6.} Pour $X$ propre sur $k$ alg\'ebriquement clos et $L$ inversible sur $X$, les conditions suivantes sont \'equivalentes :
+\begin{enumerate}[label=\roman*)]
+\item $L$ est $\tau$-\'equivalent \`a z\'ero;
+\item pour tout faisceau coh\'erent $F$ sur $X$, $\chi(F\otimes L)=\chi(F)$;
+\item $L$ est num\'eriquement \'equivalent \`a z\'ero.
+\end{enumerate}
+Si $X/k$ est projectif et muni de $H=\mathcal O_X(1)$ ample, ces conditions sont aussi \'equivalentes \`a :
+\begin{enumerate}[label=\roman*),start=4]
+\item pour tout entier $m$, positif ou n\'egatif, $L^{\otimes m}\otimes H$ est ample;
+\item si $X$ est irr\'eductible, pour tous $m,n$,
+\[
+ \chi(L^{\otimes m}(n))=\chi(\mathcal O_X(n));
+\]
+\item si $X$ est irr\'eductible de dimension $r\ge2$,
+\[
+ \langle c_1(L)c_1(H)^{r-1}\rangle=0,
+ \qquad
+ \langle c_1(L)^2c_1(H)^{r-2}\rangle=0.
+\]
+\end{enumerate}
+La d\'emonstration utilise le d\'evissage, le th\'eor\`eme de Riemann pour les courbes, les pr\'esentations de Chow, puis le th\'eor\`eme 3.13 appliqu\'e \`a la famille des puissances $L^{\otimes m}$.
+
+\textbf{Th\'eor\`eme 4.7.} Soit $f:X\to S$ propre et plat, avec $S$ noeth\'erien. Alors :
+\begin{enumerate}[label=\roman*)]
+\item le sous-foncteur $\Pic^\tau_{X/S}$ de $\Pic_{X/S}$ est repr\'esent\'e par un sous-sch\'ema ouvert;
+\item si de plus $X$ est projectif et int\`egre sur $S$, alors $\Pic^\tau_{X/S}\to\Pic_{X/S}$ est repr\'esent\'e par une immersion ferm\'ee;
+\item $\Pic^\tau_{X/S}$ est de type fini sur $S$, autrement dit la famille des classes de faisceaux inversibles $\tau$-\'equivalents \`a z\'ero sur les fibres est limit\'ee.
+\end{enumerate}
+On se ram\`ene, par descente f.p.p.f. et passage \`a des sch\'emas de type fini, au cas d'une section de $\Pic_{X/S}$ d\'efinie par un faisceau inversible $L$ sur $X$. Soit $S_0$ l'ensemble des $s\in S$ tels que $L_s$ soit $\tau$-\'equivalent \`a z\'ero. Il faut montrer que $S_0$ est ouvert, et ferm\'e sous les hypoth\`eses de (ii). Les pr\'esentations de Chow r\'eduisent au cas projectif. Si $H$ est ample et si $(L^{\otimes m}\otimes H)_s$ est ample, il en est de m\^eme pour toute g\'en\'erisation $t$ de $s$, d'o\`u l'ouverture par 4.6. Les sp\'ecialisations et la finitude se r\'eduisent au cas $S$ int\`egre et $X$ projectif int\`egre sur $S$; alors les polyn\^omes
+\[
+ \chi(L_t^{\otimes m}(n)),\qquad \chi(\mathcal O_{X_t}(n))
+\]
+sont ind\'ependants de $t\in S$, ce qui donne la sp\'ecialisation par 4.6 et la limitation par 2.11.
+
+\textbf{Remarque 4.8.} Si $X$ est propre et int\`egre sur un sch\'ema noeth\'erien $S$, sans hypoth\`ese de projectivit\'e sur $S$, on ignore s'il est encore vrai que $\Pic^\tau_{X/S}\to\Pic_{X/S}$ soit une immersion ferm\'ee, sauf lorsque $X$ est normal sur $S$ et que $\Pic_{X/S}$ est repr\'esentable.
+
+\subsection*{5. Th\'eor\`emes de finitude du type N\'eron--Severi}
+\textbf{Th\'eor\`eme 5.1.} Soit $X$ propre sur $S$ noeth\'erien. Alors les groupes de N\'eron--Severi
+\[
+ \NS(X_K)=\Pic_{X_K/K}(K)/\Pic^0_{X_K/K}(K)
+\]
+des fibres g\'eom\'etriques $X_K$ de $X/S$ sont de type fini, et leurs rangs ainsi que les ordres de leurs sous-groupes de torsion restent born\'es.
+
+Par r\'ecurrence noeth\'erienne, on peut remplacer $S$ par un ouvert non vide de $S_{\mathrm{red}}$ de sorte que $\Pic^\tau_{X/S}$ soit repr\'esentable par un $S$-sch\'ema de type fini. L'ordre de
+\[
+\Tors(\NS(X_K))=\Pic^\tau_{X_K/K}(K)/\Pic^0_{X_K/K}(K)
+\]
+est alors le nombre de composantes connexes de $(\Pic^\tau_{X/S})_K$, constant au-dessus d'un ouvert non vide. Il reste \`a borner le rang de $\Pic_{X_K/K}(K)/\Pic^\tau_{X_K/K}(K)$. Comme dans 4.7(iii), on se ram\`ene \`a $S$ int\`egre et $X$ projectif int\`egre sur $S$. Si $r$ est la dimension commune des fibres, le rang vaut \'evidemment $0$ pour $r=0$ et $1$ pour $r=1$. Pour $r\ge2$, apr\`es restriction de $S$, on choisit une section lin\'eaire $Y$ de $X$ int\`egre sur $S$, \`a fibres de dimension $2$; la preuve se poursuit \`a partir de cette r\'eduction.
+
+\end{document}
