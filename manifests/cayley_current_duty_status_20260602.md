@@ -29,7 +29,7 @@ The repository also has volume-level slice readers for Volumes II-XIII under `re
 
 Those broader volume readers are useful public surfaces, but they should not be described as final source-faithful editions. The safer measured progress remains the validated slice/gap-fill layer described in `manifests/cayley_claude_progress_cost_inventory_20260531.md`.
 
-Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. A second local pass added source-checked pages 517-528, replaced the incorrect pages 569-570 text, and then filled pages 529-541 from source-checked TeX. A third pass replaced the defective pages 67-116 slice, whose old PDF rendered but whose TeX source was effectively empty, with a 45-page native source-checked TeX/PDF slice. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 563 pages.
+Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. A second local pass added source-checked pages 517-528, replaced the incorrect pages 569-570 text, and then filled pages 529-541 from source-checked TeX. A third pass replaced the defective pages 67-116 slice, whose old PDF rendered but whose TeX source was effectively empty, with a 45-page native source-checked TeX/PDF slice. A fourth pass replaced the unsafe pages 117-166 slice with a 42-page native source-checked TeX/PDF rebuild. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 555 pages; the drop from the previous count reflects denser repaired TeX rather than omitted source coverage.
 
 ## New Local Cayley Handoff Packet
 
@@ -51,9 +51,9 @@ The next productive Cayley work is volume-by-volume continuation. The immediate 
 
 Specific Volume VIII targets:
 
-- `sources_tex_Vol_VIII/cayley_vol08_pages_117_166.tex` - current first-priority repair target. The public slice is unsafe as trusted LaTeX: earlier audit found a hard compile failure, multiple LaTeX errors, and dense table/formula risks. A source-checked candidate for pp. 117-141 has landed locally; pp. 142-166 are still being repaired before public promotion.
-- `sources_tex_Vol_VIII/cayley_vol08_pages_167_216.tex` - dense table/math TODO risk.
+- `sources_tex_Vol_VIII/cayley_vol08_pages_167_216.tex` - current first-priority repair target; dense table/math TODO risk.
 - `sources_tex_Vol_VIII/cayley_vol08_pages_317_366.tex` - dense table/math TODO risk.
+- `sources_tex_Vol_VIII/cayley_vol08_pages_367_416.tex` - compile-log risk from earlier audit: bad math delimiters and hard LaTeX errors.
 
 Local witness scan for Volume VIII:
 
