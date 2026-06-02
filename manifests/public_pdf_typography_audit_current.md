@@ -1,11 +1,11 @@
 # Public PDF Typography Audit
 
-Generated from the current public GitHub/Zenodo reader surface after the 2026-06-02 Cayley Volume VIII pages 067-116 repair checkpoint.
+Generated from the current public GitHub/Zenodo reader surface after the 2026-06-02 Cayley Volume VIII pages 117-166 repair checkpoint.
 
 - PDFs checked: 336
 - Reader-class PDFs checked: 312
-- PDFs with typography/layout heuristic warnings: 124
-- Reader-class PDFs with typography/layout heuristic warnings: 109
+- PDFs with typography/layout heuristic warnings: 125
+- Reader-class PDFs with typography/layout heuristic warnings: 110
 - Interpretation: warnings are repair-queue hints, not automatic publication blockers. Reference scans, historical PDFs, mixed source editions, title pages, landscape tables, and intentionally compact tables can legitimately trigger these heuristics.
 
 Warning types:
@@ -13,14 +13,14 @@ Warning types:
 - body-font-large: 1
 - body-font-small: 1
 - inconsistent-page-font-size: 108
-- mixed-page-sizes: 39
+- mixed-page-sizes: 40
 - wide-font-size-spread: 6
 
 Records with warnings:
 
 - non_eu: 25
 - main: 20
-- classical: 14
+- classical: 15
 - chinese: 13
 - ega: 9
 - author_cluster: 6
@@ -37,6 +37,6 @@ Current follow-up priorities:
 
 - Continue replacing older multilingual work-level readers only when a new render is visibly better.
 - Keep broad Cayley volume drafts artifact-only; promote only validated repaired slices until whole volumes are checked.
-- Current Cayley Volume VIII priority: replace the pages 117-166 slice; pages 067-116 are now promoted as native repaired TeX/PDF.
+- Current Cayley Volume VIII priority: continue with pages 167-216, 317-366, and 367-416 audit/repair targets; pages 067-166 are now promoted as native repaired TeX/PDF.
 - Keep SGA 3 clean rebuild top-level while reserving formula-level normalization for later work.
 - Keep Noether and Weber organized by paper/work as the high-fidelity replacement streams grow.
