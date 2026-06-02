@@ -70,3 +70,6 @@ Recommended repair loop:
 5. Rebuild the volume reader after enough verified slices/gap fills land.
 
 This keeps the Cayley workflow bounded and auditable while still allowing parallel repair on dense mathematical pages.
+
+Update, 2026-06-02: Volume X tail repair promoted. The legacy `cayley_vol10_pages_551_586` repair slice is now treated as a superseded source artifact for the public reader. The public Volume X reader was rebuilt from `551_565`, `566_575`, `576_585`, and `586_600` tail slices. Pages 566-600 are native source-checked TeX/PDF, with the p. 586 diagram reconstructed in TikZ and no screenshot/facsimile stand-ins. Verification: the rebuilt reader has 571 selectable-text pages, zero embedded raster images by `pdfimages`, and contains the previously missing Problems and Solutions tail names including A. B. Evans, Pellianus, and Artemas Martin. Remaining Vol X cleanup target: pp. 551-565 still inherit a few older placeholder phrases from the previous repair layer and should be formula-polished next.
+
