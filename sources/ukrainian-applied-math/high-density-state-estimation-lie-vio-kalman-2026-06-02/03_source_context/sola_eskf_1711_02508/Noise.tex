@@ -1,0 +1,444 @@
+% !TEX root = kinematics.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Integration of random noise and perturbations}
+\label{sec:IntNoise}
+
+We aim now at giving appropriate methods for the integration of random variables within dynamic systems. 
+Of course, we cannot integrate unknown random values, but we can integrate their variances and covariances for the sake of uncertainty propagation. 
+This is needed in order to establish the covariances matrices in estimators for systems that are of continuous nature (and specified in continuous time) but estimated in a discrete manner.
+
+Consider the continuous-time dynamic system,
+%
+\begin{equation}
+\dot\bfx = f(\bfx,\bfu,\bfw)~,
+\label{equ:contSysWithNoise}
+\end{equation}
+%
+where $\bfx$ is the state vector, $\bfu$ is a vector of  control signals containing noise $\tilde\bfu$, so that the control measurements are $\bfu_m=\bfu+\tilde\bfu$, and $\bfw$ is a vector of random perturbations. 
+Both noise and perturbations are assumed white Gaussian processes, specified by,
+%
+\begin{equation}
+\tilde\bfu \sim \cN\{0,\bfU^c\} \quad , \quad \bfw^c\sim\cN\{0,\bfW^c\}~,
+\end{equation}
+%
+where the super-index $\bullet^c$ indicates a continuous-time uncertainty specification, which we want to integrate. 
+
+There exists an important difference between the natures of the noise levels in the control signals, $\tilde\bfu$, and the random perturbations, $\bfw$:
+%
+\begin{itemize}
+\item 
+On discretization, the control signals are sampled at the time instants $n\Dt$, having $\bfu_{m,n}\triangleq\bfu_m(n\Dt)=\bfu(n\Dt)+\tilde\bfu(n\Dt)$. 
+The measured part is obviously considered constant over the integration interval, \ie, $\bfu_m(t)=\bfu_{m,n}$, and therefore the noise level at the sampling time $n\Dt$ is also held constant,
+%
+\begin{equation}
+\tilde\bfu(t)=\tilde\bfu(n\Dt) = \tilde\bfu_n, \quad n\Dt<t<(n+1)\Dt~. \label{equ:uint}
+\end{equation}
+%
+\item  
+The perturbations $\bfw$ are never sampled. 
+
+\end{itemize}
+%
+
+
+As a consequence, the integration over $\Dt$ of these two stochastic processes differs. 
+Let us examine it. 
+
+\bigskip
+The continuous-time error-state dynamics \eqRef{equ:contSysWithNoise} can be linearized to
+%
+\begin{equation}
+\dot{\delta\bfx} = \bfA\delta\bfx + \bfB\tilde\bfu + \bfC \bfw~, \label{equ:contTime}
+\end{equation}
+%
+with 
+%
+\begin{equation}
+\bfA\triangleq\pjac{f}{\delta\bfx}{\bfx,\bfu_m}\quad,\quad
+\bfB\triangleq\pjac{f}{\tilde\bfu}{\bfx,\bfu_m}\quad,\quad
+\bfC\triangleq\pjac{f}{\bfw}{\bfx,\bfu_m}~,
+\end{equation}
+%
+and integrated over the sampling period $\Dt$, giving,
+%
+\begin{align}
+\delta\bfx_{n+1} &= \delta\bfx_n 
++ \int_{n\Dt}^{(n+1)\Dt} \left(
+\bfA\delta\bfx(\tau) + \bfB\tilde\bfu(\tau) + \bfC\bfw^c(\tau)
+\right) d\tau \\
+ &= \delta\bfx_n 
++ \int_{n\Dt}^{(n+1)\Dt} \bfA\delta\bfx(\tau)   d\tau
++ \int_{n\Dt}^{(n+1)\Dt} \bfB\tilde\bfu(\tau)   d\tau 
++ \int_{n\Dt}^{(n+1)\Dt} \bfC\bfw^c(\tau) d\tau 
+\end{align}
+%
+which has three terms of very different nature. 
+They can be integrated as follows:
+%
+\begin{enumerate}
+\item From \appRef{sec:ClosedFormInt} we know that the dynamic part is integrated giving the transition matrix,
+%
+\begin{equation}
+\delta\bfx_n 
++ \int_{n\Dt}^{(n+1)\Dt} \bfA\delta\bfx(\tau)   d\tau = \Phi\tdot\delta\bfx_n
+\end{equation}
+%
+where $\Phi=e^{\bfA\Dt}$ can be computed in closed-form or approximated at different levels of accuracy.
+
+\item From \eqRef{equ:uint} we have
+%
+\begin{equation}
+\int_{n\Dt}^{(n+1)\Dt} \bfB\tilde\bfu(\tau)   d\tau = \bfB\Dt\tilde\bfu_n
+\end{equation}
+%
+which means that the measurement noise, once sampled, is integrated in a deterministic manner because its behavior inside the integration interval is known.
+
+\item From Probability Theory we know that the integration of continuous white Gaussian noise over a period $\Dt$ produces a discrete white Gaussian impulse $\bfw_n$ described by
+%
+\begin{equation}
+\bfw_n\triangleq\int_{n\Dt}^{(n+1)\Dt}\bfw(\tau)d\tau 
+\quad,\quad
+\bfw_n \sim \cN\{0,\bfW\} 
+\quad,\quad
+ \text{with } \bfW = \bfW^c\Dt
+\end{equation}
+%
+We obsereve that, contrary to the measurement noise just above, the perturbation does not have a deterministic behavior inside the integration interval, and hence it must be integrated stochastically.
+
+\end{enumerate}%
+%
+Therefore, the discrete-time, error-state dynamic system can be written as
+%
+\begin{equation}
+\delta\bfx_{n+1} = \bfF_\bfx\delta\bfx_n + \bfF_\bfu\tilde\bfu_n + \bfF_\bfw \bfw_n \label{equ:discTime}
+\end{equation}
+%
+with  transition, control and perturbation matrices given by
+%
+\begin{equation}
+\bfF_\bfx=\Phi = e^{\bfA\Dt} \quad , \quad \bfF_\bfu=\bfB\Dt \quad , \quad \bfF_\bfw = \bfC \quad , \quad 
+\end{equation}
+%
+%where it is illustrative to appreciate the different contributions of the step time $\Dt$ in the integrated values. The
+with noise and perturbation levels defined by
+%
+\begin{equation}
+\tilde\bfu_n\sim\cN\{0,\bfU\} \quad , \quad \bfw_n\sim\cN\{0,\bfW\} \label{equ:discMat}
+\end{equation}
+%
+with 
+%
+\begin{equation}
+\bfU = \bfU^c \quad , \quad \bfW = \bfW^c\Dt~. \label{equ:discCov}
+\end{equation}
+%
+\begin{table*}
+\renewcommand{\arraystretch}{1.3}
+\caption{Effect of integration on system and covariances matrices.}
+\centering
+\vspace{1ex}
+\begin{tabular}{|c|c|c|}
+\hline
+Description & Continuous time $t$ & Discrete time $n\Dt$\\
+\hline
+\hline
+state & $\dot\bfx=f^c(\bfx,\bfu,\bfw)$ & $\bfx_{n+1} = f(\bfx_n,\bfu_n,\bfw_n)$ \\
+error-state & $\dot{\delta\bfx}=\bfA\delta\bfx+\bfB\tilde\bfu+\bfC\bfw$ & $\delta\bfx_{n+1}=\bfF_\bfx\delta\bfx_n+\bfF_\bfu\tilde\bfu_n+\bfF_\bfw\bfw_n$ \\
+\hline
+system matrix & $\bfA$ & $\bfF_\bfx=\Phi=e^{\bfA\Dt}$ \\
+control matrix & $\bfB$ & $\bfF_\bfu=\bfB\Dt$ \\
+perturbation matrix & $\bfC$ & $\bfF_\bfw=\bfC$ \\
+\hline
+control covariance & $\bfU^c$ & $\bfU=\bfU^c$  \\
+perturbation covariance & $\bfW^c$ & $\bfW=\bfW^c\Dt$  \\
+\hline
+\end{tabular}
+\label{tab:IntEffects}
+\end{table*}%
+
+These results are summarized in \tabRef{tab:IntEffects}. 
+The prediction stage of an EKF would propagate the error state's mean and covariances matrix according to
+%
+\begin{align}
+\hat{\delta\bfx}_{n+1} &= \bfF_\bfx \hat{\delta\bfx}_n \\
+\bfP_{n+1} &= \bfF_\bfx\bfP_n\bfF_\bfx\tr + \bfF_\bfu\bfU\bfF_\bfu\tr + \bfF_\bfw\bfW\bfF_\bfw\tr \nonumber\\
+&= e^{\bfA\Dt}\bfP_n(e^{\bfA\Dt})\tr + \Dt^2\bfB\bfU^c\bfB\tr + \Dt\bfC\bfW^c\bfC\tr \label{equ:NoisePertCovUpdate}
+\end{align}
+
+It is important and illustrative here to observe the different effects of the integration interval, $\Dt$, on the three terms of the covariance update \eqRef{equ:NoisePertCovUpdate}: the dynamic error term is exponential, the measurement error term is quadratic, and the perturbation error term is linear. 
+
+
+%=============================================================
+\subsection{Noise and perturbation impulses}
+\label{sec:pertImpulses}
+
+One is oftentimes confronted (for example when reusing existing code or when interpreting other authors' documents) with EKF prediction equations of a simpler form than those that we used here, namely,
+%
+\begin{equation}
+\bfP_{n+1} = \bfF_\bfx\bfP_n\bfF_\bfx\tr + \bfQ~.
+\end{equation}
+%
+This corresponds to the general discrete-time dynamic system,
+%
+\begin{equation}
+\delta\bfx_{n+1} = \bfF_\bfx\delta\bfx_n+\bfi
+\end{equation}
+%
+where
+%
+\begin{equation}
+\bfi \sim \cN\{0,\bfQ\}
+\end{equation}
+%
+is a vector of random (white, Gaussian) impulses that are directly added to the state vector at time $t_{n+1}$. 
+The matrix $\bfQ$ is simply considered the impulses covariances matrix. 
+From what we have seen, we should compute this covariances matrix as follows,
+%
+\begin{equation}
+\bfQ = \Dt^2\,\bfB\,\bfU^c\,\bfB\tr + \Dt\,\bfC\,\bfW^c\,\bfC\tr~.
+\end{equation}
+
+In the case where the impulses do not affect the full state, as it is often the case, the matrix $\bfQ$ is not full-diagonal and may contain a significant amount of zeros. 
+One can then write the equivalent form
+%
+\begin{equation}
+\delta\bfx_{n+1} = \bfF_\bfx\,\delta\bfx_n+\bfF_\bfi\,\bfi
+\end{equation}
+%
+with
+%
+\begin{equation}
+\bfi \sim \cN\{0,\bfQ_\bfi\}~,
+\end{equation}
+%
+where the matrix $\bfF_\bfi$ simply maps each individual impulse to the part of the state vector it affects to. 
+The associated covariance $\bfQ_\bfi$ is then smaller and full-diagonal. 
+Please refer to the next section for an example. 
+In such case the ESKF time-update becomes
+%
+\begin{align}
+\hat{\delta\bfx}_{n+1} &= \bfF_\bfx\,\hat{\delta\bfx}_n \\
+\bfP_{n+1} &= \bfF_\bfx\,\bfP_n\,\bfF_\bfx\tr + \bfF_\bfi\,\bfQ_\bfi\,\bfF_\bfi\tr~.
+\end{align}
+%
+
+
+Obviously, all these forms are equivalent, as it can be seen in the following double identity for the general perturbation $\bfQ$,
+%
+\begin{equation}
+\bfF_\bfi\,\bfQ_\bfi\,\bfF_\bfi\tr = \eqbox{\bfQ} =  \Dt^2\,\bfB\,\bfU^c\,\bfB\tr + \Dt\,\bfC\,\bfW^c\,\bfC\tr~.
+\end{equation}
+
+
+
+%=============================================================
+\subsection{Full IMU example}
+
+We study the construction of an error-state Kalman filter for an IMU. 
+The error-state system is defined in \eqRef{equ:efull} and involves a nominal state $\bfx$, an error-state $\delta\bfx$, a noisy control  signal $\bfu_m=\bfu+\tilde\bfu$ and a perturbation $\bfw$, specified by,
+%
+\begin{equation}
+\bfx = \begin{bmatrix}
+\bfp \\
+\bfv \\
+\bfq \\
+\bfa_b \\
+\bfomega_b \\
+\bfg
+\end{bmatrix}
+\quad , \quad
+\delta\bfx = \begin{bmatrix}
+\delta\bfp \\
+\delta\bfv \\
+\delta\bftheta \\
+\delta\bfa_b \\
+\delta\bfomega_b \\
+\delta\bfg
+\end{bmatrix}
+\quad , \quad
+\bfu_m=\begin{bmatrix}
+\bfa_m \\ \bfomega_m
+\end{bmatrix} 
+\quad , \quad
+\tilde\bfu=\begin{bmatrix}
+\tilde\bfa \\ \tilde\bfomega
+\end{bmatrix} 
+\quad , \quad
+\bfw = \begin{bmatrix}
+\bfa_w \\ \bfomega_w
+\end{bmatrix}
+\end{equation}
+
+In a model of an IMU like the one we are considering throughout this document, the control noise corresponds to the additive noise in the IMU measurements. 
+The perturbations affect the biases, thus producing their random-walk behavior. 
+The dynamic, control and perturbation matrices are (see  \eqRef{equ:contTime}, \eqRef{equ:FullIMU_Fmat} and \eqRef{equ:efull}),
+%
+\begin{equation}
+\label{equ:IMU_ABC}
+\bfA = \begin{bmatrix}
+  0& \bfP_\bfv&  0&  0&  0&  0\\
+  0&  0& \bfV_\bftheta& \bfV_\bfa&  0& \bfV_\bfg\\
+  0&  0& \Theta_\bftheta&  0& \Theta_\bfomega&  0\\
+  0&  0&  0&  0&  0&  0\\
+  0&  0&  0&  0&  0&  0\\
+  0&  0&  0&  0&  0&  0
+\end{bmatrix}
+\quad,\quad
+\bfB = \begin{bmatrix}
+0 & 0 \\
+-\bfR & 0 \\
+0 & -\bfI \\
+0 & 0 \\
+0 & 0 \\
+0 & 0 \\
+\end{bmatrix}
+\quad,\quad
+\bfC = \begin{bmatrix}
+0 & 0 \\
+0 & 0 \\
+0 & 0 \\
+\bfI & 0 \\
+0 & \bfI \\
+0 & 0 \\
+\end{bmatrix}
+\end{equation}
+
+In the regular case of IMUs with accelerometer and gyrometer triplets of the same kind on the three axes, noise and perturbations are isotropic. 
+Their standard deviations are specified as scalars as follows
+%
+\begin{equation}
+\sigma_{\tilde\bfa}\ [m/s^2] \quad,\quad \sigma_{\tilde\bfomega} \  [rad/s] \quad,\quad \sigma_{\bfa_w}\ [m/s^2\sqrt{s}] \quad,\quad \sigma_{\bfomega_w}\ [rad/s\sqrt{s}]
+\end{equation}
+%
+and their covariances matrices are purely diagonal, giving
+%
+\begin{equation}
+\bfU^c=\begin{bmatrix}
+\sigma_{\tilde\bfa}^2\bfI & 0 \\ 0 & \sigma_{\tilde\bfomega}^2\bfI  
+\end{bmatrix} \qquad ,\qquad
+\bfW^c=\begin{bmatrix}
+\sigma_{\bfa_w}^2\bfI & 0 \\ 0 & \sigma_{\bfomega_w}^2\bfI  
+\end{bmatrix} ~.
+\end{equation}
+
+The system evolves with sampled measures at intervals $\Dt$, following \eqsRef{equ:discTime}{equ:discCov}, where the transition matrix $\bfF_\bfx=\Phi$ can be computed in a number of ways -- see previous appendices. 
+
+%%-------------------------------------------------------------
+\subsubsection{Noise and perturbation impulses}
+%\label{sec:pertImpulsesIMU}
+
+%\TODO{Describe first the general case, and then the isotropic case}
+
+In the case of a perturbation specification in the form of impulses $\bfi$, we can re-define our system as follows,
+%
+\begin{equation}
+\delta\bfx_{n+1} = \bfF_\bfx(\bfx_n, \bfu_m)\tdot \delta\bfx_n+\bfF_\bfi\tdot\bfi
+\end{equation}
+%
+with the nominal-state, error-state, control, and impulses vectors defined by,
+%
+\begin{equation}
+\bfx=\begin{bmatrix}\bfp\\\bfv\\\bfq\\\bfa_b\\\bfomega_b\\\bfg\end{bmatrix} \quad, \quad
+\delta\bfx=\begin{bmatrix}\delta\bfp\\\delta\bfv\\\delta\bftheta\\\delta\bfa_b\\\delta\bfomega_b\\\delta\bfg\end{bmatrix} \quad, \quad
+\bfu_m = \begin{bmatrix}
+\bfa_m \\
+\bfomega_m
+\end{bmatrix} 
+\quad,  \quad
+\bfi = \begin{bmatrix}
+\bfv_\bfi \\
+\bftheta_\bfi \\
+\bfa_\bfi \\
+\bfomega_\bfi
+\end{bmatrix}~,
+\end{equation}
+%
+the transition and perturbations matrices defined by,
+%
+\begin{equation}
+\bfF_\bfx = \Phi = e^{\bfA\Dt}
+\qquad,\qquad
+\bfF_\bfi 
+%= \begin{bmatrix}
+%\bfB & \bfC
+%\end{bmatrix} 
+= \begin{bmatrix}
+ 0 &  0 & 0 & 0 \\
+ \bfI &  0 & 0 & 0 \\
+ 0 &  \bfI & 0 & 0 \\
+ 0 &  0 & \bfI & 0 \\
+ 0 & 0 & 0 & \bfI \\
+ 0 &  0 & 0 & 0 
+\end{bmatrix} ~,
+\end{equation}
+%
+and the impulses variances specified by
+%
+\begin{equation}
+\bfi \sim \cN\{0,\bfQ_\bfi\}
+\quad,\quad
+\bfQ_\bfi = \begin{bmatrix}
+\sigma_{\tilde\bfa}^2\Dt^2\bfI &&0&\\
+& \sigma_{\tilde\bfomega}^2\Dt^2\bfI &&\\
+&& \sigma_{\bfa_w}^2\Dt\bfI &\\
+&0&& \sigma_{\bfomega_w}^2\Dt\bfI 
+\end{bmatrix}~.
+\end{equation}
+
+
+
+The trivial specification of $\bfF_\bfi$ may appear surprising given especially that of $\bfB$ in \eqRef{equ:IMU_ABC}. 
+What happens is that the errors are defined isotropic in $\bfQ_\bfi$, and therefore $-\bfR\sigma^2\bfI(-\bfR)\tr = \sigma^2\bfI$ and $-\bfI\sigma^2\bfI(-\bfI)\tr = \sigma^2\bfI$, leading to the expression given for $\bfF_\bfi$. 
+This is not possible when considering non-isotropic IMUs, where a proper Jacobian $\bfF_\bfi=\begin{bmatrix}
+\bfB & \bfC
+\end{bmatrix}$ should be used together with a proper specification of $\bfQ_\bfi$.
+
+%\begin{bmatrix}
+% 0 &  0 & 0 & 0 \\
+% \bfI &  0 & 0 & 0 \\
+% 0 &  \bfI & 0 & 0 \\
+% 0 &  0 & \bfI & 0 \\
+% 0 & 0 & 0 & \bfI \\
+% 0 &  0 & 0 & 0 
+%\end{bmatrix}
+
+\bigskip
+We can of course use full-state perturbation impulses,
+%
+\begin{equation}
+\delta\bfx_{n+1} = \bfF_\bfx(\bfx_n, \bfu_m)\tdot \delta\bfx_n+\bfi
+\end{equation}
+%
+with
+%
+\begin{equation}
+\bfi = \begin{bmatrix}
+0 \\
+\bfv_\bfi \\
+\bftheta_\bfi \\
+\bfa_\bfi \\
+\bfomega_\bfi \\
+0
+\end{bmatrix}
+\quad,\quad
+\bfi \sim \cN\{0,\bfQ\}
+\quad,\quad
+\bfQ = \begin{bmatrix}
+0 & \\
+& \sigma_{\tilde\bfa}^2\Dt^2\bfI &&&0&\\
+&& \sigma_{\tilde\bfomega}^2\Dt^2\bfI &&\\
+&&& \sigma_{\bfa_w}^2\Dt\bfI &\\
+&0&&& \sigma_{\bfomega_w}^2\Dt\bfI \\
+&&&&&0
+\end{bmatrix}~.
+\end{equation}
+
+
+
+\bigskip
+\bigskip
+\bigskip
+
+Bye bye.
+

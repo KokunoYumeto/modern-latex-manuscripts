@@ -1,0 +1,885 @@
+% !TEX root = kinematics.tex
+
+
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Error-state kinematics for IMU-driven systems}
+\label{sec:es-kinematics}
+
+%=============================================================
+\subsection{Motivation}
+
+We wish to write the error-estate equations of the kinematics of an inertial system integrating accelerometer and gyrometer readings with bias and noise, using the Hamilton quaternion to represent the orientation in space or \emph{attitude}. 
+
+Accelerometer and gyrometer readings come typically from an Inertial Measurement Unit (IMU). 
+Integrating IMU readings leads to dead-reckoning positioning systems, which drift with time. 
+Avoiding drift is a matter of fusing this information with absolute position readings such as GPS or vision.
+
+The error-state Kalman filter (ESKF) is one of the tools we may use for this purpose. 
+Within the Kalman filtering paradigm, these are the most remarkable assets of the ESKF~\citep{MADYASTHA-11}:
+
+\begin{itemize}
+\item The orientation error-state is minimal (\ie, it has the same number of parameters as degrees of freedom), avoiding issues related to over-parametrization (or redundancy) and the consequent risk of singularity of the involved covariances matrices, resulting typically from enforcing constraints.
+\item The error-state system is always operating close to the origin, and therefore far from possible parameter singularities, gimbal lock issues, or the like, providing a guarantee that the linearization validity holds at all times.
+\item The error-state is always small, meaning that all second-order products are negligible. 
+This makes the computation of Jacobians very easy and fast. 
+Some Jacobians may  even be constant or equal to available state magnitudes.
+\item The error dynamics are slow because all the large-signal dynamics have been integrated in the nominal-state. This means that we can apply KF corrections (which are the only means to observe the errors) at a lower rate than the predictions.
+\end{itemize}
+
+
+%=============================================================
+\subsection{The error-state Kalman filter explained}
+
+In error-state filter formulations, we speak of true-, nominal- and error-state values, the true-state being expressed as a suitable composition (linear sum, quaternion product or matrix product) of the nominal- and the error- states. 
+The idea is to consider the nominal-state as large-signal (integrable in non-linear fashion) and the error-state as small signal (thus linearly integrable and suitable for linear-Gaussian filtering). 
+
+The error-state filter can be explained as follows. 
+On one side, high-frequency IMU data $\bfu_m$ is integrated into a nominal-state $\bfx$. 
+This nominal state does not take into account the noise terms $\bfw$ and other possible model imperfections. 
+As a consequence, it will accumulate errors. 
+These errors are collected in the error-state $\delta\bfx$ and estimated with the  Error-State Kalman Filter (ESKF), this time incorporating all the noise and perturbations. 
+The error-state consists of small-signal magnitudes, and its evolution function is correctly defined by a (time-variant) linear dynamic system, with its dynamic, control and measurement matrices computed from the values of the nominal-state. 
+In parallel with integration of the nominal-state, the ESKF predicts a Gaussian estimate of the error-state. 
+It only predicts, because by now no other measurement is available to correct these estimates. 
+The filter correction is performed at the arrival of information other than IMU (\eg~GPS, vision, etc.), which is able to render the errors observable and which  happens generally at a much lower rate than the integration phase. 
+This correction provides a posterior Gaussian estimate of the error-state. 
+After this, the error-state's mean is injected into the nominal-state, then reset to zero. 
+The error-state's covariances matrix is conveniently updated to reflect this reset. 
+The system goes on like this forever.
+
+%\begin{enumerate}
+%\item Have nominal state $\bfx$, error state $\delta\bfx$, covariance of error state $\bfP$. Have:
+%%    
+%$$\bfx_t = \bfx \oplus \delta\bfx$$
+%%
+%the true state is a composition of the nominal state and the error state (see 5. below for details)
+%\item  Time-Update. Update the nominal state
+%%
+%    $$\bfx = f(\bfx,\bfu,0)$$
+%%
+%    where
+%        $f()$ is the dynamic function,
+%        $\bfu$ is the control signal, and
+%        $\bfn=0$ is the noise mean.
+%\item  Time-Update. Update the covariance of the error state
+%%
+%    $$\bfP = \bfF_\bfx \bfP \bfF_\bfx\tr + \bfF_\bfn \bfQ \bfF_\bfn\tr$$
+%%
+%    where        $\bfF_\bfx = d f() / d \delta\bfx$   the derivative \wrt $\delta\bfx$,
+%        $\bfF_\bfn = d f() / d \bfn$    the derivative \wrt $\bfn$, and
+%        $\bfQ$ covariance of the perturbation noise
+%\item Measurement-update. Compute the Kalman gain
+%%
+%    $$\bfK = \bfP \bfH' / (\bfH \bfP \bfH' + \bfR)$$
+%%
+%    where
+%        $h()$ is the measurement function,
+%        $\bfH = d h() / d \delta\bfx$    the derivative of the measurement function $h()$ \wrt the error state $\delta\bfx$, and
+%        $\bfR$ = covariance of the measurement noise
+%\item  Measurement-update. Compute the error state
+%%
+%    $$\delta\bfx = \bfK ( \bfy - h(\bfx) )$$
+%%
+%    where
+%        $\bfy$ is the measurement, and
+%        $h(\bfx)$ is the measurement function evaluated at the nominal state (computed in step 1)
+%\item  Measurement-update. Update the nominal state
+%    $$\bfx = \bfx \oplus \delta\bfx$$
+%    where
+%        $\oplus$ is a composition. As $\bfx = [\bfv~ \bfq]$ and $\delta\bfx = [\delta\bfv~ \delta\bftheta]$, we have two cases:
+%            general vectors, $\bfv = \bfv + \delta\bfv$, and
+%            quaternion, $\bfq = \delta\bfq \otimes \bfq$,
+%                where
+%                $\ot$ is the quaternion product, and
+%                $\delta\bfq$ is obtained from $\delta\bftheta$ with \eqRef{equ:vectoquatEuler}.
+%\item  Measurement-update. Update the covariance of the error state
+%   $$ \bfP = \bfP - \bfK (\bfH \bfP \bfH\tr + \bfR) \bfK\tr$$
+%\item  Return to 1.
+%\end{enumerate}
+
+%=============================================================
+\subsection{System kinematics in continuous time}
+
+The definition of all the involved variables is summarized in \tabRef{tab:errorstatevar}. 
+Two important decisions regarding conventions are worth mentioning:
+\begin{itemize}
+\item
+The angular rates $\bfomega$ are defined \emph{locally} with respect to the nominal quaternion. 
+This allows us to use the gyrometer measurements $\bfomega_m$ directly, as they provide body-referenced angular rates.
+\item
+The angular error $\delta\bftheta$ is also defined \emph{locally} with respect to the nominal orientation. 
+This is not necessarily the optimal way to proceed, but it corresponds to the choice in most IMU-integration works ---what we could call the \emph{classical approach}. 
+There exists evidence \citep{LI-2012} that a globally-defined angular error has better properties. 
+This will be explored too in the present document, \secRef{sec:ESKFglobal}, but most of the developments, examples and algorithms here are based in this locally-defined angular error.
+\end{itemize}
+
+\begin{table*}[tb]
+\renewcommand{\arraystretch}{1.3}
+\caption{All variables in the error-state Kalman filter. }
+\centering
+\vspace{1ex}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Magnitude & True & Nominal & Error & Composition & Measured & Noise \\
+\hline
+\hline
+Full state ($ ^1$)& $\bfx_t$ & $\bfx$ & $\delta\bfx$ & $\bfx_t = \bfx\oplus\delta\bfx$ & & \\
+\hline
+\hline
+Position & $\bfp_t$ & $\bfp$ & $\delta\bfp$ & $\bfp_t = \bfp+\delta\bfp$ & & \\
+Velocity & $\bfv_t$ & $\bfv$ & $\delta\bfv$ &$\bfv_t = \bfv+\delta\bfv$& & \\
+Quaternion ($ ^{2,3}$)& $\bfq_t$ & $\bfq$ & ${\delta\bfq}$ &$\bfq_t = \bfq\ot{\delta\bfq}$& & \\
+Rotation matrix ($ ^{2,3}$)& $\bfR_t$ & $\bfR$ & $\delta\bfR$ &$\bfR_t = \bfR\,\delta\bfR$& & \\
+ \multirow{2}{*}{Angles vector ($ ^{4}$)} &  &  &  \multirow{2}{*}{$\delta\bftheta$} & 
+$\delta\bfq = e^{\delta\bftheta/2} 
+%	\approx \begin{bmatrix}1\\\delta\bftheta/2\end{bmatrix}
+	$ & & \\
+& & & & 
+$\delta\bfR = e^{\hatx{\delta\bftheta}} 
+%	\approx \bfI + \hatx{\delta\bftheta}
+	$ & &\\
+\hline 
+Accelerometer bias & $\bfa_{bt}$ & $\bfa_b$ & $\delta\bfa_b$ &$\bfa_{bt} = \bfa_b+\delta\bfa_b$& & $\bfa_w$ \\
+Gyrometer bias & $\bfomega_{bt}$ & $\bfomega_b$ & $\delta\bfomega_b$ &$\bfomega_{bt} = \bfomega_b+\delta\bfomega_b$& & $\bfomega_w$ \\
+Gravity vector & $\bfg_t$ & $\bfg$ & $\delta\bfg$ & $\bfg_t = \bfg+\delta\bfg$ & & \\
+\hline\hline
+Acceleration & $\bfa_t$ & 
+&&& $\bfa_m$ & $\bfa_n$ \\
+Angular rate & $\bfomega_t$ & 
+&&& $\bfomega_m$ & $\bfomega_n$ \\
+\hline
+\multicolumn{7}{l}{($ ^1$) the symbol $\oplus$ indicates a generic composition} \\
+\multicolumn{7}{l}{($ ^2$) indicates non-minimal representations} \\
+\multicolumn{7}{l}{($ ^3$) see \tabRef{tab:local_to_global} for the composition formula in case of globally-defined angular errors}\\
+\multicolumn{7}{l}{($ ^4$) exponentials defined as in (\ref{equ:vectoquat}) and (\ref{equ:vectomat},\,\ref{equ:rodrigues})}
+\end{tabular}
+\label{tab:errorstatevar}
+\end{table*}%
+
+
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+\subsubsection{The true-state kinematics}
+
+The true kinematic equations are
+%
+\begin{subequations}
+%
+\begin{align}
+\dot\bfp_t &= \bfv_t \\
+\dot\bfv_t &= \bfa_t \\
+\dot{\bfq_t} &= \frac{1}{2}\bfq_t\ot\bfomega_t \\
+\dot\bfa_{bt} &= \bfa_w \\
+\dot\bfomega_{bt} &= \bfomega_w \\
+\dot\bfg_t &= 0
+\end{align}%
+\end{subequations}
+%
+Here, the true acceleration $\bfa_t$ and angular rate $\bfomega_t$ are obtained from an IMU in the form of noisy sensor readings  $\bfa_m$ and $\bfomega_m$ in body frame, namely\footnote{It is common practice to neglect the Earth's rotation rate $\bfomega_\cE$ in the rotational kinematics described in \eqRef{equ:gyroModel}, which would otherwise be $\bfomega_m = \bfomega_t + \bfR_t\tr\bfomega_\cE + \bfomega_{bt} + \bfomega_n$. 
+Considering a non-null Earth rotation rate is, in the vast majority of practical cases, unjustifiably complicated.
+However, we notice that when employing high-end IMU sensors with very small noises and biases, a value of $\omega_\cE=15^\circ$/h $\approx 7.3\cdot10^{-5}\,$rad/s might become directly measurable; in such cases, in order to keep the IMU error model valid, the rate $\bfomega_\cE$ should not be neglected in the formulation.}
+%
+%
+\begin{align}
+\bfa_m &= \bfR_t\tr(\bfa_t - \bfg_t) + \bfa_{bt} + \bfa_n \\
+\bfomega_m &= \bfomega_t + \bfomega_{bt} + \bfomega_n \label{equ:gyroModel}
+\end{align}%
+%
+with $\bfR_t\triangleq\bfR\{\bfq_t\}$. With this, the true values can be isolated (this means that we have inverted the measurement equations),
+%
+%
+\begin{align}
+\bfa_t &= \bfR_t(\bfa_m - \bfa_{bt} - \bfa_n) + \bfg_t \\
+\bfomega_t &= \bfomega_m - \bfomega_{bt} - \bfomega_n.
+\end{align}%
+%
+Substituting above yields the kinematic system
+%
+\begin{subequations}
+%
+\begin{align}
+\dot\bfp_t &= \bfv_t \label{equ:pos} \\
+\dot\bfv_t &= \bfR_t(\bfa_m - \bfa_{bt} - \bfa_n) + \bfg_t \label{equ:vel} \\
+\dot{\bfq_t} &= \frac{1}{2}\bfq_t\ot(\bfomega_m - \bfomega_{bt} - \bfomega_n) \label{equ:quat}\\
+\dot\bfa_{bt} &= \bfa_w \label{equ:abias}\\
+\dot\bfomega_{bt} &= \bfomega_w \label{equ:wbias}\\
+\dot\bfg_t &= 0 \label{equ:grav}
+\end{align}%
+\end{subequations}
+%
+which we may name $\dot\bfx_t=f_t(\bfx_t,\bfu,\bfw)$. 
+This system has state $\bfx_t$, is governed by IMU noisy readings $\bfu_m$, and is perturbed by white Gaussian noise $\bfw$, all defined by
+%
+\begin{equation}
+\bfx_t = \begin{bmatrix}
+\bfp_t \\ \bfv_t \\ \bfq_t \\ \bfa_{bt} \\ \bfomega_{bt} \\ \bfg_t
+\end{bmatrix} 
+\Quad
+\bfu = \begin{bmatrix}
+\bfa_m - \bfa_n \\ \bfomega_m - \bfomega_n
+\end{bmatrix}
+\Quad
+\bfw = \begin{bmatrix}
+\bfa_w \\ \bfomega_w
+\end{bmatrix}~.
+\end{equation}
+%
+
+\bigskip
+It is to note in the above formulation that the gravity vector $\bfg_t$ is going to be estimated by the filter. 
+It has a constant evolution equation, \eqRef{equ:grav}, as corresponds to a magnitude that is known to be constant. 
+The system starts at a fixed and arbitrarily known initial orientation $\bfq_t(t=0)=\bfq_0$, which, being generally not in the horizontal plane, makes the initial gravity vector generally unknown. 
+For simplicity it is usually taken $\bfq_0=(1, 0, 0, 0)$ and thus $\bfR_0=\bfR\{\bfq_0\}=\bfI$. 
+We estimate $\bfg_t$ expressed in frame $\bfq_0$, and not $\bfq_t$ expressed in a horizontal frame, so that the initial uncertainty in orientation is transferred to an initial uncertainty on the gravity direction. 
+We do so to improve linearity: indeed, equation \eqRef{equ:vel} is now linear in $\bfg$, which carries all the uncertainty, and the initial orientation $\bfq_0$ is known without uncertainty, so that $\bfq$ starts with no uncertainty. 
+Once the gravity vector is estimated the horizontal plane can be recovered and, if desired, the whole state and recovered motion trajectories can be re-oriented to reflect the estimated horizontal. 
+See \citep{LUPTON-09} for further justification. 
+This is of course optional, and the reader is free to remove all equations related to graviy from the system and adopt a more classical approach of considering $\bfg\triangleq(0,0,-9.8xx)$, with $xx$ the appropriate decimal digits of the gravity vector on the site of the experiment, and an uncertain initial orientation $\bfq_0$.
+
+
+
+%-------------------------------------------------------------
+\subsubsection{The nominal-state kinematics}
+
+The nominal-state kinematics corresponds to the modeled system without noises or perturbations,
+%
+\begin{subequations}
+%
+\begin{align}
+\dot\bfp &= \bfv \label{equ:pdot}\\
+\dot\bfv &= \bfR(\bfa_m - \bfa_b) + \bfg \label{equ:vdot}\\
+\dot{\bfq} &= \frac{1}{2}\bfq\ot(\bfomega_m - \bfomega_b) \\
+\dot\bfa_b &= 0 \\
+\dot\bfomega_b &= 0 \\
+\dot\bfg &= 0 .
+\end{align}%
+\end{subequations}
+%
+
+
+
+
+%-------------------------------------------------------------
+\subsubsection{The error-state kinematics}
+
+The goal is to determine the linearized dynamics of the error-state. 
+For each state equation, we write its composition (in \tabRef{tab:errorstatevar}), solving for the error state and simplifying all second-order infinitesimals. 
+We give here the full error-state dynamic system and proceed afterwards with comments and proofs.
+%
+\begin{subequations}\label{equ:efull}
+%
+\begin{align}
+\dot{\delta\bfp} &= \delta\bfv \label{equ:epos}\\
+\dot{\delta\bfv} &= -\bfR\hatx{\bfa_m-\bfa_b}\delta\bftheta - \bfR\delta\bfa_b + \delta\bfg - \bfR\bfa_n \label{equ:evel}\\
+\dot{\delta\bftheta} &= -\hatx{\bfomega_m-\bfomega_b}\delta\bftheta - \delta\bfomega_b - \bfomega_n \label{equ:equat}\\
+\dot{\delta\bfa_b} &= \bfa_w \label{equ:eabias}\\
+\dot{\delta\bfomega_b} &= \bfomega_w \label{equ:ewbias}\\
+\dot{\delta\bfg} &= 0 .\label{equ:egrav}
+\end{align}%
+\end{subequations}
+%
+Equations \eqRef{equ:epos}, \eqRef{equ:eabias}, \eqRef{equ:ewbias} and \eqRef{equ:egrav}, respectively of position, both biases, and gravity errors, are derived from linear equations and their error-state dynamics is trivial. 
+As an example, consider the true and nominal position equations \eqRef{equ:pos} and \eqRef{equ:pdot}, their composition $\bfp_t=\bfp+\delta\bfp$ from \tabRef{tab:errorstatevar}, and solve for $\dot{\delta \bfp}$ to obtain \eqRef{equ:epos}.
+
+Equations \eqRef{equ:evel} and \eqRef{equ:equat}, of velocity and orientation errors, require some non-trivial manipulations of the non-linear equations \eqRef{equ:vel} and \eqRef{equ:quat} to obtain the linearized dynamics% of the linear velocity error $\delta\bfv$ and the angular error $\delta\bftheta$
+. 
+Their proofs are developed in the following two sections.
+
+
+\paragraph{Equation \eqRef{equ:evel}: The linear velocity error.}
+
+We wish to determine $\dot{\delta\bfv}$, the dynamics of the velocity errors. 
+We start with the following relations
+%
+%
+\begin{align}
+\bfR_t &= \bfR(\bfI+\hatx{\delta\bftheta})  + O(\norm{\delta\bftheta}^2) \label{equ:Rt}\\
+\dot\bfv &= \bfR\bfa_\cB + \bfg, \label{equ:vdot2}
+\end{align}%
+%
+where \eqRef{equ:Rt} is the small-signal approximation of $\bfR_t$, and in \eqRef{equ:vdot2} we rewrote \eqRef{equ:vdot} but introducing $\bfa_\cB$ and $\delta\bfa_\cB$, defined as the large- and small-signal accelerations in body frame,
+%
+%
+\begin{align}
+\bfa_\cB &\triangleq \bfa_m - \bfa_b \label{equ:nomacc}\\
+\delta\bfa_\cB &\triangleq -\delta\bfa_b - \bfa_n  \label{equ:pertacc}
+\end{align}%
+%
+so that we can write the true acceleration in inertial frame as a composition of large- and small-signal terms,
+%
+\begin{equation}
+\bfa_t = \bfR_t(\bfa_\cB+\delta\bfa_\cB) + \bfg + \delta\bfg.
+\end{equation}%
+
+We proceed by writing the expression \eqRef{equ:vel} of $\dot\bfv_t$ in two different forms (left and right developments), where the terms $O(\norm{\delta\bftheta}^2)$ have been ignored,
+%
+%
+\begin{align*}
+\dot\bfv+\dot{\delta\bfv} =& \eqbox{\dot\bfv_t} = \bfR(\bfI+\hatx{\delta\bftheta})(\bfa_\cB+\delta\bfa_\cB)+\bfg + \delta\bfg \\
+\bfR\bfa_\cB+\bfg+\dot{\delta\bfv} =&~~~~~~= \bfR\bfa_\cB+\bfR\delta\bfa_\cB+\bfR\hatx{\delta\bftheta}\bfa_\cB+\bfR\hatx{\delta\bftheta}\delta\bfa_\cB+\bfg+\delta\bfg 
+\end{align*}%
+%
+This leads after removing $\bfR\bfa_\cB+\bfg$ from left and right to
+%
+\begin{equation}
+\dot{\delta\bfv} = \bfR(\delta\bfa_\cB+\hatx{\delta\bftheta}\bfa_\cB) + \bfR\hatx{\delta\bftheta}\delta\bfa_\cB + \delta\bfg
+\end{equation}%
+%
+Eliminating the second order terms and reorganizing some cross-products (with $\hatx{\bfa}\bfb=-\hatx{\bfb}\bfa$), we get
+%
+\begin{equation}
+\dot{\delta\bfv} = \bfR(\delta\bfa_\cB - \hatx{\bfa_\cB}\delta\bftheta) + \delta\bfg,
+\end{equation}%
+%
+then, recalling \eqRef{equ:nomacc} and \eqRef{equ:pertacc},
+%
+\begin{equation}
+{\dot{\delta\bfv} = \bfR(-\hatx{\bfa_m-\bfa_b}\delta\bftheta - \delta\bfa_b - \bfa_n) + \delta\bfg}
+\end{equation}%
+%
+which after proper rearranging leads to the dynamics of the linear velocity error,
+%
+\begin{equation}
+\eqbox{\dot{\delta\bfv} = -\bfR\hatx{\bfa_m-\bfa_b}\delta\bftheta - \bfR\delta\bfa_b + \delta\bfg - \bfR\bfa_n}\ .
+\end{equation}%
+%
+To further clean up this expression, we can often times assume that the accelerometer noise is white, uncorrelated and isotropic\footnote{This assumption cannot be made in cases where the three $XYZ$ accelerometers are not identical.}, 
+%
+\begin{equation}
+\bbE[\bfa_n] = 0 \Quad \bbE[\bfa_n\bfa_n\tr]=\sigma_a^2\bfI,
+\end{equation}%
+%
+that is, the covariance ellipsoid is a sphere centered at the origin, which means that its mean and covariances matrix are invariant upon rotations (\emph{Proof:} $\bbE[\bfR\bfa_n] = \bfR\bbE[\bfa_n] = 0$ and $\bfE[(\bfR\bfa_n)(\bfR\bfa_n)\tr] = \bfR\bbE[\bfa_n\bfa_n\tr]\bfR\tr = \bfR\sigma_a^2\bfI\bfR\tr = \sigma_a^2\bfI$). 
+Then we can redefine the accelerometer noise vector, with absolutely no consequences, according to
+%
+\begin{equation}
+\bfa_n \gets \bfR\bfa_n
+\end{equation}%
+%
+which gives
+%
+\begin{equation}
+\eqbox{\dot{\delta\bfv} = -\bfR\hatx{\bfa_m-\bfa_b}\delta\bftheta - \bfR\delta\bfa_b + \delta\bfg - \bfa_n}\ .
+\end{equation}%
+
+
+\paragraph{Equation \eqRef{equ:equat}: The orientation error.}
+
+
+We wish to determine $\dot{\delta\bftheta}$, the dynamics of the angular errors. We start with the following relations
+%
+%
+\begin{align}
+\dot{\bfq_t} &= \frac{1}{2}\bfq_t\ot\bfomega_t \\
+\dot{\bfq} &= \frac{1}{2}\bfq\ot\bfomega ,
+\end{align}%
+%
+which are the true- and nominal- definitions of the quaternion derivatives.
+
+As we did with the acceleration, we group large- and small-signal terms in the angular rate for clarity,
+%
+%
+\begin{align}
+\bfomega &\triangleq \bfomega_m - \bfomega_b \label{equ:nomangrate}\\
+\delta\bfomega &\triangleq -\delta\bfomega_b - \bfomega_n, \label{equ:pertangrate}
+\end{align}%
+%
+so that $\bfomega_t$ can be written with a nominal part and an error part,
+%
+\begin{equation}
+\bfomega_t = \bfomega + \delta\bfomega .
+\end{equation}%
+
+
+We proceed by computing $\dot{\bfq_t}$ by two different means (left and right developments)
+%
+%
+\begin{align*}
+\dot{{(\bfq\ot{\delta\bfq})}} =& \eqbox{\dot{\bfq_t}} = \frac{1}{2}\bfq_t\ot\bfomega_t \\
+\dot{\bfq}\ot{\delta\bfq} + \bfq\ot\dot{{\delta\bfq}} =&~~~~~~= \frac{1}{2}\bfq\ot{\delta\bfq}\ot\bfomega_t \\
+\frac{1}{2}\bfq\ot\bfomega\ot{\delta\bfq}+\bfq\ot\dot{{\delta\bfq}} =&& 
+\end{align*}%
+%
+simplifying the leading $\bfq$ and isolating $\dot{{\delta\bfq}}$ we obtain
+%
+%
+\begin{align}
+\begin{bmatrix}
+0\\\dot{\delta\bftheta}
+\end{bmatrix} = \eqbox{2\dot{{\delta\bfq}}} &= {\delta\bfq}\ot\bfomega_t - \bfomega\ot{\delta\bfq} \nonumber \\
+&= [\bfq]_R(\bfomega_t){\delta\bfq} - [\bfq]_L(\bfomega){\delta\bfq} \nonumber \\
+&= \begin{bmatrix}
+0 & -(\bfomega_t-\bfomega)\tr \\
+(\bfomega_t-\bfomega) & -\hatx{\bfomega_t+\bfomega} 
+\end{bmatrix}\begin{bmatrix}
+1 \\
+\delta\bftheta/2
+\end{bmatrix} + O(\norm{\delta\bftheta}^2) \nonumber \\
+&= \begin{bmatrix}
+0 & -\delta\bfomega\tr \\
+\delta\bfomega & -\hatx{2\bfomega+\delta\bfomega} 
+\end{bmatrix}\begin{bmatrix}
+1 \\
+\delta\bftheta/2
+\end{bmatrix} + O(\norm{\delta\bftheta}^2) 
+\end{align}%
+%
+which results in one scalar- and one vector- equalities
+%
+\begin{subequations}
+%
+\begin{align}
+0 &= \delta\bfomega\tr\delta\bftheta + O(|\delta\bftheta|^2) \\
+\dot{\delta\bftheta} &= \delta\bfomega - \hatx\bfomega\delta\bftheta - \frac{1}{2}\hatx{\delta\bfomega}\delta\bftheta + O(\norm{\delta\bftheta}^2).
+\end{align}%
+\end{subequations}
+%
+The first equation leads to $\delta\bfomega\tr\delta\bftheta = O(\norm{\delta\bftheta}^2)$, which is formed by second-order infinitesimals, not very useful. 
+The second equation yields, after neglecting all second-order terms,
+%
+\begin{equation}
+{\dot{\delta\bftheta} = -\hatx\bfomega\delta\bftheta} + \delta\bfomega 
+\end{equation}%
+%
+and finally, recalling \eqRef{equ:nomangrate} and \eqRef{equ:pertangrate}, we get the linearized dynamics of the angular error,
+%
+\begin{equation}
+\eqbox{\dot{\delta\bftheta} = -\hatx{\bfomega_m-\bfomega_b}\delta\bftheta - \delta\bfomega_b - \bfomega_n}\ .
+\end{equation}%
+
+%=============================================================
+\subsection{System kinematics in discrete time}
+
+The differential equations above need to be integrated into differences equations to account for discrete time intervals $\Dt>0$. 
+The integration methods may vary. 
+In some cases, one will be able to use exact closed-form solutions. 
+In other cases, numerical integration of varying degree of accuracy may be employed. 
+Please refer to the Appendices for pertinent details on integration methods.
+
+Integration needs to be done for the following sub-systems:
+%
+\begin{enumerate}
+\item The nominal state.
+\item The error-state.
+\begin{enumerate}
+\item The deterministic part: state dynamics and control.
+\item The stochastic part: noise and perturbations.
+\end{enumerate}
+\end{enumerate}
+
+%-----------------------------------------------
+%-------------------------------------------------------------
+\subsubsection{The nominal state kinematics}
+
+We can write the differences equations of the nominal-state as
+%
+\begin{subequations}
+%
+\begin{align}
+\bfp &\gets \bfp + \bfv\, \Dt + \frac{1}{2}(\bfR(\bfa_{m}-\bfa_{b})+\bfg)\, \Dt ^2\\
+\bfv &\gets \bfv + (\bfR(\bfa_{m}-\bfa_{b})+\bfg)\, \Dt \\
+\bfq &\gets \bfq\ot \bfq\{(\bfomega_{m} - \bfomega_{b})\, \Dt\} \\
+\bfa_{b} &\gets \bfa_{b} \\
+\bfomega_{b} &\gets \bfomega_{b} \\
+\bfg &\gets \bfg~,
+\end{align}%
+\end{subequations}%
+%
+where $x\gets f(x,\bullet)$ stands for a time update of the type $x_{k+1} = f(x_k,\bullet_k)$, $\bfR\triangleq\bfR\{\bfq\}$ is the rotation matrix associated to the current nominal orientation $\bfq$, and $\bfq\{v\}$ is the quaternion associated to the rotation $v$, according to \eqRef{equ:vectoquat}.
+
+We can also use more precise integration, please see the Appendices for more information.
+
+
+
+%===============================================
+%-------------------------------------------------------------
+\subsubsection{The error-state kinematics}
+
+
+The deterministic part is integrated normally (in this case we follow the methods in \appRef{sec:BlockWiseTruncation}), and the integration of the stochastic part results in random impulses (see \appRef{sec:IntNoise}), thus,
+%
+\begin{subequations}
+%
+\begin{align}
+\delta\bfp &\gets \delta\bfp + \delta\bfv\,\Dt \\
+\delta\bfv &\gets \delta\bfv + (-\bfR\hatx{\bfa_{m}-\bfa_{b}}\delta\bftheta - \bfR\delta\bfa_{b} + \delta\bfg)\Dt + \bfv_\bfi \\
+\delta\bftheta &\gets \bfR\tr\{(\bfomega_{m}-\bfomega_{b})\Dt\}\delta\bftheta - \delta\bfomega_{b} \Dt + \bftheta_\bfi \\
+\delta\bfa_{b} &\gets \delta\bfa_{b} + \bfa_\bfi \\
+\delta\bfomega_{b} &\gets \delta\bfomega_{b} + \bfomega_\bfi \\
+\delta\bfg &\gets \delta\bfg ~.
+\end{align}%
+\end{subequations}
+
+Here, $\bfv_\bfi$, $\bftheta_\bfi$, $\bfa_\bfi$ and $\bfomega_\bfi$ are the random impulses applied to the velocity, orientation and bias estimates, modeled by white Gaussian processes. 
+Their mean is zero, and their covariances matrices are obtained by integrating the covariances of $\bfa_n$, $\bfomega_n$, $\bfa_w$ and $\bfomega_w$ over the step time $\Dt$ (see \appRef{sec:IntNoise}),
+%
+%
+\begin{align}
+\bfV_\bfi &= \sigma_{\tilde\bfa_n}^2\Dt^2\bfI \quad &&[m^2/s^2]\\
+\Theta_\bfi &= \sigma_{\tilde\bfomega_n}^2\Dt^2\bfI \quad &&[rad^2] \\
+\bfA_\bfi &= \sigma_{\bfa_w}^2\Dt\bfI \quad &&[m^2/s^4] \\
+\bfOmega_\bfi &= \sigma_{\bfomega_w}^2\Dt\bfI \quad &&[rad^2/s^2] 
+\end{align}%
+%
+where $\sigma_{\tilde\bfa_n}[m/s^2]$, $\sigma_{\tilde\bfomega_n}[rad/s]$, $\sigma_{\bfa_w}[m/s^2\sqrt{s}]$ and $\sigma_{\bfomega_w}[rad/s\sqrt{s}]$ are to be determined from the information in the IMU datasheet, or from experimental measurements.
+
+
+
+%-------------------------------------------------------------
+\subsubsection{The error-state Jacobian and perturbation matrices}
+
+
+The Jacobians are obtained by simple inspection of the error-state differences equations in the previous section. 
+
+To write these equations in compact form, we consider the nominal state vector $\bfx$, the error state vector $\delta\bfx$, the input vector $\bfu_m$, and the perturbation impulses vector $\bfi$, as follows (see \appRef{sec:pertImpulses} for details and justifications),
+%
+\begin{equation}
+\bfx=\begin{bmatrix}\bfp\\\bfv\\\bfq\\\bfa_b\\\bfomega_b\\\bfg\end{bmatrix} \quad, \quad
+\delta\bfx=\begin{bmatrix}\delta\bfp\\\delta\bfv\\\delta\bftheta\\\delta\bfa_b\\\delta\bfomega_b\\\delta\bfg\end{bmatrix} \quad, \quad
+\bfu_m = \begin{bmatrix}
+\bfa_m \\
+\bfomega_m
+\end{bmatrix} 
+\quad,  \quad
+\bfi = \begin{bmatrix}
+\bfv_\bfi \\
+\bftheta_\bfi \\
+\bfa_\bfi \\
+\bfomega_\bfi
+\end{bmatrix}
+\end{equation}
+
+
+\bigskip
+The error-state system is now
+%
+\begin{equation}
+\delta\bfx \gets f(\bfx,\delta\bfx,\bfu_m,\bfi)=\bfF_\bfx(\bfx, \bfu_m)\tdot \delta\bfx+\bfF_\bfi\tdot\bfi,
+\end{equation}
+%
+The ESKF prediction equations are written:
+%
+%
+\begin{align}
+\hat{\delta\bfx} &\gets \bfF_\bfx(\bfx, \bfu_m)\tdot \hat{\delta\bfx} \label{equ:errorMeanPred} \\
+\bfP &\gets \bfF_\bfx\,\bfP\,\bfF_\bfx\tr + \bfF_\bfi\,\bfQ_\bfi\,\bfF_\bfi\tr \label{equ:errorCovPred} ~,
+\end{align}%
+%
+where $\delta\bfx\sim\cN\{\hat{\delta\bfx},\bfP\}$\footnote{$x\sim\cN\{\mu,\Sigma\}$ means that $x$ is a Gaussian random variable with mean and covariances matrix specified by $\mu$ and $\Sigma$.}; $\bfF_\bfx$ and $\bfF_\bfi$ are the Jacobians of $f()$ \wrt the error and perturbation vectors; and $\bfQ_\bfi$ is the covariances matrix of the perturbation impulses. 
+
+The expressions of the Jacobian and covariances matrices above are detailed below. 
+All state-related values appearing herein are extracted directly from the nominal state.
+%
+\begin{equation} \label{equ:Fx_local_euler}
+\bfF_\bfx = \pjac{f}{\delta\bfx}{\bfx,\bfu_m} = \begin{bmatrix}
+\bfI & \bfI\Dt & 0                             & 0               & 0                     & 0 \\
+0 & \bfI    & -\bfR\hatx{\bfa_m-\bfa_b}\Dt     & -\bfR\Dt            & 0                     & \bfI\Dt \\
+0 & 0    & \bfR\tr\{(\bfomega_m-\bfomega_b)\Dt\}   & 0               & -\bfI\Dt                  & 0 \\
+0 & 0    & 0                             & \bfI & 0                     & 0 \\
+0 & 0    & 0                             & 0               & \bfI  & 0 \\
+0 & 0    & 0                             & 0               & 0                     & \bfI \\
+\end{bmatrix}
+\end{equation}%
+%
+\begin{equation}
+\bfF_\bfi = \pjac{f}{\bfi}{\bfx,\bfu_m} = \begin{bmatrix}
+0 & 0 & 0 & 0 \\
+\bfI & 0 & 0 & 0 \\
+0 & \bfI & 0 & 0 \\
+0 & 0 & \bfI & 0 \\
+0 & 0 & 0 & \bfI \\
+0 & 0 & 0 & 0 
+\end{bmatrix}  
+\quad,\quad
+\bfQ_\bfi = \begin{bmatrix}
+\bfV_\bfi & 0        & 0      & 0 \\ 
+0      & \bfTheta_\bfi & 0      & 0 \\ 
+0      & 0        & \bfA_\bfi & 0 \\ 
+0      & 0        & 0      & \bfOmega_\bfi 
+\end{bmatrix}~.
+\end{equation}%
+%
+
+Please note particularly that $\bfF_\bfx$ is the system's transition matrix, which can be approximated to different levels of precision in a number of ways. 
+We showed here one of its simplest forms (the Euler form). 
+Se Appendices \ref{sec:ClosedFormInt} to \ref{sec:TranMatRK} for further reference.
+
+Please note also that, being the mean of the error $\delta\bfx$ initialized to zero, the linear equation \eqRef{equ:errorMeanPred} always returns zero. 
+You should of course skip line \eqRef{equ:errorMeanPred} in your code. 
+I recommend that you write it, though, but that you comment it out so that you are sure you did not forget anything.
+
+And please note, finally, that you should NOT skip the covariance prediction \eqRef{equ:errorCovPred}!! In effect, the term $\bfF_\bfi\,\bfQ_\bfi\,\bfF_\bfi\tr$ is not null and therefore this covariance grows continuously -- as it must be in any prediction step.
+
+
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fusing IMU with complementary sensory data}
+\label{sec:fusion}
+
+At the arrival of other kind of information than IMU, such as GPS or vision, we proceed to correct the ESKF. 
+In a well-designed system, this should render the IMU biases observable and allow the ESKF to correctly estimate them. 
+There are a myriad of possibilities, the most popular ones being GPS + IMU, monocular vision + IMU, and stereo vision + IMU. 
+In recent years, the combination of visual sensors with IMU has attracted a lot of attention, and thus generated a lot of scientific activity. 
+These vision + IMU setups are very interesting for use in GPS-denied environments, and can be implemented on mobile devices (typically smart phones), but also on UAVs and other small, agile platforms.
+
+\bigskip
+
+While the IMU information has served so far to make predictions to the ESKF, this other information is used to correct the filter, and thus observe the IMU bias errors. 
+The correction consists of three steps:
+\begin{enumerate}
+\item
+ observation of the error-state via filter correction, 
+\item
+ injection of the observed errors into the nominal state, and
+\item	
+ reset of the error-state. 
+\end{enumerate}%
+%
+These steps are developed in the following sections.
+
+%=============================================================
+\subsection{Observation of the error state via filter correction}
+
+Suppose as usual that we have a sensor that delivers information that depends on the state, such as
+%
+\begin{equation}
+\bfy = h(\bfx_t) + v~,
+\end{equation}
+%
+where $h()$ is a general nonlinear function of the system state (the true state), and $v$ is a white Gaussian noise with covariance $\bfV$,
+%
+\begin{equation}
+v\sim\cN\{0,\bfV\}~.
+\end{equation}
+
+Our filter is estimating the error state, and therefore the filter correction equations\footnote{We give the simplest form of the covariance update, $\bfP \gets
+ (\bfI-\bfK\bfH)\bfP$. 
+ This form is known to have poor numerical stability, as its outcome is not guaranteed to be symmetric nor positive definite. 
+ The reader is free to use more stable forms such as 1) the symmetric form $\bfP\gets\bfP-\bfK(\bfH\bfP\bfH\tr+\bfV)\bfK\tr$ and 2) the symmetric and positive \emph{Joseph} form $\bfP \gets (\bfI-\bfK\bfH)\bfP(\bfI-\bfK\bfH)\tr+\bfK\bfV\bfK\tr$.}, 
+%
+%
+\begin{align}
+\bfK &= \bfP\bfH\tr(\bfH\bfP\bfH\tr+\bfV)\inv \\
+\hat{\delta\bfx} &\gets \bfK(\bfy-h(\hat\bfx_t)) \\
+\bfP &\gets (\bfI-\bfK\bfH)\bfP
+\end{align}%
+%
+require the Jacobian matrix $\bfH$ to be defined \wrt the error state $\delta\bfx$, and evaluated at the best true-state estimate $\hat\bfx_t=\bfx\oplus\hat{\delta\bfx}$. 
+As the error state mean is zero at this stage (we have not observed it yet), we have $\hat\bfx_t = \bfx$ and we can use the nominal error $\bfx$ as the evaluation point, leading to
+%
+\begin{equation}
+\bfH \equiv \pjac{h}{\delta\bfx}{\bfx}~.
+\end{equation}
+
+%-------------------------------------------------------------
+\subsubsection{Jacobian computation for the filter correction}
+
+The Jacobian above might be computed in a number of ways. 
+The most illustrative one is by making use of the chain rule, 
+%
+\begin{equation}
+\bfH \triangleq \pjac{h}{\delta\bfx}{\bfx} 
+= \pjac{h}{\bfx_t}{\bfx}\pjac{\bfx_t}{\delta\bfx}{\bfx} = \bfH_\bfx\ \bfX_{\delta\bfx}~.
+\end{equation}
+%
+Here, $\bfH_\bfx\triangleq\pjac{h}{\bfx_t}{\bfx}$ is the standard Jacobian of $h()$ with respect to its own argument (\ie, the Jacobian one would use in a regular EKF). 
+This first part of the chain rule depends on the measurement function of the particular sensor used, and is not presented here. 
+
+The second part, $\bfX_{\delta\bfx}\triangleq\pjac{\bfx_t}{\delta\bfx}{\bfx}$, is the Jacobian of the true state \wrt the error state. 
+This part can be derived here as it only depends on the ESKF composition of states. We have the derivatives,
+%
+\begin{equation}
+\bfX_{\delta\bfx} = 
+\begin{bmatrix}
+\dpar{(\bfp+\delta\bfp)}{\delta\bfp} &&&&& \\ 
+& \dpar{(\bfv+\delta\bfv)}{\delta\bfv} &&&0& \\ 
+&& \dpar{(\bfq\otimes\delta\bfq)}{\delta\bftheta} &&& \\ 
+&&& \dpar{(\bfa_b+\delta\bfa_b)}{\delta\bfa_b} && \\ 
+&0&&& \dpar{(\bfomega_b+\delta\bfomega_b)}{\delta\bfomega_b} & \\ 
+&&&&& \dpar{(\bfg+\delta\bfg)}{\delta\bfg} 
+\end{bmatrix}
+\end{equation}
+%
+which results in all identity $3\times3$ blocks (for example, $\dpar{(\bfp+\delta\bfp)}{\delta\bfp}=\bfI_3$) except for the $4\times3$ quaternion term $\bfQ_{\delta\bftheta} = \dparil{(\bfq\otimes\delta\bfq)}{\delta\bftheta}$. Therefore we have the form,
+%
+\begin{equation}
+\bfX_{\delta\bfx}\triangleq\pjac{\bfx_t}{\delta\bfx}{\bfx} = \begin{bmatrix}
+\bfI_6 & 0 & 0 \\
+0 &  \bfQ_{\delta\bftheta} & 0 \\
+0 & 0 & \bfI_9
+\end{bmatrix}
+\end{equation}
+
+
+Using the chain rule, equations \eqsRef{equ:quatMatProd}{equ:quatMatrix}, and the  limit $\delta\bfq \underset{\delta\bftheta\to 0}{\longrightarrow} \begin{bmatrix}
+1 \\ \frac12\delta\bftheta
+\end{bmatrix}$, the quaternion term $\bfQ_{\delta\bftheta}$ may be derived as follows,
+%
+{
+\setlength{\arraycolsep}{2pt}
+\begin{align*}
+\bfQ_{\delta\bftheta} \triangleq \pjac{(\bfq\otimes\delta\bfq)}{\delta\bftheta}{\bfq} 
+&=\pjac{(\bfq\otimes\delta\bfq)}{\delta\bfq}{\bfq} \pjac{\delta\bfq}{\delta\bftheta}{\hat{\delta\bftheta}=0} \\
+&= \pjac{([\bfq]_L\delta\bfq)}{\delta\bfq}{\bfq} \pjac{\begin{bmatrix}
+1 \\ \frac12\delta\bftheta
+\end{bmatrix}}{\delta\bftheta}{\hat{\delta\bftheta}=0} \\
+&= [\bfq]_L\,\frac12\begin{bmatrix}
+0 & 0 & 0 \\
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix} ~,
+\end{align*}
+%
+which leads to
+%
+\begin{equation}
+\bfQ_{\delta\bftheta}
+= \frac{1}{2}\begin{bmatrix}
+-q_x &-q_y &-q_z\\
+ q_w &-q_z & q_y\\
+ q_z & q_w &-q_x\\
+-q_y & q_x & q_w\\
+\end{bmatrix}~.
+\end{equation}•
+
+%=============================================================
+\subsection{Injection of the observed error into the nominal state}
+
+After the ESKF update, the nominal state gets updated with the observed error state using the appropriate compositions (sums or quaternion products, see \tabRef{tab:errorstatevar}),
+%
+\begin{equation}
+\bfx \gets \bfx \oplus \hat{\delta\bfx}~, \label{equ:errorInjection}
+\end{equation}
+%
+that is,
+%
+\begin{subequations}
+%
+\begin{align}
+\bfp &\gets \bfp + \hat{\delta\bfp} \\
+\bfv &\gets \bfv + \hat{\delta\bfv} \\
+\bfq &\gets \bfq \otimes \bfq\{\hat{\delta\bftheta}\} \label{equ:quatErrorInjection}\\
+\bfa_b &\gets \bfa_b + \hat{\delta\bfa_b} \\
+\bfomega_b &\gets \bfomega_b + \hat{\delta\bfomega_b} \\
+\bfg &\gets \bfg + \hat{\delta\bfg} 
+\end{align}%
+\end{subequations}%
+
+%=============================================================
+\subsection{ESKF reset}
+
+After error injection into the nominal state, the error state mean $\hat{\delta\bfx}$ gets reset. 
+This is especially relevant for the orientation part, as the new orientation error will be expressed locally \wrt the orientation frame of the new nominal state. 
+To make the ESKF update complete, the covariance of the error needs to be updated according to this modification.
+
+\bigskip
+
+Let us call the error reset function $g()$. 
+It is written as follows,
+%
+\begin{equation}
+\delta\bfx \gets g(\delta\bfx) = \delta\bfx \ominus \hat{\delta\bfx}~, \label{equ:resetFcn}
+\end{equation}
+%
+where $\ominus$ stands for the composition inverse of $\oplus$. 
+The ESKF error reset operation is thus,
+%
+\begin{align}
+\hat{\delta\bfx} &\gets 0 \\
+\bfP &\gets \bfG\,\bfP\,\bfG\tr~.
+\end{align}
+%
+where $\bfG$ is the Jacobian matrix defined by,
+%
+\begin{equation}
+\bfG \triangleq \pjac{g}{\delta\bfx}{\hat{\delta\bfx}}~.
+\end{equation}
+
+Similarly to what happened with the update Jacobian above, this Jacobian is the identity on all diagonal blocks except in the orientation error. 
+We give here the full expression and proceed in the following section with the derivation of the orientation error block, $\partial\delta\bftheta^+/\partial\delta\bftheta = \bfI - \hatx{\frac12\hat{\delta\bftheta}}$,
+%
+\begin{equation}
+\bfG = \begin{bmatrix}
+\bfI_6 & 0 & 0 \\
+0 & \bfI - \hatx{\frac12\hat{\delta\bftheta}} & 0 \\
+0 & 0 & \bfI_9
+\end{bmatrix}~.
+\end{equation}
+
+In major cases, the error term $\hat{\delta\bftheta}$ can be neglected, leading simply to a Jacobian $\bfG=\bfI_{18}$, and thus to a trivial error reset. 
+This is what most implementations of the ESKF do.
+The expression here provided should produce more precise results, which might be of interest for reducing long-term error drift in odometry systems.
+
+
+%-------------------------------------------------------------
+\subsubsection{Jacobian of the reset operation \wrt the orientation error}
+
+We want to obtain the expression of the new angular error $\delta\bftheta^+$ \wrt the old error $\delta\bftheta$ and the observed error $\hat{\delta\bftheta}$. Consider these facts:
+\begin{itemize}
+\item
+The true orientation does not change on error reset, \ie, $\bfq_t^+ = \bfq_t$. This gives:
+%
+\begin{equation}
+\bfq^+\ot\delta\bfq^+ = \bfq\ot \delta\bfq~.
+\end{equation}
+%
+\item
+The observed error mean has been injected into the nominal state (see \eqRef{equ:quatErrorInjection} and \eqRef{equ:rotComposition}):
+%
+\begin{equation}
+\bfq^+ = \bfq\ot \hat{\delta\bfq}~.
+\end{equation}
+\end{itemize}
+
+Combining both identities we obtain an expression of $\delta\bfq^+$,
+%
+\begin{equation}
+\delta\bfq^+ 
+= (\bfq^+)^* \ot \bfq \ot \delta\bfq 
+= (\bfq \ot \hat{\delta\bfq})^* \ot \bfq \ot \delta\bfq 
+= \hat{\delta\bfq}^* \ot \delta\bfq 
+= [\hat{\delta\bfq}^*]_L\cdot\delta\bfq~.
+\end{equation}
+%
+Considering that
+%
+$\hat{\delta\bfq}^* \approx \begin{bmatrix}
+1 \\ -\frac12\hat{\delta\bftheta}
+\end{bmatrix}$,
+%
+the identity above can be expanded as
+%
+\begin{equation}
+\begin{bmatrix}
+1 \\ \frac12\delta\bftheta^+
+\end{bmatrix}
+=
+\begin{bmatrix}
+1                  & \frac12\hat{\delta\bftheta}\tr \\
+-\frac12\hat{\delta\bftheta} & \bfI - \hatx{\frac12\hat{\delta\bftheta}}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1 \\ \frac12\delta\bftheta
+\end{bmatrix} + \cO(\norm{\delta\bftheta}^2) ~,
+\end{equation}
+%
+which gives one scalar- and one vector- equations,
+%
+\begin{subequations}
+%
+\begin{align}
+\frac14\hat{\delta\bftheta}\tr\delta\bftheta &= \cO(\norm{\delta\bftheta}^2)\\
+\delta\bftheta^+ &= -\hat{\delta\bftheta} + \left(\bfI - \hatx{\frac12\hat{\delta\bftheta}}\right)\delta\bftheta + \cO(\norm{\delta\bftheta}^2)~,
+\end{align}%
+\end{subequations}
+%
+among which the first one is not very informative in that it is only a relation of infinitesimals. 
+One can show from the second equation that $\hat{\delta\bftheta}^+ = 0$, which is what we expect from the reset operation. 
+The Jacobian is obtained by simple inspection,
+%
+\begin{equation}
+\eqbox{\dpar{\delta\bftheta^+}{\delta\bftheta} = \bfI - \hatx{\frac12\hat{\delta\bftheta}}}~.
+\end{equation}
