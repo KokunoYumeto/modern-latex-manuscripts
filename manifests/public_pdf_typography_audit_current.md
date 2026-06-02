@@ -1,6 +1,6 @@
 # Public PDF Typography Audit
 
-Generated from the current public GitHub/Zenodo reader surface after the 2026-06-02 Cayley Volume VIII pages 167-216 and 367-416 repair checkpoint.
+Generated from the current public GitHub/Zenodo reader surface after the 2026-06-02 Cayley Volume VIII source-checked repair checkpoint, including native-TikZ restorations for explicit diagram placeholders in pages 001-016, 217-241, 242-266, and 517-528, plus a promoted source-checked pages 417-441 rebuild.
 
 - PDFs checked: 336
 - Reader-class PDFs checked: 312
@@ -37,6 +37,6 @@ Current follow-up priorities:
 
 - Continue replacing older multilingual work-level readers only when a new render is visibly better.
 - Keep broad Cayley volume drafts artifact-only; promote only validated repaired slices until whole volumes are checked.
-- Current Cayley Volume VIII priority: continue auditing older middle slices and subsequent volumes; pages 067-216, 317-416, and 517-570 are now promoted as native repaired TeX/PDF in this public tree.
+- Current Cayley Volume VIII priority: integrate active rebuild for pages 442-466; pages 001-016, 217-266, 417-441, and 517-528 no longer contain explicit diagram-omission placeholders, and pages 067-216, 317-416, and 517-570 remain promoted as native repaired TeX/PDF in this public tree.
 - Keep SGA 3 clean rebuild top-level while reserving formula-level normalization for later work.
 - Keep Noether and Weber organized by paper/work as the high-fidelity replacement streams grow.
