@@ -29,7 +29,7 @@ The repository also has volume-level slice readers for Volumes II-XIII under `re
 
 Those broader volume readers are useful public surfaces, but they should not be described as final source-faithful editions. The safer measured progress remains the validated slice/gap-fill layer described in `manifests/cayley_claude_progress_cost_inventory_20260531.md`.
 
-Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 541 pages.
+Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. A second local pass added source-checked pages 524-528 and replaced the incorrect pages 569-570 text. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 546 pages.
 
 ## New Local Cayley Handoff Packet
 
@@ -51,8 +51,7 @@ The next productive Cayley work is volume-by-volume continuation. The immediate 
 
 Specific Volume VIII targets:
 
-- `sources_tex_Vol_VIII/cayley_vol08_pages_524_541_FACSIMILE.pdf` - 18 source pages still represented by facsimile material.
-- `sources_tex_Vol_VIII/cayley_vol08_pages_569_570_FACSIMILE.pdf` - 2 source pages still represented by facsimile material.
+- Volume VIII pages 529-541 - still need source-checked TeX; the facsimile witness remains at `sources_tex_Vol_VIII/cayley_vol08_pages_524_541_FACSIMILE.pdf`.
 - `sources_tex_Vol_VIII/cayley_vol08_pages_117_166.tex` - dense table/math TODO risk.
 - `sources_tex_Vol_VIII/cayley_vol08_pages_167_216.tex` - dense table/math TODO risk.
 - `sources_tex_Vol_VIII/cayley_vol08_pages_317_366.tex` - dense table/math TODO risk.
