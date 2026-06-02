@@ -1,6 +1,6 @@
 # Public PDF Surface Audit
 
-Generated: 2026-06-02T08:22:22
+Generated: 2026-06-02T08:44:10
 
 Reader PDF counts by section:
 
@@ -9,7 +9,7 @@ Reader PDF counts by section:
 - deligne: 68
 - ega: 10
 - gauss: 12
-- noether: 69
+- noether: 70
 - non-european: 63
 - riemann: 2
 - sga: 61
