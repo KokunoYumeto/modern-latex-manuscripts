@@ -1,14 +1,14 @@
 # Public PDF Surface Audit
 
-Generated: 2026-06-01T23:17:22
+Generated: 2026-06-02T08:22:22
 
 Reader PDF counts by section:
 
 - author-cluster: 10
-- classical: 17
+- classical: 21
 - deligne: 68
 - ega: 10
-- gauss: 8
+- gauss: 12
 - noether: 69
 - non-european: 63
 - riemann: 2
@@ -31,7 +31,7 @@ Current public Zenodo records:
 - deligne: https://zenodo.org/records/20410853
 - classical: https://zenodo.org/records/20414787
 - author_cluster: https://zenodo.org/records/20411006
-- gauss: https://zenodo.org/records/20454309
+- gauss: https://zenodo.org/records/20410934
 - riemann: https://zenodo.org/records/20429778
 
 Reader PDF health flags:
