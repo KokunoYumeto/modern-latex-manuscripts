@@ -77,3 +77,5 @@ Further Volume X update, 2026-06-02: Table No. 97 on printed p. 366 was repaired
 
 Additional Volume X update, 2026-06-02: the invariant `Q` on printed p. 367 was promoted from a compact ellipsis formula to a native source-checked Table No. 97 column. A scratch candidate for the larger `R` and `S` tables exists locally, but those entries remain too ambiguous for direct public promotion without another scan-check pass.
 
+Additional Volume X update, 2026-06-02: printed pp. 391-392 and p. 400 in `cayley_vol10_pages_401_425.tex` were source-checked against the Volume X scan. The malformed `AA4` half-value calculation was corrected, the `CH2` leading-coefficient calculation and its small segregate replacement table were replaced with native TeX from the scan, and the final derivative now reads `ch2 = 1/3 cy - 1/3 b^3 + 11/30 bh - 1/5 cg` instead of a placeholder-scale summary. The p. 400 `S_3` verification line was also corrected to the visible `b^6(-27c^5+101c^4-141c^3+87c^2-20c)`. The slice and public Volume X reader were rebuilt; the reader remains 572 selectable-text pages with no embedded raster-image bodies.
+
