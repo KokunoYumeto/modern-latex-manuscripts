@@ -1,2462 +1,2757 @@
 \documentclass[11pt,a4paper]{article}
 
-% ============================================================
-% Standard English mathematical typesetting preamble
-% ============================================================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools,array,booktabs,longtable,tabularx,makecell}
 \usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{array}
+\geometry{margin=0.9in}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{mathtools}
-\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{pdflscape}
+\usepackage{microtype}
 
-% Theorem-like environments
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\theoremstyle{definition}
-\newtheorem{remark}{Remark}
-
-% Page style
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[C]{\small Cayley --- Collected Mathematical Papers, Vol.\ VIII}
+\fancyhead[C]{\small Cayley --- Collected Mathematical Papers, Vol. VIII (pp. 367--416)}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
-% Section formatting to match original numbered articles
 \titleformat{\section}{\large\scshape\centering}{}{0em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titleformat{\subsection}{\normalsize\bfseries\centering}{}{0em}{}
+\setlength{\parindent}{1.3em}
+\setlength{\parskip}{0.22em}
+\allowdisplaybreaks
+\setcounter{secnumdepth}{0}
 
-% Custom commands for Cayley's notation
+\newcommand{\sourcepage}[2]{\par\smallskip\noindent\textit{[Printed p.~#1; source PDF p.~#2.]}\par\smallskip}
+\newcommand{\pagemarker}[3]{\par\bigskip\noindent\textit{p.~#1 [#2; source PDF p.~#3]}\par\smallskip}
+\newcommand{\articlenote}[1]{\begin{center}\small\textit{#1}\end{center}}
+\newcommand{\dash}{\text{---}}
+\newcommand{\half}{\tfrac12}
+\newcommand{\third}{\tfrac13}
+\newcommand{\quarter}{\tfrac14}
+\newcommand{\sixth}{\tfrac16}
+\newcommand{\V}[1]{\sqrt{#1}}
+\newcommand{\ddotscell}{\multicolumn{1}{c}{$\cdots$}}
 \newcommand{\dd}{\,d}
-\DeclareMathOperator{\Jac}{Jac}
+\newcommand{\Det}{\operatorname{Det}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\eps}{\varepsilon}
 
 \begin{document}
+\sourcepage{367}{431}
+\begin{center}
+{\large\bfseries 521. ON DR. WIENER'S MODEL OF A CUBIC SURFACE}\\
+\smallskip
+{\large\bfseries WITH 27 REAL LINES; AND ON THE CONSTRUCTION OF A DOUBLE-SIXER.}
+\end{center}
 
-% ============================================================
-% PAPER 521 (continued from earlier pages)
-% Book pages 367--384
-% ============================================================
-\section*{[521] (continued)}
-\subsection*{On Dr Wiener's Model of a Cubic Surface with 27 Real Lines.}
-
-\textit{p.~367}
-
-\noindent
 The model is a solid figure bounded by portions of the faces of the cube, and
-by a portion of the cubic surface, being a surface with three apertures, the orbiculation
+by a portion of the cubic surface, being a surface with three apertures, the collocation
 of which is not easily explained.
 
-To determine the numerators I measured, on the faces of the cube, the coordinates
+To determine the construction I measured, on the faces of the cube, the coordinates
 of the two extremities of each of the twelve lines; these were measured in tenths
-of an inch (taking account of the half division, or twentieth of an inch); and the
-resulting numbers divided by 16 to reduce them to the bel\'ere-mentioned unit of $1\cdot 6$
-inches.  These reduced values are shown in the table: knowing then the coordinates
-of two points on each line, the equations of the several lines became calculable; the
-true theoretical form of these results---viz.\ the form which, but for errors of the
-model, or of the measurement, they would have assumed---is
-\begin{align*}
-b_1 &: \quad x = R_2 z + D, \quad y = R_2 z + D, \\
-b_1' &: \quad y = 0, \\
-b_2 &: \quad x = R_1 (z + \beta_1), \quad y = R_1 (z + \beta_1), \\
-&\qquad i = 1, \\
-b_3 &: \quad x = R_2 (z + \beta_2), \quad y = R_2 (z + \beta_2), \\
-b_4 &: \quad x = R_3 (z + \beta_3), \quad y = R_3 (z + \beta_3), \\
-b_5 &: \quad x = R_4 (z + \beta_4), \quad y = R_4 (z + \beta_4), \\
-&\qquad i = 1, \\
-a_1 &: \quad x = 0, \quad y = 0, \\
-a_2 &: \quad x = A_1 z + C_1, \quad y = A_1 (z - 1), \\
-a_3 &: \quad x = A_2 (z + 1), \quad y = A_2 (z - 1), \\
-a_4 &: \quad x = A_3 (z + 1), \quad y = A_3 (z - 1), \\
-a_5 &: \quad x = A_4 (z + 1), \quad y = A_4 (z - 1) + C_4,
-\end{align*}
-but in consequence of such errors, the results are not accurately of the form in question.
+of an inch (taking account of the half division, or twentieth of an inch), and the
+resulting numbers divided by 16 to reduce them to the before-mentioned unit of
+$1.6$ inches. These reduced values are shewn in the table: knowing then the
+coordinates of two points on each line, the equations of the several lines became
+calculable; the true theoretical form of these results---viz. the form which, but for
+errors of the model, or of the measurement, they would have assumed---is
+\[
+\begin{array}{rcl@{\qquad}rcl}
+b_1, & x=B_1z+D,       & y=B_1'z+D',\\
+b_2, & x=0,            & z=1,\\
+b_3, & x=B_3(z+\beta_3), & y=B_3'(z+\beta_3),\\
+b_4, & x=B_4(z+\beta_4), & y=B_4'(z+\beta_4),\\
+b_5, & y=0,            & z=-1,\\
+b_6, & x=B_6(z+\beta_6), & y=B_6'(z+\beta_6),\\[2mm]
+a_1, & x=0,            & y=0,\\
+a_2, & x=A_2z+C_2,     & y=A_2'(z-1),\\
+a_3, & x=A_3(z+1),     & y=A_3'(z-1),\\
+a_4, & x=A_4(z+1),     & y=A_4'(z-1),\\
+a_5, & x=A_5(z+1),     & y=A_5'z+C_5',\\
+a_6, & x=A_6(z+1),     & y=A_6'(z-1);
+\end{array}
+\]
+but in consequence of such errors, the results are not accurately of the form in
+question.
 
-The faces of the cube being as in the diagram\,:
-\begin{center}
-\textit{[Figure: unit cube with face labels --- diagram omitted]}
-\end{center}
-the Table is
+The faces of the cube being as in the diagram:
+\[
+\begin{tikzpicture}[scale=1.0,baseline=(current bounding box.center)]
+  \coordinate (B) at (0,0);
+  \coordinate (A) at (2.6,0);
+  \coordinate (D) at (3.2,1.55);
+  \coordinate (C) at (0.6,1.55);
+  \coordinate (F) at (0,2.2);
+  \coordinate (E) at (2.6,2.2);
+  \coordinate (H) at (3.2,3.75);
+  \coordinate (G) at (0.6,3.75);
+  \draw (B)--(A)--(D)--(C)--cycle;
+  \draw (F)--(E)--(H)--(G)--cycle;
+  \draw (A)--(E) (B)--(F) (C)--(G) (D)--(H);
+  \draw[->] (C)--(0.6,4.65) node[above] {$z$};
+  \draw[->] (C)--(4.35,1.55) node[right] {$x$};
+  \draw[->] (C)--(-0.55,-0.8) node[below left] {$y$};
+  \foreach \p/\pos in {A/below,B/below,C/left,D/right,E/right,F/left,G/left,H/right}
+    \node[\pos] at (\p) {$\p$};
+\end{tikzpicture}
+\]
+the Table is as follows.
 
-\clearpage
-
-\bigskip
-\textit{p.~368}
-\smallskip
-
-\begin{center}
-\textit{[Table: equations substituted from the measurements of the model, 17 columns of numerical}
-\textit{values for $ABCD$, $EFGH$, $AEFF$, $HCFG$, $CDGH$, $ABHD$. --- table omitted]}
-\end{center}
+\sourcepage{368}{432}
+\begin{landscape}
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.09\linewidth}
+                  >{\raggedright\arraybackslash}p{0.18\linewidth}
+                  >{\raggedright\arraybackslash}p{0.18\linewidth}
+                  >{\raggedright\arraybackslash}p{0.18\linewidth}
+                  >{\raggedright\arraybackslash}p{0.18\linewidth}}
+\caption*{Equations calculated from the measurements of the model, with endpoint data on the faces of the cube.}\\
+\toprule
+Line & Calculated equation & First face data & Second face data & Additional face data\\
+\midrule
+$a_1$ & $x=0,\ y=0$ & $ABCD:\ z=-5.688$ & $EFGH:\ z=+5.688$ & \\
+$a_2$ & $x=-0.780z-0.187,\ y=-0.423z+0.406$ & $ABCD:\ x=4.250,\ y=0$ & $EFGH:\ x=-4.625,\ y=0$ & \\
+$a_3$ & $x=-0.654z-0.656,\ y=-0.588z+0.531$ & $ABCD:\ x=3.062,\ y=3.875$ & $EFGH:\ x=-4.375,\ y=-2.812$ & \\
+$a_4$ & $x=-2.912z-2.959,\ y=-0.736z+0.752$ & $CDGH:\ z=0.9375,\ y=-0.0625$ & $AEDH:\ z=-2.969,\ y=2.937$ & \\
+$a_5$ & $x=1.024z+1.014,\ y=-1.049z-0.277$ & $ABCD:\ x=-4.812,\ y=5.688$ & $AEDH:\ y=-5.063,\ z=4.562$ & \\
+$a_6$ & $x=-0.264z-0.187,\ y=-0.104z+0.219$ & $ABCD:\ x=-1.313,\ y=-0.8125$ & $EFGH:\ x=1.687,\ y=-0.375$ & \\
+$b_1$ & $x=-1.611z+0.151,\ y=-1.438z-0.288$ & $CDGH:\ y=5.500,\ z=-3.625$ & $AEDH:\ y=-4.656,\ z=3.437$ & \\
+$b_2$ & $x=0,\ z=-1$ & $AEBF:\ x=0$ & $BCFG:\ x=0$ & \\
+$b_3$ & $x=-1.352z-0.685,\ y=-2.034z-0.984$ & $AEBF:\ z=3.750,\ y=-3.281$ & $BCFG:\ x=-3.812,\ z=2.313$ & \\
+$b_4$ & $x=-0.753z-0.0315,\ y=-0.500z-0.0315$ & $ABCD:\ x=4.250,\ y=2.812$ & $EFGH:\ x=-4.313,\ y=-2.875$ & \\
+$b_5$ & $y=0,\ z=1$ & $CDGH:\ x=1,\ y=0$ & $AEDH:\ y=0$ & \\
+$b_6$ & $x=1.123z-0.702,\ y=-1.123z+0.702$ & $AEBF:\ x=-5.688,\ z=-4.438$ & $BCFG:\ y=0$ & $AEDH:\ y=-5.688$\\
+\bottomrule
+\end{longtable}
+\end{landscape}
 
 I hence calculate the intersections: considering any two lines which ought to
-intersect, then projecting on the principal plane and calculating $x$, $y$, the coordinates
+intersect, then projecting on the horizontal plane and calculating $x,y$, the coordinates
 
-\clearpage
-
-\bigskip
-\textit{p.~369}
-\smallskip
-
+\sourcepage{369}{433}
 \noindent
-of the point of intersection of the two projections, these values of $x$, $y$ substituted in
-the equations should give the same value of $z$; but if the lines do not actually
+of the point of intersection of the two projections, these values of $x,y$ substituted
+in the equations should give the same value of $z$; but if the lines do not accurately
 intersect, then the values of $z$ will be different.
 
 \begin{center}
-\textit{[Table: 7 column array $b_1, b_2, b_3, b_4, b_5$ with numerical}
-\textit{intersection values --- table omitted]}
+\scriptsize
+\begin{tabular}{c|cccccc}
+\toprule
+ & $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$\\
+\midrule
+$a_1$ & $*$ & \makecell{$0,-1$\\$0$} & \makecell{$0$\\$0$} &
+        \makecell{$0$\\$0$} & \makecell{$0$\\$0$} & \makecell{$0.398$}\\
+$a_2$ & \makecell{$+.077$\\$+.455$} & $*$ &
+        \makecell{$+.381$\\$+.771$\\$.495+.011$} &
+        \makecell{$+4.292$\\$+2.803$\\$.052+.010$} &
+        \makecell{$-.967$\\$-.008+.008$\\$+1$} &
+        \makecell{$+.625$\\$+.227$\\$.673$}\\
+$a_3$ & \makecell{$-.129+.013$\\$.423$} &
+        \makecell{$.001+.001$\\$-1$} & $*$ &
+        \makecell{$-4.782$\\$-3.227$\\$-5.704+.036$} &
+        \makecell{$+1$\\.028+.028} &
+        \makecell{$+.346+.076$\\$+.344$}\\
+$a_4$ & \makecell{$+.699$\\$+.264+.021$} &
+        \makecell{$+1.119$\\$-1$} &
+        \makecell{$+1.286$\\$+1.736$} & $*$ &
+        \makecell{$-5.871$\\$+1$\\$+.008+.008$} &
+        \makecell{$1.330$\\$+.162+.146$}\\
+$a_5$ & \makecell{$+.957$\\$+1.238$} &
+        \makecell{$-.023+.023$\\$+1.488$} &
+        \makecell{$-1.398+.060$\\$+.282$} &
+        \makecell{$+.412$\\$.131$} & $*$ &
+        \makecell{$18.764$\\$14.155$}\\
+$a_6$ & \makecell{$+.194$\\$+.214$\\$+.040+.022$} &
+        \makecell{$.038+.038$\\$-1$\\$+.323$} &
+        \makecell{$+.045$\\$+.283$\\.582+.042} &
+        \makecell{$+.451$\\$+.284$\\.423+.208} &
+        \makecell{$-.057+.057$\\$-1$} & $*$\\
+\bottomrule
+\end{tabular}
 \end{center}
 
-Starting from the assumed equations of $b_1$, $b_2$, $b_3$, $b_4$, $b_5$, and calculating by the
-theory the remaining lines, the equations of the $b$-lines (those of $b_1$ being calculated) are
-\begin{align*}
-b_1 &: \quad y = 1284 x + 154, \\
-b_2 &: \quad x = 0, \quad z = -1, \\
-b_3 &: \quad x = 1352(y + 510), \\
-&\quad y = 1009(z + 510), \\
-b_4 &: \quad x = -731(z + 422), \\
-&\quad y = -500(z + 422), \\
-b_5 &: \quad y = 0, \quad z = 1, \\
-b_6 &: \quad x = 1131(z + 624), \\
-&\quad y = 1133(z + 624).
-\end{align*}
+Starting from the assumed equations of $b_2,b_3,b_4,b_5,b_6,a_1$, and calculating
+by the theory the remaining lines, the equations of the $b$-lines (those of $b_1$
+being calculated) are
+\[
+\begin{array}{rcl}
+b_1, & x=1.321z-.310, & y=-1.295z+.581,\\
+b_2, & x=0,           & z=-1,\\
+b_3, & x=-1.352(z+.510), & y=-2.034(z+.510),\\
+b_4, & x=-.753(z+.052), & y=-.500(z+.052),\\
+b_5, & y=0,           & z=1,\\
+b_6, & x=1.123(z-.624), & y=-1.123(z-.624).
+\end{array}
+\]
 
-\clearpage
-
-\bigskip
-\textit{p.~370}
-\smallskip
-
-\noindent
+\sourcepage{370}{434}
 and the equations of the $a$-lines (those of all but $a_1$ being calculated) are
-\begin{align*}
-a_1 &: \quad x = 0, \quad y = 0, \\
-a_2 &: \quad x = -732 z - 296, \\
-&\quad y = -820(z - 1), \\
-a_3 &: \quad x = -987(z + 1), \\
-&\quad y = -477(z - 1), \\
-a_4 &: \quad x = -2.506(z + 1), \\
-&\quad y = -541(z - 1), \\
-a_5 &: \quad x = -974(z + 1), \\
-&\quad y = -967 z - 384, \\
-a_6 &: \quad x = -179(z + 1), \\
-&\quad y = -071(z - 1).
-\end{align*}
-
+\[
+\begin{array}{rcl}
+a_1, & x=0, & y=0,\\
+a_2, & x=-.753z-.091, & y=-.498(z-1),\\
+a_3, & x=-.609(z+1), & y=-.677(z-1),\\
+a_4, & x=-2.506(z+1), & y=-.841(z-1),\\
+a_5, & x=.874(z+1), & y=-.967z-.288,\\
+a_6, & x=.170(z+1), & y=-.071(z-1).
+\end{array}
+\]
 and thence for the points of intersection the coordinates are
-
 \begin{center}
-\textit{[Table: 7 column array with $b_1, b_2, b_3, b_4, b_5, b_6$ headings and}
-\textit{intersection-point coordinate values --- table omitted]}
+\scriptsize
+$
+\begin{array}{c|cccccc}
+ & b_1&b_2&b_3&b_4&b_5&b_6\\ \hline
+a_1& * & \begin{array}{c}-1\\0\end{array} &
+        \begin{array}{c}0\\0\end{array} &
+        \begin{array}{c}0\\0+.197\end{array} &
+        \begin{array}{c}0\\0\end{array} &
+        \begin{array}{c}.336\\0\end{array}\\
+a_2& \begin{array}{c}-.170\\+.446\end{array} & * &
+        \begin{array}{c}-.510\\-1\\+.662\\+.996\end{array} &
+        \begin{array}{c}\hbox{nearly parallel}\\a_2,b_4\end{array} &
+        \begin{array}{c}-.844\\+1\\0\end{array} &
+        \begin{array}{c}+.624\\+.336\end{array}\\
+a_3& \begin{array}{c}+.105\\-.515\end{array} &
+        \begin{array}{c}-1\\0\end{array} & * &
+        \begin{array}{c}+1.31\\-.262\\-1.805\end{array} &
+        \begin{array}{c}+1\\0\end{array} &
+        \begin{array}{c}-1.218\\+.325\\-.641\end{array}\\
+a_4& \begin{array}{c}+.782\\-.155\\-1.071\end{array} &
+        \begin{array}{c}+1.354\\-1\\0\end{array} &
+        \begin{array}{c}+1.438\\-1.574\\+2.164\end{array} &
+        * &
+        \begin{array}{c}-5.012\\+1\\0\end{array} &
+        \begin{array}{c}-.053\\-1.259\\+1.259\end{array}\\
+a_5& \begin{array}{c}.573\\+1.323\\+3.189\\-2.849\end{array} &
+        \begin{array}{c}-1\\0\\+.679\end{array} &
+        \begin{array}{c}.702\\+.259\\+.291\end{array} &
+        \begin{array}{c}.561\\+.383\\+.255\end{array} &
+        * &
+        \begin{array}{c}-6.410\\+6.410\\+6.333\end{array}\\
+a_6& \begin{array}{c}+2.649\\+.241\\+.041\\+.417\end{array} &
+        \begin{array}{c}-1\\+.142\end{array} &
+        \begin{array}{c}-.074\\+.112\end{array} &
+        \begin{array}{c}+.131\\+.087\end{array} &
+        \begin{array}{c}+.340\\0\\+1\end{array} & *
+\end{array}
+$
 \end{center}
 
-\clearpage
+\sourcepage{371}{435}
+\begin{center}\textsc{II.}\end{center}
 
-\bigskip
-\textit{p.~371}
-\smallskip
+I have in a paper ``On the double-sixers of a cubic surface,'' \textit{Quart. Math.
+Journal}, t. x. (1870), pp. 58--71, [459], obtained analytical expressions for the
+twelve lines of a double-sixer, and also calculated numerical values, which however
+(as there remarked) did not come out convenient ones for the construction of a figure.
+A different mode of treatment since occurred to me, by means of the following equation
+of the cubic surface
+\[
+\left(\frac{x}{\alpha'}-\frac{y}{\beta'}+\frac{z}{\gamma'}-\frac{w}{\delta'}\right)
+\left(\frac{xz}{\alpha\gamma}-\frac{yw}{\beta\delta}\right)
+-k\left(\frac{x}{\alpha}+\frac{y}{\beta}+\frac{z}{\gamma}-\frac{w}{\delta}\right)
+\left(\frac{xz}{\alpha'\gamma'}-\frac{yw}{\beta'\delta'}\right)=0,
+\]
+which as will appear is a very convenient one for the purpose. We in fact obtain at
+once eight lines of the double-sixer; viz. these are
+\[
+\begin{array}{ll}
+1.\quad x=0,\ w=0, & 2'.\quad x=0,\ y=0,\\
+3.\quad y=0,\ z=0, & 4'.\quad z=0,\ w=0,\\
+5.\quad \dfrac{x}{\alpha}-\dfrac{y}{\beta}=0,\quad
+       \dfrac{z}{\gamma}-\dfrac{w}{\delta}=0,
+&
+5'.\quad \dfrac{x}{\alpha'}-\dfrac{w}{\delta}=0,\quad
+       \dfrac{y}{\beta'}-\dfrac{z}{\gamma'}=0,\\
+6.\quad \dfrac{x}{\alpha'}-\dfrac{y}{\beta'}=0,\quad
+       \dfrac{z}{\gamma'}-\dfrac{w}{\delta'}=0,
+&
+6'.\quad \dfrac{x}{\alpha}-\dfrac{w}{\delta}=0,\quad
+       \dfrac{y}{\beta}-\dfrac{z}{\gamma}=0.
+\end{array}
+\]
+and also five lines not belonging to the double-sixer, viz.
+\[
+\begin{array}{rl}
+12.& x=0,\quad
+\left(-\dfrac{y}{\beta'}+\dfrac{z}{\gamma'}-\dfrac{w}{\delta'}\right)\dfrac1{\beta\delta}
+-k\left(-\dfrac{y}{\beta}+\dfrac{z}{\gamma}-\dfrac{w}{\delta}\right)\dfrac1{\beta'\delta'}=0,\\[2mm]
+23.& y=0,\quad
+\left(\dfrac{x}{\alpha}+\dfrac{z}{\gamma}-\dfrac{w}{\delta}\right)\dfrac1{\alpha\gamma}
+-k\left(\dfrac{x}{\alpha}+\dfrac{z}{\gamma}-\dfrac{w}{\delta}\right)\dfrac1{\alpha'\gamma'}=0,\\[2mm]
+34.& z=0,\quad
+\left(\dfrac{x}{\alpha'}-\dfrac{y}{\beta'}-\dfrac{w}{\delta'}\right)\dfrac1{\beta\delta}
+-k\left(\dfrac{x}{\alpha}-\dfrac{y}{\beta}-\dfrac{w}{\delta}\right)\dfrac1{\beta'\delta'}=0,\\[2mm]
+41.& w=0,\quad
+\left(\dfrac{x}{\alpha'}-\dfrac{y}{\beta'}+\dfrac{z}{\gamma'}\right)\dfrac1{\alpha\gamma}
+-k\left(\dfrac{x}{\alpha}-\dfrac{y}{\beta}+\dfrac{z}{\gamma}\right)\dfrac1{\alpha'\gamma'}=0,\\[2mm]
+56.& \dfrac{x}{\alpha}-\dfrac{y}{\beta}+\dfrac{z}{\gamma}-\dfrac{w}{\delta}=0,\quad
+\dfrac{x}{\alpha'}-\dfrac{y}{\beta'}+\dfrac{z}{\gamma'}-\dfrac{w}{\delta'}=0.
+\end{array}
+\]
+The remaining lines of the double-sixer are then easily determined; viz. the lines
+$3,5,6$, and $12$ are met by the line $2'$, and by a second line $1'$; this, as a line
+meeting $3,5,6$, will be given by equations of the form
+\[
+x-\frac{\alpha}{\beta}y=\phi\left(\frac{\delta}{\gamma}z-w\right),\qquad
+x-\frac{\alpha'}{\beta'}y=\phi\left(\frac{\delta'}{\gamma'}z-w\right),
+\]
+and observing that these equations, writing therein $x=0$, give
+\[
+\frac{z}{\gamma}-\frac{w}{\delta}=-\frac{\alpha}{\beta\delta\phi}y,\qquad
+\frac{z}{\gamma'}-\frac{w}{\delta'}=-\frac{\alpha'}{\beta'\delta'\phi}y,
+\]
 
+\sourcepage{372}{436}
 \noindent
-\textsc{II.}
-
-I have in a paper ``On the Orbi-tikere of a cubic surface,'' \textit{Quart.\ Math.\ Journal},
-t.~\textsc{x}.~(1870), pp.~58--71, [459], obtained analytical expressions for the twelve lines of
-a double-sixer, and also obtained numerical values, which however (as there remarked)
-did not come out convenient enes for the construction of a figure.  A different mode
-of treatment since occurred to me, by means of the following equations of the cubic
-surface
+the condition of intersection with the line $12$ gives
 \[
-\left(\frac{x}{a} - \frac{y}{c}\right)\left(\frac{x}{a} - \frac{y}{a}\right)\frac{z}{b}\left(\frac{x}{b} + \frac{y}{c} - \frac{z}{b}\right)\left(\frac{x}{b} - \frac{y}{a} - \frac{z}{b}\right) = 0,
+\phi=\frac{\alpha'-k\alpha}{\delta'-k\delta},
 \]
-which on self appear is a very convenient one for the purpose.  We in fact obtain at
-once eight lines of the double-sixer; viz.\ those are
-\begin{align*}
-1.\ \ & x = 0,\quad w = 0, & \mathrm{I'}.\ \ & x = 0,\quad y = 0, \\
-2.\ \ & y = 0,\quad z = 0, & \mathrm{II'}.\ \ & z = 0,\quad w = 0, \\
-3.\ \ & \tfrac{x}{a} - \tfrac{y}{c} = 0, \tfrac{w}{b} - \tfrac{y}{a} = 0, & \mathrm{III'}.\ \ & \tfrac{x}{a} - \tfrac{y}{a} = 0, \tfrac{y}{c} - \tfrac{z}{b} = 0, \\
-4.\ \ & \tfrac{x}{a} + \tfrac{y}{c} = 0, \tfrac{w}{b} - \tfrac{y}{a} = 0, & \mathrm{IV'}.\ \ & \tfrac{x}{a} - \tfrac{y}{a} = 0, \tfrac{y}{c} + \tfrac{z}{b} = 0,
-\end{align*}
-and also five lines not belonging to the double-sixer, viz.\
-\begin{align*}
-12.\ \ & x = 0, & \left(-\tfrac{x}{a} + \tfrac{y}{c} + \tfrac{z}{b}\right)\tfrac{1}{abc} + \tfrac{w}{B}\left(-\tfrac{x}{a} + \tfrac{y}{c} - \tfrac{z}{b}\right)\tfrac{1}{ABC} = 0, \\
-23.\ \ & y = 0, & \left(\tfrac{x}{a} + \tfrac{y}{c} - \tfrac{z}{b}\right)\tfrac{1}{abc} + \tfrac{w}{B}\left(\tfrac{x}{a} - \tfrac{y}{c} - \tfrac{z}{b}\right)\tfrac{1}{abc} = 0, \\
-34.\ \ & z = 0, & \left(\tfrac{x}{a} - \tfrac{y}{c} - \tfrac{z}{b}\right)\tfrac{1}{abc} + \tfrac{w}{B}\left(\tfrac{x}{a} + \tfrac{y}{c} - \tfrac{z}{b}\right)\tfrac{1}{abc} = 0, \\
-41.\ \ & w = 0, & \left(\tfrac{x}{a} - \tfrac{y}{c} + \tfrac{z}{b}\right)\tfrac{1}{abc} + \tfrac{w}{B}\left(\tfrac{x}{a} + \tfrac{y}{c} + \tfrac{z}{b}\right)\tfrac{1}{abc} = 0, \\
-5\,\&\,2.\ \ & \tfrac{x}{a} + \tfrac{y}{c} = 0, & \tfrac{z}{b} + \tfrac{w}{B} = 0.
-\end{align*}
-
-The remaining lines of the double-sixer are then easily determined; viz.\ the lines
-3, 5, 6, and 12 are met by the line $\Gamma$, and by a second line $\Gamma'$; this, as a line
-meeting 3, 5, 6, will be given by equations of the form
-\[
-x = \frac{y}{a} (a + b), \quad x = \frac{y}{c} (a - c),
-\]
-and observing that these equations, writing therein $z = 0$, give
-\[
-\frac{x}{a} - \frac{y}{c} = 0, \quad \frac{y}{c} - \frac{z}{b} = 0,
-\]
-\hfill 47--2
-
-\clearpage
-
-\bigskip
-\textit{p.~372}
-\smallskip
-
-\noindent
-the condition of intersection with the line 12 gives
-\[
-\phi = \frac{a + b}{c - 1}\cdot \frac{c - 2}{a - 1},
-\]
-which is the value of $\phi$ in the foregoing equations; and so these we may join the
+which is the value of $\phi$ in the foregoing equations; and to these we may join the
 resulting equation
 \[
-pqr(aB + cB) = abqB(qB + rB),
+y\phi\beta\beta'(\gamma\delta'-\gamma'\delta)=
+z\gamma\gamma'(\alpha\beta'-\alpha'\beta).
 \]
-Proceeding in like manner then for the lines 1, 2, 4, 5, the equations for the remaining
-four lines of the double-sixer are; those are
-\begin{align*}
-2.\ \ & \phi = \frac{a - bc}{B - bc}, & 1'.\ \ & \phi = \frac{c - ba}{B - ba}, \\
-&x = \frac{y}{a}(a + \tfrac{B}{a}), & & x = \frac{y}{a}(a + \tfrac{c}{B}), \\
-&z = \frac{a}{b}(a + \tfrac{B}{a}), & & z = \frac{a}{b}(a + \tfrac{c}{B}), \\
-&pqr(aB + cB) = abB(rB - dB), & & pqr(aB + cB) = abB(pB - qB), \\
-4.\ \ & \phi = \frac{a - bc}{B - bc}, & 3'.\ \ & \phi = \frac{c - 2a}{B - 2a}, \\
-&\phi\left(\frac{x}{a} - \frac{w}{b}\right) = y, & & \phi\left(\frac{x}{a} - \frac{w}{b}\right) = -\frac{y}{c}, \\
-&\phi\left(\frac{x}{a} - \frac{w}{B}\right) = \tfrac{a}{c}, & & \phi\left(\frac{x}{a} - \frac{w}{B}\right) = -\frac{a}{c}, \\
-&pqr(aB - cB) = qBa(BqB - dB), & & rqr(aB - cB) = abr(rB - 2 dB).
-\end{align*}
-It may be added that\,---
+Proceeding in like manner for the lines $3',2,4$, the equations for the remaining
+four lines of the double-sixer are
+\[
+\begin{array}{ll}
+2.\quad \phi=\dfrac{\alpha'-k\alpha}{\delta'-k\delta},&
+1'.\quad \phi=\dfrac{\alpha'-k\alpha}{\gamma'-k\gamma},\\[2mm]
+\qquad y\phi\beta\beta'(\gamma\delta'-\gamma'\delta)=
+z\gamma\gamma'(\alpha\beta'-\alpha'\beta),&
+\qquad x\phi\alpha\alpha'(\gamma\delta'-\gamma'\delta)=
+w\delta\delta'(\alpha\beta'-\alpha'\beta),\\[2mm]
+\qquad y\phi\delta\delta'(\alpha\beta'-\alpha'\beta)=
+w\beta\beta'(\gamma\delta'-\gamma'\delta),&
+\qquad x\phi\gamma\gamma'(\alpha\beta'-\alpha'\beta)=
+z\alpha\alpha'(\gamma\delta'-\gamma'\delta),\\[3mm]
+4.\quad \phi=\dfrac{\beta'-k\beta}{\gamma'-k\gamma},&
+3'.\quad \phi=\dfrac{\beta'-k\beta}{\delta'-k\delta},\\[2mm]
+\qquad y\phi\beta\beta'(\gamma\delta'-\gamma'\delta)=
+z\gamma\gamma'(\alpha\beta'-\alpha'\beta),&
+\qquad x\phi\alpha\alpha'(\gamma\delta'-\gamma'\delta)=
+w\delta\delta'(\alpha\beta'-\alpha'\beta),\\[2mm]
+\qquad y\phi\alpha\alpha'(\beta\gamma'-\beta'\gamma)=
+x\gamma\gamma'(\alpha\delta'-\alpha'\delta),&
+\qquad x\phi\delta\delta'(\alpha\beta'-\alpha'\beta)=
+w\alpha\alpha'(\gamma\delta'-\gamma'\delta).
+\end{array}
+\]
+It may be added that: in plane $x=0$,
+\[
+\begin{array}{rl}
+\text{intersection of }1' \text{ lies on line } z:w
+  &= (\gamma\beta'-\alpha'\beta)\gamma\gamma' :
+     \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta,\\
+\text{intersection of }2 \text{ lies on line } y:z
+  &= \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta :
+     (\alpha\delta'-\alpha'\delta)\gamma\gamma',
+\end{array}
+\]
+and that the line joining these intersections is the line $12$. In plane $y=0$,
+\[
+\begin{array}{rl}
+\text{intersection of }2 \text{ lies on line } x:w
+  &= \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta :
+     -(\beta\gamma'-\beta'\gamma)\delta\delta',\\
+\text{intersection of }3' \text{ lies on line } z:w
+  &= \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta :
+     (\beta\delta'-\delta\beta')\delta\delta',
+\end{array}
+\]
+and that the line joining these intersections is the line $23$.
 
-in plane $z = 0$, the
-\begin{align*}
-\text{intersection of } \Gamma \text{ line on line } 2 &: y = (cB - cD) cy : sqrB - aR\Bdb, \\
-,, \qquad 2 \qquad ,, &: y : x = -cyB(cD - Db) sw : sqrB - aR\Bdb,
-\end{align*}
-and that the line joining these intersections is the line 12.
-
-In plane $y = 0$,
-\begin{align*}
-\text{intersection of } 1' \text{ line on line } x : y &: z = pqr B - aR\Bdb : qprB - aR\Bdb, \\
-,, \qquad 1 \qquad ,, &: x : z = wrB(aR - 2Bdy) sw : qrpB - aR\Bdb,
-\end{align*}
-and that the line joining these intersections is the line 23.
-
-\clearpage
-
-\bigskip
-\textit{p.~373}
-\smallskip
-
-\noindent
-In plane $z = 0$,
-\begin{align*}
-\text{intersection of } 3' \text{ line on line } x : y &= (yB - rj) sw : sqrB - cyB\dot, \\
-,, \qquad 4 \qquad ,, &: x : w = -(D y - B y) sw : sqrB - cyB\dot,
-\end{align*}
-and that the line joining these intersections is the line 34.
-
-And in plane $w = 0$,
-\begin{align*}
-\text{intersection of } 4 \text{ line on line } x : y &: z = wp y B - cyB\dot : ywp y B - cyB\dot, \\
-,, \qquad 1' \qquad ,, &: x : y = wp y B - cyB\dot : -ywp y B - cyB\dot,
-\end{align*}
-and that the line joining these intersections is the line 41.
+\sourcepage{373}{437}
+In plane $z=0$,
+\[
+\begin{array}{rl}
+\text{intersection of }3' \text{ lies on line } x:y
+  &= (\gamma\delta'-\gamma'\delta)\alpha\alpha' :
+     \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta,\\
+\text{intersection of }4 \text{ lies on line } x:w
+  &= -(\beta\gamma-\beta'\gamma)\alpha\alpha' :
+     \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta,
+\end{array}
+\]
+and that the line joining these intersections is the line $34$. And in plane $w=0$,
+\[
+\begin{array}{rl}
+\text{intersection of }4 \text{ is on line } y:z
+ &= (\alpha\delta'-\alpha'\delta)\beta\beta' :
+    \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta,\\
+\text{intersection of }1' \text{ is on line } x:y
+ &= \alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta :
+    (\gamma\delta'-\gamma'\delta)\beta\beta',
+\end{array}
+\]
+and that the line joining these intersections is the line $14$.
 
 The equations of the remaining ten lines of the surface may be obtained without
-difficulty, and also the thirty further triple planes; but I do not stop to effect this.
-The construction of a model it is sufficient to determine the three points on each edge,
-and the two points, on the planes of $ABCD$, viz.\ the points $a_0, b_0, c_0, d_0$, in which the
-three sides of the triangle $ABC$ meet by triple planes, and the points $ABC$, $a_0BCD$
-(for the construction of the remaining ten lines of the surface by another method,
-viz.\ employing the points $A$, $B$, $C$, $D$, $a_0$, $b_0$, $c_0$, $d_0$).  In fact, knowing
-each of $a$, $b$, $c$, $d$, $\alpha$, $\beta$, $\gamma$ on the edges of the cube, we know
-the values of $\xi$, $\eta$, $\zeta$ for the points on the edge $BC$; the points on the edge $BC$
-are obtained from the corresponding points on $AD$ by the lines 4 and 1.  For
-the construction of a model it is sufficient to determine the three points on each
-edge, and the two points, on the planes of $ABCD$, viz.\ the points $a_0$, $b_0$, $c_0$, $d_0$, in
-which the three sides of the triangle $ABC$ meet by triple planes, and the points
-$abAB$, $bdAD$, $caCD$ on the planes of $ABC$.  Then for $ab$ we have
+difficulty, and also the forty-five triple planes, but I do not stop to effect this; the
+planes $x=0$, $y=0$, $z=0$, $w=0$, are, it is clear, triple planes, containing the lines
+$1,2',12$; $2',3,23$; $3,4',34$; and $4',1,41$ respectively.
+
+If, to fix the ideas, the planes $x=0,y=0,z=0,w=0$ are taken to be those of the
+tetrahedron $ABCD$ ($x=BCD$, \&c., as usual), then the edges $AB,BC,CD,DA$
+(but not the remaining opposite edges $AC,BD$) will be lines on the surface. Each
+plane of the tetrahedron, for instance $ABC$ ($w=0$), is met by the ten lines not
+contained therein in two vertices $A,C$, three points on the edge $BA$, three points
+on the edge $BC$, and two other points, viz. these are the intersections of the plane
+$ABC$ by the lines $4$ and $1'$. For the construction of a model it is sufficient to
+determine the three points on each edge, and the two points, say in the plane $ABC$
+and in the plane $DBC$ ($x=0$) respectively; for then each of the remaining eight
+lines will be determined as a line joining two points in these two planes respectively.
+If in the first instance $k$ is considered as a variable parameter, then the two points
+in the plane $w=0$ are given as the intersections of two fixed lines by a variable line
+$(14)$ rotating round the fixed point
 \[
-\frac{x}{a} + \frac{y}{c} = 0, \quad \frac{y}{c} - \frac{z}{b} = 0, \quad w = 0,
+\frac{x}{\alpha'}-\frac{y}{\beta'}+\frac{z}{\gamma'}=0,\qquad
+\frac{x}{\alpha}-\frac{y}{\beta}+\frac{z}{\gamma}=0;
 \]
-viz.\ the $ABCD$-coords mements of the orbi parametrised the lines $1, 2, 3, 4$.
-But if any sphere of an cube and several distances mentioned in the orbi-
-clear in their intersection with the line 4'; and it is probable that a slightly
-different value of $\phi$ would be better.
-\begin{center}
-\textit{[Figure: triangle with three points --- diagram omitted]}
-\end{center}
+and the like as regards the two points in the plane $x=0$. By making (with assumed
+values of the other parameters) the proper drawings for the two planes $w=0,x=0$, it
+is easy to fix upon a convenient value of the parameter $k$; and I have in this manner
+succeeded in making a string model of the double-sixer; viz. the coordinates
+$x,y,z,w$ are taken to be as the perpendicular distances of the current point from the
+faces of a regular tetrahedron (the coordinates being positive for an interior point);
+the values of $\alpha,\beta,\gamma,\delta$ were put $=3,4,5,6$ and those of
+$\alpha',\beta',\gamma',\delta'=1,1,1,1$; the value of $k$ fixed upon as above was
+$k=-\frac12$; this however brings the lines $2$ and $4$ too close together, and also
+their apparent intersection too close to their intersections with the line $6'$; and it
+is probable that a slightly different value of $k$ would be better.
 
-\clearpage
-
-\bigskip
-\textit{p.~374}
-\smallskip
-
+\sourcepage{374}{438}
 The results just obtained may be exhibited in a compendious form as follows:
 \begin{center}
-\textit{[Table: 5 column array with column headings $\alpha$, $\beta$, $\gamma$, $\delta$, $\theta$}
-\textit{listing intersections for various points $1, 2, 3, 4$ etc with $AB$, $AD$, $ACD$, etc.}
-\textit{--- table omitted]}
+\scriptsize
+$
+\begin{array}{lll}
+1\ \text{is line }BC: & x=0,\ z=0;&
+2'\ \text{is line }CD: x=0,\ y=0,\\
+3\ \text{is line }DA: & y=0,\ z=0;&
+4'\ \text{is line }AB: z=0,\ w=0,\\[1mm]
+5\ \text{meets }CD:& (z:w)=(\gamma:\delta),&
+5\ \text{meets }AB:(x:y)=(\alpha:\beta),\\
+6\ \text{meets }CD:& (z:w)=(\gamma':\delta'),&
+6\ \text{meets }AB:(x:y)=(\alpha':\beta'),\\
+6'\ \text{meets }BC:& (y:z)=(\beta:\gamma),&
+6'\ \text{meets }AD:(x:w)=(\alpha:\delta),\\
+5'\ \text{meets }BC:& (y:z)=(\beta':\gamma'),&
+5'\ \text{meets }AD:(x:w)=(\alpha':\delta'),\\[1mm]
+1'\ \text{meets }AD:& x:w=(\alpha'-k\alpha):(\delta'-k\delta),&
+1'\ \text{meets }BCD:
+\dfrac{-(\alpha'-k\alpha)(\gamma\delta'-\gamma'\delta)\beta\beta'}
+{(\delta'-k\delta)(\alpha\beta'-\alpha'\beta)\gamma\gamma'},\\
+1'\ \text{meets }ABC:&
+\dfrac{(\alpha'-k\alpha)(\alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta)}
+{(\alpha'-k\alpha)(\gamma\delta'-\gamma'\delta)\beta\beta'},&\\
+3'\ \text{meets }BC:& y:z=(\beta'-k\beta):(\gamma'-k\gamma),&
+3'\ \text{meets }ACD:
+\dfrac{-(\beta'-k\beta)(\gamma\delta'-\gamma'\delta)\alpha\alpha'}
+{(\gamma'-k\gamma)(\alpha\beta'-\alpha'\beta)\delta\delta'},\\
+3'\ \text{meets }ABD:&
+\dfrac{(\beta'-k\beta)(\alpha\gamma\beta'\delta'-\alpha'\gamma'\beta\delta)}
+{(\gamma'-k\gamma)(\alpha\beta'-\alpha'\beta)\delta\delta'},&\\
+2\ \text{meets }AB:& x:y=(\alpha'-k\alpha):(\beta'-k\beta),&
+2\ \text{meets }BCD:
+\dfrac{(\alpha'-k\alpha)(\beta\gamma'-\beta'\gamma)\delta\delta'}
+{\delta'-k\delta},\\
+4\ \text{meets }CD:& z:w=(\gamma'-k\gamma):(\delta'-k\delta),&
+4\ \text{meets }ABD:
+\dfrac{-(\delta'-k\delta)(\beta\gamma-\beta'\gamma)\alpha\alpha'}
+{(\gamma'-k\gamma)(\alpha\delta'-\alpha'\delta)\beta\beta'}.
+\end{array}
+$
 \end{center}
 
-\clearpage
-
-\bigskip
-\textit{p.~375}
-\smallskip
-
-\noindent
-$\Gamma'$ and $\Gamma$ meet $BCD$ on line: $\left(-\frac{x}{a} + \frac{y}{c}\right)\frac{1}{abc} = \left(-\frac{x}{a} + \frac{y}{c} - \frac{z}{b}\right)\frac{1}{ABC} = 0$,
-
-$2$ and $3'$ ,, $CDA$ ,, $\left(\frac{x}{a} - \frac{y}{c}\right)\frac{1}{abc} = \left(\frac{x}{a} - \frac{y}{c} - \frac{z}{b}\right)\frac{1}{ABC} = 0$,
-
-$3$ and $4'$ ,, $DAB$ ,, $\left(\frac{x}{a} - \frac{y}{c}\right)\frac{1}{abc} = \left(\frac{x}{a} - \frac{y}{c} - \frac{z}{b}\right)\frac{1}{ABC} = 0$,
-
-$4$ and $1'$ ,, $ABC$ ,, $\left(\frac{x}{a} - \frac{y}{c}\right)\frac{1}{abc} = \left(\frac{x}{a} - \frac{y}{c} - \frac{z}{b}\right)\frac{1}{ABC} = 0$,
-
+\sourcepage{375}{439}
+The four joining lines obtained from these intersections are
+\[
+\begin{array}{rl}
+1'\text{ and }2\text{ meet }BCD\text{ on line }&
+\left(-\dfrac{y}{\beta'}+\dfrac{z}{\gamma'}-\dfrac{w}{\delta'}\right)\dfrac1{\beta\delta}
+-k\left(-\dfrac{y}{\beta}+\dfrac{z}{\gamma}-\dfrac{w}{\delta}\right)\dfrac1{\beta'\delta'}=0,\\[2mm]
+2\text{ and }3'\text{ meet }CDA\text{ on line }&
+\left(\dfrac{x}{\alpha}+\dfrac{z}{\gamma}-\dfrac{w}{\delta}\right)\dfrac1{\alpha\gamma}
+-k\left(\dfrac{x}{\alpha'}+\dfrac{z}{\gamma'}-\dfrac{w}{\delta'}\right)\dfrac1{\alpha'\gamma'}=0,\\[2mm]
+3'\text{ and }4\text{ meet }DAB\text{ on line }&
+\left(\dfrac{x}{\alpha'}-\dfrac{y}{\beta'}-\dfrac{w}{\delta'}\right)\dfrac1{\beta\delta}
+-k\left(\dfrac{x}{\alpha}-\dfrac{y}{\beta}-\dfrac{w}{\delta}\right)\dfrac1{\beta'\delta'}=0,\\[2mm]
+4\text{ and }1'\text{ meet }ABC\text{ on line }&
+\left(\dfrac{x}{\alpha'}-\dfrac{y}{\beta'}+\dfrac{z}{\gamma'}\right)\dfrac1{\alpha\gamma}
+-k\left(\dfrac{x}{\alpha}-\dfrac{y}{\beta}+\dfrac{z}{\gamma}\right)\dfrac1{\alpha'\gamma'}=0.
+\end{array}
+\]
 For calculating the numerical values from the foregoing assumed data, say
 \begin{center}
-\textit{[Table: column headings $\alpha$, $\beta$, $\gamma$, $\delta$ with numerical}
-\textit{computation entries --- table omitted]}
+\scriptsize
+$
+\begin{array}{lll}
+1:\ BC;\quad 2':CD;\quad 3:DA;\quad 4':AB,\\
+5\text{ meets }CD: z=45.5,w=54.5;&5\text{ meets }AB:x=42.9,y=57.1,\\
+6\text{ meets }CD: z=50,w=50;&6\text{ meets }AB:x=50,y=50,\\
+6'\text{ meets }BC:y=44.4,z=55.6;&6'\text{ meets }AD:x=33.3,w=66.7,\\
+5'\text{ meets }BC:y=50,z=50;&5'\text{ meets }AD:x=50,w=50,\\
+1'\text{ meets }AD:x=44,z=56;&1'\text{ meets }BCD:y=-25.1,z=39.9,w=71.8,\\
+3'\text{ meets }BC:y=48,z=52;&3'\text{ meets }ABD:x=47.2,y=141.7,w=-102.3,\\
+2\text{ meets }AB:x=47.8,y=52.2;&2\text{ meets }BCD:y=26.4,z=44,w=16.2,\\
+4\text{ meets }CD:z=48.1,w=51.9;&4\text{ meets }ABD:x=50.5,y=187.6,w=-151.5.
+\end{array}
+$
 \end{center}
 
-\clearpage
-
-\bigskip
-\textit{p.~376}
-\smallskip
-
-\noindent
-which had two equations now as a verification.
+\sourcepage{376}{440}
+\[
+\begin{array}{ll}
+1'\text{ and }2\text{ meet }BCD\text{ on line} & 35y-32z+30w=0,\\
+2\text{ and }3'\text{ meet }CDA\text{ on line} & 26x+22z-21w=0,\\
+3'\text{ and }4\text{ meet }DAB\text{ on line} & 8x-7y-6w=0,\\
+4'\text{ and }1\text{ meet }ABC\text{ on line} & 52x-47y-44z=0,
+\end{array}
+\]
+which last four equations serve as a verification.
 
 The outside numerical values are given in the manner most convenient for the
-construction of a drawing; viz.\ when the coordinates refer to a point on an edge of
-the tetrahedron, or any on the side of an equilateral triangle, the lines being the length of
-this edge (or side) to be $= 100$, the numerical values are fixed so that the answers of
-the points (regarded as $= 0$, $20$, $40$, $\ldots$, $100$) are situated in the table similarly to that of
-the extension of the edge or side: but when the three coordinates belong to a point
-in the face of the tetrahedron, or any in the plane of an equilateral triangle, then the sum of the coordinates is made $= 80\cdot 6$, and the three coordinates these denote the
-perpendicular distances from the sides of the triangle.
+construction of a drawing; viz. when the coordinates refer to a point on an edge of
+the tetrahedron, or say on the side of an equilateral triangle, then taking the length
+of this edge (or side) to be $=100$, the numerical values are fixed so that the sum of
+the two coordinates may be $=100$, and the two coordinates thus denote the distances
+from the extremities of the edge or side: but when the three coordinates belong to a
+point in the face of the tetrahedron, or say in the plane of an equilateral triangle,
+then the sum of the coordinates is made $=86.6$, and the three coordinates thus denote
+the perpendicular distances from the sides of the triangle.
 
-\clearpage
+\begin{center}\textsc{III.}\end{center}
 
-% ============================================================
-% PAPER 521 (concl.), START OF NEW PAPER STRUCTURE
-% Book pages 377--384 -- still in [521] paper part III
-% ============================================================
-
-\bigskip
-\textit{p.~377}
-\smallskip
-
-\noindent
-\textsc{III.}
-
-It is possible to find on a cubic curve a double-sixer of points $1, 2, 3, 4, 5, 6$
-and $1', 2', 3', 4', 5', 6'$ such that any six points such as $1, 2, 3, 4, 5, 6$ lie in a
-conic.  In fact considering a cubic surface having upon it the double-sixer of lines
-$1, 2, 3, 4, 5, 6$ and $1', 2', 3', 4', 5', 6'$, the section by any plane is a cubic curve
-meeting the lines, say in the points $1, 2, 3, 4, 5, 6, 1', 2', 3', 4', 5', 6'$; each of the
-six lines $1, 2$ meets each of the six lines $1', 2', 3', 4', 5', 6'$, and consequently the six
-lines lie in a quartic surface; therefore the points $1, 2, 3, 4, 5, 6'$ lie in a conic; and so in like
-order; cases; the number of the conics is of course $= 6$.
+It is possible to find on a cubic curve a double-sixer of points
+$1,2,3,4,5,6$ and $1',2',3',4',5',6'$ such that any six points such as
+$1,2,3,4',5',6'$ lie in a conic. In fact considering a cubic surface having upon it
+the double-sixer of lines $1,2,3,4,5,6$ and $1',2',3',4',5',6'$, the section by any plane
+is a cubic curve meeting the lines, say in the points
+$1,2,3,4,5,6,1',2',3',4',5',6'$: each of the lines $1,2,3$ meets each of the lines
+$4',5',6'$, and consequently the six lines lie in a quadric surface: therefore the
+points $1,2,3,4',5',6'$ lie in a conic: and so in the other cases; the number of the
+conics is of course $=60$.
 
 The cubic curve may be a given curve, and six of the points upon it (not being
-points on a conic) may be taken to be, given; for instance the points $1, 2, 3, 1', 2', 3'$.
-For take through the points $1, 2$ respectively any two lines $1, 2$; through $1', 2', 3'$
-respectively the lines $1', 2', 3'$ each meeting each of the lines 1, 2; and through 1
-a line meeting each of the lines $1, 2, 3$, it is easy to see that a cubic surface may
-be drawn through the cubic curve and the lines 1, 2, 3, $1', 2', 3'$.  In the passage
-through the cubic curve requires only 9 conditions; the surface then passes through the point
-2 and so make it pass through the line 2 requires 3 conditions; similarly the surface
-passes through the point 3, and to make it pass through the line 3 requires 3 conditions.
-The surface now passes through 1 and through the points of intersection of the
-line 1' with the lines 2, 3; to make it pass through the line 1' requires 1 condition;
-similarly to make it pass through the lines $2', 3'$, 1 requires in each case 1 condition;
-or there are in all 19 conditions, so that the cubic surface is completely determined.
-Take now through the points $1, 2, 3, 4, 5'$, a conic meeting the cubic in the points 4',
-5', then through the lines $1, 2, 3, 4', 5'$ we have a quintic surface passing through the
+points on a conic) may also be taken to be given; for instance the points
+$1,2,3,1',4',5'$. For take through the points $2,3$ respectively any two lines $2,3$;
+through $1',4',5'$ respectively the lines $1',4',5'$ each meeting each of the lines
+$2,3$; and through $1$ a line meeting each of the lines $4',5'$. It is easy to see
+that a cubic surface may be drawn through the cubic curve and the lines
+$1,2,3,1',4',5'$. For the passage through the cubic curve requires 9 conditions; the
+surface then passes through the point 2 and to make it pass through the line 2
+requires 3 conditions; similarly the surface passes through the point 3, and to make
+it pass through the line 3 requires 3 conditions. The surface now passes through $1'$
+and through the points of intersection of the line $1'$ with the lines $2,3$: to make it
+pass through the line $1'$ requires 1 condition; similarly to make it pass through the
+lines $4',5',1$ requires in each case 1 condition; or there are in all 19 conditions, so
+that the cubic surface is completely determined. Take now through the points
+$1,2,3,4',5'$, a conic meeting the cubic in the point $6'$: then through the lines
+$1,2,3,4',5'$ we have a quadric surface passing through this
 
-\clearpage
-
-\bigskip
-\textit{p.~378}
-\smallskip
-
+\sourcepage{377}{441}
 \noindent
-conic, and therefore through 4'; hence through 6' we may draw a line 6' meeting
-each of the lines 1, 2, 3, $1', 2'$, and where the cubic surface passes through the point 6'
-and also through the intersections of the line 6 with the lines 1, 2, 3; it passes
-through the line 6'.  We complete in this manner by determining the planes of
-the cubic the system of the twelve points, viz.\ each new point is given as the inter-
-section of the cubic curve by a conic drawn through five points of the cubic curve.
-It is then shown as for the point 1' and the line 6' through it, that through each
-new point there can be drawn a line meeting by the same number and meeting each
-of the lines which it ought to meet; and hence lying on the cubic surface, but the
-twelve points are thus the intersections of the planes of the cubic curve by the twelve
-lines of the double-sixer, and it follows that the six points which ought to lie in
-a conic do every one where each conic has not been used in the place construction
-do actually lie in a conic.
+conic, and therefore through $6'$: hence through $6'$ we may draw a line $6'$ meeting
+each of the lines $1,2,3$; and since the cubic surface passes through the point $6'$
+and also through the intersections of the line $6'$ with the lines $1,2,3$, it passes
+through the line $6'$. We complete in this manner by constructions in the plane of
+the cubic the system of the twelve points, viz. each new point is given as the
+intersection of the cubic curve by a conic drawn through five points of the cubic
+curve. It is then shown as for the point $6'$ and the line $6'$ through it, that through
+each new point there can be drawn a line denoted by the same number and meeting
+each of the lines which it ought to meet, and hence lying on the cubic surface: the
+twelve points are thus the intersections of the plane of the cubic curve by the twelve
+lines of the double-sixer; and it follows that the six points which ought to lie in a
+conic (in every case where such conic has not been used in the plane construction) do
+actually lie in a conic.
 
-I was anxious to construct such a double-sixer of points on a cubic curve; for
-this purpose I take the equation of the curve to be $y' = (1 - \frac{x}{a})(1 - \frac{x}{a})(1 - \frac{x}{a})$, or
-say for shortness, $y^2 = X$; where, to fix the ideas, $a$, $b$ are supposed to be positive,
-$c$ greater than $b$; and $r$ to be negative.
+I was anxious to construct such a double-sixer of points on a cubic curve; for this
+purpose I take the equation of the curve to be
+\[
+y^2=\left(1-\frac{x}{a}\right)\left(1-\frac{x}{b}\right)\left(1-\frac{x}{c}\right),
+\]
+or say for shortness $y^2=X$; where, to fix the ideas, $a,b$ are supposed to be
+positive, $a$ greater than $b$; and $c$ to be negative.
 
 The cubic curve is thus a parabola symmetrical in regard to the axis of $x$, and
-consisting of a loop and infinite branch; say I select for them the points 1, 2, 3, 1', 4', 5'
-\begin{center}
-\textit{[Figure: parabolic loop with axis through marked points --- diagram omitted]}
-\end{center}
-as shown in the figure, viz.\ the coordinates of these points are as stated in the
-Table, where $\alpha$ is the $x$ coordinate, and $\sqrt{M} = a_0 \sqrt{\left(1 - \frac{x}{a}\right)\left(1 - \frac{x}{b}\right)\left(1 - \frac{x}{a}\right)}$ and so in
-other cases, $\sqrt{14} = 374483$.
-
-\clearpage
-
-\bigskip
-\textit{p.~379}
-\smallskip
-
-\noindent
-The numerical values belong to the curve $y' = \left(1 - \frac{x}{1}\right)\left(1 - \frac{x}{2}\right)\left(1 + \frac{x}{3}\right)$, and to $a = 6$.
-
-Starting with the points 1, 2, 3, 1', 4', 5' we have to find the remaining points
-4', 5, 6, 2', 3', 6'.
-
-Point 4' by means of the conic $123 4 5' 6'$, as follows.
-
-The equation of the conic is
+consisting of a loop and infinite branch; and I take upon it the points
+$1,2,3,1',4',5'$ as shown in the figure,
 \[
-(x - b)(x - c) - bc y + x y = 0\quad (1, 2, 3, 4, 1'),
+\begin{tikzpicture}[scale=0.85]
+  \draw[->] (-3.3,0)--(4.2,0) node[right] {$x$};
+  \draw[->] (0,-2.2)--(0,2.2) node[above] {$y$};
+  \draw[domain=-2.0:2.7,smooth,variable=\t,samples=120]
+    plot ({\t},{0.45*(\t+1.1)*(\t-0.35)*(\t-1.55)});
+  \foreach \x/\y/\lab in {-1.1/0/4',0.35/0/5',1.55/0/2,2.45/1.15/1,2.45/-1.15/1',-1.65/1.1/3}
+    \fill (\x,\y) circle (1.5pt) node[above right] {$\lab$};
+\end{tikzpicture}
 \]
-and making this pass through the point 1 ($x = a, y = \sqrt{M}$) we find
+viz. the coordinates of these points are as stated in the Table, where $m$ is the
+$x$ coordinate, and
 \[
-m_0 = (a - b)(a - c) + \sqrt{M} = 0 \quad (1).
+\sqrt{M}=\sqrt{\left(1-\frac{x}{a}\right)
+                \left(1-\frac{x}{b}\right)
+                \left(1-\frac{x}{c}\right)}
 \]
-Hence taking the coordinates of $4'$ to be, $a_0, \sqrt{M_0}$, we have
+and so in other cases, $\sqrt{14}=3.74165$.
+
+\sourcepage{378}{442}
 \[
-(a_0 - b)(a_0 - c) - bc a_0 + \sqrt{M_0} = 0 \quad (4'),
+\begin{array}{c|cc|cc}
+\toprule
+& \multicolumn{2}{c|}{\text{symbolic}} & \multicolumn{2}{c}{\text{numerical}}\\
+\text{point} & x & y & x & y\\
+\midrule
+1  & m       & \sqrt M     & 6 & \sqrt{14}=3.742\\
+2  & 0       & 1           & 0 & 1\\
+3  & 0       & -1          & 0 & -1\\
+4  & \theta  & \sqrt\Theta & 2-\dfrac{75}{1369}=1.945
+   & -\dfrac{2280}{37^3}\sqrt{14}=-.168\\
+5  & \phi    & \sqrt\Phi   & -1+\dfrac{75}{361}=-.792
+   & \dfrac{1110}{19^3}\sqrt{14}=.606\\
+6  & m_1     & -\sqrt{M_1} & \dfrac{13}{3}=4.333
+   & -\dfrac49\sqrt{14}=-1.641\\
+1' & m       & -\sqrt M    & 6 & -\sqrt{14}=-3.742\\
+2' & \sigma  & \sqrt\Sigma & -\dfrac{1560(14-\sqrt{14})}{(31\sqrt{14}-5)^2}=1.299
+   & \phantom{-}.676\\
+3' & \tau    & \sqrt T     & -\dfrac{1560(14+\sqrt{14})}{(31\sqrt{14}+5)^2}=1.887
+   & \phantom{-}.247\\
+4' & c       & 0           & -1 & 0\\
+5' & b       & 0           & 2  & 0\\
+6' & m_1     & \sqrt{M_1}  & \dfrac{13}{3}=4.333
+   & \dfrac49\sqrt{14}=1.641\\
+\bottomrule
+\end{array}
+\]
+The numerical values belong to the curve
+\[
+y^2=\left(1-\frac{x}{3}\right)\left(1-\frac{x}{2}\right)(1+x)
+\]
+and to $m=6$.
+
+Starting with the points $1,2,3,1',4',5'$ we have to find the remaining points
+$6',6,4,5,2',3'$.
+
+Point $6'$ by means of the conic $1234'5'6'$, as follows. The equation of the conic is
+\[
+(x-b)(x-c)-bcy^2+kxy=0,\qquad (2,3,4',5'),
+\]
+and making this pass through the point $1$ ($x=m$, $y=\sqrt M$) we find
+\[
+(m-b)(m-c)+ka\sqrt M=0.\tag{1}
+\]
+Hence taking the coordinates of $6'$ to be $m_1,\sqrt{M_1}$, we have
+\[
+(m_1-b)(m_1-c)+ka\sqrt{M_1}=0,\tag{$6'$}
 \]
 and thence
 \[
-\frac{\sqrt{M_0}}{\sqrt{M}} \cdot \frac{(a_0 - b)(a_0 - c) - bc a_0}{(a - b)(a - c) - bc a} = 1.
+\frac{\sqrt{M_1}}{\sqrt M}
+=\frac{(m_1-b)(m_1-c)}{(m-b)(m-c)}
+=\frac{M_1(m-a)}{M(m_1-a)}.
 \]
 
-\clearpage
+\sourcepage{379}{443}
+that is,
+\[
+\frac{\sqrt{M_1}}{\sqrt M}
+=\frac{(m_1-b)(m_1-c)}{(m-b)(m-c)}
+=\frac{m_1-a}{m-a}.
+\]
+We have thus for $m_1$ a quadric equation satisfied by $m=m_1$, so that throwing out
+the factor $m-m_1$, the equation is a linear one, viz. we find
+\[
+m_1=\frac{ma-ab-ac+bc}{m-a},
+\]
+or, what is the same thing,
+\[
+m_1-a=\frac{(a-b)(a-c)}{m-a},
+\]
+and thence also
+\[
+\sqrt{M_1}=\frac{(a-b)(a-c)}{(m-a)^2}\sqrt M,
+\]
+viz. $\sqrt{M_1}$ is determined rationally in terms of $m,\sqrt M$; this is of course as
+it should be, since the point $6'$ is uniquely determinate.
 
-\bigskip
-\textit{p.~380}
-\smallskip
+Point $6$ by means of the conic $2361'4'5'$. In precisely the same manner the
+coordinates are $m_1,-\sqrt{M_1}$, where $m_1,\sqrt{M_1}$ denote the same quantities
+as before.
 
+Point $4$ by means of the conic $2341'5'6'$. The equation of the conic is
+\[
+Fx+Gy+H=\frac{1-y^2}{x},\qquad (2,3),
+\]
+where
+\[
+\begin{array}{rcll}
+Fb+H&=&\dfrac1b, &(5'),\\[1mm]
+Fm_1+G\sqrt{M_1}+H&=&\dfrac{1-M_1}{m_1}, &(6'),\\[1mm]
+Fm-G\sqrt M+H&=&\dfrac{1-M}{m}, &(1'),
+\end{array}
+\]
+which give without difficulty
+\[
+abcF=-a-c+P,\qquad
+\sqrt M\,abcG=(m-b)(-m+P),\qquad
+abcH=ab+ac+bc-bP,
+\]
+where
+\[
+P=2a-c-\frac{2(a-c)(b-c)}{m+m_1-2c},
+\]
+a quantity which will presently be expressed in terms of $m$ only. And then
+\[
+F\theta+G\sqrt\Theta+H=\frac{1-\Theta}{\theta},
+\]
+
+\sourcepage{380}{444}
 \noindent
 or say
 \[
-F(\beta - 1) + G \sqrt{M} = \frac{a - q}{B - q} \cdot \frac{1}{a},
+F(\theta-b)+G\sqrt\Theta=\frac{1-\Theta}{\theta}-\frac1b
+=-(\theta-b)\left(\frac1{ab}+\frac1{bc}-\frac{\theta}{abc}\right),
 \]
 that is,
 \[
-(\beta - 1) abc F + a c \sqrt{M} = \frac{1}{a b}(\beta - q a^2 a^2 + a)
+(\theta-b)(abcF+a+c-\theta)+Gabc\sqrt\Theta=0,
 \]
-viz.\ that is,
+viz. that is,
 \[
-(\beta - 1)(F - \theta) + (a - bc)\frac{1}{\sqrt{M}}(F^2 + a c) = 0
+(\theta-b)(P-\theta)+(m-b)\frac{\sqrt\Theta}{\sqrt M}(P-m)=0.
 \]
-or, rationalising and throwing out the factor $\theta - b$, this is
+or, rationalising and throwing out the factor $\theta-b$, this is
 \[
-(\beta - 1)(F - q) + b(\beta - bc)(a - q)\frac{a c}{\sqrt{M}}(F^2 + a c) = 0,
+(\theta-b)(\theta-P)^2
+-(m-b)(m-P)^2\frac{(\theta-a)(\theta-b)}{(m-a)(m-b)}=0,
 \]
-which is a cubic equation satisfied by $\theta = a$ and $\theta = a_0$, so that throwing out the
-factors $\theta = a$, $\theta = a_0$, we have for $\theta$ a linear equation.
+which is a cubic equation satisfied by $\theta=m$ and $\theta=m_1$; so that throwing out
+the factors $\theta-m,\theta-m_1$ we have for $\theta$ a linear equation.
 
 Putting for shortness
-\begin{align*}
-A &= (a - a)F + (a - b)(a - c), \\
-B &= (a - b)F + (b - c)(a - a), \\
-C &= (a - c)F + (a - c)(a - b),
-\end{align*}
+\[
+A=(m-a)^2-(a-b)(a-c),\quad
+B=(m-b)^2-(b-c)(b-a),\quad
+C=(m-c)^2-(c-a)(c-b),
+\]
 the value of $\theta$ may be expressed in the forms
 \[
-\theta = a + \frac{a A}{B C}(F + a), \quad \theta = b + \frac{a A}{B C}(F + b), \quad \theta = c + \frac{a A}{B C}(F + c).
+\theta-a=\frac{B^2}{C^2}(c-a),\qquad
+\theta-b=\frac{A^2}{C^2}(c-b),\qquad
+\theta-c=\frac{4(m-a)(m-b)(m-c)(b-c)(a-c)}{C^2}.
 \]
-
 We have moreover
 \[
-F - q = \frac{a(a - 1)(a - b)(a - c)}{B C}, \quad F - a_0 = -\frac{a c - A}{B}.
+P-c=\frac{2(a-c)(m-b)(m-c)}{C},\qquad
+P-m=-\frac{(m-c)A}{C},
 \]
-equations which express $F$ in terms of $a$ only; also
+equations which express $P$ in terms of $m$ only; also
 \[
-\theta - F = -\frac{a(a - 1)(a - b)(a - c) B}{C^2},
+\theta-P=-\frac{2(a-c)(m-b)(m-c)B}{C^2},
 \]
 and then
 \[
-\sqrt{M_0} = \sqrt{M} \cdot \frac{B^2 + a c}{C^2},
+\sqrt\Theta=-\sqrt M\frac{\theta-b}{m-b}\frac{P-\theta}{P-m},
 \]
 whence
 \[
-\sqrt{M_0} = \pm \sqrt{M}(b - c) - \frac{a B}{C^2},
+\sqrt\Theta=2\sqrt M\,(b-c)(c-a)\frac{AB}{C^3},
 \]
-so that $\theta$, $\sqrt{M_0}$ can be determined.
+so that $\theta,\sqrt\Theta$ are now determined.
 
-\clearpage
-
-\bigskip
-\textit{p.~381}
-\smallskip
-
-\noindent
-Point 5 by means of the conic $1234'5'6'$.
-
-The conic is
+\sourcepage{381}{445}
+Point $5$ by means of the conic $2351'4'6'$. The conic is
 \[
-Fx + Gy + H = \frac{1 - y'}{x}, \quad (1, 2, 3)
+Fx+Gy+H=\frac{1-y^2}{x},\qquad (2,3),
 \]
 where
-\begin{align*}
-Fx,\ &\ +H = 1, \\
-Fa_0 + G \sqrt{M} + H &= \frac{1 - M_0}{a_0}, \quad (4'), \\
-Fa_0 - G \sqrt{M_0} + H &= -\frac{M_0}{a_0}, \quad (5').
-\end{align*}
-
-Everything is the same as for the point 4 except that $b$, $c$ are interchanged;
-hence writing $Q$ instead of $F$, and using $A$, $B$, $C$ to denote as before, we have
 \[
-abc F = a + b + Q,
+\begin{array}{rcll}
+Fc+H&=&\dfrac1c, &(4'),\\[1mm]
+Fm_1+G\sqrt{M_1}+H&=&\dfrac{1-M_1}{m_1}, &(6'),\\[1mm]
+Fm-G\sqrt M+H&=&\dfrac{1-M}{m}, &(1').
+\end{array}
 \]
+Everything is the same as for the point $4$ except that $b,c$ are interchanged;
+hence writing $Q$ instead of $P$, and using $A,B,C$ to denote as before, we have
 \[
-\sqrt{M} abc G = (a - c)(1 - a + b Q),
-\]
-\[
-abc H = a b - a a + b Q - a B,
+abcF=-a-b+Q,\qquad
+\sqrt M\,abcG=(m-c)(-m+Q),\qquad
+abcH=ab+ac+bc-cQ,
 \]
 and
 \[
-\phi = \frac{C^2 - a}{B C}.
+\phi-a=\frac{C^2(b-a)}{B^2},\qquad
+\phi-b=\frac{4(m-a)(m-b)(m-c)(c-b)(a-b)}{B^2},\qquad
+\phi-c=\frac{A^2(b-c)}{B^2},
 \]
 \[
-\phi = b - \frac{a(b - a)(b - 1) b - c}{B} - \frac{a a(b - c)(b - 1)(b - a)}{B C},
-\]
-\[
-Q = b + \frac{B^2 + a c}{B C},
-\]
-\[
-Q - a = \frac{B(b - c)(b - 1)(b - a)}{B C},
-\]
-\[
-Q - a_0 = \frac{B(a - c)(b - 1)(b - a)}{B C},
+Q-b=\frac{2(m-b)(m-c)(a-b)}{B},\qquad
+Q-m=-\frac{A(m-b)}{B},\qquad
+\phi-Q=-\frac{2(m-b)(m-c)C(a-b)}{B^2},
 \]
 and
 \[
-\sqrt{M_0} = \pm \sqrt{M}(b - c) - \frac{a Q}{B C^2}.
+\sqrt\Phi=2\sqrt M\,(c-b)(b-a)\frac{AC}{B^3},
 \]
-which determine $\phi$, $\sqrt{M_0}$.
+which determine $\phi,\sqrt\Phi$.
 
-Point 5' by means of the conic $12345'6'6'$.
-
-The conic is
+Point $3'$ by means of the conic $1263'4'5'$. The conic is
 \[
-Fx + Gy + H = \frac{(a - b)(a - x)}{y}. \quad (a, 1)
+Fx+Gy+H=\frac{(x-b)(x-c)}{y},\qquad (4',5'),
 \]
 
-\clearpage
-
-\bigskip
-\textit{p.~382}
-\smallskip
-
+\sourcepage{382}{446}
 \noindent
 and we have
 \[
-G + H = a,
+G+H=bc,\tag{2}
 \]
 \[
-F a_0 + G \sqrt{M} + H = \frac{(a - b)(a - a_0)}{\sqrt{M}}, \quad (1)
+Fm+G\sqrt M+H=\frac{(m-b)(m-c)}{\sqrt M},\tag{1}
 \]
 \[
-F a_0 - G \sqrt{M} + H = -\frac{(a - b)(a - a_0)}{\sqrt{M}}, \quad (1)
+Fm_1-G\sqrt{M_1}+H=\frac{(m_1-b)(m_1-c)}{-\sqrt{M_1}},\tag{6}
 \]
-
 Eliminating $F$, we have
 \[
-G(a a_0 \sqrt{M} + a a \sqrt{M_0}) = a a_0 + \frac{a_0 (a - b)(a - a_0)}{\sqrt{M}}\sqrt{M} + \frac{a(a - b)(a - a_0)}{\sqrt{M}}\sqrt{M_0},
+G(m_1\sqrt M+m\sqrt{M_1})+H(m-m_1)
+=\frac{m_1(m-b)(m-c)}{\sqrt M}
+\frac{m(m_1-b)(m_1-c)}{\sqrt{M_1}},
 \]
-which is easily reduced to the form
+which is easily reduced first to
 \[
-G \frac{\theta a_0 - \theta a a_0 + a a a_0}{(a a - a)\sqrt{M}} + H(\theta - a) = (a + a) + 2a \sqrt{M_0},
+G\frac{2mm_1-a(m+m_1)}{(m-a)\sqrt M}
+H(m-m_1)=(m+m_1)\frac{(m-a)(m-b)}{\sqrt M},
 \]
-and thence
+and then to
 \[
-G(a A + 2a c(\theta - a)) - \frac{\theta a_0 - \theta a a_0 + a a a_0}{\sqrt{M}} \sqrt{M_0} + abc + 2 b c (a - a_0) \sqrt{M_0}
+G\{aA+2m(a-b)(a-c)\}
+-H\frac{(m-a)A}{\sqrt M}
+abc\{-A+2m(m-a)\}=0;
 \]
-and combining herewith $G + H = b$, we have
+and combining herewith $G+H=bc$, we have
 \[
-H = \frac{2 b c (a - a_0) - a + b a_0 + a c}{(a - a) - a A} \sqrt{M_0} + \frac{a A(b - a) + 2 a b c (a a_0 - a_0 + a a)}{a A (a - a) - a A},
+H=\frac{2bcm\{a(m-a)+(a-b)(a-c)\}}
+{aA+2m(a-b)(a-c)+\dfrac{(m-a)A}{\sqrt M}},
+\]
+\[
+G=bc-H;
 \]
 and we have then
 \[
-G = b - H;
+F(m+m_1)+G(\sqrt M-\sqrt{M_1})+2H=0,
 \]
 that is,
 \[
-F(a - a_0) + G \sqrt{M} + 2 H = 0,
+F\{2m(m-a)-A\}+G\frac{A\sqrt M}{m-a}+2H(m-a)=0,
 \]
-that is, what is the same thing,
+or, what is the same thing,
 \[
-F(a a_0 (a - a_0) - 2 b H + \frac{A}{C} + \frac{2 a A}{C^2} \sqrt{M_0} + 2 H(a - a_0) = 0.
+F\{2m(m-a)-A\}=-bc\frac{A\sqrt M}{m-a}
+-H\left\{2(m-a)-\frac{A\sqrt M}{m-a}\right\}.
 \]
-
-We have therefore
+We then have
 \[
-F a + H = \frac{a}{2}\left(G - \frac{Aa(a a a_0 - a A)}{a - a a_0}\right)
-\]
-\[
-\quad = \frac{1}{2}\left(b - G + \frac{Aa(a A + a)}{a - a A}\right),
+Fx+H=y\left(-G+\frac{(x-b)(x-c)}{y^2}\right)
+=y\left(-G-\frac{abc}{x-a}\right)
+=-\frac{y(Ha+Gx)}{x-a},
 \]
 that is,
 \[
-(F + H)\,x = \frac{(a - b)(a - x)}{x b a} (Hx + 2 G x).
+(Fx+H)^2=-\frac{(x-b)(x-c)}{abc(x-a)}(Ha+Gx)^2.
 \]
 
-\clearpage
-
-\bigskip
-\textit{p.~383}
-\smallskip
-
-\noindent
+\sourcepage{383}{447}
 or
 \[
-ab a_0 (a - a_0) F + H x + 2 G x = (a - b)(a + a_0)(Hx + 2 G x) = 0.
+abc(x-a)(Fx+H)^2+(x-b)(x-c)(Gx+Ha)^2=0.
 \]
-
-Developing and throwing out the factor $a - b$, we have
+Developing and throwing out the factor $x$, this is
 \[
-G^2 a^2
-+ [(B a a c) - (b + c) G a a b a^2]
-+ [a^2 H^2 - 2 a(b + c) G H + a(b a^2 + a^2 H^2)]
+\begin{aligned}
+&G^2x^3+\{2aGH-(b+c)G^2+abcF^2\}x^2\\
+&\quad+\{a^2H^2-2a(b+c)GH+bcG^2+abc(2FH-aF^2)\}x\\
+&\quad+\{-(b+c)a^2H^2+2abcGH+abc(H^2-2aFH)\}=0.
+\end{aligned}
 \]
+This must be satisfied by $x=m$, $x=m_1$; hence the left hand must be
+$G^2(x-m)(x-m_1)(x-\sigma)$, or equating the constant terms we have
 \[
-+ [-(b + c)a^2 H^2 + b a c G H + a(B aFH) = 0;
+G^2mm_1\sigma
+=aH\{-2abcF+2bcG+(bc-ab-ac)H\},
 \]
-This must be satisfied by $a = a$, $a_0 = a$; hence the left hand must be $= a^2 (b - a)(a - a a_0)$,
-or equating the constant terms we have
+which gives $\sigma$; and we then have
 \[
-G^2 a a a_0 = a A (1 - 2 a a c B (b - a)) - a_0 (B - 2 b a F H + a c H^2),
-\]
-which gives $a^2$; and we then have
-\[
-\sqrt{M_0} = \frac{a - a_0}{a B - a A}\left(F a a + H\right),
+\sqrt\Sigma=-\frac{\sigma-a}{G\sigma+Ha}(F\sigma+H),
 \]
 but I have not attempted the further reduction of these expressions.
 
 The numerical values for the example are
 \[
-3 F = \frac{-180 + 62 \sqrt{14}}{5 + 21 \sqrt{14}}, \qquad G = \frac{-10 + 62 \sqrt{14}}{5 + 21 \sqrt{14}}, \qquad H = \frac{-104 \sqrt{14}}{1 + \sqrt{14}}
+3F=\frac{-140+62\sqrt{14}}{5+21\sqrt{14}},\qquad
+G=\frac{-10+62\sqrt{14}}{5+21\sqrt{14}},\qquad
+H=\frac{-104\sqrt{14}}{5+\sqrt{14}},
 \]
-whence $a_0$ is in the Table.
+whence $\sigma$ as in the Table.
 
-Point $2'$ by means of the conic $1$ $34'5'4'1'$.
-
-The equation of the conic is
+Point $2'$ by means of the conic $1362'4'5'$. The equation of the conic is
 \[
-F x + G y + H = \frac{a - b}{y}, \quad (a', 1)
+Fx+Gy+H=\frac{(x-b)(x-c)}{y},\qquad (4',5'),
 \]
 where
 \[
-- G + H = b a_0,
+-G+H=-bc,\tag{3}
 \]
 \[
-F a_0 + G \sqrt{M_0} + H = \frac{(b - a)(a - a_0)}{\sqrt{M_0}}, \quad (1)
+Fm+G\sqrt M+H=\frac{(m-b)(m-c)}{\sqrt M},\tag{1}
 \]
 \[
-F a_0 - G \sqrt{M_0} + H = \frac{(b - a)(a - a_0)}{- \sqrt{M_0}}, \quad (1),
+Fm_1-G\sqrt{M_1}+H=\frac{(m_1-b)(m_1-c)}{-\sqrt{M_1}},\tag{6}
 \]
-which are the same as for point $5'$, but only we recover the signs of $F$, $H$, and $\sqrt{M}$, $\sqrt{M_0}$.
+which are the same as for point $3'$, if only we reverse the signs of
+$F,H$ and $\sqrt M,\sqrt{M_1}$.
 
-\clearpage
-
-\bigskip
-\textit{p.~384}
-\smallskip
-
-\noindent
+\sourcepage{384}{448}
 Hence the formulae are
 \[
-H = \frac{2 b c (a - a_0) - a + b a + a c}{aA + 2 a c (a - a) - (a)}\sqrt{M_0} + \frac{a A (b - a)}{aA},
+H=-\frac{2bcm\{a(m-a)+(a-b)(a-c)\}}
+{aA+2m(a-b)(a-c)-\dfrac{(m-a)A}{\sqrt M}},
 \]
 \[
-G = b a + H,
+G=bc+H,
 \]
 \[
-F(a - a_0) + G \sqrt{M_0} - 2 b c (F + H)\,a_0,
+F\{2m(m-a)-A\}
+=-bc\frac{A\sqrt M}{m-a}
+-H\left\{2(m-a)+\frac{A\sqrt M}{m-a}\right\},
 \]
-which gives $a$; and then
 \[
-G a a_0 \sqrt{M_0} \sqrt{M_0} = -3 a a c \left(F a + H\right)\sqrt{M_0} + H\left(F a + H\right),
+G^2mm_1\tau
+=aH\{-2abcF-2bcG+(bc-ab-ac)H\},
 \]
-which are also reduced.
+which gives $\tau$; and then
+\[
+\sqrt T=\frac{\tau-a}{G\tau-Ha}(F\tau+H),
+\]
+which are also unreduced.
 
 The numerical values are
 \[
-3 F = \frac{140 + 62 \sqrt{14}}{5 - 21 \sqrt{14}}, \quad G = \frac{-10 - 62 \sqrt{14}}{5 - 21 \sqrt{14}}, \quad H = \frac{-104 \sqrt{14}}{3 - 21 \sqrt{14}},
+3F=\frac{140+62\sqrt{14}}{5-21\sqrt{14}},\qquad
+G=\frac{-10-62\sqrt{14}}{5-21\sqrt{14}},\qquad
+H=\frac{-104\sqrt{14}}{5-21\sqrt{14}},
 \]
-whence $\theta$ is in the Table.
+whence $\tau$ as in the Table.
 
-\clearpage
-
-% ============================================================
-% PAPER 522
-% Book pages 385--387
-% ============================================================
-\section{[522]}
-\subsection{Note on the Theory of Invariants.}
-
+\sourcepage{385}{449}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{iii}.\ (1871), pp.~268--271.]}
+{\large\bfseries 522. NOTE ON THE THEORY OF INVARIANTS.}
 \end{center}
+\articlenote{[From the Mathematische Annalen, vol. III. (1871), pp. 268--271.]}
 
-\textit{p.~385}
-
-\noindent
-\textsc{If} two binary quantics $(a, \ldots)(x, y)^n$, $(a', \ldots)(x', y')^n$ are linearly transformable
-the one into the other, and if for the first of these $P$, $Q$ are any two invariants whatever
-of the same degree, and $P'$, $Q'$ are the like invariants for the second of them, then
-we have
+If two binary quantics $(a,\ldots)(x,y)^n$, $(a',\ldots)(x',y')^n$ are linearly
+transformable the one into the other, and if for the first of them $P,Q$ are any two
+invariants whatever of the same degree, and $P',Q'$ are the like invariants for the
+second of them, then we have
 \[
-P : Q = P' : Q'.
+P:Q=P':Q',
 \]
-viz.\ what is the same thing, the absolute invariants have the same values for the two
-functions respectively; and the entire system of these equations constitutes only a
-$(n-3)$-fold relation between the two sets of coefficients.  For the converse theorem,
-viz.\ that if the entire system of equations is satisfied, the two functions are linearly
-transformable, see Clebsch, ``Theorie der bin\"aren algebraischen Formen,'' \S\,89.
+(or, what is the same thing, the absolute invariants have the same values for the two
+functions respectively); and the entire system of these equations constitutes only a
+$(n-3)$ fold relation between the two sets of coefficients. But the converse theorem,
+viz. that if the entire system of equations is satisfied, the two functions are linearly
+transformable the one into the other, is only true \textit{sub modo}.
 
-For instance, considering the two binary quartics
+For instance, considering the two binary sextics
 \[
-(a, b, c, d, e)(x, y)^4, \quad \text{and} \quad (a', b', c', d', e')(x', y')^4,
+(0,0,0,d,e,f,g)(x,y)^6
+\quad\text{and}\quad
+(0,0,0,d',e',f',g')(x',y')^6,
 \]
-say with the invariants
+or, what is the same thing,
 \[
-\begin{aligned}
-I &= ae - 4bd + 3c^2, \\
-J &= ace - ad^2 - b^2 e + 2bcd - c^3,
-\end{aligned}
+(20d,5e,2f,g)(x,y)^3y^3
+\quad\text{and}\quad
+(20d',5e',2f',g')(x',y')^3y'^3,
 \]
-and the like for the second of them; the conditions of equivalence are
+the invariants of the two functions respectively are each and all of them $=0$, and
+yet the two functions are not in general linearly transformable the one into the other.
+
+For they can be transformable only by the substitution
 \[
-I : J = I' : J',
+x=\lambda x'+\mu y',\qquad y=\rho y';
 \]
-or, what is the same thing, $I^3 J^{-2} = I'^3 J'^{-2}$, viz.\ this is a single relation between
-the two sets of coefficients $(a, b, c, d, e)$ and $(a', b', c', d', e')$, so that any 4 of the
-parameters $(a', b', c', d', e')$ may be considered as homogeneous functions of the
-elements $(a, b, c, d, e)$ of the form
+or, what is the same thing, only if the cubic functions are transformable by the
+substitution $x=x'+ay'$, $y=y'$; and forming for these the seminvariants
+$ac-b^2$ and $a^2d-3abc+2b^3$ for the cubic $(a,b,c,d)(x,y)^3$, we have as the
+necessary condition for the transformability
 \[
-P : Q = P' : Q'.
+(8df-5e^2)^3:(8d^2g-12def+5e^3)^2
+=(8d'f'-5e'^2)^3:(8d'^2g'-12d'e'f'+5e'^3)^2.
 \]
 
-\clearpage
-
-\bigskip
-\textit{p.~386}
-\smallskip
-
-\noindent
-To deduce this result from the theory of the cubic function, I observe that
-denoting by $A$, $B$, $C$, $\Delta$ the values of the quadrinvariant, the sextinvariant, and the
-discriminant, as given in Salmon's \textit{Higher Algebra}, Ed.\ 2, pp.\ 202--211, then in the
-particular case $a = 0$, $b = 0$, we have
-\begin{align*}
-A &= 10 B = c^2, \quad C = -8 d^2, \quad \Delta = 0, \\
-&+ 13 ce, \quad -3 cd e \quad + 36 cd^2 e \\
-&+ d^2, \quad + 9 d^2, \quad - 27 d^4 e^2 \\
-&+ e^2,
-\end{align*}
+\sourcepage{386}{450}
+To deduce this result from the theory of the sextic function, I observe that denoting
+by $A,B,C,\Delta$, the values of the quadrinvariant, the sextinvariant, and the
+discriminant, as given in Salmon's \textit{Higher Algebra}, Ed. 2, pp. 202--211, then in the
+particular case $a=0,b=0$, we have
+\[
+\begin{array}{rclcrclcrclcrcl}
+A&=&-10d^2&&B&=&d^4&&C&=&-8d^6&&\Delta&=&0,\\
+ &&+15ce&& &&-3cd^2e&& &&+36cd^4e&&&&\\
+ &&&& &&+c^2e^2&& &&-39c^2d^2e^2&&&&\\
+ &&&& &&&& &&-8c^3e^3.&&&
+\end{array}
+\]
 and hence forming the new invariants
-\begin{align*}
-B - 100 B &= A I, \\
-\Gamma &= 1000 C - 1200 A B + ?? A^3.
-\end{align*}
-the values of these in the same particular case $a = 0$, $b = 0$ are
-\begin{align*}
-B - 25 ce(I cf - bg) &= I = 200 c^3 e + 9 ce - 12 d ef + cd, \\
-- 200 cd^4 e &+ 8000 d^2 (3 ce + d^2),
-\end{align*}
-Taking now $A$, $B$, $C$, $\Delta$ as the invariants of the cubic, one of the conditions for the
-transformation is $B^3 : C^2 = B'^3 : C'^2$.
+\[
+\mathrm B=100B-A^2,\qquad
+\Gamma=1000C-1200AB+4A^3,
+\]
+the values of these in the same particular case $a=b=0$ are
+\[
+\mathrm B=25c^2(8df-5e^2)-100c^3g,
+\]
+\[
+\Gamma=-2500c^3(8d^2g-12def+5e^3)+3000c^4(10eg-9f^2).
+\]
+Taking now $A,B,C,\Delta$ as the invariants of the sextic, one of the conditions
+for the transformation is $B^3:C^2=B'^3:C'^2$.
 
-In the particular case $a = 0$, $b = 0$ and $a' = 0$, $b' = 0$, the invariants vanish and
-the equation is satisfied identically.  But if we assume in the first instance only
-$a = 0$, $b = 0$, but not $a' = 0$, $b' = 0$, then the terms which contain the common factors $c'$ and $c'$ respectively;
-and throwing these out, and then writing $c = 0$, $d = 0$, we obtain
-previously found in a different manner.
+In the particular case $a=b=c=0$ and $a'=b'=c'=0$, the invariants vanish and the
+equation is satisfied identically. But if we assume in the first instance only
+$a=b=0$, $a'=b'=0$, then the terms contain the common factors $c^6$ and $c'^6$
+respectively; and throwing these out, and then writing $c=0,c'=0$, we obtain the
+condition previously found in a different manner.
 
-It will be observed that the condition is of the original form $P : Q = P' : Q'$,
-but with the difference that $P$, $Q$ and the corresponding functions $P'$, $Q'$ are not
-invariants. In presenting the foregoing property these functions may however be called
-``imperfect invariants''; it being understood that an imperfect invariant is not an
-invariant, and is not in any case included in the term ``invariant'' used without
+It will be observed that the condition is of the original form $P:Q=P':Q'$, but
+with the difference that $P,Q$ and the corresponding functions $P',Q'$, are not
+invariants. As possessing the foregoing property these functions may however be
+called ``imperfect invariants,'' it being understood that an imperfect invariant is not
+an invariant, and is not in any case included in the term ``invariant'' used without
 qualification.
 
 And we may now establish the general theory as follows: Consider the similarly
-constituted special forms $(a, \ldots)(x, y, z, \ldots)^p$ and $(a', \ldots)(x', y', z', \ldots)^p$; to be in these
-the coefficients $(a, \ldots)$ may be regarded as homogeneous functions of the elements
-$(z, \ldots)$, which are either algebraical, or homogeneously connected together in any
-manner; and then the coefficients $(a', \ldots)$ will be the like functions of the elements
-$(x', y', \ldots)$ which are either independent or (as the case may be) homogeneously connected
-in the like manner.
+constituted special forms $(a,\ldots)(x,y,z,\ldots)^n$ and
+$(a',\ldots)(x',y',z',\ldots)^n$: to fix the ideas the coefficients $(a,\ldots)$ may
+be regarded as homogeneous functions of the elements $(\alpha,\beta,\ldots)$ which
+are either independent, or homogeneously connected together in any manner; and then
+the coefficients $(a',\ldots)$ will be the like functions of the elements
+$(\alpha',\beta',\ldots)$ which are either independent or (as the case may be)
+homogeneously connected in the like manner.
 
-The entire series of functions $P, Q, \ldots$ of $(a, \ldots)$, which are such that, if  for
-any of the same degree, and $P'$, $Q'$ being the like functions of $(a', \ldots)$, the relations
-$P : Q = P' : Q'$ are equivalent to a $(n-3)$-fold relation between the
-linearly transformable function $(a, \ldots)(x, y, z, \ldots)^p$, may, in a sort of like manner,
+The entire series of functions $P,Q,\ldots$ of $(\alpha,\beta,\ldots)$, which are
+such that $P,Q$ being of the same degree, and $P',Q'$ being the like functions of
+$(\alpha',\beta',\ldots)$, we have for the linearly transformable functions
+$(a,\ldots)(x,y,z,\ldots)^n$ and $(a',\ldots)(x',y',z',\ldots)^n$ the relation
 \[
-P : Q = P' : Q'.
+P:Q=P':Q',
 \]
 
-\clearpage
-
-\bigskip
-\textit{p.~387}
-\smallskip
-
+\sourcepage{387}{451}
 \noindent
-may be called the ``perfect and imperfect invariants'' of $(a, \ldots)(x, y, z, \ldots)^p$; and the
-relation in question be briefly referred to by the expression that the perfect and
-imperfect invariants are proportional.
+may be called the ``perfect and imperfect invariants'' of
+$(a,\ldots)(x,y,z,\ldots)^n$; and the relation in question be briefly referred to by the
+expression that the perfect and imperfect invariants are proportional.
 
-We have then the theorem that if the two functions $(a, \ldots)(x, y, z, \ldots)^p$ and
-$(a', \ldots)(x', y', z', \ldots)^p$ are linearly transformable the one into the other, the two functions
-have their perfect and imperfect invariants proportional; and \textit{conversely} the theorem,
-that two functions which have their perfect and imperfect invariants proportional, are
-linearly transformable the one into the other.
+We have then the theorem that if the two functions $(a,\ldots)(x,y,z,\ldots)^n$ and
+$(a',\ldots)(x',y',z',\ldots)^n$ are linearly transformable the one into the other,
+the two functions have their perfect and imperfect invariants proportional; and
+\textit{conversely} the theorem, that two functions which have their perfect and
+imperfect invariants proportional, are linearly transformable the one into the other.
 
-There is from a wide field of inquiry in regard to the imperfect invariants, even
-of a binary function, but still more so as to those of a ternary or quaternary function
+There is thus a wide field of inquiry in regard to the imperfect invariants, even of
+a binary function, but still more so as to those of a ternary or quaternary function
 representing a curve or surface possessed of singularities.
 
-We have in what precedes the explanation of an error into which I fell in my
-paper ``On the transformation of plane curves,'' \textit{Proc.\ Lond.\ Math.\ Soc.}, vol.\ \textsc{i}.\ No.~3,
-Oct.\ 1865, [384], see Arts.\ Nos.\ 27--30.  Considering a given curve of deficiency $D$ and,
-by means of a system of $D - 5$ points chosen at pleasure on the curve, transforming this
-into a curve of the order $D + 1$ with deficiency $D$; then for any two of the transformed
-curves (that is, two curves obtained by means of different systems of the $D - 5$ points)
-I showed that these had the same absolute invariants, common factors $\sigma'$ and $\sigma'$ respectively;
-and throwing these out, and then writing $c = 0$, $d = 0$, we have $c c^2 d c^2 = c'c'^2 d c'^2$, viz.\ $H$ vanish.
+We have in what precedes the explanation of an error into which I fell in my paper
+``On the transformation of plane curves,'' \textit{Proc. Lond. Math. Soc.}, vol. I. No. 3,
+Oct. 1865, [384], see Arts. Nos. 27--30. Considering a given curve of deficiency $D$
+and, by means of a system of $D-3$ points chosen at pleasure on the curve, transforming
+this into a curve of the order $D+1$ with deficiency $D$; then for any two of the
+transformed curves (that is, two curves obtained by means of different systems of the
+$D-3$ points) I showed that these had the same absolute invariants---or in the language
+of the present paper, that they had their invariants proportional, and I thence inferred
+that the two transformed curves were linearly transformable the one into the other---
+whereas, to sustain this conclusion, it is necessary that the two curves should have
+their perfect and imperfect invariants proportional; and this was in no wise proved.
+That the two transformed curves are not in fact linearly transformable the one into the
+other has since been shown \textit{a posteriori} by Dr Brill in the particular case $D=4$.
+Riemann's conclusions, with which my own were at variance, are thus correct.
 
-I remark that if the two transformed curves are linearly transformable the one
-into the other, then it cannot in the present case be true.
+I remark that if a binary function of an odd or even degree $n=2p+1$ or $=2p$, has
+$p+1$ equal factors, then the invariants all of them vanish; but the equality of the
+$p+1$ factors implies only a $p$-fold relation between the coefficients; that is, the
+vanishing of all the invariants gives only a $p$-fold relation between the coefficients,
+viz. the relation is $\frac12(n-1)$ fold or $\frac12 n$-fold according as $n$ is odd or even.
+Thus for a sextic function the equations $A=0$, $B=0$, $C=0$, $\Delta=0$ constitute
+only a 3-fold relation between the coefficients.
 
-We have a class of surfaces of negative deficiency; viz.\ any rational trans-
-formation of a cone for which the planes section has a given (positive) deficiency pro-
-duces such a surface; and I think it may be answered conversely that a surface of
-negative deficiency is always the rational transformation of a cone for which the
-deficiency is equal to that of the surface taken with the reverse sign.  As an instance,
-of course implies that the line joining the two corresponding (rational) points (this
-of course implies that the line joining the two corresponding points of the surface).
-We may call these ``perfect and imperfect invariants''; it being understood that an
-``imperfect invariant'' has all the properties of an invariant except that it does
-not satisfy the conditions of the linear transformation; and now in regard to the
-existence in the case of the hyperboloid is readily perceived.
+Similarly if the function has $p$ equal factors, then every invariant is a mere numerical
+multiple of a power of one and the same function $\Theta$; so that the vanishing
+invariants can be at once formed. And we have thus only a $(p-1)$ fold relation
+between the coefficients, viz. the relation is $\frac12(n-3)$ fold or $\frac12(n-2)$ fold
+according as $n$ is odd or even.
 
-\noindent\textit{Cambridge,\ 4 August,\ 1870.}
+\begin{flushright}
+Cambridge, 4 August, 1870.
+\end{flushright}
 
-\clearpage
-
-% ============================================================
-% PAPER 523
-% Book pages 388--393
-% ============================================================
-\section{[523]}
-\subsection{On the Transformation of Unicursal Surfaces.}
-
+\sourcepage{388}{452}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{iii}.\ (1871), pp.\ 469--474.]}
+{\large\bfseries 523. ON THE TRANSFORMATION OF UNICURSAL SURFACES.}
 \end{center}
+\articlenote{[From the Mathematische Annalen, vol. III. (1871), pp. 469--474.]}
 
-\textit{p.~388}
-
-\noindent
-\textsc{I consider} the question of the transformation (Abbildung auf einer Ebene) of
-unicursal surfaces.  Taking $(x, y, z, w)$ for the coordinates of a point on the surface,
-$(x', y', z')$ for those of the corresponding point on the plane; then if $X'$, $Y'$, $Z'$, $W'$
-denote each of them a function $(x', y', z')^n$, the equations of transformation are
+I consider the question of the transformation (\textit{Abbildung auf einer Ebene}) of
+unicursal surfaces. Taking $(x,y,z,w)$ for the coordinates of a point on the surface,
+$(x',y',z')$ for those of the corresponding point on the plane; then if
+$X',Y',Z',W'$ denote each of them a function $(x',y',z')^{n'}$, the equations of
+transformation are
 \[
-x : y : z : w = X' : Y' : Z' : W';
+x:y:z:w=X':Y':Z':W':
 \]
 and assuming that each of the curves
 \[
-X' = 0, \quad Y' = 0, \quad Z' = 0, \quad W' = 0
+X'=0,\qquad Y'=0,\qquad Z'=0,\qquad W'=0
 \]
 (or, what is the same thing, the general curve
 \[
-\alpha X' + \beta Y' + \gamma Z' + \delta W' = 0)
+aX'+bY'+cZ'+dW'=0)
 \]
-passes once through each of $\alpha$ points, twice through each of $\beta$ points, \ldots, $r$ times
-through each of $\nu$ points, the curves the successions $\Gamma$ write $\sigma$, instead of $\alpha$,$\beta$,\ldots), and writing also
+passes once through each of $\alpha_1$ points, twice through each of $\alpha_2$ points,
+\ldots, $r$ times through each of $\alpha_r$ points (for convenience I write
+$\alpha_r$ instead of $\alpha_r'$); and writing also
 \[
-n = n^2 - \Sigma r^2 \alpha,
+n=n'^2-\sum r^2\alpha_r,
 \]
 \[
-0 = 4n^2(n - 3) - 3 - n - \Sigma r(r + 1)\alpha,
+0=\frac12 n'(n'+3)-3-\Theta-\frac12\sum r(r+1)\alpha_r,
 \]
-(where $0 = 1$ as positive except in the case of special relations between the positions
-of the fixed points $a, n_1, \ldots, n_n$, which equations give
+(where $\Theta$ is $=0$ or positive except in the case of special relations between the
+positions of the fixed points $\alpha_1,\alpha_2,\ldots,\alpha_r$), which equations give
 \[
--n = 3n - 6 - 28n - 2\Sigma\alpha,
+-n=3n'-6-2\Theta-\sum r\alpha_r;
 \]
-then the order of the surface is $n$, and the order of the nodal curve is $0 = 2 n - \Sigma r - 2 \Sigma w$;
-I assume that the nodal curve has $\rho$ apparent double points and $\nu$ actual triple points,
-but no stationary points, so that $q$ being the class, we have $q = D - k - 2 \delta - 3 \nu$; and
-I endeavour to find from these numbers $\alpha, n_1, \ldots, n_n$.
+then the order of the surface is $=n$, and the order of the nodal curve is
+\[
+b=\frac12(n-2)(n-3)+\Theta.
+\]
+I assume that the nodal curve has $h$ apparent double points and $t$ actual triple
+points, but no stationary points, so that $q$ being the class, we have
+\[
+q=b^2-b-2h-6t;
+\]
+and I endeavour to find these numbers $q,t,h$.
 
-\clearpage
-
-\bigskip
-\textit{p.~389}
-\smallskip
-
-\noindent
+\sourcepage{389}{453}
 For this purpose, imagine through the nodal curve a surface of the order $k$, which
-therefore meets the surface besides in a curve of the order $n k - 25$; this curve $\Gamma$ and
-the cubic curve of the nodal curve, or simply the "residue."  The projection (Abbildung) of
-the complete intersection $5n$ is a curve of the order $kn'$ passing through each
-of the projections of the residue.  But as shown by Dr Clebsch the projection of the
-nodal curve is of the order $(n - 4)n' + 3$, and it passes $(n - 4)r + 1$ times through each
-of the points $a_1$; hence the projection of the residue is of the order $(k - n + 4)n' - 3$,
-and it passes $(k - n + 4)r - 1$ times through each of the points $a_1$.  I assume that
-the projection of the residue is the \textit{general} curve which satisfies the foregoing con-
-ditions, viz.\ that the residue, and its projection as defined by the foregoing conditions,
-\textit{depend each of them on the same number of constants}.  The necessity for this is I
-confess by no means obvious: but take as an illustration Steiner's quartic surface as
-transformed by the equations $x : y : z : w = x^2 : y^2 : z^2 : (x' + y' + z')$; the nodal curve
-consists of three lines meeting in a point, the quadric residue is the remaining inter-
-section of the surface by a quadric cone passing through the three lines; and the
-projection thereof is a line; the quadric cone, and therefore the conic, each depend
-upon 2 constants; and the line which is the projection of the conic depends also
-upon 2 constants; that the lines which is the projection of the conic depends
-the same number (2) of constants : at all events I make the assumption provisionally.
+therefore meets the surface besides in a curve of the order $nk-2b$; this curve I call
+the $k$-thic residue of the nodal curve, or simply the ``residue.'' The projection
+(\textit{Abbildung}) of the complete intersection $kn$ is a curve of the order $kn'$ passing
+$kr$ times through each of the points $\alpha_r$: this is made up of the projection of
+the nodal curve once, and of the projection of the residue. But as shown by Dr
+Clebsch the projection of the nodal curve is of the order $(n-4)n'+3$, and it passes
+$(n-4)r+1$ times through each of the points $\alpha_r$; hence the projection of the
+residue is of the order $(k-n+4)n'-3$, and it passes $(k-n+4)r-1$ times through each
+of the points $\alpha_r$. I assume that the projection of the residue is the general
+curve which satisfies the foregoing conditions, viz. that the residue, and its projection
+as defined by the foregoing conditions, depend each of them on the same number of
+constants. The necessity for this is I confess by no means obvious: but take as an
+illustration Steiner's quartic surface as transformed by the equations
+\[
+x:y:z:w=x'^2:y'^2:z'^2:(x'+y'+z')^2:
+\]
+the nodal curve consists of three lines meeting in a point, the quadric residue is the
+remaining intersection of the surface by a quadric cone passing through the three
+lines; and the projection thereof is a line; the quadric cone, and therefore the conic,
+each depend upon 2 constants; and the line which is the projection of the conic depends
+upon the same number (2) of constants: at all events I make the assumption
+provisionally.
 
 Now in the projection of the residue, we have twice the number of constants
 \[
-= [(k - n + 4) n' - 3](k - n + 4)n' - (k - n + 4) r \alpha_1,
+=\bigl[(k-n+4)n'-3\bigr](k-n+4)n'
+-2\sum\bigl[(k-n+4)r-1\bigr](k-n+4)r\,\alpha_r,
 \]
-viz.\ this is
+viz. this is
 \[
-= (k - n + 4)^2 n^2 + 4(k - n + 4) - 3n(k - n + 4)
+=(k-n+4)^2\left(n'^2-\sum r^2\alpha_r\right)
++(k-n+4)\left(-3n'+2\sum r\alpha_r\right),
 \]
-or, what is the same thing, is
+or, what is the same thing, it is
 \[
-= (k - n + 4)^2 n + (k - n + 4)(n - 4) + 2(k - n + 4),
+=(k-n+4)^2n+(k-n+4)(n-6-2\Theta),
 \]
-viz.\ reducing by means of the relation $-n = 4n - 6 - 28 + 2(n - 4)$, the number in
-question is
+viz. reducing, and replacing $\Theta$ by its value
+$-\frac12(n-2)(n-3)+b$, the number in question is
 \[
-= k^2n + k(-n^2 + 4n - 26) + 2(n - 4) k.
+=k^2n+k(-n^2+4n-2b)+2(n-4)b.
 \]
 
-Now $k$ being $=$ or $> n - 3$, the curve of intersection of a given surface as by a
+Now $k$ being $=$ or $>n-3$, the curve of intersection of a given surface $n$ by a
 surface $k$ depends on
 \[
-\tfrac{1}{2}(k + 1)(k + 2)(k + 3) - \tfrac{1}{2}(k - n + 1)(k - n + 2)(k - n + 3) - 1
+\frac16(k+1)(k+2)(k+3)
+-\frac16(k-n+1)(k-n+2)(k-n+3)-1
 \]
-constants; and making the surface $k$ to pass through the nodal curve, we have to subtract
-herefrom $(k + 1)b - \tfrac{1}{2}b - 2k$; that is, for the residue, twice the number of constants is
+constants; and making the surface $k$ to pass through the curve $b$ we have to subtract
+herefrom $(k+1)b-\frac12q-2t$; that is, for the residue, twice the number of constants is
 \[
-= \tfrac{1}{2}(k + 1)(k + 2)(k + 3) - \tfrac{1}{2}(k - n + 1)(k - n + 2)(k - n + 3) - 2 - 2(k + 1)b + \delta + 4t,
+\begin{aligned}
+&=\frac13(k+1)(k+2)(k+3)
+-\frac13(k-n+1)(k-n+2)(k-n+3)\\
+&\quad-2-2(k+1)b+q+4t,
+\end{aligned}
 \]
-viz.\ this is
+viz. this is
 \[
-= k^2 n + k(-n^2 + 4n - 2b) + \tfrac{1}{4}(n - 2)(n - 3)(n - 4) - 2b - 25 + q + 2\,(n - 4).
+=k^2n+k(-n^2+4n-2b)+\frac13(n-1)(n-2)(n-3)-2b+q+4t.
 \]
 
-\clearpage
-
-\bigskip
-\textit{p.~390}
-\smallskip
-
-\noindent
+\sourcepage{390}{454}
 Hence comparing the two expressions in question we have
 \[
-2(n - 4) = (n - 4)n' - \tfrac{1}{4}(n - 2)(n - 3)(n - 4) + 2 b + 25 - q,
+2(n-4)b=\frac13(n-1)(n-2)(n-3)-2b+q+4t,
 \]
 that is,
 \[
-0 = (n - 4)\{n' - \tfrac{1}{4}(n - 2)(n - 3)(n - 4) + 2 b + 25 - q\} = q,
+0=\frac13(n-1)(n-2)(n-3)-2(n-3)b+q+4t,
 \]
 or, as I prefer to write it,
 \[
-0 = (n - 4) \{n' - \tfrac{1}{4}(n - 2)(n - 3)(n - 4) + 2 b + 25 - q\} = 0;
+q+4t=2(n-3)b-\frac13(n-1)(n-2)(n-3),
 \]
 which agrees with a more general formula in my ``Memoir on the theory of Reciprocal
-Surfaces,'' \textit{Phil.\ Trans.}\ vol.\ \textsc{cli}.\ (1869), [167], see p.\ 327, [Coll.\ Math.\ Papers,\ vol.\
-p.\ 316].  I consider any two residues, a $b$-fold residue and a $b'$-fold residue, the inter-
-section of these two surfaces and surface be equal to that of the two projections.  Now
-the projection being (as above) twice the
+Surfaces,'' \textit{Phil. Trans.} vol. CLIX. (1869), [411], see p. 227,
+[Coll. Math. Papers, vol. VI. p. 356]. I consider any two residues, a $k$-thic residue
+and a $l$-thic residue; to each intersection of these there corresponds an intersection
+of their projections: or the number of intersections of the two residues must be equal
+to that of the two projections. Now the projections being (as above)
 \[
-\text{order } (k - n + 4)n' - 3 \text{ passing through } (k - n + 4)r - 1 \text{ times through each of the points } a_1,
+\begin{array}{l}
+\text{order }(k-n+4)n'-3\text{ passing }(k-n+4)r-1\text{ times through each point }\alpha_r,\\
+\text{order }(l-n+4)n'-3\text{ passing }(l-n+4)r-1\text{ times through each point }\alpha_r,
+\end{array}
 \]
-the number of the intersections is
+the number of the intersections in question is
 \[
-= (k - n + 4)(k' - n + 4)n^2 - 3(k - n + 4) - 3(k' - n + 4) + 9 - \Sigma\{(k - n + 4)r - 1\}\{(k' - n + 4)r - 1\}
+\begin{aligned}
+&=\bigl[(k-n+4)n'-3\bigr]\bigl[(l-n+4)n'-3\bigr]\\
+&\quad-\sum\bigl[(k-n+4)r-1\bigr]\bigl[(l-n+4)r-1\bigr]\alpha_r+\omega,
+\end{aligned}
 \]
-viz.\ this is
+where for a reason which will be afterwards explained I have added the term $\omega$:
+this is
 \[
-= (k - n + 4)(k' - n + 4)n + (k - n + 4)(n - 4) + (k' - n + 4)(n - 4) - \Sigma(2k - n)(k' - n + 4)
+\begin{aligned}
+&=(k-n+4)(l-n+4)\left(n'^2-\sum r^2\alpha_r\right)\\
+&\quad+(k+l-2n+8)\left(-3n'+\sum r\alpha_r\right)+9-\left(\sum\alpha_r-\omega\right),
+\end{aligned}
 \]
-viz.\ substituting for $\theta$ its value $= n^2 - 4n + 2 \Sigma r - 2 + 2n$, and reducing, this number is
+viz. it is
 \[
-= 4k - 2k - k^2 - 1 + bn'k - 6n - 2 b k - (5n^2 - 25n + 12) - 2(n - 4).
+=(k-n+4)(l-n+4)n+(k+l-2n+8)(n-6-2\Theta)
++9-(\sum\alpha_r-\omega),
 \]
-
-But the surfaces $k$, $k'$, having in common the curve $b$ which is a nodal curve on $n$,
-besides intersect in
+viz. substituting for $\Theta$ its value $-\frac12(n-2)(n-3)+b$, and reducing, the
+number is
 \[
-b k - (b + 1)k' + 25 + 27 - 4t + 2q + p
+=kln-2(k+l)b-n^3+8n^2-16n+9+4(n-4)b-(\sum\alpha_r-\omega).
 \]
-the number of points $(Salmon's \textit{Geometry of Three Dimensions}, 2nd Ed., p.\ 283, except that in
-the formula as there given the singularity $t$ is not taken account of); that is, the number
+But the surfaces $n,k,l$, having in common the curve $b$ which is a nodal curve on
+$n$, besides intersect in
+\[
+kln-b(n+2k+2l-4)+2q+9t
+\]
+points (Salmon's \textit{Geometry of Three Dimensions}, 2nd Ed. p. 283, except that in the
+formula as there given the singularity $t$ is not taken account of); that is, the number
 of intersections of the two residues is
 \[
-= b k - 1 + (b + 1)k' - 4t + 2q + p
+kln-b(n+2k+2l-4)+2q+9t,
 \]
-which is equal to the number of intersections of the two projections.\footnote{I remark that there a being a positive number, $b$ is positive in each case I subtract herefrom $b k - 1 + (b + 1)k' - 4t + 2q$, the residue of the term so for $b k - 1 + (b + 1)k' - 4t + 2q$, and the rest of points are $b k - 1 + (b + 1)k' - 4t + 2q$.}
+which is equal to the number of intersections of the two projections; or comparing the
+numbers in question we have
+\[
+-n^3+8n^2-16n+9+4(n-4)b-(\sum\alpha_r-\omega)
+=-(n-4)b+2q+9t,
+\]
+that is,
+\[
+2q+9t=5(n-4)b-n^3+8n^2-16n+9-(\sum\alpha_r-\omega).
+\]
+\[
+\text{\small Two }(n+\lambda)\text{\small -thic residues meet in }
+n(\lambda+4)(\lambda+6)-12\lambda-39-4(\lambda+4)\Theta-(\sum\alpha_r-\omega)
+\]
+points; in particular, two $(n-3)$-thic residues meet in
+$3n-3-4\Theta-(\sum\alpha_r-\omega)$ points; and two $(n-2)$-thic residues meet in
+$8n-15-8\Theta-(\sum\alpha_r-\omega)$ points.
 
-\clearpage
-
-\bigskip
-\textit{p.~391}
-\smallskip
-
-\noindent
+\sourcepage{391}{455}
 But we have already found
 \[
-2q + 4t + p = 4(n - 5) - \tfrac{1}{2}n^2 + 4n^2 - bn^2 + bn,
+2q+8t=4(n-3)b-\frac12n^3+4n^2-\frac{25}{2}n+4,
 \]
 and we have therefore
 \[
-t = (n - 5) - \tfrac{1}{2}n^2 + 4n^2 - bn^2 + bn + bn,
+t=(n-8)b-\frac12n^3+4n^2-\frac72 n+5-(\sum\alpha_r-\omega),
 \]
 and
 \[
-q = -2(n - 4) - \tfrac{1}{2}n^2 + 4n^2 - 5n + 4(5n - b).
+q=-2(n-13)b+n^3-14n^2+31n-18+4(\sum\alpha_r-\omega).
 \]
 
 I obtain these results in a different manner by investigating expressions for the
-deficiency (Geschlecht) of the nodal residue $= 28$ and for that of its projection.
+deficiency (\textit{Geschlecht}) of the nodal residue $nk-2b$ and for that of its projection.
 
-First for the projection, the curve here is
+First for the projection, we have
 \[
-2D = [(n - 4)n^2 - 3](n - 4)n^2 - 4 - \Sigma(n - 4)r^2 - 1)(n - 4)r,
+\begin{aligned}
+\text{Twice Deficiency}
+&=\bigl[(k-n+4)n'-4\bigr]\bigl[(k-n+4)n'-5\bigr]\\
+&\quad-\sum\bigl[(k-n+4)r-1\bigr]\bigl[(k-n+4)r-2\bigr]\alpha_r+2\omega,
+\end{aligned}
 \]
+where I have added the term $2\omega$, as afterwards explained: this is
 \[
-= 2(n - 4) (n - 5) + (n - 4) - 4 + n^2 - 4n^2 - 5n + 4(5n - b),
+=(k-n+4)^2\left(n'^2-\sum r^2\alpha_r\right)
++(k-n+4)\left(-9n'+3\sum r\alpha_r\right)
++20-2(\sum\alpha_r-\omega),
 \]
-where, as before, $\Sigma r^2 = n^2 - n$, $\Sigma r = -n$, and $\Sigma r^2 - \Sigma r = n - n$.  To apply this to the
-deficiency $D$ of the nodal residue, we have
+viz. it is
 \[
-q = -2(n - 4) - 1 = n^2 - 4n + 2 \Sigma r - (3 - 25n - 2n),
+=(k-n+4)^2n+(k-n+4)(3n-18-6\Theta)+20-2(\sum\alpha_r-\omega),
 \]
-or substituting for $\theta$ in this value, $= [(n - 4) - \tfrac{1}{4}(n - 1)(n - 2)(n - 3) + 2 b + 25 - q]$, this is
+or substituting for $\Theta$ its value $-\frac12(n-2)(n-3)+b$ and reducing, it is
 \[
-= 2(n - 5) - (n^2 - 4n^2 + 4n - 4t + 2q)(n - 4),
+=k^2n+k(n^2-4n-6b)-2n^3+16n^2-32n+20+6(n-4)b
+-2(\sum\alpha_r-\omega).
 \]
 
-Next as regards the residue, the number of its apparent double points is obtained
+Next as regards the residue, the number $h'$ of its apparent double points is obtained
 in terms of $h$ and $t$ by the formula
 \[
-b k - n(k - 1) = (b + 1)(b + 2) + 2 \delta - 4t \quad (\text{Salmon},\,\text{l.\ c.},\,\text{p. 284}),
+8h+6t-2h'=(kn-4b)(k-1)(n-1)-2b(k-1),
 \]
-except that the singularity $t$ is not there taken account of; that is, the number
-of intersections of the two residues is
+(Salmon, l.c., p. 284, except that the singularity $t$ is not there taken account of);
+and we thence have
 \[
-2 \delta = b k^2 - (k - 1)b k + 2(b + 1)b + 2 \delta - 4t - 4t.
+\begin{aligned}
+\text{Twice Deficiency}
+&=(kn-1)(kn-2)-2h'\\
+&=kn(k+n-4)+4b^2+b(-4n-6k+12)+2-8h-6t,
+\end{aligned}
 \]
-or introducing a factor of 2 in the value of $\theta$, $= (n - 4)\{(n - 5n^2 + 4n - 4) + bn^2 + bn$.
-viz.\ this is
+or introducing $q$ instead of $h$ by the formula $4b^2-8h=4q+4b+24t$, this is
 \[
-2 \delta = (n - 4)\{(n - 4n^2 + 4n - 4) - 24 + bn^2 + bn^2 - 4t,
+=kn(k+n-4)+b(-4n-6k+12)+4q+4b+2+18t,
 \]
-viz.\ this is
+viz. it is
 \[
-2 \delta = (n - 4)\{(n - 4n^2 + 4n - 4)\} - 24n + bn^2 + bn^2 + (n - 5n^2 + 4n - 4)\}.
+=k^2n+k(n^2-4n-6b)-4(n-4)b+4q+18t.
+\]
+So that comparing with the deficiency of the projection we have
+\[
+-2n^3+16n^2-32n+20+6(n-4)b-2(\sum\alpha_r-\omega)
+=-4(n-4)b+4q+2+18t,
+\]
+that is,
+\[
+2q+9t=5(n-4)b-n^3+8n^2-16n+9-(\sum\alpha_r-\omega),
 \]
 the same result as before.
 
 \clearpage
+\section*{[523] On the Transformation of Unicursal Surfaces}
+\pagemarker{392}{523}{456}
 
-\bigskip
-\textit{p.~392}
-\smallskip
-
-\noindent
-The necessity for the term $\omega$ appears by the consideration that if we apply to
-the plane figure a Cremona-transformation, thus obtaining a new transformation of
-the surface, the value of $\Sigma\alpha$ will in general be altered; whereas the expressions for $q$, $t$
-should it is clear remain unaltered; and it arises as follows, viz.\ for certain transfor-
-mations of the surface the curve of the order $(k - n + 4)n' - 3$ which is the trans-
-formation of the residue (as defined by the foregoing conditions) ceases to be a curve
-of the assigned order, and to satisfy the order conditions; this is the assumed
-manner; and then the coefficient $(a, \ldots)$ will be the like functions of the elements
-an indecomposable curve but contains a certain number $\omega$ of factors (each belonging
-to a unicursal curve definable by means of the number of its passages through the
-several points $a_i$), which factors are to be rejected in order to obtain the equation of
-the proper residue.  Thus reverting to the transformation
+The necessity for the term $\omega$ appears by the consideration that if we apply to the
+plane figure a Cremona-transformation, thus obtaining a new transformation of the
+surface, the value of $\Sigma a_r$ will in general be altered; whereas the expressions
+for $q,t$ should it is clear remain unaltered; and it arises as follows, viz. for certain
+transformations of the surface the curve of the order $(k-n+4)n'-3$, passing
+$(k-n+4)r-1$ times through each point $a_r$ and assumed to be the projection of the
+residue, is not an indecomposable curve but contains a certain number $\omega$ of
+factors (each belonging to a unicursal curve definable by means of the number of its
+passages through the several points $a_r$), which factors are to be rejected in order
+to obtain the equation of the proper residue. Thus reverting to the transformation
 \[
-x : y : z : w = x' : y' : z' : (x' + y' + z')^2
+x:y:z:w=x'^2:y'^2:z'^2:(x'+y'+z')^2
 \]
-of Steiner's surface, the projection of the quartic residue was (as already remarked) a
+of Steiner's surface, the projection of the quadric residue was (as already remarked) a
 line; applying to the plane figure the ordinary quadric (or inverse) transformation we
-introduce three fixed points, $(n_1 = 3)$, say these are $A$, $B$, $C$; viz.\ in the new trans-
-formation of the surface the projection of the residue ought clearly to be a
-conic through the three points; but according to the general formula it is a quintic
-having at each of the points a triple point: the quintic in question is consequently
-made up of the conic and the three lines $1A$, $1B$, $1C$; that is, it is on this account
-that a like explanation applies to the first investigation of $2q + 9t$.
+introduce three fixed points, $(a_2=3)$, say these are $A,B,C$; viz. in the new
+transformation of the surface the projection of any plane section is a quartic curve
+having a node at each of the fixed points: the projection of the residue ought clearly
+to be a conic through the three points; but according to the general formula it is a
+quintic having at each of these points a triple point: the quintic is in fact made up
+of the lines $BC,CA,AB$ and of the conic which is the proper residue; viz. in the
+case in question there are 3 factors thrown out, or we have $\omega=3$. To apply this
+to the second investigation of $2q+9t$, by comparison of the two deficiencies, observe
+that in general if a curve is made up of $\omega+1$ indecomposable curves, the
+deficiency of the compound curve is equal to the sum of the deficiencies of the
+component curves $-\omega$; hence if $\omega$ of the curves are unicursal, the deficiency of
+the compound curve is equal to that of the remaining curve $-\omega$; or, what is the
+same thing, the deficiency of the remaining curve is equal to that of the compound
+curve $+\omega$; and the addition of the term $+\omega$ to the expression for the
+deficiency is thus accounted for. It is easy to see that a like explanation applies to
+the first investigation of $2q+9t$.
 
 I further remark, reverting to the equations
 \[
-x : y : z : w = X' : Y' : Z' : W'
+x:y:z:w=X':Y':Z':W'
 \]
-of the transformation, that the product of the $\omega$ factors is given as the common factor
-(if any) of the Jacobians
+of the transformation, that the product of the $\omega$ factors is given as the common
+factor (if any) of the Jacobians
 \[
-J(Y', Z', W'), \quad J(Z', W', X'), \quad J(W', X', Y') \quad \text{and} \quad J(X', Y', Z').
+J(Y',Z',W'),\quad J(Z',W',X'),\quad J(W',X',Y')\quad\hbox{and}\quad
+J(X',Y',Z').
 \]
 Such common factor exists whenever we can by a Cremona-transformation of the plane
-figure reduce the number of the points $a$, upon which the transformation of the
-surface depends; viz.\ for any given transformation of the surface, $\omega$ is equal to the
-excess of $\Sigma\alpha$ above the minimum value of $\Sigma\alpha$, and in this independent of the particular trans-
-formation. And of course of $\Sigma\alpha$ has this minimum value, viz.\ if the transformation
-is such that the number of the points $a$, cannot be reduced by any Cremona-trans-
+figure reduce the number of the points $a_r$ upon which the transformation of the
+surface depends; viz. for any given transformation of the surface, $\omega$ is equal to
+the excess of $\Sigma a_r$ above the minimum value of $\Sigma a_r$, or, what is the same
+thing, $\Sigma a_r-\omega$ is equal to the minimum value of $\Sigma a_r$, and is thus
+independent of the particular transformation. And of course if $\Sigma a_r$ has this
+minimum value, viz. if the transformation is such that the number of the points $a_r$
+cannot be reduced by any Cremona-transformation of the plane figure, then we have
+$\omega=0$.
 
-\clearpage
+\pagemarker{393}{523}{457}
 
-\bigskip
-\textit{p.~393}
-\smallskip
-
-\noindent
-formation of the planar figure, then we have $\omega = 0$. I presume that for the most
-simple transformation, that is, when $\sigma'$ has its least value, $\Sigma\alpha$ has also its least value,
-and consequently that $\omega = 0$.
+I presume that for the most simple transformation, that is, when $n'$ has its least
+value, $\Sigma a_r$ has also its least value, and consequently that $\omega$ is $=0$.
 
 Recapitulating, the results obtained are
 \[
-q = -2(n - 5) - 1 + 4n^2 + 4n^2 - 18 + 4(\Sigma\alpha - \omega),
+\begin{aligned}
+q&=-2(n-13)b+n^3-14n^2+31n-18+4(\Sigma a_r-\omega),\\
+t&=(n-8)b-\frac13 n^3+4n^2-\frac{26}{3}n+5-(\Sigma a_r-\omega),
+\end{aligned}
 \]
+where it will be recollected that
 \[
-t = (n - 5) - \tfrac{1}{2}n^2 - 4n^2 + \tfrac{1}{2}n - 4(\Sigma\alpha - \omega),
-\]
-where $\delta$ is to be excluded from
-\[
-\delta = \tfrac{1}{2}(n - 2)(n - 3) - b + p,
+b=\frac12(n-2)(n-3)+\Theta;
 \]
 the formulae are verified in the several cases:
 
 \begin{center}
-\textit{[Table: 6 column table with $n$, $n'$, $\Sigma\alpha$, $\delta$, $t$, $q$, $p$ and entries for}
-\textit{Quadric surface, Cubic scroll, Quartic with nodal conic, Quartic with nodal quadriquadric,}
-\textit{Quartic with two nodal lines etc. --- table omitted]}
+\begin{tabular}{rrrrrrrrrl}
+\toprule
+$n'$ & $a_1$ & $a'_2$ & $n$ & $\Theta$ & $\omega$ & $b$ & $q$ & $t$ & \\
+\midrule
+2& 2&0&2& 0&1&0&0&0& Quadric surface\\
+2& 1&0&3& 1&0&1&0&0& Cubic scroll\\
+2& 0&0&4& 2&0&3&0&1& Steiner's quartic surface\\
+3& 6&0&3& 0&0&0&0&0& Cubic surface\\
+3& 5&0&4& 1&0&2&2&0& Quartic with nodal conic\\
+2& 8&1&4& 0&0&1&0&0& Do. with nodal line\\
+2& 7&1&5&-1&0&4&8&0& Quintic with nodal quadriquadric\\
+2&11&0&5& 0&0&3&4&0& Do. with nodal skew cubic\\
+2&12&2&5&-1&0&2&0&0& Do. with two non-intersecting nodal lines\\
+\bottomrule
+\end{tabular}
 \end{center}
 
 which are the transformations chiefly as yet examined: but the first-mentioned case
-(quadric surface, generalised stereographic projection), although as stated the formulae
-are verified with the value $\omega = 1$, does not really come under the foregoing theory.
-It is interesting to see that they are verified in the last-mentioned cases, belonging to a
-negative value of $D$, that is, to a special system of formul\ae.
+(quadric surface, generalised stereographic projection), although as stated the
+formulae are verified with the value $\omega=1$, does not really come under the
+foregoing theory. It is interesting to see that they are verified in the last-mentioned
+case, belonging to a negative value of $\Theta$, that is, to a special system of fixed
+points.
 
-\noindent\textit{Cambridge,\ Dec.\ 5,\ 1870.}
+\noindent\textit{Cambridge, Dec. 5, 1870.}
 
 \clearpage
-
-% ============================================================
-% PAPER 524
-% Book pages 394--397
-% ============================================================
-\section{[524]}
-\subsection{On the Deficiency of Certain Surfaces.}
-
+\section*{[524] On the Deficiency of Certain Surfaces}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{iii}.\ (1871), pp.~526--529.]}
+\textit{[From the Mathematische Annalen, vol. III. (1871), pp. 526--529.]}
 \end{center}
 
-\textit{p.~394}
+\pagemarker{394}{524}{458}
 
-\noindent
-\textsc{If} a given point or curve is to be an ordinary or singular point or curve on a
-surface of the order $n$, this imposes on the surface a certain number of conditions,
-which number may be termed the ``Postulation''; thus ``Postulation of a given curve
-$\rho$-tuple curve on a surface $n$'' will denote the number of conditions to be satisfied
-by the surface in order that the given curve may be a $\rho$-tuple curve on the surface.
+If a given point or curve is to be an ordinary or singular point or curve on a surface
+of the order $n$, this imposes on the surface a certain number of conditions, which
+number may be termed the ``Postulation''; thus ``Postulation of a given curve
+\textit{qua} $i$-tuple curve on a surface $n$'' will denote the number of conditions to be
+satisfied by the surface in order that the given curve may be an $i$-tuple curve on
+the surface.
 
-The ``deficiency'' (Fl\"achenpoldecel) of a given surface of the order $n$ is
+The ``deficiency'' (Fl\"achengeschlecht) of a given surface of the order $n$ is
 \[
-= \tfrac{1}{6}(n - 1)(n - 2)(n - 3) -\,\text{the deficiency-value of the several singularities}; \quad \text{viz.}
+=\frac16(n-1)(n-2)(n-3)
 \]
-as shown by Dr Noether, if the surface has a given $\rho$-tuple curve, the deficiency-value hereof is
+less deficiency-value of the several singularities; viz. as shown by Dr Noether, if the
+surface has a given $i$-tuple curve, the deficiency-value hereof is
 \[
-=\text{Postulation of the curve } (\rho - 1)\text{-tuple curve on a surface } n - 4;
+=\hbox{Postulation of the curve \textit{qua} }(i-1)\hbox{ tuple curve on a surface }n-4;
 \]
-and if the surface has an ordinary singular point, the deficiency-value hereof is
+and if the surface has an $i$-conical point, the deficiency-value hereof is
 \[
-=\text{Postulation of the point } (\rho - 1)\text{ conical point on a surface } n - 4,
+=\hbox{Postulation of the point \textit{qua} }(i-2)\hbox{ conical point on a surface }n-4;
 \]
-viz.\ this is $= \tfrac{1}{6}(t - 1)t(t + 1)$ where, as I write throughout, $t = \rho - 3$.
+viz. this is $=\frac16 i(i-1)(i-2)$, and is thus independent of the order of the
+surface.
 
-I remark that if the tangent-cone at the conical point has $\delta$ double lines and
-$\nu$ cuspidal lines, then the deficiency-value is
+I remark that if the tangent-cone at the $i$-conical point has $\delta$ double lines and
+$\kappa$ cuspidal lines, then the deficiency-value is
 \[
-= \tfrac{1}{6}(t - 1) t (t + 1) - \tfrac{1}{2}\delta t - \nu(t - 1) - (\text{etc.})
+=\frac16 i(i-1)(i-2)+(i-2)(n-i-1)(\delta+\kappa).
 \]
-In the case of a double or cuspidal curve $\delta$ a $\rho$-tuple curve on the surface $n$ has the deficiency-value
-$= \text{Postulation of given curve}\,(\rho)\,\text{simple curve on a surface } n - 4$;
-and so for an ordinary cuspidal point: $\nu = 2$, and the deficiency-value $= 0$; results
-which were first obtained by Dr Clebsch.
-
-\clearpage
-
-\bigskip
-\textit{p.~395}
-\smallskip
-
-\noindent
-I found in this manner the expression for the deficiency of a surface having
-a double and cuspidal curve and the other singularities considered in my ``Memoir on
-the Theory of Reciprocal Surfaces,'' \textit{Phil.\ Trans.}, vol.\ \textsc{cli.\ (1869)}, [411,\ Coll.\ Math.\
-Papers, vol.\ \textsc{vi}.\ p.\ 358]; viz.\ this was
+In the case of a double or cuspidal curve $i$ is $=2$, and the deficiency-value is
 \[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - (n - 4)b + \tfrac{1}{6}(b + r) + 2t + \tfrac{1}{2}\beta + \tfrac{1}{2}\gamma + \tfrac{1}{2}n - \tfrac{1}{2}b,
+=\hbox{Postulation of given curve \textit{qua} simple curve on a surface }n-4;
+\]
+and so for an ordinary conical point $i$ is $=2$, and the deficiency-value is $=0$:
+results which were first obtained by Dr Clebsch.
+
+\pagemarker{395}{524}{459}
+
+I found in this manner the expression for the deficiency of a surface $n$ having a
+double and cuspidal curve and the other singularities considered in my ``Memoir on
+the Theory of Reciprocal Surfaces,'' \textit{Phil. Trans.} vol. CLIX. (1869), [411,
+\textit{Coll. Math. Papers}, vol. VI. p. 356]; viz. this was
+\[
+D=\frac16(n-1)(n-2)(n-3)-(n-3)(b+c)+\frac12(q+r)+2t+\frac72\beta+\frac32\gamma+i-\frac18\theta,
 \]
 where we have
-\begin{description}
-\item[$b$,] order of double curve,
-\item[$h$,] class of Do,
-\item[$\delta$,] order of cuspidal curve,
-\item[$\beta$,] number of intersections of the two curves, stationary points on $b$,
-\item[$\gamma$,] number of intersections, stationary points on $r$,
-\item[$j$,] number of intersections, not stationary points on either curve,
-\item[$\theta$,] number of certain singular points on $b$, the nature of which I do not com-
-plete to understand it is here taken to be $= 0$.
-\end{description}
-
+\[
+\begin{array}{rl}
+b,&\hbox{order of double curve,}\\
+q,&\hbox{class of Do.,}\\
+c,&\hbox{order of cuspidal curve,}\\
+r,&\hbox{class of Do.,}\\
+\beta,&\hbox{number of intersections of the two curves, stationary points on }b,\\
+\gamma,&\hbox{number of intersections, stationary points on }c,\\
+i,&\hbox{number of intersections, not stationary points on either curve,}\\
+\theta,&\hbox{number of certain singular points on }c,\hbox{ the nature of which I do not}\\
+&\hbox{completely understand; it is here taken to be }=0.
+\end{array}
+\]
 Before going further I remark that
-\begin{center}
-Postulation of right line god $\beta$-tuple on surface $n$
 \[
-= \tfrac{1}{6}(t + 1)(n - t) - \tfrac{1}{6}t(t + 1)(2t - 5),
+\begin{aligned}
+\hbox{Postulation of right line \textit{qua} }i\hbox{-tuple on surface }n
+&=\frac12 i(i+1)n-\frac16 i(i+1)(2i-5)\\
+&=\frac16 i(i+1)(3n-2i+5).
+\end{aligned}
 \]
-\end{center}
+Whence if a surface $n$ has an $i$-tuple right line, the deficiency-value hereof is
+\[
+=\frac16 i(i-1)(3n-2i-5),
+\]
 or we have
 \[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - \tfrac{1}{4}t(t + 1)(2n - 5),
+\begin{aligned}
+D&=\frac16(n-1)(n-2)(n-3)-\frac16 i(i-1)(3n-2i-5)\\
+&=\frac16(i-n+1)(i-n+2)(2i+n-3);
+\end{aligned}
 \]
-or we have
-\[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - \tfrac{1}{4}t(t + 1)(2n - 5),
-\]
-so that $D = 0$ either if $n = t - 1$ or if $n = t$, viz.\ these are surfaces of a scroll
-(skew surface) with a $(n - 1)$-tuple right line, the latter that of a surface with a
-$(n - 2)$-tuple line: those are known to be of deficiency $D = 0$.
+so that $D=0$ if either $i=n-1$ or $i=n-2$; the former case is that of a scroll (skew
+surface) with an $(n-1)$ tuple right line, the latter that of a surface with an
+$(n-2)$ tuple line: whence (as shown by Dr Noether) such surface is rationally
+transformable into a plane.
 
-For a surface of the order $n$ with a conical point where the tangent-cone has
-$\delta$ double lines and $\nu$ cuspidal lines, the deficiency-value is
+For a surface of the order $n$ with an $i$-conical point where the tangent cone has
+$\delta$ double lines and $\kappa$ cuspidal lines, we have
 \[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - \tfrac{1}{6}(t - 1)t(t + 1) - \tfrac{1}{2}\delta t + \nu(t - 1)
+\begin{aligned}
+D&=\frac16(n-1)(n-2)(n-3)\\
+&\quad-\left\{\frac16 i(i-1)(i-2)+(i-2)(n-i-1)(\delta+\kappa)\right\}\\
+&=\frac16(n-i-1)\{n^2+n(i-5)+i^2-4i+6-6(i-2)(\delta+\kappa)\};
+\end{aligned}
 \]
-viz.\ for $n = t$ this is $D = 0$.  In fact, a surface with a $(n - 1)$-tuple conical point is
-once seen to be rationally transformable into a plane; and for $r = t$, that is, for a
-cone of the order $n$, we have
+viz. for $i=n-1$ this is $D=0$ (in fact, a surface $n$ with an $(n-1)$ conical point is
+at once seen to be rationally transformable into a plane): and for $i=n$, that is, for
+a cone of the order $n$, we have
 \[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - \tfrac{1}{6}(n - 2)(n - 3)(n - 4) - \tfrac{1}{4}(n - 3)(n - 4)
+D=-\frac12(n-1)(n-2)+(n-2)(\delta+\kappa)-(n-3)(\delta+\kappa),
 \]
-\[
-= \tfrac{1}{4}(n - 1)(n - 2) - \tfrac{1}{4}n(n - 3),
-\]
-where the last term $-\tfrac{1}{4}\delta(n - 4) - \nu$ is added because in the present case the surface
-has the $\delta$ double lines and the $\nu$ cuspidal lines.
+where the last term $-(n-3)(\delta+\kappa)$ is added because in the present case the
+surface has the $\delta$ double lines and the $\kappa$ cuspidal lines.
 
-\clearpage
+\pagemarker{396}{524}{460}
 
-\bigskip
-\textit{p.~396}
-\smallskip
-
-\noindent
 The formula therefore gives
 \[
-D = -\tfrac{1}{6}(n - 1)(n - 2) + \delta;
+D=-\frac12(n-1)(n-2)+\delta+\kappa;
 \]
-viz.\ this is equal to the deficiency of the plane sections taken negatively.
+viz. this is equal to the deficiency of the plane sections taken negatively.
 
-I find that the same property exists for the deficiency of the planes sections taken negatively,
-having only a double curve; and \textit{actually} in the case of a torse (developable surface)
+I find that the same property exists first in the case of a scroll (skew surface)
+having only a double curve; and secondly in the case of a torse (developable surface)
 having a cuspidal curve with the ordinary singularities; and this being so there can
-I think be no doubt that for it is true for any small or torse whatever---viz.\ that
-in the face of the tetrahedron, or any in the plane of an equilateral triangle, the sum
-of any ruled surface whatever the deficiency is equal to that of the plane section
-taken negatively.
+I think be no doubt but that it is true for any scroll or torse whatever--viz. that for
+any ruled surface whatever the deficiency is equal to that of the plane section taken
+negatively.
 
 First, for the scroll, we have
 \[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - (n - 4)b + \tfrac{1}{6}\beta + \tfrac{1}{2}\beta,
+D=\frac16(n-1)(n-2)(n-3)-(n-3)b+\frac12q+2t,
 \]
 which should be
 \[
-= -\tfrac{1}{6}(n - 1)(n - 2) + b,
+=-\frac12(n-1)(n-2)+h.
 \]
-this is equal to the deficiency of the planes sections taken negatively.
+Salmon's equations give in the case of a scroll
+\[
+3t=(n-4)\{3b-n(n-2)\},\qquad
+q=n(n-2)(n-5)-2(n-6)b,
+\]
+and with these values the relation is at once verified.
 
-Secondly, for the torse; changing the notation into that used by the inequalities
-of the curve and torse, we have
+Secondly, for the torse; changing the notation into that used for the singularities of
+the curve and torse, we have
 \[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - (n - 4)x + n + \tfrac{1}{6}(\theta + r) + 2\beta + \tfrac{1}{6}\beta + \tfrac{1}{2}\gamma + \tfrac{1}{2}\beta,
+D=\frac16(n-1)(n-2)(n-3)-(n-3)x+\frac12q+2t+\frac72\beta+\frac32\gamma+i,
 \]
+which should be
 \[
-= -\tfrac{1}{6}(n - 1)(n - 2) + a.
+=-\frac12(m-1)(m-2)+h+\beta.
 \]
-We have $g = r(n - 8) - 8x$, and substituting this value and expressing everything in
-terms of $r$, $u$, $z$ by means of the formulae
+We have $q=r(n-3)-3x$, and substituting this value and expressing everything in
+terms of $r,m,n$ by means of the formulae
 \[
-n = \tfrac{1}{4}(r - n - 2 a),
-\]
-\[
-a = a - 3\delta - 2x - 3 \kappa + 4 \beta + 2 \kappa,
-\]
-\[
-g = a + (n - 2)x - 2\tau \kappa,
-\]
-\[
-g = a - n + (n - 2) z - 2 \kappa \kappa,
-\]
-\[
-n = a + (n - 2) z - 6 g,
-\]
-\[
-b = \tfrac{1}{4}(n - 2)x - 2 g,
+\begin{gathered}
+x=\frac12(r^2-r-n-3m),\qquad
+a=\frac12 n-3r+3m,\\
+\beta=n-3r+3m,\\
+t=\frac12\{r^3-3r^2-58r-3r(n+3m)+42n+78m\},\\
+\gamma=rm+12r-14m-6n,
+\end{gathered}
 \]
 we have after all reductions
 \[
-D = -\tfrac{1}{6}(n - 1)(n - 2) + r - 1 = -(n - 1)(n - 2) + \delta.
+D=-\frac12(m+n)+r-1=-\frac12(m-1)(m-2)+h+\beta.
 \]
+
+\pagemarker{397}{524}{461}
+
+We have thus a class of surfaces of negative deficiency; viz. any rational
+transformation of a cone for which the plane section has a given (positive)
+deficiency produces such a surface: and I think it may be assumed conversely that a
+surface of negative deficiency is always the rational transformation of a cone for which
+the deficiency is equal to that of the surface taken with the reverse sign. As an
+instance, take a quintic surface having a nodal conic and two 3-conical
+(cubiconical) points (this of course implies that the line joining the two cubiconical
+points is a line on the surface); the formula for the deficiency is
+$(n=5,b=2,q=2,r=0,t=0)$
+\[
+D=\frac16(n-1)(n-2)(n-3)-(n-3)b+\frac12q+2t-2,
+\]
+(viz. a term $-1$ for each of the cubiconical points)
+\[
+=4-4+1-2,\qquad =-1.
+\]
+Such a surface can be obtained as the quadric inverse of a cubic cone; viz. taking for
+the vertex the point $x:y:z:w=\alpha:\beta:\gamma:\delta$ and the cone to pass through
+the point $x=0,y=0,z=0$, the equation of the cone is
+\[
+(\delta x-\alpha w,\ \delta y-\beta w,\ \delta z-\gamma w)^3=0,
+\]
+where
+\[
+(\alpha,\beta,\gamma)^3=0.
+\]
+Taking $Q$ a quadric function $(x,y,z)^2$, the transformation in question consists in
+the change of $x,y,z,w$ into $xw,yw,zw,Q$; viz. the new equation, rejecting the factor
+$w$ which divides out, is
+\[
+w^{-1}(\delta xw-\alpha Q,\ \delta yw-\beta Q,\ \delta zw-\gamma Q)^3=0,
+\]
+which is a quintic surface, having the two cubiconical points $x=0,y=0,z=0$ and
+\[
+x:y:z:w=\alpha:\beta:\gamma:\delta^{-1}Q_0
+\]
+(where $Q_0$ is the value of $Q$ on writing therein $\alpha,\beta,\gamma$ in place of
+$x,y,z$): and having the nodal conic $w=0,Q=0$.
+
+\noindent\textit{Cambridge, 5 Jan. 1871.}
 
 \clearpage
-
-\bigskip
-\textit{p.~397}
-\smallskip
-
-\noindent
-We have then a class of surfaces of negative deficiency; viz.\ any rational trans-
-formation of a cone in the plane section has a given (positive) deficiency produces
-such a surface; and I think it must be conversely that a surface of
-negative deficiency is always the rational transformation of a cone for which the
-deficiency is equal to that of the surface taken with the reverse sign; viz.\ in the
-sentence, the formula for the deficiency is $(n - 1)$, $b = 2$, $\beta = 2$, $\theta = 0$, $i = 0$.
-\[
-D = \tfrac{1}{6}(n - 1)(n - 2)(n - 3) - (n - 4)b + \tfrac{1}{6}(b + r) + 2(n - 5) + 2(n - 1).
-\]
-viz.\ a scroll surface is obtained as the quartic inverse of a cubic cone; viz.\ taking
-for the vertex the point $x : y : z = 0$, $w$ may be a cubic function of $x$, $y$, $z$, and the
-remaining quartic also: of: $x : y : z$ and the equation of the cone is
-\[
-(ax - mn, by - py + \theta, kx - jz)^2 = 0,
-\]
-where $(A, B)$ etc. = 0.
-
-Taking $Q$ a quartic function $(x, y, z)$, the transformation in question consists in
-the change of $x, y, z, w$ into $xQ, yQ, zQ, wQ$.  (where $Q$ is inferior or equal to the
-plane $x, y, z = 0$ and having $Q$ as the equation of the cone in
-question and the conic $Q = 0$ as nodal conic $w = 0$, $Q = 0$.
-
-\noindent\textit{Cambridge, 5 Jan., 1871.}
-
-\clearpage
-
-% ============================================================
-% PAPER 525
-% Book pages 398--400
-% ============================================================
-\section{[525]}
-\subsection{An Example of the Higher Transformation of a Binary Form.}
-
+\section*{[525] An Example of the Higher Transformation of a Binary Form}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{iv}.\ (1871), pp.~359--361.]}
+\textit{[From the Mathematische Annalen, vol. IV. (1871), pp. 359--361.]}
 \end{center}
 
-\textit{p.~398}
+\pagemarker{398}{525}{462}
 
-\noindent
-\textsc{The} quartic
+The quartic
 \[
-\text{(1)}\quad (a, b, c, d, e)(x, y)^4
+(1)\qquad (a,b,c,d,e)(x,y)^4
 \]
-is by means of the two quantics
+is by means of the two quadrics
 \[
-\text{(\textit{T})}\quad (a, B, y)(x, y)^2 \quad \text{and} \quad (a', B', y')(x, y)^2
+(2)\qquad (\alpha,\beta,\gamma)(x,y)^2
+\quad\hbox{and}\quad
+(\alpha',\beta',\gamma')(x,y)^2
 \]
 transformed into
 \[
-\text{(2)}\quad (a_1, b_1, c_1, d_1, e_1)(x_1, y_1)^4,
+(3)\qquad (a_1,b_1,c_1,d_1,e_1)(x_1,y_1)^4,
 \]
-that is, eliminating $x$, $y$ from
+that is, eliminating $x,y$ from
 \[
-(a, b, c, d, e)(x, y)^4
-- x(a, b, y)(x, y)^2 + y(a', b', y')(x, y)^2 = 0,
+(a,b,c,d,e)(x,y)^4=0,\qquad
+(\alpha x_1+\alpha' y_1,\ \beta x_1+\beta' y_1,\ \gamma x_1+\gamma' y_1)(x,y)^2=0,
 \]
 we obtain
 \[
-(a_1, b_1, c_1, d_1, e_1)(x_1, y_1)^4 = 0.
+(a_1,b_1,c_1,d_1,e_1)(x_1,y_1)^4=0.
 \]
-It is required to express the invariants of (2) in terms of the simultaneous invariants
+It is required to express the invariants of (3) in terms of the simultaneous invariants
 of (1) and (2).
 
 Write
 \[
-P,\ Q,\ R = ax, + by, + \gamma y_1, \quad a'x_1 + B' y_1 + \gamma' y_1.
+P,Q,R=\alpha x_1+\alpha' y_1,\quad \beta x_1+\beta' y_1,\quad
+\gamma x_1+\gamma' y_1;
 \]
-the equations from which $(x, y)$ have to be eliminated are
+the equations from which $(x,y)$ have to be eliminated are
 \[
-(a, b, c, d, e)(x, y)^4 = (P, Q, R)(x, y)^2 = 0,
-\]
-we obtain
-\[
-(a, b, c, d, e)(x, y)^4 = (P, Q, R)(x, y)^2 = 0.
+(a,b,c,d,e)(x,y)^4=0,\qquad (P,Q,R)(x,y)^2=0.
 \]
 
-\clearpage
+\pagemarker{399}{525}{463}
 
-\bigskip
-\textit{p.~399}
-\smallskip
-
-\noindent
 and the result of the elimination therefore is
 \[
-\left|\begin{array}{cccc}
-a, & 4b, & 6c, & 4d, & e \\
-\, & a, & 4b, & 6c, & 4d, & e \\
-\, & \, & P, & 2Q, & R \\
-\, & \, & \, & P, & 2Q, & R \\
-\, & \, & \, & \, & P, & 2Q, & R
-\end{array}\right| = 0,
+\left|\begin{array}{ccccccc}
+a&4b&6c&4d&e&&\\
+&a&4b&6c&4d&e&\\
+&&P&2Q&R&&\\
+&P&2Q&R&&&\\
+P&2Q&R&&&&
+\end{array}\right|=0,
 \]
-viz.\ this determinant is the transformed quartic $(a_1, b_1, c_1, d_1, e_1)(x_1, y_1)^4$.
+viz. this determinant is the transformed quartic
+$(a_1,b_1,c_1,d_1,e_1)(x_1,y_1)^4$.
 
 The developed expression of the determinant is
 \[
-a^2 D - 8 b Q R
+\begin{aligned}
+&a^2R^4-8abQR^3
++\binom{-12ac}{+16b^2}PR^3-24acQ^2R^2+\binom{24ad}{-48bc}PQR^2-32adQ^3R\\
+&+\left(\begin{array}{r}2ae\\-32bd\\+36c^2\end{array}\right)P^2R^2
++\binom{-16ae}{+64bd}PQ^2R+16aeQ^4\\
+&+\binom{24be}{-48cd}P^2QR-32bePQ^3+\binom{-12ce}{+16d^2}P^3R
++24ceP^2Q^2\\
+&\qquad -8deP^3Q+e^2P^4.
+\end{aligned}
+\]
+So that writing for $P,Q,R$ their values, we have the transformed function
+$(a_1,b_1,c_1,d_1,e_1)(x_1,y_1)^4$, the coefficients being of the forms
+\[
+\begin{gathered}
+a_1=(a,b,c,d,e)^2(\alpha,\beta,\gamma)^4,\\
+b_1=(\ \prime\prime\ )^2(\alpha,\beta,\gamma)^3(\alpha',\beta',\gamma'),\\
+\cdots\\
+e_1=(\ \prime\prime\ )^2(\alpha',\beta',\gamma')^4.
+\end{gathered}
+\]
+Writing $I,J$ for the invariants of the quartic (1), and
+\[
+\begin{aligned}
+A&=4(\alpha\beta'-\alpha'\beta)(\beta\gamma'-\beta'\gamma)
+-(\gamma\alpha'-\gamma'\alpha)^2,\\
+B&=(e,c,a,b,c,d)(\alpha\beta'-\alpha'\beta,\,
+\gamma\alpha'-\gamma'\alpha,\,
+\beta\gamma'-\beta'\gamma)^2,
+\end{aligned}
+\]
+we have $I,J,A,B$ simultaneous invariants of the forms (1) and (2). Putting moreover
+$\nabla=I^3-27J^2$, and writing $I_1,J_1,\nabla_1$ for the like invariants of the
+form (3), I find
+\[
+I_1=4\left(4IB^2+12JAB+\frac13I^2A^2\right),
 \]
 \[
-= \binom{-12 a c}{+ 16 b^2} P^2 R^2 - 24 c R Q^2 P R + \binom{24 b c}{- 64 b d} P Q^2 R - 32 c d Q^4 R
+J_1=8\left\{8JB^3+\frac13I^2AB^2+2IJA^2B+
+\left(2J^2-\frac1{27}I^3\right)A^3\right\},
 \]
+and thence
 \[
-\quad + \binom{-32 c d}{+ 64 b d} P^2 R^2 - 32 c d Q^2 P R + 16 c^4
-\]
-\[
-\quad + \binom{32 d^2}{- 64 c d e} P R^3 - 32 d e Q R^3 + 16 e^4
-\]
-\[
-\quad + \binom{24 d e}{+ 64 c d} P R^2 - 24 e Q R^2 + 16 d^4
-\]
-\[
-\quad - 4 b P^3 Q + e P^3.
-\]
-or that writing for $P$, $Q$, $R$ their values, we have the transformed function
-$(a_1, b_1, c_1, d_1, e_1)(x_1, y_1)^4$; the coefficients being of the form
-\[
-a_1 = (a, b, c, d, e)(a, \beta, \gamma)^4, \quad (\alpha', \beta', \gamma')^4.
-\]
-\[
-b_1 = \&c., \quad \&c., \quad \&c.
-\]
-\[
-c_1 = \&c., \quad \&c.
-\]
-\[
-d_1 = \&c., \quad \&c.
-\]
-\[
-e_1 = \&c., \quad \&c.
-\]
-
-Writing $I$, $J$ for the invariants of the quartic (1), and
-\[
-A = b(c\delta^2 - 4B\gamma) + c(\gamma a - \beta^2) + d(a\beta - a\gamma),
-\]
-\[
-B = a c, \quad a, \quad b, \quad c, \quad d, \quad b, \quad c, \quad \beta - \beta^2,
-\]
-$A$, $B$ simultaneous invariants of the forms (1) and (2). Putting more-
-over $\nabla = P^2 - 2QR$, and writing $I$, $J$ the like invariants of the form (5), and
-\[
-J_1 = b I (B - I A) + B(I A B - 2 a B)A B + (3 D B - 3 a B)A^2,
-\]
-\[
-J_2 = b (a B - I A)A B + B(I A B - 2 a B)A B + (3 D B - 3 a B)A^2,
-\]
-we have
-\[
-\nabla_1 = 256 \nabla^2 (I^2 \nabla - I A B) \nabla.
+\nabla_1=256(4B^3-IA^2B-JA^3)\nabla.
 \]
 
-\clearpage
+\pagemarker{400}{525}{464}
 
-\bigskip
-\textit{p.~400}
-\smallskip
-
-\noindent
-As a verification, suppose $(\alpha, \beta, \gamma) = (1, 0, c)(1, 0, c)^2 = c + cx^2$ and $\nabla = P^2 - 2QR = -4 bc$.
-Take also $(a', \beta', \gamma') = (0, 1, b)(1, 0)^2 = y$; the transforming equation is then $I = 4 J$, and
-$(X, Y, x) = (-1, 0, 1)$. We have $\nabla = P^2 - 2 Q R$, $-4 b c$, $+ b \cdot y^4 \cdot a$, and $G = a c$, $D = 16$, and
-$(X, Y, x) = (1, 0, 1)$. We have
+As a verification, suppose $(a,b,c,d,e)(x,y)^4=x^4+y^4$ (whence $I=1$, $J=0$).
+And take
 \[
-\text{Det. } = (P, P^2(W + 2Y P W^2) = 2Q + (a + 2y)w - 2y^4 = (a + 2y, b, ay + 2y)^4 = 0.
+x_1(x+y)^2-y_1(x-y)^2=0
+\]
+for the transforming equation, that is, $(\alpha,\beta,\gamma)=(1,1,1)$ and
+$(\alpha',\beta',\gamma')=(-1,1,-1)$. We have $P=R=x_1-y_1$ and $Q=x_1+y_1$,
+and thence
+\[
+\begin{aligned}
+\Det&=(P^2+R^2)^2-16PQ^2R+16Q^4\\
+&=(2P^2-4Q^2)^2=(-2x_1^2-12x_1y_1-2y_1^2)^2,
+\end{aligned}
 \]
 that is,
 \[
-(a_1, b_1, c_1, d_1, e_1)(x_1, y_1)^4 = -2x_1 - 2(a + 2y)x_1^3y_1 + 6 a y x_1^2 y_1^2 + 2 (4 a y^2 - 2y^4)y_1^3.
+(a_1,b_1,c_1,d_1,e_1)(x_1,y_1)^4=4(x_1^2+6x_1y_1+y_1^2)^2,
 \]
 whence
 \[
-I_1 = \frac{4096}{3} \cdot a^2 b^2 c^2 (4 + (2 b)^2 \cdot 256),
-\]
-\[
-J_1 = \frac{262144}{27} \cdot b^4,
+I_1=\frac{4096}{3}=\frac{2^{12}}3,\qquad
+J_1=-\frac{262144}{27}=-\frac{2^{18}}{27};
 \]
 also
 \[
-A = -16, \quad B = 8,
+A=-16,\qquad B=8,
 \]
-and the equations for $I_1$, $J_1$ become
+and the equations for $I_1,J_1$ become
 \[
-\frac{4096}{3} \quad = 4 \delta (b + 2 \cdot 256),
+\frac{4096}{3}=4\left(4\cdot64+\frac13 256\right),
 \]
 \[
-\quad \frac{262144}{27} \quad = b\{-16 \cdot (64 + \delta \cdot 4096),\}
+-\frac{262144}{27}=8\left(\frac43\cdot(-16)\cdot64+\frac1{27}4096\right),
 \]
 which are true. More generally, assuming
 \[
-(a, b, c, d, e) = (4 \delta_0, c, x_0 + 6 \delta b)(x_1, y_1)^4 = 0
+(a,b,c,d,e)(x,y)^4=x^4+6\Theta x^2y^2+y^4,
 \]
-(where $I = 1 + 24 \delta^2, J = \delta - \delta^4$), we have the same transforming equation; we have
+(whence $I=1+3\Theta^2$, $J=\Theta-\Theta^3$), and the same transforming equation,
+we have
 \[
-\nabla = P^2 - 2 Q R, \quad e c, \quad c, \quad a^4 - 2 b c, \quad b, \quad a, \quad c, \quad b, \quad b, \quad b, \quad c, \quad b\delta;
+(a_1,b_1,c_1,d_1,e_1)(x_1,y_1)^4
+=4\{(1+3\Theta)x_1^2+(3-3\Theta)2x_1y_1+(1+3\Theta)y_1^2\}^2,
 \]
 whence
 \[
-I_1 = \frac{27}{3}(1 - 24 \delta^2), \quad J_1 = \frac{a^4}{27}(1 - 244 \delta^2),
+I_1=\frac{2^{12}}3(1-3\Theta)^2,\qquad
+J_1=-\frac{2^{18}}{27}(1-3\Theta)^3;
 \]
 also
 \[
-A = -16, \quad B = 8 + 1.
+A=-16,\qquad B=8(1-\Theta).
 \]
-Substituting these different values in the equations for $I_1$, $J_1$, we obtain
+Substituting these different values in the equations for $I_1,J_1$, we obtain
 \[
-16 (1 - 24 \delta^2) - (1 + 240 \delta) - 768 \cdot (75 - 56 \delta) + 49 \cdot 4 (1 + 24 \delta),
+16(1-3\Theta)^2=12(1+3\Theta^2)(1-\Theta)^2
+-72(\Theta-\Theta^3)(1-\Theta)+4(1+3\Theta^2)^2,
 \]
 and
 \[
--3 (3 - 540 \delta) + 27 \cdot 49 \delta - 49 \cdot 4 (1 + 240 \delta) + 27 \cdot (1 + 240 \delta) - 12 \cdot 24 \cdot 4 \delta - 16 \cdot (1 + 248 \delta) + 4 \cdot 4 (1 + 24 \delta),
+\begin{aligned}
+-8(1-3\Theta)^3={}&27(\Theta-\Theta^3)(1-\Theta)^3
+-9(1+3\Theta^2)^2(1-\Theta)^2\\
+&+27(1+3\Theta^2)(\Theta-\Theta^3)(1-\Theta)
+-54(\Theta-\Theta^3)^2+(1+3\Theta^2)^3,
+\end{aligned}
 \]
 which are in fact satisfied identically.
 
-\noindent\textit{Cambridge,\ 26 July,\ 1871.}
+\noindent\textit{Cambridge, 26 July, 1871.}
 
 \clearpage
-
-% ============================================================
-% PAPER 526
-% Book pages 401--403
-% ============================================================
-\section{[526]}
-\subsection{On a Surface of the Eighth Order.}
-
+\section*{[526] On a Surface of the Eighth Order}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{iv}.\ (1871), pp.~558--560.]}
+\textit{[From the Mathematische Annalen, vol. IV. (1871), pp. 558--560.]}
 \end{center}
 
-\textit{p.~401}
+\pagemarker{401}{526}{465}
 
-\noindent
-\textsc{I reproduce} in an altered form, so as to exhibit the application thereto of the
-theory of the six coordinates of a line, the analysis by which Dr Hierholzer obtained
-the equation of the surface of the eighth order generated by the lines of the vertex of a
-quadricone which touches six given lines.
+I reproduce in an altered form, so as to exhibit the application thereto of the theory
+of the six coordinates of a line, the analysis by which Dr Hierholzer obtained the
+equation of the surface of the eighth order, the locus of the vertex of a quadricone
+which touches six given lines.
 
-I call to mind that if $(A, B, C, D, E, F, G)$ are the coordinates of any two
-points on a line, then the quantities $(a, b, c, f, g, h)$, which denote respectively
+I call to mind that if $(\alpha,\beta,\gamma,\delta)$,
+$(\alpha',\beta',\gamma',\delta')$ are the coordinates of any two points on a line, then
+the quantities $(a,b,c,f,g,h)$, which denote respectively
 \[
-(by' - y'a, az - a'a, cy' - y'a, cz' - z'a, az - a'a, az' - z'a),
+(\beta\gamma'-\beta'\gamma,\ \gamma\alpha'-\gamma'\alpha,\ \alpha\beta'-\alpha'\beta,
+\alpha\delta'-\alpha'\delta,\ \beta\delta'-\beta'\delta,\ \gamma\delta'-\gamma'\delta),
 \]
-\[
-\text{and which are such that } af + by + cz = 0, \text{ are the six coordinates of the line\textsuperscript{*};}
-\]
+and which are such that $af+bg+ch=0$, are the six coordinates of the line.\footnote{Cayley,
+``On the six coordinates of a line,'' \textit{Camb. Phil. Trans.} vol. XI. (1869), [435],
+pp. 290--323.}
 
-Consider the given point $(x, y, z, w)$ and the lines $(a, b, c, f, g, h)$, and write
+Consider the given point $(x,y,z,w)$ and the given line $(a,b,c,f,g,h)$, and write
 for shortness
 \[
-\begin{aligned}
-P &= hy - g x + a w, \\
-Q &= -ax + f x + b w, \\
-R &= g x - f y + c w, \\
-S &= -ax - b y - c z,
-\end{aligned}
+P=hy-gz+aw,\quad Q=-hx+fz+bw,\quad R=gx-fy+cw,\quad S=-ax-by-cz;
 \]
-then taking $(X, Y, Z, W)$ as current coordinates, the equation of the plane through
+then taking $(X,Y,Z,W)$ as current coordinates, the equation of the plane through
 the given point and line is
 \[
-P X + Q Y + R Z + S W = 0,
+PX+QY+RZ+SW=0.
 \]
-\noindent\hfill
-Considering in like manner the given point $(x, y, z, w)$ and the three lines
-$(a_1, b_1, c_1, f_1, g_1, h_1)$, $(a_2, \ldots)$, $(a_3, \ldots)$, then we have the three planes
-\begin{align*}
-P_1 X + Q_1 Y + R_1 Z + S_1 W &= 0, \\
-P_2 X + Q_2 Y + R_2 Z + S_2 W &= 0, \\
-P_3 X + Q_3 Y + R_3 Z + S_3 W &= 0.
-\end{align*}
-\noindent\rule{0.45\textwidth}{0.4pt}\\
-\footnotesize\textsuperscript{*} Cayley, ``On the six coordinates of a line,'' \textit{Camb.\ Phil.\ Trans.}\ vol.\ \textsc{xi}.\ (1868), [435], pp.\ 290--323.\normalsize
-
-\clearpage
-
-\bigskip
-\textit{p.~402}
-\smallskip
-
-\noindent
-and if these planes have a common line, the point $(x, y, z, w)$ is in a line meeting
-each of the three given lines; that is, in the locus of the points in the hyperboloid
-through the three given lines.  It follows that the equations
+Considering in like manner the given point $(x,y,z,w)$ and the three given lines
+$(a_1,b_1,c_1,f_1,g_1,h_1)$, $(a_2,\ldots)$, $(a_3,\ldots)$, then we have the three
+planes
 \[
-\begin{vmatrix}
-P_1, & Q_1, & R_1, & S_1 \\
-P_2, & Q_2, & R_2, & S_2 \\
-P_3, & Q_3, & R_3, & S_3
-\end{vmatrix} = 0
+P_iX+Q_iY+R_iZ+S_iW=0,\qquad i=1,2,3,
 \]
-reduces themselves to a single equation, that of the hyperboloid in question.
+
+\pagemarker{402}{526}{466}
+
+and if these planes have a common line, the point $(x,y,z,w)$ is in a line meeting
+each of the three given lines; that is, the locus of the point is the hyperboloid
+through the three given lines. It follows that the equations
+\[
+\left|\begin{array}{cccc}
+P_1&Q_1&R_1&S_1\\
+P_2&Q_2&R_2&S_2\\
+P_3&Q_3&R_3&S_3
+\end{array}\right|=0
+\]
+reduce themselves to a single equation, that of the hyperboloid in question.
 
 I write for shortness
 \[
-(000) = (a\beta\delta) x^2 + (bb \gamma) y^2 + (cf y) y^2 + (ch \beta) x^4
+\begin{aligned}
+(000)={}&(agh)x^2+(bhf)y^2+(cfg)z^2+(abc)w^2\\
+&+[(abg)-(cah)]xw+[(bch)-(abf)]yw+[(caf)-(bcg)]zw\\
+&+[(bfg)+(chf)]yz+[(cgh)+(afg)]zx+[(ahf)+(bgh)]xy,
+\end{aligned}
 \]
+viz. $(123)$ will mean $(a_1g_2h_3)x^2+\cdots$, where $(a_1g_2h_3)$ etc. denote as
+usual the determinants
 \[
-+ [(a\beta\zeta) - (a b h)] y x
+\left|\begin{array}{ccc}
+a_1&g_1&h_1\\
+a_2&g_2&h_2\\
+a_3&g_3&h_3
+\end{array}\right|,\quad\hbox{etc.}
 \]
+Then the equations in question are found to be
 \[
-+ [(c\beta\eta) - (c b f)] z y
+x(123)=0,\quad y(123)=0,\quad z(123)=0,\quad w(123)=0,
 \]
-\[
-+ [(c\gamma g) - (a b c f)] xy
-\]
-\[
-+ [(b f g) + (a f h)] yw
-\]
-\[
-+ [(b f g) + (a c h)] xz
-\]
-viz.\ (123) will mean $(a_1 a_2 a_3) x^2 + $ etc.\ where $(a_1 a_2 a_3)$ denotes as usual the determinant
-\[
-\begin{vmatrix}
-a_1, & \beta_1, & \delta_1 \\
-a_2, & \beta_2, & \delta_2 \\
-a_3, & \beta_3, & \delta_3
-\end{vmatrix} \text{etc.;}
-\]
-then the equation in question are found to be (123) $x^2 = 0$, $y$(123) $x = 0$, $z$(123) $z = 0$,
-$w$(123) $w = 0$, reducing themselves to the single equation (123) $= 0$, which is accordingly
-that of the hyperboloid through the three lines\textsuperscript{*}.
+reducing themselves to the single equation $(123)=0$, which is accordingly that of
+the hyperboloid through the three lines.\footnote{This equation is given in the paper
+above referred to, \S 54.}
 
-Proceeding now to the above-mentioned problem, we have the point $(x, y, z, w)$,
-and the six lines $(a_1, b_1, c_1, f_1, g_1, h_1)$, $(a_2, \ldots)$, $(a_6, \ldots)$; the lines 1, 2, 3, 4, 5, 6: the
-six planes
+Proceeding now to the above-mentioned problem, we have the point $(x,y,z,w)$, and
+the six lines $(a_1,b_1,c_1,f_1,g_1,h_1)$, $(a_2,\ldots)$ etc., say the lines
+$1,2,3,4,5,6$: the six planes
 \[
-P_1 X + Q_1 Y + R_1 Z + S_1 W = 0,\ \text{etc.}
+P_1X+Q_1Y+R_1Z+S_1W=0,\quad\hbox{etc.}
 \]
 must be tangents to the same quadricone; that is, considering the sections by the
-plane $W = 0$, the six lines
+plane $W=0$, the six lines
 \[
-P_1 X + Q_1 Y + R_1 Z = 0,\ \text{etc.}
+P_1X+Q_1Y+R_1Z=0,\quad\hbox{etc.}
 \]
-must be tangents to the same conic; and the condition for this is
+must be tangents to the same conic, and the condition for this is
 \[
-[1 2 3 4 5 6] = 0
+[123456]=0,
 \]
-\noindent\rule{0.45\textwidth}{0.4pt}\\
-\footnotesize\textsuperscript{*} This equation is given in the paper above referred to, p.~314.\normalsize
 
-\clearpage
+\pagemarker{403}{526}{467}
 
-\bigskip
-\textit{p.~403}
-\smallskip
-
-\noindent
 where the symbol stands for the determinant
 \[
-\begin{vmatrix}
-P_1, & Q_1, & R_1, & Q_1 R_1, & R_1 P_1, & P_1 Q_1 \\
-P_2, & \cdots & \\
-\cdots &
-\end{vmatrix} = 0.
+\left|\begin{array}{cccccc}
+P_1^2&Q_1^2&R_1^2&Q_1R_1&R_1P_1&P_1Q_1\\
+P_2^2&\cdots&&&&\\
+\vdots&&&&&
+\end{array}\right|.
 \]
 But as is well known this equation may be written
 \[
-\text{(*)}\quad (126)(845)(145)(256) - (146)(125)(345)(245) = 0,
+(*)\qquad
+(126)(346)(145)(235)-(146)(236)(125)(345)=0,
 \]
-when (126) etc.\ denote the determinants
+where $(126)$ etc. denote the determinants
 \[
-\begin{vmatrix}
-P_1, & Q_1, & R_1 \\
-P_2, & Q_2, & R_2 \\
-P_6, & Q_6, & R_6
-\end{vmatrix} \text{etc.;}
+\left|\begin{array}{ccc}
+P_1&Q_1&R_1\\
+P_2&Q_2&R_2\\
+P_6&Q_6&R_6
+\end{array}\right|,\quad\hbox{etc.;}
 \]
-or, what is the same thing they denote the functions above represented by the like
-symbols (126) viz.\ ($a_1 a_2 a_6 x^2 + $ etc.) The equation (*) just obtained is therefore the
-for the surface of the eighth order, the locus of the vertex of a quadricone which
-touches six given lines.
+or, what is the same thing, they denote the functions above represented by the like
+symbols $(126)=(a_1g_2h_6)x^2+\cdots$. The equation $(*)$ just obtained is
+Hierholzer's equation for the surface of the eighth order, the locus of the vertex of a
+quadricone which touches six given lines.
 
-I remark that in my ``Memoir on Quartic Surfaces,'' \textit{Proc.\ Lond.\ Math.\ Soc.}, vol.\ \textsc{iii}.\
-(1870), [445], pp.\ 19--69, I obtained the equation of the surface which the foregoing
-form $[123456] = 0$ or any $[(P, Q, R)] = 0$, taking that there a factor a^*, so that
-the order of the surface is $= 8$; and further that the equation might be written
+I remark that in my ``Memoir on Quartic Surfaces,'' \textit{Proc. Lond. Math. Soc.}
+vol. III. (1870), [445], pp. 19--69, I obtained the equation of the surface under the
+foregoing form $[123456]=0$ or say $[(P,Q,R)^2]=0$, noticing that there was a factor
+$w^4$, so that the order of the surface is $=8$; and further that the equation might be
+written
 \[
-ww \omega'\nu' [a x + \beta y + b z] = (-a x + \beta y - b z) \nu' [a x + \beta y - b z](-a x + \beta y - b z) = 0,
+w^8\exp\frac1w\{x(g\partial_c-h\partial_b)+y(h\partial_a-f\partial_c)
++z(f\partial_b-g\partial_a)\}[(a,b,c)^2]=0,
 \]
-where exp.\ $\omega$ (read exponential) denotes $a^* x^x$ and $[(a, b, ce)]$ denotes
+where $\exp\Theta$ (read exponential) denotes $e^\Theta$, and $[(a,b,c)^2]$ denotes
 \[
-\begin{vmatrix}
-a, & b, & c \\
-b, & b_1, & c_1 \\
-c, & c_1, & b_1
-\end{vmatrix}
+\left|\begin{array}{cccccc}
+a_1^2&b_1^2&c_1^2&b_1c_1&c_1a_1&a_1b_1\\
+a_2^2&\cdots&&&&\\
+\vdots&&&&&
+\end{array}\right|.
 \]
 Also that the equation contains the four terms
 \[
-a^2 [ab, -b, gh] x'^2 - [a b f] x'^2 (b - f), \quad a^* + a y^2 [-f, g, c f]^* = -a [a, b, c f]^*.
+x^8[(a,-h,g)^2]+y^8[(h,b,-f)^2]+z^8[(-g,f,c)^2]+w^8[(a,b,c)^2]=0.
 \]
 
-\noindent\textit{Cambridge,\ 12 September,\ 1871.}
+\noindent\textit{Cambridge, 12 September, 1871.}
 
 \clearpage
-
-% ============================================================
-% PAPER 527
-% Book pages 404--408
-% ============================================================
-\section{[527]}
-\subsection{On a Theorem in Covariants.}
-
+\section*{[527] On a Theorem in Covariants}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{v}.\ (1872), pp.~625--629.]}
+\textit{[From the Mathematische Annalen, vol. V. (1872), pp. 625--629.]}
 \end{center}
 
-\textit{p.~404}
+\pagemarker{404}{527}{468}
 
-\noindent
-\textsc{The proof} given in Clebsch ``Theorie der bin\"aren algebraischen Formen'' (Leipzig 1872)
-of the finite number of the covariants of a binary form depends upon a subsidiary
-proposition which is deserving of attention for its own sake.
+The proof given in Clebsch, \textit{Theorie der binaren algebraischen Formen} (Leipzig,
+1872), of the finite number of the covariants of a binary form depends upon a
+subsidiary proposition which is deserving of attention for its own sake.
 
-I use my own hyperdeterminant notation, which is as follows: Considering a
-function $U = (a, \ldots)(x, y)^n$ (viz.\ $U_1 = U_2 = \ldots = (a, \ldots)(x_1, y_1)^n$ and writing $12 = d_{x_1} d_{y_2} - d_{y_1} d_{x_2}$,
-then the general form of a covariant of the degree $\theta$ is
+I use my own hyperdeterminant notation, which is as follows. Considering a function
+$U=(a,\ldots)(x,y)^n$ (viz. $U_1=(a,\ldots)(x_1,y_1)^n$, \&c.), and writing
+$12=d_{x_1}d_{y_2}-d_{y_1}d_{x_2}$, \&c., then the general form of a covariant of the
+degree $m$ is
 \[
-12^{r_{12}}\,13^{r_{13}}\,23^{r_{23}}\,\ldots U_1 U_2 \ldots U_\theta;
+k(12^\alpha 23^\beta\cdots)U_1U_2\cdots U_m,
 \]
-where $A$ is a sound numerical factor, the indices $a$, $\beta$, $\ldots$ are positive integers, and
-after differentiations (each set of variables $(x_1, y_1)\ldots(x_2, y_2)\ldots$ etc., is changed into
-$(x, y)$.  In the general form of a covariant is as above, viz.\ a covariant is equal to
-a sum of terms of the form $A$, $12^{a}\,\ldots U_1 U_2 \ldots U_\theta$, but writing the the term, before
-$A$ is equal to a sum of terms of the form $A$, $12^{a_{12}}\,\ldots U_1 U_2 \ldots U_\theta$, but writing the term, before
-$U_2 \ldots$ etc., the symbols which need to be replaced by $(x, y)$ for distinctness; the
-several sets of variables are each replaced by $(x, y)$ in all the orders---one of these
-functions with $\nabla$, and so for the other order---this can be obtained by interchanging
-the symbols.  $\nabla$, $\nabla'$, $\nabla''$, $\nabla'''$, then by means of the relation
-\[
-\nabla = 12 \, U_1 U_2,\quad \nabla = 12 \cdot 13 \cdot U_1 U_2 U_3 = (12 \cdot 13)\,\text{etc.}
-\]
-being now in the first instance a function of the single set $(x, y)$ of variables.
+where $k$ is a merely numerical factor, the indices $\alpha,\beta,\gamma,\ldots$ are
+positive integers, and after the differentiations each set of variables
+$(x_1,y_1),\ldots,(x_m,y_m)$ is replaced by $(x,y)$. I say that the general form of a
+covariant is as above; viz. a covariant is equal to a single term of the above form, or
+a sum of such terms.
 
-\clearpage
+Attending to a single term: the sum of the indices of all the duads which contain a
+particular number $1,2,\ldots$ as the case may be is called an index-sum; each
+index-sum is at most $=n$; so that, calling the index-sums
+$\sigma_1,\sigma_2,\ldots,\sigma_m$ respectively, we have
+$n-\sigma_1,n-\sigma_2,\ldots,n-\sigma_m$ each of them zero or positive. The term,
+before the several sets of variables are each replaced by $(x,y)$, is of the orders
+$n-\sigma_1,n-\sigma_2,\ldots,n-\sigma_m$ in the several sets of variables respectively.
 
-\bigskip
-\textit{p.~405}
-\smallskip
+The term may be expressed somewhat differently: for writing
+\[
+V_1=xd_{x_1}+yd_{y_1},\qquad V_2=xd_{x_2}+yd_{y_2},\quad\hbox{\&c.},
+\]
+then (except as to a numerical factor) it is for a function $\phi(x_1,y_1)$ the same
+thing whether we change $(x_1,y_1)$ into $(x,y)$, or operate on this function with
+$V_1^p$, and so for the other sets; the term may therefore be written
+\[
+V_1^{\,n-\sigma_1}V_2^{\,n-\sigma_2}\cdots
+(12^\alpha 23^\beta\cdots)U_1U_2\cdots U_m,
+\]
+being now in the first instance a function of the single set $(x,y)$ of variables.
 
-\noindent
-We may call the symbol $1\,2^{\alpha}\,1\,3^{\beta}\,2\,3^{\gamma}, \ldots$, and consider any of the symbols
-\[
-k \cdot 1\,\overline{1\,2}^{\alpha}\,\overline{1\,3}^{\beta}\,\overline{2\,3}^{\gamma}\,\ldots,\quad \text{or}\quad k \cdot 2^{\alpha}\,\ldots,\quad \nabla_{\alpha\ldots\theta} = k\,(\overline{12}\,\overline{13}\,\overline{23}\,\overline{14}\,\ldots)\,\nabla,
-\]
-which, under either of the two forms, $[k]$, denotes one of the symbols $[k]$, $\ldots$ etc.,
-that this is considered as a symbol involving the $\theta$ symbolic numbers 1, 2, 3, $\ldots$, $\theta$,
-even although in pursuance of the rule above stated, the symbol involving
-the actual expression of the symbol does not contain these symbolic numbers, viz.\ may
-have $x = w$, $y = u$, $\ldots$, $y = e$.  This being the case, $\nabla$ is a covariant of $U$, but
-several sets of variables are each replaced by $(x, y)$ in all the orders---one of these
-functions $\nabla$, $\nabla'$, $\nabla''$, then by means of the relation
-\[
-\nabla = 12 \, U_1 U_2.
-\]
+\pagemarker{405}{527}{469}
 
-For the four numbers $1, 2, 3, 4$ we have a group of the 15 formul\ae
+We may omit the operand $U_1U_2\cdots U_m$, and consider only the symbol
 \[
-\nabla,\ 12 - 34;\ \nabla,\ 14 - 23;\ \nabla,\ 33 - 14 = 0,
+k(12^\alpha 13^\beta23^\gamma\cdots)
+\quad\hbox{or}\quad
+V_1^{\,n-\sigma_1}\cdots V_m^{\,n-\sigma_m}
+(12^\alpha13^\beta23^\gamma\cdots),
 \]
+which, under either of the two forms, I represent for shortness by $[12\ldots m]$.
+Observe that this is considered as a symbol involving the $m$ symbolic numbers
+$1,2,3,\ldots,m$, even although in particular cases one or more of these numbers may
+be wanting from the actual expression of the symbol: thus $[123]$ may denote $12^n$,
+but the operand to be supplied thereto is always $U_1U_2U_3$.
+
+A sum of symbols is not in general equal to a single symbol; but a single symbol can
+be expressed in a variety of ways as a sum of symbols: the most simple
+transformation-formulae relate to three or four symbolic numbers; viz. for three such
+numbers, say $1,2,3$, we have
 \[
-\nabla,\ 24 + 13 \cdot 12 - 14,\ 23 = 0,
+V_1.23+V_2.31+V_3.12=0,
 \]
+showing that in a symbol, which written with the $V$'s involves $V_1.23$, this may
+be replaced by its value $V_2.13-V_3.12$; and so in other cases.
+
+For the four numbers $1,2,3,4$ we have a group of the like formulae
 \[
-\nabla,\ 23 + 14 - 12,\ 34 = 0,
+\begin{array}{rrrrr}
+&-V_2.34&+V_3.24&-V_4.23&=0,\\
+V_1.34&&-V_3.14&-V_4.31&=0,\\
+-V_1.24&&+V_3.14&-V_4.12&=0,\\
+V_1.23&+V_2.31&&&=0,
+\end{array}
 \]
 leading to
 \[
-23.\ 14 + 31.\ 24 + 12.\ 34 = 0,
+23.14+31.24+12.34=0,
 \]
-which is a form not involving the $\nabla$'s and consequently is applicable to the trans-
-formation of invariant-symbols where the numbers
+which is a form not involving the $V$'s and consequently is applicable to the
+transformation of invariant-symbols where the numbers
 \[
-a_1, a_2, \ldots, a_n, \ldots
+n-\sigma_1,\ n-\sigma_2,\ldots,n-\sigma_m
 \]
-are all $= 0$.
+are all $=0$.
 
-I establish the following definitions:
+I establish the following definitions. A symbol $[12\ldots m]$ is proximate when each
+index-sum is $<n$; otherwise it is ultimate; viz. this is the case when any one or
+more of the index-sums is or are $=n$. We may say that the symbol is ultimate as to
+1 if $\sigma_1=n$; and that it is ultimate as to 1, 2 if $\sigma_1$ and $\sigma_2$ are each
+$=n$: and so in other cases.
 
-A symbol $[12 \ldots m]$ is prominent when each index-sum is $\leq c$; otherwise it is
-ultimate; viz.\ this is the case when any one or more of the index-sums is or are $> c$.
-A symbol $[12 \ldots m]$ may be said to be \textit{primary} when it is $= w$; and that this is the
-ultimate as to $1, 2$ if $a, c$, and so on; and also as to a row when in other cases.
+A proximate symbol which has any one index-sum thereof $<\frac12n$ is said to be
+inferior: thus if $\sigma_1<\frac12n$ the symbol is inferior in regard to 1; and so if
+$\sigma_1$ and $\sigma_2$ are each $<\frac12n$, it is inferior in regard to 1 and 2: and the
+like in other cases.
 
-A prominent symbol then may any index-sum thereof is $\leq c$, is unable to
-\textit{inferior}: thus if $w \geq c$, the symbol is inferior in regard to 1; and if $w \geq c$,
-$\geq c$, ult $\geq c$, ult is inferior in regard to 1 and 2: and like for the other cases.
+\pagemarker{406}{527}{470}
 
-\clearpage
-
-\bigskip
-\textit{p.~406}
-\smallskip
-
-\noindent
-degree by a number which is greater than $\frac{1}{2}n - 1$; in fact, suppose $\theta$ inferior in
+Observe that if a symbol is inferior then in the covariant the order exceeds the
+degree by a number which is greater than $\frac12n-1$: in fact, suppose it inferior in
 regard to 1, then the order is
 \[
-\theta n = w_1 + (n - w_2) + \ldots + (n - w_n),
+(n-\sigma_1)+(n-\sigma_2)+\cdots+(n-\sigma_m),
 \]
-where each term after the first is at least $= \frac{1}{2}n$, and the order is at least
-$= w_1 + \frac{1}{2}n(\theta - 1)$, hence order $-$ degree is at least $= w_1 - \frac{1}{2}n$, $w_1$ being less than
-$\frac{1}{2}n$, this is greater than $\frac{1}{2}n - 1$.
+where each term after the first is at least $=1$, that is, the order is at least
+$=n-\sigma_1+m-1$; hence order minus degree is at least $=n-\sigma_1-1$; viz.
+$\sigma_1$ being less than $\frac12n$, this is greater than $\frac12n-1$. Conversely, if for
+any symbol order-degree is $>\frac12n-1$, then the symbol is not inferior.
 
-Conversely, if for any symbol order-degree is $\leq \frac{1}{2}n - 1$, the symbol is not
-inferior.
+A symbol $[12\ldots m]$ is sharp when any index is $>\frac12n$; otherwise it is flat;
+viz. this is so when each index is $<\frac12n$. The symbol is sharp as to any particular
+duad or duads when the index or indices thereof is or are each of them $>\frac12n$.
 
-A symbol $[12 \ldots m]$ is called inferior in regard to a row when it is $= w$, $\ldots$, in
-this it is when each index is $w$, or sharp when each index $w$.
+The subsidiary theorem is now as follows: ``A symbol is inferior or sharp: or it can
+be expressed as a sum of symbols each of which is inferior or sharp''--or what is the
+same thing, the only symbols which need to be considered are those which are either
+inferior or sharp.
 
-The subsidiary theorem is now as follows: A symbol is inferior or sharp; or
-each index-sum being $\nu c$ a primary symbol, the order of any symbol which is sharp
-or inferior, expressed in terms of the order and the index-sums of the same number of
-terms each of which is inferior or sharp: viz.\ as to the order, the symbol is not sharp,
-but no stationary points, so that $q$ being the class, we have $q = D - k - 2 \delta - 3 \nu$; and
-$z = w$.
+Thus for the degree 1 the symbol is $[1]$ (which is simply unity), $\sigma_1=0$, and
+the symbol is inferior. For the degree 2 the symbol is $[2]=12^k$; if $k<\frac12n$ the
+symbol is inferior, if $k>\frac12n$ then it is sharp.
 
-The proof $[12 \ldots m]$ is inferior, suppose it is to be in regard to 1, then there is
+A proof is first required for the degree 3; here
 \[
-\overline{12}, \overline{14}, \overline{2} \cdot \overline{14}.
+[123]=12^\alpha13^\beta23^\gamma
 \]
-this expression by a denominate $\nu n$ is not $= w$, and we may then by means of
-terms each of which is inferior or sharp: we may then by means of
-the form $\nabla', \nabla'', 1\,2^{14} \,2\,3^{18}, \overline{23}$, then by means of the relation
+($\beta+\gamma$, $\gamma+\alpha$, $\alpha+\beta$ each $=$ or $<n$), which may very
+well be neither inferior nor sharp; for instance, if $n=5$, we have
+$12^2 13^2 23^2$, where each index being $=2$, the symbol is not sharp; and each
+index-sum being $=4$, the symbol is not inferior. But writing the symbol in the form
 \[
-\nabla', \nabla' = w_1 - 1, \quad w_2 = w_2 - 1, \quad w_3 = w_2 - 1,
+V_1V_2V_3\,12^2 13^2 23^2,
+\]
+then by means of the relation
+\[
+V_1.23+V_2.31+V_3.12=0
+\]
+(or, what is the same thing, $V_1.23=V_2.13-V_3.12$), the symbol becomes
+\[
+V_1V_2V_3\,12^2 13^2 23^2(V_2.13-V_3.12),
 \]
 \[
-Q = \nabla', \nabla', \ldots, \nabla', \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots, \nabla' \ldots
+=V_2^2V_3\,12^2 13^3 23^2-V_2V_3^2\,12^3 13^2 23^2,
 \]
-then supposing for a moment that 1, is not $= w$, and to substitute the expression
-contains the factor $\nabla', \nabla'$, which is equal to and may be replaced by $\nabla', \nabla'$, $\nabla' \nabla'$,
-in the second side of variables respectively.
+where each term, as containing an index 3, is sharp. To complete the reduction,
+observe that calling the expression $21-33$, then in the term $31$ interchanging the
+numbers 2 and 3 we obtain $31=-23$, and thence $21-23=221$; so that the whole is
+$2V_2^2V_3\,12^2 13^3 23^2$, viz. it is a multiple of a sharp term.
 
+I prove the general case, substantially in the manner used by Dr Clebsch, as follows.
+We assume that the theorem is proved up to a particular degree $m$: that is, we
+assume that every symbol belonging to a degree not exceeding $m$ can be
+
+\pagemarker{407}{527}{471}
+
+expressed as a sum of terms each of which is sharp or inferior: and we have to prove
+this for the next following degree $m+1$, or writing for convenience $p$ in place of
+$m+1$ (say for the degree $p$); that is, for a symbol
 \[
-Q = \nabla' \nabla'.
+[12\ldots mp]=p1^{\lambda_1}p2^{\lambda_2}\cdots pm^{\lambda_m}[12\ldots m]
+=P[12\ldots m],\quad\hbox{suppose.}
 \]
-and
-\[
-\Omega \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla' \nabla'.
-\]
+I write as before $\sigma_1,\sigma_2,\ldots,\sigma_m$ for the index-sums of
+$[12\ldots m]$: those of $[12\ldots mp]$ are therefore
+$\sigma_1+\lambda_1,\sigma_2+\lambda_2,\ldots,\sigma_m+\lambda_m$, and (for the
+duads involving $p$) $\sigma_p=\lambda_1+\lambda_2+\cdots+\lambda_m$.
 
-Now for $\Omega$ the sum of the indices $1_n - 1, 2_2 - 1, 2_2 - 1$, so that by hypothesis
-$\Omega$ is inferior or sharp: $1_n$ is in inferior or sharp, since one of these is sharp by hypothesis
-prove that $Q$ is inferior or sharp, we have just been to prove that $Q$ in a way also that
-the inferior or sharp.
-
-\clearpage
-
-\bigskip
-\textit{p.~407}
-\smallskip
-
-\noindent
-expressed as a sum of terms each of which is inferior or sharp; and we have to
-prove this for the next following degree; $u + 1$, $u + 1$, or the conveniences $p$ in place
-of $m + 1$, (say for the degree $p$); that is, for a symbol
-\[
-[12 \ldots m p] = p_1^{r_1} p_2^{r_2} \ldots p_m^{r_m} [12 \ldots m p].
-\]
-I write as before, $\sigma_1, \sigma_2, \ldots, \sigma_m$ for the index-sums of $[12 \ldots m p]$; therefore as
-$\sigma_1 + \sigma_2 + \ldots + \sigma_m$, $\sigma_1, \ldots$, are the index-sums of $[12 \ldots m]$ involving $p_1, p_2, \ldots, p_m$.
-
-If $[12 \ldots m]$ is sharp, then $[12 \ldots m p]$ is inferior in regard to $p$.
-
-If $[2, m]$ is inferior, suppose it is so in regard to $p$; then we have $\sigma_1 = $ sharp (being therefore
-inferior) and when $\sigma_1 = $ no.  In the case of any one of the indices being negative,
-viz.\ $p < r$, this is sharp; but in any other case, $[12 \ldots m p]$ being inferior in regard to $p$.
+If $[12\ldots m]$ is sharp, then $[12\ldots mp]$ is sharp, and the theorem is true.
+If $\sigma_p<\frac12n$, then $[12\ldots mp]$ is inferior in regard to $p$; and the theorem
+is true. The only case requiring a proof is when $[12\ldots m]$ is not sharp (being
+therefore inferior) and when $\sigma_p>\frac12n$. And in this case if any one of the
+indices $\lambda_1,\ldots,\lambda_m$ is $>\frac12n$ (or say if $P$ is sharp) then the
+theorem is true.
 
 Consider the expression
 \[
-[12 \ldots m p] [12 \ldots p p] \ldots p[12 \ldots m],
+p1^{\lambda_1}p2^{\lambda_2}\cdots pm^{\lambda_m}[12\ldots m],
 \]
-where, $\sigma_1, \sigma_2, \sigma_3, \ldots$ are in inferior, and when $\sigma_1, \ldots, \sigma_m$, has any one of these is $\sigma_1, \ldots, \sigma_m$
-are sharp negative.
-
-Assume that when $[12 \ldots m p]$ is inferior, and when $\sigma_1, \sigma_2, \ldots, \sigma_m$, have any values such
-that their sum is greater than a given value $\sigma$, the expression is a sum of
-terms each of which is inferior or sharp: we wish to show that this also is, so the
-last term not exceeding value, $= \sigma$, the case will then be the same.
-
-For this purpose, introducing the $\nabla$'s I write
+where $\sigma_1,\sigma_2,\ldots,\sigma_m$ are as before the index-sums for $[12\ldots m]$
+and therefore the numbers
 \[
-Q = \nabla_{12} \nabla_{13} \nabla_{23} \ldots \nabla_{1p}^{r_1} \ldots \nabla_{2p}^{r_2} \ldots \nabla_{mp}^{r_m} [12 \ldots m],
+n-\sigma_1-\lambda_1,\ldots,n-\sigma_m-\lambda_m
 \]
-then supposing for a moment that $\sigma_1$ is not $= 0$, and to substitute the expression
-contains the factor $\nabla_p \nabla_p$, which is equal to and may be replaced by $\nabla_p \nabla_p$, $\nabla_p \nabla_p$,
-in the indices of which the index 1 is one less, and the index $1 - p$ one greater.
+are none of them negative.
 
-We have then
-\[
-Q = \nabla_{12} \nabla_{13} \ldots \nabla_{1p}^{r_1} \ldots \nabla_{2p}^{r_2} \ldots \nabla_{mp}^{r_m} [12 \ldots m]
-\]
-and
-\[
-\Omega = \nabla_{12} \nabla_{13} \ldots \nabla_{1p}^{r_1 - 1} \ldots \nabla_{2p}^{r_2 + 1} \ldots \nabla_{mp}^{r_m} [12 \ldots m].
-\]
+Assume that when $[12\ldots m]$ is inferior, and when
+$\lambda_1,\ldots,\lambda_m$ have any values such that their sum is not greater than
+a given value $\sigma_p-1$, the expression is a sum of terms each of which is inferior
+or sharp: we wish to show that when $\lambda_1+\lambda_2+\cdots+\lambda_m$ has the
+next succeeding value, $=\sigma_p$, the case is still the same.
 
-Now for $\Omega$ the sum of the indices $\sigma_1 - 1, \sigma_2, \sigma_3, \ldots$ as the same value, $\nu$.  And the symbol thus obtained
-is, by hypothesis $\Omega$ is inferior or sharp; in $1\,2^*$, $1\,3^*$, etc., the index-sums equal to the
-prove that $Q$ is inferior or sharp, $\Omega$ has $\nu$ inferior or sharp; we have, by hypothesis,
-$\Omega$ is inferior or sharp.
+For this purpose, introducing the $V$'s I write
+\[
+Q=V_1^{\,n-\sigma_1-\lambda_1}\cdots
+V_m^{\,n-\sigma_m-\lambda_m}
+V_p^{\,n-\sigma_p}\,
+p1^{\lambda_1}p2^{\lambda_2}\cdots pm^{\lambda_m}[12\ldots m].
+\]
+Then supposing for a moment that $\lambda_1$ is not $=n-\sigma_1$ and $\lambda_2$ is
+not $=0$, the expression contains the factor $V_1.p2$, which is equal to and may be
+replaced by $-V_2.p1+V_p.12$: we have thus, omitting the $V$'s,
+\[
+Q=p1^{\lambda_1+1}p2^{\lambda_2-1}p3^{\lambda_3}\cdots pm^{\lambda_m}[12\ldots m],
+\]
+\[
+Q'=p1^{\lambda_1}p2^{\lambda_2-1}p3^{\lambda_3}\cdots pm^{\lambda_m}\,12[12\ldots m].
+\]
+Now for $Q'$ the sum of the indices
+$\lambda_1,\lambda_2-1,\lambda_3,\ldots,\lambda_m$ is $\sigma_p-1$, so that by
+hypothesis $Q'$ is inferior or sharp: that is, the difference $Q-Q'$ is inferior or
+sharp; so that to prove that $Q$ is inferior or sharp, we have only to prove this of
+$Q$, where this new $Q$ is derived from the old one by increasing by unity the index
+of $p1$, at the expense of that of $p2$
+
+\pagemarker{408}{527}{472}
+
+which is diminished by unity. Such change is possible so long as the index
+$\lambda_1$ has not attained its maximum value, $n-\sigma_1$ or $\sigma_p$ as the case
+may be, and there is any other index $\lambda_2,\ldots,\lambda_m$ which is not $=0$:
+that is, we may pass from $Q$ to $Q'$, from $Q'$ to $Q''$ and so on; and it will be
+sufficient to show that the last term of the series is inferior or sharp. We thus pass
+from $Q$ to $R$, where
+\[
+R=p1^{\,n-\sigma_1}p2^{\,\lambda_2-\alpha_2}\cdots
+pm^{\,\lambda_m-\alpha_m}[12\ldots m]
+\]
+and $\alpha_2+\alpha_3+\cdots+\alpha_m=n-\sigma_1-\lambda_1$; or else to
+\[
+R=p1^{\,\sigma_p} [12\ldots m],
+\]
+according as $n-\sigma_1$ is not greater or is greater than $\sigma_p$.
+
+Now let $[12\ldots m]$ be inferior; suppose it to be so in regard to 1, that is, let
+$\sigma_1$ be less than $\frac12n$ or $n-\sigma_1$ greater than $\frac12n$. Then if
+$\sigma_p$ be less than $\frac12n$ it is less than $n-\sigma_1$, that is, we have for $R$
+the last-mentioned form which is inferior in regard to $p$, viz. $R$ is inferior; if
+$\sigma_p$ is equal to or greater than $\frac12n$, then $R$, whichever its form may be, is
+sharp as to $p1$, viz. $R$ is sharp. Hence in either case $Q$ is a sum of terms which
+are inferior or sharp; that is, assuming the theorem for a form for which
+$\lambda_1+\lambda_2+\cdots+\lambda_m$ does not exceed a given value $\sigma_p-1$,
+the theorem is true for the next succeeding value $\sigma_p$; or being true for the case
+$\sigma_p-1=0$, it is true generally.
+
+\noindent\textit{Cambridge, 24 April, 1872.}
 
 \clearpage
-
-\bigskip
-\textit{p.~408}
-\smallskip
-
-\noindent
-which is diminished by unity.  Such change is possible so long as the index 1, has
-not attained its maximum value, $= a$, or $= a$; or as the case may be, and there is any
-other index $1_a, 1_b, \ldots$ which is not $= a$; that is, we may pass from $Q$ to $\Omega$, from
-$\Omega$ to $\Omega'$, and so on; and it will be sufficient to show that the last terms of the
-series is inferior or sharp.  We thus pass from $Q$ to $R$, where
-\[
-R = \rho_1^{r_1} \rho_2^{r_2} \ldots \rho_m^{r_m} [12 \ldots m].
-\]
-and $a_1, a_2, \ldots, a_m \,a_1 + \ldots + a_n - 1, $ so are also a.
-
-According as $a > c$, or $w < c$, $R$ is inferior or sharp.
-
-Now let $\Omega$ the sum of the indices $1_a, 1_b, \ldots$ be greater than a, that is, by hypothesis
-$\Omega$ is inferior; we let $\sigma_1$ greater than $\sigma_2$.  Then if $\sigma_2$ be less than $\sigma_1$, we let $\sigma_1$
-greater than $\sigma_2$.  Then $\sigma_2$ becomes the last formed term which is inferior in
-regard to $p_1$; ult is, for in the indices of $\Omega$ the last mentioned form, $a_p = a_1 + a_2 + \ldots$
-becomes the value $\sigma_2$, which is equal to and may be replaced by greater than $a_p$.
-
-So that comparing with the $\Omega$ ult, it has, but no two of the inferior in regard to $p_1$,
-that is, $\Omega$ is inferior, $\sigma_2 = a$, $-\sigma_1$, and correct a given value $\sigma_1 = a$, $-\sigma_2$, the theorem is true
-for the next succeeding value $\sigma_1$, or being true for the case $\sigma_1 = a$, $-\sigma_1$, it is true
-generally.
-
-\noindent\textit{Cambridge,\ 24 April,\ 1872.}
-
-\clearpage
-
-% ============================================================
-% PAPER 528
-% Book pages 409--413
-% ============================================================
-\section{[528]}
-\subsection{On the Non-Euclidian Geometry.}
-
+\section*{[528] On the Non-Euclidian Geometry}
 \begin{center}
-\textit{[From the Mathematische Annalen, vol.~\textsc{v}.\ (1872), pp.~630--634.]}
+\textit{[From the Mathematische Annalen, vol. V. (1872), pp. 630--634.]}
 \end{center}
 
-\textit{p.~409}
+\pagemarker{409}{528}{473}
 
-\noindent
-\textsc{The} theory of the Non-Euclidian Geometry as developed in Dr Klein's paper
+The theory of the Non-Euclidian Geometry as developed in Dr Klein's paper
 ``Ueber die Nicht-Euklidische Geometrie'' may be illustrated by showing how in such
-a system we actually measure a distance and an angle: and by establishing the
-trigonometry of such a system.  I confine myself to the ``hyperbolic'' case of plane
-geometry: viz.\ the absolute is here a real conic, which for simplicity I take to be a
-circle: and I attend to the points within the circle.
+a system we actually measure a distance and an angle and by establishing the
+trigonometry of such a system. I confine myself to the ``hyperbolic'' case of plane
+geometry; viz. the absolute is here a real conic, which for simplicity I take to be a
+circle; and I attend to the points \textit{within} the circle.
 
-I use the simple letters $A, B, \ldots$ to denote (Anschauung points or angular) distances measured
-in the ordinary manner: and the same letters, with a circumflex $\hat{A}, \hat{B}, \ldots$ to
+I use the simple letters $a,A,\ldots$ to denote (linear or angular) distances measured
+in the ordinary manner; and the same letters, with a superscript stroke,
+$\bar a,\bar A,\ldots$, to denote the same distances measured according to the theory.
+
 \begin{center}
-\textit{[Figure: circle with inscribed triangle and various line segments --- diagram omitted]}
+\begin{tikzpicture}[scale=1.05, every node/.style={font=\small}]
+\coordinate (O) at (0,0);
+\coordinate (B) at (-2.2,-1.15);
+\coordinate (C) at (2.2,-1.15);
+\coordinate (A) at (0.75,1.85);
+\coordinate (Ap) at (0,-1.15);
+\coordinate (Bp) at (1.65,0.25);
+\coordinate (Cp) at (-0.55,0.32);
+\coordinate (I) at (-2.55,-1.15);
+\coordinate (J) at (2.65,-1.15);
+\coordinate (K) at (2.05,-0.25);
+\coordinate (X) at (-1.72,0.35);
+\draw[dashed] (O) circle (2.55);
+\draw (A)--(B)--(C)--cycle;
+\draw (B)--(J);
+\draw (O)--(A) (O)--(B) (O)--(C) (O)--(Ap) (O)--(Bp) (O)--(Cp);
+\draw[dashed] (X)--(O)--(K);
+\draw[dashed] (X)--(B);
+\draw[dashed] (C)--(K);
+\fill (O) circle (1.2pt) node[below left]{$O$};
+\fill (A) circle (1.2pt) node[above]{$A$};
+\fill (B) circle (1.2pt) node[below left]{$B$};
+\fill (C) circle (1.2pt) node[below right]{$C$};
+\fill (Ap) circle (1.2pt) node[below]{$A'$};
+\fill (Bp) circle (1.2pt) node[right]{$B'$};
+\fill (Cp) circle (1.2pt) node[above left]{$C'$};
+\node at (I) [left] {$I$};
+\node at (J) [right] {$J$};
+\node at (K) [right] {$K$};
+\node at (X) [above left] {$X$};
+\node at (0.55,1.35) {$\theta$};
+\node at (0.95,1.25) {$\theta'$};
+\node at (-2.0,-0.8) {$\phi'$};
+\node at (-1.65,-1.0) {$\phi$};
+\node at (1.72,-0.85) {$\psi'$};
+\node at (1.98,-0.95) {$\psi$};
+\end{tikzpicture}
 \end{center}
-denote the same distances measured according to the theory.  The radius of the
-absolute is for convenience taken to be $= 1$: the distance of any point from the centre
-can therefore be represented as the sine of an angle.
 
-\clearpage
+The radius of the absolute is for convenience taken to be $=1$; the distance of any
+point from the centre can therefore be represented as the sine of an angle.
 
-\bigskip
-\textit{p.~410}
-\smallskip
+\pagemarker{410}{528}{474}
 
-\noindent
-The distance $BC$, or any $\theta$, of any two points $B$, $C$ is by definition as follows:
-Radius of circle $= 1$.
-\begin{align*}
-\mathrm{1\circ}.\ ABC,\ \text{sides are } a,\ b,\ c: \\
-\text{angles}\ ,A,\ B,\ C: \\
-OA,\ OB,\ OC: &= \sin g,\ \sin g,\ \sin g: \\
-OA',\ OB',\ OC' &= \sin a,\ \sin b,\ \sin c: \\
-\angle BOC,\ COA,\ AOB: &=\ b,\ c, B: \\
-&\hat{a} = \tfrac{1}{2} \log \tfrac{BJ.CI}{BI.CJ}.
-\end{align*}
-(where $I, J$ are the intersections of the line $BC$ with the circle); that is,
+The distance $BC$, or say $\bar a$, of any two points $B,C$ is by definition as follows:
 \[
-e^x = e^x = \tfrac{BJ.CI}{BI.CJ} = \tfrac{BJ.CI}{OB^2.OJ}.\ \frac{BJ.CI}{OB^2.OJ}.\ \frac{BJ.CI}{OBA}.\ \frac{CO.CJ}{OB.CJ}.\ \frac{CO.CJ}{OBA}.
+\begin{array}{rl}
+\hbox{Radius of circle}&=1,\\
+\hbox{in }\triangle ABC,\ \hbox{sides are}&a,b,c,\\
+\hbox{angles}&A,B,C,\\
+OA,OB,OC&=\sin p,\sin q,\sin r,\\
+OA',OB',OC'&=\sin a,\sin b,\sin c,\\
+\angle BOC,\angle COA,\angle AOB&=\alpha,\beta,\gamma.
+\end{array}
 \]
-where the numerator is
+Where $I,J$ are the intersections of the line $BC$ with the circle,
 \[
-BI(BJ - BC) + CI(BC + CJ) = BC.BJ + CI.CJ + BC(CI - BJ);
+e^{\bar a}+e^{-\bar a},\quad\hbox{or}\quad
+2\cosh\bar a=\frac{BI.CJ}{BJ.CI}+\frac{BJ.CI}{BI.CJ}
+=\frac{BI.CJ+BJ.CI}{\sqrt{BI.BJ.CI.CJ}}.
 \]
+The numerator is
 \[
-= BC.BJ + CI(CJ + BC) = BC.BJ + CI(CJ + BC);
+BI(BJ-BC)+CI(BC+CJ)=BI.BJ+CI.CJ+BC(CI-BI)=BI.BJ+CI.CJ+BC^2.
 \]
+Hence taking $a$ for the distance $BC$, and $\sin q,\sin r$ for the distances
+$OB,OC$ respectively, we have $BI.BJ=\cos^2q$, $CI.CJ=\cos^2r$; and the formula is
 \[
-= BC.BJ + CI(CJ + BC);
+\cosh\bar a=\frac{\cos^2q+\cos^2r+a^2}{2\cos q\cos r}.
 \]
-Hence taking $\alpha$ for the angle whose sine is $BC$, and for the distances $OB$, $OC$ respectively,
-we have $BJ.BI = \cos^2 \theta$, $CI.CJ = \cos^2 \theta$ ; and for the distance $BC$ of these distances $B$, $C$ as the perpendicular distance from $O$ on the line $BC$.
-$BJ - BC + CJ$ as the perpendicular distance from $O$ on the line $BC$.
-$BI = BC - C - BI = 2c \cos \alpha + a \cos \alpha$,
-or, what is the same thing, taking $\alpha$ for the angle $BOC$, and therefore
+Or, what is the same thing, taking $\alpha$ for the angle $BOC$, and therefore
 \[
-a' = a \sin \theta = a \cos \alpha - \cos \alpha \theta - \cos \alpha \theta - \cos \alpha \theta,
+a^2=\sin^2q+\sin^2r-2\sin q\sin r\cos\alpha,
 \]
 we have
 \[
-\cosh \hat{a} = \frac{1 - \sin a \sin b \cos C}{\cos a \cos b}.
+\cosh\bar a=\frac{1-\sin q\sin r\cos\alpha}{\cos q\cos r}.
 \]
-In a similar manner, if also $\alpha$ is the perpendicular distance from $O$ on the line $BC$
-(that is, $a \sin a = \sin \theta \sin a \cos a$) it can be shown that
+In a similar manner, if $\sin a$ is the perpendicular distance from $O$ on the line
+$BC$ (that is, $a\sin a=\sin q\sin r\sin\alpha$), it can be shown that
 \[
-\sinh \hat{a} = \frac{a \cos a}{\cos a \cos b},
+\sinh\bar a=\frac{a\cos a}{\cos q\cos r},
 \]
-the equivalence of the two formulas appearing from the identity
+the equivalence of the two formulae appearing from the identity
 \[
-\cos^2\alpha \cos^2 \theta = (1 - \sin \alpha \sin a \cos a)^2 = a \sin^2 \alpha \sin^2 \theta;
+\cos^2q\cos^2r=(1-\sin q\sin r\cos\alpha)^2-a^2+a^2\sin^2a,
 \]
 which is at once verified.
 
 Next for an angle; we have by definition
 \[
-\hat{A} = \tfrac{1}{2 i} \log \tfrac{AK. AL}{AL.AL}
+\bar A=\frac1{2i}\log\frac{\sin BAI.\sin CAJ}{\sin BAJ.\sin CAI}.
 \]
 
-\clearpage
+\pagemarker{411}{528}{475}
 
-\bigskip
-\textit{p.~411}
-\smallskip
-
-\noindent
-where $A I, A J$ are the (imaginary) tangents from $A$ to the circle; or writing for
-shortness $B I$ for, instead of $A K I$, $A K J$, (the angular point being always at $A$),
-consequently
+Where $AI,AJ$ are the (imaginary) tangents from $A$ to the circle; or writing for
+shortness $BI$ \&c. instead of $BAI$ \&c. (the angular point being always at $A$),
 \[
-\hat{A} = \tfrac{1}{2 i} \log \tfrac{\sin BI. \sin CJ}{\sin BJ. \sin CI},
+\bar A=\frac1{2i}\log\frac{\sin BI\,\sin CJ}{\sin BJ\,\sin CI}.
 \]
-consequently
+Consequently
 \[
-e^{i \hat{A}} = e^{i \hat{a}} \sqrt{\frac{\sin BI \sin CJ}{\sin BJ \sin CI}},
+e^{i\bar A}-e^{-i\bar A}
+=2i\sin\bar A
+=\frac{\sin BI\sin CJ-\sin BJ\sin CI}
+{\sqrt{\sin BI\sin CJ}\sqrt{\sin BJ\sin CI}},
 \]
 where the numerator is
 \[
-B I (BJ + B C) - C I (BC - C J) = (BJ - C J) B C + \sin BJ.BC + \sin BJ.CI + B I.CI,
+\sin BI\sin(CJ-BC)-\sin CJ\sin(BI+BC)=\sin BC\sin IJ,
 \]
-or say
+or say $=\sin A\sin IJ$. Moreover taking the distance $OA$ to be $=\sin p$, and the
+perpendicular distances from $O$ on the lines $AB,AC$ to be $\sin c$ and $\sin b$
+respectively, then if for a moment the angle $IJ$ is put $=2\omega$, we have
+$\sin p\sin\omega=1$; moreover
 \[
-e^{i \hat{a}} = \sqrt{\frac{\sin BJ \sin CI}{\sin BJ \sin CI}},
+\sin BI\sin BJ=\sin(\omega-BO)\sin(\omega+BO)=\sin^2\omega-\sin^2BO,
 \]
-where $B J. B I = \cos^2 A B$, $C I. C J = \cos^2 A C$, (the angular point being always at $A$), moreover
+and $\sin p\sin BO=\sin c$; that is,
 \[
-\sin BJ.CI = e^x = \cos AB \cdot \cos AC \cdot \sin BC,
+\sin BI\sin BJ=\frac{\cos^2c}{\sin^2p},
+\qquad
+\sin CI\sin CJ=\frac{\cos^2b}{\sin^2p}.
 \]
-the perpendicular distance from $O$ on the line $BC$ is $= \sin BC$; moreover
+Also
 \[
-\sin BJ.CI - \sin BJ.CI = 2 \sin a \cos b \cos a c - \sin BC = - 2 \cos AB \cdot \cos AC \cdot \sin BC,
+\sin IJ=-\sin2\omega=2\sin\omega\cos\omega
+=\frac{2\cos p}{\sin^2p}.
 \]
-and $\sin BJ \sin CI = a^2 \sin BC + a^2 \cos BC$.
+Whence the required formula
 \[
-\sin BJ - \sin BJ.CI = 2 \sin a \cos b \cos a c - \sin BC = - 2 \cos AB \cdot \cos AC \cdot \sin BC,
+\sin\bar A=\frac{\cos p\sin A}{\cos b\cos c}.
 \]
-in CI sub $AJ = 2$ sin, in $C$ sin $a c$ sin $BC$; and similarly $\sin BJ.CI = \cos a c$ sin $a c$ in $BC$,
-\[
-\sin BJ + \sin CI = 2 \sin a \cdot a = a \cdot a \sin \alpha.
-\]
-whence the required formula
-\[
-\sin \hat{A} = \frac{a \cdot p \sin A}{\cos b \cos c}.
-\]
-
 In the same way, or analytically from this value, we have
 \[
-\cos \hat{A} = \frac{1 - \sin a \cos b \cos c}{\cos b \cos c},
+\cos\bar A=\frac{\cos A+\sin b\sin c}{\cos b\cos c},
 \]
 and thence also
 \[
-\tan \hat{A} = \frac{a \cdot p \sin A}{1 - \sin a \cos b \cos c}.
+\tan\bar A=\frac{\cos p\sin A}{\cos A+\sin b\sin c}.
 \]
+In particular, taking the line $AC$ to pass through $O$, or writing in the formula
+$b=0$, we have
+\[
+BO=\tan^{-1}(\cos p\tan\theta),\qquad
+CO=\tan^{-1}(\cos p\tan\theta');
+\]
+we ought to have
+\[
+A=BO+CO=\tan^{-1}(\cos p\tan\theta)+\tan^{-1}(\cos p\tan\theta'),
+\]
+which, observing that $\sin p\sin\theta=\sin c$ and $\sin p\sin\theta'=\sin b$, also
+$A=\theta+\theta'$, is in fact equivalent to the above formula for $\tan\bar A$.
+Observe in particular that when $A$ is at the centre, $p=0$, and the formula becomes
+$\bar A=\theta+\theta'=A$, or say for an angle at the centre, $\bar A=A$.
 
-In particular, taking the line $A C$ to pass through $O$, we will have $b = O$, that is, we have $\sin B O = \cos a \sin BC = b$, that is, $B C = \sin^{-1} a$, $\cos a \tan b$, and writing
-$O C = \tan^{-1} \cos a \sin B$; we ought to have $A = B O + O B$; that is, in
-\[
-A = \tan^{-1}\cos a \sin B + \tan^{-1} \cos a \tan b,
-\]
-which, observing that $\sin\theta. \sin a = \sin b. \sin B$, and $\sin \theta. \sin A = \sin b. \sin A = a$, that is
-equivalent to, the above formula.
+\pagemarker{412}{528}{476}
 
-Observe in particular that when $A$ is at the centre, $p$ is $= 0$, and the formula
-$\hat{A} = \cos \theta$ is, $a$, $b$, or say in an angle at the centre, $\hat{A} = 0$.
-
-\clearpage
-
-\bigskip
-\textit{p.~412}
-\smallskip
-
-\noindent
-I return to the expression for $\cosh \hat{a}$; in explanation of its meaning let the
-distances $\hat{a} \hat{b}, \hat{c}$ be $\theta$, $\eta$ respectively and let the angle $BOC$ be $\theta$; to find $\theta$ we
-have only to take $\theta'$ as $\theta$; that is, in the formula for $\cosh \hat{a}$ to write $a = 0$, etc.,
-find $\cosh \hat{a} = \frac{1 - \sin a \sin b \cos \theta}{\cos b \cos c}$; and similarly for $\cos \alpha$ and $\sin \alpha$, where
-$\alpha = O B'$, and  $\sin \alpha = O B \sin C $; we have similarly $\sin a = O B \sin B$, viz.\ we have
+I return to the expression for $\cosh\bar a$; in explanation of its meaning, let the
+distances $OB,OC$ be $q,r$ respectively and let the angle $BOC$ be $\alpha$; to find
+$\bar q$ we have only to take $C$ at $O$, that is, in the formula for $\cosh\bar a$ to
+write $r=0$, we thus find
 \[
-\cos \hat{a} = \cos b \cos c \cdot \cosh \hat{a},
-\]
-\[
-\sin \alpha = \cos a \sin b \cdot \cos C,
-\]
-or, what is the same thing, $\theta$ is
-\[
-\cos \hat{a} = \cos b \cos c + \sin b \sin c \cdot \cos C,
-\]
-\[
-= \cosh \hat{b} \cdot \cosh \hat{c} + \sinh \hat{b} \sinh \hat{c} \cos C,
-\]
-viz.\ as will presently appear, this is the formula for $\cos C$ in the triangle $\hat{B} O \hat{C}$.
-
-From the above formula
-\[
-\cosh \hat{a} = \frac{1 - \sin a \sin b \cos \theta}{\cos b \cos c}.
-\]
-and
-\[
-\sinh \hat{a} = \frac{a \cdot p \sin A}{\cos b \cos c} = \frac{a \cdot p \sin A}{\cos b \cos c \cdot \sin \theta \sin \theta},
-\]
-and the like formulae for $\hat{b}, \hat{c}, B, C$ in any way be shown that in the triangle $ABC$ we have
-\[
-\frac{\cos \hat{A} + \cos \hat{B} \cos \hat{C}}{\sin \hat{B} \sin \hat{C}} = \cos \hat{a},
-\]
-
-In fact, substituting the foregoing values, this equation becomes
-\[
-(1 - \sin a) \cos A + (1 - \sin a) \cos b \cos C (1 - \sin a \cos C \cos A) = 1 - \sin b \sin c \cos A
-\]
-\[
-- \sin B \sin C (1 - \sin a \sin c) \cos A
-\]
-that is,
-\[
-\cos A + \cos B \cos C - \sin a \sin b \cos C - \sin a \cos b \cos C + \sin a \sin b \cos C + \sin a \cos c \cos C \sin a
-\]
-\[
-- \sin B \sin C (1 - \cos a),
-\]
-or, what is the same thing,
-\[
-\sin^2 a (\cos B \cos C - \cos A) = \sin B \sin C + \sin a \sin b \cos A
-\]
-\[
-+ \sin a \sin b \cos a \cos a \cos C \sin a
-\]
-that is,
-\[
-(\sin a \cos B + \sin a \sin c \cos C) (B + \sin a \cos a) - (\sin a \cos a) \cos A = \sin a \sin b \cos A
-\]
-a relation which I proceed to verify.
-
-\clearpage
-
-\bigskip
-\textit{p.~413}
-\smallskip
-
-\noindent
-We may, from the formula
-\[
-\sin^{-1} \sin g = \sin^2 a = 1 - \sin a \sin b \cos b, \&c.
-\]
-but, more simply, geometrically as presented above, deduce
-\[
-\sin a \cos B + \sin a \cos C = \sin a (\cos a \sin a + \sin a \cos B + \sin a \cos C),
-\]
-and thence
-\[
-\sin a \cos A + \sin a \cos B + \sin a \cos C = \sin a,
-\]
-\[
-(\sin a \cos B + \sin a \cos C)(\sin a \cos a + \sin a) = \sin a (\sin a (\sin a + \cos a) \sin a + \cos a \sin a + \sin a)
-\]
-\[
-= a \cdot \sin C (1 - \sin g \cos a),
-\]
-which, observing that $\sin g \sin a \cdot \sin A = a \cdot p$ and consequently $a, b, A, B$,
-$\cos A \cdot \cos B = b \cdot c$, and so multiplying each side by $\sin a$, that is, multiplying
-the second side by $\cos A \cdot \cos B = a^2 \cdot p^2$ in the case of the surfaces in question, the formulae for $\hat{a}$ is
-\[
-\sin a \sin a \cdot \sin a \cdot \cos A = a \cdot p \sin C (1 - \sin a \cos a)
-\]
-and the other of the equations in question is proved in the same manner.
-
-From the formula for each $a$, we find
-\[
-\sinh^2 \hat{a} = \frac{1}{\sin a \cdot \cos a} \Lambda,
-\]
-where
-\[
-2\sqrt{- = (1 - \cos a) \cdot a + \cos a \cdot b + \cos a \cdot c}(1 - 3 a \sin a \cdot b \cdot \cos a),
+\cosh\bar q=\frac1{\cos q},\qquad
+\cosh\bar r=\frac1{\cos r},
 \]
 whence also
 \[
-\sinh^2 \hat{a} : \sinh^2 \hat{b} : \sinh^2 \hat{c} = \sin a \cdot a : \sin a \cdot b : \sin a \cdot c
+\cos q=\sech\bar q,\quad \sin q=i\tanh\bar q,\qquad
+\cos r=\sech\bar r,\quad \sin r=i\tanh\bar r.
 \]
-and we can also obtain
+Also, as seen above, $\alpha=\alpha$; the formula thus is
 \[
-\cos \hat{a} = \frac{\cos a + \cos a \cos b \cos a c}{\sinh b \sinh c},
+\begin{aligned}
+\cosh\bar a
+&=\frac{1+\tanh\bar q\,\tanh\bar r\cos\alpha}
+{\sech\bar q\,\sech\bar r}\\
+&=\cosh\bar q\cosh\bar r+\sinh\bar q\sinh\bar r\cos\alpha,
+\end{aligned}
 \]
-So that the formulae are in fact similar to those of spherical trigonometry with only
-$\cos \hat{a}, \sin \hat{a}$, $a$, instead of $\cos a$, $\sin a$, etc.  The before-mentioned formula for each $\hat{a}$ in
-terms of $a$, $b$, $c$; it is obviously a particular case of the last-mentioned formula for $\cos \hat{A}$.
-
-\noindent\textit{Cambridge,\ 11 May,\ 1872.}
-
-\clearpage
-
-% ============================================================
-% PAPER 529
-% Book pages 414--416
-% ============================================================
-\section{[529]}
-\subsection{A ``Smith's Prize'' Paper(?); Solutions.}
-
-\begin{center}
-\textit{[From the Oxford, Cambridge and Dublin Messenger of Mathematics, vol.~\textsc{iv}.\ (1868), pp.\ 201--220.]}
-\end{center}
-
-\textit{p.~414}
-
-\noindent
-\textsc{1.}  \textit{Find the form of a function of $n$ given number of letters, which has two and only two values.}
-
-It is required to find the general form of a function $\phi(a, b, c, \ldots, k)$, rational and
-integral, which for all permutations whatever of the letters has two and only two values.
-
-Suppose that any particular permutation of the letters changes $\phi(a, b, c, \ldots, k)$ into
-$\phi_1(a, b, c, \ldots, k)$; then any permutation of the letters will either leave the functions
-$\phi$, $\phi_1$, each of them unaltered, or it will change $\phi$ into $\phi_1$ and $\phi_1$ into $\phi$. Hence
-$\phi - \phi_1$ is a symmetrical function of the letters, say
+or, what is the same thing, it is
 \[
-\phi + \phi_1 = 2L.
+\cos\alpha=\frac{\cosh\bar a-\cosh\bar q\cosh\bar r}
+{\sinh\bar q\sinh\bar r},
 \]
+viz. as will presently appear, this is the formula for $\cos BOC$ in the triangle
+$BOC$.
 
-$\phi - \phi_1$ is a function which by a permutation of the letters is either unaltered, or
-simply changes its sign; and it is be shown that, writing for shortness $V$ to denote
-the product $(a - b)(a - c) \ldots (b - c) \ldots (k - 1)$, of the differences of the letters, and denoting
-by $S V$ a symmetrical function of $a, b, c, \ldots, k$, the form of $\phi - \phi_1$ is
+From the above formulae
 \[
-\phi - \phi_1 = 2 V M.
+\cosh\bar a=\frac{1-\sin q\sin r\cos\alpha}{\cos q\cos r},
 \]
-
-These equations give
+and
 \[
-\phi = L + V M,
+\sin\bar A=\frac{\cos p\sin A}{\cos b\cos c},\qquad
+\cos\bar A=\frac{\cos A+\sin b\sin c}{\cos b\cos c},
 \]
-which is the general theorem required; viz.\ the function $\phi$ has thus only the two
-values $L + V M$ and $L - V M$, where $L$, $M$ are symmetrical functions.
-
-To prove the subsidiary theorem, observe that there is at least one interchange of
-two letters which changes $\phi$ into $\phi_1$, or otherwise $\phi = \phi_1$, would be a symmetrical function.
-
-\noindent\rule{0.45\textwidth}{0.4pt}\\
-\footnotesize\textsuperscript{*} Set by me, for the Master of Trinity, Thursday, January 30, 1868.\normalsize
-
-\clearpage
-
-\bigskip
-\textit{p.~415}
-\smallskip
-
-\noindent
-let this be $(a, b)$. Then $\phi - \phi_1$, changing its sign for the interchange in question, must
-vanish for $a = b$; that is, the product $\phi - \phi_1$ must contain $(a - b)$ as a factor: it is
-in the power $(a - b)^{2k+1}$; the product $\phi - \phi_1$, vanishing for $a = b$, vanishes for $a = b$,
-that is, contains $(a - b)$ as a factor: similarly $(a - c)$, $(a - d) \ldots (b - c) \ldots$ are factors, but
-not every other letter; and consequently $\phi - \phi_1$ contains $V$ as a factor; we have therefore
-$\phi - \phi_1 = V Q$.
-
-Hence the interchange of any two letters $a, b$, say of the letters $(a, b)$, changes
-$Q$ into $- Q$; that is, in the new equation, $V Q$ becomes $- V Q$, viz.\ we have $V Q$.
-$A V = - V Q$, suppose in general, that lines any two contain the point $P$ in the
-intersection of the points of $P$ in regard to the two given conics respectively; then,
-the interchange of $(b, c), (c, d), \ldots$ is to leave $Q$ unaltered, that is, $Q$ is unaltered by
-the interchange of any two adjacent letters, $a = b$, $b = c$, etc.; but every interchange may be
-obtained by means of the interchange of two adjacent letters; that is, every interchange
-leaves $Q$ unaltered; that is, $Q$ is a symmetrical function $= S M$, and thence $\phi - \phi_1$,
-which is the subsidiary theorem.  But we have $V M$, $\phi = L + V M$, which is the
-form of the function $\phi$.
-
-Observing that if a quadratic function $a x^2 + 2 b x y + c y^2$ has two equal roots, then,
-since the radical sign disappears, the function $\phi$ has only one value $= L$, and from
-two letters which changes $\phi$ to $\phi_1$, that of $V$ being a symmetrical function,
-is odd or even.
-
-\subsection*{2.\quad \textit{Express $\frac{c x + d}{a x + b}$ in the form of two cubic factors; and show generally that, for any prime number $p$, the function $\frac{c x^{p-1} + d x + \ldots}{a x^{p-1} + b x^{p-2} + \ldots + c}$ may be broken up into two factors of the order $\frac{1}{2}(p-1)$ by means of a quadratic radical.}}
-
-Let $r$ be any root of the given equation, then
+and the like formulae for $b,c,B,C$, it may be shown that in the triangle $ABC$ we
+have
 \[
-x^{p-1} + x^{p-2} + \ldots + 1 = 0,
+\cosh\bar a=\frac{\cos\bar A+\cos\bar B\cos\bar C}{\sin\bar B\sin\bar C}.
 \]
-the roots of this equation are $r, r^2, \ldots, r^{p-1}$, where $r$ is an imaginary $p$th root of unity.
-
-Hence
+In fact, substituting the foregoing values, this equation becomes
 \[
-x^{p-1} + x^{p-2} + \ldots + 1 = (x - r)(x - r^2) \ldots (x - r^{p-1}),
+\frac{(1-\sin^2a)(\cos A+\sin b\sin c)
++(\cos B+\sin c\sin a)(\cos C+\sin a\sin b)}
+{\sin B\sin C\cos b\cos c}
+=\frac{1-\sin q\sin r\cos\alpha}{\cos q\cos r},
 \]
-and denoting the two cubic factors by $\rho_1$, $\rho_2$ we have
-\begin{align*}
-\rho_1 &= (x - r)(x - r^2)(x - r^4)\ldots, \\
-\rho_2 &= (x - r^3)(x - r^5)(x - r^6)\ldots,
-\end{align*}
-we have
+that is,
 \[
-\rho_1 + \rho_2 = x^{p-1} + x^{p-2} + \ldots + 1,
+\begin{aligned}
+&\cos A+\cos B\cos C-\sin^2a\cos A+\sin a\sin b\cos B\\
+&\quad+\sin a\sin c\cos C+\sin b\sin c
+=\sin B\sin C(1-\sin q\sin r\cos\alpha),
+\end{aligned}
+\]
+or, what is the same thing,
+\[
+\begin{aligned}
+&\sin^2a(\cos B\cos C-\sin B\sin C)+\sin a\sin b\cos B\\
+&\quad+\sin a\sin c\cos C+\sin b\sin c
+=-\sin B\sin C\sin q\sin r\cos\alpha,
+\end{aligned}
+\]
+that is,
+\[
+(\sin a\cos B+\sin c)(\sin a\cos C+\sin b)
+=\sin B\sin C(\sin^2a-\sin q\sin r\cos\alpha),
+\]
+a relation which I proceed to verify.
+
+\pagemarker{413}{528}{477}
+
+We may, from the formulae
+\[
+a^2=\sin^2q+\sin^2r-2\sin q\sin r\cos\alpha,\qquad
+a\sin a=\sin q\sin r\sin\alpha,\quad\hbox{\&c.},
+\]
+but, more simply, geometrically as presently shown, deduce
+\[
+\sin a\cos B+\sin c=a^{-1}\sin B\sin q(\sin q-\sin r\cos\alpha),
+\]
+\[
+\sin a\cos C+\sin b=a^{-1}\sin C\sin r(\sin r-\sin q\cos\alpha),
 \]
 and thence
 \[
-\rho_1 \rho_2 = x^{2p-2} + \ldots(1+x+r^2+\ldots+x^{2(p-2)+1}).
+\begin{aligned}
+&(\sin a\cos B+\sin c)(\sin a\cos C+\sin b)\\
+&\quad=a^{-2}\sin B\sin C\sin q\sin r
+\{\sin q\sin r(1+\cos^2\alpha)-\cos\alpha(\sin^2q+\sin^2r)\}\\
+&\quad=\sin B\sin C(\sin^2a-\sin q\sin r\cos\alpha),
+\end{aligned}
 \]
+which is the equation in question. For the subsidiary equations used in the
+demonstration, observe that the four points $O,X,A',B$ lie in a circle, and consequently
+that
 \[
-\rho_1 = x^{p-1} + \ldots + r^p,
+CO.CX=CA'.CB;
 \]
+or multiplying each side by $\sin C$, then
 \[
-\rho_1 + \rho_2 = x^{p-1} + \ldots(1+x+r^2+\ldots+x^{2(p-2)+1});
+CO.CX.\sin C=A'K.CB,
 \]
-Hence $\rho_1, \rho_2$ are the roots of the quadratic equation
+that is,
 \[
-y^2 - (3 p^2 - 2 x \pm 1) y - 5 a^2 + \ldots + (4 - 2) p^2 + (2 - 1) = 0.
+\sin r(\sin r-\sin q\cos\alpha)\sin C
+=a(\sin a\cos C+\sin b),
 \]
+and the other of the equations in question is proved in the same manner.
+
+From the formula for $\cosh\bar a$ we find
+\[
+\sinh\bar a=\frac{\Delta}{\sin B\sin C},
+\]
+where
+\[
+\Delta^2=-(1-\cos^2A-\cos^2B-\cos^2C-2\cos A\cos B\cos C),
+\]
+whence also
+\[
+\sinh\bar a:\sinh\bar b:\sinh\bar c=\sin A:\sin B:\sin C;
+\]
+and we can also obtain
+\[
+\cos\bar A=\frac{\cosh\bar a-\cosh\bar b\cosh\bar c}
+{\sinh\bar b\sinh\bar c}.
+\]
+So that the formulae are in fact similar to those of spherical trigonometry with only
+$\cosh\bar a,\sinh\bar a$ \&c. instead of $\cos a,\sin a$ \&c. The before-mentioned
+formula for $\cos\alpha$ in terms of $\bar a,\bar q,\bar r$ is obviously a particular case
+of the last-mentioned formula for $\cos\bar A$.
+
+\noindent\textit{Cambridge, 11 May, 1872.}
 
 \clearpage
+\section*{[529] A ``Smith's Prize'' Paper; Solutions}
+\begin{center}
+\textit{[From the Oxford, Cambridge and Dublin Messenger of Mathematics, vol. IV. (1868), pp. 201--226.]}
+\end{center}
 
-\bigskip
-\textit{p.~416}
-\smallskip
+\pagemarker{414}{529}{478}
 
-\noindent
+\textbf{1.} \textit{Find the form of a function of a given number of letters, which has two and only two values.}
+
+It is required to find the general form of a function
+$\phi(a,b,c,\ldots,k)$, rational and integral, which for all permutations whatever of
+the letters has two and only two values.
+
+Suppose that any particular permutation of the letters changes
+$\phi(a,b,c,\ldots,k)$ into $\phi_1(a,b,c,\ldots,k)$; then any permutation of the letters
+will either leave the functions $\phi,\phi_1$ each of them unaltered, or it will change
+$\phi$ into $\phi_1$, and $\phi_1$ into $\phi$. Hence $\phi+\phi_1$ is a symmetrical function
+of all the letters, say
+\[
+\phi+\phi_1=2L;
+\]
+$\phi-\phi_1$ is a function which by any permutation of the letters is either unaltered,
+or simply changes its sign; and it is to be shown that, writing for shortness $V$ to
+denote the product
+\[
+(a-b)(a-c)\cdots(b-c)\cdots
+\]
+of the differences of the letters, and denoting by $2M$ a symmetrical function of the
+letters, we have
+\[
+\phi-\phi_1=2VM.
+\]
+These equations give
+\[
+\phi=L+VM,
+\]
+which is the general form required; viz. the function $\phi$ has then only the two
+values $L+VM,L-VM$.
+
+To prove the subsidiary theorem, observe that there is at least one interchange of two
+letters which changes $\phi-\phi_1$ (for otherwise $\phi-\phi_1$ would be a symmetrical
+function).\footnote{Set by me, for the Master of Trinity, Thursday, January 30, 1868.}
+
+\pagemarker{415}{529}{479}
+
+Let this be $(a,b)$. Then $\phi-\phi_1$, changing its sign for the interchange in
+question, must vanish for $a=b$, that is, $\phi-\phi_1$ must contain the factor $(a-b)$;
+let it contain it in the power $(a-b)^s$; then the quotient
+$\phi-\phi_1\div(a-b)^s$, not vanishing for $a=b$, cannot change its sign by the
+interchange in question, and as by supposition $\phi-\phi_1$ does change its sign, it
+appears that the exponent $s$ must be odd. But $\phi-\phi_1$, containing the factor
+$(a-b)^s$, must contain every other like factor $(a-c)^s$ or $(c-d)^s$; in fact,
+writing $\phi-\phi_1=K(a-b)^s$, then if the interchange $(a,c)$ alters $K$ into $K_1$,
+we have
+\[
+K(a-b)^s=\pm K_1(a-c)^s;
+\]
+and $K$ consequently contains the factor $(a-c)^s$; it does not contain any higher
+power $(a-c)^{s+s'}$, for if it did, by reversing the process it would appear that
+$\phi-\phi_1$ contained (contrary to supposition) the factor $(a-b)^{s+s'}$. Similarly
+$\phi-\phi_1$ contains the factor $(c-d)^s$, but no higher power $(c-d)^{s+s'}$.
+Hence $\phi-\phi_1$ contains the product of all the factors $(a-b)^s$, that is, it
+contains $V^s$, and writing
+\[
+\phi-\phi_1=2V^sM,
+\]
+the quotient $M$ does not contain any such factor as $(a-b)$; it therefore does not
+change its sign for any interchange whatever $(a,b)$; and in consequence it remains
+unaltered for any such interchange, that is, $M$ is a symmetrical function. Observing
+that any even power of $V$ is a symmetrical function, we may without loss of
+generality include $V^{s-1}$ in the symmetrical function $M$, and write therefore
+\[
+\phi-\phi_1=2VM,
+\]
+which is the subsidiary theorem in question.
+
+\textbf{2.} \textit{Express $\dfrac{x^7-1}{x-1}$ as the product of two cubic factors; and show
+generally that, for any prime exponent $p$, the function $\dfrac{x^p-1}{x-1}$ may be
+broken up into two factors each of the order $\frac12(p-1)$, by means of a quadratic
+equation.}
+
+Let $r$ be any root of the given equation, then
+\[
+r^6+r^5+r^4+r^3+r^2+r+1=0;
+\]
+the roots of this equation are $r^1,r^2,r^3,r^4,r^5,r^6$. Hence
+\[
+x^6+x^5+x^4+x^3+x^2+x+1
+=(x-r^1)(x-r^2)(x-r^4)(x-r^3)(x-r^5)(x-r^6),
+\]
+and denoting the two cubic factors by $y_1,y_2$, or writing
+\[
+y_1=(x-r^1)(x-r^2)(x-r^4),\qquad
+y_2=(x-r^3)(x-r^5)(x-r^6),
+\]
+we have
+\[
+\begin{aligned}
+y_1&=x^3-x^2(r^1+r^2+r^4)+x(r^3+r^5+r^6)-1,\\
+y_2&=x^3-x^2(r^3+r^5+r^6)+x(r^1+r^2+r^4)-1,
+\end{aligned}
+\]
+and thence
+\[
+y_1+y_2=2x^3+x^2-x-2.
+\]
+Hence $y_1,y_2$ are the roots of the quadratic equation
+\[
+y^2-y(2x^3+x^2-x-2)+x^6+x^5+x^4+x^3+x^2+x+1=0.
+\]
+
+\pagemarker{416}{529}{480}
+
 Solving the equation, observing that the quantity under the radical sign must of
 necessity be a square, and that its value is
 \[
-(2 x^2 + x^{p-1} + \ldots + 2)^2 - 4 (x^{p-1} + x^{p-2} + \ldots + x^2 + x + 1),
+(2x^3+x^2-x-2)^2-4(x^6+x^5+x^4+x^3+x^2+x+1),
 \]
 which is in fact
 \[
-= -7 (x^2 + 1)^2,
+=-7(x^2+x)^2,
 \]
-so that the roots $y_1, y_2$, that is, the required cubic factors, are
+we find that the roots $y_1,y_2$, that is, the required cubic factors, are
 \[
-\tfrac{1}{2} (2 x^2 + x^{p-1} - \ldots + 2) \pm \tfrac{1}{2} (x^2 + 1) \sqrt{-7}.
+\frac12\{2x^3+x^2-x-2\pm\sqrt{-7}\,(x^2+x)\}.
+\]
+Generally for any prime exponent $p$, denoting any root by $r$, and writing
+\[
+y_1=(x-r^{a_1})(x-r^{a_2})\cdots,\qquad
+y_2=(x-r^{b_1})(x-r^{b_2})\cdots,
+\]
+where $a_1,a_2,\ldots$ are the quadratic residues, and $b_1,b_2,\ldots$ the quadratic
+non-residues of $p$, we find
+\[
+y^2-yP+Q=0,
+\]
+where $P$ is a function of $x$ of the order $\frac12(p-1)$, and
+\[
+Q=x^{p-1}+x^{p-2}+\cdots+x+1.
+\]
+Hence
+\[
+y=\frac12\{P\pm\sqrt{P^2-4Q}\},
+\]
+where $P^2-4Q$ is a perfect square, $=\eps pZ^2$, $Z$ a rational function of a degree
+less than $\frac12(p-1)$, and $\eps=+$ or $-$ according as $p\equiv1$ or $\equiv3
+\pmod 4$. Hence the required factors are
+\[
+\frac12\{P\pm\sqrt{\eps p}\,Z\}.
 \]
 
-Generally, for any prime exponent $p$, denoting by $r$ any root of $x^{p-1} + \ldots + 1 = 0$,
-and writing
-\[
-y = \rho_1 = (x - r)(x - r^2) \ldots = e^{p - 1} + \ldots + b,
-\]
-where $a, b, \ldots$ are the quadratic residues, and $a, b, \ldots$ the quadratic non-residues of
-$p$, we find
-\[
-y' + y' = (y + y)^2,
-\]
-where $P$ is a function of $x$ of the order $\frac{1}{2}(p - 1)$. Putting also $y' y' = (P - 4Q)$,
-where $Q$ is a function of $x$ of the order $\frac{1}{2}(p - 1)$, then $y_1, y_2$ are the values
-of a quadratic equation: $y' - P y + Q = 0$, and these roots are
-\[
-\tfrac{1}{2} (P \pm \sqrt{(P^2 - 4 Q)}).
-\]
-Here, as is known, $P^2 - 4 Q$, in a perfect square, $= q P^2$, $E$ a rational function of the
-two coefficients, and the quadratic radical is then $\sqrt{q P^2}$, that is, the radicals to be employed
-of the above-mentioned function of the coefficients can be obtained by proper determinations of
-the above-mentioned function $T'^{-1}$ in the symmetrical function which I call
-\[
-\tfrac{1}{2} (P \pm \sqrt{q P}).
-\]
-
-\textit{2.\ Is a Map of the World, wherein the meridians are projected into right lines
-meeting in a point, the inclination of any two of the lines being equal to that of the
-two meridians, and the parallels into circles about the point as centre, the radius of
-the circle being a given function of the latitude; compare on the plane scale of equal
-parts at any two points, calculated by means of a proper determination of
-the above-mentioned function of the latitude in question.}
+\textbf{3.} \textit{In a Map of the World, wherein the meridians are projected into right
+lines meeting in a point, the inclination of any two of the lines being equal to that
+of the two meridians, and the parallels into circles about the point as centre, the
+radius of the circle being a given function of the colatitude: compare on the sphere
+and in the map (1) the corresponding elements of area, (2) the azimuths of
+corresponding linear elements; and explain what conveniences may be obtained by
+proper determinations of the above-mentioned function of the colatitude.}
 
 Let the longitude and colatitude be
 \[
-\text{on the sphere: }l,\ \lambda,
+\hbox{on the sphere }l,c,\qquad
+\hbox{in the map }l',c',
 \]
-\[
-\text{in the map: }l',\ r,
-\]
-then the projection is such, that $l' = l$, $r = f(\lambda)$, a given function of $\lambda$.
-
+then the projection is such, that $l'=l$, $c'=f(c)$, a given function of $c$.
 The lengths of corresponding linear elements in the direction of a meridian, and
 perpendicular to it, are
 \[
-de,\ \sin e\,dl,
+\dd c,\quad \sin c\,\dd l,
 \]
 \[
-dr',\ r'\,dl';
+\dd c',\quad c'\dd l.
 \]
 
 \end{document}
