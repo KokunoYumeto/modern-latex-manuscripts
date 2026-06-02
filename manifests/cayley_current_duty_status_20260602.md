@@ -75,3 +75,5 @@ Update, 2026-06-02: Volume X tail repair promoted. The legacy `cayley_vol10_page
 
 Further Volume X update, 2026-06-02: Table No. 97 on printed p. 366 was repaired in `cayley_vol10_pages_376_400.tex`. The public TeX/PDF now contains native source-checked schedules for covariants `N` and `O`, replacing summary placeholders that previously pointed readers back to the scan. The surrounding status prose was also tightened so the remaining unpromoted dense schedules, especially `P` and the later p. 367 material, are clearly marked as next repair targets rather than hidden behind generic scan references. The rebuilt Volume X reader remains 571 selectable-text pages with zero embedded raster images.
 
+Additional Volume X update, 2026-06-02: the invariant `Q` on printed p. 367 was promoted from a compact ellipsis formula to a native source-checked Table No. 97 column. A scratch candidate for the larger `R` and `S` tables exists locally, but those entries remain too ambiguous for direct public promotion without another scan-check pass.
+
