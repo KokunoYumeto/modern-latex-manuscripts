@@ -1,24 +1,25 @@
-# SGA 6 Source-Checked Working Edition through Source Page 669
+# Superseded SGA 6 Source-Checked Working Edition through Source Page 669
 
 Updated: 2026-06-02
 
-This source packet contains the current strict bilingual SGA 6 working edition through source page 669.
-It replaces the previous through-page-653 cumulative packet in the GitHub mirror.
+This source packet contains the earlier strict bilingual SGA 6 working edition through source page 669.
+It is retained for provenance.
+The current front-facing SGA 6 source packet is `sources/sga/sga6-complete-source-checked-through-page-702-2026-06-02/`.
 
-## Current Public Readers
+## Superseded Public Readers
 
-- `reader-pdfs/sga/20 SGA 6 - Strict Source-Checked Edition through Source Page 669 - English.pdf`
-- `reader-pdfs/sga/21 SGA 6 - Strict Source-Checked Edition through Source Page 669 - French.pdf`
+- Superseded English reader source: `English/SGA6_English_pages_001_669.pdf`
+- Superseded French reader source: `French/SGA6_French_pages_001_669.pdf`
 - `reader-pdfs/sga/39Y SGA 6 - Expose XIII Neron-Severi and Hodge Index Pages 654-669 - English Translation.pdf`
 - `reader-pdfs/sga/39Z SGA 6 - Expose XIII Neron-Severi and Hodge Index Pages 654-669 - French Reconstruction.pdf`
 - `reader-pdfs/sga/39ZA SGA 6 - Source Scan Slice for Expose XIII Pages 654-669.pdf`
 
 ## Coverage
 
-- Cumulative SGA 6 working readers now run through source page 669.
+- This snapshot's cumulative SGA 6 working readers run through source page 669.
 - New Expose XIII slice: source pages 654-669.
 - Topic: Neron-Severi finiteness, Appendix 6 on `(b)`-sheaves, Appendix 7 on the Hodge index theorem, and bibliography material.
-- Next expected continuation starts at source page 670.
+- Continuation was later completed through source page 702.
 
 ## Validation
 

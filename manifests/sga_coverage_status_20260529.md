@@ -2,7 +2,7 @@
 
 Generated: 2026-05-29
 
-Superseded update: as of 2026-05-31, the mirrored public SGA record includes a paired French/English source-checked SGA 5 edition complete through printed page 484, including Expose XV and both indexes. The notes below are retained as a dated audit trail of the older 2026-05-29 state.
+Superseded update: as of 2026-05-31, the mirrored public SGA record includes a paired French/English source-checked SGA 5 edition complete through printed page 484, including Expose XV and both indexes. As of 2026-06-02, the mirrored public SGA record also includes a complete paired French/English source-checked SGA 6 edition through source page 702, including the terminological and notation indexes. The notes below are retained as a dated audit trail of the older 2026-05-29 state.
 
 This note records the current source-vs-public check for the SGA working translation material mirrored here and archived on Zenodo at https://zenodo.org/records/20410947.
 
@@ -13,7 +13,7 @@ This note records the current source-vs-public check for the SGA working transla
 - SGA 3 existing English snapshot: 1297 pages.
 - SGA 4 complete current English working reader: 642 pages.
 - Older 2026-05-29 SGA 5 delivered-segments reader: 141 pages, before the later sequence-062 SGA 5 completion was promoted.
-- SGA 6 current English working reader: 257 pages, through Expose XIV end; full SGA 6 source-checked rebuild still needs completion against the 702-page French reference.
+- Older 2026-05-29 SGA 6 English working reader: 257 pages, through Expose XIV end, before the later complete source-checked SGA 6 rebuild was promoted.
 - SGA 7-I opening reader: 13 pages, introduction and Expose I only.
 
 ## Source Check
