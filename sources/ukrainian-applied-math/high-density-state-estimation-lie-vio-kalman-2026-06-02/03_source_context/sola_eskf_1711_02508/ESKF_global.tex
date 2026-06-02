@@ -1,0 +1,427 @@
+% !TEX root = kinematics.tex
+
+
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The ESKF using global angular errors}
+\label{sec:ESKFglobal}
+
+We explore in this section the implications of having the angular error defined in the global reference, as opposed to the local definition we have used so far. 
+We retrace the development of sections \ref{sec:es-kinematics} and \ref{sec:fusion}, and particularize the subsections that present changes \wrt the new definition.
+
+A global definition of the angular error $\delta\bftheta$ implies a composition \emph{on the left hand side}, \ie,
+%
+\begin{equation*}
+\bfq_t = \delta\bfq\ \ot \bfq = \bfq\{\delta\bftheta\} \ot \bfq~.
+\end{equation*}
+
+We remark for the sake of completeness that we keep the local definition of the angular rates vector $\bfomega$, \ie, $\dot\bfq=\frac12\bfq\ot\bfomega$ in continuous time, and therefore $\bfq \gets \bfq\ot\bfq\{\bfomega\Dt\}$ in discrete time, regardless of the angular error being defined globally. 
+This is so for convenience, as the measure of the angular rates provided by the gyrometers is in body frame, that is, local.
+
+%=============================================================
+\subsection{System kinematics in continuous time}
+
+%-------------------------------------------------------------
+\subsubsection{The true- and nominal-state kinematics}
+
+True and nominal kinematics do not involve errors and their equations are unchanged.
+
+%-------------------------------------------------------------
+\subsubsection{The error-state kinematics}
+
+We start by writing the equations of the error-state kinematics, and proceed afterwards with comments and proofs.
+%
+\begin{subequations}\label{equ:efullglobal}
+%
+\begin{align}
+\dot{\delta\bfp} &= \delta\bfv \label{equ:epglobal} \\
+\dot{\delta\bfv} &= -\hatx{\bfR(\bfa_m-b\bfa_b)}\delta\bftheta - \bfR\delta\bfa_b + \delta\bfg - \bfR\bfa_n \label{equ:evglobal}\\
+\dot{\delta\bftheta} &= -\bfR\delta\bfomega_b - \bfR\bfomega_n \label{equ:etglobal}\\
+\dot{\delta\bfa_b} &= \bfa_w \label{equ:eabglobal}\\
+\dot{\delta\bfomega_b} &= \bfomega_w \label{equ:ewbglobal}\\
+\dot{\delta\bfg} &= 0 ~, \label{equ:egglobal}
+\end{align}%
+\end{subequations}%
+%
+where, again, all equations except those of $\dot{\delta\bfv}$ and $\dot{\delta\bftheta}$ are trivial. 
+The non-trivial expressions are developed below.
+
+
+\paragraph{Equation \eqRef{equ:evglobal}: The linear velocity error.}
+
+We wish to determine $\dot{\delta\bfv}$, the dynamics of the velocity errors. 
+We start with the following relations
+%
+%
+\begin{align}
+\bfR_t &= (\bfI+\hatx{\delta\bftheta})\bfR  + O(\norm{\delta\bftheta}^2) \label{equ:Rtglobal}\\
+\dot\bfv &= \bfR\bfa_\cB + \bfg~, \label{equ:vdot2global}
+\end{align}%
+%
+where \eqRef{equ:Rtglobal} is the small-signal approximation of $\bfR_t$ using a globally defined error, and in \eqRef{equ:vdot2global} we introduced $\bfa_\cB$ and $\delta\bfa_\cB$ as the large- and small- signal accelerations in body frame, defined in\eqRef{equ:nomacc} and \eqRef{equ:pertacc}, as we did for the locally-defined case.
+
+We proceed by writing the expression \eqRef{equ:vel} of $\dot\bfv_t$ in two different forms (left and right developments), where the terms $O(\norm{\delta\bftheta}^2)$ have been ignored,
+%
+%
+\begin{align*}
+\dot\bfv+\dot{\delta\bfv} =& \eqbox{\dot\bfv_t} = (\bfI + \hatx{\delta\bftheta})\bfR(\bfa_\cB+\delta\bfa_\cB) + \bfg + \delta\bfg \\
+\bfR\bfa_\cB+\bfg+\dot{\delta\bfv} =&
+~~~~~~= \bfR\bfa_\cB+\bfR\delta\bfa_\cB + \hatx{\delta\bftheta}\bfR\bfa_\cB + \hatx{\delta\bftheta}\bfR\delta\bfa_\cB + \bfg + \delta\bfg 
+\end{align*}%
+%
+This leads after removing $\bfR\bfa_\cB+\bfg$ from left and right to
+%
+\begin{equation}
+\dot{\delta\bfv} = \bfR\delta\bfa_\cB + \hatx{\delta\bftheta}\bfR(\bfa_\cB + \delta\bfa_\cB) + \delta\bfg
+\end{equation}%
+%
+Eliminating the second order terms and reorganizing some cross-products (with $\hatx{\bfa}\bfb=-\hatx{\bfb}\bfa$), we get
+%
+\begin{equation}
+\dot{\delta\bfv} = \bfR\delta\bfa_\cB - \hatx{\bfR\bfa_\cB}\delta\bftheta + \delta\bfg~,
+\end{equation}%
+%
+and finally, recalling \eqRef{equ:nomacc} and \eqRef{equ:pertacc} and rearranging, we obtain  the expression of the derivative of the velocity error,
+%
+\begin{equation}
+\eqbox{{\dot{\delta\bfv} = -\hatx{\bfR(\bfa_m-\bfa_b)}\delta\bftheta - \bfR\delta\bfa_b + \delta\bfg - \bfR\bfa_n }}
+\end{equation}%
+
+
+\paragraph{Equation \eqRef{equ:etglobal}: The orientation error.}
+
+We start by writing the true- and nominal- definitions of the quaternion derivatives,
+%
+%
+\begin{align}
+\dot{\bfq_t} &= \frac{1}{2}\bfq_t\ot\bfomega_t \\
+\dot{\bfq} &= \frac{1}{2}\bfq\ot\bfomega~,
+\end{align}%
+%
+and remind that we are using a globally-defined angular error, \ie,
+%
+\begin{equation}
+\bfq_t = \delta\bfq\ot\bfq~.
+\end{equation}
+%
+As we did for the locally-defined error case, we also group large- and small-signal angular rates \eqsRef{equ:nomangrate}{equ:pertangrate}. 
+We proceed by computing $\dot{\bfq_t}$ by two different means (left and right developments),
+%
+%
+\begin{align*}
+\dot{{({\delta\bfq}\ot\bfq)}} =& \eqbox{\dot{\bfq_t}} = \frac{1}{2}\bfq_t\ot\bfomega_t \\
+\dot{\delta\bfq}\ot{\bfq} + \delta\bfq\ot\dot{{\bfq}} =&~~~~~~= \frac{1}{2}\delta\bfq\ot\bfq\ot\bfomega_t \\
+\dot{\delta\bfq}\ot{\bfq} + \frac{1}{2}\delta\bfq\ot\bfq\ot\bfomega =&&  
+\end{align*}%
+%
+Having $\bfomega_t = \bfomega + \delta\bfomega$, this reduces to
+%
+\begin{equation}
+\dot{\delta\bfq}\ot{\bfq} = \frac{1}{2}\delta\bfq\ot\bfq\ot\delta\bfomega~.
+\end{equation}
+%
+Right-multiplying left and right terms by $\bfq^*$, and recalling that $\bfq\ot\delta\bfomega\ot\bfq^* \equiv \bfR\delta\bfomega$, we can further develop as follows,
+%
+%
+\begin{align}
+\dot{\delta\bfq} &= \frac{1}{2}\delta\bfq\ot\bfq\ot\delta\bfomega\ot\bfq^* \nonumber \\
+&= \frac{1}{2}\delta\bfq\ot(\bfR\delta\bfomega) \nonumber \\
+&= \frac{1}{2}\delta\bfq\ot\delta\bfomega_G~,
+\end{align}%
+%
+with $\delta\bfomega_G \triangleq \bfR\delta\bfomega$ the small-signal angular rate expressed in the global frame. Then,
+%
+%
+\begin{align}
+\begin{bmatrix}
+0\\\dot{\delta\bftheta}
+\end{bmatrix} = \eqbox{2\dot{{\delta\bfq}}} 
+&= {\delta\bfq}\ot\delta\bfomega_G \nonumber \\
+&= \Omega(\delta\bfomega_G)\,\delta\bfq \nonumber \\
+&= \begin{bmatrix}
+0 & -\delta\bfomega_G\tr \\
+\delta\bfomega_G & -\hatx{\delta\bfomega_G} 
+\end{bmatrix}\begin{bmatrix}
+1 \\
+\delta\bftheta/2
+\end{bmatrix} + O(\norm{\delta\bftheta}^2) ~,
+\end{align}%
+%
+which results in one scalar- and one vector- equalities
+%
+\begin{subequations}
+%
+\begin{align}
+0 &= \delta\bfomega_G\tr\delta\bftheta + O(|\delta\bftheta|^2) \\
+\dot{\delta\bftheta} &= \delta\bfomega_G - \frac{1}{2}\hatx{\delta\bfomega_G}\delta\bftheta + O(\norm{\delta\bftheta}^2).
+\end{align}%
+\end{subequations}
+%
+The first equation leads to $\delta\bfomega_G\tr\delta\bftheta = O(\norm{\delta\bftheta}^2)$, which is formed by second-order infinitesimals, not very useful. 
+The second equation yields, after neglecting all second-order terms,
+%
+\begin{equation}
+\dot{\delta\bftheta} = \delta\bfomega_G = \bfR\delta\bfomega ~.
+\end{equation}%
+%
+Finally, recalling %\eqRef{equ:nomangrate} and 
+\eqRef{equ:pertangrate}, we obtain the linearized dynamics of the global angular error,
+%
+\begin{equation}
+\eqbox{\dot{\delta\bftheta} = - \bfR\delta\bfomega_b - \bfR\bfomega_n}\ .
+\end{equation}%
+
+%=============================================================
+\subsection{System kinematics in discrete time}
+%-------------------------------------------------------------
+\subsubsection{The nominal state}
+The nominal state equations do not involve errors and are therefore the same as in the case where the orientation error is defined locally. 
+
+%-------------------------------------------------------------
+\subsubsection{The error state}
+
+Using Euler integration, we obtain the following set of differences equations,
+%
+\begin{subequations}
+%
+\begin{align}
+\delta\bfp &\gets \delta\bfp + \delta\bfv\,\Dt \\
+\delta\bfv &\gets \delta\bfv + (-\hatx{\bfR(\bfa_{m}-\bfa_{b})}\delta\bftheta - \bfR\delta\bfa_{b} + \delta\bfg)\Dt + \bfv_\bfi \\
+\delta\bftheta &\gets \delta\bftheta - \bfR\delta\bfomega_{b} \Dt + \bftheta_\bfi \\
+\delta\bfa_{b} &\gets  \delta\bfa_{b} + \bfa_\bfi \\
+\delta\bfomega_{b} &\gets \delta\bfomega_{b} + \bfomega_\bfi \\
+\delta\bfg &\gets \delta\bfg .
+\end{align}%
+\end{subequations}
+
+%-------------------------------------------------------------
+\subsubsection{The error state Jacobian and perturbation matrices}
+
+The Transition matrix is obtained by simple inspection of the equations above,
+%
+\begin{equation}
+\bfF_\bfx = %\pjac{f}{\delta\bfx}{\bfx,\bfu_m} = 
+\begin{bmatrix}
+\bfI & \bfI\Dt & 0                             & 0               & 0                     & 0 \\
+0 & \bfI    & \eqbox{-\hatx{\bfR(\bfa_m-\bfa_b)}\Dt}     & -\bfR\Dt            & 0                     & \bfI\Dt \\
+0 & 0    & \eqbox{\bfI}   & 0               & \eqbox{-\bfR\Dt}                  & 0 \\
+0 & 0    & 0                             & \bfI & 0                     & 0 \\
+0 & 0    & 0                             & 0               & \bfI  & 0 \\
+0 & 0    & 0                             & 0               & 0                     & \bfI \\
+\end{bmatrix}~.
+\end{equation}
+
+We observe three changes \wrt the case with a locally-defined angular error (compare the boxed terms in the Jacobian above to the ones in \eqRef{equ:Fx_local_euler}); these changes are summarized in \tabRef{tab:local_to_global}.
+
+
+The perturbation Jacobian and the perturbation matrix are unchanged after considering isotropic noises and the developments of \appRef{sec:IntNoise},
+%
+\begin{equation}
+\bfF_\bfi = %\pjac{f}{\bfi}{\bfx,\bfu_m} = 
+\begin{bmatrix}
+0 & 0 & 0 & 0 \\
+\bfI & 0 & 0 & 0 \\
+0 & \bfI & 0 & 0 \\
+0 & 0 & \bfI & 0 \\
+0 & 0 & 0 & \bfI \\
+0 & 0 & 0 & 0 
+\end{bmatrix}  
+\quad,\quad
+\bfQ_\bfi = \begin{bmatrix}
+\bfV_\bfi & 0        & 0      & 0 \\ 
+0      & \bfTheta_\bfi & 0      & 0 \\ 
+0      & 0        & \bfA_\bfi & 0 \\ 
+0      & 0        & 0      & \bfOmega_\bfi 
+\end{bmatrix}~.
+\end{equation}%
+%
+
+
+%=============================================================
+\subsection{Fusing with complementary sensory data}
+
+The fusing equations involving the ESKF machinery vary only slightly when considering global angular errors. 
+We revise these variations in the error state observation via ESKF correction, the injection of the error into the nominal state, and the reset step.
+
+%-------------------------------------------------------------
+\subsubsection{Error state observation}
+
+The only difference \wrt the local error definition is in the Jacobian block of the observation function that relates the orientation to the angular error. 
+This new block is developed below.
+
+Using \eqsRef{equ:quatMatProd}{equ:quatMatrix} and the first-order approximation $\delta\bfq\rightarrow \begin{bmatrix}
+1 \\ \frac12\delta\bftheta
+\end{bmatrix}$, the quaternion term $\bfQ_{\delta\bftheta}$ may be derived as follows,
+%
+\begin{subequations}
+\begin{align}
+\bfQ_{\delta\bftheta} \triangleq \pjac{(\delta\bfq\otimes\bfq)}{\delta\bftheta}{\bfq} 
+&=\pjac{(\delta\bfq\otimes\bfq)}{\delta\bfq}{\bfq} \pjac{\delta\bfq}{\delta\bftheta}{\hat{\delta\bftheta}=0} \\
+&= [\bfq]_R\,\frac12\begin{bmatrix}
+0 & 0 & 0 \\
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix} \\
+&= \frac{1}{2}\begin{bmatrix}
+-q_x &-q_y &-q_z\\
+ q_w & q_z &-q_y\\
+-q_z & q_w & q_x\\
+ q_y &-q_x & q_w\\
+\end{bmatrix}~.
+\end{align}
+\end{subequations}
+
+
+%-------------------------------------------------------------
+\subsubsection{Injection of the observed error into the nominal state}
+
+The composition $\bfx \gets \bfx\oplus\hat{\delta\bfx}$ of the nominal and error states is depicted as follows,
+%
+\begin{subequations}
+%
+\begin{align}
+\bfp &\gets \bfp + \delta\bfp \\
+\bfv &\gets \bfv + \delta\bfv \\
+\bfq &\gets \bfq\{\hat{\delta\bftheta}\} \ot \bfq \\ 
+\bfa_b &\gets \bfa_b + \delta\bfa_b \\
+\bfomega_b &\gets \bfomega_b + \delta\bfomega_b \\
+\bfg &\gets \bfg + \delta\bfg ~.
+\end{align}%
+\end{subequations}
+%
+where only the equation for the quaternion update has been affected. 
+This is summarized in \tabRef{tab:local_to_global}.
+
+%-------------------------------------------------------------
+\subsubsection{ESKF reset}
+
+The ESKF error mean is reset, and the covariance updated, according to,
+%
+%
+\begin{align}
+\hat{\delta\bfx} &\gets 0 \\
+\bfP &\gets \bfG\bfP\bfG\tr
+\end{align}%
+%
+with the Jacobian
+%
+\begin{equation}
+\bfG = \begin{bmatrix}
+\bfI_6 & 0 & 0 \\
+0 & \bfI+\hatx{\hat{\frac12\delta\bftheta}} & 0 \\
+0 & 0 & \bfI_9
+\end{bmatrix}
+\end{equation}
+%
+whose non-trivial term is developed as follows. 
+Our goal is to obtain the expression of the new angular error $\delta\bftheta^+$ \wrt the old error $\delta\bftheta$. 
+We consider these facts:
+\begin{itemize}
+\item
+The true orientation does not change on error reset, \ie, $\bfq_t^+ \equiv \bfq_t$. This gives:
+%
+\begin{equation}
+\delta\bfq^+\ot\bfq^+ = \delta\bfq\ot \bfq~.
+\end{equation}
+%
+\item
+The observed error mean has been injected into the nominal state (see \eqRef{equ:quatErrorInjection} and \eqRef{equ:rotComposition}):
+%
+\begin{equation}
+\bfq^+ = \hat{\delta\bfq} \ot \bfq ~.
+\end{equation}
+\end{itemize}
+
+Combining both identities we obtain an expression of the new orientation error \wrt the old one and the observed error $\hat{\delta\bfq}$,
+%
+\begin{equation}
+\delta\bfq^+ = \delta\bfq \ot \hat{\delta\bfq}^*  = [\hat{\delta\bfq}^*]_R\cdot\delta\bfq~.
+\end{equation}
+%
+Considering that
+%
+$\hat{\delta\bfq}^* \approx \begin{bmatrix}
+1 \\ -\frac12\hat{\delta\bftheta}
+\end{bmatrix}$,
+%
+the identity above can be expanded as
+%
+\begin{equation}
+\begin{bmatrix}
+1 \\ \frac12\delta\bftheta^+
+\end{bmatrix}
+=
+\begin{bmatrix}
+1                  & \frac12\hat{\delta\bftheta}\tr \\
+-\frac12\hat{\delta\bftheta} & \bfI + \hatx{\frac12\hat{\delta\bftheta}}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1 \\ \frac12\delta\bftheta
+\end{bmatrix} + \cO(\norm{\delta\bftheta}^2)
+\end{equation}
+%
+which gives one scalar- and one vector- equations,
+%
+\begin{subequations}
+%
+\begin{align}
+\frac14\hat{\delta\bftheta}\tr\delta\bftheta &= \cO(\norm{\delta\bftheta}^2)\\
+\delta\bftheta^+ &= -\hat{\delta\bftheta} + \left(\bfI + \hatx{\frac12\hat{\delta\bftheta}}\right)\delta\bftheta + \cO(\norm{\delta\bftheta}^2)
+\end{align}%
+\end{subequations}
+%
+among which the first one is not very informative in that it is only a relation of infinitesimals. 
+One can show from the second equation that $\hat{\delta\bftheta}^+ = 0$, which is what we expect from the reset operation. 
+The Jacobian is obtained by simple inspection,
+%
+\begin{equation}
+\eqbox{\dpar{\delta\bftheta^+}{\delta\bftheta} = \bfI + \hatx{\frac12\hat{\delta\bftheta}}}~.
+\end{equation}
+
+The difference \wrt the local error case is summarized in \tabRef{tab:local_to_global}.
+
+
+\begin{table*}[tb]
+\renewcommand{\arraystretch}{1.7}
+\caption{Algorithm modifications related to the definition of the orientation errors.}
+\label{tab:local_to_global}
+\vspace{1ex}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Context & Item & local angular error & global angular error \\
+\hline
+\hline
+Error composition & $\bfq_t$ & $\bfq_t = \bfq\ot\delta\bfq$ & $\bfq_t = \delta\bfq\ot\bfq$ \\
+\hline
+\hline
+\multirow{3}{*}{Euler integration} & $\dparil{\delta\bfv^+}{\delta\bftheta}$ & $-\bfR\hatx{\bfa_m-\bfa_b}\Dt$ & $-\hatx{\bfR(\bfa_m-\bfa_b)}\Dt$ \\
+&$\dparil{\delta\bftheta^+}{\delta\bftheta}$ & $\bfR\tr\{(\bfomega_m-\bfomega_b)\Dt\}$ & $\bfI$ \\
+&$\dparil{\delta\bftheta^+}{\delta\bfomega_b}$ & $-\bfI\Dt$ &  $-\bfR\Dt$ \\
+\hline
+\hline
+Error observation & $
+\bfQ_{\delta\bftheta}
+%\dparil{(\delta\bfq\otimes\bfq)}{\delta\bftheta}
+%\dparil{[\bfq]_L}{\delta\bftheta}
+$ & $\frac12\begin{bmatrix}
+-q_x &-q_y &-q_z\\
+ q_w &-q_z & q_y\\
+ q_z & q_w &-q_x\\
+-q_y & q_x & q_w\\
+\end{bmatrix}$ & $\frac12\begin{bmatrix}
+-q_x &-q_y &-q_z\\
+ q_w & q_z &-q_y\\
+-q_z & q_w & q_x\\
+ q_y &-q_x & q_w\\
+\end{bmatrix}$ \\
+\hline
+Error injection &  %$\bfq\gets\bfq\oplus\hat{\delta\bftheta}$  
+& $\bfq \gets \bfq \ot \bfq\{\hat{\delta\bftheta}\}$ & $\bfq \gets \bfq\{\hat{\delta\bftheta}\} \ot \bfq$ \\ 
+\hline
+Error reset & $\dparil{\delta\bftheta^+}{\delta\bftheta}$ & $\bfI - \hatx{\frac12\hat{\delta\bftheta}}$ & $\bfI + \hatx{\frac12\hat{\delta\bftheta}}$ \\
+\hline
+\end{tabular}
+\end{table*}

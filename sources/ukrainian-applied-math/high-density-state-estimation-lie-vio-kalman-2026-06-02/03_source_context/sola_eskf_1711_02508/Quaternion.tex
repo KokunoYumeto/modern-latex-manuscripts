@@ -1,0 +1,3448 @@
+% !TEX root = kinematics.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quaternion definition and properties}
+
+%=============================================================
+\subsection{Definition of quaternion}
+
+One introduction to the quaternion that I find particularly attractive  is given by the Cayley-Dickson construction: 
+If we have two complex numbers $A=a+bi$ and $C=c+di$, then constructing $Q=A+Cj$ and defining $k\triangleq ij$ yields a number in the space of quaternions $\bbH$,
+%
+\begin{align}
+Q = a + bi + cj + dk \in\bbH ~, \label{equ:ijkQuat}
+\end{align}%
+%
+where $\{a,b,c,d\}\in\bbR$, and $\{i,j,k\}$ are three imaginary unit numbers defined so that
+%
+\begin{subequations}
+\label{equ:quatAlgebra}
+\begin{align}
+i^2=j^2=k^2=ijk=-1~,
+\end{align}%
+%
+from which we can derive
+%
+\begin{align}
+ij = -ji = k ~, \quad jk=-kj=i~, \quad ki=-ik=j~.
+\end{align}
+\end{subequations}
+%
+From \eqRef{equ:ijkQuat} we see that we can embed complex numbers, and thus real and imaginary numbers, in the quaternion definition, in the sense that real, imaginary and complex numbers are indeed quaternions,
+%
+\begin{align}
+Q = a \in \bbR \subset \bbH~,
+\Quad 
+Q=bi \in \bbI \subset \bbH~,
+\Quad 
+Q=a+bi \in \bbZ \subset \bbH~.
+\end{align}
+%
+Likewise, and for the sake of completeness, we may define numbers in the tri-dimensional imaginary subspace of $\bbH$.
+We refer to them as \emph{pure quaternions}, and may note $\bbH_p=\Im(\bbH)$ the space of pure quaternions,
+%
+\begin{align}
+Q=bi+cj+dk \in\bbH_p \subset\bbH~.
+\end{align}
+
+
+It is noticeable that, while regular complex numbers of unit length $\bfz=e^{i\theta}$ can encode rotations in the 2D plane (with one complex product, $\bfx'=\bfz\tdot\bfx$), ``extended complex numbers" or quaternions of unit length $\bfq=e^{(u_xi+u_yj+u_zk)\theta/2}$ encode rotations in the 3D space (with a double quaternion product, $\bfx'=\bfq\otimes\bfx\otimes\bfq^*$, as we explain later in this document). 
+
+
+
+\bigskip
+
+{\bf CAUTION:} Not all quaternion definitions are the same. 
+Some authors write the products as $ib$ instead of $bi$, and therefore they get the property $k = ji = -ij$, which results in $ijk=1$ and a left-handed quaternion. 
+Also, many authors place the real part at the end position, yielding $Q = ia + jb + kc + d$. 
+These choices have no fundamental implications but make the whole formulation different in the details. 
+Please refer to \secRef{sec:conventions} for further explanations and disambiguation.
+
+\bigskip
+
+{\bf CAUTION:} There are additional conventions that also make the formulation different in details. 
+They concern the ``meaning'' or ``interpretation'' we give to the rotation operators, either rotating vectors or rotating reference frames --which, essentially, constitute opposite operations. 
+Refer also to \secRef{sec:conventions} for further explanations and disambiguation.
+
+\bigskip 
+
+{\bf NOTE:} Among the different conventions exposed above, this document concentrates on the Hamilton convention, whose most remarkable property is the definition \eqRef{equ:quatAlgebra}. A proper and grounded disambiguation requires to first develop a significant amount of material; therefore, this disambiguation is relegated to the aforementioned \secRef{sec:conventions}.
+
+
+
+%=============================================================
+\subsubsection{Alternative representations of the quaternion}
+\label{sec:altQuat}
+
+The real + imaginary notation $\{1,i,j,k\}$ is not always convenient for our purposes. 
+%
+%
+Provided that the algebra \eqRef{equ:quatAlgebra} is used, a quaternion can be posed as a sum scalar + vector,
+%
+\begin{align}
+Q=q_w+q_xi+q_yj+q_zk
+\qquad
+\Leftrightarrow
+\qquad
+Q = q_w + \qv~,
+\end{align}
+%
+where $q_w$ is referred to as the \emph{real} or \emph{scalar} part, and $\qv=q_x i+q_y j+q_z k=(q_x,q_y,q_z)$ as the \emph{imaginary} or \emph{vector} part.\footnote{\label{ftn:quatComponents}Our choice for the $(w,x,y,z)$ subscripts notation comes from the fact that we are interested in the geometric properties of the quaternion in the 3D Cartesian space. 
+Other texts often use alternative subscripts such as $(0,1,2,3)$ or $(1,i,j,k)$, perhaps better suited for mathematical interpretations.} 
+%
+It can be also defined as an ordered pair scalar-vector 
+%
+\begin{align}
+Q = \langle q_w,\qv\rangle ~.
+\end{align}
+%
+We mostly represent a quaternion $Q$ as a 4-vector $\bfq$~,
+%
+\begin{align}
+\bfq \triangleq 
+\begin{bmatrix}
+q_w\\\qv
+\end{bmatrix}=
+\begin{bmatrix}
+q_w\\q_x\\q_y\\q_z
+\end{bmatrix}~,
+\end{align}%
+%
+which allows us to use matrix algebra for operations involving quaternions.
+At certain occasions, we may allow ourselves to mix notations by abusing of the sign ``$=$". Typical examples are \emph{real quaternions} and \emph{pure quaternions},
+%
+\begin{align}
+\textrm{general: }
+\bfq
+=q_w+\qv=\begin{bmatrix}
+q_w\\\qv
+\end{bmatrix} \in \bbH
+~,\quad
+\textrm{real: }
+q_w=\begin{bmatrix}
+q_w\\{\bf0}_v
+\end{bmatrix} \in \bbR
+~,\quad
+\textrm{pure: }
+\qv=\begin{bmatrix}
+0\\\qv
+\end{bmatrix} \in \bbH_p
+~.
+\end{align}
+
+
+
+
+%=============================================================
+\subsection{Main quaternion properties}
+
+\subsubsection{Sum}
+
+The sum is straightforward,
+%
+\begin{align}
+\bfp\pm\bfq = \begin{bmatrix}
+p_w \\ \pv
+\end{bmatrix} \pm \begin{bmatrix}
+q_w \\ \qv
+\end{bmatrix}
+  = \begin{bmatrix}
+p_w \pm q_w \\ \pv \pm \qv
+\end{bmatrix}~.
+\end{align}
+%
+By construction, the sum is \textbf{commutative} and \textbf{associative},
+%
+%
+\begin{align}
+\bfp+\bfq&=\bfq+\bfp \\
+\bfp+(\bfq+\bfr)&=(\bfp+\bfq)+\bfr
+~.
+\end{align}%
+%
+%Thus, the set of quaternions endowed with the sum operation form a commutative group, where the identity is the zero quaternion, $\bfq_0 = 0$, and the inverse is the negative  $-\bfq$.
+
+\subsubsection{Product}
+
+Denoted by $\otimes$, the quaternion product requires using the original form \eqRef{equ:ijkQuat} and the quaternion algebra \eqRef{equ:quatAlgebra}. 
+Writing the result in vector form gives
+%
+\begin{align}
+\bfp\otimes\bfq = \begin{bmatrix}
+p_wq_w - p_{x}q_{x} - p_{y}q_{y} - p_{z}q_{z} \\
+p_wq_{x} + p_{x}q_w + p_{y}q_{z} - p_{z}q_{y} \\
+p_wq_{y} - p_{x}q_{z} + p_{y}q_w + p_{z}q_{x} \\
+p_wq_{z} + p_{x}q_{y} - p_{y}q_{x} + p_{z}q_w  
+\end{bmatrix}~. \label{equ:quatProd}
+\end{align}
+%
+This can be posed also in terms of the scalar and vector parts,
+%
+\begin{align}
+\bfp\otimes\bfq = \begin{bmatrix}
+p_wq_w - \pv\tr\qv \\
+p_w\qv+q_w\pv+\pv\!\times\!\qv
+\end{bmatrix}~, \label{equ:quatProdVec}
+\end{align}
+%
+where 
+the presence of the cross-product
+reveals that the quaternion product is \textbf{not commutative} in the general case,
+%
+\begin{align}
+\bfp\otimes\bfq\neq\bfq\otimes\bfp~.
+\end{align}
+%
+Exceptions to this general non-commutativity are limited to the cases where $\pv\!\times\!\qv=0$, which happens whenever one quaternion is real, $\bfp=p_w$ or $\bfq=q_w$, or when both vector parts are parallel, $\pv \| \qv$. Only in these cases the quaternion product is commutative.
+
+The quaternion product is however \textbf{associative},
+%
+\begin{align}
+(\bfp\otimes\bfq)\ot\bfr = \bfp\otimes(\bfq\ot\bfr)~,
+\end{align}
+%
+and \textbf{distributive over the sum},
+%
+\begin{align}
+\bfp\ot(\bfq+\bfr) = \bfp\ot\bfq + \bfp\ot\bfr
+\qquad \textrm{and} \qquad
+%\qquad,\qquad
+(\bfp+\bfq)\ot\bfr = \bfp\ot\bfr + \bfq\ot\bfr~.
+\end{align}
+%
+
+
+
+The product of two quaternions is bi-linear and can be expressed as two equivalent matrix products, namely
+%
+\begin{align}
+\bfq_1\ot\bfq_2 = \QL{\bfq_1}\,\bfq_2 
+\qquad \textrm{and} \qquad
+\bfq_1\ot\bfq_2 = \QR{\bfq_2}\,\bfq_1 ~, \label{equ:quatMatProd}
+\end{align}%
+%
+where $\QL{\bfq}$ and $\QR{\bfq}$ are respectively the left- and right- quaternion-product matrices, which are derived from \eqRef{equ:quatProd} and \eqRef{equ:quatMatProd} by simple inspection,
+%
+\begin{align}
+\QL{\bfq} = \begin{bmatrix}
+q_w &-q_x &-q_y &-q_z\\
+q_x & q_w &-q_z & q_y\\
+q_y & q_z & q_w &-q_x\\
+q_z &-q_y & q_x & q_w\\
+\end{bmatrix}, \qquad
+\QR{\bfq} = \begin{bmatrix}
+q_w &-q_x &-q_y &-q_z\\
+q_x & q_w & q_z &-q_y\\
+q_y &-q_z & q_w & q_x\\
+q_z & q_y &-q_x & q_w\\
+\end{bmatrix} ,
+\label{equ:quatMatrixComponents}
+\end{align}%
+%
+or more concisely, from \eqRef{equ:quatProdVec} and \eqRef{equ:quatMatProd}, 
+%
+\begin{align}
+\QL{\bfq} = q_w\,\bfI + \begin{bmatrix}
+0 & -\qv\tr \\
+\qv & \hatx{\qv}
+\end{bmatrix}, \qquad
+\QR{\bfq} = q_w\,\bfI + \begin{bmatrix}
+0 & -\qv\tr \\
+\qv & -\hatx{\qv}
+\end{bmatrix}~.
+\label{equ:quatMatrix}
+ ~
+\end{align}%
+%
+Here, the \emph{skew operator}\footnote{The skew-operator can be found in the literature in a number of different names and notations, either related to the cross operator $\times$, or to the `hat' operator $^\wedge$, so that all the forms below are equivalent,
+$$
+\hatx{\bfa} \equiv [\bfa_\times] \equiv \bfa\!\times \equiv \bfa_\times \equiv [\bfa] \equiv \widehat{\bfa} \equiv \bfa^\wedge~.
+$$
+} 
+%
+$\hatx{\bullet}$ produces the cross-product matrix,
+%
+\begin{align}
+\hatx{\bfa} \triangleq \begin{bmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & -a_x \\
+-a_y & a_x & 0
+\end{bmatrix}
+\label{equ:skew}
+~,
+\end{align}
+%
+which is a skew-symmetric matrix, $\hatx{\bfa}\tr=-\hatx{\bfa}$, equivalent to the cross product, \ie, 
+%
+\begin{align}
+\hatx{\bfa}\bfb = \bfa\tcross\bfb~,\quad \forall\, \bfa,\bfb\in\bbR^3 ~.  
+\end{align}
+
+
+
+Finally, since
+%
+\begin{align*}
+\bfq\ot\bfx\ot\bfp 
+&= (\bfq\ot\bfx)\ot\bfp = \QR{\bfp}\,\QL{\bfq}\,\bfx 
+\\
+&= \bfq\ot(\bfx\ot\bfp) = \QL{\bfq}\,\QR{\bfp}\,\bfx
+~,
+\end{align*}
+%
+we have the relation
+%
+\begin{align}
+\QR{\bfp}\,\QL{\bfq} = \QL{\bfq}\,\QR{\bfp}~,
+\label{equ:PQ_commute}
+\end{align}
+%
+that is, left- and right- quaternion product matrices commute.
+Further properties of these matrices are provided in \secRef{sec:isoclinic}.
+
+
+Quaternions endowed with the product operation $\otimes$ form a non-commutative group. 
+The group's elements identity, $\bfq_1=1$, and inverse, $\bfq\inv$,  are explored below.
+
+\subsubsection{Identity}
+
+The identity quaternion $\qI$ \wrt the product is such that $\qI\otimes\bfq=\bfq\otimes\qI=\bfq$. 
+It corresponds to the real product identity `1' expressed as a quaternion,
+%
+\begin{align*}
+\qI = 1 = \begin{bmatrix}
+1 \\ {\bf0}_v
+\end{bmatrix} ~.
+\end{align*}
+
+
+\subsubsection{Conjugate}
+
+The conjugate of a quaternion is defined by
+%
+\begin{align}
+\bfq^*\triangleq q_w-\qv=\begin{bmatrix}
+q_w \\ -\qv
+\end{bmatrix}
+~.
+\end{align}
+%
+This has the properties
+%
+\begin{align}
+\bfq\otimes\bfq^* = \bfq^*\otimes\bfq 
+=q_w^2 +q_x^2 +q_y^2 +q_z^2
+= \begin{bmatrix}
+q_w^2 +q_x^2 +q_y^2 +q_z^2 \\ {\bf0}_v
+\end{bmatrix}
+~,
+\end{align}
+%
+and
+%
+\begin{align}
+(\bfp\ot\bfq)^* = \bfq^*\ot\bfp^* 
+~.
+\end{align}%
+
+
+\subsubsection{Norm}
+
+The norm of a quaternion is defined by
+%
+\begin{align}\label{equ:q_norm}
+\norm{\bfq} \triangleq \sqrt{\bfq\otimes\bfq^*} = \sqrt{\bfq^*\otimes\bfq} = \sqrt{q_w^2 +q_x^2 +q_y^2 +q_z^2 } ~\in \bbR ~.
+\end{align}
+%
+It has the property
+%
+\begin{align}
+\norm{\bfp\ot\bfq} = \norm{\bfq\ot\bfp} = \norm{\bfp}\norm{\bfq}~. \label{equ:norm_prod}
+\end{align}•
+
+\subsubsection{Inverse}
+
+The inverse quaternion $\bfq\inv$ is such that the quaternion times its inverse gives the identity,
+%
+\begin{align}
+\bfq\otimes\bfq\inv = \bfq\inv\otimes\bfq = \qI~.
+\end{align}
+%
+It can be computed with
+%
+\begin{align}
+\bfq\inv = \bfq^*/\norm{\bfq}^2~.
+\end{align}
+
+\subsubsection{Unit or normalized quaternion}
+
+For unit quaternions, $\norm{\bfq}=1$, and therefore
+%
+\begin{align}
+\bfq\inv = \bfq^*~.
+\end{align}
+
+
+When interpreting the unit quaternion as an orientation specification, or as a rotation operator, this property implies that the inverse rotation can be accomplished with the conjugate quaternion. Unit quaternions can always be written in the form,
+%
+\begin{align}
+\bfq = \begin{bmatrix}
+\cos\theta \\ \bfu\sin\theta
+\end{bmatrix}
+~,
+\end{align}
+%
+where $\bfu = u_x i + u_y j + u_z k$ is a unit vector and $\theta$ is a scalar. 
+
+From \eqRef{equ:norm_prod}, unit quaternions endowed with the product operation $\otimes$ form a non commutative group, where the inverse coincides with the conjugate. 
+
+
+\subsection{Additional quaternion properties}
+
+\subsubsection{Quaternion commutator}
+
+The quaternion \emph{commutator} is defined as $[\bfp,\bfq]\triangleq\bfp\ot\bfq-\bfq\ot\bfp$. We have from \eqRef{equ:quatProdVec},
+%
+\begin{align}
+\bfp\ot\bfq-\bfq\ot\bfp = 2\,\pv\tcross\qv
+~.
+\label{equ:quatCommutator}
+\end{align}
+%
+This has as a trivial consequence,
+%
+\begin{align}
+\pv\ot\qv-\qv\ot\pv = 2\,\pv\tcross\qv
+~.
+\label{equ:quatCommutatorPure}
+\end{align}
+%
+We will use this property later on.
+
+
+\subsubsection{Product of pure quaternions}
+
+Pure quaternions are those with null real or scalar part, $Q=\qv$ or $\bfq=[0,\qv]$. We have from \eqRef{equ:quatProdVec},
+%
+\begin{align}
+\pv\ot\qv 
+= -\pv\tr\qv + \pv\tcross\qv
+= \begin{bmatrix}
+-\pv\tr\qv \\
+\pv\tcross\qv
+\end{bmatrix}~.
+\label{equ:quatProdPure}
+\end{align}
+%
+This implies
+%
+\begin{align}
+\qv\ot\qv = -\qv\tr\qv = -\norm{\qv}^2~,
+\label{equ:quatPureSquared}
+\end{align}
+%
+and for pure unitary quaternions $\bfu\in\bbH_p,~ \norm{\bfu}=1$,
+%
+\begin{align}
+\bfu\ot\bfu = -1
+~,
+\end{align}
+%
+which is analogous to the standard imaginary case, $i\cdot i=-1$.
+
+\subsubsection{Natural powers of pure quaternions}
+
+Let us define $\bfq^n, ~n\in\bbN$, as the $n$-th power of $\bfq$ using the quaternion product $\ot$. 
+Then, if $\bfv$ is a pure quaternion and we let $\bfv=\bfu\,\theta$, with $\theta=\norm{\bfv}\in\bbR$ and $\bfu$ unitary, we get from \eqRef{equ:quatPureSquared} the cyclic pattern
+%
+\begin{align}
+\bfv^2 = -\theta^2 \quad,\quad
+\bfv^3 = -\bfu\,\theta^3 \quad,\quad
+\bfv^4 = \theta^4 \quad,\quad
+\bfv^5 = \bfu\,\theta^5 \quad,\quad
+\bfv^6 = -\theta^6 \quad,\quad
+\cdots
+\label{equ:qvPowers}
+\end{align}
+%
+and for pure unitary quaternions $\bfu$, this reduces to the pattern
+%
+\begin{align}
+\bfu^2 = -1 	\quad,\quad
+\bfu^3 = -\bfu 	\quad,\quad
+\bfu^4 = 1 		\quad,\quad
+\bfu^5 = \bfu 	\quad,\quad
+\bfu^6 = -1 	\quad,\quad
+\cdots
+\label{equ:uPowers}
+\end{align}
+
+
+
+
+\subsubsection{Exponential of pure quaternions}
+
+%We define the exponential of a general quaternion by an extension of the real exponential, with the aim of capturing the most part of its properties.
+The quaternion exponential is a function on quaternions analogous to the ordinary exponential function. 
+Exactly as in the real exponential case, it is defined as the absolutely convergent power series,
+%
+\begin{align}
+e^\bfq
+\triangleq \sum_{k=0}^\infty \frac{1}{k!}\bfq^k \quad \in \bbH
+~.
+\label{equ:quatExpSeries}
+\end{align}
+%
+Clearly, the exponential of  a real quaternion coincides exactly with the ordinary exponential function. 
+
+More interestingly,  the exponential of a pure quaternion $\bfv=v_xi+v_yj+v_zk$~ is a new quaternion defined by,
+%
+\begin{align}
+e^\bfv
+= \sum_{k=0}^\infty \frac{1}{k!}\bfv^k \quad \in \bbH
+~.
+\label{equ:pureQuatExpSeries}
+\end{align}
+%
+Letting $\bfv=\bfu\,\theta$, with $\theta=\norm{\bfv}\in\bbR$ and $\bfu$ unitary, and considering \eqRef{equ:qvPowers}, we group the scalar and vector terms in the series, 
+%
+\begin{align}
+e^{\bfu\theta} 
+&= \left(1-\frac{\theta^2}{2!}+\frac{\theta^4}{4!}+\cdots\right) + \left(\bfu\theta - \frac{\bfu\theta^3}{3!}+\frac{\bfu\theta^5}{5!}+\cdots\right)
+\end{align}
+%
+and recognize in them, respectively, the series of $\cos\theta$ and $\sin\theta$.% 
+%
+\footnote{We remind that $\cos \theta = 1 - \theta^2/2! + \theta^4/4! - \cdots$, and $\sin \theta =  \theta - \theta^3/3! + \theta^5/5! - \cdots$.}
+%
+ This results in
+%
+\begin{align}
+e^\bfv
+= e^{\bfu\,\theta} 
+= \cos\theta + \bfu\sin\theta = \begin{bmatrix}
+\cos\theta \\ \bfu\sin\theta 
+\end{bmatrix} ~,
+\label{equ:EulerFormulaQuat}
+\end{align}
+%
+which constitutes a beautiful extension of the Euler formula, $e^{i\theta}=\cos\theta+i\sin\theta$, defined for imaginary numbers. 
+%
+Notice that since $\norm{e^{\bfv}}^2=\cos^2\theta+\sin^2\theta=1$, the exponential of a pure quaternion is a unit quaternion.
+Notice also the property,
+%
+\begin{align}
+e^{-\bfv} = \left(e^{\bfv}\right)^*
+~.
+\end{align}
+
+For small angle quaternions we avoid the division by zero in $\bfu=\bfv/\norm{\bfv}$ by expressing the Taylor series of $\sin\theta$ and $\cos\theta$ and truncating, obtaining varying degrees of the approximation,
+%
+\begin{align}
+e^\bfv 
+\approx
+\begin{bmatrix}
+1-\theta^2/2 \\ \bfv\big(1-\theta^2/6\big) 
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+1 \\ \bfv 
+\end{bmatrix}
+\xrightarrow[\theta\to 0]{}
+\begin{bmatrix}
+1 \\ {\bf0}
+\end{bmatrix}
+~.
+\end{align}
+%
+
+
+\subsubsection{Exponential of general quaternions}
+
+
+Due to the non-commutativity property of the quaternion product, we cannot write for general quaternions $\bfp$ and $\bfq$ that $e^{\bfp+\bfq}=e^\bfp e^\bfq $. However, commutativity holds when any of the product members is a scalar, and therefore,
+%
+\begin{align}
+e^\bfq = e^{q_w+\qv} = e^{q_w}\,e^{\qv} ~.
+\end{align}
+%
+Then, using \eqRef{equ:EulerFormulaQuat} with $\bfu\theta=\qv$ we get
+%
+\begin{align}\label{equ:expGeneralQuat}
+e^\bfq 
+= e^{q_w}\begin{bmatrix}
+\cos\norm{\qv} \\ \frac{\qv}{\norm{\qv}}\sin\norm{\qv} 
+\end{bmatrix}~.
+\end{align}
+%
+
+
+\subsubsection{Logarithm of unit quaternions}
+\label{sec:qlog}
+
+It is immediate to see that, if $\norm{\bfq}=1$,
+%
+\begin{align}\label{equ:qlog}
+\log \bfq = \log (\cos \theta + \bfu \sin\theta) = \log(e^{\bfu\,\theta}) = \bfu\,\theta = \begin{bmatrix}
+0 \\ \bfu\,\theta
+\end{bmatrix}
+~,
+\end{align}
+%
+that is, the logarithm of a unit quaternion is a pure quaternion. The angle-axis values are obtained easily by inverting \eqRef{equ:EulerFormulaQuat},
+%
+\begin{align}
+\bfu &= \qv / \norm{\qv} \\
+\theta &= \arctan(\norm{\qv},q_w)
+~.
+\end{align}
+%
+For small angle quaternions, we avoid division by zero by expressing the Taylor series of $\arctan(x)$ and truncating,\footnote{We remind that $\arctan x = x - x^3/3 + x^5/5 - \cdots$, and $\arctan(y,x)\equiv\arctan(y/x)$.} obtaining varying degrees of the approximation,
+%
+\begin{align}
+\log(\bfq) 
+= \bfu\theta 
+&= \qv\frac{\arctan({\norm{\qv},q_w})}{\norm{\qv}} 
+\approx \frac{\qv}{q_w} \left(1 - \frac{\norm{\qv}^2}{3q_w^2}\right)
+\approx \bfq_v
+\xrightarrow[\theta\to 0]{}
+{\bf 0}
+~.
+\end{align}
+%
+%which, in the limit as $\theta\to 0$, tends to $\log(\bfq)=\bfq_v$.
+
+
+
+\subsubsection{Logarithm of general quaternions}
+
+By extension, if $\bfq$ is a general quaternion,
+%
+\begin{align}
+\log\bfq = \log(\norm{\bfq}\frac{\bfq}{\norm{\bfq}}) = \log\norm{\bfq} + \log\frac{\bfq}{\norm{\bfq}} = \log\norm{\bfq} + \bfu\,\theta = \begin{bmatrix}
+\log\norm{\bfq} \\ \bfu\,\theta
+\end{bmatrix}
+~.
+\end{align}
+
+\subsubsection{Exponential forms of the type $\bfq^t$}
+
+We have, for $\bfq\in\bbH$ and $t\in\bbR$,
+%
+\begin{align}
+\bfq^t = \exp(\log(\bfq^t)) = \exp(t\log(\bfq))
+~.
+\end{align}
+%
+If $\norm{\bfq}=1$, we can write $\bfq=[\cos\theta,~\bfu\sin\theta]$, thus $\log(\bfq)=\bfu\theta$, which gives
+%
+\begin{align}\label{equ:qa}
+\bfq^t = \exp(t\,\bfu\theta)=\begin{bmatrix}
+\cos t\theta \\
+\bfu\sin t\theta
+\end{bmatrix}
+~.
+\end{align}
+%
+Because the exponent $t$ has ended up as a linear multiplier of the angle $\theta$, it can be seen as a linear angular interpolator. We will develop this idea in \secRef{sec:slerp}.
+
+%=============================================================
+\section{Rotations and cross-relations}
+\label{sec:rotations}
+
+%-------------------------------------------------------------
+\subsection{The 3D vector rotation formula}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/rotation3d}
+\caption{Rotation of a vector $\bfx$, by an angle $\phi$, around the axis $\bfu$. See text for details.}
+\label{fig:rotation3d}
+\end{figure}
+
+We illustrate in~\figRef{fig:rotation3d} the rotation, following the right-hand rule, of a general 3D vector $\bfx$, by an angle $\phi$, around the axis defined by the unit vector $\bfu$. 
+This is accomplished by decomposing the vector $\bfx$ into a part $\bfx_{||}$ parallel to $\bfu$, and a part $\bfx_\bot$ orthogonal to $\bfu$, so that %
+%
+\begin{align*}
+\bfx=\bfx_{||}+\bfx_\bot~. 
+\end{align*}
+%
+These parts can be computed easily ($\alpha$ is the angle between the vector $\bfx$ and the axis $\bfu$),
+%
+%
+\begin{align*}
+\bfx_{||} &= \bfu \, (\norm{\bfx}\cos\alpha)  = \bfu\,\bfu\tr\,\bfx 
+\\
+\bfx_\bot &= \bfx - \bfx_{||} = \bfx - \bfu\,\bfu\tr\,\bfx~.
+\end{align*}%
+%
+Upon rotation, the parallel part does not rotate, 
+%
+\begin{align*}
+\bfx_{||}' = \bfx_{||}~,
+\end{align*}
+%
+and the orthogonal part experiences a planar rotation in the plane normal to $\bfu$. That is, if we create an orthogonal base $\{\bfe_1,\bfe_2\}$ of this plane with
+%
+%
+\begin{align*}
+\bfe_1 &= \bfx_\bot \\
+\bfe_2 &= \bfu \tcross \bfx_\bot = \bfu \tcross \bfx  ~, 
+\end{align*}%
+%
+satisfying $\norm{\bfe_1} = \norm{\bfe_2}$, then $\bfx_\bot=\bfe_1\tdot1+\bfe_2\tdot0$. A rotation of $\phi$\,rad  on this plane produces,
+%
+\begin{align*}
+\bfx_\bot' = \bfe_1\cos\phi + \bfe_2\sin\phi~,
+\end{align*}
+%
+which develops as,
+%
+\begin{align*}
+\bfx_\bot' = \bfx_\bot\cos\phi + (\bfu\tcross\bfx)\sin\phi~.
+\end{align*}
+%
+Adding the parallel part yields the expression of the rotated vector, $\bfx'=
+\bfx'_{||}+\bfx'_\bot$~, which is known as the \emph{vector rotation formula},
+%
+\begin{align}
+\eqbox{
+\bfx'=
+\bfx_{||}+\bfx_\bot\cos\phi+(\bfu\times\bfx)\sin\phi}~.
+\label{equ:vecRotFormula}
+\end{align}
+%
+
+
+%-------------------------------------------------------------
+\subsection{The rotation group $SO(3)$}
+
+In $\bbR^3$, the rotation group $SO(3)$ is the group of rotations around the origin under the operation of composition. Rotations are linear transformations that preserve vector length and relative vector orientation (\ie, handedness). Its importance in robotics is that it represents rotations of rigid bodies in 3D space: a \emph{rigid motion} requires precisely that distances, angles and relative orientations within a rigid body be preserved upon motion ---otherwise, if norms, angles or relative orientations are not kept, the body could not be considered rigid.
+
+%\emph{Rigid} means that they preserve distances, angles and relative directions.
+%The unchanged point excludes translations.
+Let us then define rotations through an operator that satisfies these properties. 
+A rotation operator $r:\bbR^3\to\bbR^3; \bfv\mapsto r(\bfv)$ acting on vectors $\bfv\in\bbR^3$ can be defined from the metrics of Euclidean space, constituted by the dot and cross products, as follows.
+%
+%The $SO(3)$ group, or the group of rotations in $\bbR^3$, is the set of operators $r:\bbR^3\to\bbR^3$ that satisfy the following  properties:
+%
+\begin{itemize}
+%
+\item Rotation preserves the vector norm,
+%
+\begin{subequations}
+\begin{align}
+\norm{r(\bfv)}=
+\sqrt{\langle r(\bfv), r(\bfv)\rangle}=\sqrt{\langle\bfv,\bfv\rangle}\triangleq\norm{\bfv}~,\quad\forall\bfv \in\bbR^3~. \label{eq:keepnorm}
+%\sqrt{r(\bfv)\tr r(\bfv)}=\sqrt{\bfv\tr\bfv}\triangleq\norm{\bfv}~,\quad\forall\bfv \in\bbR^3~. \label{eq:keepnorm}
+\end{align}
+%
+\item Rotation preserves angles between vectors, 
+%
+\begin{align}
+\langle r(\bfv), r(\bfw)\rangle  = \langle \bfv,\bfw\rangle = \norm{\bfv}\norm{\bfw}\cos\alpha~,\quad\forall\bfv,\bfw\in\bbR^3~.
+%r(\bfv)\tr r(\bfw) = \bfv\tr\bfw = \norm{\bfv}\norm{\bfw}\cos\alpha~,\quad\forall\bfv,\bfw\in\bbR^3~.
+\end{align}
+\end{subequations}
+%
+\item Rotation preserves the relative orientations of vectors,
+%
+\begin{align}
+\bfu\times\bfv=\bfw 
+\iff 
+r(\bfu)\times r(\bfv)=r(\bfw) 
+~. 
+\label{equ:keeporientation}
+\end{align}
+\end{itemize}
+%
+It is easily proved that the first two conditions are equivalent. We can thus define the rotation group $SO(3)$ as,
+%set of rotations as the set of operators on 3-vectors that (a) leave the norm unchanged, and (b) respect the relative orientations, that is,
+%
+\begin{align}
+SO(3):\{r:\bbR^3\to\bbR^3\,/\,\forall\, \bfv,\bfw\in\bbR^3~,~ \norm{r(\bfv)}=\norm{\bfv}~,~ r(\bfv)\tcross r(\bfw)=r(\bfv\tcross\bfw)\} 
+~.
+\end{align}
+%
+
+The rotation group is typically represented by the set of rotation matrices. 
+However, quaternions constitute also a good representation of it. 
+The aim of this chapter is to show that both representations are equally valid. 
+They exhibit a lot of similarities, both conceptually and algebraically, as the reader will appreciate in \tabRef{tab:Rq}.
+%
+\begin{table}[htp]
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\caption{The rotation matrix and the quaternion for representing $SO(3)$.}
+\label{tab:Rq}
+\begin{tabular}{|c|c|c|}
+\hline
+& Rotation matrix, $\bfR$ & Quaternion, $\bfq$ \\
+\hline
+\hline
+Parameters & $3\times3=9$ & $1+3=4$ \\
+Degrees of freedom & 3 & 3 \\
+Constraints & $9-3=6$ & $4-3=1$ \\
+Constraints & $\bfR\bfR\tr=\bfI~~;~~\det(\bfR)=+1$ & $\bfq\ot\bfq^* = 1$ \\
+\hline
+\hline
+ODE & $\dot\bfR=\bfR\hatx{\bfomega}$ & $\dot\bfq=\frac12\bfq\ot\bfomega$ \\
+Exponential map & $\bfR=\exp(\hatx{\bfu\phi})$ & $\bfq=\exp(\bfu\phi/2)$ \\
+Logarithmic map & $\log(\bfR) = \hatx{\bfu\phi}$ & $\log(\bfq) = \bfu\phi/2$ \\
+Relation to $SO(3)$ & Single cover & Double cover \\
+\hline
+\hline
+Identity & $\bfI$ & $1$ \\
+Inverse & $\bfR\tr$ & $\bfq^*$ \\
+Composition & $\bfR_1\,\bfR_2$  & $\bfq_1\ot\bfq_2$ \\
+\hline
+Rotation operator & $\bfR = \bfI + \sin\phi\hatx{\bfu} + (1-\cos\phi)\hatx{\bfu}^2$ & $\bfq = \cos\phi/2 + \bfu\sin\phi/2$ \\
+Rotation action & $\bfR\,\bfx$ & $\bfq\ot\bfx\ot\bfq^*$ \\
+\hline
+\multirow{3}{*}{Interpolation} & $\bfR^t=\bfI + \sin t\phi\hatx{\bfu} \!+ (1\!-\!\cos t\phi)\hatx{\bfu}^2$ & $\bfq^t=\cos t\phi/2+\bfu\sin t\phi/2$\\
+ & $\bfR_1(\bfR_1\tr\bfR_2)^t$ & $\bfq_1\ot(\bfq_1^*\ot\bfq_2)^t$ \\
+ & & $\bfq_1\frac{\sin((1-t)\Delta\theta)}{\sin(\Delta\theta)}+\bfq_2\frac{\sin(t\Delta\theta)}{\sin(\Delta\theta)}$ \\
+\hline
+\hline
+Cross relations & \multicolumn{2}{|c|}
+{$\begin{aligned}
+\rule{0pt}{2.7ex} % add some vertical spacing for cosmetics
+\bfR\{\bfq\} &= (q_w^2-\qv\tr\qv)\,\bfI + 2\,\qv\qv\tr + 2\,q_w\hatx{\qv} \\
+\bfR\{-\bfq\}&=\bfR\{\bfq\} ~~~~~~~~~~~~~~~~~~~~\, \text{double cover} \\
+\bfR\{1\}&=\bfI ~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{identity}\\
+\bfR\{\bfq^*\}&=\bfR\{\bfq\}\tr ~~~~~~~~~~~~~~~~~~~ \text{inverse}\\
+\bfR\{\bfq_1\ot\bfq_2\}&=\bfR\{\bfq_1\}\,\bfR\{\bfq_2\} ~~~~~~~~~~ \text{composition}\\
+\bfR\{\bfq^t\} &= \bfR\{\bfq\}^t ~~~~~~~~~~~~~~~~~~~\, \text{interpolation} 
+\end{aligned}$} \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}%
+%
+Perhaps, the most important difference is that the unit quaternion group constitutes a double cover of $SO(3)$ (thus technically not being $SO(3)$ itself), something that is not critical in most of our applications.\footnote{The effect of the double cover needs to be considered when performing interpolation in the space of rotations. This is however easy, as we will see in \secRef{sec:slerp}.}
+The table is inserted upfront for the sake of a rapid comparison and evaluation.
+The rotation matrix and quaternion representations of $SO(3)$ are explored in the following sections.
+
+
+
+\subsection{The rotation group and the rotation matrix}
+
+%The name $SO(3)$ is explained by the fact that it can be represented by the set of \emph{Special Orthogonal} $3\times3$ matrices, otherwise called \emph{proper orthogonal} matrices, as we explore in this section. 
+
+The operator $r()$ is linear, since it is defined from the scalar and vector products, which are linear. 
+It can therefore be represented by a matrix $\bfR\in\bbR^{3\times3}$, which produces rotations to vectors $\bfv\in\bbR^3$ through the matrix product,
+%
+\begin{align}
+r(\bfv) = \bfR\,\bfv~.
+\end{align}
+%
+Injecting it in \eqRef{eq:keepnorm}, using the dot product $\langle\bfa,\bfb\rangle=\bfa\tr\bfb$ and developing we have that for all $\bfv$,
+%
+\begin{align}
+(\bfR\bfv)\tr(\bfR\bfv) = \bfv\tr\bfR\tr\bfR\bfv = \bfv\tr\bfv
+~,
+\end{align}
+%
+yielding the \emph{orthogonality} condition on $\bfR$,
+%
+\begin{align}
+\eqbox{
+\bfR\tr\bfR = \bfI = \bfR\,\bfR\tr
+}
+~. 
+\label{equ:Rorthogonal}
+\end{align}
+%
+The condition above is indeed a condition of orthogonality, since we can observe from it that, by writing $\bfR=[\bfr_1,\bfr_2,\bfr_3]$ and substituting above, the column vectors $\bfr_i$ of $\bfR$, with $i\in\{1,2,3\}$, are of unit length and orthogonal to each other,
+%
+\begin{align*}
+\langle\bfr_i,\bfr_i\rangle &= \bfr_i\tr\bfr_i = 1 \\%~,\quad \textrm{if } i = j \\
+\langle\bfr_i,\bfr_j\rangle &= \bfr_i\tr\bfr_j = 0 ~,\quad \textrm{if } i\neq j~.
+\end{align*}
+%
+The set of transformations keeping vector norms and angles is for this reason called the \emph{Orthogonal group}, denoted $O(3)$. 
+The orthogonal group includes rotations (which are rigid motions) and reflections (which are not rigid).
+The notion of \emph{group} here means essentially (and informally) that the product of two orthogonal matrices is always an orthogonal matrix,%
+\footnote{\label{ftn:O3}%
+Let $\bfQ_1$ and $\bfQ_2$ be orthogonal,
+and build $\bfQ=\bfQ_1\,\bfQ_2$.
+Then $\bfQ\tr\bfQ=
+\bfQ_2\tr\bfQ_1\tr\bfQ_1\bfQ_2=\bfQ_2\tr\bfI\bfQ_2=\bfI$.}
+and that each orthogonal matrix admits an inverse.
+In effect, the orthogonality condition \eqRef{equ:Rorthogonal} implies that the inverse rotation is achieved with the transposed matrix,
+%
+\begin{align}
+\bfR\inv=\bfR\tr~.
+\end{align}
+
+
+Adding the relative orientations condition \eqRef{equ:keeporientation} guarantees rigid body motion (hence discarding reflections), and results in one additional constraint on $\bfR$,%
+\footnote{Notice that reflections satisfy $|\bfR|=\det(\bfR)=-1$, and do not form a group since $|\bfR_1\bfR_2|=1\neq-1$.}
+%
+\begin{align}\label{equ:unitDet}
+\eqbox{
+\det(\bfR)=1
+}
+~.
+\end{align}
+%
+%
+Orthogonal matrices with positive unit determinant are commonly referred to as \emph{proper} or \emph{special}. The set of such \emph{special orthogonal matrices} is a subgroup of $O(3)$ named the \emph{Special Orthogonal group} $SO(3)$.
+Being a group, the product of two rotation matrices is always a rotation matrix.%
+\footnote{%
+See footnote \ref{ftn:O3} for $O(3)$ and add this for $SO(3)$: let $|\bfR_1|=|\bfR_2|=1$, then $|\bfR_1\bfR_2|=|\bfR_1|\,|\bfR_2|=1$.}
+
+
+
+
+\subsubsection{The exponential map}
+
+The exponential map (and the logarithmic map, which we see in the next section) is a powerful mathematical tool for working in the rotational 3D space with ease and rigor. It represents the entrance door to a corpus of infinitesimal calculus suited for the rotational space. The exponential map allows us to properly define derivatives, perturbations, and velocities, and to manipulate them. It is therefore essential in estimation problems in the space of rotations or orientations.
+
+Rotations constitute rigid motions. This rigidity implies that it is possible to define a continuous trajectory or \emph{path} $r(t)$ in $SO(3)$ that continuously rotates the rigid body from its initial orientation, $r(0)$, to its current orientation, $r(t)$.
+Being continuous, it is legitimate to investigate the time-derivatives of such transformations.
+We do so by deriving the properties \eqRef{equ:Rorthogonal} and \eqRef{equ:unitDet} that we have just seen.
+
+%We explore here the case of the rotation matrix representation $\bfR(t)$, as follows.
+First of all, we notice that it is impossible to continuously escape the unit determinant condition~\eqRef{equ:unitDet} while satisfying~\eqRef{equ:Rorthogonal}, because this would imply a jump of the determinant from $+1$ to $-1$.\footnote{Put otherwise: a rotation cannot become a reflection through a continuous transformation.}
+Therefore we only need to investigate the time-derivative of the orthogonality condition \eqRef{equ:Rorthogonal}. This reads
+%
+\begin{align}
+\dif{}{t}{(\bfR\tr\bfR)} = \dot\bfR\tr\bfR+\bfR\tr\dot\bfR = 0
+~,
+\end{align}
+%
+which results in
+%
+\begin{align}
+\bfR\tr\dot\bfR 
+= -(\bfR\tr\dot\bfR)\tr
+~,
+\end{align}
+%
+meaning that the matrix $\bfR\tr\dot\bfR$ is skew-symmetric (\ie, it is equal to the negative of its transpose). 
+The set of skew-symmetric $3\times3$ matrices is denoted $\so(3)$, and receives the name of the \emph{Lie algebra} of $SO(3)$. 
+Skew-symmetric $3\times3$ matrices have the form,
+%These matrices have 3\,DOF, and it is convenient to write them as the cross-product matrix,
+%
+\begin{align}
+\hatx{\bfomega} \triangleq \begin{bmatrix}
+0 & -\omega_z & \omega_y \\
+\omega_z & 0 & -\omega_x \\
+-\omega_y & \omega_x & 0
+\end{bmatrix}
+~;
+\end{align}
+%
+they have 3\,DOF, and correspond to cross-product matrices, as we introduced already in \eqRef{equ:skew}. This establishes a one-to-one mapping $\bfomega\in\bbR^3\leftrightarrow\hatx{\bfomega}\in\so(3)$.
+%
+%Because $\so(3)$ is the space where the derivatives of $r(t)$ live, it constitutes the \emph{tangent space} to $SO(3)$, or the \emph{velocity space}, also known as its \emph{Lie algebra}.
+Let us then take a vector $\bfomega=(\omega_x,\omega_y,\omega_z)\in\bfR^3$ and write
+%
+\begin{align}
+\bfR\tr\dot\bfR = \hatx{\bfomega}
+~.
+\end{align}
+%
+%and let us call $\bfomega$ the vector of instantaneous angular velocities. 
+This leads to the ordinary differential equation (ODE),
+%
+\begin{align}
+\label{equ:Rdot}
+\dot\bfR=\bfR\hatx{\bfomega}~.
+\end{align}
+%
+Around the origin, we have $\bfR=\bfI$ and the equation above reduces to $\dot\bfR=\hatx{\bfomega}$. 
+Thus, we can interpret the Lie algebra $\so(3)$ as the space of the derivatives of $r(t)$ at the origin;
+%Because $\so(3)$ is the space where the derivatives of $r(t)$ live, 
+it constitutes the \emph{tangent space} to $SO(3)$, or the \emph{velocity space}. 
+Following these facts, we can very well call $\bfomega$ the vector of instantaneous angular velocities. 
+
+If $\bfomega$ is constant, the differential equation above can be time-integrated as
+%
+\begin{align}
+\bfR(t) = \bfR(0)\,e^{\hatx{\bfomega}t} = \bfR(0)\,e^{\hatx{\bfomega t}} 
+\end{align}
+%
+where the exponential $e^{\hatx{x}}$ is defined by its Taylor series, as we see in the following section.
+Since $\bfR(0)$ and $\bfR(t)$ are rotation matrices, then clearly $e^{\hatx{\bfomega t}}=\bfR(0)\tr\bfR(t)$ is a rotation matrix. 
+Defining the vector $\bfphi\triangleq\bfomega\Dt$ as the rotation vector encoding the full rotation over the period $\Dt$, we have
+%
+\begin{align}
+\eqbox{
+\bfR = e^{\hatx{\bfphi}} \label{equ:vectomat}
+}~.
+\end{align}
+%
+This is known as the exponential map, an application from  $\so(3)$ to $SO(3)$,
+%
+\begin{align}
+\exp: \so(3) \to SO(3) ~;~ \hatx{\bfphi} \mapsto \exp(\hatx{\bfphi})=e^{\hatx{\bfphi}}
+~.
+\end{align}
+%
+
+\subsubsection{The capitalized exponential map}
+
+The exponential map above is sometimes expressed with some abuse of notation, \ie, confounding $\bfphi\in\bbR^3$ with $\hatx{\bfphi}\in\so(3)$.
+%
+To avoid possible ambiguities, we opt for writing this new application $\bbR^3\to SO(3)$ with an explicit notation using a capitalized $\Exp$, having (see \figRef{fig:exp_map_R})
+%
+\begin{figure}[tb]
+\begin{center}
+\includegraphics{figures/exp_map_R}
+\caption{Exponential maps of the rotation matrix.}
+\label{fig:exp_map_R}
+\end{center}
+\end{figure}
+%
+\begin{align}
+\Exp: \bbR^3 \to SO(3) ~;~ \bfphi \mapsto \Exp(\bfphi) = e^{\hatx{\bfphi}}
+~.
+\end{align}
+%
+Its relation with the exponential map is trivial,
+%
+\begin{align}
+\Exp(\bfphi) \triangleq \exp(\hatx{\bfphi})
+~.
+\end{align}
+
+
+In the following sections we'll see that the vector $\bfphi$, called the rotation vector or the angle-axis vector, encodes through $\bfphi=\bfomega\Dt=\phi\bfu$ the angle $\phi$ and axis $\bfu$ of rotation.
+
+
+%-------------------------------------------------------------
+\subsubsection{Rotation matrix and rotation vector: the Rodrigues rotation formula}
+%\subsubsection{}
+
+
+The rotation matrix is defined from the rotation vector $\bfphi=\phi\bfu$ through the exponential map \eqRef{equ:vectomat},
+with the cross-product matrix $\hatx{\bfphi}=\phi\hatx{\bfu}$ as defined in \eqRef{equ:skew}.
+The Taylor expansion of \eqRef{equ:vectomat} with $\bfphi=\phi\bfu$ reads, 
+%
+\begin{align}
+\bfR=e^{\phi\hatx{\bfu}} = 
+	  \bfI 
+	+ 			\phi\hatx{\bfu} 
+	+ \frac12	\phi^2\hatx{\bfu}^2
+	+ \frac1{3!}\phi^3\hatx{\bfu}^3 
+	+ \frac1{4!}\phi^4\hatx{\bfu}^4 
+	+ \dots
+\end{align}
+%
+When applied to unit vectors, $\bfu$, the matrix $\hatx{\bfu}$ satisfies
+%
+%
+\begin{align}
+\hatx{\bfu}^2 &= \bfu\bfu\tr-\bfI
+\label{equ:prop1}
+\\
+\hatx{\bfu}^3 &= -\hatx{\bfu}
+~, \label{equ:prop2}
+\end{align}%
+%
+and thus all powers of $\hatx{\bfu}$ can be expressed in terms of $\hatx{\bfu}$ and $\hatx{\bfu}^2$ in a cyclic pattern,
+%
+\begin{align}
+\hatx{\bfu}^4 &= -\hatx{\bfu}^2 
+& \hatx{\bfu}^5 &= \hatx{\bfu} 
+& \hatx{\bfu}^6 &= \hatx{\bfu}^2 
+& \hatx{\bfu}^7 &=-\hatx{\bfu} 
+~~\cdots 
+~.
+\end{align}
+%
+Then, grouping the Taylor series in terms of $\hatx{\bfu}$ and $\hatx{\bfu}^2$, and identifying in them, respectively, the series of $\sin\phi$ and $\cos\phi$, leads to a closed form to obtain the rotation matrix from the rotation vector, the so called \emph{Rodrigues rotation formula},
+%
+\begin{align}
+\eqbox{
+\bfR %= e^{\hatx{\bfphi}} 
+= \bfI + \sin\phi\hatx{\bfu} + (1-\cos\phi)\hatx{\bfu}^2
+}~, \label{equ:rodrigues}
+\end{align}%
+%
+which we denote $\bfR\{\bfphi\}\triangleq\Exp(\bfphi)$. 
+This formula admits some variants, \eg, using \eqRef{equ:prop1},
+%
+\begin{align}
+\bfR &= \bfI\cos\phi + \hatx{\bfu}\sin\phi + \bfu\bfu\tr(1-\cos\phi)
+~.
+\end{align}%
+
+\subsubsection{The logarithmic maps}
+
+We define the logarithmic map as the inverse of the exponential map,
+%
+\begin{align}
+\log : SO(3)\to\so(3)~;~ \bfR \mapsto \log(\bfR)=\hatx{\bfu\,\phi}
+~,
+\end{align}
+%
+with
+%
+\begin{align}
+\phi &= \arccos\left(\frac{\trace(\bfR)-1}{2}\right) 
+\\
+\bfu &= \frac{(\bfR-\bfR\tr)^\vee}{2\sin\phi} 
+~,
+\end{align}
+%
+where $\bullet^\vee$ is the inverse of $\hatx{\bullet}$, that is, $(\hatx{\bfv})^\vee=\bfv$ and $\hatx{\bfV^\vee}=\bfV$.
+
+We also define a capitalized version $\Log$, which allows us to recover the rotation vector $\bfphi=\bfu\phi\in\bbR^3$ directly from the rotation matrix, 
+%
+\begin{subequations}
+\begin{align}
+\Log: SO(3) \to \bbR^3 ~;~ \bfR\mapsto\Log(\bfR) = \bfu\,\phi 
+~.
+\end{align}
+\end{subequations}
+%
+Its relation with the logarithmic map is trivial,
+%
+\begin{align}
+\Log(\bfR) \triangleq (\log(\bfR))^\vee
+~.
+\end{align}
+
+
+
+\subsubsection{The rotation action}
+
+Rotating a vector $\bfx$ by an angle $\phi$ around the unit axis $\bfu$ %following the right-hand rule 
+is performed with the linear product
+%
+\begin{align}
+\bfx'=\bfR\,\bfx
+~, 
+\label{equ:rotWithMat}
+\end{align}
+%
+where $\bfR=\Exp(\bfu\phi)$.
+This can be shown by developing \eqRef{equ:rotWithMat}, 
+using \eqRef{equ:rodrigues}, \eqRef{equ:prop1} and \eqRef{equ:prop2}, 
+%in a way akin to the last steps of \eqRef{equ:quatRotFormula}, 
+%to obtain the vector rotation formula \eqRef{equ:vecRotFormula},
+%
+\begin{align}
+\begin{split}
+\bfx' &= \bfR\,\bfx  \\
+&= (\bfI + \sin\phi\hatx{\bfu} + (1-\cos\phi)\hatx{\bfu}^2)\,\bfx  \\
+&= \bfx + \sin\phi\hatx{\bfu}\bfx + (1-\cos\phi)\hatx{\bfu}^2\bfx  \\
+&= \bfx + \sin\phi(\bfu\tcross\bfx) + (1-\cos\phi)(\bfu\bfu\tr-\bfI)\,\bfx  \\
+&= \bfx_\| + \bfx_\bot + \sin\phi(\bfu\tcross\bfx) - (1-\cos\phi)\,\bfx_\bot  \\
+&= \bfx_\| + (\bfu\tcross\bfx)\sin\phi + \bfx_\bot\cos\phi
+~,
+\end{split}
+\end{align}%
+%
+which is precisely the vector rotation formula \eqRef{equ:vecRotFormula}.
+
+
+%-------------------------------------------------------------
+\subsection{The rotation group and the quaternion}
+
+For didactical purposes, we are interested in highlighting the connections between quaternions and rotation matrices as representations of the rotation group $SO(3)$. 
+For this, the well-known formula of the quaternion rotation action, which reads,
+%For this, it will be convenient to assume as hypothesis that the rotation action using quaternions is achieved with the double product,
+%
+\begin{align} \label{equ:qrot}
+r(\bfv)=\bfq\ot\bfv\ot\bfq^*
+~,
+\end{align}
+%
+is here taken initially as an hypothesis.
+This allows us to develop the full quaternion section with a discourse that retraces the one we used for the rotation matrix. 
+The exactness of this hypothesis will be proved a little later, in \secRef{sec:qRotAction}, thus validating the approach. 
+%This enables us to position the unit quaternion as a powerful representation of the rotation group $SO(3)$.
+
+Let us then inject the rotation above into the orthogonality condition \eqRef{eq:keepnorm}, and develop it using \eqRef{equ:norm_prod} as
+%
+\begin{align}
+\norm{\bfq\ot\bfv\ot\bfq^*}=\norm{\bfq}^2\norm{\bfv} = \norm{\bfv}
+~.
+\end{align}
+%
+This yields $\norm{\bfq}^2=1$, that is, the unit norm condition on the quaternion, which reads,
+%
+\begin{align} \label{equ:q_unit}
+\eqbox{
+\bfq^*\ot\bfq = 1 = \bfq\ot\bfq^*
+}
+~.
+\end{align}
+%
+This condition is akin to the one we encountered for rotation matrices, see \eqRef{equ:Rorthogonal}, which reads $\bfR\tr\bfR=\bfI=\bfR\bfR\tr$. We encourage the reader to stop at their similarities for a second.
+
+%
+Similarly, we show that the relative orientation condition \eqRef{equ:keeporientation} is satisfied by construction (we use \eqRef{equ:quatCommutatorPure} twice, as indicated below),
+%
+\begin{align}
+\begin{split}
+r(\bfv)\times r(\bfw) 
+&= (\bfq\ot\bfv\ot\bfq^*) \times (\bfq\ot\bfw\ot\bfq^*) \\
+%
+\eqRef{equ:quatCommutatorPure}~~
+&= \frac12\big((\bfq\ot\bfv\ot\bfq^*) \ot (\bfq\ot\bfw\ot\bfq^*) - (\bfq\ot\bfw\ot\bfq^*) \ot (\bfq\ot\bfv\ot\bfq^*) \big) \\
+&= \frac12(\bfq\ot\bfv\ot\bfw\ot\bfq^* - \bfq\ot\bfw\ot\bfv\ot\bfq^*) \\
+&= \frac12(\bfq\ot(\bfv\ot\bfw - \bfw\ot\bfv)\ot\bfq^*) \\
+%
+\eqRef{equ:quatCommutatorPure}~~
+&= \bfq\ot(\bfv\times\bfw)\ot\bfq^* \\
+&= r(\bfv\times\bfw)
+~.
+\end{split}
+\end{align}
+
+
+The set of unit quaternions forms a group under the operation of multiplication. This group is topologically a 3-sphere, that is, the 3-dimensional surface of the unit sphere of $\bbR^4$, and is commonly noted as $S^3$. 
+%The group $S^3$ constitutes a double cover of $SO(3)$.
+%Since $\bfq$ and $-\bfq$ produce the same rotation, see \eqRef{equ:qrot}, we have that $S^3$ is a double cover of $SO(3)$.
+
+\subsubsection{The exponential map}
+
+Let us consider a unit quaternion $\bfq\in S^3$, that is, $\bfq^*\ot\bfq=1$, and let us proceed as we did for the orthogonality condition of the rotation matrix, $\bfR\tr\bfR=\bfI$. 
+Taking the time derivative,
+%
+\begin{align}
+\dif{(\bfq^*\ot\bfq)}{t} = \dot\bfq^*\ot\bfq+\bfq^*\ot\dot\bfq=0
+~,
+\end{align}
+%
+it follows that
+%
+\begin{align}
+\bfq^*\ot\dot\bfq = -(\dot\bfq^*\ot\bfq) = -(\bfq^*\ot\dot\bfq)^*~,
+\end{align}
+%
+which means that $\bfq^*\ot\dot\bfq$ is a pure quaternion (\ie, it is equal to minus its conjugate, therefore its real part is zero). 
+%In the quaternion case, however, this space is not directly the velocity space, but rather the space of the half-velocities, as we will se soon.
+%The set of pure quaternions is denoted $\bbH_p=\Im(\bbH)$ and constitutes the Lie Algebra of $\bbH$.
+We thus take a pure quaternion $\bfOmega\in\bbH_p$ and write,
+%
+\begin{align}
+\bfq^*\ot\dot\bfq = \bfOmega = \begin{bmatrix}
+0\\\bfOmega
+\end{bmatrix} 
+\in\bbH_p
+~.
+\end{align}
+%
+Left-multiplication by $\bfq$ yields the differential equation,
+%
+\begin{align}
+\label{equ:qdotOmega}
+\dot\bfq = \bfq\ot\bfOmega~.
+\end{align}
+% 
+Around the origin, we have $\bfq=1$ and the equation above reduces to $\dot\bfq=\bfOmega\in\bbH_p$. 
+Thus, the space $\bbH_p$ of pure quaternions constitutes the \emph{tangent space}, or the Lie Algebra, of the unit sphere $S^3$ of quaternions. 
+%In the quaternion case, vectors in the tangent space correspond to the half of the angular velocity vectors.
+In the quaternion case, however, this space is not directly the velocity space, but rather the space of the half-velocities, as we will see soon.
+
+
+If $\bfOmega$ is constant, the differential equation can be integrated as
+%
+\begin{align}\label{equ:qexpWt}
+\bfq(t) = \bfq(0)\ot e^{\bfOmega\, t}
+~,
+\end{align}
+%
+where, since $\bfq(0)$ and $\bfq(t)$ are unit quaternions, the exponential $e^{\bfOmega t}$ is also a unit quaternion ---something we already knew from the quaternion exponential~\eqRef{equ:EulerFormulaQuat}.
+%
+Defining $\bfV\triangleq\bfOmega\Dt$ we have
+%
+\begin{align}\label{equ:qexpV}
+\eqbox{
+\bfq = e^{\bfV}
+}~.
+\end{align}
+%
+This is again an exponential map: an application from the space of pure quaternions to the space of rotations represented by unit quaternions,
+%
+\begin{align}\label{equ:q_expmap}
+\exp:\bbH_p\to S^3~;~ \bfV\mapsto \exp(\bfV) = e^{\bfV}
+\end{align}
+%
+
+\subsubsection{The capitalized exponential map}
+
+%At this point, we still have to relate the pure quaternion $\bfV$ in the exponential map~\eqRef{equ:q_expmap} with the angle-axis rotation parameters in Cartesian space. 
+As we will see, the pure quaternion $\bfV$ in the exponential map~\eqRef{equ:q_expmap} encodes, through $\bfV=\theta\bfu = \phi\bfu/2$, the axis of rotation $\bfu$ and the half of the rotated angle, $\theta=\phi/2$. 
+We will provide ample explanations to this half-angle fact very soon, mainly in Sections \ref{sec:qRotAction}, \ref{sec:double_cover} and \ref{sec:isoclinic}. By now, let it suffice to say that, since the rotation action is accomplished by the double product $\bfx'=\bfq\ot\bfx\ot\bfq^*$, the vector $\bfx$ experiences a rotation which is `twice' the one encoded in $\bfq$, or equivalently, the quaternion $\bfq$ encodes `half' the intended rotation on~$\bfx$.
+
+In order to express a direct relation between the angle-axis rotation parameters, $\bfphi=\phi\bfu\in\bbR^3$, and the quaternion, we define a capitalized version of the exponential map, which captures the half-angle effect (see \figRef{fig:exp_map_q}),
+%
+\begin{figure}[tb]
+\begin{center}
+\includegraphics{figures/exp_map_q}
+\caption{Exponential maps of the quaternion.}
+\label{fig:exp_map_q}
+\end{center}
+\end{figure}
+%
+\begin{align}
+\Exp:\bfR^3\to S^3~;~\bfphi\mapsto\Exp(\bfphi)=e^{\bfphi/2}
+\end{align}
+%
+Its relation to the exponential map is trivial,
+%
+\begin{align}
+\Exp(\bfphi) \triangleq \exp(\bfphi/2)
+~.
+\end{align}
+
+
+It is also convenient to introduce the vector of angular velocities $\bfomega=2\bfOmega\in\bbR^3$, so that \eqRef{equ:qdotOmega} and \eqRef{equ:qexpWt} become,
+%
+\begin{align}
+\dot\bfq &= \frac12\bfq\ot\bfomega \label{equ:qdot} \\ 
+\bfq &= e^{\bfomega t/2}
+~.
+\end{align}
+%%
+%where we call $\bfomega$ the vector of instantaneous angular velocities ---the presence of the `half' term will become clear in the following sections, especially in Sections \ref{sec:quatAndVector} and \ref{sec:isoclinic}.
+%Left-multiplication by $\bfq$ yields the differential equation,
+%%
+%\begin{align}
+%\label{equ:qdot}
+%\dot\bfq = \frac12\,\bfq\ot\bfomega~.
+%\end{align}
+%% 
+%If $\bfomega$ is constant, this can be integrated as
+%%
+%\begin{align}
+%\bfq(t) = \bfq(0)\ot e^{\bfomega t/2}
+%~,
+%\end{align}
+%%
+%where, since $\bfq(0)$ and $\bfq(t)$ are unit quaternions, the exponential $e^{\bfomega t/2}$ is also a unit quaternion ---something we already knew from the properties of the quaternion exponential.
+%%
+%Defining the vector $\bfphi\triangleq\bfomega\Dt$ as the angle-axis vector encoding the full rotation over a period $\Dt$, we have
+%%
+%\begin{align}\label{equ:vectoquatEuler}
+%\eqbox{
+%\bfq = e^{\bfphi/2}
+%}~.
+%\end{align}
+%
+%This is again an exponential map, from the space of pure quaternions to the space of unit quaternions.
+%%
+%As we did for the exponential map of the rotation matrix, we opt for an explicit notation using a capitalized $\Exp$ function, which relates directly the rotation vector to the quaternion,
+%%
+%\begin{align}
+%\Exp: \bbR^3 \to \bbH ~;~  \bfphi \mapsto \Exp(\bfphi) = e^{\bfphi/2} 
+%~.
+%\end{align}
+%%
+%Its relation with the quaternion exponential is trivial,
+%%
+%\begin{align}
+%\Exp(\bfphi) \triangleq \exp(\bfphi/2)
+%~.
+%\end{align}
+
+
+%-------------------------------------------------------------
+\subsubsection{Quaternion and rotation vector}
+\label{sec:quatAndVector}
+
+Let $\bfphi=\phi\bfu$ be a rotation vector representing a rotation of $\phi$\,rad around the axis $\bfu$.
+Then,
+the exponential map can be developed using an extension of the \emph{Euler formula} (see \eqsRef{equ:qvPowers}{equ:EulerFormulaQuat} for a complete development),
+%
+\begin{align}
+\eqbox{
+\bfq \triangleq \Exp(\phi\bfu) = e^{\phi\bfu/2} = \cos \frac{\phi}{2} + \bfu\sin\frac{\phi}{2}=\begin{bmatrix}
+\cos(\phi/2) \\
+\bfu\sin(\phi/2)
+\end{bmatrix}
+}
+~.   \label{equ:vectoquat}
+\end{align}
+%
+We call this the \emph{rotation vector to quaternion} conversion formula, and will be denoted in this document by 
+$\bfq=\bfq\{\bfphi\}\triangleq\Exp(\bfphi)$. 
+
+
+
+
+\subsubsection{The logarithmic maps}
+
+We define the logarithmic map as the inverse of the exponential map,
+%
+\begin{align}
+\log:S^3\to\bbH_p ~;~ \bfq\mapsto \log(\bfq) = \bfu\theta
+~,
+\end{align}
+%
+which is of course the definition we gave for the quaternion logarithm in \secRef{sec:qlog}.
+
+We also define the capitalized logarithmic map, which directly provides the angle $\phi$ and axis $\bfu$ of rotation in Cartesian 3-space,
+%
+\begin{align}
+\Log:S^3\to\bbR^3 ~;~ \bfq\mapsto \Log(\bfq) = \bfu\phi
+~.
+\end{align}
+%
+Its relation with the logarithmic map is trivial,
+%
+\begin{align}
+\Log (\bfq) \triangleq 2\log(\bfq)
+~.
+\end{align}
+%
+
+For its implementation we use the 4-quadrant version of $\arctan(y,x)$. 
+From \eqRef{equ:vectoquat},
+%
+\begin{subequations}
+\begin{align}
+\phi &= 2\arctan(\norm{\qv},q_w) \\
+\bfu &= \qv / \norm{\qv} \label{equ:qvec}
+~.
+\end{align}
+\end{subequations}
+%
+For small-angle quaternions, \eqRef{equ:qvec} diverges. We then use the a truncated Taylor series for the $\arctan()$ function, getting,
+%
+\begin{equation}
+\Log(\bfq) = \theta\bfu 
+\approx 2\,\frac{\qv}{q_w} \left(1 - \frac{\norm{\qv}^2}{3q_w^2}\right) \label{equ:log_q_small}
+~.
+\end{equation}
+
+
+\subsubsection{The rotation action}
+\label{sec:qRotAction}
+
+We are finally in the position of proving our hypothesis~\eqRef{equ:qrot} for the vector rotation  using quaternions,  
+%$\bfx'=\bfq\otimes\bfx\otimes\bfq^*$, 
+thus validating all the material presented so far.
+%, and stating the unit quaternion $\bfq$ as a proper representation of the rotation group $SO(3)$.
+%
+Rotating a vector $\bfx$ by an angle $\phi$ around the axis $\bfu$ is performed with the double quaternion product, also known as the sandwich product,
+%
+\begin{align}
+\bfx' = \bfq\otimes\bfx\otimes\bfq^* ~, \label{equ:sandwichProd}
+\end{align}
+%
+where $\bfq=\Exp(\bfu\phi)$, and
+where the vector $\bfx$ has been written in quaternion form, that is, 
+%
+\begin{align}
+\bfx= x i + y j + z k = \begin{bmatrix}
+0 \\ \bfx
+\end{bmatrix} \in \bbH_p
+~. \label{equ:quatvec}
+\end{align}%
+%
+%
+To show that this double product does perform the desired vector rotation, we use \eqRef{equ:quatProdVec}, 
+\eqRef{equ:vectoquat}, and basic vector and trigonometric identities, to develop~\eqRef{equ:sandwichProd} as follows,
+%
+\begin{align}\label{equ:quatRotFormula}
+\begin{split}
+\bfx'
+&= \bfq \ot \bfx \ot \bfq^* \\
+&= \Big(\cos \frac{\phi}{2} + \bfu \sin \frac{\phi}{2}\Big)
+ \ot (0+\bfx)
+ \ot \Big(\cos \frac{\phi}{2} - \bfu \sin \frac{\phi}{2}\Big)
+ \\
+&= \bfx \cos^2 \frac{\phi}{2} + (\bfu\ot\bfx - \bfx\ot\bfu) \sin \frac{\phi}{2} \cos \frac{\phi}{2} - \bfu\ot\bfx\ot\bfu \sin^2 \frac{\phi}{2} \\
+&= \bfx \cos^2 \frac{\phi}{2} + 2 (\bfu \tcross \bfx) \sin \frac{\phi}{2} \cos \frac{\phi}{2} - (\bfx (\bfu \tr \bfu) - 2 \bfu (\bfu \tr \bfx)) \sin^2 \frac{\phi}{2} \\
+&= \bfx (\cos^2 \frac{\phi}{2} - \sin^2 \frac{\phi}{2}) + (\bfu \tcross \bfx) (2\sin\frac{\phi}{2} \cos\frac{\phi}{2}) + \bfu (\bfu \tr \bfx) (2\sin^2 \frac{\phi}{2}) \\
+&= \bfx \cos \phi + (\bfu \tcross \bfx) \sin \phi + \bfu (\bfu \tr \bfx) (1 - \cos \phi) \\
+&= (\bfx - \bfu \,\bfu \tr \bfx) \cos \phi + (\bfu \tcross \bfx) \sin \phi + \bfu \,\bfu \tr \bfx \\
+&= \bfx_{\bot} \cos \phi + (\bfu \tcross \bfx) \sin \phi + \bfx_{||} ~,
+\end{split}
+\end{align}%
+%
+which is precisely the vector rotation formula~\eqRef{equ:vecRotFormula}.
+
+
+\subsubsection{The double cover of the manifold of $SO(3)$.}
+\label{sec:double_cover}
+
+Consider a unit quaternion $\bfq$. When regarded as a regular 4-vector, the angle $\theta$ between $\bfq$ and the identity quaternion $\bfq_1=[1,0,0,0]$ representing the origin of orientations is,
+%
+\begin{align}
+\cos\theta = \bfq_1\tr\bfq = \bfq(1) = q_w
+~.
+\end{align}
+%
+At the same time, the angle $\phi$ rotated by the quaternion $\bfq$ on objects in 3D space satisfies
+%
+\begin{align}
+%\bfq_1^*\ot\bfq = 
+\bfq = \begin{bmatrix}
+q_w \\ \qv
+\end{bmatrix} = \begin{bmatrix}
+\cos\phi/2 \\ \bfu\sin\phi/2
+\end{bmatrix}
+~.
+\end{align}
+%
+That is, we have $q_w = \cos\theta = \cos\phi/2$, 
+so the angle between a quaternion vector and the identity in 4D space is half the angle rotated by the quaternion in 3D space,
+%
+\begin{align}
+\theta = \phi/2
+~.
+\end{align}
+
+We illustrate this double cover in \figRef{fig:double_cover}. 
+By the time the angle between the two quaternion vectors is $\theta=\pi/2$, the 3D rotation has already achieved $\phi=\pi$, which is half a turn. 
+And by the time the quaternion vector has made a half turn, $\theta=\pi$, the 3D rotation has completed a full turn. 
+%This is in accordance with a previous result showing that the negated quaternion represents the same orientation. 
+The second half turn of the quaternion vector, $\pi<\theta<2\pi$, represents a second full turn of the 3D rotation, $2\pi<\phi<4\pi$, that is, a second cover of the rotation manifold.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{figures/double_cover}
+\caption{Double cover of the rotation manifold. Left: the quaternion $\bfq$ in the unit 3-sphere defines an angle $\theta$ with the identity quaternion $\bfq_1$. Center: the resulting 3D rotation $\bfx'=\bfq\ot\bfx\ot\bfq^*$ has double angle $\phi$ than that of the original quaternion. Right: Superposing the 4D and 3D rotation planes, observe how one turn of the quaternion $\bfq$ over the 3-sphere (red) represents two turns of the rotated vector $\bfx$ in 3D space (blue).}
+\label{fig:double_cover}
+\end{center}
+\end{figure}
+
+
+%\subsubsection{The quaternion as a representation of $SO(3)$}
+
+
+
+
+%-------------------------------------------------------------
+\subsection{Rotation matrix and quaternion}
+
+As we have just seen, given a rotation vector $\bfphi=\bfu\,\phi$, the exponential maps for 
+the unit quaternion 
+and 
+the rotation matrix 
+produce rotation operators 
+$\bfq=\Exp(\bfu\,\phi)$ 
+and 
+$\bfR=\Exp(\bfu\,\phi)$ 
+that rotate vectors $\bfx$ exactly the same angle $\phi$ around the same axis $\bfu$.% 
+%
+\footnote{The obvious notation ambiguity between the exponential maps $\bfR=\Exp(\bfphi)$ and $\bfq = \Exp(\bfphi)$ is easily resolved by the context: 
+at occasions it is just the type of the returned value, $\bfR$ or $\bfq$; 
+other times it is the presence or absence of the quaternion product $\ot$.}
+That is, if
+%
+\begin{align}
+\forall \bfphi,\bfx \in \bbR^3,~ 
+\bfq = \Exp(\bfphi) 
+,~ 
+\bfR=\Exp(\bfphi)
+%\rightarrow 
+%\bfq\ot%\ol
+%\bfx\ot\bfq^* = \bfR\,\bfx ~,
+\end{align}
+%
+%or, seen side by side,
+%%
+%\begin{align*}
+%%\ol
+%\bfx' &= \bfq\otimes
+%%\ol
+%\bfx\otimes\bfq^* ~,
+%& 
+%\bfx' &= \bfR\,\bfx~.
+%\end{align*}%
+%
+%Here, we used the bar notation $\ol\bfx$ to indicate that the vector $\bfx$ in the left equation is expressed in quaternion form~\eqRef{equ:quatvec}, thus differentiating it from that on the right. 
+%However, this circumstance is mostly unambiguous and can be derived from the context, and especially by the presence of the quaternion product $\otimes$. 
+%In what is to follow, we are omitting this bar and writing simply,
+%%
+%$\bfx' = \bfq\otimes\bfx\otimes\bfq^*$\,.
+%
+%This allows us to 
+%write,%
+%\footnote{More explicit expressions would be,~ 
+%$\bfq\otimes\ol\bfx
+%\otimes\bfq^* = \ol{ \bfR\bfx
+%}$~,
+%~or~ 
+%$\bfq\otimes\begin{bmatrix}
+%0\\\bfx
+%\end{bmatrix}\otimes\bfq^* = \begin{bmatrix}
+%0 \\ \bfR\bfx
+%\end{bmatrix}$~. See \secRef{sec:altQuat}.
+%}
+%
+then,
+%
+\begin{align}
+\bfq\otimes\bfx\otimes\bfq^* = \bfR\,\bfx~.
+\end{align}
+%
+As both sides of this identity are linear in $\bfx$, an expression of the rotation matrix equivalent to the quaternion is found by developing the left hand side and identifying terms on the right, yielding the \emph{quaternion to rotation matrix} formula,
+%
+\begin{align}
+\eqbox{
+\bfR = \begin{bmatrix}
+q_w^2+q_x^2-q_y^2-q_z^2 & 2(q_xq_y-q_wq_z) & 2(q_xq_z+q_wq_y) \\ 
+2(q_xq_y+q_wq_z) & q_w^2-q_x^2+q_y^2-q_z^2 & 2(q_yq_z-q_wq_x) \\
+2(q_xq_z-q_wq_y) & 2(q_yq_z+q_wq_x) & q_w^2-q_x^2-q_y^2+q_z^2
+\end{bmatrix}
+}~,
+\end{align}%
+%
+denoted throughout this document by $\bfR=\bfR\{\bfq\}$. 
+The matrix form of the quaternion product \eqsRef{equ:quatMatProd}{equ:quatMatrix} provides us with an alternative formula% for the rotation matrix
+, since
+%
+%
+\begin{align}
+\bfq\otimes%\ol
+\bfx\otimes\bfq^*
+&= \QR{\bfq^*}\,\QL{\bfq}\begin{bmatrix}
+0 \\ \bfx
+\end{bmatrix} 
+= \begin{bmatrix}
+0 \\ \bfR\,\bfx
+\end{bmatrix} 
+\label{equ:quatRotMatrixForm}
+~,
+\end{align}
+%
+which leads after some easy developments to
+%
+\begin{align}
+\eqbox{\bfR = (q_w^2-\qv\tr\qv)\,\bfI + 2\,\qv\qv\tr + 2\,q_w\hatx{\qv}}~.
+\end{align}
+
+
+
+The rotation matrix $\bfR$ has the following properties \wrt the quaternion,
+%
+%
+\begin{align}
+\bfR\{[1,0,0,0]\tr\} &= \bfI \label{equ:rotident}\\
+\bfR\{-\bfq\} &= \bfR\{\bfq\} \label{equ:rotneg} \\
+\bfR\{\bfq^*\} &= \bfR\{\bfq\}\tr \label{equ:rotconj} \\
+\bfR\{\bfq_1\ot\bfq_2\} &= \bfR\{\bfq_1\}\bfR\{\bfq_2\} \label{equ:rotprod}%\\
+%\bfR\{\bfq^t\}=\bfR\{\bfq\}^t \label{equ:rotslerp}
+~, 
+\end{align}%
+%
+where we observe that: 
+\eqRef{equ:rotident}~the identity quaternion encodes the null rotation;  
+\eqRef{equ:rotneg}~a quaternion and its negative encode the same rotation, defining a double cover of $SO(3)$; 
+\eqRef{equ:rotconj}~the conjugate quaternion encodes the inverse rotation; and  
+\eqRef{equ:rotprod}~the quaternion product composes consecutive rotations in the same order as rotation matrices do. 
+
+Additionally, we have the property% (see \eqRef{equ:Rslerp} a few pages forward),
+%
+\begin{align}
+\bfR\{\bfq^t\}=\bfR\{\bfq\}^t
+~,
+\end{align}
+%
+which relates the spherical interpolations  of the quaternion and rotation matrix over a running scalar $t$.
+
+
+\subsection{Rotation composition}
+
+Quaternion composition is done similarly to rotation matrices, \ie, with appropriate quaternion- and matrix- products, and in the same order (\figRef{fig:composition}),
+%
+\begin{align}
+\bfq_{\cA\cC} &= \bfq_{\cA\cB}\ot\bfq_{\cB\cC} ~,
+&
+\bfR_{\cA\cC} &= \bfR_{\cA\cB}\,\bfR_{\cB\cC} ~.\label{equ:rotComposition}
+\end{align}%
+%
+%
+%The Hamilton, local-to-global convention adopted here establishes that compositions go from local to global when moving towards the left of the composition chain, or from global to local when moving right. 
+%This means that $\bfq_{\cB\cC}$ and $\bfR_{\cB\cC}$ are specifications of a frame $\cC$ that is local \wrt frame $\cB$. 
+%
+This comes immediately from the associative property of the involved products,
+%
+\begin{align*}
+\bfx_\cA 
+&= \bfq_{\cA\cB}\ot\bfx_\cB\ot\bfq_{\cA\cB}^* 
+& \bfx_\cA
+&= \bfR_{\cA\cB}\,\bfx_\cB
+\\
+&= \bfq_{\cA\cB}\ot(\bfq_{\cB\cC}\ot\bfx_\cC\ot\bfq_{\cB\cC}^*)\ot\bfq_{\cA\cB}^* 
+&&= \bfR_{\cA\cB}\,(\bfR_{\cB\cC}\,\bfx_\cC) 
+\\
+&= (\bfq_{\cA\cB}\ot\bfq_{\cB\cC})\ot\bfx_\cC\ot(\bfq_{\cB\cC}^*\ot\bfq_{\cA\cB}^*) 
+&&= (\bfR_{\cA\cB}\,\bfR_{\cB\cC})\,\bfx_\cC 
+\\
+&= (\bfq_{\cA\cB}\ot\bfq_{\cB\cC})\ot\bfx_\cC\ot(\bfq_{\cA\cB}\ot\bfq_{\cB\cC})^* 
+&&= \bfR_{\cA\cC}\,\bfx_\cC ~.
+\\
+&= \bfq_{\cA\cC}\ot\bfx_\cC\ot\bfq_{\cA\cC}^* 
+%&&= \bfR_{\cA\cC}\,\bfx_\cC 
+~,
+\end{align*}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{figures/composition}
+\caption{Rotation composition. In $\bbR^2$, we would simply do $\theta_{\cA\cC} = \theta_{\cA\cB}+\theta_{\cB\cC}$, with an operation `sum' that is commutative. 
+In $\bbR^3$ composition satisfies $\bfq_{\cA\cC} = \bfq_{\cA\cB}\ot\bfq_{\cB\cC}$ and, in matrix form, $\bfR_{\cA\cC} = \bfR_{\cA\cB}\,\bfR_{\cB\cC}$. 
+These operators are not commutative and one must respect the order strictly ---a proper notation helps: `AB' chains with `BC' to create `AC'.}
+\label{fig:composition}
+\end{center}
+\end{figure}
+%
+
+\paragraph{A comment on notation}
+A proper notation helps determining the right order of the factors in the composition, especially for compositions of several rotations (see \figRef{fig:composition}).
+For example, let $\bfq_{ji}$ (resp. $\bfR_{ji}$) represent a rotation from situation $i$ to situation $j$, that is, $\bfx_j=\bfq_{ji}\ot\bfx_i\ot\bfq_{ji}^*$ (resp. $\bfx_j=\bfR_{ji}\bfx_i$).
+Then, given a number of rotations represented by the quaternions $\bfq_{OA},\bfq_{AB},\bfq_{BC},\bfq_{OX},\bfq_{XZ}$, we just have to chain the indices and get:
+%
+\begin{align*}
+\bfq_{OC} &= \bfq_{OA}\ot\bfq_{AB}\ot\bfq_{BC}
+&
+\bfR_{OC} &= \bfR_{OA}\,\bfR_{AB}\,\bfR_{BC}
+~,
+\end{align*}
+%
+and knowing that the opposite rotation corresponds to the conjugate, $\bfq_{ji}=\bfq_{ij}^*$, or  the transpose, $\bfR_{ji}=\bfR_{ij}\tr$, we also have
+%
+\begin{align*}
+\bfq_{ZA} &= \bfq_{XZ}^*\ot\bfq_{OX}^*\ot\bfq_{OA} 
+&
+\bfR_{ZA} &= \bfR_{XZ}\tr\,\bfR_{OX}\tr\,\bfR_{OA} 
+\\
+&= \bfq_{ZX}\ot\bfq_{XO}\ot\bfq_{OA}
+&
+&= \bfR_{ZX}\,\bfR_{XO}\,\bfR_{OA}
+~.
+\end{align*}
+
+
+
+
+\subsection{Spherical linear interpolation (SLERP)}
+\label{sec:slerp}
+
+Quaternions are very handy for computing proper orientation interpolations. 
+Given two orientations represented by quaternions $\bfq_0$ and $\bfq_1$, we want to find a quaternion function $\bfq(t),~ t\in[0,1]$, that linearly interpolates from $\bfq(0)=\bfq_0$ to $\bfq(1)=\bfq_1$. 
+This interpolation is such that, as $t$ evolves from $0$ to $1$, a body will continuously rotate from orientation $\bfq_0$ to orientation $\bfq_1$, at constant speed along a fixed axis.
+
+\paragraph{Method 1}
+A first approach uses quaternion algebra, and follows a geometric reasoning in $\bbR^3$ that should be easily related to the material presented so far.
+First, compute the orientation increment $\Delta\bfq$ from $\bfq_0$ to $\bfq_1$ such that $\bfq_1=\bfq_0\ot\Delta\bfq$,
+%
+\begin{align}
+\Delta\bfq = \bfq_0^*\ot\bfq_1
+~.
+\end{align}
+%
+Then obtain the associated rotation vector, $\Delta\bfphi=\bfu\Delta\phi$,
+%Then take a linear fraction of the involved rotation, 
+using the logarithmic map,\footnote{We can use here either the maps $\log()$ and $\exp()$, or their capitalized forms $\Log()$ and $\Exp()$. The involved factor 2 in the resulting angles is finally irrelevant as it cancels out in the final formula.}
+%
+\begin{align}\label{equ:LogDq}
+\bfu\,\Delta\phi = \Log(\Delta\bfq)
+~.
+\end{align}
+%
+Finally, keep the rotation axis $\bfu$ and take a linear fraction of the rotation angle, $\delta\phi=t\Delta\phi$. 
+Put it in quaternion form through the exponential map, $\delta\bfq=\Exp(\bfu\,\delta\phi)$, and compose it with the original quaternion to get the interpolated result,
+%
+\begin{align}
+\bfq(t) = \bfq_0\ot\Exp(t\,\bfu\,\Delta\phi)
+~.
+\end{align}
+%
+The whole process can be written as $\bfq(t)=\bfq_0\ot \Exp(t\Log(\bfq_0^*\ot\bfq_1))$, which reduces to
+%
+\begin{align}
+\eqbox{
+\bfq(t)=\bfq_0\ot(\bfq_0^*\ot\bfq_1)^t
+}
+~,
+\end{align}
+%
+and which is usually implemented (see \eqRef{equ:qa}) as,
+%
+\begin{align}
+\bfq(t)=\bfq_0\ot
+\begin{bmatrix}
+\cos (t\,\Delta\phi/2) \\ \bfu \sin (t\,\Delta\phi/2)
+\end{bmatrix}
+~.
+\end{align}
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{figures/slerp_S4}
+\caption{Quaternion interpolation in the unit sphere of $\bbR^4$, and a frontal view of the situation on the rotation plane $\pi$ of $\bbR^4$.}
+\label{fig:slerp_S4}
+\end{center}
+\end{figure}
+
+\paragraph{Note:} An analogous procedure may be used to define Slerp for rotation matrices, yielding
+%
+\begin{align}\label{equ:Rslerp}
+\bfR(t)= \bfR_0\Exp(t\Log(\bfR_0\tr\bfR_1))=\bfR_0(\bfR_0\tr\bfR_1)^t 
+~,
+\end{align}
+%
+where the matrix exponential $\bfR^t$ can be implemented using Rodrigues \eqRef{equ:rodrigues}, leading to
+%
+\begin{align}
+\bfR(t)= \bfR_0 \left(\bfI + \sin(t\Delta\phi)\hatx{\bfu} + (1-\cos(t\Delta\phi))\hatx{\bfu}^2\right)
+~.
+\end{align}
+
+
+\paragraph{Method 2}
+Other approaches to Slerp can be developed that are independent of the inners of quaternion algebra, and even independent of the dimension of the space in which the arc is embedded. 
+In particular, see \figRef{fig:slerp_S4}, we can treat quaternions $\bfq_0$ and $\bfq_1$ as two unit vectors in the unit sphere, and interpolate in this same space. 
+The interpolated $\bfq(t)$ is the unit vector that follows at a constant angular speed
+the shortest spherical path joining $\bfq_0$ to $\bfq_1$.
+This path is the planar arc resulting from intersecting the unit sphere with the plane defined by $\bfq_0$, $\bfq_1$ and the origin (dashed circumference in the figure).
+For a proof that these approaches are equivalent to the above, see \cite{DAM-1998}.
+
+The first of these approaches uses vector algebra and follows literally the ideas above. 
+Consider $\bfq_0$ and $\bfq_1$ as two unit vectors; 
+%
+%This angle%
+the angle%
+\footnote{The angle $\Delta\theta=\arccos(\bfq_0\tr\bfq_1)$ is the angle between the two quaternion vectors in Euclidean 4-space, not the real rotated angle in 3D space, which from \eqRef{equ:LogDq} is $\Delta\phi=\norm{\Log(\bfq_0^*\ot\bfq_1)}$. See \secRef{sec:double_cover} for further details.}
+between them is derived from the scalar product,
+%
+\begin{align}\label{equ:slerp_angle}
+\cos(\Delta\theta)&=\bfq_0\tr\bfq_1 & \Delta\theta&=\arccos(\bfq_0\tr\bfq_1)
+~.
+\end{align}
+%
+We proceed as follows. 
+We identify the plane of rotation, that we name here $\pi$, 
+and build its ortho-normal basis $\{\bfq_0,\bfq_\bot\}$, where $\bfq_\bot$ comes from ortho-normalizing $\bfq_1$ against $\bfq_0$,
+%
+\begin{align}
+\bfq_\bot &= \frac{\bfq_1-(\bfq_0\tr\bfq_1)\bfq_0}{\norm{\bfq_1-(\bfq_0\tr\bfq_1)\bfq_0}}
+~,
+\end{align}
+%
+so that (see \figRef{fig:slerp_S4} -- right)
+%
+\begin{align} \label{equ:q1}
+\bfq_1 = \bfq_0 \cos \Delta\theta + \bfq_\bot \sin \Delta\theta
+~.
+\end{align}
+%
+Then, we just need to rotate $\bfq_0$ a fraction of the angle, $t\Delta\theta$, over the plane $\pi$,
+to yield the spherical interpolation,
+%
+\begin{align}\label{equ:slerp_rot}
+\eqbox{
+\bfq(t) = \bfq_0 \cos(t\Delta\theta) + \bfq_\bot\sin(t\Delta\theta)
+}
+~.
+\end{align}
+
+
+\paragraph{Method 3}
+A similar approach, credited to Glenn Davis in \cite{SHOEMAKE-1985}, draws from the fact that any point on the great arc joining $\bfq_0$ to $\bfq_1$ must be a linear combination of its ends (since the three vectors are coplanar). 
+Having computed the angle $\Delta\theta$ using \eqRef{equ:slerp_angle},  
+%
+%%\footnote{
+%This formula can also be derived from \eqRef{equ:slerp_rot} by noticing that $\bfq_1 = \bfq_0 \cos \Delta\theta + \bfq_\bot \sin \Delta\theta$, isolating 
+%
+we can isolate $\bfq_\bot$ from \eqRef{equ:q1} and inject it in \eqRef{equ:slerp_rot}. Applying the identity $\sin(\Delta\theta-t\Delta\theta)=\sin \Delta\theta\cos t\Delta\theta-\cos \Delta\theta\sin t\Delta\theta$, we obtain the Davis' formula (see \cite{EBERLY-2010} for an alternative derivation),
+%
+\begin{align}
+\eqbox{
+\bfq(t)=\bfq_0\frac{\sin((1-t)\Delta\theta)}{\sin(\Delta\theta)}+\bfq_1\frac{\sin(t\Delta\theta)}{\sin(\Delta\theta)}
+}
+~.
+\end{align}
+%
+This formula has the benefit of being symmetric: defining the reverse interpolator  $s=1-t$ yields
+%
+\begin{align*}
+\bfq(s)=
+\bfq_1\frac{\sin((1-s)\Delta\theta)}{\sin(\Delta\theta)}
++
+\bfq_0\frac{\sin(s\Delta\theta)}{\sin(\Delta\theta)}
+~.
+\end{align*}
+%
+which is exactly the same formula with the roles of $\bfq_0$ and $\bfq_1$ swapped.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{figures/slerp_fix}
+\caption{Ensuring Slerp along the shortest path between the orientations represented by $\bfq_0$ and $\bfq_1$. Left: quaternion rotation plane in  4D space, showing initial and final orientation quaternions, and two possible interpolations, $\bfq(t)$ from $\bfq_0$ to $\bfq_1$, and $\bfq'(t)$ from $\bfq_0$ to $-\bfq_1$. Right: vector rotation plane in 3D space: 
+since $\bfq_1=-\bfq_1$, we have $\bfx_1=\bfq_1\ot\bfx_0\ot\bfq_1^*=\bfq_1'\ot\bfx_0\ot\bfq_1'^*$, that is, both quaternions produce the same rotation.
+However, the interpolated quaternion $\bfq(t)$ produces the vector $\bfx(t)$ which takes the long path from $\bfx_0$ to $\bfx_1$, 
+while the corrected $\bfq_1'=-\bfq_1$ yields $\bfq'(t)$, producing the vector $\bfx'(t)$ along the shortest path from $\bfx_0$ to $\bfx_1$.}
+\label{fig:slerp_fix}
+\end{center}
+\end{figure}
+
+All these quaternion-based SLERP methods require some care to ensure proper interpolation along the shortest path, that is, with rotation angles $\phi\leq\pi$. 
+Due to the quaternion double cover of $SO(3)$ (see \secRef{sec:double_cover}) only the interpolation between quaternions in acute angles $\Delta\theta\leq\pi/2$ is done following the shortest path (\figRef{fig:slerp_fix}). 
+Testing for this situation and solving it is simple: if $\cos(\Delta\theta)=\bfq_0\tr\bfq_1<0$, then replace \eg~$\bfq_1$ by $-\bfq_1$ and start over.
+
+
+
+\subsection{Quaternion and isoclinic rotations: explaining the magic}
+\label{sec:isoclinic}
+
+This section provides geometrical insights to the two intriguing questions about quaternions, what we call the `magic':
+\begin{itemize}
+\item
+How is it that the product $\bfq\ot\bfx\ot\bfq^*$ rotates the vector $\bfx$? 
+\item
+Why do we need to consider half-angles when constructing the quaternion through $\bfq=e^{\bfphi/2}=[\cos \phi/2 , \bfu\sin\phi/2]$?
+\end{itemize}
+%
+We want a geometrical explanation, that is, some rationale that goes beyond the algebraic demonstration \eqRef{equ:quatRotFormula} and the double cover facts in \secRef{sec:double_cover}.
+
+To start, let us reproduce here equation \eqRef{equ:quatRotMatrixForm} expressing the quaternion rotation action through the quaternion product matrices $\QL{\bfq}$ and $\QR{\bfq^*}$, defined in \eqRef{equ:quatMatrix},
+%
+\begin{align*}
+\bfq\otimes
+\bfx\otimes\bfq^*
+&= \QR{\bfq^*}\,\QL{\bfq}\begin{bmatrix}
+0 \\ \bfx
+\end{bmatrix} 
+= \begin{bmatrix}
+0 \\ \bfR\,\bfx
+\end{bmatrix} 
+~.
+\end{align*}
+%
+For unit quaternions $\bfq$, the quaternion product matrices $\QL{\bfq}$ and $\QR{\bfq^*}$ satisfy two remarkable properties,
+%
+%
+\begin{align}
+ \Q{\bfq}\,\Q{\bfq}\tr &= \bfI_4 \\
+ \det(\Q{\bfq}) &= +1 
+ ~, 
+\end{align}%
+%
+and are therefore elements of $SO(4)$, that is, proper rotation matrices in the $\bbR^4$ space. 
+To be more specific, they represent a particular type of rotation, named \emph{isoclinic rotation}, as we explain hereafter.
+Thus, according to \eqRef{equ:quatRotMatrixForm}, a quaternion rotation corresponds to two chained isoclinic rotations in $\bbR^4$.
+
+In order to explain the insights of quaternion rotation, % in $\bbR^3$, 
+we need to understand isoclinic rotations in $\bbR^4$. 
+For this, we first need to understand general rotations in $\bbR^4$.
+And to understand rotations in $\bbR^4$, we need to go back to $\bbR^3$, whose rotations are in fact planar rotations.
+Let us walk all these steps one by one.
+
+
+\paragraph{Rotations in $\bbR^3$:} 
+%
+In $\bbR^3$, let us consider the rotations of a vector $\bfx$ around an arbitrary axis represented by the vector $\bfu$ ---see \figRef{fig:isoclinic3}, and recall  \figRef{fig:rotation3d}. 
+Upon rotation, vectors parallel to the axis of rotation $\bfu$ do not move, and  vectors perpendicular to the axis rotate in the plane $\pi$ perpendicular to the axis. 
+For general vectors $\bfx$, the two components of the vector in the plane rotate in this plane, while the axial component remains static.
+%
+\begin{figure}[tb]
+\begin{center}
+\includegraphics{figures/isoclinic3}
+\caption{%
+Rotation in $\bbR^3$. 
+A rotation of a vector $\bfx$ around an axis $\bfu$ describes a circumference in a plane orthogonal to the axis. 
+The component of $\bfx$ parallel to the axis does not move, and is represented by the small red dot on the axis.
+The sketch on the right illustrates the radically different behaviors of the rotating point on the plane and axis subspaces. 
+}
+\label{fig:isoclinic3}
+\end{center}
+\end{figure}
+
+
+\paragraph{Rotations in $\bbR^4$:} 
+%
+In $\bbR^4$, see \figRef{fig:isoclinic4}, due to the extra dimension, the one-dimensional axis of rotation in $\bbR^3$ becomes a new two-dimensional plane.
+%
+\begin{figure}[tb]
+\begin{center}
+\includegraphics{figures/isoclinic4}
+\caption{%
+Rotations in $\bbR^4$. 
+Two orthogonal rotations are possible, on two orthogonal planes $\pi_1$ and $\pi_2$. 
+Rotations of a vector $\bfx$ (not drawn) in the plane $\pi_1$ cause the two components of the vector parallel to this plane (red dot on $\pi_1$) to describe a circumference (red circle), 
+leaving the other two components in $\pi_2$ unchanged (the red dot). 
+Conversely, rotations in the plane $\pi_2$ (blue dot on blue circle in $\pi_2$) leave the components in $\pi_1$ unchanged (blue dot).
+The sketch on the right better illustrates the situation by resigning to draw unrepresentable perspectives in $\bbR^4$, which might be misleading.
+}
+\label{fig:isoclinic4}
+\end{center}
+\end{figure}
+%
+This second plane provides room for a second rotation.
+Indeed, rotations in $\bbR^4$ encompass two independent rotations in two orthogonal planes of the 4-space. 
+This means that every 4-vector of each of these planes rotates in its own plane, and that rotations of general 4-vectors \wrt one plane leave unaffected the vector components in the other plane. 
+These planes are for this reason called \emph{`invariant'}.
+
+\paragraph{Isoclinic rotations in $\bbR^4$:} 
+%
+Isoclinic rotations (from Greek, \emph{iso:} ``equal", \emph{klinein:} ``to incline") are those rotations in $\bbR^4$ where the angles of rotation in the two invariant planes have the same magnitude.
+Then, when the two angles have also the same sign,%
+\footnote{Given the two invariant planes, we arbitrarily select their orientations so that we can associate positive and negative rotation angles in them.}
+we speak of \emph{left-isoclinic rotations}. 
+And when they have opposite signs, we speak of \emph{right-isoclinic rotations}.
+%
+A remarkable property of isoclinic rotations, that we had already seen in  \eqRef{equ:PQ_commute}, is that left- and right- isoclinic rotations commute,
+\begin{align}
+ \QR{\bfp}\,\QL{\bfq} = \QL{\bfq}\,\QR{\bfp}~. \label{equ:isoclinic_commute}
+\end{align}
+
+\paragraph{Quaternion rotations in $\bbR^4$ and $\bbR^3$:}
+% 
+Given a unit quaternion $\bfq=e^{\bfu\,\theta/2}$, representing a rotation in $\bbR^3$ of an angle $\theta$ around the axis $\bfu$, 
+the matrix $\QL{\bfq}$ is a left-isoclinic rotation in $\bbR^4$ corresponding to the left-multiplication by the quaternion $\bfq$, 
+and  $\QR{\bfq^*}$ is a right-isoclinic rotation corresponding to the right-multiplication by the quaternion $\bfq^*$. 
+The angles of these isoclinic rotations are exactly of magnitude $\theta/2$,%
+\footnote{This can be checked by extracting the eigenvalues of the isoclinic rotation matrices: they are formed by pairs of conjugate complex numbers with a phase equal to $\pm\theta/2$.}
+and the invariant planes are the same.
+Then, the rotation expression \eqRef{equ:quatRotMatrixForm}, reproduced once again here,
+%
+\begin{align*}
+\begin{bmatrix}
+0 \\ \bfx'
+\end{bmatrix}=\bfq\otimes\bfx\otimes\bfq^*
+&= \QR{\bfq^*}\,\QL{\bfq}\begin{bmatrix}
+0 \\ \bfx
+\end{bmatrix} 
+~,
+\end{align*}
+%
+represents two chained isoclinic rotations to the 4-vector $(0,\bfx)\tr$, one left- and one right-, each by half the desired rotation angle in $\bbR^3$. 
+In one of the invariant planes of $\bbR^4$ (see \figRef{fig:isoclinicQ}), the two half angles cancel out, because they have opposite signs. 
+%
+\begin{figure}[tb]
+\begin{center}
+\includegraphics{figures/isoclinicQ}
+\caption{%
+Quaternion rotation in $\bbR^4$.
+Two chained isoclinic rotations, one left (with equal half-angles), and one right (with opposing half-angles), produce a pure rotation by the full angle in only one of the invariant planes.
+}
+\label{fig:isoclinicQ}
+\end{center}
+\end{figure}
+%
+In the other plane, they sum up to yield the total rotation angle $\theta$. 
+If we define from  \eqRef{equ:quatRotMatrixForm} the resulting rotation matrix, $\bfR_4$, one easily realizes that (see also \eqRef{equ:isoclinic_commute}),
+%
+\begin{align}\label{equ:R4}
+\bfR_4 \triangleq \QR{\bfq^*}\QL{\bfq}=\QL{\bfq}\QR{\bfq^*}= \begin{bmatrix}
+1 & \bf0 \\
+\bf0 & \bfR
+\end{bmatrix}
+~,
+\end{align}
+%
+where $\bfR$ is the rotation matrix in $\bbR^3$, which clearly rotates vectors in the $\bbR^3$ subspace of $\bbR^4$, leaving the fourth dimension unchanged.
+
+
+
+This discourse is somewhat beyond the scope of the present document. 
+It is also incomplete, for it does not provide, beyond the result in \eqRef{equ:R4}, an intuition or geometrical explanation for why we need to do $\bfq\ot\bfx\ot\bfq^*$ instead of \eg~$\bfq\ot\bfx\ot\bfq$.\footnote{Let it suffice to say that $\bfq\ot\bfx\ot\bfq^*$ works for rotations if $\bfq$ is a unit quaternion. In fact, the product $\qv\ot\bfx\ot\qv$ produces reflections (not rotations!) in $\bbR^3$ if $\qv$ is a unit \emph{pure} quaternion. Finally, the product $\bfq\ot\bfx\ot\bfq$, with $\bfq$ a unit \emph{non-pure} quaternion, exhibits no remarkable properties.}
+We include it here just as a means for providing yet another way to interpret rotations by quaternions, with the hope that the reader grasps more intuition about its mechanisms.
+The interested reader is suggested to consult the appropriate literature on isoclinic rotations in $\bbR^4$.
+
+
+
+
+
+
+%=============================================================
+\section{Quaternion conventions. My choice.}
+\label{sec:conventions}
+
+\subsection{Quaternion flavors}
+
+There are several ways to determine the quaternion. They are basically related to four binary choices:
+%
+\begin{itemize}
+\item
+The order of its elements --- real part first or last:
+\begin{align}
+\bfq = \begin{bmatrix}
+q_w \\ \qv
+\end{bmatrix} 
+\qquad \textit{vs.} \qquad 
+\bfq = \begin{bmatrix}
+\qv \\ q_w
+\end{bmatrix}~.
+\label{equ:quatOrder}
+\end{align}
+
+\item
+The multiplication formula --- definition of the quaternion algebra:
+%
+\begin{subequations}
+\label{equ:quatAlg}
+\begin{align}
+ij=-ji=k 
+\qquad \textit{vs.} \qquad 
+ji=-ij=k~,
+\label{equ:quatAlgDef}
+\end{align}
+%
+which correspond to different handedness, respectively:
+%
+\begin{align}
+\textit{right-handed
+\qquad vs. \qquad
+left-handed}~.
+\label{equ:quatHand}
+\end{align}
+\end{subequations}
+%
+This means that, given a rotation axis $\bfu$, one quaternion $\bfq_{right}\{\bfu\,\theta\}$ rotates vectors an angle $\theta$ around $\bfu$ using the right hand rule, while the other quaternion $\bfq_{left}\{\bfu\,\theta\}$ uses the left hand rule.
+
+\item
+The function of the rotation operator --- rotating frames or rotating vectors:
+%
+\begin{align}
+\textit{Passive
+\qquad vs. \qquad
+Active.}
+\label{equ:quatAlibi}
+\end{align}
+
+\item
+In the passive case, the direction of the operation --- local-to-global or global-to-local:
+%
+\begin{align}
+\bfx_{global} = \bfq\otimes\bfx_{local}\otimes\bfq^*
+\qquad vs. \qquad 
+\bfx_{local} = \bfq\otimes\bfx_{global}\otimes\bfq^*
+\label{equ:quatInterpret}
+\end{align}
+
+
+\end{itemize}
+
+This variety of choices leads to 12 different combinations. Historical developments have favored some conventions over others~\citep{CHOU-92,yazell-09}. 
+Today, in the available literature, we find many quaternion flavors such as 
+the Hamilton, 
+the STS\footnote{Space Transportation System, commonly known as NASA's Space Shuttle.}, 
+the JPL\footnote{Jet Propulsion Laboratory.}, 
+the ISS\footnote{International Space Station.}, 
+the ESA\footnote{European Space Agency.}, 
+the Engineering, 
+the Robotics, 
+and possibly a lot more denominations. 
+Many of these forms might be identical, others not, but this fact is rarely explicitly stated, 
+and many works simply lack a sufficient description of their quaternion with regard to the four choices above.
+
+These differences impact the respective formulas for rotation, composition, etc., in non-obvious ways. 
+The formulas are thus not compatible, and we need to make a clear choice from the very start.
+
+The two most commonly used conventions, which are also the best documented, are Hamilton (the options on the left in \eqsRef{equ:quatOrder}{equ:quatInterpret}) and JPL  (the options on the right, with the exception of \eqRef{equ:quatAlibi}).  
+\tabRef{tab:Hamilton_vs_JPL} shows a summary of their characteristics. 
+JPL is mostly used in the aerospace domain, while Hamilton is more common to other engineering areas such as robotics ---though this should not be taken as a rule.
+
+
+\begin{table*}
+\renewcommand{\arraystretch}{1.3}
+\centering
+\caption{Hamilton vs. JPL quaternion conventions \wrt the 4 binary choices}
+\vspace{1ex}
+\begin{tabular}{|cl|c|c|}
+\hline
+& Quaternion type & Hamilton & JPL \\
+\hline\hline
+1 & Components order & $(q_w \,,\, \qv)$ & $(\qv \,,\, q_w)$ \\
+\hline
+\multirow{2}{*}{2} & Algebra & $ij=k$ & $ij=-k$ \\
+& Handedness & Right-handed & Left-handed \\
+\hline
+3 & Function & Passive & Passive
+\\
+\hline
+\multirow{3}{*}{4} & Right-to-left products mean & Local-to-Global & Global-to-Local \\
+& Default notation, $\bfq$ & $\bfq \triangleq \bfq_{\cG\cL}$ & $\bfq \triangleq \bfq_{\cL\cG}$ \\
+& Default operation & $\bfx_\cG = \bfq\otimes\bfx_\cL\otimes\bfq^*$ & $\bfx_\cL = \bfq\otimes\bfx_\cG\otimes\bfq^*$ \\
+\hline
+\end{tabular}
+\label{tab:Hamilton_vs_JPL}
+\end{table*}
+
+My choice, that has been taken as early as in equation \eqRef{equ:quatAlgebra}, is to take the Hamilton convention, 
+which is right-handed and coincides with many software libraries of widespread use in robotics, such as Eigen, ROS, Google Ceres, 
+and with a vast amount of literature on Kalman filtering for attitude estimation using IMUs~\citep[and many others]{CHOU-92,KUIPERS-99,PINIES-07,ROUSSILLON-11a,MARTINELLI-12}.
+
+The JPL convention is possibly less commonly used, at least in the robotics field. 
+It is extensively described in~\citep{TRAWNY-05-QUAT}, a reference work that has an aim and scope very close to the present one, but that concentrates exclusively in the JPL convention. 
+The JPL quaternion is used in the JPL literature (obviously) and in key papers by Li, Mourikis, Roumeliotis, and colleagues (see \eg~\citep{LI-2012,LI-14}), which draw from \citeauthor{TRAWNY-05-QUAT}' document. 
+These works are a primary source of inspiration when dealing with visual-inertial odometry and SLAM ---which is what we do. 
+
+In the rest of this section we analyze these two quaternion conventions with a little more depth.
+
+
+%-------------------------------------------------------------
+\subsubsection{Order of the quaternion components}
+
+Though not the most fundamental, the most salient difference between Hamilton and JPL quaternions is in the order of the components, with the scalar part being either in first (Hamilton) or last (JPL) position. 
+The implications of such change are quite obvious and should not represent a great challenge of interpretation. 
+In fact, some works with the quaternion's real component at the end (\eg, the C++ library Eigen) are still considered as using the Hamilton convention, as long as the other three aspects are maintained.
+
+We have used the subscripts $(w, x, y, z)$ for the quaternion components for increased clarity, instead of the other commonly used $(0, 1, 2, 3)$. 
+When changing the order, $q_w$ will always denote the real part, while it is not clear whether $q_0$ would also do 
+---in some occasions, one might find things such as $\bfq=(q_1, q_2, q_3, q_0)$, with $q_0$ real and last, but in the general case of $\bfq=(q_0, q_1, q_2, q_3)$, the real part at the end would be $q_3$.%
+\footnote{See also footnote \ref{ftn:quatComponents}.} 
+When passing from one convention to the other, we must be careful of formulas involving full $4\times4$ or $3\times4$ quaternion-related matrices, 
+for their rows and/or columns need to be swapped. 
+This is not difficult to do, but it might be difficult to detect and therefore prone to error.
+
+Two curiosities about the components' order are:
+%
+\begin{itemize}
+\item
+With real part first, the quaternion is naturally interpreted as an extended complex number, of the familiar form \emph{real+imaginary}. 
+Some of us are comfortable with this representation probably because of this.
+\item
+With real part last, the quaternion expressed in vector form,
+%
+$\bfq=\begin{bmatrix}
+x,y,z,w
+\end{bmatrix}\in\bbH$, 
+%
+has a format absolutely equivalent to the homogeneous vector in the projective 3D space, 
+%
+$\bfp=\begin{bmatrix}
+x,y,z,w
+\end{bmatrix}\in\bbP^3$, 
+%
+where in both cases $x,y,z$ are clearly identified with the three Cartesian axes. 
+When dealing with geometric problems in 3D, this makes the algebra for operating on quaternions and homogeneous vectors more uniform, 
+especially (but not only) if the homogeneous vector is constrained to the unit sphere $\norm{\bfp}=1$.
+\end{itemize}
+
+%-------------------------------------------------------------
+\subsubsection{Specification of the quaternion algebra}
+
+
+The Hamilton convention defines $ij=k$ and therefore,
+%
+\begin{align}
+i^2 = j^2 = k^2 = ijk = -1~,\quad ij = -ji = k~, \quad jk = -kj = i~, \quad ki = -ik = j~,
+\end{align}
+%
+whereas the JPL convention defines $ji=k$ and hence its quaternion algebra becomes,
+%
+\begin{align}
+i^2 = j^2 = k^2 = -ijk = -1~,\quad -ij = ji = k~, \quad -jk = kj = i~, \quad -ki = ik = j~.
+\end{align}
+
+Interestingly, these subtle sign changes preserve the basic properties of quaternions as rotation operators. 
+Mathematically, the key consequence is the change of the sign of the cross-product in \eqRef{equ:quatProdVec}, which induces a change in the quaternion handedness~\citep{SHUSTER-93}: 
+Hamilton uses $ij=k$ and is therefore right-handed, \ie, it turns vectors following the right-hand rule; JPL uses $ji=k$ and is left-handed~\citep{TRAWNY-05-QUAT}. 
+Being left- and right- handed rotations of opposite signs, we can say that their quaternions $\bfq_{left}$ and $\bfq_{right}$ are related by,
+%
+\begin{align}
+\bfq_{\textit{left}}= \bfq_{\textit{right}}^*~.
+\end{align}
+
+
+
+%-------------------------------------------------------------
+\subsubsection{Function of the rotation operator}
+
+We have seen how to rotate vectors in 3D. This is referred to in~\citep{SHUSTER-93} as the \emph{active} interpretation, 
+because operators (this affects all rotation operators) actively rotate vectors,
+%
+\begin{align}
+\bfx' &=\bfq_{\textit{active}}\otimes\bfx\otimes\bfq_{\textit{active}}^* ~,
+& 
+\bfx' &= \bfR_{\textit{active}}\,\bfx~.
+\end{align}
+
+Another way of seeing the effect of $\bfq$ and $\bfR$ over a vector $\bfx$ is to consider that the vector is steady but it is us who have rotated our point of view by an amount specified by $\bfq$ or $\bfR$. 
+This is called here \emph{frame transformation} and it is referred to in~\citep{SHUSTER-93} as the \emph{passive} interpretation, because vectors do not move,
+%
+\begin{align}
+\bfx_\cB &= \bfq_{\textit{passive}}\ot\bfx_\cA\ot\bfq_{\textit{passive}}^*~,
+&
+\bfx_\cB&=\bfR_{\textit{passive}}\,\bfx_\cA~,
+\end{align}
+%
+where $\cA$ and $\cB$ are two Cartesian reference frames, and $\bfx_\cA$ and $\bfx_\cB$ are expressions of the same vector $\bfx$ in these frames. 
+See further down for explanations and proper notations.
+
+
+The active and passive interpretations are governed by operators inverse of each other, that is, 
+%
+\begin{align*}
+\bfq_{\textit{active}} &= \bfq_{\textit{passive}}^* ~,
+& 
+\bfR_{active} &= \bfR_{passive}\tr ~.
+\end{align*}
+%
+Both Hamilton and JPL use the passive convention. 
+
+\paragraph{Direction cosine matrix}
+A few authors understand the passive operator as not being a rotation operator, 
+but rather an orientation specification, named the \emph{direction cosine matrix},
+%
+\begin{align}
+\bfC = \begin{bmatrix}
+c_{xx} & c_{xy} & c_{zx} \\
+c_{xy} & c_{yy} & c_{zy} \\
+c_{xz} & c_{yz} & c_{zz} 
+\end{bmatrix}
+~,
+\end{align}
+%
+where each component $c_{ij}$ is the cosine of the angle between the axis $i$ in the source frame and the axis $j$ in the target frame. We have the identity,
+%
+\begin{align}
+\bfC \equiv \bfR_{\textit{passive}}
+~.
+\end{align}
+
+
+%-------------------------------------------------------------
+\subsubsection{Direction of the rotation operator}
+
+In the passive case, a second source of interpretation is related to the direction in which the rotation matrix and quaternion operate, 
+either converting from local to global frames, or from global to local. 
+
+Given two Cartesian frames $\cG$ and $\cL$, we identify $\cG$ and $\cL$ as being the global and local frames.
+``Global'' and ``local'' are relative definitions, \ie, $\cG$ is global \wrt $\cL$, and $\cL$ is local \wrt $\cG$ -- in other words, $\cL$ is a frame specified in the reference frame $\cG$.\footnote{Other common denominations for the \{global, local\} frames are \{parent, child\} and \{world, body\}. The first one is convenient when more than two frames are involved in a system (\eg~the frames of each moving link in a humanoid robot); the second one is convenient for a solid vehicle body (\eg~a plane, a car) moving in a unique reference frame identified as the world.} 
+We specify $\bfq_{\cG\cL}$ and $\bfR_{\cG\cL}$ as being respectively the quaternion and rotation matrix transforming vectors from frame $\cL$ to frame $\cG$, 
+in the sense that a vector $\bfx_\cL$ in frame $\cL$ is expressed in frame $\cG$ with the quaternion- and matrix- products
+%
+\begin{align}
+\bfx_\cG &= \bfq_{\cG\cL}\otimes\bfx_\cL\otimes\bfq_{\cG\cL}^*~, &
+\bfx_\cG &= \bfR_{\cG\cL}\,\bfx_\cL~.
+\label{equ:local_to_global}
+\end{align}
+%
+The opposite conversion, from $\cG$ to $\cL$, is done with
+%
+\begin{align}
+\bfx_\cL &= \bfq_{\cL\cG}\otimes\bfx_\cG\otimes\bfq_{\cL\cG}^*
+~,
+&
+\bfx_\cL &= \bfR_{\cL\cG}\,\bfx_\cG~,
+\end{align}
+%
+where
+%
+\begin{align}
+\bfq_{\cL\cG} &= \bfq_{\cG\cL}^*~,
+& 
+\bfR_{\cL\cG} &= \bfR_{\cG\cL}\tr~. \label{equ:localVsGlobal}
+\end{align}
+
+
+Hamilton uses local-to-global as the default specification of a frame $\cL$ expressed in frame $\cG$, 
+%
+\begin{align}
+\bfq_{\textit{Hamilton}} \triangleq \bfq_{[\textit{with~respect~to}][\textit{of\,}]}=\bfq_{[\textit{to}][\textit{from}]}=\bfq_{\cG\cL}~, 
+\end{align}
+%
+while JPL uses the opposite, global-to-local conversion,
+%
+\begin{align}
+\bfq_{\textit{JPL}} \triangleq \bfq_{[\textit{of}\,][\textit{with~respect~to}]}=\bfq_{[\textit{to}][\textit{from}]}=\bfq_{\cL\cG}~.
+\end{align}
+
+Notice that
+%
+\begin{align}
+\bfq_{\textit{JPL}}
+\triangleq    \bfq_{\cL\cG,left}
+=    \bfq_{\cL\cG,\textit{right}}^*
+=    \bfq_{\cG\cL,\textit{right}}
+\triangleq    \bfq_{\textit{Hamilton}}%^*
+~,
+\label{equ:quatEquivalences}
+\end{align}
+%
+which is not particularly useful, but illustrates how easy it is to get confused when mixing conventions.
+Notice also that we can conclude that $\bfq_{JPL} = \bfq_{Hamilton}$, but this, far from being a beautiful result, is just the source of great confusion, 
+because the equality is only present in the quaternion values, 
+but the two quaternions, when employed in formulas,  mean and represent different things.
+
+
+
+
+%%-------------------------------------------------------------
+%\subsection{Notation}
+%
+%An often underestimated source of confusion when dealing with quaternion algebra is related to notation. 
+%We believe notation should be clear, lightweight and unambiguous. 
+%Of course, this applies not only to quaternions and rotation matrices, but also to the points and vectors manipulated by these. 
+%A good notation requires considering many conflicting aspects: 
+%%
+%\begin{itemize}
+%
+%\item 
+%Clearly distinguish scalars, vectors, matrices and functions with different font styles.
+%
+%\item
+%Use the main letter to signify the physical dimension. Use prefixes, subscripts, superscripts and/or accents for details and particularities.
+%
+%\item Avoid tiny elements such as tildes $\tilde\bfq$, hats $\hat\bfq$, bars $\bar\bfq$, $\ul\bfq$, and other accents, as much as possible.
+%
+%%\item Avoid making extensive use of unusual Greek symbols. 
+%%If we cannot tell a symbol name, then we cannot read a formula. What is $\Xi$? And $\Upsilon$?
+%
+%\item Avoid certain combinations of subscripts and superscripts on the left and right hand sides, %\eg, $^ix_j$, 
+%especially when they appear in multiple levels, \eg, $^{C_i}x_{F_j}$. 
+%They produce formulas such as $^iu_j=\frac{^{C_i}x_{F_j}}{^{C_i}z_{F_j}}$ (which is the pinhole camera model) that are difficult to read because the main variables, $x$ and $z$, are not salient enough.
+%
+%\item Make composition of chains obviously and unambiguously readable. 
+%For example, the rotation matrix $\bfR_\cA^\cB$ or the quaternion $ _\cA^\cB\bfq$ are ambiguous because we do not know if they transform ``$\cA$ to $\cB$\,'' or ``$\cB$ to $\cA$''.
+%
+%
+%\item
+%Provide easy 1:1 translation to readable programming code. This last point becomes increasingly important as most of the works we produce are meant to be translated into algorithms.
+%
+%
+%\end{itemize}
+%
+%Our notation derives from the following rules,
+%%
+%\begin{enumerate}
+%\item
+%Scalars are $a,x,\omega$; vectors are $\bfa,\bfx,{\bm \omega}$, matrices are $\bfA, \bfX, {\bf\Omega}$; functions are $f(), g()$. 
+%
+%\item
+%We use decorations to provide details of a given magnitude. As an example, we use~$\bfa$ for \emph{acceleration}, and $\delta\bfa,~ \bfa_m,~ \bfa_b,~ \hat\bfa,~ \bfA,~ \bfa_n,~ \bfA_n$ respectively for \emph{acceleration error, measured acceleration, accelerometer bias, mean of the acceleration estimate, covariance of the acceleration estimate, acceleration noise, covariance of the acceleration noise}. 
+%
+%\item
+%The only accent we use is the hat, $\hat\bfx$, to signify the mean of the Kalman filter Gaussian estimate. Error-state values are noted $\delta\bfx$. 
+%
+%\item
+%The general translation specification $\bft$ needs 3 decorations: a translation \emph{from} point $\cB$ / \emph{to} point $\cC$ / \emph{expressed in} frame $\cA$,
+%%
+%\begin{align}
+%\bft_{[expressed~in],[initial~point][end~point]}~.
+%\end{align}
+%%
+%This produces forms such as $\bft_{\cA,\cB\cC}$.  
+%We define two convenient simplifications:
+%%
+%\begin{itemize}
+%\item
+%When $\bft_{\cA,\cB\cC}$ refers to a point $\cP$, we consider its origin at the origin of the reference frame, \ie, $\cB=\cA$, giving 
+%%
+%\begin{align}
+%\bfp_\cA\triangleq\bft_{\cA,\cA \cP}~. \label{equ:point}
+%\end{align}
+%%
+%\item
+%When $\bft_{\cA,\cB\cC}$ refers to a free vector $\bfv=\ol{\cB\cC}$, we may simply write 
+%%
+%\begin{align}
+%\bfv_\cA\triangleq\bft_{\cA,\ol{\cB\cC}}~. \label{equ:vector}
+%\end{align}
+%%
+%\end{itemize}
+%%
+%In both cases we keep the reference frame $\cA$ where the point or vector is expressed in. In case of no ambiguity, when this frame is the world frame $\cW$ of our application we allow us to drop this decoration too. For example, the position $\cP$ of the robot in the world frame may be denoted simply by $\bfp$,
+%%
+%\begin{align}
+%\bfp \triangleq \bfp_\cW = \bft_{\cW,\cW \cP}~.  \label{equ:worldPoint}
+%\end{align}
+%
+%
+%\item
+%The general orientation specification, $\bfq$ or $\bfR$, requires 2 decorations: a transformation \emph{from} frame $\cB$ / \emph{to} frame $\cA$, or equivalently, the orientation \emph{of} frame $\cB$ / \emph{\wrt} frame $\cA$,
+%%
+%\begin{align}
+%\bfq_{[to][from]} &\equiv \bfq_{[with~respect~to][of]}
+%~,
+%&
+%\bfR_{[to][from]} &\equiv \bfR_{[with~respect~to][of]}~.
+%\end{align}
+%%
+%This produces forms such as $\bfR_{\cA\cB}$ that lead unambiguously to $\bfx_\cA=\bfR_{\cA\cB}\bfx_\cB$. 
+%Stacked or composed transforms produce  chains such as 
+%%
+%\begin{align}
+%\bfx_\cA &= \bfq_{\cA\cB}\otimes\bfq_{\cB\cC}\otimes\bfx_\cC\otimes\bfq_{\cB\cC}^*\otimes\bfq_{\cA\cB}^*~,
+%& 
+%\bfx_\cA &= \bfR_{\cA\cB}\,\bfR_{\cB\cC}\,\bfx_\cC 
+%~. \label{equ:2frames}
+%\end{align}
+%%
+%which are readable and not prone to error. 
+%Notice how each of the two frame identifiers is always at the side of the entity nearby, creating a \emph{chain}  of identifiers.
+%% (though in the quaternion transform above, this only applies to the quaternions chain on the left of the vector, the ones that are not conjugated). 
+%In the quaternion case, the chain of identifiers can be made more salient by recalling that $\bfq_{\cA\cB}^*=\bfq_{\cB\cA}$ and thus 
+%%
+%\begin{align}
+%\bfx_\cA = \bfq_{\cA\cB}\otimes\bfq_{\cB\cC}\otimes\bfx_\cC\otimes\bfq_{\cC\cB}\otimes\bfq_{\cB\cA}~.
+%\end{align} 
+%%
+%This allows us to easily construct and/or identify frame composition chains with absolutely no ambiguity. 
+%
+%Oftentimes, the world frame $\cW$ and the frame of the main moving body $\cB$ may be omitted (in cases where there is no ambiguity), yielding
+%%
+%\begin{align}
+%\bfq &\triangleq \bfq_{\cW \cB}~,
+%&
+%\bfR &\triangleq \bfR_{\cW \cB}~. \label{equ:rotSimp}
+%\end{align}
+%% 
+%This, and the simplifications for points and vectors \eqsRef{equ:point}{equ:worldPoint} above, lead to 
+%%
+%\begin{align}
+%\bfx &= \bfq\otimes\bfx_\cB\otimes\bfq^* ~, 
+%&
+%\bfx &= \bfR\,\bfx_\cB ~,
+%\end{align}
+%%
+%which are very light and easy to read.
+%They express the transformation of vector $X$ from the body frame $\cB$ to the world frame $\cW$.
+%
+%\item We use only right-hand subscripts for frame decorations. This way, translating formulas into code and vice-versa becomes straightforward. In the code, the first letter before the first underscore is always the physical magnitude. For example, these formula and code are equivalent,
+%%
+%\begin{align}
+%\bfx_\cA &= \bfR_{\cA\cB}\,\bfR_{\cB\cC}\,\bfx_\cC~,
+%& 
+%\texttt{ x\_A = R\_A\_B * R\_B\_C * x\_C}~.
+%\end{align}
+%
+%
+%
+%\end{enumerate}
+%
+
+
+
+
+%=============================================================
+\section{Perturbations, derivatives and integrals}
+
+
+%\section{Definition of the derivatives }
+
+\subsection{The additive and subtractive operators in $SO(3)$}
+
+\begin{figure}[tb]
+\centering
+\includegraphics{figures/manifold}
+\caption{The S3 manifold is a unit sphere in $\bbR^4$, here represented by a unit circle (blue),  where all unit quaternions live. 
+The tangent space to the manifold is the hyperplane $\bbR^3$, here represented by a line (red). 
+\emph{Left}: The $\Exp()$ and $\Log()$ operators map elements of $\bbR^3$ to/from elements of $S3$. 
+\emph{Right}: The $\oplus$ and $\ominus$ operators relate elements of the manifold with elements in the tangent space. (Likewise, these figures illustrate the $SO(3)$ manifold.)}
+\label{fig:manifold}
+\end{figure}
+
+In vector spaces $\bbR^n$, the addition and subtraction operations are performed with the regular sum `$+$' and minus `$-$' operations.
+In $SO(3)$ this is not possible, but equivalent operators can be defined for establishing a proper calculus corpus. 
+
+We thus define the plus and minus operators, $\oplus,\ominus$, between elements $\sR\in SO(3)$, and elements $\bth\in\bbR^3$ of the tangent space at $\sR$, as follows.
+
+\paragraph{The plus operator.}
+The `plus' operator $\oplus:SO(3)\times\bbR^3\to SO(3)$ produces an element $\sS$ of $SO(3)$ which is the result of composing a reference element $\sR$ of $SO(3)$ with a (often small) rotation. This rotation is specified by a vector of $\bth\in\bbR^3$ in the vector space tangent to the $SO(3)$ manifold at the reference element $\sR$, that is,
+%
+\begin{align}
+\sS = \sR\oplus \bth &\te \sR\circ\Exp(\bth) && \sR,\sS\in SO(3),~ \bth\in\bbR^3 
+~.
+\end{align}
+%
+Notice that this operator may be defined for any representation of $SO(3)$. In particular, for the quaternion and rotation matrix we have,
+%
+\begin{align}
+\bfq_\sS &= \,\bfq_\sR\oplus\bth = \bfq_\sR\ot\Exp(\bth) \\
+\bfR_\sS &= \bfR_\sR\oplus \bth = \bfR_\sR\tdot\Exp(\bth) 
+~.
+\end{align}
+
+\paragraph{The minus operator.}
+The `minus' operator $\ominus:SO(3)\times SO(3)\to\bbR^3$ is the inverse of the above. It returns the vectorial angular difference $\bth\in\bbR^3$ between two elements of $SO(3)$. This difference is expressed in the  vector space tangent to the reference element $\sR$, 
+%
+\begin{align}
+\bth=\sS\ominus \sR
+&\te \Log(\sR\inv \circ \sS)     && \sR,\sS\in SO(3),~ \bth\in\bbR^3  
+~,
+\end{align}
+%
+which for the quaternion and rotation matrix reads,
+%
+\begin{align}
+\bth &= \,\,\bfq_\sS\ominus\bfq_\sR\, = \Log(\bfq_\sR^*\ot\bfq_\sS)                      \\
+\bth &= \bfR_\sS\ominus\bfR_\sR = \Log(\bfR_\sR\tr\,\bfR_\sS)
+~.
+\end{align}
+
+\bigskip
+In both cases, notice that even though the vector difference $\bftheta$ is typically supposed to be small, the definitions above hold for any value of $\bftheta$ (up to the first coverage of the $SO(3)$ manifold, that is, for angles $\theta<\pi$).
+
+\subsection{The four possible derivative definitions}
+
+
+
+\subsubsection{Functions from vector space to vector space}
+
+The scalar and vector cases follow the classical definition of the derivative: given a function $f:\bbR^m\to\bbR^n$, we use $\{+,-\}$ to define the derivative as
+%
+\begin{align}
+\dpar{f(\bfx)}{\bfx} &\te \lim_{\delta\bfx\to0}\frac{f(\bfx+\delta\bfx)-f(\bfx)}{\delta\bfx} &&\in \bbR^{n\times m} \label{equ:derivative_vector}
+\end{align}
+%
+Euler integration produces linear expressions of the form
+%
+\begin{align*}
+f(\bfx+\Delta\bfx) &\approx f(\bfx) + \dpar{f(\bfx)}{\bfx}\Delta\bfx
+& \in \bbR^n
+\end{align*}
+
+\subsubsection{Functions from $SO(3)$ to $SO(3)$}
+
+Given a function $f:SO(3) \to SO(3)$ with $\sR\in SO(3)$ and a local, small angular variation $\bth\in\bbR^3$, we use $\{\oplus,\ominus\}$ to define the derivative as
+%
+\begin{align}
+\dpar{f(\sR)}{\bth} 
+&\te \lim_{\delta\bth\to0}\frac{f(\sR\oplus\delta\bth)\ominus f(\sR)}{\delta\bth}  && \in \bbR^{3\times 3}\\
+&= \lim_{\delta\bth\to0}\frac{\Log\big(f\inv(\sR)\,f(\sR\Exp(\delta\bth))\big)}{\delta\bth} \label{equ:derivative_SO3}
+\end{align}
+%
+Euler integration produces expressions of the form,
+%
+\begin{align*}
+f(\sR\oplus\Delta\bth) &\approx f(\sR)\,\oplus\,\dpar{f(\sR)}{\bth}\,\Delta\bth
+ \te f(\sR)\Exp\left(\dpar{f(\sR)}{\bth}\Delta\bth\right)
+ & \in SO(3)
+\end{align*}
+
+
+
+
+\subsubsection{Functions from vector space to $SO(3)$}
+
+For the case of a function $f:\bbR^m\to SO(3)$, we use `+' for the vector perturbations, and `$\ominus$' for the $SO(3)$ difference,
+%
+\begin{align}
+\dpar{f(\bfx)}{\bfx} &\te \lim_{\delta\bfx\to0} \frac{ f(\bfx+\delta\bfx)\ominus f(\bfx)}{\delta\bfx} && \in \bbR^{3\times m} \label{equ:dif_RtoSO3}\\
+&= \lim_{\delta\bfx\to0} \frac{\Log(f\inv(\bfx) f(\bfx+\delta\bfx))}{\delta\bfx}
+\end{align}
+%
+Euler integration produces expressions of the form,
+%
+\begin{align*}
+f(\bfx+\Delta\bfx) &\approx f(\bfx)\,\oplus\,\dpar{f(\bfx)}{\bfx}\,\Delta\bfx
+ \te f(\bfx)\,\Exp\left(\dpar{f(\bfx)}{\bfx}\Delta\bfx\right)
+ & \in SO(3)
+\end{align*}
+
+\subsubsection{Functions from $SO(3)$ to vector space}
+
+For the case of a function $f: SO(3)\to\bbR^n$, we use `$\oplus$' for the $SO(3)$ perturbations, and `$-$' for the vector difference,
+%
+\begin{align}
+\dpar{f(\sR)}{\bth} &\te \lim_{\delta\bth\to0} \frac{f(\sR\oplus\delta\bth) - f(\sR)}{\delta\bth} && \in \bbR^{n\times 3} \label{equ:jacobian_SO3_Rn}\\
+&= \lim_{\delta\bth\to0} \frac{f(\sR\Exp(\delta\bth)) - f(\sR)}{\delta\bth}
+\end{align}
+%
+Euler integration produces expressions of the form,
+%
+\begin{align*}
+f(\sR\oplus\delta\bth) &\approx f(\sR)+\dpar{f(\sR)}{\bth}\,\Delta\bth
+ \te f(\sR)+\Exp\left(\dpar{f(\sR)}{\bth}\Delta\bth\right)
+ & \in SO(3)
+\end{align*}
+
+%=============================================================
+
+\subsection{Useful, and very useful, Jacobians of the rotation}
+
+Let us consider a rotation to a vector $\bfa$, of $\theta$ radians around the unit axis $\bfu$. Let us express the rotation specification in three equivalent forms, namely $\bftheta=\theta\bfu$, $\bfq=\bfq\{\bftheta\}$ and $\bfR=\bfR\{\bftheta\}$. 
+We are interested in the Jacobians of the rotated result \wrt different magnitudes.
+
+
+%-------------------------------------------------------------
+\subsubsection{Jacobian \wrt the vector}
+
+The derivative of the rotation of a vector $\bfa$ \wrt this vector is trivial,
+%
+\begin{align}
+\eqbox{
+\dpar{(\bfq\ot\bfa\ot\bfq*)}{\bfa} = \dpar{(\bfR\,\bfa)}{\bfa} = \bfR
+}
+~.
+\end{align}
+%
+
+
+
+
+%-------------------------------------------------------------
+\subsubsection{Jacobian \wrt the quaternion}
+
+
+On the contrary, the derivative of the rotation \wrt the quaternion $\bfq$ is tricky. 
+For convenience, we use a lighter notation for the quaternion, $\bfq=[w~\bfv] = w+\bfv$.
+We make use of \eqRef{equ:quatProdPure}, \eqRef{equ:quatCommutatorPure}, and the identity $\bfa \times (\bfb \times \bfc) = (\bfc \times \bfb) \times \bfa = (\bfa \tr \bfc)\,\bfb - (\bfa \tr \bfb)\,\bfc$, to develop the quaternion-based rotation \eqRef{equ:sandwichProd} as follows,
+%
+\begin{align} \label{equ:drot_dtheta}
+\begin{split}
+\bfa' &= \bfq\ot\bfa\ot\bfq* \\
+&= (w+\bfv)\ot\bfa\ot(w-\bfv) \\
+&= w^2\bfa + w(\bfv\ot\bfa - \bfa\ot\bfv) - \bfv\ot\bfa\ot\bfv \\
+&= w^2\bfa + 2w(\bfv\tcross\bfa) - \big[(-\bfv\tr\bfa+\bfv\tcross\bfa)\ot\bfv \big]\\
+&= w^2\bfa + 2w(\bfv\tcross\bfa) - \big[(-\bfv\tr\bfa)\,\bfv+(\bfv\tcross\bfa)\ot\bfv \big]\\
+&= w^2\bfa + 2w(\bfv\tcross\bfa) - \big[(-\bfv\tr\bfa)\,\bfv - \cancel{(\bfv\tcross\bfa)\tr\bfv}+(\bfv\tcross\bfa)\tcross\bfv \big]\\
+%&= w^2\bfa + 2w(\bfv\tcross\bfa) - \big[(-\bfv\tr\bfa)\,\bfv+(\bfv\tcross\bfa)\tcross\bfv \big]\\
+%&= w^2\bfa + 2w(\bfv\tcross\bfa) - \big[(-\bfv\tr\bfa)\,\bfv - \bfv\tcross(\bfv\tcross\bfa) \big]\\
+&= w^2\bfa + 2w(\bfv\tcross\bfa) - \big[(-\bfv\tr\bfa)\,\bfv + (\bfv\tr\bfv)\,\bfa - (\bfv\tr\bfa)\,\bfv \big]\\
+%&= w^2\bfa + 2w(\bfv\tcross\bfa) + (\bfv\tr\bfa)\,\bfv + (\bfv\tr\bfa)\,\bfv-(\bfv\tr\bfv)\,\bfa\\
+&= w^2\bfa + 2w(\bfv\tcross\bfa) + 2(\bfv\tr\bfa)\,\bfv - (\bfv\tr\bfv)\,\bfa
+~.
+\end{split}
+\end{align}%
+%
+With this, we can extract the derivatives $\dparil{\bfa'}{w}$ and $\dparil{\bfa'}{\bfv}$,
+%
+\begin{align}
+\dpar{\bfa'}{w} &= 2(w\bfa + \bfv\tcross\bfa) \\
+\begin{split}
+\dpar{\bfa'}{\bfv} &= -2w\hatx{\bfa} + 2(\bfv\tr\bfa\,\bfI+\bfv\,\bfa\tr) - 2\bfa\,\bfv\tr 
+\\
+&= 2(\bfv\tr\bfa\,\bfI+\bfv\,\bfa\tr - \bfa\,\bfv\tr - w\hatx{\bfa} )
+~,
+\end{split}
+\end{align}%
+%
+yielding
+%
+\begin{align} \label{equ:drot_dq}
+\eqbox{
+\dpar{(\bfq\ot\bfa\ot\bfq*)}{\bfq} = 
+%\dpar{(\bfR\,\bfa)}{\bfq} = 
+2\begin{bmatrix}
+~w\,\bfa + \bfv\tcross\bfa ~~ \big| ~  \bfv\tr\bfa\,\bfI_3+\bfv\,\bfa\tr - \bfa\,\bfv\tr -w\hatx{\bfa}
+~\end{bmatrix} \in \bbR^{3\times 4}
+}~.
+\end{align}
+
+
+
+%\subsubsection{Right Jacobian of $SO(3)$}
+%
+%\begin{figure}[tbp]
+%\begin{center}
+%\includegraphics{figures/right_jac}
+%\caption{The right Jacobian $\bfJ_r=\dparil{\delta\bfphi}{\delta\bftheta}$ maps variations $\delta\bftheta$ around the parameter $\bftheta$ into variations $\delta\bfphi$ on the vector space tangent to the manifold at the point $\Exp{\bftheta}$. }
+%\label{fig:right_jac}
+%\end{center}
+%\end{figure}
+%
+%
+%Let us define the `minus' operator $\ominus$ in $SO(3)$ that returns the rotation increment as a vector $\delta\bfphi$ in the tangent space $\so(3)$, that is,
+%%
+%\begin{align}
+%\delta\bfphi = r_2 \ominus r_1 \triangleq \Log(r_1\inv\circ r_2) = \Log(\bfR_1\tr\bfR_2) = \Log(\bfq_1^*\ot\bfq_2) \in \bbR^3
+%\end{align}
+%%
+%where $r_1,r_2$ are two elements of $SO(3)$, and $\circ$ is their composition. This `minus' operator allows us to define derivatives in $SO(3)$ in a way akin to those in Euclidean space, 
+%%
+%\begin{align}
+%\bfJ_r(\bftheta) = \dpar{\delta\bfphi}{\delta\bftheta} 
+%\triangleq 
+%\lim_{\delta\bftheta\to0} \frac{r(\bftheta+\delta\bftheta)\ominus r(\bftheta)}{\delta\bftheta}
+%\end{align}
+%%
+%%
+%This derivative is a matrix, $\bfJ_r(\bftheta)\in\bbR^{3\times3}$, known as the right Jacobian of $SO(3)$.
+%It maps variations around $\bftheta$ in the parameter space into variations in the  space tangent to the manifold at the point $r(\bftheta)$, see \figRef{fig:right_jac}. 
+%The right Jacobian is therefore independent of the representation chosen for $SO(3)$; we express it here in matrix and quaternion forms:
+%%
+%\begin{align}
+%\bfJ_r(\bftheta) 
+%&= \dpar{\Log(\bfR\tr\{\bftheta\}\,\bfR\{\bftheta+\delta\bftheta\})}{\delta\bftheta} \\
+%\bfJ_r(\bftheta) 
+%&= \dpar{\Log(\bfq^*\{\bftheta\}\ot\bfq\{\bftheta+\delta\bftheta\})}{\delta\bftheta}
+%\end{align}
+%%
+%Applying Euler integration to the above we get,
+%%
+%\begin{align}
+%\bfJ_r(\bftheta)\,\delta\bftheta \approx \Log( r\inv(\bftheta) \circ \,r(\bftheta+\delta\bftheta))
+%~,
+%\end{align}
+%%
+%which leads after taking the $\Exp$ on both sides to an expression of the perturbed rotation operator,
+%%
+%\begin{align}
+% r(\bftheta+\delta\bftheta) \approx  r(\bftheta)\circ\Exp(\bfJ_r(\bftheta)\,\delta\bftheta)
+% ~.
+%\end{align}
+%%
+%This result is also independent of the representation of the manifold (\ie, $\bfR$ or $\bfq$). We show the expressions of the perturbed rotation matrix,
+%%
+%\begin{align}
+%\eqbox{\bfR\{\bftheta+\delta\bftheta\} \approx \bfR\{\bftheta\}\Exp(\bfJ_r(\bftheta)\,\delta\bftheta)}
+%\end{align}
+%%
+%and the perturbed quaternion,
+%%
+%\begin{align}
+%\eqbox{\bfq\{\bftheta+\delta\bftheta\} \approx \bfq\{\bftheta\}\ot\Exp(\bfJ_r(\bftheta)\,\delta\bftheta)}
+%\end{align}
+%
+%The right Jacobian of $SO(3)$ admits a closed form \citep[page 40]{CHIRIKJIAN-12},
+%%
+%\begin{align}
+%\bfJ_r(\bftheta) = \bfI - \frac{1-\cos\norm{\bftheta}}{\norm{\bftheta}^2}\hatx{\bftheta} + \frac{\norm{\bftheta}-\sin\norm{\bftheta}}{\norm{\bftheta}^3}\hatx{\bftheta}^2
+%%\in\bbR^{3\times3}
+%~.
+%\end{align}
+%%
+%For small angles $\bftheta$ it can be approximated to
+%%
+%\begin{align}
+%\bfJ_r(\bftheta) \approx \bfI - \frac12\hatx{\bftheta}~.
+%\end{align}
+%
+%May I find the time and inspiration to develop it here some time in the future.
+%
+%
+%Let's try
+%%
+%\begin{align}
+%\bfJ_r(\bftheta) 
+%&= \dpar{\Log(\bfR\tr\{\bftheta\}\,\bfR\{\bftheta+\delta\bftheta\})}{\delta\bftheta} \\
+%&= \lim_{\delta\bftheta\to0} \frac{\Log(\bfR\tr\{\bftheta\}\,\bfR\{\bftheta+\delta\bftheta\})}{\delta\bftheta} \\
+%&= \lim_{\delta\bftheta\to0} \frac{\Log(\bfR\tr\{\bftheta\}\,\bfR\{\bftheta+\delta\bftheta\})}{\delta\bftheta} \\
+%\end{align}
+
+
+
+
+
+\subsubsection{Right Jacobian of $SO(3)$ }
+
+Let us consider (see \figRef{fig:right_jac}) an element $\sR\in SO(3)$ and a rotation vector $\bth\in\bbR^3$ such that $\sR=\Exp(\bth)$. When $\bth$ is altered by an amount $\dth$, the element $\sR$ varies. Expressing the variations of $\sR$ in the tangent space of $SO(3)$ at $\sR$ with a rotation vector $\delta\bfphi\in\bbR^3$, we have that (please see the figure, I am not inventing anything here)
+%
+\begin{align}
+\Exp(\bth)\oplus\delta\bfphi = \Exp(\bth+\dth)
+\end{align}
+%
+which might be written also as,
+%
+\begin{align}
+\Exp(\bth)\circ\Exp(\delta\bfphi) &= \Exp(\bth+\dth)
+~,
+\end{align}
+%
+and even
+%
+\begin{align}
+\delta\bfphi &= \Log\Big(\Exp(\bth)\inv\circ\Exp(\bth+\dth)\Big) = \Exp(\bth+\dth) \ominus \Exp(\bth)
+~.
+\end{align}
+
+In the limit, the variation of $\delta\bfphi$ as a function of $\dth$ defines a Jacobian matrix
+%
+\begin{align}
+\dpar{\delta\bfphi}{\dth} 
+&= \lim_{\dth\to0}\frac{\delta\bfphi}{\dth} 
+= \lim_{\dth\to0}\frac{\Exp(\bth+\dth) \ominus \Exp(\bth)}{\dth} 
+%&= \lim_{\dth\to0}\frac{\Exp(\bth)\inv\Exp(\bth+\dth)}{\dth} 
+~,
+\end{align}
+%
+whose expression is a particular case of \eqRef{equ:dif_RtoSO3}, that is, it is the derivative of the function $f(\bth)=\Exp(\bth)$, from $\bbR^3$ to $SO(3)$.
+%
+\begin{figure}[tbp]
+\begin{center}
+\includegraphics{figures/right_jac}
+\caption{The right Jacobian $\bfJ_r=\dparil{\delta\bfphi}{\delta\bftheta}$ maps variations $\delta\bftheta$ around the parameter $\bftheta$ into variations $\delta\bfphi$ on the vector space tangent to the manifold at the point $\Exp{\bftheta}$. }
+\label{fig:right_jac}
+\end{center}
+\end{figure}
+%
+This Jacobian matrix is known as the right Jacobian of $SO(3)$, and is defined as,
+%We define the right Jacobian of $SO(3)$ as, 
+%
+\begin{align}
+\bfJ_r(\bth) &\te \dpar{\Exp(\bth)}{\bth} 
+~.
+\end{align}
+%
+Its expression is independent of the parametrization used, though it can indeed be expressed particularly for each parametrization. Using \eqRef{equ:dif_RtoSO3} we have,
+%
+\begin{align}
+\bfJ_r(\bth) &= \lim_{\dth\to0}\frac{\Exp(\bth+\dth)\ominus\Exp(\bth)}{\dth} \\
+ &= \lim_{\dth\to0}\frac{\Log(\Exp(\bth)\tr\Exp(\bth+\dth))}{\dth} && \textrm{if using $\bfR$} \\
+ &= \lim_{\dth\to0}\frac{\Log(\Exp(\bth)^*\ot\Exp(\bth+\dth))}{\dth} && \textrm{if using $\bfq$} 
+ ~.
+\end{align}
+%
+
+The right Jacobian and its inverse can be computed in closed form \citep[page 40]{CHIRIKJIAN-12},
+%
+\begin{align}
+\bfJ_r(\bth) &= \bfI - \frac{1-\cos\nth}{\nth^2}\hatx{\bth} + \frac{\nth-\sin\nth}{\nth^3}\hatx{\bth}^2 \\
+\bfJ_r\inv(\bth) &= \bfI + \frac12\hatx{\bth} + \left(\frac1{\nth^2} - \frac{1+\cos\nth}{2\nth\sin\nth}\right)\hatx{\bth}^2
+\end{align}
+
+
+
+The right Jacobian of $SO(3)$ has the following properties, for any $\bth$ and small $\dth$,
+%
+\begin{align}
+\Exp(\bth+\dth) &\approx \Exp(\bth)\Exp(\bfJ_r(\bth)\dth) \label{equ:Jr1} \\
+\Exp(\bth)\Exp(\dth) &\approx \Exp(\bth+\bfJ_r\inv(\bth)\,\dth) \\
+\Log(\Exp(\bth)\Exp(\dth)) &\approx \bth+\bfJ_r\inv(\bth)\,\dth 
+\end{align}
+
+
+%-------------------------------------------------------------
+\subsubsection{Jacobian \wrt the rotation vector}
+
+The rotation of a vector $\bfa'=\bfR\{\bftheta\}\,\bfa$ \wrt the rotation vector $\bth$ is a function from $\bbR^3$ to $\bbR^3$. Its derivative \wrt the rotation vector $\bftheta$ uses \eqRef{equ:derivative_vector} and is developed from the previous result, using \eqRef{equ:Jr1},
+%
+\begin{align*} 
+\dpar{(\bfq\ot\bfa\ot\bfq^*)}{\delta\bftheta} 
+= \dpar{(\bfR\,\bfa)}{\delta\bftheta} 
+&= \lim_{\delta\bftheta\to 0} \frac{\bfR\{\bftheta+\delta\bftheta\}\,\bfa-\bfR\{\bftheta\}\,\bfa}{\delta\bftheta} &&\gets\eqRef{equ:derivative_vector}\\
+&= \lim_{\delta\bftheta\to 0} \frac{(\bfR\{\bftheta\}\Exp(\bfJ_r(\bftheta)\,\delta\bftheta)-\bfR\{\bftheta\})\bfa}{\delta\bftheta} && \gets\eqRef{equ:Jr1} \\
+&= \lim_{\delta\bftheta\to 0} \frac{(\bfR\{\bftheta\}(\bfI+\hatx{\bfJ_r(\bftheta)\,\delta\bftheta})-\bfR\{\bftheta\})\bfa}{\delta\bftheta} \\
+&= \lim_{\delta\bftheta\to 0} \frac{\bfR\{\bftheta\}\hatx{\bfJ_r(\bftheta)\,\delta\bftheta}\bfa}{\delta\bftheta} \\
+&= \lim_{\delta\bftheta\to 0} -\frac{\bfR\{\bftheta\}\hatx{\bfa}\bfJ_r(\bftheta)\,\delta\bftheta}{\delta\bftheta} \\
+&= -\bfR\{\bftheta\}\hatx{\bfa}\bfJ_r (\bftheta)
+~,
+\end{align*}
+%
+where $\bfR\{\bftheta\}\te\Exp(\bftheta)$. Summarizing,
+%
+\begin{align} \label{equ:drot_da}
+\eqbox{\dpar{(\bfq\ot\bfa\ot\bfq^*)}{\delta\bftheta} 
+= \dpar{(\bfR\,\bfa)}{\delta\bftheta} 
+= -\bfR\{\bftheta\}\hatx{\bfa}\bfJ_r(\bftheta) 
+}~.
+\end{align}
+
+
+%-------------------------------------------------------------
+\subsubsection{Jacobians of the rotation composition}
+
+Consider the SO(3) composition $\sP=\sQ\circ\sR$, which can be implemented in either quaternion or matrix form,
+%
+\begin{align}
+\bfp &= \bfq_\theta\ot\bfr_\phi & \bfP &= \bfQ_\theta\,\bfR_\phi
+\end{align}
+%
+where the subindices indicate the name of the vector perturbations in the tangent space. 
+These are functions from $SO(3)$ to $SO(3)$, and therefore we use \eqRef{equ:derivative_SO3} to write the drivatives,
+%
+\begin{align*}
+\dpar{\sQ\circ\sR}{\sQ} 
+= \dpar{\bfq_\theta\ot\bfr_\phi}{\bth} 
+= \dpar{\bfQ_\theta \bfR_\phi}{\bth} 
+&= \lim_{\delta\bftheta\to 0}\frac{((\bfQ_\theta\oplus\dth)\bfR_\phi)\ominus(\bfQ_\theta\bfR_\phi)}{\dth} \\
+&= \lim_{\delta\bftheta\to 0}\frac{\Log[(\bfQ_\theta\bfR_\phi)\tr(\bfQ_\theta\Exp(\dth)\bfR_\phi)]}{\dth} \\
+&= \lim_{\delta\bftheta\to 0}\frac{\Log[\bfR_\phi\tr\Exp(\dth)\bfR_\phi]}{\dth} \\
+&= \lim_{\delta\bftheta\to 0}\frac{\Log[\Exp(\bfR_\phi\tr\dth)]}{\dth} \\
+&= \lim_{\delta\bftheta\to 0}\frac{\bfR_\phi\tr\dth}{\dth}  = \bfR_\phi\tr 
+\end{align*}
+%
+\begin{align*}
+\dpar{\sQ\circ\sR}{\sR} 
+= \dpar{\bfq_\theta\ot\bfr_\phi}{\bfphi} 
+= \dpar{\bfQ_\theta \bfR_\phi}{\bfphi} 
+&= \lim_{\delta\bfphi\to 0}\frac{(\bfQ_\theta(\bfR_\phi\oplus\delta\bfphi))\ominus(\bfQ_\theta\bfR_\phi)}{\delta\bfphi} \\
+&= \lim_{\delta\bfphi\to 0}\frac{\Log[(\bfQ_\theta\bfR_\phi)\tr(\bfQ_\theta\bfR_\phi\Exp(\delta\bfphi))]}{\delta\bfphi} \\
+&= \lim_{\delta\bfphi\to 0}\frac{\Log[\Exp(\delta\bfphi)]}{\delta\bfphi} \\
+&= \lim_{\delta\bfphi\to 0}\frac{\delta\bfphi}{\delta\bfphi}  = \bfI 
+\end{align*}
+
+%=============================================================
+\subsection{Perturbations, uncertainties, noise}
+
+%-------------------------------------------------------------
+\subsubsection{Local perturbations}
+
+A perturbed orientation $\tilde{\bfq}$ may be expressed as the composition of the unperturbed orientation $\bfq$ with a small local perturbation ${\Delta\bfq_\cL}$. 
+Because of the Hamilton convention, this local perturbation appears \emph{at the right hand side} of the composition product ---we give also the matrix equivalent for comparison,
+%
+\begin{align}
+\tilde{\bfq} &= \bfq\ot{\Delta\bfq_\cL}
+~, &
+\tilde\bfR &= \bfR\,\Delta\bfR_\cL
+~.
+\end{align}%
+%
+These local perturbation $\Delta\bfq_\cL$ (or $\Delta\bfR_\cL$) is easily obtained from its equivalent vector form $\Delta\bfphi_\cL=\bfu\Delta\phi_\cL$, defined in the tangent space, using the exponential map. This gives
+%
+\begin{align}
+\tilde\bfq_\cL &= \bfq_\cL\ot\Exp(\Delta\bfphi_\cL)
+~,& 
+\tilde\bfR_\cL &= \bfR_\cL\tdot\Exp(\Delta\bfphi_\cL)
+\end{align}
+%
+leading to an expression of the local perturbation 
+%
+\begin{align}
+\Delta\bfphi_\cL = \Log(\bfq_\cL^*\ot\tilde\bfq_\cL) = \Log(\bfR_\cL\tr\tdot\tilde\bfR_\cL)
+\end{align}
+ 
+
+If the perturbation angle $\Delta\phi_\cL$ is small then the perturbation in quaternion and rotation matrix forms can be approximated by the Taylor expansions of \eqRef{equ:vectoquat} and \eqRef{equ:vectomat} up to the linear terms,
+%
+\begin{align}
+{\Delta\bfq_\cL}& \approx \begin{bmatrix}
+1\\\frac{1}{2}\Delta\bfphi_\cL
+\end{bmatrix}
+~,
+&
+\Delta\bfR_\cL& \approx
+\bfI+\hatx{\Delta\bfphi_\cL}
+~.
+\end{align}%
+%
+Perturbations can therefore be specified in the local vector space $\Delta\bfphi_\cL$ tangent to the $SO(3)$ manifold at the actual orientation. It is convenient, for example, to express the covariances matrix of these perturbations in this vectorial space, that is, with a regular $3\times 3$ covariance matrix.
+
+\subsubsection{Global perturbations}
+
+It is possible and indeed interesting to consider globally-defined perturbations, and likewise for the related derivatives. 
+Global perturbations appear \emph{at the left hand side} of the composition product, namely,
+%
+%\begin{align}
+%\tilde\bfq &= \Delta\bfq_\cG\otimes\bfq~, 
+%&
+%\tilde\bfR &= \Delta\bfR_\cG\,\bfR~.
+%\end{align}
+%
+\begin{align}
+\tilde\bfq_\cG &= \Exp(\Delta\bfphi_\cG)\ot\bfq_\cG
+~,& 
+\tilde\bfR_\cG &= \Exp(\Delta\bfphi_\cG)\tdot\bfR_\cG
+\end{align}
+%
+leading to an expression of the global perturbation 
+%
+\begin{align}
+\Delta\bfphi_\cG = \Log(\tilde\bfq_\cG\ot\bfq_\cG^*) = \Log(\tilde\bfR_\cG\tdot\bfR_\cG\tr)
+\end{align}
+
+
+Again, these perturbations can be specified in the vector space $\Delta\bfphi_\cG$ tangent to the $SO(3)$ manifold at the origin.
+
+\subsection{Time derivatives}
+
+Expressing the local perturbations in a vector space we can easily develop expressions for the time-derivatives. 
+Just consider $\bfq=\bfq(t)$ as the original state, $\tilde{\bfq}=\bfq(t+\Dt)$ as the perturbed state, and apply the definition of the derivative
+%
+\begin{align}
+\dif{\bfq(t)}{t} \triangleq \lim_{\Dt\to0} \frac{\bfq(t+\Dt)-\bfq(t)}{\Dt}~, \label{equ:derivative}
+\end{align}%
+%
+to the above, with
+%
+\begin{align}
+\bfomega_\cL(t) \triangleq \dif{\bfphi_\cL(t)}{t} \triangleq \lim_{\Dt\to0} \frac{\Delta\bfphi_\cL}{\Dt}~,
+\end{align}%
+%
+which, being $\Delta\bfphi_\cL$ a local angular perturbation, corresponds to the angular rates vector in the local frame defined by $\bfq$.
+
+The development of the time-derivative of the quaternion follows (an analogous reasoning would be used for the rotation matrix)
+%
+%
+\begin{align}
+\dot{\bfq} &\triangleq \lim_{\Dt\to0} \frac{\bfq(t+\Dt)-\bfq(t)}{\Dt} \nonumber\\
+&= \lim_{\Dt\to0} \frac{\bfq\ot{\Delta\bfq_\cL}-\bfq}{\Dt} \nonumber\\
+&= \lim_{\Dt\to0} \frac{\bfq\ot\left(\begin{bmatrix}
+1\\\Delta\bfphi_\cL/2
+\end{bmatrix}-\begin{bmatrix}
+1\\\bf0
+\end{bmatrix}\right)}{\Dt} \nonumber\\ 
+&= \lim_{\Dt\to0} \frac{\bfq\ot\begin{bmatrix}
+0\\\Delta\bfphi_\cL/2
+\end{bmatrix}}{\Dt} \nonumber\\ 
+&= \frac12\,\bfq\ot\begin{bmatrix}
+0\\\bfomega_\cL
+\end{bmatrix}
+~. \label{equ:lastquatdev}
+\end{align}%
+%
+Defining
+%
+\begin{align}
+\bfOmega(\bfomega) 
+\triangleq \QR{\bfomega} 
+= \begin{bmatrix}
+0 & -\bfomega\tr \\
+\bfomega & -\hatx{\bfomega}
+\end{bmatrix} = \begin{bmatrix}
+0        & -\omega_x & -\omega_y & -\omega_z \\
+\omega_x & 0         &  \omega_z & -\omega_y \\
+\omega_y & -\omega_z & 0         & \omega_x \\
+\omega_z &  \omega_y & -\omega_x & 0
+\end{bmatrix} ~, \label{equ:Omega}
+\end{align}%
+%
+we get from \eqRef{equ:lastquatdev} and \eqRef{equ:quatMatProd} (we give also its matrix equivalent)
+%
+\begin{empheq}[box=\widefbox]{align}
+\label{equ:qdotLocal}
+\dot{\bfq} &= \frac{1}{2}\bfOmega(\bfomega_\cL)\,\bfq = \frac{1}{2}\bfq\ot\bfomega_\cL
+~,
+&
+\dot\bfR &= \bfR\hatx{\bfomega_\cL}
+~.
+\end{empheq}
+
+These expressions are of course identical to \eqRef{equ:qdot} and \eqRef{equ:Rdot}, developed in the framework of the rotation group $SO(3)$. 
+Here, however, and interestingly, we are able to clearly refer the angular rate $\bfomega_\cL$ to a particular reference frame, which in this case is the local frame defined by the orientation $\bfq$ or $\bfR$.
+This has been possible now because we have given the operators $\bfq$ and $\bfR$ a precise geometrical meaning.
+From this viewpoint, \eqRef{equ:qdotLocal} expresses the evolution of the orientation of a reference frame, when the angular rates are expressed locally in this frame.
+
+%-------------------------------------------------------------
+
+The time-derivatives associated to global perturbations follow from a development analogous to \eqRef{equ:lastquatdev}, which results in
+%
+\begin{empheq}[box=\widefbox]{align}
+\label{equ:qdotGlobal}
+\dot\bfq &= \frac12\,\bfomega_\cG\ot\bfq~,
+&
+\dot\bfR &= \hatx{\bfomega_\cG}\bfR~,
+\end{empheq}
+%
+where
+%
+\begin{align}
+\bfomega_\cG(t)\triangleq\dif{\bfphi_\cG(t)}{t}
+\end{align}
+%
+is the angular rates vector expressed in the global frame.
+Eq.~\eqRef{equ:qdotGlobal} expresses the evolution of the orientation of a reference frame, when the angular rates are expressed in the global reference frame.
+%-------------------------------------------------------------
+\subsubsection{Global-to-local relations}
+
+From the previous paragraph, it is worth noticing the following relation between local and global angular rates,
+%
+\begin{align}
+\frac12\,\bfomega_\cG\ot\bfq = \dot\bfq = \frac12\,\bfq\ot\bfomega_\cL ~.
+\end{align}
+%
+Then, post-multiplying by the conjugate quaternion we have
+%
+\begin{align}
+\bfomega_\cG = \bfq\ot\bfomega_\cL\ot\bfq^* = \bfR\,\bfomega_\cL~.
+\end{align}
+%
+Likewise, considering that $\Delta\bfphi_R \approx \bfomega\Dt$ for small $\Dt$, we have that
+%
+\begin{align}
+\Delta\bfphi_\cG = \bfq\ot\Delta\bfphi_\cL\ot\bfq^* = \bfR\,\Delta\bfphi_\cL~.
+\end{align}
+%
+That is, we can transform angular rates vectors $\bfomega$ and small angular perturbations $\Delta\bfphi$ via frame transformation, using the quaternion or the rotation matrix, as if they were regular vectors. The same can be seen by posing $\bfomega=\bfu\omega$, or $\Delta\bfphi=\bfu\Delta\phi$, and noticing that the rotation axis vector $\bfu$ transforms normally, with
+% 
+\begin{align}
+\bfu_\cG=\bfq\ot\bfu_\cL\ot\bfq^*=\bfR\,\bfu_\cL ~.
+\end{align}
+
+
+
+%-------------------------------------------------------------
+\subsubsection{Time-derivative of the quaternion product}
+
+We use the regular formula for the derivative of the product,
+%
+\begin{align}
+\dot{({\bfq_1\ot\bfq_2})} &= \dot{\bfq_1}\ot{\bfq_2} + \bfq_1\ot\dot{{\bfq_2}}~, 
+&
+\dot{(\bfR_1\bfR_2)} &= \dot\bfR_1\bfR_2+\bfR_1\dot\bfR_2~,
+\end{align}%
+%
+but noticing that, since the products are non commutative, we need to respect the order of the operands strictly.
+This means that $\dot{(\bfq^2)}\neq2\,\bfq\ot\dot\bfq
+$~, as it would be in the scalar case, but rather
+%
+\begin{align}
+\dot{(\bfq^2)} = \dot\bfq\ot\bfq + \bfq\ot\dot\bfq 
+%= \frac12\,\bfq\ot(\bfomega\ot\bfq+\bfq\ot\bfomega)
+~.
+\end{align}
+
+
+%-------------------------------------------------------------
+\subsubsection{Other useful expressions with the derivative}
+
+We can derive an expression for the local rotation rate
+%
+\begin{align}
+\bfomega_\cL &= 2\,\bfq^*\ot\dot{\bfq}~, 
+&
+\hatx{\bfomega_\cL} &= \bfR\tr\,\dot\bfR~.
+\end{align}%
+%
+and the global rotation rate,
+%
+\begin{align}
+\bfomega_\cG &= 2\,\dot{\bfq}\ot\bfq^*~, 
+&
+\hatx{\bfomega_\cG} &= \dot\bfR\,\bfR\tr~.
+\end{align}%
+
+
+
+
+%=============================================================
+\subsection{Time-integration of rotation rates}
+
+Accumulating rotation over time in quaternion form is done by integrating the differential equation appropriate to the rotation rate definition, that is, \eqRef{equ:qdotLocal} for a local rotation rate definition, and \eqRef{equ:qdotGlobal} for a global one. 
+In the cases we are interested in, the angular rates are measured by local sensors, thus providing local measurements $\bfomega(t_n)$ at discrete times $t_n=n\Dt$. 
+We concentrate here on this case only, for which we reproduce the differential equation \eqRef{equ:qdotLocal},
+%
+\begin{align}
+\dot\bfq(t) 
+= \frac12\bfq(t)\ot\bfomega(t) 
+~.
+\label{equ:intLocal}
+\end{align}
+
+We develop zeroth- and first- order integration methods~(Figs.~\ref{fig:quatInt} and \ref{fig:integrate}), all based on the Taylor series of $\bfq(t_n+\Dt)$ around the time $t=t_n$. 
+We note $\bfq\triangleq\bfq(t)$ and $\bfq_n\triangleq\bfq(t_n)$, and the same for $\bfomega$. 
+%
+The Taylor series reads, 
+%
+\begin{align}
+\q_{n+1} = \q_n + \dq_n\Dt + \frac1{2!}\ddq_n\Dt^2 + \frac1{3!}\dddq_n\Dt^3 + \frac1{4!}\ddddq_n\Dt^4 + \cdots~.
+\label{equ:qnTaylor}
+\end{align}
+%
+The successive derivatives of $\bfq_n$ above are easily obtained by repeatedly applying the expression of the quaternion derivative, \eqRef{equ:intLocal}, with $\ddot\bfomega=0$. We obtain
+%
+\begin{subequations}
+%
+\begin{align}
+\dq_n 
+\e \frac12\q_n\w_n \\
+\ddq_n 
+\e \frac1{2^2}\q_n\w_n^2+\frac12\q_n\dw \\
+\dddq_n 
+\e \frac1{2^3}\q_n\w_n^3 + \frac14\q_n\dw\w_n + \frac12\q\w_n\dw \\
+\q_n^{(i\,\ge\,4)} 
+\e \frac1{2^i}\q_n\w_n^i + \cdots~,
+\end{align}%
+\label{equ:qnDerivatives}%
+\end{subequations}%
+%
+where we have omitted the $\ot$ signs for economy of notation, that is, all products and the powers of $\w$ must be interpreted in terms of the quaternion product.
+
+\begin{figure}[tb]
+\centering
+\includegraphics{figures/integral}
+\caption{Angular velocity approximations for the integral: Red: true velocity. Blue: zero-th order approximations (bottom to top: forward, midward and backward). Green: first order approximation.}
+\label{fig:quatInt}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics{figures/integrate}
+\caption{Integration schemes for two consecutive time steps (gray and black arrow sets), where variables sharing the same time stamp have been organized in columns. Left: forward integration. Center: midward and first-order integrations. Right: backward integration.}
+\label{fig:integrate}
+\end{center}
+\end{figure}
+
+
+%-------------------------------------------------------------
+\subsubsection{Zeroth order integration}
+
+
+\paragraph{Forward integration}
+In the case where the angular rate $\bfomega_n$ is held constant over the period $[t_n,t_{n+1}]$, %with $\Dt=t_{n+1}-t_n$~, 
+we have $\dot\bfomega=0$ and \eqRef{equ:qnTaylor} reduces to,
+%
+\begin{align}
+\q_{n+1} = \q_n\ot\left(
+1 
++ \frac12\bfomega_n\Dt 
++ \frac1{2!}\Big(\frac12\bfomega_n\Dt\Big)^2 
++ \frac1{3!}\Big(\frac12\bfomega_n\Dt\Big)^3 
+%+ \frac1{4!}\Big(\frac12\bfomega_n\Dt\Big)^4 
++  \cdots \right)~,
+\end{align}
+%
+where we identify the Taylor series \eqRef{equ:pureQuatExpSeries} of the exponential $e^{\bfomega_n\Dt/2}$. 
+From 
+\eqRef{equ:vectoquat}, 
+this exponential corresponds to the quaternion representing the incremental rotation $\Delta\theta=\bfomega_n\Dt$, 
+%
+\begin{align*}
+e^{\bfomega\Dt/2} = \Exp(\bfomega\Dt) = \bfq\{\bfomega\Dt\} = \begin{bmatrix}
+\cos(\norm{\bfomega}\Dt/2) \\
+\frac{\bfomega}{\norm{\bfomega}}\sin(\norm{\bfomega}\Dt/2)
+\end{bmatrix}~,
+\end{align*}
+%
+therefore,
+%
+\begin{align}
+\eqbox{
+\bfq_{n+1} = \bfq_n\ot\bfq\{\bfomega_n\Dt\} 
+} 
+~.
+\label{equ:intZeroth}
+\end{align}
+
+
+\paragraph{Backward integration}
+We can also consider that the constant velocity over the period $\Dt$ corresponds to $\bfomega_{n+1}$, the velocity measured at the end of the period. This can be developed in a similar manner with a Taylor expansion of $\bfq_n$ around $t_{n+1}$, leading to
+%
+\begin{align}
+{\bfq_{n+1} \approx \bfq_n\ot\bfq\{\bfomega_{n+1}\Dt\}} ~.
+\end{align}
+
+We want to remark here that this is the typical integration method when the arriving motion measurements are to be processed in real time, because the integration horizon corresponds to the last measurement (in this case, $t_{n+1}$, see \figRef{fig:integrate}). To make this more salient, we can re-label the time indices to use $\{n-1,n\}$ instead of $\{n,n+1\}$, and write,
+%
+\begin{align}
+\eqbox{\bfq_n = \bfq_{n-1}\ot\bfq\{\bfomega_n\Dt\}} ~.
+\end{align}
+
+\paragraph{Midward integration}
+
+Similarly, if the velocity is considered constant at the median rate over the period $\Dt$ (which is not necessary the velocity at the midpoint of the period),
+%
+\begin{align}
+\aw = \frac{\w_{n+1}+\w_n}{2}~,
+\label{equ:wbar}
+\end{align}
+%
+we have,
+%
+\begin{align}
+\eqbox{
+\q_{n+1} = \bfq_n\ot\bfq\{\aw\Dt\} 
+}
+~.
+\label{equ:intFirstC}
+\end{align}
+
+%-------------------------------------------------------------
+\subsubsection{First order integration}
+
+
+
+The angular rate $\w(t)$ is now linear with time. Its first derivative is constant, and all higher ones are zero,
+%
+%
+\begin{align}
+\dw \e \frac{\w_{n+1}-\w_n}{\Dt} \label{equ:wdot} \\
+\ddot\w = \dddot\w = \cdots \e 0 \label{equ:wddot}
+~.
+\end{align}%
+%
+We can write the median rate $\aw$ in terms of $\w_n$ and $\dw$,
+%
+\begin{align}
+\aw = \w_n+\frac12\dw\Dt~,
+\end{align}
+%
+and derive the expression of the powers of $\w_n$ appearing in the quaternion derivatives \eqRef{equ:qnDerivatives}, in terms of the more convenient $\aw$ and $\dw$, 
+%
+\begin{subequations}
+%
+\begin{align}
+\w_n \e \aw-\frac12\dw\Dt \label{equ:wone}\\
+\w_n^2 \e \aw^2 - \frac12\aw\dw\Dt - \frac12\dw\aw\Dt + \frac14\dw^2\Dt^2 \\
+\w_n^3 \e \aw^3 - \frac32\aw^2\dw\Dt + \frac34\aw\dw^2\Dt^2 + \frac18\dw^3\Dt^3 \\
+\w_n^4 \e \aw^4 + \cdots \label{equ:wthree}
+~.
+\end{align}%
+\end{subequations}
+%
+Injecting them in the quaternion derivatives, and substituting in the Taylor series \eqRef{equ:qnTaylor}, we have after proper reordering,
+%
+\begin{subequations}
+%
+\begin{align}
+\q_{n+1} 
+\e
+\q\left(1+\frac12\aw\Dt+\frac1{2!}\left(\frac12\aw\Dt\right)^2+\frac1{3!}\left(\frac12\aw\Dt\right)^3+\cdots\right) \label{equ:exp} \\
+&+\: \q\left(-\frac14\dw + \frac14\dw \right)\Dt^2 \label{equ:vanish}\\
+&+\: \q\left(-\frac1{16}\aw\dw - \frac1{16}\dw\aw + \frac1{24}\dw\aw + \frac1{12}\aw\dw\right)\Dt^3 \label{equ:bracket} \\
+&+\: \q\,\bigg(\:\cdots\:\bigg)\Dt^4 \:+\: \cdots 
+\label{equ:neglected}
+~,
+\end{align}%
+\end{subequations}
+%
+where in \eqRef{equ:exp} we recognize the exponential series $e^{\aw\Dt/2}= \q\{\aw\Dt\}$, \eqRef{equ:vanish} vanishes, and \eqRef{equ:neglected} represents terms of high multiplicity that we are going to neglect. 
+%
+This yields after simplification  (we recover now the normal $\ot$ notation),
+%
+\begin{align}
+\q_{n+1} = \q_n\ot\q\{\aw\Dt\} + \frac{\Dt^3}{48}\q_n\ot(\aw\ot\dw - \dw\ot\aw) + \cdots ~.
+\end{align}
+%
+Substituting $\dw$ and $\aw$ by their definitions \eqRef{equ:wdot} and \eqRef{equ:wbar} we get,
+%
+\begin{align}
+\q_{n+1} = \q_n\ot\q\{\aw\Dt\} + \frac{\Dt^2}{48}\q_n\ot(\w_n\ot\w_{n+1} - \w_{n+1}\ot\w_n) + \cdots ~,
+\label{equ:intFirstA}
+\end{align}
+%
+which is a result equivalent to \citep{TRAWNY-05-QUAT}'s, but using the Hamilton convention, and the quaternion product form instead of the matrix product form. 
+Finally, since $\bfa_v\ot\bfb_v-\bfb_v\ot\bfa_v=2\,\bfa_v\tcross\bfb_v$, see \eqRef{equ:quatCommutatorPure}, we have the alternative form,
+%
+%\begin{align}
+%\eqbox{\q_{n+1} \approx \bfq_n\ot\bfq\{\aw\Dt\} + \frac{\Dt^2}{24}\,\bfq_n\ot\begin{bmatrix}
+%0\\\w_n\tcross\w_{n+1}
+%\end{bmatrix}} 
+%~,
+%\label{equ:intFirstB}
+%\end{align}
+%%
+%or even
+%
+\begin{align} \label{equ:intFirstB}
+\eqbox{\q_{n+1} \approx \bfq_n\ot\left(\bfq\{\aw\Dt\} + \frac{\Dt^2}{24}\,\begin{bmatrix}
+0\\\w_n\tcross\w_{n+1}
+\end{bmatrix}\right)
+}~.
+\end{align}
+%
+In this expression, the first term of the sum is the midward zeroth order integrator \eqRef{equ:intFirstC}. 
+The second term is a second-order correction that vanishes when $\w_n$ and $\w_{n+1}$ are collinear,%
+\footnote{Notice also from \eqRef{equ:intFirstA} that this term would \emph{always} vanish if the quaternion product were commutative, which is not.}
+\ie, when the axis of rotation has not changed from $t_n$ to $t_{n+1}$. 
+
+
+\paragraph{Case of fixed rotation axis}
+
+Let us write $\bfomega(t)=\bfu(t)\,\omega(t)$ and call $\bfu$ the axis of rotation.
+In the case of a constant rotation axis $\bfu(t) = \bfu$, we have $\w_n\tcross\w_{n+1}=0$ and therefore,
+%
+\begin{align}\label{equ:first_order_constant_axis}
+\q_{n+1} = \bfq_n\ot\bfq\{\bfu\,\ol\omega\,\Dt\}~.
+\end{align}
+%
+This result is in fact interesting for cases not limited to first-order derivatives of $\bfomega(t)$. 
+In effect, if the axis of rotation is constant, the infinitesimal contributions of rotation into the quaternion commute, \ie, 
+%
+$$\exp (\bfu\,\omega_1\,\delta t_1)\exp (\bfu\,\omega_2\,\delta t_2)=\exp (\bfu\,\omega_2\,\delta t_2)\exp (\bfu\,\omega_1\,\delta t_1)=\exp (\bfu\,(\omega_1\delta t_1 + \omega_2\delta t_2))~,$$ 
+%
+and thus we have the identity,
+%
+\begin{subequations}
+\begin{align}
+\q_{n+1} 
+  &= \bfq_n\ot \exp\left(\frac{\bfu}2\,\int_{t_n}^{t_{n+1}}\omega(t)\,\dt\right) \\
+  &= \bfq_n\ot \exp(\bfu\,\Delta\theta_n/2) \\
+  &= \bfq_n\ot \bfq\{\bfu\,\Delta\theta_n\}~.
+\end{align}
+\end{subequations}
+%
+with $\Delta\theta_n = \int_{t_n}^{t_{n+1}} \omega(t)dt \in \bbR$ the total angle rotated  during the interval $[t_n,t_{n+1}]$.
+
+
+\paragraph{Case of varying rotation axis}
+
+Clearly, the second term of the sum in \eqRef{equ:intFirstB} captures through $\w_n\tcross\w_{n+1}\neq0$ the effect that a varying rotation axis has on the integrated orientation.
+For its practical usage, we notice that given usual IMU sampling times $\Dt\le0.01s$, and the usual near-collinearity of $\w_n$ and $\w_{n+1}$ due to inertia, this second-order term takes values of the order of $10^{-6}\nw^2$, or easily smaller. 
+Terms with higher multiplicities of $\w\Dt$ are even smaller and have been neglected. 
+
+
+Please note also that, while all zeroth-order integrators result in unit quaternions by construction (because they are computed as the product of two unit quaternions), this is not the case for the first-order integrator due to the sum in \eqRef{equ:intFirstB}. Hence, when using the first-order integrator, and even if the summed term is small as stated, users should take care to check the evolution of the quaternion norm over time, and eventually re-normalize the quaternion if needed, using quaternion updates of the form $\bfq\gets\bfq/\norm{\bfq}$. Only if the constant axis assumption holds, then \eqRef{equ:first_order_constant_axis} holds too and this normalization is no longer necessary. 
+
+
