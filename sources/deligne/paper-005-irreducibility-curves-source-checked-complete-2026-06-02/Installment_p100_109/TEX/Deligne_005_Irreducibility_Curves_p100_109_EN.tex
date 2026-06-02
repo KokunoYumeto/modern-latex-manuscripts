@@ -1,0 +1,538 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\geometry{margin=0.82in}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.15em}
+\emergencystretch=2em
+\setlist{leftmargin=2.0em,itemsep=0.1em,topsep=0.2em}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\pa}{p_a}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cX}{\mathfrak X}
+\newcommand{\cExt}{\mathcal{E}xt}
+\newcommand{\A}{\mathbf A}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hfill Q.E.D.}
+\begin{document}
+
+We now explain how many concepts from the theory of schemes may be applied to algebraic stacks.
+
+Let $\mathcal P$ be a property of morphisms of schemes, stable by etale change of base, and of a local nature (for the etale topology) on the target.
+
+For instance: being an open immersion with dense image, being dominant, birational...
+
+A representable morphism of algebraic stacks $f:T_1\to T_2$ is said to have property $\mathcal P$ if for one (and hence for every) surjective etale morphism $x:X\to T_2$, the morphism of schemes deduced by base change
+\[
+f':X\times_{T_2}T_1\longrightarrow X
+\]
+has that property.
+
+Let $\mathcal P$ be a property of morphisms of schemes, which, at source and target, is of a local nature for the etale topology. This means that, for any family of commutative squares
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center), node distance=1.6cm]
+\node (Xi) at (0,1.4) {$X_i$};
+\node (X) at (2.4,1.4) {$X$};
+\node (Yi) at (0,0) {$Y_i$};
+\node (Y) at (2.4,0) {$Y$};
+\draw[->] (Xi) -- node[above] {$g_i$} (X);
+\draw[->] (Xi) -- node[left] {$f_i$} (Yi);
+\draw[->] (X) -- node[right] {$f$} (Y);
+\draw[->] (Yi) -- node[below] {$h_i$} (Y);
+\end{tikzpicture}
+\]
+where the $g_i$ (resp. $h_i$) are etale and cover $X$ (resp. $Y$):
+\[
+\mathcal P(f)\Longleftrightarrow \forall i\,\mathcal P(f_i).
+\]
+For instance: $f$ flat, smooth, etale, unramified, normal, locally of finite type, locally of finite presentation.
+
+If $f:T_1\to T_2$ is a morphism of algebraic stacks, we say $f$ has property $\mathcal P$ if for one, then necessarily for every, commutative diagram
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (X) at (0,1.4) {$X$};
+\node (T1) at (2.4,1.4) {$T_1$};
+\node (Y) at (0,0) {$Y$};
+\node (T2) at (2.4,0) {$T_2$};
+\draw[->] (X) -- node[above] {$x$} (T1);
+\draw[->] (X) -- node[left] {$f'$} (Y);
+\draw[->] (T1) -- node[right] {$f$} (T2);
+\draw[->] (Y) -- node[below] {$y$} (T2);
+\end{tikzpicture}
+\]
+where $X$ and $Y$ are schemes and $x,y$ are etale and surjective, $f'$ has property $\mathcal P$.
+
+Similarly, if $\mathcal P$ is a property of schemes, of a local nature for the etale topology, an algebraic stack $T$ will be said to have property $\mathcal P$ if for one (and hence for every) surjective etale morphism $x:X\to T$, $X$ has property $\mathcal P$. This applies to, for instance, the properties of being regular, normal, locally noetherian, of characteristic $p$, reduced, Cohen--Macaulay...
+
+An algebraic stack $T$ will be called \emph{quasi-compact} if there exists a surjective etale morphism $x:X\to T$ with $X$ quasi-compact. A morphism $f:T_1\to T_2$ of algebraic stacks will be called \emph{quasi-compact} if for any quasi-compact scheme $X$ over $T_2$, the fibre product $T_1\times_{T_2}X$ is quasi-compact. It is enough to test the condition for a surjective family $f_i:X_i\to T_2$. We define a morphism $f:T_1\to T_2$ to be of \emph{finite type}, if it is quasi-compact, and locally of finite type; of \emph{finite presentation}, if it is quasi-compact, quasi-separated, and locally of finite presentation. An algebraic stack is \emph{noetherian}, if it is quasi-compact, quasi-separated, and locally noetherian.
+
+The key point in what follows will be the definition of a ``proper morphism'' and the analogue of Chow's lemma.
+
+A morphism $f:T_1\to T_2$ is said to have a property $\mathcal P$, locally on $T_2$, if there exists a surjective etale morphism $x:X\to T_2$ such that the morphism $f'$ deduced from $f$ by the change of base by $x$ has property $\mathcal P$.
+
+\medskip
+\noindent\emph{Definition (4.11).} --- \emph{A morphism $f:T_1\to T_2$ is proper if it is separated, of finite type and if, locally over $T_2$, there exists a commutative diagram}
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (T3) at (0,1.4) {$T_3$};
+\node (T1) at (2.2,1.4) {$T_1$};
+\node (T2) at (1.1,0) {$T_2$};
+\draw[->] (T3) -- node[above] {$g$} (T1);
+\draw[->] (T1) -- node[right] {$f$} (T2);
+\draw[->] (T3) -- node[left] {$h$} (T2);
+\end{tikzpicture}
+\]
+\emph{with $g$ surjective and $h$ representable and proper.}
+
+The following form of Chow's lemma will be sufficient for our purposes.
+
+\medskip
+\noindent\emph{Theorem (4.12).} --- \emph{Let $S$ be a noetherian scheme and $f$ be a morphism from an etale site $T$ to $S$. We assume $f$ to be separated and of finite type. Then, there exists a commutative diagram}
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (T) at (0,1.2) {$T$};
+\node (Tp) at (2.0,1.2) {$T'$};
+\node (Tpp) at (4.0,1.2) {$T''$};
+\node (S) at (2.0,0) {$S$};
+\draw[->] (Tp) -- node[above] {$g$} (T);
+\draw[->] (Tp) -- node[above] {$j$} (Tpp);
+\draw[->] (T) -- (S);
+\draw[->] (Tp) -- node[right] {$f'$} (S);
+\draw[->] (Tpp) -- node[right] {$f''$} (S);
+\end{tikzpicture}
+\]
+\emph{in which $T'$ and $T''$ are schemes and such that}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$g$ is proper, surjective and generically finite;}
+\item \emph{$j$ is an open immersion;}
+\item \emph{$f''$ is projective.}
+\end{enumerate}
+
+Using (4.12), it is easy to extend the cohomological theory of coherent sheaves to the present situation. In fact if $f:T_1\to T_2$ is a proper morphism of noetherian algebraic stacks and if $\mathscr F$ is a coherent sheaf on $T_1$, then the $R^i f_*(\mathscr F)$ are coherent sheaves on $T_2$.
+
+However, the $R^if_*(\mathscr F)$ don't need to be zero for $i$ large enough. Let $S$ be a scheme and $G$ a finite group. We denote by $p$ the projection $p:[S/G]\to S$. Quasi-coherent (resp. coherent) sheaves of modules on $[S/G]$ may (and will) be identified with quasi-coherent (resp. coherent) sheaves of modules on $S$, on which $G$ acts. One has
+\[
+R^i p_*(\mathscr F)\simeq H^i(G,\mathscr F).
+\]
+In general, the (quasi-coherent sheaf) cohomology of algebraic stacks appears as a mixture of finite group cohomology and of scheme cohomology.
+
+The \emph{disjoint sum} $T$ of a family $(T_i)_{i\in I}$ of stacks is the stack a section of which over a scheme $X$ consists of
+\begin{enumerate}[label=(\roman*)]
+\item a decomposition $X=\coprod_i X_i$ of $X$;
+\item a section of $T_i$ over $X_i$ for each $i$.
+\end{enumerate}
+
+The \emph{void stack} $\varnothing$ is the one represented by the void scheme.
+
+A stack is \emph{connected} if it is non-void and is not the disjoint sum of two non-void stacks.
+
+\medskip
+\noindent\emph{Proposition (4.13).} --- \emph{A locally noetherian algebraic stack is in one and only one way the disjoint sum of a family of connected algebraic stacks (called its connected components).}
+
+We denote by $\pi_0(T)$ the set of connected components of a locally noetherian algebraic stack $T$. If $x:X\to T$ is surjective and etale, $\pi_0(T)$ is the cokernel of the two maps
+\[
+\pi_0(X\times_T X)\rightrightarrows \pi_0(X)\longrightarrow \pi_0(T).
+\]
+
+\medskip
+\noindent\emph{Proposition (4.14).} --- \emph{Let $T$ be an algebraic stack of finite type over a field $k$. Then, $T$ is connected if and only if there exists a connected scheme $X$, of finite type over $k$, and a surjective morphism from $X$ to $T$.}
+
+An open subset $U$ of an algebraic stack $T$ is a full subcategory $U\subset T$ which is an algebraic stack, which contains together with any $t\in\operatorname{Ob}(T)$ all isomorphic $t'$ and such that the inclusion $j:U\to T$ is representable by open immersions. The open subsets of $T$ correspond bijectively to the open subsets of its etale site.
+
+For each open subset $U$ of $T$, there exists one and only one full subcategory $T-U$ of $T$, which is an algebraic stack, which contains together with any $t\in\operatorname{Ob}(T)$ all isomorphic $t'$ and such that
+\begin{enumerate}[label=(\roman*)]
+\item $T-U$ is reduced;
+\item the inclusion map $i:T-U\to T$ is representable by closed immersions;
+\item for any etale surjective morphism $x:X\to T$, the inverse image of $T-U$ on $X$ is the complement of the inverse image of $U$.
+\end{enumerate}
+
+An algebraic stack $F$ in $T$ satisfying (i) and (ii) is a \emph{closed subset} of $T$, and the functor $U\mapsto T-U$ is an isomorphism of the set of open and the set of closed subsets of $T$. If $F$ satisfies only (ii), $F_{\mathrm{red}}$ satisfies (i) and (ii) so that $F$ defines a closed subset of $T$.
+
+An algebraic stack $T$ is \emph{irreducible} if it is not the union of two closed subsets, non-void and distinct from $T$.
+
+\medskip
+\noindent\emph{Proposition (4.15).} --- \emph{A noetherian algebraic stack $T$ is in one and only one way the union of irreducible closed subsets, none of which contains any other. They are called the irreducible components of $T$. If $U$ is an open dense subset of $T$, the irreducible components of $U$ are the non-void intersections of $U$ with the irreducible components of $T$.}
+
+Each irreducible component of $T$ is contained in a connected component of $T$. Conversely:
+
+\medskip
+\noindent\emph{Proposition (4.16).} --- \emph{The connected components of a normal noetherian algebraic stack are irreducible.}
+
+\medskip
+\noindent\emph{Theorem (4.17).} --- \emph{Let $f$ be a morphism of finite type from an algebraic stack $T$ to a noetherian scheme $S$. For $s\in S$, let $n(s)$ be the number of connected components of the geometric fibre of $T$ at $s$. Then}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$n(s)$ is a constructible function of $s$;}
+\item \emph{if $f$ is proper and flat, then $n(s)$ is lower-semi-continuous;}
+\item \emph{if $f$ is proper flat, and has geometrically normal fibres, then $n(s)$ is constant.}
+\end{enumerate}
+
+Let $f:T\to S$ be a morphism of finite type from an algebraic stack $T$ to a noetherian scheme $S$. Assume that the diagonal map $T\to T\times_S T$ is separated and quasi-compact.
+
+\medskip
+\noindent\emph{Theorem (4.18) (Valuative criterion for separation).} --- \emph{The morphism $f$ is separated if and only if, for any complete discrete valuation ring with algebraically closed residue field and any commutative diagram}
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (T) at (1.5,1.5) {$T$};
+\node (V) at (0,0) {$\Spec(V)$};
+\node (S) at (3,0) {$S$};
+\draw[->] (V) -- node[above left] {$g_1$} (T);
+\draw[->] (V) -- node[below left] {$g_2$} (T);
+\draw[->] (V) -- (S);
+\draw[->] (T) -- node[right] {$f$} (S);
+\end{tikzpicture}
+\]
+\emph{any isomorphism between the restrictions of $g_1$ and $g_2$ to the generic point of $\Spec(V)$ can be extended to an isomorphism between $g_1$ and $g_2$.}
+
+This criterion is nothing other but the valuative criterion of properness (EGA, II, 7.3.8) applied to the (representable) diagonal morphism.
+
+\medskip
+\noindent\emph{Theorem (4.19) (Valuative criterion for properness).} --- \emph{If $f$ is separated, then $f$ is proper if and only if, for any discrete valuation ring $V$ with field of fractions $K$ and any commutative diagram}
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (K) at (0,0) {$\Spec(K)$};
+\node (V) at (2.4,0) {$\Spec(V)$};
+\node (T) at (3.9,1.2) {$T$};
+\node (S) at (4.8,0) {$S$};
+\draw[->] (K) -- (V);
+\draw[->] (V) -- (S);
+\draw[->] (T) -- node[right] {$f$} (S);
+\draw[->] (K) -- node[above] {$g$} (T);
+\end{tikzpicture}
+\]
+\emph{there exists a finite extension $K'$ of $K$ such that $g$ extends to $\Spec(V')$, where $V'$ is the integral closure of $V$ in $K'$}
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (Kp) at (0,1.5) {$\Spec(K')$};
+\node (Vp) at (2.5,1.5) {$\Spec(V')$};
+\node (T) at (3.7,2.5) {$T$};
+\node (K) at (0,0) {$\Spec(K)$};
+\node (V) at (2.5,0) {$\Spec(V)$};
+\node (S) at (5.1,0) {$S$};
+\draw[->] (Kp) -- (Vp);
+\draw[->] (K) -- (V);
+\draw[->] (Kp) -- (K);
+\draw[->] (Vp) -- (V);
+\draw[->] (V) -- (S);
+\draw[->] (T) -- node[right] {$f$} (S);
+\draw[->] (K) -- (T);
+\draw[->,dashed] (Vp) -- (T);
+\end{tikzpicture}
+\]
+
+To prove a given $f$ is proper, it suffices to verify the above criterion under the additional hypothesis that $V$ is complete and has an algebraically closed residue field. Further, given a dense open subset $U$ of $T$, it is enough to test only $g$'s which factor through $U$.
+
+\medskip
+\noindent\emph{Proposition (4.20).} --- \emph{Let $\mathscr S$ be an algebraic stack. The functor which, to any algebraic stack over $\mathscr S$, $f:\mathscr T\to\mathscr S$, associates the $\cO_{\mathscr S}$-sheaf of algebras $f_*\cO_{\mathscr T}$ induces an equivalence of categories between:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{the category of algebraic stacks representable and affine over $\mathscr S$;}
+\item \emph{the dual of the category of quasi-coherent $\cO_{\mathscr S}$-algebras.}
+\end{enumerate}
+
+Let $\mathscr A$ be a quasi-coherent sheaf of $\cO_{\mathscr S}$-algebras on an algebraic stack $\mathscr S$. For each etale morphism $x:U\to\mathscr S$, with $U$ affine, let $\mathscr A'(U)$ be the integral closure of $\Gamma(U,\cO_{\mathscr S})$ in $\mathscr A(U)$. By (EGA, II, 6.3.4), the $\mathscr A'(U)$ for variable $U$ are the sections over $U$ of a quasi-coherent sheaf $\mathscr A'$ on $\mathscr S$, which will be called the integral closure of $\cO_{\mathscr S}$ in $\mathscr A$.
+
+Let $f:\mathscr T\to\mathscr S$ be representable and affine. The algebraic stack which is associated by (4.20) to the integral closure of $\cO_{\mathscr S}$ in $f_*\cO_{\mathscr T}$ will be called the normalisation of $\mathscr S$ with respect to $\mathscr T$. Its formation is compatible with any etale change of basis.
+
+\medskip
+\noindent\emph{Theorem (4.21).} --- \emph{Let $\mathscr S$ be a quasi-separated stack over a noetherian scheme $S$. Assume that}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{the diagonal map $\mathscr S\to\mathscr S\times_S\mathscr S$ is representable and unramified;}
+\item \emph{there exists a scheme $X$ of finite type over $S$ and a smooth and surjective $S$-morphism from $X$ to $\mathscr S$.}
+\end{enumerate}
+\emph{Then, $\mathscr S$ is an algebraic stack of finite type over $S$.}
+
+M. Artin has developed powerful methods to relate pro-representability of a stack to the existence of etale surjective maps $x:X\to\mathscr S$.
+
+\medskip
+\noindent{\bfseries \S~5. Second proof of the irreducibility theorem.}
+
+Let $\mathcal M_g$ ($g\geq 2$) be the stack whose category of sections over a scheme $S$ is the category of stable curves of genus $g$ over $S$, the morphisms being the isomorphisms of schemes over $S$. By (1.11), the diagonal morphism
+\[
+\Delta:\mathcal M_g\longrightarrow \mathcal M_g\times\mathcal M_g
+\]
+is representable, finite and unramified.
+
+We saw in \S~1 that the stack classifying the tricanonically embedded stable curves of genus $g$ is represented by a scheme $H_g$, smooth and of finite type over $\Spec(\mathbb Z)$. The ``forgetful'' morphism
+\[
+H_g\longrightarrow \mathcal M_g
+\]
+is representable, smooth and surjective. Indeed, if $p:C\to S$ is a stable curve over $S$, defining a morphism
+\[
+\gamma:S\longrightarrow \mathcal M_g,
+\]
+then the fibre product $H_g\times_{\mathcal M_g}S$ is the scheme, smooth over $S$, of isomorphisms between the standard projective space of dimension $5g-6$ over $S$ and $\PP(p_*(\omega_{C/S}^{\otimes 3}))$. We deduce from this and (4.21) that:
+
+\medskip
+\noindent\emph{Proposition (5.1).} --- \emph{$\mathcal M_g$ is a separated algebraic stack of finite type over $\Spec(\mathbb Z)$.}
+
+Let us denote by $\mathcal M_g^0$ the open subset of $\mathcal M_g$ which ``consists of'' smooth curves, and by $\mathcal Z_g$, the ``universal curve'' over $\mathcal M_g$, the algebraic stack classifying pointed stable curves.
+
+\medskip
+\noindent\emph{Theorem (5.2).} --- \emph{The algebraic stacks $\mathcal M_g$ and $\mathcal Z_g$ are proper and smooth over $\Spec(\mathbb Z)$ and the complement of $\mathcal M_g^0$ in $\mathcal M_g$ is a divisor with normal crossings relative to $\Spec(\mathbb Z)$.}
+
+\noindent\emph{Proof.} --- Let $x:X\to\mathcal M_g$ be etale and consider the following commutative diagram of algebraic stacks of finite type over $\Spec(\mathbb Z)$:
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center), x=1cm, y=1cm, every node/.style={font=\small}]
+\node (A) at (0,3.6) {$X\times_{\mathcal M_g}\mathcal Z_g$};
+\node (B) at (6.2,3.6) {$\mathcal Z_g$};
+\node (C) at (1.0,2.15) {$X\times_{\mathcal M_g}H_g$};
+\node (D) at (6.2,2.15) {$H_g$};
+\node (E) at (0,0.75) {$X\times_{\mathcal M_g}\mathcal Z_g$};
+\node (F) at (6.2,0.75) {$\mathcal Z_g$};
+\node (G) at (1.0,-0.75) {$X$};
+\node (H) at (6.2,-0.75) {$\mathcal M_g$};
+\draw[->] (A) -- (B);
+\draw[->] (C) -- node[above] {$x'$} (D);
+\draw[->] (E) -- (F);
+\draw[->] (G) -- node[above] {$x$} (H);
+\draw[->] (A) -- (E);
+\draw[->] (B) -- (D);
+\draw[->] (D) to[bend left=12] node[pos=0.25,right] {$q$} (H);
+\draw[->] (F) -- node[right] {$p$} (H);
+\draw[->] (A) -- (C);
+\draw[->] (C) -- (G);
+\draw[->] (E) -- (G);
+\end{tikzpicture}
+\]
+In this diagram, the four horizontal arrows are etale and the four vertical arrows are smooth and surjective. As $H_g$ and $Z_g$ (p. 78) are smooth over $\Spec(\mathbb Z)$, so are $X$ and $X\times_{\mathcal M_g}\mathcal Z_g$. In addition,
+\[
+q'^{-1}x^{-1}(\mathcal M_g^0)=x'^{-1}(H_g^0)
+\]
+is the complement of a divisor with normal crossings relative to $\Spec(\mathbb Z)$, so that the inclusion of $x^{-1}(\mathcal M_g^0)$ in $X$ has the same property. This being true for any $x$, $\mathcal M_g$ and $\mathcal Z_g$ are smooth over $\Spec(\mathbb Z)$ and $\mathcal M_g^0$ is the complement of a divisor with normal crossings relative to $\Spec(\mathbb Z)$. In particular $\mathcal M_g^0$ is dense in $\mathcal M_g$.
+
+We may now use the valuative criterion for properness in its modified form (4.19) to deduce the properness of $\mathcal M_g$ from the stable reduction theorem. The properness of $\mathcal Z_g$ then results from that of $p$.
+
+\medskip
+\noindent(5.3) Let $p:X\to S$ be a stable smooth curve of genus $g\geq2$ over $S$. If $k\in\mathbb N$ is invertible in $\cO_S$, the sheaf $R^1p_*(\mathbb Z/k\mathbb Z)$ on $S_{et}$ is locally free over $\mathbb Z/k\mathbb Z$, of rank $2g$, and the cup-product is a non degenerate alternating form
+\[
+R^1p_*(\mathbb Z/k\mathbb Z)\otimes R^1p_*(\mathbb Z/k\mathbb Z)
+\longrightarrow R^2p_*(\mathbb Z/k\mathbb Z)\simeq\mu_k^{\otimes -1}.
+\]
+Locally on $S_{et}$, $\mu_k$ is isomorphic to $\mathbb Z/k\mathbb Z$, and thus, locally, $R^1p_*(\mathbb Z/k\mathbb Z)$ is provided with a non degenerate symplectic form with values in $\mathbb Z/k\mathbb Z$, which is determined up to a unit in $\mathbb Z/k\mathbb Z$, or, as we shall say, $R^1p_*(\mathbb Z/k\mathbb Z)$ is provided with an homogeneous symplectic structure. The constant sheaf $(\mathbb Z/k\mathbb Z)^{2g}$ will be provided with the homogeneous symplectic structure induced by the standard symplectic structure of $(\mathbb Z/k\mathbb Z)^{2g}$.
+
+\medskip
+\noindent\emph{Definition (5.4).} --- \emph{A Jacobi structure of level $k$ on $X$ is an isomorphism (respecting their homogeneous symplectic structures) between $R^1p_*(\mathbb Z/k\mathbb Z)$ and $(\mathbb Z/k\mathbb Z)^{2g}$.}
+
+\medskip
+\noindent(5.5) Given a section $s$ of $p$, and a set of prime numbers $\mathbf P$ including all residue characteristics of $S$, the specialisation theorem for the fundamental group enables one to construct a pro-object $\pi_1(X/S,s)^{(\mathbf P)}$ of the category $(\mathrm{l.c.}\ \mathrm{gr}^{(\mathbf P)})$ of locally constant sheaves of finite groups of order prime to $\mathbf P$, with the properties
+\begin{enumerate}[label=(\roman*)]
+\item $\Hom_S(\pi_1(X/S,s)^{(\mathbf P)},G)=R^1p_*(X\bmod s,p^*G)=R^1p_*(\operatorname{Ker}(p^*G\to_s G))$ functorially in $G\in(\mathrm{l.c.}\ \mathrm{gr}^{(\mathbf P)})$;
+\item the formation of $\pi_1(X/S,s)^{(\mathbf P)}$ is compatible with any change of base.
+\end{enumerate}
+
+If $G$ and $H$ are two sheaves of groups on $S_{et}$, we define the sheaf of exterior morphisms from $H$ to $G$, $\Hom^{\mathrm{ext}}(H,G)$, as the quotient of $\Hom(H,G)$ by the action of $H$ induced by its action on itself by inner automorphism.
+
+The sheaf
+\[
+\Hom_S^{\mathrm{ext}}(\pi_1(X/S,s)^{(\mathbf P)},G)\simeq R^1p_*(p^*G)
+\qquad ( \text{for }G\in(\mathrm{l.c.}\ \mathrm{gr}^{(\mathbf P)}) )
+\]
+is ``independent'' of the choice of $s$.
+
+We shall denote it as
+\[
+\Hom_S^{\mathrm{ext}}(\pi_1(X/S)^{(\mathbf P)},G).
+\]
+
+As $p:X\to S$ admits sections locally for the etale topology, this sheaf makes sense without assuming $p$ to have a global section. It is independent of the choice of $\mathbf P$, so long as $\mathbf P$ is prime to the order of $G$ and includes all residue characteristics of $S$.
+
+\medskip
+\noindent\emph{Definition (5.6).} --- \emph{Let $G$ be a finite group of order $n$ prime to $\mathbf P$. A Teichmüller structure of level $G$ on $X$ is a surjective exterior homomorphism from $\pi_1(X/S)$ to $G$.}
+
+The finite generation of $\pi_1(X/S)$ (SGA, 60/61, exp. 10) implies:
+
+\medskip
+\noindent\emph{Lemma (5.7).} --- \emph{The sheaf on $(\mathrm{Sch}/S)$ of the Teichmüller structures of level $G$ on $X$ is represented by an etale covering of $S$.}
+
+We denote by ${}_G\mathcal M_g^0$ the stack classifying the stable smooth curves of genus $g$ and characteristic prime to $n$, with a Teichmüller structure of level $G$.
+
+For any algebraic stack $\mathscr M$, we denote by $\mathscr M[1/n]$ its open subset $\mathscr M\times\Spec(\mathbb Z[1/n])$.
+
+Lemma (5.7) may now be rephrased:
+
+\medskip
+\noindent\emph{Proposition (5.8).} --- \emph{The ``forgetful'' morphism}
+\[
+{}_G\mathcal M_g^0\longrightarrow \mathcal M_g^0[1/n]
+\]
+\emph{is representable, finite and etale.}
+
+The stack ${}_G\mathcal M_g^0$ is thus an algebraic stack. Let ${}_G\mathcal M_g$ be the normalisation of $\mathcal M_g[1/n]$ with respect to ${}_G\mathcal M_g^0$. The stack ${}_G\mathcal M_g$, being representable and finite over $\mathcal M_g[1/n]$, is proper over $\Spec(\mathbb Z[1/n])$.
+
+\medskip
+\noindent\emph{Theorem (5.9).} --- \emph{The geometric fibres of the projection of ${}_G\mathcal M_g$ onto $\Spec(\mathbb Z[1/n])$ are normal, and, fibre by fibre, ${}_G\mathcal M_g^0$ is dense in ${}_G\mathcal M_g$.}
+
+\noindent\emph{Proof.} --- We will use Abhyankar--Artin's lemma, in its ``absolute'' form:
+
+\medskip
+\noindent\emph{Lemma (5.10).} --- \emph{Let $D$ be a divisor with normal crossings on an excellent regular scheme $X$, $Y$ an etale covering of $X-D$ and $\overline Y$ the normalisation of $X$ with respect to $Y$. Assume that the generic points of the irreducible components of $D$ are all of characteristic $0$. Then every geometric point of $X$ has an etale neighbourhood $x:X'\to X$ such that, on $X'$:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$D$ becomes a union of regular divisors $(D_i)_{i\in I}$, $D_i$ of equation $t_i=0$.}
+\item \emph{There exists an integer $k$ prime to residue characteristics of $X'$ such that $\overline Y$ becomes isomorphic to a disjoint union of quotients (by subgroups of $\mu_k^I$) of the covering of $X'$ obtained by extracting the $k^{\mathrm{th}}$-roots of the $t_i$'s.}
+\end{enumerate}
+
+If $x:X\to\mathcal M_g[1/n]$ is an etale morphism, then $X^0=x^{-1}(\mathcal M_g^0)$ is the complement in $X$ of a divisor with normal crossing relative to $\Spec(\mathbb Z)$, $X_1^0=X\times_{\mathcal M_g}({}_G\mathcal M_g^0)$ is an etale covering of $X^0$ and $X_1=X\times_{\mathcal M_g}({}_G\mathcal M_g)$ is the normalisation of $X$ with respect to this covering of $X^0$.
+
+By the explicit local description (5.10), for any prime number $l$ prime to $n$, $X_1\times\Spec(\overline{\mathbb F}_l)$ is the normalisation of $X\times\Spec(\overline{\mathbb F}_l)$ with respect to $X_1^0\times\Spec(\overline{\mathbb F}_l)$. As this is true for any modular family, we get (5.9).
+
+\medskip
+\noindent\emph{Corollary (5.11).} --- \emph{The geometric fibres of the projection}
+\[
+{}_G\mathcal M_g\longrightarrow \Spec(\mathbb Z[1/n])
+\]
+\emph{all have the same number of connected components.}
+
+\noindent\emph{Proof.} --- By (4.17), all geometric fibres $\mathcal M_g\times\Spec(\overline{\mathbb F}_l)$ of $\mathcal M_g$ over $\Spec(\mathbb Z[1/n])$ have the same number of connected components. These connected components are irreducible (4.16). Furthermore ${}_G\mathcal M_g^0\times\Spec(\overline{\mathbb F}_l)$ is dense in ${}_G\mathcal M_g\times\Spec(\overline{\mathbb F}_l)$ and thus has the same number of connected (or irreducible) components as ${}_G\mathcal M_g\times\Spec(\overline{\mathbb F}_l)$, and this number is independent of $l$.
+
+\medskip
+\noindent(5.12) Let us denote by $\Pi$ the fundamental group of an oriented closed differentiable surface $S_0$ of genus $g$. The group $\Pi$ may be defined by generators and relations as follows:
+\begin{enumerate}[label=(\roman*)]
+\item generators: $x_i$ for $1\leq i\leq 2g$;
+\item relation: $(x_1,x_{g+1})\cdots(x_i,x_{g+i})\cdots(x_g,x_{2g})=e$, where $(a,b)=aba^{-1}b^{-1}$.
+\end{enumerate}
+Let $(e_i)$ be the standard basis of $\mathbb Z^{2g}$. The morphism $\varphi$ from $\Pi$ to $\mathbb Z^{2g}$ with $\varphi(x_i)=e_i$ identifies $\Pi/(\Pi,\Pi)=H_1(\Pi,\mathbb Z)$ with $\mathbb Z^{2g}$.
+
+The surface $S_0$ is a $K(\Pi,1)$ and thus
+\[
+H^2(\Pi,\mathbb Z)=H^2(S_0,\mathbb Z)=\mathbb Z,
+\]
+and the cup product defines a symplectic structure on $\Pi/(\Pi,\Pi)$. This structure is identified by $\varphi$ with the standard symplectic structure of $\mathbb Z^{2g}$.
+
+We denote by $\Aut^0(\Pi)$ the subgroup of $\Aut(\Pi)$ which acts trivially on $H^2(\Pi,\mathbb Z)$. Dehn has proved that each exterior automorphism of $\Pi$ is induced by a diffeomorphism of $S_0$ onto itself and that the map induced by $\varphi$:
+\[
+\Aut^0(\Pi)\longrightarrow \operatorname{Sp}_{2g}(\mathbb Z),
+\]
+is surjective (see [Ma]).
+
+\medskip
+\noindent\emph{Theorem (5.13).} --- \emph{The number of connected components of any geometric fibre of the projection of ${}_G\mathcal M_g^0$ onto $\Spec(\mathbb Z[1/n])$ is equal to the number of orbits of $\Aut^0(\Pi)$ in the set of exterior epimorphisms from $\Pi$ to $G$.}
+
+\noindent\emph{Proof.} --- By (5.13), it suffices to prove that ${}_G\mathcal M_g^0\times\Spec(\mathbb C)$ has the said number of connected components. As results from (4.14),
+\[
+\pi_0({}_G\mathcal M_g^0\times\Spec(\mathbb C))=\pi_0({}_GM_g)
+\]
+where ${}_GM_g$ is the coarse moduli scheme classifying stable smooth curves of genus $g$ over $\mathbb C$ with a Teichmüller structure of level $G$.
+
+Recall that a Teichmüller curve of genus $g$ is a stable smooth curve $C$ of genus $g$ over $\mathbb C$ together with an exterior isomorphism $\varphi$ of the transcendental fundamental group $\pi_1(C)$ with $\Pi$, which induces a symplectic isomorphism\footnote{An arbitrary isomorphism $\varphi$ induces an isomorphism between $H_1(C,\mathbb Z)$ and $\Pi/(\Pi,\Pi)$ which is always symplectic up to sign.} between
+\[
+H_1(C,\mathbb Z)\simeq \pi_1(C)/(\pi_1(C),\pi_1(C))
+\]
+and $\Pi/(\Pi,\Pi)$. By Teichmüller's theory [W], the analytic space $T_g$ classifying Teichmüller curves of a given genus $g\geq2$ is homeomorphic to a ball, and hence connected.
+
+If $\psi$ is a surjective homomorphism from $\Pi$ to $G$, the map
+\[
+(C,\varphi)\longmapsto (C,\psi\varphi)
+\]
+defines a morphism $t_\psi:T_g\to{}_GM_g$. Two such maps $t_\psi$ and $t_{\psi'}$ have the same image if and only if $\psi=\psi'\sigma$ for $\sigma\in\Aut^0(\Pi)$, and
+\[
+{}_GM_g=\coprod_{\psi\,\mathrm{mod}\,\Aut^0(\Pi)} t_\psi(T_g)
+\]
+which implies (5.13).
+
+\medskip
+\noindent(5.14) Let us denote by ${}_n\mathcal M_g^0$ the algebraic stack classifying stable smooth curves with a Jacobi structure of level $n$. This algebraic stack ``is'' a true scheme for $n\geq3$ (by [S]).
+
+If $\varphi$ is a Jacobi structure of level $n$ on a stable smooth curve $p:X\to S$, we define the ``multiplicator'' $\mu(\varphi)$ of $\varphi$ by the commutative diagram
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\node (A) at (0,1.8) {$\Lambda^2(\mathbb Z/n\mathbb Z)^{2g}$};
+\node (B) at (4.6,1.8) {$\mathbb Z/n\mathbb Z$};
+\node (C) at (0,0) {$\Lambda^2R^1p_*(\mathbb Z/n\mathbb Z)$};
+\node (D) at (4.6,0) {$\mu_n^{\otimes -1}\simeq R^2p_*(\mathbb Z/n\mathbb Z)$};
+\draw[->] (A) -- node[above] {$A$} (B);
+\draw[->] (C) -- node[below] {$\Lambda$} (D);
+\draw[->] (C) -- node[left] {$\Lambda^2\varphi$} (A);
+\draw[->] (D) -- node[right] {$\mu(\varphi)$} (B);
+\end{tikzpicture}
+\]
+The scheme of isomorphisms between $\mathbb Z/n\mathbb Z$ and $\mu_n^{\otimes -1}$ is $\Spec(\mathbb Z[e^{2\pi i/n},1/n])$; thus $\varphi\mapsto\mu(\varphi)$ defines a morphism $\mu$ from $S$ to $\Spec(\mathbb Z[e^{2\pi i/n},1/n])$. This being true for any $X$ and $S$, $\mu$ is induced by
+\[
+\mu:{}_n\mathcal M_g^0\longrightarrow \Spec(\mathbb Z[e^{2\pi i/n},1/n]).
+\]
+
+\medskip
+\noindent\emph{Theorem (5.15).} --- \emph{The geometric fibres of the morphism $\mu$ are connected.}
+
+\noindent\emph{Proof.} --- By definition, ${}_n\mathcal M_g^0$ is open and closed in ${}_G\mathcal M_g^0$ for $G=(\mathbb Z/n\mathbb Z)^{2g}$. The group $\operatorname{GL}_{2g}(\mathbb Z/n\mathbb Z)$ acts on $G$, and thus on ${}_G\mathcal M_g^0$. One has:
+\begin{enumerate}[label=(\roman*)]
+\item the open subset ${}_n\mathcal M_g^0$ of ${}_G\mathcal M_g^0$ is stable under the subgroup $H=\operatorname{CSp}_{2g}(\mathbb Z/n\mathbb Z)$ of symplectic similitudes;
+\item ${}_G\mathcal M_g^0=\coprod_{\sigma/H}\sigma({}_n\mathcal M_g^0)$.
+\end{enumerate}
+
+It now results from (5.11) that all geometric fibres of $\mu$ have the same number of connected components.
+
+Consider the geometric fibre of $\mu$ at the standard complex place of $\Spec(\mathbb Z[e^{2\pi i/n},1/n])$. This fibre is the algebraic stack classifying complex stable smooth curves $C$ provided with a symplectic isomorphism
+\[
+H^1(C,\mathbb Z/n\mathbb Z)\xrightarrow{\sim}(\mathbb Z/n\mathbb Z)^{2g}.
+\]
+Reasoning as in (5.13), we are reduced to proving
+
+\medskip
+\noindent\emph{Lemma (5.16).} --- \emph{The homomorphism}
+\[
+\Aut^0(\Pi)\longrightarrow \operatorname{Sp}_{2g}(\mathbb Z/n\mathbb Z)
+\]
+\emph{is surjective.}
+
+\noindent\emph{Proof.} --- This results from Dehn's theory (5.12) and from the fact that the groups $\operatorname{Sp}_{2g}$, being split semi-simple simply connected groups, are generated by their unipotent elements, so that the reduction map
+\[
+\operatorname{Sp}_{2g}(\mathbb Z)\longrightarrow \operatorname{Sp}_{2g}(\mathbb Z/n\mathbb Z)
+\]
+is surjective.
+
+\begin{center}
+{\bfseries BIBLIOGRAPHY}
+\end{center}
+
+\begin{description}[leftmargin=2.4em,labelwidth=2.1em,itemsep=0.05em]
+\item[{[Ab]}] S. Abhyankar, Resolution of singularities of arithmetical surfaces, \emph{Proc. Conf. on Arith. Alg. Geom. at Purdue}, 1963.
+\item[{[A$_1$]}] M. Artin, The implicit function theorem in algebraic geometry, \emph{Proc. Colloq. Alg. Geom.}, Bombay, 1968.
+\item[{[A$_2$]}] M. Artin, Some numerical criteria for contractibility, \emph{Am. J. Math.}, 84 (1962), p. 485.
+\item[{[B]}] J. Bénabou, Thèse, Paris, 1966.
+\item[{[E]}] F. Enriques and Chisini, \emph{Teoria geometrica delle equazioni e delle funzioni algebriche}, Bologna, 1918.
+\item[{[F]}] W. Fulton, Hurwitz schemes and irreducibility of moduli of algebraic curves, \emph{Ann. of Math.} (forthcoming).
+\item[{[G]}] J. Giraud, \emph{Cohomologie non abélienne}, University of Columbia.
+\item[{[Gr]}] A. Grothendieck, Techniques de descente et théorèmes d'existence en géométrie algébrique, IV, \emph{Sém. Bourbaki}, 221, 1960--1961.
+\item[{[H]}] R. Hartshorne, \emph{Residues and Duality}, Springer Lecture Notes, 20, 1966.
+\item[{[K]}] D. Knutson, Algebraic spaces, Thesis, M.I.T., 1968.
+\item[{[Li]}] J. Lipman, Rational singularities, \emph{Publ. Math. I.H.E.S.}, no. 36 (1969).
+\item[{[L]}] M. Lichtenbaum, Curves over discrete valuation rings, \emph{Am. J. Math.}, 90 (1968), p. 380.
+\item[{[Ma]}] W. Mangler, Die Klassen von topologischen Abbildungen einer geschlossenen Fläche auf sich, \emph{Math. Zeit.}, 44 (1939), p. 541.
+\item[{[M$_1$]}] D. Mumford, \emph{Geometric Invariant Theory}, Springer-Verlag, 1965.
+\item[{[M$_2$]}] D. Mumford, Notes on seminar on moduli problems, Supplementary mimeographed notes printed at A.M.S. Woods Hole Summer Institute, 1964.
+\item[{[M$_3$]}] D. Mumford, Picard groups of moduli problems, \emph{Proc. Conf. on Arith. Alg. Geom. at Purdue}, 1963.
+\item[{[N]}] A. Néron, Modèles minimaux des variétés abéliennes sur les corps locaux et globaux, \emph{Publ. Math. I.H.E.S.}, no. 21.
+\item[{[R]}] M. Raynaud, Spécialisation du foncteur de Picard, \emph{Comptes rendus Acad. Sci.}, 264, p. 941 and p. 1001.
+\item[{[Š]}] I. Šafarevič, Lectures on minimal models, Tata Institute Lecture Notes, Bombay, 1966.
+\item[{[Sc]}] M. Schlessinger, Thesis, Harvard.
+\item[{[S]}] J.-P. Serre, Rigidité du foncteur de Jacobi d'échelon $n\geq3$, app. à l'exposé 17 du séminaire Cartan 60/61.
+\item[{[Se]}] F. Severi and Löffler, \emph{Vorlesungen über algebraische Geometrie}, Teubner, 1924.
+\item[{[W]}] A. Weil, Modules des surfaces de Riemann, \emph{Sém. Bourbaki}, 168, 1957--58.
+\end{description}
+
+\begin{flushright}
+\emph{Manuscrit reçu le 21 janvier 1969.}
+\end{flushright}
+
+\end{document}
