@@ -1,0 +1,1116 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\geometry{margin=0.82in}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.15em}
+\emergencystretch=2em
+\setlist{leftmargin=2.0em,itemsep=0.1em,topsep=0.2em}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\pa}{p_a}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cX}{\mathfrak X}
+\newcommand{\cExt}{\mathcal{E}xt}
+\newcommand{\A}{\mathbf A}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hfill Q.E.D.}
+\begin{document}
+\begin{center}
+{\Large\bfseries THE IRREDUCIBILITY\\[0.3em]
+OF THE SPACE OF CURVES OF GIVEN GENUS}\par
+\vspace{0.8em}
+{\itshape by} P. DELIGNE and D. MUMFORD\footnote{The first author wishes to thank the Institut des Hautes Études scientifiques, Bures-sur-Yvette, for support in this research and N. Katz, for his invaluable assistance in the preparation of this manuscript; the second author wishes to thank the Tata Institute of Fundamental Research, Bombay, and the Institut des Hautes Études scientifiques.}
+\end{center}
+
+Fix an algebraically closed field $k$. Let $M_g$ be the moduli space of curves of genus $g$ over $k$. The main result of this note is that $M_g$ is irreducible for every $k$. Of course, whether or not $M_g$ is irreducible depends only on the characteristic of $k$. When the characteristic is 0, we can assume that $k=\mathbb C$, and then the result is classical. A simple proof appears in Enriques--Chisini [E, vol. 3, chap. 3], based on analyzing the totality of coverings of $\PP^1$ of degree $n$, with a fixed number $d$ of ordinary branch points. This method has been extended to char. $p$ by William Fulton [F], using specializations from char. 0 to char. $p$ provided that $p>2g+1$. Unfortunately, attempts to extend this method to all $p$ seem to get stuck on difficult questions of wild ramification. Nowadays, the Teichmüller theory gives a thoroughly analytic but very profound insight into this irreducibility when $k=\mathbb C$. Our approach however is closest to Severi's incomplete proof ([Se], Anhang F; the error is on pp. 344--345 and seems to be quite basic) and follows a suggestion of Grothendieck for using the result in char. 0 to deduce the result in char. $p$. The basis of both Severi's and Grothendieck's ideas is to construct families of curves $X$, some singular, with $\pa(X)=g$, over non-singular parameter spaces, which in some sense contain enough singular curves to link together any two components that $M_g$ might have.
+
+The essential thing that makes this method work now is a recent ``stable reduction theorem'' for abelian varieties. This result was first proved independently in char. 0 by Grothendieck, using methods of etale cohomology (private correspondence with J. Tate), and by Mumford, applying the easy half of Theorem (2.5), to go from curves to abelian varieties (cf. [M$_2$]). Grothendieck has recently strengthened his method so that it applies in all characteristics (SGA 7, 1968). Mumford has also given a proof using theta functions in char. $\ne 2$. The result is this:
+
+\medskip
+\noindent\textit{Stable Reduction Theorem.} --- \textit{Let $R$ be a discrete valuation ring with quotient field $K$. Let $A$ be an abelian variety over $K$. Then there exists a finite algebraic extension $L$ of $K$ such that, if $R_L={}$ integral closure of $R$ in $L$, and if $\cA_L$ is the Néron model of $A\times_K L$ over $R_L$, then the closed fibre $\cA_{L,s}$ of $\cA_L$ has no unipotent radical.}
+
+We shall give two related proofs of our main result. One of these is quite elementary, and follows by quite standard techniques once the Stable Reduction Theorem for abelian varieties is applied, in \S~2, to deduce an analogous stable reduction theorem for curves. The other proof is more powerful, and is based on the use of a larger category than the category of schemes, and on proving for the objects of this category many of the standard theorems for schemes, especially the Enriques--Zariski connectedness theorem (EGA 3, (4.3)). Unfortunately, this larger category is not quite a category --- it is a simple type of 2-category; in fact, if $X,Y$ are objects, then $\Hom(X,Y)$ is itself a category, but one in which all morphisms are isomorphisms. The objects of this 2-category we call algebraic stacks\footnote{A slightly less general category of objects, called algebraic spaces, has been introduced and studied very deeply by M. Artin [A$_1$] and D. Knutson [K]. The idea of enlarging the category of varieties for the study of moduli spaces is due originally, we believe, to A. Weil.}. The moduli space $M_g$ is just the ``underlying coarse variety'' of a more fundamental object, the moduli stack $\mathcal M_g$, studied in [M$_3$]. Full details on the basic properties and theorems for algebraic stacks will be given elsewhere. In this paper, we will only give definitions and state without proof the general theorems which we apply. Using the method of algebraic stacks, we can prove not only the irreducibility of $M_g$ itself, but of all higher level moduli spaces of curves too (cf. \S~5 below).
+
+\section*{\S~1. Stable curves and their moduli.}
+
+The key definition of the whole paper is this:
+
+\medskip
+\noindent\textit{Definition (1.1).} --- \textit{Let $S$ be any scheme. Let $g\geq 2$. A stable curve of genus $g$ over $S$ is a proper flat morphism $\pi:C\to S$ whose geometric fibres are reduced, connected, 1-dimensional schemes $C_s$ such that:}
+\begin{enumerate}[label=(\roman*)]
+\item \textit{$C_s$ has only ordinary double points;}
+\item \textit{if $E$ is a non-singular rational component of $C_s$, then $E$ meets the other components of $C_s$ in more than 2 points;}
+\item \textit{$\dim H^1(\cO_{C_s})=g$.}
+\end{enumerate}
+
+We will study in this section three aspects of the theory of stable curves: their pluri-canonical linear systems, their deformations, and their automorphisms.
+
+Suppose $\pi:C\to S$ is a stable curve. Since $\pi$ is flat and its geometric fibres are local complete intersections, the morphism $\pi$ is locally a complete intersection (i.e., locally, $C$ is isomorphic as $S$-scheme to $V(f_1,\ldots,f_{n-1})\subset \A^n\times U$, where $U\subset S$ is open, and $f_1,\ldots,f_{n-1}\in\Gamma(\cO_{\A^n\times U})$ are a regular sequence). Therefore, by the theory of duality of coherent sheaves [H], there is a canonical invertible sheaf $\omega_{C/S}$ on $C$ --- the unique non-zero cohomology group of the complex of sheaves $f^!(\cO_S)$. We need to know the following facts about $\omega_{C/S}$:
+\begin{enumerate}[label=\alph*)]
+\item for all morphisms $f:T\to S$, $\omega_{C\times_S T/T}$ is canonically isomorphic to $f^*(\omega_{C/S})$;
+\item if $S=\Spec(k)$, $k$ algebraically closed, let $f:C'\to C$ be the normalization of $C$, $x_1,\ldots,x_n,y_1,\ldots,y_n$ the points of $C'$ such that the $z_i=f(x_i)=f(y_i)$, $1\leq i\leq n$, are the double points of $C$. Then $\omega_{C/S}$ is the sheaf of 1-forms $\eta$ on $C'$ regular except for simple poles at the $x$'s and $y$'s and with $\Res_{x_i}(\eta)+\Res_{y_i}(\eta)=0$;
+\item if $S=\Spec(k)$, and $\cF$ is a coherent sheaf on $C$, then
+\[
+\Hom(H^1(C,\cF),k)\cong \Hom_{\cO_C}(\cF,\omega_{C/S}).
+\]
+\end{enumerate}
+
+\medskip
+\noindent\textit{Theorem (1.2).} --- \textit{If $g\geq 2$ and $C$ is a stable curve of genus $g$ over an algebraically closed field $k$, then $H^1(C,\omega_{C/k}^{\otimes n})=(0)$ if $n\geq 2$, and $\omega_{C/k}^{\otimes n}$ is very ample if $n\geq 3$.}
+
+\medskip
+\noindent\textit{Proof.} --- Since $C$ is stable, of genus $g\geq 2$, every irreducible component $E$ of $C$ either 1) has (arithmetic) genus $\geq 2$ itself, 2) has genus 1, but meets other components of $C$ in at least one point, or 3) is non-singular, rational and meets other components of $C$ in at least three points. But by b) above, $\omega_{C/k}\otimes\cO_E$ is isomorphic to $\omega_{E/k}(\sum Q_i)$, where $\{Q_i\}$ are the points where $E$ meets the rest of $C$. Since the degree of $\omega_{E/k}$ is $2g_E-2$, it follows that in any of the cases 1, 2 or 3, $\omega_{C/k}\otimes\cO_E$ has positive degree. This shows immediately that $\omega_{C/k}$ is ample on each component $E$ of $C$, hence is ample.
+
+Next, by c) above, $H^1(\omega_{C/k}^{\otimes n})$ is dual to $H^0(\omega_{C/k}^{\otimes(1-n)})$. Since $\omega_{C/k}\otimes\cO_E$ has positive degree, $\omega_{C/k}^{\otimes(1-n)}\otimes\cO_E$ has no sections for any $E$, any $n\geq 2$; therefore $H^0(\omega_{C/k}^{\otimes(1-n)})=(0)$ if $n\geq 2$, and so $H^1(\omega_{C/k}^{\otimes n})=(0)$ if $n\geq 2$.
+
+To prove that an invertible sheaf $\cL$ on any scheme $C$, proper over $k$, is very ample, it suffices to show
+\begin{enumerate}[label=\alph*)]
+\item for all closed points $x\ne y$
+\[
+H^0(C,\cL)\to H^0(C,\cL\otimes k(x))\oplus H^0(C,\cL\otimes k(y))
+\]
+is surjective,
+\item for all closed points $x$,
+\[
+H^0(C,\cL)\to H^0(C,\cL\otimes \cO_x/\mathfrak m_x^2)
+\]
+is surjective.
+\end{enumerate}
+Using the exact sequence of cohomology, these both follow if $H^1(C,\mathfrak m_x\cdot \mathfrak m_y\cdot\cL)=(0)$ for all closed points $x,y\in C$. In our case, $\cL=\omega_C^{\otimes n}$, $n\geq 3$, so if we use duality, we must show:
+\[
+(*)\qquad \Hom(\mathfrak m_x\cdot \mathfrak m_y,\omega_C^{\otimes -n})=(0),\qquad \text{if } n\geq 2.
+\]
+If $x$ is a non-singular point, $\mathfrak m_x$ is an invertible sheaf. If $x$ is a double point, let $\pi:C'\to C$ be the result of blowing up $x$, and let $x_1,x_2\in C'$ be the two points in $\pi^{-1}(x)$. Then it is easy to check that for any invertible sheaf $\cL$ on $C$:
+\[
+\Hom(\mathfrak m_x,\cL)\cong H^0(C',\pi^*\cL),
+\]
+\[
+\Hom(\mathfrak m_x^2,\cL)\cong H^0(C',\pi^*\cL(x_1+x_2)).
+\]
+Therefore, we have 3 cases of (*) to check:
+
+\medskip
+\noindent\textit{Case 1.} --- $x,y$ non-singular points of $C$, then
+\[
+H^0(\omega_C^{-n}(x+y))=(0),\qquad \text{if } n\geq 2.
+\]
+
+\medskip
+\noindent\textit{Case 2.} --- $x$ double point of $C$, $\pi:C'\to C$ blowing up $x$, $\{x_1,x_2\}=\pi^{-1}(x)$, and $y$ a non-singular point of $C$. Then
+\[
+H^0(\pi^*(\omega_C)^{-n}(y))=(0),\qquad H^0(\pi^*(\omega_C)^{-1}(x_1+x_2))=(0),\qquad \text{if } n\geq 2.
+\]
+
+\medskip
+\noindent\textit{Case 3.} --- $x,y$ double points of $C$, $\pi:C'\to C$ blowing up $x$ and $y$. Then
+\[
+H^0(\pi^*(\omega_C)^{-n})=(0)\qquad \text{if } n\geq 2.
+\]
+
+Now since the degree of $\omega_C^{-n}$ ($n\geq 2$) on all components $E$ of $C$ is less than or equal to $-2$, all of this is clear, except in those cases where $n=2$, the degree of $\omega_C$ on some $E$ is 1, and in which two poles are allowed on $E$. This occurs if:
+\begin{enumerate}[label=(\roman*)]
+\item case 1, $\pa(E)=1$, $E$ meets $C-E$ at only one point, $x,y\in E$.
+\item case 1, $\pa(E)=0$, $E$ meets $C-E$ at only three points, $x,y\in E$.
+\item case 2, $E$ a rational curve with one double point meeting $C-E$ at one point, $x={}$double point of $E$.
+\end{enumerate}
+But in all these cases, $C$ has components besides $E$ and a section in the $H^0$ in question must definitely vanish on all these other components. So at the points where $E$ meets $C-E$, the section has extra zeroes. Since the sheaf in question has degree 0 on $E$, the section is zero on $E$ too. Q.E.D.
+
+\medskip
+\noindent\textit{Corollary.} --- \textit{Let $\pi:C\to S$ be any stable curve of genus $g\geq 2$. Then $\omega_{C/S}^{\otimes n}$ is relatively very ample if $n\geq 3$ and $\pi_*(\omega_{C/S}^{\otimes n})$ is a locally free sheaf on $S$ of rank $(2n-1)(g-1)$.}
+
+\medskip
+\noindent\textit{Proof.} --- In fact, since for all $s\in S$, $H^1(\omega_{C/S}^{\otimes n}\otimes \cO_{C_s})=(0)$, it follows from [EGA, chap. 3, \S~7], that $\pi_*(\omega_{C/S}^{\otimes n})$ is locally free and that $\pi_*(\omega_{C/S}^{\otimes n})\otimes k(s)\cong H^0(\omega_{C/S}^{\otimes n}\otimes \cO_{C_s})$. Therefore the corollary follows. Q.E.D.
+
+Taking $n=3$, it follows that every stable curve $C/S$ can be realized as a family of curves in $\PP^{5g-6}$ with Hilbert polynomial:
+\[
+P_g(n)=(6n-1)(g-1).
+\]
+Following standard arguments ([M$_1$], p. 99), it is easy to prove that there is a subscheme
+\[
+H_g\subset \Hilb_{\PP^{5g-6}}^{P_g}
+\]
+of ``all'' tri-canonically embedded stable curves. (Hilb is the Hilbert scheme over $\mathbb Z$.) To be precise, there is an isomorphism of functors:
+\[
+\Hom(S,H_g)\cong
+\left\{
+\begin{array}{l}
+\text{set of stable curves }\pi:C\to S,\text{ plus isomorphisms:}\\[2pt]
+\PP(\pi_*(\omega_{C/S}^{\otimes 3}))\cong \PP^{5g-6}\times S\,,\quad\text{(modulo isomorphism).}
+\end{array}
+\right.
+\]
+We will denote by $Z_g\subset H_g\times \PP^{5g-6}$ the universal tri-canonically embedded stable curve. The functor of stable curves itself is the sheafification of the quotient of functors:
+\[
+H_g/\PGL(5g-6).
+\]
+
+We now consider the deformation theory of stable curves. Let $k$ be any ground field. The deformation theory of $X$'s smooth over $k$ can be found in [SGA, 60--61]; for singular $S$'s, the theory has been worked out in [Sc]. We shall indicate here the results of this theory for a scheme $X$ which is
+\begin{enumerate}[label=(\roman*)]
+\item one-dimensional;
+\item generically smooth over $k$;
+\item locally a complete intersection.
+\end{enumerate}
+The advantages of this case are two-fold: first, the ``cotangent complex'' of Grothendieck, Lichtenbaum and Schlessinger reduces, in view of (ii) and (iii), to the single coherent sheaf $\Omega_{X/k}$, the Kähler differentials. Secondly, we have:
+
+\medskip
+\noindent\textit{Lemma (1.3).} --- $\Ext^2(\Omega_{X/k},\cO_X)=(0)$.
+
+\medskip
+\noindent\textit{Proof.} --- Use the spectral sequence:
+\[
+H^p(X,\cExt^q(\Omega_{X/k},\cO_X))\Rightarrow \Ext^{p+q}(\Omega_{X/k},\cO_X).
+\]
+Then (i) $H^2(X,\cExt^0)=(0)$ since $\dim X=1$. (ii) Since $\Omega_{X/k}$ is locally free except at a finite number of points, $\cExt^1(\Omega_{X/k},\cO_X)$ has 0-dimensional support, hence $H^1(X,\cExt^1)=(0)$. (iii) Locally, if we embed $X\subset\A^n$, then $\Omega_{X/k}$ has a free resolution of length 2:
+\[
+0\to \cI/\cI^2\to \Omega_{\A^n}\otimes \cO_X\to \Omega_{X/k}\to 0
+\]
+where $\cI={}$sheaf of ideals defining $X$. Therefore $\cExt^2=(0)$. Q.E.D.
+
+In Schlessinger's theory, the significance of Lemma (1.3) is that all obstructions vanish, i.e., deformations of $X$ over base schemes $\Spec(A/\mathcal J)$ ($A={}$local Artin ring with residue field $k$) can always be embedded in deformations over $\Spec(A)$. Moreover, the theory says that there is a canonical one-one correspondence between $\Ext^1(\Omega_{X/k},\cO_X)$ and the first order deformations of $X$, i.e., proper, flat morphisms $p$, and isomorphisms $\alpha$ as follows:
+\[
+\begin{array}{ccccc}
+X_1 & \supset & X_1\times_{\Spec k[\eps]}\Spec k & \xrightarrow{\ \sim_{\alpha}\ } & X \\
+\downarrow p && \downarrow && \downarrow \\
+\Spec k[\eps]/\eps^2 & \supset & \Spec k & = & \Spec k.
+\end{array}
+\]
+Since the obstructions vanish, there is a versal formal deformation $\mathfrak X$ of $X$ over the base scheme
+\[
+\mathfrak M=\Spec o_k[[t_1,\ldots,t_N]],
+\]
+where $o_k=k$ if the char. is 0, or $o_k$ is the complete regular local ring, with maximal ideal $p\cdot o_k$ and residue field $k$, if $\operatorname{char}(k)=p$, unique (by Cohen's structure theorem), and
+\[
+N=\dim_k \Ext^1(\Omega_X,\cO_C).
+\]
+
+
+This means that $\cX$ is a formal scheme, proper and flat over $\cM$, with fibre $X$ over $\Spec(k)$ and the two properties:
+
+\begin{enumerate}[label=\emph{\alph*)}]
+\item \emph{Every deformation of $X$ is induced from $\cX$}, i.e., if $A$ is a local Artin $o_k$-algebra with residue field $k$, and $p:Y\to\Spec(A)$ is proper and flat with fibre $X$ over $\Spec(k)$, then there is a commutative diagram:
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=1.0]
+\node (Y) at (0,2.1) {$Y\simeq \cX\times_{\cM}\Spec(A)$};
+\node (Xcal) at (4.7,2.1) {$\cX$};
+\node (X) at (2.35,1.18) {$X$};
+\node (SA) at (0,0.20) {$\Spec(A)$};
+\node (M) at (4.7,0.20) {$\cM$};
+\node (Sk) at (2.35,-0.65) {$\Spec(k)$};
+\draw[->] (Y) -- (Xcal);
+\draw[->] (Y) -- (SA);
+\draw[->] (Xcal) -- (M);
+\draw[->] (SA) -- (M);
+\draw[->] (X) -- (Y);
+\draw[->] (X) -- (Xcal);
+\draw[->] (X) -- (Sk);
+\draw[->] (Sk) -- (SA);
+\draw[->] (Sk) -- (M);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\emph{\alph*)},resume]
+\item If $A=k[\eps]/(\eps^2)$, the above morphism $f$ is uniquely determined by the diagram.
+\end{enumerate}
+This implies that the tangent space to $\cM\times_{o_k}k$ at its closed point is canonically isomorphic to $\Ext^1(\Omega_{X/k},\cO_X)$.
+
+In case $\Ext^0(\Omega_{X/k},\cO_X)=(0)$, $\cX/\cM$ is, in fact, \emph{universal}: i.e., in property a), $f$ is always unique, which means that the functor represented by $\cM$ in the category of artin, local $o_k$-algebras is isomorphic to the functor of deformations $Y/A$ of $X$. This fortunately holds for stable curves:
+
+\medskip
+\noindent\emph{Lemma (1.4).} --- \emph{If $X$ is a stable curve, $\Ext^0(\Omega_{X/k},\cO_X)=(0)$.}
+
+\noindent\emph{Proof.} --- We may assume that $k$ is algebraically closed. Now a homomorphism from $\Omega_X$ to $\cO_X$ is given by an everywhere regular vector field $D$ on $X$. Such a vector field is given, in turn, by a regular vector field $D'$ on the normalization $X'$ of $X$ which vanishes at all points of $X'$ lying over the double points of $X$. In particular, $D'$ and hence $D$ vanishes identically on all components $E$ of $X$ whose normalization $E'$ has genus $\geq 2$. There remain the following possibilities for $E$:
+
+\begin{center}
+\begin{tabular}{ccc}
+\begin{tikzpicture}[scale=.52,baseline=-.3ex]
+\draw (0,-.95)--(0,1.05);
+\draw (-.25,.62)--(1.0,.83);
+\draw (-.25,0)--(1.0,.17);
+\draw (-.25,-.62)--(1.0,-.42);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=.52,baseline=-.3ex]
+\draw (0,-.95)--(0,1.05);
+\draw (0,.64).. controls (1.0,.64) and (1.0,-.08)..(0.02,-.08);
+\draw (-.10,-.25)--(1.1,-.47);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=.52,baseline=-.3ex]
+\draw (0,-.95)--(0,1.05);
+\draw (0,.72).. controls (1.0,.72) and (1.0,.10)..(0.02,.10);
+\draw (0,-.05).. controls (1.0,-.05) and (1.0,-.72)..(0.02,-.72);
+\end{tikzpicture}
+\\[-2pt]
+$E$ non-singular rational & $E'$ rational, $E$ one double pt. & $E'$ rational, $E\geq2$ double pts.
+\end{tabular}
+
+\vspace{0.6em}
+\begin{tabular}{cc}
+\begin{tikzpicture}[scale=.52,baseline=-.3ex]
+\draw (0,-.95)--(0,1.05);
+\draw (-.15,.42)--(1.1,.18);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=.52,baseline=-.3ex]
+\draw (0,-.95)--(0,1.05);
+\draw (0,.70).. controls (1.0,.70) and (1.0,.08)..(0.02,.08);
+\end{tikzpicture}
+\\[-2pt]
+$E$ non-singular elliptic & $E'$ elliptic, $E\geq1$ double points
+\end{tabular}
+\end{center}
+
+
+In all cases where $E'$ is rational, note that $D'$ has to have at least 3 zeroes; and where $E'$ is elliptic, $D'$ has to have at least one zero. So $D'$ vanishes on all components $E'$. This proves that $\Ext^0(\Omega_{X/k},\cO_X)=(0)$. \QED
+
+Schlessinger's theory also allows us to trace what happens to the singularities of $X$ in this deformation $\cM$. For each closed point $x\in X$, he studies deformations of the complete local ring $\widehat{\cO}_{x,X}$ alone, i.e., flat $A$-algebras $\cO$ plus isomorphisms:
+\[
+\cO\otimes_A k\simeq \widehat{\cO}_{x,X}.
+\]
+This is a functor of $A$ exactly as before. Since $\Ext^2_{\widehat{\cO}_x}(\widehat{\Omega}_{x/k},\widehat{\cO}_x)=(0)$, there are no obstructions to extending deformations. First order deformations with $A=k[\eps]/(\eps^2)$ are classified by $\Ext^1_{\widehat{\cO}_x}(\widehat{\Omega}_{x/k},\widehat{\cO}_x)$. And there is a versal formal deformation $\widehat{\cO}$, which is a complete local ring and a flat $o_k[[t_1,\ldots,t_N]]$-algebra, $N=\dim_k\Ext^1_{\widehat{\cO}_x}(\widehat{\Omega}_{x/k},\widehat{\cO}_x)$, such that
+\[
+\widehat{\cO}/(p,t_1,\ldots,t_N)=\widehat{\cO}_{x,X}.
+\]
+Whenever $X$ is smooth over $k$ at $x$, $N=0$, and the theory is uninteresting. The first non-trivial example is a $k$-rational ordinary double point with $k$-rational tangent lines:
+\[
+\widehat{\cO}_{x,X}\simeq k[[u,v]]/(u\cdot v).
+\]
+Then $N=1$, and
+\[
+\widehat{\cO}\simeq o_k[[u,v,t_1]]/(uv-t_1).
+\]
+In other words, if $\cO$ is any deformation of $\widehat{\cO}_{x,X}$ and $u,v$ are lifted suitably into $\cO$, then $u\cdot v=w\in A$ and $\cO$ is induced from $\widehat{\cO}$ via the homomorphism $o_k[[t_1]]\to A$ taking $t_1$ to $w$. This is easy to prove.
+
+Finally, Schlessinger's theory connects global deformations to local ones. Let $\cX/\cM_{gl}$ with $\cM_{gl}=\Spec(A)$ be the versal global deformation, let $x_1,\ldots,x_k\in X$ be the points where $X$ is not smooth over $k$, and let $\widehat{\cO}_i$ as $A_i$-algebra be the versal deformation of the local ring $\widehat{\cO}_{x_i,X}$. Let $\cM_{lo}=\Spec(A_1\widehat\otimes_{o_k}\cdots\widehat\otimes_{o_k}A_k)$. Then we may consider the local rings
+\[
+\widehat{\cO}_{x_i,\cX}
+\]
+of $\cX$ at $x_i$. There are $o_k$-homomorphisms $\varphi_i:A_i\to A$ such that $\widehat{\cO}_{x_i,\cX}\simeq\widehat{\cO}_i\otimes_{A_i}A$. Dualizing, we obtain a morphism
+\[
+\Phi=\prod_i \Spec(\varphi_i):\cM_{gl}\to\cM_{lo}
+\]
+which describes exactly how the various singularities of $X$ behave in the versal deformation $\cX$. The final fact that we need is:
+
+\medskip
+\noindent\emph{Proposition (1.5).} --- \emph{$\Phi:\cM_{gl}\to\cM_{lo}$ is formally smooth, i.e., there are isomorphisms}
+\[
+\cM_{gl}\simeq\Spec o_k[[t_1,\ldots,t_{N+M}]],\qquad
+\cM_{lo}\simeq\Spec o_k[[t_1,\ldots,t_N]]
+\]
+\emph{such that $\Phi^*(t_i)=t_i$, $1\leq i\leq N$.}
+
+
+\noindent\emph{Proof.} --- In view of the functorial significance of $\cM_{gl}$ and $\cM_{lo}$, this follows if we prove that the natural map:
+\[
+(*)\qquad \Ext^1_{\cO_X}(\Omega_{X/k},\cO_X)\longrightarrow \prod_{i=1}^{k}\Ext^1_{\widehat{\cO}_{x_i}}(\widehat{\Omega}_{x_i},\widehat{\cO}_{x_i})
+\]
+is surjective; $(*)$ is the induced map $d\Phi$ on the tangent spaces to $\cM_{gl}$ and $\cM_{lo}$. Since $\Omega_X$ is an invertible $\cO_X$-Module outside the $x_i$'s, it follows that:
+\[
+\begin{gathered}
+\prod_{i=1}^{k}\Ext^1_{\widehat{\cO}_{x_i}}(\widehat{\Omega}_{x_i},\widehat{\cO}_{x_i})
+\simeq\prod_{i=1}^{k}\Ext^1_{\cO_{x_i}}(\Omega_{x_i},\cO_{x_i})\\
+\simeq H^0\bigl(X,\mathcal{E}xt^1_{\cO_X}(\Omega_X,\cO_X)\bigr).
+\end{gathered}
+\]
+Therefore, $(*)$ is surjective by the spectral sequence used in Lemma (1.3) and the fact that $H^2(X,\mathcal{E}xt^0(\Omega_X,\cO_X))=(0)$. \QED
+
+In particular, suppose $C$ is a stable curve over an algebraically closed ground field $k$, and let $x_1,\ldots,x_k$ be the double points of $C$. Let $N=\dim\Ext^1(\Omega_X,\cO_X)$. Then $C$ has a universal formal deformation $\cC/\cM$ where $\cM=\Spec o_k[[t_1,\ldots,t_N]]$. Note that since in this case, the invertible sheaf $\omega_{\cC/\cM}$ is relatively ample, $\cC$ is not only a formal scheme over $\cM$, but also the formal completion of a unique scheme proper and flat over $\cM$, which we will also denote by $\cC$. $\cC$ is clearly a stable curve over $\cM$. Now each double point $x_i$ has one modulus (cf. our example above) so the versal deformation space of the rings $\cO_{x_i,C}$ is $o_k[[t'_1,\ldots,t'_k]]$. By Proposition (1.5), we may identify $t_i$ with $t'_i$, and we conclude that for suitable $u_i,v_i$:
+\[
+\widehat{\cO}_{x_i,\cC}\simeq o_k[[u_i,v_i,t_1,\ldots,t_N]]/(u_i v_i-t_i).
+\]
+In particular, $t_i=0$ is the locus in $\cM$ where ``$x_i$ remains a double point''.
+
+The relation between the formal moduli space $\cM$ of $C$ and the local structure of $H_g$ at a point $x$ with $\kappa(x)=k$ corresponding to some tri-canonical model of $C$ is exactly the same as in the case of non-singular curves ([M$_1$], chap. 5, \S~2). Let $\widehat{\cO}_x$ be the completion of the local ring $\cO_{x,H_g}$, and let $T=\Spec(\widehat{\cO}_x)$. Let $x$ denote the closed point of $T$ too. The universal family of stable curves $Z_g\subset H_g\times\PP^{5g-6}$ induces a family $Z'\subset T\times\PP^{5g-6}$, whose fibre $Z'_x$ over $x$ is $C$. Then there is a unique morphism $f:T\to\cM$ such that $Z'\simeq\cC\times_{\cM}T$, with this isomorphism restricting to the identity on the fibres over $x$, both of which are $C$. I claim that via $f$, $T$ is formally smooth over $\cM$, i.e., $\widehat{\cO}_x\simeq o_k[[t_1,\ldots,t_N,t_{N+1},\ldots,t_m]]$. In fact, by choosing an isomorphism $\PP(\pi_*(\omega_{\cC/\cM}^{\otimes3}))\simeq\PP^{5g-6}\times\cM$, we obtain a tri-canonical embedding $\cC\subset\PP^{5g-6}\times\cM$ of $\cC$, hence a morphism $s:\cM\to H_g$ such that $\cC$, with this embedding, is the pull-back of $Z_g$. Then $s$ factors through $T$ and $s:\cM\to T$ is a section of $f$. On the other hand, consider the action of $\PGL(5g-6)$ on $H_g$. Let $S_x$ be the stabilizer of the $k$-valued point $x$. Then $S_x$ is finite and reduced. Because if it were not, $S_x$ would have a non-trivial tangent space at the origin, i.e., there would be a $k[\eps]/(\eps^2)$-valued point of $\PGL(5g-6)$ centered at the identity, which maps the embedded stable curve $C\subset\PP^{5g-6}$ corresponding to $x$ into itself. But this action is given by an everywhere regular derivation on $C$, and we have
+
+
+seen that all such vanish. This means that this $k[\eps]/(\eps^2)$-valued automorphism is the identity at all points of $C$ and, since $C$ is connected and spans $\PP^{5g-6}$, the automorphism is the identity everywhere. Thus $S_x$ is finite and reduced. It follows that the action of $\PGL(5g-6)$ on $T$ is formally free, and hence that $T$ is formally a principal fibre bundle over $\cM$ with group $\PGL(5g-6)$. Therefore $T$ is formally smooth over $\cM$ as required.
+
+Putting this together with what we know about $\cM$, we conclude the following:
+
+\begin{quote}
+Let $k$ be any algebraically closed field,\par
+let $H'_g=H_g\times\Spec(o_k)$, $Z'_g=Z_g\times\Spec(o_k)$,\par
+let $x\in H'_g$ be a closed point,\par
+let $C\subset Z'_g$ be the stable curve over $x$,\par
+let $x_1,\ldots,x_k\in C$ be its double points.
+\end{quote}
+Then
+
+\medskip
+\noindent\emph{Theorem (1.6).} --- \emph{There are isomorphisms}
+\[
+\widehat{\cO}_{x,H'_g}\simeq o_k[[t_1,\ldots,t_N]],
+\]
+\[
+\widehat{\cO}_{x_i,Z'_g}\simeq o_k[[u_i,v_i,t_1,\ldots,t_N]]/(u_i v_i-t_i).
+\]
+
+\medskip
+\noindent\emph{Corollary (1.7).} --- \emph{$H_g$ is smooth over $\mathbb Z$. In particular, for all algebraically closed fields $k$, $H_g\times\Spec(k)$ is a disjoint union of a finite number of non-singular algebraic varieties over $k$.}
+
+Let
+\[
+H_g^0=\{x\in H_g\mid \text{the corresponding stable curve }(Z_g)_x\text{ is non-singular}\},
+\]
+\[
+S=\{x\in Z_g\mid \text{the projection }\pi:Z_g\to H_g\text{ is not smooth at }x\}.
+\]
+
+\medskip
+\noindent\emph{Definition (1.8).} --- \emph{Let $p:X\to Y$ be a smooth morphism of finite type, with $Y$ a noetherian scheme, and let $D\subset X$ be a relative Cartier divisor. Then $D$ has normal crossings relative to $Y$ if for all $x\in D$, the local equation $d=0$ of $D$ decomposes in the strict completion}\footnote{The complete local ring, formally etale over $\cO_{x,X}$ with residue field the separable closure of $\cO_{x,X}/\mathfrak m_{x,X}$.}\emph{ $\widehat{\cO}_{x,X}$ of $\cO_{x,X}$ as $d=d_1\cdots d_k$, where $d_1,\ldots,d_k$ are linearly independent in}
+\[
+\widehat{\mathfrak m}_{x,X}/\bigl(\widehat{\mathfrak m}_{x,X}^{\,2}+\mathfrak m_{y,Y}\widehat{\cO}_{x,X}\bigr),
+\]
+\emph{with $y=p(x)$.}
+
+\medskip
+\noindent\emph{Corollary (1.9).} --- \emph{$H_g^0=H_g-S^*$, where $S^*$ is a divisor with normal crossings relative to $\mathbb Z$. $Z_g$ and $S$ are smooth over $\mathbb Z$, and the projection $p:S\to S^*$ is finite and an isomorphism at all points where $S^*$ is smooth over $\mathbb Z$, i.e., $S$ is the normalization of $S^*$.}
+
+\noindent\emph{Proof.} --- In the notation of Theorem (1.6), $S^*$ is defined in $\widehat{\cO}_{x,H'_g}$ by the local equation $t_1\cdots t_k=0$. And
+\[
+\widehat{\cO}_{x_i,Z'_g}\simeq o_k[[u_i,v_i,t_1,\ldots,t_{i-1},t_{i+1},\ldots,t_N]],
+\]
+\[
+\widehat{\cO}_{x_i,S}\simeq \widehat{\cO}_{x_i,Z'_g}/(u_i,v_i)
+\simeq o_k[[t_1,\ldots,t_{i-1},t_{i+1},\ldots,t_N]].
+\]
+\QED
+
+
+Next we take up the isomorphisms and automorphisms of stable curves. Suppose $p:X\to S$, $q:Y\to S$ are two stable curves:
+
+\medskip
+\noindent\emph{Definition (1.10).} --- \emph{$\underline{\Isom}_S(X,Y)$ is the functor on $(\mathrm{Sch}/S)$ associating to each $S$-scheme $S'$ the set of $S'$-isomorphisms between $X\times_S S'$ and $Y\times_S S'$. If $X=Y$, we denote $\underline{\Isom}_S(X,X)$ by $\underline{\Aut}_S(X)$.}
+
+Since both $X$ and $Y$ have the canonical polarizations $\omega_{X/S}$, $\omega_{Y/S}$ respectively, any isomorphism $f:X\to Y$ must satisfy $f^*(\omega_{Y/S})\simeq\omega_{X/S}$. Therefore, by Grothendieck's results on the representability of the Hilbert scheme and related functors [Gr$_1$], we conclude that $\underline{\Isom}_S(X,Y)$ is represented by a scheme $\Isom_S(X,Y)$, quasi-projective over $S$. Concerning this scheme, we have:
+
+\medskip
+\noindent\emph{Theorem (1.11).} --- \emph{$\Isom_S(X,Y)$ is finite and unramified over $S$.}
+
+\noindent\emph{Proof.} --- To check that $\Isom_S(X,Y)$ is unramified, we may take $S$ to be the spectrum of an algebraically closed field $k$, in which case $\Isom_S(X,Y)$ is either empty or isomorphic to $\Aut_k(X)$. A point of $\Aut_k(X)$ with values in $k[\eps]/(\eps^2)$ with image the identity may be identified with a vector field on $X$. By Lemma (1.4), stable curves have no non-zero vector fields. This proves that $\Isom_S(X,Y)$ is unramified over $S$, and since it is also of finite type over $S$, it is quasi-finite over $S$. It remains to check that $\Isom_S(X,Y)$ is proper over $S$.
+
+Locally over $S$, $X$ and $Y$ are the pull-backs of the universal tri-canonically embedded stable curve by some morphisms from $S$ to $H_g$, so that it suffices to prove the properness of $\Isom_S(X,Y)$ in the ``universal'' case where $S=H_g\times H_g$, $X$ and $Y$ being the two inverse images of the universal curve on $H_g$. In that case, the open subset of $\Isom_S(X,Y)$ corresponding to smooth curves is dense, so that the Theorem follows from the valuative criterion of properness which holds by:
+
+\medskip
+\noindent\emph{Lemma (1.12).} --- \emph{Let $X$ and $Y$ be two stable curves over a discrete valuation ring $R$, with algebraically closed residue field. Denote by $\eta$ and $s$ the generic and closed points of $\Spec(R)$, and assume that the generic fibres $X_\eta$ and $Y_\eta$ of $X$ and $Y$ are smooth. Then any isomorphism $\varphi_\eta$ between $X_\eta$ and $Y_\eta$ extends to an isomorphism $\varphi$ between $X$ and $Y$.}
+
+(A posteriori, it follows from Theorem (1.11) that the lemma holds for any valuation ring $R$ and without assuming $X_\eta$ or $Y_\eta$ smooth.)
+
+\noindent\emph{Proof.} --- Another way to put the lemma is that if we start with a smooth curve $X_\eta$ of genus $g\geq2$ over the quotient field $K$ of $R$, there is, up to canonical isomorphism, at most one stable curve $X$ over $R$ with $X_\eta$ as its generic fibre. We shall deduce this from the analogous uniqueness assertion for minimal models ([L] and [S]): given a smooth curve $X_\eta$ of genus $g\geq1$ over $K$, there is, up to canonical isomorphism, at most one regular 2-dimensional scheme $\widetilde X$, proper and flat over $R$, with $X_\eta$ as its generic fibre, without exceptional curves of the first kind in $\widetilde X_s$.
+
+Let $z$ denote a generator of the maximal ideal of $R$ and consider the affine plane curve $C_n$ over $R$ given by:
+\[
+xy=z^n.
+\]
+
+
+Let $\widetilde C_n$ denote the scheme obtained by: 1) blowing up the maximal ideal at the unique singularity of $C_n$; 2) blowing up the maximal ideal at the unique singularity of this scheme..., and so on $\left[\frac n2\right]$ times. It is easy to check that $\widetilde C_n$ is a regular scheme whose special fibre is the same as that of $C_n$ except that the singular point is replaced by a sequence of $n-1$ projective lines as follows:
+
+\begin{center}
+\begin{tikzpicture}[scale=.62, line width=.55pt]
+\foreach \x in {0,1,2,3,4}{
+  \draw (\x,.35)--(\x+0.55,-.35);
+  \draw (\x,-.35)--(\x+0.55,.35);
+}
+\draw (-.55,-.35)--(0,.35);
+\draw (4.55,-.35)--(5.10,.35);
+\end{tikzpicture}
+\end{center}
+
+Now suppose $x$ is a singular point of the stable curve $X$ over $R$. At $x$, $X$ is formally isomorphic as scheme over $R$ to one of the schemes $C_n$, so we may blow up $X$ the same way we blew up $C_n$. If we do this for all singular points of $X$, we get a regular scheme $\widetilde X$ with generic fibre $X_\eta$. In addition, any non-singular rational component of $\widetilde X_s$ is linked to the other irreducible components by at least two points, hence it is not exceptional of first kind. Therefore $\widetilde X$ is the minimal model of $X_\eta$. Note finally that $C_n$ is a normal scheme, hence so is $X$; therefore $X$ is the unique normal scheme obtained from $\widetilde X$ by contracting all non-singular rational components of $\widetilde X_s$ linked to the other irreducible components by exactly two points. This proves that $X$ is essentially unique. \QED
+
+Another important fact about the automorphisms of stable curves is:
+
+\medskip
+\noindent\emph{Theorem (1.13).} --- \emph{Let $k$ be an algebraically closed field and $X$ a stable curve over $k$. Let $\Pic^0(X)$ denote the group of invertible sheaves on $X$ of degree 0 on each component. Then the map (of ordinary groups):}
+\[
+\Aut_k(X)\longrightarrow \Aut_k(\Pic^0(X))
+\]
+\emph{is injective.}
+
+\noindent\emph{Proof.} --- Let $\varphi$ be an automorphism of $X$ inducing the identity on $\Pic^0X$.
+
+\medskip
+\noindent\emph{Lemma (1.14).} --- \emph{If $X$ is smooth, then $\varphi$ is the identity.}
+
+\noindent\emph{Proof.} --- If not, by the Lefschetz-Weil fixed point formula, the number $n$ of fixed points of $\varphi$, counted with their multiplicities, is
+\[
+n=1-\operatorname{Tr}(\varphi,T_l(\Pic^0(X)))+1=2-2g<0,
+\]
+which is absurd. \QED
+
+\medskip
+\noindent\emph{Lemma (1.15).} --- \emph{If $X$ is irreducible, then $\varphi$ is the identity.}
+
+\noindent\emph{Proof.} --- Let $\varphi'$ be the action of $\varphi$ on the normalization $X'$ of $X$. Each singular point of $X$, together with an ordering of its two inverse images in $X'$, defines a distinct morphism from $\mathbb G_m$ to $\Pic^0(X)$, so that the inverse image $S$ of the singular locus of $X$ is pointwise fixed by $\varphi'$. One has either
+\begin{enumerate}[label=\emph{\alph*)}]
+\item genus$(X')\geq2$: then conclude by Lemma (1.14);
+\item genus$(X')=1$, $|S|\geq2$, then $\varphi'$ is a translation on $X'$ leaving a point fixed, and so $\varphi'$ is the identity;
+\item $X'$ is the projective line, $|S|\geq4$ and $\varphi'$ is a projectivity leaving more than three points fixed, so is the identity. \QED
+\end{enumerate}
+
+
+Let $\Gamma$ be the following (unoriented) graph:
+\begin{enumerate}[label=(\roman*)]
+\item The set of vertices of $\Gamma$ is the set $\Gamma^0$ of irreducible components of $X$,
+\item the set of edges of $\Gamma$ is the set $\Gamma^1$ of the singular points of $X$ which lie on two distinct irreducible components,
+\item an edge $x\in\Gamma^1$ has for extremities the irreducible components on which $x$ lies.
+\end{enumerate}
+
+\medskip
+\noindent\emph{Lemma (1.16).} --- \emph{If $\varphi$ induces the identity on $\Gamma$, then $\varphi$ is the identity.}
+
+\noindent\emph{Proof.} --- If $X_1$ is an irreducible component of $X$, then $\varphi(X_1)=X_1$ and $\varphi$ leaves fixed the points of intersection of $X_1$ with the other components. In addition, $\Pic^0(X)$ maps onto $\Pic^0(X_1)$ so that $\varphi$ acts trivially on $\Pic^0(X_1)$. Either:
+\begin{enumerate}[label=\emph{\alph*)}]
+\item genus$(X_1)\geq2$ and $\varphi|X_1$ is the identity by Lemma (1.15);
+\item genus$(X_1)=1$, $\varphi$ acts by a translation and leaves a point fixed, so is the identity on $X_1$;
+\item $X_1$ is the projective line and $\varphi$ leaves fixed at least three points, so is the identity on $X_1$. \QED
+\end{enumerate}
+
+\medskip
+\noindent\emph{Lemma (1.17).} --- \emph{(i) Any edge in $\Gamma$ has distinct extremities.}
+
+\emph{(ii) Any vertex which is the extremity of $0$, $1$ or $2$ edges is fixed by $\varphi$.}
+
+\emph{(iii) $\varphi$ acts trivially on $H^1(\Gamma,\mathbb Z)$.}
+
+\noindent\emph{Proof.} --- It is easy to check that the subgroup of $\Pic^0(X)$ corresponding to invertible sheaves whose restriction to each irreducible component of $X$ is trivial is canonically isomorphic to
+\[
+H^1(\Gamma,\mathbb Z)\otimes\mathbb G_m.
+\]
+This implies (iii), and (i) is trivial.
+
+The morphism from $\Pic^0(X)$ to the product $\prod_i\Pic^0(X_i)$, extended over the irreducible components of $X$, is surjective, so that if $\Pic^0(X_i)\neq\{e\}$, then $\varphi(X_i)=X_i$. This is the case, unless $X_i$ is a projective line, linked to the other components in at least three points. \QED
+
+We prove now that if an automorphism $\varphi$ of any finite graph $\Gamma$ has the properties stated in Lemma (1.17), it is the identity. Make induction on the sum of the number of vertices and edges of $\Gamma$. If $\Gamma$ has an isolated point $x$, then $\varphi(x)=x$ so let $\Gamma^*=\Gamma-\{x\}$. Then $\varphi=$ identity on $\Gamma^*$ by induction, so $\varphi=$ identity on $\Gamma$ too. If $\Gamma$ has an extremity $x$, then $\varphi(x)=x$, and again let $\Gamma^*$ be $\Gamma$ minus $x$ and the edge abutting at $x$. Then $\Gamma^*$ has all the properties $\Gamma$ has, so $\varphi=$ identity on $\Gamma^*$, hence $\varphi=$ identity on $\Gamma$. If $\Gamma$ has a vertex $x$ on which only 2 edges abut, we have one of the two cases:
+
+\begin{center}
+\begin{tabular}{cc}
+(1)&(2)\\[-1.0ex]
+\begin{tikzpicture}[scale=.75,baseline=0]
+\node[circle,fill,inner sep=1.2pt,label=below:$x$] (x) at (0,0) {};
+\node[circle,fill,inner sep=1.2pt,label=below:$y$] (y) at (1.8,0) {};
+\draw (x) to[out=35,in=145] node[above] {$e_1$} (y);
+\draw (x) to[out=-35,in=-145] node[below] {$e_2$} (y);
+\draw (y) -- +(0.75,0.45);
+\draw (y) -- +(0.75,-0.45);
+\draw[dashed] (2.55,0)--(3.1,0);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=.75,baseline=0]
+\draw[dashed] (-.4,0)--(0.15,0);
+\draw (0.15,0)--(.65,.42);
+\draw (0.15,0)--(.65,-.42);
+\node[circle,fill,inner sep=1.2pt,label=below:$y_1$] (y1) at (.65,0) {};
+\node[circle,fill,inner sep=1.2pt,label=below:$x$] (x) at (2.05,0) {};
+\node[circle,fill,inner sep=1.2pt,label=below:$y_2$] (y2) at (3.45,0) {};
+\draw (y1)-- node[above] {$e_1$} (x);
+\draw (x)-- node[above] {$e_2$} (y2);
+\draw (y2)-- +(0.5,.42);
+\draw (y2)-- +(0.5,-.42);
+\draw[dashed] (3.95,0)--(4.5,0);
+\end{tikzpicture}
+\end{tabular}
+\end{center}
+
+
+In the first case, $\varphi(y)=y$, and let $\Gamma^*$ be $\Gamma$ minus $x$, $e_1$ and $e_2$. Then $\varphi=$ identity on $\Gamma^*$ and $\varphi(e_i)=e_i$ too, since if $\varphi$ reverses the $e_i$'s, this contradicts (iii). In the second case, let $\Gamma^*$ be $\Gamma$ minus $x$, and with $e_1$ and $e_2$ identified:
+
+\begin{center}
+\begin{tikzpicture}[scale=.82]
+\draw[dashed] (-.8,0)--(-.2,0);
+\draw (-.2,0)--(.2,.45);
+\draw (-.2,0)--(.2,-.45);
+\node[circle,fill,inner sep=1.2pt,label=below:$y_1$] (y1) at (.35,0) {};
+\node[circle,fill,inner sep=1.2pt,label=below:$y_2$] (y2) at (2.8,0) {};
+\draw (y1)-- node[above] {$e$} (y2);
+\draw (y2)-- +(0.42,.45);
+\draw (y2)-- +(0.42,-.45);
+\draw[dashed] (3.22,0)--(3.85,0);
+\end{tikzpicture}
+\end{center}
+
+Then $\varphi=$ identity on $\Gamma^*$, so $\varphi=$ identity on $\Gamma$. Next, say $\Gamma$ has an edge $e$ with extremities $x$ and $y$ such that $\varphi(x)=x$, $\varphi(y)=y$, $\varphi(e)=e$. Let $\Gamma^*$ be $\Gamma$ minus $e$. Then $\varphi=$ identity on $\Gamma^*$, so $\varphi=$ identity on $\Gamma$. If none of these reductions are possible, we must be in a situation where a) every vertex is the abutment of at least three edges and b) no edge is left fixed. It is easily seen that the first Betti number $b_1$ of any of the connected components of $\Gamma$ is at least 2. Let
+\[
+\begin{aligned}
+n_0&=\text{number of fixed vertices},\\
+n_1&=\text{number of edges reversed by }\varphi.
+\end{aligned}
+\]
+Then, unless $\Gamma=\varnothing$, the Lefschetz fixed point formula reads:
+\[
+n_0+n_1=b_0-b_1<0,
+\]
+which is impossible. \QED
+
+\section*{\S 2. Degenerations of curves and their jacobians.}
+
+We consider the situation:
+\begin{align*}
+K&=\text{discretely-valued field};\\
+R&=\text{integers in }K,\quad k=R/\mathfrak M=\text{residue field (assumed algebraically closed)};\\
+S&=\Spec(R),\quad \eta\text{ and }s\text{ its generic and closed points respectively};\\
+C&=\text{a curve, smooth, geometrically irreducible and proper over }K,\text{ of genus }g\geq2;\\
+J&=\text{the jacobian variety of }C;\\
+\mathscr J&=\text{the N\'eron model of }J\text{ over }R\ (\text{cf. }[N]);\\
+\mathscr J^0&\subset\mathscr J\text{ the open subgroup scheme with }\mathscr J_s^0=\text{identity component of }\mathscr J_s;\\
+\mathscr C&=\text{the minimal model of }C\text{ over }R.
+\end{align*}
+
+A word about the existence and uniqueness of $\mathscr C$ is needed. We recall that $\mathscr C$ is to be a regular scheme, flat and proper over $R$, with generic fibre $\mathscr C_\eta=C$ such that for any other regular scheme $\mathscr C'$, flat over $R$, with generic fibre $\mathscr C'_\eta=C$, the birational map $\mathscr C'\to\mathscr C$ is a morphism. Safarevich in [S] and Lichtenbaum [L] have proven that such a $\mathscr C$ (which is obviously unique) exists, provided that there is some regular $\mathscr C'$, proper and flat over $R$, with generic fibre $C$. And, in fact, that $\mathscr C$ is projective over $R$. To construct such a $\mathscr C$, proceed as follows: first let $\mathscr C''$ be any scheme, projective and flat over $R$ with generic fibre $C$. Let $\widehat R$ be the completion of $R$, and let
+\[
+\widehat{\mathscr C}''=\mathscr C''\times_{\Spec R}\Spec\widehat R.
+\]
+Then $\widehat{\mathscr C}''$ is an excellent surface, so by [Ab] and by unpublished results of Hironaka, there is a sheaf of ideals $\widehat{\mathcal J}$ with support in the singular locus of $\widehat{\mathscr C}''$ such that blowing up $\widehat{\mathcal J}$ leads to a regular surface $\widehat{\mathscr C}'$. But then
+\[
+\widehat{\mathcal J}\supset \mathfrak M^n\cdot\cO_{\widehat{\mathscr C}''}
+\]
+for some $n$, so $\widehat{\mathcal J}$ is induced by a unique sheaf of ideals $\mathcal J\subset\cO_{\mathscr C''}$. Let $\mathscr C'$ be obtained by blowing up $\mathcal J$. Then
+\[
+\widehat{\mathscr C}'\simeq \mathscr C'\times_{\Spec R}\Spec\widehat R
+\]
+so $\mathscr C'$ is regular. $\mathscr C'$ is also projective over $R$, hence a projective $\mathscr C$ exists.
+
+
+\noindent\emph{Definition (2.1).} --- $J$ has stable reduction if $\mathscr J_s$ has no unipotent radical.
+
+\noindent\emph{Definition (2.2).} --- $C$ has stable reduction in sense 1 if $\mathscr C_s$ is reduced and has only ordinary double points. $C$ has stable reduction in sense 2 if there is a stable curve $\mathscr C'$ over $R$ with generic fibre $\mathscr C'_\eta=C$.
+
+Note that if a stable $\mathscr C'$ exists, then by Theorem (1.11) it is unique.
+
+\medskip
+\noindent\emph{Proposition (2.3).} --- \emph{The two senses of stable reduction for $C$ are equivalent.}
+
+\noindent\emph{Proof.} --- Say a stable $\mathscr C'$ exists. Blowing up the singularities of $\mathscr C'$ as in Lemma (1.12), we obtain the minimal model $\mathscr C$ of $C$ and it is seen that $\mathscr C_s$ is reduced with only ordinary double points. Conversely, suppose the minimal model $\mathscr C$ has this property. Let $E_1,\ldots,E_n$ be the non-singular rational components of $\mathscr C_s$ which meet the other components in only two points. Then the $E_i$'s divide into several chains of the type:
+
+\begin{center}
+\begin{tikzpicture}[scale=.58,line width=.55pt]
+\foreach \x in {0,1,2,3,4}{
+  \draw (\x,.34)--(\x+0.55,-.34);
+  \draw (\x,-.34)--(\x+0.55,.34);
+}
+\end{tikzpicture}
+\end{center}
+
+unless the entire fibre consisted of $E_i$'s and has the type:
+
+\begin{center}
+\begin{tikzpicture}[scale=.7,line width=.55pt]
+\draw (0,0) -- (0.7,.45) -- (1.55,.22) -- (1.65,-.55) -- (0.85,-.92) -- (0.08,-.55) -- cycle;
+\foreach \p in {(0.18,.12),(0.75,.39),(1.48,.15),(1.53,-.48),(0.87,-.86),(0.14,-.50)}{
+  \draw \p ++(-.12,-.12)--++(.24,.24);
+  \draw \p ++(-.12,.12)--++(.24,-.24);
+}
+\node[right] at (2.25,.25) {$n\geq2$};
+\node[right] at (2.25,-.18) {$\mathscr C_s=\text{loop of }E_i\text{'s}$};
+\node[right] at (2.25,-.62) {$(E_i^2)_{\mathrm{on}\,\mathscr C}=-2.$};
+\end{tikzpicture}
+\end{center}
+
+But in this case genus$(C)=$ genus$(\mathscr C_s)=1$, which contradicts our assumption. Now, according to Theorem (27.1) of Lipman [Li] (generalizing a result of Artin [A$_2$], which works for surfaces of finite type over a field) any set of $k$ non-singular rational curves connected in a chain as above on a regular surface $X$, with self-intersection $-2$ on $X$, can be blown down to a rational double point $P$ of type $A_k$ on a normal surface $X_0$. Reversing the process and blowing up a rational double point of type $A_k$, it is easy to see that non-singular branches $\gamma$ on $X$, crossing transversally only the first or the last rational curve in the chain:
+
+\begin{center}
+\begin{tikzpicture}[scale=.68,line width=.55pt]
+\draw[dashed] (-.8,-.55) .. controls (-.35,-.3) and (-.25,.2) .. (0.0,.35);
+\draw (0,0)--(.55,.45) node[above] {$E_2$};
+\draw (.55,.45)--(1.1,-.05);
+\draw (1.1,-.05)--(1.65,.42);
+\draw (1.65,.42)--(2.2,-.05);
+\draw (2.2,-.05)--(2.75,.42);
+\draw (2.75,.42)--(3.3,-.05);
+\draw (3.3,-.05)--(3.85,.42);
+\draw (3.85,.42)--(4.4,-.05);
+\draw[dashed] (4.4,-.05).. controls (4.75,-.15) and (4.95,-.45).. (5.4,-.55);
+\node[left] at (0.05,-.05) {$E_1$};
+\node[right] at (4.35,.44) {$E_k$};
+\node[right] at (4.15,-.22) {$E_{k-1}$};
+\node[left] at (-.45,-.78) {$\gamma$};
+\end{tikzpicture}
+\end{center}
+
+are still non-singular branches when mapped to $X_0$; and if $\gamma_1$, $\gamma_2$ intersect $E_1$ or $E_k$ in distinct points, then they cross transversally on $X_0$. Therefore, suppose we blow down all the chains of $E_i$'s on $\mathscr C$. Let $\mathscr C'$ be the normal surface so obtained. Then if one of these chains fits into $\mathscr C_s$ like this:
+
+\begin{center}
+\begin{tikzpicture}[scale=.67,line width=.55pt]
+\draw (-.2,.55) .. controls (1.2,.92) and (3.9,.8) .. (5.2,.48);
+\draw (-.2,-.55) .. controls (1.2,-.92) and (3.9,-.78) .. (5.2,-.45);
+\draw (-.2,.55).. controls (-.6,.25) and (-.55,-.25) .. (-.2,-.55);
+\draw (5.2,.48).. controls (5.6,.25) and (5.55,-.23) .. (5.2,-.45);
+\draw[dashed] (-1.0,0) -- (-.35,0);
+\draw (-.35,0).. controls (-.6,.25) and (-.55,.55).. (-.15,.55);
+\draw (-.35,0).. controls (-.6,-.25) and (-.55,-.55).. (-.15,-.55);
+\node[left] at (-.95,0) {$F$};
+\foreach \x in {0.35,1.25,2.15,3.05,3.95}{
+  \draw (\x,.34)--(\x+.48,-.34);
+  \draw (\x,-.34)--(\x+.48,.34);
+}
+\node at (.42,.64) {$E_1$};
+\node at (.8,-.65) {$E_2$};
+\node at (4.45,.64) {$E_k$};
+\node at (4.25,-.65) {$E_{k-1}$};
+\node at (2.6,-1.20) {\scriptsize Contract to $P$};
+\draw[dashed] (5.55,0)--(6.15,0);
+\node[right] at (6.15,0) {$G$};
+\end{tikzpicture}
+\end{center}
+
+then on $\mathscr C'_s$, the images of $F$ and $G$ still have only ordinary double points, each has one non-singular branch through the singular point $P$, and these branches cross transversally. Therefore $\mathscr C'$ is a stable curve over $R$. \QED
+
+
+We are now ready to prove the key result on which our proof of irreducibility depends:
+
+\medskip
+\noindent\emph{Theorem (2.4).} --- \emph{$J$ has stable reduction if and only if $C$ has stable reduction.}
+
+\noindent\emph{Proof.} --- The connection between $\mathscr C$ and $\mathscr J$ is based on the following result of Raynaud [R]:
+
+\medskip
+\noindent\emph{Theorem (2.5).} --- \emph{If $\mathscr C$ and $\mathscr J$ are as above, and the greatest common denominator $d$ of the multiplicities of the components of $\mathscr C_s$ is $1$, then $\mathscr J^0$ represents the functor $\Pic^0(\mathscr C/S)$.}
+
+(This result is not stated as such in [R]. It comes out like this, in the terminology of his paper:
+\begin{enumerate}[label=\emph{\alph*)}]
+\item Condition (N) is verified and $p_*(\cO_{\mathscr C})=\cO_S$, so
+\item $\mathscr C$ is cohomologically flat over $S$ in dim. 0 by Theorem 4;
+\item therefore $\Pic^0$ is representable and separated over $S$ by Theorem 3;
+\item since $E=\{0\}$ and $Q=P/E$, we find $P^0=Q^0$, and since $\mathscr C$ is 1-dimensional over $S$, $P^0$ and $Q^0$ are smooth over $S$; therefore $R^0=Q^0$ and $\widetilde R=R$.
+\item Then by Theorem 5, $\Pic^0$ is the identity component of the N\'eron model of $\Pic^0(\mathscr C_\eta)=J$.)
+\end{enumerate}
+
+Now assume that $C$ has stable reduction. Then $\mathscr C_s$ is reduced so $d=1$. By Theorem (2.5), $\mathscr J^0=\Pic^0(\mathscr C/S)$. Therefore $\mathscr J_s^0=\Pic^0(\mathscr C_s/k)$. Since $\mathscr C_s$ is reduced with only ordinary double points, its generalized jacobian $\Pic^0(\mathscr C_s/k)$ is an extension of an abelian variety by a torus, i.e., has no unipotent radical. Therefore $J$ has stable reduction.
+
+The converse is more difficult. Assume $J$ has stable reduction. We first prove that $C$ has stable reduction under the additional hypothesis that $C$ has a $K$-rational point.\footnote{This is in fact the only case which will be needed in our application to questions of irreducibility.} In this case, $\mathscr C$ has an $R$-rational point, and since $\mathscr C$ is regular, sections of $\mathscr C$ over $R$ pass through components of $\mathscr C_s$ of multiplicity one. Therefore $d=1$, and
+
+Theorem (2.5) applies. In particular, $\Pic^0(\mathscr C_s/k)=\mathscr J_s^0$, so $\Pic^0(\mathscr C_s/k)$ has no unipotent radical. We apply:
+
+\medskip
+\noindent\emph{Lemma (2.6).} --- \emph{Let $D$ be a complete 1-dimensional scheme over $k$ such that $H^0(\cO_D)=k$, and such that the generalized jacobian of $D$ has no unipotent radical. Then}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$\chi(\cO_D)=\chi(\cO_{D_{\mathrm{red}}})$;}
+\item \emph{the singularities of $D_{\mathrm{red}}$ are all transversal crossings of a set of non-singular branches (i.e., analytically isomorphic to the union of the coordinate axes in $\A^n$).}
+\end{enumerate}
+
+\noindent\emph{Proof.} --- Let $\mathcal J\subset \cO_D$ be the ideal of nilpotent elements. Filtering $\mathcal J$ by a chain of ideals $\mathcal J_k$ such that $\mathcal J\mathcal J_k\subset\mathcal J_{k+1}$, and using the exact sequence
+\[
+0\longrightarrow \mathcal J_k/\mathcal J_{k+1}
+\xrightarrow{\ a\mapsto 1+a\ }
+(\cO_D/\mathcal J_{k+1})^*\longrightarrow (\cO_D/\mathcal J_k)^*\longrightarrow 0,
+\]
+it is easy to deduce that $\Pic^0(D/k)$ is an extension of $\Pic^0(D_{\mathrm{red}}/k)$ by a unipotent group. Therefore, since by assumption $\Pic^0(D/k)$ has no unipotent subgroups,
+\[
+\Pic^0(D/k)\simeq\Pic^0(D_{\mathrm{red}}/k).
+\]
+Since $H^1(\cO_D)$, resp. $H^1(\cO_{D_{\mathrm{red}}})$, is naturally isomorphic to the Zariski tangent space to $\Pic^0(D/k)$, resp. $\Pic^0(D_{\mathrm{red}}/k)$, it follows that
+\[
+H^1(\cO_D)\simeq H^1(\cO_{D_{\mathrm{red}}}),
+\]
+hence (i) is proven. Let $\pi:C\to D_{\mathrm{red}}$ be the normalization of $D_{\mathrm{red}}$ and let $D^*$ be the local ringed space which, as topological space is $D$, and whose structure sheaf is given by
+\[
+\Gamma(U,\cO_{D^*})=
+\{f\in\Gamma(U,\pi_*(\cO_C))\mid x_1,x_2\in\pi^{-1}(U),\ f(x_1)=f(x_2)\text{ if }\pi(x_1)=\pi(x_2)\}.
+\]
+It is easy to check that $D^*$ is a 1-dimensional scheme whose singularities are all transversal crossings of a set of non-singular branches and that $\pi$ factors:
+\[
+C\xrightarrow{\ \pi'\ }D^*\xrightarrow{\ \pi''\ }D_{\mathrm{red}}.
+\]
+I claim that $\pi'':D^*\to D_{\mathrm{red}}$ is an isomorphism. Filter $\cO_{D^*}/\cO_{D_{\mathrm{red}}}$ so as to obtain a chain of coherent $\cO_{D_{\mathrm{red}}}$-algebras
+\[
+\cO_{D^*}=\cO^{(0)}\supset \cO^{(1)}\supset\cdots\supset \cO^{(k)}=\cO_{D_{\mathrm{red}}}
+\]
+such that $\ell(\cO^{(n)}/\cO^{(n+1)})=1$. Equivalently, this factors $\pi''$:
+\[
+D^*=D_0\longrightarrow D_1\longrightarrow\cdots\longrightarrow D_k=D_{\mathrm{red}},
+\]
+where $\cO^{(n)}\simeq\cO_{D_n}$, and all arrows are homeomorphisms. If $\{x_n\}=\operatorname{Supp}(\cO^{(n)}/\cO^{(n+1)})$, then we get an exact sequence:
+\[
+0\longrightarrow \cO_{D_{n+1}}^*\longrightarrow \cO_{D_n}^*\longrightarrow k_{x_n}\longrightarrow 0
+\]
+($k_y$ denotes the residue field at $y$, as sheaf on $D$), and hence:
+\[
+0\longrightarrow k\longrightarrow H^1(\cO_{D_{n+1}}^*)\longrightarrow H^1(\cO_{D_n}^*)\longrightarrow 0.
+\]
+It follows easily that $\Pic^0(D_{n+1}/k)$ is an extension of $\Pic^0(D_n/k)$ by $G_a$. But $\Pic^0(D_{\mathrm{red}}/k)$ has no unipotent subgroups, and this can only happen if $D_{\mathrm{red}}=D^*$. Q.E.D. for lemma.
+
+We apply the lemma to $\mathscr C_s$. According to Lichtenbaum [L] and Safarevich [S], there is a divisor $K$ on $\mathscr C$ such that for all positive divisors $D$ lying over the closed point of $\Spec(R)$, we have:
+\[
+\chi(\cO_D)=-\frac{(D\cdot(D+K))}{2}.
+\]
+Let $E_1,\ldots,E_n$ be the components of $\mathscr C_s$, $d_1,\ldots,d_n$ their multiplicities. Then conclusion (i) of the lemma implies that:
+\[
+\Bigl(\sum_i d_iE_i\cdot\bigl(\sum_i d_iE_i+K\bigr)\Bigr)=
+\Bigl(\sum_i E_i\cdot\bigl(\sum_i E_i+K\bigr)\Bigr).
+\]
+But $((\sum_i d_iE_i)\cdot E_k)=0$, all $k$, since $\sum_i d_iE_i$ is the divisor of a function $\pi\in R$ if $(\pi)={}$maximal ideal of $R$. Therefore:
+\[
+(*)\qquad \Bigl(\bigl(\sum_i(d_i-1)E_i\bigr)\cdot K\Bigr)=\Bigl(\sum_i E_i\cdot\sum_i E_i\Bigr).
+\]
+Note that at least one $d_i$ equals 1 since $\mathscr C$ has a section over $\Spec(R)$ and every section must pass through a component of $\mathscr C_s$ of multiplicity 1. Moreover the intersection matrix $(E_i\cdot E_j)$ is negative indefinite, with one-dimensional degenerate subspace generated by $\sum_i d_iE_i$, hence if some $d_i>1$, it follows that $(\sum_i E_i\cdot\sum_i E_i)<0$. Therefore, by $(*)$, $(E_{i_0}\cdot K)<0$ for some $i_0$. Then we have:
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $(E_{i_0}\cdot K)<0$;
+\item $(E_{i_0}\cdot E_{i_0})<0$;
+\item $(E_{i_0}\cdot(E_{i_0}+K))=-2\chi(\cO_{E_{i_0}})\geq -2$;
+\end{enumerate}
+hence in fact $(E_{i_0}\cdot E_{i_0})=(E_{i_0}\cdot K)=-1$, so $E_{i_0}$ is an exceptional curve of the first kind. This contradicts our assumption that on $\mathscr C$ all possible curves have been blown down. Therefore $d_i=1$, all $i$.
+
+This proves that $\mathscr C_s$ is reduced. By conclusion (ii) of the lemma, plus the fact that the dimension of its Zariski tangent-space is everywhere one or two (since $\mathscr C_s$ lies on a regular surface $\mathscr C$), we deduce that $\mathscr C_s$ has only double points. This proves that $C$ has stable reduction in the case that $C(K)\ne\varnothing$.
+
+In the general case, $C$ will acquire a rational point in a finite extension $K'$ of $K$. Let $S'$ be the spectrum of the localisation at some maximal ideal of the integral closure of $R$ in $K'$; $S'$ is the spectrum of a valuation ring and is faithfully flat over $S$. We put $S''=S'\times_S S'$ and denote by $C'$ and $C''$ the inverse images of $C$ on $S'_\eta=\Spec(K')$ and $S''_\eta$ respectively.
+\[
+\begin{array}{ccc}
+C''&\longrightarrow&C'\longrightarrow C\\[2pt]
+\downarrow&&\downarrow\quad\downarrow\\[-1pt]
+S''&\xrightarrow[\mathrm{pr}_2]{\mathrm{pr}_1}&S'\xrightarrow{\ p\ }S.
+\end{array}
+\]
+
+Let $\overline C'$ be the stable curve on $S'$ having $C'$ as generic fibre. The restriction, $C'$, of $\overline C'$ to $S'_\eta$ carries a descent datum with respect to $p$, i.e. an isomorphism, $\varphi_\eta$, between the restrictions of $\mathrm{pr}_1^*(\overline C')$ and $\mathrm{pr}_2^*(\overline C')$ to $S''_\eta$. It remains only to extend the isomorphism $\varphi_\eta$ to an isomorphism, $\varphi$, between the $\mathrm{pr}_i^*(\overline C')$. Then $\varphi$ will be a descent datum for $\overline C'$ with respect to $p$. As $\overline C'$ is canonically polarized (1.2), this descent datum will be effective, and so define a stable curve, $\overline C$, over $S$ with generic fibre $C$.
+
+Because $\mathscr J_s^0$ has no unipotent radical, the inverse image, $p^*\mathscr J^0$, of $\mathscr J^0$ on $S'$ is the identity component of the Néron Model of the jacobian of $C'$, so that, defining $q=p\circ\mathrm{pr}_1=p\circ\mathrm{pr}_2$, one has
+\[
+\Pic^0(\overline C'/S')=p^*\mathscr J^0,
+\]
+\[
+\Pic^0(\mathrm{pr}_1^*\overline C')=\Pic^0(\mathrm{pr}_2^*\overline C')=q^*\mathscr J^0.
+\]
+We denote by $T$ the closed subscheme of $\Isom(S'',\mathrm{pr}_1^*(\overline C'),\mathrm{pr}_2^*(\overline C'))$ corresponding to those isomorphisms which induce (via the preceding identifications) the identity on the inverse image of $\mathscr J^0$.
+
+By (1.11), $T$ is finite and unramified over $S''$, and by (1.13) $T$ is radicial over $S''$. We conclude that the morphism from $T$ to $S''$ identifies $T$ with a closed subscheme $X$ of $S''$. As $X$ contains $S''_\eta$, which is schematically dense in $S''$, we have that $X$ is $S''$ and $T$ ``is'' the desired section, $\varphi$, of $\Isom(S'',\mathrm{pr}_1^*(\overline C'),\mathrm{pr}_2^*(\overline C'))$ over $S''$ which extends $\varphi_\eta$. Q.E.D.
+
+Combining Proposition (2.3), Theorem (2.4), and the stable reduction theorem for abelian varieties quoted in the introduction, we obtain the most important consequence:
+
+\medskip
+\noindent\emph{Corollary (2.7).} --- \emph{Let $R$ be a discrete valuation ring with quotient field $K$. Let $C$ be a smooth geometrically irreducible curve over $K$ of genus $g\geq2$. Then there exists a finite algebraic extension $L$ of $K$ and a stable curve $\mathscr C_L$ over $R_L$, the integral closure of $R$ in $L$, with generic fibre $\mathscr C_{L,\eta}=C\times_K L$.}
+
+\section*{\S 3. Elementary derivation of the theorem.}
+
+Let $k$ be an algebraically closed field of char. $p\ne0$. We use the notation of \S~1, except that we will now denote by $H_g$ the product $H_g\times\Spec(k)$ of the previous $H_g$ with $\Spec(k)$: it is a disjoint union of non-singular varieties $H_{g,1},\ldots,H_{g,n}$ over $k$ and is the subscheme of $\Hilb_{\PP^{5g-6}/k}^{P_g}$ of tri-canonical stable curves. Similarly, $H_g^0$ is the open dense subset of $H_g$ of tri-canonical non-singular curves. By the results of [M$_1$], we know that a coarse geometric quotient
+\[
+M_g^0=H_g^0/\PGL(5g-6)
+\]
+exists, that it is a disjoint union of normal varieties over $k$ and is the coarse moduli space for non-singular curves of genus $g$. Let $S^*=H_g-H_g^0$. Then everything decomposes into the same set of components.
+
+Let
+\[
+\begin{array}{rcl}
+H_{g,i}&=&\text{components of }H_g,\\
+\text{then}\quad H^0_{g,i}&=&H_{g,i}\cap H_g^0=\text{components of }H_g^0,\\
+\text{and}\quad M^0_{g,i}&=&H^0_{g,i}/\PGL(5g-6)=\text{components of }M_g^0,\\
+\text{and}\quad S^*&=&\text{disjoint union of }S_1^*,\ldots,S_n^*,\quad S_i^*=H_{g,i}\cap S^*.
+\end{array}
+\]
+We want to prove that $M_g^0$, or equivalently $H_g^0$, or equivalently $H_g$ is irreducible. We shall use: (i) the fact that these statements are true in char. 0; (ii) the inductive assumption that these statements are true for smaller genus.
+
+\medskip
+\noindent\emph{Step I.} --- No component of $M_g^0$ is complete (i.e., proper over $k$).
+
+\noindent\emph{Proof.} --- Here we use the char. 0 result. By [M$_1$], there is a scheme $X$, quasi-projective over $\Spec(W(k))$, $W(k)$ the Witt vectors, whose closed fibre is $M_g^0$, and whose generic fibre $X_\eta$ is the char. 0 coarse moduli space over the quotient field of $W(k)$. In particular, $X_\eta$ is known to be connected. Since $X$ is quasi-projective over $W(k)$, we can embed $X$ as an open dense subset of a scheme $\overline X$ projective over $W(k)$. $\overline X_\eta$ is still connected, hence by the connectedness theorem of Enriques-Zariski [EGA 3], the closed fibre $\overline X_0$ of $\overline X$ is connected. But if $Y$ were a complete variety which is a component of $M_g^0$, then: a) $Y$ is an open subset of $M_g^0$, which is an open subset of $\overline X_0$, and: b) since $Y$ is proper$/k$, $Y$ would be a closed subset of $\overline X_0$ too. Therefore, $Y=\overline X_0$, hence $M_g^0$ is itself irreducible and complete. On the other hand, if $A_g$ is the coarse moduli space of principally polarized $g$-dimensional abelian varieties, then the map associating to each curve its jacobian defines a morphism:
+\[
+\theta:M_g^0\to A_g.
+\]
+If $M_g^0$ were complete, the image of $\theta$ would be closed. But it is well known that the closure of the image of $\theta$ contains all products of lower dimensional jacobians too, so it is not closed. Q.E.D.
+
+\medskip
+\noindent\emph{Step II.} --- No component of $H_g$ consists entirely of non-singular curves, i.e., $S_i^*\ne\varnothing$ for all $i$.
+
+\noindent\emph{Proof.} --- Here we combine Step I with the result of \S~2. Take any $i$. Let $T=\Spec k[[t]]$. Since $M^0_{g,i}$ is not complete, there is a morphism $\varphi$ of the generic point $T_\eta$ of $T$ into $M^0_{g,i}$ which does not extend to a morphism of $T$ into $M^0_{g,i}$. Now we replace $T$ by its normalization $T'$ in a finite algebraic extension and let $\varphi':T'_\eta\to M^0_{g,i}$ be the induced morphism, which still does not extend to a morphism from $T'$ to $M^0_{g,i}$. By the results of \S~2, if $T'$ is chosen suitably there exists a stable curve $\pi:C'\to T'$ over $T'$ whose generic fibre $C'_\eta$ is a non-singular curve corresponding to the morphism $\varphi':T'_\eta\to M_g^0$ via the functorial properties of the moduli space. Since $T'$ is the spectrum of a local ring, we can choose an isomorphism
+\[
+\PP\bigl(\pi_*(\omega_{C'/T'}^{\otimes3})\bigr)\simeq\PP^{5g-6}\times T'
+\]
+and get a tri-canonical embedding $C'\subset\PP^{5g-6}\times T'$. $C'$, with this embedding, is then induced from the universal tri-canonically embedded stable curve by a morphism $\psi:T'\to H_g$. Since the generic fibre of $C'$ is $C'_\eta$, we get a commutative diagram:
+\[
+\begin{array}{ccc}
+T'&\xrightarrow{\ \psi\ }&H_g\\
+\cup&&\cup\\
+T'_\eta&\xrightarrow{\ \mathrm{res}(\psi)\ }&H_g^0\\
+\varphi'\searrow&&\downarrow\\
+& M^0_{g,i}&\subset M_g^0.
+\end{array}
+\]
+If $\operatorname{Im}(\psi)\subset H_g^0$, then $\varphi'$ would extend to a morphism from $T'$ to $M_g^0$, hence from $T'$ to $M^0_{g,i}$, and this is a contradiction. Moreover, $\psi(T_\eta)$ must be a point of $H^0_{g,i}$, since its image in $M_g^0$ is in $M^0_{g,i}$. Therefore the image $x$ of the closed point of $T'$ by $\psi$ is in the closure of $H^0_{g,i}$, i.e., in $H_{g,i}$, but not in $H^0_{g,i}$ itself. Q.E.D.
+
+\medskip
+\noindent\emph{Step III.} --- $S^*$ is connected.
+
+\noindent\emph{Proof.} --- This will follow using only the induction assumption of irreducibility for lower genera. Let $Z\subset H_g\times\PP^{5g-6}$ be the universal tri-canonically embedded stable curve. Let $S\subset Z$ be the set of points where $Z$ is not smooth over $H_g$. As we proved in \S~1, $S$ is non-singular and is the normalization of $S^*$. In particular, this shows that if $x\in S^*$, then the corresponding curve $Z_x$ has exactly one double point if and only if $x$ is a non-singular point of $S^*$. Stable curves $C$ of genus $g$ with exactly one double point belong to one of the following types:
+\[
+\begin{array}{rcll}
+\text{type }0:&&
+\begin{tikzpicture}[scale=.32,baseline=-.7ex,line width=.45pt]
+\draw (0,0).. controls (.45,.55) and (1.0,.35)..(.95,-.15);
+\draw (0,0).. controls (.45,-.55) and (1.0,-.35)..(.95,.15);
+\draw (.05,.05)--(.9,-.12);
+\draw (.05,-.05)--(.9,.12);
+\end{tikzpicture}
+& \begin{array}{l}C\text{ irreducible}\\
+\text{normalization }C'\text{ of }C\text{ has genus }g-1;
+\end{array}\\[1.2em]
+\text{type }k:&&
+\begin{tikzpicture}[scale=.32,baseline=-.7ex,line width=.45pt]
+\draw (-.15,-.55)--(.9,.55);
+\draw (-.15,.55)--(.9,-.55);
+\draw (-.55,.75)--(-.15,.15);
+\draw (-.55,-.75)--(-.15,-.15);
+\draw (.9,.15)--(1.35,.75);
+\draw (.9,-.15)--(1.35,-.75);
+\end{tikzpicture}
+& \begin{array}{l}C\text{ has two non-singular components }C_1,C_2\\
+\operatorname{genus}(C_1)=k\\
+\operatorname{genus}(C_2)=g-k
+\end{array}
+\end{array}
+\]
+where $1\leq k\leq\left[\frac g2\right]$. If $0\leq k\leq\left[\frac g2\right]$, let
+\[
+S^*(k)=\{x\in S^*\mid Z_x\text{ has one double point and is of type }k\}.
+\]
+Then the open dense subset of $S^*$ of non-singular points is the disjoint union of open subsets $S^*(0),\ldots,S^*(\left[\frac g2\right])$. We first check:
+
+\medskip
+\noindent$(*)$ Each set $S^*(k)$ is irreducible.
+
+\noindent\emph{Proof of $(*)$.} --- Take the case $k=0$: the cases $1\leq k\leq\left[\frac g2\right]$ are similar. Let
+\[
+T=\{\{x_1,x_2\}\mid x_1\ne x_2\text{ and }\pi(x_1)=\pi(x_2)\in H^0_{g-1}\}\subset Z_{g-1}\times_{H_{g-1}}Z_{g-1}.
+\]
+$T$ is smooth with irreducible fibres over $H^0_{g-1}$, hence $T$ is irreducible. Consider the correspondence relating $S^*(0)$ and $T$:
+\[
+W=\left\{\begin{array}{l}
+\text{set of pairs }x\in S^*(0),\ \{x_1,x_2\}\in T\text{ such that if }y=\pi(x_1)=\pi(x_2),\\
+\text{then there exists a birational morphism } f:(Z_{g-1})_y\to (Z_g)_x\\
+\text{such that }f(x_1)=f(x_2).
+\end{array}\right.
+\]
+It is easy to check that $W$ is Zariski-closed. Moreover, for any $\{x_1,x_2\}\in T$, $W\cap(S^*(0)\times\{x_1,x_2\})$ is an orbit in $S^*(0)$ under $\PGL(5g-6)$: so these are non-empty irreducible subsets all of the same dimension. It follows that $W$ itself is irreducible. But the projection from $W$ to $S^*(0)$ is surjective, so $S^*(0)$ is irreducible. Q.E.D. for $(*)$.
+
+Now for any $k$, $1\leq k\leq\left[\frac g2\right]$, choose any stable curve $C(k)$ of the type:
+\[
+\begin{array}{cl}
+\begin{tikzpicture}[scale=.42,baseline=-2ex,line width=.45pt]
+\draw (-.8,.85)--(.1,.1);
+\draw (-.8,-.85)--(.1,-.1);
+\draw (.1,.1)--(.8,.55);
+\draw (.1,-.1)--(.8,-.55);
+\draw (-.28,.23).. controls (-.65,.05) and (-.57,-.4)..(-.12,-.23);
+\draw (-.25,.2)--(-.05,-.05);
+\draw (-.25,-.2)--(-.05,.05);
+\node[right] at (.72,.54) {$Q_1$};
+\node[right] at (.72,-.54) {$Q_2$};
+\end{tikzpicture}
+&\begin{array}{l}
+\text{one non-singular component }C(k)'\text{ of genus }k,\\
+\text{one component }C(k)''\text{ with one double point, normalization of genus }g-k-1.
+\end{array}
+\end{array}
+\]
+Let $P(k)$ be a point of $H_g$ such that $Z_{P(k)}\simeq C(k)$. Step III will be completed if we prove:
+
+\medskip
+\noindent$(**)$ $P(k)$ is in the closure of $S^*(0)$ and of $S^*(k)$, hence $S^*(0)$, $S^*(k)$ both lie in the same topological component of $S^*$.
+
+\noindent\emph{Proof of $(**)$.} --- Let $T=\Spec k[[t]]$. Using the fact that $S^*$ has two branches through $P(k)$, one for each of the double points of $C(k)$, we see that there exist two morphisms
+\[
+f_1,f_2:T\to S^*,
+\]
+\[
+f_1(T_s)=f_2(T_s)=P(k),\qquad T_s=\text{closed point of }T,
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale=.62,line width=.5pt]
+\begin{scope}[xshift=0cm]
+\node at (0.3,1.75) {$D_{1,\eta}$};
+\draw[dashed] (.25,1.55).. controls (.55,1.15) and (.55,.65).. (.05,.25);
+\draw (.05,.25).. controls (-.55,.45) and (-.9,.05)..(-.55,-.35);
+\draw (.05,.25).. controls (.65,.05) and (.78,-.75)..(.18,-1.15);
+\draw (.18,-1.15).. controls (.05,-1.55) and (.25,-1.95)..(.75,-2.2);
+\draw[dashed] (.75,-2.2).. controls (1.0,-2.35) and (1.25,-2.55)..(1.45,-2.9);
+\draw (-.55,-.35).. controls (-.9,-.75) and (-.45,-1.1)..(.18,-1.15);
+\node at (.95,-3.15) {$C(k)$};
+\end{scope}
+\begin{scope}[xshift=5.0cm]
+\node at (0.25,1.75) {$D_{2,\eta}$};
+\draw[dashed] (.2,1.55).. controls (.55,1.1) and (.55,.65)..(.05,.22);
+\draw (.05,.22).. controls (-.55,.42) and (-.9,.02)..(-.55,-.32);
+\draw (.05,.22).. controls (.6,-.1) and (.62,-.85)..(.18,-1.18);
+\draw (.18,-1.18).. controls (-.35,-1.1) and (-.65,-1.45)..(-.55,-1.85);
+\draw (.18,-1.18).. controls (.72,-1.32) and (1.0,-1.88)..(1.4,-2.35);
+\draw[dashed] (1.4,-2.35).. controls (1.65,-2.52) and (1.85,-2.72)..(2.05,-2.98);
+\node at (1.45,-3.15) {$C(k)$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+such that if $\pi_1:D_1\to T$, $\pi_2:D_2\to T$ are the two stable curves over $T$ induced by $f_1$ and $f_2$, then: a) the closed fibres $D_{1,s}$, $D_{2,s}$ are $C(k)$; b) there are sections $s_1:T\to D_1$, $s_2:T\to D_2$ whose images are non-smooth points of $\pi_1$, $\pi_2$ and such that $s_1(T_s)$ and $s_2(T_s)$ are the two double points $Q_1$ and $Q_2$ of $C(k)$ respectively; and c) the generic fibres $D_{1,\eta}$, $D_{2,\eta}$ have only one double point (cf. figure). I claim:
+\begin{enumerate}[label=\Alph*)]
+\item $D_{1,\eta}$ is of type $(k)$;
+\item $D_{2,\eta}$ is of type $(0)$.
+\end{enumerate}
+
+To prove A), let $D'_1$ be the result of blowing up the subscheme $s_1(T)$ of $D_1$. Then $D'_1$ is still flat and proper over $T$ and its special fibre is the special fibre of $D_1$ with $Q_1$ blown up (use the fact that formally at $Q_1$, $D_1$ is isomorphic to $k[[t,x,y]]/(xy)$ with the section given by $x=y=0$). Therefore the special fibre of $D'_1$ is the disjoint union of $C(k)'$, $C(k)''$, so the general fibre of $D'_1$ is the disjoint union of two irreducible curves which specialize to $C(k)'$, $C(k)''$ respectively. Since $D_{1,\eta}$ has only one double point, $D'_{1,\eta}$ is non-singular, so $D'_{1,\eta}$ is the disjoint union of two non-singular irreducible curves which must then have the same genera as $C(k)'$ and $C(k)''$, i.e., $k$, $g-k$. Thus $D_{1,\eta}$ has type $(k)$.
+
+To prove B), it suffices to check that $D_{2,\eta}$ is geometrically irreducible. If not, $D_{2,\eta}$ would have two components meeting at the single point $s_2(T_\eta)$. Since $D_2$ is smooth over $T$ at each generic point of its special fibre, distinct geometric components of $D_{2,\eta}$ have to have specializations which are distinct components of $(D_2)_s$. Then $(D_2)_s$ would have two components meeting at the point $Q_2=s_2(T_s)$. This is false, so B) is proven.
+
+Now because of A), $f_1(T_\eta)\in S^*(k)$, hence $P(k)=f_1(T_s)$ is in the closure of $S^*(k)$. And because of B), $f_2(T_\eta)\in S^*(0)$, hence $P(k)=f_2(T_s)$ is in the closure of $S^*(0)$ too. Q.E.D. for $(**)$.
+
+This completes the proof of Step III since we now see that all irreducible components of $S^*$ are part of the same topological component. Finally, from Steps II and III, we see that
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $S^*$, being connected, is part of a single component of $H_g$, while
+\item each component of $H_g$ contains part of $S^*$.
+\end{enumerate}
+Thus $H_g$ is irreducible, as was to be proven.
+
+\section*{\S 4. Some results on algebraic stacks.}
+
+The proofs of the results stated in this section will be given elsewhere.
+
+Let $C$ be a category and let $p:\mathscr S\to C$ be a category over $C$. For each $U\in\operatorname{Ob} C$, we denote by $\mathscr S_U$ the fibre $p^{-1}(U)$. The category $\mathscr S$ is \emph{fibered in groupoids} over $C$ if the following two conditions are verified:
+\begin{enumerate}[label=\emph{\alph*)}]
+\item For all $\varphi:U\to V$ in $C$ and $y\in\operatorname{Ob}\mathscr S_V$ there is a map $f:x\to y$ in $\mathscr S$ with $p(f)=\varphi$.
+\item Given a diagram
+\[
+\begin{tikzpicture}[scale=.75,baseline=-.5ex,>=Latex]
+\node (x) at (0,1.1) {$x$};
+\node (y) at (-.8,0) {$y$};
+\node (z) at (.8,0) {$z$};
+\draw[->] (x)-- node[above right] {$f$} (z);
+\draw[->] (y)-- node[below right] {$g$} (z);
+\end{tikzpicture}
+\]
+in $\mathscr S$, let
+\[
+\begin{tikzpicture}[scale=.75,baseline=-.5ex,>=Latex]
+\node (U) at (0,1.1) {$U$};
+\node (V) at (-.8,0) {$V$};
+\node (W) at (.8,0) {$W$};
+\draw[->] (U)-- node[above right] {$\varphi$} (W);
+\draw[->] (V)-- node[below right] {$\psi$} (W);
+\end{tikzpicture}
+\]
+be its image in $C$. Then for all $\chi:U\to V$ such that $\varphi=\psi\chi$, there is a unique $h:x\to y$ such that $f=g\cdot h$ and $p(h)=\chi$.
+\end{enumerate}
+Condition b) implies that the $f:x\to y$ whose existence is asserted in a) is unique up to canonical isomorphism.
+
+Assume that for each $\varphi:U\to V$ in $C$ and each $Y\in\operatorname{Ob}\mathscr S_V$, such an $f:x\to y$ has been chosen. This $x$ will be written as $\varphi^*y$. Then, $\varphi^*$ ``is'' a functor from $\mathscr S_V$ to $\mathscr S_U$ and if $\varphi\psi$ is a composite morphism in $C$, the functors $(\varphi\psi)^*$ and $\psi^*\varphi^*$ are canonically isomorphic.
+
+We propose the terminology ``stack'' for the French word ``champ'' of non-abelian cohomology (Giraud [G]).
+
+\medskip
+\noindent\emph{Definition (4.1).} --- \emph{Let $C$ be a category with a Grothendieck topology. We assume products and fibre products exist in $C$. A stack in groupoids over $C$ is a category over $C$, $p:\mathscr S\to C$ such that:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$\mathscr S$ is fibered in groupoids over $C$.}
+\item \emph{For any $U\in\operatorname{Ob} C$ and any objects $x,y$ in $\mathscr S_U$ the functor from $C/U$ to (sets) which to any $\varphi:V\to U$ associates $\Hom_{\mathscr S_V}(\varphi^*x,\varphi^*y)$ is a sheaf.}
+\item \emph{If $\varphi_i:V_i\to U$ is a covering family in $C$, any descent datum relative to the $\varphi_i$, for objects in $\mathscr S$, is effective.}
+\end{enumerate}
+
+For each $x\in\operatorname{Ob}\mathscr S_U$, there are given isomorphisms between the inverse images of $x_i=\varphi_i^*x$ and $x_j=\varphi_j^*x$ over $V_{ij}=V_i\times_U V_j$, and the pull-backs of these isomorphisms on $V_{ijk}=V_i\times_U V_j\times_U V_k$ satisfy a ``cocycle'' condition. In (iii) it is required that reciprocally, any such ``descent datum'' be defined by some $x\in\mathscr S_U$.
+
+\emph{In what follows, for the sake of brevity, we will use ``stack'' to mean ``stack in groupoids''.}
+
+If $U\in\operatorname{Ob} C$ and if $\mathscr S$ is a stack over $C$, the fibre $\mathscr S_U$ will be called the category of sections of $\mathscr S$ over $U$.
+
+Let $C$ be as in (4.1). The stacks over $C$ are the objects of a 2-category [B] (stacks$/C$): 1-morphisms are functors from one stack to another, compatible with the projection into $C$; and 2-morphisms are morphisms of functors. In this 2-category every 2-morphism is an isomorphism. Products and 2-fibre products exist in this 2-category.
+
+To each $X\in\operatorname{Ob} C$ is associated the ``representable'' stack over $C$ whose category of sections over $U$ is the discrete category whose objects are the morphisms from $U$ to $X$. This stack will be denoted simply $X$. For any stack $\mathscr S$, the category
+\[
+\Hom(X,\mathscr S)
+\]
+is canonically equivalent to the category of sections of $\mathscr S$ over $X$. Because of this, $\mathscr S$ is sometimes said to ``classify'' its sections over variable $X\in\operatorname{Ob} C$. In the category $\Hom(\mathscr S,X)$, all morphisms are identities, i.e., $\Hom(\mathscr S,X)$ is just a set.
+
+Let us denote also by $C$ the 2-category having the same objects and morphisms as $C$, and in which the identities are the only 2-morphisms. The above construction then identifies $C$ with a full sub-2-category of (stacks$/C$).
+
+For each $S\in\operatorname{Ob} C$, the category $C/S$ satisfies the assumptions of (4.1). Any stack $\mathscr S_0$ over $C/S$ (an ``$S$-stack'') gives rise to a stack $\mathscr S$ over $C$; a section $(\varphi,\eta)$ of $\mathscr S$ over $U\in\operatorname{Ob} C$ consists of
+\begin{enumerate}[label=(\roman*)]
+\item a morphism $\varphi:U\to S$;
+\item a section $\eta$ of $\mathscr S_0$ over $(U,\varphi)$.
+\end{enumerate}
+
+\medskip
+\noindent\emph{Definition (4.2).} --- \emph{A 1-morphism of stacks over $C$, $F:\mathscr S_1\to\mathscr S_2$, will be called representable if for any $X$ in $C$ and any 1-morphism $x:X\to\mathscr S_2$, the fibre product $X\times_{\mathscr S_2}\mathscr S_1$ is a representable stack.}
+
+In down to earth terms, this means the following:
+\begin{enumerate}[label=(\roman*)]
+\item for any $f:Y\to X$ in $C$, the category whose objects are pairs
+\[
+\{\text{a section, }y,\text{ of }\mathscr S_1\text{ over }Y;\text{ an isomorphism }F(y)\xrightarrow{\sim}f^*(x)\}
+\]
+is equivalent to a category $S(f)$ in which all morphisms are identities;
+\item the functor $f\mapsto\operatorname{Ob} S(f)$ is representable by some $g:Z\to X$. Such a $Z$ represents the fibre product $X\times_{\mathscr S_2}\mathscr S_1$.
+\end{enumerate}
+
+Let $P$ be a property of morphisms in $C$, stable by change of base and of a local nature on the target.
+
+\medskip
+\noindent\emph{Definition (4.3).} --- \emph{A representable morphism $F:\mathscr S_1\to\mathscr S_2$ of stacks over $C$ has property $P$ if for any 1-morphism $x:X\to\mathscr S_2$ the morphism in $C$ deduced by base change: $F':X\times_{\mathscr S_2}\mathscr S_1\to X$ has that property.}
+
+\medskip
+\noindent\emph{Proposition (4.4).} --- \emph{Let $\mathscr S$ be a stack. The diagonal map}
+\[
+\mathscr S\to\mathscr S\times\mathscr S
+\]
+\emph{is representable if and only if for all $X,Y\in\operatorname{Ob} C$ and 1-morphisms $x:X\to\mathscr S$, $y:Y\to\mathscr S$, the fibre product $X\times_{\mathscr S}Y$ is representable.}
+
+If $X\in\operatorname{Ob} C$ and $x,y$ are sections of $\mathscr S$ over $X$, we denote by $\underline{\Isom}(X,x,y)$ the sheaf on $C/X$ which to every $Z$ over $X$ associates the set of isomorphisms between the inverse images of $x$ and $y$ over $Z$. Then the object representing $\mathscr S\times_{(\mathscr S\times\mathscr S)}X$ (the product taken with the map $(x,y):X\to\mathscr S\times\mathscr S$) is just $\Isom(X,x,y)$. If $X\to\mathscr S$, $Y\to\mathscr S$ are 1-morphisms, then the object representing $X\times_{\mathscr S}Y$ is just $\Isom(X\times Y,p_1^*x,p_2^*y)$.
+
+\emph{Henceforth, $C$ will be the category of schemes with the etale topology} (SGAD, IV, (6.3)).
+
+\medskip
+\noindent\emph{Definition (4.5).} --- \emph{A stack $\mathscr S$ is quasi-separated if the diagonal morphism from $\mathscr S$ to $\mathscr S\times\mathscr S$ is representable, quasi-compact and separated.}
+
+\medskip
+\noindent\emph{Definition (4.6).} --- \emph{A stack $\mathscr S$ is an algebraic stack}\footnote{This definition is the ``right'' one only for quasi-separated stacks. It will however be sufficient for our purposes.}\emph{ if}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$\mathscr S\to\mathscr S\times\mathscr S$ is representable;}
+\item \emph{there exists a 1-morphism $x:X\to\mathscr S$ such that for all $y:Y\to\mathscr S$, the projection morphism $X\times_{\mathscr S}Y\to Y$ is surjective and etale (i.e., $x$ is etale and surjective).}
+\end{enumerate}
+
+The 2-category of algebraic stacks contains the representable stacks and is stable under products and fibre products. If $\mathscr S$ is a quasi-separated algebraic stack, the diagonal map is unramified and quasi-affine.
+
+\medskip
+\noindent\emph{Definition (4.7).} --- \emph{An algebraic stack $\mathscr S$ is separated if $\mathscr S\to\mathscr S\times\mathscr S$ is proper (or, equivalently, finite). A 1-morphism $f:\mathscr S_1\to\mathscr S_2$ is separated (resp. quasi-separated) if for any morphism $x:X\to\mathscr S_2$ from a separated scheme $X$ to $\mathscr S_2$, the fibre product $\mathscr S_1\times_{\mathscr S_2}X$ is separated (resp. quasi-separated).}
+
+\medskip
+\noindent\emph{Example (4.8).} --- Let $X$ be a scheme over $S$. Let $G$ be a group scheme over $S$, etale, separated and of finite type over $S$, which operates on $X$. We will denote by $[X/G]$ the $S$-stack whose category of sections over an $S$-scheme $T$ is the category of principal homogeneous spaces (p.h.s.) $E$ over $T$, with structural group $G$ (i.e., a p.h.s. under $G_T$), provided with a $G$-morphism $\varphi:E\to X$. The principal homogeneous space $G\times X$ over $X$ ($G$ acting only on the first factor) plus the $G$-morphism $G\times X\to X$ (given by the action of $G$ on $X$) is a section of $[X/G]$ over $X$. The corresponding morphism $q:X\to[X/G]$ is etale and surjective, so that $[X/G]$ is an algebraic stack. In addition, $X$ is a principal homogeneous space over $[X/G]$; the stack $[X/G]$ is representable if and only if $X$ is a principal homogeneous space over a scheme $Y$, in which case
+\[
+[X/G]\sim Y.
+\]
+If $X=S$, then $[X/G]=[S/G]$ might be called the ``classifying stack'' of $G$ over $S$.
+
+\medskip
+\noindent\emph{Example (4.9).} --- Suppose a stack $\mathscr S$ has the property that in each category $\mathscr S_X$ the only morphisms are the identity morphisms. Then $\mathscr S_X$ is just a set $\mathscr F(X)=\operatorname{Ob}\mathscr S_X$, and this set, under pull-back, is a contravariant functor $\mathscr F$ in $X$. Conditions (ii) and (iii) of (4.1) assert that the functor $\mathscr F$ is a sheaf on $C$. Artin and Knutson [K] have defined an \emph{algebraic space} to be a sheaf $\mathscr F$ such that:
+\begin{enumerate}[label=(\roman*)]
+\item for any morphisms $X\to\mathscr F$, $Y\to\mathscr F$ of representable functors to $\mathscr F$, the fibre product $X\times_{\mathscr F}Y$ is representable;
+\item there exists a morphism $X\to\mathscr F$, represented by surjective, etale morphisms of schemes.
+\end{enumerate}
+This is exactly what we have called an algebraic stack in this case.
+
+\medskip
+\noindent\emph{Definition (4.10).} --- \emph{Let $\mathscr S$ be an algebraic stack. The etale site $\mathscr S_{et}$ of $\mathscr S$ is the category with objects the etale morphisms}
+\[
+x:X\to\mathscr S
+\]
+\emph{and where a morphism from $(X,x)$ to $(Y,y)$ is a morphism of schemes $f:X\to Y$ plus a 2-morphism between the 1-morphism $x:X\to\mathscr S$ and $y\cdot f:X\to\mathscr S$. A collection of morphisms $f_i:(X_i,x_i)\to(X,x)$ is a covering family if the underlying family of morphisms of schemes is surjective.}
+
+The site $\mathscr S_{et}$ is in a natural way ringed. When we speak of sheaves on $\mathscr S$ we mean sheaves on $\mathscr S_{et}$.
+\end{document}
