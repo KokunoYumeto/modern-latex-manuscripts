@@ -37,6 +37,6 @@ Current follow-up priorities:
 
 - Continue replacing older multilingual work-level readers only when a new render is visibly better.
 - Keep broad Cayley volume drafts artifact-only; promote only validated repaired slices until whole volumes are checked.
-- Current Cayley Volume VIII priority: re-audit pages 267-316 and 467-516; the active Volume VIII public slices no longer contain explicit diagram-omission placeholders, and pages 067-216, 317-466, and 517-570 remain promoted as native repaired TeX/PDF in this public tree.
+- Current Cayley Volume VIII priority: manual formula transcription for pp. 267-291, 308-316, 467-473, 476-489, and 498-500; the active Volume VIII public slices no longer contain explicit diagram-omission placeholders, and pages 067-216, 317-466, and 517-570 remain promoted as native repaired TeX/PDF in this public tree.
 - Keep SGA 3 clean rebuild top-level while reserving formula-level normalization for later work.
 - Keep Noether and Weber organized by paper/work as the high-fidelity replacement streams grow.
