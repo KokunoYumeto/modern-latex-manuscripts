@@ -10,6 +10,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
@@ -1078,7 +1079,30 @@ real, that is, if the point $x$ moves along a right line (say the $x$-line), the
 coordinates of the center: $a$, $\beta$, and radius $= \gamma$.
 
 \begin{center}
-\textit{[Figure: Three circles labelled $A$, $B$, $C$ along the $x$-axis $\rho\!-\!\phi\!-\!q$, illustrating the conformal mapping of the real $x$-line to a $s$-plane consisting of arcs forming a triangular region.]}
+\begin{tikzpicture}[scale=0.9,line cap=round,line join=round]
+  \coordinate (A) at (-1.25,-0.20);
+  \coordinate (B) at (1.15,-1.28);
+  \coordinate (C) at (0.18,1.25);
+
+  \draw (-4.0,-1.85) -- (-1.25,-1.85);
+  \foreach \x/\lab in {-3.35/$a$,-2.55/$b$,-1.55/$c$}
+    {
+      \draw (\x,-1.93) -- (\x,-1.77);
+      \node[below] at (\x,-1.93) {\lab};
+    }
+
+  \draw[dashed] (0,0) circle (1.62);
+  \draw (A) .. controls (-0.85,-1.02) and (0.12,-1.54) .. (B);
+  \draw (B) .. controls (1.45,-0.15) and (0.95,0.94) .. (C);
+  \draw (C) .. controls (-0.70,0.92) and (-1.32,0.40) .. (A);
+  \draw[dashed] (A) -- (B);
+  \draw[dashed] (B) -- (C);
+  \draw[dashed] (C) -- (A);
+
+  \node[left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[above] at (C) {$C$};
+\end{tikzpicture}
 \end{center}
 
 \artno{50} Suppose $a$, $b$, $c$ are any real values of $x$ representing points $a$, $b$, $c$ on the
@@ -1210,7 +1234,44 @@ into twelve triangles, each with the angles $\tfrac{1}{2}\pi,\,\tfrac{1}{3}\pi,\
 South pole on the plane of the equator, we have the annexed figure of the $s$-plane,
 
 \begin{center}
-\textit{[Figure: A central circle on the $s$-plane is divided by three radial lines meeting at the centre into six sectors; the perimeter is split by these and three meridional arcs into twelve curvilinear triangles, alternately shaded and unshaded. Labels $A, B, C, D$ mark four boundary points; another label sits at the centre and at $\infty$ outside the disk.]}
+\begin{tikzpicture}[scale=0.82,line cap=round,line join=round]
+  \coordinate (O) at (0,0);
+  \def\r{1.65}
+
+  \fill[gray!25] (O) -- (0:\r) arc[start angle=0,end angle=60,radius=\r] -- cycle;
+  \fill[gray!25] (O) -- (120:\r) arc[start angle=120,end angle=180,radius=\r] -- cycle;
+  \fill[gray!25] (O) -- (240:\r) arc[start angle=240,end angle=300,radius=\r] -- cycle;
+  \fill[gray!25] (-2.70,2.75) -- (120:\r) arc[start angle=120,end angle=60,radius=\r] -- (2.70,2.75) -- cycle;
+  \fill[gray!25] (-3.55,0) -- (180:\r) arc[start angle=180,end angle=240,radius=\r] -- (-2.55,-2.45) -- cycle;
+  \fill[gray!25] (3.55,0) -- (0:\r) arc[start angle=0,end angle=300,radius=\r] -- (2.55,-2.45) -- cycle;
+
+  \draw[dashed] (O) circle (\r);
+  \draw (-3.55,0) -- (3.55,0);
+  \draw[dashed] (120:3.05) -- (300:3.05);
+  \draw (60:3.05) -- (240:3.05);
+  \draw (O) -- (0:\r);
+  \draw (O) -- (60:\r);
+  \draw (O) -- (120:\r);
+  \draw (O) -- (180:\r);
+  \draw (O) -- (240:\r);
+  \draw (O) -- (300:\r);
+
+  \node[right] at (0:\r) {$A$};
+  \node[left] at (180:\r) {$C$};
+  \node[above right] at (60:\r) {$C$};
+  \node[above left] at (120:\r) {$A$};
+  \node[below left] at (240:\r) {$A$};
+  \node[below right] at (300:\r) {$C$};
+  \node[below left] at (O) {$B$};
+  \node[right] at (0.82,0.12) {$K$};
+
+  \node[right] at (3.50,0) {$B$};
+  \node[left] at (-3.50,0) {$B$};
+  \node[above right] at (60:3.05) {$B$};
+  \node[above left] at (120:3.05) {$B'$};
+  \node[below right] at (300:3.05) {$B$};
+  \node[below left] at (240:3.05) {$B$};
+\end{tikzpicture}
 \end{center}
 
 \noindent divided into 12 curvilinear triangles, each with these same angles $30^{\circ}, 90^{\circ}, 60^{\circ}$; the
