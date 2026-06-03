@@ -11,6 +11,7 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{enumitem}
+\usepackage{tikz}
 
 \geometry{margin=1in}
 
@@ -19,6 +20,7 @@
 
 \DeclareMathOperator{\cov}{cov}
 \DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\cosec}{cosec}
 
 \begin{document}
 
@@ -64,8 +66,35 @@ where $\Omega = -1 + \nu^2 - \lambda\mu$: it can be at once verified that each o
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{8cm}{\centering\vspace{1cm}\textbf{Fig.~2.}\\[0.5cm]
-\textit{[Figure: Pseudosphere meridian construction showing points $O$, $O_1$, $O_2$, $O_n$ on the $x$-axis and $B$, $B_1$, $B_2$, $B_n$ on the curve]}\\[0.5cm]$x$\qquad\qquad\qquad$y$\vspace{1cm}}}
+\begin{tikzpicture}[scale=0.9,line cap=round,line join=round]
+  \draw[->] (0,0) -- (6.2,0) node[right] {$x$};
+  \draw[->] (0,0) -- (0,2.6) node[above] {$y$};
+  \draw[thick,smooth] plot coordinates {
+    (0,1.78) (0.12,1.63) (0.42,1.47) (0.92,1.24)
+    (1.55,1.00) (2.35,0.75) (3.45,0.52) (4.95,0.36)
+  };
+  \coordinate (O) at (0,0);
+  \coordinate (B) at (0,1.78);
+  \coordinate (Bone) at (0.18,1.58);
+  \coordinate (Btwo) at (0.58,1.37);
+  \coordinate (Bn) at (3.30,0.53);
+  \coordinate (Oone) at (0.85,0);
+  \coordinate (Otwo) at (1.60,0);
+  \coordinate (On) at (4.55,0);
+  \draw (B) -- (O);
+  \draw (Bone) -- (Oone);
+  \draw (Btwo) -- (Otwo);
+  \draw (Bn) -- (On);
+  \fill (O) circle (1.2pt) node[below left] {$O$};
+  \fill (Oone) circle (1.2pt) node[below] {$O_1$};
+  \fill (Otwo) circle (1.2pt) node[below] {$O_2$};
+  \fill (On) circle (1.2pt) node[below] {$O_n$};
+  \fill (B) circle (1.2pt) node[left] {$B$};
+  \fill (Bone) circle (1.2pt) node[left] {$B_1$};
+  \fill (Btwo) circle (1.2pt) node[above right] {$B_2$};
+  \fill (Bn) circle (1.2pt) node[above] {$B_n$};
+\end{tikzpicture}
+\caption*{Fig.~2.}
 \end{figure}
 
 \noindent the tangent is in fact $= \theta$. We have $dx = \dfrac{\cos^2\theta\, d\theta}{\sin\theta}$, $dy = \cos\theta\, d\theta$; and thence $ds = \cot\theta\, d\theta$, and the length in question is $\dfrac{y\, ds}{dy} = 1$. The curve may be constructed graphically: take (fig.~2) the distance $BO = 1$, on $OB$, $B_1$ very near to $B$, and then $B_1O_1 = 1$; on
@@ -146,8 +175,40 @@ We have $y = 1 - \cos K$, $x = \cos K\tan\tfrac{1}{2}(\phi - K)$, for the locus 
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{10cm}{\centering\vspace{1.5cm}\textbf{Fig.~3.}\\[0.5cm]
-\textit{[Figure: Projections of geodesics on the unit circle, showing curves for various values of $\phi_0$ or $K$, including the loop case]}\\[1.5cm]}}
+\begin{tikzpicture}[scale=0.74,line cap=round,line join=round]
+  \coordinate (O) at (0,0);
+  \draw[thick] (O) circle (2.45);
+  \draw (-0.1,-2.45) -- (7.2,-2.45);
+  \draw (0,-2.65) -- (0,2.65);
+  \draw (-0.1,0) -- (7.3,0);
+  \draw[thick,smooth] plot coordinates {(0,0) (0.85,0.02) (1.7,-0.05) (3.1,-0.18) (4.9,-0.28) (6.8,-0.31)};
+  \node[rotate=-7] at (4.55,-0.14) {\scriptsize Meridian};
+  \foreach \ang/\lab in {270/0,300/30,330/60,0/90,30/120,60/150,90/180,210/300} {
+    \coordinate (P\lab) at ({2.45*cos(\ang)},{2.45*sin(\ang)});
+    \fill (P\lab) circle (0.8pt);
+    \node[font=\scriptsize] at ({2.70*cos(\ang)},{2.70*sin(\ang)}) {$\lab$};
+  }
+  \draw (0,0) -- (P90);
+  \draw (0,0) -- (P120);
+  \draw (0,0) -- (P150);
+  \draw (0,0) -- (P180);
+  \draw (0,0) -- (P300);
+  \draw (P30) -- (1.2,-2.45);
+  \draw (P60) -- (2.25,-2.45);
+  \draw (P90) -- (3.05,-2.45);
+  \draw (P120) -- (4.1,-2.45);
+  \draw (P150) -- (5.25,-2.45);
+  \draw[thick,smooth] plot coordinates {(0,-2.45) (0.35,-1.72) (0.70,-1.17) (1.07,-0.66) (1.48,-0.24) (1.93,0.02) (2.45,0)};
+  \draw[thick,smooth] plot coordinates {(0,-2.45) (0.50,-1.80) (0.95,-1.38) (1.36,-1.07) (1.75,-0.85) (2.18,-0.73) (2.45,-0.72)};
+  \draw[thick,smooth] plot coordinates {(0,-2.45) (0.55,-1.95) (1.0,-1.65) (1.45,-1.43) (2.05,-1.29) (2.45,-1.26)};
+  \draw[thick,smooth] plot coordinates {(0,2.45) (0.18,1.25) (0.55,0.35) (0.55,-0.10) (0.18,-0.22) (0.05,0.32) (0,1.25)};
+  \draw[thick,smooth] plot coordinates {(P300) (0.30,-1.80) (0.95,-1.25) (1.65,-0.90) (2.45,-0.72)};
+  \foreach \x/\lab in {0/0,1.2/30,2.25/60,3.05/90,4.1/120,5.25/150,6.35/180} {
+    \draw (\x,-2.51) -- (\x,-2.39);
+    \node[font=\scriptsize,below] at (\x,-2.53) {$\lab$};
+  }
+\end{tikzpicture}
+\caption*{Fig.~3.}
 \end{figure}
 
 \newpage
