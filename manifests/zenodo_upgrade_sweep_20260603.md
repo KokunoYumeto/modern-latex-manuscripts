@@ -18,7 +18,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
 | SGA | 20410947 | `10.5281/zenodo.20520554` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 96 |
 | Noether | 20412587 | `10.5281/zenodo.20520501` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 15 |
-| Cayley | 20520749 | `10.5281/zenodo.20522228` | 2026-06-03 dedicated Cayley author record refresh: rebuilt Volume II reader plus determinant-array repair source bundle |
+| Cayley | 20520749 | `10.5281/zenodo.20523305` | 2026-06-03 dedicated Cayley author record refresh: rebuilt Volume IV and X readers plus refreshed residual-marker/source bundle |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
@@ -37,6 +37,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522228` | 14 | 166,149,960 bytes | Same-concept update replacing the rebuilt 421-page Volume II reader and refreshed source/manifest ZIP after Paper 109 determinant-array repair. |
+| Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20523305` | 14 | compact patch | Same-concept update replacing the Volume IV and Volume X readers after the native hexahedron-net and theta-characteristic symbol repairs; refreshed source/manifest ZIP includes the residual marker scan and unpromoted Vol XIII quarantine packet. |
 
 ### 1. SGA - completed
 
