@@ -7,12 +7,13 @@ published.
 
 ## Already handled during this sweep
 
-- Cayley Zenodo same-concept patch advanced to `10.5281/zenodo.20524953`.
-  This replaces the Volume X reader after the p. 347 annexed syzygy diagram
-  and the Volume V reader after the p. 463 secondary-caustic plot were restored
-  as native TeX, and refreshes `Cayley_source_and_manifest_20260603.zip`.
+- Cayley Zenodo same-concept patch advanced to `10.5281/zenodo.20526046`.
+  This includes the earlier Volume X p. 347 syzygy diagram and Volume V p. 463
+  secondary-caustic plot repairs, plus the promoted Volume XIII Paper 966 square
+  diagrams as native TikZ, the refreshed `Cayley_source_and_manifest_20260603.zip`,
+  and the Cayley progress/cost inventory.
 - Local Cayley patch helper advanced from record `20522518` through
-  `20523305`, `20524543`, and now `20524953`.
+  `20523305`, `20524543`, `20524953`, and now `20526046`.
 
 ## Highest-priority public-facing deltas
 
@@ -35,6 +36,7 @@ published.
 | Dedekind | `Dedekind_Round12_Clean_LXVI_LXVII_pp483_504_20260603.zip` | Dedicated Dedekind record exists; queue after checking whether this is cumulative over the current record. |
 | Gauss | `gauss_summatio_articles09_20_pp020_032_round17_20260603.zip` | Gauss round 17; current Gauss record is behind recent local work and needs a later cumulative audit. |
 | Non-European / al-Battani | `non_eu_albattani_current_head_and_audit_20260603.zip` plus round 32-49 handoff ZIPs | Claude has started a separate CUDA/VLM table-cell reader lane; do not replace the public al-Battani record until table completeness is audited. |
+| Non-European / Claude queue | `_PUSH_QUEUE_CLAUDE_20260603/` under `cleanup multilingual` | New Claude-produced non-European work drop was explicitly added as a sweep target; inspect before promotion and keep al-Battani table completeness as the public gating issue. |
 
 ## Post-10:25 arrivals noticed before Cayley return
 
