@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume X `451_475` theta-symbol diagram cluster repair, Noether Spanish/Japanese Paper 15 staging, and SGA 7-I source-page-96 staging.
+Generated after the current GitHub mirror pass through the Cayley Volume X `451_475` theta-symbol diagram cluster repair, Noether Spanish/Japanese Paper 18 staging, and SGA 7-I source-page-137 staging.
 
 ## Publishing Capability
 
@@ -16,7 +16,7 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---:|---|---|
 | Main landing / raw provenance | 20393488 | `10.5281/zenodo.20458953` | 2026-06-01 landing/provenance refresh |
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
-| SGA | 20410947 | `10.5281/zenodo.20520554` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 96 |
+| SGA | 20410947 | `10.5281/zenodo.20523803` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 137 |
 | Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
 | Cayley | 20520749 | `10.5281/zenodo.20523305` | 2026-06-03 dedicated Cayley author record refresh: rebuilt Volume IV and X readers plus refreshed residual-marker/source bundle |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
@@ -34,6 +34,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Lane | Concept DOI | New version DOI | Files | Payload | Notes |
 |---|---|---|---:|---:|---|
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20520554` | 77 | 1,222,595,716 bytes | Same-concept update with SGA 6 complete through indexes/source pages 693-702 and SGA7-I through source page 96. |
+| SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20523803` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-96 readers with source-page-137 English/French readers, matching source-scan witness, and refreshed source ZIP 82. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | 93 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 15 with Paper 18 cumulative readers and adding standalone Paper 17 sections 10-12 plus Paper 18 ES/JA readers. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
@@ -51,13 +52,13 @@ Local GitHub state:
 - `reader-pdfs/sga/21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf`
 - `reader-pdfs/sga/39ZB` through `39ZD` final index segment and source-scan witness.
 - `sources/sga/sga6-complete-source-checked-through-page-702-2026-06-02/`
-- `reader-pdfs/sga/53 SGA 7-I - Source-Checked Working Edition through Source Page 96 - English Translation.pdf`
-- `reader-pdfs/sga/54 SGA 7-I - Source-Checked Working Edition through Source Page 96 - French Reconstruction.pdf`
-- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 96.pdf`
-- `sources/sga/sga7-i-source-checked-through-page-096-2026-06-03/`
+- `reader-pdfs/sga/53 SGA 7-I - Source-Checked Working Edition through Source Page 137 - English Translation.pdf`
+- `reader-pdfs/sga/54 SGA 7-I - Source-Checked Working Edition through Source Page 137 - French Reconstruction.pdf`
+- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 137.pdf`
+- `sources/sga/sga7-i-source-checked-through-page-137-2026-06-03/`
 - Manifest: `manifests/sga6_complete_source_checked_through_page702_20260602.md`
 
-Action: published a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-96 continuation.
+Action: published a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-137 continuation.
 
 ### 2. Classical shelf - Cayley/Dedekind/Dirichlet author split completed
 
@@ -172,7 +173,7 @@ Action: only publish Deligne updates after explicit curation of source-faithful 
 
 ## Recommended Publish Order Once Token Is Available
 
-1. SGA complete page-702 plus SGA 7-I source-page-96 update.
+1. SGA complete page-702 plus SGA 7-I source-page-137 update.
 2. Noether canonical numbered completion plus ES/JA through Paper 15.
 3. Classical shelf with current Cayley repairs, only as an interim umbrella.
 4. Ukrainian high-density applied-math update.
