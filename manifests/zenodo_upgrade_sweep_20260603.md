@@ -54,6 +54,7 @@ Local GitHub state now includes:
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume IX reader hash: `d2b6c7e6054bce8e71ac6023a8ba679a647a7f2550d8af1efa5df1326539fb92`.
 - Current Volume X reader hash: `13d3b7afe42872f19791df9fd45f79e9dda76dcdd9d0c401f0bda7460bfa9fd6`.
+- Current Volume XI reader hash: `fae10bf4307488d256da878a23f4f39ef3f462d07525d2adf51d9ed40fe24708`.
 - Current Volume XII reader hash: `f018c62296595f43871ca153fba52030f937b8f9eafe5136fe3af58131c1624b`.
 
 Action: publish a new classical-shelf version with current reader PDFs and the current status/manifest. Keep raw/provenance heavy bundles on the main landing record.
