@@ -4,8 +4,9 @@ This scan lists reader-visible residual marker language after the 2026-06-03 Cay
 
 It is a triage list, not a claim that every listed item has equal severity. Several hits are honest notices for very large tables or plates that need a dedicated table/diagram reconstruction pass rather than a quick TikZ replacement.
 
-Found **20** reader-visible residual hits after the Volume X p. 347 annexed
-diagram was replaced with native TeX on 2026-06-03.
+Found **19** reader-visible residual hits after the Volume X p. 347 annexed
+diagram and Volume V p. 463 secondary-caustic plot were replaced with native
+TeX on 2026-06-03.
 
 | Volume Reader | Reader Page | Marker | Notes |
 |---|---:|---|---|
@@ -21,7 +22,6 @@ diagram was replaced with native TeX on 2026-06-03.
 | Volume IV | 380 | `[Figure:` | , D = 1 27  (a2d −3abc + 2b3) B3 + (3abd + 3b2c) B2C + (6b2d + 6acd) BC2 + (ad2 + 3bcd + 3) C3  . [Figure: Cayley's column-table for the coe cients C and D. The columns are heade |
 | Volume IX | 231 | `not reproduced here` | (4), carbon-, &c., atoms; and so on. [Plate  see scan: of trees follows in the original printing; not reproduced here.] 5 |
 | Volume V | 339 | `[Figure:` | but this is a subject which I do not enter upon in the present Memoir. Cambridge, February 8, 1864. [Figure: Plate III, illustrating the Hyperbolas A Defective discussed in Arts. 7 |
-| Volume V | 384 | `[Figure:` | its form in such wise as to exhibit the node and two cusps, the curve has therefore two real nodes. [Figure: composite plot of the secondary caustic curves for the various values o |
 | Volume V | 432 | `[Figure:` |  135◦ −1 √ 2, 1 √ 2 −1 √ 2 1 √ 2 0 1 √ 2(−i + j) Axial System of the Dodecahedron and Icosahedron. [Figure: extensive tabular listing across two pages (pp. 534535 in original) of |
 | Volume X | 396 | `unreadable` | comprising S0, S1, S2, S3 occupy printed pages 397398 in seven columns. As the entries are partly unreadable in the scan (typesetter has compressed and broken many fraction-bars), |
 | Volume XI | 72 | `[Figure:` | p. 120 89 −20 −19 −13 −11 7 5 5 7 −3 −4 −5 −8 p. 151 97 −22 −16 −17 −19 10 5 5 5 −3 −4 9 −4 p. 187 [Figure: large table of computed values, transcribed above.] |

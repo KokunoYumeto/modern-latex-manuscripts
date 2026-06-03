@@ -7,11 +7,12 @@ published.
 
 ## Already handled during this sweep
 
-- Cayley Zenodo same-concept patch published as `10.5281/zenodo.20524543`.
+- Cayley Zenodo same-concept patch advanced to `10.5281/zenodo.20524953`.
   This replaces the Volume X reader after the p. 347 annexed syzygy diagram
-  was restored as native TeX and refreshes `Cayley_source_and_manifest_20260603.zip`.
+  and the Volume V reader after the p. 463 secondary-caustic plot were restored
+  as native TeX, and refreshes `Cayley_source_and_manifest_20260603.zip`.
 - Local Cayley patch helper advanced from record `20522518` through
-  `20523305` to `20524543`.
+  `20523305`, `20524543`, and now `20524953`.
 
 ## Highest-priority public-facing deltas
 
