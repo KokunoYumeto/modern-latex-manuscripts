@@ -38,6 +38,8 @@ published.
 | Non-European / al-Battani | `non_eu_albattani_current_head_and_audit_20260603.zip` plus round 32-49 handoff ZIPs | Claude has started a separate CUDA/VLM table-cell reader lane; do not replace the public al-Battani record until table completeness is audited. |
 | Non-European / Claude queue | `_PUSH_QUEUE_CLAUDE_20260603/` under `cleanup multilingual` | New Claude-produced non-European work drop was explicitly added as a sweep target; inspect before promotion and keep al-Battani table completeness as the public gating issue. |
 
+Follow-up, 2026-06-03: `_PUSH_QUEUE_CLAUDE_20260603` was sanity-checked and promoted as Zenodo version `10.5281/zenodo.20526138` on the non-European concept DOI `10.5281/zenodo.20410957`. The patch replaces the reconstructed work-level reader surface, adds corrected combined readers, promotes al-Battani v083 trilingual text/reference material, and keeps the al-Battani numerical tables explicitly marked as in progress.
+
 ## Post-10:25 arrivals noticed before Cayley return
 
 These arrived after the publication sweep had already promoted Sylvester p.283, Noether Paper 18 ES/JA, and SGA7-I p.137.
