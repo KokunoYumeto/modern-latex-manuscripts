@@ -100,3 +100,23 @@ record patches or curation queues.
 | Dedekind | `DR13_Backmatter_20260603.zip` | Backmatter continuation after Round 12; check that it is cumulative before patching the dedicated Dedekind record. |
 | Sylvester | `Sylvester_Vol1_pp001_306_with_scans_20260603.zip` | Extends Volume I through book p.306, beyond the published p.283 snapshot; next obvious Sylvester author-record patch. |
 | Non-European / al-Battani | `CLAUDE_TO_CODEX_NOTE_20260603_noneu_reconstruction.md`, `AL_BATTANI_TRUE_STATE_AND_PLAN_20260603.md`, and reconstructed non-EU folders | Do not treat round files as clean by title alone; al-Battani tables remain audit-gated, with CUDA/VLM table-cell workflow now a separate provenance/workflow item. |
+
+## Third broad folder sweep, 2026-06-03 around 12:45 local
+
+This pass records another all-lane sweep while Cayley repairs were being
+committed. It again avoids narrowing the intake to only SGA/Noether.
+
+| Lane | Latest package or payload | Immediate handling note |
+|---|---|---|
+| Deligne | `D011_MC_p001_004.zip`, `D011_MC_p001_004_cum.zip`, `D087_090dn_p011_021_std.zip`, and `D010_HD2_p051_053_cum.zip` | New Deligne fragments are present, but Deligne remains fidelity-gated because earlier drops varied sharply in source faithfulness. |
+| Noether multilingual | `Noether_Paper19_complete_ES_JA_20260603.zip`, extracted `N19p2_ESJA_20260603`, and earlier `Noether_Paper17_complete_Paper18_complete_ES_JA_20260603.zip` | Paper 19 ES/JA appears complete locally; candidate for next same-concept Noether multilingual patch after a quick render/source check. |
+| SGA | `SGA7I_p138_160_orig_cum.zip`, extracted `sga7i_138_160`, and `SGA7_I_Expose_VI_Deformation_Moduli_and_Fitting` | Extends SGA7-I beyond the already-published source p.137 snapshot; next SGA patch should check p.138-160 cumulative integrity. |
+| Dedekind | `DR13_Backmatter_20260603.zip`, `Dedekind_Round12_Clean_LXVI_LXVII_pp483_504_20260603.zip`, and `Dedekind_Round11_Clean_LXV_Lipschitz_pp464_482_20260603.zip` | Dedicated Dedekind record should be patched only after confirming the backmatter packet is cumulative and not merely a loose delta. |
+| Old physics | `GibbsV1_P3_p065_074.zip`, `GibbsV1_P3_p055_064.zip`, and `GibbsV1_P2_p043_054.zip` | Gibbs lane is growing; needs a small old-physics shelf README and naming policy before DOI promotion. |
+| Dirichlet | `Dirichlet_R16_XXV_hydro_20260603.zip`, `Dirichlet_R15_XXIII_XXIV_20260603.zip`, and `Dirichlet Round 14 - Jacobi Memorial Clean Cumulative 20260603.zip` | Dirichlet is now several rounds beyond the current public snapshot; queue a consolidated author-record patch. |
+| Sylvester | `Sylvester_Vol1_pp001_306_with_scans_20260603.zip`, `sylv_b16`, and `sylvester_batch15` | Volume I extends to p.306 beyond the published p.283 snapshot; next Sylvester patch should include the latest cumulative and scans. |
+| Gauss | `gauss_r19_quadrecip_20260603.zip`, `gauss_round18_summatio_tail_20260603.zip`, and `gauss_summatio_articles09_20_pp020_032_round17_20260603.zip` | Gauss has multiple new packets; hold for a consolidated Gauss audit/publish pass rather than piecemeal DOI churn. |
+| Weber restart | `Weber_Cumulative_ThreeVolumes_Batch69_Vol2_Sections67_72_SIZE_CONTROLLED_20260603.zip` plus Batch 68 and Batch 67 | Web tooling/rate limits are unstable; keep latest cumulative available and prepare smaller aid zips only if the Weber thread resumes cleanly. |
+| Steinitz | `Steinitz_11_corpus_shortpaths.zip` plus prior short-path corpus packets | Steinitz likely deserves its own record rather than remaining in the mixed classical shelf. |
+| Ukrainian lane | `ua_units_20260603.zip`, `ua_eskf_lie_next_20260603.zip`, and `ukrainian_applied_mathematics_eskf_lie_source_translation_continuation_20260603.zip` | Continue accumulating applied-math modules; next update should keep naming human-readable and avoid overexplaining use cases. |
+| Non-European / al-Battani | `INDEX_FOR_CODEX_noneu_albattani_20260603.md`, `non_eu_other_readers_RELEASE_20260603.zip`, `non_eu_other_readers_RELEASE_20260603`, and `albattani_work_CLAUDE` | Claude's index says 66 non-al-Battani readers / about 8005 pages are packaged, while al-Battani text is complete through segment 100 but tables are only partly reconstructed. Treat al-Battani as table-audit gated; add Pix2Text/Kraken/VLM lessons to the workflow record only after reliability is established. |

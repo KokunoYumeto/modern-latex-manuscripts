@@ -4,10 +4,12 @@ This scan lists reader-visible residual marker language after the 2026-06-03 Cay
 
 It is a triage list, not a claim that every listed item has equal severity. Several hits are honest notices for very large tables or plates that need a dedicated table/diagram reconstruction pass rather than a quick TikZ replacement.
 
-Found **18** reader-visible residual hits after the Volume X p. 347 annexed
+Found **17** reader-visible residual hits after the Volume X p. 347 annexed
 diagram and Volume V p. 463 secondary-caustic plot were replaced with native
 TeX on 2026-06-03, and after the Volume XI p. 72 stale marker was removed
-because the table is already transcribed.
+because the table is already transcribed. A later pass also replaced the
+Volume XIII square-diagram placeholder on reader p. 263 with native TikZ
+square diagrams for weights 2--10, checked against the Volume XIII scan.
 
 | Volume Reader | Reader Page | Marker | Notes |
 |---|---:|---|---|
@@ -27,7 +29,6 @@ because the table is already transcribed.
 | Volume X | 396 | `unreadable` | comprising S0, S1, S2, S3 occupy printed pages 397398 in seven columns. As the entries are partly unreadable in the scan (typesetter has compressed and broken many fraction-bars), |
 | Volume XI | 73 | `[Figure:` | 101125 Cayley  Collected Papers, Vol. XI Table of the Powers of Reuschle's Selected Prime Roots. [Figure: a large arithmetical table 65 columns wide listing powers gk (mod p) for |
 | Volume XI | 74 | `[Figure:` | Pages 101125 Cayley  Collected Papers, Vol. XI Table (continued). [Figure: continuation of the table of powers of Reuschle's selected prime roots, spanning further values of the  |
-| Volume XIII | 263 | `[Figure:` | n fact formed the squares for the weights 11 to 16, not in this manner but by the MacMahon linkage. [Figure: Square diagrams for weights w = 2 through w = 10. Each diagram lists po |
 | Volume XIII | 267 | `[Figure:` | ce to subsequent investigations, a table of these conjugate forms up to the degree 6 and weight 15. [Figure: a stepped, page-wide Table of Conjugates giving capital-letter and sm |
 
 Immediate policy: do small scan-faithful native diagrams directly; route dense coefficient tables, rotated tables, plates, and tree/axis enumerations through a cropped table/diagram workflow. Do not replace dense tables with plausible generated summaries.

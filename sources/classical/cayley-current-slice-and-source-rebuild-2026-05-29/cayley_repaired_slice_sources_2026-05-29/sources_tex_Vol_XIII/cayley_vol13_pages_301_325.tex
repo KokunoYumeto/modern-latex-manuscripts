@@ -9,6 +9,7 @@
 \usepackage[bookmarks=false,colorlinks=false]{hyperref}
 \usepackage[protrusion=true,expansion=false]{microtype}
 \usepackage{array}
+\usepackage{tikz}
 \emergencystretch=3em
 \tolerance=600
 \providecommand{\modd}{\mathrm{mod}}
@@ -29,6 +30,40 @@
     {\small #3}
   \end{center}
   \vspace{0.5em}
+}
+
+\newcommand{\cayleysquarediag}[5]{%
+\begin{tikzpicture}[x=#5cm,y=#5cm,baseline=(current bounding box.center)]
+  \node[anchor=south west] at (0,#2+0.35) {$w=#1$};
+  \draw[thin] (0,0) grid (#2,#2);
+  \foreach \lab [count=\i] in {#3} {
+    \node[left=2pt] at (0,#2-\i+0.5) {$\lab$};
+  }
+  \foreach \lab [count=\j] in {#4} {
+    \node[below,rotate=90] at (\j-0.5,0) {$\lab$};
+  }
+  \foreach \i in {1,...,#2} {
+    \node at (\i-0.5,#2-\i+0.5) {$1$};
+  }
+\end{tikzpicture}%
+}
+
+\newcommand{\cayleysquareten}{%
+\begin{tikzpicture}[x=0.42cm,y=0.42cm,baseline=(current bounding box.center)]
+  \node[anchor=south west] at (0,12.45) {$w=10$};
+  \draw[thin] (0,0) grid (12,12);
+  \draw[dashed] (0,12) -- (12,0);
+  \draw[dashed] (0,0) -- (12,12);
+  \foreach \lab [count=\i] in {k,ci,dh,eg,{c^2g},{f^2},cdf,{ce^2},{d^2e},{c^3e},{c^2d^2},{c^5}} {
+    \node[left=2pt] at (0,12-\i+0.5) {$\lab$};
+  }
+  \foreach \lab [count=\j] in {{f^2},{ce^2},{b^2e^2},{bd^3},{c^2d^2},{b^2cd^2},{c^5},{b^4d^2},{b^2c^4},{b^4c^3},{b^6c^2},{b^{10}}} {
+    \node[below,rotate=90] at (\j-0.5,0) {$\lab$};
+  }
+  \foreach \r/\c/\v in {1/1/1,2/2/1,3/3/1,4/4/1,5/6/2,6/5/1,7/8/2,8/7/1,9/9/1,10/10/1,11/11/1,12/12/1} {
+    \node at (\c-0.5,12-\r+0.5) {$\v$};
+  }
+\end{tikzpicture}%
 }
 
 \begin{document}
@@ -652,10 +687,28 @@ But if, instead of the whole set $g(\text{ao}) b^6$, we consider a set $(g\,\mat
 
 43.\ It will be convenient to write down at once the system of square diagrams for the several weights 2 to 16; each of these may theoretically be obtained by a direct process of calculation such as I exhibit for the weight 10, but the labour would be very great indeed, and I have in fact formed the squares for the weights 11 to 16, not in this manner but by the MacMahon linkage.
 
-\textit{[Figure: Square diagrams for weights $w=2$ through $w=10$. Each diagram lists power-enders along the bottom edge (in AO) and non-unitary initials along the left edge (in CO), with $1$'s placed in cells where the corresponding seminvariant exists; the dexter diagonal carries $1$'s through $w=9$. For $w=10$ there are figures $1$ and $2$ in the dexter diagonal denoting multiplicities, with inversions among $(c^2 g, f^2)$ and $(cdf, ce^2)$. Full native-TeX reconstruction of the square layout remains unresolved; cf.\ the continuation on the following printed page and p.\ 296 below.]}
+\begin{center}
+\begin{tabular}{cccc}
+\cayleysquarediag{2}{1}{c}{{b^2}}{0.58} &
+\cayleysquarediag{3}{1}{d}{{b^3}}{0.58} &
+\cayleysquarediag{4}{2}{e,{c^2}}{{c^2},{b^4}}{0.50} &
+\cayleysquarediag{5}{2}{f,cd}{{bc^2},{b^5}}{0.50}
+\\[1.2cm]
+\multicolumn{2}{c}{\cayleysquarediag{6}{4}{g,ce,{d^2},{c^3}}{{d^2},{c^3},{b^2c^2},{b^6}}{0.55}} &
+\multicolumn{2}{c}{\cayleysquarediag{7}{4}{h,cf,de,{c^2d}}{{bd^2},{bc^3},{b^3c^2},{b^7}}{0.55}}
+\end{tabular}
+\end{center}
 
 % ----- printed page 294 (PDF 316) -----
-\textit{[Figure: Square diagrams for $w=8$, $w=9$, $w=10$. The $w=8$ diagram has initials $i$, $cg$, $df$, $e^2$, $c^2 e$, $cd^2$, $c^4$; finals $b^8$, $b^6 c$, $b^4 c^2$, $b^2 c^3$, $c^4$, $b^4 d^2$, $b^2 d^2$. The $w=9$ diagram has initials $j$, $ch$, $dg$, $ef$, $c^2 f$, $cde$, $d^3$, $c^3 d$. The $w=10$ diagram has initials $k$, $ci$, $dh$, $eg$, $f^2$, $c^2 g$, $cdf$, $ce^2$, $d^2 e$, $c^3 e$, $c^2 d^2$, $c^4$ and finals $b^{10}, \ldots, c^5$; the entries $1$ and $2$ are placed along the dexter diagonal.]}
+\begin{center}
+\cayleysquarediag{8}{7}{i,cg,df,{e^2},{c^2e},{cd^2},{c^4}}{{e^2},{cd^2},{b^2d^2},{c^4},{b^2c^3},{b^4c^2},{b^8}}{0.43}
+\qquad
+\cayleysquarediag{9}{8}{j,ch,dg,ef,{c^2f},cde,{d^3},{c^3d}}{{be^2},{d^3},{bcd^2},{b^3d^2},{bc^4},{b^3c^3},{b^5c^2},{b^9}}{0.40}
+
+\vspace{1.0cm}
+
+\cayleysquareten
+\end{center}
 
 % ----- printed page 295 (PDF 317) -----
 The subsequent squares $w = 11$ to 16 are, for convenience, given at the end of the present memoir (pp.\ 331 et seq.).
@@ -683,18 +736,18 @@ For the several weights up to 9, we have simply units in the dexter diagonal of 
 
 \begin{center}
 \begin{tabular}{rcl}
-$k$ & $\mathrm{ao}$ & $b^{10}$,\quad ``1'' \\
-$ci$ & $\mathrm{ao}$ & $b^8 c$,\quad ``1'' \\
-$dh$ & $\mathrm{ao}$ & $b^6 c^2$,\quad ``1'' \\
-$eg$ & $\mathrm{ao}$ & $b^4 c^3$,\quad ``1'' \\
-$f^2$ & $\mathrm{ao}$ & $b^4 d^2$,\quad ``1'' \\
+$k$ & $\mathrm{ao}$ & $f^2$,\quad ``1'' \\
+$ci$ & $\mathrm{ao}$ & $ce^2$,\quad ``1'' \\
+$dh$ & $\mathrm{ao}$ & $b^2 e^2$,\quad ``1'' \\
+$eg$ & $\mathrm{ao}$ & $bd^3$,\quad ``1'' \\
+$f^2$ & $\mathrm{ao}$ & $c^2 d^2$,\quad ``1'' \\
 $c^2 g$ & $\mathrm{ao}$ & $b^2 c d^2$,\quad ``2'' \\
-$cdf$ & $\mathrm{ao}$ & $b^2 c d^2$,\quad ``2'' \\
-$ce^2$ & $\mathrm{ao}$ & $b^2 c d^2$,\quad ``1'' \\
-$d^2 e$ & $\mathrm{ao}$ & $c^2 d^2$,\quad ``1'' \\
-$c^3 e$ & $\mathrm{ao}$ & $c^5$,\quad ``1'' \\
+$ce^2$ & $\mathrm{ao}$ & $c^5$,\quad ``1'' \\
+$cdf$ & $\mathrm{ao}$ & $b^4 d^2$,\quad ``2'' \\
+$d^2 e$ & $\mathrm{ao}$ & $b^2 c^4$,\quad ``1'' \\
+$c^3 e$ & $\mathrm{ao}$ & $b^4 c^3$,\quad ``1'' \\
 $c^2 d^2$ & $\mathrm{ao}$ & $b^6 c^2$,\quad ``1'' \\
-$c^4$ & $\mathrm{ao}$ & $b^4 c^3$,\quad ``1'' \\
+$c^5$ & $\mathrm{ao}$ & $b^{10}$,\quad ``1'' \\
 \end{tabular}
 \end{center}
 
