@@ -2,7 +2,7 @@
 
 Generated: 2026-05-29
 
-Superseded update: as of 2026-05-31, the mirrored public SGA record includes a paired French/English source-checked SGA 5 edition complete through printed page 484, including Expose XV and both indexes. As of 2026-06-02, the mirrored public SGA record also includes a complete paired French/English source-checked SGA 6 edition through source page 702, including the terminological and notation indexes. The notes below are retained as a dated audit trail of the older 2026-05-29 state.
+Superseded update: as of 2026-05-31, the mirrored public SGA record includes a paired French/English source-checked SGA 5 edition complete through printed page 484, including Expose XV and both indexes. As of 2026-06-02, the mirrored public SGA record also includes a complete paired French/English source-checked SGA 6 edition through source page 702, including the terminological and notation indexes. As of 2026-06-03, the mirror also includes SGA 7-I source-checked English/French cumulative readers through source page 96. The notes below are retained as a dated audit trail of the older 2026-05-29 state.
 
 This note records the current source-vs-public check for the SGA working translation material mirrored here and archived on Zenodo at https://zenodo.org/records/20410947.
 
@@ -15,6 +15,7 @@ This note records the current source-vs-public check for the SGA working transla
 - Older 2026-05-29 SGA 5 delivered-segments reader: 141 pages, before the later sequence-062 SGA 5 completion was promoted.
 - Older 2026-05-29 SGA 6 English working reader: 257 pages, through Expose XIV end, before the later complete source-checked SGA 6 rebuild was promoted.
 - SGA 7-I opening reader: 13 pages, introduction and Expose I only.
+- Current SGA 7-I source-checked cumulative readers through source page 96 are now present separately as `reader-pdfs/sga/53` through `55`.
 
 ## Source Check
 
@@ -26,4 +27,4 @@ This condition was later satisfied for SGA 5 by the sequence-062 cumulative pack
 
 ## Next Action
 
-When new SGA packets arrive, rebuild the SGA public staging area, recheck page counts against the French references, and only promote a new SGA 5 status if the source coverage actually changes.
+When new SGA packets arrive, rebuild the SGA public staging area, recheck page counts against the French references, and only promote a new SGA status if the source coverage actually changes. Current next continuation point is SGA 7-I after source page 96.
