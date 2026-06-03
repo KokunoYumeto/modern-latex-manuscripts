@@ -1,36 +1,45 @@
-# Cayley Reader Residual Marker Scan — 2026-06-03
+# Cayley Reader Residual Marker Scan - 2026-06-03
 
-This scan lists reader-visible residual marker language after the 2026-06-03 Cayley repair passes through Git commit `27c2dc03`. It searches front-facing Cayley reader PDFs for figure/table placeholder phrases such as `[Figure:]`, `too dense`, `unreadable`, and `reader is referred to the original`.
+This scan lists reader-visible residual marker language after the 2026-06-03 Cayley repair passes. It searches the front-facing Cayley reader PDFs for figure/table placeholder phrases such as `[Figure:]`, `too dense`, `unreadable`, `not reproduced here`, `placeholder`, and `reader is referred to the original`.
 
 It is a triage list, not a claim that every listed item has equal severity. Several hits are honest notices for very large tables or plates that need a dedicated table/diagram reconstruction pass rather than a quick TikZ replacement.
 
-Found **16** reader-visible residual hits after the Volume X p. 347 annexed
-diagram and Volume V p. 463 secondary-caustic plot were replaced with native
-TeX on 2026-06-03, and after the Volume XI p. 72 stale marker was removed
-because the table is already transcribed. A later pass also replaced the
-Volume XIII square-diagram placeholder on reader p. 263 with native TikZ
-square diagrams for weights 2--10, checked against the Volume XIII scan.
-The next sequential Cayley pass replaced the Volume IV p. 51 determinant
-placeholder on reader p. 37 with source-checked native TeX for the quartic and
-quintic coefficient arrays.
+Found **20** reader-visible residual hits after the Volume IV p. 51 determinant placeholder, p. 246 coefficient table, and p. 253 quartic standard-form table were replaced with source-checked native TeX. The current Volume IV reader is **495 pages** after replacing a former two-page summary with a single faithful p. 253 table page.
+
+## Residual Distribution
+
+| Volume | Residual hits |
+|---|---:|
+| IV | 12 |
+| V | 2 |
+| IX | 1 |
+| X | 1 |
+| XI | 2 |
+| XIII | 2 |
+
+## Residual Hits
 
 | Volume Reader | Reader Page | Marker | Notes |
 |---|---:|---|---|
-| Volume IV | 243 | `reader is referred to the original` | se matrix-style typesetting in the original, the table is reproduced here only in summary form; the reader is referred to the original page for the complete listing.) |
-| Volume IV | 250 | `reader is referred to the original` | ry dense layout of the original printed table, only the principal entries are reproduced above; the reader is referred to the original page 253 of the memoir for the complete six-c |
-| Volume IV | 252 | `too dense` | e last column (θ0, 3125×), which has the bottom total ±128505. The exact body of these two pages is too dense and too pictorial in its typographic layout to be set in line; the rea |
-| Volume IV | 272 | `reader is referred to the original` | ns giving the full enumeration of monomials of degree ≤the column index in the letters e, f, g. The reader is referred to the original page 274 for the complete tabular display.] |
-| Volume IV | 287 | `too dense` | 2 −540 ab3cd2e +1196 abc2d3 −840 ab3cd3 +1080 ab4cd3 +672240 and so on, · · · [the full table being too dense to set in line; the reader is referred to the original printed page 28 |
-| Volume IV | 373 | `[Figure:` | \| y, 1)4 = 0, où l'on a (table dense en monomes T i 0T j 1 T k 2 avec coe cients en a, b, c, d, e): [Figure: large multi-column coe cient table for C, D, E in monomes of T0, T1, T2 |
-| Volume IV | 375 | `[Figure:` | T0 + (ax2 + bx + 1 2c) T1 + (ax3 + bx2 + cx + 1 4d) T2 est la suivante (1, 0, C, D, E \| y, 1)4 = 0. [Figure: large multi-column tables giving C, D, E as explicit polynomials in T0, |
-| Volume IV | 376 | `[Figure:` | 0 Cayley  Collected Papers, Vol. IV 374 deuxième note sur la transformation de tschirnhausen. [274 [Figure: continuation of the multi-column coe cient tables for E. Each column ca |
-| Volume IV | 380 | `[Figure:` | , D = 1 27  (a2d −3abc + 2b3) B3 + (3abd + 3b2c) B2C + (6b2d + 6acd) BC2 + (ad2 + 3bcd + 3) C3  . [Figure: Cayley's column-table for the coe cients C and D. The columns are heade |
-| Volume IX | 231 | `not reproduced here` | (4), carbon-, &c., atoms; and so on. [Plate  see scan: of trees follows in the original printing; not reproduced here.] 5 |
-| Volume V | 339 | `[Figure:` | but this is a subject which I do not enter upon in the present Memoir. Cambridge, February 8, 1864. [Figure: Plate III, illustrating the Hyperbolas A Defective discussed in Arts. 7 |
-| Volume V | 432 | `[Figure:` |  135◦ −1 √ 2, 1 √ 2 −1 √ 2 1 √ 2 0 1 √ 2(−i + j) Axial System of the Dodecahedron and Icosahedron. [Figure: extensive tabular listing across two pages (pp. 534535 in original) of |
-| Volume X | 396 | `unreadable` | comprising S0, S1, S2, S3 occupy printed pages 397398 in seven columns. As the entries are partly unreadable in the scan (typesetter has compressed and broken many fraction-bars), |
-| Volume XI | 73 | `[Figure:` | 101125 Cayley  Collected Papers, Vol. XI Table of the Powers of Reuschle's Selected Prime Roots. [Figure: a large arithmetical table 65 columns wide listing powers gk (mod p) for |
-| Volume XI | 74 | `[Figure:` | Pages 101125 Cayley  Collected Papers, Vol. XI Table (continued). [Figure: continuation of the table of powers of Reuschle's selected prime roots, spanning further values of the  |
-| Volume XIII | 267 | `[Figure:` | ce to subsequent investigations, a table of these conjugate forms up to the degree 6 and weight 15. [Figure: a stepped, page-wide Table of Conjugates giving capital-letter and sm |
+| Volume IV | 251 | `reader is referred to the original` | , 3125×), which has the bottom total ±128505. The exact body of these two pages is too dense and too pictorial in its typographic layout to be set in line; the reader is referred to the original printed pages 254 255 for the complete enumeration of every monomial and coe cient.] |
+| Volume IV | 251 | `too dense` | , . . . the column total being ±159884; and so on through the last column (θ0, 3125×), which has the bottom total ±128505. The exact body of these two pages is too dense and too pictorial in its typographic layout to be set in line; the reader is referred to the original printed pages 254 255 for the complete enumeration of every monomial and coe cient.] |
+| Volume IV | 271 | `reader is referred to the original` | e6, e4f, e2f2, f3, e3g, efg, g2; and so on, the higher columns giving the full enumeration of monomials of degree ≤the column index in the letters e, f, g. The reader is referred to the original page 274 for the complete tabular display.] |
+| Volume IV | 286 | `reader is referred to the original` | 2 a2b2d2 +2 a4bcd2 +624 a2bcde2 −540 ab3cd2e +1196 abc2d3 −840 ab3cd3 +1080 ab4cd3 +672240 and so on, · · · [the full table being too dense to set in line; the reader is referred to the original printed page 287]. [viz. this is = 48 AJ −80 HI + 120 BI −50 CO as above]. In the following two Annexes, the notation of the symmetric functions is the same as in my  Memoir on the Symmetric Functions of the Roots of an Equat |
+| Volume IV | 286 | `too dense` | −30 a4b4c +18 a5c3d +2 a4bf −32 a2b2d2 +2 a4bcd2 +624 a2bcde2 −540 ab3cd2e +1196 abc2d3 −840 ab3cd3 +1080 ab4cd3 +672240 and so on, · · · [the full table being too dense to set in line; the reader is referred to the original printed page 287]. [viz. this is = 48 AJ −80 HI + 120 BI −50 CO as above]. In the following two Annexes, the notation of the symmetric functions is the same as in my  Memoir on the Symmetric Func |
+| Volume IV | 372 | `[Figure:` | + 6cx + 3d) T2, conduisent à la transformée: (1, 0, C, D, E \| y, 1)4 = 0, où l'on a (table dense en monomes T i 0T j 1 T k 2 avec coe cients en a, b, c, d, e): [Figure: large multi-column coe cient table for C, D, E in monomes of T0, T1, T2 with polynomial entries in a, b, c, d, e. The table spans most of pp. 371 372 of the original printing.] The table for C has the form (column entries are coe cients of T02, T0T1, |
+| Volume IV | 374 | `reader is referred to the original` | e tables are densely printed on pp. 373 374 of the original and contain hundreds of monomial entries grouped column-by-column under each T0iT1jT2k heading. The reader is referred to the original scan for the full layout.] The leading entries (samples from the columns) are: C = 1 4   T02 : ac + 8, b2 −3; T0T1 : ad + 24, bc −4; T0T2 : ae + 32, bd −2, c2 −6; T12 : ae + 16, bd + 8, c2 −6; T1T2 : be + 24, cd −4; T |
+| Volume IV | 374 | `[Figure:` | , b, c, d, e \| x, 1)4 = 0 la transformée en y = (ax + 1 4b) T0 + (ax2 + bx + 1 2c) T1 + (ax3 + bx2 + cx + 1 4d) T2 est la suivante (1, 0, C, D, E \| y, 1)4 = 0. [Figure: large multi-column tables giving C, D, E as explicit polynomials in T0, T1, T2 with coe cients formed from monomes of a, b, c, d, e such as ac + 8, b2 −3, a2bd + 8, abce −60, etc. The tables are densely printed on pp. 373 374 of the original and conta |
+| Volume IV | 375 | `[Figure:` | Pages 376 400 Cayley   Collected Papers, Vol. IV 374 deuxième note sur la transformation de tschirnhausen. [274 [Figure: continuation of the multi-column coe cient tables for E. Each column carries a header of the form T0iT1jT2k (with i + j + k = 4), and the column entries are integer-weighted monomes of a, b, c, d, e summing to the coe cient of that monome in 256E. Sam |
+| Volume IV | 379 | `[Figure:` | 2 + (ad −3bc) BC + (−3bd + c2) C2   (column sums −2, −3, −2), D = 1 27   (a2d −3abc + 2b3) B3 + (3abd + 3b2c) B2C + (6b2d + 6acd) BC2 + (ad2 + 3bcd + 3) C3   . [Figure: Cayley's column-table for the coe cients C and D. The columns are headed B2, BC, C2 (for C) and B3, B2C, BC2, C3 (for D); within each column the entries are monomes in a, b, c, d with their numerical coe cients, the column sums being zero as a check ( |
+| Volume IV | 380 | `placeholder` | +6); the table spans the lower half of printed page 379 of the original. The OCR of this dense table is not trustworthy and the table is here represented as a placeholder; the cleanly typeset expressions for the binary forms U ′, H′, Φ′ on page 380, together with the identities for C, D, E given there in terms of U ′, H′, Θ′, su ce for all further use.] 380 ON TSCHIRNHAUSEN'S TRANSFORMATION. [275 [The remainder of t |
+| Volume IV | 385 | `placeholder` | ollected Papers, Vol. IV of the appropriate weight, and in the other direction by the monomials of (a, b, c, d, e, f). We reproduce these tables in the form of placeholders, since the OCR of these dense tabular arrays is not faithful and the surrounding text su ces to identify their content: [Table for 1 4C (degree 2 in B, C, D, E): header monomials B2, BC, BD, C2, BE, CD, CE, DE, D2, E2; row monomials of degree 2 in |
+| Volume V | 339 | `[Figure:` | according as the one or the other classi cation is adopted; but this is a subject which I do not enter upon in the present Memoir. Cambridge, February 8, 1864. [Figure: Plate III, illustrating the Hyperbolas A Defective discussed in Arts. 73 100 above: the envelope (an upper branch crossing itself at a crunode together with a separate lower branch), the twofold-centre hyperbola, the one-with-twofold-centre locus, and |
+| Volume V | 433 | `[Figure:` | −j + k) 90◦ 0 45◦ 1 √ 2, 1 √ 2 1 √ 2 1 √ 2 0 1 √ 2(i + j)     135◦ −1 √ 2, 1 √ 2 −1 √ 2 1 √ 2 0 1 √ 2(−i + j) Axial System of the Dodecahedron and Icosahedron. [Figure: extensive tabular listing across two pages (pp. 534 535 in original) of the 6 5-axes (half-rotation angle 36◦, cos = √ 5+1 4 , sin = 1 4 p 10 −2 √ 5), 10 3-axes (half-rotation 60◦), and 15 2-axes (half-rotation 90◦) with their distance, azimuth, direc |
+| Volume IX | 231 | `not reproduced here` | on-, &c., atoms; when (3), boron-, carbon-, &c., atoms; when (4), carbon-, &c., atoms; and so on. [Plate   see scan: of trees follows in the original printing; not reproduced here.] 5 |
+| Volume X | 397 | `unreadable` | ards S1 and S2.] [The full lists of monomials and coe cients comprising S0, S1, S2, S3 occupy printed pages 397 398 in seven columns. As the entries are partly unreadable in the scan (typesetter has compressed and broken many fraction-bars), we omit the verbatim reproduction and reproduce instead the veri cation specialisations which Cayley records on printed pages 399 400.] |
+| Volume XI | 73 | `[Figure:` | Pages 101 125 Cayley   Collected Papers, Vol. XI Table of the Powers of Reuschle's Selected Prime Roots. [Figure: a large arithmetical table 65 columns wide listing powers gk (mod p) for selected primes p = 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 across the columns, and expo- nents k = 1, 2, 3, . . . down the rows. |
+| Volume XI | 74 | `[Figure:` | Pages 101 125 Cayley   Collected Papers, Vol. XI Table (continued). [Figure: continuation of the table of powers of Reuschle's selected prime roots, spanning further values of the exponent k for the primes listed on the preceding page. Numerous numerical entries ll the page, in the same format as the previous table.] |
+| Volume XIII | 308 | `[Figure:` | o each other. It will be convenient to give here, in reference to subsequent investigations, a table of these conjugate forms up to the degree 6 and weight 15. [Figure: a stepped, page-wide  Table of Conjugates  giving capital-letter and small-letter conjugate forms for every weight from 1 (left column) up to 15 (right edge) and for degrees 2 through 6 (rows arranged in a step pattern from upper right downwards to lo |
+| Volume XIII | 315 | `too dense` | D, E, E2, F, F2, G, G2, G3, G4, H, H2, . . .; the precise numerical coe cients and product ex- pressions are exhibited line-by-line in the printed scan and are too dense to faithfully transcribe in linear form here. The columns are headed by the weight w, and within each column the entries are arranged as: seminvariant in the form  ( nal-term) ∞(initial-term) , followed by its reduction (where present) as a polynomia |
 
-Immediate policy: do small scan-faithful native diagrams directly; route dense coefficient tables, rotated tables, plates, and tree/axis enumerations through a cropped table/diagram workflow. Do not replace dense tables with plausible generated summaries.
+Immediate policy: keep repairing Volume IV sequentially. Do small scan-faithful native diagrams directly; route dense coefficient tables, rotated tables, plates, and tree/axis enumerations through a cropped table/diagram workflow. Do not replace dense tables with plausible generated summaries.
