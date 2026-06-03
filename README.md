@@ -19,6 +19,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - Emmy Noether author record: https://zenodo.org/records/20412587
 - Carl Friedrich Gauss author record: https://zenodo.org/records/20410934
 - Bernhard Riemann author record: https://zenodo.org/records/20429778
+- Arthur Cayley author record: https://doi.org/10.5281/zenodo.20520749
 - Richard Dedekind author record: https://doi.org/10.5281/zenodo.20520669
 - P. G. Lejeune Dirichlet author record: https://doi.org/10.5281/zenodo.20520679
 - James Joseph Sylvester author record: https://doi.org/10.5281/zenodo.20520692
@@ -27,7 +28,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - Cayley, Dedekind, and Dirichlet classical algebra/arithmetic shelf: https://zenodo.org/records/20414787
 - Author cluster shelf: https://zenodo.org/records/20411006
 
-The first dedicated author split has created separate Dedekind, Dirichlet, and Sylvester records. Cayley and Steinitz remain staged under `zenodo-metadata/` until the current local repair/source packets are mature enough to be promoted cleanly. The existing shelf records remain useful umbrellas and preservation backstops, not the preferred reader-facing entry points for mature author lanes.
+The first dedicated author split has created separate Cayley, Dedekind, Dirichlet, and Sylvester records. Steinitz remains staged under `zenodo-metadata/` until the current local bilingual packet is mirrored and checked. The existing shelf records remain useful umbrellas and preservation backstops, not the preferred reader-facing entry points for mature author lanes.
 
 ## What Is Here
 
