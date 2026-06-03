@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
@@ -19,6 +20,10 @@
 \providecommand{\page}{p.}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{Pages 451--475}\fancyhead[R]{Cayley --- Collected Papers, Vol. X}\renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{15pt}
+\tikzset{
+  cayley small edge/.style={line cap=round,line join=round,semithick},
+  cayley small dotted/.style={line cap=round,line join=round,semithick,densely dotted}
+}
 
 \begin{document}
 
@@ -1271,7 +1276,23 @@ See my ``Algorithm of the triple $\vartheta$-functions,'' Crelle, t.~\textsc{lxx
 
 \medskip
 
-35 hexpairs such as \textit{[Figure: rectangle with vertices 5, 6 on top and 7, 8 on bottom, with internal diagonals]}, say this is 1234.5678 or for shortness 567 (the 8 going always with the expressed triad): that is, 567 denotes the hexpair
+35 hexpairs such as
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (a) at (0,1); \coordinate (b) at (1,1);
+  \coordinate (c) at (0,0); \coordinate (d) at (1,0);
+  \draw[cayley small edge] (a)--(b)--(d)--(c)--cycle (a)--(d) (b)--(c);
+  \node[above] at (a) {$1$}; \node[above] at (b) {$2$};
+  \node[below] at (c) {$4$}; \node[below] at (d) {$3$};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (a) at (0,1); \coordinate (b) at (1,1);
+  \coordinate (c) at (0,0); \coordinate (d) at (1,0);
+  \draw[cayley small edge] (a)--(b)--(d)--(c)--cycle (a)--(d) (b)--(c);
+  \node[above] at (a) {$5$}; \node[above] at (b) {$6$};
+  \node[below] at (c) {$8$}; \node[below] at (d) {$7$};
+\end{tikzpicture},
+say this is 1234.5678 or for shortness 567 (the 8 going always with the expressed triad): that is, 567 denotes the hexpair
 \[
 12.34;\ 13.24;\ 14.23;\ 56.78;\ 57.68;\ 58.67;
 \]
@@ -1280,7 +1301,21 @@ and
 
 \medskip
 
-28 hexpairs such as \textit{[Figure: vertex 1 connected by lines to a pentagonal arrangement 3, 4, 5, 6, 7, 8 with 2 at the right]}, say this is 12; that is, 12 denotes the hexpair
+28 hexpairs such as
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (one) at (0,0); \coordinate (two) at (2.25,0);
+  \coordinate (three) at (1.12,2.05); \coordinate (four) at (1.12,1.28);
+  \coordinate (five) at (1.12,0.48); \coordinate (six) at (1.12,-0.48);
+  \coordinate (seven) at (1.12,-1.28); \coordinate (eight) at (1.12,-2.05);
+  \draw[cayley small edge] (one)--(three)--(two)--(eight)--cycle;
+  \draw[cayley small edge] (one)--(four)--(two) (one)--(five)--(two)
+    (one)--(six)--(two) (one)--(seven)--(two);
+  \node[left] at (one) {$1$}; \node[right] at (two) {$2$};
+  \node[above] at (three) {$3$}; \node[left] at (four) {$4$};
+  \node[above right] at (five) {$5$}; \node[below right] at (six) {$6$};
+  \node[left] at (seven) {$7$}; \node[below] at (eight) {$8$};
+\end{tikzpicture},
+say this is 12; that is, 12 denotes the hexpair
 \[
 13.32;\ 14.42;\ 15.52;\ 16.62;\ 17.72;\ 18.82.
 \]
@@ -1318,7 +1353,17 @@ The 288 heptads are
 
 \medskip
 
-8 heptads such as \textit{[Figure: vertex 1 at top with lines radiating down to a heptagonal arrangement of points labelled 2, 3, 4, 5, 6, 7, 8]}, say this is the heptad 1, denoting the seven duads $12, 13, 14, 15, 16, 17, 18$:
+8 heptads such as
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (one) at (0,1.45);
+  \foreach \x/\lab in {-1.8/2,-1.2/3,-0.6/4,0/5,0.6/6,1.2/7,1.8/8} {
+    \coordinate (p\lab) at (\x,0);
+    \draw[cayley small edge] (one)--(p\lab);
+    \node[below] at (p\lab) {$\lab$};
+  }
+  \node[above] at (one) {$1$};
+\end{tikzpicture},
+say this is the heptad 1, denoting the seven duads $12, 13, 14, 15, 16, 17, 18$:
 
 \bigskip
 %=====================================================================
@@ -1332,7 +1377,23 @@ and
 
 \medskip
 
-280 heptads such as \textit{[Figure: two triangular diagrams --- left triangle with vertex 1 connected to base 2, 3, 4, 5; right small triangle with vertex labels 6, 7, 8]}, say this is the heptad $1.678$, denoting the seven duads $12, 13, 14, 15, 67, 68, 78$.
+280 heptads such as
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (one) at (0,1.35);
+  \foreach \x/\lab in {-1.05/2,-0.35/3,0.35/4,1.05/5} {
+    \coordinate (p\lab) at (\x,0);
+    \draw[cayley small edge] (one)--(p\lab);
+    \node[below] at (p\lab) {$\lab$};
+  }
+  \node[above] at (one) {$1$};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (six) at (0,1.25); \coordinate (seven) at (-0.75,0); \coordinate (eight) at (0.75,0);
+  \draw[cayley small edge] (six)--(seven)--(eight)--cycle;
+  \node[above] at (six) {$6$}; \node[below] at (seven) {$7$}; \node[below] at (eight) {$8$};
+\end{tikzpicture},
+say this is the heptad $1.678$, denoting the seven duads $12, 13, 14, 15, 67, 68, 78$.
 
 \medskip
 
@@ -1340,15 +1401,36 @@ We hence see that the 2016 hemi-tripairs are
 
 \medskip
 
-280 hemi-tripairs \textit{[Figure: triangle with vertex 1 and base 2, 3, 4]} (I.), say this is $1.234$, denoting the three duads $12, 13, 14$:
+280 hemi-tripairs
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (one) at (0,1.45); \coordinate (two) at (-0.9,0); \coordinate (three) at (0,-1.05); \coordinate (four) at (0.9,0);
+  \draw[cayley small edge] (one)--(two) (one)--(three) (one)--(four);
+  \node[above] at (one) {$1$}; \node[below left] at (two) {$2$};
+  \node[below] at (three) {$3$}; \node[below right] at (four) {$4$};
+\end{tikzpicture}
+(I.), say this is $1.234$, denoting the three duads $12, 13, 14$:
 
 \medskip
 
-1680 hemi-tripairs \textit{[Figure: triangle with vertex 1 at left connected to small triangle 2, 6, 7, 8 at right]} (II.), say this is $12 (6.78)$, denoting the three duads $12, 67, 68$:
+1680 hemi-tripairs
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (one) at (-0.75,1.1); \coordinate (two) at (-1.1,0);
+  \coordinate (six) at (0.45,1.1); \coordinate (seven) at (0.1,0); \coordinate (eight) at (0.9,0);
+  \draw[cayley small edge] (one)--(two) (six)--(seven) (six)--(eight);
+  \node[above] at (one) {$1$}; \node[below] at (two) {$2$};
+  \node[above] at (six) {$6$}; \node[below] at (seven) {$7$}; \node[below] at (eight) {$8$};
+\end{tikzpicture}
+(II.), say this is $12 (6.78)$, denoting the three duads $12, 67, 68$:
 
 \medskip
 
-56 hemi-tripairs \textit{[Figure: triangle 1-2-3]} (III.), say this is $123$, denoting the three duads $12, 13, 23$;
+56 hemi-tripairs
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.34]
+  \coordinate (one) at (0,1.2); \coordinate (two) at (-0.75,0); \coordinate (three) at (0.75,0);
+  \draw[cayley small edge] (one)--(two)--(three)--cycle;
+  \node[above] at (one) {$1$}; \node[below] at (two) {$2$}; \node[below] at (three) {$3$};
+\end{tikzpicture}
+(III.), say this is $123$, denoting the three duads $12, 13, 23$;
 
 \medskip
 \hfill 2016.
@@ -1359,7 +1441,25 @@ We further see how each hemi-tripair may be completed into a tripair in 5 differ
 
 \medskip
 
-\textit{[Figure: two small triangular diagrams in the lower-left showing example tripair configurations with vertex labels 1, 6, 2, 6, etc.]}
+\begin{center}
+\begin{tikzpicture}[scale=0.42]
+  \coordinate (one) at (0,1.15); \coordinate (six) at (1.25,1.15);
+  \coordinate (two) at (0,0); \coordinate (seven) at (1.05,0.05); \coordinate (eight) at (1.65,-1.05);
+  \draw[cayley small edge] (one)--(two)--(seven)--(six)--cycle (six)--(eight);
+  \draw[cayley small dotted] (one)--(six) (two)--(eight) (two)--(six);
+  \node[above] at (one) {$1$}; \node[above] at (six) {$6$}; \node[below] at (two) {$2$};
+  \node[below] at (seven) {$7$}; \node[below] at (eight) {$8$};
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[scale=0.42]
+  \coordinate (two) at (0,1.15); \coordinate (six) at (1.25,1.15);
+  \coordinate (one) at (0,0); \coordinate (seven) at (1.05,0.05); \coordinate (eight) at (1.65,-1.05);
+  \draw[cayley small edge] (two)--(one)--(seven)--(six)--cycle (six)--(eight);
+  \draw[cayley small dotted] (two)--(six) (one)--(eight) (one)--(six);
+  \node[above] at (two) {$2$}; \node[above] at (six) {$6$}; \node[below] at (one) {$1$};
+  \node[below] at (seven) {$7$}; \node[below] at (eight) {$8$};
+\end{tikzpicture}
+\end{center}
 
 \bigskip
 %=====================================================================

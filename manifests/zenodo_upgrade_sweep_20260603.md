@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume IV `501_525` ruler-construction diagram repair.
+Generated after the current GitHub mirror pass through the Cayley Volume X `451_475` theta-symbol diagram cluster repair.
 
 ## Publishing Capability
 
@@ -58,7 +58,7 @@ Local GitHub state now includes:
 - Current Volume VII reader hash: `de5d4c4803c5671c278f2b1920fbe70ffb45852d9c09fcdbe1e29480f8c3c7a5` (336 pages; 4852925 bytes).
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
 - Current Volume IX reader hash: `40a1aae1577d480833b12bd661df2baf1e06a184674c798ecb398006708d5151` (348 pages; 5211862 bytes).
-- Current Volume X reader hash: `5a2e31c7ae616b9ff9883f39da13daea58b3a1d1f56bd92a19a7363a7871fec7` (575 pages; 6826144 bytes).
+- Current Volume X reader hash: `0a4911bdd83baca668cf9b4d1e8381900c16c7a81ab10758b1448a4b6a244fa0` (575 pages; 6667301 bytes).
 - Current Volume XI reader hash: `17da539f453a78d53eb8cad6a63d9d03e996afb8dec5d4d0838588436aa56e41` (415 pages; 4704908 bytes).
 - Current Volume XII reader hash: `f018c62296595f43871ca153fba52030f937b8f9eafe5136fe3af58131c1624b`.
 - Current Volume XIII reader hash: `c638a651e2010f3f873bcf337711a31ad29401e48c5d49762d8af0539ff9f7ff` (487 pages; 6125844 bytes).
