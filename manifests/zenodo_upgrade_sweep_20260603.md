@@ -52,6 +52,7 @@ Local GitHub state now includes:
 - Recent Cayley repairs already pushed for Volumes II, IV, V, VI, VII, IX, X, XI, XII, and XIII.
 - Latest Cayley status log: `manifests/cayley_current_duty_status_20260602.md`.
 - Current Volume II reader hash: `040dc6861b761ba57e6462f1a8b53d239515a922f6d08bc0f02148ed4711095c` (312 pages; 4619547 bytes).
+- Current Volume IV reader hash: `a0cabc0fa042395ff3e4e048eae0e65bfcd70fc3a0b80b3c7623c588f3dd953f` (496 pages; 6013429 bytes).
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
 - Current Volume IX reader hash: `40a1aae1577d480833b12bd661df2baf1e06a184674c798ecb398006708d5151` (348 pages; 5211862 bytes).
