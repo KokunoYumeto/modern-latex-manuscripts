@@ -1,20 +1,22 @@
 # Public PDF Surface Audit
 
-Generated: 2026-06-02T08:44:10
+Generated: 2026-06-03T06:39:27
 
 Reader PDF counts by section:
 
 - author-cluster: 10
-- classical: 21
-- deligne: 68
+- classical: 25
+- deligne: 70
+- dirichlet: 2
 - ega: 10
-- gauss: 12
-- noether: 70
+- gauss: 17
+- noether: 84
 - non-european: 63
 - riemann: 2
-- sga: 61
-- ukrainian-applied-math: 13
-- weber: 40
+- sga: 73
+- sylvester: 1
+- ukrainian-applied-math: 18
+- weber: 46
 
 Cayley policy: the public reader shelf uses only repaired slice PDFs that render as real mathematical text. Broad cumulative Cayley draft volumes are preserved in source/artifact material rather than promoted as reader PDFs.
 
@@ -37,6 +39,7 @@ Current public Zenodo records:
 Reader PDF health flags:
 
 - `reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: first_page_blankish
+- `reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`: first_page_blankish
 - `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
 - `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
@@ -55,7 +58,11 @@ Reader PDF health flags:
 - `reader-pdfs/sga/39O SGA 6 - Source Scan Slice for Expose VIII Pages 473-492.pdf`: first_page_blankish
 - `reader-pdfs/sga/39R SGA 6 - Source Scan Slice for Expose VIII Pages 493-504.pdf`: first_page_blankish
 - `reader-pdfs/sga/39U SGA 6 - Source Scan Slice for Expose IX Pages 505-525.pdf`: first_page_blankish
+- `reader-pdfs/sga/39X SGA 6 - Source Scan Slice for Expose XIII Pages 619-653.pdf`: first_page_blankish
+- `reader-pdfs/sga/39ZA SGA 6 - Source Scan Slice for Expose XIII Pages 654-669.pdf`: first_page_blankish
+- `reader-pdfs/sga/39ZD SGA 6 - Source Scan Slice for Indexes Pages 693-702.pdf`: first_page_blankish
 - `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/52 SGA 7 Tome 2 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 96.pdf`: first_page_blankish

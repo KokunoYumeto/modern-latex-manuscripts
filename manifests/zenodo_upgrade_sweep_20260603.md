@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume X `451_475` theta-symbol diagram cluster repair.
+Generated after the current GitHub mirror pass through the Cayley Volume X `451_475` theta-symbol diagram cluster repair, Noether Spanish/Japanese Paper 15 staging, and SGA 7-I source-page-96 staging.
 
 ## Publishing Capability
 
@@ -38,9 +38,13 @@ Local GitHub state:
 - `reader-pdfs/sga/21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf`
 - `reader-pdfs/sga/39ZB` through `39ZD` final index segment and source-scan witness.
 - `sources/sga/sga6-complete-source-checked-through-page-702-2026-06-02/`
+- `reader-pdfs/sga/53 SGA 7-I - Source-Checked Working Edition through Source Page 96 - English Translation.pdf`
+- `reader-pdfs/sga/54 SGA 7-I - Source-Checked Working Edition through Source Page 96 - French Reconstruction.pdf`
+- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 96.pdf`
+- `sources/sga/sga7-i-source-checked-through-page-096-2026-06-03/`
 - Manifest: `manifests/sga6_complete_source_checked_through_page702_20260602.md`
 
-Action: publish a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, which already describes the complete page-702 SGA 6 edition.
+Action: publish a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-96 continuation.
 
 ### 2. Classical shelf - Cayley/Dedekind/Dirichlet
 
@@ -73,11 +77,12 @@ Local/GitHub state:
 
 - German/English numbered-paper readers through Paper 43 are present.
 - Product-table patch is integrated as separate top-level readers (`54`, `55`) and in the canonical audit package.
-- Spanish/Japanese GitHub readers are present through Paper 09.
-- External local work has advanced further: `Noether Multilingual` contains Paper 10, Paper 11, and Paper 12 ES/JA packages dated 2026-06-02/03.
+- Spanish/Japanese GitHub readers are present through Paper 15.
+- New front-facing readers `74` through `77` add cumulative Spanish/Japanese through Paper 15 and standalone Paper 15 Spanish/Japanese readers.
+- Current source packet: `sources/noether/multilingual-spanish-japanese-through-paper15-complete-2026-06-03/`.
 - Canonical final audit folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether restart fidelity\Noether_FINAL_AUDIT_numbered_papers_complete_PATCHED`.
 
-Action: first mirror Paper 10-12 ES/JA if accepted, then publish Noether with a clear split: numbered German/English complete; ES/JA pilot through the latest accepted paper; French pilot only where actually complete.
+Action: publish Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 15 complete; French pilot only where actually complete.
 
 ### 4. Ukrainian applied mathematics
 
@@ -114,7 +119,19 @@ Local state noted by external thread:
 - Sylvester Volume I cumulative through book pp. 1-218 is mirrored in GitHub from `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\sylvester_batch12`, with source PDF pp. 19-236 and source-page PNGs included.
 - The local formula-crop assist workflow is useful as localization/checking support, not insertion-grade TeX.
 
-Action: publish/update Sylvester as an author-level record rather than leaving it buried inside the general author cluster. Keep the cluster as a temporary shelf only for less mature starts.
+Action: create a dedicated Sylvester author-level record rather than leaving it buried inside the general author cluster. Staged metadata: `zenodo-metadata/metadata_author_sylvester_current.json`. Keep the cluster as a temporary shelf only for less mature starts.
+
+### 6a. Dedicated author-record split
+
+The following dedicated author records should be created once an authenticated Zenodo API token is available. Until then, their material remains preserved in GitHub and the existing shelf records:
+
+- **Arthur Cayley**: staged metadata `zenodo-metadata/metadata_author_cayley_current.json`; migrate the Cayley volume readers and Cayley source/repair manifests out of the mixed classical shelf into a dedicated author record.
+- **James Joseph Sylvester**: staged metadata `zenodo-metadata/metadata_author_sylvester_current.json`; promote Volume I through book page 218 and its source packet.
+- **Richard Dedekind**: staged metadata `zenodo-metadata/metadata_author_dedekind_current.json`; promote `Was sind und was sollen die Zahlen?`, `Stetigkeit und irrationale Zahlen` segment, and Dedekind/Dirichlet paratext where appropriate.
+- **P. G. Lejeune Dirichlet**: staged metadata `zenodo-metadata/metadata_author_dirichlet_current.json`; promote Werke Band II Papers I-XII.
+- **Ernst Steinitz**: staged metadata `zenodo-metadata/metadata_author_steinitz_current.json`; promote after local bilingual Steinitz packets are checked and mirrored.
+
+Once these are live, the existing mixed `Cayley, Dedekind, and Dirichlet` shelf and the `Author cluster` shelf should be retained as umbrella/backstop records, not treated as the clean reader-facing entry points.
 
 ### 7. Gauss / Dirichlet / Dedekind
 
@@ -142,12 +159,13 @@ Action: only publish Deligne updates after explicit curation of source-faithful 
 
 ## Recommended Publish Order Once Token Is Available
 
-1. SGA complete page-702 update.
-2. Classical shelf with current Cayley repairs.
-3. Noether canonical numbered completion plus accepted ES/JA multilingual state.
+1. SGA complete page-702 plus SGA 7-I source-page-96 update.
+2. Noether canonical numbered completion plus ES/JA through Paper 15.
+3. Classical shelf with current Cayley repairs, only as an interim umbrella.
 4. Ukrainian high-density applied-math update.
 5. Non-European al-Battani canonical/table update after source-completeness check.
-6. Author cluster with Sylvester through the latest accepted cumulative.
-7. Gauss / Dirichlet / Dedekind incremental updates.
-8. Weber after outsourced package acceptance.
-9. Deligne only after selective audit.
+6. Create dedicated Sylvester author record.
+7. Create/migrate dedicated Cayley, Dedekind, Dirichlet, and Steinitz author records where the source surface is mature enough.
+8. Gauss incremental update.
+9. Weber after outsourced package acceptance.
+10. Deligne only after selective audit.
