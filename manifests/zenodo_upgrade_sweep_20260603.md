@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume IX `051_075` rhizic-curve/Cartesian diagram and formula repair.
+Generated after the current GitHub mirror pass through the Cayley Volume XIII `276_300` Codazzi-Weingarten figure repair.
 
 ## Publishing Capability
 
@@ -59,6 +59,7 @@ Local GitHub state now includes:
 - Current Volume X reader hash: `ef98957df8d0cfd1dded4fe553c9ea07ef5b8ef8a175eabee7707933f9f04a60` (575 pages; 6660654 bytes).
 - Current Volume XI reader hash: `17da539f453a78d53eb8cad6a63d9d03e996afb8dec5d4d0838588436aa56e41` (415 pages; 4704908 bytes).
 - Current Volume XII reader hash: `f018c62296595f43871ca153fba52030f937b8f9eafe5136fe3af58131c1624b`.
+- Current Volume XIII reader hash: `c638a651e2010f3f873bcf337711a31ad29401e48c5d49762d8af0539ff9f7ff` (487 pages; 6125844 bytes).
 
 Action: publish a new classical-shelf version with current reader PDFs and the current status/manifest. Keep raw/provenance heavy bundles on the main landing record.
 

@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
@@ -19,6 +20,10 @@
 \providecommand{\page}{p.}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{Pages 276--300}\fancyhead[R]{Cayley --- Collected Papers, Vol. XIII}\renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{15pt}
+\tikzset{
+  cayley curve/.style={line cap=round,line join=round,semithick},
+  cayley faint/.style={line cap=round,line join=round,semithick,dashed}
+}
 
 \newcommand{\paper}[3]{%
   \clearpage
@@ -59,7 +64,44 @@ A_x, A_y, A_z,\; B_x, B_y, B_z,\; C_x, C_y, C_z,\; L,\; \frac{dM}{dT}\,dT,\; \fr
 with the like significations in regard to the curve for which $T$ is variable, or say the $T$-curve; for greater clearness I give the accompanying figure.
 
 \begin{center}
-\textit{[Figure: schematic showing the surface with two curves through a common point $P$; tangent vectors $T$ (along $t$-curve) and $T'$ (along $T$-curve) lie in the tangent plane, with the inclination angle $\theta$ between them; auxiliary points $B$, $A$ marked.]}
+\begin{tikzpicture}[scale=0.82]
+  % Source figure on printed p. 254: local surface patch with the
+  % two coordinate curves and the auxiliary normals used by Cayley.
+  \coordinate (P) at (-1.35,1.95);
+  \coordinate (L) at (-1.45,0.90);
+  \coordinate (N) at (-1.18,0.18);
+  \coordinate (p) at (-0.32,0.88);
+  \coordinate (B) at (0.00,-1.00);
+  \coordinate (T) at (1.55,1.02);
+  \coordinate (t) at (1.18,-1.65);
+  \coordinate (b) at (-1.80,-1.50);
+
+  \draw[cayley curve] (P) .. controls (-0.72,2.08) and (0.82,1.95) .. (T);
+  \draw[cayley curve] (T) .. controls (1.42,0.30) and (1.08,-0.72) .. (t);
+  \draw[cayley curve] (t) .. controls (0.20,-1.82) and (-0.95,-1.86) .. (b);
+  \draw[cayley curve] (b) .. controls (-1.58,-0.62) and (-1.42,0.92) .. (P);
+
+  \draw[cayley curve] (N) .. controls (-0.82,0.46) and (-0.55,0.72) .. (p)
+    .. controls (0.42,0.25) and (0.72,-0.48) .. (B)
+    .. controls (-0.55,-1.15) and (-1.18,-0.82) .. (N);
+  \draw[cayley curve] (B) .. controls (0.38,-0.54) and (0.92,-0.05) .. (T);
+  \draw[cayley curve] (P) -- (L) -- (N) -- (p);
+  \draw[cayley faint] (L) .. controls (-1.20,0.78) and (-1.03,0.64) .. (-0.88,0.45);
+
+  \draw[cayley curve] (-1.24,0.66) arc[start angle=104,end angle=40,radius=0.30];
+  \node at (-1.05,0.60) {\scriptsize $\theta$};
+
+  \node[above] at (P) {\scriptsize $P$};
+  \node[left] at (L) {\scriptsize $L$};
+  \node[left] at (N) {\scriptsize $N$};
+  \node[above] at (p) {\scriptsize $p$};
+  \node[right] at (T) {\scriptsize $T$};
+  \node[below right] at (t) {\scriptsize $t$};
+  \node[below left] at (b) {\scriptsize $b$};
+  \node[below] at (B) {\scriptsize $B$};
+  \node[rotate=-68] at (-1.38,-0.72) {\scriptsize $t=90^\circ$};
+  \node[rotate=-58] at (-0.54,-0.68) {\scriptsize $T=90^\circ$};
+\end{tikzpicture}
 \end{center}
 
 Codazzi writes further
