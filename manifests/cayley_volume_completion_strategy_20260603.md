@@ -23,14 +23,15 @@ The global gap list is efficient for opportunistic repairs, but confusing for re
 
 ## Current Residual Distribution
 
-The public residual marker scan currently finds 17 reader-visible hits:
+The public residual marker scan currently finds 16 reader-visible hits after
+the Volume IV p. 51 determinant placeholder was replaced with native TeX:
 
 | Volume | Residual hits | Main type |
 |---|---:|---|
 | I | 0 | Candidate for certificate. |
 | II | 0 | Candidate for certificate after source-package scan. |
 | III | 0 | Candidate for certificate after source-package scan. |
-| IV | 10 | Dense determinant/coefficient/Tschirnhausen tables. |
+| IV | 9 | Dense coefficient/Tschirnhausen tables. |
 | V | 2 | Plate III and axial-system table. |
 | VI | 0 | Candidate for certificate after source-package scan. |
 | VII | 0 | Candidate for certificate after source-package scan. |
@@ -66,11 +67,10 @@ A volume is "first-pass source-faithful complete" only when:
 
 ## Immediate Next Work
 
-The next repair target is Volume IV. Its current public residual hits are clustered at reader pages 37, 243, 250, 252, 272, 287, 373, 375, 376, and 380. These are mostly dense tables, so the efficient workflow is:
+The next repair target is Volume IV. Its current public residual hits are clustered at reader pages 243, 250, 252, 272, 287, 373, 375, 376, and 380. These are mostly dense tables, so the efficient workflow is:
 
 - locate the exact source TeX chunk and scan page;
 - render/crop the printed table pages locally;
 - reconstruct one bounded table block at a time;
 - compile the affected slice;
 - rebuild Volume IV after a batch, not after every single cell.
-
