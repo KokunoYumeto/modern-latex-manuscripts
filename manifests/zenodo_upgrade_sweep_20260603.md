@@ -193,10 +193,20 @@ Many local Deligne drops exist, but the user has repeatedly flagged some as unre
 
 Action: only publish Deligne updates after explicit curation of source-faithful packets. Do not promote new Deligne material simply because a folder exists.
 
+### 10. Noether multilingual update through Paper 29
+
+The Noether Spanish/Japanese multilingual stream now has a checked cumulative package through Paper 29.
+
+Local package promoted:
+
+- `Noether Multilingual\Noether_Papers25_29_ES_JA_20260603.zip`
+
+Action: published same-concept update `10.5281/zenodo.20529997`, replacing the Paper 18 current cumulative Spanish/Japanese readers with Paper 29 cumulative readers, adding standalone Papers 25-29 Spanish/Japanese readers, and refreshing source/witness ZIP 85. The audit states that the cumulative branch includes the corrected Paper 24-complete state; the separate partial Paper 24 packet was not promoted as a current standalone complete item.
+
 ## Recommended Publish Order Once Token Is Available
 
 1. SGA complete page-702 plus SGA 7-I source-page-137 update.
-2. Noether canonical numbered completion plus ES/JA through Paper 15.
+2. Noether canonical numbered completion plus ES/JA through Paper 29.
 3. Classical shelf with current Cayley repairs, only as an interim umbrella.
 4. Ukrainian high-density applied-math update.
 5. Non-European al-Battani canonical/table update after source-completeness check.
