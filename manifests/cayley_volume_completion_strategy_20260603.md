@@ -23,11 +23,11 @@ The global gap list is efficient for opportunistic repairs, but confusing for re
 
 ## Current Residual Distribution
 
-The public residual marker scan currently finds 18 reader-visible term hits
-across 16 distinct reader pages after the Volume IV p. 51 determinant
+The public residual marker scan currently finds 19 reader-visible term hits
+across 17 distinct reader pages after the Volume IV p. 51 determinant
 placeholder, p. 246 coefficient table, p. 253 quartic standard-form table,
-and pp. 254--255 quintic standard-form table were replaced with
-source-checked native TeX:
+pp. 254--255 quintic standard-form table, and p. 274 derivative-monomial
+table were replaced with source-checked native TeX:
 
 | Volume | Residual hits | Main type |
 |---|---:|---|
@@ -70,10 +70,11 @@ A volume is "first-pass source-faithful complete" only when:
 
 ## Immediate Next Work
 
-The next repair target is Volume IV reader p. 272, corresponding to the
-printed p. 274 Arbogast-derivatives table in the same Tschirnhausen
-sequence. Volume IV's remaining distinct residual pages are 272, 287, 373,
-375, 376, 380, 381, and 386. These are mostly dense tables, so the
+The next repair target is Volume IV reader p. 247, corresponding to the
+large printed pp. 250--251 quintic equation-of-differences double-page
+spread in Paper 262. This was surfaced by the stabilized residual scan
+after the p. 274 table repair. Volume IV's remaining distinct residual
+pages are 247, 287, 373, 375, 376, 380, 381, and 386. These are mostly dense tables, so the
 efficient workflow is:
 
 - locate the exact source TeX chunk and scan page;
