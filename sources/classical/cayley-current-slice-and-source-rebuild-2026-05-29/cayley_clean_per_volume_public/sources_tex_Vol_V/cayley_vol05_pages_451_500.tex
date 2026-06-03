@@ -7,6 +7,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools}
 \usepackage{geometry}
+\usepackage{tikz}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -1643,25 +1644,73 @@ that is
 \]
 and the line $(x - m) = 0$ is thus a double tangent to the curve, touching it at the points $x = m$, $y = \pm 1$, and besides meeting it at the points $x = m$, $y = \pm\sqrt{1 - m^2}$, that is, at the intersections of the line $x - m = 0$, with the circle $x^2 + y^2 = 1$.
 
-17. The maximum or minimum values of $y$ correspond to the values $\theta = \frac12\pi$, $\theta = \frac13\pi$, $\theta = \frac23\pi$, $\theta = \frac43\pi$ of $\theta$; and we have for
+17. The maximum or minimum values of $y$ correspond to the values
+$\theta = \tfrac14\pi$, $\theta = \tfrac34\pi$,
+$\theta = \tfrac54\pi$, $\theta = \tfrac74\pi$ of $\theta$; and we have for
 \begin{align*}
-\theta &= \tfrac12\pi, & x &= -\tfrac12\sqrt{2}, & y &= \phantom{-}\sqrt{2} - m, \\
-\theta &= \tfrac13\pi, & x &= -\tfrac12\sqrt{2}, & y &= \phantom{-}\sqrt{2} - m, \\
-\theta &= \tfrac23\pi, & x &= -\tfrac12\sqrt{2}, & y &= -\sqrt{2} + m, \\
-\theta &= \tfrac43\pi, & x &= \phantom{-}\tfrac12\sqrt{2}, & y &= -\sqrt{2} + m.
+\theta &= \tfrac14\pi, & x &= \phantom{-}\tfrac12\sqrt{2}, & y &= \phantom{-}\sqrt{2} - m, \\
+\theta &= \tfrac34\pi, & x &= -\tfrac12\sqrt{2}, & y &= \phantom{-}\sqrt{2} + m, \\
+\theta &= \tfrac54\pi, & x &= -\tfrac12\sqrt{2}, & y &= -\sqrt{2} - m, \\
+\theta &= \tfrac74\pi, & x &= \phantom{-}\tfrac12\sqrt{2}, & y &= -\sqrt{2} + m.
 \end{align*}
 
 18. It is now easy to trace the secondary caustic; we may without loss of generality assume that $m$ is positive, and the values to be considered are
 \[
 m = 0, \quad m = 1, \quad m = \sqrt{2}, \quad m = \tfrac32,
 \]
-with the intermediate values $m > 0 < 1$, \&c.\ldots{} and $m > \frac32$. I have for convenience delineated in the figure only a portion of each curve, viz.\ the figure is terminated at the negative value $x = -\frac32\sqrt{2}$, which corresponds to the maximum value $y = \sqrt{2} + m$; as $x$ increases negatively, the value of the ordinate $y$ diminishes continuously from this maximum value, becoming $= 0$ for the value $x = -2 - m$, and the curve at this point cutting the axis of $x$ at right angles; this is a sufficient explanation of the form of the curves beyond the limits of the figure. Moreover the curve is symmetrical in regard to the axis of $x$, and I have within the limits of the figure delineated only one of the two halves of the curve.
+with the intermediate values $m > 0 < 1$, \&c.\ldots{} and $m > \frac32$.
+I have for convenience delineated in the figure only a portion of each curve,
+viz.\ the figure is terminated at the negative value
+$x = -\tfrac12\sqrt{2}$, which corresponds to the maximum value
+$y = \sqrt{2} + m$; as $x$ increases negatively, the value of the ordinate
+$y$ diminishes continuously from this maximum value, becoming $= 0$ for the
+value $x = -2 - m$, and the curve at this point cutting the axis of $x$ at
+right angles; this is a sufficient explanation of the form of the curves
+beyond the limits of the figure. Moreover the curve is symmetrical in regard
+to the axis of $x$, and I have within the limits of the figure delineated only
+one of the two halves of the curve.
+
+\begin{center}
+\begin{tikzpicture}[x=1.55cm,y=1.55cm,>=latex,line cap=round,line join=round]
+  \draw[->] (-1.0,0) -- (2.55,0) node[right] {$x$};
+  \draw[->] (0,-0.25) -- (0,3.65) node[above] {$y$};
+  \draw[gray!55,dashed] (0,0) circle[radius=1];
+  \draw[gray!45] (1,-0.18) -- (1,2.0) node[above right] {\scriptsize $x=1$};
+  \draw[gray!45] (1.414,-0.18) -- (1.414,1.8) node[above right] {\scriptsize $x=\sqrt2$};
+  \draw[gray!45] (1.5,-0.18) -- (1.5,1.65) node[above right] {\scriptsize $x=\tfrac32$};
+  \foreach \m/\lbl/\ypos in {
+    0/{$m=0$}/0.28,
+    1/{$m=1$}/1.02,
+    1.4142/{$m=\sqrt2$}/1.72,
+    1.5/{$m=\tfrac32$}/1.98,
+    2/{$m=2$}/2.58
+  }{
+    \draw[thick]
+      plot[domain=0:135,samples=140,smooth,variable=\t]
+      ({1.5*cos(\t)-\m*cos(2*\t)+0.5*cos(3*\t)},
+       {1.5*sin(\t)-\m*sin(2*\t)+0.5*sin(3*\t)});
+    \node[left] at (-0.08,\ypos) {\scriptsize \lbl};
+  }
+  \fill (0,0) circle (0.015) node[below left] {\scriptsize $0$};
+  \draw[very thin,gray!70] (-0.707,0) -- (-0.707,3.45);
+  \node[below] at (-0.707,0) {\scriptsize $-\tfrac12\sqrt2$};
+  \node[below right] at (0,0) {\scriptsize source p.~463};
+\end{tikzpicture}
+
+\smallskip
+\footnotesize Native TeX reconstruction of Cayley's figure, drawn from the
+parametrisation
+$x=\tfrac32\cos\theta-m\cos2\theta+\tfrac12\cos3\theta$,
+$y=\tfrac32\sin\theta-m\sin2\theta+\tfrac12\sin3\theta$,
+for the displayed positive half of the secondary caustics.
+\end{center}
 
 19. For $m > \frac32$ the cusps are both imaginary, the nodes both real, but one of them is an isolated point or acnode (shown in the figure by a small cross). The curve has an interior loop, as shown in the figure, and there is also the acnode lying within the loop.
 
 For $m = \frac32$, there is still an interior loop, but the acnode has united itself to the loop, the point of union, although presenting no visible singularity, being really a triple point equivalent to a node and two cusps. And in all the cases which follow there are two real cusps.
 
-For $m = 1$, the loop has altered its form in such wise as to exhibit a node and two cusps, the curve has therefore two real nodes.
+For $m = < \tfrac32 > \sqrt2$, the loop has altered its form in such wise as
+to exhibit the node and two cusps, the curve has therefore two real nodes.
 
 For $m = \sqrt{2}$, the two nodes unite together into a tacnode, so that the loop is on the point of disappearing; and for $m < \sqrt{2} > 1$ the nodes are imaginary, and there is thus no longer any loop.
 

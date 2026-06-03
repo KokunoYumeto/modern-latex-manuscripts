@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{pdfpages}
+\usepackage{tikz}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
 \usepackage[bookmarks=false,colorlinks=false]{hyperref}
@@ -559,7 +560,40 @@ For $m = \tfrac{3}{2}$, there is still an interior loop, but the acnode has unit
 
 For $m = < \tfrac{3}{2} > \sqrt{2}$, the loop has altered its form in such wise as to exhibit the node and two cusps, the curve has therefore two real nodes.
 
-\textit{[Figure: composite plot of the secondary caustic curves for the various values of $m$ enumerated above; the figure (PDF p.\ 489) shows the half of the curve delineated above, with axes, the reflecting circle $x^{2} + y^{2} = 1$, the line $x = m$, and the loop, cusps, nodes and acnode marked.]}
+\begin{center}
+\begin{tikzpicture}[x=1.55cm,y=1.55cm,>=latex,line cap=round,line join=round]
+  \draw[->] (-1.0,0) -- (2.55,0) node[right] {$x$};
+  \draw[->] (0,-0.25) -- (0,3.65) node[above] {$y$};
+  \draw[gray!55,dashed] (0,0) circle[radius=1];
+  \draw[gray!45] (1,-0.18) -- (1,2.0) node[above right] {\scriptsize $x=1$};
+  \draw[gray!45] (1.414,-0.18) -- (1.414,1.8) node[above right] {\scriptsize $x=\sqrt2$};
+  \draw[gray!45] (1.5,-0.18) -- (1.5,1.65) node[above right] {\scriptsize $x=\tfrac32$};
+  \foreach \m/\lbl/\ypos in {
+    0/{$m=0$}/0.28,
+    1/{$m=1$}/1.02,
+    1.4142/{$m=\sqrt2$}/1.72,
+    1.5/{$m=\tfrac32$}/1.98,
+    2/{$m=2$}/2.58
+  }{
+    \draw[thick]
+      plot[domain=0:135,samples=140,smooth,variable=\t]
+      ({1.5*cos(\t)-\m*cos(2*\t)+0.5*cos(3*\t)},
+       {1.5*sin(\t)-\m*sin(2*\t)+0.5*sin(3*\t)});
+    \node[left] at (-0.08,\ypos) {\scriptsize \lbl};
+  }
+  \fill (0,0) circle (0.015) node[below left] {\scriptsize $0$};
+  \draw[very thin,gray!70] (-0.707,0) -- (-0.707,3.45);
+  \node[below] at (-0.707,0) {\scriptsize $-\tfrac12\sqrt2$};
+  \node[below right] at (0,0) {\scriptsize source p.~463};
+\end{tikzpicture}
+
+\smallskip
+\footnotesize Native TeX reconstruction of Cayley's figure, drawn from the
+parametrisation
+$x=\tfrac32\cos\theta-m\cos2\theta+\tfrac12\cos3\theta$,
+$y=\tfrac32\sin\theta-m\sin2\theta+\tfrac12\sin3\theta$,
+for the displayed positive half of the secondary caustics.
+\end{center}
 
 For $m = \sqrt{2}$, the two nodes unite together into a tacnode, so that the loop is on the point of disappearing; and for $m < \sqrt{2} > 1$ the nodes are imaginary, and there is thus no longer any loop.
 
