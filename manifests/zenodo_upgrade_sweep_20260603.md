@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume II `351_375` caustics/optics diagram repair.
+Generated after the current GitHub mirror pass through the Cayley Volume IX `051_075` rhizic-curve/Cartesian diagram and formula repair.
 
 ## Publishing Capability
 
@@ -54,7 +54,7 @@ Local GitHub state now includes:
 - Current Volume II reader hash: `cfc91d2cdf2d1ece6cdcf7427f7f4395a050ecb9709f014700d85712419c79c6` (312 pages; 4508460 bytes).
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
-- Current Volume IX reader hash: `b024cca5eb4fed7075a0147aea1f1c997804a3caddfdf6f2594cfa8918c9b377` (348 pages; 5202205 bytes).
+- Current Volume IX reader hash: `40a1aae1577d480833b12bd661df2baf1e06a184674c798ecb398006708d5151` (348 pages; 5211862 bytes).
 - Current Volume X reader hash: `ef98957df8d0cfd1dded4fe553c9ea07ef5b8ef8a175eabee7707933f9f04a60` (575 pages; 6660654 bytes).
 - Current Volume XI reader hash: `17da539f453a78d53eb8cad6a63d9d03e996afb8dec5d4d0838588436aa56e41` (415 pages; 4704908 bytes).
 - Current Volume XII reader hash: `f018c62296595f43871ca153fba52030f937b8f9eafe5136fe3af58131c1624b`.
