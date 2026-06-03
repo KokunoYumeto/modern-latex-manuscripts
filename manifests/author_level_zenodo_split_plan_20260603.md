@@ -50,3 +50,4 @@ This plan records which mixed shelves should be split into dedicated author reco
 | Author | Concept DOI | Refreshed version DOI | Payload |
 |---|---|---|---|
 | Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20521540` | Replaced repaired Volume VI, VII, VIII, XI, and XIII readers plus refreshed `Cayley_source_and_manifest_20260603.zip`. |
+| Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522228` | Replaced rebuilt Volume II reader plus refreshed `Cayley_source_and_manifest_20260603.zip` after Paper 109 determinant-array repair. |

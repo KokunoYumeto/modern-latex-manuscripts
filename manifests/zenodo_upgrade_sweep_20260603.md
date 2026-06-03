@@ -18,6 +18,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
 | SGA | 20410947 | `10.5281/zenodo.20520554` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 96 |
 | Noether | 20412587 | `10.5281/zenodo.20520501` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 15 |
+| Cayley | 20520749 | `10.5281/zenodo.20522228` | 2026-06-03 dedicated Cayley author record refresh: rebuilt Volume II reader plus determinant-array repair source bundle |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
@@ -35,6 +36,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20520554` | 77 | 1,222,595,716 bytes | Same-concept update with SGA 6 complete through indexes/source pages 693-702 and SGA7-I through source page 96. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
+| Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522228` | 14 | 166,149,960 bytes | Same-concept update replacing the rebuilt 421-page Volume II reader and refreshed source/manifest ZIP after Paper 109 determinant-array repair. |
 
 ### 1. SGA - completed
 
@@ -64,7 +66,7 @@ Local GitHub state now includes:
 - Recent Cayley repairs already pushed for Volumes II, IV, V, VI, VII, IX, X, XI, XII, and XIII.
 - Latest Cayley status log: `manifests/cayley_current_duty_status_20260602.md`.
 - Current Volume I reader hash: `7b44f77ba13bfa88d7681a1647a08a917605870a908bbaf03cab4a31b59fec49` (488 pages; 7764737 bytes).
-- Current Volume II reader hash: `040dc6861b761ba57e6462f1a8b53d239515a922f6d08bc0f02148ed4711095c` (312 pages; 4619547 bytes).
+- Current Volume II reader hash: `aba67c1092418bee639f331127a3c743257c051df42029c324167a256fa70c6f` (421 pages; 3977622 bytes).
 - Current Volume IV reader hash: `0038650fea73a7e1b92b3666bbfb5dfc75cb9d5c93ba6901a0cbfbeff5283ca5` (496 pages; 5880784 bytes).
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume VII reader hash: `de5d4c4803c5671c278f2b1920fbe70ffb45852d9c09fcdbe1e29480f8c3c7a5` (336 pages; 4852925 bytes).
