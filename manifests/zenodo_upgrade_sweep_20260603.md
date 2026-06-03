@@ -19,7 +19,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | SGA | 20410947 | `10.5281/zenodo.20529444` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 236 |
 | Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
 | Cayley | 20520749 | `10.5281/zenodo.20528434` | 2026-06-03 dedicated Cayley author record refresh: Volume IV p. 51, p. 246, p. 253, pp. 254--255, and p. 274 table repairs promoted as native TeX; source/manifest bundle refreshed |
-| Non-European / multilingual | 20410957 | `10.5281/zenodo.20526138` | 2026-06-03 reconstructed work-level readers, corrected combined readers, and al-Battani v083 trilingual text/reference reader; numerical tables still in progress |
+| Non-European / multilingual | 20410957 | `10.5281/zenodo.20529541` | 2026-06-03 reconstructed work-level readers, corrected combined readers, al-Battani v083 trilingual text/reference reader, and al-Battani fixed-star catalogue descriptive edition with CSV dataset; coordinate and numerical-table collation still in progress |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
 | Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.377 |
@@ -54,6 +54,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20529296` | 2 | 59,292,424 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 347. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20529509` | 2 | 66,881,468 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 377. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20526138` | 85 | 503,376,490 bytes uploaded in patch | Same-concept update with reconstructed 66-work reader surface, corrected combined readers, and al-Battani v083 trilingual text/reference reader; table stream remains in progress. |
+| Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20529541` | 88 | compact patch | Same-concept update adding the al-Battani fixed-star catalogue descriptive edition, CSV dataset, and coverage/table status note. |
 | Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20529154` | 47 | compact patch | Same-concept update replacing the front-facing three-volume readers with Volume I complete, Volume II source-checked through section 91, and the current repaired Volume III; refreshed compact TeX/source/provenance ZIP. |
 
 ### 1. SGA - completed
@@ -136,7 +137,7 @@ Latest external local candidates:
 - `cleanup multilingual/round78_albattani_table_phase12_source_checked`
 - `cleanup multilingual/non_eu_round75_albattani_table_phase9_text_only_transcription_nested`
 
-Action: completed a same-concept patch after quick sanity audit. The record now promotes the reconstructed work-level reader release and al-Battani v083 text/reference package, while keeping the numerical table stream explicitly in progress.
+Action: completed same-concept patches after quick sanity audit. The record now promotes the reconstructed work-level reader release, al-Battani v083 text/reference package, and al-Battani fixed-star catalogue descriptive edition with CSV dataset, while keeping coordinate and numerical-table collation explicitly in progress.
 
 ### 6. Author cluster / Sylvester
 
