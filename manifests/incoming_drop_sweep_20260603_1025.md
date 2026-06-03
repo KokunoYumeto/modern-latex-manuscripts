@@ -16,7 +16,7 @@ published.
 
 | Lane | Newest local package | Why it matters | Current action |
 |---|---|---|---|
-| Sylvester | `Sylvester_Volume_I_Cumulative_bookpp001_283_with_scans_20260603.zip` | Author record is public only through book p. 218; this extends Volume I to book p. 283 with scans and TeX/PDF. | Mirror and patch Sylvester author record next. |
+| Sylvester | `Sylvester_Volume_I_Cumulative_bookpp001_283_with_scans_20260603.zip` | Author record is public only through book p. 218; this extends Volume I to book p. 283 with scans and TeX/PDF. | Mirrored in GitHub as `sources/sylvester/volume-i-through-book-page-283-2026-06-03/`; patch Sylvester author record next. |
 | Noether multilingual | `Noether_Paper17_complete_Paper18_complete_ES_JA_20260603.zip` | Public/mirror state is ES/JA through Paper 15; this advances Spanish/Japanese through Papers 17 and 18, with methodology/glossary deltas. | Mirror after checking cumulative PDFs compile/render; then patch Noether record. |
 | SGA | `SGA7_I_pages_097_120_original_source_cumulative.zip` | Public/mirror state is SGA7-I through source p. 96; this extends to source p. 120 with English/French/source cumulative readers. | Mirror and patch SGA record after quick render/source check. |
 | Weber | `Weber_Cumulative_ThreeVolumes_Batch68_Vol2_Sections63_66_REFINED_SIZE_CONTROLLED_20260603.zip` | Public Weber is much older; this has Volume I complete, Volume II through §§1-66, Volume III retained. | Keep as accepted cumulative candidate, but Weber aid is outsourced and lower than Cayley/Sylvester/Noether. |
