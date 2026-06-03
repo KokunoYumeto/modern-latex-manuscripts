@@ -23,15 +23,17 @@ The global gap list is efficient for opportunistic repairs, but confusing for re
 
 ## Current Residual Distribution
 
-The public residual marker scan currently finds 16 reader-visible hits after
-the Volume IV p. 51 determinant placeholder was replaced with native TeX:
+The public residual marker scan currently finds 20 reader-visible term hits
+across 17 distinct reader pages after the Volume IV p. 51 determinant
+placeholder, p. 246 coefficient table, and p. 253 quartic standard-form table
+were replaced with source-checked native TeX:
 
 | Volume | Residual hits | Main type |
 |---|---:|---|
 | I | 0 | Candidate for certificate. |
 | II | 0 | Candidate for certificate after source-package scan. |
 | III | 0 | Candidate for certificate after source-package scan. |
-| IV | 9 | Dense coefficient/Tschirnhausen tables. |
+| IV | 12 hits on 9 pages | Dense coefficient/Tschirnhausen tables. |
 | V | 2 | Plate III and axial-system table. |
 | VI | 0 | Candidate for certificate after source-package scan. |
 | VII | 0 | Candidate for certificate after source-package scan. |
@@ -40,7 +42,7 @@ the Volume IV p. 51 determinant placeholder was replaced with native TeX:
 | X | 1 | Table No. 93 bis. |
 | XI | 2 | Reuschle prime-root power tables. |
 | XII | 0 | Candidate for certificate after source-package scan. |
-| XIII | 1 | Table of Conjugates. |
+| XIII | 2 | Table of Conjugates and later dense seminvariant table. |
 
 ## Active Order
 
@@ -67,7 +69,11 @@ A volume is "first-pass source-faithful complete" only when:
 
 ## Immediate Next Work
 
-The next repair target is Volume IV. Its current public residual hits are clustered at reader pages 243, 250, 252, 272, 287, 373, 375, 376, and 380. These are mostly dense tables, so the efficient workflow is:
+The next repair target is Volume IV reader p. 251, corresponding to the
+printed pp. 254--255 quintic standard-form table in the same Paper 262
+sequence. Volume IV's remaining distinct residual pages are 251, 271, 286,
+372, 374, 375, 379, 380, and 385. These are mostly dense tables, so the
+efficient workflow is:
 
 - locate the exact source TeX chunk and scan page;
 - render/crop the printed table pages locally;
