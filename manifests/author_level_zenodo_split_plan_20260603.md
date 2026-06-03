@@ -6,7 +6,7 @@ This plan records which mixed shelves should be split into dedicated author reco
 
 | Author / corpus | Current record | Action |
 |---|---:|---|
-| Emmy Noether | `20412587` | Update existing record. Current GitHub state has German/English numbered papers complete through Paper 43 and Spanish/Japanese cumulative readers through Paper 15. |
+| Emmy Noether | `20412587` | Existing record updated. Current GitHub/Zenodo state has German/English numbered papers complete through Paper 43 and Spanish/Japanese cumulative readers through Paper 18. |
 | Heinrich Weber | `20412153` | Update existing record after outsourced Weber cumulative package is accepted. |
 | Carl Friedrich Gauss | `20410934` | Update existing record after next Gauss cumulative audit. |
 | Bernhard Riemann | `20429778` | Keep existing author record; not urgent. |
@@ -39,7 +39,7 @@ This plan records which mixed shelves should be split into dedicated author reco
 ## Immediate Authenticated Publish Order
 
 1. Update SGA existing record `20410947` with SGA 6 page-702 completion and SGA 7-I page-96 continuation.
-2. Update Noether existing record `20412587` with Spanish/Japanese cumulative readers through Paper 15.
+2. Update Noether existing record `20412587` with Spanish/Japanese cumulative readers through Paper 18.
 3. Create Sylvester author record. Done: concept DOI `10.5281/zenodo.20520692`.
 4. Create Dedekind and Dirichlet author records. Done: concept DOIs `10.5281/zenodo.20520669` and `10.5281/zenodo.20520679`.
 5. Create Cayley author record. Done: concept DOI `10.5281/zenodo.20520749`.
@@ -54,3 +54,4 @@ This plan records which mixed shelves should be split into dedicated author reco
 | Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522518` | Replaced reconciled 485-page Volume XIII reader plus refreshed `Cayley_source_and_manifest_20260603.zip` after Paper 932 native table repair. |
 | Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20523305` | Replaced Volume IV and Volume X readers after the hexahedron-net and theta-characteristic symbol repairs; refreshed source/manifest ZIP now includes the residual marker scan and unpromoted Vol XIII quarantine packet. |
 | James Joseph Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | Replaced Volume I reader/source packet with source-checked cumulative edition through book page 283; removed stale p.218 front-facing reader. |
+| Emmy Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | Replaced Spanish/Japanese cumulative readers through Paper 15 with Paper 18 cumulative readers and refreshed multilingual source/witness ZIP 85. |
