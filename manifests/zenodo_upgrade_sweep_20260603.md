@@ -16,13 +16,13 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---:|---|---|
 | Main landing / raw provenance | 20393488 | `10.5281/zenodo.20458953` | 2026-06-01 landing/provenance refresh |
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
-| SGA | 20410947 | `10.5281/zenodo.20523803` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 137 |
+| SGA | 20410947 | `10.5281/zenodo.20526521` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 184 |
 | Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
 | Cayley | 20520749 | `10.5281/zenodo.20526046` | 2026-06-03 dedicated Cayley author record refresh: Volume XIII Paper 966 square diagrams promoted as native TikZ, source/manifest bundle refreshed, and progress/cost inventory added |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20526138` | 2026-06-03 reconstructed work-level readers, corrected combined readers, and al-Battani v083 trilingual text/reference reader; numerical tables still in progress |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
-| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.283 |
+| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.327 |
 | Gauss | 20410934 | `10.5281/zenodo.20503774` | 2026-06-02 Gauss cumulative readers plus Band II pilot |
 | Weber | 20412153 | `10.5281/zenodo.20498553` | 2026-06-01 Weber through Volume I section 147 |
 | Deligne | 20410853 | `10.5281/zenodo.20498666` | 2026-06-01 Manin 1987 letter sections 1 through 5 |
@@ -35,6 +35,7 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---|---|---:|---:|---|
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20520554` | 77 | 1,222,595,716 bytes | Same-concept update with SGA 6 complete through indexes/source pages 693-702 and SGA7-I through source page 96. |
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20523803` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-96 readers with source-page-137 English/French readers, matching source-scan witness, and refreshed source ZIP 82. |
+| SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20526521` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-137 readers with source-page-184 English/French readers, matching source-scan witness, and refreshed source ZIP 82. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | 93 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 15 with Paper 18 cumulative readers and adding standalone Paper 17 sections 10-12 plus Paper 18 ES/JA readers. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
@@ -44,6 +45,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20524953` | 15 | compact patch | Same-concept update replacing the Volume V reader after the Paper 359 p. 463 secondary-caustic plot was restored as native TeX; refreshed source/manifest ZIP and upload inventory included. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20526046` | 15 | compact patch | Same-concept update replacing the Volume XIII reader after the Paper 966 square diagrams were promoted as native TikZ; refreshed source/manifest ZIP includes the progress/cost inventory and updated residual marker scan. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | 2 | 47,585,722 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 283. |
+| Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20526559` | 2 | 54,724,252 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 327. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20526138` | 85 | 503,376,490 bytes uploaded in patch | Same-concept update with reconstructed 66-work reader surface, corrected combined readers, and al-Battani v083 trilingual text/reference reader; table stream remains in progress. |
 
 ### 1. SGA - completed
@@ -56,13 +58,13 @@ Local GitHub state:
 - `reader-pdfs/sga/21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf`
 - `reader-pdfs/sga/39ZB` through `39ZD` final index segment and source-scan witness.
 - `sources/sga/sga6-complete-source-checked-through-page-702-2026-06-02/`
-- `reader-pdfs/sga/53 SGA 7-I - Source-Checked Working Edition through Source Page 137 - English Translation.pdf`
-- `reader-pdfs/sga/54 SGA 7-I - Source-Checked Working Edition through Source Page 137 - French Reconstruction.pdf`
-- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 137.pdf`
-- `sources/sga/sga7-i-source-checked-through-page-137-2026-06-03/`
+- `reader-pdfs/sga/53 SGA 7-I - Source-Checked Working Edition through Source Page 184 - English Translation.pdf`
+- `reader-pdfs/sga/54 SGA 7-I - Source-Checked Working Edition through Source Page 184 - French Reconstruction.pdf`
+- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 184.pdf`
+- `sources/sga/sga7-i-source-checked-through-page-184-2026-06-03/`
 - Manifest: `manifests/sga6_complete_source_checked_through_page702_20260602.md`
 
-Action: published a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-137 continuation.
+Action: published a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-184 continuation.
 
 ### 2. Classical shelf - Cayley/Dedekind/Dirichlet author split completed
 

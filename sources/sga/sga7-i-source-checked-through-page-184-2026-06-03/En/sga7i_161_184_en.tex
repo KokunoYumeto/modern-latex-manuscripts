@@ -1,0 +1,398 @@
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage{tikz-cd}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Sch}{\operatorname{Sch}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\cO}{\mathcal O}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ql}{\mathbb Q_\ell}
+\providecommand{\Zl}{\mathbb Z_\ell}
+\providecommand{\Fp}{\mathbb F_p}
+\providecommand{\Gm}{\mathbb G_m}
+\providecommand{\A}{\mathbb A}
+\providecommand{\Pj}{\mathbb P}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\prof}{\operatorname{prof}}
+\providecommand{\cd}{\operatorname{cd}}
+\providecommand{\lcm}{\operatorname{lcm}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Sp}{\operatorname{Sp}}
+\providecommand{\limproj}{\varprojlim}
+\providecommand{\liminj}{\varinjlim}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\PhiC}{\Phi}
+\providecommand{\PsiC}{\Psi}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+
+% SGA7 batch 099 macro additions
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\ob}{\operatorname{ob}}
+\providecommand{\Ens}{\mathrm{Ens}}
+\providecommand{\Set}{\mathrm{Set}}
+\providecommand{\pro}{\operatorname{pro}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Ccat}{\mathcal C}
+\providecommand{\Acat}{\mathcal A}
+\providecommand{\Fcat}{\mathcal F}
+\providecommand{\Gcat}{\mathcal G}
+\providecommand{\Mcat}{\mathcal M}
+\providecommand{\Vcat}{\mathcal V}
+\providecommand{\m}{\mathfrak m}
+\providecommand{\ma}{\mathfrak m_\Lambda}
+\providecommand{\mh}{\widehat{\mathfrak m}}
+\providecommand{\ka}{k[\varepsilon]}
+\providecommand{\CL}{\mathcal C_\Lambda}
+\providecommand{\CLK}{\mathcal C_{\Lambda,K}}
+\providecommand{\D}{\mathrm D}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\alg}{\operatorname{alg}}
+
+
+% SGA 7-I Expose VII section 2 macro additions
+\providecommand{\BIEXT}{\operatorname{BIEXT}}
+\providecommand{\Biext}{\operatorname{Biext}}
+\providecommand{\GRAB}{\operatorname{GRAB}}
+\providecommand{\TORSBIRIG}{\operatorname{TORSBIRIG}}
+\providecommand{\Corr}{\operatorname{Corr}}
+\providecommand{\sym}{\mathrm{sym}}
+\providecommand{\id}{\mathrm{id}}
+\providecommand{\cY}{\mathcal Y}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\e}{\mathrm e}
+
+\begin{document}
+\begin{center}
+{\Large SGA 7-I: Exposé VII, pages 161--184}\\[0.35em]
+{\large Original source scan pages 161--184}
+\end{center}
+
+\section*{Exposé VII. Biextensions of sheaves of groups: section 2 and opening of section 3}
+
+\section*{2. The notion of biextension of abelian sheaves}
+
+\subsection*{2.0. Notation}
+Throughout this section, \(P,Q,G\) denote commutative Groups of the topos \(\mathcal T\).  We shall often use the Cartesian square
+\begin{equation}\tag{2.0.1}
+\begin{tikzcd}
+P\times Q \arrow[r] \arrow[d] & P\arrow[d]\\
+Q\arrow[r] & e .
+\end{tikzcd}
+\end{equation}
+The Groups \(G_P\), \(G_Q\), and \(G_{P\times Q}\) are the inverse images of \(G\) on \(P\), \(Q\), and \(P\times Q\).  We shall identify \(G_{P\times Q}\) equally with \((G_P)_{P\times Q}\) via \(\pr_1\), and with \((G_Q)_{P\times Q}\) via \(\pr_2\).  In this notation the group structures of \(P,Q,P\times Q\) do not intervene.  We shall almost never need the product group structure on \(P\times Q\).  What will be useful is to consider \(P\times Q\) as the inverse-image \(P\)-Group of \(Q\),
+\begin{equation}\tag{2.0.2}
+  P\times Q=Q_P,
+\end{equation}
+and symmetrically as the inverse-image \(Q\)-Group of \(P\),
+\begin{equation}\tag{2.0.3}
+  P\times Q=P_Q.
+\end{equation}
+Thus, over \(P\), one has the two Groups \(G_P\) and \(Q_P\); over \(Q\), one has \(G_Q\) and \(P_Q\).  If \(E\) is a torsor on \(P\times Q\) with group \(G_{P\times Q}\), then \(E\) may be regarded either as a torsor on \(P\) of group \((G_P)_{Q_P}\), or as a torsor on \(Q\) of group \((G_Q)_{P_Q}\).  It therefore makes sense to speak of a commutative extension structure of \(Q_P\) by \(G_P\) on \(E\), compatible with its torsor structure, and symmetrically of an extension structure of \(P_Q\) by \(G_Q\) on \(E\).
+
+Applying the dictionary of 1.6 in the induced topoi, a structure of extension of \(Q_P\) by \(G_P\) on \(E\) is described by the following data.  For every object \(S\) of \(\mathcal T\), for \(p,p'\in P(S)\) and \(q\in Q(S)\), one is given an isomorphism of \(G_S\)-torsors
+\begin{equation}\tag{2.0.4}
+  \lambda_{p,p';q}: E_{p,q}\,E_{p',q}\xrightarrow{\sim}E_{pp',q}.
+\end{equation}
+Here \(E_{p,q}\) denotes the inverse image of \(E\) under the point \((p,q):S\to P\times Q\).  These isomorphisms are functorial in \(S\), i.e. compatible with pullback along morphisms \(S'\to S\) of \(\mathcal T\), and satisfy the associativity condition expressed by the commutativity of
+\begin{equation}\tag{2.0.5}
+\begin{tikzcd}[column sep=large,row sep=large]
+& E_{pp',q}E_{p'',q}\arrow[dr,"\lambda_{pp',p'';q}"]&\\
+E_{p,q}E_{p',q}E_{p'',q}
+\arrow[ur,"\lambda_{p,p';q}\times\id"]
+\arrow[dr,"\id\times\lambda_{p',p'';q}"']&&E_{pp'p'',q}\\
+& E_{p,q}E_{p'p'',q}\arrow[ur,"\lambda_{p,p'p'';q}"']&
+\end{tikzcd}
+\end{equation}
+and the commutativity condition
+\begin{equation}\tag{2.0.6}
+\begin{tikzcd}[column sep=large,row sep=large]
+E_{p,q}E_{p',q}\arrow[r,"\lambda_{p,p';q}"]\arrow[d,"\sym"']&E_{pp',q}\arrow[d,"\id"]\\
+E_{p',q}E_{p,q}\arrow[r,"\lambda_{p',p;q}"']&E_{p'p,q}.
+\end{tikzcd}
+\end{equation}
+
+Symmetrically, a structure of extension of \(P_Q\) by \(G_Q\) on \(E\) is described by isomorphisms
+\begin{equation}\tag{2.0.7}
+  \mu_{p;q,q'}:E_{p,q}\,E_{p,q'}\xrightarrow{\sim}E_{p,qq'}
+\end{equation}
+for \(p\in P(S)\), \(q,q'\in Q(S)\), functorial in \(S\), satisfying the analogous associativity and commutativity conditions
+\begin{equation}\tag{2.0.8}
+\begin{tikzcd}[column sep=large,row sep=large]
+& E_{p,qq'}E_{p,q''}\arrow[dr,"\mu_{p;qq',q''}"]&\\
+E_{p,q}E_{p,q'}E_{p,q''}
+\arrow[ur,"\mu_{p;q,q'}\times\id"]
+\arrow[dr,"\id\times\mu_{p;q',q''}"']&&E_{p,qq'q''}\\
+& E_{p,q}E_{p,q'q''}\arrow[ur,"\mu_{p;q,q'q''}"']&
+\end{tikzcd}
+\end{equation}
+and
+\begin{equation}\tag{2.0.9}
+\begin{tikzcd}[column sep=large,row sep=large]
+E_{p,q}E_{p,q'}\arrow[r,"\mu_{p;q,q'}"]\arrow[d,"\sym"']&E_{p,qq'}\arrow[d,"\id"]\\
+E_{p,q'}E_{p,q}\arrow[r,"\mu_{p;q',q}"']&E_{p,q'q}.
+\end{tikzcd}
+\end{equation}
+
+\textbf{Definition 2.1.}  Let \(P,Q,G\) be abelian Groups of \(\mathcal T\), and let \(E\) be a torsor under \(G_{P\times Q}\).  Suppose that \(E\) is endowed with a structure of extension of \(Q_P\) by \(G_P\), given by the \(\lambda\)'s above, and with a structure of extension of \(P_Q\) by \(G_Q\), given by the \(\mu\)'s above.  The two structures are said to be \emph{compatible} if, for every object \(S\) of \(\mathcal T\) and every \(p,p'\in P(S)\), \(q,q'\in Q(S)\), the following square of contracted products commutes:
+\begin{equation}\tag{2.1.1}
+\begin{tikzcd}[column sep=huge,row sep=large]
+(E_{p,q}E_{p,q'})E_{p',q'}
+\arrow[r,"\mu_{p;q,q'}\times\id"]
+\arrow[d,"\id\times\lambda_{p,p';q'}"']
+& E_{p,qq'}E_{p',q'}\arrow[d,"\lambda_{p,p';qq'}"]\\
+E_{p,q}E_{pp',q'}\arrow[r,"\mu_{pp';q,q'}"']&E_{pp',qq'} .
+\end{tikzcd}
+\end{equation}
+Equivalently, in the partial-composition notation below, this is the identity
+\begin{equation}\tag{2.1.1.2}
+  \lambda\bigl(\mu(x,y),\mu(z,t)\bigr)
+  =
+  \mu\bigl(\lambda(x,z),\lambda(y,t)\bigr),
+\end{equation}
+for \(x,y,z,t\) lying respectively in \(E_{p,q}(S),E_{p,q'}(S),E_{p',q}(S),E_{p',q'}(S)\), with the evident notation.
+
+A \emph{biextension} of \((P,Q)\) by \(G\) is a torsor \(E\) under \(G_{P\times Q}\) endowed with these two extension structures, compatible in the preceding sense.
+
+In more elementary language, a biextension structure on \(E\) is given by two partially defined laws of composition, denoted \(\lambda(x,y)\) and \(\mu(x,y)\).  The first is defined when \(\pr_2 j(x)=\pr_2 j(y)\), the second when \(\pr_1 j(x)=\pr_1 j(y)\), where \(j:E\to P\times Q\) is the structural morphism.  The axioms are the associativity and commutativity of these two partial laws, the relations
+\begin{equation}\tag{2.1.1.1}
+  \lambda(gx,y)=\lambda(x,gy)=g\lambda(x,y)
+\end{equation}
+and the analogous relations for \(\mu\), together with the mixed relation (2.1.1.2).
+
+\subsection*{2.2. Unit sections}
+There are unit sections for \(E\) considered as an extension of \(Q_P\) by \(G_P\),
+\begin{equation}\tag{2.2.1}
+  e_{E/P}\in \Gamma(E/P)=\operatorname{Hom}_P(P,E),
+\end{equation}
+and, symmetrically, for \(E\) considered as an extension of \(P_Q\) by \(G_Q\),
+\begin{equation}\tag{2.2.2}
+  e_{E/Q}\in \Gamma(E/Q)=\operatorname{Hom}_Q(Q,E).
+\end{equation}
+Thus the torsor \(E\) over \(P\times Q\) is canonically trivialized over \(1_P\times Q\), by \(e_{E/P}\), and over \(P\times1_Q\), by \(e_{E/Q}\).  These two trivializations agree over \(1_P\times1_Q\).  They therefore define one section
+\begin{equation}\tag{2.2.3}
+  e_E\in\Gamma(E),
+\end{equation}
+called, by abuse of language, the unit or neutral section of \(E\).  The equality follows by applying the compatibility relation to the four sections \(e,e',e',e\) over \(1_P\times1_Q\): the two sides are respectively \(e\) and \(e'\).  Consequently the two partial laws \(\lambda\) and \(\mu\) coincide on the fibre over \(1_P\times1_Q\), both being transported from the group law of \(G\).
+
+Restricting the extension of \(Q_P\) by \(G_P\) to the unit section of \(P\) gives an extension of \(Q\) by \(G\) which is canonically split by \(e_{E/P}\).  The symmetric statement holds for the restriction over the unit section of \(Q\).
+
+\subsection*{2.3. Morphisms of biextensions}
+Let \(E\) be a biextension of \((P,Q)\) by \(G\), and let \(E'\) be a biextension of \((P',Q')\) by \(G'\).  A morphism of biextensions from \(E\) to \(E'\) is a system \((u,v,w,f)\), where
+\begin{equation}\tag{2.3.1}
+  u:P\to P',\qquad v:Q\to Q',\qquad w:G\to G'
+\end{equation}
+are morphisms of Groups and
+\begin{equation}\tag{2.3.2}
+  f:E\to E'
+\end{equation}
+is a morphism of the underlying sheaves of sets such that \(f\) is both a homomorphism of the relative extensions over \(P\) and \(P'\), associated with the relative homomorphisms \(u\times v\) and \(u\times w\), and a homomorphism of the relative extensions over \(Q\) and \(Q'\), associated with \(u\times v\) and \(v\times w\).
+
+The maps \(u,v,w\) are determined by \(f\): one recovers \(u\times v\) by passing to the quotient, hence \(u\) and \(v\) by restriction to \(P\times1_Q\) and \(1_P\times Q\), and one recovers \(w\) by restricting \(f\) to \(G\cdot e_E\).  We shall therefore often identify the morphism with \(f\) itself.  Adding source and target to morphisms in the usual canonical way, biextensions form a category.  There is a canonical functor
+\begin{equation}\tag{2.3.3}
+  \BIEXT(\mathcal T)\longrightarrow \GRAB(\mathcal T)\times\GRAB(\mathcal T)\times\GRAB(\mathcal T),
+\end{equation}
+where \(\GRAB(\mathcal T)\) denotes abelian Groups of \(\mathcal T\).  It is useful to decompose it as
+\begin{equation}\tag{2.3.4}
+  \BIEXT(\mathcal T)\longrightarrow\GRAB(\mathcal T)\times\GRAB(\mathcal T),
+\end{equation}
+by \(E\mapsto(P,Q)\), and
+\begin{equation}\tag{2.3.5}
+  \BIEXT(\mathcal T)\longrightarrow\GRAB(\mathcal T),
+\end{equation}
+by \(E\mapsto G\).
+
+\subsection*{2.4. The categories \(\BIEXT(P,Q;G)\) with variables}
+The functor (2.3.4) is fibred, while the functor (2.3.5) is cofibred.  Thus, given a biextension \(E\) of \((P,Q)\) by \(G\), and morphisms \(u:P'\to P\), \(v:Q'\to Q\), there is an inverse-image biextension \(E'\) of \((P',Q')\) by \(G\), together with a universal morphism \(E'\to E\) compatible with \(u,v,\id_G\).  Similarly, given \(w:G\to G'\), there is a direct-image biextension \(E'\) of \((P,Q)\) by \(G'\), together with a universal morphism \(E\to E'\) compatible with \(\id_P,\id_Q,w\).  These are the usual constructions for extensions of Groups, paraphrased in the present setting.
+
+For fixed \(P,Q,G\), write
+\begin{equation}\tag{2.4.1}
+  \BIEXT(P,Q;G)
+\end{equation}
+for the fibre category over \((P,Q,G)\).  This category is covariant in \(G\) and contravariant in \(P,Q\), and additively dependent on each of its three arguments.  For the argument \(G\), for example, this says that \(\BIEXT(P,Q;0)\) is equivalent to the punctual category, and that for two abelian Groups \(G,G'\) of \(\mathcal T\), the functor
+\begin{equation}\tag{2.4.2}
+  \BIEXT(P,Q;G\times G')\longrightarrow
+  \BIEXT(P,Q;G)\times\BIEXT(P,Q;G')
+\end{equation}
+induced by the two projections is an equivalence.  In the language of the cited reference, for fixed \(P,Q\) the category of biextensions of \((P,Q)\) by variable Groups \(G\) is an additive cofibred category over \(\GRAB(\mathcal T)\).
+
+\textbf{Remark 2.4.3.}  With the terminology of loc. cit., this cofibred category is not only additive but left exact.  We shall not verify this here, since it will follow below, in 3.5, from more precise facts.  The general theory would then describe this cofibred category, up to equivalence, in terms of a chain complex \(L_\bullet\) in \(\GRAB(\mathcal T)\), depending only on \(P\) and \(Q\).  Below we shall give a direct construction of this complex as \(P\otimes^L Q\), the tensor product being taken in a derived category.
+
+\subsection*{2.5. The structure of \(\BIEXT(P,Q;G)\)}
+The formal facts for additive cofibred categories give useful consequences.  For fixed \(G\), two biextensions \(E,E'\) of \((P,Q)\) by \(G\) have a product biextension \(E.E'\).  This construction is the analogue of the product of two extensions of one commutative Group by another, and is compatible with viewing \(E,E'\) either as extensions of \(Q_P\) by \(G_P\), or as extensions of \(P_Q\) by \(G_Q\).  As a \(G_{P\times Q}\)-torsor, \(E.E'\) is the product of the torsors underlying \(E\) and \(E'\).  This law is associative and commutative up to canonical isomorphism and has a two-sided unit, the trivial biextension.  This unit can be described as the trivial torsor
+\begin{equation}\tag{2.5.1.1}
+  P\times Q\times G,
+\end{equation}
+with its two relative group structures induced from the product group structures on \(Q\times G\) and \(P\times G\).  Every biextension \(E\) also has an inverse \(E^{-1}\), characterized up to unique isomorphism by an isomorphism \(E.E^{-1}\simeq1\).  Thus \(\BIEXT(P,Q;G)\) is a pseudo-group in the 2-category of categories.
+
+It follows that, for any biextension \(E\), its endomorphism monoid is canonically isomorphic to the endomorphism monoid of the trivial biextension.  This latter monoid is a commutative group, denoted
+\begin{equation}\tag{2.5.2.1}
+  \Biext^0(P,Q;G).
+\end{equation}
+Moreover the product law on biextensions makes the set
+\begin{equation}\tag{2.5.2.2}
+  \Biext^1(P,Q;G)
+\end{equation}
+of isomorphism classes of biextensions of \((P,Q)\) by \(G\) into a commutative group.
+
+For a homomorphism \(G\to G'\), the induced functor
+\begin{equation}\tag{2.5.3.1}
+  \BIEXT(P,Q;G)\longrightarrow\BIEXT(P,Q;G')
+\end{equation}
+is compatible with products and inverses up to canonical isomorphism.  Hence it induces homomorphisms
+\begin{equation}\tag{2.5.3.2}
+  \Biext^i(P,Q;G)\longrightarrow\Biext^i(P,Q;G')\qquad (i=0,1).
+\end{equation}
+For \(i=0\), this is the natural map on automorphism groups of a biextension and its image by \(G\to G'\).
+
+The group \(\Biext^0(P,Q;G)\) is explicit.  An automorphism \(u\) of a biextension \(E\) is first an automorphism of the underlying \(G_{P\times Q}\)-torsor, and is therefore given by a morphism
+\begin{equation}\tag{2.5.4.0}
+  u:P\times Q\longrightarrow G,
+\end{equation}
+where \(u(x)=u(j(x))\,x\) in torsor notation.  Compatibility with the first extension structure is equivalent to additivity in the second variable; compatibility with the second extension structure is equivalent to additivity in the first variable.  Thus \(u\) is an automorphism of the biextension structure if and only if it is bilinear.  This gives the canonical bijection, in fact isomorphism of groups,
+\begin{equation}\tag{2.5.4.1}
+  \Biext^0(P,Q;G)\simeq\operatorname{Hom}(P\otimes Q,G),
+\end{equation}
+functorial in \(P,Q,G\).  Below we shall determine \(\Biext^1(P,Q;G)\) as an \(\Ext^1\)-group.
+
+\subsection*{2.6. Variance in \(P\), \(Q\), and \(G\)}
+The contravariance in \(P,Q\) commutes with the covariance in \(G\).  Hence the categories just considered can be regarded as fibres of a tri-additive cofibred category
+\begin{equation}\tag{2.6.1}
+  \BIEXT'(\mathcal T)\longrightarrow
+  \GRAB(\mathcal T)^\circ\times\GRAB(\mathcal T)^\circ\times\GRAB(\mathcal T),
+\end{equation}
+where the structural functor is \(E\mapsto(P,Q,G)\).  The pseudo-group structures obtained by using the additivity in any one of the three variables are canonically isomorphic.  Consequently the abelian groups
+\begin{equation}\tag{2.6.2}
+  \Biext^i(P,Q;G)\qquad (i=0,1)
+\end{equation}
+are trilinear functors: contravariant in \(P,Q\), covariant in \(G\), and valued in abelian groups.  The isomorphism (2.5.4.1) is functorial for this full variance, and the same will hold for the later description of \(\Biext^1\) by an \(\Ext^1\).
+
+\subsection*{2.7. The symmetric biextension}
+If \(E\) is a biextension of \((P,Q)\) by \(G\), define its symmetric biextension \({}^sE\), a biextension of \((Q,P)\) by \(G\), as follows.  The underlying sheaf of sets and the \(G\)-action are the same.  The structural morphism is the composite of \(E\to P\times Q\) with the symmetry \(P\times Q\to Q\times P\).  The left and right extension structures of \({}^sE\) are respectively the right and left extension structures of \(E\).  The operation \(E\mapsto{}^sE\) is an involutive automorphism of \(\BIEXT(\mathcal T)\):
+\begin{equation}\tag{2.7.1}
+  {}^s({}^sE)=E.
+\end{equation}
+Thus every assertion concerning biextensions has a symmetric assertion obtained by interchanging left and right.  In practice only one of the two symmetric statements will usually be written out.
+
+\subsection*{2.8. Change of topos and localization}
+Let
+\begin{equation}\tag{2.8.0}
+  f:\mathcal T'\longrightarrow\mathcal T
+\end{equation}
+be a morphism of topoi.  The inverse-image functor \(f^*\) sends a biextension \(E\) of \((P,Q)\) by \(G\) to a biextension \(f^*E\) of \((f^*P,f^*Q)\) by \(f^*G\).  This is another instance of the fact that such a structure is expressible by finite projective limits and arbitrary inductive limits.  Compatibility of the two extension structures on \(f^*E\) follows from the universal form of the commutative diagram (2.1.1).  Hence one obtains a canonical functor
+\begin{equation}\tag{2.8.1}
+  f^*:\BIEXT(\mathcal T)\longrightarrow\BIEXT(\mathcal T').
+\end{equation}
+All constructions with biextensions used later are compatible with inverse images by morphisms of topoi; in particular this includes the product \(E.E'\) and inverse \(E^{-1}\) of 2.5.
+
+Taking \(\mathcal T'=\mathcal T/S'\) and \(f=i_{S'}:\mathcal T/S'\to\mathcal T\), one obtains the biextension induced by \(E\) on \(S'\), denoted \(E|S'\) or \(E_{S'}\).  The usual transitivity of restriction implies that the categories \(\BIEXT(\mathcal T/S)\), for variable \(S\in\mathcal T\), are the fibres of a fibred category over \(\mathcal T\).  This fibred category is a stack on \(\mathcal T\) in Giraud's sense: morphisms and objects can be glued.  Thus a biextension on \(S\), up to canonical isomorphism, is obtained from a covering family \(S_i\to S\), biextensions \(E_i\) on \(S_i\), and descent isomorphisms on \(S_i\times_SS_j\) satisfying the usual cocycle condition.  This stack is the stack of biextensions on \(\mathcal T\).  The functors (2.3.3)--(2.3.5), and the operations \(E.E'\) and \(E^{-1}\), are morphisms of stacks or stack operations in this sense.
+
+\subsection*{2.9. Relation with birigidified torsors}
+We saw in 2.2 that every biextension \(E\) of \((P,Q)\) by \(G\) has an underlying \(G_{P\times Q}\)-torsor canonically birigidified with respect to the unit sections of \(P\) and \(Q\).  This gives a canonical functor
+\begin{equation}\tag{2.9.1}
+  \BIEXT(P,Q;G)\longrightarrow\TORSBIRIG(P,Q;G),
+\end{equation}
+where the target is the category of birigidified torsors on \(P\times Q\), with structural group \(G_{P\times Q}\).
+
+Using the unit sections, for every finite product of factors isomorphic to \(P\) or \(Q\) one has a canonical inclusion of each factor.  We shall therefore say that a morphism from such a product to \(G\) is trivial on a given factor.  Consider the products
+\begin{equation}\tag{2.9.2}
+  P\times Q,
+  \quad P\times Q\times Q,
+  \quad P\times Q\times Q\times Q,
+  \quad P\times P\times Q,
+  \quad P\times P\times P\times Q,
+  \quad P\times P\times Q\times Q.
+\end{equation}
+
+\textbf{Proposition 2.9.3.}  Suppose that every morphism from one of the products (2.9.2) to \(G\), trivial on each of its factors, is trivial.  Then:
+\begin{enumerate}[label=\alph*)]
+\item The functor (2.9.1) is fully faithful, and both categories are rigid.  In particular, if \(E\) is a \(G_{P\times Q}\)-torsor birigidified for \((e_P,e_Q)\), then there is at most one biextension structure on \(E\) compatible with its birigidified torsor structure.
+\item Such a structure exists on \(E\) if and only if there exists on \(E\) a structure of extension of \(Q_P\) by \(G_P\), compatible with its \(G_P\)-torsor structure and the rigidification on \(P\times e_Q\), and a structure of extension of \(P_Q\) by \(G_Q\), compatible with its \(G_Q\)-torsor structure and the rigidification on \(e_P\times Q\).  In that case both extension structures are unique and are compatible, hence define a biextension.
+\end{enumerate}
+
+For (a), the automorphism group of a birigidified torsor on \(P\times Q\) is the group of morphisms \(P\times Q\to G\) trivial on the two partial factors; by the hypothesis it is the identity.  If \(E,E'\) are biextensions and \(f:E\to E'\) is a morphism of birigidified torsors, Proposition 1.3.5(a), applied to the two relative extension structures, shows that \(f\) is a morphism of biextensions.  For (b), Proposition 1.3.5(b) gives the unique relative extension structures; the two composites in the compatibility diagram (2.1.1) differ by a morphism \(P\times P\times Q\times Q\to G\), trivial on each factor, hence trivial by the hypothesis.
+
+\textbf{Corollary 2.9.4.}  If \(P,Q,G\) satisfy
+\begin{equation}\tag{2.9.4.1}
+  \operatorname{Hom}_{\mathrm{pt}}(P,G)=e,
+  \qquad
+  \operatorname{Hom}_{\mathrm{pt}}(Q,G)=e,
+\end{equation}
+then the hypotheses of Proposition 2.9.3 hold.  Moreover, for a birigidified \(G_{P\times Q}\)-torsor \(E\), the existence of a compatible biextension structure is equivalent to the condition that the two pointed morphisms which it defines,
+\begin{equation}\tag{2.9.4.2}
+  Q\longrightarrow R^1p_*(G_{P}),
+  \qquad
+  P\longrightarrow R^1q_*(G_{Q}),
+\end{equation}
+where \(p:P\to e\) and \(q:Q\to e\) are the structural morphisms, are morphisms of Groups.
+
+The first assertion follows from 1.3.7.  For the second, multiplicativity of the first morphism says that the rigidified torsor locally satisfies the condition of 1.3.5(b) over \(P\); by 1.3.7 it then satisfies it globally.  The symmetric argument applies to the second morphism, and Proposition 2.9.3(b) gives the conclusion.
+
+\textbf{Example 2.9.5.}  Let \(S\) be a scheme, let \(P,Q\) be abelian schemes over \(S\), and let \(G=\mathbb G_m\).  As noted in 1.3.8, condition (2.9.4.1) holds.  A birigidified \(\mathbb G_m\)-torsor on \(P\times Q\) is the same as a birigidified invertible Module on \(P\times Q\).  A divisor correspondence on \((P,Q)\) is the isomorphism class of such a birigidified invertible Module.  With the fppf topology, the two morphisms (2.9.4.2) are the morphisms
+\begin{equation}\tag{2.9.5.1}
+  Q\longrightarrow \Pic(P/S),
+  \qquad
+  P\longrightarrow \Pic(Q/S)
+\end{equation}
+defined by the divisor correspondence; by the theorem of the square these are necessarily compatible with the group structures.  Thus the category of biextensions of \((P,Q)\) by \(\mathbb G_m\) is equivalent to the category of birigidified invertible Modules on \(P\times Q\).  This category is rigid, and its set of isomorphism classes is the set of divisor correspondences on \((P,Q)\).  The identification respects the natural group laws.
+
+\textbf{Remark 2.9.6.}  Additivity of the first morphism in (2.9.4.2) is equivalent to saying that the second morphism factors through the subsheaf \(\Ext^1(Q,G)\); the canonical map
+\begin{equation}\tag{2.9.6.0}
+  \Ext^1(Q,G)\longrightarrow R^1q_*(G_Q)
+\end{equation}
+is injective by 1.3.5.  Symmetrically, additivity of the second morphism is equivalent to the factorization of the first through \(\Ext^1(P,G)\).  Hence one obtains group isomorphisms
+\begin{equation}\tag{2.9.6.1}
+  \Biext(P,Q;G)
+  \simeq \operatorname{Hom}\bigl(Q,\Ext^1(P,G)\bigr)
+  \simeq \operatorname{Hom}\bigl(P,\Ext^1(Q,G)\bigr).
+\end{equation}
+In the situation of Example 2.9.5 these become the classical isomorphisms
+\begin{equation}\tag{2.9.6.2}
+  \Corr(P,Q)\simeq \operatorname{Hom}(P,Q')\simeq\operatorname{Hom}(Q,P'),
+\end{equation}
+where \(P'=\Ext^1(P,\mathbb G_m)\) and \(Q'=\Ext^1(Q,\mathbb G_m)\) are the dual abelian schemes, identified with \(\Pic^0_{P/S}\) and \(\Pic^0_{Q/S}\).
+
+\subsection*{2.10. Various generalizations of biextensions}
+We mention these only for completeness.
+
+First, one can define biextensions of \((P,Q)\) by \(G\) without assuming that \(P\) and \(Q\) are commutative, while still assuming \(G\) commutative.  Such an object is a torsor under \(G_{P\times Q}\), endowed with central extension structures of \(Q_P\) by \(G_P\) and of \(P_Q\) by \(G_Q\), compatible with the torsor structure and with one another by diagrams of the form (2.1.1).  Most of the preceding development applies mutatis mutandis.  When \(P\) and \(Q\) are also commutative, this is more general than Definition 2.1, which corresponds to the case in which both relative extension structures are commutative.  In the non-commutative case the category still depends additively on \(G\), but not on \(P\) and \(Q\).
+
+Second, for a fixed integer \(n\geq1\), one defines in the same way an \(n\)-extension of a sequence of \(n\) commutative Groups \((P_1,\ldots,P_n)\) by a commutative Group \(G\): it is a torsor over \(P_1\times\cdots\times P_n\) under the inverse image of \(G\), with \(n\) partial extension structures on the products obtained by omitting one factor, and a compatibility relation of type (2.1.1) for every pair of distinct indices.  When \(n=3\), the \(P_i\) are abelian schemes over \(S\), and \(G=\mathbb G_m\), every such \(n\)-extension is trivial.
+
+Third, biextensions of \(A\)-Modules may be defined.  Let \(A\) be a commutative ring object of \(\mathcal T\), and let \(P,Q,G\) be \(A\)-Modules.  A biextension of \(A\)-Modules of \((P,Q)\) by \(G\) is a biextension in the sense of 2.1, in which the two partial extension structures are enriched to extensions of relative \(A_P\)- and \(A_Q\)-Modules, compatible with the relative Module structures on \(G_P,Q_P\) and \(G_Q,P_Q\).  The two relative Module structures on \(E\) amount to two actions of the multiplicative monoid underlying \(A\) on the sheaf underlying \(E\), which are required to commute.  Each action must be distributive with respect not only to its corresponding partial composition law on \(E\), but also with respect to the other partial composition law.
+
+The dictionary of 1.1.6 also has an \(A\)-linear variant: an extension of the \(A\)-Module \(P\) by \(G\) corresponds to a family of torsors \(E_p\) under \(G_S\), parameterized by points \(p\in P(S)\), which varies \(A\)-linearly in \(p\).  In addition to the isomorphisms \(\varphi_{p,p'}\) of (1.1.3.1), one has isomorphisms
+\begin{equation}\tag{2.10.3.1}
+  \mu_{p,a}: a_*(E_p)\xrightarrow{\sim} E_{ap}
+  \qquad(p\in P(S),\ a\in A(S)),
+\end{equation}
+where the first member denotes the image of the \(G_S\)-torsor \(E_p\) by extension of scalars \(g\mapsto ag:G_S\to G_S\).  The conditions on \(\varphi\) and \(\mu\) are the evident ones ensuring that they come from an extension of Modules.
+
+\end{document}
