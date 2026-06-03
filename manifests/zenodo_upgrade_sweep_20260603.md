@@ -22,7 +22,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20526138` | 2026-06-03 reconstructed work-level readers, corrected combined readers, and al-Battani v083 trilingual text/reference reader; numerical tables still in progress |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
-| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.347 |
+| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.377 |
 | Gauss | 20410934 | `10.5281/zenodo.20503774` | 2026-06-02 Gauss cumulative readers plus Band II pilot |
 | Weber | 20412153 | `10.5281/zenodo.20529154` | 2026-06-03 Weber author refresh: Volume I complete, Volume II source-checked through section 91, and current repaired Volume III |
 | Deligne | 20410853 | `10.5281/zenodo.20498666` | 2026-06-01 Manin 1987 letter sections 1 through 5 |
@@ -52,6 +52,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | 2 | 47,585,722 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 283. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20526559` | 2 | 54,724,252 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 327. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20529296` | 2 | 59,292,424 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 347. |
+| Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20529509` | 2 | 66,881,468 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 377. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20526138` | 85 | 503,376,490 bytes uploaded in patch | Same-concept update with reconstructed 66-work reader surface, corrected combined readers, and al-Battani v083 trilingual text/reference reader; table stream remains in progress. |
 | Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20529154` | 47 | compact patch | Same-concept update replacing the front-facing three-volume readers with Volume I complete, Volume II source-checked through section 91, and the current repaired Volume III; refreshed compact TeX/source/provenance ZIP. |
 

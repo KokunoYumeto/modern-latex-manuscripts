@@ -2,27 +2,28 @@
 
 Generated: 2026-06-03
 
-James Joseph Sylvester, *Collected Mathematical Papers*, Volume I, is currently mirrored as a source-checked working TeX/PDF edition through book page 347.
+James Joseph Sylvester, *Collected Mathematical Papers*, Volume I, is currently mirrored as a source-checked working TeX/PDF edition through book page 377.
 
 ## GitHub Paths
 
-- Cumulative reader PDF: `reader-pdfs/sylvester/Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 347.pdf`
-- Current source packet: `sources/sylvester/volume-i-through-book-page-347-2026-06-03/`
+- Cumulative reader PDF: `reader-pdfs/sylvester/Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 377.pdf`
+- Current source packet: `sources/sylvester/volume-i-through-book-page-377-2026-06-03/`
+- Previous source packet retained: `sources/sylvester/volume-i-through-book-page-347-2026-06-03/`
 - Previous source packet retained: `sources/sylvester/volume-i-through-book-page-327-2026-06-03/`
 - Previous source packet retained: `sources/sylvester/volume-i-through-book-page-283-2026-06-03/`
 - Previous source packet retained: `sources/sylvester/volume-i-through-book-page-218-2026-06-03/`
 
 ## Coverage
 
-- Cumulative scope: Volume I book pages 1-347.
-- New range in the latest accepted packet: book pages 328-347.
-- Source mapping for latest range: source PDF pages 346-365.
-- Papers covered: Papers 1-43 in progress, through Part I Section IV and the opening of Section V of Paper 43.
-- Next continuation begins at book page 348, continuing Paper 43.
+- Cumulative scope: Volume I book pages 1-377.
+- New range in the latest accepted packet: book pages 348-377.
+- Source mapping for latest range: source PDF pages 366-395.
+- Papers covered: Papers 1-46; latest packet completes Paper 43, includes Paper 44 in French original, and includes Papers 45 and 46 complete.
+- Next continuation begins at book page 378, Paper 47.
 
 ## Validation
 
-- Cumulative reader: 275 rendered pages, 1,542,599 bytes.
+- Cumulative reader: 296 rendered pages, 1,633,400 bytes.
 - The cumulative TeX/PDF includes source-checked determinant/permutant arrays as TeX displays, not as images.
 - `pdfimages -list` reports no embedded raster-image bodies in the front-facing reader.
 
