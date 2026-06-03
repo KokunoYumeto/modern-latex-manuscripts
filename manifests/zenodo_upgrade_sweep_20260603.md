@@ -53,7 +53,7 @@ Local GitHub state now includes:
 - Latest Cayley status log: `manifests/cayley_current_duty_status_20260602.md`.
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
-- Current Volume IX reader hash: `94dc3ffc55eca243686bdd15573c95de84592ff917c222e5d8d13b26e27c3565` (348 pages; 5201361 bytes).
+- Current Volume IX reader hash: `b024cca5eb4fed7075a0147aea1f1c997804a3caddfdf6f2594cfa8918c9b377` (348 pages; 5202205 bytes).
 - Current Volume X reader hash: `ef98957df8d0cfd1dded4fe553c9ea07ef5b8ef8a175eabee7707933f9f04a60` (575 pages; 6660654 bytes).
 - Current Volume XI reader hash: `fae10bf4307488d256da878a23f4f39ef3f462d07525d2adf51d9ed40fe24708`.
 - Current Volume XII reader hash: `f018c62296595f43871ca153fba52030f937b8f9eafe5136fe3af58131c1624b`.
@@ -106,7 +106,7 @@ Public Zenodo is much older than local Sylvester.
 
 Local state noted by external thread:
 
-- Sylvester Volume I cumulative through book pp. 1-118 exists in `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\sylvester_batch09` and prior batches.
+- Sylvester Volume I cumulative through book pp. 1-202 exists in `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\sylvester_batch11`, with source PDF pp. 19-220 and source-page PNGs included.
 - The local formula-crop assist workflow is useful as localization/checking support, not insertion-grade TeX.
 
 Action: mirror the current accepted Sylvester cumulative readers and source packet into GitHub, then publish/update Sylvester as an author-level record rather than leaving it buried inside the general author cluster. Keep the cluster as a temporary shelf only for less mature starts.
