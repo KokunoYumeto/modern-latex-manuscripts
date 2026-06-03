@@ -4,16 +4,18 @@ This scan lists reader-visible residual marker language after the 2026-06-03 Cay
 
 It is a triage list, not a claim that every listed item has equal severity. Several hits are honest notices for very large tables or plates that need a dedicated table/diagram reconstruction pass rather than a quick TikZ replacement.
 
-Found **17** reader-visible residual hits after the Volume X p. 347 annexed
+Found **16** reader-visible residual hits after the Volume X p. 347 annexed
 diagram and Volume V p. 463 secondary-caustic plot were replaced with native
 TeX on 2026-06-03, and after the Volume XI p. 72 stale marker was removed
 because the table is already transcribed. A later pass also replaced the
 Volume XIII square-diagram placeholder on reader p. 263 with native TikZ
 square diagrams for weights 2--10, checked against the Volume XIII scan.
+The next sequential Cayley pass replaced the Volume IV p. 51 determinant
+placeholder on reader p. 37 with source-checked native TeX for the quartic and
+quintic coefficient arrays.
 
 | Volume Reader | Reader Page | Marker | Notes |
 |---|---:|---|---|
-| Volume IV | 37 | `reader is referred to the original` | by the developments. (These large determinantal arrays are reproduced verbatim from the scan ; the reader is referred to the original page for the explicit numerical entries.) The  |
 | Volume IV | 243 | `reader is referred to the original` | se matrix-style typesetting in the original, the table is reproduced here only in summary form; the reader is referred to the original page for the complete listing.) |
 | Volume IV | 250 | `reader is referred to the original` | ry dense layout of the original printed table, only the principal entries are reproduced above; the reader is referred to the original page 253 of the memoir for the complete six-c |
 | Volume IV | 252 | `too dense` | e last column (θ0, 3125×), which has the bottom total ±128505. The exact body of these two pages is too dense and too pictorial in its typographic layout to be set in line; the rea |
