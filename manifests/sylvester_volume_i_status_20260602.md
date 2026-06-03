@@ -2,26 +2,27 @@
 
 Generated: 2026-06-03
 
-James Joseph Sylvester, *Collected Mathematical Papers*, Volume I, is currently mirrored as a source-checked working TeX/PDF edition through book page 327.
+James Joseph Sylvester, *Collected Mathematical Papers*, Volume I, is currently mirrored as a source-checked working TeX/PDF edition through book page 347.
 
 ## GitHub Paths
 
-- Cumulative reader PDF: `reader-pdfs/sylvester/Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 327.pdf`
-- Current source packet: `sources/sylvester/volume-i-through-book-page-327-2026-06-03/`
+- Cumulative reader PDF: `reader-pdfs/sylvester/Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 347.pdf`
+- Current source packet: `sources/sylvester/volume-i-through-book-page-347-2026-06-03/`
+- Previous source packet retained: `sources/sylvester/volume-i-through-book-page-327-2026-06-03/`
 - Previous source packet retained: `sources/sylvester/volume-i-through-book-page-283-2026-06-03/`
 - Previous source packet retained: `sources/sylvester/volume-i-through-book-page-218-2026-06-03/`
 
 ## Coverage
 
-- Cumulative scope: Volume I book pages 1-327.
-- New range in the latest accepted packet: book pages 307-327.
-- Source mapping for latest range: source PDF pages 325-345.
-- Papers covered: Papers 1-42.
-- Next continuation begins at book page 328, after the current Paper 42 segment.
+- Cumulative scope: Volume I book pages 1-347.
+- New range in the latest accepted packet: book pages 328-347.
+- Source mapping for latest range: source PDF pages 346-365.
+- Papers covered: Papers 1-43 in progress, through Part I Section IV and the opening of Section V of Paper 43.
+- Next continuation begins at book page 348, continuing Paper 43.
 
 ## Validation
 
-- Cumulative reader: 260 rendered pages, 1,477,750 bytes.
+- Cumulative reader: 275 rendered pages, 1,542,599 bytes.
 - The cumulative TeX/PDF includes source-checked determinant/permutant arrays as TeX displays, not as images.
 - `pdfimages -list` reports no embedded raster-image bodies in the front-facing reader.
 
