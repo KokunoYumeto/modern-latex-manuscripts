@@ -39,6 +39,7 @@ Public links should prefer the concept DOI, because it resolves to the all-versi
 | Heinrich Weber | https://doi.org/10.5281/zenodo.20412153 | `10.5281/zenodo.20529154` | https://doi.org/10.5281/zenodo.20530074 | 47 | compact patch | Same-concept update replacing the Volume II cumulative readers with source-checked German/English readers through section 94, including the refined Batch72 correction; refreshed compact TeX/source/provenance ZIP. |
 | Carl Friedrich Gauss | https://doi.org/10.5281/zenodo.20410934 | `10.5281/zenodo.20503774` | https://doi.org/10.5281/zenodo.20529773 | 18 | compact patch | Same-concept update adding Band II source-checked original-language and English cumulative readers from the actual beginning through printed page 282, plus compact TeX, scan witnesses, and audit/source packet. |
 | Carl Friedrich Gauss | https://doi.org/10.5281/zenodo.20410934 | `10.5281/zenodo.20529773` | https://doi.org/10.5281/zenodo.20529812 | 18 | summary refresh | Same-concept follow-up refreshing the public summary JSON after confirming the stale p211 delete target was not present on Zenodo. |
+| P. G. Lejeune Dirichlet | https://doi.org/10.5281/zenodo.20520679 | `10.5281/zenodo.20520680` | https://doi.org/10.5281/zenodo.20530200 | 4 | compact patch | Same-concept update replacing the old Werke Band II Papers I-XII readers/source ZIP with cumulative original-language and English readers through Papers I-XXVII, plus refreshed TeX/source/scan/manifest ZIP and public summary. |
 
 Upload staging manifests were generated at:
 

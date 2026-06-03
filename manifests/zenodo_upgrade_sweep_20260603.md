@@ -160,7 +160,7 @@ The following dedicated author records should be created once an authenticated Z
 - **Arthur Cayley**: migrated to dedicated concept DOI `10.5281/zenodo.20520749`.
 - **James Joseph Sylvester**: staged metadata `zenodo-metadata/metadata_author_sylvester_current.json`; promote Volume I through book page 218 and its source packet.
 - **Richard Dedekind**: staged metadata `zenodo-metadata/metadata_author_dedekind_current.json`; promote `Was sind und was sollen die Zahlen?`, `Stetigkeit und irrationale Zahlen` segment, and Dedekind/Dirichlet paratext where appropriate.
-- **P. G. Lejeune Dirichlet**: staged metadata `zenodo-metadata/metadata_author_dirichlet_current.json`; promote Werke Band II Papers I-XII.
+- **P. G. Lejeune Dirichlet**: migrated to dedicated concept DOI `10.5281/zenodo.20520679`; current same-concept version promotes Werke Band II Papers I-XXVII.
 - **Ernst Steinitz**: staged metadata `zenodo-metadata/metadata_author_steinitz_current.json`; promote after local bilingual Steinitz packets are checked and mirrored.
 
 Once these are live, the existing mixed `Cayley, Dedekind, and Dirichlet` shelf and the `Author cluster` shelf should be retained as umbrella/backstop records, not treated as the clean reader-facing entry points.
@@ -176,6 +176,8 @@ Recent external local paths include:
 - `dedekind\Dedekind_Round07_Dirichlet_Paratext_LVI_LIX_pp408_427_20260602`
 
 Action: after Cayley priority work, compare these against GitHub and promote only clean cumulative readers/source packets.
+
+Update: promoted `Dirichlet_R18_XXVII_Kummer_20260603.zip` as same-concept Zenodo version `10.5281/zenodo.20530200`. The public surface now has cumulative original-language and English readers for Werke Band II Papers I-XXVII, with a refreshed compact source/scan/manifest ZIP. The older Papers I-XII reader files and source ZIP were removed from the live Dirichlet record.
 
 ### 8. Weber - completed through Volume II section 91
 
