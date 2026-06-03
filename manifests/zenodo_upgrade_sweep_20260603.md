@@ -18,7 +18,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
 | SGA | 20410947 | `10.5281/zenodo.20523803` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 137 |
 | Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
-| Cayley | 20520749 | `10.5281/zenodo.20524953` | 2026-06-03 dedicated Cayley author record refresh: Volume X p. 347 syzygy diagram and Volume V p. 463 secondary-caustic plot restored as native TeX plus refreshed source bundle |
+| Cayley | 20520749 | `10.5281/zenodo.20526046` | 2026-06-03 dedicated Cayley author record refresh: Volume XIII Paper 966 square diagrams promoted as native TikZ, source/manifest bundle refreshed, and progress/cost inventory added |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
@@ -42,6 +42,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20523305` | 14 | compact patch | Same-concept update replacing the Volume IV and Volume X readers after the native hexahedron-net and theta-characteristic symbol repairs; refreshed source/manifest ZIP includes the residual marker scan and unpromoted Vol XIII quarantine packet. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20524543` | 15 | compact patch | Same-concept update replacing the Volume X reader after the Paper 693 p. 347 annexed diagram for the 179 irreducible syzygies was restored as native TeX; refreshed source/manifest ZIP and upload inventory included. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20524953` | 15 | compact patch | Same-concept update replacing the Volume V reader after the Paper 359 p. 463 secondary-caustic plot was restored as native TeX; refreshed source/manifest ZIP and upload inventory included. |
+| Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20526046` | 15 | compact patch | Same-concept update replacing the Volume XIII reader after the Paper 966 square diagrams were promoted as native TikZ; refreshed source/manifest ZIP includes the progress/cost inventory and updated residual marker scan. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | 2 | 47,585,722 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 283. |
 
 ### 1. SGA - completed
