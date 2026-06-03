@@ -187,6 +187,8 @@ The outsourced Weber repair stream produced an accepted cumulative package throu
 
 Action: published same-concept update `10.5281/zenodo.20529154` and refreshed the compact source/provenance ZIP. Continue from Volume II section 92 when the next accepted cumulative package arrives.
 
+Update: promoted the refined Batch73 package through Volume II section 94 as same-concept Zenodo version `10.5281/zenodo.20530074`. The public surface now has Volume I complete, Volume II through section 94, and the current repaired Volume III readers. Next continuation point: Volume II section 95.
+
 ### 9. Deligne
 
 Many local Deligne drops exist, but the user has repeatedly flagged some as unreliable/trash.
