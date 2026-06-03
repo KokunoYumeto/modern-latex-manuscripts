@@ -7,7 +7,7 @@ This plan records which mixed shelves should be split into dedicated author reco
 | Author / corpus | Current record | Action |
 |---|---:|---|
 | Emmy Noether | `20412587` | Existing record updated. Current GitHub/Zenodo state has German/English numbered papers complete through Paper 43 and Spanish/Japanese cumulative readers through Paper 18. |
-| Heinrich Weber | `20412153` | Update existing record after outsourced Weber cumulative package is accepted. |
+| Heinrich Weber | `20412153` | Existing record updated. Current GitHub/Zenodo state has Volume I complete, Volume II source-checked through section 91, and the current repaired Volume III paired German/English readers. |
 | Carl Friedrich Gauss | `20410934` | Update existing record after next Gauss cumulative audit. |
 | Bernhard Riemann | `20429778` | Keep existing author record; not urgent. |
 | Arthur Cayley | `20520749` | Dedicated author record created 2026-06-03. |
@@ -59,3 +59,4 @@ This plan records which mixed shelves should be split into dedicated author reco
 | Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20526997` | Replaced Volume IV reader page 37 after Paper 232 p. 51 quartic/quintic determinant arrays were restored as native TeX; refreshed source/manifest ZIP and upload inventory. |
 | James Joseph Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | Replaced Volume I reader/source packet with source-checked cumulative edition through book page 283; removed stale p.218 front-facing reader. |
 | Emmy Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | Replaced Spanish/Japanese cumulative readers through Paper 15 with Paper 18 cumulative readers and refreshed multilingual source/witness ZIP 85. |
+| Heinrich Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20529154` | Replaced top-level three-volume readers with Volume I complete, Volume II source-checked through section 91, and current repaired Volume III; refreshed compact TeX/source/provenance ZIP. |

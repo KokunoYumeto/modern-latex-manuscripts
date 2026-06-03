@@ -24,7 +24,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
 | Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.327 |
 | Gauss | 20410934 | `10.5281/zenodo.20503774` | 2026-06-02 Gauss cumulative readers plus Band II pilot |
-| Weber | 20412153 | `10.5281/zenodo.20498553` | 2026-06-01 Weber through Volume I section 147 |
+| Weber | 20412153 | `10.5281/zenodo.20529154` | 2026-06-03 Weber author refresh: Volume I complete, Volume II source-checked through section 91, and current repaired Volume III |
 | Deligne | 20410853 | `10.5281/zenodo.20498666` | 2026-06-01 Manin 1987 letter sections 1 through 5 |
 
 ## Upgrade Queue
@@ -51,6 +51,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | 2 | 47,585,722 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 283. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20526559` | 2 | 54,724,252 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 327. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20526138` | 85 | 503,376,490 bytes uploaded in patch | Same-concept update with reconstructed 66-work reader surface, corrected combined readers, and al-Battani v083 trilingual text/reference reader; table stream remains in progress. |
+| Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20529154` | 47 | compact patch | Same-concept update replacing the front-facing three-volume readers with Volume I complete, Volume II source-checked through section 91, and the current repaired Volume III; refreshed compact TeX/source/provenance ZIP. |
 
 ### 1. SGA - completed
 
@@ -169,11 +170,15 @@ Recent external local paths include:
 
 Action: after Cayley priority work, compare these against GitHub and promote only clean cumulative readers/source packets.
 
-### 8. Weber
+### 8. Weber - completed through Volume II section 91
 
-Weber aid is currently outsourced and should not block Cayley.
+The outsourced Weber repair stream produced an accepted cumulative package through Volume II section 91. GitHub and Zenodo now promote the cleaner three-volume surface:
 
-Public Zenodo is at Volume I section 147. GitHub already has later local Weber material, and external work has moved into Volume II. Because the user explicitly marked Weber aid as outsourced, defer further Weber packaging until an accepted cumulative package is available.
+- Volume I complete, paired German source and English translation readers.
+- Volume II source-checked through section 91, paired German source and English translation readers.
+- Volume III current repaired cumulative paired readers.
+
+Action: published same-concept update `10.5281/zenodo.20529154` and refreshed the compact source/provenance ZIP. Continue from Volume II section 92 when the next accepted cumulative package arrives.
 
 ### 9. Deligne
 
@@ -191,5 +196,5 @@ Action: only publish Deligne updates after explicit curation of source-faithful 
 6. Create dedicated Sylvester author record.
 7. Create/migrate dedicated Cayley, Dedekind, Dirichlet, and Steinitz author records where the source surface is mature enough.
 8. Gauss incremental update.
-9. Weber after outsourced package acceptance.
+9. Weber after the next accepted cumulative package beyond Volume II section 91.
 10. Deligne only after selective audit.
