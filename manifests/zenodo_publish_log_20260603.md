@@ -40,6 +40,7 @@ Public links should prefer the concept DOI, because it resolves to the all-versi
 | Carl Friedrich Gauss | https://doi.org/10.5281/zenodo.20410934 | `10.5281/zenodo.20503774` | https://doi.org/10.5281/zenodo.20529773 | 18 | compact patch | Same-concept update adding Band II source-checked original-language and English cumulative readers from the actual beginning through printed page 282, plus compact TeX, scan witnesses, and audit/source packet. |
 | Carl Friedrich Gauss | https://doi.org/10.5281/zenodo.20410934 | `10.5281/zenodo.20529773` | https://doi.org/10.5281/zenodo.20529812 | 18 | summary refresh | Same-concept follow-up refreshing the public summary JSON after confirming the stale p211 delete target was not present on Zenodo. |
 | P. G. Lejeune Dirichlet | https://doi.org/10.5281/zenodo.20520679 | `10.5281/zenodo.20520680` | https://doi.org/10.5281/zenodo.20530200 | 4 | compact patch | Same-concept update replacing the old Werke Band II Papers I-XII readers/source ZIP with cumulative original-language and English readers through Papers I-XXVII, plus refreshed TeX/source/scan/manifest ZIP and public summary. |
+| Richard Dedekind | https://doi.org/10.5281/zenodo.20520669 | `10.5281/zenodo.20520670` | https://doi.org/10.5281/zenodo.20530260 | 14 | compact patch | Same-concept update preserving existing Dedekind readers while adding GMW Volume I, Item I, Eulerian integrals through Article 8 in German/English plus source-scan slice; refreshed source/manifest ZIP replaces the old generic source ZIP. |
 
 Upload staging manifests were generated at:
 

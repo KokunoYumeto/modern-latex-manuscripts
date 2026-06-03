@@ -159,7 +159,7 @@ The following dedicated author records should be created once an authenticated Z
 
 - **Arthur Cayley**: migrated to dedicated concept DOI `10.5281/zenodo.20520749`.
 - **James Joseph Sylvester**: staged metadata `zenodo-metadata/metadata_author_sylvester_current.json`; promote Volume I through book page 218 and its source packet.
-- **Richard Dedekind**: staged metadata `zenodo-metadata/metadata_author_dedekind_current.json`; promote `Was sind und was sollen die Zahlen?`, `Stetigkeit und irrationale Zahlen` segment, and Dedekind/Dirichlet paratext where appropriate.
+- **Richard Dedekind**: migrated to dedicated concept DOI `10.5281/zenodo.20520669`; current same-concept version preserves the earlier Dedekind readers and adds the GMW Volume I Item I Eulerian-integrals start through Article 8.
 - **P. G. Lejeune Dirichlet**: migrated to dedicated concept DOI `10.5281/zenodo.20520679`; current same-concept version promotes Werke Band II Papers I-XXVII.
 - **Ernst Steinitz**: staged metadata `zenodo-metadata/metadata_author_steinitz_current.json`; promote after local bilingual Steinitz packets are checked and mirrored.
 
@@ -178,6 +178,8 @@ Recent external local paths include:
 Action: after Cayley priority work, compare these against GitHub and promote only clean cumulative readers/source packets.
 
 Update: promoted `Dirichlet_R18_XXVII_Kummer_20260603.zip` as same-concept Zenodo version `10.5281/zenodo.20530200`. The public surface now has cumulative original-language and English readers for Werke Band II Papers I-XXVII, with a refreshed compact source/scan/manifest ZIP. The older Papers I-XII reader files and source ZIP were removed from the live Dirichlet record.
+
+Update: promoted `DR14_V1I_p1_18.zip` as same-concept Dedekind Zenodo version `10.5281/zenodo.20530260`. The public surface now adds GMW Volume I, Item I, *Über die Elemente der Theorie der Eulerschen Integrale*, through Article 8, with German/English readers and a source-scan slice. The next continuation point is Article 9 on printed page 18.
 
 ### 8. Weber - completed through Volume II section 91
 
