@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume VII `551_582` orbit-variation diagram repair.
+Generated after the current GitHub mirror pass through the Cayley Volume IV `501_525` ruler-construction diagram repair.
 
 ## Publishing Capability
 
@@ -53,7 +53,7 @@ Local GitHub state now includes:
 - Latest Cayley status log: `manifests/cayley_current_duty_status_20260602.md`.
 - Current Volume I reader hash: `7b44f77ba13bfa88d7681a1647a08a917605870a908bbaf03cab4a31b59fec49` (488 pages; 7764737 bytes).
 - Current Volume II reader hash: `040dc6861b761ba57e6462f1a8b53d239515a922f6d08bc0f02148ed4711095c` (312 pages; 4619547 bytes).
-- Current Volume IV reader hash: `a0cabc0fa042395ff3e4e048eae0e65bfcd70fc3a0b80b3c7623c588f3dd953f` (496 pages; 6013429 bytes).
+- Current Volume IV reader hash: `0038650fea73a7e1b92b3666bbfb5dfc75cb9d5c93ba6901a0cbfbeff5283ca5` (496 pages; 5880784 bytes).
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume VII reader hash: `de5d4c4803c5671c278f2b1920fbe70ffb45852d9c09fcdbe1e29480f8c3c7a5` (336 pages; 4852925 bytes).
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
