@@ -34,6 +34,21 @@ published.
 | Gauss | `gauss_summatio_articles09_20_pp020_032_round17_20260603.zip` | Gauss round 17; current Gauss record is behind recent local work and needs a later cumulative audit. |
 | Non-European / al-Battani | `non_eu_albattani_current_head_and_audit_20260603.zip` plus round 32-49 handoff ZIPs | Claude has started a separate CUDA/VLM table-cell reader lane; do not replace the public al-Battani record until table completeness is audited. |
 
+## Post-10:25 arrivals noticed before Cayley return
+
+These arrived after the publication sweep had already promoted Sylvester p.283, Noether Paper 18 ES/JA, and SGA7-I p.137.
+They should be checked in the next sweep rather than interrupting the Cayley repair pass.
+
+| Lane | Package | First read |
+|---|---|---|
+| Noether multilingual | `Noether_Paper19_p1_ES_JA_20260603.zip` | Spanish/Japanese Paper 19 start; likely next Noether multilingual patch after a larger cumulative stop. |
+| Sylvester | `Sylvester_Vol1_pp001_306_with_scans_20260603.zip` | Extends Volume I beyond the just-published p.283 record to p.306; queue for the next Sylvester patch. |
+| Dedekind | `DR13_Backmatter_20260603.zip` | Backmatter continuation after Round 12; check against the dedicated Dedekind record before patching. |
+| Dirichlet | `Dirichlet_R15_XXIII_XXIV_20260603.zip` | Band II continuation after Round 14; likely needs a cumulative author-record patch later. |
+| Gauss | `gauss_round18_summatio_tail_20260603.zip` | Gauss round 18 continuation; hold for a consolidated Gauss pass. |
+| Deligne | `D010_HD2_p041_050_cum.zip` | Hodge II continuation; Deligne remains curation-gated. |
+| Old physics | `GibbsV1_P2_p043_054.zip` | Gibbs lane continuation; needs a clean physics shelf policy before publication. |
+
 ## Side-lane tool note
 
 Claude's al-Battani workspace reports a working RTX 4080 SUPER CUDA install with
