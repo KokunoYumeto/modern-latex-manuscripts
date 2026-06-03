@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume XI `176_200` Schwarz/conformal-mapping diagram repair.
+Generated after the current GitHub mirror pass through the Cayley Volume II `351_375` caustics/optics diagram repair.
 
 ## Publishing Capability
 
@@ -51,6 +51,7 @@ Local GitHub state now includes:
 - Cayley Volume V rebuilt after native TikZ repair of four geometry figures in `501_525`.
 - Recent Cayley repairs already pushed for Volumes II, IV, V, VI, VII, IX, X, XI, XII, and XIII.
 - Latest Cayley status log: `manifests/cayley_current_duty_status_20260602.md`.
+- Current Volume II reader hash: `cfc91d2cdf2d1ece6cdcf7427f7f4395a050ecb9709f014700d85712419c79c6` (312 pages; 4508460 bytes).
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
 - Current Volume IX reader hash: `b024cca5eb4fed7075a0147aea1f1c997804a3caddfdf6f2594cfa8918c9b377` (348 pages; 5202205 bytes).
