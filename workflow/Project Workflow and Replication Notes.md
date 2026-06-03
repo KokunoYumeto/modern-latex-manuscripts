@@ -1,6 +1,6 @@
 # Project Workflow and Replication Notes
 
-Updated: 2026-05-31
+Updated: 2026-06-03
 
 This note documents the current practical workflow used to modernize, typeset, audit, translate, package, and publish public-domain mathematical and physical manuscripts. It is intentionally operational: the aim is that another reader can reproduce the pipeline with their own scans, their own compute, and their own publication account.
 
@@ -16,7 +16,7 @@ The preferred public shape is:
 - a stable all-versions Zenodo link for long-term citation;
 - a GitHub mirror for forkable TeX and issue-style collaboration.
 
-## Current AI-Assisted Workflow
+## Current AI-Run Workflow
 
 1. ChatGPT web project sessions help identify useful public-domain works, plan batches, and perform focused translation or repair passes.
 2. Codex downloads and indexes public scans, builds local inventories, writes scripts, packages releases, audits public files, publishes through the Zenodo API, and mirrors clean material to GitHub.
@@ -25,17 +25,27 @@ The preferred public shape is:
 5. Claude Code has been useful as a local coding and LaTeX-repair worker, especially for direct scan-based chunk repair, EGA translation drafts, and large TeX cleanup triage.
 6. The publication pass promotes the cleanest available reader PDFs while preserving rougher drafts and provenance inside ZIP artifacts rather than pretending they are final.
 
-This is a work-in-progress research and preservation workflow, not a benchmark. The exact model mix changes as rate limits and availability change.
+This is a work-in-progress AI-run research and preservation workflow, not a benchmark. Human judgment is still used for source selection, public naming, audit decisions, legal/provenance boundaries, and publication, but much of the transcription, translation, repair, packaging, and indexing work is model-orchestrated. The exact model mix changes as rate limits and availability change.
 
 ## Observed Cost and Throughput Notes
 
 These figures are informal project notes, not controlled measurements.
 
 - A Claude Max weekly allowance was consumed on major Cayley repair work plus partial EGA translation. That produced double-digit-percent progress on a very large Cayley corpus and meaningful EGA additions, but at a high token cost.
+- A dated Cayley raw-efficiency note is kept at `workflow/audits/cayley-raw-efficiency-note-20260603.md`. Its main lesson is that early page coverage is comparatively cheap, while the final 20-30% is hard-page weighted: coefficient tables, foldouts, plates, diagrams, dense numerical arrays, and OCR scaffold repair.
 - Codex carried the Zenodo/GitHub/indexing/publication pipeline on a separate weekly allowance while web sessions continued translation and repair work.
 - ChatGPT Pro web sessions were useful in parallel: several extended sessions could translate or repair a few to several pages per 30-60 minutes each, depending on mathematical density and whether source TeX was already available.
 - Kimi K2.6 agent swarms were effective for broad first-pass TeX transcription, but monthly credit exhaustion became a practical scheduling constraint.
 - If significant paid compute were available, the bottleneck would move from raw transcription to audit discipline: page completeness, formula fidelity, typography, public naming, and provenance.
+
+Practical efficiency rules learned from Cayley:
+
+- use local `pdftotext`, OCR, rendering, hashing, zipping, and compilation before spending model vision context;
+- render images only where they help with formulas, tables, diagrams, or ambiguous readings;
+- give agents bounded source ranges and exact output contracts, not broad "fix this author" prompts;
+- forbid screenshots, summaries, and silent omissions in public reader material;
+- batch repairs and then rebuild readers, instead of recompiling the whole public surface after every single page;
+- report represented coverage, source-checked repair coverage, promoted reader coverage, and final-audit status separately.
 
 ## Local Tool Stack
 
