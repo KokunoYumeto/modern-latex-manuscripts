@@ -4,8 +4,8 @@ Generated after the current GitHub mirror pass through the Cayley Volume X `451_
 
 ## Publishing Capability
 
-- No local Zenodo API token is currently available in `ZENODO_ACCESS_TOKEN`, `ZENODO_TOKEN`, `SANDBOX_ZENODO_ACCESS_TOKEN`, or `ZENODO_API_TOKEN`.
-- This sweep therefore records what needs the next Zenodo version, but does not publish a new version.
+- A local Zenodo API token was located through the project helper after this sweep was written.
+- The SGA and Noether priority updates were published as same-concept Zenodo versions on 2026-06-03.
 - Large raw/source/provenance uploads should stay on the main landing/provenance record (`10.5281/zenodo.20393488`) rather than being repeatedly uploaded to every author/corpus satellite record.
 
 ## Public API Snapshot
@@ -16,8 +16,8 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---:|---|---|
 | Main landing / raw provenance | 20393488 | `10.5281/zenodo.20458953` | 2026-06-01 landing/provenance refresh |
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
-| SGA | 20410947 | `10.5281/zenodo.20498621` | 2026-06-01 current SGA working record: SGA 6 through source page 525 |
-| Noether | 20412587 | `10.5281/zenodo.20504343` | 2026-06-02 Noether record: complete French Paper 02 pilot |
+| SGA | 20410947 | `10.5281/zenodo.20520554` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 96 |
+| Noether | 20412587 | `10.5281/zenodo.20520501` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 15 |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20498682` | 2026-06-01 engineering library public reader |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 Cayley slices plus Dedekind/Dirichlet starts |
@@ -28,7 +28,14 @@ Checked against the public Zenodo API on 2026-06-03.
 
 ## Upgrade Queue
 
-### 1. SGA - urgent
+## Completed Publications
+
+| Lane | Concept DOI | New version DOI | Files | Payload | Notes |
+|---|---|---|---:|---:|---|
+| SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20520554` | 77 | 1,222,595,716 bytes | Same-concept update with SGA 6 complete through indexes/source pages 693-702 and SGA7-I through source page 96. |
+| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
+
+### 1. SGA - completed
 
 Public Zenodo is behind local/GitHub.
 
@@ -44,7 +51,7 @@ Local GitHub state:
 - `sources/sga/sga7-i-source-checked-through-page-096-2026-06-03/`
 - Manifest: `manifests/sga6_complete_source_checked_through_page702_20260602.md`
 
-Action: publish a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-96 continuation.
+Action: published a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-96 continuation.
 
 ### 2. Classical shelf - Cayley/Dedekind/Dirichlet
 
@@ -69,7 +76,7 @@ Local GitHub state now includes:
 
 Action: publish a new classical-shelf version with current reader PDFs and the current status/manifest. Keep raw/provenance heavy bundles on the main landing record.
 
-### 3. Noether
+### 3. Noether - completed
 
 Public Zenodo is behind both the canonical numbered-paper completion and the multilingual lane.
 
@@ -82,7 +89,7 @@ Local/GitHub state:
 - Current source packet: `sources/noether/multilingual-spanish-japanese-through-paper15-complete-2026-06-03/`.
 - Canonical final audit folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether restart fidelity\Noether_FINAL_AUDIT_numbered_papers_complete_PATCHED`.
 
-Action: publish Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 15 complete; French pilot only where actually complete.
+Action: published Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 15 complete; French pilot only where actually complete.
 
 ### 4. Ukrainian applied mathematics
 
