@@ -40,6 +40,29 @@ published.
 
 Follow-up, 2026-06-03: `_PUSH_QUEUE_CLAUDE_20260603` was sanity-checked and promoted as Zenodo version `10.5281/zenodo.20526138` on the non-European concept DOI `10.5281/zenodo.20410957`. The patch replaces the reconstructed work-level reader surface, adds corrected combined readers, promotes al-Battani v083 trilingual text/reference material, and keeps the al-Battani numerical tables explicitly marked as in progress.
 
+## Post-13:30 Sweep
+
+The user asked to keep sweeping all lanes, not only SGA/Noether. Newest observed local drops:
+
+| Lane | Latest observed package | Handling note |
+|---|---|---|
+| SGA | `SGA7I_p161_184_orig_cum.zip` | Extends SGA7-I beyond the published p137 snapshot; queue a same-concept SGA patch after sanity check. |
+| Dirichlet | `Dirichlet_R17_XXVI_Abel_20260603.zip` | Dedicated Dirichlet record is behind; hold for cumulative author-record pass. |
+| Sylvester | `Sylvester_Vol1_pp001_327_with_scans_20260603.zip` | Extends dedicated Sylvester beyond p283; next Sylvester patch candidate. |
+| Noether multilingual | `Noether_Paper20_21_ES_JA_20260603.zip` | ES/JA moved beyond Paper 18; accumulate for next Noether patch. |
+| Steinitz | `Steinitz_12_corpus_shortpaths.zip` | Large corpus packet; candidate for dedicated Steinitz author record after check. |
+| Weber | `Weber_Cumulative_ThreeVolumes_Batch70_Vol2_Sections73_78_SIZE_CONTROLLED_20260603.zip` | Current cumulative Weber candidate; user says Weber aid is outsourced, so queue rather than interrupt Cayley. |
+| Non-European / Claude queue | `_PUSH_QUEUE_CLAUDE_20260603` plus `albattani_COMPLETENESS_STATEMENT.md` | Promoted the ready queue to Zenodo; keep al-Battani table reconstruction as active caveat. |
+| Deligne | `D012_K3_p001_010_cum.zip`, `D087_090dn_p022_027.zip` | Deligne remains fidelity-gated; do not promote blindly. |
+| Gauss | `gauss_r20_biquad_prima_a_20260603.zip` | Current Gauss continuation; hold for consolidated Gauss pass. |
+| Old physics | `GibbsV1_P3_p065_074.zip` | Gibbs lane continuing; needs old-physics shelf policy before public promotion. |
+| Ukrainian | `ua_units_20260603.zip` | Small Ukrainian applied-math unit packet; queue with nearby modules. |
+| Dedekind | `DR13_Backmatter_20260603.zip` | Backmatter continuation; check cumulative state before patching dedicated record. |
+
+## Cayley Scheduling Note
+
+After the Cayley Volume XIII square-diagram repair and the non-European queue publish, the Cayley repair plan is switching to volume-by-volume certification. See `cayley_volume_completion_strategy_20260603.md`. The short version: certify Volumes I-III, then finish Volume IV before chasing later-volume gaps, because a "done through Volume N" line is easier to audit and explain than a scattered residual list.
+
 ## Post-10:25 arrivals noticed before Cayley return
 
 These arrived after the publication sweep had already promoted Sylvester p.283, Noether Paper 18 ES/JA, and SGA7-I p.137.
