@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
@@ -20,6 +21,10 @@
 \providecommand{\page}{p.}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{Pages 526--550}\fancyhead[R]{Cayley --- Collected Papers, Vol. VII}\renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{15pt}
+\tikzset{
+  cayley curve/.style={line cap=round,line join=round,semithick},
+  cayley dotted/.style={line cap=round,line join=round,semithick,densely dotted}
+}
 
 \begin{document}
 
@@ -127,9 +132,34 @@ $ACA'C'$).
 \medskip
 
 \begin{center}
-\textit{[Figure: ellipsoid contour showing principal-section ellipse with
-labelled points $A$, $A'$, $B$, $C$, $C'$ on the axes and the four umbilici
-$U$, $U'$, $U''$, $U'''$ in the umbilicar section.]}
+\begin{tikzpicture}[scale=0.82]
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (4.2,0);
+  \coordinate (Aprime) at (-4.2,0);
+  \coordinate (C) at (0,2.05);
+  \coordinate (Cprime) at (0,-2.05);
+  \coordinate (U) at (2.25,1.72);
+  \coordinate (Uprime) at (-2.25,1.72);
+  \coordinate (Utwo) at (-2.25,-1.72);
+  \coordinate (Uthree) at (2.25,-1.72);
+  \draw[cayley curve] (O) ellipse [x radius=4.2,y radius=2.05];
+  \draw[cayley curve] (Aprime) -- (A);
+  \draw[cayley dotted] (C) -- (Cprime);
+  \draw[cayley dotted] (O) -- (U);
+  \draw[cayley dotted] (O) -- (Uprime);
+  \draw[cayley dotted] (O) -- (Utwo);
+  \draw[cayley dotted] (O) -- (Uthree);
+  \fill (O) circle (1.2pt);
+  \foreach \p in {U,Uprime,Utwo,Uthree} \fill (\p) circle (1pt);
+  \node[right] at (A) {$A$};
+  \node[left] at (Aprime) {$A'$};
+  \node[above] at (C) {$C$};
+  \node[below] at (Cprime) {$C'$};
+  \node[above right] at (U) {$U$};
+  \node[above left] at (Uprime) {$U'$};
+  \node[below left] at (Utwo) {$U''$};
+  \node[below right] at (Uthree) {$U'''$};
+\end{tikzpicture}
 \end{center}
 
 \medskip
@@ -433,9 +463,27 @@ $-b+v$) and next the consecutive
 \medskip
 
 \begin{center}
-\textit{[Figure: arc of the umbilicar section in the upper half-plane
-showing the points $C$, $U$, $A$, $B$, with the umbilicus $U$ on the axis
-$CA$ and the consecutive points $P$, $Q$ near $U$.]}
+\begin{tikzpicture}[scale=0.86]
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (0,3.05);
+  \coordinate (A) at (4.2,0);
+  \coordinate (U) at (2.18,2.62);
+  \coordinate (P) at (2.18,2.08);
+  \coordinate (Q) at (2.78,2.31);
+  \draw[cayley curve] (B) -- (C);
+  \draw[cayley curve] (B) -- (A);
+  \draw[cayley curve] (C) .. controls (1.45,3.0) and (3.45,1.65) .. (A);
+  \draw[cayley curve] (U) -- (P);
+  \fill (U) circle (1.15pt);
+  \fill (P) circle (1.15pt);
+  \fill (Q) circle (1.15pt);
+  \node[left] at (B) {$B$};
+  \node[left] at (C) {$C$};
+  \node[below] at (A) {$A$};
+  \node[above] at (U) {$U$};
+  \node[right] at (P) {$P$};
+  \node[right] at (Q) {$Q$};
+\end{tikzpicture}
 \end{center}
 
 \medskip
