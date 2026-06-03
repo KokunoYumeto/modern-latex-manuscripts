@@ -23,17 +23,18 @@ The global gap list is efficient for opportunistic repairs, but confusing for re
 
 ## Current Residual Distribution
 
-The public residual marker scan currently finds 20 reader-visible term hits
-across 17 distinct reader pages after the Volume IV p. 51 determinant
-placeholder, p. 246 coefficient table, and p. 253 quartic standard-form table
-were replaced with source-checked native TeX:
+The public residual marker scan currently finds 18 reader-visible term hits
+across 16 distinct reader pages after the Volume IV p. 51 determinant
+placeholder, p. 246 coefficient table, p. 253 quartic standard-form table,
+and pp. 254--255 quintic standard-form table were replaced with
+source-checked native TeX:
 
 | Volume | Residual hits | Main type |
 |---|---:|---|
 | I | 0 | Candidate for certificate. |
 | II | 0 | Candidate for certificate after source-package scan. |
 | III | 0 | Candidate for certificate after source-package scan. |
-| IV | 12 hits on 9 pages | Dense coefficient/Tschirnhausen tables. |
+| IV | 10 hits on 8 pages | Dense coefficient/Tschirnhausen tables. |
 | V | 2 | Plate III and axial-system table. |
 | VI | 0 | Candidate for certificate after source-package scan. |
 | VII | 0 | Candidate for certificate after source-package scan. |
@@ -69,10 +70,10 @@ A volume is "first-pass source-faithful complete" only when:
 
 ## Immediate Next Work
 
-The next repair target is Volume IV reader p. 251, corresponding to the
-printed pp. 254--255 quintic standard-form table in the same Paper 262
-sequence. Volume IV's remaining distinct residual pages are 251, 271, 286,
-372, 374, 375, 379, 380, and 385. These are mostly dense tables, so the
+The next repair target is Volume IV reader p. 272, corresponding to the
+printed p. 274 Arbogast-derivatives table in the same Tschirnhausen
+sequence. Volume IV's remaining distinct residual pages are 272, 287, 373,
+375, 376, 380, 381, and 386. These are mostly dense tables, so the
 efficient workflow is:
 
 - locate the exact source TeX chunk and scan page;

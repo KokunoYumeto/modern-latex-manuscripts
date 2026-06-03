@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume X `451_475` theta-symbol diagram cluster repair, Noether Spanish/Japanese Paper 18 staging, and SGA 7-I source-page-137 staging.
+Generated after the current GitHub mirror pass through the Cayley Volume IV sequential table repairs, Noether Spanish/Japanese Paper 18 staging, and SGA 7-I source-page-184 staging.
 
 ## Publishing Capability
 
@@ -18,7 +18,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
 | SGA | 20410947 | `10.5281/zenodo.20526521` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 184 |
 | Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
-| Cayley | 20520749 | `10.5281/zenodo.20527611` | 2026-06-03 dedicated Cayley author record refresh: Volume IV p. 51, p. 246, and p. 253 table repairs promoted as native TeX; source/manifest bundle refreshed |
+| Cayley | 20520749 | `10.5281/zenodo.20528211` | 2026-06-03 dedicated Cayley author record refresh: Volume IV p. 51, p. 246, p. 253, and pp. 254--255 table repairs promoted as native TeX; source/manifest bundle refreshed |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20526138` | 2026-06-03 reconstructed work-level readers, corrected combined readers, and al-Battani v083 trilingual text/reference reader; numerical tables still in progress |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
@@ -46,6 +46,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20526046` | 15 | compact patch | Same-concept update replacing the Volume XIII reader after the Paper 966 square diagrams were promoted as native TikZ; refreshed source/manifest ZIP includes the progress/cost inventory and updated residual marker scan. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20526997` | 15 | compact patch | Same-concept update replacing the Volume IV reader after the Paper 232 printed p. 51 quartic/quintic determinant arrays were restored as native TeX. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20527611` | 15 | 9,757,849 bytes | Same-concept update replacing the Volume IV reader after Paper 262 printed p. 246 and p. 253 coefficient/standard-form tables were restored as native TeX; compact Volume IV source/manifest ZIP included. |
+| Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20528211` | 15 | 9,819,410 bytes | Same-concept update replacing the Volume IV reader after Paper 262 printed pp. 254--255 quintic standard-form table spread was restored as source-checked native TeX; compact Volume IV source/manifest ZIP included. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | 2 | 47,585,722 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 283. |
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20526559` | 2 | 54,724,252 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 327. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20526138` | 85 | 503,376,490 bytes uploaded in patch | Same-concept update with reconstructed 66-work reader surface, corrected combined readers, and al-Battani v083 trilingual text/reference reader; table stream remains in progress. |
@@ -79,7 +80,7 @@ Local GitHub state now includes:
 - Latest Cayley status log: `manifests/cayley_current_duty_status_20260602.md`.
 - Current Volume I reader hash: `7b44f77ba13bfa88d7681a1647a08a917605870a908bbaf03cab4a31b59fec49` (488 pages; 7764737 bytes).
 - Current Volume II reader hash: `aba67c1092418bee639f331127a3c743257c051df42029c324167a256fa70c6f` (421 pages; 3977622 bytes).
-- Current Volume IV reader hash: `3d4854c3494c9218008c5c7c0cb2502dd0f0b567de8999865de82af53ff5a3ec` (495 pages; 4142503 bytes).
+- Current Volume IV reader hash: `6e321d98b436e3517cb6284e826196b2fb28db5e7cf01b4fd568ee44e0cdcbd7` (496 pages; 4183980 bytes).
 - Current Volume V reader hash: `40e22de5077320635db3403459aa10ce6bdc5624bd288107aaef0da59c20b68f` (443 pages; 6186480 bytes).
 - Current Volume VII reader hash: `de5d4c4803c5671c278f2b1920fbe70ffb45852d9c09fcdbe1e29480f8c3c7a5` (336 pages; 4852925 bytes).
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
