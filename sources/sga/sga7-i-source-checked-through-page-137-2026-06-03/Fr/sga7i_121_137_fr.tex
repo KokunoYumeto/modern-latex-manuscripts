@@ -1,0 +1,725 @@
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage{tikz-cd}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\cO}{\mathcal O}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ql}{\mathbb Q_\ell}
+\providecommand{\Zl}{\mathbb Z_\ell}
+\providecommand{\Fp}{\mathbb F_p}
+\providecommand{\Gm}{\mathbb G_m}
+\providecommand{\A}{\mathbb A}
+\providecommand{\Pj}{\mathbb P}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\prof}{\operatorname{prof}}
+\providecommand{\cd}{\operatorname{cd}}
+\providecommand{\lcm}{\operatorname{lcm}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Sp}{\operatorname{Sp}}
+\providecommand{\limproj}{\varprojlim}
+\providecommand{\liminj}{\varinjlim}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\PhiC}{\Phi}
+\providecommand{\PsiC}{\Psi}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+
+% SGA7 batch 099 macro additions
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\ob}{\operatorname{ob}}
+\providecommand{\Ens}{\mathrm{Ens}}
+\providecommand{\Set}{\mathrm{Set}}
+\providecommand{\pro}{\operatorname{pro}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Ccat}{\mathcal C}
+\providecommand{\Acat}{\mathcal A}
+\providecommand{\Fcat}{\mathcal F}
+\providecommand{\Gcat}{\mathcal G}
+\providecommand{\Mcat}{\mathcal M}
+\providecommand{\Vcat}{\mathcal V}
+\providecommand{\m}{\mathfrak m}
+\providecommand{\ma}{\mathfrak m_\Lambda}
+\providecommand{\mh}{\widehat{\mathfrak m}}
+\providecommand{\ka}{k[\varepsilon]}
+\providecommand{\CL}{\mathcal C_\Lambda}
+\providecommand{\CLK}{\mathcal C_{\Lambda,K}}
+\providecommand{\D}{\mathrm D}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\alg}{\operatorname{alg}}
+
+
+% SGA7 pages 121--137 macro additions
+\providecommand{\Der}{\operatorname{Der}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\Fitt}{\operatorname{Fitt}}
+\providecommand{\Jac}{\operatorname{Jac}}
+\providecommand{\Frac}{\operatorname{Frac}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\cJ}{\mathcal J}
+\providecommand{\cI}{\mathcal I}
+\providecommand{\cK}{\mathcal K}
+\providecommand{\cM}{\mathcal M}
+\providecommand{\cN}{\mathcal N}
+\providecommand{\cX}{\mathfrak X}
+\providecommand{\cY}{\mathfrak Y}
+\providecommand{\cS}{\mathfrak S}
+\providecommand{\cZ}{\mathfrak Z}
+\providecommand{\Oo}{\mathcal O}
+\providecommand{\widebar}{\overline}
+
+\begin{document}
+
+\begin{center}
+{\Large SGA 7-I, Exposé VI}\\[0.35em]
+{\large Pages source 121--137 : sous-schémas jacobiens formels et singularités quadratiques}
+\end{center}
+
+\section*{5. Sous-schémas jacobiens formels, suite}
+
+Nous conservons la notation introduite plus haut pour les idéaux de Fitting \(I^p(E)\).  Pour un morphisme
+\[
+        f:X\longrightarrow Y
+\]
+essentiellement de présentation finie, on note
+\[
+        I^p(X\mid Y)=I^p_X(\Omega^1_{X/Y})
+\]
+l'idéal correspondant de \(X\), et \(J^p(X\mid Y)\) le sous-schéma fermé qu'il définit.  Ainsi
+\[
+        J^0(X\mid Y)\supset J^1(X\mid Y)\supset\cdots .
+\]
+
+\textbf{Théorème 5.3.}  Soit \(f:X\to Y\) essentiellement de présentation finie.  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item Pour tout changement de base \(Y'\to Y\), si \(X'=X\times_Y Y'\), le morphisme canonique
+\[
+        J^p(X'\mid Y')\longrightarrow J^p(X\mid Y)\times_Y Y'
+\]
+est un isomorphisme, pour tout \(p\).
+\item Pour tout \(x\in X\), \(y=f(x)\), la comparaison locale canonique est un isomorphisme
+\[
+        I^p_X(\Omega^1_{X/Y})_x
+        \simeq
+        I^p\bigl(\Omega^1_{\Oo_{X,x}/\Oo_{Y,y}}\bigr).
+\]
+\item Les \(J^p(X\mid Y)\) forment une suite décroissante de sous-schémas fermés.  Un point \(x\) n'appartient plus à \(J^p(X\mid Y)\) dès que \(p\) est strictement plus grand que
+\[
+        \dim_{\kappa(x)}\bigl(\Omega^1_{X/Y}\otimes\kappa(x)\bigr).
+\]
+\item On a \(x\notin J^p(X\mid Y)\) si et seulement si, après remplacement de \(X\) par un voisinage ouvert \(U\) de \(x\), il existe une immersion fermée
+\[
+        i:U\hookrightarrow U'
+\]
+dans un \(Y\)-schéma \(U'\), lisse sur \(Y\) au point \(x'=i(x)\), et de dimension d'immersion relative \(p\) en \(x'\).
+\item Si \(X_1\) et \(X_2\) sont deux \(Y\)-schémas essentiellement de présentation finie et \(X=X_1\times_YX_2\), alors
+\[
+        I^p(X\mid Y)
+        =
+        \sum_{p_1+p_2=p}
+        \pr_1^*I^{p_1}(X_1\mid Y)\,
+        \pr_2^*I^{p_2}(X_2\mid Y).
+\]
+\end{enumerate}
+
+\emph{Démonstration.}  L'assertion (3) est la monotonie élémentaire des idéaux de Fitting.  L'assertion (1) résulte de la formule de changement de base pour ces idéaux et de
+\[
+        \Omega^1_{X'/Y'}\simeq \pr^*\Omega^1_{X/Y}.
+\]
+L'assertion (2) est la même formule après localisation en \(x\).  L'assertion (5) résulte de la formule de somme directe pour les idéaux de Fitting, appliquée à
+\[
+        \Omega^1_{X_1\times_YX_2/Y}
+        \simeq
+        \pr_1^*\Omega^1_{X_1/Y}\oplus
+        \pr_2^*\Omega^1_{X_2/Y}.
+\]
+
+Pour (4), supposons d'abord qu'une telle immersion \(U\hookrightarrow U'\) existe.  Comme \(U'\) est lisse sur \(Y\) en \(x'\), \(\Omega^1_{U'/Y,x'}\) est libre de rang \(p\), et la suite conormale exacte
+\[
+        I/I^2\longrightarrow
+        \Omega^1_{U'/Y}\otimes\Oo_U\longrightarrow
+        \Omega^1_{U/Y}\longrightarrow 0
+\]
+montre que le \(p\)-ième idéal de Fitting est l'idéal unité en \(x\).  Donc \(x\notin J^p(U\mid Y)\), et par suite \(x\notin J^p(X\mid Y)\).
+
+Réciproquement, la question est locale.  Écrivons \(X=\Spec B\), \(Y=\Spec A\), et choisissons une présentation
+\[
+        0\longrightarrow J\longrightarrow P\longrightarrow B\longrightarrow 0,
+        \qquad
+        P=A[x_1,\ldots,x_n].
+\]
+La suite exacte
+\[
+        J/J^2\longrightarrow B\otimes_P\Omega^1_{P/A}
+        \longrightarrow \Omega^1_{B/A}\longrightarrow 0
+\]
+a pour terme médian un module libre de rang \(n\).  La condition \(x\notin J^p(X\mid Y)\) signifie qu'un mineur convenable, de taille \(n-p\), de la matrice jacobienne de générateurs de \(J\), est inversible en \(x\).  Il existe donc des éléments
+\[
+        f_1,\ldots,f_{n-p}\in J
+\]
+tels que
+\[
+        U'=\Spec\bigl(P/(f_1,\ldots,f_{n-p})\bigr)
+\]
+soit lisse sur \(Y\) au point image \(x'\) de \(x\), et que \(U=\Spec B\) s'immerge fermément dans \(U'\).  Cela donne la présentation locale voulue.
+
+Le résultat suivant est le critère jacobien correspondant.
+
+\textbf{Théorème 5.4.}  Soit \(f:X\to Y\) essentiellement de présentation finie.  Supposons qu'il existe un entier \(n\geq 0\) tel que l'une des conditions suivantes soit vérifiée :
+\begin{enumerate}[label=(\arabic*)]
+\item \(f\) est plat et toutes ses fibres sont de dimension \(n\);
+\item \(f\) est une intersection complète relative de dimension virtuelle \(n\), au sens de SGA 6, VIII 1.9.
+\end{enumerate}
+Alors
+\[
+        x\notin J^n(X\mid Y)
+        \quad\Longleftrightarrow\quad
+        f\text{ est lisse en }x.
+\]
+
+\emph{Démonstration.}  D'après le Théorème 5.3(4), \(x\notin J^n(X\mid Y)\) si et seulement si, localement, \(X\) s'immerge dans un \(Y\)-schéma \(U'\), lisse sur \(Y\) en \(x'\), et de dimension relative \(n\).  Il reste à voir qu'une telle immersion est un isomorphisme en \(x\).
+
+Soit
+\[
+        0\longrightarrow I\longrightarrow B'\longrightarrow B\longrightarrow 0
+\]
+la suite exacte des anneaux locaux correspondants, \(B'\) étant l'anneau local de \(U'\) en \(x'\), et \(B\) celui de \(X\) en \(x\).  Posons \(A=\Oo_{Y,y}\).  Dans le cas (1), la platitude donne la suite exacte sur la fibre fermée
+\[
+        0\longrightarrow I/\mathfrak m I
+        \longrightarrow B'/\mathfrak mB'
+        \longrightarrow B/\mathfrak mB
+        \longrightarrow 0,
+\]
+où \(\mathfrak m\) est l'idéal maximal de \(A\).  Les deux anneaux locaux de fibres ont la même dimension \(n\), et \(B'/\mathfrak mB'\) est régulier; on en déduit \(I/\mathfrak m I=0\), donc \(I=0\).
+
+Dans le cas (2), la suite conormale
+\[
+        I/I^2\longrightarrow
+        B\otimes_{B'}\Omega^1_{B'/A}
+        \longrightarrow
+        \Omega^1_{B/A}\longrightarrow 0
+\]
+est exacte.  Comme \(X\) est intersection complète relative et que \(U'\) est lisse, la première flèche est injective et les deux modules qui interviennent ont les rangs prescrits par la dimension virtuelle.  Ces rangs forcent \(I/I^2=0\), donc \(I=0\).
+
+\textbf{Définition 5.5.}  Sous les hypothèses du Théorème 5.4, on écrit simplement
+\[
+        I(X\mid Y)=I^n(X\mid Y),\qquad
+        J(X\mid Y)=J^n(X\mid Y).
+\]
+Ainsi \(J(X\mid Y)\) est le sous-schéma jacobien qui mesure le défaut de lissité.
+
+Nous étendons maintenant la construction aux schémas formels noethériens.  Soient \(\mathfrak X\) un schéma formel noethérien et \(E\) un \(\Oo_{\mathfrak X}\)-module cohérent.  On définit
+\[
+        I^p_{\mathfrak X}(E)(U)=I^p\bigl(\Gamma(U,E)\bigr)
+\]
+pour tout ouvert affine \(U\subset\mathfrak X\).  Si \(\mathfrak X=\varprojlim X_v\) et \(E=\varprojlim E_v\), alors
+\[
+        I^p_{\mathfrak X}(E)=\varprojlim_v I^p_{X_v}(E_v).
+\]
+
+Soient \(S\) un schéma formel noethérien et \(\mathfrak X\) un schéma formel \(S\)-adique, essentiellement de type fini.  Écrivons
+\[
+        \mathfrak X=\varprojlim X_v,\qquad S=\varprojlim S_v,\qquad
+        X_v=\mathfrak X\times_S S_v.
+\]
+Alors
+\[
+        \Omega^1_{\mathfrak X/S}\simeq \varprojlim_v\Omega^1_{X_v/S_v}
+\]
+est un \(\Oo_{\mathfrak X}\)-module cohérent, compatible aux changements de base formels de type fini.
+
+\textbf{Définition 5.6.}  On pose
+\[
+        I^p(\mathfrak X\mid S)=I^p_{\mathfrak X}(\Omega^1_{\mathfrak X/S})
+\]
+et l'on note \(J^p(\mathfrak X\mid S)\) le sous-schéma fermé formel de \(\mathfrak X\) défini par cet idéal.  De façon équivalente,
+\[
+        I^p(\mathfrak X\mid S)=\varprojlim_v I^p(X_v\mid S_v),
+        \qquad
+        J^p(\mathfrak X\mid S)=\varprojlim_v J^p(X_v\mid S_v).
+\]
+On dispose de la comparaison cartésienne avec la fibre fermée :
+\[
+\begin{tikzcd}
+J^p(X_0\mid S_0) \arrow[r] \arrow[d] &
+J^p(\mathfrak X\mid S) \arrow[d]\\
+X_0 \arrow[r] & \mathfrak X .
+\end{tikzcd}
+\]
+Si \(x\) est un point isolé de \(J^p(\mathfrak X\mid S)\), le complété formel de \(J^p(\mathfrak X\mid S)\) en \(x\) est canoniquement la composante connexe correspondante.  En particulier, si
+\[
+        |J^p(X_0\mid S_0)|=\{x_1,\ldots,x_m\}
+\]
+est fini et discret, alors
+\[
+        J^p(\mathfrak X\mid S)
+        \simeq
+        \coprod_{1\leq i\leq m} J^p(\mathfrak X\mid S)_{(x_i)}.
+\]
+
+\textbf{Corollaire 5.7.}  Soient \(S\) noethérien formel et \(\mathfrak X\) un schéma formel \(S\)-adique essentiellement de type fini.
+\begin{enumerate}[label=(\arabic*)]
+\item La formation de \(J^p(\mathfrak X\mid S)\) commute aux changements de base formels :
+\[
+        J^p(\mathfrak X'\mid S')=
+        J^p(\mathfrak X\mid S)\times_S S',
+        \qquad \mathfrak X'=\mathfrak X\times_S S'.
+\]
+\item Les composantes connexes de \(J^p(\mathfrak X\mid S)\) sont en bijection avec celles de \(J^p(X_0\mid S_0)\), et pour chaque point isolé \(x\) de \(J^p(X_0\mid S_0)\) on a un isomorphisme canonique de morceaux locaux complétés
+\[
+        J^p(\mathfrak X\mid S)_{(x)}
+        \simeq
+        J^p(X_0\mid S_0)_{(x)} .
+\]
+En particulier, dans le cas fini discret, on obtient la décomposition en somme disjointe ci-dessus.
+\item Si \(S\) est un schéma noethérien ordinaire, \(S_0\subset S\) un sous-schéma fermé, \(\widehat S\) le complété formel de \(S\) le long de \(S_0\), et
+\[
+        \widehat X=X\times_S\widehat S,
+\]
+alors
+\[
+        J^p(\widehat X\mid \widehat S)
+        =
+        J^p(X\mid S)\times_S \widehat S.
+\]
+Ainsi le sous-schéma jacobien formel est le complété de \(J^p(X\mid S)\) le long de \(J^p(X_0\mid S_0)\).
+\item Si un entier fixé \(n\) satisfait les hypothèses du Théorème 5.4 pour tous les \(X_v\to S_v\), alors \(x\notin J^n(\mathfrak X\mid S)\) si et seulement si \(\mathfrak X\) est formellement lisse sur \(S\) en \(x\).
+\end{enumerate}
+
+\emph{Démonstration.}  Ces assertions résultent directement des énoncés analogues pour les schémas ordinaires, de la compatibilité de \(\Omega^1_{\mathfrak X/S}\) avec le passage à \(X_v/S_v\), et de la formule de changement de base pour les idéaux de Fitting.
+
+\textbf{Remarque 5.8.}  Soit \(\mathfrak X\) \(S\)-adique, essentiellement de type fini, et soit \(x\in\mathfrak X\), d'image \(y\in S\).  On peut aussi considérer le schéma formel local sur \(S_{(y)}\)
+\[
+        \mathfrak X_{(x)}=\varprojlim_v \Spec(\Oo_{X_v,x_v}),
+\]
+muni du morphisme naturel \(\mathfrak X_{(x)}\to\mathfrak X\).  Bien que \(\mathfrak X_{(x)}\) ne soit pas nécessairement essentiellement de type fini sur \(S_{(y)}\), le module complété des différentielles est encore cohérent au sens utile ici :
+\[
+        \Omega^1_{\mathfrak X_{(x)}/S_{(y)}}
+        \simeq
+        \varprojlim_v \widehat{\Omega^1_{\Oo_{X_v,x_v}/\Oo_{S_v,y_v}}}.
+\]
+On obtient ainsi des sous-schémas formels locaux \(J^p(\mathfrak X_{(x)}\mid S)\); si \(x\) est un point isolé de \(J^p(\mathfrak X\mid S)\), le morphisme naturel
+\[
+        J^p(\mathfrak X_{(x)}\mid S)\longrightarrow J^p(\mathfrak X\mid S)
+\]
+identifie la source à la composante locale complétée en \(x\).
+
+Nous aurons aussi besoin de l'image du sous-schéma jacobien dans la base.  L'image ensembliste peut être décrite par les noyaux
+\[
+        \Ker\bigl(\Oo_S\to f_*\Oo_{J^p(\mathfrak X\mid S)}\bigr),
+\]
+mais la formulation par les idéaux de Fitting est plus commode.
+
+\textbf{Définition 5.9.}  Soient \(S\) noethérien formel et
+\[
+        f:\mathfrak X\longrightarrow S
+\]
+un schéma formel \(S\)-adique essentiellement de type fini.  Supposons \(J^p(\mathfrak X\mid S)\) propre sur \(S\).  Alors \(f_*\Oo_{J^p(\mathfrak X\mid S)}\) est cohérent, et l'on définit un idéal de \(S\) par
+\[
+        I^p_S(\mathfrak X\mid S)
+        =
+        I^0_S\bigl(f_*\Oo_{J^p(\mathfrak X\mid S)}\bigr).
+\]
+On note \(J^p_S(\mathfrak X\mid S)\) le sous-schéma fermé formel de \(S\) défini par cet idéal.  Si les hypothèses de dimension fixe du Théorème 5.4 sont en vigueur, on écrit
+\[
+        I_S(\mathfrak X\mid S)=I^n_S(\mathfrak X\mid S),
+        \qquad
+        J_S(\mathfrak X\mid S)=J^n_S(\mathfrak X\mid S).
+\]
+
+\textbf{Corollaire 5.10.}  Sous les hypothèses de la Définition 5.9 :
+\begin{enumerate}[label=(\arabic*)]
+\item L'espace sous-jacent de \(J^p_S(\mathfrak X\mid S)\) est l'image de \(J^p(\mathfrak X\mid S)\) par \(f:\mathfrak X\to S\).
+\item La formation de \(J^p_S(\mathfrak X\mid S)\) commute au changement de base.
+\item Si
+\[
+        J^p(\mathfrak X\mid S)=\coprod_i J^p(\mathfrak X\mid S)_{(x_i)}
+\]
+est la somme disjointe de ses composantes formelles locales isolées, alors
+\[
+        I^p_S(\mathfrak X\mid S)
+        =
+        \prod_i I^p_{S,(x_i)}(\mathfrak X\mid S).
+\]
+\item Dans le cas du complété d'un \(S\)-schéma noethérien ordinaire \(X\), le sous-schéma formel \(J^p_S(\widehat X\mid \widehat S)\) est le complété de \(J^p_S(X\mid S)\).
+\end{enumerate}
+
+\emph{Démonstration.}  L'assertion (1) est la propriété usuelle du support du zéroième idéal de Fitting.  Les assertions (2) et (4) résultent du changement de base des idéaux de Fitting.  L'assertion (3) résulte de la formule de produit pour \(I^0\), appliquée à la décomposition de l'algèbre cohérente \(f_*\Oo_{J^p(\mathfrak X\mid S)}\).
+
+\textbf{Remarque 5.11.}  L'idéal jacobien défini ci-dessus est l'idéal classique : il commute au changement de base et, sous les hypothèses modérées de dimension du Théorème 5.4, donne le critère de lissité.  Il existe aussi des façons plus intrinsèques de définir un lieu non lisse canonique en toute généralité.  Pour une \(A\)-algèbre \(B\), posons
+\[
+        I_{B/A}
+        =
+        \bigcap_E
+        \Ann_B D^1(B\mid A,E),
+\]
+où \(E\) parcourt les \(B\)-modules de type fini.  Cet idéal commute à la localisation d'après le Corollaire 3.13(c).  Ainsi, pour un morphisme \(X\to Y\), on obtient un idéal \(I_{X/Y}\).  Si \(X\to Y\) est essentiellement de type fini, alors \(f\) est lisse en \(x\) si et seulement si
+\[
+        x\notin \Supp(\Oo_X/I_{X/Y})
+\]
+par 3.13(a).  La même construction se transporte aux schémas formels adiques essentiellement de type fini et convient donc également à la théorie des déformations.
+
+\section*{6. Singularités quadratiques non dégénérées}
+
+Le but de cette section est d'étudier les déformations d'un \(k\)-schéma dont les singularités sont des singularités quadratiques non dégénérées isolées.  D'après 4.13, sous les hypothèses considérées ici, la question devient locale.
+
+Nous reprenons les notations de la Section 4.  Ainsi \(A\) est un anneau local noethérien complet de corps résiduel \(k\), et \(\mathcal C_A\) désigne la catégorie des \(A\)-algèbres artiniennes locales de même corps résiduel \(k\).  Soit \(X\) un \(k\)-schéma de type fini, et soit \(x\) un point fermé de \(X\).  Rappelons que \(x\) est une singularité quadratique non dégénérée, rationnelle sur \(k\), si
+\[
+        \widehat{\Oo}_{X,x}
+        \simeq
+        k[[x_1,\ldots,x_n]]/(f)
+\]
+et
+\[
+        \left(\frac{\partial f}{\partial x_1},\ldots,
+        \frac{\partial f}{\partial x_n}\right)=(x_1,\ldots,x_n).
+\]
+On peut alors choisir \(f\) lui-même comme une forme quadratique.
+
+\textbf{Lemme 6.1.}  Soit
+\[
+        f\in k[[x_1,\ldots,x_n]]
+\]
+et supposons
+\[
+        \left(\frac{\partial f}{\partial x_1},\ldots,
+        \frac{\partial f}{\partial x_n}\right)=\mathfrak m=(x_1,\ldots,x_n).
+\]
+Alors il existe des paramètres \(x'_1,\ldots,x'_n\), avec
+\[
+        x_i\equiv x'_i\pmod{\mathfrak m^2},
+\]
+tels que
+\[
+        f=q(x'_1,\ldots,x'_n)
+\]
+pour une forme quadratique \(q\).
+
+\emph{Démonstration.}  Écrivons \(f=f_2+h_1\), où \(f_2\) est quadratique et \(h_1\in\mathfrak m^3\).  Comme les dérivées partielles engendrent \(\mathfrak m\), il existe \(e_i^{(1)}\in\mathfrak m^2\) tels que
+\[
+        \sum_i e_i^{(1)}\frac{\partial f}{\partial x_i}
+        \equiv h_1\pmod{\mathfrak m^4}.
+\]
+En remplaçant \(x_i\) par \(x_i-e_i^{(1)}\), le reste est repoussé dans \(\mathfrak m^4\).  En itérant, on construit \(e_i^{(v)}\in\mathfrak m^{v+1}\) et des paramètres
+\[
+        x_i' = x_i-\sum_{v\geq 1}e_i^{(v)}
+\]
+pour lesquels tous les termes de degré au moins \(3\) disparaissent.  Ainsi \(f\) devient sa partie quadratique dans les nouvelles variables.
+
+\textbf{Lemme 6.2.}  Soit
+\[
+        A_0\simeq k[[x_1,\ldots,x_n]]/(f),
+\]
+où \(f\) est une forme quadratique non dégénérée, et soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0=\Spec A_0\).  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item Les morphismes naturels
+\[
+        J(\mathfrak X\mid R)\longrightarrow J_R(\mathfrak X\mid R)
+        \longrightarrow \Spec A
+\]
+sont des isomorphismes.
+\item L'idéal jacobien de la base est principal :
+\[
+        I_R(\mathfrak X\mid R)=(t),
+        \qquad
+        R=A[[t]],
+\]
+où \(t\) est un générateur formel libre de \(R\) sur \(A\).
+\item Le morphisme \(\mathfrak X\to\Spec A\) est formellement lisse.
+\end{enumerate}
+
+\emph{Démonstration.}  D'après 4.10(b), la déformation formelle verselle s'écrit explicitement
+\[
+        R=A[[t]],\qquad
+        \mathfrak X=
+        \Spf\bigl(R[[x_1,\ldots,x_n]]/(F-t)\bigr),
+\]
+où \(F\) s'obtient à partir de \(f\) en relevant les coefficients à \(A\).  La suite exacte
+\[
+        A_0\xrightarrow{dF}
+        \bigoplus_i A_0\,dx_i
+        \longrightarrow
+        \Omega^1_{A_0/R}
+        \longrightarrow 0
+\]
+montre que
+\[
+        I(\mathfrak X\mid R)=(\partial F/\partial x_1,\ldots,\partial F/\partial x_n)
+        =(x_1,\ldots,x_n)
+\]
+sur la fibre spéciale.  Le sous-schéma jacobien est donc obtenu en imposant \(x_1=\cdots=x_n=0\), et l'équation restante est \(t=0\).  Les morphismes de (1) sont donc des isomorphismes et \(I_R(\mathfrak X\mid R)=(t)\).  Enfin
+\[
+        R[[x_1,\ldots,x_n]]/(F-t)
+        \simeq
+        A[[x_1,\ldots,x_n]]
+\]
+comme \(A\)-algèbre, ce qui prouve la lissité formelle sur \(A\).
+
+\textbf{Corollaire 6.3.}  Soit \(x\in X_0\) une singularité quadratique non dégénérée rationnelle sur \(k\).
+\begin{enumerate}[label=(\arabic*)]
+\item Soient \((R,\mathfrak X_1)\) et \((R,\mathfrak X_2)\) deux déformations de \(X_0\) sur un objet \(R\) de \(\mathcal C_A\), relevant le même point \(x\).  Alors les schémas formels locaux complétés \((\mathfrak X_1)_{(x)}\) et \((\mathfrak X_2)_{(x)}\) sont isomorphes sur \(R\) si et seulement si
+\[
+        I_R((\mathfrak X_1)_{(x)}\mid R)
+        =
+        I_R((\mathfrak X_2)_{(x)}\mid R).
+\]
+\item Soit \(R\) un anneau local régulier et \((R,\mathfrak X)\) une déformation de \(X_0\).  Alors \(\Oo_{\mathfrak X,x}\) est régulier si et seulement si
+\[
+        I_R(\mathfrak X_{(x)}\mid R)\not\subset \mathfrak m_R^2,
+\]
+c'est-à-dire si et seulement si cet idéal jacobien définit un diviseur régulier dans \(\Spf R\).
+\end{enumerate}
+
+\emph{Démonstration.}  Écrivons la déformation formelle verselle sous la forme
+\[
+        A[[t]][[x_1,\ldots,x_n]]/(F-t).
+\]
+Deux déformations induites sur \(R\) sont données par deux éléments \(a,b\in R\) :
+\[
+        R[[x_1,\ldots,x_n]]/(F-a),
+        \qquad
+        R[[x_1,\ldots,x_n]]/(F-b).
+\]
+Leurs idéaux jacobiens sont \((a)\) et \((b)\).  L'égalité de ces idéaux donne \(a=vb\) pour une unité \(v\).  Comme \(R\) est complet et que \(v\) admet une racine carrée par l'argument de relèvement utilisé ici, le changement de variables \(x_i\mapsto v^{1/2}x_i\) identifie les deux équations, puisque \(F\) est quadratique.  La réciproque est immédiate.  La seconde assertion résulte du fait que le quotient de l'anneau local régulier \(R[[x_1,\ldots,x_n]]\) par \(F-a\) est régulier précisément lorsque \(a\notin\mathfrak m_R^2\).
+
+\textbf{Théorème 6.4.}  Soit \(X_0\) un \(k\)-schéma de type fini n'ayant que des points non lisses isolés, et soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0\).  Soit
+\[
+        \{z_1,\ldots,z_m\}
+\]
+l'ensemble des points non lisses de \(X_0\).  Supposons
+\[
+        H^2(X_0,D^0)=0
+\]
+et supposons que tous les \(z_i\) soient des singularités quadratiques non dégénérées, rationnelles sur \(k\).  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item \(R\) est formellement lisse sur \(A\), c'est-à-dire que \(R\) est un anneau de séries formelles sur \(A\).
+\item Le sous-schéma jacobien se décompose en somme disjointe
+\[
+        J(\mathfrak X\mid R)
+        =
+        \coprod_{i=1}^m J(\mathfrak X_{(z_i)}\mid R),
+\]
+et, pour chaque \(i\), les morphismes naturels de la composante jacobienne locale vers son image dans \(\Spf R\) sont des isomorphismes.
+\item L'idéal \(I_R(\mathfrak X_{(z_i)}\mid R)\) est principal.  Si
+\[
+        I_R(\mathfrak X_{(z_i)}\mid R)=(t_i),
+\]
+alors \(t_1,\ldots,t_m\) peuvent être complétés en un système de générateurs formels libres de \(R\) sur \(A\), et
+\[
+        I_R(\mathfrak X\mid R)=\prod_{i=1}^m(t_i).
+\]
+\item Le morphisme \(\mathfrak X\to\Spec A\) est formellement lisse.
+\item Si \(X_0\) est une courbe complète irréductible, alors
+\[
+        \dim_k\mathfrak m_R/\mathfrak m_R^2
+        =
+        3g-3+a,
+\]
+où
+\[
+        g=\dim_k H^1(X_0,\Oo_{X_0}),
+        \qquad
+        a=\dim_k H^0(X_0,D^1).
+\]
+\end{enumerate}
+
+\emph{Démonstration.}  Pour chaque point singulier \(z_i\), soit \((R_i,\mathfrak U_i)\) la déformation formelle verselle de \(\Spec(\Oo_{X_0,z_i})\).  Comme \((R,\mathfrak X)\) induit une déformation de ce schéma local, il existe un morphisme local continu \(R_i\to R\) et un carré cartésien
+\[
+\begin{tikzcd}
+\mathfrak X_{(z_i)} \arrow[r] \arrow[d] &
+\mathfrak U_i \arrow[d]\\
+\Spf R \arrow[r] & \Spf R_i .
+\end{tikzcd}
+\]
+Le Lemme 6.2 donne
+\[
+        J(\mathfrak X_{(z_i)}\mid R)
+        \simeq
+        J(\mathfrak U_i\mid R_i)\times_{\Spf R_i}\Spf R
+\]
+et
+\[
+        I_R(\mathfrak X_{(z_i)}\mid R)=(t_i),
+\]
+où \(t_i\) est l'image dans \(R\) du paramètre local correspondant.  Comme \(H^2(X_0,D^0)=0\), le critère local-global de 4.13 implique que
+\[
+        \Spf R\longrightarrow \prod_i\Spf R_i
+\]
+est formellement lisse dans les directions complémentaires; autrement dit, \(t_1,\ldots,t_m\) se complètent en un système de générateurs formels libres de \(R\).  Ceci prouve (1), (2) et (3).  L'assertion (4) résulte du fait que chaque morceau singulier local est formellement lisse sur \(\Spec A\) par le Lemme 6.2(3), tandis qu'en dehors des \(z_i\) le schéma initial est déjà lisse.
+
+Pour (5), la lissité formelle de \(R\) sur \(A\), jointe à la suite exacte obtenue en 4.4 et 4.11,
+\[
+        0\to H^1(X_0,D^0)\to \mathfrak m_R/\mathfrak m_R^2
+        \to H^0(X_0,D^1)\to 0,
+\]
+donne
+\[
+        \dim_k\mathfrak m_R/\mathfrak m_R^2
+        =
+        \dim_k H^1(X_0,D^0)+\dim_kH^0(X_0,D^1).
+\]
+Il reste donc à calculer la caractéristique d'Euler de \(D^0\) sur la courbe.  Après extension du corps de base à une clôture algébrique, chaque singularité quadratique non dégénérée d'une courbe a pour anneau local complété
+\[
+        k[[x,y]]/(xy).
+\]
+Si \(A=\Oo_{X_0,z}\) et si \(A'\) est sa normalisation, alors
+\[
+        \ell(A'/A)=1,\qquad
+        \Der_k(A,\mathfrak m_A)=\Der_k(A,A),
+\]
+et le conducteur \(C\) de \(A\) dans \(A'\) est \(\mathfrak m_A\).  Par conséquent
+\[
+        \Der_k(A,A)=\Der_k(A',A')
+\]
+comme \(A\)-sous-modules de \(\Der_k(\Frac A,\Frac A)\), et l'on obtient une suite exacte
+\[
+        0\to D^0_{X_0}
+        \to D^0_{\widetilde X_0}
+        \to \Oo_{\widetilde X_0}/C
+        \to 0,
+\]
+où \(\widetilde X_0\) désigne la normalisation.  Comme \(X_0\) est localement intersection complète,
+\[
+        \ell(\Oo_{\widetilde X_0}/C)=2m.
+\]
+Le théorème de Riemann--Roch sur la normalisation donne
+\[
+        \chi(D^0_{\widetilde X_0})=3-3(g-m).
+\]
+Donc
+\[
+        \chi(D^0_{X_0})
+        =
+        \chi(D^0_{\widetilde X_0})-\ell(\Oo_{\widetilde X_0}/C)
+        =
+        3-3g+m,
+\]
+ce qui équivaut à la formule annoncée.
+
+\textbf{Remarque 6.5.}  Dans la formule du Théorème 6.4(5), l'entier
+\[
+        a=\dim_k H^0(X_0,D^1)
+\]
+se calcule facilement par Riemann--Roch :
+\[
+        a=
+        \begin{cases}
+        0,& g\geq 2,\\
+        1,& g=1,\\
+        3,& g=0.
+        \end{cases}
+\]
+Enfin, en caractéristique \(2\), il n'existe pas de forme quadratique non dégénérée en un nombre impair de variables.  De façon équivalente, il n'existe pas de singularité quadratique non dégénérée de dimension paire lorsque \(\operatorname{char}k=2\).  Dans ce cas, on utilise des formes quadratiques de non-dégénérescence maximale.
+
+\textbf{Définition 6.6.}  Soit \(X\) un \(k\)-schéma de type fini.  Un point fermé \(z\in X\) est appelé singularité quadratique ordinaire, rationnelle sur \(k\), si :
+\begin{enumerate}[label=(\roman*)]
+\item soit \(\operatorname{char}k\neq 2\), soit \(\operatorname{char}k=2\) et \(\dim\Oo_{X,z}\) est impair; dans ce cas on demande que \(z\) soit une singularité quadratique non dégénérée rationnelle sur \(k\);
+\item soit \(\operatorname{char}k=2\) et \(\dim\Oo_{X,z}\) est pair; après extension à une clôture algébrique \(\bar k\), l'anneau local complété est de la forme
+\[
+        \bar k[[x_0,x_1,\ldots,x_{2n}]]
+        /\bigl(x_0^2+x_1x_2+\cdots+x_{2n-1}x_{2n}\bigr).
+\]
+\end{enumerate}
+
+\textbf{Lemme 6.7.}  Supposons \(\operatorname{char}k=2\), et posons
+\[
+        A_0=
+        k[[x_0,x_1,\ldots,x_{2n}]]/(f),
+        \qquad
+        f=x_0^2+x_1x_2+\cdots+x_{2n-1}x_{2n}.
+\]
+Soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0=\Spec A_0\).  Alors
+\[
+        R=A[[t_1,t_2]],
+\]
+où \(t_1,t_2\) sont des générateurs formels libres sur \(A\),
+\[
+        I_R(\mathfrak X\mid R)=(t_1^2),
+\]
+et \(\mathfrak X\to\Spec A\) est formellement lisse.
+
+\emph{Démonstration.}  Comme
+\[
+        \left(\frac{\partial f}{\partial x_0},
+        \frac{\partial f}{\partial x_1},\ldots,
+        \frac{\partial f}{\partial x_{2n}}\right)
+        =
+        (x_2,x_1,\ldots,x_{2n},x_{2n-1}),
+\]
+l'espace de déformation a deux paramètres formels.  D'après 4.14, la déformation verselle s'écrit
+\[
+        R=A[[t_1,t_2]],\qquad
+        \mathfrak X=
+        \Spf\bigl(R[[x_0,\ldots,x_{2n}]]/(F)\bigr),
+\]
+avec
+\[
+        F=f+t_1+t_2x_0.
+\]
+La suite exacte des différentielles donne
+\[
+        I(\mathfrak X\mid R)=(t_2,x_1,\ldots,x_{2n}),
+\]
+et l'équation résiduelle sur le lieu jacobien est \(t_1\).  L'idéal induit sur la base est donc \((t_1^2)\).  De plus, l'équation se réécrit de telle sorte que le schéma formel total soit formellement lisse sur \(A\), ce qui prouve la dernière assertion.
+
+\textbf{Corollaire 6.8.}  Soit \(X_0\) un \(k\)-schéma de type fini n'ayant que des points non lisses isolés, et soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0\).  Supposons
+\[
+        H^2(X_0,D^0)=0,
+\]
+\(\operatorname{char}k=2\), \(\dim X_0\) paire, et tous les points non lisses \(z_1,\ldots,z_m\) des singularités quadratiques ordinaires.  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item \(R\) est formellement lisse sur \(A\).
+\item Chaque idéal jacobien local de la base est principal de la forme
+\[
+        I_R(\mathfrak X_{(z_i)}\mid R)=(t_i^2),
+\]
+et
+\[
+        I_R(\mathfrak X\mid R)=\prod_i (t_i^2).
+\]
+De plus, \(t_1,\ldots,t_m\) peuvent être complétés en un système de générateurs formels libres de \(R\) sur \(A\).
+\item Le morphisme \(\mathfrak X\to\Spec A\) est formellement lisse.
+\item Si \(k\) est algébriquement clos et si \(X_0\) est une courbe complète irréductible, alors
+\[
+        \dim_k\mathfrak m_R/\mathfrak m_R^2=3g-3+a,
+\]
+où
+\[
+        g=\dim_kH^1(X_0,\Oo_{X_0}),
+        \qquad
+        a=\dim_kH^0(X_0,D^1).
+\]
+\end{enumerate}
+
+La démonstration est celle du Théorème 6.4, en remplaçant le Lemme 6.2 par le Lemme 6.7 pour le calcul local en caractéristique \(2\).
+
+\end{document}

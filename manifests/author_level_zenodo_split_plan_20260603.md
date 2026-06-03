@@ -38,7 +38,7 @@ This plan records which mixed shelves should be split into dedicated author reco
 
 ## Immediate Authenticated Publish Order
 
-1. Update SGA existing record `20410947` with SGA 6 page-702 completion and SGA 7-I page-96 continuation.
+1. Update SGA existing record `20410947` with SGA 6 page-702 completion and SGA 7-I page-137 continuation.
 2. Update Noether existing record `20412587` with Spanish/Japanese cumulative readers through Paper 18.
 3. Create Sylvester author record. Done: concept DOI `10.5281/zenodo.20520692`.
 4. Create Dedekind and Dirichlet author records. Done: concept DOIs `10.5281/zenodo.20520669` and `10.5281/zenodo.20520679`.

@@ -65,4 +65,5 @@ Reader PDF health flags:
 - `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/52 SGA 7 Tome 2 - French Reference PDF.pdf`: first_page_blankish
-- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 96.pdf`: first_page_blankish
+- `reader-pdfs/sga/55 SGA 7-I - Source Scan Slice through Source Page 137.pdf`: first_page_blankish
+

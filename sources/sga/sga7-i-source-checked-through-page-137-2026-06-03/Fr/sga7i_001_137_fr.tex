@@ -1,0 +1,2628 @@
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage{tikz-cd}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\cO}{\mathcal O}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ql}{\mathbb Q_\ell}
+\providecommand{\Zl}{\mathbb Z_\ell}
+\providecommand{\Fp}{\mathbb F_p}
+\providecommand{\Gm}{\mathbb G_m}
+\providecommand{\A}{\mathbb A}
+\providecommand{\Pj}{\mathbb P}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\prof}{\operatorname{prof}}
+\providecommand{\cd}{\operatorname{cd}}
+\providecommand{\lcm}{\operatorname{lcm}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Sp}{\operatorname{Sp}}
+\providecommand{\limproj}{\varprojlim}
+\providecommand{\liminj}{\varinjlim}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\PhiC}{\Phi}
+\providecommand{\PsiC}{\Psi}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+
+% SGA7 batch 099 macro additions
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\ob}{\operatorname{ob}}
+\providecommand{\Ens}{\mathrm{Ens}}
+\providecommand{\Set}{\mathrm{Set}}
+\providecommand{\pro}{\operatorname{pro}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Ccat}{\mathcal C}
+\providecommand{\Acat}{\mathcal A}
+\providecommand{\Fcat}{\mathcal F}
+\providecommand{\Gcat}{\mathcal G}
+\providecommand{\Mcat}{\mathcal M}
+\providecommand{\Vcat}{\mathcal V}
+\providecommand{\m}{\mathfrak m}
+\providecommand{\ma}{\mathfrak m_\Lambda}
+\providecommand{\mh}{\widehat{\mathfrak m}}
+\providecommand{\ka}{k[\varepsilon]}
+\providecommand{\CL}{\mathcal C_\Lambda}
+\providecommand{\CLK}{\mathcal C_{\Lambda,K}}
+\providecommand{\D}{\mathrm D}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\alg}{\operatorname{alg}}
+
+\begin{document}
+
+\begin{center}
+{\Large SGA 7-I : Groupes de monodromie en géométrie algébrique}\\[0.4em]
+{\large Reconstruction française source, pages 1--24 du scan original}\\[0.4em]
+Dirigé par A. Grothendieck, avec la collaboration de M. Raynaud et D. S. Rim.
+\end{center}
+
+\section*{Page de titre}
+\begin{center}
+Séminaire de Géométrie Algébrique du Bois-Marie, 1967--1969\\[0.3em]
+\textbf{Groupes de monodromie en géométrie algébrique}\\
+(SGA 7 I)\\[0.8em]
+Dirigé par A. Grothendieck\\
+avec la collaboration de M. Raynaud et D. S. Rim.
+\end{center}
+
+\section*{Introduction}
+Soient $S$ un schéma et $f:X\to S$ un morphisme de schémas. Si $f$ est propre et lisse, et que le nombre premier $\ell$ est inversible sur $S$, les groupes de cohomologie $\ell$-adique
+\[
+H^i(X_{\bar s},\Zl)
+\]
+des fibres géométriques de $f$ forment un système local $\ell$-adique sur $S$. Pour $f$ seulement supposé propre, ces groupes sont les fibres d'un faisceau $\ell$-adique $R^if_*\Zl$ sur $S$. La théorie des cycles évanescents met en relation la ramification de ce faisceau sur $S$ et les singularités de $f$.
+
+Nous ne considérerons que le cas où $S$ est un trait hensélien, spectre d'un anneau de valuation discrète hensélien. C'est en pratique le cas essentiel. On renvoie à (I 2.1) pour une description heuristique de la théorie. Soient $S=\Spec(V)$, $k(\bar\eta)$ une clôture algébrique du corps des fractions $k(\eta)$ de $V$, et $k(\bar s)$ la clôture algébrique correspondante du corps résiduel $k(s)$; ainsi $k(\bar s)$ est le corps résiduel du normalisé $\bar V$ de $V$ dans $k(\bar\eta)$. Dans le cas particulier où $X$ est propre et plat sur $S$, de dimension relative $n$, et où $f$ ne présente qu'un point de non-lissité $x\in X_s$, on définit des $\Gal(\bar\eta/\eta)$-modules $\Phi^i$, de nature purement locale au voisinage de $x$, nuls pour $i\notin[0,n]$ (I 4.2), et on construit une suite exacte longue
+\[
+\cdots\to H^i(X_s,\Zl)\xrightarrow{\operatorname{sp}}H^i(X_{\bar\eta},\Zl)\to\Phi^i\to H^{i+1}(X_s,\Zl)\to\cdots.
+\]
+Le $\Gal(\bar s/s)$-module $H^i(X_s,\Zl)$ est regardé comme un $\Gal(\bar\eta/\eta)$-module avec action triviale de l'inertie; $\operatorname{sp}$ est la flèche de spécialisation. On donne aussi des critères, valables pour l'instant seulement en caractéristique $0$, pour que les $\Phi^i$ soient nuls pour $i$ petits; par exemple, si $X$ est de plus localement d'intersection complète, $\Phi^i=0$ pour $i\ne n$ dans la situation de I 4.5.
+
+Le théorème de monodromie affirme que l'action du sous-groupe d'inertie $I$ de $\Gal(\bar\eta/\eta)$ est quasi-unipotente: pour $T\in I$, il existe des entiers $N>0$, $M>0$ tels que
+\[
+(T^M-I)^N
+\]
+soit nul sur $H^i(X_{\bar\eta},\Zl)$. On en donne deux démonstrations. La première (I 1.2), de nature arithmétique, s'applique dès que les groupes de cohomologie considérés ont des propriétés de finitude raisonnables. Le point clef est que, lorsque $k(s)$ est de type fini sur son sous-corps premier, l'action de $I$ est quasi-unipotente pour toute représentation $\ell$-adique de $\Gal(\bar\eta/\eta)$. La seconde démonstration, plus géométrique, requiert la pureté et la résolution des singularités; elle n'est pour l'instant valable qu'en caractéristique $0$ ou pour $H^1$. Elle apporte de précieuses informations sur l'exposant de nilpotence $N$ ($N\le i+1$ pour $H^i$) et se prête, sur $\mathbb C$, à la comparaison avec la théorie transcendante.
+
+Ces résultats, appliqués au $H^1$ des variétés abéliennes, c'est-à-dire à leur module de Tate, permettent d'étudier la réduction modulo $p$ de celles-ci. On donne ainsi deux démonstrations du théorème de réduction stable des variétés abéliennes: après ramification, la fibre spéciale connexe du modèle de Néron est extension d'une variété abélienne par un tore. La première (I 6) reprend la méthode arithmétique du théorème de monodromie. La seconde (IX 3.6) s'appuie sur une analyse beaucoup plus fine du modèle de Néron et de ses propriétés de polarisation.
+
+Les exposés I à V de Grothendieck n'ont pas été rédigés. Ils ont été résumés dans un exposé I. Les résultats énoncés y sont démontrés de façon succincte, mais essentiellement complète. L'exposé II applique la méthode des pinceaux de Lefschetz et (I 5.3) à l'étude du groupe fondamental. Pour $S$ une surface sur un corps algébriquement clos $k$, d'exposant caractéristique $p$, on montre que le groupe profini $\pi_1^{(p')}(S,s)$, complété en dehors de $p$, est de pro-$(p')$-présentation finie. Comme expliqué plus haut, les exposés III à V n'existent pas.
+
+L'exposé VI contient, avec quelques compléments, la théorie des déformations de Schlessinger. On y prend soin de tenir compte des automorphismes infinitésimaux des objets qu'on classifie et de ne pas passer trop brutalement au foncteur des classes d'isomorphie d'objets. On y donne aussi une nouvelle construction de
+\[
+\operatorname{Ext}^1(L_{X/S},-),
+\]
+$L_{X/S}$ désignant le complexe cotangent relatif de $X/S$. Cet exposé sert dans le reste du séminaire surtout via l'étude des déformations des singularités quadratiques ordinaires.
+
+Les exposés VII et VIII sont consacrés à la théorie des biextensions. Cette théorie joue un rôle essentiel dans l'exposé IX pour exprimer ce qu'il advient d'une polarisation quand on passe d'une variété abélienne à un modèle de Néron. L'exposé IX contient la démonstration du théorème de réduction stable des variétés abéliennes et diverses applications. La suite de ce séminaire, SGA 7 II, par P. Deligne et N. Katz, paraîtra ultérieurement.
+
+\begin{flushright}
+Bures-sur-Yvette, mai 1972,\\
+P. Deligne
+\end{flushright}
+
+\section*{Table des matières de SGA 7 I}
+\begin{longtable}{@{}p{0.72\linewidth}r@{}}
+Exposé I. Résumé des premiers exposés de A. Grothendieck, rédigé par P. Deligne & 1\\
+Exposé II. Propriétés de finitude du groupe fondamental, par Michèle Raynaud & 25\\
+Exposé VI. Formal deformation theory, par D. S. Rim & 32\\
+Exposé VII. Groupes de monodromie locaux, par A. Grothendieck & 133\\
+Exposé VIII. Compléments sur les biextensions. Propriétés générales des biextensions des schémas en groupes, par A. Grothendieck & 218\\
+Exposé IX. Modèles de Néron et monodromie, par A. Grothendieck & 313
+\end{longtable}
+
+\section*{Exposé I. Résumé des premiers exposés de A. Grothendieck}
+\begin{center}
+rédigé par P. Deligne
+\end{center}
+
+\subsection*{Sommaire}
+0. Préliminaires. 1. Démonstration arithmétique du théorème de monodromie. 2. Cycles évanescents. 3. Démonstration géométrique du théorème de monodromie. 4. Critères de nullité pour les faisceaux de cycles évanescents. 5. Action de la monodromie sur les $\pi_1$. 6. Appendice par P. Deligne: démonstration arithmétique du théorème de réduction stable.
+
+\subsection*{0. Préliminaires}
+\subsubsection*{0.0. Terminologie}
+Rappelons les définitions suivantes. Un trait est le spectre d'un anneau de valuation discrète; on note souvent $\eta$ et $s$ ses points générique et fermé. Un anneau strictement local est un anneau local hensélien à corps résiduel séparablement clos; un schéma strictement local est le spectre d'un tel anneau. Un point géométrique de $S$ est un morphisme $\bar x:\Spec(k)\to S$ dont l'image est $x$ et où $k$ est une clôture séparable de $k(x)$. Pour un trait hensélien $S=\Spec(V)$ on note souvent $\bar\eta$ un point géométrique générique; le corps résiduel de la clôture intégrale $\bar V$ de $V$ dans $k(\bar\eta)$ donne le point géométrique $\bar s$ localisé en $s$.
+
+Le localisé strict de $X$ en $\bar x$ est celui de SGA 4 VIII 4.4. Un $S$-schéma local, local hensélien ou strictement local est essentiellement de type fini sur $S$ s'il est le spectre d'un anneau local, l'hensélisé d'un tel anneau, ou le localisé strict d'un schéma de type fini sur $S$. On note $F\mapsto F(n)$ le twist à la Tate. Un endomorphisme $T$ d'un espace vectoriel de dimension finie est quasi-unipotent si ses valeurs propres sont des racines de l'unité, c'est-à-dire si $(T^N-1)^M=0$ pour des entiers $N,M\ge1$.
+
+\subsubsection*{0.1. Cohomologie $\ell$-adique}
+Soit $X$ un schéma de type fini sur un corps algébriquement clos $k$ d'exposant caractéristique $p$, et soit $\ell$ un nombre premier premier à $p$. Les groupes de cohomologie $\ell$-adique de $X$ sont ceux de SGA 4 et SGA 5:
+\[
+H^i(X,\Z/\ell^n),\qquad H^i(X,\Zl)=\limproj_nH^i(X,\Z/\ell^n),\qquad H^i(X,\Ql)=H^i(X,\Zl)\otimes_{\Zl}\Ql.
+\]
+Les groupes à supports propres se définissent de même à partir des $H^i_c(X,\Z/\ell^n)$ de SGA 4 XVII. Dans les cas de cohomologie à support propre, de $X$ propre, de $X$ lisse, de disponibilité de la résolution des singularités à la Hironaka en dimension convenable, et pour $i=0,1$, on dispose de propriétés raisonnables de finitude. On a notamment des suites exactes courtes scindées
+\[
+0\to H^i(X,\Zl)\otimes\Z/\ell^n\to H^i(X,\Z/\ell^n)\to \Tor_1(H^{i+1}(X,\Zl),\Z/\ell^n)\to0.
+\]
+La preuve fournit aussi un théorème de constructibilité générique pour les $R^if_*\Z/\ell^n$.
+
+\subsubsection*{0.2--0.5. Rappels et désingularisation}
+Si $k$ n'est pas algébriquement clos, on considère les groupes géométriques $H^i(X_{\bar k})$; par transport de structure, $\Gal(\bar k/k)$ agit sur eux, d'où, en $\Ql$-cohomologie, des représentations continues dans $\GL(n,\Ql)$.
+
+Pour un trait hensélien $S$ de points $\eta,s$, le groupe $\Gal(\bar\eta/\eta)$ agit sur $k(\bar s)$ et l'on a le sous-groupe d'inertie $I$, puis son plus grand sous-groupe pro-$p$ $P$. Le quotient $I/P$ est l'inertie modérée:
+\[
+I/P\simeq \limproj_{(n,p)=1}\mu_n(k(\bar s))\simeq \widehat\Z^{(p')}(1)(k(\bar s)).
+\]
+Abhyankar donne le même dévissage pour $\pi_1(S-D,\bar\eta)$ lorsque $S$ est strictement local régulier et $D$ un diviseur régulier.
+
+La désingularisation de Néron fournit le lemme suivant. Si $S\to S_1$ est un morphisme de traits henséliens, si une uniformisante de $V_1$ est aussi uniformisante de $V$, et si les extensions des corps résiduels et des corps de fractions sont séparables, alors $V$ est limite inductive de $V_1$-algèbres henséliennes lisses et essentiellement de type fini. Ceci permet de ramener les traits d'égale caractéristique ou complets d'inégale caractéristique à des traits essentiellement de type fini.
+
+\subsection*{1. Démonstration arithmétique du théorème de monodromie}
+\textbf{Proposition 1.1.} Soient $S$ un trait hensélien, $\ell$ premier à l'exposant caractéristique de $k(s)$, et $\rho$ une représentation continue de $\Gal(\bar\eta/\eta)$ dans $\GL(n,\Ql)$. Si aucune extension finie de $k(s)$ ne contient toutes les racines de l'unité d'ordre une puissance de $\ell$, il existe un sous-groupe ouvert $I_1$ de $I$ tel que $\rho(\sigma)$ soit unipotent pour $\sigma\in I_1$.
+
+\textbf{Théorème de monodromie 1.2.} Sous les notations précédentes, pour $X$ de type fini sur $\eta$ et pour un espace de cohomologie de $X_{\bar\eta}$ à coefficients dans $\Ql$, de l'un des types indiqués en 0.1, l'action d'un quelconque élément de $I$ est quasi-unipotente.
+
+\textbf{Variante 1.3.} La condition sur les racines de l'unité est superflue. La preuve utilise les résultats de passage à la limite de 0.5. Après extension finie du trait, la représentation provient d'un faisceau constant tordu sur un ouvert $S_i-D_i$, et les dévissages d'inertie donnent
+\[
+\begin{tikzcd}
+\Gal(\bar\eta/\eta) \arrow[r,two heads] \arrow[d] & I \arrow[r,two heads] \arrow[d] & P \arrow[d]\\
+\pi_1(S_i-D_i,\bar\eta) \arrow[r,two heads] & I_i \arrow[r,two heads] & P_i
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+I/P \arrow[d] \arrow[r,"\sim"] & \widehat\Z^{(p')}(1) \arrow[d,equal]\\
+I_i/P_i \arrow[r,"\sim"] & \widehat\Z^{(p')}(1).
+\end{tikzcd}
+\]
+On applique alors la variante suivante.
+
+\textbf{Variante 1.4.} Dans les notations de 0.4, si $\rho(P)$ est fini et si $k(s)$ vérifie l'hypothèse de 1.1, l'action de $I$ est quasi-unipotente.
+
+\subsection*{2. Cycles évanescents}
+Soit $S$ un trait strictement local et $f:X\to S$ un schéma de type fini sur $S$. Le formalisme des cycles évanescents étudie la relation entre les cohomologies de $X_s$ et de $X_{\bar\eta}$, ainsi que l'action de l'inertie sur cette dernière, à partir d'informations locales sur $X$ et $f$.
+
+Dans la théorie transcendante, pour un morphisme propre $X\to D$ vers un disque, on peut, après restriction, voir $X$ comme fibré au-dessus de $D^*$. Les cycles évanescents mesurent la différence entre la fibre générale et la fibre spéciale, représentée par une contraction:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X_t \arrow[rr,"\text{contraction}"] \arrow[dr] && X_0 \arrow[dl]\\
+& D &
+\end{tikzcd}
+\]
+La théorie géométrique remplace $t$ par $\bar\eta$ et la fibre générale par la fibre générique géométrique.
+
+\textbf{Proposition 2.3.} Si $u:X'\to X$ est étale et si $x'$ est un point géométrique de $X'$ au-dessus de $x$, alors le morphisme induit $(R^i\Psi)_x\to(R^i\Psi)_{x'}$ est un isomorphisme.
+
+\textbf{Corollaire 2.4.} La formation des $\Psi^i$ et $\Phi^i$ commute à la localisation stricte. Pour $f$ propre, la suite exacte des cycles évanescents donne
+\[
+\cdots\to H^i(X_s,A)\to H^i(X_{\bar\eta},A)\to H^i(X_s,R\Phi A)\to H^{i+1}(X_s,A)\to\cdots.
+\]
+
+\subsection*{3. Démonstration géométrique du théorème de monodromie}
+Sous l'hypothèse de pureté, on décrit les revêtements modérés du complémentaire d'un diviseur à croisements normaux. Si, localement,
+\[
+X_s=\sum_{i\in C}a_iD_i,
+\]
+on introduit le complexe
+\[
+K: \bigoplus_{i\in C}\Z(1)\xrightarrow{(a_i)}\Z(1).
+\]
+
+\textbf{Théorème 3.3.} Sous l'hypothèse de pureté,
+\[
+R^*\Psi_x\simeq H^*(K\otimes A)\otimes A[t],\qquad \deg(t)=2,
+\]
+et l'action de l'inertie sur $R^1\Psi_x$ est décrite par une action transitive sur un ensemble fini dont le cardinal est premier à $p$.
+
+\textbf{Corollaire 3.4.} Si $N$ est le plus petit commun multiple des multiplicités des composantes de la fibre spéciale, alors, pour $T$ dans l'inertie modérée,
+\[
+(T^N-1)^{q'+1}=0\quad\text{sur }R^q\Psi.
+\]
+
+\textbf{Théorème 3.5.} Pour une courbe projective lisse sur le corps des fractions d'un anneau de valuation discrète, l'inertie agit sur $H^1(C_{\bar\eta},\Ql)$ par automorphismes quasi-unipotents d'échelon $2$:
+\[
+(T^N-1)^2=0.
+\]
+La même conclusion vaut pour les variétés abéliennes et, en caractéristique $0$, la méthode donne $(T-1)^{i+1}=0$ sur $H^i$ après passage à un sous-groupe ouvert.
+
+\subsection*{4. Critères de nullité pour les faisceaux de cycles évanescents}
+Soit $S$ un trait strictement local et $f:X\to S$ de type fini. Posons $n=\dim X_{\bar\eta}$. En remplaçant $X$ par l'adhérence schématique de $X_\eta$, on se ramène souvent au cas plat.
+
+\textbf{Théorème 4.2.} On a $\Phi^i=0$ pour $i>n$. Plus précisément, pour $x\in X_s$ dont l'adhérence est de dimension $k$,
+\[
+\Phi^i_{\bar x}=0\qquad (i>n-k).
+\]
+
+\textbf{Corollaire 4.3.} Si $f$ est propre et plat et si la dimension du lieu de non-lissité dans $X_s$ est $<d$, alors $H^i(X_s)\to H^i(X_{\bar\eta})$ est un isomorphisme pour $i>n+d+1$ et un épimorphisme pour $i=n+d+1$.
+
+\textbf{Théorème 4.5.} En caractéristique $0$, si $x$ est un point fermé isolé de non-lissité et si $X$ est de profondeur géométrique relative au moins $n$ en $x$, alors
+\[
+\Phi^i_{\bar x}=0\qquad (i<n).
+\]
+
+\textbf{Corollaires 4.6--4.7.} Pour une intersection complète relative de dimension $n$ avec point isolé de non-lissité, $\Phi^i_{\bar x}=0$ pour $i\ne n$, et $\Phi^n_{\bar x}$ est plat. Si l'on supprime l'hypothèse d'isolement et que $Z$ est le lieu de non-lissité, on obtient encore $\Phi^i=0$ pour $i<n-\dim Z$.
+
+\textbf{Proposition 4.10.} Sous les hypothèses générales de 4.5, si les profondeurs étales des générisations de $x$ dans $X_{\bar\eta}$ et de $x$ dans $X_s$ vérifient les inégalités indiquées, alors $\Phi^i_{\bar x}=0$ pour $i<n-1$.
+
+\subsection*{5. Action de la monodromie sur les $\pi_1$}
+Dans ce paragraphe, exposé de Grothendieck du 19/11/1968, on utilise le théorème de réduction semi-stable pour les courbes et la théorie de Schlessinger.
+
+Soient $k$ algébriquement clos, $C$ une courbe projective sur $k$ et $x_0,\ldots,x_n$ des points fermés de $C$. On dit que $X=(C;x_0,\ldots,x_n)$ est stable si $C$ est réduite, à seuls points doubles ordinaires à tangentes distinctes, si les $x_i$ sont des points lisses distincts, et si chaque composante rationnelle, respectivement elliptique, rencontre assez de points marqués ou singuliers. Cela équivaut à l'absence d'automorphismes infinitésimaux non triviaux et à l'amplitude de
+\[
+\omega\Bigl(\sum x_i\Bigr).
+\]
+
+\textbf{Proposition 5.1.1.} Si $X=(C;x_0,\ldots,x_n)$ est stable sur le point générique d'un trait $S$, avec $C_\eta$ lisse, il existe une extension finie séparable $\eta'/\eta$ et une courbe stable $X'$ sur le normalisé $S'$ de $S$ dans $\eta'$ telle que $X'\otimes_{S'}\eta'=X\otimes_\eta\eta'$.
+
+Pour $X_\eta$ géométriquement connexe de type fini sur le corps des fractions d'un trait strictement local et pour $\xi$ point géométrique de $X_{\bar\eta}$, on a
+\[
+0\to\pi_1(X_{\bar\eta},\xi)\to\pi_1(X,\xi)\to\Gal(\bar\eta/\eta)\to0.
+\tag{5.2.1}
+\]
+On en déduit l'action extérieure
+\[
+\Gal(\bar\eta/\eta)\to\Aut_{\mathrm{ext}}(\pi_1^{(p')}(X_{\bar\eta})),
+\tag{5.2.2}
+\]
+et, en présence d'un point rationnel $x$, une action
+\[
+[x]:\Gal(\bar\eta/\eta)\to\Aut(\pi_1^{(p')}(X_{\bar\eta},\bar x)).
+\tag{5.2.3}
+\]
+
+\textbf{Théorème 5.3.} L'image de $P$ par (5.2.2), ou par (5.2.3), est finie.
+
+La preuve se réduit d'abord au cas où $X_\eta$ est géométriquement normal et intègre. Après normalisation, passage aux composantes connexes et choix de classes de chemins premiers à $p$ invariantes sous $P$, les formules de Van Kampen montrent qu'un sous-groupe d'indice fini de $P$ agit trivialement sur le groupe fondamental premier à $p$. Puis, pour $X_\eta$ normal et $U$ ouvert, $\pi_1(U)$ s'envoie sur $\pi_1(X_\eta)$. On se ramène donc à $X_\eta$ lisse affine, puis, par sections hyperplanes génériques et Bertini, au cas d'une courbe lisse géométriquement connexe. Après extension finie, on écrit $X_\eta$ comme complément d'un nombre fini de points rationnels dans une courbe projective lisse, et la réduction semi-stable ramène au cas d'une courbe stable sur $S$. La suite du calcul commence à la page source suivante.
+
+
+
+% SGA7 pages 25--36 additions
+\providecommand{\cA}{\mathcal A}
+\providecommand{\cV}{\mathcal V}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\coker}{\operatorname{coker}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Picard}{\operatorname{Pic}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Prof}{\operatorname{prof}}
+\providecommand{\Ima}{\operatorname{Im}}
+\providecommand{\Frob}{\operatorname{Frob}}
+\providecommand{\cQ}{\mathcal Q}
+\providecommand{\Et}{\mathrm{et}}
+\providecommand{\profp}{\widehat{\mathbb Z}^{(p')}}
+
+
+\subsubsection*{Théorème 5.4}
+Soient $S$ un schéma strictement local, $f:\bar X\to S$ un morphisme propre et plat, de fibre spéciale une courbe dont les seuls points de non-lissité sont des points doubles ordinaires, et $Y$ un sous-schéma de $\bar X$, réunion d'un nombre fini de sections disjointes contenues dans l'ouvert de lissité. Posons
+\[
+ X=\bar X-Y.
+\]
+Soit $x$ un point rationnel de $X$. Soit $U$ l'ouvert de $S$ au-dessus duquel $X$ est lisse, et soit $\xi$ un point géométrique de $U$. Alors l'image de
+\[
+ \pi_1(U,\xi)
+\]
+dans
+\[
+ \Aut\bigl(\pi_1^{(p')}(X_\xi,x_\xi)\bigr)
+\]
+est abélienne et première à $p$.
+
+On prendra garde qu'on ne peut faire agir $\pi_1(U,\xi)$ sur $\pi_1^{(p')}(X_\xi,x_\xi)$ que parce que les $\pi_1^{(p')}$ vérifient le théorème de spécialisation.
+
+On se ramène au cas $S$ complet, puis au cas universel où $S$ est un schéma formel de modules pour la fibre spéciale, munie de ses sections. $S$ est alors un anneau de séries formelles sur un anneau de Cohen,
+\[
+ S=\Spec W[[t_1,\ldots,t_n]],
+\]
+et $U$ est le complément d'un diviseur à croisements normaux d'équation
+\[
+ t_1\cdots t_m=0.
+\]
+Dans ce cas universel, d'après le lemme d'Abhyankar, $\pi_1(U,\xi)$ est abélien et premier à $p$, d'où le théorème.
+
+\textbf{Remarque 5.5.} On peut démontrer un résultat analogue à 5.4 en dimension relative quelconque en considérant une section plane générique de dimension un et en appliquant Bertini.
+
+\subsection*{6. Appendice : démonstration arithmétique du théorème de réduction stable}
+\begin{center}
+par P. Deligne
+\end{center}
+Soient $S$ un trait et $A_\eta$ une variété abélienne sur $k(\eta)$, de dimension $d\ne0$. Pour $S'\to S$ un morphisme local de traits, on note $A_{\eta'}$ la variété abélienne sur $k(\eta')$ déduite de $A_\eta$ par extension des scalaires. Soient $\cA_{S'}$ le modèle de Néron de $A_{\eta'}$ sur $S'$, $\cA_{S',s'}$ sa fibre spéciale et $\cA^0_{S',s'}$ la composante neutre de $\cA_{S',s'}$. Le théorème de réduction stable est le suivant.
+
+\textbf{Théorème 6.1.} Pour $S'$ convenable, $A_{\eta'}$ a réduction stable, c'est-à-dire que $\cA^0_{S',s'}$ est extension d'une variété abélienne par un tore.
+
+Il résulte assez facilement de 6.1 qu'on peut prendre $S'$ tel que $k(\eta')$ soit une extension séparable finie de $k(\eta)$. Supposons tout d'abord que le corps résiduel de $S$ est de type fini sur le corps premier; le même argument marcherait pour $k(s)$ radiciel sur un tel corps.
+
+Soient $\ell$ un nombre premier premier à l'exposant caractéristique résiduel $p$, $T_\ell(A)$ le module de Tate,
+\[
+ V_\ell(A)=T_\ell(A)\otimes\Ql,
+\]
+et
+\[
+ \rho:\Gal(\bar\eta/\eta)\longrightarrow \GL(T_\ell(A))
+\]
+la représentation naturelle. Une extension des scalaires préliminaire nous ramène au cas où le groupe d'inertie $I$ agit de façon unipotente, par 1.2, donc à travers son plus grand pro-$\ell$-groupe quotient $\Zl(1)$, cf. 0.3. Soient $T$ l'image dans $\GL(T_\ell(A))$ d'un générateur de $\Zl(1)$ et $r$ le plus grand entier $\ge0$ tel que $(T-1)^r\ne0$.
+
+\textbf{Lemme 6.2.} L'application
+\[
+ \sigma\in I,
+ \quad v\in V_\ell(A)
+ \longmapsto (\rho(\sigma)-1)^r(v)
+\]
+induit des morphismes et un isomorphisme
+\begin{equation}\tag{6.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+ V_\ell(A)_I\otimes\Ql(r) \arrow[r,"M"] \arrow[d]
+ & V_\ell(A)^I \\
+ V_\ell(A)/\Ker(T-1)^r\otimes\Ql(r) \arrow[r,"\sim"']
+ & \Ima(T-1)^r \arrow[u]
+\end{tikzcd}
+\end{equation}
+Les modules $V_\ell(A)_I$ et $V_\ell(A)^I$ sont des $\Gal(\bar s/s)$-modules, et $M$ est galoisien.
+
+\textbf{6.3.} On dit qu'une représentation $\ell$-adique
+\[
+ \tau:\Gal(\bar s/s)\longrightarrow \GL(V)
+\]
+est de poids $n$ ($n\in\mathbb Z$) si la condition suivante est vérifiée : pour un modèle convenable $X$ de $k(s)$, où $X$ est une variété irréductible de type fini sur le corps premier et $k(s)=k(X)$, $\tau$ se factorise par $\pi_1(X,\bar s)$, et, pour $x$ un point fermé de $X$, les valeurs propres de $\tau(F_x)$ sont des nombres algébriques dont les conjugués complexes sont tous de valeur absolue
+\[
+ |k(x)|^{n/2},
+\]
+où $F_x$ désigne le Frobenius géométrique $\Phi_x^{-1}$.
+
+Si $V$ (resp. $W$) est de poids $n$ (resp. $m$) et si $n\ne m$, on a
+\[
+ \Hom_{\Gal}(V,W)=0.
+\]
+
+\textbf{6.4.} Il résulte de la propriété universelle du modèle de Néron que
+\[
+ V_\ell(A)^I=V_\ell(\cA^0_{S,s}).
+\]
+Si $a$ est la dimension du plus grand quotient abélien de $\cA^0_{S,s}$ et $m$ la dimension de la partie multiplicative de $\cA^0_{S,s}$, d'après Weil $V_\ell(A)^I$ est donc extension d'une représentation de dimension $2a$ et poids $-1$ par une représentation de dimension $m$ et poids $-2$.
+
+\textbf{6.5.} Soit $A_\eta^*$ la variété abélienne duale de $A_\eta$. Rappelons que $V_\ell(A^*)$ et $V_\ell(A)$, donc $V_\ell(A^*)^I$ et $V_\ell(A)_I$, sont en dualité à valeurs dans $\Ql(1)$. Si $a^*$ et $m^*$ sont définis pour $A^*$ comme $a$ et $m$ pour $A$, il résulte de 6.4 que $V_\ell(A)_I$ est extension d'une représentation de dimension $m^*$ et de poids $0$ par une représentation de dimension $2a^*$ et de poids $-1$.
+
+\textbf{6.6.} Le module galoisien $\Ql(r)$ est de poids $-2r$. Puisque $\Ima(T-1)^r\ne0$, on déduit de 6.4, 6.5 et de l'isomorphisme 6.2 que $r\le1$. Si $r=0$, on a
+\[
+\begin{cases}
+ a+m\le d,\\
+ 2a+m=2d,
+\end{cases}
+\]
+donc $m=0$, $a=d$ et $A_\eta$ a bonne réduction. Supposons que $r=1$. On tire alors de 6.2 que $\Ima(T-1)$ est de poids $-2$ et que $V_\ell(A)/V_\ell(A)^I$ est de poids $0$; ces espaces ont même dimension $m_1\le m$. On a alors
+\[
+ \dim V_\ell(A)^I=2d-m_1=2a+m,
+\]
+et
+\[
+ 2\dim \cA^0_{S,s}\ge 2(a+m)
+ \ge 2a+m+m_1=2d=2\dim A_{S,s}.
+\]
+De sorte que $A_\eta$ a réduction stable, puisque $\dim \cA^0_{S,s}=a+m$. On a obtenu en même temps que $m_1=m$, c'est-à-dire que
+\[
+ \Ima(T-1)\subset V_\ell(A)^I\simeq V_\ell(\cA^0_{S,s})
+\]
+est le $V_\ell$ de la partie multiplicative de $\cA^0_{S,s}$.
+
+\textbf{6.7.} Pour traiter le cas général, nous utiliserons 0.5, cf. 1.3. On se ramène à supposer que
+\begin{enumerate}[label=\alph*)]
+\item les conditions de 0.5.2 ou 0.5.3 sont vérifiées;
+\item $\Gal(\bar\eta/\eta)$ agit trivialement sur $A_\ell$;
+\item l'action de $I$ sur $T_\ell(A)$ est unipotente.
+\end{enumerate}
+Sous ces hypothèses, nous prouverons que $A_\eta$ a réduction stable. L'hypothèse a) permet d'appliquer 0.5.1 pour avoir
+\[
+ S=\limproj S_i,
+\]
+comme en 1.3, dont nous reprenons les notations. Soit $s_i$ le point fermé de $S_i$. Pour $i$ assez grand, la composante neutre $\cA^0_S$ du modèle de Néron $\cA_S$ provient d'un schéma en groupes lisse à fibres connexes $\cA_i$ sur $S_i$, et $(\cA_i)_\ell$ est constant sur $S_i-D_i$. Le groupe $\pi_1(S_i-D_i,\bar\eta)$ agit sur $T_\ell(A)$ et agit trivialement sur
+\[
+ T_\ell(A)/\ell T_\ell(A)\simeq A_\ell.
+\]
+Comme en 1.3, on voit que $P_i$ agit trivialement. On a alors, par (1.3.1),
+\[
+ T_\ell(A)_I=T_\ell(A)_{I_i},
+ \qquad
+ T_\ell(\cA_{i,s_i})=T_\ell(\cA^0_S)=T_\ell(A)^I=T_\ell(A^{I_i}),
+\]
+et (6.2.1) est un diagramme de $\Gal(\bar s_i/s_i)$-modules auquel on peut appliquer les arguments 6.4 à 6.6.
+
+\subsubsection*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]}]
+\item M. Artin, \emph{Algebraic approximation of structures over complete local rings}, Publ. Math. I.H.E.S. 36 (1969), 23--58.
+\item M. Artin et G. Winters, \emph{Degenerate fibres and reduction of curves}.
+\item P. Deligne et D. Mumford, \emph{The irreducibility of the space of curves of a given genus}, Publ. Math. I.H.E.S. 36 (1969), 75--110.
+\item J.-P. Serre, \emph{Corps locaux}, Publ. Math. Univ. Nancago--Hermann, 1962.
+\item J.-P. Serre et J. Tate, \emph{Good reduction of abelian varieties}, Ann. of Math. 88 (1968), 492--517.
+\end{enumerate}
+
+\section*{Exposé II. Propriétés de finitude du groupe fondamental}
+\begin{center}
+par Michèle Raynaud
+\end{center}
+Soient $k$ un corps séparablement clos de caractéristique $p\ge0$, $X$ un schéma connexe de type fini sur $k$ et
+\[
+ \pi_1^{(p')}(X)
+\]
+le plus grand quotient « premier à $p$ » de $\pi_1(X)$. On montre, dans cet exposé, que, si $X$ est une surface, $\pi_1^{(p')}(X)$ est topologiquement de présentation finie, et qu'il en est de même pour $X$ quelconque si l'on admet la résolution des singularités.
+
+Dans le cas d'une surface, la méthode de démonstration, due à J.-P. Murre, consiste à se ramener au cas où l'on a une fibration au-dessus de $\mathbb P^1$ ayant les propriétés (i), (ii), et (iii) de la proposition ci-dessous.
+
+\textbf{Proposition 2.1.} Soient $k$ un corps algébriquement clos et $S$ une surface projective, irréductible, lisse sur $k$. Alors on peut trouver un éclatement
+\[
+ g:S'\longrightarrow S,
+\]
+où $S'$ est une surface régulière, munie d'une fibration
+\[
+ f:S'\longrightarrow \mathbb P^1,
+\]
+tels que $f$ ait une section $\sigma$, et que les conditions suivantes soient satisfaites :
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $f$ est lisse aux points de $\sigma(\mathbb P^1)$;
+\item les fibres de $f$ sont des courbes géométriquement intègres n'ayant que des singularités ordinaires;
+\item il existe un ouvert non vide $U$ de $\mathbb P^1$ tel que les fibres de $f$ aux points de $U$ soient lisses.
+\end{enumerate}
+
+La proposition résulte de l'existence d'un plongement projectif $S\to\mathbb P^r$ tel qu'on puisse trouver un pinceau de Lefschetz par rapport à ce plongement. Soit en effet
+\[
+ D=\{H_t\}_{t\in\mathbb P^1}
+\]
+un tel pinceau d'hyperplans; rappelons que l'axe $\Delta$ de $D$ coupe transversalement $S$; le sous-schéma fermé $\Delta\cap S$ est donc réduit et formé d'un ensemble fini de points fermés de $S$, $x_1,\ldots,x_n$; il existe un ouvert non vide $U$ de $\mathbb P^1$ tel que, pour tout point $t\in U$, $H_t$ coupe transversalement $S$; et, pour tout point $t\in\mathbb P^1-U$, $H_t$ coupe transversalement $S$ sauf en un point qui est un point singulier quadratique ordinaire.
+
+Par chaque point $x$ de $S$ n'appartenant pas à $\Delta$ passe un unique hyperplan $H_t$, et l'application qui, à $x$, associe $t\in\mathbb P^1$, est une application rationnelle $a$ de $S$ dans $\mathbb P^1$ de domaine de définition $S-(\Delta\cap S)$. On considère l'éclatement
+\[
+ g:S'\longrightarrow S
+\]
+du sous-schéma fermé $S\cap\Delta$ de $S$. Le schéma $S'$ est régulier et la fibre $S'_{x_i}$ au-dessus d'un point $x_i$ s'identifie au fibré projectif défini par l'espace tangent à $S$ en $x_i$, donc est isomorphe à $\mathbb P^1$. De plus l'application rationnelle $f=ag$ est partout définie. Enfin, on peut associer à chaque point $x_i$ la section de $f$ qui, à un point $t\in\mathbb P^1$, fait correspondre le vecteur tangent en $x_i$ à $H_t\cap S$.
+
+Vérifions les conditions (i), (ii) et (iii). Pour chaque $t\in\mathbb P^1$, les courbes $S'_t$ et $S_t=H_t\cap S$ sont isomorphes : le morphisme $S'_t\to S_t$ est en effet un isomorphisme sauf peut-être en les points $x_i$, points où $S_t$ est régulière; comme de plus $S'_t$ est intersection complète dans $S'$, $S'_t$ est intègre, donc isomorphe à $S_t$. Les conditions (i) et (iii) ne sont autres que les conditions a) et b) du pinceau; enfin $f$ est lisse aux points de $\sigma$ car $f$ est plat et car les fibres $S'_t$ sont géométriquement régulières aux points $\sigma(t)$.
+
+\textbf{Corollaire 2.2.} Les notations étant celles de 2.1, soit $Y$ un diviseur à croisements normaux dans $S$, et soit $Y'=Y\times_S S'$. Alors on peut choisir $f,g,U$ tels que $Y'\times_{\mathbb P^1}U$ soit un diviseur à croisements normaux relativement à $U$.
+
+On sait que, s'il existe un pinceau de Lefschetz pour un plongement $S\to\mathbb P^r$, les pinceaux de Lefschetz forment un ouvert de la variété des droites de $\mathbb P^r$. Il en est de même de l'ensemble des pinceaux de Lefschetz dont l'axe ne rencontre pas $Y$ et tels qu'il existe un ouvert non vide $U_1$ de $\mathbb P^1$ tel que l'intersection de $Y$ et $H_t$ soit lisse si $t\in U_1$. Il suffit alors de construire $f$ et $g$ à partir d'un pinceau satisfaisant à ces deux conditions et de remplacer $U$ par $U\cap U_1$.
+
+\textbf{2.3.0.} Soit $G$ un groupe profini. Rappelons que $G$ est dit topologiquement de génération finie s'il existe un entier $n$ tel que $G$ soit isomorphe à un quotient du pro-groupe libre à $n$ générateurs $F(n)$; soit $K=\Ker(F(n)\to G)$. On dit que $G$ est topologiquement de présentation finie si, de plus, on peut trouver un nombre fini d'éléments $k_1,\ldots,k_r$ de $K$ tels que le plus petit sous-groupe invariant fermé de $K$, contenant $k_1,\ldots,k_r$, soit égal à $K$.
+
+\textbf{Théorème 2.3.1.} Soient $k$ un corps séparablement clos de caractéristique $p\ge0$ et $X$ un schéma connexe de type fini sur $k$. On suppose que les schémas de type fini et de dimension $\le \dim(X)$ sur une clôture algébrique de $k$ sont fortement désingularisables (SGA 5 I 3.1.5), condition réalisée si $\dim X=2$ d'après [1] ou si $k=0$ d'après [2]. Alors le groupe fondamental
+\[
+ \pi_1^{(p')}(X)
+\]
+est topologiquement de présentation finie.
+
+On peut supposer $k$ algébriquement clos d'après SGA 1 IX 4.10.
+
+\emph{1) Réduction au cas où $X$ est une surface régulière.} Si $f:X'\to X$ est un morphisme de type fini, on pose $X''=X'\times_X X'$ et on note $(X'_a)_{a\in A}$ et $(X''_b)_{b\in B}$ l'ensemble des composantes connexes de $X'$ et $X''$ respectivement. Lorsque $f$ est un morphisme de descente effective pour la catégorie des revêtements étales, le groupe fondamental $\pi_1(X)$ peut se calculer explicitement en termes des groupes fondamentaux $\pi_1(X'_a)$ et $\pi_1(X''_b)$. Il en résulte (SGA 1 IX 5.2, 5.3) que, si les $\pi_1(X'_a)$ sont topologiquement de génération finie, il en est de même de $\pi_1(X)$; si les $\pi_1(X'_a)$ sont topologiquement de présentation finie et les $\pi_1(X''_b)$ topologiquement de génération finie, $\pi_1(X)$ est topologiquement de présentation finie.
+
+Comme $X$ est désingularisable, on peut trouver un schéma régulier $X'$ et un morphisme propre birationnel $f:X'\to X$; comme $f$ est un morphisme de descente effective pour la catégorie des revêtements étales, il suffit de prouver le théorème lorsqu'on fait l'hypothèse supplémentaire que $X$ est régulier. On en déduit en effet que $\pi_1(X)$ est topologiquement de génération finie; sachant que $\pi_1(X')$ est topologiquement de présentation finie et les $\pi_1(X''_b)$ topologiquement de génération finie, on en déduit que $\pi_1(X)$ est topologiquement de présentation finie.
+
+Soit maintenant $(U_i)_{i\in I}$ un recouvrement fini de $X$ par des ouverts affines et soit
+\[
+ f:\coprod_i U_i\longrightarrow X
+\]
+le morphisme canonique. Comme $f$ est un morphisme de descente effective pour la catégorie des revêtements étales, on voit qu'il suffit de prouver le théorème pour les $U_i$; on est donc ramené au cas où $X$ est affine et lisse.
+
+On suppose désormais $X$ affine, lisse sur $k$, et $\dim X>2$. On peut alors appliquer le théorème de Lefschetz pour les schémas quasi-projectifs : si $Y$ est une section hyperplane assez générale de $X$, on a un isomorphisme
+\[
+ \pi_1(Y)\simeq \pi_1(X).
+\]
+Il suffit donc de prouver le théorème pour $Y$, ce qui nous ramène au cas où $\dim X=2$.
+
+\emph{2) Cas où $X$ est une surface lisse sur $k$.} D'après le théorème de désingularisation forte des surfaces, on peut trouver une surface $S$ lisse, intègre, projective et une immersion ouverte $i:X\to S$ telle que le diviseur $Y=S-X$ soit à croisements normaux. On applique le corollaire 2.2 dont on reprend les notations.
+
+Montrons qu'il suffit de prouver que le groupe fondamental de $X'=X\times_S S'$ est topologiquement de présentation finie. Comme $X$ et $X'$ sont réguliers et comme on a
+\[
+ \codim\left(X'-\bigcup_{1\le i\le n}\{x_i\},X\right)\ge2,
+\]
+tout revêtement étale de $X'$ induit sur $X-\bigcup_{1\le i\le n}\{x_i\}$ un revêtement étale qui se prolonge de façon unique en un revêtement étale de $X$ (SGA 2 1.11); ceci montre que l'on a un isomorphisme
+\[
+ \pi_1(X')\simeq \pi_1(X).
+\]
+
+On considère le diagramme cartésien
+\[
+\begin{tikzcd}
+X' & X'_U \arrow[l]\\
+\mathbb P^1 \arrow[u,"h"] & U \arrow[l] \arrow[u,"h_U"']
+\end{tikzcd}
+\]
+où $h=f|_{X'}$. On note $L$ l'ensemble des nombres premiers distincts de $p$ et $\bar\eta$ un point géométrique au-dessus du point générique $\eta$ de $\mathbb P^1$. Vérifions que les hypothèses de SGA 1 XIII 4.8 sont satisfaites. Le morphisme $h$ a une section $\sigma$, car il en est ainsi de $f$. Prouvons la condition a) de SGA 1 XIII 4.7 : les fibres de $h$ étant géométriquement intègres, le morphisme $h$ est $0$-acyclique et localement $0$-acyclique; il reste à montrer que, pour tout faisceau d'ensembles localement constant $F$ sur $X'$, $(F,h)$ est cohomologiquement propre en dimension $\le0$. Si $\xi$ est un point fermé de $\mathbb P^1$ et si $Z$ désigne la fermeture intégrale de $\Spec \cO_{\mathbb P^1,\xi}$ dans $\bar\eta$, le schéma $X'_Z=X'\times_{\mathbb P^1}Z$ vérifie la condition $(S_2)$ aux points fermés de $X'$ et est régulier en tout autre point, donc est normal. Par suite, un revêtement étale de $X'_Z$ dont la restriction à $X'_{\bar\eta}$ est connexe est nécessairement connexe. Ceci démontre notre assertion, d'où a). Comme $X'_U$ est le complémentaire dans $S'_U$ d'un diviseur à croisements normaux relativement à $U$, $h_U$ est localement $1$-asphérique pour $L$ (SGA 4 XV 2.1), et, pour tout faisceau de $L$-groupes constant fini $F$ sur $X'_U$, $(F,h_U)$ est cohomologiquement propre en dimension $\le1$ (SGA 1 XIII 2.4), d'où la condition b). Comme $\mathbb P^1$ est normal et $T=\mathbb P^1-U$ de codimension $1$, on a
+\[
+ \prof^{\et}_T(S)\ge2,
+\]
+d'où la condition c). La condition
+\[
+ \prof^{\mathrm{top}}_x(X')\ge3
+\]
+est valable en tout point fermé de $X'$ d'après le théorème de pureté, d'où la condition e). Enfin, pour tout point $t\in\mathbb P^1$, $h$ est lisse en $\sigma(t)$, donc est localement $1$-asphérique pour $L$ en $\sigma(t)$, d'où la condition d).
+
+D'après SGA 1 XIII 4.7, si $a$ est un point géométrique de $X'_{\bar\eta}$, on a une suite exacte
+\[
+1\longrightarrow \pi_1^{(p')}(X'_{\bar\eta},a)
+\longrightarrow \pi_1'(X'_U,a)
+\longrightarrow \pi_1(U,a)
+\longrightarrow 1,
+\]
+et le choix de la section $\sigma$ définit un scindage de cette suite exacte. Notons $K$ l'image de $\pi_1(U,a)$ dans
+\[
+ \Aut\bigl(\pi_1^{(p')}(X'_{\bar\eta},a)\bigr).
+\]
+Le groupe des coinvariants sous $K$,
+\[
+ \pi_1^{(p')}(X'_{\bar\eta},a)_K,
+\]
+est le quotient de $\pi_1^{(p')}(X'_{\bar\eta},a)$ par le sous-groupe invariant fermé engendré par les éléments du type $x^{-1}q(x)$, où $x\in\pi_1^{(p')}(X'_{\bar\eta},a)$ et $q\in K$. D'après loc. cit. 4.7.4, on a un isomorphisme
+\[
+ \pi_1^{(p')}(X',a)\simeq \pi_1^{(p')}(X'_{\bar\eta},a)_K.
+\]
+
+Soit
+\[
+ \mathbb P^1-U=\coprod_{1\le i\le n}\{t_i\},
+\]
+et, pour chaque $i$, soit $\bar T_i$ le localisé strict de $\mathbb P^1$ en un point géométrique $\bar t_i$ au-dessus de $t_i$, et soit $s_i$ le point générique de $\bar T_i$. Un revêtement étale de $U$, dont la restriction à chaque $s_i$ est triviale, se prolonge en un revêtement étale de $\mathbb P^1$, donc est trivial. Pour chaque $i$, soit $\bar k(s_i)$ la clôture algébrique de $k(s_i)$; l'assertion ci-dessus revient à dire que $\pi_1(U,a)$ est égal au sous-groupe invariant fermé engendré par les images des groupes de Galois $\Gal(\bar k(s_i),k(s_i))$ dans $\pi_1(U,a)$. D'après I 5.3, l'image $K_i$ de $\Gal(\bar k(s_i),k(s_i))$ dans $\Aut(\pi_1^{(p')}(X'_{\bar\eta},a))$ est finie. Comme $K$ est le plus petit sous-groupe invariant fermé contenant tous les $K_i$, et comme $\pi_1^{(p')}(X'_{\bar\eta},a)$ est topologiquement de présentation finie (SGA 1 XIII 3.2), ceci prouve que $\pi_1^{(p')}(X'_{\bar\eta},a)_K$, donc aussi $\pi_1^{(p')}(X)$ qui lui est isomorphe, est topologiquement de présentation finie.
+
+\textbf{Remarque 2.3.2.} La résolution des singularités n'est pas nécessaire pour démontrer le théorème 2.3.1 dans le cas où $X$ est l'ouvert complémentaire d'un diviseur à croisements normaux d'un schéma projectif, lisse sur $k$.
+
+\subsubsection*{Bibliographie de l'Exposé II}
+\begin{enumerate}[label={[\arabic*]}]
+\item S. Abhyankar, \emph{Local uniformization of algebraic surfaces over ground field of characteristic $p=0$}, Amer. J. Math. 63 (1956).
+\item H. Hironaka, \emph{Resolution of singularities of an algebraic variety over a field of characteristic zero}, Ann. of Math. 79 (1964).
+\item M. Raynaud, \emph{Théorème de Lefschetz en cohomologie des faisceaux cohérents et en cohomologie étale}, thèse, à paraître.
+\end{enumerate}
+
+
+
+\begin{center}
+{\Large SGA 7-I, Expos\'e VI}\\[0.4em]
+{\large Th\'eorie formelle des d\'eformations}\\[0.4em]
+par D. S. Rim
+\end{center}
+
+\section*{1. Th\'eor\`eme d'existence formelle}
+
+Nous rappelons la notion de cat\'egorie cofibr\'ee (SGA 1, IV).
+
+Soit $C$ une cat\'egorie fix\'ee. Une cat\'egorie cofibr\'ee $A$ au-dessus de $C$ est, par d\'efinition, une cat\'egorie $A$ munie d'un foncteur
+\[
+ P:A\longrightarrow C
+\]
+v\'erifiant les axiomes suivants.
+
+\textbf{Ax. 1.} Pour toute fl\`eche $f$ de $C$ et tout objet $a$ de $A$ tel que $P(a)$ soit la source de $f$, il existe un $f$-morphisme
+\[
+ \alpha:a\longrightarrow b
+\]
+qui est cocart\'esien : pour tout $f$-morphisme $\alpha':a\to b'$, il existe un unique $T$-morphisme $\tau:b\to b'$ dans $A$ tel que
+\[
+ \alpha'=\tau\alpha,
+\]
+o\`u $T$ est le but de $f$.
+
+\textbf{Ax. 2.} Un compos\'e de morphismes cocart\'esiens de $A$ est encore cocart\'esien.
+
+Les propri\'et\'es suivantes d'une cat\'egorie cofibr\'ee $P:A\to C$ r\'esultent imm\'ediatement des d\'efinitions.
+
+\textbf{Cancellation.} Soient $\alpha,\beta:a\to a'$ deux fl\`eches cocart\'esiennes telles que $P(\alpha)=P(\beta)$. S'il existe une fl\`eche cocart\'esienne $\gamma:b\to a$ telle que $\alpha\gamma=\beta\gamma$, alors $\alpha=\beta$.
+
+\textbf{Factorisation.} \`A partir de fl\`eches cocart\'esiennes $\alpha:a\to a'$ et $\beta:a\to a''$, il existe une fl\`eche cocart\'esienne $\gamma:a'\to a''$ telle que $\gamma\alpha=\beta$ si et seulement s'il existe $f:P(a')\to P(a'')$ dans $C$ tel que $fP(\alpha)=P(\beta)$. De plus, $\gamma$ est unique.
+
+Soit $A$ une cat\'egorie cofibr\'ee au-dessus de $C$. Pour chaque objet $S$ de $C$, on note $A(S)$ la sous-cat\'egorie de $A$ dont les objets sont les objets $a$ de $A$ tels que $P(a)=S$, et
+\[
+ \Hom_{A(S)}(a,a')=\{\alpha\in\Hom_A(a,a')\mid P(\alpha)=\id_S\}.
+\]
+Un groupo\"ide cofibr\'e au-dessus de $C$ est une cat\'egorie cofibr\'ee $A$ au-dessus de $C$ telle que $A(S)$ soit un groupo\"ide pour tout objet $S$ de $C$. Rappelons qu'un groupo\"ide est une cat\'egorie dans laquelle tout morphisme est un isomorphisme. Ainsi un groupo\"ide cofibr\'e au-dessus de $C$ est une cat\'egorie cofibr\'ee $P:A\to C$ telle que toute fl\`eche de $A$ soit cocart\'esienne. En outre, pour toute fl\`eche $\alpha$ de $A$, $\alpha$ est un isomorphisme dans $A$ si et seulement si $P(\alpha)$ est un isomorphisme.
+
+Dans le reste de ce paragraphe, on fixe un anneau local noeth\'erien complet $\Lambda$, de corps r\'esiduel $k$, et l'on note $\CL$ la cat\'egorie des $\Lambda$-alg\`ebres locales artiniennes ayant le m\^eme corps r\'esiduel $k$, les fl\`eches \`etant les homomorphismes locaux au-dessus de $\Lambda$. \`A partir de 1.2, un groupo\"ide cofibr\'e $A$ au-dessus de $\CL$ sera toujours suppos\'e v\'erifier $A(k)=\{e\}$, o\`u $\{e\}$ d\'esigne la cat\'egorie dans laquelle $\Hom_{\{e\}}(a,b)$ a un seul \`el\'ement pour deux objets quelconques $a,b$. Une fl\`eche $a'\xrightarrow{\alpha}a$ de $A$ sera simplement appel\'ee une $\CL$-fl\`eche si $P(a')=P(a)$ et $P(\alpha)=1_{P(a)}$. Elle sera dite surjective, par abus de langage, si $P(\alpha):P(a')\to P(a)$ est surjective dans $\CL$.
+
+\textbf{Exemple 1.1(a).} Soit $F:C\to(\text{cat\'egories})$ un foncteur. On d\'efinit la cat\'egorie $\int F$ de la fa\c con suivante. Un objet est un couple $(S,a)$, avec $S\in\ob(C)$ et $a\in\ob F(S)$; une fl\`eche $(S,a)\to(S',a')$ est un couple $(f,u')$, o\`u $f:S\to S'$ est une fl\`eche de $C$ et $u':F(f)a\to a'$ une fl\`eche de $F(S')$. La composition
+\[
+ (S,a)\xrightarrow{(f,u')}(S',a')\xrightarrow{(g,u'')}(S'',a'')
+\]
+est donn\'ee par
+\[
+ (gf,u''\cdot F(g)u'):(S,a)\longrightarrow(S'',a'').
+\]
+Avec le foncteur $P:\int F\to C$, $(S,a)\mapsto S$, la cat\'egorie $\int F$ devient une cat\'egorie cofibr\'ee au-dessus de $C$. Si $F(S)$ est un groupo\"ide pour tout $S$, alors $\int F$ est un groupo\"ide cofibr\'e au-dessus de $C$. En particulier, un foncteur $F:C\to(\mathrm{groupes})$ donne un groupe cofibr\'e, et un foncteur $F:C\to(\Ens)$ donne un groupo\"ide discret cofibr\'e. Une transformation naturelle $\varphi:F\to G$ induit en outre un foncteur cocart\'esien $\varphi:\int F\to\int G$ au-dessus de $C$.
+
+\textbf{Exemple 1.1(b).} Soient $X,Y$ des sch\'emas sur $\Lambda$, munis d'un isomorphisme fix\'e $X\otimes_\Lambda k\xrightarrow{\sim}Y\otimes_\Lambda k$. Le foncteur
+\[
+ \Isom_{X,Y}:\CL\longrightarrow(\text{groupo\"ides})
+\]
+qui \`a $S$ associe les isomorphismes $X\otimes_\Lambda S\xrightarrow{\sim}Y\otimes_\Lambda S$ induisant l'isomorphisme fix\'e modulo $k$, d\'efinit un groupo\"ide cofibr\'e $P:\int\Isom_{X,Y}\to\CL$.
+
+\textbf{Exemple 1.1(c).} Soit $X_0$ un sch\'ema fix\'e sur $k$, et soit $M_{X_0}$ la cat\'egorie des d\'eformations de $X_0$ au-dessus de $\CL$ (voir \S4). Un objet de $M_{X_0}$ est donc un couple $(R,X)$, avec $R\in\CL$ et $X$ une d\'eformation de $X_0$ sur $R$. Le foncteur $P:M_{X_0}\to\CL$, $(R,X)\mapsto R$, d\'efinit un groupo\"ide cofibr\'e au-dessus de $\CL$.
+
+\textbf{Exemple 1.1(d).} Pour tout groupo\"ide $X$, on note $[X]$ le groupo\"ide discret form\'e des classes d'isomorphie d'objets de $X$. Si $P:F\to C$ est un groupo\"ide cofibr\'e, on obtient un foncteur $[F]:C\to(\Ens)$, $[F](S)=[F(S)]$, puis un groupo\"ide discret cofibr\'e, encore not\'e $[F]$ par abus de notation.
+
+\textbf{D\'efinition 1.2.} Un groupo\"ide cofibr\'e $A$ au-dessus de $\CL$ est dit semi-homog\`ene si les propri\'et\'es suivantes sont satisfaites.
+\begin{enumerate}[label=(\arabic*)]
+\item Tout diagramme de fl\`eches pleines de $A$, o\`u $a'\to a$ est surjective, se compl\`ete en un diagramme commutatif contenant la fl\`eche pointill\'ee :
+\[
+\begin{tikzcd}
+ a'' \arrow[r,dashed] \arrow[d] & a' \arrow[d]\\
+ a_1 \arrow[r] & a .
+\end{tikzcd}
+\]
+\item Si $R\times_k k[\varepsilon]\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} R$ sont les projections et si $a'\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} a$ est un couple de $\pi_1$-, $\pi_2$-fl\`eches dans $A$, il existe une $\CL$-fl\`eche $\gamma:a'\to a''$ telle que $\alpha=\beta\gamma$ si et seulement si $(\pi_1)_*(a')=(\pi_2)_*(a'')$.
+\end{enumerate}
+
+\textbf{Remarque 1.3.} Les trois parties de la remarque 1.3 se traduisent exactement comme dans le texte original: la notion admet une reformulation 2-cat\'egorique, elle peut remplacer 1.2(1) par la propri\'et\'e au-dessus de $R_1\leftarrow R'\to R_2$, et elle donne une structure canonique de $k$-espace vectoriel \`a $[A(k[\varepsilon])]$. Les diagrammes utilis\'es sont
+\[
+\begin{tikzcd}
+& a' \arrow[dl] \arrow[dr] &\\
+a_1 \arrow[dr] && a_2 \arrow[dl]\\
+& a &
+\end{tikzcd}
+\qquad
+[A(R\times_k k[\varepsilon])]\to[A(R)]\times[A(k[\varepsilon])],
+\]
+et le foncteur $W\mapsto k[W]=k\oplus W$, $w^2=0$, qui transforme les produits dans la cat\'egorie des $k$-espaces vectoriels de dimension finie en produits fibr\'es au-dessus de $k$ dans $\CL$.
+
+\textbf{D\'efinition 1.4.} Un petite extension de $R\in\CL$ est une surjection $R'\xrightarrow{f}R$ telle que $(\Ker f)^2=0$ et $\Ker f\simeq k$, autrement dit une suite exacte
+\[
+0\to k\xrightarrow{t}R'\xrightarrow{f}R\to0,
+\qquad t^2=0.
+\]
+Si $A$ est un groupo\"ide cofibr\'e sur $\CL$, une petite prolongation de $a$ est une fl\`eche $a'\to a$ dont l'image par $P$ est une petite extension. Elle est verselle pour les petites prolongations de $a$ si, pour toute petite prolongation $a_1\to a$, il existe un diagramme commutatif
+\[
+\begin{tikzcd}
+ a' \arrow[rr] \arrow[dr] && a_1 \arrow[dl]\\
+& a &.
+\end{tikzcd}
+\]
+
+\textbf{Proposition 1.5.} Soit $A$ un groupo\"ide cofibr\'e semi-homog\`ene au-dessus de $\CL$.
+\begin{enumerate}[label=(\arabic*)]
+\item Pour les projections $R\times_k k[\varepsilon]\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} R$ et une fl\`eche $a'\xrightarrow{\alpha}a$, il existe $\beta:a\to a'$ avec $\alpha\beta=1_a$ si et seulement s'il existe une fl\`eche $a\to(\pi_2)_*a'$.
+\item Pour une petite extension $R'\xrightarrow{f}R$ et le diagramme
+\[
+\begin{tikzcd}
+ R'\times_R R' \arrow[r] \arrow[d] & R' \arrow[d,"f"]\\
+ R' \arrow[r,"f"'] & R
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+ a'' \arrow[r] \arrow[d] & a' \arrow[d]\\
+ a' \arrow[r] & a,
+\end{tikzcd}
+\]
+si $\mu(r_1,r_2)=r_1(0)+(r_2-r_1)$ et s'il existe $a'\to\mu_*a''$, alors il existe $\gamma:a'\to a$ tel que $\alpha=a\gamma$.
+\end{enumerate}
+La preuve est celle du texte original: le premier point utilise la section $h=1\times P(\varphi)$ de la premi\`ere projection, puis 1.2(2); le second identifie $R'\times_RR'$ \`a $R'\times_kk[\Ker f]$ et applique le premier point.
+
+\textbf{Corollaire 1.6.} Sous les hypoth\`eses de semi-homog\'en\'eit\'e, le diagramme
+\[
+\begin{tikzcd}
+ a' \arrow[dr,"\alpha"'] && a_1 \arrow[dl,"\alpha_1"]\\
+& a &
+\end{tikzcd}
+\]
+se rel\`eve en une fl\`eche $a'\xrightarrow{\rho}a_1$ avec $\alpha=\alpha_1\rho$ si et seulement si la condition correspondante existe au niveau de $P(a')\to P(a_1)$. La preuve utilise le diagramme
+\[
+\begin{tikzcd}
+& a'' \arrow[dl,"\beta"'] \arrow[dr,"\beta_1"] &\\
+a' \arrow[dr,"\alpha"'] && a_1 \arrow[dl,"\alpha_1"]\\
+& a &
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+& R'\times_R R' \arrow[dl] \arrow[dr] &\\
+R' \arrow[dr] && R' \arrow[dl]\\
+& R &
+\end{tikzcd}
+\]
+
+\textbf{D\'efinition 1.7.} Pour $R\in\CL$, posons
+\[
+\bar\Omega_R=M/(\ma R+M^2),
+\]
+$\ma$ et $M$ d\'esignant les id\'eaux maximaux de $\Lambda$ et de $R$. On obtient un foncteur $\bar\Omega:\CL\to V$, et, par composition avec $P:A\to\CL$, un foncteur encore not\'e $\bar\Omega$ sur $A$.
+
+\textbf{Proposition 1.8.} Si $A$ est semi-homog\`ene et si $a$ est versel pour les petites prolongations de $e$, il existe $a'\to a$ tel que $a'$ soit versel pour les petites prolongations de $a$, que $P(a')\to P(a)$ soit surjective \`a noyau annul\'e par l'id\'eal maximal de $P(a)$, et que $\bar\Omega_{a'}\to\bar\Omega_a$ soit un isomorphisme. La construction part d'une suite exacte $0\to J\to S\to R\to0$, avec $S$ anneau de s\'eries formelles sur $\Lambda$, choisit un plus petit id\'eal $J'$ entre $J$ et $MJ$, puis utilise les diagrammes
+\[
+\begin{tikzcd}
+0 \arrow[r] & J/MJ \arrow[r] \arrow[d,"h"'] & S/MJ \arrow[r] \arrow[d,"h_1"] & R \arrow[r] \arrow[d,equal] & 0\\
+0 \arrow[r] & k \arrow[r] & R_1 \arrow[r,"\pi_1"'] & R \arrow[r] & 0
+\end{tikzcd}
+\]
+et
+\[
+\begin{tikzcd}
+S/J' \arrow[r,"f"] \arrow[dr,"\pi'"'] & R_1 \arrow[d,"\pi_1"]\\
+& R,
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+ a' \arrow[r,"\rho"] \arrow[dr] & a_1 \arrow[d]\\
+& a .
+\end{tikzcd}
+\]
+
+On passe ensuite aux pro-objets. Pour $P:A\to\CL$ cofibr\'ee, on a
+\[
+\begin{tikzcd}
+ A \arrow[r] \arrow[d,"P"'] & \pro(A) \arrow[d,"\pro(P)"]\\
+ \CL \arrow[r] & \pro(\CL)
+\end{tikzcd}
+\]
+et les sous-cat\'egories $\widehat{\CL}$ et $\widehat A$ form\'ees par les syst\`emes projectifs v\'erifiant la condition de stabilisation sur $\mathfrak m_i/(\ma+\mathfrak m_i^2)$, avec le carr\'e
+\[
+\begin{tikzcd}
+ A \arrow[r,hook] \arrow[d,"P"'] & \widehat A \arrow[d,"\widehat P"]\\
+ \CL \arrow[r,hook] & \widehat{\CL}.
+\end{tikzcd}
+\]
+La cat\'egorie $\widehat{\CL}$ est identifi\'ee aux alg\`ebres locales compl\`etes de type formellement fini sur $\Lambda$ avec corps r\'esiduel $k$ fix\'e.
+
+\textbf{D\'efinition 1.9.} Un objet $\xi$ de $\widehat A$ est quasi-initial s'il existe une fl\`eche $\xi\to a$ vers tout objet $a$ de $\widehat A$. Il est minimal si
+\[
+ \xi(k[\varepsilon]):\Hom_{\Lambda\text{-}\alg}(R,k[\varepsilon])\to[A(k[\varepsilon])]
+\]
+est bijective. Un objet $\xi$ est un objet formel versel de $A$ si toute surjection $a'\to a$ de $A$ induit une surjection $\Hom_{\widehat A}(\xi,a')\to\Hom_{\widehat A}(\xi,a)$. Il est minimalement versel si la m\^eme application sur $k[\varepsilon]$ est bijective.
+
+\textbf{Proposition 1.10.} Tout objet formel (minimalement) versel est quasi-initial (minimal). Si $\xi(k[\varepsilon])$ est injective, tout endomorphisme de $\xi$ est un automorphisme; en particulier un objet quasi-initial minimal est unique \`a isomorphisme non canonique pr\`es. La preuve construit les morphismes $\xi\to a_n$ le long d'un syst\`eme projectif $\cdots\to a_n\to a_{n-1}\to\cdots\to a_0$, puis observe qu'un endomorphisme induit une surjection noeth\'erienne $R\to R$, donc un automorphisme.
+
+\textbf{Th\'eor\`eme 1.11 (Schlessinger).} Un groupo\"ide cofibr\'e $A$ au-dessus de $\CL$ admet un objet formel minimalement versel si et seulement si $A$ est semi-homog\`ene et si $[A(k[\varepsilon])]$ est de dimension finie sur $k$.
+
+La n\'ecessit\'e utilise l'objet quasi-initial $\xi$ pour compl\'eter les diagrammes de 1.2, puis la minimalit\'e pour comparer les deux projections $S\times_k k[\varepsilon]\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} S$. Pour la suffisance, on choisit une base $e_1,\ldots,e_n$ de $[A(k[\varepsilon])]$, puis des objets $a_1,a_2,\ldots$ tels que chaque $a_i$ soit versel pour les petites prolongations de $a_{i-1}$ et que les applications sur $\bar\Omega$ soient bijectives; alors
+\[
+ \xi=\lim_n a_n
+\]
+est minimalement versel. Les diagrammes utilis\'es sont
+\[
+\begin{tikzcd}
+ a'' \arrow[r,dashed] \arrow[d] & a' \arrow[d]\\
+ a_1 \arrow[r] & a
+\end{tikzcd}
+\quad
+\begin{tikzcd}
+& a' \arrow[d,"q"]\\
+\xi \arrow[r,"h"'] \arrow[ur,dashed] & a
+\end{tikzcd}
+\quad
+\begin{tikzcd}
+ a'' \arrow[r] \arrow[d,"q'"'] & a' \arrow[d,"q"]\\
+ a_n \arrow[r] & a .
+\end{tikzcd}
+\]
+
+\textbf{Remarques 1.12--1.14.} Une suite infinie $\cdots\to a_n\to\cdots\to a_1\to e$ dont chaque terme est versel pour les petites prolongations du pr\'ec\'edent et dont les $\bar\Omega$ se stabilisent donne un objet formel versel. Les propri\'et\'es de Schlessinger passent \`a $[A]$. Enfin, un invariant de $R=P(\xi)$ est un invariant de $A$; on dit donc que $A$ est formellement lisse, irr\'eductible, etc., selon que $R$ l'est. La dimension est
+\[
+\dim_\Lambda A=\dim_kR,
+\]
+et elle est compatible au changement de base $R\mapsto k\otimes_\Lambda R$.
+
+\textbf{1.15.} Il reste \`a indiquer comment modifier la th\'eorie pour permettre des extensions du corps r\'esiduel. Soient $\Lambda$ et $K$ des anneaux locaux noeth\'eriens complets, $K$ \`etant une $\Lambda$-alg\`ebre. On suppose que $\Lambda\to K$ est local et que le corps r\'esiduel $K'$ de $K$ est une extension de type fini du corps r\'esiduel $k$ de $\Lambda$. Le cas le plus important est $K=K'$, avec $K/k$ finie ins\'eparable.
+
+On note $\widehat{\mathcal C}_{\Lambda,K}$ la cat\'egorie des anneaux locaux noeth\'eriens complets $R$ munis d'une structure de $\Lambda$-alg\`ebre et d'un \'epimorphisme $s:R\to K$. On note $\CLK$ la sous-cat\'egorie o\`u $\Ker(s)$ est de longueur finie comme $R$-module; elle s'identifie \`a une sous-cat\'egorie pleine de $\pro(\CL)$.
+
+Pour tout $K'$-espace vectoriel $V$ de dimension finie, on note $D_V(K)$ l'alg\`ebre des nombres duaux sur $K$ d\'efinie par $V$, dont les \`el\'ements sont $\kappa+v\varepsilon$, $\varepsilon^2=0$, et
+\[
+ (\kappa+v\varepsilon)(\kappa'+v'\varepsilon)=\kappa\kappa'+(\kappa v'+\kappa'v)\varepsilon.
+\]
+La projection $e:D_V(K)\to K$ en fait un objet de $\CLK$; le r\^ole de $k[\varepsilon]$ est d\'esormais jou\'e par $D_{K'}(K)$. Tout groupo\"ide cofibr\'e $A$ au-dessus de $\CLK$ s'\'etend naturellement \`a un groupo\"ide cofibr\'e $\widehat A_K$ au-dessus de $\widehat{\mathcal C}_{\Lambda,K}$, et les fl\`eches dites surjectives sont celles qui induisent des homomorphismes surjectifs d'alg\`ebres.
+
+
+
+
+% SGA7 batch 100 macro additions
+\providecommand{\Fl}{\operatorname{Fl}}
+\providecommand{\coker}{\operatorname{coker}}
+\providecommand{\Exal}{\operatorname{Exal}}
+
+
+\subsection*{Suite de 1.15 : extensions du corps r\'esiduel}
+
+On suppose que \(A(K)=\{e\}\).
+
+\textbf{D\'efinition 1.16.} Un groupo\"ide cofibr\'e \(A\) sur \(\mathcal C_{\Lambda,K}\)
+est dit \emph{semi-homog\`ene} si les propri\'et\'es suivantes sont v\'erifi\'ees.
+
+\begin{enumerate}[label=(\Roman*)]
+\item Tout diagramme de fl\`eches pleines dans \(A\)
+\[
+\begin{tikzcd}
+a'' \arrow[r,dashed] \arrow[d,dashed] & a' \arrow[d]\\
+a_1 \arrow[r] & a
+\end{tikzcd}
+\]
+o\`u \(a'\to a\) est surjectif peut \^etre compl\'et\'e en un diagramme commutatif
+par les fl\`eches pointill\'ees.
+
+\item Pour tout \(R\), l'application naturelle
+\[
+ [A(R\times_K D_{K'}(K))]
+ \longrightarrow
+ [A(R)]\times [A(D_{K'}(K))]
+\]
+est bijective, le second membre \'etant le produit fibr\'e correspondant des classes
+d'isomorphie.
+\end{enumerate}
+Si \(A\) est semi-homog\`ene, alors \([A]\) l'est aussi.
+
+\textbf{1.17.} Consid\'erons d'abord la restriction de \(A\) \`a la sous-cat\'egorie pleine
+de \(\mathcal C_{\Lambda,K}\) dont les objets sont les \(D_V(K)\). Posons
+\[
+ \Omega=\Omega^1_{K/\Lambda}\otimes_K K',
+\]
+et notons \(d:K\to\Omega\) la d\'erivation. Un morphisme
+\(f:D_V(K)\to D_W(K)\) s'\'ecrit
+\[
+ f(k+v\varepsilon)=k+(u(v)+D\,dk)\varepsilon,
+\]
+avec \(u\in\Hom_{K'}(V,W)\) et \(D\in\Hom_{K'}(\Omega,W)\). Identifiant \(f\)
+au couple \((u,D)\), la loi de composition est
+\[
+ (u,D)\circ(u',D')=(uu',\,D+uD').
+\]
+La condition (II) entra\^ine la condition suivante :
+\[
+\tag{II'}
+ V\longmapsto [A(D_V(K))]
+\]
+commute aux produits, comme foncteur des \(K'\)-espaces vectoriels vers les ensembles.
+
+\textbf{Lemme 1.18.} Supposons que \(A\) satisfasse \((\mathrm{II}')\). Alors :
+
+\begin{enumerate}[label=(\arabic*)]
+\item \([A(D_{K'}(K))]\) porte une unique structure de \(K'\)-espace vectoriel telle que,
+fonctoriellement en \(V\),
+\[
+ [A(D_V(K))]\simeq V\otimes_{K'}[A(D_{K'}(K))].
+\]
+\item Il existe une application lin\'eaire
+\[
+ \gamma:\Hom_{K'}(\Omega,K')\longrightarrow [A(D_{K'}(K))]
+\]
+telle que, pour tout \(D\in\Hom_{K'}(\Omega,K')\), l'endomorphisme induit par
+\((1,D):D_{K'}(K)\to D_{K'}(K)\) soit
+\[
+ x\longmapsto x+\gamma(D).
+\]
+\item Plus g\'en\'eralement, pour tout \((u,D):D_V(K)\to D_W(K)\), l'application correspondante
+\[
+ [A(D_V(K))]\simeq V\otimes[A(D_{K'}(K))]
+ \longrightarrow
+ [A(D_W(K))]\simeq W\otimes[A(D_{K'}(K))]
+\]
+est
+\[
+ x\longmapsto u(x)+\gamma(D).
+\]
+\end{enumerate}
+
+\emph{Preuve.} Posons
+\[
+ F(V)=[A(D_V(K))],\qquad E=F(K').
+\]
+La condition \((\mathrm{II}')\), jointe au fait que \(K'\) est un objet-espace vectoriel dans
+la cat\'egorie des \(K'\)-espaces vectoriels de dimension finie, donne la structure d'espace
+vectoriel sur \(F(K')\) et l'identification fonctorielle \(F(V)\simeq V\otimes E\).
+
+Notons \(F(u,D)\) l'application induite par \((u,D)\). Comme
+\[
+ (u,D)=(1,D)\circ(u,0),
+\]
+on a
+\[
+ F(u,D)=F(D)\circ(u\otimes 1_E).
+\]
+La fonctorialit\'e de \(F\) s'\'ecrit
+\[
+ F(0)=\operatorname{id},\qquad
+ F(D)\circ F(D')=F(D+D'),\qquad
+ (u\otimes 1_E)\circ F(D)=F(uD)\circ(u\otimes 1_E).
+\]
+En prenant \(V=K'^n\) et en utilisant les applications \(i:V\to V\oplus K'^n\) et
+\(p:V\oplus K'^n\to K'^n\), 
+Le diagramme commutatif utilis\'e dans cette r\'eduction est
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V\otimes E \arrow[r] \arrow[d,"F(D)"'] &
+(V\oplus K'^n)\otimes E \arrow[r] \arrow[d,"{F(i,D)}"] &
+K'^n\otimes E \arrow[d,equal]\\
+V\otimes E \arrow[r] &
+(V\oplus K'^n)\otimes E \arrow[r] &
+K'^n\otimes E .
+\end{tikzcd}
+\]
+
+ on voit que \(F(D)\) est une translation :
+\[
+ F(D)(y)=y+\alpha(D).
+\]
+Les identit\'es pr\'ec\'edentes donnent
+\[
+ \alpha(D+D')=\alpha(D)+\alpha(D'),\qquad
+ \alpha(uD)=u\,\alpha(D),
+\]
+d'o\`u une unique application lin\'eaire
+\(\gamma:\Hom(\Omega,K')\to E\). Cela prouve le lemme.
+
+\textbf{D\'efinition 1.19.} Soit \(\xi\) un objet formel de \(A\).
+
+\begin{enumerate}[label=(\arabic*)]
+\item L'objet \(\xi\) est dit \emph{versel} si toute application surjective \(a'\to a\) dans \(A\)
+induit une application surjective
+\[
+ \Hom_A(\xi,a')\longrightarrow \Hom_A(\xi,a).
+\]
+\item Un objet formel versel \(\xi\), d'image \((R,\xi)\), est dit \emph{minimal} si,
+pour deux applications \(\varphi,\psi:R\to D_V(K)\), l'isomorphisme de
+\(\varphi(\xi)\) et \(\psi(\xi)\) implique l'existence d'une d\'erivation \(D:K\to V\)
+telle que
+\[
+ (\psi,D)\circ \xi=\xi,
+\]
+ou encore \(\psi=\varphi-D\circ d\).
+\end{enumerate}
+
+\textbf{Th\'eor\`eme 1.20.} Si \(A\) est semi-homog\`ene et si
+\[
+ \dim_{K'}[A(D_{K'}(K))]<\infty,
+\]
+alors \(A\) admet un objet formel minimalement versel, et deux tels objets sont
+isomorphes.
+
+\emph{Preuve.} Avec les notations du lemme 1.18, soit \(H^\ast\) un sous-espace de
+\([A(D_{K'}(K))]\) suppl\'ementaire \`a l'image de \(\gamma\), et soit \(H\) son dual.
+Posons
+\[
+ R_1=D_H(K).
+\]
+Choisissons \(\xi_1\in A(R_1)\) dont l'image dans
+\[
+ [A(R_1)]=H^\ast\otimes[A(D_{K'}(K))]
+ =\Hom\bigl(H^\ast,[A(D_{K'}(K))]\bigr)
+\]
+soit l'inclusion de \(H^\ast\) dans \([A(D_{K'}(K))]\). Alors
+\[
+ \Hom_{\mathcal C_{\Lambda,K}}(D_{K'}(K),D_V(K))
+ \longrightarrow [A(D_V(K))]
+\]
+est surjective, et la condition de minimalit\'e de la d\'efinition 1.19 vaut pour
+\((R_1,\xi_1)\).
+
+Choisissons \(S\in\widehat{\mathcal C}_{\Lambda,K}\), formellement lisse sur \(\Lambda\),
+et un \'epimorphisme
+\[
+ \pi:S\longrightarrow R_1
+\]
+tel que \(\Ker(\pi)\cap\mathfrak m_S^2=0\). Si \(\mathfrak m\) est l'id\'eal maximal
+de \(S\), on d\'efinit par r\'ecurrence, pour \(n\geq1\),
+\[
+ R_n=S/\mathfrak m^n,\qquad \xi_n\in A(R_n),
+\]
+en imposant que :
+\begin{enumerate}[label=(\alph*)]
+\item \(\mathfrak m^n\) soit l'intersection des id\'eaux \(I\supset\mathfrak m^n\) de \(S\)
+tels que \(\xi_n\) se prolonge en un objet de \(A(S/I)\);
+\item \(\xi_n\) prolonge \(\xi_{n-1}\).
+\end{enumerate}
+Alors, pour
+\[
+ R=\varprojlim R_n,\qquad \xi=\varprojlim \xi_n,
+\]
+on v\'erifie que \((R,\xi)\) est un objet formel minimalement versel. La construction donne
+aussi l'unicit\'e \`a isomorphisme pr\`es.
+
+\section*{2. Groupo\"ides cofibr\'es pro-repr\'esentables}
+
+Soit \(A\) un groupo\"ide cofibr\'e sur \(\mathcal C_\Lambda\), admettant un objet formel
+minimalement versel \(\xi\). En g\'en\'eral, \(\xi\) seul ne suffit pas \`a reconstruire
+\(A\), \`a \(\mathcal C_\Lambda\)-\'equivalence pr\`es.
+
+Un certain nombre de groupo\"ides cofibr\'es qui interviennent en pratique jouissent d'une
+propri\'et\'e plus forte que la semi-homog\'en\'eit\'e. Pour les \'etudier, il est commode de
+reformuler ce qui pr\'ec\`ede en termes de foncteurs lisses. Les notations et terminologies
+du paragraphe pr\'ec\'edent restent en vigueur.
+
+\textbf{D\'efinition 2.1.} Soit
+\[
+ \varphi:A\longrightarrow B
+\]
+un foncteur de groupo\"ides cofibr\'es sur \(\mathcal C_\Lambda\). On dit que \(\varphi\)
+est \emph{lisse} si toute application surjective
+\(\beta:b'\to\varphi(a)\) dans \(B\) peut \^etre compl\'et\'ee en un diagramme commutatif
+\[
+\begin{tikzcd}
+\varphi(a') \arrow[r] \arrow[d] & b' \arrow[d,"\beta"]\\
+\varphi(a) \arrow[r,equal] & \varphi(a)
+\end{tikzcd}
+\tag{\(*\)}
+\]
+pour un certain \(a'\to a\) dans \(A\). On dit que \(\varphi\) est
+\emph{minimalement lisse} si elle est lisse et si
+\[
+ [A(k[\varepsilon])]\longrightarrow [B(k[\varepsilon])]
+\]
+est bijective.
+
+\textbf{Remarque 2.2.}
+\begin{enumerate}[label=(\alph*)]
+\item La lissit\'e de \(\varphi\) \'equivaut \`a demander que, dans le diagramme pr\'ec\'edent,
+\(\varphi(a')\to b'\) puisse \^etre choisi \(\mathcal C_\Lambda\)-isomorphe; il suffit aussi
+de le v\'erifier pour les petites prolongations.
+
+\item Pour tout groupo\"ide cofibr\'e \(A\), le foncteur naturel \(A\to[A]\) est
+minimalement lisse.
+
+\item Si \(R\in\widehat{\mathcal C}_\Lambda\), on pose
+\[
+ h_R(S)=\Hom_{\Lambda\text{-}\mathrm{alg}}(R,S).
+\]
+Le foncteur \(h_S\to h_R\) induit par \(R\to S\) est lisse si et seulement si \(S\)
+est un anneau de s\'eries formelles sur \(R\).
+
+\item Si \(\xi\in A\), \(P(\xi)=R\), le choix d'images cocart\'esiennes de \(\xi\) d\'efinit
+\[
+ \xi^\ast:h_R\longrightarrow A.
+\]
+Ce foncteur est lisse exactement lorsque \(\xi\) est versel; il est minimalement lisse
+lorsque \(\xi\) est minimalement versel.
+\end{enumerate}
+
+\textbf{Proposition 2.3.} Pour des foncteurs de groupo\"ides cofibr\'es
+\[
+ A\xrightarrow{\varphi}B\xrightarrow{\psi}C
+\]
+sur \(\mathcal C_\Lambda\) :
+\begin{enumerate}[label=(\alph*)]
+\item si \(\varphi\) et \(\psi\) sont lisses, \(\psi\varphi\) est lisse;
+\item si \(\psi\) et \(\psi\varphi\) sont lisses, \(\varphi\) est lisse;
+\item si \(\psi\varphi\) est lisse et si \(\varphi\) est surjective sur les classes
+d'isomorphie d'objets, alors \(\psi\) est lisse.
+\end{enumerate}
+
+\textbf{Remarque 2.4.} Si \(A\) admet un objet formel versel \(\xi\), alors
+\(\xi^\ast:h_R\to A\) est lisse, avec \(R=P(\xi)\). Ainsi dire que \(A\) est
+formellement lisse sur \(\mathcal C_\Lambda\) \'equivaut \`a dire que \(R\) est une
+alg\`ebre de s\'eries formelles sur \(\Lambda\), ou encore que le foncteur structural
+\(A\to\mathcal C_\Lambda\) est lisse.
+
+\textbf{D\'efinition 2.5.} Un groupo\"ide cofibr\'e \(A\) sur \(\mathcal C_\Lambda\) est
+dit \emph{homog\`ene} si tout diagramme
+\[
+\begin{tikzcd}
+a' \arrow[r] \arrow[d] & a \arrow[d]\\
+b' \arrow[r] & b
+\end{tikzcd}
+\]
+o\`u \(a'\to a\) est surjectif admet un produit fibr\'e \(a'\times_a b'\) dans \(A\) tel que
+\[
+ P(a'\times_a b')=P(a')\times_{P(a)}P(b').
+\]
+
+\textbf{Remarque 2.6.}
+\begin{enumerate}[label=(\alph*)]
+\item L'homog\'en\'eit\'e implique la semi-homog\'en\'eit\'e.
+
+\item Les produits fibr\'es de cat\'egories doivent \^etre compris au sens des \(2\)-cat\'egories :
+un objet est un triplet \((x,y;u)\), avec \(u:\Phi(x)\simeq\Psi(y)\). Les morphismes
+font commuter le carr\'e
+\[
+\begin{tikzcd}
+\Phi(x) \arrow[r,"u"] \arrow[d] & \Psi(y) \arrow[d]\\
+\Phi(x') \arrow[r,"u'"'] & \Psi(y').
+\end{tikzcd}
+\]
+Les notions de groupo\"ide homog\`ene, semi-homog\`ene et de foncteur lisse peuvent ainsi
+se reformuler comme des propri\'et\'es de produits fibr\'es de cat\'egories.
+
+\item Si \(A\) est homog\`ene, alors
+\[
+ A(k[V\oplus W])\longrightarrow A(k[V])\times A(k[W])
+\]
+est une \'equivalence pour tous \(V,W\) de dimension finie; en particulier
+\(\Aut(1_V)\) et \([A(k[\varepsilon])]\) portent des structures canoniques de
+\(k\)-espaces vectoriels.
+
+\item Tout \(h_R\) est homog\`ene. Si \(A\) est semi-homog\`ene, \([A]\) l'est aussi; mais
+l'homog\'en\'eit\'e de \(A\) n'implique pas en g\'en\'eral celle de \([A]\).
+\end{enumerate}
+
+\textbf{Proposition 2.7.} Soit \(A\) homog\`ene sur \(\mathcal C_\Lambda\). Les conditions
+suivantes sont \'equivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item \([A]\) est homog\`ene, c'est-\`a-dire
+\[
+ [A(R'\times_R S)]\longrightarrow [A(R')]\times_{[A(R)]}[A(S)]
+\]
+est bijective pour toute petite extension \(R'\to R\).
+\item Pour toute petite prolongation \(a'\to a\), l'application
+\[
+ \Aut_{A(R')}(a')\longrightarrow \Aut_{A(R)}(a)
+\]
+est surjective.
+\end{enumerate}
+
+\emph{Preuve.} L'implication (i)\(\Rightarrow\)(ii) s'obtient en appliquant l'homog\'en\'eit\'e
+de \([A]\) aux deux objets \(a'\times_a a'\) et \(a'\times_a a'_\tau\), o\`u
+\(\tau\in\Aut_A(a)\). R\'eciproquement, deux objets au-dessus de \(R'\times_R S\) dont
+les images sont isomorphes au-dessus de \(R'\) et de \(S\) deviennent isomorphes apr\`es
+avoir ajust\'e les isomorphismes par la surjectivit\'e sur les automorphismes.
+
+La comparaison est repr\'esent\'ee sch\'ematiquement par le diagramme de fl\`eches pleines
+\[
+\begin{array}{ccccc}
+ & a''_2 & & R'\times_R S &\\
+ \swarrow & \downarrow & \searrow & \swarrow & \searrow\\
+a'_2 & a''_1 & b_1 \xrightarrow{\tau} b_2 & R' & S\\
+ & \swarrow & \searrow & \searrow & \swarrow\\
+ & a'_1 & a_1 & & R ,
+\end{array}
+\]
+avec la partie gauche dans \(A\) et le losange de droite dans \(\mathcal C_\Lambda\).
+
+
+Soit \(R'\xrightarrow f R\) une petite extension. On dispose d'une application canonique
+\[
+ \Ker(f)\longrightarrow R'\times_R R',
+\qquad
+(r_1,r_2)\longmapsto r_1(0)+(r_2-r_1),
+\]
+et de l'isomorphisme correspondant
+\[
+D_f:\Ker(f)\longrightarrow R'\times_R R'[\Ker(f)].
+\]
+Pour deux \(f\)-fl\`eches \(a_i\to a\), \(i=1,2\), on note
+\[
+ \tau(a_1,a_2)\in A(k[\Ker(f)])
+\]
+l'objet obtenu en transportant \(a_1\times_a a_2\) par cet isomorphisme. Alors
+\[
+ a_1\times_a a_2\simeq a_1\times\tau(a_1,a_2).
+\]
+
+\textbf{Lemme 2.8.} Soient \(A\) homog\`ene et \(a_i\to a\) deux \(f\)-fl\`eches.
+\begin{enumerate}[label=(\arabic*)]
+\item Il existe \(p:a_1\to a_2\) avec \(a_2p=a_1\) si et seulement s'il existe une fl\`eche
+\(a_1\to\tau(a_1,a_2)\).
+\item Il existe un tel \(p\) avec \(P(p)=\operatorname{id}\) si et seulement si
+\[
+ \tau(a_1,a_2)=0\quad\text{dans }[A(k[\Ker(f)])].
+\]
+\end{enumerate}
+
+\emph{Preuve.} C'est la traduction exacte de la description pr\'ec\'edente du produit fibr\'e.
+
+\textbf{Proposition 2.9.} Soient
+\[
+ A\xrightarrow{\varphi}B\xrightarrow{\psi}C
+\]
+des foncteurs de groupo\"ides cofibr\'es sur \(\mathcal C_\Lambda\).
+\begin{enumerate}[label=(\alph*)]
+\item Supposons \(B\) semi-homog\`ene, \(\psi\) homog\`ene, et
+\[
+ [A(k[\varepsilon])]\longrightarrow [C(k[\varepsilon])]
+\]
+injective. Alors \(\psi\varphi\) est lisse si et seulement si \(\varphi\) et \(\psi\) sont lisses.
+\item Si \(\varphi:A\to B\) est lisse et si \(A\) est semi-homog\`ene, alors \(B\) est
+semi-homog\`ene.
+\end{enumerate}
+
+\emph{Preuve.} On rel\`eve d'abord les petites prolongations apr\`es application de \(\psi\),
+puis on utilise la semi-homog\'en\'eit\'e de \(B\) et l'injectivit\'e tangentielle pour supprimer
+l'obstruction.
+
+Dans la preuve de la lissit\'e, on compl\`ete par des fl\`eches pointill\'ees le diagramme
+\[
+\begin{array}{ccccc}
+\varphi(a'_{n+1}) & \dashrightarrow & \varphi(a'_n)\\
+\downarrow & \searrow & \downarrow\\
+\varphi(a_{n+1}) & \longrightarrow & \varphi(a_n)
+\end{array}
+\qquad
+\begin{array}{ccc}
+b'_{n+1} & \longrightarrow & b'_n\\
+\downarrow{\scriptstyle \beta_{n+1}} && \downarrow{\scriptstyle \beta_n}\\
+\varphi(a_{n+1}) & \longrightarrow & \varphi(a_n).
+\end{array}
+\]
+Apr\`es usage de la semi-homog\'en\'eit\'e de \(A\), le diagramme correspondant dans \(B\)
+est un produit fibr\'e; cela fournit le rel\`evement voulu.
+
+L'autre sens est la stabilit\'e de la lissit\'e par composition; (b) se d\'eduit
+directement de la d\'efinition.
+
+\textbf{Corollaire 2.10.}
+\begin{enumerate}[label=(\alph*)]
+\item Si \(\varphi:A\to B\) est lisse, si \(\xi\) est un objet formel versel de \(A\), si
+\(\eta\) est minimalement versel dans \(B\), et si \(B\) est homog\`ene, alors, pour toute fl\`eche
+\[
+ \beta:\eta\longrightarrow\varphi(\xi),
+\]
+l'anneau \(P(\xi)\) est une alg\`ebre de s\'eries formelles sur \(P(\eta)\) via \(P(\beta)\).
+
+\item Si \(A\) est homog\`ene et si \(\xi,\eta\) sont versels, avec \(\eta\) minimal, alors,
+pour toute fl\`eche \(\alpha:\eta\to\xi\), \(P(\xi)\) est une alg\`ebre de s\'eries formelles
+sur \(P(\eta)\).
+\end{enumerate}
+
+\emph{Preuve.} La fl\`eche \(\beta\) donne le carr\'e
+\[
+\begin{tikzcd}
+h_{P(\xi)} \arrow[r,"\widetilde\beta"] \arrow[d,"\widetilde\xi"'] &
+h_{P(\eta)} \arrow[d,"\widetilde\eta"]\\
+A \arrow[r,"\varphi"'] & B .
+\end{tikzcd}
+\]
+Comme \(\widetilde\xi\) et \(\varphi\) sont lisses, \(\widetilde\eta\,\widetilde\beta\)
+l'est. La proposition 2.9 et la minimalit\'e de \(\eta\) donnent la lissit\'e de
+\(\widetilde\beta\), ce qui \'equivaut \`a l'assertion sur les s\'eries formelles.
+
+Soit maintenant \(C\) une cat\'egorie. \`A tout \(R\in C\) est associ\'e
+\[
+ h_R(S)=\Hom_C(R,S),
+\]
+et le foncteur de Yoneda \(h:C^\circ\to\Hom(C,\mathrm{Ens})\) est pleinement fid\`ele.
+Une \emph{cocat\'egorie} dans \(C\) est un diagramme
+\[
+\begin{tikzcd}[column sep=small]
+h_{R_1}\times_{h_{R_0}}h_{R_1} \arrow[r,"c"] &
+h_{R_1}
+\arrow[r,shift left=0.55ex,"s_1"]
+\arrow[r,shift right=0.55ex,"s_2"'] &
+h_{R_0}
+\arrow[l,bend left=50,"\varepsilon"]
+\end{tikzcd}
+\]
+avec \(s_i\varepsilon=\operatorname{id}\), \(c\) associative et compatible aux \(s_i\).
+Elle d\'efinit un foncteur \(h_{(R_0,R_1,\ldots)}\) vers les cat\'egories par
+\[
+ \operatorname{Ob}h_{(R_0,R_1,\ldots)}(S)=\Hom_C(R_0,S),\qquad
+ \operatorname{Fl}h_{(R_0,R_1,\ldots)}(S)=\Hom_C(R_1,S).
+\]
+Une \emph{cogroupo\"ide} est une cocat\'egorie pour laquelle ces cat\'egories sont des
+groupo\"ides.
+
+Les cocat\'egories apparaissent naturellement ainsi. Soit \(P:F\to C\) une cat\'egorie
+cofibr\'ee et \(\xi\in F\), \(R_0=P(\xi)\). Le foncteur
+\[
+ X=(f_1,f_2)\longmapsto
+ \Hom_{F(S)}\bigl(\xi^\#(f_2),\xi^\#(f_1)\bigr)
+\]
+sur \((R_0\amalg R_0,C)\) est parfois repr\'esentable par
+\[
+ X_0=(R_0 \mathrel{\substack{\xrightarrow{s_1}\\[-.6ex]\xrightarrow[s_2]{}}} R_1).
+\]
+Alors \(R_1\) d\'efinit une cocat\'egorie \((R_0,R_1,\ldots)\), et le foncteur
+\[
+ h_{(R_0,R_1,\ldots)}\longrightarrow F
+\]
+est une \(C\)-\'equivalence si et seulement si \(\xi\) est quasi-initial au-dessus de \(C\).
+
+\textbf{D\'efinition et proposition 2.11.} Un cogroupo\"ide \((R_0,R_1,\ldots)\) dans
+\(\widehat{\mathcal C}_\Lambda\) est dit \emph{lisse} si les conditions \'equivalentes suivantes
+sont v\'erifi\'ees :
+\begin{enumerate}[label=(\roman*)]
+\item \(R_1\) est une alg\`ebre de s\'eries formelles sur \(R_0\) via \(s_1\), et aussi via \(s_2\);
+\item \(h_{R_0}\to h_{(R_0,R_1,\ldots)}\) est lisse sur \(\mathcal C_\Lambda\).
+\end{enumerate}
+Il est dit \emph{minimalement lisse}, ou \emph{normalis\'e lisse}, s'il est lisse et si
+\[
+ h_{(R_0,R_1,\ldots)}(k[\varepsilon])
+\]
+est totalement d\'econnect\'e, c'est-\`a-dire \(s_1(k[\varepsilon])=s_2(k[\varepsilon])\).
+
+\emph{Preuve.} C'est exactement la traduction de la lissit\'e de
+\(\varepsilon:h_{R_0}\to h_{(R_0,R_1,\ldots)}\) en lissit\'e des morphismes
+\(s_1,s_2:h_{R_1}\to h_{R_0}\).
+
+\textbf{Proposition 2.12.} Soit \((R_0,R_1,\ldots)\) un cogroupo\"ide dans
+\(\widehat{\mathcal C}_\Lambda\).
+\begin{enumerate}[label=(\alph*)]
+\item S'il est lisse, alors \(h_{(R_0,R_1,\ldots)}\) est homog\`ene.
+\item Si \(s_1(k[\varepsilon])=s_2(k[\varepsilon])\), les conditions suivantes sont \'equivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item \((R_0,R_1,\ldots)\) est lisse;
+\item \(h_{(R_0,R_1,\ldots)}\) est homog\`ene;
+\item \(h_{(R_0,R_1,\ldots)}\) est semi-homog\`ene.
+\end{enumerate}
+\item Si \(h_{(R_0,R_1,\ldots)}\) est semi-homog\`ene, il est \'equivalent \`a
+\(h_{(S_0,S_1,\ldots)}\) pour un cogroupo\"ide minimalement lisse \(S_\ast\).
+\end{enumerate}
+
+\emph{Preuve.} Pour (a), on part d'un diagramme
+\[
+\begin{tikzcd}
+(S_1,f_1) \arrow[dr,"{(h_1,u_1)}"'] && (S_2,f_2) \arrow[dl,"{(h_2,u_2)}"]\\
+& (S,f) &
+\end{tikzcd}
+\]
+avec \(h_2\) surjectif. La lissit\'e de \(s_1\) permet de relever \(u_1^{-1}u_2\) en
+\(v\in h_{R_1}(S_2)\), \(s_1(v)=f_2\). L'objet
+\[
+ (S_1\times_S S_2,\;f_1\times s_2(v))
+\]
+donne alors le produit fibr\'e, comme l'indique le diagramme
+\[
+\begin{tikzcd}
+& (S_1\times_S S_2,\; f_1\times s_2(v))
+   \arrow[dl,"\pi_1"'] \arrow[dr,"{(\pi_2,v^{-1})}"] &\\
+(S_1,f_1)\arrow[dr,"{(h_1,u_1)}"'] &&
+(S_2,f_2)\arrow[dl,"{(h_2,u_2)}"]\\
+& (S,f) &
+\end{tikzcd}
+\]
+et cela prouve l'homog\'en\'eit\'e. Pour (b), la semi-homog\'en\'eit\'e donne un objet formel
+minimalement versel; l'objet \((R_0,1_{R_0})\) est quasi-initial minimal, d'o\`u la lissit\'e
+de \(h_{R_0}\to h_{(R_0,R_1,\ldots)}\). Pour (c), l'objet minimalement versel
+\((S_0,\xi_0)\) et le foncteur \(\Isom(\xi_0,\xi_0)\) fournissent, par passage \`a la limite,
+un \(S_1\) pro-repr\'esentant et une \'equivalence avec \(h_{(S_0,S_1,\ldots)}\).
+
+\textbf{D\'efinition 2.13.} Un groupo\"ide cofibr\'e \(A\) sur \(\mathcal C_\Lambda\) est
+dit \emph{pro-repr\'esentable} (resp. \emph{minimalement pro-repr\'esentable}) s'il est
+\(\mathcal C_\Lambda\)-\'equivalent \`a
+\[
+ h_{(R_0,R_1,\ldots)}
+\]
+pour un cogroupo\"ide (resp. un cogroupo\"ide normalis\'e)
+\((R_0,R_1,\ldots)\) dans \(\widehat{\mathcal C}_\Lambda\).
+
+\textbf{Proposition 2.14.} Si \((R_0,R_1,\ldots)\) est un cogroupo\"ide normalis\'e dans
+\(\widehat{\mathcal C}_\Lambda\), alors tout homomorphisme
+\[
+ (\sigma_0,\sigma_1):(R_0,R_1,\ldots)\longrightarrow(R_0,R_1,\ldots)
+\]
+qui induit une \(\mathcal C_\Lambda\)-\'equivalence
+\[
+ h_{(\sigma_0,\sigma_1)}:
+ h_{(R_0,R_1,\ldots)}\longrightarrow h_{(R_0,R_1,\ldots)}
+\]
+est un isomorphisme.
+
+
+
+% SGA7 batch 101 additions
+\providecommand{\Der}{\operatorname{Der}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Cov}{\operatorname{Cov}}
+\providecommand{\Exalcomm}{\operatorname{Exalcomm}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cH}{\mathcal H}
+\providecommand{\cP}{\mathcal P}
+\providecommand{\cE}{\mathcal E}
+\providecommand{\what}{\widehat}
+\providecommand{\wt}{\widetilde}
+\providecommand{\mhat}{\widehat{\mathfrak m}}
+\providecommand{\Rhat}{\widehat R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Bhat}{\widehat B}
+\providecommand{\Ehat}{\widehat E}
+
+
+\begin{center}
+{\Large SGA 7-I — Exposé VI}\\[0.3em]
+{\large Pages 71--96 du scan source : pro-représentabilité et faisceaux \(D^i\)}
+\end{center}
+
+\subsection*{2. Groupoïdes pro-représentables, suite}
+
+\textbf{Démonstration de la proposition 2.14.}  On conserve les notations de l'énoncé.  Si un homomorphisme \((\sigma_0,\sigma_1)\) d'un cogroupoïde normalisé induit une \(\cC_\Lambda\)-équivalence, le pro-objet de base est déjà déterminé par le foncteur induit sur les classes d'isomorphisme.  Le diagramme de comparaison est
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ B_{R_0}(x,e) \arrow[r] \arrow[d] & h_{R_0}(x,e) \arrow[r] \arrow[d] & h_{(R_0,R_1,\ldots)}(x,e) \arrow[d,"h_{(\sigma_0,\sigma_1)}"] \\
+ B_{R_0}(x,e) \arrow[r] & h_{R_0}(x,e) \arrow[r] & h_{(R_0,R_1,\ldots)}(x,e).
+\end{tikzcd}
+\]
+Après passage à \(k[\varepsilon]\), le groupoïde considéré est totalement déconnecté; l'application tangente est donc bijective.  Ainsi \(R_0\to R_0\) est un endomorphisme surjectif d'un anneau local noethérien complet, donc un automorphisme.  La description par produit fibré de \(R_1\) donne alors que \(R_1\to R_1\) est aussi un automorphisme.  Donc \((\sigma_0,\sigma_1)\) est un isomorphisme.
+
+\textbf{Lemme 2.15.}  Soient \(A,B\) des groupoïdes discrets sur \(\cC_\Lambda\), et \(\varphi:A\to B\) un foncteur minimalement lisse.  Si \(A\) et \(B\) sont homogènes, alors \(\varphi\) est une \(\cC_\Lambda\)-équivalence.
+
+\textit{Démonstration.}  On doit montrer que \(\varphi(S)\) est bijective pour tout \(S\).  C'est vrai pour \(S=k[\varepsilon]\), et la surjectivité est donnée par la lissité minimale.  Pour une petite extension \(S'\twoheadrightarrow S\), l'homogénéité donne
+\[
+S'\times_SS'\simeq S'\times_k k[\Ker f],
+\]
+d'où
+\[
+\begin{tikzcd}[column sep=large]
+ A(S')\times_{A(S)}A(S') \arrow[r] \arrow[d,"\varphi\times\varphi"'] & A(S')\times A(k[\Ker f]) \arrow[d,"\varphi\times\varphi"] \\
+ B(S')\times_{B(S)}B(S') \arrow[r] & B(S')\times B(k[\Ker f]).
+\end{tikzcd}
+\]
+Les ensembles \(A(S')\) et \(B(S')\) sont donc des espaces homogènes principaux sous des groupes tangents identifiés par \(\varphi\).  L'induction sur la longueur de \(S\) prouve la bijectivité. \(\square\)
+
+\textbf{Corollaire 2.16.}  Si \(A\) est homogène et possède un espace tangent de dimension finie, alors pour tout objet \(\xi\), le foncteur
+\[
+\Isom_\xi:\cC_\Lambda/R\to\mathrm{Ens},\qquad R=P(\xi),
+\]
+est pro-représentable.  En effet, ce foncteur est homogène, et le théorème d'existence formelle lui fournit un objet formel minimalement lisse; le lemme 2.15 en fait une équivalence.
+
+\textbf{Théorème 2.17.}  Un groupoïde cofibré \(A\) sur \(\cC_\Lambda\) est pro-représentable par un cogroupoïde lisse normalisé si et seulement si
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item \(A\) est homogène;
+\item \([A(k[\varepsilon])]\) et \(\Aut(1_{k[\varepsilon]})\) sont de dimension finie sur \(k\).
+\end{enumerate}
+La nécessité se lit sur les noyaux et conoyaux des espaces \(\Hom(R_i,k[\varepsilon])\).  Pour la suffisance, on choisit un objet formel minimalement versel \(\xi\), représenté par \(R_0\), puis l'on pro-représente le foncteur des isomorphismes entre les deux images réciproques de \(\xi\) au-dessus de \(R_0\widehat\otimes_\Lambda R_0\) par \(R_1\).  La composition des isomorphismes définit le cogroupoïde \((R_0,R_1,\ldots)\), et le foncteur induit vers \(A\) est une équivalence par le lemme 2.15.
+
+\textbf{Corollaires 2.18--2.20 et remarques.}  Un foncteur d'ensembles sur \(\cC_\Lambda\) est pro-représentable exactement lorsqu'il est homogène et a un espace tangent de dimension finie.  Tout cogroupoïde lisse peut être normalisé.  Si \(\overline R_1=R_1/J\), où \(J\) est engendré par les \(s_1(r)-s_2(r)\), alors \((R_0,\overline R_1,\ldots)\) représente le groupe formel des automorphismes.  La lissité formelle de ce groupe équivaut à la surjectivité des automorphismes le long des petites extensions et à la pro-représentation du foncteur des classes d'isomorphisme.  Le passage à la fibre spéciale \(k\) se fait par changement de base, et une représentation lisse non normalisée diffère de la représentation normalisée par une extension formelle lisse.
+
+\subsection*{3. Les faisceaux cohérents \(D^i\)}
+
+On rappelle maintenant la théorie d'obstruction élémentaire des extensions d'algèbres commutatives, formulée comme cohomologie de Grothendieck sur un site.  Pour une \(R\)-algèbre \(A\), \(\cC_{A|R}\) désigne la catégorie des flèches \(B\to A\), munie de la topologie dont les recouvrements sont les surjections.  Un faisceau \(F\) de \(A\)-modules vérifie, pour \(B'\twoheadrightarrow B\),
+\[
+0\to F(B)\to F(B')\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} F(B'\times_BB').
+\]
+Un \(A\)-module \(M\) définit le faisceau additif \(\Der_R(-,M)\).
+
+On note \(\widetilde{\cC}_{A|R}\) la catégorie des faisceaux et \(\widehat{\cC}_{A|R}\) celle des préfaisceaux.  Les dérivés droits de l'inclusion sont notés \(\cH^q_{A|R}\), et
+\[
+H^q(A|R,F)=\bigl[\cH^q_{A|R}(F)\bigr](A).
+\]
+Les fonctorialités de restriction et de changement d'anneau sont représentées par les carrés
+\[
+\begin{tikzcd}[column sep=large]
+\widehat{\cC}_{B|R} \arrow[r] & \widehat{\cC}_{A|R} \\
+\widetilde{\cC}_{B|R} \arrow[u] \arrow[r] & \widetilde{\cC}_{A|R} \arrow[u]
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large]
+\widehat{\cC}_{A|S} \arrow[r] & \widehat{\cC}_{A|R} \\
+\widetilde{\cC}_{A|S} \arrow[u] \arrow[r] & \widetilde{\cC}_{A|R} \arrow[u].
+\end{tikzcd}
+\]
+Les groupes de cohomologie de Cech d'un recouvrement \(B'\to B\) proviennent du module semi-simplicial
+\[
+F(B')\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} F(B'\times_BB')\rightrightarrows F(B'\times_BB'\times_BB')\rightrightarrows\cdots .
+\]
+Il y a une suite spectrale
+\[
+H^p(A|R,\cH^q(F))\Rightarrow H^{p+q}(A|R,F).
+\]
+
+\textbf{Lemme 3.2 et corollaire 3.3.}  Si \(P\twoheadrightarrow B\) est un recouvrement par une algèbre polynomiale sur \(R\), alors
+\[
+H^n(\{P\to B\},F)\simeq\cH^n_{A|R}(F)(B).
+\]
+Il en résulte que les faisceaux de type fini ont des \(\cH^n\) de type fini lorsque \(A\) est noethérien, que les algèbres polynomiales sont acycliques, et que l'exactitude se vérifie sur le sous-site polynomial.
+
+\textbf{Lemme 3.5.}  Pour un diagramme
+\[
+\begin{tikzcd}
+B' \arrow[r] \arrow[d,two heads] & C \arrow[d] \\
+B \arrow[r] & A
+\end{tikzcd}
+\]
+et une \(R\)-algèbre \(S\), l'annulation de \(\Tor^R_1(B,S)\) donne
+\[
+(B'\times_BC)\otimes_RS\simeq(B'\otimes_RS)\times_{B\otimes_RS}(C\otimes_RS),
+\]
+et les hypothèses d'annulation des Tor jusqu'au degré \(n\) se propagent à \(B'\times_BC\).  Le diagramme exact comparé est
+\[
+\begin{tikzcd}
+0\arrow[r]&J\otimes_RS\arrow[r]\arrow[d,equal]&(B'\times_BC)\otimes_RS\arrow[r]\arrow[d]&C\otimes_RS\arrow[r]\arrow[d,equal]&0\\
+0\arrow[r]&J\otimes_RS\arrow[r]&(B'\otimes_RS)\times_{B\otimes_RS}(C\otimes_RS)\arrow[r]&C\otimes_RS\arrow[r]&0.
+\end{tikzcd}
+\]
+
+\textbf{Corollaire 3.6 et proposition 3.7.}  Sous l'hypothèse \(\Tor^R_1(A,S)=0\),
+\[
+H^n(A\otimes_RS|S,G)\simeq H^n(A|R,SG).
+\]
+Si \(\Tor_i^R(A,S)=0\) pour \(0<i\le n\), alors
+\[
+\cH^i(A\otimes_RS|S,F)\simeq\cH^i(A|R,SF),\quad i\le n.
+\]
+Pour \(S\to R\to A\) et un faisceau additif \(F\), on a la suite exacte de transitivité
+\[
+0\to H^0(A|R,F_R)\to H^0(A|S,F)\to H^0(R|S,F)\to H^1(A|R,F_R)\to\cdots .
+\]
+
+\textbf{Corollaires 3.8--3.9.}  Si \(A\) et \(B\) sont Tor-indépendantes jusqu'au degré \(n\), alors
+\[
+H^i(A\otimes_RB|R,F)\simeq H^i(A|R,F)\oplus H^i(B|R,F),\quad i\le n.
+\]
+Le diagramme de scindage est
+\[
+\begin{tikzcd}[column sep=large]
+H^i(A\otimes_RB|A,F_A) \arrow[r] \arrow[d,"\sim"'] & H^i(A\otimes_RB|R,F) \\
+H^i(B|R,F_A) \arrow[r] & H^i(B|R,F).
+\end{tikzcd}
+\]
+La localisation par une partie multiplicative \(S\subset A\) commute avec ces groupes, sous l'hypothèse d'additivité correspondante.
+
+Pour un \(A\)-module \(M\), on pose
+\[
+D^i(A|R,M)=H^i(A|R,\Der_R(-,M)).
+\]
+Si \(P\twoheadrightarrow A\) est polynomiale de noyau \(I\), alors
+\[
+D^1(A|R,M)=\Coker(\Der_R(P,M)\to\Hom_A(I/I^2,M)),
+\]
+\[
+D^2(A|R,M)=H^1(A|R,\cH^1(\Der_R(-,M))).
+\]
+En choisissant un module libre \(F\twoheadrightarrow I\) et le complexe de Koszul \(K_\bullet\), on obtient aussi
+\[
+D^2(A|R,M)=\Coker(H^1(K_\bullet,M)\to\Hom_A(H_1(K_\bullet),M)).
+\]
+
+\textbf{Théorème 3.12.}  Les groupes \(D^i\) possèdent une longue suite exacte en la variable \(M\), une suite exacte de transitivité pour \(S\to R\to A\), sont compatibles au changement de base Tor-indépendant, à la localisation, aux produits tensoriels Tor-indépendants, au tensorisation par un module plat, et sont de type fini lorsque \(R\) est noethérien, \(A\) essentiellement de type fini et \(M\) fini.  Les formules basses sont
+\[
+D^0(A|R,M)=\Der_R(A,M),
+\]
+\[
+D^1(A|R,M)=\Coker(\Der_R(P,M)\to\Hom_A(I/I^2,M))=\Exalcomm(A|R,M),
+\]
+\[
+D^2(A|R,M)=\Coker(H^1(K_\bullet,M)\to\Hom_A(H_1(K_\bullet),M)).
+\]
+L'interprétation de \(D^1\) en extensions d'algèbres est donnée par le push-out
+\[
+\begin{tikzcd}
+0\arrow[r]&I\arrow[r]\arrow[d]&P\arrow[r]\arrow[d]&A\arrow[r]\arrow[d,equal]&0\\
+0\arrow[r]&M\arrow[r]&A'\arrow[r]&A\arrow[r]&0.
+\end{tikzcd}
+\]
+
+\textbf{Corollaire 3.13.}  Une \(R\)-algèbre \(A\) est formellement lisse si et seulement si \(D^1(A|R,M)=0\) pour tout \(M\).  Si \(R\) est noethérien et \(A\) de type fini, \(A\) est intersection complète relative si et seulement si \(D^2(A|R,M)=0\) pour tout \(M\).  La localisation commute à \(D^i\).  Enfin, si \(A\) est locale, essentiellement de type fini, et \(\Ahat\) sa complétion, alors
+\[
+D^i(\Ahat|R,\Ahat\otimes_AE)\simeq \Ahat\otimes_A D^i(A|R,E)
+\]
+pour tout \(A\)-module fini \(E\).  La preuve finale utilise Artin--Rees et le diagramme exact
+\[
+\begin{tikzcd}[column sep=large]
+0\arrow[r]&\Ehat\arrow[r]\arrow[d,equal]&B\arrow[r]\arrow[d]&A\arrow[r]\arrow[d]&0\\
+0\arrow[r]&\Ehat\arrow[r]&\Bhat\arrow[r]&\Ahat\arrow[r]&0.
+\end{tikzcd}
+\]
+
+
+\subsection*{Relevé des formules et diagrammes des pages 71--96}
+
+Ce relevé rassemble les affichages non textuels de la tranche, afin que le lecteur puisse les comparer directement au scan source.
+
+\[
+\begin{tikzcd}[column sep=huge]
+A(S')\times_{A(S)}A(S') \arrow[r] \arrow[d] & A(S')\times A(k[\Ker f]) \arrow[d] \\
+B(S')\times_{B(S)}B(S') \arrow[r] & B(S')\times B(k[\Ker f])
+\end{tikzcd}
+\qquad
+S'\times_SS'\simeq S'\times_k k[\Ker f].
+\]
+
+\[
+\begin{gathered}
+[A(k[\varepsilon])] = \Coker(\Hom(R_1,k[\varepsilon])\to\Hom(R_0,k[\varepsilon])),\\
+\Aut_A(1_{k[\varepsilon]})=
+\Ker(\Hom(R_1,k[\varepsilon])\to\Hom(R_0,k[\varepsilon])).
+\end{gathered}
+\]
+
+Pour les automorphismes :
+\[
+R_0\otimes_\Lambda R_0\to R_1\to R_0\to k,
+\qquad
+\overline R_1=R_1/(s_1(r)-s_2(r))_{r\in R_0},
+\]
+avec représentants \(\overline R_1\) et \(k\widehat\otimes_{R_0}\overline R_1\).
+
+Sur le site \(\cC_{A|R}\), le module de Cech associé à \(B'\to B\) est
+\[
+F(B')\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}} F(B'\times_BB')\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}}
+F(B'\times_BB'\times_BB')\mathrel{\substack{\longrightarrow\\[-.6ex]\longrightarrow}}\cdots .
+\]
+Les préfaisceaux dérivés sont
+\[
+\cH^q_{A|R}(F)(B)=\varinjlim_{\{B'\to B\}\in \Cov(B)}H^q(\{B'\to B\},F),
+\]
+et
+\[
+H^p(A|R,\cH^q_{A|R}(F))\Rightarrow H^{p+q}(A|R,F).
+\]
+
+La suite exacte de transitivité est
+\[
+\begin{aligned}
+0&\to H^0(A|R,F_R)\to H^0(A|S,F)\to H^0(R|S,F)\to H^1(A|R,F_R)\to H^1(A|S,F)\to H^1(R|S,F)\\
+&\to\cdots\to H^n(A|R,F_R)\to H^n(A|S,F)\to H^n(R|S,F)\to H^{n+1}(A|R,F_R)\to\cdots .
+\end{aligned}
+\]
+
+Les comparaisons principales sont
+\[
+\cH^i(A\otimes_RS|S,F)\simeq\cH^i(A|R,SF),
+\quad
+H^i(A\otimes_RB|R,F)\simeq H^i(A|R,F)\oplus H^i(B|R,F),
+\]
+la seconde provenant du carré
+\[
+\begin{tikzcd}[column sep=large]
+H^i(A\otimes_RB|A,F_A) \arrow[r] \arrow[d,"\sim"'] & H^i(A\otimes_RB|R,F) \\
+H^i(B|R,F_A) \arrow[r] & H^i(B|R,F).
+\end{tikzcd}
+\]
+
+Pour \(P\twoheadrightarrow A\), \(I=\Ker(P\to A)\), et \(F\twoheadrightarrow I\) libre :
+\[
+D^1(A|R,M)=\Coker(\Der_R(P,M)\to\Hom_A(I/I^2,M)),
+\]
+\[
+D^2(A|R,M)=\Coker(H^1(K_\bullet,M)\to\Hom_A(H_1(K_\bullet),M)).
+\]
+Le calcul des extensions utilise
+\[
+\begin{tikzcd}
+0\arrow[r]&I\arrow[r]\arrow[d]&P\arrow[r]\arrow[d]&A\arrow[r]\arrow[d,equal]&0\\
+0\arrow[r]&M\arrow[r]&A'\arrow[r]&A\arrow[r]&0.
+\end{tikzcd}
+\]
+La comparaison de complétion finale est
+\[
+\begin{tikzcd}[column sep=large]
+0\arrow[r]&\Ehat\arrow[r]\arrow[d,equal]&B\arrow[r]\arrow[d]&A\arrow[r]\arrow[d]&0\\
+0\arrow[r]&\Ehat\arrow[r]&\Bhat\arrow[r]&\Ahat\arrow[r]&0.
+\end{tikzcd}
+\]
+
+
+
+% SGA7 batch 102 additions
+\providecommand{\Sing}{\operatorname{Sing}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\depth}{\operatorname{depth}}
+\providecommand{\Fitt}{\operatorname{Fitt}}
+\providecommand{\Jac}{\operatorname{Jac}}
+\providecommand{\sHom}{\mathcal Hom}
+\providecommand{\RHom}{\operatorname{RHom}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Der}{\operatorname{Der}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\cM}{\mathcal M}
+\providecommand{\cB}{\mathcal B}
+\providecommand{\cJ}{\mathcal J}
+\providecommand{\cI}{\mathcal I}
+\providecommand{\cL}{\mathcal L}
+\providecommand{\cR}{\mathcal R}
+\providecommand{\cT}{\mathcal T}
+\providecommand{\cU}{\mathcal U}
+\providecommand{\cV}{\mathcal V}
+\providecommand{\kdual}{k[\varepsilon]}
+
+
+\begin{center}
+{\Large SGA 7-I — Exposé VI}\\[0.3em]
+{\large Pages du scan source 97--120 : faisceaux coherents de deformation, modules formels et debut des sous-schemas jacobiens formels}
+\end{center}
+
+\subsection*{3. Les faisceaux coherents \(D^i\), fin}
+
+\textbf{Corollaire 3.14.} Soient \(R\) noetherien et \(A\) une \(R\)-algebre de type fini, lisse partout sauf en un point ferme \(x\in\Spec(A)\). On a des isomorphismes naturels
+\[
+ D^1(A\mid R,A)\simeq D^1(A_x\mid R,A_x)
+ \simeq D^1(\widehat A_x\mid R,\widehat A_x).
+\]
+En effet \(D^1(A\mid R,A)\) est un \(A\)-module de type fini, de support \(\{x\}\). La localisation puis la completion en \(x\) ne le changent donc pas, et l'assertion resulte de 3.13.
+
+\textbf{Remarque 3.15.} Soient \(R\) un anneau topologique et \(A\) une \(R\)-algebre topologique. Pour un \(A\)-module \(E\), on pose
+\[
+ D^i_{\mathrm{top}}(A\mid R,E)=
+ \varinjlim_{\alpha} D^i(A_\alpha\mid R_\alpha, A_\alpha\otimes_A E),
+\]
+ou \(A_\alpha=A/J_\alpha\), \(R_\alpha=R/I_\alpha\), les \(J_\alpha\) et \(I_\alpha\) parcourant des ideaux ouverts de \(A\) et de \(R\). Dire que \(A\) est formellement lisse topologique sur \(R\) signifie alors que
+\[
+ D^1_{\mathrm{top}}(A\mid R,E)=0
+\]
+pour tout \(A\)-module \(E\).
+
+Soient maintenant \(X\) un schema sur \(R\) et \(E\) un \(\mathcal O_X\)-module quasi-coherent. Les faisceaux
+\[
+ D^i_{X\mid R}(E)=D^i(X\mid R,E)
+\]
+sont definis sur les ouverts affines par
+\[
+ \bigl[D^i_{X\mid R}(E)\bigr](U)=
+ D^i\bigl(\Gamma(U,\mathcal O_X)\mid R,\Gamma(U,E)\bigr).
+\]
+Si \(R\) est noetherien et si \(X\) est de type fini sur \(R\), 3.13(a) montre que cette construction est canonique comme \(\mathcal O_X\)-module quasi-coherent. En l'absence d'ambiguite on ecrit
+\[
+ D^i_{X\mid R}=D^i_{X\mid R}(\mathcal O_X).
+\]
+Les enonces affines precedents se traduisent en termes de ces faisceaux. Les proprietes suivantes sont celles qui seront utilisees.
+
+\textbf{Corollaire 3.15.} Soient \(R\) noetherien et \(X\) un \(R\)-schema de type fini.
+\begin{enumerate}[label=(\alph*)]
+\item Pour tout \(\mathcal O_X\)-module coherent \(E\), le faisceau \(D^i_{X\mid R}(E)\) est coherent pour tout \(i\), et
+\[
+ \Supp D^i_{X\mid R}(E)\subset X^{\mathrm{Sing}}
+ \quad (i>0),
+\]
+ou \(X^{\mathrm{Sing}}\) est l'ensemble des points ou \(X\) n'est pas lisse sur \(R\).
+\item Si \(X\) est plat sur \(R\), alors pour toute \(R\)-algebre \(S\) on a l'isomorphisme canonique
+\[
+ D^i_{X_S\mid S}(E_S)\simeq D^i_{X\mid R}(E)_S
+\]
+pour tout \(i\).
+\item Si \(X\) est intersection complete relative sur \(R\), alors, pour toute surjection \(S\twoheadrightarrow R\), on a une suite exacte
+\[
+ 0\to D^1_{X\mid R}(E)\to D^1_{X\mid S}(E)
+ \to \mathcal Hom_{\mathcal O_X}(I/I^2\otimes_R\mathcal O_X,E)\to 0,
+\]
+ou \(I=\Ker(S\to R)\). Si de plus \(R\) est local de corps residuel \(k\) et si \(X\) est \(R\)-plat, on a
+\[
+ 0\to D^1_{X_0\mid k}(\mathcal O_{X_0})\to
+ D^1_{X\mid S}(\mathcal O_X)\otimes_R k
+ \to D^1(R\mid S,k)\otimes_k\mathcal O_{X_0}\to 0,
+\]
+ou \(X_0=X\otimes_R k\).
+\end{enumerate}
+La preuve est le passage des enonces affines 3.12 et 3.13 aux faisceaux. Dans (c), l'hypothese d'intersection complete relative donne \(D^i_{X\mid R}(E)=0\) pour \(i\geq 2\), et la suite exacte de 3.12(2), appliquee a \(S\to R\), devient la suite affichee apres l'identification
+\[
+ D^1_{R\mid S}(E)=\mathcal Hom_{\mathcal O_X}(I/I^2\otimes_R\mathcal O_X,E).
+\]
+La derniere suite resulte de la reduction modulo l'ideal maximal de \(R\) et du changement de base.
+
+\textbf{Remarque 3.16.} Les faisceaux quasi-coherents \(D^i_{X\mid R}(E)\) doivent apparaitre comme termes \(E^{0,i}_2\) d'une suite spectrale reliant la theorie locale a la theorie globale. L. Illusie a obtenu une telle theorie par l'algebre homotopique, generalisant les methodes de M. Andre et D. Quillen plutot que la seule algebre cohomologique. L'approche presente devrait aussi se globaliser par la cohomologie de Grothendieck sur la categorie des schemas munie d'une topologie appropriee prolongeant celle de la categorie affine.
+
+\section*{4. Modules formels de deformations}
+
+Les categories cofibrées de problemes de deformations sont parmi les exemples utiles ou les classes d'isomorphie d'objets ne sont souvent pas prorepresentables, tout en admettant des objets formellement versels. On reprend les notations du paragraphe 1. Ainsi \(\Lambda\) est un anneau local noetherien complet de corps residuel \(k\), et \(\mathcal C_\Lambda\) est la categorie des \(\Lambda\)-algebres locales artiniennes de corps residuel \(k\).
+
+Soit \(X_0\) un schema fixe sur \(k\). Une deformation infinitesimale de \(X_0\) est un couple \((R,X)\), ou \(R\in\operatorname{ob}(\mathcal C_\Lambda)\), ou \(X\) est un \(R\)-schema plat, et ou l'on a un carre cartesien
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ X_0 \arrow[r,"i_X"] \arrow[d] & X \arrow[d,"\mathrm{plat}"]\\
+ \Spec k \arrow[r] & \Spec R .
+\end{tikzcd}
+\]
+Le morphisme induit \(X_0\to X\times_{\Spec R}\Spec k\) est requis etre un isomorphisme. Comme \(R\) est local artinien, \(i_X\) est une immersion fermee et un homeomorphisme sur les espaces sous-jacents.
+
+Pour deux deformations \((R,X)\), \((R',X')\), une fleche \((R',X')\to(R,X)\) consiste en un morphisme \(\varphi:R'\to R\) dans \(\mathcal C_\Lambda\) et un morphisme \(\xi:X\to X'\) s'inscrivant dans le diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ X \arrow[rr,"\xi"] \arrow[d] & X_0 \arrow[l,"i_X"'] \arrow[r,"i_{X'}"] \arrow[d] & X' \arrow[d]\\
+ \Spec R & \Spec k \arrow[l] \arrow[r] & \Spec R'.
+\end{tikzcd}
+\]
+On obtient ainsi une categorie \(\mathcal M_{X_0}\) et un foncteur
+\[
+ p:\mathcal M_{X_0}\to\mathcal C_\Lambda,
+ \qquad (R,X)\mapsto R.
+\]
+Si \((R,X)\) est un objet et si \(R\to S\) est un morphisme dans \(\mathcal C_\Lambda\), alors
+\[
+ X_S=X\times_{\Spec R}\Spec S
+\]
+est une deformation de \(X_0\) sur \(S\), et le carre cartesien
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ X_S \arrow[r,"p_1"] \arrow[d,"\mathrm{plat}"'] & X \arrow[d,"\mathrm{plat}"]\\
+ \Spec S \arrow[r,"\Spec(\varphi)"'] & \Spec R
+\end{tikzcd}
+\]
+montre que \(\mathcal M_{X_0}\) est cofibrée sur \(\mathcal C_\Lambda\).
+
+\textbf{4.1.} On utilisera les proprietes suivantes.
+\begin{enumerate}[label=(\alph*)]
+\item Toute fleche au-dessus de l'identite de \(R\) est un isomorphisme. Donc \(\mathcal M_{X_0}\) est cofibrée en groupoides.
+\item Si \(X_0=\Spec A_0\) est affine, toute deformation \((R,X)\) est affine. La fibre \(\mathcal M_{X_0}(R)\) est equivalente a la categorie des \(R\)-algebres plates \(A\), munies d'un morphisme \(A\to A_0\) induisant \(A\otimes_R k\simeq A_0\).
+\item La categorie formelle correspondante \(\widehat{\mathcal M}_{X_0}\) a pour objets, au-dessus de \(R\), des schemas formels \(\mathfrak X\) adiques sur \(\Spf R\), plats modulo toute puissance de l'ideal maximal. Si \(X_0\) est noetherien, c'est la categorie usuelle des deformations formelles de \(X_0\).
+\item Si \(U_0\subset X_0\) est ouvert, la restriction donne \(\mathcal M_{X_0}\to\mathcal M_{U_0}\). De meme un point \(x_0\in X_0\) donne des foncteurs vers les categories de deformations de \(\Spec \mathcal O_{X_0,x_0}\) et de \(\Spec \widehat{\mathcal O}_{X_0,x_0}\).
+\end{enumerate}
+
+\textbf{Lemme 4.2.} Soit un diagramme d'anneaux
+\[
+\begin{tikzcd}
+ R' \arrow[r] & R\\
+ R'' \arrow[u] \arrow[r,two heads] & R_0 \arrow[u]
+\end{tikzcd}
+\]
+ou la fleche indiquee est surjective. Si \(E\) et \(E'\) sont des modules plats sur les deux anneaux superieurs et sont identifies apres changement de base a \(R_0\), leur produit fibre est plat sur l'anneau produit fibre. Autrement dit, si
+\[
+ 0\to I\to R\to R'\to 0
+\]
+est exacte, la suite
+\[
+ 0\to I\otimes E\to E\times E'\to E'\to 0
+\]
+est exacte et fournit l'annulation de Tor necessaire a la platitude.
+
+\textbf{Corollaire 4.3.} Pour un diagramme
+\[
+ (R,X)\longleftarrow(R_0,X_0)\longrightarrow(R',X')
+\]
+dans \(\mathcal M_{X_0}\), avec \(R'\to R_0\) surjectif, la somme amalgamee \(X\amalg_{X_0}X'\) est plate sur \(R\times_{R_0}R'\). Ainsi \(\mathcal M_{X_0}\) est une categorie cofibrée homogene en groupoides sur \(\mathcal C_\Lambda\).
+
+\textbf{Lemme 4.4.} On a une suite exacte canonique
+\[
+ 0\to H^1(X_0,D^0_{X_0})\to [\mathcal M_{X_0}(k[\varepsilon])]
+ \to H^0(X_0,D^1_{X_0}).
+\]
+Dans le cas affine \(X_0=\Spec A_0\), l'ensemble du milieu s'identifie aux classes d'extensions de \(k\)-algebres de \(A_0\) par \(A_0\), donc a \(D^1(A_0\mid k,A_0)\). En general on restreint aux ouverts affines. Le noyau est forme des deformations localement triviales, et le faisceau des automorphismes de la deformation triviale \(X_0\times\Spec k[\varepsilon]\) est \(D^0_{X_0}\); l'argument de Cech donne la suite exacte.
+
+\textbf{Theoreme 4.5.} Soit \(X_0\) un schema de type fini sur \(k\). Supposons soit \(X_0\) propre sur \(k\), soit \(X_0\) affine et que son lieu singulier soit fini. Alors \(\mathcal M_{X_0}\) admet un objet formellement versel sur \(\mathcal C_\Lambda\). Il pro-represente le foncteur des classes d'isomorphie si et seulement si, pour toute surjection \(R'\to R\) et toute deformation \((R',X')\), le morphisme
+\[
+ \Aut_{R'}(X'\mid X_0)\to \Aut_R(X'\otimes_{R'}R\mid X_0)
+\]
+est surjectif. Si \(X_0\) est propre, \(\mathcal M_{X_0}\) est en outre pseudo-representable lisse. La preuve combine l'homogeneite de 4.3, la suite exacte tangentielle de 4.4, et les criteres de 1.11, 2.7 et 2.13.
+
+\textbf{Remarques 4.6.} Dans le cas affine, une deformation formellement verselle existe exactement lorsque \(D^1_{X_0}\) est de support fini. Desormais une deformation de \(X_0\) signifie un objet de \(\mathcal M_{X_0}\). Le nombre \(\dim_k\mathfrak m_R/\mathfrak m_R^2\) pour une deformation formellement verselle ne depend que de \(X_0\), et non du choix de \(\Lambda\).
+
+On applique la meme methode a une paire \(Y_0\subset X_0\). Une deformation de la paire est un diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ Y_0 \arrow[r] \arrow[d] & Y \arrow[d,"\mathrm{plat}"]\\
+ X_0 \arrow[r] \arrow[d] & X \arrow[d,"\mathrm{plat}"]\\
+ \Spec k \arrow[r] & \Spec R,
+\end{tikzcd}
+\]
+qui redonne la paire donnee apres changement de base a \(k\). Ces deformations forment une categorie cofibrée homogene \(\mathcal M_{X_0,Y_0}\).
+
+\textbf{Lemme 4.7.} Soit \(I\) l'ideal de \(Y_0\) dans \(X_0\). La suite
+\[
+0\to H^0\bigl(Y_0,\mathcal Hom_{\mathcal O_{Y_0}}(I/I^2,\mathcal O_{Y_0})\bigr)
+\to [\mathcal M_{X_0,Y_0}(k[\varepsilon])]
+\to [\mathcal M_{X_0}(k[\varepsilon])]
+\]
+est exacte. Le noyau est identifie aux deformations de \(Y_0\) a l'interieur de la deformation triviale de \(X_0\), c'est-a-dire aux morphismes \(I/I^2\to\mathcal O_{Y_0}\), comme l'exprime le diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ 0 \arrow[r] & I \arrow[r] \arrow[d] & \mathcal O_{X_0} \arrow[r] \arrow[d] & \mathcal O_{Y_0} \arrow[r] \arrow[d,equal] & 0\\
+ 0 \arrow[r] & \mathcal O_{Y_0} \arrow[r,"\varepsilon"] & \mathcal O_Y \arrow[r] & \mathcal O_{Y_0} \arrow[r] & 0.
+\end{tikzcd}
+\]
+
+\textbf{Remarque 4.8.} Une formule plus generale, impliquant le lemme 4.7, est donnee dans SGA 5, III, 4.4. On peut aussi definir, pour tout \(S\)-schema \(X\), des faisceaux quasi-coherents \(D^i_{X\mid S}\), et une suite spectrale reliant les groupes globaux d'Ext du complexe cotangent a la cohomologie de ces faisceaux. Les termes de bas degre retrouvent les groupes de tangence, d'indetermination et d'obstruction utilises ci-dessus.
+
+\textbf{Theoreme 4.9.} Soient \(X_0\) un \(k\)-schema de type fini et \(Y_0\subset X_0\) un sous-schema ferme. Supposons \(X_0\) propre, ou bien \(X_0\) affine, lisse hors d'un ensemble fini, et \(Y_0\) propre. Alors \(\mathcal M_{X_0,Y_0}\) admet une deformation formellement verselle, avec le meme critere de pro-representabilite par surjectivite sur les groupes d'automorphismes. Si \(H^0(Y_0,\mathcal Hom(I/I^2,\mathcal O_{Y_0}))\) est fini sur \(k\), la categorie est pseudo-representable lisse.
+
+
+On considere maintenant le passage a la localisation et a la completion. Pour un point fixe \(x_0\in X_0\), on dispose de foncteurs naturels
+\[
+ \mathcal M_{X_0}\longrightarrow
+ \mathcal M_{\Spec(\mathcal O_{X_0,x_0})}
+ \longrightarrow
+ \mathcal M_{\Spec(\widehat{\mathcal O}_{X_0,x_0})},
+\]
+et de meme apres completion formelle. Si \((R,\mathfrak X)\) est une deformation formelle, avec
+\[
+ \mathfrak X=\varprojlim_\nu X_\nu,
+ \qquad X_\nu=\mathfrak X\times_{\Spf R}\Spec(R/\mathfrak m^{\nu+1}),
+\]
+ses images locales et completees sont
+\[
+ \mathfrak X_{(x_0)}=\varprojlim_\nu\Spec(\mathcal O_{X_\nu,x_0}),
+ \qquad
+ \widehat{\mathfrak X}_{(x_0)}=\varprojlim_\nu\Spec(\widehat{\mathcal O}_{X_\nu,x_0}).
+\]
+
+\textbf{Theoreme 4.10.} Soit \(X_0=\Spec(A_0)\) affine de type fini sur \(k\).
+\begin{enumerate}[label=(\alph*)]
+\item Si \(X_0\) est localement intersection complete, alors \(\mathcal M_{X_0}\) est lisse sur \(\mathcal C_\Lambda\).
+\item Si, pour un point ferme \(x\in X_0\), le complement \(X_0-\{x\}\) est lisse sur \(k\), alors les foncteurs
+\[
+ \mathcal M_{X_0}\to\mathcal M_{\Spec(\mathcal O_{X_0,x})}
+ \to\mathcal M_{\Spec(\widehat{\mathcal O}_{X_0,x})}
+\]
+sont minimalement lisses. Ainsi une deformation formellement verselle de \(X_0\) induit des deformations formellement verselles du local et du complete local.
+\end{enumerate}
+La preuve releve une deformation affine a travers une petite extension \(R'\to R\). La suite exacte pour \(R'\to R\to A\), a coefficients dans \(A_0\), contient
+\[
+D^1(A\mid R,A_0)\to D^1(A\mid R',A_0)\to
+D^1(R\mid R',k)\otimes_kA_0\to D^2(A\mid R,A_0).
+\]
+Le dernier terme est nul dans le cas d'intersection complete locale. Pour (b), le corollaire 3.14 identifie les espaces tangents, puis le meme diagramme exact donne la lissite des foncteurs.
+
+\textbf{Theoreme 4.11.} Soit \(X_0\) un \(k\)-schema separe de type fini, lisse hors de \(\{x_1,\ldots,x_r\}\). Choisissons des voisinages affines \(U_0^i\) de ces points, avec \(U_0^i\cap U_0^j\) lisse si \(i\neq j\). Si
+\[
+H^2(X_0,D^0_{X_0})=0,
+\]
+alors
+\[
+\mathcal M_{X_0}\to\mathcal M_{U_0^1}\times\cdots\times\mathcal M_{U_0^r}
+\]
+est lisse. Les deformations locales se relevent sur les ouverts choisis et sur les ouverts lisses d'un recouvrement affine; les isomorphismes sur les intersections donnent un 2-cocycle de Cech a valeurs dans \(D^0_{X_0}\), dont la classe est nulle par hypothese.
+
+\textbf{Remarque 4.12.} La separation de \(X_0\) n'est pas essentielle. Les relevements locaux compatibles forment une gerbe au sens de Giraud, de lien \(D^0_{X_0}\), et l'obstruction a une section globale est encore dans \(H^2(X_0,D^0_{X_0})\).
+
+\textbf{Corollaire 4.13.} Si \(X_0\) est de type fini, lisse hors de \(\{x_1,\ldots,x_r\}\), et si \(H^2(X_0,D^0_{X_0})=0\), alors
+\[
+\mathcal M_{X_0}\to\prod_i\mathcal M_{\Spec(\widehat{\mathcal O}_{X_0,x_i})}
+\]
+est lisse, et
+\[
+\dim\mathcal M_{X_0}=\dim H^1(X_0,D^0_{X_0})+
+\sum_i\dim\mathcal M_{\Spec(\widehat{\mathcal O}_{X_0,x_i})}.
+\]
+Si \(X_0\) est aussi localement intersection complete, \(\mathcal M_{X_0}\) est lisse. La preuve utilise 4.10, 4.9(b) et le diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ h_R \arrow[r] \arrow[d] & h_{R_1\widehat\otimes\cdots\widehat\otimes R_r} \arrow[d]\\
+ \mathcal M_{X_0} \arrow[r] & \prod_i\mathcal M_{\Spec(\widehat{\mathcal O}_{X_0,x_i})}.
+\end{tikzcd}
+\]
+
+\textbf{4.14. Construction explicite.} Si
+\[
+A_0=k[x_1,\ldots,x_n]/(f_1,\ldots,f_r)
+\]
+est donne par une suite reguliere et si \(D^1(A_0\mid k,A_0)\) est de dimension finie, le choix d'une base permet d'ecrire
+\[
+R=\Lambda[[t_1,\ldots,t_d]],\qquad
+B=R[[x_1,\ldots,x_n]]/(G_1,\ldots,G_r),
+\]
+ou \(G_j=F_j-\sum_\nu t_\nu P_{\nu j}\). Alors \(B\) est \(R\)-plat, \(k\otimes_RB\simeq A_0\), et \((R,\Spf B)\) est une deformation formellement verselle.
+
+\textbf{Remarques 4.15--4.16.} Dans le cas affine localement intersection complete a singularites isolees, la deformation formellement verselle provient de la formalisation d'un schema de type fini sur \(R\). Si \(H^2(X_0,D^0_{X_0})=0\), ceci se globalise. La theorie du complexe cotangent relatif donne une formulation uniforme: pour une extension nilpotente de bases, les automorphismes, indeterminations et obstructions sont
+\[
+\Ext^0(X_0,L,I_{X_0}),\quad \Ext^1(X_0,L,I_{X_0}),\quad
+\Ext^2(X_0,L,I_{X_0}),
+\]
+et la suite spectrale
+\[
+E^{p,q}_2=H^p(X_0,D^q_{X_0}(I_{X_0}))\Longrightarrow\Ext^{p+q}(X_0,L,I_{X_0})
+\]
+decrit les obstructions successives : existence locale, recollement des classes locales, puis recollement des solutions locales choisies.
+
+
+\section*{5. Sous-schemas jacobiens formels}
+
+Soit \(X_0\) un schema de type fini sur \(k\), et soit \((R,\mathfrak X)\) une deformation formellement verselle de \(X_0\). Comme \(\mathfrak X\) est un schema formel \(R\)-adique plutot qu'un schema ordinaire sur \(R\), il faut preciser le sens de son lieu non lisse.
+
+Rappelons les ideaux de Fitting. Pour un \(A\)-module de type fini \(E\), choisi une presentation \(K\to F\to E\to0\) avec \(F\) localement libre de rang constant \(n\). On pose
+\[
+ I^p(E)=\operatorname{Im}\bigl(\bigwedge^{n-p}K\otimes\bigwedge^{p}F^\vee\to A\bigr).
+\]
+Ces ideaux sont independants de la presentation. Ils commutent au changement de base et a la localisation, forment une suite croissante, detectent le support pour \(p=0\), se comportent par convolution sur les sommes directes, et passent a la limite projective dans le cas adique noetherien. Ils se globalisent donc en des ideaux quasi-coherents \(I^p_X(E)\). Si \(X\to Y\) est essentiellement de presentation finie, on peut les appliquer a \(\Omega^1_{X/Y}\); les sous-schemas fermes ainsi obtenus sont le point de depart des sous-schemas jacobiens formels.
+
+
+
+% SGA7 pages 121--137 macro additions
+\providecommand{\Der}{\operatorname{Der}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\Fitt}{\operatorname{Fitt}}
+\providecommand{\Jac}{\operatorname{Jac}}
+\providecommand{\Frac}{\operatorname{Frac}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\cJ}{\mathcal J}
+\providecommand{\cI}{\mathcal I}
+\providecommand{\cK}{\mathcal K}
+\providecommand{\cM}{\mathcal M}
+\providecommand{\cN}{\mathcal N}
+\providecommand{\cX}{\mathfrak X}
+\providecommand{\cY}{\mathfrak Y}
+\providecommand{\cS}{\mathfrak S}
+\providecommand{\cZ}{\mathfrak Z}
+\providecommand{\Oo}{\mathcal O}
+\providecommand{\widebar}{\overline}
+
+
+\section*{5. Sous-schémas jacobiens formels, suite}
+
+Nous conservons la notation introduite plus haut pour les idéaux de Fitting \(I^p(E)\).  Pour un morphisme
+\[
+        f:X\longrightarrow Y
+\]
+essentiellement de présentation finie, on note
+\[
+        I^p(X\mid Y)=I^p_X(\Omega^1_{X/Y})
+\]
+l'idéal correspondant de \(X\), et \(J^p(X\mid Y)\) le sous-schéma fermé qu'il définit.  Ainsi
+\[
+        J^0(X\mid Y)\supset J^1(X\mid Y)\supset\cdots .
+\]
+
+\textbf{Théorème 5.3.}  Soit \(f:X\to Y\) essentiellement de présentation finie.  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item Pour tout changement de base \(Y'\to Y\), si \(X'=X\times_Y Y'\), le morphisme canonique
+\[
+        J^p(X'\mid Y')\longrightarrow J^p(X\mid Y)\times_Y Y'
+\]
+est un isomorphisme, pour tout \(p\).
+\item Pour tout \(x\in X\), \(y=f(x)\), la comparaison locale canonique est un isomorphisme
+\[
+        I^p_X(\Omega^1_{X/Y})_x
+        \simeq
+        I^p\bigl(\Omega^1_{\Oo_{X,x}/\Oo_{Y,y}}\bigr).
+\]
+\item Les \(J^p(X\mid Y)\) forment une suite décroissante de sous-schémas fermés.  Un point \(x\) n'appartient plus à \(J^p(X\mid Y)\) dès que \(p\) est strictement plus grand que
+\[
+        \dim_{\kappa(x)}\bigl(\Omega^1_{X/Y}\otimes\kappa(x)\bigr).
+\]
+\item On a \(x\notin J^p(X\mid Y)\) si et seulement si, après remplacement de \(X\) par un voisinage ouvert \(U\) de \(x\), il existe une immersion fermée
+\[
+        i:U\hookrightarrow U'
+\]
+dans un \(Y\)-schéma \(U'\), lisse sur \(Y\) au point \(x'=i(x)\), et de dimension d'immersion relative \(p\) en \(x'\).
+\item Si \(X_1\) et \(X_2\) sont deux \(Y\)-schémas essentiellement de présentation finie et \(X=X_1\times_YX_2\), alors
+\[
+        I^p(X\mid Y)
+        =
+        \sum_{p_1+p_2=p}
+        \pr_1^*I^{p_1}(X_1\mid Y)\,
+        \pr_2^*I^{p_2}(X_2\mid Y).
+\]
+\end{enumerate}
+
+\emph{Démonstration.}  L'assertion (3) est la monotonie élémentaire des idéaux de Fitting.  L'assertion (1) résulte de la formule de changement de base pour ces idéaux et de
+\[
+        \Omega^1_{X'/Y'}\simeq \pr^*\Omega^1_{X/Y}.
+\]
+L'assertion (2) est la même formule après localisation en \(x\).  L'assertion (5) résulte de la formule de somme directe pour les idéaux de Fitting, appliquée à
+\[
+        \Omega^1_{X_1\times_YX_2/Y}
+        \simeq
+        \pr_1^*\Omega^1_{X_1/Y}\oplus
+        \pr_2^*\Omega^1_{X_2/Y}.
+\]
+
+Pour (4), supposons d'abord qu'une telle immersion \(U\hookrightarrow U'\) existe.  Comme \(U'\) est lisse sur \(Y\) en \(x'\), \(\Omega^1_{U'/Y,x'}\) est libre de rang \(p\), et la suite conormale exacte
+\[
+        I/I^2\longrightarrow
+        \Omega^1_{U'/Y}\otimes\Oo_U\longrightarrow
+        \Omega^1_{U/Y}\longrightarrow 0
+\]
+montre que le \(p\)-ième idéal de Fitting est l'idéal unité en \(x\).  Donc \(x\notin J^p(U\mid Y)\), et par suite \(x\notin J^p(X\mid Y)\).
+
+Réciproquement, la question est locale.  Écrivons \(X=\Spec B\), \(Y=\Spec A\), et choisissons une présentation
+\[
+        0\longrightarrow J\longrightarrow P\longrightarrow B\longrightarrow 0,
+        \qquad
+        P=A[x_1,\ldots,x_n].
+\]
+La suite exacte
+\[
+        J/J^2\longrightarrow B\otimes_P\Omega^1_{P/A}
+        \longrightarrow \Omega^1_{B/A}\longrightarrow 0
+\]
+a pour terme médian un module libre de rang \(n\).  La condition \(x\notin J^p(X\mid Y)\) signifie qu'un mineur convenable, de taille \(n-p\), de la matrice jacobienne de générateurs de \(J\), est inversible en \(x\).  Il existe donc des éléments
+\[
+        f_1,\ldots,f_{n-p}\in J
+\]
+tels que
+\[
+        U'=\Spec\bigl(P/(f_1,\ldots,f_{n-p})\bigr)
+\]
+soit lisse sur \(Y\) au point image \(x'\) de \(x\), et que \(U=\Spec B\) s'immerge fermément dans \(U'\).  Cela donne la présentation locale voulue.
+
+Le résultat suivant est le critère jacobien correspondant.
+
+\textbf{Théorème 5.4.}  Soit \(f:X\to Y\) essentiellement de présentation finie.  Supposons qu'il existe un entier \(n\geq 0\) tel que l'une des conditions suivantes soit vérifiée :
+\begin{enumerate}[label=(\arabic*)]
+\item \(f\) est plat et toutes ses fibres sont de dimension \(n\);
+\item \(f\) est une intersection complète relative de dimension virtuelle \(n\), au sens de SGA 6, VIII 1.9.
+\end{enumerate}
+Alors
+\[
+        x\notin J^n(X\mid Y)
+        \quad\Longleftrightarrow\quad
+        f\text{ est lisse en }x.
+\]
+
+\emph{Démonstration.}  D'après le Théorème 5.3(4), \(x\notin J^n(X\mid Y)\) si et seulement si, localement, \(X\) s'immerge dans un \(Y\)-schéma \(U'\), lisse sur \(Y\) en \(x'\), et de dimension relative \(n\).  Il reste à voir qu'une telle immersion est un isomorphisme en \(x\).
+
+Soit
+\[
+        0\longrightarrow I\longrightarrow B'\longrightarrow B\longrightarrow 0
+\]
+la suite exacte des anneaux locaux correspondants, \(B'\) étant l'anneau local de \(U'\) en \(x'\), et \(B\) celui de \(X\) en \(x\).  Posons \(A=\Oo_{Y,y}\).  Dans le cas (1), la platitude donne la suite exacte sur la fibre fermée
+\[
+        0\longrightarrow I/\mathfrak m I
+        \longrightarrow B'/\mathfrak mB'
+        \longrightarrow B/\mathfrak mB
+        \longrightarrow 0,
+\]
+où \(\mathfrak m\) est l'idéal maximal de \(A\).  Les deux anneaux locaux de fibres ont la même dimension \(n\), et \(B'/\mathfrak mB'\) est régulier; on en déduit \(I/\mathfrak m I=0\), donc \(I=0\).
+
+Dans le cas (2), la suite conormale
+\[
+        I/I^2\longrightarrow
+        B\otimes_{B'}\Omega^1_{B'/A}
+        \longrightarrow
+        \Omega^1_{B/A}\longrightarrow 0
+\]
+est exacte.  Comme \(X\) est intersection complète relative et que \(U'\) est lisse, la première flèche est injective et les deux modules qui interviennent ont les rangs prescrits par la dimension virtuelle.  Ces rangs forcent \(I/I^2=0\), donc \(I=0\).
+
+\textbf{Définition 5.5.}  Sous les hypothèses du Théorème 5.4, on écrit simplement
+\[
+        I(X\mid Y)=I^n(X\mid Y),\qquad
+        J(X\mid Y)=J^n(X\mid Y).
+\]
+Ainsi \(J(X\mid Y)\) est le sous-schéma jacobien qui mesure le défaut de lissité.
+
+Nous étendons maintenant la construction aux schémas formels noethériens.  Soient \(\mathfrak X\) un schéma formel noethérien et \(E\) un \(\Oo_{\mathfrak X}\)-module cohérent.  On définit
+\[
+        I^p_{\mathfrak X}(E)(U)=I^p\bigl(\Gamma(U,E)\bigr)
+\]
+pour tout ouvert affine \(U\subset\mathfrak X\).  Si \(\mathfrak X=\varprojlim X_v\) et \(E=\varprojlim E_v\), alors
+\[
+        I^p_{\mathfrak X}(E)=\varprojlim_v I^p_{X_v}(E_v).
+\]
+
+Soient \(S\) un schéma formel noethérien et \(\mathfrak X\) un schéma formel \(S\)-adique, essentiellement de type fini.  Écrivons
+\[
+        \mathfrak X=\varprojlim X_v,\qquad S=\varprojlim S_v,\qquad
+        X_v=\mathfrak X\times_S S_v.
+\]
+Alors
+\[
+        \Omega^1_{\mathfrak X/S}\simeq \varprojlim_v\Omega^1_{X_v/S_v}
+\]
+est un \(\Oo_{\mathfrak X}\)-module cohérent, compatible aux changements de base formels de type fini.
+
+\textbf{Définition 5.6.}  On pose
+\[
+        I^p(\mathfrak X\mid S)=I^p_{\mathfrak X}(\Omega^1_{\mathfrak X/S})
+\]
+et l'on note \(J^p(\mathfrak X\mid S)\) le sous-schéma fermé formel de \(\mathfrak X\) défini par cet idéal.  De façon équivalente,
+\[
+        I^p(\mathfrak X\mid S)=\varprojlim_v I^p(X_v\mid S_v),
+        \qquad
+        J^p(\mathfrak X\mid S)=\varprojlim_v J^p(X_v\mid S_v).
+\]
+On dispose de la comparaison cartésienne avec la fibre fermée :
+\[
+\begin{tikzcd}
+J^p(X_0\mid S_0) \arrow[r] \arrow[d] &
+J^p(\mathfrak X\mid S) \arrow[d]\\
+X_0 \arrow[r] & \mathfrak X .
+\end{tikzcd}
+\]
+Si \(x\) est un point isolé de \(J^p(\mathfrak X\mid S)\), le complété formel de \(J^p(\mathfrak X\mid S)\) en \(x\) est canoniquement la composante connexe correspondante.  En particulier, si
+\[
+        |J^p(X_0\mid S_0)|=\{x_1,\ldots,x_m\}
+\]
+est fini et discret, alors
+\[
+        J^p(\mathfrak X\mid S)
+        \simeq
+        \coprod_{1\leq i\leq m} J^p(\mathfrak X\mid S)_{(x_i)}.
+\]
+
+\textbf{Corollaire 5.7.}  Soient \(S\) noethérien formel et \(\mathfrak X\) un schéma formel \(S\)-adique essentiellement de type fini.
+\begin{enumerate}[label=(\arabic*)]
+\item La formation de \(J^p(\mathfrak X\mid S)\) commute aux changements de base formels :
+\[
+        J^p(\mathfrak X'\mid S')=
+        J^p(\mathfrak X\mid S)\times_S S',
+        \qquad \mathfrak X'=\mathfrak X\times_S S'.
+\]
+\item Les composantes connexes de \(J^p(\mathfrak X\mid S)\) sont en bijection avec celles de \(J^p(X_0\mid S_0)\), et pour chaque point isolé \(x\) de \(J^p(X_0\mid S_0)\) on a un isomorphisme canonique de morceaux locaux complétés
+\[
+        J^p(\mathfrak X\mid S)_{(x)}
+        \simeq
+        J^p(X_0\mid S_0)_{(x)} .
+\]
+En particulier, dans le cas fini discret, on obtient la décomposition en somme disjointe ci-dessus.
+\item Si \(S\) est un schéma noethérien ordinaire, \(S_0\subset S\) un sous-schéma fermé, \(\widehat S\) le complété formel de \(S\) le long de \(S_0\), et
+\[
+        \widehat X=X\times_S\widehat S,
+\]
+alors
+\[
+        J^p(\widehat X\mid \widehat S)
+        =
+        J^p(X\mid S)\times_S \widehat S.
+\]
+Ainsi le sous-schéma jacobien formel est le complété de \(J^p(X\mid S)\) le long de \(J^p(X_0\mid S_0)\).
+\item Si un entier fixé \(n\) satisfait les hypothèses du Théorème 5.4 pour tous les \(X_v\to S_v\), alors \(x\notin J^n(\mathfrak X\mid S)\) si et seulement si \(\mathfrak X\) est formellement lisse sur \(S\) en \(x\).
+\end{enumerate}
+
+\emph{Démonstration.}  Ces assertions résultent directement des énoncés analogues pour les schémas ordinaires, de la compatibilité de \(\Omega^1_{\mathfrak X/S}\) avec le passage à \(X_v/S_v\), et de la formule de changement de base pour les idéaux de Fitting.
+
+\textbf{Remarque 5.8.}  Soit \(\mathfrak X\) \(S\)-adique, essentiellement de type fini, et soit \(x\in\mathfrak X\), d'image \(y\in S\).  On peut aussi considérer le schéma formel local sur \(S_{(y)}\)
+\[
+        \mathfrak X_{(x)}=\varprojlim_v \Spec(\Oo_{X_v,x_v}),
+\]
+muni du morphisme naturel \(\mathfrak X_{(x)}\to\mathfrak X\).  Bien que \(\mathfrak X_{(x)}\) ne soit pas nécessairement essentiellement de type fini sur \(S_{(y)}\), le module complété des différentielles est encore cohérent au sens utile ici :
+\[
+        \Omega^1_{\mathfrak X_{(x)}/S_{(y)}}
+        \simeq
+        \varprojlim_v \widehat{\Omega^1_{\Oo_{X_v,x_v}/\Oo_{S_v,y_v}}}.
+\]
+On obtient ainsi des sous-schémas formels locaux \(J^p(\mathfrak X_{(x)}\mid S)\); si \(x\) est un point isolé de \(J^p(\mathfrak X\mid S)\), le morphisme naturel
+\[
+        J^p(\mathfrak X_{(x)}\mid S)\longrightarrow J^p(\mathfrak X\mid S)
+\]
+identifie la source à la composante locale complétée en \(x\).
+
+Nous aurons aussi besoin de l'image du sous-schéma jacobien dans la base.  L'image ensembliste peut être décrite par les noyaux
+\[
+        \Ker\bigl(\Oo_S\to f_*\Oo_{J^p(\mathfrak X\mid S)}\bigr),
+\]
+mais la formulation par les idéaux de Fitting est plus commode.
+
+\textbf{Définition 5.9.}  Soient \(S\) noethérien formel et
+\[
+        f:\mathfrak X\longrightarrow S
+\]
+un schéma formel \(S\)-adique essentiellement de type fini.  Supposons \(J^p(\mathfrak X\mid S)\) propre sur \(S\).  Alors \(f_*\Oo_{J^p(\mathfrak X\mid S)}\) est cohérent, et l'on définit un idéal de \(S\) par
+\[
+        I^p_S(\mathfrak X\mid S)
+        =
+        I^0_S\bigl(f_*\Oo_{J^p(\mathfrak X\mid S)}\bigr).
+\]
+On note \(J^p_S(\mathfrak X\mid S)\) le sous-schéma fermé formel de \(S\) défini par cet idéal.  Si les hypothèses de dimension fixe du Théorème 5.4 sont en vigueur, on écrit
+\[
+        I_S(\mathfrak X\mid S)=I^n_S(\mathfrak X\mid S),
+        \qquad
+        J_S(\mathfrak X\mid S)=J^n_S(\mathfrak X\mid S).
+\]
+
+\textbf{Corollaire 5.10.}  Sous les hypothèses de la Définition 5.9 :
+\begin{enumerate}[label=(\arabic*)]
+\item L'espace sous-jacent de \(J^p_S(\mathfrak X\mid S)\) est l'image de \(J^p(\mathfrak X\mid S)\) par \(f:\mathfrak X\to S\).
+\item La formation de \(J^p_S(\mathfrak X\mid S)\) commute au changement de base.
+\item Si
+\[
+        J^p(\mathfrak X\mid S)=\coprod_i J^p(\mathfrak X\mid S)_{(x_i)}
+\]
+est la somme disjointe de ses composantes formelles locales isolées, alors
+\[
+        I^p_S(\mathfrak X\mid S)
+        =
+        \prod_i I^p_{S,(x_i)}(\mathfrak X\mid S).
+\]
+\item Dans le cas du complété d'un \(S\)-schéma noethérien ordinaire \(X\), le sous-schéma formel \(J^p_S(\widehat X\mid \widehat S)\) est le complété de \(J^p_S(X\mid S)\).
+\end{enumerate}
+
+\emph{Démonstration.}  L'assertion (1) est la propriété usuelle du support du zéroième idéal de Fitting.  Les assertions (2) et (4) résultent du changement de base des idéaux de Fitting.  L'assertion (3) résulte de la formule de produit pour \(I^0\), appliquée à la décomposition de l'algèbre cohérente \(f_*\Oo_{J^p(\mathfrak X\mid S)}\).
+
+\textbf{Remarque 5.11.}  L'idéal jacobien défini ci-dessus est l'idéal classique : il commute au changement de base et, sous les hypothèses modérées de dimension du Théorème 5.4, donne le critère de lissité.  Il existe aussi des façons plus intrinsèques de définir un lieu non lisse canonique en toute généralité.  Pour une \(A\)-algèbre \(B\), posons
+\[
+        I_{B/A}
+        =
+        \bigcap_E
+        \Ann_B D^1(B\mid A,E),
+\]
+où \(E\) parcourt les \(B\)-modules de type fini.  Cet idéal commute à la localisation d'après le Corollaire 3.13(c).  Ainsi, pour un morphisme \(X\to Y\), on obtient un idéal \(I_{X/Y}\).  Si \(X\to Y\) est essentiellement de type fini, alors \(f\) est lisse en \(x\) si et seulement si
+\[
+        x\notin \Supp(\Oo_X/I_{X/Y})
+\]
+par 3.13(a).  La même construction se transporte aux schémas formels adiques essentiellement de type fini et convient donc également à la théorie des déformations.
+
+\section*{6. Singularités quadratiques non dégénérées}
+
+Le but de cette section est d'étudier les déformations d'un \(k\)-schéma dont les singularités sont des singularités quadratiques non dégénérées isolées.  D'après 4.13, sous les hypothèses considérées ici, la question devient locale.
+
+Nous reprenons les notations de la Section 4.  Ainsi \(A\) est un anneau local noethérien complet de corps résiduel \(k\), et \(\mathcal C_A\) désigne la catégorie des \(A\)-algèbres artiniennes locales de même corps résiduel \(k\).  Soit \(X\) un \(k\)-schéma de type fini, et soit \(x\) un point fermé de \(X\).  Rappelons que \(x\) est une singularité quadratique non dégénérée, rationnelle sur \(k\), si
+\[
+        \widehat{\Oo}_{X,x}
+        \simeq
+        k[[x_1,\ldots,x_n]]/(f)
+\]
+et
+\[
+        \left(\frac{\partial f}{\partial x_1},\ldots,
+        \frac{\partial f}{\partial x_n}\right)=(x_1,\ldots,x_n).
+\]
+On peut alors choisir \(f\) lui-même comme une forme quadratique.
+
+\textbf{Lemme 6.1.}  Soit
+\[
+        f\in k[[x_1,\ldots,x_n]]
+\]
+et supposons
+\[
+        \left(\frac{\partial f}{\partial x_1},\ldots,
+        \frac{\partial f}{\partial x_n}\right)=\mathfrak m=(x_1,\ldots,x_n).
+\]
+Alors il existe des paramètres \(x'_1,\ldots,x'_n\), avec
+\[
+        x_i\equiv x'_i\pmod{\mathfrak m^2},
+\]
+tels que
+\[
+        f=q(x'_1,\ldots,x'_n)
+\]
+pour une forme quadratique \(q\).
+
+\emph{Démonstration.}  Écrivons \(f=f_2+h_1\), où \(f_2\) est quadratique et \(h_1\in\mathfrak m^3\).  Comme les dérivées partielles engendrent \(\mathfrak m\), il existe \(e_i^{(1)}\in\mathfrak m^2\) tels que
+\[
+        \sum_i e_i^{(1)}\frac{\partial f}{\partial x_i}
+        \equiv h_1\pmod{\mathfrak m^4}.
+\]
+En remplaçant \(x_i\) par \(x_i-e_i^{(1)}\), le reste est repoussé dans \(\mathfrak m^4\).  En itérant, on construit \(e_i^{(v)}\in\mathfrak m^{v+1}\) et des paramètres
+\[
+        x_i' = x_i-\sum_{v\geq 1}e_i^{(v)}
+\]
+pour lesquels tous les termes de degré au moins \(3\) disparaissent.  Ainsi \(f\) devient sa partie quadratique dans les nouvelles variables.
+
+\textbf{Lemme 6.2.}  Soit
+\[
+        A_0\simeq k[[x_1,\ldots,x_n]]/(f),
+\]
+où \(f\) est une forme quadratique non dégénérée, et soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0=\Spec A_0\).  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item Les morphismes naturels
+\[
+        J(\mathfrak X\mid R)\longrightarrow J_R(\mathfrak X\mid R)
+        \longrightarrow \Spec A
+\]
+sont des isomorphismes.
+\item L'idéal jacobien de la base est principal :
+\[
+        I_R(\mathfrak X\mid R)=(t),
+        \qquad
+        R=A[[t]],
+\]
+où \(t\) est un générateur formel libre de \(R\) sur \(A\).
+\item Le morphisme \(\mathfrak X\to\Spec A\) est formellement lisse.
+\end{enumerate}
+
+\emph{Démonstration.}  D'après 4.10(b), la déformation formelle verselle s'écrit explicitement
+\[
+        R=A[[t]],\qquad
+        \mathfrak X=
+        \Spf\bigl(R[[x_1,\ldots,x_n]]/(F-t)\bigr),
+\]
+où \(F\) s'obtient à partir de \(f\) en relevant les coefficients à \(A\).  La suite exacte
+\[
+        A_0\xrightarrow{dF}
+        \bigoplus_i A_0\,dx_i
+        \longrightarrow
+        \Omega^1_{A_0/R}
+        \longrightarrow 0
+\]
+montre que
+\[
+        I(\mathfrak X\mid R)=(\partial F/\partial x_1,\ldots,\partial F/\partial x_n)
+        =(x_1,\ldots,x_n)
+\]
+sur la fibre spéciale.  Le sous-schéma jacobien est donc obtenu en imposant \(x_1=\cdots=x_n=0\), et l'équation restante est \(t=0\).  Les morphismes de (1) sont donc des isomorphismes et \(I_R(\mathfrak X\mid R)=(t)\).  Enfin
+\[
+        R[[x_1,\ldots,x_n]]/(F-t)
+        \simeq
+        A[[x_1,\ldots,x_n]]
+\]
+comme \(A\)-algèbre, ce qui prouve la lissité formelle sur \(A\).
+
+\textbf{Corollaire 6.3.}  Soit \(x\in X_0\) une singularité quadratique non dégénérée rationnelle sur \(k\).
+\begin{enumerate}[label=(\arabic*)]
+\item Soient \((R,\mathfrak X_1)\) et \((R,\mathfrak X_2)\) deux déformations de \(X_0\) sur un objet \(R\) de \(\mathcal C_A\), relevant le même point \(x\).  Alors les schémas formels locaux complétés \((\mathfrak X_1)_{(x)}\) et \((\mathfrak X_2)_{(x)}\) sont isomorphes sur \(R\) si et seulement si
+\[
+        I_R((\mathfrak X_1)_{(x)}\mid R)
+        =
+        I_R((\mathfrak X_2)_{(x)}\mid R).
+\]
+\item Soit \(R\) un anneau local régulier et \((R,\mathfrak X)\) une déformation de \(X_0\).  Alors \(\Oo_{\mathfrak X,x}\) est régulier si et seulement si
+\[
+        I_R(\mathfrak X_{(x)}\mid R)\not\subset \mathfrak m_R^2,
+\]
+c'est-à-dire si et seulement si cet idéal jacobien définit un diviseur régulier dans \(\Spf R\).
+\end{enumerate}
+
+\emph{Démonstration.}  Écrivons la déformation formelle verselle sous la forme
+\[
+        A[[t]][[x_1,\ldots,x_n]]/(F-t).
+\]
+Deux déformations induites sur \(R\) sont données par deux éléments \(a,b\in R\) :
+\[
+        R[[x_1,\ldots,x_n]]/(F-a),
+        \qquad
+        R[[x_1,\ldots,x_n]]/(F-b).
+\]
+Leurs idéaux jacobiens sont \((a)\) et \((b)\).  L'égalité de ces idéaux donne \(a=vb\) pour une unité \(v\).  Comme \(R\) est complet et que \(v\) admet une racine carrée par l'argument de relèvement utilisé ici, le changement de variables \(x_i\mapsto v^{1/2}x_i\) identifie les deux équations, puisque \(F\) est quadratique.  La réciproque est immédiate.  La seconde assertion résulte du fait que le quotient de l'anneau local régulier \(R[[x_1,\ldots,x_n]]\) par \(F-a\) est régulier précisément lorsque \(a\notin\mathfrak m_R^2\).
+
+\textbf{Théorème 6.4.}  Soit \(X_0\) un \(k\)-schéma de type fini n'ayant que des points non lisses isolés, et soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0\).  Soit
+\[
+        \{z_1,\ldots,z_m\}
+\]
+l'ensemble des points non lisses de \(X_0\).  Supposons
+\[
+        H^2(X_0,D^0)=0
+\]
+et supposons que tous les \(z_i\) soient des singularités quadratiques non dégénérées, rationnelles sur \(k\).  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item \(R\) est formellement lisse sur \(A\), c'est-à-dire que \(R\) est un anneau de séries formelles sur \(A\).
+\item Le sous-schéma jacobien se décompose en somme disjointe
+\[
+        J(\mathfrak X\mid R)
+        =
+        \coprod_{i=1}^m J(\mathfrak X_{(z_i)}\mid R),
+\]
+et, pour chaque \(i\), les morphismes naturels de la composante jacobienne locale vers son image dans \(\Spf R\) sont des isomorphismes.
+\item L'idéal \(I_R(\mathfrak X_{(z_i)}\mid R)\) est principal.  Si
+\[
+        I_R(\mathfrak X_{(z_i)}\mid R)=(t_i),
+\]
+alors \(t_1,\ldots,t_m\) peuvent être complétés en un système de générateurs formels libres de \(R\) sur \(A\), et
+\[
+        I_R(\mathfrak X\mid R)=\prod_{i=1}^m(t_i).
+\]
+\item Le morphisme \(\mathfrak X\to\Spec A\) est formellement lisse.
+\item Si \(X_0\) est une courbe complète irréductible, alors
+\[
+        \dim_k\mathfrak m_R/\mathfrak m_R^2
+        =
+        3g-3+a,
+\]
+où
+\[
+        g=\dim_k H^1(X_0,\Oo_{X_0}),
+        \qquad
+        a=\dim_k H^0(X_0,D^1).
+\]
+\end{enumerate}
+
+\emph{Démonstration.}  Pour chaque point singulier \(z_i\), soit \((R_i,\mathfrak U_i)\) la déformation formelle verselle de \(\Spec(\Oo_{X_0,z_i})\).  Comme \((R,\mathfrak X)\) induit une déformation de ce schéma local, il existe un morphisme local continu \(R_i\to R\) et un carré cartésien
+\[
+\begin{tikzcd}
+\mathfrak X_{(z_i)} \arrow[r] \arrow[d] &
+\mathfrak U_i \arrow[d]\\
+\Spf R \arrow[r] & \Spf R_i .
+\end{tikzcd}
+\]
+Le Lemme 6.2 donne
+\[
+        J(\mathfrak X_{(z_i)}\mid R)
+        \simeq
+        J(\mathfrak U_i\mid R_i)\times_{\Spf R_i}\Spf R
+\]
+et
+\[
+        I_R(\mathfrak X_{(z_i)}\mid R)=(t_i),
+\]
+où \(t_i\) est l'image dans \(R\) du paramètre local correspondant.  Comme \(H^2(X_0,D^0)=0\), le critère local-global de 4.13 implique que
+\[
+        \Spf R\longrightarrow \prod_i\Spf R_i
+\]
+est formellement lisse dans les directions complémentaires; autrement dit, \(t_1,\ldots,t_m\) se complètent en un système de générateurs formels libres de \(R\).  Ceci prouve (1), (2) et (3).  L'assertion (4) résulte du fait que chaque morceau singulier local est formellement lisse sur \(\Spec A\) par le Lemme 6.2(3), tandis qu'en dehors des \(z_i\) le schéma initial est déjà lisse.
+
+Pour (5), la lissité formelle de \(R\) sur \(A\), jointe à la suite exacte obtenue en 4.4 et 4.11,
+\[
+        0\to H^1(X_0,D^0)\to \mathfrak m_R/\mathfrak m_R^2
+        \to H^0(X_0,D^1)\to 0,
+\]
+donne
+\[
+        \dim_k\mathfrak m_R/\mathfrak m_R^2
+        =
+        \dim_k H^1(X_0,D^0)+\dim_kH^0(X_0,D^1).
+\]
+Il reste donc à calculer la caractéristique d'Euler de \(D^0\) sur la courbe.  Après extension du corps de base à une clôture algébrique, chaque singularité quadratique non dégénérée d'une courbe a pour anneau local complété
+\[
+        k[[x,y]]/(xy).
+\]
+Si \(A=\Oo_{X_0,z}\) et si \(A'\) est sa normalisation, alors
+\[
+        \ell(A'/A)=1,\qquad
+        \Der_k(A,\mathfrak m_A)=\Der_k(A,A),
+\]
+et le conducteur \(C\) de \(A\) dans \(A'\) est \(\mathfrak m_A\).  Par conséquent
+\[
+        \Der_k(A,A)=\Der_k(A',A')
+\]
+comme \(A\)-sous-modules de \(\Der_k(\Frac A,\Frac A)\), et l'on obtient une suite exacte
+\[
+        0\to D^0_{X_0}
+        \to D^0_{\widetilde X_0}
+        \to \Oo_{\widetilde X_0}/C
+        \to 0,
+\]
+où \(\widetilde X_0\) désigne la normalisation.  Comme \(X_0\) est localement intersection complète,
+\[
+        \ell(\Oo_{\widetilde X_0}/C)=2m.
+\]
+Le théorème de Riemann--Roch sur la normalisation donne
+\[
+        \chi(D^0_{\widetilde X_0})=3-3(g-m).
+\]
+Donc
+\[
+        \chi(D^0_{X_0})
+        =
+        \chi(D^0_{\widetilde X_0})-\ell(\Oo_{\widetilde X_0}/C)
+        =
+        3-3g+m,
+\]
+ce qui équivaut à la formule annoncée.
+
+\textbf{Remarque 6.5.}  Dans la formule du Théorème 6.4(5), l'entier
+\[
+        a=\dim_k H^0(X_0,D^1)
+\]
+se calcule facilement par Riemann--Roch :
+\[
+        a=
+        \begin{cases}
+        0,& g\geq 2,\\
+        1,& g=1,\\
+        3,& g=0.
+        \end{cases}
+\]
+Enfin, en caractéristique \(2\), il n'existe pas de forme quadratique non dégénérée en un nombre impair de variables.  De façon équivalente, il n'existe pas de singularité quadratique non dégénérée de dimension paire lorsque \(\operatorname{char}k=2\).  Dans ce cas, on utilise des formes quadratiques de non-dégénérescence maximale.
+
+\textbf{Définition 6.6.}  Soit \(X\) un \(k\)-schéma de type fini.  Un point fermé \(z\in X\) est appelé singularité quadratique ordinaire, rationnelle sur \(k\), si :
+\begin{enumerate}[label=(\roman*)]
+\item soit \(\operatorname{char}k\neq 2\), soit \(\operatorname{char}k=2\) et \(\dim\Oo_{X,z}\) est impair; dans ce cas on demande que \(z\) soit une singularité quadratique non dégénérée rationnelle sur \(k\);
+\item soit \(\operatorname{char}k=2\) et \(\dim\Oo_{X,z}\) est pair; après extension à une clôture algébrique \(\bar k\), l'anneau local complété est de la forme
+\[
+        \bar k[[x_0,x_1,\ldots,x_{2n}]]
+        /\bigl(x_0^2+x_1x_2+\cdots+x_{2n-1}x_{2n}\bigr).
+\]
+\end{enumerate}
+
+\textbf{Lemme 6.7.}  Supposons \(\operatorname{char}k=2\), et posons
+\[
+        A_0=
+        k[[x_0,x_1,\ldots,x_{2n}]]/(f),
+        \qquad
+        f=x_0^2+x_1x_2+\cdots+x_{2n-1}x_{2n}.
+\]
+Soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0=\Spec A_0\).  Alors
+\[
+        R=A[[t_1,t_2]],
+\]
+où \(t_1,t_2\) sont des générateurs formels libres sur \(A\),
+\[
+        I_R(\mathfrak X\mid R)=(t_1^2),
+\]
+et \(\mathfrak X\to\Spec A\) est formellement lisse.
+
+\emph{Démonstration.}  Comme
+\[
+        \left(\frac{\partial f}{\partial x_0},
+        \frac{\partial f}{\partial x_1},\ldots,
+        \frac{\partial f}{\partial x_{2n}}\right)
+        =
+        (x_2,x_1,\ldots,x_{2n},x_{2n-1}),
+\]
+l'espace de déformation a deux paramètres formels.  D'après 4.14, la déformation verselle s'écrit
+\[
+        R=A[[t_1,t_2]],\qquad
+        \mathfrak X=
+        \Spf\bigl(R[[x_0,\ldots,x_{2n}]]/(F)\bigr),
+\]
+avec
+\[
+        F=f+t_1+t_2x_0.
+\]
+La suite exacte des différentielles donne
+\[
+        I(\mathfrak X\mid R)=(t_2,x_1,\ldots,x_{2n}),
+\]
+et l'équation résiduelle sur le lieu jacobien est \(t_1\).  L'idéal induit sur la base est donc \((t_1^2)\).  De plus, l'équation se réécrit de telle sorte que le schéma formel total soit formellement lisse sur \(A\), ce qui prouve la dernière assertion.
+
+\textbf{Corollaire 6.8.}  Soit \(X_0\) un \(k\)-schéma de type fini n'ayant que des points non lisses isolés, et soit \((R,\mathfrak X)\) une déformation formelle verselle de \(X_0\).  Supposons
+\[
+        H^2(X_0,D^0)=0,
+\]
+\(\operatorname{char}k=2\), \(\dim X_0\) paire, et tous les points non lisses \(z_1,\ldots,z_m\) des singularités quadratiques ordinaires.  Alors :
+\begin{enumerate}[label=(\arabic*)]
+\item \(R\) est formellement lisse sur \(A\).
+\item Chaque idéal jacobien local de la base est principal de la forme
+\[
+        I_R(\mathfrak X_{(z_i)}\mid R)=(t_i^2),
+\]
+et
+\[
+        I_R(\mathfrak X\mid R)=\prod_i (t_i^2).
+\]
+De plus, \(t_1,\ldots,t_m\) peuvent être complétés en un système de générateurs formels libres de \(R\) sur \(A\).
+\item Le morphisme \(\mathfrak X\to\Spec A\) est formellement lisse.
+\item Si \(k\) est algébriquement clos et si \(X_0\) est une courbe complète irréductible, alors
+\[
+        \dim_k\mathfrak m_R/\mathfrak m_R^2=3g-3+a,
+\]
+où
+\[
+        g=\dim_kH^1(X_0,\Oo_{X_0}),
+        \qquad
+        a=\dim_kH^0(X_0,D^1).
+\]
+\end{enumerate}
+
+La démonstration est celle du Théorème 6.4, en remplaçant le Lemme 6.2 par le Lemme 6.7 pour le calcul local en caractéristique \(2\).
+
+\end{document}
