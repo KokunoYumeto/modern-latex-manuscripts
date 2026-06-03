@@ -4,9 +4,10 @@ This scan lists reader-visible residual marker language after the 2026-06-03 Cay
 
 It is a triage list, not a claim that every listed item has equal severity. Several hits are honest notices for very large tables or plates that need a dedicated table/diagram reconstruction pass rather than a quick TikZ replacement.
 
-Found **19** reader-visible residual hits after the Volume X p. 347 annexed
+Found **18** reader-visible residual hits after the Volume X p. 347 annexed
 diagram and Volume V p. 463 secondary-caustic plot were replaced with native
-TeX on 2026-06-03.
+TeX on 2026-06-03, and after the Volume XI p. 72 stale marker was removed
+because the table is already transcribed.
 
 | Volume Reader | Reader Page | Marker | Notes |
 |---|---:|---|---|
@@ -24,7 +25,6 @@ TeX on 2026-06-03.
 | Volume V | 339 | `[Figure:` | but this is a subject which I do not enter upon in the present Memoir. Cambridge, February 8, 1864. [Figure: Plate III, illustrating the Hyperbolas A Defective discussed in Arts. 7 |
 | Volume V | 432 | `[Figure:` |  135◦ −1 √ 2, 1 √ 2 −1 √ 2 1 √ 2 0 1 √ 2(−i + j) Axial System of the Dodecahedron and Icosahedron. [Figure: extensive tabular listing across two pages (pp. 534535 in original) of |
 | Volume X | 396 | `unreadable` | comprising S0, S1, S2, S3 occupy printed pages 397398 in seven columns. As the entries are partly unreadable in the scan (typesetter has compressed and broken many fraction-bars), |
-| Volume XI | 72 | `[Figure:` | p. 120 89 −20 −19 −13 −11 7 5 5 7 −3 −4 −5 −8 p. 151 97 −22 −16 −17 −19 10 5 5 5 −3 −4 9 −4 p. 187 [Figure: large table of computed values, transcribed above.] |
 | Volume XI | 73 | `[Figure:` | 101125 Cayley  Collected Papers, Vol. XI Table of the Powers of Reuschle's Selected Prime Roots. [Figure: a large arithmetical table 65 columns wide listing powers gk (mod p) for |
 | Volume XI | 74 | `[Figure:` | Pages 101125 Cayley  Collected Papers, Vol. XI Table (continued). [Figure: continuation of the table of powers of Reuschle's selected prime roots, spanning further values of the  |
 | Volume XIII | 263 | `[Figure:` | n fact formed the squares for the weights 11 to 16, not in this manner but by the MacMahon linkage. [Figure: Square diagrams for weights w = 2 through w = 10. Each diagram lists po |
