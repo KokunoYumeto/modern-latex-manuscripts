@@ -44,3 +44,9 @@ This plan records which mixed shelves should be split into dedicated author reco
 4. Create Dedekind and Dirichlet author records. Done: concept DOIs `10.5281/zenodo.20520669` and `10.5281/zenodo.20520679`.
 5. Create Cayley author record. Done: concept DOI `10.5281/zenodo.20520749`.
 6. Hold Steinitz until the local bilingual packet is checked and mirrored.
+
+## Same-Day Author Record Refreshes
+
+| Author | Concept DOI | Refreshed version DOI | Payload |
+|---|---|---|---|
+| Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20521540` | Replaced repaired Volume VI, VII, VIII, XI, and XIII readers plus refreshed `Cayley_source_and_manifest_20260603.zip`. |
