@@ -10,6 +10,7 @@ Public links should prefer the concept DOI, because it resolves to the all-versi
 | Richard Dedekind | https://doi.org/10.5281/zenodo.20520669 | n/a | https://doi.org/10.5281/zenodo.20520670 | 10 | 17,707,752 bytes | New dedicated author record with collected-works PDFs, German/English source-checked readers, and compact source/manifest ZIP. |
 | P. G. Lejeune Dirichlet | https://doi.org/10.5281/zenodo.20520679 | n/a | https://doi.org/10.5281/zenodo.20520680 | 3 | 53,776,871 bytes | New dedicated author record with original-language and English cumulative Band II readers plus compact source/manifest ZIP. |
 | James Joseph Sylvester | https://doi.org/10.5281/zenodo.20520692 | n/a | https://doi.org/10.5281/zenodo.20520693 | 2 | 295,530,049 bytes | New dedicated author record with Volume I through book page 218 reader plus source/manifest ZIP. |
+| Ukrainian applied mathematics | https://doi.org/10.5281/zenodo.20490906 | `10.5281/zenodo.20498682` | https://doi.org/10.5281/zenodo.20520721 | 19 | 13,910,636 bytes | Same-concept update with current reader PDFs 00-17 and compact Ukrainian applied-math source ZIP. |
 
 Upload staging manifests were generated at:
 

@@ -19,7 +19,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | SGA | 20410947 | `10.5281/zenodo.20520554` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 96 |
 | Noether | 20412587 | `10.5281/zenodo.20520501` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 15 |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
-| Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20498682` | 2026-06-01 engineering library public reader |
+| Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 Cayley slices plus Dedekind/Dirichlet starts |
 | Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh |
 | Gauss | 20410934 | `10.5281/zenodo.20503774` | 2026-06-02 Gauss cumulative readers plus Band II pilot |
@@ -91,7 +91,7 @@ Local/GitHub state:
 
 Action: published Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 15 complete; French pilot only where actually complete.
 
-### 4. Ukrainian applied mathematics
+### 4. Ukrainian applied mathematics - completed
 
 Public Zenodo is behind local/GitHub.
 
@@ -101,7 +101,7 @@ Local GitHub state:
 - Source packet: `sources/ukrainian-applied-math/high-density-state-estimation-lie-vio-kalman-2026-06-02/`.
 - Metadata file `zenodo-metadata/metadata_satellite_ukrainian_applied_math_current.json` already describes the current high-density update.
 
-Action: publish the Ukrainian record update as a normal mathematics/engineering translation update. Do not add special safety framing.
+Action: published the Ukrainian record update as a normal mathematics/engineering translation update. No special safety framing was added.
 
 ### 5. Non-European / multilingual
 
