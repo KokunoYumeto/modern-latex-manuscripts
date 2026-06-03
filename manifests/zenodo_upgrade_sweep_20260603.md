@@ -17,7 +17,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Main landing / raw provenance | 20393488 | `10.5281/zenodo.20458953` | 2026-06-01 landing/provenance refresh |
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
 | SGA | 20410947 | `10.5281/zenodo.20520554` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 96 |
-| Noether | 20412587 | `10.5281/zenodo.20520501` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 15 |
+| Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
 | Cayley | 20520749 | `10.5281/zenodo.20523305` | 2026-06-03 dedicated Cayley author record refresh: rebuilt Volume IV and X readers plus refreshed residual-marker/source bundle |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
@@ -35,6 +35,7 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---|---|---:|---:|---|
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20520554` | 77 | 1,222,595,716 bytes | Same-concept update with SGA 6 complete through indexes/source pages 693-702 and SGA7-I through source page 96. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
+| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | 93 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 15 with Paper 18 cumulative readers and adding standalone Paper 17 sections 10-12 plus Paper 18 ES/JA readers. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522228` | 14 | 166,149,960 bytes | Same-concept update replacing the rebuilt 421-page Volume II reader and refreshed source/manifest ZIP after Paper 109 determinant-array repair. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20523305` | 14 | compact patch | Same-concept update replacing the Volume IV and Volume X readers after the native hexahedron-net and theta-characteristic symbol repairs; refreshed source/manifest ZIP includes the residual marker scan and unpromoted Vol XIII quarantine packet. |
@@ -81,7 +82,7 @@ Local GitHub state now includes:
 
 Action: instead of refreshing the mixed shelf again, created dedicated Cayley, Dedekind, and Dirichlet author records. Keep raw/provenance heavy bundles on the main landing record and keep the mixed shelf as an umbrella/backstop.
 
-### 3. Noether - completed
+### 3. Noether - completed through Paper 18 ES/JA
 
 Public Zenodo is behind both the canonical numbered-paper completion and the multilingual lane.
 
@@ -89,12 +90,12 @@ Local/GitHub state:
 
 - German/English numbered-paper readers through Paper 43 are present.
 - Product-table patch is integrated as separate top-level readers (`54`, `55`) and in the canonical audit package.
-- Spanish/Japanese GitHub readers are present through Paper 15.
-- New front-facing readers `74` through `77` add cumulative Spanish/Japanese through Paper 15 and standalone Paper 15 Spanish/Japanese readers.
-- Current source packet: `sources/noether/multilingual-spanish-japanese-through-paper15-complete-2026-06-03/`.
+- Spanish/Japanese GitHub and Zenodo readers are present through Paper 18.
+- Front-facing readers `74` and `75` are cumulative Spanish/Japanese through Paper 18; readers `78` and `79` add standalone Paper 17 sections 10-12 plus Paper 18 Spanish/Japanese translations.
+- Current source packet: `sources/noether/multilingual-spanish-japanese-through-paper18-complete-2026-06-03/`.
 - Canonical final audit folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether restart fidelity\Noether_FINAL_AUDIT_numbered_papers_complete_PATCHED`.
 
-Action: published Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 15 complete; French pilot only where actually complete.
+Action: published Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 18 complete; French pilot only where actually complete.
 
 ### 4. Ukrainian applied mathematics - completed
 
