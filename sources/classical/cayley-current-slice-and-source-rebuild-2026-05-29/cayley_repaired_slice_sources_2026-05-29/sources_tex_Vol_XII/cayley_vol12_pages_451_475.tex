@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
@@ -314,7 +315,7 @@ where $f_{1}$, $f_{2}$, \ldots, $f_{m}$ denote rational and integral functions o
 
 It is to be shown that the degrees of these functions are equal respectively to $2$, $4$, \ldots, $m$ at most. Supposing that the degrees are $2$, $4$, \ldots, $2m$; then for the points at infinity we find an expansion $y = Ax^{n} + \cdots$, in descending powers of $x$, by substitution in an equation
 \[
-y^{m} + a_{1}x\,y^{m-1} + a_{2}x^{2}\,y^{m-2} + \cdots + a_{m}x^{m} = 0;
+y^{m} + a_{1}x^{2}y^{m-1} + a_{2}x^{4}y^{m-2} + \cdots + a_{m}x^{2m} = 0;
 \]
 whence $n = 2$, and $A$ is determined by an equation of the order $m$; there are thus $m$ branches $y = x^{2}\,P(x^{-1})$, corresponding to permissive points. If, however, any one of the $y$ functions be of a higher degree, then it may be shown (but the formal proof is not easily given) that there will be at any rate a branch $y = Ax^{n} + \&c.$, where $n$ has a value $>2$, and we have thus a prohibitive point; hence the degrees must be as stated.
 
@@ -322,23 +323,36 @@ whence $n = 2$, and $A$ is determined by an equation of the order $m$; there are
 
 \noindent 16.\quad As an example of a differential equation with a monotropic solution, take
 \[
-\left(\frac{du}{dz}\right)^{2} = \left(\frac{du}{dz}\right) + 27u^{2} - 4 = 0;
+\left(\frac{du}{dz}\right)^{3} + 3\left(\frac{du}{dz}\right)^{2} + 27u^{2} - 4 = 0;
 \]
 we have here the curve
 \[
-y^{3} = 3y + 27x^{2} - 4 = 0,
+y^{3} + 3y^{2} + 27x^{2} - 4 = 0,
 \]
 which is a nodal cubic, as shown in the annexed figure. To put the node in evidence, the equation may be written in the form $(y+2)^{2}(y-1) + 27x^{2} = 0$; viz.\ the node is the point $(0,-2)$, and the equation of the tangents is $(y+2)^{2} - 27x^{2} = 0$. The curve besides meets the line $x=0$ in the point $y=1$, where the tangent is horizontal, and it meets the axis $y=0$ in the points $x = \pm \dfrac{2}{3\sqrt{3}}$, at each of which the tangent is vertical; these two points, as lying on the axis $y=0$, are thus each of them permissive; and they are the only points where the tangent is vertical (in fact, the tangents from the point at infinity on the line $x=0$ are the two lines $x = \pm \dfrac{2}{3\sqrt{3}}$, and the line infinity counting twice, as a tangent at an inflexion).
 
-\textit{[Figure: nodal cubic curve $y^{3} - 3y + 27x^{2} - 4 = 0$, showing the loop at the node $(0,-2)$ with branches descending and the upper smooth arc through $(0,1)$.]}
+\begin{center}
+\begin{tikzpicture}[scale=0.82, line cap=round, line join=round]
+  \draw[->] (-1.45,0) -- (1.65,0) node[right] {$x$};
+  \draw[->] (0,-2.20) -- (0,1.70) node[above] {$y$};
+  \draw
+    (0,1.30)
+      .. controls (-0.68,1.20) and (-0.70,0.25) .. (0,-1.25)
+      .. controls (0.70,0.25) and (0.68,1.20) .. (0,1.30);
+  \draw (0,-1.25) .. controls (-0.20,-1.55) and (-0.43,-1.90) .. (-0.58,-2.15);
+  \draw (0,-1.25) .. controls (0.20,-1.55) and (0.43,-1.90) .. (0.58,-2.15);
+  \draw[fill=white] (0,0) circle (1.5pt);
+  \node at (0,-2.50) {\small Fig.\ 1.};
+\end{tikzpicture}
+\end{center}
 
-For the points at infinity, we have $y = -3x^{\frac{2}{3}} - 1 - \tfrac{1}{3}x^{-\frac{2}{3}} + \&c.$, which is of the form $y = x^{\frac{2}{3}}P\!\left(\dfrac{1}{x^{1/3}}\right)$, included in $y = x^{1+\varepsilon/n}\,P(x^{-1/n})$, and the point is thus permissive; there is no prohibitive point, and the differential equation has a monotropic solution. This is, in fact, the rational solution $u = (z-c) - (z-c)^{3}$, or say $u = z - z^{3}$; the curve is thus given by the two equations $x = z - z^{3}$, $y = 1 - 3z^{2}$.
+For the points at infinity, we have $y = -3x^{\frac{2}{3}} - 1 - \tfrac{1}{3}x^{-\frac{2}{3}} + \&c.$, which is of the form $y = x^{\frac{2}{3}}P\!\left(\dfrac{1}{x^{1/3}}\right)$, included in $y = x^{1-1/n}\,P\!\left(\dfrac{1}{x^{1/n}}\right)$, and the point is thus permissive; there is no prohibitive point, and the differential equation has a monotropic solution. This is, in fact, the rational solution $u = (z-c) - (z-c)^{3}$, or say $u = z - z^{3}$; the curve is thus given by the two equations $x = z - z^{3}$, $y = 1 - 3z^{2}$.
 
 \medskip
 
 \noindent 17.\quad As a second example, take the differential equation
 \[
-\left(\frac{du}{dz}\right)^{3} - \left(\frac{du}{dz}\right)^{2} + 27u^{2} - 4 = 0.
+\left(\frac{du}{dz}\right)^{3} - \left(\frac{du}{dz}\right)^{2} + 4u^{2} - 27u^{4} = 0.
 \]
 We have here the curve
 \[
@@ -346,11 +360,26 @@ y^{3} - y^{2} + 4x^{2} - 27x^{4} = 0,
 \]
 which is a trinodal quartic curve, as shown in the figure. There is a node at the origin with the tangents $y^{2} - 4x^{2} = 0$, and, writing the equation in the form
 \[
-(3y+1)^{2}(3y-2)^{2} - 8(27x^{2}-2)^{2} = 0,
+(3y+1)(3y-2)^{2} - (27x^{2}-2)^{2} = 0,
 \]
-we have for the other two nodes $x = \pm \dfrac{1}{3\sqrt{3}}$, $y = \dfrac{2}{3}$. The lowest points are given by $x = \pm \dfrac{2}{3\sqrt{3}}$, $y = -\dfrac{1}{3}$; viz.\ the line $y = -\dfrac{1}{3}$ is a horizontal tangent. Writing $x=0$, we have $y^{3} - y^{2} = 0$, that is, $y^{2} = 0$, the node at the origin, and $y=1$, the height of the loop; and, writing $y=0$, we have $4x^{2} - 27x^{4} = 0$, that is, $x^{2} = 0$, the node at the origin, and $x = \pm \dfrac{2}{3\sqrt{3}}$, the other two intersections with the axis of $x$. The tangents at these two points are vertical; as being on the axis, they are thus permissive points. And they are the only points with a vertical tangent; in fact, the point $(x=0, y=\infty)$ is a point of the curve, with the line $\infty$ as an osculating tangent (4-pointic intersection); hence the tangents from the point $x=0$, $y=\infty$ are the line $\infty$ counting four times, and the lines $x = \pm \dfrac{2}{3\sqrt{3}}$, touching at the points $\left(\pm \dfrac{2}{3\sqrt{3}},\, -\dfrac{1}{3}\right)$, as above.
+we have for the other two nodes $x = \pm \dfrac{\sqrt{2}}{3\sqrt{3}}$, $y = \dfrac{2}{3}$. The lowest points are given by $x = \pm \dfrac{2}{3\sqrt{3}}$, $y = -\dfrac{1}{3}$; viz.\ the line $y = -\dfrac{1}{3}$ is a horizontal tangent. Writing $x=0$, we have $y^{3} - y^{2} = 0$, that is, $y^{2} = 0$, the node at the origin, and $y=1$, the height of the loop; and, writing $y=0$, we have $4x^{2} - 27x^{4} = 0$, that is, $x^{2} = 0$, the node at the origin, and $x = \pm \dfrac{2}{3\sqrt{3}}$, the other two intersections with the axis of $x$. The tangents at these two points are vertical; as being on the axis, they are thus permissive points. And they are the only points with a vertical tangent; in fact, the point $(x=0, y=\infty)$ is a point of the curve, with the line $\infty$ as an osculating tangent (4-pointic intersection); hence the tangents from the point $x=0$, $y=\infty$ are the line $\infty$ counting four times, and the lines $x = \pm \dfrac{2}{3\sqrt{3}}$, touching at the points $\left(\pm \dfrac{2}{3\sqrt{3}},\, -\dfrac{1}{3}\right)$, as above.
 
-\textit{[Figure: trinodal quartic curve $y^{3} - y^{2} + 4x^{2} - 27x^{4} = 0$, showing the three nodes and the lower loops with horizontal tangent at $y=-\tfrac{1}{3}$.]}
+\begin{center}
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+  \draw[->] (-1.85,0) -- (1.95,0) node[right] {$x$};
+  \draw[->] (0,-1.45) -- (0,2.55) node[above] {$y$};
+  \draw
+    (0,0)
+      .. controls (-0.78,-0.92) and (-1.22,-0.88) .. (-1.10,0.05)
+      .. controls (-0.98,1.20) and (-0.54,1.82) .. (0,1.90)
+      .. controls (0.54,1.82) and (0.98,1.20) .. (1.10,0.05)
+      .. controls (1.22,-0.88) and (0.78,-0.92) .. (0,0);
+  \draw (-1.35,2.45) -- (0,0) -- (0.78,-1.08);
+  \draw (1.35,2.45) -- (0,0) -- (-0.78,-1.08);
+  \draw[fill=white] (0,0) circle (1.5pt);
+  \node at (0,-1.78) {\small Fig.\ 2.};
+\end{tikzpicture}
+\end{center}
 
 For the infinite branches, we have $y = 3^{\frac{2}{3}}x^{\frac{4}{3}} + \cdots$, which is of the right form $y = x^{1+\frac{1}{3}}P\!\left(\dfrac{1}{x^{1/3}}\right)$. We thus see that there is no prohibitive point; and the differential equation has a monotropic solution accordingly.
 
