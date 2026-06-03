@@ -11,6 +11,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{pdfpages}
 \usepackage[english,shorthands=off]{babel}
 \usepackage{fancyhdr}
@@ -29,6 +30,10 @@
 \providecommand{\page}{p.}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{Pages 401--425}\fancyhead[R]{Cayley --- Collected Papers, Vol. X}\renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{15pt}
+\tikzset{
+  cayley black edge/.style={->,line cap=round,line join=round,semithick},
+  cayley dotted edge/.style={->,line cap=round,line join=round,semithick,densely dotted}
+}
 
 \begin{document}
 
@@ -1075,7 +1080,64 @@ of the order $12$ upon $12$ letters, where the number of independent substitutio
 
 \medskip
 
-\textit{[Figure: a planar diagram of $12$ labelled points $a, b, c, d, e, f, g, h, i, j, k, l$ arranged in two rows of alternating triangles; continuous (``black'') directed edges form four triangles representing one substitution of order~3, and dotted (``red'') directed edges form four triangles representing a second independent substitution of order~3. Each vertex has exactly one outgoing black and one outgoing dotted edge.]}
+\begin{center}
+\begin{tikzpicture}[scale=0.84,every node/.style={font=\scriptsize}]
+  % Source figure on printed p. 404.  Solid arrows are Cayley's
+  % black triangles B = abc.def.ghi.jkl; dotted arrows are
+  % R = ajg.bif.cek.dhl.
+  \coordinate (a)  at (-3.60, 1.20);
+  \coordinate (b)  at (-1.80, 1.20);
+  \coordinate (i)  at ( 0.00, 1.20);
+  \coordinate (g)  at ( 1.80, 1.20);
+  \coordinate (ar) at ( 3.60, 1.20);
+  \coordinate (j)  at (-4.40, 0.00);
+  \coordinate (c)  at (-2.10, 0.00);
+  \coordinate (f)  at (-0.70, 0.00);
+  \coordinate (h)  at ( 0.70, 0.00);
+  \coordinate (jr) at ( 2.10, 0.00);
+  \coordinate (k)  at (-3.60,-1.20);
+  \coordinate (e)  at (-1.80,-1.20);
+  \coordinate (d)  at ( 0.00,-1.20);
+  \coordinate (l)  at ( 1.80,-1.20);
+  \coordinate (kr) at ( 3.60,-1.20);
+
+  \foreach \p/\lab in {a/a,b/b,i/i,g/g,ar/a,j/j,c/c,f/f,h/h,jr/j,k/k,e/e,d/d,l/l,kr/k}
+    \node at (\p) [circle,inner sep=1pt] {$\lab$};
+
+  \draw[cayley black edge] (a) -- (b);
+  \draw[cayley black edge] (b) -- (c);
+  \draw[cayley black edge] (c) -- (a);
+
+  \draw[cayley black edge] (d) -- (e);
+  \draw[cayley black edge] (e) -- (f);
+  \draw[cayley black edge] (f) -- (d);
+
+  \draw[cayley black edge] (g) -- (h);
+  \draw[cayley black edge] (h) -- (i);
+  \draw[cayley black edge] (i) -- (g);
+
+  \draw[cayley black edge] (j) -- (k);
+  \draw[cayley black edge] (k) -- (l);
+  \draw[cayley black edge] (l) -- (jr);
+  \draw[cayley black edge] (jr) -- (kr);
+
+  \draw[cayley dotted edge] (a) -- (j);
+  \draw[cayley dotted edge] (j) -- (g);
+  \draw[cayley dotted edge] (g) -- (ar);
+
+  \draw[cayley dotted edge] (b) -- (i);
+  \draw[cayley dotted edge] (i) -- (f);
+  \draw[cayley dotted edge] (f) -- (b);
+
+  \draw[cayley dotted edge] (c) -- (e);
+  \draw[cayley dotted edge] (e) -- (k);
+  \draw[cayley dotted edge] (k) -- (c);
+
+  \draw[cayley dotted edge] (d) -- (h);
+  \draw[cayley dotted edge] (h) -- (l);
+  \draw[cayley dotted edge] (l) -- (d);
+\end{tikzpicture}
+\end{center}
 
 \medskip
 
