@@ -22,7 +22,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
-| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh |
+| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.283 |
 | Gauss | 20410934 | `10.5281/zenodo.20503774` | 2026-06-02 Gauss cumulative readers plus Band II pilot |
 | Weber | 20412153 | `10.5281/zenodo.20498553` | 2026-06-01 Weber through Volume I section 147 |
 | Deligne | 20410853 | `10.5281/zenodo.20498666` | 2026-06-01 Manin 1987 letter sections 1 through 5 |
@@ -38,6 +38,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522228` | 14 | 166,149,960 bytes | Same-concept update replacing the rebuilt 421-page Volume II reader and refreshed source/manifest ZIP after Paper 109 determinant-array repair. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20523305` | 14 | compact patch | Same-concept update replacing the Volume IV and Volume X readers after the native hexahedron-net and theta-characteristic symbol repairs; refreshed source/manifest ZIP includes the residual marker scan and unpromoted Vol XIII quarantine packet. |
+| Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20523526` | 2 | 47,585,722 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 283. |
 
 ### 1. SGA - completed
 
@@ -130,7 +131,7 @@ Local state noted by external thread:
 - Sylvester Volume I cumulative through book pp. 1-218 is mirrored in GitHub from `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\sylvester_batch12`, with source PDF pp. 19-236 and source-page PNGs included.
 - The local formula-crop assist workflow is useful as localization/checking support, not insertion-grade TeX.
 
-Action: create a dedicated Sylvester author-level record rather than leaving it buried inside the general author cluster. Staged metadata: `zenodo-metadata/metadata_author_sylvester_current.json`. Keep the cluster as a temporary shelf only for less mature starts.
+Action: dedicated Sylvester author-level record was created and then patched through book page 283. Keep the cluster as a temporary shelf only for less mature starts.
 
 ### 6a. Dedicated author-record split
 
