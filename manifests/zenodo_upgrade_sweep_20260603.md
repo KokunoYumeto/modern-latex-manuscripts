@@ -20,7 +20,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Noether | 20412587 | `10.5281/zenodo.20520501` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 15 |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20488731` | 2026-06-01 al-Battani table phase 5 |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
-| Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 Cayley slices plus Dedekind/Dirichlet starts |
+| Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
 | Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh |
 | Gauss | 20410934 | `10.5281/zenodo.20503774` | 2026-06-02 Gauss cumulative readers plus Band II pilot |
 | Weber | 20412153 | `10.5281/zenodo.20498553` | 2026-06-01 Weber through Volume I section 147 |
@@ -34,6 +34,7 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---|---|---:|---:|---|
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20520554` | 77 | 1,222,595,716 bytes | Same-concept update with SGA 6 complete through indexes/source pages 693-702 and SGA7-I through source page 96. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
+| Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
 
 ### 1. SGA - completed
 
@@ -53,7 +54,7 @@ Local GitHub state:
 
 Action: published a new SGA version using existing metadata `zenodo-metadata/metadata_satellite_sga_working_translation_public_current.json`, now updated to describe the complete page-702 SGA 6 edition and the SGA 7-I source-page-96 continuation.
 
-### 2. Classical shelf - Cayley/Dedekind/Dirichlet
+### 2. Classical shelf - Cayley/Dedekind/Dirichlet author split completed
 
 Public Zenodo predates the newest Cayley repairs and some current local GitHub reader hashes.
 
@@ -74,7 +75,7 @@ Local GitHub state now includes:
 - Current Volume XII reader hash: `f018c62296595f43871ca153fba52030f937b8f9eafe5136fe3af58131c1624b`.
 - Current Volume XIII reader hash: `c638a651e2010f3f873bcf337711a31ad29401e48c5d49762d8af0539ff9f7ff` (487 pages; 6125844 bytes).
 
-Action: publish a new classical-shelf version with current reader PDFs and the current status/manifest. Keep raw/provenance heavy bundles on the main landing record.
+Action: instead of refreshing the mixed shelf again, created dedicated Cayley, Dedekind, and Dirichlet author records. Keep raw/provenance heavy bundles on the main landing record and keep the mixed shelf as an umbrella/backstop.
 
 ### 3. Noether - completed
 
@@ -132,7 +133,7 @@ Action: create a dedicated Sylvester author-level record rather than leaving it 
 
 The following dedicated author records should be created once an authenticated Zenodo API token is available. Until then, their material remains preserved in GitHub and the existing shelf records:
 
-- **Arthur Cayley**: staged metadata `zenodo-metadata/metadata_author_cayley_current.json`; migrate the Cayley volume readers and Cayley source/repair manifests out of the mixed classical shelf into a dedicated author record.
+- **Arthur Cayley**: migrated to dedicated concept DOI `10.5281/zenodo.20520749`.
 - **James Joseph Sylvester**: staged metadata `zenodo-metadata/metadata_author_sylvester_current.json`; promote Volume I through book page 218 and its source packet.
 - **Richard Dedekind**: staged metadata `zenodo-metadata/metadata_author_dedekind_current.json`; promote `Was sind und was sollen die Zahlen?`, `Stetigkeit und irrationale Zahlen` segment, and Dedekind/Dirichlet paratext where appropriate.
 - **P. G. Lejeune Dirichlet**: staged metadata `zenodo-metadata/metadata_author_dirichlet_current.json`; promote Werke Band II Papers I-XII.

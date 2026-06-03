@@ -10,6 +10,7 @@ This plan records which mixed shelves should be split into dedicated author reco
 | Heinrich Weber | `20412153` | Update existing record after outsourced Weber cumulative package is accepted. |
 | Carl Friedrich Gauss | `20410934` | Update existing record after next Gauss cumulative audit. |
 | Bernhard Riemann | `20429778` | Keep existing author record; not urgent. |
+| Arthur Cayley | `20520749` | Dedicated author record created 2026-06-03. |
 | Richard Dedekind | `20520669` | Dedicated author record created 2026-06-03. |
 | P. G. Lejeune Dirichlet | `20520679` | Dedicated author record created 2026-06-03. |
 | James Joseph Sylvester | `20520692` | Dedicated author record created 2026-06-03. |
@@ -18,13 +19,13 @@ This plan records which mixed shelves should be split into dedicated author reco
 
 | Author | Staged metadata | First reader-facing payload | Source/provenance policy |
 |---|---|---|---|
-| Arthur Cayley | `zenodo-metadata/metadata_author_cayley_current.json` | Current Cayley volume readers from `reader-pdfs/classical/`, including complete Volume I and repaired slice readers. | Attach compact current TeX/manifests; keep large raw and broad repair dumps on main provenance DOI. |
 | Ernst Steinitz | `zenodo-metadata/metadata_author_steinitz_current.json` | Existing Steinitz reader from the author cluster; newer local bilingual packets still need mirroring/checking. | Do not create until the current local Steinitz packet is mirrored and checked. |
 
 ## Newly Created Author Records
 
 | Author | Concept DOI | First version DOI | Payload |
 |---|---|---|---|
+| Arthur Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | Thirteen current volume readers plus `Cayley_source_and_manifest_20260603.zip`. |
 | Richard Dedekind | `10.5281/zenodo.20520669` | `10.5281/zenodo.20520670` | Nine reader PDFs plus `Dedekind_source_and_manifest_20260603.zip`. |
 | P. G. Lejeune Dirichlet | `10.5281/zenodo.20520679` | `10.5281/zenodo.20520680` | Original-language cumulative reader, English cumulative reader, and `Dirichlet_source_and_manifest_20260603.zip`. |
 | James Joseph Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20520693` | Volume I through book page 218 reader and `Sylvester_source_and_manifest_20260603.zip`. |
@@ -41,5 +42,5 @@ This plan records which mixed shelves should be split into dedicated author reco
 2. Update Noether existing record `20412587` with Spanish/Japanese cumulative readers through Paper 15.
 3. Create Sylvester author record. Done: concept DOI `10.5281/zenodo.20520692`.
 4. Create Dedekind and Dirichlet author records. Done: concept DOIs `10.5281/zenodo.20520669` and `10.5281/zenodo.20520679`.
-5. Create Cayley author record or, if the repair state is still too patchwork, update the classical shelf once more while marking it explicitly as an interim umbrella.
+5. Create Cayley author record. Done: concept DOI `10.5281/zenodo.20520749`.
 6. Hold Steinitz until the local bilingual packet is checked and mirrored.
