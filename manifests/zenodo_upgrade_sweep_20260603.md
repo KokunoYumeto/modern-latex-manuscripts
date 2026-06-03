@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the Cayley Volume X `401_425` substitution-group diagram repair.
+Generated after the current GitHub mirror pass through the Cayley Volume VII `526_550` geodesic-line diagram repair.
 
 ## Publishing Capability
 
@@ -55,6 +55,7 @@ Local GitHub state now includes:
 - Current Volume II reader hash: `040dc6861b761ba57e6462f1a8b53d239515a922f6d08bc0f02148ed4711095c` (312 pages; 4619547 bytes).
 - Current Volume IV reader hash: `a0cabc0fa042395ff3e4e048eae0e65bfcd70fc3a0b80b3c7623c588f3dd953f` (496 pages; 6013429 bytes).
 - Current Volume V reader hash: `74dcb274b1d39bc7fb22e19af4071545f8e1aba399f5f3c37f07f674bfd19097`.
+- Current Volume VII reader hash: `318324510fb857c47e2e55e5152321799c2b14e671ea635fcbb0cc278812e544` (336 pages; 4850361 bytes).
 - Current Volume III reader hash: `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f` (322 pages; 3774202 bytes).
 - Current Volume IX reader hash: `40a1aae1577d480833b12bd661df2baf1e06a184674c798ecb398006708d5151` (348 pages; 5211862 bytes).
 - Current Volume X reader hash: `5a2e31c7ae616b9ff9883f39da13daea58b3a1d1f56bd92a19a7363a7871fec7` (575 pages; 6826144 bytes).
