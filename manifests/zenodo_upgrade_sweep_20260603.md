@@ -16,7 +16,7 @@ Checked against the public Zenodo API on 2026-06-03.
 |---|---:|---|---|
 | Main landing / raw provenance | 20393488 | `10.5281/zenodo.20458953` | 2026-06-01 landing/provenance refresh |
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
-| SGA | 20410947 | `10.5281/zenodo.20529444` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 236 |
+| SGA | 20410947 | `10.5281/zenodo.20529890` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 260 |
 | Noether | 20412587 | `10.5281/zenodo.20523656` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 18 |
 | Cayley | 20520749 | `10.5281/zenodo.20528434` | 2026-06-03 dedicated Cayley author record refresh: Volume IV p. 51, p. 246, p. 253, pp. 254--255, and p. 274 table repairs promoted as native TeX; source/manifest bundle refreshed |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20529541` | 2026-06-03 reconstructed work-level readers, corrected combined readers, al-Battani v083 trilingual text/reference reader, and al-Battani fixed-star catalogue descriptive edition with CSV dataset; coordinate and numerical-table collation still in progress |
@@ -37,6 +37,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20523803` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-96 readers with source-page-137 English/French readers, matching source-scan witness, and refreshed source ZIP 82. |
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20526521` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-137 readers with source-page-184 English/French readers, matching source-scan witness, and refreshed source ZIP 82. |
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20529444` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-184 readers with source-page-236 English/French readers, matching source-scan witness, and compact p236 source packet. |
+| SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20529890` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-236 readers with source-page-260 English/French readers, matching source-scan witness, and compact p260 source packet. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | 93 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 15 with Paper 18 cumulative readers and adding standalone Paper 17 sections 10-12 plus Paper 18 ES/JA readers. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
