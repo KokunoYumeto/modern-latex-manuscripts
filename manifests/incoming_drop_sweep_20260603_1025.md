@@ -7,10 +7,11 @@ published.
 
 ## Already handled during this sweep
 
-- Cayley Zenodo same-concept patch published as `10.5281/zenodo.20523305`.
-  This replaces the Volume IV and Volume X readers and refreshes
-  `Cayley_source_and_manifest_20260603.zip`.
-- Local Cayley patch helper advanced from record `20522518` to `20523305`.
+- Cayley Zenodo same-concept patch published as `10.5281/zenodo.20524543`.
+  This replaces the Volume X reader after the p. 347 annexed syzygy diagram
+  was restored as native TeX and refreshes `Cayley_source_and_manifest_20260603.zip`.
+- Local Cayley patch helper advanced from record `20522518` through
+  `20523305` to `20524543`.
 
 ## Highest-priority public-facing deltas
 
@@ -48,6 +49,27 @@ They should be checked in the next sweep rather than interrupting the Cayley rep
 | Gauss | `gauss_round18_summatio_tail_20260603.zip` | Gauss round 18 continuation; hold for a consolidated Gauss pass. |
 | Deligne | `D010_HD2_p041_050_cum.zip` | Hodge II continuation; Deligne remains curation-gated. |
 | Old physics | `GibbsV1_P2_p043_054.zip` | Gibbs lane continuation; needs a clean physics shelf policy before publication. |
+
+## Full updated-folder sweep after user correction
+
+The user explicitly flagged that the sweep should not only track SGA and Noether.
+The following active folders were checked together: Deligne restart, Noether
+Multilingual, SGA restart, Dedekind, old physics, Dirichlet, Sylvester, Gauss,
+Weber restart, Steinitz, and Ukrainian lane.
+
+| Lane | Latest package or extracted payload | Immediate handling note |
+|---|---|---|
+| Deligne | `D087_090dn_p011_021.zip`; `D010_HD2_p041_050_cum.zip`; `Deligne_010_Theorie_de_Hodge_II_p031_040_with_cumulative.zip` | Deligne remains fidelity-gated; preserve these as candidates for a later curated Deligne pass. |
+| Noether multilingual | `Noether_Paper19_p1_ES_JA_20260603.zip` and extracted `N19_ES_JA_20260603` files | Spanish/Japanese Paper 19 start; accumulate before the next Noether multilingual Zenodo version. |
+| SGA | `SGA7I_p121_137_orig_cum.zip` / `rea.zip` | Already promoted as the SGA7-I source-page-137 update. |
+| Dedekind | `DR13_Backmatter_20260603.zip` | Backmatter continuation; check cumulative status before patching the Dedekind record. |
+| Old physics | `GibbsV1_P2_p043_054.zip` plus extracted Gibbs p.033-054 cumulative and p.043-054 instant TeX/PDF/scan files | New Gibbs continuation; wait for the old-physics shelf policy before public promotion. |
+| Dirichlet | `Dirichlet_R15_XXIII_XXIV_20260603.zip` | Band II continuation; hold for the dedicated Dirichlet record pass. |
+| Sylvester | `Sylvester_Vol1_pp001_306_with_scans_20260603.zip` | Extends beyond the published p.283 snapshot; next obvious Sylvester patch. |
+| Gauss | `gauss_round18_summatio_tail_20260603.zip` | Gauss continuation; hold for consolidated Gauss audit/publish pass. |
+| Weber restart | `Weber_Cumulative_ThreeVolumes_Batch68_Vol2_Sections63_66_REFINED_SIZE_CONTROLLED_20260603.zip` | Current Weber cumulative candidate; Weber aid packets are outsourced, so keep this queued. |
+| Steinitz | `Steinitz_10_corpus_shortpaths.zip` | Large short-path corpus update; candidate for dedicated Steinitz record rather than mixed classical bundle. |
+| Ukrainian lane | `ua_eskf_lie_next_20260603.zip` | Applied-math continuation; queue a compact same-concept Ukrainian update after nearby modules accumulate. |
 
 ## Side-lane tool note
 
