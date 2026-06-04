@@ -1,0 +1,1629 @@
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{titlesec}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Cambria}
+\setsansfont{Cambria}
+\setmonofont{DejaVu Sans Mono}
+
+%% CJK Support via xeCJK -- use specified font path
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{SimSun}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{SimSun}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{SimSun}
+
+%% Arabic Font Setup
+\newfontfamily\arabicfont[Script=Arabic]{Amiri}
+\TeXXeTstate=1
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
+\newcommand{\arbf}[1]{\arabicfont\bfseries\beginR #1\endR}
+\newcommand{\arit}[1]{\arabicfont\itshape\beginR #1\endR}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+\definecolor{probbg}{RGB}{250,248,245}
+\definecolor{arabicbg}{RGB}{252,250,248}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Ceyuan Haijing Vols 7--9 \ensuremath{\vert} \ar{مرآة بحر قياس الدائرة — المجلدات ٧-٩}}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Polynomial display helper (tian yuan notation)
+\newcommand{\tianyuan}[2]{\raisebox{-0.6ex}{\scriptsize$\begin{array}{c}#1\\\hline #2\end{array}$}}
+\newcommand{\ty}[1]{\tianyuan{#1}{1}}
+\newcommand{\tym}[2]{\tianyuan{#1}{#2}}
+
+%% Parallel text commands
+\newcommand{\ChinCol}[1]{\begin{minipage}[t]{0.48\textwidth}#1\end{minipage}}
+\newcommand{\ArabCol}[1]{\begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR #1\endR\end{minipage}}
+\newcommand{\parallelsection}[2]{%
+  \noindent\ChinCol{#1}\hfill\ArabCol{#2}\par\vspace{0.5cm}%
+}
+
+%% Problem/solution environment for Chinese mathematical texts
+\newcounter{probnum}
+\newcommand{\chnum}[1]{%
+  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
+    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or 二十\or
+    二十一\or 二十二\or 二十三\or 二十四\or 二十五\or 二十六\or 二十七\or 二十八\or 二十九\or 三十\or
+    三十一\or 三十二\or 三十三\or 三十四\or 三十五\fi}
+
+\newcommand{\problem}[2]{\stepcounter{probnum}\par\vspace{0.3cm}%
+  \noindent\fcolorbox{rulecolor}{probbg}{\parbox[t]{0.48\textwidth}{\textbf{第\chnum{\value{probnum}}問：}#1}}%
+  \hfill%
+  \fcolorbox{rulecolor}{arabicbg}{\parbox[t]{0.48\textwidth}{\arabicfont\beginR\textbf{السؤال \chnum{\value{probnum}}:} #2\endR}}\par\vspace{0.2cm}}
+
+\newcommand{\answer}[2]{\par\noindent%
+  \begin{minipage}[t]{0.48\textwidth}\textbf{答曰：}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR\textbf{الجواب:} #2\endR\end{minipage}\par\vspace{0.2cm}}
+
+\newcommand{\working}[2]{\par\noindent%
+  \begin{minipage}[t]{0.48\textwidth}\textbf{草曰：}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR\textbf{الحل:} #2\endR\end{minipage}\par\vspace{0.2cm}}
+
+\newcommand{\method}[2]{\par\noindent%
+  \begin{minipage}[t]{0.48\textwidth}\textbf{法曰：}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR\textbf{الطريقة:} #2\endR\end{minipage}\par\vspace{0.3cm}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% -------- Column settings --------
+\columnsep=1.5em
+
+%% ===================================================================
+
+\newcommand{\vs}{\vspace{0.5em}}
+
+\begin{document}
+
+
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+{\fontsize{12}{16}\selectfont 欽定四庫全書}
+\vspace{0.8cm}
+{\fontsize{10}{14}\selectfont 子部}
+\vspace{1.5cm}
+\rule{0.85\textwidth}{1.5pt}
+\vspace{0.8cm}
+{\fontsize{26}{34}\selectfont\bfseries\color{titlecolor} 測圓海鏡}
+\vspace{0.4cm}
+{\fontsize{14}{20}\selectfont\color{notecolor} 卷七至卷九}
+\vspace{0.6cm}
+{\fontsize{18}{24}\selectfont\arabicfont\beginR\color{titlecolor}
+\textbf{مرآة بحر قياس الدائرة}\\[0.3cm]
+{\large المجلدات السابع إلى التاسع}\endR}
+\vspace{0.8cm}
+\rule{0.85\textwidth}{1.5pt}
+\vspace{1.5cm}
+{\fontsize{12}{16}\selectfont 元\quad 李冶\quad 撰}
+\vspace{0.3cm}
+{\fontsize{10}{14}\selectfont\color{notecolor} 字仁卿，號敬齋，眞定欒城人}
+\vspace{0.8cm}
+{\fontsize{11}{15}\selectfont\arabicfont\beginR\color{notecolor}
+لِي يِهِ (ليي) \textbullet{} عالم رياضيات صيني من عصر يوان\\
+أتمّ كتابه سنة 1248م، في اثني عشر جزءاً وفيه 170 مسألة
+\endR}
+\vspace{1.5cm}
+{\fontsize{14}{18}\selectfont\bfseries\color{titlecolor} Li Ye --- Ceyuan Haijing, Volumes 7--9}
+\vspace{0.3cm}
+{\small\color{notecolor} Sea Mirror of Circle Measurements --- Arabic Translation}
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+
+\section*{引言}
+\addcontentsline{toc}{section}{引言 --- \texorpdfstring{\ar{مقدمة}}{Introduction}}
+
+\parallelsection{%
+測圓海鏡者，金元之際李冶潤甫先生之所著也。此書成於淳祐八年（一二四八），凡十二卷，計一百七十問，皆設圓城以為問，用天元術以立算，實中算之鴻篇也。
+卷七至卷九所載，凡三十四問，其題目之繁，方程式次之高，皆過於前六卷。
+}{%
+«مرآة بحر قياس الدائرة» من تأليف لي يه (1192--1279) من عصر الانتقال بين جين ويوان. أتمّ الكتاب سنة 1248م، ويقع في 12 جزءاً و170 مسألة، جميعها تتعلق بمدينة دائرية مسوّرة، تُحلّ بطريقة «العنصر السماوي» (تيان يوان شو).
+تحتوي المجلدات 7--9 على 34 مسألة أكثر تعقيداً من المجلدات الستة الأولى، بمعادلات تصل إلى الدرجة السادسة.%
+}
+
+\parallelsection{%
+每問之體，例分三節：或問（設問）、法曰（列方程）、草曰（詳布算）。又有時設答曰一節。
+}{%
+كل مسألة تتبع نسقاً معيارياً: السؤال (或問) --- نص المسألة؛ الطريقة (法曰) --- بناء المعادلة؛ الحل التفصيلي (草曰) --- الاشتقاق خطوة بخطوة. وأحياناً يُذكر الجواب (答曰) مباشرة للتحقق.%
+}
+
+\newpage
+
+
+\section{卷七\quad 明前一十八問 --- \ar{الجزء السابع: ثمانية عشر مسألة «أمامية»}}
+\addcontentsline{toc}{section}{卷七 --- الجزء السابع}
+
+\parallelsection{%
+此卷一十八問，皆以明段為主。其題多設二人對行、遙望相會之狀，其方程式之高，有至三乘、四乘者。
+}{%
+يحتوي هذا الجزء على 18 مسألة تتعلق جميعها بالأجزاء «المضيئة» (مينغ) --- أضلاع المثلث القائم الظاهرة بوضوح. تتضمن السيناريوهات أزواجاً من الأشخاص يمشون تجاه بعضهم ويتقابلون. تصل المعادلات إلى الدرجة الرابعة.%
+}
+
+\vspace{0.5cm}
+
+%% ======== 第一百零五問 ========
+\subsection*{第一百零五問 --- \ar{المسألة 一百零五}}
+\addcontentsline{toc}{subsection}{第一百零五問}
+
+\problem{出南門東行七十二步有樹，出東門南行三十步見之。問答同前。}{بالخروج من the الباب الجنوبي and walking 72 خطوة نحو الشرق توجد شجرة. بالخروج من the الباب الشرقي and walking 30 خطوة نحو الجنوب, one يراها. الجواب كما سبق.}
+
+\answer{城徑二百四十步，半徑一百二十步。}{قطر المدينة: 240 خطوة. نصف القطر: 120 خطوة.}
+
+\working{倍南行以乘倍東行為平實，並二行又倍之為從，一虛隅。得城徑。}{ضاعف the southward walk, اضرب by ضاعف the eastward walk as the المقسوم المسطح. Add the two walks and ضاعف as التابع. One زاوية فارغة. استخرج the قطر المدينة.}
+
+\parallelsection{%
+識別得此問名為弦外容圓，又為內率求虛積。其二行步相並為虛弦，若以相減即虛較也。
+又倍東行為弦較和，倍南行即弦較較，此二數相乘則兩虛積也。若直以二行相乘，則半個虛積也。
+又倍東行減於城徑，餘即二虛勾也。倍南行減於城徑則二虛股也。虛積上三事和即城徑也。
+
+乃立天元一為圓徑，便以為三事和也。倍二行步減之，得$ \; \square \; $為黃方一，天元乘之得$ \; \square \; $為二虛積（寄左）。
+然後倍東行以乘倍南行，得八千六百四十為同數，與左相消得$ \; \square \; $。
+益積開平方得二百四十步，即城徑也。合問。}{%
+Identification: This problem is ``circle contained outside the الوتر'' and also ``seeking الفراغ area by inner rate.'' The المجموع of the two walks is الفراغ الوتر; their الفرق is الفراغ الفرق. ضاعف the eastward walk gives the المجموع of الوتر and الفرق; ضاعف the southward walk gives their الفرق. Their product is twice الفراغ area; direct multiplication gives half الفراغ area. The قطر المدينة minus ضاعف the eastward walk gives twice الفراغ القائم; minus ضاعف the southward walk gives twice الفراغ المقابل. The three-element المجموع on الفراغ area equals the قطر المدينة.
+
+Let المجهول السماوي be the circle diameter, as the three-element المجموع. اطرحing ضاعف the two walks gives ■ as the yellow مربّع; اضربing by the unknown gives ■ as twice الفراغ area (stored left). Then ضاعف the eastward walk times ضاعف the southward walk gives 8640 as the matching number. Canceling gives ■. Accumulating and استخرجing the مربّع الجذر yields 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百零六問 ========
+\subsection*{第一百零六問 --- \ar{المسألة 一百零六}}
+\addcontentsline{toc}{subsection}{第一百零六問}
+
+\problem{丙出南門直行一百三十五步而立，甲出東門直行一十六步見之。問答同前。}{بينغ يخرج من the الباب الجنوبي and يمشي مستقيماً 135 خطوة, ثم يقف. جيا يخرج من the الباب الشرقي and يمشي مستقيماً 16 خطوة and يراه. الجواب كما سبق.}
+
+\answer{城徑二百四十步，丙行上勾弦差八十一步。}{قطر المدينة: 240 خطوة. The الفرق between القائم and الوتر on Bing's walk: 81 خطوة.}
+
+\working{%
+以丙行步一百三十五再自之，得二百四十六萬零三百七十五於上。
+又以甲行一十六乘丙行冪一萬八千二百二十五，得二十九萬一千六百，以乘上位，
+得七千一百七十四億四千五百三十五萬為三乘方實；
+以二行步相乘又倍之得四千三百二十，以乘丙行步再自之數，得一百六億二千八百八十二萬為益從；
+第一廉空；以甲行乘丙行冪，得二十九萬一千六百，又倍之得五十八萬三千二百於上，
+四之甲行冪一千零二十四，以乘丙行步，得一十三萬八千二百四十，減上位餘四十四萬四千九百六十為第二廉；
+二行步相乘得二千一百六十為虛常法。得丙行步上勾弦差八十一。}{%
+Raise Bing's walk 135 to the third power, obtaining 2,460,375 as الحد الأعلى. اضرب Jia's walk 16 by Bing's مربّعd walk 18,225 to get 291,600; اضرب by the الحد الأعلى to obtain 717,445,350,000 as the cubic equation's shi. ضاعف the product of the two walks to get 4,320; اضرب by the cube of Bing's walk to obtain 10,628,820,000 as increasing التابع. First lian is empty. اضرب Jia's walk by Bing's مربّعd walk to get 291,600; ضاعف to get 583,200 as الحد الأعلى. Quadruple Jia's مربّعd walk 1,024 and اضرب by Bing's walk to get 138,240; اطرح from الحد الأعلى, leaving 444,960 as second lian. The product of the two walks, 2,160, is the empty الطريقة الثابتة. استخرجs the القائم-الوتر الفرق on Bing's walk: 81.}
+
+\parallelsection{%
+識別二數相並，得一百五十一。以減於皇極弦，餘一百三十八，即虛勾虛股並也。
+若以二數相減，餘一百一十九為高弦內減平弦，又為皇極弦內少個小差弦，
+又為大差弦內減個皇極弦也。
+
+立天元一為丙行大差數。
+置丙行步一百三十五，自乘得$ \; \square \; $，用天元除之，得$ \; \square \; $為勾弦並也。
+上減天元得$ \; \square \; $為二丙勾也。復用丙南行乘之，得$ \; \square \; $為二積也。
+又以天元除之，得$ \; \square \; $為丙勾外容圓半（泛寄）。
+別置丙南行用二甲勾乘之，得$ \; \square \; $太，合用二丙勾除之。不受除，
+便以此為甲股（內寄二丙勾為分母）。復用二甲勾三十二乘之，得$ \; \square \; $太為二個甲直積也。
+又置丙南行內減天元，得$ \; \square \; $為黃方，以自乘得$ \; \square \; $為丙上勾弦差乘股弦差二段，
+以天元除之得$ \; \square \; $為兩個丙小差也。乃用甲股乘之，得下式$ \; \square \; $。
+復用丙南行除之，得$ \; \square \; $，又折半得下式$ \; \square \; $為一個甲步股弦差也，
+內亦帶前二丙勾分母。復置兩個甲直積，內已寄此甲股弦差分母，便為甲步股外容圓半（寄左）。
+乃再置先求到泛寄，用甲股弦差分母乘之，得$ \; \square \; $為同數，
+與左相消得下式$ \; \square \; $。開三乘方得八十一步，即丙步上勾弦差也。
+
+《鈐經》載此法，以勾弦差率冪減丙行冪，復以丙行乘之為實，以差率冪為法，如法得徑。
+此法只是以勾外求圓半。合以大差除倍積，而今皆以大差冪為分母也。
+依法求之，勾弦差八十一自之得六千五百六十一，以減於丙行冪一萬八千二百二十五，
+餘一萬一千六百六十四，復以丙行一百三十五乘之，得一百五十七萬四千六百四十為實，
+以大差冪六千五百六十一為法，如法得二百四十步，即城徑也。}{%
+Identification: The المجموع of the two numbers is 151. اطرحing from the imperial extreme الوتر leaves 138, the المجموع of فراغي القائم and فراغي المقابل. Their الفرق, 119, is the high string minus the level string, also the imperial extreme string lacking a small-الفرق string, also the large-الفرق string minus the imperial extreme string.
+
+Let the unknown be the large-الفرق number for Bing's walk. مربّع Bing's walk 135 to get ■; divide by the unknown to get ■ as the المجموع of القائم and الوتر. اطرح the unknown above to get ■ as twice Bing's القائم. اضرب by Bing's southward walk to get ■ as twice the area. Divide by the unknown to get ■ as the half-circle (general storage). اضرب Bing's southward walk by twice Jia's القائم to get ■ (this becomes Jia's المقابل with denominator). اضرب by twice Jia's القائم 32 to get ■ as twice Jia's rectanالمقابلlar area. اطرح the unknown from Bing's walk to get ■ as the yellow مربّع; squaring gives ■ as two segments of the product of القائم-الوتر الفرق and المقابل-الوتر الفرق. Dividing by the unknown gives ■ as two small الفرقs. اضرب by Jia's المقابل to get ■. Divide by Bing's southward walk and halve to get ■ as one step of Jia's المقابل-الوتر الفرق. استخرجing the cubic الجذر yields 81, the القائم-الوتر الفرق.
+
+The \textit{Qianjing} records: مربّع the القائم-الوتر الفرق rate and اطرح from Bing's walk مربّع, then اضرب by Bing's walk كمقسوم; use the مربّعd الفرق rate as divisor to obtain القطر. This method seeks the half-circle from outside the القائم. The large الفرق should divide twice the area; here the مربّعd large الفرق serves as denominator. Accordingly: مربّع 81 to get 6,561; اطرح from Bing's walk مربّع 18,225, leaving 11,664; اضرب by 135 to get 1,574,640 كمقسوم; divide by مربّعd large الفرق 6,561 to obtain 240 خطوة, the قطر المدينة.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百零七問 ========
+\subsection*{第一百零七問 --- \ar{المسألة 一百零七}}
+\addcontentsline{toc}{subsection}{第一百零七問}
+
+\problem{出東門一十六步有樹，出南門東行七十二步見之。問答同前。}{بالخروج من the الباب الشرقي 16 خطوة توجد شجرة. بالخروج من the الباب الجنوبي and walking 72 خطوة نحو الشرق, one يراها. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{二行步相減得數，以自之於上。又以出東門步自之，減上位為平方實，二之出南門東行步為益從，一步常法。翻開得半徑。}{اطرح the two walks; مربّع the result as الحد الأعلى. مربّع the الباب الشرقي walk and اطرح from الحد الأعلى as the quadratic shi. ضاعف the south-gate eastward walk as increasing التابع. One الطريقة الثابتة. استخرج by reversing to obtain the نصف القطر.}
+
+\parallelsection{%
+別得人到樹即平弦也，半圓徑即平股也。其東行七十二步則平勾平弦差也。
+乃立天元一為半圓徑，加一十六減七十二，得$ \; \square \; $為勾也。
+以自之得$ \; \square \; $為勾冪。又加入天元股冪得$ \; \square \; $為弦冪（寄左）。
+再立天元一為半徑，加出東門步，得$ \; \square \; $即弦也。
+以自之得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+翻法開之得一百二十步，即半城徑也。合問。}{%
+Identification: The person reaching the tree is the level الوتر; half القطر is the level المقابل. The 72 خطوة نحو الشرق is the الفرق between level القائم and level الوتر. Let the unknown be half القطر; add 16 and اطرح 72 to get ■ as القائم. Squaring gives ■ as القائم-power. Add the unknown مربّعd as المقابل-power to get ■ as الوتر-power (stored left). Again let the unknown be the نصف القطر; add the الباب الشرقي خطوة to get ■ as the الوتر. Squaring gives ■ as the matching number. Canceling gives ■. استخرج by the reversing method to obtain 120 خطوة, half the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百零八問 ========
+\subsection*{第一百零八問 --- \ar{المسألة 一百零八}}
+\addcontentsline{toc}{subsection}{第一百零八問}
+
+\problem{出南門一百三十五步有樹，出東門南行三十步見之。問答同前。}{بالخروج من the الباب الجنوبي 135 خطوة توجد شجرة. بالخروج من the الباب الشرقي and walking 30 خطوة نحو الجنوب, one يراها. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{樹去城步內減南行步，餘以為冪於上，又以樹去城步為冪內減上位為平實，倍樹去城步為從，一虛隅。翻法得半城徑。}{اطرح the southward walk from the tree-to-city المسافة; مربّع the remainder as الحد الأعلى. مربّع the tree-to-city المسافة and اطرح the الحد الأعلى as المقسوم المسطح. ضاعف the tree-to-city المسافة as التابع. One زاوية فارغة. استخرج by reversing to obtain half the قطر المدينة.}
+
+\parallelsection{%
+別得人距樹即高弦也，半圓徑即高勾也，其南行三十步即高弦上小差也。
+乃立天元一為半徑，加樹去城步為弦，內減小差$ \; \square \; $，得$ \; \square \; $即股也。
+以自之得$ \; \square \; $為股冪，內加入天元冪，得$ \; \square \; $為弦冪（寄左）。
+再置弦$ \; \square \; $以自之，得$ \; \square \; $為同數，與左相消，得式$ \; \square \; $。
+翻開得一百二十步，即半城徑也。合問。}{%
+Identification: The person's المسافة to the tree is the high الوتر; half القطر is the high القائم. The 30 خطوة نحو الجنوبward is the small الفرق on the high الوتر. Let the unknown be the نصف القطر; add the tree-to-city المسافة as الوتر, اطرح the small الفرق ■ to get ■ as المقابل. Squaring gives ■ as المقابل-power; add the unknown مربّعd to get ■ as الوتر-power (stored left). Again place الوتر ■, مربّع it to get ■ as matching number. Canceling gives ■. استخرج by reversing to obtain 120 خطوة, half the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百零九問 ========
+\subsection*{第一百零九問 --- \ar{المسألة 一百零九}}
+\addcontentsline{toc}{subsection}{第一百零九問}
+
+\problem{乙出東門不知遠近而立，甲出南門東行七十二步望見乙，就乙斜行一百三十六步與乙相會。問答同前。}{يي يخرج من the الباب الشرقي and stands at an unknown المسافة. جيا يخرج من the الباب الجنوبي, walks 72 خطوة نحو الشرق, يرى يي, then يمشي مائلاً 136 خطوة ليلتقي بـ Yi. الجواب كما سبق.}
+
+\answer{城徑二百四十步，乙出東門一百二十八步。}{قطر المدينة: 240 خطوة. يي went out the الباب الشرقي 128 خطوة.}
+
+\working{以斜行步自之於上，以二行相減餘自為冪，減上位為平實，從空，一步常法。如法得半徑。}{مربّع the قطري walk as الحد الأعلى. اطرح the two walks; مربّع the remainder and اطرح from الحد الأعلى as المقسوم المسطح. Cong is empty. One الطريقة الثابتة. استخرج to obtain the نصف القطر.}
+
+\parallelsection{%
+別得七十二步即大差也，斜行即弦，半徑即股也。
+立天元一為半徑，以自之為股冪，又以二行差六十四以自之得$ \; \square \; $為勾冪。
+並二冪得$ \; \square \; $為弦冪（寄左）。然後以斜行步自之，得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得一百二十步，倍之即城徑也。合問。}{%
+Identification: The 72 خطوة is the large الفرق; the قطري is the الوتر; the نصف القطر is the المقابل. Let the unknown be the نصف القطر; مربّع it as المقابل-power. The الفرق of the two walks, 64, مربّعd gives ■ as القائم-power. Adding both powers gives ■ as الوتر-power (stored left). Then مربّع the قطري walk to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 120 خطوة; ضاعف it for the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十問 ========
+\subsection*{第一百一十問 --- \ar{المسألة 一百一十}}
+\addcontentsline{toc}{subsection}{第一百一十問}
+
+\problem{甲出南門不知遠近而立，乙出東門南行三十步望見甲，卻就甲斜行二百五十五步與甲相會。問答同前。}{جيا يخرج من the الباب الجنوبي and stands at an unknown المسافة. يي يخرج من the الباب الشرقي, walks 30 خطوة نحو الجنوب, يرى جيا, then يمشي مائلاً 255 خطوة ليلتقي بـ Jia. الجواب كما سبق.}
+
+\answer{城徑二百四十步，甲出南門二百二十五步。}{قطر المدينة: 240 خطوة. جيا went out the الباب الجنوبي 225 خطوة.}
+
+\working{二行差自之為冪，以減於斜行冪為平實，一虛隅。得半徑。}{مربّع the الفرق of the two walks; اطرح from the مربّعd قطري as المقسوم المسطح. One زاوية فارغة. استخرج the نصف القطر.}
+
+\parallelsection{%
+別得南行步即股弦差也，斜步即弦也，半徑即勾也。
+乃立天元一為半城徑，以自之為冪。以二行相減餘二百二十五，以自之得$ \; \square \; $為股冪。
+二冪相並得$ \; \square \; $為弦冪（寄左）。然後以斜行步自之，得$ \; \square \; $為同數，
+與左相消得下$ \; \square \; $。開平方得一百二十步，即半徑也。合問。}{%
+Identification: The southward walk is the الفرق between المقابل and الوتر; the قطري is the الوتر; the نصف القطر is the القائم. Let the unknown be half the قطر المدينة; مربّع it as power. The الفرق of the two walks, 225, مربّعd gives ■ as المقابل-power. Adding both powers gives ■ as الوتر-power (stored left). Then مربّع the قطري walk to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 120 خطوة, the نصف القطر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十一問 ========
+\subsection*{第一百一十一問 --- \ar{المسألة 一百一十一}}
+\addcontentsline{toc}{subsection}{第一百一十一問}
+
+\problem{甲出南門東行不知步數而立，乙出東門南行三十步望見甲，斜行一百二步相會。問答同前。}{جيا يخرج من the الباب الجنوبي and walks east an unknown number of خطوة, ثم يقف. يي يخرج من the الباب الشرقي, walks 30 خطوة نحو الجنوب, يرى جيا, then يمشي مائلاً 102 خطوة ليلتقي بـ Jia. الجواب كما سبق.}
+
+\answer{城徑二百四十步，甲東行九十六步。}{قطر المدينة: 240 خطوة. جيا walked 96 خطوة نحو الشرق.}
+
+\working{二行相減，餘以乘乙南行，四之於上，又加入斜行冪為平實。得虛和一百三十八。}{اطرح the two walks; اضرب the remainder by Yi's southward walk; quadruple as الحد الأعلى; add the مربّعd قطري as المقسوم المسطح. استخرجs الفراغ المجموع: 138.}
+
+\parallelsection{%
+別得斜步內減南行為甲東行步也。此問以弦外容圓入之，以二行相減數乘乙南行三十步，
+得$ \; \square \; $，又四之，得$ \; \square \; $為二直積也。又加入斜步冪$ \; \square \; $，
+共得$ \; \square \; $即和冪也。平方而一，得一百三十八步，即虛和也。
+又加斜步得二百四十步，即城徑也。合問。}{%
+Identification: The قطري minus the southward walk gives Jia's eastward walk. This problem uses ``circle outside the الوتر.'' اضرب the الفرق of the two walks by Yi's 30 خطوة نحو الجنوب to get ■; quadruple to get ■ as twice the rectanالمقابلlar area. Add the مربّعd قطري ■, totaling ■ as the مربّعd المجموع. استخرج the مربّع الجذر to obtain 138, الفراغ المجموع. Add the قطري to get 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十二問 ========
+\subsection*{第一百一十二問 --- \ar{المسألة 一百一十二}}
+\addcontentsline{toc}{subsection}{第一百一十二問}
+
+\problem{乙出東門南行不知步數而立，甲出南門東行七十二步望見乙，斜行一百二步與乙相會。問答同前。}{يي يخرج من the الباب الشرقي and walks south an unknown number of خطوة, ثم يقف. جيا يخرج من the الباب الجنوبي, walks 72 خطوة نحو الشرق, يرى يي, then يمشي مائلاً 102 خطوة ليلتقي بـ Yi. الجواب كما سبق.}
+
+\answer{城徑二百四十步，乙南行五十四步。}{قطر المدينة: 240 خطوة. يي walked 54 خطوة نحو الجنوب.}
+
+\working{%
+倍相減步以乘倍東行，得數復以減於斜步冪，餘為實。平方而一，得較也。
+又以二行相減數乘倍東行為平實，以較為從方，得勾。
+勾較共為長，又以斜步並入勾股共，即城徑。}{%
+ضاعف the اطرحion step and اضرب by ضاعف the eastward walk; اطرح this from the مربّعd قطري, remainder كمقسوم. استخرج the مربّع الجذر to obtain the الفرق. اضرب the الفرق of the two walks by ضاعف the eastward walk as المقسوم المسطح; use the الفرق as التابع to استخرج القائم. Gou plus الفرق gives the length; add the قطري to the القائم-المقابل المجموع for the قطر المدينة.}
+
+\parallelsection{%
+別得二行相減餘$ \; \square \; $為乙南行步也。以此數又減於甲東行，餘四十二步即較也。
+又以二行相減數$ \; \square \; $乘倍東行得$ \; \square \; $為平實，以較為從。
+平方開得四十八即勾也。勾內加較得九十步即股也。
+勾股共得一百三十八，又加入斜步，共得二百四十步，即城徑也。合問。}{%
+Identification: The الفرق of the two walks, ■, is Yi's southward walk. اطرح this from Jia's eastward walk; the remainder 42 is the الفرق. اضرب the الفرق of the two walks ■ by ضاعف the eastward walk to get ■ as المقسوم المسطح; use the الفرق as التابع. استخرج the مربّع الجذر to obtain 48, the القائم. Add the الفرق to get 90 خطوة, the المقابل. Gou plus المقابل totals 138; add the قطري to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十三問 ========
+\subsection*{第一百一十三問 --- \ar{المسألة 一百一十三}}
+\addcontentsline{toc}{subsection}{第一百一十三問}
+
+\problem{%
+乙出南門東行，甲出東門南行，兩相望見。既而乙雲：
+「我東行不及城徑一百六十八步。」甲雲：「我南行不及城徑二百一十步。」問答同前。}{%
+يي يخرج من the الباب الجنوبي ماشياً نحو الشرق; جيا يخرج من the الباب الشرقي ماشياً نحو الجنوب; they see each other. يي says: ``My eastward walk falls short of القطر by 168 خطوة.'' جيا says: ``My southward walk falls short of القطر by 210 خطوة.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步，甲南行三十步，乙東行七十二步。}{قطر المدينة: 240 خطوة. جيا walked 30 خطوة نحو الجنوب; يي walked 72 خطوة نحو الشرق.}
+
+\working{%
+半甲不及步以自之為冪，半甲不及步內減差以自之為冪。
+二冪相並內卻減差冪為平實，四之甲不及內減三之乙不及，餘為益從，三步半虛法。得甲南行。}{%
+Halve Jia's النقص and مربّع it as one power. اطرح the الفرق from half Jia's النقص and مربّع as second power. Add both powers and اطرح the مربّعd الفرق as المقسوم المسطح. Quadruple Jia's النقص minus triple Yi's النقص as increasing التابع. Three-and-a-half empty method. استخرجs Jia's southward walk.}
+
+\parallelsection{%
+別得乙不及為虛勾、半徑共，又為徑內減明勾也。
+甲不及為虛股、半徑共，又為徑內減股也。
+又二雲數相並為虛和、圓徑共也，雲數相減即虛較也。
+
+乃立天元一為甲南行，以減於甲不及步又半之，得$ \; \square \; $為虛股也。
+虛股內減虛較得$ \; \square \; $為虛勾。勾自之得$ \; \square \; $為勾冪也，
+又股自之下式$ \; \square \; $為股冪也。二冪相並得$ \; \square \; $為弦冪（寄左）。
+然後以天元加虛較得$ \; \square \; $為乙東行。又加入天元甲南行得$ \; \square \; $為虛弦，
+以自之得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得三十步，即甲南行也。內加少步，即城徑也。合問。}{%
+Identification: Yi's النقص is الفراغ القائم plus نصف القطر, also القطر minus the bright القائم. Jia's النقص is الفراغ المقابل plus نصف القطر, also القطر minus the المقابل. The المجموع of the two given numbers is الفراغ المجموع plus circle diameter; their الفرق is الفراغ الفرق.
+
+Let the unknown be Jia's southward walk. اطرح from half Jia's النقص to get ■ as فراغي المقابل. اطرح الفراغ الفرق from فراغي المقابل to get ■ as فراغي القائم. مربّع the القائم to get ■ as القائم-power; مربّع the المقابل to get ■ as المقابل-power. Adding both gives ■ as الوتر-power (stored left). Add the unknown to الفراغ الفرق to get ■ as Yi's eastward walk. Add the unknown (Jia's southward walk) to get ■ as فراغي الوتر. Squaring gives ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 30 خطوة, Jia's southward walk. Add the النقص for the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十四問 ========
+\subsection*{第一百一十四問 --- \ar{المسألة 一百一十四}}
+\addcontentsline{toc}{subsection}{第一百一十四問}
+
+\problem{%
+丙出南門直行，甲出東門直行，兩相望見。既而丙雲：
+「我行少於城徑一百五步。」甲雲：「我行少於城徑二百二十四步。」問答同前。}{%
+بينغ يخرج من the الباب الجنوبي ماشياً مستقيماً; جيا يخرج من the الباب الشرقي ماشياً مستقيماً; they see each other. بينغ says: ``My walk is 105 خطوة less than القطر.'' جيا says: ``My walk is 224 خطوة less than القطر.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步，半徑一百二十步。}{قطر المدينة: 240 خطوة. نصف القطر: 120 خطوة.}
+
+\working{%
+二少步相乘訖，又自乘為實；六之共步，乘雲數相乘數為益從；
+十八之雲數相乘於上，又三之共步，自乘加上位，內復減丙少步冪、甲少步冪為從廉；
+四十八之共步為益二廉，六十三步常法。
+翻法開三乘方，得一百二十步，即半徑。}{%
+اضرب the two النقصs and then self-اضرب كمقسوم. اضرب six times the المجموع by the product of the given numbers as increasing التابع. اضرب eighteen times the product of the given numbers as الحد الأعلى; add three times the مربّعd المجموع; اطرح Bing's النقص مربّعd and Jia's النقص مربّعd as التابع-lian. Forty-eight times the المجموع as increasing second lian; sixty-three as الطريقة الثابتة. استخرج by reversing the cubic الجذر to obtain 120 خطوة, the نصف القطر.}
+
+\parallelsection{%
+別得雲數共減於倍城徑為甲丙共行數。又雲數相減即皇極差，亦為甲行不及丙行數。
+立天元一為半城徑，以三之，副置二位。
+上位減丙少步，得$ \; \square \; $為皇極股也，下位減甲少步得$ \; \square \; $為皇極勾也。
+勾股相乘得$ \; \square \; $，以天元除之，得$ \; \square \; $為弦也。
+弦自之得$ \; \square \; $為弦冪（寄左）。然後以股自之得下$ \; \square \; $為股冪於上，
+又以勾自之得$ \; \square \; $為勾冪，並以加入上位，得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。翻法開三乘方得一百二十步，即半徑也。合問。}{%
+Identification: The المجموع of the given numbers اطرحed from ضاعف the قطر المدينة gives the total walk of جيا and Bing. Their الفرق is the imperial extreme الفرق, also Jia's walk short of Bing's.
+
+Let the unknown be half the قطر المدينة; triple it and place in two positions. اطرح Bing's النقص from the upper position to get ■ as imperial extreme المقابل; اطرح Jia's النقص from the lower to get ■ as imperial extreme القائم. اضرب القائم and المقابل to get ■; divide by the unknown to get ■ as الوتر. Squaring gives ■ as الوتر-power (stored left). مربّع the المقابل to get ■ as المقابل-power (upper); مربّع the القائم to get ■ as القائم-power. Add both to the upper to get ■ as matching number. Canceling gives ■. استخرج the cubic الجذر by reversing to obtain 120 خطوة, the نصف القطر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十五問 ========
+\subsection*{第一百一十五問 --- \ar{المسألة 一百一十五}}
+\addcontentsline{toc}{subsection}{第一百一十五問}
+
+\problem{%
+甲出東門直行，乙出南門直行，各不知步數而立。
+乙望見甲，就甲斜行了二百八十九步與甲相會。
+其二直行共得一百五十一步。又雲甲直行少於乙直行。問答同前。}{%
+جيا يخرج من the الباب الشرقي ماشياً مستقيماً; يي يخرج من the الباب الجنوبي ماشياً مستقيماً; each stands at an unknown المسافة. يي يرى جيا, then يمشي مائلاً 289 خطوة ليلتقي بـ Jia. Their two straight walks total 151 خطوة. It is also stated that Jia's walk is less than Yi's. الجواب كما سبق.}
+
+\answer{城徑二百四十步，甲直行一十六步，乙直行一百三十五步。}{قطر المدينة: 240 خطوة. جيا walked 16 خطوة; يي walked 135 خطوة.}
+
+\working{斜冪內減共步冪為平實，倍共步內減斜步為從，一常法。得徑。}{اطرح the مربّعd المجموع from the مربّعd قطري as المقسوم المسطح. ضاعف the المجموع minus the قطري as التابع. One الطريقة الثابتة. استخرج القطر.}
+
+\parallelsection{%
+別得共數、城徑並即皇極和也。
+立天元一為圓徑，加共步得$ \; \square \; $為皇極和，以自之，得$ \; \square \; $於上。
+以斜行冪$ \; \square \; $減上位餘$ \; \square \; $為二直積（寄左）。
+然後以天元乘斜步得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}{%
+Identification: The المجموع plus the قطر المدينة is the imperial extreme المجموع.
+
+Let the unknown be the circle diameter; add the المجموع to get ■ as imperial extreme المجموع. مربّع it to get ■ as الحد الأعلى. اطرح the مربّعd قطري ■ from the الحد الأعلى, leaving ■ as twice the rectanالمقابلlar area (stored left). اضرب the unknown by the قطري to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十六問 ========
+\subsection*{第一百一十六問 --- \ar{المسألة 一百一十六}}
+\addcontentsline{toc}{subsection}{第一百一十六問}
+
+\problem{%
+甲出東門直行，乙出東門南行，丙出南門直行，丁出南門東行，各不知步數而立。
+四人遙相望，悉與城參相直。
+只雲甲、丙共行了一百五十一步，乙、丁立處相距一百二步。又雲丙直行步多於甲直行步。問答同前。}{%
+جيا يخرج من the الباب الشرقي ماشياً مستقيماً; يي يخرج من the الباب الشرقي ماشياً نحو الجنوب; بينغ يخرج من the الباب الجنوبي ماشياً مستقيماً; دينغ يخرج من the الباب الجنوبي ماشياً نحو الشرق; each stands at an unknown المسافة. The four gaze at each other from afar, all aligned with the city. It is only stated that جيا and بينغ together walked 151 خطوة; يي and Ding's positions are 102 خطوة apart. Also stated that Bing's walk exceeds Jia's. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+共步、距步相減，得數自之於上，以共步為冪內減上為平實，
+二之距步內減共步、距步差為從，一步虛法。得城徑。}{%
+اطرح the المسافة from the المجموع; مربّع the result as الحد الأعلى. اطرح this from the مربّعd المجموع as المقسوم المسطح. ضاعف the المسافة minus the الفرق of المجموع and المسافة as التابع. One empty-corner method. استخرج the قطر المدينة.}
+
+\parallelsection{%
+別得共步得城徑即皇極和也，相距步即虛弦也。
+皇極和內減虛弦即皇極弦也。又共步、距步差$ \; \square \; $即皇極弦內減城徑也（此名旁差）。
+乃立天元一為城徑，加共步得$ \; \square \; $為皇極和也，以自之得$ \; \square \; $於上，
+以共步、距步差$ \; \square \; $加天元得$ \; \square \; $為皇極弦也，
+以自之得下式$ \; \square \; $，減上位餘得$ \; \square \; $為二直積（寄左）。
+然後以天元徑乘皇極弦，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}{%
+Identification: The المجموع equals the قطر المدينة, which is the imperial extreme المجموع. The المسافة apart is الفراغ الوتر. Imperial extreme المجموع minus فراغي الوتر equals the imperial extreme الوتر. The الفرق of المجموع and المسافة ■ is the imperial extreme الوتر minus the قطر المدينة (called side الفرق).
+
+Let the unknown be the قطر المدينة; add the المجموع to get ■ as imperial extreme المجموع. مربّع it to get ■ as الحد الأعلى. Add the الفرق of المجموع and المسافة ■ to the unknown to get ■ as imperial extreme الوتر. Squaring gives ■; اطرحing from the الحد الأعلى leaves ■ as twice the rectanالمقابلlar area (stored left). اضرب the unknown diameter by the imperial extreme الوتر to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十七問 ========
+\subsection*{第一百一十七問 --- \ar{المسألة 一百一十七}}
+\addcontentsline{toc}{subsection}{第一百一十七問}
+
+\problem{%
+甲出南門東行不知步數而立，乙出東門南行望見甲，復就甲斜行，與甲相會。
+乙通計行了一百三十二步，其乙南行步不及斜行七十二步，其甲東行卻多於乙南行。問答同前。}{%
+جيا يخرج من the الباب الجنوبي and walks east an unknown number of خطوة, ثم يقف. يي يخرج من the الباب الشرقي ماشياً نحو الجنوب, يرى جيا, then يمشي مائلاً ليلتقي بـ Jia. يي walked a total of 132 خطوة; Yi's southward walk falls short of the قطري by 72 خطوة; Jia's eastward walk exceeds Yi's southward walk. الجواب كما سبق.}
+
+\answer{城徑二百四十步，乙南行三十步，甲東行一百二步。}{قطر المدينة: 240 خطوة. يي walked 30 خطوة نحو الجنوب; جيا walked 102 خطوة نحو الشرق.}
+
+\working{倍不及步在地，以不及步減通步以乘之為實，以四之不及步為法。得乙南行三十步。}{Place ضاعف the النقص; اضرب by the total minus the النقص كمقسوم; use quadruple the النقص as divisor. استخرجs Yi's southward walk: 30 خطوة.}
+
+\parallelsection{%
+別得乙南行即股也，以減通步即虛弦也，以減不及步即虛較也，其不及步即甲東行也。
+立天元一為乙南行，置不及步以天元乘之，又四之得$ \; \square \; $元為二直積（寄左）。
+然後倍不及步以為弦較和於上$ \; \square \; $。
+以不及步減通步得$ \; \square \; $為弦較較。
+以乘上位得$ \; \square \; $太為同數，與左相消得$ \; \square \; $。
+上法下實，得三十步為乙南行也。餘各以數求之。}{%
+Identification: Yi's southward walk is the المقابل; اطرح from the total to get الفراغ الوتر; اطرح the النقص to get الفراغ الفرق. The النقص itself is Jia's eastward walk.
+
+Let the unknown be Yi's southward walk. اضرب the النقص by the unknown and quadruple to get ■ as twice the rectanالمقابلlar area (stored left). ضاعف the النقص as the المجموع of الوتر and الفرق (upper) ■. Total minus النقص gives ■ as the الفرق of الوتر and الفرق. اضرب the upper by this to get ■ as matching number. Canceling gives ■. Dividing yields 30 خطوة as Yi's southward walk. The rest follows from the numbers.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十八問 ========
+\subsection*{第一百一十八問 --- \ar{المسألة 一百一十八}}
+\addcontentsline{toc}{subsection}{第一百一十八問}
+
+\problem{%
+甲出南門東行不知步數而立。乙出東門南行，望見甲，復斜行與甲相會。
+二人共行了二百四步，又雲甲行不及共步一百三十二。問答同前。}{%
+جيا يخرج من the الباب الجنوبي and walks east an unknown number of خطوة, ثم يقف. يي يخرج من the الباب الشرقي ماشياً نحو الجنوب, يرى جيا, then يمشي مائلاً ليلتقي بـ Jia. Together they walked 204 خطوة. It is also stated that Jia's walk falls short of the total by 132. الجواب كما سبق.}
+
+\answer{城徑二百四十步，甲東行九十六步，乙南行一百零八步。}{قطر المدينة: 240 خطوة. جيا walked 96 خطوة نحو الشرق; يي walked 108 خطوة نحو الجنوب.}
+
+\working{%
+別得二行共即兩個虛弦也，其不及步即乙南行與一虛弦共也。
+置不及步內減一弦餘三十步，即乙南行也。
+以乙南行反以減虛弦，餘七十二步即甲東行也。
+以乙南行減甲東行餘即虛較也。}{%
+Identification: The المجموع of the two walks is twice الفراغ الوتر; the النقص is Yi's southward walk plus one فراغي الوتر. اطرح one الوتر from the النقص; the remainder 30 is Yi's southward walk. اطرح Yi's southward walk from الفراغ الوتر; the remainder 72 is Jia's eastward walk. اطرح Yi's from Jia's to get الفراغ الفرق.}
+
+\parallelsection{此問無草。}{This problem has no working.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百一十九問 ========
+\subsection*{第一百一十九問 --- \ar{المسألة 一百一十九}}
+\addcontentsline{toc}{subsection}{第一百一十九問}
+
+\problem{%
+乙出東門南行，甲出西門南行，甲望見乙，斜行五百一十步相會。
+乙雲：「我南行少於城徑二百一十步。」問答同前。}{%
+يي يخرج من the الباب الشرقي ماشياً نحو الجنوب; جيا يخرج من the الباب الغربي ماشياً نحو الجنوب; جيا sees يي and يمشي مائلاً 510 خطوة ليلتقي بـ Yi. يي says: ``My southward walk is 210 خطوة less than القطر.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步，乙南行三十步。}{قطر المدينة: 240 خطوة. يي walked 30 خطوة نحو الجنوب.}
+
+\working{少步冪為平實，四斜步內減二少步為益從，五步常法。得乙南行。}{مربّع the النقص as المقسوم المسطح. Quadruple the قطري minus ضاعف the النقص as increasing التابع. Five as الطريقة الثابتة. استخرجs Yi's southward walk.}
+
+\parallelsection{%
+別得少步為徑內減股。
+立天元一為乙南行，以二之減於倍斜行步，得$ \; \square \; $為梯底也。
+以二之天元乘之，得$ \; \square \; $為徑冪（寄左）。
+再置天元加少步，得下式$ \; \square \; $為城徑，以自之得$ \; \square \; $，
+與左相消得$ \; \square \; $。開平方得三十步，即乙南行也。加少步即城徑也。合問。}{%
+Identification: The النقص is القطر minus the المقابل.
+
+Let the unknown be Yi's southward walk. اطرح ضاعف the unknown from ضاعف the قطري to get ■ as the ladder base. اضرب by ضاعف the unknown to get ■ as diameter-power (stored left). Add the النقص to the unknown to get ■ as قطر المدينة; squaring gives ■. Canceling gives ■. استخرج the مربّع الجذر to obtain 30 خطوة, Yi's southward walk. Add the النقص for the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十問 ========
+\subsection*{第一百二十問 --- \ar{المسألة 一百二十}}
+\addcontentsline{toc}{subsection}{第一百二十問}
+
+\problem{%
+乙出南門東行，甲出北門東行，甲望見乙，斜行二百七十二步與乙相會。
+乙雲：「我東行不及城徑一百六十八步。」問答同前。}{%
+يي يخرج من the الباب الجنوبي ماشياً نحو الشرق; جيا يخرج من the الباب الشمالي ماشياً نحو الشرق; جيا sees يي and يمشي مائلاً 272 خطوة ليلتقي بـ Yi. يي says: ``My eastward walk falls short of القطر by 168 خطوة.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步，乙東行七十二步。}{قطر المدينة: 240 خطوة. يي walked 72 خطوة نحو الشرق.}
+
+\working{以不及步冪之為實，四斜內減二之不及步為虛從，五常法。平開得乙東行七十二步。}{مربّع the النقص كمقسوم. Quadruple the قطري minus ضاعف the النقص as empty التابع. Five as الطريقة الثابتة. استخرج to obtain Yi's eastward walk: 72 خطوة.}
+
+\parallelsection{%
+別得不及步為城徑減明勾也。
+立天元一為乙東行，以倍之減於二之斜行步，得下$ \; \square \; $為梯底也。
+倍天元乘之，得$ \; \square \; $為徑冪（寄左）。
+再置天元加不及步，得$ \; \square \; $為城徑，以自之得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得七十二步，即乙東行也。加入少步即城徑也。合問。}{%
+Identification: The النقص is the قطر المدينة minus the bright القائم.
+
+Let the unknown be Yi's eastward walk. اطرح ضاعف the unknown from ضاعف the قطري to get ■ as ladder base. اضرب by ضاعف the unknown to get ■ as diameter-power (stored left). Add the النقص to the unknown to get ■ as قطر المدينة; squaring gives ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 72 خطوة, Yi's eastward walk. Add the النقص for the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十一問 ========
+\subsection*{第一百二十一問 --- \ar{المسألة 一百二十一}}
+\addcontentsline{toc}{subsection}{第一百二十一問}
+
+\problem{%
+乙出南門東行，丁出東門南行，卻有甲丙二人共在西北隅，甲向東行，丙向南行，
+四人遙相望見，俱與城參相直。既而相會，甲雲：「我多乙二百四十八步。」
+丙雲：「我多於丁五百七十步。」問答同前。}{%
+يي يخرج من the الباب الجنوبي ماشياً نحو الشرق; دينغ يخرج من the الباب الشرقي ماشياً نحو الجنوب. Meanwhile جيا and بينغ together are at the northwest corner, جيا ماشياً نحو الشرق and بينغ ماشياً نحو الجنوب. The four gaze at each other from afar, all aligned with the city. After meeting, جيا says: ``I exceed يي by 248 خطوة.'' بينغ says: ``I exceed دينغ by 570 خطوة.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{二多步相乘為平實，並二多步而半之為從，七分半常法。得城徑。}{اضرب the two excesses as المقسوم المسطح. Halve the المجموع of the two excesses as التابع. Seven and a half as الطريقة الثابتة. استخرج the قطر المدينة.}
+
+\parallelsection{%
+別得甲多步為大勾內減明勾也，丙多步為大股內少股也。
+又乙東行得一虛勾為半徑，丁南行得一虛股為半徑。
+又二多數相並得$ \; \square \; $為大和內少虛弦也，又二少數相減餘$ \; \square \; $為兩個角差。
+又甲多步內減半徑即勾方差也，丙多步內減半徑即股方差也。
+
+立天元一為城徑，以半之減於甲多步得$ \; \square \; $為勾方差，
+又以半徑減於丙多步得$ \; \square \; $為股方差。
+二差相乘得$ \; \square \; $為徑冪（寄左）。然後以天元冪與左相消，得下式$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}{%
+Identification: Jia's excess is the large القائم minus the bright القائم; Bing's excess is the large المقابل minus the المقابل. Yi's eastward walk gives one فراغي القائم as نصف القطر; Ding's southward walk gives one فراغي المقابل as نصف القطر. The المجموع of the two excesses ■ is the large المجموع minus الفراغ الوتر; their الفرق ■ is twice the corner الفرق. Jia's excess minus the نصف القطر is the القائم مربّع-الفرق; Bing's excess minus the نصف القطر is the المقابل مربّع-الفرق.
+
+Let the unknown be the قطر المدينة. اطرح half القطر from Jia's excess to get ■ as القائم مربّع-الفرق; اطرح the نصف القطر from Bing's excess to get ■ as المقابل مربّع-الفرق. اضرب both الفرقs to get ■ as diameter-power (stored left). Cancel the unknown مربّعd with the left to get ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十二問 ========
+\subsection*{第一百二十二問 --- \ar{المسألة 一百二十二}}
+\addcontentsline{toc}{subsection}{第一百二十二問}
+
+\problem{%
+甲丙二人俱在西北隅，甲向東行，丙向南行。
+又乙出南門東行，丁出東門南行，各不知步數而立。
+四人遙相望見，悉與城參相直。既而相會，甲雲：
+「我與乙共行了三百九十二步。」丙雲：「我與丁共行了六百三十步。」問答同前。}{%
+جيا and بينغ are both at the northwest corner; جيا walks east and بينغ walks south. يي يخرج من the الباب الجنوبي ماشياً نحو الشرق; دينغ يخرج من the الباب الشرقي ماشياً نحو الجنوب; each stands at an unknown المسافة. The four gaze at each other from afar, all aligned with the city. After meeting, جيا says: ``يي and I together walked 392 خطوة.'' بينغ says: ``دينغ and I together walked 630 خطوة.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+甲乙共自之為冪，丙丁共自之為冪，二冪又相乘為三乘方實。
+甲乙共自之為冪，以丙丁共乘之於上。
+又以丙丁共自之為冪，以甲乙共乘之加上位為益從。
+甲乙共自之為冪，丙丁共自之為冪，並，以七分半乘之於上。
+又以甲乙共乘丙丁共，得數減上位為第一益廉。
+並二共數，以七分半乘之為第二廉。
+以七分半自之，得五分六厘二毫五絲於上位。
+以一步內減上位，餘四分三厘七毫五絲為虛隅。得城徑。}{%
+مربّع the Jia-يي المجموع and the Bing-دينغ المجموع; اضرب both powers as the cubic shi. مربّع the Jia-يي المجموع, اضرب by the Bing-دينغ المجموع as الحد الأعلى. مربّع the Bing-دينغ المجموع, اضرب by the Jia-يي المجموع and add to الحد الأعلى as increasing التابع. مربّع both المجموعs, add, اضرب by 7.5 as الحد الأعلى. اطرح the product of both المجموعs from الحد الأعلى as first increasing lian. Add both المجموعs, اضرب by 7.5 as second lian. مربّع 7.5 to get 0.05625 as الحد الأعلى. اطرح from one step, leaving 0.04375 as زاوية فارغة. استخرجs the قطر المدينة.}
+
+\parallelsection{%
+別得甲為大勾，乙為明勾，丙為大股，丁為股也。
+甲乙共內減半徑即是黃長弦也，丙丁共內減半徑即黃廣弦也。
+黃長弦、黃廣弦二數相減，餘為兩個皇極差也。
+
+乃立天元為城徑，半之副置二位。
+上以減於甲乙共數，得$ \; \square \; $即黃長弦也，以自之得$ \; \square \; $為黃長弦冪也，
+內減天元一冪，餘得下式$ \; \square \; $為勾方差冪也。
+下位以減於丙丁共，得下式$ \; \square \; $即黃廣弦也，
+以自之得$ \; \square \; $為黃廣弦冪也，內減天元一冪，餘得$ \; \square \; $為股方差冪也。
+再以勾方差冪、股方差冪相乘，得$ \; \square \; $為徑冪（寄左）。
+然後以天元為冪，又以冪自之，與左相消得下式$ \; \square \; $。
+開三乘方得二百四十步，即城徑也。合問。}{%
+Identification: جيا is the large القائم, يي is the bright القائم, بينغ is the large المقابل, دينغ is the المقابل. The Jia-يي المجموع minus the نصف القطر is the yellow-length الوتر; the Bing-دينغ المجموع minus the نصف القطر is the yellow-breadth الوتر. Their الفرق is twice the imperial extreme الفرق.
+
+Let the unknown be the قطر المدينة; halve and place in two positions. اطرح from the Jia-يي المجموع above to get ■ as yellow-length الوتر; squaring gives ■ as its power; اطرح the unknown مربّعd to get ■ as القائم مربّع-الفرق power. اطرح from the Bing-دينغ المجموع below to get ■ as yellow-breadth الوتر; squaring and اطرحing the unknown مربّعd gives ■ as المقابل مربّع-الفرق power. اضرب both الفرق powers to get ■ as diameter-power (stored left). Cube the unknown and cancel with the left to get ■. استخرج the cubic الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+
+\newpage
+\section{卷八\quad 明後一十六問 --- \ar{الجزء الثامن: ستة عشر مسألة «خلفية»}}
+\addcontentsline{toc}{section}{卷八 --- الجزء الثامن}
+
+\parallelsection{%
+此卷一十六問，皆以明後段為主。方程式次之高，有至四乘、五乘者。
+}{%
+يحتوي هذا الجزء على 16 مسألة تتعلق بالتكوينات «الخلفية». تصل المعادلات إلى الدرجة الخامسة.%
+}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十三問 ========
+\subsection*{第一百二十三問 --- \ar{المسألة 一百二十三}}
+\addcontentsline{toc}{subsection}{第一百二十三問}
+
+\problem{%
+出南門向東有槐樹一株，出東門向南有柳樹一株。
+丙丁俱出南門，丙直行，丁往至槐樹下。
+甲乙俱出東門，甲直行，乙往至柳樹下。
+四人遙相望見，各不知所行步數。
+只雲丙丁共行了二百七步，甲乙共行了四十六步，
+又雲甲丙立處相距二百八十九步。問答同前。}{%
+بالخروج من the الباب الجنوبي eastward there is a locust tree; going out the الباب الشرقي southward there is a willow tree. بينغ and دينغ both go out the الباب الجنوبي; بينغ يمشي مستقيماً while دينغ goes to the locust tree. جيا and يي both go out the الباب الشرقي; جيا يمشي مستقيماً while يي goes to the willow tree. The four gaze at each other from afar; none know the خطوة walked. It is only stated that بينغ and دينغ together walked 207 خطوة; جيا and يي together walked 46 خطوة; and the المسافة between جيا and Bing's positions is 289 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，半徑一百二十步。}{قطر المدينة: 240 خطوة. نصف القطر: 120 خطوة.}
+
+\working{以二共相減數又以減距數為實，二為法。得平勾。}{اطرح the الفرق of the two المجموعs from the المسافة كمقسوم; 2 as divisor. استخرجs the level القائم.}
+
+\parallelsection{%
+識別得丙丁共即明和也，甲乙共即和也，相距步即極弦也。
+二共相並即極弦內少個虛黃也，又為極和內少個虛和也。
+二共相減餘為平勾高股差也，又為虛差極差共也，又為通差內減極差也。
+
+立天元為平勾，加入二共相減數，得$ \; \square \; $為高股，又加天元得$ \; \square \; $為極弦（寄左）。
+以相距步二百八十九與左相消，得$ \; \square \; $。
+上法下實，如法得六十四，即平勾也。
+以二共相減數加平勾得二百二十五為高股，復以平勾乘之，得一萬四千四百步。
+開平方得一百二十步，即城半徑也。合問。}{%
+Identification: Bing-دينغ المجموع is the bright المجموع; Jia-يي المجموع is the المجموع; the المسافة is the extreme الوتر. The المجموع of both المجموعs is the extreme الوتر lacking الفراغ yellow; also the extreme المجموع lacking الفراغ المجموع. Their الفرق is the الفرق between level القائم and high المقابل; also the المجموع of فراغي الفرق and extreme الفرق; also the general الفرق minus the extreme الفرق.
+
+Let the unknown be the level القائم. Add the الفرق of the two المجموعs to get ■ as high المقابل; add the unknown to get ■ as extreme الوتر (stored left). Cancel with the المسافة 289 to get ■. Dividing yields 64, the level القائم. Add the الفرق of المجموعs to the level القائم to get 225 as high المقابل; اضرب by the level القائم to get 14,400. استخرج the مربّع الجذر to obtain 120 خطوة, half the city نصف القطر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十四問 ========
+\subsection*{第一百二十四問 --- \ar{المسألة 一百二十四}}
+\addcontentsline{toc}{subsection}{第一百二十四問}
+
+\problem{%
+依前見丙丁共二百七步，甲乙共四十六步。又雲二樹相去一百二步。問答同前。}{%
+As before: Bing-دينغ المجموع 207 خطوة, Jia-يي المجموع 46 خطوة. Also stated: the two trees are 102 خطوة apart. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+以甲乙共乘樹相去步，得數又以自之為平實；從空；
+並二共數為冪於上，內減甲乙共自之數、丙丁共自之數為益隅。得弦。}{%
+اضرب the Jia-يي المجموع by the tree المسافة; مربّع the result as المقسوم المسطح. Cong empty. مربّع the المجموع of both المجموعs as الحد الأعلى; اطرح the مربّعd Jia-يي المجموع and مربّعd Bing-دينغ المجموع as increasing corner. استخرجs the الوتر.}
+
+\parallelsection{%
+識別得兩樹相去步即虛弦也。餘數具前。
+立天元一為弦。置明和以天元乘之，合和除，不除，便以$ \; \square \; $元為明弦也（內帶和分母）。
+乃置虛弦以分母和乘之，得$ \; \square \; $太，加入明弦，得$ \; \square \; $為極股也，內帶和分母。
+以自之得下式$ \; \square \; $為極股冪（內寄和冪為分母）。
+又以天元加虛弦得下$ \; \square \; $為極勾，以自之得$ \; \square \; $。
+又以和冪$ \; \square \; $乘之，得$ \; \square \; $為勾冪也。
+勾股冪相並得$ \; \square \; $為兩積一較冪也，內有和冪分母（寄左）。
+然後置明弦$ \; \square \; $元於上，以和乘天元加上位，得$ \; \square \; $元為二弦並也。
+又置虛弦以和乘之得$ \; \square \; $太，並入上位，得下式$ \; \square \; $為極弦，
+以自之得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得三十四步，即弦也。}{%
+Identification: The tree المسافة is الفراغ الوتر. The rest as before.
+
+Let the unknown be the الوتر. اضرب the bright المجموع by the unknown; do not divide by the المجموع; take ■ as the bright الوتر (with المجموع as denominator). اضرب الفراغ الوتر by the denominator المجموع to get ■; add the bright الوتر to get ■ as extreme المقابل (with المجموع denominator). Squaring gives ■ as extreme المقابل power (with مربّعd المجموع as denominator). Add the unknown to الفراغ الوتر to get ■ as extreme القائم; squaring and اضربing by مربّعd المجموع ■ gives ■ as القائم power. Adding both powers gives ■ as two areas plus one الفرق power (with مربّعd المجموع denominator, stored left). Place bright الوتر ■ above; اضرب the unknown by the المجموع and add to get ■ as combined الوترs. اضرب فراغي الوتر by المجموع to get ■; add to get ■ as extreme الوتر. Squaring gives ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 34 خطوة, the الوتر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十五問 ========
+\subsection*{第一百二十五問 --- \ar{المسألة 一百二十五}}
+\addcontentsline{toc}{subsection}{第一百二十五問}
+
+\problem{皇極大小差共一百八十七步，明黃、黃共六十六步。問答同前。}{The المجموع of imperial extreme large and small الفرقs is 187 خطوة; the المجموع of bright yellow and yellow is 66 خطوة. الجواب كما سبق.}
+
+\answer{太虛黃方三十六步，城徑二百四十步。}{Grand فراغي yellow مربّع: 36 خطوة. قطر المدينة: 240 خطوة.}
+
+\working{後數自乘為實，前後數相減，餘為法。得虛黃方三十六。}{مربّع the latter number كمقسوم; اطرح the former from the latter as divisor. استخرجs الفراغ yellow مربّع: 36.}
+
+\parallelsection{%
+別得一百八十七即明弦二弦共也，其六十六即太虛大小差共也。
+又二數相並，得$ \; \square \; $即明、二和共。若以相減，餘$ \; \square \; $即明、四差共也。
+
+立天元一為太虛黃方面，加二黃共，得$ \; \square \; $即虛弦也。
+倍虛弦又加天元，得$ \; \square \; $即城徑也。
+又以虛弦加皇極大小差，得$ \; \square \; $即極弦也，
+以極弦乘城徑得$ \; \square \; $，為兩段皇極勾股積（寄左）。
+再以極弦虛弦相並，得$ \; \square \; $，即皇極勾股共也，
+自之得$ \; \square \; $，內減皇極弦冪$ \; \square \; $，得$ \; \square \; $為同數，
+與寄左相消得$ \; \square \; $。上法下實，如法得三十六步，即太虛黃方面也。合問。}{%
+Identification: 187 is the المجموع of bright الوتر and two الوترs; 66 is the المجموع of grand فراغي large and small الفرقs. Adding both gives ■ as the المجموع of bright and two المجموعs; اطرحing gives ■ as the المجموع of bright and four الفرقs.
+
+Let the unknown be the grand فراغي yellow مربّع side. Add twice the yellow المجموع to get ■ as فراغي الوتر. ضاعف الفراغ الوتر and add the unknown to get ■ as قطر المدينة. Add الفراغ الوتر to the imperial extreme الفرقs to get ■ as extreme الوتر; اضرب by the قطر المدينة to get ■ as twice the imperial extreme القائم-المقابل area (stored left). Add extreme and فراغي الوترs to get ■ as imperial extreme القائم-المقابل المجموع. Squaring and اطرحing the مربّعd extreme الوتر ■ gives ■ as matching number. Canceling gives ■. Dividing yields 36 خطوة, the grand فراغي yellow مربّع side. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十六問 ========
+\subsection*{第一百二十六問 --- \ar{المسألة 一百二十六}}
+\addcontentsline{toc}{subsection}{第一百二十六問}
+
+\problem{%
+東門南有柳一株，南門東有槐一株。
+甲出東門直行，丙出南門直行。
+甲、丙、柳、槐悉與城參相直，
+既而甲就柳樹斜行三十四步至柳樹下，丙就槐樹斜行一百五十三步至槐樹下。問答同前。}{%
+South of the الباب الشرقي is a willow; east of the الباب الجنوبي is a locust. جيا يخرج من the الباب الشرقي ماشياً مستقيماً; بينغ يخرج من the الباب الجنوبي ماشياً مستقيماً. Jia, Bing, the willow, and the locust are all aligned with the city. Then جيا يمشي مائلاً 34 خطوة to the willow; بينغ يمشي مائلاً 153 خطوة to the locust. الجواب كما سبق.}
+
+\answer{城徑二百四十步，虛弦一百二步。}{قطر المدينة: 240 خطوة. Void الوتر: 102 خطوة.}
+
+\working{%
+雲數相乘，倍之便為平方實，開方得虛弦一百二步。
+以此弦加甲行步即極勾，以此弦加丙行步即極股。餘各依法求之。}{%
+اضرب the given numbers; ضاعف as the quadratic shi. استخرج the مربّع الجذر to obtain الفراغ الوتر: 102 خطوة. This الوتر plus Jia's walk gives the extreme القائم; plus Bing's walk gives the extreme المقابل. The rest follows by method.}
+
+\parallelsection{%
+識別：甲斜行即弦也，丙斜行即明弦也。
+立天元一為虛弦。置甲乙共以天元減之，得$ \; \square \; $為虛和也。
+以天元減甲乙共餘$ \; \square \; $即虛勾虛股共也。
+別置虛弦加甲斜行得$ \; \square \; $即極勾，虛弦加丙斜行得$ \; \square \; $即極股也。
+極勾極股相乘得$ \; \square \; $，以天元虛弦除之得$ \; \square \; $為極弦也。
+以自增乘得$ \; \square \; $為極弦冪（寄左）。
+乃以極勾自之得$ \; \square \; $為勾冪，極股自之得$ \; \square \; $為股冪，
+二冪相並得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百二步，即虛弦也。合問。}{%
+Identification: Jia's قطري is the الوتر; Bing's قطري is the bright الوتر.
+
+Let the unknown be الفراغ الوتر. اطرح from the Jia-يي المجموع to get ■ as فراغي المجموع. The remainder ■ is the المجموع of فراغي القائم and فراغي المقابل. Add الفراغ الوتر to Jia's قطري to get ■ as extreme القائم; add to Bing's قطري to get ■ as extreme المقابل. اضرب to get ■; divide by الفراغ الوتر to get ■ as extreme الوتر. Squaring gives ■ as extreme الوتر power (stored left). مربّع the extreme القائم to get ■ as القائم power; مربّع extreme المقابل to get ■ as المقابل power. Adding gives ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 102 خطوة, الفراغ الوتر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十七問 ========
+\subsection*{第一百二十七問 --- \ar{المسألة 一百二十七}}
+\addcontentsline{toc}{subsection}{第一百二十七問}
+
+\problem{%
+東門南有柳一株，南門東有槐一株。
+甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
+既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
+只雲丙共行了二百八十八步，甲斜行與柳至東門步共得六十四步。問答同前。}{%
+South of the الباب الشرقي is a willow; east of the الباب الجنوبي is a locust. جيا يخرج من the الباب الشرقي ماشياً مستقيماً; بينغ يخرج من the الباب الجنوبي ماشياً مستقيماً; they gaze at each other from afar. The locust and willow are aligned with the city edge. Then جيا يمشي مائلاً to the willow; بينغ يمشي مائلاً to the locust; each المسافة is unknown. It is only stated that بينغ walked a total of 288 خطوة; Jia's قطري plus the willow-to-East-Gate المسافة equals 64 خطوة. الجواب كما سبق.}
+
+\answer{甲直行一十六步，城徑二百四十步。}{Jia's straight walk: 16 خطوة. قطر المدينة: 240 خطوة.}
+
+\working{%
+二雲數相乘於上，以六十四步自之，又二之，減上位為平實。
+四之六十四於上，倍丙行內減上位為從。二十常法。得甲直行步一十六。}{%
+اضرب the two given numbers as الحد الأعلى. مربّع 64 and ضاعف it; اطرح from الحد الأعلى as المقسوم المسطح. Quadruple 64 as الحد الأعلى; اطرح from ضاعف Bing's walk as التابع. Twenty as الطريقة الثابتة. استخرجs Jia's straight walk: 16 خطوة.}
+
+\parallelsection{%
+別得丙共步即明股、明弦和也，六十四即平勾也，內甲斜行即弦也，柳至東門步即股也。
+又二雲數相並即明差與極弦共也，二雲數相減即明差與平勾高股差共也。
+又平勾內減勾即虛勾也。
+
+立天元一為勾。置丙共步以天元乘之，復以六十四除之得$ \; \square \; $為明勾也。
+又以天元減於六十四，得$ \; \square \; $為虛勾也，並虛明二勾$ \; \square \; $為半徑也。
+以自之得$ \; \square \; $，倍之得$ \; \square \; $為半段圓城徑冪（寄左）。
+乃以天元加六十四，得$ \; \square \; $為勾圓差於上；
+又以明勾加丙共步，得$ \; \square \; $為股圓差於下。
+上下相乘得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一十六步，即勾也。此勾乃甲出東門直行步也。餘皆依數求之。合問。}{%
+Identification: Bing's total is the المجموع of bright المقابل and bright الوتر; 64 is the level القائم; Jia's قطري is the الوتر; the willow-to-East-Gate المسافة is the المقابل. The المجموع of the two given numbers is the bright الفرق plus extreme الوتر; their الفرق is the bright الفرق plus the الفرق between level القائم and high المقابل. Level القائم minus القائم is فراغي القائم.
+
+Let the unknown be the القائم. اضرب Bing's total by the unknown and divide by 64 to get ■ as bright القائم. اطرح the unknown from 64 to get ■ as فراغي القائم; add both فراغي and bright القائم ■ as نصف القطر. Squaring and doubling gives ■ as half the قطر المدينة power (stored left). Add the unknown to 64 to get ■ as القائم circle-الفرق (upper); add bright القائم to Bing's total to get ■ as المقابل circle-الفرق (lower). اضرب to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 16 خطوة, the القائم---this is Jia's straight walk out the الباب الشرقي. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十八問 ========
+\subsection*{第一百二十八問 --- \ar{المسألة 一百二十八}}
+\addcontentsline{toc}{subsection}{第一百二十八問}
+
+\problem{%
+東門南有柳樹一株，南門東有槐樹一株。
+甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
+既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
+只雲甲共行五十步，丙斜行與槐至南門步共得二百二十五步。問答同前。}{%
+South of the الباب الشرقي is a willow; east of the الباب الجنوبي is a locust. جيا يخرج من the الباب الشرقي ماشياً مستقيماً; بينغ يخرج من the الباب الجنوبي ماشياً مستقيماً; they gaze at each other from afar. The locust and willow are aligned with the city edge. Then جيا يمشي مائلاً to the willow; بينغ يمشي مائلاً to the locust; each المسافة is unknown. It is only stated that جيا walked a total of 50 خطوة; Bing's قطري plus the locust-to-South-Gate المسافة equals 225 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，丙直行一百三十五步。}{قطر المدينة: 240 خطوة. Bing's straight walk: 135 خطوة.}
+
+\working{%
+以二百二十五步自之為冪，又以此冪自為冪於上。
+置甲共行以二百二十五步三度乘之，得數復折半，減上位為平實。
+置二百二十五步自之數，以二雲數相減數乘之，又倍之於上。
+倍五十步在地，以二百二十五步自之數乘之，復折半加上位為益從。
+雲數相減自乘於上，以雲數相乘，復折半，減上位為常法。得明股。}{%
+مربّع 225 as power; use this power مربّعd as الحد الأعلى. Raise Jia's total by 225 to the third power; halve and اطرح from الحد الأعلى as المقسوم المسطح. مربّع 225; اضرب by the الفرق of the two given numbers; ضاعف as الحد الأعلى. Place ضاعف 50; اضرب by the مربّعd 225; halve and add to الحد الأعلى as increasing التابع. مربّع the الفرق of the given numbers as الحد الأعلى; halve the product of the given numbers and اطرح as الطريقة الثابتة. استخرجs the bright المقابل.}
+
+\parallelsection{%
+識別得甲共步即勾、弦共也，二百二十五即高股也，內丙斜行即明弦，槐至南門步即明勾也。
+又二雲數相並即極弦內減一個差也，雲數相減即差與高股、平勾差共也。
+又高股內減明股即虛股也。
+
+立天元一為明股，即丙出南門直行步也。
+置五十步以天元乘之得$ \; \square \; $元，合高股除。
+不除，便以此一零零零元為通股（內帶高股為母）。
+以天元加高股，得$ \; \square \; $即大差也。
+置大差以高股分母乘之，得$ \; \square \; $，即帶分大差也。
+以此減於通股，餘$ \; \square \; $即圓徑也。
+以自增乘，得$ \; \square \; $（寄左。內帶高股冪分母）。
+然後置一千以高股分母通之，得$ \; \square \; $太，內減帶分大差，
+得$ \; \square \; $為兩個通勾也。
+內減兩個圓徑得$ \; \square \; $，為兩個小差也。
+以帶分大差乘之，得下式$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百三十五步，即明股也。合問。}{%
+Identification: Jia's total is the المجموع of القائم and الوتر; 225 is the high المقابل; Bing's قطري is the bright الوتر; the locust-to-South-Gate المسافة is the bright القائم. The المجموع of the two given numbers is the extreme الوتر minus one الفرق; their الفرق is the الفرق plus the الفرق between high المقابل and level القائم. High المقابل minus bright المقابل is فراغي المقابل.
+
+Let the unknown be the bright المقابل, Bing's straight walk out the الباب الجنوبي. اضرب 50 by the unknown to get ■; should divide by high المقابل but do not; take this as the general المقابل (with high المقابل as denominator). Add the unknown to the high المقابل to get ■ as large الفرق. اضرب by the high المقابل denominator to get ■ as the scaled large الفرق. اطرح from the general المقابل; the remainder ■ is the circle diameter. Squaring gives ■ (stored left, with مربّعd high المقابل as denominator). Scale 1000 by the high المقابل denominator to get ■; اطرح the scaled large الفرق to get ■ as twice the general القائم. اطرح twice the circle diameter to get ■ as twice the small الفرق. اضرب by the scaled large الفرق to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 135 خطوة, the bright المقابل. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百二十九問 ========
+\subsection*{第一百二十九問 --- \ar{المسألة 一百二十九}}
+\addcontentsline{toc}{subsection}{第一百二十九問}
+
+\problem{通勾、通弦共一千步，勾、弦共五十步。問答同前。}{General القائم plus general الوتر total 1000 خطوة; القائم plus الوتر total 50 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，股三十步。}{قطر المدينة: 240 خطوة. Gu: 30 خطوة.}
+
+\working{%
+置一千減二之五十步為泛率。以自乘，復半之於上。
+又置泛率復以五十乘之，加上位為平實。
+二十二之泛率於上。以四十二乘五十，得數內減泛率，加上位為益從。
+二百為常法。得股。}{%
+اطرح ضاعف 50 from 1000 as the general rate. مربّع and halve as الحد الأعلى. اضرب the general rate by 50 and add to الحد الأعلى as المقسوم المسطح. Twenty-two times the general rate as الحد الأعلى. اضرب 42 by 50; اطرح the general rate and add to الحد الأعلى as increasing التابع. Two hundred as الطريقة الثابتة. استخرجs the المقابل.}
+
+\parallelsection{%
+立天元一為股。
+置一千以天元乘之，以五十除之，得$ \; \square \; $元為通股也。
+又以天元加五十步，得$ \; \square \; $即小差也，通股加小差得$ \; \square \; $即通弦也。
+以通弦減一千得$ \; \square \; $，即通勾也。
+以小差減通勾得$ \; \square \; $，即圓徑也。
+以圓徑減通股得$ \; \square \; $即大差也。
+置大差以小差乘之得$ \; \square \; $（寄左）。
+然後置圓徑以自之得$ \; \square \; $，折半得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得三十步，即股也。合問。}{%
+Let the unknown be the المقابل. اضرب 1000 by the unknown and divide by 50 to get ■ as general المقابل. Add 50 to the unknown to get ■ as small الفرق; general المقابل plus small الفرق gives ■ as general الوتر. اطرح from 1000 to get ■ as general القائم. اطرح the small الفرق from general القائم to get ■ as circle diameter. اطرح the circle diameter from general المقابل to get ■ as large الفرق. اضرب large الفرق by small الفرق to get ■ (stored left). مربّع the circle diameter and halve to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 30 خطوة, the المقابل. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十問 ========
+\subsection*{第一百三十問 --- \ar{المسألة 一百三十}}
+\addcontentsline{toc}{subsection}{第一百三十問}
+
+\problem{通勾、通弦共一千步，明勾、明弦共二百二十五步。問答同前。}{General القائم plus general الوتر total 1000 خطوة; bright القائم plus bright الوتر total 225 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，明股一百三十五步。}{قطر المدينة: 240 خطوة. Bright المقابل: 135 خطوة.}
+
+\working{%
+以後數再自乘，又以前數乘之為平實；以後數為冪，復以前數乘之為從；
+以前數冪為虛常法。得明股。}{%
+Cube the latter number and اضرب by the former as المقسوم المسطح. مربّع the latter and اضرب by the former as التابع. The مربّعd former as empty الطريقة الثابتة. استخرجs the bright المقابل.}
+
+\parallelsection{%
+別得二百二十五步即高股也。
+立天元一為明股。置一千以天元乘之，合以高股除不受除，
+便以此一零零零元為通股（內帶高股為母）。
+以天元加高股，得$ \; \square \; $即大差也。
+置大差以高股分母乘之，得$ \; \square \; $，即帶分大差也。
+以此減於通股，餘$ \; \square \; $即圓徑也。
+以自增乘，得$ \; \square \; $（寄左。內帶高股冪分母）。
+然後置一千以高股分母通之，得$ \; \square \; $太，內減帶分大差，
+得$ \; \square \; $為兩個通勾也。
+內減兩個圓徑得$ \; \square \; $，為兩個小差也。
+以帶分大差乘之，得下式$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百三十五步，即明股也。合問。}{%
+Identification: 225 خطوة is the high المقابل.
+
+Let the unknown be the bright المقابل. اضرب 1000 by the unknown; do not divide by the high المقابل; take this as the general المقابل (with high المقابل as denominator). Add the unknown to the high المقابل to get ■ as large الفرق. اضرب by the high المقابل denominator to get ■ as the scaled large الفرق. اطرح from general المقابل; remainder ■ is the circle diameter. Squaring gives ■ (stored left, with مربّعd high المقابل denominator). Scale 1000 by the high المقابل denominator to get ■; اطرح the scaled large الفرق to get ■ as twice the general القائم. اطرح twice the circle diameter to get ■ as twice the small الفرق. اضرب by the scaled large الفرق to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 135 خطوة, the bright المقابل. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十一問 ========
+\subsection*{第一百三十一問 --- \ar{المسألة 一百三十一}}
+\addcontentsline{toc}{subsection}{第一百三十一問}
+
+\problem{通股、通弦共一千二百八十步，股、弦共六十四步。問答同前。}{General المقابل plus general الوتر total 1280 خطوة; المقابل plus الوتر total 64 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，勾一十六步。}{قطر المدينة: 240 خطوة. Gou: 16 خطوة.}
+
+\working{%
+雲數相乘為平實，前數為益從。
+置前數以後數除之，得二十為泛率。
+泛率減一以自乘於上，又倍泛率減一加上位為常法。倒積開得勾一十六。}{%
+اضرب the given numbers as المقسوم المسطح; the former as increasing التابع. Divide the former by the latter to get 20 as general rate. مربّع (general rate minus one) as الحد الأعلى; add ضاعف the general rate minus one as الطريقة الثابتة. استخرج by inverted accumulation to obtain the القائم: 16.}
+
+\parallelsection{%
+別得六十四步即平勾也。
+立天元一為勾。置前數以天元乘之，以後數除之，得$ \; \square \; $元即通勾也。
+又置天元加後數，得$ \; \square \; $即小差也。
+以小差減通勾，餘$ \; \square \; $即圓徑也。
+以自之得$ \; \square \; $（寄左）。
+然後以小差減於前數，得$ \; \square \; $為二通股。
+內減兩個圓徑，得$ \; \square \; $為二大差也。
+以小差乘之得下$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得一十六步，即勾也。合問。}{%
+Identification: 64 خطوة is the level القائم.
+
+Let the unknown be the القائم. اضرب the former by the unknown and divide by the latter to get ■ as general القائم. Add the latter to the unknown to get ■ as small الفرق. اطرح the small الفرق from general القائم; remainder ■ is the circle diameter. Squaring gives ■ (stored left). اطرح the small الفرق from the former to get ■ as twice the general المقابل. اطرح twice the circle diameter to get ■ as twice the large الفرق. اضرب by the small الفرق to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 16 خطوة, the القائم. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十二問 ========
+\subsection*{第一百三十二問 --- \ar{المسألة 一百三十二}}
+\addcontentsline{toc}{subsection}{第一百三十二問}
+
+\problem{通股、通弦共一千二百八十步，明股、明弦共二百八十八步。問答同前。}{General المقابل plus general الوتر total 1280 خطوة; bright المقابل plus bright الوتر total 288 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，明勾七十二步。}{قطر المدينة: 240 خطوة. Bright القائم: 72 خطوة.}
+
+\working{%
+二數相減，以後數乘之，內減後數冪，又半之為泛率。以自之為平實。
+置前數加二之後數而半之為次率，以乘泛率，倍之於上，
+以後數乘泛率減上位為益從。
+次率自乘於上，以前數加次率，復以後數乘之，減上位為隅法。得明勾。}{%
+اطرح the two numbers; اضرب by the latter; اطرح the مربّعd latter; halve as general rate. مربّع it as المقسوم المسطح. Add the former to ضاعف the latter and halve as secondary rate. اضرب by the general rate; ضاعف as الحد الأعلى. اضرب the latter by the general rate and اطرح from الحد الأعلى as increasing التابع. مربّع the secondary rate as الحد الأعلى; add the former to the secondary rate; اضرب by the latter and اطرح as corner method. استخرجs the bright القائم.}
+
+\parallelsection{%
+別得二數相減，餘$ \; \square \; $為通勾、通股及明勾共也。
+立天元一為明勾。置前數以天元乘之，合以後數除之。
+不除，便以此$ \; \square \; $元為通勾也（內寄後數分母）。
+又以二數相減，得數內又減天元得$ \; \square \; $為通和也。
+乃以分母二百八十八之，得下式$ \; \square \; $，內減通勾，餘$ \; \square \; $為通股也。
+又以天元加後數，又以分母（即後數也）通之，得$ \; \square \; $為大差也。
+以此大差減於通股，得下式$ \; \square \; $，為一個圓徑也。
+半之得$ \; \square \; $，以自之得$ \; \square \; $為半徑冪（寄左）。
+然後以半圓徑減通勾，得$ \; \square \; $為底勾，又以天元乘之，
+又以分母二百八十八之，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得七十二步，即明勾也。合問。}{%
+Identification: The الفرق of the two numbers ■ is the المجموع of general القائم, general المقابل, and bright القائم.
+
+Let the unknown be the bright القائم. اضرب the former by the unknown; do not divide by the latter; take ■ as general القائم (with latter as denominator). اطرح the two numbers; اطرح the unknown from the result to get ■ as general المجموع. Apply denominator 288 to get ■; اطرح general القائم; remainder ■ is general المقابل. Add the unknown to the latter; apply the denominator (the latter) to get ■ as large الفرق. اطرح from general القائم to get ■ as circle diameter. Halve and مربّع to get ■ as نصف القطر power (stored left). اطرح half القطر from general القائم to get ■ as base القائم; اضرب by the unknown and apply denominator 288 to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 72 خطوة, the bright القائم. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十三問 ========
+\subsection*{第一百三十三問 --- \ar{المسألة 一百三十三}}
+\addcontentsline{toc}{subsection}{第一百三十三問}
+
+\problem{%
+明股、明弦並二百八十八步，勾、弦並五十步。
+又雲明股、勾並多於虛弦四十九步。問答同前。}{%
+Bright المقابل plus bright الوتر total 288 خطوة; القائم plus الوتر total 50 خطوة. Also stated: the المجموع of bright المقابل and القائم exceeds الفراغ الوتر by 49 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{前二數相並，內減二之多步，即圓徑。又只以前二數相乘，便是半徑冪。}{Add the first two numbers; اطرح ضاعف the excess to get the circle diameter. Alternatively, simply اضرب the first two numbers to obtain the نصف القطر مربّعd.}
+
+\parallelsection{%
+識別得前二數相減而半之，即極差也。其多步名傍差，又為圓徑不及極弦數。
+立天元一為半徑。置前二數相乘得$ \; \square \; $，以天元除之得$ \; \square \; $為極弦也。
+以天元加多步得$ \; \square \; $為虛弦。極弦內減虛弦餘$ \; \square \; $為旁差，與多步相應。
+又以極弦自之得$ \; \square \; $，內減虛弦冪$ \; \square \; $，餘$ \; \square \; $為二積。
+以天元除之得$ \; \square \; $為勾股和，即前二數之並也，以此為同數。
+與左相消得$ \; \square \; $，開平方得一百二十步，即半徑也。
+倍之得二百四十步，即城徑也。合問。}{%
+Identification: Halve the الفرق of the first two numbers to get the extreme الفرق. The excess is called the side الفرق, also the amount by which the circle diameter falls short of the extreme الوتر.
+
+Let the unknown be the نصف القطر. اضرب the first two numbers to get ■; divide by the unknown to get ■ as extreme الوتر. Add the excess to the unknown to get ■ as فراغي الوتر. اطرح فراغي الوتر from extreme الوتر; remainder ■ is the side الفرق, matching the excess. مربّع the extreme الوتر and اطرح the مربّعd فراغي الوتر ■; remainder ■ is twice the area. Divide by the unknown to get ■ as القائم-المقابل المجموع, which is the المجموع of the first two numbers, as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 120 خطوة, the نصف القطر. ضاعف it to get 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十四問 ========
+\subsection*{第一百三十四問 --- \ar{المسألة 一百三十四}}
+\addcontentsline{toc}{subsection}{第一百三十四問}
+
+\problem{平差、高差共一百六十一步，明股、勾並多於虛弦四十九步。問答同前。}{Level الفرق plus high الفرق total 161 خطوة; the المجموع of bright المقابل and القائم exceeds الفراغ الوتر by 49 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，平勾六十四步。}{قطر المدينة: 240 خطوة. Level القائم: 64 خطوة.}
+
+\working{二數相減又半之，以自乘為實，後數為法。得平勾。}{اطرح the two numbers; halve; مربّع كمقسوم; the latter number as divisor. استخرجs the level القائم.}
+
+\parallelsection{%
+立天元一為平勾。以加前數得$ \; \square \; $為高股也。
+又以天元加高股得$ \; \square \; $為極弦，內減後數得$ \; \square \; $，
+又半之，得$ \; \square \; $為半徑。
+以自之，得$ \; \square \; $（寄左）。
+然後以天元乘高股，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+上法下實，得六十四步，即平勾也。合問。}{%
+Let the unknown be the level القائم. Add the former number to get ■ as high المقابل. Add the unknown to the high المقابل to get ■ as extreme الوتر; اطرح the latter number to get ■; halve to get ■ as نصف القطر. Squaring gives ■ (stored left). اضرب the unknown by the high المقابل to get ■ as matching number. Canceling gives ■. Dividing yields 64 خطوة, the level القائم. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十五問 ========
+\subsection*{第一百三十五問 --- \ar{المسألة 一百三十五}}
+\addcontentsline{toc}{subsection}{第一百三十五問}
+
+\problem{%
+平勾、高股差一百六十一步，明差、差並七十七步。
+又雲極弦多於城徑四十九步。問答同前。}{%
+The الفرق between level القائم and high المقابل is 161 خطوة; bright الفرق plus الفرق totals 77 خطوة. Also stated: the extreme الوتر exceeds the قطر المدينة by 49 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，半徑一百二十步。}{قطر المدينة: 240 خطوة. نصف القطر: 120 خطوة.}
+
+\working{%
+並上二位而半之為平率。其四十九即旁率也。
+副置平率，上加旁率，下減旁率，以相乘為實。倍旁差為法。得勾圓差。}{%
+Add the two upper numbers and halve as the level rate. The 49 is the side rate. Place the level rate in two positions; add the side rate above; اطرح below. اضرب كمقسوم. ضاعف the side الفرق as divisor. استخرجs the القائم circle-الفرق.}
+
+\parallelsection{%
+立天元一為半徑，又為半之股圓差上弦較較，又為半之勾圓差上弦較和也。
+內減勾圓差上勾股較$ \; \square \; $，餘$ \; \square \; $為半之勾圓差上弦較較也。
+置股圓差上勾股較$ \; \square \; $，以半之勾圓差上弦較較乘之，得$ \; \square \; $（寄左）。
+然後以半之股圓差上弦較較乘勾圓差上勾股較，
+得$ \; \square \; $元為同數，與左相消得下式$ \; \square \; $。
+上法下實，得一百二十步，即半徑也。合問。}{%
+Let the unknown be the نصف القطر; also half the المقابل circle-الفرق المجموع-of-الفرقs; also half the القائم circle-الفرق المجموع-of-المجموعs. اطرح the القائم-المقابل الفرق on the القائم circle-الفرق ■; remainder ■ is half the القائم circle-الفرق الفرق-of-الفرقs. Place the المقابل circle-الفرق القائم-المقابل الفرق ■; اضرب by half the القائم circle-الفرق الفرق-of-الفرقs to get ■ (stored left). اضرب half the المقابل circle-الفرق الفرق-of-الفرقs by the القائم circle-الفرق القائم-المقابل الفرق to get ■ as matching number. Canceling gives ■. Dividing yields 120 خطوة, the نصف القطر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十六問 ========
+\subsection*{第一百三十六問 --- \ar{المسألة 一百三十六}}
+\addcontentsline{toc}{subsection}{第一百三十六問}
+
+\problem{%
+又依前問：見角差一百六十一步，見明差差並七十七步，又見太虛弦較較六十步。問答同前。}{%
+As before: the corner الفرق is 161 خطوة; the bright-الفرق المجموع is 77 خطوة; also the grand فراغي الوتر الفرق-of-الفرقs is 60 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，平勾六十四步。}{قطر المدينة: 240 خطوة. Level القائم: 64 خطوة.}
+
+\working{%
+前二數相減而半之，得數加入半之太虛弦較較為泛率，以自乘為平實。
+置一百六十一內減二之泛率為從，一常法。得平勾。}{%
+اطرح the first two numbers; halve; add half the grand فراغي الوتر الفرق-of-الفرقs as general rate. مربّع as المقسوم المسطح. اطرح ضاعف the general rate from 161 as التابع. One الطريقة الثابتة. استخرجs the level القائم.}
+
+\parallelsection{%
+別得$ \; \square \; $即二股也。
+立天元一為平勾。先以前二數相減而半之，得$ \; \square \; $為虛差。
+以虛差加股得$ \; \square \; $，即明勾也。
+以明勾加天元得$ \; \square \; $，為平弦，以自之得$ \; \square \; $，
+內減天元冪，得$ \; \square \; $為半徑冪（寄左）。
+然後以天元加一百六十一為高股，以天元乘之，得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得六十四步，即平勾也。合問。}{%
+Identification: ■ is twice the المقابل.
+
+Let the unknown be the level القائم. First اطرح the first two numbers and halve to get ■ as فراغي الفرق. Add to the المقابل to get ■ as bright القائم. Add the unknown to get ■ as level الوتر; squaring and اطرحing the unknown مربّعd gives ■ as نصف القطر power (stored left). Add 161 to the unknown as high المقابل; اضرب by the unknown to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 64 خطوة, the level القائم. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十七問 ========
+\subsection*{第一百三十七問 --- \ar{المسألة 一百三十七}}
+\addcontentsline{toc}{subsection}{第一百三十七問}
+
+\problem{高差、平差並一百六十一步，明差、差並七十七步。問答同前。}{High الفرق plus level الفرق total 161 خطوة; bright الفرق plus الفرق total 77 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+以前數自乘於上，二數相並而半之，以自乘減上位，得數復自增乘為平實。
+前數自之於上，又以四之前數乘之，寄位。
+以前數自之於上，並二數而半之，以自乘減上位，得數又以四之前數乘，又倍之，減於寄位為從。
+前數自之，又四之於上。又以四之前數為冪，加上位，權寄。
+以前數為冪於上，並二數而半之，以自乘減上位，得數復八之於上。
+又以四之前數為冪加入上位，並以減於權寄為常法。得平勾。}{%
+مربّع the former as الحد الأعلى. Add both numbers; halve; مربّع; اطرح from الحد الأعلى; self-اضرب the result as المقسوم المسطح. مربّع the former as الحد الأعلى; اضرب by quadruple the former; store. مربّع the former as الحد الأعلى; add both numbers; halve; مربّع; اطرح; اضرب by quadruple the former; ضاعف; اطرح from stored as التابع. مربّع the former; quadruple as الحد الأعلى. Add quadruple former مربّعd; provisionally store. مربّع the former as الحد الأعلى; add both numbers; halve; مربّع; اطرح; octuple; add quadruple former مربّعd; اطرح from provisional store as الطريقة الثابتة. استخرجs the level القائم.}
+
+\parallelsection{%
+識別得二位相並而半之，得$ \; \square \; $，即極差也。
+立天元一為平勾，加一百六十一得$ \; \square \; $為高股，高股內又加天元，得$ \; \square \; $為極弦。
+以自之得$ \; \square \; $於上，內減極差冪一萬四千一百六十一，
+餘$ \; \square \; $為兩段極積。合以極弦除，不除寄為母，便以此為城徑。
+以自增乘得$ \; \square \; $為圓徑冪（內有極弦冪分母。寄左）。
+然後以天元乘高股，又四之得$ \; \square \; $，又以分母極弦冪$ \; \square \; $通之，
+得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得六十四步，即平勾也。合問。}{%
+Identification: Adding both numbers and halving gives ■, the extreme الفرق.
+
+Let the unknown be the level القائم; add 161 to get ■ as high المقابل; add the unknown to get ■ as extreme الوتر. Squaring gives ■ as الحد الأعلى; اطرح the مربّعd extreme الفرق 14,161; remainder ■ is twice the extreme area. Should divide by extreme الوتر but do not; take this as قطر المدينة. Squaring gives ■ as circle diameter power (with extreme الوتر مربّعd as denominator, stored left). اضرب the unknown by high المقابل and quadruple to get ■; apply denominator extreme الوتر مربّعd ■ to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 64 خطوة, the level القائم. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十八問 ========
+\subsection*{第一百三十八問 --- \ar{المسألة 一百三十八}}
+\addcontentsline{toc}{subsection}{第一百三十八問}
+
+\problem{見明和二百七步，和四十六步。問答同前。}{The bright المجموع is 207 خطوة; the المجموع is 46 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，小差四步。}{قطر المدينة: 240 خطوة. Small الفرق: 4 خطوة.}
+
+\working{%
+二和上下相減，數同則止，名為泛率。
+又以二和直相減，餘為泛實（此則角差也）。
+乃以泛率除泛實，所得為差率也。
+以差率加減泛率，若半訖，與勾股相應者，其泛率便為和率，
+其泛實便為較率乘和率也。
+若不相應，則直取差率以消息之，定為相管和率。
+乃以和率約二和，其明和所得為明壘率，其和所得為壘率也。
+又副置和率，上加差率而半之，則為股率也；
+下位減差率而半之，則為勾率也。
+既見勾、股及差三率，各以壘率乘之，即各得勾、股及差之真數也。}{%
+اطرح the two المجموعs; if the numbers match, stop---this is the general rate. Directly اطرح the two المجموعs; the remainder is the general shi (this is the corner الفرق). Divide the general shi by the general rate to obtain the الفرق rate. Add/اطرح the الفرق rate to/from the general rate; if halving matches القائم-المقابل, the general rate becomes the المجموع rate and the general shi becomes the product of الفرق rate and المجموع rate. If not matching, adjust using the الفرق rate to determine the المجموع rate. Divide both المجموعs by the المجموع rate; the bright المجموع gives the bright pile-rate; the المجموع gives the pile-rate. Place the المجموع rate in two positions; add the الفرق rate above and halve for the المقابل rate; اطرح below and halve for the القائم rate. Once the three rates (القائم, المقابل, الفرق) are found, اضرب each by the pile rate to obtain the true numbers.}
+
+\parallelsection{%
+以二和相約分得率一、明率四步半，其兩數大小差率並同。
+又別得明小差、大差俱為半虛黃也。
+立天元一為小差，以四步半乘之得$ \; \square \; $為大差也，又為明小差，又為半虛黃。
+置此大差又以四步半乘之得$ \; \square \; $為明大差也。
+其四差相並得$ \; \square \; $，減於二和並，得$ \; \square \; $即兩段太虛大小差並也。
+內加三段虛黃方$ \; \square \; $，得$ \; \square \; $，合成一個太虛三事和，即圓城徑也。
+以自增乘得$ \; \square \; $為徑冪（寄左）。
+乃置和加半虛黃，得$ \; \square \; $為平勾。
+又置明和內加半虛黃，得$ \; \square \; $為高股，
+勾股相乘得下式$ \; \square \; $，又四之得$ \; \square \; $為同數，
+與左相消得下式$ \; \square \; $。開平方得四步，即小差也。合問。}{%
+Reducing the two المجموعs gives rate 1 and bright rate 4.5; both numbers share the same large and small الفرق rates. The bright small الفرق and large الفرق are both half الفراغ yellow.
+
+Let the unknown be the small الفرق; اضرب by 4.5 to get ■ as large الفرق, also bright small الفرق, also half الفراغ yellow. اضرب this large الفرق by 4.5 to get ■ as bright large الفرق. The four الفرقs المجموع to ■; اطرح from both المجموعs to get ■ as twice the grand فراغي large and small الفرقs. Add three times الفراغ yellow مربّع ■ to get ■, forming one grand فراغي three-element المجموع, i.e., the قطر المدينة. Squaring gives ■ as diameter power (stored left). Add half الفراغ yellow to the المجموع to get ■ as level القائم. Add half الفراغ yellow to the bright المجموع to get ■ as high المقابل. اضرب to get ■; quadruple to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 4 خطوة, the small الفرق. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+
+\newpage
+\section{卷九\quad 大斜四問、大和八問 --- \ar{الجزء التاسع: أربع مسائل مائلة وثماني مسائل جمعية}}
+\addcontentsline{toc}{section}{卷九 --- الجزء التاسع}
+
+\parallelsection{%
+此卷十二問，分為二組：大斜四問與大和八問。為全書最難之問，方程式之次有至六乘者。
+}{%
+يحتوي هذا الجزء على 12 مسألة في مجموعتين: أربع مسائل «مائلة كبرى» وثماني مسائل «جمعية كبرى». هي الأصعب في الكتاب كله، بمعادلات تصل إلى الدرجة السادسة.%
+}
+
+\vspace{0.5cm}
+
+%% ======== 第一百三十九問 ========
+\subsection*{第一百三十九問 --- \ar{المسألة 一百三十九}}
+\addcontentsline{toc}{subsection}{第一百三十九問}
+
+\problem{%
+甲丙俱在中心，丙望南門直行，不知步數而止。
+甲出東門直行，不知步數望見丙，斜行與丙相會。
+二人共行了六百八十步，仍雲甲直行少於丙直行一百一十九步。問答同前。}{%
+جيا and بينغ are both at the center. بينغ gazes toward the الباب الجنوبي and يمشي مستقيماً, stopping at an unknown المسافة. جيا يخرج من the الباب الشرقي ماشياً مستقيماً; at an unknown المسافة he sees Bing, then يمشي مائلاً ليلتقي بـ him. Together they walked 680 خطوة; Jia's straight walk is 119 خطوة less than Bing's. الجواب كما سبق.}
+
+\answer{城徑二百四十步，皇極勾一百三十六步。}{قطر المدينة: 240 خطوة. Imperial extreme القائم: 136 خطوة.}
+
+\working{%
+二數相減，餘以為冪，內卻減差冪為平實；
+二數相減又四之於上，又加入二之差步為益從；二步常法。得皇勾一百三十六。}{%
+اطرح the two numbers; مربّع the remainder; اطرح the مربّعd الفرق as المقسوم المسطح. Quadruple the الفرق as الحد الأعلى; add ضاعف the الفرق as increasing التابع. Two as الطريقة الثابتة. استخرجs the imperial extreme القائم: 136.}
+
+\parallelsection{%
+別得共步即皇極三事和，少步即勾股差也。
+立天元一為皇極勾。加少步得$ \; \square \; $為股也，又以天元加股得$ \; \square \; $為和也。
+以和減共步得$ \; \square \; $為弦也，弦自之得$ \; \square \; $為一段弦冪（寄左）。
+然後置股以天元乘之，又倍之，得$ \; \square \; $為二直積，
+如入少步冪$ \; \square \; $共得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得一百三十六即勾也。勾加差為股，勾股相乘，倍之為實，
+勾股和減共步為法。得城徑。}{%
+Identification: The total is the imperial extreme three-element المجموع; the النقص is the القائم-المقابل الفرق.
+
+Let the unknown be the imperial extreme القائم. Add the النقص to get ■ as المقابل; add the unknown to the المقابل to get ■ as المجموع. اطرح the المجموع from the total to get ■ as الوتر; squaring gives ■ as الوتر power (stored left). اضرب the المقابل by the unknown and ضاعف to get ■ as twice the rectanالمقابلlar area. Add the مربّعd النقص ■ for total ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 136, the القائم. Gou plus الفرق is المقابل; اضرب القائم and المقابل; ضاعف كمقسوم; اطرح the المجموع from the total as divisor to obtain the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十問 ========
+\subsection*{第一百四十問 --- \ar{المسألة 一百四十}}
+\addcontentsline{toc}{subsection}{第一百四十問}
+
+\problem{%
+甲丙俱在西北隅起，丙向南行不知步數而立。
+甲向東行望見丙，就丙斜行六百八十步與丙相會。
+丙雲：「我南行步多於甲東行二百八十步。」問答同前。}{%
+جيا and بينغ both start at the northwest corner. بينغ walks south an unknown number of خطوة and stands. جيا walks east, sees Bing, then يمشي مائلاً 680 خطوة ليلتقي بـ him. بينغ says: ``My southward walk exceeds Jia's eastward walk by 280 خطوة.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步，大勾三百二十步。}{قطر المدينة: 240 خطوة. Large القائم: 320 خطوة.}
+
+\working{以雲數差乘雲數並為實，倍多步為從，二為平隅。得大勾三百二十。}{اضرب the الفرق of the given numbers by their المجموع كمقسوم; ضاعف the excess as التابع; two as the quadratic corner. استخرجs the large القائم: 320.}
+
+\parallelsection{%
+立天元為大勾。加差得$ \; \square \; $為股，倍天元乘之，得$ \; \square \; $為二積（寄左）。
+然後以斜步、多步並$ \; \square \; $與斜步、多步較$ \; \square \; $相乘，
+得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得三百二十步，即大勾也。合問。}{%
+Let the unknown be the large القائم. Add the الفرق to get ■ as المقابل; اضرب by ضاعف the unknown to get ■ as twice the area (stored left). اضرب the المجموع of قطري and excess ■ by their الفرق ■ to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 320 خطوة, the large القائم. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十一問 ========
+\subsection*{第一百四十一問 --- \ar{المسألة 一百四十一}}
+\addcontentsline{toc}{subsection}{第一百四十一問}
+
+\problem{%
+甲乙二人共立於艮隅，乙南行過城門而立，甲東行望乙與城參相直而止。
+丙丁二人共立於坤隅，丁向東行過城門而立，丙向南行望丁及甲乙悉與城俱相直。
+丙復就甲斜行六百八十步與甲相會。
+乙、丁又雲：「吾二人直行共得三百四十二步。」問答同前。}{%
+جيا and يي stand together at the Gen (northeast) corner. يي walks south past the gate and stands; جيا walks east, sees يي aligned with the city, and stops. بينغ and دينغ stand together at the Kun (southwest) corner. دينغ walks east past the gate and stands; بينغ walks south, sees دينغ and Jia/يي all aligned with the city. بينغ then يمشي مائلاً 680 خطوة ليلتقي بـ Jia. يي and دينغ also state: ``Our two straight walks total 342 خطوة.'' الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+二雲數相乘，倍之為實；倍斜行於上，以二雲數相減加上位為從；一步常法。
+開平方，得城徑。}{%
+اضرب the two given numbers; ضاعف كمقسوم. ضاعف the قطري as الحد الأعلى; add the الفرق of the two given numbers as التابع. One الطريقة الثابتة. استخرج the مربّع الجذر to obtain the قطر المدينة.}
+
+\parallelsection{%
+別得斜步即大弦也。其共步則一徑一虛弦共也，
+其二數相並為一大和一虛弦共數也。
+立天元為徑，減於共步得$ \; \square \; $為虛弦也。
+以虛弦復減於天元，得$ \; \square \; $為虛和，以斜步乘之，得$ \; \square \; $（寄左）。
+乃以天元加斜步，得$ \; \square \; $為大和，以虛弦乘之得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得二百四十步，即城徑也。合問。}{%
+Identification: The قطري is the large الوتر. The المجموع is one diameter plus one فراغي الوتر. The المجموع of the two numbers is one large المجموع plus one فراغي الوتر.
+
+Let the unknown be القطر; اطرح from the المجموع to get ■ as فراغي الوتر. اطرح الفراغ الوتر from the unknown to get ■ as فراغي المجموع; اضرب by the قطري to get ■ (stored left). Add the unknown to the قطري to get ■ as large المجموع; اضرب by الفراغ الوتر to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十二問 ========
+\subsection*{第一百四十二問 --- \ar{المسألة 一百四十二}}
+\addcontentsline{toc}{subsection}{第一百四十二問}
+
+\problem{%
+甲從北門向東直行，庚從西門穿城東行，丙從西門向南直行，壬從北門穿城南行。
+四人遙相望，悉與城參相直。
+只雲甲丙相望處六百八十步，庚壬穿城共行了六百三十一步。問答同前。}{%
+جيا walks east from the الباب الشمالي; Geng walks east through the city from the الباب الغربي; بينغ walks south from the الباب الغربي; Ren walks south through the city from the الباب الشمالي. The four gaze at each other from afar, all aligned with the city. It is only stated that جيا and بينغ are 680 خطوة apart; Geng and Ren together walked 631 خطوة through the city. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+共步自之得數。以共步減斜，餘自乘以減上為實。
+二之斜步加入共步減斜，餘數為從。一步常法。得城徑。}{%
+مربّع the المجموع. اطرح the المجموع from the قطري; مربّع the remainder; اطرح from the الحد الأعلى كمقسوم. ضاعف the قطري and add the remainder of المجموع اطرحed from قطري as التابع. One الطريقة الثابتة. استخرجs the قطر المدينة.}
+
+\parallelsection{%
+共行步為一徑與皇和共也，又為大和皇弦差也。甲丙相望即大弦也。
+以共步減大弦，餘$ \; \square \; $為皇極弦上減一徑也。
+立天元一為圓徑，減於共步，得$ \; \square \; $為皇極和也，以自之得$ \; \square \; $於上。
+弦內減共步餘$ \; \square \; $，又以天元加之為皇弦，以自之得$ \; \square \; $，
+減上位，餘得$ \; \square \; $為兩個皇直積（寄左）。
+乃以天元乘皇弦得下式$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得二百四十步，即城徑也。合問。}{%
+Identification: The total walk is one diameter plus the imperial المجموع; also the large المجموع minus the imperial الوتر. جيا and Bing's المسافة is the large الوتر. اطرح the المجموع from the large الوتر; remainder ■ is the imperial extreme الوتر minus one diameter.
+
+Let the unknown be the circle diameter. اطرح from the المجموع to get ■ as imperial extreme المجموع. Squaring gives ■ as الحد الأعلى. اطرح the المجموع from the الوتر; remainder ■; add the unknown as imperial الوتر; squaring gives ■. اطرح from الحد الأعلى; remainder ■ is twice the imperial rectanالمقابلlar area (stored left). اضرب the unknown by the imperial الوتر to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十三問 ========
+\subsection*{第一百四十三問 --- \ar{المسألة 一百四十三}}
+\addcontentsline{toc}{subsection}{第一百四十三問}
+
+\problem{%
+庚從西門穿城東行二百五十六步而立，壬從北門穿城南行三百七十五步而立。
+又有甲丙二人俱在乾隅，甲向東行，丙向南行，各不知步數而立。
+四人遙相望，只雲甲丙共行了九百二十步。問答同前。}{%
+Geng walks east through the city from the الباب الغربي 256 خطوة and stands; Ren walks south through the city from the الباب الشمالي 375 خطوة and stands. جيا and بينغ are both at the Qian (northwest) corner; جيا walks east and بينغ walks south, each at an unknown المسافة. The four gaze at each other from afar. It is only stated that جيا and بينغ together walked 920 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+庚東行冪、壬南行冪相並於上，並庚壬步而倍之，內減大和，
+餘復減於庚壬共，得數以自乘減上位為平實。
+並庚壬步為益從，半步為隅法。得城徑。}{%
+مربّع Geng's east walk and Ren's south walk; add as الحد الأعلى. Add Geng and Ren's walks; ضاعف; اطرح the large المجموع; اطرح again from Geng-Ren المجموع; مربّع and اطرح from الحد الأعلى as المقسوم المسطح. Geng-Ren المجموع as increasing التابع. Half a step as corner method. استخرجs the قطر المدينة.}
+
+\parallelsection{%
+立天元一為圓徑，以半之副置二位。
+上以減於庚東行，得下$ \; \square \; $為平弦也；下以減於壬南行，得$ \; \square \; $為高弦也。
+二弦相並得$ \; \square \; $為皇弦、虛弦共也。
+倍此數得$ \; \square \; $為大弦、虛弦共也。
+以大弦、虛弦共減於大和，餘$ \; \square \; $為虛勾虛股共也。
+天元內減虛勾、虛股共，餘$ \; \square \; $即虛弦也。
+復置皇弦虛弦共內減虛弦，餘$ \; \square \; $即皇極弦也，
+以自之得$ \; \square \; $（寄左）。
+然後以平弦自之，得下式$ \; \square \; $為勾冪也，又以高弦自之，
+得$ \; \square \; $為股冪也。
+二冪相並得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得二百四十步，即城徑也。合問。}{%
+Let the unknown be the circle diameter; halve and place in two positions. اطرح from Geng's east walk above to get ■ as level الوتر; اطرح from Ren's south walk below to get ■ as high الوتر. The two الوترs المجموع to ■ as imperial and فراغي الوترs combined. Doubling gives ■ as large and فراغي الوترs combined. اطرح from the large المجموع to get ■ as the المجموع of فراغي القائم and فراغي المقابل. اطرح from the unknown to get ■ as فراغي الوتر. اطرح الفراغ الوتر from the imperial-فراغي المجموع; remainder ■ is the imperial extreme الوتر. Squaring gives ■ (stored left). مربّع the level الوتر to get ■ as القائم power; مربّع the high الوتر to get ■ as المقابل power. Adding gives ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十四問 ========
+\subsection*{第一百四十四問 --- \ar{المسألة 一百四十四}}
+\addcontentsline{toc}{subsection}{第一百四十四問}
+
+\problem{%
+甲丙俱在西北隅，甲向東行不知步數而立，丙向南行望見甲，就甲斜行與甲相會。
+甲直行、丙直行共九百二十步（甲步少於丙步）。
+又：出東門南行有柳樹一株，出南門東行有槐樹一株。
+戊己二人同在巽隅，戊就柳樹，己就槐樹，亦與甲、乙遙相望。
+只雲己行少於戊行數與兩樹相距數相並，得一百四十四步，其二數相減餘六十步。問答同前。}{%
+جيا and بينغ are both at the northwest corner; جيا walks east an unknown number of خطوة and stands; بينغ walks south, يرى جيا, then يمشي مائلاً ليلتقي بـ him. Jia's straight walk plus Bing's straight walk total 920 خطوة (Jia's walk is less than Bing's). Also: south of the الباب الشرقي is a willow; east of the الباب الجنوبي is a locust. Wu and Ji are both at the Xun (southeast) corner; Wu goes to the willow and Ji goes to the locust, also gazing at جيا and يي from afar. It is only stated that Ji's walk is less than Wu's walk; the الفرق plus the المسافة between the two trees equals 144 خطوة; their الفرق is 60 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，太虛勾四十八步。}{قطر المدينة: 240 خطوة. Grand فراغي القائم: 48 خطوة.}
+
+\working{%
+二雲數相並而半之為虛弦，以乘大和九百二十步於上。
+以一百四十四減大和，以虛較乘之，減上位為平實。
+以一百四十四減大和，又二之於上，以二之虛較減上位為從。四虛隅。得太虛勾四十八。}{%
+Add the two given numbers and halve as الفراغ الوتر; اضرب by the large المجموع 920 as الحد الأعلى. اطرح 144 from the large المجموع; اضرب by الفراغ الفرق; اطرح from الحد الأعلى as المقسوم المسطح. اطرح 144 from the large المجموع; ضاعف as الحد الأعلى; اطرح ضاعف الفراغ الفرق as التابع. Four زاوية فارغةs. استخرجs the grand فراغي القائم: 48.}
+
+\parallelsection{%
+別得甲丙直行共即大和也，戊就柳樹步即虛股也，己就槐樹步即虛勾也。
+其一百四十四步即二明勾，其六十步即二股也。
+
+立天元一為虛勾，加明勾得$ \; \square \; $為半徑也，
+倍之得$ \; \square \; $即城徑也（又為虛弦上三事和）。
+二雲數相並而半之，得$ \; \square \; $即小弦也。
+相減而半之，得$ \; \square \; $即小較也。
+以天元加較得$ \; \square \; $即小股也，小勾股共得$ \; \square \; $即小和也。
+以小三事減大和得$ \; \square \; $即大弦也。
+乃先置小和以大弦乘之，得下式$ \; \square \; $（寄左）。
+次以小弦乘大和，得$ \; \square \; $，與左相消得下式$ \; \square \; $。
+開平方得四十八步，即虛勾也。加明勾又倍之得二百四十步，即城徑也。合問。}{%
+Identification: Jia-بينغ total is the large المجموع. Wu's walk to the willow is الفراغ المقابل; Ji's walk to the locust is الفراغ القائم. The 144 خطوة is twice the bright القائم; the 60 خطوة is twice the المقابل.
+
+Let the unknown be الفراغ القائم; add the bright القائم to get ■ as نصف القطر; ضاعف to get ■ as قطر المدينة (also الفراغ الوتر three-element المجموع). Halve the المجموع of the two given numbers to get ■ as small الوتر. Halve the الفرق to get ■ as small الفرق. Add the unknown to get ■ as small المقابل; the small القائم-المقابل المجموع ■ is the small المجموع. اطرح the small three-element المجموع from the large المجموع to get ■ as large الوتر. First place the small المجموع and اضرب by the large الوتر to get ■ (stored left). Then اضرب the small الوتر by the large المجموع to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 48 خطوة, الفراغ القائم. Add the bright القائم and ضاعف to get 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十五問 ========
+\subsection*{第一百四十五問 --- \ar{المسألة 一百四十五}}
+\addcontentsline{toc}{subsection}{第一百四十五問}
+
+\problem{%
+甲從乾隅東行，乙從艮隅南行，丙從乾隅南行，丁從坤隅東行，四人遙相望見。
+既而甲還至艮隅就乙，丙還至坤隅就丁。
+甲丙直行共九百二十步，甲還就乙共二百三十步，丙還就丁共五百五十二步。問答同前。}{%
+جيا walks east from the Qian corner; يي walks south from the Gen corner; بينغ walks south from the Qian corner; دينغ walks east from the Kun corner. The four gaze at each other from afar. Then جيا returns to the Gen corner ليلتقي بـ Yi; بينغ returns to the Kun corner ليلتقي بـ Ding. جيا and Bing's straight walks total 920 خطوة; Jia's return ليلتقي بـ يي totals 230 خطوة; Bing's return ليلتقي بـ دينغ totals 552 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，虛弦一百二步。}{قطر المدينة: 240 خطوة. Void الوتر: 102 خطوة.}
+
+\working{%
+並就數以減直行共，復以所並就數乘之為實；
+並就數減直行共，得數復加入直行共為法。得虛弦。}{%
+Add the meeting numbers and اطرح from the straight total; اضرب by the added meeting numbers كمقسوم. اطرح the added meeting numbers from the straight total; add back the straight total as divisor. استخرجs الفراغ الوتر.}
+
+\parallelsection{%
+別得甲丙直行共為大和也，甲還就乙步為小差勾股共也，丙還就丁步為大差勾股共也。
+以大差勾股共減於大股，餘即虛勾也。
+以小差勾股共減於大勾，餘即虛股也。
+二數相並得$ \; \square \; $為大弦虛弦共也，
+二數相減，餘$ \; \square \; $為通差及太虛勾股差共也。
+又並二數而半之，得$ \; \square \; $為皇極弦虛弦共，又為皇極勾股共也。
+
+立天元一為虛弦。
+先以二共數減於大和，餘$ \; \square \; $為虛勾虛股和於上。
+次以虛弦減於二共數，餘$ \; \square \; $為大弦，
+以乘上位，得下$ \; \square \; $（寄左）。
+然後以天元乘大和，得$ \; \square \; $元為同數，與左相消得$ \; \square \; $。
+上法下實，得一百二步，即虛弦也。加入虛和得二百四十步，即城徑也。合問。}{%
+Identification: Jia-بينغ straight total is the large المجموع. Jia's return is the small-الفرق القائم-المقابل المجموع; Bing's return is the large-الفرق القائم-المقابل المجموع. اطرح the large-الفرق المجموع from the large المقابل; remainder is فراغي القائم. اطرح the small-الفرق المجموع from the large القائم; remainder is فراغي المقابل. Adding both gives ■ as large الوتر plus فراغي الوتر. Their الفرق ■ is the general الفرق plus grand فراغي القائم-المقابل الفرق. Halving the المجموع gives ■ as imperial extreme الوتر plus فراغي الوتر, also imperial extreme القائم-المقابل المجموع.
+
+Let the unknown be الفراغ الوتر. First اطرح both المجموعs from the large المجموع to get ■ as فراغي القائم plus فراغي المقابل المجموع (upper). Then اطرح the unknown from both المجموعs; remainder ■ is the large الوتر; اضرب by the upper to get ■ (stored left). اضرب the unknown by the large المجموع to get ■ as matching number. Canceling gives ■. Dividing yields 102 خطوة, الفراغ الوتر. Add الفراغ المجموع to get 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十六問 ========
+\subsection*{第一百四十六問 --- \ar{المسألة 一百四十六}}
+\addcontentsline{toc}{subsection}{第一百四十六問}
+
+\problem{%
+依前見大和，只雲股圓差上勾弦差二百一十六，勾圓差上股弦差二十步。問答同前。}{%
+As before: the large المجموع is known. It is only stated that the القائم-الوتر الفرق on the المقابل circle-الفرق is 216, and the المقابل-الوتر الفرق on the القائم circle-الفرق is 20 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，小差股一百五十步。}{قطر المدينة: 240 خطوة. Small-الفرق المقابل: 150 خطوة.}
+
+\working{%
+以雲數二十步減通和，復以二十步乘之於上。
+以雲數二百一十六減九百步而半之，乘上位為立實。
+三因二十步以減通和得八百六十，
+以二百一十六及二十共得二百三十六，減通和而半之，得三百四十二。
+二數相乘訖，內減二十之九百步。
+又以三百四十二及二百一十六共得五百五十八，又二十之以減之為從方。
+以二百三十六減通和，又以三之二十步減通和，相並於上。
+以二之五百五十八內卻減二十步，餘以加上位為益廉。
+四步常法。得小差股一百五十。}{%
+اطرح 20 from the general المجموع; اضرب by 20 as الحد الأعلى. اطرح 216 from 900 and halve; اضرب by the الحد الأعلى as cubic shi. Triple 20 and اطرح from the general المجموع to get 860. Add 216 and 20 to get 236; اطرح from the general المجموع and halve to get 342. اضرب these two numbers; اطرح 20 times 900. Add 342 and 216 to get 558; اضرب by 20 and اطرح as التابع. اطرح 236 from the general المجموع; also اطرح triple 20 from the general المجموع; add as الحد الأعلى. اطرح 20 from ضاعف 558; add to الحد الأعلى as increasing lian. Four as الطريقة الثابتة. استخرجs the small-الفرق المقابل: 150.}
+
+\parallelsection{%
+別得小差上股弦差$ \; \square \; $加二股為大勾也，大差上勾弦差$ \; \square \; $加二勾為大股也。
+
+立天元一為小差股，加$ \; \square \; $得$ \; \square \; $為小差弦也，
+小差弦上又加天元得$ \; \square \; $為通勾，以減於和步得$ \; \square \; $為通股也。
+通股內減$ \; \square \; $得$ \; \square \; $，半之得下式$ \; \square \; $即大差之勾也。
+大差勾上又加$ \; \square \; $，得$ \; \square \; $為大差弦也。
+再置通股以小差弦乘之，得$ \; \square \; $，以天元除之，得$ \; \square \; $為一個大弦也（泛寄）。
+再置通勾以大差弦乘之，得$ \; \square \; $，合以大差勾除。
+不除寄為母，便以為大弦（寄左）。
+乃以大差勾乘泛寄，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+益積開立方，得一百五十步，為小差股也。合問。}{%
+Identification: The المقابل-الوتر الفرق on the small الفرق ■ plus twice the المقابل is the large القائم. The القائم-الوتر الفرق on the large الفرق ■ plus twice the القائم is the large المقابل.
+
+Let the unknown be the small-الفرق المقابل. Add ■ to get ■ as small-الفرق الوتر; add the unknown to get ■ as general القائم; اطرح from the المجموع to get ■ as general المقابل. اطرح ■ from the general المقابل to get ■; halve to get ■ as the large-الفرق القائم. Add ■ to get ■ as large-الفرق الوتر. اضرب the general المقابل by the small-الفرق الوتر to get ■; divide by the unknown to get ■ as one large الوتر (general storage). اضرب the general القائم by the large-الفرق الوتر to get ■; do not divide by the large-الفرق القائم; take this as the large الوتر (stored left). اضرب the general storage by the large-الفرق القائم to get ■ as matching number. Canceling gives ■. استخرج the cubic الجذر by accumulating to obtain 150 خطوة, the small-الفرق المقابل. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十七問 ========
+\subsection*{第一百四十七問 --- \ar{المسألة 一百四十七}}
+\addcontentsline{toc}{subsection}{第一百四十七問}
+
+\problem{%
+依前見大和，只雲高弦、平弦共得三百九十一步，高弦、平弦相較得一百一十九步。問答同前。}{%
+As before: the large المجموع is known. It is only stated that the high الوتر plus level الوتر total 391 خطوة; the high الوتر exceeds the level الوتر by 119 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+以較數冪減於共數冪，又半之為實，以共數減大和為益從，一常法。
+開平方，得圓徑。}{%
+اطرح the مربّعd الفرق from the مربّعd المجموع; halve كمقسوم. اطرح the المجموع from the large المجموع as increasing التابع. One الطريقة الثابتة. استخرج the مربّع الجذر to obtain the circle diameter.}
+
+\parallelsection{%
+別得高弦減於通股為邊股內減明股也，平弦減於通勾為邊勾內減明勾也。
+其共數即大弦內減皇極弦，又為皇極勾股共也，其相較步即皇極差也。
+二雲數相並得$ \; \square \; $，即黃廣弦也。
+二雲數相減，餘即黃長弦也。
+以共數減於大和，餘$ \; \square \; $為皇極弦、圓徑共。
+
+立天元一為圓徑，以減於$ \; \square \; $為皇極弦也。
+以共數自之得$ \; \square \; $於上。
+以相較數自之得$ \; \square \; $，減上位，餘$ \; \square \; $，
+又半之得$ \; \square \; $為兩段皇極積（寄左）。
+乃以天元乘皇極弦，得$ \; \square \; $為同數，
+與左相消得下$ \; \square \; $。開平方得二百四十步，即城徑也。合問。}{%
+Identification: High الوتر اطرحed from general المقابل is edge المقابل minus bright المقابل; level الوتر اطرحed from general القائم is edge القائم minus bright القائم. The المجموع is the large الوتر minus the imperial extreme الوتر, also the imperial extreme القائم-المقابل المجموع; the الفرق is the imperial extreme الفرق.
+
+Let the unknown be the circle diameter; اطرح from ■ to get ■ as imperial extreme الوتر. مربّع the المجموع to get ■ as الحد الأعلى. مربّع the الفرق ■ and اطرح from الحد الأعلى, leaving ■; halve to get ■ as twice the imperial extreme area (stored left). اضرب the unknown by the imperial extreme الوتر to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十八問 ========
+\subsection*{第一百四十八問 --- \ar{المسألة 一百四十八}}
+\addcontentsline{toc}{subsection}{第一百四十八問}
+
+\problem{%
+依前見大和，只雲大差弦四百零八步，小差弦一百七十步。問答同前。}{%
+As before: the large المجموع is known. It is only stated that the large-الفرق الوتر is 408 خطوة and the small-الفرق الوتر is 170 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步。}{قطر المدينة: 240 خطوة.}
+
+\working{%
+以並雲數減大和，復以相並數乘大和，又倍之為平實。
+三之通和於上，又以並雲數減大和，加上位為從。二步虛法。得圓徑。}{%
+اطرح the المجموع of the given numbers from the large المجموع; اضرب by the المجموع of the given numbers times the large المجموع; ضاعف as المقسوم المسطح. Triple the general المجموع as الحد الأعلى; add the large المجموع minus the المجموع of given numbers as التابع. Two-step empty method. استخرجs the circle diameter.}
+
+\parallelsection{%
+大差弦減和步，餘$ \; \square \; $為大勾、大差勾共也。
+以小差弦減大和，餘$ \; \square \; $為大股、小差股共也。
+雲數相並得即大弦內減虛弦也，雲數相減得$ \; \square \; $為虛弦平弦共也。
+以相並數減於大和，餘$ \; \square \; $為大差勾、小差股共，又為圓徑、虛弦共也。
+
+立天元一為圓徑，減於$ \; \square \; $得$ \; \square \; $為虛弦也。
+反以減於圓徑得$ \; \square \; $為小和也。
+以天元減大和得$ \; \square \; $為大弦，以乘小和，得$ \; \square \; $（寄左）。
+乃再置虛弦以通和乘之，得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}{%
+Identification: Large-الفرق الوتر minus the المجموع gives ■ as large القائم plus large-الفرق القائم. Small-الفرق الوتر اطرحed from large المجموع gives ■ as large المقابل plus small-الفرق المقابل. The المجموع of the given numbers is the large الوتر minus الفراغ الوتر; their الفرق ■ is الفراغ الوتر plus level الوتر. اطرحing the المجموع from the large المجموع gives ■ as large-الفرق القائم plus small-الفرق المقابل, also circle diameter plus فراغي الوتر.
+
+Let the unknown be the circle diameter; اطرح from ■ to get ■ as فراغي الوتر. اطرح from القطر to get ■ as small المجموع. اطرح the unknown from the large المجموع to get ■ as large الوتر; اضرب by the small المجموع to get ■ (stored left). اضرب الفراغ الوتر by the general المجموع to get ■ as matching number. Canceling gives ■. استخرج the مربّع الجذر to obtain 240 خطوة, the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百四十九問 ========
+\subsection*{第一百四十九問 --- \ar{المسألة 一百四十九}}
+\addcontentsline{toc}{subsection}{第一百四十九問}
+
+\problem{%
+依前見大和，只雲黃廣弦五百一十步，黃長弦二百七十二步。問答同前。}{%
+As before: the large المجموع is known. It is only stated that the yellow-breadth الوتر is 510 خطوة and the yellow-length الوتر is 272 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，虛弦一百二步。}{قطر المدينة: 240 خطوة. Void الوتر: 102 خطوة.}
+
+\working{%
+雲數相並減大和，復以相並數乘之為實。
+雲數相並減大和，得數復以加大和為法。得虛弦一百二。}{%
+اطرح the المجموع of the given numbers from the large المجموع; اضرب by the المجموع of the given numbers كمقسوم. اطرح the المجموع from the large المجموع; add the large المجموع back as divisor. استخرجs الفراغ الوتر: 102.}
+
+\parallelsection{%
+別得黃廣弦又為大差弦、虛弦共，又為邊股、股共也。
+黃長弦又為小差弦、虛弦共，又為底勾、明勾共也。
+以黃廣弦減於大股，餘$ \; \square \; $即虛股，以黃長弦減於大勾，餘$ \; \square \; $即虛勾。
+故並數以減於大和，餘$ \; \square \; $為虛和也。
+以虛和減徑即虛弦也。
+二雲數相並得$ \; \square \; $為大弦、虛弦共也，雲數相減餘$ \; \square \; $為虛弦、平弦共。
+
+立天元一為虛弦，以減於七百八十二，得$ \; \square \; $為大弦也，
+以小和乘之得$ \; \square \; $（寄左）。
+乃以天元虛弦乘大和，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+上法下實，得一百二步，即虛弦也。合問。}{%
+Identification: Yellow-breadth الوتر is also large-الفرق الوتر plus فراغي الوتر, also edge المقابل plus المقابل. Yellow-length الوتر is also small-الفرق الوتر plus فراغي الوتر, also base القائم plus bright القائم. اطرح yellow-breadth from large المقابل; remainder ■ is فراغي المقابل. اطرح yellow-length from large القائم; remainder ■ is فراغي القائم. Thus اطرحing the المجموع from the large المجموع gives ■ as فراغي المجموع. Void المجموع minus diameter is فراغي الوتر.
+
+Let the unknown be الفراغ الوتر; اطرح from 782 to get ■ as large الوتر. اضرب by the small المجموع to get ■ (stored left). اضرب الفراغ الوتر by the large المجموع to get ■ as matching number. Canceling gives ■. Dividing yields 102 خطوة, الفراغ الوتر. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+%% ======== 第一百五十問 ========
+\subsection*{第一百五十問 --- \ar{المسألة 一百五十}}
+\addcontentsline{toc}{subsection}{第一百五十問}
+
+\problem{%
+依前見大和，只雲邊弦五百四十四步，底弦四百二十五步。問答同前。}{%
+As before: the large المجموع is known. It is only stated that the edge الوتر is 544 خطوة and the base الوتر is 425 خطوة. الجواب كما سبق.}
+
+\answer{城徑二百四十步，皇極弦二百八十九步。}{قطر المدينة: 240 خطوة. Imperial extreme الوتر: 289 خطوة.}
+
+\working{雲數相減自之為實，以大和減並數為法。得皇極弦。}{اطرح the given numbers; مربّع كمقسوم. اطرح the المجموع from the large المجموع as divisor. استخرجs the imperial extreme الوتر.}
+
+\parallelsection{%
+別得以邊弦減大股，餘$ \; \square \; $為半徑內減平勾，又為平弦內減勾圓差也。
+以大勾減於底弦，餘$ \; \square \; $為高股內少半徑，又為股圓差內少高弦也。
+二雲數相並，得九百六十九為大弦、皇極弦共也。
+二雲數相減，得$ \; \square \; $為皇極勾股差也。
+並數內減通和，餘$ \; \square \; $為皇極弦內減圓徑也。
+
+立天元一為皇極弦，以自之於上。
+以一百一十九自之得$ \; \square \; $，減上位得$ \; \square \; $為二皇積（寄左）。
+復置天元內減四十九得下式$ \; \square \; $為黃方。
+復以天元乘之，得$ \; \square \; $，與左相消得$ \; \square \; $。
+上法下實，得二百八十九步，即皇極弦也。內減四十九，餘即城徑也。合問。}{%
+Identification: Edge الوتر اطرحed from large المقابل gives ■ as نصف القطر minus level القائم, also level الوتر minus القائم circle-الفرق. Large القائم اطرحed from base الوتر gives ■ as high المقابل lacking نصف القطر, also المقابل circle-الفرق lacking high الوتر. The المجموع of given numbers, 969, is the large الوتر plus imperial extreme الوتر. Their الفرق ■ is the imperial extreme القائم-المقابل الفرق. اطرح the المجموع from the general المجموع; remainder ■ is the imperial extreme الوتر minus the circle diameter.
+
+Let the unknown be the imperial extreme الوتر; مربّع it as الحد الأعلى. مربّع 119 and اطرح from الحد الأعلى to get ■ as twice the imperial extreme area (stored left). اطرح 49 from the unknown to get ■ as yellow مربّع. اضرب by the unknown to get ■ as matching number. Canceling gives ■. Dividing yields 289 خطوة, the imperial extreme الوتر. اطرح 49; the remainder is the قطر المدينة. وهذا المطلوب.}
+
+\vspace{0.5cm}
+
+\end{document}
