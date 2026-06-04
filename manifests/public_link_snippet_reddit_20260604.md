@@ -17,7 +17,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20545457) — Lehrbuch Volume I complete, Volume II source-checked through section 143, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20544740) — broad Werke draft readers plus Band II source-checked original/English cumulative readers through printed page 303.
-**P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20545473) — Werke Band II source-checked original/English cumulative readers through Papers I-XLI.
+**P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20546131) — Werke Band II source-checked original/English cumulative readers through Papers I-XLI, now with an R23 QA sheet flagging XXV and XXVII as source-witnessed repair targets rather than silently treating them as final line-by-line repairs.
 
 **Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20545671) — English-first paper-level and correspondence translation/source-working packets, including the forward source-checked cumulative stream through paper 016 page 40, the reverse source-checked stream papers 090 down through 079 complete plus Paper 078 started, and paired English/French correspondence readers.
 
