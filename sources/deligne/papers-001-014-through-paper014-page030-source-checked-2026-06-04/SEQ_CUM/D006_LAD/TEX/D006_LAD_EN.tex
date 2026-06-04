@@ -1,0 +1,1297 @@
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools}
+\usepackage{geometry}
+\usepackage{enumitem}
+\geometry{margin=0.82in}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.16em}
+\emergencystretch=2em
+\setlist{leftmargin=2.0em,itemsep=0.1em,topsep=0.2em}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Af}{\mathbb A_f}
+\newcommand{\C}{\mathbb C}
+\newcommand{\G}{\mathbb G}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\bZ}{\widehat{\mathbb Z}}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\dd}{\,d}
+\newcommand{\et}{\mathrm{\acute et}}
+\newcommand{\an}{\mathrm{an}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\sh}{\operatorname{sh}}
+\newcommand{\QED}{\hfill$\square$}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Imop}{\operatorname{Im}}
+\newcommand{\charop}{\operatorname{char}}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries MODULAR FORMS AND $\ell$-ADIC REPRESENTATIONS}\par
+\vspace{0.35em}
+{\large Séminaire Bourbaki, 21st year, 1968/69, no. 355}\par
+\vspace{0.7em}
+{\itshape Pierre Deligne}
+\end{center}
+
+\section{Introduction}
+
+Let
+\[
+D(q)=q\prod_{n=1}^{\infty}(1-q^n)^{24}
+     =\sum_{n=1}^{\infty}\tau(n)q^n
+\qquad (|q|<1)
+\]
+and
+\[
+\Delta(z)=D(e^{2\pi iz})\qquad (\operatorname{Im} z>0).
+\]
+It is known that the function $\Delta$ is, up to a constant factor, the unique cusp form of
+weight $12$ for the group $\SL_2(\Z)$. Put, for $p$ prime,
+\[
+H_p(X)=1-\tau(p)X+p^{11}X^2 .
+\]
+Following Hecke's theory, the Dirichlet series
+\[
+L_\tau(s)=\sum \tau(n)n^{-s}=\prod_p\frac{1}{H_p(p^{-s})}
+\]
+extends to an entire function of $s$, and the function
+\[
+(2\pi)^{-s}\Gamma(s)L_\tau(s)
+\]
+is invariant under $s\mapsto 12-s$. Ramanujan's conjecture asserts that the roots of
+the polynomial $H_p$ have absolute value $p^{-11/2}$; equivalently,
+$|\tau(p)|<2p^{11/2}$.
+
+These properties, proven or conjectural, are similar to conjectural properties of zeta
+functions of algebraic varieties over $\Q$. Suggested by this, as a first approximation,
+one is tempted to interpret $L_\tau$ as the zeta function of such a variety.
+
+For each prime number $\ell$, let $K_\ell$ be the maximal extension of $\Q$ unramified
+away from $\ell$ and, for $p\ne\ell$, let $F_p$ be the inverse in $\Gal(K_\ell/\Q)$ of
+the Frobenius element $\varphi_p$ relative to $p$. This object is well defined up to
+conjugation.
+
+Translating the preceding in terms of $\ell$-adic cohomology, Serre conjectured the
+existence, for each $\ell$, of a representation of $\Gal(K_\ell/\Q)$ in a $\Q_\ell$-vector
+space $W_\ell$ of rank $2$ such that, for each $p\ne \ell$,
+\[
+H_p(X)=\det(1-F_pX;W_\ell).
+\]
+Moreover, the representation $W_\ell$ should lie in the range of application of the Weil
+conjectures, and Ramanujan's conjecture should be a particular case of them.
+
+This program has been carried out by Kuga--Shimura \([4]\) in the analogous case of
+modular forms relative to certain subgroups of $\SL_2(\R)$ with compact quotient. Reduced
+to the present case, the fundamental idea of Sato--Kuga--Shimura is the following: if
+$E$ is the universal elliptic curve over the moduli scheme $S$ of elliptic curves (forgetting
+that it does not exist) and if $E^k$ is the fiber product of $E$ with itself over $S$, repeated
+$k$ times, then $L_\tau(s)$ is essentially the zeta function of $E^k$ for
+$k=10=12-2$.
+
+We show below how to resolve the difficulties created by the points at infinity, and how
+to construct the representations $W_\ell$ having the properties indicated above. For more
+historical details and for applications, see Serre \([6]\).
+
+\paragraph{Notation.}
+\begin{itemize}
+\item We denote by $\A$ the ring of adeles of $\Q$, by $\Af$ the ring of finite adeles, the
+restricted product over all prime numbers of the fields $\Q_p$, and, for $S$ a finite set of
+prime numbers, put
+\[
+\Af^S=\prod_{p\in S}\Q_p\times\prod_{p\notin S}\Z_p\subset \Af .
+\]
+For $S=\varnothing$, one writes $\bZ=\Af^\varnothing$.
+\item If $X$ is a topological space, or the étale site of a scheme, and $G$ is a set, $G$ also
+denotes the constant sheaf on $X$ defined by $G$.
+\item We denote by $\Ga$ and $\Gm$ the additive and multiplicative groups.
+\item An elliptic curve is an abelian variety of dimension one, and in particular is equipped
+with an origin.
+\item If $L$ is an invertible sheaf and $n\in\Z$, $L^n$ denotes the $n$th tensor power
+$L^{\otimes n}$.
+\item We denote by $\overline{\Q}$ the algebraic closure of $\Q$ in $\C$.
+\item The symbol $\square$ marks the end of a proof, or its absence.
+\end{itemize}
+
+\section{The Shimura Isomorphism}
+
+\paragraph{(2.1)}
+An elliptic curve over a complex analytic space $S$ is a proper and flat morphism of
+analytic spaces $f:E\to S$, equipped with a section $e$, whose fibers are elliptic curves.
+An elliptic curve over $S$ admits one and only one $S$-group law
+\[
+\mu:E\times_S E\to E
+\]
+whose unit section is $e$. Associated with an elliptic curve are the following.
+
+\begin{enumerate}[label=(\alph*)]
+\item The invertible sheaf
+\[
+\omega_E=e^*\Omega^1_{E/S}.
+\]
+The relative Lie algebra $\Lie_S(E)$ is the invertible sheaf $\omega^{-1}$ dual to $\omega$.
+One has
+\[
+f_*\Omega^1_{E/S}\xrightarrow{\sim}\omega .
+\]
+
+\item The local system of free rank-$2$ $\Z$-modules $R^1f_*\Z$. One puts
+\[
+T_\Z(E)=(R^1f_*\Z)^\vee,\qquad
+T_\Q(E)=T_\Z(E)\otimes\Q,
+\]
+the local system of homology of $E$ over $S$.
+\end{enumerate}
+
+The exponential mapping defines an exact sequence of sheaves of sections
+\[
+0\longrightarrow T_\Z(E)\xrightarrow{\alpha}\omega^{-1}\longrightarrow E\longrightarrow 0,
+\]
+so that the elliptic curve $E$ can be reconstructed from the map $\alpha$.
+
+The local system $\bigwedge^2 R^1f_*\Z\simeq R^2f_*\Z$ is canonically isomorphic
+to $\Z$. An isomorphism between $\Z^2$ and $R^1f_*\Z$ is said to be admissible if it
+induces $1$ on second exterior powers. Denote by $\Hom^+(\R^2,\C)$ the set of
+$\R$-vector-space isomorphisms between $\R^2$ and $\C$ which respect the natural
+orientations of $\R^2$ and $\C$, defined by $e_1\wedge e_2>0$ and $1\wedge i>0$.
+Such a homomorphism is determined by its restriction to $\Z^2$, and one puts
+\[
+\Hom^+(\Z^2,\C)=\Hom^+(\R^2,\C).
+\]
+This space is equipped with the complex structure obtained from its inclusion in the
+complex vector space $\Hom(\Z^2,\C)$. Over this space one arranges a ``universal'' exact
+sequence
+\[
+0\longrightarrow \Z^2\xrightarrow{\alpha}\Ga\longrightarrow E_0\longrightarrow 0.
+\]
+
+\begin{proposition}[2.2]
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item The functor which associates with each analytic space $S$ the set of isomorphism
+classes of elliptic curves $E$ over $S$, equipped with isomorphisms
+\[
+\omega_E\simeq \Ga,\qquad R^1f_*\Z\simeq \Z^2
+\]
+(the last being admissible), is represented by the analytic space $\Hom^+(\R^2,\C)$,
+equipped with a universal elliptic curve $E_0$.
+
+\item The functor which associates with each analytic space $S$ the set of isomorphism
+classes of elliptic curves over $S$, equipped with an admissible isomorphism
+$R^1f_*\Z\simeq \Z^2$, is represented by the analytic space
+\[
+X=\C^\times\backslash\Hom^+(\R^2,\C),
+\]
+the Poincaré half-plane.
+
+\item The space $\Hom^+(\R^2,\C)$ is a principal homogeneous space of the group
+$\Gm$ over $X$.
+\end{enumerate}
+\end{proposition}
+
+One can again regard $X$ as the set of complex structures on $\R^2$. This space is,
+by (ii), equipped with a universal elliptic curve $E_X$, whose local system of real
+cohomology is canonically isomorphic to $\R^2$. Let $\omega$ be the invertible sheaf
+associated with $E_X$.
+
+The coherent analytic sheaf
+\[
+R^1f_*\R\otimes_\R\cO_X
+\]
+is the relative de Rham cohomology sheaf of $E_X$ over $X$, and as such it is inserted
+into an exact sequence, the Hodge filtration,
+\[
+0\longrightarrow \omega\longrightarrow R^1f_*\R\otimes_\R\cO_X
+\xrightarrow{q}\omega^{-1}\longrightarrow 0
+\]
+since, by Serre duality, $\omega^{-1}\simeq R^1f_*\cO_{E_X}$.
+
+The functorial description in 2.2(ii) evidently gives a right action of the group $\SL_2(\Z)$
+on $(X,E_X)$: to $\gamma\in\SL_2(\Z)$ and to the elliptic curve $E$ equipped with
+$\alpha:\Z^2\xrightarrow{\sim}R^1f_*\Z$, one associates $(E,\alpha\circ\gamma)$. If one
+regards $X$, equipped with
+\[
+q:\R^2\otimes_\R\cO_X\simeq R^1f_*\R\otimes_\R\cO_X\longrightarrow \omega^{-1},
+\]
+as classifying the complex structures on $\R^2$, one has the same evident action of the
+group $\GL_2^+(\R)$ on $(X,\R^2,\omega,q)$.
+
+\paragraph{(2.3)}
+Choose a basis $(x_1,x_2)$ of $\R^2$ such that $x_1\wedge x_2>0$. A point
+\[
+(f:\R^2\to \C)\quad \bmod \C^\times
+\]
+of $X$ is located by
+\[
+z=\frac{f(x_1)}{f(x_2)}\qquad (\operatorname{Im}z>0),
+\]
+and the map $q$ is identified with
+\[
+q:\R^2\to\Ga,\qquad ax_1+bx_2\longmapsto az+b.
+\]
+This gives an evident trivialization of $\omega^{-1}$ over $X$, which is not equivariant.
+Relative to this trivialization, a section $f(z)$ of $\omega^k$ over $X$ is transformed by
+an element
+\[
+\begin{pmatrix}a&b\\ c&d\end{pmatrix}^{-1}\in \GL^+(\R^2)
+\]
+(with respect to the basis $(x_1,x_2)$) by
+\[
+f\cdot
+\begin{pmatrix}a&b\\ c&d\end{pmatrix}^{-1}(z)
+=(cz+d)^{-k}f\!\left(\frac{az+b}{cz+d}\right).
+\]
+From the identity
+\[
+dz=(cz+d)^2\,d\!\left(\frac{az+b}{cz+d}\right)
+\left|\begin{matrix}a&b\\ c&d\end{matrix}\right|^{-1},
+\]
+one deduces that $dz$ is a section of $\omega^{-2}\Omega^1_X$ invariant under
+$\SL_2(\R)$. This section is everywhere nonzero and defines an equivariant isomorphism
+of $\SL_2(\R)$-sheaves between $\omega^2$ and $\Omega^1_X$.
+
+\paragraph{(2.4)}
+Let $\Gamma$ be a discrete subgroup of $\SL_2(\R)$ which has no elements of finite
+order and has quotient of finite volume. One then knows that the quotient space $X/\Gamma$
+is identified with a smooth projective curve $\overline{X/\Gamma}$ minus a finite number of
+points. The group $\Gamma$ acts on $X$ without fixed points. The equivariant local system
+$\R^2$ on $X$, as well as the exact sequence
+\[
+0\to \omega\to \R^2\otimes_\R\cO\to\omega^{-1}\to 0,
+\]
+therefore define a local system $U$ over $X/\Gamma$ and an exact sequence
+\[
+0\to \omega\to U\otimes_\R\cO\to\omega^{-1}\to 0.
+\]
+
+\paragraph{(2.5)}
+In the particular case where $\Gamma\subset\SL_2(\Z)$, these structures are obtained
+from an elliptic curve $E$ over $X/\Gamma$ whose inverse image is the equivariant elliptic
+curve $E_X$ over $X$.
+
+\paragraph{(2.6)}
+The points at infinity of $X/\Gamma$ are described as follows (see \([9]\)).
+
+\begin{enumerate}[label=(\alph*)]
+\item They correspond to conjugacy classes in $\Gamma$ of nontrivial subgroups of
+$\Gamma$ which are maximal among the subgroups of $\Gamma$ consisting of unipotent
+elements.
+
+\item Let $\Gamma_0\subset \Gamma$ be one such subgroup and choose a basis $(x_1,x_2)$
+of $\R^2$ such that, in this basis, $\Gamma_0$ is represented as the set of matrices
+\[
+\left\{\begin{pmatrix}1&0\\ n&1\end{pmatrix}\ \middle|\ n\in\Z\right\}.
+\]
+Let $z$ be the coordinate (2.3) on $X$ defined by $(x_1,x_2)$. There exists $N$ such that
+the subset
+\[
+X_N=\{z\mid \operatorname{Im}z>N\}
+\]
+of $X$ is disjoint from all of its conjugates $\gamma X_N$ for $\gamma\in\Gamma/\Gamma_0$,
+so that $X_N/\Gamma_0\hookrightarrow X/\Gamma$. The function
+$q=e^{2\pi iz}$ establishes an isomorphism between $X_N/\Gamma_0$ and the punctured
+disk
+\[
+0<|q|<e^{-2\pi N}.
+\]
+If $P_{\Gamma_0}$ is the point of $\overline{X/\Gamma}-X/\Gamma$ associated with
+$\Gamma_0$, this isomorphism extends to an isomorphism of a neighborhood of
+$P_{\Gamma_0}$ with the disk $0\le |q|<e^{-2\pi N}$.
+\end{enumerate}
+
+By virtue of (2.3), the sections of $\omega$ over $X_N$ which are invariant under
+$\Gamma_0$ are identified with periodic holomorphic functions of period one on $X_N$.
+One again denotes by $\omega$ the invertible sheaf over $\overline{X/\Gamma}$ which
+extends $\omega$ and such that, in a neighborhood of a point $P_{\Gamma_0}$, the section
+of $\omega$ over $X_N/\Gamma_0$ defined by the function $1$ extends to an invertible
+section on $X_N/\Gamma_0$.
+
+\paragraph{(2.7)}
+Over $X/\Gamma$ one has the two invertible sheaves $\Omega^1$ and $\omega^2$, and
+an isomorphism $\varphi$ (2.3) between their restrictions to $X/\Gamma$. From the formula
+\[
+dq=d(e^{2\pi iz})=2\pi i e^{2\pi iz}\,dz=2\pi iq\,dz
+\]
+it follows that the map
+\[
+\varphi:\Omega^1\to \omega^2
+\]
+extends to $\overline{X/\Gamma}$, and has a simple zero at each of the points at infinity.
+
+\begin{definition}[2.8]
+The space of cusp forms of weight $k+2$, relative to the group $\Gamma$, is the space of
+global sections
+\[
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k).
+\]
+By virtue of (2.7), this space is again identified with the space of global sections of
+$\omega^{k+2}$ vanishing at infinity, that is, at each ``point.''
+\end{definition}
+
+\paragraph{(2.9)}
+Denote by $U^k$ the $k$th symmetric power of the local system $U$ over $X/\Gamma$.
+The map (2.5) induces a map
+\[
+\iota_k:\omega^k\to U^k\otimes_\R\cO,
+\]
+hence a map, again denoted by $\iota_k$,
+\[
+\iota_k:\Omega^1\otimes\omega^k\to \Omega^1(U^k),
+\]
+where the target is the sheaf of holomorphic differential forms over $X/\Gamma$ with
+coefficients in the local system $U^k$.
+
+The de Rham resolution of $U^k\otimes_\R\C$,
+\[
+0\to U^k\otimes_\R\C\to U^k\otimes_\R\cO
+\xrightarrow{d}U^k\otimes_\R\Omega^1\to 0,
+\]
+induces a map
+\[
+\delta:H^0(X/\Gamma,\Omega^1(U^k))\to H^1(X/\Gamma,U^k\otimes\C).
+\]
+Moreover, the cohomology space $H^1(X/\Gamma,U^k\otimes\C)$ is equipped with a
+natural complex conjugation, such that $\delta$ defines a conjugate-linear mapping
+$\overline{\delta}$ from the complex conjugate of $H^0(X/\Gamma,\Omega^1(U^k))$ into
+$H^1(X/\Gamma,U^k\otimes\C)$. One thus obtains a map
+\[
+\sh_0=\delta\circ H^0(\iota_k)\oplus
+\overline{\delta}\circ H^0(\overline{\iota_k})
+\]
+\[
+\sh_0:
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)
+\oplus
+\overline{H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)}
+\longrightarrow
+H^1(X/\Gamma,U^k\otimes\C).
+\]
+
+For an arbitrary sheaf $F$ on a space $Y$, one denotes by
+$\widetilde H^i(Y,F)$ the image of cohomology with compact supports
+$H^i_c(Y,F)$ in cohomology without supports $H^i(Y,F)$.
+
+Theorem 4.2.6 of \([9]\) is essentially equivalent to the following theorem; in loc. cit.
+$k$ is supposed even, but the same proof works in general.
+
+\begin{theorem}[2.10, Shimura {\rm [7]}]
+There exists an isomorphism $\sh$ making the following diagram commutative:
+\[
+\begin{array}{ccc}
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)\oplus
+\overline{H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)}
+& \xrightarrow{\ \sh\ } &
+\widetilde H^1(X/\Gamma,U^k\otimes\C)
+\\[0.4em]
+\big\downarrow && \big\downarrow
+\\[0.4em]
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)\oplus
+\overline{H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)}
+& \xrightarrow{\ \sh_0\ } &
+H^1(X/\Gamma,U^k\otimes\C).
+\end{array}
+\]
+One calls $\sh$ the Shimura isomorphism.
+\end{theorem}
+
+\paragraph{(2.11)}
+In the particular case where $\Gamma$ is a subgroup of finite index of $\SL_2(\Z)$, the
+elliptic curve $E$ over $X/\Gamma$ furnishes an elliptic curve scheme over the algebraic
+curve $\overline{X/\Gamma}$; equivalently, its modular invariant is meromorphic at infinity.
+It therefore admits a Néron model $E$ over $\overline{X/\Gamma}$. One can show that the
+fibers of $E$ at the points at infinity are of multiplicative type, and that over all of
+$\overline{X/\Gamma}$ one has
+\[
+\omega=e^*\Omega^1_{E/\overline{X/\Gamma}}.
+\]
+In this particular case, one has $U=R^1f_*\Z\otimes\R$, so that the target of the Shimura
+isomorphism can be rewritten as
+\[
+\widetilde H^1(X/\Gamma,U^k\otimes\C)
+\simeq
+\widetilde H^1(X/\Gamma,\Sym^k(R^1f_*\Z))\otimes_\Z\C .
+\]
+
+\section{Hecke Operators and the Fundamental $\ell$-adic Representation}
+
+\paragraph{(3.1)}
+Recall (cf. \([3]\)) that the category of locally constant constructible $\Z_\ell$-sheaves,
+abbreviated lcc, over a scheme $S$ is the category of projective systems $(F_n)_{n\in\mathbb N}$
+on the étale site $S_{\et}$ of $S$ satisfying:
+\begin{enumerate}[label=(\roman*)]
+\item $F_n$ is a locally constant sheaf of $\Z/(\ell^n)$-modules of finite type;
+\item if $n\le m$, then
+\[
+F_m\otimes_{\Z/(\ell^m)}\Z/(\ell^n)\xrightarrow{\sim}F_n.
+\]
+\end{enumerate}
+The lcc $\Z_\ell$-sheaves form a stack of abelian categories over $S$; the stack of lcc
+$\Q_\ell$-sheaves is the quotient of this stack by the thick substack of lcc $\Z_\ell$-sheaves
+killed by a power of $\ell$. One denotes by $\otimes\Q_\ell$ the canonical functor from the
+category of lcc $\Z_\ell$-sheaves into that of lcc $\Q_\ell$-sheaves.
+
+If $S$ is connected and equipped with a geometric point $s$, the category of lcc
+$\Z_\ell$-sheaves, respectively $\Q_\ell$-sheaves, over $S$ is equivalent, by the functor
+``fiber over $s$,'' to the category of continuous representations of the fundamental group
+$\pi_1(S,s)$ on $\Z_\ell$-modules of finite type, respectively on finite-dimensional
+$\Q_\ell$-vector spaces.
+
+If $T$ is a finite set of prime numbers, an lcc $\mathbb A_T^f$-sheaf consists of the giving, for
+each prime number $\ell$, of an lcc $\Z_\ell$-sheaf if $\ell\notin T$, and an lcc
+$\Q_\ell$-sheaf if $\ell\in T$. For $T=\varnothing$, one speaks of lcc $\bZ$-sheaves rather
+than of lcc $\mathbb A_\varnothing^f$-sheaves.
+
+For general $T$, the category of lcc $\mathbb A_T^f$-sheaves is the inductive limit of the categories
+of lcc $\mathbb A_{T'}^f$-sheaves for $T'\subset T$ finite. One puts
+\[
+\Z_\ell=\varprojlim_n \Z/(\ell^n),\qquad
+\Q_\ell=\Z_\ell\otimes\Q,\qquad
+\bZ=(\Z_\ell)_\ell,
+\]
+and uses the corresponding finite-adelic notation $\mathbb A_T^f$.
+
+The stack of elliptic curves up to isogeny over $S$ is the stack obtained from the stack
+of elliptic curves over $S$ by formally inverting isogenies. One denotes by $\otimes\Q$ the
+functor associating to an elliptic curve its underlying elliptic curve up to isogeny. For $S$
+quasi-compact, one has
+\[
+\Hom(E,F)\otimes\Q\xrightarrow{\sim}\Hom(E\otimes\Q,F\otimes\Q),
+\]
+and, for $S$ normal, every elliptic curve up to isogeny over $S$ underlies an elliptic curve
+over $S$.
+
+\paragraph{(3.2)}
+Let $f:E\to S$ be an elliptic curve over a scheme $S$. One denotes by $T_\ell(E)$ the
+projective system of kernels $E_{\ell^n}$ of multiplication by $\ell^n$ on $E$, the transition
+maps from $E_{\ell^n}$ to $E_{\ell^m}$, for $n\ge m$, being multiplication by $\ell^{\,n-m}$.
+Proceeding in the same way for $\Gm$, one puts $T_\ell(\Gm)=\Z_\ell(1)$. If $\ell$ is
+invertible on $S$, then $T_\ell(E)$ and $\Z_\ell(1)$ are $\Z_\ell$-sheaves on $S$. One
+defines $T_\infty(E)$ to be the relative Lie algebra of $E$ over $S$, that is, the invertible
+dual of the invertible sheaf $\omega$ of (2.1(a)).
+
+Suppose $S$ is of characteristic $0$. One then defines the $\bZ$-sheaf $T_f(E)$ over $S$
+to be the system of the $T_\ell(E)$, and puts
+\[
+V_f(E)=T_f(E)\otimes \Af.
+\]
+If $u:E\to F$ is an isogeny, then $u$ induces an isomorphism of $V_f(E)$ onto $V_f(F)$
+and of $T_\infty(E)$ onto $T_\infty(F)$; the functors $V_f$ and $T_\infty$ therefore
+factor through the category of elliptic curves up to isogeny over $S$.
+
+\begin{proposition}[3.3]
+Let $S$ be a scheme of characteristic $0$; let $E_1(S)$ be the category of elliptic curves
+over $S$; and let $E_2(S)$ be the category of triples composed of an elliptic curve up to
+isogeny $E$ over $S$, a $\bZ$-sheaf $T$ which is a twisted form of $\bZ^2$, and an
+isomorphism
+\[
+\beta:V_f(E)\xrightarrow{\sim}T\otimes\Af.
+\]
+Then the functor
+\[
+I:E\longmapsto \bigl(E\otimes\Q,\ T_f(E),\ V_f(E)\simeq T_f(E)\otimes\Af\bigr)
+\]
+from $E_1(S)$ to $E_2(S)$ is an equivalence of categories.
+\end{proposition}
+
+The question is local on $S$, which one may suppose quasi-compact. If $f:E\to F$ is a
+morphism of $S$-elliptic curves, and if $f$ is an isogeny, then one has an exact sequence
+\[
+0\to T_f(E)\to T_f(F)\to \ker(f)\to 0.
+\tag{3.4}
+\]
+The morphism $f$ is divisible by $n$ if and only if it kills the kernel $E_n$ of multiplication
+by $n$, because the multiplication-by-$n$ map $E/E_n\to E$ is an isomorphism. By (3.4),
+this holds if and only if $T_f(f)$ is divisible by $n$, and one deduces from this that
+$\Hom_S(E,F)$ is the subgroup of $\Hom_S(E\otimes\Q,F\otimes\Q)$ consisting of the
+morphisms $f$ such that $V_f(f)$ sends $T_f(E)$ into $T_f(F)$. The functor $I$ is thus
+fully faithful.
+
+Let $X\in\operatorname{Ob}(E_2(S))$. Locally on $S$, $X$ is defined by an elliptic curve
+up to isogeny $E\otimes\Q$, and by a lattice $T$ in $V_f(E)$ which, for almost all $\ell$,
+coincides with $T_\ell(E)$. For $q\in\Q$, $(E\otimes\Q,T)$ is isomorphic to
+$(E\otimes\Q,qT)$, which allows us to suppose that $T_f(E)\subset T$. The quotient
+$K=T/T_f(E)$ is then canonically isomorphic to a finite subgroup of $E$, and $X$ is the
+image of $E/K$ under $I$ (cf. 3.4). \QED
+
+\begin{proposition}[3.5, Corollary]
+The functor $F_1(S)$, respectively $F'_1(S)$, which associates with each scheme $S$ of
+characteristic $0$ the set of isomorphism classes of elliptic curves over $S$ equipped with
+an isomorphism
+\[
+\alpha:T_f(E)\xrightarrow{\sim}\bZ^2
+\]
+respectively also with an isomorphism
+\[
+\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\Ga,
+\]
+is isomorphic to the functor $F_2(S)$, respectively $F'_2(S)$, which associates with $S$ the
+set of isomorphism classes of elliptic curves up to isogeny over $S$, equipped with an
+isomorphism
+\[
+\beta:V_f(F)\xrightarrow{\sim}\Af^2
+\]
+respectively also with an isomorphism
+\[
+\beta_\infty:T_\infty(F)\xrightarrow{\sim}\Ga.
+\]
+\end{proposition}
+
+\begin{proposition}[3.6]
+The functor $F_1$ (respectively $F'_1$) is represented by a scheme $M_\infty$ (respectively
+$M'_\infty$) over $\Q$.
+\end{proposition}
+
+Let $n\ge 3$ be an integer. The functor which associates with each scheme $S$ the set of
+isomorphism classes of elliptic curves, equipped with an isomorphism
+\[
+\alpha_n:E_n\xrightarrow{\sim}(\Z/n)^2
+\]
+respectively also with $\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\cO_X$, is represented by
+an affine curve $M_n$ (respectively by an affine surface $M'_n$) over $\Spec(\Z[1/n])$.
+For $n\mid m$, the morphism from $M_m$ to $M_n$ defined by
+\[
+(E,\alpha_m:E_m\xrightarrow{\sim}(\Z/m)^2)
+\longmapsto
+(E,(m/n)\alpha_m:E_n\xrightarrow{\sim}(\Z/n)^2)
+\]
+is finite and étale over $\Spec(\Z[1/m])$, and one has
+\[
+M_\infty=\varprojlim M_n .
+\]
+One proceeds in the same way to represent $F'_1$. \QED
+
+\paragraph{(3.7)}
+The scheme $M_\infty$ (respectively $M'_\infty$) is equipped with a universal elliptic
+curve $f_\infty:E_\infty\to M_\infty$ and an isomorphism
+\[
+\alpha:T_f(E_\infty)\xrightarrow{\sim}\bZ^2,
+\]
+respectively also with an isomorphism
+\[
+\alpha_\infty:T_\infty(E'_\infty)\xrightarrow{\sim}\Ga.
+\]
+Following (3.5), the scheme $M_\infty$ (respectively $M'_\infty$) represents the functor
+$F_2$ (respectively $F'_2$), which gives an evident left action of the adelic group
+$\GL_2(\Af)$ on
+\[
+(M_\infty,E_\infty\otimes\Q,\alpha\otimes\Af^2)
+\]
+respectively on
+\[
+(M'_\infty,E'_\infty,\alpha\otimes\Af^2,\alpha_\infty).
+\]
+On the functor this action is given, for $g\in\GL_2(\Af)$, by
+\[
+g:(F,\beta:V_f(E)\xrightarrow{\sim}\Af^2,\beta_\infty)
+\longmapsto
+(F,g\circ\beta:V_f(E)\xrightarrow{\sim}\Af^2,\beta_\infty).
+\]
+Shafarevich first noted this fact.
+
+Let $Y$ be a scheme over $\C$, equal to the projective limit of schemes $Y_i$ of finite
+type over $\C$, with finite transition maps. The locally compact ringed space $Y^{\an}$,
+equal to the projective limit of the $Y_i^{\an}$, depends only on $Y$ and not on its
+representation as a projective limit. If $Y$ is a scheme over $\Q$, equal to the projective
+limit of schemes $Y_i$ of finite type over $\Q$ with finite transition maps, one puts
+$Y^{\an}=(Y\otimes\C)^{\an}$. This applies to $M_\infty$ and $M'_\infty$.
+
+\begin{proposition}[3.8]
+One has canonically
+\[
+M_\infty^{\prime\,\an}\simeq
+\Hom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q)
+\]
+and
+\[
+M_\infty^{\an}\simeq
+\C^\times\backslash\Hom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q),
+\]
+and, less canonically,
+\[
+M_\infty^{\prime\,\an}\simeq \GL_2(\A)/\GL_2(\Q),\qquad
+M_\infty^{\an}\simeq K_\infty\backslash \GL_2(\A)/\GL_2(\Q),
+\]
+where $K_\infty$ is the stabilizer of a chosen complex structure at the real place. These
+isomorphisms are compatible with the action of $\GL_2(\Af)$.
+\end{proposition}
+
+The notion of elliptic curve up to isogeny, and its variants, extends to the complex analytic
+case. On the other hand, an isogeny $\varphi:E\to F$ induces an isomorphism $\varphi^*$
+between the local systems of rational cohomology of $E$ and $F$, which allows us to define
+this last object for an elliptic curve up to isogeny. Let $S$ be a complex analytic space.
+With the aid of (2.1), one sees that to give an elliptic curve up to isogeny over $S$ is
+equivalent to giving an invertible sheaf $T_\infty$, a local system $T_\Q$ of $\Q$-vector
+spaces, and a morphism $\alpha:T_\Q\to T_\infty$ inducing an isomorphism
+$T_\Q\otimes\R\to T_\infty$ point by point.
+
+Let $n$ be an integer and let $K_n$ be the kernel of the natural mapping
+\[
+\prod_\ell \GL_2(\Z_\ell)\to \GL_2(\Z/n).
+\]
+Let $G_1$ be the functor which associates with $S$ the set of isomorphism classes of elliptic
+curves $f:E\to S$ over $S$, equipped with an isomorphism
+\[
+\varphi:\Q^2\xrightarrow{\sim}T_\Q(E),
+\]
+an isomorphism $\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\cO_S$, and an isomorphism
+$\alpha_n:E_n\xrightarrow{\sim}(\Z/n)^2$. As in (3.3), one sees that $G_1$ is isomorphic
+to the functor $G_2$ which associates with $S$ the set of isomorphism classes of elliptic
+curves up to isogeny $E$ over $S$, equipped with $\varphi:\Q^2\xrightarrow{\sim}T_\Q(E)$,
+$\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\cO_S$, and an isomorphism
+$V_f(E)\xrightarrow{\sim}\Af^2$ given locally over $S$ up to composition with an element
+of $K_n$.
+
+Such an object is determined by the composite map $\varphi'$ (given locally modulo $K_n$)
+obtained from
+\[
+\varphi':\Q^2\xrightarrow{\varphi}T_\Q(E)
+\longrightarrow T_\infty(E)\times V_f(E)
+\xrightarrow{\sim}\cO_S\times \Af^2.
+\]
+One has
+\[
+E=\bZ^2\backslash \cO_S\times \Af^2/
+\varphi'\bigl(\Q^2\cap \varphi'^{-1}(T_\infty(E)\times T_f(E))\bigr),
+\]
+so that, cf. 2.2, $G_1$ and $G_2$ are represented by
+\[
+K_n\backslash\Isom(\Q^2\otimes\A,\C\times\Af^2).
+\]
+
+Suppose still that $n\ge 3$, so that $\GL_2(\Q)$ acts freely on the preceding space. The
+analytic space $M_n^{\an}$, respectively $M_n^{\prime\,\an}$, represents the functor analogous
+in analytic geometry to the functor represented by $M_n$, respectively $M'_n$, because this
+functor, say $X$, is representable and the arrow $X\to M_n^{\an}$, respectively
+$X\to M_n^{\prime\,\an}$, induces a bijection on sets of points with values in any finite-rank
+$\C$-algebra. Consequently one deduces from the preceding that
+\[
+M_n^{\prime\,\an}\simeq
+K_n\backslash\Isom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q).
+\]
+Proceeding in the same way for $M_n$, one obtains the first assertion of (3.8) by passage
+to the limit on $n$.
+
+A point $x$ of
+\[
+\Isom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q)
+\]
+is identified with a lattice $L_x$ of $\C\times\Af^2$, and the corresponding curve is
+\[
+E_x\simeq \bZ^2\backslash \C\times\Af^2/L_x,
+\]
+equipped with
+\[
+V_f(E)\simeq L_x\otimes\Af\xrightarrow{\sim}\Af^2.
+\]
+The last assertion of (3.8) follows easily. \QED
+
+Denote by $f_n:E\to M_n$ the universal elliptic curve over $M_n$. The integer $k$ being
+fixed, one makes the following definition.
+
+\begin{definition}[3.9]
+One denotes by $W$ (or by ${}_kW$ if confusion is possible) the $\Q$-vector space
+\[
+W=\varinjlim_n\widetilde H^1(M_n^{\an},\Sym^k(R^1f_*\Q)).
+\]
+\end{definition}
+
+This vector space does not depend on the universal elliptic curve, up to isogeny,
+$f_\infty:E\to M_\infty$, so that, by transport of structure, it is equipped with a left action
+of the adelic group $\GL_2(\Af)$.
+
+If $\ell$ is a prime number, the vector space $W_\ell=W\otimes\Q_\ell$ admits a purely
+algebraic definition, in terms of the $\ell$-adic cohomology of the scheme over the algebraic
+closure $\overline\Q$ of $\Q$ obtained from $M_n$ by extension of scalars:
+\[
+W_\ell=
+\varinjlim_n
+\widetilde H^1(M_n\otimes\overline\Q,\Sym^k(R^1f_{n*}\Q_\ell)).
+\tag{3.10}
+\]
+Thus the Galois group of $\overline\Q$ over $\Q$ acts, by transport of structure, on
+$W_\ell$ and on the finite-level spaces.
+
+Finally, the space $M_n^{\an}$ is the disjoint union of quotients of the Poincaré half-plane
+by congruence subgroups of $\SL_2(\Z)$, so that, denoting by $\omega$ the invertible sheaf
+on $M_n$ defined by $E$, Shimura's theory (2.10) gives
+\[
+W_\infty=W\otimes\C=
+\varinjlim_n\left(
+H^0(M_n^{\an},\Omega^1\otimes\omega^k)
+\oplus
+\overline{H^0(M_n^{\an},\Omega^1\otimes\omega^k)}
+\right).
+\tag{3.11}
+\]
+This decomposition of $W\otimes\C$ into two complex-conjugate subspaces, one of which
+is the space of all cusp forms of weight $k+2$ relative to a general congruence subgroup of
+$\SL_2(\Z)$, is analogous to a Hodge decomposition, of type
+\[
+(0,k+1)+(k+1,0).
+\]
+The action of the adelic group commutes with the action of the Galois group and respects
+the preceding decomposition.
+
+While the $\ell$-adic local system $R^1f_*\Q_\ell$ is trivial on $M_\infty$, I do not know
+whether there is a relation between $W_\ell$ and
+\[
+\varinjlim_n\bigl(\widetilde H^1(M_n\otimes\overline\Q,\Q_\ell)\bigr)
+\otimes \Sym^k(\Q_\ell^2).
+\]
+
+\paragraph{(3.12)}
+Let $n\ge 3$ be an integer and let $K_n$ be as in (3.8). Then one has
+\[
+W^{K_n}={}_nW.
+\]
+This follows by passage to the limit and from the fact that, in rational cohomology,
+the cohomology of the quotient of a space by a finite group is obtained by taking the
+invariants of that group in the cohomology.
+
+Put, for $p$ prime,
+\[
+W^{(p)}=W^{\GL_2(\Z_p)}.
+\]
+By passage to the limit, one obtains
+\[
+W^{(p)}=\varinjlim_{(n,p)=1}{}_nW.
+\]
+On this cohomology space there again act:
+\begin{enumerate}[label=(\roman*)]
+\item the subgroup $\prod_{\ell\ne p}\GL_2(\Q_\ell)$ of $\GL_2(\Af)$, because this subgroup
+centralizes $\GL_2(\Z_p)$;
+\item the Hecke algebra $\cH(\GL_2(\Q_p),\GL_2(\Z_p))$, which is the algebra of integral
+measures on the discrete space $\GL_2(\Q_p)/\GL_2(\Z_p)$ invariant on the left by
+$\GL_2(\Z_p)$. This subalgebra of the group algebra of $\GL_2(\Q_p)$ acts on $W$ and
+respects $W^{(p)}$. It acts already on each ${}_nW$ for $n$ prime to $p$.
+\end{enumerate}
+
+The Hecke algebra admits as a basis the measures associated with characteristic functions
+of the double cosets of $\GL_2(\Z_p)$ in $\GL_2(\Q_p)$, and one knows that
+\[
+\cH(\GL_2(\Q_p),\GL_2(\Z_p))=\Z[T_p,R_p,R_p^{-1}],
+\]
+where $T_p$ and $R_p$ are the double cosets of
+\[
+\begin{pmatrix}1&0\\0&p^{-1}\end{pmatrix}
+\qquad\text{and}\qquad
+\begin{pmatrix}p^{-1}&0\\0&p^{-1}\end{pmatrix}.
+\]
+
+
+\paragraph{(3.13)}
+Let $p$ be a prime number, let $n\geq 3$ be an integer prime to $p$, and let $F_{n,p}$ be the functor which associates to each scheme $S$ the set of isomorphism classes of commutative diagrams of $S$-schemes
+\[
+\begin{array}{ccccc}
+&& \Z/(n)^2 &&\\[-0.2em]
+& \alpha\nearrow && \nwarrow\alpha' &\\[-0.2em]
+E_n & \longrightarrow & F_n &&\\[-0.2em]
+\cap && \cap &&\\[-0.2em]
+E & \xrightarrow{\ \varphi\ } & F &&
+\end{array}
+\tag{3.14}
+\]
+where $\varphi$ is a $p$-isogeny between elliptic curves and $\alpha$ is an isomorphism. One denotes by $q_1$ and $q_2:F_{n,p}\to M_n$ the morphisms of functors associating to a diagram (3.14) the subdiagrams $(E,E_n,\alpha)$ and $(F,F_n,\alpha')$.
+
+\begin{proposition}[3.15]
+The functor $F_{n,p}$ is represented by a scheme $M_{n,p}$, and the morphisms $q_1,q_2:M_{n,p}\to M_n$ are finite.
+\end{proposition}
+
+The automorphism $\sigma$ of $F_{n,p}$ sending $\varphi:E\to F$ to ${}^{t}\!\varphi:F\to E$ exchanges $q_1$ and $q_2$; it suffices therefore to consider $q_1$. This morphism identifies $F_{n,p}$ with the functor of subgroups of order $p$ of the universal elliptic curve $E$ over $M_n$, so that, by the theory of Hilbert schemes, $F_{n,p}$ is representable and $M_{n,p}$ is proper over $M_n$. If $s$ is a geometric point of $M_n$, $q_1^{-1}(s)$ is the set of subgroups of order $p$ of $E_s$, and has $p+1$ elements if $\charop(k(s))\ne p$, and only one, the kernel of Frobenius, if $\charop(k(s))=p$. \QED
+
+One can show that $M_{n,p}$ is regular, and that $q_1$ and $q_2$ are finite flat; we do not use this delicate result, but content ourselves here to note that over $\Spec(\Z[1/p])$, each $q_i$ makes $M_{n,p}$ an étale covering of degree $p+1$ of $M_n$.
+
+The morphisms $q_i$ can be inserted into a commutative diagram
+\[
+\begin{array}{ccccc}
+q_1^*E & \xrightarrow{\ \varphi\ } & q_2^*E &&\\[-0.2em]
+\swarrow && \searrow &&\\[-0.2em]
+E & \xleftarrow{\ u\ } & M_{n,p} & \xrightarrow{\ v\ } & E\\[-0.2em]
+\downarrow f_n && \downarrow q_1\quad\downarrow q_2 && \downarrow f_n\\[-0.2em]
+M_n && M_n && M_n
+\end{array}
+\tag{3.16}
+\]
+where $(\varphi,u,v)$ is part of the universal diagram (3.14).
+
+One denotes by $I_p$ the morphism from $M_n$ to $M_n$ corresponding to the morphism of functors $(E,\alpha)\mapsto (E,\alpha/p)$:
+\[
+\begin{array}{ccc}
+E&\longrightarrow&E\\
+\downarrow&&\downarrow\\
+M_n&\xrightarrow{\ I_p\ }&M_n
+\end{array}
+\qquad
+I_p^*(E,\alpha)=(E,\alpha/p).
+\tag{3.17}
+\]
+$I_p^*$ is an automorphism of $\widetilde H^i(M_n^{\an},\Sym^k(R^1f_{n*}\Z))$. It is tiresome, but routine, to prove the following.
+
+\begin{proposition}[3.18]
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item The endomorphism $T_p$ of ${}_nW$ is expressed, with the aid of (3.16), as the composite map
+\[
+\begin{aligned}
+&\widetilde H^1(M_n^{\an},\Sym^k(R^1f_{n*}\Q))
+\xrightarrow{\ q_2^*\ }
+\widetilde H^1(M_{n,p}^{\an},\Sym^k(R^1v_*\Q))\\
+&\xrightarrow{\ \varphi^*\ }
+\widetilde H^1(M_{n,p}^{\an},\Sym^k(R^1u_*\Q))
+\xrightarrow{\ q_{1*}\ }
+\widetilde H^1(M_n^{\an},\Sym^k(R^1f_{n*}\Q)).
+\end{aligned}
+\]
+where $q_{1*}$ is the trace morphism for the covering $q_1$.
+\item Similarly, $R_p=p^k I_p^*$.
+\end{enumerate}
+\end{proposition}
+\QED
+
+The distrustful reader could forget the adelic preliminaries and define $T_p$ by (i). When $n=1$ or $2$, one puts ${}_nW=W^{K_n}$, so that
+\[
+{}_1W={}_nW^{\GL_2(\Z/(n))}.
+\]
+If $S_{k+2}$ denotes the space of cusp forms, for the group $\SL_2(\Z)$, of weight $k+2$, the Shimura isomorphism (3.11) induces an isomorphism
+\[
+{}^k_1W_\infty={}^k_1W\otimes\C=S_{k+2}\oplus \overline{S}_{k+2}.
+\]
+It is tiresome, but routine, to prove the following.
+
+\begin{proposition}[3.19]
+The endomorphism $T_p$ of ${}^k_1W_\infty$ is identified, via the Shimura isomorphism, with the direct sum of the Hecke operator on $S_{k+2}$, including the factor $p^{k-1}$, and its conjugate.
+\end{proposition}
+\QED
+
+\paragraph{(3.20)}
+One has canonically
+\[
+\bigwedge^2 R^1f_{n*}\Z_\ell\simeq R^2f_{n*}\Z_\ell\simeq \Z_\ell(-1),
+\]
+so that $\Sym^k(R^1f_{n*}\Z_\ell)$ is equipped with a bilinear form, symmetric for $k$ even and alternating for $k$ odd, with values in $\Z_\ell(-k)$. The form induced by tensoring with $\Q_\ell$ is nondegenerate.
+
+If $F$ is an lcc $\Q_\ell$-sheaf over a smooth scheme $X$ of pure dimension $n$ over an algebraically closed field $k$, then Poincaré duality gives
+\[
+H^i(X,F)^\vee\simeq H_c^{2n-i}(X,\Hom(F,\Q_\ell(n))),
+\]
+\[
+H_c^i(X,F)^\vee\simeq H^{2n-i}(X,\Hom(F,\Q_\ell(n))),
+\]
+\[
+\widetilde H^i(X,F)^\vee\simeq \widetilde H^{2n-i}(X,\Hom(F,\Q_\ell(n))).
+\]
+Taking $X=\overline M_n$ and $F=\Sym^k(R^1f_{n*}\Q_\ell)$ in these considerations, one defines a nondegenerate bilinear form ${}_n(\ ,\ )$ on ${}^k_nW_\ell$ with values in $\Q_\ell(-k-1)$. This form is symmetric for $k$ odd and alternating for $k$ even. This is the $\ell$-adic analogue of the Peterson inner product. If $n\mid m$, and if the covering $\psi:M_m\to M_n$ is of degree $d$, then one has
+\[
+{}_m(\psi^*x,\psi^*y)=d\cdot {}_n(x,y).
+\]
+
+\section{The Congruence Formula}
+
+In this section we fix integers $k\geq 0$ and $n\geq 3$, and prime numbers $p$ and $\ell$. We suppose that $p$ is prime to $\ell$ and $n$. We denote by $f_n:E\to M_n$ the universal elliptic curve over $M_n$, equipped with $\alpha:E_n\xrightarrow{\sim}\Z/(n)^2$.
+
+Whatever the scheme $Y$, one denotes by $a$ the unique morphism of $Y$ to $\Spec(\Z)$ or, if necessary, to a subscheme of $\Spec(\Z)$. If $Y$ is separated and of finite type over $\Spec(\Z)$, and if $F$ is a $\Z_\ell$- or $\Q_\ell$-sheaf on $Y$, one denotes by $R^ia_*(Y,F)$, respectively $R^ia_!(Y,F)$, respectively $R^i\widetilde a(Y,F)$, the $\Z_\ell$- or $\Q_\ell$-sheaf over $\Spec(\Z)$ that is the $i$th higher direct image of $F$ under $a$, respectively the $i$th direct image with proper supports, respectively $\Imop(R^ia_!(Y,F)\to R^ia_*(Y,F))$. For $m\in\mathbb N$, one puts
+\[
+Y[1/m]=Y\times\Spec(\Z[1/m]).
+\]
+
+\begin{theorem}[4.1, Igusa {\rm [1]}]
+The scheme $M_n$ can be compactified to a scheme of curves $M_n^*$ that is projective and smooth over $\Spec(\Z[1/n])$, such that $M_n^*\setminus M_n$ is an étale covering of $\Spec(\Z[1/n])$.
+\end{theorem}
+
+The schemes $M_n$ are formally smooth, thus smooth over $\Spec(\Z)$. The modular invariant $j$ of the universal curve over $M_n$ is a morphism of $M_n$ to the affine line $\mathbb A^1$ over $\Spec(\Z[1/n])$. The morphism $j$ is finite, and is an étale covering away from the sections $0$ and $1728$ of $\mathbb A^1$; in fact:
+\begin{enumerate}[label=(\alph*)]
+\item Two elliptic curves over an algebraically closed field with the same $j$-invariant are isomorphic (e.g. [8] 6.3), thus the geometric fibers of $j$ are finite. The schemes $M_n$ and $\mathbb A^1$ being smooth of the same dimension over $\Spec(\Z)$, $j$ is quasi-finite and flat.
+\item If $E$ is an elliptic curve over the field of fractions $K$ of a discrete valuation ring $R$, of $j$-invariant in $R$, and whose points of order $n$ are rational over $K$, then $E$ has good reduction. The valuative criterion for properness shows thus that $j$ is proper.
+\item If $E$ and $F$ are two elliptic curves over a scheme $S$, of the same $j$-invariant, and if $j$ and $j-1728$ are invertible, then the scheme $\Isom(S;E,F)$ of isomorphisms between $E$ and $F$ is étale over $S$ ([8] 6.3). In the diagram
+\[
+\begin{array}{ccc}
+\Isom(M_n\times_{\mathbb A^1}M_n;\operatorname{pr}_1^*E,\operatorname{pr}_2^*E) & \sim & M_n\times \GL_2(\Z/(n))\\
+\downarrow u && \downarrow v\\
+M_n\times_{\mathbb A^1}M_n&\xrightarrow{\operatorname{pr}_1}&M_n,
+\end{array}
+\]
+where $j\ne 0,1728$, $u$ and $v$ are étale surjective, thus $\operatorname{pr}_1$ is étale and, by flat descent, $j$ is étale.
+\end{enumerate}
+The section at infinity of the projective line $\mathbb P^1\supset \mathbb A^1$ over $\Spec(\Z[1/n])$ is a regular divisor whose generic point is of characteristic $0$ in a regular scheme. It follows from a theorem of Abyankhar (see [5]) that along this divisor $j=\infty$, $M_n$ is moderately (tamely?) ramified over $\mathbb P^1$, and that the normalization $M_n^*$ of $\mathbb P^1$ in $M_n$ satisfies (4.1). \QED
+
+It follows from the same theorem that the lcc $\Z_\ell$-sheaves $R^if_{n*}\Z_\ell$ on $M_n[1/\ell]$ are moderately ramified at infinity. Hence, from (4.1) and the specialization theorems for $\ell$-adic cohomology (see [5]), it follows that $R^ia_*(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$, $R^ia_!(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$, and therefore $R^i\widetilde a(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$ are lcc $\Z_\ell$-sheaves over $\Spec(\Z[1/n,1/\ell])$, whose formation is compatible with all base changes.
+
+\begin{proposition}[4.2, Corollary]
+The Galois module ${}_nW_\ell$ is the fiber of the lcc $\Q_\ell$-sheaf
+\[
+R^1\widetilde a(M_n,\Sym^k(R^1f_{n*}\Z_\ell))\otimes\Q_\ell
+\]
+over $\Spec(\Z[1/n,1/\ell])$ at the geometric point $\overline\Q$. It is unramified away from $n$ and $\ell$.
+\end{proposition}
+\QED
+
+Let the two commutative diagrams over $M_n\otimes\F_p$
+\[
+\begin{array}{ccccc}
+&&\Z/(n)^2&&\\
+&\alpha\nearrow&&\nwarrow\alpha^{(p)}&\\
+E_n&\xrightarrow{\ F\ }&E_n^{(p)}&&\\
+\cap&&\cap&&\\
+E&\xrightarrow{\ F\ }&E^{(p)}&&
+\end{array}
+\qquad
+\begin{array}{ccccc}
+&&\Z/(n)^2&&\\
+&p\alpha^{(p)}\nearrow&&\nwarrow\alpha&\\
+E_n^{(p)}&\xrightarrow{\ V\ }&E_n&&\\
+\cap&&\cap&&\\
+E^{(p)}&\xrightarrow{\ V\ }&E&&
+\end{array}
+\]
+be written more briefly
+\[
+F:(E,\alpha)\to (E^{(p)},\alpha^{(p)})
+\qquad\text{and}\qquad
+V:(E^{(p)},p\alpha^{(p)})\to(E,\alpha),
+\]
+where $F$ is the Frobenius morphism and $V$, its transpose, is the Verschiebung. These diagrams define morphisms $\Phi_1$ and $\Phi_2$ of $M_n\otimes\F_p$ to $M_{n,p}$. These morphisms are finite, considered as sections of $q_1$ and $q_2$, and define a morphism
+\[
+\Phi=\Phi_1\coprod\Phi_2:M_n\otimes\F_p\coprod M_n\otimes\F_p\to M_{n,p}\otimes\F_p.
+\]
+Let $\Phi^h$ be the restriction of $\Phi$ to the opens $M_n^h$ and $M_{n,p}^h$ of $M_n\otimes\F_p$ and $M_{n,p}\otimes\F_p$ corresponding to curves of nonzero Hasse invariant $h$.
+
+\begin{proposition}[4.3]
+$\Phi^h$ is an isomorphism.
+\end{proposition}
+
+Let $\varphi:E_1\to E_2$ be a $p$-isogeny between elliptic curves of invertible Hasse invariant over a scheme $S$ of characteristic $p$. At each geometric point of $S$, either the kernel $\ker(\varphi)$ of $\varphi$ is étale over $S$, or its Cartier dual, isomorphic to $\ker({}^{t}\!\varphi)$, is étale over $S$. The property ``$\ker(\varphi)$ is étale'' is an open property, so that locally on $S$, either $\ker(\varphi)$ is purely infinitesimal, or $\ker({}^{t}\!\varphi)$ is. The only infinitesimal subgroup of order $p$ of $E_1$ or $E_2$ being the kernel of Frobenius, in the first case $\varphi$ is isomorphic to $F:E_1\to E_1^{(p)}$, and in the second case ${}^{t}\!\varphi$ is isomorphic to $F:E_2\to E_2^{(p)}$ and $\varphi$ to $V:E_2^{(p)}\to E_2$. \QED
+
+\begin{proposition}[4.4]
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item The scheme $M_{n,p}$ is smooth over $\Spec(\Z)$ away from points of characteristic $p$ where $h=0$.
+\item The morphisms $q_1$ and $q_2$ induce finite flat morphisms $q'_1$ and $q'_2$ from the normalization $M'_{n,p}$ of $M_{n,p}$ to $M_n$.
+\item The morphism $\Phi$ can be factored through a surjective morphism
+\[
+\Phi':M_n\otimes\F_p\coprod M_n\otimes\F_p\to M'_{n,p}\otimes\F_p.
+\]
+\end{enumerate}
+\end{proposition}
+
+The automorphism $\sigma$ of (3.15) exchanges $\varphi$ and ${}^{t}\!\varphi$, so that it suffices to prove (i) at the points of characteristic $p$ of $M_{n,p}$ where the kernel of $\varphi$ is infinitesimal: there is no obstruction to infinitesimally lifting an elliptic curve and the infinitesimal part of the kernel of multiplication by $p$.
+
+Where $p=h=0$, the fiber of the finite morphism (3.15) $q_i:M_{n,p}\to M_n$ is reduced to a point, so that the open of smoothness of $M_{n,p}$ is dense in $M_{n,p}$ and $M'_{n,p}$ is everywhere of dimension $2$. The scheme $M_n$ being regular, following EGA $0_{\mathrm{IV}}$ 16.5.1 and 17.3.5(ii), the morphism $q_i:M'_{n,p}\to M_n$ is flat. Finally, (iii) results from the fact that $\Phi$ is finite and $M_n\otimes\F_p$ is a normal curve. \QED
+
+The Hecke endomorphism $T_p$ of ${}_nW_\ell$, such as is made explicit in (3.18), is the tensorization with $\Q_\ell$ of the fiber at the geometric point $\overline\Q$ of $\Spec(\Z[1/n,1/\ell])$ of the endomorphism, again denoted by $T_p$, of $R^1\widetilde a(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$ defined by the correspondence
+\[
+\begin{array}{ccccc}
+q_1'^*E&\xrightarrow{\ \varphi\ }&q_2'^*E&&\\
+\swarrow&&\searrow&&\\
+E&\xleftarrow{\ u\ }&M'_{n,p}&\xrightarrow{\ v\ }&E\\
+\downarrow f_n&&\downarrow q'_1\quad\downarrow q'_2&&\downarrow f_n\\
+M_n&&M_n&&M_n,
+\end{array}
+\tag{4.5}
+\]
+with
+\[
+T_p=q'_{1*}\,\varphi^*\,q_2'^* \qquad (\text{cf. }3.18).
+\]
+The endomorphisms $R_p$ and $I_p$ can be interpreted in the same way.
+
+\begin{lemma}[4.6]
+Let $X,Y,Z_1$, and $Z_2$ be four schemes that are separated and of finite type over a noetherian scheme $S$, let $F$ be a $\Z_\ell$-sheaf on $X$, let $G$ be a $\Z_\ell$-sheaf on $Y$, and denote by $a$ each of the structural maps from $X,Y,Z_1$ or $Z_2$ to $S$. Suppose we have the following commutative diagram of $S$-schemes and morphisms of sheaves:
+\[
+\begin{array}{ccccc}
+y_1^*G&\xrightarrow{z_1}&x_1^*F&&y_2^*G\xrightarrow{z_2}x_2^*F\\
+&&&&\\[-1em]
+Z_1&\xrightarrow{f}&Z_2&&Z_1\xrightarrow{f}Z_2\\[-0.2em]
+\downarrow x_1&&\downarrow x_2&&\downarrow y_1\quad\downarrow y_2\\[-0.2em]
+X&&X&&Y
+\end{array}
+\]
+Suppose that $f^*z_2=z_1$, that $y_1$ and $y_2$ are proper, that $x_1$ and $x_2$ are finite and flat, and that, for every geometric point $s$ of $Z_2$, the multiplicity of $s$ in its fiber $x_2^{-1}(x_2(s))$ is equal to the sum of the multiplicities in their fibers, for $x_1$, of the geometric points of $Z_1$ in the inverse image of $s$ under $f$. Then the diagram
+\[
+\begin{array}{ccccc}
+R^i\widetilde a(Y,G)&\xrightarrow{y_1^*}&R^i\widetilde a(Z_1,G)&\xrightarrow{z_1}&R^i\widetilde a(Z_1,F)\xrightarrow{x_{1*}}R^i\widetilde a(X,F)\\
+\Vert&&\uparrow f^*&&\uparrow f^*\qquad\Vert\\
+R^i\widetilde a(Y,G)&\xrightarrow{y_2^*}&R^i\widetilde a(Z_2,G)&\xrightarrow{z_2}&R^i\widetilde a(Z_2,F)\xrightarrow{x_{2*}}R^i\widetilde a(X,F)
+\end{array}
+\]
+commutes.
+\end{lemma}
+
+This lemma results from the analogous lemmas for $R^ia_!$ and $R^ia_*$. The commutativity of the first squares is trivial. The last is rewritten
+\[
+\begin{array}{ccc}
+R^i\widetilde a(Z_1,x_1^*F)&\xleftarrow{\sim}&R^i\widetilde a(X,x_{1*}x_1^*F)\xrightarrow{\Tr}R^i\widetilde a(X,F)\\
+\uparrow&&\uparrow\qquad\Vert\\
+R^i\widetilde a(Z_2,x_2^*F)&\xleftarrow{\sim}&R^i\widetilde a(X,x_{2*}x_2^*F)\xrightarrow{\Tr}R^i\widetilde a(X,F),
+\end{array}
+\]
+and one recalls the definition of the trace in verifying that the square
+\[
+\begin{array}{ccc}
+x_{1*}x_1^*F&\xrightarrow{\Tr}&F\\
+\uparrow&&\Vert\\
+x_{2*}x_2^*F&\xrightarrow{\Tr}&F
+\end{array}
+\]
+is commutative. \QED
+
+\paragraph{(4.7)}
+One denotes by $T_p/\F_p$ the endomorphism induced by $T_p$ on the restriction to $\Spec(\F_p)$ of the lcc $\Z_\ell$-sheaf $R^1\widetilde a(M_n,\Sym^k R^1f_{n*}\Z_\ell)$. One has
+\[
+R^1\widetilde a(M_n,\Sym^k R^1f_{n*}\Z_\ell)|\Spec(\F_p)
+\xrightarrow{\sim}
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k R^1f_{n*}\Z_\ell);
+\]
+the formation of the trace morphism for a finite flat morphism is compatible with change of base, so that $T_p/\F_p$ can be constructed, over the model (3.18), starting from the fiber over $\F_p$ of the correspondence (4.5). Lemma (4.6), applied to the commutative diagrams
+\[
+\begin{array}{ccc}
+M_n\otimes\F_p\coprod M_n\otimes\F_p&\xrightarrow{\Phi'}&M'_{n,p}\otimes\F_p\\
+\downarrow&&\swarrow q'_1\\
+M_n\otimes\F_p&&
+\end{array}
+\qquad
+\begin{array}{ccc}
+M_n\otimes\F_p\coprod M_n\otimes\F_p&\xrightarrow{\Phi'}&M'_{n,p}\otimes\F_p\\
+&&q'_2\searrow\quad\downarrow\\
+&&M_n\otimes\F_p,
+\end{array}
+\]
+fournishes then a decomposition of $T_p/\F_p$ into the sum of endomorphisms defined by the two following correspondences:
+\[
+\begin{array}{cccccc}
+&& (E,\alpha)&\xrightarrow{F}&(E^{(p)},\alpha^{(p)})=F^*(E,\alpha)\\[-0.2em]
+(a)&& \swarrow && \searrow\\[-0.2em]
+& (E,\alpha) && M_n\otimes\F_p && (E,\alpha)\\[-0.2em]
+&& \searrow && \swarrow F\\[-0.2em]
+&& M_n\otimes\F_p && M_n\otimes\F_p
+\end{array}
+\]
+where $F$ is the absolute Frobenius. One recognizes in this correspondence the geometric Frobenius
+\[
+\begin{array}{cccccc}
+&&x^*(E,\alpha)=(E^{(p)},p\alpha^{(p)})&\xrightarrow{\ V\ }&(E,\alpha)\\[-0.2em]
+(b)&& \swarrow && \searrow\\[-0.2em]
+& (E,\alpha) && M_n\otimes\F_p && (E,\alpha)\\[-0.2em]
+&& \searrow x && \swarrow\\[-0.2em]
+&& M_n\otimes\F_p && M_n\otimes\F_p.
+\end{array}
+\]
+The map $x$ is the composite map $I_p^{-1}\circ F$:
+\[
+\begin{array}{ccccc}
+(E,\alpha)&\longleftarrow&(E,p\alpha)&\longleftarrow&(E^{(p)},p\alpha^{(p)})\\
+\downarrow&&\downarrow&&\downarrow\\
+M_n\otimes\F_p&\xleftarrow{\ I_p^{-1}\ }&M_n\otimes\F_p&\xleftarrow{\ F\ }&M_n\otimes\F_p.
+\end{array}
+\]
+The corresponding endomorphism is thus the composite of
+\[
+V:
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k(R^1f_{n*}\Z_\ell))
+\xrightarrow{V^*}
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k(R^1f^{(p)}_{n*}\Z_\ell))
+\xrightarrow{\Tr_F}
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k(R^1f_{n*}\Z_\ell))
+\]
+and of
+\[
+I_p^*=\Tr_{I_p^{-1}}:\quad\text{endomorphism of }R^1\widetilde a(M_n\otimes\F_p,\Sym^k R^1f_{n*}\Z_\ell).
+\]
+
+\begin{proposition}[4.8]
+One has $T_p/\F_p=F+I_p^*V$, and:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ can be identified with the inverse of the arithmetic Frobenius element $\varphi_p$ of the Galois group $\Gal(\overline\F_p/\F_p)$ acting on $\widetilde H^1(M_n\otimes\overline\F_p,\Sym^k(R^1f_{n*}\Z_\ell))$;
+\item $F$ and $V$ are transposes of one another, relative to the scalar product (3.20);
+\item $FV=VF=p^{k+1}$.
+\end{enumerate}
+\end{proposition}
+
+For the relation (i) between the geometric and arithmetic Frobenius, one is referred to the exposé of C. Houzel (SGA 5.XV). The composite $VF$ is the composite of the homomorphisms obtained from the following maps:
+\[
+\begin{array}{ccccc}
+E&\xleftarrow{F_E}&E^{(p)}&\xrightarrow{V_E}&E\\
+\downarrow&&\downarrow&&\downarrow\\
+M_n&\xrightarrow{F}&M_n&\xrightarrow{F}&M_n.
+\end{array}
+\]
+Thus
+\[
+VF=\Tr_F\circ F_E^*\circ V_E^*\circ F^*.
+\]
+The map $F_E^*V_E^*=(F_EV_E)^*=(p\cdot 1_E)^*$ acts by multiplication by $p^k$ on $\Sym^k R^1f_{n*}\Z_\ell$, so that
+\[
+VF=p^k\Tr_F\circ F^*=p^k\cdot p=p^{k+1},
+\]
+because $F:M_n\to M_n$ is of degree $p$.
+
+By transport of structure, $\varphi_p$ respects the scalar product (3.20) with values in $\Q_\ell(-k-1)$, a group on which $\varphi_p$ acts by multiplication by $p^{-k-1}$. One has thus
+\[
+(Fx,y)=p^{k+1}(\varphi_pFx,\varphi_py)=(x,p^{k+1}F^{-1}y)=(x,Vy).
+\]
+\QED
+
+The following theorem, synonymous with (4.8), goes back to Eichler.
+
+\begin{theorem}[4.9, The Congruence Formula]
+Let $K_{n,\ell}$ be the largest subextension of $\overline\Q$ that is unramified away from $n$ and $\ell$, let $\varphi_p$ be a Frobenius element relative to $p$ in $\Gal(K_{n,\ell}/\Q)$, let $F$ be the endomorphism $\varphi_p^{-1}$ of ${}_nW_\ell$, and let $V$ be the transpose of $F$ relative to the scalar product (3.20). Then
+\[
+T_p=F+I_p^*V,
+\qquad
+FV=p^{k+1},
+\qquad
+1-T_pX+pR_pX^2=(1-FX)(1-I_p^*VX).
+\]
+\end{theorem}
+\QED
+
+\section{Weil implies Ramanujan}
+
+If $p$ is a prime number and $X$ a scheme over $\F_p$, then one denotes by $\overline\F_p$ an algebraic closure of $\F_p$, by $F:X\to X$ the geometric Frobenius endomorphism, and one puts $\overline X=X\otimes\overline\F_p$; $\ell$ always denotes a prime number different from $p$.
+
+By the Weil conjectures one means to claim the following: let $X$ be a projective smooth scheme over $\F_p$ and let $\ell$ be a prime number different from $p$. Then the eigenvalues of the endomorphism $F^*$ of $H^i(\overline X,\Q_\ell)$ are algebraic integers all of whose complex conjugates have absolute value $p^{i/2}$.
+
+With the hypotheses and notations of (4.9), one has, recalling that $(p,n)=1$:
+
+\begin{theorem}[5.1]
+If the Weil conjectures are true, then the absolute values of the endomorphism $F$ of ${}^k_nW_\ell$ are algebraic integers, all of whose complex conjugates are of absolute value $p^{k+1/2}$.
+\end{theorem}
+
+Assume the Weil conjectures.
+
+\begin{lemma}[5.2, modulo Weil]
+Let $X$ be a smooth scheme over $\F_p$, which can be represented as an open in a smooth projective scheme $X^*$. Then the absolute values of the endomorphism $F^*$ of $\widetilde H^i(X,\Q_\ell)$ are algebraic integers of absolute value $p^{i/2}$.
+\end{lemma}
+
+The natural map of $H_c^i(X,\Q_\ell)$ to $H^i(X,\Q_\ell)$ can be factored through $H^i(X^*,\Q_\ell)$:
+\[
+H_c^i(X,\Q_\ell)\to H^i(X^*,\Q_\ell)\to H^i(X,\Q_\ell),
+\]
+so that, as a $\Gal(\overline\F_p/\F_p)$-module, $\widetilde H^i(X,\Q_\ell)$ is the quotient of a subobject of $H^i(X^*,\Q_\ell)$. \QED
+
+\begin{lemma}[5.3, modulo Weil]
+Let $S$ be a smooth scheme over $\F_p$ and $f:A\to S$ an abelian scheme over $S$. Suppose that $A$ can be represented as an open in a projective smooth scheme $A^*$ over $\F_p$. Then the geometric Frobenius $F^*$ of $\widetilde H^i(S,R^jf_*\Q_\ell)$ has eigenvalues that are algebraic integers of absolute value $p^{i+j/2}$.
+\end{lemma}
+
+Let $m$ be an integer $>1$, and consider the Leray spectral sequences
+\[
+E:
+E_2^{ij}=H^i(\overline S,R^jf_*\Q_\ell)\Longrightarrow H^{i+j}(\overline A,\Q_\ell),
+\qquad
+{}_cE:
+{}_cE_2^{ij}=H_c^i(\overline S,R^jf_*\Q_\ell)\Longrightarrow H_c^{i+j}(\overline A,\Q_\ell).
+\]
+The endomorphism of multiplication by $m$, $\psi_m=m\cdot 1_A$, defines endomorphisms of $E$ and ${}_cE$ that fit into a commutative diagram
+\[
+\begin{array}{ccc}
+{}_cE&\longrightarrow&E\\
+\psi_m^*\downarrow&&\psi_m^*\downarrow\\
+{}_cE&\longrightarrow&E.
+\end{array}
+\]
+$\psi_m^*$ acts on $R^jf_*\Q_\ell$ by multiplication by $m^j$, so that $\psi_m^*$ acts by multiplication by $m^j$ on the terms ${}_cE_r^{ij}$ and $E_r^{ij}$ of ${}_cE$ and $E$. The maps $d_r$ for $r\ge 2$ commute with $\psi_m^*$, and send $E_r^{ij}$, respectively ${}_cE_r^{ij}$, to $E_r^{i'j'}$, respectively ${}_cE_r^{i'j'}$, with $j\ne j'$. These are nonzero, and $E_2^{ij}$, respectively ${}_cE_2^{ij}$, can be identified with a subspace of $H^{i+j}(\overline A,\Q_\ell)$, respectively $H_c^{i+j}(\overline A,\Q_\ell)$, where $\psi_m^*=m^j$. Consequently, $\widetilde H^i(S,R^jf_*\Q_\ell)$ is identified, as a Galois module, with a subspace of $\widetilde H^{i+j}(A,\Q_\ell)$ where $\psi_m^*=m^j$, and one applies (5.2). The trick used here is due to Lieberman. \QED
+
+Let $f_n:E\to M_n\otimes\F_p$ be the universal elliptic curve over $M_n\otimes\F_p$, and let $f_{n,k}:E_k\to M_n\otimes\F_p$ be its $k$-fold fiber product with itself. The Künneth formula shows that the $\Q_\ell$-sheaf $R^kf_{n,k*}\Q_\ell$ admits as a direct factor the $k$-fold tensor power of $R^1f_{n*}\Q_\ell$; the latter in turn contains as a direct factor the $\Q_\ell$-sheaf $\Sym^k(R^1f_{n*}\Q_\ell)$. Theorem 5.1 results thus from (5.3) and the following lemma.
+
+\begin{lemma}[5.4]
+The scheme $E_k$ is an open in a smooth projective scheme $E_k^*$ over $\F_p$.
+\end{lemma}
+
+Let $E^*$ be the Néron minimal model of $E$ over $M_n^*\otimes\F_p$ (4.1). The scheme $E^*$ is smooth and projective over $\F_p$. Since $n\ge 3$ and the points of order $n$ of $E$ form a trivial covering of $M_n\otimes\F_p$, the Néron model is semistable, case a or b$_m$ in Néron's classification. In particular, the projection $f_n:E^*\to M_n^*$ has only a finite number of nonsmooth points, and at these points $f_n$ is nondegenerate, presenting an ordinary quadratic singularity.
+
+Let $E_k^{**}$ be the $k$-fold fiber product of $E^*$ over $M_n^*$. To prove (5.4), it suffices to resolve the singularities of $E_k^{**}$ without touching the open $E_k$. We first prove:
+
+\begin{lemma}[5.5]
+Let $V$ be the subvariety of affine space over a field $k$, with coordinates $(X_i)_{0\le i\le r}$, $(Y_i)_{0\le i\le r}$, and $(T_i)_{1\le i\le s}$, with equation
+\[
+X_0Y_0=X_1Y_1=\cdots=X_rY_r.
+\]
+Let $\mathfrak m$ be the ideal of $\cO_V$ generated by the monomials obtained from the monomial $\prod_{i=0}^r X_i^i$ by a permutation of the coordinates which respects the set of pairs $\{X_i,Y_i\}$, $0\le i\le r$. Then $\mathfrak m=\cO_V$ away from the singular locus of $V$, and the variety $\widetilde V$ obtained from $V$ by blowing up $\mathfrak m$ is smooth over $k$.
+\end{lemma}
+
+The singular locus is the place where the four coordinates $X_i,Y_i,X_j,Y_j$ for $i\ne j$ vanish. The open affine of $\widetilde V$ defined by the element $\prod_{i=0}^r X_i^i$ of the ideal $\mathfrak m$ of blowing up is the spectrum of the regular ring
+\[
+k[Y_0/X_1, X_0/X_1, X_1/X_2,\ldots,X_{r-1}/X_r,X_r,T_1,\ldots,T_s]
+\]
+(for the proof, note that $X_i/X_{i+1}=Y_{i+1}/Y_i$), and 5.5 results. \QED
+
+One still shows that, locally for the étale topology, the singularities of $E_k^{**}$ are isomorphic to those of $V$ for $r=k-1$, and that this allows the definition on $E_k^{**}$ of an ideal $\mathfrak m$ analogous to the ideal $\mathfrak m$ of (5.5). Blowing up this ideal, one obtains $E_k^*$. \QED
+
+An approximation to the following theorem has been proven by Ihara [2].
+
+\begin{theorem}[5.6]
+The Weil conjectures imply the Ramanujan conjecture.
+\end{theorem}
+
+We note first that (5.1) is true for $n=1$, because ${}^k_1W_\ell$ is the Galois submodule of ${}^k_mW_\ell$ invariant under $\GL_2(\Z/(m))$. On ${}^k_1W_\ell$, $I_p^*$ induces the identity, and (4.8) reduces to
+\[
+1-T_pX+p^{k+1}X^2=(1-FX)(1-VX).
+\]
+The endomorphisms $F$ and $V$ are transposes of each other, so that
+\[
+\det(1-FX;{}^k_1W_\ell)=\det(1-VX;{}^k_1W_\ell).
+\]
+The action of $T_p$ on ${}^k_1W_\ell$ is induced by its action on ${}^k_1W$, and is compatible with the decomposition of ${}^k_1W\otimes\C$ into the sum of the space $S_{k+2}$ of cusp forms relative to $\SL_2(\Z)$ of weight $k+2$, and of the complex conjugate space. From the Hermitian property for $T_p$, for the Peterson inner product, and from (3.19), one deduces then that
+\[
+\det(1-T_pX+p^{k+1}X^2;{}^k_1W_\ell)=\det(1-T_pX+p^{k+1}X^2;S_{k+2})^2,
+\]
+and
+\[
+\det(1-T_pX+p^{k+1}X^2;S_{k+2})^2=\det(1-FX;{}^k_1W_\ell)^2,
+\]
+so that
+\[
+\det(1-T_pX+p^{k+1}X^2;S_{k+2})=\det(1-FX;{}^k_1W_\ell).
+\tag{5.7}
+\]
+Resume the notations of section 1 and make $k=10$. By virtue of Hecke's theory and of (3.19), (5.7) can be rewritten
+\[
+H_p(X)=\det(1-FX;{}^{10}_1W_\ell),
+\]
+and one applies (5.1). \QED
+
+One verifies in the same way that the Weil conjectures imply Petersson's generalization of the Ramanujan conjecture.
+
+\section*{References}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.6em]
+\item J. Igusa, \emph{Kroneckerian model of fields of elliptic modular functions}, Am. J. of Math. \textbf{81} (1959), 561--577.
+\item Y. Ihara, \emph{Hecke polynomials as congruence zeta functions in elliptic modular case}, Ann. of Math., S.2 \textbf{85} (1967), 267--295.
+\item J.-P. Jouanolou, Exposés V and VI of SGA 5.
+\item M. Kuga and G. Shimura, \emph{On the zeta function of a fibre variety whose fibers are abelian varieties}, Ann. of Math., S.2 \textbf{82} (1965), 478--539.
+\item M. Raynaud, Exposé XIII of SGA 1 and appendix (in preparation).
+\item J.-P. Serre, \emph{Une interprétation des congruences relatives à la fonction $\tau$ de Ramanujan}, Sém. Delange--Pisot--Poitou, 1967/68, no. 14.
+\item G. Shimura, \emph{Sur les intégrales attachées aux formes automorphes}, J. Math. Soc. of Japan \textbf{11} (1959), 291--311.
+\item J. Tate, \emph{Courbes elliptiques: formulaire}, mis au goût du jour par P. Deligne, mimeographed notes by I.H.E.S.
+\item J.-L. Verdier, \emph{Sur les intégrales attachées aux formes automorphes} (d'après G. Shimura), Sém. Bourbaki, Février 1961, exp. 216.
+\end{enumerate}
+
+\paragraph{Initials.}
+EGA: \emph{Éléments de géométrie algébrique}, by A. Grothendieck and J. Dieudonné, Publ. Math. I.H.E.S.
+
+SGA: \emph{Séminaire de géométrie algébrique du Bois-Marie}, mimeographed notes by I.H.E.S., in preparation by North-Holland.
+
+\end{document}
