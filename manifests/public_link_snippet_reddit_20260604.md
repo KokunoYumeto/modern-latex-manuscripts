@@ -6,7 +6,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Initial dump, raw/provenance backstop, and main landing:** https://doi.org/10.5281/zenodo.20393488 (latest: 20458953)
 
-**Workflow and replication packet:** https://doi.org/10.5281/zenodo.20461174 (latest: 20480520)
+**Workflow and replication packet:** https://doi.org/10.5281/zenodo.20461174 (latest: 20538617)
 
 **EGA:** https://doi.org/10.5281/zenodo.20414353 (latest: 20454552) — working English translation drafts beyond the existing community material, with French originals/reference material.
 
