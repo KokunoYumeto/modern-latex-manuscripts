@@ -22,9 +22,9 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Ukrainian applied mathematics:** https://doi.org/10.5281/zenodo.20490906 (latest: 20520721) — applied mathematics translation readers and TeX/source packets.
 
-**Non-European and multilingual mathematical manuscripts:** https://doi.org/10.5281/zenodo.20410957 (latest: 20541871) — current reader-facing multilingual corpus, including the 2026-06-04 work-level reader release (78 PDFs / 19,599 manifest pages), Chinese, Indian/Sanskrit, Islamic/Arabic, Persian, Japanese, and reference surfaces, plus the al-Battani text stream, fixed-star catalogue, geography, and table work.
+**Non-European and multilingual mathematical manuscripts:** https://doi.org/10.5281/zenodo.20410957 (latest: 20541871) — current reader-facing multilingual corpus, including the 2026-06-04 work-level reader release (78 PDFs / 19,599 manifest pages), Chinese, Indian/Sanskrit, Islamic/Arabic, Persian, Japanese, and reference surfaces.
 
-**al-Battani fixed-star catalogue:** https://doi.org/10.5281/zenodo.20539593 (latest: 20540191) — complete 485-star coordinate catalogue with Arabic/English descriptions for every row, PDF, CSV, TeX/data/scripts, and source witness.
+**al-Battani Opus Astronomicum / Kitab al-Zij:** https://doi.org/10.5281/zenodo.20539593 (latest: 20542478) — full work-level record: complete trilingual text reader for the 100 segments, Nallino source witness, v083 TeX/data/report packet, complete 485-row fixed-star catalogue, complete 269-locality geography gazetteer, partial chronology/Canon of Kings, and explicit remaining table-status notes.
 
 **Chinese mathematical classics:** https://doi.org/10.5281/zenodo.20415751
 
