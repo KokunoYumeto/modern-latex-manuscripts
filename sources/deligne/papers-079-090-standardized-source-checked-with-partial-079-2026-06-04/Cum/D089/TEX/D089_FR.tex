@@ -1,0 +1,722 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.05in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em}
+\setlist[enumerate]{leftmargin=1.5em}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\OSp}{\operatorname{OSp}}
+\newcommand{\SOSp}{\operatorname{SOSp}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Sp}{\operatorname{Sp}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\rd}{\mathrm{rd}}
+\newcommand{\red}{\mathrm{red}}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\calO}{\mathcal O}
+\newcommand{\barQ}{\overline Q}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\im}{im}
+\title{Le premier théorème fondamental de la théorie des invariants\\pour le super groupe orthosymplectique}
+\author{P. Deligne, G. I. Lehrer et R. B. Zhang}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Nous donnons une nouvelle preuve, inspirée d'un argument d'Atiyah, Bott et Patodi, du premier théorème fondamental de la théorie des invariants pour le super groupe orthosymplectique. Nous traitons de façon analogue le cas du super groupe périplectique. Enfin, la même méthode sert à expliquer le fait que le super Pfaffien de Sergeev, invariant pour le super groupe orthosymplectique spécial, soit polynomial.
+\end{abstract}
+
+\begin{center}
+\begin{tabular}{rl}
+1. & Introduction\\
+2. & Outils de géométrie algébrique\\
+3. & Réduction du TFP pour $\OSp$ au TFP pour $\GL$\\
+4. & Analogue périplectique\\
+5. & Super Pfaffien\\
+& Références
+\end{tabular}
+\end{center}
+
+\section{Introduction}
+
+\paragraph{1.1.}
+Soit $V$ un espace vectoriel complexe de dimension finie, muni d'une forme bilinéaire symétrique non dégénérée $B$. Le premier théorème fondamental (TFP) pour le groupe orthogonal $O(V)$ donne des générateurs de l'espace vectoriel des formes multilinéaires $O(V)$-invariantes sur $V\times V\times\cdots\times V$ ($N$ facteurs). Ces générateurs sont obtenus à partir des partitions $P$ de $\{1,\ldots,N\}$ en parties à deux éléments: à chacune de ces partitions correspond la forme multilinéaire
+\begin{equation}
+\label{eq:111}
+(v_1,\ldots,v_N)\longmapsto \prod_{\{i_1,i_2\}\in P} B(v_{i_1},v_{i_2}).
+\end{equation}
+
+Ce théorème est démontré dans Weyl \cite{Weyl46} à l'aide de l'identité de Capelli. Dans l'Appendice 1 de \cite{ABP73}, Atiyah, Bott et Patodi ont suggéré une approche plus géométrique, réduisant le TFP pour $O(V)$ au TFP pour $\GL(V)$. Ce dernier donne des générateurs de l'espace vectoriel des formes multilinéaires $\GL(V)$-invariantes sur
+\[
+V\times\cdots\times V\times V^\vee\times\cdots\times V^\vee:
+\]
+les générateurs proviennent des accouplements entre les facteurs $V$ et $V^\vee$, par une formule analogue à \eqref{eq:111}. Le TFP pour $\GL(V)$ est équivalent à la dualité de Schur-Weyl entre $\GL(V)$ et le groupe symétrique $S_M$, agissant tous deux sur $V^{\otimes M}$.
+
+\medskip
+\noindent Classification mathématique 2010. 15A72 (primaire); 16A22, 14M30 (secondaire).\par
+\noindent Mots clés. géométrie algébrique super, groupe orthosymplectique, groupe périplectique, super Pfaffien, invariant tensoriel.
+
+\paragraph{1.2.}
+Nous montrons que cette idée fonctionne dans le « monde super », où l'on considère systématiquement des objets $\Z/2$-gradués, et où, pour des super espaces vectoriels $V$ et $W$, l'isomorphisme $V\otimes W\to W\otimes V$ est défini par
+\begin{equation}
+\label{eq:121}
+v\otimes w\longmapsto (-1)^{|v||w|}w\otimes v
+\end{equation}
+pour $v$ et $w$ homogènes de degrés $|v|$ et $|w|$ (règle des signes). Pour une explication de la façon dont les concepts de géométrie algébrique ou différentielle s'étendent au monde super, nous renvoyons à Leites \cite{Lei90}, Manin \cite{Man88}, ou Bernstein, Deligne et Morgan \cite{DM99}, ainsi qu'au Section 2 ci-dessous.
+
+Dans le monde super, $V$ est un super espace vectoriel, et $B$ une forme bilinéaire non dégénérée, symétrique au sens de son invariance par \eqref{eq:121}. Le TFP décrit les formes multilinéaires sur $V\times V\times\cdots\times V$, invariantes par le super groupe algébrique $O(V)$. Elles se déduisent de $B$ par \eqref{eq:111}. Ce résultat a été annoncé par Sergeev dans \cite{Ser92}; nous en donnons une nouvelle preuve au Section 3. Une autre approche, également inspirée de \cite{ABP73}, et prenant pour anneau de coefficients l'algèbre de Grassmann de dimension infinie, se trouve dans \cite{LZ14a}. Dans \cite{LZ14b}, cette réduction au cas de $\GL(V)$ conduit à un nouveau second théorème fondamental, qui décrit toutes les relations entre les générateurs.
+
+La forme $B$ peut être vue comme un morphisme
+\[
+V\otimes V\longrightarrow \C
+\]
+invariant par \eqref{eq:121}. « Morphisme » signifie compatible à la $\Z/2$-graduation. Comme
+\[
+(V\otimes V)_0=V_0\otimes V_0\oplus V_1\otimes V_1,
+\]
+et que $\C$ est purement de degré $0$, $B$ est donnée par des formes bilinéaires non dégénérées sur les espaces vectoriels $V_0$ et $V_1$. La condition de symétrie est que $B$ soit symétrique sur $V_0$ et antisymétrique sur $V_1$. Pour cette raison, $O(V)$ est appelé orthosymplectique et est aussi noté $\OSp(V)$.
+
+\paragraph{1.3.}
+Au Section 4, nous appliquons la même idée à un super espace vectoriel $V$ muni d'une forme bilinéaire $B$ impaire, symétrique et non dégénérée. Soit $\Pi$ l'espace $\C$ muni de la $\Z/2$-graduation pour laquelle il est purement impair. Le produit tensoriel avec $\Pi$ est le foncteur de changement de parité. La forme $B$ est un morphisme $V\otimes V\to\Pi$, invariant par \eqref{eq:121}. Le TFP pour le super groupe algébrique
+\[
+\pi O(V):=\Aut(V,B)
+\]
+affirme que les formes multilinéaires $\pi O(V)$-invariantes sur $V\times\cdots\times V$, à valeurs dans $\Pi$ ou dans $\C$, sont engendrées par les formes \eqref{eq:111}.
+
+\paragraph{1.4.}
+Revenons au cas orthosymplectique, avec $\dim V=m|2n$, c'est-à-dire $\dim V_0=m$ et $\dim V_1=2n$. Si $m>0$, $\OSp(V)$ a deux composantes connexes, car $O(V_0)$ a deux composantes connexes tandis que $\Sp(V_1)$ est connexe. Soit $\SOSp(V)$ la composante connexe de l'identité. Dans le cas classique où $V$ est purement pair, $\bigwedge^mV=\bigwedge^mV_0$ est la représentation triviale de $\SO(V)$; pour tout isomorphisme
+\[
+\operatorname{vol}:\bigwedge^m V\longrightarrow \C,
+\]
+la forme
+\[
+v_1,\ldots,v_m\longmapsto \operatorname{vol}(v_1\wedge\cdots\wedge v_m)
+\]
+est une forme multilinéaire $\SO(V)$-invariante qui n'est pas $O(V)$-invariante. À un facteur près dépendant de $\operatorname{vol}$, son carré est
+\[
+\det(B(v_i,v_j)).
+\]
+Dans le monde super, l'invariant analogue de $\SOSp(V)$ est une racine carrée de $\det(B(v_i,v_j))^{2n+1}$, que Sergeev appelle le super Pfaffien. Nous expliquons au Section 5 l'existence d'un tel invariant polynomial. Voir \cite{LZ15} pour une autre approche de la preuve de ses propriétés fondamentales, ainsi que pour une discussion des invariants de $\SOSp(V)$.
+
+\section{Outils de géométrie algébrique}
+
+\paragraph{2.1.}
+Explorons les conséquences de la règle des signes \eqref{eq:121}. Un anneau super commutatif est un anneau (unitaire) gradué modulo $2$ tel que
+\begin{equation}
+\label{eq:211}
+ab=(-1)^{|a||b|}ba
+\end{equation}
+et tel que $a^2=0$ si $a$ est impair (conséquence de \eqref{eq:211} lorsque $2$ est inversible). En partant des anneaux super commutatifs, les définitions de super schéma, de super schéma sur un corps $k$, de super schéma en groupes sur $k$, etc., sont calquées sur les notions parallèles de géométrie algébrique, et de nombreux théorèmes admettent une généralisation directe. Nous utiliserons librement les théorèmes de géométrie algébrique super dont la preuve est une extension facile de la preuve classique parallèle. Ceci vaut pour le formalisme des morphismes plats, étales, lisses et non ramifiés, et pour le formalisme de la descente fidèlement plate tel qu'il est exposé dans SGA1 (exposés I--III et VIII). Certaines définitions sont rappelées ci-dessous, et aussi en 2.8.
+
+Un anneau super commutatif $R$ possède un spectre $\Spec(R)$. C'est un espace topologique muni d'un faisceau d'anneaux super commutatifs, le faisceau structural $\calO$. Les super schémas s'obtiennent par recollement de tels spectres. Un sous-schéma fermé de $\Spec(R)$ est un $\Spec(R/I)$, où $I$ est un idéal de $R$ gradué modulo $2$.
+
+Une définition équivalente des super schémas est la suivante: ce sont des espaces topologiques $S$ munis d'un faisceau d'anneaux super commutatifs, le faisceau structural $\calO$ ou $\calO_S$, tels que $(S,\calO_0)$ soit un schéma et que $\calO_1$ soit un $\calO_0$-module quasi-cohérent. Un sous-schéma ouvert est un ouvert muni de la restriction du faisceau structural. Un super schéma $S$ est sur $k$ s'il est muni d'un morphisme $S\to\Spec(k)$, autrement dit si $\calO$ est une $k$-algèbre.
+
+Les schémas ordinaires forment une sous-catégorie pleine de la catégorie des super schémas: ce sont les super schémas pour lesquels $\calO_1=0$. Tout super schéma $S$ contient un plus grand schéma ordinaire (fermé) $S_{\rd}$, dont le faisceau structural est le quotient de $\calO_S$ par le faisceau d'idéaux $(\calO_1)$ engendré par $\calO_1$. Pour $T$ ordinaire,
+\[
+\Hom(T,S_{\rd})\xrightarrow{\sim}\Hom(T,S).
+\]
+L'idéal $(\calO_1)$ étant nilpotent, on peut se représenter $S$ comme le schéma ordinaire $S_{\rd}$ entouré d'un flou nilpotent. Les notions topologiques (espace topologique sous-jacent, dimension de Krull, densité de Zariski, etc.) ne dépendent que de $S_{\rd}$.
+
+Comme en géométrie algébrique, pour saisir le contenu géométrique de ces définitions, il faut considérer les foncteurs représentables correspondants.
+
+\paragraph{Notation.}
+On fixe un corps $k$. À partir du Section 3, $k=\C$. Nous travaillerons dans la catégorie des super schémas $S$ sur $k$. Sauf mention contraire, les super espaces vectoriels sont de dimension finie et les super schémas sont de type fini sur $k$. Les schémas en groupes de type fini sur $k$ seront appelés groupes algébriques. Lorsque cela ne prête pas à confusion, l'adjectif « super » sera omis, ou bien écrit entre parenthèses pour mémoire.
+
+\paragraph{2.2.}
+Si $X$ et $S$ sont sur $k$, un $S$-point de $X$ est un morphisme de $S$ vers $X$: intuitivement, une famille de points de $X$ paramétrée par $S$. Le foncteur des points $h_X$ de $X$ est le foncteur contravariant
+\[
+h_X:S\longmapsto X(S):=\text{l'ensemble }\Hom(S,X)\text{ des }S\text{-points de }X.
+\]
+Par le lemme de Yoneda, le foncteur $X\mapsto h_X$ est pleinement fidèle. Il sera souvent commode de définir un morphisme $X\to Y$ en définissant son effet sur les $S$-points, c'est-à-dire un morphisme de foncteurs $h_X\to h_Y$.
+
+Pour $U$ parcourant les ouverts de $S$ (avec la structure de schéma super induite), $U\mapsto X(U)$ est un faisceau sur $S$. Ainsi, $h_X$ est déterminé par sa restriction aux schémas affines, ceux de la forme $\Spec(R)$: $X$ est déterminé par le foncteur covariant des $R$-points
+\[
+R\longmapsto X(R):=X(\Spec(R)),
+\]
+et pour définir un morphisme $X\to Y$, il suffit de définir fonctoriellement un morphisme $X(R)\to Y(R)$.
+
+\paragraph{2.3. Exemple.}
+Soit $V$ un super espace vectoriel de dimension finie sur $k$. Le foncteur des points de l'espace affine correspondant $V$ est
+\[
+R\longmapsto \text{la composante paire de }V_R:=R\otimes V.
+\]
+Si $V=k^{p|q}$, c'est-à-dire $V_0=k^p$ et $V_1=k^q$, cet espace super affine est l'espace affine standard $\mathbb A^{p|q}$.
+
+Par « base », on entend toujours une base homogène. Dans une base $(e_i)$, chaque $e_i$ est pair ou impair. Si $(e_i)$ est une base de $V$, les $R$-points $x$ de $V$ sont les $\sum x_i e_i$, avec $x_i$ dans $R$ de même parité que $e_i$. Les $x_i$ sont les coordonnées de $x$. L'espace $V$ est le spectre de $k[(X_i)]$, algèbre librement engendrée sur $k$ par des indéterminées $X_i$ de parité égale à celle de $e_i$. Supposons $V$ en dualité avec $W$. Si $(e^i)$ est la base de $W$ duale de $(e_i)$, c'est-à-dire si $\langle e_i,e^j\rangle=\delta_i^j$, les coordonnées de $x\in V(R)$ sont les $\langle x,e^i\rangle$, et
+\[
+V=\Spec(\Sym^*(W)),
+\]
+où $\Sym^*(W)$ est la super $k$-algèbre commutative librement engendrée par $W$. Cette algèbre est $\Z$-graduée, et sa composante de degré un est $W$.
+
+\paragraph{2.4. Exemple.}
+Si $V=k$ est purement pair, on obtient le schéma en groupes additif $\Ga=\Spec k[X]$ avec foncteur des points $R\mapsto R_0$. La loi de groupe est $+$. Si $V=k$ est purement impair, on obtient le groupe additif impair $\Ga^- =\Spec(k[\theta])$, avec $\theta$ impair et donc $\theta^2=0$. Le foncteur des points est $R\mapsto R_1$, et la loi est encore $+$.
+
+Plus généralement, pour tout $X$ sur $k$, les sections globales paires (respectivement impaires) du faisceau structural $\calO$ s'identifient aux morphismes $X\to\Ga$ (respectivement $X\to\Ga^-$). Sur les foncteurs de points, cela signifie qu'une section globale paire (respectivement impaire, respectivement quelconque) de $\calO$ est une fonction $f$ qui, à chaque $R$-point $x$ de $X$, fonctoriellement en $R$, associe une valeur $f(x)$ dans $R_0$ (respectivement $R_1$, respectivement $R$). Les sections globales du faisceau structural $\calO$ de $X$ seront appelées fonctions sur $X$.
+
+\paragraph{2.5. Exemple.}
+Soient $V$ et $W$ des super espaces vectoriels. Le $\Hom$ interne $\Hom(V,W)$ est l'espace vectoriel de toutes les applications linéaires de $V$ vers $W$, muni de sa $\Z/2$-graduation naturelle. Soit $\Hom(V,W)$ l'espace affine correspondant. Les $R$-points de $\Hom(V,W)$ sont les morphismes de super $R$-modules de $V_R$ vers $W_R$.
+
+\paragraph{2.6. Exemple.}
+Soient $U,V,W$ des super espaces vectoriels, et soit
+\begin{equation}
+\label{eq:261}
+f:U\otimes V\longrightarrow W
+\end{equation}
+un morphisme. Après extension des scalaires à $R$, $f$ induit $f_R:U_R\otimes_RV_R\to W_R$, et donc une application
+\begin{equation}
+\label{eq:262}
+U(R)\times V(R)\longrightarrow W(R).
+\end{equation}
+Par le lemme de Yoneda, \eqref{eq:262} donne un morphisme
+\begin{equation}
+\label{eq:263}
+f:U\times V\longrightarrow W.
+\end{equation}
+
+Ce morphisme $f$ est bilinéaire, c'est-à-dire que, pour tout $R$, \eqref{eq:262} est $R_0$-bilinéaire. Réciproquement, tout morphisme bilinéaire \eqref{eq:263} provient d'un unique morphisme \eqref{eq:261} (cf. \cite{DM99}, 1.7). La condition de bilinéarité est impliquée par l'homogénéité de degré un en chaque variable. En écrivant $W$ comme produit de copies de $\Ga$ et de $\Ga^-$, on se ramène au cas des fonctions sur $U\times V$. Si $U$ et $U'$, $V$ et $V'$ sont en dualité, une fonction sur $U\times V$, c'est-à-dire un élément de $\Sym^*(U')\otimes\Sym^*(V')$, est homogène de degré $n$ dans la première variable si et seulement si elle appartient à $\Sym^n(U')\otimes\Sym^*(V')$. L'analogue vaut pour la seconde variable. L'homogénéité de degré un dans les deux variables signifie donc que la fonction appartient à $U'\otimes V'$, donc qu'elle est bilinéaire.
+
+\paragraph{2.7.}
+Avec les notations de 2.3, une forme quadratique $q$ sur $V$ est une fonction paire $q$ sur $V$, homogène de degré $2$, ce qui signifie que pour tout $R$-point $x$ de $V$ et tout $r_0\in R_0$,
+\[
+q(r_0x)=r_0^2q(x).
+\]
+De façon équivalente, $q$ appartient à la partie paire de $\Sym^2(W)\subset\Gamma(V,\calO)$. Si $q$ est une forme quadratique, la forme associée $B:V\times V\to\Ga$, définie par
+\begin{equation}
+\label{eq:271}
+B(x,y)=q(x+y)-q(x)-q(y),
+\end{equation}
+est symétrique bilinéaire et $q(x)=\frac12B(x,x)$. Par 2.6, \eqref{eq:271} est induite par un morphisme, encore noté $B$,
+\begin{equation}
+\label{eq:272}
+B:V\otimes V\longrightarrow k.
+\end{equation}
+
+\paragraph{2.8.}
+Les morphismes étales et non ramifiés $f:X\to Y$ sont définis comme dans SGA1. Leurs analogues en géométrie différentielle sont les isomorphismes locaux et les immersions. Un morphisme $f:X\to Y$ est lisse de dimension relative $p|q$ si localement sur $X$ il se factorise par une application étale vers $Y\times\mathbb A^{p|q}$:
+\begin{equation}
+\label{eq:281}
+X\supset U\longrightarrow Y\times\mathbb A^{p|q}\longrightarrow Y.
+\end{equation}
+L'analogue différentiel de « lisse » est « submersion ». Une factorisation \eqref{eq:281} est un système de coordonnées locales relatives.
+
+\paragraph{2.9.}
+Les constructions 2.3 à 2.7 se répètent au-dessus d'un schéma $S$. Un fibré vectoriel $\mathcal V$ sur $S$ est un faisceau de $\calO$-modules localement libre de type fini. Plus précisément, dans le monde super, c'est un faisceau de modules $\Z/2$-gradués $\mathcal V$ sur le faisceau structural $\Z/2$-gradué $\calO$, localement muni d'une base homogène. Localement sur $S$, $\mathcal V$ admet des décompositions non canoniques $\mathcal V=\mathcal V_+\oplus\mathcal V_-$ où $\mathcal V_+$ possède une base purement paire et $\mathcal V_-$ une base purement impaire. Ce n'est que lorsque $S$ est un schéma ordinaire, donc lorsque $\calO_1=0$, qu'une telle décomposition coïncide avec la graduation $\mathcal V=\mathcal V_0\oplus\mathcal V_1$.
+
+Si $s$ est un $R$-point de $S$, un $R$-point au-dessus de $s$ de l'espace affine associé à $\mathcal V$ est une section paire du tiré en arrière de $\mathcal V$ sur $\Spec(R)$. Si $\mathcal V$ et $\mathcal W$ sont en dualité, une forme quadratique sur $\mathcal V$ est une section paire de $\Sym^2(\mathcal W)$. La forme bilinéaire associée $B$ correspond à un morphisme
+\[
+\mathcal V\otimes\mathcal V\longrightarrow \calO_S.
+\]
+
+\paragraph{2.10. Exemple.}
+Soit $V$ un super espace vectoriel. Le groupe linéaire général $\GL(V)$ est le groupe algébrique dont le foncteur des points est
+\[
+R\longmapsto \text{groupe des automorphismes de }V_R.
+\]
+Comme schéma, c'est un ouvert de $\Hom(V,V)$ considéré en 2.5.
+
+\paragraph{2.11. Exemple.}
+Supposons que l'on ne soit pas en caractéristique $2$. Une forme quadratique $q$ sur $V$ est non dégénérée si la forme bilinéaire associée $B$ (\eqref{eq:272}) est une autodualité de $V$. Le groupe orthosymplectique correspondant $O(V,q)$ est le sous-groupe de $\GL(V)$ qui respecte $q$, ou, ce qui revient au même, qui respecte $B$. Un $R$-point de $O(V,q)$ est un automorphisme $g$ de $V_R$ qui fixe l'image inverse de $q$ dans $\Gamma(V_R,\calO)$; de façon équivalente, $g$ fixe la forme bilinéaire $V_R\times V_R\to R$ induite par $B$.
+
+La forme bilinéaire $B$ sur $V$ est symétrique au sens super. Elle est la somme orthogonale d'une forme $B^+$ sur $V^+:=V_0$, avec $B^+(x,y)=B^+(y,x)$, et d'une forme $B^-$ sur $V^-:=V_1$, avec
+\[
+B^-(x,y)=-B^-(y,x),
+\]
+donc $B^-(x,x)=0$. Cela explique le terme « orthosymplectique ».
+
+Si $q$ est non dégénérée, après une extension séparable $k'/k$ et dans une base appropriée $(e_i)$, avec $e_i$ pair pour $1\leq i\leq m$ et impair pour $m+1\leq i\leq m+2n$, $q$ s'écrit
+\begin{equation}
+\label{eq:2111}
+q(x)=\frac12\sum_{1}^{m}x_i^2+\sum_{1}^{n}x_{m+i}x_{m+i+n}.
+\end{equation}
+Pour la forme $B$ correspondante,
+\begin{equation}
+\label{eq:2112}
+B(e_i,e_i)=1\quad (1\leq i\leq m),
+\end{equation}
+\[
+B(e_{m+i},e_{m+i+n})=-1=-B(e_{m+i+n},e_{m+i}),
+\]
+et les autres $B(e_i,e_j)$ s'annulent. Pour mettre $q$ sous cette forme canonique, il peut être nécessaire d'extraire des racines carrées, d'où le recours à l'extension $k'/k$.
+
+\paragraph{2.12.}
+On peut répéter 2.10 et 2.11 au-dessus d'une base $S$. Si $\mathcal V$ est un fibré vectoriel sur $S$, $\GL(\mathcal V)$ est le schéma en groupes sur $S$ dont les $R$-points au-dessus d'un $R$-point $s$ de $S$ sont les automorphismes du tiré en arrière de $\mathcal V$ par $s$. Lorsque $2$ est inversible sur $S$, la définition des formes quadratiques non dégénérées sur $\mathcal V$ répète celle de 2.11.
+
+\paragraph{Proposition 2.13.}
+Soit $q$ une forme quadratique non dégénérée sur $\mathcal V$. Localement sur $S$ pour la topologie étale, $\mathcal V$ admet une base dans laquelle $q$ est donnée par \eqref{eq:2111}.
+
+\paragraph{Preuve.}
+On peut supposer $\mathcal V$ partout de dimension $m|2n$. La preuve se fait par récurrence sur $m+2n$, le cas $m=n=0$ étant trivial. Si $m>0$, la fibre $V$ de $\mathcal V$ en un $\C$-point $s$ contient un vecteur pair $v$ tel que $q(v)\ne0$. Soit $e$ une section locale paire passant par $v$. Sur un voisinage ouvert $U$ de $s$, $q(e)$ est inversible. Sur un revêtement double étale de $U$, $1/2q(e)$ admet une racine carrée $r$. En remplaçant $e$ par $re$, on suppose $q(e)=1/2$. Comme $q(e)$ est inversible, $\mathcal V$ est somme directe de $\calO e$ et de son orthogonal $\mathcal V'$, de dimension $(m-1)|2n$. La section $e$ est le début de la base cherchée, et l'on complète par l'hypothèse de récurrence appliquée à $\mathcal V'$.
+
+Si $m=0$ et $n>0$, on trouve de même des sections locales impaires $e$ et $f$ telles que $B(e,f)$ soit inversible. En divisant $f$ par $-B(e,f)$, on peut supposer $B(e,f)=-1$. La symétrie de $B$ donne alors $B(f,e)=1$ et $B(e,e)=B(f,f)=0$. On conclut par récurrence sur le complément orthogonal de $\calO e\oplus\calO f$. \hfill $\square$
+
+\paragraph{2.14.}
+Le schéma en groupes $O(\mathcal V,q)$ sur $S$ se définit comme $O(V,q)$. Les deux schémas $\GL(\mathcal V)$ et $O(\mathcal V,q)$ sont lisses sur $S$. En effet, localement sur $S$ pour la topologie étale, ce sont des tirés en arrière de groupes algébriques $\GL(V)$ et $O(V,q)$ lisses sur $\Spec(R)$. En caractéristique zéro, seul cas utilisé ici, tout groupe algébrique sur $k$ est lisse (théorème de Cartier, étendu au monde super).
+
+\paragraph{2.15.}
+Supposons que $V$ soit une représentation linéaire du super groupe algébrique $G$, c'est-à-dire qu'un morphisme $\rho:G\to\GL(V)$ soit donné. Un vecteur $v$ de $V$ est dit $G$-invariant si, pour tout $R$, son image dans $V_R$ est $G(R)$-invariante. Si $G=\Spec(A)$, l'énoncé « $G$ est un schéma en groupes » se traduit par « $A$ est une super algèbre de Hopf ». Soit $\id$ le $A$-point de $G$ correspondant à l'identité $G=\Spec(A)\to G$. Alors tout $R$-point $g\in G(R)$ est obtenu de $\id$ par fonctorialité, via $g^*:A\to R$. L'invariance de $v$ se vérifie donc dans le seul cas universel $R=A$, $g=\id$.
+
+L'action de $G$ est déterminée par l'action de $\id$, ou, de façon équivalente, par la structure de comodule
+\[
+V\longrightarrow V_A \xrightarrow{\text{action de }\id} V_A=V\otimes A.
+\]
+Le vecteur $v$ est fixé par $G$ si et seulement s'il est fixé par $\id$, c'est-à-dire s'il est dans le noyau de la double flèche
+\[
+(\text{extension des scalaires, structure de comodule}): V \rightrightarrows V\otimes A.
+\]
+
+\paragraph{2.16.}
+Un sous-schéma ouvert $U$ d'un schéma $X$ est schématiquement dense dans $X$ si, pour tout ouvert $V$ de $X$ et toute section $f\in\Gamma(V,\calO)$, l'annulation de la restriction de $f$ à $U\cap V$ implique $f=0$. Par exemple, si $X$ est lisse, en particulier s'il est un espace affine, tout ouvert Zariski-dense est schématiquement dense.
+
+\paragraph{Lemme 2.17.}
+Supposons $X=\Spec(R)$, avec $R$ de type fini sur $k$, et supposons que les $f_i\in R_0$ ($1\leq i\leq n$) définissent un sous-schéma fermé de complément $U$. Alors $U$ est schématiquement dense dans $X$ si et seulement si
+\begin{equation}
+\label{eq:2171}
+R\longrightarrow R^n:1\longmapsto(f_1,\ldots,f_n)
+\end{equation}
+est injective.
+
+\paragraph{Preuve.}
+On montre que \eqref{eq:2171} n'est pas injective si et seulement s'il existe $g\ne0$ dans $R$ s'annulant sur $U$. Si $f\ne0$ est dans son noyau, l'image de $f$ dans chaque $R[f_i^{-1}]$ s'annule: $f$ s'annule donc sur chaque ouvert $U_i$ où $f_i$ est inversible, puis sur leur union $U$. Réciproquement, si $f\ne0$ s'annule sur $U$, alors son image dans chaque $R[f_i^{-1}]$ s'annule; donc, pour un certain $\ell$, $ff_i^\ell=0$. Soit $I$ l'idéal engendré par les $f_i$. Pour un certain $\ell$, $I^\ell f=0$. Soit $m\ge0$ maximal tel que $I^m f\ne0$, et choisissons $g\ne0$ dans $I^m f$. Par construction, $Ig=0$, donc $g$ est dans le noyau de \eqref{eq:2171}. \hfill $\square$
+
+\paragraph{Corollaire 2.18.}
+Si $f:X\to Y$ est plat et si $U$ est schématiquement dense dans $X$, alors $f^{-1}(U)$ est schématiquement dense dans $Y$.
+
+\paragraph{Preuve.}
+La question est locale: on peut supposer $X=\Spec(R)$ et $Y=\Spec(R')$, avec $R'$ plat sur $R$. Par platitude, l'injectivité de \eqref{eq:2171} se conserve après passage à $R'$. \hfill $\square$
+
+\paragraph{Proposition 2.19.}
+Soit $f:X\to Y$ un morphisme fidèlement plat, et soit $V$ un ouvert de $Y$ schématiquement dense. Soit $s\in\Gamma(V,\calO)$ une fonction sur $V$. Si le tiré en arrière de $s$ sur $f^{-1}(V)$ s'étend à $X$, alors $s$ s'étend à $Y$.
+
+\paragraph{Preuve.}
+Soit $t\in\Gamma(X,\calO)$ une extension à $X$ de $f^*(s)$ sur $f^{-1}(V)$. Considérons
+\[
+X\times_Y X \rightrightarrows X\longrightarrow Y.
+\]
+Par la densité schématique, dans $X\times_YX$, de l'image inverse $V_1$ de $V$ (2.18), on a $\pr_1^*t=\pr_2^*t$, car les deux tirés en arrière prolongent à $X\times_YX$ l'image inverse de $s$ sur $V_1$. Par descente fidèlement plate, $t$ est le tiré en arrière d'une section $\widetilde s$ sur $Y$, et cette section $\widetilde s$ est l'extension voulue de $s$. \hfill $\square$
+
+\paragraph{Corollaire 2.20.}
+Le même énoncé vaut sous l'hypothèse plus faible que $X$ couvre $Y$ pour la topologie fidèlement plate.
+
+\paragraph{Preuve.}
+L'hypothèse signifie qu'il existe un diagramme commutatif
+\[
+\begin{array}{ccc}
+X'&\xrightarrow{u}&X\\
+\scriptstyle f'\downarrow&&\downarrow\scriptstyle f\\
+Y&=&Y
+\end{array}
+\]
+avec $X'$ fidèlement plat sur $Y$. Si $t$ sur $X$ prolonge $f^*(s)$ sur $f^{-1}(V)$, alors $u^*(t)$ sur $X'$ prolonge $f'^*(s)$ sur $f'^{-1}(V)$, et l'on applique 2.19 à $f'$. \hfill $\square$
+
+\paragraph{2.21.}
+Si $X$ est lisse et si le complément de l'ouvert $U$ est de codimension $\ge2$, on a
+\[
+\Gamma(X,\calO)\xrightarrow{\sim}\Gamma(U,\calO).
+\]
+La preuve se ramène à l'énoncé classique pour les schémas ordinaires, en utilisant que $X_{\rd}$ est lisse et que localement $X$ se rétracte sur $X_{\rd}$, ce qui fait de $\calO_X$ un module libre sur $X_{\rd}$.
+
+\section{Réduction du TFP pour $\OSp$ au TFP pour $\GL$}
+
+Dorénavant, le corps de base est $\C$. L'adjectif « super » sera omis.
+
+\paragraph{3.1.}
+Soit $V$ un espace vectoriel de dimension $m|2n$. Comme en 2.3, supposons $V$ en dualité avec $W$. L'espace $\barQ$ des formes quadratiques (2.7) sur $V$ est l'espace affine attaché à $\Sym^2(W)$. Ses $R$-points sont les fonctions paires $q$ sur $V_R$ homogènes de degré $2$.
+
+Choisissons une base $(e_i)$ de $V$, et soit $p(i)$ la parité de $e_i$. En coordonnées, les $R$-points $q$ de $\barQ$ s'écrivent de façon unique
+\[
+q(x)=\sum a_{ij}x_i x_j,
+\]
+où $a_{ij}\in R$ est de parité $p(i)+p(j)$, la somme portant sur les $(i,j)$ tels que $i\le j$ et $i\ne j$ si $e_i$ est impair. Soit $Q\subset\barQ$ le sous-schéma ouvert dense des formes quadratiques non dégénérées. Ses $R$-points sont les $\sum a_{ij}x_ix_j$ telles que la forme bilinéaire associée
+\[
+B(x,y)=\sum a_{ij}\bigl(x_i y_j+(-1)^{p(i)p(j)}x_j y_i\bigr)
+\]
+soit induite par une autodualité de $V_R$. Il résulte de 2.13 que $Q$ est un espace homogène de $\GL(V)$. Plus précisément, si $q$ et $q'$ sont deux $S$-points de $Q$, alors localement pour la topologie étale sur $S$, il existe un $S$-point $g$ de $\GL(V)$ tel que $g(q)=q'$, c'est-à-dire $q(g^{-1}v)=q'(v)$ après tout changement de base ultérieur.
+
+On fixe désormais une forme quadratique non dégénérée $q$ sur $V$, et l'on note $B$ sa forme bilinéaire associée. L'application $g\mapsto g(q)$ induit
+\begin{equation}
+\label{eq:311}
+\GL(V)/O(V,q)\xrightarrow{\sim}Q.
+\end{equation}
+L'homogénéité de $Q$ sous $\GL(V)$ signifie que \eqref{eq:311} est un isomorphisme lorsque les deux côtés sont interprétés, via le foncteur des points, comme faisceaux sur le site des schémas de type fini sur $\C$ muni de la topologie étale. Cet isomorphisme implique que
+\[
+g\longmapsto g(q)=q\circ g^{-1}:\GL(V)\longrightarrow Q
+\]
+est fidèlement plat, de fibre $O(V,q)$ au-dessus de $q$.
+
+\paragraph{3.2.}
+Notre but est de décrire les tenseurs $O(V,q)$-invariants sur $V$. Comme l'autodualité $B$ est $O(V,q)$-invariante, il suffit de décrire les éléments $O(V,q)$-invariants dans $\Hom(V^{\otimes N},\C)$. Puisque $O(V,q)$ contient l'automorphisme de parité de $V$ ($1$ sur $V_0$ et $-1$ sur $V_1$), tout tel invariant est pair. Comme $-1\in O(V,q)$, il n'y a d'invariants non nuls que pour $N$ pair. Par 2.6, le problème revient à décrire les fonctions paires sur $V^N$, homogènes de degré un en chaque variable, qui sont $O(V,q)$-invariantes.
+
+\paragraph{Lemme 3.3.}
+L'évaluation en $q$ induit un isomorphisme des fonctions $\GL(V)$-invariantes sur $V^N\times Q$ vers les fonctions $O(V,q)$-invariantes sur $V^N$. Le même énoncé vaut en se restreignant aux fonctions paires de degré un en chaque variable $v$ de $V$.
+
+Autrement dit, les fonctions $f(v_1,\ldots,v_N)$ sur $V^N$, invariantes par $O(V,q)$, se prolongent de façon unique en des fonctions $F(v_1,\ldots,v_N,q')$ sur $V^N\times Q$, invariantes par $\GL(V)$. L'invariance signifie que, pour tout $R$ et tous $R$-points $v_1,\ldots,v_N\in V(R)$, $q'\in Q(R)$ et $g\in\GL(V)(R)$,
+\[
+F(v_1,\ldots,v_N,q')=F(gv_1,\ldots,gv_N,g(q')).
+\]
+Comme $g(q')=q'\circ g^{-1}$, ceci s'écrit
+\begin{equation}
+\label{eq:331}
+F(v_1,\ldots,v_N,q'\circ g)=F(gv_1,\ldots,gv_N,q').
+\end{equation}
+Cas particulier, pour $q'=q$:
+\begin{equation}
+\label{eq:332}
+F(v_1,\ldots,v_N,q\circ g)=f(gv_1,\ldots,gv_N).
+\end{equation}
+
+\paragraph{Théorème 3.4.}
+Soit $f$ une fonction $O(V,q)$-invariante sur $V^N$, et soit $F$ la fonction $\GL(V)$-invariante correspondante sur $V^N\times Q$, vérifiant \eqref{eq:331} et \eqref{eq:332}. Alors $F$ s'étend en une fonction $\overline F$ sur $V^N\times\barQ$.
+
+\paragraph{Remarques 3.5.}
+\begin{enumerate}[label=(\roman*)]
+\item $Q$ est un ouvert non vide de l'espace affine $\barQ$, donc schématiquement dense. Il en résulte que la fonction $\overline F$ promise par 3.4 est unique.
+\item Soit $E$ l'espace affine $\Hom(V,V)$ de 2.5. Comme $\GL(V)$ est un ouvert non vide de $E$, il est schématiquement dense dans $E$, et l'identité \eqref{eq:331}, identité sur $V^N\times Q\times\GL(V)$, s'étend en une identité
+\begin{equation}
+\label{eq:351}
+\overline F(v_1,\ldots,v_N,q'\circ T)=\overline F(Tv_1,\ldots,Tv_N,q')
+\end{equation}
+pour $v_i\in V$, $q'\in\barQ$ et $T\in E$. En particulier, $\overline F$ est $\GL(V)$-invariante.
+\item Des arguments de densité analogues montrent que si $f$ est paire (respectivement homogène de degré un en chaque variable $v_i$), il en est de même de $\overline F$. En prenant $T$ scalaire, on obtient pour $r_0\in R_0$
+\[
+\overline F(v_1,\ldots,v_N,r_0^2q')=r_0^N\overline F(v_1,\ldots,v_N,q'),
+\]
+ce qui implique que $\overline F$ est homogène de degré $N/2$ en $q'$.
+\end{enumerate}
+
+Pour démontrer le Théorème 3.4, il faut quelques lemmes. Soit $u:E=\Hom(V,V)\to\barQ$ le morphisme $T\mapsto q\circ T$. On a $u^{-1}(Q)=\GL(V)$:
+\begin{equation}
+\label{eq:352}
+\begin{array}{ccc}
+\GL(V)&\subset&E\\
+\scriptstyle u\downarrow&&\downarrow\scriptstyle u\\
+Q&\subset&\barQ.
+\end{array}
+\end{equation}
+
+\paragraph{Lemme 3.6.}
+Soit $\widetilde F$ la fonction sur $V^N\times\GL(V)$ qui est l'image inverse, par $u$, de la fonction $F$ sur $V^N\times Q$. Alors $\widetilde F$ s'étend en une fonction $\overline{\widetilde F}$ sur $V^N\times E$.
+
+Comme en 3.5, cette extension $\overline{\widetilde F}$ est unique.
+
+\paragraph{Preuve.}
+Par \eqref{eq:332}, pour $T\in\GL(V)$,
+\[
+\overline F(v_1,\ldots,v_N,T)=F(v_1,\ldots,v_N,q\circ T)=f(Tv_1,\ldots,Tv_N).
+\]
+Le membre de droite garde un sens pour $T\in E$, et donne l'extension cherchée de $\widetilde F$. \hfill $\square$
+
+\paragraph{3.7.}
+La condition portant sur $q'\in\barQ$ qu'il existe dans $V$ un sous-espace $V_1\subset V$ de codimension $1|0$ sur lequel $q'$ est non dégénérée est une condition ouverte. Soit $\barQ_1$ l'ouvert de $\barQ$ où elle est vérifiée. De même, soit $\barQ_2$ l'ouvert où il existe un sous-espace $V_2\subset V$ de codimension $0|2$ sur lequel $q'$ est non dégénérée.
+
+\paragraph{Lemme 3.8.}
+Le complément dans $\barQ$ de $\barQ_1\cup\barQ_2$ est de codimension au moins $2$.
+
+C'est une question topologique, qui ne concerne que le schéma réduit $\barQ_{\rd}$. Celui-ci est le produit des schémas ordinaires qui paramètrent une forme quadratique sur $V^+:=V_0$ et une forme alternée sur $V^-:=V_1$. Ces schémas sont stratifiés par le rang; la strate qui suit la strate ouverte est une hypersurface irréductible, et nous enlevons la strate suivante.
+
+\paragraph{Lemme 3.9.}
+Pour la topologie fidèlement plate, $u^{-1}(\barQ_1)\subset E$ couvre $\barQ_1$.
+
+Autrement dit, il existe un morphisme fidèlement plat $S\to\barQ_1$ se factorisant par $u^{-1}(\barQ_1)\to\barQ_1$. En fait, comme le montrera 3.11, la preuve établit que $u^{-1}(\barQ_1)$ est lui-même fidèlement plat sur $\barQ_1$.
+
+\paragraph{Preuve.}
+Il suffit de montrer que, pour tout schéma $S$, tout sous-fibré $\mathcal V_1$ (localement facteur direct) du tiré en arrière $\mathcal V=\calO_S\otimes V$ de $V$ à $S$, de codimension $1|0$, et toute forme quadratique $q'$ sur $\mathcal V$, non dégénérée sur $\mathcal V_1$, il existe $S'\to S$ fidèlement plat tel qu'après tiré en arrière à $S'$, $q'$ soit de la forme $q\circ T$ pour un endomorphisme $T$ de $\mathcal V$. On applique alors cet énoncé localement à $S=\barQ_1$.
+
+Comme $q'$ est non dégénérée sur $\mathcal V_1$, $\mathcal V$ est somme directe de $\mathcal V_1$ et de son orthogonal relativement à la forme bilinéaire $B'$ associée à $q'$. En effet, cet orthogonal $\mathcal V_1^\perp$ est le noyau
+\[
+0\longrightarrow \mathcal V_1^\perp\longrightarrow \mathcal V\longrightarrow \mathcal V_1^\vee\longrightarrow 0
+\]
+d'un morphisme défini par $B'$, et $\mathcal V_1\subset\mathcal V$ s'envoie isomorphiquement sur $\mathcal V_1^\vee$.
+
+Fixons $V_1\subset V$ de codimension $1|0$ sur lequel $q$ est non dégénérée, et soit $\mathcal V_1$ le sous-fibré correspondant de $\mathcal V$. On cherche $T$ envoyant $\mathcal V_1$ sur $\mathcal V_1$ et $\mathcal V_1^{\prime\perp}$, orthogonal pour $q'$, sur $\mathcal V_1^\perp$, orthogonal pour $q$. Il faut donc trouver un isomorphisme de $(\mathcal V_1,q')$ vers $(\mathcal V_1,q)$ et un morphisme de $\mathcal V_1^{\prime\perp}$ vers $\mathcal V_1^\perp$ compatible à $q'$ et à $q$. Le premier existe localement pour la topologie étale (2.13). Le second est essentiellement le problème initial en dimension $1|0$.
+
+En effet, localement sur $S$, $\mathcal V_1^\perp$ est $\calO$ avec forme quadratique $ax^2$, $a$ inversible, tandis que $\mathcal V_1^{\prime\perp}$ est localement isomorphe à $\calO$ avec forme $bx^2$. Il faut trouver un morphisme de $\calO$ vers $\calO$, c'est-à-dire une fonction paire $f$ telle que $f^2=b/a$. Cette équation définit un revêtement plat de $S$ sur lequel $f$ existe. \hfill $\square$
+
+\paragraph{Lemme 3.10.}
+Pour la topologie plate, $u^{-1}(\barQ_2)\subset E$ couvre $\barQ_2$.
+
+La preuve suit la même étape, en se ramenant cette fois à la dimension $0|2$. Il faut considérer $E$, avec une base impaire $e_1,e_2$, et une forme $q$ non dégénérée écrite en coordonnées $ax_1x_2$, avec $a$ inversible, ainsi que $E'$, avec une base impaire $e'_1,e'_2$ et $q'$ de la forme $bx'_1x'_2$. Il faut trouver $T:E'\to E$ tel que $q'=q\circ T$. En écrivant $T$ comme une matrice $2\times2$, cela revient à résoudre $\det T=b/a$. On peut soit observer que cette équation admet la solution
+\[
+\begin{pmatrix}b/a&0\\0&1\end{pmatrix},
+\]
+soit dire qu'elle définit $S'/S$ fidèlement plat.
+
+\paragraph{Remarque 3.11.}
+La preuve peut se reformuler en exprimant $u:u^{-1}(\barQ_i)\to\barQ_i$ comme un composé
+\[
+u^{-1}(\barQ_i)\xrightarrow{v}Y\xrightarrow{w}\barQ_i,
+\]
+où un point de $Y$ au-dessus de $q'$ est un sous-espace de $V$ de codimension $1|0$ ou $0|2$ sur lequel $q'$ est non dégénérée, et où $v(T)$ est l'image $T(V_i)$. Les deux morphismes sont fidèlement plats.
+
+\paragraph{3.12. Preuve de 3.4.}
+Par 3.6, 3.9, 3.10 et 2.20, la fonction $F$ sur $V^N\times Q$ s'étend à $V^N\times(\barQ_1\cup\barQ_2)$. Comme le complément de $\barQ_1\cup\barQ_2$ dans $\barQ$ est de codimension $\ge2$ (3.8), elle s'étend à $V^N\times\barQ$ (2.21). \hfill $\square$
+
+\paragraph{3.13. TFP: réduction de $\OSp$ à $\GL$.}
+Supposons $f:V^{\otimes N}\to\C$ invariant par $\OSp(V,q)$. On peut supposer $N$ pair. On interprète $f$ comme une fonction sur $V^N$, paire et de degré un en chaque variable. Par 3.4 et 3.5, il existe une fonction $\GL(V)$-invariante $F(v_1,\ldots,v_N,q')$ sur $V^N\times\barQ$, paire de degré un en les $v_i$ et de degré $N/2$ en $q'$, telle que
+\[
+f(v_1,\ldots,v_N)=F(v_1,\ldots,v_N,q).
+\]
+L'argument usuel de polarisation montre qu'il existe une fonction $\GL(V)$-invariante
+\[
+F_1(v_1,\ldots,v_N,q'_1,\ldots,q'_{N/2})
+\]
+sur $V^N\times\barQ^{N/2}$, homogène de degré un en chaque variable, telle que
+\[
+F(v_1,\ldots,v_N,q)=F_1(v_1,\ldots,v_N,q,\ldots,q).
+\]
+Comme en 2.3, soit $W$ en dualité avec $V$. On interprète $F_1$ comme un morphisme
+\[
+V^{\otimes N}\otimes \Sym^2(W)^{\otimes N/2}\longrightarrow \C,
+\]
+invariant par $\GL(V)$. La décomposition
+\[
+W\otimes W=\Sym^2(W)\oplus\bigwedge\nolimits^2W
+\]
+étant $\GL(V)$-invariante, $F_1$ provient d'un morphisme $\GL(V)$-invariant
+\[
+V^{\otimes N}\otimes W^{\otimes N}\longrightarrow \C.
+\]
+C'est la réduction annoncée.
+
+Le TFP pour $\GL(V)$ dit qu'un système générateur des morphismes $\GL(V)$-invariants s'obtient en accouplant de toutes les façons possibles chaque facteur $V$ avec un facteur $W$, puis en prenant le produit:
+\[
+v_1,\ldots,v_N,w_1,\ldots,w_N\longmapsto\prod \langle v_i,w_{\sigma(i)}\rangle.
+\]
+En revenant aux invariants de $\OSp$, on trouve un système générateur formé de
+\[
+V^{\otimes N}\to\C:
+(v_1,\ldots,v_N)\longmapsto B(v_1,v_2)B(v_3,v_4)\cdots B(v_{N-1},v_N)
+\]
+et de ses transformées par le groupe symétrique.
+
+\section{Analogue périplectique}
+
+\paragraph{4.1.}
+Soit $V$ un espace vectoriel de dimension $n|n$. Une forme quadratique impaire $q$ sur $V$ est une fonction impaire de degré $2$ sur $V$. Si $V$ et $W$ sont en dualité, c'est de façon équivalente un élément impair de $\Sym^2(W)$. La forme bilinéaire associée $B$ est la fonction impaire $q(x+y)-q(x)-q(y)$ sur $V\times V$. Si $\Pi$ est $\C$ vu comme espace vectoriel impair de base $e:=1$, de sorte que $\Pi=\Ga^-$, $B$ est induite (2.6) par un morphisme super symétrique encore noté $B$:
+\begin{equation}
+\label{eq:411}
+V\otimes V\longrightarrow \Pi.
+\end{equation}
+
+La forme $q$ est non dégénérée si \eqref{eq:411} est un accouplement parfait, c'est-à-dire s'il induit un isomorphisme de $V$ avec $\Pi V^\vee:=\Pi\otimes V^\vee$. Supposons $q$ non dégénérée. Le groupe périplectique $\pi O(V,q)$ est le sous-groupe de $\GL(V)$ qui respecte $q$, ou, de façon équivalente, $B$. La description des $R$-points est la même qu'en 2.11.
+
+Comme en 2.9 et 2.12, ces définitions se répètent au-dessus d'un schéma $S$. L'analogue de 2.13 est la proposition suivante.
+
+\paragraph{Proposition 4.2.}
+Soit $q$ une forme quadratique impaire non dégénérée sur un fibré vectoriel $\mathcal V$ sur $S$. Soit $B$ la forme bilinéaire associée
+\[
+B:\mathcal V\otimes\mathcal V\longrightarrow\Pi\otimes\calO.
+\]
+Alors, localement sur $S$, pour un certain $n$, $\mathcal V$ admet une base $e_1,\ldots,e_n,f_1,\ldots,f_n$, avec $e_i$ pair et $f_i$ impair, telle que $B$ s'annule sur cette base sauf pour
+\[
+B(e_i,f_i)=B(f_i,e_i)=e.
+\]
+
+\paragraph{Preuve.}
+Comme en 2.13, on peut supposer $\mathcal V$ de dimension $m|n$. Comme $\mathcal V\simeq\mathcal V^\vee\otimes\Pi$, on a $m=n$. La preuve se fait par récurrence sur $n$, le cas $n=0$ étant trivial. Il est commode de voir $B$ comme application bilinéaire impaire: l'ancien $B$ est égal à $e$ fois ce nouveau $B$.
+
+Si $n=1$, soit $(e,f)$ une base de $\mathcal V$ avec $e$ pair et $f$ impair. La symétrie de $B$ donne $B(f,f)=0$. La non-dégénérescence implique alors que $B(e,f)$ est pair et inversible. En divisant $f$ par $B(e,f)$, on peut supposer $B(e,f)=1$. Comme $B$ est impaire, $\alpha:=B(e,e)$ est impair. La base $(e-\frac{\alpha}{2}f,f)$ a la forme annoncée. Si $n\ge1$, on trouve comme en 2.13 des sections locales $e$ paire et $f$ impaire telles que $B(e,f)$ soit inversible. Le fibré $\mathcal V$ est alors somme orthogonale directe du sous-fibré $\mathcal V'$ engendré par $e$ et $f$, et de son complément orthogonal $\mathcal V''$. On conclut par l'hypothèse de récurrence appliquée à $\mathcal V''$. \hfill $\square$
+
+\paragraph{4.3.}
+Soit $\barQ$ l'espace des formes quadratiques impaires sur $V$. C'est l'espace affine attaché à $\Sym^2W\otimes\Pi$. Soit $Q$ l'ouvert dense des formes quadratiques non dégénérées. Comme en 3.1, il résulte de 4.2 que c'est un espace homogène de $\GL(V)$. Fixons une forme quadratique impaire non dégénérée $q$ sur $V$, et soit $B$ sa forme bilinéaire impaire associée. Comme en 3.1, l'application
+\[
+g\longmapsto g(q):=q\circ g^{-1}:\GL(V)\longrightarrow Q
+\]
+est plate, de fibre $\pi O(V,q)$ en $q$, et induit un isomorphisme
+\begin{equation}
+\label{eq:431}
+\GL(V)/\pi O(V,q)\xrightarrow{\sim}Q.
+\end{equation}
+
+\paragraph{4.4.}
+Nous voulons décrire les tenseurs $\pi O(V,q)$-invariants sur $V$. Comme $B$ est un accouplement parfait, il suffit de décrire les éléments $\pi O(V,q)$-invariants dans $\Hom(V^{\otimes N},\C)$. Comme $-1\in\pi O(V,q)$, de tels invariants non nuls n'existent que pour $N$ pair. Par 2.6, le problème revient à décrire les fonctions sur $V^N$, homogènes de degré un en chaque variable, qui sont $O(V,q)$-invariantes.
+
+De \eqref{eq:431}, on déduit que l'évaluation en $q$ induit un isomorphisme entre les fonctions $\GL(V)$-invariantes sur $V^N\times Q$ et les fonctions $\pi O(V,q)$-invariantes sur $V^N$, et de même pour les fonctions de degré un en chaque variable $v$ de $V$. Le résultat clé (cf. 3.4) est le suivant.
+
+\paragraph{Théorème 4.5.}
+Soit $f$ une fonction $\pi O(V,q)$-invariante sur $V^N$, et soit $F$ la fonction $\GL(V)$-invariante correspondante sur $V^N\times Q$. Alors $F$ s'étend en une fonction $\overline F$ sur $V^N\times\barQ$.
+
+Les remarques 3.5 restent valables, mutatis mutandis. Soit $u:E=\Hom(V,V)\to\barQ$ le morphisme $T\mapsto q\circ T$. On a $u^{-1}(Q)=\GL(V)$:
+\begin{equation}
+\label{eq:451}
+\begin{array}{ccc}
+\GL(V)&\subset&E\\
+\scriptstyle u\downarrow&&\downarrow\scriptstyle u\\
+Q&\subset&\barQ.
+\end{array}
+\end{equation}
+Soit $\widetilde F$ la fonction sur $V^N\times\GL(V)$ qui est l'image inverse de $F$ par $u$. La même preuve qu'en 3.6 montre que $\widetilde F$ s'étend en une fonction $\overline{\widetilde F}$ sur $V^N\times E$.
+
+En imitant la preuve de 3.4, on déduit 4.5 des lemmes 4.7 et 4.8 ci-dessous.
+
+\paragraph{4.6.}
+La condition sur $q'\in\barQ$ qu'il existe dans $V$ un sous-espace $V'$ de codimension $1|1$ sur lequel $q'$ est non dégénérée est ouverte. Soit $\barQ_1$ l'ouvert de $\barQ$ où elle est satisfaite.
+
+\paragraph{Lemme 4.7.}
+Le complément de $\barQ_1$ dans $\barQ$ est de codimension $\ge2$.
+
+\paragraph{Preuve.}
+C'est une question topologique, qui ne concerne que le schéma réduit $\barQ_{\rd}$, espace des accouplements bilinéaires entre $V_0$ et $V_1$. Cet espace est stratifié par le rang. La strate qui suit la strate ouverte est une hypersurface irréductible, et nous considérons la suivante. \hfill $\square$
+
+\paragraph{Lemme 4.8.}
+Pour la topologie fidèlement plate, $u^{-1}(\barQ_1)\subset E$ couvre $\barQ_1$.
+
+Ici, il n'est pas vrai que $u^{-1}(\barQ_1)\subset E$ soit plat sur $\barQ_1$. Mais nous allons montrer qu'il existe des sections locales, de sorte que l'existence de $\overline{\widetilde F}$ implique trivialement que $F$ sur $V^N\times Q$ s'étend à $V^N\times Q_1$.
+
+\paragraph{Preuve.}
+En procédant comme dans la preuve de 3.9, il faut montrer que, si sur $S$ on a des fibrés vectoriels $\mathcal V$ et $\mathcal V'$ de dimension $1|1$, une forme quadratique impaire non dégénérée $q$ sur $\mathcal V$, et une forme quadratique impaire $q'$ sur $\mathcal V'$, alors localement sur $S$ il existe $T:\mathcal V'\to\mathcal V$ tel que $q'=q\circ T$.
+
+En coordonnées, dans une base locale convenable, $q$ peut s'écrire
+\[
+q(x,y)=xy\qquad (x\text{ pair},\ y\text{ impair}),
+\]
+tandis que $q'$ s'écrit
+\[
+q'(x,y)=\alpha x+axy\qquad (x\text{ pair},\ y\text{ impair},\ \alpha\text{ pair},\ a\text{ pair}).
+\]
+On prend alors
+\[
+T:(x,y)\longmapsto (x,\alpha x+ay).
+\]
+\hfill $\square$
+
+\paragraph{4.9. TFP: réduction de $\pi O$ à $\GL$.}
+On procède comme en 3.13 pour déduire de 4.5 et du premier théorème fondamental pour $\GL(V)$ que les formes multilinéaires $\pi O(V,q)$-invariantes sur $V^{\otimes N}$, pour $N$ pair, à valeurs dans $\C$ ou dans $\Pi$, sont la forme
+\[
+v_1,\ldots,v_N\longmapsto B(v_1,v_2)\cdots B(v_{N-1},v_N)
+\]
+et ses transformées par le groupe symétrique.
+
+\section{Super Pfaffien}
+
+\paragraph{5.1.}
+Soit $q$ une forme quadratique non dégénérée sur un espace vectoriel $V$ de dimension $m|2n$, et soit $B:V\otimes V\to\C$ la forme bilinéaire super symétrique associée. Soit $\operatorname{vol}$ l'un des deux isomorphismes opposés de $\bigwedge^m V_0$ avec $\C$ tels que, pour $v_1,\ldots,v_m\in V_0$,
+\begin{equation}
+\label{eq:511}
+\operatorname{vol}(v_1\wedge\cdots\wedge v_m)^2=\det B(v_i,v_j).
+\end{equation}
+Nous verrons $\operatorname{vol}$ comme forme multilinéaire alternée sur $V_0$. Elle définit donc une fonction, encore notée $\operatorname{vol}$, sur $V_0^m$ (2.6). De même, $B(v_i,v_j)$ est une fonction sur $V^m$.
+
+Le schéma $V_0$ est $V_{\rd}$, et c'est le sous-schéma réduit de $V$. Il est défini dans $V$ par un idéal nilpotent. Soit $U$ l'ouvert de $V^m$ où $\det B(v_i,v_j)$ est inversible.
+
+\paragraph{Proposition 5.2.}
+Sur $U$, la fonction $D:=\det B(v_i,v_j)$ a une unique racine carrée $\Delta$ qui, sur $U_{\rd}\subset V_0^m$, coïncide avec $\operatorname{vol}(v_1,\ldots,v_m)$.
+
+\paragraph{Preuve.}
+Soit $R$ le revêtement double de $V^m$ défini par l'équation $T^2=D$. Un $R$-point de $R$ au-dessus d'un $R$-point $(v_1,\ldots,v_m)$ de $V^m$ est une racine carrée dans $R_0$ de $\det B(v_i,v_j)$. Sur $U$, ce revêtement double est étale. Une section de $R$ au-dessus de $U_{\rd}$ s'étend donc de façon unique à $U$. On l'applique à la restriction à $U_{\rd}$ de $\operatorname{vol}(v_1,\ldots,v_m)$ sur $V_0^m$. \hfill $\square$
+
+\paragraph{5.3.}
+Supposons $U$ schématiquement dense dans un schéma $X$, et soit $\delta$ une fonction sur $U$ telle que:
+\begin{enumerate}[label=(\alph*)]
+\item la restriction de $\delta$ au schéma réduit $U_{\red}$ s'étende à $X_{\red}$;
+\item cette extension s'annule hors de $U_{\red}$, c'est-à-dire que son lieu d'inversibilité est contenu dans $U_{\red}$.
+\end{enumerate}
+Alors toute puissance suffisamment grande $\delta^N$ s'étend à $X$. Dans le cas de $\Delta$, nous voulons établir un énoncé plus précis.
+
+\paragraph{Théorème 5.4.}
+La puissance $\Delta^{2n+1}$ de $\Delta$ s'étend à $V^m$.
+
+\paragraph{Preuve lorsque $m=1$.}
+Travaillons en coordonnées, dans une base où la fonction $B(v,v)$ sur $V$ a la forme standard suivante. Si les coordonnées de $v$ sont $x$, paire, et $y_i$ ($1\le i\le 2n$), impaires, on suppose
+\begin{equation}
+\label{eq:541}
+B(v,v)=x^2+\sum_1^n y_i y_{i+n}.
+\end{equation}
+Pour un choix convenable de $\operatorname{vol}$, $\Delta$, définie lorsque $x$ est inversible, est la racine carrée de $B(v,v)$ qui se réduit à $x$ lorsque les $y_i$ s'annulent. Elle est donnée par le développement binomial de $(x^2+\sum y_i y_{i+n})^{1/2}$:
+\begin{equation}
+\label{eq:542}
+\Delta=\sum \binom{1/2}{k}x^{1-2k}\left(\sum_1^n y_i y_{i+n}\right)^k.
+\end{equation}
+Comme $(\sum_1^n y_i y_{i+n})^k=0$ pour $k>n$, ce développement est fini. De même,
+\begin{equation}
+\label{eq:543}
+\Delta^{2n+1}=\sum_{k=0}^n\binom{n+1/2}{k}x^{2n+1-2k}\left(\sum_1^n y_i y_{i+n}\right)^k,
+\end{equation}
+qui est un polynôme en $x$ et les $y_i$; donc $\Delta^{2n+1}$ s'étend à $V$. \hfill $\square$
+
+\paragraph{5.5. Preuve de 5.4.}
+Posons
+\[
+D_1:=\det(B(v_i,v_j)_{1\leq i,j\leq m-1}),
+\]
+et soit $U_1$ l'ouvert de $V^m$ où $D_1$ est inversible.
+
+\paragraph{Lemme 5.6.}
+Le complément de $U\cup U_1$ dans $V^m$ est de codimension $\ge2$.
+
+En effet, les compléments de $U$ et de $U_1$ sont des hypersurfaces irréductibles distinctes.
+
+\paragraph{Lemme 5.7.}
+$\Delta^{2n+1}$ s'étend de $U_1\cap U$ à $U_1$.
+
+Ce lemme implique que $\Delta^{2n+1}$ s'étend de $U$ à $U\cup U_1$, puis 2.21 et 5.6 impliquent qu'elle s'étend à $V^m$, ce qui prouve 5.4. Par 2.19, il suffit de prouver 5.7 localement pour la topologie étale sur $U_1$.
+
+\paragraph{Preuve de 5.7.}
+Soit $\mathcal V$ le fibré vectoriel $V\otimes\calO$ sur $V^m$. Sur $U_1$, le fibré $\mathcal V$ est somme orthogonale directe d'un sous-fibré $\mathcal V'$ de base $v_1,\ldots,v_{m-1}$ et de son complément orthogonal $\mathcal V''$, de dimension $1|2n$. En effet, ce complément orthogonal de $v_1,\ldots,v_{m-1}$ est le noyau de
+\[
+b:\mathcal V\longrightarrow\calO^{m-1}:v\longmapsto(B(v,v_i)_{1\le i\le m-1}),
+\]
+et le composé
+\[
+\calO^{m-1}\xrightarrow{(v_1,\ldots,v_{m-1})}\mathcal V\xrightarrow{b}\calO^{m-1}
+\]
+est un isomorphisme.
+
+Écrivons $v_m=v'_m+v''_m$, où $v'_m$ est combinaison linéaire des $v_i$ ($1\le i\le m-1$) et où $v''_m\in\mathcal V''$. On a
+\[
+D=D_1\,B(v''_m,v''_m).
+\]
+Localement pour la topologie étale, après tiré en arrière par $u:U'_1\to U_1$ étale et surjectif,
+\begin{enumerate}[label=(\alph*)]
+\item $D_1$ admet une racine carrée $D_1^{1/2}$, puisque $D_1$ est inversible;
+\item $\mathcal V''$ admet une base dans laquelle $B$ a la forme standard \eqref{eq:541} (cf. 2.13).
+\end{enumerate}
+Soit $U''_1$ une composante connexe de $U'_1$, et soit $(U\cap U_1)''$ la trace sur $U''_1$ de l'image inverse de $U\cap U_1$ dans $U'_1$. Comme $U'_1$ est lisse, $U''_1$ est irréductible et $(U\cap U_1)''$, dense dans $U''_1$, est connexe. Nous allons montrer que le tiré en arrière de $\Delta^{2n+1}$ s'étend de $(U\cap U_1)''$ à $U''_1$.
+
+Sur $(U\cap U_1)''$, $\Delta/D_1^{1/2}$ est une racine carrée $B(v'',v'')^{1/2}$ de $B(v'',v'')$. Comme $\Delta=D_1^{1/2}B(v'',v'')^{1/2}$, il suffit de montrer que $[B(v'',v'')^{1/2}]^{2n+1}$ s'étend à $U''_1$.
+
+Soient $x$ et les $y_i$ les coordonnées de $v''$. Sur $U'_1$, $x$ est inversible. Sur $(U\cap U_1)''$, qui est connexe, $B(v'',v'')$ a seulement deux racines carrées, opposées. Il s'ensuit que $B(v'',v'')^{1/2}$ est donnée par \eqref{eq:542}, ou par son opposé. L'extension cherchée de $[B(v'',v'')^{1/2}]^{2n+1}$ est donnée par \eqref{eq:543}, ou par son opposé. \hfill $\square$
+
+\paragraph{5.8.}
+Sergeev appelle super Pfaffien la racine carrée $\Delta^{2n+1}$ de $(\det B(v_i,v_j))^{2n+1}$. La composante connexe $\SOSp(V,q)$ de $\OSp(V,q)$ est le noyau du bérézinien, à valeurs dans $\mu_2=\{\pm1\}$. Le super Pfaffien est invariant par $\SOSp(V,q)$, parce que $\det B(v_i,v_j)$ l'est et que $\SOSp$ est connexe. Les éléments de l'autre composante connexe de $\OSp$ transforment le super Pfaffien en son opposé.
+
+\paragraph{5.9.}
+Dans \cite{LZ15}, le Théorème 5.4 est prouvé en donnant une seconde définition du super Pfaffien et en montrant qu'elle est équivalente à celle ci-dessus. Il y est aussi démontré que les invariants de $\SOSp(V,q)$ sur $S^*(V\otimes\C^N)$ sont engendrés par les invariants de $\OSp(V,q)$ et par le super Pfaffien. Pour cela, la structure de $\mathfrak{gl}_N$-module de l'espace des invariants est pertinente et est élucidée dans \cite{LZ15}.
+
+\begin{thebibliography}{9}
+\bibitem{ABP73} M. Atiyah, R. Bott and V. K. Patodi, On the heat equation and the index theorem, \emph{Invent. Math.} 19 (1973), pp. 279--330.
+\bibitem{DM99} P. Deligne and J. W. Morgan, Notes on Supersymmetry (following J. Bernstein), in \emph{Quantum Fields and Strings: A Course for Mathematicians}, vol. 1, pp. 41--97, AMS, 1999.
+\bibitem{LZ14a} G. I. Lehrer and R. B. Zhang, The first fundamental theorem of invariant theory for the orthosymplectic supergroup, arXiv:1401.7395.
+\bibitem{LZ14b} G. I. Lehrer and R. B. Zhang, The second fundamental theorem of invariant theory for the orthosymplectic supergroup, arXiv:1401.1058.
+\bibitem{LZ15} G. I. Lehrer and R. B. Zhang, Invariants of the orthosymplectic Lie superalgebra and super Pfaffians, arXiv:1507.01329.
+\bibitem{Lei90} D. Leites, Introduction to the theory of super manifolds, \emph{Uspekhi Mat. Nauk} 35 (1980), no. 1, pp. 3--57; translated in \emph{Russian Math. Surveys} 35 (1980), no. 1, pp. 1--64.
+\bibitem{Man88} Yu. Manin, \emph{Gauge Field Theory and Complex Geometry}, Grundlehren 289, Springer-Verlag, 1988.
+\bibitem{SGA1} SGA1: \emph{Séminaire de Géométrie Algébrique du Bois-Marie 1960/61}, dirigé par A. Grothendieck: Revêtements étales et groupe fondamental, Springer Lecture Notes in Mathematics 224.
+\bibitem{Ser92} A. Sergeev, An analogue of the classical theory of invariants for Lie superalgebras, \emph{Funktsional. Anal. i Prilozhen.} 26 (1992), no. 3, pp. 88--90; translated in \emph{Funct. Anal. Appl.} 26 (1992), no. 3, pp. 223--225.
+\bibitem{Weyl46} H. Weyl, \emph{The Classical Groups: Their Invariants and Representations}, Princeton University Press, 1946.
+\end{thebibliography}
+
+\vspace{1em}
+\noindent P. Deligne: \texttt{deligne@math.ias.edu}\par
+\noindent School of Mathematics, IAS, Princeton, NJ 08540, USA
+
+\medskip
+\noindent G. I. Lehrer: \texttt{gustav.lehrer@sydney.edu.au}\par
+\noindent School of Mathematics and Statistics, University of Sydney, NSW 2006, Australia
+
+\medskip
+\noindent R. B. Zhang: \texttt{ruibin.zhang@sydney.edu.au}\par
+\noindent School of Mathematics and Statistics, University of Sydney, NSW 2006, Australia
+
+\end{document}
