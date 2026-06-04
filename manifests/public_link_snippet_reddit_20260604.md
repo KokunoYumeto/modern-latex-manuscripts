@@ -25,7 +25,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Non-European and multilingual mathematical manuscripts:** https://doi.org/10.5281/zenodo.20410957 (latest: 20541871) — current reader-facing multilingual corpus, including the 2026-06-04 work-level reader release (78 PDFs / 19,599 manifest pages), Chinese, Indian/Sanskrit, Islamic/Arabic, Persian, Japanese, and reference surfaces.
 
-**al-Battani Opus Astronomicum / Kitab al-Zij:** https://doi.org/10.5281/zenodo.20539593 (latest: 10.5281/zenodo.20543411) — single work-level record for the work, not a separate catalogue DOI: Nallino source witness, trilingual text-reader/work packets, complete fixed-star catalogue dataset, complete geography gazetteer, chronology/Canon material, tables/reference work, TeX/data/report packets, and QA/provenance.
+**al-Battani Opus Astronomicum / Kitab al-Zij:** https://doi.org/10.5281/zenodo.20539593 (latest: 10.5281/zenodo.20546267) — single work-level record for the work, not a separate catalogue DOI: complete-text working edition, Nallino source witness, complete fixed-star catalogue dataset, complete geography gazetteer, partial chronology/Canon material, tables/reference work, TeX/data/report packets, and QA/provenance.
 
 **Chinese mathematical classics:** https://doi.org/10.5281/zenodo.20415751 (latest: 20543246) — focused corpus slice for Jiuzhang Suanshu / Nine Chapters, Li Ye, Qin Jiushao, Sunzi, Yang Hui, and Zhu Shijie; latest update adds complete Arabic working-translation readers for the main staged Chinese classics.
 
