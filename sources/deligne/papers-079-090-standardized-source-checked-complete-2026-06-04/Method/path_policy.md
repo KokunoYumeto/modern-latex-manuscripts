@@ -1,0 +1,1 @@
+Short-path policy: package folder and member names are deliberately compact to avoid Windows path-length failures in local Codex/LaTeX runs while retaining human-readable D-number and page-span identifiers.
