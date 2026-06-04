@@ -151,6 +151,8 @@ Latest external local candidates:
 
 Action: completed same-concept patches after quick sanity audit. The record now promotes the reconstructed work-level reader release, al-Battani v083 text/reference package, and al-Battani fixed-star catalogue descriptive edition with CSV dataset, while keeping coordinate and numerical-table collation explicitly in progress.
 
+Update 2026-06-04: promoted the al-Battani partial geography gazetteer as the current front-facing geography table layer. This replaces the earlier single Western Europe leaf on the live reader surface and adds a 3-page partial gazetteer PDF, CSV dataset, raw TSV, and standalone build script. Current coverage: 93 regional midpoint rows and 44 city rows; remaining city rows, chronology, zodiac, and auxiliary numerical tables remain in progress.
+
 ### 6. Author cluster / Sylvester
 
 Public Zenodo is much older than local Sylvester.
