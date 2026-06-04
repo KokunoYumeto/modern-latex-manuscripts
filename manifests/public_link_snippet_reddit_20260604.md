@@ -14,7 +14,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20546473) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 43 complete, French pilots, and recursive audit RA03 applied: Papers 07-12 scan-checked, with missing source-visible notes restored across English/Spanish/Japanese where needed.
 
-**Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20545457) — Lehrbuch Volume I complete, Volume II source-checked through section 143, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
+**Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20546725) — Lehrbuch Volume I complete with the Batch84 recursive source-scan audit patch applied to printed pp. 7-14, Volume II source-checked through section 143, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20544740) — broad Werke draft readers plus Band II source-checked original/English cumulative readers through printed page 303.
 **P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20546131) — Werke Band II source-checked original/English cumulative readers through Papers I-XLI, now with an R23 QA sheet flagging XXV and XXVII as source-witnessed repair targets rather than silently treating them as final line-by-line repairs.
