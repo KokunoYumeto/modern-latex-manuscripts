@@ -1,0 +1,1 @@
+Source located for Steinitz, Rechteckige Systeme und Moduln in algebraischen Zahlkoerpern. II. Mathematische Annalen 72 (1912), printed pp. 297-345. Transcription and translation are not included in this package.

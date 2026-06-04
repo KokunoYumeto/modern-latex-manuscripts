@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the 2026-06-03 author-lane split and evening sweep. The live Zenodo records are newer than the first draft of this note: SGA is through SGA 7-I source page 270, Noether Spanish/Japanese is through Paper 31, Weber is through Volume II section 96, Steinitz has a dedicated author DOI, and the non-European record includes the al-Battani fixed-star catalogue plus the first geography-table leaf.
+Generated after the current GitHub mirror pass through the 2026-06-03 author-lane split and evening sweep. The live Zenodo records are newer than the first draft of this note: SGA is through SGA 7-I source page 270, Noether Spanish/Japanese is through Paper 31, Weber is through Volume II section 96, Steinitz has a dedicated author DOI with corpus package 17, and the non-European record includes the al-Battani fixed-star catalogue plus the first geography-table leaf.
 
 ## Publishing Capability
 
@@ -25,7 +25,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.377 |
 | Gauss | 20410934 | `10.5281/zenodo.20529812` | 2026-06-03 Gauss Band II source-checked cumulative readers from the actual beginning through printed page 282; latest version is a summary-refresh follow-up to the p282 patch |
 | Weber | 20412153 | `10.5281/zenodo.20535677` | 2026-06-04 Weber author refresh: Volume I complete, Volume II source-checked through section 96, and current repaired Volume III |
-| Steinitz | 20530953 | `10.5281/zenodo.20530953` | 2026-06-03 dedicated Steinitz author record with selected 1894-1911 German/English working readers, TeX, scans, and corpus package 16 |
+| Steinitz | 20530953 | `10.5281/zenodo.20535731` | 2026-06-04 dedicated Steinitz author update: corpus package 17, 1894 dissertation complete, and 1912 Rectangular Systems II source slice added |
 | Deligne | 20410853 | `10.5281/zenodo.20498666` | 2026-06-01 Manin 1987 letter sections 1 through 5 |
 
 ## Upgrade Queue
@@ -67,6 +67,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20530888` | 97 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 29 with Spanish/Japanese cumulative readers through Paper 30 complete, plus refreshed multilingual source/method packets. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20535630` | 99 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 30 with Spanish/Japanese cumulative readers through Paper 31 complete, adding standalone Paper 31 Spanish/Japanese readers, and refreshing the multilingual source/witness ZIP. |
 | Steinitz | `10.5281/zenodo.20530953` | `10.5281/zenodo.20530953` | 18 | 242,898,366-byte source packet plus readers | New dedicated Steinitz author record with selected German/English working readers, TeX/source scans, and corpus package 16. |
+| Steinitz | `10.5281/zenodo.20530953` | `10.5281/zenodo.20535731` | 19 | compact patch | Same-concept update replacing the 1894 partial readers with complete German/English 1894 dissertation readers, adding the 1912 Rectangular Systems II source-only slice, refreshing the reader guide/status PDF, and replacing the corpus 16 source/witness ZIP with corpus 17. |
 
 ### 1. SGA - completed
 
