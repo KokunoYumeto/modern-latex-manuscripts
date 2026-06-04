@@ -5,18 +5,19 @@ al-Battānī, d. 929 CE), with authoritative ecliptic coordinates — the larges
 *Opus Astronomicum* (Kitāb al-Zīj), now finished.
 
 ## Files
-- `al_battani_catalogue_COMPLETE.pdf` — the typeset edition (12 pp). Grouped by constellation in
+- `al_battani_catalogue_COMPLETE.pdf` — the typeset edition (19 pp). Grouped by constellation in
   Ptolemaic order; per star: number, modern ID (Bayer/Flamsteed + proper name), al-Battānī's Arabic
-  description (where collated), ecliptic **longitude**, **latitude**, **N/S**, **magnitude**. The
+  description, English description, ecliptic **longitude**, **latitude**, **N/S**, **magnitude**. The
   documented codex lacuna is shown in place.
 - `albattani_catalogue_authoritative.csv` — the open dataset (485 stars). Columns: constellation
-  (Latin/Arabic/Chinese), n, bayer, common name, lon_d, lon_m, lat_d, lat_m, dir (N/S), mag, arabic
-  description, note.
+  (Latin/Arabic/Chinese), n, bayer, common name, lon_d, lon_m, lat_d, lat_m, dir (N/S), mag, Arabic
+  description, English description, note.
 - `nallino_cat.tsv` — the raw transcription (coordinate source of truth) with per-star notes incl.
   codex variants.
 
 ## What it contains
-- **485 stars across 47 of the 48 Ptolemaic figures** (Ursa Minor → Piscis Austrinus).
+- **485 stars across 47 of the 48 Ptolemaic figures** (Ursa Minor → Piscis Austrinus), with Arabic
+  and English descriptions present for every row in the current working edition.
 - Coordinates and magnitudes are **al-Battānī's own**, as established in **C. A. Nallino's critical
   edition**, *Al-Battānī sive Albatenii Opus Astronomicum*, **Pars II (Milan 1907)** — the printed
   table *"Situs et magnitudines stellarum fixarum anno 1191 a Dhū 'l-qarnayn"* (epoch ≈ 880 CE).
