@@ -10,7 +10,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **EGA:** https://doi.org/10.5281/zenodo.20414353 (latest: 20414353) — working English translation drafts beyond the existing community material, with French originals/reference material.
 
-**SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20545214) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 504.
+**SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20546576) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers now complete through source page 528; next anchor is SGA 7-II intake.
 
 **Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20546473) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 43 complete, French pilots, and recursive audit RA03 applied: Papers 07-12 scan-checked, with missing source-visible notes restored across English/Spanish/Japanese where needed.
 
