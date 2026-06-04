@@ -1,6 +1,6 @@
 # Zenodo Upgrade Sweep - 2026-06-03
 
-Generated after the current GitHub mirror pass through the 2026-06-03 author-lane split and evening sweep. The live Zenodo records are newer than the first draft of this note: SGA is through SGA 7-I source page 270, Noether Spanish/Japanese is through Paper 30, Weber is through Volume II section 94, Steinitz has a dedicated author DOI, and the non-European record includes the al-Battani fixed-star catalogue plus the first geography-table leaf.
+Generated after the current GitHub mirror pass through the 2026-06-03 author-lane split and evening sweep. The live Zenodo records are newer than the first draft of this note: SGA is through SGA 7-I source page 270, Noether Spanish/Japanese is through Paper 31, Weber is through Volume II section 94, Steinitz has a dedicated author DOI, and the non-European record includes the al-Battani fixed-star catalogue plus the first geography-table leaf.
 
 ## Publishing Capability
 
@@ -17,7 +17,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Main landing / raw provenance | 20393488 | `10.5281/zenodo.20458953` | 2026-06-01 landing/provenance refresh |
 | Workflow packet | 20461174 | `10.5281/zenodo.20480520` | 2026-05-31 workflow packet |
 | SGA | 20410947 | `10.5281/zenodo.20530652` | 2026-06-03 SGA update: SGA 6 complete through indexes/source pages 693-702 plus SGA7-I through source page 270 |
-| Noether | 20412587 | `10.5281/zenodo.20530888` | 2026-06-03 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 30 |
+| Noether | 20412587 | `10.5281/zenodo.20535630` | 2026-06-04 Noether update: numbered German/English complete plus Spanish/Japanese through Paper 31 |
 | Cayley | 20520749 | `10.5281/zenodo.20528434` | 2026-06-03 dedicated Cayley author record refresh: Volume IV p. 51, p. 246, p. 253, pp. 254--255, and p. 274 table repairs promoted as native TeX; source/manifest bundle refreshed |
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20531266` | 2026-06-03 reconstructed work-level readers, corrected combined readers, al-Battani v083 trilingual text/reference reader, complete fixed-star catalogue edition with CSV dataset, and first Western Europe geography-table leaf |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
@@ -64,6 +64,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Gauss | `10.5281/zenodo.20410934` | `10.5281/zenodo.20529812` | 18 | summary refresh | Same-concept follow-up refreshing the public summary JSON after confirming the stale p211 delete target was not present on Zenodo. |
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20530652` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-260 readers with source-page-270 English/French readers, matching source-scan witness, and compact p270 source packet. |
 | Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20530888` | 97 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 29 with Spanish/Japanese cumulative readers through Paper 30 complete, plus refreshed multilingual source/method packets. |
+| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20535630` | 99 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 30 with Spanish/Japanese cumulative readers through Paper 31 complete, adding standalone Paper 31 Spanish/Japanese readers, and refreshing the multilingual source/witness ZIP. |
 | Steinitz | `10.5281/zenodo.20530953` | `10.5281/zenodo.20530953` | 18 | 242,898,366-byte source packet plus readers | New dedicated Steinitz author record with selected German/English working readers, TeX/source scans, and corpus package 16. |
 
 ### 1. SGA - completed
