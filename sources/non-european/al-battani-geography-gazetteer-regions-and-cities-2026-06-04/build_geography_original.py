@@ -55,10 +55,12 @@ def table(title, sub, rows):
 
 def main():
     R,C=load()
+    keyn=lambda r: int(r['n']) if str(r['n']).isdigit() else 9999
+    R=sorted(R,key=keyn); C=sorted(C,key=keyn)
     body=[PRE]
     body.append(table('I. Regions (94 in the source; 93 transcribed)',
                        'Tabula mediorum punctorum regionum — al-Battani world map by Ptolemaic province', R))
-    body.append(table(f'II. Cities ({len(C)} of ~340; transcription in progress)',
+    body.append(table(f'II. Cities (COMPLETE — {len(C)} localities, nos. 94-269)',
                        'Tabula latitudinum et longitudinum urbium', C))
     body.append(r'\end{document}')
     tex=os.path.join(HERE,'al_battani_geography_gazetteer.tex')

@@ -1,13 +1,13 @@
-# al-Battani Geography Gazetteer, Partial Edition
+# al-Battani Geography Gazetteer
 
-This folder contains the current partial reconstruction of al-Battani's geographical tables from Nallino's critical edition of the *Opus Astronomicum*.
+This folder contains the current reconstruction of al-Battani's geographical gazetteer from Nallino's critical edition of the *Opus Astronomicum*.
 
 ## Coverage
 
 - Regions: 93 rows transcribed from the regional midpoint table.
-- Cities: 44 rows transcribed from the city longitude/latitude table.
-- One city row remains explicitly marked for verification.
-- Chronology, zodiac, auxiliary numerical tables, and the remaining city-gazetteer rows are still in progress elsewhere in the al-Battani table lane.
+- Cities: 176 rows transcribed from the city longitude/latitude table.
+- Total geography entries: 269 localities with coordinates.
+- Chronology, zodiac, and auxiliary numerical tables are still in progress elsewhere in the al-Battani table lane.
 
 ## Files
 
@@ -17,4 +17,4 @@ This folder contains the current partial reconstruction of al-Battani's geograph
 - `build_geography_original.py`: original build script from the Claude push queue.
 - `build_geography_standalone.py`: local standalone build script adjusted to read `geo_cat_raw.tsv` from this folder.
 
-The public record should describe this as a partial geography-gazetteer edition, not as the full city table.
+The public record may describe this as the current complete geography-gazetteer edition. It should not describe the chronology, zodiac, or auxiliary table streams as complete.

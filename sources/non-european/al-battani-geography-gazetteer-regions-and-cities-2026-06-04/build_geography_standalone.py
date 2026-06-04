@@ -104,7 +104,7 @@ def main() -> int:
     )
     body.append(
         table(
-            f"II. Cities ({len(cities)} of about 340; transcription in progress)",
+            f"II. Cities ({len(cities)} transcribed)",
             "Tabula latitudinum et longitudinum urbium",
             cities,
         )
