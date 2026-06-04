@@ -10,7 +10,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **EGA:** https://doi.org/10.5281/zenodo.20414353 (latest: 20454552) — working English translation drafts beyond the existing community material, with French originals/reference material.
 
-**SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20537615) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 347.
+**SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20539148) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 358.
 
 **Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20538888) — German/English numbered-paper corpus complete through Papers 1-43, plus ongoing Spanish/Japanese/French translation pilots.
 
@@ -18,7 +18,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20537816) — Werke working drafts plus Band II source-checked cumulative readers through printed page 291.
 
-**Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20538994) — paper-level and correspondence translation/source-working packets.
+**Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20539240) — paper-level and correspondence translation/source-working packets, including standardized papers 081-090.
 
 **Ukrainian applied mathematics:** https://doi.org/10.5281/zenodo.20490906 (latest: 20520721) — applied mathematics translation readers and TeX/source packets.
 
