@@ -37,7 +37,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Arthur Cayley:** https://doi.org/10.5281/zenodo.20520749 (latest: 20528434) — active source-checked reconstruction lane; cleanup is ongoing.
 
-**Richard Dedekind:** https://doi.org/10.5281/zenodo.20520669 (latest: 20530260)
+**Richard Dedekind:** https://doi.org/10.5281/zenodo.20520669 (latest: 20544790) — `Was sind und was sollen die Zahlen?` complete plus GMW Volume I Item I source-checked German/English complete.
 
 
 **James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20544607) — Volume I source-checked working edition through book page 457; source ZIP includes TeX, cumulative source scan slice, and page witnesses.
@@ -49,6 +49,9 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Classical algebra/arithmetic umbrella shelf:** https://doi.org/10.5281/zenodo.20414787 (latest: 20503771)
 
 **Older author-cluster shelf:** https://doi.org/10.5281/zenodo.20411006 (latest: 20442003)
+
+
+
 
 
 
