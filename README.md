@@ -50,7 +50,7 @@ The first dedicated author split has created separate Cayley, Dedekind, Dirichle
 - `reader-pdfs/sylvester/` and `sources/sylvester/`: Sylvester Volume I source-checked working TeX/PDF through book page 377, with source scan slices and continuation notes preserved on Zenodo.
 - `reader-pdfs/steinitz/` and `sources/steinitz/`: Steinitz German/English working readers for selected 1894, 1897, 1899, 1901, 1910, and 1911 material, with the 1894 dissertation now complete, plus 1905 and 1912 source-only slices and follow-up notes.
 - `reader-pdfs/ukrainian-applied-math/` and `sources/ukrainian-applied-math/`: Ukrainian applied mathematics translation readers and TeX/source packets for signal processing, software-defined radio, sensor fusion, robotics, state estimation, Lie-theoretic navigation, VIO/SLAM residuals, and Kalman filtering.
-- `workflow/`: a public workflow note, sanitized replication packet, audits, OCR/tooling notes, release-process guidance, and source-intake manifests. The Persian/Iranian mathematics intake manifest currently lists al-Biruni, al-Kashi, al-Tusi, Khayyam, and related source candidates for the next non-European completion pass.
+- `workflow/`: a public workflow note, sanitized replication packet, audits, OCR/tooling notes, release-process guidance, and source-intake manifests. The reusable OCR/helper scripts and lessons are under `scripts/ocr/`. The Persian/Iranian mathematics intake manifest currently lists al-Biruni, al-Kashi, al-Tusi, Khayyam, and related source candidates for the next non-European completion pass.
 - `zenodo-metadata/`: public metadata JSON used for the current records.
 - `manifests/`: public summaries, coverage/status notes, and a GitHub file inventory.
 
