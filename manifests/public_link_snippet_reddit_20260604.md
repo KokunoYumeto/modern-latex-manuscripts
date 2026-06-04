@@ -18,7 +18,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20537816) — Werke working drafts plus Band II source-checked cumulative readers through printed page 291.
 
-**Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20540443) — paper-level and correspondence translation/source-working packets, including standardized papers 001-014p030 and 080-090.
+**Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20540851) — paper-level and correspondence translation/source-working packets, including source-checked papers 001-015 and standardized papers 080-090.
 
 **Ukrainian applied mathematics:** https://doi.org/10.5281/zenodo.20490906 (latest: 20520721) — applied mathematics translation readers and TeX/source packets.
 
