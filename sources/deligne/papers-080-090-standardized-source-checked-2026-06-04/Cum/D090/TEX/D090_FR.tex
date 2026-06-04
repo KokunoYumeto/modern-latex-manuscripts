@@ -1,0 +1,2186 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{mathrsfs}
+\renewcommand{\abstractname}{Résumé}
+
+\newtheorem*{hypothese23}{Hypothèse 2.3}
+\newtheorem*{definition24}{Définition 2.4}
+\newtheorem*{theoreme25}{Théorème 2.5}
+\newtheorem*{lemme26}{Lemme 2.6}
+\newcommand{\Ga}{\mathbf G_a}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Ru}{R_u}
+\newcommand{\red}{\mathrm{red}}
+\newcommand{\nilp}{\mathrm{nilp}}
+\newcommand{\unip}{\mathrm u}
+\newcommand{\htG}{\operatorname{ht}_G}
+
+\title{Complète réductibilité en caractéristique \(p\)}
+\author{V. Balaji, P. Deligne et A. J. Parameswaran\\
+\large avec un appendice de Zhiwei Yun}
+\date{}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz-cd}
+\newtheorem*{theoreme27}{Théorème 2.7}
+\newtheorem*{lemme28}{Lemme 2.8}
+\newtheorem*{lemme29}{Lemme 2.9}
+\newtheorem*{lemme210}{Lemme 2.10}
+\newtheorem*{lemme211}{Lemme 2.11}
+\newtheorem*{lemme212}{Lemme 2.12}
+\newtheorem*{corollaire213}{Corollaire 2.13}
+\newtheorem*{lemme214}{Lemme 2.14}
+\newtheorem*{corollaire215}{Corollaire 2.15}
+\newtheorem*{lemme216}{Lemme 2.16}
+\newtheorem*{lemme217}{Lemme 2.17}
+\newtheorem*{lemme218}{Lemme 2.18}
+\newtheorem*{proposition31}{Proposition 3.1}
+\newtheorem*{corollaire33}{Corollaire 3.3}
+\newtheorem*{definition41}{Définition 4.1}
+\newtheorem*{proposition42}{Proposition 4.2}
+\newcommand{\Gm}{\mathbf G_m}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Rad}{\operatorname{rad}}
+\newcommand{\Ruop}{R_u}
+
+
+\renewcommand{\proofname}{Démonstration}
+\newtheorem*{definition44}{Définition 4.4}
+\newtheorem*{theoreme47}{Théorème 4.7}
+\newtheorem*{lemme48}{Lemme 4.8}
+\newtheorem*{corollaire411}{Corollaire 4.11}
+\newtheorem*{corollaire412}{Corollaire 4.12}
+\newtheorem*{theoreme413}{Théorème 4.13}
+\newtheorem*{lemme415}{Lemme 4.15}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Sp}{\operatorname{Sp}}
+
+
+\providecommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\newtheorem*{theoreme51}{Théorème 5.1}
+\newtheorem*{proposition53}{Proposition 5.3}
+\newtheorem*{proposition54}{Proposition 5.4}
+\newtheorem*{lemme55}{Lemme 5.5}
+\newtheorem*{corollaire56}{Corollaire 5.6}
+\newtheorem*{corollaire57}{Corollaire 5.7}
+\newtheorem*{theoreme58}{Théorème 5.8}
+
+
+\newtheorem*{definition63}{Définition 6.3}
+\newtheorem*{lemme64}{Lemme 6.4}
+\newtheorem*{lemme65}{Lemme 6.5}
+\newtheorem*{propositionA1}{Proposition A1}
+\providecommand{\OO}{\mathcal O}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\emph{à la mémoire de Vikram Mehta}
+\end{center}
+
+\begin{abstract}
+Soit \(G\) un groupe réductif sur un corps \(k\), algébriquement clos de caractéristique
+\(p\ne 0\). Nous démontrons un théorème de structure pour une classe de schémas en
+sous-groupes de \(G\) lorsque \(p\) est minoré par le nombre de Coxeter de \(G\). Comme
+applications, nous obtenons des résultats de semisimplicité qui généralisent des résultats
+antérieurs de Serre démontrés en 1998, ainsi qu'un analogue du théorème de tranche étale
+de Luna sous des bornes convenables sur \(p\).
+\end{abstract}
+
+\noindent\textbf{Mots-clés.} Schémas en groupes, saturation, réductif, tranche étale, hauteur de Dynkin, nombre de Coxeter.
+
+\noindent\textbf{Classification mathématique 2010.} 14L15, 14L24.
+
+\section*{Table des matières}
+\begin{enumerate}[leftmargin=2em,label=\arabic*.]
+\item Introduction
+\item Saturation et saturation infinitésimale
+\item Achèvement de la preuve du théorème de structure 2.5
+\item Énoncés de semisimplicité
+\item Tranches étales en caractéristique positive
+\item Ajout à la correction d'épreuves
+\item Appendice. Nombre de Coxeter et systèmes de racines, par Zhiwei Yun
+\end{enumerate}
+
+\section{Introduction}
+
+Nous travaillons sur un corps algébriquement clos \(k\) de caractéristique \(p>0\).
+
+Dans \([{\rm S1}]\), Serre a montré que, si des représentations semisimples \(V_i\)
+d'un groupe \(\Gamma\) vérifient
+\[
+  \sum_i(\dim V_i-1)<p,
+\]
+alors leur produit tensoriel est semisimple. Dans \([{\rm S2}]\), il considère plus
+généralement le cas où \(\Gamma\) est un sous-groupe de \(G(k)\), avec \(G\) réductif,
+et où \(\Gamma\) est \(G\)-cr, c'est-à-dire que, chaque fois que \(\Gamma\) est contenu
+dans un sous-groupe parabolique \(P\), il est déjà contenu dans un sous-groupe de Levi
+de \(P\). Pour
+\[
+  G=\prod_i \GL(V_i),
+\]
+cela équivaut à la semisimplicité des représentations \(V_i\) de \(\Gamma\). Pour une
+représentation \(V\) de \(G\), on peut alors demander sous quelles conditions \(V\)
+devient semisimple lorsqu'on la considère comme représentation de \(\Gamma\). Dans
+\([{\rm S2},\) théorème 6, p. 25], Serre montre que c'est le cas lorsque la hauteur
+de Dynkin \(\htG(V)\) est strictement inférieure à \(p\). Pour
+\[
+  G=\prod_i \GL(V_i),\qquad V=\bigotimes_i V_i,
+\]
+on a
+\[
+  \htG(V)=\sum_i(\dim V_i-1).
+\]
+
+Dans \([{\rm D}]\), les résultats de \([{\rm S1}]\) ont été généralisés au cas où les
+\(V_i\) sont des représentations semisimples d'un schéma en groupes \(\mathcal G\).
+Dans cet article, nous considérons le cas où \(\mathcal G\) est un schéma en
+sous-groupes d'un groupe réductif \(G\), et nous généralisons \([{\rm S2}]\), voir
+4.11, ainsi que \([{\rm D}]\), voir 2.5. Comme dans \([{\rm D}]\), il faut d'abord
+démontrer un théorème de structure, 2.5, pour les schémas en sous-groupes
+\(\mathcal G\) doublement saturés, voir 2.4, de groupes réductifs \(G\). La preuve
+utilise de façon cruciale un résultat de Zhiwei Yun sur les systèmes de racines.
+L'appendice contient ce résultat.
+
+Dans la section 5, nous considérons un groupe réductif agissant sur une variété affine
+\(X\) et un point \(x\) de \(X\) dont l'orbite \(G\cdot x\) est fermée dans \(X\). Nous
+démontrons un analogue schématique de \([{\rm BR},\) propositions 7.4, 7.6] sous
+certaines conditions sur la caractéristique de \(k\). Plus précisément, si \(X\) se plonge
+dans un \(G\)-module \(V\) de petite hauteur, nous obtenons, comme conséquence de
+2.5(2), un analogue du théorème de tranche étale de Luna, 5.1 et 5.6. Dans
+\([{\rm BR}]\), le langage des schémas n'était pas utilisé; par conséquent, l'orbite
+\(G\cdot x\) devait être supposée « séparable ». Une orbite \(G\cdot x\) est séparable si
+et seulement si le stabilisateur \(G_x\) est réduit.
+
+\section{Saturation et saturation infinitésimale}
+
+\subsection*{2.1}
+
+Soit \(G\) un groupe algébrique réductif sur \(k\). Nous employons la terminologie de
+\([{\rm SGA3}]\) : réductif implique lisse et connexe. Par groupe algébrique nous
+entendrons un schéma en groupes affine de type fini sur \(k\). Fixons un tore maximal
+\(T_G\) et un sous-groupe de Borel contenant \(T_G\); ils déterminent un système de
+racines \(R\) et un ensemble de racines positives \(R^+\). Soit
+\(\langle\, ,\,\rangle\) l'accouplement naturel entre caractères et cocaractères et, pour
+chaque racine \(\alpha\), soit \(\alpha^\vee\) la coracine correspondante.
+
+Si le système de racines \(R\) associé à \(G\) est irréductible, le nombre de Coxeter
+\(h_G\) de \(R\), et de \(G\), admet les descriptions équivalentes suivantes :
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item C'est l'ordre des éléments de Coxeter du groupe de Weyl \(W\). Cela montre que
+\(R\) et le système de racines dual \(R^\vee\) ont le même nombre de Coxeter.
+\item Soit \(\alpha_0\) la plus haute racine, et soit \(\sum n_i\alpha_i\) son expression
+comme combinaison linéaire des racines simples. On a
+\[
+  h_G=1+\sum_i n_i. \tag{2.1.1}
+\]
+\item En appliquant ceci au système de racines dual, on obtient
+\[
+  h_G=\langle \rho,\beta^\vee\rangle+1,
+\]
+où \(\rho\) est la demi-somme des racines positives et où \(\beta^\vee\) est la plus
+haute coracine. En effet, \(\rho\) est aussi la somme des poids fondamentaux
+\(\omega_i\), et
+\[
+  \langle \omega_i,\alpha_j^\vee\rangle=\delta_{ij}.
+\]
+\end{enumerate}
+
+Pour un groupe réductif général \(G\), on définit le nombre de Coxeter \(h_G\) comme
+le plus grand de ceux des composantes irréductibles de \(R\).
+
+Il résulte de (2) ci-dessus que, si \(G\) est un groupe réductif, si \(U\) est le radical
+unipotent d'un sous-groupe de Borel, et si \(\mathfrak u:=\Lie(U)\), la série centrale
+descendante de \(\mathfrak u\), définie par \(Z^1\mathfrak u=\mathfrak u\) et
+\[
+  Z^i\mathfrak u=[\mathfrak u,Z^{i-1}\mathfrak u],
+\]
+vérifie
+\[
+  Z^{h_G}(\mathfrak u)=0. \tag{2.1.2}
+\]
+Pour le groupe \(U\), on a de même \(Z^{h_G}(U)=(1)\).
+
+L'algèbre de Lie \(\mathfrak g\) de \(G\) est une \(p\)-algèbre de Lie. Notons
+\(X\mapsto X^{[p]}\) l'opération puissance \(p\) sur \(\mathfrak g\). Si
+\(\mathfrak n\in\mathfrak g\) est nilpotent et si \(p\ge h_G\), alors
+\(\mathfrak n^{[p]}=0\). Pour le vérifier, on peut supposer que \(\mathfrak n\) est
+dans l'algèbre de Lie \(\mathfrak u\) du radical unipotent \(U\) d'un sous-groupe de
+Borel. Pour chaque racine positive \(\alpha\), soit \(X_\alpha\) une base du sous-espace
+radiciel \(\mathfrak g_\alpha\). Écrivons
+\[
+  \mathfrak n=\sum_{\alpha\in R^+} a_\alpha X_\alpha .
+\]
+Chaque \(X_\alpha\) est le générateur infinitésimal d'un groupe additif. Il s'ensuit que
+\(X_\alpha^{[p]}=0\) pour chaque \(\alpha\). Observons que
+\[
+  \mathfrak n^{[p]}
+  =\sum_{\alpha\in R^+} a_\alpha^{p}X_\alpha^{[p]}
+    \pmod{Z^p\mathfrak u}, \tag{2.1.3}
+\]
+et que \(Z^p\mathfrak u=0\), puisque \(p\ge h_G\), voir \([{\rm Mc1},\) p. 10].
+
+\subsection*{2.2}
+
+Soit \(\mathfrak g_{\nilp}\), respectivement \(G^{\unip}\), le sous-schéma réduit de
+\(\Lie(G)\), respectivement de \(G\), dont les points sont les éléments nilpotents,
+respectivement unipotents. Soit \(U\) le radical unipotent d'un sous-groupe de Borel.
+Pour \(p\ge h_G\), la loi de groupe de Campbell--Hausdorff \(\circ\) a un sens en
+caractéristique \(p\) et transforme \(\mathfrak u:=\Lie(U)\) en un groupe algébrique
+sur \(k\). Cela vient de \(Z^p\mathfrak u=0\). De plus, il existe un unique isomorphisme
+\[
+  \exp:(\Lie(U),\circ)\xrightarrow{\sim} U \tag{2.2.1}
+\]
+équivariant pour l'action de \(B\) et dont la différentielle à l'origine est l'identité.
+Si, en outre, le revêtement simplement connexe du groupe dérivé de \(G\) est un
+revêtement étale, ce qui est le cas pour \(p>h_G\) et peut échouer lorsque \(p=h_G\)
+à cause de la présence de facteurs \(\mathrm{SL}(p)\) dans le revêtement, il existe alors
+un unique isomorphisme \(G\)-équivariant, voir \([{\rm S2},\) théorème 3, p. 21] et
+la section 6 pour les détails,
+\[
+  \exp:\mathfrak g_{\nilp}\longrightarrow G^{\unip}, \tag{2.2.2}
+\]
+qui induit (2.2.1) sur chaque radical unipotent d'un sous-groupe de Borel. Notons
+\[
+  \log:G^{\unip}\longrightarrow \mathfrak g_{\nilp}
+\]
+son inverse.
+
+Pour \(u\) un élément unipotent de \(G(k)\), on définit l'application « puissance \(t\) »
+\(t\mapsto u^t\), de \(\Ga\) vers \(G\), par
+\[
+  t\longmapsto \exp(t\log u). \tag{2.2.3}
+\]
+Pour \(G=\GL(V)\), une telle application \(t\mapsto u^t\) est plus généralement définie
+pour tout \(u\) dans \(G\) tel que \(u^p=1\). Elle est donnée par l'expression binomiale
+tronquée \([{\rm S1},\) 4.1.1, p. 524] :
+\[
+  t\longmapsto u^t:=\sum_{i<p}\binom{t}{i}(u-1)^i. \tag{2.2.4}
+\]
+De même, \(X\in\operatorname{End}(V)\) tel que \(X^{[p]}=0\) définit un morphisme
+\(t\mapsto \exp(tX)\) de \(\Ga\) vers \(\GL(V)\), donné par la série exponentielle
+tronquée
+\[
+  t\longmapsto I+tX+\frac{(tX)^2}{2!}+\cdots+
+  \frac{(tX)^{p-1}}{(p-1)!}. \tag{2.2.5}
+\]
+
+Jusqu'à la fin de la section 3, nous faisons les hypothèses suivantes sur le groupe
+réductif \(G\).
+
+\begin{hypothese23}
+Soit \(\widetilde G\) le revêtement simplement connexe du groupe dérivé \(G'\).
+Nous supposons que \(p\ge h_G\) et que l'application \(\widetilde G\to G'\) est étale.
+\end{hypothese23}
+
+En particulier, par 2.1 et 2.2, l'application exponentielle (2.2.2) est définie, tout
+élément unipotent de \(G(k)\) est d'ordre \(p\), et tout nilpotent de \(\Lie(G)\) est
+\(p\)-nilpotent. On peut alors définir les notions de saturation et de saturation
+infinitésimale des schémas en sous-groupes \(\mathcal G\subset G\) comme suit; voir
+la remarque 2.19 pour le cas où \(G=\operatorname{PGL}(p)\).
+
+\begin{definition24}[\({\rm S1},\S4\), \({\rm D}\), définition 1.5]
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item Un schéma en sous-groupes \(\mathcal G\subset G\) est dit saturé si, pour tout
+\(u\in \mathcal G(k)\) qui est unipotent, l'homomorphisme \(t\mapsto u^t\), (2.2.3),
+de \(\Ga\) vers \(G\), se factorise par \(\mathcal G\).
+\item Un schéma en sous-groupes \(\mathcal G\subset G\) est dit infinitésimalement
+saturé si, pour tout nilpotent \(X\in\Lie(\mathcal G)\), le morphisme
+\(t\mapsto \exp(tX)\), (2.2.2), de \(\Ga\) vers \(G\), se factorise par
+\(\mathcal G\).
+\item \(\mathcal G\) est doublement saturé s'il est saturé et infinitésimalement saturé.
+\end{enumerate}
+\end{definition24}
+
+Un élément de \(\Lie(\mathcal G)\) est nilpotent si et seulement s'il est nilpotent
+comme élément de \(\Lie(G)\). La référence à l'application exponentielle (2.2.2) dans
+(2) a donc un sens. Une façon de voir que les notions de nilpotence pour les éléments
+de \(\Lie(\mathcal G)\) et de \(\Lie(G)\) coïncident est d'observer que l'inclusion de
+\(\Lie(\mathcal G)\) dans \(\Lie(G)\) est un morphisme de \(p\)-algèbres de Lie et que
+\(X\) est nilpotent si et seulement s'il est annulé par une application puissance \(p\)
+itérée, c'est-à-dire
+\[
+  X^{[p^\ell]}=0.
+\]
+
+Soit \(\mathcal G^0\) la composante neutre de \(\mathcal G\), et soit
+\(\mathcal G^0_{\red}\) le sous-schéma réduit de \(\mathcal G^0\).
+
+\begin{theoreme25}
+Soit \(\mathcal G\subset G\) un \(k\)-schéma en sous-groupes qui est infinitésimalement
+saturé. Supposons que, si \(p=h_G\), \(\mathcal G^0_{\red}\) est réductif. Alors :
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item Le groupe \(\mathcal G^0_{\red}\) et son radical unipotent
+\(\Ru(\mathcal G^0_{\red})\) sont des schémas en sous-groupes normaux de
+\(\mathcal G\), et le schéma en groupes quotient
+\[
+  \mathcal G^0/\mathcal G^0_{\red}
+\]
+est de type multiplicatif.
+\item Si \(\mathcal G^0_{\red}\) est réductif, il existe un schéma en sous-groupes
+central, connexe et de type multiplicatif \(M\subset \mathcal G^0\) tel que le morphisme
+\[
+  M\times \mathcal G^0_{\red}\longrightarrow \mathcal G^0
+\]
+réalise \(\mathcal G^0\) comme quotient de \(M\times \mathcal G^0_{\red}\).
+\end{enumerate}
+\end{theoreme25}
+
+Nous remarquons que, puisque \(k\) est supposé algébriquement clos, un schéma en
+groupes de type multiplicatif est simplement un schéma en groupes diagonalisable.
+
+La preuve de la partie (2) de 2.5 occupera la plus grande partie de la section 2,
+jusqu'à 2.16. La partie (1) sera démontrée dans la section 3.
+
+D'après \([{\rm D},\) lemme 2.3], les conclusions de 2.5 valent pour \(\mathcal G\) si
+et seulement si elles valent pour sa composante neutre \(\mathcal G^0\). Jusqu'à la fin
+de la section 3, nous supposerons que \(\mathcal G\) est connexe.
+
+\begin{lemme26}
+Si \(\mathcal G\) est un schéma en sous-groupes infinitésimalement saturé de \(G\),
+tout élément nilpotent \(\mathfrak n\) de \(\Lie(\mathcal G)\) appartient à
+\(\Lie(\mathcal G_{\red})\).
+\end{lemme26}
+
+\begin{proof}
+Comme \(\Ga\) est réduit, le morphisme \(t\mapsto \exp(t\mathfrak n)\) envoie
+\(\Ga\) dans \(\mathcal G_{\red}\subset \mathcal G\). En identifiant \(\Lie(\Ga)\)
+à une copie du corps de base, l'image de \(1\) dans \(\Lie(\Ga)\) est \(\mathfrak n\).
+\end{proof}
+
+
+
+La partie (2) de 2.5 est un corollaire de 2.6 et du théorème suivant, qui ne fait plus
+intervenir \(G\).
+
+\begin{theoreme27}
+Soit \(\mathcal G\) un groupe algébrique connexe tel que
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item \(\mathcal G_{\red}\) soit réductif,
+\item tout élément nilpotent de \(\Lie(\mathcal G)\) appartienne à
+\(\Lie(\mathcal G_{\red})\).
+\end{enumerate}
+Alors la conclusion de 2.5(2) vaut. En conséquence,
+\(\mathcal G_{\red}\) est un schéma en sous-groupes normal de \(\mathcal G\), et
+\(\mathcal G/\mathcal G_{\red}\) est de type multiplicatif.
+\end{theoreme27}
+
+Soit \(T\) un tore maximal de \(\mathcal G_{\red}\), et soit \(H\) le centralisateur de
+\(T\) dans \(\mathcal G\). On a \(H\cap\mathcal G_{\red}=T\). Il résulte de (b) que
+tout élément nilpotent \(\mathfrak n\) de \(\Lie(H)\) appartient à \(\Lie(T)\), donc
+s'annule. Par le lemme suivant, \(H\) est de type multiplicatif, et en particulier
+commutatif.
+
+\begin{lemme28}
+Soit \(H\) un groupe algébrique connexe sur \(k\). Si tous les éléments de \(\Lie(H)\)
+sont semi-simples, alors \(H\) est de type multiplicatif.
+\end{lemme28}
+
+\begin{proof}
+Voir aussi \([\mathrm{DG},\,\mathrm{IV},\S3,\text{ lemme }3.7]\). L'algèbre de Lie
+\(\Lie(H)\) est commutative. Fixons \(x\in\Lie(H)\), et montrons qu'il est central dans
+\(\Lie(H)\). Comme \(\operatorname{ad}x\) est semi-simple, il suffit de montrer que, si
+\(y\) est dans un espace propre de \(\operatorname{ad}x\), c'est-à-dire si
+\([x,y]=\lambda y\), alors \(x\) et \(y\) commutent, c'est-à-dire \(\lambda=0\). Soit
+\(W\) le sous-espace vectoriel de \(\Lie(H)\) engendré par les éléments
+\(y^{[p^\ell]}\), \(\ell\ge0\). Les éléments \(y^{[p^\ell]}\) commutent. L'application
+\(z\mapsto z^{[p]}\) induit donc une application \(p\)-linéaire de \(W\) dans lui-même,
+injective par hypothèse. Il s'ensuit que \(W\) possède une base \(e_i\),
+\(1\le i\le N\), formée d'éléments tels que
+\[
+  e_i^{[p]}=e_i,
+  \qquad
+  \Big(\sum a_i e_i\Big)^{[p]}=\sum a_i^p e_i.
+\]
+Pour le voir, considérons \(W\) comme un groupe algébrique. Le morphisme \(W\to W\)
+donné par \(x\mapsto x^{[p]}-x\) est étale. Soit \(K\) son noyau. Dans n'importe
+quelle base, il est défini par \(d=\dim(W)\) équations de degré \(p\), à savoir
+\[
+  (x^{[p]})_i-x_i=0,
+  \qquad i=1,2,\ldots,d,
+\]
+avec un ensemble étale de solutions et sans solution à l'infini : le système d'équations
+homogènes \((x^{[p]})_i=0\) n'a pas de solution non nulle, par hypothèse. Par Bézout,
+le groupe des solutions est donc un \((\mathbb Z/p)^d\). Soit \(e_i\) une base de ce
+groupe. Si les \(e_i\) n'étaient pas linéairement indépendants dans \(W\), il existerait
+une relation linéaire \(\sum_{i\in J} a_i e_i=0\), avec \(a_i\in k\) non nuls, faisant
+intervenir un nombre minimal de \(e_i\). On a aussi \(\sum a_i^p e_i=0\). Par minimalité
+des \(e_i\), il existe donc \(\lambda\) tel que, pour tout \(i\), \(a_i^p=\lambda a_i\).
+Après multiplication par \(\lambda^{1/(p-1)}\), on obtient \(a_i\in\mathbb F_p\), ce
+qui est une contradiction.
+\end{proof}
+
+\begin{lemme29}
+Pour \(b=(b_i)\in k^N\), posons \(b^{[p]}:=(b_i^p)\). Alors tout \(b\in k^N\) est
+combinaison linéaire des \(b^{[p^\ell]}\), pour \(\ell\ge1\).
+\end{lemme29}
+
+\begin{proof}
+Les \(b^{[p^a]}\), \(a\ge0\), sont linéairement dépendants. Une relation de dépendance
+linéaire peut s'écrire
+\begin{equation}
+  \sum_{j\ge m} c_j b^{[p^j]}=0
+  \tag{2.9.1}
+\end{equation}
+avec \(c_m\ne0\). En extrayant les racines \(p^m\)-ièmes, on obtient
+\begin{equation}
+  \sum_{j\ge0} d_j b^{[p^j]}=0,
+  \tag{2.9.2}
+\end{equation}
+où \(d_j=c_{m+j}^{1/p^m}\). En particulier \(d_0\ne0\), ce qui démontre le lemme.
+\end{proof}
+
+\noindent\emph{Fin de la preuve de la commutativité.}
+D'après le lemme précédent, \(y\) est une combinaison linéaire des \(y^{[p^\ell]}\),
+\(\ell>0\). Le crochet \([y^{[p^\ell]},x]\) s'annule pour \(\ell>0\). En effet, c'est
+\((\operatorname{ad}y)^{[p^\ell]}(x)\), qui s'annule puisque
+\([y,[y,x]]=[y,-\lambda y]=0\). Il s'ensuit que \([y,x]\) s'annule aussi.
+
+L'algèbre de \(p\)-Lie \(\Lie(H)\) est commutative, et donc son opération de puissance
+\(p\)-ième \(\Lie(H)\to\Lie(H)\) est injective. Elle possède donc une base \(e_i\) telle
+que \(e_i^{[p]}=e_i\). Le dual de son algèbre enveloppante restreinte est la bigèbre
+affine du noyau \(K\) du morphisme de Frobenius \(F:H\to H^{(p)}\), où \(H^{(p)}\) est
+obtenu à partir de \(H\) par extension des scalaires \(\lambda\mapsto\lambda^{[p]}\),
+\(k\to k\). Il s'ensuit que \(K\) est un produit de \(\mu_p\).
+
+Il en va de même de \(H^{(p)}\), obtenu à partir de \(H\) au moyen d'un automorphisme de
+\(k\). Il en va de même de chaque \(H^{(p^\ell)}\).
+
+Pour tout \(n\), le noyau \(K_n\) de l'itéré du Frobenius
+\(F^n:H\to H^{(p^n)}\) est une extension itérée de sous-groupes du noyau du Frobenius
+des \(H^{(p^i)}\), \(i<n\). Il est donc de type multiplicatif, comme extension itérée
+de groupes connexes de type multiplicatif \([\mathrm{SGA3},\mathrm{XVII},7.1.1]\).
+
+Les \(K_n\) forment une suite croissante. Par la preuve de \([\mathrm D,\) proposition
+1.1], il existe un sous-groupe de type multiplicatif \(M\) de \(H\) contenant tous les
+\(K_n\). Comme \(H\) est connexe et comme \(M\) contient tous les voisinages
+infinitésimaux de l'élément neutre, on a \(M=H\).
+
+Chaque fois qu'un groupe \(M\) de type multiplicatif agit sur un groupe \(K\), son
+action sur \(\Lie(K)\) définit une décomposition en poids
+\begin{equation}
+  \Lie(K)=\bigoplus_{\beta\in X(M)}\Lie(K)_\beta .
+  \tag{2.9.3}
+\end{equation}
+Si \(v\in\Lie(K)_\beta\), alors \(v^{[p]}\) appartient à \(\Lie(K)_{p\beta}\). En effet,
+après toute extension des scalaires \(R/k\), si \(m\in M(R)\),
+\begin{equation}
+  m(v^{[p]})=(m(v))^{[p]}=(\beta(m)v)^{[p]}=\beta(m)^{[p]}v^{[p]}.
+  \tag{2.9.4}
+\end{equation}
+
+\begin{lemme210}
+Soit \(M\) un groupe de type multiplicatif agissant sur un groupe \(K\), et soit
+(2.9.3) la décomposition en espaces de poids pour l'action correspondante sur
+\(\Lie(K)\). Si \(\beta\in X(M)\) n'est pas de torsion, alors \(\Lie(K)_\beta\) est
+formé d'éléments nilpotents.
+\end{lemme210}
+
+\begin{proof}
+En effet, si \(\beta\) n'est pas de torsion, les \(p^\ell\beta\) sont tous distincts et
+\(\Lie(K)_{p^\ell\beta}\) doit être nul pour \(\ell\gg0\). Il s'ensuit que les éléments
+de \(\Lie(K)_\beta\) sont nilpotents.
+\end{proof}
+
+Appliquons ceci à l'action de \(T\) sur \(\mathcal G\) par automorphismes intérieurs.
+
+\begin{lemme211}
+Si \(\beta\in X(T)\) est non nul, l'espace de poids \(\Lie(\mathcal G)_\beta\) est égal
+à \(\Lie(\mathcal G_{\red})_\beta\).
+\end{lemme211}
+
+\begin{proof}
+En effet, \(\Lie(\mathcal G)_\beta\) est formé d'éléments nilpotents. Par l'hypothèse
+2.7(b), il est contenu dans \(\Lie(\mathcal G_{\red})\).
+\end{proof}
+
+Soit \(B\) un sous-groupe de Borel de \(\mathcal G_{\red}\) contenant \(T\), et soit
+\(U\) son radical unipotent.
+
+\begin{lemme212}
+Sous l'hypothèse de 2.7, \(H\) normalise \(U\).
+\end{lemme212}
+
+\begin{proof}
+Soit \(C\) dans \(X(T)\otimes\mathbb R\) le cône engendré par les racines positives
+relatives à \(B\), et posons
+\begin{equation}
+  C^*:=C\setminus\{0\}.\tag{2.12.1}
+\end{equation}
+Comme en 2.11, faisons agir \(T\) sur \(\mathcal G\) par conjugaison, \(t\) agissant
+par \(g\mapsto tgt^{-1}\). Cette action induit des actions sur
+\(\mathfrak g:=\Lie(\mathcal G)\), sur l'algèbre affine \(A\) de \(\mathcal G\), sur
+son idéal d'augmentation \(\mathfrak m\), et sur le dual
+\(\mathfrak g^\vee=\mathfrak m/\mathfrak m^2\) de \(\mathfrak g\). De même, \(T\) agit
+sur \(U\), sur son algèbre de Lie \(\mathfrak u\), sur son algèbre affine \(A_U\), et
+sur son idéal d'augmentation \(\mathfrak m_U\). Pour l'action sur les algèbres affines,
+\(t\in T\) transforme \(f(g)\) en \(f(t^{-1}gt)\). Ces actions donnent des graduations
+par \(X(T)\). Par 2.7(b),
+\begin{equation}
+  \mathfrak u=\bigoplus_{\beta\in C^*}\mathfrak g_\beta .
+  \tag{2.12.2}
+\end{equation}
+Il s'ensuit que \(\mathfrak u^\vee=\mathfrak m_U/\mathfrak m_U^2\) est la somme des
+\((\mathfrak g^\vee)_\beta\), pour \(\beta\) dans l'opposé \(-C^*\) de \(C^*\). Pour
+\(n>0\), les poids par lesquels \(T\) agit sur
+\(\mathfrak m_U^n/\mathfrak m_U^{n+1}\) appartiennent à \(-C^*\). Comme \(U\) est
+connexe, l'intersection des \(\mathfrak m_U^n\) est réduite à \(0\), et les poids par
+lesquels \(T\) agit sur \(\mathfrak m_U\) appartiennent aussi à \(-C^*\).
+
+Soit \(I\) l'idéal de \(A\) engendré par les composantes graduées \(\mathfrak m_\beta\)
+de \(\mathfrak m\), pour \(\beta\notin -C^*\), et posons \(A_1:=A/I\). L'image dans
+\(\mathfrak m_U\) d'un \(\mathfrak m_\beta\) comme ci-dessus est contenue dans
+\((\mathfrak m_U)_\beta\), donc s'annule. Il en résulte que \(U\) est contenu dans le
+sous-schéma fermé \(U_1=\operatorname{Spec}A_1\) de \(\mathcal G\), défini par \(I\).
+Comme la composante graduée \(\mathfrak m^0\) de \(\mathfrak m\) est contenue dans
+\(I\), la composante graduée \(A_1^0\) de \(A_1\), celle des \(T\)-invariants, est
+réduite aux constantes. Comme \(T\) est connexe, il s'ensuit que \(U_1\) est connexe.
+Comme l'image de \((\mathfrak m_U)_\beta\) dans \(\mathfrak m/\mathfrak m^2\) est
+\((\mathfrak m/\mathfrak m^2)_\beta\), l'image de \(I\) dans
+\(\mathfrak m/\mathfrak m^2=\mathfrak g^\vee\) est l'orthogonal de
+\(\mathfrak u\subset\mathfrak g\), et l'espace tangent à l'origine de \(U_1\) est
+\(\mathfrak u\).
+
+\emph{Assertion.} Le sous-schéma \(U_1\) de \(\mathcal G\) est un schéma en sous-groupes,
+c'est-à-dire que le coproduit \(\Delta:A\to A\otimes A\), \(f(g)\mapsto f(gh)\), envoie
+\(I\) dans \(I\otimes A+A\otimes I\). En effet, \(\Delta\) respecte les graduations. Si
+\(k\subset A\) désigne les constantes, on a \(A=k\oplus\mathfrak m\), et \(\Delta\) envoie
+\(\mathfrak m\) dans
+\((k\otimes\mathfrak m)\oplus(\mathfrak m\otimes k)\oplus
+(\mathfrak m\otimes\mathfrak m)\); par suite, \(\mathfrak m_\beta\) est envoyé dans
+\begin{equation}
+(k\otimes\mathfrak m_\beta)\oplus(\mathfrak m_\beta\otimes k)
+\oplus
+\sum_{\beta=\beta'+\beta''}\mathfrak m_{\beta'}\otimes\mathfrak m_{\beta''}.
+\tag{2.12.3}
+\end{equation}
+Comme \(-C^*\) est stable par addition, si \(\beta=\beta'+\beta''\) et si \(\beta\)
+n'appartient pas à \(-C^*\), l'un de \(\beta'\), \(\beta''\) n'appartient pas à
+\(-C^*\), et le \(\mathfrak m_{\beta'}\) ou \(\mathfrak m_{\beta''}\) correspondant est
+contenu dans \(I\). L'assertion s'ensuit.
+
+En résumé, \(U_1\) est connexe, et l'inclusion \(U\subset U_1\) induit un isomorphisme
+\(\Lie(U)\xrightarrow{\sim}\Lie(U_1)\). Comme \(U\) est lisse, ceci implique
+\(U=U_1\).
+
+Puisque \(H\) centralise \(T\), l'idéal \(I\) est stable par \(H\), ce qui signifie que
+\(H\) normalise \(U\).
+\end{proof}
+
+\begin{corollaire213}
+Sous l'hypothèse de 2.7, \(H\) normalise \(\mathcal G_{\red}\).
+\end{corollaire213}
+
+\begin{proof}
+Soit \(B^-\) le sous-groupe de Borel de \(\mathcal G_{\red}\) contenant \(T\) et opposé
+à \(B\), et soit \(U^-\) son radical unipotent. Comme \(U^-\), \(T\) et \(U\) sont
+normalisés par \(H\), la grosse cellule \(U^-TU\subset\mathcal G_{\red}\) est stable
+par l'action de \(H\) par conjugaison, et il en est de même de sa clôture schématique
+\(\mathcal G_{\red}\).
+\end{proof}
+
+Dans ce qui suit, nous identifions les schémas aux faisceaux fppf correspondants. Un
+quotient comme \(\mathcal G/H\) représente le quotient du faisceau de groupes
+\(\mathcal G\) par le sous-faisceau \(H\) : \(\mathcal G\) est un \(H\)-torseur au-dessus
+de \(\mathcal G/H\).
+
+\begin{lemme214}
+Le morphisme de schémas
+\begin{equation}
+  \mathcal G_{\red}/T\longrightarrow\mathcal G/H
+  \tag{2.14.1}
+\end{equation}
+est un isomorphisme.
+\end{lemme214}
+
+\begin{proof}
+Comme \(T\) est l'intersection de \(\mathcal G_{\red}\) et de \(H\), le morphisme
+(2.14.1), comme morphisme de faisceaux fppf, est injectif. En testant sur
+\(\operatorname{Spec}(k)\) et sur \(\operatorname{Spec}(k[\varepsilon]/(\varepsilon^2))\),
+on voit qu'il est bijectif sur les points et injectif sur les espaces tangents en chaque
+point. Il est donc radiciel et non ramifié. Par conséquent, sur un ouvert de
+\(\mathcal G_{\red}/T\), ce morphisme est une immersion. L'homogénéité sous
+\(\mathcal G_{\red}\) montre alors que c'est un plongement fermé. Comme
+\(\mathcal G_{\red}/T\) est lisse et comme (2.14.1) est bijectif sur les points à valeurs
+dans \(k\), pour montrer que le plongement fermé (2.14.1) est un isomorphisme, il suffit
+de montrer qu'il induit en chaque point un isomorphisme sur les espaces tangents. Par
+homogénéité, il suffit de le vérifier à l'origine. L'espace tangent à l'origine de
+\(\mathcal G_{\red}/T\) est \(\Lie(\mathcal G_{\red})/\Lie(T)\).
+
+Pour l'espace tangent de \(\mathcal G/H\), procédons comme suit. Soit \(J\) l'idéal qui
+définit \(H\) dans \(\mathcal G\), et soit \(\eta\) l'idéal qui définit l'origine dans
+\(\mathcal G/H\). Comme \(\mathcal G\) est un \(H\)-torseur sur \(\mathcal G/H\), le
+tiré en arrière de \(\eta/\eta^2\) sur \(\mathcal G\) est \(J/J^2\), et \(\eta/\eta^2\)
+est la fibre de \(J/J^2\) à l'origine \(e\). Par \([\mathrm D,2.15]\), appliqué à
+l'action de \(T\) sur \(\mathcal G\) par conjugaison, on a un isomorphisme
+\[
+  (J/J^2)_e\xrightarrow{\sim}
+  \bigoplus_{\beta\ne0}(\mathfrak m/\mathfrak m^2)_\beta
+  =\bigl(\Lie(\mathcal G_{\red})/\Lie(T)\bigr)^\vee .
+\]
+En dualisant, on voit que (2.14.1) est un isomorphisme au voisinage de l'origine, donc
+partout.
+\end{proof}
+
+\begin{corollaire215}
+Sous les hypothèses de 2.7, \(\mathcal G_{\red}\) est normal dans \(\mathcal G\), et il
+existe dans \(\mathcal G\) un schéma en sous-groupes central, connexe et de type
+multiplicatif \(M\) tel que le morphisme
+\[
+  M\times\mathcal G_{\red}\longrightarrow\mathcal G
+\]
+réalise \(\mathcal G\) comme quotient de \(M\times\mathcal G_{\red}\).
+\end{corollaire215}
+
+\begin{proof}
+Par 2.14, le morphisme produit \(\mathcal G_{\red}\times H\to\mathcal G\) est surjectif
+comme morphisme de faisceaux. Comme \(\mathcal G_{\red}\) et \(H\) normalisent tous deux
+\(\mathcal G_{\red}\subset\mathcal G\), il en est de même de \(\mathcal G\).
+
+Pour achever la preuve de 2.15, et donc de 2.7, suivons \([\mathrm D,\S2.25]\). Soit
+\(M\) le sous-groupe de \(H\) qui centralise \(\mathcal G_{\red}\), toujours au sens
+schématique. Par \([\mathrm{DG},\) corollaire 2.4(a), page 476], \(M\) est aussi
+multiplicatif. Comme \(\mathcal G_{\red}\) est réductif, le schéma en groupes
+\(\Aut_T(\mathcal G_{\red})\) des automorphismes qui préservent \(T\) est précisément
+\(T^{\mathrm{ad}}\), l'image de \(T\) dans le groupe adjoint. L'action de \(H\) sur
+\(\mathcal G_{\red}\) par conjugaison donne donc la suite exacte
+\begin{equation}
+  1\longrightarrow M\longrightarrow H\longrightarrow T^{\mathrm{ad}}\longrightarrow 1.
+  \tag{2.15.1}
+\end{equation}
+Comme \(T\) se surjecte sur \(T^{\mathrm{ad}}\), \(M\) et \(T\) engendrent \(H\). Comme
+\(M\) est engendré par \(M_{\red}\subset\mathcal G_{\red}\) et \(M^0\), et comme \(H\)
+et \(\mathcal G_{\red}\) engendrent \(\mathcal G\), on voit que \(M^0\) et
+\(\mathcal G_{\red}\) engendrent \(\mathcal G\). De plus, \(M^0\) est central. Ainsi
+\begin{equation}
+  M^0\times\mathcal G_{\red}\longrightarrow\mathcal G
+  \tag{2.15.2}
+\end{equation}
+est un épimorphisme. Ceci conclut la preuve de 2.7 et, en particulier, de 2.5(2).
+\end{proof}
+
+\begin{lemme216}
+Supposons que \(H\) soit un schéma en sous-groupes connexe maximal de type
+multiplicatif d'un groupe algébrique \(\mathcal G\). Soit \(Z^0_{\mathcal G}(H)\) la
+composante neutre du centralisateur de \(H\) dans \(\mathcal G\), et posons
+\(U:=Z^0_{\mathcal G}(H)/H\). Alors la suite
+\begin{equation}
+0\longrightarrow \Lie(H)\longrightarrow\Lie(Z^0_{\mathcal G}(H))
+\longrightarrow\Lie(U)\longrightarrow0
+\tag{2.16.1}
+\end{equation}
+associée à l'extension centrale
+\begin{equation}
+1\longrightarrow H\longrightarrow Z^0_{\mathcal G}(H)\longrightarrow U
+\longrightarrow1
+\tag{2.16.2}
+\end{equation}
+est exacte.
+\end{lemme216}
+
+\begin{proof}
+L'exactitude à gauche de (2.16.1) est claire. La maximalité de \(H\) implique que \(U\)
+est unipotent; voir \([\mathrm D,\S2.5,\text{ page }590]\).
+
+Plongeons \(H\) dans \(\Gm^r\) comme sous-schéma en groupes. Le quotient
+\(H''=\Gm^r/H\) est un tore, étant quotient d'un tore. L'extension centrale (2.16.2),
+par image directe, donne une extension centrale \([\mathrm{SGA3},\) exposé XVII, lemme
+6.2.4]
+\begin{equation}
+1\longrightarrow\Gm^r\longrightarrow E\longrightarrow U\longrightarrow1
+\tag{2.16.3}
+\end{equation}
+et un diagramme de groupes
+\begin{equation}
+\begin{tikzcd}[column sep=1.5em,row sep=1.2em]
+ & 1 \arrow[d] & 1 \arrow[d] & 1 \arrow[d] & \\
+1 \arrow[r] & H \arrow[r] \arrow[d] & Z^0_{\mathcal G}(H) \arrow[r] \arrow[d] & U \arrow[r] \arrow[d,equal] & 1 \\
+1 \arrow[r] & \Gm^r \arrow[r] \arrow[d] & E \arrow[r] \arrow[d] & U \arrow[r] \arrow[d] & 1 \\
+1 \arrow[r] & H'' \arrow[r,equal] \arrow[d] & H'' \arrow[r] \arrow[d] & 1 \arrow[d] & \\
+ & 1 & 1 & 1 &
+\end{tikzcd}
+\tag{2.16.4}
+\end{equation}
+
+Comme \(H''\) est multiplicatif, tout nilpotent dans \(\Lie(E)\) s'envoie sur \(0\) dans
+\(\Lie(H'')\), et provient donc d'un nilpotent de \(\Lie(Z^0_{\mathcal G}(H))\).
+Comme \(\Gm^r\) est lisse, \([\mathrm{SGA3},\) exposé VII, proposition 8.2] donne, à
+partir de (2.16.3), une suite exacte
+\begin{equation}
+0\longrightarrow\Lie(\Gm^r)\longrightarrow\Lie(E)\longrightarrow\Lie(U)
+\longrightarrow0.
+\tag{2.16.5}
+\end{equation}
+Comme \(U\) est unipotent, tout élément \(z\in\Lie(U)\) est nilpotent. Soit
+\(z'\in\Lie(E)\) un relèvement de \(z\). La décomposition de Jordan a un sens pour toute
+algèbre de \(p\)-Lie sur un corps parfait \(k\), et n'utilise que l'application puissance
+\(p\)-ième; voir par exemple \([\mathrm{W2},\) corollaire 4.5.9, page 135]. Ainsi, en
+utilisant la décomposition de Jordan du relèvement \(z'\) dans \(\Lie(E)\), et en
+remarquant que la partie semi-simple s'envoie sur zéro dans \(\Lie(U)\), on peut supposer
+que \(z'\) est lui aussi nilpotent.
+
+Puisque tout nilpotent de \(\Lie(E)\) provient d'un nilpotent de
+\(\Lie(Z^0_{\mathcal G}(H))\), on conclut que \(z\) se relève en un nilpotent de
+\(\Lie(Z^0_{\mathcal G}(H))\). Ceci implique que (2.16.1) est aussi exacte à droite.
+\end{proof}
+
+\begin{lemme217}
+Supposons que \(\mathcal G\) soit un schéma en sous-groupes de \(G\),
+infinitésimalement saturé dans \(G\). Alors le schéma en sous-groupes
+\(Z^0_{\mathcal G}(H)\) est infinitésimalement saturé dans \(G\). En particulier, tout
+nilpotent non nul de \(\Lie(Z^0_{\mathcal G}(H))\) appartient à
+\(\Lie(Z^0_{\mathcal G}(H)_{\red})\).
+\end{lemme217}
+
+\begin{proof}
+Si \(\mathfrak n\in\Lie(Z^0_{\mathcal G}(H))\) est nilpotent, l'application
+\(\rho:t\mapsto\exp(t\mathfrak n):\Ga\to G\) se factorise par \(\mathcal G\). Comme
+\(H\) est central dans \(Z^0_{\mathcal G}(H)\), l'action de \(H\) par automorphismes
+intérieurs fixe \(\mathfrak n\). Comme l'application \(\exp\) est compatible à la
+conjugaison, toute la courbe \(\rho\) est fixée par \(H\). Donc \(\rho\) se factorise
+par \(Z_G(H)\), et donc par \(Z^0_{\mathcal G}(H)_{\red}\), puisque \(\Ga\) est réduit
+et connexe. Ainsi \(\mathfrak n\in\Lie(Z^0_{\mathcal G}(H)_{\red})\).
+\end{proof}
+
+Nous avons l'extension suivante de \([\mathrm D,\) lemme 2.7, corollaire 2.11].
+
+\begin{lemme218}
+Soit \(\mathcal G\) comme en 2.17. Soit \(H\subset\mathcal G\) un schéma en
+sous-groupes connexe maximal de type multiplicatif. Alors l'extension centrale (2.16.2)
+se scinde et \(U\) est un groupe unipotent lisse.
+\end{lemme218}
+
+\begin{proof}
+Nous affirmons que \(U\) est lisse. Par le lemme 2.16, tout élément \(z\in\Lie(U)\)
+provient d'un nilpotent \(\mathfrak n\in\Lie(Z^0_{\mathcal G}(H))\). Par 2.17,
+\(\mathfrak n\) appartient à \(\Lie(Z^0_{\mathcal G}(H)_{\red})\). Son image \(z\)
+appartient donc à \(\Lie(U_{\red})\). Ainsi \(\Lie(U)=\Lie(U_{\red})\), ce qui démontre
+l'affirmation.
+
+On a maintenant une extension centrale (2.16.2) avec la propriété supplémentaire que
+\(U\) est lisse. Par \([\mathrm{SGA3},\) exposé XVII, théorème 6.1.1], il s'ensuit que
+(2.16.2) se scinde de manière unique et que
+\begin{equation}
+  Z^0_{\mathcal G}(H)=H\times U.
+  \tag{2.18.1}
+\end{equation}
+\end{proof}
+
+\paragraph{Remarque 2.19.}
+Rappelons qu'en 2.2, pour l'existence d'une application exponentielle (2.2.2), nous
+avons supposé que le morphisme de revêtement \(\widetilde G\to G'\) est étale, ce qui
+est devenu une partie de l'hypothèse permanente (2.3). Le cas exclu est celui où le
+revêtement simplement connexe du groupe dérivé a des facteurs \(\SL(p)\). Par exemple,
+si \(G'\) est simple avec \(p=h_G\), le seul cas exclu est \(G'=\PGL(p)\).
+
+Soit \(G\) un groupe réductif tel que \(p=h_G\). Les tables des nombres de Coxeter des
+groupes simples montrent qu'en dehors du type \(A\), où \(h_{\SL(n)}=n\), les nombres
+de Coxeter sont pairs et supérieurs à \(2\). Il s'ensuit que \(\widetilde G\) est un
+produit de \(\SL(p)\) et d'autres facteurs simples pour lesquels \(p\) est plus grand que
+leur nombre de Coxeter. Même lorsque le morphisme \(\widetilde G\to G'\) n'est pas
+étale, on peut encore définir les notions de saturation, respectivement de saturation
+infinitésimale, des schémas en sous-groupes \(\mathcal G\subset G\) comme suit.
+
+On dit que \(\mathcal G\subset G\) est saturé, respectivement infinitésimalement saturé,
+si son image inverse dans \(\widetilde G\) est saturée, respectivement infinitésimalement
+saturée. Avec cette définition, le théorème 2.5 reste vrai pour \(p\ge h_G\).
+
+Cette notion de saturation, respectivement de saturation infinitésimale, se décrit aussi
+au moyen d'applications puissance \(t\)-ième et d'applications exponentielles convenablement
+définies. Nous nous restreignons au cas \(G'=\PGL(p)\). Au niveau des algèbres de Lie,
+le morphisme induit
+\begin{equation}
+  \mathfrak{sl}(p)\longrightarrow\mathfrak{pgl}(p)
+  \tag{2.19.1}
+\end{equation}
+est radiciel sur le lieu des éléments nilpotents. Si \(A\in\mathfrak{gl}(p)\) est une
+matrice représentant un élément de \(\mathfrak{pgl}(p)\), elle est nilpotente si tous les
+coefficients du polynôme caractéristique sauf le coefficient constant s'annulent, c'est-à-dire
+si \(\Tr(\wedge^i A)=0\) pour \(1\le i<p\), et si le polynôme caractéristique se réduit
+à \(T^p-\det(A)\). Cette condition est stable par \(A\mapsto A+\lambda I\), puisque
+\[
+  (T-\lambda)^p-\det(A)=T^p-(\det(A)+\lambda^p)=T^p-\det(A+\lambda I).
+\]
+On obtient l'unique relèvement \(\widetilde A\in\mathfrak{sl}(p)\) en posant
+\(\widetilde A:=A-\det(A)^{1/p}I\). On a alors \(\Tr(\wedge^i\widetilde A)=0\) pour
+\(1\le i\le p\), et l'on peut donc définir le morphisme exponentiel
+\(\Ga\to\PGL(p)\) par
+\begin{equation}
+  t\longmapsto \exp(tA):=\exp(t\widetilde A).
+  \tag{2.19.2}
+\end{equation}
+De même, pour les unipotents du groupe \(\PGL(p)\), la restriction de ce morphisme au
+lieu des éléments unipotents
+\begin{equation}
+  \SL(p)_u\longrightarrow\PGL(p)_u
+  \tag{2.19.3}
+\end{equation}
+est radicielle. Ainsi tout \(u\in\PGL(p)\) unipotent a un relèvement unipotent unique
+\(\widetilde u\in\SL(p)\), et l'on peut définir l'application puissance \(t\)-ième
+\(\Ga\to\PGL(p)\) par
+\begin{equation}
+  t\longmapsto u^t:=\operatorname{image}(\widetilde u^{\,t}).
+  \tag{2.19.4}
+\end{equation}
+Les applications puissance \(t\)-ième et les morphismes exponentiels étant ainsi définis,
+on définit les notions de saturation, respectivement de saturation infinitésimale, des
+schémas en sous-groupes \(\mathcal G\subset G'\) exactement comme dans la définition 2.4,
+en utilisant (2.19.4), respectivement (2.19.2); ces définitions coïncident avec celles ci-dessus.
+
+Nous remarquons cependant que ces applications ponctuelles, c'est-à-dire définies pour
+chaque nilpotent \(A\), respectivement pour chaque unipotent \(u\), ne sont pas induites
+par un morphisme de \(\mathfrak{pgl}(p)_{\nilp}\) vers \(\PGL(p)_u\), respectivement par
+un morphisme \(\mathbb A^1\times\PGL(p)_u\to\PGL(p)_u\), \((t,u)\mapsto u^t\).
+
+\section{Achèvement de la preuve du théorème de structure 2.5}
+
+Nous commençons par énoncer un résultat général sur les systèmes de racines; sa preuve
+est donnée dans l'appendice.
+
+\begin{proposition31}
+Soit \(R\) un système de racines irréductible de nombre de Coxeter \(h\), et soit \(X\)
+le réseau engendré par \(R\). Soit \(\varphi:X\to\mathbb R/\mathbb Z\) un homomorphisme.
+Alors il existe une base \(B\) de \(R\) telle que, si \(\alpha\in R\) vérifie
+\(\varphi(\alpha)\in(0,1/h)\bmod\mathbb Z\), alors \(\alpha\) est positive relativement
+à \(B\).
+\end{proposition31}
+
+\paragraph{3.2.}
+L'hypothèse 2.3 sur le groupe réductif \(G\) reste en vigueur. Soit \(\mathcal G\) un
+schéma en sous-groupes de \(G\), et soit \(H\) un schéma en sous-groupes connexe maximal
+de type multiplicatif de \(\mathcal G\). Pour l'existence de \(H\), voir
+\([\mathrm D,\) proposition 2.1].
+
+Soit \(X(H)\) le groupe des caractères de \(H\). L'action de \(H\) sur \(\Lie(G)\) par
+conjugaison donne une graduation par \(X(H)\),
+\[
+  \Lie(G)=\Lie(Z^0_G(H))\oplus\bigoplus_{\alpha\ne0}\Lie(G)_\alpha.
+\]
+Rappelons que, si \(M\) est un schéma en groupes connexe de type multiplicatif sur
+\(k\), le groupe de caractères \(X(M)\) est de type fini et n'a pas de torsion première à
+\(p\). Comme \(k\) est algébriquement clos, cela signifie que \(M\) est un produit de
+sous-groupes isomorphes à \(\Gm\) ou à \(\mu_{p^j}\), avec \(j>0\).
+
+\begin{corollaire33}
+Cf. \([\mathrm D,\) lemme 2.12]. Soit \(M\) un schéma en sous-groupes connexe de type
+multiplicatif de \(G\), et supposons \(p>h_G\). L'action de \(M\) sur \(\Lie(G)\) par
+conjugaison donne une graduation par \(X(M)\),
+\[
+  \Lie(G)=\bigoplus_{\alpha\in X(M)}\Lie(G)_\alpha.
+\]
+Si \(\alpha\ne0\), alors, pour \(\gamma\in\Lie(G)_\alpha\), on a \(\gamma^{[p]}=0\). En
+particulier, si \(M=H\) et \(\gamma\in\Lie(G)_\alpha\), on a \(\gamma^{[p]}=0\).
+\end{corollaire33}
+
+\begin{proof}
+Si \(\alpha\) est d'ordre infini, il suffit d'appliquer 2.10. Si \(\alpha\) est d'ordre
+fini, il existe un sous-groupe \(N\) de \(M\), isomorphe à \(\mu_{p^j}\), auquel
+\(\alpha\) se restreint non trivialement; il suffit alors de prouver 3.3 pour \(N\) et
+pour la restriction de \(\alpha\) à \(N\). Choisissons un isomorphisme de \(X(N)\) avec
+\(X(\mu_{p^j})\) tel que l'image de \(\alpha\) dans \(\mathbb Z/p^j\) soit de la forme
+\(p^b\), avec \(0\le b<j\).
+
+Dans un groupe algébrique lisse, les sous-groupes connexes maximaux de type multiplicatif
+sont des tores maximaux. En effet, si \(T\) est un tel sous-groupe maximal, son
+centralisateur \(Z_G(T)\) est lisse, comme lieu fixe d'un groupe linéairement réductif
+agissant sur une variété lisse; voir par exemple \([\mathrm{DG},\) théorème 2.8,
+chapitre II, \S5]. Posons \(U:=Z_G(T)^0/T\). Le schéma en groupes \(U\) est lisse,
+comme quotient de \(Z_G(T)^0\), qui est lisse, et il est unipotent par maximalité de
+\(T\). Par \([\mathrm{SGA3},\) exposé XVII, théorème 6.1.1], on a un scindage
+\(Z_G(T)^0\simeq T\times U\), et donc \(T\) est lisse.
+
+Dans notre cas, \(N\) est donc contenu dans un tore maximal \(T\) de \(G\). Soit
+\begin{equation}
+  \varphi:X(T)\longrightarrow\mathbb R/\mathbb Z
+  \tag{3.3.1}
+\end{equation}
+le composé de \(X(T)\to X(N)=\mathbb Z/p^j\) et de l'inclusion
+\(x\mapsto x/p^j\) de \(\mathbb Z/p^j\) dans \(\mathbb R/\mathbb Z\). L'espace de poids
+\(\Lie(G)_\alpha\) pour \(N\) est la somme des espaces de poids \(\Lie(G)_\beta\) pour
+\(T\), où \(\beta\) parcourt les racines telles que \(\varphi(\beta)=1/p^{j-b}\). Comme
+\[
+  \frac1{p^{j-b}}\le\frac1p<\frac1h,
+\]
+on peut appliquer 3.1 et conclure que \(\Lie(G)_\alpha\) est contenu dans l'algèbre de
+Lie du radical unipotent d'un sous-groupe de Borel de \(G\). En particulier, il est formé
+d'éléments nilpotents, ce qui démontre 3.3.
+\end{proof}
+
+\paragraph{3.4.}
+La preuve de 2.5 suit maintenant \([\mathrm D,\) pages 594--599] mot pour mot, avec une
+seule modification. Rappelons que dans \([\mathrm D]\), le groupe \(G\) était le groupe
+linéaire \(\GL(V)\) et la condition sur la caractéristique était \(p>\dim(V)\). Pour un
+\(G\) réductif connexe arbitraire, cette condition est maintenant remplacée par
+\(p>h_G\), ce qui rend 3.3 applicable.
+
+\paragraph{Remarque 3.5.}
+Si \(G=\GL(V)\), on a \(h_G=\dim(V)\). Dans le cas
+\(G=\prod\GL(V_i)\), avec \(p>\dim(V_i)\) pour tout \(i\), le cas \(p>h_G\) du
+théorème 2.5 donne \([\mathrm D,\) théorème 1.7].
+
+\paragraph{Exemple 3.6 (Brian Conrad).}
+Voici, en toute caractéristique \(p>0\), un exemple d'un groupe connexe de type
+multiplicatif \(M\) agissant sur un groupe réductif \(G\), et d'un caractère non trivial
+\(\alpha\) de \(M\), tel que l'espace de poids \(\Lie(G)_\alpha\) contienne des éléments
+non nilpotents. On prend \(G=\SL_p\), de sorte que \(h_G=p\), \(M=\mu_{p^2}\), et pour
+\(\alpha\) le caractère \(\zeta\mapsto\zeta^p\).
+
+On plonge \(M\) dans le tore maximal des matrices diagonales de \(\SL_p\) par
+\[
+  \zeta\longmapsto\diag(\zeta^0,\zeta^{-p},\zeta^{-2p},\ldots,\zeta^{-(p-1)p}).
+\]
+La restriction à \(M\) de chaque racine simple et de la racine la plus basse est le
+caractère \(\alpha:\zeta\mapsto\zeta^p\), et \(\Lie(G)_\alpha\) est la somme des espaces
+de racines correspondants. Dans la visualisation standard de \(\SL_p\), cet espace de
+poids dans \(\Lie(G)=\mathfrak{sl}_p\) est engendré par les coefficients
+surdiagonaux et par le coefficient en bas à gauche.
+
+Une somme d'éléments non nuls dans ces droites de racines contribuant à
+\(\Lie(G)_\alpha\) est une matrice \(p\times p\), \(X\in\mathfrak{sl}_p\), qui vérifie
+\begin{equation}
+  X(e_1)=t_p e_p,
+  \qquad X(e_2)=t_1 e_1,
+  \qquad\ldots,
+  \qquad X(e_p)=t_{p-1}e_{p-1}.
+  \tag{3.6.1}
+\end{equation}
+En itérant \(p\) fois, on obtient \(X^p=\diag(t,\ldots,t)\), où
+\(t:=\prod t_j\ne0\). Ainsi \(X\in\Lie(G)_\alpha\) n'est pas nilpotent.
+
+\paragraph{Exemple 3.7.}
+Une variante de l'exemple précédent donne un exemple de schéma en groupes
+infinitésimalement saturé \(\mathcal G\subset\SL(V)\), avec \(\dim(V)=p\), tel que
+\(V\) soit une représentation irréductible et que \(\mathcal G_{\red}\) soit un groupe
+unipotent. Ceci implique en particulier que \(\mathcal G_{\red}\) n'est pas normal dans
+\(\mathcal G\).
+
+Soit \(V\) l'algèbre affine de \(\mu_p\), c'est-à-dire
+\begin{equation}
+  V=\mathcal O(\mu_p):=\frac{k[u]}{(u^p-1)}.
+  \tag{3.7.1}
+\end{equation}
+L'espace vectoriel \(V\) admet pour base \(\{u^i\mid i\in\mathbb Z/p\}\). Le groupe
+multiplicatif \(\mathcal O(\mu_p)^*\) agit par multiplication sur \(V\). Pour
+\(f\in\mathcal O(\mu_p)^*\), \(f^p\) est constant. On définit \(N_f\) comme la valeur
+constante de \(f^p\). C'est en fait la norme de \(f\). L'action de
+\(\mathcal O(\mu_p)^*\) sur \(V\) induit une action du sous-groupe
+\(N\subset\mathcal O(\mu_p)^*\) pour lequel \(N_f=1\).
+
+Sur \(V\), on a aussi l'action de \(\mu_p\) par translations, et cette action normalise
+le groupe \(\mathcal O(\mu_p)^*\) et son sous-groupe \(N\). Considérons le schéma en
+groupes
+\begin{equation}
+  \mathcal G:=\mu_p\ltimes N.
+  \tag{3.7.2}
+\end{equation}
+Faisons quelques observations sur \(\mathcal G\):
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item Le groupe \(\mathcal G\) est infinitésimalement saturé.
+\item Dans \(\mathcal G\), considérons le premier facteur \(\mu_p\) et
+\(\{u^i\mid i\in\mathbb Z/p\}\simeq\mathbb Z/p\). Ces sous-groupes engendrent un
+sous-groupe \(H\), qui est une extension centrale de \(\mu_p\ltimes\mathbb Z/p\) par
+\(\mu_p\).
+\item La représentation \(V\) est irréductible comme \(H\)-module. En effet, un
+sous-module pour \(\mu_p\) est engendré par certains des \(u^i\), et, s'il est non nul
+et stable par \(\mathbb Z/p\), il les contient tous. A fortiori, \(V\) est un
+\(\mathcal G\)-module irréductible.
+\item Le groupe réduit \(\mathcal G_{\red}\) s'identifie au groupe unipotent
+\(\{f\in\mathcal O(\mu_p)^*\mid f(1)=1\}\).
+\item Le sous-groupe \(\mathcal G_{\red}\) n'est pas normal, car le point \(1\) de
+\(\mu_p\) n'est pas invariant par translations.
+\end{enumerate}
+
+\section{Énoncés de semi-simplicité}
+
+Soit \(G\) un groupe réductif. Soit \(C\) un groupe algébrique et
+\(\rho:C\to G\) un morphisme.
+
+\begin{definition41}[{[S2, page 20]}]
+On dit que \(\rho\) est \(\mathrm{cr}\) si, chaque fois que \(\rho\) se factorise par un
+sous-groupe parabolique \(P\) de \(G\), il se factorise par un sous-groupe de Levi de
+\(P\).
+\end{definition41}
+
+Lorsque \(G=\GL(V)\), \(\rho\) est \(\mathrm{cr}\) si et seulement si la représentation
+\(V\) de \(C\) est complètement réductible, ou de manière équivalente semi-simple; d'où la
+terminologie.
+
+La propriété pour \(\rho\) d'être \(\mathrm{cr}\) ne dépend que du schéma en sous-groupes
+de \(G\) qui est l'image schématique de \(C\). En fait, elle ne dépend que de l'image de
+\(C\) dans le groupe adjoint \(G^{\mathrm{ad}}\). En effet, les sous-groupes paraboliques de
+\(G\) sont les images inverses des sous-groupes paraboliques de \(G^{\mathrm{ad}}\), et de même
+pour les sous-groupes de Levi. Un schéma en sous-groupes \(\mathcal G\) de \(G\) sera dit
+\(\mathrm{cr}\) si son inclusion dans \(G\) l'est.
+
+Pour un système de racines irréductible \(R\), soit \(\alpha_0\) la plus haute racine et
+soit \(\sum n_i\alpha_i\) son expression comme combinaison linéaire des racines simples.
+La caractéristique \(p\) de \(k\) est dite bonne pour \(R\) si \(p\) est plus grand que
+chaque \(n_i\). Pour un système de racines général \(R\), \(p\) est bonne si elle l'est
+pour chaque composante irréductible de \(R\).
+
+\begin{proposition42}
+Supposons que \(C\) soit une extension
+\begin{equation}
+  1\longrightarrow B\longrightarrow C\longrightarrow A\longrightarrow 1
+  \tag{4.2.1}
+\end{equation}
+avec \(A^0\) de type multiplicatif et \(A/A^0\) groupe fini d'ordre premier à \(p\), et
+supposons que \(p\) soit bonne. Soit \(\rho:C\to G\) un morphisme. Si la restriction de
+\(\rho\) à \(B\) est \(\mathrm{cr}\), alors \(\rho\) est \(\mathrm{cr}\).
+\end{proposition42}
+
+Nous ne savons pas si la proposition vaut sans l'hypothèse que \(p\) est bonne.
+
+\begin{proof}
+Soit \(P\) un sous-groupe parabolique, \(U\) son radical unipotent, et
+\(\mathfrak u\) l'algèbre de Lie de \(U\). On dit que le parabolique \(P\) est
+\emph{restreint} si la classe de nilpotence de \(U\) est strictement inférieure à
+\(p\). Si \(P\) est un parabolique maximal correspondant à une racine simple
+\(\alpha\), la classe de nilpotence de \(U\) est le coefficient de \(\alpha\) dans la
+plus haute racine. Il s'ensuit que \(p\) est bonne si et seulement si tous les
+sous-groupes paraboliques maximaux sont restreints. D'après \([\mathrm{Sei},\)
+Proposition 5.3], résultat que l'auteur attribue à Serre, voir 6.6, si \(P\) est
+restreint, on obtient par spécialisation depuis la caractéristique zéro un isomorphisme
+\(P\)-équivariant
+\begin{equation}
+  \exp:(\mathfrak u,\circ)\xrightarrow{\sim} U
+  \tag{4.2.2}
+\end{equation}
+de \(\mathfrak u\), muni de la loi de groupe de Campbell--Hausdorff, vers \(U\).
+
+Nous montrerons d'abord que, lorsque \(\rho\) se factorise par un sous-groupe
+parabolique restreint \(P\) comme ci-dessus, si la restriction de \(\rho\) à \(B\) se
+factorise par un sous-groupe de Levi de \(P\), alors \(\rho\) lui-même se factorise par
+un sous-groupe de Levi de \(P\).
+
+Le groupe \(U(k)\) agit à droite sur l'ensemble \(\mathcal L(k)\) des sous-groupes de
+Levi de \(P\) par
+\[
+  u\in U(k) \quad\text{agit par}\quad L\longmapsto u^{-1}Lu.
+\]
+Cette action fait de \(\mathcal L(k)\) un \(U(k)\)-torseur. Elle exprime le fait que
+deux sous-groupes de Levi sont conjugués par un unique élément de \(U(k)\). Le groupe
+\(P(k)\) agit sur \(\mathcal L(k)\) et sur \(U(k)\) par conjugaison. Ceci fait de
+\(\mathcal L(k)\) un \(U(k)\)-torseur équivariant.
+
+Nous aurons besoin de la version schématique de ce qui précède. Fixons un sous-groupe
+de Levi \(L_0\). Soit \(\mathcal L\) le \(U\)-torseur trivial, c'est-à-dire \(U\) muni de
+l'action à droite de \(U\) par translations à droite. On a la famille de sous-groupes de
+Levi
+\[
+  L_u:=u^{-1}L_0u
+\]
+paramétrée par \(\mathcal L=U\). On fait agir \(P\) sur \(U\) par conjugaison et sur
+\(\mathcal L\) comme suit: si \(p=v\ell\) dans \(P=U L_0\), alors \(p\) agit sur
+\(\mathcal L=U\) par
+\[
+  u\longmapsto v^{-1}pup^{-1}.
+\]
+Ceci fait de \(\mathcal L\) un \(U\)-torseur équivariant. En passant aux \(k\)-points et
+en attachant à \(u\in\mathcal L\) le sous-groupe de Levi \(u^{-1}L_0u\), on retrouve
+la situation décrite précédemment.
+
+Le morphisme \(\rho:C\to P\) fait de \(\mathcal L\) un \(U\)-torseur équivariant. Un
+point \(x\) de \(\mathcal L\), correspondant à un sous-groupe de Levi \(L_x\), est fixé
+par \(C\), au sens schématique, si et seulement si \(\rho\) se factorise par \(L_x\).
+Cela exprime le fait qu'un sous-groupe de Levi est son propre normalisateur dans \(P\).
+
+Nous voulons prouver que, si \(B\) a un point fixe dans \(\mathcal L\), alors \(C\) en a
+un aussi. Soit \(U^B\) le sous-groupe de \(U\) fixé par \(B\), pour l'action par
+conjugaison. Si \(B\) a un point fixe dans \(\mathcal L\), le lieu fixe
+\(\mathcal L^B\) est un \(U^B\)-torseur. Comme \(B\) est un sous-groupe normal de
+\(C\), le groupe \(C\) agit sur \(\mathcal L^B\) et sur \(U^B\), et l'action se factorise
+par \(A\).
+
+L'isomorphisme \(\exp:(\mathfrak u,\circ)\to U\) est compatible à l'action de \(B\) par
+conjugaison. Il induit donc un isomorphisme
+\[
+  (\mathfrak u^B,\circ)\xrightarrow{\sim}U^B.
+\]
+Soit \(Z^i(\mathfrak u^B)\) la série centrale de \(\mathfrak u^B\), et posons
+\[
+  Z^i(U^B):=\exp\bigl(Z^i(\mathfrak u^B)\bigr).
+\]
+L'isomorphisme \(\exp\) induit un isomorphisme entre le groupe vectoriel
+\[
+  \operatorname{Gr}_{Z}^{i}(\mathfrak u^B)
+\]
+et
+\[
+  Z^i(U^B)/Z^{i+1}(U^B),
+\]
+compatible à l'action de \(A\). Sur
+\(\operatorname{Gr}_{Z}^{i}(\mathfrak u^B)\), cette action est linéaire.
+
+L'hypothèse sur \(A\) revient à dire que \(A\) est linéairement réductif, c'est-à-dire
+que toutes ses représentations sont semi-simples. De manière équivalente, si \(k\) est
+la représentation triviale, toute extension
+\begin{equation}
+  0\longrightarrow V\stackrel{a}{\longrightarrow}E
+  \stackrel{b}{\longrightarrow}k\longrightarrow 0
+  \tag{4.2.3}
+\end{equation}
+se scinde. En passant de \(E\) à \(b^{-1}(1)\), ces extensions correspondent aux
+\(V\)-torseurs \(A\)-équivariants, et l'extension se scinde si et seulement si \(A\) a un
+point fixe schématique sur le torseur correspondant.
+
+Définissons \(U_i^B\) comme \(U^B/Z^i(U^B)\), et \(\mathcal L_i^B\) comme le
+\(U_i^B\)-torseur obtenu à partir de \(\mathcal L^B\) par extension du groupe structural
+selon \(U^B\to U_i^B\). Nous prouvons par récurrence sur \(i\) que \(A\) a un point fixe
+sur \(\mathcal L_i^B\).
+
+Comme \(U_1^B\) est trivial, le cas \(i=1\) est trivial. Si \(x\) est un point fixe de
+\(A\) dans \(\mathcal L_i^B\), l'image inverse de \(x\) dans \(\mathcal L_{i+1}^B\) est
+un \(A\)-torseur équivariant sur
+\[
+  \operatorname{Gr}_{Z}^{i}(\mathfrak u^B)
+  \simeq Z^i(U^B)/Z^{i+1}(U^B).
+\]
+Par réductivité linéaire, \(A\) a un point fixe sur cette image inverse. Comme la série
+centrale descendante de \(\mathfrak u\), et donc de \(\mathfrak u^B\), s'arrête, cela
+prouve 4.2 pour les sous-groupes paraboliques restreints.
+
+Nous prouvons maintenant 4.2 par récurrence sur la dimension de \(G\). Supposons que
+\(\rho\) se factorise par un sous-groupe parabolique propre \(P\). Comme \(p\) est bonne,
+il existe un parabolique propre restreint \(Q\) contenant \(P\), et \(P\) est l'image
+inverse, par la projection \(Q\to Q/R_u(Q)\), d'un parabolique \(P'\) de
+\(Q/R_u(Q)\). Soit \(L\) un sous-groupe de Levi de \(Q\) par lequel \(\rho\) se factorise,
+et soit \(P'_L\) le sous-groupe parabolique de \(L\) obtenu comme image inverse de
+\(P'\) par l'isomorphisme
+\[
+  L\xrightarrow{\sim} Q/R_u(Q).
+\]
+Les sous-groupes de Levi de \(P'_L\) sont des sous-groupes de Levi de \(P\), et il reste
+à appliquer l'hypothèse de récurrence à \(L\), pour lequel \(p\) est bonne aussi.
+\end{proof}
+
+\paragraph{Remarque 4.3.}
+Pour plusieurs résultats apparentés à 4.2, mais dans le cadre des sous-groupes réduits,
+voir \([\mathrm{BMR1},\) Théorème 3.10] et \([\mathrm{BMR2},\) Théorème 1.1 et
+Corollaire 3.7].
+
+Fixons dans le groupe réductif \(G\) un tore maximal \(T\), ainsi qu'un système de
+racines simples correspondant à un sous-groupe de Borel \(B\) contenant \(T\). Soit
+\(U\) le radical unipotent de \(B\).
+
+\begin{definition44}[{cf. [Dy], [S1], [IMP]}]
+La hauteur de Dynkin \(\htG(V)\) d'une représentation \(V\) de \(G\) est le plus grand
+des nombres
+\[
+  \left\{\sum_{\alpha>0}\langle\lambda,\alpha^\vee\rangle\right\},
+\]
+où \(\lambda\) parcourt les poids pour l'action de \(T\) sur \(V\).
+\end{definition44}
+
+Cette notion et cette terminologie remontent à Dynkin \([\mathrm{Dy},\) pages
+331--332], où elle est appelée « hauteur », comme dans \([\mathrm{IMP}]\), tandis que
+chez Serre \(([\mathrm{S1}]\) et \([\mathrm{S2}])\), c'est simplement \(n(V)\). Si \(V\)
+est une représentation irréductible, de poids dominant \(\lambda^+\) et de plus petit
+poids \(\lambda^-\), cette hauteur est la somme des coefficients de
+\(\lambda^+-\lambda^-\), exprimé comme combinaison linéaire des racines simples.
+
+Il s'ensuit que le produit, dans \(\End(V)\), de l'action de \(\htG(V)+1\) éléments de
+\(\Lie(U)\) s'annule et que, pour \(\mathfrak n\) nilpotent dans \(\Lie(G)\), on a
+\[
+  \mathfrak n^{\htG(V)+1}=0\quad\text{dans }\End(V).
+\]
+
+\paragraph{4.5.}
+La représentation \(\rho:G\to\GL(V)\) est dite de \emph{petite hauteur} si
+\(p>\htG(V)\). D'après \([\mathrm{S2},\) Théorème 6, page 25], les représentations de
+petite hauteur sont semi-simples. On peut montrer que, si \(G\) admet une représentation
+\(V\) de petite hauteur qui est presque fidèle, c'est-à-dire dont le noyau est de type
+multiplicatif, alors \(G\) satisfait l'Hypothèse 2.3. L'inégalité \(p\ge h_G\) résulte de
+l'énoncé plus précis \(\htG(V)\ge h_G-1\), \([\mathrm{S3},\) (5.2.4), page 213]. Pour
+la propriété que \(\widetilde G/G^0\) est étale, on utilise le fait que la plus petite
+hauteur d'une représentation irréductible non triviale de \(\PGL(p)\) est celle de la
+représentation adjointe, égale à \(2p-2\).
+
+Nous supposons désormais que \(V\) est de petite hauteur et que l'Hypothèse 2.3 vaut
+pour \(G\). Il s'ensuit que tout élément nilpotent \(\mathfrak n\) de \(\Lie(G)\) vérifie
+\(\mathfrak n^{[p]}=0\), et que l'application exponentielle (2.2.2) est définie. L'image
+\(d\rho(\mathfrak n)\) de \(\mathfrak n\) dans \(\Lie(\GL(V))=\End(V)\) a elle aussi une
+\(p\)-ième puissance nulle; donc \(\exp(d\rho(\mathfrak n)t)\) est définie. D'après
+\([\mathrm{S2},\) Théorème 5, page 24], on a l'énoncé de compatibilité suivant.
+
+\paragraph{4.6. Compatibilité.}
+Si \(\mathfrak n\) est nilpotent dans \(\Lie(G)\), alors
+\begin{equation}
+  \rho\bigl(\exp(t\mathfrak n)\bigr)=\exp\bigl(t\,d\rho(\mathfrak n)\bigr).
+  \tag{4.6.1}
+\end{equation}
+Par conséquent, si \(u^{[p]}=1\) dans \(G\), on a
+\begin{equation}
+  \rho(u^t)=\rho(u)^t.
+  \tag{4.6.2}
+\end{equation}
+
+Le théorème suivant est un analogue schématique de \([\mathrm{BT}]\), pour \(p\) assez
+grand.
+
+\begin{theoreme47}
+Supposons que le groupe réductif \(G\) admette une représentation presque fidèle de
+petite hauteur \(\rho:G\to\GL(V)\), et que \(p>h_G\). Alors, pour tout sous-groupe
+unipotent non trivial \(U\) de \(G\), il existe un sous-groupe parabolique propre \(P\) de
+\(G\), contenant le normalisateur \(N_G(U)\) de \(U\), et dont le radical unipotent contient
+\(U\).
+\end{theoreme47}
+
+La condition \(p>h_G\) implique que \(G\) satisfait l'Hypothèse 2.3. Si \(G\) est simple
+simplement connexe, elle implique l'existence d'une représentation presque fidèle de
+petite hauteur sauf lorsque \(G\) est de type \(F_4\), \(E_6\), \(E_7\) ou \(E_8\); dans
+ces cas, la plus petite hauteur d'une représentation non triviale et le nombre de Coxeter
+sont respectivement \(16>12\), \(16>12\), \(27>18\) et \(58>30\). Pour ces groupes, nous
+ne savons pas si la conclusion du théorème reste valable en supposant seulement
+\(p>h_G\).
+
+\begin{proof}
+Soit \(V^U\) le sous-espace des invariants de \(U\) agissant sur \(V\). Il n'est pas nul,
+car \(U\) est unipotent. Il n'est pas \(V\), car la représentation \(V\) est presque
+fidèle, donc fidèle sur \(U\). Il n'admet pas dans \(V\) de supplémentaire stable par
+\(U\), car \(U\) aurait alors des invariants dans ce supplémentaire.
+
+Soit \(H\) le schéma en sous-groupes de \(G\) qui stabilise \(V^U\). Il contient le
+normalisateur \(N_G(U)\) de \(U\). C'est un schéma en sous-groupes doublement saturé de
+\(G\). En effet, si \(h\in H(k)\) est d'ordre \(p\), alors, par (4.6.2),
+\[
+  \rho(h^t)=\rho(h)^t=
+  \sum_{i<p}\binom{t}{i}(\rho(h)-1)^i,
+\]
+ce qui stabilise \(V^U\); de même, si \(\mathfrak n\in\Lie(H)\) est nilpotent, les
+\(\exp(t\mathfrak n)\) appartiennent à \(H\).
+
+Comme \(p>h_G\), le Théorème 2.5 assure que \(H^0_{\red}\) est un sous-schéma en
+groupes normal de \(H\), et que le quotient \(H/H^0_{\red}\) est une extension d'un
+groupe fini d'ordre premier à \(p\) par un groupe de type multiplicatif. Il s'ensuit que
+\(U\subset H^0_{\red}\).
+
+\begin{lemme48}
+Le groupe \(H^0_{\red}\) n'est pas réductif.
+\end{lemme48}
+
+\begin{proof}
+S'il l'était, \(V\) serait une représentation de petite hauteur de \(H^0_{\red}\),
+\([\mathrm{S2},\) Corollaire 1, page 25], donc une représentation semi-simple de
+\(H^0_{\red}\), et \(V^U\) aurait dans \(V\) un supplémentaire stable par
+\(H^0_{\red}\). Comme \(V\) n'admet pas de supplémentaire stable par
+\(U\subset H^0_{\red}\), c'est absurde.
+\end{proof}
+
+Si \(S\) est un schéma en sous-groupes doublement saturé de \(G\), nous appellerons
+\(R_u(S^0_{\red})\) le radical unipotent de \(S\) et le noterons simplement \(R_u(S)\).
+Par 2.5, c'est un sous-groupe normal de \(S\), et \(S/R_u(S^0_{\red})\) ne contient
+aucun sous-groupe unipotent normal. Cette terminologie est donc justifiée.
+
+Posons \(U_1:=R_u(H)\). Par 4.8, c'est un sous-groupe unipotent non trivial de \(G\),
+et l'on peut itérer la construction. Pour \(i\ge1\), posons
+\[
+  H_i:=\text{stabilisateur de }V^{U_i}\subset V,
+  \qquad U_{i+1}:=R_u(H_i).
+\]
+On a \(U\subset H^0_{\red}\) et
+\begin{equation}
+  U\subset N_G(U)\subset H\subset N_G(U_1)\subset H_1
+  \subset N_G(U_2)\subset H_2\subset\cdots .
+  \tag{4.8.1}
+\end{equation}
+Les \((H_i)^0_{\red}\) forment une suite croissante de sous-groupes lisses connexes de
+\(G\). Elle se stabilise, et il en est donc de même des suites \((U_i)\) et \((H_i)\).
+Si \(H_i=H_{i+1}\), alors \(H_i=N_G(U_{i+1})=H_{i+1}\) et
+\[
+  U_{i+1}=R_u(H_i)=R_u(H_{i+1})=R_u\bigl(N_G(U_{i+1})^0_{\red}\bigr).
+\]
+D'après \([\mathrm{BT},\) Proposition 2.3, page 99], ou par exemple
+\([\mathrm H,\) Section 30.3, proposition p. 186], ceci implique que
+\(N_G(U_{i+1})_{\red}=(H_{i+1})_{\red}\) est un sous-groupe parabolique propre de
+\(G\). Appelons-le \(Q\). Un sous-groupe parabolique de \(G\) est son propre
+normalisateur schématique, cf. \([\mathrm{SGA3},\) XII, 7.9], \([\mathrm{CGP},\) page
+469]. Comme \((H_{i+1})_{\red}=Q\) est normal dans \(H_{i+1}\), il s'ensuit que
+\(H_{i+1}=Q\) et que \(N_G(U)\subset Q\).
+
+Un sous-groupe de Levi \(L\) de \(Q\) est un sous-groupe réductif de \(G\), donc satisfait
+aux hypothèses de 4.7. Il est isomorphe à \(Q/R_u(Q)\). Si \(U\) n'est pas contenu
+dans \(R_u(Q)\), on répète l'argument avec l'image \(\overline U\) de \(U\) dans
+\(Q/R_u(Q)\), lequel est isomorphe à \(L\). On obtient un sous-groupe parabolique propre
+de \(Q/R_u(Q)\) qui contient le normalisateur de \(\overline U\). Son image inverse dans
+\(Q\) est un sous-groupe parabolique proprement contenu dans \(Q\) et contenant le
+normalisateur de \(U\). En itérant, on trouve finalement un parabolique \(P\) contenant
+\(N_G(U)\) et tel que \(U\subset R_u(P)\).
+\end{proof}
+
+\paragraph{Remarque 4.9.}
+Soit \(\widetilde G\) l'extension centrale simplement connexe du groupe dérivé \(G'\), et
+soit \(\widetilde G=\prod_i\widetilde G_i\) sa décomposition en facteurs simples. Une
+représentation de petite hauteur \(V\) de \(G\) est presque fidèle si et seulement si sa
+restriction à chaque \(\widetilde G_i\) est non triviale. Il suffit de le vérifier pour
+chaque \(\widetilde G_i\) séparément. On peut donc supposer \(G\) simplement connexe.
+L'existence d'une représentation non triviale \(V\) de petite hauteur implique \(p>2\)
+pour \(G\) de type \(B_n\), \(C_n\), \(n\ge2\), ou \(F_4\), et \(p>3\) pour \(G\) de
+type \(G_2\). Soit \(\overline G\) l'image de \(G\) dans \(\GL(V)\). Si \(V\) est non
+triviale, \(u:G\to\overline G\) est une isogénie. Nous voulons montrer qu'elle est une
+isogénie centrale. Si elle ne l'est pas, la structure des isogénies
+\([\mathrm{SGA3},\) XXII, 4.2.13] montre que \(\ker(u)\) contient le noyau du Frobenius.
+Les poids de \(V\) sont alors des \(p\)-ièmes puissances et \(\htG(V)\) est un multiple de
+\(p\), contradiction avec l'hypothèse de petite hauteur.
+
+\paragraph{4.10.}
+Si \(G\) est un groupe réductif pour lequel l'Hypothèse 2.3 vaut, et si \(\mathcal G\)
+est un schéma en sous-groupes de \(G\), la \emph{double saturation} \(\mathcal G^*\) de
+\(\mathcal G\) est le plus petit schéma en sous-groupes doublement saturé de \(G\) qui
+contient \(\mathcal G\). C'est l'intersection des schémas en sous-groupes doublement
+saturés contenant \(\mathcal G\), et on l'obtient à partir de \(\mathcal G\) en itérant la
+construction qui consiste à prendre le groupe engendré par \(\mathcal G\), par les
+groupes additifs \(\exp(t\mathfrak n)\), pour \(\mathfrak n\) nilpotent dans
+\(\Lie(\mathcal G)\), et par \(u^t\), pour \(u\) d'ordre \(p\) dans \(\mathcal G(k)\).
+
+\begin{corollaire411}
+Soit \(V\) une représentation presque fidèle de petite hauteur d'un groupe réductif
+\(G\). Supposons que \(p>h_G\). Soit \(\mathcal G\) un schéma en sous-groupes de \(G\), et
+soit \(\mathcal G^*\) sa double saturation. Alors les conditions suivantes sont
+équivalentes:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item \(V\) est une représentation semi-simple de \(\mathcal G\);
+\item \(V\) est une représentation semi-simple de \(\mathcal G^*\);
+\item \(\mathcal G\) est \(\mathrm{cr}\) dans \(G\);
+\item \(\mathcal G^*\) est \(\mathrm{cr}\) dans \(G\);
+\item le radical unipotent de \((\mathcal G^*)^0_{\red}\) est trivial.
+\end{enumerate}
+\end{corollaire411}
+
+\begin{proof}
+\((\mathrm i)\Leftrightarrow(\mathrm{ii})\): si \(W\) est un sous-espace de \(V\), le
+stabilisateur de \(W\) dans \(G\) est doublement saturé, comme nous l'avons vu au début
+de la preuve de 4.7. Si \(\mathcal G\) stabilise \(W\), alors \(\mathcal G^*\) stabilise
+aussi \(W\): le treillis des sous-représentations de \(V\) est le même pour
+\(\mathcal G\) et pour \(\mathcal G^*\), d'où l'assertion.
+
+\((\mathrm{iii})\Leftrightarrow(\mathrm{iv})\): de même, les sous-groupes paraboliques
+de \(G\) et leurs sous-groupes de Levi sont doublement saturés; ils contiennent donc
+\(\mathcal G\) si et seulement s'ils contiennent \(\mathcal G^*\).
+
+Non \((\mathrm v)\Rightarrow\) non \((\mathrm{ii})\): soit \(U\) le radical unipotent de
+\((\mathcal G^*)^0_{\red}\). S'il est non trivial, \(V^U\ne V\), car \(V\) est fidèle
+sur \(U\) et n'a pas de supplémentaire stable par \(U\). Comme \(U\) est normal dans
+\(\mathcal G^*\), par 2.5, \(V^U\) est une sous-représentation de \(V\) pour l'action de
+\(\mathcal G^*\). Cela contredit la semi-simplicité de \(V\).
+
+\((\mathrm v)\Rightarrow(\mathrm{ii})\): la représentation \(V\) du groupe réductif
+\((\mathcal G^*)^0_{\red}\) est de petite hauteur, donc semi-simple. Par 2.5,
+\((\mathcal G^*)^0_{\red}\) est un sous-groupe normal de \(\mathcal G^*\), et le quotient
+\(A\) est linéairement réductif. Si \(W\) est une sous-représentation de \(V\) pour
+\(\mathcal G^*\), \(A\) agit sur l'espace affine des rétractions
+\((\mathcal G^*)^0_{\red}\)-invariantes \(V\to W\). Il possède un point fixe, dont le
+noyau est un supplémentaire de \(W\).
+
+Non \((\mathrm v)\Rightarrow\) non \((\mathrm{iv})\): soit \(U\) le radical unipotent de
+\((\mathcal G^*)^0_{\red}\). S'il n'est pas trivial, il existe un parabolique \(P\) qui
+contient son normalisateur, donc \(\mathcal G^*\), et le radical unipotent de \(P\)
+contient \(U\), par 4.7. Aucun sous-groupe de Levi de \(P\) ne peut donc contenir
+\(\mathcal G^*\).
+
+\((\mathrm v)\Rightarrow(\mathrm{iv})\): d'après \([\mathrm{S2},\) Théorème 7, page 26],
+\((\mathcal G^*)^0_{\red}\) est \(\mathrm{cr}\) dans \(G\), et l'on applique 4.2.
+\end{proof}
+
+\begin{corollaire412}
+Soit \(\rho:G\to\GL(V)\) une représentation presque fidèle de petite hauteur, et soit
+\(v\in V\) un élément dont l'orbite \(G\cdot v\) dans \(V\) est fermée. Alors il existe un
+sous-schéma en groupes central connexe de type multiplicatif \(M\subset G_v^0\) et un
+homomorphisme surjectif
+\[
+  M\times G_{v,\red}^{0}\longrightarrow G_v^0.
+\]
+\end{corollaire412}
+
+\begin{proof}
+L'orbite étant fermée dans \(V\), et donc affine, le stabilisateur réduit \(G_{v,\red}\)
+est réductif, \([\mathrm{Bo}]\). Puisque \(p\ge h_G\), et puisque les stabilisateurs sont
+doublement saturés et que 2.5(2) vaut pour \(\mathcal G=G_v\), on obtient le résultat.
+\end{proof}
+
+Observons maintenant que les résultats de \([\mathrm D,\) Section 6] peuvent être obtenus
+comme conséquence de 4.11. Notons que, d'après les remarques de \([\mathrm D,\) page 607],
+il suffit de prouver les résultats de semi-simplicité lorsque \(k\) est algébriquement clos.
+
+\begin{theoreme413}
+Soit \(\mathcal G\) un groupe algébrique. Soit \((V_i)_{i\in I}\) une famille finie de
+\(\mathcal G\)-modules semi-simples, et soient \(m_i\) des entiers \(\ge0\). Si
+\begin{equation}
+  \sum_i m_i(\dim V_i-m_i)<p,
+  \tag{4.13.1}
+\end{equation}
+alors le \(\mathcal G\)-module
+\[
+  \bigotimes_j \bigwedge^{m_j}V_j
+\]
+est semi-simple.
+\end{theoreme413}
+
+\begin{proof}
+Soit \(G=\prod_j\GL(V_j)\) et \(V=\bigotimes_j\bigwedge^{m_j}V_j\). Alors (4.13.1)
+est simplement l'inégalité \(p>\htG(V)\). En remplaçant \(\mathcal G\) par son image
+dans \(G\), on peut, et on va, supposer que \(\mathcal G\) est un schéma en sous-groupes
+de \(G\). Comme les \(V_i\) sont des \(\mathcal G\)-modules semi-simples, il s'ensuit que
+\(\mathcal G\) est \(G\)-cr, pour \(G=\prod_j\GL(V_j)\). D'après \([\mathrm D,\) \S6.2],
+on peut aussi supposer que \(p>\dim(V_j)=h_{\GL(V_j)}\) pour tout \(j\).
+
+Ainsi, en travaillant avec l'image de \(G\), et de \(\mathcal G\), dans \(\GL(V)\), et en
+appliquant 4.11, on conclut que \(V\) est semi-simple comme \(\mathcal G\)-module.
+\end{proof}
+
+\paragraph{Remarque 4.14.}
+Si \((V_i,q_i)\) est un espace quadratique non dégénéré de dimension \(\dim V_i=2d_i\)
+sur lequel \(\mathcal G\) agit par similitudes, alors, en passant à un sous-groupe d'indice
+au plus \(2\) et en envoyant vers le groupe des similitudes plutôt que vers \(\GL(V_i)\),
+on peut remplacer le terme \(m_i(\dim V_i-m_i)\) par \(m_i(\dim V_i-m_i-1)\), lorsque
+\(m_i\le 2d_i\).
+
+\paragraph{Complète réductibilité dans le cas classique.}
+Par 4.1, un schéma en sous-groupes \(\mathcal G\subset G\) est dit \(\mathrm{cr}\) si,
+pour tout sous-groupe parabolique \(P\subset G\) contenant \(\mathcal G\), il existe un
+parabolique opposé \(P'\) tel que \(\mathcal G\subset P\cap P'\). Supposons que
+\(\operatorname{char}(k)\ne2\) et que \(G\) soit \(\SO(V)\), ou \(\Sp(V)\) en toute
+caractéristique, relativement à une forme bilinéaire symétrique ou alternée non dégénérée
+\(B\) sur \(V\). Dans cette situation, la notion de \(\mathrm{cr}\) s'interprète comme
+suit: \(\mathcal G\) est \(\mathrm{cr}\) dans \(G\) si et seulement si, pour tout
+\(\mathcal G\)-sous-module \(W\subset V\) totalement isotrope, il existe un
+\(\mathcal G\)-sous-module totalement isotrope \(W'\), de même dimension, tel que la
+restriction de \(B\) à \(W+W'\) soit non dégénérée, cf. \([\mathrm{S3},\) Exemple 3.3.3,
+page 206].
+
+\begin{lemme415}
+Soit \(\mathcal G\) un schéma en sous-groupes \(\mathrm{cr}\) de \(G\). Alors le
+\(\mathcal G\)-module \(V\) est semi-simple, et réciproquement.
+\end{lemme415}
+
+\begin{proof}
+Soit \(W\subset V\) un \(\mathcal G\)-sous-module. Il faut construire un supplémentaire
+\(\mathcal G\)-stable.
+
+Considérons \(W_1:=W\cap W^\perp\). Si \(W_1=(0)\), alors
+\(W\oplus W^\perp=V\), et nous avons fini. Supposons donc \(W_1\ne(0)\). Alors \(W_1\)
+est un \(\mathcal G\)-sous-module totalement isotrope; par la propriété \(\mathrm{cr}\),
+il existe donc un \(\mathcal G\)-sous-module totalement isotrope \(W'_1\), de même
+dimension que \(W_1\), tel que la forme \(B\) soit non dégénérée sur \(W_1+W'_1\). En
+particulier, \(W_1\cap W'_1=(0)\). Comme \(W_1\subset W^\perp\), on voit que
+\(W\subset W_1^\perp\).
+
+Soit \(w\in W\cap W'_1\subset W_1^\perp\cap W'_1\), et supposons \(w\ne0\). Comme
+\(w\in W'_1\), il existe \(w'\in W_1\) tel que \(B(w,w')\ne0\). D'autre part, puisque
+\(w\in W_1^\perp\), on a \(B(w,v)=0\) pour tout \(v\in W_1\), et en particulier
+\(B(w,w')=0\), contradiction. Donc \(W\cap W'_1=(0)\).
+
+Ainsi \(W\subsetneq X=W\oplus W'_1\subset V\) est un \(\mathcal G\)-sous-module. En
+procédant de même, on obtient \(X_1=X\cap X^\perp\) et un
+\(\mathcal G\)-sous-module totalement isotrope \(X'_1\), de même dimension, tel que
+\(X\oplus X'_1\subset V\). Si \(X_1=(0)\), alors \(V=X\oplus X^\perp\), et l'on obtient
+une décomposition \(\mathcal G\)-stable de \(V\) de la forme
+\[
+  W\oplus W'_1\oplus\cdots,
+\]
+c'est-à-dire un supplémentaire de \(W\) dans \(V\).
+
+Réciproquement, supposons \(V\) semi-simple comme \(\mathcal G\)-module. Soit
+\(W\subset V\) un \(\mathcal G\)-sous-module totalement isotrope de dimension \(d\). On a
+\(d<\dim(V)/2\). Il existe donc un \(\mathcal G\)-sous-module \(Z\subset V\) tel que
+\(V=W\oplus Z\). La forme non dégénérée \(B\) fournit un isomorphisme
+\(\mathcal G\)-équivariant
+\[
+  \varphi:V\longrightarrow V^*=W^*\oplus Z^*.
+\]
+Comme \(W\) est totalement isotrope, \(\varphi(W)\cap W^*=(0)\). Donc
+\(\varphi(W)\subset Z^*\).
+
+Encore parce que \(W\) est totalement isotrope, la restriction de \(B\) à \(Z\) est non
+dégénérée, et l'on obtient donc un isomorphisme \(\psi:Z^*\to Z\). Posons
+\[
+  W':=\psi\circ\varphi(W).
+\]
+Il est alors immédiat que \(W'\) est de dimension \(d\) et est aussi un
+\(\mathcal G\)-sous-module totalement isotrope de \(V\). Enfin, \(B\) est non dégénérée
+sur \(W\oplus W'\). Ainsi \(\mathcal G\) est \(\mathrm{cr}\) dans \(G\).
+\end{proof}
+
+
+\section{Tranches étales en caractéristiques positives}
+
+Soit \(G\) agissant sur une variété affine \(X\), et soit \(x\) un point de \(X\) dont
+l'orbite \(G\cdot x\) est fermée dans \(X\). Nous démontrons un analogue schématique du
+théorème de tranche étale de Luna (5.1, 5.6) sous des bornes convenables sur la
+caractéristique \(p\). Pour rendre cela précis, il faut étendre la notion de tranche de
+\([\mathrm{BR},\) Définition 7.1] à un cadre schématique (voir 5.6), et il faut alors
+travailler avec les stabilisateurs schématiques des orbites fermées. La difficulté
+principale devient alors la semisimplicité de l'espace tangent en \(x\) à \(X\), comme
+représentation du stabilisateur de \(G\) en \(x\). Ici le théorème de structure 2.5 devient
+crucial, et les bornes sur \(p\) sont forcées en conséquence. Dans \([\mathrm{BR}]\), les
+aspects schématiques sont évités, ce qui oblige les auteurs à supposer que l'orbite
+\(G\cdot x\) est « séparable », c'est-à-dire que le stabilisateur \(G_x\) est réduit. Les
+bornes sur la caractéristique n'apparaissent donc pas dans \([\mathrm{BR}]\).
+
+Nous commençons cette section par l'analogue linéaire suivant du théorème de tranche
+étale de Luna en caractéristiques positives.
+
+\begin{theoreme51}
+Soit \(V\) un \(G\)-module de faible hauteur, c'est-à-dire tel que \(p>\htG(V)\). Soit
+\(v\in V\) un élément tel que l'orbite \(G\cdot v\) soit une orbite fermée dans \(V\). Alors
+il existe un sous-espace linéaire \(S\) de \(V\), invariant par \(G_v\), donnant naissance
+au diagramme commutatif
+\begin{equation}
+\begin{tikzcd}[column sep=large,row sep=large]
+  G\times^{G_v}S \arrow[r,"\phi"] \arrow[d,"f"'] & V \arrow[d,"q"] \\
+  (G\times^{G_v}S)\sslash G \arrow[r,"\ell"'] & V\sslash G
+\end{tikzcd}
+\tag{5.1.1}
+\end{equation}
+et à des ouverts \(G\)-équivariants \(U\subset (G\times^{G_v}S)\), contenant l'orbite
+fermée \(G\cdot v\), ainsi qu'à un ouvert \(U'\) de \(V\) contenant \(v\), pour lesquels
+(5.1.1) induit un diagramme cartésien
+\begin{equation}
+\begin{tikzcd}[column sep=large,row sep=large]
+  U \arrow[r,"\phi"] \arrow[d,"f"'] & U' \arrow[d,"q"] \\
+  U\sslash G \arrow[r,"\ell|_{U}"'] & U'\sslash G
+\end{tikzcd}
+\tag{5.1.2}
+\end{equation}
+tel que le morphisme \(\ell|_U\) soit étale.
+\end{theoreme51}
+
+\paragraph{Remarque 5.2.}
+Le théorème ci-dessus a été énoncé dans la note \([\mathrm{MP}]\), dont la démonstration
+contenait des lacunes sérieuses, comme Serre l'a signalé aux auteurs dans une correspondance
+privée.
+
+On rappelle que \(G/G_v\) est construit dans \([\mathrm{DG},\) III, Proposition 3.5.2]. Il
+représente le quotient dans la catégorie des faisceaux fppf. De plus, si
+\(\pi_v:G\to V\), \(g\mapsto g\cdot v\), l'image \(\operatorname{im}(\pi_v)\), comme
+sous-schéma localement fermé de \(V\) muni de sa structure de schéma réduit, s'identifie au
+schéma \(G/G_v\). Nous appelons ce sous-schéma localement fermé l'orbite \(G\cdot v\), et
+nous avons l'identification \(G/G_v\simeq G\cdot v\), voir aussi \([\mathrm{DG},\)
+Proposition et Définition 1.6, III, \S3, page 325].
+
+\begin{proposition53}
+Soit \(V\) un \(G\)-module arbitraire. Soit \(v\in V\), et supposons qu'il existe un
+\(G_v\)-sous-module \(S\) de l'espace tangent \(T_v(V)\), tel que
+\[
+  T_v(V)=T_v(G\cdot v)\oplus S.
+\]
+Faisons agir \(G\) sur \(G\times S\) par \(h\cdot(g,s):=(h g,s)\). Alors le
+\(G\)-morphisme \(\Phi:G\times S\to V\), donné par \((g,s)\mapsto g\cdot v+g\cdot s\),
+descend en un \(G\)-morphisme
+\begin{equation}
+  \phi:G\times^{G_v}S\longrightarrow V
+  \tag{5.3.1}
+\end{equation}
+qui est étale en \((e,0)\), où \(e\) est l'identité de \(G\).
+\end{proposition53}
+
+\begin{proof}
+Pour s'assurer que \(\Phi\) descend en un morphisme \(\phi\), il faut vérifier, pour toute
+\(k\)-algèbre commutative \(A\), que \(\Phi\) est constant sur toutes les
+\(G_v(A)\)-orbites. Pour alléger l'exposition, nous supprimons \(A\) de la notation.
+
+Soit \(\alpha\in G_v\) agissant sur \(G\times S\) par
+\[
+  \alpha\cdot(g,s)=(g\alpha,\alpha^{-1}s).
+\]
+On observe que
+\[
+  \Phi\bigl(\alpha\cdot(g,s)\bigr)=\Phi(g\alpha,\alpha^{-1}s)
+  =g\alpha\cdot v+g\alpha\alpha^{-1}\cdot s
+  =g\cdot v+g\cdot s,
+\]
+puisque \(\alpha\) fixe \(v\). Ainsi \(\Phi\) est constant sur les \(G_v\)-orbites. Comme
+l'action de \(G_v\) sur \(G\times S\) est schématiquement libre, \(\Phi\) descend en un
+morphisme \(\phi:G\times^{G_v}S\to V\). Les actions de \(G\) et de \(G_v\) sur
+\(G\times S\) commutent clairement, et le morphisme descendu est donc aussi un
+\(G\)-morphisme.
+
+Le morphisme quotient \(G\to G/G_v\) est un torseur sous le schéma en groupes \(G_v\),
+localement trivial pour la topologie fppf. Puisque l'action de \(G_v\) sur \(S\) est
+linéaire, l'espace fibré associé
+\[
+  \pi:G\times^{G_v}S\longrightarrow G/G_v
+\]
+est un faisceau localement libre de rang \(\dim(S)\). En particulier,
+\(G\times^{G_v}S\) est un \(k\)-schéma lisse de type fini. De plus, par le morphisme
+\(\phi\), la section nulle du fibré vectoriel \(\pi:G\times^{G_v}S\to G/G_v\) s'envoie
+canoniquement sur l'orbite \(G\cdot v\subset V\), tandis que la fibre \(\pi^{-1}(eG_v)\)
+du coset identité \(eG_v\in G/G_v\) s'envoie isomorphiquement sur le sous-espace affine
+\(S+v\subset V\). Comme \(T_v(V)=T_v(G\cdot v)\oplus S\) par hypothèse, la différentielle
+\(d\phi_z\), en \(z=(e,0)\), est un isomorphisme.
+
+On applique maintenant \([\mathrm D,\) Lemme 2.9] pour conclure que le morphisme
+\(\phi:G\times^{G_v}S\to V\) est étale en \(z=(e,0)\).
+\end{proof}
+
+\begin{proposition54}
+Soit \(V\) un \(G\)-module tel que \(p>\htG(V)\), et soit \(v\in V\) un élément dont
+l'orbite sous \(G\) dans \(V\) est fermée. Alors il existe un \(G_v\)-sous-module
+\(S\subset V\) tel que
+\[
+  V=T_v(G\cdot v)\oplus S
+\]
+comme \(G_v\)-module. En particulier, les conséquences de 5.3 sont valables.
+\end{proposition54}
+
+\begin{proof}
+On sait que \(G_v^0\) est le noyau du morphisme naturel \(G_v\to\pi_0(G_v)\) vers le
+groupe des composantes connexes; c'est donc un sous-groupe normal d'indice fini. De plus,
+\[
+  |G_v/G_v^0|=|G_{v,\red}/G_{v,\red}^0|.
+\]
+Comme \(G_{v,\red}\) est un sous-groupe saturé de \(G\), l'indice
+\(|G_{v,\red}/G_{v,\red}^0|\) est premier à \(p\), d'après \([\mathrm{S2},\) page 23,
+Propriété 3].
+
+Puisque \(G\cdot v\) est une orbite fermée, par 4.12 et 2.5 nous avons une suite exacte
+\begin{equation}
+  1\longrightarrow G_{v,\red}^0\longrightarrow G_v^0\longrightarrow \tau\longrightarrow 1,
+  \tag{5.4.1}
+\end{equation}
+où \(\tau\) est un schéma en groupes multiplicatif.
+
+Le module \(V\) est semi-simple comme \(G_{v,\red}^0\)-module, puisque
+\(G_{v,\red}^0\) est un sous-groupe saturé de \(G\), et il l'est aussi comme
+\(\tau\)-module, car \(\tau\) est multiplicatif, donc linéairement réductif. Ainsi, par
+\([\mathrm D,\) Lemme 4.2], \(V\) est semi-simple comme \(G_v^0\)-module, puis comme
+\(G_v\)-module.
+
+En particulier, il existe un supplémentaire \(S\), stable par \(G_v\), du sous-espace
+\(G_v\)-invariant \(T_v(G\cdot v)\subset T_v(V)=V\), c'est-à-dire une décomposition
+\(G_v\)-équivariante \(S\oplus T_v(G\cdot v)\) de \(V\).
+\end{proof}
+
+Nous rappelons le « lemme fondamental de Luna », qui vaut aussi en caractéristiques
+positives et qui est essentiel pour achever la démonstration du Théorème 5.1.
+
+\begin{lemme55}[{\([\mathrm{GIT},\) page 152]}]
+Soit \(\bar s:X\to Y\) un \(G\)-morphisme de \(G\)-schémas affines. Soit \(F\subset X\)
+une orbite fermée telle que:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\bar s\) soit étale en un point de \(F\);
+\item \(\bar s(F)\) soit fermé dans \(Y\);
+\item \(\bar s\) soit injectif sur \(F\);
+\item \(X\) soit normal le long de \(F\).
+\end{enumerate}
+Alors il existe des ouverts affines \(G\)-invariants \(U\subset X\) et \(U'\subset Y\),
+avec \(F\subset U\), tels que
+\[
+  \bar s\sslash G:U\sslash G\longrightarrow U'\sslash G
+\]
+soit étale et que
+\[
+  (\bar s,p_U):U\longrightarrow U'\times_{U'\sslash G}U\sslash G
+\]
+soit un isomorphisme, où \(p_U:U\to U\sslash G\) est le morphisme quotient.
+\end{lemme55}
+
+\paragraph{Démonstration de 5.1.}
+Dans un premier temps, il faut montrer que le quotient catégorique
+\(G\times^{G_v}S\sslash G\) existe comme schéma. Comme nous l'avons vu en 5.3, l'action de
+\(G\) sur \(G\times S\), donnée par \(g\cdot(a,s)=(ga,s)\), et l'action tordue de
+\(G_v\) sur \(G\times S\) commutent. Donc
+\begin{equation}
+  k[G\times^{G_v}S]^G=(k[G\times S]^{G_v})^G=(k[G\times S]^G)^{G_v}=k[S]^{G_v}.
+  \tag{5.5.1}
+\end{equation}
+Il suffit donc de montrer que \(k[S]^{G_v}\) est de type fini; on aurait alors
+\begin{equation}
+  G\times^{G_v}S\sslash G\simeq S\sslash G_v.
+  \tag{5.5.2}
+\end{equation}
+Comme observé dans la preuve de 5.4, \(G_v^0\subset G_v\) est un sous-groupe normal
+d'indice fini. Ainsi, la génération finie de \(k[S]^{G_v}\) se ramène à celle de
+\(k[S]^{G_v^0}\). On peut donc remplacer \(G_v\) par \(G_v^0\) dans la démonstration.
+De plus, comme \(G\cdot v\) est une orbite fermée, \(G_{v,\red}\) est réductif. Donc,
+par 4.12, nous avons une surjection
+\[
+  M\times G_{v,\red}\longrightarrow G_v.
+\]
+Puisque \(M\) est central dans \(G_v\),
+\[
+  k[S]^{G_v}=\bigl(k[S]^{G_{v,\red}}\bigr)^M.
+\]
+Comme \(G_{v,\red}\) est réductif, l'anneau des invariants \(k[S]^{G_{v,\red}}\) est une
+\(k\)-algèbre de type fini. Puisque \(M\) est un groupe de type multiplicatif sur un corps
+algébriquement clos, c'est un produit de \(\Gm\) et d'un schéma en groupes fini. Par
+\([\mathrm{GIT},\) Théorème 1.1] et \([\mathrm{AV},\) page 113], l'anneau des invariants
+\(\bigl(k[S]^{G_{v,\red}}\bigr)^M\) est donc également de type fini. Ceci prouve la
+génération finie de \(k[S]^{G_v}\).
+
+La commutativité du diagramme (5.1.1) résulte alors de la propriété des quotients
+catégoriques par le groupe \(G\).
+
+Vérifions maintenant les conditions du Lemme 5.5. On considère l'orbite fermée donnée
+\[
+  F=G\times^{G_v}\{v\}\subset G\times^{G_v}S.
+\]
+Il faut vérifier que \(\phi(F)\) est une orbite fermée dans \(V\). En fait,
+\(\phi(F)\) est précisément l'orbite fermée \(G\cdot\phi(v)=G\cdot v\subset V\). Les
+conditions (2) et (3) du Lemme 5.5 sont donc vérifiées. La condition (1) est exactement le
+contenu de 5.4, et (4) vaut puisque \(G\times^{G_v}S\) est lisse.
+
+L'isomorphisme \((\bar s,p_U)\) montre que le diagramme (5.1.2) est cartésien. Ceci
+achève la démonstration de 5.1.
+
+\begin{corollaire56}
+Soit \(X\) un \(G\)-schéma affine qui s'immerge comme \(G\)-sous-schéma fermé dans un
+\(G\)-module de faible hauteur. Soit \(x\in X\) tel que l'orbite
+\(G\cdot x\subset X\) soit fermée. Alors il existe un sous-schéma localement fermé
+\(X_1\) de \(X\), invariant par \(G_x\), une « tranche », avec \(x\in X_1\subset X\),
+tel que les conclusions de 5.1 valent pour le \(G\)-morphisme
+\(G\times^{G_x}X_1\to X\).
+\end{corollaire56}
+
+\begin{proof}
+Cela résulte de 5.1, qui correspond à \([\mathrm{BR},\) Proposition 7.4], exactement comme
+dans \([\mathrm{BR},\) Proposition 7.6].
+\end{proof}
+
+La conséquence suivante du théorème de tranche a de nombreuses applications; nous
+l'énonçons donc ici sans preuve.
+
+\begin{corollaire57}[{voir \([\mathrm{BR},\) Proposition 8.5, page 312]}]
+Soit \(F\) une \(G\)-sous-variété affine de \(\mathbb P(V)\), où \(V\) est un
+\(G\)-module de faible hauteur, et supposons que \(F\) contienne une unique orbite fermée
+\(F^{\mathrm{cl}}\). Alors il existe une rétraction \(G\)-équivariante
+\[
+  F\longrightarrow F^{\mathrm{cl}}.
+\]
+\end{corollaire57}
+
+Soit \(V\) un \(G\)-module de dimension finie et posons
+\begin{equation}
+  \htG\bigl(\bigwedge(V)\bigr):=\max_i\{\htG(\bigwedge^i V)\}.
+  \tag{5.7.1}
+\end{equation}
+On a alors l'application suivante à la théorie des fibrés principaux semi-stables en
+caractéristiques positives.
+
+\begin{theoreme58}
+Soit \(E\) un \(G\)-fibré stable, avec \(G\) semi-simple, et soit
+\(\rho_V:G\to\SL(V)\) une représentation telle que \(p>\htG(\bigwedge(V))\). Alors le
+fibré associé \(E(V)\) est polystable de degré \(0\).
+\end{theoreme58}
+
+\begin{proof}
+La démonstration suit mot pour mot \([\mathrm{BP},\) Théorème 9.11], où la notion
+d'« indice séparable » est remplacée par la hauteur de Dynkin, l'ingrédient clé étant le
+Corollaire 5.7.
+\end{proof}
+
+\paragraph{Remerciements.}
+Le premier auteur remercie Gopal Prasad pour ses commentaires détaillés sur une version
+antérieure du manuscrit. Il remercie aussi Brian Conrad pour des discussions utiles et pour
+avoir partagé de nombreux éclairages, ainsi que Michel Brion pour ses commentaires et
+suggestions détaillés sur une version antérieure du manuscrit. Nous remercions le rapporteur
+pour sa lecture attentive de l'article et pour ses commentaires et questions.
+
+\section{Ajouté sur épreuves}
+
+Dans la Section 2.2, après avoir imposé des hypothèses convenables sur \(G\), nous
+renvoyons à Serre en (2.2.2) pour la construction de l'application exponentielle
+\[
+  \exp:\mathfrak g_{\nilp}\xrightarrow{\sim}G^{\unip}.
+\]
+La démonstration donnée par Serre dans \([\mathrm{S2},\) Théorème 3, page 21] n'est
+qu'une esquisse. À sa suggestion, nous la complétons. Nous travaillons en principe sur un
+corps algébriquement clos, mais nous formulons l'argument de sorte qu'il reste valable sur
+des bases plus générales.
+
+Soient \(T\) un tore maximal, \(B\) un sous-groupe de Borel contenant \(T\), et \(U\) son
+radical unipotent. On suppose \(p\ge h\). Par cette hypothèse sur la caractéristique, la loi
+de groupe de Campbell-Hausdorff \(\circ\) sur \(\Lie(U)\) est bien définie. La première étape
+est la construction d'un isomorphisme \(B\)-équivariant
+\begin{equation}
+  \exp:(\Lie(U),\circ)\xrightarrow{\sim}U.
+  \tag{6.0.1}
+\end{equation}
+Pour cette étape nous donnons des preuves complètes. La seconde étape consiste à recoller
+ces isomorphismes en
+\begin{equation}
+  \exp:\mathfrak g_{\nilp}\xrightarrow{\sim}G^{\unip}.
+  \tag{6.0.2}
+\end{equation}
+Cela demande l'hypothèse supplémentaire que le revêtement simplement connexe
+\(\widetilde G\) du groupe dérivé \(G'\) soit étale sur \(G'\). Nous nous contenterons ici
+principalement de donner des références.
+
+\subsection*{6.1}
+Soit \(R^+\) l'ensemble des racines positives, c'est-à-dire l'ensemble des racines de
+\(T\) agissant sur \(\Lie(U)\). Pour \(\alpha\in R^+\), soit \(U_\alpha\) le sous-groupe
+radiciel correspondant, et soit \(x_\alpha\) un isomorphisme de \(U_\alpha\) vers \(\Ga\).
+
+Fixons un ordre total sur \(R^+\). L'application produit correspondante de
+\(\prod U_\alpha\) vers \(U\) est un isomorphisme de schémas: c'est un morphisme entre
+schémas lisses connexes, étale à l'origine et bijectif d'après \([\mathrm{Bible},\) 13-05];
+on applique alors le théorème principal de Zariski comme dans \([\mathrm{SGA3},\) XXII,
+4.1], ou encore \([\mathrm{Bo2},\) IV, 14.5].
+
+Cet isomorphisme identifie \(U\) à l'espace affine de coordonnées
+\((x_\alpha)_{\alpha\in R^+}\). Dans ces coordonnées, l'action de \(T\) sur \(U\) par
+conjugaison est donnée par
+\[
+  t\in T\quad\text{agit par}\quad (x_\alpha)\longmapsto(\alpha(t)x_\alpha).
+\]
+Cette action respecte la loi de groupe. Il s'ensuit que la coordonnée \(\alpha\) de
+\(x\cdot y\) est une combinaison linéaire des \(x_\beta^i y_\gamma^j\) pour
+\(i\beta+j\gamma=\alpha\).
+
+On munit l'algèbre polynomiale \(\mathcal O(U)\) d'une graduation en définissant le degré
+de \(x_\alpha\) comme la hauteur de \(\alpha\). Si l'écriture de \(\alpha\) comme
+combinaison linéaire de racines simples est \(\sum n_i\alpha_i\), la hauteur de \(\alpha\)
+est \(\sum n_i\). La filtration croissante correspondante \(\Fil\) de \(\mathcal O(U)\)
+est invariante par conjugaison par \(T\), ainsi que par les translations à droite et à
+gauche par \(U\). Elle est donc invariante par conjugaison par \(B\).
+
+L'hypothèse \(p\ge h\) équivaut à dire que \(\mathcal O(U)\) est engendrée par
+\(\Fil_{p-1}\). La définition de l'exponentielle (6.0.1) est un cas particulier de la
+construction suivante.
+
+
+\subsection*{6.2}
+Soit \(U\) un groupe algébrique et soit \(\Fil\) une filtration croissante de son algèbre affine. Supposons
+que \(\OO(U)\) soit une algèbre polynomiale \(k[(x_\alpha)_{\alpha\in A}]\), et que, pour certains entiers
+\(d(\alpha)>0\), \(\Fil\) soit la filtration croissante déduite de la graduation pour laquelle
+\(x_\alpha\) est homogène de degré \(d(\alpha)\). Supposons que la coordonnée \(\alpha\) de
+\(x\cdot y\) soit un polynôme de degré \(\le d(\alpha)\) dans les coordonnées pondérées de \(x\)
+et de \(y\). Cela équivaut à la compatibilité
+\begin{equation}
+  \Delta(\Fil_i)\subset \sum_{j+k=i}\Fil_j\otimes\Fil_k
+  \tag{6.2.1}
+\end{equation}
+de la filtration \(\Fil\) avec le coproduit.
+
+Nous regarderons \(\Lie(U)\) comme l'algèbre de Lie des champs de vecteurs invariants à gauche
+sur \(U\). Soit \(D_\alpha\) l'élément de \(\Lie(U)\) qui vaut \(\partial_\alpha\) en \(e\). Si
+\([\varepsilon]_\alpha\) est le point de \(U\) à valeurs dans \(k[\varepsilon]/(\varepsilon^2)\), de coordonnée
+\(x_\alpha=\varepsilon\), et \(x_\beta=0\) pour \(\beta\ne\alpha\), alors \(D_\alpha f\) est le
+coefficient de \(\varepsilon\) dans \(f(x\cdot[\varepsilon]_\alpha)\). Il s'ensuit que
+\(D_\alpha(x_\beta)\) est de degré \(\le d(\beta)-d(\alpha)\), et donc
+\begin{equation}
+  D_\alpha\Fil_i\subset \Fil_{i-d(\alpha)}.
+  \tag{6.2.2}
+\end{equation}
+Ainsi \(D_\alpha\) est de filtration décroissante \(d(\alpha)\).
+
+Supposons maintenant que \(\OO(U)\) soit engendrée par \(\Fil_{p-1}\), c'est-à-dire que tous les
+\(d(\alpha)\) soient strictement inférieurs à \(p\). Alors tout polynôme de Lie de degré \(\ge p\)
+en les dérivations \(D_i\) de \(\Lie(U)\) s'annule sur les \(x_\alpha\), et donc s'annule
+identiquement. Il s'ensuit que la loi de groupe de Campbell--Hausdorff \(\circ\) sur \(\Lie(U)\) est
+définie.
+
+\begin{definition63}
+L'application exponentielle \(\exp\) de \(\Lie(U)\) vers \(U\) est l'application dont les coordonnées
+sont les exponentielles tronquées
+\begin{equation}
+  \exp(D)_\alpha:=\sum_{n<p}\left(\frac{D^n}{n!}(x_\alpha)\text{ en }e\right).
+  \tag{6.3.1}
+\end{equation}
+\end{definition63}
+
+\begin{lemme64}
+Pour \(f\in\Fil_{p-1}\), on a
+\begin{equation}
+  f(\exp(D))=\sum_{n<p}\left(\frac{D^n}{n!}(f)\text{ en }e\right).
+  \tag{6.4.1}
+\end{equation}
+\end{lemme64}
+
+\begin{proof}
+Cela vaut par définition de \(\exp\) lorsque \(f\) est une fonction coordonnée \(x_\alpha\). Il suffit donc
+de vérifier que, pour \(g\in\Fil_a\) et \(h\in\Fil_b\) avec \(a+b<p\), on a
+\begin{equation}
+  \sum\frac{D^n}{n!}(gh)=\sum\frac{D^n}{n!}(g)\sum\frac{D^n}{n!}(h),
+  \tag{6.4.2}
+\end{equation}
+les sommes étant tronquées à \(n<p\). Les deux membres s'identifient à des sommes
+\(\sum \frac{D^n}{n!}(g)\frac{D^m}{m!}(h)\), où, à gauche, on a \(n+m<p\), tandis qu'à droite
+\(n<p\) et \(m<p\). Si \(n+m\ge p\), alors soit \(n>a\), soit \(m>b\), auquel cas
+\(D^n(g)=0\), respectivement \(D^m(h)=0\). Les termes absents du membre de gauche sont donc
+nuls.
+\end{proof}
+
+\begin{lemme65}
+Le morphisme \(\exp\) est un homomorphisme de groupes
+\begin{equation}
+  \exp:(\Lie(U),\circ)\longrightarrow U.
+  \tag{6.5.1}
+\end{equation}
+\end{lemme65}
+
+\begin{proof}
+Si \(f\in\Fil_{p-1}\), il en est de même de ses translatées à gauche. Comme les dérivations \(D\)
+dans \(\Lie(U)\) sont invariantes à gauche, (6.4.1) appliqué à la translatée à gauche de \(f\) donne
+\begin{equation}
+  f(x\cdot\exp(D))=\sum_{n<p}\left(\frac{D^n}{n!}(f)\text{ en }x\right),
+  \tag{6.5.2}
+\end{equation}
+donc
+\begin{equation}
+  f(\exp(D')\cdot\exp(D))=
+  \sum_{n,m<p}\left(\frac{(D')^m}{m!}\frac{D^n}{n!}(f)\text{ en }e\right).
+  \tag{6.5.3}
+\end{equation}
+
+Dans l'algèbre associative libre complétée \(\mathbb Q\langle\!\langle X,Y\rangle\!\rangle\), si
+\(H_d(X,Y)\) est le polynôme de Lie qui est la composante de degré \(d\) de la loi de groupe de
+Campbell--Hausdorff, on a
+\begin{equation}
+  \exp\left(\sum H_d(X,Y)\right)=\exp(X)\cdot\exp(Y).
+  \tag{6.5.4}
+\end{equation}
+Modulo les termes de degré \(\ge p\), on a encore
+\begin{equation}
+  \sum_{n\le p}\frac{\left(\sum_{d<p}H_d(X,Y)\right)^n}{n!}
+  \equiv
+  \sum_{n<p}\frac{X^n}{n!}\sum_{n<p}\frac{Y^n}{n!},
+  \tag{6.5.5}
+\end{equation}
+et cela reste vrai dans \(\mathbb Z[1/(p-1)!]\langle\!\langle X,Y\rangle\!\rangle\). En substituant
+\(D'\) et \(D\) à \(X\) et \(Y\), on obtient
+\begin{equation}
+  f(\exp(D')\cdot\exp(D))=f(\exp(D'\circ D))
+  \tag{6.5.6}
+\end{equation}
+pour \(f\in\Fil_{p-1}\). Donc \(\exp(D')\cdot\exp(D)=\exp(D'\circ D)\).
+
+Définissons \(\Delta_a f\) comme \(f(xa)-f(x)\). Pour \(f\in\Fil_{p-1}\), (6.5.2) s'écrit
+\begin{equation}
+  \Delta_{\exp(D)} f=\sum_{0<n<p}\frac{D^n}{n!}(f).
+  \tag{6.5.7}
+\end{equation}
+Dans \(\mathbb Q[[X]]\), on a \(\log\exp(X)=X\). Modulo les monômes de degré \(\ge p\), on a
+encore
+\begin{equation}
+  \sum_{0<n<p}(-1)^{n+1}\left(\sum_{0<m<p}\frac{X^m}{m!}\right)^n/n \equiv X,
+  \tag{6.5.8}
+\end{equation}
+et cela reste vrai dans \(\mathbb Z[1/(p-1)!][[X]]\). En substituant \(D\) à \(X\) dans
+(6.5.8), on déduit de (6.5.7) que, pour \(f\in\Fil_{p-1}\),
+\begin{equation}
+  Df=\sum_{0<n<p}(-1)^{n+1}\Delta_{\exp(D)}^n f/n.
+  \tag{6.5.9}
+\end{equation}
+Ceci donne une formule pour un inverse à gauche \(a\mapsto\log a\) de
+\(\exp:\Lie(U)\to U\); vu comme une dérivation,
+\begin{equation}
+  \log a=\sum_{0<n<p}(-1)^{n+1}\Delta_a^n/n
+  \tag{6.5.10}
+\end{equation}
+lorsqu'on l'applique à \(f\in\Fil_{p-1}\). Ceci montre que l'exponentielle est injective et donc,
+étant un homomorphisme étale de groupes connexes, que c'est un isomorphisme.
+
+Dans le cas du radical unipotent \(U\) d'un sous-groupe de Borel, la construction de
+l'application exponentielle, ne dépendant que de la filtration \(\Fil\) de \(\OO(U)\), est invariante
+par conjugaison par \(B\).
+\end{proof}
+
+\paragraph{Remarque 6.6.}
+(i) Soit \(I\subset R^+\) l'ensemble des racines simples et, pour \(J\subset I\), soit \(P_J\) le
+sous-groupe parabolique correspondant et \(U_J\) son radical unipotent. Soit
+\(R_J^+\subset R^+\) l'ensemble des \(\alpha\in R^+\) qui sont combinaisons linéaires de racines
+simples dans \(J\). Pour \(\alpha=\sum n_i\alpha_i\) dans \(R^+-R_J^+\), définissons
+\(d_J(\alpha)=\sum_{i\notin J} n_i\). Alors, si tous les \(d_J(\alpha)\) sont \(<p\), la construction
+ci-dessus de l'application exponentielle fournit une application analogue
+\begin{equation}
+  \exp:\Lie(U_J)\longrightarrow U_J.
+  \tag{6.6.1}
+\end{equation}
+Il suffit de remplacer \(d\) par \(d_J\) dans les preuves précédentes.
+
+(ii) Plus généralement, soit \(\Gamma\subset R^+\) un ensemble fermé de racines positives, et soit
+\(U_\Gamma\) le sous-groupe correspondant de \(U\). Pour tout ordre total fixé sur \(\Gamma\),
+l'application produit correspondante
+\begin{equation}
+  \prod_{\alpha\in\Gamma}U_\alpha\longrightarrow U_\Gamma
+  \tag{6.6.2}
+\end{equation}
+est un isomorphisme de schémas. Pour \(\alpha\in\Gamma\), définissons \(d_\Gamma(\alpha)\) comme le
+plus grand nombre d'éléments de \(\Gamma\) dont \(\alpha\) soit la somme, avec répétitions permises.
+
+Dans \([\mathrm{Sei}]\), Seitz affirme que lorsque tous les \(d_\Gamma(\alpha)\) sont \(<p\), une
+application exponentielle de \(\Lie(U_\Gamma)\) vers \(U_\Gamma\) est définie. Il écrit, avant
+\([\mathrm{Sei},\) Proposition 5.1, page 483], que l'argument de la Section 4 de \([\mathrm{S1}]\)
+donne ce résultat. La référence est erronée et doit être remplacée par la Section 2.1 de
+\([\mathrm{S4}]\). L'argument donné dans les paragraphes précédents, avec \(d\) remplacé par
+\(d_\Gamma\), donne également le résultat.
+
+\subsection*{6.7}
+Soit \(\mathcal B\) la variété des sous-groupes de Borel de \(G\). Nous avons des espaces fibrés
+\(X\) et \(Y\) au-dessus de \(\mathcal B\), dont les fibres en un sous-groupe de Borel \(B\) de
+\(\mathcal B\) sont respectivement le radical unipotent \(U\) et son algèbre de Lie. La construction
+de l'exponentielle fonctionne sur toute base où les nombres premiers \(\ell<h\) sont inversibles. Sur
+\(\mathcal B\), on obtient donc un isomorphisme \(\exp:Y\xrightarrow{\sim}X\). L'application
+naturelle de \(X\) vers \(G\), respectivement de \(Y\) vers \(\Lie(G)\), est propre, étant la restriction
+à un fermé de \(\mathcal B\times G\), respectivement de \(\mathcal B\times\Lie(G)\), de la seconde
+projection.
+
+Le sous-schéma réduit \(\mathfrak g_{\nilp}\), respectivement \(G^{\unip}\), de \(\Lie(G)\),
+respectivement de \(G\), dont les points sont les éléments nilpotents, respectivement unipotents,
+est l'image schématique de \(Y\) dans \(\Lie(G)\), respectivement de \(X\) dans \(G\). Nous voulons
+compléter le diagramme \(G\)-équivariant suivant, où les flèches pleines sont données, par un
+isomorphisme sur la flèche pointillée:
+\begin{equation}
+\begin{tikzcd}[column sep=large,row sep=large]
+  Y \arrow[r,"\exp"] \arrow[d] & X \arrow[d] \\
+  \mathfrak g_{\nilp} \arrow[r,dashed] & G^{\unip}
+\end{tikzcd}
+\tag{6.7.1}
+\end{equation}
+
+Remplacer \(G\) par son groupe dérivé \(G'\) ne change pas le diagramme; remplacer un \(G\)
+semi-simple par son revêtement simplement connexe \(\widetilde G\) ne le change pas non plus, pourvu
+que \(\widetilde G\) soit étale sur \(G\). Sous nos hypothèses, cela nous ramène au cas où \(G\) est
+semi-simple et simplement connexe. Voici des références pour l'existence de l'isomorphisme pointillé
+dans (6.7.1).
+
+(A) D'après \([\mathrm{St},\) 6.11, 8.1], \(G^{\unip}\) est normal, avec une orbite dense lisse dont le
+complémentaire est de codimension \(\ge 2\). Cela vaut en toute caractéristique pour \(G\) simplement
+connexe. La normalité résulte du fait que \(G^{\unip}\) est l'intersection complète dans \(G\) définie
+par les équations \(\chi(g)=\chi(e)\), où \(\chi\) parcourt les caractères des représentations
+fondamentales, et du fait qu'il est lisse hors de la codimension \(2\).
+
+(B) Le même résultat vaut pour \(\mathfrak g_{\nilp}\) lorsque \(G\) est simplement connexe et \(p\)
+bon, car \(\mathfrak g_{\nilp}\) est alors équivariamment isomorphe à \(G^{\unip}\). Une jolie preuve
+se trouve dans \([\mathrm{BR},\) Corollaire 9.3.4]. L'isomorphisme utilise une représentation
+\((V,\rho)\) telle que l'accouplement \(\Tr(\rho(X)\rho(Y))\) sur \(\Lie(G)\) soit non dégénéré. Il
+est alors induit par l'application \(g\mapsto \rho(g)-1\) de \(G\) vers \(\End(V)\), composée avec la
+projection orthogonale de \(\End(V)\), muni de la forme bilinéaire symétrique \(\Tr(XY)\), vers
+\(\Lie(G)\subset\End(V)\). Cela ne fonctionne pas pour \(\SL(n)\), pour lequel on utilise
+\(X\mapsto 1+X\).
+
+(C) Sur les orbites denses de \(\mathfrak g_{\nilp}\) et de \(G^{\unip}\), (6.7.1) est un système
+d'isomorphismes, et l'isomorphisme composé se prolonge à travers la codimension \(2\) par normalité.
+
+\section*{Appendice. Nombre de Coxeter et systèmes de racines, par Zhiwei Yun}
+
+\begin{propositionA1}
+Soit \(R\) un système de racines irréductible associé à un groupe simple \(G\) de nombre de Coxeter
+\(h\), et soit \(X\) le réseau engendré par \(R\). Soit
+\(\varphi:X\to\mathbb R/\mathbb Z\) un homomorphisme. Alors il existe une base \(B\) de
+\(R\) telle que, si \(\alpha\in R\) vérifie
+\(\varphi(\alpha)\in(0,1/h)\bmod\mathbb Z\), alors \(\alpha\) soit positive relativement à
+\(B\).
+\end{propositionA1}
+
+\begin{proof}
+Choisissons une base quelconque \(B_0=\{\alpha_1,\ldots,\alpha_r\}\) de \(R\). Relevons
+\(\varphi\) en une application linéaire \(y:X\to\mathbb R\), que l'on considère comme un point de
+\(V=\operatorname{Hom}(X,\mathbb R)\).
+
+Soit \(W\) le groupe de Weyl de \(R\). Le groupe de Weyl étendu
+\(\operatorname{Hom}(X,\mathbb Z)\rtimes W\) agit sur \(V\), et la validité de l'énoncé pour
+l'application linéaire \(y\) est invariante par cette action. Nous pouvons donc supposer que \(y\)
+est dans l'alcôve fondamentale attachée à \(B_0\), c'est-à-dire
+\begin{align}
+  \alpha_j(y)&\ge 0,\qquad 1\le j\le r, \tag{A1.1}\\
+  \theta(y)&\le 1, \tag{A1.2}
+\end{align}
+où \(\theta\) est la plus haute racine relativement à \(B_0\). Alors, pour tout \(\alpha\in R\),
+\begin{equation}
+  |\alpha(y)|\le 1.
+  \tag{A1.3}
+\end{equation}
+
+Nous affirmons qu'il existe une base \(B\) de \(R\) telle que, pour tout \(\beta\in R\) avec
+\begin{equation}
+  \beta(y)\in (-1,-1+1/h)\cup(0,1/h),
+  \tag{A1.4}
+\end{equation}
+\(\beta\) soit positive relativement à \(B\).
+
+Écrivons \(\theta=\sum_i n_i\alpha_i\), et posons \(\alpha_0=1-\theta\) et \(n_0=1\), comme
+d'ordinaire. On a alors l'égalité \(\sum_{i=0}^r n_i\alpha_i=1\), vue comme une égalité de fonctions
+affines sur \(V\), et
+\begin{equation}
+  h=\sum_{i=0}^r n_i.
+  \tag{A1.5}
+\end{equation}
+Il existe donc \(0\le i\le r\) tel que \(\alpha_i(y)\ge1/h\).
+
+Si \(i=0\), alors \(\theta(y)\le1-1/h\), et dans ce cas on peut prendre \(B=B_0\). En effet, pour
+toute racine négative \(-\beta\) relativement à \(B_0\), on a
+\(0\ge -\beta(y)\ge -1+1/h\), de sorte que \(-\beta\) ne peut pas vérifier (A1.4).
+
+Si \(i>0\), soit \(v_i\) le sommet de l'alcôve fondamentale opposé à l'hyperplan radiciel
+\(\alpha_i\). Ainsi \(\alpha_j(v_i)=0\) si \(j\ne i\), et \(\alpha_i(v_i)=1/n_i\). Choisissons
+une base \(B\) de \(R\) telle que le vecteur \(y-v_i\) soit dominant, c'est-à-dire que, pour toute
+\(\beta\in R\) positive pour \(B\), on ait \(\beta(y)\ge\beta(v_i)\).
+
+Cette base \(B\) satisfait l'assertion. En effet, soit \(\beta\in R\) négative relativement à
+\(B\). Écrivons \(\beta=\sum_{j=1}^r m_j\alpha_j\), avec \(-n_j\le m_j\le n_j\). Alors
+\(\beta(v_i)=m_i/n_i\). Par ailleurs \(\beta(y)=\sum_{j=1}^r m_j\alpha_j(y)\). Comme
+\(\beta\) est négative pour \(B\), on a
+\begin{equation}
+  \beta(y)\le \beta(v_i)=m_i/n_i.
+  \tag{A1.6}
+\end{equation}
+Deux cas se présentent.
+
+\begin{itemize}[leftmargin=*]
+\item Si \(\beta>0\) relativement à \(B_0\), alors \(\beta(y)\ge0\) et
+\(0\le m_j\le n_j\) pour tout \(j\). Si \(m_i=0\), (A1.6) implique \(\beta(y)=0\), si bien que
+\(\beta\) ne vérifie pas (A1.4). Si \(m_i\ge1\), alors
+\(\beta(y)\ge\alpha_i(y)\ge1/h\), et (A1.4) n'est pas vérifiée non plus.
+
+\item Si \(\beta<0\) relativement à \(B_0\), alors \(-1\le\beta(y)\le0\) et
+\(-n_j\le m_j\le0\) pour tout \(j\). Si \(m_i=-n_i\), alors \(\beta(v_i)=-1\), ce qui force
+\(\beta(y)=-1\) par (A1.6). Si \(m_i\ge -n_i+1\), alors, en comparant \(|\beta(y)|\) avec
+\(\theta(y)\), il manque au moins une copie de \(\alpha_i(y)\); par conséquent
+\(|\beta(y)|\le\theta(y)-\alpha_i(y)\le1-1/h\), et \(\beta(y)\) ne vérifie pas (A1.4).
+\end{itemize}
+
+Cela prouve l'affirmation et la proposition.
+\end{proof}
+
+\section*{Références}
+\begin{description}[leftmargin=2.7cm,labelwidth=2.2cm,style=nextline]
+\item[{[BP]}] V. Balaji and A. J. Parameswaran, \emph{Tensor product theorem for Hitchin pairs -- An algebraic approach}, Ann. Inst. Fourier (Grenoble) 61 (2011), no. 6, 2361--2403. MR-2976315.
+\item[{[BR]}] P. Bardsley and R. W. Richardson, \emph{Étale slices for algebraic transformation groups in characteristic \(p\)}, Proc. London Math. Soc. (3) 51 (1985), no. 2, 295--317. MR-0794118.
+\item[{[BMR1]}] M. Bate, B. Martin, and G. Röhrle, \emph{A geometric approach to complete reducibility}, Invent. Math. 161 (2005), no. 1, 177--218. MR-2178661.
+\item[{[BMR2]}] M. Bate, B. Martin, and G. Röhrle, \emph{Complete reducibility and commuting subgroups}, J. Reine Angew. Math. 621 (2008), 213--235. MR-2431255.
+\item[{[Bible]}] C. Chevalley, \emph{Séminaire 1956--1958, Classification des groupes de Lie algébriques}, multigraphié, Paris, Secrétariat mathématique.
+\item[{[Bo]}] A. Borel, \emph{On affine algebraic homogeneous spaces}, Arch. Math. 45 (1985), no. 1, 74--78. MR-0799451.
+\item[{[Bo2]}] A. Borel, \emph{Linear Algebraic Groups}, 2nd ed., Springer, GTM, 1991. MR-404273.
+\item[{[BT]}] A. Borel and J. Tits, \emph{Éléments unipotents et sous-groupes paraboliques de groupes réductifs. I}, Invent. Math. 12 (1971), 95--104. MR-0294349.
+\item[{[CGP]}] B. Conrad, O. Gabber, and G. Prasad, \emph{Pseudo-reductive groups}, second edition, New Mathematical Monographs, vol. 26, Cambridge University Press, Cambridge, 2015. MR-3362817.
+\item[{[D]}] P. Deligne, \emph{Semi-simplicité de produits tensoriels en caractéristique \(p\)}, Invent. Math. 197 (2014), no. 3, 587--611. MR-3251830.
+\item[{[DG]}] M. Demazure and P. Gabriel, \emph{Groupes algébriques. Tome I: Géométrie algébrique, généralités, groupes commutatifs}, Masson; North-Holland, 1970. MR-0302656.
+\item[{[Dy]}] E. B. Dynkin, \emph{Maximal subgroups of the classical groups}, Trudy Moskov. Mat. Obshch. 1 (1952), 39--166; English translation in Amer. Math. Soc. Transl. (2) 6 (1957), 245--378. MR-0049903.
+\item[{[H]}] J. E. Humphreys, \emph{Linear algebraic groups}, Graduate Texts in Mathematics, vol. 21, Springer-Verlag, New York--Heidelberg, 1975. MR-0396773.
+\item[{[IMP]}] S. Ilangovan, V. B. Mehta, and A. J. Parameswaran, \emph{Semistability and semisimplicity in representations of low height in positive characteristic}, in \emph{A tribute to C. S. Seshadri}, Trends Math., Birkhäuser, Basel, 2003, pp. 271--282. MR-2017588.
+\item[{[Lu]}] D. Luna, \emph{Slices étales}, in \emph{Sur les groupes algébriques}, Bull. Soc. Math. France, Mémoire 33, Soc. Math. France, Paris, 1973, pp. 81--105. MR-0342523.
+\item[{[Mc1]}] G. J. McNinch, \emph{Abelian unipotent subgroups of reductive groups}, J. Pure Appl. Algebra 167 (2002), no. 2--3, 269--300. MR-1874545.
+\item[{[Mc2]}] G. J. McNinch, \emph{Optimal \(\mathrm{SL}(2)\)-homomorphisms}, Comment. Math. Helv. 80 (2005), no. 2, 391--426. MR-2142248.
+\item[{[MP]}] V. B. Mehta and A. J. Parameswaran, \emph{Geometry of low height representations}, in \emph{Algebra, Arithmetic and Geometry}, Part I, II, Tata Inst. Fund. Res. Stud. Math., vol. 16, Bombay, 2002, pp. 417--426. MR-1940675.
+\item[{[AV]}] D. Mumford, \emph{Abelian varieties}, with appendices by C. P. Ramanujam and Yuri Manin, corrected reprint of the second (1974) edition, Tata Inst. Fund. Res. Stud. Math., vol. 5, Hindustan Book Agency, New Delhi, 2008. MR-2514037.
+\item[{[GIT]}] D. Mumford, J. Fogarty, and F. Kirwan, \emph{Geometric invariant theory}, third edition, Ergebnisse der Mathematik und ihrer Grenzgebiete (2), vol. 34, Springer-Verlag, Berlin, 1994. MR-1304906.
+\item[{[Sei]}] G. M. Seitz, \emph{Unipotent elements, tilting modules, and saturation}, Invent. Math. 141 (2000), no. 3, 467--502. MR-1779618.
+\item[{[S1]}] J.-P. Serre, \emph{Sur la semi-simplicité des produits tensoriels de représentations de groupes}, Invent. Math. 116 (1994), no. 1--3, 513--530. MR-1253203.
+\item[{[S2]}] J.-P. Serre, \emph{Moursund Lectures 1998 at the University of Oregon Mathematics Department}, 1998, arXiv:math/0305257.
+\item[{[S3]}] J.-P. Serre, \emph{Complète réductibilité}, Séminaire Bourbaki, vol. 2003/2004, Astérisque 299 (2005), exp. no. 932, pp. 195--217. MR-2167207.
+\item[{[S4]}] J.-P. Serre, \emph{Exemples de plongements des groupes \(\mathrm{PSL}_2(\mathbb F_p)\) dans des groupes de Lie simples}, Invent. Math. 124 (1996), 525--562. MR-1369427.
+\item[{[SGA3]}] \emph{Séminaire de Géométrie Algébrique du Bois Marie 1962/64 (SGA 3)}, dirigé par M. Demazure et A. Grothendieck, Schémas en Groupes, Lecture Notes in Mathematics, vols. 151--153, Springer, Berlin, 1970. MR-0274458.
+\item[{[St]}] R. Steinberg, \emph{Regular elements of semisimple algebraic groups}, Publ. Math. IHES 25 (1965), 49--80 (= Collected Papers no. 20). MR-314788.
+\item[{[W1]}] D. J. Winter, \emph{On the toral structure of Lie \(p\)-algebras}, Acta Math. 123 (1969), 69--81. MR-0251095.
+\item[{[W2]}] D. J. Winter, \emph{Abstract Lie algebras}, M.I.T. Press, Cambridge, Mass.--London, 1972; Dover Publications, 2008. MR-0332905.
+\end{description}
+
+\end{document}
