@@ -40,7 +40,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20538574)
 
-**Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20535731)
+**Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20538678)
 
 **Riemann:** https://doi.org/10.5281/zenodo.20429778 (latest: 20434317)
 
