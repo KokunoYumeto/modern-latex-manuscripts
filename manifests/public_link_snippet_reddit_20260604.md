@@ -12,7 +12,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20545214) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 504.
 
-**Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20545581) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 43 complete, French pilots, and the RA02 Paper 02 scan/formula correction applied across German/English/Spanish/Japanese.
+**Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20546473) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 43 complete, French pilots, and recursive audit RA03 applied: Papers 07-12 scan-checked, with missing source-visible notes restored across English/Spanish/Japanese where needed.
 
 **Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20545457) — Lehrbuch Volume I complete, Volume II source-checked through section 143, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
