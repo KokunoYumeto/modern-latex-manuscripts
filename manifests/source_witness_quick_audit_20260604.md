@@ -17,6 +17,16 @@ After this quick audit, the following source-checkable packets were promoted to 
 
 Correction to the initial fast heuristic: Dedekind `DR15_V1I_p18_26` does include a source witness at `01_new/src/src_p18_26.pdf`; the first pass failed to count it because the folder was named `src` rather than `scan` or `source_scans`.
 
+## Current Catch-Up Pass
+
+This file is cumulative through the day, so earlier summary rows remain as historical snapshots. The current latest pass at 2026-06-04 20:17 Europe/Berlin is:
+
+- **Promoted:** non-European/multilingual general record, latest `10.5281/zenodo.20546801`, with the 2026-06-04 78-PDF / 19,599-manifest-page reader release and corrected al-Battani latest-version pointer.
+- **Already current before this catch-up:** SGA latest `10.5281/zenodo.20546576`; Noether latest `10.5281/zenodo.20546473`; Weber latest `10.5281/zenodo.20546725`; Sylvester latest `10.5281/zenodo.20546396`; Dedekind latest `10.5281/zenodo.20545496`; Dirichlet latest `10.5281/zenodo.20546131`; Deligne latest `10.5281/zenodo.20545671`; Gauss latest `10.5281/zenodo.20544740`; Steinitz latest `10.5281/zenodo.20545757`.
+- **Held:** Karaji/Fakhri partial translation, because README marks it in-progress rather than complete.
+- **Held:** Arabic translations of Chinese mathematical classics, because the package self-reports layout problems and log scans show several TeX errors/overfulls.
+- **Held:** Gibbs/old physics cumulative pp.55-114, source-checkable locally but still awaiting a DOI/mirror strategy.
+
 ## Summary Table
 
 | Lane | Latest item | PDFs | TeX | Images | Source-like files | Red flags | Verdict |
