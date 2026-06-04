@@ -236,3 +236,35 @@ Correction to the initial fast heuristic: Dedekind `DR15_V1I_p18_26` does includ
 - Packages lacking obvious source witnesses should stay as drafts or source-intake TODOs until the source PDF/page-slice is added or located.
 - Packages with screenshot/placeholder markers need visual inspection before front-facing promotion. Screenshots can be useful as witnesses, but not as substitutes for editable TeX or source scans.
 - This audit does not validate translation fidelity, theorem numbering, formulas, or diagram correctness; it only prevents the worst failure mode: publishing a polished-looking package with no source witness trail.
+
+## Second Sweep and Promotions
+
+### SGA restart
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\sga7i_470_504`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: `Src\sga7i_src_001_504.pdf`, `Src\sga7i_src_470_504.pdf`, plus full SGA 7-I / 7-II reference scans.
+- Reader surface staged/published: SGA 7-I cumulative English/French readers through source page 504 and matching source-scan witness.
+- Promotion: published to `10.5281/zenodo.20545214`.
+- Next anchor from package README: source page 505, Expose IX section 14.
+
+### Dirichlet
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R21_XXXVI_Gauss_20260604`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: `src\scans\36_gauss_letters_scan.pdf` and page PNGs `src\pages\v2_p0386.png` through `v2_p0400.png`.
+- Reader surface staged/published: Werke Band II Papers I-XXXVI cumulative original-language and English PDFs.
+- Promotion: published to `10.5281/zenodo.20545251`.
+
+### Steinitz
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_20`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, BUT NOT COMPLETE**
+- Source witnesses: per-work source PDFs/scans; newly relevant `09_1912_rectII\source\rectII_source_p297-345.pdf`.
+- Reader surface staged/published: 1910 field theory through sections 1-24; 1912 Rectangular Systems II partial German/English readers for printed pages 297-315; full 1912 source slice pp. 297-345 retained.
+- Promotion: published to `10.5281/zenodo.20545258`.
+- Remaining source-intake follow-up from package notes: 1906 Euler polyhedron-relations note and 1908 `Beitrage zur Analysis Situs`.
+
+### Old Physics / Gibbs
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p085_094`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, STAGED ONLY**
+- Source witnesses: `Cum_p055_094\SCAN\...` and `Inst_p085_094\SCAN\...`.
+- Reader surface found: Gibbs Volume I cumulative p055-094 and instant p085-094 TeX/PDF/SCAN.
+- Action: held for now because no dedicated old-physics/Gibbs Zenodo helper/DOI is wired yet; avoid creating a stray DOI before the record strategy is clear.
