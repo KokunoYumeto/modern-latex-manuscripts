@@ -331,3 +331,13 @@ Correction to the initial fast heuristic: Dedekind `DR15_V1I_p18_26` does includ
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, HELD**
 - Source witnesses: cumulative and instant source-scan PDFs are present.
 - Action: held pending an old-physics/Gibbs DOI strategy. Do not mint a stray record just because the package is source-checkable.
+
+## Fourth Sweep and Promotions
+
+### Dirichlet
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R23_CumQA_V1src_20260604.zip`
+- Verdict: **SOURCE-CHECKABLE QA CORRECTION, PROMOTED**
+- Source witnesses: `src/25/witness_scan.pdf`, `src/27/witness_scan.pdf`, Volume I Paper I e-rara source PDF and page PNGs, plus cumulative render checks.
+- Reader surface staged/published: Werke Band II Papers I-XLI original-language and English cumulative readers were replaced by R23 QA versions with a status sheet prepended.
+- Promotion: published to `10.5281/zenodo.20546131`.
+- Important caveat made public: Band II XXV (posthumous hydrodynamics paper) and XXVII (Kummer memorial address) are source-witnessed repair targets, not final line-by-line repaired editions yet. This avoids silently presenting compact/facsimile material as fully clean text.
