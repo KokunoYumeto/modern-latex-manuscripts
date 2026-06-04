@@ -44,7 +44,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20545757) — source-checked German/English author lane: 1910 field-theory readers through sections 1-24, and 1912 Rectangular Systems II now complete with source slice pp. 297-345 included.
 
-**Old physics / Gibbs:** staged locally and mirrored as a source-checkable lane; no dedicated DOI yet.
+**Old physics / Gibbs:** source-checkable lane staged locally through Gibbs Volume I Paper 3 pp.55-114; no dedicated DOI or GitHub mirror lane yet.
 
 **Riemann:** https://doi.org/10.5281/zenodo.20429778 (latest: 20429778)
 
