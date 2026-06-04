@@ -13,7 +13,7 @@ Source and witness tree:
 
 Local source package:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R20_XXX_XXXV_20260604.zip`
+- `local workspace path
 
 New items:
 

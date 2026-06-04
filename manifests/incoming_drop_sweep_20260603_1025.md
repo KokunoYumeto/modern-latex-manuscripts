@@ -1,7 +1,7 @@
 # Incoming Drop Sweep - 2026-06-03 10:25
 
 This note records the newest local ZIP drops found under
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean`.
+`local workspace path
 It is an intake queue, not a claim that every item has already been mirrored or
 published.
 
@@ -20,7 +20,7 @@ published.
 | Lane | Newest local package | Why it matters | Current action |
 |---|---|---|---|
 | Sylvester | `Sylvester_Volume_I_Cumulative_bookpp001_283_with_scans_20260603.zip` | Author record was public only through book p. 218; this extends Volume I to book p. 283 with scans and TeX/PDF. | Mirrored in GitHub as `sources/sylvester/volume-i-through-book-page-283-2026-06-03/` and published as Zenodo version `10.5281/zenodo.20523526`. |
-| Noether multilingual | `Noether_Paper17_complete_Paper18_complete_ES_JA_20260603.zip` | Public/mirror state was ES/JA through Paper 15; this advances Spanish/Japanese through Papers 17 and 18, with methodology/glossary deltas. | Mirrored in GitHub as `sources/noether/multilingual-spanish-japanese-through-paper18-complete-2026-06-03/` and published as Zenodo version `10.5281/zenodo.20523656`. |
+| Noether multilingual | `Noether_Paper17_complete_Paper18_complete_ES_JA_20260603.zip` | Public/mirror state was ES/JA through Papers 1-31 and Paper 31 section 2; this advances Spanish/Japanese through Papers 17 and 18, with methodology/glossary deltas. | Mirrored in GitHub as `sources/noether/multilingual-spanish-japanese-through-paper18-complete-2026-06-03/` and published as Zenodo version `10.5281/zenodo.20523656`. |
 | SGA | `rea.zip` | Supersedes the p.120 intermediate package; extends SGA7-I to source p.137 with English/French/source cumulative readers and completes Expose VI. | Mirrored in GitHub as `sources/sga/sga7-i-source-checked-through-page-137-2026-06-03/` and published as Zenodo version `10.5281/zenodo.20523803`. |
 | Weber | `Weber_Cumulative_ThreeVolumes_Batch68_Vol2_Sections63_66_REFINED_SIZE_CONTROLLED_20260603.zip` | Public Weber is much older; this has Volume I complete, Volume II through §§1-66, Volume III retained. | Keep as accepted cumulative candidate, but Weber aid is outsourced and lower than Cayley/Sylvester/Noether. |
 | Ukrainian applied math | `ua_eskf_lie_next_20260603.zip` and `ukrainian_applied_mathematics_eskf_lie_source_translation_continuation_20260603.zip` | Extends the applied mathematics/state-estimation lane after the current Zenodo update. | Queue a compact same-concept update once several small modules have accumulated. |
@@ -35,8 +35,8 @@ published.
 | Old physics | `Gibbs_Vol1_Representation_by_Surfaces_p033_042_with_cumulative.zip` | New Gibbs lane; needs its own author/physics shelf policy before public promotion. |
 | Dedekind | `Dedekind_Round12_Clean_LXVI_LXVII_pp483_504_20260603.zip` | Dedicated Dedekind record exists; queue after checking whether this is cumulative over the current record. |
 | Gauss | `gauss_summatio_articles09_20_pp020_032_round17_20260603.zip` | Gauss round 17; current Gauss record is behind recent local work and needs a later cumulative audit. |
-| Non-European / al-Battani | `non_eu_albattani_current_head_and_audit_20260603.zip` plus round 32-49 handoff ZIPs | Claude has started a separate CUDA/VLM table-cell reader lane; do not replace the public al-Battani record until table completeness is audited. |
-| Non-European / Claude queue | `_PUSH_QUEUE_CLAUDE_20260603/` under `cleanup multilingual` | New Claude-produced non-European work drop was explicitly added as a sweep target; inspect before promotion and keep al-Battani table completeness as the public gating issue. |
+| Non-European / al-Battani | `non_eu_albattani_current_head_and_audit_20260603.zip` plus round 32-49 source packet ZIPs | review system has started a separate CUDA/VLM table-cell reader lane; do not replace the public al-Battani record until table completeness is audited. |
+| Non-European / review system queue | `_PUSH_QUEUE_CLAUDE_20260603/` under `repair multilingual` | New review system-produced non-European work drop was explicitly added as a sweep target; inspect before promotion and keep al-Battani table completeness as the public gating issue. |
 
 Follow-up, 2026-06-03: `_PUSH_QUEUE_CLAUDE_20260603` was sanity-checked and promoted as Zenodo version `10.5281/zenodo.20526138` on the non-European concept DOI `10.5281/zenodo.20410957`. The patch replaces the reconstructed work-level reader surface, adds corrected combined readers, promotes al-Battani v083 trilingual text/reference material, and keeps the al-Battani numerical tables explicitly marked as in progress.
 
@@ -52,7 +52,7 @@ The user asked to keep sweeping all lanes, not only SGA/Noether. Newest observed
 | Noether multilingual | `Noether_Paper20_21_ES_JA_20260603.zip` | ES/JA moved beyond Paper 18; accumulate for next Noether patch. |
 | Steinitz | `Steinitz_12_corpus_shortpaths.zip` | Large corpus packet; candidate for dedicated Steinitz author record after check. |
 | Weber | `Weber_Cumulative_ThreeVolumes_Batch70_Vol2_Sections73_78_SIZE_CONTROLLED_20260603.zip` | Current cumulative Weber candidate; user says Weber aid is outsourced, so queue rather than interrupt Cayley. |
-| Non-European / Claude queue | `_PUSH_QUEUE_CLAUDE_20260603` plus `albattani_COMPLETENESS_STATEMENT.md` | Promoted the ready queue to Zenodo; keep al-Battani table reconstruction as active caveat. |
+| Non-European / review system queue | `_PUSH_QUEUE_CLAUDE_20260603` plus `albattani_COMPLETENESS_STATEMENT.md` | Promoted the ready queue to Zenodo; keep al-Battani table reconstruction as active caveat. |
 | Deligne | `D012_K3_p001_010_cum.zip`, `D087_090dn_p022_027.zip` | Deligne remains fidelity-gated; do not promote blindly. |
 | Gauss | `gauss_r20_biquad_prima_a_20260603.zip` | Current Gauss continuation; hold for consolidated Gauss pass. |
 | Old physics | `GibbsV1_P3_p065_074.zip` | Gibbs lane continuing; needs old-physics shelf policy before public promotion. |
@@ -101,7 +101,7 @@ Weber restart, Steinitz, and Ukrainian lane.
 
 ## Side-lane tool note
 
-Claude's al-Battani workspace reports a working RTX 4080 SUPER CUDA install with
+review system's al-Battani workspace reports a working RTX 4080 SUPER CUDA install with
 Torch 2.6.0+cu124 and a VLM cell-reader test in progress. Treat that as a
 reusable workflow experiment for table-heavy historical mathematics. If it
 becomes reliable, record the exact dependencies and table-cell protocol in the
@@ -146,4 +146,4 @@ committed. It again avoids narrowing the intake to only SGA/Noether.
 | Weber restart | `Weber_Cumulative_ThreeVolumes_Batch69_Vol2_Sections67_72_SIZE_CONTROLLED_20260603.zip` plus Batch 68 and Batch 67 | Web tooling/rate limits are unstable; keep latest cumulative available and prepare smaller aid zips only if the Weber thread resumes cleanly. |
 | Steinitz | `Steinitz_11_corpus_shortpaths.zip` plus prior short-path corpus packets | Steinitz likely deserves its own record rather than remaining in the mixed classical shelf. |
 | Ukrainian lane | `ua_units_20260603.zip`, `ua_eskf_lie_next_20260603.zip`, and `ukrainian_applied_mathematics_eskf_lie_source_translation_continuation_20260603.zip` | Continue accumulating applied-math modules; next update should keep naming human-readable and avoid overexplaining use cases. |
-| Non-European / al-Battani | `INDEX_FOR_CODEX_noneu_albattani_20260603.md`, `non_eu_other_readers_RELEASE_20260603.zip`, `non_eu_other_readers_RELEASE_20260603`, and `albattani_work_CLAUDE` | Claude's index says 66 non-al-Battani readers / about 8005 pages are packaged, while al-Battani text is complete through segment 100 but tables are only partly reconstructed. Treat al-Battani as table-audit gated; add Pix2Text/Kraken/VLM lessons to the workflow record only after reliability is established. |
+| Non-European / al-Battani | `INDEX_FOR_CODEX_noneu_albattani_20260603.md`, `non_eu_other_readers_RELEASE_20260603.zip`, `non_eu_other_readers_RELEASE_20260603`, and `albattani_work_CLAUDE` | review system's index says 66 non-al-Battani readers / about 8005 pages are packaged, while al-Battani text is complete through segment 100 but tables are only partly reconstructed. Treat al-Battani as table-audit gated; add Pix2Text/Kraken/VLM lessons to the workflow record only after reliability is established. |

@@ -1,3 +1,0 @@
-# Figure/Table Audit - Batch80
-
-Current span: Volume II §§121--124. The scan cutout contains no numbered geometric figures. The current mathematical display material is reproduced in LaTeX: the quartic ground curve, the substitution/form-invariance equations, orbit-count statements on the curve, the Hessian invariant \(\Delta\), the bordered-Hessian invariant \(C\), the Jacobian invariant \(K\), the Bezout intersection count, the degree-42 form \(Q=\Delta^7-kC^3\), and the final relation for \(K^2\). No screenshot or scanned-image stand-ins are embedded in the German or English work PDFs; source scans appear only in the checking folder.

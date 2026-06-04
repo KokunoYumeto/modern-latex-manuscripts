@@ -268,3 +268,66 @@ Correction to the initial fast heuristic: Dedekind `DR15_V1I_p18_26` does includ
 - Source witnesses: `Cum_p055_094\SCAN\...` and `Inst_p085_094\SCAN\...`.
 - Reader surface found: Gibbs Volume I cumulative p055-094 and instant p085-094 TeX/PDF/SCAN.
 - Action: held for now because no dedicated old-physics/Gibbs Zenodo helper/DOI is wired yet; avoid creating a stray DOI before the record strategy is clear.
+
+## Third Sweep and Promotions
+
+### Weber restart
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch82_Vol2_Sections132_143_SIZE_CONTROLLED_20260604`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: current Batch82 source scan cutout for pp.489-526 / Volume II sections 132-143, plus PNG page renders and audit/manifest files.
+- Reader surface staged/published: Volume II cumulative English/German readers through section 143; Volume I complete and Volume III current retained.
+- Promotion: published to `10.5281/zenodo.20545457`.
+
+### Dirichlet
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R22_XXXVII_XLI_20260604.zip`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: Kronecker, Humboldt, Erara, and tail scan slices plus page PNG witnesses.
+- Reader surface staged/published: Werke Band II Papers I-XLI original-language and English cumulative readers.
+- Promotion: published to `10.5281/zenodo.20545473`.
+
+### Dedekind
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\dedekind\DR16_V1_II_IV_p27_39.zip`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witness: `01_new/src/src_p27_39.pdf`.
+- Reader surface staged/published: GMW Volume I Items I-IV English/German cumulative readers.
+- Promotion: published to `10.5281/zenodo.20545496`.
+- Cleanup note: the publish patch added the new cumulative files; a follow-up should check the live Dedekind record for older loose GMW Item I files whose names did not match the first delete targets.
+
+### Sylvester
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_475_with_scans_20260603.zip`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: cumulative scan PDF `src_019_493_book001_475.pdf` and new pp.458-475 source slice.
+- Reader surface staged/published: Volume I source-checked working edition through book page 475.
+- Promotion: published to `10.5281/zenodo.20545503`.
+
+### Noether Multilingual
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_RA02_GEscan_P01_P02_cumfix_20260604.zip`
+- Verdict: **SOURCE-CHECKABLE CUMULATIVE CORRECTION**
+- Source witnesses: Paper 02 full/key scan PDFs, render checks, diffs, and RA02 audit note.
+- Reader surface staged/published: German, English, Spanish, and Japanese cumulative readers through Paper 43 were replaced with the RA02-corrected versions. The correction fixes Paper 02 formula (10), where hatted nu factors from scan page 51 had been flattened.
+- Promotion: published to `10.5281/zenodo.20545581`.
+- Cap note: Noether is now exactly at Zenodo's 100-file cap; future Noether updates should replace superseded loose files or use ZIPs.
+
+### Deligne
+- Latest items audited:
+  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D016_LC_p031_040.zip`
+  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D078_090dn_p001_012_std.zip`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: forward cumulative source scan through papers 001-016p040; reverse stream D078 pages 1-12 scan/render/QA witnesses and refreshed reverse 078-090 source ZIP.
+- Reader surface staged/published: forward cumulative advanced to papers 001-016 page 40; reverse stream added Paper 078 pages 1-12 English/French readers.
+- Promotion: published to `10.5281/zenodo.20545671`.
+- Cap note: Deligne remains at Zenodo's 100-file cap. Two bulky provenance ZIPs were removed from the current version only; they remain preserved in previous DOI/raw-provenance layers.
+
+### Steinitz
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_21`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
+- Source witnesses: per-work source PDFs/scans; notably `09_1912_rectII/source/rectII_source_p297-345.pdf`.
+- Reader surface staged/published: 1912 Rectangular Systems II promoted from partial pp.297-315 to complete German/English readers; full source scan slice retained.
+- Promotion: published to `10.5281/zenodo.20545757`.
+- Remaining source-intake follow-up: 1906 Euler polyhedron-relations note and 1908 `Beitrage zur Analysis Situs`.
+
+### Old Physics / Gibbs
+- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p095_104.zip`
+- Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, HELD**
+- Source witnesses: cumulative and instant source-scan PDFs are present.
+- Action: held pending an old-physics/Gibbs DOI strategy. Do not mint a stray record just because the package is source-checkable.

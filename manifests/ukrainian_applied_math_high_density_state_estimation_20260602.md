@@ -23,7 +23,7 @@ GitHub source packet:
 - `03_source_context/`: original source-context TeX where available.
 - `04_translation_manifests/`: queue and status files.
 - `05_quality_audit/`: build logs, rendered-page checks, and contact sheet.
-- `06_agent_handoff/`: continuation prompt for a local or web translation worker.
+- `06_agent_source packet/`: continuation prompt for a local or web translation worker.
 
 ## Technical Scope
 

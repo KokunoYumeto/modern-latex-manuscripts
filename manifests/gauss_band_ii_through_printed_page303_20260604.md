@@ -13,7 +13,7 @@ Source and witness tree:
 
 Local source package:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\gauss_r25_dedekind_de_nexu_notes_20260604.zip`
+- `local workspace path
 
 Source-witness audit:
 
