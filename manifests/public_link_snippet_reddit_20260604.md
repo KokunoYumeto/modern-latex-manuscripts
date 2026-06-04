@@ -10,14 +10,14 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **EGA:** https://doi.org/10.5281/zenodo.20414353 (latest: 20454552) — working English translation drafts beyond the existing community material, with French originals/reference material.
 
-**SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20544089) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 469.
+**SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20545214) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 504.
 
 **Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20544550) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 43 complete plus French pilots and recursive audit starting.
 
 **Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20544247) — Lehrbuch Volume I complete, Volume II source-checked through section 131, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20544740) — broad Werke draft readers plus Band II source-checked original/English cumulative readers through printed page 303.
-**P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20544678) — Werke Band II source-checked original/English cumulative readers through Papers I-XXXV.
+**P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20545251) — Werke Band II source-checked original/English cumulative readers through Papers I-XXXVI.
 
 **Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20544911) — English-first paper-level and correspondence translation/source-working packets, including the forward source-checked cumulative stream through paper 016 page 30, the reverse source-checked stream papers 090 down through 079 complete, and twelve paired English/French correspondence readers.
 
@@ -42,7 +42,9 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20544607) — Volume I source-checked working edition through book page 457; source ZIP includes TeX, cumulative source scan slice, and page witnesses.
 
-**Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20538678)
+**Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20545258) — source-checked German/English author lane: 1910 field-theory readers through sections 1-24, 1912 Rectangular Systems II started through printed pp. 297-315, and full 1912 source slice pp. 297-345 included for continuation.
+
+**Old physics / Gibbs:** staged locally and mirrored as a source-checkable lane; no dedicated DOI yet.
 
 **Riemann:** https://doi.org/10.5281/zenodo.20429778 (latest: 20434317)
 
