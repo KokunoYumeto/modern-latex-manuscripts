@@ -1,0 +1,1837 @@
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{titlesec}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Cambria}
+\setsansfont{Cambria}
+\setmonofont{DejaVu Sans Mono}
+
+%% CJK Support via xeCJK
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{SimSun}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{SimSun}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{SimSun}
+
+%% Arabic Font Setup
+\newfontfamily\arabicfont[Script=Arabic]{Amiri}
+\TeXXeTstate=1
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
+\newcommand{\arbf}[1]{\arabicfont\bfseries\beginR #1\endR}
+\newcommand{\arit}[1]{\arabicfont\itshape\beginR #1\endR}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+\definecolor{probbg}{RGB}{250,248,245}
+\definecolor{arabicbg}{RGB}{252,250,248}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Xiangjie Jiuzhang (Part II) \ensuremath{\vert} \ar{التحليل المفصل لتسعة فصول الحساب — الجزء الثاني}}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Parallel text commands
+\newcommand{\ChinCol}[1]{\begin{minipage}[t]{0.48\textwidth}#1\end{minipage}}
+\newcommand{\ArabCol}[1]{\begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR #1\endR\end{minipage}}
+\newcommand{\parallelsection}[2]{%
+  \noindent\ChinCol{#1}\hfill\ArabCol{#2}\par\vspace{0.5cm}%
+}
+
+%% Problem/solution environment
+\newcounter{probnum}
+
+\newcommand{\problem}[2]{\stepcounter{probnum}\par\vspace{0.3cm}%
+  \noindent\fcolorbox{rulecolor}{probbg}{\parbox[t]{0.48\textwidth}{\textbf{問題 \arabic{probnum}：}#1}}%
+  \hfill%
+  \fcolorbox{rulecolor}{arabicbg}{\parbox[t]{0.48\textwidth}{\arabicfont\beginR\textbf{المسألة \arabic{probnum}:} #2\endR}}\par\vspace{0.2cm}}
+
+\newcommand{\answer}[2]{\par\noindent%
+  \begin{minipage}[t]{0.48\textwidth}\textbf{答曰：}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR\textbf{الجواب:} #2\endR\end{minipage}\par\vspace{0.2cm}}
+
+\newcommand{\working}[2]{\par\noindent%
+  \begin{minipage}[t]{0.48\textwidth}\textbf{術曰：}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR\textbf{الحل:} #2\endR\end{minipage}\par\vspace{0.2cm}}
+
+\newcommand{\method}[2]{\par\noindent%
+  \begin{minipage}[t]{0.48\textwidth}\textbf{法曰：}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR\textbf{الطريقة:} #2\endR\end{minipage}\par\vspace{0.3cm}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% -------- Column settings --------
+\columnsep=1.5em
+
+%% ===================================================================
+
+\newcommand{\vs}{\vspace{0.5em}}
+\newcommand{\bilingualrow}[2]{%
+\noindent\begin{minipage}[t]{0.48\textwidth}#1\end{minipage}\hfill\begin{minipage}[t]{0.48\textwidth}\arabicfont\beginR #2\endR\end{minipage}\par\vspace{0.5cm}}
+
+\definecolor{commentarycolor}{RGB}{80,80,120}
+\definecolor{probbg}{RGB}{250,248,245}
+\definecolor{arabicbg}{RGB}{252,250,248}
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\begin{document}
+
+%% =============================================================================
+\section*{Preface / 序}
+\addcontentsline{toc}{section}{Preface: 楊輝詳解九章算法序}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+\noindent
+\begin{minipage}[t]{0.46\textwidth}
+\begin{flushleft}
+{\large\bfseries\color{titlecolor} 楊輝詳解九章算法序}
+\end{flushleft}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.46\textwidth}
+\begin{flushright}
+{\large\bfseries\color{titlecolor} \ar{تقديم يانغ هوي في التحليل المفصل لتسعة فصول الحساب}}
+\end{flushright}
+\end{minipage}
+
+\vspace{1em}
+
+\bilingualrow{
+夫天生五材，民並用之。數之為用也，其大矣哉。
+故黃帝使隸首造數，以通神明之德，以類萬物之情。
+自周官保氏教國子六藝，數實居其一焉。
+及秦焚書，散壞滋甚。漢北平侯張蒃、大司農中丞耿壽昌，皆以善算命世。
+蒐殘補缺，各稱刪補，故校其目則與古或異，而所論者多近語也。
+}{
+خلق السماء خمسة مواد، والناس يستخدمونها جميعًا. أما استخدام الأرقام، فكم هو عظيم!
+فقد أمر الإمبراطور الأصفر لي شو بابتكار الأرقام، للتواصل مع فضائل الآلهة، ولتصنيف حالات الأشياء.
+ومنذ أن علّم باو شي في مكتب تشو الأبناء الستة فنون، كان الحساب أحدها.
+وعندما أحرق تشين الكتب، تفشت الضرر. وقد اشتهر تشانغ تسانغ، ماركيز بكينغ في هان، وغينغ شوتشانغ، مساعد وزير الزراعة، بمهارتهما في الحساب.
+جمعا ما تبقى وسدّا النقص، وكلاهما ادّعى التنقيح، فالفهرس قد يختلف عن القديم، لكن ما نوقش يقترب من اللغة الحديثة.
+}
+
+\bilingualrow{
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源，探賾之暇，遂悟其意。
+是以敢竭頑魯，采其所見，為之作注。事類相推，各有攸歸，故枝條雖分而同本榦者，知發其一端而已。
+}{
+لقد درست التسعة فصول في صغري، وراجعتها بتفصيل في كبري. أراقب انقسام الين واليانغ، وأجمع جذور فنون الحساب، وفي أوقات الاستكشاف، أدركت معناها.
+لذا أتجرأ على بذل جهدي المتواضع، وأجمع ما رأيته، وأكتب تعليقًا عليه. فالأمور المتشابهة تُستدلّ من بعضها، ولكل منها مكانها، فكما أن الفروع تنقسم لكنها تشترك في الجذع، نعلم أنها تنبع من مصدر واحد.
+}
+
+\bilingualrow{
+九數有重差之名，原其指趣乃所以施於此也。
+凡望極高、測絕深而兼知其遠者必用重差，句股則必以重差為率，故曰重差也。
+立兩表於洛陽之城，令高八尺。南北各盡平地，同日度其正中之景。
+以景差為法，表高乘表間為實，實如法而一，所得加表高，即日去地也。
+}{
+التسعة فنون لها اسم "تشونغ تشا" (الفروق المضاعفة)، وأصل مقصودها يُطبّق هنا.
+فكل من يراقب الارتفاع الشاهق، أو يقيس العمق الفائق، ويريد معرفة البعد، يجب أن يستخدم الفروق المضاعفة. والمثلث قائم الزاوية يجب أن يأخذ الفروق المضاعفة كنسبة، لذا يُسمى فروقًا مضاعفة.
+أقيم عمودان في مدينة لؤويانغ، ارتفاعهما ثماني أذرع. شمال وجنوب على أرض مستوية، وفي نفس اليوم قُيس ظلهما عند الظهيرة.
+فيكون فرق الظل هو القاسم، وارتفاع العمود مضروبًا في المسافة بين العمودين هو المقسوم عليه، فتُقسم وفق القاسم، ثم يُضاف ارتفاع العمود، فيكون بعد الشمس عن الأرض.
+}
+
+\bilingualrow{
+楊輝曰：九章算術，其來尚矣。自漢以來，代有傳注。
+至宋景德中，祕書監李淳風等奉詔注釋，頗為詳備。
+然其間條理未盡，說義弗明者，猶或有焉。
+輝不揆寡昧，輒為詳解。其為例也，先列原題，次釋術意，次設問答，次明算草。
+庶使學者開卷了然，易於領略。
+}{
+قال يانغ هوي: إن فنون الحساب التسعة لها تاريخ طويل. ومنذ عهد هان، تناقلت الأجيال التعليقات.
+وفي عهد جينغده من سونغ، قام لي تشونفنغ وغيره من سكّان الأسرار بتلقي الأمر بالتعليق، وكان مفصّلاً إلى حد كبير.
+لكن بينما لم يكن التنظيم كاملاً، وبعض المعاني غير واضحة، فلا يزال هناك بعض النقص.
+أنا يانغ هوي، رغم قصري وضعفي، أقدّم هذا التحليل المفصل. طريقتي: أدرج المسألة الأصلية أولاً، ثم أشرح معنى الطريقة، ثم أطرح أسئلة وأجوبة، ثم أوضح حسابات الورقة.
+لعلّ الطلاب عند فتح الكتاب يجدون الوضوح، وسهولة الفهم.
+}
+
+\bilingualrow{
+輝嘗謂：算法之於人，不亦急乎？日用而不可得離也。
+至於田疇畝尺之差，貿遷輕重之度，工程積尺之計，均輸遠近之度，無所不用算也。
+然算之為道，貴在簡明。簡則易知，明則易行。
+若其繁雜瑣碎，使人望而生畏，則非所以為教也。
+故輝於詳解之中，尤注意於條理貫通，使學者循序漸進，不至迷罔。
+}{
+قال يانغ هوي: أليس الحساب عاجلاً للناس؟ إنه يُستخدم يوميًا ولا يمكن الاستغناء عنه.
+أما بالنسبة لقياس الحقول والأراضي، وتقدير الأوزان في التجارة، وحساب أحجام الهندسة، وتوزيع المسافات المتفاوتة، فلا شيء يخلو من الحساب.
+لكن طريقة الحساب، تُقدّر في بساطتها ووضوحها. البساطة تجعله سهل المعرفة، والوضوح يجعله سهل التطبيق.
+إذا كان معقدًا ومملًا، يجعل الناس يخشونه عند النظر إليه، فهذا ليس طريقة تعليم.
+لذا في تحليلي، أولي اهتمامًا خاصًا بالتنظيم والترابط، ليجعل الطلاب يتقدمون تدريجيًا، دون أن يضلوا.
+}
+
+\bilingualrow{
+又案：開方作法本源一圖，出於釋鎖算書，賈憲用此術。
+輝嘗考其源流，實為算學之根本，因取而詳解之，以附於九章之末。
+蓋九章言乘除、開方之法，而此圖則可以推廣其用，以通於高次也。
+}{
+وأيضًا: رسم أصل طريقة استخراج الجذور، يأتي من كتاب سوا سوان شو (كتاب الحساب المفكّك)، وقد استخدمه جيا شيان.
+لقد درست أصوله ومصادره، وهو في الواقع أساس علم الحساب، لذا أخذته وحللته بالتفصيل، ووضعته في نهاية التسعة فصول.
+فالتسعة فصول تتحدث عن طرق الضرب والقسمة واستخراج الجذور، وهذا الرسم يمكن أن يوسّع استخدامها، ويتجاوز إلى الدرجات العليا.
+}
+
+\begin{flushright}
+\textit{楊輝謹序 / \ar{ختام التقديم من يانغ هوي}}
+\end{flushright}
+
+\newpage
+
+%% =============================================================================
+\section*{\centerline{卷第一：方田 \hspace{2em} \ar{الفصل الأول: الحقول المستطيلة — طرائق الكسور}}}
+\label{sec:fangtian}
+\addcontentsline{toc}{section}{Chapter 1: 方田 -- Rectangular Fields (Fraction Methods)}
+
+\begin{center}
+\textit{方田以御田疇界域 / \ar{الحقول المستطيلة لحساب حدود الأراضي الزراعية}}
+\end{center}
+
+\vspace{0.5em}
+
+\bilingualrow{
+方田者，田之正也。諸田不等，以方為正，故曰方田。
+此章以御田疇界域，論各種田地面積之計算法，并及分數四則運算之法。
+}{
+الحقول المستطيلة (فانغ تيان) هي المعيار للحقول. الحقول مختلفة، والمربع هو المعيار، لذا تُسمى حقولًا مستطيلة.
+يستخدم هذا الفصل لحساب حدود الأراضي الزراعية، ويناقش طرق حساب مساحة أنواع مختلفة من الحقول، بالإضافة إلى طرق العمليات الحسابية الأربع على الكسور.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}楊輝曰：方田為九章之首，所以明度數之原也。}
+\textbf{\color{commentarycolor}度數之原，起於方田。方田者，正方形之田也。}
+\textbf{\color{commentarycolor}以正方為準，則其他形之田，可由此而推矣。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي: فانغ تيان هي أول فصول التسعة، لتوضيح أصل القياسات.}
+\textbf{\color{commentarycolor}أصل القياسات يبدأ من فانغ تيان. فانغ تيان هي الحقول المربعة الشكل.}
+\textbf{\color{commentarycolor}بأخذ المربع كمعيار، يمكن استنتاج أنواع أخرى من الحقول منه.}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第一：約分術 \hfill \ar{الطريقة الأولى: تبسيط الكسور}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[一]} 今有田廣十五步，從十六步。問為田幾何？
+}{
+\textbf{[الأولى]} إذا كان عرض الحقل خمسة عشر خطوة، وطوله ستة عشر خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}一畝。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} مؤ (الوحدة الصينية للمساحة).
+}
+
+\bilingualrow{
+\textbf{[二]} 又有田廣十二步，從十四步。問為田幾何？
+}{
+\textbf{[الثانية]} وإذا كان عرض الحقل اثنتي عشرة خطوة، وطوله أربعة عشر خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}一百六十八步。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} مئة وثمانية وستون خطوة مربعة.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{方田術曰：}}廣從步數相乘得積步。以畝法二百四十步除之，即畝數。百畝為一頃。
+}{
+\textcolor{methodcolor}{\textbf{طريقة الحقول المستطيلة:}} اضرب عدد خطوات العرض في عدد خطوات الطول للحصول على الخطوات المربعة. اقسمها على مئتين وأربعين خطوة (مؤ واحد) فتكون عدد المؤ. ومئة مؤ تساوي كينغ واحد.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：方田術，廣從相乘，此古法也。}}
+\textcolor{commentarycolor}{\small\textit{廣者，東西之度；從者，南北之度。以二數相乘，得積步。}}
+\textcolor{commentarycolor}{\small\textit{積步者，即方田之面積也。}}
+\textcolor{commentarycolor}{\small\textit{然積步之數甚大，不可徑以為畝，故以二百四十步為一畝而除之。}}
+\textcolor{commentarycolor}{\small\textit{何以知二百四十步為一畝？古法也。}}
+\textcolor{commentarycolor}{\small\textit{秦漢以來，皆用此法，至唐始有以二百步為畝者。}}
+\textcolor{commentarycolor}{\small\textit{此書從古法，故用二百四十步。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: طريقة فانغ تيان، ضرب العرض في الطول، هذه طريقة قديمة.}}
+\textcolor{commentarycolor}{\small\textit{العرض هو القياس من الشرق إلى الغرب؛ والطول هو القياس من الشمال إلى الجنوب. بضرب هذين الرقمين، نحصل على الخطوات المتراكمة.}}
+\textcolor{commentarycolor}{\small\textit{الخطوات المتراكمة هي مساحة الحقل المستطيل.}}
+\textcolor{commentarycolor}{\small\textit{لكن عدد الخطوات المتراكمة كبير جدًا، ولا يمكن استخدامه مباشرة كمؤ، لذا نقسم على مئتين وأربعين خطوة كمؤ واحد.}}
+\textcolor{commentarycolor}{\small\textit{كيف نعرف أن مئتين وأربعين خطوة تساوي مؤًا واحدًا؟ إنها طريقة قديمة.}}
+\textcolor{commentarycolor}{\small\textit{منذ عهد تشين وهان، استُخدمت هذه الطريقة، وحتى عهد تانغ بدأ استخدام مئتي خطوة كمؤ.}}
+\textcolor{commentarycolor}{\small\textit{هذا الكتاب يتبع الطريقة القديمة، لذا يستخدم مئتين وأربعين خطوة.}}
+}
+
+\vspace{1em}
+
+\bilingualrow{
+\textbf{[三]} 今有十八分之十二。問約之得幾何？
+}{
+\textbf{[الثالثة]} إذا كان لديك اثنا عشر ثمنطاعشر. كم يكون تبسيطه؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}三分之二。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} ثلثان.
+}
+
+\bilingualrow{
+\textbf{[四]} 又有九十一分之四十九。問約之得幾何？
+}{
+\textbf{[الرابعة]} وإذا كان لديك تسعة وأربعون واحدًا وتسعين. كم يكون تبسيطه؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}十三分之七。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} سبعة ثلاثة عشر.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{約分術曰：}}可半者半之，不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。
+}{
+\textcolor{methodcolor}{\textbf{طريقة تبسيط الكسور:}} ما يمكن نصفه فانصفه، وما لا يمكن نصفه، ضع أرقام البسط والمقام جنبًا، واطرح الأصغر من الأكبر، واكرر الطرح بالتناوب، وابحث عن القاسم المشترك. ثم قسّم بالقاسم المشترك.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：約分者，約其分數使從簡也。}}
+\textcolor{commentarycolor}{\small\textit{如十八分之十二，可半者半之，即得九分之六；又可半之，即得三分之二。}}
+\textcolor{commentarycolor}{\small\textit{此約分之最簡者也。}}
+\textcolor{commentarycolor}{\small\textit{若九十一分之四十九，不可半，則用更相減損之法：}}
+\textcolor{commentarycolor}{\small\textit{九十一減四十九，餘四十二；四十九減四十二，餘七；四十二減七，得三十五；}}
+\textcolor{commentarycolor}{\small\textit{三十五減七，得二十八；二十八減七，得二十一；二十一減七，得十四；}}
+\textcolor{commentarycolor}{\small\textit{十四減七，得七；七減七，盡。其等數為七。}}
+\textcolor{commentarycolor}{\small\textit{故以七約九十一，得十三；七約四十九，得七。即十三分之七。}}
+\textcolor{commentarycolor}{\small\textit{此更相減損之法，即後世之所謂求最大公約數也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: تبسيط الكسور يعني تبسيط الكسر لجعله أبسط.}}
+\textcolor{commentarycolor}{\small\textit{مثل اثني عشر ثمنطاعشر، يمكن نصفه فنحصل على ستة تسعة؛ ويمكن نصفه مرة أخرى فنحصل على ثلثان.}}
+\textcolor{commentarycolor}{\small\textit{هذا أبسط صورة لتبسيط الكسر.}}
+\textcolor{commentarycolor}{\small\textit{أما تسعة وأربعون واحدًا وتسعين، فلا يمكن نصفه، فنستخدم طريقة الطرح المتكرر:}}
+\textcolor{commentarycolor}{\small\textit{واحد وتسعون ناقص تسعة وأربعون، الباقي اثنان وأربعون؛ تسعة وأربعون ناقص اثنان وأربعون، الباقي سبعة؛ اثنان وأربعون ناقص سبعة، يساوي خمسة وثلاثين؛}}
+\textcolor{commentarycolor}{\small\textit{خمسة وثلاثين ناقص سبعة، يساوي ثمانية وعشرين؛ ثمانية وعشرين ناقص سبعة، يساوي واحد وعشرين؛ واحد وعشرين ناقص سبعة، يساوي أربعة عشر؛}}
+\textcolor{commentarycolor}{\small\textit{أربعة عشر ناقص سبعة، يساوي سبعة؛ سبعة ناقص سبعة، ينتهي. والقاسم المشترك هو سبعة.}}
+\textcolor{commentarycolor}{\small\textit{إذن نقسم واحدًا وتسعين على سبعة، نحصل على ثلاثة عشر؛ ونقسم تسعة وأربعين على سبعة، نحصل على سبعة. أي سبعة ثلاثة عشر.}}
+\textcolor{commentarycolor}{\small\textit{هذه طريقة الطرح المتكرر، وهي ما يُسمى في العصور اللاحقة بإيجاد القاسم المشترك الأكبر.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第二：合分術 \hfill \ar{الطريقة الثانية: جمع الكسور}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[五]} 今有三分之一，五分之二。問合之得幾何？
+}{
+\textbf{[الخامسة]} إذا كان لديك ثلث وخمسان. كم يكون مجموعهما؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}十五分之十一。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} أحد عشر من خمسة عشر.
+}
+
+\bilingualrow{
+\textbf{[六]} 又有三分之二，七分之四，九分之五。問合之得幾何？
+}{
+\textbf{[السادسة]} وإذا كان لديك ثلثان وأربعة سباع وخمسة تساع. كم يكون مجموعها؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}得一、六十三分之五十。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} واحد وخمسون ثلاثة وستين.
+}
+
+\bilingualrow{
+\textbf{[七]} 又有二分之一，三分之二，四分之三，五分之四。問合之得幾何？
+}{
+\textbf{[السابعة]} وإذا كان لديك نصف وثلثان وثلاثة أرباع وأربعة أخماس. كم يكون مجموعها؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}得二、六十分之四十三。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} اثنان وثلاثة وأربعون ستين.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{合分術曰：}}母互乘子，并為實，母相乘為法，實如法而一。不滿法者，以法命之。其母同者，直相從之。
+}{
+\textcolor{methodcolor}{\textbf{طريقة جمع الكسور:}} اضرب كل مقام في بسط الآخر، واجمعها لتكون المقسوم عليه. واضرب المقامات في بعضها لتكون القاسم. اقسم المقسوم عليه على القاسم. ما لم يبلغ القاسم، سمّه بالقاسم. إن كانت المقامات متساوية، فاجمع البسطات مباشرة.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：合分者，合眾分數為一也。}}
+\textcolor{commentarycolor}{\small\textit{如三分之一與五分之二，母互乘子：三乘二得六，五乘一得五；并之得十一，為實。}}
+\textcolor{commentarycolor}{\small\textit{母相乘：三乘五得十五，為法。實如法而一，即十五分之十一。}}
+\textcolor{commentarycolor}{\small\textit{若有三分數以上，則通分而後合之。}}
+\textcolor{commentarycolor}{\small\textit{其母同者直相從，謂如三分之一與三分之二，母皆為三，則直以子相加，得三分之三，即為一。}}
+\textcolor{commentarycolor}{\small\textit{此合分術之大要也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: جمع الكسور يعني جمع عدة كسور في واحد.}}
+\textcolor{commentarycolor}{\small\textit{مثل ثلث وخمسان، اضرب المقامات في البسطات بالتبادل: ثلاثة في اثنين تساوي ستة، وخمسة في واحد تساوي خمسة؛ اجمعها فتكون أحد عشر، وهي المقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اضرب المقامات: ثلاثة في خمسة تساوي خمسة عشر، وهو القاسم. اقسم فتكون أحد عشر من خمسة عشر.}}
+\textcolor{commentarycolor}{\small\textit{إذا كان هناك أكثر من ثلاثة كسور، فأجعلها بنفس المقام ثم اجمعها.}}
+\textcolor{commentarycolor}{\small\textit{إذا كانت المقامات متساوية، فاجمع مباشرة، مثل ثلث وثلثان، مقاماتها ثلاثة، فاجمع البسطات مباشرة، فتكون ثلاثة من ثلاثة أي واحد.}}
+\textcolor{commentarycolor}{\small\textit{هذا ملخص طريقة جمع الكسور.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第三：減分術 \hfill \ar{الطريقة الثالثة: طرح الكسور}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[八]} 今有九分之八，減其五分之一。問餘幾何？
+}{
+\textbf{[الثامنة]} إذا كان لديك ثمانية تساع، وطرحت منها خمسًا. كم يكون الباقي؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}四十五分之三十一。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} واحد وثلاثون من خمسة وأربعين.
+}
+
+\bilingualrow{
+\textbf{[九]} 又有四分之三，減其三分之一。問餘幾何？
+}{
+\textbf{[التاسعة]} وإذا كان لديك ثلاثة أرباع، وطرحت منها ثلثًا. كم يكون الباقي؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}十二分之五。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} خمسة من اثني عشر.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{減分術曰：}}母互乘子，以少減多，餘為實，母相乘為法，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة طرح الكسور:}} اضرب كل مقام في بسط الآخر، واطرح الأصغر من الأكبر، والباقي هو المقسوم عليه. اضرب المقامات في بعضها لتكون القاسم. اقسم المقسوم عليه على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：減分與合分相對。合分者加之，減分者減之也。}}
+\textcolor{commentarycolor}{\small\textit{其法亦母互乘子，以少減多，餘為實，母相乘為法。}}
+\textcolor{commentarycolor}{\small\textit{如九分之八減五分之一：母互乘子，九乘一得九，五乘八得四十；以少減多，四十減九，餘三十一，為實。}}
+\textcolor{commentarycolor}{\small\textit{母相乘：九乘五得四十五，為法。故得四十五分之三十一。}}
+\textcolor{commentarycolor}{\small\textit{此術之理，與合分相通，但一則并而一則減耳。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: طرح الكسور يقابل جمع الكسور. جمع الكسور يعني الجمع، وطرح الكسور يعني الطرح.}}
+\textcolor{commentarycolor}{\small\textit{الطريقة أيضًا: اضرب المقامات في البسطات بالتبادل، واطرح الأصغر من الأكبر، والباقي هو المقسوم عليه، واضرب المقامات لتكون القاسم.}}
+\textcolor{commentarycolor}{\small\textit{مثل ثمانية تساع ناقص خمس: اضرب المقامات في البسطات، تسعة في واحد تساوي تسعة، وخمسة في ثمانية تساوي أربعين؛ اطرح الأصغر من الأكبر، أربعين ناقص تسعة، الباقي واحد وثلاثون، وهو المقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اضرب المقامات: تسعة في خمسة تساوي خمسة وأربعين، وهو القاسم. فالناتج واحد وثلاثون من خمسة وأربعين.}}
+\textcolor{commentarycolor}{\small\textit{مبدأ هذه الطريقة مرتبط بجمع الكسور، لكن واحدة تجمع والأخرى تطرح.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第四：課分術 \hfill \ar{الطريقة الرابعة: مقارنة الكسور}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十]} 今有八分之五，二十五分之十六。問孰多？多幾何？
+}{
+\textbf{[العاشرة]} إذا كان لديك خمسة أثمان وستة عشرًا من خمسة وعشرين. أيهما أكبر؟ وبكم؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}二十五分之十六多，多二百分之三。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} ستة عشر من خمسة وعشرين أكبر، وبمقدار ثلاثة من مئتين.
+}
+
+\bilingualrow{
+\textbf{[十一]} 又有九分之八，七分之六。問孰多？多幾何？
+}{
+\textbf{[الحادية عشرة]} وإذا كان لديك ثمانية تساع وستة سباع. أيهما أكبر؟ وبكم؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}九分之八多，多六十三分之二。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} ثمانية تساع أكبر، وبمقدار اثنان من ثلاثة وستين.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{課分術曰：}}母互乘子，以少減多，餘為實，母相乘為法，實如法而一，即相多也。
+}{
+\textcolor{methodcolor}{\textbf{طريقة مقارنة الكسور:}} اضرب كل مقام في بسط الآخر، واطرح الأصغر من الأكبر، والباقي هو المقسوم عليه. اضرب المقامات في بعضها لتكون القاسم. اقسم المقسوم عليه على القاسم، فيكون الفرق بينهما.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：課分者，課其多寡也。}}
+\textcolor{commentarycolor}{\small\textit{母互乘子，所以通其分也。通分以後，子之大小可徑比較。}}
+\textcolor{commentarycolor}{\small\textit{如八分之五與二十五分之十六：母互乘子，八乘十六得一百二十八，二十五乘五得一百二十五；}}
+\textcolor{commentarycolor}{\small\textit{以少減多，一百二十八減一百二十五，餘三，為實。}}
+\textcolor{commentarycolor}{\small\textit{母相乘：八乘二十五得二百，為法。故多二百分之三。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: مقارنة الكسور يعني مقارنة كمياتها.}}
+\textcolor{commentarycolor}{\small\textit{اضرب المقامات في البسطات بالتبادل، لتوحيد المقامات. بعد توحيد المقامات، يمكن مقارنة البسطات مباشرة.}}
+\textcolor{commentarycolor}{\small\textit{مثل خمسة أثمان وستة عشر من خمسة وعشرين: اضرب المقامات في البسطات، ثمانية في ستة عشر تساوي مئة وثمانية وعشرين، وخمسة وعشرين في خمسة تساوي مئة وخمسة وعشرين؛}}
+\textcolor{commentarycolor}{\small\textit{اطرح الأصغر من الأكبر، مئة وثمانية وعشرين ناقص مئة وخمسة وعشرين، الباقي ثلاثة، وهو المقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اضرب المقامات: ثمانية في خمسة وعشرين تساوي مئتين، وهو القاسم. فالزيادة ثلاثة من مئتين.}}
+}
+
+\newpage
+
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第五：平分術 \hfill \ar{الطريقة الخامسة: توزيع الكسور بالتساوي}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十二]} 今有三分之一，三分之二，四分之三。問減多益少，各幾何而平？
+}{
+\textbf{[الثانية عشرة]} إذا كان لديك ثلث وثلثان وثلاثة أرباع. كم يجب طرح من الكبير وإضافته إلى الصغير ليصبحوا متساوين؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}減四分之三者二，三分之二者一，并以益三分之一，而各平於十二分之七。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} اطرح من ثلاثة أرباع اثنين، ومن ثلثين واحدًا، واجمعها جميعًا مع الثلث، فيصبح كل منها سبعة من اثني عشر.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{平分術曰：}}母互乘子，副并為平實，母相乘為法。以列數乘未并者各自為列實。亦以列數乘法，以平實減列實，餘，約之為所減。并所減以益於少，以法命平實，各得其平。
+}{
+\textcolor{methodcolor}{\textbf{طريقة التوزيع المتساوي:}} اضرب المقامات في البسطات بالتبادل، واجمعها جانبًا لتكون المتوسط المقسوم عليه. اضرب المقامات في بعضها لتكون القاسم. اضرب عدد الأعمدة في غير المجموع ليكون مقسوم عليه لكل عمود. اضرب عدد الأعمدة أيضًا في القاسم. اطرح المتوسط من مقسوم عليه كل عمود، والباقي بسّطها لتكون ما يُطرح. اجمع ما يُطرح ليزيد في الصغير، وسُمّ المتوسط بالقاسم، فيحصل كل على نصيبه المتساوي.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：平分者，使眾分平均也。}}
+\textcolor{commentarycolor}{\small\textit{其法先以母互乘子，副并為平實，所以求其平均之數也。}}
+\textcolor{commentarycolor}{\small\textit{如三分之一、三分之二、四分之三，母互乘子：}}
+\textcolor{commentarycolor}{\small\textit{三乘三乘三得二十七，三乘四乘二得二十四，三乘四乘三得三十六。}}
+\textcolor{commentarycolor}{\small\textit{副并之：二十七加二十四加三十六得八十七，為平實。}}
+\textcolor{commentarycolor}{\small\textit{母相乘：三乘三乘四得三十六，為法。}}
+\textcolor{commentarycolor}{\small\textit{列數為三，以三乘未并者，各自為列實。}}
+\textcolor{commentarycolor}{\small\textit{然後以平實減列實，餘約之為所減，并所減以益於少。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: التوزيع المتساوي يجعل الكسور المتعددة متساوية.}}
+\textcolor{commentarycolor}{\small\textit{طريقته: اضرب المقامات في البسطات بالتبادل، واجمعها جانبًا لتكون المتوسط المقسوم عليه، لإيجاد العدد المتوسط.}}
+\textcolor{commentarycolor}{\small\textit{مثل ثلث وثلثان وثلاثة أرباع، اضرب المقامات في البسطات:}}
+\textcolor{commentarycolor}{\small\textit{ثلاثة في ثلاثة في ثلاثة يساوي سبعة وعشرين، وثلاثة في أربعة في اثنين يساوي أربعة وعشرين، وثلاثة في أربعة في ثلاثة يساوي ستة وثلاثين.}}
+\textcolor{commentarycolor}{\small\textit{اجمعها جانبًا: سبعة وعشرين زائد أربعة وعشرين زائد ستة وثلاثين يساوي سبعة وثمانين، وهو المتوسط المقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اضرب المقامات: ثلاثة في ثلاثة في أربعة يساوي ستة وثلاثين، وهو القاسم.}}
+\textcolor{commentarycolor}{\small\textit{عدد الأعمدة ثلاثة، اضرب ثلاثة في غير المجموع، ليكون مقسوم عليه لكل عمود.}}
+\textcolor{commentarycolor}{\small\textit{ثم اطرح المتوسط من مقسوم عليه كل عمود، والباقي بسّطها لتكون ما يُطرح، واجمع ما يُطرح ليزيد في الصغير.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第六：乘分術 \hfill \ar{الطريقة السادسة: ضرب الكسور}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十三]} 今有田廣七分步之四，從五分步之三。問為田幾何？
+}{
+\textbf{[الثالثة عشرة]} إذا كان عرض الحقل أربعة من سبعة خطوة، وطوله ثلاثة من خمسة خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}三十五分步之十二。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} اثنا عشر من خمسة وثلاثين خطوة مربعة.
+}
+
+\bilingualrow{
+\textbf{[十四]} 又有田廣九分步之七，從十一分步之九。問為田幾何？
+}{
+\textbf{[الرابعة عشرة]} وإذا كان عرض الحقل سبعة من تسعة خطوة، وطوله تسعة من أحد عشر خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}十一分步之七。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} سبعة من أحد عشر خطوة مربعة.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{乘分術曰：}}母相乘為法，子相乘為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة ضرب الكسور:}} اضرب المقامات في بعضها لتكون القاسم. اضرب البسطات في بعضها لتكون المقسوم عليه. اقسم المقسوم عليه على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：乘分者，分數相乘也。}}
+\textcolor{commentarycolor}{\small\textit{此術與整數乘法相通，但以母相乘為法，子相乘為實耳。}}
+\textcolor{commentarycolor}{\small\textit{如廣七分步之四，從五分步之三：}}
+\textcolor{commentarycolor}{\small\textit{母相乘：七乘五得三十五，為法。}}
+\textcolor{commentarycolor}{\small\textit{子相乘：四乘三得十二，為實。}}
+\textcolor{commentarycolor}{\small\textit{實如法而一，即三十五分步之十二。}}
+\textcolor{commentarycolor}{\small\textit{此即廣從相乘之理，但廣從皆有分數，故用乘分術也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: ضرب الكسور يعني ضرب كسر في كسر.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة مرتبطة بضرب الأعداد الصحيحة، لكن بضرب المقامات لتكون القاسم، والبسطات لتكون المقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{مثل عرض أربعة من سبعة خطوة، وطول ثلاثة من خمسة خطوة:}}
+\textcolor{commentarycolor}{\small\textit{اضرب المقامات: سبعة في خمسة تساوي خمسة وثلاثين، وهو القاسم.}}
+\textcolor{commentarycolor}{\small\textit{اضرب البسطات: أربعة في ثلاثة تساوي اثني عشر، وهو المقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اقسم المقسوم عليه على القاسم، فتكون اثنا عشر من خمسة وثلاثين خطوة مربعة.}}
+\textcolor{commentarycolor}{\small\textit{هذا هو مبدأ ضرب العرض في الطول، لكن كلاهما له كسور، لذا تُستخدم طريقة ضرب الكسور.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第七：大廣田術 \hfill \ar{الطريقة السابعة: حقول الأبعاد الكبيرة}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十五]} 今有田廣三步、三分步之一，從五步、五分步之二。問為田幾何？
+}{
+\textbf{[الخامسة عشرة]} إذا كان عرض الحقل ثلاث خطوات وثلث خطوة، وطوله خمس خطوات وخمستا خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}十八步。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} ثماني عشرة خطوة مربعة.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{大廣田術曰：}}分母各乘其全，分子從之，相乘為實。分母相乘為法。實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة حقول الأبعاد الكبيرة:}} اضرب كل مقام في عدده الكامل، والبسط يتبعه، واضربها لتكون المقسوم عليه. اضرب المقامات في بعضها لتكون القاسم. اقسم المقسوم عليه على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：大廣田者，廣徑皆有帶分者也。}}
+\textcolor{commentarycolor}{\small\textit{帶分者，整數之外又帶分數也。}}
+\textcolor{commentarycolor}{\small\textit{如廣三步、三分步之一，即三又三分之一步也。}}
+\textcolor{commentarycolor}{\small\textit{其法：分母三乘其全三，得九，加子一得十，為廣之實。}}
+\textcolor{commentarycolor}{\small\textit{分母五乘其全五，得二十五，加子二得二十七，為從之實。}}
+\textcolor{commentarycolor}{\small\textit{以廣實十乘從實二十七，得二百七十，為總實。}}
+\textcolor{commentarycolor}{\small\textit{分母三乘五得十五，為法。}}
+\textcolor{commentarycolor}{\small\textit{總實二百七十以法十五除之，得十八步。}}
+\textcolor{commentarycolor}{\small\textit{此即帶分數乘法也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: حقول الأبعاد الكبيرة هي التي يكون فيها العرض والطول كلاهما مرفقين بكسور.}}
+\textcolor{commentarycolor}{\small\textit{العدد المركب هو عدد صحيح مرفق بكسر.}}
+\textcolor{commentarycolor}{\small\textit{مثل عرض ثلاث خطوات وثلث خطوة، أي ثلاثة وأثلث خطوة.}}
+\textcolor{commentarycolor}{\small\textit{طريقته: المقام ثلاثة يضرب في عدده الكامل ثلاثة، يساوي تسعة، أضف البسط واحد يساوي عشرة، وهو مقسوم عليه العرض.}}
+\textcolor{commentarycolor}{\small\textit{المقام خمسة يضرب في عدده الكامل خمسة، يساوي خمسة وعشرين، أضف البسط اثنين يساوي سبعة وعشرين، وهو مقسوم عليه الطول.}}
+\textcolor{commentarycolor}{\small\textit{اضرب مقسوم عليه العرض عشرة في مقسوم عليه الطول سبعة وعشرين، يساوي مئتين وسبعين، وهو المقسوم عليه الإجمالي.}}
+\textcolor{commentarycolor}{\small\textit{المقامات: ثلاثة في خمسة تساوي خمسة عشر، وهو القاسم.}}
+\textcolor{commentarycolor}{\small\textit{المقسوم عليه الإجمالي مئتان وسبعين مقسومًا على القاسم خمسة عشر، يساوي ثماني عشرة خطوة.}}
+\textcolor{commentarycolor}{\small\textit{هذا هو ضرب الأعداد المركبة.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第八：圭田術 \hfill \ar{الطريقة الثامنة: حقول المثلثات}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十六]} 今有圭田廣十二步，正從二十一步。問為田幾何？
+}{
+\textbf{[السادسة عشرة]} إذا كان حقل المثلث عرضه اثنتا عشرة خطوة، وارتفاعه واحد وعشرون خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}一百二十六步。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} مئة وستة وعشرون خطوة مربعة.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{圭田術曰：}}半廣以乘正從。
+}{
+\textcolor{methodcolor}{\textbf{طريقة حقول المثلثات:}} نصف العرض مضروبًا في الارتفاع.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：圭田者，形如圭璧之半也，即今之所謂三角形也。}}
+\textcolor{commentarycolor}{\small\textit{半廣以乘正從者，以盈補虛，化三角形為直田也。}}
+\textcolor{commentarycolor}{\small\textit{如廣十二步，半之得六步；以乘正從二十一步，得一百二十六步。}}
+\textcolor{commentarycolor}{\small\textit{此即三角形面積之法也。}}
+\textcolor{commentarycolor}{\small\textit{按：三角形面積，後世以二分之一乘底乘高，即此術之意也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: حقل الكُوِي (المثلث) شكله نصف كِساء (رقعة الجاد)، وهو ما يُسمى اليوم بالمثلث.}}
+\textcolor{commentarycolor}{\small\textit{نصف العرض مضروبًا في الارتفاع، يعني ملء الفراغ بالزيادة، لتحويل المثلث إلى حقل مستطيل.}}
+\textcolor{commentarycolor}{\small\textit{مثل عرض اثنتا عشرة خطوة، نصفها ست خطوات؛ اضربها في ارتفاع واحد وعشرين خطوة، يساوي مئة وستة وعشرين خطوة مربعة.}}
+\textcolor{commentarycolor}{\small\textit{هذه هي طريقة مساحة المثلث.}}
+\textcolor{commentarycolor}{\small\textit{ملاحظة: مساحة المثلث في العصور اللاحقة هي نصف القاعدة مضروبة في الارتفاع، وهذا هو معنى هذه الطريقة.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第九：邪田術 \hfill \ar{الطريقة التاسعة: حقول شبه المنحرف}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十七]} 今有邪田，一頭廣三十步，一頭廣四十二步，正從六十四步。問為田幾何？
+}{
+\textbf{[السابعة عشرة]} إذا كان هناك حقل شبه منحرف، عرض رأسه ثلاثون خطوة، وعرض الرأس الآخر اثنتان وأربعون خطوة، والارتفاع أربع وستون خطوة. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}九畝一百四十四步。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} تسعة مؤ ومئة وأربعة وأربعون خطوة.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{邪田術曰：}}并兩廣而半之，以乘正從。又曰：半正從以乘廣。
+}{
+\textcolor{methodcolor}{\textbf{طريقة حقول شبه المنحرف:}} اجمع العرضين وانصفهما، ثم اضرب في الارتفاع. أو: انصف الارتفاع واضرب في العرض.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：邪田者，兩邊平行而不正之田也，即今之所謂梯形也。}}
+\textcolor{commentarycolor}{\small\textit{并兩廣而半之者，求其平均之廣也。}}
+\textcolor{commentarycolor}{\small\textit{一頭廣三十步，一頭廣四十二步，并之得七十二步，半之得三十六步。}}
+\textcolor{commentarycolor}{\small\textit{以乘正從六十四步，得二千三百零四步。}}
+\textcolor{commentarycolor}{\small\textit{以畝法二百四十步除之，得九畝，餘一百四十四步。}}
+\textcolor{commentarycolor}{\small\textit{故答曰九畝一百四十四步。}}
+\textcolor{commentarycolor}{\small\textit{此術之理，亦以盈補虛，化梯形為矩形也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: الحقل المائل (شيه تيان) هو حقل به جانبان متوازيان لكنه ليس منتظمًا، وهو ما يُسمى اليوم بشبه المنحرف.}}
+\textcolor{commentarycolor}{\small\textit{جمع العرضين ونصفهما يعني إيجاد العرض المتوسط.}}
+\textcolor{commentarycolor}{\small\textit{عرض رأس ثلاثون خطوة، وعرض الرأس الآخر اثنتان وأربعون خطوة، المجموع اثنتان وسبعون خطوة، نصفها ست وثلاثون خطوة.}}
+\textcolor{commentarycolor}{\small\textit{اضربها في ارتفاع أربع وستين خطوة، يساوي ألفين وثلاثمئة وأربع خطوات.}}
+\textcolor{commentarycolor}{\small\textit{اقسم على مئتين وأربعين خطوة للمؤ، يساوي تسعة مؤ، والباقي مئة وأربعة وأربعون خطوة.}}
+\textcolor{commentarycolor}{\small\textit{لذا الجواب تسعة مؤ ومئة وأربعة وأربعون خطوة.}}
+\textcolor{commentarycolor}{\small\textit{مبدأ هذه الطريقة هو أيضًا ملء الفراغ بالزيادة، لتحويل شبه المنحرف إلى مستطيل.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 方田法第十：圓田術 \hfill \ar{الطريقة العاشرة: حقول الدوائر}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[十八]} 今有圓田，周三十步，徑十步。問為田幾何？
+}{
+\textbf{[الثامنة عشرة]} إذا كان هناك حقل دائري، محيطه ثلاثون خطوة، وقطره عشر خطوات. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}七十五步。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} خمسة وسبعون خطوة مربعة.
+}
+
+\bilingualrow{
+\textbf{[十九]} 又有圓田，周一百八十一步，徑六十步有奇。問為田幾何？
+}{
+\textbf{[التاسعة عشرة]} وإذا كان هناك حقل دائري، محيطه مئة وواحد وثمانون خطوة، وقطره ستون خطوة وبضع. كم تبلغ مساحة الحقل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}十一畝九十步有奇。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} أحد عشر مؤ وتسعون خطوة وبضع.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{圓田術曰：}}半周半徑相乘得積步。又曰：周徑相乘，四而一。又曰：徑自相乘，三之四而一。又曰：周自相乘，十二而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة حقول الدوائر:}} نصف المحيط مضروبًا في نصف القطر يعطي الخطوات المتراكمة. أو: المحيط مضروبًا في القطر، مقسومًا على أربعة. أو: القطر مضروبًا في نفسه، ثلاثة أرباعه. أو: المحيط مضروبًا في نفسه، مقسومًا على اثني عشر.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：圓田術有四術，其實一也。}}
+\textcolor{commentarycolor}{\small\textit{半周半徑相乘，此最精之術也。圓形者，不可方之物，必以方術取之。}}
+\textcolor{commentarycolor}{\small\textit{半周者，圓周之半也。半徑者，圓徑之半也。}}
+\textcolor{commentarycolor}{\small\textit{以半周為廣，半徑為從，相乘得積步，此即圓田面積也。}}
+\textcolor{commentarycolor}{\small\textit{徽注以為周三徑一，其率太粗。以一百五十七乘之，五十而一，此密率也。}}
+\textcolor{commentarycolor}{\small\textit{又云以二十五乘之，七而一，此約率也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: لطريقة حقول الدوائر أربع طرق، لكنها في الحقيقة واحدة.}}
+\textcolor{commentarycolor}{\small\textit{نصف المحيط مضروبًا في نصف القطر، هذه أدق طريقة. الشكل الدائري لا يمكن تربيعه مباشرة، فيجب أخذه بطريقة التربيع.}}
+\textcolor{commentarycolor}{\small\textit{نصف المحيط هو نصف محيط الدائرة. نصف القطر هو نصف قطر الدائرة.}}
+\textcolor{commentarycolor}{\small\textit{بأخذ نصف المحيط كعرض، ونصف القطر كطول، وضربهما نحصل على الخطوات المتراكمة، وهي مساحة الحقل الدائري.}}
+\textcolor{commentarycolor}{\small\textit{ليو هوي (هوي) يرى أن المحيط ثلاثة أضعاف القطر، وهذه نسبة خشنة جدًا. ومئة وسبعة وخمسون مضروبة ومقسومة على خمسين، هذه النسبة الدقيقة.}}
+\textcolor{commentarycolor}{\small\textit{وقيل أيضًا: خمسة وعشرون مضروبة ومقسومة على سبعة، وهذه نسبة تقريبية.}}
+}
+
+\newpage
+
+
+%% =============================================================================
+\section*{\centerline{卷第二：粟米 \hspace{2em} \ar{الفصل الثاني: الدخن والأرز — طرائق النسبة}}}}
+\label{sec:sumi}
+\addcontentsline{toc}{section}{Chapter 2: 粟米 -- Millet and Rice (Proportions)}
+
+\begin{center}
+\textit{粟米以御交質變易 / \ar{الدخن والأرز للتبادل التجاري}}
+\end{center}
+
+\vspace{0.5em}
+
+\bilingualrow{
+粟米者，以御交質變易也。
+古者以物易物，必知其比率，然後交易得其平也。
+此章列粟米、稗米、鑿米、御米、小麥、大麥、麻、菽、苔等物，各定其率，以為交易之準。
+}{
+الدخن والأرز (سو مي)، يُستخدمان للتبادل التجاري.
+في القديم كانوا يتبادلون الأشياء بالأشياء، ويجب أن يعرفوا نسبتها، حتى يكون التبادل عادلًا.
+يستعرض هذا الفصل الدخن والأرز الخشن والأرز المقشور والأرز الدقيق والأرز الإمبراطوري والقمح الصغير والقمح الكبير والقنب والفول والحشائش وغيرها، ويحدد معدلاتها لتكون معيارًا للتبادل.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}楊輝曰：粟米為九章第二，所以明比例之術也。}
+\textbf{\color{commentarycolor}比例之術，其用甚廣。不獨粟米交易為然，凡百工程費用，無不用比例者。}
+\textbf{\color{commentarycolor}此章之術，實為後章衰分、均輸之根本也。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي: سو مي (الدخن والأرز) هو الفصل الثاني من التسعة، لتوضيح طريقة النسبة.}
+\textbf{\color{commentarycolor}طريقة النسبة، لها استخدام واسع جدًا. ليس فقط في تبادل الدخن والأرز، بل في جميع نفقات المشاريع الهندسية، لا شيء يخلو من استخدام النسبة.}
+\textbf{\color{commentarycolor}طريقة هذا الفصل، هي في الواقع أساس فصول سوي فن (التوزيع النسبي) وجون شو (النقل المتساوي) اللاحقة.}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 粟米法第一：粟米術 \hfill \ar{الطريقة الأولى: طريقة الدخن والأرز}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二十]} 今有粟一斗，欲為糲米。問得幾何？
+}{
+\textbf{[العشرون]} إذا كان لديك دخن (سو) قدره دلو واحد، ونريد تحويله إلى أرز خشن (لي مي). كم نحصل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}為糲米六升。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} يصبح أرزًا خشنًا قدره ستة سheng (رختات).
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{粟米術曰：}}粟率五十，糲米三十。以粟求糲米，粟乘三十，五十而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة الدخن والأرز:}} معدل الدخن خمسون، ومعدل الأرز الخشن ثلاثون. لطلب الأرز الخشن من الدخن، اضرب الدخن في ثلاثين واقسم على خمسين.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：粟米術者，異名相求之術也。}}
+\textcolor{commentarycolor}{\small\textit{粟與米，異名也。欲求粟為米之數，必先定其率。}}
+\textcolor{commentarycolor}{\small\textit{粟率五十者，五斗粟也。糲米三十者，三斗糲米也。}}
+\textcolor{commentarycolor}{\small\textit{以粟五十求糲米三十，則糲米為粟之五十分之三十，即五分之三也。}}
+\textcolor{commentarycolor}{\small\textit{故以粟數乘三十，五十而一，即得糲米之數。}}
+\textcolor{commentarycolor}{\small\textit{如粟一斗，即十升。以十乘三十，得三百；三百以五十除之，得六升。}}
+\textcolor{commentarycolor}{\small\textit{此即今之所謂比例也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: طريقة الدخن والأرز، هي طريقة طلب الأشياء المختلفة من بعضها.}}
+\textcolor{commentarycolor}{\small\textit{الدخن والأرز، لهما اسم مختلف. لطلب عدد الأرز من الدخن، يجب أولًا تحديد معدله.}}
+\textcolor{commentarycolor}{\small\textit{معدل الدخن خمسون، أي خمسة دلوات من الدخن. معدل الأرز الخشن ثلاثون، أي ثلاثة دلوات من الأرز الخشن.}}
+\textcolor{commentarycolor}{\small\textit{بطلب الأرز الخشن ثلاثين من الدخن الخمسين، فالأرز الخشن هو ثلاثون من خمسين من الدخن، أي ثلاثة أخماس.}}
+\textcolor{commentarycolor}{\small\textit{لذا اضرب عدد الدخن في ثلاثين واقسم على خمسين، فيكون عدد الأرز الخشن.}}
+\textcolor{commentarycolor}{\small\textit{مثل دلو واحد من الدخن، أي عشرة sheng. اضرب عشرة في ثلاثين، يساوي ثلاثمئة؛ وثلاثمئة مقسومة على خمسين، يساوي ستة sheng.}}
+\textcolor{commentarycolor}{\small\textit{هذا هو ما يُسمى اليوم بالنسبة.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 粟米法第二：比率表 \hfill \ar{الطريقة الثانية: جدول المعدلات}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+粟米之率如下：
+}{
+معدلات الدخن والأرز كالتالي:
+}
+
+\vspace{0.5em}
+
+\noindent
+\begin{minipage}[t]{0.46\textwidth}
+\begin{flushleft}
+\begin{tabular}{ll}
+\toprule
+\textbf{糲米} & 粟率五十，糲率三十 \\
+\textbf{粺米} & 粟率五十，粺率二十七 \\
+\textbf{鑿米} & 粟率五十，鑿率二十四 \\
+\textbf{御米} & 粟率五十，御率二十一 \\
+\textbf{小麥} & 粟率五十，麥率四十五 \\
+\textbf{大麥} & 粟率五十，大麥率四十三 \\
+\textbf{麻} & 粟率五十，麻率四十五 \\
+\textbf{菽} & 粟率五十，菽率四十五 \\
+\textbf{苔} & 粟率五十，苔率四十五 \\
+\bottomrule
+\end{tabular}
+\end{flushleft}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.46\textwidth}
+\begin{flushright}
+\ar{
+\begin{tabular}{rl}
+\toprule
+الأرز الخشن (لي مي) & معدل الدخن ٥٠، معدل الأرز ٣٠ \\
+الأرز المصفى (باي مي) & معدل الدخن ٥٠، معدل الأرز ٢٧ \\
+الأرز المقشور (زو مي) & معدل الدخن ٥٠، معدل الأرز ٢٤ \\
+الأرز الإمبراطوري (يو مي) & معدل الدخن ٥٠، معدل الأرز ٢١ \\
+القمح الصغير & معدل الدخن ٥٠، معدل القمح ٤٥ \\
+القمح الكبير & معدل الدخن ٥٠، معدل القمح ٤٣ \\
+القنب & معدل الدخن ٥٠، معدل القنب ٤٥ \\
+الفول & معدل الدخن ٥٠، معدل الفول ٤٥ \\
+الحشائش & معدل الدخن ٥٠، معدل الحشائش ٤٥ \\
+\bottomrule
+\end{tabular}}
+\end{flushright}
+\end{minipage}
+
+\vspace{1em}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：上表所列粟米各率，乃古法所定，以為交易之準者也。}}
+\textcolor{commentarycolor}{\small\textit{凡粟米之法，皆以粟五十為率，而求各物之率。}}
+\textcolor{commentarycolor}{\small\textit{糲米三十者，最粗之米也。粺米二十七者，稍精之米也。}}
+\textcolor{commentarycolor}{\small\textit{鑿米二十四者，又精之米也。御米二十一者，最精之米也。}}
+\textcolor{commentarycolor}{\small\textit{率數不同，故交易之數亦異。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: المعدلات المدرجة في الجدول أعلاه للدخن والأرز، هي ما حددته الطريقة القديمة لتكون معيارًا للتبادل.}}
+\textcolor{commentarycolor}{\small\textit{جميع طرق الدخن والأرز، تأخذ الدخن خمسين كمعدل، وتطلب معدلات الأشياء الأخرى.}}
+\textcolor{commentarycolor}{\small\textit{الأرز الخشن ثلاثون، هو أخشن أنواع الأرز. الأرز المصفى سبعة وعشرون، هو أرز أكثر دقة.}}
+\textcolor{commentarycolor}{\small\textit{الأرز المقشور أربعة وعشرون، هو أرز أدق. الأرز الإمبراطوري واحد وعشرون، هو أدق الأرز.}}
+\textcolor{commentarycolor}{\small\textit{المعدلات مختلفة، لذا تختلف أعداد التبادل.}}
+}
+
+\vspace{1em}
+
+\bilingualrow{
+\textbf{[二一]} 今有粟四斗一升，欲為粺米。問得幾何？
+}{
+\textbf{[الحادية والعشرون]} إذا كان لديك دخن قدره أربعة دلوات وsheng واحد، ونريد تحويله إلى أرز مصفى (باي مي). كم نحصل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}為粺米二斗四升、一百二十五分升之一十二。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} يصبح أرزًا مصفى قدره دلوان وأربعة sheng واثنا عشر من مئة وخمسة وعشرين sheng.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求粺米，粟率五十為法，粺率二十七乘粟為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{الطريقة:}} لطلب الأرز المصفى من الدخن، خذ معدل الدخن خمسين كقاسم، واضرب معدل الأرز المصفى سبعة وعشرين في الدخن ليكون المقسوم عليه، واقسم المقسوم عليه على القاسم.
+}
+
+\vspace{1em}
+
+\bilingualrow{
+\textbf{[二二]} 今有粟九斗八升，欲為御米。問得幾何？
+}{
+\textbf{[الثانية والعشرون]} إذا كان لديك دخن قدره تسعة دلوات وثمانية sheng، ونريد تحويله إلى أرز إمبراطوري. كم نحصل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}為御米四斗一升、二十五分升之七。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} يصبح أرزًا إمبراطوريًا قدره أربعة دلوات وsheng واحد وسبعة من خمسة وعشرين sheng.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求御米，粟率五十為法，御率二十一乘粟為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{الطريقة:}} لطلب الأرز الإمبراطوري من الدخن، معدل الدخن خمسين كقاسم، واضرب معدل الأرز الإمبراطوري واحد وعشرين في الدخن ليكون المقسوم عليه، واقسم المقسوم عليه على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：以上二問，皆粟米術之變也。}}
+\textcolor{commentarycolor}{\small\textit{其法以粟求某物，則以某物之率乘粟，以粟率除之。}}
+\textcolor{commentarycolor}{\small\textit{若有分者，通分納子，如法除之。}}
+\textcolor{commentarycolor}{\small\textit{此術與衰分章之術相通，皆以比例為本也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: المسألتان أعلاه، كلاهما تطوير على طريقة الدخن والأرز.}}
+\textcolor{commentarycolor}{\small\textit{طريقته: لطلب شيء ما من الدخن، اضرب معدل ذلك الشيء في الدخن، واقسم على معدل الدخن.}}
+\textcolor{commentarycolor}{\small\textit{إذا كان هناك كسور، وحّد المقامات وادخل البسط، واقسم وفق الطريقة.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة مرتبطة بطريقة فصل سوي فن (التوزيع النسبي)، وجميعها تعتمد على النسبة كأساس.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 粟米法第三：反求術 \hfill \ar{الطريقة الثالثة: الطلب العكسي}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二三]} 今有糲米六斗，欲為粟。問得幾何？
+}{
+\textbf{[الثالثة والعشرون]} إذا كان لديك أرز خشن قدره ستة دلوات، ونريد تحويله إلى دخن. كم نحصل؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}為粟一斗。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} يصبح دخنًا قدره دلو واحد.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{術曰：}}以糲米求粟，糲率三十為法，粟率五十乘糲米為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{الطريقة:}} لطلب الدخن من الأرز الخشن، خذ معدل الأرز الخشن ثلاثين كقاسم، واضرب معدل الدخن خمسين في الأرز الخشن ليكون المقسوم عليه، واقسم المقسوم عليه على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：反求者，由米求粟也。與前術相反。}}
+\textcolor{commentarycolor}{\small\textit{前術以粟求米，以米率乘粟，粟率除之。}}
+\textcolor{commentarycolor}{\small\textit{此術以米求粟，以粟率乘米，米率除之。}}
+\textcolor{commentarycolor}{\small\textit{二者之理實相通，但率之位置互易耳。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: الطلب العكسي يعني طلب الدخن من الأرز. وهو عكس الطريقة السابقة.}}
+\textcolor{commentarycolor}{\small\textit{الطريقة السابقة تطلب الأرز من الدخن، بضرب معدل الأرز في الدخن وقسمته على معدل الدخن.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة تطلب الدخن من الأرز، بضرب معدل الدخن في الأرز وقسمته على معدل الأرز.}}
+\textcolor{commentarycolor}{\small\textit{مبدأ كليهما متصل، لكن مواضع المعدلات تُبدّل.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 粟米法第四：互易術 \hfill \ar{الطريقة الرابعة: طريقة التبادل المتبادل}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二四]} 今有粟五斗五升，欲為粺米五斗。問其率幾何？
+}{
+\textbf{[الرابعة والعشرون]} إذا كان لديك دخن قدره خمسة دلوات وخمسة sheng، ونريد تحويله إلى خمسة دلوات من الأرز المصفى. كم تكون معدلاته؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}粺率二十七分升之二十五。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} معدل الأرز المصفى هو خمسة وعشرون من سبعة وعشرين sheng.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求粺米，先通分納子，然後以法除之。
+}{
+\textcolor{methodcolor}{\textbf{الطريقة:}} لطلب الأرز المصفى من الدخن، أولًا وحّد المقامات وادخل البسط، ثم اقسم على القاسم.
+}
+
+\vspace{1em}
+
+\bilingualrow{
+\textbf{[二五]} 今有粟二十斗，欲為糲米、粺米、鑿米各八斗。問其率幾何？
+}{
+\textbf{[الخامسة والعشرون]} إذا كان لديك دخن قدره عشرون دلوًا، ونريد تحويله إلى ثمانية دلوات من الأرز الخشن والأرز المصفى والأرز المقشور لكل منها. كم تكون معدلاته؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+糲米八斗用粟一十三斗一升、三分升之一；
+粺米八斗用粟一十四斗四升、一百二十七分升之一百一十二；
+鑿米八斗用粟一十六斗二升、六十三分升之十四。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+الأرز الخشن ثمانية دلوات يستخدم دخنًا قدره ثلاثة عشر دلوًا وsheng واحد وثلث sheng؛
+الأرز المصفى ثمانية دلوات يستخدم دخنًا قدره أربعة عشر دلوًا وأربعة sheng ومئة واثنا عشر من مئة وسبعة وعشرين sheng؛
+الأرز المقشور ثمانية دلوات يستخدم دخنًا قدره ستة عشر دلوًا واثنين sheng وأربعة عشر من ثلاثة وستين sheng.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：此問較前為複雜，須分別求之。}}
+\textcolor{commentarycolor}{\small\textit{先以各米之率求其所用粟，然後合之。}}
+\textcolor{commentarycolor}{\small\textit{糲米八斗：以糲率三十乘八斗，得二百四十；以粟率五十除之，得四斗八升。}}
+\textcolor{commentarycolor}{\small\textit{粺米八斗：以粺率二十七乘八斗，得二百一十六；以粟率五十除之，得四斗三升、五十分升之一十六。}}
+\textcolor{commentarycolor}{\small\textit{鑿米八斗：以鑿率二十四乘八斗，得一百九十二；以粟率五十除之，得三斗八升、五十分升之八。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: هذه المسألة أكثر تعقيدًا من السابقة، يجب طلب كل منها على حدة.}}
+\textcolor{commentarycolor}{\small\textit{أولًا اطلب الدخن المستخدم بمعدل كل نوع أرز، ثم اجمعها.}}
+\textcolor{commentarycolor}{\small\textit{الأرز الخشن ثمانية دلوات: اضرب معدل الأرز الخشن ثلاثين في ثمانية دلوات، يساوي مئتين وأربعين؛ اقسم على معدل الدخن خمسين، يساوي أربعة دلوات وثمانية sheng.}}
+\textcolor{commentarycolor}{\small\textit{الأرز المصفى ثمانية دلوات: اضرب معدل الأرز المصفى سبعة وعشرين في ثمانية دلوات، يساوي مئتين وستة عشر؛ اقسم على معدل الدخن خمسين، يساوي أربعة دلوات وثلاثة sheng وستة عشر من خمسين sheng.}}
+\textcolor{commentarycolor}{\small\textit{الأرز المقشور ثمانية دلوات: اضرب معدل الأرز المقشور أربعة وعشرين في ثمانية دلوات، يساوي مئة واثنين وتسعين؛ اقسم على معدل الدخن خمسين، يساوي ثلاثة دلوات وثمانية sheng وثمانية من خمسين sheng.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 粟米法第五：貴賤術 \hfill \ar{الطريقة الخامسة: طريقة الغالي والرخيص}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二六]} 今有出錢五百六十，買黍一斛。欲問其貴賤率各幾何？
+}{
+\textbf{[السادسة والعشرون]} إذا أُنفقت خمسمئة وستون قطعة نقدية، لشراء hu واحد من الدخن الأسود. كم تكون معدلات الغالي والرخيص؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+其率：貴者一斛錢六十，賤者一斛錢五十。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+المعدلات: الغالي hu واحد بستين قطعة نقدية، والرخيص hu واحد بخمسين قطعة نقدية.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{貴賤術曰：}}置所出錢數為實，置所買物數為法，實如法而一，得平價。以所買率減平價，餘為差。以差加減貴賤率，各得其實。
+}{
+\textcolor{methodcolor}{\textbf{طريقة الغالي والرخيص:}} ضع عدد النقود المُنفقة كمقسوم عليه، وضع عدد الأشياء المشتراة كقاسم، واقسم المقسوم عليه على القاسم، فيكون السعر المتوسط. اطرح السعر المتوسط من معدل الشراء، والباقي هو الفرق. استخدم الفرق للزيادة والنقصان في معدلات الغالي والرخيص، فيحصل كل على نصيبه.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：貴賤術者，物有貴賤之不同，故價有高下之各異。}}
+\textcolor{commentarycolor}{\small\textit{此術先以總錢除以總物，得平價。}}
+\textcolor{commentarycolor}{\small\textit{然後以各物之率與平價相較，而得貴賤之差。}}
+\textcolor{commentarycolor}{\small\textit{此術之用甚廣，不獨買賣為然，凡有差別之物，皆可用此術以求之。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: طريقة الغالي والرخيص، الأشياء تختلف في غلاء رخصتها، فالأسعار تختلف في ارتفاعها وانخفاضها.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة تقسم أولًا إجمالي النقود على إجمالي الأشياء، فيكون السعر المتوسط.}}
+\textcolor{commentarycolor}{\small\textit{ثم تقارن معدل كل شيء بالسعر المتوسط، فتحصل على فرق الغالي والرخيص.}}
+\textcolor{commentarycolor}{\small\textit{لهذه الطريقة استخدام واسع، ليس فقط في البيع والشراء، بل في جميع الأشياء ذات الفروق، يمكن استخدام هذه الطريقة لطلبها.}}
+}
+
+\newpage
+
+
+%% =============================================================================
+\section*{\centerline{卷第三：衰分 \hspace{2em} \ar{الفصل الثالث: التوزيع النسبي}}}}
+\label{sec:cuifen}
+\addcontentsline{toc}{section}{Chapter 3: 衰分 -- Proportional Distribution}
+
+\begin{center}
+\textit{衰分以御貴賤稟稅 / \ar{التوزيع النسبي للنفقات والضرائب المتفاوتة}}
+\end{center}
+
+\vspace{0.5em}
+
+\bilingualrow{
+衰分者，差分也。以御貴賤稟稅之簿也。
+物有貴賤，人有貧富，故以差分之術均之。
+此章之術，乃比例之變用也。
+}{
+التوزيع النسبي (سوي فن) هو التوزيع التفاضلي. يُستخدم في حسابات النفقات والضرائب المتفاوتة.
+الأشياء تختلف في غلاء رخصتها، والناس يختلفون في غناهم وفقرهم، لذا تُستخدم طريقة التوزيع التفاضلي لتوزيعها بالتساوي.
+طريقة هذا الفصل، هي استخدام متطور للنسبة.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}楊輝曰：衰分為九章第三，所以明差分之法也。}
+\textbf{\color{commentarycolor}差分者，按等級之差而分之也。}
+\textbf{\color{commentarycolor}如五人分五物，爵之尊卑不同，則所分之物亦異。}
+\textbf{\color{commentarycolor}此術以各人之率為差，按率而分，使各得其當也。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي: سوي فن (التوزيع النسبي) هو الفصل الثالث من التسعة، لتوضيح طريقة التوزيع التفاضلي.}
+\textbf{\color{commentarycolor}التوزيع التفاضلي يعني التوزيع حسب فروق الرتب.}
+\textbf{\color{commentarycolor}مثل خمسة أشخاص يتقاسمون خمسة أشياء، فإذا اختلفت مكانة رتبهم، فإن ما يحصلون عليه يختلف أيضًا.}
+\textbf{\color{commentarycolor}هذه الطريقة تأخذ معدل كل شخص كتفاضل، وتقسم حسب المعدل، ليحصل كل على نصيبه المناسب.}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 衰分法第一：衰分術 \hfill \ar{الطريقة الأولى: طريقة التوزيع النسبي}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二七]} 今有大夫、不更、簪褭、上造、公士凡五人，共獵得五鹿。欲以爵次分之，問各得幾何？
+}{
+\textbf{[السابعة والعشرون]} إذا كان هناك خمسة أشخاص: دافو (كبير الأطباء)، بو غنغ (عدم التغيير)، زان نياو (الزينة المنسوجة)، شانغ زاو (الصانع الأعلى)، غونغ شي (الفارس العام)، اصطادوا معًا خمسة أيائل. يريدون توزيعها حسب رتب الألقاب. كم يحصل كل منهم؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+大夫得一鹿、三分鹿之二；
+不更得一鹿、三分鹿之一；
+簪褭得一鹿；
+上造得三分鹿之二；
+公士得三分鹿之一。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+الكبير يحصل على أيّل وثلثي أيّل؛
+عدم التغيير يحصل على أيّل وثلث أيّل؛
+الزينة المنسوجة يحصل على أيّل واحد؛
+الصانع الأعلى يحصل على ثلثي أيّل؛
+الفارس العام يحصل على ثلث أيّل.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{衰分術曰：}}各置列衰，副并為法，以所分乘未并者各自為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة التوزيع النسبي:}} ضع تفاضلات الصفوف لكل منها، واجمعها جانبًا لتكون القاسم. اضرب المقسوم عليه في غير المجموع لكل منها ليكون مقسوم عليه لكل فرد. اقسم مقسوم عليه كل فرد على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：衰分術者，按衰列而分之法也。}}
+\textcolor{commentarycolor}{\small\textit{列衰者，各列其衰數。大夫五，不更四，簪褭三，上造二，公士一，此其衰也。}}
+\textcolor{commentarycolor}{\small\textit{副并之：五加四加三加二加一，得一十五，為法。}}
+\textcolor{commentarycolor}{\small\textit{以所分五鹿乘未并者：五乘五得二十五，五乘四得二十，五乘三得十五，五乘二得十，五乘一得五，各為實。}}
+\textcolor{commentarycolor}{\small\textit{以法十五除各實：大夫得二十五除十五，即一又三分鹿之二。}}
+\textcolor{commentarycolor}{\small\textit{不更得二十除十五，即一又三分鹿之一。}}
+\textcolor{commentarycolor}{\small\textit{簪褭得十五除十五，即一鹿。}}
+\textcolor{commentarycolor}{\small\textit{上造得十除十五，即三分鹿之二。}}
+\textcolor{commentarycolor}{\small\textit{公士得五除十五，即三分鹿之一。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: طريقة التوزيع النسبي، هي طريقة التوزيع حسب صفوف التفاضلات.}}
+\textcolor{commentarycolor}{\small\textit{صفوف التفاضلات يُدرج فيها أعداد التفاضل. الكبير خمسة، عدم التغيير أربعة، الزينة المنسوجة ثلاثة، الصانع الأعلى اثنان، الفارس العام واحد، هذه هي تفاضلاتها.}}
+\textcolor{commentarycolor}{\small\textit{اجمعها جانبًا: خمسة زائد أربعة زائد ثلاثة زائد اثنان زائد واحد، يساوي خمسة عشر، وهو القاسم.}}
+\textcolor{commentarycolor}{\small\textit{اضرب الخمسة أيائل المُوزّعة في غير المجموع: خمسة في خمسة يساوي خمسة وعشرين، خمسة في أربعة يساوي عشرين، خمسة في ثلاثة يساوي خمسة عشر، خمسة في اثنين يساوي عشرة، خمسة في واحد يساوي خمسة، كل منها مقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اقسم كل مقسوم عليه على القاسم خمسة عشر: الكبير يحصل خمسة وعشرين مقسومة على خمسة عشر، أي واحد وثلثي أيّل.}}
+\textcolor{commentarycolor}{\small\textit{عدم التغيير يحصل عشرين مقسومة على خمسة عشر، أي واحد وثلث أيّل.}}
+\textcolor{commentarycolor}{\small\textit{الزينة المنسوجة تحصل خمسة عشر مقسومة على خمسة عشر، أي أيّل واحد.}}
+\textcolor{commentarycolor}{\small\textit{الصانع الأعلى يحصل عشرة مقسومة على خمسة عشر، أي ثلثي أيّل.}}
+\textcolor{commentarycolor}{\small\textit{الفارس العام يحصل خمسة مقسومة على خمسة عشر، أي ثلث أيّل.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 衰分法第二：返衰術 \hfill \ar{الطريقة الثانية: طريقة التفاضل العكسي}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二八]} 今有甲、乙、丙、丁、戊五人出錢，甲出五錢，乙出四錢，丙出三錢，丁出二錢，戊出一錢。
+今欲以出錢之反率分之，問各得幾何？
+}{
+\textbf{[الثامنة والعشرون]} إذا كان هناك خمسة أشخاص: جيا، يي، بينغ، دينغ، وو، أخرجوا نقودًا: جيا أخرج خمس قطع، يي أخرج أربع قطع، بينغ أخرج ثلاث قطع، دينغ أخرج قطعتين، وو أخرج قطعة واحدة.
+الآن يريدون توزيعها بالنسبة العكسية لما أخرجوه. كم يحصل كل منهم؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+甲得十五分之一，乙得十五分之二，丙得十五分之五，丁得十五分之十，戊得十五分之十五。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+جيا يحصل على واحد من خمسة عشر، يي يحصل على اثنين من خمسة عشر، بينغ يحصل على خمسة من خمسة عشر، دينغ يحصل على عشرة من خمسة عشر، وو يحصل على خمسة عشر من خمسة عشر.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{返衰術曰：}}列置衰數，互取其反率，副并為法，以所分乘未并者各自為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة التفاضل العكسي:}} ضع أعداد التفاضل، وخذ النسب العكسية لها بالتبادل، واجمعها جانبًا لتكون القاسم. اضرب المقسوم عليه في غير المجموع لكل منها ليكون مقسوم عليه لكل فرد. اقسم مقسوم عليه كل فرد على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：返衰者，取其反比也。}}
+\textcolor{commentarycolor}{\small\textit{正衰者，數大則所得多。返衰者，數大則所得少。}}
+\textcolor{commentarycolor}{\small\textit{如出錢五錢者，其反衰為一；出錢一錢者，其反衰為五。}}
+\textcolor{commentarycolor}{\small\textit{此術所以均其不平也。}}
+\textcolor{commentarycolor}{\small\textit{正衰為五、四、三、二、一，返衰則為一、二、三、四、五。}}
+\textcolor{commentarycolor}{\small\textit{副并得十五，為法。以所分乘未并者，各為實。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: التفاضل العكسي يعني أخذ النسبة العكسية.}}
+\textcolor{commentarycolor}{\small\textit{التفاضل المباشر: كلما زاد العدد زاد النصيب. التفاضل العكسي: كلما زاد العدد قل النصيب.}}
+\textcolor{commentarycolor}{\small\textit{مثل من أخرج خمس قطع، تفاضله العكسي هو واحد؛ ومن أخرج قطعة واحدة، تفاضله العكسي هو خمسة.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة توزع بعدم التساوي.}}
+\textcolor{commentarycolor}{\small\textit{التفاضل المباشر هو خمسة وأربعة وثلاثة واثنان وواحد، والتفاضل العكسي هو واحد واثنان وثلاثة وأربعة وخمسة.}}
+\textcolor{commentarycolor}{\small\textit{المجموع الجانبي خمسة عشر، وهو القاسم. اضرب المقسوم عليه في غير المجموع، كل منها مقسوم عليه.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 衰分法第三：均輸術 \hfill \ar{الطريقة الثالثة: طريقة النقل المتساوي}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[二九]} 今有三人，甲行一日八十里，乙行一日七十里，丙行一日六十里。
+今使三人共行一里，問各得幾分？
+}{
+\textbf{[التاسعة والعشرون]} إذا كان هناك ثلاثة أشخاص: جيا يسير في اليوم ثمانين لي (ميلاً)، يي يسير في اليوم سبعين لي، بينغ يسير في اليوم ستين لي.
+الآن نجعل الثلاثة يسيرون ليًا واحدًا معًا، كم يكون نصيب كل منهم؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+甲得一百九十三分之八十，乙得一百九十三分之七十，丙得一百九十三分之六十。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+جيا يحصل على ثمانين من مئة وثلاثة وتسعين، يي يحصل على سبعين من مئة وثلاثة وتسعين، بينغ يحصل على ستين من مئة وثلاثة وتسعين.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{均輸術曰：}}各置其行道日數，以為列衰，副并為法，以所分乘未并者各自為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة النقل المتساوي:}} ضع عدد أيام سير كل منهم، لتكون صفوف تفاضل. اجمعها جانبًا لتكون القاسم. اضرب المقسوم عليه في غير المجموع لكل منها ليكون مقسوم عليه لكل فرد. اقسم مقسوم عليه كل فرد على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：此術與衰分術相通，但所分者為行程，而非實物耳。}}
+\textcolor{commentarycolor}{\small\textit{各置其行道日數為列衰：甲八十，乙七十，丙六十。}}
+\textcolor{commentarycolor}{\small\textit{副并之：八十加七十加六十，得二百一十，為法。}}
+\textcolor{commentarycolor}{\small\textit{以所分一里乘未并者：一乘八十，一乘七十，一乘六十，各為實。}}
+\textcolor{commentarycolor}{\small\textit{以法二百一十除之：甲得二百一十分之八十，乙得二百一十分之七十，丙得二百一十分之六十。}}
+\textcolor{commentarycolor}{\small\textit{約之，各得如其分也。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: هذه الطريقة مرتبطة بطريقة التوزيع النسبي، لكن المُوزّع هو المسافة وليس الشيء المادي.}}
+\textcolor{commentarycolor}{\small\textit{ضع عدد أيام سير كل منهم كصفوف تفاضل: جيا ثمانون، يي سبعون، بينغ ستون.}}
+\textcolor{commentarycolor}{\small\textit{اجمعها جانبًا: ثمانون زائد سبعون زائد ستون، يساوي مئتين وعشرة، وهو القاسم.}}
+\textcolor{commentarycolor}{\small\textit{اضرب ليًا واحدًا المُوزّع في غير المجموع: واحد في ثمانين، واحد في سبعين، واحد في ستين، كل منها مقسوم عليه.}}
+\textcolor{commentarycolor}{\small\textit{اقسم على القاسم مئتين وعشرة: جيا يحصل ثمانون من مئتين وعشرة، يي يحصل سبعون من مئتين وعشرة، بينغ يحصل ستون من مئتين وعشرة.}}
+\textcolor{commentarycolor}{\small\textit{بسّطها، فيحصل كل على نصيبه.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 衰分法第四：稟粟術 \hfill \ar{الطريقة الرابعة: طريقة توزيع الحبوب}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[三十]} 今有稟粟，大夫、不更、簪褭、上造、公士凡五人一十五斗。
+今有大夫一人後來，亦當稟五斗。倉無粟，欲以衰分出之，問各得幾何？
+}{
+\textbf{[الثلاثون]} إذا كان هناك حبوب مُوزّعة: الكبير وعدم التغيير والزينة المنسوجة والصانع الأعلى والفارس العام، خمسة أشخاص خمسة عشر دلوًا.
+الآن جاء الكبير متأخرًا، ويجب أن يحصل أيضًا على خمسة دلوات. المستودع خالٍ من الحبوب، يريدون توزيعها بالتفاضل. كم يحصل كل منهم؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+大夫得一斗一升、三分升之二；
+不更得一斗一升、三分升之一；
+簪褭得一斗一升；
+上造得九升、三分升之二；
+公士得九升、三分升之一。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+الكبير يحصل على دلو واحد وsheng واحد وثلثي sheng؛
+عدم التغيير يحصل على دلو واحد وsheng واحد وثلث sheng؛
+الزينة المنسوجة يحصل على دلو واحد وsheng واحد؛
+الصانع الأعلى يحصل على تسعة sheng وثلثي sheng؛
+الفارس العام يحصل على تسعة sheng وثلث sheng.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{稟粟術曰：}}各置所稟粟升數，以為列衰，副并為法，以所分乘未并者各自為實，實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة توزيع الحبوب:}} ضع عدد sheng من الحبوب المُوزّعة لكل منها، لتكون صفوف تفاضل. اجمعها جانبًا لتكون القاسم. اضرب المقسوم عليه في غير المجموع لكل منها ليكون مقسوم عليه لكل فرد. اقسم مقسوم عليه كل فرد على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：稟粟者，官府分給糧食也。}}
+\textcolor{commentarycolor}{\small\textit{此術先定各人之衰，然後按衰分之。}}
+\textcolor{commentarycolor}{\small\textit{大夫衰五，不更衰四，簪褭衰三，上造衰二，公士衰一。}}
+\textcolor{commentarycolor}{\small\textit{但此問之衰，以所稟升數為準，故先通分納子，然後列衰。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: بيغ سو (توزيع الحبوب) هو توزيع الطعام من الحكومة.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة تحدد أولًا تفاضل كل شخص، ثم تقسم حسب التفاضل.}}
+\textcolor{commentarycolor}{\small\textit{تفاضل الكبير خمسة، عدم التغيير أربعة، الزينة المنسوجة ثلاثة، الصانع الأعلى اثنان، الفارس العام واحد.}}
+\textcolor{commentarycolor}{\small\textit{لكن في هذه المسألة، يُعتمد على عدد sheng المُوزّعة، لذا أولًا وحّد المقامات وادخل البسط، ثم صفّ التفاضلات.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 衰分法第五：貴賤率術 \hfill \ar{الطريقة الخامسة: طريقة معدلات الغالي والرخيص}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[三一]} 今有出錢一萬三千六百七十，買絲一石二鈞一十七斤。
+欲其貴賤率之，問各幾何？
+}{
+\textbf{[الحادية والثلاثون]} إذا أُنفقت ثلاثة عشر ألفًا وستمئة وسبعون قطعة نقدية، لشراء حرير قدره shi واحد واثنان jun وسبعة عشر جنيهًا.
+يريدون معرفة معدلات الغالي والرخيص. كم تكون لكل منها؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}
+其一鈞之價，貴者四百八十五錢，賤者四百八十四錢。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}}
+سعر jun واحد: الغالي أربعمئة وخمسة وثمانون قطعة نقدية، والرخيص أربعمئة وأربعة وثمانون قطعة نقدية.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{術曰：}}置所出錢數為實，置所買石、鈞、斤、兩數為法，實如法而一。所得為平價。以平價減貴者，以賤者減平價，各得其差。
+}{
+\textcolor{methodcolor}{\textbf{الطريقة:}} ضع عدد النقود المُنفقة كمقسوم عليه، وضع أعداد shi وjun وجين وليانغ المشتراة كقاسم. اقسم المقسوم عليه على القاسم. الناتج هو السعر المتوسط. اطرح السعر المتوسط من الغالي، واطرح الرخيص من السعر المتوسط، فيحصل كل على فرقه.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：此貴賤率之術也。}}
+\textcolor{commentarycolor}{\small\textit{先以總錢除以總物，得平價。}}
+\textcolor{commentarycolor}{\small\textit{然後視所買之物有貴賤之別，以平價為準，各得其差。}}
+\textcolor{commentarycolor}{\small\textit{此術之用甚廣，凡有等差之物，皆可用此術以求之。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: هذه هي طريقة معدلات الغالي والرخيص.}}
+\textcolor{commentarycolor}{\small\textit{أولًا اقسم إجمالي النقود على إجمالي الأشياء، فيكون السعر المتوسط.}}
+\textcolor{commentarycolor}{\small\textit{ثم انظر إلى الفروق بين الغالي والرخيص فيما يُشترى، وخذ السعر المتوسط معيارًا، فيحصل كل على فرقه.}}
+\textcolor{commentarycolor}{\small\textit{لهذه الطريقة استخدام واسع، في جميع الأشياء ذات الفروق، يمكن استخدام هذه الطريقة لطلبها.}}
+}
+
+\vspace{1em}
+
+\noindent\textbf{\centerline{\color{sectioncolor} 衰分法第六：贏不足術 \hfill \ar{الطريقة السادسة: طريقة الزيادة والنقصان}}}}
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{[三二]} 今有共買物，人出八，盈三；人出七，不足四。問人數、物價各幾何？
+}{
+\textbf{[الثانية والثلاثون]} إذا اشترى قوم شيئًا معًا، فإذا أخرج كل واحد ثماني قطع، زاد ثلاث؛ وإذا أخرج كل واحد سبع قطع، نقص أربع. كم عدد الأشخاص وسعر الشيء؟
+}
+
+\bilingualrow{
+\textcolor{answercolor}{\textbf{答曰：}}七人，物價五十三。
+}{
+\textcolor{answercolor}{\textbf{الجواب:}} سبعة أشخاص، وسعر الشيء ثلاث وخمسون.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{盈不足術曰：}}置所出率，盈、不足各居其下。令維乘所出率，并以為實。并盈、不足為法。實如法而一。
+}{
+\textcolor{methodcolor}{\textbf{طريقة الزيادة والنقصان:}} ضع المعدلات المُخرَجة، والزيادة والنقصان تحتهما. اضرب المعدلات المُخرَجة تبادليًا، واجمعها لتكون المقسوم عليه. اجمع الزيادة والنقصان لتكون القاسم. اقسم المقسوم عليه على القاسم.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：盈不足術者，以盈與不足之差而求實數也。}}
+\textcolor{commentarycolor}{\small\textit{此術之妙，在於兩設。}}
+\textcolor{commentarycolor}{\small\textit{設人出八，則多三；設人出七，則少四。}}
+\textcolor{commentarycolor}{\small\textit{多三少四，相差七，此人之數也。}}
+\textcolor{commentarycolor}{\small\textit{何以知之？以維乘所出率，并而為實；以盈不足并而為法。}}
+\textcolor{commentarycolor}{\small\textit{實如法而一，即物價也。}}
+\textcolor{commentarycolor}{\small\textit{此術即今之所謂假位法，或曰雙假位法也。}}
+\textcolor{commentarycolor}{\small\textit{其理以兩次假設，觀其盈朒，而求其真數。}}
+\textcolor{commentarycolor}{\small\textit{凡有難以徑求之數，皆可用此術。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: طريقة الزيادة والنقصان، تستخدم فرق الزيادة والنقصان لطلب العدد الحقيقي.}}
+\textcolor{commentarycolor}{\small\textit{براعة هذه الطريقة تكمن في الافتراض المزدوج.}}
+\textcolor{commentarycolor}{\small\textit{نفترض أن كل واحد يُخرج ثماني قطع، فيزيد ثلاث؛ نفترض أن كل واحد يُخرج سبع قطع، ينقص أربع.}}
+\textcolor{commentarycolor}{\small\textit{الزيادة ثلاث والنقصان أربع، الفرق سبعة، وهذا هو عدد الأشخاص.}}
+\textcolor{commentarycolor}{\small\textit{كيف نعرف؟ نضرب المعدلات المُخرَجة تبادليًا، ونجمعها لتكون المقسوم عليه؛ ونجمع الزيادة والنقصان لتكون القاسم.}}
+\textcolor{commentarycolor}{\small\textit{نقسم المقسوم عليه على القاسم، فيكون سعر الشيء.}}
+\textcolor{commentarycolor}{\small\textit{هذه الطريقة هي ما يُسمى اليوم بطريقة الموضع الافتراضي، أو طريقة الافتراض المزدوج.}}
+\textcolor{commentarycolor}{\small\textit{مبدأها الافتراض مرتين، ورصد الزيادة والنقصان، وطلب العدد الحقيقي.}}
+\textcolor{commentarycolor}{\small\textit{كل عدن يصعب طلبه مباشرة، يمكن استخدام هذه الطريقة.}}
+}
+
+\newpage
+
+
+%% =============================================================================
+\section*{\centerline{圖譜：開方作法本源 \hspace{2em} \ar{الرسوم التوضيحية: أصل طريقة استخراج الجذور — مثلث يانغ هوي}}}}
+\addcontentsline{toc}{section}{Yang Hui's Triangle (開方作法本源)}
+
+\begin{center}
+{\LARGE\bfseries\color{titlecolor} 開方作法本源圖}\\[0.5cm]
+{\large\color{sectioncolor} The Foundation of the Method for Extracting Roots}\\[0.3cm]
+{\large\color{titlecolor} \ar{أصل طريقة استخراج الجذور — رسم يانغ هوي التوضيحي}}\\[0.5cm]
+\end{center}
+
+\begin{center}
+\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+\vspace{0.5em}
+
+\bilingualrow{
+開方作法本源，釋鎖算書，賈憲用此術。
+此圖所以明開方之法，而實為算學之根本也。
+其形如下，層層累積，如三角之狀，故西人謂之帕斯卡三角。
+然賈憲之用此術，實早於帕斯卡數百年也。
+}{
+أصل طريقة استخراج الجذور، يأتي من كتاب سوا سوان شو (كتاب الحساب المفكّك)، وقد استخدمه جيا شيان.
+هذا الرسم يوضح طريقة استخراج الجذور، وهو في الواقع أساس علم الحساب.
+شكله كما يلي، طبقات متراكمة، على شكل مثلث، لذا يسميه الغربيون مثلث باسكال.
+لكن جيا شيان استخدم هذه الطريقة، في الواقع قبل باسكال بمئات السنين.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}楊輝曰：開方作法本源一圖，出於釋鎖算書，賈憲用此術。}
+\textbf{\color{commentarycolor}輝嘗考其源流，實為算學之根本，因取而詳解之，以附於九章之末。}
+\textbf{\color{commentarycolor}蓋九章言乘除、開方之法，而此圖則可以推廣其用，以通於高次也。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي: رسم أصل طريقة استخراج الجذور، يأتي من كتاب سوا سوان شو، وقد استخدمه جيا شيان.}
+\textbf{\color{commentarycolor}لقد درست أصوله ومصادره، وهو في الواقع أساس علم الحساب، لذا أخذته وحللته بالتفصيل، ووضعته في نهاية التسعة فصول.}
+\textbf{\color{commentarycolor}فالتسعة فصول تتحدث عن طرق الضرب والقسمة واستخراج الجذور، وهذا الرسم يمكن أن يوسّع استخدامها، ويتجاوز إلى الدرجات العليا.}
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}此圖之構成，其法甚簡。}
+\textbf{\color{commentarycolor}每層之首尾皆為一，中間各數為上兩肩數之和。}
+\textbf{\color{commentarycolor}如第三層之一、二、一，其中之二即上兩層之一與一之和也。}
+\textbf{\color{commentarycolor}第四層之一、三、三、一，其中之三即上兩層之一與二之和也。}
+\textbf{\color{commentarycolor}層數無窮，皆可由此法推之。}
+}{
+\textbf{\color{commentarycolor}تكوين هذا الرسم، طريقته بسيطة جدًا.}
+\textbf{\color{commentarycolor}بداية ونهاية كل طبقة هما واحد، والأرقام الوسطى هي مجموع الرقمين على الكتفين في الطبقة أعلاه.}
+\textbf{\color{commentarycolor}مثل الطبقة الثالثة: واحد، اثنان، واحد، والاثنان في الوسط هي مجموع الواحد والواحد من الطبقتين الأعلى.}
+\textbf{\color{commentarycolor}الطبقة الرابعة: واحد، ثلاثة، ثلاثة، واحد، والثلاثة في الوسط هي مجموع الواحد والاثنين من الطبقتين الأعلى.}
+\textbf{\color{commentarycolor}عدد الطبقات لا نهائي، ويمكن استنتاجها جميعًا بهذه الطريقة.}
+}
+
+\vspace{1.5em}
+
+%% ---- Yang Hui's Triangle ----
+\begin{center}
+{\color{chartcolor}
+\begin{tabular}{*{13}{c}}
+& & & & & & 1 & & & & & & \\[0.8em]
+& & & & & 1 & & 1 & & & & & \\[0.8em]
+& & & & 1 & & 2 & & 1 & & & & \\[0.8em]
+& & & 1 & & 3 & & 3 & & 1 & & & \\[0.8em]
+& & 1 & & 4 & & 6 & & 4 & & 1 & & \\[0.8em]
+& 1 & & 5 & & 10 & & 10 & & 5 & & 1 & \\[0.8em]
+1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 \\
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{center}
+\textit{開方作法本源圖（楊輝三角）/ \ar{رسم أصل طريقة استخراج الجذور (مثلث يانغ هوي)}}
+\end{center}
+
+\vspace{1.5em}
+
+\bilingualrow{
+\textbf{釋名：}
+}{
+\textbf{توضيح الأسماء:}
+}
+
+\vspace{0.3em}
+
+\bilingualrow{
+第一層：一 \quad（開平方，平方數）
+}{
+الطبقة الأولى: واحد \quad (استخراج الجذر التربيعي، الأعداد المربعة)
+}
+
+\bilingualrow{
+第二層：一、一 \quad（開立方，立方數之根）
+}{
+الطبقة الثانية: واحد، واحد \quad (استخراج الجذر التكعيبي، جذور الأعداد المكعبة)
+}
+
+\bilingualrow{
+第三層：一、二、一 \quad（三乘方，即四次方）
+}{
+الطبقة الثالثة: واحد، اثنان، واحد \quad (القوة الثالثة، أي القوة الرابعة)
+}
+
+\bilingualrow{
+第四層：一、三、三、一 \quad（四乘方，即五次方）
+}{
+الطبقة الرابعة: واحد، ثلاثة، ثلاثة، واحد \quad (القوة الرابعة، أي القوة الخامسة)
+}
+
+\bilingualrow{
+第五層：一、四、六、四、一 \quad（五乘方，即六次方）
+}{
+الطبقة الخامسة: واحد، أربعة، ستة، أربعة، واحد \quad (القوة الخامسة، أي القوة السادسة)
+}
+
+\bilingualrow{
+第六層：一、五、十、十、五、一 \quad（六乘方，即七次方）
+}{
+الطبقة السادسة: واحد، خمسة، عشرة، عشرة، خمسة، واحد \quad (القوة السادسة، أي القوة السابعة)
+}
+
+\bilingualrow{
+第七層：一、六、十五、二十、十五、六、一 \quad（七乘方，即八次方）
+}{
+الطبقة السابعة: واحد، ستة، خمسة عشر، عشرون، خمسة عشر، ستة، واحد \quad (القوة السابعة، أي القوة الثامنة)
+}
+
+\vspace{1em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}楊輝曰：上圖七層，示其大凡也。}
+\textbf{\color{commentarycolor}其實層數無窮，皆可遞推而得。}
+\textbf{\color{commentarycolor}每層之數，即開方之廉率也。}
+\textbf{\color{commentarycolor}如開平方，其廉為一、二、一；}
+\textbf{\color{commentarycolor}開立方，其廉為一、三、三、一；}
+\textbf{\color{commentarycolor}開三乘方，其廉為一、四、六、四、一。}
+\textbf{\color{commentarycolor}依此類推，開高次方，皆可得其廉率。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي: الرسم أعلاه ذو سبع طبقات، يوضح الصورة العامة.}
+\textbf{\color{commentarycolor}في الواقع عدد الطبقات لا نهائي، ويمكن اشتقاقها جميعًا بالتتابع.}
+\textbf{\color{commentarycolor}أرقام كل طبقة، هي معدلات "ليان" (الجانب) لاستخراج الجذور.}
+\textbf{\color{commentarycolor}مثل استخراج الجذر التربيعي، معدلاته هي واحد، اثنان، واحد؛}
+\textbf{\color{commentarycolor}استخراج الجذر التكعيبي، معدلاته هي واحد، ثلاثة، ثلاثة، واحد؛}
+\textbf{\color{commentarycolor}استخراج الجذر من القوة الثالثة، معدلاته هي واحد، أربعة، ستة، أربعة، واحد.}
+\textbf{\color{commentarycolor}وهكذا بالتشابه، لاستخراج الجذور من الدرجات العليا، يمكن الحصول على معدلاتها جميعًا.}
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}又案：此圖之數，與堆垛之術相通。}
+\textbf{\color{commentarycolor}一、三、六、十、十五，此三角垛也；}
+\textbf{\color{commentarycolor}一、四、十、二十、三十五，此四角垛也。}
+\textbf{\color{commentarycolor}皆可由此圖推之。}
+}{
+\textbf{\color{commentarycolor}وأيضًا: أرقام هذا الرسم، مرتبطة بطريقة تكديس الأعداد.}
+\textbf{\color{commentarycolor}واحد، ثلاثة، ستة، عشرة، خمسة عشر، هذا التكديس المثلثي؛}
+\textbf{\color{commentarycolor}واحد، أربعة، عشرة، عشرون، خمسة وثلاثون، هذا التكديس الرباعي.}
+\textbf{\color{commentarycolor}ويمكن استنتاجها جميعًا من هذا الرسم.}
+}
+
+\vspace{1.5em}
+
+\bilingualrow{
+\textbf{用法：}
+}{
+\textbf{طريقة الاستخدام:}
+}
+
+\vspace{0.3em}
+
+\bilingualrow{
+\textcolor{methodcolor}{\textbf{術曰：}}開方者，求方根之法也。凡開n乘方，取第n+1層之數為廉率。
+以廉率各乘相應之項，并而為實，實如法而一，即得方根。
+}{
+\textcolor{methodcolor}{\textbf{الطريقة:}} استخراج الجذور هو طريقة طلب الجذر التربيعي. لاستخراج الجذر من القوة n، خذ أرقام الطبقة n+1 كمعدلات ليان.
+اضرب معدلات ليان في حدودها المقابلة، واجمعها لتكون المقسوم عليه، واقسم المقسوم عليه على القاسم، فيكون الجذر.
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}楊輝曰：開方之法，九章句股章已有之。}
+\textbf{\color{commentarycolor}然其所開者，僅至平方、立方而止。}
+\textbf{\color{commentarycolor}此圖則可以推廣至任意高次。}
+\textbf{\color{commentarycolor}如開七乘方，即取第八層之數為廉率，一、七、二十一、三十五、三十五、二十一、七、一。}
+\textbf{\color{commentarycolor}以此廉率各乘其項，如常法開之，即得七乘方之根。}
+\textbf{\color{commentarycolor}此術之精妙，實為算學一大發明也。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي: طريقة استخراج الجذور، وردت في فصول التسعة في فصل جو-جو (الضلع والقطر).}
+\textbf{\color{commentarycolor}لكن ما استُخرج حينها، كان حتى التربيع والتكعيب فقط.}
+\textbf{\color{commentarycolor}هذا الرسم يمكن أن يوسّع إلى أي درجة عليا.}
+\textbf{\color{commentarycolor}مثل استخراج الجذر من القوة السابعة، خذ أرقام الطبقة الثامنة كمعدلات ليان: واحد، سبعة، واحد وعشرون، خمسة وثلاثون، خمسة وثلاثون، واحد وعشرون، سبعة، واحد.}
+\textbf{\color{commentarycolor}بهذه المعدلات اضرب كل حدودها، واستخرج الجذر كالعادة، فيكون جذر القوة السابعة.}
+\textbf{\color{commentarycolor}دقة هذه الطريقة، هي في الواقع اختراع عظيم في علم الحساب.}
+}
+
+\vspace{0.5em}
+
+\bilingualrow{
+\textbf{\color{commentarycolor}輝又案：此圖不獨用於開方，凡組合之數、堆垛之積，皆可用此圖求之。}
+\textbf{\color{commentarycolor}如七物取三者，其數為三十五，即第七層之第四數也。}
+\textbf{\color{commentarycolor}此組合數學之理，亦出於此圖。}
+}{
+\textbf{\color{commentarycolor}قال يانغ هوي أيضًا: هذا الرسم لا يُستخدم فقط لاستخراج الجذور، بل في جميع أعداد التوافيق ومجاميع التكديس، يمكن استخدام هذا الرسم لطلبها.}
+\textbf{\color{commentarycolor}مثل أخذ ثلاثة من سبعة أشياء، عددها خمسة وثلاثون، وهي الرقم الرابع في الطبقة السابعة.}
+\textbf{\color{commentarycolor}هذا مبدأ الرياضيات التوافقية، يأتي أيضًا من هذا الرسم.}
+}
+
+\vspace{1.5em}
+
+%% ---- Extended Yang Hui's Triangle ----
+\begin{center}
+{\color{chartcolor}
+\begin{tabular}{*{17}{c}}
+& & & & & 1 & & & & & & & & & & & \\[0.6em]
+& & & & 1 & & 1 & & & & & & & & & & \\[0.6em]
+& & & 1 & & 2 & & 1 & & & & & & & & & \\[0.6em]
+& & 1 & & 3 & & 3 & & 1 & & & & & & & & \\[0.6em]
+& 1 & & 4 & & 6 & & 4 & & 1 & & & & & & & \\[0.6em]
+1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & & & & \\[0.6em]
+& 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & & \\[0.6em]
+& & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 \\
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{center}
+\textit{開方作法本源圖（續展至第八層）/ \ar{رسم أصل طريقة استخراج الجذور (ممتد حتى الطبقة الثامنة)}}
+\end{center}
+
+\vspace{1.5em}
+
+\bilingualrow{
+\textbf{開方作法本源圖說：}
+}{
+\textbf{شرح رسم أصل طريقة استخراج الجذور:}
+}
+
+\vspace{0.3em}
+
+\bilingualrow{
+左表乃積數，右表乃隅算。
+中藏者皆廉。
+以隅算一，自上而下遞增為次；
+以積數一，自下而上遞增為次；
+各廉皆以兩肩之數相加而成。
+}{
+الجدول الأيسر هو أعداد المجموع، والجدول الأيمن هو حساب الزاوية.
+ما في الوسط كلها ليان (جوانب).
+بأخذ حساب الزاوية واحد، يتزايد من الأعلى إلى الأسفل تتابعًا؛
+بأخذ عدد المجموع واحد، يتزايد من الأسفل إلى الأعلى تتابعًا؛
+كل ليان تُكون بجمع الرقمين على الكتفين.
+}
+
+\bilingualrow{
+\textcolor{commentarycolor}{\small\textit{楊輝曰：開方作法本源圖，其理至精，其用至廣。}}
+\textcolor{commentarycolor}{\small\textit{輝故詳解之，以為學者之助。}}
+\textcolor{commentarycolor}{\small\textit{學者熟玩此圖，則開方之理，思過半矣。}}
+}{
+\textcolor{commentarycolor}{\small\textit{قال يانغ هوي: رسم أصل طريقة استخراج الجذور، مبدأه دقيق للغاية، واستخدامه واسع للغاية.}}
+\textcolor{commentarycolor}{\small\textit{لذا حللته بالتفصيل، لمساعدة الطلاب.}}
+\textcolor{commentarycolor}{\small\textit{إذا أتقن الطلاب هذا الرسم، فإنهم يفهمون نصف مبدأ استخراج الجذور.}}
+}
+
+\newpage
+
+%% =============================================================================
+\section*{\centerline{後記 \hspace{2em} \ar{الخاتمة}}}}
+\addcontentsline{toc}{section}{Postscript}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+\vspace{0.5em}
+
+\bilingualrow{
+楊輝詳解九章算法，凡十二卷。
+其書以九章為經，以詳解為緯。
+於每題之下，先釋其術，次明其理，又設問答以盡其變。
+其開方作法本源一圖，尤為精絕，後世言組合數學者，無不宗之。
+}{
+تحليل يانغ هوي المفصل لتسعة فصول الحساب، مجموعه اثنا عشر مجلدًا.
+كتابه يأخذ التسعة فصول كنص أساسي، والتحليل المفصل كنسيج.
+تحت كل مسألة، أولًا يشرح طريقتها، ثم يوضح مبدأها، ويضع أسئلة وأجوبة لاستكمال متغيراتها.
+رسم أصل طريقة استخراج الجذور، دقيق بشكل خاص، وعلماء الرياضيات التوافقية في العصور اللاحقة، جميعهم يتبعونه.
+}
+
+\bilingualrow{
+輝又著算法通變本末、乘除通變算寶、法算取用本末等書，
+皆為當時算學之要籍。
+其學上承九章、海島之緒，下開明清算學之先，
+實為中國數學史上之鉅子也。
+}{
+ألّف يانغ هوي أيضًا كتبًا مثل سواان فا تونغ بين بن مو (تفاصيل الحساب من البداية إلى النهاية)، وتشونغ تشو تونغ بين سواان باو (كنز الحساب في الضرب والقسمة)، وفا سواان تشو يونغ بن مو (استخدام طرق الحساب من البداية إلى النهاية)،
+وكلها كتب مهمة في علم الحساب في ذلك الوقت.
+علمه يتوارث عن التسعة فصول وهاي داو (جزيرة البحر)، ويفتح الطريق لعلم الحساب في عهد مينغ وتشينغ،
+وهو في الواقع من العمالقة في تاريخ الرياضيات الصينية.
+}
+
+\bilingualrow{
+此書原刊於宋景定元年（1261年），後收入永樂大典。
+清代四庫全書收錄此書，但多有殘缺。
+近世學者據各本參校，始得復其舊觀。
+}{
+هذا الكتاب نُشر أصلًا في السنة الأولى من جينغدينغ في سونغ (١٢٦١ م)، ثم وُضع في يونغله دا ديان (موسوعة يونغله).
+مكتبة سو كو تشوان شو (المكتبة الأربعية) في عهد تشينغ ضمّت هذا الكتاب، لكنه كان ناقصًا في أماكن كثيرة.
+العلماء المعاصرون قارنوا بين نسخ مختلفة، فاستعادوا مظهره الأصلي.
+}
+
+\vspace{1.5em}
+
+\begin{flushright}
+\textit{詳解九章算法卷一至三終}\\[0.5em]
+\ar{نهاية المجلدات الأولى والثانية والثالثة من التحليل المفصل لتسعة فصول الحساب}
+\end{flushright}
+
+\vfill
+
+\begin{center}
+{\small 詳解九章算法（一）\\
+宋 楊輝撰\\
+開方作法本源圖附\\
+此書以 SimSun 字體排版}\\[0.5em]
+{\small \ar{التحليل المفصل لتسعة فصول الحساب (الجزء الأول)}\\
+\ar{تأليف يانغ هوي (سلالة سونغ)}\\
+\ar{مع رسم أصل طريقة استخراج الجذور}\\
+\ar{طباعة ثنائية اللغة الصينية-العربية بخطوط نوتو}}
+\end{center}
+
+\end{document}
+
+\end{document}
