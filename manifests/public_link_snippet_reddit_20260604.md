@@ -12,7 +12,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **SGA:** https://doi.org/10.5281/zenodo.20410947 (latest: 20544089) — SGA 5 source-checked stream, complete strict SGA 6 rebuild, and SGA 7-I source-checked cumulative readers through source page 469.
 
-**Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20544343) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 40 complete plus French pilots.
+**Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20544550) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 43 complete plus French pilots and recursive audit starting.
 
 **Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20544247) — Lehrbuch Volume I complete, Volume II source-checked through section 131, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
@@ -49,6 +49,8 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Classical algebra/arithmetic umbrella shelf:** https://doi.org/10.5281/zenodo.20414787 (latest: 20503771)
 
 **Older author-cluster shelf:** https://doi.org/10.5281/zenodo.20411006 (latest: 20442003)
+
+
 
 
 
