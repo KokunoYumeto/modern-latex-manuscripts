@@ -14,7 +14,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Emmy Noether:** https://doi.org/10.5281/zenodo.20412587 (latest: 20541050) — German/English numbered-paper corpus complete through Papers 1-43, with Spanish/Japanese cumulative readers through Paper 35 complete plus French pilots.
 
-**Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20540785) — Lehrbuch Volume I complete, Volume II source-checked through section 124, and current Volume III repaired cumulative readers.
+**Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20541585) — Lehrbuch Volume I complete, Volume II source-checked through section 124, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20537816) — Werke working drafts plus Band II source-checked cumulative readers through printed page 291.
 
