@@ -1,0 +1,162 @@
+\documentclass[12pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{lemme}{Lemme}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{theoreme}{Théorème}
+
+\DeclareMathOperator{\card}{card}
+
+\title{Congruences sur le nombre de sous-groupes d'ordre $p^k$ dans un groupe fini}
+\author{P. Deligne}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+La méthode utilisée par Serre~[1] p.~147 pour démontrer le théorème de Sylow fournit des résultats plus généraux qu'on se propose d'expliciter.
+
+On utilise les notations suivantes~: $p$ désigne un nombre premier; pour tout entier $n$, $v(n)$ est l'exposant de la plus grande puissance de $p$ qui divise $n$; enfin, $G$ est un groupe fini d'ordre $g$.
+
+Pour être complet, rappelons le lemme suivant (Lazard~[2] p.~71).
+
+\begin{lemme}\ \par
+\begin{enumerate}
+\item[a)] Si $n = \sum c_i p^i$ avec $0 \leqslant c_i < p$ (développement de base $p$),
+\[
+v(n!) = \frac{1}{p-1}(n - \textstyle\sum c_i)
+\]
+\item[b)]
+\[
+v\binom{r}{s} \geqslant v(r) - v(s)
+\]
+\end{enumerate}
+\end{lemme}
+
+Prouvons, a), $v(p^k!) = \sum_{i \leqslant k} i(p^{k-i} - p^{k-i-1}) = \sum_{i=0}^{k-1} p^i = \dfrac{p^k-1}{p-1}$, ce qui vérifie l'énoncé; il est clair que si $0 \leqslant c < p$, $v((cp^k)!) = cv(p^k!)$ et que si $m < p^{v(n)}$, $v((n+m)!) = v(n!) + v(m!)$. Ces propriétés d'additivité sont les mêmes que celles du second membre, d'où la formule.
+
+b) s'en déduit aisément en revenant aux définitions et en tenant compte de l'algorithme de calcul des chiffres $c_i$ d'une somme à l'aide de ceux de ses termes. Il y a égalité si $r$ est une puissance de $p$.
+
+\begin{proposition}
+\[
+\binom{p^k n}{p^k m} \equiv \binom{n}{m} \pmod{p^{v(n)+2}}
+\]
+si $p \neq 2$ ou si $n$ est impair. La congruence est toujours vraie modulo $p^{v(n)+1}$.
+\end{proposition}
+
+\begin{proof}
+Soient $X$ et $Y$ deux indéterminées; $(X+Y)^{p^k} = X^{p^k} + Y^{p^k} + pQ$ où $Q$ est un polynôme de degré inférieur à $p^k$ en chaque variable. La formule du binôme montre alors que
+\begin{equation}
+(X+Y)^{p^k n} = (X^{p^k} + Y^{p^k})^n + np(X^{p^k} + Y^{p^k})^{n-1}Q
+\end{equation}
+modulo la plus grande puissance de $p$ qui divise tous les $p^i \dbinom{n}{i}$ ($i \geqslant 2$). Ceux-ci sont de valuation au moins $i + v(n) - v(i) \geqslant v(n) + 2$ si $p \neq 2$; si $p = 2$, on a toujours $i > v(i)$ (Cantor), d'où l'exposant $v(n) + 1$.
+
+$\dbinom{p^k n}{p^k m}$ est le coefficient de $X^{p^k m}Y^{p^k(n-m)}$; le second terme du second membre de~(1) ne contient aucun terme de ce type (aucun exposant n'y est divisible par $p^k$), et le coefficient de ce monôme dans le second membre de~(1) est donc $\dbinom{n}{m}$. L'assertion en résulte si $p \neq 2$. Si $p = 2$, ce qui précède prouve déjà $Q = X^{2^{k-1}}Y^{2^{k-1}}$ mod.~$2$; $Q^2 = X^{2^k}Y^{2^k}$ mod~$4$, et le terme suivant dans le développement du binôme donne
+\[
+\binom{2^k n}{2^k m} \equiv \binom{n}{m} + 2n(n-1)\binom{n-2}{m-1} \pmod{2^{v(n)+2}},
+\]
+d'où l'assertion.
+\end{proof}
+
+\begin{theoreme}\ \par
+Soient $S$ un sous-groupe de $p$-Sylow de $G$, $s = v(g)$ et $d_k$ le nombre de sous-groupes de $G$ d'ordre $p^{s-k}$ pour $0 \leqslant k \leqslant s$. Alors
+\begin{enumerate}
+\item[(i)] $d_k \equiv 1 \pmod p$
+\item[(ii)] si $S$ est cyclique ou abélien de type $(p,\dots,p)$, $d_k$ est congru mod~$p^{k+1}$ au nombre de sous-groupes de $S$ d'indice $p^k$
+\item[(iii)] si $S$ n'est pas cyclique,
+\[
+d_1 \equiv 1 + p \pmod{p^2}.
+\]
+\end{enumerate}
+\end{theoreme}
+
+Faisons agir le groupe $G$ par translations à gauche sur l'ensemble de ses parties à $p^k$ éléments. Si une de ces parties soit $P$ de $G$ a un stabilisateur $H$, elle est réunion de classes à droites de $H$ et $H$ est donc un groupe d'ordre $p^l$ avec $l \leqslant k$; $l = k$ si et seulement si $P$ est translaté (à droite ou à gauche, c'est la même chose) d'un sous-groupe d'ordre $p^k$. Le nombre d'éléments dans l'orbite de $P$ est divisible par $p^{s-l}$. $\dbinom{g}{p^k}$ est donc congru mod~$p^{s-k+1}$ au nombre de parties de $G$ translatées d'un sous-groupe d'ordre $p^k$, et on sait (prop.~1) qu'il est aussi congru à $gp^{-k}$. Il y a $d_{s-k} \cdot g \cdot p^{-k}$ telles parties, et $gp^{-k} \equiv d_{s-k} \cdot g \cdot p^{-k} \pmod{p^{s-k+1}}$ d'où la première assertion.
+
+Plaçons-nous dans le cas (ii), avec $S$ abélien de type $(p\dots p)$. Le nombre $G_{i,j}$ de sous-groupes d'ordre $p^i$ d'un sous-groupe d'ordre $p^j$ est le nombre d'éléments d'une grassmannienne. Pour $i > j$, $G_{i,j} = 0$; pour $i \leqslant j$,
+\[
+G_{i,j} = \frac{(p^j-1)\dots(p^j-p^{i-1})}{(p^i-1)\dots(p^i-p^{i-1})} = G_i G_{j-i} G_j^{-1}, \text{ où on pose}
+\]
+\[
+G_i = [(p^i-1)\dots(p-1)]^{-1} \text{ si } i \geqslant 0,\ G_i = 0 \text{ si } i < 0.
+\]
+
+On sait que $p^i$ divise le nombre $u_i$ de parties de $G$ à $p^i$ éléments dont le stabilisateur est d'ordre $p^{s-i}$. Posons $g = p^s h$; si on compte de deux façons différentes le nombre des couples formés d'un sous-groupe d'ordre $p^{s-i}$ et d'une partie à $p^i$ éléments qu'il laisse fixe, on trouve, pour $0 \leqslant i,j \leqslant s$,
+\begin{equation}
+d_i \binom{p^s h}{p^i} = \sum_j G_{s-i,\,s-j}\, u_j
+\end{equation}
+\begin{equation}
+p^i \mid u_i
+\end{equation}
+\begin{equation}
+d_s = 1
+\end{equation}
+
+Travaillons maintenant dans le localisé de $\mathbf{Z}$ en $p$ (ou dans $\mathbf{Z}_p$). Soit $e_i$ le quotient par $\dbinom{p^s h}{p^i} G_i$ du premier membre de~(2). En vertu de la proposition~1 et du fait que $G_i$ est premier avec $p$ pour $i \geqslant 0$, on voit qu'il existe des nombres $v_i$ ($0 \leqslant i \leqslant s$) tels que
+\begin{equation}
+d_i \equiv G_i e_i \pmod{p^{i+1}}
+\end{equation}
+\begin{equation}
+e_i = \sum_j G_{i-j}\, v_j
+\tag{$2'$}
+\end{equation}
+\begin{equation}
+p^i \mid v_i
+\end{equation}
+\begin{equation}
+e_s = G_s^{-1}
+\end{equation}
+
+Des identités analogues sont vérifiées dans le groupe $S$; pour montrer qu'elles déterminent $d_i$ mod~$p^{i+1}$, il suffit de vérifier que les identités (pour $0 \leqslant i,j \leqslant s$)
+\begin{equation}
+e_i = \sum_j G_{i-j}\, v_j
+\end{equation}
+\begin{equation}
+p^i \mid v_i
+\end{equation}
+\begin{equation}
+e_s = 0
+\end{equation}
+impliquent que $p^{i+1} \mid e_i$.
+
+De ($2''$) on tire
+\[
+e_i - e_{i+1} = \sum_j (G_{i-j} - G_{i+1-j}) v_j.
+\]
+Comme trivialement $G_k^{-1} \equiv G_{k+1}^{-1} \pmod{p^{k+1}}$, on a aussi
+\[
+p^{i+1-j} \mid G_{i-j} - G_{i+1-j} \text{ et } p^{i+1} \mid e_i - e_{i+1}.
+\]
+On conclut par ($4''$).
+
+La même technique, en plus simple, s'applique si $S$ est cyclique.
+
+Passons au cas (iii). Les sous-groupes d'indice $p$ de $S$ sont tous distingués. Leur intersection $S'$ est le sous-groupe de Frattini de $S$. Pour tout sous-groupe $T$ de $S$, si $TS' = S$, alors $T = S$. En particulier, si $S$ n'est pas cyclique, $S/S'$ ne l'est pas non plus et les sous-groupes d'indice $p$ de $S$ s'identifient aux hyperplans d'un $\mathbf{Z}/p$-vectoriel de dimension $> 1$; leur nombre est congru à $1+p \pmod{p^2}$.
+
+Des équations précédentes subsistent
+\[
+\begin{cases}
+d_0 h = u_0 \\[4pt]
+d_1 \dbinom{p^s h}{p} = (1+p)u_0 + u_1 \pmod{p^2} \\[4pt]
+\dbinom{p^s h}{p^s} = u_0 + u_1 \pmod{p^2}
+\end{cases}
+\]
+Or (prop.~1), $\dbinom{p^s h}{p^s} \equiv h \pmod{p^2}$, donc
+\begin{align*}
+d_1 h &\equiv (1+p)d_0 h + (h - d_0 h) \pmod{p^2} \text{ et}\\
+d_1 &\equiv 1 + pd_0 \pmod{p^2},
+\end{align*}
+d'où l'assertion puisque $d_0 \equiv 1 \pmod p$.
+
+\begin{thebibliography}{99}
+\bibitem{[1]} \textsc{Serre, J.P.,} \textit{Corps locaux. Act.~sc.~et~ind.} Hermann, 1962.
+\bibitem{[2]} \textsc{Lazard, M.,} Groupes analytiques $p$-adiques. \textit{Publ. Math. I.~H.~E.~S.,} n$^\circ$~26, 1965.
+\end{thebibliography}
+
+\end{document}

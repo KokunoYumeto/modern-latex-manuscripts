@@ -1,0 +1,960 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\geometry{margin=0.86in}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.14em}
+\emergencystretch=3em
+\setlist{leftmargin=2.1em,itemsep=0.12em,topsep=0.25em}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Ru}{R_u}
+\newcommand{\red}{\mathrm{red}}
+\newcommand{\et}{\acute{e}tale}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\rang}{\operatorname{rang}}
+\newcommand{\fppf}{\mathrm{fppf}}
+\newcommand{\T}{\mathcal T}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\E}{\mathbb E}
+\newtheoremstyle{deligne}
+  {0.45em}{0.45em}{\itshape}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{deligne}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\newenvironment{proofdel}{\textit{Proof.}}{\hfill$\square$}
+\newcommand{\heading}[1]{\vspace{0.7em}\noindent{\bfseries #1}\quad}
+
+\newenvironment{proofone}{\textit{First proof.}}{\hfill$\square$}
+\newenvironment{prooftwo}{\textit{Second proof.}}{\hfill$\square$}
+\newcommand{\calO}{\mathcal O}
+\newcommand{\A}{\mathbb A}
+\newcommand{\dimK}{\dim_K}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Semi-simplicity of Tensor Products\\
+in Characteristic \(p\)}\\[0.5em]
+{\large Pierre Deligne}
+\end{center}
+
+\textbf{Abstract.} Let \(G\) be an affine group scheme over a field \(k\) of characteristic \(p\ne0\), and let \((V_i)\) be a finite family of semi-simple representations of \(G\). We show that if
+\[
+  \sum_i(\dim V_i-1)<p,
+\]
+then the tensor-product representation of \(G\) formed from the \(V_i\) is again semi-simple. Under the additional hypothesis that \(G\) is smooth, this theorem was proved by J.-P. Serre in 1994. We shall reduce to that case. More generally, the \(V_i\) may be taken to be objects of a tannakian category over \(k\).
+
+\begin{center}
+\begin{tabular}{rl}
+0. & Introduction\\
+1. & Proof of Theorem 0.7\\
+2. & Saturation\\
+3. & The case where \(k\) is algebraically closed\\
+4. & Extension of scalars in a tannakian category, and proof of Theorem 0.1\\
+5. & Tensor products of exterior powers
+\end{tabular}
+\end{center}
+
+\section*{0. Introduction}
+
+Let \(\T\) be a tannakian category over a field \(k\) of characteristic \(p\ne0\). For the definition of tannakian categories, we refer to [3] p. 193 or to [1] 2.1, 2.8. Recall that the axioms include the existence of duals and of a fibre functor \(\omega\) with values in vector spaces over a suitable extension \(K\) of \(k\). The dimension \(\dim(V)\) of an object \(V\) of \(\T\) is \(\dim_K\omega(V)\). Since two fibre functors become isomorphic over a sufficiently large suitable extension ([1] 1.12, 1.13), this dimension is independent of the choice of the fibre functor \(\omega\).
+
+\begin{theorem*}[0.1]
+Let \((V_i)_{i\in I}\) be a finite family of objects of \(\T\). If the \(V_i\) are semi-simple and
+\[
+  \sum_{i\in I}\bigl(\dim(V_i)-1\bigr)<p,
+\]
+then the tensor product of the \(V_i\) is a semi-simple object of \(\T\).
+\end{theorem*}
+
+\heading{Example 0.2.} If \(\T\) is the category of finite-dimensional linear representations of an affine group scheme over \(k\), one obtains the theorem announced in the abstract.
+
+Other examples are the category of finite-dimensional representations of a Lie algebra over \(k\), or that of finite-dimensional \(p\)-representations of a \(p\)-Lie algebra over \(k\). By passage to an algebraic envelope, these cases in fact reduce to the preceding one.
+
+\heading{Example 0.3.} Suppose that a group \(\Gamma\) acts on a commutative field \(K\) of characteristic \(p\), and let \(k:=K^\Gamma\) be the subfield of invariants. Let \(\T\) be the category of finite-dimensional \(K\)-vector spaces endowed with a semi-linear action of \(\Gamma\). With the tensor product over \(K\), this category is tannakian over \(k\): it admits the fibre functor over \(K\) ``underlying vector space''. If semi-linear representations \(V_i\) of \(\Gamma\) on \(K\) are semi-simple and
+\[
+  \sum_i\bigl(\dim_K(V_i)-1\bigr)<p,
+\]
+then the semi-linear tensor-product representation of the \(V_i\) is semi-simple.
+
+\heading{0.4.} Let \(V\) be a finite-dimensional vector space over \(k\), of characteristic \(p\). As explained in [4] §4, an automorphism \(g\) of \(V\) such that \(g^p=1\) defines a morphism of algebraic groups
+\[
+  \Ga \longrightarrow \GL(V):\quad t\longmapsto g^t,
+\]
+where \(g^t\) is defined by the binomial formula
+\[
+  g^t:=\sum_{n<p}\binom{t}{n}(g-1)^n. \tag{0.4.1}
+\]
+Similarly, an endomorphism \(N\) of \(V\) such that \(N^p=0\) defines a morphism of algebraic groups
+\[
+  \Ga \longrightarrow \GL(V):\quad t\longmapsto \exp(tN),
+\]
+where \(\exp(tN)\) is defined by
+\[
+  \exp(tN):=\sum_{n<p}\frac{(tN)^n}{n!}. \tag{0.4.2}
+\]
+Indeed, after any scalar extension to a commutative \(k\)-algebra \(\Lambda\), if for \(t\in\Lambda\) one defines \(\exp(tN)\) by (0.4.2), the hypothesis \(N^p=0\) ensures that
+\[
+  \exp((t'+t'')N)=\exp(t'N)\exp(t''N).
+\]
+
+\heading{Definition 0.5.} Suppose that \(k\) is algebraically closed of characteristic \(p\), and let \(G\) be a subgroup scheme of \(\GL(V)\).
+
+\begin{enumerate}[label=(\roman*)]
+\item \(G\) is \emph{saturated} if, for every \(g\in G(k)\) such that \(g^p=1\), the morphism \(t\mapsto g^t\) from \(\Ga\) to \(\GL(V)\) factors through \(G\).
+\item \(G\) is \emph{infinitesimally saturated} if, for every \(N\in\Lie(G)\) such that \(N^p=0\) (in the sense of the \(p\)-Lie-algebra structure on \(\Lie(G)\), or as an endomorphism of \(V\); this is the same condition), the morphism \(t\mapsto\exp(tN)\) from \(\Ga\) to \(\GL(V)\) factors through \(G\).
+\end{enumerate}
+We shall say that \(G\) is \emph{doubly saturated} if it is saturated and infinitesimally saturated.
+
+\heading{0.6.} Let \(G\) be an affine group scheme of finite type over an algebraically closed field \(k\) of characteristic \(p\). In the statement of 0.1, take \(\T\) to be the category of finite-dimensional representations of \(G\), assume that the family \((V_i)\) of representations is faithful, and put \(V:=\bigoplus V_i\). To prove 0.1 when \(G\) is reduced, Serre [4] first reduces to the case where \(G\) is saturated in \(\GL(V)\). If this is the case, the finite group \(\pi_0(G)\) of connected components of \(G\) has order prime to \(p\), and this permits one to reduce to the case where \(G\) is connected. For \(G\) not necessarily reduced, we use an analogous argument to reduce to the case where \(G\) is infinitesimally saturated in \(\GL(V)\), and our key result in that case is the following structure theorem 0.7. It will give a reduction to the case where \(G\) is smooth.
+
+Let \(G^0\) be the neutral component of \(G\), \(G^0_{\red}\) the reduced subgroup scheme of \(G^0\), and \(\Ru G^0_{\red}\) the unipotent radical of \(G^0_{\red}\). Both \(G^0_{\red}\) and \(\Ru G^0_{\red}\) are smooth, i.e. linear algebraic groups in the sense of the Chevalley seminar of 1956/58.
+
+\begin{theorem*}[0.7]
+Let \((V_i)_{i\in I}\) be a finite faithful family of representations of \(G\). Let \(V\) be the sum of the \(V_i\). Assume that each representation \(V_i\) has dimension \(<p\) and that, as a subgroup of \(\GL(V)\), \(G\) is infinitesimally saturated. Under these hypotheses:
+\begin{enumerate}[label=(\roman*)]
+\item \(G^0_{\red}\) and \(\Ru G^0_{\red}\) are invariant subgroup schemes of \(G\), and \(G^0/G^0_{\red}\) is of multiplicative type.
+\item If the representations \(V_i\) are semi-simple, \(G^0_{\red}\) is reductive.
+\item If \(G^0_{\red}\) is reductive, there exists in \(G^0\) a connected central subgroup scheme \(M\) of multiplicative type such that the morphism
+\[
+  M\times G^0_{\red}\longrightarrow G^0
+\]
+makes \(G^0\) a quotient of \(M\times G^0_{\red}\).
+\end{enumerate}
+\end{theorem*}
+
+\section*{1. Proof of Theorem 0.7}
+
+\begin{proposition*}[1.1]
+In an affine group scheme \(G\) of finite type over a field, every connected subgroup scheme of multiplicative type is contained in a maximal connected subgroup scheme of multiplicative type.
+\end{proposition*}
+
+\begin{proofdel}
+(after a letter from M. Raynaud to the author). It is enough to show that, in the set of connected subgroup schemes of multiplicative type of \(G\), ordered by inclusion, every totally ordered subset \(\mathcal M\) has an upper bound (Bourbaki, Ens III §2 no4 Theorem 2). For \(M\in\mathcal M\), the centralizer \(Z_G(M)\) of \(M\) in \(G\) is a subgroup scheme (automatically closed), and the map \(M\mapsto Z_G(M)\) is decreasing. The ordered set of closed subgroup schemes of \(G\) is noetherian. The set of the \(Z_G(M)\), for \(M\in\mathcal M\), therefore has a smallest element \(C\). Each \(M\in\mathcal M\) is contained in the centre \(Z(C)\) of \(C\). This centre is affine and commutative. The neutral component of its largest subgroup scheme of multiplicative type (SGA3 XVII 7.2.1) majorizes \(\mathcal M\). This is the required upper bound.
+\end{proofdel}
+
+\heading{1.2.} Fix \(k\), \(G\), and the finite family of representations \((V_i)_{i\in I}\), with sum \(V\), satisfying the hypotheses of 0.7: \(k\) is algebraically closed of characteristic \(p\ne0\), \(\dim(V_i)<p\), and, as a subgroup scheme of \(\GL(V)\), \(G\) is infinitesimally saturated.
+
+\begin{lemma*}[1.3]
+\begin{enumerate}[label=(\roman*)]
+\item The neutral component \(G^0\) of \(G\) is infinitesimally saturated in \(\GL(V)\).
+\item If a representation \(W\) of \(G\) is semi-simple, its restriction to \(G^0\) is also semi-simple.
+\item If the reduced subgroup \(G^0_{\red}\) of \(G^0\) (respectively its unipotent radical \(\Ru G^0_{\red}\)) is an invariant subgroup scheme of \(G^0\), then it is one of \(G\).
+\end{enumerate}
+\end{lemma*}
+
+\begin{proofdel}
+(i) follows from \(\Lie G=\Lie G^0\) and from the connectedness of \(\Ga\).
+
+It is enough to prove (ii) for \(W\) irreducible. Let \(S\subset W\) be the sum of the irreducible \(G^0\)-subrepresentations of \(W\). We have to show that \(S=W\). Each \(g\in G(k)\) normalizes \(G^0\). By transport of structure, \(S\) is therefore stable under \(g\). Since \(k\) is algebraically closed, \(G\) is the union of the \(gG^0\) for \(g\in G(k)\), and \(S\) is stable under \(G\). Since \(W\) is irreducible and \(S\ne0\), \(S\) is all of \(W\).
+
+Similarly, by transport of structure, each \(g\in G(k)\) normalizes \(G^0_{\red}\) and \(\Ru G^0_{\red}\), and (iii) follows from the fact that \(G\) is the union of the \(gG^0\).
+\end{proofdel}
+
+\heading{1.4.} Lemma 1.3 shows that, in order to prove 0.7 for \(G\), it is enough to prove it for \(G^0\). Moreover, if \(p=2\), each \(V_i\) has dimension 1, \(G\) is of multiplicative type, and 0.7 is trivial.
+
+In the rest of this section, in addition to the hypotheses of 1.2, we shall assume that \(p\ne2\) and that \(G\) is connected: \(G=G^0\). We shall prove that \(G_{\red}\) is an invariant subgroup scheme of \(G\) in 1.18, that \(G/G_{\red}\) is of multiplicative type in 1.19, the invariance in \(G\) of \(\Ru G_{\red}\) in 1.20--1.23, 0.7 (ii) in 1.24, and 0.7 (iii) in 1.25.
+
+\heading{1.5.} Let \(H\) be a maximal connected subgroup of \(G\) of multiplicative type (1.1), and let \(Z^0_G(H)\) be the neutral component of its centralizer \(Z_G(H)\). The quotient
+\[
+  U:=Z^0_G(H)/H
+\]
+contains no subgroup \(\mu_p\), because the inverse image in \(Z^0_G(H)\) of such a subgroup would be an extension of \(\mu_p\) by \(H\), hence of multiplicative type (SGA3 XVII 7.1.1 b)). The group \(U\) is therefore unipotent (SGA3 XVII 4.3.1 (v)).
+
+\heading{1.6.} Let \(X\) be the character group of \(H\). The connectedness of \(H\) is equivalent to \(X\) having no prime-to-\(p\) torsion. Giving an action of \(H\) on a vector space \(W\) is equivalent to giving an \(X\)-grading
+\[
+  W=\bigoplus_{\alpha\in X}W^\alpha
+\]
+of \(W\), and this construction is functorial and compatible with tensor products. In particular, \(V\) and the \(V_i\) are \(X\)-graded, and the action of \(H\) on \(G\) by inner automorphisms defines an \(X\)-grading
+\[
+  \Lie(G)=\bigoplus_{\alpha\in X}\Lie(G)^\alpha
+\]
+of \(\Lie(G)\).
+
+\begin{lemma*}[1.7]
+The central extension \(Z^0_G(H)\) of \(U\) by \(H\) is split.
+\end{lemma*}
+
+Since \(U\) is unipotent and \(H\) is of multiplicative type, there is no non-trivial morphism from \(U\) to \(H\) (SGA3 XVII 2.4 (ii)). The splitting guaranteed by Lemma 1.7 is therefore unique. We shall use the corresponding isomorphism of \(H\times U\) with \(Z^0_G(H)\) to regard \(U\) as a subgroup of \(Z^0_G(H)\).
+
+\begin{proofdel}
+Let \(V^\alpha_i\) (\(\alpha\in X\)) be the homogeneous components of the \(V_i\). The group \(Z^0_G(H)\) acts on \(V^\alpha_i\). Let \(\chi^\alpha_i\) be the determinant character of \(Z^0_G(H)\) attached to this representation. Its restriction to \(H\) is \(\dim(V^\alpha_i)\) times the character \(\alpha\) of \(H\).
+
+Let \(J\subset I\times X\) be the set of \((i,\alpha)\) such that \(V^\alpha_i\ne0\), and for \(j=(i,\alpha)\), put \(V^j:=V^\alpha_i\), \(\chi_j:=\chi^\alpha_i\). The family \((V_i)\) of representations of \(H\) is faithful: the \(\alpha\)'s for \(j=(i,\alpha)\in J\) generate \(X\). If \(j=(i,\alpha)\) is in \(J\), then \(\dim V^\alpha_i\le\dim V_i<p\), hence it is prime to \(p\). The restrictions to \(H\) of the \(\chi_j\) (\(j\in J\)) therefore generate a subgroup of \(X\) of finite index prime to \(p\). Let \(F\) be the kernel of
+\[
+  (\chi_j):H\longrightarrow \Gm^J
+\]
+and let \(Q\) be the cokernel. The group \(F\) is finite, reduced, and of order prime to \(p\). In the commutative diagram with exact rows
+\[
+\begin{tikzcd}[column sep=1.6em]
+1 \arrow[r] & H/F \arrow[r] \arrow[d,equals] &
+Z^0_G(H)/F \arrow[r] \arrow[d,"{(\chi_j)}"] &
+U \arrow[r] \arrow[d] & 1\\
+1 \arrow[r] & H/F \arrow[r,"{(\chi_j)}"'] &
+\Gm^J \arrow[r] &
+Q \arrow[r] & 1 ,
+\end{tikzcd}
+\]
+the morphism from the unipotent group \(U\) to the group of multiplicative type \(Q\) is trivial. The kernel of \((\chi_j)\) therefore lifts \(U\) into \(Z^0_G(H)/F\). Its inverse image in \(Z^0_G(H)\) is a central extension \(E\) of \(U\) by \(F\). By Lemma 1.8 below, this extension is trivial. A lifting of \(U\) into \(E\) splits the central extension \(Z^0_G(H)\) of \(U\) by \(H\).
+\end{proofdel}
+
+\begin{lemma*}[1.8]
+A central extension of a unipotent group by a finite (reduced) group of order prime to \(p\) is trivial.
+\end{lemma*}
+
+We shall give two proofs of this lemma, based on different ideas. The second assumes \(U\) connected, a case sufficient for the application above.
+
+\begin{proofone}
+Let \(1\to F\to E\to U\to1\) be a central extension as in the lemma, and let \(a\) be an integer prime to \(p\) which kills \(F\). Regard \(E\) as a central extension in the category of \(\fppf\) sheaves of groups on \(\Spec(k)\). For any \(S/k\), \(U(S)\) admits a finite central filtration with successive quotients killed by \(p\) (apply SGA3 XV 3.5 (v)). Every finite subset \(X\) of \(U(S)\) therefore generates a finite \(p\)-group \(P_X\). Let \(Q_X\) be its intersection with the image of \(E(S)\). The inverse image of \(Q_X\) in \(E(S)\) is a central extension \(E_X\) of \(Q_X\) by \(F(S)=F^{\pi_0(S)}\). The group \(H^2(Q_X,F(S))\), which classifies these extensions, is trivial, since it is killed both by \(a\) and by the power \(|Q_X|\) of \(p\). The extension \(E_X\) is therefore trivial. Moreover, the lifting of \(Q_X\) into \(E_X\) is unique: it is the set of \(a\)-th powers of elements of \(E_X\).
+
+Passing to the filtered direct limit over \(X\) and then sheafifying, one obtains that the subsheaf of sets of \(E\) which is the image of \(x\mapsto x^a:E\to E\) is a subsheaf of groups lifting \(U\) in \(E\).
+\end{proofone}
+
+\begin{prooftwo}
+The action of \(F\) on \(E\) by right translations makes \(E\) an \(F\)-torsor over \(U\). It is trivialized above the neutral element, and hence corresponds to a morphism
+\[
+  \pi_1(U,e)\longrightarrow F.
+\]
+The scheme \(U_{\red}\) is isomorphic to an affine space \(\mathbb E^N\). Since
+\[
+  \pi_1(U,e)=\pi_1(U_{\red},e)\simeq\pi_1(\mathbb E^N,0)
+\]
+has no non-trivial quotient of order prime to \(p\) (SGA4 XV 2.2), the \(F\)-torsor \(E\) is trivial: the neutral component of \(E\) lifts \(U\) in \(E\).
+\end{prooftwo}
+
+\begin{lemma*}[1.9]
+Let \(f:V\to W\) be a morphism of schemes of finite type over \(k\), let \(v\in V(k)\), and let \((df)_v\) be the morphism induced by \(f\) from the Zariski tangent space of \(V\) at \(v\) to the Zariski tangent space of \(W\) at \(f(v)\). If \(V\) is smooth over \(k\) and \((df)_v\) is an isomorphism, then \(f\) is étale at \(v\), and \(W\) is smooth over \(k\) in a neighbourhood of \(f(v)\).
+\end{lemma*}
+
+\begin{proofdel}
+Let \(A\) (respectively \(B\)) be the completion of the local ring of \(V\) at \(v\) (respectively of \(W\) at \(f(v)\)). Let \(\mathfrak m\) be the maximal ideal of \(A\), and \(\mathfrak n\) that of \(B\). Injectivity of \((df)_v\) ensures that \(A\) is a quotient of \(B\). We have to show that \(B\overset{\sim}{\to}A\) (SGA1 I 4.4). Let \(t_1,\ldots,t_N\in\mathfrak n\) lift a basis of \(\mathfrak n/\mathfrak n^2\). The bijectivity of \((df)_v\) ensures that the images of the \(t_i\) in \(\mathfrak m/\mathfrak m^2\) form a basis. The \(t_i\) define an epimorphism
+\[
+  g:T_i\longmapsto t_i:\quad k[[T_1,\ldots,T_N]]\longrightarrow B.
+\]
+In the commutative diagram
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.3em]
+& k[[T_1,\ldots,T_N]] \arrow[dl] \arrow[dr,"g"] & \\
+B \arrow[rr] && A ,
+\end{tikzcd}
+\]
+the smoothness of \(V\) at \(v\) ensures that \(g\) is an isomorphism. It follows that \(B\overset{\sim}{\to}A\).
+\end{proofdel}
+
+In characteristic \(p\), the Lie algebra of a group scheme is a \(p\)-Lie algebra. We write \(\gamma\mapsto\gamma^p\) for the operation of taking the \(p\)-th power, often denoted \(\gamma^{[p]}\). For every linear representation \(\rho\) of the group, one has \(\rho(\gamma^p)=\rho(\gamma)^p\).
+
+\begin{lemma*}[1.10]
+For every \(\gamma\in\Lie U\), one has \(\gamma^p=0\).
+\end{lemma*}
+
+As explained after 1.7, \(U\) is here regarded as a subgroup of \(Z^0_G(H)\subset G\).
+
+\begin{proofdel}
+Since \(U\) is a unipotent group scheme, for each \(i\) the image \(\gamma_i\) of \(\gamma\) in \(\End(V_i)\) is nilpotent. Since \(\dim(V_i)<p\), one has \(\gamma_i^p=0\). As the family \((V_i)\) of representations is faithful, \(\gamma^p=0\).
+\end{proofdel}
+
+\begin{corollary*}[1.11]
+The unipotent group \(U\) is smooth.
+\end{corollary*}
+
+\begin{proofdel}
+Let \((\gamma_a)_{1\le a\le A}\) be a basis of \(\Lie U\). By 1.10, for each \(a\),
+\[
+  \rho_a:\lambda\longmapsto \exp(\lambda\gamma_a):\Ga\longrightarrow\GL(V)
+\]
+is defined (0.4). The hypothesis that \(G\) is infinitesimally saturated ensures that this morphism factors through \(G\). Since \(U\) centralizes \(H\), the action of \(H\) by inner automorphisms fixes \(\Lie U\), hence each \(\rho_a\), and \(\rho_a\) factors through \(Z_G(H)\), indeed through \(Z^0_G(H)=H\times U\) because \(\Ga\) is connected. Since every morphism from \(\Ga\) to \(H\) is trivial, \(\rho_a\) factors through \(U\). Let \(\mathbb E^A\) be affine \(A\)-space and
+\[
+  f:\mathbb E^A\longrightarrow U:\quad (t_a)\longmapsto \prod \rho_a(t_a),
+\]
+where the product is taken with respect to the group law of \(U\). By construction, \(df\) is an isomorphism at \(0\). Applying 1.9, one obtains that \(U\) is smooth in a neighbourhood of the neutral element, hence everywhere by homogeneity.
+\end{proofdel}
+
+Recall that the action of \(H\) on \(\Lie G\) by inner automorphisms defines a grading
+\[
+  \Lie(G)=\bigoplus_{\alpha\in X}\Lie(G)^\alpha .
+\]
+
+\begin{lemma*}[1.12]
+If \(\alpha\in X\) is non-zero and \(\gamma\in\Lie(G)^\alpha\), then \(\gamma^p=0\).
+\end{lemma*}
+
+\begin{proofdel}
+Regard \(\gamma\) as an endomorphism of \(V\). If \(\gamma^p\) were non-zero---whether in the sense of the \(p\)-Lie-algebra structure on \(\Lie G\) or as an endomorphism of \(V\), which is the same here---there would exist \(i\), \(\beta\in X\), and \(v\in V_i^\beta\) such that \(\gamma^pv\ne0\). This implies the non-vanishing of the \(\gamma^lv\) for \(0\le l\le p\). The element \(\gamma^lv\) of \(V_i\) lies in \(V_i^{\beta+l\alpha}\). For \(0\le l<p\), the characters \(\beta+l\alpha\) are distinct, because \(X\) has no prime-to-\(p\) torsion. The vectors \(\gamma^lv\), \(0\le l<p\), are therefore linearly independent. This contradicts the hypothesis \(\dim V_i<p\).
+\end{proofdel}
+
+\heading{1.13.} Let \((\gamma_b)_{1\le b\le B}\) be a family of elements of \(\Lie G\), a disjoint union of bases of the \((\Lie G)^\alpha\) for \(\alpha\ne0\). Let \(\alpha_b\) denote the character \(\alpha\) of \(H\) such that \(\gamma_b\in(\Lie G)^\alpha\). Since \(G\) is infinitesimally saturated, the morphism 0.4
+\[
+  \lambda\longmapsto \exp(\lambda\gamma_b):\Ga\longrightarrow\GL(V)
+\]
+given by 1.12 factors through a morphism
+\[
+  \rho_b:\Ga\longrightarrow G.
+\]
+This morphism is equivariant for the action of \(H\) on \(\Ga\) by \(\alpha_b\) and on \(G\) by inner automorphisms, because the same equivariance holds for its composite with the inclusion of \(G\) in \(\GL(V)\).
+
+Let \(q\) (respectively \(q_0\)) be the projection of \(G\) onto \(G/Z_G(H)\) (respectively \(G/Z^0_G(H)\)). Consider the morphism
+\[
+  f:\mathbb E^B\longrightarrow G:\quad (t_b)\longmapsto \prod_{1}^{B}\rho_b(t_b),
+\]
+where the product is taken with respect to the group law of \(G\).
+
+\begin{lemma*}[1.14]
+The composite morphism \(qf:\mathbb E^B\to G/Z_G(H)\) is étale at \(0\).
+\end{lemma*}
+
+Since \(G/Z^0_G(H)\) is étale over \(G/Z_G(H)\), the same statement holds for \(q_0f\).
+
+\begin{proofdel}
+Let \(e\) be the neutral element of \(G\), and let \(T_{q(e)}\) be the tangent space of \(G/Z_G(H)\) at \(q(e)\). By 1.9, it is enough to verify that \(qf\) induces an isomorphism from the tangent space at \(0\) to \(T_{q(e)}\), and for this it is enough to verify that \(dq:\Lie(G)\to T_{q(e)}\) induces an isomorphism
+\[
+  \bigoplus_{\alpha\ne0}\Lie(G)^\alpha \overset{\sim}{\longrightarrow} T_{q(e)}.
+\]
+
+If \(G\) were smooth, \(Z_G(H)\) would be smooth, as the fixed locus of an action on \(G\) of the group \(H\) of multiplicative type; one would obtain an exact sequence
+\[
+  0\longrightarrow \Lie Z^0_G(H)\longrightarrow \Lie G\longrightarrow T_{q(e)}\longrightarrow0
+\]
+and would conclude by observing that \(\Lie Z^0_G(H)=\Lie(G)^H\).
+
+We shall deduce 1.14 from the following lemma.
+\end{proofdel}
+
+\begin{lemma*}[1.15]
+Suppose that a group \(H\) of multiplicative type, with character group \(X\), acts on an affine \(k\)-scheme of finite type \(S=\Spec(A)\). Let \(S^H\) be the fixed locus and \(s\in S^H(k)\). Let \(I\) be the ideal defining \(S^H\) in \(S\). Regard \(I/I^2\) as a coherent sheaf on \(S^H\), and let \((I/I^2)_s=s^*(I/I^2)\) be its fibre at \(s\). Let \(\mathfrak m\) be the maximal ideal at \(s\). The group \(H\) acts on \(\mathfrak m/\mathfrak m^2\), which is therefore \(X\)-graded. The inclusion of \(I\) in \(\mathfrak m\) induces an isomorphism
+\[
+  (I/I^2)_s \overset{\sim}{\longrightarrow}
+  \bigoplus_{\alpha\ne0}(\mathfrak m/\mathfrak m^2)^\alpha .
+  \tag{1.15.1}
+\]
+\end{lemma*}
+
+The hypothesis that \(S\) is affine is probably unnecessary.
+
+\begin{proofdel}
+The action of \(H\) gives an \(X\)-grading of \(A\). The quotient \(A/I\) is the largest graded quotient of \(A\) concentrated purely in degree \(0\): \(I\) is the ideal generated by the \(A^\alpha\) for \(\alpha\ne0\). Both sides of (1.15.1) are unchanged when \(A\) is replaced by \(A/I^2\). We may therefore suppose that \(I^2=0\). Then \(A^\alpha A^\beta=0\) for \(\alpha,\beta\ne0\), \(I\) is the sum of the \(A^\alpha\) for \(\alpha\ne0\), and
+\[
+  A^0\overset{\sim}{\longrightarrow}A/I.
+\]
+Let \(\mathfrak m_0\) be the maximal ideal of \(s\) in \(A/I\overset{\sim}{\leftarrow}A^0\). We have
+\[
+  \mathfrak m=\mathfrak m_0\oplus\bigoplus_{\alpha\ne0}A^\alpha .
+\]
+Hence
+\[
+  \mathfrak m/\mathfrak m^2 =
+  \mathfrak m_0/\mathfrak m_0^2\oplus
+  \bigoplus_{\alpha\ne0} A^\alpha\otimes_{A^0} A^0/\mathfrak m_0,
+\]
+\[
+  I/I^2\otimes_{A^0}A^0/\mathfrak m_0 =
+  \bigoplus_{\alpha\ne0} A^\alpha\otimes_{A^0} A^0/\mathfrak m_0,
+\]
+and (1.15.1) follows.
+\end{proofdel}
+
+\heading{End of the proof of 1.14.} The morphism \(G\to G/Z_G(H)\) is flat. If \(I\) is the ideal defining \(Z_G(H)\) in \(G\), and \(\mathfrak n\) is the maximal ideal at the point \(q(e)\) of \(G/Z_G(H)\), the bundle \(I/I^2\) on \(Z_G(H)\) is the inverse image of \(\mathfrak n/\mathfrak n^2\) on \(q(e)\). Its fibre at the neutral element \(e\) of \(G\) is \(\mathfrak n/\mathfrak n^2\), and by (1.15.1) we therefore have
+\[
+  \mathfrak n/\mathfrak n^2 \overset{\sim}{\longrightarrow}
+  \bigoplus_{\alpha\ne0}(\mathfrak m/\mathfrak m^2)^\alpha .
+\]
+Passing to duals gives
+\[
+  \bigoplus_{\alpha\ne0}\Lie(G)^\alpha \overset{\sim}{\longrightarrow} T_{q(e)} .
+\]
+
+\begin{corollary*}[1.16]
+The morphism
+\[
+  F:\mathbb E^B\times Z^0_G(H)\longrightarrow G:\quad
+  (t_b),z\longmapsto \prod\rho_b(t_b)\cdot z
+\]
+is étale at \((0,e)\).
+\end{corollary*}
+
+\begin{proofdel}
+The square
+\[
+\begin{tikzcd}[column sep=3em,row sep=2em]
+\mathbb E^B\times Z^0_G(H) \arrow[r,"F"] \arrow[d] & G \arrow[d]\\
+\mathbb E^B \arrow[r,"q_0f"'] & G/Z^0_G(H)
+\end{tikzcd}
+\]
+is cartesian. The morphism \(F\) is therefore étale at every point lying above \(0\in\mathbb E^B\).
+\end{proofdel}
+
+\heading{1.17.} If \(f:T\to U\) is a quasi-compact morphism of schemes, the closed schematic image \(f(T)^-\) of \(f\) is the smallest closed subscheme of \(U\) through which \(f\) factors. If \(f:\Spec(A)\to\Spec(B)\) is affine, it is defined by the kernel ideal of \(f^*:B\to A\). Its formation is compatible with every flat base change \(U'\to U\). If \(f\) is a morphism of schemes over \(S\), if a group scheme \(H\), flat over \(S\), acts on \(T\) and \(U\), and if \(f\) is equivariant, this compatibility with base change implies that the action of \(H\) on \(U\) induces an action of \(H\) on the closed schematic image \(f(T)^-\).
+
+\heading{1.18. Proof of the invariance of \(G_{\red}\) in \(G\).} The morphism \(F\) of 1.16 is equivariant for the action of \(H\) on \(\mathbb E^B\) by the \(\alpha_b\), and on \(G\) by inner automorphisms. Since \(U\) is smooth (1.11), the reduced subscheme of \(Z^0_G(H)=H\times U\) is \(H_{\red}\times U\). An étale morphism induces an étale morphism on reduced subschemes. The morphism induced by \(F\) from \(\mathbb E^B\times H_{\red}\times U\) to \(G_{\red}\) is therefore étale at \(0\), and its image contains a non-empty open subset of \(G_{\red}\). The closed schematic image of the morphism
+\[
+  F_1:\mathbb E^B\times H_{\red}\times U\longrightarrow G
+\]
+induced by \(F\) therefore coincides with \(G_{\red}\). Since this morphism is \(H\)-equivariant, 1.17 ensures that \(G_{\red}\) is stable under the action of \(H\) on \(G\) by inner automorphisms.
+
+Because \(F\) is étale at the origin, \(G\) is generated as an \(\fppf\) sheaf by the image of \(F\), hence by \(H\) and \(G_{\red}\), since \(U\subset G_{\red}\). Since \(H\) normalizes \(G_{\red}\), it follows that \(G_{\red}\) is an invariant subgroup of \(G\).
+
+\begin{proposition*}[1.19]
+One has
+\[
+  H/H_{\red}\overset{\sim}{\longrightarrow}G/G_{\red}.
+\]
+Consequently, \(G/G_{\red}\) is of multiplicative type.
+\end{proposition*}
+
+\begin{proofdel}
+If \(Y_1\) and \(Y_2\) are two closed subschemes of \(Z\), then, for every morphism \(u:Z'\to Z\),
+\[
+u^{-1}(Y_1\cap Y_2)=u^{-1}(Y_1)\cap u^{-1}(Y_2).
+\]
+If \(u\) is étale and \(Y_2=Z_{\red}\), this gives
+\[
+u^{-1}(Y_1\cap Z_{\red})=u^{-1}(Y_1)\cap Z'_{\red}.
+\]
+Apply this to \(F\), which is étale in a neighbourhood of \(\{0\}\times H\subset \{0\}\times Z^0_G(H)\). In a neighbourhood of \(\{0\}\times H\), the inverse image of \(H\cap G_{\red}\) is therefore \(H_{\red}\), so that
+\[
+H_{\red}\longrightarrow H\cap G_{\red}
+\]
+is étale, hence an isomorphism. If \(H,H_{\red},G,G_{\red}\), and the quotients are interpreted as \(\fppf\)-sheaves, the isomorphism
+\[
+H/H_{\red}\overset{\sim}{\longrightarrow}G/G_{\red}
+\]
+follows from the facts that \(H\) normalizes \(G_{\red}\), that \(HG_{\red}=G\), and that \(H_{\red}\overset{\sim}{\longrightarrow}H\cap G_{\red}\).
+\end{proofdel}
+
+\heading{1.20. Proof of the invariance in \(G\) of \(R_uG_{\red}\).}
+Let \(R\) denote the unipotent radical \(R_uG_{\red}\) of the smooth group \(G_{\red}\), and let \(L\) be the quotient \(G_{\red}/R\). Let \(T_L\) be a maximal torus of the reductive group \(L\). It is a maximal connected subgroup of multiplicative type. The inverse image of \(T_L\) in \(G_{\red}\) is an extension of the torus \(T_L\) by the smooth connected unipotent group \(R\). By SGA3 XVII 5.1.1 (i), such an extension is trivial: the torus \(T_L\) lifts to a torus \(T\), automatically maximal, of \(G_{\red}\). We take \(H\) to be a maximal connected subgroup of multiplicative type in \(G\) containing \(T\). Then
+\[
+T=H_{\red}=H\cap G_{\red}.
+\]
+
+\begin{lemma*}[1.21]
+The connected centralizer \(Z^0_{G_{\red}}(T)\) of \(T\) in \(G_{\red}\) is a product \(T\times W\), with \(W\) unipotent. The group scheme \(H\) normalizes \(W\).
+\end{lemma*}
+
+\begin{proofdel}
+Since \(H\) normalizes \(T\), it normalizes \(Z:=Z^0_{G_{\red}}(T)\). Like \(G\), the subgroup \(G_{\red}\) of \(\GL(V)\) is infinitesimally saturated. Applying 1.7 to \(G_{\red}\) and \(T\) (instead of to \(G\) and \(H\)) gives the decomposition \(Z=T\times W\). The proof of 1.7 describes \(W\subset Z\) as the neutral component of the intersection of the kernels of the determinant characters of the representations of \(Z\) in the \(V_i^\beta\), for \(\beta\) a weight of \(T\) in \(V\). This description shows that \(H\) normalizes \(W\).
+\end{proofdel}
+
+\begin{lemma*}[1.22]
+The action of \(H\) on \(\Lie(G_{\red})\) preserves the subspace \(\Lie(R)\).
+\end{lemma*}
+
+\begin{proofdel}
+Decompose \(l=\Lie L\), \(g=\Lie G_{\red}\), and \(r=\Lie R\) according to the weights of \(T\). Since \(H\) normalizes \(T\), the resulting decomposition of \(g\) is respected by \(H\). We shall show that each \(r_\alpha\), and hence their sum \(r\), is stable under \(H\).
+
+The connected centralizer of \(T_L\) in \(L\) is just \(T_L\). Thus one has a morphism of exact sequences
+\[
+\begin{tikzcd}[column sep=2.7em,row sep=1.6em]
+1 \arrow[r] & W \arrow[r,hook] \arrow[d,hook] &
+Z=T\times W \arrow[r] \arrow[d,hook] &
+T_L \arrow[d,hook]\\
+1 \arrow[r] & R \arrow[r,hook] &
+G_{\red} \arrow[r] &
+L .
+\end{tikzcd}
+\]
+The weight-zero part of \(g\) is \(\Lie(Z)\). Its intersection with \(\Lie R\) is \(\Lie W\), which is stable under \(H\) by 1.21.
+
+If \(\alpha\) is not a weight of \(T\) on \(l\), then \(r_\alpha=g_\alpha\), stable under \(H\). If \(\alpha\) is a non-zero weight of \(T\) on \(l\), then \(l_\alpha\) and \(l_{-\alpha}\) are one-dimensional. Under our hypothesis \(p\ne2\), the bracket induces a non-degenerate pairing of \(l_\alpha\) and \(l_{-\alpha}\) with values in a line \(h_\alpha\subset \Lie T_L\). The bracket of \(g\) induces a pairing of \(g_\alpha\) and \(g_{-\alpha}\) with values in \(g_0=\Lie Z\). Its composite with
+\[
+g_0\longrightarrow g_0/\Lie W\simeq \Lie T_L
+\]
+factors through \(g_{\pm\alpha}\to l_{\pm\alpha}\) and the preceding pairing. It therefore takes values in a line \(d\) of \(g_0/\Lie W\), and
+\[
+r_{\pm\alpha}=\Ker\bigl(g_{\pm\alpha}\longrightarrow \Hom(g_{\mp\alpha},d)\bigr):
+\]
+the \(r_{\pm\alpha}\) are the kernels of the pairing of \(g_\alpha\) and \(g_{-\alpha}\) with values in \(d\). Since the decomposition of \(g\) according to the weights of \(T\), and also \(W\subset g_0\), are respected by \(H\), this description shows that the \(r_\alpha\), and therefore \(r\), are subrepresentations of \(H\) acting on \(g\).
+\end{proofdel}
+
+\heading{1.23. End of the proof of the invariance of \(R\).}
+Let \(\Fil\) be the finite increasing filtration of \(\bigoplus V_i\) such that \(\Fil_0=0\) and \(\Fil_{n+1}/\Fil_n\) is the space of \(R\)-invariants in \(\bigoplus V_i/\Fil_n\). It is the sum of filtrations of the \(V_i\). It is respected by \(G_{\red}\), since \(R\) is an invariant subgroup of \(G_{\red}\).
+
+The reduced subgroup of the largest subgroup of \(G_{\red}\) acting trivially on \(\Gr\Fil(\bigoplus V_i)\) is a smooth invariant unipotent subgroup containing \(R\). It therefore coincides with \(R\).
+
+If \(\gamma\in\Lie R\), then \(\gamma\) acts nilpotently on \(V_i\). Since the family of representations \(V_i\), of dimension \(<p\), is faithful, one has \(\gamma^p=0\). Since \(G_{\red}\) is infinitesimally saturated, the corresponding morphism
+\[
+\rho:\Ga\longrightarrow\prod_i \GL(V_i)
+\]
+factors through \(G_{\red}\). As this representation of \(\Ga\) is trivial on \(\Gr\Fil(\bigoplus V_i)\), the morphism \(\rho\) even factors through \(R\).
+
+Choose a basis \((\gamma_c)_{1\le c\le C}\) of \(r=\Lie R\), the disjoint union of bases of the \(r_\beta\), where \(\beta\) ranges through the weights of \(H\) acting on \(r\). Let \(\rho_c:\Ga\to R\) be the morphism defined by \(\gamma_c\). As in 5.6, the morphism of schemes
+\[
+f:\E^C\longrightarrow R,\qquad (t_c)\longmapsto \prod_{c=1}^{C}\rho_c(t_c)
+\]
+is étale at \(0\). Its composite with the inclusion of \(R\) into \(G_{\red}\) is \(H\)-equivariant, for a suitable action of \(H\) on \(\E^C\). By the same argument as in 1.17 and 1.18, it follows that \(R\) is stable under the action of \(H\) on \(G_{\red}\).
+
+\begin{corollary*}[1.24]
+If the representations \(V_i\) are semisimple, the group scheme \(G_{\red}\) is reductive.
+\end{corollary*}
+
+\begin{proofdel}
+Replacing each \(V_i\) by a family of irreducible representations whose direct sum is \(V_i\), one is reduced to assuming the \(V_i\) irreducible. We must prove that the unipotent radical \(R=R_uG_{\red}\) is trivial.
+
+Since \(R\) is unipotent, the subspace \(V_i^R\) of \(R\)-invariants in \(V_i\) is non-zero. Because \(R\) is invariant in \(G\), \(V_i^R\) is stable under \(G\); hence, by irreducibility of \(V_i\), it equals \(V_i\). Since the family of \(V_i\) is faithful, \(R\) is trivial.
+\end{proofdel}
+
+\heading{1.25. Proof of 0.7 (iii).}
+Assume \(G_{\red}\) is reductive, let \(T\) be a maximal torus of \(G_{\red}\), and take \(H\) to be a maximal connected subgroup of multiplicative type in \(G\) containing \(T\). It normalizes \(G_{\red}\), and its action on \(G_{\red}\) fixes \(T\). The group scheme of automorphisms of the reductive group \(G_{\red}\) that fix \(T\) is the image \(T^{\mathrm{ad}}\) of \(T\) in the adjoint group. If \(Z\) is the subgroup of \(H\) centralizing \(G_{\red}\), the morphism
+\[
+Z\times T\longrightarrow H
+\]
+is a quotient of \(T\): the image \(T^{\mathrm{ad}}\) of \(T\) in the adjoint group. Regard all these group schemes as \(\fppf\)-sheaves. Since \(H\) and \(G_{\red}\) generate \(G\), \(Z\) is central. Since the action of \(H\) on \(G_{\red}\) factors through a quotient of \(T\), \(Z\) and \(T\) generate \(H\). Since \(Z\) is generated by \(Z^0\) and \(Z_{\red}\), and \(Z_{\red}\subset G_{\red}\), \(Z^0\) and \(G_{\red}\) generate \(G\): the morphism
+\[
+Z^0\times G_{\red}\longrightarrow G
+\]
+is an epimorphism, and this verifies 0.7 (iii).
+
+\section*{2. Saturation (cf. [4] \S4)}
+
+\heading{2.1.}
+Let \(V\) be a finite-dimensional vector space over the algebraically closed field \(k\) of characteristic \(p\), and let \(G\) be a subgroup scheme of \(\GL(V)\). The intersection \(G^*\) of the doubly saturated subgroup schemes (0.5) of \(\GL(V)\) containing \(G\) is doubly saturated. We shall call \(G^*\) the double saturation of \(G\).
+
+Let \((V_i)_{i\in I}\) be a finite family of finite-dimensional vector spaces over \(k\). For each \(i\), let \(N_i\) be an endomorphism of \(V_i\) with \(N_i^p=0\). It defines an action \(t\mapsto \exp(tN_i)\) of \(\Ga\) on \(V_i\) (0.4). For \(a\in I\), write again \(N_a\) for the endomorphism of \(\bigotimes_i V_i\) which is the tensor product of \(N_a\in\End(V_a)\) and the identities \(1\in\End(V_j)\) for \(j\ne a\). Write \(N\) for the endomorphism \(\sum_a N_a\) of \(\bigotimes_i V_i\).
+
+\begin{proposition*}[2.2]
+Assume that there exist integers \(v_i\) such that \(N_i^{v_i}=0\) and \(\sum_i(v_i-1)<p\). Then \(N^p=0\), and the action \(t\mapsto\exp(tN)\) of \(\Ga\) on \(\bigotimes_i V_i\) is the tensor product of the actions of \(\Ga\) on the \(V_i\) defined by the \(N_i\).
+\end{proposition*}
+
+\begin{proofdel}
+The endomorphisms \(N_a\) of \(\bigotimes_i V_i\) commute with one another, and every monomial of degree \(p\) in the \(N_a\) has degree \(\ge v_a\) in \(N_a\) for at least one \(a\in I\); it is therefore zero. This gives
+\[
+N^p=\Bigl(\sum_a N_a\Bigr)^p=0,
+\]
+as well as the identity between truncated exponentials
+\[
+\exp(tN)=\exp\Bigl(\sum_a tN_a\Bigr)=\prod_a\exp(tN_a)=\bigotimes_a\exp(tN_a).
+\]
+\end{proofdel}
+
+\begin{corollary*}[2.3]
+If \(\sum_i(\dim(V_i)-1)<p\), the action \(\exp(tN)\) of \(\Ga\) on \(\bigotimes_i V_i\) is the tensor product of the actions of \(\Ga\) on the \(V_i\) defined by the \(N_i\).
+\end{corollary*}
+
+\begin{proofdel}
+Take \(v_i=\dim(V_i)\) in 2.2.
+\end{proofdel}
+
+By the same arguments as in [4] \S4, one deduces from [4] \S4 prop. 10 and from 2.3 the following proposition 2.4. Let \((V_i)_{i\in I}\) be a finite family of finite-dimensional vector spaces over \(k\), and let \(G\) be a subgroup scheme of \(\prod_i\GL(V_i)\). The subgroup scheme \(\prod_i\GL(V_i)\) of \(\GL(\bigoplus_i V_i)\) is saturated and infinitesimally saturated. The double saturation \(G^*\) of \(G\), viewed as a subgroup of \(\GL(\bigoplus_iV_i)\), is therefore contained in \(\prod_i\GL(V_i)\).
+
+\begin{proposition*}[2.4]
+If \(\sum_i(\dim(V_i)-1)<p\), a subspace \(W\) of \(\bigotimes_i V_i\) is stable under the action of \(G\) if and only if it is stable under the action of \(G^*\). The representation \(\bigotimes_i V_i\) of \(G\) is therefore semisimple if and only if it is semisimple as a representation of \(G^*\).
+\end{proposition*}
+
+\section*{3. The case where \(k\) is algebraically closed}
+
+Let \(G\) be an affine group scheme over the algebraically closed field \(k\) of characteristic \(p\), and let \((V_i)_{i\in I}\) be a finite family of representations of \(G\).
+
+\begin{proposition*}[3.1]
+If the representations \(V_i\) are semisimple, and if \(\sum_i(\dim V_i-1)<p\), then the representation \(\bigotimes_iV_i\) of \(G\) is again semisimple.
+\end{proposition*}
+
+\begin{proofdel}
+We leave to the reader the verification that this statement is implied by its special case in which one makes the additional assumptions that each \(V_i\) is simple of dimension \(\ge2\), and that \(|I|\ge2\). These hypotheses imply \(p\ne2\), and each \(V_i\) has dimension \(<p\).
+
+Replacing \(G\) by its image in \(\prod_i\GL(V_i)\), we may assume that \(G\) is a subgroup scheme of \(\prod_i\GL(V_i)\). By 2.4, we may further assume that, as a subgroup of \(\GL(\bigoplus_i V_i)\), \(G\) is doubly saturated. In the rest of the proof all these properties will be assumed. Saturation of \(G\) is equivalent to saturation of \(G_{\red}\), and, by [4] \S4 prop. 11, implies that the finite group \(G/G^0=G_{\red}/G^0_{\red}\) has order prime to \(p\).
+
+By (0.7) (ii) (iii), the group \(G^0_{\red}\) is reductive and \(G^0\) contains a connected central subgroup \(M\) of multiplicative type such that
+\[
+M\times G^0_{\red}\longrightarrow G^0
+\]
+is an epimorphism.
+
+By Lemma 1.3 (ii), the \(V_i\) are semisimple as representations of \(G^0\). If \(W\) is an irreducible representation of \(G^0\), then \(M\), being of multiplicative type and central, acts on \(W\) by a character. The representation \(W\) is therefore still irreducible as a representation of \(G^0_{\red}\). Thus the \(V_i\) are semisimple as representations of \(G^0_{\red}\), and, by [4], the tensor product of these representations is still semisimple as a representation of \(G^0_{\red}\). The following lemma shows that it is semisimple as a representation of \(G\).
+\end{proofdel}
+
+\begin{lemma*}[3.2]
+Assume that a group scheme \(G\) is an extension of a linearly reductive group scheme \(A\) by a group scheme \(B\). Then every representation \(V\) of \(G\) which is semisimple as a representation of \(B\) is semisimple.
+\end{lemma*}
+
+That \(A\) is linearly reductive means that all its linear representations are semisimple. A group of multiplicative type, and a finite group of order prime to \(p\), are linearly reductive.
+
+\begin{proofdel}
+Let \(S\) be the sum of the irreducible subrepresentations of \(V\). We must show that \(S=V\), and for this it is enough to show that \(S\) has a complement \(T\) in \(V\) stable under \(G\). Consider the exact sequence
+\[
+1\longrightarrow \Hom_B(V/S,S)\longrightarrow \Hom_B(V,S)\longrightarrow \Hom_B(S,S)\longrightarrow 1.
+\]
+This is an exact sequence of representations of \(A\). Since \(A\) is linearly reductive, the identity \(1_S\) of \(S\), fixed by \(A\), lifts to a homomorphism \(f:V\to S\) of representations of \(B\) which is fixed by \(A\), i.e. to a morphism of representations of \(G\). Its kernel is the required complement.
+\end{proofdel}
+
+\begin{corollary*}[3.3]
+Statement 0.1 is true when \(k\) is algebraically closed.
+\end{corollary*}
+
+\begin{proofdel}
+Let \(\T'\) be the Tannakian subcategory of \(\T\) generated from the \(V_i\) by the operations of tensor product, dual, and passage to a subquotient. By [3] 3.3.1.1, \(\T'\) admits a fibre functor over \(k\), and hence is equivalent to the category of representations of an affine group scheme over \(k\). Another reference is [1] 6.20.
+\end{proofdel}
+
+\heading{Remark 3.4.}
+The reduction from \(\T\) to \(\T'\) is in fact unnecessary. I have checked (unpublished) that every Tannakian category over an algebraically closed field \(k\) is equivalent to the Tannakian category of representations of an affine group scheme over \(k\).
+
+\section*{4. Extension of scalars in Tannakian categories and proof of 0.1}
+
+\heading{4.1.}
+Let \(k\) be a (commutative) field and let \(\T\) be an abelian \(k\)-linear category. The tensor product of an object \(X\) of \(\T\) and a finite-dimensional \(k\)-vector space \(V\) is defined as the object of \(\T\) representing the functor
+\[
+Y\longmapsto V\otimes \Hom(Y,X).
+\]
+The choice of a basis \((e_i)_{i\in I}\) of \(V\) identifies \(V\otimes X\) with the sum of a family of copies of \(X\) indexed by \(I\).
+
+Let \(k'\) be a finite extension of \(k\). We define as follows the abelian \(k'\)-linear category \(\T_{k'}\) obtained from \(\T\) by extension of scalars to \(k'\), the scalar-extension functor \(e_{k'/k}:\T\to\T_{k'}\), and the scalar-restriction functor \(r_{k'/k}:\T_{k'}\to\T\). The category \(\T_{k'}\) is the category of objects \(X\) of \(\T\) endowed with a \(k'\)-module structure \(k'\otimes X\to X\). For \(X\) in \(\T\),
+\[
+e_{k'/k}(X):=k'\otimes X,
+\]
+with its natural \(k'\)-module structure. The functor \(r_{k'/k}\) forgets the \(k'\)-module structure. The functors \(e_{k'/k}\) and \(r_{k'/k}\) are exact, and \(r_{k'/k}\) is right adjoint to \(e_{k'/k}\). Example: if \(\T\) is the category of left modules over a \(k\)-algebra \(A\), then \(\T_{k'}\) identifies with the category of left modules over the \(k'\)-algebra \(A':=k'\otimes_k A\), and \(e_{k'/k}\) and \(r_{k'/k}\) are the usual scalar-extension and scalar-restriction functors.
+
+Assume that the objects of \(\T\) have finite length and that the \(\Hom\)-groups are finite-dimensional over \(k\). If \(X\) is a simple object of \(\T\), the division algebra \(\End(X)\), being finite-dimensional over \(k\), is central simple over its centre, which is a finite extension of \(k\).
+
+\begin{lemma*}[4.2]
+Under these hypotheses:
+\begin{enumerate}[label=(\roman*)]
+\item Let \(X\) be a simple object of \(\T\), let \(D:=\End(X)\), and let \(F\) be the centre of \(D\). The object \(e_{k'/k}(X)\) of \(\T_{k'}\) is semisimple if and only if \(F\otimes_k k'\) is a product of fields;
+\item if \(Y\) is a semisimple object of \(\T_{k'}\), then \(r_{k'/k}(Y)\) is semisimple;
+\item if \(X\) is in \(\T\) and \(e_{k'/k}(X)\) is semisimple, then \(X\) is semisimple.
+\end{enumerate}
+\end{lemma*}
+
+\begin{proofdel}
+(i) The functor \(Z\mapsto \Hom(X,Z)\) is an equivalence from the category of objects of \(\T\) which are sums of copies of \(X\) to the category of finite-dimensional right \(D\)-vector spaces. The category of sums of copies of \(X\) endowed with a \(k'\)-module structure identifies with the category of finite-type right \(D\otimes_k k'\)-modules. The object \(e_{k'/k}(X)\) of \(\T_{k'}\) thus corresponds to the \(D\otimes_k k'\)-module \(D\otimes_k k'\). It is known to be semisimple if and only if \(F\otimes_k k'\) is a product of fields.
+
+(ii) One reduces to the case where \(Y\) is simple. The sum \(S\) of the simple subobjects of \(r_{k'/k}(Y)\) is non-zero and is a \(k'\)-submodule. By simplicity of \(Y\), it coincides with \(r_{k'/k}(Y)\).
+
+(iii) \(X\) is a direct factor of \(r_{k'/k}e_{k'/k}(X)\), and one applies (ii).
+\end{proofdel}
+
+\heading{4.3.}
+Now assume that \(\T\) is a Tannakian category over \(k\), and endow \(\T_{k'}\) with the tensor product over \(k'\):
+\[
+X\otimes_{k'}Y=\operatorname{coker}(X\otimes k'\otimes Y\rightrightarrows X\otimes Y).
+\]
+The scalar-extension functor \(e_{k'/k}\) is compatible with tensor products and with their associativity and commutativity data. It carries the unit object to the unit object, and duals (in the sense of [1] 2.2) to duals. The category \(\T_{k'}\) has internal Homs: if \(X\) and \(Y\) in \(\T\) are endowed with \(k'\)-module structures, their internal Hom in \(\T_{k'}\) is the intersection of the kernels
+\[
+\Hom(X,Y)\longrightarrow \Hom(X,Y),\qquad
+f\longmapsto \lambda f-f\lambda
+\]
+as \(\lambda\) runs through a basis of \(k'\) over \(k\). More intrinsically, it is the kernel of a morphism
+\[
+\Hom(X,Y)\longrightarrow k'^{\vee}\otimes \Hom(X,Y),
+\]
+where \(k'^{\vee}\) is the \(k\)-dual of the \(k\)-vector space \(k'\). It will be denoted \(\Hom_{k'}(X,Y)\).
+
+\begin{theorem*}[4.4]
+If \(\T\) is a Tannakian category over \(k\) and \(k'\) is a finite extension of \(k\), then the category \(\T_{k'}\), endowed with the tensor product over \(k'\), is Tannakian over \(k'\).
+\end{theorem*}
+
+This theorem can be deduced from Theorem 1.12 of [1], which characterizes Tannakian categories as categories of representations of affine groupoids \(G\) acting transitively on a \(k\)-scheme \(S\) (\(G\to S\times_k S\) affine and faithfully flat): if \(\T\) is such a category of representations, then \(\T_{k'}\) identifies with the category of representations of the groupoid obtained from it by extension of scalars to \(k'\).
+
+Conversely, following a strategy indicated to me by Grothendieck about thirty years ago, the more elementary proof of 4.4 given below should make it possible to prove [1] 1.12 more simply.
+
+If \(k'\supset k''\supset k\), then \(\T_{k'}\) identifies with \((\T_{k''})_{k'}\). This observation reduces the proof of 4.4 to the following two special cases: \(k'/k\) separable, and \(k'/k\) inseparable of degree \(p\). The delicate point is to prove the existence of duals, in the sense of [1] 2.2, in \(\T_{k'}\). Once this is known, if \(\omega\) is a fibre functor over the \(k\)-algebra \(K\), then \(\omega\) supplies a fibre functor \(\omega'\) from \(\T_{k'}\) to the \(k'\)-algebra \(K':=k'\otimes_k K\): to \(X\) in \(\T\), endowed with a \(k'\)-module structure, attach \(\omega(X)\), with its \(k'\)-module structure. This structure makes \(\omega(X)\) into a \(k'\otimes K\)-module.
+
+\heading{Proof when \(k'\) is a finite separable extension of \(k\).}
+If \(X\) lies in \(\T\) and has \(X^\vee\) as dual (in the sense of [1] 2.2), the object \(e_{k'/k}(X)\) of \(\T_{k'}\) has \(e_{k'/k}(X^\vee)\) as dual. We conclude by observing that every object \(Y\) of \(\T_{k'}\) is a direct factor of an object of this form. More precisely, the adjunction morphism
+\[
+e_{k'/k}r_{k'/k}(Y)\longrightarrow Y
+\]
+is split: if \(Y\) is regarded as an object of \(\T\), then \(k'\otimes Y\) has two natural \(k'\)-module structures, one coming from \(k'\) (that of \(e_{k'/k}r_{k'/k}(Y)\)), the other coming from \(Y\). The adjunction morphism is the natural morphism
+\[
+k'\otimes Y\longrightarrow (k'\otimes Y)\otimes_{k'\otimes_k k'} k'.
+\]
+It is split because the morphism \(k'\otimes k'\to k'\) is the projection onto a direct factor.
+
+\heading{Proof when \(k'=k(a^{1/p})\).}
+Let \(\omega\) be a fibre functor over an extension \(K\) of \(k\). The key point is the following.
+
+\begin{lemma*}[4.5]
+If an object \(X\) of \(\T\) is endowed with a \(k'\)-module structure, then this structure makes \(\omega(X)\) into a \(k'\otimes_k K\)-module. This module is free.
+\end{lemma*}
+
+\begin{proofdel}
+If \(K':=k'\otimes_k K\) is a field, this is clear. Otherwise \(a\) has a \(p\)-th root \(\alpha\) in \(K\), and the \(K\)-algebra \(K'\) is isomorphic to \(K[\varepsilon]/(\varepsilon^p)\): take \(\varepsilon=\sqrt[p]{a}-\alpha\). Let \(d\) be the dimension over \(K\) of \(\omega(X)/\varepsilon\omega(X)\). The \(K'\)-module \(\omega(X)\) is isomorphic to a sum of \(d\) monogenic modules \(K[\varepsilon]/(\varepsilon^j)\), \(1\le j\le p\). One verifies that it is free if and only if the exterior power over \(K'\)
+\[
+\bigwedge\nolimits^d_{K'}\omega(X)
+\]
+is free (of rank one). By exactness of \(\omega\), this exterior power over \(K'\) is the image under \(\omega\) of the exterior power over \(k'\) of \(X\), defined as the image of the antisymmetrization
+\[
+a:\bigotimes\nolimits^d_{k'}X\longrightarrow \bigotimes\nolimits^d_{k'}X.
+\]
+Replacing \(X\) by this exterior power, we are reduced to the case in which \(\omega(X)\) is a non-zero monogenic \(K'\)-module.
+
+The \(k'\)-module structure of \(X\) gives a morphism
+\[
+\tag{4.5.1}
+k'\otimes \one\longrightarrow \Hom(X,X).
+\]
+The unit object \(\one\) is known to be simple ([2] 1.17). Hence the kernel of (4.5.1) is of the form \(A\otimes\one\), for a vector subspace \(A\) of \(k'\). This subspace is a non-zero ideal of \(k'\), hence \(A=0\), and (4.5.1) is a monomorphism. Applying \(\omega\), we deduce that \(\omega(X)\) is a faithful \(K'\)-module, and conclude by observing that a monogenic faithful \(K'\)-module is free.
+\end{proofdel}
+
+\heading{4.6. End of the proof when \(k'=k(a^{1/p})\).}
+Let \(\one'\) denote the unit object \(e_{k'/k}(\one)\) of \(\T_{k'}\). For \(X\) in \(\T_{k'}\), put
+\[
+X^\vee:=\Hom_{k'}(X,\one').
+\]
+We show that \(X^\vee\) is a dual of \(X\) in the sense of [1] 2.2. In \(\T_{k'}\) one has an evaluation morphism
+\[
+\tag{4.6.1}
+\mathrm{ev}:X^\vee\otimes_{k'}X\longrightarrow \one'
+\]
+and, for every \(Y\) in \(\T_{k'}\), a morphism
+\[
+\tag{4.6.2}
+Y\otimes_{k'}X^\vee\longrightarrow \Hom_{k'}(X,Y).
+\]
+The functor \(\omega'\), with values in \(K'\)-modules, transforms this morphism into
+\[
+\tag{4.6.3}
+\omega(Y)\otimes \omega(X)^\vee\longrightarrow
+\Hom_{K'}(\omega(X),\omega(Y)).
+\]
+Lemma 4.5 ensures that (4.6.3) is an isomorphism. Since \(\omega'\) is exact and has the property that \(\omega(Z)=0\) implies \(Z=0\), because \(\omega\) has these properties, it is conservative and (4.6.2) is an isomorphism. Put \(Y=X\). Composing the evident morphism
+\[
+\one'\longrightarrow \Hom_{k'}(X,X)
+\]
+with the inverse of (4.6.2), we obtain
+\[
+\delta:\one'\longrightarrow X\otimes_{k'}X^\vee.
+\]
+The morphisms \(\mathrm{ev}\) and \(\delta\) satisfy the identities [1] (2.1.2) making \(X^\vee\) a dual of \(X\), because those identities become true after applying \(\omega'\).
+
+\begin{corollary*}[4.7]
+Let \(X\) be an object of a Tannakian category \(\T\) over \(k\). If \(X\) admits a module structure over an extension \(k'\) of \(k\), then \([k':k]\) divides \(\dim X\).
+\end{corollary*}
+
+\begin{proofdel}
+Let \(\omega\) be a fibre functor of \(\T\) over an extension \(K\) of \(k\), put \(K':=k'\otimes K\), and regard \(\omega(X)\), with the \(k'\)-module structure deduced from that of \(X\), as a \(K'\)-module. If \(X\) is regarded as an object of the Tannakian category \(\T_{k'}\), this \(K'\)-module is the image of \(X\) under the fibre functor \(\omega'\) of \(\T_{k'}\) deduced from \(\omega\). As the image of the object \(X\) of the Tannakian category \(\T_{k'}\) under the fibre functor \(\omega'\), it is a locally free \(K'\)-module of constant rank, equal to the dimension of \(X\) viewed as an object of \(\T_{k'}\). Thus
+\[
+\dim(X):=\dim_K\omega(X)=[K':K]\cdot \rang_{K'}\omega(X)
+=[k':k]\cdot \dim(X\hbox{ viewed as an object of }\T_{k'}).
+\]
+\end{proofdel}
+
+\heading{4.8. Warning.}
+If \(D\) is a division algebra over \(k\), and non-zero \(X\) admits a \(D\)-module structure, one does not necessarily have \(\dim X\ge [D:k]\). For example, take \(\T\) to be the category of \(\mathbb Z/2\)-graded complex vector spaces \(V\) endowed with a homogeneous antilinear automorphism \(j\), with square \(1\) on \(V^0\) and \(-1\) on \(V^1\). Tensor product is over \(\mathbb C\). This category is Tannakian over \(\mathbb R\), and over \(\mathbb C\) it has the fibre functor ``underlying complex vector space''. An odd object identifies with a vector space over the quaternion division algebra \(\mathbb H\). A simple odd object \(S\) has dimension \(2\), and \(\End(S)\) is isomorphic to \(\mathbb H\).
+
+\begin{corollary*}[4.9]
+If \(X\) is a simple object of a Tannakian category \(\T\) over a field \(k\) of characteristic \(p\), and if \(\dim X<p\), then the centre of \(\End(X)\) is a separable extension of \(k\).
+\end{corollary*}
+
+\begin{proofdel}
+By 4.7, it is an extension of degree \(<p\).
+\end{proofdel}
+
+\heading{4.10.}
+Let \(k_1\) be an algebraic extension of \(k\). If \(\T\) is an abelian \(k\)-linear category, the categories \(\T_{k'}\), for \(k'\) a finite extension of \(k\) inside \(k_1\), form a 2-inductive system of abelian categories. I write ``2-inductive'' rather than ``inductive'', because the scalar-extension functors
+\[
+e_{k''/k'}:\T_{k'}\longrightarrow (\T_{k'})_{k''}=\T_{k''}
+\]
+for \(k'\subset k''\) satisfy \(e_{k'''/k''}e_{k''/k'}=e_{k'''/k'}\) only up to canonical isomorphism; these isomorphisms satisfy a cocycle condition for
+\[
+k'\subset k''\subset k'''\subset k''''.
+\]
+Define \(\T_{k_1}\) to be the inductive 2-limit of the \(\T_{k'}\), for \(k'\) a finite extension of \(k\) inside \(k_1\). Since the functors \(e_{k''/k'}\) are exact, the category \(\T_{k_1}\) is still abelian.
+
+If \(\T\) is Tannakian, with fibre functor \(\omega\) over \(K\), the categories \(\T_{k'}\), for \(k'\subset k_1\), are Tannakian, and \(\omega\) supplies a fibre functor of \(\T_{k'}\) over \(k'\otimes K\). Passing to the inductive limit, one sees that \(\T_{k_1}\) is Tannakian, that \(\omega\) supplies a fibre functor \(\omega_1\) of \(\T_{k_1}\) over \(k_1\otimes K\), and that the \(e_{k'/k}\) give a scalar-extension functor
+\[
+e_{k_1/k}:\T\longrightarrow \T_{k_1}
+\]
+compatible with the tensor product.
+
+\begin{corollary*}[4.11]
+Let \(X\) be an object of \(\T\).
+\begin{enumerate}[label=(\roman*)]
+\item If the object \(e_{k_1/k}(X)\) of \(\T_{k_1}\) is semisimple, then \(X\) is semisimple.
+\item If \(\dim(X)<p\) and \(X\) is semisimple, then \(e_{k_1/k}(X)\) is semisimple.
+\end{enumerate}
+\end{corollary*}
+
+\begin{proofdel}
+For \(k'\) a finite extension of \(k\) in \(k_1\), the length of \(e_{k'/k}(X)\) increases with \(k'\) and is bounded by \(\dim(X)\). Hence there is a finite extension \(k'\) such that the length of \(e_{k''/k}(X)\) is constant for all \(k''\supset k'\).
+
+We prove (i) for \(X\). By 4.2 (iii), it is enough to show that, for a suitable finite extension \(k''\) of \(k'\) inside \(k_1\), \(e_{k''/k'}(X)\) is semisimple. Let
+\[
+0=X_0\subset X_1\subset X_2\subset\cdots\subset X_n=e_{k'/k}(X)
+\]
+be a filtration of \(e_{k'/k}(X)\) with simple successive quotients \(S_i\). The extension \(X_i\) of \(S_i\) by \(X_{i-1}\) becomes split over \(k_1\). Hence there exists a finite extension \(k''\) of \(k'\) inside \(k_1\) over which these extensions split. The \(S_i\) remain simple because
+\[
+\operatorname{lg} e_{k''/k}(X)=\operatorname{lg} e_{k'/k}(X).
+\]
+It follows that \(e_{k''/k'}(X)\) is semisimple.
+\end{proofdel}
+
+\heading{4.12. Proof of 0.1.}
+Let \(\T\) be a Tannakian category over a field \(k\) of characteristic \(p\), and take \(k_1\) to be an algebraic closure \(\bar k\) of \(k\). Corollary 4.11 reduces 0.1 for \(\T\) to 0.1 for \(\T_{\bar k}\), proved in 3.3.
+
+\section*{5. Tensor products of exterior powers}
+
+The following results were suggested by the referee. Theorem 0.7 makes it possible to generalize Serre's theorem [5] on semisimplicity of tensor products of exterior powers of representations to the case of objects of a Tannakian category.
+
+
+\begin{theorem*}[5.1]
+Let \(\T\) be a Tannakian category over a field \(k\) of characteristic \(p>0\), let \((V_i)_{i\in I}\) be a finite family of semisimple objects of \(\T\), and let \((m_i)_{i\in I}\) be a family of integers \(\ge 0\). If
+\[
+\tag{5.1.1}
+  \sum_i m_i(\dim V_i-m_i)<p,
+\]
+then the tensor product of the \(\bigwedge^{m_i}V_i\) is semisimple.
+\end{theorem*}
+
+Recall that the \(m\)-th exterior power of an object \(V\) of \(\T\) is the image of the antisymmetrization
+\[
+  a:\bigotimes^m V\longrightarrow \bigotimes^m V.
+\]
+For every fibre functor \(\omega\), one has \(\omega(\bigwedge^m V)=\bigwedge^m\omega(V)\), and the dual of \(\bigwedge^m V\) is \(\bigwedge^m(V^\vee)\).
+
+We shall reduce the proof of 5.1 to the special case in which, for each \(i\), \(\dim(V_i)<p\). The arguments of 3.3, 4.11 and 4.12 then reduce further to assuming that \(k\) is algebraically closed, that \(\T\) is the category of representations of an affine group scheme \(G\) over \(k\), and that the family of representations \((V_i)\) is faithful, i.e. that \(G\) is a subgroup scheme of \(\prod_i\GL(V_i)\), and hence of \(\GL(V)\), for \(V:=\bigoplus_iV_i\).
+
+After some preliminaries (5.3 to 5.10), we shall reduce in 5.11 to the case where \(G\) is doubly saturated in \(\GL(V)\), and treat that case in 5.12.
+
+\heading{5.2. Reduction to the case \(\dim(V_i)<p\).}
+We reduce successively to assuming that
+\begin{enumerate}[label=(\arabic*)]
+\item \(m_i\le \dim V_i\): otherwise \(\bigwedge^{m_i}V_i=0\);
+\item \(0<m_i<\dim V_i\): otherwise \(\bigwedge^{m_i}V_i\) is one-dimensional and the factor \(\bigwedge^{m_i}V_i\) can be omitted; this changes neither the hypothesis (5.1.1) nor the conclusion, because if \(L\) is one-dimensional, semisimplicity of \(X\) is equivalent to that of \(X\otimes L\), since \(X\) and \(X\otimes L\) have isomorphic lattices of subobjects;
+\item \(m_i\le (\dim V_i)/2\): otherwise replace \(\bigwedge^{m_i}V_i\) by \(\bigwedge^{\dim V_i-m_i}V_i^\vee\), which differs from it only by twisting by the rank-one object \(\bigwedge^{\dim V_i}V_i\);
+\item \(\sum_i m_i\ge2\): otherwise the tensor product is \(1\) (if \(\sum_i m_i=0\)) or is reduced to a single \(V_i\) (if \(\sum_i m_i=1\)).
+\end{enumerate}
+If these conditions hold, then \(\dim V_i<p\). Indeed, if \(|I|\ge2\), (5.1.1) implies
+\[
+  \dim V_i-1=1(\dim V_i-1)\le m_i(\dim V_i-m_i)<p-1,
+\]
+and if \(|I|=1\), then \(m_i\ge2\), \(\dim V_i\ge4\), and
+\[
+  \dim V_i\le 2(\dim V_i-2)\le m_i(\dim V_i-m_i)<p.
+\]
+
+\heading{5.3.}
+Let \(V\) be a representation of \(\SL(2)\). The action of the multiplicative group of diagonal matrices \((a,a^{-1})\) defines a grading \(V=\bigoplus V^j\) of \(V\). The action of \(\begin{pmatrix}0&1\\-1&0\end{pmatrix}\in\SL(2)\) exchanges \(V^j\) and \(V^{-j}\). Hence \(\dim V^j=\dim V^{-j}\). Let \(E\) denote the action of the element \(\begin{pmatrix}0&1\\0&0\end{pmatrix}\) of the Lie algebra. This endomorphism of \(V\) has degree \(2\). If the weights of \(V\) are \(<v\), i.e. if \(V^j=0\) for \(|j|\ge v\), then \(E^v=0\).
+
+If the weights of \(V\) are \(<p\), it is known that the representation \(V\) is semisimple, a sum of \(\operatorname{Sym}^i\) of the fundamental representation with \(i<p\), and that the \(j\)-th iterate \(E^j\) of \(E\) induces an isomorphism
+\[
+\tag{5.3.1}
+  E^j:V^{-j}\overset{\sim}{\longrightarrow}V^j.
+\]
+Conversely, if \(V\) is a graded vector space, with \(V^j=0\) for \(|j|\ge p\), and if \(E\) is an endomorphism of degree \(2\) of \(V\) satisfying (5.3.1), then there is a unique action of \(\SL(2)\) on \(V\) defining this grading and this endomorphism, one has \(E^p=0\), and the action of \(\begin{pmatrix}1&t\\0&1\end{pmatrix}\) in \(\SL(2)\) is given by the truncated exponential
+\[
+\tag{5.3.2}
+  \exp(tE):=\sum_{n<p}\frac{(tE)^n}{n!}.
+\]
+
+\heading{5.4.}
+Let \(E\) be a nilpotent endomorphism of a vector space \(V\) of dimension \(\le p\). Decomposing \(E\) into Jordan blocks, one checks that \(E\) comes from a representation of \(\SL(2)\) as in 5.3, with weights \(<p\). If \(E\) has only one Jordan block, the dominant weight is \(\dim(V)-1\).
+
+\begin{lemma*}[5.5]
+With the hypotheses and notation of 5.4, the weights of the representation \(\bigwedge^m V\) of \(\SL(2)\) are \(\le m(\dim V-m)\).
+\end{lemma*}
+
+Lifting the representation \(V\) of \(\SL(2)\) to characteristic \(0\), one is reduced to verifying in characteristic \(0\) that, for a representation \(W\) of \(\SL(2)\) of dimension \(d\), one has
+\[
+\tag{5.5.1}
+  \text{the weights of the representation }\rho_m\text{ of }\SL(2)\text{ on }\bigwedge^m W\text{ are }\le m(d-m).
+\]
+Since, in characteristic \(0\), every representation of \(\SL(2)\) is a direct sum of \(\operatorname{Sym}^j\) of the fundamental representation, (5.5.1) is equivalent to
+\[
+\tag{5.5.2}
+  \bigl(d\rho_m(\begin{pmatrix}0&1\\0&0\end{pmatrix})\bigr)^{m(d-m)+1}=0.
+\]
+Let \(E\) be the nilpotent endomorphism of \(W\) giving the action of \(\begin{pmatrix}0&1\\0&0\end{pmatrix}\in\mathfrak{sl}(2)\). If one identifies endomorphisms and actions of the one-dimensional Lie algebra, then \(d\rho_m(\begin{pmatrix}0&1\\0&0\end{pmatrix})\) is the natural extension \(E_m\) of \(E\) to \(\bigwedge^m W\). Nilpotent endomorphisms with a single Jordan block are dense among nilpotent endomorphisms. It is therefore enough to verify that \((E_m)^{m(d-m)+1}=0\) when \(E\) has only one Jordan block. In that case, the weights of the representation \(W\) are \((d-1),(d-3),\ldots,-(d-1)\), each with multiplicity one. The largest weight of the representation \(\bigwedge^m V\) is thus
+\[
+  (d-1)+(d-3)+\cdots+(d-(2m-1))=md-m^2=m(d-m),
+\]
+and (5.5.2) follows.
+
+\heading{5.6.}
+Return to characteristic \(p\). Let \(N\) be a nilpotent endomorphism of a vector space \(V\) of dimension \(d\le p\), and let \(N_m\) be its extension to \(\bigwedge^m V\) (in the Lie-algebra sense, as in 5.5). Since \(d\le p\), one has \(N^p=0\), and \(N\) defines an action \(\rho(t)=\exp(tN)\) of \(\Ga\) on \(V\). This action extends to an action of \(\Ga\) on \(\bigwedge^m V\).
+
+\begin{proposition*}[5.7]
+With the notation of 5.6, one has
+\[
+\tag{5.7.1}
+  (N_m)^{m(d-m)+1}=0
+\]
+and if \(m(d-m)<p\), the action of \(\Ga\) on \(\bigwedge^m V\) is given by the truncated exponential \(\exp(tN_m)\).
+\end{proposition*}
+
+\begin{proofdel}
+As in 5.4, there exists an action \(\rho\), with weights \(<p\), of \(\SL(2)\) on \(V\) such that \(d\rho(\begin{pmatrix}0&1\\0&0\end{pmatrix})=N\). It extends to an action \(\rho_m\) of \(\SL(2)\) on \(\bigwedge^m V\). By 5.5, \(\bigwedge^m V\) has weights \(\le m(d-m)\). The vanishing (5.7.1) follows. If \(m(d-m)<p\), by 5.4 the action of \(\begin{pmatrix}1&t\\0&1\end{pmatrix}\in\SL(2)\) on \(\bigwedge^m V\) is given by the truncated exponential \(\exp(tN_m)\).
+\end{proofdel}
+
+\heading{5.8.}
+Let \((V_i)\) be a finite family of vector spaces of dimension \(<p\), and let \((m_i)\) be a family of integers \(\ge0\). For each \(i\), let \(N_i\) be a nilpotent endomorphism of \(V_i\). The truncated exponential \(\exp(tN_i)\) is an action of \(\Ga\) on \(V_i\). These actions define an action of \(\Ga\) on \(\bigotimes_i\bigwedge^{m_i}V_i\), and, by passage to the Lie algebra, an endomorphism \(N\) of this tensor product. It is deduced from the \(N_i\), viewed as actions on the \(V_i\) of the one-dimensional Lie algebra.
+
+\begin{corollary*}[5.9]
+With the notation of 5.8, if
+\[
+\tag{5.9.1}
+  \sum_i m_i(\dim V_i-m_i)<p,
+\]
+then \(N^p=0\), and the action of \(\Ga\) on \(\bigotimes_i\bigwedge^{m_i}V_i\) is given by the truncated exponential \(\exp(tN)\).
+\end{corollary*}
+
+\begin{proofdel}
+As in 5.4, choose an action \(\rho_i\) of \(\SL(2)\) on \(V_i\), with weights \(<p\), such that \(d\rho_i(\begin{pmatrix}0&1\\0&0\end{pmatrix})=N_i\). By 5.5, the weights of \(\SL(2)\) acting on \(\bigotimes_i\bigwedge^{m_i}V_i\) are \(\le \sum_i m_i(\dim V_i-1)<p\), and one applies 5.4 as in 5.7. One could equally well apply 5.7 and 2.2.
+\end{proofdel}
+
+\heading{5.10.}
+The truncated exponential induces a bijection between nilpotent endomorphisms \(N\) such that \(N^p=0\) and automorphisms \(g\) such that \(g^p=1\), and the corresponding actions of \(\Ga\) coincide: \(\exp(N)^t=\exp(tN)\). With the notation of 5.8, if the automorphism \(g_i\) of \(V_i\) satisfies \(g_i^p=1\), and \(g\) is the automorphism of \(\bigotimes_i\bigwedge^{m_i}V_i\) induced by the \(g_i\), condition (5.9.1) ensures that \(g^t\) is induced by the \(g_i^t\).
+
+Recall that, by the remarks following 5.1, 5.2 reduces the proof of 5.1 to the case in which \(k\) is algebraically closed and \(\T\) is the category of representations of \(G\subset \prod_i\GL(V_i)\subset \GL(V)\), with \(V:=\bigotimes_iV_i\).
+
+\heading{5.11. Reduction to the case where \(G\) is doubly saturated in \(\GL(V)\).}
+Let \(G^*\) be the double saturation of \(G\) (2.1). As in 2.4, 5.9 and 5.10 ensure that, if (5.1.1) holds, a subspace of \(\bigotimes_i\bigwedge^{m_i}V_i\) stable under \(G\) is automatically stable under \(G^*\). Semisimplicity as a representation of \(G^*\) therefore implies semisimplicity as a representation of \(G\).
+
+\heading{5.12. End of the proof of 5.1.}
+As in 3.1, one reduces to assuming \(G\) reduced. One can then apply [5] p. 26, a consequence of the ``Main Theorem'' p. 20, to the representations \(V_i\) of \(G(k)\). One could instead invoke [6].
+
+\heading{5.13.}
+In 5.1, we use the Schur functors \(V_i\mapsto \bigwedge^{m_i}V_i\), associated with the representations of the \(\GL(\dim V_i)\) of dominant weight \((1,\ldots,1,0,\ldots,0)\) (\(m_i\) ``1''s). More generally, one can consider Schur functors \(S_{\lambda(i)}\), where \(\lambda(i)\) is a dominant weight \((\lambda(i)_1,\ldots,\lambda(i)_{\dim V_i})\) of \(\GL(\dim V_i)\). Regard \(\lambda(i)\) as a partition. Let \(\mu(i)\) be its dual and put
+\[
+  n(\lambda(i))=\sum_j \mu(i)_j(\dim V_i-\mu(i)_j)
+\]
+(cf. [6] 5.2). Condition (5.5.1) is to be replaced by
+\[
+\tag{5.13.1}
+  \sum_i n(\lambda(i))<p.
+\]
+That (5.13.1), together with semisimplicity of the \(V_i\), suffices to ensure semisimplicity of \(\bigotimes_i S_{\lambda(i)}V_i\) can be deduced from 5.1 and from the fact that \(S_{\lambda(i)}\) is a subquotient (and even, under the hypotheses made, a direct factor) of the functor
+\[
+  V\longmapsto \bigotimes_j \bigwedge^{\lambda(i)_j}V
+\]
+(for \(V\) of dimension \(\dim(V_i)\)).
+
+\paragraph{Acknowledgements.}
+I thank J.-P. Serre, M. Raynaud, G. Prasad and H. Esnault for their comments, which I hope have enabled me to improve the text, and the referee for the attentive reading and for the suggestions that gave rise to Section 5.
+
+\section*{Bibliography}
+\begin{description}[labelwidth=2.2em,leftmargin=3.0em,style=sameline]
+\item[{[1]}] P. Deligne, \emph{Catégories tannakiennes}, in: The Grothendieck Festschrift, vol. 2, p.111--194. Progress in math. 87, Birkhäuser, 1990.
+\item[{[2]}] P. Deligne and J. S. Milne, \emph{Tannakian categories}, in: Hodge Cycles, Motives and Shimura Varieties, by P. Deligne, J. S. Milne, A. Ogus and K. Shih, p.101--228. Springer Lecture Notes in Mathematics 900.
+\item[{[3]}] N. Saavedra, \emph{Catégories Tannakiennes}, Springer Lecture Notes in Mathematics 265.
+\item[{[4]}] J.-P. Serre, \emph{Sur la semi-simplicité des produits tensoriels de représentations de groupes}, Inv. Math. \textbf{116} (1994), p. 513--530.
+\item[{[5]}] J.-P. Serre, Moursund Lectures 1998, Notes by W. E. Duckworth, available on arXiv: math/0305257.
+\item[{[6]}] J.-P. Serre, \emph{Complète réductibilité}, Sém. Bourbaki 2003--2004, exp. 932, in Astérisque 299 (Soc. Math. France, 2005).
+\end{description}
+
+SGA: Séminaire de Géométrie Algébrique du Bois-Marie.
+
+SGA1: Seminar 1960/61, directed by A. Grothendieck: Revêtements étales et groupe fondamental. Springer Lecture Notes in Mathematics 224.
+
+SGA3: Seminar 1962/64, directed by M. Demazure and A. Grothendieck: Schémas en Groupes. Michel Raynaud's Exposé XVII is in volume II, Springer Lecture Notes in Mathematics 152.
+
+SGA4: Seminar 1963/64, directed by M. Artin, A. Grothendieck and J. L. Verdier: Théorie des topos et cohomologie étale des schémas. M. Artin's Exposé XV is in volume III, Springer Lecture Notes in Mathematics 305.
+
+\end{document}

@@ -1,0 +1,379 @@
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\geometry{margin=0.86in}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.12em}
+\emergencystretch=3em
+\setlist{leftmargin=2.1em,itemsep=0.08em,topsep=0.2em}
+\newcommand{\A}{\mathbb A}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Pj}{\mathbb P}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\G}{\mathbb G}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Alb}{\operatorname{Alb}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\tors}{\operatorname{tors}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\newcommand{\dash}{\dashrightarrow}
+\begin{document}
+\begin{center}
+{\large Séminaire BOURBAKI, 24th year, 1971/72, no. 402}\\[0.4em]
+{\Large\bfseries UNIRATIONAL NON-RATIONAL VARIETIES}\\[0.3em]
+{\large after M. Artin and D. Mumford}\\[0.4em]
+Pierre Deligne
+\end{center}
+
+This report contains a description of the variety constructed by Artin and Mumford, and the proof that it is unirational and not rational. It also contains the statements of the theorems proved by Clemens and Griffiths [4], and by Manin and Iskovskih [6], which construct other examples. I attended lectures by Artin and Mumford on the same subject, and have drawn heavily on them.
+
+Throughout what follows, the expression ``algebraic variety'' means a separated scheme of finite type over \(\C\), reduced and irreducible. We write \(k(X)\) for the field of rational functions on an algebraic variety \(X\).
+
+\section*{1. Rationality and unirationality}
+
+Let \(K\) be a finitely generated extension of \(\C\). Then there is an algebraic variety \(X\) such that \(K\simeq k(X)\). Such an \(X\) is called a model of \(K\). By [5], \(K\) always has a projective smooth model.
+
+Let \(K\) and \(L\) be finitely generated extensions of \(\C\), with models \(X\) and \(Y\). Homomorphisms \(a^*:K\to L\) correspond bijectively to dominant rational maps \(a:Y\dashrightarrow X\), by the formula \(a^*(f)=f\circ a\). By [5], if \(X\) and \(Y\) are projective and smooth, every rational map \(a:Y\dashrightarrow X\) admits a decomposition
+\[
+\tag{1.1}
+\begin{tikzcd}[column sep=2.0em,row sep=1.8em]
+Y_{n+1}\arrow[r,"c_n"]\arrow[d,"b"']&\cdots\arrow[r]&Y_2\arrow[r,"c_1"]&Y_1=Y\\
+X&&&
+\end{tikzcd}
+\]
+where \(b\) and the \(c_i\) are everywhere-defined morphisms, and where \(Y_{i+1}\) is obtained from \(Y_i\) by blowing up a smooth subvariety \(Z_i\), of codimension \(\ge2\).
+
+If \(a^*:K\iso L\) is an isomorphism, the preceding result may be applied to \((a^{*-1},Y_{n+1},X)\). By iteration one obtains a commutative diagram of morphisms of schemes
+\[
+\tag{1.2}
+\begin{tikzcd}[column sep=1.8em,row sep=1.8em]
+\cdots & Y^2 \arrow[r,"y^2"] \arrow[d,"a^2"'] & Y^1 \arrow[r,equal] \arrow[d,"b^1"] & Y^1 \arrow[r,"y^1"]\arrow[d,"a^1"] & Y \arrow[d,"a"]\\
+\cdots & X^1 \arrow[r,equal] & X^1 \arrow[r,"x^1"'] & X \arrow[r,equal] & X,
+\end{tikzcd}
+\]
+where the horizontal arrows \(x^i,y^i\) are composites of blow-ups with smooth center, as in (1.1), and where the \(a^i\) and \(b^i\) are birational.
+
+An invariant of a projective smooth variety \(X\) is called birational if it depends only on \(k(X)\). One often checks birationality of an invariant by using (1.2). The usable invariants of a field \(K\) are generally defined as the value of a birational invariant on any projective smooth model of \(K\).
+
+\paragraph{Definition 1.3.} Let \(X\) be an algebraic variety of dimension \(n\). We say that \(X\) is unirational if the following equivalent conditions hold:
+\begin{enumerate}[label=(\roman*)]
+\item \(k(X)\) is a subfield of a purely transcendental extension \(\C(T_1,\ldots,T_r)\) of \(\C\);
+\item a finite extension of \(k(X)\) is isomorphic to \(\C(T_1,\ldots,T_n)\);
+\item for \(X\) projective and smooth, there is a diagram (1.1) with \(Y=\Pj^r(\C)\);
+\item for \(X\) projective and smooth, there is a diagram (1.1) with \(Y=\Pj^n(\C)\).
+\end{enumerate}
+One may suppose \(X\) projective and smooth, and \((ii)\Rightarrow(i)\Rightarrow(iii)\Rightarrow(iv)\Rightarrow(ii)\).
+
+\paragraph{Definition 1.4.} We say that \(X\) is rational if either, equivalently,
+\begin{enumerate}[label=(\roman*)]
+\item \(k(X)\) is a purely transcendental extension of \(\C\);
+\item for \(X\) projective and smooth, there is a diagram (1.2) with \(Y=\Pj^n(\C)\).
+\end{enumerate}
+
+The most evident birational invariants do not distinguish unirational varieties from rational varieties.
+
+\paragraph{Proposition 1.5.} Let \(X\) be a projective smooth unirational algebraic variety of dimension \(n>0\).
+\begin{enumerate}[label=(\roman*)]
+\item The plurigenera
+\[
+P_k=\dim H^0(X,(\Omega_X^n)^{\otimes k})\qquad(k>0)
+\]
+are zero. More generally, \(H^0(X,(\Omega_X^1)^{\otimes k})=0\) for \(k>0\).
+\item \(X\) is simply connected ([10]).
+\end{enumerate}
+For \(n=1\) or \(2\), property (i) already characterizes rational varieties. For \(n=1\), if \(H^0(X,\Omega_X^1)=0\), then \(X\simeq\Pj^1(\C)\): by Riemann--Roch, for every \(x\in X\), \(\cO(x)\) defines an embedding of \(X\) into \(\Pj^1(\C)\). For \(n=2\), the Castelnuovo--Enriques criterion says that \(X\) is rational if \(P_a=P_2=0\), i.e. if \(H^0(X,\Omega_X^2)=H^0(X,(\Omega_X^2)^{\otimes2})=0\) (see [9]).
+
+For \(n>2\), it has been very difficult to define or compute birational invariants capable of distinguishing rational from unirational varieties.
+
+\section*{2. Some birational invariants}
+
+\subsection*{A) Artin and Mumford}
+
+\paragraph{Proposition 2.1.} The torsion subgroup \(H^3(X,\Z)_{\tors}\) of \(H^3(X,\Z)\) is a birational invariant of the projective smooth variety \(X\).
+
+If \(X_2\) is obtained from a smooth variety \(X_1\) by blowing up a smooth subvariety \(Z\subset X_1\) of codimension \(r\ge2\), then (SGA 5 VII)
+\[
+H^n(X_2,\Z)=H^n(X_1,\Z)\oplus\bigoplus_{i=1}^{r-1}H^{n-2i}(Z,\Z).
+\]
+In particular,
+\[
+H^3(X_2,\Z)\simeq H^3(X_1,\Z)\oplus H^1(Z,\Z).
+\]
+Since \(H^1(Z,\Z)\) is torsion-free, one has
+\[
+H^3(X_1,\Z)_{\tors}\iso H^3(X_2,\Z)_{\tors}.
+\]
+Assume that \(k(X)\simeq k(Y)\), and let a diagram (1.2) be given. It induces a diagram
+\[
+\begin{tikzcd}[column sep=1.5em,row sep=2.0em]
+H^3(X,\Z)_{\tors}\arrow[r,"\sim"]&H^3(X_1,\Z)_{\tors}\arrow[r,equal]\arrow[d,"b^{1*}"']&H^3(X_1,\Z)_{\tors}\arrow[r,"\sim"]&H^3(X_2,\Z)_{\tors}\arrow[d,"a^{2*}"]\\
+H^3(Y,\Z)_{\tors}\arrow[r,equal]&H^3(Y,\Z)_{\tors}\arrow[r,"\sim"]&H^3(Y_1,\Z)_{\tors}\arrow[r,equal]&H^3(Y_1,\Z)_{\tors}.
+\end{tikzcd}
+\]
+Since \(a^{2*}b^{1*}\) is bijective, \(b^{1*}\) is injective; since \(b^{1*}a^{1*}\) is bijective and \(b^{1*}\) is injective, \(a^{1*}\) is bijective, and the assertion follows.
+
+The Artin--Mumford example is based on the following construction.
+
+\paragraph{Construction 2.2.} We shall construct a projective smooth variety \(X\), of dimension \(3\), which is unirational and satisfies
+\[
+H^3(X,\Z)_{\tors}\ne0,
+\qquad\text{indeed }H^3(X,\Z)_{\tors}\simeq\Z/(2).
+\]
+Multiplying this variety by \(\Pj^r(\C)\) gives an analogous example in every dimension \(\ge3\).
+
+\subsection*{B) Clemens and Griffiths}
+
+Let \(X\) be a projective smooth variety of dimension \(3\), such that \(H^0(X,\Omega_X^3)=0\). The Hodge decomposition of \(H^3(X,\C)\) then reduces to
+\[
+H^3(X,\C)=H^{2,1}\oplus H^{1,2},
+\]
+and, by Weil [11], the complex torus
+\[
+J(X)=H^3(X,\Z)\backslash H^3(X,\C)/H^{2,1}
+\]
+is an abelian variety, the intermediate Jacobian of \(X\). Let
+\[
+\psi:H^3(X,\Z)\times H^3(X,\Z)\longrightarrow H^6(X,\Z)\simeq\Z
+\]
+be the cup product. By Poincaré duality, the alternating form induced on \(H^3(X,\Z)/\text{torsion}\) has discriminant one. If \(H^1(X,\Z)=0\), Weil [11] implies that it defines a principal polarization on \(J(X)\).
+
+\paragraph{Proposition 2.3 ([4], 3.26).} If \(X\) is rational, the polarized abelian variety \(J(X)\) is a product of Jacobians.
+
+In the proof sketch below, \(\sim\) denotes an isomorphism of polarized abelian varieties. One checks successively:
+\begin{enumerate}[label=\alph*)]
+\item \(J(\Pj^3(\C))=0\).
+\item If \(Y\) is obtained from the nonsingular projective variety \(Y'\) by blowing up a smooth curve \(Z\), of Jacobian \(J(Z)\), respectively a point, then ([4], 3.11)
+\[
+J(Y)\sim J(Y')\times J(Z),\qquad\text{respectively }J(Y)\sim J(Y').
+\]
+\item If a morphism \(b:Y'\to X\) is birational, \(J(X)\) is a direct factor of \(J(Y')\): there is a principally polarized abelian variety \(B\) such that \(J(Y')\sim J(X)\times B\).
+\item Let \((A_i)_{1\le i\le n}\) be nonzero principally polarized abelian varieties. Suppose that none of the \(A_i\) has a decomposition \(A_i\sim A'_i\times A''_i\), for instance because \(A_i\) is a Jacobian. Then every decomposition of \(A=\prod A_i\) has the form
+\[
+A\sim \left(\prod_{i\in I}A_i\right)\times\left(\prod_{i\notin I}A_i\right)
+\]
+for some \(I\subset[1,n]\) ([4], 3.23).
+\end{enumerate}
+If \(X\) is rational, there is a diagram (1.2) with \(Y=\Pj^3(\C)\) and \(b\) birational. By a) and b), \(J(Y_{n+1})\) is a product of Jacobians; by c) and d), so is \(J(X)\).
+
+Now take \(X\) to be a cubic hypersurface in \(\Pj^4(\C)\). One has
+\[
+H^1(X,\Z)=0,
+\qquad H^3(X,\Z)_{\tors}=0,
+\qquad H^0(X,\Omega_X^3)=0,
+\qquad \dim H^1(X,\Omega_X^2)=\dim J(X)=5,
+\]
+and \(X\) is unirational by [7]. Let \(S\) be the surface parametrizing lines contained in \(X\), and let \(\varphi:S\to\Alb(S)\) be the map from \(S\) to its Albanese variety. One of the essential results of [4] is the following.
+
+\paragraph{Theorem 2.4 ([4], 11.19 and 13.4).} There is an isomorphism
+\[
+J(X)\iso \Alb(S)
+\]
+which sends the divisor \(\Theta\) of \(J(X)\) to the image of \(S\times S\) under
+\[
+(x,y)\longmapsto \varphi(x)-\varphi(y).
+\]
+Clemens and Griffiths then use results of [1] to prove that \((\Alb(S),\Theta(S\times S))\) cannot be the polarized Jacobian of a curve. Another proof of irrationality is suggested in the appendix to [4]. It amounts to proving:
+
+\paragraph{Theorem 2.5.} The singular locus of the divisor \(\Theta\) of \(J(X)\) has dimension \(0\), hence codimension \(>4\). It is even reduced to the image, by \(\Theta\), of the diagonal of \(S\times S\). This never happens for the theta divisor of a Jacobian.
+
+\subsection*{C) Manin and Iskovskih}
+
+The group of birational automorphisms of a variety \(X\), equal to the group of \(\C\)-automorphisms of \(k(X)\), is a birational invariant of \(X\). This is the invariant used by Manin and Iskovskih to show that a smooth quartic hypersurface in \(\Pj^4(\C)\) is never rational.
+
+\paragraph{Theorem 2.6 ([6]).} Let \(X\) and \(Y\) be two smooth quartic hypersurfaces in \(\Pj^4(\C)\). Every birational isomorphism \(a:X\dashrightarrow Y\) is automatically biregular.
+
+Since some quartic hypersurfaces are unirational [7], this theorem gives a new example of unirational non-rational varieties.
+
+\section*{3. The example of Artin and Mumford}
+
+Consider in \(\Pj^2(\C)\) a configuration consisting of:
+\begin{enumerate}[label=\alph*)]
+\item two smooth cubic curves \(C_1\) and \(C_2\), with equations \(f_1=0\) and \(f_2=0\), meeting transversely;
+\item a smooth conic \(Q\), with equation \(q=0\), which meets each \(C_i\) in three distinct points of tangency.
+\end{enumerate}
+We shall construct:
+\begin{enumerate}[label=\alph*)]
+\item a vector bundle \(V\) of rank \(3\) on \(\Pj^2(\C)\);
+\item a quadratic form
+\[
+\varphi:V\longrightarrow \mathcal L
+\]
+with values in an invertible sheaf \(\mathcal L\), of discriminant \(\Delta=f_1f_2\); equivalently, the zero scheme of \(\Delta\), as a section of \(\mathcal L^{\otimes3}\otimes(\bigwedge^3V)^{-2}\), is \(C_1\cup C_2\).
+\end{enumerate}
+Let \(X\subset\Pj(V^*)\) be the conic bundle over \(\Pj^2(\C)\), degenerating along \(C_1\cup C_2\), with homogeneous equation \(\varphi=0\). It will satisfy:
+\begin{enumerate}[label=\alph*)]
+\setcounter{enumi}{2}
+\item \(\varphi\) has rank \(\ge2\) at every point: for \(s\in C_1\cup C_2\), the fiber \(X_s\) is the union of two concurrent lines; the only singular points of \(X\) are the singular points of the fibers \(X_s\) for \(s\in C_1\cap C_2\).
+\item Let \(S\) be the double cover of \(\Pj^2(\C)\), ramified along \(Q\), and let \(X_S=X\times_{\Pj^2}S\). Then \(X_S/S\) has a section.
+\item For \(s\in(C_1\cup C_2)-Q\), the two points of \(S\) above \(s\) lie on the two irreducible components of \(X_s\).
+\end{enumerate}
+Locally on \(C_1\cup C_2\), for the usual topology, the restriction of \(X\) to \(C_1\cup C_2\) is obtained by gluing two projective-line bundles along a section. When one goes around a loop in \(C_1\cup C_2\), however, these two bundles may be exchanged. Thus there is an unramified double cover \((C_1\cup C_2)^*\) of \(C_1\cup C_2\) whose two local sections correspond to the two projective-line bundles comprising \(X|_{C_1\cup C_2}\). Let \(\pi_i:C_i^*\to C_i\) be the induced double cover. We shall use from e) only the following corollary.
+
+\paragraph{Lemma 3.1.} \(C_1^*\) is irreducible.
+
+Indeed, by e), \(C_1^*\) is the normalization of the double cover of \(C_1\) induced by \(S\). The lemma follows from the fact that the section \(q\) of \(\mathcal O(2)|_{C_1}\) is not the square of a section of \(\mathcal O(1)|_{C_1}\): if it were a square, the three intersection points of \(Q\) with \(C_1\) would be collinear.
+
+The double cover \(C_i^*\to C_i\) gives a character of order \(2\) of the fundamental group of \(C_i\) and a local system \(A_i\), locally isomorphic to \(\Z\), defined by the exact sequence of sheaves on \(C_i\)
+\[
+0\longrightarrow A_i\longrightarrow \pi_{i*}\Z \xrightarrow{\Tr}\Z\longrightarrow0,
+\]
+where \(\Tr\) is the sum of the two values on the two sheets of the cover. One has
+\[
+\tag{3.2}
+H^0(C_i,A_i)=0,
+\qquad H^1(C_i,A_i)=\Z/2,
+\qquad H^2(C_i,A_i)=\Z/2.
+\]
+We use d) only to prove the following fact.
+
+\paragraph{Lemma 3.3.} \(X\) is unirational.
+
+The surface \(S\) is a quadric in \(\Pj^3(\C)\), hence rational. Since \(X_S/S\) has a section, \(X_S\) is birational to \(S\times\Pj^1(\C)\), and \(X\) is the image of the rational variety \(X_S\).
+
+The nine singular points of \(X\) are ordinary quadratic points. Resolve each as follows (cf. [3]).
+\begin{enumerate}[label=\alph*)]
+\item Blow it up; this resolves \(X\) and replaces the singular point by a quadric \(P\simeq\Pj^1(\C)\times\Pj^1(\C)\).
+\item Choose a projection \(P\to\Pj^1(\C)\), and contract in the blow-up \(\widetilde X_1\) the fibers of this projection. This is possible because the fibers are isomorphic to \(\Pj^1(\C)\), and the normal bundle of \(P\) in \(\widetilde X_1\) restricts on each fiber to \(\mathcal O(-1)\) ([8]).
+\end{enumerate}
+Let \(\widetilde X\) be the resulting variety. There is a map \(\widetilde X\to X\), and \(\widetilde X\) is obtained from \(X\) by replacing each singular point by a projective line. The fibers of
+\[
+p:\widetilde X\longrightarrow\Pj^2(\C)
+\]
+are of the following three types:
+\[
+\begin{array}{c@{\quad}c@{\quad}l}
+s\notin C_1\cup C_2 &
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.72]
+  \draw (-1.15,0)--(1.15,0);
+\end{tikzpicture}
+& \text{a conic},\\[0.9em]
+s\in C_1\cup C_2,\ s\notin C_1\cap C_2 &
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.72]
+  \draw (-1.15,-.36)--(1.15,.36);
+  \draw (-1.15,.36)--(1.15,-.36);
+\end{tikzpicture}
+& \text{two concurrent lines},\\[0.9em]
+s\in C_1\cap C_2 &
+\begin{tikzpicture}[baseline=-0.45ex,scale=0.72]
+  \draw (-1.15,-.45)--(1.15,.45);
+  \draw (-1.15,.45)--(1.15,-.45);
+  \draw (-1.15,0)--(1.15,0);
+\end{tikzpicture}
+& \text{three lines as shown.}
+\end{array}
+\]
+As one specializes from the generic point \(\eta\) of \(\Pj^2(\C)\) to the generic point \(\eta_i\) of \(C_i\), and then to \(s\in C_1\cap C_2\), the irreducible components specialize as in the diagram
+\[
+\tag{3.4}
+\begin{tikzpicture}[scale=1.02,>=Stealth]
+  \tikzset{pt/.style={inner sep=0.5pt,font=\scriptsize}}
+  \node[pt,label=above:\(\eta\)] (eta) at (0,1.65) {\(\times\)};
+  \node[pt,label=above:\(\eta_1\)] (e11) at (2.75,2.05) {\(\times\)};
+  \node[pt] (e12) at (2.75,1.25) {\(\times\)};
+  \node[pt,label=left:\(\eta_2\)] (e2) at (0,-1.15) {\(\times\)};
+  \node[pt,label=above left:\(s\)] (s0) at (1.85,0.20) {\(\times\)};
+  \node[pt] (s1) at (2.75,0.20) {\(\times\)};
+  \node[pt] (s2) at (2.75,-0.65) {\(\times\)};
+  \node[pt] (s3) at (2.75,-1.40) {\(\times\)};
+  \draw[->,shorten >=3pt,shorten <=3pt] (eta)--(e11);
+  \draw[->,shorten >=3pt,shorten <=3pt] (eta)--(e12);
+  \draw[->,shorten >=3pt,shorten <=3pt] (eta)--(e2);
+  \draw[->,shorten >=3pt,shorten <=3pt] (e2)--(s0);
+  \draw[->,shorten >=3pt,shorten <=3pt] (e2)--(s2);
+  \draw[->,shorten >=3pt,shorten <=3pt] (e2)--(s3);
+  \draw[->,shorten >=3pt,shorten <=3pt] (e11)--(s0);
+  \draw[->,shorten >=3pt,shorten <=3pt] (e12)--(s0);
+  \draw[->,shorten >=3pt,shorten <=3pt] (e12)--(s2);
+  \draw[->,shorten >=3pt,shorten <=3pt] (s2)--(s3);
+\end{tikzpicture}
+\]
+Crosses represent irreducible components, all with multiplicity one. The tedious local verification of this result is omitted. From it one obtains:
+\paragraph{Lemma 3.5.} One has
+\[
+R^0p_*\Z=\Z,
+\qquad R^1p_*\Z=0,
+\]
+and an exact sequence of sheaves
+\[
+0\longrightarrow A_1\oplus A_2\longrightarrow R^2p_*\Z\xrightarrow{\Tr}\Z\longrightarrow0.
+\]
+
+We can now use the Leray spectral sequence of \(p\) to compute \(H^*(\widetilde X,\Z)\). The essential fact is the following; it implies irrationality of \(X\).
+
+\paragraph{Lemma 3.6.} One has
+\[
+H^3(\widetilde X,\Z)=\Z/(2).
+\]
+Compute the \(E_2\)-terms of the Leray spectral sequence of \(p\). Since \(R^0p_*\Z=\Z\), we have \(E_2^{p,0}=\Z,0,\Z,0,\Z\) for \(p=0,\ldots,4\); and since \(R^1p_*\Z=0\), we have \(E_2^{p,1}=0\). To compute \(E_2^{p,2}=H^p(R^2p_*\Z)\), use the long exact sequence associated with the short exact sequence of sheaves in 3.5. One finds
+\[
+0\to E_2^{0,2}\to\Z\to\Z/2\oplus\Z/2\to E_2^{1,2}\to0,
+\qquad E_2^{3,2}=0,
+\qquad E_2^{4,2}=\Z,
+\]
+and \(E_2^{2,2}\) is displayed in the following table:
+\[
+\begin{array}{c|ccccc}
+q=2&\Z&\Z/2&0&0&\Z\\
+q=1&0&0&0&0&0\\
+q=0&\Z&0&\Z&0&\Z\\ \hline
+&p=0&1&2&3&4
+\end{array}
+\]
+One easily checks that \(a(E_2^{0,2})=2\Z\), although this is not needed to prove \(H^3(\widetilde X,\Z)_{\tors}\ne0\). The differentials \(d_r^{p,q}\) can only be zero, and the lemma follows. It was essential to have two curves \(C_i\subset\Pj^2(\C)\) along which \(X\) degenerates: a group \(\Z/2\) is killed in passing from \(H^1(\Ker(R^2p_*\Z\to\Z))\) to \(H^1(R^2p_*\Z)=E_2^{1,2}\).
+
+It remains to carry out the promised construction. Artin and Mumford can prove a priori the existence of a conic bundle of the required type. I shall only give equations defining one.
+
+\begin{enumerate}[label=\arabic*)]
+\item The image of \(f_1f_2\) in \(H^0(Q,\mathcal O(6))\) is the square of \(g_1\). The conic \(Q\) is rational, and the zeros of \(f_1f_2\) on \(Q\) are double. This \(g_1\) lifts to \(g\in H^0(\Pj^2(\C),\mathcal O(3))\), since \(H^1(\Pj^2(\C),\mathcal O(1))=0\). Since \(f_1f_2-g^2\) vanishes on \(Q\), it is a multiple of \(q\):
+\[
+f_1f_2=g^2+qd.
+\]
+\item Take
+\[
+V=\mathcal O(-1)\oplus\mathcal O(-2)\oplus\mathcal O,
+\]
+and the form
+\[
+\varphi:V\to\mathcal O,
+\qquad (x,y,z)
+\longmapsto qx^2+2gxy-dy^2-z^2.
+\]
+Then \(\Delta=g^2+qd=f_1f_2\). At a point where \(\varphi\) had rank \(\le1\), one would have \(\Delta=q=d=0\), hence \(g=0\), and \(\Delta=g^2+qd\) would have a double zero. This is impossible because \(C_1\cap C_2\cap Q=\varnothing\). Finally, \(S\) is identified with the subscheme of \(X\) defined by \(y=0\), and d), e) follow.
+\end{enumerate}
+
+\begin{center}\bfseries Bibliography\end{center}
+\begin{enumerate}[label={[\arabic*]}]
+\item A. Andreotti, On a theorem of Torelli, Am. J. of Math. 80 (1958), p. 801--828.
+\item M. Artin and D. Mumford, Some elementary examples of unirational varieties which are not rational, Journal London Math. Soc., to appear.
+\item M. Atiyah, On analytic surfaces with double points, Proc. Roy. Soc. London, Ser. A 247 (1958), p. 237--244.
+\item C. H. Clemens and P. A. Griffiths, The intermediate jacobian of the cubic threefold, preprint.
+\item H. Hironaka, Resolution of singularities of an algebraic variety over a field of characteristic zero I, II, Ann. of Math. 79 (1964), p. 109--326.
+\item Ju. I. Manin and V. A. Iskovskih, L'hypersurface quartique de dimension trois, et un contre-exemple au problème de Lüroth, Mat. Sbornik 86 (1971), 140--166.
+\item L. Roth, Algebraic threefolds, Ergebnisse der Math., Heft 6, Springer-Verlag, 1955.
+\item B. Saint-Donat, Sur un théorème de G. Castelnuovo et F. Enriques, thèse de 3ème cycle, Lyon, 1968.
+\item J.-P. Serre, Critère de rationalité pour les surfaces algébriques, d'après K. Kodaira, Séminaire Bourbaki, exposé 146, volume 1956/57, W. A. Benjamin, New York.
+\item J.-P. Serre, On the fundamental group of a unirational variety, J. London Math. Soc. 34 (1959), p. 481--484.
+\item A. Weil, Introduction à l'étude des variétés kählériennes, Hermann, Paris, 1958.
+\end{enumerate}
+
+\end{document}
