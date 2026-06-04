@@ -1,0 +1,838 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=0.86in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.14em}
+\emergencystretch=3em
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\muN}{\mu_N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Pone}{\mathbb P^1}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Ass}{\operatorname{Ass}}
+\newcommand{\MT}{\operatorname{MT}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\Id}{\operatorname{id}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\uomega}{\mathfrak u_\omega}
+\newcommand{\vomega}{\mathfrak v_\omega}
+\newcommand{\barG}{\overline{G}_\omega}
+\newcommand{\barU}{\overline{U}_\omega}
+\newcommand{\baruomega}{\overline{\mathfrak u}_\omega}
+\newcommand{\h}{\mathfrak h}
+\newcommand{\m}{\mathfrak m}
+\newcommand{\Zcen}{\mathfrak Z}
+\newcommand{\widehattensor}{\mathbin{\widehat\otimes}}
+\newcommand{\Lhat}{L^{\wedge}}
+\newcommand{\Uhat}{U^{\wedge}}
+\newcommand{\Bbar}{\overline B}
+\newcommand{\Vbar}{\overline V}
+\newcommand{\Liegr}{\operatorname{Lie}_{\mathrm{gr}}}
+\newcommand{\supp}{\operatorname{Supp}}
+\newcommand{\colim}{\operatorname*{colim}}
+\newcommand{\limproj}{\operatorname*{lim}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Lib}{\operatorname{Lib}}
+\newcommand{\DMRD}{\operatorname{DMRD}}
+\newcommand{\B}{\mathcal B}
+\newtheoremstyle{deligne}{0.45em}{0.45em}{\itshape}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{deligne}
+\newtheorem*{theorem*}{Théorème}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemme}
+\newtheorem*{corollary*}{Corollaire}
+\newtheorem*{remark*}{Remarque}
+\newenvironment{proofdel}{\textit{Preuve.}}{\hfill$\square$}
+\newcommand{\heading}[1]{\vspace{0.65em}\noindent{\bfseries #1}\quad}
+\newcommand{\SourceBreak}{\par\smallskip}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Le groupe fondamental de \(\Gm-\mu_N\),\ pour \(N=2,3,4,6\) ou \(8\)}\\[0.4em]
+{\large Pierre Deligne}
+\end{center}
+
+\section*{5. Application aux valeurs de multilogarithmes: outils}
+
+On fixe un plongement \(\sigma\) de \(k\) dans \(\C\) et, pour \(\eta\in\mu_N\), on notera encore \(\eta\) le nombre complexe \(\sigma(\eta)\). On note \(\tau\) l'action de \(\Gm\) «multiplication par \(\lambda^d\) en degré \(d\)».
+
+\heading{5.1.} Nous utiliserons les résultats de [1] 5.17 à 5.20 rappelés ci-dessous. Rappelons que l'ensemble \(\Pi(\C)\) des points de \(\Pi\) à valeurs dans \(\C\) est l'ensemble des éléments groupaux de
+\[
+ \C\langle\!\langle e_0,(e_\eta)_{\eta\in\mu_N}\rangle\!\rangle .
+\]
+(A) Il existe un élément \(d_{\mathrm{ch}}\) de \(\Pi(\C)\) tel que les coefficients de \(e_0\) et \(e_1\) dans \(d_{\mathrm{ch}}\) soient nuls et que, pour \((s_1,\eta_1)\ne(1,1)\), le coefficient de
+\[
+ e_0^{s_1-1}e_{\eta_1}\cdots e_0^{s_m-1}e_{\eta_m}
+\]
+soit
+\[
+ (-1)^m\zeta(s_1,\ldots,s_m;\eta_1^{-1},\eta_1\eta_2^{-1},\ldots,\eta_{m-1}\eta_m^{-1}).
+\]
+Cet élément est unique ([1] 2.4.5).
+
+(B) Notons \(IU_\omega\) le sous-groupe de \((\Pi,\circ)\) image de \(U_\omega\) par
+\[
+(3.4.6):U_\omega\longrightarrow(\Pi,\circ).
+\]
+Il existe \(v_\sigma\) dans \(\Pi(\Q)\) tel que
+\[
+\tag{5.1.1}
+d_{\mathrm{ch}}\in IU_\omega(\C)\circ \tau(2\pi i)(v_\sigma).
+\]
+L'élément \(v_\sigma\) de \(\Pi(\Q)\) n'est déterminé qu'à multiplication à gauche près, au sens de la loi \(\circ\), par un élément de \(IU_\omega(\Q)\). Nous montrerons en A.8 qu'on peut le choisir fixe par le composé de \(\tau(-1)\) et de l'automorphisme de \(\Pi\) induit par l'automorphisme \(e_0\mapsto e_0\), \(e_\eta\mapsto e_{\eta^{-1}}\) de \(L\). Nous utiliserons seulement le fait, déjà prouvé dans [1], que si \(N=1\) ou \(2\) on peut le choisir fixe par \(\tau(-1)\). Nous le choisirons tel.
+
+\heading{5.2.} Tant \(IU_\omega\) que \(d_{\mathrm{ch}}\) sont dans le sous-groupe de \((\Pi,\circ)\) défini par \(c(e_0)=c(e_1)=0\) (notation (1.4.2)), et en particulier dans le sous-groupe \(D^1\Pi\). L'idéal engendré par \(c(e_0)\) qui définit \(D^1\Pi\) a pour base sur \(\Q\) les \(c(me_0^k)c(e_0)\), pour \(m\) un monôme ne se terminant pas par \(e_0\). On a
+\[
+c(me_0^k)c(e_0)=(k+1)c(me_0^{k+1})+\hbox{reste},
+\]
+où le reste est une somme de \(c(m'e_0^k)\), avec \(m'\) ne se terminant pas par \(e_0\). Il en résulte que l'algèbre affine de \(D^1\Pi\) a pour base sur \(\Q\) les restrictions à \(D^1\Pi\) des \(c(m)\), \(m\) parcourant les monômes ne se terminant pas par \(e_0\).
+
+La filtration de profondeur de \(\OO(D^1\Pi)\) est associée (1.3) à sa graduation par le \(D\)-degré. Appliquant 1.8 à \((D^1\Pi,\circ)\), on en déduit que le schéma vectoriel \(D^1\Pi/D^2\Pi\) admet pour système de coordonnées les \(c(m)\), pour \(m\) un monôme de \(D\)-degré un ne se terminant pas par \(e_0\). Plus précisément, \(c(m)\) dans \(\OO(\Pi)\), restreint à \(D^1\Pi\), se factorise par une fonction linéaire sur \(D^1\Pi/D^2\Pi\), et ces fonctions forment un système de coordonnées.
+
+Pour \(x\) dans \(IU_\omega\), (3.10.5) pour \(d=-1\) donne
+\[
+\tag{5.2.1}
+c(e_0^{k-1}e_\eta+(-1)^ke_0^{k-1}e_{\eta^{-1}})(x)=0.
+\]
+Projetant (5.1.1) sur \(D^1\Pi/D^2\Pi\) (quotient pour la loi \(\circ\)), on déduit de (5.2.1) que pour \(x\) dans \(IU_\omega\circ\tau(t)(v_\sigma)\),
+\[
+\tag{5.2.2}
+c(e_0^{k-1}e_\eta+(-1)^ke_0^{k-1}e_{\eta^{-1}})(x)
+=t^k c(e_0^{k-1}e_\eta+(-1)^ke_0^{k-1}e_{\eta^{-1}})(v_\sigma).
+\]
+Prenant \(x=d_{\mathrm{ch}}\) et \(t=2\pi i\), on obtient
+\[
+\tag{5.2.3}
+c(e_0^{k-1}e_\eta+(-1)^ke_0^{k-1}e_{\eta^{-1}})(v_\sigma)
+=-\frac{\zeta(k,\eta^{-1})+(-1)^k\zeta(k,\eta)}{(2\pi i)^k}
+\]
+si \((k,\eta)\ne(1,1)\). De plus, \(c(e_1)(v_\sigma)=0\). Le membre de droite de (5.2.3) est donc rationnel. On sait plus précisément que pour \(z=\exp(2\pi it)\), \(0\le t\le1\), et \(t\ne0,1\) si \(k=1\), on a (développement en série de Fourier des polynômes de Bernoulli, Bourbaki FVR VI \S2 ex. 12c)
+\[
+\tag{5.2.4}
+\left(\sum\frac{z^n}{n^k}+(-1)^k\sum\frac{z^{-n}}{n^k}\right)/(2\pi i)^k=-B_k(t)/k!.
+\]
+Notons \(c_{k,\eta}\) le nombre rationnel (5.2.3) tel que \(c(e_0^{k-1}e_\eta+(-1)^ke_0^{k-1}e_{\eta^{-1}})\) vaille \(c_{k,\eta}t^k\) sur \(IU_\omega\circ\tau(t)(v_\sigma)\).
+
+\begin{corollary*}[5.3]
+(i) Si \(k\) est pair, \(c_{k,1}\ne0\).\\
+(ii) Si \(k\) est impair, et que \(\eta\ne\pm1\), \(c_{k,\eta}\ne0\).
+\end{corollary*}
+
+\begin{proofdel}
+(i) résulte de ce que \(\zeta(k)\ne0\), et (ii) résulte de ce que, pour \(k\) impair, le polynôme de Bernoulli \(B_k\) ne s'annule dans l'intervalle \([0,1]\) qu'en \(0,\frac12\) et \(1\) (Bourbaki, FVR VI \S2 exercice 4c).
+\end{proofdel}
+
+\heading{5.4.} L'application \(t\mapsto\tau(t)(v_\sigma)\) de \(\Gm\) dans \(\Pi\) se prolonge en une application de \(\A^1\) dans \(\Pi\), qu'on notera encore \(t\mapsto\tau(t)(v_\sigma)\) ou, dans ce numéro,
+\[
+\tag{5.4.1}
+d:\A^1\longrightarrow\Pi.
+\]
+Si \(N=1,2\), elle se factorise par
+\[
+\tag{5.4.2}
+\bar d:\A^1/\mu_2\longrightarrow\Pi.
+\]
+L'algèbre affine de \(\A^1\) est \(\Q[t]\). Celle de \(\A^1/\mu_2\) est la sous-algèbre \(\Q[t^2]\): on regardera \(t^2\) comme une coordonnée sur \(\A^1/\mu_2\).
+
+Si \(N\ge3\) et que \(c_{1,\eta}\ne0\) (resp. \(N=1,2\)), l'application (5.4.1) (resp. (5.4.2)) admet la rétraction
+\[
+r:x\longmapsto t=\frac{c(e_\eta-e_{\bar\eta})(x)}{c_{1,\eta}}
+\]
+(resp.
+\[
+\tag{5.4.3}
+\bar r:x\longmapsto t^2=\frac{2c(e_0e_1)(x)}{c_{2,1}}).
+\]
+C'est donc un plongement fermé. On notera \(D\) son image, et \(t\) (resp. \(t^2\)) la coordonnée sur \(D\) donnée par (5.4.1) (resp. (5.4.2)).
+
+Le produit pour la loi de groupe \(\circ\) de \(\Pi\) induit un morphisme
+\[
+\tag{5.4.4}
+IU_\omega\times D\longrightarrow\Pi,\qquad x,y\longmapsto x\circ y.
+\]
+Ce morphisme induit un isomorphisme de \(IU_\omega\times D\) avec le sous-schéma fermé, noté \(IU_\omega\circ D\), des \(x\) vérifiant
+\[
+x\circ d(r(x))^{-1}\in IU_\omega
+\]
+(resp.
+\[
+\tag{5.4.5}
+x\circ\bar d(\bar r(x))^{-1}\in IU_\omega).
+\]
+L'application inverse
+\[
+\tag{5.4.6}
+IU_\omega\circ D\longrightarrow IU_\omega\times D
+\]
+est \(x\mapsto(x\circ d(r(x))^{-1},d(r(x)))\) (resp. \(x\mapsto(x\circ\bar d(\bar r(x))^{-1},\bar d(\bar r(x)))\)).
+
+Notons \(\Delta\) le coproduit de l'algèbre affine \(\OO(D^1\Pi)\) défini par la loi de groupe \(\circ\). Si \(F\) dans \(\OO(D^1\Pi)\) a une restriction \(f\) à \(\OO(IU_\omega\circ D)\), l'image de \(f\) par (5.4.6) est \(\Delta F\) restreint à \(IU_\omega\times D\):
+\[
+\tag{5.4.7}
+\begin{tikzcd}[column sep=4.0em,row sep=2.2em]
+\OO(D^1\Pi) \arrow[r,"\Delta"] \arrow[d] &
+\OO(D^1\Pi\times D^1\Pi) \arrow[d]\\
+\OO(IU_\omega\circ D) \arrow[r] &
+\OO(D^1\Pi\times D).
+\end{tikzcd}
+\]
+
+Nous noterons encore \(t\) (resp. \(t^2\)) l'image inverse dans \(\OO(IU_\omega\circ D)\), par (5.4.6), de la coordonnée \(t\) (resp. \(t^2\)) sur \(D\). D'après 5.3, on a:
+
+\begin{lemma*}[5.5]
+Pour \(n\ge1\), pair si \(N=1,2\), \(t^n\) est la restriction à \(IU_\omega\circ D\) d'un élément de codegré \(n\) de \(D^1\OO(\Pi)\).
+\end{lemma*}
+
+D'après A.4, la conjecture suivante est une conséquence de la conjecture A.2, qui est une variante de la conjecture des périodes de Grothendieck.
+
+\begin{theorem*}[Conjecture 5.6]
+Le point complexe \(d_{\mathrm{ch}}\) de \(IU_\omega\circ D\) est un point générique, c'est-à-dire que
+\[
+\tag{5.6.1}
+f\longmapsto f(d_{\mathrm{ch}}):\OO(IU_\omega\circ D)\longrightarrow\C
+\]
+est injectif.
+\end{theorem*}
+
+En d'autres termes, toute relation algébrique à coefficients rationnels entre les
+\[
+\zeta(s_1,\ldots,s_m;\varepsilon_1,\ldots,\varepsilon_m),\qquad
+\varepsilon_i\in\mu_N,\quad (s_1,\varepsilon_1)\ne(1,1),
+\]
+est conséquence de ce que \(d_{\mathrm{ch}}\) est dans \((IU_\omega\circ D)(\C)\).
+
+\heading{5.7.} Si \(T\) est un sous-schéma fermé de \(\Pi\), nous définissons la filtration de profondeur de son algèbre affine \(\OO(T)\) comme déduite par passage au quotient de la filtration de profondeur de \(\OO(\Pi)\). Si \(T\subset D^1\Pi\), elle est déduite par passage au quotient de celle de \(\OO(D^1\Pi)\), et vérifie \(D^0\OO(T)=\Q\).
+
+Exemple. D'après 5.5, la filtration de profondeur de \(\OO(D)\) est donnée par
+\[
+\tag{5.7.1}
+D^0=\Q,\qquad D^1=\OO(D).
+\]
+Si \(\mathfrak t\) est un sous-espace gradué de \(L\), nous définissons sa filtration de profondeur comme étant la filtration induite par la filtration de profondeur de \(L\). Si \(\mathfrak t\) est une sous-algèbre de Lie de \(L\) (resp. de \((L,\{\ ,\ \})\)), et \(T\) le sous-groupe correspondant de \(\Pi\) (resp. \((\Pi,\circ)\)), la compatibilité [1]A, conséquence de 1.6 (ii) appliqué à \(T\) et \(\Pi\) (resp. \((\Pi,\circ)\)), montre que la filtration de profondeur de \(\OO(T)\) se déduit par 1.5 de celle de \(\mathfrak t\).
+
+\begin{proposition*}[5.8]
+La filtration de profondeur de \(\OO(IU_\omega\circ D)\), identifié par (5.4.6) à \(\OO(IU_\omega)\otimes\OO(D)\), est le produit tensoriel des filtrations de profondeur de \(\OO(IU_\omega)\) et de celle de \(\OO(D)\) (donnée par (5.7.1)).
+\end{proposition*}
+
+\begin{proofdel}
+Nous ne donnerons la preuve que pour \(N\ge3\). L'argument est le même pour \(N=1\) ou \(2\), sauf que \(t\) est à remplacer par \(t^2\). Nous commencerons par prouver que l'isomorphisme de \(\OO(IU_\omega\circ D)\) avec \(\OO(IU_\omega)\otimes\OO(D)\) envoie
+\[
+\tag{5.8.1}
+D^p\OO(IU_\omega\circ D)
+\longrightarrow
+D^p\OO(IU_\omega)\oplus\bigoplus_{n>0}D^{p-1}\OO(IU_\omega)\,t^n.
+\]
+Soit \(f\) dans \(D^p\OO(IU_\omega\circ D)\). Par définition de la filtration \(D\), \(f\) est la restriction à \(IU_\omega\circ D\) de \(F\) dans \(D^p\OO(D^1\Pi)\). Le coproduit pour la loi \(\circ\)
+\[
+\Delta:\OO(D^1\Pi)\longrightarrow\OO(D^1\Pi\times D^1\Pi)
+=\OO(D^1\Pi)\otimes\OO(D^1\Pi),\qquad h\longmapsto h(x\circ y),
+\]
+est compatible aux graduations par le \(D\)-degré. Puisque \(D^1L\) est à \(D\)-degré \(>0\), l'idéal d'augmentation est à \(D\)-codegrés \(>0\), et \(\Delta F-F\otimes1\), qui est dans \(\OO(D^1\Pi)\otimes\mathfrak m\), est dans \(D^{p-1}\OO(D^1\Pi)\otimes\mathfrak m\): on a
+\[
+\tag{5.8.2}
+\Delta F=F\otimes1+\hbox{reste dans }D^{p-1}\OO(D^1\Pi)\otimes\mathfrak m.
+\]
+Restreignons (5.8.2) à \(IU_\omega\times D\subset D^1\Pi_\omega\times D^1\Pi_\omega\) et appliquons 5.4.7. On obtient (5.8.1).
+
+Il reste à montrer que (5.8.1) est surjectif. D'après 5.5, les \(D^{p-1}\OO(IU_\omega\circ D)\,t^n\) sont dans \(D^p\OO(IU_\omega\circ D)\). Filtrons \(D^p\OO(IU_\omega\circ D)\) par
+\[
+D^p\OO(IU_\omega\circ D)\supset
+D^{p-1}\OO(IU_\omega\circ D)t\supset
+D^{p-1}\OO(IU_\omega\circ D)t^2\supset\cdots .
+\]
+D'après (5.8.1) pour \(p\) et \(p-1\), (5.8.1) est compatible à cette filtration et à la filtration \(t\)-adique du membre de droite. Le gradué associé est surjectif, car donné par des morphismes de restriction de \(IU_\omega\circ D\) à \(IU_\omega\). Puisqu'il suffit de vérifier la surjectivité de (5.8.1) séparément en chaque degré, et qu'en chaque degré ces filtrations sont finies, la surjectivité de (5.8.1) résulte de celle de son gradué.
+\end{proofdel}
+
+\heading{5.9.} Soit \(E\) un espace vectoriel sur \(\Q\), bigradué à degrés \(>0\). On suppose que les composantes homogènes pour le premier degré, simplement appelé degré, sont de dimension finie. Le second degré sera appelé \(D\)-degré, et la filtration correspondante filtration de profondeur. Soit \(E^\wedge\) le schéma limite projective d'espaces affines
+\[
+E^\wedge:=\limproj(E/E_{\mathrm{degré}\ge p}).
+\]
+Son algèbre affine, munie de sa graduation par le degré, et de la filtration de profondeur associée à sa graduation par le \(D\)-degré, est du type \((*)\) de 1.11, et \(E\) est l'espace tangent gradué de \(E^\wedge\) en \(0\).
+
+Soit
+\[
+F:IU_\omega\circ D\longrightarrow E^\wedge
+\]
+un morphisme de schémas compatible aux graduations par le degré et aux filtrations de profondeur des algèbres affines. Par restriction à \(IU_\omega\) et passage aux espaces tangents gradués à l'origine, il induit
+\[
+\tag{5.9.1}
+dF|_{\mathfrak{iu}_\omega}:\mathfrak{iu}_\omega\longrightarrow E.
+\]
+Nous utiliserons 5.8 sous la forme suivante.
+
+\begin{corollary*}[5.10]
+Supposons que (5.9.1) soit un isomorphisme d'espaces vectoriels gradués filtrés, et soit
+\[
+F_1:IU_\omega\circ D\longrightarrow E^\wedge\times D
+\]
+le morphisme de projections \(F\) et \(IU_\omega\circ D\xrightarrow{5.4.6}IU_\omega\times D\to D\). Alors
+\[
+F_1^*:\OO(E^\wedge\times D)\longrightarrow\OO(IU_\omega\circ D)
+\]
+est un isomorphisme d'algèbres graduées filtrées.
+\end{corollary*}
+
+Dans 5.10, la filtration de profondeur de \(\OO(E^\wedge\times D)=\OO(E^\wedge)\otimes\OO(D)\) est définie comme étant le produit tensoriel de celles de \(\OO(E^\wedge)\) et de \(\OO(D)\).
+
+\begin{proofdel}
+D'après 1.12 et 1.14, la restriction de \(F\) à \(IU_\omega\) induit un isomorphisme d'algèbres graduées filtrées de \(\OO(E^\wedge)\) à \(\OO(IU_\omega)\). Le diagramme
+\[
+\tag{5.10.1}
+\begin{tikzcd}[column sep=3.0em,row sep=2.0em]
+IU_\omega\circ D \arrow[rr,"F_1"] \arrow[dr] &&
+E^\wedge\times D \arrow[dl]\\
+& D &
+\end{tikzcd}
+\]
+est commutatif. Le gradué de \(\OO(IU_\omega\circ D)\) pour la filtration \(t\)-adique est
+\[
+\OO((\hbox{fibre en }0)\times D)=\OO(IU_\omega\times D).
+\]
+D'après 5.8, la filtration déduite par passage au gradué de la filtration de profondeur est simplement la filtration de profondeur de \(\OO(IU_\omega\times D)=\OO(IU_\omega)\otimes\OO(D)\). De même pour \(E^\wedge\times D\). Enfin, (5.10.1) assure que le gradué de \(F_1^*\) est l'image inverse par
+\[
+(\hbox{fibre en }0\hbox{ de }IU_\omega\circ D\to D)\times D
+\longrightarrow E^\wedge\times D.
+\]
+C'est donc un isomorphisme d'espaces filtrés. La filtration \(t\)-adique étant en chaque degré une filtration finie, 5.10 en résulte.
+\end{proofdel}
+
+\section*{6. \(N=3,4,8\)}
+
+Dans ce paragraphe, on suppose que \(N=3,4\) et \(M=1\), ou que \(N=8\) et \(M=2\).
+
+\begin{theorem*}[6.1]
+Fixons \(w,d\ge0\). Toute valeur de multilogarithme rel. \(\mu_N\)
+\[
+\tag{6.1.1}
+\zeta(s_1,\ldots,s_r;\eta_1,\ldots,\eta_r)\qquad(\eta_i\in\mu_N)
+\]
+de poids \(\sum s_i=w\) et de profondeur \(r\le d\), avec \((s_1,\eta_1)\ne(1,1)\), est combinaison linéaire à coefficients rationnels des
+\[
+\tag{6.1.2}
+\zeta(s_1,\ldots,s_r;\eta_1,\ldots,\eta_r)(2\pi i)^p
+\]
+pour \(p+\sum s_i=w\), \(r\le d\) si \(p=0\), et \(r\le d-1\) si \(p>0\), \(\eta_1\in\zeta\mu_M\) et \(\eta_2,\ldots,\eta_r\in\mu_M\). De plus, la conjecture 5.6 implique que les quantités (6.1.2) sont \(\Q\)-linéairement indépendantes.
+\end{theorem*}
+
+\begin{proofdel}
+D'après 4.11, on a \(U_\omega\overset{\sim}{\longrightarrow}IU_\omega\). L'application composée
+\[
+\tag{6.1.3}
+IU_\omega\circ D\xrightarrow{O_1}D^1\Pi\xrightarrow{O_2}D^1\Pi_M^{\prime\prime}
+\]
+induit sur les algèbres affines un morphisme compatible aux filtrations de profondeur: c'est le cas pour \(O_1\) par définition, pour \(O_2\) parce que \(O_2\) est même compatible aux graduations par le \(D\)-degré. Le schéma \(D^1\Pi_M^{\prime\prime}\) est du type \(E^\wedge\) considéré en 5.9, car l'exponentielle l'identifie à \(L^{\prime\prime\wedge}\), et 4.11 (ii) nous dit que l'hypothèse de 5.10 est vérifiée. Le morphisme
+\[
+\tag{6.1.4}
+IU_\omega\circ D\longrightarrow D^1\Pi^{\prime\prime}\times D
+\]
+induit donc sur les algèbres affines un isomorphisme d'algèbres graduées filtrées.
+
+Le schéma \(D^1\Pi_M^{\prime\prime}\) est le schéma des éléments groupaux de
+\[
+\Q\langle\!\langle e_0,(e_\eta)_{\eta\in\zeta^{-1}\mu_M}\rangle\!\rangle,
+\]
+de coefficient de \(e_0\) nul. Son algèbre affine admet pour base graduée et \(D\)-graduée les \(c(m)\), pour \(m\) un monôme en \(e_0\) et les \(e_\eta\) (\(\eta\in\zeta^{-1}\mu_M\)) ne finissant pas par \(e_0\) (cf. 5.2). L'image inverse de \(c(m)\) par (6.1.3) est simplement la restriction à \(IU_\omega\circ D\) de \(c(m)\in\OO(\Pi)\).
+
+L'isomorphisme (6.1.4) signifie donc que \(\OO(IU_\omega\circ D)\) admet pour base sur \(\Q\) les \(c(m)t^p\), pour \(m\) un monôme en \(e_0\) et les \(e_\eta\) (\(\eta\in\zeta\mu_M\)) ne se terminant pas par \(e_0\), que
+\[
+\operatorname{codegré}(c(m)t^p)=\operatorname{degré}(m)+p,
+\]
+et que \(D^d\OO(IU_\omega\circ D)\) a pour base ceux des \(c(m)t^p\) pour lesquels
+\[
+p=0\hbox{ et }m\hbox{ est de }D\hbox{-degré }\le d,
+\]
+ou
+\[
+p>0\hbox{ et }m\hbox{ est de }D\hbox{-degré }\le d-1.
+\]
+Il ne reste qu'à évaluer en \(d_{\mathrm{ch}}\in(IU_\omega\circ D)(\C)\). Les quantités (6.1.1) s'obtiennent (au signe près) en évaluant les \(c(m)\), pour \(m\) un monôme en \(e_0\) et les \(e_\eta\) (\(\eta\in\mu_N\)) de degré \(w\) et de \(D\)-degré \(\le d\). Les quantités (6.1.2) s'obtiennent (au signe près) en évaluant les \(c(m)t^p\) de la base ci-dessus de \(D^p(\OO(IU_\omega\circ D))_w\). Enfin, l'indépendance linéaire des quantités (6.1.1) équivaut à l'injectivité de (5.6.1).
+\end{proofdel}
+
+\section*{7. \(N=2\)}
+
+Dans ce paragraphe, \(N=2\), \(M=1\), \(\ell=2\), et on note \(A\) l'ensemble des entiers impairs \(\ge1\), ordonné par l'ordre \(\ge\), qu'on notera \(\prec\):
+\[
+\cdots\prec5\prec3\prec1.
+\]
+
+\heading{7.1.} Les mots de Lyndon dans l'alphabet \(A\) seront appelés mots de Lyndon impairs. À un mot de Lyndon impair \(n=(n_1,\ldots,n_d)\) on attachera \(\zeta(n_1,\ldots,n_d;-1,1,\ldots,1)\), noté simplement \(\zeta(n;-1,1,\ldots)\), et à une combinaison linéaire formelle à coefficients entiers \(\ge0\),
+\[
+\sum\lambda(n)[n],
+\]
+de mots de Lyndon impairs, on attachera le produit
+\[
+\prod\zeta(n;-1,1,\ldots)^{\lambda(n)}.
+\]
+Le poids de \(n=(n_1,\ldots,n_d)\) est la somme des \(n_i\), la profondeur de \(n\) est sa longueur \(d\), et on définit poids et profondeur de \(\sum\lambda(n)[n]\) par additivité.
+
+\begin{theorem*}[7.2]
+Fixons \(w,d\ge0\). Toute valeur de multilogarithmes rel. \(\mu_2\)
+\[
+\tag{7.2.1}
+\zeta(s_1,\ldots,s_r;\eta_1,\ldots,\eta_r)\qquad(\eta_i\in\mu_2=\{\pm1\})
+\]
+de poids \(\sum s_i=w\) et de profondeur \(r\le d\) est combinaison linéaire à coefficients rationnels des
+\[
+\tag{7.2.2}
+\prod\zeta(n;-1,1,\ldots)^{\lambda(n)}(2\pi i)^{2p}
+\]
+pour \(\sum\lambda(n)[n]\) une combinaison linéaire formelle à coefficients \(\ge0\) de mots de Lyndon impairs et \(p\ge0\), tels que
+\[
+2p+\operatorname{poids}\Bigl(\sum\lambda(n)[n]\Bigr)=w,
+\]
+et que, si \(p=0\), \(\operatorname{profondeur}(\sum\lambda(n)[n])\le d\), tandis que, si \(p>0\), \(\operatorname{profondeur}(\sum\lambda(n)[n])\le d-1\). De plus, la conjecture 5.6 implique que les quantités (7.2.2) sont \(\Q\)-linéairement indépendantes.
+\end{theorem*}
+
+\begin{proofdel}
+Soit \(E\) l'espace vectoriel librement engendré par des vecteurs \(e_{[n]}\) indexés par les mots de Lyndon impairs. On le bigradue en donnant à \(e_{[n]}\) un degré égal au poids de \(n\), et un \(D\)-degré égal à la profondeur de \(n\).
+
+Le quotient \(D^1\Pi_M^{\prime\prime}\) de \(D^1\Pi\) est le schéma des éléments groupaux de \(\Q\langle\!\langle e_0,e_{-1}\rangle\!\rangle\) dont le coefficient de \(e_0\) est nul. À chaque mot de Lyndon impair \(n=(x_1,\ldots,x_d)\) attachons le monôme
+\[
+m(n):=e_0^{n_1-1}e_{-1}e_0^{n_2-1}e_{-1}\cdots e_0^{n_d-1}e_{-1}.
+\]
+Son degré est le poids de \(n\), son \(D\)-degré sa profondeur. Les \(c(m(n))\) sont donc les coordonnées d'un morphisme de schémas
+\[
+\tag{7.2.3}
+D^1\Pi^{\prime\prime}\longrightarrow E^\wedge,
+\]
+compatible aux degrés et aux \(D\)-degrés.
+
+L'application composée
+\[
+\tag{7.2.4}
+IU_\omega\circ D\xrightarrow{O_1}D^1\Pi\xrightarrow{O_2}D^1\Pi^{\prime\prime}\xrightarrow{O_3}E^\wedge
+\]
+induit sur les algèbres affines un morphisme compatible aux filtrations de profondeur: c'est le cas pour \(O_1\) par définition, tandis que \(O_2\) et \(O_3\) sont même compatibles aux graduations par le \(D\)-degré.
+
+Par passage aux espaces tangents à l'origine, la restriction de (7.2.4) à \(IU_\omega\) définit un morphisme gradué filtré
+\[
+\tag{7.2.5}
+\mathfrak{iu}_\omega\longrightarrow E.
+\]
+Les mêmes arguments qu'en 6.1 ramènent 7.2 à l'énoncé suivant.
+
+\begin{proposition*}[7.3]
+Le morphisme (7.2.5) est un isomorphisme d'espaces gradués filtrés.
+\end{proposition*}
+
+Pour prouver 7.3, il nous faudra revenir à 4.9. D'après 4.11, on a \(u_\omega\overset{\sim}{\longrightarrow}\mathfrak{iu}_\omega\), et la filtration de profondeur de \(\mathfrak{iu}_\omega\) s'identifie à la série centrale descendante. Soient comme en 4.6 \(J\) l'image de \(u_\omega^{\mathrm{ab}}\) dans \((L^{\prime\prime}\times L')\langle1\rangle\) et les morphismes
+\[
+\tag{7.3.1}
+\Lib(J)\longrightarrow \Gr_Z(u_\omega)=\Gr_D(\mathfrak{iu}_\omega)\longrightarrow (L^{\prime\prime}\times L',\{\ ,\ \}).
+\]
+Comme en 4.10, il suffit de montrer que
+\[
+\tag{7.3.2}
+\Lib(J)\xrightarrow{7.3.1}L^{\prime\prime}\times L'\longrightarrow L^{\prime\prime}\longrightarrow E
+\]
+est un isomorphisme.
+
+Les morphismes (7.3.2) se déduisent par tensorisation avec \(\Q\) de
+\[
+\tag{7.3.3}
+\Lib(J_\Z)\longrightarrow L^{\prime\prime}_\Z\times L'_\Z\longrightarrow L^{\prime\prime}_\Z\longrightarrow E_\Z,
+\]
+où \(J_\Z,L'_\Z\) et \(L^{\prime\prime}_\Z\) sont comme en 4.8 et 4.1, et où \(E_\Z\) est engendré sur \(\Z\) par les \(e_{[n]}\), pour \(n\) un mot de Lyndon impair. Comme en 4.10, pour prouver que (7.3.2) est un isomorphisme, il suffit de prouver que la réduction modulo \(\ell\)
+\[
+\tag{7.3.4}
+\Lib(J_\Z/\ell)\xrightarrow{O_1}L^{\prime\prime}_\Z/\ell\xrightarrow{O_2}E_\Z/\ell
+\]
+de (7.3.3) est un isomorphisme.
+
+L'algèbre de Lie \(L^{\prime\prime}_\Z/\ell\) est librement engendrée sur \(\Z/\ell\) par les \(\ad(e_0)^{n-1}(e_{-1})\) (\(n\ge1\)), et \(\Lib(J_\Z/\ell)\) est la sous-algèbre librement engendrée par les \(\ad(e_0)^{n-1}(e_{-1})\) pour \(n\) impair. Le morphisme \(O_2\) a pour coordonnées les
+\[
+L^{\prime\prime}_\Z/\ell\longrightarrow \Z/\ell\langle e_0,e_{-1}\rangle
+\xrightarrow{c(m(n))}\Z/\ell
+\]
+pour \(n\) de Lyndon impair.
+
+Chaque mot de Lyndon impair \(w\) définit un polynôme de Lie en des variables \(x_n\) (\(n\) impair \(\ge1\)). Appliquant ce polynôme de Lie aux \(\ad(e_0)^{n-1}(e_{-1})\), on obtient \(P_w\), et ces \(P_w\) forment une base de \(\Lib(J_\Z/\ell)\). D'après 2.4, en chaque degré et \(D\)-degré, la matrice des \(c(m(n))(P_w)\) (\(n\) et \(w\) de Lyndon impair et de degré et \(D\)-degré fixés) est triangulaire, avec des \(1\) sur la diagonale. Elle est donc inversible, et ceci conclut la preuve de 7.2.
+\end{proofdel}
+
+\heading{7.3.} Il ne faut pas prendre trop au sérieux le système générateur (7.2.2). D'autres sont possibles. Voici un exemple. On munit l'ensemble des entiers impairs \(\ge3\) de son ordre \(\le\) usuel, et on remplace dans (7.2.2) les \(\zeta(n;-1,1,\ldots)\) pour \(n\) un mot de Lyndon impair par les
+\[
+\zeta(n_1,\ldots,n_d;-1,1,\ldots,1)
+\]
+pour \((n_d,\ldots,n_1)\) un mot de Lyndon dans cet alphabet. La preuve est la même, sauf que 2.4 est à remplacer par le lemme suivant, où les monômes
+\[
+e^{m_1}fe^{m_2}f\cdots e^{m_d}fe^{m_{d+1}}
+\]
+de degrés donnés en \(e\) et \(f\) sont ordonnés selon l'ordre lexicographique de
+\[
+\left(\sum_{1}^{d}m_i,\sum_{1}^{d-1}m_i,\ldots,m_1\right).
+\]
+
+\begin{lemma*}[7.4]
+Soient \(w=(n_1,\ldots,n_d)\) un mot de Lyndon de l'alphabet des entiers \(\ge0\) ordonné par \(\le\), et \(P_w\) le polynôme de Lie correspondant, appliqué aux \((\ad e)^n(f)\). Alors
+\[
+\tag{7.4.1}
+P_w=\pm e^{n_d}fe^{n_{d-1}}f\cdots e^{n_1}f+\hbox{reste},
+\]
+où le reste est combinaison linéaire de monômes de mêmes degrés en \(e\) et \(f\) et strictement plus petit dans l'ordre 7.3.
+\end{lemma*}
+
+\begin{proofdel}
+Prenons pour alphabet \(\{e,f\}\), avec \(f<e\). Les mots de Lyndon sont \(e\), et les mots de Lyndon en les \(fe^a\), ordonnés lexicographiquement. Cet ordre est l'ordre \(\le\) de \(a\), et on identifie les mots de Lyndon en les \(fe^a\) aux mots de Lyndon de l'alphabet \((\mathbb N,\le)\). Si \(w'=(a_1,\ldots,a_d)\) est un tel mot, d'image le mot \(w\) en \(e\) et \(f\), le polynôme de Lie \(P_w\) en \(e\) et \(f\) coïncide avec le polynôme de Lie \(P_{w'}\) appliqué aux \((-\ad e)^a(f)\). D'après 2.4, on a
+\[
+P_w=fe^{a_1}\cdots fe^{a_d}+\hbox{reste},
+\]
+où le reste est combinaison linéaire de monômes strictement plus grands dans l'ordre lexicographique (pour \(f<e\)), et de mêmes degrés en \(e\) et \(f\). Quand on fixe ces degrés, cet ordre, sur les monômes
+\[
+e^{b_0}fe^{b_1}\cdots fe^{b_d},
+\]
+est l'opposé de l'ordre lexicographique des
+\[
+\left(\sum_1^d b_i,\sum_2^d b_i,\ldots,b_d\right).
+\]
+Appliquons plutôt \(P_{w'}\) aux \((\ad e)^a(f)\). On obtient
+\[
+P_{w'}[(\ad e)^a(f)]=\pm fe^{a_1}\cdots fe^{a_d}+\hbox{reste},
+\]
+où le reste est somme de \(e^{b_0}fe^{b_1}\cdots fe^{b_d}\) plus petit dans l'ordre lexicographique de
+\[
+\left(\sum_1^d b_i,\sum_2^d b_i,\ldots,b_d\right).
+\]
+Dans un polynôme de Lie en \(e\) et \(f\), un monôme et celui qui s'en déduit en renversant l'ordre des lettres apparaissent avec des coefficients égaux ou opposés. Le lemme 7.4 se déduit de ce qui précède en renversant l'ordre des lettres.
+\end{proofdel}
+
+\section*{8. \(N=6\)}
+
+Dans ce paragraphe, \(N=6\), \(M=1\), \(\ell=3\), et on note \(A\) l'ensemble des entiers \(\ge2\), ordonné par l'ordre \(\ge\), qu'on note \(\prec\):
+\[
+\cdots\prec4\prec3\prec2.
+\]
+Nous utiliserons les notations \(L_S,\Pi_S\) de 4.1.
+
+\begin{proposition*}[8.1]
+Les morphismes de \(L\) dans \(L_{\{1,\zeta\}}\) et \(L_{\{1,\zeta^{-1}\}}\) induisent des morphismes surjectifs
+\[
+\tag{8.1.1}
+L\longrightarrow L_{\{1,\zeta\}}\times_{L_{\{1\}}}L_{\{1,\zeta^{-1}\}},
+\]
+\[
+\tag{8.1.2}
+\Pi\longrightarrow \Pi_{\{1,\zeta\}}\times_{\Pi_{\{1\}}}\Pi_{\{1,\zeta^{-1}\}}.
+\]
+\end{proposition*}
+
+\begin{proofdel}
+Pour tout ensemble \(E\), notons \(\Lie(E)\) l'algèbre de Lie librement engendrée par \(E\). La surjectivité de (8.1.2) résulte de celle de (8.1.1), et celle de (8.1.1) est un cas particulier du lemme suivant.
+\end{proofdel}
+
+\begin{lemma*}[8.2]
+Si \(E\supset A\cup B\),
+\[
+\tag{8.2.1}
+\Lib(E)\longrightarrow \Lie(A)\times_{\Lib(A\cap B)}\Lib(B)
+\]
+est surjectif.
+\end{lemma*}
+
+\begin{proofdel}
+On se ramène à supposer que \(E=A\cup B\). La surjectivité de (8.2.1) équivaut à celle de
+\[
+\tag{8.2.2}
+\Ker(\Lib(E)\to\Lib(A\cap B))
+\longrightarrow
+\Ker(\Lib(A)\to\Lib(A\cap B))\times
+\Ker(\Lib(B)\to\Lib(A\cap B)).
+\]
+Pour \(F\subset E\), si \(G\) est le \(\Lib(F)\)-module librement engendré par \(E-F\) (la somme de \(E-F\) copies de l'algèbre enveloppante de \(\Lib(F)\)), \(\Lib(E)\) est le produit semi-direct de \(\Lib(F)\) et de l'algèbre de Lie librement engendrée par l'espace vectoriel \(G\) (Bourbaki Lie II \S2). Appliquons ceci à \(A\cap B\subset E\), \(A\cap B\subset A\) et \(A\cap B\subset B\). La surjectivité (8.2.2) se ramène, pour l'algèbre de Lie \(L(G)\) librement engendrée par un espace vectoriel \(G\), à la surjectivité de
+\[
+L(G_1\oplus G_2)\longrightarrow L(G_1)\times L(G_2).
+\]
+Le but est en effet le plus grand quotient de \(L(G_1\oplus G_2)\) dans lequel \(G_1\) et \(G_2\) commutent.
+\end{proofdel}
+
+\heading{8.3.} Posons \(X=\Gm-\{1,\zeta\}\). L'inclusion de \(X\) dans \(X\) envoie l'ensemble \(S\) de points-base tangentiels de \(X\), identifié à \(\{0\}\cup\mu_N\), sur un ensemble de points-base de \(X\) qu'on notera encore \(S\). Cf. 1.6 pour une construction analogue. On note \(\bar S\) le sous-ensemble \(\{0,1,\zeta\}\) de \(S\).
+
+Le groupoïde fondamental motivique de \((X,\bar S)\) est un quotient de celui de \((X,S)\). En réalisation \(\omega\), on obtient le groupoïde constant \(\Pi_{\{1,\zeta\}}\), quotient du groupoïde constant \(\Pi\). C'est le plus grand quotient dans lequel s'annulent les \(e_\eta\in\Lie\Pi_{\eta,\eta}\), pour \(\eta\in\mu_N-\{1,\zeta\}\). Puisque l'action de \((\Pi,\circ)\) sur le groupoïde \(\Pi\) respecte ces \(e_\eta\), elle passe au quotient et \((\Pi,\circ)\) agit sur la \(\omega\)-réalisation de \(P(X,\bar S)\), donc aussi, par restriction, sur celle de \(P(X,S)\).
+
+Notons \(\bar\Pi\) le quotient
+\[
+\bar\Pi:=\Pi_{\{1,\zeta\}}\times_{\Pi_{\{1\}}}\Pi_{\{1,\zeta^{-1}\}}
+\]
+de \(\Pi\) (8.1).
+
+\begin{proposition*}[8.4]
+(i) La loi de groupe \(\circ\) de \(\Pi\) passe au quotient et définit une loi de groupe \(\circ\) sur \(\bar\Pi\).\\
+(ii) Le quotient \((\bar\Pi,\circ)\) de \((\Pi,\circ)\) est le quotient qui agit fidèlement sur \(\omega(P(X,S))\).
+\end{proposition*}
+
+\begin{proofdel}
+Notons \(\Pi^{\{1,\zeta\}}_{b,a}\) la copie \(\omega(P_{b,a}(X))\) de \(\Pi_{\{1,\zeta\}}\), et \(x_{b,a}\) la copie dans \(\Pi^{\{1,\zeta\}}_{b,a}\) de \(x\) dans \(\Pi_{\{1,\zeta\}}\). Soient \(x\) dans \(\Pi\), et \(x'\) et \(x''\) ses images dans \(\Pi_{\{1,\zeta\}}\) et \(\Pi_{\{1,\zeta^{-1}\}}\). L'action de \(x\) envoie \(1_{1,0}\) sur \(x'_{1,0}\) et \(1_{\zeta,0}\) sur \(([\zeta]x'')_{\zeta,0}\). La donnée de ces images suffit à déterminer l'action: \(e_0\in\Lie\Pi^{\{1,\zeta\}}_{0,0}\) est fixe; \(e_1\in\Lie\Pi^{\{1,\zeta\}}_{1,1}\) est fixe, \(e_1\in\Lie\Pi^{\{1,\zeta\}}_{0,0}\) s'en déduit par transport le long de \(1_{1,0}\), c'est-à-dire par
+\[
+y\longmapsto 1_{1,0}^{-1}y\,1_{1,0}:\Pi^{\{1,\zeta\}}_{1,1}\longrightarrow\Pi^{\{1,\zeta\}}_{0,0},
+\]
+et est donc transformé en \((\ad x')^{-1}(e_1)\). De même, \(e_\zeta\in\Lie\Pi^{\{1,\zeta\}}_{\zeta,\zeta}\) est transformé en \((\ad[\zeta](x''))^{-1}(e_\zeta)\). Ceci détermine l'action de \(x\) sur \(\Lie\Pi^{\{1,\zeta\}}_{0,0}\), donc sur \(\Pi^{\{1,\zeta\}}_{0,0}\) et sur le groupoïde.
+
+Deux éléments de \(\Pi\) ont donc la même action si et seulement s'ils ont même image dans le quotient \(\bar\Pi\) de \(\Pi\). Ceci prouve (i) et (ii).
+\end{proofdel}
+
+\heading{8.5.} Le groupoïde fondamental motivique \(P(X,S)\) est de Tate mixte et a bonne réduction partout. L'action de \(U_\omega\) sur sa \(\omega\)-réalisation se factorise donc par \(\bar U_\omega\). Le torseur \(P_{\zeta,0}(Y)\) est un quotient de \(P_{\zeta,0}(X,S)\); l'action de \((\Pi,\circ)\) sur \((\Pi_M)_{\zeta,0}\) se factorise donc par \(\bar\Pi\): on a un diagramme commutatif
+\[
+\tag{8.5.1}
+\begin{tikzcd}[column sep=3.4em,row sep=2.1em]
+U_\omega \arrow[r] \arrow[d] & (\Pi,\circ) \arrow[d] \arrow[dr] & \\
+\bar U_\omega \arrow[r] & (\bar\Pi,\circ) \arrow[r] & \Pi_M^{\prime\prime}\ltimes\Pi_M .
+\end{tikzcd}
+\]
+Le rôle joué aux paragraphes 6 et 7 par \(d_{\mathrm{ch}},v_\sigma,IU_\omega,D,IU_\omega\circ D\) sera joué ici par leurs images
+\[
+\bar d_{\mathrm{ch}},\quad \bar v_\sigma,\quad I\bar U_\omega,\quad \bar D,\quad I\bar U_\omega\circ\bar D
+\]
+dans \(\bar\Pi\), et nous aurons besoin d'analogues dans \(\bar\Pi\) des résultats du paragraphe 5.
+
+L'action de \(\bar U_\omega\) sur \((\Pi_M)_{\zeta,0}\) est fidèle (4.11 (ii)). La seconde ligne de (8.5.1) est donc injective et
+\[
+\tag{8.5.2}
+\bar U_\omega\overset{\sim}{\longrightarrow}I\bar U_\omega\subset(\bar\Pi,\circ).
+\]
+Pour \(\eta\in\{1,\zeta,\zeta^{-1}\}\), les fonctions \(c(e_0^{n-1}e_\eta)\) sur \(\Pi\) se factorisent par \(\bar\Pi\) (et même déjà par \(\Pi_{\{1,\zeta\}}\) ou par \(\Pi_{\{1,\zeta^{-1}\}}\)). Comme en 5.4, le morphisme
+\[
+\tag{8.5.3}
+\A^1\longrightarrow\bar\Pi,\qquad t\longmapsto\tau(t)(\bar v_\sigma),
+\]
+d'image \(\bar D\), admet la rétraction
+\[
+x\longmapsto c(e_\zeta-e_{\zeta^{-1}})(x)/c_{1,\zeta}.
+\]
+En particulier, (8.5.3) est un plongement fermé et définit une coordonnée \(t\) sur \(\bar D\). Comme en 5.4, le produit \(\circ\) de \(\bar\Pi\) induit un plongement fermé
+\[
+\tag{8.5.4}
+I\bar U_\omega\times\bar D\longrightarrow\bar\Pi,
+\]
+d'image \(I\bar U_\omega\circ\bar D\), et on définit \(t\in\OO(I\bar U_\omega\circ\bar D)\) comme étant l'image inverse de la coordonnée \(t\) sur \(\bar D\) par
+\[
+\tag{8.5.5}
+I\bar U_\omega\circ\bar D\longrightarrow I\bar U_\omega\times\bar D,
+\]
+inverse à (8.5.4).
+
+\begin{lemma*}[8.6, parallèle à 5.5]
+Pour \(n\ge1\), \(t^n\) est la restriction à \(I\bar U_\omega\circ\bar D\) d'un élément de codegré \(n\) de \(D^1\OO(\bar\Pi)\).
+\end{lemma*}
+
+\begin{proofdel}
+Pour \(n\) pair (resp. impair), \(c(e_0^{n-1}e_1)\) (resp. \(c(e_0^{n-1}e_\zeta-e_0^{n-1}e_{\zeta^{-1}})\)) est un multiple non nul de \(t^n\) ((5.2.2) et 5.3).
+\end{proofdel}
+
+\heading{8.7.} Si \(T\) est un sous-schéma fermé de \(\bar\Pi\), nous définissons la filtration de profondeur de son algèbre affine \(\OO(T)\) comme déduite par passage au quotient de la filtration de profondeur de \(\OO(\bar\Pi)\), associée à sa graduation par le \(D\)-degré. Les résultats 5.7 à 5.10 du paragraphe 5 restent valables, mutatis mutandis.
+
+\heading{8.8.} Les mots de Lyndon de l'alphabet \(A\) seront appelés mots de Lyndon en les entiers \(\ge2\). À un tel mot de Lyndon \(n=(n_1,\ldots,n_d)\), on attachera \(\zeta(n_1,\ldots,n_d;\zeta,1,\ldots,1)\), noté simplement \(\zeta(n;\zeta,1,\ldots)\), et, à une combinaison linéaire formelle à coefficients entiers \(\ge0\) de tels mots,
+\[
+\sum\lambda(n)[n],
+\]
+le produit
+\[
+\prod\zeta(n;\zeta,1,\ldots)^{\lambda(n)}.
+\]
+On définit poids et profondeur comme en 7.1.
+
+\begin{theorem*}[8.9]
+Fixons \(w,d\ge0\). Tout produit
+\[
+\tag{8.9.1}
+\zeta(s'_1,\ldots,s'_{r'};\eta'_1,\ldots,\eta'_{r'})
+\zeta(s''_1,\ldots,s''_{r''};\eta''_1,\ldots,\eta''_{r''})
+\]
+de poids \(\sum s'_i+\sum s''_i=w\) et de profondeur \(r'+r''\le d\), tel que les produits \(\eta'_1\cdots\eta'_i\) soient tous dans \(\{1,\zeta\}\), et les produits \(\eta''_1\cdots\eta''_i\) tous dans \(\{1,\zeta^{-1}\}\), et que \((s'_1,\eta'_1),(s''_1,\eta''_1)\ne(1,1)\), est combinaison linéaire à coefficients rationnels des
+\[
+\tag{8.9.2}
+\prod\zeta(n;\zeta,1,\ldots)^{\lambda(n)}(2\pi i)^p,
+\]
+pour \(\sum\lambda(n)[n]\) une combinaison linéaire formelle à coefficients \(\ge0\) de mots de Lyndon en les entiers \(\ge2\) et \(p\ge0\) tels que
+\[
+p+\operatorname{poids}\Bigl(\sum\lambda(n)[n]\Bigr)=w,
+\]
+et que, si \(p=0\), \(\operatorname{profondeur}(\sum\lambda(n)[n])\le d\), tandis que, si \(p>0\), \(\operatorname{profondeur}(\sum\lambda(n)[n])\le d-1\). De plus, la conjecture 5.6 implique que les quantités (8.9.2) sont \(\Q\)-linéairement indépendantes.
+\end{theorem*}
+
+Les conditions imposées aux produits (8.9.1) s'expriment plus simplement dans le langage des coefficients de monômes. Au signe près, les produits (8.9.1) s'obtiennent en évaluant en \(d_{\mathrm{ch}}\) un produit
+\[
+\tag{8.9.3}
+c(e_0^{s'_1-1}e_{\varepsilon'_1}e_0^{s'_2-1}e_{\varepsilon'_2}\cdots)
+\,c(e_0^{s''_1-1}e_{\varepsilon''_1}e_0^{s''_2-1}e_{\varepsilon''_2}\cdots).
+\]
+La condition sur les \(\eta'\) et \(\eta''\) équivaut à ce que les \(\varepsilon'_i\) soient dans \(\{1,\zeta^{-1}\}\) et les \(\varepsilon''_i\) dans \(\{1,\zeta\}\), de sorte que (8.9.3) se factorise par \(\bar\Pi\) (le premier facteur par \(\Pi_{\{1,\zeta^{-1}\}}\), le second par \(\Pi_{\{1,\zeta\}}\)), et les autres conditions assurent que (8.9.3) est de codegré \(w\) et dans \(D^d\OO(\bar\Pi)\).
+
+Ceci observé, la preuve de 8.9 est identique à celle de 7.2, \(D^1\Pi\) étant remplacé par \(D^1\bar\Pi\).
+
+\section*{Appendice: comparaison Betti/\(\omega\)}
+
+\heading{A.1.} Soient \(k\) un corps de nombres, \(S\) un ensemble fini de nombres premiers, \(\MT(\OO_S)\) la catégorie des motifs de Tate mixte sur \(k\) à bonne réduction en dehors de \(S\), \(\omega\) son foncteur fibre (3.1.1), \(G_\omega=\Gm\ltimes U_\omega\) le schéma en groupe des automorphismes de \(\omega\), \(\sigma\) un plongement de \(k\) dans une clôture algébrique \(\C\) de \(\R\), et \(M\mapsto M_\sigma\) le foncteur fibre «réalisation de Betti» correspondant.
+
+La définition de \(M\mapsto M_\sigma\) utilise la topologie de \(\C\), mais non le choix d'une racine carrée de \(-1\). C'est pour pouvoir raisonner par transport de structures que nous préférons ne pas nous exprimer en termes de plongement complexe (c'est-à-dire dans la clôture algébrique \(\C\) de \(\R\)). La réalisation de de Rham \(M_{\mathrm{DR}}\) de \(M\) est \(M_\sigma\otimes k\), et l'isomorphisme de comparaison Betti/de Rham fournit
+\[
+\tag{A.1.1}
+\omega(M)\otimes\C\overset{\sim}{\longrightarrow}M_\sigma\otimes\C.
+\]
+Par cet isomorphisme, nous regarderons \(M_\sigma\) comme une nouvelle \(\Q\)-structure sur \(\omega(M)\otimes\C\). On sait qu'il existe \(a_\sigma\) dans \(G_\omega(\C)\) tel que, pour tout \(M\),
+\[
+\tag{A.1.2}
+a_\sigma\omega(M)=M_\sigma.
+\]
+Les \(a_\sigma\) vérifiant (A.1.2) forment un \(G_\omega(\Q)\)-torseur \(T_{\sigma/\omega}\subset G_\omega(\C)\). Testant (A.1.2) sur \(\Q(1)\), on voit que la projection de \(T_{\sigma/\omega}\) dans \(\Gm(\C)=\C^*\) est \(2\pi i\,\Q^*\).
+
+Notons \(\tau\) l'inclusion de \(\Gm\) dans \(G_\omega\) définie par la graduation de \(\omega\). Si \(G_\omega\) agit sur un objet, par exemple sur \(U_\omega\) par automorphismes intérieurs, nous noterons aussi \(\tau(\lambda)\) l'action de \(\tau(\lambda)\). Pour \(\lambda\in2\pi i\,\Q^*\), les \(u\in U_\omega(\C)\) tels que \(u\tau(\lambda)\) soit dans \(T_{\sigma/\omega}\) forment un \(U_\omega(\Q)\)-torseur, \(x\in U_\omega(\Q)\) agissant par
+\[
+\tag{A.1.3}
+\hbox{multiplication à droite par }\tau(\lambda)[x].
+\]
+On a en effet \(u\tau(\lambda)x=u\tau(\lambda)[x]\cdot\tau(\lambda)\).
+
+\begin{theorem*}[Conjecture A.2]
+\(a_\sigma\) est un point générique de \(G_\omega\).
+\end{theorem*}
+
+C'est l'analogue pour les motifs de Tate mixte d'une conjecture de Grothendieck pour les motifs purs.
+
+\begin{proposition*}[A.3]
+La conjecture A.2 implique la conjecture 5.6.
+\end{proposition*}
+
+\begin{proofdel}
+Pour nous conformer aux notations du paragraphe 5, supposons que \(\sigma\) soit un plongement du corps cyclotomique \(k\) dans \(\C\). L'élément \(d_{\mathrm{ch}}\) (5.1 (A)) de \(\Pi(\C)\) dépend de \(\sigma\). Nous le noterons ici \(d_{\mathrm{ch},\sigma}\). Vu comme élément de \((\Pi,\circ)\), il agit sur la \(\omega\)-réalisation du groupoïde fondamental motivique de \((X,\{0\}\cup\mu_N)\).
+
+Rappelons la preuve [1] 5.19 de 5.1 (B). Si on prend \(a_\sigma\) de A.1 de la forme \(u_\sigma\tau(2\pi i)\), avec \(u_\sigma\) dans \(U_\omega(\C)\), d'image (3.4.6)(\(u_\sigma\)) dans \(\Pi(\C)\), tant \((3.4.6)(u_\sigma)\tau(2\pi i)\) que \(d_{\mathrm{ch},\sigma}\tau(2\pi i)\) transforment la \(\omega\)-réalisation du groupoïde fondamental en sa \(\sigma\)-réalisation. Si on définit \(v_\sigma\) par
+\[
+d_{\mathrm{ch},\sigma}\tau(2\pi i)=(3.4.6)(u_\sigma)\tau(2\pi i)v_\sigma
+\]
+(égalité d'actions, ou dans \((\Gm\ltimes\Pi)(\C)\)), on a donc \(v_\sigma\in\Pi(\Q)\) et (5.1.1) sous la forme
+\[
+\tag{A.3.1}
+d_{\mathrm{ch},\sigma}=(3.4.6)(u_\sigma)\circ\tau(2\pi i)(v_\sigma).
+\]
+La conjecture A.2 affirme que \((u_\sigma,2\pi i)\) est \(\Q\)-zariski-dense dans \(U_\omega\times\A^1\). Elle implique que l'image \(d_{\mathrm{ch},\sigma}\) de \((u_\sigma,2\pi i)\) par le morphisme
+\[
+(x,t)\longmapsto(3.4.6)(x)\circ\tau(t)(v_\sigma)
+\]
+de \(U_\omega\times\A^1\) sur \(IU_\omega\circ D\) est Zariski-dense.
+\end{proofdel}
+
+\heading{A.4.} On ne dispose d'aucun outil pour attaquer ni la conjecture A.2, ni 5.6. Pour prouver qu'un sous-schéma en groupe de \(U_\omega\) coïncide avec \(U_\omega\), la proposition suivante a parfois le même effet. Elle se déduit de la connaissance qu'on a de \(U_\omega^{\mathrm{ab}}\) ([1] (A.14.1) et [1] 2.1.3) et de l'injectivité du régulateur de Borel [1] 1.6.10.
+
+\begin{proposition*}[A.4]
+Soit \(H\) un sous-schéma en groupe du schéma en groupe \((U_\omega)_\C\) sur \(\C\). Pour qu'il soit égal à \((U_\omega)_\C\), il suffit que:
+\begin{enumerate}[label=(\alph*)]
+\item il soit gradué (c'est-à-dire stable sous l'action de \(\Gm\));
+\item en degré un, son algèbre de Lie graduée coïncide avec celle de \(U_\omega\);
+\item pour tout plongement complexe \(\sigma\), il contienne \(a_\sigma\bar a_\sigma^{-1}\tau(-1)\).
+\end{enumerate}
+\end{proposition*}
+
+Noter que \(a_\sigma\bar a_\sigma^{-1}\tau(-1)\) est dans \(U_\omega(\C)\) et est indépendant du choix de \(a_\sigma\). Pour \(a_\sigma=u_\sigma\tau(\lambda)\) avec \(u_\sigma\) dans \(U_\omega(\C)\) et \(\lambda\in2\pi i\,\Q^*\), c'est \(u_\sigma\tau(-1)(\bar u_\sigma)\).
+
+\heading{A.5.} Revenons à nos hypothèses générales 3.1. Dans [2], Racinet définit un sous-schéma gradué \(\DMRD_\sigma\) de \(\Pi\), contenant \(d_{\mathrm{ch},\sigma}\). Il est défini par des relations «standard» entre les coefficients de \(d_{\mathrm{ch},\sigma}\). Il prouve que son sous-schéma \(\DMRD_0\), obtenu en annulant (5.4.3), est un sous-schéma en groupe de \((\Pi,\circ)\), indépendant de \(\sigma\), et que, pour \(w_\sigma\) convenable dans \(\Pi(\Q)\), \(\DMRD_\sigma\) est l'image de \(\DMRD_0^\sigma\times\A^1\) par
+\[
+(x,t)\longmapsto x\circ\tau(t)(w_\sigma).
+\]
+L'élément \(d_{\mathrm{ch},\sigma}\) est dans l'image de \(\DMRD_0^\sigma(\C)\times\{2\pi i\}\), et \(d_{\mathrm{ch},\sigma}\circ\tau(-1)(d_{\mathrm{ch},\sigma})^{-1}\) est donc dans \(\DMRD_0\). Ceci vaut pour chaque plongement complexe et A.4 s'applique à l'image inverse de \(\DMRD_0\) dans \(U_\omega\). On conclut que:
+
+\begin{corollary*}[A.5]
+Le sous-schéma en groupe \(\DMRD_0\) de Racinet contient \(IU_\omega\).
+\end{corollary*}
+
+\heading{A.6.} Revenons aux hypothèses de A.1, et supposons que \(\sigma(k)\subset\C\) soit stable par conjugaison complexe. Tel est le cas si \(\sigma\) est un plongement réel, si \(k\) est CM, par exemple cyclotomique, ou si \(k\) est galoisien sur \(\Q\). Par hypothèse, on dispose d'un automorphisme de conjugaison complexe, qu'on notera \(c\), du triple \((k,\sigma,\C)\). Par transport de structures, il agit sur \(G_\omega\), et \(T_{\sigma/\omega}\) est stable sous l'involution \(c\) de \(G_\omega(\C)\). Noter que \(c\) agit par son action sur \(G_\omega\) et sur \(\C\).
+
+\begin{proposition*}[A.7]
+Il existe \(a_\sigma\in T_{\sigma/\omega}\) tel que
+\[
+\tag{A.7.1}
+c(a_\sigma)=a_\sigma\tau(-1).
+\]
+Si \(a_\sigma=u\tau(\lambda)\), avec \(u\in U_\omega(\C)\) et \(\lambda\in2\pi i\,\Q^*\), (A.7.1) équivaut à ce que \(c\) fixe \(u\).
+\end{proposition*}
+
+\begin{proofdel}
+Fixons \(\lambda\) dans \(2\pi i\,\Q^*\), et soit \(T^\lambda_{\sigma/\omega}\) l'ensemble des \(u\in U_\omega(\C)\) tels que \(u\tau(\lambda)\) soit dans \(T_{\sigma/\omega}\). C'est un \(U_\omega(\Q)\)-torseur pour l'action (A.1.3). L'involution \(c\) de \(U_\omega(\C)\) stabilise \(T^\lambda_{\sigma/\omega}\): si \(u\tau(\lambda)\) est dans \(T_{\sigma/\omega}\), \(c(u\tau(\lambda))\) et \(c(u\tau(\lambda))\tau(-1)\) le sont aussi, et
+\[
+c(u\tau(\lambda))\tau(-1)=c(u)\tau(-\lambda)\tau(-1)=c(u)\tau(\lambda).
+\]
+L'involution \(c\) de \(T^\lambda_{\sigma/\omega}\) fait de \(T^\lambda_{\sigma/\omega}\) un \(U_\omega(\Q)\)-torseur équivariant, relatif à l'involution
+\[
+\tau(-1)\circ c:x\longmapsto\tau(-1)c(x)\tau(-1)^{-1}
+\]
+de \(U_\omega(\Q)\). En effet,
+\[
+c(u\cdot\tau(\lambda)x\tau(\lambda)^{-1})
+=c(u)\cdot\tau(-\lambda)c(x)\tau(-\lambda)^{-1}
+=c(u)\cdot\tau(\lambda)\tau(-1)[c(x)]\tau(\lambda)^{-1}.
+\]
+Tout \(U_\omega(\Q)\)-torseur équivariant est trivial, ainsi qu'il résulte par dévissage de la nullité
+\[
+H^1(\mathbb Z/2,V)=0
+\]
+pour \(V\) un \(\Q\)-espace vectoriel muni d'une action de \(\mathbb Z/2\). Il existe donc \(u\) dans \(T^\lambda_{\sigma/\omega}\) fixe sous \(c\), et \(u\tau(\lambda)\) vérifie (A.7.1).
+\end{proofdel}
+
+\begin{corollary*}[A.8]
+L'élément \(v_\sigma\) de (5.1.1) peut être choisi fixe par le composé de \(\tau(-1)\) et de l'automorphisme de \(\Pi\) induit par la conjugaison complexe de \(k\).
+\end{corollary*}
+
+\begin{proofdel}
+Choisissons \(a_\sigma\in T_{\sigma/\omega}\) de la forme \(a_\sigma=u\tau(2\pi i)\) et vérifiant (A.7.1). Soit \(u_1\) l'image de \(u\) dans \(IU_\omega(\C)\), et définissons \(v_\sigma\) par (A.3.1):
+\[
+d_{\mathrm{ch}}=u_1\cdot\tau(2\pi i)[v_\sigma].
+\]
+La conjugaison complexe de \(k\) induit une involution de \(\Pi\), déduite de \(e_a\mapsto e_{\bar a}\) sur \(L\). Cette involution, et la conjugaison complexe de \(\C\), définissent l'involution \(c\) de \(\Pi(\C)\). Tant \(d_{\mathrm{ch}}\) que \(u_1\) sont fixes par cette involution; \(\tau(2\pi i)[v_\sigma]\) l'est donc aussi. Puisque
+\[
+c(\tau(2\pi i)[v_\sigma])=\tau(-2\pi i)[c(v_\sigma)]
+=\tau(2\pi i)[\tau(-1)[c(v_\sigma)]],
+\]
+\(v_\sigma\) est fixe par \(\tau(-1)\circ c\).
+\end{proofdel}
+
+\section*{Index des notations}
+
+\begin{tabular}{ll}
+\(N,\mu_N,k,\zeta,\OO,X:=\Gm-\mu_N,P_{b,a}(\ ),\pi_1(\ ,\ )\) & introduction\\
+\(\zeta(s_1,\ldots,s_k;\varepsilon_1,\ldots,\varepsilon_k)\) & (0.1)\\
+\(Y,\MT(\OO[1/N])\) & introduction\\
+\(\Lie,\Lie_{\mathrm{gr}},L^\wedge\) & 1.1, 1.3\\
+\(U^\wedge,\exp(\mathfrak h),\exp,\OO(\ )\) & 1.2\\
+\(\Ass,\Ass^\wedge,c(\ )\) & 1.4\\
+\(\omega,G_\omega=\Gm\ltimes U_\omega,\bar{\mathfrak u}_\omega\) & 3.1\\
+\(L,\Pi,\Pi_{b,a},x_{b,a},[\eta]\) & 3.2, 3.3\\
+\(V_\omega,(\Pi,\circ),(L,\{\ ,\ \})\) & 3.4\\
+filtration de profondeur \(D^p\), \(D\)-degré, \(\langle d\rangle\) & 3.5, 3.7, 3.9\\
+\(Z\), \(E_\eta^n=(\ad e_0)^{n-1}(e_\eta)\) & 3.10\\
+\(M,Y,L_S,\Pi_S,L_M,L_M'',\Pi_M'',L',L''\) & 4.0, 4.1\\
+\(J,J_\Z,\ell\) & 4.7, 4.8\\
+\(\sigma,\tau,d_{\mathrm{ch}},IU_\omega,v_\sigma\) & 5.0, 5.1\\
+\(D,IU_\omega\circ D\) & 5.4\\
+\(M_\sigma,a_\sigma,T_{\sigma/\omega},u_\sigma\) & A.1, A.3\\
+\(\DMRD_\sigma,\DMRD_0\) & A.5
+\end{tabular}
+
+\section*{Bibliographie}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item P. Deligne et A. B. Goncharov, \emph{Groupes fondamentaux motiviques de Tate mixte}, Ann. Sci. ENS 38, 1--56.
+\item G. Racinet, \emph{Doubles mélanges des polylogarithmes multiples aux racines de l'unité}, Publ. Math. IHES 95 (2002), p. 185--231.
+\item Chr. Reutenauer, \emph{Free Lie Algebras}, Oxford University Press, 1993.
+\end{enumerate}
+
+\end{document}
