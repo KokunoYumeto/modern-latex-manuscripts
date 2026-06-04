@@ -40,7 +40,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Richard Dedekind:** https://doi.org/10.5281/zenodo.20520669 (latest: 20545496) — GMW Volume I Items I-IV source-checked German/English cumulative readers, including the earlier `Was sind und was sollen die Zahlen?` material.
 
 
-**James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20545503) — Volume I source-checked working edition through book page 475; source ZIP includes TeX, cumulative source scan slice, and page witnesses.
+**James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20546396) — Volume I source-checked working edition through book page 493; source ZIP includes TeX, cumulative source scan slice, page witnesses, and the p475 sign/TeX grouping correction.
 
 **Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20545757) — source-checked German/English author lane: 1910 field-theory readers through sections 1-24, and 1912 Rectangular Systems II now complete with source slice pp. 297-345 included.
 
