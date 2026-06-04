@@ -6,28 +6,30 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 ## Current Public Records
 
-- Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20393488
-- Workflow and replication packet: https://zenodo.org/records/20461174
-- EGA working English translation and French originals: https://zenodo.org/records/20414353
-- SGA working English translation and French references: https://zenodo.org/records/20410947
-- Non-European and multilingual mathematical manuscripts: https://doi.org/10.5281/zenodo.20410957 (latest version: https://zenodo.org/records/20538269)
-- Chinese mathematical classics: https://zenodo.org/records/20435670
-- Indian and Sanskrit mathematical classics: https://zenodo.org/records/20435677
-- Islamic and Arabic mathematical texts: https://zenodo.org/records/20435687
-- Historical reference texts for non-European mathematics: https://zenodo.org/records/20435690
-- Heinrich Weber author record: https://zenodo.org/records/20412153
-- Emmy Noether author record: https://zenodo.org/records/20412587
-- Carl Friedrich Gauss author record: https://zenodo.org/records/20410934
-- Bernhard Riemann author record: https://zenodo.org/records/20429778
+- Main landing, bulk preservation, and full repository preservation backstop: https://doi.org/10.5281/zenodo.20393488
+- Workflow and replication packet: https://doi.org/10.5281/zenodo.20461174
+- EGA working English translation and French originals: https://doi.org/10.5281/zenodo.20414353
+- SGA working English translation and French references: https://doi.org/10.5281/zenodo.20410947
+- Non-European and multilingual mathematical manuscripts: https://doi.org/10.5281/zenodo.20410957
+- Chinese mathematical classics: https://doi.org/10.5281/zenodo.20415751
+- Indian and Sanskrit mathematical classics: https://doi.org/10.5281/zenodo.20415754
+- Islamic and Arabic mathematical texts: https://doi.org/10.5281/zenodo.20415769
+- Historical reference texts for non-European mathematics: https://doi.org/10.5281/zenodo.20415776
+- Heinrich Weber author record: https://doi.org/10.5281/zenodo.20412153
+- Emmy Noether author record: https://doi.org/10.5281/zenodo.20412587
+- Carl Friedrich Gauss author record: https://doi.org/10.5281/zenodo.20410934
+- Bernhard Riemann author record: https://doi.org/10.5281/zenodo.20429778
 - Arthur Cayley author record: https://doi.org/10.5281/zenodo.20520749
 - Richard Dedekind author record: https://doi.org/10.5281/zenodo.20520669
 - P. G. Lejeune Dirichlet author record: https://doi.org/10.5281/zenodo.20520679
 - James Joseph Sylvester author record: https://doi.org/10.5281/zenodo.20520692
-- Ernst Steinitz author record: https://doi.org/10.5281/zenodo.20530953
-- Deligne working record: https://zenodo.org/records/20410853
-- Ukrainian applied mathematics working record: https://zenodo.org/records/20490906
-- Cayley, Dedekind, and Dirichlet classical algebra/arithmetic shelf: https://zenodo.org/records/20414787
-- Author cluster shelf: https://zenodo.org/records/20411006
+- Ernst Steinitz author record: https://doi.org/10.5281/zenodo.20530952
+- Deligne working record: https://doi.org/10.5281/zenodo.20410853
+- Ukrainian applied mathematics working record: https://doi.org/10.5281/zenodo.20490906
+- Cayley, Dedekind, and Dirichlet classical algebra/arithmetic shelf: https://doi.org/10.5281/zenodo.20414787
+- Author cluster shelf: https://doi.org/10.5281/zenodo.20411006
+
+These are Zenodo concept DOI links, so they resolve to the record family rather than a single frozen version. The current latest-version identifiers are tracked in `zenodo-metadata/` and in `manifests/public_link_snippet_reddit_20260604.md`.
 
 The first dedicated author split has created separate Cayley, Dedekind, Dirichlet, Sylvester, and Steinitz records. The existing shelf records remain useful umbrellas and preservation backstops, not the preferred reader-facing entry points for mature author lanes.
 
