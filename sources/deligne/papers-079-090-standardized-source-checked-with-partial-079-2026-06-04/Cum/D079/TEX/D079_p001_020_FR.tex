@@ -1,0 +1,848 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newcommand{\Aone}{\mathbb A^1}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\Et}{\mathrm{Et}}
+\newcommand{\et}{\mathrm{et}}
+\newcommand{\Nis}{\mathrm{Nis}}
+\newcommand{\Zar}{\mathrm{Zar}}
+\newcommand{\Sm}{\mathrm{Sm}}
+\newcommand{\SmCor}{\mathrm{SmCor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Tot}{\operatorname{Tot}}
+\newcommand{\forget}{\operatorname{forget}}
+\newcommand{\Sing}{C_*}
+\newcommand{\D}{D}
+\newcommand{\Ho}{\mathcal H}
+\newcommand{\Hob}{\mathcal H_\bullet}
+\newcommand{\HoA}{\mathcal H_{\bullet,A^1}}
+\newcommand{\Ch}{\mathrm{Ch}}
+\newcommand{\sSh}{\mathrm{sSh}}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\pt}{*}
+\newcommand{\ZZ}{\widetilde{\Z}}
+\newcommand{\HH}{\mathrm H}
+\newcommand{\red}{\mathrm{red}}
+\newtheoremstyle{deligne}{0.5em}{0.5em}{\itshape}{}{}{.}{0.5em}{\bfseries #1\thmnote{ #3}}
+\theoremstyle{deligne}
+\newtheorem*{theorem*}{Théorème}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemme}
+\newtheorem*{corollary*}{Corollaire}
+\newtheorem*{definition*}{Définition}
+\newtheorem*{remark*}{Remarque}
+\newtheorem*{example*}{Exemple}
+\newcommand{\heading}[1]{\vspace{0.7em}\noindent{\bfseries #1}\quad}
+\newenvironment{proofdel}{\noindent\textit{Preuve.}}{\hfill$\square$}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Leçons de Voevodsky sur la cohomologie motivique\ 2000/2001}\\[0.6em]
+{\large Pierre Deligne}
+\end{center}
+
+\textbf{Résumé.} Ces leçons couvrent plusieurs thèmes importants de la théorie de l'homotopie motivique qui n'ont pas été traités ailleurs. Parmi eux figurent la définition des catégories d'homotopie motivique équivariantes, la définition et les propriétés de base des faisceaux solides et ind-solides, ainsi que la preuve des propriétés fondamentales des opérations de puissances tordues et de quotients par des groupes relativement aux équivalences \(\Aone\) entre faisceaux ind-solides.
+
+\section*{1. Introduction}
+
+Les leçons qui sont à la source de ces notes portaient sur plusieurs sujets différents, liés entre eux, mais qui ne forment pas, en un sens raisonnable, un tout cohérent. Le présent texte est donc une collection de quatre parties qui se renvoient les unes aux autres, mais qui sont par ailleurs indépendantes.
+
+Dans la première partie, nous introduisons la catégorie d'homotopie motivique et la relions à la théorie de la cohomologie motivique discutée dans [7]. L'exposé est un peu inhabituel parce que nous voulions éviter toute référence aux structures de modèles tout en prouvant le théorème principal 2. Nous avons pu le faire modulo 6, où il nous a fallu renvoyer à la partie suivante.
+
+La deuxième partie traite de la catégorie d'homotopie motivique des \(G\)-schémas, où \(G\) est un schéma en groupes fini et plat, relativement à un analogue équivariant de la topologie de Nisnevich. Le résultat principal est une description de la classe des équivalences \(\Aone\), anciennement appelées équivalences faibles \(\Aone\), donnée au théorème 4, et aussi au théorème 5. Pour le groupe trivial \(G\), on obtient une nouvelle description des équivalences \(\Aone\) dans le cadre non équivariant.
+
+Dans la troisième partie, nous définissons une classe de faisceaux sur les \(G\)-schémas que nous appelons faisceaux solides. Elle contient tous les faisceaux représentables et les quotients de faisceaux représentables par des sous-faisceaux correspondant à des sous-schémas ouverts. En particulier, les espaces de Thom des fibrés vectoriels sont des faisceaux solides. La propriété clé des faisceaux solides peut s'exprimer en disant que tout foncteur exact à droite qui transforme les immersions ouvertes en monomorphismes est exact à gauche sur les faisceaux solides. Un énoncé plus précis est le théorème 6.
+
+Dans la quatrième partie, nous étudions deux foncteurs. Le premier est l'extension aux faisceaux pointés du foncteur des \(G\)-schémas vers les schémas qui envoie \(X\) sur \(X/G\). Le second est l'extension aux faisceaux pointés du foncteur qui envoie \(X\) sur \(X\times_G T\), où \(T\) est un \(G\)-schéma fini et plat. Nous montrons que ces deux foncteurs envoient les faisceaux solides sur des faisceaux solides et préservent les équivalences locales et les équivalences \(\Aone\) entre faisceaux terme à terme ind-solides.
+
+Le matériel de toutes les parties de ces notes, sauf la première, a été développé à l'origine avec un but précis: étendre des foncteurs non additifs, tels que le produit symétrique, des schémas à la catégorie d'homotopie motivique. Plus précisément, nous nous intéressions aux foncteurs donnés par
+\[
+  X\longmapsto (X^T\times S)/G,
+\]
+où \(G\) est un schéma en groupes fini et plat, \(T\) un \(G\)-schéma fini et plat et \(S\) un \(G\)-schéma de type fini quelconque. La catégorie d'homotopie motivique équivariante a été introduite afin de représenter un tel foncteur comme une composition
+\[
+  X\longmapsto X^T\longmapsto X^T\times S\longmapsto (X^T\times S)/G,
+\]
+et les faisceaux solides comme une classe naturelle de faisceaux sur lesquels le foncteur dérivé coïncide avec le foncteur initial.
+
+Sous sa forme présente, ces notes sont le résultat d'un processus interactif qui a impliqué tous les auditeurs des leçons. Un rôle très particulier a été joué par Pierre Deligne. Le texte, tel qu'il est maintenant, a été entièrement écrit par lui. Il a aussi clarifié de nombreuses parties confuses et simplifié les arguments en plusieurs endroits importants.
+
+\begin{flushright}
+Princeton, NJ, 2001.\\
+Vladimir Voevodsky
+\end{flushright}
+
+\section*{2. Cohomologie motivique et catégorie d'homotopie motivique}
+
+Nous rappelons d'abord quelques résultats de l'année précédente; voir [7].
+
+\subsection*{2.1. L'année précédente}
+
+\heading{1.1.} Nous travaillons sur un corps \(k\), qu'il faudra parfois supposer parfait. Les schémas sur \(k\) que nous considérerons seront en général supposés séparés, lisses et de type fini sur \(k\). Nous notons leur catégorie \(\Sm/k\). Trois topologies de Grothendieck sur \(\Sm/k\) seront utiles: Zariski, Nisnevich et étale. Pour chacune de ces topologies, un faisceau sur \(\Sm/k\) équivaut aux données suivantes: pour \(X\) lisse sur \(k\), un faisceau \(F_X\) sur le petit site correspondant de \(X\), fonctoriel en \(X\); un morphisme \(f:X\to Y\) induit \(f^*F_Y\to F_X\).
+
+\heading{1.2.} La définition des groupes de cohomologie motivique de \(X\) lisse sur \(k\) a la forme suivante:
+\begin{enumerate}[label=(\alph*)]
+\item On définit pour chaque \(q\in\Z\) un complexe de préfaisceaux de groupes abéliens \(\Z(q)\) sur \(\Sm/k\). C'est en fait un complexe de faisceaux pour la topologie étale, donc a fortiori pour les topologies de Nisnevich et de Zariski. Pour tout groupe abélien \(A\), il en est de même de
+\[
+  A(q):=A\otimes\Z(q).
+\]
+\item Les groupes de cohomologie motivique de \(X\) à coefficients dans \(A\) sont les groupes d'hypercohomologie des \(A(q)\), dans la topologie de Nisnevich:
+\[
+  H^{p,q}(X,A):=\mathrm H^p(X_{\Nis},A(q)).
+\]
+\end{enumerate}
+Pour \(A=\Z\), nous écrirons simplement \(H^{p,q}(X)\).
+
+La cohomologie motivique a les propriétés suivantes:
+\begin{enumerate}[label=\arabic*.]
+\item Le complexe \(\Z(q)\) est nul pour \(q<0\). Pour tout \(q\), il est concentré en degrés cohomologiques \(\le q\). Comme complexe de faisceaux de Nisnevich, il est quasi-isomorphe à \(\Z\) pour \(q=0\), et à \(\Gm[-1]\) pour \(q=1\).
+\item \(H^{p,p}(\Spec(k))=K_p^M(k)\) pour tout \(p\ge0\).
+\item Pour tout \(X\) dans \(\Sm/k\), on a
+\[
+  H^{p,q}(X)=CH^q(X,2q-p),
+\]
+où \(CH^q(X,2q-p)\) est le \((2q-p)\)-ième groupe de Chow supérieur des cycles de codimension \(q\).
+\item Dans la topologie étale, pour \(n\) premier à la caractéristique de \(k\), le complexe \(\Z/n(q)\) est quasi-isomorphe à \(\mu_n^{\otimes q}\), ce qui donne, pour l'analogue étale de \(H^{p,q}\), la formule
+\[
+  H^{p,q}_{\et}(X,\Z/n):=\mathrm H^p(X_{\et},\Z/n(q))
+  =\mathrm H^p(X_{\et},\mu_n^{\otimes q}).
+\]
+\end{enumerate}
+
+\heading{1.3.} La catégorie \(\SmCor(k)\) est la catégorie dont les objets sont les schémas séparés, lisses et de type fini sur \(k\), et dans laquelle un morphisme \(C:X\to Y\) est un cycle \(C=\sum n_iC_i\) sur \(X\times Y\), chaque composante irréductible \(C_i\) étant finie sur \(X\) et se projetant sur une composante connexe de \(X\). Un morphisme \(C\) peut être pensé comme une application à valeurs finies de \(X\) vers \(Y\). Pour \(x\in X\), de corps résiduel \(k(x)\), il définit un zéro-cycle \(C(x)\) sur \(Y\otimes_k k(x)\), et l'hypothèse faite sur \(C\) implique que le degré de ce zéro-cycle est localement constant sur \(X\).
+
+Un morphisme de schémas \(f:X\to Y\) définit un morphisme dans \(\SmCor(k)\): le graphe de \(f\). Cette construction du graphe définit un foncteur fidèle de \(\Sm/k\) vers la catégorie additive \(\SmCor(k)\).
+
+Un préfaisceau avec transferts est un foncteur additif contravariant de \(\SmCor(k)\) vers la catégorie des groupes abéliens. Le plongement de \(\Sm/k\) dans \(\SmCor(k)\) permet de voir un préfaisceau avec transferts comme un préfaisceau sur \(\Sm/k\) muni d'une structure supplémentaire. Un faisceau avec transferts, pour une topologie donnée sur \(\Sm/k\), ordinairement la topologie de Nisnevich, est un préfaisceau avec transferts qui, comme préfaisceau sur \(\Sm/k\), est un faisceau. Les topologies de Nisnevich et étale ont la propriété que si \(F\) est un préfaisceau avec transferts, le faisceau associé \(a(F)\) porte une structure de faisceau avec transferts. Cette structure est uniquement déterminée par la condition que \(F\to a(F)\) soit un morphisme de préfaisceaux avec transferts. Pour tout faisceau avec transferts \(G\), on a
+\[
+  \Hom(a(F),G)\simeq \Hom(F,G),
+\]
+où \(\Hom\) désigne les morphismes de préfaisceaux avec transferts. Tout cela échoue pour la topologie de Zariski. Les complexes \(\Z(q)\), et donc aussi \(A(q)\), naissent comme complexes de faisceaux avec transferts.
+
+\heading{1.4.} Un préfaisceau \(F\) sur \(\Sm/k\) est dit invariant par homotopie si
+\[
+  F(X)\simeq F(X\times\Aone).
+\]
+Comme le point \(0\) de \(\Aone\) définit une section de la projection \(X\times\Aone\to X\), pour tout préfaisceau de groupes abéliens \(F\), \(F(X)\) est naturellement facteur direct de \(F(X\times\Aone)\). Il en résulte que la condition d'invariance par homotopie est stable par noyaux, conoyaux et extensions de préfaisceaux. La construction suivante est une version dérivée de l'adjoint à gauche de l'inclusion
+\[
+  \{\text{préfaisceaux abéliens invariants par homotopie }\Aone\}
+  \subset
+  \{\text{préfaisceaux abéliens}\}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Si \(I\) est un ensemble fini, soit \(\Delta(I)\) l'espace affine librement engendré, au sens du calcul barycentrique, par \(I\). Sur \(\mathbb C\) ou \(\mathbb R\), \(\Delta(I)\) contient le simplexe topologique standard engendré par \(I\). Les schémas
+\[
+  \Delta^n:=\Delta(\{0,\ldots,n\})
+\]
+forment un schéma cosimplicial.
+\item Pour un préfaisceau \(F\), \(C_*(F)\), le «complexe singulier» de \(F\), est le préfaisceau simplicial
+\[
+  C_n(F):X\longmapsto F(X\times\Delta^n).
+\]
+\end{enumerate}
+Des arguments imités de la topologie montrent que, pour \(F\) un préfaisceau de groupes abéliens, les préfaisceaux de cohomologie du complexe \(C_*(F)\), obtenu en prenant la somme alternée des faces, sont invariants par homotopie. Si \(F\) a des transferts, les \(C_n(F)\) en ont aussi, et il en va de même pour les préfaisceaux de cohomologie de \(C_*(F)\). Un théorème fondamental prouvé l'année précédente est le suivant.
+
+\begin{theorem*}[1]
+Soit \(F\) un préfaisceau avec transferts, invariant par homotopie, sur un corps parfait, et soit \(a_{\Nis}(F)\) le faisceau de Nisnevich associé. Alors les préfaisceaux avec transferts
+\[
+  X\longmapsto H^i(X_{\Nis},a_{\Nis}(F))
+\]
+sont eux aussi invariants par homotopie.
+\end{theorem*}
+
+Le cas particulier \(i=0\) de ce théorème affirme l'invariance par homotopie du faisceau avec transferts \(a_{\Nis}(F)\).
+
+L'année précédente, on a prouvé l'équivalence d'un certain nombre de définitions de \(\Z(q)\). Par équivalence, on entend la construction d'un isomorphisme dans une catégorie dérivée convenable, impliquant un isomorphisme pour les groupes de cohomologie motivique correspondants. Pour notre usage présent, la définition la plus commode est la suivante. Soit \(\Z_{tr}(X)\) le faisceau avec transferts représenté par \(X\), sur la catégorie \(\SmCor(k)\). On pose
+\[
+  F_q=
+  \begin{cases}
+  0, & q<0,\\
+  \Z_{tr}(\A^q)/\Z_{tr}(\A^q-\{0\}), & q\ge0,
+  \end{cases}
+\]
+et
+\[
+  \Z(q)=C_*(F_q)[-q].
+\]
+
+\subsection*{2.2. Catégorie d'homotopie motivique}
+
+La catégorie d'homotopie motivique \(\HoA(S)\), c'est-à-dire la catégorie d'homotopie pointée \(\Aone\) de \(S\), pour \(S\) un schéma noethérien de dimension finie, sera la catégorie déduite d'une catégorie de faisceaux simpliciaux par deux localisations successives.
+
+On part de la catégorie \(\Sm/S\) des schémas lisses sur \(S\), munie de la topologie de Nisnevich, et de la catégorie des faisceaux simpliciaux pointés sur \(\Sm/S\). Pour tout site \(\mathcal S\), par exemple \((\Sm/S)_{\Nis}\), il existe une notion d'équivalence locale de faisceaux simpliciaux pointés. Elle est définie comme suit.
+\begin{enumerate}[label=(\alph*)]
+\item Un faisceau \(G\) définit un faisceau simplicial tel que tous les \(G_n\) soient égaux à \(G\), et que toutes les applications simpliciales soient les identités. Le foncteur \(G\mapsto G_\bullet\) a un adjoint à gauche
+\[
+  F_\bullet\longmapsto \pi_0(F_\bullet),
+\qquad
+  \Hom(F_\bullet,G_\bullet)=\Hom(\pi_0(F_\bullet),G).
+\]
+Le faisceau \(\pi_0(F_\bullet)\) peut être décrit comme l'égalisateur de \(F_0\rightrightarrows F_1\), ou encore comme le faisceau associé au préfaisceau
+\[
+  U\longmapsto \pi_0(F_\bullet(U)).
+\]
+Il en va de même dans le contexte pointé. Nous écrirons souvent simplement \(G\) pour le faisceau simplicial constant correspondant.
+\end{enumerate}
+Pour un faisceau pointé \(G\) sur \(\Sm/S\), la proposition 7 s'applique à \(G\) et à la localisation par équivalences locales: on a
+\[
+  \Hom_{\Hob}(F_\bullet,G)=\Hom(F_\bullet,G)=\Hom(\pi_0(F_\bullet),G). \tag{0.1}
+\]
+
+\begin{definition*}[1]
+Un objet \(G\) de \(\Hob(\Sm/S)\) est dit \(\Aone\)-local si, pour tout faisceau simplicial \(F_\bullet\), on a
+\[
+  \Hom_{\Hob}(F_\bullet,G)
+  \simeq
+  \Hom_{\Hob}(F_\bullet\times\Aone/\pt\times\Aone,G).
+\]
+Dans le membre de droite, \(\pt\times\Aone\) signifie que, dans le produit, \(\pt\times\Aone\) est contracté en un point, le nouveau point base.
+\end{definition*}
+
+\begin{proposition*}[1]
+Pour un faisceau pointé \(G\) sur \(\Sm/S\), le faisceau simplicial \(G\) est \(\Aone\)-local si et seulement si \(G\) est invariant par homotopie.
+\end{proposition*}
+
+\begin{proofdel}
+On a
+\[
+  \pi_0(F_\bullet\times\Aone)=\pi_0(F_\bullet)\times\Aone,
+\]
+de sorte que, par (0.1), la \(\Aone\)-localité signifie que, pour tout faisceau pointé \(F\), on a
+\[
+  \Hom(F,G)=\Hom(F\times\Aone/\pt\times\Aone,G).
+\]
+Un morphisme \(F\to G\) peut être vu comme la donnée, pour chaque \(x\in F(U)\), d'un élément \(f(x)\in G(U)\), fonctorielle en \(U\), et envoyant le point marqué sur le point marqué. De même, un morphisme \(F\times\Aone\to G\) est décrit par des données, pour \(x\in F(U)\), d'un élément de \(G(U\times\Aone)\). L'invariance par homotopie implique donc la \(\Aone\)-localité. La réciproque se vérifie en prenant pour \(F\) la somme disjointe d'un faisceau représentable et du point base.
+\end{proofdel}
+
+\begin{definition*}[2]
+\begin{enumerate}[label=(\arabic*)]
+\item Un morphisme \(f:F'_\bullet\to F_\bullet\) dans \(\Hob(\Sm/S)\) est une équivalence \(\Aone\) si, pour tout \(G\) \(\Aone\)-local, on a dans \(\Hob(\Sm/S)\)
+\[
+  \Hom(F_\bullet,G)\simeq \Hom(F'_\bullet,G).
+\]
+\item La catégorie \(\HoA(\Sm/S)\) est déduite de \(\Hob(\Sm/S)\) en inversant formellement les équivalences \(\Aone\).
+\end{enumerate}
+\end{definition*}
+
+\begin{remark*}[1]
+Si un morphisme de \(\Hob(\Sm/S)\) devient un isomorphisme dans \(\HoA(\Sm/S)\), c'est une équivalence \(\Aone\). En effet, si \(G\) dans \(\Hob(\Sm/S)\) est \(\Aone\)-local, une application de la proposition 7 montre que, pour tout \(F\),
+\[
+  \Hom_{\Hob}(F,G)\simeq \Hom_{\HoA}(F,G)
+\]
+est bijectif. Si \(f:F'_\bullet\to F_\bullet\) dans \(\Hob(\Sm/S)\) a une image dans \(\HoA(\Sm/S)\) qui est un isomorphisme, il en résulte que, pour tout \(G\) \(\Aone\)-local, on a
+\[
+  \Hom_{\Hob}(F_\bullet,G)\simeq \Hom_{\Hob}(F'_\bullet,G).
+\]
+Un tel \(f\) est une équivalence \(\Aone\).
+\end{remark*}
+
+\begin{example*}[1]
+Des arguments analogues à ceux donnés plus haut montrent que si \(G\) est un faisceau pointé invariant par homotopie, alors, pour tout faisceau simplicial pointé \(F_\bullet\), on a
+\[
+  \Hom_{\HoA(\Sm/S)}(F_\bullet,G)
+  =\Hom(F_\bullet,G)=\Hom(\pi_0(F_\bullet),G).
+\]
+En particulier, si \(U\) est lisse sur \(S\) et si \(U_+\) est l'union disjointe de \(U\) et d'un point base, alors
+\[
+  \Hom_{\HoA(\Sm/S)}(U_+,G)=G(U).
+\]
+\end{example*}
+
+\subsection*{2.3. Catégories dérivées et catégories d'homotopie}
+
+Pour tout topos \(T\), qui sera pour nous la catégorie des faisceaux sur un certain site \(S\), la catégorie d'homotopie pointée \(\Hob(S)\) aussi bien que la catégorie dérivée \(D(S)\) s'obtiennent par localisation. Pour la catégorie dérivée, on part de la catégorie des complexes de faisceaux abéliens. La sous-catégorie des complexes concentrés en degré homologique \(\ge0\) est naturellement équivalente, par la construction de Dold--Puppe, à la catégorie des faisceaux simpliciaux de groupes abéliens. L'équivalence est
+\[
+  N:(\text{faisceau simplicial }F_\bullet)
+  \longmapsto
+  \text{complexe}\left(\bigcap_{i\ne0}\ker(\partial_i),\partial_0\right).
+\]
+Nous écrivons \(K\) pour l'équivalence inverse. Pour \(S\) réduit à un point, et \(\pi\) un groupe abélien, \(K(\pi[n])\) est l'espace d'Eilenberg--MacLane \(K(\pi,n)\). Pour un complexe \(C\) qui n'est pas supposé concentré en degrés homologiques \(\ge0\), on définit
+\[
+  K(C):=K(\tau_{\ge0}C),
+\]
+où \(\tau_{\ge n}C\) est le sous-complexe de \(C\) de la forme
+\[
+  \cdots \longrightarrow C_{n+2}\xrightarrow{d_{n+1}}C_{n+1}
+  \longrightarrow \ker(d_n)\longrightarrow0.
+\]
+Notons que \(C\mapsto\tau_{\ge0}C\) est adjoint à droite au foncteur d'inclusion
+\[
+  (\text{complexes en degré homologique }\ge0)
+  \hookrightarrow
+  (\text{tous les complexes}),
+\]
+de sorte que \((N,K)\) forment une paire de foncteurs adjoints:
+\[
+  (\text{faisceaux abéliens simpliciaux})\rightleftarrows(\text{complexes de faisceaux}).
+\]
+
+\begin{theorem*}[2]
+Supposons que \(S=\Spec(k)\), avec \(k\) parfait. Alors, pour \(F\) un préfaisceau avec transferts, pour \(U_+\) comme ci-dessus, et pour \(p\ge0\),
+\[
+  \Hom_{\HoA}(U_+,K(F[p]))=\HH^p(U_{\Nis},C_*(F)).
+\]
+\end{theorem*}
+
+Dans ce théorème, \(K(F[p])\) est le faisceau simplicial de groupes abéliens dont le complexe de chaînes normalisé est \(F\) en degré homologique \(p\).
+
+Pour prouver le théorème, nous établissons la chaîne d'égalités
+\[
+\begin{aligned}
+\HH^p(U_{\Nis},C_*(F))
+&=\Hom_{\Hob}(U_+,K(C_*(F)[p])) \\
+&=\Hom_{\HoA}(U_+,K(C_*(F)[p])) \\
+&=\Hom_{\HoA}(U_+,K(F[p])),
+\end{aligned}\tag{1.1}
+\]
+la première égalité étant prouvée juste avant la proposition 4, la deuxième juste après la proposition 5, et la dernière résultant du lemme 1.
+
+Soit \(\forget\) le foncteur d'oubli des faisceaux abéliens vers les faisceaux d'ensembles. Son adjoint à gauche est \(F\mapsto \Z[F]\), le faisceau associé au préfaisceau
+\[
+  U\longmapsto (\text{groupe abélien librement engendré par }F(U)).
+\]
+Dans le contexte pointé, l'adjoint est
+\[
+  (F,\pt)\longmapsto \ZZ(F):=\Z(F)/\Z(\pt).
+\]
+On a la même adjonction pour les objets simpliciaux pointés.
+
+\begin{proposition*}[2]
+Sur un site ayant assez de points, et vraisemblablement toujours, on a:
+\begin{enumerate}[label=(\arabic*)]
+\item Le foncteur \(F_\bullet\mapsto N\ZZ(F_\bullet)\), des faisceaux simpliciaux pointés vers les complexes de groupes abéliens, transforme les équivalences locales en quasi-isomorphismes.
+\item L'adjoint à droite \(C\mapsto \forget(K(C))\) transforme les quasi-isomorphismes en équivalences locales.
+\end{enumerate}
+\end{proposition*}
+
+L'hypothèse «assez de points» s'applique à \(\Sm/k\) muni de la topologie de Nisnevich: pour tout \(U\in\Sm/k\) et tout point \(x\) de \(U\), le foncteur
+\[
+  F\longmapsto F(\Spec(\mathcal O^h_{U,x}))
+\]
+est un point, et ces foncteurs forment un système conservatif.
+
+\begin{proofdel}
+Les équivalences locales, respectivement les quasi-isomorphismes, se vérifient point par point, et les deux foncteurs considérés commutent au passage à la fibre en un point. Cela ramène la proposition au cas où le site est réduit à un point, c'est-à-dire à l'homotopie usuelle. Dans ce cas, (1) se réduit au fait qu'une équivalence faible induit un isomorphisme sur l'homologie réduite, théorème de Whitehead, et (2) au fait que, pour un complexe \(C\), \(\pi_i(K(C))\), calculé avec n'importe quel point base, est \(H_i(C)\). Les \(\pi_i(K(C))\) sont faciles à calculer parce que \(K(C)\) possède la propriété de Kan.
+\end{proofdel}
+
+En appliquant la proposition 8, on déduit de la proposition 2 ce qui suit.
+
+\begin{proposition*}[3]
+Sous les mêmes hypothèses que dans la proposition 2, pour \(F_\bullet\) un faisceau simplicial pointé et \(C\) un complexe de faisceaux abéliens, on a
+\[
+  \Hom_{\Hob}(F_\bullet,K(C))=\Hom_D(N\ZZ(F_\bullet),C). \tag{3.1}
+\]
+\end{proposition*}
+
+Soit \(F\) un faisceau, et soit \(F_+\) le faisceau obtenu à partir de \(F\) par adjonction d'un point base. Nous écrivons aussi \(F\) et \(F_+\) pour les faisceaux simpliciaux constants correspondants. On a
+\[
+  N\ZZ(F_+)=N\Z(F)=(\Z(F)\text{ en degré zéro}).
+\]
+Pour le faisceau simplicial pointé \(F_+\), le groupe \(\Hom_D(\Z(F),C)\) qui apparaît maintenant au membre de droite de (3.1) s'interprète comme l'hypercohomologie de \(C\) «sur \(F\) vu comme un espace», c'est-à-dire dans le topos des faisceaux au-dessus de \(F\). Si \(F\) est défini par un objet \(U\) du site \(S\), c'est la même chose que l'hypercohomologie du site \(S/U\). Comme nous ne voulons pas supposer \(C\) borné inférieurement, cette vérification demande un peu de soin.
+
+Pour un complexe de faisceaux \(K\) sur un site \(S\), pas nécessairement borné inférieurement, \(\HH^0(S,K)\) peut être défini comme le groupe \(\Hom\) dans la catégorie dérivée, \(\Hom_D(\Z,K)\). Pour \(F\) dans un topos \(T\), et le topos \(T/F\), «\(F\) vu comme un espace», outre le morphisme de topos \(j:T/F\to T\), c'est-à-dire la paire adjointe \((j^*,j_*)\), on a, pour les faisceaux abéliens, une paire adjointe \((j_!,j^*)\), avec \(j_!\) et \(j^*\) tous deux exacts. Par la proposition 8, \((j_!,j^*)\) induit une paire adjointe pour les catégories dérivées correspondantes. Comme \(j_!\Z=\Z[F]\), on obtient
+\[
+  \Hom_D(\Z(F),C)=\HH^0(T/F,j^*C), \tag{3.2}
+\]
+d'où
+\[
+  \Hom_{\Hob}(F_+,K(C))=\HH^0(T/F,j^*C). \tag{3.3}
+\]
+
+Considérons le cas particulier de \(\Sm/k\) avec la topologie de Nisnevich. Pour tout complexe de faisceaux, (3.3) donne, pour \(U\) lisse sur \(k\),
+\[
+  \Hom_{\Hob}(U_+,K(C))=\HH^0(U_{big-\Nis},C). \tag{3.4}
+\]
+Ici \(U_{big-\Nis}\) est le site \((\Sm/S)/U\) muni de la topologie de Nisnevich. Il a cependant la même hypercohomologie que le petit site de Nisnevich \(U_{\Nis}\). En effet, on a un morphisme \(\epsilon:U_{big,\Nis}\to U_{\Nis}\), et les foncteurs \(\epsilon^*\) et \(\epsilon_*\) sont exacts. On applique à nouveau la proposition 8. En appliquant (3.4) à un translaté, c'est-à-dire à un décalage, de \(C\), on obtient
+\[
+  \Hom_{\Hob}(U_+,K(C[p]))=\HH^p(U_{\Nis},C). \tag{3.5}
+\]
+En appliquant (3.5) à \(C_*(F)\), on obtient la première égalité de (1.1).
+
+\begin{proposition*}[4]
+Soit \(C\) un complexe de faisceaux abéliens sur \(\Sm/k\). Les conditions suivantes sont équivalentes:
+\begin{enumerate}[label=\arabic*.]
+\item \(K(C)\) est \(\Aone\)-local.
+\item Pour \(i\le0\), le foncteur \(U\mapsto H^i(U,C)\) est invariant par homotopie.
+\item Pour tout complexe \(L\) en degré cohomologique \(\le0\), on a dans la catégorie dérivée
+\[
+  \Hom(L\otimes\Z(\Aone),C)\overset{\sim}{\longrightarrow}\Hom(L,C).
+\]
+\end{enumerate}
+\end{proposition*}
+
+\noindent\textit{Preuve.} Par la proposition 3, la condition (1) se réécrit: pour tout faisceau simplicial pointé \(F_\bullet\),
+\[
+  \Hom_D(N\ZZ(F_\bullet),C)=
+  \Hom_D(N\ZZ(F_\bullet\times\Aone/\pt\times\Aone),C).
+\]
+L'opération \(F_\bullet\mapsto F_\bullet\times\Aone/\pt\times\Aone\) s'écrit mieux comme un smash produit \(F_\bullet\wedge\Aone_+\) avec \(\Aone_+\). Pour des ensembles pointés \(E\) et \(F\),
+\[
+  \ZZ(E\wedge F)=\ZZ(E)\otimes\ZZ(F).
+\]
+Il s'ensuit que
+\[
+\begin{aligned}
+\ZZ(F_\bullet\times\Aone/\pt\times\Aone)
+&=\ZZ(F_\bullet\wedge\Aone_+)        \\
+&=\ZZ(F_\bullet)\otimes\ZZ(\Aone_+) \\
+&=\ZZ(F_\bullet)\otimes\Z(\Aone),
+\end{aligned}
+\]
+comme isomorphismes de faisceaux simpliciaux, donc
+\[
+  N\ZZ(F_\bullet\times\Aone/\pt\times\Aone)
+  =N\ZZ(F_\bullet)\otimes\Z(\Aone).
+\]
+Il en résulte que (1) est le cas particulier de (3) pour \(L\) de la forme \(N\ZZ(F_\bullet)\). De même, (2) est le cas particulier de (3) pour \(L\) de la forme \(\Z(U)[i]\), avec \(i\ge0\).
+
+La suspension \(\Sigma^iF_\bullet\) d'un faisceau simplicial pointé \(F_\bullet\) est son smash produit avec la sphère simpliciale \(S^i\), le \(i\)-simplexe modulo son bord. Il s'ensuit que
+\[
+  \ZZ(\Sigma^iF_\bullet)=\ZZ(F_\bullet)\otimes\ZZ(S^i),
+\]
+comme isomorphisme de faisceaux simpliciaux, et, par Eilenberg--Zilber, le complexe normalisé \(N\ZZ(\Sigma^iF_\bullet)\) est homotope au produit tensoriel des complexes normalisés de \(\ZZ(F_\bullet)\) et de \(\ZZ(S^i)\). Ce dernier est simplement \(\Z[i]\):
+\[
+  N\ZZ(\Sigma^iF_\bullet)\simeq N\ZZ(F_\bullet)[i].
+\]
+C'est une manière savante de dire que l'homologie réduite d'une suspension est le décalage correspondant de l'homologie réduite de l'espace de départ.
+
+En appliquant ceci à \(F_\bullet=U_+\), on obtient que (1) implique (3). En effet, \(\ZZ(\Sigma^iU_+)\) est homotope à \(\ZZ(U_+)[i]=\Z(U)[i]\).
+
+Montrons maintenant que (2) implique (1). Pour \(L\) un complexe, soit \((*)\) l'énoncé que la conclusion de (3) vaut pour tous les \(L[i]\), \(i\ge0\). L'hypothèse (2) est que \((*)\) vaut pour \(L\) réduit à \(\Z(U)\) en degré zéro, et nous conclurons par dévissage qu'il vaut pour tout \(L\) en degré cohomologique \(\le0\).
+\begin{enumerate}[label=(\alph*)]
+\item Le cas d'une somme de \(\Z(U)\), en degré zéro, résulte du corollaire 10.
+\item Supposons que \(L\) soit borné, en degré cohomologique \(\le0\), et que \((*)\) vaille pour tous les \(L^n\).
+\end{enumerate}
+Les foncteurs
+\[
+  h':L\longmapsto \Hom^n(L,C),\qquad
+  h'':L\longmapsto \Hom^n(L\otimes\Z(\Aone),C) \tag{3.6}
+\]
+
+
+sont des foncteurs cohomologiques contravariants, et donnent donc naissance à des suites spectrales convergentes
+\[
+E_1^{pq}=h^q(L^{-p})\Rightarrow h^{p+q}(L).
+\]
+On a un morphisme de suites spectrales
+\[
+E(\hbox{pour }h')\longrightarrow E(\hbox{pour }h'')
+\]
+qui est un isomorphisme pour \(q\le0\), et les deux \(E^{pq}\) s'annulent pour \(p<0\) ou \(p\) grand. Il en résulte que \(h'^n(L)\simeq h''^n(L)\) pour \(n\le0\), c'est-à-dire que \(L\) satisfait \((*)\).
+
+Le même argument peut s'exprimer comme une induction sur le nombre des \(i\) tels que \(L^i\ne0\). Si \(n\) est le plus grand d'entre eux (avec \(n\le0\)), l'hypothèse d'induction s'applique à \(\sigma^{<n}L\), même à \((\sigma^{<n}L)[-1]\), et l'on conclut par la suite exacte longue définie par
+\[
+0\longrightarrow L^n[-n]\longrightarrow L\longrightarrow\sigma^{<n}L\longrightarrow0.
+\]
+
+\begin{enumerate}[label=(\alph*),start=3]
+\item En exprimant \(L\) comme limite inductive des \(\sigma^{\ge-n}L\) et en utilisant la proposition 11, on voit qu'il n'est pas nécessaire de supposer \(L\) borné.
+\item Si \(L'\to L''\) est un quasi-isomorphisme, \(L'\otimes\Z(\Aone)\to L''\otimes\Z(\Aone)\) en est encore un (platitude de \(\Z(\Aone)\)), et \((*)\) vaut pour \(L'\) si et seulement s'il vaut pour \(L''\).
+\item Tout faisceau abélien \(L\) est quotient d'une somme directe de faisceaux \(\Z(U)\). Par exemple, la somme, sur les \((U,s)\), \(s\in\Gamma(U,L)\), des \(\Z(U)\) envoyés vers \(L\) par \(s\). Il en résulte que \(L\) admet une résolution \(L^*\) par de tels faisceaux. Par (a) et (c), \(L^*\) satisfait \((*)\). Il résulte de (d) que \(L\) satisfait \((*)\), puis de (c) que tout complexe en degré \(\le0\) satisfait \((*)\).
+\end{enumerate}
+
+\section*{2.4 Application aux préfaisceaux avec transferts}
+
+Soit \(F\) un préfaisceau avec transferts. Un argument formel [7] montre que les préfaisceaux avec transferts \(H^i C_*(F)\) sont homotopiquement invariants. Par le résultat de base (théorème 1) rappelé dans la première leçon, il s'ensuit que, pour tout \(U\), on a
+\[
+\mathbf H^*(U,C_*(F))=\mathbf H^*(U\times\Aone,C_*(F)) \tag{4.1}
+\]
+En effet, comme \(U\) et \(U\times\Aone\) sont de dimension cohomologique finie, les deux côtés sont l'aboutissement d'une suite spectrale convergente
+\[
+E_2^{pq}=H^p(U,H^qC_*(F))\Rightarrow H^{p+q}(U,C_*(F))
+\]
+et de même pour \(U\times\Aone\). Par le théorème 1 appliqué à \(H^qC_*(F)\),
+\[
+H^p(X,H^qC_*(F)):=H^p(X,aH^qC_*(F))
+\]
+est le même pour \(X=U\) ou pour \(X=U\times\Aone\). En appliquant (3.5), nous déduisons de la proposition 4 \((2)\Rightarrow(1)\) que
+
+\begin{proposition*}[5]
+Pour \(k\) parfait, si \(F\) est un préfaisceau avec transferts, alors, pour tout \(p\), \(K(C_*(F)[p])\) est \(\Aone\)-local.
+\end{proposition*}
+
+En combinant la proposition 5 avec la proposition 7, on obtient la deuxième égalité de (1.1).
+
+\section*{2.5 Fin de la preuve du théorème 2}
+
+Pour tout faisceau simplicial pointé \(G_\bullet\), \(C_\bullet(G_\bullet)\) est un faisceau bisimplicial pointé dont on peut prendre la diagonale \(\Delta C_\bullet(G_\bullet)\). Pour tout faisceau pointé \(G\), on a une application naturelle \(G\to C_\bullet(G)\), et, pour un faisceau simplicial pointé \(G_\bullet\), ces applications pour les \(G_n\) induisent
+\[
+a:G_\bullet\longrightarrow \Delta C_\bullet(G_\bullet).
+\]
+
+\begin{proposition*}[6]
+Le morphisme \(a:G_\bullet\to\Delta C_\bullet(G_\bullet)\) est une \(\Aone\)-équivalence.
+\end{proposition*}
+
+\begin{proofdel}
+Nous déduisons la proposition 6 de la proposition 20.
+
+Les deux applications \(0,1:F_\bullet\to F_\bullet\wedge\Aone_+\) sont égalisées par \(F_\bullet\wedge\Aone_+\to F_\bullet\), donc deviennent égales dans la catégorie homotopique \(\Aone\). Si deux applications de faisceaux simpliciaux pointés \(F_\bullet\rightrightarrows G_\bullet\) se factorisent comme \(F_\bullet\to F_\bullet\wedge\Aone_+\to G_\bullet\), elles deviennent elles aussi égales. Par l'adjonction de \(\wedge\Aone_+\) et de \(C_1(-)=\Hom(\Aone_+,-)\), une telle factorisation se réécrit
+\[
+F_\bullet\longrightarrow C_1(G_\bullet)\longrightarrow G_\bullet.
+\]
+Cas particulier: les applications \(C_1(G_\bullet)\to G_\bullet\) deviennent égales dans la catégorie homotopique. Évaluées en \(X\), ces applications sont les restrictions \(0^*,1^*:G_\bullet(X\times\Aone)\to G_\bullet(X)\).
+
+L'espace affine \(\A^n\) est homotope à un point en ce sens que
+\[
+H:\Aone\times\A^n\longrightarrow\A^n,\qquad (t,x)\longmapsto tx
+\]
+interpelle entre l'identité (pour \(t=1\)) et l'application constante \(0\) (pour \(t=0\)). L'application \(H\) induit
+\[
+G_\bullet(S\times\A^n)\longrightarrow G_\bullet(S\times\A^n\times\Aone)
+\]
+et, en composant avec \(0,1\) dans \(\Aone\), on obtient que
+\[
+G_\bullet(S\times\A^n)\rightrightarrows G_\bullet(S\times\A^n)
+\]
+l'identité, et l'application induite par \(0:\A^n\to\A^n\), sont égales dans la catégorie homotopique \(\Aone\). L'application de faisceaux simpliciaux \(G_\bullet\to C_nG_\bullet\) est donc une \(\Aone\)-équivalence. Elle a pour inverse dans la catégorie homotopique \(\Aone\) l'application induite par \(0:\Spec(k)\to\A^n\), et l'on applique la remarque 1.
+
+Nous appliquons maintenant la proposition 20 aux faisceaux bisimpliciaux
+\[
+G_{pq}:=G_p,\qquad
+H_{pq}:=C_qG_p:S\longmapsto G_p(S\times\Delta^q)
+\]
+et à l'application naturelle \(G_{pq}\to H_{pq}\). Pour \(q\) fixé, c'est simplement \(G(S)\to G(S\times\A^q)\), et la proposition 20 donne la proposition 6.
+\end{proofdel}
+
+Pour prouver la dernière égalité de (1.1), il suffit de montrer que:
+
+\begin{lemma*}[1]
+Pour tout faisceau abélien \(F\), \(F[p]\to C_*(F)[p]\) induit une \(\Aone\)-équivalence de \(K(F[p])\) vers \(K(C_*(F)[p])\).
+\end{lemma*}
+
+\begin{proofdel}
+Pour \(G\) un monoïde (avec unité), l'ensemble simplicial pointé \(B_\bullet G\) est donné par
+\[
+B_nG=\left\{
+\begin{array}{c}
+\hbox{foncteurs de l'ensemble ordonné }(0,\ldots,n)\hbox{ vu comme catégorie}\\
+\hbox{vers }G\hbox{ vu comme catégorie à un seul objet}
+\end{array}
+\right\}.
+\]
+Cette construction se faisceautise, et peut s'appliquer terme à terme à un faisceau simplicial de monoïdes, donnant un faisceau bisimplicial pointé dont on peut prendre la diagonale
+\[
+BG_\bullet:=\Delta B_\bullet(G_\bullet).
+\]
+Cette construction commute avec la construction \(G_\bullet\to\Delta C_\bullet(G_\bullet)\). En effet, \(B_nG_p\) est naturellement isomorphe à \(G_p^n\); l'opération \(C_m\) commute aux produits, et \(B(\Delta C_\bullet(G_\bullet))\) et \(\Delta C_\bullet(BG_\bullet)\) sont toutes deux les diagonales du faisceau trisimplicial pointé \(C_\bullet B_\bullet G_\bullet\).
+
+Pour les faisceaux simpliciaux abéliens, l'opération \(B\) donne encore des faisceaux simpliciaux abéliens, donc peut être itérée, et \(\Delta C_\bullet\) commute à \(B^n\).
+
+Par la construction de Dold--Puppe, \(B\) correspond, à homotopie près, au décalage \([1]\) des complexes:
+\[
+NBG_\bullet\simeq(NG_\bullet)[1].
+\]
+Cela peut se voir comme une application du théorème d'Eilenberg--Zilber (voir [9, théorème 8.5.1]): on a
+\[
+NBG_\bullet\simeq BG_*\simeq \Tot B_*G_*\qquad\hbox{(Eilenberg--Zilber),}
+\]
+et, pour chaque \(G_q\), la normalisation de \(B_\bullet G_q\) est simplement \(G_q[1]\), de sorte que les doubles complexes \(B_*G_*\) et \(H_{pq}:=G_q\), pour \(p=1,0\) sinon, ont des \(\Tot\) homotopes.
+
+Si \(G_\bullet\) est un faisceau simplicial abélien, en appliquant la proposition 6 à \(B^pG_\bullet\), on obtient que
+\[
+B^pG_\bullet\longrightarrow \Delta C_\bullet B^pG_\bullet
+       =B^p\Delta C_\bullet G_\bullet                       \tag{6.1}
+\]
+est une \(\Aone\)-équivalence. Le foncteur \(K\) transforme les équivalences d'homotopie de chaînes en équivalences simpliciales. Pour tout groupe abélien simplicial \(L_\bullet\) (qui sera \(G_\bullet\) ou \(\Delta C_\bullet G_\bullet\)), on a donc une équivalence d'homotopie simpliciale
+\[
+B^pL_\bullet=KNB^pL_\bullet\simeq K((NL_\bullet)[p]).
+\]
+Les équivalences d'homotopie simpliciale étant des \(\Aone\)-équivalences, on conclut que (6.1) induit une \(\Aone\)-équivalence
+\[
+K((NG_\bullet)[p])\longrightarrow K(N(\Delta C_\bullet G_\bullet)[p]).
+\]
+\end{proofdel}
+
+\section*{2.6 Appendice: localisation}
+
+Soient \(C\) une catégorie et \(S\) un ensemble de morphismes de \(C\). La catégorie localisée \(C[S^{-1}]\) est déduite de \(C\) en «inversant formellement tous les \(s\in S\)». Avec cette définition, il est clair que l'on a un foncteur naturel
+\[
+\operatorname{loc}:C\longrightarrow C[S^{-1}],
+\]
+bijectif sur l'ensemble des objets, et que, pour toute catégorie \(D\),
+\[
+F\longmapsto F\circ\operatorname{loc}:\Hom(C[S^{-1}],D)\longrightarrow\Hom(C,D)
+\]
+est une bijection de \(\Hom(C[S^{-1}],D)\) vers l'ensemble des foncteurs de \(C\) vers \(D\) transformant les morphismes de \(S\) en isomorphismes.
+
+Si l'on se souvient que les catégories forment une 2-catégorie, et si l'on accepte le principe qu'il ne faut pas essayer de définir une catégorie plus précisément qu'à équivalence près (unique à isomorphisme unique près), la propriété universelle de \(C[S^{-1}]\) donnée ci-dessus est doublement insatisfaisante. La propriété universelle utile et facile à vérifier est la suivante: \(F\mapsto F\circ\operatorname{loc}\) est une équivalence de la catégorie \(\Hom(C[S^{-1}],D)\) vers la sous-catégorie pleine de \(\Hom(C,D)\) formée des foncteurs \(F\) qui envoient \(S\) sur des isomorphismes.
+
+\begin{proposition*}[7]
+Si \(Y\) dans \(C\) est tel que le foncteur
+\[
+h_Y:C^{op}\longrightarrow \mathrm{Sets}:X\longmapsto\Hom_C(X,Y)
+\]
+transforme les applications de \(S\) en bijections, alors
+\[
+\Hom_C(X,Y)\overset{\sim}{\longrightarrow}\Hom_{C[S^{-1}]}(X,Y).
+\]
+\end{proposition*}
+
+\begin{proofdel}
+Par la construction de Yoneda \(Y\mapsto h_Y\), \(C\) s'immerge dans la catégorie \(C^\wedge\) des foncteurs contravariants de \(C\) vers \(\mathrm{Sets}\), tandis que \(C[S^{-1}]\) s'immerge dans \(C[S^{-1}]^\wedge\), identifié par (a) à la sous-catégorie pleine de \(C^\wedge\) constituée des \(F\) qui transforment \(S\) en bijections. Pour \(Y\) dans \(C\), d'image \(\bar Y\) dans \(C[S^{-1}]\), et pour tout \(F\) dans \(C[S^{-1}]^\wedge\subset C^\wedge\), on a
+\[
+\Hom(h_Y,F)=\Hom(h_{\bar Y},F).
+\]
+En effet, par (a) et le lemme de Yoneda pour \(C\) et \(C[S^{-1}]\), les deux côtés valent \(F(Y)\). Cela signifie que \(h_{\bar Y}\) est la solution du problème universel consistant à envoyer \(h_Y\) dans un objet de \(C[S^{-1}]^\wedge\subset C^\wedge\). En particulier, pour \(Y\) comme en (b), c'est-à-dire dans \(C[S^{-1}]^\wedge\), \(h_{\bar Y}\) coïncide avec \(h_Y\), comme l'affirme (b).
+\end{proofdel}
+
+\begin{proposition*}[8]
+Soit \((L,R)\) une paire de foncteurs adjoints entre les catégories \(C\) et \(D\). Soient \(S\) et \(T\) des ensembles de morphismes de \(C\) et \(D\). Supposons que \(F\) envoie \(S\) dans \(T\) et que \(G\) envoie \(T\) dans \(S\). Alors les foncteurs \(\bar L,\bar R\) entre \(C[S^{-1}]\) et \(D[T^{-1}]\) induits par \(L\) et \(R\) forment encore une paire adjointe.
+\end{proposition*}
+
+\begin{proofdel}
+Les foncteurs \(\bar L\) et \(\bar R\) induits par \(F\) et \(G\) sont caractérisés par des diagrammes commutatifs
+\[
+\begin{tikzcd}[column sep=3.4em,row sep=2.2em]
+C \arrow[r,"L"] \arrow[d] & D \arrow[d]\\
+C[S^{-1}] \arrow[r,"\bar L"] & D[T^{-1}]
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=3.4em,row sep=2.2em]
+D \arrow[r,"R"] \arrow[d] & C \arrow[d]\\
+D[T^{-1}] \arrow[r,"\bar R"] & C[S^{-1}].
+\end{tikzcd}
+\]
+L'adjonction peut s'exprimer par les données de \(\varepsilon:Id\to RL\) et \(\eta:LR\to Id\), telles que les composés
+\[
+R\longrightarrow RLR\longrightarrow R,\qquad
+L\longrightarrow LRL\longrightarrow L
+\]
+soient les automorphismes identiques de \(R\) et \(L\), respectivement (voir par exemple [6]).
+
+Par la propriété universelle de la localisation, \(\varepsilon\) induit un morphisme \(\bar\varepsilon\to\bar R\bar L\): en effet, définir un tel morphisme revient à définir un morphisme \(\operatorname{loc}\to\bar R\bar L\operatorname{loc}\), et \(\bar R\bar L\operatorname{loc}=\operatorname{loc}RL\). De même, \(\eta\) induit \(\bar\eta:\bar L\bar R\to Id\). Le morphisme \(\bar R\to\bar R\bar L\bar R\to\bar R\), et de même pour \(\bar L\), est induit par \(R\to RLR\to R\), et la proposition en résulte.
+\end{proofdel}
+
+\begin{proposition*}[9]
+Supposons que:
+\begin{enumerate}[label=\arabic*.]
+\item la localisation \(C[S^{-1}]\) donne lieu à un calcul de fractions à droite;
+\item les coproduits existent dans \(C\), et \(S\) est stable par coproduits.
+\end{enumerate}
+Alors un coproduit dans \(C\) est aussi un coproduit dans \(C[S^{-1}]\).
+\end{proposition*}
+
+Pour la définition de «donne lieu à un calcul de fractions à droite», voir [10]. Cela implique que, pour \(X\) dans \(C\), la catégorie des \(s:X'\to X\), avec \(s\in S\), est filtrante, et que
+\[
+\Hom_{C[S^{-1}]}(X,Y)=
+\operatorname*{colim}_{s:X'\to X}\Hom_C(X',Y).
+\]
+
+\begin{proofdel}
+Pour \(X\) dans \(C\), soit \((S/X)\) la catégorie filtrante des morphismes \(X'\to X\) dans \(S\). Pour \(X\) coproduit des \(X_\alpha\), \(\alpha\in A\), on a un foncteur «coproduit»
+\[
+\prod_{\alpha\in A}(S/X_\alpha)\longrightarrow(S/X).
+\]
+Il est cofinal: pour \(s:X'\to X\) dans \(S\), on peut construire un diagramme
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.2em]
+X'_\alpha \arrow[r] \arrow[d,"s_\alpha"'] & X_\alpha \arrow[d]\\
+X' \arrow[r,"s"'] & X
+\end{tikzcd}
+\]
+avec \(s_\alpha:X'_\alpha\to X\) dans \(S\), et \(\coprod s_\alpha\) domine \(s\). Pour tout \(Y\), il en résulte que
+\[
+\begin{aligned}
+\Hom_{C[S^{-1}]}(X,Y)
+&=\operatorname*{colim}_{(S/X)}\Hom_C(X',Y)\\
+&=\operatorname*{colim}_{\prod(S/X_\alpha)}\Hom\Bigl(\coprod X'_\alpha,Y\Bigr)\\
+&=\operatorname*{colim}_{\prod(S/X_\alpha)}\prod\Hom(X'_\alpha,Y)\\
+&=\prod\operatorname*{colim}_{S/X_\alpha}\Hom(X'_\alpha,Y)
+ =\prod\Hom_{C[S^{-1}]}(X_\alpha,Y),
+\end{aligned}
+\]
+ce qui signifie que \(X\) est aussi le coproduit des \(X_\alpha\) dans \(C[S^{-1}]\).
+\end{proofdel}
+
+\begin{corollary*}[10]
+Supposons que, dans la catégorie abélienne \(A\), les sommes directes arbitraires existent et soient exactes. Alors les sommes directes arbitraires existent dans la catégorie dérivée \(D(A)\), et le foncteur de localisation
+\[
+C(A)\longrightarrow D(A)
+\]
+commute aux sommes directes.
+\end{corollary*}
+
+\begin{proofdel}
+Le foncteur \(C(A)\to D(A)\) se factorise par la catégorie \(K(A)\) des complexes et applications à homotopie près. Les sommes directes dans \(C(A)\) sont aussi des sommes directes dans \(K(A)\). En effet,
+\[
+\begin{aligned}
+\Hom_{K(A)}(\oplus K_\alpha,L)
+&=H^0\Hom^\bullet(\oplus K_\alpha,L)\\
+&=H^0\prod\Hom^\bullet(K_\alpha,L)
+ =\prod H^0\Hom^\bullet(K_\alpha,L),
+\end{aligned}
+\]
+car \(\prod\) est exact pour les groupes abéliens. L'exactitude de \(\oplus\) dans \(A\) assure qu'une somme directe de quasi-isomorphismes est encore un quasi-isomorphisme, et la proposition 9 s'applique à \(K(A)\) et à l'ensemble \(S\) des quasi-isomorphismes, ce qui prouve le corollaire.
+\end{proofdel}
+
+Si \(A_i\), \(i\ge0\), est un système inductif d'objets de \(A\), la colimite des \(A_i\) est le conoyau
+\[
+\oplus A_i\overset{d}{\longrightarrow}\oplus A_i\longrightarrow \operatorname{colim}A_i\longrightarrow0
+\]
+de la différence de l'identité et de la somme des \(A_i\to A_{i+1}\). Si la prise de la limite inductive d'une suite est un foncteur exact, l'application \(d\) est injective: c'est la colimite des
+\[
+\oplus_{i=0}^n A_i\longrightarrow \oplus_{i=0}^{n+1}A_i,
+\]
+chacune étant injective, car son gradué pour la filtration par les \(\oplus_{i\ge p}A_i\) est l'inclusion identique.
+
+Sous les hypothèses du corollaire 10, si un complexe \(K\) est la colimite d'une suite inductive \(K_{(i)}\), et si la suite
+\[
+0\longrightarrow\oplus K_{(i)}\overset{d}{\longrightarrow}\oplus K_{(i)}\longrightarrow K\longrightarrow0 \tag{10.1}
+\]
+est exacte, alors, pour tout \(L\), la suite exacte longue de cohomologie se lit
+\[
+\longrightarrow \Hom(K,L)\longrightarrow\prod\Hom(K_{(i)},L)
+ \overset{d}{\longrightarrow}\prod\Hom(K_{(i)},L)\longrightarrow
+\]
+Le noyau de \(d\) est simplement la limite projective des \(\Hom(K_{(i)},L)\). Le conoyau est \(\operatorname{lim}^1\). On conclut.
+
+\begin{proposition*}[11]
+Supposons que, dans \(A\), les sommes directes dénombrables existent et soient exactes. Si le complexe \(K\) est la colimite des \(K_{(i)}\), et si la suite (10.1) est exacte, par exemple si:
+\begin{enumerate}[label=\arabic*.]
+\item dans \(A\), les limites inductives de suites sont exactes;
+\item en chaque degré \(n\), chaque \(K^n_{(i)}\to K^n_{(i+1)}\) est l'inclusion d'un facteur direct;
+\end{enumerate}
+alors on a une suite exacte courte
+\[
+0\longrightarrow\operatorname{lim}^1\Hom(K_{(i)},L[-1])
+\longrightarrow\Hom(K,L)
+\longrightarrow\operatorname{lim}\Hom(K_{(i)},L)\longrightarrow0.
+\]
+\end{proposition*}
+
+\begin{proofdel}
+Il reste à vérifier que la condition (2) implique l'exactitude de (10.1). Cela se voit degré par degré. Par hypothèse, les \(A_i:=K^n_{(i)}\) ont des décompositions compatibles avec les applications de transition \(A_i=\oplus_{j=0}^i B_i\). Il s'ensuit une décomposition correspondante de (10.1) en somme directe, et l'on est ramené à vérifier l'exactitude du cas particulier \((10.1)_{(A,n)}\) de (10.1) où \(B_i=0\) pour \(i\ne n\), c'est-à-dire où \(A_i\) est un \(A\) fixé à partir de \(i\ge n\), et est \(0\) sinon. Soit \((10.1)_0\) la suite \((10.1)_{\Z,n}\) dans \(Ab\) pour \(A=\Z\). C'est une suite exacte scindée de groupes abéliens libres. Comme les sommes directes existent, \(L\otimes A\), pour \(L\) un groupe abélien libre, est défini et fonctoriel en \(L\). C'est une somme de copies de \(A\), indexée par une base de \(L\), et caractérisée par
+\[
+\Hom(L\otimes A,B)=\Hom(L,\Hom(A,B))
+\]
+(fonctoriellement en \(B\)). La suite \((10.1)_{A,n}\) est \((10.1)_0\otimes A\), et, \((10.1)_0\) étant scindée exacte, elle se scinde et est donc exacte.
+\end{proofdel}
+
+La troncature \(\sigma_{\le n}K=\sigma_{\ge -n}K\) d'un complexe \(K\) est le sous-complexe qui coïncide avec \(K\) en degré homologique \(\le n\) et qui est \(0\) en degré homologique \(>n\). Pour tout complexe \(K\), on a
+\[
+K=\operatorname*{colim}_{\sigma_{\le n}}K
+\]
+et cette colimite satisfait la condition (2) de la proposition 11. Il en résulte que
+
+\begin{corollary*}[12]
+Sous les hypothèses du corollaire 10, pour tous \(K\) et \(L\), on a une suite exacte courte
+\[
+0\longrightarrow\operatorname{lim}^1\Hom(\sigma_{\le n}K,L[-1])
+\longrightarrow\Hom(K,L)
+\longrightarrow\operatorname{lim}\Hom(\sigma_{\le n}K,L)\longrightarrow0.
+\]
+\end{corollary*}
+
+\section*{3 \(\Aone\)-équivalences des faisceaux simpliciaux sur les \(G\)-schémas}
+
+\section*{3.1 Faisceaux sur un site de \(G\)-schémas}
+
+Fixons un schéma de base \(S\), supposé noethérien séparé et de dimension finie; le produit fibré \(X\times_S Y\) sera simplement noté \(X\times Y\). Nous fixons aussi un schéma en groupes \(G\) sur \(S\), supposé fini et plat. On note \(h_X\) le faisceau représentable défini par \(X\).
+
+Soit \(QP/G\) la catégorie des schémas quasi-projectifs sur \(S\), munis d'une action de \(G\). Tout \(X\) dans \(QP/G\) admet un recouvrement ouvert \((U_i)\) par des sous-schémas ouverts affines \(G\)-stables. Cela permet de définir un quotient raisonnable \(X/G\) dans la catégorie des schémas sur \(S\) (plutôt que dans la catégorie plus large des espaces algébriques). Pour chaque \(U_i\), \(U_i/G\) est défini comme le spectre de l'égaliseur
+\[
+\mathcal O(U_i)\rightrightarrows\mathcal O(U_i\times G),
+\]
+et \(X/G\) s'obtient en recollant les \(U_i/G\). C'est un quotient catégorique, c'est-à-dire le coégaliseur de \(G\times X\rightrightarrows X\). L'application \(X\to X/G\) est finie, ouverte, et l'espace topologique \(|X/G|\) est le coégaliseur de l'application d'espaces topologiques \(|G\times X|\rightrightarrows |X|\). On peut montrer que \(X/G\) est encore quasi-projectif. La remarque 2 ci-dessous montre que ce fait, commode pour l'exposition, est sans importance.
+
+On définit sur \(QP/G\) une prétopologie [3, II.1.3] en prenant pour recouvrements les familles d'applications étales \(Y_i\to X\) ayant la propriété suivante: \(X\) admet une filtration par sous-schémas fermés équivariants \(\emptyset=X_n\subset\cdots\subset X_1\subset X_0=X\) telle que, pour tout \(j\), l'une des applications \(Y_i\to X\) admette une section au-dessus de \(X_j-X_{j+1}\). La topologie de Nisnevich sur \(QP/G\) est la topologie engendrée par cette prétopologie. La catégorie \(QP/G\) avec la topologie de Nisnevich est le \emph{site de Nisnevich} \((QP/G)_{\Nis}\).
+
+\begin{remark*}[1]
+Le topos correspondant n'est pas le topos classifiant de [2, IV.2.5]. Un morphisme \(X\to Y\) peut devenir un recouvrement de Nisnevich après oubli de l'action de \(G\), sans être un recouvrement de Nisnevich. Exemple: \(S=\Spec(k)\), \(G=\Z/2\), \(X=S\), \(Y=S\coprod S\), et \(G\) permute les deux copies de \(S\) dans \(Y\).
+\end{remark*}
+
+\begin{remark*}[2]
+Soit \((\mathrm{affine}/G)_{\Nis}\) le site défini comme ci-dessus, en remplaçant «quasi-projectif» par «affine». Il est équivalent à \((QP/G)_{\Nis}\), en ce sens que la restriction à \((\mathrm{affine}/G)_{\Nis}\) est une équivalence de la catégorie des faisceaux sur \((QP/G)_{\Nis}\) vers la catégorie des faisceaux sur \((\mathrm{affine}/G)_{\Nis}\).
+\end{remark*}
+
+\begin{remark*}[3]
+Si \(G\) est le groupe trivial \(e\), la définition donnée ci-dessus retrouve la topologie de Nisnevich usuelle. Pour \(G=e\), la condition habituellement considérée: «tout point \(x\) de \(X\) est l'image d'un point ayant le même corps résiduel d'un certain \(Y_i\)», est bien équivalente à la condition imposée ci-dessus. On le vérifie par induction noethérienne: si un point générique \(\xi\) de \(X\) peut être relevé à \(Y_i\), un voisinage ouvert \(U\subset X\) de \(\xi\) peut être relevé à \(Y_i\), et l'on applique l'hypothèse d'induction à \(X_1=(X-U)_{\red}\).
+\end{remark*}
+
+On écrit \((QP)_{\Nis}\) pour la catégorie des schémas quasi-projectifs sur \(S\), munie de la topologie de Nisnevich.
+
+\begin{lemma*}[2]
+Si \(U:Y_i\to X\), \(i\in I\), est un recouvrement de \(X\) dans \((QP/G)_{\Nis}\), il existe un recouvrement \(\mathcal V\) de \(X/G\) dans \((QP)_{\Nis}\) dont le tiré en arrière sur \(X\) est plus fin que \(U\).
+\end{lemma*}
+
+\begin{proofdel}
+Fixons une filtration \(\emptyset=X_n\subset\cdots\subset X_0=X\) comme dans la définition de la topologie de Nisnevich. Écrivons \(q\) pour l'application quotient \(X\to X/G\). Pour \(x\) dans \(X/G\), \((q^{-1}(x))_{\red}\) est contenu dans un certain \(X_j-X_{j+1}\), par équivariance des \(X_j\), et l'une des applications \(Y_i\to X\) admet une section équivariante \(s\) au-dessus de \(X_j-X_{j+1}\). Soit \((X/G)^h_x\) l'hensélisation de \(X/G\) en \(x\). L'application \(q\) étant finie, le tiré en arrière de \((X/G)^h_x\) à \(X\) est le coproduit des \(X^h_y\) pour \(q(y)=x\). L'application de \(Y_i\) vers \(X\) étant étale, la section \(s\), restreinte à \((q^{-1}(y))_{\red}\), se prolonge de façon unique en une section (automatiquement équivariante) de \(Y_i\) au-dessus de \(\coprod_{q(y)=x}X^h_y\). En écrivant \((X/G)^h_x\) comme limite des voisinages étales de \(x\), on trouve que \(x\) possède un voisinage étale \(V(x)\) tel que \(Y_i\) ait une section équivariante au-dessus de \(X\times_{X/G}V(x)\). Les \(V(x)\) forment le recouvrement \(\mathcal V\) requis.
+\end{proofdel}
+
+On définit les schémas henséliens \(G\)-locaux comme les schémas \(Y\) obtenus de la façon suivante. Pour \(X\) dans \((QP/G)\), \(y\) un point de \(X/G\), et \((X/G)^h_y\) l'hensélisation de \(X/G\) en \(y\), on prend le produit fibré
+\[
+Y:=X\times_{X/G}(X/G)^h_y.
+\]
+Comme \(X\) est fini sur \(X/G\), ce produit fibré est une union disjointe finie de schémas henséliens locaux, et les schémas henséliens \(G\)-locaux sont simplement les unions disjointes finies \(G\)-équivariantes de tels \(Y\) de schémas henséliens locaux, pour lesquels \(Y/G\) est local.
+
+\begin{proposition*}[13]
+Si \(Y\) est \(G\)-local hensélien, le foncteur \(X\mapsto\Hom(Y,X)\) est un point du site \((QP/G)_{\Nis}\), c'est-à-dire qu'il définit un morphisme du site ponctuel \((\mathrm{Sets})\) vers \((QP/G)_{\Nis}\). Si \(Y=X\times_{X/G}(X/G)^h_y\), le foncteur fibre correspondant est
+\[
+F\longmapsto \operatorname*{colim}_{Y\subset X\times_{X/G}V}F(X\times_{X/G}V),
+\]
+la colimite étant prise sur les voisinages étales de \(y\) dans \(X/G\). La collection des foncteurs fibres ainsi obtenue est conservative.
+\end{proposition*}
+
+\begin{proofdel}
+Le foncteur \(X\mapsto\Hom(Y,X)\) commute aux limites finies. Il résulte du lemme 2 qu'il transforme les recouvrements en familles surjectives d'applications, donc qu'il est un morphisme de sites \((\mathrm{Sets})\to(QP/G)_{\Nis}\).
+
+Pour vérifier que l'ensemble de foncteurs fibres obtenu est conservatif, il suffit de vérifier qu'une famille étale \(f_i:U_i\to X\) est un recouvrement si, pour tout \(G\)-local hensélien \(Y\),
+\[
+\coprod_i \Hom(Y,U_i)\longrightarrow \Hom(Y,X)
+\]
+est surjective. La preuve, parallèle à celle du lemme 2, est laissée au lecteur.
+\end{proofdel}
+
+\section*{3.2 La structure de modèle fermée de Brown--Gersten sur les faisceaux simpliciaux sur les \(G\)-schémas}
+
+Rappelons qu'un carré commutatif d'ensembles simpliciaux (ou d'ensembles simpliciaux pointés)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+K \arrow[r] \arrow[d] & L \arrow[d]\\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{13.1}
+\]
+est homotopiquement cartésien (ou un carré de tiré en arrière homotopique) si, lorsque \(L\) est remplacé par \(L'\) faiblement équivalent à lui et envoyé vers \(N\) par une fibration (de Kan) \(L\overset{\sim}{\to}L'\to N\), l'application de \(K\) vers \(L'\times_NM\) est une équivalence faible.
+
+\begin{definition*}[3]
+Un préfaisceau simplicial \(F_\bullet\) sur \((QP/G)_{\Nis}\) est flasque si \(F(\emptyset)\) est contractile et si, pour tout carré distingué (supérieur)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+B \arrow[r] \arrow[d] & Y \arrow[d,"p"]\\
+A \arrow[r,"j"'] & X
+\end{tikzcd}
+\]
+(\(p\) étale, \(j\) immersion ouverte, \(B=p^{-1}(A)\), et \(Y-B\simeq X-A\)), le carré
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+F(X) \arrow[r] \arrow[d] & F(Y) \arrow[d,"p"]\\
+F(A) \arrow[r,"j"'] & F(B)
+\end{tikzcd}
+\]
+est homotopiquement cartésien.
+\end{definition*}
+
+\begin{theorem*}[3]
+Soit \(f:F_\bullet\to F'_\bullet\) un morphisme de préfaisceaux simpliciaux flasques. Si le morphisme induit de faisceaux simpliciaux \(aF_\bullet\to aF'_\bullet\) est une équivalence locale, alors, pour tout \(U\) dans \(QP/G\), \(F_\bullet(U)\to F'_\bullet(U)\) est une équivalence faible.
+\end{theorem*}
+
+\end{document}

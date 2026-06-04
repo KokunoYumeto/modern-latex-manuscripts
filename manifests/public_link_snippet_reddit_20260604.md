@@ -18,7 +18,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20537816) — Werke working drafts plus Band II source-checked cumulative readers through printed page 291.
 
-**Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20541718) — English-first paper-level and correspondence translation/source-working packets, including the diagram-audited forward paper stream 001-013 plus 014 pages 1-30 and 015, the reverse paper stream 090 down through 080, and twelve paired English/French correspondence readers.
+**Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20542232) — English-first paper-level and correspondence translation/source-working packets, including the diagram-audited forward paper stream 001-013 plus 014 pages 1-30 and 015, the reverse paper stream 090 down through 080 complete plus 079 pages 1-20 partial, and twelve paired English/French correspondence readers.
 
 **Ukrainian applied mathematics:** https://doi.org/10.5281/zenodo.20490906 (latest: 20520721) — applied mathematics translation readers and TeX/source packets.
 
