@@ -1,1 +1,0 @@
-Current batch pp. 466-488 contains no numbered geometric figures. Formula arrays, permutation data, determinant constructions, and transformation matrices for sections 125-131 are reproduced in LaTeX; no screenshot or image stand-ins are used in the work PDFs.

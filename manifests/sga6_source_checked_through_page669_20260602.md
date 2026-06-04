@@ -37,4 +37,4 @@ Reported/public page counts:
 - French 654-669 segment: 7 pages.
 - Source-scan witness 654-669: 16 pages.
 
-Remaining work is normal SGA work: source comparison, mathematical proofreading, diagram checking, reference checking, and typography cleanup.
+Remaining work is normal SGA work: source comparison, mathematical proofreading, diagram checking, reference checking, and typography repair.

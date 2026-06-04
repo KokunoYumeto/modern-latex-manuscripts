@@ -22,7 +22,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Non-European / multilingual | 20410957 | `10.5281/zenodo.20531266` | 2026-06-03 reconstructed work-level readers, corrected combined readers, al-Battani v083 trilingual text/reference reader, complete fixed-star catalogue edition with CSV dataset, and first Western Europe geography-table leaf |
 | Ukrainian applied mathematics | 20490906 | `10.5281/zenodo.20520721` | 2026-06-03 high-density applied-math continuation with current reader PDFs 00-17 |
 | Classical shelf: Cayley / Dedekind / Dirichlet | 20414787 | `10.5281/zenodo.20503771` | 2026-06-02 umbrella shelf; dedicated Cayley, Dedekind, and Dirichlet author records now exist |
-| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20442003` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.377 |
+| Author cluster: Sylvester etc. | 20411006 | `10.5281/zenodo.20411006` | 2026-05-29 author cluster refresh; Sylvester now has dedicated author record through p.377 |
 | Gauss | 20410934 | `10.5281/zenodo.20529812` | 2026-06-03 Gauss Band II source-checked cumulative readers from the actual beginning through printed page 282; latest version is a summary-refresh follow-up to the p282 patch |
 | Weber | 20412153 | `10.5281/zenodo.20535677` | 2026-06-04 Weber author refresh: Volume I complete, Volume II source-checked through section 96, and current repaired Volume III |
 | Steinitz | 20530953 | `10.5281/zenodo.20535731` | 2026-06-04 dedicated Steinitz author update: corpus package 17, 1894 dissertation complete, and 1912 Rectangular Systems II source slice added |
@@ -39,8 +39,8 @@ Checked against the public Zenodo API on 2026-06-03.
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20526521` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-137 readers with source-page-184 English/French readers, matching source-scan witness, and refreshed source ZIP 82. |
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20529444` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-184 readers with source-page-236 English/French readers, matching source-scan witness, and compact p236 source packet. |
 | SGA | `10.5281/zenodo.20410947` | `10.5281/zenodo.20529890` | 77 | compact patch | Same-concept update replacing SGA7-I source-page-236 readers with source-page-260 English/French readers, matching source-scan witness, and compact p260 source packet. |
-| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Paper 15 and source/witness packets. |
-| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | 93 | compact patch | Same-concept update replacing ES/JA cumulative readers through Paper 15 with Paper 18 cumulative readers and adding standalone Paper 17 sections 10-12 plus Paper 18 ES/JA readers. |
+| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20520501` | 91 | 569,212,865 bytes | Same-concept update with German/English numbered-paper completion plus ES/JA through Papers 1-31 and Paper 31 section 2 and source/witness packets. |
+| Noether | `10.5281/zenodo.20412587` | `10.5281/zenodo.20523656` | 93 | compact patch | Same-concept update replacing ES/JA cumulative readers through Papers 1-31 and Paper 31 section 2 with Paper 18 cumulative readers and adding standalone Paper 17 sections 10-12 plus Paper 18 ES/JA readers. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20520750` | 14 | 166,685,400 bytes | New dedicated author record with thirteen current volume-level slice readers and compact source/status ZIP. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20522228` | 14 | 166,149,960 bytes | Same-concept update replacing the rebuilt 421-page Volume II reader and refreshed source/manifest ZIP after Paper 109 determinant-array repair. |
 | Cayley | `10.5281/zenodo.20520749` | `10.5281/zenodo.20523305` | 14 | compact patch | Same-concept update replacing the Volume IV and Volume X readers after the native hexahedron-net and theta-characteristic symbol repairs; refreshed source/manifest ZIP includes the residual marker scan and unpromoted Vol XIII quarantine packet. |
@@ -57,7 +57,7 @@ Checked against the public Zenodo API on 2026-06-03.
 | Sylvester | `10.5281/zenodo.20520692` | `10.5281/zenodo.20529509` | 2 | 66,881,468 bytes | Same-concept update replacing the Volume I reader/source packet with the source-checked cumulative edition through book page 377. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20526138` | 85 | 503,376,490 bytes uploaded in patch | Same-concept update with reconstructed 66-work reader surface, corrected combined readers, and al-Battani v083 trilingual text/reference reader; table stream remains in progress. |
 | Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20529541` | 88 | compact patch | Same-concept update adding the al-Battani fixed-star catalogue descriptive edition, CSV dataset, and coverage/table status note. |
-| Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20531266` | 91 | compact patch | Same-concept update adding the first al-Battani geography-table leaf for Western Europe, matching TeX source, and refreshed coverage/status language after Claude's local al-Battani table push. |
+| Non-European / multilingual | `10.5281/zenodo.20410957` | `10.5281/zenodo.20531266` | 91 | compact patch | Same-concept update adding the first al-Battani geography-table leaf for Western Europe, matching TeX source, and refreshed coverage/status language after review system's local al-Battani table push. |
 | Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20529154` | 47 | compact patch | Same-concept update replacing the front-facing three-volume readers with Volume I complete, Volume II source-checked through section 91, and the current repaired Volume III; refreshed compact TeX/source/provenance ZIP. |
 | Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20530074` | 47 | compact patch | Same-concept update replacing Volume II source-checked cumulative material through section 94 while retaining Volume I complete and the current repaired Volume III. |
 | Weber | `10.5281/zenodo.20412153` | `10.5281/zenodo.20535677` | 47 | compact patch | Same-concept update replacing Volume II source-checked cumulative material through section 96 while retaining Volume I complete and the current repaired Volume III; compact Batch74 source/provenance ZIP included. |
@@ -121,7 +121,7 @@ Local/GitHub state:
 - Spanish/Japanese GitHub and Zenodo readers are present through Paper 18.
 - Front-facing readers `74` and `75` are cumulative Spanish/Japanese through Paper 18; readers `78` and `79` add standalone Paper 17 sections 10-12 plus Paper 18 Spanish/Japanese translations.
 - Current source packet: `sources/noether/multilingual-spanish-japanese-through-paper18-complete-2026-06-03/`.
-- Canonical final audit folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether restart fidelity\Noether_FINAL_AUDIT_numbered_papers_complete_PATCHED`.
+- Canonical final audit folder: `local workspace path
 
 Action: published Noether with a clear split: numbered German/English complete; ES/JA multilingual lane through Paper 18 complete; French pilot only where actually complete.
 
@@ -143,15 +143,15 @@ Public Zenodo is behind the al-Battani table work.
 
 Latest external local candidates:
 
-- `cleanup multilingual/round83_albattani_canonical_reference_v083`
-- `cleanup multilingual/round82_albattani_canonical_reference_v082`
-- `cleanup multilingual/round80_albattani_canonical_reference`
-- `cleanup multilingual/round78_albattani_table_phase12_source_checked`
-- `cleanup multilingual/non_eu_round75_albattani_table_phase9_text_only_transcription_nested`
+- `repair multilingual/round83_albattani_canonical_reference_v083`
+- `repair multilingual/round82_albattani_canonical_reference_v082`
+- `repair multilingual/round80_albattani_canonical_reference`
+- `repair multilingual/round78_albattani_table_phase12_source_checked`
+- `repair multilingual/non_eu_round75_albattani_table_phase9_text_only_transcription_nested`
 
 Action: completed same-concept patches after quick sanity audit. The record now promotes the reconstructed work-level reader release, al-Battani v083 text/reference package, and al-Battani fixed-star catalogue descriptive edition with CSV dataset, while keeping coordinate and numerical-table collation explicitly in progress.
 
-Update 2026-06-04: promoted the al-Battani geography gazetteer as the current front-facing geography table layer. This replaces the earlier single Western Europe leaf on the live reader surface and adds a complete current geography gazetteer PDF, CSV dataset, raw TSV, and standalone build script. Current coverage: 93 regional midpoint rows plus 176 city rows, 269 locality entries total; chronology, zodiac, and auxiliary numerical tables remain in progress. A same-day partial 44-city version was briefly published first and immediately superseded by the complete gazetteer update after the later Claude push landed.
+Update 2026-06-04: promoted the al-Battani geography gazetteer as the current front-facing geography table layer. This replaces the earlier single Western Europe leaf on the live reader surface and adds a complete current geography gazetteer PDF, CSV dataset, raw TSV, and standalone build script. Current coverage: 93 regional midpoint rows plus 176 city rows, 269 locality entries total; chronology, zodiac, and auxiliary numerical tables remain in progress. A same-day partial 44-city version was briefly published first and immediately superseded by the complete gazetteer update after the later review system push landed.
 
 ### 6. Author cluster / Sylvester
 
@@ -159,7 +159,7 @@ Public Zenodo is much older than local Sylvester.
 
 Local state noted by external thread:
 
-- Sylvester Volume I cumulative through book pp. 1-218 is mirrored in GitHub from `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\sylvester_batch12`, with source PDF pp. 19-236 and source-page PNGs included.
+- Sylvester Volume I cumulative through book pp. 1-218 is mirrored in GitHub from `local workspace path, with source PDF pp. 19-236 and source-page PNGs included.
 - The local formula-crop assist workflow is useful as localization/checking support, not insertion-grade TeX.
 
 Action: dedicated Sylvester author-level record was created and then patched through book page 347. Keep the cluster as a temporary shelf only for less mature starts.

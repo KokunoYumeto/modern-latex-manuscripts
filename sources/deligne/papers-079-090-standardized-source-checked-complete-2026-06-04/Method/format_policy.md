@@ -1,1 +1,0 @@
-Format standard: pdflatex-compatible lmodern, T1 encoding, standard LaTeX math, 11pt article, 1in margins, tikz-cd for commutative diagrams. TeX directories contain TeX only; PDFs are kept in PDF directories.

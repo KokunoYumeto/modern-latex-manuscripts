@@ -15,7 +15,7 @@ Source and witness packet:
 
 Local source package:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Paper43_final_RA01_ES_JA_20260604.zip`
+- `local workspace path
 
 Source-witness audit:
 

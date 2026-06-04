@@ -14,7 +14,7 @@ Source and witness tree:
 
 Local source package:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\dedekind\DR15_V1I_p18_26.zip`
+- `local workspace path
 
 Source-witness audit:
 

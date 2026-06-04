@@ -1,1 +1,0 @@
-1894 dissertation complete. New work in this package is the continuation from the opening of section 8 on printed p.21 through the Vita and Theses. Complete German and English reader files are included.

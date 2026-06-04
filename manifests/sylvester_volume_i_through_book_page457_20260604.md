@@ -12,7 +12,7 @@ Source and witness tree:
 
 Local source package:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_457_with_scans_20260603.zip`
+- `local workspace path
 
 Source-witness audit:
 

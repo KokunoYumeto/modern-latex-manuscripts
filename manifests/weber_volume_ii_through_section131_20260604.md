@@ -13,7 +13,7 @@ Updated: 2026-06-04
 
 ## Coverage
 
-This packet promotes Batch81. The new material covers Volume II sections 125-131, with source pages 466-488 included as a source-scan handoff PDF plus page renders. The cumulative front-facing Volume II readers now run through section 131.
+This packet promotes Batch81. The new material covers Volume II sections 125-131, with source pages 466-488 included as a source-scan source packet PDF plus page renders. The cumulative front-facing Volume II readers now run through section 131.
 
 Next continuation point: Volume II section 132. Volume III remains at the current repaired cumulative state, with section 101 as the next Volume III continuation point.
 

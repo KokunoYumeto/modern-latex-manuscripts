@@ -1,1 +1,0 @@
-Weber cumulative three-volume packet, Batch81. New work: Volume II sections 125-131. Work PDFs contain TeX-rendered text, formulas, arrays, and matrices only; source scans are included separately for checking.
