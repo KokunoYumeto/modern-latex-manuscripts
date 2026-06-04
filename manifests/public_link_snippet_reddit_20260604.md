@@ -16,7 +16,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Heinrich Weber:** https://doi.org/10.5281/zenodo.20412153 (latest: 20544247) — Lehrbuch Volume I complete, Volume II source-checked through section 131, and current Volume III repaired cumulative readers; top-level PDFs are English translation first, then paired German source.
 
-**Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20537816) — Werke working drafts plus Band II source-checked cumulative readers through printed page 291.
+**Gauss:** https://doi.org/10.5281/zenodo.20410934 (latest: 20544740) — broad Werke draft readers plus Band II source-checked original/English cumulative readers through printed page 303.
 **P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20544678) — Werke Band II source-checked original/English cumulative readers through Papers I-XXXV.
 
 **Deligne:** https://doi.org/10.5281/zenodo.20410853 (latest: 20542232) — English-first paper-level and correspondence translation/source-working packets, including the diagram-audited forward paper stream 001-013 plus 014 pages 1-30 and 015, the reverse paper stream 090 down through 080 complete plus 079 pages 1-20 partial, and twelve paired English/French correspondence readers.
@@ -49,6 +49,8 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Classical algebra/arithmetic umbrella shelf:** https://doi.org/10.5281/zenodo.20414787 (latest: 20503771)
 
 **Older author-cluster shelf:** https://doi.org/10.5281/zenodo.20411006 (latest: 20442003)
+
+
 
 
 
