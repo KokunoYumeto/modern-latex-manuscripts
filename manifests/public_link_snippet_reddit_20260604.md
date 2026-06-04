@@ -22,7 +22,9 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **Ukrainian applied mathematics:** https://doi.org/10.5281/zenodo.20490906 (latest: 20520721) — applied mathematics translation readers and TeX/source packets.
 
-**Non-European and multilingual mathematical manuscripts:** https://doi.org/10.5281/zenodo.20410957 (latest: 20538269) — current reader-facing multilingual corpus, including al-Battani table/catalogue/geography refreshes.
+**Non-European and multilingual mathematical manuscripts:** https://doi.org/10.5281/zenodo.20410957 (latest: 20539653) — current reader-facing multilingual corpus, including the al-Battani text stream, fixed-star catalogue, geography, and table work.
+
+**al-Battani fixed-star catalogue:** https://doi.org/10.5281/zenodo.20539593 (latest: 20539594) — complete 485-star coordinate catalogue with PDF, CSV, TeX/data/scripts, source witness, and an honest partial-description layer.
 
 **Chinese mathematical classics:** https://doi.org/10.5281/zenodo.20415751
 
