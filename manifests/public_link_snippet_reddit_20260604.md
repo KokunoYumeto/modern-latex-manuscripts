@@ -40,7 +40,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **P. G. Lejeune Dirichlet:** https://doi.org/10.5281/zenodo.20520679 (latest: 20536165)
 
-**James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20540584)
+**James Joseph Sylvester:** https://doi.org/10.5281/zenodo.20520692 (latest: 20544607) — Volume I source-checked working edition through book page 457; source ZIP includes TeX, cumulative source scan slice, and page witnesses.
 
 **Ernst Steinitz:** https://doi.org/10.5281/zenodo.20530952 (latest: 20538678)
 
@@ -49,6 +49,8 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Classical algebra/arithmetic umbrella shelf:** https://doi.org/10.5281/zenodo.20414787 (latest: 20503771)
 
 **Older author-cluster shelf:** https://doi.org/10.5281/zenodo.20411006 (latest: 20442003)
+
+
 
 
 
