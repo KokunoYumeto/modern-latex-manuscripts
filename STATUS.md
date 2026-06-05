@@ -18,7 +18,7 @@ The old v23 landing-page release is preserved, but the project has moved into au
 | Heinrich Weber | <https://doi.org/10.5281/zenodo.20412153> | `Lehrbuch der Algebra` Volume I German/English complete and recursively audited through the Introduction; Volume II through section 143; Volume III in progress. |
 | Arthur Cayley | <https://doi.org/10.5281/zenodo.20520749> | Large patchwork working edition; many volume readers and repaired slices exist, but dense-table/layout cleanup is ongoing. |
 | James Joseph Sylvester | <https://doi.org/10.5281/zenodo.20520692> | Volume I source-checked working edition publicly staged through book page 511. |
-| Richard Dedekind | <https://doi.org/10.5281/zenodo.20520669> | Dedicated author lane with source-checked editions and English translations. |
+| Richard Dedekind | <https://doi.org/10.5281/zenodo.20520669> | GMW Volume I cumulative German/English reader covers Items I-IV plus Item V through Article 13; continuation starts at Item V Article 14. |
 | P. G. Lejeune Dirichlet | <https://doi.org/10.5281/zenodo.20520679> | Werke Band II Papers I-XLI source-checked/translated lane with explicit repair queue. |
 | Ernst Steinitz | <https://doi.org/10.5281/zenodo.20530952> | Multiple German/English working readers, including 1910 field-theory material and 1912 rectangular systems. |
 | Carl Friedrich Gauss | <https://doi.org/10.5281/zenodo.20410934> | Working drafts, repair/source packages, and translation/transcription starts; R28 adds a focused Band II pp.212-265 correction overlay; still uneven. |
@@ -36,6 +36,7 @@ The old v23 landing-page release is preserved, but the project has moved into au
 - Gauss staging has been refreshed with the R28 Band II pp.212-265 correction repair packet.
 - Weber staging has been refreshed with Batch85 Volume I recursive audit through the end of the Introduction.
 - Deligne staging has been refreshed to forward Paper 016 page 70 and reverse Paper 078 pages 1-46, while retaining the 100-file cap.
+- Dedekind staging has been refreshed with DR17, advancing GMW Volume I from Items I-IV to Item V through Article 13.
 - SGA staging already contains SGA 7-I through source page 528.
 - GitHub now includes small al-Battani CSV datasets and OCR/workflow scripts; large packages remain on Zenodo.
 

@@ -52,6 +52,7 @@ These are working scholarly editions and translation drafts, not final critical 
 - **Deligne:** letters/correspondence lane is complete at working-draft level; forward stream reaches Paper 016 page 70 and reverse stream has Paper 078 through pages 1-46 plus Papers 079-090; still uneven by design.
 - **Cayley:** many rendered volume readers and repaired slices exist, but the lane remains a patchwork working edition with known layout and dense-table issues.
 - **Sylvester:** Volume I source-checked working edition is advancing sequentially; current public staging reaches book page 511.
+- **Dedekind:** GMW Volume I cumulative German/English reader now covers Items I-IV plus Item V through Article 13, with source witness packet and explicit continuation at Item V Article 14.
 - **al-Battani:** work-level package combines a trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, source witnesses, and workflow notes. It is one work-level DOI, not a separate catalogue split.
 - **Non-European / multilingual:** broad reader/source-intake layer across Chinese, Sanskrit/Indian, Islamic/Arabic, Persian-adjacent, and Japanese material. Quality varies by work; the best readers are useful now, while some items remain source-intake or repair targets.
 - **Ukrainian applied mathematics:** applied mathematics and engineering translation lane, including estimation, filtering, VIO/SLAM, SDR/radar/navigation-adjacent mathematics, and related technical material.

@@ -5,7 +5,7 @@
 - Keep author/work Zenodo records current without duplicating superseded files in the front-facing upload folders.
 - Keep GitHub as the small coordination layer: manifests, issue templates, scripts, datasets, and status notes only.
 - Continue staging new local drops author by author, with source-audit notes before public promotion.
-- Continue record-level sweep publishing for new checked author packets; most recent Noether, Sylvester, Gauss, and Weber patches are published.
+- Continue record-level sweep publishing for new checked author packets; most recent Noether, Sylvester, Gauss, Weber, and Dedekind patches are published.
 
 ## Active Lanes
 
@@ -15,6 +15,7 @@
 - **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity, especially as Paper 016 and Paper 078 continue in page chunks.
 - **Cayley:** pause expensive repair runs when needed, but keep a precise inventory of rendered coverage versus genuinely source-checked transcription. Dense tables and layout failures remain the main repair target.
 - **Sylvester:** continue Volume I sequentially from book page 512, with source-scan slices and no screenshot substitutions.
+- **Dedekind:** continue GMW Volume I Item V from Article 14 on printed p.55, preserving paired German/English cumulative readers and source slices.
 - **Non-European / multilingual:** keep the al-Battani work-level DOI unified; separate finished datasets/readers from source-intake reader expansions.
 
 ## Workflow / Tooling
