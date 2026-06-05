@@ -12,7 +12,7 @@
 - **Noether:** continue recursive scan audit/backfill from Papers 31-36 onward; expand checked French translation from Paper 02 onward; keep Spanish/Japanese corrections synchronized.
 - **Weber:** continue Volume II/III updates, continue Volume I recursive audit from the First Section, and keep source/scan aid packets available without bloating every upload.
 - **SGA:** keep SGA 7-I staged sequentially after source page 528, and preserve SGA 5/6 as completed working lanes.
-- **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity.
+- **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity, especially as Paper 016 and Paper 078 continue in page chunks.
 - **Cayley:** pause expensive repair runs when needed, but keep a precise inventory of rendered coverage versus genuinely source-checked transcription. Dense tables and layout failures remain the main repair target.
 - **Sylvester:** continue Volume I sequentially from book page 512, with source-scan slices and no screenshot substitutions.
 - **Non-European / multilingual:** keep the al-Battani work-level DOI unified; separate finished datasets/readers from source-intake reader expansions.

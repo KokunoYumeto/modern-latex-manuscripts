@@ -24,7 +24,7 @@ The old v23 landing-page release is preserved, but the project has moved into au
 | Carl Friedrich Gauss | <https://doi.org/10.5281/zenodo.20410934> | Working drafts, repair/source packages, and translation/transcription starts; R28 adds a focused Band II pp.212-265 correction overlay; still uneven. |
 | SGA | <https://doi.org/10.5281/zenodo.20410947> | SGA 5/6 working translation/transcription complete; SGA 7-I staged through source page 528. |
 | EGA | <https://doi.org/10.5281/zenodo.20414353> | Partial working translation material beyond existing community resources; not polished. |
-| Pierre Deligne | <https://doi.org/10.5281/zenodo.20410853> | Letters/correspondence working lane complete; forward/reverse paper streams in progress. |
+| Pierre Deligne | <https://doi.org/10.5281/zenodo.20410853> | Letters/correspondence working lane complete; forward stream reaches Paper 016 page 70; reverse stream has Paper 078 through pages 1-46 plus Papers 079-090. |
 | Ukrainian applied mathematics | <https://doi.org/10.5281/zenodo.20490906> | Applied mathematics / engineering translation lane. |
 | al-Battani, Opus Astronomicum | <https://doi.org/10.5281/zenodo.20539593> | Single work-level record with trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, and source witnesses. |
 | Non-European / multilingual general | <https://doi.org/10.5281/zenodo.20410957> | Broad reader/source-intake and translation layer; quality varies by work. |
@@ -35,6 +35,7 @@ The old v23 landing-page release is preserved, but the project has moved into au
 - Sylvester staging has been published from book page 493 to book page 511.
 - Gauss staging has been refreshed with the R28 Band II pp.212-265 correction repair packet.
 - Weber staging has been refreshed with Batch85 Volume I recursive audit through the end of the Introduction.
+- Deligne staging has been refreshed to forward Paper 016 page 70 and reverse Paper 078 pages 1-46, while retaining the 100-file cap.
 - SGA staging already contains SGA 7-I through source page 528.
 - GitHub now includes small al-Battani CSV datasets and OCR/workflow scripts; large packages remain on Zenodo.
 

@@ -49,7 +49,7 @@ These are working scholarly editions and translation drafts, not final critical 
 - **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; recursive audit now reaches Papers 25-30; French currently has a checked complete Paper 02 package plus earlier pilot material.
 - **Weber:** `Lehrbuch der Algebra` Volume I German/English complete and recursively source-audited through the Introduction; Volume II is source-checked through section 143; Volume III is in progress.
 - **SGA:** SGA 5/6 translation/transcription lanes are complete at working-edition level; SGA 7-I is in progress and currently staged through source page 528.
-- **Deligne:** letters/correspondence lane is complete at working-draft level; forward and reverse paper streams are in progress and uneven by design.
+- **Deligne:** letters/correspondence lane is complete at working-draft level; forward stream reaches Paper 016 page 70 and reverse stream has Paper 078 through pages 1-46 plus Papers 079-090; still uneven by design.
 - **Cayley:** many rendered volume readers and repaired slices exist, but the lane remains a patchwork working edition with known layout and dense-table issues.
 - **Sylvester:** Volume I source-checked working edition is advancing sequentially; current public staging reaches book page 511.
 - **al-Battani:** work-level package combines a trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, source witnesses, and workflow notes. It is one work-level DOI, not a separate catalogue split.
