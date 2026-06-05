@@ -46,12 +46,12 @@ These are working scholarly editions and translation drafts, not final critical 
 
 ## Current Status
 
-- **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; French currently has a checked complete Paper 02 package plus earlier pilot material.
-- **Weber:** `Lehrbuch der Algebra` Volume I German/English complete; Volumes II and III in progress.
+- **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; recursive audit now reaches Papers 25-30; French currently has a checked complete Paper 02 package plus earlier pilot material.
+- **Weber:** `Lehrbuch der Algebra` Volume I German/English complete and recursively source-audited through the Introduction; Volume II is source-checked through section 143; Volume III is in progress.
 - **SGA:** SGA 5/6 translation/transcription lanes are complete at working-edition level; SGA 7-I is in progress and currently staged through source page 528.
 - **Deligne:** letters/correspondence lane is complete at working-draft level; forward and reverse paper streams are in progress and uneven by design.
 - **Cayley:** many rendered volume readers and repaired slices exist, but the lane remains a patchwork working edition with known layout and dense-table issues.
-- **Sylvester:** Volume I source-checked working edition is advancing sequentially; current local staging reaches book page 511.
+- **Sylvester:** Volume I source-checked working edition is advancing sequentially; current public staging reaches book page 511.
 - **al-Battani:** work-level package combines a trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, source witnesses, and workflow notes. It is one work-level DOI, not a separate catalogue split.
 - **Non-European / multilingual:** broad reader/source-intake layer across Chinese, Sanskrit/Indian, Islamic/Arabic, Persian-adjacent, and Japanese material. Quality varies by work; the best readers are useful now, while some items remain source-intake or repair targets.
 - **Ukrainian applied mathematics:** applied mathematics and engineering translation lane, including estimation, filtering, VIO/SLAM, SDR/radar/navigation-adjacent mathematics, and related technical material.

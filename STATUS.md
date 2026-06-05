@@ -14,14 +14,14 @@ The old v23 landing-page release is preserved, but the project has moved into au
 
 | Lane | Concept DOI | Current practical status |
 |---|---:|---|
-| Emmy Noether | <https://doi.org/10.5281/zenodo.20412587> | German/English numbered 43-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; French Paper 02 checked locally. |
-| Heinrich Weber | <https://doi.org/10.5281/zenodo.20412153> | `Lehrbuch der Algebra` Volume I German/English complete; Volumes II and III in progress. |
+| Emmy Noether | <https://doi.org/10.5281/zenodo.20412587> | German/English numbered 43-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit through Papers 25-30; French Paper 02 checked and published. |
+| Heinrich Weber | <https://doi.org/10.5281/zenodo.20412153> | `Lehrbuch der Algebra` Volume I German/English complete and recursively audited through the Introduction; Volume II through section 143; Volume III in progress. |
 | Arthur Cayley | <https://doi.org/10.5281/zenodo.20520749> | Large patchwork working edition; many volume readers and repaired slices exist, but dense-table/layout cleanup is ongoing. |
-| James Joseph Sylvester | <https://doi.org/10.5281/zenodo.20520692> | Volume I source-checked working edition locally staged through book page 511. |
+| James Joseph Sylvester | <https://doi.org/10.5281/zenodo.20520692> | Volume I source-checked working edition publicly staged through book page 511. |
 | Richard Dedekind | <https://doi.org/10.5281/zenodo.20520669> | Dedicated author lane with source-checked editions and English translations. |
 | P. G. Lejeune Dirichlet | <https://doi.org/10.5281/zenodo.20520679> | Werke Band II Papers I-XLI source-checked/translated lane with explicit repair queue. |
 | Ernst Steinitz | <https://doi.org/10.5281/zenodo.20530952> | Multiple German/English working readers, including 1910 field-theory material and 1912 rectangular systems. |
-| Carl Friedrich Gauss | <https://doi.org/10.5281/zenodo.20410934> | Working drafts, repair/source packages, and translation/transcription starts; still uneven. |
+| Carl Friedrich Gauss | <https://doi.org/10.5281/zenodo.20410934> | Working drafts, repair/source packages, and translation/transcription starts; R28 adds a focused Band II pp.212-265 correction overlay; still uneven. |
 | SGA | <https://doi.org/10.5281/zenodo.20410947> | SGA 5/6 working translation/transcription complete; SGA 7-I staged through source page 528. |
 | EGA | <https://doi.org/10.5281/zenodo.20414353> | Partial working translation material beyond existing community resources; not polished. |
 | Pierre Deligne | <https://doi.org/10.5281/zenodo.20410853> | Letters/correspondence working lane complete; forward/reverse paper streams in progress. |
@@ -31,8 +31,10 @@ The old v23 landing-page release is preserved, but the project has moved into au
 
 ## Current Local Staging Notes
 
-- Noether staging has been updated with recursive audit packets RA02-RA05 and a Codex-checked French Paper 02 package.
-- Sylvester staging has been advanced from book page 493 to book page 511.
+- Noether staging has been updated with a combined recursive audit bundle RA02-RA06 and a Codex-checked French Paper 02 package.
+- Sylvester staging has been published from book page 493 to book page 511.
+- Gauss staging has been refreshed with the R28 Band II pp.212-265 correction repair packet.
+- Weber staging has been refreshed with Batch85 Volume I recursive audit through the end of the Introduction.
 - SGA staging already contains SGA 7-I through source page 528.
 - GitHub now includes small al-Battani CSV datasets and OCR/workflow scripts; large packages remain on Zenodo.
 

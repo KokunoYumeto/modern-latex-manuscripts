@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import re
 import zipfile
 from collections import Counter
@@ -14,8 +15,8 @@ from io import BytesIO
 from pathlib import Path
 
 
-KIMI7 = Path.home() / "Documents" / "Papors" / "Chatnotes" / "CHat translates and clean" / "Kimi" / "kimi 7"
-OUT = Path.home() / "Downloads" / "KIMI7_NONSCAN_REFINED_FOR_WEB_CURRENT"
+KIMI7 = Path(os.environ.get("KIMI7_SOURCE_DIR", Path.home() / "manuscript-work" / "Kimi" / "kimi 7"))
+OUT = Path(os.environ.get("KIMI7_NONSCAN_OUT", Path.home() / "Downloads" / "KIMI7_NONSCAN_REFINED_FOR_WEB_CURRENT"))
 CHUNKS = OUT / "WEB_UPLOAD_CHUNKS"
 MAX_CHUNK_BYTES = 500_000_000
 TARGET_UNCOMPRESSED = 380_000_000

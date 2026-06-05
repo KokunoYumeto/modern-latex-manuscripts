@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import re
 import shutil
 import zipfile
@@ -15,23 +16,21 @@ from io import BytesIO
 from pathlib import Path
 
 
-SOURCE_ZIP = (
-    Path.home()
-    / "Documents"
-    / "Papors"
-    / "Chatnotes"
-    / "CHat translates and clean"
-    / "Kimi"
-    / "kimi 7"
-    / "Kimi_Agent_Continue LaTeX Typesetting Work.zip"
+SOURCE_ZIP = Path(
+    os.environ.get(
+        "KIMI7_CONTINUE_SOURCE_ZIP",
+        Path.home() / "manuscript-work" / "Kimi" / "kimi 7" / "Kimi_Agent_Continue LaTeX Typesetting Work.zip",
+    )
 )
 BASELINE_MANIFESTS = [
-    Path.home()
-    / "Downloads"
-    / "KIMI7_NONSCAN_REFINED_FOR_WEB_CURRENT"
-    / "kimi7_nonscan_selected_manifest.csv"
+    Path(
+        os.environ.get(
+            "KIMI7_BASELINE_MANIFEST",
+            Path.home() / "Downloads" / "KIMI7_NONSCAN_REFINED_FOR_WEB_CURRENT" / "kimi7_nonscan_selected_manifest.csv",
+        )
+    )
 ]
-OUT = Path.home() / "Downloads" / "KIMI7_CONTINUE_NONSCAN_DELTA_FOR_WEB_CURRENT"
+OUT = Path(os.environ.get("KIMI7_CONTINUE_OUT", Path.home() / "Downloads" / "KIMI7_CONTINUE_NONSCAN_DELTA_FOR_WEB_CURRENT"))
 CHUNKS = OUT / "WEB_UPLOAD_CHUNKS"
 
 MAX_CHUNK_BYTES = 500_000_000

@@ -5,12 +5,12 @@
 - Keep author/work Zenodo records current without duplicating superseded files in the front-facing upload folders.
 - Keep GitHub as the small coordination layer: manifests, issue templates, scripts, datasets, and status notes only.
 - Continue staging new local drops author by author, with source-audit notes before public promotion.
-- Publish checked Noether and Sylvester staging updates after one more record-level sanity pass.
+- Continue record-level sweep publishing for new checked author packets; most recent Noether, Sylvester, Gauss, and Weber patches are published.
 
 ## Active Lanes
 
-- **Noether:** continue recursive scan audit/backfill through Papers 25-43; expand checked French translation from Paper 02 onward; keep Spanish/Japanese corrections synchronized.
-- **Weber:** continue Volume II/III updates, preserve Volume I as the complete front-facing anchor, and keep source/scan aid packets available without bloating every upload.
+- **Noether:** continue recursive scan audit/backfill from Papers 31-36 onward; expand checked French translation from Paper 02 onward; keep Spanish/Japanese corrections synchronized.
+- **Weber:** continue Volume II/III updates, continue Volume I recursive audit from the First Section, and keep source/scan aid packets available without bloating every upload.
 - **SGA:** keep SGA 7-I staged sequentially after source page 528, and preserve SGA 5/6 as completed working lanes.
 - **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity.
 - **Cayley:** pause expensive repair runs when needed, but keep a precise inventory of rendered coverage versus genuinely source-checked transcription. Dense tables and layout failures remain the main repair target.
