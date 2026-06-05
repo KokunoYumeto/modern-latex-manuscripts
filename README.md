@@ -46,7 +46,7 @@ These are working scholarly editions and translation drafts, not final critical 
 
 ## Current Status
 
-- **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; recursive audit now reaches Paper 37 and restores missing Paper 35 and Paper 37 material; French currently has Codex-checked translations through Papers 01-04.
+- **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; recursive audit now reaches Paper 37 and restores missing Paper 35 and Paper 37 material; French currently has Codex-checked translations through Papers 01-05.
 - **Weber:** `Lehrbuch der Algebra` Volume I German/English complete and recursively source-audited through the Introduction; Volume II is source-checked through section 143; Volume III is in progress.
 - **SGA:** SGA 5/6 translation/transcription lanes are complete at working-edition level; SGA 7-I public checked surface has been reset to pages 1-24 pending sequential rebuild of later ranges.
 - **Deligne:** letters/correspondence lane is complete at working-draft level; forward stream reaches Paper 016 page 80 and reverse stream has Paper 078 through pages 1-56 plus Papers 079-090; still uneven by design.
