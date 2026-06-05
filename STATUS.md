@@ -1,51 +1,48 @@
 # Status
 
-Generated status date: 2026-05-27.
+Generated status date: 2026-06-05.
 
-## Current Public Archive
+## Public Archive
 
-- Published v23: <https://zenodo.org/records/20410262>
-- Version DOI: <https://doi.org/10.5281/zenodo.20410262>
-- Concept DOI: <https://doi.org/10.5281/zenodo.20393488>
+- Main raw/provenance concept DOI: <https://doi.org/10.5281/zenodo.20393488>
+- Workflow / replication concept DOI: <https://doi.org/10.5281/zenodo.20461174>
+- GitHub repository: <https://github.com/KokunoYumeto/modern-latex-manuscripts>
 
-## v23 Public Summary
+The old v23 landing-page release is preserved, but the project has moved into author-level and work-level Zenodo records. Use the concept DOI for each lane unless citing a specific version.
 
-- Published files: 100
-- Total published size: about 4.72 GB
-- Top-level reader PDFs: 58
-- Artifact ZIPs: 35
-- Full-repo ZIP: `99_full_repo__modern_latex_corpus_v23_kimi7_nonscan_artifacts.zip`
-- New cleaned non-European reader PDFs: 22
-- New partial Cayley reader PDF: 1
-- SGA4 English current reader PDF through Expose I sections 8.7-8.8: present.
-- Kimi 7 non-scan artifacts: 2 ZIPs, 4,689 non-image files, 804 generated PDFs with technical PDF/text-extraction audit OK.
-- Cleanup 9 cleaned PDF audit: 85/85 PDFs passed `pdfinfo` and text extraction.
-- v23 public metadata first-name check: clear.
+## Current Author / Work Records
 
-## Important Holds And Demotions
+| Lane | Concept DOI | Current practical status |
+|---|---:|---|
+| Emmy Noether | <https://doi.org/10.5281/zenodo.20412587> | German/English numbered 43-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; French Paper 02 checked locally. |
+| Heinrich Weber | <https://doi.org/10.5281/zenodo.20412153> | `Lehrbuch der Algebra` Volume I German/English complete; Volumes II and III in progress. |
+| Arthur Cayley | <https://doi.org/10.5281/zenodo.20520749> | Large patchwork working edition; many volume readers and repaired slices exist, but dense-table/layout cleanup is ongoing. |
+| James Joseph Sylvester | <https://doi.org/10.5281/zenodo.20520692> | Volume I source-checked working edition locally staged through book page 511. |
+| Richard Dedekind | <https://doi.org/10.5281/zenodo.20520669> | Dedicated author lane with source-checked editions and English translations. |
+| P. G. Lejeune Dirichlet | <https://doi.org/10.5281/zenodo.20520679> | Werke Band II Papers I-XLI source-checked/translated lane with explicit repair queue. |
+| Ernst Steinitz | <https://doi.org/10.5281/zenodo.20530952> | Multiple German/English working readers, including 1910 field-theory material and 1912 rectangular systems. |
+| Carl Friedrich Gauss | <https://doi.org/10.5281/zenodo.20410934> | Working drafts, repair/source packages, and translation/transcription starts; still uneven. |
+| SGA | <https://doi.org/10.5281/zenodo.20410947> | SGA 5/6 working translation/transcription complete; SGA 7-I staged through source page 528. |
+| EGA | <https://doi.org/10.5281/zenodo.20414353> | Partial working translation material beyond existing community resources; not polished. |
+| Pierre Deligne | <https://doi.org/10.5281/zenodo.20410853> | Letters/correspondence working lane complete; forward/reverse paper streams in progress. |
+| Ukrainian applied mathematics | <https://doi.org/10.5281/zenodo.20490906> | Applied mathematics / engineering translation lane. |
+| al-Battani, Opus Astronomicum | <https://doi.org/10.5281/zenodo.20539593> | Single work-level record with trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, and source witnesses. |
+| Non-European / multilingual general | <https://doi.org/10.5281/zenodo.20410957> | Broad reader/source-intake and translation layer; quality varies by work. |
 
-- Gauss Werke top-level reader PDF demoted in v21. It remains preserved inside artifacts/history but should not be advertised as clean.
-- Karpinski Robert of Chester Latin translation top-level reader PDF demoted in v22 after display QC; preserved inside cleanup 9 artifacts and audit history.
-- Cayley combined PDF is explicitly partial/current-incremental, not a complete collected edition.
-- SGA 5-7 working LaTeX is usable for continuation, not proofed.
-- Non-European/Central Asian material is now entering the public release layer, but it still needs source comparison and mathematical proofreading.
+## Current Local Staging Notes
 
-## Active Local Handoff Folders
+- Noether staging has been updated with recursive audit packets RA02-RA05 and a Codex-checked French Paper 02 package.
+- Sylvester staging has been advanced from book page 493 to book page 511.
+- SGA staging already contains SGA 7-I through source page 528.
+- GitHub now includes small al-Battani CSV datasets and OCR/workflow scripts; large packages remain on Zenodo.
 
-- Web project source zips: `%USERPROFILE%\Downloads\WEB_SESSION_SOURCE_FILES_DRAG_ME_CURRENT_40_ZIPS_CLEAN`
-- Stable web-source alias: `%USERPROFILE%\Downloads\WEB_SESSION_SOURCE_FILES_DRAG_ME_CURRENT_CLEAN`
-- Non-EU swarm-ready PDFs: `%USERPROFILE%\Downloads\NON_EU_50PDF_SWARM_READY_CURRENT_FROM_CLEANUP9`
-- SGA batches: `%USERPROFILE%\Downloads\SGA\SGA_TRANSLATION_BATCHES_CURRENT`
-- Kimi 7 continuation non-scan delta: `%USERPROFILE%\Downloads\KIMI7_CONTINUE_NONSCAN_DELTA_FOR_WEB_CURRENT`
+## Holds And Caveats
 
-## Kimi 7 Web Handoff
-
-- Initial resolved Kimi 7 non-scan handoff, cleaned after PDF audit: 1 ZIP, 172,490,284 bytes, 3,130 files inside.
-- Continuation/repair-pass delta: 1 ZIP, 141,642,603 bytes, 1,559 files inside.
-- Initial Kimi 7 clean PDF audit: 556/556 PDFs passed `pdfinfo` and text extraction after removing four placeholder/broken PDFs.
-- Continuation delta PDF audit: 248/248 PDFs passed `pdfinfo` and text extraction.
-- Rolling web source folder is exactly 40 ZIP files, matching the web-session source-file limit. The tiny standalone SGA coordination-notes ZIP was dropped from the drag set to make room for the two Kimi 7 handoff ZIPs.
+- Cayley is not complete in the sense of a uniformly source-checked, layout-clean collected edition. It has broad rendered coverage and many source-checked repairs, but still has table/layout/dense-equation issues.
+- Deligne paper drafts vary in maturity. Letters are much cleaner than many paper drafts.
+- Non-European reader releases include both finished-looking readers and source-intake/reference readers; check per-file notes before treating a work as polished.
+- OCR/math-OCR outputs are witnesses, not authoritative text. Promotion requires source comparison, compilation, and render checks.
 
 ## Quality Policy
 
-Top-level `00_pdf__...` files should be generated reader PDFs or modern re-edition PDFs. Scans, raw references, rough source material, and QC reports belong inside artifact ZIPs. If a top-level PDF is discovered to be bad, preserve it in artifacts/history and demote or replace the reader-facing copy.
+Top-level public PDFs should be readable reader PDFs or source-checked working PDFs. Scans, raw references, rough source material, and QC reports belong in artifact ZIPs or raw/provenance records. If a top-level PDF is discovered to be bad, preserve it in artifacts/history and demote or replace the reader-facing copy.
