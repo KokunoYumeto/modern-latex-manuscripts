@@ -46,16 +46,16 @@ These are working scholarly editions and translation drafts, not final critical 
 
 ## Current Status
 
-- **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; recursive audit now reaches Paper 37 and restores missing Paper 35 and Paper 37 material; French currently has Codex-checked translations through Papers 01-05.
-- **Weber:** `Lehrbuch der Algebra` Volume I German/English complete and recursively source-audited through the Introduction; Volume II is source-checked through section 143; Volume III is in progress.
-- **SGA:** SGA 5/6 translation/transcription lanes are complete at working-edition level; SGA 7-I public checked surface has been reset to pages 1-24 pending sequential rebuild of later ranges.
-- **Deligne:** letters/correspondence lane is complete at working-draft level; forward stream reaches Paper 016 page 80 and reverse stream has Paper 078 through pages 1-56 plus Papers 079-090; still uneven by design.
-- **Cayley:** many rendered volume readers and repaired slices exist, but the lane remains a patchwork working edition with known layout and dense-table issues.
+- **Noether:** German/English numbered-paper corpus complete; Spanish/Japanese cumulative translations complete through Paper 43 and under recursive scan audit/backfill; recursive audit apparatus now reaches Papers 40-43; French currently has Codex-checked translations through Papers 01-05.
+- **Weber:** `Lehrbuch der Algebra` Volume I German/English complete and recursively source-audited through sections 13-17 in the current local stream; Volume II is source-checked through section 143; Volume III is in progress.
+- **SGA:** SGA 5/6 translation/transcription lanes are complete at working-edition level. A stricter ordered SGA 6 rebuild is locally staged through source pages 1-280, completing Expose III in that stream. SGA 7-I public checked surface remains reset to pages 1-24 pending sequential rebuild of later ranges.
+- **Deligne:** letters/correspondence lane is complete at working-draft level; forward stream reaches Paper 016 page 97 and Paper 017 has begun; reverse stream has Paper 078 through pages 1-56 plus Papers 079-090; still uneven by design.
+- **Cayley:** many rendered volume readers and repaired slices exist, but the lane remains a patchwork working edition with known layout and dense-table issues. A Pro salvage pass over Claude brick part 01 produced a useful witness package, not a blanket certification.
 - **Sylvester:** Volume I source-checked working edition is advancing sequentially; current public staging reaches book page 511.
 - **Dedekind:** GMW Volume I cumulative German/English reader now covers Items I-IV plus Item V through Article 13, with source witness packet and explicit continuation at Item V Article 14.
 - **Steinitz:** corpus package 23 corrects the 1894 dissertation readers; the 1906 Euler note and 1908 Analysis Situs paper remain source-intake targets.
 - **al-Battani:** work-level package combines a trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, source witnesses, and workflow notes. It is one work-level DOI, not a separate catalogue split.
-- **Non-European / multilingual:** broad reader/source-intake layer across Chinese, Sanskrit/Indian, Islamic/Arabic, Persian-adjacent, and Japanese material. Quality varies by work; the best readers are useful now, while some items remain source-intake or repair targets.
+- **Non-European / multilingual:** broad reader/source-intake layer across Chinese, Sanskrit/Indian, Islamic/Arabic, Persian-adjacent, and Japanese material. Quality varies by work; the best readers are useful now, while some items remain source-intake or repair targets. The Nine Chapters Chinese-Arabic rebuild is complete relative to the selected project source, not the full classical 80-problem work.
 - **Ukrainian applied mathematics:** applied mathematics and engineering translation lane, including estimation, filtering, VIO/SLAM, SDR/radar/navigation-adjacent mathematics, and related technical material.
 
 ## How To Help

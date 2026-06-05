@@ -9,14 +9,14 @@
 
 ## Active Lanes
 
-- **Noether:** continue recursive scan audit/backfill from Papers 38-43 onward; expand checked French translation from Paper 06 onward; keep Spanish/Japanese corrections synchronized.
-- **Weber:** continue Volume II/III updates, continue Volume I recursive audit from the First Section, and keep source/scan aid packets available without bloating every upload.
-- **SGA:** rebuild SGA 7-I sequentially after pages 1-24 from the original scan, and preserve SGA 5/6 as completed working lanes.
-- **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity, especially as Paper 016 continues after page 80 and Paper 078 continues after page 56.
-- **Cayley:** pause expensive repair runs when needed, but keep a precise inventory of rendered coverage versus genuinely source-checked transcription. Dense tables and layout failures remain the main repair target.
+- **Noether:** continue recursive scan audit/backfill from Papers 40-43 apparatus onward; expand checked French translation from Paper 06 onward; keep Spanish/Japanese corrections synchronized.
+- **Weber:** continue Volume II/III updates, continue Volume I recursive audit after sections 13-17, and keep source/scan aid packets available without bloating every upload.
+- **SGA:** continue the stricter ordered SGA 6 rebuild after source page 280 while preserving SGA 5/6 as completed working lanes; rebuild SGA 7-I sequentially after pages 1-24 from the original scan.
+- **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity, especially as Paper 016 continues after page 97, Paper 017 starts, and Paper 078 continues after page 56.
+- **Cayley:** pause expensive repair runs when needed, but keep a precise inventory of rendered coverage versus genuinely source-checked transcription. Use the Pro salvage part 01 package as witness material only. Dense tables and layout failures remain the main repair target.
 - **Sylvester:** continue Volume I sequentially from book page 512, with source-scan slices and no screenshot substitutions.
 - **Dedekind:** continue GMW Volume I Item V from Article 14 on printed p.55, preserving paired German/English cumulative readers and source slices.
-- **Non-European / multilingual:** keep the al-Battani work-level DOI unified; separate finished datasets/readers from source-intake reader expansions.
+- **Non-European / multilingual:** keep the al-Battani work-level DOI unified; separate finished datasets/readers from source-intake reader expansions; do not label selected-source rebuilds such as Nine Chapters vols. 4-6 as full classical-work completions.
 
 ## Workflow / Tooling
 
