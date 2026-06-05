@@ -9,9 +9,9 @@
 
 ## Active Lanes
 
-- **Noether:** continue recursive scan audit/backfill from Papers 37-43 onward; expand checked French translation from Paper 05 onward; keep Spanish/Japanese corrections synchronized.
+- **Noether:** continue recursive scan audit/backfill from Papers 38-43 onward; expand checked French translation from Paper 05 onward; keep Spanish/Japanese corrections synchronized.
 - **Weber:** continue Volume II/III updates, continue Volume I recursive audit from the First Section, and keep source/scan aid packets available without bloating every upload.
-- **SGA:** keep SGA 7-I staged sequentially after source page 528, and preserve SGA 5/6 as completed working lanes.
+- **SGA:** rebuild SGA 7-I sequentially after pages 1-24 from the original scan, and preserve SGA 5/6 as completed working lanes.
 - **Deligne:** treat correspondence as the stable lane; keep forward/reverse paper streams clearly marked by cumulative coverage and maturity, especially as Paper 016 and Paper 078 continue in page chunks.
 - **Cayley:** pause expensive repair runs when needed, but keep a precise inventory of rendered coverage versus genuinely source-checked transcription. Dense tables and layout failures remain the main repair target.
 - **Sylvester:** continue Volume I sequentially from book page 512, with source-scan slices and no screenshot substitutions.
