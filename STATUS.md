@@ -14,7 +14,7 @@ The old v23 landing-page release is preserved, but the project has moved into au
 
 | Lane | Concept DOI | Current practical status |
 |---|---:|---|
-| Emmy Noether | <https://doi.org/10.5281/zenodo.20412587> | German/English numbered 43-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit through Papers 25-30; French Paper 02 checked and published. |
+| Emmy Noether | <https://doi.org/10.5281/zenodo.20412587> | German/English numbered 43-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit through Papers 25-30; French checked checkpoint through Papers 01-03 published. |
 | Heinrich Weber | <https://doi.org/10.5281/zenodo.20412153> | `Lehrbuch der Algebra` Volume I German/English complete and recursively audited through the Introduction; Volume II through section 143; Volume III in progress. |
 | Arthur Cayley | <https://doi.org/10.5281/zenodo.20520749> | Large patchwork working edition; many volume readers and repaired slices exist, but dense-table/layout cleanup is ongoing. |
 | James Joseph Sylvester | <https://doi.org/10.5281/zenodo.20520692> | Volume I source-checked working edition publicly staged through book page 511. |
@@ -31,7 +31,7 @@ The old v23 landing-page release is preserved, but the project has moved into au
 
 ## Current Local Staging Notes
 
-- Noether staging has been updated with a combined recursive audit bundle RA02-RA06 and a Codex-checked French Paper 02 package.
+- Noether staging has been updated with a combined recursive audit bundle RA02-RA06 and a compact Codex-checked French Papers 01-03 checkpoint.
 - Sylvester staging has been published from book page 493 to book page 511.
 - Gauss staging has been refreshed with R29, replacing the earlier R28 public packet because R28 is now quarantined as still section-compressed.
 - Weber staging has been refreshed with Batch85 Volume I recursive audit through the end of the Introduction.
