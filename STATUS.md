@@ -20,11 +20,11 @@ The old v23 landing-page release is preserved, but the project has moved into au
 | James Joseph Sylvester | <https://doi.org/10.5281/zenodo.20520692> | Volume I source-checked working edition publicly staged through book page 511. |
 | Richard Dedekind | <https://doi.org/10.5281/zenodo.20520669> | GMW Volume I cumulative German/English reader covers Items I-IV plus Item V through Article 13; continuation starts at Item V Article 14. |
 | P. G. Lejeune Dirichlet | <https://doi.org/10.5281/zenodo.20520679> | Werke Band II Papers I-XLI source-checked/translated lane with explicit repair queue. |
-| Ernst Steinitz | <https://doi.org/10.5281/zenodo.20530952> | Multiple German/English working readers, including 1910 field-theory material and 1912 rectangular systems. |
+| Ernst Steinitz | <https://doi.org/10.5281/zenodo.20530952> | Multiple German/English working readers; corpus package 23 corrects the 1894 dissertation and keeps 1906/1908 source targets on the follow-up list. |
 | Carl Friedrich Gauss | <https://doi.org/10.5281/zenodo.20410934> | Working drafts, repair/source packages, and translation/transcription starts; current Band II repair packet is R30, a literal Articles 338-347 repair retaining R29's Articles 330-337 corrections; still uneven. |
 | SGA | <https://doi.org/10.5281/zenodo.20410947> | SGA 5/6 working translation/transcription complete; SGA 7-I public checked surface reset to pages 1-24 pending sequential rebuild of later ranges. |
 | EGA | <https://doi.org/10.5281/zenodo.20414353> | Partial working translation material beyond existing community resources; not polished. |
-| Pierre Deligne | <https://doi.org/10.5281/zenodo.20410853> | Letters/correspondence working lane complete; forward stream reaches Paper 016 page 70; reverse stream has Paper 078 through pages 1-56 plus Papers 079-090. |
+| Pierre Deligne | <https://doi.org/10.5281/zenodo.20410853> | Letters/correspondence working lane complete; forward stream reaches Paper 016 page 80; reverse stream has Paper 078 through pages 1-56 plus Papers 079-090. |
 | Ukrainian applied mathematics | <https://doi.org/10.5281/zenodo.20490906> | Applied mathematics / engineering translation lane. |
 | al-Battani, Opus Astronomicum | <https://doi.org/10.5281/zenodo.20539593> | Single work-level record with trilingual text working reader, complete fixed-star catalogue, complete geography gazetteer, partial chronology, and source witnesses. |
 | Non-European / multilingual general | <https://doi.org/10.5281/zenodo.20410957> | Broad reader/source-intake and translation layer; quality varies by work. |
@@ -35,10 +35,11 @@ The old v23 landing-page release is preserved, but the project has moved into au
 - Sylvester staging has been published from book page 493 to book page 511.
 - Gauss staging has been refreshed with R30 for Band II Articles 338-347, replacing the earlier R29 front-facing repair packet while keeping R29's Articles 330-337 corrections incorporated.
 - Weber staging has been refreshed with Batch85 Volume I recursive audit through the end of the Introduction.
-- Deligne staging has been refreshed to forward Paper 016 page 70 and reverse Paper 078 pages 1-56, while retaining the 100-file cap.
+- Deligne staging has been refreshed to forward Paper 016 page 80 and reverse Paper 078 pages 1-56, while retaining the 100-file cap.
 - Dedekind staging has been refreshed with DR17, advancing GMW Volume I from Items I-IV to Item V through Article 13.
 - SGA staging has been corrected: SGA 5/6 remain complete, while SGA 7-I is public-facing only through pages 1-24 until later ranges are rebuilt sequentially.
 - GitHub now includes small al-Battani CSV datasets and OCR/workflow scripts; large packages remain on Zenodo.
+- Steinitz staging has been refreshed to corpus package 23, correcting the 1894 dissertation readers while keeping the 1906 Euler and 1908 Analysis Situs source targets explicit.
 
 ## Holds And Caveats
 
