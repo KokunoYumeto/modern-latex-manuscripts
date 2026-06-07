@@ -42,7 +42,7 @@ RECORDS: list[tuple[str, str]] = [
     ("historical_references", "20415777"),
     ("classical_algebra_arithmetic", "20583048"),
     ("sylvester", "20585052"),
-    ("additional_author_cluster", "20585017"),
+    ("additional_author_cluster", "20585174"),
 ]
 
 

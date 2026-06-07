@@ -22,4 +22,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://zenodo.org/records/20415777) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20583048) |
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20585052) |
-| Additional Author Cluster | 37 | 10 | 26 | 1276.0 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20585017) |
+| Additional Author Cluster | 42 | 10 | 31 | 1454.5 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20585174) |
