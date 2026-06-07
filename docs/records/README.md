@@ -6,14 +6,14 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 3 | 1 | 2 | 0.2 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20461174) |
-| Emmy Noether | 100 | 90 | 9 | 688.8 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20584477) |
+| Emmy Noether | 100 | 90 | 9 | 708.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20585128) |
 | Heinrich Weber | 9 | 6 | 2 | 52.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20582965) |
 | Arthur Cayley | 38 | 13 | 24 | 159.6 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20585094) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
 | SGA | 81 | 74 | 6 | 1438.3 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20584725) |
-| Pierre Deligne | 100 | 96 | 3 | 605.3 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20585067) |
+| Pierre Deligne | 100 | 96 | 3 | 648.1 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20585140) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
-| Gauss | 23 | 14 | 8 | 1203.4 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20584533) |
+| Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20585139) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
 | Non-European Mathematics, Consolidated | 99 | 71 | 23 | 2548.2 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20584910) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
