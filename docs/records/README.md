@@ -6,12 +6,12 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 3 | 1 | 2 | 0.2 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20461174) |
-| Emmy Noether | 100 | 90 | 9 | 708.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20585128) |
-| Heinrich Weber | 9 | 6 | 2 | 52.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20582965) |
-| Arthur Cayley | 56 | 13 | 42 | 178.5 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20585836) |
+| Emmy Noether | 100 | 90 | 9 | 830.9 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20586200) |
+| Heinrich Weber | 11 | 6 | 4 | 79.4 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20586068) |
+| Arthur Cayley | 58 | 13 | 44 | 780.4 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20585934) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
 | SGA | 81 | 74 | 6 | 1438.3 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20584725) |
-| Pierre Deligne | 100 | 96 | 3 | 648.1 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20585140) |
+| Pierre Deligne | 100 | 96 | 3 | 1067.3 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20586140) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20585139) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
@@ -22,4 +22,6 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://zenodo.org/records/20415777) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20583048) |
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20585052) |
+| Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
+| P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
 | Additional Author Cluster | 62 | 10 | 51 | 1888.1 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20585541) |

@@ -38,6 +38,8 @@ RECORD_ORDER = [
     "historical_references",
     "classical_algebra_arithmetic",
     "sylvester",
+    "dedekind",
+    "dirichlet",
     "additional_author_cluster",
 ]
 
@@ -61,6 +63,8 @@ DISPLAY_NAMES = {
     "historical_references": "Historical Reference Witnesses",
     "classical_algebra_arithmetic": "Classical Algebra and Arithmetic",
     "sylvester": "James Joseph Sylvester",
+    "dedekind": "Richard Dedekind",
+    "dirichlet": "P. G. Lejeune Dirichlet",
     "additional_author_cluster": "Additional Author Cluster",
 }
 
