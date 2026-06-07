@@ -35,7 +35,7 @@ RECORDS: list[tuple[str, str]] = [
     ("ukrainian_applied_math", "20490906"),
     ("gauss", "20584533"),
     ("albattani_opus_astronomicum", "20584850"),
-    ("non_european_consolidated", "20584622"),
+    ("non_european_consolidated", "20584910"),
     ("chinese", "20415752"),
     ("indian_sanskrit", "20415755"),
     ("islamic_arabic", "20415770"),
