@@ -2,7 +2,7 @@
 
 Zenodo record: [20418609](https://zenodo.org/records/20418609)
 
-Public title: Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus
+Public title: Cayley, Dedekind, Dirichlet, Gauss, Weber, and Noether: Classical Algebra and Arithmetic LaTeX Drafts
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
@@ -29,11 +29,6 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | 3.4432 | [30 Gauss - Werke, Band I - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/30%20Gauss%20-%20Werke%2C%20Band%20I%20-%20Modern%20LaTeX%20Draft.pdf) |
 | 3.1872 | [31 Gauss - Werke, Band I - Alternate Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/31%20Gauss%20-%20Werke%2C%20Band%20I%20-%20Alternate%20Modern%20LaTeX%20Draft.pdf) |
 | 3.0076 | [32 Gauss - Werke, Band II - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/32%20Gauss%20-%20Werke%2C%20Band%20II%20-%20Modern%20LaTeX%20Draft.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 3.6819 | [33 Gauss - Werke, Band III - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/33%20Gauss%20-%20Werke%2C%20Band%20III%20-%20Modern%20LaTeX%20Draft.pdf) |
 | 2.6757 | [34 Gauss - Werke, Band VI - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/34%20Gauss%20-%20Werke%2C%20Band%20VI%20-%20Modern%20LaTeX%20Draft.pdf) |
 | 4.1337 | [35 Gauss - Werke, Band VII - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/35%20Gauss%20-%20Werke%2C%20Band%20VII%20-%20Modern%20LaTeX%20Draft.pdf) |

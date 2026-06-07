@@ -23,11 +23,6 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | 0.3138 | [10-08 English Translation - Bhaskara II - Bijaganita, parts 1-3.pdf](https://zenodo.org/records/20415755/files/10-08%20English%20Translation%20-%20Bhaskara%20II%20-%20Bijaganita%2C%20parts%201-3.pdf) |
 | 0.1310 | [10-09 English Translation - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20415755/files/10-09%20English%20Translation%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
 | 0.2734 | [10-10 English Translation - Brahmagupta - Brahmasphutasiddhanta.pdf](https://zenodo.org/records/20415755/files/10-10%20English%20Translation%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 0.1249 | [50-01 Indian Original - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20415755/files/50-01%20Indian%20Original%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
 | 0.3210 | [50-02 Indian Original - Bhaskara II - Bijaganita, parts 1-3.pdf](https://zenodo.org/records/20415755/files/50-02%20Indian%20Original%20-%20Bhaskara%20II%20-%20Bijaganita%2C%20parts%201-3.pdf) |
 | 0.1160 | [50-03 Indian Original - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20415755/files/50-03%20Indian%20Original%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |

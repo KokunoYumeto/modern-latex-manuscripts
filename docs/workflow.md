@@ -60,3 +60,11 @@ Public-facing titles should name the author, work, language/status where needed,
 6. Update the archive guide, file catalog, known gaps, and current-status manifest.
 
 For the full publication pass, use the [release checklist](release-checklist.md).
+
+## Local OCR And Math-Extraction Tooling Notes
+
+The project workflow can use several open-source OCR/math extraction tools, but their outputs should be treated as witnesses unless a page-specific audit promotes them.
+
+As of the 2026-06-07 sweep, visible environments include Marker, Surya, pix2tex, Docling, RapidOCR, Transformers model code, Pillow, and OpenCV across separate Python environments. The checked environments reported CPU-only PyTorch; the consolidated OCR conda environment existed but was not yet a verified RTX/CUDA math-OCR pipeline. Candidate tools identified for future testing include MinerU, Pix2Text, GOT-OCR2, and Chandra-style vision-language models, with Nougat treated as lower priority because it is no longer the best-maintained path.
+
+The current best practice is conservative: use OCR/math-OCR to localize formulas, tables, and diagram regions; keep crops and candidate TeX as witnesses; promote only after visual comparison with the source scan and successful TeX compilation. For dense historical mathematics, a reliable package should include page/region IDs, witness crops, candidate TeX, accepted/rejected/uncertain status, and a short audit note. Candidate TeX should not be pasted silently into public editions.

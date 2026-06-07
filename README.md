@@ -9,16 +9,20 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Corpus | Status | Zenodo |
 |---|---:|---|
 | Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
-| EGA working English translation | 45/100, 578-page current build | <https://zenodo.org/records/20419105> |
-| SGA working English translation | 60/100 | <https://zenodo.org/records/20418993> |
-| Non-European mathematics manuscripts, consolidated | 85/100 | <https://zenodo.org/records/20418877> |
+| Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20461174> |
+| Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations | <https://zenodo.org/records/20412587> |
+| Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
+| Arthur Cayley | Source-checked modern LaTeX slice readers, in progress | <https://zenodo.org/records/20520749> |
+| SGA working English translation | SGA 5/6 and further SGA working translations | <https://zenodo.org/records/20410947> |
+| Pierre Deligne papers | Paper and letter translation/source drafts | <https://zenodo.org/records/20410853> |
+| EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |
+| Ukrainian applied mathematics | Applied mathematics and engineering translation drafts | <https://zenodo.org/records/20490906> |
+| Gauss | Gauss Werke modern LaTeX drafts and repair/source packages | <https://zenodo.org/records/20410934> |
+| Non-European mathematics manuscripts, consolidated | Multilingual Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent material | <https://zenodo.org/records/20410957> |
 | Chinese mathematical classics | 80/100 | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
-| Heinrich Weber | 40/100 | <https://zenodo.org/records/20418861> |
-| Emmy Noether | 40/100 | <https://zenodo.org/records/20418862> |
-| Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
 | Additional author cluster | 60/100 | <https://zenodo.org/records/20416839> |
 

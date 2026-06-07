@@ -21,16 +21,20 @@ from pathlib import Path
 
 RECORD_ORDER = [
     "main",
+    "workflow",
+    "noether",
+    "weber",
+    "cayley",
     "ega",
     "sga",
+    "deligne",
+    "ukrainian_applied_math",
+    "gauss",
     "non_european_consolidated",
     "chinese",
     "indian_sanskrit",
     "islamic_arabic",
     "historical_references",
-    "weber",
-    "noether",
-    "deligne",
     "classical_algebra_arithmetic",
     "additional_author_cluster",
 ]
@@ -38,16 +42,20 @@ RECORD_ORDER = [
 
 DISPLAY_NAMES = {
     "main": "Main Project Landing",
+    "workflow": "Workflow / Replication Packet",
+    "noether": "Emmy Noether",
+    "weber": "Heinrich Weber",
+    "cayley": "Arthur Cayley",
     "ega": "EGA",
     "sga": "SGA",
+    "deligne": "Pierre Deligne",
+    "ukrainian_applied_math": "Ukrainian Applied Mathematics",
+    "gauss": "Gauss",
     "non_european_consolidated": "Non-European Mathematics, Consolidated",
     "chinese": "Chinese Mathematical Classics",
     "indian_sanskrit": "Indian and Sanskrit Mathematical Classics",
     "islamic_arabic": "Islamic and Arabic Mathematical Texts",
     "historical_references": "Historical Reference Witnesses",
-    "weber": "Heinrich Weber",
-    "noether": "Emmy Noether",
-    "deligne": "Pierre Deligne",
     "classical_algebra_arithmetic": "Classical Algebra and Arithmetic",
     "additional_author_cluster": "Additional Author Cluster",
 }
@@ -179,4 +187,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

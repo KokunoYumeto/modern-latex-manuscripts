@@ -26,11 +26,6 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | 0.1671 | [10-15 English Translation - Omar Khayyam - Treatise on Algebra.pdf](https://zenodo.org/records/20415770/files/10-15%20English%20Translation%20-%20Omar%20Khayyam%20-%20Treatise%20on%20Algebra.pdf) |
 | 0.1378 | [10-16 English Translation - Rosen - Algebra of Mohammed Ben Musa.pdf](https://zenodo.org/records/20415770/files/10-16%20English%20Translation%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20Ben%20Musa.pdf) |
 | 0.2451 | [10-17 English Translation - Ruska - Oldest Arabic Algebra.pdf](https://zenodo.org/records/20415770/files/10-17%20English%20Translation%20-%20Ruska%20-%20Oldest%20Arabic%20Algebra.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 0.2162 | [60-01 Islamic Original - al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20415770/files/60-01%20Islamic%20Original%20-%20al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
 | 0.2260 | [60-02 Islamic Original - al-Khwarizmi - Algebra.pdf](https://zenodo.org/records/20415770/files/60-02%20Islamic%20Original%20-%20al-Khwarizmi%20-%20Algebra.pdf) |
 | 0.1596 | [60-03 Islamic Original - al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20415770/files/60-03%20Islamic%20Original%20-%20al-Tusi%20-%20Shakl%20al-Qatta.pdf) |

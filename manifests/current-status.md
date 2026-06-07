@@ -1,16 +1,20 @@
 # Current Status
 
-Generated from the local Codex working project on 2026-05-27.
+Generated from the local Codex working project on 2026-06-07.
 
 | Area | Current State |
 |---|---|
 | Main landing record | Current clean public landing page published as <https://zenodo.org/records/20415117>. |
-| Deligne | Clean public record published as <https://zenodo.org/records/20414959>. |
-| Non-European mathematics | Consolidated multilingual record published as <https://zenodo.org/records/20418877>, with refreshed work-level English, Modern Chinese, and Arabic translation PDFs plus raw provenance archives. |
-| Weber | Author record published as <https://zenodo.org/records/20418861>, including the latest transposed-substitutions/projective-actions translation continuation. |
-| Noether | Author record published as <https://zenodo.org/records/20418862>, including five current English translation pieces and a selected mathematical-papers reader with collected-volume wrapper pages removed. |
-| EGA | Current EGA record published as <https://zenodo.org/records/20419105>; the compiled English working draft is now 578 pages and includes substantive EGA 0_IV sections 15 through 23, substantive EGA IV sections 1 through 3, and partial/current EGA IV section 4, with separate TeX supplements for EGA 0_IV and EGA IV main-text continuation. |
-| SGA | Current SGA record published as <https://zenodo.org/records/20418993>; SGA 4 now has a combined English reader through Expose VI section 1.21, with Expose IV section 9 filled, Expose IV through section 14 present, and Expose V present through section 8. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans and are documented as such. |
-| Classical algebra/arithmetic shelf | Current record published as <https://zenodo.org/records/20418609>; Gauss Werke Band VII now uses the 466-page Claude Phase 1 combined reader PDF, and Noether uses the wrapper-removed selected mathematical-papers reader. |
+| Workflow / replication packet | Current compact workflow record published as <https://zenodo.org/records/20461174>. |
+| Noether | Current author record published as <https://zenodo.org/records/20412587>; numbered German/English corpus and multilingual translation work are tracked here. |
+| Weber | Current author record published as <https://zenodo.org/records/20412153>; Lehrbuch Volume I is front-facing and later volumes are in progress. |
+| Cayley | Current author record published as <https://zenodo.org/records/20520749>; source-checked slice readers are in progress and should be preferred over older broad draft PDFs. |
+| Deligne | Current public record published as <https://zenodo.org/records/20410853>. |
+| Ukrainian applied mathematics | Current record published as <https://zenodo.org/records/20490906>. |
+| EGA | Current EGA record published as <https://zenodo.org/records/20414353>; partial EGA 0_IV / EGA IV working translation material is included as draft/proof-of-concept material. |
+| SGA | Current SGA record published as <https://zenodo.org/records/20410947>; SGA 5/6 and further SGA working translation material are tracked here. |
+| Gauss | Current Gauss record published as <https://zenodo.org/records/20410934>. |
+| Non-European mathematics | Consolidated multilingual record published as <https://zenodo.org/records/20410957>, with Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent source and translation material. |
+| Classical algebra/arithmetic shelf | Current record published as <https://zenodo.org/records/20418609>; remains a shelf for mixed classical drafts while substantial authors are split into dedicated records. |
 | Additional author cluster | Current clean author-cluster record published as <https://zenodo.org/records/20416839>; public reader PDFs cover Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing, with obvious modern collected-volume wrappers removed. |
 | GitHub push | Local mirror is updated and SSH authentication works for the configured key; the remote repository still needs to exist before the first push can succeed. |

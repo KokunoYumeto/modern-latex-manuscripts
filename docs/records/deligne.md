@@ -1,12 +1,12 @@
 # Pierre Deligne
 
-Zenodo record: [20414959](https://zenodo.org/records/20414959)
+Zenodo record: [20410853](https://zenodo.org/records/20410853)
 
 Public title: Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 93 | 91 | 1 | 207.3 |
+| 100 | 96 | 3 | 222.1 |
 
 ## How To Read This Record
 
@@ -16,106 +16,113 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 | Size MB | File |
 |---:|---|
-| 5.6041 | [00 Deligne - English Translation Drafts Combined.pdf](https://zenodo.org/records/20414959/files/00%20Deligne%20-%20English%20Translation%20Drafts%20Combined.pdf) |
-| 0.0700 | [10-001 Deligne - Congruences for numbers of sub - Original.pdf](https://zenodo.org/records/20414959/files/10-001%20Deligne%20-%20Congruences%20for%20numbers%20of%20sub%20-%20Original.pdf) |
-| 0.1175 | [10-002 Deligne - Proper support cohomology and - Original.pdf](https://zenodo.org/records/20414959/files/10-002%20Deligne%20-%20Proper%20support%20cohomology%20and%20-%20Original.pdf) |
-| 0.1748 | [10-003 Deligne - Lefschetz theorem and a degene - Original.pdf](https://zenodo.org/records/20414959/files/10-003%20Deligne%20-%20Lefschetz%20theorem%20and%20a%20degene%20-%20Original.pdf) |
-| 0.0835 | [10-004 Deligne - Ordinary abelian varieties ove - Original.pdf](https://zenodo.org/records/20414959/files/10-004%20Deligne%20-%20Ordinary%20abelian%20varieties%20ove%20-%20Original.pdf) |
-| 0.2468 | [10-005 Deligne - The irreducibility of the spac - Original.pdf](https://zenodo.org/records/20414959/files/10-005%20Deligne%20-%20The%20irreducibility%20of%20the%20spac%20-%20Original.pdf) |
-| 0.1801 | [10-006 Deligne - Modular forms and l adic repre - Original.pdf](https://zenodo.org/records/20414959/files/10-006%20Deligne%20-%20Modular%20forms%20and%20l%20adic%20repre%20-%20Original.pdf) |
-| 0.1363 | [10-007 Deligne - The work of Griffiths - Original.pdf](https://zenodo.org/records/20414959/files/10-007%20Deligne%20-%20The%20work%20of%20Griffiths%20-%20Original.pdf) |
-| 0.2004 | [10-008 Deligne - The work of Shimura - Original.pdf](https://zenodo.org/records/20414959/files/10-008%20Deligne%20-%20The%20work%20of%20Shimura%20-%20Original.pdf) |
-| 0.0922 | [10-009 Deligne - Hodge theory I - Original.pdf](https://zenodo.org/records/20414959/files/10-009%20Deligne%20-%20Hodge%20theory%20I%20-%20Original.pdf) |
-| 0.1515 | [10-010 Deligne - Hodge theory II - Original.pdf](https://zenodo.org/records/20414959/files/10-010%20Deligne%20-%20Hodge%20theory%20II%20-%20Original.pdf) |
-| 0.0705 | [10-011 Deligne - A congruence between multinomi - Original.pdf](https://zenodo.org/records/20414959/files/10-011%20Deligne%20-%20A%20congruence%20between%20multinomi%20-%20Original.pdf) |
-| 0.1601 | [10-012 Deligne - The Weil conjecture for K3 sur - Original.pdf](https://zenodo.org/records/20414959/files/10-012%20Deligne%20-%20The%20Weil%20conjecture%20for%20K3%20sur%20-%20Original.pdf) |
-| 0.1381 | [10-013 Deligne - Complete intersections of Hodg - Original.pdf](https://zenodo.org/records/20414959/files/10-013%20Deligne%20-%20Complete%20intersections%20of%20Hodg%20-%20Original.pdf) |
-| 0.1756 | [10-014 Deligne - Buildings of generalized braid - Original.pdf](https://zenodo.org/records/20414959/files/10-014%20Deligne%20-%20Buildings%20of%20generalized%20braid%20-%20Original.pdf) |
-| 0.1127 | [10-015 Deligne - Unirational nonrational variet - Original.pdf](https://zenodo.org/records/20414959/files/10-015%20Deligne%20-%20Unirational%20nonrational%20variet%20-%20Original.pdf) |
-| 0.4523 | [10-016 Deligne - Constants of functional equati - Original.pdf](https://zenodo.org/records/20414959/files/10-016%20Deligne%20-%20Constants%20of%20functional%20equati%20-%20Original.pdf) |
-| 0.1595 | [10-017 Deligne - Modular forms and representati - Original.pdf](https://zenodo.org/records/20414959/files/10-017%20Deligne%20-%20Modular%20forms%20and%20representati%20-%20Original.pdf) |
-| 0.7577 | [10-018 Deligne - Moduli schemes of elliptic cur - Original.pdf](https://zenodo.org/records/20414959/files/10-018%20Deligne%20-%20Moduli%20schemes%20of%20elliptic%20cur%20-%20Original.pdf) |
-| 0.3314 | [10-019 Deligne - Hodge theory III - Original.pdf](https://zenodo.org/records/20414959/files/10-019%20Deligne%20-%20Hodge%20theory%20III%20-%20Original.pdf) |
-| 0.2346 | [10-020 Deligne - The Weil conjecture I - Original.pdf](https://zenodo.org/records/20414959/files/10-020%20Deligne%20-%20The%20Weil%20conjecture%20I%20-%20Original.pdf) |
-| 0.1412 | [10-021 Deligne - Modular forms of weight 1 - Original.pdf](https://zenodo.org/records/20414959/files/10-021%20Deligne%20-%20Modular%20forms%20of%20weight%201%20-%20Original.pdf) |
-| 0.1039 | [10-022 Deligne - Weights in the cohomology of a - Original.pdf](https://zenodo.org/records/20414959/files/10-022%20Deligne%20-%20Weights%20in%20the%20cohomology%20of%20a%20-%20Original.pdf) |
-| 0.2258 | [10-023 Deligne - Real homotopy theory of Kahler - Original.pdf](https://zenodo.org/records/20414959/files/10-023%20Deligne%20-%20Real%20homotopy%20theory%20of%20Kahler%20-%20Original.pdf) |
-| 0.0773 | [10-024 Deligne - Complex vector bundles with di - Original.pdf](https://zenodo.org/records/20414959/files/10-024%20Deligne%20-%20Complex%20vector%20bundles%20with%20di%20-%20Original.pdf) |
-| 0.0636 | [10-025 Deligne - Support of the character of a - Original.pdf](https://zenodo.org/records/20414959/files/10-025%20Deligne%20-%20Support%20of%20the%20character%20of%20a%20-%20Original.pdf) |
-| 0.1578 | [10-026 Deligne - Local constants in the functio - Original.pdf](https://zenodo.org/records/20414959/files/10-026%20Deligne%20-%20Local%20constants%20in%20the%20functio%20-%20Original.pdf) |
-| 0.4316 | [10-027 Deligne - Representations of reductive g - Original.pdf](https://zenodo.org/records/20414959/files/10-027%20Deligne%20-%20Representations%20of%20reductive%20g%20-%20Original.pdf) |
-| 0.1353 | [10-028 Deligne - Diffeomorphisms of the circle - Original.pdf](https://zenodo.org/records/20414959/files/10-028%20Deligne%20-%20Diffeomorphisms%20of%20the%20circle%20-%20Original.pdf) |
-| 0.0910 | [10-029 Deligne - Nonresidually finite central e - Original.pdf](https://zenodo.org/records/20414959/files/10-029%20Deligne%20-%20Nonresidually%20finite%20central%20e%20-%20Original.pdf) |
-| 0.2504 | [10-030 Deligne - Valeurs de fonctions L et peri - Original.pdf](https://zenodo.org/records/20414959/files/10-030%20Deligne%20-%20Valeurs%20de%20fonctions%20L%20et%20peri%20-%20Original.pdf) |
-| 0.2987 | [10-031 Deligne - Varietes de Shimura interpreta - Original.pdf](https://zenodo.org/records/20414959/files/10-031%20Deligne%20-%20Varietes%20de%20Shimura%20interpreta%20-%20Original.pdf) |
-| 0.6881 | [10-032 Deligne - La conjecture de Weil II - Original.pdf](https://zenodo.org/records/20414959/files/10-032%20Deligne%20-%20La%20conjecture%20de%20Weil%20II%20-%20Original.pdf) |
-| 0.4267 | [10-033 Deligne - Values of abelian L functions - Original.pdf](https://zenodo.org/records/20414959/files/10-033%20Deligne%20-%20Values%20of%20abelian%20L%20functions%20-%20Original.pdf) |
-| 0.0879 | [10-034 Deligne - Cycles de Hodge absolus et per - Original.pdf](https://zenodo.org/records/20414959/files/10-034%20Deligne%20-%20Cycles%20de%20Hodge%20absolus%20et%20per%20-%20Original.pdf) |
-| 0.1757 | [10-035 Deligne - Sommes de Gauss cubiques et re - Original.pdf](https://zenodo.org/records/20414959/files/10-035%20Deligne%20-%20Sommes%20de%20Gauss%20cubiques%20et%20re%20-%20Original.pdf) |
-| 0.0853 | [10-036 Deligne - Le groupe fondamental du compl - Original.pdf](https://zenodo.org/records/20414959/files/10-036%20Deligne%20-%20Le%20groupe%20fondamental%20du%20compl%20-%20Original.pdf) |
-| 0.1865 | [10-037 Deligne - Sur la variation par torsion d - Original.pdf](https://zenodo.org/records/20414959/files/10-037%20Deligne%20-%20Sur%20la%20variation%20par%20torsion%20d%20-%20Original.pdf) |
-| 0.4316 | [10-038 Deligne - Cristaux ordinaires et coordon - Original.pdf](https://zenodo.org/records/20414959/files/10-038%20Deligne%20-%20Cristaux%20ordinaires%20et%20coordon%20-%20Original.pdf) |
-| 0.1323 | [10-039 Deligne - Relevement des surfaces K3 en - Original.pdf](https://zenodo.org/records/20414959/files/10-039%20Deligne%20-%20Relevement%20des%20surfaces%20K3%20en%20-%20Original.pdf) |
-| 0.0740 | [10-040 Deligne - Duality for representations of - Original.pdf](https://zenodo.org/records/20414959/files/10-040%20Deligne%20-%20Duality%20for%20representations%20of%20-%20Original.pdf) |
-| 0.0692 | [10-041 Deligne - Duality for representations of - Original.pdf](https://zenodo.org/records/20414959/files/10-041%20Deligne%20-%20Duality%20for%20representations%20of%20-%20Original.pdf) |
-| 0.1318 | [10-042 Deligne - Integration sur une cycle evan - Original.pdf](https://zenodo.org/records/20414959/files/10-042%20Deligne%20-%20Integration%20sur%20une%20cycle%20evan%20-%20Original.pdf) |
-| 0.0653 | [10-043 Deligne - Division algebras and the Haus - Original.pdf](https://zenodo.org/records/20414959/files/10-043%20Deligne%20-%20Division%20algebras%20and%20the%20Haus%20-%20Original.pdf) |
-| 0.7251 | [10-044 Deligne - Faisceaux pervers - Original.pdf](https://zenodo.org/records/20414959/files/10-044%20Deligne%20-%20Faisceaux%20pervers%20-%20Original.pdf) |
-| 0.1208 | [10-045 Deligne - Le lemme de Gabber Representat - Original.pdf](https://zenodo.org/records/20414959/files/10-045%20Deligne%20-%20Le%20lemme%20de%20Gabber%20Representat%20-%20Original.pdf) |
-| 0.2347 | [10-046 Deligne - Preuve des conjectures de Tate - Original.pdf](https://zenodo.org/records/20414959/files/10-046%20Deligne%20-%20Preuve%20des%20conjectures%20de%20Tate%20-%20Original.pdf) |
-| 0.1190 | [10-047 Deligne - Trace Paley Wiener theorem for - Original.pdf](https://zenodo.org/records/20414959/files/10-047%20Deligne%20-%20Trace%20Paley%20Wiener%20theorem%20for%20-%20Original.pdf) |
-| 0.4810 | [10-048 Deligne - Monodromy of hypergeometric fu - Original.pdf](https://zenodo.org/records/20414959/files/10-048%20Deligne%20-%20Monodromy%20of%20hypergeometric%20fu%20-%20Original.pdf) |
-| 0.1209 | [10-049 Deligne - Un theoreme de finitude pour l - Original.pdf](https://zenodo.org/records/20414959/files/10-049%20Deligne%20-%20Un%20theoreme%20de%20finitude%20pour%20l%20-%20Original.pdf) |
-| 0.1799 | [10-050 Deligne - Relevements modulo p2 et decom - Original.pdf](https://zenodo.org/records/20414959/files/10-050%20Deligne%20-%20Relevements%20modulo%20p2%20et%20decom%20-%20Original.pdf) |
-| 0.3577 | [10-051 Deligne - Le determinant de la cohomolog - Original.pdf](https://zenodo.org/records/20414959/files/10-051%20Deligne%20-%20Le%20determinant%20de%20la%20cohomolog%20-%20Original.pdf) |
-| 0.3750 | [10-052 Deligne - Survey of Drinfel d modules - Original.pdf](https://zenodo.org/records/20414959/files/10-052%20Deligne%20-%20Survey%20of%20Drinfel%20d%20modules%20-%20Original.pdf) |
-| 1.0748 | [10-053 Deligne - Le groupe fondamental de la dr - Original.pdf](https://zenodo.org/records/20414959/files/10-053%20Deligne%20-%20Le%20groupe%20fondamental%20de%20la%20dr%20-%20Original.pdf) |
-| 0.4701 | [10-054 Deligne - Categories tannakiennes - Original.pdf](https://zenodo.org/records/20414959/files/10-054%20Deligne%20-%20Categories%20tannakiennes%20-%20Original.pdf) |
-| 0.1006 | [10-055 Deligne - Filtrations de Hodge et par l - Original.pdf](https://zenodo.org/records/20414959/files/10-055%20Deligne%20-%20Filtrations%20de%20Hodge%20et%20par%20l%20-%20Original.pdf) |
-| 0.0984 | [10-056 Deligne - Groupe de Heisenberg et realit - Original.pdf](https://zenodo.org/records/20414959/files/10-056%20Deligne%20-%20Groupe%20de%20Heisenberg%20et%20realit%20-%20Original.pdf) |
-| 0.1985 | [10-057 Deligne - Le symbole modere - Original.pdf](https://zenodo.org/records/20414959/files/10-057%20Deligne%20-%20Le%20symbole%20modere%20-%20Original.pdf) |
-| 0.0776 | [10-058 Deligne - Structures de Hodge mixtes ree - Original.pdf](https://zenodo.org/records/20414959/files/10-058%20Deligne%20-%20Structures%20de%20Hodge%20mixtes%20ree%20-%20Original.pdf) |
-| 0.1549 | [10-059 Deligne - Interpretation motivique de la - Original.pdf](https://zenodo.org/records/20414959/files/10-059%20Deligne%20-%20Interpretation%20motivique%20de%20la%20-%20Original.pdf) |
-| 0.1376 | [10-060 Deligne - Singularites des espaces de mo - Original.pdf](https://zenodo.org/records/20414959/files/10-060%20Deligne%20-%20Singularites%20des%20espaces%20de%20mo%20-%20Original.pdf) |
-| 0.1337 | [10-061 Deligne - A quoi servent les motifs - Original.pdf](https://zenodo.org/records/20414959/files/10-061%20Deligne%20-%20A%20quoi%20servent%20les%20motifs%20-%20Original.pdf) |
-| 0.1035 | [10-062 Deligne - Decompositions dans la categor - Original.pdf](https://zenodo.org/records/20414959/files/10-062%20Deligne%20-%20Decompositions%20dans%20la%20categor%20-%20Original.pdf) |
-| 0.1651 | [10-063 Deligne - On the locus of Hodge classes - Original.pdf](https://zenodo.org/records/20414959/files/10-063%20Deligne%20-%20On%20the%20locus%20of%20Hodge%20classes%20-%20Original.pdf) |
-| 0.1631 | [10-064 Deligne - Deformations de l algebre des - Original.pdf](https://zenodo.org/records/20414959/files/10-064%20Deligne%20-%20Deformations%20de%20l%20algebre%20des%20-%20Original.pdf) |
-| 0.0710 | [10-065 Deligne - La serie exceptionnelle de gro - Original.pdf](https://zenodo.org/records/20414959/files/10-065%20Deligne%20-%20La%20serie%20exceptionnelle%20de%20gro%20-%20Original.pdf) |
-| 0.0842 | [10-066 Deligne - La serie exceptionnelle de gro - Original.pdf](https://zenodo.org/records/20414959/files/10-066%20Deligne%20-%20La%20serie%20exceptionnelle%20de%20gro%20-%20Original.pdf) |
-| 0.2744 | [10-067 Deligne - Extensions centrales de groupe - Original.pdf](https://zenodo.org/records/20414959/files/10-067%20Deligne%20-%20Extensions%20centrales%20de%20groupe%20-%20Original.pdf) |
-| 0.1139 | [10-068 Deligne - Local behavior of Hodge struct - Original.pdf](https://zenodo.org/records/20414959/files/10-068%20Deligne%20-%20Local%20behavior%20of%20Hodge%20struct%20-%20Original.pdf) |
-| 0.1169 | [10-069 Deligne - Action du groupe des tresses s - Original.pdf](https://zenodo.org/records/20414959/files/10-069%20Deligne%20-%20Action%20du%20groupe%20des%20tresses%20s%20-%20Original.pdf) |
-| 0.0752 | [10-070 Deligne - Quelques idees matresses de l - Original.pdf](https://zenodo.org/records/20414959/files/10-070%20Deligne%20-%20Quelques%20idees%20matresses%20de%20l%20-%20Original.pdf) |
-| 0.1248 | [10-071 Deligne - L algebre de cohomologie du co - Original.pdf](https://zenodo.org/records/20414959/files/10-071%20Deligne%20-%20L%20algebre%20de%20cohomologie%20du%20co%20-%20Original.pdf) |
-| 0.2586 | [10-072 Deligne - Central extensions of reductiv - Original.pdf](https://zenodo.org/records/20414959/files/10-072%20Deligne%20-%20Central%20extensions%20of%20reductiv%20-%20Original.pdf) |
-| 0.1288 | [10-073 Deligne - A counterexample to a 1961 the - Original.pdf](https://zenodo.org/records/20414959/files/10-073%20Deligne%20-%20A%20counterexample%20to%20a%201961%20the%20-%20Original.pdf) |
-| 0.0743 | [10-074 Deligne - On the exceptional series and - Original.pdf](https://zenodo.org/records/20414959/files/10-074%20Deligne%20-%20On%20the%20exceptional%20series%20and%20-%20Original.pdf) |
-| 0.1611 | [10-075 Deligne - Categories tensorielles - Original.pdf](https://zenodo.org/records/20414959/files/10-075%20Deligne%20-%20Categories%20tensorielles%20-%20Original.pdf) |
-| 0.5392 | [10-076 Deligne - Groupes fondamentaux motivique - Original.pdf](https://zenodo.org/records/20414959/files/10-076%20Deligne%20-%20Groupes%20fondamentaux%20motivique%20-%20Original.pdf) |
-| 0.0683 | [10-077 Deligne - The Hodge conjecture - Original.pdf](https://zenodo.org/records/20414959/files/10-077%20Deligne%20-%20The%20Hodge%20conjecture%20-%20Original.pdf) |
-| 0.3098 | [10-078 Deligne - La categorie des representatio - Original.pdf](https://zenodo.org/records/20414959/files/10-078%20Deligne%20-%20La%20categorie%20des%20representatio%20-%20Original.pdf) |
-| 0.1293 | [10-079 Deligne - Voevodsky s lectures on motivi - Original.pdf](https://zenodo.org/records/20414959/files/10-079%20Deligne%20-%20Voevodsky%20s%20lectures%20on%20motivi%20-%20Original.pdf) |
-| 0.0934 | [10-080 Deligne - Equivalence numerique equivale - Original.pdf](https://zenodo.org/records/20414959/files/10-080%20Deligne%20-%20Equivalence%20numerique%20equivale%20-%20Original.pdf) |
-| 0.0418 | [10-081 Deligne - Extended Euler congruence - Original.pdf](https://zenodo.org/records/20414959/files/10-081%20Deligne%20-%20Extended%20Euler%20congruence%20-%20Original.pdf) |
-| 0.2242 | [10-082 Deligne - Le groupe fondamental motiviqu - Original.pdf](https://zenodo.org/records/20414959/files/10-082%20Deligne%20-%20Le%20groupe%20fondamental%20motiviqu%20-%20Original.pdf) |
-| 0.0761 | [10-083 Deligne - Le theoreme de plongement de N - Original.pdf](https://zenodo.org/records/20414959/files/10-083%20Deligne%20-%20Le%20theoreme%20de%20plongement%20de%20N%20-%20Original.pdf) |
-| 0.1437 | [10-084 Deligne - Finitude de l extension de Q e - Original.pdf](https://zenodo.org/records/20414959/files/10-084%20Deligne%20-%20Finitude%20de%20l%20extension%20de%20Q%20e%20-%20Original.pdf) |
-| 0.1734 | [10-085 Deligne - Multizetas d apres Francis Bro - Original.pdf](https://zenodo.org/records/20414959/files/10-085%20Deligne%20-%20Multizetas%20d%20apres%20Francis%20Bro%20-%20Original.pdf) |
-| 0.3318 | [10-086 Deligne - Counting local systems with pr - Original.pdf](https://zenodo.org/records/20414959/files/10-086%20Deligne%20-%20Counting%20local%20systems%20with%20pr%20-%20Original.pdf) |
-| 0.1606 | [10-087 Deligne - Semi simplicite de produits te - Original.pdf](https://zenodo.org/records/20414959/files/10-087%20Deligne%20-%20Semi%20simplicite%20de%20produits%20te%20-%20Original.pdf) |
-| 0.1506 | [10-088 Deligne - Comptage de faisceaux l adique - Original.pdf](https://zenodo.org/records/20414959/files/10-088%20Deligne%20-%20Comptage%20de%20faisceaux%20l%20adique%20-%20Original.pdf) |
-| 0.1458 | [10-089 Deligne - The first fundamental theorem - Original.pdf](https://zenodo.org/records/20414959/files/10-089%20Deligne%20-%20The%20first%20fundamental%20theorem%20-%20Original.pdf) |
-| 0.2197 | [10-090 Deligne - On complete reducibility in ch - Original.pdf](https://zenodo.org/records/20414959/files/10-090%20Deligne%20-%20On%20complete%20reducibility%20in%20ch%20-%20Original.pdf) |
+| 5.6274 | [00-000 Deligne - Sequential Cumulative Papers 001-016p080 - English Translation.pdf](https://zenodo.org/records/20410853/files/00-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-016p080%20-%20English%20Translation.pdf) |
+| 0.2635 | [00-001 Deligne - Congruences for the Number of Subgroups - English Translation.pdf](https://zenodo.org/records/20410853/files/00-001%20Deligne%20-%20Congruences%20for%20the%20Number%20of%20Subgroups%20-%20English%20Translation.pdf) |
+| 0.3278 | [00-002 Deligne - Cohomology with Proper Support - English Translation.pdf](https://zenodo.org/records/20410853/files/00-002%20Deligne%20-%20Cohomology%20with%20Proper%20Support%20-%20English%20Translation.pdf) |
+| 0.2728 | [00-003 Deligne - Lefschetz Theorem - English Translation.pdf](https://zenodo.org/records/20410853/files/00-003%20Deligne%20-%20Lefschetz%20Theorem%20-%20English%20Translation.pdf) |
+| 0.1706 | [00-004 Deligne - Ordinary Abelian Varieties - English Translation.pdf](https://zenodo.org/records/20410853/files/00-004%20Deligne%20-%20Ordinary%20Abelian%20Varieties%20-%20English%20Translation.pdf) |
+| 0.8845 | [00-005 Deligne and Mumford - Irreducibility of the Space of Curves - English Translation.pdf](https://zenodo.org/records/20410853/files/00-005%20Deligne%20and%20Mumford%20-%20Irreducibility%20of%20the%20Space%20of%20Curves%20-%20English%20Translation.pdf) |
+| 0.3404 | [00-006 Deligne - l-adic Modular Forms - English Translation.pdf](https://zenodo.org/records/20410853/files/00-006%20Deligne%20-%20l-adic%20Modular%20Forms%20-%20English%20Translation.pdf) |
+| 0.2802 | [00-007 Deligne - Griffiths Work - English Translation.pdf](https://zenodo.org/records/20410853/files/00-007%20Deligne%20-%20Griffiths%20Work%20-%20English%20Translation.pdf) |
+| 0.3711 | [00-008 Deligne - Works of Shimura - English Translation.pdf](https://zenodo.org/records/20410853/files/00-008%20Deligne%20-%20Works%20of%20Shimura%20-%20English%20Translation.pdf) |
+| 0.2593 | [00-009 Deligne - Hodge Theory I - English Translation.pdf](https://zenodo.org/records/20410853/files/00-009%20Deligne%20-%20Hodge%20Theory%20I%20-%20English%20Translation.pdf) |
+| 0.4910 | [00-010 Deligne - Hodge Theory II - English Translation.pdf](https://zenodo.org/records/20410853/files/00-010%20Deligne%20-%20Hodge%20Theory%20II%20-%20English%20Translation.pdf) |
+| 0.2618 | [00-011 Deligne - Congruence Between Multinomial Coefficients - English Translation.pdf](https://zenodo.org/records/20410853/files/00-011%20Deligne%20-%20Congruence%20Between%20Multinomial%20Coefficients%20-%20English%20Translation.pdf) |
+| 0.3652 | [00-012 Deligne - The Weil Conjecture for K3 Surfaces - English Translation.pdf](https://zenodo.org/records/20410853/files/00-012%20Deligne%20-%20The%20Weil%20Conjecture%20for%20K3%20Surfaces%20-%20English%20Translation.pdf) |
+| 0.2475 | [00-013 Deligne - Complete Intersections of Hodge Level One - English Translation.pdf](https://zenodo.org/records/20410853/files/00-013%20Deligne%20-%20Complete%20Intersections%20of%20Hodge%20Level%20One%20-%20English%20Translation.pdf) |
+| 0.3316 | [00-014 Deligne - Buildings of Generalized Braid Groups, Pages 1-30 - English Translation.pdf](https://zenodo.org/records/20410853/files/00-014%20Deligne%20-%20Buildings%20of%20Generalized%20Braid%20Groups%2C%20Pages%201-30%20-%20English%20Translation.pdf) |
+| 0.2403 | [00-015 Deligne - Unirational Non-Rational Varieties - English Translation.pdf](https://zenodo.org/records/20410853/files/00-015%20Deligne%20-%20Unirational%20Non-Rational%20Varieties%20-%20English%20Translation.pdf) |
+| 0.6407 | [00-032 Deligne - The Weil Conjecture II - English Translation.pdf](https://zenodo.org/records/20410853/files/00-032%20Deligne%20-%20The%20Weil%20Conjecture%20II%20-%20English%20Translation.pdf) |
+| 0.1373 | [00-042 Deligne - Integration over a Vanishing Cycle - English Translation.pdf](https://zenodo.org/records/20410853/files/00-042%20Deligne%20-%20Integration%20over%20a%20Vanishing%20Cycle%20-%20English%20Translation.pdf) |
+| 0.2853 | [00-045 Deligne - Gabber&#x27;s Lemma - English Translation.pdf](https://zenodo.org/records/20410853/files/00-045%20Deligne%20-%20Gabber%27s%20Lemma%20-%20English%20Translation.pdf) |
+| 0.2226 | [00-056 Deligne - The Heisenberg Group and Reality - English Translation.pdf](https://zenodo.org/records/20410853/files/00-056%20Deligne%20-%20The%20Heisenberg%20Group%20and%20Reality%20-%20English%20Translation.pdf) |
+| 0.0726 | [00-057 Deligne - The Tame Symbol - English Translation.pdf](https://zenodo.org/records/20410853/files/00-057%20Deligne%20-%20The%20Tame%20Symbol%20-%20English%20Translation.pdf) |
+| 0.2014 | [00-058 Deligne - Real Mixed Hodge Structures - English Translation.pdf](https://zenodo.org/records/20410853/files/00-058%20Deligne%20-%20Real%20Mixed%20Hodge%20Structures%20-%20English%20Translation.pdf) |
+| 0.2996 | [00-069 Deligne - Action of the Braid Group on a Category - English Translation.pdf](https://zenodo.org/records/20410853/files/00-069%20Deligne%20-%20Action%20of%20the%20Braid%20Group%20on%20a%20Category%20-%20English%20Translation.pdf) |
+| 0.2418 | [00-070 Deligne - Some Master Ideas in the Work of A. Grothendieck - English Translation.pdf](https://zenodo.org/records/20410853/files/00-070%20Deligne%20-%20Some%20Master%20Ideas%20in%20the%20Work%20of%20A.%20Grothendieck%20-%20English%20Translation.pdf) |
+| 0.1162 | [00-071 Deligne - The Cohomology Algebra of the Complement of a Finite Family of Affine Subspaces - English Translation.pdf](https://zenodo.org/records/20410853/files/00-071%20Deligne%20-%20The%20Cohomology%20Algebra%20of%20the%20Complement%20of%20a%20Finite%20Family%20of%20Affine%20Subspaces%20-%20English%20Translation.pdf) |
+| 0.4898 | [00-078 Deligne - Paper 078 Pages 1-56 - English Translation.pdf](https://zenodo.org/records/20410853/files/00-078%20Deligne%20-%20Paper%20078%20Pages%201-56%20-%20English%20Translation.pdf) |
+| 0.4593 | [00-079 Deligne - Voevodsky Lectures on Motivic Cohomology 2000-2001 - English Translation.pdf](https://zenodo.org/records/20410853/files/00-079%20Deligne%20-%20Voevodsky%20Lectures%20on%20Motivic%20Cohomology%202000-2001%20-%20English%20Translation.pdf) |
+| 0.3079 | [00-080 Deligne - Numerical Equivalence, Cohomological Equivalence, and Lefschetz Theory - English Translation.pdf](https://zenodo.org/records/20410853/files/00-080%20Deligne%20-%20Numerical%20Equivalence%2C%20Cohomological%20Equivalence%2C%20and%20Lefschetz%20Theory%20-%20English%20Translation.pdf) |
+| 0.2049 | [00-081 Deligne - Extended Euler Congruence - English Translation.pdf](https://zenodo.org/records/20410853/files/00-081%20Deligne%20-%20Extended%20Euler%20Congruence%20-%20English%20Translation.pdf) |
+| 0.4244 | [00-082 Deligne - The Fundamental Group of Gm minus muN - English Translation.pdf](https://zenodo.org/records/20410853/files/00-082%20Deligne%20-%20The%20Fundamental%20Group%20of%20Gm%20minus%20muN%20-%20English%20Translation.pdf) |
+| 0.2498 | [00-083 Deligne - The Nagata Embedding Theorem - English Translation.pdf](https://zenodo.org/records/20410853/files/00-083%20Deligne%20-%20The%20Nagata%20Embedding%20Theorem%20-%20English%20Translation.pdf) |
+| 0.2769 | [00-084 Deligne - Finiteness of the Extension Generated by Frobenius Traces - English Translation.pdf](https://zenodo.org/records/20410853/files/00-084%20Deligne%20-%20Finiteness%20of%20the%20Extension%20Generated%20by%20Frobenius%20Traces%20-%20English%20Translation.pdf) |
+| 0.3545 | [00-085 Deligne - Multizetas, after Francis Brown - English Translation.pdf](https://zenodo.org/records/20410853/files/00-085%20Deligne%20-%20Multizetas%2C%20after%20Francis%20Brown%20-%20English%20Translation.pdf) |
+| 0.5444 | [00-086 Deligne - Counting Local Systems with Principal Unipotent Local Monodromy - English Translation.pdf](https://zenodo.org/records/20410853/files/00-086%20Deligne%20-%20Counting%20Local%20Systems%20with%20Principal%20Unipotent%20Local%20Monodromy%20-%20English%20Translation.pdf) |
+| 0.3486 | [00-087 Deligne - Semisimplicity of Tensor Products in Characteristic p - English Translation.pdf](https://zenodo.org/records/20410853/files/00-087%20Deligne%20-%20Semisimplicity%20of%20Tensor%20Products%20in%20Characteristic%20p%20-%20English%20Translation.pdf) |
+| 0.2967 | [00-088 Deligne - Counting l-adic Sheaves - English Translation.pdf](https://zenodo.org/records/20410853/files/00-088%20Deligne%20-%20Counting%20l-adic%20Sheaves%20-%20English%20Translation.pdf) |
+| 0.4064 | [00-089 Deligne - The First Fundamental Theorem of Invariant Theory - English Translation.pdf](https://zenodo.org/records/20410853/files/00-089%20Deligne%20-%20The%20First%20Fundamental%20Theorem%20of%20Invariant%20Theory%20-%20English%20Translation.pdf) |
+| 0.4885 | [00-090 Deligne - Complete Reducibility in Characteristic p - English Translation.pdf](https://zenodo.org/records/20410853/files/00-090%20Deligne%20-%20Complete%20Reducibility%20in%20Characteristic%20p%20-%20English%20Translation.pdf) |
+| 0.1603 | [00-Letter Deligne to Illusie I (1973) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Illusie%20I%20%281973%29%20-%20English%20Translation.pdf) |
+| 0.1095 | [00-Letter Deligne to Illusie II (1976) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Illusie%20II%20%281976%29%20-%20English%20Translation.pdf) |
+| 0.1414 | [00-Letter Deligne to Illusie III (1976) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Illusie%20III%20%281976%29%20-%20English%20Translation.pdf) |
+| 0.2006 | [00-Letter Deligne to Illusie IV (1976) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Illusie%20IV%20%281976%29%20-%20English%20Translation.pdf) |
+| 0.2083 | [00-Letter Deligne to Looijenga (1974) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Looijenga%20%281974%29%20-%20English%20Translation.pdf) |
+| 0.3486 | [00-Letter Deligne to Manin (1987), Sections 1 through 5 - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Manin%20%281987%29%2C%20Sections%201%20through%205%20-%20English%20Translation.pdf) |
+| 0.1529 | [00-Letter Deligne to Millson (1987) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Millson%20%281987%29%20-%20English%20Translation.pdf) |
+| 0.2344 | [00-Letter Deligne to Piatetskii-Shapiro (1973) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Piatetskii-Shapiro%20%281973%29%20-%20English%20Translation.pdf) |
+| 0.1725 | [00-Letter Deligne to Serre (2007) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Serre%20%282007%29%20-%20English%20Translation.pdf) |
+| 0.1777 | [00-Letter Deligne to Vasiu (2011) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Vasiu%20%282011%29%20-%20English%20Translation.pdf) |
+| 0.1730 | [00-Letter Deligne to Weil (1967) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Weil%20%281967%29%20-%20English%20Translation.pdf) |
+| 0.1342 | [00-Letter Deligne to Weil (1969) - English Translation.pdf](https://zenodo.org/records/20410853/files/00-Letter%20Deligne%20to%20Weil%20%281969%29%20-%20English%20Translation.pdf) |
+| 5.7085 | [01-000 Deligne - Sequential Cumulative Papers 001-016p080 - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-016p080%20-%20French%20Working%20PDF.pdf) |
+| 0.2713 | [01-001 Deligne - Congruences sur le nombre de sous-groupes - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-001%20Deligne%20-%20Congruences%20sur%20le%20nombre%20de%20sous-groupes%20-%20French%20Working%20PDF.pdf) |
+| 0.3277 | [01-002 Deligne - Cohomologie a support propre - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-002%20Deligne%20-%20Cohomologie%20a%20support%20propre%20-%20French%20Working%20PDF.pdf) |
+| 0.3046 | [01-003 Deligne - Theoreme de Lefschetz - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-003%20Deligne%20-%20Theoreme%20de%20Lefschetz%20-%20French%20Working%20PDF.pdf) |
+| 0.1719 | [01-004 Deligne - Varietes abeliennes ordinaires - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-004%20Deligne%20-%20Varietes%20abeliennes%20ordinaires%20-%20French%20Working%20PDF.pdf) |
+| 0.8505 | [01-005 Deligne and Mumford - Irreductibilite de l&#x27;espace des courbes - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-005%20Deligne%20and%20Mumford%20-%20Irreductibilite%20de%20l%27espace%20des%20courbes%20-%20French%20Working%20PDF.pdf) |
+| 0.3439 | [01-006 Deligne - Formes modulaires l-adiques - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-006%20Deligne%20-%20Formes%20modulaires%20l-adiques%20-%20French%20Working%20PDF.pdf) |
+| 0.2825 | [01-007 Deligne - Travaux de Griffiths - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-007%20Deligne%20-%20Travaux%20de%20Griffiths%20-%20French%20Working%20PDF.pdf) |
+| 0.3747 | [01-008 Deligne - Travaux de Shimura - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-008%20Deligne%20-%20Travaux%20de%20Shimura%20-%20French%20Working%20PDF.pdf) |
+| 0.2606 | [01-009 Deligne - Theorie de Hodge I - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-009%20Deligne%20-%20Theorie%20de%20Hodge%20I%20-%20French%20Working%20PDF.pdf) |
+| 0.4963 | [01-010 Deligne - Theorie de Hodge II - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-010%20Deligne%20-%20Theorie%20de%20Hodge%20II%20-%20French%20Working%20PDF.pdf) |
+| 0.2607 | [01-011 Deligne - Congruence entre coefficients multinomiaux - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-011%20Deligne%20-%20Congruence%20entre%20coefficients%20multinomiaux%20-%20French%20Working%20PDF.pdf) |
+| 0.3690 | [01-012 Deligne - La conjecture de Weil pour les surfaces K3 - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-012%20Deligne%20-%20La%20conjecture%20de%20Weil%20pour%20les%20surfaces%20K3%20-%20French%20Working%20PDF.pdf) |
+| 0.2513 | [01-013 Deligne - Intersections completes de niveau de Hodge un - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-013%20Deligne%20-%20Intersections%20completes%20de%20niveau%20de%20Hodge%20un%20-%20French%20Working%20PDF.pdf) |
+| 0.3350 | [01-014 Deligne - Immeubles des groupes de tresses generalises, Pages 1-30 - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-014%20Deligne%20-%20Immeubles%20des%20groupes%20de%20tresses%20generalises%2C%20Pages%201-30%20-%20French%20Working%20PDF.pdf) |
+| 0.2438 | [01-015 Deligne - Varietes unirationnelles non rationnelles - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-015%20Deligne%20-%20Varietes%20unirationnelles%20non%20rationnelles%20-%20French%20Working%20PDF.pdf) |
+| 2.3794 | [01-032 Deligne - La conjecture de Weil II - French Source Reference.pdf](https://zenodo.org/records/20410853/files/01-032%20Deligne%20-%20La%20conjecture%20de%20Weil%20II%20-%20French%20Source%20Reference.pdf) |
+| 0.1372 | [01-042 Deligne - Integration sur un cycle evanescent - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-042%20Deligne%20-%20Integration%20sur%20un%20cycle%20evanescent%20-%20French%20Working%20PDF.pdf) |
+| 0.0890 | [01-056 Deligne - Groupe de Heisenberg et realite - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-056%20Deligne%20-%20Groupe%20de%20Heisenberg%20et%20realite%20-%20French%20Working%20PDF.pdf) |
+| 0.2036 | [01-058 Deligne - Structures de Hodge mixtes reelles - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-058%20Deligne%20-%20Structures%20de%20Hodge%20mixtes%20reelles%20-%20French%20Working%20PDF.pdf) |
+| 0.2443 | [01-070 Deligne - Quelques idees maitresses de l oeuvre de Grothendieck - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-070%20Deligne%20-%20Quelques%20idees%20maitresses%20de%20l%20oeuvre%20de%20Grothendieck%20-%20French%20Working%20PDF.pdf) |
+| 0.4968 | [01-078 Deligne - Paper 078 Pages 1-56 - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-078%20Deligne%20-%20Paper%20078%20Pages%201-56%20-%20French%20Working%20PDF.pdf) |
+| 0.4685 | [01-079 Deligne - Exposes de Voevodsky sur la cohomologie motivique 2000-2001 - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-079%20Deligne%20-%20Exposes%20de%20Voevodsky%20sur%20la%20cohomologie%20motivique%202000-2001%20-%20French%20Working%20PDF.pdf) |
+| 0.3097 | [01-080 Deligne - Equivalence numerique, equivalence cohomologique, et theorie de Lefschetz - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-080%20Deligne%20-%20Equivalence%20numerique%2C%20equivalence%20cohomologique%2C%20et%20theorie%20de%20Lefschetz%20-%20French%20Working%20PDF.pdf) |
+| 0.2051 | [01-081 Deligne - Congruence d Euler etendue - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-081%20Deligne%20-%20Congruence%20d%20Euler%20etendue%20-%20French%20Working%20PDF.pdf) |
+| 0.4286 | [01-082 Deligne - Le groupe fondamental de Gm moins muN - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-082%20Deligne%20-%20Le%20groupe%20fondamental%20de%20Gm%20moins%20muN%20-%20French%20Working%20PDF.pdf) |
+| 0.2502 | [01-083 Deligne - Le theoreme de plongement de Nagata - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-083%20Deligne%20-%20Le%20theoreme%20de%20plongement%20de%20Nagata%20-%20French%20Working%20PDF.pdf) |
+| 0.3500 | [01-084 Deligne - Finitude de l extension engendree par les traces de Frobenius - French Source Working PDF.pdf](https://zenodo.org/records/20410853/files/01-084%20Deligne%20-%20Finitude%20de%20l%20extension%20engendree%20par%20les%20traces%20de%20Frobenius%20-%20French%20Source%20Working%20PDF.pdf) |
+| 0.3561 | [01-085 Deligne - Multizetas, d apres Francis Brown - French Source Working PDF.pdf](https://zenodo.org/records/20410853/files/01-085%20Deligne%20-%20Multizetas%2C%20d%20apres%20Francis%20Brown%20-%20French%20Source%20Working%20PDF.pdf) |
+| 0.5536 | [01-086 Deligne - Comptage de systemes locaux a monodromie locale unipotente - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-086%20Deligne%20-%20Comptage%20de%20systemes%20locaux%20a%20monodromie%20locale%20unipotente%20-%20French%20Working%20PDF.pdf) |
+| 0.3498 | [01-087 Deligne - Semi-simplicite de produits tensoriels en caracteristique p - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-087%20Deligne%20-%20Semi-simplicite%20de%20produits%20tensoriels%20en%20caracteristique%20p%20-%20French%20Working%20PDF.pdf) |
+| 0.2997 | [01-088 Deligne - Comptage de faisceaux l-adiques - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-088%20Deligne%20-%20Comptage%20de%20faisceaux%20l-adiques%20-%20French%20Working%20PDF.pdf) |
+| 0.4118 | [01-089 Deligne - Le premier theoreme fondamental de la theorie des invariants - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-089%20Deligne%20-%20Le%20premier%20theoreme%20fondamental%20de%20la%20theorie%20des%20invariants%20-%20French%20Working%20PDF.pdf) |
+| 0.4886 | [01-090 Deligne - Complete reductibilite en caracteristique p - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-090%20Deligne%20-%20Complete%20reductibilite%20en%20caracteristique%20p%20-%20French%20Working%20PDF.pdf) |
+| 0.1606 | [01-Letter Deligne to Illusie I (1973) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Illusie%20I%20%281973%29%20-%20French%20Working%20PDF.pdf) |
+| 0.1096 | [01-Letter Deligne to Illusie II (1976) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Illusie%20II%20%281976%29%20-%20French%20Working%20PDF.pdf) |
+| 0.1413 | [01-Letter Deligne to Illusie III (1976) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Illusie%20III%20%281976%29%20-%20French%20Working%20PDF.pdf) |
+| 0.2020 | [01-Letter Deligne to Illusie IV (1976) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Illusie%20IV%20%281976%29%20-%20French%20Working%20PDF.pdf) |
+| 0.2091 | [01-Letter Deligne to Looijenga (1974) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Looijenga%20%281974%29%20-%20French%20Working%20PDF.pdf) |
+| 0.3398 | [01-Letter Deligne to Manin (1987), Sections 1 through 5 - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Manin%20%281987%29%2C%20Sections%201%20through%205%20-%20French%20Working%20PDF.pdf) |
+| 0.1545 | [01-Letter Deligne to Millson (1987) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Millson%20%281987%29%20-%20French%20Working%20PDF.pdf) |
+| 0.2368 | [01-Letter Deligne to Piatetskii-Shapiro (1973) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Piatetskii-Shapiro%20%281973%29%20-%20French%20Working%20PDF.pdf) |
+| 0.1732 | [01-Letter Deligne to Serre (2007) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Serre%20%282007%29%20-%20French%20Working%20PDF.pdf) |
+| 0.1778 | [01-Letter Deligne to Vasiu (2011) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Vasiu%20%282011%29%20-%20French%20Working%20PDF.pdf) |
+| 0.1774 | [01-Letter Deligne to Weil (1967) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Weil%20%281967%29%20-%20French%20Working%20PDF.pdf) |
+| 0.1351 | [01-Letter Deligne to Weil (1969) - French Working PDF.pdf](https://zenodo.org/records/20410853/files/01-Letter%20Deligne%20to%20Weil%20%281969%29%20-%20French%20Working%20PDF.pdf) |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 183.1900 | [90 Deligne - TeX Sources, Translation PDFs, Reports, and Provenance.zip](https://zenodo.org/records/20414959/files/90%20Deligne%20-%20TeX%20Sources%2C%20Translation%20PDFs%2C%20Reports%2C%20and%20Provenance.zip) |
+| 139.7854 | [90 Deligne - Paper-Level Translation TeX and PDFs.zip](https://zenodo.org/records/20410853/files/90%20Deligne%20-%20Paper-Level%20Translation%20TeX%20and%20PDFs.zip) |
+| 19.9743 | [94 Deligne - Source-Checked Reverse Papers 078-090 TeX Scans and QA.zip](https://zenodo.org/records/20410853/files/94%20Deligne%20-%20Source-Checked%20Reverse%20Papers%20078-090%20TeX%20Scans%20and%20QA.zip) |
+| 21.1950 | [95 Deligne - Source-Checked Papers 001-016p080 TeX Scans and QA.zip](https://zenodo.org/records/20410853/files/95%20Deligne%20-%20Source-Checked%20Papers%20001-016p080%20TeX%20Scans%20and%20QA.zip) |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0255 | [99 Deligne - Public Summary.json](https://zenodo.org/records/20414959/files/99%20Deligne%20-%20Public%20Summary.json) |
+| 0.0013 | [99 Deligne - Public Summary.json](https://zenodo.org/records/20410853/files/99%20Deligne%20-%20Public%20Summary.json) |

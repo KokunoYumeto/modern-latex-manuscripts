@@ -36,11 +36,6 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | 0.4960 | [20-07 Modern Chinese - Yang Hui - Xiangjie, part 1.pdf](https://zenodo.org/records/20415752/files/20-07%20Modern%20Chinese%20-%20Yang%20Hui%20-%20Xiangjie%2C%20part%201.pdf) |
 | 0.3783 | [20-08 Modern Chinese - Zhu Shijie - Suanxue Qimeng, part 1.pdf](https://zenodo.org/records/20415752/files/20-08%20Modern%20Chinese%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20part%201.pdf) |
 | 0.1905 | [30-01 Arabic Translation - Sunzi Suanjing.pdf](https://zenodo.org/records/20415752/files/30-01%20Arabic%20Translation%20-%20Sunzi%20Suanjing.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 0.5846 | [40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20415752/files/40-01%20Chinese%20Original%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
 | 0.5989 | [40-02 Chinese Original - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20415752/files/40-02%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
 | 0.5300 | [40-03 Chinese Original - Li Ye - Ceyuan Haijing Fenlei Shishu.pdf](https://zenodo.org/records/20415752/files/40-03%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20Fenlei%20Shishu.pdf) |

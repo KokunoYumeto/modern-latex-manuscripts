@@ -25,16 +25,20 @@ from typing import Any
 
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
-    ("ega", "20419105"),
-    ("sga", "20418993"),
-    ("non_european_consolidated", "20418877"),
+    ("workflow", "20461174"),
+    ("noether", "20412587"),
+    ("weber", "20412153"),
+    ("cayley", "20520749"),
+    ("sga", "20410947"),
+    ("deligne", "20410853"),
+    ("ega", "20414353"),
+    ("ukrainian_applied_math", "20490906"),
+    ("gauss", "20410934"),
+    ("non_european_consolidated", "20410957"),
     ("chinese", "20415752"),
     ("indian_sanskrit", "20415755"),
     ("islamic_arabic", "20415770"),
     ("historical_references", "20415777"),
-    ("weber", "20418861"),
-    ("noether", "20418862"),
-    ("deligne", "20414959"),
     ("classical_algebra_arithmetic", "20418609"),
     ("additional_author_cluster", "20416839"),
 ]
@@ -53,9 +57,7 @@ def file_role(filename: str) -> str:
     if lower.endswith((".json", ".md", ".csv", ".txt")):
         return "manifest/status"
     if lower.endswith(".pdf"):
-        if re.match(r"^(00|01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|20|21|22|23|24|25|26|27|28|29|30|31|32)\b", filename):
-            return "reader/reference PDF"
-        return "PDF"
+        return "reader/reference PDF"
     return "other"
 
 

@@ -24,11 +24,6 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | 0.1825 | [10-20 English Translation - Ibn al-Qifti - Tarikh al-Hukama.pdf](https://zenodo.org/records/20415777/files/10-20%20English%20Translation%20-%20Ibn%20al-Qifti%20-%20Tarikh%20al-Hukama.pdf) |
 | 0.1669 | [10-21 English Translation - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20415777/files/10-21%20English%20Translation%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
 | 0.3116 | [10-22 English Translation - Smith-Karpinski - Numerals.pdf](https://zenodo.org/records/20415777/files/10-22%20English%20Translation%20-%20Smith-Karpinski%20-%20Numerals.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 0.1669 | [70-01 Reference Text - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20415777/files/70-01%20Reference%20Text%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
 | 0.0988 | [70-02 Reference Text - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20415777/files/70-02%20Reference%20Text%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
 | 0.1371 | [70-03 Reference Text - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20415777/files/70-03%20Reference%20Text%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |
