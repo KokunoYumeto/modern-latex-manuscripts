@@ -14,7 +14,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Pierre Deligne | 100 | 96 | 3 | 386.6 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20583053) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 19 | 14 | 4 | 896.6 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20410934) |
-| Non-European Mathematics, Consolidated | 95 | 71 | 20 | 1842.3 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20583139) |
+| Non-European Mathematics, Consolidated | 96 | 71 | 21 | 1960.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20583271) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
 | Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://zenodo.org/records/20415755) |
 | Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://zenodo.org/records/20415770) |
