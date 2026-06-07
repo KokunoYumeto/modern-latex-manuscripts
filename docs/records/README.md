@@ -8,7 +8,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Workflow / Replication Packet | 3 | 1 | 2 | 0.2 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20461174) |
 | Emmy Noether | 100 | 90 | 9 | 688.8 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20584477) |
 | Heinrich Weber | 9 | 6 | 2 | 52.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20582965) |
-| Arthur Cayley | 33 | 13 | 19 | 154.8 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20584434) |
+| Arthur Cayley | 34 | 13 | 20 | 155.6 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20584605) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
 | SGA | 80 | 74 | 5 | 1236.6 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20583663) |
 | Pierre Deligne | 100 | 96 | 3 | 544.6 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20584486) |
