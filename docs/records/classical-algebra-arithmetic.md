@@ -1,12 +1,12 @@
 # Classical Algebra and Arithmetic
 
-Zenodo record: [20418609](https://zenodo.org/records/20418609)
+Zenodo record: [20583048](https://zenodo.org/records/20583048)
 
-Public title: Cayley, Dedekind, Dirichlet, Gauss, Weber, and Noether: Classical Algebra and Arithmetic LaTeX Drafts
+Public title: Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 23 | 21 | 1 | 193.5 |
+| 25 | 21 | 3 | 6883.6 |
 
 ## How To Read This Record
 
@@ -16,36 +16,38 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 | Size MB | File |
 |---:|---|
-| 5.5720 | [00 Cayley - Collected Mathematical Papers, Volume IV - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/00%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.3353 | [01 Cayley - Collected Mathematical Papers, Volume VII - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/01%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.4532 | [02 Cayley - Collected Mathematical Papers, Volume X - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/02%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.4012 | [03 Cayley - Collected Mathematical Papers, Volume XI - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/03%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.6370 | [04 Cayley - Collected Mathematical Papers, Volume XII - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/04%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 1.9319 | [05 Cayley - Collected Mathematical Papers, Volume XIII - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/05%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.3605 | [10 Dedekind - Gesammelte Mathematische Werke, Band I - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/10%20Dedekind%20-%20Gesammelte%20Mathematische%20Werke%2C%20Band%20I%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 1.7672 | [11 Dedekind - Gesammelte Mathematische Werke, Band II - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/11%20Dedekind%20-%20Gesammelte%20Mathematische%20Werke%2C%20Band%20II%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.6608 | [12 Dedekind - Gesammelte Mathematische Werke, Band III - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/12%20Dedekind%20-%20Gesammelte%20Mathematische%20Werke%2C%20Band%20III%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 1.6940 | [20 Dirichlet - Selected Works - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/20%20Dirichlet%20-%20Selected%20Works%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.4432 | [30 Gauss - Werke, Band I - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/30%20Gauss%20-%20Werke%2C%20Band%20I%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.1872 | [31 Gauss - Werke, Band I - Alternate Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/31%20Gauss%20-%20Werke%2C%20Band%20I%20-%20Alternate%20Modern%20LaTeX%20Draft.pdf) |
-| 3.0076 | [32 Gauss - Werke, Band II - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/32%20Gauss%20-%20Werke%2C%20Band%20II%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.6819 | [33 Gauss - Werke, Band III - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/33%20Gauss%20-%20Werke%2C%20Band%20III%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 2.6757 | [34 Gauss - Werke, Band VI - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/34%20Gauss%20-%20Werke%2C%20Band%20VI%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 4.1337 | [35 Gauss - Werke, Band VII - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/35%20Gauss%20-%20Werke%2C%20Band%20VII%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.9936 | [36 Gauss - Werke, Band XI Part I - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/36%20Gauss%20-%20Werke%2C%20Band%20XI%20Part%20I%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.3242 | [37 Gauss - Individual Papers - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/37%20Gauss%20-%20Individual%20Papers%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.9896 | [40 Weber - Lehrbuch der Algebra, Band I - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/40%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Band%20I%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 3.1588 | [41 Weber - Lehrbuch der Algebra, Band III - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/41%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Band%20III%20-%20Modern%20LaTeX%20Draft.pdf) |
-| 6.5414 | [50 Noether - Selected Mathematical Papers - Modern LaTeX Draft.pdf](https://zenodo.org/records/20418609/files/50%20Noether%20-%20Selected%20Mathematical%20Papers%20-%20Modern%20LaTeX%20Draft.pdf) |
+| 4.4588 | [Cayley - Collected Mathematical Papers, Volume I - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 2.9719 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 2.5480 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 4.0651 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.5911 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.9266 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.2619 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.4120 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.2001 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.9742 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.7769 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 4.0119 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 3.6696 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583048/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| 0.2398 | [Dedekind - Continuity and Irrational Numbers, Preface and Sections 1-4 - English Translation Segment.pdf](https://zenodo.org/records/20583048/files/Dedekind%20-%20Continuity%20and%20Irrational%20Numbers%2C%20Preface%20and%20Sections%201-4%20-%20English%20Translation%20Segment.pdf) |
+| 2.3605 | [Dedekind - Gesammelte Mathematische Werke, Band I.pdf](https://zenodo.org/records/20583048/files/Dedekind%20-%20Gesammelte%20Mathematische%20Werke%2C%20Band%20I.pdf) |
+| 1.7672 | [Dedekind - Gesammelte Mathematische Werke, Band II.pdf](https://zenodo.org/records/20583048/files/Dedekind%20-%20Gesammelte%20Mathematische%20Werke%2C%20Band%20II.pdf) |
+| 2.6608 | [Dedekind - Gesammelte Mathematische Werke, Band III.pdf](https://zenodo.org/records/20583048/files/Dedekind%20-%20Gesammelte%20Mathematische%20Werke%2C%20Band%20III.pdf) |
+| 0.2497 | [Dedekind - Stetigkeit und irrationale Zahlen, Preface and Sections 1-4 - German Source-Checked Segment.pdf](https://zenodo.org/records/20583048/files/Dedekind%20-%20Stetigkeit%20und%20irrationale%20Zahlen%2C%20Preface%20and%20Sections%201-4%20-%20German%20Source-Checked%20Segment.pdf) |
+| 0.2369 | [Dirichlet - On the Stability of Equilibrium - English Translation.pdf](https://zenodo.org/records/20583048/files/Dirichlet%20-%20On%20the%20Stability%20of%20Equilibrium%20-%20English%20Translation.pdf) |
+| 1.6940 | [Dirichlet - Selected Works.pdf](https://zenodo.org/records/20583048/files/Dirichlet%20-%20Selected%20Works.pdf) |
+| 0.2427 | [Dirichlet - Ueber die Stabilitaet des Gleichgewichts - German Source-Checked Edition.pdf](https://zenodo.org/records/20583048/files/Dirichlet%20-%20Ueber%20die%20Stabilitaet%20des%20Gleichgewichts%20-%20German%20Source-Checked%20Edition.pdf) |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 126.5426 | [80 Classical Algebra and Arithmetic - Sources, TeX, and Audits.zip](https://zenodo.org/records/20418609/files/80%20Classical%20Algebra%20and%20Arithmetic%20-%20Sources%2C%20TeX%2C%20and%20Audits.zip) |
+| 55.2589 | [95 Classical Algebra Arithmetic - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583048/files/95%20Classical%20Algebra%20Arithmetic%20-%20Update%20Packets%202026-06-07.zip) |
+| 4.9149 | [Classical Algebra and Arithmetic - Dedekind and Dirichlet Source TeX and Scan Witnesses.zip](https://zenodo.org/records/20583048/files/Classical%20Algebra%20and%20Arithmetic%20-%20Dedekind%20and%20Dirichlet%20Source%20TeX%20and%20Scan%20Witnesses.zip) |
+| 6766.9812 | [Supplementary Sources - Classical Algebra and Arithmetic.zip](https://zenodo.org/records/20583048/files/Supplementary%20Sources%20-%20Classical%20Algebra%20and%20Arithmetic.zip) |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0073 | [90 Classical Algebra and Arithmetic - Public Summary.json](https://zenodo.org/records/20418609/files/90%20Classical%20Algebra%20and%20Arithmetic%20-%20Public%20Summary.json) |
+| 0.1411 | [Record Summary - Classical Algebra and Arithmetic.json](https://zenodo.org/records/20583048/files/Record%20Summary%20-%20Classical%20Algebra%20and%20Arithmetic.json) |
