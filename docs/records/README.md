@@ -14,6 +14,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Pierre Deligne | 100 | 96 | 3 | 544.6 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20584486) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 23 | 14 | 8 | 1203.4 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20584533) |
+| al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
 | Non-European Mathematics, Consolidated | 97 | 71 | 22 | 2008.6 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20584622) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
 | Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://zenodo.org/records/20415755) |
