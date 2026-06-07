@@ -29,7 +29,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "20584477"),
     ("weber", "20582965"),
     ("cayley", "20584711"),
-    ("sga", "20583663"),
+    ("sga", "20584725"),
     ("deligne", "20584486"),
     ("ega", "20414353"),
     ("ukrainian_applied_math", "20490906"),
@@ -41,7 +41,7 @@ RECORDS: list[tuple[str, str]] = [
     ("historical_references", "20415777"),
     ("classical_algebra_arithmetic", "20583048"),
     ("sylvester", "20583996"),
-    ("additional_author_cluster", "20584446"),
+    ("additional_author_cluster", "20584721"),
 ]
 
 

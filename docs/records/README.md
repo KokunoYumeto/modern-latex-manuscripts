@@ -10,7 +10,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Heinrich Weber | 9 | 6 | 2 | 52.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20582965) |
 | Arthur Cayley | 36 | 13 | 22 | 158.2 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20584711) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
-| SGA | 80 | 74 | 5 | 1236.6 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20583663) |
+| SGA | 81 | 74 | 6 | 1438.3 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20584725) |
 | Pierre Deligne | 100 | 96 | 3 | 544.6 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20584486) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 23 | 14 | 8 | 1203.4 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20584533) |
@@ -21,4 +21,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://zenodo.org/records/20415777) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20583048) |
 | James Joseph Sylvester | 4 | 1 | 2 | 174.5 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20583996) |
-| Additional Author Cluster | 32 | 10 | 21 | 1083.9 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20584446) |
+| Additional Author Cluster | 33 | 10 | 22 | 1123.4 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20584721) |
