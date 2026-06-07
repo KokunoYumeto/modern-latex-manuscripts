@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 767
+Total files indexed: 770
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -246,53 +246,56 @@ Record: <https://zenodo.org/records/20582965>
 
 ## Arthur Cayley: Collected Mathematical Papers, Source-Checked Modern LaTeX Slice Readers
 
-Record: <https://zenodo.org/records/20585409>
+Record: <https://zenodo.org/records/20585468>
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20585409/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
-| manifest/status | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20585409/files/_cayley_patch_upload_inventory_20260603.json) |
-| reader/reference PDF | 7.4050 | [Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf](https://zenodo.org/records/20585409/files/Arthur%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Complete%20Source-Checked%20Modern%20LaTeX%20Reader.pdf) |
-| reader/reference PDF | 3.7934 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.5994 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.9993 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.9704 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.8999 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.9668 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.6281 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.7372 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 6.5174 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.5580 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.7231 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.8465 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585409/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| artifact/source ZIP | 5.3880 | [Cayley_source_and_manifest_20260603.zip](https://zenodo.org/records/20585409/files/Cayley_source_and_manifest_20260603.zip) |
-| artifact/source ZIP | 0.2992 | [Cayley_unitized_index_v01_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_unitized_index_v01_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.3028 | [Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip) |
-| artifact/source ZIP | 2.7569 | [Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 4.9233 | [Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 3.8710 | [Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.3656 | [Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5607 | [Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5616 | [Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5058 | [Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.1019 | [Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.6069 | [Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.2871 | [Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.9664 | [Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.2247 | [Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5399 | [Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.6579 | [Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 2.5879 | [Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.8139 | [Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.8536 | [Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5024 | [Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.0759 | [Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.5072 | [Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.9101 | [Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5172 | [Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.8585 | [Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.7703 | [Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.3835 | [Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585409/files/Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20585468/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
+| manifest/status | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20585468/files/_cayley_patch_upload_inventory_20260603.json) |
+| reader/reference PDF | 7.4050 | [Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf](https://zenodo.org/records/20585468/files/Arthur%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Complete%20Source-Checked%20Modern%20LaTeX%20Reader.pdf) |
+| reader/reference PDF | 3.7934 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.5994 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.9993 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.9704 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.8999 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.9668 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.6281 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.7372 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 6.5174 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.5580 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.7231 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.8465 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20585468/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| artifact/source ZIP | 5.3880 | [Cayley_source_and_manifest_20260603.zip](https://zenodo.org/records/20585468/files/Cayley_source_and_manifest_20260603.zip) |
+| artifact/source ZIP | 0.2992 | [Cayley_unitized_index_v01_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_unitized_index_v01_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.3028 | [Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.3041 | [Cayley_unitized_index_v07_through_p420_paper070_complete_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_unitized_index_v07_through_p420_paper070_complete_CODEX_20260607.zip) |
+| artifact/source ZIP | 2.7569 | [Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 4.9233 | [Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 3.8710 | [Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.3656 | [Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5607 | [Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5616 | [Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5058 | [Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.1019 | [Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.6069 | [Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.2871 | [Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.9664 | [Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.2247 | [Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5399 | [Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.6579 | [Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 2.5879 | [Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.8139 | [Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.8536 | [Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5024 | [Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.0759 | [Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.5072 | [Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.9101 | [Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5172 | [Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.8585 | [Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.7703 | [Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.3835 | [Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.3055 | [Cayley_Vol01_Paper070_printed_p419_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p419_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.8611 | [Cayley_Vol01_Paper070_printed_p420_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20585468/files/Cayley_Vol01_Paper070_printed_p420_source_checked_CODEX_20260607.zip) |
 
 ## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
