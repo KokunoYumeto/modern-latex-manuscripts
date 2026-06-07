@@ -36,6 +36,7 @@ RECORD_ORDER = [
     "islamic_arabic",
     "historical_references",
     "classical_algebra_arithmetic",
+    "sylvester",
     "additional_author_cluster",
 ]
 
@@ -57,6 +58,7 @@ DISPLAY_NAMES = {
     "islamic_arabic": "Islamic and Arabic Mathematical Texts",
     "historical_references": "Historical Reference Witnesses",
     "classical_algebra_arithmetic": "Classical Algebra and Arithmetic",
+    "sylvester": "James Joseph Sylvester",
     "additional_author_cluster": "Additional Author Cluster",
 }
 
