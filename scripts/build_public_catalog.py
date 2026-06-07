@@ -33,14 +33,14 @@ RECORDS: list[tuple[str, str]] = [
     ("deligne", "20583711"),
     ("ega", "20414353"),
     ("ukrainian_applied_math", "20490906"),
-    ("gauss", "20583644"),
+    ("gauss", "20584031"),
     ("non_european_consolidated", "20583271"),
     ("chinese", "20415752"),
     ("indian_sanskrit", "20415755"),
     ("islamic_arabic", "20415770"),
     ("historical_references", "20415777"),
     ("classical_algebra_arithmetic", "20583048"),
-    ("sylvester", "20583629"),
+    ("sylvester", "20583996"),
     ("additional_author_cluster", "20583445"),
 ]
 
