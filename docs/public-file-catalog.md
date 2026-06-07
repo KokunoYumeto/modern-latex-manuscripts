@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 749
+Total files indexed: 750
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -833,14 +833,15 @@ Record: <https://zenodo.org/records/20583048>
 
 ## James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions
 
-Record: <https://zenodo.org/records/20583996>
+Record: <https://zenodo.org/records/20585052>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0008 | [90 Sylvester - Public Summary.json](https://zenodo.org/records/20583996/files/90%20Sylvester%20-%20Public%20Summary.json) |
-| reader/reference PDF | 2.2721 | [Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 576.pdf](https://zenodo.org/records/20583996/files/Sylvester%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Edition%20through%20Book%20Page%20576.pdf) |
-| artifact/source ZIP | 86.1330 | [Sylvester_source_and_manifest_through_book_page_576_20260607.zip](https://zenodo.org/records/20583996/files/Sylvester_source_and_manifest_through_book_page_576_20260607.zip) |
-| artifact/source ZIP | 86.1330 | [Sylvester_Vol1_pp001_576_with_scans_idx_20260607.zip](https://zenodo.org/records/20583996/files/Sylvester_Vol1_pp001_576_with_scans_idx_20260607.zip) |
+| manifest/status | 0.0008 | [90 Sylvester - Public Summary.json](https://zenodo.org/records/20585052/files/90%20Sylvester%20-%20Public%20Summary.json) |
+| reader/reference PDF | 2.2721 | [Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 576.pdf](https://zenodo.org/records/20585052/files/Sylvester%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Edition%20through%20Book%20Page%20576.pdf) |
+| artifact/source ZIP | 86.1330 | [Sylvester_source_and_manifest_through_book_page_576_20260607.zip](https://zenodo.org/records/20585052/files/Sylvester_source_and_manifest_through_book_page_576_20260607.zip) |
+| artifact/source ZIP | 86.1330 | [Sylvester_Vol1_pp001_576_with_scans_idx_20260607.zip](https://zenodo.org/records/20585052/files/Sylvester_Vol1_pp001_576_with_scans_idx_20260607.zip) |
+| artifact/source ZIP | 90.0527 | [Sylvester_Vol1_pp001_594_with_scans_idx_20260607.zip](https://zenodo.org/records/20585052/files/Sylvester_Vol1_pp001_594_with_scans_idx_20260607.zip) |
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
