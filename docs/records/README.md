@@ -20,4 +20,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://zenodo.org/records/20415770) |
 | Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://zenodo.org/records/20415777) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20583048) |
-| Additional Author Cluster | 25 | 10 | 14 | 903.7 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20583415) |
+| Additional Author Cluster | 26 | 10 | 15 | 931.3 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20583445) |
