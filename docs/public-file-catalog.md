@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 679
+Total files indexed: 686
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -246,26 +246,28 @@ Record: <https://zenodo.org/records/20582965>
 
 ## Arthur Cayley: Collected Mathematical Papers, Source-Checked Modern LaTeX Slice Readers
 
-Record: <https://zenodo.org/records/20583039>
+Record: <https://zenodo.org/records/20583424>
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583039/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
-| manifest/status | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20583039/files/_cayley_patch_upload_inventory_20260603.json) |
-| reader/reference PDF | 7.4050 | [Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf](https://zenodo.org/records/20583039/files/Arthur%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Complete%20Source-Checked%20Modern%20LaTeX%20Reader.pdf) |
-| reader/reference PDF | 3.7934 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.5994 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.9993 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.9704 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.8999 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.9668 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.6281 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.7372 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 6.5174 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.5580 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.7231 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.8465 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583039/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| artifact/source ZIP | 5.3880 | [Cayley_source_and_manifest_20260603.zip](https://zenodo.org/records/20583039/files/Cayley_source_and_manifest_20260603.zip) |
+| artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583424/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
+| manifest/status | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20583424/files/_cayley_patch_upload_inventory_20260603.json) |
+| reader/reference PDF | 7.4050 | [Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf](https://zenodo.org/records/20583424/files/Arthur%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Complete%20Source-Checked%20Modern%20LaTeX%20Reader.pdf) |
+| reader/reference PDF | 3.7934 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.5994 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.9993 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.9704 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.8999 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.9668 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.6281 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.7372 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 6.5174 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.5580 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.7231 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.8465 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20583424/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| artifact/source ZIP | 5.3880 | [Cayley_source_and_manifest_20260603.zip](https://zenodo.org/records/20583424/files/Cayley_source_and_manifest_20260603.zip) |
+| artifact/source ZIP | 0.2852 | [Cayley_unitized_index_v01_CODEX_20260607.zip](https://zenodo.org/records/20583424/files/Cayley_unitized_index_v01_CODEX_20260607.zip) |
+| artifact/source ZIP | 2.7569 | [Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20583424/files/Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip) |
 
 ## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
@@ -777,27 +779,32 @@ Record: <https://zenodo.org/records/20583048>
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
-Record: <https://zenodo.org/records/20583162>
+Record: <https://zenodo.org/records/20583415>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7218 | [00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf](https://zenodo.org/records/20583162/files/00%20Reader%20PDF%20-%20Minkowski%20-%20Gesammelte%20Abhandlungen%20Volume%20II%20-%20Selected%20Papers.pdf) |
-| reader/reference PDF | 1.1760 | [01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf](https://zenodo.org/records/20583162/files/01%20Reader%20PDF%20-%20Hecke%20-%20Vorlesungen%20ueber%20die%20Theorie%20der%20algebraischen%20Zahlen.pdf) |
-| reader/reference PDF | 1.2384 | [02 Reader PDF - Landau - Elementary Number Theory.pdf](https://zenodo.org/records/20583162/files/02%20Reader%20PDF%20-%20Landau%20-%20Elementary%20Number%20Theory.pdf) |
-| reader/reference PDF | 0.4828 | [03 Reader PDF - Steinitz - Algebraische Theorie der Koerper.pdf](https://zenodo.org/records/20583162/files/03%20Reader%20PDF%20-%20Steinitz%20-%20Algebraische%20Theorie%20der%20Koerper.pdf) |
-| reader/reference PDF | 1.3360 | [04 Reader PDF - Hensel - Zahlentheorie.pdf](https://zenodo.org/records/20583162/files/04%20Reader%20PDF%20-%20Hensel%20-%20Zahlentheorie.pdf) |
-| reader/reference PDF | 0.8881 | [05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf](https://zenodo.org/records/20583162/files/05%20Reader%20PDF%20-%20Oka%20-%20Analytic%20Functions%20of%20Several%20Variables%20I-X.pdf) |
-| reader/reference PDF | 1.6622 | [06 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20583162/files/06%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
-| reader/reference PDF | 2.2522 | [07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf](https://zenodo.org/records/20583162/files/07%20Reader%20PDF%20-%20Grassmann%20-%20Ausdehnungslehre%20and%20Related%20Works.pdf) |
-| reader/reference PDF | 3.7181 | [08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf](https://zenodo.org/records/20583162/files/08%20Reader%20PDF%20-%20Hausdorff%20-%20Mengenlehre%20and%20Descriptive%20Set%20Theory%20Writings.pdf) |
-| reader/reference PDF | 0.1077 | [09 Reader PDF - Killing - Transformationsgruppen.pdf](https://zenodo.org/records/20583162/files/09%20Reader%20PDF%20-%20Killing%20-%20Transformationsgruppen.pdf) |
-| artifact/source ZIP | 196.9815 | [80 Additional Author Cluster - Sources, TeX, and Provenance.zip](https://zenodo.org/records/20583162/files/80%20Additional%20Author%20Cluster%20-%20Sources%2C%20TeX%2C%20and%20Provenance.zip) |
-| manifest/status | 0.0054 | [90 Additional Author Cluster - Public Summary.json](https://zenodo.org/records/20583162/files/90%20Additional%20Author%20Cluster%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 100.2561 | [95 Additional Authors - Bianchi - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Bianchi%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 78.5837 | [95 Additional Authors - Frobenius - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Frobenius%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 29.2836 | [95 Additional Authors - Gordan - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Gordan%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 102.9025 | [95 Additional Authors - Klein-Fricke - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Klein-Fricke%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 62.9228 | [95 Additional Authors - Kneser - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Kneser%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 70.9352 | [95 Additional Authors - Kron - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Kron%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 67.6848 | [95 Additional Authors - Picard - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Picard%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 47.0198 | [95 Additional Authors - Poincare - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583162/files/95%20Additional%20Authors%20-%20Poincare%20-%20Update%20Packets%202026-06-07.zip) |
+| reader/reference PDF | 1.7218 | [00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf](https://zenodo.org/records/20583415/files/00%20Reader%20PDF%20-%20Minkowski%20-%20Gesammelte%20Abhandlungen%20Volume%20II%20-%20Selected%20Papers.pdf) |
+| reader/reference PDF | 1.1760 | [01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf](https://zenodo.org/records/20583415/files/01%20Reader%20PDF%20-%20Hecke%20-%20Vorlesungen%20ueber%20die%20Theorie%20der%20algebraischen%20Zahlen.pdf) |
+| reader/reference PDF | 1.2384 | [02 Reader PDF - Landau - Elementary Number Theory.pdf](https://zenodo.org/records/20583415/files/02%20Reader%20PDF%20-%20Landau%20-%20Elementary%20Number%20Theory.pdf) |
+| reader/reference PDF | 0.4828 | [03 Reader PDF - Steinitz - Algebraische Theorie der Koerper.pdf](https://zenodo.org/records/20583415/files/03%20Reader%20PDF%20-%20Steinitz%20-%20Algebraische%20Theorie%20der%20Koerper.pdf) |
+| reader/reference PDF | 1.3360 | [04 Reader PDF - Hensel - Zahlentheorie.pdf](https://zenodo.org/records/20583415/files/04%20Reader%20PDF%20-%20Hensel%20-%20Zahlentheorie.pdf) |
+| reader/reference PDF | 0.8881 | [05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf](https://zenodo.org/records/20583415/files/05%20Reader%20PDF%20-%20Oka%20-%20Analytic%20Functions%20of%20Several%20Variables%20I-X.pdf) |
+| reader/reference PDF | 1.6622 | [06 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20583415/files/06%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
+| reader/reference PDF | 2.2522 | [07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf](https://zenodo.org/records/20583415/files/07%20Reader%20PDF%20-%20Grassmann%20-%20Ausdehnungslehre%20and%20Related%20Works.pdf) |
+| reader/reference PDF | 3.7181 | [08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf](https://zenodo.org/records/20583415/files/08%20Reader%20PDF%20-%20Hausdorff%20-%20Mengenlehre%20and%20Descriptive%20Set%20Theory%20Writings.pdf) |
+| reader/reference PDF | 0.1077 | [09 Reader PDF - Killing - Transformationsgruppen.pdf](https://zenodo.org/records/20583415/files/09%20Reader%20PDF%20-%20Killing%20-%20Transformationsgruppen.pdf) |
+| artifact/source ZIP | 196.9815 | [80 Additional Author Cluster - Sources, TeX, and Provenance.zip](https://zenodo.org/records/20583415/files/80%20Additional%20Author%20Cluster%20-%20Sources%2C%20TeX%2C%20and%20Provenance.zip) |
+| manifest/status | 0.0054 | [90 Additional Author Cluster - Public Summary.json](https://zenodo.org/records/20583415/files/90%20Additional%20Author%20Cluster%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 100.2561 | [95 Additional Authors - Bianchi - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Bianchi%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 78.5837 | [95 Additional Authors - Frobenius - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Frobenius%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 29.2836 | [95 Additional Authors - Gordan - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Gordan%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 102.9025 | [95 Additional Authors - Klein-Fricke - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Klein-Fricke%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 62.9228 | [95 Additional Authors - Kneser - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Kneser%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 70.9352 | [95 Additional Authors - Kron - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Kron%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 67.6848 | [95 Additional Authors - Picard - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Picard%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 47.0198 | [95 Additional Authors - Poincare - Update Packets 2026-06-07.zip](https://zenodo.org/records/20583415/files/95%20Additional%20Authors%20-%20Poincare%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 31.4853 | [Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip](https://zenodo.org/records/20583415/files/Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip) |
+| artifact/source ZIP | 62.9763 | [Frob18877_p031_039_GE_EN_final_20260607.zip](https://zenodo.org/records/20583415/files/Frob18877_p031_039_GE_EN_final_20260607.zip) |
+| artifact/source ZIP | 20.2690 | [Gordan_DL05_p036_047_LAT_EN_20260607.zip](https://zenodo.org/records/20583415/files/Gordan_DL05_p036_047_LAT_EN_20260607.zip) |
+| artifact/source ZIP | 10.5498 | [Kron_bookclean_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20583415/files/Kron_bookclean_p001_014_DE_EN_20260607.zip) |
+| artifact/source ZIP | 7.2226 | [Picard_Tome1_p001_100_FR_EN_20260607.zip](https://zenodo.org/records/20583415/files/Picard_Tome1_p001_100_FR_EN_20260607.zip) |

@@ -8,7 +8,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Workflow / Replication Packet | 3 | 1 | 2 | 0.2 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20461174) |
 | Emmy Noether | 100 | 90 | 9 | 675.0 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20582968) |
 | Heinrich Weber | 9 | 6 | 2 | 52.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20582965) |
-| Arthur Cayley | 16 | 13 | 2 | 124.1 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20583039) |
+| Arthur Cayley | 18 | 13 | 4 | 127.2 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20583424) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
 | SGA | 79 | 74 | 4 | 1162.3 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20583033) |
 | Pierre Deligne | 100 | 96 | 3 | 386.6 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20583053) |
@@ -20,4 +20,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://zenodo.org/records/20415770) |
 | Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://zenodo.org/records/20415777) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20583048) |
-| Additional Author Cluster | 20 | 10 | 9 | 771.2 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20583162) |
+| Additional Author Cluster | 25 | 10 | 14 | 903.7 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20583415) |
