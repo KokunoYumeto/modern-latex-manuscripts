@@ -14,7 +14,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Workflow and replication notes | <https://zenodo.org/records/20461174> |
 | Emmy Noether | <https://zenodo.org/records/20412587> |
 | Heinrich Weber | <https://zenodo.org/records/20412153> |
-| Arthur Cayley | <https://zenodo.org/records/20588018> |
+| Arthur Cayley | <https://zenodo.org/records/20588538> |
 | SGA source and English translation drafts | <https://zenodo.org/records/20410947> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20414353> |
