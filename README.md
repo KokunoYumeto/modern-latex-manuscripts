@@ -12,7 +12,7 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20461174> |
 | Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations | <https://zenodo.org/records/20412587> |
 | Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
-| Arthur Cayley | Source-checked modern LaTeX slice readers, in progress | <https://zenodo.org/records/20586325> |
+| Arthur Cayley | Source-checked modern LaTeX slice readers, in progress | <https://zenodo.org/records/20586603> |
 | SGA working English translation | SGA 5/6 and further SGA working translations | <https://zenodo.org/records/20410947> |
 | Pierre Deligne papers | Paper and letter translation/source drafts | <https://zenodo.org/records/20410853> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |
@@ -57,3 +57,4 @@ These are working scholarly drafts, not final critical editions. PDF checks veri
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow and [release checklist](docs/release-checklist.md) for publication hygiene. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
+

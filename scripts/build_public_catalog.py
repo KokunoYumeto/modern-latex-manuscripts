@@ -28,7 +28,7 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "20461174"),
     ("noether", "20586200"),
     ("weber", "20586068"),
-    ("cayley", "20586325"),
+    ("cayley", "20586603"),
     ("sga", "20584725"),
     ("deligne", "20586140"),
     ("ega", "20414353"),
