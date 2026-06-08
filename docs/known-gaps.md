@@ -25,9 +25,9 @@ Current record: <https://zenodo.org/records/20418993>
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The 2026-06-08 nuclear audit found the first confirmed localized failure at source p378 and repaired p378-p382 against the scan. Remaining high-risk pages include p083, p086, p094-p095, p100, p102, p116, p118, p125-p127, p155, p184, p187, p194, p201, p326, p344, p400, p409-p410, p419, p431-p432, and p460.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
 - SGA 4 Expose VI should continue from section 1.22.
-- SGA 5 has only opening material and Expose I section 1 in English.
 - SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentional image-based scans; they open and page-count correctly, but embedded text extraction is not expected to be reliable.
 
 ## Non-European Mathematical Classics

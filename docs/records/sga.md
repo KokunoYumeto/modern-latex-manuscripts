@@ -12,7 +12,7 @@ Public title: Seminaire de Geometrie Algebrique (SGA): English Translation Worki
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-Current caveat from the 2026-06-08 SGA6 audit: the SGA6 page-range chain is structurally represented across source pages 001-702, but it should be treated as a substantial working draft rather than a scribe-grade complete edition. The audit confirms localized compression/omission samples on source pages 014 and 625, with strong candidates on 431 and 679; the next repair targets are p014, then the clusters 423-454, 619-653, and 670-692.
+Current caveat from the 2026-06-08 SGA audits: the SGA5 and SGA6 cumulative page-range chains are structurally represented, but they should be treated as substantial working drafts rather than scribe-grade complete editions. For SGA5, a nuclear audit found the first confirmed localized failure at source p378 and repaired p378-p382 against the scan; remaining high-risk pages are queued for review. For SGA6, the audit confirms localized compression/omission samples on source pages 014 and 625, with strong candidates on 431 and 679; the next repair targets are p014, then the clusters 423-454, 619-653, and 670-692.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

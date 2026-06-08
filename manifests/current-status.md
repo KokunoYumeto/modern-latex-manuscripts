@@ -12,7 +12,7 @@ Generated from the local Codex working project on 2026-06-07.
 | Deligne | Current public record published as <https://zenodo.org/records/20410853>. |
 | Ukrainian applied mathematics | Current record published as <https://zenodo.org/records/20490906>. |
 | EGA | Current EGA record published as <https://zenodo.org/records/20414353>; partial EGA 0_IV / EGA IV working translation material is included as draft/proof-of-concept material. |
-| SGA | Current SGA record published as <https://zenodo.org/records/20410947>; SGA 5/6 and further SGA working translation material are tracked here. The 2026-06-08 SGA6 audit shows structural coverage of pages 001-702 but not scribe-grade completeness; localized compression gaps are queued for repair. |
+| SGA | Current SGA record published as <https://zenodo.org/records/20410947>; SGA 5/6 and further SGA working translation material are tracked here. The 2026-06-08 SGA5 audit repaired p378-p382 but shows remaining high-risk pages; the SGA6 audit shows structural coverage of pages 001-702 but not scribe-grade completeness, with localized compression gaps queued for repair. |
 | Gauss | Current Gauss record published as <https://zenodo.org/records/20410934>. |
 | Non-European mathematics | Consolidated multilingual record published as <https://zenodo.org/records/20410957>, with Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent source and translation material. |
 | Classical algebra/arithmetic shelf | Current record published as <https://zenodo.org/records/20418609>; remains a shelf for mixed classical drafts while substantial authors are split into dedicated records. |
