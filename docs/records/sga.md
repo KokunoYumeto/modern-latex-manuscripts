@@ -12,6 +12,8 @@ Public title: Seminaire de Geometrie Algebrique (SGA): English Translation Worki
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
+Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
+
 ## Reader And Reference PDFs
 
 | Size MB | File |
