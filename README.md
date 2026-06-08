@@ -35,7 +35,8 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Decide what to download | [Download guide](docs/download-guide.md) |
 | Browse by author or work | [By author and work](docs/by-author-and-work.md) |
 | Browse files record by record | [Record landing pages](docs/records/README.md) |
-| Understand current status | [Project status dashboard](docs/project-status-dashboard.md) |
+| Understand current public/staging status | [Current status manifest](manifests/current-status.md) |
+| Understand current Zenodo file surface | [Project status dashboard](docs/project-status-dashboard.md) |
 | Understand draft quality | [Quality rubric](docs/quality-rubric.md) |
 | Pick a concrete task | [Work queue](docs/work-queue.md) |
 | See all docs | [Site map](docs/site-map.md) |
