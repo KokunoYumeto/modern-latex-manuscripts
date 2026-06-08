@@ -16,6 +16,6 @@ Generated from the local Codex working project on 2026-06-08.
 | Gauss | Current Gauss record published as <https://zenodo.org/records/20410934>. |
 | Non-European mathematics | Consolidated multilingual record published as <https://zenodo.org/records/20410957>, with Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent source and translation material. |
 | Classical algebra/arithmetic shelf | Current record published as <https://zenodo.org/records/20418609>; remains a shelf for mixed classical drafts while substantial authors are split into dedicated records. |
-| Additional author cluster | Current clean author-cluster record published as <https://zenodo.org/records/20416839>; public reader PDFs cover Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing, with obvious modern collected-volume wrappers removed. |
+| Additional author cluster | Current clean author-cluster record published as <https://zenodo.org/records/20416839>; public reader PDFs cover Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing, with obvious modern collected-volume wrappers removed. Local staging now also has substantive Bianchi, Frobenius, Gordan, Kneser, Picard, Poincare, Mikami, Kron/Kronecker, and Maxwell/old-physics packets awaiting author-level triage or the next cluster refresh. |
 | GitHub push | Local mirror is updated and SSH authentication works for the configured key; public status/caveat updates are being pushed to <https://github.com/KokunoYumeto/modern-latex-manuscripts>. |
 
