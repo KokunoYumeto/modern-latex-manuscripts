@@ -15,7 +15,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20585139) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
-| Non-European Mathematics, Consolidated | 100 | 71 | 24 | 2578.5 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20585575) |
+| Non-European Mathematics, Consolidated | 100 | 71 | 24 | 3176.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20586401) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
 | Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://zenodo.org/records/20415755) |
 | Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://zenodo.org/records/20415770) |
@@ -24,4 +24,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20585052) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Additional Author Cluster | 62 | 10 | 51 | 1888.1 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20585541) |
+| Additional Author Cluster | 63 | 10 | 52 | 2364.0 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20586371) |

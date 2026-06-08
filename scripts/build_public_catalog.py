@@ -35,7 +35,7 @@ RECORDS: list[tuple[str, str]] = [
     ("ukrainian_applied_math", "20490906"),
     ("gauss", "20585139"),
     ("albattani_opus_astronomicum", "20584850"),
-    ("non_european_consolidated", "20585575"),
+    ("non_european_consolidated", "20586401"),
     ("chinese", "20415752"),
     ("indian_sanskrit", "20415755"),
     ("islamic_arabic", "20415770"),
@@ -44,7 +44,7 @@ RECORDS: list[tuple[str, str]] = [
     ("sylvester", "20585052"),
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
-    ("additional_author_cluster", "20585541"),
+    ("additional_author_cluster", "20586371"),
 ]
 
 
