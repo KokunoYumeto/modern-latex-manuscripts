@@ -8,7 +8,7 @@ Generated from the local Codex working project on 2026-06-08.
 | Workflow / replication packet | Current compact workflow record published as <https://zenodo.org/records/20461174>. |
 | Noether | Current author record published as <https://zenodo.org/records/20412587>; numbered German/English corpus and multilingual translation work are tracked here. Local staging has newer French/Simplified Chinese continuation material through Paper 14a awaiting the next Zenodo refresh. |
 | Weber | Current author record published as <https://zenodo.org/records/20412153>; Lehrbuch Volume I is front-facing and later volumes are in progress. |
-| Cayley | Current author record published as <https://zenodo.org/records/20588791>; source-checked slice readers are in progress and should be preferred over older broad draft PDFs. Local staging has newer source-checked Volume I units beyond the current public listing awaiting the next Zenodo refresh. |
+| Cayley | Current author record published as <https://zenodo.org/records/20588791>; source-checked slice readers are in progress and should be preferred over older broad draft PDFs. Local staging has newer source-checked Volume I units through the Notes and References p582 working package awaiting the next Zenodo refresh. |
 | Deligne | Current public record published as <https://zenodo.org/records/20410853>. Local staging has newer diagram/math repair and descending-lane continuation packets awaiting the next Zenodo refresh. |
 | Ukrainian applied mathematics | Current record published as <https://zenodo.org/records/20490906>. |
 | EGA | Current EGA record published as <https://zenodo.org/records/20414353>; partial EGA 0_IV / EGA IV working translation material is included as draft/proof-of-concept material. |
