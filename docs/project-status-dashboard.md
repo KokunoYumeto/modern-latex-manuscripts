@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 21 |
-| Public files indexed | 860 |
+| Public files indexed | 861 |
 | Top-level PDFs | 575 |
-| Artifact/source ZIPs | 251 |
+| Artifact/source ZIPs | 252 |
 | Manifest/status files | 34 |
-| Total public file surface | 25.07 GB |
+| Total public file surface | 25.15 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -21,7 +21,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [EGA](https://zenodo.org/records/20414353) | 14 | 9 | 3 | 460 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
-| [SGA](https://zenodo.org/records/20410947) | 36 | 28 | 7 | 454 MB | SGA working translation/source snapshots and audit/source packets. |
+| [SGA](https://zenodo.org/records/20611144) | 84 | 74 | 9 | 1.70 GB | SGA working translation/source snapshots, current SGA5 repair004 package, and explicit SGA5/SGA6/SGA7 caveats. |
 | [Non-European consolidated](https://zenodo.org/records/20410957) | 71 | 65 | 5 | 2.73 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
 | [Chinese classics](https://zenodo.org/records/20415752) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
 | [Indian and Sanskrit classics](https://zenodo.org/records/20415755) | 13 | 11 | 1 | 549 MB | Current Indian/Sanskrit mathematical classics shelf. |
@@ -43,7 +43,7 @@ The project is best read as a live corpus rather than a finished edition. The nu
 | Zenodo presentation hygiene | 95/100 | Current records have human titles and passed configured metadata/filename checks. |
 | PDF technical surface | 90/100 | The latest local public PDF surface audit checked 356 PDFs with no configured defect flags. |
 | Source/provenance availability | 85/100 | Most records include artifact ZIPs with TeX, sources, or checking material. |
-| Human browseability | 88/100 | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; refreshed non-European and SGA records now expose more work-level PDFs. |
+| Human browseability | 88/100 | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; refreshed non-European and SGA records now expose more work-level PDFs and repair packets. |
 | Mathematical/source proofreading | 35/100 | Many drafts still need page-by-page checking against source witnesses. |
 | Translation completeness | 32/100 | Several corpora have substantial translation drafts, but EGA, SGA, Weber, Noether, and many classical works remain incomplete. |
 

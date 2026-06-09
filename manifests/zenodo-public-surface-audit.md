@@ -3,10 +3,10 @@
 Generated from the public Zenodo records API on 2026-06-09. For local staging caveats and promotion decisions, use [current-status.md](current-status.md).
 
 Tracked records: 21
-Public files indexed: 860
+Public files indexed: 861
 Top-level PDFs: 575
-Artifact/source ZIPs: 251
-Total public file surface: 25.07 GB
+Artifact/source ZIPs: 252
+Total public file surface: 25.15 GB
 
 | Record | Files | Size (MB) | URL |
 |---|---:|---:|---|
@@ -15,7 +15,7 @@ Total public file surface: 25.07 GB
 | Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 748.13 | <https://zenodo.org/records/20587623> |
 | Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 12 | 92.54 | <https://zenodo.org/records/20586885> |
 | Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 79 | 972.58 | <https://zenodo.org/records/20588791> |
-| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 83 | 1670.30 | <https://zenodo.org/records/20587609> |
+| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 84 | 1745.22 | <https://zenodo.org/records/20611144> |
 | Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 100 | 1067.29 | <https://zenodo.org/records/20586140> |
 | Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 16 | 471.67 | <https://zenodo.org/records/20414353> |
 | Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources | 19 | 13.27 | <https://zenodo.org/records/20490906> |

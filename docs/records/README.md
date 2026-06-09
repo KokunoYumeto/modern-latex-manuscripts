@@ -10,7 +10,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Heinrich Weber | 12 | 6 | 5 | 92.5 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20586885) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 79 | 13 | 65 | 972.6 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20588791) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
-| SGA | 83 | 74 | 8 | 1670.3 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20587609) |
+| SGA | 84 | 74 | 9 | 1745.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20611144) |
 | Pierre Deligne | 100 | 96 | 3 | 1067.3 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20586140) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
