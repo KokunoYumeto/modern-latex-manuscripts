@@ -40,6 +40,7 @@ RECORD_ORDER = [
     "sylvester",
     "dedekind",
     "dirichlet",
+    "bianchi",
     "additional_author_cluster",
 ]
 
@@ -65,6 +66,7 @@ DISPLAY_NAMES = {
     "sylvester": "James Joseph Sylvester",
     "dedekind": "Richard Dedekind",
     "dirichlet": "P. G. Lejeune Dirichlet",
+    "bianchi": "Luigi Bianchi",
     "additional_author_cluster": "Additional Author Cluster",
 }
 

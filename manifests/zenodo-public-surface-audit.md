@@ -2,14 +2,15 @@
 
 Generated from `manifests/public-file-catalog.csv`.
 
-Total tracked records: 21
-Total indexed files: 899
-Total indexed size: 26726.60 MB
+Total tracked records: 22
+Total indexed files: 904
+Total indexed size: 26789.32 MB
 
 | Record | Files | PDFs | ZIPs | Size MB | Link |
 |---|---:|---:|---:|---:|---|
 | additional_author_cluster | 98 | 10 | 87 | 4324.43 | [record](https://zenodo.org/records/20615611) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.73 | [record](https://zenodo.org/records/20584850) |
+| bianchi | 5 | 3 | 1 | 62.72 | [record](https://zenodo.org/records/20615815) |
 | cayley | 80 | 13 | 66 | 1016.39 | [record](https://zenodo.org/records/20614749) |
 | chinese | 30 | 28 | 1 | 98.73 | [record](https://zenodo.org/records/20415752) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.62 | [record](https://zenodo.org/records/20583048) |

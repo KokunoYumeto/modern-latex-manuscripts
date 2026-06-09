@@ -74,6 +74,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volumes II and III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20412153) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20412587) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/audit ZIP. | [Bianchi](https://zenodo.org/records/20615815) |
 
 ## Additional Selected Authors
 
@@ -90,7 +91,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20615611)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Vol. I Italian/English working edition through source pdfpages 001-543, with p537-p543 treated as non-authorial provenance/back-matter; use the latest ZIP for TeX/source witnesses and package audit. |
+| Bianchi | Backstop/routed copies for the now-dedicated Bianchi Vol. I record; prefer the standalone [Bianchi record](https://zenodo.org/records/20615815) for current readers and audit ZIP. |
 | Poincare | Tome I French/English working tranches through source scan pages 62; latest v1_04 includes the first-part bibliography and a complete 1878 note, with next continuation at thesis front matter p63. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
 | Gordan / Clebsch-Gordan | Abelian-functions packets through Abel05 p072-p088 / §§14-18, plus earlier geodesic/form/theta packets. |

@@ -13,13 +13,13 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Arthur Cayley | Dedicated record exists, but the current public material is now marked suspect draft/provenance pending page-by-page source audit. |
 | SGA / EGA / Deligne | Large algebraic-geometry corpora with independent caveats and continuation tracks. |
 | al-Battani | Work-level `Opus Astronomicum` output is distinct from the broader non-European shelf. |
+| Luigi Bianchi | Vol. I Italian/English working edition now has a dedicated record with reader PDFs, source scan witness, and TeX/audit ZIP. |
 
 ## Strong Split Candidates
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
 | Maxwell / old physics | Compact source-checked working deltas now run continuously through a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, with explicit source witnesses and page-boundary caveats. | Old physics / Maxwell source-checked working drafts. |
-| Bianchi | Vol. I Italian/English staging now claims complete source coverage through pdfpages 001-543, with p537-p543 treated as non-authorial provenance/back-matter, cumulative Italian/English readers, source-scan witnesses, formula/footnote ledgers, authorial-index audit, and clean latest build reports. | Luigi Bianchi, Vol. I Italian/English working edition; likely deserves a dedicated Bianchi page/record if more volumes follow. |
 | Gordan / Clebsch-Gordan | `Ueber das Formensystem binaerer Formen` is complete for the staged range, `De linea geodetica` has a FIX02 complete branch, and the Abelian-functions book now runs through source pp039-055 with source witnesses and explicit anomaly notes. | Paul Gordan and Clebsch-Gordan algebraic-function/form theory working drafts. |
 | Steinitz | A stricter canonical redo now carries the 1894 dissertation and 1897 configuration traversal paper complete under manual page-by-page standard; later works are held for chronological re-audit. | Ernst Steinitz source-checked German/English corpus. |
 

@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 899
+Total files indexed: 904
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -948,6 +948,18 @@ Record: <https://zenodo.org/records/20586064>
 | manifest/status | 0.0011 | [90 Dirichlet - Public Summary.json](https://zenodo.org/records/20586064/files/90%20Dirichlet%20-%20Public%20Summary.json) |
 | artifact/source ZIP | 26.7974 | [Dirichlet_R27_V1_IVa_div4_20260606.zip](https://zenodo.org/records/20586064/files/Dirichlet_R27_V1_IVa_div4_20260606.zip) |
 | artifact/source ZIP | 26.5376 | [Dirichlet_R28_V1_IVb75_80_20260607.zip](https://zenodo.org/records/20586064/files/Dirichlet_R28_V1_IVb75_80_20260607.zip) |
+
+## Luigi Bianchi: Lezioni di geometria differenziale, Volume I, Italian Source and English Translation Working Edition
+
+Record: <https://zenodo.org/records/20615815>
+
+| Role | Size MB | File |
+|---|---:|---|
+| reader/reference PDF | 1.7712 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20615815/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
+| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20615815/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
+| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20615815/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
+| artifact/source ZIP | 47.1970 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Audit Package.zip](https://zenodo.org/records/20615815/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Audit%20Package.zip) |
+| manifest/status | 0.0014 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20615815/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 

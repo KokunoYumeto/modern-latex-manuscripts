@@ -60,13 +60,21 @@ Current record: <https://zenodo.org/records/20418609>
 - Cayley is specifically de-promoted as of 2026-06-09: current Cayley PDFs/TeX are retained as provenance and repair material, but a source comparison found substantial symbol/text mismatches in Volume I material. Do not treat Cayley filenames containing `Source-Checked` as current quality claims until a new per-page source audit re-promotes specific ranges.
 - Gauss in particular still needs deeper repair and verification.
 
+## Bianchi
+
+Current dedicated record: <https://zenodo.org/records/20615815>
+
+- Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, English translation working edition, source scan witness, and TeX/audit ZIP through source pdfpages 001-543.
+- The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
+- This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
+
 ## Additional Author Cluster
 
 Current record: <https://zenodo.org/records/20615611>
 
-- This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Bianchi, Poincare, Gordan/Clebsch-Gordan, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted.
-- Latest Bianchi staging claims Vol. I complete through source pdfpages 001-543, with p537-p543 treated as non-authorial provenance/back-matter; latest Poincare tranche v1_04 covers source scan pages 46-62 and stops before thesis front matter p63. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-09 routed sweep consolidation now includes Bianchi through p0543, Gordan Abel06 through p106, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41, in addition to earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Picard, and related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Gordan Abel06 has one stale internal author-cumulative README note saying p071; the main README and actual Abelsche cumulative files run through p106.
+- This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Bianchi, Poincare, Gordan/Clebsch-Gordan, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi now has a standalone record; the Bianchi files here are retained as backstop/provenance copies.
+- Latest Poincare tranche v1_04 covers source scan pages 46-62 and stops before thesis front matter p63. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-09 routed sweep consolidation now includes a Bianchi backstop copy through p0543, Gordan Abel06 through p106, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41, in addition to earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Picard, and related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Gordan Abel06 has one stale internal author-cumulative README note saying p071; the main README and actual Abelsche cumulative files run through p106.
 
 ## Deligne
 
