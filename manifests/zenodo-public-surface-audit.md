@@ -2,29 +2,30 @@
 
 Generated from `manifests/public-file-catalog.csv`.
 
-| Record | Files | MB | URL |
-|---|---:|---:|---|
-| AI-Run Modern LaTeX Manuscript Workflow and Replication Packet | 5 | 0.27 | <https://zenodo.org/records/20611670> |
-| al-Battani: Opus Astronomicum / Kitab al-Zij, Complete Text Working Edition and Audited Table Data | 19 | 317.73 | <https://zenodo.org/records/20584850> |
-| Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 80 | 1016.39 | <https://zenodo.org/records/20614749> |
-| Carl Friedrich Gauss: Werke and Individual Papers (Modern LaTeX Working Drafts) | 24 | 1267.55 | <https://zenodo.org/records/20586894> |
-| Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts | 25 | 6883.62 | <https://zenodo.org/records/20583048> |
-| Chinese Mathematical Classics: Original LaTeX and Multilingual Translation Drafts | 30 | 98.73 | <https://zenodo.org/records/20415752> |
-| Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 16 | 471.67 | <https://zenodo.org/records/20414353> |
-| Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 709.86 | <https://zenodo.org/records/20614914> |
-| Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 16 | 114.75 | <https://zenodo.org/records/20611440> |
-| Historical Reference Witnesses for Non-European Mathematics: LaTeX and Translation Drafts | 15 | 58.59 | <https://zenodo.org/records/20415777> |
-| Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts | 13 | 548.61 | <https://zenodo.org/records/20415755> |
-| Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts | 19 | 45.89 | <https://zenodo.org/records/20415770> |
-| James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions | 5 | 264.59 | <https://zenodo.org/records/20586907> |
-| Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 97 | 4252.28 | <https://zenodo.org/records/20615303> |
-| Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | <https://zenodo.org/records/20415117> |
-| Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources | 100 | 3176.91 | <https://zenodo.org/records/20586401> |
-| P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
-| Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 100 | 331.24 | <https://zenodo.org/records/20615161> |
-| Richard Dedekind: Source-Checked Editions and English Translations | 18 | 25.11 | <https://zenodo.org/records/20586067> |
-| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 89 | 2177.67 | <https://zenodo.org/records/20614598> |
-| Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources | 19 | 13.27 | <https://zenodo.org/records/20490906> |
+Total tracked records: 21
+Total indexed files: 898
+Total indexed size: 26654.46 MB
 
-Total public files indexed: 897
-Total indexed size: 26456.18 MB
+| Record | Files | PDFs | ZIPs | Size MB | Link |
+|---|---:|---:|---:|---:|---|
+| additional_author_cluster | 97 | 10 | 86 | 4252.28 | [record](https://zenodo.org/records/20615303) |
+| albattani_opus_astronomicum | 19 | 7 | 4 | 317.73 | [record](https://zenodo.org/records/20584850) |
+| cayley | 80 | 13 | 66 | 1016.39 | [record](https://zenodo.org/records/20614749) |
+| chinese | 30 | 28 | 1 | 98.73 | [record](https://zenodo.org/records/20415752) |
+| classical_algebra_arithmetic | 25 | 21 | 3 | 6883.62 | [record](https://zenodo.org/records/20583048) |
+| dedekind | 18 | 14 | 3 | 25.11 | [record](https://zenodo.org/records/20586067) |
+| deligne | 100 | 96 | 3 | 399.48 | [record](https://zenodo.org/records/20615537) |
+| dirichlet | 7 | 2 | 4 | 168.39 | [record](https://zenodo.org/records/20586064) |
+| ega | 16 | 10 | 4 | 471.67 | [record](https://zenodo.org/records/20414353) |
+| gauss | 24 | 14 | 9 | 1267.55 | [record](https://zenodo.org/records/20586894) |
+| historical_references | 15 | 13 | 1 | 58.59 | [record](https://zenodo.org/records/20415777) |
+| indian_sanskrit | 13 | 11 | 1 | 548.61 | [record](https://zenodo.org/records/20415755) |
+| islamic_arabic | 19 | 17 | 1 | 45.89 | [record](https://zenodo.org/records/20415770) |
+| main | 100 | 58 | 38 | 4513.08 | [record](https://zenodo.org/records/20415117) |
+| noether | 100 | 90 | 9 | 813.30 | [record](https://zenodo.org/records/20615499) |
+| non_european_consolidated | 100 | 71 | 24 | 3176.91 | [record](https://zenodo.org/records/20586401) |
+| sga | 89 | 74 | 14 | 2177.67 | [record](https://zenodo.org/records/20614598) |
+| sylvester | 5 | 1 | 3 | 264.59 | [record](https://zenodo.org/records/20586907) |
+| ukrainian_applied_math | 19 | 18 | 1 | 13.27 | [record](https://zenodo.org/records/20490906) |
+| weber | 17 | 8 | 7 | 141.34 | [record](https://zenodo.org/records/20615446) |
+| workflow | 5 | 2 | 3 | 0.27 | [record](https://zenodo.org/records/20611670) |

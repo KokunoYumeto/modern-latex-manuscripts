@@ -10,7 +10,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20412153> | Heinrich Weber author record: Lehrbuch der Algebra Volume I complete/front-facing, with Volumes II and III in progress. |
 | <https://zenodo.org/records/20614749> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified and need page-by-page source audit before scholarly use. |
 | <https://zenodo.org/records/20614598> | SGA source/translation snapshots and working English/French translation material, with repair007 and witness-aid packets. |
-| <https://zenodo.org/records/20615161> | Pierre Deligne paper PDFs, letters, translation drafts, source packets, and the latest D001-D017 / D074-D090 repair-audit bundle. |
+| <https://zenodo.org/records/20615537> | Pierre Deligne paper PDFs, letters, translation drafts, source packets, and the latest D001-D017 witness/equation-dense audit plus D074-D090 repair-audit bundle. |
 | <https://zenodo.org/records/20414353> | EGA originals and working English translation material. |
 | <https://zenodo.org/records/20490906> | Ukrainian applied mathematics and engineering translation working drafts. |
 | <https://zenodo.org/records/20410934> | Gauss Werke modern LaTeX drafts, repair/source packages, and partial translation/transcription starts. |

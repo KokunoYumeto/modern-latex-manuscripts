@@ -29,7 +29,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
 | Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified. A small source-inspected Volume I pp.1-4 restart packet is now present, but older Cayley material remains de-promoted until page-by-page source audit. | <https://zenodo.org/records/20614749> |
 | SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 repair007 closes targeted French gaps on source pp.177, 178, and 190, while English remains unsynchronized and SGA6/SGA7 keep explicit compression/provisional caveats. | <https://zenodo.org/records/20614598> |
-| Pierre Deligne papers | Paper and letter translation/source drafts; latest 2026-06-09 bundle refresh adds D001-D017 witness/repair material and D074-D090 descending triage material. Diagram-heavy material remains working/audit level. | <https://zenodo.org/records/20615161> |
+| Pierre Deligne papers | Paper and letter translation/source drafts; latest 2026-06-09 v2 bundle refresh adds D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, and D074-D090 descending triage material. Diagram-heavy material remains working/audit level. | <https://zenodo.org/records/20615537> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |
 | Ukrainian applied mathematics | Applied mathematics and engineering translation drafts | <https://zenodo.org/records/20490906> |
 | Gauss | Gauss Werke modern LaTeX drafts and repair/source packages | <https://zenodo.org/records/20410934> |
