@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 5 | 2 | 3 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20611670) |
-| Emmy Noether | 100 | 90 | 9 | 813.3 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20615499) |
+| Emmy Noether | 100 | 90 | 9 | 850.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20616638) |
 | Heinrich Weber | 17 | 8 | 7 | 141.3 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20615446) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 82 | 13 | 67 | 1074.3 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20616177) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |

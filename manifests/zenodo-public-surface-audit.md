@@ -27,7 +27,7 @@ Total indexed size: 27706.4123 MB
 | indian_sanskrit | 13 | 11 | 1 | 548.612 | [record](https://zenodo.org/records/20415755) |
 | islamic_arabic | 19 | 17 | 1 | 45.887 | [record](https://zenodo.org/records/20415770) |
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
-| noether | 100 | 90 | 9 | 813.302 | [record](https://zenodo.org/records/20615499) |
+| noether | 100 | 90 | 9 | 850.4083 | [record](https://zenodo.org/records/20616638) |
 | non_european_consolidated | 100 | 71 | 24 | 3176.9107 | [record](https://zenodo.org/records/20586401) |
 | sga | 90 | 74 | 15 | 2262.9875 | [record](https://zenodo.org/records/20616461) |
 | sylvester | 5 | 1 | 3 | 264.5916 | [record](https://zenodo.org/records/20586907) |
