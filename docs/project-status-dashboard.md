@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 21 |
-| Public files indexed | 884 |
+| Public files indexed | 887 |
 | Top-level PDFs | 578 |
-| Artifact/source ZIPs | 271 |
+| Artifact/source ZIPs | 274 |
 | Manifest/status files | 35 |
-| Total public file surface | 25.15 GB |
+| Total public file surface | 25.31 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -39,7 +39,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Additional author cluster](https://zenodo.org/records/20612367) | 87 | 10 | 76 | 3.57 GB | Selected drafts and update packets for authors not yet split into full author records; latest routed sweep adds Frobenius 058/059 and e-rara material, Gordan Abel/Form/DL/theta packets, Kneser p0096-p0122, Mikami, Kronecker/Kron, Steinitz 38, Bianchi, and Poincare package-audited tranches with explicit caveats. |
+| [Additional author cluster](https://zenodo.org/records/20613262) | 90 | 10 | 79 | 3.73 GB | Selected drafts and update packets for authors not yet split into full author records; latest routed sweep adds Frobenius 060, Gordan Abel04 p056-p071, and Kneser LVR p0122-p0138 on top of earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Steinitz, Bianchi, and Poincare package-audited tranches with explicit caveats. |
 
 ## Completion Read
 

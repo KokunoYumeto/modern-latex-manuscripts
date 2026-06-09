@@ -40,7 +40,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Frobenius, Gordan, Kneser, Mikami, and Kronecker/Kron package-audited tranches | <https://zenodo.org/records/20612367> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Frobenius 060, Gordan Abel04, and Kneser p0122-p0138 on top of earlier Bianchi/Poincare/Frobenius/Gordan/Kneser/Mikami/Kronecker package-audited tranches | <https://zenodo.org/records/20613262> |
 
 ## Start Here
 

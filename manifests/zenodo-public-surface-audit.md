@@ -22,7 +22,7 @@
 | James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions | 5 | 264.59 | <https://zenodo.org/records/20586907> |
 | Richard Dedekind: Source-Checked Editions and English Translations | 18 | 25.11 | <https://zenodo.org/records/20586067> |
 | P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
-| Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 87 | 3660.45 | <https://zenodo.org/records/20612367> |
+| Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 90 | 3818.42 | <https://zenodo.org/records/20613262> |
 
 Total public files indexed: 884.
 Total indexed size: 25755.27 MB.
