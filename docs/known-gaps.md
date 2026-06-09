@@ -62,11 +62,11 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20614569>
+Current record: <https://zenodo.org/records/20615303>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Bianchi, Poincare, Gordan/Clebsch-Gordan, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted.
-- Latest Bianchi staging is through source pdfpage 504 of 543; latest Poincare tranche v1_04 covers source scan pages 46-62 and stops before thesis front matter p63. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-09 routed sweep consolidation now includes Bianchi through p0504, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41, in addition to earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Picard, and related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions.
+- Latest Bianchi staging claims Vol. I complete through source pdfpages 001-543, with p537-p543 treated as non-authorial provenance/back-matter; latest Poincare tranche v1_04 covers source scan pages 46-62 and stops before thesis front matter p63. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-09 routed sweep consolidation now includes Bianchi through p0543, Gordan Abel06 through p106, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41, in addition to earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Picard, and related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Gordan Abel06 has one stale internal author-cumulative README note saying p071; the main README and actual Abelsche cumulative files run through p106.
 
 ## Deligne
 

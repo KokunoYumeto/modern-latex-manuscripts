@@ -40,7 +40,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Bianchi through source p0504, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41 on top of earlier Bianchi/Poincare/Frobenius/Gordan/Kneser/Mikami/Kronecker package-audited tranches. | <https://zenodo.org/records/20614569> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Bianchi Vol. I complete through source p0543, Gordan Abel06 through p106, plus Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41 on top of earlier package-audited tranches. | <https://zenodo.org/records/20615303> |
 
 ## Start Here
 

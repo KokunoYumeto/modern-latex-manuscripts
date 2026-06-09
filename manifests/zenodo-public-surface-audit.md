@@ -17,7 +17,7 @@ Generated from `manifests/public-file-catalog.csv`.
 | Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts | 13 | 548.61 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts | 19 | 45.89 | <https://zenodo.org/records/20415770> |
 | James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions | 5 | 264.59 | <https://zenodo.org/records/20586907> |
-| Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 95 | 4073.15 | <https://zenodo.org/records/20614569> |
+| Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 97 | 4252.28 | <https://zenodo.org/records/20615303> |
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | <https://zenodo.org/records/20415117> |
 | Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources | 100 | 3176.91 | <https://zenodo.org/records/20586401> |
 | P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
@@ -26,5 +26,5 @@ Generated from `manifests/public-file-catalog.csv`.
 | Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 89 | 2177.67 | <https://zenodo.org/records/20614598> |
 | Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources | 19 | 13.27 | <https://zenodo.org/records/20490906> |
 
-Total public files indexed: 895
-Total indexed size: 26277.04 MB
+Total public files indexed: 897
+Total indexed size: 26456.18 MB

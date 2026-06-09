@@ -44,7 +44,7 @@ RECORDS: list[tuple[str, str]] = [
     ("sylvester", "20586907"),
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
-    ("additional_author_cluster", "20614569"),
+    ("additional_author_cluster", "20615303"),
 ]
 
 RECORD_NOTES = {

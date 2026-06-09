@@ -77,7 +77,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20614569)
+Record: [Additional author cluster](https://zenodo.org/records/20615303)
 
 | Author | Current Public Surface |
 |---|---|
@@ -90,7 +90,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20614569)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Vol. I Italian/English working edition through source pdfpage 504 of 543; use the latest ZIP for TeX/source witnesses. |
+| Bianchi | Vol. I Italian/English working edition through source pdfpages 001-543, with p537-p543 treated as non-authorial provenance/back-matter; use the latest ZIP for TeX/source witnesses and package audit. |
 | Poincare | Tome I French/English working tranches through source scan pages 62; latest v1_04 includes the first-part bibliography and a complete 1878 note, with next continuation at thesis front matter p63. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
 | Gordan / Clebsch-Gordan | Abelian-functions packets through Abel05 p072-p088 / §§14-18, plus earlier geodesic/form/theta packets. |
