@@ -31,7 +31,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [EGA](https://zenodo.org/records/20414353) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
-| [SGA](https://zenodo.org/records/20611779) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair006 package is source-witness based, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
+| [SGA](https://zenodo.org/records/20612724) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair006 package is source-witness based, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
 | [Deligne](https://zenodo.org/records/20410853) | Separate working access record for Deligne papers, letters, draft TeX, and translation material. | Top-level paper/letter PDFs, then the source/provenance ZIPs. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
