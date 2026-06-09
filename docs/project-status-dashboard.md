@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 21 |
-| Public files indexed | 867 |
+| Public files indexed | 869 |
 | Top-level PDFs | 578 |
-| Artifact/source ZIPs | 254 |
+| Artifact/source ZIPs | 256 |
 | Manifest/status files | 35 |
-| Total public file surface | 25.17 GB |
+| Total public file surface | 25.36 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -24,7 +24,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Noether](https://zenodo.org/records/20587623) | 100 | 90 | 9 | 748 MB | German/English numbered-paper corpus and multilingual branches; newer FR/ZH local staging awaits a file-count-aware refresh. |
 | [Weber](https://zenodo.org/records/20611440) | 16 | 8 | 6 | 115 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §165; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts. |
 | [Cayley](https://zenodo.org/records/20588791) | 79 | 13 | 65 | 973 MB | Provenance/repair material only for now; current Cayley drafts are not accuracy-certified and need per-page source audit before promotion. |
-| [SGA](https://zenodo.org/records/20611144) | 84 | 74 | 9 | 1.70 GB | SGA working translation/source snapshots, current SGA5 repair004 package, and explicit SGA5/SGA6/SGA7 caveats. |
+| [SGA](https://zenodo.org/records/20611779) | 86 | 74 | 11 | 1.90 GB | SGA working translation/source snapshots; latest SGA5 repair006 package plus next-aid source-witness ZIP; SGA5/SGA6/SGA7 caveats explicit. |
 | [Deligne](https://zenodo.org/records/20586140) | 100 | 96 | 3 | 1.04 GB | Mixed Deligne papers/letters drafts and repair packets; diagram-heavy material remains uneven and source-crop sensitive. |
 | [EGA](https://zenodo.org/records/20414353) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://zenodo.org/records/20490906) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
@@ -39,7 +39,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Additional author cluster](https://zenodo.org/records/20610982) | 73 | 10 | 62 | 3269 MB | Selected drafts and update packets for authors not yet split into full author records; latest refresh adds Gordan Abel03. |
+| [Additional author cluster](https://zenodo.org/records/20610982) | 73 | 10 | 62 | 3.19 GB | Selected drafts and update packets for authors not yet split into full author records; latest refresh adds Gordan Abel03. |
 
 ## Completion Read
 

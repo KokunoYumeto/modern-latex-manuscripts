@@ -22,11 +22,11 @@ Current record: <https://zenodo.org/records/20414353>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20410947>
+Current record: <https://zenodo.org/records/20611779> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
-- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The accepted local repair lane repaired p378-p382; repair003 closed the still-hot French pages p194, p400, p419, p431, p432, p433, and p460; and repair004 closes p165, p188, and p459 while marking English as unsynchronized carry-forward. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory and English synchronization to the latest French repair state.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest `sga5_repair006_20260609.zip` compiles the French cumulative, carries English only as an unsynchronized repair002 reference, and closes confirmed French defects on source pages 174, 197, 326, 428, 438, 457, and 470. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory, diagram microgeometry checking, and English synchronization to the latest French repair state. The `SGA5_next_aid_manual_source_witnesses_20260609.zip` file is a witness/anchor aid, not promoted replacement text.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
 - SGA7 material should be treated as especially provisional unless a specific packet says otherwise. The likely weak point is not just typography but source compression: sections can look readable while silently omitting local mathematical detail.
 - SGA 4 Expose VI should continue from section 1.22.

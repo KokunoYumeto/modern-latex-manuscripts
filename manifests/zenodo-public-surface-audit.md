@@ -7,7 +7,7 @@
 | Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 748.13 | <https://zenodo.org/records/20587623> |
 | Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 16 | 114.75 | <https://zenodo.org/records/20611440> |
 | Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 79 | 972.58 | <https://zenodo.org/records/20588791> |
-| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 84 | 1745.22 | <https://zenodo.org/records/20611144> |
+| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 86 | 1947.43 | <https://zenodo.org/records/20611779> |
 | Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 100 | 1067.29 | <https://zenodo.org/records/20586140> |
 | Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 16 | 471.67 | <https://zenodo.org/records/20414353> |
 | Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources | 19 | 13.27 | <https://zenodo.org/records/20490906> |
@@ -24,5 +24,5 @@
 | P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
 | Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 73 | 3269.23 | <https://zenodo.org/records/20610982> |
 
-Total public files indexed: 867.
-Total indexed size: 25771.21 MB.
+Total public files indexed: 869.
+Total indexed size: 25973.42 MB.
