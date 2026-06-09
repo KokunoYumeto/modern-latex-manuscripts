@@ -15,7 +15,7 @@ Generated from public Zenodo file catalog on 2026-06-09.
 | dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
 | ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20414353) |
 | gauss | 24 | 14 | 9 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
-| gordan_clebsch_gordan | 13 | 0 | 12 | 818.1051 | [record](https://zenodo.org/records/20617198) |
+| gordan_clebsch_gordan | 14 | 0 | 13 | 823.3329 | [record](https://zenodo.org/records/20617548) |
 | historical_references | 15 | 13 | 1 | 58.5912 | [record](https://zenodo.org/records/20415777) |
 | indian_sanskrit | 13 | 11 | 1 | 548.612 | [record](https://zenodo.org/records/20415755) |
 | islamic_arabic | 19 | 17 | 1 | 45.887 | [record](https://zenodo.org/records/20415770) |

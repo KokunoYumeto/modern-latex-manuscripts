@@ -71,7 +71,7 @@ Current dedicated record: <https://zenodo.org/records/20615949>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20617198>
+Current dedicated record: <https://zenodo.org/records/20617548>
 
 - The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. It includes Abelian-functions packages through source pp.001-121 / printed pp.001-099, plus the latest complete working packets for `De linea geodetica` and the staged `Formensystem` branch.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
