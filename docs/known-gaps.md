@@ -70,9 +70,9 @@ Current record: <https://zenodo.org/records/20612367>
 
 ## Deligne
 
-Current record: <https://zenodo.org/records/20410853>
+Current latest record: <https://zenodo.org/records/20612990> (concept DOI: <https://doi.org/10.5281/zenodo.20410853>)
 
 - This is kept as a separate record so it can be revised independently.
 - It is useful for access and translation work, but it is not proofread or legally curated to the same comfort level as the public-domain historical corpus.
 - Diagram-heavy papers are a known weak point. Commutative diagrams and geometry displays may be flattened, omitted, or represented as inadequate OCR-derived displays until a source-crop audit rebuilds them.
-- Deligne quality is uneven by range. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. The D002-D017 repair package has specific promoted repairs and retentions, while many witness rows remain queued for visual check. The D074-D090 audit pass carries D076/D075 repairs but still treats many D077-D090 geometry candidates as triage. Some material remains rough-draft or OCR/source-witness level rather than finished translation.
+- Deligne quality is uneven by range. The 2026-06-09 public refresh publishes `95 Pierre Deligne - Update Packets 2026-06-09.zip`, which carries D002-D017 diagram repair/audit material and D074-D090 descending witness/audit material. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. The D002-D017 repair package has specific promoted repairs and retentions, while many witness rows remain queued for visual check. The D074-D090 witness pass carries D076/D075 repairs but still treats many D077-D090 geometry candidates as triage. Some material remains rough-draft or OCR/source-witness level rather than finished translation.

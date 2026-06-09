@@ -11,7 +11,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 79 | 13 | 65 | 972.6 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20588791) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
 | SGA | 87 | 74 | 12 | 2031.4 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20612724) |
-| Pierre Deligne | 100 | 96 | 3 | 1067.3 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20586140) |
+| Pierre Deligne | 100 | 96 | 3 | 326.7 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20612990) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |

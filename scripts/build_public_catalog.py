@@ -30,7 +30,7 @@ RECORDS: list[tuple[str, str]] = [
     ("weber", "20611440"),
     ("cayley", "20588791"),
     ("sga", "20612724"),
-    ("deligne", "20586140"),
+    ("deligne", "20612990"),
     ("ega", "20414353"),
     ("ukrainian_applied_math", "20490906"),
     ("gauss", "20586894"),
