@@ -8,7 +8,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20461174> | Compact workflow / replication packet for the AI-run scan to TeX to translation to audit to publication process. |
 | <https://zenodo.org/records/20412587> | Emmy Noether author record: numbered-paper German/English corpus plus Spanish/Japanese/French and other multilingual working branches. |
 | <https://zenodo.org/records/20412153> | Heinrich Weber author record: Lehrbuch der Algebra Volume I complete/front-facing, with Volumes II and III in progress. |
-| <https://zenodo.org/records/20616177> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified. The narrow promoted restart packet currently covers Volume I printed pp.1-24 / complete Papers 1-4. |
+| <https://zenodo.org/records/20617138> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified. The narrow promoted restart packet currently covers Volume I printed pp.1-45 / complete Papers 1-9. |
 | <https://zenodo.org/records/20616461> | SGA source/translation snapshots and working English/French translation material, with repair008, earlier repair packets, and witness-aid packets. |
 | <https://zenodo.org/records/20615537> | Pierre Deligne paper PDFs, letters, translation drafts, source packets, and the latest D001-D017 witness/equation-dense audit plus D074-D090 repair-audit bundle. |
 | <https://zenodo.org/records/20414353> | EGA originals and working English translation material. |

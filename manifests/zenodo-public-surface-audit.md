@@ -14,7 +14,7 @@ Total indexed size: 27915.4556 MB
 | additional_author_cluster | 99 | 10 | 88 | 4370.6999 | [record](https://zenodo.org/records/20616046) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
 | bianchi | 5 | 3 | 1 | 63.9908 | [record](https://zenodo.org/records/20615949) |
-| cayley | 82 | 13 | 67 | 1074.3283 | [record](https://zenodo.org/records/20616177) |
+| cayley | 83 | 13 | 68 | 1153.5600 | [record](https://zenodo.org/records/20617138) |
 | chinese | 30 | 28 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
 | dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |

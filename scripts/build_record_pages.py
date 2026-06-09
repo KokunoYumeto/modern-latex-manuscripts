@@ -80,7 +80,7 @@ INDEX_DISPLAY_NAMES = {
 
 RECORD_NOTES = {
     "cayley": [
-        "Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range. The narrow `Cayley_V1_critical_p001_024_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-24 / complete Papers 1-4.",
+        "Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range. The narrow `Cayley_V1_critical_p001_045_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / complete Papers 1-9.",
     ],
     "gordan_clebsch_gordan": [
         "Dedicated Gordan / Clebsch-Gordan working-edition split from the mixed additional-author shelf. The Abelsche Functionen branch runs through source PDF pp.001-121 / printed pp.001-099; De linea geodetica and the staged Formensystem package are included as latest complete working packets. These are package-audited, source-witnessed working drafts, not final critical editions.",

@@ -102,3 +102,17 @@ Current tool lessons:
 When generating OCR, preserve the generation chain. A reproducible OCR witness should say: this source file and checksum were rasterized into these page images, at this DPI and color mode, using this command or script; these crops or preprocessing steps were applied; this OCR/model environment produced this raw output; this normalization script produced this comparison text or candidate TeX; and this human or agent audit either rejected it, kept it as a locator, or promoted a specific part after source comparison. Do not overwrite raw OCR with cleaned OCR. Keep both layers and make the promoted layer cite back to the raw witness.
 
 The current best practice is conservative: use OCR/math-OCR to localize formulas, tables, diagram regions, and possible prose omissions; keep crops and candidate TeX as witnesses; promote only after visual comparison with the source scan and successful TeX compilation. For dense historical mathematics, a reliable package should include page/region IDs, witness crops, candidate TeX, accepted/rejected/uncertain status, and a short audit note. Candidate TeX should not be pasted silently into public editions.
+
+## Lean And Formal-Checking Notes
+
+A Lean/Lake toolchain is useful as a selective formal companion layer, not as a bulk transcription verifier. The practical path is to create small formalization packets for stable theorem statements, definitions, examples, algebraic identities, or calculation lemmas after the TeX/source branch is already source-compared. If the Lean file checks, it gives strong evidence that the formalized mathematical claim is internally coherent under the chosen definitions. If it fails, it may reveal a transcription error, a missing hypothesis, a wrong normalization of notation, or simply an incomplete formalization.
+
+Do not use `lake build` success as evidence that a scanned work has been faithfully transcribed. Lean does not see page order, diagrams, typography, source omissions, historical notation, or prose-level mathematical intent unless those have been explicitly formalized. For this archive, Lean should be treated as another audit layer: TeX remains the reader/source-transcription layer; source scans remain the authority; Lean companion files can become machine-checkable witnesses for selected mathematical statements.
+
+Recommended use:
+
+- attach Lean files to clearly scoped theorem or calculation IDs from the TeX/unit ledger;
+- record the Lean version, Lake version, dependencies, and build command;
+- keep informal TeX statement, source page, and Lean theorem name linked in a small CSV or JSONL ledger;
+- use Lean first on modern algebraic identities, elementary number-theory lemmas, matrix/calculation checks, and small structural statements where definitions are already available in Mathlib;
+- avoid claiming large historical papers are "verified in Lean" unless every relevant theorem, definition, and dependency has actually been formalized and reviewed.
