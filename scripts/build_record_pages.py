@@ -68,6 +68,22 @@ DISPLAY_NAMES = {
     "additional_author_cluster": "Additional Author Cluster",
 }
 
+INDEX_DISPLAY_NAMES = {
+    "cayley": "Arthur Cayley (suspect draft/provenance; not accuracy-certified)",
+}
+
+RECORD_NOTES = {
+    "cayley": [
+        "Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range.",
+    ],
+    "classical_algebra_arithmetic": [
+        "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material, so Cayley filenames containing `Source-Checked` should be read as obsolete package names rather than a current quality claim. Use the dedicated Cayley record for the latest warning/status.",
+    ],
+    "sga": [
+        "Current caveat from the 2026-06-09 SGA audits: the SGA5 and SGA6 cumulative page-range chains are structurally represented, but they should be treated as substantial working drafts rather than scribe-grade complete editions. For SGA5, the accepted local repair lane repaired p378-p382, repair003 closed p194, p400, p419, p431, p432, p433, and p460, and repair004 closes p165, p188, and p459 while leaving English unsynchronized to the latest French repair state. SGA5 still needs a global diagram/exact-symbol inventory. For SGA6, the audit confirms localized compression/omission samples on source pages 014 and 625, with strong candidates on 431 and 679; the next repair targets are p014, then the clusters 423-454, 619-653, and 670-692. Later external visual-repair output is not promoted unless individual source-crop checks independently re-establish a patch.",
+    ],
+}
+
 
 def slug(label: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
@@ -132,11 +148,17 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path) -> 
         "",
         "Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.",
         "",
-        "Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.",
-        "",
-        "## Reader And Reference PDFs",
-        "",
     ]
+    for note in RECORD_NOTES.get(label, []):
+        lines.extend([note, ""])
+    lines.extend(
+        [
+            "Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.",
+            "",
+            "## Reader And Reference PDFs",
+            "",
+        ]
+    )
     lines.extend(table_for(reader_pdfs))
 
     if other_pdfs:
@@ -166,7 +188,7 @@ def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path) -> None
         rows = grouped.get(label)
         if not rows:
             continue
-        display = DISPLAY_NAMES.get(label, label.replace("_", " ").title())
+        display = INDEX_DISPLAY_NAMES.get(label, DISPLAY_NAMES.get(label, label.replace("_", " ").title()))
         record_id = rows[0]["record_id"]
         pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
         zips = [row for row in rows if row["filename"].lower().endswith(".zip")]

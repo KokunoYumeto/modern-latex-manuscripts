@@ -47,6 +47,15 @@ RECORDS: list[tuple[str, str]] = [
     ("additional_author_cluster", "20586566"),
 ]
 
+RECORD_NOTES = {
+    "cayley": [
+        "Accuracy warning 2026-06-09: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges.",
+    ],
+    "classical_algebra_arithmetic": [
+        "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.",
+    ],
+}
+
 
 def fetch_record(record_id: str) -> dict[str, Any]:
     url = f"https://zenodo.org/api/records/{record_id}"
@@ -139,6 +148,12 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
                 "",
                 f"Record: <https://zenodo.org/records/{record_id}>",
                 "",
+            ]
+        )
+        for note in RECORD_NOTES.get(label, []):
+            lines.extend([note, ""])
+        lines.extend(
+            [
                 "| Role | Size MB | File |",
                 "|---|---:|---|",
             ]
