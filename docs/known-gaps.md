@@ -48,7 +48,7 @@ Noether: <https://zenodo.org/records/20412587>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §168. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. The `Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip` packet bridges the support/provenance layer from the older §143 bundle to the already-public Batch102/Batch103 packets for §§163-168. The next continuation point follows Volume II §168.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
-- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_17_combined_20260609.zip`, which combines the original Paper 16 complete package, the original P17a package, and the original French/zh-Hans Paper 17 §§5-7 continuation package to stay within the Zenodo 100-file limit. Paper 17 §8 is the next FR/ZH continuation point. These FR/ZH files remain checkpoint streams, not complete corpora.
+- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_17_through_s09_combined_20260609.zip`, which preserves the earlier Paper 16/Paper 17 bridge and adds the French/zh-Hans Paper 17 §§8-9 continuation package while staying within the Zenodo 100-file limit. Paper 17 §10 is the next FR/ZH continuation point. These FR/ZH files remain checkpoint streams, not complete corpora.
 - Both author records need continued translation, source comparison, and final proofing.
 
 ## Classical Algebra and Arithmetic
@@ -71,19 +71,19 @@ Current dedicated record: <https://zenodo.org/records/20617674>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20617548>
+Current dedicated record: <https://zenodo.org/records/20617906>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. It includes Abelian-functions packages through source pp.001-121 / printed pp.001-099, plus the latest complete working packets for `De linea geodetica` and the staged `Formensystem` branch.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. It includes Abelian-functions packages through source pp.001-121 / printed pp.001-099, the theta auditfix04 correction branch, plus the latest complete working packets for `De linea geodetica` and staged support/provenance material for related Gordan/Clebsch-Gordan work.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside Abel06/Abel07 carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-121 coverage statement.
 
 ## Steinitz
 
-Current dedicated record: <https://zenodo.org/records/20616989>
+Current dedicated record: <https://zenodo.org/records/20617915>
 
-- The dedicated Steinitz record is now the preferred surface for current Steinitz work. It includes package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete.
+- The dedicated Steinitz record is now the preferred surface for current Steinitz work. It includes package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13.
 - These are source-witnessed working drafts, not final critical editions. Use each package's internal README, progress ledger, source scans, and render/audit files as authority for its exact promoted scope.
-- Known gaps remain explicit in the public metadata: 1908 Analysis Situs source unresolved; 1916 Bedingt III, 1916/1922 polyhedron-space-division work, and 1927/1928 isoperimetric papers not completed.
+- Known gaps remain explicit in the public metadata: 1908 Analysis Situs source unresolved; the remainder of 1916 Bedingt III, 1916/1922 polyhedron-space-division work, and 1927/1928 isoperimetric papers not completed.
 
 ## Additional Author Cluster
 

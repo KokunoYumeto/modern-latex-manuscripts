@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 24 |
-| Public files indexed | 937 |
+| Public files indexed | 939 |
 | Top-level PDFs | 582 |
-| Artifact/source ZIPs | 315 |
+| Artifact/source ZIPs | 317 |
 | Manifest/status files | 40 |
-| Total public file surface | 28.08 GB |
+| Total public file surface | 28.22 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -21,7 +21,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://zenodo.org/records/20617469) | 8 | 3 | 5 | 0.3 MB | Latest workflow refresh documents local-to-web aid packets, OCR prose witnesses, high-DPI diagram/formula/table crops, scan-quality caveats, quality labels, release hygiene, and Lean/Lake as a selective formal-checking companion rather than a bulk scan-transcription verifier. |
-| [Noether](https://zenodo.org/records/20616638) | 100 | 90 | 9 | 850 MB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; FR/ZH Paper 16 plus Paper 17 through §7 are now bundled as `N_FRZH_Papers16_17_combined_20260609.zip` to stay within the Zenodo file limit. |
+| [Noether](https://zenodo.org/records/20617934) | 100 | 90 | 9 | 882 MB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; FR/ZH Paper 16 plus Paper 17 through §9 are now bundled as `N_FRZH_Papers16_17_through_s09_combined_20260609.zip` to stay within the Zenodo file limit. |
 | [Weber](https://zenodo.org/records/20616798) | 19 | 8 | 8 | 313 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §168; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts; the §144-162 bridge plus Batch102/Batch103 packets now expose supporting provenance through §168. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://zenodo.org/records/20617332) | 91 | 74 | 16 | 2.27 GB | SGA working translation/source snapshots; latest SGA5 repair009 French operator-symbol package plus earlier repair and witness-aid ZIPs; SGA5/SGA6/SGA7 caveats explicit. |
@@ -40,8 +40,8 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20617674) | 6 | 3 | 2 | 135.4 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 p0001-p0060 is source-intake/witness only because the inspected manuscript witness has missing/duplicate pages. |
-| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20617548) | 14 | 0 | 13 | 823 MB | Dedicated package set for Abelsche Functionen through source pp.001-121 / printed pp.001-099, including the p089-121 auditfix for branch-symbol/path-order corrections, plus theta/Formensystem auditfix and latest complete De linea geodetica working packet. |
-| [Ernst Steinitz](https://zenodo.org/records/20616989) | 5 | 0 | 4 | 385 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete; later Steinitz gaps remain explicit. |
+| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20617906) | 15 | 0 | 14 | 883 MB | Dedicated package set for Abelsche Functionen through source pp.001-121 / printed pp.001-099, including the p089-121 auditfix for branch-symbol/path-order corrections, plus theta auditfix04 and latest complete De linea geodetica working packet. |
+| [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
 | [Additional author cluster](https://zenodo.org/records/20617597) | 100 | 10 | 89 | 4.32 GB | Selected drafts and update packets for authors not yet split into full author records; Bianchi, Gordan, and Steinitz now have preferred standalone records, while this mixed shelf keeps backstop/provenance copies plus Poincare v1_07, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related tranches with explicit caveats. |
 
 ## Completion Read

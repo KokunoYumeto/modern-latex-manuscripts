@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 8 | 3 | 5 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20617469) |
-| Emmy Noether | 100 | 90 | 9 | 850.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20616638) |
+| Emmy Noether | 100 | 90 | 9 | 882.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20617934) |
 | Heinrich Weber | 19 | 8 | 8 | 313.3 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20616798) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
@@ -25,6 +25,6 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
 | Luigi Bianchi | 6 | 3 | 2 | 135.4 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20617674) |
-| Paul Gordan and Clebsch-Gordan | 14 | 0 | 13 | 823.3 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20617548) |
-| Ernst Steinitz | 5 | 0 | 4 | 385.5 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20616989) |
+| Paul Gordan and Clebsch-Gordan | 15 | 0 | 14 | 882.6 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20617906) |
+| Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
 | Additional Author Cluster | 100 | 10 | 89 | 4419.8 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20617597) |

@@ -75,8 +75,8 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volumes II and III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20412153) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20412587) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 p0001-p0060 is included as source-intake/witness only, not as a completed transcription. | [Bianchi](https://zenodo.org/records/20617674) |
-| Paul Gordan / Clebsch-Gordan | Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta/Formensystem auditfix and latest complete De linea geodetica working packet. | [Gordan](https://zenodo.org/records/20617548) |
-| Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete. | [Steinitz](https://zenodo.org/records/20616989) |
+| Paul Gordan / Clebsch-Gordan | Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta auditfix04 and latest complete De linea geodetica working packet. | [Gordan](https://zenodo.org/records/20617906) |
+| Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
 
 ## Additional Selected Authors
 
@@ -87,7 +87,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20617597)
 | Minkowski | Gesammelte Abhandlungen Volume II selected papers. |
 | Hecke | Vorlesungen ueber die Theorie der algebraischen Zahlen. |
 | Landau | Elementary number theory. |
-| Steinitz | Backstop reader/source copies; prefer the standalone [Steinitz record](https://zenodo.org/records/20616989) for current package-audited work. |
+| Steinitz | Backstop reader/source copies; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915) for current package-audited work. |
 | Hensel | Zahlentheorie. |
 | Oka | Analytic functions of several variables I-X. |
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
@@ -96,8 +96,8 @@ Record: [Additional author cluster](https://zenodo.org/records/20617597)
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20617674) for current readers, auditfix ZIP, and A2 source-intake witness caveats. |
 | Poincare | Tome I French/English working tranches through source PDF pages 85; latest v1_05 begins the thesis notice and `Premiere These`, with next continuation at source PDF page 86 / `PREMIERE PARTIE`. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
-| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20617548) for Abelian-functions through pp.001-121, the p089-121 auditfix, theta/Formensystem auditfix, and De linea geodetica packets. |
-| Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20616989). |
+| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20617906) for Abelian-functions through pp.001-121, the p089-121 auditfix, theta auditfix04, and De linea geodetica packets. |
+| Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
 
 ## Reference Witnesses
 
