@@ -62,7 +62,7 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20610850>
+Current record: <https://zenodo.org/records/20610982>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing together while more complete author pages are not yet warranted.
 - Obvious modern collected-volume wrapper pages have been removed from the public reader PDFs where detected, but source/provenance packets remain available for checking.

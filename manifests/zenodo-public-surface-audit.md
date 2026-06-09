@@ -1,25 +1,33 @@
 # Zenodo Public Surface Audit
 
-This is a historical public-surface snapshot. For current record IDs, live caveats, and local staging decisions, use [current-status.md](current-status.md).
+Generated from the public Zenodo records API on 2026-06-09. For local staging caveats and promotion decisions, use [current-status.md](current-status.md).
 
-Tracked records: 13
-Public files indexed: 859
-Top-level PDFs: 356
-Artifact/source ZIPs: 62
-Total public file surface: 9.33 GB
+Tracked records: 21
+Public files indexed: 860
+Top-level PDFs: 575
+Artifact/source ZIPs: 251
+Total public file surface: 25.07 GB
 
 | Record | Files | Size (MB) | URL |
 |---|---:|---:|---|
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | <https://zenodo.org/records/20415117> |
-| Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 14 | 460.1 | <https://zenodo.org/records/20419105> |
-| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 36 | 454.07 | <https://zenodo.org/records/20418993> |
-| Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources | 71 | 2798.53 | <https://zenodo.org/records/20418877> |
+| AI-Run Modern LaTeX Manuscript Workflow and Replication Packet | 3 | 0.16 | <https://zenodo.org/records/20461174> |
+| Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 748.13 | <https://zenodo.org/records/20587623> |
+| Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 12 | 92.54 | <https://zenodo.org/records/20586885> |
+| Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 79 | 972.58 | <https://zenodo.org/records/20588791> |
+| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 83 | 1670.30 | <https://zenodo.org/records/20587609> |
+| Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 100 | 1067.29 | <https://zenodo.org/records/20586140> |
+| Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 16 | 471.67 | <https://zenodo.org/records/20414353> |
+| Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources | 19 | 13.27 | <https://zenodo.org/records/20490906> |
+| Carl Friedrich Gauss: Werke and Individual Papers (Modern LaTeX Working Drafts) | 24 | 1267.55 | <https://zenodo.org/records/20586894> |
+| al-Battani: Opus Astronomicum / Kitab al-Zij, Complete Text Working Edition and Audited Table Data | 19 | 317.73 | <https://zenodo.org/records/20584850> |
+| Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources | 100 | 3176.91 | <https://zenodo.org/records/20586401> |
 | Chinese Mathematical Classics: Original LaTeX and Multilingual Translation Drafts | 30 | 98.73 | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts | 13 | 548.61 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts | 19 | 45.89 | <https://zenodo.org/records/20415770> |
 | Historical Reference Witnesses for Non-European Mathematics: LaTeX and Translation Drafts | 15 | 58.59 | <https://zenodo.org/records/20415777> |
-| Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 5 | 16.06 | <https://zenodo.org/records/20418861> |
-| Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 4 | 16.96 | <https://zenodo.org/records/20418862> |
-| Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 93 | 207.28 | <https://zenodo.org/records/20414959> |
-| Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus | 23 | 193.5 | <https://zenodo.org/records/20418609> |
-| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 12 | 137.78 | <https://zenodo.org/records/20610850> |
+| Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts | 25 | 6883.62 | <https://zenodo.org/records/20583048> |
+| James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions | 5 | 264.59 | <https://zenodo.org/records/20586907> |
+| Richard Dedekind: Source-Checked Editions and English Translations | 18 | 25.11 | <https://zenodo.org/records/20586067> |
+| P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
+| Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 73 | 3269.23 | <https://zenodo.org/records/20610982> |

@@ -1,17 +1,17 @@
 # Project Status Dashboard
 
-Generated from an earlier public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
+Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
 ## Archive Surface
 
 | Metric | Current Count |
 |---|---:|
-| Public records tracked here | 13 |
-| Public files indexed | 859 |
+| Public records tracked here | 21 |
+| Public files indexed | 860 |
 | Top-level PDFs | 575 |
-| Artifact/source ZIPs | 250 |
+| Artifact/source ZIPs | 251 |
 | Manifest/status files | 34 |
-| Total public file surface | 9.33 GB |
+| Total public file surface | 25.07 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -31,7 +31,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Noether](https://zenodo.org/records/20412587) | 4 | 2 | 1 | 17 MB | Author page with numbered-paper corpus and multilingual branches. |
 | [Deligne](https://zenodo.org/records/20410853) | 93 | 91 | 1 | 207 MB | Separate working access record for Deligne papers and drafts. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | 23 | 21 | 1 | 194 MB | Organized shelf for selected classical algebra/arithmetic drafts. |
-| [Additional author cluster](https://zenodo.org/records/20610850) | 72 | 10 | 61 | 3181 MB | Selected drafts and update packets for authors not yet split into full author records. |
+| [Additional author cluster](https://zenodo.org/records/20610982) | 73 | 10 | 62 | 3269 MB | Selected drafts and update packets for authors not yet split into full author records; latest refresh adds Gordan Abel03. |
 
 ## Completion Read
 
