@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 23 |
-| Public files indexed | 919 |
+| Public files indexed | 920 |
 | Top-level PDFs | 581 |
-| Artifact/source ZIPs | 299 |
+| Artifact/source ZIPs | 301 |
 | Manifest/status files | 39 |
-| Total public file surface | 26.97 GB |
+| Total public file surface | 27.06 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -24,7 +24,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Noether](https://zenodo.org/records/20615499) | 100 | 90 | 9 | 813 MB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; FR/ZH Paper 17 material is now bundled as `N_FRZH_Paper17_combined_20260609.zip` to stay within the Zenodo file limit. |
 | [Weber](https://zenodo.org/records/20615446) | 17 | 8 | 7 | 141 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §168; Volume III current repaired cumulative. Older §143 Volume II PDFs and the Batch102 §165 ZIP remain as historical/provenance artifacts. |
 | [Cayley](https://zenodo.org/records/20616177) | 82 | 13 | 67 | 1.05 GB | Provenance/repair material with a narrow source-inspected restart packet for Vol. I pp.1-24 / Papers 1-4; older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
-| [SGA](https://zenodo.org/records/20614598) | 89 | 74 | 14 | 2.13 GB | SGA working translation/source snapshots; latest SGA5 repair007 French package plus manual witness, footnote/diagram, and r007 diagram-aid ZIPs; SGA5/SGA6/SGA7 caveats explicit. |
+| [SGA](https://zenodo.org/records/20616461) | 90 | 74 | 15 | 2.21 GB | SGA working translation/source snapshots; latest SGA5 repair008 French diagram/formula package plus manual witness, footnote/diagram, and r007 diagram-aid ZIPs; SGA5/SGA6/SGA7 caveats explicit. |
 | [Deligne](https://zenodo.org/records/20615537) | 100 | 96 | 3 | 399 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v2` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, and D074-D090 descending triage; diagram-heavy material remains uneven and source-crop sensitive. |
 | [EGA](https://zenodo.org/records/20414353) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://zenodo.org/records/20490906) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |

@@ -10,7 +10,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20461174) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
-| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20614598) |
+| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20616461) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
 | Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20412587) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20412153) |
@@ -33,7 +33,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [EGA](https://zenodo.org/records/20414353) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
-| [SGA](https://zenodo.org/records/20614598) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair007 package is a targeted French source-witness repair, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
+| [SGA](https://zenodo.org/records/20616461) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair008 package is a targeted French diagram/formula source-witness repair, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
 | [Deligne](https://zenodo.org/records/20615537) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v2 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, and D074-D090 descending triage. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.

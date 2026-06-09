@@ -8,9 +8,9 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20414353) |
 | EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20414353) |
-| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20614598) |
-| SGA | Continue SGA5 repair after repair007: synchronize English to the latest French repairs, then attack the open diagram microgeometry and exact-symbol inventory pages recorded in the r007 aid package. | [SGA record](https://zenodo.org/records/20614598) |
-| SGA | Repair the SGA6 nuclear-audit gaps, starting with p014, then clusters 423-454, 619-653, and 670-692. Continue SGA 7-I and SGA 7-II from the French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20614598) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20616461) |
+| SGA | Continue SGA5 repair after repair008: synchronize English to the latest French repairs, then attack the open diagram microgeometry, exact-symbol inventory, and underlined-operator typography lanes. | [SGA record](https://zenodo.org/records/20616461) |
+| SGA | Repair the SGA6 nuclear-audit gaps, starting with p014, then clusters 423-454, 619-653, and 670-692. Continue SGA 7-I and SGA 7-II from the French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20616461) |
 | Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20412153) |
 | Noether | Continue source checking and multilingual translation branches from the numbered-paper corpus. | [Noether record](https://zenodo.org/records/20412587) |
 
