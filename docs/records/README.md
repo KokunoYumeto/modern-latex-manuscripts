@@ -24,5 +24,5 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20586907) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 5 | 3 | 1 | 62.7 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20615815) |
+| Luigi Bianchi | 5 | 3 | 1 | 64.0 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20615949) |
 | Additional Author Cluster | 98 | 10 | 87 | 4324.4 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20615611) |

@@ -13,7 +13,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Arthur Cayley | Dedicated record exists, but the current public material is now marked suspect draft/provenance pending page-by-page source audit. |
 | SGA / EGA / Deligne | Large algebraic-geometry corpora with independent caveats and continuation tracks. |
 | al-Battani | Work-level `Opus Astronomicum` output is distinct from the broader non-European shelf. |
-| Luigi Bianchi | Vol. I Italian/English working edition now has a dedicated record with reader PDFs, source scan witness, and TeX/audit ZIP. |
+| Luigi Bianchi | Vol. I Italian/English working edition now has a dedicated record with reader PDFs, source scan witness, and TeX/auditfix ZIP. |
 
 ## Strong Split Candidates
 

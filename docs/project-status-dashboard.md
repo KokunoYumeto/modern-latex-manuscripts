@@ -39,7 +39,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Luigi Bianchi](https://zenodo.org/records/20615815) | 5 | 3 | 1 | 63 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/audit ZIP. |
+| [Luigi Bianchi](https://zenodo.org/records/20615949) | 5 | 3 | 1 | 64 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP. |
 | [Additional author cluster](https://zenodo.org/records/20615611) | 98 | 10 | 87 | 4.22 GB | Selected drafts and update packets for authors not yet split into full author records; latest routed sweep adds Steinitz Bedingt II through p024, a Bianchi backstop copy through p0543, and Gordan Abel06 through p106, on top of Poincare v1_04, Frobenius 061, Gordan Abel05, Steinitz 41, and earlier package-audited tranches with explicit caveats. |
 
 ## Completion Read

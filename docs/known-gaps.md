@@ -62,9 +62,10 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20615815>
+Current dedicated record: <https://zenodo.org/records/20615949>
 
-- Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, English translation working edition, source scan witness, and TeX/audit ZIP through source pdfpages 001-543.
+- Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
+- The 2026-06-09 auditfix repairs a small set of English cumulative defects: one control-character formula issue, nine source-notation `\sen` repairs, the section 186 displayed formula, and a section 189 anti-compression repair.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
 
