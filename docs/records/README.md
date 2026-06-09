@@ -6,12 +6,12 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 5 | 2 | 3 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20611670) |
-| Emmy Noether | 100 | 90 | 9 | 795.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20612539) |
+| Emmy Noether | 100 | 90 | 9 | 709.9 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20614914) |
 | Heinrich Weber | 16 | 8 | 6 | 114.7 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20611440) |
-| Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 79 | 13 | 65 | 972.6 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20588791) |
+| Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 80 | 13 | 66 | 1016.4 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20614749) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
-| SGA | 87 | 74 | 12 | 2031.4 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20612724) |
-| Pierre Deligne | 100 | 96 | 3 | 326.7 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20612990) |
+| SGA | 89 | 74 | 14 | 2177.7 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20614598) |
+| Pierre Deligne | 100 | 96 | 3 | 331.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20615161) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
@@ -24,4 +24,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20586907) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Additional Author Cluster | 90 | 10 | 79 | 3818.4 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20613262) |
+| Additional Author Cluster | 95 | 10 | 84 | 4073.1 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20614569) |

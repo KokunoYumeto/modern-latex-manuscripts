@@ -27,9 +27,9 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20461174> |
 | Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations | <https://zenodo.org/records/20412587> |
 | Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
-| Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified and need page-by-page source audit | <https://zenodo.org/records/20588791> |
-| SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 and SGA6 are structurally covered in current drafts but have audit-confirmed localized compression/omission gaps queued for repair | <https://zenodo.org/records/20410947> |
-| Pierre Deligne papers | Paper and letter translation/source drafts | <https://zenodo.org/records/20410853> |
+| Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified. A small source-inspected Volume I pp.1-4 restart packet is now present, but older Cayley material remains de-promoted until page-by-page source audit. | <https://zenodo.org/records/20614749> |
+| SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 repair007 closes targeted French gaps on source pp.177, 178, and 190, while English remains unsynchronized and SGA6/SGA7 keep explicit compression/provisional caveats. | <https://zenodo.org/records/20614598> |
+| Pierre Deligne papers | Paper and letter translation/source drafts; latest 2026-06-09 bundle refresh adds D001-D017 witness/repair material and D074-D090 descending triage material. Diagram-heavy material remains working/audit level. | <https://zenodo.org/records/20615161> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |
 | Ukrainian applied mathematics | Applied mathematics and engineering translation drafts | <https://zenodo.org/records/20490906> |
 | Gauss | Gauss Werke modern LaTeX drafts and repair/source packages | <https://zenodo.org/records/20410934> |
@@ -40,7 +40,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Frobenius 060, Gordan Abel04, and Kneser p0122-p0138 on top of earlier Bianchi/Poincare/Frobenius/Gordan/Kneser/Mikami/Kronecker package-audited tranches | <https://zenodo.org/records/20613262> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Bianchi through source p0504, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41 on top of earlier Bianchi/Poincare/Frobenius/Gordan/Kneser/Mikami/Kronecker package-audited tranches. | <https://zenodo.org/records/20614569> |
 
 ## Start Here
 

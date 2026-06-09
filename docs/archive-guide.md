@@ -14,7 +14,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Workflow and replication notes | <https://zenodo.org/records/20461174> |
 | Emmy Noether | <https://zenodo.org/records/20412587> |
 | Heinrich Weber | <https://zenodo.org/records/20412153> |
-| Arthur Cayley | <https://zenodo.org/records/20588791> |
+| Arthur Cayley | <https://zenodo.org/records/20614749> |
 | SGA source and English translation drafts | <https://zenodo.org/records/20410947> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20414353> |
@@ -25,7 +25,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
-| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20613262> |
+| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20614569> |
 
 ## File Types
 

@@ -8,9 +8,9 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20414353) |
 | EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20414353) |
-| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20410947) |
-| SGA | Audit and repair SGA5 high-risk pages after the p378-p382 repair pass; prioritize p118, p125-p127, p187, p194, p201, p326, p344, p400, p409-p410, p419, p431-p432, and p460. | [SGA record](https://zenodo.org/records/20410947) |
-| SGA | Repair the SGA6 nuclear-audit gaps, starting with p014, then clusters 423-454, 619-653, and 670-692. Continue SGA 7-I and SGA 7-II from the French reference PDFs. | [SGA record](https://zenodo.org/records/20410947) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20614598) |
+| SGA | Continue SGA5 repair after repair007: synchronize English to the latest French repairs, then attack the open diagram microgeometry and exact-symbol inventory pages recorded in the r007 aid package. | [SGA record](https://zenodo.org/records/20614598) |
+| SGA | Repair the SGA6 nuclear-audit gaps, starting with p014, then clusters 423-454, 619-653, and 670-692. Continue SGA 7-I and SGA 7-II from the French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20614598) |
 | Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20412153) |
 | Noether | Continue source checking and multilingual translation branches from the numbered-paper corpus. | [Noether record](https://zenodo.org/records/20412587) |
 
@@ -23,7 +23,7 @@ This page turns the current archive gaps into concrete contribution targets. It 
 | Indian/Sanskrit classics | Check source fidelity for Aryabhata, Bhaskara II, and Brahmagupta materials, especially formulas and tabular content. | [Indian/Sanskrit record](https://zenodo.org/records/20415755) |
 | Islamic/Arabic texts | Check algebraic terminology, diagrams, and source alignment for al-Khwarizmi, al-Kashi, al-Tusi, and Omar Khayyam materials. | [Islamic/Arabic record](https://zenodo.org/records/20415770) |
 | Gauss | Repair the lower-quality staged Gauss OCR/TeX sections that were not promoted as clean reader material. | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
-| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. The latest routed sweep includes publishable Frobenius, Gordan, Kneser, Bianchi, Poincare, Mikami, Kronecker/Kron, and related tranches, but each still inherits its own package-level caveats. | [Additional author cluster](https://zenodo.org/records/20613262) |
+| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. The latest routed sweep includes publishable Frobenius, Gordan, Kneser, Bianchi, Poincare, Mikami, Kronecker/Kron, and related tranches, but each still inherits its own package-level caveats. | [Additional author cluster](https://zenodo.org/records/20614569) |
 
 ## Archive And Metadata Work
 

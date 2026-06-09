@@ -7,8 +7,8 @@ This is a curated index of the main public reading surfaces. It is not a replace
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://zenodo.org/records/20414353) |
-| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair006 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20612724) |
-| Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh is the compact 2026-06-09 repair/audit packet. | [Deligne](https://zenodo.org/records/20612990) |
+| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair007 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20614598) |
+| Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 bundle with D001-D017 witness/repair material and D074-D090 descending triage. | [Deligne](https://zenodo.org/records/20615161) |
 
 ## Chinese Mathematical Classics
 
@@ -77,7 +77,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20613262)
+Record: [Additional author cluster](https://zenodo.org/records/20614569)
 
 | Author | Current Public Surface |
 |---|---|
@@ -90,8 +90,11 @@ Record: [Additional author cluster](https://zenodo.org/records/20613262)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Vol. I Italian/English working edition through source pdfpage 472 of 543; use the latest ZIP for TeX/source witnesses. |
-| Poincare | Tome I French/English working tranches through source scan pages 30-45; next continuation is bibliography p46. |
+| Bianchi | Vol. I Italian/English working edition through source pdfpage 504 of 543; use the latest ZIP for TeX/source witnesses. |
+| Poincare | Tome I French/English working tranches through source scan pages 62; latest v1_04 includes the first-part bibliography and a complete 1878 note, with next continuation at thesis front matter p63. |
+| Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
+| Gordan / Clebsch-Gordan | Abelian-functions packets through Abel05 p072-p088 / §§14-18, plus earlier geodesic/form/theta packets. |
+| Steinitz | Strict/manual packages including Steinitz 41 for the 1894 dissertation, 1897 configuration paper, and 1906 Euler polyhedron-relations paper; 1908 Analysis Situs remains unresolved. |
 
 ## Reference Witnesses
 

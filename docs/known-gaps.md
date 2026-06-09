@@ -22,11 +22,11 @@ Current record: <https://zenodo.org/records/20414353>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20612724> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
+Current record: <https://zenodo.org/records/20614598> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
-- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest `sga5_repair006_20260609.zip` compiles the French cumulative, carries English only as an unsynchronized repair002 reference, and closes confirmed French defects on source pages 174, 197, 326, 428, 438, 457, and 470. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory, diagram microgeometry checking, and English synchronization to the latest French repair state. The `SGA5_next_aid_manual_source_witnesses_20260609.zip` and `SGA5_repair006_next_aid_footnotes_diagrams_20260609.zip` files are witness/anchor aids, not promoted replacement text.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest `sga5_repair007_20260609.zip` closes confirmed French gaps on source pages 177, 178, and 190; earlier repair006 closed confirmed French defects on source pages 174, 197, 326, 428, 438, 457, and 470. English remains an unsynchronized carry-forward, not a synchronized repair007 branch. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory, diagram microgeometry checking, and English synchronization to the latest French repair state. The `SGA5_next_aid_manual_source_witnesses_20260609.zip`, `SGA5_repair006_next_aid_footnotes_diagrams_20260609.zip`, and `SGA5_r007_diag_aid_20260609.zip` files are witness/anchor aids, not promoted replacement text.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
 - SGA7 material should be treated as especially provisional unless a specific packet says otherwise. The likely weak point is not just typography but source compression: sections can look readable while silently omitting local mathematical detail.
 - SGA 4 Expose VI should continue from section 1.22.
@@ -48,7 +48,7 @@ Noether: <https://zenodo.org/records/20412587>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §165. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. The next continuation point is Volume II §166, source p.607.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
-- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. Local staging has French and zh-Hans cumulative work through Paper 17 §4, but the public record still needs refresh.
+- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_P17s05_07_20260609.zip`, which carries the French and zh-Hans checkpoint stream through Paper 17 §7; Paper 17 §8 is the next continuation point. These FR/ZH files remain checkpoint streams, not complete corpora.
 - Both author records need continued translation, source comparison, and final proofing.
 
 ## Classical Algebra and Arithmetic
@@ -62,17 +62,17 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20613262>
+Current record: <https://zenodo.org/records/20614569>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Bianchi, Poincare, Gordan/Clebsch-Gordan, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted.
-- Latest Bianchi staging is through source pdfpage 472 of 543; latest Poincare tranche 03 is through source scan pages 30-45 and stops before bibliography p46. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-09 routed sweep consolidation adds Frobenius 058/057/056 and e-rara 18882 continuation/completion, Gordan `De linea geodetica` FIX02 and theta-transformation opening/continuation packets, Kneser p0096-p0111 figure-source correction, Mikami 1913 p001-p059 real-diagram repair, and Kronecker/Kron p001-p014 starts. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions.
+- Latest Bianchi staging is through source pdfpage 504 of 543; latest Poincare tranche v1_04 covers source scan pages 46-62 and stops before thesis front matter p63. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-09 routed sweep consolidation now includes Bianchi through p0504, Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41, in addition to earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Picard, and related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions.
 
 ## Deligne
 
-Current latest record: <https://zenodo.org/records/20612990> (concept DOI: <https://doi.org/10.5281/zenodo.20410853>)
+Current latest record: <https://zenodo.org/records/20615161> (concept DOI: <https://doi.org/10.5281/zenodo.20410853>)
 
 - This is kept as a separate record so it can be revised independently.
 - It is useful for access and translation work, but it is not proofread or legally curated to the same comfort level as the public-domain historical corpus.
 - Diagram-heavy papers are a known weak point. Commutative diagrams and geometry displays may be flattened, omitted, or represented as inadequate OCR-derived displays until a source-crop audit rebuilds them.
-- Deligne quality is uneven by range. The 2026-06-09 public refresh publishes `95 Pierre Deligne - Update Packets 2026-06-09.zip`, which carries D002-D017 diagram repair/audit material and D074-D090 descending witness/audit material. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. The D002-D017 repair package has specific promoted repairs and retentions, while many witness rows remain queued for visual check. The D074-D090 witness pass carries D076/D075 repairs but still treats many D077-D090 geometry candidates as triage. Some material remains rough-draft or OCR/source-witness level rather than finished translation.
+- Deligne quality is uneven by range. The 2026-06-09 public refresh publishes `95 Pierre Deligne - Update Packets 2026-06-09.zip`, now carrying `D001_D017_witness_pass_complete_seqcum.zip` and `D074_090dn_actualtriage4.zip`. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. The D001-D017 witness pass includes a promoted D017 source-page-16 level-congruence square repair; many other diagram/witness rows still require source-crop comparison before promotion. The D074-D090 triage pass carries D075/D076 repairs/checks but still treats many D077-D090 geometry candidates as triage or false-positive filtering. Some material remains rough-draft or OCR/source-witness level rather than finished translation.
