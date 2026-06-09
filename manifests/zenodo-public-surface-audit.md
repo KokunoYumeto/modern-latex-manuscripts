@@ -1,19 +1,13 @@
 # Zenodo Public Surface Audit
 
-Generated from the public Zenodo records API on 2026-06-09. For local staging caveats and promotion decisions, use [current-status.md](current-status.md).
+Generated from the public Zenodo records API and `manifests/public-file-catalog.csv`.
 
-Tracked records: 21
-Public files indexed: 861
-Top-level PDFs: 575
-Artifact/source ZIPs: 252
-Total public file surface: 25.15 GB
-
-| Record | Files | Size (MB) | URL |
+| Record | Files | MB | URL |
 |---|---:|---:|---|
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | <https://zenodo.org/records/20415117> |
 | AI-Run Modern LaTeX Manuscript Workflow and Replication Packet | 3 | 0.16 | <https://zenodo.org/records/20461174> |
 | Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 748.13 | <https://zenodo.org/records/20587623> |
-| Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 12 | 92.54 | <https://zenodo.org/records/20586885> |
+| Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 16 | 114.75 | <https://zenodo.org/records/20611440> |
 | Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 79 | 972.58 | <https://zenodo.org/records/20588791> |
 | Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 84 | 1745.22 | <https://zenodo.org/records/20611144> |
 | Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 100 | 1067.29 | <https://zenodo.org/records/20586140> |
@@ -31,3 +25,6 @@ Total public file surface: 25.15 GB
 | Richard Dedekind: Source-Checked Editions and English Translations | 18 | 25.11 | <https://zenodo.org/records/20586067> |
 | P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
 | Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 73 | 3269.23 | <https://zenodo.org/records/20610982> |
+
+Total files indexed: 865
+Total public surface: 25.17 GB

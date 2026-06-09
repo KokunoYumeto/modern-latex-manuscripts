@@ -46,7 +46,7 @@ Weber: <https://zenodo.org/records/20412153>
 
 Noether: <https://zenodo.org/records/20412587>
 
-- Weber currently has Volume I front-facing and later-volume German/English continuation work. Local staging has source-checked Volume II canonical packets through §162, but the public record still needs refresh.
+- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §165. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. The next continuation point is Volume II §166, source p.607.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
 - Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. Local staging has French and zh-Hans cumulative work through Paper 17 §4, but the public record still needs refresh.
 - Both author records need continued translation, source comparison, and final proofing.

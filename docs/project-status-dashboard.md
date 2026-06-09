@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 21 |
-| Public files indexed | 861 |
-| Top-level PDFs | 575 |
-| Artifact/source ZIPs | 252 |
-| Manifest/status files | 34 |
-| Total public file surface | 25.15 GB |
+| Public files indexed | 865 |
+| Top-level PDFs | 577 |
+| Artifact/source ZIPs | 253 |
+| Manifest/status files | 35 |
+| Total public file surface | 25.17 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -27,7 +27,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Indian and Sanskrit classics](https://zenodo.org/records/20415755) | 13 | 11 | 1 | 549 MB | Current Indian/Sanskrit mathematical classics shelf. |
 | [Islamic and Arabic texts](https://zenodo.org/records/20415770) | 19 | 17 | 1 | 46 MB | Current Islamic/Arabic mathematical texts shelf. |
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
-| [Weber](https://zenodo.org/records/20412153) | 5 | 3 | 1 | 16 MB | Author page with `Lehrbuch der Algebra` reader/translation material. |
+| [Weber](https://zenodo.org/records/20611440) | 16 | 8 | 6 | 115 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §165; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts. |
 | [Noether](https://zenodo.org/records/20412587) | 4 | 2 | 1 | 17 MB | Author page with numbered-paper corpus and multilingual branches. |
 | [Deligne](https://zenodo.org/records/20410853) | 93 | 91 | 1 | 207 MB | Separate working access record for Deligne papers and drafts. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | 23 | 21 | 1 | 194 MB | Organized shelf for selected classical algebra/arithmetic drafts. |
