@@ -11,7 +11,7 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Top-level PDFs | 578 |
 | Artifact/source ZIPs | 270 |
 | Manifest/status files | 35 |
-| Total public file surface | 25.75 GB |
+| Total public file surface | 25.79 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -21,7 +21,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://zenodo.org/records/20611670) | 5 | 2 | 3 | 0.3 MB | Latest workflow refresh documents OCR/math extraction as witness layers, diagram/formula witness-aid packaging, quality labels, and release hygiene. |
-| [Noether](https://zenodo.org/records/20587623) | 100 | 90 | 9 | 748 MB | German/English numbered-paper corpus and multilingual branches; newer FR/ZH local staging awaits a file-count-aware refresh. |
+| [Noether](https://zenodo.org/records/20612539) | 100 | 90 | 9 | 795 MB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; FR/ZH checkpoint stream now public through Paper 17 §4 via `N_FRZH_P17a_20260609.zip`. |
 | [Weber](https://zenodo.org/records/20611440) | 16 | 8 | 6 | 115 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §165; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts. |
 | [Cayley](https://zenodo.org/records/20588791) | 79 | 13 | 65 | 973 MB | Provenance/repair material only for now; current Cayley drafts are not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://zenodo.org/records/20611779) | 86 | 74 | 11 | 1.90 GB | SGA working translation/source snapshots; latest SGA5 repair006 package plus next-aid source-witness ZIP; SGA5/SGA6/SGA7 caveats explicit. |

@@ -4,7 +4,7 @@
 |---|---:|---:|---|
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | <https://zenodo.org/records/20415117> |
 | AI-Run Modern LaTeX Manuscript Workflow and Replication Packet | 5 | 0.27 | <https://zenodo.org/records/20611670> |
-| Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 748.13 | <https://zenodo.org/records/20587623> |
+| Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 795.41 | <https://zenodo.org/records/20612539> |
 | Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 16 | 114.75 | <https://zenodo.org/records/20611440> |
 | Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 79 | 972.58 | <https://zenodo.org/records/20588791> |
 | Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 86 | 1947.43 | <https://zenodo.org/records/20611779> |
@@ -25,4 +25,4 @@
 | Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 87 | 3660.45 | <https://zenodo.org/records/20612367> |
 
 Total public files indexed: 883.
-Total indexed size: 26364.65 MB.
+Total indexed size: 26411.93 MB.
