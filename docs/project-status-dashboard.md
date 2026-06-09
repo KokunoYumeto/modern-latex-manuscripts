@@ -6,12 +6,12 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 
 | Metric | Current Count |
 |---|---:|
-| Public records tracked here | 23 |
-| Public files indexed | 922 |
+| Public records tracked here | 24 |
+| Public files indexed | 927 |
 | Top-level PDFs | 581 |
-| Artifact/source ZIPs | 302 |
-| Manifest/status files | 39 |
-| Total public file surface | 27.26 GB |
+| Artifact/source ZIPs | 306 |
+| Manifest/status files | 40 |
+| Total public file surface | 27.64 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -41,7 +41,8 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20615949) | 5 | 3 | 1 | 64 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20616261) | 12 | 0 | 11 | 726 MB | Dedicated package set for Abelsche Functionen through source pp.001-121 / printed pp.001-099, plus latest complete De linea geodetica and staged Formensystem working packets. |
-| [Additional author cluster](https://zenodo.org/records/20616046) | 99 | 10 | 88 | 4.27 GB | Selected drafts and update packets for authors not yet split into full author records; Bianchi and Gordan now have preferred standalone records, while this mixed shelf keeps backstop/provenance copies plus Poincare, Steinitz, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related tranches with explicit caveats. |
+| [Ernst Steinitz](https://zenodo.org/records/20616989) | 5 | 0 | 4 | 385 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete; later Steinitz gaps remain explicit. |
+| [Additional author cluster](https://zenodo.org/records/20616046) | 99 | 10 | 88 | 4.27 GB | Selected drafts and update packets for authors not yet split into full author records; Bianchi, Gordan, and Steinitz now have preferred standalone records, while this mixed shelf keeps backstop/provenance copies plus Poincare, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related tranches with explicit caveats. |
 
 ## Completion Read
 

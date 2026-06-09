@@ -77,13 +77,21 @@ Current dedicated record: <https://zenodo.org/records/20616261>
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside Abel06/Abel07 carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-121 coverage statement.
 
+## Steinitz
+
+Current dedicated record: <https://zenodo.org/records/20616989>
+
+- The dedicated Steinitz record is now the preferred surface for current Steinitz work. It includes package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete.
+- These are source-witnessed working drafts, not final critical editions. Use each package's internal README, progress ledger, source scans, and render/audit files as authority for its exact promoted scope.
+- Known gaps remain explicit in the public metadata: 1908 Analysis Situs source unresolved; 1916 Bedingt III, 1916/1922 polyhedron-space-division work, and 1927/1928 isoperimetric papers not completed.
+
 ## Additional Author Cluster
 
 Current record: <https://zenodo.org/records/20616046>
 
-- This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi and Gordan now have standalone records; their files here are retained as backstop/provenance copies.
+- This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
 - Latest Poincare tranche v1_05 covers source PDF pages 63-85, beginning the thesis notice and `Premiere These`, and stops before source PDF page 86 / `PREMIERE PARTIE`. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-09 routed sweep consolidation includes Poincare v1_05, Bianchi/Gordan backstop copies, Frobenius 061, and Steinitz 41, in addition to earlier Frobenius, Gordan, Kneser, Mikami, Kronecker/Kron, Picard, and related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi and Gordan records for their current public surfaces.
+- The 2026-06-09 routed sweep consolidation includes Poincare v1_05, Bianchi/Gordan/Steinitz backstop copies, Frobenius 061, and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 

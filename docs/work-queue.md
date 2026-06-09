@@ -25,7 +25,7 @@ This page turns the current archive gaps into concrete contribution targets. It 
 | Bianchi | Verify Vol. I formulas, references, terminology, and index entries against the source witness; then decide whether to start a Vol. II continuation or further polish Vol. I. | [Bianchi record](https://zenodo.org/records/20615949) |
 | Gordan / Clebsch-Gordan | Continue Abelsche Functionen from source p.122 / printed p.100 at the section 28 table; verify the complete/latest De linea geodetica and Formensystem packets against bundled source witnesses. | [Gordan record](https://zenodo.org/records/20616261) |
 | Gauss | Repair the lower-quality staged Gauss OCR/TeX sections that were not promoted as clean reader material. | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
-| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. Bianchi and Gordan now have standalone records; the mixed shelf still needs Poincare, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, Klein-Fricke, Maxwell/old-physics, and related tranches triaged by package-level caveats. | [Additional author cluster](https://zenodo.org/records/20616046) |
+| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. Bianchi, Gordan, and Steinitz now have standalone records; the mixed shelf still needs Poincare, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, Klein-Fricke, Maxwell/old-physics, and related tranches triaged by package-level caveats. | [Additional author cluster](https://zenodo.org/records/20616046) |
 
 ## Archive And Metadata Work
 

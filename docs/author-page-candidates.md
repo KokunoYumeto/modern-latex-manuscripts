@@ -15,13 +15,13 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | al-Battani | Work-level `Opus Astronomicum` output is distinct from the broader non-European shelf. |
 | Luigi Bianchi | Vol. I Italian/English working edition now has a dedicated record with reader PDFs, source scan witness, and TeX/auditfix ZIP. |
 | Paul Gordan and Clebsch-Gordan | Abelsche Functionen, De linea geodetica, Formensystem, and theta packets now have a dedicated working-edition record. |
+| Ernst Steinitz | Package-audited German/English working packets now have a dedicated record, covering 1910 fields, 1913/1914 Bedingt material, and strict early works, with later gaps explicitly labelled. |
 
 ## Strong Split Candidates
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
 | Maxwell / old physics | Compact source-checked working deltas now run continuously through a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, with explicit source witnesses and page-boundary caveats. | Old physics / Maxwell source-checked working drafts. |
-| Steinitz | A stricter canonical redo now carries the 1894 dissertation and 1897 configuration traversal paper complete under manual page-by-page standard; later works are held for chronological re-audit. | Ernst Steinitz source-checked German/English corpus. |
 
 ## Hold Until Cleaner Rollup
 

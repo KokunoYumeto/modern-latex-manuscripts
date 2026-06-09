@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 922
+Total files indexed: 927
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -984,6 +984,18 @@ Record: <https://zenodo.org/records/20616261>
 | artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_Form_complete_DE_EN_20260608.zip) |
 | artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
 | artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+
+## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
+
+Record: <https://zenodo.org/records/20616989>
+
+| Role | Size MB | File |
+|---|---:|---|
+| manifest/status | 0.0017 | [99 Ernst Steinitz - Public Summary.json](https://zenodo.org/records/20616989/files/99%20Ernst%20Steinitz%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 60.5861 | [Steinitz_34_core_shortpaths.zip](https://zenodo.org/records/20616989/files/Steinitz_34_core_shortpaths.zip) |
+| artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20616989/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
+| artifact/source ZIP | 206.6402 | [Steinitz_43_bedingtII_complete_shortpaths.zip](https://zenodo.org/records/20616989/files/Steinitz_43_bedingtII_complete_shortpaths.zip) |
+| artifact/source ZIP | 89.2705 | [Steinitz_8_1910_fields_1-24_complete_shortpaths.zip](https://zenodo.org/records/20616989/files/Steinitz_8_1910_fields_1-24_complete_shortpaths.zip) |
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 

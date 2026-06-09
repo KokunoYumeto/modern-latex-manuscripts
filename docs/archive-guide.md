@@ -27,7 +27,8 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
 | Luigi Bianchi | <https://zenodo.org/records/20615949> |
 | Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20616261> |
-| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20616046> |
+| Ernst Steinitz current working packets | <https://zenodo.org/records/20616989> |
+| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20616046> |
 
 ## File Types
 

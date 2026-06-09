@@ -42,6 +42,7 @@ RECORD_ORDER = [
     "dirichlet",
     "bianchi",
     "gordan_clebsch_gordan",
+    "steinitz",
     "additional_author_cluster",
 ]
 
@@ -69,6 +70,7 @@ DISPLAY_NAMES = {
     "dirichlet": "P. G. Lejeune Dirichlet",
     "bianchi": "Luigi Bianchi",
     "gordan_clebsch_gordan": "Paul Gordan and Clebsch-Gordan",
+    "steinitz": "Ernst Steinitz",
     "additional_author_cluster": "Additional Author Cluster",
 }
 
@@ -82,6 +84,9 @@ RECORD_NOTES = {
     ],
     "gordan_clebsch_gordan": [
         "Dedicated Gordan / Clebsch-Gordan working-edition split from the mixed additional-author shelf. The Abelsche Functionen branch runs through source PDF pp.001-121 / printed pp.001-099; De linea geodetica and the staged Formensystem package are included as latest complete working packets. These are package-audited, source-witnessed working drafts, not final critical editions.",
+    ],
+    "steinitz": [
+        "Dedicated Steinitz working-edition split from the mixed additional-author shelf. This record includes current package-audited German/English packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict early works from 1894/1897/1906, and 1914 Bedingt II complete. These are source-witnessed working drafts, not final critical editions; OCR layers are locator/check aids only.",
     ],
     "classical_algebra_arithmetic": [
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material, so Cayley filenames containing `Source-Checked` should be read as obsolete package names rather than a current quality claim. Use the dedicated Cayley record for the latest warning/status.",

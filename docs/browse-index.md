@@ -19,6 +19,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
 | Work on Bianchi only | [Luigi Bianchi record](https://zenodo.org/records/20615949) |
 | Work on Gordan/Clebsch-Gordan only | [Paul Gordan and Clebsch-Gordan record](https://zenodo.org/records/20616261) |
+| Work on Steinitz only | [Ernst Steinitz record](https://zenodo.org/records/20616989) |
 | Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20616046) |
 | See which mixed-shelf authors may deserve dedicated pages | [Author page candidates](author-page-candidates.md) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
@@ -58,7 +59,8 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Luigi Bianchi](https://zenodo.org/records/20615949) | `Lezioni di geometria differenziale` Vol. I Italian/English working edition through source pdfpages 001-543, with reader PDFs, source witness, TeX, ledgers, and auditfix package. | Open the English or Italian reader PDF first; use the ZIP for source witnesses, TeX, auditfix details, and ledgers. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20616261) | Dedicated package set for Abelsche Functionen through source pp.001-121 / printed pp.001-099, plus latest complete De linea geodetica and staged Formensystem working packets. | Open the relevant ZIP; reader PDFs, TeX, source witnesses, and audits are inside the packages. |
-| [Additional author cluster](https://zenodo.org/records/20616046) | Selected drafts and update packets for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, plus routed Poincare/Frobenius/Kneser/Mikami/Kronecker/etc. work. Bianchi and Gordan remain there as backstop/provenance copies but now have preferred standalone records. | Open the named reader PDFs first; use the routed ZIPs for current working editions, source checks, and package-level audit details. |
+| [Ernst Steinitz](https://zenodo.org/records/20616989) | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete. | Open the summary JSON first, then the work ZIPs for TeX, PDFs, source witnesses, and package audits. |
+| [Additional author cluster](https://zenodo.org/records/20616046) | Selected drafts and update packets for Minkowski, Hecke, Landau, Hensel, Oka, Hausdorff, Grassmann, Killing, plus routed Poincare/Frobenius/Kneser/Mikami/Kronecker/etc. work. Bianchi, Gordan, and Steinitz remain there as backstop/provenance copies but now have preferred standalone records. | Open the named reader PDFs first; use the routed ZIPs for current working editions, source checks, and package-level audit details. |
 
 ## How To Use A Record
 
