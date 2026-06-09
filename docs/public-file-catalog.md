@@ -247,7 +247,7 @@ Record: <https://zenodo.org/records/20586885>
 | artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20586885/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
 | artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20586885/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
 
-## Arthur Cayley: Collected Mathematical Papers, Source-Checked Modern LaTeX Slice Readers
+## Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
 Record: <https://zenodo.org/records/20588791>
 
