@@ -2,16 +2,16 @@
 
 Generated from `manifests/public-file-catalog.csv`.
 
-Total tracked records: 22
-Total indexed files: 905
-Total indexed size: 26836.86 MB
+Total tracked records: 23
+Total indexed files: 919
+Total indexed size: 27621.1 MB
 
 | Record | Files | PDFs | ZIPs | Size MB | Link |
 |---|---:|---:|---:|---:|---|
 | additional_author_cluster | 99 | 10 | 88 | 4370.70 | [record](https://zenodo.org/records/20616046) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.73 | [record](https://zenodo.org/records/20584850) |
 | bianchi | 5 | 3 | 1 | 63.99 | [record](https://zenodo.org/records/20615949) |
-| cayley | 80 | 13 | 66 | 1016.39 | [record](https://zenodo.org/records/20614749) |
+| cayley | 82 | 13 | 67 | 1074.33 | [record](https://zenodo.org/records/20616177) |
 | chinese | 30 | 28 | 1 | 98.73 | [record](https://zenodo.org/records/20415752) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.62 | [record](https://zenodo.org/records/20583048) |
 | dedekind | 18 | 14 | 3 | 25.11 | [record](https://zenodo.org/records/20586067) |
@@ -19,6 +19,7 @@ Total indexed size: 26836.86 MB
 | dirichlet | 7 | 2 | 4 | 168.39 | [record](https://zenodo.org/records/20586064) |
 | ega | 16 | 10 | 4 | 471.67 | [record](https://zenodo.org/records/20414353) |
 | gauss | 24 | 14 | 9 | 1267.55 | [record](https://zenodo.org/records/20586894) |
+| gordan_clebsch_gordan | 12 | 0 | 11 | 726.29 | [record](https://zenodo.org/records/20616261) |
 | historical_references | 15 | 13 | 1 | 58.59 | [record](https://zenodo.org/records/20415777) |
 | indian_sanskrit | 13 | 11 | 1 | 548.61 | [record](https://zenodo.org/records/20415755) |
 | islamic_arabic | 19 | 17 | 1 | 45.89 | [record](https://zenodo.org/records/20415770) |

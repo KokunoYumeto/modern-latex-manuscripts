@@ -8,7 +8,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20461174> | Compact workflow / replication packet for the AI-run scan to TeX to translation to audit to publication process. |
 | <https://zenodo.org/records/20412587> | Emmy Noether author record: numbered-paper German/English corpus plus Spanish/Japanese/French and other multilingual working branches. |
 | <https://zenodo.org/records/20412153> | Heinrich Weber author record: Lehrbuch der Algebra Volume I complete/front-facing, with Volumes II and III in progress. |
-| <https://zenodo.org/records/20614749> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified and need page-by-page source audit before scholarly use. |
+| <https://zenodo.org/records/20616177> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified. The narrow promoted restart packet currently covers Volume I printed pp.1-24 / complete Papers 1-4. |
 | <https://zenodo.org/records/20614598> | SGA source/translation snapshots and working English/French translation material, with repair007 and witness-aid packets. |
 | <https://zenodo.org/records/20615537> | Pierre Deligne paper PDFs, letters, translation drafts, source packets, and the latest D001-D017 witness/equation-dense audit plus D074-D090 repair-audit bundle. |
 | <https://zenodo.org/records/20414353> | EGA originals and working English translation material. |
@@ -22,6 +22,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20415777> | Historical reference witnesses corpus page. |
 | <https://zenodo.org/records/20418609> | Classical algebra and arithmetic shelf: Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby works; current Noether reader uses the wrapper-removed selected mathematical-papers build. |
 | <https://zenodo.org/records/20615949> | Luigi Bianchi author record: `Lezioni di geometria differenziale` Vol. I Italian source transcription and corrected English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix package. |
-| <https://zenodo.org/records/20616046> | Additional author cluster: Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed Bianchi/Poincare/Frobenius/Gordan/Kneser/Mikami/Kronecker/etc. material; latest routed sweep adds Poincare v1_05 through source pp.63-85, Steinitz Bedingt II through p024, a Bianchi backstop copy through p0543, and Gordan Abel06 through p106 as package-audited tranches with explicit package-level caveats. |
+| <https://zenodo.org/records/20616261> | Paul Gordan and Clebsch-Gordan author/work record: Abelsche Functionen through source pp.001-121 / printed pp.001-099, plus complete/latest De linea geodetica and staged Formensystem working packets. |
+| <https://zenodo.org/records/20616046> | Additional author cluster: Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed Poincare/Frobenius/Kneser/Mikami/Kronecker/etc. material; Bianchi and Gordan files remain as backstop/provenance copies, but their preferred public records are now the dedicated standalone records. |
 
 Large artifact ZIPs are part of the public records for provenance. The file list should keep reader PDFs first, then artifact/source ZIPs, then manifests and summaries.

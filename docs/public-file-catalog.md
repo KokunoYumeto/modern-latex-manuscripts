@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 905
+Total files indexed: 919
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -256,92 +256,94 @@ Record: <https://zenodo.org/records/20615446>
 
 ## Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
-Record: <https://zenodo.org/records/20614749>
+Record: <https://zenodo.org/records/20616177>
 
-Accuracy warning 2026-06-09: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges.
+Accuracy warning 2026-06-09: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_024_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-24 / Papers 1-4.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20614749/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
-| manifest/status | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20614749/files/_cayley_patch_upload_inventory_20260603.json) |
-| reader/reference PDF | 7.4050 | [Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf](https://zenodo.org/records/20614749/files/Arthur%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Complete%20Source-Checked%20Modern%20LaTeX%20Reader.pdf) |
-| reader/reference PDF | 3.7934 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.5994 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.9993 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.9704 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.8999 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 3.9668 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.6281 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.7372 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 6.5174 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 4.5580 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.7231 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| reader/reference PDF | 5.8465 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20614749/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
-| artifact/source ZIP | 374.0894 | [Cayley_PRO_salvage_value_extract_cores_parts08_11_aggregate_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_PRO_salvage_value_extract_cores_parts08_11_aggregate_20260608.zip) |
-| artifact/source ZIP | 5.3880 | [Cayley_source_and_manifest_20260603.zip](https://zenodo.org/records/20614749/files/Cayley_source_and_manifest_20260603.zip) |
-| artifact/source ZIP | 0.2992 | [Cayley_unitized_index_v01_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v01_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.3028 | [Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.3041 | [Cayley_unitized_index_v07_through_p420_paper070_complete_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v07_through_p420_paper070_complete_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.3054 | [Cayley_unitized_index_v09_through_p422_paper071_complete_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v09_through_p422_paper071_complete_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.3067 | [Cayley_unitized_index_v11_through_p424_paper072_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v11_through_p424_paper072_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3083 | [Cayley_unitized_index_v14_through_p427_paper073_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v14_through_p427_paper073_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3111 | [Cayley_unitized_index_v15_through_p431_paper074_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v15_through_p431_paper074_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3164 | [Cayley_unitized_index_v16_through_p436_paper075_open_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v16_through_p436_paper075_open_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3199 | [Cayley_unitized_index_v17_through_p440_paper075_open_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v17_through_p440_paper075_open_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3214 | [Cayley_unitized_index_v18_through_p444_paper075_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v18_through_p444_paper075_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3302 | [Cayley_unitized_index_v19_through_p456_paper076_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v19_through_p456_paper076_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3339 | [Cayley_unitized_index_v20_through_p461_paper077_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v20_through_p461_paper077_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3383 | [Cayley_unitized_index_v21_through_p464_paper078_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v21_through_p464_paper078_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3439 | [Cayley_unitized_index_v22_through_p470_paper079_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v22_through_p470_paper079_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3493 | [Cayley_unitized_index_v23_through_p480_paper081_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v23_through_p480_paper081_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.3509 | [Cayley_unitized_index_v24_through_p484_paper082_complete_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_unitized_index_v24_through_p484_paper082_complete_CODEX_20260608.zip) |
-| artifact/source ZIP | 43.8084 | [Cayley_V1_critical_p001_004_20260609.zip](https://zenodo.org/records/20614749/files/Cayley_V1_critical_p001_004_20260609.zip) |
-| artifact/source ZIP | 2.7569 | [Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 4.9233 | [Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 3.8710 | [Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.3656 | [Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5607 | [Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5616 | [Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5058 | [Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.1019 | [Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.6069 | [Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.2871 | [Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.9664 | [Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.2247 | [Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5399 | [Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.6579 | [Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 2.5879 | [Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.8139 | [Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.8536 | [Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5024 | [Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.0759 | [Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.5072 | [Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.9101 | [Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.5172 | [Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.8585 | [Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.7703 | [Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.3835 | [Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.3055 | [Cayley_Vol01_Paper070_printed_p419_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p419_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.8611 | [Cayley_Vol01_Paper070_printed_p420_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper070_printed_p420_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.9648 | [Cayley_Vol01_Paper071_printed_p421_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper071_printed_p421_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 0.7885 | [Cayley_Vol01_Paper071_printed_p422_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper071_printed_p422_source_checked_CODEX_20260607.zip) |
-| artifact/source ZIP | 1.4177 | [Cayley_Vol01_Paper072_printed_p423_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper072_printed_p423_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 1.6385 | [Cayley_Vol01_Paper072_printed_p424_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper072_printed_p424_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 1.2493 | [Cayley_Vol01_Paper073_printed_p425_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper073_printed_p425_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 1.8366 | [Cayley_Vol01_Paper073_printed_p426_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper073_printed_p426_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 0.7565 | [Cayley_Vol01_Paper073_printed_p427_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper073_printed_p427_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 3.9703 | [Cayley_Vol01_Paper074_printed_p428_p431_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper074_printed_p428_p431_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 8.9710 | [Cayley_Vol01_Paper075_printed_p432_p436_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper075_printed_p432_p436_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 4.7138 | [Cayley_Vol01_Paper075_printed_p437_p440_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper075_printed_p437_p440_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 9.9316 | [Cayley_Vol01_Paper075_printed_p441_p444_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper075_printed_p441_p444_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 66.1059 | [Cayley_Vol01_Paper076_printed_p445_p456_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper076_printed_p445_p456_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 18.4052 | [Cayley_Vol01_Paper077_printed_p457_p461_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper077_printed_p457_p461_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 7.9027 | [Cayley_Vol01_Paper078_printed_p462_p464_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper078_printed_p462_p464_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 19.9833 | [Cayley_Vol01_Paper079_printed_p465_p470_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper079_printed_p465_p470_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 17.7677 | [Cayley_Vol01_Paper080_printed_p471_p475_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper080_printed_p471_p475_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 17.0726 | [Cayley_Vol01_Paper081_printed_p476_p480_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper081_printed_p476_p480_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 14.0192 | [Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip) |
-| artifact/source ZIP | 227.8307 | [Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip](https://zenodo.org/records/20614749/files/Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip) |
+| manifest/status | 0.0010 | [90 Arthur Cayley - Public Summary.json](https://zenodo.org/records/20616177/files/90%20Arthur%20Cayley%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20616177/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
+| manifest/status | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20616177/files/_cayley_patch_upload_inventory_20260603.json) |
+| reader/reference PDF | 7.4050 | [Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf](https://zenodo.org/records/20616177/files/Arthur%20Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Complete%20Source-Checked%20Modern%20LaTeX%20Reader.pdf) |
+| reader/reference PDF | 3.7934 | [Cayley - Collected Mathematical Papers, Volume II - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20II%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.5994 | [Cayley - Collected Mathematical Papers, Volume III - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20III%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.9993 | [Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IV%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.9704 | [Cayley - Collected Mathematical Papers, Volume IX - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20IX%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.8999 | [Cayley - Collected Mathematical Papers, Volume V - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20V%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 3.9668 | [Cayley - Collected Mathematical Papers, Volume VI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.6281 | [Cayley - Collected Mathematical Papers, Volume VII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.7372 | [Cayley - Collected Mathematical Papers, Volume VIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20VIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 6.5174 | [Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20X%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 4.5580 | [Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XI%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.7231 | [Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| reader/reference PDF | 5.8465 | [Cayley - Collected Mathematical Papers, Volume XIII - Source-Checked Modern LaTeX Slice Reader.pdf](https://zenodo.org/records/20616177/files/Cayley%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20XIII%20-%20Source-Checked%20Modern%20LaTeX%20Slice%20Reader.pdf) |
+| artifact/source ZIP | 374.0894 | [Cayley_PRO_salvage_value_extract_cores_parts08_11_aggregate_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_PRO_salvage_value_extract_cores_parts08_11_aggregate_20260608.zip) |
+| artifact/source ZIP | 5.3880 | [Cayley_source_and_manifest_20260603.zip](https://zenodo.org/records/20616177/files/Cayley_source_and_manifest_20260603.zip) |
+| artifact/source ZIP | 0.2992 | [Cayley_unitized_index_v01_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v01_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.3028 | [Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v05_through_p418_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.3041 | [Cayley_unitized_index_v07_through_p420_paper070_complete_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v07_through_p420_paper070_complete_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.3054 | [Cayley_unitized_index_v09_through_p422_paper071_complete_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v09_through_p422_paper071_complete_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.3067 | [Cayley_unitized_index_v11_through_p424_paper072_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v11_through_p424_paper072_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3083 | [Cayley_unitized_index_v14_through_p427_paper073_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v14_through_p427_paper073_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3111 | [Cayley_unitized_index_v15_through_p431_paper074_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v15_through_p431_paper074_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3164 | [Cayley_unitized_index_v16_through_p436_paper075_open_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v16_through_p436_paper075_open_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3199 | [Cayley_unitized_index_v17_through_p440_paper075_open_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v17_through_p440_paper075_open_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3214 | [Cayley_unitized_index_v18_through_p444_paper075_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v18_through_p444_paper075_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3302 | [Cayley_unitized_index_v19_through_p456_paper076_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v19_through_p456_paper076_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3339 | [Cayley_unitized_index_v20_through_p461_paper077_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v20_through_p461_paper077_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3383 | [Cayley_unitized_index_v21_through_p464_paper078_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v21_through_p464_paper078_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3439 | [Cayley_unitized_index_v22_through_p470_paper079_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v22_through_p470_paper079_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3493 | [Cayley_unitized_index_v23_through_p480_paper081_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v23_through_p480_paper081_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.3509 | [Cayley_unitized_index_v24_through_p484_paper082_complete_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_unitized_index_v24_through_p484_paper082_complete_CODEX_20260608.zip) |
+| artifact/source ZIP | 43.8084 | [Cayley_V1_critical_p001_004_20260609.zip](https://zenodo.org/records/20616177/files/Cayley_V1_critical_p001_004_20260609.zip) |
+| artifact/source ZIP | 57.9390 | [Cayley_V1_critical_p001_024_20260609.zip](https://zenodo.org/records/20616177/files/Cayley_V1_critical_p001_024_20260609.zip) |
+| artifact/source ZIP | 2.7569 | [Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper065_printed_p394_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 4.9233 | [Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper065_printed_p395_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 3.8710 | [Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper065_printed_p396_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.3656 | [Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper066_printed_p397_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5607 | [Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper066_printed_p398_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5616 | [Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper066_printed_p399_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5058 | [Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper066_printed_p400_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.1019 | [Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper066_printed_p401_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.6069 | [Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper067_printed_p402_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.2871 | [Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper067_printed_p403_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.9664 | [Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper067_printed_p404_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.2247 | [Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper068_printed_p405_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5399 | [Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper068_printed_p406_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.6579 | [Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper068_printed_p407_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 2.5879 | [Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper068_printed_p408_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.8139 | [Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper068_printed_p409_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.8536 | [Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper069_printed_p410_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5024 | [Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper069_printed_p411_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.0759 | [Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper069_printed_p412_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.5072 | [Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper069_printed_p413_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.9101 | [Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p414_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.5172 | [Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p415_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.8585 | [Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p416_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.7703 | [Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p417_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.3835 | [Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p418_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.3055 | [Cayley_Vol01_Paper070_printed_p419_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p419_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.8611 | [Cayley_Vol01_Paper070_printed_p420_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper070_printed_p420_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.9648 | [Cayley_Vol01_Paper071_printed_p421_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper071_printed_p421_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 0.7885 | [Cayley_Vol01_Paper071_printed_p422_source_checked_CODEX_20260607.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper071_printed_p422_source_checked_CODEX_20260607.zip) |
+| artifact/source ZIP | 1.4177 | [Cayley_Vol01_Paper072_printed_p423_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper072_printed_p423_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 1.6385 | [Cayley_Vol01_Paper072_printed_p424_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper072_printed_p424_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 1.2493 | [Cayley_Vol01_Paper073_printed_p425_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper073_printed_p425_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 1.8366 | [Cayley_Vol01_Paper073_printed_p426_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper073_printed_p426_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 0.7565 | [Cayley_Vol01_Paper073_printed_p427_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper073_printed_p427_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 3.9703 | [Cayley_Vol01_Paper074_printed_p428_p431_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper074_printed_p428_p431_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 8.9710 | [Cayley_Vol01_Paper075_printed_p432_p436_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper075_printed_p432_p436_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 4.7138 | [Cayley_Vol01_Paper075_printed_p437_p440_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper075_printed_p437_p440_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 9.9316 | [Cayley_Vol01_Paper075_printed_p441_p444_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper075_printed_p441_p444_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 66.1059 | [Cayley_Vol01_Paper076_printed_p445_p456_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper076_printed_p445_p456_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 18.4052 | [Cayley_Vol01_Paper077_printed_p457_p461_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper077_printed_p457_p461_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 7.9027 | [Cayley_Vol01_Paper078_printed_p462_p464_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper078_printed_p462_p464_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 19.9833 | [Cayley_Vol01_Paper079_printed_p465_p470_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper079_printed_p465_p470_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 17.7677 | [Cayley_Vol01_Paper080_printed_p471_p475_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper080_printed_p471_p475_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 17.0726 | [Cayley_Vol01_Paper081_printed_p476_p480_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper081_printed_p476_p480_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 14.0192 | [Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip) |
+| artifact/source ZIP | 227.8307 | [Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip](https://zenodo.org/records/20616177/files/Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip) |
 
 ## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
@@ -960,6 +962,25 @@ Record: <https://zenodo.org/records/20615949>
 | reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20615949/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
 | artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20615949/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
 | manifest/status | 0.0020 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20615949/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
+
+## Paul Gordan and Clebsch-Gordan: Modern LaTeX Drafts and English Translation Working Packets
+
+Record: <https://zenodo.org/records/20616261>
+
+| Role | Size MB | File |
+|---|---:|---|
+| manifest/status | 0.0014 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20616261/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20616261/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20616261/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20616261/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20616261/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20616261/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20616261/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 

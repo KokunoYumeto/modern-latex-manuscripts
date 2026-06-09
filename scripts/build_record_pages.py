@@ -41,6 +41,7 @@ RECORD_ORDER = [
     "dedekind",
     "dirichlet",
     "bianchi",
+    "gordan_clebsch_gordan",
     "additional_author_cluster",
 ]
 
@@ -67,6 +68,7 @@ DISPLAY_NAMES = {
     "dedekind": "Richard Dedekind",
     "dirichlet": "P. G. Lejeune Dirichlet",
     "bianchi": "Luigi Bianchi",
+    "gordan_clebsch_gordan": "Paul Gordan and Clebsch-Gordan",
     "additional_author_cluster": "Additional Author Cluster",
 }
 
@@ -76,7 +78,10 @@ INDEX_DISPLAY_NAMES = {
 
 RECORD_NOTES = {
     "cayley": [
-        "Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range.",
+        "Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range. The narrow `Cayley_V1_critical_p001_024_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-24 / complete Papers 1-4.",
+    ],
+    "gordan_clebsch_gordan": [
+        "Dedicated Gordan / Clebsch-Gordan working-edition split from the mixed additional-author shelf. The Abelsche Functionen branch runs through source PDF pp.001-121 / printed pp.001-099; De linea geodetica and the staged Formensystem package are included as latest complete working packets. These are package-audited, source-witnessed working drafts, not final critical editions.",
     ],
     "classical_algebra_arithmetic": [
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material, so Cayley filenames containing `Source-Checked` should be read as obsolete package names rather than a current quality claim. Use the dedicated Cayley record for the latest warning/status.",
@@ -135,6 +140,11 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path) -> 
     reader_pdfs = role_rows(rows, "reader/reference PDF")
     other_pdfs = [row for row in pdfs if row not in reader_pdfs]
 
+    if reader_pdfs:
+        how_to_read = "Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material."
+    else:
+        how_to_read = "This record has no top-level reader PDFs in the current file surface. Open the artifact ZIPs for TeX, component PDFs, source witnesses, OCR, page images, render checks, and provenance material."
+
     lines = [
         f"# {display}",
         "",
@@ -148,7 +158,7 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path) -> 
         "",
         "## How To Read This Record",
         "",
-        "Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.",
+        how_to_read,
         "",
     ]
     for note in RECORD_NOTES.get(label, []):

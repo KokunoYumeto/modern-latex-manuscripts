@@ -27,7 +27,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20461174> |
 | Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations | <https://zenodo.org/records/20412587> |
 | Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
-| Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified. A small source-inspected Volume I pp.1-4 restart packet is now present, but older Cayley material remains de-promoted until page-by-page source audit. | <https://zenodo.org/records/20614749> |
+| Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified. The narrow source-inspected Volume I pp.1-24 / Papers 1-4 restart packet is now present, but older Cayley material remains de-promoted until page-by-page source audit. | <https://zenodo.org/records/20616177> |
 | SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 repair007 closes targeted French gaps on source pp.177, 178, and 190, while English remains unsynchronized and SGA6/SGA7 keep explicit compression/provisional caveats. | <https://zenodo.org/records/20614598> |
 | Pierre Deligne papers | Paper and letter translation/source drafts; latest 2026-06-09 v2 bundle refresh adds D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, and D074-D090 descending triage material. Diagram-heavy material remains working/audit level. | <https://zenodo.org/records/20615537> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |
@@ -41,7 +41,8 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, with source witness and auditfix ZIP. | <https://zenodo.org/records/20615949> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_05 through source pp.63-85, Steinitz 42 / Bedingt II through source p024, a Bianchi backstop copy through source p0543, Gordan Abel06 through p106, Frobenius 061, Gordan Abel05, and Steinitz 41 on top of earlier package-audited tranches. | <https://zenodo.org/records/20616046> |
+| Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abelsche Functionen through source pp.001-121 / printed pp.001-099, plus latest complete De linea geodetica and staged Formensystem packages. | <https://zenodo.org/records/20616261> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_05 through source pp.63-85, Steinitz 42 / Bedingt II through source p024, Bianchi/Gordan backstop copies, Frobenius 061, and Steinitz 41 on top of earlier package-audited tranches. Bianchi and Gordan now have preferred standalone records. | <https://zenodo.org/records/20616046> |
 
 ## Start Here
 

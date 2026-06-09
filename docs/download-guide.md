@@ -16,6 +16,7 @@ Good starting points:
 | Weber | [Weber record](https://zenodo.org/records/20412153), Volume I first; later volumes are in progress |
 | Noether | [Noether record](https://zenodo.org/records/20412587), cumulative German/English and multilingual reader PDFs first |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20615949), English or Italian Vol. I reader first; use the ZIP for TeX/source witnesses and audit ledgers |
+| Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20616261), open the relevant package ZIP; PDFs, TeX, source witnesses, and audit ledgers are inside |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609), numbered reader PDFs by author |
 
 If you want usable mathematical text rather than repair evidence, prefer top-level PDFs and files named `reader`, `working_draft`, `source_checked`, or `cumulative`. Treat files named `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` as checking aids.

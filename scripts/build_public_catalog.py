@@ -28,7 +28,7 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "20611670"),
     ("noether", "20615499"),
     ("weber", "20615446"),
-    ("cayley", "20614749"),
+    ("cayley", "20616177"),
     ("sga", "20614598"),
     ("deligne", "20615537"),
     ("ega", "20414353"),
@@ -45,12 +45,13 @@ RECORDS: list[tuple[str, str]] = [
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
     ("bianchi", "20615949"),
+    ("gordan_clebsch_gordan", "20616261"),
     ("additional_author_cluster", "20616046"),
 ]
 
 RECORD_NOTES = {
     "cayley": [
-        "Accuracy warning 2026-06-09: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges.",
+        "Accuracy warning 2026-06-09: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_024_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-24 / Papers 1-4.",
     ],
     "classical_algebra_arithmetic": [
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.",

@@ -75,6 +75,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volumes II and III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20412153) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20412587) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP. | [Bianchi](https://zenodo.org/records/20615949) |
+| Paul Gordan / Clebsch-Gordan | Abelsche Functionen through source pp.001-121 / printed pp.001-099, plus latest complete De linea geodetica and staged Formensystem working packets. | [Gordan](https://zenodo.org/records/20616261) |
 
 ## Additional Selected Authors
 
@@ -94,7 +95,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20616046)
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi Vol. I record; prefer the standalone [Bianchi record](https://zenodo.org/records/20615949) for current readers and auditfix ZIP. |
 | Poincare | Tome I French/English working tranches through source PDF pages 85; latest v1_05 begins the thesis notice and `Premiere These`, with next continuation at source PDF page 86 / `PREMIERE PARTIE`. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
-| Gordan / Clebsch-Gordan | Abelian-functions packets through Abel05 p072-p088 / §§14-18, plus earlier geodesic/form/theta packets. |
+| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20616261) for Abelian-functions through pp.001-121, De linea geodetica, and Formensystem packets. |
 | Steinitz | Strict/manual packages including Steinitz 41 for the 1894 dissertation, 1897 configuration paper, and 1906 Euler polyhedron-relations paper; 1908 Analysis Situs remains unresolved. |
 
 ## Reference Witnesses
