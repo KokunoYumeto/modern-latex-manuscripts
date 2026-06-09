@@ -30,7 +30,10 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Sylvester | Large useful material exists, but the current public distinction between OCR candidates, source-checked slices, and cumulative readers should be cleaned before a dedicated page. |
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
 | Kneser | Figure-source and text correction is now useful through p0111-p0122 with figures 12-14 as editable TikZ, but the text still does not continue far enough for a dedicated author page. |
-| Poincare | Current tranche is useful but too early for a separate record unless the lane accelerates. |
+| Poincare / Picard | Current tranches are useful, and Picard now has a figure-refined Tome I package through source leaf 107, but they need cleaner cumulative reader rollups before splitting. |
+| Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
+| Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
+| Klein-Fricke | Authorship/provenance cleanup exists through early Volume I pages, but the lane is still in proof-of-structure stage. |
 
 ## Split Checklist
 
