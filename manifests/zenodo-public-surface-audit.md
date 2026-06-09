@@ -4,7 +4,7 @@ Generated from public Zenodo file catalog on 2026-06-09.
 
 | Record | Files | PDFs | ZIPs | Total MB | Link |
 |---|---:|---:|---:|---:|---|
-| additional_author_cluster | 99 | 10 | 88 | 4370.6999 | [record](https://zenodo.org/records/20616046) |
+| additional_author_cluster | 100 | 10 | 89 | 4419.783 | [record](https://zenodo.org/records/20617597) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
 | bianchi | 5 | 3 | 1 | 63.9908 | [record](https://zenodo.org/records/20615949) |
 | cayley | 83 | 13 | 68 | 1153.5648 | [record](https://zenodo.org/records/20617138) |
