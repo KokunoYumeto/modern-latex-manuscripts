@@ -36,6 +36,8 @@ Artifact ZIPs are not meant to be pretty. They preserve TeX, source witnesses, O
 
 Name files by role, not optimism. Use `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` for machine-extracted or unpromoted material. Use `working_draft`, `source_checked`, `reader`, or `cumulative` only for TeX/PDF that has been compiled and checked to the declared level against source witnesses. A file named `reader` should be readable as an edition draft; a file named `OCR_candidate` should be understood as evidence for repair, not as a mathematical edition.
 
+This distinction should also be reflected in Zenodo descriptions. Do not describe an OCR-derived TeX scrape as a working edition. Conversely, when a multilingual or source-checked reader is genuinely usable as a mathematical draft, say so plainly while preserving the caveat that important equations, tables, and diagrams should still be checked against the source.
+
 Manifest/status files explain what is included, what passed technical checks, and what still needs review. They should be short enough to read and precise enough to act on.
 
 For the vocabulary used to describe draft quality, see the [quality rubric](quality-rubric.md).

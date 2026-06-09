@@ -4,6 +4,19 @@ This repository is the GitHub working front door for an open project to produce 
 
 The durable release files live on Zenodo. GitHub is for coordination: manifests, issue tracking, contribution notes, scripts, and lightweight source snapshots where practical. Large PDFs, raw scan archives, and full provenance packages should be downloaded from the linked Zenodo records.
 
+## How To Read The Status
+
+The archive is not one uniform pile of OCR. Files sit at different quality layers, and the filename or record description should make that clear.
+
+| Label | What It Means | How To Use It |
+|---|---|---|
+| `OCR_candidate`, `formula_witness`, `crop_witness`, `locator_aid` | Machine extraction, formula OCR, crops, or detector output kept as evidence. | Useful for repairing or checking; not a mathematical edition. |
+| `working_draft`, `reader`, `cumulative` | Compiled TeX/PDF that is meant to be read as a draft edition or translation. | Usable for reading and continuation, but not automatically proofread. |
+| `source_checked` | A named page/range has been compared against a source scan or reference witness. | Stronger than a generic draft; still check important equations, tables, and diagrams before relying on them. |
+| Multilingual working translation | A real translated reader draft, often with TeX structure and mathematical layout preserved. | Useful where no good translation exists, but technical claims should be checked against the source for serious use. |
+
+In short: OCR converted to TeX is a witness layer. The main scholarly value is in compiled, organized, source-aware working drafts and translations that can be read, checked, corrected, and extended.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |
