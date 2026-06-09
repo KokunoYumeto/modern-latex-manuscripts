@@ -35,7 +35,7 @@ This page is the human entry point for the archive. Use it when you want to find
 |---|---|---|
 | [EGA](https://zenodo.org/records/20414353) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
 | [SGA](https://zenodo.org/records/20617332) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair009 package is a targeted French operator-symbol repair, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
-| [Deligne](https://zenodo.org/records/20615537) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v2 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, and D074-D090 descending triage. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
+| [Deligne](https://zenodo.org/records/20617786) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v3 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
 

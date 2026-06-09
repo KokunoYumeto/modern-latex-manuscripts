@@ -11,7 +11,7 @@ Generated from public Zenodo file catalog on 2026-06-09.
 | chinese | 30 | 28 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
 | dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
-| deligne | 100 | 96 | 3 | 399.4826 | [record](https://zenodo.org/records/20615537) |
+| deligne | 100 | 96 | 3 | 448.2286 | [record](https://zenodo.org/records/20617786) |
 | dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
 | ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20414353) |
 | gauss | 24 | 14 | 9 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
