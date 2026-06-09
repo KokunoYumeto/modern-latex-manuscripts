@@ -1,5 +1,7 @@
 # Zenodo Public Surface Audit
 
+This is a historical public-surface snapshot. For current record IDs, live caveats, and local staging decisions, use [current-status.md](current-status.md).
+
 Tracked records: 13
 Public files indexed: 435
 Top-level PDFs: 356

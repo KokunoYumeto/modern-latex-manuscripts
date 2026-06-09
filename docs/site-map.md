@@ -20,6 +20,7 @@ This page lists the main coordination documents in this repository and what each
 | [Current Zenodo records](zenodo-records.md) | Compact record map. |
 | [Known gaps](known-gaps.md) | Current incompleteness and caveats by corpus. |
 | [Work queue](work-queue.md) | Concrete translation, typesetting, source-check, and metadata tasks. |
+| [Author page candidates](author-page-candidates.md) | Human-readable triage for deciding when a mixed shelf should become a dedicated Zenodo author/topic record. |
 
 ## Method And Quality
 
@@ -45,4 +46,3 @@ This page lists the main coordination documents in this repository and what each
 | [Zenodo records JSON](../manifests/zenodo-records-current.json) | Structured record map. |
 | [Current status](../manifests/current-status.md) | Compact generated current-state summary. |
 | [Public surface audit](../manifests/zenodo-public-surface-audit.md) | Latest public readability/PDF-surface audit summary. |
-

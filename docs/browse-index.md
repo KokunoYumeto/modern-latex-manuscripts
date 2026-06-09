@@ -18,6 +18,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20414353) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
 | Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20416839) |
+| See which mixed-shelf authors may deserve dedicated pages | [Author page candidates](author-page-candidates.md) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
 | Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
 | Inspect every public file by name | [Public file catalog](public-file-catalog.md) |

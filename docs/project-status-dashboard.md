@@ -1,6 +1,6 @@
 # Project Status Dashboard
 
-Generated from the current public Zenodo catalog and local mirror manifests.
+Generated from an earlier public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
 ## Archive Surface
 
@@ -20,16 +20,16 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [EGA](https://zenodo.org/records/20419105) | 14 | 9 | 3 | 460 MB | Current 578-page English working build, French NUMDAM originals, and EGA 0_IV/EGA IV TeX supplements. |
-| [SGA](https://zenodo.org/records/20418993) | 36 | 28 | 7 | 454 MB | Current SGA English/source snapshots, combined SGA 4 reader through Expose VI section 1.21, and French reference PDFs. |
-| [Non-European consolidated](https://zenodo.org/records/20418877) | 71 | 65 | 5 | 2.73 GB | Current combined multilingual release, refreshed work-level Modern Chinese and Arabic readers, and raw provenance archive. |
+| [EGA](https://zenodo.org/records/20414353) | 14 | 9 | 3 | 460 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
+| [SGA](https://zenodo.org/records/20410947) | 36 | 28 | 7 | 454 MB | SGA working translation/source snapshots and audit/source packets. |
+| [Non-European consolidated](https://zenodo.org/records/20410957) | 71 | 65 | 5 | 2.73 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
 | [Chinese classics](https://zenodo.org/records/20415752) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
 | [Indian and Sanskrit classics](https://zenodo.org/records/20415755) | 13 | 11 | 1 | 549 MB | Current Indian/Sanskrit mathematical classics shelf. |
 | [Islamic and Arabic texts](https://zenodo.org/records/20415770) | 19 | 17 | 1 | 46 MB | Current Islamic/Arabic mathematical texts shelf. |
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
-| [Weber](https://zenodo.org/records/20418861) | 5 | 3 | 1 | 16 MB | Author page with original-language drafts and current partial English translation. |
-| [Noether](https://zenodo.org/records/20418862) | 4 | 2 | 1 | 17 MB | Author page with selected-papers reader and current English translation drafts. |
-| [Deligne](https://zenodo.org/records/20414959) | 93 | 91 | 1 | 207 MB | Separate working access record for Deligne papers and drafts. |
+| [Weber](https://zenodo.org/records/20412153) | 5 | 3 | 1 | 16 MB | Author page with `Lehrbuch der Algebra` reader/translation material. |
+| [Noether](https://zenodo.org/records/20412587) | 4 | 2 | 1 | 17 MB | Author page with numbered-paper corpus and multilingual branches. |
+| [Deligne](https://zenodo.org/records/20410853) | 93 | 91 | 1 | 207 MB | Separate working access record for Deligne papers and drafts. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | 23 | 21 | 1 | 194 MB | Organized shelf for selected classical algebra/arithmetic drafts. |
 | [Additional author cluster](https://zenodo.org/records/20416839) | 12 | 10 | 1 | 138 MB | Selected drafts for authors not yet split into full author records. |
 

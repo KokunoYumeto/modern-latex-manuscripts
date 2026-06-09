@@ -10,11 +10,11 @@ Good starting points:
 
 | Interest | Start With |
 |---|---|
-| EGA | [EGA record](https://zenodo.org/records/20419105), `00 EGA - English Translation Working Draft.pdf` |
-| SGA | [SGA record](https://zenodo.org/records/20418993), the numbered English translation PDFs first |
-| Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20418877), `00 Index - Non-European Mathematics Corpus.pdf`, then the combined readers |
-| Weber | [Weber record](https://zenodo.org/records/20418861), reader PDFs `00` through `02` |
-| Noether | [Noether record](https://zenodo.org/records/20418862), reader PDFs `00` and `01` |
+| EGA | [EGA record](https://zenodo.org/records/20414353), current English working build and French/source artifacts |
+| SGA | [SGA record](https://zenodo.org/records/20410947), the current reader PDFs first, then the audit/source ZIPs |
+| Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
+| Weber | [Weber record](https://zenodo.org/records/20412153), Volume I first; later volumes are in progress |
+| Noether | [Noether record](https://zenodo.org/records/20412587), cumulative German/English and multilingual reader PDFs first |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609), numbered reader PDFs by author |
 
 ## I Want The TeX Or Build Artifacts
@@ -32,6 +32,11 @@ ZIPs usually contain some combination of:
 - provenance notes and manifests.
 
 The ZIPs are intentionally less polished than the reader PDFs. They exist so the public PDF can be checked, rebuilt, corrected, and extended.
+
+Filename language matters:
+
+- `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` means machine-extracted or checking material, not a reader edition.
+- `working_draft`, `source_checked`, `reader`, or `cumulative` means compiled TeX/PDF promoted to a declared draft layer.
 
 ## I Want To Check A Translation
 

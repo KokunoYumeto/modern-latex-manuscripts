@@ -2,6 +2,10 @@
 
 This archive is a working corpus. A public file is useful enough to inspect and improve; it is not automatically a final scholarly edition.
 
+## Naming Rule
+
+The filename should expose the quality layer. `OCR_candidate`, `formula_witness`, `crop_witness`, and `locator_aid` are checking aids, not editions. `working_draft`, `source_checked`, `reader`, and `cumulative` are reserved for compiled TeX/PDF surfaces with an explicit audit level. When in doubt, choose the lower-confidence name.
+
 ## File Status Terms
 
 | Term | Meaning |
@@ -47,4 +51,3 @@ Neither audit proves mathematical correctness. The strongest review is still sou
 3. Provenance: keep enough source material to verify and rebuild.
 4. Source fidelity: repair content against the original witness.
 5. Polish: improve typography, metadata, and repository navigation.
-

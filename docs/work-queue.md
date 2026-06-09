@@ -6,19 +6,19 @@ This page turns the current archive gaps into concrete contribution targets. It 
 
 | Area | Task | Start From |
 |---|---|---|
-| EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20419105) |
-| EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20419105) |
-| SGA | Continue SGA 4 Expose VI from section 1.22 and keep the combined SGA 4 reader synchronized. | [SGA record](https://zenodo.org/records/20418993) |
-| SGA | Audit and repair SGA5 high-risk pages after the p378-p382 repair pass; prioritize p118, p125-p127, p187, p194, p201, p326, p344, p400, p409-p410, p419, p431-p432, and p460. | [SGA record](https://zenodo.org/records/20418993) |
-| SGA | Repair the SGA6 nuclear-audit gaps, starting with p014, then clusters 423-454, 619-653, and 670-692. Continue SGA 7-I and SGA 7-II from the French reference PDFs. | [SGA record](https://zenodo.org/records/20418993) |
-| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20418861) |
-| Noether | Continue English translation and source checking for the selected mathematical papers. | [Noether record](https://zenodo.org/records/20418862) |
+| EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20414353) |
+| EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20414353) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20410947) |
+| SGA | Audit and repair SGA5 high-risk pages after the p378-p382 repair pass; prioritize p118, p125-p127, p187, p194, p201, p326, p344, p400, p409-p410, p419, p431-p432, and p460. | [SGA record](https://zenodo.org/records/20410947) |
+| SGA | Repair the SGA6 nuclear-audit gaps, starting with p014, then clusters 423-454, 619-653, and 670-692. Continue SGA 7-I and SGA 7-II from the French reference PDFs. | [SGA record](https://zenodo.org/records/20410947) |
+| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20412153) |
+| Noether | Continue source checking and multilingual translation branches from the numbered-paper corpus. | [Noether record](https://zenodo.org/records/20412587) |
 
 ## Highest-Value Typesetting And Source-Check Work
 
 | Area | Task | Start From |
 |---|---|---|
-| Non-European mathematics | Check the combined English translations against original-language drafts and source/reference material, especially diagrams, tables, terminology, and page order. | [Non-European consolidated record](https://zenodo.org/records/20418877) |
+| Non-European mathematics | Check the combined English translations against original-language drafts and source/reference material, especially diagrams, tables, terminology, and page order. | [Non-European consolidated record](https://zenodo.org/records/20410957) |
 | Chinese classics | Check work-level English, modern Chinese, and original-language PDFs against each other for omissions and alignment. | [Chinese record](https://zenodo.org/records/20415752) |
 | Indian/Sanskrit classics | Check source fidelity for Aryabhata, Bhaskara II, and Brahmagupta materials, especially formulas and tabular content. | [Indian/Sanskrit record](https://zenodo.org/records/20415755) |
 | Islamic/Arabic texts | Check algebraic terminology, diagrams, and source alignment for al-Khwarizmi, al-Kashi, al-Tusi, and Omar Khayyam materials. | [Islamic/Arabic record](https://zenodo.org/records/20415770) |
@@ -29,6 +29,7 @@ This page turns the current archive gaps into concrete contribution targets. It 
 
 | Area | Task | Start From |
 |---|---|---|
+| Naming clarity | Separate OCR/math-extraction witness packages from genuine mathematical working drafts in filenames and Zenodo descriptions. Use `OCR_candidate` or `formula_witness` for unpromoted extraction; use `working_draft`, `source_checked`, `reader`, or `cumulative` only after compilation and declared source-check level. | [Workflow notes](workflow.md) and [quality rubric](quality-rubric.md) |
 | Public catalog | Keep `manifests/public-file-catalog.csv`, `docs/public-file-catalog.md`, and `docs/records/` synchronized after each Zenodo change. | `python scripts/build_public_catalog.py`; `python scripts/build_record_pages.py` |
 | Status pages | Update the dashboard, known gaps, and work queue whenever a record is replaced or a major section is completed. | [Project status dashboard](project-status-dashboard.md) |
 | Release hygiene | Run the release checklist before publishing new versions or splitting a corpus into a new author/topic record. | [Release checklist](release-checklist.md) |

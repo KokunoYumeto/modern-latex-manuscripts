@@ -34,6 +34,8 @@ Reader PDFs are the public browsing surface. They should be named by author, wor
 
 Artifact ZIPs are not meant to be pretty. They preserve TeX, source witnesses, OCR text, render checks, source packets, and provenance so the reader-facing PDF can be checked and rebuilt.
 
+Name files by role, not optimism. Use `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` for machine-extracted or unpromoted material. Use `working_draft`, `source_checked`, `reader`, or `cumulative` only for TeX/PDF that has been compiled and checked to the declared level against source witnesses. A file named `reader` should be readable as an edition draft; a file named `OCR_candidate` should be understood as evidence for repair, not as a mathematical edition.
+
 Manifest/status files explain what is included, what passed technical checks, and what still needs review. They should be short enough to read and precise enough to act on.
 
 For the vocabulary used to describe draft quality, see the [quality rubric](quality-rubric.md).
@@ -43,6 +45,26 @@ For the vocabulary used to describe draft quality, see the [quality rubric](qual
 A technical audit means that a file opens, has plausible page counts, has no configured public naming problems, and does not trip the current surface checks. It does not mean the mathematics has been proofread.
 
 The strongest review is source comparison: open the reader PDF, open the source scan or reference PDF from the artifact ZIP or record, and check page order, theorem numbering, displayed formulas, diagrams, tables, and cross-references.
+
+## Witness-Aid Handoff Packages
+
+The most useful handoff is not a raw OCR dump or a screenshot set. It is a source-faithful witness package that lets the next worker compare current TeX against the source quickly.
+
+Minimum useful contents:
+
+- source PDF or source page images for the covered range;
+- source-PDF-page to printed-page map;
+- labelled full-page context PNGs;
+- labelled 400-600 dpi crops for diagrams, tables, dense displays, special symbols, arrows, accents, subscripts, and superscripts;
+- manifest CSV with stable witness ID, source file, source page, printed page, crop box, render DPI, object type, nearby source anchor, current TeX anchor, status, and notes;
+- OCR-generation log when OCR is used, including source PDF checksum, page range, rasterization command or settings, DPI, color mode, crop/preprocessing steps, OCR tool, model name, model version or commit when available, Python/conda environment, CPU/GPU mode, raw output path, normalized output path, and reviewer decision;
+- explicit triage status such as `must_promote`, `check_current`, `already_confirmed`, `context_only`, `candidate_unfiltered`, `false_positive`, or `equation_symbol_detail`;
+- current-render comparison where available;
+- SHA256/provenance notes and method limits.
+
+This structure emerged from SGA, Deligne, Kneser, Weber, Sylvester, Cayley, and Maxwell repair work. It is especially important for diagram-heavy or formula-heavy pages: a full-page screenshot is context, but a labelled object crop plus a ledger row is actionable.
+
+Witness packages should distinguish certified repairs from candidate evidence. Detector output and geometry candidates must be labelled as candidates until manually filtered; false positives should be recorded rather than silently removed.
 
 ## Publication Rule
 
@@ -65,6 +87,16 @@ For the full publication pass, use the [release checklist](release-checklist.md)
 
 The project workflow can use several open-source OCR/math extraction tools, but their outputs should be treated as witnesses unless a page-specific audit promotes them.
 
-As of 2026-06-07, checked OCR environments include Marker, Surya, pix2tex, Docling, RapidOCR, Transformers model code, Pillow, and OpenCV across separate Python environments. The checked environments reported CPU-only PyTorch; the consolidated OCR conda environment existed but was not yet a verified RTX/CUDA math-OCR pipeline. Candidate tools identified for future testing include MinerU, Pix2Text, GOT-OCR2, and Chandra-style vision-language models, with Nougat treated as lower priority because it is no longer the best-maintained path.
+Current tool lessons:
 
-The current best practice is conservative: use OCR/math-OCR to localize formulas, tables, and diagram regions; keep crops and candidate TeX as witnesses; promote only after visual comparison with the source scan and successful TeX compilation. For dense historical mathematics, a reliable package should include page/region IDs, witness crops, candidate TeX, accepted/rejected/uncertain status, and a short audit note. Candidate TeX should not be pasted silently into public editions.
+- OCR can be useful as a prose-block comparator. In the Gordan Formensystem audit, OCR text was trimmed to article body, normalized against cumulative TeX, and used to search for likely prose omissions. Formula-heavy low-score blocks were then manually checked. This found no prose omission, and no OCR text was accepted as authority.
+- OCR/math OCR is unreliable as insertion-grade TeX unless source checked. It may locate formulas, tables, and diagram regions, and it may provide candidate TeX, but the source scan remains authority.
+- Pix2Text has produced useful LaTeX witnesses for modern mathematical display regions in local tests. Treat its formula output as a strong witness, not a final patch. Use visual source comparison before promotion.
+- For multilingual text, route by content type. Math/formulas can go to Pix2Text/pix2tex-style tools; modern multilingual print can go to Surya/PaddleOCR-style tools; historical trainable scripts and unusual numeral systems may need Kraken/eScriptorium-style supervised data rather than generic OCR.
+- Dense numeric tables need separate validation. For al-Battani, VLMs could help with Arabic descriptions at sufficient resolution but failed on tiny abjad numerals; printed critical tables with modern numerals were more authoritative for numerical values. For numbers, coordinates, regnal years, and table columns, use range checks, monotonicity checks, known bright-star or known-value checks, and direct page spot checks.
+- High-resolution source matters. Cropped/downsampled public packages can make table reconstruction impossible even when the original scan is usable. Always trace table work back to the highest-resolution source scan or a printed critical table before declaring a table missing or unreadable.
+- Keep heavy OCR/ML tools isolated in their own environments. Several OCR stacks declare broad `torch` dependencies; installing them into a working GPU environment can silently replace CUDA builds with CPU wheels.
+
+When generating OCR, preserve the generation chain. A reproducible OCR witness should say: this source file and checksum were rasterized into these page images, at this DPI and color mode, using this command or script; these crops or preprocessing steps were applied; this OCR/model environment produced this raw output; this normalization script produced this comparison text or candidate TeX; and this human or agent audit either rejected it, kept it as a locator, or promoted a specific part after source comparison. Do not overwrite raw OCR with cleaned OCR. Keep both layers and make the promoted layer cite back to the raw witness.
+
+The current best practice is conservative: use OCR/math-OCR to localize formulas, tables, diagram regions, and possible prose omissions; keep crops and candidate TeX as witnesses; promote only after visual comparison with the source scan and successful TeX compilation. For dense historical mathematics, a reliable package should include page/region IDs, witness crops, candidate TeX, accepted/rejected/uncertain status, and a short audit note. Candidate TeX should not be pasted silently into public editions.

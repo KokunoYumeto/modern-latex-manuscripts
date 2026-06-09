@@ -10,7 +10,7 @@ This page records the main incompleteness that a reader or contributor should kn
 
 ## EGA
 
-Current record: <https://zenodo.org/records/20419105>
+Current record: <https://zenodo.org/records/20414353>
 
 - EGA I and EGA II are largely inherited from the public community translation base.
 - EGA 0_IV sections 15 through 23 are present as substantive working translations in the current 578-page build.
@@ -21,7 +21,7 @@ Current record: <https://zenodo.org/records/20419105>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20418993>
+Current record: <https://zenodo.org/records/20410947>
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
@@ -32,7 +32,7 @@ Current record: <https://zenodo.org/records/20418993>
 
 ## Non-European Mathematical Classics
 
-Current consolidated record: <https://zenodo.org/records/20418877>
+Current consolidated record: <https://zenodo.org/records/20410957>
 
 - The current release is much more readable than the early path-dump stage: it has combined readers, work-level PDFs, source bundles, OCR notes, and page-image artifacts.
 - It still needs source-faithfulness review, terminology checks, and mathematical proofreading work by work.
@@ -40,9 +40,9 @@ Current consolidated record: <https://zenodo.org/records/20418877>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20418861>
+Weber: <https://zenodo.org/records/20412153>
 
-Noether: <https://zenodo.org/records/20418862>
+Noether: <https://zenodo.org/records/20412587>
 
 - Weber currently has modern LaTeX readers for selected original-language volumes and a partial English translation of Volume II material.
 - Noether currently has a selected mathematical-papers reader and four current English translation pieces.
@@ -65,7 +65,7 @@ Current record: <https://zenodo.org/records/20416839>
 
 ## Deligne
 
-Current record: <https://zenodo.org/records/20414959>
+Current record: <https://zenodo.org/records/20410853>
 
 - This is kept as a separate record so it can be revised independently.
 - It is useful for access and translation work, but it is not proofread or legally curated to the same comfort level as the public-domain historical corpus.
