@@ -3,11 +3,11 @@
 Generated: 2026-06-09 20:52:42 local
 
 Records indexed: 23
-Files indexed: 920
+Files indexed: 922
 Reader/reference PDFs: 581
-Artifact/source ZIPs: 301
-Manifest/status files: 38
-Total indexed size: 27706.4123 MB
+Artifact/source ZIPs: 302
+Manifest/status files: 39
+Total indexed size: 27915.4556 MB
 
 | Record | Files | PDFs | ZIPs | MB | URL |
 |---|---:|---:|---:|---:|---|
@@ -32,5 +32,5 @@ Total indexed size: 27706.4123 MB
 | sga | 90 | 74 | 15 | 2262.9875 | [record](https://zenodo.org/records/20616461) |
 | sylvester | 5 | 1 | 3 | 264.5916 | [record](https://zenodo.org/records/20586907) |
 | ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20490906) |
-| weber | 17 | 8 | 7 | 141.3355 | [record](https://zenodo.org/records/20615446) |
+| weber | 19 | 8 | 8 | 313.272 | [record](https://zenodo.org/records/20616798) |
 | workflow | 5 | 2 | 3 | 0.2726 | [record](https://zenodo.org/records/20611670) |

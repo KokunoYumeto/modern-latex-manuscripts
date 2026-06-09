@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 23 |
-| Public files indexed | 920 |
+| Public files indexed | 922 |
 | Top-level PDFs | 581 |
-| Artifact/source ZIPs | 301 |
+| Artifact/source ZIPs | 302 |
 | Manifest/status files | 39 |
-| Total public file surface | 27.06 GB |
+| Total public file surface | 27.26 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -22,7 +22,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://zenodo.org/records/20611670) | 5 | 2 | 3 | 0.3 MB | Latest workflow refresh documents OCR/math extraction as witness layers, diagram/formula witness-aid packaging, quality labels, and release hygiene. |
 | [Noether](https://zenodo.org/records/20616638) | 100 | 90 | 9 | 850 MB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; FR/ZH Paper 16 plus Paper 17 through §7 are now bundled as `N_FRZH_Papers16_17_combined_20260609.zip` to stay within the Zenodo file limit. |
-| [Weber](https://zenodo.org/records/20615446) | 17 | 8 | 7 | 141 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §168; Volume III current repaired cumulative. Older §143 Volume II PDFs and the Batch102 §165 ZIP remain as historical/provenance artifacts. |
+| [Weber](https://zenodo.org/records/20616798) | 19 | 8 | 8 | 313 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §168; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts; the §144-162 bridge plus Batch102/Batch103 packets now expose supporting provenance through §168. |
 | [Cayley](https://zenodo.org/records/20616177) | 82 | 13 | 67 | 1.05 GB | Provenance/repair material with a narrow source-inspected restart packet for Vol. I pp.1-24 / Papers 1-4; older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://zenodo.org/records/20616461) | 90 | 74 | 15 | 2.21 GB | SGA working translation/source snapshots; latest SGA5 repair008 French diagram/formula package plus manual witness, footnote/diagram, and r007 diagram-aid ZIPs; SGA5/SGA6/SGA7 caveats explicit. |
 | [Deligne](https://zenodo.org/records/20615537) | 100 | 96 | 3 | 399 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v2` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, and D074-D090 descending triage; diagram-heavy material remains uneven and source-crop sensitive. |
