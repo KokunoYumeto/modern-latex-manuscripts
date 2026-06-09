@@ -33,4 +33,4 @@ Total indexed size: 27915.4556 MB
 | sylvester | 5 | 1 | 3 | 264.5916 | [record](https://zenodo.org/records/20586907) |
 | ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20490906) |
 | weber | 19 | 8 | 8 | 313.272 | [record](https://zenodo.org/records/20616798) |
-| workflow | 5 | 2 | 3 | 0.2726 | [record](https://zenodo.org/records/20611670) |
+| workflow | 6 | 2 | 4 | 0.2815 | [record](https://zenodo.org/records/20617310) |
