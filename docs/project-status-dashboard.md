@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 21 |
-| Public files indexed | 869 |
+| Public files indexed | 871 |
 | Top-level PDFs | 578 |
-| Artifact/source ZIPs | 256 |
+| Artifact/source ZIPs | 258 |
 | Manifest/status files | 35 |
-| Total public file surface | 25.36 GB |
+| Total public file surface | 25.43 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -39,7 +39,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Additional author cluster](https://zenodo.org/records/20610982) | 73 | 10 | 62 | 3.19 GB | Selected drafts and update packets for authors not yet split into full author records; latest refresh adds Gordan Abel03. |
+| [Additional author cluster](https://zenodo.org/records/20612071) | 75 | 10 | 64 | 3.26 GB | Selected drafts and update packets for authors not yet split into full author records; latest refresh adds Bianchi p0472 and Poincare v1 tranche 03. |
 
 ## Completion Read
 

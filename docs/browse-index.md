@@ -17,7 +17,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20588791) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20414353) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
-| Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20610982) |
+| Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20612071) |
 | See which mixed-shelf authors may deserve dedicated pages | [Author page candidates](author-page-candidates.md) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
 | Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
@@ -54,7 +54,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 | [Heinrich Weber](https://zenodo.org/records/20412153) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; later volumes are in progress. |
 | [Arthur Cayley](https://zenodo.org/records/20588791) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified. | Use only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
-| [Additional author cluster](https://zenodo.org/records/20610982) | Selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing. | `00 Reader PDF - Minkowski...` through `09 Reader PDF - Killing...` |
+| [Additional author cluster](https://zenodo.org/records/20612071) | Selected drafts and update packets for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, plus routed Bianchi/Poincare/Gordan/Kneser/etc. work. | Open the named reader PDFs first; use Bianchi/Poincare/Gordan ZIPs for current working editions and source checks. |
 
 ## How To Use A Record
 

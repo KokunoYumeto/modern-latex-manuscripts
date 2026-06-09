@@ -40,7 +40,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Additional author cluster | 60/100 | <https://zenodo.org/records/20610982> |
+| Additional author cluster | Mixed author shelf; latest refresh adds Bianchi p0472 and Poincare v1 tranche 03 | <https://zenodo.org/records/20612071> |
 
 ## Start Here
 

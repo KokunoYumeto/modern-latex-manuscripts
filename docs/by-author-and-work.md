@@ -77,7 +77,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20610982)
+Record: [Additional author cluster](https://zenodo.org/records/20612071)
 
 | Author | Current Public Surface |
 |---|---|
@@ -90,6 +90,8 @@ Record: [Additional author cluster](https://zenodo.org/records/20610982)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
+| Bianchi | Vol. I Italian/English working edition through source pdfpage 472 of 543; use the latest ZIP for TeX/source witnesses. |
+| Poincare | Tome I French/English working tranches through source scan pages 30-45; next continuation is bibliography p46. |
 
 ## Reference Witnesses
 

@@ -21,6 +21,6 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20415770> | Islamic and Arabic mathematical texts corpus page. |
 | <https://zenodo.org/records/20415777> | Historical reference witnesses corpus page. |
 | <https://zenodo.org/records/20418609> | Classical algebra and arithmetic shelf: Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby works; current Noether reader uses the wrapper-removed selected mathematical-papers build. |
-| <https://zenodo.org/records/20610982> | Additional author cluster: Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and nearby material; obvious modern collected-volume wrapper pages removed from the reader-facing PDFs. |
+| <https://zenodo.org/records/20612071> | Additional author cluster: Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed Bianchi/Poincare/Gordan/Kneser/etc. material; latest refresh adds Bianchi p0472 and Poincare v1 tranche 03, with package-level caveats. |
 
 Large artifact ZIPs are part of the public records for provenance. The file list should keep reader PDFs first, then artifact/source ZIPs, then manifests and summaries.

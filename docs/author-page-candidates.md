@@ -19,7 +19,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
 | Maxwell / old physics | Compact source-checked working deltas now run continuously through a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, with explicit source witnesses and page-boundary caveats. | Old physics / Maxwell source-checked working drafts. |
-| Bianchi | Vol. I Italian/English staging is already through source pages 001-440 of 543, about 81 percent of that volume, with cumulative Italian/English readers, source-scan witnesses, formula/figure ledgers, and a clean latest build report. | Luigi Bianchi, Vol. I Italian/English working edition. |
+| Bianchi | Vol. I Italian/English staging is already through source pages 001-472 of 543, 86.92 percent of that volume, with cumulative Italian/English readers, source-scan witnesses, formula/footnote ledgers, and a clean latest build report. | Luigi Bianchi, Vol. I Italian/English working edition. |
 | Gordan / Clebsch-Gordan | `Ueber das Formensystem binaerer Formen` is complete for the staged range and the Abelian-functions book now runs through source pp017-038, with source witnesses and explicit continuation point. | Paul Gordan and Clebsch-Gordan algebraic-function/form theory working drafts. |
 | Steinitz | A stricter canonical redo now carries the 1894 dissertation and 1897 configuration traversal paper complete under manual page-by-page standard; later works are held for chronological re-audit. | Ernst Steinitz source-checked German/English corpus. |
 
@@ -30,7 +30,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Sylvester | Large useful material exists, but the current public distinction between OCR candidates, source-checked slices, and cumulative readers should be cleaned before a dedicated page. |
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
 | Kneser | Figure-source and text correction is now useful through p0111-p0122 with figures 12-14 as editable TikZ, but the text still does not continue far enough for a dedicated author page. |
-| Poincare / Picard | Current tranches are useful, and Picard now has a figure-refined Tome I package through source leaf 107, but they need cleaner cumulative reader rollups before splitting. |
+| Poincare / Picard | Poincare Tome I has French/English tranche 03 through source scan pages 30-45, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
 | Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
 | Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
 | Klein-Fricke | Authorship/provenance cleanup exists through early Volume I pages, but the lane is still in proof-of-structure stage. |
