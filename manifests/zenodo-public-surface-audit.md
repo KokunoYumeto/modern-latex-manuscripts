@@ -3,12 +3,12 @@
 Generated from `manifests/public-file-catalog.csv`.
 
 Total tracked records: 21
-Total indexed files: 898
-Total indexed size: 26654.46 MB
+Total indexed files: 899
+Total indexed size: 26726.60 MB
 
 | Record | Files | PDFs | ZIPs | Size MB | Link |
 |---|---:|---:|---:|---:|---|
-| additional_author_cluster | 97 | 10 | 86 | 4252.28 | [record](https://zenodo.org/records/20615303) |
+| additional_author_cluster | 98 | 10 | 87 | 4324.43 | [record](https://zenodo.org/records/20615611) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.73 | [record](https://zenodo.org/records/20584850) |
 | cayley | 80 | 13 | 66 | 1016.39 | [record](https://zenodo.org/records/20614749) |
 | chinese | 30 | 28 | 1 | 98.73 | [record](https://zenodo.org/records/20415752) |

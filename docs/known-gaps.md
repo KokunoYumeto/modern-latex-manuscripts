@@ -62,7 +62,7 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20615303>
+Current record: <https://zenodo.org/records/20615611>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Bianchi, Poincare, Gordan/Clebsch-Gordan, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted.
 - Latest Bianchi staging claims Vol. I complete through source pdfpages 001-543, with p537-p543 treated as non-authorial provenance/back-matter; latest Poincare tranche v1_04 covers source scan pages 46-62 and stops before thesis front matter p63. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.

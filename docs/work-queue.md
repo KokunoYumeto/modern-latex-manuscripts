@@ -23,7 +23,7 @@ This page turns the current archive gaps into concrete contribution targets. It 
 | Indian/Sanskrit classics | Check source fidelity for Aryabhata, Bhaskara II, and Brahmagupta materials, especially formulas and tabular content. | [Indian/Sanskrit record](https://zenodo.org/records/20415755) |
 | Islamic/Arabic texts | Check algebraic terminology, diagrams, and source alignment for al-Khwarizmi, al-Kashi, al-Tusi, and Omar Khayyam materials. | [Islamic/Arabic record](https://zenodo.org/records/20415770) |
 | Gauss | Repair the lower-quality staged Gauss OCR/TeX sections that were not promoted as clean reader material. | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
-| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. The latest routed sweep includes Bianchi Vol. I through source pdfpage 543, Gordan Abel06 through source pdfpage 106, and publishable Frobenius, Kneser, Poincare, Mikami, Kronecker/Kron, and related tranches, but each still inherits its own package-level caveats. | [Additional author cluster](https://zenodo.org/records/20615303) |
+| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. The latest routed sweep includes Steinitz Bedingt II through source page 24, Bianchi Vol. I through source pdfpage 543, Gordan Abel06 through source pdfpage 106, and publishable Frobenius, Kneser, Poincare, Mikami, Kronecker/Kron, and related tranches, but each still inherits its own package-level caveats. | [Additional author cluster](https://zenodo.org/records/20615611) |
 
 ## Archive And Metadata Work
 
