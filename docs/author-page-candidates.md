@@ -19,7 +19,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
 | Maxwell / old physics | Compact source-checked working deltas now run continuously through a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, with explicit source witnesses and page-boundary caveats. | Old physics / Maxwell source-checked working drafts. |
-| Bianchi | Vol. I Italian/English staging is already through source pages 001-408 of 543, about 75 percent of that volume, with cumulative Italian/English readers and source-scan witnesses. | Luigi Bianchi, Vol. I Italian/English working edition. |
+| Bianchi | Vol. I Italian/English staging is already through source pages 001-440 of 543, about 81 percent of that volume, with cumulative Italian/English readers, source-scan witnesses, formula/figure ledgers, and a clean latest build report. | Luigi Bianchi, Vol. I Italian/English working edition. |
 | Gordan / Clebsch-Gordan | `Ueber das Formensystem binaerer Formen` is complete for the staged range and the Abelian-functions book now runs through source pp017-038, with source witnesses and explicit continuation point. | Paul Gordan and Clebsch-Gordan algebraic-function/form theory working drafts. |
 | Steinitz | A stricter canonical redo now carries the 1894 dissertation and 1897 configuration traversal paper complete under manual page-by-page standard; later works are held for chronological re-audit. | Ernst Steinitz source-checked German/English corpus. |
 
