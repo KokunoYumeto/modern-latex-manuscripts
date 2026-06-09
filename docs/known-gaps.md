@@ -7,6 +7,7 @@ This page records the main incompleteness that a reader or contributor should kn
 - The archive is a proof-of-concept working corpus, not a final critical edition.
 - Most PDFs have passed technical opening/text-surface checks, but mathematical correctness, theorem numbering, cross-references, diagrams, and table fidelity still need human or model-assisted source comparison.
 - Top-level PDFs are the public reading surface. Artifact ZIPs hold TeX, source witnesses, OCR, provenance, and repair material.
+- Known recurring failure modes include source compression or omission in generated drafts, flattened or missing commutative diagrams, OCR-derived formula witnesses being mistaken for accepted TeX, and uneven language layers. These are repairable problems, but they should be visible to readers.
 
 ## EGA
 
@@ -25,8 +26,9 @@ Current record: <https://zenodo.org/records/20410947>
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
-- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The 2026-06-08 nuclear audit found the first confirmed localized failure at source p378 and repaired p378-p382 against the scan. Remaining high-risk pages include p083, p086, p094-p095, p100, p102, p116, p118, p125-p127, p155, p184, p187, p194, p201, p326, p344, p400, p409-p410, p419, p431-p432, and p460.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The accepted local repair lane repaired p378-p382 and then repair003 closed the still-hot French pages p194, p400, p419, p431, p432, p433, and p460 with source witnesses and rendered QA. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory and English synchronization to the latest French repair state.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
+- SGA7 material should be treated as especially provisional unless a specific packet says otherwise. The likely weak point is not just typography but source compression: sections can look readable while silently omitting local mathematical detail.
 - SGA 4 Expose VI should continue from section 1.22.
 - SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentional image-based scans; they open and page-count correctly, but embedded text extraction is not expected to be reliable.
 
@@ -44,8 +46,9 @@ Weber: <https://zenodo.org/records/20412153>
 
 Noether: <https://zenodo.org/records/20412587>
 
-- Weber currently has modern LaTeX readers for selected original-language volumes and a partial English translation of Volume II material.
-- Noether currently has a selected mathematical-papers reader and four current English translation pieces.
+- Weber currently has Volume I front-facing and later-volume German/English continuation work. Local staging has source-checked Volume II canonical packets through §162, but the public record still needs refresh.
+- Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
+- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. Local staging has French and zh-Hans cumulative work through Paper 16, but the public record still needs refresh.
 - Both author records need continued translation, source comparison, and final proofing.
 
 ## Classical Algebra and Arithmetic
@@ -69,3 +72,5 @@ Current record: <https://zenodo.org/records/20410853>
 
 - This is kept as a separate record so it can be revised independently.
 - It is useful for access and translation work, but it is not proofread or legally curated to the same comfort level as the public-domain historical corpus.
+- Diagram-heavy papers are a known weak point. Commutative diagrams and geometry displays may be flattened, omitted, or represented as inadequate OCR-derived displays until a source-crop audit rebuilds them.
+- Deligne quality is uneven by range. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. Some are genuine rough drafts or OCR/source-witness packages rather than finished translations.
