@@ -1,11 +1,9 @@
 # Zenodo Public Surface Audit
 
-Generated from the public Zenodo records API and `manifests/public-file-catalog.csv`.
-
-| Record | Files | MB | URL |
+| Record | Files | Size MB | URL |
 |---|---:|---:|---|
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | <https://zenodo.org/records/20415117> |
-| AI-Run Modern LaTeX Manuscript Workflow and Replication Packet | 3 | 0.16 | <https://zenodo.org/records/20461174> |
+| AI-Run Modern LaTeX Manuscript Workflow and Replication Packet | 5 | 0.27 | <https://zenodo.org/records/20611670> |
 | Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 100 | 748.13 | <https://zenodo.org/records/20587623> |
 | Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 16 | 114.75 | <https://zenodo.org/records/20611440> |
 | Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets | 79 | 972.58 | <https://zenodo.org/records/20588791> |
@@ -26,5 +24,5 @@ Generated from the public Zenodo records API and `manifests/public-file-catalog.
 | P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations | 7 | 168.39 | <https://zenodo.org/records/20586064> |
 | Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts | 73 | 3269.23 | <https://zenodo.org/records/20610982> |
 
-Total files indexed: 865
-Total public surface: 25.17 GB
+Total public files indexed: 867.
+Total indexed size: 25771.21 MB.

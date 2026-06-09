@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 865
+Total files indexed: 867
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -113,13 +113,15 @@ Record: <https://zenodo.org/records/20415117>
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://zenodo.org/records/20461174>
+Record: <https://zenodo.org/records/20611670>
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20461174/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
-| reader/reference PDF | 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20461174/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
-| artifact/source ZIP | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20461174/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
+| artifact/source ZIP | 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20611670/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
+| artifact/source ZIP | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20611670/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
+| reader/reference PDF | 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20611670/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
+| reader/reference PDF | 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20611670/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
+| artifact/source ZIP | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20611670/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 

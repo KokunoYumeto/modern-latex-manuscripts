@@ -7,9 +7,9 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 21 |
-| Public files indexed | 865 |
-| Top-level PDFs | 577 |
-| Artifact/source ZIPs | 253 |
+| Public files indexed | 867 |
+| Top-level PDFs | 578 |
+| Artifact/source ZIPs | 254 |
 | Manifest/status files | 35 |
 | Total public file surface | 25.17 GB |
 
@@ -20,17 +20,25 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [EGA](https://zenodo.org/records/20414353) | 14 | 9 | 3 | 460 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
+| [Workflow / replication packet](https://zenodo.org/records/20611670) | 5 | 2 | 3 | 0.3 MB | Latest workflow refresh documents OCR/math extraction as witness layers, diagram/formula witness-aid packaging, quality labels, and release hygiene. |
+| [Noether](https://zenodo.org/records/20587623) | 100 | 90 | 9 | 748 MB | German/English numbered-paper corpus and multilingual branches; newer FR/ZH local staging awaits a file-count-aware refresh. |
+| [Weber](https://zenodo.org/records/20611440) | 16 | 8 | 6 | 115 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §165; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts. |
+| [Cayley](https://zenodo.org/records/20588791) | 79 | 13 | 65 | 973 MB | Provenance/repair material only for now; current Cayley drafts are not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://zenodo.org/records/20611144) | 84 | 74 | 9 | 1.70 GB | SGA working translation/source snapshots, current SGA5 repair004 package, and explicit SGA5/SGA6/SGA7 caveats. |
-| [Non-European consolidated](https://zenodo.org/records/20410957) | 71 | 65 | 5 | 2.73 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
+| [Deligne](https://zenodo.org/records/20586140) | 100 | 96 | 3 | 1.04 GB | Mixed Deligne papers/letters drafts and repair packets; diagram-heavy material remains uneven and source-crop sensitive. |
+| [EGA](https://zenodo.org/records/20414353) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
+| [Ukrainian applied mathematics](https://zenodo.org/records/20490906) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
+| [Gauss](https://zenodo.org/records/20586894) | 24 | 14 | 9 | 1.24 GB | Gauss Werke modern-LaTeX working drafts, source packets, and repair/transcription starts. |
+| [al-Battani](https://zenodo.org/records/20584850) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition, trilingual/catalogue data, geography, chronology, manifests, and workflow material. |
+| [Non-European consolidated](https://zenodo.org/records/20586401) | 100 | 71 | 24 | 3.10 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
 | [Chinese classics](https://zenodo.org/records/20415752) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
 | [Indian and Sanskrit classics](https://zenodo.org/records/20415755) | 13 | 11 | 1 | 549 MB | Current Indian/Sanskrit mathematical classics shelf. |
 | [Islamic and Arabic texts](https://zenodo.org/records/20415770) | 19 | 17 | 1 | 46 MB | Current Islamic/Arabic mathematical texts shelf. |
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
-| [Weber](https://zenodo.org/records/20611440) | 16 | 8 | 6 | 115 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §165; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts. |
-| [Noether](https://zenodo.org/records/20412587) | 4 | 2 | 1 | 17 MB | Author page with numbered-paper corpus and multilingual branches. |
-| [Deligne](https://zenodo.org/records/20410853) | 93 | 91 | 1 | 207 MB | Separate working access record for Deligne papers and drafts. |
-| [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | 23 | 21 | 1 | 194 MB | Organized shelf for selected classical algebra/arithmetic drafts. |
+| [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
+| [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
+| [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
+| [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
 | [Additional author cluster](https://zenodo.org/records/20610982) | 73 | 10 | 62 | 3269 MB | Selected drafts and update packets for authors not yet split into full author records; latest refresh adds Gordan Abel03. |
 
 ## Completion Read

@@ -14,6 +14,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20414353> | EGA originals and working English translation material. |
 | <https://zenodo.org/records/20490906> | Ukrainian applied mathematics and engineering translation working drafts. |
 | <https://zenodo.org/records/20410934> | Gauss Werke modern LaTeX drafts, repair/source packages, and partial translation/transcription starts. |
+| <https://zenodo.org/records/20584850> | al-Battani Opus Astronomicum / Kitab al-Zij working edition, trilingual reader, catalogue/table data, and provenance material. |
 | <https://zenodo.org/records/20410957> | Consolidated non-European mathematics corpus: Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent works and translation/source packages. |
 | <https://zenodo.org/records/20415752> | Chinese mathematical classics corpus page. |
 | <https://zenodo.org/records/20415755> | Indian and Sanskrit mathematical classics corpus page. |
