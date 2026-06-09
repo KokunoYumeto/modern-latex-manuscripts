@@ -15,7 +15,7 @@ Good starting points:
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20412153), Volume I first; later volumes are in progress |
 | Noether | [Noether record](https://zenodo.org/records/20412587), cumulative German/English and multilingual reader PDFs first |
-| Bianchi | [Bianchi record](https://zenodo.org/records/20617674), English or Italian Vol. I reader first; use the ZIP for TeX/source witnesses and audit ledgers. A2 is source-intake/witness only and documents missing source pages. |
+| Bianchi | [Bianchi record](https://zenodo.org/records/20618045), English or Italian Vol. I reader first; A2 now has high-quality English/Italian reader PDFs through p0001-p0028, with the ZIP for TeX/source witnesses and audit ledgers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20617906), open the relevant package ZIP; PDFs, TeX, source witnesses, and audit ledgers are inside |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609), numbered reader PDFs by author |
 

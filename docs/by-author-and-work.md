@@ -74,7 +74,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volumes II and III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20412153) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20412587) |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 p0001-p0060 is included as source-intake/witness only, not as a completed transcription. | [Bianchi](https://zenodo.org/records/20617674) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a high-quality Italian/English working start through source p0001-p0028 / autograph pp.1-9, but is not complete. | [Bianchi](https://zenodo.org/records/20618045) |
 | Paul Gordan / Clebsch-Gordan | Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta auditfix04 and latest complete De linea geodetica working packet. | [Gordan](https://zenodo.org/records/20617906) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
 
@@ -93,7 +93,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20617597)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20617674) for current readers, auditfix ZIP, and A2 source-intake witness caveats. |
+| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20618045) for current readers, auditfix ZIP, and A2 HQ start/provenance caveats. |
 | Poincare | Tome I French/English working tranches through source PDF pages 85; latest v1_05 begins the thesis notice and `Premiere These`, with next continuation at source PDF page 86 / `PREMIERE PARTIE`. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
 | Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20617906) for Abelian-functions through pp.001-121, the p089-121 auditfix, theta auditfix04, and De linea geodetica packets. |

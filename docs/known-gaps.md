@@ -62,12 +62,13 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20617674>
+Current dedicated record: <https://zenodo.org/records/20618045>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
 - The 2026-06-09 auditfix repairs a small set of English cumulative defects: one control-character formula issue, nine source-notation `\sen` repairs, the section 186 displayed formula, and a section 189 anti-compression repair.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
+- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality Italian/English working start through source p0001-p0028 / autograph manuscript pp.1-9. It corrects the earlier low-detail witness lacuna for manuscript pp.2-3 and the r/s parameter notation, but A2 is not complete; next continuation is source p0029 / autograph p.10 / section 3.
 
 ## Gordan / Clebsch-Gordan
 

@@ -79,6 +79,9 @@ INDEX_DISPLAY_NAMES = {
 }
 
 RECORD_NOTES = {
+    "bianchi": [
+        "Dedicated Bianchi working-edition record. Volume I of `Lezioni di geometria differenziale` remains complete as a package-audited Italian/English working edition through source pdfpages 001-543. The A2 branch, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality narrow start through source p0001-p0028 / autograph manuscript pp.1-9, with English and Italian reader PDFs and a full TeX/source/witness ZIP. A2 is not complete: the next continuation point is source p0029 / autograph manuscript p.10 / section 3, and OCR/image-analysis material remains witness/locator evidence only.",
+    ],
     "cayley": [
         "Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / complete Papers 1-9; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace.",
     ],

@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 24 |
-| Public files indexed | 939 |
-| Top-level PDFs | 582 |
-| Artifact/source ZIPs | 317 |
+| Public files indexed | 942 |
+| Top-level PDFs | 584 |
+| Artifact/source ZIPs | 318 |
 | Manifest/status files | 40 |
-| Total public file surface | 28.22 GB |
+| Total public file surface | 28.32 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -39,7 +39,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Luigi Bianchi](https://zenodo.org/records/20617674) | 6 | 3 | 2 | 135.4 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 p0001-p0060 is source-intake/witness only because the inspected manuscript witness has missing/duplicate pages. |
+| [Luigi Bianchi](https://zenodo.org/records/20618045) | 9 | 5 | 3 | 237 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 now has a high-quality Italian/English working start through source p0001-p0028 / autograph pp.1-9, while the older p0001-p0060 witness remains intake/provenance and the full A2 work is still incomplete. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20617906) | 15 | 0 | 14 | 883 MB | Dedicated package set for Abelsche Functionen through source pp.001-121 / printed pp.001-099, including the p089-121 auditfix for branch-symbol/path-order corrections, plus theta auditfix04 and latest complete De linea geodetica working packet. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
 | [Additional author cluster](https://zenodo.org/records/20617597) | 100 | 10 | 89 | 4.32 GB | Selected drafts and update packets for authors not yet split into full author records; Bianchi, Gordan, and Steinitz now have preferred standalone records, while this mixed shelf keeps backstop/provenance copies plus Poincare v1_07, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related tranches with explicit caveats. |

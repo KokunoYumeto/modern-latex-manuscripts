@@ -24,7 +24,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20586907) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 6 | 3 | 2 | 135.4 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20617674) |
+| Luigi Bianchi | 9 | 5 | 3 | 236.7 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20618045) |
 | Paul Gordan and Clebsch-Gordan | 15 | 0 | 14 | 882.6 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20617906) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
 | Additional Author Cluster | 100 | 10 | 89 | 4419.8 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20617597) |
