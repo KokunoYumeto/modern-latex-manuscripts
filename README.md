@@ -41,7 +41,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, with source witness and auditfix ZIP. | <https://zenodo.org/records/20615949> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Steinitz 42 / Bedingt II through source p024, a Bianchi backstop copy through source p0543, Gordan Abel06 through p106, plus Poincare v1_04, Frobenius 061, Gordan Abel05, and Steinitz 41 on top of earlier package-audited tranches. | <https://zenodo.org/records/20615611> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_05 through source pp.63-85, Steinitz 42 / Bedingt II through source p024, a Bianchi backstop copy through source p0543, Gordan Abel06 through p106, Frobenius 061, Gordan Abel05, and Steinitz 41 on top of earlier package-audited tranches. | <https://zenodo.org/records/20616046> |
 
 ## Start Here
 

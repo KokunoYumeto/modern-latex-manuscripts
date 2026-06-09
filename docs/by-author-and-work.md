@@ -78,7 +78,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20615611)
+Record: [Additional author cluster](https://zenodo.org/records/20616046)
 
 | Author | Current Public Surface |
 |---|---|
@@ -92,7 +92,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20615611)
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi Vol. I record; prefer the standalone [Bianchi record](https://zenodo.org/records/20615949) for current readers and auditfix ZIP. |
-| Poincare | Tome I French/English working tranches through source scan pages 62; latest v1_04 includes the first-part bibliography and a complete 1878 note, with next continuation at thesis front matter p63. |
+| Poincare | Tome I French/English working tranches through source PDF pages 85; latest v1_05 begins the thesis notice and `Premiere These`, with next continuation at source PDF page 86 / `PREMIERE PARTIE`. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
 | Gordan / Clebsch-Gordan | Abelian-functions packets through Abel05 p072-p088 / §§14-18, plus earlier geodesic/form/theta packets. |
 | Steinitz | Strict/manual packages including Steinitz 41 for the 1894 dissertation, 1897 configuration paper, and 1906 Euler polyhedron-relations paper; 1908 Analysis Situs remains unresolved. |

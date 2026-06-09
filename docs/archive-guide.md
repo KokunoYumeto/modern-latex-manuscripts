@@ -25,7 +25,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
-| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20615611> |
+| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20616046> |
 
 ## File Types
 
