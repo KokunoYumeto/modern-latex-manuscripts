@@ -40,7 +40,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, with source witness and auditfix ZIP. | <https://zenodo.org/records/20615949> |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, plus A2 source-intake witness p0001-p0060. A2 is not promoted as a completed transcription because the witness has missing/duplicate manuscript pages. | <https://zenodo.org/records/20617674> |
 | Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta/Formensystem auditfix and latest De linea geodetica package. | <https://zenodo.org/records/20617548> |
 | Ernst Steinitz | Dedicated package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, and 1914 Bedingt II complete. | <https://zenodo.org/records/20616989> |
 | Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_07 through the first thesis first part, Bianchi/Gordan/Steinitz backstop copies, Frobenius 061, and earlier package-audited tranches. Bianchi, Gordan, and Steinitz now have preferred standalone records. | <https://zenodo.org/records/20617597> |

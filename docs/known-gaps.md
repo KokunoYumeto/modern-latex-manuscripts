@@ -62,7 +62,7 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20615949>
+Current dedicated record: <https://zenodo.org/records/20617674>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
 - The 2026-06-09 auditfix repairs a small set of English cumulative defects: one control-character formula issue, nine source-notation `\sen` repairs, the section 186 displayed formula, and a section 189 anti-compression repair.

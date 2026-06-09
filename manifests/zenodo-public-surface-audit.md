@@ -6,7 +6,7 @@ Generated from public Zenodo file catalog on 2026-06-09.
 |---|---:|---:|---:|---:|---|
 | additional_author_cluster | 100 | 10 | 89 | 4419.783 | [record](https://zenodo.org/records/20617597) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
-| bianchi | 5 | 3 | 1 | 63.9908 | [record](https://zenodo.org/records/20615949) |
+| bianchi | 6 | 3 | 2 | 135.3784 | [record](https://zenodo.org/records/20617674) |
 | cayley | 83 | 13 | 68 | 1153.5648 | [record](https://zenodo.org/records/20617138) |
 | chinese | 30 | 28 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |

@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 935
+Total files indexed: 936
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -959,17 +959,18 @@ Record: <https://zenodo.org/records/20586064>
 | artifact/source ZIP | 26.7974 | [Dirichlet_R27_V1_IVa_div4_20260606.zip](https://zenodo.org/records/20586064/files/Dirichlet_R27_V1_IVa_div4_20260606.zip) |
 | artifact/source ZIP | 26.5376 | [Dirichlet_R28_V1_IVb75_80_20260607.zip](https://zenodo.org/records/20586064/files/Dirichlet_R28_V1_IVb75_80_20260607.zip) |
 
-## Luigi Bianchi: Lezioni di geometria differenziale, Volume I, Italian Source and English Translation Working Edition
+## Luigi Bianchi: Modern LaTeX Working Editions and Source-Intake Witnesses
 
-Record: <https://zenodo.org/records/20615949>
+Record: <https://zenodo.org/records/20617674>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20615949/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
-| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20615949/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
-| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20615949/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
-| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20615949/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
-| manifest/status | 0.0020 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20615949/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
+| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20617674/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
+| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20617674/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
+| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20617674/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
+| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20617674/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
+| manifest/status | 0.0009 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20617674/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20617674/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
 
 ## Paul Gordan and Clebsch-Gordan: Modern LaTeX Drafts and English Translation Working Packets
 
