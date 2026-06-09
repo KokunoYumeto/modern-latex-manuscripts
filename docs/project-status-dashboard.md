@@ -7,9 +7,9 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 24 |
-| Public files indexed | 942 |
+| Public files indexed | 943 |
 | Top-level PDFs | 584 |
-| Artifact/source ZIPs | 318 |
+| Artifact/source ZIPs | 319 |
 | Manifest/status files | 40 |
 | Total public file surface | 28.32 GB |
 
@@ -20,7 +20,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [Workflow / replication packet](https://zenodo.org/records/20617469) | 8 | 3 | 5 | 0.3 MB | Latest workflow refresh documents local-to-web aid packets, OCR prose witnesses, high-DPI diagram/formula/table crops, scan-quality caveats, quality labels, release hygiene, and Lean/Lake as a selective formal-checking companion rather than a bulk scan-transcription verifier. |
+| [Workflow / replication packet](https://zenodo.org/records/20618069) | 9 | 3 | 6 | 0.3 MB | Latest workflow refresh documents the SGA/Deligne/Gordan witness-packet addendum: local-to-web aid packets, OCR prose witnesses, high-DPI diagram/formula/table crops, source-compression failure modes, scan-quality caveats, quality labels, release hygiene, and Lean/Lake as a selective formal-checking companion rather than a bulk scan-transcription verifier. |
 | [Noether](https://zenodo.org/records/20617934) | 100 | 90 | 9 | 882 MB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; FR/ZH Paper 16 plus Paper 17 through §9 are now bundled as `N_FRZH_Papers16_17_through_s09_combined_20260609.zip` to stay within the Zenodo file limit. |
 | [Weber](https://zenodo.org/records/20616798) | 19 | 8 | 8 | 313 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §168; Volume III current repaired cumulative. Older §143 Volume II PDFs remain as historical artifacts; the §144-162 bridge plus Batch102/Batch103 packets now expose supporting provenance through §168. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |

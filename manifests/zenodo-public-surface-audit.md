@@ -27,4 +27,4 @@ Generated from public Zenodo file catalog on 2026-06-09.
 | bianchi | 9 | 5 | 3 | 236.6937 | [record](https://zenodo.org/records/20618045) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
 | weber | 19 | 8 | 8 | 313.2725 | [record](https://zenodo.org/records/20616798) |
-| workflow | 8 | 3 | 5 | 0.311 | [record](https://zenodo.org/records/20617469) |
+| workflow | 9 | 3 | 6 | 0.3205 | [record](https://zenodo.org/records/20618069) |
