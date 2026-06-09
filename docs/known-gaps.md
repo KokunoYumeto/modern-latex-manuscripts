@@ -62,10 +62,11 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20612071>
+Current record: <https://zenodo.org/records/20612367>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Bianchi, Poincare, Gordan/Clebsch-Gordan, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted.
 - Latest Bianchi staging is through source pdfpage 472 of 543; latest Poincare tranche 03 is through source scan pages 30-45 and stops before bibliography p46. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-09 routed sweep consolidation adds Frobenius 058/057/056 and e-rara 18882 continuation/completion, Gordan `De linea geodetica` FIX02 and theta-transformation opening/continuation packets, Kneser p0096-p0111 figure-source correction, Mikami 1913 p001-p059 real-diagram repair, and Kronecker/Kron p001-p014 starts. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions.
 
 ## Deligne
 

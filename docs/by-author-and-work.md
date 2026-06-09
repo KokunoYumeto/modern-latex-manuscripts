@@ -77,7 +77,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20612071)
+Record: [Additional author cluster](https://zenodo.org/records/20612367)
 
 | Author | Current Public Surface |
 |---|---|
