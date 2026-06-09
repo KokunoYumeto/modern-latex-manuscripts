@@ -251,6 +251,8 @@ Record: <https://zenodo.org/records/20586885>
 
 Record: <https://zenodo.org/records/20588791>
 
+Accuracy warning 2026-06-09: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges.
+
 | Role | Size MB | File |
 |---|---:|---|
 | artifact/source ZIP | 52.1127 | [95 Arthur Cayley - Update Packets 2026-06-07.zip](https://zenodo.org/records/20588791/files/95%20Arthur%20Cayley%20-%20Update%20Packets%202026-06-07.zip) |
@@ -851,6 +853,8 @@ Record: <https://zenodo.org/records/20415777>
 ## Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts
 
 Record: <https://zenodo.org/records/20583048>
+
+Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.
 
 | Role | Size MB | File |
 |---|---:|---|

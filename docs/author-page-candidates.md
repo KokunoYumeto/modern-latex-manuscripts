@@ -10,7 +10,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 |---|---|
 | Emmy Noether | Numbered-paper corpus plus multilingual branches. |
 | Heinrich Weber | `Lehrbuch der Algebra` has its own continuing translation lane. |
-| Arthur Cayley | Source-checked collected-papers slices have their own record. |
+| Arthur Cayley | Dedicated record exists, but the current public material is now marked suspect draft/provenance pending page-by-page source audit. |
 | SGA / EGA / Deligne | Large algebraic-geometry corpora with independent caveats and continuation tracks. |
 | al-Battani | Work-level `Opus Astronomicum` output is distinct from the broader non-European shelf. |
 

@@ -26,7 +26,7 @@ Current record: <https://zenodo.org/records/20410947>
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
-- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The accepted local repair lane repaired p378-p382 and then repair003 closed the still-hot French pages p194, p400, p419, p431, p432, p433, and p460 with source witnesses and rendered QA. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory and English synchronization to the latest French repair state.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The accepted local repair lane repaired p378-p382; repair003 closed the still-hot French pages p194, p400, p419, p431, p432, p433, and p460; and repair004 closes p165, p188, and p459 while marking English as unsynchronized carry-forward. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory and English synchronization to the latest French repair state.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
 - SGA7 material should be treated as especially provisional unless a specific packet says otherwise. The likely weak point is not just typography but source compression: sections can look readable while silently omitting local mathematical detail.
 - SGA 4 Expose VI should continue from section 1.22.
@@ -48,7 +48,7 @@ Noether: <https://zenodo.org/records/20412587>
 
 - Weber currently has Volume I front-facing and later-volume German/English continuation work. Local staging has source-checked Volume II canonical packets through §162, but the public record still needs refresh.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
-- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. Local staging has French and zh-Hans cumulative work through Paper 16, but the public record still needs refresh.
+- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. Local staging has French and zh-Hans cumulative work through Paper 17 §4, but the public record still needs refresh.
 - Both author records need continued translation, source comparison, and final proofing.
 
 ## Classical Algebra and Arithmetic
@@ -57,6 +57,7 @@ Current record: <https://zenodo.org/records/20418609>
 
 - This is an organized shelf of selected working drafts, not a complete author-by-author collected corpus.
 - Gauss, Cayley, Dedekind, Dirichlet, Weber, and Noether material should be treated as staged working drafts unless a later author record marks a work as fully proofed.
+- Cayley is specifically de-promoted as of 2026-06-09: current Cayley PDFs/TeX are retained as provenance and repair material, but a source comparison found substantial symbol/text mismatches in Volume I material. Do not treat Cayley filenames containing `Source-Checked` as current quality claims until a new per-page source audit re-promotes specific ranges.
 - Gauss in particular still needs deeper repair and verification.
 
 ## Additional Author Cluster
@@ -73,4 +74,4 @@ Current record: <https://zenodo.org/records/20410853>
 - This is kept as a separate record so it can be revised independently.
 - It is useful for access and translation work, but it is not proofread or legally curated to the same comfort level as the public-domain historical corpus.
 - Diagram-heavy papers are a known weak point. Commutative diagrams and geometry displays may be flattened, omitted, or represented as inadequate OCR-derived displays until a source-crop audit rebuilds them.
-- Deligne quality is uneven by range. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. Some are genuine rough drafts or OCR/source-witness packages rather than finished translations.
+- Deligne quality is uneven by range. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. The D002-D017 repair package has specific promoted repairs and retentions, while many witness rows remain queued for visual check. The D074-D090 audit pass carries D076/D075 repairs but still treats many D077-D090 geometry candidates as triage. Some material remains rough-draft or OCR/source-witness level rather than finished translation.

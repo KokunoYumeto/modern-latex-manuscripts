@@ -27,7 +27,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20461174> |
 | Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations | <https://zenodo.org/records/20412587> |
 | Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
-| Arthur Cayley | Source-checked modern LaTeX slice readers, in progress | <https://zenodo.org/records/20588791> |
+| Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified and need page-by-page source audit | <https://zenodo.org/records/20588791> |
 | SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 and SGA6 are structurally covered in current drafts but have audit-confirmed localized compression/omission gaps queued for repair | <https://zenodo.org/records/20410947> |
 | Pierre Deligne papers | Paper and letter translation/source drafts | <https://zenodo.org/records/20410853> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |

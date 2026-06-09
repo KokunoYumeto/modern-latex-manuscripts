@@ -52,7 +52,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 |---|---|---|
 | [Emmy Noether](https://zenodo.org/records/20412587) | Numbered-paper German/English corpus and multilingual translation branches. | Open the cumulative reader PDFs first; use ZIPs for TeX/source checking. |
 | [Heinrich Weber](https://zenodo.org/records/20412153) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; later volumes are in progress. |
-| [Arthur Cayley](https://zenodo.org/records/20588791) | Source-checked modern LaTeX slice readers for `Collected Mathematical Papers`, in progress. | Prefer these slices over older broad draft PDFs. |
+| [Arthur Cayley](https://zenodo.org/records/20588791) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified. | Use only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Additional author cluster](https://zenodo.org/records/20416839) | Selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing. | `00 Reader PDF - Minkowski...` through `09 Reader PDF - Killing...` |
 

@@ -2,7 +2,7 @@
 
 Zenodo record: [20588791](https://zenodo.org/records/20588791)
 
-Public title: Arthur Cayley: Collected Mathematical Papers, Source-Checked Modern LaTeX Slice Readers
+Public title: Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
@@ -11,6 +11,8 @@ Public title: Arthur Cayley: Collected Mathematical Papers, Source-Checked Moder
 ## How To Read This Record
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+
+Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
