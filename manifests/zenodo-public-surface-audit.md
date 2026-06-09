@@ -3,7 +3,7 @@
 This is a historical public-surface snapshot. For current record IDs, live caveats, and local staging decisions, use [current-status.md](current-status.md).
 
 Tracked records: 13
-Public files indexed: 435
+Public files indexed: 859
 Top-level PDFs: 356
 Artifact/source ZIPs: 62
 Total public file surface: 9.33 GB
@@ -22,4 +22,4 @@ Total public file surface: 9.33 GB
 | Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 4 | 16.96 | <https://zenodo.org/records/20418862> |
 | Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 93 | 207.28 | <https://zenodo.org/records/20414959> |
 | Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus | 23 | 193.5 | <https://zenodo.org/records/20418609> |
-| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 12 | 137.78 | <https://zenodo.org/records/20416839> |
+| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 12 | 137.78 | <https://zenodo.org/records/20610850> |

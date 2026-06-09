@@ -25,7 +25,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
-| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing | <https://zenodo.org/records/20416839> |
+| Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing | <https://zenodo.org/records/20610850> |
 
 ## File Types
 
@@ -56,4 +56,3 @@ The most useful corrections are:
 The archive is intentionally split into a main landing record plus topic/author records. The main record keeps broad preservation and a complete bulk ZIP; the topic and author records are the preferred public browsing surface.
 
 The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-07 and indexes 17 records.
-
