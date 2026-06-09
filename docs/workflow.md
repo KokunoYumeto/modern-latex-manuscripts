@@ -68,6 +68,18 @@ This structure emerged from SGA, Deligne, Kneser, Weber, Sylvester, Cayley, and 
 
 Witness packages should distinguish certified repairs from candidate evidence. Detector output and geometry candidates must be labelled as candidates until manually filtered; false positives should be recorded rather than silently removed.
 
+## Local-To-Web Audit Workflow
+
+The current scalable pattern is a two-lane workflow: local machines prepare source-faithful aid packets, while web-based Pro review threads use those packets to translate, repair, and audit against the source. The two lanes are different on purpose. The local lane is good at downloading, slicing, rasterizing, cropping, OCR, math-OCR witnesses, compilation, checksum manifests, and publication. The web review lane is good at high-context mathematical translation, prose completion, and self-audit when the evidence is packaged clearly.
+
+The local lane should therefore send compact, labelled evidence rather than indiscriminate image bricks. A good packet contains source PDF slices, full-page context images where needed, high-DPI crops for diagrams/formula regions, OCR prose witnesses, current TeX anchors, and a manifest that says exactly what each object is for. The receiving review thread should use OCR as a gap detector and source-level prose witness, not as authority. A prose OCR block can show that a draft has skipped a paragraph; the repair still has to be checked against the source image or scan before promotion.
+
+High-DPI witness images are expensive in model context but often necessary. Commutative diagrams, long arrows, small subscripts, accents, table rules, and dense symbolic displays can be misread at ordinary preview resolution. For these pages, a 150-200 dpi full-page image supplies orientation, while 400-600 dpi object crops supply the actual evidence. The packet should make clear which crops are mandatory repair targets, which are context only, and which are candidate detections.
+
+Scan quality is a first-order method variable. Bad scans or overcompressed page images can create false confidence: a draft may look plausible while silently compressing text, flattening diagrams, or normalizing symbols that differ in the source. When a repair lane stalls or produces inconsistent output, first check whether the source image is good enough. If not, obtain a better scan or use a higher-resolution source crop before asking for another translation pass.
+
+This aid-packet method is not free, but it is cheaper and more reproducible than blind rereading. Local rendering, cropping, OCR, and TeX compilation cost CPU/GPU time rather than model tokens. The expensive part is making a model inspect many images. Use OCR/prose witnesses and object ledgers to reduce that cost: identify likely gaps locally, send only the relevant page/crop evidence, and require the review thread to return accepted/rejected/uncertain statuses with source-page references.
+
 ## Publication Rule
 
 Availability and provenance matter, but the public surface should not look like a raw tool dump. When a source packet has internal run names, partial folders, or repair logs, keep those inside artifact ZIPs and give the Zenodo record a human title organized by author, work, corpus, or mathematical tradition.

@@ -7,7 +7,7 @@ This is a curated index of the main public reading surfaces. It is not a replace
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://zenodo.org/records/20414353) |
-| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair008 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20616461) |
+| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair009 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20617332) |
 | Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v2 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, and D074-D090 descending triage. | [Deligne](https://zenodo.org/records/20615537) |
 
 ## Chinese Mathematical Classics

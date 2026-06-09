@@ -1,12 +1,12 @@
 # Workflow / Replication Packet
 
-Zenodo record: [20617310](https://zenodo.org/records/20617310)
+Zenodo record: [20617469](https://zenodo.org/records/20617469)
 
 Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 6 | 2 | 4 | 0.3 |
+| 8 | 3 | 5 | 0.3 |
 
 ## How To Read This Record
 
@@ -18,17 +18,19 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20617310/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
-| 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20617310/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
+| 0.0193 | [Project Workflow - Local Aid Packets and OCR Witnesses 20260609.pdf](https://zenodo.org/records/20617469/files/Project%20Workflow%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.pdf) |
+| 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20617469/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
+| 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20617469/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20617310/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
-| 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20617310/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
-| 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20617310/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
-| 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20617310/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
+| 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20617469/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
+| 0.0102 | [AI-Run Modern LaTeX Workflow Packet - Local Aid Packets and OCR Witnesses 20260609.zip](https://zenodo.org/records/20617469/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.zip) |
+| 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20617469/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
+| 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20617469/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
+| 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20617469/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
 
 ## Manifest And Status Files
 

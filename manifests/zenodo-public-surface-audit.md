@@ -1,20 +1,13 @@
 # Zenodo Public Surface Audit
 
-Generated: 2026-06-09 20:52:42 local
+Generated from public Zenodo file catalog on 2026-06-09.
 
-Records indexed: 23
-Files indexed: 922
-Reader/reference PDFs: 581
-Artifact/source ZIPs: 302
-Manifest/status files: 39
-Total indexed size: 27915.4556 MB
-
-| Record | Files | PDFs | ZIPs | MB | URL |
+| Record | Files | PDFs | ZIPs | Total MB | Link |
 |---|---:|---:|---:|---:|---|
 | additional_author_cluster | 99 | 10 | 88 | 4370.6999 | [record](https://zenodo.org/records/20616046) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
 | bianchi | 5 | 3 | 1 | 63.9908 | [record](https://zenodo.org/records/20615949) |
-| cayley | 83 | 13 | 68 | 1153.5600 | [record](https://zenodo.org/records/20617138) |
+| cayley | 83 | 13 | 68 | 1153.5648 | [record](https://zenodo.org/records/20617138) |
 | chinese | 30 | 28 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
 | dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
@@ -22,15 +15,16 @@ Total indexed size: 27915.4556 MB
 | dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
 | ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20414353) |
 | gauss | 24 | 14 | 9 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
-| gordan_clebsch_gordan | 13 | 0 | 12 | 818.1050 | [record](https://zenodo.org/records/20617198) |
+| gordan_clebsch_gordan | 13 | 0 | 12 | 818.1051 | [record](https://zenodo.org/records/20617198) |
 | historical_references | 15 | 13 | 1 | 58.5912 | [record](https://zenodo.org/records/20415777) |
 | indian_sanskrit | 13 | 11 | 1 | 548.612 | [record](https://zenodo.org/records/20415755) |
 | islamic_arabic | 19 | 17 | 1 | 45.887 | [record](https://zenodo.org/records/20415770) |
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | noether | 100 | 90 | 9 | 850.4083 | [record](https://zenodo.org/records/20616638) |
 | non_european_consolidated | 100 | 71 | 24 | 3176.9107 | [record](https://zenodo.org/records/20586401) |
-| sga | 90 | 74 | 15 | 2262.9875 | [record](https://zenodo.org/records/20616461) |
+| sga | 91 | 74 | 16 | 2323.6432 | [record](https://zenodo.org/records/20617332) |
+| steinitz | 5 | 0 | 4 | 385.4532 | [record](https://zenodo.org/records/20616989) |
 | sylvester | 5 | 1 | 3 | 264.5916 | [record](https://zenodo.org/records/20586907) |
 | ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20490906) |
-| weber | 19 | 8 | 8 | 313.272 | [record](https://zenodo.org/records/20616798) |
-| workflow | 6 | 2 | 4 | 0.2815 | [record](https://zenodo.org/records/20617310) |
+| weber | 19 | 8 | 8 | 313.2725 | [record](https://zenodo.org/records/20616798) |
+| workflow | 8 | 3 | 5 | 0.311 | [record](https://zenodo.org/records/20617469) |
