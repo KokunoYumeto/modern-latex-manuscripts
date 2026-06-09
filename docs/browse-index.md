@@ -14,7 +14,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
 | Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20412587) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20412153) |
-| Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617138) |
+| Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20414353) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
 | Work on Bianchi only | [Luigi Bianchi record](https://zenodo.org/records/20617674) |
@@ -55,7 +55,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 |---|---|---|
 | [Emmy Noether](https://zenodo.org/records/20412587) | Numbered-paper German/English corpus and multilingual translation branches. | Open the cumulative reader PDFs first; use ZIPs for TeX/source checking. |
 | [Heinrich Weber](https://zenodo.org/records/20412153) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; later volumes are in progress. |
-| [Arthur Cayley](https://zenodo.org/records/20617138) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
+| [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Luigi Bianchi](https://zenodo.org/records/20617674) | `Lezioni di geometria differenziale` Vol. I Italian/English working edition through source pdfpages 001-543, with reader PDFs, source witness, TeX, ledgers, and auditfix package. A2 p0001-p0060 is source-intake/witness only and documents missing/duplicate manuscript pages. | Open the English or Italian reader PDF first; use the ZIP for source witnesses, TeX, auditfix details, and ledgers. Treat A2 as intake evidence, not a completed edition. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20617548) | Dedicated package set for Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta/Formensystem auditfix and latest complete De linea geodetica working packet. | Open the relevant ZIP; reader PDFs, TeX, source witnesses, and audits are inside the packages. |
