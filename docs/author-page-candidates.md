@@ -30,7 +30,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Sylvester | Large useful material exists, but the current public distinction between OCR candidates, source-checked slices, and cumulative readers should be cleaned before a dedicated page. |
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
 | Kneser | Figure-source and text correction is now useful through p0111-p0122, including p0096-p0111 figure-source correction and p0111-p0122 figures 12-14 as editable TikZ, but the text still does not continue far enough for a dedicated author page. |
-| Poincare / Picard | Poincare Tome I has French/English tranche 03 through source scan pages 30-45, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
+| Poincare / Picard | Poincare Tome I now has v1_10 through Chapter I on the mixed additional-author shelf, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
 | Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
 | Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
 | Klein-Fricke | Authorship/provenance cleanup exists through early Volume I pages, but the lane is still in proof-of-structure stage. |

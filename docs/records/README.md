@@ -6,11 +6,11 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 9 | 3 | 6 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20618069) |
-| Emmy Noether | 100 | 90 | 9 | 882.4 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20617934) |
-| Heinrich Weber | 19 | 8 | 8 | 313.3 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20616798) |
+| Emmy Noether | 100 | 90 | 9 | 974.0 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20628368) |
+| Heinrich Weber | 22 | 8 | 11 | 409.9 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20628312) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
-| SGA | 91 | 74 | 16 | 2323.6 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20617332) |
+| SGA | 94 | 74 | 19 | 2526.7 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20628334) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20617786) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
@@ -24,7 +24,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 5 | 1 | 3 | 264.6 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20586907) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 9 | 5 | 3 | 236.7 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20618045) |
-| Paul Gordan and Clebsch-Gordan | 15 | 0 | 14 | 882.6 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20617906) |
+| Luigi Bianchi | 9 | 5 | 3 | 358.4 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20628235) |
+| Paul Gordan and Clebsch-Gordan | 17 | 0 | 16 | 1025.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20628548) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Additional Author Cluster | 100 | 10 | 89 | 4419.8 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20617597) |
+| Additional Author Cluster | 97 | 10 | 85 | 4350.5 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20628390) |

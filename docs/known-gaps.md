@@ -22,11 +22,11 @@ Current record: <https://zenodo.org/records/20414353>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20617332> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
+Current record: <https://zenodo.org/records/20628334> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
-- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest `sga5_repair009_20260609.zip` is a targeted French cumulative operator-symbol repair over repair008 for internal Hom/RHom notation in Expose III and III B, repairing source pages 123, 141, 166, 167, 175, and 179. repair008 closes targeted French diagram/formula issues on source pages 083, 095, 098, 100, 116, and 184; repair007 closed confirmed French gaps on source pages 177, 178, and 190; earlier repair006 closed confirmed French defects on source pages 174, 197, 326, 428, 438, 457, and 470. English remains an unsynchronized repair002 carry-forward, not a synchronized branch. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory, underlined-operator typography outside the patched lane, diagram microgeometry checking, and English synchronization to the latest French repair state. The SGA5 witness-aid ZIPs are witness/anchor aids, not promoted replacement text.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest `sga5_repair012_20260610.zip` is a targeted French repair for Nielsen-Wecken notation on p414 and compression around source pp.424-427, including Proposition 5.1 and displays (5.1.1), (5.2)-(5.9). repair010/011 and earlier repair packets remain part of the patch trail. English remains an unsynchronized carry-forward, not a synchronized branch. Remaining risk is global rather than solved: the work still needs a full diagram/exact-symbol inventory, underlined-operator typography outside the patched lane, diagram microgeometry checking, and English synchronization to the latest French repair state. The SGA5 witness-aid ZIPs are witness/anchor aids, not promoted replacement text.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
 - SGA7 material should be treated as especially provisional unless a specific packet says otherwise. The likely weak point is not just typography but source compression: sections can look readable while silently omitting local mathematical detail.
 - SGA 4 Expose VI should continue from section 1.22.
@@ -46,9 +46,9 @@ Weber: <https://zenodo.org/records/20412153>
 
 Noether: <https://zenodo.org/records/20412587>
 
-- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §168. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. The `Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip` packet bridges the support/provenance layer from the older §143 bundle to the already-public Batch102/Batch103 packets for §§163-168. The next continuation point follows Volume II §168.
+- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch106 cover Volume II §§169-176 and extend the source/provenance trail beyond the earlier §144-168 support packets. The next continuation point follows Volume II §176 at source p643.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
-- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_17_through_s09_combined_20260609.zip`, which preserves the earlier Paper 16/Paper 17 bridge and adds the French/zh-Hans Paper 17 §§8-9 continuation package while staying within the Zenodo 100-file limit. Paper 17 §10 is the next FR/ZH continuation point. These FR/ZH files remain checkpoint streams, not complete corpora.
+- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_19s02_combined_20260610.zip`, which advances the French/zh-Hans stream through Paper 19 §2 and records scan-correction/backfill notes including the Paper 17 basis correction and Paper 19 footnote-10 restoration. These FR/ZH files remain checkpoint streams, not complete corpora.
 - Both author records need continued translation, source comparison, and final proofing.
 
 ## Classical Algebra and Arithmetic
@@ -62,21 +62,21 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20618045>
+Current dedicated record: <https://zenodo.org/records/20628235>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
 - The 2026-06-09 auditfix repairs a small set of English cumulative defects: one control-character formula issue, nine source-notation `\sen` repairs, the section 186 displayed formula, and a section 189 anti-compression repair.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
-- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality Italian/English working start through source p0001-p0028 / autograph manuscript pp.1-9. It corrects the earlier low-detail witness lacuna for manuscript pp.2-3 and the r/s parameter notation, but A2 is not complete; next continuation is source p0029 / autograph p.10 / section 3.
+- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality Italian/English working start through source p0001-p0066, about 9 percent of the 731-page source. It covers sections 1-12; section 13 starts at the lower part of p0066 and continues on p0067, so that handoff is deliberate. A2 is not complete.
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20617906>
+Current dedicated record: <https://zenodo.org/records/20628548>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. It includes Abelian-functions packages through source pp.001-121 / printed pp.001-099, the theta auditfix04 correction branch, plus the latest complete working packets for `De linea geodetica` and staged support/provenance material for related Gordan/Clebsch-Gordan work.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel08_p122_133_DE_EN_20260610.zip`, extending Abelsche Functionen through source pp.122-133 / printed pp.100-111 and cumulative German/English through source p133. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
-- Some nested cumulative provenance notes inside Abel06/Abel07 carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-121 coverage statement.
+- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-133 coverage statement.
 
 ## Steinitz
 
@@ -88,11 +88,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20617597>
+Current record: <https://zenodo.org/records/20628390>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Latest Poincare tranche v1_05 covers source PDF pages 63-85, beginning the thesis notice and `Premiere These`, and stops before source PDF page 86 / `PREMIERE PARTIE`. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-09 routed sweep consolidation includes Poincare v1_05, Bianchi/Gordan/Steinitz backstop copies, Frobenius 061, and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- Latest Poincare tranche v1_10 is the current routed Tome I French/English cumulative package, through Chapter I after the second-thesis material, with Chapter II as the next continuation point. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-10 routed sweep consolidation includes Poincare v1_10, Bianchi/Gordan/Steinitz backstop copies, Frobenius/Kneser/Mikami/Kronecker/Picard and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 

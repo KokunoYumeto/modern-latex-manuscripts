@@ -7,7 +7,7 @@ This is a curated index of the main public reading surfaces. It is not a replace
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://zenodo.org/records/20414353) |
-| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair009 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20617332) |
+| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair012 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20628334) |
 | Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v3 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | [Deligne](https://zenodo.org/records/20617786) |
 
 ## Chinese Mathematical Classics
@@ -74,13 +74,13 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volumes II and III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20412153) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20412587) |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a high-quality Italian/English working start through source p0001-p0028 / autograph pp.1-9, but is not complete. | [Bianchi](https://zenodo.org/records/20618045) |
-| Paul Gordan / Clebsch-Gordan | Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta auditfix04 and latest complete De linea geodetica working packet. | [Gordan](https://zenodo.org/records/20617906) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a high-quality Italian/English working start through source p0001-p0066, but is not complete. | [Bianchi](https://zenodo.org/records/20628235) |
+| Paul Gordan / Clebsch-Gordan | Abel08 extends Abelsche Functionen through source pp.122-133 / printed pp.100-111 and cumulative German/English through source p133; AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20628548) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20617597)
+Record: [Additional author cluster](https://zenodo.org/records/20628390)
 
 | Author | Current Public Surface |
 |---|---|
@@ -93,10 +93,10 @@ Record: [Additional author cluster](https://zenodo.org/records/20617597)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20618045) for current readers, auditfix ZIP, and A2 HQ start/provenance caveats. |
-| Poincare | Tome I French/English working tranches through source PDF pages 85; latest v1_05 begins the thesis notice and `Premiere These`, with next continuation at source PDF page 86 / `PREMIERE PARTIE`. |
+| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20628235) for current readers, auditfix ZIP, and A2 HQ start/provenance caveats. |
+| Poincare | Tome I French/English working tranches; current v1_10 runs through Chapter I, with Chapter II as the next continuation point. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
-| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20617906) for Abelian-functions through pp.001-121, the p089-121 auditfix, theta auditfix04, and De linea geodetica packets. |
+| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20628548) for Abel08, AllPrior AuditFix01, and branch-specific auditfix packets. |
 | Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
 
 ## Reference Witnesses

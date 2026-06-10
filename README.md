@@ -25,10 +25,10 @@ Known weak points should be treated seriously. Some large working drafts show lo
 |---|---:|---|
 | Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
 | Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20461174> |
-| Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations | <https://zenodo.org/records/20412587> |
-| Heinrich Weber | Lehrbuch Volume I complete; later volumes in progress | <https://zenodo.org/records/20412153> |
+| Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations; latest public version adds the FR/ZH stream through Paper 19 §2 while DE/EN remain the canonical source branch. | <https://zenodo.org/records/20628368> |
+| Heinrich Weber | Lehrbuch Volume I complete; Volume II current German/English readers through §176; Volume III in progress. | <https://zenodo.org/records/20628312> |
 | Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified. The current promoted narrow tranche is `Cayley_V1_critical_p001_045_v2_20260609.zip` for Volume I pp.1-45 / complete Papers 1-9; older Cayley material remains de-promoted until page-by-page source audit. | <https://zenodo.org/records/20617845> |
-| SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 repair009 is a targeted French operator-symbol repair over repair008 for internal Hom/RHom notation on source pp.123, 141, 166, 167, 175, and 179, while English remains unsynchronized and SGA6/SGA7 keep explicit compression/provisional caveats. | <https://zenodo.org/records/20617332> |
+| SGA working English translation | SGA 5/6 and further SGA working translations; SGA5 repair012 is a targeted French repair for p414 Nielsen-Wecken notation and pp.424-427 compression around Proposition 5.1 and displays (5.1.1), (5.2)-(5.9). English remains unsynchronized and SGA6/SGA7 keep explicit compression/provisional caveats. | <https://zenodo.org/records/20628334> |
 | Pierre Deligne papers | Paper and letter translation/source drafts; latest 2026-06-09 v3 bundle refresh keeps D001-D017 witness/repair and equation-dense math-audit material, keeps D074-D090 descending triage material, and adds D074-D090 math-audit repairpass1. Diagram-heavy material remains working/audit level. | <https://zenodo.org/records/20617786> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20414353> |
 | Ukrainian applied mathematics | Applied mathematics and engineering translation drafts | <https://zenodo.org/records/20490906> |
@@ -40,10 +40,10 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, plus A2 high-quality Italian/English working start through source p0001-p0028 / autograph pp.1-9. A2 is not complete; the older p0001-p0060 witness remains provenance/intake. | <https://zenodo.org/records/20618045> |
-| Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abelsche Functionen through source pp.001-121 / printed pp.001-099 with the p089-121 auditfix as current correction layer, plus theta auditfix04 and latest De linea geodetica package. | <https://zenodo.org/records/20617906> |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, plus A2 high-quality Italian/English working start through source p0001-p0066, about 9% of the 731-page source. A2 is not complete; section 13 begins at the p0066/p0067 boundary. | <https://zenodo.org/records/20628235> |
+| Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abel08 extends Abelsche Functionen through source pp.122-133 / printed pp.100-111 and cumulative German/English through source p133; AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | <https://zenodo.org/records/20628548> |
 | Ernst Steinitz | Dedicated package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | <https://zenodo.org/records/20617915> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_07 through the first thesis first part, Bianchi/Gordan/Steinitz backstop copies, Frobenius 061, and earlier package-audited tranches. Bianchi, Gordan, and Steinitz now have preferred standalone records. | <https://zenodo.org/records/20617597> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_10 through Chapter I with Chapter II as next continuation, plus Bianchi/Gordan/Steinitz backstop copies, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related package-audited tranches. | <https://zenodo.org/records/20628390> |
 
 ## Start Here
 
