@@ -42,11 +42,11 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20641510>
+Weber: <https://zenodo.org/records/20644466>
 
 Noether: <https://zenodo.org/records/20643913>
 
-- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch106 cover Volume II §§169-176 and extend the source/provenance trail beyond the earlier §144-168 support packets. The next continuation point follows Volume II §176 at source p643.
+- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch113 cover Volume II §§169-176 plus recursive repairs including Vol. I §151 and Vol. II §20. Batch113 reports 104 open gap-audit rows. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
 - Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_19s02_combined_20260610.zip`, which advances the French/zh-Hans stream through Paper 19 §2 and records scan-correction/backfill notes including the Paper 17 basis correction and Paper 19 footnote-10 restoration. These FR/ZH files remain checkpoint streams, not complete corpora.
 - Both author records need continued translation, source comparison, and final proofing.
@@ -72,11 +72,11 @@ Current dedicated record: <https://zenodo.org/records/20628235>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20641427>
+Current dedicated record: <https://zenodo.org/records/20644458>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel08_p122_133_DE_EN_20260610.zip`, extending Abelsche Functionen through source pp.122-133 / printed pp.100-111 and cumulative German/English through source p133. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation packages are `Gordan_Abel11_p162_173_DE_EN_20260611.zip`, `Gordan_Abel12_p174_181_DE_EN_20260611.zip`, and `Gordan_Abel13_p182_189_DE_EN_20260611.zip`, extending Abelsche Functionen through source p189 / printed p167. Abel13 deliberately stops at p189, where equation (4) continues onto p190, so the next continuation should resolve that display continuation. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
-- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-133 coverage statement.
+- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-189 coverage statement.
 
 ## Steinitz
 

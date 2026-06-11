@@ -1,30 +1,30 @@
 # Zenodo Public Surface Audit
 
-Generated from public Zenodo file catalog on 2026-06-10.
+Generated from public Zenodo file catalog on 2026-06-11.
 
 | Record | Files | PDFs | ZIPs | Total MB | Link |
 |---|---:|---:|---:|---:|---|
-| additional_author_cluster | 97 | 10 | 85 | 4350.5197 | [record](https://zenodo.org/records/20628390) |
-| ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20490906) |
-| sylvester | 5 | 1 | 3 | 264.5916 | [record](https://zenodo.org/records/20586907) |
-| steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| sga | 94 | 74 | 19 | 2526.7406 | [record](https://zenodo.org/records/20628334) |
-| non_european_consolidated | 100 | 71 | 24 | 3176.9107 | [record](https://zenodo.org/records/20586401) |
-| noether | 100 | 90 | 9 | 973.9797 | [record](https://zenodo.org/records/20628368) |
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
-| islamic_arabic | 19 | 17 | 1 | 45.887 | [record](https://zenodo.org/records/20415770) |
-| indian_sanskrit | 13 | 11 | 1 | 548.612 | [record](https://zenodo.org/records/20415755) |
-| historical_references | 15 | 13 | 1 | 58.5912 | [record](https://zenodo.org/records/20415777) |
-| gordan_clebsch_gordan | 17 | 0 | 16 | 1025.6563 | [record](https://zenodo.org/records/20628548) |
-| gauss | 24 | 14 | 9 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
-| ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20414353) |
-| dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
-| deligne | 100 | 96 | 3 | 448.2286 | [record](https://zenodo.org/records/20617786) |
-| dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
-| classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
-| chinese | 30 | 28 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |
+| workflow | 10 | 3 | 7 | 0.3228 | [record](https://zenodo.org/records/20641449) |
+| noether | 99 | 90 | 8 | 949.6987 | [record](https://zenodo.org/records/20643913) |
+| weber | 29 | 8 | 18 | 581.6591 | [record](https://zenodo.org/records/20644466) |
 | cayley | 84 | 13 | 69 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
-| bianchi | 9 | 5 | 3 | 358.4369 | [record](https://zenodo.org/records/20628235) |
+| sga | 95 | 74 | 20 | 2632.1032 | [record](https://zenodo.org/records/20641485) |
+| deligne | 100 | 96 | 3 | 448.2286 | [record](https://zenodo.org/records/20617786) |
+| ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20414353) |
+| ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20490906) |
+| gauss | 24 | 14 | 9 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
-| weber | 22 | 8 | 11 | 409.8821 | [record](https://zenodo.org/records/20628312) |
-| workflow | 9 | 3 | 6 | 0.3205 | [record](https://zenodo.org/records/20618069) |
+| non_european_consolidated | 100 | 71 | 24 | 3176.9107 | [record](https://zenodo.org/records/20586401) |
+| chinese | 30 | 28 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |
+| indian_sanskrit | 13 | 11 | 1 | 548.612 | [record](https://zenodo.org/records/20415755) |
+| islamic_arabic | 19 | 17 | 1 | 45.887 | [record](https://zenodo.org/records/20415770) |
+| historical_references | 15 | 13 | 1 | 58.5912 | [record](https://zenodo.org/records/20415777) |
+| classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
+| sylvester | 5 | 1 | 3 | 264.5916 | [record](https://zenodo.org/records/20586907) |
+| dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
+| dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
+| bianchi | 9 | 5 | 3 | 358.4369 | [record](https://zenodo.org/records/20628235) |
+| gordan_clebsch_gordan | 22 | 0 | 21 | 1195.8382 | [record](https://zenodo.org/records/20644458) |
+| steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
+| additional_author_cluster | 98 | 10 | 86 | 4482.6351 | [record](https://zenodo.org/records/20642082) |
