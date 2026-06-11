@@ -28,4 +28,4 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | bianchi | 11 | 5 | 5 | 738.5711 | [record](https://zenodo.org/records/20650630) |
 | gordan_clebsch_gordan | 25 | 0 | 24 | 1352.6456 | [record](https://zenodo.org/records/20650618) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 88 | 10 | 78 | 4412.994 | [record](https://zenodo.org/records/20650532) |
+| additional_author_cluster | 89 | 10 | 79 | 4572.6165 | [record](https://zenodo.org/records/20650780) |
