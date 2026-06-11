@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 25 |
-| Public files indexed | 966 |
+| Public files indexed | 969 |
 | Top-level PDFs | 587 |
-| Artifact/source ZIPs | 336 |
+| Artifact/source ZIPs | 339 |
 | Manifest/status files | 40 |
-| Total public file surface | 29.40 GB |
+| Total public file surface | 29.69 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -20,7 +20,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [Workflow / replication packet](https://zenodo.org/records/20641449) | 9 | 3 | 6 | 0.3 MB | Latest workflow refresh documents the SGA/Deligne/Gordan witness-packet addendum: local-to-web aid packets, OCR prose witnesses, high-DPI diagram/formula/table crops, source-compression failure modes, scan-quality caveats, quality labels, release hygiene, and Lean/Lake as a selective formal-checking companion rather than a bulk scan-transcription verifier. |
+| [Workflow / replication packet](https://zenodo.org/records/20641449) | 10 | 3 | 7 | 0.3 MB | Latest workflow refresh documents the SGA/Deligne/Gordan witness-packet addendum: local-to-web aid packets, OCR prose witnesses, high-DPI diagram/formula/table crops, source-compression failure modes, scan-quality caveats, quality labels, release hygiene, and Lean/Lake as a selective formal-checking companion rather than a bulk scan-transcription verifier. |
 | [Noether](https://zenodo.org/records/20643913) | 99 | 90 | 8 | 1.7 GB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; French/Simplified Chinese remain active checkpoint streams. Raw RA12/high-DPI audit bundles are kept out of the current reader-facing surface pending distillation into corrected edition files or concise status notes. |
 | [Weber](https://zenodo.org/records/20650399) | 35 | 8 | 24 | 787 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch119 expose supporting provenance, repairs, and source checks; Batch119 reports 95 open gap-audit rows. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
@@ -42,7 +42,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Luigi Bianchi](https://zenodo.org/records/20649956) | 10 | 5 | 4 | 532 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543; A2 has a high-quality p0001-p0066 branch plus preferred audit-continuation through p0001-p0057, while the full A2 work is still incomplete. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20649946) | 24 | 0 | 23 | 1.25 GB | Dedicated package set now adds Abel11-Abel15, extending Abelsche Functionen through source p217; Abel13 includes the p190 continuation of equation (4), while Abel14/15 continue p194-p217. AllPrior AuditFix01 remains the consolidated prior checkpoint. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
-| [Additional author cluster](https://zenodo.org/records/20650460) | 87 | 10 | 77 | 4.25 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface includes Poincare v1_19 through Chapter XI, Kneser p0139-p0158, Frobenius 070 p016-p034, and Frobenius 071. Superseded duplicate packets are pruned where needed to stay under Zenodo's file limit while older versions retain provenance. |
+| [Additional author cluster](https://zenodo.org/records/20650532) | 88 | 10 | 78 | 4.31 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface includes Kneser p0158-p0177 / §§37-39 complete, Poincare v1_19 through Chapter XI, the prior Kneser p0139-p0158 tranche, Frobenius 070 p016-p034, and Frobenius 071. Superseded duplicate packets are pruned where needed to stay under Zenodo's file limit while older versions retain provenance. |
 
 ## Completion Read
 
