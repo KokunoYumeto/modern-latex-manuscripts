@@ -24,11 +24,11 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Chinese mathematical classics only | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
-| Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
-| Luigi Bianchi | <https://zenodo.org/records/20645719> |
-| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20645705> |
+| Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20583048> |
+| Luigi Bianchi | <https://zenodo.org/records/20649956> |
+| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20649946> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
-| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20646309> |
+| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20650182> |
 
 ## File Types
 

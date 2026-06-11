@@ -53,7 +53,7 @@ Noether: <https://zenodo.org/records/20643913>
 
 ## Classical Algebra and Arithmetic
 
-Current record: <https://zenodo.org/records/20418609>
+Current record: <https://zenodo.org/records/20583048>
 
 - This is an organized shelf of selected working drafts, not a complete author-by-author collected corpus.
 - Gauss, Cayley, Dedekind, Dirichlet, Weber, and Noether material should be treated as staged working drafts unless a later author record marks a work as fully proofed.
@@ -62,21 +62,21 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20645719>
+Current dedicated record: <https://zenodo.org/records/20649956>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
-- The 2026-06-09 auditfix repairs a small set of English cumulative defects: one control-character formula issue, nine source-notation `\sen` repairs, the section 186 displayed formula, and a section 189 anti-compression repair.
+- The 2026-06-11 public surface includes the preferred A2 audit-continuation layer through p0001-p0057; it supersedes the earlier p0001-p0050 auditfix for overlapping pages.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
 - A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality Italian/English working start through source p0001-p0066, about 9 percent of the 731-page source. It covers sections 1-12; section 13 starts at the lower part of p0066 and continues on p0067, so that handoff is deliberate. A2 is not complete.
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20645705>
+Current dedicated record: <https://zenodo.org/records/20649946>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation packages are `Gordan_Abel11_p162_173_DE_EN_20260611.zip`, `Gordan_Abel12_p174_181_DE_EN_20260611.zip`, and `Gordan_Abel13_p182_193_DE_EN_20260611.zip`, extending Abelsche Functionen through source p193 / printed p171. Abel13 p182-p193 includes the p190 continuation of equation (4). `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation packages are `Gordan_Abel11_p162_173_DE_EN_20260611.zip` through `Gordan_Abel15_p203_217_DE_EN_20260611.zip`, extending Abelsche Functionen through source p217. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14 and Abel15 continue p194-p217. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
-- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-193 coverage statement.
+- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-217 coverage statement.
 
 ## Steinitz
 
@@ -88,11 +88,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20646309>
+Current record: <https://zenodo.org/records/20650182>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Latest Poincare tranche v1_14 is the current routed Tome I French/English cumulative package, through Chapter V after the second-thesis material, with Chapter VI as the next continuation point. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-11 routed sweep consolidation includes Poincare v1_16, Bianchi/Gordan/Steinitz backstop copies, Frobenius/Kneser/Mikami/Kronecker/Picard and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- Latest Poincare tranche is `poincare_v1_18.zip`. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-11 routed sweep consolidation includes Poincare v1_18, Kneser p0139-p0158, Frobenius 070 p016-p034, and `Frob071_crit_GE_EN_scans_20260611.zip`, a source-scan-backed German/English working draft for Frobenius item 071. The newest surface also prunes superseded duplicate packets to stay under Zenodo's 100-file limit; older Zenodo versions retain those files as provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
