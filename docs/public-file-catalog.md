@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 957
+Total files indexed: 962
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -234,39 +234,41 @@ Record: <https://zenodo.org/records/20643913>
 | artifact/source ZIP | 12.4536 | [98 Noether - Multilingual Paper 35 Spanish Japanese TeX and Witnesses.zip](https://zenodo.org/records/20643913/files/98%20Noether%20-%20Multilingual%20Paper%2035%20Spanish%20Japanese%20TeX%20and%20Witnesses.zip) |
 | artifact/source ZIP | 278.6721 | [Noether_20260610_FRZH_Paper19_and_source_audit_bundle.zip](https://zenodo.org/records/20643913/files/Noether_20260610_FRZH_Paper19_and_source_audit_bundle.zip) |
 
-## Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts
+## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20641510>
+Record: <https://zenodo.org/records/20644466>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.5571 | [00 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - English Translation.pdf](https://zenodo.org/records/20641510/files/00%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.6830 | [01 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - German Source.pdf](https://zenodo.org/records/20641510/files/01%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.3314 | [02 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - English Translation.pdf](https://zenodo.org/records/20641510/files/02%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.0291 | [02 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - English Translation.pdf](https://zenodo.org/records/20641510/files/02%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.4833 | [03 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - German Source.pdf](https://zenodo.org/records/20641510/files/03%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.1631 | [03 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - German Source.pdf](https://zenodo.org/records/20641510/files/03%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.2769 | [04 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - English Translation.pdf](https://zenodo.org/records/20641510/files/04%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.3058 | [05 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - German Source.pdf](https://zenodo.org/records/20641510/files/05%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20German%20Source.pdf) |
-| artifact/source ZIP | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/20641510/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
-| manifest/status | 0.0007 | [90 Weber - Public Summary.json](https://zenodo.org/records/20641510/files/90%20Weber%20-%20Public%20Summary.json) |
-| manifest/status | 0.0008 | [91 Weber - Public Summary - Batch103 Section168.json](https://zenodo.org/records/20641510/files/91%20Weber%20-%20Public%20Summary%20-%20Batch103%20Section168.json) |
-| manifest/status | 0.0010 | [92 Weber - Public Summary - Provenance Bridge 144-162.json](https://zenodo.org/records/20641510/files/92%20Weber%20-%20Public%20Summary%20-%20Provenance%20Bridge%20144-162.json) |
-| artifact/source ZIP | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/20641510/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/20641510/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
-| artifact/source ZIP | 25.7835 | [97 Heinrich Weber - Batch103 Canonical Vol II Sections 166-168 and Cumulative Through Section 168.zip](https://zenodo.org/records/20641510/files/97%20Heinrich%20Weber%20-%20Batch103%20Canonical%20Vol%20II%20Sections%20166-168%20and%20Cumulative%20Through%20Section%20168.zip) |
-| artifact/source ZIP | 171.9360 | [Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip](https://zenodo.org/records/20641510/files/Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip) |
-| artifact/source ZIP | 18.6428 | [Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 59.4899 | [Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 18.3324 | [Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 16.9607 | [Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip) |
-| artifact/source ZIP | 24.5225 | [Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip) |
-| artifact/source ZIP | 36.4318 | [Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip) |
-| artifact/source ZIP | 26.4806 | [Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip) |
-| artifact/source ZIP | 13.0605 | [Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip) |
-| artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
-| artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20641510/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
-| artifact/source ZIP | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/20641510/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
+| reader/reference PDF | 1.5571 | [00 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - English Translation.pdf](https://zenodo.org/records/20644466/files/00%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.6830 | [01 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - German Source.pdf](https://zenodo.org/records/20644466/files/01%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.3314 | [02 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - English Translation.pdf](https://zenodo.org/records/20644466/files/02%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.0291 | [02 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - English Translation.pdf](https://zenodo.org/records/20644466/files/02%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.4833 | [03 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - German Source.pdf](https://zenodo.org/records/20644466/files/03%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.1631 | [03 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - German Source.pdf](https://zenodo.org/records/20644466/files/03%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.2769 | [04 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - English Translation.pdf](https://zenodo.org/records/20644466/files/04%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.3058 | [05 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - German Source.pdf](https://zenodo.org/records/20644466/files/05%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20German%20Source.pdf) |
+| artifact/source ZIP | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/20644466/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
+| manifest/status | 0.0007 | [90 Weber - Public Summary.json](https://zenodo.org/records/20644466/files/90%20Weber%20-%20Public%20Summary.json) |
+| manifest/status | 0.0008 | [91 Weber - Public Summary - Batch103 Section168.json](https://zenodo.org/records/20644466/files/91%20Weber%20-%20Public%20Summary%20-%20Batch103%20Section168.json) |
+| manifest/status | 0.0010 | [92 Weber - Public Summary - Provenance Bridge 144-162.json](https://zenodo.org/records/20644466/files/92%20Weber%20-%20Public%20Summary%20-%20Provenance%20Bridge%20144-162.json) |
+| artifact/source ZIP | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/20644466/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/20644466/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
+| artifact/source ZIP | 25.7835 | [97 Heinrich Weber - Batch103 Canonical Vol II Sections 166-168 and Cumulative Through Section 168.zip](https://zenodo.org/records/20644466/files/97%20Heinrich%20Weber%20-%20Batch103%20Canonical%20Vol%20II%20Sections%20166-168%20and%20Cumulative%20Through%20Section%20168.zip) |
+| artifact/source ZIP | 171.9360 | [Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip](https://zenodo.org/records/20644466/files/Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip) |
+| artifact/source ZIP | 18.6428 | [Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 59.4899 | [Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 18.3324 | [Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 16.9607 | [Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip) |
+| artifact/source ZIP | 24.5225 | [Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip) |
+| artifact/source ZIP | 36.4318 | [Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip) |
+| artifact/source ZIP | 26.4806 | [Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip) |
+| artifact/source ZIP | 22.8698 | [Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip) |
+| artifact/source ZIP | 32.2279 | [Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip) |
+| artifact/source ZIP | 13.0605 | [Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip) |
+| artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
+| artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20644466/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
+| artifact/source ZIP | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/20644466/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
 
 ## Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
@@ -989,31 +991,34 @@ Record: <https://zenodo.org/records/20628235>
 | artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20628235/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
 | artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20628235/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
 
-## Paul Gordan and Clebsch-Gordan: Modern LaTeX Drafts and English Translation Working Packets
+## Paul Gordan and Clebsch-Gordan: Source-Checked LaTeX and Translation Working Drafts
 
-Record: <https://zenodo.org/records/20641427>
+Record: <https://zenodo.org/records/20644458>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0010 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20641427/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20641427/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20641427/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20641427/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
-| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20641427/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
-| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20641427/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
-| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20641427/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
-| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_AuditFix_theta_form_20260609.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20641427/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20641427/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20641427/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20641427/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20641427/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
+| manifest/status | 0.0010 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20644458/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20644458/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20644458/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20644458/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
+| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20644458/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
+| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20644458/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
+| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20644458/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
+| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20644458/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
+| artifact/source ZIP | 41.1014 | [Gordan_Abel13_p182_189_DE_EN_20260611.zip](https://zenodo.org/records/20644458/files/Gordan_Abel13_p182_189_DE_EN_20260611.zip) |
+| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20644458/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
+| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_AuditFix_theta_form_20260609.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20644458/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20644458/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20644458/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20644458/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20644458/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 
