@@ -7,10 +7,10 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 10 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20641449) |
 | Emmy Noether | 99 | 90 | 8 | 949.7 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20643913) |
-| Heinrich Weber | 29 | 8 | 18 | 581.7 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20644466) |
+| Heinrich Weber | 32 | 8 | 21 | 704.1 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20646320) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20414353) |
-| SGA | 95 | 74 | 20 | 2632.1 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20641485) |
+| SGA | 95 | 74 | 20 | 2638.5 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20646328) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20617786) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20490906) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
@@ -27,4 +27,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Luigi Bianchi | 10 | 5 | 4 | 492.1 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20645719) |
 | Paul Gordan and Clebsch-Gordan | 22 | 0 | 21 | 1197.3 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20645705) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Additional Author Cluster | 98 | 10 | 86 | 4522.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20645706) |
+| Additional Author Cluster | 98 | 10 | 86 | 4505.3 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20646309) |

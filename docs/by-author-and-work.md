@@ -7,7 +7,7 @@ This is a curated index of the main public reading surfaces. It is not a replace
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://zenodo.org/records/20414353) |
-| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5 repair012 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20641485) |
+| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest SGA5/SGA6 repair015 and witness-aid packets remain targeted repair/checking material, not full certification. | [SGA](https://zenodo.org/records/20646328) |
 | Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v3 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | [Deligne](https://zenodo.org/records/20617786) |
 
 ## Chinese Mathematical Classics
@@ -72,7 +72,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 | Author | Current Public Surface | Record |
 |---|---|---|
-| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volume II current readers through section 176 with recursive gap repairs through Batch113; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20644466) |
+| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volume II current readers through section 176 with recursive gap repairs through Batch116; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20646320) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20643913) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a high-quality Italian/English working start through source p0001-p0066, but is not complete. | [Bianchi](https://zenodo.org/records/20645719) |
 | Paul Gordan / Clebsch-Gordan | Abel11-Abel13 extend Abelsche Functionen through source p193 / printed p171; Abel13 p182-p193 includes the p190 continuation of equation (4). AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20645705) |
@@ -80,7 +80,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20645706)
+Record: [Additional author cluster](https://zenodo.org/records/20646309)
 
 | Author | Current Public Surface |
 |---|---|
