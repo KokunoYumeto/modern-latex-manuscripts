@@ -73,14 +73,14 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 | Author | Current Public Surface | Record |
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volumes II and III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20641510) |
-| Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20641520) |
+| Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20643913) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a high-quality Italian/English working start through source p0001-p0066, but is not complete. | [Bianchi](https://zenodo.org/records/20628235) |
 | Paul Gordan / Clebsch-Gordan | Abel09 and Abel10 extend Abelsche Functionen through source p161 / printed p139; AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20641427) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20641458)
+Record: [Additional author cluster](https://zenodo.org/records/20642082)
 
 | Author | Current Public Surface |
 |---|---|
@@ -94,7 +94,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20641458)
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20628235) for current readers, auditfix ZIP, and A2 HQ start/provenance caveats. |
-| Poincare | Tome I French/English working tranches; current v1_10 runs through Chapter I, with Chapter II as the next continuation point. |
+| Poincare | Tome I French/English working tranches; current v1_14 runs through Chapter V, with Chapter VI as the next continuation point. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 061, with package-level ledgers and source caveats. |
 | Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20641427) for Abel08, AllPrior AuditFix01, and branch-specific auditfix packets. |
 | Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
