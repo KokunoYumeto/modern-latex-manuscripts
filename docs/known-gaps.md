@@ -44,11 +44,11 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 Weber: <https://zenodo.org/records/20651306>
 
-Noether: <https://zenodo.org/records/20643913>
+Noether: <https://zenodo.org/records/20651370>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch120 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 183 and Vol. II §§20, 21, 52, 57, 58, 60, 61, 77, 99, 101, 106, 114, 118, 126. Batch121 corrects the Batch120 inspection package by splitting the non-contiguous §§106/114 repair artifacts and adding contiguous §§106-114 extracts confirming §§107-113 are present in order. The active repair ledger still reports 93 open priority repair rows. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
-- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_19s02_combined_20260610.zip`, which advances the French/zh-Hans stream through Paper 19 §2 and records scan-correction/backfill notes including the Paper 17 basis correction and Paper 19 footnote-10 restoration. These FR/ZH files remain checkpoint streams, not complete corpora.
+- Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record includes `N_FRZH_Papers16_19s02_combined_20260610.zip`, which advances the French/zh-Hans stream through Paper 19 §2 and records scan-correction/backfill notes including the Paper 17 basis correction and Paper 19 footnote-10 restoration. It also includes `Noether_Paper02_German_Source_DisplayFix_RA20_20260611.zip`, a distilled German/source correction for the Paper 02 p.63 irreducible-forms display layout. These FR/ZH files remain checkpoint streams, not complete corpora; RA20 non-German propagation remains queued.
 - Both author records need continued translation, source comparison, and final proofing.
 
 ## Classical Algebra and Arithmetic
