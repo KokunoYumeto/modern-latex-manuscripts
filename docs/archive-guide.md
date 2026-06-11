@@ -11,11 +11,11 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Need | Start Here |
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
-| Workflow and replication notes | <https://zenodo.org/records/20461174> |
-| Emmy Noether | <https://zenodo.org/records/20412587> |
-| Heinrich Weber | <https://zenodo.org/records/20412153> |
+| Workflow and replication notes | <https://zenodo.org/records/20641449> |
+| Emmy Noether | <https://zenodo.org/records/20641520> |
+| Heinrich Weber | <https://zenodo.org/records/20641510> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
-| SGA source and English translation drafts | <https://zenodo.org/records/20410947> |
+| SGA source and English translation drafts | <https://zenodo.org/records/20641485> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20414353> |
 | Ukrainian applied mathematics | <https://zenodo.org/records/20490906> |
@@ -26,9 +26,9 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
 | Luigi Bianchi | <https://zenodo.org/records/20628235> |
-| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20628548> |
+| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20641427> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
-| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20628390> |
+| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20641458> |
 
 ## File Types
 
@@ -58,4 +58,4 @@ The most useful corrections are:
 
 The archive is intentionally split into a main landing record plus topic/author records. The main record keeps broad preservation and a complete bulk ZIP; the topic and author records are the preferred public browsing surface.
 
-The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-09 and indexes 24 records.
+The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-11 and indexes 24 records.

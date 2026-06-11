@@ -7,20 +7,20 @@ This page is the human entry point for the archive. Use it when you want to find
 | Goal | Open First |
 |---|---|
 | Get the whole preservation surface | [Main project landing](https://zenodo.org/records/20415117) |
-| Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20461174) |
+| Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20641449) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
-| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20628334) |
+| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20641485) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
-| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20412587) |
-| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20412153) |
+| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20641520) |
+| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20641510) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20414353) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
 | Work on Bianchi only | [Luigi Bianchi record](https://zenodo.org/records/20628235) |
-| Work on Gordan/Clebsch-Gordan only | [Paul Gordan and Clebsch-Gordan record](https://zenodo.org/records/20628548) |
+| Work on Gordan/Clebsch-Gordan only | [Paul Gordan and Clebsch-Gordan record](https://zenodo.org/records/20641427) |
 | Work on Steinitz only | [Ernst Steinitz record](https://zenodo.org/records/20617915) |
-| Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20628390) |
+| Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20641458) |
 | See which mixed-shelf authors may deserve dedicated pages | [Author page candidates](author-page-candidates.md) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
 | Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
@@ -34,7 +34,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [EGA](https://zenodo.org/records/20414353) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
-| [SGA](https://zenodo.org/records/20628334) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair012 package is a targeted French repair for p414 and pp.424-427, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
+| [SGA](https://zenodo.org/records/20641485) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5 repair012 package is a targeted French repair for p414 and pp.424-427, and witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
 | [Deligne](https://zenodo.org/records/20617786) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v3 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
@@ -53,14 +53,14 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Emmy Noether](https://zenodo.org/records/20412587) | Numbered-paper German/English corpus and multilingual translation branches. | Open the cumulative reader PDFs first; use ZIPs for TeX/source checking. |
-| [Heinrich Weber](https://zenodo.org/records/20412153) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; later volumes are in progress. |
+| [Emmy Noether](https://zenodo.org/records/20641520) | Numbered-paper German/English corpus and multilingual translation branches. | Open the cumulative reader PDFs first; use ZIPs for TeX/source checking. |
+| [Heinrich Weber](https://zenodo.org/records/20641510) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; later volumes are in progress. |
 | [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Luigi Bianchi](https://zenodo.org/records/20628235) | `Lezioni di geometria differenziale` Vol. I Italian/English working edition through source pdfpages 001-543, with reader PDFs, source witness, TeX, ledgers, and auditfix package. A2 now has a high-quality Italian/English working start through source p0001-p0066; the full A2 work remains incomplete. | Open the Vol. I or A2 reader PDFs first; use the ZIPs for source witnesses, TeX, auditfix details, and ledgers. |
-| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20628548) | Dedicated package set with Abel08 for the current Abelsche continuation through source p133, plus AllPrior AuditFix01 for De linea, theta, Formensystem, and earlier Abelsche support branches. | Open the relevant ZIP; reader PDFs, TeX, source witnesses, and audits are inside the packages. |
+| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20641427) | Dedicated package set with Abel08 for the current Abelsche continuation through source p133, plus AllPrior AuditFix01 for De linea, theta, Formensystem, and earlier Abelsche support branches. | Open the relevant ZIP; reader PDFs, TeX, source witnesses, and audits are inside the packages. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | Open the summary JSON first, then the work ZIPs for TeX, PDFs, source witnesses, and package audits. |
-| [Additional author cluster](https://zenodo.org/records/20628390) | Selected drafts and update packets for Minkowski, Hecke, Landau, Hensel, Oka, Hausdorff, Grassmann, Killing, plus routed Poincare/Frobenius/Kneser/Mikami/Kronecker/etc. work. Poincare v1_10 is the current routed Poincare tranche; Bianchi, Gordan, and Steinitz remain there as backstop/provenance copies but now have preferred standalone records. | Open the named reader PDFs first; use the routed ZIPs for current working editions, source checks, and package-level audit details. |
+| [Additional author cluster](https://zenodo.org/records/20641458) | Selected drafts and update packets for Minkowski, Hecke, Landau, Hensel, Oka, Hausdorff, Grassmann, Killing, plus routed Poincare/Frobenius/Kneser/Mikami/Kronecker/etc. work. Poincare v1_13 is the current routed Poincare tranche; Bianchi, Gordan, and Steinitz remain there as backstop/provenance copies but now have preferred standalone records. | Open the named reader PDFs first; use the routed ZIPs for current working editions, source checks, and package-level audit details. |
 
 ## How To Use A Record
 

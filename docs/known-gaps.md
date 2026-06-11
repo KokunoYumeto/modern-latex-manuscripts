@@ -22,7 +22,7 @@ Current record: <https://zenodo.org/records/20414353>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20628334> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
+Current record: <https://zenodo.org/records/20641485> (concept DOI: <https://doi.org/10.5281/zenodo.20641485>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
@@ -42,9 +42,9 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20412153>
+Weber: <https://zenodo.org/records/20641510>
 
-Noether: <https://zenodo.org/records/20412587>
+Noether: <https://zenodo.org/records/20641520>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch106 cover Volume II §§169-176 and extend the source/provenance trail beyond the earlier §144-168 support packets. The next continuation point follows Volume II §176 at source p643.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
@@ -72,7 +72,7 @@ Current dedicated record: <https://zenodo.org/records/20628235>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20628548>
+Current dedicated record: <https://zenodo.org/records/20641427>
 
 - The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel08_p122_133_DE_EN_20260610.zip`, extending Abelsche Functionen through source pp.122-133 / printed pp.100-111 and cumulative German/English through source p133. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
@@ -88,11 +88,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20628390>
+Current record: <https://zenodo.org/records/20641458>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
 - Latest Poincare tranche v1_10 is the current routed Tome I French/English cumulative package, through Chapter I after the second-thesis material, with Chapter II as the next continuation point. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-10 routed sweep consolidation includes Poincare v1_10, Bianchi/Gordan/Steinitz backstop copies, Frobenius/Kneser/Mikami/Kronecker/Picard and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- The 2026-06-10 routed sweep consolidation includes Poincare v1_13, Bianchi/Gordan/Steinitz backstop copies, Frobenius/Kneser/Mikami/Kronecker/Picard and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
