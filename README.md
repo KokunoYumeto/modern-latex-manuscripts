@@ -39,13 +39,13 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
-| Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
+| Classical algebra and arithmetic manuscripts | Mixed classical shelf; includes Dedekind/Dirichlet/Gauss material and de-promoted Cayley provenance that still needs source-faithfulness repair. | <https://zenodo.org/records/20583048> |
 | James Joseph Sylvester | Dedicated Volume I source-checked working edition through book page 608; newest tranche completes Papers 59-60 and keeps OCR/math-OCR witnesses distinct from source authority. | <https://zenodo.org/records/20649689> |
 | J. Willard Gibbs / old physics | Dedicated source-scan-backed working edition for `The Scientific Papers`, Vol. I, pp.001-124: three reader-facing PDF/TeX surfaces plus compact source-scan ZIP packets. Not a complete Gibbs corpus. | <https://zenodo.org/records/20649836> |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, plus A2 high-quality Italian/English working start through source p0001-p0066, plus a newer preferred audit-continuation layer through p0001-p0057. A2 is not complete; section 13 begins at the p0066/p0067 boundary. | <https://zenodo.org/records/20649956> |
 | Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abel11-Abel15 extend Abelsche Functionen through source p217; Abel13 includes the p190 continuation of equation (4), while Abel14/15 continue p194-p217. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | <https://zenodo.org/records/20649946> |
 | Ernst Steinitz | Dedicated package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | <https://zenodo.org/records/20617915> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_18, Kneser LVR p0139-p0158, and Frobenius 070 p016-p034 final German/English package; Bianchi loose A2 pp.76-90 material is held pending the missing pp.67-75 bridge/context. | <https://zenodo.org/records/20649950> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_18, Kneser LVR p0139-p0158, Frobenius 070 p016-p034, and Frobenius 071 `Theorie der hyperkomplexen Groessen II`; latest surface pruned superseded duplicate packets while older Zenodo versions retain provenance. | <https://zenodo.org/records/20650182> |
 
 ## Start Here
 

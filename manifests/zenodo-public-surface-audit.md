@@ -27,5 +27,5 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | bianchi | 10 | 5 | 4 | 531.6534 | [record](https://zenodo.org/records/20649956) |
 | gordan_clebsch_gordan | 24 | 0 | 23 | 1282.1611 | [record](https://zenodo.org/records/20649946) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 100 | 10 | 88 | 4573.9667 | [record](https://zenodo.org/records/20649950) |
+| additional_author_cluster | 86 | 10 | 76 | 4142.7229 | [record](https://zenodo.org/records/20650182) |
 | gibbs_old_physics | 10 | 3 | 3 | 18.6216 | [record](https://zenodo.org/records/20649836) |

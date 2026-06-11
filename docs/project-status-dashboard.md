@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 25 |
-| Public files indexed | 980 |
+| Public files indexed | 966 |
 | Top-level PDFs | 587 |
-| Artifact/source ZIPs | 348 |
-| Manifest/status files | 42 |
-| Total public file surface | 29.82 GB |
+| Artifact/source ZIPs | 336 |
+| Manifest/status files | 40 |
+| Total public file surface | 29.40 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -39,10 +39,10 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-checked working edition through book page 608; Papers 59-60 complete in the latest tranche, next continuation p.609. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Luigi Bianchi](https://zenodo.org/records/20645719) | 10 | 5 | 4 | 492 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543; A2 has a high-quality p0001-p0066 branch plus a newer auditfix p0001-p0050 correction layer, while the full A2 work is still incomplete. |
-| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20645705) | 22 | 0 | 21 | 1.17 GB | Dedicated package set now adds Abel11-Abel13, extending Abelsche Functionen through source p193 / printed p171; Abel13 p182-p193 includes the p190 continuation of equation (4). AllPrior AuditFix01 remains the consolidated prior checkpoint. |
+| [Luigi Bianchi](https://zenodo.org/records/20649956) | 10 | 5 | 4 | 532 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543; A2 has a high-quality p0001-p0066 branch plus preferred audit-continuation through p0001-p0057, while the full A2 work is still incomplete. |
+| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20649946) | 24 | 0 | 23 | 1.25 GB | Dedicated package set now adds Abel11-Abel15, extending Abelsche Functionen through source p217; Abel13 includes the p190 continuation of equation (4), while Abel14/15 continue p194-p217. AllPrior AuditFix01 remains the consolidated prior checkpoint. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
-| [Additional author cluster](https://zenodo.org/records/20646309) | 98 | 10 | 86 | 4.52 GB | Selected drafts and update packets for authors not yet split into full author records; Bianchi, Gordan, and Steinitz now have preferred standalone records, while this mixed shelf keeps backstop/provenance copies plus Poincare v1_16, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related tranches with explicit caveats. |
+| [Additional author cluster](https://zenodo.org/records/20650182) | 86 | 10 | 76 | 4.05 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface includes Poincare v1_18, Kneser p0139-p0158, Frobenius 070 p016-p034, and Frobenius 071. Superseded duplicate packets were pruned from the latest surface to stay under Zenodo's file limit while older versions retain provenance. |
 
 ## Completion Read
 
