@@ -8,10 +8,10 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20414353) |
 | EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20414353) |
-| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20641485) |
-| SGA | Continue SGA5 repair after repair012: synchronize English to the latest French repairs, then attack the open diagram microgeometry, exact-symbol inventory, and underlined-operator typography lanes outside the patched p414 / pp.424-427 scope. | [SGA record](https://zenodo.org/records/20641485) |
-| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20641485) |
-| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20644466) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20646328) |
+| SGA | Continue SGA5/SGA6 repair after repair015: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the SGA6 late-region compression clusters flagged around pp.380-450 and 580-670. | [SGA record](https://zenodo.org/records/20646328) |
+| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20646328) |
+| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20646320) |
 | Noether | Continue source checking and multilingual translation branches from the numbered-paper corpus. | [Noether record](https://zenodo.org/records/20643913) |
 
 ## Highest-Value Typesetting And Source-Check Work
@@ -25,7 +25,7 @@ This page turns the current archive gaps into concrete contribution targets. It 
 | Bianchi | Verify Vol. I formulas, references, terminology, and index entries against the source witness. For A2, prefer the auditfix p0001-p0050 layer for overlapping pages, continue the high-quality branch from the section 13 handoff at p0066/p0067, and keep the older p0001-p0060 witness as intake/provenance, not authority. | [Bianchi record](https://zenodo.org/records/20645719) |
 | Gordan / Clebsch-Gordan | Continue Abelsche Functionen from source p.194 / printed p.172, continuation of section 49 after the page-boundary word "In". Use Abel11-Abel13 and `Gordan_AllPrior_AuditFix01_20260610.zip` as the current correction layers. | [Gordan record](https://zenodo.org/records/20645705) |
 | Gauss | Repair the lower-quality staged Gauss OCR/TeX sections that were not promoted as clean reader material. | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
-| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. Bianchi, Gordan, and Steinitz now have standalone records; the mixed shelf still needs Poincare, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, Klein-Fricke, Maxwell/old-physics, and related tranches triaged by package-level caveats. Poincare v1_15 is the current routed tranche, through Chapter VI; Chapter VII is next. | [Additional author cluster](https://zenodo.org/records/20645706) |
+| Additional authors | Check the selected drafts for wrapper removal, title accuracy, and source alignment before splitting into more complete author records. Bianchi, Gordan, and Steinitz now have standalone records; the mixed shelf still needs Poincare, Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, Klein-Fricke, Maxwell/old-physics, and related tranches triaged by package-level caveats. Poincare v1_16 is the current routed tranche, through Chapter VII; Chapter VIII is next. | [Additional author cluster](https://zenodo.org/records/20646309) |
 
 ## Archive And Metadata Work
 
