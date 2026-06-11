@@ -15,8 +15,8 @@ Good starting points:
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20644466), Volume I first; later volumes are in progress |
 | Noether | [Noether record](https://zenodo.org/records/20643913), cumulative German/English and multilingual reader PDFs first |
-| Bianchi | [Bianchi record](https://zenodo.org/records/20628235), English or Italian Vol. I reader first; A2 now has high-quality English/Italian reader PDFs through p0001-p0066, with the ZIP for TeX/source witnesses and audit ledgers. |
-| Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20644458), open Abel11-Abel13 for the current Abelsche continuation through source p189 / printed p167; Abel13 stops where equation (4) continues onto p190. AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside |
+| Bianchi | [Bianchi record](https://zenodo.org/records/20645719), English or Italian Vol. I reader first; A2 now has high-quality English/Italian reader PDFs through p0001-p0066, with the ZIP for TeX/source witnesses and audit ledgers. |
+| Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20645705), open Abel11-Abel13 for the current Abelsche continuation through source p193 / printed p171; Abel13 p182-p193 includes the p190 continuation of equation (4). AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609), numbered reader PDFs by author |
 
 If you want usable mathematical text rather than repair evidence, prefer top-level PDFs and files named `reader`, `working_draft`, `source_checked`, or `cumulative`. Treat files named `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` as checking aids.

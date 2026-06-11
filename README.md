@@ -40,10 +40,10 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, plus A2 high-quality Italian/English working start through source p0001-p0066, about 9% of the 731-page source. A2 is not complete; section 13 begins at the p0066/p0067 boundary. | <https://zenodo.org/records/20628235> |
-| Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abel11-Abel13 extend Abelsche Functionen through source p189 / printed p167; Abel13 stops where equation (4) continues onto p190. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | <https://zenodo.org/records/20644458> |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian/English working edition complete through source pdfpages 001-543, plus A2 high-quality Italian/English working start through source p0001-p0066, plus a newer auditfix layer through p0001-p0050. A2 is not complete; section 13 begins at the p0066/p0067 boundary. | <https://zenodo.org/records/20645719> |
+| Paul Gordan and Clebsch-Gordan | Dedicated working-edition packets: Abel11-Abel13 extend Abelsche Functionen through source p193 / printed p171; Abel13 p182-p193 includes the p190 continuation of equation (4). AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | <https://zenodo.org/records/20645705> |
 | Ernst Steinitz | Dedicated package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | <https://zenodo.org/records/20617915> |
-| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_14 through Chapter V; Bianchi loose A2 pp.76-90 material is held pending the missing pp.67-75 bridge/context; the shelf also contains Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related package-audited tranches. | <https://zenodo.org/records/20642082> |
+| Additional author cluster | Mixed author shelf; latest routed sweep adds Poincare v1_15 through Chapter VI; Bianchi loose A2 pp.76-90 material is held pending the missing pp.67-75 bridge/context; the shelf also contains Frobenius, Kneser, Mikami, Kronecker/Kron, Picard, and related package-audited tranches. | <https://zenodo.org/records/20645706> |
 
 ## Start Here
 

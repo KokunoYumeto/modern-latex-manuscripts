@@ -62,7 +62,7 @@ Current record: <https://zenodo.org/records/20418609>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20628235>
+Current dedicated record: <https://zenodo.org/records/20645719>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
 - The 2026-06-09 auditfix repairs a small set of English cumulative defects: one control-character formula issue, nine source-notation `\sen` repairs, the section 186 displayed formula, and a section 189 anti-compression repair.
@@ -72,11 +72,11 @@ Current dedicated record: <https://zenodo.org/records/20628235>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20644458>
+Current dedicated record: <https://zenodo.org/records/20645705>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation packages are `Gordan_Abel11_p162_173_DE_EN_20260611.zip`, `Gordan_Abel12_p174_181_DE_EN_20260611.zip`, and `Gordan_Abel13_p182_189_DE_EN_20260611.zip`, extending Abelsche Functionen through source p189 / printed p167. Abel13 deliberately stops at p189, where equation (4) continues onto p190, so the next continuation should resolve that display continuation. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation packages are `Gordan_Abel11_p162_173_DE_EN_20260611.zip`, `Gordan_Abel12_p174_181_DE_EN_20260611.zip`, and `Gordan_Abel13_p182_193_DE_EN_20260611.zip`, extending Abelsche Functionen through source p193 / printed p171. Abel13 p182-p193 includes the p190 continuation of equation (4). `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
-- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-189 coverage statement.
+- Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-193 coverage statement.
 
 ## Steinitz
 
@@ -88,7 +88,7 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20642082>
+Current record: <https://zenodo.org/records/20645706>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
 - Latest Poincare tranche v1_14 is the current routed Tome I French/English cumulative package, through Chapter V after the second-thesis material, with Chapter VI as the next continuation point. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
