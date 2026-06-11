@@ -26,6 +26,6 @@
 | bianchi | 12 | 5 | 6 | 983.8007 | [record](https://zenodo.org/records/20651036) |
 | gordan_clebsch_gordan | 25 | 0 | 24 | 1352.6456 | [record](https://zenodo.org/records/20650618) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 90 | 10 | 80 | 4658.9463 | [record](https://zenodo.org/records/20650905) |
+| additional_author_cluster | 92 | 10 | 82 | 5039.3261 | [record](https://zenodo.org/records/20651148) |
 
 Generated from manifests/public-file-catalog.csv after the latest Zenodo/GitHub sweep.

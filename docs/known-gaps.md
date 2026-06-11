@@ -88,11 +88,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20650905>
+Current record: <https://zenodo.org/records/20651148>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Latest Poincare tranche is `poincare_v1_19.zip`, a Tome I FR/EN working package through Chapter XI, with cumulative PDFs through source witness v1_0262 and next continuation at v1_0263 / Chapter XII. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-11 routed sweep consolidation now includes `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip`, a high-quality figure and scan-witness repair for the Kneser LVR pp.158-177 / §§37-39 tranche. It keeps the text/math scope unchanged, removes visible AI/TikZ figure reconstructions, and is preferred over the earlier p0158-p0177 package for checking figures and scan witnesses. The record also includes Poincare v1_19, the prior Kneser p0139-p0158 package, Frobenius 070 p016-p034, `Frob071_crit_GE_EN_scans_20260611.zip`, and the selected Frobenius cumulative integration. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- Latest Poincare tranche is `poincare_v1_20.zip`, a Tome I FR/EN working package through Chapters XII-XIII, with source witnesses v1_0263-v1_0273 and next continuation at v1_0274 / Chapter XIV. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-11 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip`, a high-quality figure and scan-witness repair for the Kneser LVR pp.158-177 / §§37-39 tranche. The Kneser package keeps the text/math scope unchanged, removes visible AI/TikZ figure reconstructions, and is preferred over the earlier p0158-p0177 package for checking figures and scan witnesses. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
