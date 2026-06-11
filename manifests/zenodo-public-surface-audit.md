@@ -5,7 +5,7 @@
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | workflow | 12 | 3 | 7 | 0.3318 | [record](https://zenodo.org/records/20650989) |
 | noether | 99 | 90 | 8 | 949.6987 | [record](https://zenodo.org/records/20643913) |
-| weber | 36 | 8 | 25 | 810.4499 | [record](https://zenodo.org/records/20650823) |
+| weber | 37 | 8 | 26 | 836.8163 | [record](https://zenodo.org/records/20651306) |
 | cayley | 84 | 13 | 69 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
 | sga | 95 | 74 | 20 | 2644.8712 | [record](https://zenodo.org/records/20650065) |
 | deligne | 100 | 96 | 3 | 448.2286 | [record](https://zenodo.org/records/20617786) |
