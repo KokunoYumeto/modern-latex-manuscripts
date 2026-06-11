@@ -80,7 +80,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20650532)
+Record: [Additional author cluster](https://zenodo.org/records/20650780)
 
 | Author | Current Public Surface |
 |---|---|
