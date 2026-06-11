@@ -24,8 +24,8 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | sylvester | 3 | 1 | 1 | 91.8621 | [record](https://zenodo.org/records/20649689) |
 | dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
-| bianchi | 10 | 5 | 4 | 492.0718 | [record](https://zenodo.org/records/20645719) |
-| gordan_clebsch_gordan | 22 | 0 | 21 | 1197.3213 | [record](https://zenodo.org/records/20645705) |
+| bianchi | 10 | 5 | 4 | 531.6534 | [record](https://zenodo.org/records/20649956) |
+| gordan_clebsch_gordan | 24 | 0 | 23 | 1282.1611 | [record](https://zenodo.org/records/20649946) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 98 | 10 | 86 | 4505.282 | [record](https://zenodo.org/records/20646309) |
+| additional_author_cluster | 100 | 10 | 88 | 4573.9667 | [record](https://zenodo.org/records/20649950) |
 | gibbs_old_physics | 10 | 3 | 3 | 18.6216 | [record](https://zenodo.org/records/20649836) |
