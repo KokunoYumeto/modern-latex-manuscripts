@@ -74,7 +74,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volume II current readers through section 176 with recursive gap repairs through Batch120; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20650823) |
 | Emmy Noether | Numbered-paper German/English corpus plus Spanish/Japanese/French/Simplified Chinese working translation branches. | [Noether](https://zenodo.org/records/20643913) |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a preferred p0001-p0066 continuation package with §§10-12 complete and §13 deliberately deferred. | [Bianchi](https://zenodo.org/records/20650630) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a preferred p0001-p0066 re-audit correction package; §§10-12 remain complete and §13 is deliberately deferred. | [Bianchi](https://zenodo.org/records/20651036) |
 | Paul Gordan / Clebsch-Gordan | Abel16 extends Abelsche Functionen through source p227 / printed p205; Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14-15 continue p194-p217. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20650618) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
 
@@ -93,7 +93,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20650905)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20650630) for current readers, auditfix ZIP, and A2 HQ/audit-continuation/provenance caveats. |
+| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20651036) for current readers, auditfix ZIP, and A2 HQ/audit-continuation/provenance caveats. |
 | Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_19.zip`, cumulative through Chapter XI with next continuation at v1_0263 / Chapter XII. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 071, including the source-scan-backed working draft for `Theorie der hyperkomplexen Groessen II`; use package-level ledgers and source caveats. |
 | Kneser | `Lehrbuch der Variationsrechnung` German/English routed working tranches. Prefer `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip` for checking figures/source witnesses through p0177; it is a repair package, not a continuation beyond p0177. |
