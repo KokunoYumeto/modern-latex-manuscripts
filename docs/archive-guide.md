@@ -11,7 +11,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Need | Start Here |
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
-| Workflow and replication notes | <https://zenodo.org/records/20641449> |
+| Workflow and replication notes | <https://zenodo.org/records/20650700> |
 | Emmy Noether | <https://zenodo.org/records/20643913> |
 | Heinrich Weber | <https://zenodo.org/records/20650399> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |

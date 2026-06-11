@@ -7,10 +7,10 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 25 |
-| Public files indexed | 971 |
+| Public files indexed | 972 |
 | Top-level PDFs | 587 |
 | Artifact/source ZIPs | 341 |
-| Manifest/status files | 40 |
+| Manifest/status files | 41 |
 | Total public file surface | 29.96 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
@@ -20,7 +20,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [Workflow / replication packet](https://zenodo.org/records/20641449) | 10 | 3 | 7 | 0.3 MB | Latest workflow refresh documents the SGA/Deligne/Gordan witness-packet addendum: local-to-web aid packets, OCR prose witnesses, high-DPI diagram/formula/table crops, source-compression failure modes, scan-quality caveats, quality labels, release hygiene, and Lean/Lake as a selective formal-checking companion rather than a bulk scan-transcription verifier. |
+| [Workflow / replication packet](https://zenodo.org/records/20650700) | 11 | 3 | 7 | 0.3 MB | Latest workflow refresh adds the SGA/Noether/Weber aid-packet lessons: OCR as locator rather than authority, OCR-vs-TeX gap scanning, page-map drift, high-DPI witness packages, source-window sampling for prose compression, Noether original-printing reconstruction, and public release hygiene. Earlier workflow files still document SGA/Deligne/Gordan witness packets and Lean/Lake as selective formal-checking companions rather than bulk scan-transcription verifiers. |
 | [Noether](https://zenodo.org/records/20643913) | 99 | 90 | 8 | 1.7 GB | German/English numbered-paper corpus complete; Spanish/Japanese complete through Paper 43 and under recursive audit; French/Simplified Chinese remain active checkpoint streams. Raw RA12/high-DPI audit bundles are kept out of the current reader-facing surface pending distillation into corrected edition files or concise status notes. |
 | [Weber](https://zenodo.org/records/20650399) | 35 | 8 | 24 | 787 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch119 expose supporting provenance, repairs, and source checks; Batch119 reports 95 open gap-audit rows. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |

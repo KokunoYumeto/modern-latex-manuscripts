@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 971
+Total files indexed: 972
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -113,20 +113,21 @@ Record: <https://zenodo.org/records/20415117>
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://zenodo.org/records/20641449>
+Record: <https://zenodo.org/records/20650700>
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20641449/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
-| artifact/source ZIP | 0.0102 | [AI-Run Modern LaTeX Workflow Packet - Local Aid Packets and OCR Witnesses 20260609.zip](https://zenodo.org/records/20641449/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.zip) |
-| artifact/source ZIP | 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20641449/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
-| artifact/source ZIP | 0.0095 | [AI-Run Modern LaTeX Workflow Packet - SGA Deligne Gordan Witness Addendum 20260609.zip](https://zenodo.org/records/20641449/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20SGA%20Deligne%20Gordan%20Witness%20Addendum%2020260609.zip) |
-| artifact/source ZIP | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20641449/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
-| reader/reference PDF | 0.0193 | [Project Workflow - Local Aid Packets and OCR Witnesses 20260609.pdf](https://zenodo.org/records/20641449/files/Project%20Workflow%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.pdf) |
-| reader/reference PDF | 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20641449/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
-| reader/reference PDF | 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20641449/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
-| artifact/source ZIP | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20641449/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
-| artifact/source ZIP | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20641449/files/Workflow_Lessons_20260611.zip) |
+| artifact/source ZIP | 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20650700/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
+| artifact/source ZIP | 0.0102 | [AI-Run Modern LaTeX Workflow Packet - Local Aid Packets and OCR Witnesses 20260609.zip](https://zenodo.org/records/20650700/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.zip) |
+| artifact/source ZIP | 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20650700/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
+| artifact/source ZIP | 0.0095 | [AI-Run Modern LaTeX Workflow Packet - SGA Deligne Gordan Witness Addendum 20260609.zip](https://zenodo.org/records/20650700/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20SGA%20Deligne%20Gordan%20Witness%20Addendum%2020260609.zip) |
+| artifact/source ZIP | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20650700/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
+| reader/reference PDF | 0.0193 | [Project Workflow - Local Aid Packets and OCR Witnesses 20260609.pdf](https://zenodo.org/records/20650700/files/Project%20Workflow%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.pdf) |
+| reader/reference PDF | 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20650700/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
+| reader/reference PDF | 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20650700/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
+| artifact/source ZIP | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20650700/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
+| manifest/status | 0.0046 | [workflow_addendum_20260611_sga_noether_weber_aid_lessons.md](https://zenodo.org/records/20650700/files/workflow_addendum_20260611_sga_noether_weber_aid_lessons.md) |
+| artifact/source ZIP | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20650700/files/Workflow_Lessons_20260611.zip) |
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
