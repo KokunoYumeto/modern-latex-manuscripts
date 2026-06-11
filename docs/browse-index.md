@@ -13,7 +13,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20650065) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
 | Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20643913) |
-| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20650080) |
+| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20650399) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20414353) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20583048) |
@@ -54,7 +54,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [Emmy Noether](https://zenodo.org/records/20643913) | Numbered-paper German/English corpus and multilingual translation branches. | Open the cumulative reader PDFs first; use ZIPs for TeX/source checking. |
-| [Heinrich Weber](https://zenodo.org/records/20650080) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch118. |
+| [Heinrich Weber](https://zenodo.org/records/20650399) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch119. |
 | [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts; Cayley material there is provenance/repair material unless a specific range has been re-promoted by a later source audit. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Luigi Bianchi](https://zenodo.org/records/20649956) | `Lezioni di geometria differenziale` Vol. I Italian/English working edition through source pdfpages 001-543, with reader PDFs, source witness, TeX, ledgers, and auditfix package. A2 now has a high-quality Italian/English working start through source p0001-p0066 plus preferred audit-continuation through p0001-p0057; the full A2 work remains incomplete. | Open the Vol. I or A2 reader PDFs first; use the ZIPs for source witnesses, TeX, auditfix details, and ledgers. |

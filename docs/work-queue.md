@@ -11,7 +11,7 @@ This page turns the current archive gaps into concrete contribution targets. It 
 | SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20650065) |
 | SGA | Continue SGA5/SGA6 repair after repair016: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the SGA6 dense-cluster lanes around pp.388-460 and 571-680. | [SGA record](https://zenodo.org/records/20650065) |
 | SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20650065) |
-| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20650080) |
+| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20650399) |
 | Noether | Continue source checking and multilingual translation branches from the numbered-paper corpus. | [Noether record](https://zenodo.org/records/20643913) |
 
 ## Highest-Value Typesetting And Source-Check Work
