@@ -80,7 +80,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20650780)
+Record: [Additional author cluster](https://zenodo.org/records/20650905)
 
 | Author | Current Public Surface |
 |---|---|
@@ -96,6 +96,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20650780)
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20650630) for current readers, auditfix ZIP, and A2 HQ/audit-continuation/provenance caveats. |
 | Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_19.zip`, cumulative through Chapter XI with next continuation at v1_0263 / Chapter XII. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 071, including the source-scan-backed working draft for `Theorie der hyperkomplexen Groessen II`; use package-level ledgers and source caveats. |
+| Kneser | `Lehrbuch der Variationsrechnung` German/English routed working tranches. Prefer `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip` for checking figures/source witnesses through p0177; it is a repair package, not a continuation beyond p0177. |
 | Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20650618) for Abel11-Abel16, AllPrior AuditFix01, and branch-specific auditfix packets. |
 | Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
 

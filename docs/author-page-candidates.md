@@ -30,7 +30,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Candidate | Why Hold |
 |---|---|
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
-| Kneser | The LVR branch now has a useful German/English working continuation through p0158-p0177 / §§37-39 complete, with cumulative material through p177 on the mixed shelf, but it still needs a cleaner author-level rollup before splitting. |
+| Kneser | The LVR branch now has German/English working material through p0158-p0177 / §§37-39 and a preferred hqfig repair package replacing weak scan/figure witnesses through p177, but it still needs a cleaner author-level rollup before splitting. |
 | Poincare / Picard | Poincare Tome I now has v1_18 on the mixed additional-author shelf, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
 | Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
 | Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
