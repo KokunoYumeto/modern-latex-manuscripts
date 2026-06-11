@@ -88,11 +88,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20650182>
+Current record: <https://zenodo.org/records/20650460>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Latest Poincare tranche is `poincare_v1_18.zip`. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-11 routed sweep consolidation includes Poincare v1_18, Kneser p0139-p0158, Frobenius 070 p016-p034, and `Frob071_crit_GE_EN_scans_20260611.zip`, a source-scan-backed German/English working draft for Frobenius item 071. The newest surface also prunes superseded duplicate packets to stay under Zenodo's 100-file limit; older Zenodo versions retain those files as provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- Latest Poincare tranche is `poincare_v1_19.zip`, a Tome I FR/EN working package through Chapter XI, with cumulative PDFs through source witness v1_0262 and next continuation at v1_0263 / Chapter XII. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-11 routed sweep consolidation includes Poincare v1_19, Kneser p0139-p0158, Frobenius 070 p016-p034, and `Frob071_crit_GE_EN_scans_20260611.zip`, a source-scan-backed German/English working draft for Frobenius item 071. The newest surface also prunes superseded duplicate packets where needed to stay under Zenodo's file limit; older Zenodo versions retain those files as provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 

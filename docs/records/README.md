@@ -28,4 +28,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Luigi Bianchi | 10 | 5 | 4 | 531.7 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20649956) |
 | Paul Gordan and Clebsch-Gordan | 24 | 0 | 23 | 1282.2 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20649946) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Additional Author Cluster | 86 | 10 | 76 | 4142.7 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20650182) |
+| Additional Author Cluster | 87 | 10 | 77 | 4349.9 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20650460) |
