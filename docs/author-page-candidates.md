@@ -27,7 +27,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 
 | Candidate | Why Hold |
 |---|---|
-| Sylvester | Large useful material exists, but the current public distinction between OCR candidates, source-checked slices, and cumulative readers should be cleaned before a dedicated page. |
+| Sylvester | Dedicated record is now cleaner through Volume I book page 608; continue from book page 609 and keep OCR/math-OCR witnesses distinct from source-checked cumulative readers. |
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
 | Kneser | Figure-source and text correction is now useful through p0111-p0122, including p0096-p0111 figure-source correction and p0111-p0122 figures 12-14 as editable TikZ, but the text still does not continue far enough for a dedicated author page. |
 | Poincare / Picard | Poincare Tome I now has v1_14 through Chapter V on the mixed additional-author shelf, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
