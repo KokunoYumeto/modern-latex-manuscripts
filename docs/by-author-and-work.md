@@ -80,7 +80,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20650182)
+Record: [Additional author cluster](https://zenodo.org/records/20650460)
 
 | Author | Current Public Surface |
 |---|---|
@@ -94,7 +94,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20650182)
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20649956) for current readers, auditfix ZIP, and A2 HQ/audit-continuation/provenance caveats. |
-| Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_18.zip`. |
+| Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_19.zip`, cumulative through Chapter XI with next continuation at v1_0263 / Chapter XII. |
 | Frobenius | Selected GE/EN critical packets through Frobenius 071, including the source-scan-backed working draft for `Theorie der hyperkomplexen Groessen II`; use package-level ledgers and source caveats. |
 | Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20649946) for Abel11-Abel15, AllPrior AuditFix01, and branch-specific auditfix packets. |
 | Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
