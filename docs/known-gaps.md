@@ -62,7 +62,7 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20650630>
+Current dedicated record: <https://zenodo.org/records/20651036>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
 - The 2026-06-11 public surface now includes `Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip` as the preferred A2 continuation layer through p0001-p0066. It restores the deferred section 10 opening on p0057 and completes sections 10-12. The p0001-p0057 audit-continuation and p0001-p0066 HQ package remain provenance/support layers.
