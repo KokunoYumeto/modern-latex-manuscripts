@@ -1,8 +1,6 @@
 # Zenodo Public Surface Audit
 
-Generated from public Zenodo file catalog on 2026-06-11.
-
-| Record | Files | PDFs | ZIPs | Total MB | Link |
+| record | files | pdfs | zips | total_mb | link |
 |---|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | workflow | 11 | 3 | 7 | 0.3274 | [record](https://zenodo.org/records/20650700) |
@@ -28,4 +26,6 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | bianchi | 11 | 5 | 5 | 738.5711 | [record](https://zenodo.org/records/20650630) |
 | gordan_clebsch_gordan | 25 | 0 | 24 | 1352.6456 | [record](https://zenodo.org/records/20650618) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 89 | 10 | 79 | 4572.6165 | [record](https://zenodo.org/records/20650780) |
+| additional_author_cluster | 90 | 10 | 80 | 4658.9463 | [record](https://zenodo.org/records/20650905) |
+
+Generated from manifests/public-file-catalog.csv after the latest Zenodo/GitHub sweep.
