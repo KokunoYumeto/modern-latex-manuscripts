@@ -44,7 +44,7 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 Weber: <https://zenodo.org/records/20641510>
 
-Noether: <https://zenodo.org/records/20641520>
+Noether: <https://zenodo.org/records/20643913>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch106 cover Volume II §§169-176 and extend the source/provenance trail beyond the earlier §144-168 support packets. The next continuation point follows Volume II §176 at source p643.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
@@ -88,11 +88,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20641458>
+Current record: <https://zenodo.org/records/20642082>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Latest Poincare tranche v1_10 is the current routed Tome I French/English cumulative package, through Chapter I after the second-thesis material, with Chapter II as the next continuation point. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-10 routed sweep consolidation includes Poincare v1_13, Bianchi/Gordan/Steinitz backstop copies, Frobenius/Kneser/Mikami/Kronecker/Picard and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- Latest Poincare tranche v1_14 is the current routed Tome I French/English cumulative package, through Chapter V after the second-thesis material, with Chapter VI as the next continuation point. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-11 routed sweep consolidation includes Poincare v1_14, Bianchi/Gordan/Steinitz backstop copies, Frobenius/Kneser/Mikami/Kronecker/Picard and earlier related packets. These are package-audited working/source-checked tranches according to their own internal audits, not whole-cluster final editions. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
