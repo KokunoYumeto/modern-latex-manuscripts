@@ -28,3 +28,4 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | gordan_clebsch_gordan | 22 | 0 | 21 | 1197.3213 | [record](https://zenodo.org/records/20645705) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
 | additional_author_cluster | 98 | 10 | 86 | 4505.282 | [record](https://zenodo.org/records/20646309) |
+| gibbs_old_physics | 10 | 3 | 3 | 18.6216 | [record](https://zenodo.org/records/20649836) |

@@ -38,6 +38,7 @@ RECORD_ORDER = [
     "historical_references",
     "classical_algebra_arithmetic",
     "sylvester",
+    "gibbs_old_physics",
     "dedekind",
     "dirichlet",
     "bianchi",
@@ -66,6 +67,7 @@ DISPLAY_NAMES = {
     "historical_references": "Historical Reference Witnesses",
     "classical_algebra_arithmetic": "Classical Algebra and Arithmetic",
     "sylvester": "James Joseph Sylvester",
+    "gibbs_old_physics": "J. Willard Gibbs / Old Physics",
     "dedekind": "Richard Dedekind",
     "dirichlet": "P. G. Lejeune Dirichlet",
     "bianchi": "Luigi Bianchi",
@@ -99,6 +101,9 @@ RECORD_NOTES = {
     ],
     "sylvester": [
         "Dedicated Sylvester working-edition split. This record now has a top-level reader and source/index package for Volume I through book page 608. The newest tranche covers book pp.595-608 and completes Papers 59-60; the package audit reports no screenshot substitutions, no placeholders, no includegraphics in the new range, and TeX arrays for the Ferrers partition arrays and ternary-period table. Next continuation starts at book page 609, Paper 61. These are source-checked working editions, not final critical editions; OCR/math-OCR witnesses remain locator/check aids rather than source authority.",
+    ],
+    "gibbs_old_physics": [
+        "Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-124: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.124.",
     ],
     "sga": [
         "Current caveat from the 2026-06-11 SGA repairs: SGA5 French is carried through repair015, with repair014 carried forward and three source-verified minor dispositions recorded as TeX comments only. English remains an unsynchronized carry-forward, not a synchronized branch. SGA6 repair002 restores or repairs material around source pp.386, 388-389, 429-430, 436, 557-558, and 643-644, but the supplied full-audit lane still reports 127 of 524 sampled source prose windows missing from current SGA6 TeX, especially around pp.380-450 and 580-670. Treat SGA6 and SGA7 as substantial working drafts with explicit compression caveats unless a specific packet declares source-checked coverage. Witness-aid ZIPs are source-witness/anchor aids, not authority by themselves.",

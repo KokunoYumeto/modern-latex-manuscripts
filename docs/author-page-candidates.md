@@ -16,18 +16,19 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Luigi Bianchi | Vol. I Italian/English working edition now has a dedicated record with reader PDFs, source scan witness, and TeX/auditfix ZIP. |
 | Paul Gordan and Clebsch-Gordan | Abelsche Functionen, De linea geodetica, Formensystem, and theta packets now have a dedicated working-edition record. |
 | Ernst Steinitz | Package-audited German/English working packets now have a dedicated record, covering 1910 fields, 1913/1914 Bedingt material, and strict early works, with later gaps explicitly labelled. |
+| James Joseph Sylvester | Volume I now has a dedicated source-checked working-edition record through book page 608. |
+| J. Willard Gibbs / old physics | Gibbs Volume I old-physics working tranches through printed page 124 now have a dedicated record. |
 
 ## Strong Split Candidates
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
-| Maxwell / old physics | Compact source-checked working deltas now run continuously through a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, with explicit source witnesses and page-boundary caveats. | Old physics / Maxwell source-checked working drafts. |
+| Maxwell / old physics | Compact source-checked working deltas now cover a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, but the broad draft still has figure/table gaps and OCR-derived regions. | Old physics / Maxwell source-checked working drafts once a cleaner reader rollup exists. |
 
 ## Hold Until Cleaner Rollup
 
 | Candidate | Why Hold |
 |---|---|
-| Sylvester | Dedicated record is now cleaner through Volume I book page 608; continue from book page 609 and keep OCR/math-OCR witnesses distinct from source-checked cumulative readers. |
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
 | Kneser | Figure-source and text correction is now useful through p0111-p0122, including p0096-p0111 figure-source correction and p0111-p0122 figures 12-14 as editable TikZ, but the text still does not continue far enough for a dedicated author page. |
 | Poincare / Picard | Poincare Tome I now has v1_14 through Chapter V on the mixed additional-author shelf, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
