@@ -28,7 +28,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Luigi Bianchi | <https://zenodo.org/records/20649956> |
 | Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20649946> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
-| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20650460> |
+| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20650532> |
 
 ## File Types
 
