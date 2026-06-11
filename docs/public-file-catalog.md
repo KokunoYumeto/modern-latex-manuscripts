@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 969
+Total files indexed: 971
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -998,51 +998,53 @@ Record: <https://zenodo.org/records/20586064>
 
 ## Luigi Bianchi: Modern LaTeX Working Editions and Source-Intake Witnesses
 
-Record: <https://zenodo.org/records/20649956>
+Record: <https://zenodo.org/records/20650630>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20649956/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
-| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20649956/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
-| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20649956/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
-| reader/reference PDF | 0.4351 | [03 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - English Working Translation.pdf](https://zenodo.org/records/20649956/files/03%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20English%20Working%20Translation.pdf) |
-| reader/reference PDF | 0.4310 | [04 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - Italian Source Transcription.pdf](https://zenodo.org/records/20649956/files/04%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20Italian%20Source%20Transcription.pdf) |
-| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20649956/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
-| manifest/status | 0.0008 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20649956/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 173.2165 | [Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip](https://zenodo.org/records/20649956/files/Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip) |
-| artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20649956/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
-| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20649956/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
+| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20650630/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
+| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20650630/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
+| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20650630/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
+| reader/reference PDF | 0.4351 | [03 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - English Working Translation.pdf](https://zenodo.org/records/20650630/files/03%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20English%20Working%20Translation.pdf) |
+| reader/reference PDF | 0.4310 | [04 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - Italian Source Transcription.pdf](https://zenodo.org/records/20650630/files/04%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20Italian%20Source%20Transcription.pdf) |
+| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20650630/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
+| manifest/status | 0.0008 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20650630/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 173.2165 | [Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip](https://zenodo.org/records/20650630/files/Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip) |
+| artifact/source ZIP | 206.9177 | [Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20650630/files/Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip) |
+| artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20650630/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
+| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20650630/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
 
 ## Paul Gordan and Clebsch-Gordan: Source-Checked LaTeX and Translation Working Drafts
 
-Record: <https://zenodo.org/records/20649946>
+Record: <https://zenodo.org/records/20650618>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0010 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20649946/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20649946/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20649946/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20649946/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
-| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20649946/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
-| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20649946/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
-| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20649946/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
-| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20649946/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
-| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20649946/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
-| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20649946/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
-| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20649946/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
-| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20649946/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
-| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_AuditFix_theta_form_20260609.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20649946/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20649946/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20649946/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20649946/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20649946/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
+| manifest/status | 0.0010 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20650618/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20650618/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20650618/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20650618/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
+| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20650618/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
+| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20650618/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
+| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20650618/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
+| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20650618/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
+| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20650618/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
+| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20650618/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20650618/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
+| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20650618/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
+| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20650618/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
+| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_AuditFix_theta_form_20260609.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20650618/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20650618/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20650618/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20650618/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20650618/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 

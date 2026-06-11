@@ -62,19 +62,19 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20649956>
+Current dedicated record: <https://zenodo.org/records/20650630>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
-- The 2026-06-11 public surface includes the preferred A2 audit-continuation layer through p0001-p0057; it supersedes the earlier p0001-p0050 auditfix for overlapping pages.
+- The 2026-06-11 public surface now includes `Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip` as the preferred A2 continuation layer through p0001-p0066. It restores the deferred section 10 opening on p0057 and completes sections 10-12. The p0001-p0057 audit-continuation and p0001-p0066 HQ package remain provenance/support layers.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
 - A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality Italian/English working start through source p0001-p0066, about 9 percent of the 731-page source. It covers sections 1-12; section 13 starts at the lower part of p0066 and continues on p0067, so that handoff is deliberate. A2 is not complete.
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20649946>
+Current dedicated record: <https://zenodo.org/records/20650618>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation packages are `Gordan_Abel11_p162_173_DE_EN_20260611.zip` through `Gordan_Abel15_p203_217_DE_EN_20260611.zip`, extending Abelsche Functionen through source p217. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14 and Abel15 continue p194-p217. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel16_p218_227_DE_EN_20260611.zip`, extending Abelsche Functionen through source p227 / printed p205. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14 and Abel15 continue p194-p217. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-217 coverage statement.
 
