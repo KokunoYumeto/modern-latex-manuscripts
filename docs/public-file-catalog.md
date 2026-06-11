@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 966
+Total files indexed: 964
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -929,15 +929,13 @@ Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained
 
 ## James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions
 
-Record: <https://zenodo.org/records/20586907>
+Record: <https://zenodo.org/records/20649689>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0008 | [90 Sylvester - Public Summary.json](https://zenodo.org/records/20586907/files/90%20Sylvester%20-%20Public%20Summary.json) |
-| reader/reference PDF | 2.2721 | [Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 576.pdf](https://zenodo.org/records/20586907/files/Sylvester%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Edition%20through%20Book%20Page%20576.pdf) |
-| artifact/source ZIP | 86.1330 | [Sylvester_source_and_manifest_through_book_page_576_20260607.zip](https://zenodo.org/records/20586907/files/Sylvester_source_and_manifest_through_book_page_576_20260607.zip) |
-| artifact/source ZIP | 86.1330 | [Sylvester_Vol1_pp001_576_with_scans_idx_20260607.zip](https://zenodo.org/records/20586907/files/Sylvester_Vol1_pp001_576_with_scans_idx_20260607.zip) |
-| artifact/source ZIP | 90.0527 | [Sylvester_Vol1_pp001_594_with_scans_idx_20260607.zip](https://zenodo.org/records/20586907/files/Sylvester_Vol1_pp001_594_with_scans_idx_20260607.zip) |
+| manifest/status | 0.0008 | [90 Sylvester - Public Summary.json](https://zenodo.org/records/20649689/files/90%20Sylvester%20-%20Public%20Summary.json) |
+| reader/reference PDF | 2.4204 | [Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 608.pdf](https://zenodo.org/records/20649689/files/Sylvester%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Edition%20through%20Book%20Page%20608.pdf) |
+| artifact/source ZIP | 89.4409 | [Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip](https://zenodo.org/records/20649689/files/Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip) |
 
 ## Richard Dedekind: Source-Checked Editions and English Translations
 

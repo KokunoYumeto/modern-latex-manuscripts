@@ -36,7 +36,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Islamic and Arabic texts](https://zenodo.org/records/20415770) | 19 | 17 | 1 | 46 MB | Current Islamic/Arabic mathematical texts shelf. |
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
-| [Sylvester](https://zenodo.org/records/20586907) | 5 | 1 | 3 | 265 MB | Sylvester working-draft/provenance shelf. |
+| [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-checked working edition through book page 608; Papers 59-60 complete in the latest tranche, next continuation p.609. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20645719) | 10 | 5 | 4 | 492 MB | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543; A2 has a high-quality p0001-p0066 branch plus a newer auditfix p0001-p0050 correction layer, while the full A2 work is still incomplete. |

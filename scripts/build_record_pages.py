@@ -97,6 +97,9 @@ RECORD_NOTES = {
     "classical_algebra_arithmetic": [
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material, so Cayley filenames containing `Source-Checked` should be read as obsolete package names rather than a current quality claim. Use the dedicated Cayley record for the latest warning/status.",
     ],
+    "sylvester": [
+        "Dedicated Sylvester working-edition split. This record now has a top-level reader and source/index package for Volume I through book page 608. The newest tranche covers book pp.595-608 and completes Papers 59-60; the package audit reports no screenshot substitutions, no placeholders, no includegraphics in the new range, and TeX arrays for the Ferrers partition arrays and ternary-period table. Next continuation starts at book page 609, Paper 61. These are source-checked working editions, not final critical editions; OCR/math-OCR witnesses remain locator/check aids rather than source authority.",
+    ],
     "sga": [
         "Current caveat from the 2026-06-11 SGA repairs: SGA5 French is carried through repair015, with repair014 carried forward and three source-verified minor dispositions recorded as TeX comments only. English remains an unsynchronized carry-forward, not a synchronized branch. SGA6 repair002 restores or repairs material around source pp.386, 388-389, 429-430, 436, 557-558, and 643-644, but the supplied full-audit lane still reports 127 of 524 sampled source prose windows missing from current SGA6 TeX, especially around pp.380-450 and 580-670. Treat SGA6 and SGA7 as substantial working drafts with explicit compression caveats unless a specific packet declares source-checked coverage. Witness-aid ZIPs are source-witness/anchor aids, not authority by themselves.",
     ],
