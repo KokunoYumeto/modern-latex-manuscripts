@@ -7,7 +7,7 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | workflow | 11 | 3 | 7 | 0.3274 | [record](https://zenodo.org/records/20650700) |
 | noether | 99 | 90 | 8 | 949.6987 | [record](https://zenodo.org/records/20643913) |
-| weber | 35 | 8 | 24 | 786.8418 | [record](https://zenodo.org/records/20650399) |
+| weber | 36 | 8 | 25 | 810.4499 | [record](https://zenodo.org/records/20650823) |
 | cayley | 84 | 13 | 69 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
 | sga | 95 | 74 | 20 | 2644.8712 | [record](https://zenodo.org/records/20650065) |
 | deligne | 100 | 96 | 3 | 448.2286 | [record](https://zenodo.org/records/20617786) |

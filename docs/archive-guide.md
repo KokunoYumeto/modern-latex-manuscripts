@@ -13,7 +13,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | Workflow and replication notes | <https://zenodo.org/records/20650700> |
 | Emmy Noether | <https://zenodo.org/records/20643913> |
-| Heinrich Weber | <https://zenodo.org/records/20650399> |
+| Heinrich Weber | <https://zenodo.org/records/20650823> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
 | SGA source and English translation drafts | <https://zenodo.org/records/20650065> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
