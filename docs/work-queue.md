@@ -8,10 +8,10 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20414353) |
 | EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20414353) |
-| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20646328) |
-| SGA | Continue SGA5/SGA6 repair after repair015: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the SGA6 late-region compression clusters flagged around pp.380-450 and 580-670. | [SGA record](https://zenodo.org/records/20646328) |
-| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20646328) |
-| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20646320) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20650065) |
+| SGA | Continue SGA5/SGA6 repair after repair016: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the SGA6 dense-cluster lanes around pp.388-460 and 571-680. | [SGA record](https://zenodo.org/records/20650065) |
+| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20650065) |
+| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20650080) |
 | Noether | Continue source checking and multilingual translation branches from the numbered-paper corpus. | [Noether record](https://zenodo.org/records/20643913) |
 
 ## Highest-Value Typesetting And Source-Check Work

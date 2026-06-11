@@ -22,11 +22,11 @@ Current record: <https://zenodo.org/records/20414353>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20646328> (concept DOI: <https://doi.org/10.5281/zenodo.20641485>)
+Current record: <https://zenodo.org/records/20650065> (concept DOI: <https://doi.org/10.5281/zenodo.20641485>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
-- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest promoted repair package is `sga5_sga6_repair015_20260611.zip`: SGA5 carries the repair014 state forward with three source-verified minor dispositions recorded as TeX comments only, while SGA6 repair002 restores selected displayed/prose blocks. English remains an unsynchronized carry-forward, not a synchronized branch. Remaining risk is global rather than solved: SGA6 still has substantial late-region compression flags, and SGA5/SGA6 still need full diagram/exact-symbol inventory, underlined-operator typography outside patched lanes, diagram microgeometry checking, and English synchronization. The SGA witness-aid ZIPs are witness/anchor aids, not promoted replacement text.
+- SGA5 is now represented by a substantial cumulative French/English working surface, but it is not yet a scribe-grade complete edition. The latest promoted repair package is `sga5_sga6_repair016_20260611.zip`: SGA5 carries the prior French repair state forward with an internal source-erratum comment for a blank citation, while SGA6 repair003 restores Expose VI source pp.372-387 in French from source scans. English remains an unsynchronized carry-forward, not a synchronized branch. Remaining risk is global rather than solved: SGA6 still has substantial late-region compression flags, dense-cluster lanes pp.388-460 and pp.571-680 remain open, and SGA5/SGA6 still need full diagram/exact-symbol inventory, underlined-operator typography outside patched lanes, diagram microgeometry checking, and English synchronization. The SGA witness-aid ZIPs are witness/anchor aids, not promoted replacement text.
 - SGA6 is structurally covered across source pages 001-702, but the 2026-06-08 nuclear audit found localized substantive compression/omission candidates. Confirmed/strong pages include 014, 431, 625, and 679; repair should start with p014 and clusters 423-454, 619-653, and 670-692.
 - SGA7 material should be treated as especially provisional unless a specific packet says otherwise. The likely weak point is not just typography but source compression: sections can look readable while silently omitting local mathematical detail.
 - SGA 4 Expose VI should continue from section 1.22.
@@ -42,11 +42,11 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20646320>
+Weber: <https://zenodo.org/records/20650080>
 
 Noether: <https://zenodo.org/records/20643913>
 
-- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch116 cover Volume II §§169-176 plus recursive repairs including Vol. I §151 and Vol. II §§20, 21, 58, 61, 99, 118, 126. Batch116 reports 101 open priority repair rows. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
+- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch118 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 183 and Vol. II §§20, 21, 52, 57, 58, 60, 61, 99, 118, 126. Batch118 reports 97 open priority repair rows. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
 - Noether currently has the numbered German/English corpus and active Spanish/Japanese/French/Simplified-Chinese branches. The public Noether record is refreshed through `N_FRZH_Papers16_19s02_combined_20260610.zip`, which advances the French/zh-Hans stream through Paper 19 §2 and records scan-correction/backfill notes including the Paper 17 basis correction and Paper 19 footnote-10 restoration. These FR/ZH files remain checkpoint streams, not complete corpora.
 - Both author records need continued translation, source comparison, and final proofing.

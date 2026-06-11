@@ -13,9 +13,9 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | Workflow and replication notes | <https://zenodo.org/records/20641449> |
 | Emmy Noether | <https://zenodo.org/records/20643913> |
-| Heinrich Weber | <https://zenodo.org/records/20646320> |
+| Heinrich Weber | <https://zenodo.org/records/20650080> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
-| SGA source and English translation drafts | <https://zenodo.org/records/20646328> |
+| SGA source and English translation drafts | <https://zenodo.org/records/20650065> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20414353> |
 | Ukrainian applied mathematics | <https://zenodo.org/records/20490906> |
