@@ -1,0 +1,261 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{french}
+\setmainfont{DejaVu Serif}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\divisor}{div}
+\newcommand{\C}{\mathbf C}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\Gm}{\mathbf G_m}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\DD}{\mathcal D}
+\newcommand{\LL}{\mathcal L}
+\newcommand{\FF}{\mathcal F}
+\newcommand{\GG}{\mathcal G}
+\newcommand{\TT}{\mathcal T}
+\newcommand{\tors}{\operatorname{tors}}
+\newcommand{\dlog}{d\log}
+\begin{document}
+
+\begin{center}
+ {\Large The Tame Symbol}\par
+ \vspace{0.5em}
+ {Pierre Deligne}\par
+\end{center}
+
+\noindent\textbf{Working English translation.} This is a faithful mathematical working translation preserving the article's numbered structure, formulas, and constructions. The accompanying French TeX layer is a cleaned working alignment layer.
+
+\section*{1. Introduction}
+
+Let $f$ and $g$ be two meromorphic functions on a Riemann surface $S$. The \emph{tame symbol} of $f$ and $g$ at $x\in S$ is
+\begin{equation}\tag{1.1}
+ (f,g)_x=(-1)^{v_x(f)v_x(g)}\left(\frac{f^{v_x(g)}}{g^{v_x(f)}}\right)(x),
+\end{equation}
+where $v_x(f)$ denotes the valuation of $f$ at $x$, namely the order of the zero, or the negative of the order of the pole. The quotient appearing in (1.1) has valuation zero and hence can be evaluated at $x$. The definition is due to J. Tate; in the language of local symbols for the multiplicative group it gives, for compact $S$, the product formula
+\begin{equation}\tag{1.2}
+ \prod_{x\in S}(f,g)_x=1,
+\end{equation}
+where almost all factors are equal to $1$. This generalizes Weil reciprocity
+\[
+ f(\operatorname{div} g)=g(\operatorname{div} f)
+\]
+for functions with disjoint divisors. If $K$ is the fraction field of a discrete valuation ring with residue field $k$, formula (1.1) still defines a pairing
+\[
+ K^*\otimes K^*\longrightarrow k^*,
+\]
+and, up to sign, this map can be interpreted in $K$-theory as the composite of the product $K_1(K)\otimes K_1(K)\to K_2(K)$ with the boundary $K_2(K)\to K_1(k)$.
+
+Let $D$ be the region in $\C$ bounded by a $C^\infty$ curve $\Gamma$, and let $f,g$ be meromorphic functions on a neighbourhood of $D$, without zeros or poles on $\Gamma$. The starting point of this article was a formula expressing
+\[
+ \prod_{x\in D}(f,g)_x
+\]
+as the monodromy along $\Gamma$ of a flat line bundle on $\Gamma$ defined by the restrictions of $f$ and $g$ to $\Gamma$. Concretely, this is an integral formula for that product.
+
+Following a suggestion of O. Gabber, the essential point is the construction, in the derived category of sheaves of abelian groups on a Riemann surface $S$, of a morphism of degree one
+\begin{equation}\tag{1.3}
+ \OO^*\overset L\otimes\OO^*\longrightarrow \C^*[1].
+\end{equation}
+This morphism is given by an explicit formula at the level of complexes resolving $\OO^*$ and $\C^*$. It therefore has a local interpretation: to two invertible holomorphic functions $f$ and $g$ it attaches a $\C^*$-torsor, equivalently a flat line bundle, denoted $(f,g)$.
+
+In arbitrary dimension there is an analogous morphism, with values in the complex
+\[
+ \OO^*\xrightarrow{d\log}\Omega^1,
+\]
+which is quasi-isomorphic to $\C^*$ in dimension one but not in higher dimension. It attaches to two invertible holomorphic functions $f,g$ a line bundle $(f,g)$ with connection, not necessarily integrable. In fact this morphism is the one defining the product in Beilinson-Deligne cohomology, $\Z(1)\otimes\Z(1)\to\Z(2)$; the corresponding interpretation in terms of Hodge theory is described in Section 3.
+
+The same constructions exist on $C^\infty$ manifolds, where $\OO^*$ is replaced by the sheaf of invertible $C^\infty$ functions and $\OO^*\to\Omega^1$ by its differentiable analogue. Less regularity is also possible.
+
+For a commutative complex analytic group $G$, (1.3) admits the generalization
+\begin{equation}\tag{1.4}
+ \OO^*\overset L\otimes G(\OO)\longrightarrow G[1],
+\end{equation}
+which attaches a flat $G$-torsor $(f,g]$ to an invertible holomorphic function $f$ and a holomorphic map $g$ with values in $G$ on a Riemann surface. Its monodromy is analogous to the local symbols of class field theory. In particular, if $\LL$ is an invertible sheaf trivialized at infinity and $g$ is a holomorphic map to $G$, one obtains a symbol $(\LL,g]\in G$ with $(\OO(x),g]=g(x)$.
+
+For the circle $S^1$, the map
+\[
+ (f,g)\longmapsto \operatorname{monodromy}(f,g)
+\]
+identifies, in a sense made precise below, the multiplicative group of invertible functions on $S^1$ with its own Cartier dual. This autoduality is skew-symmetric. It is an analytic analogue of the Contou-Carrere result that the functor sending a commutative ring $A$ to $(A[[T]][T^{-1}])^*$ is its own Cartier dual. A twisted version with coefficients in a local system of free finite-rank $\Z$-modules on $S^1$ is also proved.
+
+If $S$ is a Riemann surface with boundary a circle, the boundary values of invertible holomorphic functions form a maximal isotropic subspace of the group of invertible smooth functions on the boundary. Variants are proved for several boundary circles and for local systems. These results are parallel to the autoduality of the Jacobian, and of Prym varieties.
+
+Throughout, Tate twists such as $\Z(1)=2\pi i\Z$ are needed to make the statements natural and independent of the choice of a square root $i$ of $-1$ in $\C$.
+
+The last section applies these tools to a preliminary construction needed for holomorphic conformal field theories attached to certain orbifolds of the form ``torus modulo a finite group''. Let $B$ be an even positive definite bilinear form on $\Z^n$, and let $S$ be an oriented circle. From $B$ and an auxiliary datum one obtains a central extension of the group of smooth maps $S\to\mathbf R^n/\Z^n$ by $\C^*$, and a compatibility with gluing along surfaces with boundary.
+
+\section{The main construction}
+
+Let $X$ be a complex analytic variety. We write $\OO$ for the sheaf of holomorphic functions, $\OO^*$ for the invertible functions, and $G(\OO)$ for the sheaf of holomorphic maps to a commutative complex Lie group $G$. The exponential sequence for $G$ is written in the form
+\begin{equation}\tag{2.1.1}
+ 0\longrightarrow G(\C)\longrightarrow G(\OO)\xrightarrow{d\log}\Omega^1\otimes\Lie(G)\longrightarrow 0
+\end{equation}
+when $X$ is one-dimensional and $G$ is locally represented in logarithmic coordinates.
+
+For a complex $[A\to B]$ placed in degrees $n,n+1$ we write $[A\to B]_n$. The fundamental morphism is obtained from the elementary formula
+\begin{equation}\tag{2.2.1}
+ [\OO^*\to\Omega^1]_0\overset L\otimes G(\OO)
+ \longrightarrow G[1].
+\end{equation}
+At the level of local logarithms, it is given by the expression
+\begin{equation}\tag{2.2.2}
+ (f,g)\longmapsto \exp\left(\frac{1}{2\pi i}\int \log(f)\,d\log(g)\right),
+\end{equation}
+with the usual correction terms on overlaps. Passing to cohomology, (2.2.1) gives a product
+\begin{equation}\tag{2.3.1}
+ H^i(X,\OO^*)\times H^j(X,G(\OO))\longrightarrow H^{i+j+1}(X,G).
+\end{equation}
+For $i=j=0$ this attaches to local functions $f,g$ the torsor $(f,g]$.
+
+The construction may be written using Cech cocycles. Let $\{U_i\}$ be an open cover, choose branches $\log f_i$ of $f$, and represent $g$ locally. The change of branch $\log f_i-\log f_j\in2\pi i\Z$ supplies the transition functions of a $G$-torsor by applying these integral changes to the periods of $g$. This Cech description is often more explicit than the derived-category one, but it is the same construction.
+
+On a $C^\infty$ manifold the construction is identical after replacing holomorphic functions by smooth invertible functions and holomorphic differentials by smooth one-forms. For a Riemann surface $S$, since $[\OO^*\to\Omega^1]$ is quasi-isomorphic to $\C^*$, the construction becomes a pairing
+\begin{equation}\tag{2.6.1}
+ \OO^*\overset L\otimes G(\OO)\longrightarrow G[1]
+\end{equation}
+which yields flat torsors.
+
+Let $x\in S$, let $f$ be invertible on $S-\{x\}$ with prescribed divisor at $x$, and let $g:S-\{x\}\to G$. The monodromy of $(f,g]$ around $x$ is the local symbol. For $G=\Gm$ it is the tame symbol (1.1). For $G=\mathbf G_a$ one obtains the residue pairing
+\begin{equation}\tag{2.8.1}
+ (f,g]_x=\operatorname{res}_x(g\,d\log f).
+\end{equation}
+For $G=\Gm$ we write $(f,g)$ instead of $(f,g]$. The symbol is bimultiplicative and satisfies the product formula on compact Riemann surfaces.
+
+Let $\LL$ be an invertible sheaf on $S$ trivialized at infinity. Applying the construction to a divisor representing $\LL$ gives a global symbol
+\begin{equation}\tag{2.10.1}
+ (\LL,g]\in G,
+\end{equation}
+characterized by $(\OO(x),g]=g(x)$ and by multiplicativity in divisors. The case of cohomology with compact support gives a parallel construction when $i=j=1$.
+
+There is also a relative version. For a family of Riemann surfaces and holomorphic functions varying over a base, the torsors $(f,g]$ vary functorially and are compatible with base change. The local monodromy formula survives in families.
+
+\section{The case of the multiplicative group}
+
+Take $G=\Gm$. The product (2.2.1) becomes the product in Deligne-Beilinson cohomology
+\begin{equation}\tag{3.1.1}
+ \Z(1)_{\mathcal D}\overset L\otimes \Z(1)_{\mathcal D}\longrightarrow \Z(2)_{\mathcal D},
+\end{equation}
+where $\Z(1)=2\pi i\Z$ and $\Z(2)=(2\pi i)^2\Z$. Explicitly, the line bundle with connection $(f,g)$ is represented locally by logarithms of $f$ and $g$ and by the connection one-form
+\begin{equation}\tag{3.1.2}
+ \nabla=d+\frac{1}{2\pi i}\log(f)\,d\log(g).
+\end{equation}
+When $X$ is a Riemann surface the connection is flat and its monodromy is the tame symbol.
+
+The Cech formula reads as follows. Choose logarithms $u_i=\log f$ and $v_i=\log g$ on $U_i$. On intersections the differences $u_i-u_j$ and $v_i-v_j$ lie in $2\pi i\Z$. The transition functions of $(f,g)$ and the local connection forms are assembled from
+\begin{equation}\tag{3.2.1}
+ \frac{1}{2\pi i}u_i\,dv_i,
+\qquad
+ \exp\left(\frac{1}{2\pi i}(u_i-u_j)v_j\right),
+\end{equation}
+with the standard cocycle correction on triple intersections. The same formula with parameters gives the relative torsor.
+
+The construction is bimultiplicative. There are canonical isomorphisms
+\begin{align}\tag{3.7.1}
+ (f_1f_2,g)&\simeq (f_1,g)\otimes(f_2,g),\\
+ (f,g_1g_2)&\simeq (f,g_1)\otimes(f,g_2).
+\end{align}
+It is skew-symmetric in the sense that there is a canonical isomorphism
+\begin{equation}\tag{3.8.1}
+ (f,g)\otimes(g,f)\simeq \mathbf 1.
+\end{equation}
+For $f=-1$ the canonical trivialization in (3.8.1) must be treated with the sign convention encoded in the Tate twist; otherwise one misses the contribution of the chosen square root of $-1$.
+
+By bilinearity, one may extend $(f,g)$ to sections of a local system. Let $A$ be a local system of free finite-rank $\Z$-modules, $B:A\otimes A\to\Z$ a bilinear form, and let $f$ be a section of $\OO^*\otimes A$. The expression
+\begin{equation}\tag{3.10.1}
+ (f,f)_B
+\end{equation}
+is defined by combining the pairings of the components with coefficients given by $B$. If $B$ is symmetric and even, the construction is independent of ordering. If $B$ is symmetric but not necessarily even, the parity term
+\begin{equation}\tag{3.11.1}
+ B(x,x)\pmod 2
+\end{equation}
+controls the additional sign.
+
+Let $S$ be an oriented circle and $A$ a local system of free finite-rank $\Z$-modules on $S$. Choosing $i\in\C$ identifies $\Z$ with $\Z(1)$ by $1\mapsto 2\pi i$. The exponential sequence gives exact sequences of sheaves on $S$:
+\begin{align}\tag{3.13.1}
+ 0&\longrightarrow A\longrightarrow \CC^\infty\otimes A\xrightarrow{\exp(2\pi i\,\cdot)}(\CC^\infty)^*\otimes A\longrightarrow0,\\
+ 0&\longrightarrow A\longrightarrow \CC\otimes A\longrightarrow \C^*\otimes A\longrightarrow0.
+\end{align}
+These sequences will be used in the duality theorem of Section 4.
+
+\section{Duality}
+
+This section gives analytic analogues of the autoduality of the Jacobian and of the Contou-Carrere symbol. For an oriented $C^\infty$ circle $S$ the exponential sequence
+\begin{equation}\tag{4.1.1}
+ 0\longrightarrow 2\pi i\Z\longrightarrow\OO\xrightarrow{\exp}\OO^*\longrightarrow0
+\end{equation}
+and the complex
+\begin{equation}\tag{4.1.2}
+ 0\longrightarrow\C^*\longrightarrow\OO^*\xrightarrow{d\log}\Omega^1\longrightarrow0
+\end{equation}
+identify the group of smooth invertible functions, up to the correct completion, with its Cartier dual.
+
+More generally, for a local system $A$ of free $\Z$-modules, the pairing of Section 3 gives a perfect pairing between the group of invertible smooth functions with values in $A$ and the corresponding dual group with values in $A^\vee(1)$. The duality is skew-symmetric and functorial in $A$.
+
+One treats the relevant cohomology groups as topological abelian groups. For a locally convex topological vector space the dual means the continuous character group. Exactness is understood in the topological sense. The pairings are computed by integrating logarithms and logarithmic differentials along the circle; in a local coordinate $x$ one encounters expressions of the form
+\begin{equation}\tag{4.6.1}
+ \int_S a(x)\,d\log f(x)
+\end{equation}
+and, for the skew form, expressions of the form
+\begin{equation}\tag{4.6.2}
+ \int_S \log f\,d\log g.
+\end{equation}
+
+If $A$ is a local system on $S$, the exact sequence
+\begin{equation}\tag{4.7.1}
+ 0\to H^0(S,A)\to H^0(S,\OO\otimes A)\to H^0(S,\Omega^1\otimes A)\to H^1(S,A)\to0
+\end{equation}
+serves to write the pairing explicitly and to show its non-degeneracy. In the basic example $S=U(1)$ and $A=\Z$, the group of invertible smooth functions decomposes into winding number and exponentials of smooth functions; the duality exchanges these two parts as expected.
+
+Let $S$ now be a compact Riemann surface with boundary. Boundary values of holomorphic invertible functions form an isotropic subgroup for the boundary pairing. The image is maximal isotropic. This is the analytic counterpart of the assertion that the Jacobian of a compact Riemann surface is principally polarized.
+
+With coefficients in a local system $A$, and a positive definite bilinear form $B$ on $A$, the boundary pairing is written
+\begin{equation}\tag{4.16.1}
+ \langle f,g\rangle_B=(f,g)_B.
+\end{equation}
+The proof shows that $\log(f,f)_B$ is the $L^2$-norm of a harmonic representative. Hence for positive definite $B$ the corresponding isotropic condition is also a positivity statement. For the annulus one obtains a Fourier-expansion model: if the two boundary components are related by the modulus of the annulus, the pairing is expressed as a convergent sum over Fourier modes.
+
+\section{Construction of central extensions}
+
+Let $S$ be a compact Riemann surface with boundary and $A$ a local system on $S$ endowed with an even positive definite symmetric bilinear form $B$. The objective is to construct central extensions of groups of boundary values by $\C^*$, using the torsors and gerbes associated with the symbol.
+
+We use the language of torsors and gerbes. A $G$-torsor is a sheaf locally isomorphic to $G$ with its simply transitive $G$-action. A gerbe banded by $G$ is a stack locally non-empty and locally connected, with automorphism group $G$; it represents classes in $H^2(-,G)$. The torsor associated with $(f,g)$ is thus the $H^1$ incarnation of the symbol, and the gerbe construction is its $H^2$ analogue.
+
+A central extension of a sheaf of groups $L$ by $G$ is a $G$-torsor over $L$ equipped with a multiplication lifting that of $L$, with $G$ central. Equivalently, it is given locally by a two-cocycle, with the usual coboundary equivalence. In categorical language, the same data are encoded by a gerbe with a compatible group law.
+
+Following an idea of Grothendieck, the auxiliary data needed to construct the extension are kept in a sheaf $\mathcal H^*$. A section consists of a lattice with bilinear form and of the choices required to make the signs and Tate twists coherent. If $k=(\C,s)$ is such an auxiliary datum, one defines an extension
+\begin{equation}\tag{5.12.1}
+ 1\longrightarrow\C^*\longrightarrow\widetilde L_k\longrightarrow L\longrightarrow1.
+\end{equation}
+The construction is local on the boundary and compatible with restriction to boundary components.
+
+If $k'= (A',B')$ and $k''=(A'',B'')$ are two data, the extension associated with $k'+k''$ is obtained from those associated with $k'$ and $k''$ by the contracted product. The commutator in the extension is the symbol obtained from the boundary pairing:
+\begin{equation}\tag{5.16.1}
+ [\tilde f,\tilde g]=(f,g)_B.
+\end{equation}
+For a circle lying on the boundary of a surface, the data of Section 5.1 therefore provide a central extension of the boundary loop group. These extensions are the analytic input for the construction of holomorphic conformal field theories attached to torus orbifolds.
+
+\begin{thebibliography}{9}
+\bibitem{BD} A. Beilinson, Higher regulators and values of $L$-functions.
+\bibitem{Giraud} J. Giraud, Cohomologie non abelienne.
+\bibitem{Tate} J. Tate, Residues of differentials on curves.
+\end{thebibliography}
+
+\end{document}

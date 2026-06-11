@@ -1,0 +1,192 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.15in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french,english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{tikz-cd}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.35em}
+
+\title{Quelques idées maîtresses de l'œuvre de A. Grothendieck}
+\author{Pierre Deligne}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Cet article tente d'expliquer quatre concepts mathématiques fondamentaux créés par Grothendieck : les schémas, les topos, les six opérations et les motifs.
+\end{abstract}
+
+Dans \emph{Récoltes et semailles} (troisième partie), Grothendieck écrit :
+\begin{quote}
+Prenons par exemple la tâche de démontrer un théorème qui reste hypothétique (à quoi, pour certains, semblerait se réduire le travail mathématique). Je vois deux approches extrêmes pour s'y prendre. L'une est celle du marteau et du burin, quand le problème posé est vu comme une grosse noix, dure et lisse, dont il s'agit d'atteindre l'intérieur, la chair nourricière protégée par la coque. Le principe est simple : on pose le tranchant du burin contre la coque, et on tape fort. Au besoin, on recommence en plusieurs endroits différents, jusqu'à ce que la coque se casse — et on est content. [...]
+
+Je pourrais illustrer la deuxième approche, en gardant l'image de la noix qu'il s'agit d'ouvrir. La première parabole qui m'est venue à l'esprit tantôt, c'est qu'on plonge la noix dans un liquide émollient, de l'eau simplement pourquoi pas, de temps en temps on frotte pour qu'elle pénètre mieux, pour le reste on laisse faire le temps. La coque s'assouplit au fil des semaines et des mois ; quand le temps est mûr, une pression de la main suffit, la coque s'ouvre comme celle d'un avocat mûr à point ! Ou encore, on laisse mûrir la noix sous le soleil et sous la pluie et peut-être aussi sous les gelées de l'hiver. Quand le temps est mûr, c'est une pousse délicate sortie de la substantifique chair qui aura percé la coque, comme en se jouant ; ou pour mieux dire, la coque se sera ouverte d'elle-même, pour lui laisser passage. [...]
+
+Le lecteur qui serait tant soit peu familiar avec certains de mes travaux n'aura aucune difficulté à reconnaître lequel de ces deux modes d'approche est « le mien ».
+\end{quote}
+
+Un peu plus loin [Ibid., p. 554, note (***)], Grothendieck met en avant quatre exemples : Riemann--Roch, structure du \(\pi_1\) premier à la caractéristique pour les courbes, rationalité des fonctions \(L\) pour les schémas de type fini sur un corps fini et théorème de réduction semi-stable pour les variétés abéliennes. Je me rappelle mon effarement, en 1965--66, après l'exposé de Grothendieck [SGA 5] prouvant le théorème de changement de base pour \(Rf_!\) : dévissages, dévissages, rien ne semble se passer et pourtant, à la fin de l'exposé, un théorème clairement non trivial est là.
+
+Bien des idées de Grothendieck nous sont devenues si familières, sont si parfaitement adéquates à leur objet, que nous oublions qu'elles étaient loin d'être évidentes à leur naissance, que nous oublions même leur auteur. Mon but dans cet article est de décrire quatre de ces idées : schémas, topos, six opérations, motifs.
+
+\section{Schémas}
+
+L'invention des schémas est la première des idées de Grothendieck à laquelle on pense, peut-être parce qu'elle a été la plus vite acceptée. L'exposé de Serre à Stockholm en 1962 commence par : « Je voudrais exposer ici quelques-uns des développements récents de la géométrie algébrique. Je dois préciser que je prends ce dernier terme au sens qui est devenu le sien depuis quelques années : celui de la théorie des schémas. » Cette acceptation a été facilitée par la parution rapide, grâce à la collaboration de Dieudonné, des EGA.
+
+L'audace de la définition de Grothendieck est d'accepter que tout anneau commutatif (à unité) \(A\) définisse un schéma affine \(\operatorname{Spec}(A)\), c'est-à-dire de ne pas chercher à se limiter à une catégorie de « bons » anneaux (intègres, réduits, noethériens, \ldots). Ceci a un prix. Les points de \(\operatorname{Spec}(A)\) (idéaux premiers de \(A\)) n'ont pas un sens géométrique maniable, et le faisceau structural \(\mathcal O\) n'est pas un faisceau de fonctions. Quand on a à construire un schéma, on ne commence pas en général par construire l'ensemble de ses points.
+
+Plus important peut-être : le parti pris de bâtir une théorie relative, dont témoigne l'omniprésent
+\[
+  X \longrightarrow S
+\]
+des exposés de Grothendieck. Le cas classique d'une variété définie sur un corps \(k\) devient le cas particulier \(S=\operatorname{Spec}(k)\). Dans une théorie relative, avec un \(S\)-schéma \(X\), c'est-à-dire avec un morphisme de schémas \(f:X\to S\), on considère systématiquement le schéma \(X'\) déduit de \(X\) par un changement de base \(u:S'\to S\), c'est-à-dire le produit fibré \(X':=S'\times_S X\) et sa projection \(f'\) sur \(S'\) :
+\[
+\begin{tikzcd}
+X' \arrow[r] \arrow[d,"f'"'] & X \arrow[d,"f"]\\
+S' \arrow[r,"u"'] & S .
+\end{tikzcd}
+\]
+Dans la catégorie des schémas, les produits fibrés existent toujours : si permettre que tout anneau commutatif définisse un schéma affine donne droit de cité à des schémas bizarres, le permettre fournit une catégorie de schémas ayant de bonnes propriétés.
+
+Une propriété de \(X\) sur \(S\) sera dite géométrique si elle a de bonnes propriétés d'invariance par changement de base. Analogue classique : pour une variété \(X\) définie sur un corps \(k\), l'ensemble des points de \(X\) sur une extension algébriquement close \(\Omega\) de \(k\) (par exemple : domaine universel de Weil) est considéré comme « géométrique », l'ensemble des \(k\)-points étant « arithmétique ».
+
+Si \(X\) est un schéma sur \(S\), et que \(u:S'\to S\) est un morphisme de schémas, un \(S'\)-point \(p\) de \(X\) est un morphisme de \(S\)-schémas :
+\[
+\begin{tikzcd}
+ & X \arrow[d]\\
+S' \arrow[ur,"p"] \arrow[r,"u"'] & S .
+\end{tikzcd}
+\]
+On note \(X(S')\) l'ensemble des \(S'\)-points de \(X\). Il s'identifie à l'ensemble des sections de \(X'\to S'\).
+
+\paragraph{Exemple 1.1.}
+Soit \(X\) le schéma affine sur un corps \(k\) défini par des équations
+\[
+  P_\alpha(X_1,\ldots,X_n)=0:
+  \qquad
+  X=\operatorname{Spec}\bigl(k[X_1,\ldots,X_n]/(P_\alpha)\bigr).
+\]
+Soit \(k'\) une \(k\)-algèbre. L'ensemble \(X(k'):=X(\operatorname{Spec}(k'))\) est l'ensemble des solutions dans \(k'^n\) des équations \(P_\alpha=0\). Pour \(k'\), extension algébriquement close \(\Omega\) de \(k\), c'est l'ensemble \(X(\Omega)\) que Weil regarde comme sous-jacent à \(X\).
+
+\paragraph{Exemple 1.2.}
+Le schéma \(GL_N\) sur \(\operatorname{Spec}(\mathbb Z)\) est tel que pour tout anneau commutatif \(A\) (automatiquement une \(\mathbb Z\)-algèbre : \(\operatorname{Spec}(A)\) est un schéma sur \(\operatorname{Spec}(\mathbb Z)\)), \(GL_N(\operatorname{Spec}(A))\) « est » \(GL_N(A)\).
+
+Dans ces exemples, l'intuition géométrique qu'on a de \(X\), schéma sur \(S\), est bien reflétée dans \(X(S')\). Mieux que dans l'ensemble sous-jacent à \(X\). Dans le cas de l'exemple 1.2, cet ensemble sous-jacent n'est pas un groupe, alors que chaque \(GL_N(S')\) l'est. Plus précisément, il est utile d'attacher au schéma \(X\) sur \(S\) le foncteur contravariant des \(S\)-schémas dans les ensembles
+\[
+  S' \longmapsto \text{ensemble } X(S') \text{ des } S'\text{-points de } X.
+\]
+Dans la catégorie des \(S\)-schémas, il s'agit simplement du foncteur représentable
+\[
+  h_X:S'\longmapsto \operatorname{Hom}(S',X)
+\]
+attaché à \(X\). D'après le lemme de Yoneda, le foncteur \(X\mapsto h_X\) est pleinement fidèle. Plutôt que de penser à un \(S\)-schéma \(X\) comme étant un espace annelé, muni de \(X\to S\), avec des propriétés convenables, il est souvent commode d'y penser comme étant un foncteur
+\[
+  \text{\(S\)-points}:(\text{Schémas}/S)^\circ\longrightarrow(\text{Ens}),
+\]
+qui a la vertu d'être représentable. Quand on veut définir un « espace fin de modules », la première étape est de définir le foncteur correspondant. Typiquement, définir ce foncteur requiert une théorie relative.
+
+\paragraph{Exemple 1.3.}
+Soit \(X\) projectif sur un corps \(k\). Question : que signifie « espace de modules des sous-schémas fermés de \(X\) » ? Pour \(u:S'\to\operatorname{Spec}(k)\), soit \(X'\) sur \(S'\) déduit de \(X\) par changement de base. Soit \(\mathcal H(S')\) l'ensemble des sous-schémas fermés \(Z'\) de \(X'\), plats sur \(S'\) (plats de présentation finie, si on ne veut pas supposer \(S'\) noethérien). Réponse : c'est un schéma \(\operatorname{Hilb}(X)\) représentant le foncteur \(S'\mapsto\mathcal H(S')\).
+
+Pour être viable, ce point de vue requiert qu'on dispose de méthodes pour vérifier si un foncteur est représentable. La plupart des exposés de FGA sont consacrés à ce problème. Une solution définitive, prolongeant ces travaux, a été obtenue par M. Artin [1969], tout au moins si on accepte de remplacer la catégorie des schémas par celle, plus naturelle, des espaces algébriques. Plus naturelle : au même sens que la topologie étale est plus naturelle que celle de Zariski.
+
+\section{Topos}
+
+Soit \(u:S'\to S\) un morphisme de schémas, le « morphisme de changement de base ». La théorie de la descente [Grothendieck FGA, Séminaire Bourbaki 190, 1959--60] considère des problèmes des types suivants. Descente de propriétés : soit \(X\) un schéma sur \(S\) et \(X'\) sur \(S'\) déduit de \(X\) par changement de base. Supposons que \(X'/S'\) ait une propriété \(P\). Peut-on conclure que \(X/S\) vérifie \(P\) ? Descente de morphismes : soient \(X,Y\) sur \(S\), \(X',Y'\) déduits par changement de base et \(g':X'\to Y'\) un morphisme de \(S'\)-schémas. Quand \(g'\) provient-il par changement de base de \(g:X\to Y\) ? Descente d'objets : soit \(X'\) sur \(S'\). Quelle est la donnée de descente sur \(S'\) requise pour construire \(X\) sur \(S\) dont \(X'\) se déduise par changement de base ?
+
+Si \(S'\) est la somme disjointe des ouverts \((U_i)_{i\in I}\) d'un recouvrement de \(S\), le changement de base à \(S'\) est essentiellement la restriction à chaque \(U_i\), et les problèmes précédents sont des problèmes de localisation sur \(S\) et de recollement. Recoller exige typiquement la considération des intersections deux à deux \(U_i\cap U_j\), et en termes de \(u:S'\to S\), la somme disjointe des \(U_i\cap U_j\) est simplement le produit fibré \(S'\times_S S'\).
+
+La théorie des topos permet de transposer en théorie de la descente l'intuition topologique. Pour \(u:S'\to S\), un morphisme de changement de base d'un type considéré en théorie de la descente, par exemple fidèlement plat et quasi-compact (fpqc), le changement de base de \(S\) à \(S'\) devient une localisation. Une donnée de descente est l'analogue d'une donnée de recollement.
+
+Un antécédent à la théorie de la descente est la descente galoisienne, correspondant à \(S\), spectre d'un corps \(k\), et \(S'\), spectre d'une extension galoisienne. Ici, \(S'\times_S S'\) est somme de copies de \(S'\) indexées par \(\operatorname{Gal}(k'/k)\). Les démonstrations, et en particulier la théorie de Galois, sont toutefois plus simples dans le cadre plus général de la théorie de la descente. Selon un mot de Cartier : Grothendieck prouve la théorie de Galois, et la descente galoisienne, par descente galoisienne.
+
+L'outil qu'est la théorie des topos a permis la construction de la cohomologie étale des schémas, et c'est là son succès le mieux connu. Un faisceau sur \(X\) pour la topologie de Zariski est un foncteur contravariant de la catégorie des ouverts de Zariski de \(X\) dans celle des ensembles, avec une condition de recollement pour \((U_i)_{i\in I}\), un recouvrement ouvert de Zariski de \(U\). En topologie étale, le site zariskien, considéré plus haut, est remplacé par le site étale : la catégorie des ouverts de Zariski est remplacée par celle des \(f:U\to X\) étales sur \(X\), et les recouvrements par les familles couvrantes \((U_i)_{i\in I}\), c'est-à-dire un morphisme surjectif de schémas sur \(X\) de la somme disjointe des \(U_i\) dans \(U\). Un antécédent : l'introduction par Serre de la notion d'espace principal homogène isotrivial (= localement trivial pour une topologie proche de la topologie étale). Dans ses articles à Kansas [1955] et au Tôhoku [1957], Grothendieck avait montré que, une catégorie de faisceaux étant donnée, une notion de groupes de cohomologie en résulte. La topologie étale fournit ainsi la cohomologie étale. Que les groupes \(H^1\) obtenus soient raisonnables n'est pas surprenant. Le miracle est que les \(H^i\) supérieurs soient eux aussi raisonnables.
+
+Pour Grothendieck, l'importance de la théorie des topos dépasse de beaucoup le seul cas de la topologie étale. Le titre donné à SGA 4 en est témoin : « Théorie des topos et cohomologie étale des schémas ».
+
+Autres applications :
+
+\begin{description}[leftmargin=2.6em,labelwidth=2em]
+\item[(A)] \emph{Cohomologie cristalline.} La cohomologie cristalline est celle du topos cristallin, et cette définition rend claire sa fonctorialité. Le topos cristallin est toutefois d'usage délicat et il est souvent nécessaire de passer à une interprétation en termes de complexes de de Rham.
+\item[(B)] \emph{Espaces rigides analytiques.} Les faisceaux rigides analytiques de Tate sont des faisceaux cohérents sur un topos annelé convenable et leur cohomologie, la cohomologie correspondante.
+\item[(C)] \emph{Feuilletages.} Une variété \(X\) munie d'un feuilletage \(\mathcal F\) définit un « quotient » \(X/\mathcal F\), qui est un topos localement isomorphe à celui des faisceaux sur une variété. Ce point de vue semble avoir été éclipsé par celui de Connes qui associe plutôt à \(\mathcal F\) une \(C^*\)-algèbre non commutative.
+\end{description}
+
+J'aimerais encore mentionner l'usage de « gros » sites (topos) par Grothendieck, notamment pour interpréter des espaces classifiants.
+
+\section{Les six opérations}
+
+Le formalisme des six opérations présuppose celui des catégories dérivées. Pour un historique de ce dernier, je renvoie au texte de Illusie [1990]. Idée de base : pour toutes sortes de groupes de cohomologie, leur définition fournit non seulement ces groupes, mais encore un complexe \(K\) dont ils sont les groupes de cohomologie. Typiquement, ce complexe n'est pas uniquement déterminé, mais il l'est à quasi-isomorphisme près : pour deux variantes \(K'\), \(K''\) de \(K\), on dispose de \(K'''\) et de morphismes \(K'\leftarrow K'''\to K''\) induisant des isomorphismes en cohomologie. Dans la catégorie dérivée, \(K\) en devient unique à isomorphisme unique près.
+
+Les six opérations sont des foncteurs entre catégories dérivées. Il s'agit du produit tensoriel dérivé \(\otimes^L\), du Hom interne \(R\mathcal Hom\) (donnant naissance aux \(\mathcal Ext^i\) locaux), et pour \(f:X\to Y\) un morphisme de schémas, de deux foncteurs d'image directe : \(Rf_*\) et \(Rf_!\), et de deux foncteurs d'image inverse : \(Lf^*\) et \(Rf^!\).
+
+Le formalisme de ces opérations a d'abord été dégagé en cohomologie des faisceaux cohérents [Grothendieck 1963]. Ici, pour les images directes, il y a lieu de ne considérer que des morphismes propres, pour lesquels \(Rf_* = Rf_!\). Le formalisme fournit une version relative de la dualité de Serre, sous la forme d'une adjonction entre les foncteurs \(Rf_*\) et \(Rf^!\). Il fournit aussi une formule des points fixes plus générale que la « Woodshole fixed point formula », qui en est contemporaine (Summer institute on algebraic geometry, Whitney estate, Woodshole, Massachusetts 1964).
+
+Miraculeusement, le même formalisme s'applique en cohomologie étale — avec des preuves très différentes. Il fournit encore formalisme de dualité (de Poincaré) et formules de points fixes (à la Lefschetz).
+
+\section{Motifs}
+
+Soit \(X\) une variété algébrique sur \(k\) algébriquement clos. Pour chaque nombre premier \(\ell\) premier à la caractéristique, la topologie étale fournit des groupes de cohomologie \(\ell\)-adique \(H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\). Si \(k\) est un sous-corps de \(\mathbb C\), on dispose d'isomorphismes de comparaison
+\[
+  H^i(X(\mathbb C),\mathbb Z)\otimes\mathbb Z_\ell
+  \xrightarrow{\sim}
+  H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell).
+\]
+Pour \(k\) de caractéristique \(>0\), il n'existe pas de cohomologie entière fonctorielle donnant lieu à de tels isomorphismes. Néanmoins, les \(H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\) ont, pour \(\ell\) variable, un « air de famille ». Pour \(i=1\), et \(X\) projective et lisse, \(\operatorname{Pic}^0(X)\) joue le rôle de l'inexistante théorie entière : il redonne les \(H^1_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\) et est un objet « sur \(\mathbb Z\) », en ce que les groupes d'homomorphismes entre schémas abéliens sont de type fini.
+
+La théorie des motifs est d'abord une tentative pour trouver un substitut à l'inexistante cohomologie entière, expliquant l'air de famille entre les \(H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\), spécialement pour \(X\) projectif et lisse. On reconnaît la patte du Maître dans l'idée que le problème n'est pas de définir ce qu'est un motif : le problème est de définir la catégorie des motifs, et de dégager les structures qu'elle porte. Ces structures devraient permettre de prouver la conjecture de Weil sur le modèle de Serre [1960]. Voir Grothendieck [1969].
+
+C'est à cette occasion que Grothendieck a inventé la notion de catégorie tannakienne, développée dans la thèse de Saavedra [1972]. Il s'agissait de formaliser la notion de produit tensoriel de motifs, correspondant par la formule de Künneth au produit de variétés.
+
+Même si la théorie des motifs n'a pas atteint son but original, son influence a été grande. Je renvoie à la conférence de Seattle sur les motifs [Jannsen et al., 1994] pour un panorama de ses applications.
+
+\section*{Bibliographie}
+
+Une bibliographie de Grothendieck est donnée au début de son Festschrift [Cartier et al. 1990, p. xiii--xx].
+
+Autres sources : l'introduction, et l'article de J. Dieudonné : « De l'analyse fonctionnelle aux fondements de la géométrie algébrique », dans ce même Festschrift (p. 1--14) ; les exposés aux congrès internationaux des mathématiciens de J.-P. Serre (Stockholm 1962) : « Géométrie algébrique » (p. 190--496), J. Dieudonné (Moscou 1966) : « Les travaux de Alexander Grothendieck » (p. 21--24), et, pour Riemann--Roch et les groupes de Grothendieck, celui de H. Cartan (Moscou 1966) : « L'œuvre de Michael F. Atiyah » (p. 9--14).
+
+\begin{description}[leftmargin=2em]
+\item[ARTIN (M.)]
+\item[{[1969]}] Algebraization of formal moduli, I, dans \emph{Global Analysis} (Papers in honor of K. Kodaira), Tokyo : Univ. Tokyo Press, 1969, p. 21--71.
+
+\item[CARTIER (P.), ILLUSIE (L.), KATZ (N.M.) et al., éd.]
+\item[{[1990]}] \emph{The Grothendieck Festschrift}, vol. I, vol. 86 de \emph{Progress in Mathematics}, Boston : Birkhäuser, 1990.
+
+\item[GROTHENDIECK (A.)]
+\item[{[1955]}] A general theory of fibre spaces with structure sheaf, University of Kansas, 1955.
+\item[{[1957]}] Sur quelques points d'algèbre homologique, \emph{Tôhoku Math. J.}, 9 (1957), p. 119--221.
+\item[{[1963]}] Résidus et dualité, prénotes pour un « séminaire Hartshorne », manuscrit. Voir Hartshorne [1966].
+\item[{[1969]}] Standard conjectures on algebraic cycles, dans \emph{Algebraic Geometry} (Colloquium Tata Inst., Bombay, 1968), Oxford Univ. Press, 1969, p. 193--199.
+\item[{[1985]}] \emph{Récoltes et semailles : Réflexions et témoignages sur un passé de mathématicien}, Montpellier : Univ. Sci. et Tech. Languedoc et CNRS, 1985.
+\item[{[EGA]}] \emph{Éléments de Géométrie algébrique}. Inst. Hautes Études Sci. Publ. Math, 4, 8, 11, 17, 20, 24, 28, 32. En collaboration avec J. Dieudonné.
+\item[{[FGA]}] \emph{Fondements de la Géométrie algébrique}. Extraits du séminaire Bourbaki 1957--1962 : séminaires 149, 182, 190, 195, 212, 221, 232 et 236.
+\item[{[SGA]}] \emph{Séminaire de Géométrie algébrique du Bois Marie}. Le séminaire SGA 5 : \emph{Cohomologie \(\ell\)-adique et Fonctions \(L\)} (1965--66), a été finalement publié : vol. 589 des Lecture Notes in Math., Berlin--Heidelberg : Springer, 1977.
+
+\item[HARTSHORNE (R.)]
+\item[{[1966]}] \emph{Residues and duality}, vol. 20 des Lecture Notes in Math., Berlin--Heidelberg : Springer, 1966.
+
+\item[ILLUSIE (L.)]
+\item[{[1990]}] Catégories dérivées et dualité, travaux de J.-L. Verdier, \emph{Enseign. math.}, 36 (1990), p. 369--391.
+
+\item[JANNSEN (U.), KLEIMAN (S.) et SERRE (J.-P.), éd.]
+\item[{[1994]}] \emph{Motives}, vol. 55 des \emph{Proceedings of Symposia in Pure Mathematics}, Providence : Amer. Math. Soc., 1994.
+
+\item[SAAVEDRA (N.)]
+\item[{[1972]}] \emph{Catégories tannakiennes}, vol. 265 des Lecture Notes in Math., Berlin--Heidelberg : Springer, 1972.
+
+\item[SERRE (J.-P.)]
+\item[{[1960]}] Analogues kähleriens de certaines conjectures de Weil, \emph{Ann. of Math.}, 71 (1960), p. 392--394; \emph{Œuvres}, vol. II, Berlin--Heidelberg : Springer, 1986, p. 1--3.
+\end{description}
+
+\end{document}

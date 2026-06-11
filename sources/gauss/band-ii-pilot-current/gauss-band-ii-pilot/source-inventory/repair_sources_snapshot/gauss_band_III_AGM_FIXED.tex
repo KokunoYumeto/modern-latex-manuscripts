@@ -1,0 +1,543 @@
+% FIXED Greek-letter drops restored from scan
+% Carl Friedrich Gauss Werke -- Band 3, Teil 9
+% Arithmetisch-geometrisches Mittel (Subsections 18-26)
+% Source scan: werkecarlf03gausrich.pdf pp 387-389 (original pp 387-389)
+% Audit reference: GAUSS_BANDS_I_II_III_FIDELITY.md, Band III section, lines 176-213
+%
+% Specific repairs to base earlier TeX (earlier source draft 7/.../gauss_b03_ch9.tex):
+%   - lines 92-95: tautological fractions (a+b)/(a+b) -> Greek alpha/beta numerators
+%   - line 98:   aa+gg=bb+gamma gamma -> a alpha + delta delta = b b + gamma gamma; coefficient 1/2 -> a/c; missing Greek letters restored
+%   - lines 101: aa-gamma gamma=bb-hh -> a alpha - gamma gamma = b b - delta delta; (b/c) factor restored
+%   - line 104:  aa-bb -> a alpha - b b; (c/a),(c/b) factors restored
+%   - line 148:  a/a=b/b=gamma/c -> alpha/a = beta/b = gamma/c, and the n-th-root chain corrected
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage[margin=2.5cm]{geometry}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+\usepackage[final,expansion=false]{microtype}
+\usepackage{enumitem}
+\usepackage{array,booktabs,multirow}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\usepackage{graphicx}
+\usepackage{longtable}
+
+\newcommand{\lemn}{\text{lemn}}
+\newcommand{\sinlemn}{\sin\lemn}
+\newcommand{\coslemn}{\cos\lemn}
+\newcommand{\arcsinlemn}{\arcsin\lemn}
+\newcommand{\M}{\text{M}}
+\DeclareMathOperator{\tg}{tang}
+\DeclareMathOperator{\arctg}{arctang}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small Carl Friedrich Gauss Werke --- Band 3 (FIXED)}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{\Huge Carl Friedrich Gauss Werke --- Band 3\\[0.5em]
+\Large Teil 9 --- Arithmetisch-Geometrisches Mittel\\[0.5em]
+\large (Greek-letter restoration from scan, sections 18--26)}
+\author{Carl Friedrich Gauss}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\noindent\textit{Fixer note:} Greek-letter drops introduced by OCR
+have been restored from the source scan (Werke Band III, pp.\ 387--389).
+The base earlier TeX rendered several identities with tautological
+fractions of the form $(a+b)/(a+b)=1$ and with $\tfrac12$-coefficients
+where the original has $a/c$ or $b/c$ factors. The repaired identities
+below match the printed text on p.\ 387.
+
+\vspace{1em}
+
+%==============================================================================
+\section*{Arithmetisch Geometrisches Mittel}
+%==============================================================================
+
+\subsection*{18.}
+
+[Mit dem Algorithmus des arithmetisch-geometrischen Mittels hat Gauss
+einen andern in Verbindung gebracht, welcher ebenfalls wie jener von zwei
+gegebenen Gr\"ossen, die hier $\alpha$ und $\beta$ bezeichnet werden sollen,
+ausgeht und auf eine solche Form zur\"uckgef\"uhrt werden kann, dass viele
+Analogien mit jenem sich zeigen, wenn nemlich
+\[
+4a'a'=(a+b)^2, \qquad b'b'=ab, \qquad
+4\alpha'\alpha'=(\alpha+\beta)^2, \qquad \beta'\beta'=\alpha\beta, \qquad \text{u.\,s.\,f.}
+\]
+gesetzt wird. Ebenso wie die bisherigen Untersuchungen durch Einf\"uhrung der
+die Gleichung $aa=bb+cc$ erf\"ullenden Gr\"osse $c$ bedeutend \"ubersichtlicher
+wurden, wird hier eine entsprechende Vereinfachung der Formeln erreicht, wenn
+man $\gamma$ durch die Gleichung $a\alpha=b\beta+c\gamma$ und $\delta$ durch
+\[
+bc(b\gamma-c\beta)=ca(a\gamma-c\alpha)=ab(b\alpha-a\beta)=abc\delta
+\]
+so wie $\gamma^n$, $\delta^n$ durch dieselben Gleichungen, nachdem allen Zeichen
+der Index $n$ gegeben ist, einf\"uhrt. Unter den zwischen diesen Gr\"ossen
+bestehenden Relationen finden die folgenden bei der Untersuchung dieses
+Algorithmus vielfache Anwendung:
+
+% --- FIXED: lines 92-95 of original earlier TeX; Greek alpha,beta restored in numerators of fractions 1,2.
+% The original scan (p387) shows (alpha+beta)/(a+b)=(gamma-delta)/c, etc.
+% earlier source draft rendered numerators as (a+b)/(a+b) -- tautology -- by dropping Greek letters.
+\[
+\frac{\alpha+\beta}{a+b}=\frac{\gamma-\delta}{c}, \qquad
+\frac{\alpha-\beta}{a-b}=\frac{\gamma+\delta}{c}, \qquad
+\frac{\alpha+\gamma}{a+c}=\frac{\beta+\delta}{b}, \qquad
+\frac{\alpha-\gamma}{a-c}=\frac{\beta-\delta}{b}
+\]
+
+\[
+\alpha'=\tfrac{1}{a'}\Bigl(\tfrac{\alpha+\beta}{2}\Bigr)^2
+       =\tfrac{1}{c'}\Bigl(\tfrac{\gamma-\delta}{2}\Bigr)^2, \qquad
+\beta'=\tfrac{1}{b'}\alpha\beta
+\]
+\[
+\gamma'=\tfrac{1}{c'}\Bigl(\tfrac{\alpha-\beta}{2}\Bigr)^2
+       =\tfrac{1}{a'}\Bigl(\tfrac{\gamma+\delta}{2}\Bigr)^2, \qquad
+\delta'=\tfrac{1}{b'}\gamma\delta
+\]
+
+% --- FIXED: lines 98,101,104 of original earlier TeX.
+% Audit GAUSS_BANDS_I_II_III_FIDELITY.md line 198 confirms scan reading:
+%   a alpha + delta delta = b b + gamma gamma = (a/c)(alpha beta + gamma delta)
+%                         = (a/c)(alpha gamma - beta delta) = a(alpha'+gamma')
+% earlier source draft had: aa+gg=bb+gamma gamma=1/2(a delta+gamma beta)=1/2(a gamma-delta beta)=a(alpha'+gamma')
+% Errors: aa->a alpha, gg->delta delta, 1/2 coefficient -> a/c, a delta -> alpha delta, etc.
+\[
+a\alpha+\delta\delta = bb+\gamma\gamma
+ = \tfrac{a}{c}(\alpha\beta+\gamma\delta)
+ = \tfrac{a}{c}(\alpha\gamma-\beta\delta)
+ = a(\alpha'+\gamma')
+\]
+\[
+a\alpha-\gamma\gamma = bb-\delta\delta
+ = \tfrac{b}{c}(\beta\gamma-\alpha\delta)
+ = \tfrac{b}{c}(\alpha\beta-\gamma\delta)
+ = b(\alpha'-\gamma')
+\]
+\[
+a\alpha-bb = \gamma\gamma-\delta\delta
+ = \tfrac{c}{a}(\alpha\gamma+\beta\delta)
+ = \tfrac{c}{b}(\beta\gamma+\alpha\delta)
+ = 2c\sqrt{\alpha'\gamma'}
+\]
+
+Die Grenzwerthe der Glieder in den sieben Reihen von Gr\"ossen
+$a$, $b$, $c$, $\alpha$, $\beta$, $\gamma$, $\delta$
+lassen sich auf diese vier zur\"uckf\"uhren:
+\[
+k = \M(a,b) = \lim a^n = \lim b^n
+\]
+\[
+\sqrt{y} = e^{-\tfrac{\pi}{2}\tfrac{\M(a,b)}{\M(a,c)}}
+        = \lim \sqrt[2^n]{\tfrac{c^n}{4 a^n}}
+        = \tfrac{c}{4a}\cdot\tfrac{a}{a'}\cdot\sqrt{\tfrac{a'}{a''}}\cdots
+\]
+\[
+\tfrac{x}{k} = \lim \sqrt[2^n]{\tfrac{\alpha^n}{k}}, \qquad
+\eta = \lim \sqrt[2^n]{\tfrac{\gamma^n}{c^n}}
+\]
+
+Wenn $\alpha$ und $\beta$ und alle Gr\"ossen $a^n$, $b^n$ positiv sind, so nehmen
+$\tfrac{\alpha^n}{\beta^n}$ und $\tfrac{\alpha^n\beta^n}{b^n\beta^n}$ von den Werthen
+$\tfrac{\alpha}{\beta}$ und $\tfrac{\alpha'\beta'}{\beta'\beta'}$ best\"andig bis zur Einheit ab;
+es ergeben also die vorstehenden Ausdr\"ucke einen bestimmten Werth f\"ur $x$.
+Das Gleiche folgt f\"ur $\eta$, wenn $\gamma$, $\delta$ und alle $c^n$, $b^n$
+positiv sind, aus
+\[
+\tg U \cdot \sqrt{\tfrac{a}{b}}  = \tg V \cdot \sqrt{\tfrac{b}{a}}
+ = \sqrt{\tg U \cdot \tg V} = \tg U',
+\qquad U + V = 2V'
+\]
+\[
+\tg 2U' \cdot \sqrt{\tfrac{a'}{b'}} = \tg 2V' \cdot \sqrt{\tfrac{b'}{a'}}
+ = \sqrt{\tg 2U' \cdot \tg 2V'} = \tg 2U'',
+\qquad U' + V' = 2V''
+\]
+\[\vdots\]
+\[
+\tg 2^n U^{(n)} \cdot \sqrt{\tfrac{a^n}{b^n}}
+ = \tg 2^n V^{(n)} \cdot \sqrt{\tfrac{b^n}{a^n}}
+ = \sqrt{\tg 2^n U^{(n)} \cdot \tg 2^n V^{(n)}}
+ = \tg 2^n U^{(n+1)},
+\qquad U^{(n)} + V^{(n)} = 2V^{(n+1)}
+\]
+weil dann
+\[
+\sin U^2 = \tfrac{b}{c}\cdot\tfrac{c-\delta}{a}, \quad
+\cos U^2 = \tfrac{a}{c}\cdot\tfrac{\gamma}{a}, \quad
+aa\sin U^2 + bb\cos U^2 = ab\cdot\tfrac{\delta}{a};
+\]
+\[
+\sin V^2 = \tfrac{a}{c}\cdot\tfrac{c-\delta}{b}, \quad
+\cos V^2 = \tfrac{b}{c}\cdot\tfrac{\gamma}{b}, \quad
+aa\cos V^2 + bb\sin V^2 = ab\cdot\tfrac{\delta}{a}
+\]
+ist, und diese Gleichungen auch gelten, wenn $a^n$, $b^n$, $c^n$, $\alpha^n$,
+$\beta^n$, $\gamma^n$, $\delta^n$, $U^n$, $V^n$ statt $a$, $b$, $c$, $\alpha$,
+$\beta$, $\gamma$, $\delta$, $U$, $V$ gesetzt werden, so dass also
+\[
+\eta^{\pm 1/2} = \lim e^{\pm i U^n} = \lim e^{\pm i V^n} = e^{\pm i u}
+\]
+sich ergibt.
+
+% --- FIXED: line 148 of original earlier TeX.
+% Original scan (p389) reads: alpha/a = beta/b = gamma/c = ... = 2^n-th-root(a^n/a)
+%   = 2^n-th-root(b^n/b) = 2^n-th-root(alpha^n/a) = x/k,  2^n-th-root(gamma^n/c^n) = eta = 1, mu = 0
+% earlier source draft had: a/a = b/b = gamma/c = 2-th-root(a)/n-th-root(a) = ... -- all a/a, b/b are = 1 (tautology).
+F\"ur $\delta = 0$ verschwinden alle $\delta^n$ und es wird
+\[
+\frac{\alpha}{a} = \frac{\beta}{b} = \frac{\gamma}{c}
+= \cdots
+= \sqrt[2^n]{\tfrac{a^n}{a}}
+= \sqrt[2^n]{\tfrac{b^n}{b}}
+= \sqrt[2^n]{\tfrac{\alpha^n}{a}}
+= \tfrac{x}{k},
+\qquad
+\sqrt[2^n]{\tfrac{\gamma^n}{c^n}} = \eta = 1, \qquad \mu = 0
+\]
+
+Vergleicht man die Grenzwerthe $k$, $y$, $x$, $\eta$, $\mu$, zu denen man gelangt,
+wenn man bei der Bildung des combinirten Algorithmus von den Gr\"ossen
+$a$, $b$, $\alpha$, $\beta$ ausgegangen ist, mit den Grenzwerthen $k'$, $y'$, $x'$,
+$\eta'$, $\mu'$, zu denen man gelangt, wenn man bei solchem Algorithmus von den
+bestimmten zuvor erhaltenen Gr\"ossen $a'$, $b'$, $\alpha'$, $\beta'$ als
+Anfangsgliedern ausginge, so ersieht man unmittelbar, dass
+\[
+k' = k, \qquad y' = y\,y, \qquad x' = x, \qquad \eta' = \eta\,\eta, \qquad \mu' = 2\mu
+\]
+sein muss und dass durch die nach diesem Gesetze gebildeten Gleichungen die den
+$a^n$, $b^n$, $\alpha^n$, $\beta^n$ entsprechenden Grenzwerthe $k^n$, $y^n$, $x^n$,
+$\eta^n$, $\mu^n$ sich ergeben.
+
+Aus den Gleichungen von der Form
+\[
+\frac{c'}{a'} = \frac{a-b}{a+b}, \qquad
+\frac{c'}{a'}\cdot\frac{\gamma'}{a'} = \Bigl(\frac{a-b}{a+b}\Bigr)^2, \qquad
+\frac{c'}{a'}\cdot\frac{\alpha'}{\gamma'} = \Bigl(\frac{\gamma-\delta}{\gamma+\delta}\Bigr)^2
+\]
+folgt, dass, wenn alle Glieder des Algorithmus positiv werden,
+$y$, $y\eta$ und $\tfrac{1}{\eta}$ kleiner als die Einheit sind.
+
+Die von Gauss angegebene Methode zur Bestimmung des Grenzwerthes f\"ur
+$U^n$ und $V^n$ und ebenso die Bestimmung von $\tfrac{x}{k}$ mit
+Zuh\"ulfenahme jener Winkel f\"uhrt bei Rechnungen mit Zahlen sehr rasch
+zum Ziele. Weniger bequem f\"ur Zahlenrechnungen sind die obigen Formeln
+zur Bestimmung eines reellen $\eta$ und des zugeh\"origen $\tfrac{x}{k}$.
+Dieser Umstand wird die Veranlassung gewesen sein, wesshalb Gauss den
+Algorithmus:]
+\[
+A' = \tfrac{A+B}{2}, \qquad B' = \tfrac{2\sqrt{AB}\cdot a'}{b'(A+B)}
+\]
+\[
+A'' = \tfrac{A'+B'}{2}, \qquad B'' = \tfrac{2\sqrt{A'B'}\cdot a''}{b''(A'+B')}
+\]
+u.\,s.\,f. [mit dem Grenzwerthe]
+\[
+\tfrac{H}{k} = \tfrac{B}{b}\cdot\sqrt{\tfrac{bA}{aB}}\cdot
+              \sqrt{\tfrac{b'A'}{a'B'}}\cdot
+              \sqrt{\tfrac{b''A''}{a''B''}}\cdots
+\]
+[aufgestellt hat, welcher sich auf den obigen zur\"uckf\"uhren l\"asst,
+wenn man $A=\alpha$, $B=\beta$ setzt, weil dann
+\[
+\tfrac{B'}{A'} = \tfrac{2\sqrt{\alpha\beta}\cdot a'}{b'(\alpha+\beta)}, \qquad
+\tfrac{B''}{A''} = \tfrac{2\sqrt{\alpha'\beta'}\cdot a''}{b''(\alpha'+\beta')}, \qquad \text{u.\,s.\,f.}
+\]
+wird. Die Bestimmung eines reellen $\eta$ ist in Gauss Aufzeichnungen durch
+eine L\"ucke unvollendet gelassen, sie ergibt sich aber, wenn man aus
+$C=\gamma$ und $D=\delta$ denselben Algorithmus wie eben aus $A$ und $B$ bildet,
+denn dann sind:
+\[
+C' = \tfrac{\gamma+\delta}{2}, \qquad
+D' = \tfrac{2\sqrt{\gamma\delta}\cdot\alpha'}{\beta'(\gamma+\delta)}
+\]
+und diese Gr\"ossen $C$, $D$ n\"ahern sich rasch dem Werthe
+$\sqrt{\gamma\delta}$, w\"ahrend $\gamma^n$ und $\delta^n$ zugleich
+entweder bedeutend wachsen oder abnehmen, sobald $\sqrt{\gamma\delta}$
+sich von der Einheit unterscheidet.]
+
+
+\subsection*{19.}
+
+[Die Beziehungen zwischen den Differentialen der zu untersuchenden Gr\"ossen
+sind besonders einfach, wenn $a$ und $b$ unge\"andert bleiben; es ergibt sich
+dann unmittelbar aus den Bedingungsgleichungen zwischen Gliedern mit gleichem
+Index, dass der Ausdruck $\tfrac{1}{\sqrt{\alpha}}\,d\log\tfrac{\gamma}{\alpha}$
+seinen Werth nicht \"andert, wenn darin der Reihe nach $\alpha$, $\beta$,
+$\gamma$, $\delta$ statt $\beta$, $\gamma$, $\delta$, $\alpha$ gesetzt wird.
+Die beiden so erhaltenen Ausdr\"ucke k\"onnen zu einem dem ersten entsprechenden
+Ausdruck f\"ur den Index $n+1$ vereinigt werden, der Werth dieses Ausdrucks
+ist also auch unabh\"angig vom Index $n$. Durch \"Ubergang zur Grenze und
+durch Vergleichung mit den Differentialen der auf verschiedene Weise
+gebildeten Quotienten ergibt sich
+\[
+\frac{1}{\sqrt{\alpha}}\,d\log\tfrac{\gamma}{\alpha}
+ = \frac{1}{\sqrt{\beta}}\,d\log\tfrac{\delta}{\beta}
+ = \frac{1}{\sqrt{\gamma}}\,d\log\tfrac{\alpha}{\gamma}
+ = \frac{1}{\sqrt{\delta}}\,d\log\tfrac{\beta}{\delta}
+ = \frac{1}{\sqrt{x}}\,d\log\tfrac{x}{\eta}
+\]
+eine Relation, welche also immer gilt, wenn die Indices der
+$a$, $b$, $c$, $\alpha$, $\beta$, $\gamma$, $\delta$, $\eta$ um gleich viel
+Einheiten vermehrt werden. Hieraus folgt der von Gauss aufgezeichnete Satz:]
+\[
+\frac{1}{\sqrt{aa}}\cdot\frac{dU}{\sqrt{aa\sin^2 U + bb\cos^2 U}}
+ = \frac{1}{\sqrt{aa}}\cdot\frac{dV}{\sqrt{aa\cos^2 V + bb\sin^2 V}}
+ = \frac{u}{k}
+\]
+
+
+\subsection*{20.}
+
+[Mit H\"ulfe der Gleichung f\"ur $d\log\tfrac{\gamma}{\alpha}$ lassen sich
+durch wiederholte Anwendung derselben unmittelbar die Reihen f\"ur die
+Differentiale der einzelnen Gr\"ossen $a$, $b$, $\gamma$, $\delta$ aufstellen;
+f\"ur ein negatives $\delta$ entsteht:
+\[
+\frac{1}{u}\,d\log\frac{a}{k}
+ = c'\sin 2U' + c''\sin 2^2 U'' + c'''\sin 2^3 U''' + \ldots
+\]
+\[
+\frac{1}{u}\,d\log\frac{b}{k}
+ = c'\cos 2U' + c''\cos 2^2 U'' + c'''\cos 2^3 U''' + \ldots
+\]
+\[
+\frac{1}{u}\,d\log\frac{\gamma}{x}
+ = \frac{\sin V}{\cos U}\bigl(c'\sin 2U' + c''\sin 2^2 U'' + \ldots\bigr)
+\]
+\[
+\frac{1}{u}\,d\log\frac{\delta}{x}
+ = \frac{\cos V}{\sin U}\bigl(c'\cos 2U' + c''\cos 2^2 U'' + \ldots\bigr)
+\]
+
+Die Differentiale zweiter Ordnung, welche auf die Gr\"osse $\eta$ als einzige
+unabh\"angig Ver\"anderliche sich beziehen, k\"onnen unmittelbar durch
+Differentiation der Differentialgleichung erster Ordnung hergeleitet werden,
+und die Bestimmung ihrer Werthe in der Weise dargestellt werden, dass die
+Ausdr\"ucke von der Form
+\[
+\frac{d\log\tfrac{\alpha}{\gamma}}{d\log\eta}, \qquad
+\frac{d^2\log\tfrac{\alpha}{\gamma}}{(d\log\eta)^2}
+\]
+f\"ur die mit irgend welchem gemeinsamen Index behafteten $\alpha$, $\beta$,
+$\gamma$, $\delta$ verschwinden, in welcher Reihenfolge die $\alpha$, $\beta$,
+$\gamma$, $\delta$ auch darin eingesetzt sein m\"ogen.
+
+Multiplicirt man Z\"ahler und Nenner unter dem zweimal zu differentiirenden
+Logarithmus mit $\delta$, ersetzt $\alpha\beta$ durch $b'\delta'$ und die
+Derivirten erster Ordnung durch ihre Werthe, so erh\"alt man f\"ur zwei
+aufeinander folgende Indices:
+\[
+\frac{d^2\log\tfrac{\alpha}{\gamma}}{(d\log\eta)^2}
+ = \frac{kk'}{xx'}\cdot\frac{d^2\log\tfrac{\alpha'}{\gamma'}}{(d\log\eta')^2}
+ + \frac{kk'}{xx'}\cdot\frac{d\log\tfrac{\alpha'}{\gamma'}}{d\log\eta'}
+\]
+und hieraus durch wiederholte Anwendung dieser Gleichung und mit Zuh\"ulfenahme
+der in Art.~13 f\"ur $d\log\M(a,b)$ gefundenen Reihe die Gleichung
+\[
+\frac{d^2\log\tfrac{\alpha}{k}}{(d\log\eta)^2}
+ = \frac{kk'}{xx'}\cdot\frac{d^2\log\tfrac{\alpha'}{k'}}{(d\log\eta')^2}
+ + \frac{kk'}{xx'}\cdot\frac{d\log\tfrac{\alpha'}{k'}}{d\log\eta'}
+\]
+\[
+ = \frac{kk'\cdot kk''}{xx'\cdot xx''}\cdot
+   \frac{d^2\log\tfrac{\alpha''}{k''}}{(d\log\eta'')^2}
+ + \frac{kk'\cdot kk''}{xx'\cdot xx''}\cdot
+   \frac{d\log\tfrac{\alpha''}{k''}}{d\log\eta''} + \ldots
+\]
+welche ihre G\"ultigkeit beh\"alt, wenn $a$, $b$, $c$, $\alpha$, $\beta$,
+$\gamma$, $\delta$, $\eta$, $x$, $k$ mit irgend einem gemeinsamen von Null
+verschiedenen Index behaftet werden.
+
+Durch die Vereinigung dieses Resultats mit der im vorigen Artikel gefundenen
+Entwickelung von $d\log\tfrac{a}{k}$ ergibt sich die von Gauss gefundene
+Werthausmittelung des Integrals:]
+\[
+\int\!\frac{aabb\,dV}{\sqrt{(aa\sin^2 U + bb\cos^2 U)\cdot(aa\cos^2 V + bb\sin^2 V)}}
+\]
+\[
+ = \frac{aa}{c}\Bigl\{1 - 2\frac{cc}{aa} - 4\frac{c^4}{a^4}
+   - 8\frac{c^6}{a^6} - \ldots\Bigr\}
+\]
+\[
+ = \frac{aa}{c}\sin 2K - c\sin 4K - c\sin 8K - c\sin 16K - \ldots
+\]
+
+
+\subsection*{21.}
+
+[Bildet man die Gleichungen zwischen den Derivirten der $a$, $b$, $\gamma$,
+$\delta$ nach der Gr\"osse $\eta$ als unabh\"angig Ver\"anderliche, so m\"ussen
+dieselben Coefficienten dieser Derivirten entstehen, wie in den Gleichungen
+f\"ur die Differentiale nach $\eta$, und da die letztern Gleichungen in solche
+Form gebracht werden k\"onnen, dass die Verh\"altnisse zwischen den Derivirten
+von Quotienten bestimmt werden, so m\"ussen die erw\"ahnten Coefficienten auch
+diesen Derivirten umgekehrt proportional sein. Ersetzt man sie durch deren
+reciproke Werthe, so ersieht man, dass auch die \"ubrigen Glieder jener
+Gleichungen durch solche Derivirten dargestellt werden k\"onnen und zwar so,
+dass der Ausdruck von der Form
+\[
+\frac{d\log\tfrac{\alpha}{\gamma}}{d\log\eta}, \qquad
+\frac{d^2\log\tfrac{\alpha}{\gamma}}{(d\log\eta)^2}, \qquad
+\frac{d\log\tfrac{\beta}{\delta}}{d\log\eta}, \qquad
+\frac{d^2\log\tfrac{\beta}{\delta}}{(d\log\eta)^2}
+\]
+f\"ur einen beliebigen gemeinsamen Index der Zeichen $a$, $b$, $\gamma$,
+$\delta$, $x$, $y$, $\eta$ seinen Werth nicht \"andert, in welcher Reihenfolge
+man auch die Gr\"ossen $\alpha$, $\beta$, $\gamma$, $\delta$ miteinander
+vertauscht. Vergleicht man diesen Ausdruck, welcher sich auf $y$, $x$, $\eta$,
+$\gamma$ bezieht, mit demjenigen f\"ur $\eta' = \eta\eta$, $x' = xx$, $y' = yy$
+und beachtet, dass nach Art.~19
+\[
+\frac{d\log\tfrac{\alpha}{\gamma}}{d\log\eta'}
+ = \frac{d\log\tfrac{\alpha}{\gamma}}{d\log\eta}
+   \cdot\frac{d\log\eta}{d\log\eta'}
+ = \tfrac12 \cdot \frac{d\log\tfrac{\alpha}{\gamma}}{d\log\eta}
+\]
+ist, so ergibt sich, dass der Werth jenes Ausdrucks auch unabh\"angig von dem
+Index der Zeichen $a$, $b$, $\gamma$, $\delta$, $x$, $y$, $\eta$ und, wie aus
+den Grenzwerthen folgt, gleich Null sein muss.
+
+Um die Derivirte nach $y$ von jeder einzelnen der vier Gr\"ossen $\alpha$,
+$\beta$, $\gamma$, $\delta$ zu bestimmen, wird zun\"achst erforderlich sein,
+jenen Ausdruck so zu verwandeln, dass er nur zwei der Gr\"ossen enth\"alt.
+Dies kann z.\,B. mit H\"ulfe der im vorhergehenden Artikel bestimmten nach
+$\eta$ genommenen zweiten Derivirten der Quotienten geschehen, so dass also
+alle Ausdr\"ucke
+\[
+\frac{d\log\tfrac{\alpha}{\gamma}}{d\log y}, \qquad
+\frac{d^2\log\tfrac{\alpha}{\gamma}}{(d\log\eta)^2}, \qquad
+\frac{d\log\tfrac{\beta}{\delta}}{d\log y}, \qquad
+\frac{d^2\log\tfrac{\beta}{\delta}}{(d\log\eta)^2}
+\]
+verschwinden, in welcher Reihenfolge $\alpha$, $\beta$, $\gamma$, $\delta$
+miteinander auch vertauscht werden und welcher gemeinsame Index ihnen und
+den Zeichen $y$, $x$, $\eta$ gegeben werde. Ersetzt man $\tfrac{\beta}{\delta}$
+durch $\tfrac{\alpha}{\gamma}$, $\alpha\beta$ durch $b'\delta'$ und nach
+dem vorhergehenden Artikel
+\[
+\frac{d^2\log\tfrac{\alpha}{\gamma}}{(d\log\eta)^2}\quad\text{durch}\quad
+\frac{1}{x'}\cdot\frac{d^2\log\tfrac{\alpha'}{\gamma'}}{(d\log\eta')^2}
+ + \frac{1}{x'}\cdot\frac{d\log\tfrac{\alpha'}{\gamma'}}{d\log\eta'},
+\]
+so ersieht man, dass der Ausdruck
+\[
+\frac{d\log\tfrac{\alpha}{\gamma}}{d\log y}, \qquad
+\frac{d^2\log\tfrac{\alpha}{\gamma}}{(d\log\eta)^2}
+ + \frac{1}{x'}\cdot\frac{d\log\tfrac{\alpha'}{\gamma'}}{d\log\eta'}
+\]
+seinem Werthe nach unge\"andert bleibt, nicht nur, wie eben gefunden, wenn
+$\beta$ mit $\alpha$ oder $\gamma$ oder $\delta$ vertauscht wird, sondern auch
+wenn diesen Gr\"ossen zugleich mit $y$, $x$, $\eta$ ein beliebiger gemeinsamer
+Index gegeben wird. F\"ur einen best\"andig wachsenden Index verschwindet der
+Werth des Ausdrucks und durch Multiplication mit $(-2\sqrt{y}\,dy)$ entsteht
+demnach
+\[
+\frac{d\sqrt{y}}{d\log y} - \frac{d^2\sqrt{y}}{(d\log\eta)^2} = 0
+\]
+als partielle Differentialgleichung f\"ur jede der Gr\"ossen $\alpha$,
+$\beta$, $\gamma$, $\delta$.]
+
+
+\subsection*{22.}
+
+[Alle Glieder des Algorithmus sind ihrem Werthe nach abh\"angig von vier
+Gr\"ossen, als solche d\"urfen $a$, $b$, $\alpha$, $\beta$ angenommen werden,
+aber auch $k$, $y$, $x$, $\eta$, weil diese unabh\"angig voneinander sich
+\"andern k\"onnen. S\"ammtliche Gleichungen zwischen den Gliedern der Reihen
+lassen sich in solche Form bringen, dass sie sowohl in Bezug auf $a$, $b$,
+$c$, \ldots, $a^n$, $b^n$, $c^n$, $k$ als auch in Bezug auf $\alpha$, $\beta$,
+$\gamma$, \ldots, $\alpha^n$, $\beta^n$, $\gamma^n$, $\delta^n$, $x$ homogen
+sind. Die Verh\"altnisse zwischen diesen letzteren h\"angen also nicht von
+$k$ und $x$, sondern allein von $y$ und $\eta$ ab; wir k\"onnen also
+\[
+\tfrac{a}{k} = p(yy), \quad \tfrac{b}{k} = q(yy), \quad \tfrac{c}{k} = r(yy),
+\]
+\[
+\tfrac{\alpha}{x} = P(yy,\eta\eta), \quad \tfrac{\beta}{x} = Q(yy,\eta\eta),
+\quad \tfrac{\gamma}{x} = R(yy,\eta\eta), \quad \tfrac{\delta}{x} = S(yy,\eta\eta)
+\]
+setzen, und aus den Betrachtungen in Art.~18 folgt dann, dass diese
+Functionen $P$, $Q$, $R$, $S$ dieselben bleiben, wenn $a$, $b$, $\gamma$,
+$\delta$, $x$, $y$, $\eta$ mit einem beliebigen Index versehen werden.
+Aus demselben Artikel folgt auch, mit Benutzung der in Artikel~15 gebrauchten
+Bezeichnung, f\"ur die mit einem gleichen Index behafteten $a$, $b$, $c$,
+$\gamma$:
+\[
+\frac{pp}{P(yy)} = \frac{qq}{Q(yy)} = \frac{rr}{R(yy)}
+\]
+ferner als Gleichungen, welche denjenigen entsprechen, durch die die Gr\"ossen
+$y$ und $\delta$ bestimmt wurden:
+\[
+qq\cdot rr\bigl(qq\cdot RR - rr\cdot QQ\bigr)
+ = rr\cdot pp\bigl(pp\cdot RR - rr\cdot PP\bigr)
+\]
+\[
+ = pp\cdot qq\bigl(qq\cdot PP - pp\cdot QQ\bigr)
+ = pp\cdot qq\cdot rr\cdot SS
+\]
+\[
+\frac{PP + QQ}{p(yy)} = \frac{RR - SS}{r(yy)},
+\qquad
+\frac{PP - QQ}{r(yy)} = \frac{RR + SS}{p(yy)}
+\]
+\[
+\frac{PP + RR}{p(yy)} = \frac{QQ + SS}{q(yy)},
+\qquad
+\frac{PP - RR}{2\sqrt{yy}} = \frac{QQ - SS}{2\sqrt{yy}}
+\]
+und als Gleichungen, die das Bildungsgesetz des Algorithmus darstellen:
+\[
+2p(y'y')\cdot P(y'y',\eta\eta) = PP + QQ, \qquad
+2p(y'y')\cdot P(y'y',\eta\eta) = RR + SS
+\]
+\[
+2r(y'y')\cdot R(y'y',\eta\eta) = PP - QQ, \qquad
+2r(y'y')\cdot R(y'y',\eta\eta) = RR - SS
+\]
+\[
+q(y'y')\cdot Q(y'y',\eta\eta) = PQ, \qquad
+q(y'y')\cdot S(y'y',\eta\eta) = RS
+\]
+worin alle Functionen, neben denen kein Argument ausgeschrieben ist, sich
+auf die einfachen $y$ und $\eta$ beziehen.
+
+Die Functionen $P$, $Q$, $R$, $S$ haben reelle Werthe f\"ur ein complexes
+$\eta^2$ von der Form $e^{\omega i}$ und bleiben bis auf $S$, welches nur
+sein Zeichen wechselt, unge\"andert, wenn man $\omega$ in $-\omega$ verwandelt;
+es ist also
+\[
+\frac{2R}{P} = \frac{\sqrt{aa}-\sqrt{bb}}{\sqrt{aa}+\sqrt{bb}}, \qquad
+\frac{2S}{Q} = \frac{\sqrt{aa}-\sqrt{bb}}{\sqrt{aa}+\sqrt{bb}}, \qquad
+\frac{2R}{P} = \frac{2S}{Q}.\Bigr]
+\]
+
+\vspace{2em}
+
+\noindent\hrulefill
+
+\vspace{1em}
+
+\noindent\textit{End of restored AGM section.} For sections 23--26 and the
+subsequent ``Lemniscatische Functionen'' material, see the base earlier TeX;
+those passages were not flagged in the fidelity audit and are passed through
+without changes here.
+
+\end{document}

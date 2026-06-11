@@ -1,0 +1,790 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Local macros for Exposé V, §§6--7
+\providecommand{\Ghat}{\widehat G}
+\providecommand{\Aqhat}{\widehat A_{\mathbb Q}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\epsi}{\varepsilon}
+\providecommand{\clgr}{\operatorname{cl}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\providecommand{\Gr}{\operatorname{Gr}}
+\providecommand{\Sym}{\operatorname{Sym}}
+
+\begin{center}
+{\Large SGA 6 — Exposé V, Chern ring and Adams operations}\\[0.4em]
+{\large Original source scan pages 354--371}
+\end{center}
+
+
+\section*{Exposé V, 6. Chern ring: completion}
+
+\textbf{Definition 6.2.} The functor defined in 6.1 on the category of graded \(K\)-algebras, with values in the category of \(K\)-\(\lambda\)-algebras, is called the \emph{Chern ring}; its value on \(A\in\operatorname{Ob}(\mathscr C)\) is denoted \(\Ch(A)\), or, if there is a risk of confusion, \(\Ch_K(A)\).
+
+From formulas (6.1.1), (6.1.2), (6.1.4), and (3.6.2), one deduces the relations
+\begin{equation}\tag{6.2.1}
+ (1,1+X)(1,1+Y)=(1,1+X+Y),
+ \qquad
+ \lambda^i(1,1+X)=0\quad\text{for }i\ge2,
+\end{equation}
+the relations which served in [1] to define the Chern ring. Conversely, from these formulas one can recover the relations (6.1.1) and (6.1.4).
+
+Let us indicate why the Chern ring is introduced. We place ourselves in the situation of Example 3.9, and write \(A\) for the graded ring associated, by the filtration defined in 3.10, with the \(K^\bullet\) of a commutatively locally ringed topos; for simplicity suppose that \(K^\bullet\) is a \(\lambda\)-ring. The augmentation ring is \(K\). We shall see below that for every element of an augmented \(\lambda\)-ring one can define Chern classes with values in the associated graded ring (6.7). To every locally free sheaf of finite type one can therefore associate an element of \(\Ch(A)\), whose component on the factor \(K\) is the rank of the sheaf and whose component on the factor \(1+\widehat A^+\) is the sum of the Chern classes. Formulas (6.2.1) are then the usual formulas giving the Chern classes and the rank of the tensor product of two invertible sheaves and of the exterior powers of an invertible sheaf; in other words, the map just defined from \(K^\bullet\) to \(\Ch(A)\) is a \(\lambda\)-homomorphism.
+
+\textbf{6.3.} For every graded \(K\)-algebra \(A\), denote by \(A_{\mathbb Q}\) the \(K\)-algebra \(A\otimes\mathbb Q\), graded in the evident way. By 1.13 one defines a functorial homomorphism
+\[
+  1+\widehat A^+\xrightarrow{\ \ch\ }\widehat A_{\mathbb Q}^{+}
+\]
+by giving its value on \(1+X\):
+\begin{equation}\tag{6.3.1}
+  \ch(1+X)=\exp(X)-1.
+\end{equation}
+This homomorphism is compatible with the multiplication defined in 6.1 on \(1+\widehat A^+\). By 1.13 it is enough to show this for the elements \(1+X\), \(1+Y\) of the universal ring \(1+K[X,Y]^+\). One has
+\[
+\begin{aligned}
+ \ch\bigl((1+X)*(1+Y)\bigr)
+ &= \ch\!\left(\frac{1+X+Y}{(1+X)(1+Y)}\right)\\
+ &= \ch(1+X+Y)-\ch(1+X)-\ch(1+Y)\\
+ &= \exp(X+Y)-\exp(X)-\exp(Y)+1\\
+ &= \ch(1+X)\,\ch(1+Y).
+\end{aligned}
+\]
+
+Let \(\eta\) be the endomorphism of \(\widehat A_{\mathbb Q}^{+}\), functorial in \(A\), defined by
+\[
+ \eta\!\left(\sum_{k\ge1} a_k t^k\right)
+ =
+ \sum_{k\ge1}\frac{(-1)^{k-1}}{(k-1)!}\,a_k t^k.
+\]
+Then, for every \(\varphi\in1+\widehat A^+\),
+\begin{equation}\tag{6.3.2}
+  \ch(\varphi)=\eta(\Log\varphi).
+\end{equation}
+Indeed, \(\ch\) and \(\eta\circ\Log\) are two functorial homomorphisms of abelian groups, and it is enough for them to agree on \(1+X\), which is evident.
+
+It follows that \(\ch\) commutes with the operations of \(K\): again it is enough to show this for \(1+X\), and for \(a\in K\) one has
+\[
+\begin{aligned}
+ \ch((1+X)^a)
+ &=\ch(\exp(a\Log(1+X)))\\
+ &=\eta(a\Log(1+X))\\
+ &=a\,\eta(\Log(1+X))\\
+ &=a\,\ch(1+X).
+\end{aligned}
+\]
+Thus one can extend \(\ch\) in the evident way to a homomorphism of \(K\)-algebras
+\[
+  K\times(1+\widehat A^+)\longrightarrow K\oplus\widehat A_{\mathbb Q}^{+},
+\]
+namely
+\begin{equation}\tag{6.3.3}
+  \ch(a,\varphi)=a+\eta(\Log\varphi).
+\end{equation}
+
+\textbf{Definition 6.4.} The homomorphism
+\[
+  \ch:\Ch A\longrightarrow K\oplus\widehat A_{\mathbb Q}^{+}
+\]
+just defined is called the \emph{Chern character}.
+
+If \(A\) is of characteristic zero, that is, is a \(\mathbb Q\)-algebra, the Chern character is an isomorphism. Indeed, if \(\psi\in K\oplus\widehat A^+\), one may write \(\psi=a+\psi_1\), where \(\psi_1\) is of positive degree, and then an inverse morphism is defined by
+\[
+  \psi\longmapsto (a,\exp(\eta^{-1}(\psi_1))).
+\]
+
+\textbf{Proposition 6.5.} Let \(A\) be a graded \(K\)-algebra. On \(\Ch(A)\) consider the filtration defined as follows, the degree filtration:
+\begin{equation}\tag{6.5.1}
+  (\Ch(A))_0=\Ch(A),\qquad
+  (\Ch(A))_n=0\times(1+\widehat A^{\ge n})\quad(n\ge1),
+\end{equation}
+where \(\widehat A^{\ge n}=\prod_{i\ge n}A^i\). The following congruences hold.
+
+\begin{enumerate}[label=\roman*)]
+\item If \(n\ge1\) and \(\varphi\in(\Ch A)_n\), writing \(\varphi=1+a_n+\cdots\), then
+\begin{equation}\tag{6.5.2}
+  \ch(\varphi)=\frac{(-1)^{n-1}}{(n-1)!}\,a_n+\cdots .
+\end{equation}
+
+\item If \(\varphi\in(\Ch A)_m\), \(\psi\in(\Ch A)_n\), and if
+\(\varphi=1+a_m+\cdots\), \(\psi=1+b_n+\cdots\), then
+\begin{equation}\tag{6.5.3}
+  \varphi*\psi
+  =
+  1-\frac{(m+n-1)!}{(m-1)!(n-1)!}\,a_m b_n+\cdots .
+\end{equation}
+Consequently the degree filtration is a ring filtration.
+\end{enumerate}
+
+For (i), the Chern character is by construction a morphism of filtered functors; from the congruence \(\varphi\equiv1+a_n\pmod{(\Ch A)_{n+1}}\) one obtains
+\[
+  \ch(\varphi)=\ch(1+a_n)\pmod{\widehat A^{\ge n+1}},
+\]
+and, since \(\ch(1+a_n)=\eta(\Log(1+a_n))\), this is
+\[
+  \frac{(-1)^{n-1}}{(n-1)!}a_n+\cdots .
+\]
+For (ii), by substitution it is enough to prove (6.5.3) for the torsion-free universal polynomial algebra
+\[
+ A=K[X_i,Y_j]_{i,j\in\mathbb N}
+\]
+and for \(\varphi=1+\sum_{k\ge m}X_k\), \(\psi=1+\sum_{k\ge n}Y_k\). Since \(K\) is torsion-free in the universal case, one can embed this algebra in its tensor product with \(\mathbb Q\), so that \(\ch\) is injective. Put \(\varphi*\psi=1+Z_p+\cdots\), where \(Z_p\) is the first non-zero term different from \(1\). The multiplicativity of \(\ch\), together with (6.5.2), gives
+\[
+  1+\frac{(-1)^{p-1}}{(p-1)!}Z_p+\cdots
+  =
+  \left(1+\frac{(-1)^{m-1}}{(m-1)!}X_m+\cdots\right)
+  \left(1+\frac{(-1)^{n-1}}{(n-1)!}Y_n+\cdots\right),
+\]
+which gives the stated value of \(Z_p\) by comparing the terms of lowest degree.
+
+\textbf{6.6.} The \(\lambda\)-ring \(\Ch A\) is augmented over \(K\): one defines a \(\lambda\)-homomorphism \(\Ch A\to K\) by \((a,\varphi)\mapsto a\). It is therefore equipped with the canonical filtration of an augmented \(\lambda\)-ring. We compare it with the filtration just defined.
+
+\textbf{Proposition 6.6.1.} Let \(x\in\Ch A\) be an element of the form \(x=(n,1+\cdots+a_n)\). Then:
+\[
+\begin{array}{ll}
+\text{i)}& \lambda^i(x)=0\quad\text{for }i>n,\\[0.3em]
+\text{ii)}& \lambda^n(x)=(1,1+a_1),\\[0.3em]
+\text{iii)}& \displaystyle\sum_{i=0}^n(-1)^i\lambda^i(x)
+       =(0,1-(n-1)!a_n+\cdots),
+\end{array}
+\]
+where the unwritten terms have degree \(>n\).
+
+By functoriality, it is enough to prove this in the case where
+\(A=K[X_1,\ldots,X_n]\), filtered by weight with respect to the \(X_i\), \(X_i\) having weight \(i\), and for the element \((n,1+X_1+\cdots+X_n)\). Embed \(A\) in \(A'=K[T_1,\ldots,T_n]\) by the symmetric functions. Then
+\[
+ (n,1+X_1+\cdots+X_n)
+ =
+ \left(n,\prod_{i=1}^n(1+T_i)\right)
+ =
+ \sum_{i=1}^n(1,1+T_i).
+\]
+Hence, by (6.2.1),
+\[
+  \lambda_t(x)=\prod_{i=1}^n\bigl(1+(1,1+T_i)t\bigr),
+\]
+so that
+\[
+  \lambda^k(x)=0\quad(k>n),\qquad
+  \lambda^n(x)=\prod_{i=1}^n(1,1+T_i)
+   =\left(1,1+\sum_{i=1}^nT_i\right)=(1,1+X_1).
+\]
+Finally,
+\[
+  \sum_{i=1}^n(-1)^i\lambda^i(x)=\lambda_{-1}(x)
+  =\prod_{i=1}^n\bigl(1-(1,1+T_i)\bigr)
+  =(-1)^n\prod_{i=1}^n(0,1+T_i).
+\]
+By (6.5.3),
+\[
+  \prod_{i=1}^n(0,1+T_i)
+  =
+  \left(0,1+(-1)^{n-1}(n-1)!\prod_{i=1}^nT_i+\cdots\right),
+\]
+hence
+\[
+  \lambda_{-1}(x)=(0,1-(n-1)!X_n+\cdots).
+\]
+
+\textbf{Corollary 6.6.2.} Relation 6.6.1(iii) is true for every element \(X\) of augmentation \(n\).
+
+For this we shall use the following lemma.
+
+\textbf{Lemma 6.6.3.} For every \(n\), \((\Ch A)_n\) is a \(\lambda\)-ideal of \(\Ch A\).
+
+We may suppose \(n>1\). Let \(x=(0,\varphi)\in(\Ch A)_n\), and write
+\[
+  \lambda^i(0,\varphi)=(0,1+Q^i_{i,1}+\cdots+Q^i_{i,j}+\cdots),
+\]
+where the \(Q^i_{i,j}\) are the isobaric components of weight \(j\) of the \(Q^i_i\) of (3.6). For every \(j\), the polynomial \(Q^i_{i,j}\) is a polynomial in the first \(j\) coefficients of \(\varphi\). If \(j<n\), these coefficients are zero; hence the \(Q^i_{i,j}\) are zero, and so the \(\lambda^i(x)\) belong to \((\Ch A)_n\). Thus \((\Ch A)_n\) is a \(\lambda\)-ideal.
+
+Let \(x=(n,1+a_1+\cdots+a_n+\cdots)\) be an element of augmentation \(n\) in \(\Ch A\). Then
+\[
+  x\equiv (n,1+\cdots+a_n)\pmod{(\Ch A)_{n+1}},
+\]
+and therefore
+\[
+  \lambda_{-1}(x)\equiv \lambda_{-1}(n,1+\cdots+a_n)
+  =(0,1-(n-1)!a_n+\cdots),
+\]
+which proves the corollary.
+
+\textbf{Corollary 6.6.4.} Let \(\epsilon\) be the augmentation homomorphism of \(\Ch A\). Then, for every \(x\in\Ch A\), one has
+\[
+  \gamma^n(x-\epsilon(x))
+  =
+  (0,1+(-1)^{n-1}(n-1)!a_n+\cdots).
+\]
+By definition,
+\[
+  \gamma^n(x-\epsilon(x))
+  =
+  (-1)^n\sum_{i=0}^n(-1)^i\lambda^i(x+n-\epsilon(x)).
+\]
+Since \(x+n-\epsilon(x)\) has augmentation \(n\), Corollary 6.6.2 applies to it, giving the result.
+
+\textbf{Corollary 6.6.5.} With the notation of 3.10,
+\[
+  \Fil^n\Ch A\subset(\Ch A)_n.
+\]
+This follows from the preceding corollary, which gives \(\gamma^n(x-\epsilon(x))\in(\Ch A)_n\), and from the fact that the two filtrations are ring filtrations and that the elements \(\gamma^n(x-\epsilon(x))\), for \(n\) and \(x\) variable, generate the \(\lambda\)-ring filtration.
+
+\textbf{Corollary 6.6.7.} Let \(A\) be a graded \(K\)-algebra of characteristic zero, bounded by degree. Then the two filtrations defined on \(\Ch A\) are identical.
+
+Suppose that \(\Fil^p A=0\), and let \(x=(0,1+a_n+\cdots+a_p)\) be an element of \((\Ch A)_n\). Put
+\[
+  x'=\left(0,1+\frac{(-1)^{n-1}}{(n-1)!}a_n+a_{n+1}+\cdots+a_p\right).
+\]
+Then \(\gamma^n(x')=(0,1+a_n+\cdots+a'_p)\), since \(x'\) has zero augmentation. Hence \(x-\gamma^n(x')\in(\Ch A)_{n+1}\). Iterating the operation \(p-n\) times, one reaches \((\Ch A)_{p+1}=0\), and therefore \(x\) is written as an element of \(\Fil^n\Ch A\). In view of (6.6.5), the two filtrations are identical.
+
+\textbf{6.7.} Now suppose that \(A\) is a \(\lambda\)-ring augmented over \(K\), and let \(\epsilon\) be the augmentation homomorphism. Then \(A\) is equipped with its canonical filtration of augmented \(\lambda\)-ring, and one can associate to \(\Gr A\) its Chern ring.
+
+If \(x\in A\), then \(\gamma_t(x-\epsilon(x))\in\Ghat(A)\) by definition of the filtration of an augmented \(\lambda\)-ring. We write \(c(x)\) for the image of \(\gamma_t(x-\epsilon(x))\) in
+\[
+  \Ghat(A)/\Ghat'(A)=1+\widehat{\Gr A}^{+}.
+\]
+It is called the \emph{total Chern class} of \(x\). We write \(c^i(x)\), and call it the \(i\)-th Chern class of \(x\), for the \(i\)-th coefficient of \(c(x)\). Thus
+\begin{equation}\tag{6.7.1}
+  c^i(x)=\cl_{\Gr^iA}\!\left(\gamma^i(x-\epsilon(x))\right),
+  \qquad
+  c(x)=1+c^1(x)+\cdots .
+\end{equation}
+Put
+\begin{equation}\tag{6.7.2}
+  \widetilde c(x)=(\epsilon(x),c(x)).
+\end{equation}
+This is called the \emph{completed Chern class} of \(x\).
+
+\textbf{Proposition 6.8.} The completed Chern class
+\[
+  \widetilde c:A\longrightarrow\Ch(\Gr A)
+\]
+is a \(K\)-\(\lambda\)-homomorphism of augmented \(K\)-\(\lambda\)-algebras.
+
+It is clear that the homomorphism so defined is additive. To verify that it is multiplicative, write
+\[
+\begin{aligned}
+\gamma_t(xy-\epsilon(xy))
+&=\gamma_t\bigl(\epsilon(y)(x-\epsilon(x))\bigr)
+  \gamma_t\bigl(\epsilon(x)(y-\epsilon(y))\bigr)
+  \gamma_t\bigl((x-\epsilon(x))(y-\epsilon(y))\bigr)\\
+&=\bigl(\gamma_t(x-\epsilon(x))\bigr)^{\epsilon(y)}
+  \bigl(\gamma_t(y-\epsilon(y))\bigr)^{\epsilon(x)}
+  \bigl(\gamma_t(x-\epsilon(x))\circ\gamma_t(y-\epsilon(y))\bigr),
+\end{aligned}
+\]
+which gives the result by (6.1.2) after passage to the quotient. If \(a\in K\), then \(\widetilde c(a)=(a,1)\), so \(\widetilde c\) is a homomorphism of \(K\)-algebras; moreover it is compatible with augmentations.
+
+It remains to see that it is a \(\lambda\)-homomorphism. One must prove the commutativity of the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
+\Ghat(A) \arrow[d,"\Ghat(\widetilde c)"]\\
+\Ch A \arrow[r,"\gamma_t"'] &
+\Ghat(\Ch A).
+\end{tikzcd}
+\]
+By additivity, it is enough to prove it for the elements of \(K\), where it is evident, and for the elements of zero augmentation in \(A\), where it follows, by the definition of \(c\) and (6.1.4), from diagram (3.7.2).
+
+\textbf{Proposition 6.9.} Let \(A\) be an augmented \(K\)-\(\lambda\)-algebra and let \(z\in\Fil^mA\). Then
+\[
+  \gamma^m(z)=(-1)^{m-1}(m-1)!z\pmod{\Fil^{m+1}A},
+\]
+that is,
+\[
+  c^m(z)=\cl_{\Gr^mA}\!\left((-1)^{m-1}(m-1)!z\right).
+\]
+
+One must see that these two elements give the same image in \(\Gr^mA\), that is, that the \(m\)-th Chern class of \(z\) is the image of \((-1)^{m-1}(m-1)!z\).
+
+One may write \(z\) as a sum
+\[
+  \sum a\,\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k),
+\]
+with \(a\in A\), \(\epsilon(x_i)=0\) for all \(i\), and \(i_1+\cdots+i_k\ge m\). We then have
+\[
+  \widetilde c(z)=
+  \sum \widetilde c(a)\,
+        \widetilde c(\gamma^{i_1}(x_1))\cdots
+        \widetilde c(\gamma^{i_k}(x_k)).
+\]
+Since \(\widetilde c\) is a \(\lambda\)-homomorphism, one may write
+\[
+  \widetilde c(\gamma^i(x_j))=\gamma^i(\widetilde c(x_j)).
+\]
+Taking account of the definition of \(c\) and of (6.6.4), one obtains
+\[
+  \widetilde c(\gamma^{i_j}(x_j))
+  =
+  \left(0,1+(-1)^{i_j-1}(i_j-1)!\,\gamma^{i_j}(x_j)+\cdots\right).
+\]
+By (6.5.3), and since \(\widetilde c(a)=(a,1)\), one finally gets
+\[
+\begin{aligned}
+\widetilde c(z)
+&=\sum
+\left(0,\left(1+
+(-1)^{i_1+\cdots+i_k-1}
+(i_1+\cdots+i_k-1)!
+\,\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k)
++\cdots\right)^a\right)\\
+&=
+\left(0,1+
+\sum_{\substack{(x_1,\ldots,x_k)\\ i_1+\cdots+i_k=m}}
+(-1)^{m-1}(m-1)!a\,\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k)
++\cdots\right)\\
+&=
+(0,1+(-1)^{m-1}(m-1)!z+\cdots),
+\end{aligned}
+\]
+which proves the assertion.
+
+\textbf{Proposition 6.10.} Let \(K\) be a binomial ring, \(R\) an augmented \(K\)-\(\lambda\)-algebra, \(N\in R\) an element such that \(\lambda^k(N)=0\) for \(k>d\), and \(x\in\Fil^iR\). Then
+\[
+  \gamma^{d+i}(N,x)-(-1)^{d+i-1}(d+i-1)!x\in\Fil^{i+1}R.
+\]
+
+One can find elements \(z_{\alpha,j}\in R\) and \(a_\alpha\in K\) such that
+\[
+  x=\sum_\alpha a_\alpha\,
+       \gamma^{i_1}(x_{\alpha,1})\cdots
+       \gamma^{i_k}(x_{\alpha,k}),
+\]
+with \(i_1+\cdots+i_k\ge i\) and \(\epsilon(x_{\alpha,j})=0\) for every \(\alpha\) and every \(j\). Let \(R_0\) be the \(K\)-\(\lambda\)-algebra generated by \(N'_0\) and \(X_{\alpha,j}\), subject to the relations
+\[
+  \gamma^k(N'_0)=0\quad\text{for }k>d.
+\]
+Define an augmentation homomorphism \(R_0\to K\) by \(\epsilon(N'_0)=\epsilon(X_{\alpha,j})=0\). By (4.9.1), \(R_0\) is the ring of polynomials with coefficients in \(K\) in the indeterminates \(\gamma^k(N'_0)\), \(1\le k\le d\), and \(\gamma^p(X_{\alpha,j})\), \(p\ge1\); the \(\lambda\)-filtration of \(R_0\) is its weight filtration, where \(\gamma^k(N'_0)\) and \(\gamma^k(X_{\alpha,j})\) have weight \(k\) (4.12 and 4.15).
+
+Put
+\[
+  X_0=\sum_\alpha a_\alpha\,
+       \gamma^{i_1}(X_{\alpha,1})\cdots
+       \gamma^{i_k}(X_{\alpha,k}).
+\]
+We shall prove 6.10 first for \(X_0\) and \(N'_0=N_0+d\), which do satisfy the hypotheses of 6.10. In view of the preceding remark about the filtration of \(R_0\), it is enough to show that
+\[
+  \gamma^{d+i}(N_0,X_0)\gamma^d(N'_0)
+  -
+  (-1)^{d+i-1}(d+i-1)!X_0\gamma^d(N'_0)
+  \in\Fil^{d+i+1}R_0 .
+\]
+But \(\lambda_{-1}(N_0)=(-1)^d\gamma^d(N'_0)\). Thus this relation becomes
+\[
+  (-1)^d\gamma^{d+i}(X_0,(-1)^d\gamma^d(N'_0))
+  -
+  (-1)^{d+i-1}(d+i-1)!X_0\gamma^d(N'_0)
+  \in\Fil^{d+i+1}R_0 .
+\]
+Putting \(z=(-1)^dX_0\gamma^d(N'_0)\), we have \(z\in\Fil^{d+i}R_0\), and the statement is reduced to
+\[
+  \gamma^{d+i}(z)-(-1)^{d+i-1}(d+i-1)!z\in\Fil^{d+i+1}R_0,
+\]
+which is just 6.9.
+
+To deduce 6.10 from this particular case, consider the \(K\)-\(\lambda\)-homomorphism \(R_0\to R\) which sends \(N'_0\) to \(N-d\) and \(X_{\alpha,j}\) to \(x_{\alpha,j}\), for every \(\alpha\) and \(j\). This homomorphism is compatible with the \(\lambda\)-filtrations and sends \(N_0\) to \(N\) and \(X_0\) to \(x\). Hence the result follows.
+
+\textbf{Proposition 6.11.} Suppose that \(K\) is of characteristic zero, and let \(n\ge0\) be an integer. Then the functor \(\Ch\) is an equivalence from the category of graded \(K\)-algebras \(A\) such that \(A_0=K\) and \(A_k=0\) for \(k>n\), to the category of augmented \(K\)-\(\lambda\)-algebras \(\Lambda\) such that \(\Fil^{n+1}\Lambda=0\). A quasi-inverse functor is given by \(\Lambda\mapsto\Gr\Lambda\).
+
+Let \(A\) be a graded \(K\)-algebra such that \(A_k=0\) for \(k>n\), equipped with the filtration associated to its grading. Then \((\Ch A)_{n+1}=0\), and hence \(\Fil^{n+1}\Ch A=0\) by (6.6.5). Conversely, if \(\Lambda\) is an augmented \(K\)-\(\lambda\)-algebra such that \(\Fil^{n+1}\Lambda=0\), then \(\Gr^0\Lambda=K\) and \(\Gr^k\Lambda=0\) for \(k>n\).
+
+We shall define isomorphisms of functors
+\[
+  A\longrightarrow \Gr(\Ch A),
+  \qquad
+  \Lambda\longrightarrow\Ch(\Gr\Lambda).
+\]
+Since \(A\) is of finite grading, the associated gradeds of the \(\lambda\)-ring filtration on \(\Ch A\) and of the degree filtration are the same by (6.6.7). Define
+\[
+  u:A\longrightarrow \Gr_{\deg}(\Ch A)
+\]
+to be the identity on \(A_0\), and, for \(i\ge1\) and \(a_i\in A_i\),
+\[
+  u(a_i)=
+  \cl_{\Gr^i}\left(0,1+(-1)^{i-1}(i-1)!a_i\right),
+\]
+then extend by additivity. By relation (6.5.3) this is a homomorphism of graded rings, and it is easy to see that it is compatible with the operations of \(K\). The inverse morphism \(u^{-1}\) may be defined as follows: for \(i\ge1\) and \(\bar\varphi\in\Gr^i(\Ch A)\), the \(i\)-th coefficient \(a_i\) of \(\varphi\) is independent of the lift of \(\bar\varphi\) in \((\Ch A)_i\), and one puts
+\[
+  u^{-1}(\bar\varphi)=\frac{(-1)^{i-1}}{(i-1)!}a_i.
+\]
+Thus \(u\) is an isomorphism.
+
+The isomorphism \(\Lambda\to\Ch(\Gr\Lambda)\) is defined by the completed Chern class \(\widetilde c\). To verify that it really defines an isomorphism, it is enough to verify that the homomorphism obtained by passing to associated graded rings is one, the filtrations being discrete. One gets
+\[
+  \Gr\Lambda
+   \xrightarrow{\Gr(\widetilde c)}
+  \Gr_{\lambda}(\Ch(\Gr\Lambda))
+   \simeq
+  \Gr_{\deg}(\Ch(\Gr\Lambda))
+   \xrightarrow{u^{-1}}
+  \Gr\Lambda .
+\]
+It remains to show that the composite is the identity. Since the homomorphisms are homomorphisms of graded \(K\)-algebras, it is enough, by the definition of the \(\lambda\)-ring filtration of \(\Lambda\), to show that it is the identity on the \(\gamma^i(x)\), where \(\epsilon(x)=0\). One then obtains
+\[
+  \Gr(\widetilde c)\bigl(\gamma^i(x)\bigr)
+  =
+  \cl_{\Gr^i}\bigl(\gamma^i(c(x))\bigr).
+\]
+But \(\gamma^i(\widetilde c(x))=(0,1+(-1)^{i-1}(i-1)!c^i(x)+\cdots)\), by (6.6.4). Therefore
+\[
+  \cl_{\Gr^i}\bigl(\gamma^i(\widetilde c(x))\bigr)=u(c^i(x)),
+\]
+which shows that \(u^{-1}\circ\Gr(\widetilde c)=\id\).
+
+\textbf{Corollary 6.12.} If \(K\) is of characteristic zero, and if \(\Lambda\) is a \(K\)-\(\lambda\)-algebra with discrete filtration, then the completed Chern class
+\[
+  \widetilde c:\Lambda\longrightarrow \Ch(\Gr\Lambda)
+\]
+is an isomorphism.
+
+The proof is contained in that of 6.11.
+
+\textbf{Definition 6.13.} Let \(A\) be a graded \(K\)-algebra and \(\Lambda\) an augmented \(K\)-\(\lambda\)-algebra. A \emph{Chern theory for \(\Lambda\) with values in \(A\)} is a \(\lambda\)-homomorphism
+\[
+  \Lambda\longrightarrow \Ch(A)
+\]
+compatible with augmentations.
+
+Thus one defines a functor on the category of graded \(K\)-algebras, with values in the category of sets, by associating with a graded \(K\)-algebra \(A\) the set of Chern theories of \(\Lambda\) with values in \(A\), namely
+\[
+  \Hom_\lambda(\Lambda,\Ch(A)).
+\]
+
+\textbf{Proposition 6.14.} The functor defined in 6.13 is representable. If \(K\) is of characteristic zero and \(\Lambda\) has discrete filtration, it is represented by the graded ring associated with \(\Lambda\).
+
+First prove the first assertion. Consider the graded \(K\)-algebra generated by generators \(c^i(x)\), with \(i\ge1\), \(x\in\Fil^1\Lambda\), \(c^i(x)\) of degree \(i\), and take its quotient by the following relations:
+\[
+\begin{array}{ll}
+\text{i)}&
+ c^k(x+y)=\displaystyle\sum_{i+j=k}c^i(x)c^j(y),
+ \quad k\ge1,\ x,y\in\Fil^1\Lambda,\\[0.8em]
+\text{ii)}&
+ c^k(xy)=P''_k(c^i(x),c^j(y))
+ \quad(\text{cf. }6.1),
+ \quad k\ge1,\ x,y\in\Fil^1\Lambda,\\[0.4em]
+\text{iii)}&
+ c^k(ax)=R_{k,a}(c^i(x))
+ \quad(\text{cf. }6.1),
+ \quad k\ge1,\ a\in K,\ x\in\Fil^1\Lambda,\\[0.4em]
+\text{iv)}&
+ c^k(\gamma^j(x))=Q''_{j,k}(c^i(x))
+ \quad(\text{cf. }6.1),
+ \quad j,k\ge1,\ x\in\Fil^1\Lambda.
+\end{array}
+\]
+These relations are isobaric, so the quotient is a graded \(K\)-algebra \(\Omega\). Define a morphism
+\[
+  \widetilde c_0:\Lambda\longrightarrow \Ch(\Omega)
+\]
+by
+\[
+  x\longmapsto
+  \bigl(\epsilon(x),1+c^1(x-\epsilon(x))+\cdots\bigr).
+\]
+The imposed relations show that this is a Chern theory for \(\Lambda\) with values in \(\Omega\). Conversely, if \(f\) is a Chern theory with values in a graded \(K\)-algebra \(A\), then there is a unique homomorphism \(\Omega\to A\) through which \(f\) factors through \(\Ch(\Omega)\): it sends, for every \(i\ge1\) and every \(x\in\Fil^1\Lambda\), the element \(c^i(x)\) to the \(i\)-th coefficient of \(f(x)\). This is well defined because \(f\) is a \(\lambda\)-homomorphism.
+
+Now suppose that \(K\) is of characteristic zero and \(\Lambda\) has discrete filtration. Let \(n\) be such that \(\Fil^n\Lambda=0\). Then the graded algebra \(\Omega\) is zero in degrees \(>n\). To show this, it is enough to prove that, for
+\[
+  x_1,\ldots,x_p\in\Fil^1\Lambda
+  \quad\text{and}\quad
+  k_1+\cdots+k_p\ge n,
+\]
+one has
+\[
+  c^{k_1}(x_1)\cdots c^{k_p}(x_p)=0.
+\]
+By hypothesis,
+\[
+  \gamma^{k_1}(x_1)\cdots\gamma^{k_p}(x_p)=0.
+\]
+Applying the \(\lambda\)-homomorphism \(\widetilde c_0\), one gets
+\[
+  \gamma^{k_1}(\widetilde c_0(x_1))\cdots
+  \gamma^{k_p}(\widetilde c_0(x_p))=(0,1).
+\]
+By (6.6.4) and (6.5.3), this implies
+\[
+  (k_1+\cdots+k_p)!\,
+  c^{k_1}(x_1)\cdots c^{k_p}(x_p)=0.
+\]
+Since \(K\) is of characteristic zero, the desired result follows.
+
+The universal property of \(\Omega\), applied to the canonical homomorphism \(\widetilde c\), gives a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Lambda \arrow[r,"\widetilde c"] \arrow[d,"\widetilde c_0"'] &
+\Ch(\Gr\Lambda)\\
+\Ch(\Omega) \arrow[ur] &
+\end{tikzcd}
+\]
+By Proposition 6.11, the homomorphism \(\Omega\to\Gr\Lambda\) is an isomorphism if and only if the homomorphism
+\[
+  \Ch(\Omega)\longrightarrow \Ch(\Gr\Lambda)
+\]
+is one. Since it is visibly surjective, the latter is also surjective; it remains to show that
+\(\Ch(\Omega)\to\Ch(\Gr\Lambda)\) is injective. By functoriality of \(\Ch\), one obtains the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Lambda \arrow[r,"\widetilde c_0"] \arrow[d,"\widetilde c"'] &
+\Ch(\Omega) \arrow[d,"\widetilde c"]\\
+\Ch(\Gr\Lambda) \arrow[r,"\Ch(\widetilde c_0)"'] &
+\Ch\bigl(\Gr_\Lambda(\Ch(\Omega))\bigr).
+\end{tikzcd}
+\]
+Since \(\Omega\) has bounded degrees, the right vertical arrow is an isomorphism by (6.12). Using 6.11, one therefore obtains a morphism
+\[
+  \Gr\Lambda\longrightarrow\Omega
+\]
+whose two composites with \(\Omega\to\Gr\Lambda\) are the identity, by the universal property of \(\Omega\).
+
+\section*{7. Appendix: the Adams operations \(\psi^k\)}
+
+We follow here a presentation due to J.-P. Serre.
+
+\textbf{7.1.} Let \(K\) be a pre-\(\lambda\)-ring. For \(x\in K\), write
+\[
+  \frac{d}{dt}(\lambda_t(x))
+\]
+for the derivative with respect to \(t\) of \(\lambda_t(x)\). Define elements of \(K\), denoted \(\psi^k(x)\), by putting
+\begin{equation}\tag{7.1.1}
+  \frac{d}{dt}(\lambda_t(x))/\lambda_t(x)
+  =
+  \sum_{k=1}^{\infty}(-1)^{k-1}\psi^k(x)t^{k-1}.
+\end{equation}
+The maps \(\psi^k:K\to K\) are additive. Indeed,
+\[
+\begin{aligned}
+ \frac{d}{dt}(\lambda_t(x+y))/\lambda_t(x+y)
+ &=
+ \frac{d}{dt}(\lambda_t(x)\lambda_t(y))/\lambda_t(x)\lambda_t(y)\\
+ &=
+ \frac{d}{dt}(\lambda_t(x))/\lambda_t(x)
+ +\frac{d}{dt}(\lambda_t(y))/\lambda_t(y),
+\end{aligned}
+\]
+and therefore, for every \(k\),
+\[
+  \psi^k(x+y)=\psi^k(x)+\psi^k(y).
+\]
+By (7.1.1), the \(\psi^k\) are isobaric polynomials of weight \(k\) in the \(\lambda^i\), \(i=1,\ldots,k\). For example,
+\[
+  \psi^1(x)=\lambda^1(x)=x,
+  \qquad
+  \psi^2(x)=x^2-2\lambda^2(x).
+\]
+
+\textbf{7.2.} Let \(K\) be a ring of characteristic zero. Suppose given additive maps \(\psi^k:K\to K\) such that \(\psi^1=\id_K\). Define a pre-\(\lambda\)-structure on \(K\) by
+\begin{equation}\tag{7.2.1}
+  \lambda_t(x)=
+  \exp\left(\sum_{k=1}^{\infty}(-1)^{k-1}\psi^k(x)t^k/k\right).
+\end{equation}
+Multiplicativity follows from the additivity of the \(\psi^k\). Thus there is an equivalence between giving a pre-\(\lambda\)-structure on \(K\) and giving the corresponding operations \(\psi^k\).
+
+\textbf{7.3.} It is clear from formula (7.1.1) that the \(\psi^k\) commute with \(\lambda\)-homomorphisms. If \(K,K'\) are pre-\(\lambda\)-rings of characteristic zero, it is necessary and sufficient for a homomorphism \(f:K\to K'\) to be a \(\lambda\)-homomorphism that it commute with the \(\psi^k\). This follows from 7.2, since the \(\lambda^i\) are expressed as polynomials in the \(\psi^k\).
+
+\textbf{Examples 7.4.} i) For \(K=\mathbb Z\), with its \(\lambda\)-ring structure, one has
+\[
+  \frac{d}{dt}(\lambda_t(n))/\lambda_t(n)
+  =
+  n(1+t)^{n-1}/(1+t)^n
+  =
+  n\sum_{k=1}^{\infty}(-1)^{k-1}t^{k-1}.
+\]
+Consequently the \(\psi^k\) are all equal to the identity map of \(\mathbb Z\).
+
+ii) Work in the category \(\mathscr C_0\) of \(\mathbb Z\)-algebras (1.8). By 7.3, the operations \(\psi^k\) define additive endomorphisms of the functor \(G\) on \(\lambda\)-rings. By 1.10 they are characterized by their value on \(1+Xt\). One has
+\[
+  \frac{d}{dt}(\lambda_u(1+Xt))/\lambda_u(1+Xt)
+  =
+  \frac{1+Xt}{1+\{1+Xt\}u}
+  =
+  \sum_{k=1}^{\infty}(-1)^{k-1}\{1+Xt\}^{\circ k}u^{k-1}.
+\]
+Thus
+\begin{equation}\tag{7.4.1}
+  \psi^k(1+Xt)=1+X^k t.
+\end{equation}
+
+\textbf{Proposition 7.5.} i) If \(K\) is a \(\lambda\)-ring, the operations \(\psi^k\) satisfy the identities
+\begin{equation}\tag{7.5.1}
+  \psi^k(1)=1,\qquad
+  \psi^k(xy)=\psi^k(x)\psi^k(y),\qquad
+  \psi^k\circ\psi^{k'}=\psi^{kk'}.
+\end{equation}
+ii) Conversely, if the \(\psi^k\) satisfy these identities and if \(K\) is of characteristic zero, then \(K\) is a \(\lambda\)-ring.
+
+For (i), if \(K\) is a \(\lambda\)-ring, \(\lambda_t(1)=1+t\), hence
+\[
+  \frac{d}{dt}(\lambda_t(1))/\lambda_t(1)
+  =
+  \frac1{1+t}
+  =
+  \sum_{k=1}^{\infty}(-1)^{k-1}t^{k-1},
+\]
+and therefore \(\psi^k(1)=1\).
+
+To prove the second relation of (7.5.1), consider the diagram
+\begin{equation}\tag{7.5.2}
+\begin{tikzcd}[column sep=large,row sep=large]
+K\times K \arrow[r,"\lambda_t\times\lambda_t"] \arrow[d] &
+\widehat G(K)\times\widehat G(K) \arrow[r,"g^k\times g^k"] \arrow[d,"\circ"] &
+K\times K \arrow[d]\\
+K \arrow[r,"\lambda_t"'] &
+\widehat G(K) \arrow[r,"g^k"'] &
+K ,
+\end{tikzcd}
+\end{equation}
+where the vertical arrows are defined by multiplication, and the maps \(g^k\) as follows: the logarithmic derivative is a group homomorphism from \(G(K)\) to \(K[[t]]\), and the map which to a series assigns its \((k-1)\)-st coefficient, multiplied by \((-1)^{k-1}\), is an additive homomorphism from \(K[[t]]\) to \(K\); \(g^k\) is their composite. Clearly \(g^k\circ\lambda_t=\psi^k\) by definition (7.1.1).
+
+The second of formulas (7.5.1) therefore expresses the commutativity of the diagram just written. If \(K\) is a \(\lambda\)-ring, the left square is commutative, and it is enough to verify the commutativity of the right square. This is a diagram of functor homomorphisms on \(\mathscr C_0\), with source \(\widehat G\times\widehat G\). By 1.10 it is enough to verify commutativity on \((1+Xt,1+Yt)\). Then
+\[
+  g^k(1+Xt)=X^k,\qquad
+  g^k(1+Yt)=Y^k,
+\]
+and
+\[
+  g^k\bigl((1+Xt)\circ(1+Yt)\bigr)
+  =
+  g^k(1+XYt)
+  =
+  (XY)^k
+  =
+  g^k(1+Xt)g^k(1+Yt),
+\]
+which gives the result.
+
+To prove the last relation, first observe that the diagram
+\begin{equation}\tag{7.5.3}
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat G_t(K) \arrow[r,"\lambda_u"] \arrow[d,"g^k"'] &
+\widehat G_u\widehat G_t(K) \arrow[d,"g^k_u"]\\
+K \arrow[r,"\lambda_u"'] &
+\widehat G^u(K)
+\end{tikzcd}
+\end{equation}
+is commutative. As above, it is enough to see this for \(1+Xt\), and one has
+\[
+  g^{k'}_u\lambda_u(1+Xt)
+  =
+  g^{k'}_u(1+\{1+Xt\}u)
+  =
+  (1+Xt)^{\circ k'}
+  =
+  1+X^{k'}t,
+\]
+and then
+\[
+  g^k(1+X^{k'}t)=X^{kk'}=g^k(1+Xt).
+\]
+Consequently
+\[
+  \psi^k\circ\psi^{k'}
+  =
+  g^k\circ g^{k'}_u\circ\lambda_u\circ\lambda_t
+  =
+  g^k\circ\lambda_t\circ\psi^{k'}.
+\]
+Moreover
+\[
+  \psi^k\circ\psi^{k'}
+  =
+  g^k\circ\lambda_t\circ\psi^{k'}
+  =
+  \psi^k\circ\lambda_t\circ\psi^{k'}.
+\]
+If \(K\) is a \(\lambda\)-ring, the diagram
+\begin{equation}\tag{7.5.4}
+\begin{tikzcd}[column sep=large,row sep=large]
+K \arrow[r,"\lambda_t"] \arrow[d,"\psi^{k'}"'] &
+\widehat G(K) \arrow[d,"\psi^{k'}"]\\
+K \arrow[r,"\lambda_t"'] &
+\widehat G(K)
+\end{tikzcd}
+\end{equation}
+is commutative by 7.3, since \(\lambda_t\) is a \(\lambda\)-homomorphism. The desired relations follow at once.
+
+For (ii), if \(K\) is of characteristic zero, the logarithmic derivative is an isomorphism from \(\widehat G(K)\) onto \(K[[t]]\), since one can integrate. Therefore two elements of \(\widehat G(K)\) are equal if and only if, for every \(k\), they have the same image by \(g^k\).
+
+To show that \(\lambda_t\) is a ring homomorphism, it is enough to show that the left square in (7.5.2) is commutative. By the preceding remark, it is enough to show that, for every \(k\), diagram (7.5.2) is commutative; the right square always is. But this is exactly the relation
+\[
+  \psi^k(xy)=\psi^k(x)\psi^k(y).
+\]
+To show that \(\lambda_t\) is a \(\lambda\)-homomorphism, it is enough, by 7.3, to show that diagram (7.5.4) is commutative for every \(k'\). By the preceding remark, this is equivalent to showing, for all \(k,k'\), that
+\[
+  g^k\circ\psi^{k'}\circ\lambda_t
+  =
+  g^k\circ\lambda_t\circ\psi^{k'},
+\]
+that is, the relations \(\psi^{kk'}=\psi^k\circ\psi^{k'}\). Finally, the relation \(\lambda_t(1)=1+t\) is obtained by integration from the relations \(\psi^k(1)=1\).
+
+\subsection*{Bibliography}
+\begin{enumerate}[label={[\arabic*]}]
+\item A. Grothendieck, \emph{La théorie des classes de Chern}, Bull. Soc. math. France, 86, 1958, p. 137 à 154.
+\item F. Hirzebruch, \emph{Neue topologische Methoden in der algebraischen Geometrie}.
+\end{enumerate}
+
+\end{document}

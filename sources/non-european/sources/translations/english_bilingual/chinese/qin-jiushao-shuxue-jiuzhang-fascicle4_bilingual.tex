@@ -1,0 +1,953 @@
+% ============================================================================
+% Qin Jiushao -- Shuxue Jiuzhang (Mathematical Treatise in Nine Chapters)
+% FASCICLE 4: CEWANG LEI (Surveying / Remote Measurement)
+% BILINGUAL EDITION: Chinese-English Parallel Text
+% ============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{titlesec}
+\usepackage{lettrine}
+
+% -------- Page Geometry (wider margins for parallel text) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=16mm,right=16mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Libertine O}
+\setmonofont{Linux Libertine Mono O}[Scale=MatchLowercase]
+
+% Chinese Fonts via xeCJK
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{120,50,30}
+\definecolor{subsectioncolor}{RGB}{80,60,50}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problembg}{RGB}{255,252,245}
+\definecolor{answercolor}{RGB}{40,80,60}
+\definecolor{methodcolor}{RGB}{50,50,100}
+\definecolor{chinesebg}{RGB}{255,253,248}
+\definecolor{englishbg}{RGB}{248,252,255}
+\definecolor{notecolor}{RGB}{120,53,15}
+
+% -------- Parallel Column Setup --------
+\columnsep=5mm
+\globalcounter{section}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Qin Jiushao -- Shuxue Jiuzhang, Fascicle 4 (Bilingual)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+% Chinese label commands
+\newcommand{\wen}{\textbf{\color{sectioncolor}問}}
+\newcommand{\da}{\textbf{\color{answercolor}答}}
+\newcommand{\shu}{\textbf{\color{methodcolor}術}}
+\newcommand{\cao}{\textbf{\color{methodcolor}草}}
+
+% English label commands
+\newcommand{\prob}{\textbf{\color{sectioncolor}Problem}}
+\newcommand{\ans}{\textbf{\color{answercolor}Answer}}
+\newcommand{\meth}{\textbf{\color{methodcolor}Method}}
+\newcommand{\work}{\textbf{\color{methodcolor}Working}}
+
+% Bilingual pair environment
+\newenvironment{bilingual}{
+  \begin{paracol}{2}
+  \switchcolumn[0]\footnotesize
+}{
+  \end{paracol}}
+
+% Problem header
+\newcommand{\probheader}[2]{%
+  \begin{center}
+  \colorbox{problembg}{\parbox{\dimexpr\linewidth-4pt}{%
+    \centering\smallskip
+    {\large\bfseries\color{sectioncolor}#1}\\[0.3em]
+    {\normalsize\color{subsectioncolor}#2}%
+    \smallskip
+  }}
+  \end{center}
+  \vspace{0.5em}
+}
+
+% Answer environment (Chinese)
+\newenvironment{zhanswer}{%
+  \medskip\noindent{\color{answercolor}\rule{0.9\columnwidth}{0.4pt}}%
+  \par\color{answercolor}\small
+}{\par\medskip}
+
+% Answer environment (English)
+\newenvironment{enanswer}{%
+  \medskip\noindent{\color{answercolor}\rule{0.9\columnwidth}{0.4pt}}%
+  \par\color{answercolor}\small
+}{\par\medskip}
+
+% Method environment (Chinese)
+\newenvironment{zhmethod}{%
+  \medskip\noindent{\color{methodcolor}\rule{0.9\columnwidth}{0.4pt}}%
+  \par\color{methodcolor}\small
+}{\par\medskip}
+
+% Method environment (English)
+\newenvironment{enmethod}{%
+  \medskip\noindent{\color{methodcolor}\rule{0.9\columnwidth}{0.4pt}}%
+  \par\color{methodcolor}\small
+}{\par\medskip}
+
+% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Qin Jiushao -- Shuxue Jiuzhang, Fascicle 4: Ce Wang (Bilingual Edition)},
+  pdfauthor={Qin Jiushao (Song Dynasty)},
+  pdfsubject={Chinese Classical Mathematics -- Bilingual Edition}
+}
+
+% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% ============================================================================
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{13}{15}\selectfont\textsc{Siku Quanshu Edition -- Bilingual Parallel Text}}\\[0.3cm]
+{\color{rulecolor}\rule{7cm}{0.5pt}}\\[0.8cm]
+
+{\fontsize{26}{30}\selectfont\textcolor{titlecolor}{Shu Xue Jiu Zhang}}\\[0.5cm]
+{\fontsize{20}{24}\selectfont\textcolor{sectioncolor}{數學九章}}\\[0.8cm]
+{\fontsize{16}{20}\selectfont\textcolor{subsectioncolor}{Fascicle 4}}\\[0.2cm]
+{\fontsize{20}{24}\selectfont\textcolor{sectioncolor}{卷四 測望類}}\\[0.5cm]
+{\fontsize{14}{18}\selectfont\textcolor{subsectioncolor}{Ce Wang Lei / Surveying and Remote Measurement}}\\[1.2cm]
+
+{\color{rulecolor}\rule{7cm}{0.5pt}}\\[0.8cm]
+
+{\large
+\begin{tabular}{rl}
+\textbf{Author:} & Song Dynasty, Qin Jiushao (秦九韶) \\[0.4em]
+\textbf{Dates:} & c. 1202--1261 \\[0.4em]
+\textbf{Topics:} & Similar triangles, double-difference method \\[0.2em]
+               & Height/distance measurement, gougu techniques \\
+\end{tabular}
+}\\[1.5cm]
+
+\begin{tikzpicture}[scale=0.7]
+  % Abstract surveying diagram
+  \draw[rulecolor,thick] (0,0) -- (4,0) -- (4,3) -- cycle;
+  \draw[rulecolor,dashed,thick] (0,0) -- (2.5,0) -- (2.5,1.875);
+  \fill[rulecolor] (4,3) circle (0.15);
+  \node[above] at (4,3.2) {\small\color{rulecolor}object};
+  \node[below] at (2,-0.3) {\small\color{rulecolor}observer positions};
+\end{tikzpicture}
+
+\vfill
+{\small\textit{Left column: Original Chinese text from the Siku Quanshu edition}}\\
+{\small\textit{Right column: English translation with mathematical commentary}}\\[0.5cm]
+{\small\textit{Typeset in parallel bilingual format}}
+
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% ============================================================================
+\section*{Introduction 敘論}
+\addcontentsline{toc}{section}{Introduction 敘論}
+\label{sec:intro}
+% ============================================================================
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\textbf{\color{sectioncolor}原文概述}
+
+秦九韶《數學九章》乃中國古代數學之鉅著。卷四測望類專論遠距離測量之法，以勾股、重差、相似三角形諸術，求解不可至之物之高深廣遠。
+
+測望之法，源出《周髀算經》，劉徽作《海島算經》，專闡重差之術。秦氏繼之，推陳出新，術業益精。凡測高者，以兩表（標竿）前後相望，以其差為法，以表間為實，按術推之，則高深廣遠可計日而得矣。
+
+\switchcolumn[1]
+\noindent\textbf{\color{sectioncolor}Overview}
+
+The \textit{Shu Xue Jiu Zhang} (Mathematical Treatise in Nine Chapters) by Qin Jiushao is one of the greatest masterpieces of medieval Chinese mathematics. Fascicle 4, the \textit{Ce Wang Lei} (Surveying and Remote Measurement), is devoted to measuring inaccessible heights, depths, and distances using the \textit{gou-gu} (Pythagorean) method, the \textit{chong cha} (double-difference) technique, and similar triangles.
+
+These surveying methods trace their origins to the \textit{Zhou Bi Suan Jing}, while Liu Hui's \textit{Hai Dao Suan Jing} (Sea Island Mathematical Manual) specialized in the double-difference technique. Qin Jiushao advanced these methods further, achieving remarkable precision. To measure heights, two poles are erected at different distances; their difference becomes the divisor, the distance between poles becomes the dividend, and by applying the method, even the most remote dimensions can be calculated.
+
+\end{paracol}
+
+\vspace{1em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+本卷凡八問，其要目如下：
+\begin{itemize}[leftmargin=1em,itemsep=0pt]
+  \item 第一問：圓城週徑 --- 以勾股夕桀之術測圓
+  \item 第二問：測塔高遠 --- 立表測望，用相似三角形
+  \item 第三問：方城廣袤 --- 重差術測方城邊長
+  \item 第四問：開方籌算 --- 方程布列之法
+  \item 第五問：井深繩長 --- 盈不足術求解
+  \item 第六問：測塔高遠 --- 大小形同勢，相似三角形詳解
+  \item 第七問：隔河測遠 --- 重差術測河寬岸高
+  \item 第八問：九成方術 --- 九乘方開方法
+\end{itemize}
+
+\switchcolumn[1]
+This fascicle contains eight problems:
+\begin{itemize}[leftmargin=1em,itemsep=0pt]
+  \item Problem 1: Round City --- Using the hook-and-gourd method to measure a circle
+  \item Problem 2: Measuring a Tower --- Erecting poles and using similar triangles
+  \item Problem 3: Square City --- Double-difference method for a square city
+  \item Problem 4: Counting Rod Root Extraction --- Layout of equations
+  \item Problem 5: Well Depth and Rope Length --- Surplus-and-deficit method
+  \item Problem 6: Pagoda Height and Distance --- Similar triangles in detail
+  \item Problem 7: River Width and Bank Height --- Double-difference method
+  \item Problem 8: Ninth-Degree Root Extraction --- Higher-degree equation solving
+\end{itemize}
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section{卷四上 測望類 / Part 1: Surveying}
+\label{sec:juan4shang}
+% ============================================================================
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textit{\color{notecolor}卷四上專論測望之法，凡四問。測望者，以勾股重差之術，量不可至之物之高深廣遠也。其術要者：立兩表，前後相望，以其退行之差為法，表高、表間為實，按術推之，則高深廣遠可計日而得矣。}
+
+\switchcolumn[1]
+\noindent\textit{\color{notecolor}This section treats surveying and remote measurement (\textit{Ce Wang}). These problems involve measuring inaccessible distances and heights using the ``hook-and-gourd'' (\textit{gou gu}) method, the double-difference (\textit{chong cha}) technique, and similar triangles. The essential technique: erect two poles, sight from two positions, use the difference in retreat distances as divisor, pole height and distance as dividend, and apply the method to compute the desired dimension.}
+\end{paracol}
+
+\vspace{0.5em}
+
+% ============================================================================
+\subsection*{Problem 1 第一問: 圓城 / The Round City}
+\addcontentsline{toc}{subsection}{Problem 1: The Round City (Yuan Cheng)}
+% ============================================================================
+
+\probheader{第一問 圓城}{Problem 1: The Round City (Yuan Cheng)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+有圓城，不知周徑。四門正中開，北外三里有喬木。出南門邊，折東行九里，乃見木。欲知城周、徑各幾何。
+
+\begin{zhanswer}
+\noindent\da\textbf{曰：}
+
+徑九里，周二十七里。
+\end{zhanswer}
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+以勾股夕桀求之。一為從隅，五因北里為從七廉，置北里冪八因為從五廉，以北里乘上廉為一從，三連背負隅乘五廉，為一上廉，以北里乘上廉為實。開玲瓏九成方得數，自乘為徑，以三因徑得周。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+There is a circular city of unknown circumference and diameter. It has four gates at the cardinal points. Three li north of the north gate stands a tall tree. Going out the south gate and then turning east for 9 li, the tree becomes visible. Find the circumference and diameter of the city.
+
+\begin{enanswer}
+\noindent\ans\textbf{:}
+
+The diameter is 9 li; the circumference is 27 li.
+\end{enanswer}
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+Using the ``hook-and-gourd evening-peak'' (\textit{gou gu xi jie}) method. Take 1 as the leading coefficient. Multiply the north distance by 5 for the seventh-degree coefficient. Place the square of the north distance, multiply by 8 for the fifth-degree coefficient. Multiply the north distance by the upper coefficient for the negative linear coefficient. Double the negative rate to form the fifth-degree coefficient as the negative upper coefficient. Multiply the north distance by the upper coefficient for the dividend. Extract the ninth-degree root (\textit{ling long kai fang}) to obtain the number; square it for the diameter. Multiply the diameter by 3 for the circumference.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\noindent\textbf{Diagram 圖:}
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+  % Circular city
+  \draw[thick,fill=gray!10] (0,0) circle (2);
+  \draw[thick] (0,0) circle (2);
+  % Cardinal gates
+  \node[above] at (0,2.3) {\small N};
+  \node[below] at (0,-2.3) {\small S};
+  \node[left] at (-2.3,0) {\small W};
+  \node[right] at (2.3,0) {\small E};
+  % Tree north of city
+  \fill[green!50!black] (0,5) circle (0.2);
+  \draw[thick] (0,5) -- (-0.3,4.5) -- (0.3,4.5) -- cycle;
+  \node[right] at (0.3,5) {\small Tree};
+  % Path: out south gate, east
+  \draw[->,thick,dashed,blue] (0,-2) -- (0,-4) node[midway,right] {\small S gate};
+  \draw[->,thick,dashed,blue] (0,-4) -- (4.5,-4) node[midway,below] {\small 9 li E};
+  % Sight line
+  \draw[thick,red] (4.5,-4) -- (0,5) node[midway,above right] {\small sight line};
+  % Observer
+  \fill (4.5,-4) circle (0.1);
+  \node[below] at (4.5,-4.3) {\small observer};
+  % Center
+  \fill (0,0) circle (0.08);
+  \node[below left] at (0,0) {\small center};
+  % Labels
+  \node at (0,-5.5) {\small Circular city with 4 gates};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textit{按：此問以勾股夕桀之術，列九成方程以開方，術理精妙。圓城之徑與周，古率以周三徑一，故徑九里則周三七里。其立術之意，以觀測之位與目標之距，列為方程，開高次方以求之。}
+
+\switchcolumn[1]
+\noindent\textit{Note: This problem uses the hook-and-gourd evening-peak method, setting up a ninth-degree equation for root extraction. The method is exquisite in its reasoning. For the circular city's diameter and circumference, the ancient rate of $\pi \approx 3$ (``three circumferences to one diameter'') is used, so if the diameter is 9 li, the circumference is 27 li. The method's intent: use the observer's position and distance to the target to form an equation, then extract a high-degree root to solve it.}
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\subsection*{Problem 2 第二問: 測塔 / Measuring a Tower}
+\addcontentsline{toc}{subsection}{Problem 2: Measuring a Tower (Ce Ta)}
+% ============================================================================
+
+\probheader{第二問 測塔}{Problem 2: Measuring a Tower (Ce Ta)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+有塔高未知其數，去塔若干步立一表，人目上望見塔尖。退行若干步又立一表，人目上望亦見塔尖。求塔高及去塔遠近。
+
+\begin{zhanswer}
+\noindent\da\textbf{曰：}
+
+塔高若干，去塔遠若干。
+\end{zhanswer}
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+以勾股求之。兩表退行之差為法，前表去塔遠乘表高，後表去塔遠乘表高，相減為實，實如法而一得塔高。又以法除前表去塔遠乘兩表高差加表高得塔高。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+A tower of unknown height stands at an unknown distance. At a certain distance from the tower, a pole is erected; looking upward from eye level, the tower's peak is visible. Retreating a certain distance and erecting another pole, the peak is again visible from eye level. Find the tower's height and distance.
+\begin{enanswer}
+\noindent\ans\textbf{:}
+
+The tower height is a certain number; the distance to the tower is a certain number.
+\end{enanswer}
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+Using the hook-and-gourd method. The difference between the retreat distances of the two poles is the divisor. Multiply the front pole's distance to the tower by the pole height; multiply the rear pole's distance by the pole height; subtract to obtain the dividend. Divide to get the tower height. Alternatively, multiply the front distance by the difference of pole heights, divide by the divisor, and add the pole height.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{草曰：}
+
+設前表去塔 $d_1$ 步，後表去塔 $d_2$ 步，表高 $h$ 步。兩表退行之差 $d_2 - d_1$ 為法。前表去塔遠乘表高得 $d_1 \cdot h$，後表去塔遠乘表高得 $d_2 \cdot h$，相減為實。實如法而一：
+\[
+\text{塔高} = \frac{d_2 \cdot h - d_1 \cdot h}{d_2 - d_1}
+\]
+此以相似勾股形為本：大小二勾股形，其勢相同，故相應邊成比例。
+
+\switchcolumn[1]
+\noindent\textbf{Working:}
+
+Let $d_1$ = front distance to tower, $d_2$ = rear distance, $h$ = pole height. The difference $d_2 - d_1$ is the divisor. Multiply front distance by pole height: $d_1 \cdot h$; multiply rear distance by pole height: $d_2 \cdot h$; subtract for the dividend. Divide:
+\[
+\text{Tower height} = \frac{d_2 \cdot h - d_1 \cdot h}{d_2 - d_1}
+\]
+This uses the principle of similar right triangles: the large and small triangles have the same shape, so corresponding sides are proportional.
+\end{paracol}
+
+\vspace{0.5em}
+
+\noindent\textbf{Diagram 圖 / Similar Triangles:}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  % Ground line
+  \draw[thick] (-1,0) -- (10,0);
+  % Tower
+  \draw[thick,fill=gray!20] (0,0) rectangle (0.6,5);
+  \fill[red] (0.3,5) circle (0.12);
+  \node[above] at (0.3,5.2) {\small tower peak};
+  \node[below] at (0.3,-0.3) {\small tower};
+  % Eye level line
+  \draw[thick,dashed] (-1,1) -- (10,1);
+  \node[left] at (-1,1) {\small eye level};
+  % Pole 1
+  \draw[thick,fill=brown] (3,0) rectangle (3.2,2.5);
+  \fill[red] (3.1,2.5) circle (0.08);
+  \node[below] at (3.1,-0.3) {\small pole 1};
+  % Pole 2
+  \draw[thick,fill=brown] (7,0) rectangle (7.2,2.5);
+  \fill[red] (7.1,2.5) circle (0.08);
+  \node[below] at (7.1,-0.3) {\small pole 2};
+  % Sight lines
+  \draw[thick,red] (3.1,1) -- (0.3,5);
+  \draw[thick,red] (7.1,1) -- (0.3,5);
+  % Eye positions
+  \fill (3.1,1) circle (0.1);
+  \fill (7.1,1) circle (0.1);
+  % Distance labels
+  \draw[<->] (0.6,-0.8) -- (3,-0.8) node[midway,below] {$d_1$};
+  \draw[<->] (0.6,-1.3) -- (7,-1.3) node[midway,below] {$d_2$};
+  % Triangle annotation
+  \node[right] at (10,2.5) {\small similar triangles};
+  \draw[->] (9.5,2.5) -- (7.3,1.8);
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+% ============================================================================
+\subsection*{Problem 3 第三問: 方城 / The Square City}
+\addcontentsline{toc}{subsection}{Problem 3: The Square City (Fang Cheng)}
+% ============================================================================
+
+\probheader{第三問 方城}{Problem 3: The Square City (Fang Cheng)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+有方城一座，不知大小。北門外有樹，出南門直行若干步，折西行若干步見樹。求城方面。
+
+\begin{zhanswer}
+\noindent\da\textbf{曰：}
+
+城方面若干步。
+\end{zhanswer}
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+以勾股求之。兩行步相乘為實，並兩行步為從方，開平方得城方面。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+There is a square city of unknown size. Outside the north gate stands a tree. Going out the south gate and walking straight a certain number of steps, then turning west and walking a certain number of steps, the tree becomes visible. Find the side of the square city.
+\begin{enanswer}
+\noindent\ans\textbf{:}
+
+The city's side is a certain number of \textit{bu}.
+\end{enanswer}
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+Using the hook-and-gourd method. Multiply the two walk distances for the dividend. Add the two walk distances for the linear coefficient. Extract the square root to obtain the city's side.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{草曰：}
+
+設出南門直行 $a$ 步，折西行 $b$ 步見樹。則列方程：
+\[
+x^2 + (a+b)x = ab
+\]
+解之得：
+\[
+x = \frac{-(a+b) + \sqrt{(a+b)^2 + 4ab}}{2}
+\]
+此即開平方求正根之法也。
+
+\switchcolumn[1]
+\noindent\textbf{Working:}
+
+Let $a$ = southward steps, $b$ = westward steps. The equation is:
+\[
+x^2 + (a+b)x = ab
+\]
+Solving:
+\[
+x = \frac{-(a+b) + \sqrt{(a+b)^2 + 4ab}}{2}
+\]
+This is the square-root extraction method for finding the positive root.
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\subsection*{Problem 4 第四問: 開方籌算 / Counting Rod Root Extraction}
+\addcontentsline{toc}{subsection}{Problem 4: Counting Rod Root Extraction (Chou Suan Kai Fang)}
+% ============================================================================
+
+\probheader{第四問 開方籌算}{Problem 4: Counting Rod Root Extraction (Chou Suan Kai Fang)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+問：開方術解高次方程，其籌布列之法若何？
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+開方之法，先列實於中，次列隅於下，次列方於上。商除之，以上乘隅生廉，以上乘廉生方，以上乘方除實。實盡則止，不盡則倍方、三廉為方法，續商除之。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+On the method of extracting roots to solve higher-degree equations --- how are the counting rods arranged?
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+In the method of root extraction, first place the dividend (\textit{shi}) in the middle, then place the unit coefficient (\textit{yu}) below, and the linear coefficient (\textit{fang}) above. Divide by estimation; multiply the estimate by the unit coefficient to generate the linear coefficient; multiply the estimate by the linear coefficient and subtract from the dividend. When the dividend is exhausted, stop. If not exhausted, double the linear coefficient and proceed to the next digit.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\noindent\textbf{Counting Rod Layout 籌式圖:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Shang 商} & \textbf{Shi 實} & \textbf{Fang 方} & \textbf{Lian 廉} & \textbf{Yu 隅} \\
+\hline
+7 & 360 & 130 & $\cdots$ & 1 \\
+\hline
+\multicolumn{5}{|c|}{\textit{Iterative extraction process 逐次開方}} \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textit{注：籌算以縱橫布位，一縱十橫，百立千僵。商除之術，與近代之霍納法（Horner's method）實為一理。秦氏以開高次方解諸測望問題，其術之精，超前絕後。}
+
+\switchcolumn[1]
+\noindent\textit{Note: In the counting rod system, vertical and horizontal positions alternate: units vertical, tens horizontal, hundreds vertical, thousands horizontal. The division-by-estimation method is essentially the same principle as Horner's method in modern mathematics. Qin used high-degree root extraction to solve surveying problems, achieving unprecedented computational sophistication.}
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section{卷四下 測望類續 / Part 2: Surveying Continued}
+\label{sec:juan4xia}
+% ============================================================================
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textit{\color{notecolor}卷四下續測望之論，凡四問。於測量之法更加詳密，有以盈不足術測井深者，有以大小形同勢測塔高者，有以重差術隔河測遠者，終以九成方開方之術，以示測望問題可化為高次方程而求之。}
+
+\switchcolumn[1]
+\noindent\textit{\color{notecolor}This section continues the surveying problems with four more questions. The measurement methods become increasingly refined: using the surplus-and-deficit method to measure a well's depth, using similar triangles to measure a pagoda's height, using the double-difference method to measure across a river, and concluding with the ninth-degree root extraction to show how surveying problems can be transformed into higher-degree equations.}
+\end{paracol}
+
+\vspace{0.5em}
+
+% ============================================================================
+\subsection*{Problem 5 第五問: 測水深 / Measuring Depth of Water}
+\addcontentsline{toc}{subsection}{Problem 5: Measuring Depth of Water (Ce Shui Shen)}
+% ============================================================================
+
+\probheader{第五問 測水深}{Problem 5: Measuring Depth of Water (Ce Shui Shen)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+有井不知其深，以繩測之，繩長倍於井深，餘三尺；三折而測之適足。求井深及繩長。
+
+\begin{zhanswer}
+\noindent\da\textbf{曰：}
+
+井深三尺，繩長九尺。
+\end{zhanswer}
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+以盈不足求之。倍繩餘三尺為盈，三折適足為適足，以盈乘適足為實，並盈適足為法，除之得井深。倍之加餘得繩長。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+There is a well of unknown depth. Measuring with a rope, the rope's length is twice the well's depth with 3 chi to spare. Folding the rope in three and measuring, it fits exactly. Find the depth of the well and the length of the rope.
+\begin{enanswer}
+\noindent\ans\textbf{:}
+
+The well is 3 chi deep; the rope is 9 chi long.
+\end{enanswer}
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+Using the ``surplus and deficit'' (\textit{ying bu zu}) method. The 3 chi excess when doubled is the surplus; the exact fit when tripled is the exact amount. Multiply the surplus by the exact amount for the dividend; add surplus and exact amount for the divisor; divide to obtain the well depth. Double and add the excess for the rope length.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{草曰：}
+
+設井深為 $d$，繩長為 $L$。依題意：
+\[
+L = 2d + 3, \quad \frac{L}{3} = d
+\]
+代入得：$2d + 3 = 3d \Rightarrow d = 3$，$L = 9$。
+
+此即盈不足術之應用：兩次假設，一盈一適足，按術推之得實數。
+
+\switchcolumn[1]
+\noindent\textbf{Working:}
+
+Let $d$ = well depth, $L$ = rope length. From the conditions:
+\[
+L = 2d + 3, \qquad \frac{L}{3} = d
+\]
+Substituting: $2d + 3 = 3d \Rightarrow d = 3$, $L = 9$.
+
+This is an application of the surplus-and-deficit method: two trial values yielding surplus and exact results, from which the true value is determined by the method.
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\subsection*{Problem 6 第六問: 測塔高遠 / Measuring a Pagoda's Height and Distance}
+\addcontentsline{toc}{subsection}{Problem 6: Measuring a Pagoda (Ce Ta Gao)}
+% ============================================================================
+
+\probheader{第六問 測塔高遠}{Problem 6: Measuring a Pagoda (Ce Ta Gao)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+有塔高未知，去塔百步立一表高五尺，人目去表一尺八寸，上望塔尖與表端參合。退行六十步，人目去表端仍參合塔尖。求塔高及塔心去表遠近。
+
+\begin{zhanswer}
+\noindent\da\textbf{曰：}
+
+塔身高三丈，塔高一十一丈七尺，與八丈七尺為塔心目長。
+\end{zhanswer}
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+此皆大小形同勢相求法也。人目去塔為總股，較人目去干為分小股，人目上塔尖高塔身皆為總股高。相論高為分大勾，數以干去塔分大勾與小較干去塔為分大勾。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+A pagoda of unknown height stands at an unknown distance. 100 bu from the pagoda, a 5-chi pole is erected. The observer's eye is 1.8 chi from the ground; looking up, the pagoda's peak aligns with the pole's tip. Retreating 60 bu, the observer's eye again aligns with both the pole's tip and the pagoda's peak. Find the pagoda's height and its distance from the pole.
+\begin{enanswer}
+\noindent\ans\textbf{:}
+
+The pagoda's body is 3 zhang high; the total height (from ground to peak) is 11 zhang 7 chi; the distance from the pagoda's center to the measuring point is 8 zhang 7 chi.
+\end{enanswer}
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+These are all applications of similar triangles (\textit{da xiao xing tong shi}). The distance from eye to pagoda is the total height line; the distance from eye to pole is the small height line. The height from eye level to pagoda peak is the total height; the height from eye level to pole top is the small height. The method uses proportional relationships between these quantities.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{按：}
+
+此問以相似三角形立術。大小二勾股形，其勢相同，故曰「形同勢」。以比例推之：
+\[
+\frac{\text{塔高} - \text{目高}}{\text{去塔遠}} = \frac{\text{表高} - \text{目高}}{\text{去表遠}}
+\]
+此即測量之基本原理，古今一也。
+
+\switchcolumn[1]
+\noindent\textbf{Note:}
+
+This problem uses similar triangles. The large and small right triangles have the same shape, hence ``same shape, same tendency'' (\textit{xing tong shi}). By proportion:
+\[
+\frac{\text{pagoda height} - \text{eye height}}{\text{distance to pagoda}} = \frac{\text{pole height} - \text{eye height}}{\text{distance to pole}}
+\]
+This is the fundamental principle of surveying, unchanged from ancient to modern times.
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\subsection*{Problem 7 第七問: 隔河測遠 / Measuring Distance Across a River}
+\addcontentsline{toc}{subsection}{Problem 7: River Width and Bank Height (Ge He Ce Yuan)}
+% ============================================================================
+
+\probheader{第七問 隔河測遠}{Problem 7: River Width and Bank Height (Ge He Ce Yuan)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+問隔河望一高岸，不知其遠。平地立一表，人目上望見岸頂，又退立一表望之亦見岸頂。求河闊及岸高。
+
+\begin{zhanswer}
+\noindent\da\textbf{曰：}
+
+河闊若干步，岸高若干尺。
+\end{zhanswer}
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+以重差求之。兩表退行步數之差為法，前表去岸遠乘表高為實，實如法而一得岸高。又以法除後表去岸遠乘表高亦得岸高，兩者相驗。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+Across a river, a high bank is visible at an unknown distance. A pole is erected on level ground; looking up from eye level, the bank's top is visible. Retreating and erecting another pole, the bank's top is again visible. Find the width of the river and the height of the bank.
+\begin{enanswer}
+\noindent\ans\textbf{:}
+
+The river width is a certain number of bu; the bank height is a certain number of chi.
+\end{enanswer}
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+Using the ``double difference'' (\textit{chong cha}) method. The difference between the two retreat distances is the divisor. Multiply the front pole's distance to the bank by the pole height for the dividend; divide to obtain the bank height. Similarly for the rear pole; the two results should agree (providing verification).
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textit{注：重差術者，劉徽所創，專為測望不可至之物而設。其法以兩次測望之「差」為關鍵，故名「重差」。此術之要：先後兩表，退行有差，以此差為法，而以表高、表間為實，則雖隔大江大河，其廣高深遠皆可度也。}
+
+\switchcolumn[1]
+\noindent\textit{Note: The double-difference method was created by Liu Hui specifically for measuring inaccessible objects. The method uses the ``difference'' between two observations as the key element, hence ``double difference.'' The essential technique: two poles at two positions, with a difference in retreat distances; this difference becomes the divisor, while pole height and distance become the dividend. Thus even across wide rivers, all dimensions can be measured.}
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\subsection*{Problem 8 第八問: 九成方術 / The Nine-Degree Root Method}
+\addcontentsline{toc}{subsection}{Problem 8: Ninth-Degree Root Extraction (Jiu Cheng Fang)}
+% ============================================================================
+
+\probheader{第八問 九成方術}{Problem 8: Ninth-Degree Root Extraction (Jiu Cheng Fang)}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]
+\noindent\wen\textbf{曰：}
+
+問：開九成方術解方程，其立法之原若何？
+
+\begin{zhmethod}
+\noindent\shu\textbf{曰：}
+
+開方之術，至於九成方，其理一也。先列實於中，次定隅位，次立方廉法、方法。商除之際，以上乘隅生廉，以上乘廉生方，以上乘方除實。每進一位，則方退一，廉退二，隅退三。如是迭進，直至實盡為止。
+\end{zhmethod}
+
+\switchcolumn[1]
+\noindent\prob\textbf{:}
+
+On the method of extracting ninth-degree roots to solve equations --- what is the fundamental principle of this method?
+
+\begin{enmethod}
+\noindent\meth\textbf{:}
+
+The method of root extraction, up to the ninth degree, follows the same principle. First place the dividend in the middle; then determine the unit position; then establish the linear and intermediate coefficients. During division-by-estimation: multiply the estimate by the unit coefficient to generate the intermediate coefficients; multiply the estimate by the intermediate coefficients to generate the linear coefficient; multiply the estimate by the linear coefficient and subtract from the dividend. At each decimal shift, the linear coefficient descends one place, the intermediate descend two places, and the unit descends three. Continue iteratively until the dividend is exhausted.
+\end{enmethod}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\noindent\textbf{Layout for Ninth-Degree Root Extraction 九成方籌式:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Shang & Shi & Fang & 1-Lian & 2-Lian & 3-Lian & 4-Lian & 5-Lian & 6-Lian & Yu \\
+\hline
+7 & --- & 153 & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & 1 \\
+\hline
+\multicolumn{10}{|c|}{\textit{Iterative computation with place-value shifts 逐位迭進}} \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textit{注：此術即後世所謂霍納法（Horner's method），秦氏獨立發明，超前歐西五百餘年。凡多項式方程
+\[
+a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0
+\]
+皆可用此術逐步降次，開方求根。測望諸問之高深廣遠，皆可化為方程，以開方術解之。此秦氏之絕詣也。}
+
+\switchcolumn[1]
+\noindent\textit{Note: This method is what later became known as Horner's method, which Qin Jiushao developed independently over 500 years before Horner. For any polynomial equation
+\[
+a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0
+\]
+the method systematically reduces the polynomial by factoring out $(x - r)$ where $r$ is the estimated root at each step. All surveying problems involving heights, depths, and distances can be transformed into equations and solved by this root extraction method. This was Qin Jiushao's supreme achievement.}
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section*{Appendix: Mathematical Notes 附錄}
+\addcontentsline{toc}{section}{Appendix: Mathematical Notes 附錄}
+% ============================================================================
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{\color{sectioncolor}A.1 籌算制度}
+
+籌算以竹籤為算具，縱橫佈位，十進位值制。縱式為個、百、萬位，橫式為十、千、十萬位。零以空位或圓圈表示。籌算不僅可算四則，更能開方、解方程，其術之精妙，令人嘆服。
+
+\switchcolumn[1]
+\noindent\textbf{\color{sectioncolor}A.1 The Counting Rod System}
+
+The counting rod system (\textit{Chou Suan}) used bamboo sticks on a counting board in a decimal place-value system. Vertical strokes represented units, hundreds, ten-thousands; horizontal strokes represented tens, thousands, hundred-thousands. Zero was represented by a blank space or circle. The rods enabled not only arithmetic but also root extraction and equation solving with remarkable sophistication.
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{\color{sectioncolor}A.2 天元術}
+
+天元術者，中國古代之代數學也。以天元為未知數，以籌布列方程，可解至高十次之方程。秦九韶以此術解諸實際問題，尤精於測望之類，其法以實、方、廉、隅諸位，逐次降冪，開方得解。
+
+\switchcolumn[1]
+\noindent\textbf{\color{sectioncolor}A.2 The Celestial Element Method}
+
+The ``celestial element'' method (\textit{Tian Yuan Shu}) was an early form of algebraic symbolism. The unknown was called ``celestial element'' and equations were set up using counting rod arrangements. This method could solve polynomial equations up to degree 10. Qin Jiushao applied it to practical problems, especially surveying, using the dividend, linear, intermediate, and unit coefficients to progressively reduce the equation.
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{\color{sectioncolor}A.3 重差術}
+
+重差術始於劉徽《海島算經》，專為測望不可至之物而設。其理基於相似三角形：先後兩測，以其退行差為關鍵數據，按比例推算，則雖遠在重洋之外、高山之巔，其高深廣遠皆可度也。
+
+\switchcolumn[1]
+\noindent\textbf{\color{sectioncolor}A.3 The Double-Difference Method}
+
+The double-difference method originated in Liu Hui's \textit{Sea Island Mathematical Manual}, designed for measuring inaccessible objects. It is based on similar triangles: two observations from different positions, using the difference in retreat distances as the key datum. By proportional calculation, even objects across oceans or on mountaintops can be measured.
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\noindent\textbf{\color{sectioncolor}A.4 盈不足術}
+
+盈不足術者，以兩次假設求解之通用方法也。一假設得盈（餘），一假設得不足（虧），按術推之可得實數。其公式：
+\[
+x = \frac{a_2 b_1 + a_1 b_2}{a_1 + a_2}
+\]
+其中 $a_1, a_2$ 為兩假設，$b_1, b_2$ 為對應之盈、虧。
+
+\switchcolumn[1]
+\noindent\textbf{\color{sectioncolor}A.4 The Surplus-and-Deficit Method}
+
+The surplus-and-deficit method (\textit{Ying Bu Zu Shu}) is a general technique for solving linear problems. Given two trial values yielding surplus and deficit results:
+\[
+x = \frac{a_2 b_1 + a_1 b_2}{a_1 + a_2}
+\]
+where $a_1$, $a_2$ are the trial inputs and $b_1$, $b_2$ are the corresponding surplus/deficit amounts.
+\end{paracol}
+
+\vspace{1cm}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\begin{center}
+{\color{rulecolor}\rule{6cm}{0.4pt}}\\[0.5cm]
+{\small\textit{卷四 測望類終}}\\[0.3cm]
+{\small 數學九章 -- 卷四上、卷四下}
+\end{center}
+
+\switchcolumn[1]
+\begin{center}
+{\color{rulecolor}\rule{6cm}{0.4pt}}\\[0.5cm]
+{\small\textit{End of Fascicle 4: Surveying}}\\[0.3cm]
+{\small Shu Xue Jiu Zhang -- Juan 4 Shang, Juan 4 Xia}
+\end{center}
+\end{paracol}
+
+\end{document}

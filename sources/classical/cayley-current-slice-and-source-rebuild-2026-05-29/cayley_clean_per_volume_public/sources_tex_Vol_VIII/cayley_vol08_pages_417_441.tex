@@ -1,0 +1,1500 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Standard English mathematical typesetting preamble
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+
+% Theorem-like environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small Cayley --- Collected Mathematical Papers, Vol.\ VIII}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Section formatting to match original numbered articles
+\titleformat{\section}{\large\scshape\centering}{}{0em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+
+% Custom commands for Cayley's notation
+\newcommand{\dd}{\,d}
+\DeclareMathOperator{\Jac}{Jac}
+
+\newcommand{\sourcefigone}{%
+\begin{center}
+\textsc{Fig. 1.}\par\smallskip
+\begin{tikzpicture}[scale=.72, line cap=round, line join=round]
+  \draw[rotate=13] (0,0) ellipse (3.25 and 1.9);
+  \draw[rotate=13] (-.25,0) ellipse (2.25 and 1.18);
+  \draw[rotate=22] (-.72,-.05) ellipse (1.25 and .54);
+  \draw[rotate=22] (-1.25,-.12) ellipse (.32 and .2);
+  \fill (-1.24,-.13) circle (.025);
+  \draw[rotate=-18] (.93,.04) ellipse (1.42 and .62);
+  \draw[rotate=-18] (1.38,.2) ellipse (.42 and .24);
+  \fill (1.36,.2) circle (.025);
+  \draw[rotate=-18] (.55,-.65) ellipse (.42 and .55);
+  \fill (.56,-.66) circle (.025);
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigtwo}{%
+\begin{center}
+\textsc{Fig. 2.}\par\smallskip
+\begin{tikzpicture}[scale=.72, line cap=round, line join=round]
+  \draw (-3.2,0) -- (3.2,0);
+  \draw (-2.05,-1.35) -- (-2.05,1.45);
+  \draw (-.55,-1.2) -- (-.55,1.4);
+  \draw (1.1,-1.25) -- (1.1,1.55);
+  \draw[thick] (-2.02,.58).. controls (-1.55,1.0) and (-.75,.82)..(-.55,.25)
+    .. controls (-.82,-.48) and (-1.68,-.48)..(-2.02,.10)
+    .. controls (-2.18,.32) and (-2.16,.48)..(-2.02,.58);
+  \draw[thick] (1.1,.1).. controls (1.18,.8) and (2.0,1.1)..(2.45,1.55);
+  \draw[thick] (1.1,.1).. controls (1.45,-.25) and (2.22,-.45)..(2.58,-1.15);
+  \draw[thick] (1.1,.1).. controls (1.35,-.55) and (.95,-.82)..(.78,-1.35);
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigthree}{%
+\begin{center}
+\textsc{Fig. 3.}\par\smallskip
+\begin{tikzpicture}[scale=.72, line cap=round, line join=round]
+  \draw (-2.8,0) -- (2.8,0);
+  \draw (-1.8,-1.3) -- (-1.8,1.35);
+  \draw (.05,-1.15) -- (.05,1.4);
+  \node at (-1.8,.65) {$\times$};
+  \draw[thick] (.08,.58).. controls (.35,.98) and (1.62,1.55)..(1.78,1.86);
+  \draw[thick] (.08,.58).. controls (.08,.05) and (.88,-.05)..(1.28,-.28)
+    .. controls (1.72,-.55) and (1.72,-.9)..(1.78,-1.22);
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigfour}{%
+\begin{center}
+\textsc{Fig. 4.}\par\smallskip
+\begin{tikzpicture}[scale=.72, line cap=round, line join=round]
+  \draw (-.15,-1.25) -- (-.15,1.35);
+  \draw (-.15,0) -- (2.35,0);
+  \draw[thick] (-.15,.35).. controls (.45,.6) and (1.2,.9)..(1.95,1.45);
+  \draw[thick] (-.15,.35).. controls (.55,.25) and (1.35,-.05)..(1.95,-.35);
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigfive}{%
+\begin{center}
+\textsc{Fig. 5.}\par\smallskip
+\begin{tikzpicture}[scale=.78, line cap=round, line join=round]
+  \draw (-3.1,0) -- (3.1,0);
+  \draw[thick] (-3.0,-1.1).. controls (-3.35,-.2) and (-3.25,.7)..(-2.75,1.55);
+  \draw[thick] (-1.65,1.55).. controls (-1.55,.5) and (-1.55,-.55)..(-1.72,-1.55);
+  \draw[thick] (-1.65,1.55).. controls (-.8,.55) and (-.15,.15)..(.15,0);
+  \draw[thick] (-1.72,-1.55).. controls (-.85,-.45) and (-.18,-.12)..(.15,0);
+  \draw[thick] (.15,0).. controls (.85,.8) and (1.75,1.25)..(2.55,1.55);
+  \draw[thick] (.15,0).. controls (.9,-.72) and (1.85,-1.08)..(2.72,-1.34);
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigsix}{%
+\begin{center}
+\textsc{Fig. 6.}\par\smallskip
+\begin{tikzpicture}[scale=.85, line cap=round, line join=round]
+  \coordinate (N) at (0,0);
+  \coordinate (Kp) at (3.2,0);
+  \coordinate (Pp) at (5.05,0);
+  \coordinate (K) at (2.62,1.15);
+  \coordinate (P) at (5.05,2.75);
+  \draw (-.85,0) -- (5.55,0);
+  \draw (N) -- (P);
+  \draw (K) -- (Kp);
+  \draw (P) -- (Pp);
+  \node[below] at (N) {$N$};
+  \node[below] at (Kp) {$K'$};
+  \node[below] at (Pp) {$P'$};
+  \node[left] at (K) {$K$};
+  \node[right] at (P) {$P$};
+  \node[left] at (-.7,0) {$r$};
+  \node at (.78,.2) {$\theta$};
+  \node at (1.35,.34) {$\phi$};
+  \node at (1.35,.7) {$\varpi-\theta$};
+  \node at (2.25,1.4) {$f$};
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigseven}{%
+\begin{center}
+\textsc{Fig. 7.}\par\smallskip
+\begin{tikzpicture}[scale=.72, line cap=round, line join=round]
+  \coordinate (T) at (0,3.2);
+  \coordinate (alpha) at (-2.5,-1.75);
+  \coordinate (delta) at (2.45,-1.1);
+  \coordinate (gamma) at (1.85,.55);
+  \coordinate (beta) at (.55,-1.25);
+  \draw (alpha) -- (T) -- (delta) -- cycle;
+  \draw (-2.0,.55) -- (gamma);
+  \draw (-2.35,-.7) -- (delta);
+  \draw (alpha) -- (gamma);
+  \draw (T) -- (beta);
+  \draw (gamma) -- (delta);
+  \node at (-1.7,.42) {$1$};
+  \node at (-.2,.45) {$2$};
+  \node at (.1,.05) {$3$};
+  \node at (.45,-.35) {$4$};
+  \node at (-.72,-1.08) {$5$};
+  \node at (-2.18,-.85) {$6$};
+  \node[below left] at (alpha) {$\alpha$};
+  \node[right] at (gamma) {$\gamma$};
+  \node[below] at (beta) {$\beta$};
+  \node[below right] at (delta) {$\delta$};
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefigeight}{%
+\begin{center}
+\textsc{Fig. 8.}\par\smallskip
+\begin{tikzpicture}[scale=.78, line cap=round, line join=round]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (2.15,0);
+  \draw (A) circle (1.45);
+  \draw (B) circle (1.35);
+  \draw (-1.65,-.58) -- (3.68,.86);
+  \fill (A) circle (.04) node[below] {$A$};
+  \fill (B) circle (.04) node[below right] {$B$};
+  \node[below left] at (-1.54,-.55) {$a$};
+  \node[above] at (1.17,.28) {$\beta$};
+  \node[above] at (1.58,.45) {$a'$};
+  \node[right] at (3.62,.83) {$\beta'$};
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\sourcefignine}{%
+\begin{center}
+\textsc{Fig. 9.}\par\smallskip
+\begin{tikzpicture}[scale=.6, line cap=round, line join=round]
+  \foreach \y/\lab in {5/1',4/2',3/3',2/4',1/5',0/6'} {
+    \draw (-.4,\y) -- (5.7,\y);
+    \node[left] at (-.4,\y) {$\lab$};
+  }
+  \foreach \x/\lab in {0/1,1.1/2,2.2/3,3.15/4,4.1/5,4.85/6} {
+    \draw (\x,0) -- ({\x+.7},5.6);
+    \node[above] at ({\x+.55},5.25) {$\lab$};
+  }
+  \foreach \y in {0,1,2,3,4,5} {
+    \foreach \x in {0,1.1,2.2,3.15,4.1,4.85} {
+      \fill ({\x+.14*\y},\y) circle (.045);
+    }
+  }
+  \draw (3.9,-.55) -- (5.55,.72);
+  \node[below] at (4.45,-.12) {$\alpha$};
+  \node[right] at (5.28,.42) {$\beta$};
+  \node[above] at (4.9,.15) {$\theta$};
+\end{tikzpicture}
+\end{center}}
+
+\begin{document}
+
+% ============================================================
+% PAPER 529 (continuation, pp.~417--434)
+% ============================================================
+\section{[529]}
+\subsection{A ``Smith's Prize'' Paper; Solutions (continued).}
+
+\begin{center}
+\textit{[From the Oxford, Cambridge and Dublin Messenger of Mathematics, vol.~\textsc{v}. (1869), pp.~182--203.]}
+\end{center}
+
+\bigskip
+\textit{p.~417 [529]}
+\smallskip
+
+\noindent
+whence, elements of area are
+\[
+dc\,\sin c\,dl,\qquad dc'\,c'\,dl',
+\]
+tangents of azimuth are
+\[
+\frac{dc}{\sin c\,dl},\qquad \frac{dc'}{c'\,dl'}.
+\]
+and substituting the values $l'=l$, $c'=f(c)$, we have $dl'=dl$, $dc'=f'(c)dc$; and thence
+elements of area are as $\sin c:f(c)f'(c)$,
+\[
+\text{tangents of azimuth as}\quad
+\frac{dc}{\sin c\,dl}:\frac{f'(c)dc}{f(c)\,dl}.
+\]
+
+By proper determinations of the function $f(c)$, we can make
+
+\begin{enumerate}[label=(\arabic*)]
+\item The ratio of the elements of area to be constant; this will be the case if
+\[
+f(c)f'(c)=k\sin c,\quad \text{that is,}\quad f^2(c)=\text{const.}-2k\cos c,
+\]
+since $f(c)$, $=c$, must vanish for $c=0$; that is,
+\[
+f^2(c)=2k(1-\cos c);
+\]
+\item corresponding azimuths to be equal; this will be the case if
+\[
+\frac{f'(c)}{f(c)}=\frac{1}{\sin c},
+\]
+or say
+\[
+f(c)=k\tan\tfrac{1}{2}c.
+\]
+\end{enumerate}
+
+This is in fact the stereographic projection, in which (as is known) any indefinitely small figure is in the map represented without distortion.
+
+\textit{4. Explain the general configuration of the contour and slope lines in a tract of Lake and Mountain country.}
+
+A contour line is the locus of points having a given altitude.
+
+To fix the ideas, consider an island forming a two-headed mountain. The contour line at the sea level is a closed curve; at a sufficiently great altitude the contour line consists of two closed curves surrounding the two summits respectively; the transition from one form to the other takes place at the altitude of the pass between the two summits, the contour line then having a node at the top of the pass, and being in form a figure of eight. At the altitude of the lower summit one of the closed curves is reduced to a point, and for greater altitudes it disappears, the contour line being then a single closed curve surrounding the higher summit; and at the altitude of the higher summit this reduces itself to a point. (See fig.~1.) If there is on the breast of the mountain a lake, the contour line at the lake level is (as in
+
+\bigskip
+\hfill{\small C.\ VIII.\quad 53}
+
+\clearpage
+
+\bigskip
+\textit{p.~418 [529]}
+\smallskip
+
+the case of the pass) a curve with a node, having however here a closed curve with an interior loop as shown in the figure. The contour line for an altitude below the lake level includes as part of itself a closed curve lying within the contour of the lake,
+
+\sourcefigone
+
+\noindent
+and which for the altitude of the lowest point (or ``imit'') of the lake reduces itself to a point, and for smaller altitudes disappears.
+
+The contour lines in the immediate neighbourhood of a summit are in general ellipses (geometrically, the indicatrix is an ellipse); they may however be circles (viz.\ if the summit be an umbilicus).
+
+A slope line is a line of greatest inclination, and it is consequently an orthogonal trajectory to the series of contour lines. A slope line may be considered as always terminated in a summit or an imit; there is through each summit (or imit) an infinity of slope lines, and in general these all touch there; if, however, the contour lines in the immediate neighbourhood are circles, then the slope lines, instead of touching, pass from the point in all directions. Through the node at the top of a pass, or outlet of a lake, there are two intersecting slope lines, one ascending each way from the node, and being in general a ``ridge-line''; the other descending each way, and being in general a ``course-line,'' viz.\ in the case of a pass, it is in each direction the course of the principal stream of the valley; and in the case of a lake-outlet, it is in the direction away from the lake, the course of the out-flowing stream. The slope lines which thus pass through the several nodes mark out distinct regions, and so facilitate the tracing of the intermediate slope lines.
+
+\textit{5. Find the differential equations corresponding to the three integral equations respectively (i) $(y+c)^2=x(x-1)(x-2)$; (ii) $(y+c)^2=x^2(x-1)$; and (iii) $(y+c)^2=x^3$; and discuss geometrically the singular solutions.}
+
+Generally, for the equation $(y+c)^2-X=0$, the derived equation is
+\[
+X'^2\left(\frac{dx}{dy}\right)^2-4X=0.
+\]
+
+If from the integral equation, differentiating in regard to $c$, we attempt to find the singular solution, we obtain $(y+c)=0$; and thence $X=0$ for the singular solution. It is however to be observed that, if $X$ contain single and multiple factors,
+\[
+X=(x+\alpha)(x+\beta)\ldots (x+\gamma)^m\ldots ,
+\]
+
+\clearpage
+
+\bigskip
+\textit{p.~419 [529]}
+\smallskip
+
+then it is only the single factors $x+\alpha=0$, $x+\beta=0$, \ldots, which are solutions of the differential equation when expressed in its proper form free from extraneous factors.
+
+To explain how this is, write the differential equation in the form
+\[
+X'^2\left(\frac{dx}{dy}\right)^2-4X=0;
+\]
+for a single factor $x+\alpha$, $X'$ does not contain the factor $x+\alpha$, and there is no division by $x+\alpha$. The equation $x+\alpha=0$ gives $\dfrac{dx}{dy}=0$, $X=0$, and the equation is thus satisfied; and by what precedes $x+\alpha=0$ is a singular solution. Contrariwise, for the multiple factor $(x+\gamma)^m$, $X'$ will contain $(x+\gamma)^{m-1}$, and the equation $X'^2\left(\dfrac{dx}{dy}\right)^2-4X=0$ will divide by $(x+\gamma)^m$, and divested of this factor it will be of the form
+\[
+\frac{X'^2}{(x+\gamma)^m}\left(\frac{dx}{dy}\right)^2-\frac{4X}{(x+\gamma)^m}=0,
+\]
+where
+\[
+\frac{X'^2}{(x+\gamma)^m}
+\]
+contains the factor $(x+\gamma)^{m-2}$ (index is 0 or positive) but
+\[
+\frac{X}{(x+\gamma)^m}
+\]
+does not contain $x+\gamma$; hence the equation $x+\gamma=0$ gives $\dfrac{dx}{dy}=0$, and therefore
+\[
+\frac{X'^2}{(x+\gamma)^m}\left(\frac{dx}{dy}\right)^2=0,
+\]
+but it does not give $\dfrac{X}{(x+\gamma)^m}=0$, and consequently fails to satisfy the differential equation. Reverting to the integral equation $(y+c)^2=(x+\alpha)(x+\beta)\ldots (x+\gamma)^m\ldots$, we see that $x+\alpha=0$ touches each of the series of curves, and is thus an envelope thereof; that $x+\gamma=0$ is not an envelope, but is the locus of a singular point on the series of curves.
+
+Applying the foregoing considerations to the proposed equation,
+
+(i) The differential equation is (fig.~2),
+\sourcefigtwo
+\[
+(3x^2-6x+2)^2\left(\frac{dx}{dy}\right)^2-4x(x-1)(x-2)=0,
+\]
+having the singular solutions $x=0$, $x-1=0$, $x-2=0$.
+
+\bigskip
+\hfill{\small 53---2}
+
+\clearpage
+
+\bigskip
+\textit{p.~420 [529]}
+\smallskip
+
+(ii) The differential equation is (fig.~3),
+\[
+(3x-2)^2\left(\frac{dx}{dy}\right)^2-4(x-1)=0,
+\]
+\sourcefigthree
+
+\noindent
+having the singular solution $x-1=0$. But $x=0$ is not a solution; it is the locus of the series of conjugate points of the curves $(y+c)^2=x^2(x-1)$.
+
+(iii) The differential equation is (fig.~4),
+\[
+9x\left(\frac{dx}{dy}\right)^2-4=0,
+\]
+which has no singular solution. But $x=0$ is the locus of the cusp of the curves $(y+c)^2=x^3$.
+
+\sourcefigfour
+
+\textit{6. Show that the curve parallel to the parabola is of the order 6 and class 4; explain the reduction of class; and trace the system of parallel curves.}
+
+The curve parallel to the parabola is the envelope of a circle of constant radius, having its centre on a parabola; taking the equation of the parabola to be $y^2 = 4x$, the coordinates of any point thereon may be taken to be $a^2$, $2a$, and the equation of the variable circle is
+\[
+(x - a^2)^2 + (y - 2a)^2 = r^2,
+\]
+that is,
+\[
+a^4+a^2(-2x+4)+a(-4y)+x^2+y^2-r^2=0,
+\]
+or multiplying by $6$, this is
+\[
+(a,0,c,d,e)(a,1)^4=0,
+\]
+where
+\begin{align*}
+a &= 6,\\
+c &= - 2x + 4,\\
+d &= - 6y,\\
+e &= 6\,(x^2 + y^2 - r^2).
+\end{align*}
+
+\clearpage
+
+\bigskip
+\textit{p.~421 [529]}
+\smallskip
+
+The equation of the envelope is obtained by eliminating $a$ between the equation
+in $a$ and the derived equation; or, what is the same thing, by equating to zero the
+discriminant of the equation in $a$; we thus obtain
+\[
+(ae+3c^2)^3-27(ace-ad^2-c^3)^2=0,
+\]
+which, substituting for $a$, $c$, $d$, $e$ their values, is an equation in $(x, y)$ of the order 6;
+the order of the curve is thus $= 6$.
+
+The class is most easily obtained by geometrical considerations. Seeking the
+tangents which can be drawn from a given point, it at once appears that, describing
+about this point a circle radius $r$, then to each tangent through the point to the
+parallel curve, there corresponds a common tangent of the circle and the parabola, and
+reciprocally; whence the class of the curve is equal to the number of common tangents
+of the circle and the parabola, that is, it is $= 4$.
+
+To the order 6 corresponds in general a class $= 30$, and the reduction from
+$30$ to $4$, $= 26$, is caused by the cusps and nodes of the curve.
+
+The cusps are given as the points of intersection of the curves $ae+3c^2=0$,
+$ae - ad^2 - c^3 = 0$, which being respectively of the orders $2$ and $3$, give $6$ cusps; it
+may be added that these cusps ($2$ real and $4$ imaginary, or else all $6$ imaginary) are,
+in regard to the parabola, the centres of curvature for those points at which the radius
+of curvature is $= r$.
+
+There is on the axis a single point (always real) whose normal distance from the
+parabola is $= r$. Such point is a node of the parallel curve, viz.\ according to the
+value of $r$, either an acnode (conjugate point) or a crunode: we have thus 1 node.
+The parallel curve at infinity coincides with the two parabolas obtained by the displacement
+of the given parabola parallel to itself through the distances $+r$, $-r$ along the axis of $y$.
+Two such parabolas have at infinity on the axis of $x$ a contact of the second order,
+equivalent to three coincident intersections; and the parallel curve has thus at infinity
+on the axis of $x$, a singular point equivalent to $3$ nodes; the number of nodes is thus
+$=4$; and the $4$ nodes and $6$ cusps give the required reduction $2\cdot4+3\cdot6,=26$.
+
+The parallel curve is most easily traced geometrically; there are two branches, one
+outside, the other inside the parabola, equidistant from it. The outside branch is a
+curve of continuous curvature, the form of which requires no explanation. As regards
+the inside branch, when $r$ is small, this is also of continuous curvature, but there is
+on the axis of $x$ inside the branch a real acnodal point (the node above referred to):
+when $r$ becomes $=$ radius of curvature at vertex (or twice the focal distance), the acnode
+coincides with the branch; and the point on the axis, although presenting no visible
+singularity, is really in the nature of a triple point composed of two cusps and a node;
+when $r$ is greater than this limiting value, instead of the acnode we have a crunode;
+
+\clearpage
+
+\bigskip
+\textit{p.~422 [529]}
+\smallskip
+
+and two real cusps present themselves; viz.\ the form of the inside branch is as shown
+in fig.~5.
+
+\sourcefigfive
+
+\textit{7. Show that a curve of the order n has at most $\tfrac{1}{2}(n-1)(n-2)$ double points;
+and that in any curve having this maximum number of double points, the coordinates
+$(x, y, z)$ may be taken to be proportional to rational and integral functions of a variable
+parameter.}
+
+A curve of the order $n$ cannot have more than $\tfrac{1}{2}(n-1)(n-2)$ double points; for
+suppose it had one more, say
+\[
+\tfrac{1}{2}(n-1)(n-2) + 1 = \tfrac{1}{2}(n^2 - 3n) + 2\ \text{double points;}
+\]
+then since a curve of the order $n - 2$ can be drawn through
+\[
+\tfrac{1}{2}(n-2)(n+1) = \tfrac{1}{2}(n^2 - n) - 1\ \text{points,}
+\]
+suppose it drawn through the
+\[
+\tfrac{1}{2}(n^2 - 3n + 2)\ \text{double points;}
+\]
+and besides through
+\[
+n - 3\ \text{points on the curve,}
+\]
+together
+\[
+\tfrac{1}{2}(n^2 - n) - 1\ \text{points,}
+\]
+it will cut the curve of the order $n$ in the double points considered as
+\[
+n^2 - 3n + 4\ \text{points,}
+\]
+and besides in
+\[
+n - 3\ \text{points,}
+\]
+together
+\[
+n^2 - 2n + 1\ \text{points,}
+\]
+that is, we should have a curve of order $n - 2$ meeting the curve of the order $n$ in
+$n(n-2) + 1$ points, which is of course impossible.
+
+Consider now a curve of the order $n$ with $\tfrac{1}{2}(n-1)(n-2)$ double points; draw a
+curve of the order $(n-2)$ through the double points; and
+besides through
+\[
+\tfrac{1}{2}(n^2 - 3n + 2)\ \text{points,}
+\]
+together
+\[
+n - 3\ \text{points on the curve,}
+\]
+together
+\[
+\tfrac{1}{2}(n^2 - n) - 2\ \text{points,}
+\]
+
+\clearpage
+
+\bigskip
+\textit{p.~423 [529]}
+\smallskip
+
+this imposes on the curve $\tfrac{1}{2}(n^2 - n) - 2$ conditions; but as the curve might have been
+determined to satisfy $\tfrac{1}{2}(n+1)(n-2)$ conditions, this will leave still the curve indeterminate
+parameter $\lambda$. It meets the curve $n$ in the double points considered as
+\[
+n^2 - 3n + 2\ \text{points,}
+\]
+and besides in
+\[
+n - 3\ \text{points,}
+\]
+altogether
+\[
+n^2 - 2n\ \text{points;}
+\]
+that is, in
+\[
+2\ \text{points;}
+\]
+the coordinates of which are expressible rationally in terms of $\lambda$.
+
+Hence since for any value whatever of $\lambda$, there is only one remaining intersection, the coordinates of this point must be rationally determinable in terms of the parameter $\lambda$; that is, the coordinates of any point on the given curve will be rational functions of $\lambda$; or using trilinear coordinates, the coordinates $x, y, z$ of any point on the given curve will be proportional to rational and integral functions of $\lambda$.
+
+\textit{8. Show that three bodies attracting each other according to the law of gravitation may move in a line in such wise that the mutual distances are in a constant ratio the value of which depends on the masses.}
+
+Taking the masses $m_1$, $m_2$, $m_3$, to be arranged in this order at distances $z_1$, $z_2$, $z_3$,
+from a fixed origin, the equations of motion are
+\[
+\frac{d^2 z_1}{dt^2} = -\frac{m_2}{(z_1 - z_2)^2} - \frac{m_3}{(z_1 - z_3)^2},
+\]
+\[
+\frac{d^2 z_2}{dt^2} = \frac{m_1}{(z_1 - z_2)^2} - \frac{m_3}{(z_2 - z_3)^2},
+\]
+\[
+\frac{d^2 z_3}{dt^2} = \frac{m_1}{(z_1 - z_3)^2} + \frac{m_2}{(z_2 - z_3)^2}.
+\]
+Assume
+\[
+\frac{d^2(z_1 - z_2)}{dt^2} = -\frac{m_1 + m_2}{(z_1 - z_2)^2} - \frac{m_3}{(z_1 - z_3)^2} + \frac{m_3}{(z_2 - z_3)^2},
+\]
+and therefore
+\[
+z_1 - z_2 = z_2 - z_3 = z_1 - z_3,
+\]
+then the equations become
+\[
+\frac{d^2(z_1 - z_2)}{dt^2} = \left\{- m_1 - m_2 + \frac{m_3}{(\lambda + 1)^2} - \frac{m_3}{\lambda^2}\right\}\frac{1}{(z_1 - z_2)^2},
+\]
+and
+\[
+\frac{d^2(z_1 - z_3)}{dt^2} = \left\{\frac{m_1}{\lambda^2} - \frac{m_3}{(\lambda + 1)^2} + \frac{m_2}{(\lambda + 1)^2} - m_3\right\}\frac{1}{(z_1 - z_3)^2},
+\]
+
+\clearpage
+
+\bigskip
+\textit{p.~424 [529]}
+\smallskip
+
+which equations will be one and the same equation if only
+\[
+\frac{1}{\lambda + 1}\left\{- m_1 - m_2 + \frac{m_3}{(\lambda + 1)^2} - \frac{m_3}{\lambda^2}\right\} = \frac{m_1}{\lambda^2} - \frac{m_3}{(\lambda + 1)^2} + \frac{m_2}{(\lambda + 1)^2} - m_3 ,
+\]
+
+\noindent
+an equation which (multiplying out) is of the fifth order, and gives at least one real
+value of $\lambda$; and $\lambda$ being thus determined, we may from either equation obtain an
+equation of the form $\dfrac{d^2(z_1 - z_2)}{dt^2} = -\dfrac{M}{(z_1 - z_2)^2}$, which determines $z_1 - z_2$ in terms of $t$, and
+then $z_1 - z_2$, $-z_1 (z_1 - z_2)$, is also known; that is, the relative motions of the three bodies
+are determined.
+
+\textit{9. Write down the integral equations for the elliptic motion of a planet; and if $r$, $a, b$, denote the radius vector, longest of the latitude, and central longitude respectively, show that}
+\[
+\frac{\sqrt{(1 + e)}}{\sqrt{r}} = \frac{1}{a(1 - e^2)} \sqrt{(1 + e)} + e\cos(s - \omega),
+\]
+\textit{explaining the significations of the constants $a$, $e$, $\omega$.}
+
+Write
+\begin{align*}
+a, & \text{ the mean distance,}\\
+n, & \text{ the mean motion} = \frac{\sqrt{\mu}}{a^{3/2}},\\
+e, & \text{ the eccentricity,}\\
+\theta, & \text{ longitude of node,}\\
+\omega, & \text{ longitude of perihelion in orbit,}\\
+\varepsilon, & \text{ the longitude in orbit.}
+\end{align*}
+
+The position in the orbit is determined in terms of the time by means of an
+auxiliary quantity $u$, viz.\ writing
+\[
+nt + \varepsilon - \omega = u - e\sin u .
+\]
+We then have the radius vector $r$, and the true anomaly $f$, given as functions of the
+time by the equations
+\[
+\cos f = \frac{\cos u - e}{1 - e\cos u},
+\]
+\[
+\sin f = \frac{\sqrt{(1 - e^2)\sin u}}{1 - e\cos u},
+\]
+\[
+r = \frac{a(1 - e^2)}{1 + e\cos f} = a(1 - e\cos u).
+\]
+
+\clearpage
+
+\bigskip
+\textit{p.~425 [529]}
+\smallskip
+
+Take $s$, $\theta$, the hypotenuse, base, and perpendicular of the right-angled triangle $SPP'$, base angle $\omega - \theta$ (see fig.~6), in which $SP$ is the orbit, $S$ the node, $K$ the perihelion, $P$ the planet; then
+
+\sourcefigsix
+
+\noindent
+$\varepsilon = \omega - \theta + f$ gives $s$; and so gives in terms of $r, \theta$, by the formul\ae{} relating
+to the spherical triangle, so that we have
+\begin{align*}
+\text{longitude in orbit} &= s + \theta\ (= \omega + f),\\
+\text{reduced longitude} &= b,\\
+\text{latitude} &= p.
+\end{align*}
+
+The expression for $r$, writing for $f$ its value, $= \varepsilon - \omega$, gives
+\[
+\frac{1}{r} = \frac{1}{a(1 - e^2)}\{1 + e\cos(\varepsilon - \omega)\},
+\]
+and we have thence
+\[
+\frac{\sqrt{(1 + e)}}{\sqrt{r}} = \frac{1}{a(1 - e^2)}\sqrt{(1 + e)\{1 + e\cos(\varepsilon - \omega)\}}.
+\]
+
+But we have
+\[
+1 - e = 1 - e - e + e\cos(\varepsilon - \omega).
+\]
+And thence
+\[
+\cos(\varepsilon - \omega) = \cos(\varepsilon - \theta) + \sin(\varepsilon - \omega)\sin(\omega - \theta).
+\]
+Consequently
+\[
+\sqrt{(1 + e)\cos(\varepsilon - \omega)} = \sqrt{(1 + e)\cos(\varepsilon - \theta)\cos(\omega - \theta)} + \sin(\varepsilon - \theta)\sin(\omega - \theta);
+\]
+\[
+= \sqrt{(1 + e)\cos(\omega - \theta)\cos(\varepsilon - \theta)} + \sin(\omega - \theta)\sin(\varepsilon - \theta);
+\]
+but by the right-angled triangle, we have
+\[
+\sin(\varepsilon - \theta)\sin\phi = \sin\omega, \qquad = \frac{\sin\omega}{\sqrt{(1 + e)}},
+\]
+and thence
+\[
+\sin(\omega - \theta) = \sin\phi\sin\gamma = \tan\phi\cos\theta\tan\theta,
+\]
+\[
+\sqrt{(1 + e)\cos(\omega - \theta)} = \frac{1}{\cos\phi} + \cos\phi = \frac{\sin(\varepsilon - \theta)}{\sqrt{(1 + e)}},
+\]
+\[
+\cos(\varepsilon - \theta)\cos(\omega - \theta) = \cos\omega + \frac{\cos\theta\sin(\omega - \theta)}{\sin(1 + e)},
+\]
+that is,
+\[
+\sqrt{(1 + e)\cos(\omega - \theta)} = 1 + e\cos(\omega - \theta).
+\]
+
+\bigskip
+\hfill{\small C.\ VIII.\quad 54}
+
+\clearpage
+
+\bigskip
+\textit{p.~426 [529]}
+\smallskip
+
+The formula thus becomes
+\begin{align*}
+\frac{\sqrt{(1 + e)}}{\sqrt{r}} &= \frac{1}{a(1 - e^2)}\sqrt{(1 + e)\{\cos(\varepsilon - \theta)\cos(\omega - \theta) + \sin(\varepsilon - \theta)\sin(\omega - \theta)\}}\\
+&= \frac{1}{a(1 - e^2)}\sqrt{(1 + e)\{1 + e\cos(\omega - \theta)\}\cos(\varepsilon - \theta) + e\sin(\omega - \theta)\sin(\varepsilon - \theta)},\\
+&= \frac{1}{a(1 - e^2)}\sqrt{(1 + e)} + e_1\cos(\varepsilon - \theta_1),
+\end{align*}
+where
+\[
+\frac{1}{\cos\phi}\tan(s - \theta) = \tan(\omega - \theta)\text{ gives } s_1,
+\]
+\[
+e_1 = \frac{\cos(s - \theta)}{\cos(\omega - \theta)}\text{ gives } e_1,
+\]
+\[
+e_1(1 - e_1^2) = 1 + e_1\text{ gives } a_1.
+\]
+
+The first equation shows that, drawing the arc $KK'$ at right angles to $SP$, then
+\[
+\varepsilon_1 = \theta + KK';
+\]
+and therefore
+\[
+m_1 = \theta + \sin\omega, e_1 = e\cos\phi, e_1 = TK'.
+\]
+
+The other two equations then give $e_1$ and $a_1$; it may be added that, from the
+right-angled triangle $NKK'$ we have $\cos(m_1 - \theta) = \cos\phi\cos(\omega - \theta)$; and consequently
+that $a, (1 - e) = a, (1 - K')$.
+
+\textit{10. Find the differential equations for the motion of a material line acted upon by any forces and moving in a given outer surface.}
+
+If $a, b$ are the coordinates of the point of intersection of any line of the ruled
+surface with the plane of $xy$; $a, \beta$, $\gamma$ the cosines of the inclinations of the line to
+the three axes respectively; then writing
+\[
+\frac{\beta}{a} = \alpha,\quad b - a\frac{a}{\beta} = b,\quad \frac{\gamma}{\beta} = \gamma,
+\]
+and considering $a, b, \beta, \gamma$ as given functions of a variable parameter $\theta$, when
+$a, \beta, \gamma$ satisfy the relation $a^2 + \beta^2 + \gamma^2 = 1$, the equations in question, coordinates of the
+equation $(=\varepsilon)$ determine the position of the line on the surface, and taking account of the
+equation $(=\varepsilon)$, they determine its form of the parameters $\theta$, $\theta$, the coordinates of a
+particular point in this line.
+
+The motion of the material line is such that it must successively to coincide with
+the several lines on the ruled surface, consider on the material line a fixed point;
+say the centre of gravity $G$, and imagine that in the course of the motion the material
+line comes to coincide with the line determined as above by the parameter $\theta$, and that
+the point $G$ with the point determined as above by the parameters $\tau$, $\theta$, consider as
+\clearpage
+
+\bigskip
+\textit{p.~427 [529]}
+\smallskip
+
+material line any other point $P$ whose distance from $G$ is $=s$; the parameters of $P$
+will be $r+s$, $\theta$; and the coordinates will consequently be given in terms of the variable
+parameters $r$, $\theta$, by the equations
+\[
+\frac{x-a}{\alpha}=\frac{y-b}{\beta}=\frac{z}{\gamma}=r+s,
+\]
+that is, we have
+\[
+x=a+(r+s)\alpha,\qquad y=b+(r+s)\beta,\qquad z=(r+s)\gamma,
+\]
+where $a$, $b$, $\alpha$, $\beta$, $\gamma$ are given functions of $\theta$; $r$, $\theta$ are parameters varying with the
+time, and $s$ is a constant in regard to the time, but varies with the point under
+consideration. Hence, writing as usual $T$ to denote the \textit{Vis Viva} function
+\[
+T=\frac12\int (x'^2+y'^2+z'^2)\,dm,
+\]
+where $dm$ is the element of the material line, and $x'$, $y'$, $z'$ are the velocities of the
+element, it only remains to express $T$ as a function of $r$, $\theta$; and the equations of
+motion will be
+\[
+\frac{d}{dt}\frac{\partial T}{\partial r'}-\frac{\partial T}{\partial r}=R,\qquad
+\frac{d}{dt}\frac{\partial T}{\partial \theta'}-\frac{\partial T}{\partial \theta}=\Theta.
+\]
+
+\noindent
+Using $a'$, $b'$, $\alpha'$, $\beta'$, $\gamma'$ to denote the differential coefficients in regard to
+$\theta$, but, as above, $x'$, $y'$, $z'$, $r'$, $\theta'$ to denote differential coefficients in regard
+to $t$, we have
+\[
+\begin{aligned}
+x'&=\{a'+(r+s)\alpha'\}\theta'+\alpha r',\\
+y'&=\{b'+(r+s)\beta'\}\theta'+\beta r',\\
+z'&=(r+s)\gamma'\theta'+\gamma r',
+\end{aligned}
+\]
+and thence
+\[
+x'^2+y'^2+z'^2=A\theta'^2+2Br'\theta'+r'^2,
+\]
+if for shortness
+\[
+\begin{aligned}
+A={}&a'^2+b'^2+2(r+s)(\alpha a'+\beta b')+(r+s)^2(\alpha'^2+\beta'^2+\gamma'^2),\\
+B={}&a'\alpha+b'\beta+(r+s)(\alpha\alpha'+\beta\beta'+\gamma\gamma')
+     =a'\alpha+b'\beta,
+\end{aligned}
+\]
+since
+\[
+\alpha\alpha'+\beta\beta'+\gamma\gamma'=0.
+\]
+Hence we have
+\[
+T=\frac12\theta'^2\int A\,dm+r'\theta'\int B\,dm+\frac12r'^2\int dm.
+\]
+Observing that in the sum $\int A\,dm$, the terms involving $\int s\,dm$ vanish in consequence
+of $G$ being the centre of gravity, we have
+
+\bigskip
+\hfill{\small 54---2}
+
+\clearpage
+
+\bigskip
+\textit{p.~428 [529]}
+\smallskip
+
+Or writing $\int dm=M$, $\int s^2\,dm=Mk^2$, ($M$ being therefore the mass of the line,
+and $Mk^2$ its moment about the centre of gravity), we have
+\[
+\int A\,dm
+=M\{a'^2+b'^2+2r(\alpha a'+\beta b')+(r^2+k^2)(\alpha'^2+\beta'^2+\gamma'^2)\}.
+\]
+Moreover
+\[
+\int B\,dm=M(a'\alpha+b'\beta),
+\]
+and hence we have
+\[
+T=\frac12M\left\{
+\theta'^2\!\left[a'^2+b'^2+2r(\alpha a'+\beta b')+(r^2+k^2)(\alpha'^2+\beta'^2+\gamma'^2)\right]
++2\theta'r'(a'\alpha+b'\beta)+r'^2
+\right\},
+\]
+a given function of $r$, $\theta$, $r'$, $\theta'$; and the differential equations are therefore given as above.
+
+\textit{11. Explain the mutual connexion of the three theorems in conics: (1) the theorem at quartet linear; (2) Pascal's theorem; (3) the theorem of the anharmonic relations of four points.}
+
+The theorem of quartet linear is that the locus of a point, such that the product
+of its distances from two given lines is to always in a given ratio to the product of
+its distances from two other given lines, is a conic.
+
+Consider the lines as forming a quadrilateral $ABCD$. Then $A$, $B$, $C$, $D$ are points
+on the conic, and writing $PAB$ to denote the perpendicular distance of a point $P$
+from the line $AB$, and so in other cases, the theorem is that the expression
+\[
+\frac{AC\,BD\sin PAB \cdot \sin PBD}{AB\,DC\sin PAD\cdot\sin PBC}
+\]
+has a constant value for any point $P$ whatever on the conic. Now the perpendicular
+distance $PAB = 2AB \cdot AB = AB$, or, what is the same thing, it is $= PA \cdot PB \sin PAB \div AB$;
+transforming the other perpendicular distances in the same manner, the distances $PA$,
+$PB$, $PC$, $PD$ divide out, and the foregoing expression becomes
+\[
+\frac{AC \cdot BD \sin PAB \cdot \sin PBD}{AB \cdot CD \sin PAD \cdot \sin PBC};
+\]
+viz.\ omitting the constant factor, it appears that the expression
+\[
+\frac{\sin PAB \cdot \sin PCD}{\sin PAD \cdot \sin PBC}
+\]
+constant for all points $P$ on the conic, or, what is the same thing, that the anharmonic
+ratio of the pencil $P(A, B, C, D)$ is constant for all points $P$ on the conic. This is
+the anharmonic property of the points of a conic.
+
+Pascal's theorem is that for any six points $1$, $2$, $3$, $4$, $5$, $6$ (fig.~7)
+on a conic, the intersections of the lines $12$ and $45$, the lines $23$ and $56$,
+the lines $34$ and $61$ lie in a line. Marking the points $\alpha$, $\beta$, $\gamma$,
+$\delta$ as shown in the figure, it appears by the theorem that we have the two
+lines $(65\beta\delta)$, $(\alpha547)$ meeting in $5$, and such that the lines through
+the corresponding points $6$ and $\alpha$, $\beta$ and $4$, $\delta$ and $\gamma$ meet in
+a point. Hence the ranges $(65\beta\delta)$ and $(\alpha547)$ have the same anharmonic
+ratio; or, what is the same thing, the pencils $3(65\beta\delta)$ and $1(\alpha547)$
+have the same anharmonic ratio; that is, the pencils $3(6542)$ and $1(6542)$ have
+the same anharmonic ratio; or, considering $1$ as a variable
+
+\clearpage
+
+\bigskip
+\textit{p.~429 [529]}
+\smallskip
+
+\noindent
+point, but $2$, $3$, $4$, $5$, $6$ are fixed points on the conic, the pencil $1(6542)$ of lines from
+the point $1$ to the four points $6$, $5$, $4$, $2$ has the same anharmonic ratio for all
+positions whatever of the variable point $1$; which is the above-mentioned anharmonic
+property of the points of a conic.
+
+\sourcefigseven
+
+\textit{12. Show that any line through the centre of either of two orthotomic circles cuts the two circles harmonically; and connect this result with the theorem that the Jacobian of three circles is made up of the line infinity and the orthotomic circle.}
+
+Drawing through the centre of the circle $A$, (fig.~8) the line $a\beta a'\beta'$, it appears by
+the figure that we have
+\[
+A\beta\cdot A\beta'=\text{square of tangential distance of }A\text{ from the circle }B,
+\]
+\[
+= Aa'^{2}\quad \text{since the circles cut at right angles,}
+\]
+\[
+= Aa\cdot Aa';
+\]
+
+\sourcefigeight
+
+\noindent
+that is, the points $\beta$, $\beta'$ are inverse points in regard to the circle on the diameter $aa'$,
+and the points $a$, $a'$, $\beta$, $\beta'$ are thus harmonically related to each other.
+
+Hence the polar of $a$, in regard to the circle $B$, passes through the point $a'$,
+which is the opposite of $a$ in regard to the circle $A$; and it is consequently a fixed point for
+all the circles $B$ orthotomic to the circle $A$. That is, considering any three circles
+orthotomic to the circle $A$, this circle $A$ is a locus of points $a$ such that the polars
+of $a$ in regard to the three circles meet in a point.
+
+\clearpage
+
+\bigskip
+\textit{p.~430 [529]}
+\smallskip
+
+Moreover, all circles meet the line at infinity in two fixed points $I$, $J$, the circular
+points at infinity: hence for any point $a$ on the line infinity, the polar of $a$ in regard
+to any circle whatever meets the line infinity in a fixed point, the harmonic of $a$ in
+regard to the two points $I$, $J$; whence the line infinity is also a locus of points $a$
+such that the polars of $a$ in regard to the three given circles meet in a point.
+
+The Jacobian of any three conics is the locus of the points $a$, such that the polars
+of $a$ in regard to the three conics meet in a point; and it is in general a cubic
+curve. Hence by what precedes it appears that the Jacobian of three circles is the
+cubic curve made up of the orthotomic circle and the line infinity.
+
+\textit{13. If five given lines have a common transversal, then taking the remaining
+transversal of each four of the given lines, show by statical considerations or otherwise
+that the five transversals have a common transversal.}
+
+Consider the line $6'$ (fig.~9) meeting each of the lines $1$, $2$, $3$, $4$, $5$, and take
+\[
+\begin{array}{rcl}
+1'&\text{ the remaining transversal of }&(2,3,4,5),\\
+2'&\text{ the remaining transversal of }&(3,4,5,1),\\
+3'&\text{ the remaining transversal of }&(4,5,1,2),\\
+4'&\text{ the remaining transversal of }&(5,1,2,3),\\
+5'&\text{ the remaining transversal of }&(1,2,3,4);
+\end{array}
+\]
+it is to be shown that the lines $1'$, $2'$, $3'$, $4'$, $5'$ have a common transversal $6$.
+
+\sourcefignine
+
+Consider the line $6$ as a line determined so as to meet the lines $2'$, $3'$, $4'$ and $5'$;
+and take any line $\theta$ meeting each of the lines $6$, $6'$; since the six lines $1$, $2$, $3$, $4$, $5$, $\theta$
+have a common transversal $6'$, then considering the lines as fixed lines in a solid
+body, it is possible to find along the lines $1$, $2$, $3$, $4$, $5$, $\theta$ forces which will be in
+equilibrium. Suppose for a moment that the line $6$, determined as above, does not
+meet the line $1'$; then we have the lines $1'$, $2'$, $3'$, $4'$, $5'$, $\theta$ and $6$ such that the
+line $6$ meeting the lines $2'$, $3'$, $4'$, $5'$, and $\theta$, does not meet the line $1'$. The six lines
+$1'$, $2'$, $3'$, $4'$, $5'$, and $\theta$ would be independent lines, such that there do not exist along
+them forces in equilibrium, and a force acting in any line whatever may be resolved
+
+\clearpage
+
+\bigskip
+\textit{p.~431 [529]}
+\smallskip
+
+into forces acting along the lines $1', 2', 3', 4', 5'$, and $6'$. Hence the original forces
+along the lines $1$, $2$, $3$, $4$, $5$ can be each of them so resolved; and combining with
+the resolved forces the original force along $\theta$, we have a system of forces along the
+lines $1'$, $2'$, $3'$, $4'$, $5'$, $\theta$ in equilibrium with each other; which is impossible if the lines
+in question are related as above; that is, the line $6$ meeting the lines $2'$, $3'$, $4'$, $5'$, $\theta$
+must also meet the line $1'$; which is the required theorem.
+
+The statical principles assumed in the above demonstration are as follows:
+\begin{enumerate}[label=(\arabic*)]
+\item Six lines may be such that there exist along them forces in equilibrium;
+or say, for shortness, the six lines may be in involution.
+\item For any seven lines, no six or any less number of which are in involution,
+there exist along the lines forces in equilibrium; or, what is the same thing, given
+any six lines not in involution, and a seventh line; then a force along the seventh
+line may be resolved into forces along the six lines.
+\item Six lines which have a common transversal are in involution (remark in
+passing that it is not conversely true that if the six lines are in involution they have
+a common transversal), but if five of the six lines have a common transversal not
+meeting the sixth line, then the six lines are not in involution.
+\end{enumerate}
+
+\textit{14. In the theory of the variation of the arbitrary constants of a mechanical problem,
+state and explain the results obtained by Lagrange and Poisson respectively; and point
+out the peculiar advantage of Poisson's theory, in regard to the consequences which follow
+from the coefficients of his formul\ae{} being independent of the time.}
+
+In the theory of the variation, of the arbitrary constants of a mechanical problem,
+it is assumed that the forces consist of principal and disturbing forces, each of them
+depending on a force function, say there is a principal force function and a disturbing
+function; (the assumption of a force function however is regard to the disturbing
+forces, though usual and convenient, is not essential); and that, when the disturbing
+forces are neglected, or say in the undisturbed problem, the equations of motion can
+be completely integrated; the theory consists herein that the same integral equations,
+taking the arbitrary constants to be variable, may be made to satisfy the disturbed
+equations of motion.
+
+Suppose that the number of the coordinates $x, y, \ldots$ is $= p$, then since the differential
+equations are of the second order, the number of arbitrary constants $(a, b, c, \ldots)$ will
+be $= 2p$. In Lagrange's solution it is assumed that the coordinates $x, y, \ldots$ (and consequently also the derived functions $x', y', \ldots$) are each of them given in terms of $t$
+and the $2p$ constants; the disturbing function $\Omega$ is given in the same form; and
+the expressions for the variations $\dfrac{da}{dt}$, \&c.\ are obtained by the solution of a system of linear
+equations
+\[
+\frac{dR}{da} = (a, b)\frac{db}{dt} + (a, c)\frac{dc}{dt} + \&c.,
+\]
+where the coefficients $(a, b)$ are functions involving $\dfrac{dx}{da}, \dfrac{dx'}{da}$, \&c.; these coefficients are
+
+\clearpage
+
+\bigskip
+\textit{p.~432 [529]}
+\smallskip
+
+\noindent
+time period functions of the $2p$ constants and of the time; but it is a result
+of the theory that they are in fact functions of the constants only, the time disappearing of itself.
+
+In Poisson's theory it is assumed that the integrals of the undisturbed problem
+are obtained in the form
+\[
+a = \phi(t, x, y, \ldots, x', y', \ldots),\ \&c.,
+\]
+viz.\ that each constant is given in terms of the coordinates, their derived functions,
+and the time (so that, if all the integrals are known, this is equivalent to Lagrange's
+assumption). The expressions for the variations of the constants are given in the form
+\[
+\frac{da}{dt} = (a, b)\frac{d\Omega}{db} + (a, c)\frac{d\Omega}{dc} + \&c.,
+\]
+where each coefficient $(a, b)$ is given in the first instance expressed as functions of the coordinates
+$x, y, \ldots$, the disturbing function $\Omega$, \&c.\ and the time; but it is a result of the theory
+that the coefficients $(a, b)$, \&c.\ are really constant; viz.\ that, if $x$, $y$, \ldots, $x'$, $y'$, \ldots, are
+expressed in terms of the constants $(a, b, c, \ldots)$ and of $t$, then the coefficient becomes a function of the constants $a, b, c, \ldots$ only, the time disappearing of itself.
+
+The transformation of the values of any coefficient $[a, b]$ requires only the knowledge of
+the expressions of $a$, $b$ in terms of $x$, $y$, \ldots, $x'$, $y'$, \ldots, or we may say, the knowledge of the two
+integrals $a$, $b$. We thence obtain the expression of $[a, b]$ as a function of $x$, $y$, \ldots, $x'$, $y'$, \ldots,
+$t$, calling it, we have $\{a, b\} = \phi(t, x, y, \ldots, x', y', \ldots)$. But, in every transformation $[a, b]$ of the
+equations of motion of the undisturbed problem. It may happen that the value of
+$\{a, b\}$ is found to be a constant; in such case the constants of the values of the constants
+of the integrals all depend on the variables and the time. In every case, however,
+of the supposition that $\{a, b\}$ is independent of the time, leads to certain consequences
+analogous to this in Lagrange's theory.
+
+\textit{15. Write a short dissertation on the transformation of rectangular coordinates in
+space of three dimensions, and in particular explain under what restriction it is true
+that two sets of rectangular axes, such that one system can by means of a rotation be
+made to coincide with the other, are conventionally said to be of the same kind, and that
+two sets of rectangular axes, such that the position of this axis and the second of the
+rotation cannot be made to coincide with each other, are of opposite kinds.}
+
+Two sets of rectangular axes about the same origin (each axis considered as it
+a line extending in the opposite sense from the origin) are said to be of the same
+kind if any one set can by displacement and rotation, be made to coincide with the
+other; in any other case they are of opposite kinds. It is easy to see that, if any one
+of the axes of the one set has been brought to coincide with the corresponding axis
+of the second set, then the other two axes will coincide with the corresponding axes,
+
+\clearpage
+
+\bigskip
+\textit{p.~433 [529]}
+\smallskip
+
+\noindent
+either the axis of $z$ will coincide with that of $z$, or it will be in the opposite
+direction; in the former case the two sets are, in the latter case of the opposite kind,
+displacements one of the other. The restriction referred to in the question, is that
+the two sets shall be displacements one of the other.
+
+In the problem of transformation, the two axis $z$ axes, if not displacements, can
+always be made so by simply reversing the direction of one of the axes (writing for
+example $x$ for $x$); and there is thus no real loss of generality in considering the
+two sets as displacements the one of the other; and it is in general convenient to
+make this assumption.
+
+The transformation between two sets of rectangular axes is at once given by the
+diagram
+
+\begin{center}
+\begin{tabular}{c|ccc}
+   & $x$ & $y$ & $z$ \\\hline
+$x'$ & $a$ & $\beta$ & $\gamma$ \\
+$y'$ & $a'$ & $\beta'$ & $\gamma'$ \\
+$z'$ & $a''$ & $\beta''$ & $\gamma''$ \\
+\end{tabular}
+\end{center}
+
+\noindent
+where $a$ is the cosine of the inclination of the axis $x$, $x_1$, and so for the rest of the
+nine quantities. The relation between the two sets of axes is obtained at pleasure by
+reading the diagram horizontally, $x = ax + \beta y + \gamma z$, \&c.\ or by reading it vertically,
+$x = ax + a'y_1 + a''z'$, \&c.
+
+We must have identically $x^2 + y^2 + z^2 = x'^2 + y'^2 + z'^2$, and we thus obtain the two
+equivalent sets of equations
+\begin{align*}
+a^2 + \beta^2 + \gamma^2 &= 1,& a^2 + a'^2 + a''^2 &= 1,\\
+a'^2 + \beta'^2 + \gamma'^2 &= 1,& \beta^2 + \beta'^2 + \beta''^2 &= 1,\\
+a''^2 + \beta''^2 + \gamma''^2 &= 1,& \gamma^2 + \gamma'^2 + \gamma''^2 &= 1,\\
+a''a' + \beta''\beta' + \gamma''\gamma' &= 0,& \beta\gamma + \beta'\gamma' + \beta''\gamma'' &= 0,\\
+a'a + \beta'\beta + \gamma'\gamma &= 0,& a\gamma + a'\gamma' + a''\gamma'' &= 0,\\
+a a' + \beta\beta' + \gamma\gamma' &= 0,& a\beta + a'\beta' + a''\beta'' &= 0.
+\end{align*}
+
+Either set leads to the relation
+\[
+\left|\begin{array}{ccc}a,&\beta,&\gamma\\a',&\beta',&\gamma'\\a'',&\beta'',&\gamma''\end{array}\right|= \pm 1,\quad\text{consequently}\quad \left|\begin{array}{ccc}a',&\beta',&\gamma'\\a'',&\beta'',&\gamma''\\a,&\beta,&\gamma\end{array}\right| = \pm 1.
+\]
+
+\bigskip
+\hfill{\small C.\ VIII.\quad 55}
+
+\clearpage
+
+\bigskip
+\textit{p.~434 [529]}
+\smallskip
+
+the distinction between the two cases $+ 1$, $- 1$ being that above explained; viz.\ if
+the axes are not displacements the one of the other, the sign is $+$; if they are,
+(and in all that follows this is assumed to be the case) then the sign is $+$. The
+equations give further $a = \beta'\gamma' - \beta''\gamma''$, \&c.\ (six equations).
+
+It is easy to see geometrically that, as stated in the question, two sets of axes
+(being so determined displacements the one of the other) can be made to coincide by
+means of a rotation of either axis through a certain axis; moreover, if the
+position of the axis itself is not altered by $a, b, c$, $a$ and the angle of rotation, we
+must have
+\[
+(b - a)x - \beta y + \gamma z = 0,\quad y(c - 1) = 0,
+\]
+\[
+e'a + (\beta' - 1)y + \gamma' z = 0,\quad \&c.,
+\]
+\[
+e''a + \beta''(b - 1)z = 0,
+\]
+equations which must be equivalent to two equations; we in fact have
+\[
+a:b:c:(a + b + 1)(a + b + 1)(c - 1) = \beta' - \gamma''(a - 1)(b + 1)(c + 1) = (1 - a)\gamma' - \beta'(c + 1),
+\]
+as is easily verified by means of the foregoing relations between the coefficients.
+Any two of the three equations will then determine the ratios $a:b:c$; taking the
+second and third, we have
+\[
+a:b:c = c(1 - b) - \alpha y(b - 1)\beta\gamma':\beta'\gamma' + a'(1 - c)\gamma' + (1 - a)(1 + a)\gamma'' - 1)
+\]
+reducible to
+\[
+a:b:c = 1 + a - \beta'\gamma':\beta - \alpha':\gamma' + (1 - a)\gamma' - \beta'(c + 1)
+\]
+and treating in the same way the third and first and second and first sets of equations
+the system of formul\ae{} is
+\begin{align*}
+a:b:c &= 1 + a - \beta'\gamma':\beta + \alpha':\gamma' + a\\
+&= a':1 + \beta' - a - \gamma'' \cdot y\beta + \gamma'\\
+&= a' + a':\gamma' + \alpha + a':1 + \gamma'' - a - \beta\\
+\end{align*}
+equations equivalent to each other; they determine the position of the axis in question,
+or resultant axis. The foregoing equations may also be written
+\[
+a':b':c':1 = a + \beta' + \gamma':1 - a + \beta' + \gamma':1 + a - \beta' + \gamma':1 + a + \beta' - \gamma',
+\]
+and hence, if $A$, $B$, $C$, be the inclinations of the resultant axis to the axes of $x$
+$y$, and $z$, respectively, we have
+\[
+\cos^2 A : \frac{1 - a + \beta + \gamma}{1 + a + \beta + \gamma}.
+\]
+
+\clearpage
+
+\bigskip
+\textit{p.~435 [529]}
+\smallskip
+
+\noindent
+and thence also
+\[
+\sin^2 A = \frac{2(1 + a)}{3 - a - \beta - \gamma},
+\]
+\[
+\cos 2A = \frac{- 1 + 3a - \beta - \gamma}{3 - a - \beta - \gamma},
+\]
+\[
+a = \cos 2A\,\frac{(1 - a)(1 + a + \beta + \gamma) + 2a}{3 - a - \beta - \gamma}.
+\]
+Let $\theta$ be the amount of the rotation about the resultant axis; we have a spherical
+triangle the two sides whereof are $A$, $A$, the included angle $\theta$, and the opposite side
+$\cos^{-1} a$; that is, we have
+\[
+\cos\theta = \frac{a - \cos^2 A}{\sin^2 A},
+\]
+and thence
+\[
+4\cos^2\tfrac{1}{2}\theta = 2(1 + \cos\theta) = \frac{2(a - \cos 2A)}{\sin^2 A},
+\]
+\[
+= 1 + a + \beta + \gamma,
+\]
+that is, the amount of the rotation is given by the formula
+\[
+4\cos^2\tfrac{1}{2}\theta = 1 + a + \beta + \gamma.
+\]
+
+The nine cosines $a, \beta, \gamma$, \&c.\ may be expressed in terms of the inclinations $A$, $B$, $C$,
+and the rotation $\theta$, or putting $\lambda$, $\mu$, $\nu$ equal to tan $\tfrac{1}{2}\theta\cos A$, tan $\tfrac{1}{2}\theta\cos B$, tan $\tfrac{1}{2}\theta\cos C$,
+in terms of the three quantities $\lambda$, $\mu$, $\nu$; but the resulting formul\ae{} for the transformation of coordinates can be more readily obtained by other methods.
+
+\clearpage
+
+% ============================================================
+% PAPER 530
+% ============================================================
+\section{[530]}
+\subsection{Solution of a Senate-House Problem.}
+
+\begin{center}
+\textit{[From the Oxford, Cambridge and Dublin Messenger of Mathematics, vol.~\textsc{v}. (1869), pp.~38--87.]}
+\end{center}
+
+\textsc{The} Problem, proposed January 7, 1869, is ``If $\theta_1$ and $\theta_2$ are two values of $\theta$
+which satisfy the equation
+\[
+1 + \frac{\cos\theta_1\cos\theta}{a^2} + \frac{\sin\theta_1\sin\theta}{b^2} = 0,
+\]
+show that $\theta_1$ and $\theta_2$, if substituted for $\theta$ and $\phi$ in this equation, will satisfy it.''
+
+That is, writing
+\[
+\frac{\cos\theta_1\cos\theta}{a^2} + \frac{\sin\theta_1\sin\theta}{b^2} + 1 = 0,
+\]
+\[
+\frac{\cos\theta_1\cos\phi}{a^2} + \frac{\sin\theta_1\sin\phi}{b^2} + 1 = 0,
+\]
+where $a^2 + b^2 = 1$, it is to be shown that
+\[
+\frac{\cos\theta_1\cos\theta_2}{a^2} + \frac{\sin\theta_1\sin\theta_2}{b^2} + 1 = 0.
+\]
+
+From the given equations, we have
+\[
+\frac{\cos\phi}{a^2}:\frac{\sin\phi}{b^2}:1 = \sin\theta_1\sin\theta_2:-\cos\theta_1\cos\theta_2:\sin(\theta_1 - \theta_2),
+\]
+which is
+\[
+= \cos\tfrac{1}{2}(\theta_1 + \theta_2):-\sin\tfrac{1}{2}(\theta_1 + \theta_2):2\cos\tfrac{1}{2}(\theta_1 - \theta_2).
+\]
+
+\clearpage
+
+\bigskip
+\textit{p.~436 [530]}
+\smallskip
+
+Whence eliminating $\phi$, we have
+\[
+a^2\cos^2\tfrac{1}{2}(\theta_1 + \theta_2) + b^2\sin^2\tfrac{1}{2}(\theta_1 + \theta_2) - a^2 b^2\cos^2\tfrac{1}{2}(\theta_1 - \theta_2) = 0,
+\]
+that is,
+\[
+a^2(1 + \cos(\theta_1 + \theta_2)) + b^2(1 - \cos(\theta_1 + \theta_2)) - (1 + \cos(\theta_1 - \theta_2)) = 0,
+\]
+or, what is the same thing,
+\[
+a^2 + b^2 - 1 + (a^2 - b^2)\cos(\theta_1 + \theta_2) - \cos(\theta_1 - \theta_2) = 0,
+\]
+But from the equation $a^2 + b^2 = 1$, we have
+\[
+a^2 + b^2 - 1 = - 2a^2 b^2,
+\]
+\[
+a^2 - b^2 - 1 = - 2b^2,
+\]
+\[
+- a^2 + b^2 - 1 = - 2a^2,
+\]
+and the equation is thus
+\[
+\frac{\cos\theta_1\cos\theta_2}{a^2} + \frac{\sin\theta_1\sin\theta_2}{b^2} + 1 = 0,
+\]
+which is the required equation.
+
+Stopping at the result obtained previous to the use of the relation $a^2 + b^2 = 1$,
+but making some obvious substitutions in the formula, the theorem may be presented in
+a more general form as follows; viz.\
+If we have
+\[
+\frac{ax_1}{a^2} + \frac{by_1}{b^2} - 1 = 0,
+\]
+\[
+\frac{ax_2}{a^2} + \frac{by_2}{b^2} - 1 = 0,
+\]
+where
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \quad \text{and}\quad \frac{x'^2}{a^2} + \frac{y'^2}{b^2} = 1,
+\]
+then
+\[
+\left(\frac{a}{a^2} + \frac{c}{b^2} - 1\right)\left(\frac{a'}{a^2} + \frac{c'}{b^2} - 1\right) + \left(\frac{c}{a^2} - \frac{a}{b^2}\right)\left(\frac{c'}{a^2} - \frac{a'}{b^2}\right)\left(1 - \frac{1}{a^2} - \frac{1}{b^2}\right) = 0,
+\]
+a relation, the geometrical signification of which is: If $(x, y)$ be a point on the conic
+$\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, and if the polar thereof in regard to the conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$ meet the
+first-mentioned conic in the points $(x_1, y_1)$ and $(x_2, y_2)$, then these points are harmonics
+in regard to the conic
+\[
+\left(\frac{x^2}{a^2} + \frac{y^2}{b^2} - 1\right)\left(\frac{x^2}{a^2} + \frac{y^2}{b^2} - 1\right) - \left(\frac{x^2}{a^2} - \frac{x^2}{b^2}\right)^2 \left(1 - \frac{1}{a^2} - \frac{1}{b^2}\right) = 0;
+\]
+and since the theorem is projective, it is seen that three two conics may be any
+conics whatever, the third conic being a conic having with the other two a common
+system of conjugate points.
+
+\clearpage
+
+\bigskip
+\textit{p.~437 [530]}
+\smallskip
+
+\noindent
+If to the ideas we write $a = b = c$; then the theorem is, if the polar of a
+point on the circle $a^2 + y^2 = a^2$ in regard to the conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, meet the circle
+in two points, these are harmonics in regard to the conic $\dfrac{x^2}{a^2(a^2 + b^2 - 1)} + \dfrac{y^2}{b^2(a^2 + b^2 - 1)} = 1;$ viz.\
+if $a^2 + b^2 = 1$, the conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, or if $a^2 = a^2$, $b^2 = b^2$, then the conic is the
+same similar to, but in the inverse ratio of the two points $(x_1, y_1)$, $(x_2, y_2)$
+harmonics in regard to the imaginary conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, but this is also an inverse
+form similar to the original conic, which is the theorem in question.
+
+This last result will be similar to the conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$; viz.\ if
+$a^2 + b^2 = a$, then the conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$; if $a^2 = a^2$, $b^2 = b^2$, then $a^2 = a^2$,
+$b^2 = b^2 + b^2$; and the conic is $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$. Considering the given conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$
+to be an ellipse, the first cone (a) is similar to the two points $(x_1, y_1)$, $(x_2, y_2)$
+harmonics in regard to the imaginary conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, viz.\ if $a^2 = a^2$, the conic
+of the right side of the equation is the same conic, but the points $(x_1, y_1)$, $(x_2, y_2)$
+are harmonics in regard to the imaginary conic $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, but this is also an inverse
+form similar to the original conic, which is the theorem in question.
+
+The second case $(a^2 + b^2 = 1)$ gives a real ellipse if $b$ be negative; viz.\ this
+is, if for $b$ we have the hyperbola $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$, if $a^2 + b^2$, an obtuse-angled hyperbola,
+the circle $a^2 + y^2 - b^2$ which is the locus of the intersection of a pair of orthotomic
+tangents of the hyperbola, is consequently imaginary; but the eccentric orthotomic
+circle hence, on the limits of the theorem, must occur to have the opposite of polar
+of the property of a point on the circle in regard to the orthotomic hyperbola; viz.\ $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = a^2$ also
+the theorem: ``Given the hyperbola $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$, $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = a^2$ and the circle $a^2 + y^2 - a^2 + a^2$
+(the concentric orthotomic circle of the imaginary circle which is the locus of the
+intersection of a pair of orthotomic tangents of the hyperbola); if the polar in regard
+to the hyperbola of a point on the circle meet the circle in two points $Q$, $R$, then
+these are harmonics in regard to the hyperbola.''
+
+Of course, if reality be disregarded, the two theorems are mere two of the cases of a conic generally; and observe, that in the first theorem the circle is the locus of the intersection of orthotomic tangents, and we have the opposite of the points $Q$, $R$ in the second theorem the circle is the locus of the orthotomic circle of the cross, which the lines of in the cross of $Q$, $R$ themselves.
+
+\clearpage
+
+\bigskip
+\textit{p.~438 [530]}
+\smallskip
+
+% ============================================================
+% PAPER 531
+% ============================================================
+\section{[531]}
+\subsection{A ``Smith's Prize'' Paper(*); Solutions.}
+
+\begin{center}
+\textit{[From the Oxford, Cambridge and Dublin Messenger of Mathematics, vol.~\textsc{v}. (1869), pp.~40--64.]}
+\end{center}
+
+\textit{1. If $\sqrt{x - a^2 + (y + b)^2}$, $\sqrt{x - a^2 + (y + b)^2}$, $a$, $\beta$ are respectively real and positive, show that in the equation $\sqrt{x - a^2 + (y - b)^2 = \sqrt{x - a^2 + (y - b)^2}}$ is considered as representing a curve, the signs cannot either of them be assumed at pleasure to be $+$ or be $-$; and distinguish the cases of the ellipse and the hyperbola.}
+
+Writing the equation in the form $\sqrt{x} \pm \sqrt{y} = c$, we find
+\begin{align*}
+2(c\sqrt{r} \pm c\sqrt{r}) &= a + b - R,\\
+2(c\sqrt{r} + c\sqrt{r}) &= a + b - R,\\
+4cr &= (c + b)^2 - R^2,\\
+4cr &= (b - c)^2 - R^2,\\
+4cr &= (a + b)^2 - R^2,
+\end{align*}
+either of which equations is the rational equation of the curve (the equation being of the fourth order, inasmuch as $S - R$ is a linear function of the coordinates). But writing the rational equation under the form $a^2 + a^2 + 2\,k\,xy + xy(c - \beta)$, $i\beta(a - x)$, $j$, considered as representing a curve, the curve must either pass for any pair of values of $x$ or $y$ be positive, or in the opposite case be negative; that is, the equations $\sqrt{x} \pm \sqrt{y} = c$, will be in the one case real, in the opposite case imaginary. It is at once seen that, in either case, the original equation $\sqrt{x} \pm \sqrt{y} = c$ also represents the same algebraic value, found in any arbitrary form: but from this it is at once seen, that on a given form of $\sqrt{x} \pm \sqrt{y}$, a determinable value, fixed as soon as the values of $x$ and the form of the curve, a determinable value, fixed as soon as the values of $x$ and the form of the curve, a determinable value, fixed as soon as the values of $x$ and the form of the curve, a determinable value, fixed as soon as the values of $x$ and the form of the curve.
+
+\smallskip
+\hrule
+\smallskip
+\noindent{\footnotesize * Set by me for the Master of Trinity, A.D.\ 1869.}
+
+\clearpage
+
+\bigskip
+\textit{p.~439 [531]}
+\smallskip
+
+\noindent
+point, but $2$, $3$, $4$, $5$, $6$ are fixed points on the conic, then the pencil $1\,(2, 3, 4, 5, 6)$ of lines from the point $1$ to the four points $2$, $3$, $4$, $5$ has the same anharmonic ratio for all
+positions whatever of the variable point $1$; which is the above-mentioned anharmonic
+property of the points of a conic.
+
+% (continuation/closure of 531)
+
+\clearpage
+
+\bigskip
+\textit{p.~440 [531]}
+\smallskip
+
+The ``condition for an ellipse,'' is that the given length $c$ shall be greater than the
+distance $\sqrt{(a + b)^2 + (\beta - b)^2}$; between the two foci; for a hyperbola that it shall be
+less. In the former case, for any real point of the curve, it is obvious that the
+relation must be $\sqrt{x} + \sqrt{y} = c$; the latter case, the latter case, we must look at the actual position of the point.
+
+It must be observed in regard to the ellipse, that, starting from the equation
+$\sqrt{x} + \sqrt{y} = c$, in finding the radical equation $\dfrac{x}{a^2} + \dfrac{y}{b^2} = 1$, $\dfrac{x}{a^2} - \dfrac{y}{b^2} = 1$, we have a perfect
+identical equation which, starting from $\sqrt{x} \pm \sqrt{y} = c$, signifies that we have
+\[
+\sqrt{x} \pm \sqrt{y} = c, \text{ that is, } \sqrt{x} \pm \sqrt{y} = c, \text{ and } \sqrt{x} \pm \sqrt{y} = c,
+\]
+but here, $x$ being less than $c$, and the two signs are therefore each of them $+$, ($c$ being positive), the two values verification applies to the hyperbola.
+
+\textit{2. In a system of curves defined by an equation containing a variable parameter, investigate at any point the normal distance between two consecutive curves; and determine the form of the equation for a system of parallel curves.}
+
+Consider the system of curves $f(x, y, c) = 0$; then if the point $x, y$ belongs to the curve $f(x, y, c) = 0$, and the point $x + dx, y + dy$ to the curve $f(x, y, c + dc) = 0$, we have
+\[
+\frac{df}{dx}\,dx + \frac{df}{dy}\,dy + \frac{df}{dc}\,dc = 0,
+\]
+and if the point $x + dx, y + dy$ be on the normal at $(x, y)$ to the curve $f(x, y, c) = 0$, we have
+\[
+dx : dy = \frac{df}{dx} : \frac{df}{dy},
+\]
+or writing
+\[
+dx = k\,\frac{df}{dx},\quad dy = k\,\frac{df}{dy},
+\]
+we have
+\[
+k\left\{\left(\frac{df}{dx}\right)^2 + \left(\frac{df}{dy}\right)^2\right\} + \frac{df}{dc}\,dc = 0,
+\]
+wherefore
+\[
+k = -\frac{df}{dc}\,dc\div \left\{\left(\frac{df}{dx}\right)^2 + \left(\frac{df}{dy}\right)^2\right\},
+\]
+and the normal distance at $(x, y)$ of the curves $c$ and $c + dc$ is $= \sqrt{(dx^2 + dy^2)}$, viz.\ it is
+\[
+= k\sqrt{\left\{\left(\frac{df}{dx}\right)^2 + \left(\frac{df}{dy}\right)^2\right\}},\quad \text{or finally it is}
+\]
+\[
+= -\frac{df}{dc}\,dc\div \sqrt{\left\{\left(\frac{df}{dx}\right)^2 + \left(\frac{df}{dy}\right)^2\right\}},
+\]
+where, if the distance in question be regarded as positive (that is, if we attend only
+to its absolute value), the sign is to be taken so that $\dfrac{df}{dc}$ shall be positive.
+
+\clearpage
+
+\bigskip
+\textit{p.~441 [531]}
+\smallskip
+
+If the question be given in the form $V - c = 0$ ($V$ a function of $(x, y)$), we have the
+normal distance
+\[
+= \pm dc \div \sqrt{\left\{\left(\frac{dV}{dx}\right)^2 + \left(\frac{dV}{dy}\right)^2\right\}}.
+\]
+
+For parallel curves, the normal distance is everywhere the same, that is, $\left(\dfrac{df}{dx}\right)^2 + \left(\dfrac{df}{dy}\right)^2$
+must have a constant value for all values of $(x, y)$ satisfying the relation $V = c$, viz.\
+we must have identically $\left(\dfrac{df}{dx}\right)^2 + \left(\dfrac{df}{dy}\right)^2 = \phi(V)$, $\phi$ arbitrary; a partial differential equation to be satisfied by $V$ in order that the system $V = c$ may be the equation of a system of parallel curves. Assuming the equation to be satisfied for any particular form of $\phi$,
+say put $\theta$ in place, then if $C$ a function of $V$, such that $\left(\dfrac{dC}{dV}\right)^2 \phi(V) = 1$, and
+the equation $f(V) = $ Const. is the same thing as $V = $ Const., it follows that the
+equation of the system of parallel curves may be taken to be $V = c$, where
+\[
+\left(\frac{dV}{dx}\right)^2 + \left(\frac{dV}{dy}\right)^2 = 1.
+\]
+
+\textit{3. Two cannons (each free to recoil) differ only in weight and in the weight of
+the ball; and it is assumed that at any instant during the explosion the explosive force
+depends only on the space occupied by the vapour of the gunpowder: compare the
+emerging velocities of the balls; and also the emerging velocities of balls fired from the
+same cannon when it is free to recoil, and when it is absolutely fixed.}
+
+Consider a single cannon.
+
+Take $M$ for its mass, $m$ for that of the ball, $S$, $s$ for the spaces described, backwards by the cannon and forwards by the ball, at the time $t$ during the explosion. Then
+by hypothesis the explosive force, forwards on the ball and backwards on
+the cannon, is a function of $s+S$, $=\phi(s+S)$ suppose, or we have
+\[
+m\frac{d^2s}{dt^2}=\phi(s+S),
+\]
+\[
+M\frac{d^2S}{dt^2}=\phi(s+S),
+\]
+and thence
+\[
+\frac{d^2(s+S)}{dt^2}=\left(\frac{1}{m}+\frac{1}{M}\right)\phi(s+S).
+\]
+
+Multiplying each side by $2\dfrac{d(s+S)}{dt}$, integrating from $s+S=0$, to $s+S=a$, where $a$
+is the length of the tube, and observing that the initial velocities are each $= 0$, we find
+\[
+\left\{\frac{d(s+S)}{dt}\right\}^2
+=2\left(\frac{1}{m}+\frac{1}{M}\right)\int_0^a\phi(u)\,du,
+\]
+\bigskip
+\hfill{\small C.\ VIII.\quad 56}
+
+\end{document}

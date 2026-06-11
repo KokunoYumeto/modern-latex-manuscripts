@@ -1,0 +1,288 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.45em}
+\allowdisplaybreaks
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Sw}{\operatorname{Sw}}
+\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ql}{\mathbb{Q}_{\lambda}}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+
+\begin{center}
+{\large Lettre à André Weil}\\
+Bures-sur-Yvette, le 1\textsuperscript{er} juillet 1969
+\end{center}
+
+Cher monsieur Weil,
+
+Voici la détermination, dans le cas d'un corps de fonctions, de la façon dont varie la constante de l'équation fonctionnelle dont nous avions parlé. Je joins une copie d'une lettre de Langlands, et de quelques calculs qui s'y rapportent. Je n'en utiliserai que l'assertion (L.L.) ci-dessous.
+
+\section*{1. Représentations \(\lambda\)-adiques, d'après Serre et Grothendieck}
+
+Soient \(K\) un corps de fonctions d'une variable à corps des constantes \(\Fq\), \(X\) l'ensemble de ses places, \(E\) un corps de nombres, \(\lambda\) une place de \(E\) ne divisant pas \(q\), et \(E_\lambda\) le corps local correspondant, d'anneau des entiers \(\cO_\lambda\) et de corps résiduel \(k_\lambda=\cO_\lambda/\lambda\).
+
+Une représentation \(\lambda\)-adique de \(K\) est une représentation continue de \(\Gal(\overline K/K)\) dans un vectoriel de dimension finie sur \(E_\lambda\), telle qu'il existe une partie finie \(S\) de \(X\) en dehors de laquelle \(\sigma\) soit non ramifiée.
+
+Si \(v\in X\), on désigne par \(\varphi_v\) une substitution de Frobenius correspondante, par \(F_v=\varphi_v^{-1}\) un Frobenius géométrique, par \(I_v\) le groupe d'inertie du groupe de Galois local en \(v\), et par \(\sigma_v\) la représentation locale définie par \(\sigma\). On pose
+\[
+Z_v(\sigma,T)=\det(1-F_vT,\sigma_v^{I_v})^{-1}
+\]
+(action de Frobenius sur les invariants de l'inertie), et
+\[
+Z(\sigma,T)=\prod_v Z_v(\sigma,T)\in E_\lambda[[T]].
+\]
+
+\emph{Exemple.} Une représentation \(\lambda\)-adique de rang \(1\) de \(K\) n'est autre qu'un homomorphisme du groupe des classes d'idèles de \(K\) dans \(\cO_\lambda^\ast\), continu pour la topologie discrète de \(\cO_\lambda^\ast\). On désigne par \(\ell(n)\) la représentation correspondant à \(x\mapsto |x|^{-n}\), \(n\in\Z\), et on pose
+\[
+\sigma(n)=\sigma\otimes\ell(n).
+\]
+
+Un théorème de Grothendieck affirme que si \(\sigma\) est une représentation \(\lambda\)-adique de \(K\), alors
+\begin{enumerate}[label=\alph*)]
+\item \(Z(\sigma,T)\) est une fraction rationnelle dans \(E_\lambda(T)\);
+\item elle vérifie une équation fonctionnelle
+\[
+Z(\sigma^\vee(1),T)=\eps(\sigma,T)Z(\sigma,T),
+\]
+où \(\eps(\sigma,T)\) est un monôme. Je poserai
+\[
+\eps(\sigma,T)=q^{(1-g)\dim\sigma}\,\eps_0(\sigma,T),\qquad
+\eps_0(\sigma)=\eps_0(\sigma,1);
+\]
+cette quantité est une unité \(\lambda\)-adique;
+\item si \(\sigma\) désigne encore le faisceau \(\lambda\)-adique défini par \(\sigma\), alors
+\[
+\eps(\sigma,T)=\det(-FT,H^\ast(\sigma))
+=\prod_i\det(-FT,H^i(\sigma))^{(-1)^i}.
+\]
+\end{enumerate}
+
+Si \(S\) est une partie finie de \(X\), on pose
+\[
+Z_S(\sigma,T)=\prod_{v\notin S} Z_v(\sigma,T)
+\]
+et
+\[
+\begin{aligned}
+\eps_S(\sigma,T)
+&=\eps(\sigma,T)\prod_{v\in S}
+\det(-F_vT,\sigma_v^{I_v})^{-1}  \\
+&=\hbox{le monôme asymptotique de }Z_S(\sigma,T)\hbox{ pour }T\to\infty \\
+&=\det(-FT,H^\ast(\sigma_S)),
+\end{aligned}
+\]
+où \(\sigma_S\) est le faisceau \(\lambda\)-adique \(\sigma\), restreint à \(X-S\) et prolongé par \(0\) aux \(v\in S\). On pose aussi
+\[
+\eps_{0,S}(\sigma,T)=q^{(g-1)\dim\sigma}\,\eps_S(\sigma,T).
+\]
+
+On définit les conducteurs par
+\[
+m_v(\sigma_S)=
+\begin{cases}
+\dim(\sigma)-\dim(\sigma_v^{I_v})
++\dim\Hom_{I_v}(\Sw_v,\sigma_v), & v\notin S,\\[4pt]
+\dim(\sigma)+\dim\Hom_{I_v}(\Sw_v,\sigma_v), & v\in S,
+\end{cases}
+\]
+où, par exemple,
+\[
+\dim\Hom_{I_v}(\Sw_v,\sigma_v)
+=
+\dim\Hom_{I_v}(\Sw_v,\sigma_v \bmod \lambda).
+\]
+Ici \(\Sw_v\) est la représentation de Swan d'un quotient assez grand de \(I_v\). On omet la mention de \(S\) lorsque \(S=\varnothing\).
+
+Soient maintenant \(L\) un ensemble non vide de places premières de \(E\), et \(S\) une partie finie de \(X\). Un système compatible de représentations \(\lambda\)-adiques \((\lambda\in L)\), d'ensemble exceptionnel \(S\), est la donnée, pour chaque \(\lambda\in L\), d'une représentation \(\lambda\)-adique \(\sigma_\lambda\) de \(K\), les conditions suivantes étant vérifiées:
+\begin{enumerate}[label=(\roman*)]
+\item chaque \(\sigma_\lambda\) est non ramifiée en dehors de \(S\);
+\item pour \(v\notin S\), \(Z_v(\sigma_\lambda,T)\) se trouve dans \(E(T)\) et est indépendant de \(\lambda\in L\).
+\end{enumerate}
+On pose alors
+\[
+Z_v(\sigma,T)=Z_v(\sigma_\lambda,T)\quad(v\notin S),\qquad
+Z_S(\sigma,T)=\prod_{v\notin S}Z_v(\sigma,T),
+\]
+et
+\[
+\eps_S(\sigma,T)=\eps_S(\sigma_\lambda,T).
+\]
+Ces quantités ne dépendent pas de \(\lambda\); en effet, \(\eps_S\) peut se définir en termes de \(Z_S\).
+
+\section*{2. (L.L.)}
+
+On admettra l'énoncé suivant. Soient \(\sigma\) et \(\rho\) deux représentations complexes d'un quotient fini de \(\Gal(\overline K/K)\). Supposons leurs conducteurs disjoints. Avec les notations précédentes, on a alors
+\[
+\tag{L.L.}
+\begin{aligned}
+\eps_0(\sigma\otimes\rho,T)
+&=\eps_0(\sigma,T)^{\dim\rho}\,
+  \eps_0(\rho,T)^{\dim\sigma}  \\
+&\quad\times
+\prod_{v\in X}\det\sigma(F_v)^{-m_v(\rho)}
+\prod_{v\in X}\det\rho(F_v)^{-m_v(\sigma)} .
+\end{aligned}
+\]
+
+\section*{3. Variation des constantes}
+
+\emph{Théorème.} Supposons \(L\) infini, et soient \(\sigma\) et \(\rho\) deux systèmes compatibles de représentations \(\lambda\)-adiques \((\lambda\in L)\), d'ensembles exceptionnels disjoints. Alors, pour tout \(\lambda\in L\),
+\[
+\tag{*}
+\begin{aligned}
+\eps_0(\sigma_\lambda\otimes\rho_\lambda,T)
+&=\eps_0(\sigma_\lambda,T)^{\dim\rho}
+  \eps_0(\rho_\lambda,T)^{\dim\sigma} \\
+&\quad\times
+\prod_{v\in X}\det\sigma_\lambda(F_v)^{-m_v(\rho_\lambda)}
+\prod_{v\in X}\det\rho_\lambda(F_v)^{-m_v(\sigma_\lambda)},
+\end{aligned}
+\]
+c'est-à-dire que la formule (L.L.) reste valable.
+
+Soient \(S\) et \(T\) les ensembles exceptionnels disjoints pour \(\sigma\) et \(\rho\).
+
+\emph{Lemme 1.} Pour \(\lambda\) donné, la formule \((*)\) équivaut à
+\[
+\tag{\(*_{S,T}\)}
+\begin{aligned}
+\eps_{0,S\cup T}(\sigma_\lambda\otimes\rho_\lambda,T)
+&=\eps_{0,S}(\sigma_\lambda,T)^{\dim\rho}
+  \eps_{0,T}(\rho_\lambda,T)^{\dim\sigma} \\
+&\quad\times
+\prod_{v\in T}\det\sigma_\lambda(F_v)^{-m_v(\rho_\lambda)}
+\prod_{v\in S}\det\rho_\lambda(F_v)^{-m_v(\sigma_\lambda)} .
+\end{aligned}
+\]
+Si \(A\) (resp. \(B\)) est le rapport des deux membres de \((*)\) (resp. de \((*)_{S,T}\)), le quotient \(A/B\) apparaît comme un produit de termes locaux, dont on va montrer qu'ils sont tous \(1\). Si \(v\in S\), il faut vérifier
+\[
+\det(-F_vT,\sigma_v^{I_v}\otimes\rho_v)
+=
+\det(-F_vT,\sigma_v^{I_v})^{\dim\rho}
+\det\rho(F_v)^{\dim\sigma_v^{I_v}},
+\]
+ce qui est évident.
+
+Si \(\sigma\) est une représentation de \(\Gal(\overline K/K)\) dans un vectoriel de dimension finie sur \(k_\lambda\), on définit \(Z(\sigma,T)\) et \(Z_S(\sigma,T)\) dans \(k_\lambda[[T]]\) par les mêmes formules que précédemment. Il est trivial par réduction modulo \(\lambda\) que, si \(\sigma\) est une représentation de \(\Gal(\overline K/K)\) dans un \(\cO_\lambda\)-module libre de type fini, de conducteur contenu dans \(S\), et si \(\sigma/\lambda\) est la \(k_\lambda\)-représentation qui s'en déduit par réduction modulo \(\lambda\), alors:
+
+\emph{Lemme 2.}
+\begin{enumerate}[label=(\roman*)]
+\item \(Z_S(\sigma/\lambda,T)\) est une fonction rationnelle; on désigne par
+\[
+q^{(g-1)\dim\sigma}\eps_{0,S}(\sigma/\lambda,T)
+\]
+le monôme asymptotique de \(Z(\sigma/\lambda,T)\) pour \(T\to\infty\).
+\item Si \(\sigma\) et \(\rho\) sont comme plus haut, à conducteurs contenus dans des parties finies disjointes \(S\) et \(T\) de \(X\), les deux conditions suivantes sont équivalentes:
+\[
+\tag{a}
+\begin{aligned}
+\eps_{0,S,T}(\sigma\otimes\rho,T)
+&=\eps_{0,S}(\sigma,T)^{\dim\rho}
+  \eps_{0,T}(\rho,T)^{\dim\sigma}  \\
+&\quad\times
+\prod \det\sigma(F_v)^{-m_v(\rho)}
+\prod \det\rho(F_v)^{-m_v(\sigma)}
+\quad(\bmod\ \lambda),
+\end{aligned}
+\]
+et
+\[
+\tag{b}
+\begin{aligned}
+\eps_{0,S,T}((\sigma/\lambda)\otimes(\rho/\lambda),T)
+&=\eps_{0,S}(\sigma/\lambda,T)^{\dim\rho}
+  \eps_{0,T}(\rho/\lambda,T)^{\dim\sigma}  \\
+&\quad\times
+\prod \det(\sigma/\lambda)(F_v)^{-m_v(\rho)}
+\prod \det(\rho/\lambda)(F_v)^{-m_v(\sigma)}
+\quad\text{dans }k_\lambda .
+\end{aligned}
+\]
+\end{enumerate}
+
+On va déduire de (L.L.) que:
+
+\emph{Corollaire 3.}
+\begin{enumerate}[label=(\roman*)]
+\item Si \(\sigma\) est une représentation de \(\Gal(\overline K/K)\) dans un \(k_\lambda\)-vectoriel de dimension finie, les fonctions \(Z_S(\sigma,T)\in k_\lambda[[T]]\) sont rationnelles.
+\item Si \(\sigma\) et \(\rho\) sont deux telles représentations, à conducteurs contenus dans des ensembles finis disjoints \(S\) et \(T\), la formule (a) est toujours valable.
+\end{enumerate}
+
+Pour prouver (i), on note que, quitte à agrandir \(E\) et \(k_\lambda\), on sait, par Brauer, que \(\sigma\) se relève virtuellement en une représentation de \(G\) dans un vectoriel de dimension finie sur \(E\); on applique alors 2.(i) à cette représentation. L'assertion (ii) se prouve de même, à partir de (L.L.) et du lemme 1. Il en résulte que l'assertion 2.(ii)(a) est toujours vraie, donc que \((*)_{S,T}\) est vraie modulo \(\lambda\).
+
+La même technique de réduction au cas des séries \(L\) usuelles, ou une autre méthode, permet de vérifier que
+\[
+\deg_T\bigl(\eps_{0,S}(\sigma_\lambda,T)\bigr)
+=
+\dim(\sigma)(2-2g)-\sum_v m_v(\overline{\sigma}_\lambda,S)
+\]
+(formule d'Ogg--Shafarevich--Grothendieck). Le premier membre de cette formule est indépendant de \(\lambda\in L\), de sorte que
+\[
+\sum_v m_v(\overline{\sigma}_\lambda,S)
+\]
+est indépendant de \(\lambda\in L\). Il existe donc une partie infinie \(L_1\) de \(L\) telle que les entiers \(m_v(\overline{\sigma}_\lambda,S)\) et \(m_v(\overline{\rho}_\lambda,T)\) soient indépendants de \(\lambda\in L_1\). Les deux membres de la formule \((*)_{S,T}\) sont alors indépendants de \(\lambda\in L_1\); puisqu'ils sont égaux modulo \(\lambda\) pour une infinité de \(\lambda\), ils sont égaux pour \(\lambda\in L_1\). Pour achever la démonstration, il suffit de vérifier:
+
+\emph{Lemme 4.} Supposons \(L\) infini, et soit \(\sigma\) un système compatible de représentations \(\lambda\)-adiques, d'ensemble exceptionnel \(S\). Alors les entiers
+\[
+m_v(\overline{\sigma}_\lambda,S)
+\]
+sont indépendants de \(\lambda\in L_1\).
+
+On appliquera les résultats qui précèdent à \(\sigma\) et à un caractère \(\chi\) d'ordre fini du groupe des classes d'idèles de \(K\), à valeurs dans une extension finie de \(E\), et de conducteur \(T\) disjoint de \(S\). On sait déjà quels sont les entiers \(m_v\), à savoir les \(m_v(\overline{\sigma}_\lambda,S)\) pour \(\lambda\in L_1\), tels que
+\[
+\begin{aligned}
+\eps_{0,S\cup T}(\sigma\otimes\chi,T)
+&=\eps_{0,S}(\sigma,T)\,
+  \eps_{0,T}(\chi,T)^{\dim\sigma} \\
+&\quad\times
+\prod_{v\in T}\det\sigma(F_v)^{-m_v(\chi)}
+\prod_{v\in S}\chi(F_v)^{-m_v}.
+\end{aligned}
+\]
+D'autre part,
+\[
+\begin{aligned}
+\eps_{0,S\cup T}(\sigma\otimes\chi,T)
+&=\eps_{0,S}(\sigma,T)\,
+  \eps_{0,T}(\chi,T)^{\dim\sigma} \\
+&\quad\times
+\prod_{v\in T}\det\sigma(F_v)^{-m_v(\chi)}
+\prod_{v\in S}\chi(F_v)^{-m_v(\overline{\sigma}_\lambda,S)}
+\quad(\bmod\ \lambda).
+\end{aligned}
+\]
+Donc
+\[
+\prod_{v\in S}\chi(F_v)^{m_v(\overline{\sigma}_\lambda,S)-m_v}
+=1\quad(\bmod\ \lambda).
+\]
+Ceci étant vrai pour tout \(\chi\), on en déduit que
+\[
+m_v(\overline{\sigma}_\lambda,S)=m_v,
+\]
+comme achève la démonstration.
+
+Bien à vous,
+
+\hfill P. Deligne
+
+\end{document}

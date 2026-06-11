@@ -1,0 +1,64 @@
+\chapter{FHSS, SDR і multi-agent resilience: математична доріжка}
+\sourcebox{Research radar: frequency hopping, SDR, channel access, DQN/MARL, multi-agent communications under jamming.}
+
+Ця доріжка потрібна як теорія зв'язку, статистичне оцінювання, POMDP/RL і симуляційні моделі. Корисні саме математичні об'єкти: стани, спостереження, політики, функції винагороди, втрати пакетів, BER/SNR, обмеження енергії, latency і перевірка збіжності.
+
+\section*{FHSS як стохастичний процес}
+
+Нехай доступні канали $\mathcal{C}=\{1,\ldots,N\}$. Передавач вибирає канал
+\[
+  c_t \sim \pi(c_t\mid h_t),
+\]
+де $h_t$ --- історія спостережень: ACK/NACK, оцінка SNR, спектральні ознаки, packet loss, latency. Реактивний завадник моделюється не як фіксований шум, а як адаптивний процес:
+\[
+  j_t \sim \mu(j_t\mid h_t^{(J)}),
+\]
+де $h_t^{(J)}$ може містити попередні канали. Навіть якщо справжній механізм невідомий, навчальний модуль може працювати з belief state:
+\[
+  b_t(s)=P(s_t=s\mid o_{1:t},a_{1:t-1}).
+\]
+
+\section*{Channel access як MDP/POMDP}
+
+У математичній формі задача:
+\[
+  \max_\pi \; \mathbb{E}_\pi\sum_{t=0}^{T}\gamma^t r(s_t,a_t),
+\]
+де дія $a_t$ може містити канал, потужність у симуляції, кодову швидкість або retransmission decision, а reward штрафує втрату пакетів, latency, energy і collision. Для DQN:
+\[
+  Q_{\theta}(s_t,a_t) \leftarrow r_t+\gamma \max_{a'}Q_{\theta^-}(s_{t+1},a').
+\]
+Для POMDP краще явно показувати, які змінні спостерігаються, а які є латентними. Це корисніше для перекладу, ніж ``рецепт'', бо показує, яку математику треба розуміти.
+
+\section*{MARL для swarm networks}
+
+У multi-agent випадку $M$ передавачів мають локальні спостереження $o_t^i$ і дії $a_t^i$. Centralized training / decentralized execution часто записується як
+\[
+  Q_{\mathrm{tot}}(\tau, a_1,\ldots,a_M)
+  = f\bigl(Q_1(\tau_1,a_1),\ldots,Q_M(\tau_M,a_M),s\bigr),
+\]
+де $f$ обмежують монотонністю, щоб кожен агент міг виконувати локальний argmax. Це математичний міст до QMIX-подібних моделей.
+
+\section*{Що перекладати як P0/P1}
+
+\begin{longtable}{L{0.24\linewidth}L{0.28\linewidth}L{0.38\linewidth}}
+\toprule
+Тема & Чому корисно & Обмеження публічного релізу \\
+\midrule
+Agent-based anti-jamming survey & Дає taxonomy: perception--decision--action, game theory, RL. & Перекладати як survey/математичну таксономію. \\
+DQN/FHSS channel selection & Дає просту формулу MDP/DQN і тестову симуляцію. & Без конкретних частот, ключів, firmware або процедур. \\
+Fast adaptive channel access & Пояснює проблему ``learning faster than jammer''. & Тільки model-level і benchmark-level. \\
+MARL swarm resilience & Дає multi-agent formulation і QMIX-like vocabulary. & Без tactics, formation recipes, adversary-specific configuration. \\
+Multichannel aided cancellation & Корисно для SDR/RF математики: preamble, synchronization, cancellation. & Перекладати з фокусом на моделі сигналів і перевірку формул. \\
+\bottomrule
+\end{longtable}
+
+\section*{Зв'язок з уже наявним корпусом}
+
+Ця доріжка не замінює PySDR. Вона стоїть поверх PySDR, SDR survey, modulation/coding, RF/antenna і Kalman/statistics. Перед перекладом RL anti-jamming papers треба мати українською:
+\begin{enumerate}[leftmargin=2em]
+\item sampling, FFT, IQ, filters, SNR, modulation;
+\item probability, Markov chains, MDP/POMDP, Q-learning;
+\item coding/FEC basics;
+\item RF front-end, synchronization, channel estimation.
+\end{enumerate}

@@ -1,0 +1,554 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\hfuzz=20pt
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+\begin{center}
+{\Large SGA 6 -- Exposé IX: Some computations of $K_\bullet$-groups}\\[0.4em]
+{\large Original source scan pages 505--525}\end{center}
+
+\section*{Exposé IX. Some computations of $K_\bullet$-groups}
+\begin{center}
+by P. Berthelot
+\end{center}
+
+This exposé corresponds to no oral exposé and will not be used in the sequel of the seminar. It contains a certain number of computations of the groups $K_\bullet$ for various fibrations: vector bundles, projective bundles, torsors under a linear group, and so on. Throughout the exposé, the base scheme will be assumed noetherian, and the notation $K_\bullet(X)$ will denote the Grothendieck group of coherent sheaves on a scheme $X$. Recall that, if $X$ is noetherian, the homomorphism from the $K$ of the category of coherent $\mathcal O_X$-modules to the $K$ of the category of pseudo-coherent complexes on $X$ is an isomorphism (IV 2.4).
+
+The results set out here are the analogues of those one obtains for the Chow ring, and which are to be found in Grothendieck's exposés in the Chevalley seminar of 1958. The question also arises of determining to what extent statements of the same type can be obtained for the graded group associated with $K_\bullet$ for the filtration defined by the dimension of the support (cf. X). It does not seem that the answer is known, even for Proposition 1.1, the homotopy exact sequence, which is one of the properties most used in the computations which follow.
+
+\subsection*{1. Vector bundles}
+
+\textbf{Proposition 1.1 (homotopy exact sequence).} Let $X$ be a noetherian scheme, let $X'$ be a closed subscheme of $X$, let $U$ be the open complement of $X'$ in $X$, let $i$ be the immersion of $X'$ in $X$, and let $j$ be the immersion of $U$ in $X$. Then the sequence
+\[
+ K_\bullet(X')\xrightarrow{i_*}K_\bullet(X)\xrightarrow{j^*}K_\bullet(U)\longrightarrow 0
+\]
+is exact.
+
+If $F'$ is a coherent $\mathcal O_{X'}$-module, $i_*(F')$ is an $\mathcal O_X$-module whose support is contained in $X'$; consequently its restriction to $U$ is zero, and $j^*i_*(\cl(F'))=0$. Since the elements of the form $\cl(F')$ generate $K_\bullet(X')$, $j^*i_*=0$. We therefore obtain a homomorphism
+\[
+ \rho:K_\bullet(X)/\operatorname{Im}K_\bullet(X')\longrightarrow K_\bullet(U).
+\]
+We shall define an inverse homomorphism to $\rho$. Let $G$ be a coherent $\mathcal O_U$-module. Since $X$ is noetherian, there exists a coherent $\mathcal O_X$-module $F$ whose restriction to $U$ is isomorphic to $G$. If $F'$ is a second coherent $\mathcal O_X$-module whose restriction to $U$ is isomorphic to $G$, then in $K_\bullet(X)$ one has
+\[
+ \cl(F)-\cl(F')\in \operatorname{Im}K_\bullet(X').
+\]
+To see this, consider $G$ as a subsheaf of $j^*(F\oplus F')$ by means of the diagonal map. Then $G$ extends to a subsheaf $F''$ of $F\oplus F'$, and one is reduced to proving that
+\[
+ \cl(F)-\cl(F'')\in \operatorname{Im}K_\bullet(X')
+\]
+and likewise for $F'$. Let $H$ and $K$ be the kernel and cokernel of the composite homomorphism
+\[
+ F''\longrightarrow F\oplus F'\longrightarrow F.
+\]
+This homomorphism restricts on $U$ to the identity of $G$, and hence $H$ and $K$ have support contained in $X'$. If $I$ is the ideal of $X'$ in $X$, it follows that there exist integers $m$ and $n$ such that $I^mH=0$ and $I^nK=0$ (EGA I 5.3.4). Thus one may dévissser $H$ and $K$ into extensions of modules annihilated by $I$, hence of $\mathcal O_{X'}$-modules, and
+\[
+ \cl(H)\in\operatorname{Im}K_\bullet(X'),\qquad \cl(K)\in\operatorname{Im}K_\bullet(X'),
+\]
+which proves the assertion. Thus, to every coherent $\mathcal O_U$-module, assigning the class of one of its extensions to $X$ defines a function on the category of coherent $\mathcal O_U$-modules with values in $K_\bullet(X)/\operatorname{Im}K_\bullet(X')$.
+
+This function is additive. Indeed, let
+\[
+0\longrightarrow G'\longrightarrow G\longrightarrow G''\longrightarrow 0
+\]
+be an exact sequence of coherent $\mathcal O_U$-modules. Let $F$ be an extension of $G$ to $X$. There exists a submodule $F'$ of $F$ extending $G'$, and $F/F'$ extends $G''$. Hence the function factors through $K_\bullet(U)$, defining the desired homomorphism $K_\bullet(U)\to K_\bullet(X)/\operatorname{Im}K_\bullet(X')$. One verifies at once that it is inverse to $\rho$.
+
+\textbf{Proposition 1.2.} Let $X$ and $S$ be noetherian schemes, and let $f:X\to S$ be a flat morphism. Let $(\xi_i)_{i\in I}$ be a family of elements of $K^\circ(X)$, and consider the homomorphism
+\[
+ \varphi:K_\bullet(S)^{(I)}\longrightarrow K_\bullet(X)
+\]
+defined by
+\[
+ \varphi((x_i)_{i\in I})=\sum_{i\in I}\xi_i\,f^*(x_i),
+\]
+where $f^*$ is the inverse-image homomorphism from $K_\bullet(S)$ to $K_\bullet(X)$ defined in IV 2.12, and where $K_\bullet(X)$ is considered as a $K^\circ(X)$-module by IV 2.10. Suppose that, for every point $s\in S$, the images of the $\xi_i$ in $K_\bullet(X_s)$ by the homomorphism
+\[
+ K^\circ(X)\longrightarrow K^\circ(X_s)=K_\bullet(X_s)
+\]
+generate $K_\bullet(X_s)$ as an abelian group. Then $\varphi$ is surjective.
+
+Let $S'$ be a closed subscheme of $S$, and let $U$ be the open complement of $S'$ in $S$. Write $X_U$ for the restriction of $X$ over $U$, and $X_{S'}$ for the restriction of $X$ over $S'$. We again denote by $\xi_i$ the images of the $\xi_i$ in $K^\circ(X_{S'})$ and $K^\circ(X_U)$, and write
+\[
+ \varphi_{S'}:K_\bullet(S')^{(I)}\to K_\bullet(X_{S'}),\qquad
+ \varphi_U:K_\bullet(U)^{(I)}\to K_\bullet(X_U)
+\]
+for the homomorphisms defined in the same way as $\varphi$.
+
+Consider the diagram
+\[
+\begin{tikzcd}[column sep=large]
+K_\bullet(S')^{(I)} \arrow[r,"i_*"] \arrow[d,"\varphi_{S'}"'] &
+K_\bullet(S)^{(I)} \arrow[r,"j^*"] \arrow[d,"\varphi"] &
+K_\bullet(U)^{(I)} \arrow[r] \arrow[d,"\varphi_U"] & 0\\
+K_\bullet(X_{S'}) \arrow[r,"u_*"] & K_\bullet(X) \arrow[r,"v^*"] & K_\bullet(X_U) \arrow[r] & 0,
+\end{tikzcd}\tag{1.2.1}
+\]
+where $i$ and $j$ denote the immersions of $S'$ and $U$ into $S$, and $u$ and $v$ the immersions of $X_{S'}$ and $X_U$ into $X$. We show that, if $\varphi_{S'}$ and $\varphi_U$ are surjective, then so is $\varphi$.
+
+The two horizontal rows are exact by 1.1. To prove that $\varphi$ is surjective, it is therefore enough to prove that the two squares commute. For $x_i\in K_\bullet(S')$, one has
+\[
+ \varphi(i_*(x_i))=\sum_i \xi_i f^*i_*(x_i),
+\]
+whereas
+\[
+ u_*\varphi_{S'}((x_i))=u_*\left(\sum_i\xi_i u^*f^*(x_i)\right)=\sum_i \xi_i u_*(u^*f^*(x_i)),
+\]
+the last equality following from the projection formula IV 2.11.1.2. The equality $\varphi i_*=u_*\varphi_{S'}$ therefore follows from $f^*i_*=u_*u^*f^*$, which is true by IV 3.1.1 since $i$ is proper and $f$ is flat. Similarly, for $(x_i)\in K_\bullet(S)^{(I)}$,
+\[
+ \varphi_U(j^*(x_i))=\sum_i\xi_i f_U^*j^*(x_i),
+\]
+and
+\[
+ v^*\varphi((x_i))=v^*\left(\sum_i\xi_i f^*(x_i)\right)=\sum_i\xi_i v^*f^*(x_i)=\sum_i\xi_i f_U^*j^*(x_i),
+\]
+the middle equality being IV 2.12.2.
+
+This result permits one to prove 1.2 by noetherian induction on the set of closed subschemes of $S$. If one assumes that, for every closed subscheme $S'$ of $S$ distinct from $S$, $\varphi_{S'}$ is surjective, the preceding argument shows that one may reduce to proving 1.2 for an irreducible affine base scheme, after possibly replacing $S$ by an irreducible affine open. Moreover, the diagram
+\[
+\begin{tikzcd}
+K_\bullet(S_{\mathrm{red}})^{(I)} \arrow[r] \arrow[d,"\varphi_{S_{\mathrm{red}}}"'] & K_\bullet(S)^{(I)} \arrow[d,"\varphi"]\\
+K_\bullet(X_{S_{\mathrm{red}}}) \arrow[r] & K_\bullet(X)
+\end{tikzcd}
+\]
+where $K_\bullet(X_{S_{\mathrm{red}}})\to K_\bullet(X)$ is surjective by 1.1, shows that one may also assume $S$ reduced.
+
+We are thus on an integral affine base scheme. Put $S=\Spec(A)$, and let $K$ denote the fraction field of $A$. If $s$ is the generic point of $S$, then $\mathcal O_{S,s}=K$. Let $y\in K_\bullet(X)$. By hypothesis, $K_\bullet(X_s)$ is generated by the images of the $\xi_i$; if $y_s$ is the image of $y$ in $K_\bullet(X_s)$, then one can find integers $n_i$ such that
+\[
+ y_s=\sum_i \xi_i n_i.
+\]
+On the other hand $K=\varinjlim_f A_f$, where $f$ runs through the elements of $A$. Hence $\Spec(K)=\varprojlim_f \Spec(A_f)$ and
+\[
+ X_s=X\times_S\Spec(K)=\varprojlim_f X\times_S\Spec(A_f)
+\]
+by EGA IV 8.2.3 and 8.2.5. Since the schemes considered are noetherian and the transition morphisms affine and flat, one has, by IV 3.2.3,
+\[
+ K_\bullet(X_s)=\varinjlim_f K_\bullet(X\times_S\Spec(A_f)).
+\]
+As inverse-image homomorphisms on the $K_\bullet$ are linear with respect to $K^\circ$ (IV 2.12.2), there exists a non-empty open $U=\Spec(A_f)$ of $S$ such that in $K_\bullet(X_U)$ one has
+\[
+ y_U=\sum_i \xi_i n_i.
+\]
+Let $S'$ be a closed subscheme of $S$ with support $S-U$. Then $\varphi_{S'}$ is surjective by the induction hypothesis, and consequently diagram (1.2.1) shows that
+\[
+ y-
+\sum_i\xi_i n_i\in \operatorname{Im}(\varphi).
+\]
+Since $n_i=f^*(n_i)$, $\varphi$ is surjective.
+
+\textbf{Corollary 1.3.} Let $f:X\to S$ be a flat morphism of noetherian schemes. Suppose that, for every point $s$ of $S$, the homomorphism
+\[
+ K^\circ(X)\longrightarrow K_\bullet(X_s)
+\]
+is surjective. Then the homomorphism deduced from $f^*$,
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\longrightarrow K_\bullet(X),
+\]
+is surjective.
+
+Take for the family $(\xi_i)$ the family of all elements of $K^\circ(X)$. The hypotheses of 1.2 are then satisfied, and hence
+\[
+ \varphi:K_\bullet(S)^{(K^\circ(X))}\longrightarrow K_\bullet(X)
+\]
+is surjective. By definition of $\varphi$, this is equivalent to the surjectivity of the displayed tensor-product homomorphism.
+
+\textbf{Corollary 1.4.} Let $f:X\to S$ be a flat morphism of noetherian schemes. Suppose that, for every point $s$ of $S$, the canonical homomorphism $\mathbb Z\to K_\bullet(X_s)$ is an isomorphism. Then
+\[
+ f^*:K_\bullet(S)\longrightarrow K_\bullet(X)
+\]
+is surjective. If, moreover, $f$ has a section $g$ of finite Tor-dimension, then $f^*$ is an isomorphism.
+
+Take for the family $(\xi_i)$ the family reduced to the single element $1\in K^\circ(X)$. Then $\varphi=f^*$, and the conditions of 1.2 being fulfilled, $f^*$ is surjective. If $f$ admits a section $g$ of finite Tor-dimension, one may define a homomorphism
+\[
+ g^*:K_\bullet(X)\longrightarrow K_\bullet(S)
+\]
+(IV 2.12). Since $g^*f^*=(fg)^*=\operatorname{Id}$ by IV 2.12.1.1, $f^*$ is injective, hence an isomorphism.
+
+\textbf{Remark 1.5.} For $g$ to be of finite Tor-dimension, it is necessary and sufficient that the fibres of $X$ be regular at the points of $g(S)$, i.e. that $f$ be regular at the points of $g(S)$, or smooth at these points if one assumes $f$ of finite presentation.
+
+These properties being local on $X$ and $S$, one may suppose them affine: $S=\Spec(A)$, $X=\Spec(B)$. Then
+\[
+ \operatorname{tor.dim}_B(A)=\operatorname{dim.proj}_B(A)=\sup_{s\in S}\operatorname{dim.proj}_{B\otimes_A k(s)}(k(s)),
+\]
+by EGA IV 12.3.2, where the finite-presentation hypothesis on $B$ may be replaced by noetherian hypotheses. But $k(s)$ is isomorphic to the residue field of $\mathcal O_{X_s,g(s)}$, and by EGA $0_{\mathrm{IV}}$ 17.2.5 one has
+\[
+ \operatorname{dim.proj}_{B\otimes_A k(s)}(k(s))=
+ \operatorname{dim.proj}_{\mathcal O_{X_s,g(s)}}(k(s)).
+\]
+It follows from EGA $0_{\mathrm{IV}}$ 17.2.11 that the latter is finite if and only if $\mathcal O_{X_s,g(s)}$ has finite cohomological dimension, i.e. is regular.
+
+\textbf{Proposition 1.6.} Let $S$ be a noetherian scheme, let $E$ be a locally free $\mathcal O_S$-module of finite type, let $X$ be the vector bundle associated with $E$, and let $f$ be the structural morphism of $X$. Then
+\[
+ f^*:K_\bullet(S)\longrightarrow K_\bullet(X)
+\]
+is an isomorphism.
+
+Since $f$ is smooth and admits a section, namely the zero section, it is enough, to prove 1.6, to show that for every $s\in S$ one has $K_\bullet(X_s)\simeq \mathbb Z$ (1.4). Thus one is reduced to the case where the base scheme is a field. In this case $E$ is a direct sum of rank-one submodules, which permits one to decompose $f$ into a sequence of rank-one fibrations, and hence to reduce to the case where $X$ has rank one, namely $X=\Spec(k[T])$. The proposition then follows from the next lemma.
+
+\textbf{Lemma 1.7.} Let $A$ be a principal ideal domain and let $X=\Spec(A)$. Then the canonical homomorphism
+\[
+ \mathbb Z\longrightarrow K_\bullet(X)
+\]
+is an isomorphism.
+
+Since $X$ is regular, the homomorphism $K^\circ(X)\to K_\bullet(X)$ is an isomorphism. Hence $K_\bullet(X)$ is generated by the classes of locally free $\mathcal O_X$-modules of finite type, i.e. by the classes of projective $A$-modules of finite type. Since $A$ is principal, every projective module of finite type is free, which gives surjectivity. Injectivity follows from the fact that $K^\circ(X)$ is $\mathbb Z$-augmented.
+
+\textbf{Proposition 1.8.} Let $S$ be a noetherian scheme, let $E$ be a locally free $\mathcal O_S$-module of rank $r$, let $X$ be the vector bundle associated with $E$, let $f$ be the structural morphism of $X$, and let $g$ be the zero section of $X$. Then the composite homomorphism
+\[
+ K_\bullet(S)\xrightarrow{g_*}K_\bullet(X)\xrightarrow{g^*}K_\bullet(S)
+\]
+where $g^*$ is defined by IV 2.12.1 and 1.5, is multiplication by the element $\lambda_{-1}(E)$ of $K^\circ(S)$, writing $E$ for the class of $E$ in $K^\circ(S)$ and putting
+\[
+ \lambda_{-1}(E)=\sum_{i=0}^r(-1)^i\lambda^i(E).
+\]
+
+This statement is the analogue, for $K_\bullet$, of VII 2.7. Let $F$ be a coherent $\mathcal O_S$-module, of class $F$ in $K_\bullet(S)$. Then $g_*(F)$ is the class in $K_\bullet(X)$ of the complex $Rg_*(F)=g_*(F)$, hence of $F$ considered as an $\mathcal O_X$-module through $g$. To compute $g^*(g_*(F))$, one must take the class of
+\[
+ Lg^*(F)=F\otimes^L_{\mathcal O_X}\mathcal O_S.
+\]
+For this, consider the Koszul complex
+\[
+0\longrightarrow \Lambda^r(E)\otimes_{\mathcal O_S}S(E)\longrightarrow
+\Lambda^{r-1}(E)\otimes_{\mathcal O_S}S(E)\longrightarrow \cdots\longrightarrow
+E\otimes_{\mathcal O_S}S(E)\longrightarrow S(E)\longrightarrow 0,
+\]
+where $S(E)$ is the symmetric algebra of $E$. This is a resolution of $\mathcal O_S$ over $S(E)$ (VI 1.11). The associated complex on $X$, denoted $L_\bullet$, has $k$-th term $\Lambda^k(f^*E)$ and is therefore a resolution of $\mathcal O_S$ by locally free $\mathcal O_X$-modules of finite type. Thus
+\[
+ L_\bullet\otimes_{\mathcal O_X}F=\mathcal O_S\otimes_{\mathcal O_X}F,
+\]
+and hence
+\[
+\begin{aligned}
+ g^*(g_*(F))
+ &=\cl(L_\bullet\otimes_{\mathcal O_X}F)
+   =\sum_{i=0}^r(-1)^i\cl(L_i\otimes_{\mathcal O_X}F)\\
+ &=\sum_{i=0}^r(-1)^i\cl(\Lambda^i(E)\otimes_{\mathcal O_S}F)
+   =F\lambda_{-1}(E).
+\end{aligned}
+\]
+The proposition follows by additivity.
+
+\subsection*{2. Principal bundles under split tori}
+
+\textbf{2.1.} Let $S$ be a noetherian scheme, and let $T$ be a torus over $S$. Suppose $T$ is split; thus one has an isomorphism $T\simeq D_S(M)$, where $M$ is a free abelian group of rank $r$, or equivalently $T\simeq \mathbb G_{m,S}^r$. Let $P$ be a torsor under $T$. Then $P$ is affine over $S$, defined by a graded $\mathcal O_S$-algebra $A$ of type $M$. If
+\[
+ A=\bigoplus_{m\in M}A_m,
+\]
+then $A_m$ is an invertible $\mathcal O_S$-module for every $m$, and, for $m,m'\in M$, the homomorphism
+\[
+ A_m\otimes_{\mathcal O_S}A_{m'}\longrightarrow A_{m+m'}
+\]
+defined by the multiplication of $A$ is an isomorphism (SGA 3 VIII 4.1). One therefore defines a multiplicative homomorphism
+\[
+ \eta:M\longrightarrow K^\circ(S)
+\]
+by assigning to $m\in M$ the class of $A_m$ in $K^\circ(S)$.
+
+\textbf{Proposition 2.2.} With the notation and hypotheses of 2.1, let $f:P\to S$ be the structural morphism of $P$. Then the homomorphism
+\[
+ f^*:K_\bullet(S)\longrightarrow K_\bullet(P)
+\]
+is surjective, and its kernel is the subgroup of $K_\bullet(S)$ generated by the subgroups $(\eta(m)-1)K_\bullet(S)$ for $m\in M$, or, equivalently, for $m$ running through a system of generators of $M$.
+
+First suppose $r=1$, i.e. $T=\mathbb G_{m,S}$. Then $M=\mathbb Z$, and for every $m\in M$ one has
+\[
+ A_m\simeq A_1^{\otimes m}.
+\]
+If $A_1=L$, then $A=\bigoplus_{n\in\mathbb Z}L^{\otimes n}$, which shows that $P$ identifies with the complement of the zero section in the bundle $X=\mathbb V(L)$. Considering $S$ as a closed subscheme of $X$ by the zero section, one has, by 1.1, the exact sequence
+\[
+ K_\bullet(S)\xrightarrow{g_*}K_\bullet(X)\longrightarrow K_\bullet(P)\longrightarrow 0,
+\]
+where $g:S\to X$ is the zero section of $X$. Moreover $f^*$ factors as
+\[
+ K_\bullet(S)\xrightarrow{f'^*}K_\bullet(X)\longrightarrow K_\bullet(P),
+\]
+where $f'$ is the structural morphism of $X$. By 1.6, $f'^*$ is an isomorphism, inverse to $g^*$. Thus we have the exact sequence
+\[
+ K_\bullet(S)\xrightarrow{g^*g_*}K_\bullet(S)\xrightarrow{f^*}K_\bullet(P)\longrightarrow 0,
+\]
+and by 1.8 one obtains
+\[
+ K_\bullet(P)\simeq K_\bullet(S)/\lambda_{-1}(L)K_\bullet(S)=K_\bullet(S)/(1-L)K_\bullet(S),
+\]
+where $L$ is the class of $L$ in $K^\circ(S)$. Since, for every $n\in\mathbb Z$, $L^n-1$ is a multiple of $1-L$, this proves 2.2 when $P$ has rank one.
+
+Continue the proof by induction on the rank $r$ of $P$. Suppose the result proved for torsors under split tori of rank $<r$. Write $M=M_1\oplus M_2$, with $M_1\simeq\mathbb Z^{r-1}$ and $M_2\simeq\mathbb Z$. Put $A'=\bigoplus_{m\in M_1}A_m$ and $A''=\bigoplus_{m\in M_2}A_m$, so that $A=A'\otimes_{\mathcal O_S}A''$.
+Let $P_1=\Spec(A')$. Then $P_1$ is a torsor under $D_S(M_1)$, and $P$ is, over $P_1$, a torsor under the group $\mathbb G_{m,P_1}$ with algebra the inverse image of $A''$ on $P_1$. By the preceding rank-one case, $K_\bullet(P)$ is the quotient of $K_\bullet(P_1)$ by the subgroup generated by the $(\eta(m_2)-1)K_\bullet(P_1)$ for $m_2\in M_2$. By the induction hypothesis, $K_\bullet(P_1)$ is the quotient of $K_\bullet(S)$ by the subgroup generated by the $(\eta(m_1)-1)K_\bullet(S)$ for $m_1\in M_1$. Taking account of the relation
+\[
+ \eta(m_1+m_2)-1=\eta(m_1)\eta(m_2)-1
+ =\eta(m_1)(\eta(m_2)-1)+\eta(m_1)-1,
+\]
+we conclude that $K_\bullet(P)$ is the quotient of $K_\bullet(S)$ by the subgroup generated by the $(\eta(m)-1)K_\bullet(S)$ for $m\in M$, or equivalently for $m$ running through a system of generators of $M$.
+
+\textbf{Corollary 2.3.} With the notation and hypotheses of 2.1, suppose $S$ regular. Then one has a canonical isomorphism
+\[
+ K^\circ(P)\simeq K^\circ(S)/\bigl((\eta(m)-1)_{m\in M}\bigr),
+\]
+where $((\eta(m)-1)_{m\in M})$ is the ideal of $K^\circ(S)$ generated by the $\eta(m)-1$, for $m$ running through a system of generators of $M$.
+
+If $S$ is regular, the canonical homomorphism $K^\circ(S)\to K_\bullet(S)$ is an isomorphism (IV 2.5). Likewise, $P$ is then regular, and $K^\circ(P)\to K_\bullet(P)$ is an isomorphism. The corollary therefore follows immediately from 2.2.
+
+\subsection*{3. Projective bundles and flag bundles}
+
+\textbf{Proposition 3.1.} Let $S$ be a noetherian scheme, let $E$ be a locally free $\mathcal O_S$-module of rank $n$, let $\pi=(p_1,\ldots,p_k)$ be a sequence of integers such that $\sum p_i=n$, and let $X=D_\pi(E)$ be the scheme of flags of type $\pi$ in $E$. Then the canonical homomorphism
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\longrightarrow K_\bullet(X)
+\]
+is an isomorphism.
+
+We resume the notation of VI 4.5. Thus $L_i$ denotes the canonical quotients of the inverse image of $E$ on $X$, $F_j$ denotes the kernel of $L_j\to L_{j-1}$, and $\lambda_i^{(j)}$ denotes the class in $K^\circ(X)$ of $\Lambda^i(F_j)$. Then the $\lambda_i^{(j)}$ generate $K^\circ(X)$ as a $K^\circ(S)$-algebra (VI 4.6). Likewise, the images of the $\lambda_i^{(j)}$ in $K^\circ(X_s)$ generate $K^\circ(X_s)$ as an algebra over $K^\circ(k(s))=\mathbb Z$ for every point $s$ of $S$. Since $X_s$ is a flag scheme over a field, it is regular, and hence $K^\circ(X_s)\to K_\bullet(X_s)$ is an isomorphism. It follows that $K^\circ(X)\to K_\bullet(X_s)$ is surjective. By 1.3, this implies that
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\longrightarrow K_\bullet(X)
+\]
+with $K^\circ(X)$ in the second factor is surjective.
+
+To prove injectivity, one may first reduce to the case of the complete flag bundle $D(E)$. Indeed, suppose that
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(D(E))\longrightarrow K_\bullet(D(E))
+\]
+is injective. Since $K_\bullet(S)\to K_\bullet(D(E))$ factors through $K_\bullet(X)$, the corresponding homomorphism factors as
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\otimes_{K^\circ(X)}K^\circ(D(E))
+ \longrightarrow
+ K_\bullet(X)\otimes_{K^\circ(X)}K^\circ(D(E))
+ \longrightarrow K_\bullet(D(E)).
+\]
+The first homomorphism is injective. Since, by VI 4.3, 4.6 and 4.7, $K^\circ(D(E))$ is free over $K^\circ(X)$, this implies injectivity for
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\to K_\bullet(X).
+\]
+Thus assume $X=D(E)$. One proceeds by induction on the rank of $E$. The case $n=1$ is trivial. Suppose the property proved for $n-1$. Introduce $P=\mathbb P(E)$, and let $F$ be the kernel of the canonical homomorphism $p^*(E)\to\mathcal O_P(1)$, where $p$ is the structural morphism of $P$. Then $X$ identifies with the scheme of flags of $F$ over $P$, and by the induction hypothesis it is enough to prove 3.1 for $P$. Taking VI 1.1 into account, the result to prove may therefore be stated as the following corollary.
+
+\textbf{Corollary 3.2.} Let $S$ be a noetherian scheme, let $E$ be a locally free $\mathcal O_S$-module of rank $n$, let $X=\mathbb P(E)$ be the associated projective bundle, let $f$ be the structural morphism of $X$, and let $\xi$ be the class in $K^\circ(X)$ of the sheaf $\mathcal O_X(1)$. Then the homomorphism
+\[
+ \varphi:(K_\bullet(S))^n\longrightarrow K_\bullet(X)
+\]
+defined by
+\[
+ \varphi((x_i))=\sum_{i=0}^{n-1}\xi^{-i}f^*(x_i)
+\]
+is an isomorphism.
+
+We have already seen that this homomorphism is surjective, since the elements $\xi^i$, $i=0,\ldots,-n+1$, form a basis of $K^\circ(X)$ over $K^\circ(S)$. To see that it is injective, use the homomorphism $f_*$, defined because $f$ is projective. By IV 2.12.4,
+\[
+ f_*\left(\sum_{i=0}^{n-1}\xi^{-i}f^*(x_i)\right)
+ =\sum_{i=0}^{n-1}x_i f_*(\xi^{-i})=x_0,
+\]
+the last equality following from the fact that $f_*(\xi^i)=0$ for $-n+1\leq i<0$ (VI 2.8). If $\varphi((x_i))=0$, what precedes shows that $x_0=0$. Applying the same reasoning to the elements $\xi^i\varphi((x_i))$, for $i=1,\ldots,n-1$, one obtains by induction that all the $x_i$ are zero. Thus $\varphi$ is injective.
+
+\textbf{3.3.} Let $S$ still be a noetherian scheme, and let $E$ be a locally free $\mathcal O_S$-module of rank $n$. Write $V=\mathbb V(E)$ for the vector bundle associated with $E$, contravariantly in $E$ (SGA 3 I 4.6), considered as a group scheme over $S$. Let $P$ be a torsor under $V$; we wish to compute $K_\bullet(P)$.
+
+Recall how one embeds $P$ in a projective bundle over $S$. Torsors under $V$ correspond to extensions $F$ of $E$ by $\mathcal O_S$. Indeed, if one has an extension
+\[
+0\longrightarrow\mathcal O_S\xrightarrow{s}F\xrightarrow{u}E\longrightarrow 0,
+\tag{3.3.1}
+\]
+one obtains a torsor under $V$ by considering the homomorphism $\mathbb V(F)\to\mathbb V(\mathcal O_S)$ defined by $s$, the section of $\mathbb V(\mathcal O_S)=\Spec(\mathcal O_S[T])$ defined by $T=1$, and taking
+\[
+ P=\mathbb V(F)\times_{\mathbb V(\mathcal O_S)}S,
+\]
+the operations of $V$ on $P$ being induced by those of $V$ on $\mathbb V(F)$.
+
+Conversely, let $P$ be a torsor under $V$. Denote by $\underline P$ the sheaf of germs of homomorphisms from $S$ to $P$. It is a principal homogeneous sheaf under the sheaf of germs of homomorphisms from $S$ to $V$, which is identified with the dual $\check E$ of $E$. In the classical way this yields an extension of $\mathcal O_S$ by $\check E$, and by passing to duals one obtains (3.3.1).
+
+Thus let $P$ be a torsor under $V$, corresponding to an extension $F$ of $E$ by $\mathcal O_S$. The algebra $A(P)$ of $P$ over $\mathcal O_S$ is
+\[
+ S(F)\otimes_{S(\mathcal O_S)}\mathcal O_S,
+\]
+that is,
+\[
+ S(F)/(s-1)S(F),
+\]
+which identifies with the ring of homogeneous fractions of degree $0$, $S(F)_{(s)}$. Consequently $P$ identifies with the open $D_+(s)$ of $\mathbb P(F)$. The complement of $P$ in $\mathbb P(F)$ is then $\operatorname{Proj}(S(F)/sS(F))$, which is identified, by (3.3.1), with $\mathbb P(E)$. Thus one has immersions
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\mathbb P(E) \arrow[r,hook] \arrow[dr] & \mathbb P(F) & P \arrow[l,hook'] \arrow[dl]\\
+& S &
+\end{tikzcd}
+\]
+where $\mathbb P(E)$ is closed in $\mathbb P(F)$, and $P$ is open and complementary to $\mathbb P(E)$.
+
+\textbf{Proposition 3.4.} Let $S$ be a noetherian scheme, let $E$ be a locally free $\mathcal O_S$-module of rank $n$, let $V=\mathbb V(E)$ be the associated vector bundle, let $P$ be a torsor under $V$, and let $f$ be the structural morphism of $P$. Then the canonical homomorphism
+\[
+ f^*:K_\bullet(S)\longrightarrow K_\bullet(P)
+\]
+is an isomorphism.
+
+With the identifications of 3.3, one has the exact sequence
+\[
+ K_\bullet(\mathbb P(E))\xrightarrow{i_*}K_\bullet(\mathbb P(F))\longrightarrow K_\bullet(P)\longrightarrow 0,
+\tag{3.4.1}
+\]
+where $i$ denotes the closed immersion $\mathbb P(E)\to\mathbb P(F)$ defined by $u$. By 3.2,
+\[
+ K_\bullet(\mathbb P(E))=K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(\mathbb P(E)),
+\qquad
+ K_\bullet(\mathbb P(F))=K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(\mathbb P(F)).
+\]
+Since $\mathbb P(E)$ and $\mathbb P(F)$ are smooth, $i$ is a regular immersion, and hence we have a homomorphism
+\[
+ i_*:K^\circ(\mathbb P(E))\longrightarrow K^\circ(\mathbb P(F)).
+\]
+The homomorphism between the $K_\bullet$ groups is then obtained by tensoring the homomorphism between the $K^\circ$ groups by $K_\bullet(S)$. It is enough, to see this, to show that for $a\in K_\bullet(S)$ and $b\in K^\circ(\mathbb P(E))$ one has
+\[
+ i_*(b\,h^*(a))=i_*(b)g^*(a),
+\]
+where $g$ and $h$ are the structural morphisms of $\mathbb P(F)$ and $\mathbb P(E)$. Since $h=gi$,
+\[
+ i_*(b\,h^*(a))=i_*(b\,i^*g^*(a))=g^*(a)i_*(b)
+\]
+by IV 2.12.4.
+
+From (3.4.1) one therefore gets
+\[
+ K_\bullet(P)\simeq K_\bullet(S)\otimes_{K^\circ(S)}
+ \bigl(K^\circ(\mathbb P(F))/\operatorname{Im}K^\circ(\mathbb P(E))\bigr).
+\]
+Let $\xi_F$ and $\xi_E$ be the classes of the canonical invertible sheaves on $\mathbb P(F)$ and $\mathbb P(E)$. By VI 1.1, $K^\circ(\mathbb P(F))$ (respectively $K^\circ(\mathbb P(E))$) has as basis over $K^\circ(S)$ the elements $\xi_F^k$ for $k=0,\ldots,-n$ (respectively $\xi_E^k$ for $k=0,\ldots,-n+1$). The projection formula gives
+\[
+ i_*(\xi_E^k)=i_*(i^*(\xi_F^k))=\xi_F^k i_*(1).
+\]
+If $I$ is the ideal of $\mathbb P(E)$ in $\mathbb P(F)$, then $I$ is invertible and $i_*(1)=1-I$. Moreover $I$ is defined by the ideal $J$ of $S(F)$, kernel of $S(F)\to S(E)$, which is generated by a submodule of $F$ isomorphic to $\mathcal O_S$. Hence
+\[
+ I\simeq \mathcal O_{\mathbb P(F)}(-1).
+\]
+The image of $K^\circ(\mathbb P(E))$ is thus the $K^\circ(S)$-submodule generated by the $\xi_F^k-\xi_F^{k-1}$, for $k=0,\ldots,-n+1$. Therefore
+\[
+ K^\circ(S)\longrightarrow K^\circ(\mathbb P(F))/\operatorname{Im}K^\circ(\mathbb P(E))
+\]
+is an isomorphism, and consequently so is $K_\bullet(S)\to K_\bullet(P)$.
+
+\subsection*{4. Principal bundles under the groups $\mathrm{GL}(n)_S$}
+
+\textbf{Proposition 4.1.} Let $S$ be a noetherian scheme, let $G=\mathrm{GL}(n)_S$, let $P$ be a torsor under $G$, and let $E$ be the locally free $\mathcal O_S$-module of rank $n$ corresponding to $P$. Denote by $E$ the class of $E$ in $K^\circ(S)$, and let $J$ be the $\lambda$-ideal generated by $E-n$. If $f$ is the structural morphism of $P$, then $f^*$, defined because $f$ is flat, is surjective and defines an isomorphism
+\[
+ K_\bullet(S)/J K_\bullet(S)\xrightarrow{\sim}K_\bullet(P).
+\]
+
+Let $E_0=(\mathcal O_S)^n$, with evident basis $e_1,\ldots,e_n$, and let $E_0^{(i)}$ be the submodule of $E_0$ generated by $e_1,\ldots,e_i$. The subfunctor of $G$ which to every $S$-scheme $S'$ assigns the subgroup of automorphisms of $E_{0,S'}$ leaving invariant the submodules $E_{0,S'}^{(i)}$ for all $i$ is represented by a group subscheme $B$ of $G$, a Borel subgroup of $G$. The quotient sheaf $G/B$ for the fpqc topology is represented by the flag scheme of $E_0$, denoted $X_0$. Let $L_0^{(i)}$ be the canonical quotients of the inverse image of $E_0$ on $X_0$, let $G_0^{(i)}$ be the kernel of $E_{0,X_0}\to L_0^{(i)}$, and put
+\[
+ F_0^{(i)}=G_0^{(i-1)}/G_0^{(i)}\simeq \ker(L_0^{(i)}\to L_0^{(i-1)}).
+\]
+
+Moreover, $B$ is the semi-direct product of its unipotent radical $U$ and of its maximal subtorus $T$ leaving the $e_i$ invariant. Let $Y_0=G/U$. Then $Y_0$ is a torsor over $X_0$ under the group $T_{X_0}$. If $S'$ is an $S$-scheme, the datum of an $S'$-point of $Y_0$ is equivalent to the datum, on some faithfully flat quasi-compact $S''$ over $S'$, of an automorphism of $E_{0,S''}$ modulo the unipotents of $U_{S''}$; that is, of a flag of $E_{0,S''}$ with free submodules, and, for each $i$, of a class of free elements $f_i^\alpha$ on $\mathcal O_{S''}$ such that $f_i^\alpha-f_i^\beta\in G_{0,S''}^{(i+1)}$. Equivalently, it is the datum of a flag of $E_{0,S''}$ and, for every $i$, of a basis of $F_{0,S''}^{(i)}$, this datum being subject to the gluing condition on $S''\times_{S'}S''$. By fpqc descent, this amounts to the same datum on $S'$. Thus $Y_0$ is the affine $X_0$-scheme defined by the algebra
+\[
+ A_0=\bigoplus_{k_i\in\mathbb Z}(F_0^{(1)})^{\otimes k_1}\otimes\cdots\otimes(F_0^{(n)})^{\otimes k_n}.
+\]
+
+The group $G$ operates on $E_0$, on $X_0$ provided with the sheaves $L_0^{(i)}$, and on $Y_0$. Taking the product of these objects with $P$ modulo $G$, one obtains the sheaf $E$ associated with $P$, the scheme $X=D(E)=P/B$ of flags of $E$, and the scheme $Y=P/U$. We denote the canonical sheaves on $X$ by the same letters as their analogues on $X_0$. Thus one has the diagram
+\[
+\begin{array}{ccccc}
+&& Y=P/U &&\\[-0.2em]
+& \nearrow && \searrow &\\[-0.2em]
+P &&&& X=P/B=D(E)\\[-0.2em]
+& \searrow && \swarrow &\\[-0.2em]
+&& S &&
+\end{array}
+\]
+We note that $P$ is a torsor over $Y$ with structural group $U_Y$, and that $Y$ is a torsor over $X$ with structural group $T_X$, defined by the $\mathcal O_X$-algebra
+\[
+ A=\bigoplus_{k_i\in\mathbb Z}(F^{(1)})^{\otimes k_1}\otimes\cdots\otimes(F^{(n)})^{\otimes k_n}.
+\]
+
+The homomorphism $K_\bullet(S)\to K_\bullet(P)$ therefore factors as
+\[
+ K_\bullet(S)\longrightarrow K_\bullet(X)\longrightarrow K_\bullet(Y)\longrightarrow K_\bullet(P).
+\]
+By 3.1, $K_\bullet(X)=K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)$. Let $\xi_i$ be the class of $F^{(i)}$ in $K^\circ(X)$. By 2.2, $K_\bullet(Y)$ is the quotient of $K_\bullet(X)$ by the submodule generated by the $(\xi_i-1)K_\bullet(X)$. If $I$ is the ideal of $K^\circ(X)$ generated by the $\xi_i-1$, then
+\[
+ K_\bullet(Y)=K_\bullet(S)\otimes_{K^\circ(S)}(K^\circ(X)/I).
+\]
+By VI 4.8, $K^\circ(X)$ is the $K^\circ(S)$-algebra generated by the $\xi_i-1$, subject to the relations deduced from
+\[
+ \gamma_t(E-n)=\prod_{i=1}^n\gamma_t(\xi_i-1).
+\]
+Therefore $K^\circ(X)/I=K^\circ(S)/J$, where $J$ is the ideal generated by the $\gamma^j(E-n)$ for $j=1,\ldots,n$, hence the $\lambda$-ideal generated by $E-n$. Thus
+\[
+ K_\bullet(Y)\simeq K_\bullet(S)/J K_\bullet(S).
+\]
+The demonstration is completed by the following lemma.
+
+\textbf{Lemma 4.2.} Let $S$ be a noetherian scheme, let $B$ be a parabolic subgroup of a reductive $S$-group, and let $P$ be a torsor under the unipotent radical $U$ of $B$. Then one has an isomorphism
+\[
+ K_\bullet(S)\xrightarrow{\sim}K_\bullet(P).
+\]
+
+Indeed, there exists a finite sequence of subgroup schemes of $U$,
+\[
+ U_0=U\supset U_1\supset U_2\supset\cdots\supset U_p=e,
+\]
+closed in $B$, finite because $B$ is noetherian, and such that, for every $i$, $U_i/U_{i+1}$ is isomorphic to an $S$-vector group (SGA 3 XXVI 2.1). Consequently $P\to S$ factors as a sequence of torsors under vector groups, and the result follows from 3.4.
+
+\textbf{Corollary 4.3.} Let $S$ be a noetherian scheme and let $G=\mathrm{GL}(n)_S$. Then the canonical homomorphism
+\[
+ K_\bullet(S)\longrightarrow K_\bullet(G)
+\]
+is an isomorphism.
+
+This follows immediately from 4.1, applied to $P=G$, since then $E=\mathcal O_S^n$.
+
+\textbf{Corollary 4.4.} Under the hypotheses of 4.1, suppose $S$ regular. Then one has an isomorphism
+\[
+ K^\circ(S)/J\xrightarrow{\sim}K^\circ(P).
+\]
+
+If $S$ is regular, $G$ is also regular, and $P$ as well. Thus $K^\circ(S)\simeq K_\bullet(S)$ and $K^\circ(P)\simeq K_\bullet(P)$, whence the result follows from 4.1.
+
+\end{document}

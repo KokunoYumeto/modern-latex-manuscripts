@@ -1,0 +1,381 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{amscd}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.25em}
+\allowdisplaybreaks
+\sloppy
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Alb}{Alb}
+\DeclareMathOperator{\Ass}{Ass}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\bD}{\mathbf D}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\bR}{\mathbf R}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Ql}{\mathbb Q_\ell}
+\newcommand{\Zl}{\mathbb Z_\ell}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\muell}{\boldsymbol\mu}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\length}{\operatorname{lg}}
+\newenvironment{named}[1]{\par\medskip\noindent\textbf{#1}\itshape}{\par\medskip}
+
+\usepackage[english]{babel}
+\begin{document}
+\begin{center}
+{\Large\bfseries The Lefschetz Theorem and Degeneration Criteria for Spectral Sequences}\\[0.7em]
+{\large P. Deligne}
+\end{center}
+
+\section*{1. General theorems}
+Let $\cA$ be an abelian category and let $\bD^b(\cA)$ be the full subcategory of its derived category consisting of bounded complexes. Recall that, if $T$ is a cohomological functor from $\bD^b(\cA)$ to an abelian category $\cB$, Verdier constructed a spectral sequence, functorial in $X\in\bD^b(\cA)$,
+\begin{equation}\tag{1.1}
+E_2^{pq}=T^p(H^q(X))\Longrightarrow T^{p+q}(X).
+\end{equation}
+
+\begin{named}{Proposition (1.2).}
+For $X\in\bD^b(\cA)$, the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item for every such $T$, the spectral sequence (1.1) degenerates;
+\item in $\bD^b(\cA)$, the object $X$ is isomorphic to $\bigoplus_iH^i(X)[-i]$.
+\end{enumerate}
+\end{named}
+To prove (i) $\Rightarrow$ (ii), let $T_i$ be the cohomological functor in $K$ defined by
+\[
+T_i(K)=\Hom_\cA(H^i(X),H^0(K)).
+\]
+For each $i$, the spectral sequence (1.1) becomes
+\begin{equation}\tag{1.3}
+E_2^{pq}=\Ext_\cA^p(H^i(X),H^q(K))\Longrightarrow \Hom_{\bD(\cA)}(H^i(X),K[p+q]),
+\end{equation}
+and the resulting map from $\Hom_{\bD}(H^i(X)[-i],K)$ to $\Hom_\cA(H^i(X),H^i(K))$ is precisely the one induced by the functoriality of $H^i$. If the sequences (1.3) degenerate, these maps are surjective. Taking $K=X$, we obtain morphisms $a_i:H^i(X)[-i]\to X$ inducing the identity on the $i$-th cohomology object. Only finitely many of them are nonzero, and
+\[
+a=\sum_i a_i:\bigoplus_iH^i(X)[-i]\longrightarrow X
+\]
+is a quasi-isomorphism, hence an isomorphism. Conversely, the spectral sequence is additive in $X$ and degenerates when $X$ has only one nonzero cohomology object; it therefore degenerates for any finite direct sum of such complexes.
+
+\begin{named}{Remark (1.4).}
+It is enough to verify condition (i) of (1.2) for cohomological functors of the form $\Hom_\cA(A,\,\cdot\,)$, with $A\in\cA$. Dually, it would also be enough to use only the functors $\Hom_\cA(\,\cdot\,,A)$; condition (ii) is self-dual.
+\end{named}
+
+\begin{named}{Theorem (1.5).}
+Let $X\in\bD^b(\cA)$, let $n$ be an integer, and let $u:X\to X[2]$ be a degree-$2$ endomorphism. Suppose that, for every $i>0$, the iterates of $u$ induce isomorphisms
+\[
+u^i:H^{n-i}(X)\xrightarrow{\sim}H^{n+i}(X).
+\]
+Then $X$ is isomorphic to $\bigoplus_iH^i(X)[-i]$ in $\bD^b(\cA)$.
+\end{named}
+We verify condition (i) of (1.2). Let $T$ be a cohomological functor from $\bD^b(\cA)$ to $\cB$, and set $T^p(K)=T(K[p])$. The primitive part of $H^{n-i}(X)$, denoted $P^{n-i}(X)$, is the kernel of
+\[
+u^{i+1}:H^{n-i}(X)\longrightarrow H^{n+i+2}(X).
+\]
+For $i\ge0$, the Lefschetz decompositions
+\begin{align}\tag{1.6}
+\bigoplus_{k\ge0}u^k P^{n-i-2k}(X)&\xrightarrow{\sim}H^{n-i}(X),\\
+\bigoplus_{k\ge0}u^{i+k} P^{n-i-2k}(X)&\xrightarrow{\sim}H^{n+i}(X)
+\end{align}
+hold. The spectral sequence (1.1) is functorial in $X$ and compatible with translations of degree, so $u$ acts on it by degree $2$ maps
+\[
+u:E_r^{p,q}\longrightarrow E_r^{p,q+2}
+\]
+commuting with all differentials $d_r$, $r\ge2$. For $r=2$, this is the action induced by $u:H^q(X)\to H^{q+2}(X)$.
+
+For $i\ge0$, let $P_r^{p,n-i}$ be the kernel of
+\[
+u^{i+1}:E_r^{p,n-i}\longrightarrow E_r^{p,n+i+2}.
+\]
+At $r=2$, (1.6) gives
+\begin{align}\tag{1.7}
+\bigoplus_{k\ge0}u^kP_2^{p,n-i-2k}&\xrightarrow{\sim}E_2^{p,n-i},\\
+\bigoplus_{k\ge0}u^{i+k}P_2^{p,n-i-2k}&\xrightarrow{\sim}E_2^{p,n+i}.
+\end{align}
+We prove by induction on $r$ that every $d_r$ vanishes. Assuming $E_2=\cdots=E_r$, the decomposition (1.7) applies to $E_r$. Since $u$ commutes with $d_r$, it suffices to show that $d_r$ vanishes on the primitive part. For $x\in P_r^{p,n-i}$, the commutative diagram
+\[
+\begin{CD}
+E_r^{p,n-i} @>{d_r}>> E_r^{p+r,n-i-r+1}\\
+@V{u^{i+1}}VV @VV{u^{i+1}}V\\
+E_r^{p,n+i+2} @>{d_r}>> E_r^{p+r,n+i-r+3}
+\end{CD}
+\]
+shows this: the left vertical map kills $x$, while the right vertical map is injective because the corresponding Lefschetz iterate is an isomorphism and $r-1\ge1$.
+
+\begin{named}{Remark (1.8).}
+In general one cannot choose an isomorphism $X\simeq\bigoplus_iH^i(X)[-i]$ that carries $u$ to the direct sum of the maps $u:H^i(X)\to H^{i+2}(X)$. A counterexample already occurs with cohomology only in two adjacent Lefschetz degrees. One can define a more canonical isomorphism, but it will not be needed here.
+\end{named}
+
+\begin{named}{Remark (1.9).}
+The same proof applies to variants in which $u$ has degree $s$, or degree $2s$, and the cohomology is concentrated in the corresponding arithmetic progression of degrees; the assumed Lefschetz isomorphisms again imply that the complex is a direct sum of its cohomology objects.
+\end{named}
+
+\begin{named}{Remark (1.10).}
+The argument also applies to a family $(X_i)$ equipped with degree-$2$ maps $u_i:X_i\to X_{i+1}[2]$ satisfying the corresponding Lefschetz isomorphisms among the cohomologies of the $X_i$. Formally one applies the preceding proof to $\bigoplus_iX_i$, even when this direct sum is not itself an object of $\bD^b(\cA)$.
+\end{named}
+
+\begin{named}{Theorem (1.11).}
+Let $X\in\bD^b(\cA)$ and suppose that $X$ has degree-zero endomorphisms $\pi_i:X\to X$ such that $H^j(\pi_i)=\delta_{ij}$. Then $X\simeq\bigoplus_iH^i(X)[-i]$ in $\bD^b(\cA)$.
+\end{named}
+Apply (1.2) again. The differential $d_r:E_r^{p,q}\to E_r^{p+r,q-r+1}$ commutes with the action of the $\pi_i$; for a suitable $i$, the action is the identity on the source and zero on the target, hence the differential is zero.
+
+\begin{named}{Corollary (1.12).}
+Let $X$ be the finite direct sum of objects $X_i$ in $\bD^b(\cA)$. If $X\simeq\bigoplus_qH^q(X)[-q]$, then each $X_i$ is isomorphic to $\bigoplus_qH^q(X_i)[-q]$.
+\end{named}
+Use the projections and inclusions of the summands to produce endomorphisms satisfying (1.11).
+
+\begin{named}{Remark (1.13).}
+The decomposition can be chosen so that the $\pi_i$ become the projections if and only if the $\pi_i$ are pairwise orthogonal idempotents. Then there is a unique such isomorphism inducing the identity on cohomology.
+\end{named}
+
+\section*{2. Applications}
+Let $f:X\to Y$ be a continuous map of topological spaces, or a morphism of topoi. Let $A$ be a sheaf of rings on $X$ and let $\cF$ be a sheaf of $A$-modules. A class $u\in H^2(X,A)$ defines a degree-$2$ endomorphism $u:\cF\to\cF[2]$ in $\bD(X)$, and therefore
+\[
+\bR f_*(u):\bR f_*\cF\longrightarrow \bR f_*\cF[2].
+\]
+We say that $\cF$ satisfies the Lefschetz condition with respect to $u$ if, for every $i\ge0$, the iterates
+\[
+u^i:R^{n-i}f_*\cF\longrightarrow R^{n+i}f_*\cF
+\]
+are isomorphisms.
+
+\begin{named}{Proposition (2.1).}
+If $\cF$ satisfies the Lefschetz condition with respect to $u$, then
+\[
+\bR f_*\cF\simeq\bigoplus_iR^if_*\cF[-i]
+\]
+in $\bD^b(Y)$. In particular, the Leray spectral sequence degenerates.
+\end{named}
+A bimodule version over a sheaf of rings on $Y$ is immediate.
+
+For schemes with the étale topology, we use the theory of $\Zl$- and $\Ql$-sheaves, with $\ell$ invertible on all schemes considered. Put
+\[
+\Zl(1)=\varprojlim_m\mu_{\ell^m},\qquad \Zl(i)=\Zl(1)^{\otimes i},
+\]
+and define twists $\cF(i)$. For a morphism $f:X\to Y$,
+\begin{equation}\tag{2.3}
+\bR f_*(\cF)(i)=\bR f_*(\cF(i)),\qquad f^*(\cG(i))=f^*(\cG)(i).
+\end{equation}
+If $\mathscr L$ is invertible on $X$, its first $\ell$-adic Chern class lies in $H^2(X,\Zl(1))$. A sheaf satisfies the Lefschetz condition with respect to $u\in H^2(X,\Zl(1))$ (or $H^2(X,\Ql(1))$) if
+\[
+u^i:R^{n-i}f_*\cF\longrightarrow R^{n+i}f_*\cF(i)
+\]
+is an isomorphism for all $i\ge0$.
+
+\begin{named}{Proposition (2.4).}
+Under this condition,
+\begin{equation}\tag{2.5}
+\bR f_*\cF\simeq\bigoplus_iR^if_*\cF[-i]
+\end{equation}
+in the derived category of $\Zl$- or $\Ql$-sheaves. Consequently the Leray spectral sequence degenerates, and so does the iterated Leray spectral sequence for a composite $X\to Y\to S$.
+\end{named}
+
+The Lefschetz condition is checked fibrewise: in topology, by proper base change over locally paracompact bases; in algebraic geometry, by proper base change, and for smooth proper morphisms with lisse coefficients by checking one geometric fibre over a connected base. The standard examples are as follows. Smooth proper Kähler families satisfy Lefschetz for the constant sheaf $\C$ and the degree-$2$ fundamental class. Smooth projective complex relative schemes satisfy it for the first Chern class of a relatively ample line bundle. In algebraic geometry, if a geometric fibre and its polarization lift to characteristic zero, then the constant $\Ql$-sheaf satisfies Lefschetz for the $\ell$-adic first Chern class; this applies to Severi--Brauer varieties, smooth complete intersections in them, and polarized abelian schemes. Without a lifting hypothesis this was conjectural here, except in relative dimension $2$, where it follows from Weil's theorem: for a smooth projective surface $S$ and a smooth ample divisor $D$, the composite
+\[
+\Pic^0(S)\longrightarrow\Pic^0(D)=\Alb(D)\longrightarrow\Alb(S)
+\]
+is an isogeny.
+
+In characteristic zero, the comparison isomorphisms
+\begin{equation}\tag{2.7.2}
+H^i(X,\cF)\simeq H^i(X^{an},\cF^{an})
+\end{equation}
+and, after embedding $\Ql$ in $\C$,
+\begin{equation}\tag{2.7.3}
+H^i(X,\cF)\otimes_{\Ql}\C\simeq H^i(X^{an},\cF^{an}\otimes\C)
+\end{equation}
+identify the $\ell$-adic first Chern class with the transcendental one. Thus the $\ell$-adic statement is reduced to the complex Kähler statement. Grothendieck had conjectured the resulting degeneration from weights, and Serre observed that the topological versions can also be obtained by extending Blanchard's method, at least when Poincaré duality is available on the base.
+
+\begin{named}{Theorem (2.11).}
+Let $f:X\to Y$ be a proper smooth map of locally paracompact topological spaces of relative dimension $2n$. Let $k$ be a field of characteristic zero and let $u\in H^0(Y,R^2f_*k)$. Suppose that $R^1f_*k$ is constant and that cup products
+\[
+u^i:R^{n-i}f_*k\longrightarrow R^{n+i}f_*k
+\]
+are isomorphisms. Then the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $u$ is induced by a class in $H^2(X,k)$;
+\item the transgression $d_2:H^0(Y,R^2f_*k)\to H^2(Y,R^1f_*k)$ kills $u$;
+\item $\bR f_*k\simeq\bigoplus_iR^if_*k[-i]$ in $\bD^b(Y,k)$.
+\end{enumerate}
+\end{named}
+The implication (i) $\Rightarrow$ (iii) is (2.1), and (iii) implies degeneration of the Leray sequence and hence (ii). Conversely, Poincaré duality on the fibres and the Lefschetz isomorphisms show that all linear functionals on the constant local system $R^1f_*k$ kill $d_2u$, hence $d_2u=0$. The proof of (1.5) then kills all $d_2$'s. Since $u^{n+1}=0$, degree reasons and Lefschetz give $d_3u=0$; for $r>3$ the differential is zero by degree. Thus $u$ is lifted to $H^2(X,k)$.
+
+The same statement has an étale analogue, useful essentially in the geometric case where $\Ql\simeq\Ql(1)$ on the base.
+
+\begin{named}{Proposition (2.16).}
+For composable maps $X\xrightarrow{g}Y\xrightarrow{f}Z$, if both $\bR g_*\cF$ and $\bR(fg)_*\cF$ split as sums of their cohomology sheaves, then for every $k$,
+\[
+\bR f_*(R^kg_*\cF)\simeq\bigoplus_iR^if_*(R^kg_*\cF)[-i].
+\]
+\end{named}
+This follows by viewing each shifted $\bR f_*(R^kg_*\cF)$ as a direct factor of $\bR(fg)_*\cF$ and applying (1.12).
+
+\begin{named}{Proposition (2.17).}
+Let $E$ be a locally free vector bundle on a scheme $S$, let $\cF$ be a twisted constant $\ell$-adic sheaf on $\mathbf P(E)$, and let $f:\mathbf P(E)\to S$ be the projection. Then
+\[
+\bR f_*\cF\simeq\bigoplus_iR^if_*\cF[-i].
+\]
+\end{named}
+Projective space is simply connected and has torsion-free cohomology, so the assertion reduces to $\cF=\Zl$; the first Chern class of $\cO(1)$ then gives Lefschetz. Flag bundles follow by iteration. The corresponding topological statement holds for complex vector bundles, and by (1.9) for quaternionic bundles; for real bundles one restricts to sheaves coming from $2$-torsion on the base.
+
+\begin{named}{Remark (2.19).}
+For an abelian scheme $X/Y$, multiplication by $n$ defines endomorphisms of $\bR f_*\Ql$. Rational linear combinations of these endomorphisms give projectors onto the $R^if_*\Ql$, with bounded denominators depending only on the relative dimension. By (1.11), without assuming projectivity,
+\[
+\bR f_*\Ql\simeq\bigoplus_iR^if_*\Ql[-i].
+\]
+This idea is due to Lieberman.
+\end{named}
+
+\section*{3. The infinitesimal form of the semicontinuity theorem}
+Let $A$ be a local noetherian ring, $\mathfrak m$ its maximal ideal, and $k$ its residue field. Let $\bD^-_f(A)$ denote the derived category of bounded-above complexes of $A$-modules with finitely generated cohomology.
+
+\begin{named}{Proposition (3.1).}
+For a finite $A$-module $M$ and for every homomorphism from $A$ to an artinian ring $B$ and every finite $B$-module $N$,
+\[
+\length_B(M\otimes_AN)\le \length_B(N)\dim_k(M\otimes_Ak).
+\]
+Equality for all $B,N$ is equivalent to $M$ being free; equivalent tests are obtained on the quotients $A/\mathfrak m^n$, or at the associated primes. If $A$ has no embedded components, it is enough to test equality at the maximal points of $\Spec A$.
+\end{named}
+This is Nakayama's lemma.
+
+For a complex $K$, let $\tau_nK$ be the truncation with zero terms below $n$, with $\coker(d^{n-1})$ in degree $n$, and with $K^i$ in degrees $i>n$. If $K\in\bD^-_f(A)$ is represented by a bounded-above complex of finite free modules, Euler characteristic applied to $\tau_n(K\otimes_A^\mathbf L N)$ gives
+\begin{equation}\tag{3.2.3}
+\sum_{i\ge0}(-1)^i\length_BH^{n+i}(K\otimes_A^\mathbf L N)
+\le\length_B(N)\sum_{i\ge0}(-1)^i\dim_kH^{n+i}(K\otimes_A^\mathbf L k),
+\end{equation}
+with equality characterized by a freeness condition on $\coker(d^{n-1})$.
+
+\begin{named}{Theorem (3.3).}
+Let $K\in\bD^-_f(A)$ and $n\in\Z$. Then (3.2.3) holds for all artinian $B$ and finite $B$-modules $N$. Equality for all $B,N$ is equivalent to the exchange property in degree $n$ for the functor $N\mapsto H^n(K\otimes_A^\mathbf LN)$; equivalently, after replacing $K$ by a bounded-above flat complex $K'$, one may arrange that $d'^{n-1}=0$. It is also equivalent to the usual exactness and representability formulations of cohomology and to the surjectivity of $H^{n-1}(K)\to H^{n-1}(K\otimes_A^\mathbf Lk)$.
+\end{named}
+This is EGA III, (7.4.2) and (7.5.2), together with the preceding length inequality.
+
+\begin{named}{Corollary (3.4).}
+For $h\ge0$,
+\[
+\sum_{i=0}^{2h}(-1)^i\length_BH^{n+i}(K\otimes_A^\mathbf L N)
+\le \length_B(N)\sum_{i=0}^{2h}(-1)^i\dim_kH^{n+i}(K\otimes_A^\mathbf L k).
+\]
+Equality for all $B,N$ is equivalent to exchange in degrees $n$ and $n+2h+1$, equivalently to a flat representative $K'$ with $d'^{n-1}=d'^{n+2h}=0$.
+\end{named}
+For $h=0$, this says that $H^n(K)$ is free and base change holds for all $N$. If $A$ is artinian,
+\[
+\length_AH^n(K)\le\length(A)\dim_kH^n(K\otimes_A^\mathbf L k),
+\]
+and equality implies exchange in degrees $n$ and $n+1$ and the freeness of $H^n(K)$.
+
+\section*{4. The Gysin morphism in Hodge cohomology}
+Following notes of A. Grothendieck, let $f:X\to Y$ be a proper morphism between smooth schemes of pure relative dimensions $n$ and $m$ over a base $S$, and put $d=n-m$. Pullback of relative differential forms gives
+\[
+\bL f^*\Omega^\bullet_{Y/S}\longrightarrow\Omega^\bullet_{X/S}.
+\]
+Duality for smooth morphisms and the transitivity of $\bR f^!$ give
+\[
+\bR f^!\Omega^m_{Y/S}=\Omega^n_{X/S}[d].
+\]
+The adjunction formula
+\[
+\bR f_*\bR\Hom(K,L)=\bR\Hom(\bL f^*K,\bR f^!L)
+\]
+therefore produces, after transposition, the Gysin morphism
+\[
+\Tr_f:\bR f_*\Omega^\bullet_{X/S}\longrightarrow \Omega^\bullet_{Y/S}[-d],
+\]
+and hence maps
+\[
+\Tr_f:H^p(X,\Omega^q_{X/S})\longrightarrow H^{p-d}(Y,\Omega^{q-d}_{Y/S}).
+\]
+If $f$ is proper and birational between smooth schemes over a field, then the composite $\Omega_Y^\bullet\to\bR f_*\Omega_X^\bullet\to\Omega_Y^\bullet$ is the identity on a dense open set and hence everywhere. Thus $f^*:H^p(Y,\Omega^q_Y)\to H^p(X,\Omega^q_X)$ is injective.
+
+\section*{5. Hodge and de Rham cohomology}
+For a smooth morphism $f:X\to S$, relative de Rham cohomology is
+\[
+H^n_{\mathrm{dR}}(X/S)=R^nf_*\Omega^\bullet_{X/S},
+\]
+and one has the Hodge--de Rham spectral sequence
+\begin{equation}\tag{5.1.1}
+E_1^{pq}=R^qf_*\Omega^p_{X/S}\Longrightarrow H^{p+q}_{\mathrm{dR}}(X/S).
+\end{equation}
+When $S=\Spec\C$ and $X$ is proper and smooth, GAGA identifies algebraic and analytic cohomology, and $\Omega_X^\bullet$ resolves the constant sheaf $\C$. Thus $H^n_{\mathrm{dR}}(X)=H^n(X^{an},\C)$, endowed with complex conjugation. If $X$ is projective, Hodge theory gives
+\begin{align}\tag{5.2.2}
+H^n(X)&=\bigoplus_{p+q=n}H^{pq}(X),\\
+\tag{5.2.3}F^pH^n(X)&=\bigoplus_{i\ge p}H^{i,n-i}(X),\\
+\tag{5.2.4}\overline{H^{pq}(X)}&=H^{qp}(X),
+\end{align}
+and the spectral sequence degenerates. For $X$ only proper and smooth, define
+\[
+H^{pq}(X)=F^pH^{p+q}(X)\cap\overline{F^qH^{p+q}(X)}.
+\]
+
+\begin{named}{Proposition (5.3).}
+If $X$ is proper and smooth over $\C$, then the Hodge--de Rham spectral sequence degenerates, $F^pH^n(X)\cap\overline{F^{n-p+1}H^n(X)}=0$, and
+\[
+H^n(X)=\bigoplus_{p+q=n}H^{pq}(X),\qquad h^{pq}=h^{qp}.
+\]
+\end{named}
+Take a projective birational morphism $g:X'\to X$ with $X'$ smooth and projective. By the injectivity of the Gysin argument, the spectral sequence for $X$ injects into that for $X'$, which degenerates. Hence the differentials for $X$ vanish. The Hodge decomposition for $X'$ implies the intersection statement for $X$; Serre duality supplies the reverse dimension inequality, giving the direct-sum decomposition.
+
+\begin{named}{Corollary (5.4).}
+A cohomology class on $X$ is of type $(p,q)$ if and only if it has a closed representative of type $(p,q)$. Every class has a representative $\alpha$ with $d'\alpha=d''\alpha=0$. If such an $\alpha$ is exact, then the equivalent $d'$-, $d''$-, and $d'd''$-exactness conditions hold.
+\end{named}
+The proof is the standard bidegree decomposition argument using the direct Hodge decomposition and its conjugate.
+
+\begin{named}{Theorem (5.5).}
+Let $S$ be a scheme of characteristic zero and let $f:X\to S$ be proper and smooth. Then the sheaves $R^qf_*\Omega^p_{X/S}$ are locally free of finite type and commute with arbitrary base change; the Hodge--de Rham spectral sequence degenerates; and the ranks of $R^qf_*\Omega^p_{X/S}$ and $R^pf_*\Omega^q_{X/S}$ are equal at every point.
+\end{named}
+The proof is local on $S$. By standard limit, completion, and Artin reduction arguments one reduces to $S=\Spec A$ with $A$ a finite-dimensional local $\C$-algebra. The relative de Rham complex is then a resolution of the constant sheaf $A$ on $X^{an}$, since its $\mathfrak m$-adic graded complex is $\operatorname{Gr}A\otimes\Omega^\bullet_{X_0/\C}$. Compactness and GAGA give
+\[
+\length_AH^n_{\mathrm{dR}}(X/S)=\length(A)\dim_\C H^n(X_0,\C).
+\]
+The infinitesimal semicontinuity theorem applied to $\bR\Gamma(X,\Omega^p_{X/S})$ gives upper bounds for the lengths of $H^q(X,\Omega^p_{X/S})$. Together with the spectral sequence these inequalities force equality, because the special fibre satisfies (5.3). Equality gives local freeness, base change, and degeneration.
+
+\section*{6. Application to coherent cohomology}
+\begin{named}{Theorem (6.1).}
+Let $S$ be a scheme of characteristic zero and let $f:X\to S$ be projective and smooth of relative dimension $n$. For every $p$,
+\[
+\bR f_*\Omega^p_{X/S}\simeq\bigoplus_qR^qf_*\Omega^p_{X/S}[-q]
+\]
+in $\bD^b(S,\cO_S)$.
+\end{named}
+Let $u$ be the first Chern class of a relatively ample line bundle on $X$. Cup product by $u$ gives maps
+\[
+u\wedge:\bR f_*\Omega^p_{X/S}\longrightarrow\bR f_*\Omega^{p+1}_{X/S}[1]
+\]
+and hence a degree-$2$ endomorphism of $\bigoplus_p\bR f_*\Omega^p_{X/S}[-p]$. By (5.4) and the Lefschetz principle it is enough to verify the hypotheses of (1.5) over $\C$, where this is the classical Lefschetz theorem together with the Hodge decomposition. Therefore the total complex splits into its cohomology objects. Each $\bR f_*\Omega^p_{X/S}$ is, up to shift, a direct factor of the total complex, so (1.12) gives the theorem.
+
+\begin{thebibliography}{99}
+\bibitem{Blanchard} A. Blanchard, Sur les variétés analytiques complexes, \emph{Ann. Sci. École Norm. Sup.} 73 (1956).
+\bibitem{Godement} R. Godement, \emph{Théorie des faisceaux}, Publ. Inst. Math. Univ. de Strasbourg, XIII, Hermann.
+\bibitem{Hakim} M. Hakim, \emph{Schémas relatifs}, thesis.
+\bibitem{Hartshorne} R. Hartshorne, \emph{Residues and duality}, Lecture Notes in Mathematics 20, Springer, 1966.
+\bibitem{Hironaka} H. Hironaka, Resolution of singularities of an algebraic variety over a field of characteristic zero, \emph{Ann. of Math.} 79 (1964).
+\bibitem{Kleiman} S. L. Kleiman, Algebraic cycles and the Weil conjectures, mimeographed notes, Columbia University.
+\bibitem{Serre} J.-P. Serre, Géométrie algébrique et géométrie analytique, \emph{Ann. Inst. Fourier} 6 (1956).
+\bibitem{Verdier1} J.-L. Verdier, Catégories dérivées, thesis.
+\bibitem{Verdier2} J.-L. Verdier, Catégories dérivées (état 0), notes, I.H.E.S.
+\bibitem{Weil1} A. Weil, \emph{Introduction à l'étude des variétés kählériennes}, Hermann.
+\bibitem{Weil2} A. Weil, Sur les critères d'équivalence en géométrie algébrique, \emph{Math. Ann.} 128 (1954), 95--127.
+\bibitem{SGA4} M. Artin, A. Grothendieck and J.-L. Verdier, \emph{Cohomologie étale des schémas}, SGA 4.
+\bibitem{SGA5} A. Grothendieck, \emph{Cohomologie $\ell$-adique et rationalité des fonctions $L$}, SGA 5.
+\end{thebibliography}
+\end{document}

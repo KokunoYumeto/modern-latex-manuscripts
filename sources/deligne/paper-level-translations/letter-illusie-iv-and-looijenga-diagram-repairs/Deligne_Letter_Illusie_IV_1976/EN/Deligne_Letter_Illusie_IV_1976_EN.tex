@@ -1,0 +1,460 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,calc,decorations.pathmorphing}
+\newcommand{\semistableSketch}{%
+\begin{tikzpicture}[scale=.75,baseline=-.5ex]
+  \draw[->] (-.2,0) -- (2.2,0) node[right]{$S$};
+  \draw[->] (.45,.15) -- (.45,3.0);
+  \draw[thick] (.1,.45) .. controls (.9,1.35) and (1.0,2.0) .. (.4,2.75);
+  \draw[thick] (.7,.45) .. controls (.0,1.25) and (.1,1.95) .. (.95,2.65);
+  \draw[thick] (1.05,.72) .. controls (1.55,1.25) and (1.4,1.85) .. (1.95,2.55);
+  \fill (.52,1.22) circle (1.5pt) node[right]{$x$};
+  \fill (1.45,1.05) circle (1.5pt) node[right]{$F$};
+\end{tikzpicture}%
+}
+\newcommand{\semistableCoverSketch}{%
+\begin{tikzpicture}[scale=.75,baseline=-.5ex]
+  \draw[->] (-.2,0) -- (2.2,0) node[right]{$S$};
+  \draw[thick] (.15,.35) .. controls (.85,1.05) and (.82,1.75) .. (.35,2.7);
+  \draw[thick] (.7,.35) .. controls (.15,1.05) and (.15,1.65) .. (1.0,2.65);
+  \draw[thick] (1.1,.45) .. controls (1.65,1.05) and (1.55,1.75) .. (2.0,2.55);
+  \draw[thick] (.1,1.05) -- (1.65,1.05);
+  \draw[thick] (.2,1.55) -- (1.45,1.55);
+  \node[left] at (.15,2.85){$X'/S$};
+\end{tikzpicture}%
+}
+\newcommand{\transverseCurveSketch}{%
+\begin{tikzpicture}[scale=.8,baseline=-.5ex]
+  \draw[thick] (-.15,0) .. controls (.7,.15) and (1.35,.05) .. (2.15,.15) node[right]{$D^\circ$};
+  \draw[thick] (.85,-.75) .. controls (.95,-.1) and (1.05,.45) .. (1.5,1.0) node[right]{$Y$};
+  \fill (1.02,.09) circle (1.4pt) node[below right]{$a$};
+  \node[left] at (-.15,.25){$X$};
+\end{tikzpicture}%
+}
+\newcommand{\familySquareSketch}{%
+\begin{tikzpicture}[scale=.82,baseline=-.5ex]
+  \draw (0,0) rectangle (1.6,1.6);
+  \draw[thick] (.12,.85) -- (1.48,.85) node[right]{$D$};
+  \draw[thick] (.8,.2) -- (.8,1.4);
+  \fill (.8,.85) circle (1.5pt) node[above left]{$x$};
+  \draw[->] (.8,-.15) -- (.8,-.65);
+  \draw (-.25,-.85) -- (1.85,-.85) node[right]{$\mathbb A^1$};
+  \node[right] at (1.65,1.45){$X$};
+\end{tikzpicture}%
+}
+\newcommand{\jetSketch}{%
+\begin{tikzpicture}[scale=.9,baseline=-.5ex]
+  \draw[thick] (-.25,.2) .. controls (.45,.45) and (1.15,.48) .. (2.1,.25) node[right]{$D$};
+  \draw[thick] (.95,-.75) .. controls (1.05,-.15) and (1.08,.45) .. (1.1,1.05);
+  \node[right] at (1.14,-.45){$Y$};
+  \node[left] at (-.25,.05){$X$};
+  \fill (1.02,.35) circle (1.4pt);
+\end{tikzpicture}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.58em}
+\setlist[enumerate]{leftmargin=2.1em,itemsep=0.35em,topsep=0.25em}
+\newcommand{\F}{\mathcal F}
+\newcommand{\G}{\mathcal G}
+\newcommand{\Zell}{\mathbf Z/\ell\mathbf Z}
+\newcommand{\Fell}{\mathbf F_\ell}
+\newcommand{\Fp}{\mathbf F_p}
+\newcommand{\A}{\mathbf A}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\U}{\mathcal U}
+\DeclareMathOperator{\Sw}{Sw}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Tot}{tot}
+\DeclareMathOperator{\Supp}{Supp}
+\begin{document}
+
+\begin{flushright}
+28/10/76
+\end{flushright}
+
+Dear Luc,
+
+Here is a semi-continuity statement that I had once conjectured about the Swan conductor.
+
+\section*{II. Semi-continuity of the Swan conductor}
+
+Let
+\[
+  f:X\longrightarrow S
+\]
+be a separated smooth morphism of relative dimension 1. Let \(F\subset X\) be finite over \(S\), and let \(\F\) be a smooth sheaf of constant rank \(r\) on
+\[
+  U=X-F,
+\]
+extended by zero to \(X\). For what is needed here, \(\F\) may simply be a sheaf of \(\Zell\)-modules. Assume that \(F\to S\) is universally open.
+\[
+\semistableSketch
+\]
+
+For \(s\in S\), let \(\bar s\) be a geometric point over \(s\). Put
+\[
+  \varphi(s)=\sum_{x\in F_{\bar s}}
+  \bigl(\Sw_x(\F|_{X_{\bar s}})+r\bigr).
+\]
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item the function \(\varphi(s)\) is constructible and lower semi-continuous;
+\item if it is constant, the pair \((X,\F)\) is universally locally acyclic over \(S\).
+\end{enumerate}
+
+Standard arguments show that \(\varphi\) is constructible. They reduce the proof of semi-continuity to the case where \(S\) is a trait. The following result likewise reduces the proof of local acyclicity to the case where \(S\) is a trait.
+
+\paragraph{Proposition 2.}
+Let \(S'\to S\) be a local morphism of strictly local schemes. Let \(\bar\eta'\) be a geometric point of \(S'\), and let \(\bar\eta\) be its image in \(S\). Let \(s'\) and \(s\) be the closed points. Let \(X\) be over \(S\), and let \(X'\) be its base change to \(S'\). If \(\F\) is a sheaf on \(X\), and if the non-local-acyclicity locus of \((X,\F)/S\) meets \(X_s\) at an isolated point \(x\), then, away from \(x\),
+\[
+  i^{\prime *} R\bar j'_{*}\,\bar j^{\prime *}\F
+\]
+is the inverse image of
+\[
+  i^{*}R\bar j_{*}\,\bar j^{*}\F.
+\]
+The formation of this sheaf commutes with base change.
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.6em]
+X'_{\bar\eta'} \arrow[r] \arrow[d] & X' \arrow[r] \arrow[d] & X_{\bar\eta} \arrow[d] \\
+\bar\eta' \arrow[r] & S' \arrow[r] & S
+\end{tikzcd}
+\]
+
+The proof is that of SGA 7, XIII, 2.4.2: reduction to the proper case, the local acyclicity theorem to ensure that \(R\Phi\) is supported at \(x\) near \(x\), invariance of cohomology under change of algebraically closed field, then proper base change, the base change theorem for vanishing cycles, and the corresponding statement for the generic fiber.
+
+Thus suppose that \(S\) is a strictly local trait. The preceding assertions follow from the following result.
+
+\paragraph{Proposition 3.}
+Let \(f:X\to S\) be smooth and separated. Let \(F\subset X\) be finite flat over \(S\), local with closed point \(x\), and let \(\F\) be a locally constant sheaf of rank \(r\) on \(X-F\), extended by zero. Then
+\[
+\Sw_x(\F|_{X_{\bar s}})+r
+=
+\sum_{y\in F_{\bar\eta}}
+\bigl(\Sw_y(\F|_{X_{\bar\eta}})+r\bigr)
+-
+\dim R\Psi_x^1(\F).
+\]
+
+In particular, the flatness assumption on \(F\) implies that
+\[
+  R\Psi_x^u(\F)=0\qquad (u\ne 1),
+\]
+which explains the condition imposed above: \(F/S\) is to be universally open.
+
+To prove assertions (i) and (ii), it is enough to prove this result with \(F\) connected. If \(F\) is a disjoint union of the \(F_i\), the usual implications hold: the result for the \(F_i\) implies the result for \(F\), and constancy of \(\varphi(s)\) is equivalent to the corresponding constancy for the \(F_i\).
+
+The case that matters most is the one in which \(F\) is a section of \(X/S\). In that case one obtains that
+\[
+  \Sw_{s(F)}(\F|_{X_{\bar s}})
+\]
+is lower semi-continuous. However, equality, and hence constancy of \(\varphi\), may occur without being in this case: two ordinary quadratic points may coalesce in characteristic zero into a nondegenerate quadratic point, and in characteristic two into a point of Swan conductor 1.
+
+In a less elliptical form, consider on \(\mathbb A^1\setminus\{0\}\) the sheaf defined by the double cover
+\[
+  T^2+bT+b=0,
+\]
+where \(\ell\) is odd, \(p=2\), and \(b\) vanishes simply at \(0\).
+
+The proof is reduced to the situation where \(X\) is embedded in a proper \(\bar X\) over \(S\), with \(\bar X/S\) proper and smooth except for finitely many ordinary quadratic points in the special fiber. The sheaf \(\F\) then gives, on \(\bar X\), a locally constant sheaf on
+\[
+  \bar X-F-\{
+  \text{a finite part of the special fiber not containing }x
+  \},
+\]
+extending the former one.
+\[
+\semistableSketch
+\]
+
+We next pass from \(\bar X\) to a cover \(X'\to\bar X\) such that:
+\begin{enumerate}[label=\alph*)]
+\item \(X'\) is a curve like \(\bar X\), and is etale above \(x\);
+\item on \(X'-(\text{inverse image of }F)\), the sheaf \(\F\) extends to a locally constant sheaf.
+\end{enumerate}
+
+This is done step by step. First find \(X'/\bar X\), etale above \(x\) and proper over \(\bar X\), over which \(\F\) extends away from \(F'\). This \(X'\) is defined as a joint; it suffices therefore to choose it locally on \(X\) so as to kill the ramification of \(\F\). If
+\[
+  \sum_i a_i T^i=0
+\]
+defines a cover of \(U\), ramified along \(V\), then, by perturbing the \(a_i\) by quantities very small along \(V\), one obtains a cover which, along \(V\), is locally isomorphic to the previous one. One then simplifies by the semi-stable reduction theorem.
+\[
+\semistableCoverSketch
+\]
+
+Compare now
+\[
+  \chi(X'_s,\F)\qquad\text{and}\qquad \chi(X'_{\bar\eta},\F).
+\]
+By the Euler-Poincare formula, if \(X'/X\) has \(k\) sheets,
+\[
+ \chi(X'_{\bar\eta},\F)
+ =\chi(X_{\bar\eta})\,r
+ -k\sum_{y\in F_{\bar\eta}}
+   \bigl(\Sw_y(\F|_{X_{\bar\eta}})+r\bigr),
+\]
+and
+\[
+ \chi(X'_s,\F)
+ =\chi(X_s)\,r
+ -k\bigl(\Sw_x(\F|_{X_s})+r\bigr).
+\]
+Moreover
+\[
+  \chi(X'_s)=\chi(X_s)-
+  \#\{\text{double points in the special fiber}\}.
+\]
+Consequently
+\[
+\begin{aligned}
+\chi(X'_{\bar\eta},\F)-\chi(X'_s,\F)
+={}&-\bigl(\#\{\text{double points on }X_s\}\bigr)r \\
+&-k\left(
+ \sum_{y\in F_{\bar\eta}}
+ \bigl(\Sw_y+r\bigr)
+ -\bigl(\Sw_x+r\text{ on }X_s\bigr)
+\right).
+\end{aligned}
+\]
+
+On the other hand, by the method of vanishing cycles, at \(x\) one has \(\Phi_x^2=0\); at the double points appearing in the special fiber there is only \(\Phi^1\), of dimension \(r\). In total,
+\[
+  \Delta\chi
+  =-\bigl(\#\{\text{double points on }X_s\}\bigr)r
+   -k\dim \Psi_x^1(\F|_X).
+\]
+Comparing the two formulas gives the announced result.
+
+\paragraph{Variant.}
+Let
+\[
+  F\subset X\longrightarrow S
+\]
+with \(F\) finite over \(S\), \(X\) smooth of relative dimension \(1\) over \(S\) away from \(F\), and \(\F\) locally constant of rank \(r\) on \(X-F\). Then, for the virtual sheaf of dimension zero, one has
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.4em]
+F \arrow[r, hook] \arrow[dr] & X \arrow[d] \\
+& S
+\end{tikzcd}
+\]
+\[
+\sum_{y\in F_{\bar s}\atop b\text{ branch of }X_s\text{ at }y}
+\Sw_b(\F)
+=
+\sum_{y\in F_{\bar\eta}\atop b\text{ branch of }X_{\bar\eta}\text{ at }y}
+\Sw_b(\F)
++
+\sum_{y\in F_s}\dim \Psi_y^*(\F).
+\]
+The proof is the same.
+
+Yours,
+
+\hspace{2em}P. Deligne
+
+\newpage
+
+\begin{flushright}
+28/10/76
+\end{flushright}
+
+Dear Luc,
+
+Third letter; I was in form yesterday.
+
+\section*{III. Euler-Poincare characteristics and ramification}
+
+Let \(X\) be proper over an algebraically closed field \(k\), and let \(\F_1,\F_2\) be two elements of the Grothendieck group of constructible sheaves of \(\Zell\)-vector spaces. If \(\F_1\) and \(\F_2\) are locally equal, then
+\[
+  \chi(\F_1)=\chi(\F_2).
+\]
+
+The proof proceeds by induction on the dimension of \(X\). Let \(\pi:X'\to X\) be birational.
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.2em]
+X' \arrow[r,"\pi"] & X \\
+F' \arrow[u,hook] \arrow[r] & F \arrow[u,hook]
+\end{tikzcd}
+\] The induction shows that it is enough to compare \(X\) and \(X'\), together with the inverse images \(\F'_1,\F'_2\). One writes
+\[
+  \chi(X,\F)=\chi(X',\F')+
+  \chi\bigl(\text{closed set where }\pi\text{ is not an isomorphism},\F\bigr)
+  -\chi\bigl(\text{inverse image of this closed set},\F'\bigr).
+\]
+Consider the Leray spectral sequence of \(\pi\). One has
+\[
+  \chi(X',\F')
+  =\chi(R\pi_*\F')
+  =\chi(\text{generic fiber},\F)
+   -\sum_t \dim_{\Tot}R\Gamma(X_t,\Phi^t\F'),
+\]
+where the last term measures the defect, namely the vanishing-cycle terms.
+
+We shall see that this second member is termwise the same for \(\F_1\) and \(\F_2\). For the first term this follows from the induction hypothesis. It remains to observe, more generally, that
+\[
+  \dim_{\Tot} R\Gamma(X_t,\Phi^t)
+\tag{1}
+\]
+depends only on the local class under consideration. The hypothesis ensures that, in the category of sheaves of modules with action of the Galois group or of the monodromy group, \(R\Phi(\F_1)\) and \(R\Phi(\F_2)\) are locally equal.
+
+It remains to arrange that the induction hypothesis is also available for \(\Fell[I]\)-sheaves. It suffices to note that
+\[
+K\bigl(\Zell[I]\text{-constructible sheaves on }X\bigr)
+=
+K\bigl(\Zell\text{-sheaves on }X\bigr)
+\otimes
+K\bigl(\Zell[I]\text{-modules}\bigr),
+\]
+where, in the second factor, one takes the base \(\Zell\)-modules represented irreducibly by \(I\).
+
+\paragraph{Remark.}
+The essential ingredient in this proof is the finiteness theorem for sheaves of vanishing cycles in SGA \(4\frac12\).
+
+I now think I understand \(\chi\) for surfaces. When, in codimension \(1\), no inseparable residue extension appears, one has a formula analogous to that of the letter to Katz. Here is a statement with a complete proof.
+
+Let \(X\) be a surface, assumed normal for simplicity, over an algebraically closed field \(k\). Let \(D\) be a Weil divisor on \(X\), put \(U=X-D\), and let \(\F\) be a locally constant sheaf on \(U\), of rank \(r\).
+
+By localizing at a generic point \(\delta\) of \(D\), one obtains a trait \(X_\delta\), with fraction field \(K\). The sheaf \(\F\) corresponds to a faithful representation of \(\operatorname{Gal}(K'/K)\), where \(K'/K\) is a finite Galois extension of \(K\). Assume:
+\[
+(*)\qquad
+\text{the residue fields of the points of the normalization of }X_\delta
+\text{ in }K'\text{ above }\delta\text{ are separable over }k(\delta).
+\]
+If \(\bar\delta\) is the spectrum of a separable closure of \(\delta\), and if \(X(\bar\delta)\) is the strict localization of \(X\) at \(\bar\delta\), with the same notation, \((*)\) becomes:
+\[
+(*')\qquad \text{the residue field of }K'\text{ is the same as that of }K.
+\]
+
+Under this hypothesis one can define the Swan conductor of \(\F\) at \(\bar\delta\), denoted
+\[
+  \Sw_{\bar\delta}(\F).
+\]
+There is then a dense open subset \(D^\circ\) of \(D\) such that, whenever a smooth curve \(Y\) on \(X\) meets \(D^\circ\) transversely at a point \(a\), a specialization of a generic point \(\delta\), one has
+\[
+  \Sw(\F|_Y\text{ at }a)=\Sw_{\bar\delta}(\F).
+\]
+All this remains valid whether or not \(D\) is smooth, and whether or not \(X\) is smooth.
+\[
+\transverseCurveSketch
+\]
+
+If \(Y\) varies while continuing to meet \(D\) inside \(D^\circ\) transversely, one is in a local acyclicity situation. This can be seen directly: the point is that \(\F\) trivializes on some \(X'\to X\), and that, for \(Y\) smooth and meeting \(D\) in \(D^\circ\) transversely, \(\varphi^{-1}Y\) is still smooth.
+
+\paragraph{Local result.}
+Take \(X\) strictly local, essentially of finite type over \(k\).
+
+\paragraph{Theorem 2.}
+Let
+\[
+  f:X\longrightarrow \A^1
+\]
+send the closed point \(x\) to \(0\). Assume that \(f\) is smooth away from \(x\), and that \(f|_D\) is etale away from \(x\). Let \(D_i\) be the irreducible components of \(D\), let \(j:U\hookrightarrow X\), and let \(\Sw_i\) be the Swan conductor of \(\F\) at the generic point of \(D_i\). Then, denoting by \(\Psi_x^*\) the fiber at \(x\) of the sheaf of vanishing cycles,
+\[
+  \dim_{\Tot}\Psi_x^*(j_!\F)
+  +\sum_i \Sw_i(\F_{D_i})
+\tag{2}
+\]
+is independent of \(f\). It is denoted \(\Sw_x(\F)\).
+
+Here \(\dim_{\Tot}\) is the alternating, or total, sum of the dimensions of the vanishing cycles. The above expression is a virtual \(\Fell\)-sheaf; it depends only on its generic fiber. Viewed as a virtual sheaf on a curve, it has the following properties: its rank is zero at the generic point and, at every point,
+\[
+  \text{generic rank}-\text{rank of the fiber at the point}+\Sw=0.
+\]
+
+\paragraph{Global result.}
+Take \(X\) proper. Assume \(X\) normal, and let \(D_i\) be the irreducible components of \(D\). Let \(D_i^\circ=D_i\cap D^\circ\), and let \(\Sw_i\) be as above. Then
+\[
+  \chi(X,j_!\F)
+  =\chi_c(U)\,\rk\F
+   -\sum_i \chi(D_i^\circ)\Sw_i
+   -\sum_{x\in D-D^\circ}\Sw_x(\F).
+\tag{3}
+\]
+The formula is proved by rewriting Theorem 2 in the form
+\[
+  \chi(X,j_!\F)-\rk\F\,\chi_c(U)
+  +\sum_i \Sw_i\,\chi(D_i^\circ)
+  =\sum_{x\in D-D^\circ}\Sw_x(\F).
+\]
+
+Compute \(\chi\) by means of a pencil of hyperplane sections whose axis meets \(D\). If the sections are generally transverse to \(D^\circ\), and completely general elsewhere, the Euler-Poincare formula gives the displayed formula, with \(\Sw_x\) computed from the pencil. As the pencil varies, two problems remain:
+\begin{enumerate}[label=\alph*)]
+\item tangencies between \(D^\circ\) and the sections of the pencil;
+\item variation of the morphism \(f\), with section fixed, for sections passing through the points of \(D-D^\circ\).
+\end{enumerate}
+For the first point, one is reduced to proving that, if \(x\in D_i^\circ\), then
+\[
+  \Sw_x(\F)=\Sw_i.
+\tag{4}
+\]
+One begins with general pencils of high degree, with variable axis. This varies the number of tangency points of \(D^\circ\) with the pencil, and one finds that formula (3) is sustainable only if (4) is true for a general tangency. Then, passing from the global to the local, as in the preceding letter, gives Theorem 2.
+
+\paragraph{Example 1.}
+Let, locally, \(X\) be smooth, \(D\) smooth, and let a local section of
+\[
+  f:X\longrightarrow \A^1
+\]
+meet \(D\) transversely. Then
+\[
+\familySquareSketch
+\]
+\[
+\begin{aligned}
+\Sw_x(\F)
+&=\dim_{\Tot}\Psi_x^*(j_!\F)
+  +\Sw(\F\text{ on the generic fiber}) \\
+&=\Sw(\Psi_x^*j_!\F)
+  +\dim\Psi_x^*(j_!\F)
+  +\Sw(\F\text{ on the generic fiber}) \\
+&=\Sw(\Psi_x^*j_!\F)+\Sw(\F\text{ on the special fiber}).
+\end{aligned}
+\]
+If the Swan conductor is the same on the generic and special fibers, then \(\Psi=0\), and \(\Sw_x(\F)\) is the generic Swan conductor. Thus the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item \(\Sw_x=\Sw\) generic;
+\item for a transverse section, the Swan conductor on the special fiber is the same as on the generic fiber;
+\item this holds for every transverse section.
+\end{enumerate}
+
+\paragraph{Example 2.}
+Let \(x\) and \(y\) be coordinates on \(X\), smooth and local, with \(D\) given by \(x=0\). Let \(\psi_0\) be a nontrivial additive character of \(\Fp\). Let \(\F\) be the rank-one sheaf defined by \(\psi_0\) and by the Artin-Schreier cover
+\[
+  T^p-T=\frac{y}{x^d},
+  \qquad (d,p)=1.
+\]
+Then, at the origin,
+\[
+  \Sw_0(\F)=0.
+\]
+Take \(f=y\) and compute by the formula of Example 1. On the special fiber the sheaf is constant, hence \(\Sw=0\). The ramification of \(\Psi\) is tame: this is seen by passing to the analogous global situation, where \(X\) is the affine plane, and observing that \(R^1f_*\) is trivialized over the cover \(\sqrt[d]{y}\), since
+\[
+ H_c^1\bigl(\A^1,\text{sheaf defined by }T^p-T=a/x^d\bigr)
+ \simeq
+ H_c^1\bigl(\A^1,\text{sheaf defined by }T^p-T=1/x^d\bigr),
+\]
+independently of \(a\ne 0\).
+
+Yours,
+
+\hspace{2em}P. Deligne
+
+\paragraph{P.S.}
+If one continues in codimension \(1\), allowing inseparable extensions, the essential problem seems to be the following. Let \(X\) be a smooth surface, let \(D\subset X\) be smooth as above, and let \(\F\) be locally constant on \(X-D\). Does there exist a nonempty open \(D^\circ\subset D\) such that, when \(\F\) is restricted to a smooth curve meeting \(D\) transversely, one always obtains the same Swan conductor?
+\[
+\jetSketch
+\]
+
+The conductor obtained depends only on the jet of the curve at the point where it meets \(D\), if one takes the jet of sufficiently high order. Thus consider over \(D\) the bundle of jets, of sufficiently high order, of curves transverse to \(D\). The Swan-conductor function on this bundle is constructible, and the preceding letter shows that its generic value is its maximum value. Let \(\mathcal J'\subset\mathcal J\) be the closed subset where the conductor is smaller. Question: can \(\mathcal J'\) have a component of codimension \(1\) which maps onto \(D\)?
+
+\end{document}

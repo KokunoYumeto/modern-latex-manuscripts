@@ -1,0 +1,1779 @@
+%% =============================================================================
+%% Jiuzhang Suanshu (Nine Chapters on the Mathematical Art) -- Volumes 1-3
+%% BILINGUAL English-Chinese Edition
+%% With Liu Hui's Commentary (263 CE)
+%% =============================================================================
+\documentclass[10pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{enumitem}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=15mm,right=15mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Font Configuration --------
+\setmainlanguage{english}
+
+\setmainfont{Linux Libertine O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Renderer=Harfbuzz
+]
+\setsansfont{Linux Biolinum O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  Renderer=Harfbuzz
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% CJK Font Setup
+\setCJKmainfont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKsansfont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKmonofont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{commentarycolor}{RGB}{70,90,110}
+\definecolor{problemcolor}{RGB}{30,60,90}
+\definecolor{answercolor}{RGB}{40,80,60}
+\definecolor{methodcolor}{RGB}{80,50,30}
+\definecolor{boxbg}{RGB}{250,248,245}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Jiuzhang Suanshu -- Bilingual Edition (Vols 1--3)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Bilingual Column Setup --------
+\newcommand{\cnen}[2]{%
+  \vspace{0.4em}%
+  \noindent\fcolorbox{rulecolor}{white}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \small\color{problemcolor}#1%
+  \end{minipage}}%
+  \hfill%
+  \fcolorbox{rulecolor}{boxbg}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \small\color{black}#2%
+  \end{minipage}}%
+  \vspace{0.4em}%
+}
+
+\newcommand{\cnenmethod}[2]{%
+  \vspace{0.3em}%
+  \noindent\fcolorbox{rulecolor}{white}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \small\color{methodcolor}\textbf{術曰：}#1%
+  \end{minipage}}%
+  \hfill%
+  \fcolorbox{rulecolor}{boxbg}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \small\color{methodcolor}\textbf{Method:} #2%
+  \end{minipage}}%
+  \vspace{0.3em}%
+}
+
+\newcommand{\cnenans}[2]{%
+  \noindent\fcolorbox{rulecolor}{white}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \small\color{answercolor}\textbf{荅曰：}#1%
+  \end{minipage}}%
+  \hfill%
+  \fcolorbox{rulecolor}{boxbg}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \small\color{answercolor}\textbf{Answer:} #2%
+  \end{minipage}}%
+  \vspace{0.2em}%
+}
+
+\newcommand{\cnencommentary}[2]{%
+  \vspace{0.3em}%
+  \noindent\fcolorbox{rulecolor}{white}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \footnotesize\color{commentarycolor}\textit{（注）}#1%
+  \end{minipage}}%
+  \hfill%
+  \fcolorbox{rulecolor}{boxbg}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \footnotesize\color{commentarycolor}\textit{(Comm.)} #2%
+  \end{minipage}}%
+  \vspace{0.3em}%
+}
+
+\newcommand{\bilingualheader}[2]{%
+  \vspace{0.5em}%
+  \begin{center}
+  \fcolorbox{rulecolor}{white}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \centering\textbf{\color{sectioncolor}#1}%
+  \end{minipage}}%
+  \hfill%
+  \fcolorbox{rulecolor}{boxbg}{%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \centering\textbf{\color{sectioncolor}#2}%
+  \end{minipage}}%
+  \end{center}
+  \vspace{0.3em}%
+}
+
+\newcommand{\problemtag}[1]{\textbf{[#1]}\,}
+\newcommand{\colheaders}{%
+  \bilingualheader{原典 Classical Chinese}{English Translation}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Jiuzhang Suanshu -- Bilingual Edition Volumes 1-3},
+  pdfauthor={Anonymous; Commentary by Liu Hui},
+}
+
+%% -------- Spacing --------
+\setlength{\parskip}{0.2em}
+\setlength{\parindent}{0pt}
+\fboxsep=4pt
+
+%% =============================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor} Jiuzhang Suanshu / 九章算術}\\[0.6cm]
+{\Large\color{sectioncolor}\textit{Nine Chapters on the Mathematical Art}}\\[1.5cm]
+{\Large\bfseries Bilingual English-Chinese Edition}\\[0.3cm]
+{\large Volumes 1--3 / 卷一至卷三}\\[2cm]
+
+\fcolorbox{rulecolor}{boxbg}{%
+\begin{minipage}{0.85\textwidth}
+\centering
+\vspace{0.5em}
+{\large\color{sectioncolor}\textbf{Contents / 目次}}\\[0.8em]
+\begin{tabular}{cll}
+\textbf{卷一} & 方田 Fāngtián & Rectangular Fields \\
+\textbf{卷二} & 粟米 Sùmǐ & Millet and Rice \\
+\textbf{卷三} & 衰分 Cuīfēn & Proportional Distribution \\
+\end{tabular}
+\vspace{0.5em}
+\end{minipage}}
+
+\vspace{2cm}
+
+{\large With Commentary by \textbf{Liu Hui} (劉徽, 263 CE)}\\[0.5cm]
+{\large and Later Annotations by Li Chunfeng (李淳風, 656 CE)}\\[2cm]
+
+\rule{0.6\textwidth}{0.8pt}\\[1cm]
+
+{\small The most important classical Chinese mathematical text}\\[0.3cm]
+{\small Compiled c.~200 BCE--200 CE \quad|\quad Commentary 263 CE}\\[1cm]
+
+\fcolorbox{rulecolor}{boxbg}{%
+\begin{minipage}{0.8\textwidth}
+\centering
+\small
+\textbf{Parallel Text / 對照文本}\\[0.3em]
+\textit{Left column: Original Classical Chinese}\\
+\textit{Right column: English Translation}
+\end{minipage}}
+
+\vfill
+
+\rule{0.4\textwidth}{0.4pt}
+
+\end{center}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+
+%% =============================================================================
+\section*{劉徽九章算術注原序 / Preface by Liu Hui}
+\addcontentsline{toc}{section}{Preface: 劉徽九章算術注原序}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+\colheaders
+
+\cnen{%
+昔在包犧氏始畫八卦，以通神明之德，以類萬物之情，作九九之術以合六爻之變。
+暨於黃帝神而化之，引而伸之，於是建曆紀，協律呂，用稽道原，然後兩儀四象精微之氣可得而效焉。
+記稱隸首作數，其詳未之聞也。
+按周公制禮而有九數，九數之流，則九章是矣。%
+}{%
+In antiquity, the Fuxi clan first drew the Eight Trigrams, to communicate the virtue of the divine spirits and to classify the natures of the myriad things. They created the art of the nine nines [multiplication table] to correspond to the transformations of the six lines [of the hexagrams].
+When it came to the Yellow Emperor, he spiritualized and transformed it, extended and elaborated it. Thereupon he established the calendar system and harmonized the pitch pipes, using these to investigate the origin of the Way. Then the refined essences of the Two Modes and Four Images could be apprehended.
+Records say that Li Shou created numbers, but the details have not been heard.
+According to the Duke of Zhou's establishment of rites, there were Nine Numbers; the Nine Numbers evolved, and from them came the Nine Chapters.%
+}
+
+\cnen{%
+往者暴秦焚書，經術散壞。自時厥後，漢北平侯張蒼、大司農中丞耿壽昌皆以善算命世。
+蒼等因舊文之遺殘，各稱刪補。故校其目則與古或異，而所論者多近語也。%
+}{%
+In former times, the tyrannical Qin dynasty burned the books, and the classics and arts were scattered and destroyed. After that time, Zhang Cang, Marquis of Beiping in the Han, and Geng Shouchang, Vice Minister of Agriculture, both were renowned for their skill in calculation.
+Zhang and others took the surviving remnants of the old texts, each claiming to have edited and supplemented them. Therefore, when one examines the contents, they differ somewhat from the ancient version, and what is discussed mostly uses contemporary language.%
+}
+
+\cnen{%
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源，探賾之暇，遂悟其意。
+是以敢竭頑魯，采其所見，為之作注。
+事類相推，各有攸歸，故枝條雖分而同本榦者，知發其一端而已。
+又所析理以辭，解體用圖，庶亦約而能周，通而不黷，覽之者思過半矣。%
+}{%
+I, Hui, studied the Nine Chapters in my youth, and in adulthood reviewed it thoroughly. Observing the division of yin and yang, and summarizing the root sources of the art of calculation, in the leisure of my explorations I came to understand its meaning.
+Therefore, I dare to exhaust my humble and dull capacities, collecting what I have observed, to write a commentary upon it.
+Matters of the same kind are inferred from each other, each having its proper place. Though the branches are divided, they share the same trunk---one need only know how to develop from a single starting point.
+Moreover, I analyze principles with words and explain forms with diagrams, hoping to achieve conciseness that is yet comprehensive, and clarity without redundancy. Those who read it will understand more than half.%
+}
+
+\cnen{%
+且算在六藝，古者以賓興賢能，教習國子。雖曰九數，其能窮纖入微，探測無方。
+至於以法相傳，亦猶規矩度量可得而共，非特難為也。
+當今好之者寡，故世雖多通才達學，而未必能綜於此耳。%
+}{%
+Moreover, calculation is among the Six Arts. In antiquity, it was used to recommend the worthy and capable, and to instruct the sons of the state. Though called the Nine Numbers, it can penetrate the most minute and subtle details, exploring what cannot be fathomed.
+As for the transmission of methods, it is like compasses, squares, measures and standards, which can be shared by all---it is not especially difficult.
+But in the present age those who love it are few, so although the world has many talented and learned scholars, they are not necessarily able to master this.%
+}
+
+\cnen{%
+周官大司徒職，夏至日中立八尺之表，其景尺有五寸，謂之地中。
+說云，南戴日下萬五千里。夫云爾者，以術推之。
+按九章立四表望遠及因木望山之術，皆端旁互見，無有超邈若斯之類。
+然則蒼等為術猶未足以博盡群數也。%
+}{%
+The Offices of Zhou states that the Grand Minister of Instruction, at the summer solstice at noon, erected an eight-foot gnomon, and its shadow was one foot five inches---this is called the center of the earth.
+It is said that the place directly beneath the sun is fifteen thousand li to the south. Such statements are verified by calculation.
+According to the Nine Chapters' methods of erecting four gnomons to observe distant objects and using a tree to observe a mountain, all involve mutual observation of the endpoints and sides; none surpass this category.
+Thus Zhang Cang and others' methods were still insufficient to exhaust all calculations.%
+}
+
+\cnen{%
+徽尋九數有重差之名，原其指趣乃所以施於此也。
+凡望極高、測絕深而兼知其遠者必用重差，句股則必以重差為率，故曰重差也。
+立兩表於洛陽之城，令高八尺。南北各盡平地，同日度其正中之景。
+以景差為法，表高乘表間為實，實如法而一，所得加表高，即日去地也。%
+}{%
+I, Hui, investigated the Nine Numbers and found the name ``Chongcha'' (Double Difference). Tracing its purpose, I realized it is applied to such problems.
+Whenever one observes extreme heights, measures unfathomable depths, and also determines distances, one must use the Double Difference. For right triangles [gougu], one must take the Double Difference as the rate---hence it is called Double Difference.
+Erect two gnomons in the city of Luoyang, making them eight feet high. On level ground to the north and south, on the same day measure their noon shadows.
+Take the difference of shadows as the divisor [fa]; multiply the gnomon height by the distance between gnomons as the dividend [shi]; divide to obtain a result; add the gnomon height to it---this gives the distance of the sun from the earth.%
+}
+
+\cnen{%
+以南表之景乘表間為實，實如法而一，即為從南表至南戴日下也。
+以南戴日下及日去地為句、股，為之求弦，即日去人也。
+以徑寸之筩南望日，日滿筩空，則定筩之長短以為股率，以筩徑為句率，
+日去人之數為大股，大股之句即日徑也。%
+}{%
+Multiply the south gnomon's shadow by the distance between gnomons as the dividend; divide by the divisor---this gives the distance from the south gnomon to the point directly beneath the sun.
+Take the distance to the subsolar point and the sun's altitude from earth as the base [gou] and height [gu] of a right triangle; finding the hypotenuse gives the distance from the sun to the observer.
+Use a tube of one-inch diameter to observe the sun from the south. When the sun fills the tube opening, the tube's length becomes the height-rate [gul"u], and the tube's diameter becomes the base-rate [goul"u].
+The distance from sun to observer becomes the large height; from this the large base is found---that is the diameter of the sun.%
+}
+
+\cnen{%
+雖天圓穹之象猶曰可度，又況泰山之高與江海之廣哉。
+徽以為今之史籍且略舉天地之物，考論厥數，載之於志，以闡世術之美。
+輒造重差，并為注解，以究古人之意，綴於句股之下。
+度高者重表，測深者累矩，孤離者三望，離而又旁求者四望。
+觸類而長之，則雖幽遐詭伏，靡所不入。%
+}{%
+Though the round dome of heaven can still be measured, how much more so the height of Mount Tai and the breadth of the rivers and seas!
+I, Hui, believe that today's historical records merely briefly enumerate things of heaven and earth. I have examined and discussed their numbers, recording them in this work, to illuminate the beauty of mathematical arts in the world.
+I have composed the Double Difference method, with annotations, to investigate the intentions of the ancients, appending it after the chapter on Right Triangles.
+To measure heights use double gnomons; to measure depths use accumulated carpenter's squares; for isolated objects use triple observation; for objects at a distance requiring lateral determination use quadruple observation.
+Extending by analogy, even the most remote and hidden things can be reached.%
+}
+
+\begin{flushright}
+\textit{博物君子，詳而覽焉。 / Let the gentleman of broad learning examine this in detail.}
+\end{flushright}
+
+\newpage
+
+
+%% =============================================================================
+\section{卷第一：方田 / Volume 1: Rectangular Fields}
+\label{sec:fangtian}
+\addcontentsline{toc}{subsection}{Fangtián -- Rectangular Fields}
+
+\begin{center}
+\textit{方田以御田疇界域 / ``Rectangular Fields are for governing the boundaries of farmland.''}
+\end{center}
+
+\colheaders
+
+\cnen{%
+\textbf{方田}者，田之正也。諸田不等，以方為正，故曰方田。
+此章以御田疇界域，論各種田地面積之計算法，并及分數四則運算之法。%
+}{%
+\textbf{Fangtian} (Rectangular Fields) means the standard [rectangular] field. Since various fields are not uniform, the square/rectangle is taken as the standard---hence ``Rectangular Fields.''
+This chapter governs the boundaries of farmland, discussing methods for computing the areas of various fields, as well as the four arithmetic operations with fractions.%
+}
+
+\vspace{0.5em}
+
+%% ===== Problem 1 =====
+\cnen{%
+\problemtag{一}\textbf{今有}田廣十五步，從十六步。\textbf{問}為田幾何？%
+}{%
+\problemtag{1}\textbf{Suppose there is} a field with width 15 \textit{bu} and length 16 \textit{bu}. \textbf{Question:} how much field [area] does it make?%
+}
+\cnenans{一畝。}{1 \textit{mu}.}
+
+%% ===== Problem 2 =====
+\cnen{%
+\problemtag{二}\textbf{又有}田廣十二步，從十四步。\textbf{問}為田幾何？%
+}{%
+\problemtag{2}\textbf{Further:} a field with width 12 \textit{bu} and length 14 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一百六十八步。}{168 square \textit{bu}.}
+
+\cnenmethod{%
+方田術曰：廣從步數相乘得積步。以畝法二百四十步除之，即畝數。百畝為一頃。%
+}{%
+The method for rectangular fields says: multiply the width and length in \textit{bu} to obtain the area in square \textit{bu}. Divide by the \textit{mu} divisor of 240 square \textit{bu} to obtain the number of \textit{mu}. One hundred \textit{mu} make one \textit{qing}.%
+}
+
+%% ===== Problem 3 =====
+\cnen{%
+\problemtag{三}\textbf{今有}田廣一里，從一里。\textbf{問}為田幾何？%
+}{%
+\problemtag{3}\textbf{Suppose there is} a field with width 1 \textit{li} and length 1 \textit{li}. \textbf{Question:} how much field?%
+}
+\cnenans{三頃七十五畝。}{3 \textit{qing} and 75 \textit{mu}.}
+
+%% ===== Problem 4 =====
+\cnen{%
+\problemtag{四}\textbf{又有}田廣二里，從三里。\textbf{問}為田幾何？%
+}{%
+\problemtag{4}\textbf{Further:} a field with width 2 \textit{li} and length 3 \textit{li}. \textbf{Question:} how much field?%
+}
+\cnenans{二十二頃五十畝。}{22 \textit{qing} and 50 \textit{mu}.}
+
+\cnenmethod{%
+里田術曰：廣從里數相乘得積里。以三百七十五乘之，即畝數。%
+}{%
+The method for li-fields says: multiply the width and length in \textit{li} to obtain the area in square \textit{li}. Multiply by 375 to obtain the number of \textit{mu}.%
+}
+
+%% ===== Problem 5 =====
+\cnen{%
+\problemtag{五}\textbf{今有}十八分之十二。\textbf{問}約之得幾何？%
+}{%
+\problemtag{5}\textbf{Suppose there is} $\tfrac{12}{18}$. \textbf{Question:} reducing it, what does it yield?%
+}
+\cnenans{三分之二。}{$\tfrac{2}{3}$.}
+
+%% ===== Problem 6 =====
+\cnen{%
+\problemtag{六}\textbf{又有}九十一分之四十九。\textbf{問}約之得幾何？%
+}{%
+\problemtag{6}\textbf{Further:} $\tfrac{49}{91}$. \textbf{Question:} reducing it, what does it yield?%
+}
+\cnenans{十三分之七。}{$\tfrac{7}{13}$.}
+
+\cnenmethod{%
+約分術曰：可半者半之，不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。%
+}{%
+The method for reducing fractions says: if [both terms] can be halved, halve them. If not, place the numerator and denominator numbers separately; subtract the smaller from the larger, repeatedly reducing them mutually, seeking their equality [GCD]. Use this equal number to reduce [both terms].%
+}
+
+%% ===== Problem 7 =====
+\cnen{%
+\problemtag{七}\textbf{今有}三分之一，五分之二。\textbf{問}合之得幾何？%
+}{%
+\problemtag{7}\textbf{Suppose there is} $\tfrac{1}{3}$ and $\tfrac{2}{5}$. \textbf{Question:} combining them, what does it yield?%
+}
+\cnenans{十五分之十一。}{$\tfrac{11}{15}$.}
+
+%% ===== Problem 8 =====
+\cnen{%
+\problemtag{八}\textbf{又有}三分之二，七分之四，九分之五。\textbf{問}合之得幾何？%
+}{%
+\problemtag{8}\textbf{Further:} $\tfrac{2}{3}$, $\tfrac{4}{7}$, and $\tfrac{5}{9}$. \textbf{Question:} combining them, what does it yield?%
+}
+\cnenans{得一、六十三分之五十。}{Yields $1\tfrac{50}{63}$.}
+
+%% ===== Problem 9 =====
+\cnen{%
+\problemtag{九}\textbf{又有}二分之一，三分之二，四分之三，五分之四。\textbf{問}合之得幾何？%
+}{%
+\problemtag{9}\textbf{Further:} $\tfrac{1}{2}$, $\tfrac{2}{3}$, $\tfrac{3}{4}$, and $\tfrac{4}{5}$. \textbf{Question:} combining them, what does it yield?%
+}
+\cnenans{得二、六十分之四十三。}{Yields $2\tfrac{43}{60}$.}
+
+\cnenmethod{%
+合分術曰：母互乘子，并為實，母相乘為法，實如法而一。不滿法者，以法命之。其母同者，直相從之。%
+}{%
+The method for adding fractions says: multiply the denominators crosswise with the numerators; combine as dividend [shi]. Multiply the denominators together as divisor [fa]. Divide the dividend by the divisor. If less than the divisor, name it [as a fraction] by the divisor. If the denominators are the same, simply combine them directly.%
+}
+
+%% ===== Problem 10 =====
+\cnen{%
+\problemtag{一０}\textbf{今有}九分之八，減其五分之一。\textbf{問}餘幾何？%
+}{%
+\problemtag{10}\textbf{Suppose there is} $\tfrac{8}{9}$; subtract from it $\tfrac{1}{5}$. \textbf{Question:} what is the remainder?%
+}
+\cnenans{四十五分之三十一。}{$\tfrac{31}{45}$.}
+
+%% ===== Problem 11 =====
+\cnen{%
+\problemtag{一一}\textbf{又有}四分之三，減其三分之一。\textbf{問}餘幾何？%
+}{%
+\problemtag{11}\textbf{Further:} $\tfrac{3}{4}$; subtract from it $\tfrac{1}{3}$. \textbf{Question:} what is the remainder?%
+}
+\cnenans{十二分之五。}{$\tfrac{5}{12}$.}
+
+\cnenmethod{%
+減分術曰：母互乘子，以少減多，餘為實，母相乘為法，實如法而一。%
+}{%
+The method for subtracting fractions says: multiply denominators crosswise with numerators; subtract the smaller from the larger; the remainder is the dividend. Multiply denominators together as divisor. Divide the dividend by the divisor.%
+}
+
+%% ===== Problem 12 =====
+\cnen{%
+\problemtag{一二}\textbf{今有}八分之五，二十五分之十六。\textbf{問}孰多？多幾何？%
+}{%
+\problemtag{12}\textbf{Suppose there is} $\tfrac{5}{8}$ and $\tfrac{16}{25}$. \textbf{Question:} which is greater? By how much?%
+}
+\cnenans{二十五分之十六多，多二百分之三。}{$\tfrac{16}{25}$ is greater, by $\tfrac{3}{200}$.}
+
+%% ===== Problem 13 =====
+\cnen{%
+\problemtag{一三}\textbf{又有}九分之八，七分之六。\textbf{問}孰多？多幾何？%
+}{%
+\problemtag{13}\textbf{Further:} $\tfrac{8}{9}$ and $\tfrac{6}{7}$. \textbf{Question:} which is greater? By how much?%
+}
+\cnenans{九分之八多，多六十三分之二。}{$\tfrac{8}{9}$ is greater, by $\tfrac{2}{63}$.}
+
+%% ===== Problem 14 =====
+\cnen{%
+\problemtag{一四}\textbf{又有}二十一分之八，五十分之十七。\textbf{問}孰多？多幾何？%
+}{%
+\problemtag{14}\textbf{Further:} $\tfrac{8}{21}$ and $\tfrac{17}{50}$. \textbf{Question:} which is greater? By how much?%
+}
+\cnenans{二十一分之八多，多一千五十分之四十三。}{$\tfrac{8}{21}$ is greater, by $\tfrac{43}{1050}$.}
+
+\cnenmethod{%
+課分術曰：母互乘子，以少減多，餘為實，母相乘為法，實如法而一，即相多也。%
+}{%
+The method for comparing fractions says: multiply denominators crosswise with numerators; subtract the smaller from the larger; the remainder is the dividend. Multiply denominators together as divisor. Divide---the result is the difference between them.%
+}
+
+%% ===== Problem 15 =====
+\cnen{%
+\problemtag{一五}\textbf{今有}三分之一，三分之二，四分之三。\textbf{問}減多益少，各幾何而平？%
+}{%
+\problemtag{15}\textbf{Suppose there is} $\tfrac{1}{3}$, $\tfrac{2}{3}$, $\tfrac{3}{4}$. \textbf{Question:} reducing the larger and augmenting the smaller, by how much each to make them equal?%
+}
+\cnenans{%
+減四分之三者二，三分之二者一，并以益三分之一，而各平於十二分之七。%
+}{%
+Reduce $\tfrac{3}{4}$ by $\tfrac{2}{12}$ [and] $\tfrac{2}{3}$ by $\tfrac{1}{12}$, combining [both amounts] to augment $\tfrac{1}{3}$; each is then equal at $\tfrac{7}{12}$.%
+}
+
+%% ===== Problem 16 =====
+\cnen{%
+\problemtag{一六}\textbf{又有}二分之一，三分之二，四分之三。\textbf{問}減多益少，各幾何而平？%
+}{%
+\problemtag{16}\textbf{Further:} $\tfrac{1}{2}$, $\tfrac{2}{3}$, $\tfrac{3}{4}$. \textbf{Question:} reducing the larger and augmenting the smaller, by how much each to make them equal?%
+}
+\cnenans{%
+減三分之二者一，四分之三者四，并以益二分之一，而各平於三十六分之二十三。%
+}{%
+Reduce $\tfrac{2}{3}$ by $\tfrac{1}{36}$ [and] $\tfrac{3}{4}$ by $\tfrac{4}{36}$, combining [both amounts] to augment $\tfrac{1}{2}$; each is then equal at $\tfrac{23}{36}$.%
+}
+
+\cnenmethod{%
+平分術曰：母互乘子，副并為平實，母相乘為法。以列數乘未并者各自為列實。亦以列數乘法，以平實減列實，餘，約之為所減。并所減以益於少，以法命平實，各得其平。%
+}{%
+The method for equalizing [fractions] says: multiply denominators crosswise with numerators; combine the auxiliary [copies] as the equal dividend. Multiply denominators together as divisor. Multiply the number of terms by the uncombined [terms], each becoming its own column dividend. Also multiply the number of terms by the divisor. Subtract the equal dividend from each column dividend; the remainder, reduced, is what is to be subtracted. Combine the amounts subtracted to augment the smallest. Name the equal dividend by the divisor---each obtains its equal share.%
+}
+
+%% ===== Problem 17 =====
+\cnen{%
+\problemtag{一七}\textbf{今有}七人，分八錢三分錢之一。\textbf{問}人得幾何？%
+}{%
+\problemtag{17}\textbf{Suppose there are} 7 people, sharing $8\tfrac{1}{3}$ coins. \textbf{Question:} how much does each person get?%
+}
+\cnenans{人得一錢、二十一分錢之四。}{Each person gets $1\tfrac{4}{21}$ coins.}
+
+%% ===== Problem 18 =====
+\cnen{%
+\problemtag{一八}\textbf{又有}三人，三分人之一，分六錢三分錢之一，四分錢之三。\textbf{問}人得幾何？%
+}{%
+\problemtag{18}\textbf{Further:} 3 people plus $\tfrac{1}{3}$ of a person, sharing $6\tfrac{1}{3}\tfrac{3}{4}$ coins. \textbf{Question:} how much does each get?%
+}
+\cnenans{人得二錢、八分錢之一。}{Each person gets $2\tfrac{1}{8}$ coins.}
+
+\cnenmethod{%
+經分術曰：以人數為法，錢數為實，實如法而一。有分者通之，重有分者同而通之。%
+}{%
+The method for dividing by [whole] numbers says: take the number of people as divisor and the number of coins as dividend; divide. If there are fractions, convert them [to common terms]; if there are repeated fractions, equalize and convert them.%
+}
+
+
+%% ===== Problem 19 =====
+\cnen{%
+\problemtag{一九}\textbf{今有}田廣七分步之四，從五分步之三。\textbf{問}為田幾何？%
+}{%
+\problemtag{19}\textbf{Suppose there is} a field with width $\tfrac{4}{7}$ \textit{bu} and length $\tfrac{3}{5}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{三十五分步之十二。}{$\tfrac{12}{35}$ square \textit{bu}.}
+
+%% ===== Problem 20 =====
+\cnen{%
+\problemtag{二０}\textbf{又有}田廣九分步之七，從十一分步之九。\textbf{問}為田幾何？%
+}{%
+\problemtag{20}\textbf{Further:} width $\tfrac{7}{9}$ \textit{bu}, length $\tfrac{9}{11}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{十一分步之七。}{$\tfrac{7}{11}$ square \textit{bu}.}
+
+%% ===== Problem 21 =====
+\cnen{%
+\problemtag{二一}\textbf{又有}田廣五分步之四，從九分步之五，\textbf{問}為田幾何？%
+}{%
+\problemtag{21}\textbf{Further:} width $\tfrac{4}{5}$ \textit{bu}, length $\tfrac{5}{9}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{九分步之四。}{$\tfrac{4}{9}$ square \textit{bu}.}
+
+\cnenmethod{%
+乘分術曰：母相乘為法，子相乘為實，實如法而一。%
+}{%
+The method for multiplying fractions says: multiply denominators together as divisor; multiply numerators together as dividend; divide the dividend by the divisor.%
+}
+
+%% ===== Problem 22 =====
+\cnen{%
+\problemtag{二二}\textbf{今有}田廣三步、三分步之一，從五步、五分步之二。\textbf{問}為田幾何？%
+}{%
+\problemtag{22}\textbf{Suppose there is} a field with width $3\tfrac{1}{3}$ \textit{bu} and length $5\tfrac{2}{5}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{十八步。}{18 square \textit{bu}.}
+
+%% ===== Problem 23 =====
+\cnen{%
+\problemtag{二三}\textbf{又有}田廣七步、四分步之三，從十五步、九分步之五。\textbf{問}為田幾何？%
+}{%
+\problemtag{23}\textbf{Further:} width $7\tfrac{3}{4}$ \textit{bu}, length $15\tfrac{5}{9}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一百二十步、九分步之五。}{$120\tfrac{5}{9}$ square \textit{bu}.}
+
+%% ===== Problem 24 =====
+\cnen{%
+\problemtag{二四}\textbf{又有}田廣十八步、七分步之五，從二十三步、十一分步之六。\textbf{問}為田幾何？%
+}{%
+\problemtag{24}\textbf{Further:} width $18\tfrac{5}{7}$ \textit{bu}, length $23\tfrac{6}{11}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一畝二百步、十一分步之七。}{1 \textit{mu} and $200\tfrac{7}{11}$ square \textit{bu}.}
+
+\cnenmethod{%
+大廣田術曰：分母各乘其全，分子從之，相乘為實。分母相乘為法。實如法而一。%
+}{%
+The method for large-width fields says: each denominator multiplies its whole [number], and the numerators follow; multiply together as dividend. Multiply denominators together as divisor. Divide the dividend by the divisor.%
+}
+
+%% ===== Problem 25 =====
+\cnen{%
+\problemtag{二五}\textbf{今有}圭田廣十二步，正從二十一步。\textbf{問}為田幾何？%
+}{%
+\problemtag{25}\textbf{Suppose there is} a \textit{guitian} [triangle field] with base 12 \textit{bu} and height 21 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一百二十六步。}{126 square \textit{bu}.}
+
+%% ===== Problem 26 =====
+\cnen{%
+\problemtag{二六}\textbf{又有}圭田廣五步、二分步之一，從八步、三分步之二。\textbf{問}為田幾何？%
+}{%
+\problemtag{26}\textbf{Further:} a \textit{guitian} with base $5\tfrac{1}{2}$ \textit{bu}, height $8\tfrac{2}{3}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{二十三步、六分步之五。}{$23\tfrac{5}{6}$ square \textit{bu}.}
+
+\cnenmethod{%
+術曰：半廣以乘正從。%
+}{%
+Method: halve the base and multiply by the height.%
+}
+
+\cnencommentary{%
+劉徽注：半廣者，以盈補虛，為直田也。亦可以半正從以乘廣。%
+}{%
+Liu Hui's commentary: Halving the base---using the excess to fill the deficiency---makes a rectangular field. One may also halve the height and multiply by the base.%
+}
+
+%% ===== Problem 27 =====
+\cnen{%
+\problemtag{二七}\textbf{今有}邪田，一頭廣三十步，一頭廣四十二步，正從六十四步。\textbf{問}為田幾何？%
+}{%
+\problemtag{27}\textbf{Suppose there is} a \textit{xietian} [trapezoid] with one end-width 30 \textit{bu}, the other end-width 42 \textit{bu}, and height 64 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{九畝一百四十四步。}{9 \textit{mu} and 144 square \textit{bu}.}
+
+%% ===== Problem 28 =====
+\cnen{%
+\problemtag{二八}\textbf{又有}邪田，正廣六十五步，一畔從一百步，一畔從七十二步。\textbf{問}為田幾何？%
+}{%
+\problemtag{28}\textbf{Further:} a \textit{xietian} with top width 65 \textit{bu}, one side-length 100 \textit{bu}, other side-length 72 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{二十三畝七十步。}{23 \textit{mu} and 70 square \textit{bu}.}
+
+\cnenmethod{%
+術曰：并兩邪而半之，以乘正從若廣。又可半正從若廣，以乘并，畝法而一。%
+}{%
+Method: combine the two slant sides and halve; multiply by the height [or width]. Alternatively, halve the height [or width] and multiply by the combined [slant sides]; divide by the \textit{mu} divisor.%
+}
+
+%% ===== Problem 29 =====
+\cnen{%
+\problemtag{二九}\textbf{今有}箕田，舌廣二十步，踵廣五步，正從三十步。\textbf{問}為田幾何？%
+}{%
+\problemtag{29}\textbf{Suppose there is} a \textit{jitian} [winnowing-basket field] with tongue-width 20 \textit{bu}, heel-width 5 \textit{bu}, and height 30 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一畝一百三十五步。}{1 \textit{mu} and 135 square \textit{bu}.}
+
+%% ===== Problem 30 =====
+\cnen{%
+\problemtag{三０}\textbf{又有}箕田，舌廣一百一十七步，踵廣五十步，正從一百三十五步。\textbf{問}為田幾何？%
+}{%
+\problemtag{30}\textbf{Further:} a \textit{jitian} with tongue-width 117 \textit{bu}, heel-width 50 \textit{bu}, height 135 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{四十六畝二百三十二步半。}{46 \textit{mu} and $232\tfrac{1}{2}$ square \textit{bu}.}
+
+\cnenmethod{%
+術曰：并踵舌而半之，以乘正從。畝法而一。%
+}{%
+Method: combine heel and tongue and halve; multiply by the height; divide by the \textit{mu} divisor.%
+}
+
+%% ===== Problem 31 =====
+\cnen{%
+\problemtag{三一}\textbf{今有}圓田，周三十步，徑十步。\textbf{問}為田幾何？%
+}{%
+\problemtag{31}\textbf{Suppose there is} a circular field with circumference 30 \textit{bu} and diameter 10 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{七十五步。}{75 square \textit{bu}.}
+
+%% ===== Problem 32 =====
+\cnen{%
+\problemtag{三二}\textbf{又有}圓田，周一百八十一步，徑六十步、三分步之一。\textbf{問}為田幾何？%
+}{%
+\problemtag{32}\textbf{Further:} a circular field with circumference 181 \textit{bu} and diameter $60\tfrac{1}{3}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{十一畝九十步、十二分步之一。}{11 \textit{mu} and $90\tfrac{1}{12}$ square \textit{bu}.}
+
+\cnenmethod{%
+術曰：半周半徑相乘得積步。
+
+又術曰：周徑相乘，四而一。
+
+又術曰：徑自相乘，三之，四而一。
+
+又術曰：周自相乘，十二而一。%
+}{%
+Method: multiply half the circumference by half the radius to get the area.
+
+Alternative method: multiply circumference by diameter, then divide by 4.
+
+Alternative method: square the diameter, triple it, then divide by 4.
+
+Alternative method: square the circumference, then divide by 12.%
+}
+
+\cnencommentary{%
+此于徽術，當為田十畝二百八步三百一十四分步之一百一。臣淳風等謹依密率，為田十畝二百步八十八分步之八十七。
+
+按：半周為從，半徑為廣，故廣從相乘為積步也。假令圓徑二尺，圓中容六觚之一面，與圓徑之半，其數均等。合徑率一而外周率三也。%
+}{%
+According to Hui's method, this should yield 10 \textit{mu} and $208\tfrac{101}{314}$ square \textit{bu}. Li Chunfeng and others, using the precise rate [of $\pi$], obtain 10 \textit{mu} and $200\tfrac{87}{88}$ square \textit{bu}.
+
+Note: half the circumference serves as length, half the radius as width; thus multiplying width by length gives the area. Suppose the diameter is 2 \textit{chi}; the side of a hexagon inscribed in the circle equals half the diameter in number. This gives diameter-rate 1 and circumference-rate 3 [i.e., $\pi \approx 3$].%
+}
+
+\cnencommentary{%
+又按：為圖，以六觚之一面乘一弧半徑，三之，得十二觚之冪。若又割之，次以十二觚之一面乘一弧之半徑，六之，則得二十四觚之冪。割之彌細，所失彌少。割之又割，以至于不可割，則與圓周合體而無所失矣。觚面之外，又有餘徑。以面乘餘徑，則冪出觚表。若夫觚之細者，與圓合體，則表無餘徑。表無餘徑，則冪不外出矣。以一面乘半徑，觚而裁之，每輒自倍。故以半周乘半徑而為圓冪。%
+}{%
+Furthermore: construct a diagram. Multiply the side of a hexagon by the radius of one arc, triple it---this gives the area of a 12-gon. If one cuts again, next multiply the side of a 12-gon by the radius of one arc, multiply by 6---this gives the area of a 24-gon. The finer the cutting, the less the loss. Cut again and again until it cannot be cut further, then it coincides with the circle and nothing is lost.
+
+Outside the sides of the polygon there remain excess radii. Multiplying a side by an excess radius produces area outside the polygon. When the polygon becomes so fine that it coincides with the circle, there are no excess radii; when there are no excess radii, no area extends outside. Multiplying one side by the radius and cutting by the number of sides, each time the area doubles. Therefore multiplying half the circumference by half the radius gives the area of the circle.%
+}
+
+\cnencommentary{%
+此一周、徑，謂至然之數，非周三徑一之率也。周三者，從其六觚之環耳。以推圓規多少之覺，乃弓之與弦也。然世傳此法，莫肯精核；學者踵古，習其謬失。不有明據，辯之斯難。凡物類形象，不圓則方。方圓之率，誠著于近，則雖遠可知也。由此言之，其用博矣。謹按圖驗，更造密率。%
+}{%
+This [precise] circumference and diameter are the true values, not the rate of ``circumference 3, diameter 1.'' ``Circumference 3'' comes from the perimeter of the inscribed hexagon. The difference between using this to measure a circle is like that between a bow [arc] and its chord. Yet this method has been handed down through the ages, and none have examined it carefully; scholars follow antiquity, repeating its errors. Without clear evidence, it is hard to refute.
+
+All objects in form are either round or square. The rates for square and circle, if clearly demonstrated for nearby cases, can be extended to distant ones. From this perspective, its applications are broad. I have carefully verified with diagrams and created more precise rates [for $\pi$].%
+}
+
+%% ===== Problem 33 =====
+\cnen{%
+\problemtag{三三}\textbf{今有}宛田，下周三十步，徑十六步。\textbf{問}為田幾何？%
+}{%
+\problemtag{33}\textbf{Suppose there is} a \textit{wantian} [spherical-segment field] with lower circumference 30 \textit{bu} and diameter 16 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一百二十步。}{120 square \textit{bu}.}
+
+%% ===== Problem 34 =====
+\cnen{%
+\problemtag{三四}\textbf{又有}宛田，下周九十九步，徑五十一步。\textbf{問}為田幾何？%
+}{%
+\problemtag{34}\textbf{Further:} a \textit{wantian} with lower circumference 99 \textit{bu} and diameter 51 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{五畝六十二步、四分步之一。}{5 \textit{mu} and $62\tfrac{1}{4}$ square \textit{bu}.}
+
+\cnenmethod{%
+術曰：以徑乘周，四而一。%
+}{%
+Method: multiply the diameter by the circumference, then divide by 4.%
+}
+
+%% ===== Problem 35 =====
+\cnen{%
+\problemtag{三五}\textbf{今有}弧田，弦三十步，矢十五步。\textbf{問}為田幾何？%
+}{%
+\problemtag{35}\textbf{Suppose there is} a \textit{hutian} [circular-segment field] with chord 30 \textit{bu} and arrow [sagitta] 15 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{一畝九十七步半。}{1 \textit{mu} and $97\tfrac{1}{2}$ square \textit{bu}.}
+
+%% ===== Problem 36 =====
+\cnen{%
+\problemtag{三六}\textbf{又有}弧田，弦七十八步、二分步之一，矢十三步、九分步之七。\textbf{問}為田幾何？%
+}{%
+\problemtag{36}\textbf{Further:} a \textit{hutian} with chord $78\tfrac{1}{2}$ \textit{bu}, arrow $13\tfrac{7}{9}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{二畝一百五十五步、八十一分步之五十六。}{2 \textit{mu} and $155\tfrac{56}{81}$ square \textit{bu}.}
+
+\cnenmethod{%
+術曰：以弦乘矢，矢又自乘，并之，二而一。%
+}{%
+Method: multiply the chord by the arrow; also square the arrow; combine them; halve [the sum].%
+}
+
+%% ===== Problem 37 =====
+\cnen{%
+\problemtag{三七}\textbf{今有}環田，中周九十二步，外周一百二十二步，徑五步。\textbf{問}為田幾何？%
+}{%
+\problemtag{37}\textbf{Suppose there is} a \textit{huantian} [annular field] with inner circumference 92 \textit{bu}, outer circumference 122 \textit{bu}, and radial width 5 \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{二畝五十五步。}{2 \textit{mu} and 55 square \textit{bu}.}
+
+%% ===== Problem 38 =====
+\cnen{%
+\problemtag{三八}\textbf{又有}環田，中周六十二步、四分步之三，外周一百一十三步、二分步之一，徑十二步、三分步之二。\textbf{問}為田幾何？%
+}{%
+\problemtag{38}\textbf{Further:} an annular field with inner circumference $62\tfrac{3}{4}$ \textit{bu}, outer circumference $113\tfrac{1}{2}$ \textit{bu}, width $12\tfrac{2}{3}$ \textit{bu}. \textbf{Question:} how much field?%
+}
+\cnenans{四畝一百五十六步、四分步之一。}{4 \textit{mu} and $156\tfrac{1}{4}$ square \textit{bu}.}
+
+\cnenmethod{%
+術曰：并中外周而半之，以徑乘之為積步。
+
+密率術曰：置中外周步數，分母、子各居其下。母互乘子，通全步，內分子。以中周減外周，餘半之，以益中周。徑亦通分內子，以乘周為實。分母相乘為法，除之為積步，餘積步之分。以畝法除之，即畝數也。%
+}{%
+Method: combine inner and outer circumferences and halve; multiply by the width to obtain the area.
+
+Precise-rate method: place the inner and outer circumferences, with numerators and denominators below each. Cross-multiply denominators with numerators; combine whole steps with numerators. Subtract inner from outer circumference; halve the remainder and add to the inner circumference. Convert the width to an improper fraction. Multiply by the [adjusted] circumference as dividend. Multiply denominators together as divisor; divide to obtain the area [and fractional remainder]. Divide by the \textit{mu} divisor to obtain the number of \textit{mu}.%
+}
+
+\newpage
+
+
+%% =============================================================================
+\section{卷第二：粟米 / Volume 2: Millet and Rice}
+\label{sec:sumi}
+\addcontentsline{toc}{subsection}{Sùmǐ -- Millet and Rice}
+
+\begin{center}
+\textit{粟米以御交質變易 / ``Millet and Rice are for governing the exchange of commodities.''}
+\end{center}
+
+\colheaders
+
+\cnen{%
+本章論各種谷物之交换比率，及比例計算之法。
+\textit{今有術}（即今之三率法、比例法）為本章之核心算法。%
+}{%
+This chapter discusses the exchange rates among various grains and the methods of proportional calculation.
+The \textit{Jinyou} method (i.e., the Rule of Three, or proportional method) is the core algorithm of this chapter.%
+}
+
+\vspace{0.5em}
+
+\bilingualheader{粟米之法 / Rates for Millet and Rice}{Standard Exchange Rates}
+
+\cnen{%
+\begin{tabular}{llll}
+粟率五十 & 糲米三十 & 粺米二十七 & 鑿米二十四 \\
+御米二十一 & 小$\bullet$十三半 & 大$\bullet$五十四 & 糲飯七十五 \\
+粺飯五十四 & 鑿飯四十八 & 御飯四十二 & 菽、荅、麻、麥各四十五 \\
+稻六十 & 豉六十三 & 飧九十 & 熟菽一百三半 \\
+\multicolumn{4}{l}{櫱一百七十五} \\
+\end{tabular}%
+}{%
+\begin{tabular}{llll}
+Millet (\textit{su}): 50 & Coarse rice (\textit{li}): 30 & Husked rice (\textit{bai}): 27 & Polished rice (\textit{zao}): 24 \\
+Imperial rice: 21 & Small $\bullet$: 13.5 & Large $\bullet$: 54 & Coarse cooked rice: 75 \\
+Husked cooked rice: 54 & Polished cooked rice: 48 & Imperial cooked rice: 42 & Beans/peas/hemp/wheat: 45 each \\
+Rice (paddy): 60 & Fermented beans: 63 & Cooked meal: 90 & Cooked beans: 103.5 \\
+\multicolumn{4}{l}{Sprouted grain: 175} \\
+\end{tabular}%
+}
+
+\vspace{0.5em}
+
+\cnenmethod{%
+今有術曰：以所有數乘所求率為實，以所有率為法，實如法而一。%
+}{%
+The \textit{Jinyou} (Rule of Three) method says: multiply the given quantity by the sought rate as dividend; take the given rate as divisor; divide the dividend by the divisor.%
+}
+
+\vspace{0.5em}
+
+%% ===== Problem 1 =====
+\cnen{%
+\problemtag{一}\textbf{今有}粟一斗，欲為糲米。\textbf{問}得幾何？%
+}{%
+\problemtag{1}\textbf{Suppose there is} 1 \textit{dou} of millet, to be made into coarse rice (\textit{li mi}). \textbf{Question:} how much?%
+}
+\cnenans{為糲米六升。}{Makes 6 \textit{sheng} of coarse rice.}
+\cnenmethod{%
+術曰：以粟求糲米，三之，五而一。%
+}{%
+Method: to find coarse rice from millet, triple it and divide by 5.%
+}
+
+%% ===== Problem 2 =====
+\cnen{%
+\problemtag{二}\textbf{今有}粟二斗一升，欲為粺米。\textbf{問}得幾何？%
+}{%
+\problemtag{2}\textbf{Suppose there is} 2 \textit{dou} 1 \textit{sheng} of millet, to be made into husked rice (\textit{bai mi}). \textbf{Question:} how much?%
+}
+\cnenans{為粺米一斗一升、五十分升之十七。}{Makes $1\textit{dou}\,1\textit{sheng}\,\tfrac{17}{50}\textit{sheng}$ of husked rice.}
+\cnenmethod{%
+術曰：以粟求粺米，二十七之，五十而一。%
+}{%
+Method: to find husked rice from millet, multiply by 27 and divide by 50.%
+}
+
+%% ===== Problem 3 =====
+\cnen{%
+\problemtag{三}\textbf{今有}粟四斗五升，欲為鑿米。\textbf{問}得幾何？%
+}{%
+\problemtag{3}\textbf{Suppose there is} 4 \textit{dou} 5 \textit{sheng} of millet, to be made into polished rice (\textit{zao mi}). \textbf{Question:} how much?%
+}
+\cnenans{為鑿米二斗一升、五分升之三。}{Makes $2\textit{dou}\,1\textit{sheng}\,\tfrac{3}{5}\textit{sheng}$ of polished rice.}
+\cnenmethod{%
+術曰：以粟求鑿米，十二之，二十五而一。%
+}{%
+Method: to find polished rice from millet, multiply by 12 and divide by 25.%
+}
+
+%% ===== Problem 4 =====
+\cnen{%
+\problemtag{四}\textbf{今有}粟七斗九升，欲為御米。\textbf{問}得幾何？%
+}{%
+\problemtag{4}\textbf{Suppose there is} 7 \textit{dou} 9 \textit{sheng} of millet, to be made into imperial rice (\textit{yu mi}). \textbf{Question:} how much?%
+}
+\cnenans{為御米三斗三升、五十分升之九。}{Makes $3\textit{dou}\,3\textit{sheng}\,\tfrac{9}{50}\textit{sheng}$ of imperial rice.}
+\cnenmethod{%
+術曰：以粟求御米，二十一之，五十而一。%
+}{%
+Method: to find imperial rice from millet, multiply by 21 and divide by 50.%
+}
+
+%% ===== Problem 5 =====
+\cnen{%
+\problemtag{五}\textbf{今有}粟一斗，欲為小$\bullet$。\textbf{問}得幾何？%
+}{%
+\problemtag{5}\textbf{Suppose there is} 1 \textit{dou} of millet, to be made into small $\bullet$. \textbf{Question:} how much?%
+}
+\cnenans{為小$\bullet$二升、一十分升之七。}{Makes $2\tfrac{7}{10}$ \textit{sheng} of small $\bullet$.}
+\cnenmethod{%
+術曰：以粟求小$\bullet$，二十七之，百而一。%
+}{%
+Method: to find small $\bullet$ from millet, multiply by 27 and divide by 100.%
+}
+
+%% ===== Problem 6 =====
+\cnen{%
+\problemtag{六}\textbf{今有}粟九斗八升，欲為大$\bullet$。\textbf{問}得幾何？%
+}{%
+\problemtag{6}\textbf{Suppose there is} 9 \textit{dou} 8 \textit{sheng} of millet, to be made into large $\bullet$. \textbf{Question:} how much?%
+}
+\cnenans{為大$\bullet$一十斗五升、二十五分升之二十一。}{Makes $10\textit{dou}\,5\textit{sheng}\,\tfrac{21}{25}\textit{sheng}$ of large $\bullet$.}
+\cnenmethod{%
+術曰：以粟求大$\bullet$，二十七之，二十五而一。%
+}{%
+Method: to find large $\bullet$ from millet, multiply by 27 and divide by 25.%
+}
+
+%% ===== Problem 7 =====
+\cnen{%
+\problemtag{七}\textbf{今有}粟二斗三升，欲為糲飯。\textbf{問}得幾何？%
+}{%
+\problemtag{7}\textbf{Suppose there is} 2 \textit{dou} 3 \textit{sheng} of millet, to be made into coarse cooked rice (\textit{li fan}). \textbf{Question:} how much?%
+}
+\cnenans{為糲飯三斗四升半。}{Makes 3 \textit{dou} 4.5 \textit{sheng} of coarse cooked rice.}
+\cnenmethod{%
+術曰：以粟求糲飯，三之，二而一。%
+}{%
+Method: to find coarse cooked rice from millet, triple it and halve [the result].%
+}
+
+%% ===== Problem 8 =====
+\cnen{%
+\problemtag{八}\textbf{今有}粟三斗六升，欲為粺飯。\textbf{問}得幾何？%
+}{%
+\problemtag{8}\textbf{Suppose there is} 3 \textit{dou} 6 \textit{sheng} of millet, to be made into husked cooked rice (\textit{bai fan}). \textbf{Question:} how much?%
+}
+\cnenans{為粺飯三斗八升、二十五分升之二十二。}{Makes $3\textit{dou}\,8\textit{sheng}\,\tfrac{22}{25}\textit{sheng}$ of husked cooked rice.}
+\cnenmethod{%
+術曰：以粟求粺飯，二十七之，二十五而一。%
+}{%
+Method: to find husked cooked rice from millet, multiply by 27 and divide by 25.%
+}
+
+%% ===== Problem 9 =====
+\cnen{%
+\problemtag{九}\textbf{今有}粟八斗六升，欲為鑿飯。\textbf{問}得幾何？%
+}{%
+\problemtag{9}\textbf{Suppose there is} 8 \textit{dou} 6 \textit{sheng} of millet, to be made into polished cooked rice (\textit{zao fan}). \textbf{Question:} how much?%
+}
+\cnenans{為鑿飯八斗二升、二十五分升之一十四。}{Makes $8\textit{dou}\,2\textit{sheng}\,\tfrac{14}{25}\textit{sheng}$ of polished cooked rice.}
+\cnenmethod{%
+術曰：以粟求鑿飯，二十四之，二十五而一。%
+}{%
+Method: to find polished cooked rice from millet, multiply by 24 and divide by 25.%
+}
+
+%% ===== Problem 10 =====
+\cnen{%
+\problemtag{一０}\textbf{今有}粟九斗八升，欲為御飯。\textbf{問}得幾何？%
+}{%
+\problemtag{10}\textbf{Suppose there is} 9 \textit{dou} 8 \textit{sheng} of millet, to be made into imperial cooked rice (\textit{yu fan}). \textbf{Question:} how much?%
+}
+\cnenans{為御飯八斗二升、二十五分升之八。}{Makes $8\textit{dou}\,2\textit{sheng}\,\tfrac{8}{25}\textit{sheng}$ of imperial cooked rice.}
+\cnenmethod{%
+術曰：以粟求御飯，二十一之，二十五而一。%
+}{%
+Method: to find imperial cooked rice from millet, multiply by 21 and divide by 25.%
+}
+
+%% ===== Problems 11-14 =====
+\cnen{%
+\problemtag{一一}\textbf{今有}粟三斗少半升，欲為菽。\textbf{問}得幾何？
+
+\problemtag{一二}\textbf{今有}粟四斗一升、太半升，欲為荅。\textbf{問}得幾何？
+
+\problemtag{一三}\textbf{今有}粟五斗、太半升，欲為麻。\textbf{問}得幾何？
+
+\problemtag{一四}\textbf{今有}粟一十斗八升、五分升之二，欲為麥。\textbf{問}得幾何？%
+}{%
+\problemtag{11}\textbf{Suppose there is} 3 \textit{dou} minus $\tfrac{1}{3}$ \textit{sheng} of millet, to be made into beans (\textit{shu}). \textbf{Question:} how much?
+
+\problemtag{12}\textbf{Suppose there is} 4 \textit{dou} 1 \textit{sheng} plus $\tfrac{2}{3}$ \textit{sheng} of millet, to be made into peas (\textit{da}). \textbf{Question:} how much?
+
+\problemtag{13}\textbf{Suppose there is} 5 \textit{dou} plus $\tfrac{2}{3}$ \textit{sheng} of millet, to be made into hemp (\textit{ma}). \textbf{Question:} how much?
+
+\problemtag{14}\textbf{Suppose there is} 10 \textit{dou} 8 \textit{sheng} plus $\tfrac{2}{5}$ \textit{sheng} of millet, to be made into wheat (\textit{mai}). \textbf{Question:} how much?%
+}
+\cnenans{%
+為菽二斗七升、一十分升之三。
+
+為荅三斗七升半。
+
+為麻四斗五升、五分升之三。
+
+為麥九斗七升、二十五分升之一十四。%
+}{%
+Makes $2\textit{dou}\,7\textit{sheng}\,\tfrac{3}{10}\textit{sheng}$ of beans.
+
+Makes 3 \textit{dou} 7.5 \textit{sheng} of peas.
+
+Makes $4\textit{dou}\,5\textit{sheng}\,\tfrac{3}{5}\textit{sheng}$ of hemp.
+
+Makes $9\textit{dou}\,7\textit{sheng}\,\tfrac{14}{25}\textit{sheng}$ of wheat.%
+}
+\cnenmethod{%
+術曰：以粟求菽、荅、麻、麥，皆九之，十而一。%
+}{%
+Method: to find beans, peas, hemp, or wheat from millet, in each case multiply by 9 and divide by 10.%
+}
+
+%% ===== Problem 15 =====
+\cnen{%
+\problemtag{一五}\textbf{今有}粟七斗五升、七分升之四，欲為稻。\textbf{問}得幾何？%
+}{%
+\problemtag{15}\textbf{Suppose there is} 7 \textit{dou} 5 \textit{sheng} plus $\tfrac{4}{7}$ \textit{sheng} of millet, to be made into paddy rice (\textit{dao}). \textbf{Question:} how much?%
+}
+\cnenans{為稻九斗、三十五分升之二十四。}{Makes $9\textit{dou}\,\tfrac{24}{35}\textit{sheng}$ of paddy rice.}
+\cnenmethod{%
+術曰：以粟求稻，六之，五而一。%
+}{%
+Method: to find paddy rice from millet, multiply by 6 and divide by 5.%
+}
+
+%% ===== Problem 16 =====
+\cnen{%
+\problemtag{一六}\textbf{今有}粟七斗八升，欲為豉。\textbf{問}得幾何？%
+}{%
+\problemtag{16}\textbf{Suppose there is} 7 \textit{dou} 8 \textit{sheng} of millet, to be made into fermented beans (\textit{chi}). \textbf{Question:} how much?%
+}
+\cnenans{為豉九斗八升、二十五分升之七。}{Makes $9\textit{dou}\,8\textit{sheng}\,\tfrac{7}{25}\textit{sheng}$ of fermented beans.}
+\cnenmethod{%
+術曰：以粟求豉，六十三之，五十而一。%
+}{%
+Method: to find fermented beans from millet, multiply by 63 and divide by 50.%
+}
+
+%% ===== Problem 17 =====
+\cnen{%
+\problemtag{一七}\textbf{今有}粟五斗五升，欲為飧。\textbf{問}得幾何？%
+}{%
+\problemtag{17}\textbf{Suppose there is} 5 \textit{dou} 5 \textit{sheng} of millet, to be made into cooked meal (\textit{sun}). \textbf{Question:} how much?%
+}
+\cnenans{為飧九斗九升。}{Makes 9 \textit{dou} 9 \textit{sheng} of cooked meal.}
+\cnenmethod{%
+術曰：以粟求飧，九之，五而一。%
+}{%
+Method: to find cooked meal from millet, multiply by 9 and divide by 5.%
+}
+
+%% ===== Problem 18 =====
+\cnen{%
+\problemtag{一八}\textbf{今有}粟四斗，欲為熟菽。\textbf{問}得幾何？%
+}{%
+\problemtag{18}\textbf{Suppose there is} 4 \textit{dou} of millet, to be made into cooked beans (\textit{shu shu}). \textbf{Question:} how much?%
+}
+\cnenans{為熟菽八斗二升、五分升之四。}{Makes $8\textit{dou}\,2\textit{sheng}\,\tfrac{4}{5}\textit{sheng}$ of cooked beans.}
+\cnenmethod{%
+術曰：以粟求熟菽，二百七之，百而一。%
+}{%
+Method: to find cooked beans from millet, multiply by 207 and divide by 100.%
+}
+
+%% ===== Problem 19 =====
+\cnen{%
+\problemtag{一九}\textbf{今有}粟二斗，欲為櫱。\textbf{問}得幾何？%
+}{%
+\problemtag{19}\textbf{Suppose there is} 2 \textit{dou} of millet, to be made into sprouted grain (\textit{nie}). \textbf{Question:} how much?%
+}
+\cnenans{為櫱七斗。}{Makes 7 \textit{dou} of sprouted grain.}
+\cnenmethod{%
+術曰：以粟求櫱，七之，二而一。%
+}{%
+Method: to find sprouted grain from millet, multiply by 7 and divide by 2.%
+}
+
+%% ===== Problem 20 =====
+\cnen{%
+\problemtag{二０}\textbf{今有}糲米十五斗五升、五分升之二，欲為粟。\textbf{問}得幾何？%
+}{%
+\problemtag{20}\textbf{Suppose there is} 15 \textit{dou} 5 \textit{sheng} plus $\tfrac{2}{5}$ \textit{sheng} of coarse rice, to be converted back to millet. \textbf{Question:} how much?%
+}
+\cnenans{為粟二十五斗九升。}{Makes 25 \textit{dou} 9 \textit{sheng} of millet.}
+\cnenmethod{%
+術曰：以糲米求粟，五之，三而一。%
+}{%
+Method: to find millet from coarse rice, multiply by 5 and divide by 3.%
+}
+
+%% ===== Problem 21 =====
+\cnen{%
+\problemtag{二一}\textbf{今有}粺米二斗，欲為粟。\textbf{問}得幾何？%
+}{%
+\problemtag{21}\textbf{Suppose there is} 2 \textit{dou} of husked rice, to be converted back to millet. \textbf{Question:} how much?%
+}
+\cnenans{為粟三斗七升、二十七分升之一。}{Makes $3\textit{dou}\,7\textit{sheng}\,\tfrac{1}{27}\textit{sheng}$ of millet.}
+\cnenmethod{%
+術曰：以粺米求粟，五十之，二十七而一。%
+}{%
+Method: to find millet from husked rice, multiply by 50 and divide by 27.%
+}
+
+%% ===== Problem 22 =====
+\cnen{%
+\problemtag{二二}\textbf{今有}鑿米三斗、少半升，欲為粟。\textbf{問}得幾何？%
+}{%
+\problemtag{22}\textbf{Suppose there is} 3 \textit{dou} minus $\tfrac{1}{3}$ \textit{sheng} of polished rice, to be converted back to millet. \textbf{Question:} how much?%
+}
+\cnenans{為粟六斗三升、三十六分升之七。}{Makes $6\textit{dou}\,3\textit{sheng}\,\tfrac{7}{36}\textit{sheng}$ of millet.}
+\cnenmethod{%
+術曰：以鑿米求粟，二十五之，十三而一。%
+}{%
+Method: to find millet from polished rice, multiply by 25 and divide by 13.%
+}
+
+%% ===== Problem 23 =====
+\cnen{%
+\problemtag{二三}\textbf{今有}御米十四斗，欲為粟。\textbf{問}得幾何？%
+}{%
+\problemtag{23}\textbf{Suppose there is} 14 \textit{dou} of imperial rice, to be converted back to millet. \textbf{Question:} how much?%
+}
+\cnenans{為粟三十三斗三升、少半升。}{Makes $33\textit{dou}\,3\textit{sheng}\,\tfrac{1}{3}\textit{sheng}$ of millet.}
+\cnenmethod{%
+術曰：以御米求粟，五十之，二十一而一。%
+}{%
+Method: to find millet from imperial rice, multiply by 50 and divide by 21.%
+}
+
+%% ===== Problem 24 =====
+\cnen{%
+\problemtag{二四}\textbf{今有}稻一十二斗六升、一十五分升之一十四，欲為粟。\textbf{問}得幾何？%
+}{%
+\problemtag{24}\textbf{Suppose there is} 12 \textit{dou} 6 \textit{sheng} plus $\tfrac{14}{15}$ \textit{sheng} of paddy rice, to be converted back to millet. \textbf{Question:} how much?%
+}
+\cnenans{為粟一十斗五升、九分升之七。}{Makes $10\textit{dou}\,5\textit{sheng}\,\tfrac{7}{9}\textit{sheng}$ of millet.}
+\cnenmethod{%
+術曰：以稻求粟，五之，六而一。%
+}{%
+Method: to find millet from paddy rice, multiply by 5 and divide by 6.%
+}
+
+%% ===== Problem 25 =====
+\cnen{%
+\problemtag{二五}\textbf{今有}糲米一十九斗二升、七分升之一，欲為粺米。\textbf{問}得幾何？%
+}{%
+\problemtag{25}\textbf{Suppose there is} 19 \textit{dou} 2 \textit{sheng} plus $\tfrac{1}{7}$ \textit{sheng} of coarse rice, to be made into husked rice. \textbf{Question:} how much?%
+}
+\cnenans{為粺米一十七斗二升、一十四分升之一十三。}{Makes $17\textit{dou}\,2\textit{sheng}\,\tfrac{13}{14}\textit{sheng}$ of husked rice.}
+\cnenmethod{%
+術曰：以糲米求粺米，九之，十而一。%
+}{%
+Method: to find husked rice from coarse rice, multiply by 9 and divide by 10.%
+}
+
+%% ===== Problem 26 =====
+\cnen{%
+\problemtag{二六}\textbf{今有}糲米六斗四升、五分升之三，欲為糲飯。\textbf{問}得幾何？%
+}{%
+\problemtag{26}\textbf{Suppose there is} 6 \textit{dou} 4 \textit{sheng} plus $\tfrac{3}{5}$ \textit{sheng} of coarse rice, to be made into coarse cooked rice. \textbf{Question:} how much?%
+}
+\cnenans{為糲飯一十六斗一升半。}{Makes 16 \textit{dou} 1.5 \textit{sheng} of coarse cooked rice.}
+\cnenmethod{%
+術曰：以糲米求糲飯，五之，二而一。%
+}{%
+Method: to find coarse cooked rice from coarse rice, multiply by 5 and divide by 2.%
+}
+
+%% ===== Problem 27 =====
+\cnen{%
+\problemtag{二七}\textbf{今有}糲飯七斗六升、七分升之四，欲為飧。\textbf{問}得幾何？%
+}{%
+\problemtag{27}\textbf{Suppose there is} 7 \textit{dou} 6 \textit{sheng} plus $\tfrac{4}{7}$ \textit{sheng} of coarse cooked rice, to be made into cooked meal. \textbf{Question:} how much?%
+}
+\cnenans{為飧九斗一升、三十五分升之三十一。}{Makes $9\textit{dou}\,1\textit{sheng}\,\tfrac{31}{35}\textit{sheng}$ of cooked meal.}
+\cnenmethod{%
+術曰：以糲飯求飧，六之，五而一。%
+}{%
+Method: to find cooked meal from coarse cooked rice, multiply by 6 and divide by 5.%
+}
+
+%% ===== Problem 28 =====
+\cnen{%
+\problemtag{二八}\textbf{今有}菽一斗，欲為熟菽。\textbf{問}得幾何？%
+}{%
+\problemtag{28}\textbf{Suppose there is} 1 \textit{dou} of beans, to be made into cooked beans. \textbf{Question:} how much?%
+}
+\cnenans{為熟菽二斗三升。}{Makes 2 \textit{dou} 3 \textit{sheng} of cooked beans.}
+\cnenmethod{%
+術曰：以菽求熟菽，二十三之，十而一。%
+}{%
+Method: to find cooked beans from beans, multiply by 23 and divide by 10.%
+}
+
+%% ===== Problem 29 =====
+\cnen{%
+\problemtag{二九}\textbf{今有}菽二斗，欲為豉。\textbf{問}得幾何？%
+}{%
+\problemtag{29}\textbf{Suppose there is} 2 \textit{dou} of beans, to be made into fermented beans. \textbf{Question:} how much?%
+}
+\cnenans{為豉二斗八升。}{Makes 2 \textit{dou} 8 \textit{sheng} of fermented beans.}
+\cnenmethod{%
+術曰：以菽求豉，七之，五而一。%
+}{%
+Method: to find fermented beans from beans, multiply by 7 and divide by 5.%
+}
+
+%% ===== Problem 30 =====
+\cnen{%
+\problemtag{三０}\textbf{今有}麥八斗六升、七分升之三，欲為小$\bullet$，\textbf{問}得幾何？%
+}{%
+\problemtag{30}\textbf{Suppose there is} 8 \textit{dou} 6 \textit{sheng} plus $\tfrac{3}{7}$ \textit{sheng} of wheat, to be made into small $\bullet$. \textbf{Question:} how much?%
+}
+\cnenans{為小$\bullet$二斗五升、一十四分升之一十三。}{Makes $2\textit{dou}\,5\textit{sheng}\,\tfrac{13}{14}\textit{sheng}$ of small $\bullet$.}
+\cnenmethod{%
+術曰：以麥求小$\bullet$，三之，十而一。%
+}{%
+Method: to find small $\bullet$ from wheat, multiply by 3 and divide by 10.%
+}
+
+%% ===== Problem 31 =====
+\cnen{%
+\problemtag{三一}\textbf{今有}麥一斗，欲為大$\bullet$。\textbf{問}得幾何？%
+}{%
+\problemtag{31}\textbf{Suppose there is} 1 \textit{dou} of wheat, to be made into large $\bullet$. \textbf{Question:} how much?%
+}
+\cnenans{為大$\bullet$一斗二升。}{Makes 1 \textit{dou} 2 \textit{sheng} of large $\bullet$.}
+\cnenmethod{%
+術曰：以麥求大$\bullet$，六之，五而一。%
+}{%
+Method: to find large $\bullet$ from wheat, multiply by 6 and divide by 5.%
+}
+
+%% ===== Problem 32 =====
+\cnen{%
+\problemtag{三二}\textbf{今有}出錢一百六十，買瓴甓十八枚。\textbf{問}枚幾何？%
+}{%
+\problemtag{32}\textbf{Suppose one pays} 160 coins to buy 18 roof tiles (\textit{lingpi}). \textbf{Question:} how much per tile?%
+}
+\cnenans{一枚，八錢、九分錢之八。}{1 tile costs $8\tfrac{8}{9}$ coins.}
+
+%% ===== Problem 33 =====
+\cnen{%
+\problemtag{三三}\textbf{今有}出錢一萬三千五百，買竹二千三百五十箇。\textbf{問}箇幾何？%
+}{%
+\problemtag{33}\textbf{Suppose one pays} 13,500 coins to buy 2,350 bamboo [pieces]. \textbf{Question:} how much per piece?%
+}
+\cnenans{一箇，五錢、四十七分錢之三十五。}{1 piece costs $5\tfrac{35}{47}$ coins.}
+\cnenmethod{%
+經率術曰：以所買率為法，所出錢數為實，實如法得一錢。%
+}{%
+The \textit{jingl"u} (standard rate) method says: take the quantity bought as divisor, the amount of money paid as dividend; divide to obtain the price per unit.%
+}
+
+%% ===== Problem 34 =====
+\cnen{%
+\problemtag{三四}\textbf{今有}出錢五千七百八十五，買漆一斛六斗七升、太半升。欲斗率之，\textbf{問}斗幾何？%
+}{%
+\problemtag{34}\textbf{Suppose one pays} 5,785 coins to buy 1 \textit{hu} 6 \textit{dou} 7 \textit{sheng} plus $\tfrac{2}{3}$ \textit{sheng} of lacquer. One wishes the rate per \textit{dou}; \textbf{question:} how much per \textit{dou}?%
+}
+\cnenans{一斗，三百四十五錢、五百三分錢之一十五。}{1 \textit{dou} costs $345\tfrac{15}{503}$ coins.}
+
+%% ===== Problem 35 =====
+\cnen{%
+\problemtag{三五}\textbf{今有}出錢七百二十，買縑一匹二丈一尺。欲丈率之，\textbf{問}丈幾何？%
+}{%
+\problemtag{35}\textbf{Suppose one pays} 720 coins to buy 1 \textit{pi} 2 \textit{zhang} 1 \textit{chi} of silk (\textit{jian}). One wishes the rate per \textit{zhang}; \textbf{question:} how much per \textit{zhang}?%
+}
+\cnenans{一丈，一百一十八錢、六十一分錢之二。}{1 \textit{zhang} costs $118\tfrac{2}{61}$ coins.}
+
+%% ===== Problem 36 =====
+\cnen{%
+\problemtag{三六}\textbf{今有}出錢二千三百七十，買布九匹二丈七尺。欲匹率之，\textbf{問}匹幾何？%
+}{%
+\problemtag{36}\textbf{Suppose one pays} 2,370 coins to buy 9 \textit{pi} 2 \textit{zhang} 7 \textit{chi} of cloth. One wishes the rate per \textit{pi}; \textbf{question:} how much per \textit{pi}?%
+}
+\cnenans{一匹，二百四十四錢、一百二十九分錢之一百二十四。}{1 \textit{pi} costs $244\tfrac{124}{129}$ coins.}
+
+%% ===== Problem 37 =====
+\cnen{%
+\problemtag{三七}\textbf{今有}出錢一萬三千六百七十，買絲一石二鈞一十七斤。欲石率之，\textbf{問}石幾何？%
+}{%
+\problemtag{37}\textbf{Suppose one pays} 13,670 coins to buy 1 \textit{shi} 2 \textit{jun} 17 \textit{jin} of silk. One wishes the rate per \textit{shi}; \textbf{question:} how much per \textit{shi}?%
+}
+\cnenans{一石，八千三百二十六錢、一百九十七分錢之一百七十八。}{1 \textit{shi} costs $8,326\tfrac{178}{197}$ coins.}
+\cnenmethod{%
+經術術曰：以所求率乘錢數為實，以所買率為法，實如法得一。%
+}{%
+The \textit{jing shu} method says: multiply the sought rate by the amount of money as dividend; take the quantity bought as divisor; divide to obtain the answer.%
+}
+
+%% ===== Problem 38 =====
+\cnen{%
+\problemtag{三八}\textbf{今有}出錢五百七十六，買竹七十八箇。欲其大小率之，\textbf{問}各幾何？%
+}{%
+\problemtag{38}\textbf{Suppose one pays} 576 coins to buy 78 bamboo pieces, both large and small. One wishes the rate for each size; \textbf{question:} how much for each?%
+}
+\cnenans{其四十八箇，箇七錢。其三十箇，箇八錢。}{48 pieces at 7 coins each; 30 pieces at 8 coins each.}
+
+%% ===== Problem 39 =====
+\cnen{%
+\problemtag{三九}\textbf{今有}出錢一千一百二十，買絲一石二鈞十八斤。欲其貴賤斤率之，\textbf{問}各幾何？%
+}{%
+\problemtag{39}\textbf{Suppose one pays} 1,120 coins to buy 1 \textit{shi} 2 \textit{jun} 18 \textit{jin} of silk. One wishes to know the expensive and cheap rates per \textit{jin}; \textbf{question:} how much for each?%
+}
+\cnenans{其二鈞八斤，斤五錢。其一石一十斤，斤六錢。}{2 \textit{jun} 8 \textit{jin} at 5 coins per \textit{jin}; 1 \textit{shi} 10 \textit{jin} at 6 coins per \textit{jin}.}
+\cnenmethod{%
+其率術曰：各置所買石、鈞、斤、兩以為法，以所率乘錢數為實，實如法而一。不滿法者反以實減法，法賤實貴。%
+}{%
+The \textit{qil"u} (rate-finding) method says: place the quantities bought in \textit{shi}, \textit{jun}, \textit{jin}, \textit{liang} as divisors; multiply the rate by the amount of money as dividend; divide. If [the dividend] is less than the divisor, subtract the dividend from the divisor instead---the divisor gives the cheap rate and the dividend gives the expensive rate.%
+}
+
+%% ===== Problem 40-43 =====
+\cnen{%
+\problemtag{四０}--\problemtag{四三}\textbf{今有}出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤石率之、鈞率之、斤率之、兩率之。%
+}{%
+\problemtag{40}--\problemtag{43}\textbf{Suppose one pays} 13,970 coins to buy 1 \textit{shi} 2 \textit{jun} 28 \textit{jin} 3 \textit{liang} 5 \textit{zhu} of silk. One wishes to know the expensive and cheap rates per \textit{shi}, per \textit{jun}, per \textit{jin}, and per \textit{liang}.%
+}
+
+%% ===== Problem 44 =====
+\cnen{%
+\problemtag{四四}\textbf{今有}出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤銖率之。%
+}{%
+\problemtag{44}\textbf{Suppose one pays} 13,970 coins to buy 1 \textit{shi} 2 \textit{jun} 28 \textit{jin} 3 \textit{liang} 5 \textit{zhu} of silk. One wishes to know the expensive and cheap rates per \textit{zhu}.%
+}
+
+%% ===== Problem 45 =====
+\cnen{%
+\problemtag{四五}\textbf{今有}出錢六百一十，買羽二千一百翭。欲其貴賤率之，\textbf{問}各幾何？%
+}{%
+\problemtag{45}\textbf{Suppose one pays} 610 coins to buy 2,100 \textit{hou} of feathers. One wishes to know the expensive and cheap rates; \textbf{question:} how much for each?%
+}
+\cnenans{其一千一百四十翭，三翭一錢。其九百六十翭，四翭一錢。}{1,140 \textit{hou} at 3 \textit{hou} per coin; 960 \textit{hou} at 4 \textit{hou} per coin.}
+
+%% ===== Problem 46 =====
+\cnen{%
+\problemtag{四六}\textbf{今有}出錢九百八十，買矢簳五千八百二十枚。欲其貴賤率之，\textbf{問}各幾何？%
+}{%
+\problemtag{46}\textbf{Suppose one pays} 980 coins to buy 5,820 arrow shafts. One wishes to know the expensive and cheap rates; \textbf{question:} how much for each?%
+}
+\cnenans{其三百枚，五枚一錢。其五千五百二十枚，六枚一錢。}{300 shafts at 5 per coin; 5,520 shafts at 6 per coin.}
+\cnenmethod{%
+反其率術曰：以錢數為法，所率為實，實如法而一。不滿法者反以實減法，法少，實多。二物各以所得多少之數乘法實，即物數。%
+}{%
+The \textit{fan qil"u} (inverse rate) method says: take the amount of money as divisor, the rate as dividend; divide. If [the dividend] is less than the divisor, subtract the dividend from the divisor instead---the divisor [rate] is smaller [quantity], the dividend is larger [quantity]. For two items, multiply the divisor and dividend by the respective [rate] numbers to obtain the quantities.%
+}
+
+\newpage
+
+
+%% =============================================================================
+\section{卷第三：衰分 / Volume 3: Proportional Distribution}
+\label{sec:cuifen}
+\addcontentsline{toc}{subsection}{Cuīfēn -- Distributing by Proportion}
+
+\begin{center}
+\textit{衰分以御貴賤粟稅之率 / ``Proportional Distribution is for governing the rates of grain taxes according to rank.''}
+\end{center}
+
+\colheaders
+
+\cnen{%
+本章論比例分配之法，包括按等級、按數量、按比率之分配問題。
+\textit{衰分術}為本章之核心算法。%
+}{%
+This chapter discusses methods of proportional distribution, including distribution by rank, by quantity, and by rate.
+The \textit{cuifen} (proportional distribution) method is the core algorithm of this chapter.%
+}
+
+\vspace{0.5em}
+
+\cnenmethod{%
+衰分術曰：各置列衰，副并為法，以所分乘未并者各自為實，實如法而一。不滿法者，以法命之。%
+}{%
+The \textit{cuifen} method says: place each proportional rate [\textit{lie cui}] in a column; combine the auxiliary [copies] as divisor; multiply the amount to be distributed by each uncombined [rate], each becoming its own dividend; divide each dividend by the divisor. If less than the divisor, name [the remainder] by the divisor.%
+}
+
+\vspace{0.5em}
+
+%% ===== Problem 1 =====
+\cnen{%
+\problemtag{一}\textbf{今有}大夫、不更、簪裹、上造、公士，凡五人，共獵得五鹿。欲以爵次分之，\textbf{問}各得幾何？%
+}{%
+\problemtag{1}\textbf{Suppose there are} a Daifu, Bugeng, Zanniao, Shangzao, and Gongshi---five persons in total---who together hunted 5 deer. One wishes to distribute them by noble rank; \textbf{question:} how much does each get?%
+}
+\cnenans{%
+大夫得一鹿、三分鹿之二。不更得一鹿、三分鹿之一。簪裹得一鹿。上造得三分鹿之二。公士得三分鹿之一。%
+}{%
+Daifu gets $1\tfrac{2}{3}$ deer; Bugeng gets $1\tfrac{1}{3}$ deer; Zanniao gets 1 deer; Shangzao gets $\tfrac{2}{3}$ deer; Gongshi gets $\tfrac{1}{3}$ deer.%
+}
+\cnenmethod{%
+術曰：列置爵數，各自為衰，副并為法。以五鹿乘未并者，各自為實。實如法得一鹿。%
+}{%
+Method: place the rank numbers in a column, each becoming its own proportional rate; combine as divisor. Multiply the 5 deer by each uncombined [rate], each becoming its own dividend. Divide to obtain the number of deer.%
+}
+
+%% ===== Problem 2 =====
+\cnen{%
+\problemtag{二}\textbf{今有}牛、馬、羊食人苗。苗主責之粟五斗。羊主曰：「我羊食半馬。」馬主曰：「我馬食半牛。」\textbf{今欲}衰償之，\textbf{問}各出幾何？%
+}{%
+\problemtag{2}\textbf{Suppose} a cow, a horse, and a sheep ate someone's seedlings. The seedling owner demands 5 \textit{dou} of millet as compensation. The sheep owner says: ``My sheep ate half what the horse ate.'' The horse owner says: ``My horse ate half what the cow ate.'' \textbf{One wishes} to distribute proportionally the compensation; \textbf{question:} how much does each pay?%
+}
+\cnenans{%
+牛主出二斗八升、七分升之四。馬主出一斗四升、七分升之二。羊主出七升、七分升之一。%
+}{%
+Cow owner pays $2\textit{dou}\,8\textit{sheng}\,\tfrac{4}{7}\textit{sheng}$; horse owner pays $1\textit{dou}\,4\textit{sheng}\,\tfrac{2}{7}\textit{sheng}$; sheep owner pays $7\tfrac{1}{7}$ \textit{sheng}.%
+}
+\cnenmethod{%
+術曰：置牛四、馬二、羊一，各自為列衰，副并為法。以五斗乘未并者各自為實。實如法得一斗。%
+}{%
+Method: place cow=4, horse=2, sheep=1, each as its own proportional rate; combine as divisor. Multiply 5 \textit{dou} by each uncombined [rate] as dividend. Divide to obtain the number of \textit{dou}.%
+}
+
+%% ===== Problem 3 =====
+\cnen{%
+\problemtag{三}\textbf{今有}甲持錢五百六十，乙持錢三百五十，丙持錢一百八十，凡三人俱出關，關稅百錢。欲以錢數多少衰出之，\textbf{問}各幾何？%
+}{%
+\problemtag{3}\textbf{Suppose} A holds 560 coins, B holds 350 coins, C holds 180 coins. All three pass through a customs gate together; the customs tax is 100 coins. One wishes to distribute the tax proportionally to their holdings; \textbf{question:} how much does each pay?%
+}
+\cnenans{%
+甲出五十一錢、一百九分錢之四十一。乙出三十二錢、一百九分錢之一十二。丙出一十六錢、一百九分錢之五十六。%
+}{%
+A pays $51\tfrac{41}{109}$ coins; B pays $32\tfrac{12}{109}$ coins; C pays $16\tfrac{56}{109}$ coins.%
+}
+\cnenmethod{%
+術曰：各置錢數為列衰，副并為法，以百錢乘未并者，各自為實，實如法得一錢。%
+}{%
+Method: place each person's coin holdings as proportional rates; combine as divisor. Multiply 100 coins by each uncombined [rate] as dividend. Divide to obtain the number of coins.%
+}
+
+%% ===== Problem 4 =====
+\cnen{%
+\problemtag{四}\textbf{今有}女子善織，日自倍，五日織五尺。\textbf{問}日織幾何？%
+}{%
+\problemtag{4}\textbf{Suppose} there is a woman skilled at weaving; each day she doubles [her output]. In five days she weaves 5 \textit{chi}. \textbf{Question:} how much does she weave each day?%
+}
+\cnenans{%
+初日織一寸、三十一分寸之十九。次日織三寸、三十一分寸之七。次日織六寸、三十一分寸之十四。次日織一尺二寸、三十一分寸之二十八。次日織二尺五寸、三十一分寸之二十五。%
+}{%
+Day 1: $1\tfrac{19}{31}$ \textit{cun}; Day 2: $3\tfrac{7}{31}$ \textit{cun}; Day 3: $6\tfrac{14}{31}$ \textit{cun}; Day 4: $1\textit{chi}\,2\textit{cun}\,\tfrac{28}{31}\textit{cun}$; Day 5: $2\textit{chi}\,5\textit{cun}\,\tfrac{25}{31}\textit{cun}$.%
+}
+\cnenmethod{%
+術曰：置一、二、四、八、十六為列衰，副并為法，以五尺乘未并者，各自為實，實如法得一尺。%
+}{%
+Method: place 1, 2, 4, 8, 16 as proportional rates; combine as divisor. Multiply 5 \textit{chi} by each uncombined [rate] as dividend. Divide to obtain the number of \textit{chi}.%
+}
+
+%% ===== Problem 5 =====
+\cnen{%
+\problemtag{五}\textbf{今有}北鄉算八千七百五十八，西鄉算七千二百三十六，南鄉算八千三百五十六，凡三鄉，發傜三百七十八人。欲以算數多少衰出之，\textbf{問}各幾何？%
+}{%
+\problemtag{5}\textbf{Suppose} Northern district has 8,758 households [counted for tax], Western district has 7,236, Southern district has 8,356. All three districts together must supply 378 corv\'{e}e laborers. One wishes to distribute proportionally by household count; \textbf{question:} how many from each?%
+}
+\cnenans{%
+北鄉遣一百三十五人、一萬二千一百七十五分人之一萬一千六百三十七。西鄉遣一百一十二人、一萬二千一百七十五分人之四千四。南鄉遣一百二十九人、一萬二千一百七十五分人之八千七百九。%
+}{%
+Northern district sends $135\tfrac{11637}{12175}$ persons; Western district sends $112\tfrac{4004}{12175}$ persons; Southern district sends $129\tfrac{8709}{12175}$ persons.%
+}
+\cnenmethod{%
+術曰：各置算數為列衰，副并為法，以所發傜人數乘未并者，各自為實，實如法得一人。%
+}{%
+Method: place each district's household count as proportional rates; combine as divisor. Multiply the number of corv\'{e}e laborers by each uncombined [rate] as dividend. Divide to obtain the number of persons.%
+}
+
+%% ===== Problem 6 =====
+\cnen{%
+\problemtag{六}\textbf{今有}稟粟，大夫、不更、簪裹、上造、公士，凡五人，一十五斗。\textbf{今有}大夫一人後來，亦當稟五斗。倉無粟，欲以衰出之，\textbf{問}各幾何？%
+}{%
+\problemtag{6}\textbf{Suppose} there is a distribution of millet: Daifu, Bugeng, Zanniao, Shangzao, and Gongshi---five persons---share 15 \textit{dou}. Now another Daifu arrives late, and should also receive 5 \textit{dou}. The granary has no more millet; one wishes to collect proportionally [from the five]; \textbf{question:} how much does each give?%
+}
+\cnenans{%
+大夫出一斗、四分斗之一。不更出一斗。簪褭出四分斗之三。上造出四分斗之二。公士出四分斗之一。%
+}{%
+Daifu gives $1\tfrac{1}{4}$ \textit{dou}; Bugeng gives 1 \textit{dou}; Zanniao gives $\tfrac{3}{4}$ \textit{dou}; Shangzao gives $\tfrac{2}{4}$ \textit{dou}; Gongshi gives $\tfrac{1}{4}$ \textit{dou}.%
+}
+\cnenmethod{%
+術曰：各置所稟粟斛斗數，爵次均之，以為列衰，副并而加後來大夫亦五斗，得二十以為法。以五斗乘未并者各自為實。實如法得一斗。%
+}{%
+Method: place each person's received millet, equalized by rank, as proportional rates; combine and add the late-arriving Daifu's 5 \textit{dou}, obtaining 20 as divisor. Multiply 5 \textit{dou} by each uncombined [rate] as dividend. Divide to obtain the number of \textit{dou}.%
+}
+
+%% ===== Problem 7 =====
+\cnen{%
+\problemtag{七}\textbf{今有}稟粟五斛，五人分之，欲令三人得三，二人得二。\textbf{問}各幾何？%
+}{%
+\problemtag{7}\textbf{Suppose} there are 5 \textit{hu} of millet to be distributed among 5 people, such that 3 people get [a share rated at] 3 and 2 people get [a share rated at] 2. \textbf{Question:} how much does each get?%
+}
+\cnenans{%
+三人，人得一斛一斗五升、十三分升之五。二人，人得七斗六升、十三分升之十二。%
+}{%
+The 3 people: each gets $1\textit{hu}\,1\textit{dou}\,5\textit{sheng}\,\tfrac{5}{13}\textit{sheng}$; the 2 people: each gets $7\textit{dou}\,6\textit{sheng}\,\tfrac{12}{13}\textit{sheng}$.%
+}
+\cnenmethod{%
+術曰：置三人，人三；二人，人二，為列衰。副并為法。以五斛乘未并者，各自為實。實如法得一斛。%
+}{%
+Method: place 3 persons at rate 3 each, and 2 persons at rate 2 each, as proportional rates. Combine as divisor. Multiply 5 \textit{hu} by each uncombined [rate] as dividend. Divide to obtain the number of \textit{hu}.%
+}
+
+\cnenmethod{%
+返衰術曰：列置衰而令相乘，動者為不動者衰。%
+}{%
+The \textit{fancui} (inverse proportional distribution) method says: place the rates in a column and let them multiply each other; the one that changes becomes the rate for the one that does not change.%
+}
+
+%% ===== Problem 8 =====
+\cnen{%
+\problemtag{八}\textbf{今有}大夫、不更、簪褭、上造、公士，凡五人，共出百錢。欲令高爵出少，以次漸多，\textbf{問}各幾何？%
+}{%
+\problemtag{8}\textbf{Suppose} there are Daifu, Bugeng, Zanniao, Shangzao, and Gongshi---five persons---who together contribute 100 coins. One wishes that the higher rank pays less, increasing by rank; \textbf{question:} how much does each pay?%
+}
+\cnenans{%
+大夫出八錢、一百三十七分錢之一百四。不更出一十錢、一百三十七分錢之一百三十。簪褭出一十四錢、一百三十七分錢之八十二。上造出二十一錢、一百三十七分錢之一百二十三。公士出四十三錢、一百三十七分錢之一百九。%
+}{%
+Daifu pays $8\tfrac{104}{137}$ coins; Bugeng pays $10\tfrac{130}{137}$ coins; Zanniao pays $14\tfrac{82}{137}$ coins; Shangzao pays $21\tfrac{123}{137}$ coins; Gongshi pays $43\tfrac{109}{137}$ coins.%
+}
+\cnenmethod{%
+術曰：置爵數各自為衰，而返衰之，副并為法。以百錢乘未并者各自為實。實如法得一錢。%
+}{%
+Method: place the rank numbers as proportional rates, and invert them [take reciprocals]; combine as divisor. Multiply 100 coins by each uncombined [rate] as dividend. Divide to obtain the number of coins.%
+}
+
+%% ===== Problem 9 =====
+\cnen{%
+\problemtag{九}\textbf{今有}甲持粟三升，乙持糲米三升，丙持糲飯三升。欲令合而分之，\textbf{問}各幾何？%
+}{%
+\problemtag{9}\textbf{Suppose} A holds 3 \textit{sheng} of millet, B holds 3 \textit{sheng} of coarse rice, C holds 3 \textit{sheng} of coarse cooked rice. One wishes to combine and redistribute [equally]; \textbf{question:} how much does each get?%
+}
+\cnenans{%
+甲二升、一十分升之七。乙四升、一十分升之五。丙一升、一十分升之八。%
+}{%
+A gets $2\tfrac{7}{10}$ \textit{sheng}; B gets $4\tfrac{5}{10}$ \textit{sheng}; C gets $1\tfrac{8}{10}$ \textit{sheng}.%
+}
+\cnenmethod{%
+術曰：以粟率五十、糲米率三十、糲飯率七十五為衰、而返衰之，副并為法。以九升乘未并者各自為實。實如法得一升。%
+}{%
+Method: take the millet rate 50, coarse rice rate 30, coarse cooked rice rate 75 as proportional rates, and invert them; combine as divisor. Multiply 9 \textit{sheng} by each uncombined [rate] as dividend. Divide to obtain the number of \textit{sheng}.%
+}
+
+%% ===== Problem 10 =====
+\cnen{%
+\problemtag{一０}\textbf{今有}絲一斤，價直二百四十。\textbf{今有}錢一千三百二十八，\textbf{問}得絲幾何？%
+}{%
+\problemtag{10}\textbf{Suppose} 1 \textit{jin} of silk is worth 240 coins. \textbf{Suppose one has} 1,328 coins. \textbf{Question:} how much silk does one get?%
+}
+\cnenans{%
+五斤八兩一十二銖、三分銖之四。%
+}{%
+5 \textit{jin} 8 \textit{liang} 12 \textit{zhu} plus $\tfrac{4}{3}$ \textit{zhu}.%
+}
+\cnenmethod{%
+術曰：以一斤價數為法，以一斤乘今有錢數為實，實如法得絲數。%
+}{%
+Method: take the price per \textit{jin} as divisor; multiply 1 \textit{jin} by the amount of money as dividend; divide to obtain the amount of silk.%
+}
+
+%% ===== Problem 11 =====
+\cnen{%
+\problemtag{一一}\textbf{今有}絲一斤價直三百四十三。\textbf{今有}絲七兩一十二銖，\textbf{問}得錢幾何？%
+}{%
+\problemtag{11}\textbf{Suppose} 1 \textit{jin} of silk is worth 343 coins. \textbf{Suppose one has} 7 \textit{liang} 12 \textit{zhu} of silk. \textbf{Question:} how much money does one get?%
+}
+\cnenans{%
+一百六十一錢、三十二分錢之二十三。%
+}{%
+$161\tfrac{23}{32}$ coins.%
+}
+\cnenmethod{%
+術曰：以一斤銖數為法，以一斤價數，乘七兩一十二銖為實。實如法得錢數。%
+}{%
+Method: take the number of \textit{zhu} in 1 \textit{jin} as divisor; multiply the price per \textit{jin} by 7 \textit{liang} 12 \textit{zhu} as dividend. Divide to obtain the amount of money.%
+}
+
+%% ===== Problem 12 =====
+\cnen{%
+\problemtag{一二}\textbf{今有}縑一丈價直一百二十六。\textbf{今有}縑一匹九尺五寸，\textbf{問}得錢幾何？%
+}{%
+\problemtag{12}\textbf{Suppose} 1 \textit{zhang} of silk (\textit{jian}) is worth 126 coins. \textbf{Suppose one has} 1 \textit{pi} 9 \textit{chi} 5 \textit{cun} of \textit{jian}. \textbf{Question:} how much money?%
+}
+\cnenans{%
+六百三十三錢、五分錢之三。%
+}{%
+$633\tfrac{3}{5}$ coins.%
+}
+\cnenmethod{%
+術曰：以一丈寸數為法，以價錢數乘今有縑寸數為實，實如法得錢數。%
+}{%
+Method: take the number of \textit{cun} in 1 \textit{zhang} as divisor; multiply the price by the number of \textit{cun} of \textit{jian} held as dividend. Divide to obtain the amount of money.%
+}
+
+%% ===== Problem 13 =====
+\cnen{%
+\problemtag{一三}\textbf{今有}布一匹，價直一百二十三。\textbf{今有}布二丈七尺，\textbf{問}得錢幾何？%
+}{%
+\problemtag{13}\textbf{Suppose} 1 \textit{pi} of cloth is worth 123 coins. \textbf{Suppose one has} 2 \textit{zhang} 7 \textit{chi} of cloth. \textbf{Question:} how much money?%
+}
+\cnenans{%
+八十四錢、分錢之三。%
+}{%
+$84\tfrac{3}{\text{[missing]}}$ coins.%
+}
+\cnenmethod{%
+術曰：以一匹尺數為法，今有布尺數乘價錢為實，實如法得錢數。%
+}{%
+Method: take the number of \textit{chi} in 1 \textit{pi} as divisor; multiply the \textit{chi} of cloth held by the price as dividend. Divide to obtain the amount of money.%
+}
+
+%% ===== Problem 14 =====
+\cnen{%
+\problemtag{一四}\textbf{今有}素一匹一丈，價直六百二十五。\textbf{今有}錢五百，\textbf{問}得素幾何？%
+}{%
+\problemtag{14}\textbf{Suppose} 1 \textit{pi} 1 \textit{zhang} of plain silk is worth 625 coins. \textbf{Suppose one has} 500 coins. \textbf{Question:} how much plain silk does one get?%
+}
+\cnenmethod{%
+術曰：以價直為法，以一匹一丈尺數乘今有錢數為實。實如法得素數。%
+}{%
+Method: take the price as divisor; multiply the number of \textit{chi} in 1 \textit{pi} 1 \textit{zhang} by the amount of money as dividend. Divide to obtain the amount of plain silk.%
+}
+
+%% ===== Problem 15 =====
+\cnen{%
+\problemtag{一五}\textbf{今有}與人絲一十四斤，約得縑一十斤。\textbf{今}與人絲四十五斤八兩，\textbf{問}得縑幾何？%
+}{%
+\problemtag{15}\textbf{Suppose} one gives 14 \textit{jin} of silk and agrees to receive 10 \textit{jin} of \textit{jian} silk. \textbf{Now} one gives 45 \textit{jin} 8 \textit{liang} of silk. \textbf{Question:} how much \textit{jian} does one receive?%
+}
+\cnenans{%
+三十二斤八兩。%
+}{%
+32 \textit{jin} 8 \textit{liang}.%
+}
+\cnenmethod{%
+術曰：以一十四斤兩數為法，以一十斤乘今有絲兩數為實，實如法得縑數。%
+}{%
+Method: take the number of \textit{liang} in 14 \textit{jin} as divisor; multiply 10 \textit{jin} by the number of \textit{liang} of silk held as dividend. Divide to obtain the amount of \textit{jian}.%
+}
+
+%% ===== Problem 16 =====
+\cnen{%
+\problemtag{一六}\textbf{今有}絲一斤，耗七兩。\textbf{今有}絲二十三斤五兩，\textbf{問}耗幾何？%
+}{%
+\problemtag{16}\textbf{Suppose} 1 \textit{jin} of silk loses 7 \textit{liang} [in processing]. \textbf{Suppose one has} 23 \textit{jin} 5 \textit{liang} of silk. \textbf{Question:} how much is lost?%
+}
+\cnenans{%
+一百六十三兩四銖半。%
+}{%
+163 \textit{liang} 4.5 \textit{zhu}.%
+}
+\cnenmethod{%
+術曰：以一斤展十六兩為法，以七兩乘今有絲兩數為實，實如法得耗數。%
+}{%
+Method: take 1 \textit{jin} expanded to 16 \textit{liang} as divisor; multiply 7 \textit{liang} by the number of \textit{liang} of silk held as dividend. Divide to obtain the amount lost.%
+}
+
+%% ===== Problem 17 =====
+\cnen{%
+\problemtag{一七}\textbf{今有}生絲三十斤，乾之，耗三斤十二兩。\textbf{今有}乾絲一十二斤，\textbf{問}生絲幾何？%
+}{%
+\problemtag{17}\textbf{Suppose} 30 \textit{jin} of raw silk, when dried, loses 3 \textit{jin} 12 \textit{liang}. \textbf{Suppose one has} 12 \textit{jin} of dried silk. \textbf{Question:} how much raw silk?%
+}
+\cnenans{%
+一十三斤一十一兩十銖、七分銖之二。%
+}{%
+$13\textit{jin}\,11\textit{liang}\,10\tfrac{2}{7}\textit{zhu}$ of raw silk.%
+}
+\cnenmethod{%
+術曰：置生絲兩數，除耗數，餘，以為法。三十斤乘乾絲兩數為實。實如法得生絲數。%
+}{%
+Method: place the number of \textit{liang} of raw silk, subtract the loss, and take the remainder as divisor. Multiply 30 \textit{jin} by the number of \textit{liang} of dried silk as dividend. Divide to obtain the amount of raw silk.%
+}
+
+%% ===== Problem 18 =====
+\cnen{%
+\problemtag{一八}\textbf{今有}田一畝，收粟六升、太半升。\textbf{今有}田一頃二十六畝一百五十九步，\textbf{問}收粟幾何？%
+}{%
+\problemtag{18}\textbf{Suppose} 1 \textit{mu} of field yields $6\tfrac{2}{3}$ \textit{sheng} of millet. \textbf{Suppose one has} 1 \textit{qing} 26 \textit{mu} 159 \textit{bu} of field. \textbf{Question:} how much millet is harvested?%
+}
+\cnenans{%
+八斛四斗四升、一十二分升之五。%
+}{%
+8 \textit{hu} 4 \textit{dou} 4 \textit{sheng} plus $\tfrac{5}{12}$ \textit{sheng}.%
+}
+\cnenmethod{%
+術曰：以畝二百四十步為法，以六升、太半升乘今有田積步為實，實如法得粟數。%
+}{%
+Method: take 1 \textit{mu} = 240 square \textit{bu} as divisor; multiply $6\tfrac{2}{3}$ \textit{sheng} by the total area in square \textit{bu} as dividend. Divide to obtain the amount of millet.%
+}
+
+%% ===== Problem 19 =====
+\cnen{%
+\problemtag{一九}\textbf{今有}取保一歲，價錢二千五百。\textbf{今}先取一千二百，\textbf{問}當作日幾何？%
+}{%
+\problemtag{19}\textbf{Suppose} a one-year service contract is worth 2,500 coins. \textbf{Now} one takes 1,200 coins in advance. \textbf{Question:} how many days of service are owed?%
+}
+\cnenans{%
+一百六十九日、二十五分日之二十三。%
+}{%
+$169\tfrac{23}{25}$ days.%
+}
+\cnenmethod{%
+術曰：以價錢為法，以一歲三百五十四日乘先取錢數為實，實如法得日數。%
+}{%
+Method: take the contract price as divisor; multiply 1 year = 354 days by the amount taken in advance as dividend. Divide to obtain the number of days.%
+}
+
+%% ===== Problem 20 =====
+\cnen{%
+\problemtag{二０}\textbf{今有}貸人千錢，月息三十。\textbf{今有}貸人七百五十錢，九日歸之，\textbf{問}息幾何？%
+}{%
+\problemtag{20}\textbf{Suppose} one lends 1,000 coins, with monthly interest of 30 coins. \textbf{Suppose} one lends 750 coins, which are returned after 9 days. \textbf{Question:} how much interest?%
+}
+\cnenans{%
+六錢、四分錢之三。%
+}{%
+$6\tfrac{3}{4}$ coins interest.%
+}
+\cnenmethod{%
+術曰：以月三十日，乘千錢為法。以息三十乘今所貸錢數，又以九日乘之，為實。實如法得一錢。%
+}{%
+Method: multiply 30 days by 1,000 coins as divisor. Multiply the interest rate 30 by the amount lent and also by 9 days as dividend. Divide to obtain the number of coins.%
+}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+\vspace{1em}
+
+\noindent\textit{（以上為《九章算術》卷第一至卷第三之全文，含劉徽注及李淳風等注釋。/ This completes the Nine Chapters on the Mathematical Art, Volumes 1--3, including Liu Hui's commentary and annotations by Li Chunfeng et al.）}
+
+\vspace{1em}
+
+\noindent\fcolorbox{rulecolor}{boxbg}{%
+\begin{minipage}{0.95\textwidth}
+\small
+\textbf{Editorial Notes / 譯者注:}
+\begin{enumerate}[leftmargin=1.5em,itemsep=0.2em]
+\item The technical terms \textit{shi} (實, ``dividend'') and \textit{fa} (法, ``divisor'') are central to Chinese algorithmic mathematics. \textit{Shi} represents the quantity to be operated upon; \textit{fa} is the standard or rule by which it is divided.
+\item The \textit{Jinyou} (今有, ``suppose there is'') method is equivalent to the modern Rule of Three: $\text{result} = \frac{\text{given quantity} \times \text{sought rate}}{\text{given rate}}$.
+\item Liu Hui's commentary on circular areas includes the earliest known systematic treatment of the exhaustion method for approximating $\pi$, predating European methods by over a millennium.
+\item The ``inscribed hexagon'' (六觚) method yields $\pi \approx 3$; Liu Hui refined this to $\pi \approx \frac{157}{50} = 3.14$ and proposed the even more precise $\frac{3927}{1250} = 3.1416$.
+\item Traditional Chinese units: 1 \textit{bu} (步) $\approx$ 1.6m; 1 \textit{mu} (畝) = 240 sq.\ \textit{bu}; 1 \textit{qing} (頃) = 100 \textit{mu}; 1 \textit{chi} (尺) $\approx$ 23cm; 1 \textit{jin} (斤) = 16 \textit{liang} (兩) = 384 \textit{zhu} (銖).
+\item The five noble ranks in Problem 1 correspond to the Qin/Han twenty-grade system: Daifu (大夫, rank 5), Bugeng (不更, rank 4), Zanniao (簪褭, rank 3), Shangzao (上造, rank 2), Gongshi (公士, rank 1).
+\end{enumerate}
+\end{minipage}}
+
+\end{document}

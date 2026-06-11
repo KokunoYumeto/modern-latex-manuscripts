@@ -1,0 +1,151 @@
+\chapter{Групи Лі для оцінювання стану: мінімальний практичний шар}
+
+\sourcebox{Джерельний напрям: Solà, Deray, Atchuthan, \emph{A micro Lie theory for state estimation in robotics}, arXiv:1812.01537. Цей модуль не є повним перекладом статті; це компільований український шар позначень, потрібний перед повним batch-перекладом.}
+
+\section{Чому звичайне додавання не завжди правильне}
+
+У фільтрах стану часто хочеться написати
+\begin{equation}
+\vect{x}\leftarrow \vect{x}+\delta\vect{x}.
+\end{equation}
+Для позиції або швидкості це нормально. Для орієнтації або пози у просторі це некоректно: орієнтація живе не у векторному просторі, а на многовиді. Правильна операція має вигляд
+\begin{equation}
+\vect{x}\leftarrow \vect{x}\oplus\delta\vect{x},
+\end{equation}
+де $\oplus$ означає додавання у відповідній геометрії. Зворотна операція
+\begin{equation}
+\delta\vect{x}=\vect{y}\ominus\vect{x}
+\end{equation}
+дає малу різницю в дотичному просторі.
+
+\section{Оператор ``дах'' і векторний добуток}
+
+Для $\vect{\omega}=(\omega_x,\omega_y,\omega_z)\trans\in\R^3$ визначимо
+\begin{equation}\label{eq:hat_so3_session02}
+[\vect{\omega}]_{\times}
+=\hatmap{\vect{\omega}}
+=\begin{bmatrix}
+0&-\omega_z&\omega_y\\
+\omega_z&0&-\omega_x\\
+-\omega_y&\omega_x&0
+\end{bmatrix}.
+\end{equation}
+Тоді
+\begin{equation}
+\hatmap{\vect{\omega}}\vect{v}=\vect{\omega}\times\vect{v}.
+\end{equation}
+Обернена операція $\vee$ повертає вектор з кососиметричної матриці:
+\begin{equation}
+(\hatmap{\vect{\omega}})^{\vee}=\vect{\omega}.
+\end{equation}
+
+\section{$\SO(3)$: група обертань}
+
+Група тривимірних обертань
+\begin{equation}
+\SO(3)=\{\mat{R}\in\R^{3\times3}:\mat{R}\trans\mat{R}=\mat{I},\ \det\mat{R}=1\}.
+\end{equation}
+Її дотичний простір в одиниці можна ототожнити з $\R^3$. Експоненціальне відображення
+\begin{equation}\label{eq:Exp_SO3_session02}
+\Exp(\vect{\phi})=	ext{exp}(\hatmap{\vect{\phi}})
+\end{equation}
+дає матрицю повороту з вектора обертання $\vect{\phi}$. За формулою Родрігеса, якщо $\theta=\|\vect{\phi}\|$,
+\begin{equation}\label{eq:rodrigues_session02}
+\Exp(\vect{\phi})
+=\mat{I}
++\frac{\sin\theta}{\theta}\hatmap{\vect{\phi}}
++\frac{1-
+\cos\theta}{\theta^2}\hatmap{\vect{\phi}}^2.
+\end{equation}
+Для малих $\theta$ використовують стабільні розклади:
+\begin{align}
+\frac{\sin\theta}{\theta}&\approx 1-\frac{\theta^2}{6}+\frac{\theta^4}{120},\\
+\frac{1-\cos\theta}{\theta^2}&\approx \frac12-\frac{\theta^2}{24}+\frac{\theta^4}{720}.
+\end{align}
+
+\section{Ліві і праві збурення}
+
+Є дві поширені угоди:
+\begin{align}
+\mat{R}_t &= \Exp(\delta\vect{\theta})\mat{R} && \text{ліве, або глобальне, збурення},\\
+\mat{R}_t &= \mat{R}\Exp(\delta\vect{\theta}) && \text{праве, або локальне, збурення}.
+\end{align}
+Обидві математично законні. Небезпечна не сама угода, а змішування угод у різних частинах одного фільтра. Якщо джерело говорить, що кутові швидкості визначені локально щодо номінальної орієнтації, це має прямий вплив на знак і місце якобіанів.
+
+\section{$\SE(3)$: пози у просторі}
+
+Елемент $\SE(3)$ записують як однорідну матрицю
+\begin{equation}
+\mat{T}=\begin{bmatrix}
+\mat{R}&\vect{t}\\
+\vect{0}\trans&1
+\end{bmatrix},
+\qquad
+\mat{R}\in\SO(3),\quad \vect{t}\in\R^3.
+\end{equation}
+Мала похибка пози
+\begin{equation}
+\vect{\xi}=\begin{bmatrix}\vect{\rho}\\\vect{\phi}\end{bmatrix}\in\R^6
+\end{equation}
+має матричне представлення
+\begin{equation}
+\hatmap{\vect{\xi}}=\begin{bmatrix}
+\hatmap{\vect{\phi}}&\vect{\rho}\\
+\vect{0}\trans&0
+\end{bmatrix}.
+\end{equation}
+Експонента $\Exp(\vect{\xi})\in\SE(3)$ дає малий приріст пози. Для практичного ESKF часто достатньо знати, чи похибка додається ліворуч чи праворуч, і в якій системі координат заданий вектор $\vect{\rho}$.
+
+\section{Аджойнт}
+
+Аджойнт переносить збурення між системами координат. Для $\mat{T}=(\mat{R},\vect{t})\in\SE(3)$
+\begin{equation}\label{eq:adjoint_SE3_session02}
+\Ad_{\mat{T}}=
+\begin{bmatrix}
+\mat{R}&\hatmap{\vect{t}}\mat{R}\\
+\mat{0}&\mat{R}
+\end{bmatrix}.
+\end{equation}
+Він з'являється у формулах виду
+\begin{equation}
+\mat{T}\Exp(\vect{\xi})\mat{T}^{-1}
+=\Exp(\Ad_{\mat{T}}\vect{\xi}).
+\end{equation}
+У перекладі треба тримати \emph{adjoint} як ``аджойнт'' або ``приєднане відображення'' залежно від стилю документа, але символ $\Ad$ краще не міняти.
+
+\section{Якобіани $\SO(3)$}
+
+Лівий якобіан $\SO(3)$:
+\begin{equation}\label{eq:left_jac_SO3_session02}
+\mat{J}_l(\vect{\phi})
+=\mat{I}
++\frac{1-\cos\theta}{\theta^2}\hatmap{\vect{\phi}}
++\frac{\theta-\sin\theta}{\theta^3}\hatmap{\vect{\phi}}^2,
+\qquad \theta=\|\vect{\phi}\|.
+\end{equation}
+Правий якобіан:
+\begin{equation}
+\mat{J}_r(\vect{\phi})=\mat{J}_l(-\vect{\phi}).
+\end{equation}
+Для малих кутів
+\begin{align}
+\mat{J}_l(\vect{\phi})&\approx \mat{I}+\frac12\hatmap{\vect{\phi}}+\frac16\hatmap{\vect{\phi}}^2,\\
+\mat{J}_r(\vect{\phi})&\approx \mat{I}-\frac12\hatmap{\vect{\phi}}+\frac16\hatmap{\vect{\phi}}^2.
+\end{align}
+
+\section{Машинна нормалізація позначень}
+
+У всьому корпусі бажано фіксувати такі правила:
+\begin{longtable}{L{0.25\linewidth}L{0.28\linewidth}L{0.38\linewidth}}
+\toprule
+Поняття & Символ & Коментар\\
+\midrule
+Експонента групи & $\Exp(\cdot)$ & Не змішувати з елементною експонентою вектора.\\
+Логарифм групи & $\Log(\cdot)$ & Повертає в дотичний простір.\\
+Hat & $\hatmap{\vect{\omega}}$ або $[\vect{\omega}]_\times$ & Обрати один стиль на документ.\\
+Vee & $(\cdot)^\vee$ & Обернено до hat.\\
+Плюс на многовиді & $\oplus$ & Ін'єкція малої похибки.\\
+Мінус на многовиді & $\ominus$ & Різниця як вектор у дотичному просторі.\\
+Аджойнт & $\Ad_{\mat{T}}$ & Переносить збурення між фреймами.\\
+\bottomrule
+\end{longtable}

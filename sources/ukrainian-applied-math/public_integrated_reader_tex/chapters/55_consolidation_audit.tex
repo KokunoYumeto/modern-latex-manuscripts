@@ -1,0 +1,27 @@
+\chapter{Консолідація, аудит і що реально ще не закрито}
+\sourcebox{Локальний local organizer consolidation package; попередній QA-пакет; поточний запит користувача: довести хвильове керування, sensor fusion, odometry, GNSS-denied navigation, SDR/FHSS research radar.}
+
+Цей етап не починає нову гілку. Вона фіксує стан після локальної консолідації і переводить роботу назад у практичну чергу. Є три висновки.
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{У пакеті вже є сильна основа.} Окремі PDF-модулі вже покривають глави 1--3 Zuazua про лінійну теорію хвильового рівняння, PySDR, SDR-survey, event-based sensor fusion, multi-sensor fusion survey, автономну робототехніку Correll, антени/RF, robust Student-$t$ filtering, ESKF-start і Kalman bridge.
+\item \textbf{Є прихована прогалина в інтегрованій книзі.} У дереві TeX вже лежали глави про PDF-QA та PySDR, але попередній \texttt{main.tex} не підключав \texttt{52--54}. Тепер вони підключені до інтегрованої збірки перед новими главами. Це означає, що PySDR-TeX-доріжка тепер є не тільки standalone-модулем, а й частиною cumulative reference.
+\item \textbf{Найбільша корисність тепер не в додаванні ще одного старого підручника, а в актуальному R\&D radar.} Для GNSS-denied навігації, VIO/SLAM, event cameras, sensor fusion, FHSS/SDR і swarm resilience треба постійно стягувати нові arXiv/preprint джерела 2025--2026 років, а потім перетворювати їх на чистий TeX-рівень українською.
+\end{enumerate}
+
+Пакет описується через прикладну математику, оцінювання стану, зв'язок, керування, робототехніку і чисельні методи. Для публічного reader важливі джерело, стан перекладу, стан TeX-збірки, якість формул і практична математична корисність.
+
+\section*{Практичний статус після аудиту}
+
+\begin{longtable}{L{0.22\linewidth}L{0.30\linewidth}L{0.38\linewidth}}
+\toprule
+Доріжка & Поточний стан & Що робити далі \\
+\midrule
+Wave equation / control & Глави 1--3 Zuazua є як standalone і як condensed bridge. & Формульний QA, карта теорем, глосарій HUM/observability/exact controllability; потім стабілізація і damping. \\
+Sensor fusion & Є survey 2506.19769 і event-fusion/odometry 2410.15480. & Зробити практичний міст: синхронізація, калібрування, ковариації, gating, failure modes, datasets. \\
+Odometry / GNSS-denied & Є Correll robotics і базові VIO/ESKF/Lie chapters. & Додати актуальні 2025--2026 preprints: heightmap-gradient drift correction, robust V-SLAM, DeepUKF-VIN, adaptive VIO. \\
+SDR / anti-jamming & Є PySDR, SDR survey, modulation/coding, RF/antenna. & Додати research-radar з FHSS, DQN/POMDP, MARL swarm-resilience на рівні математичних моделей і симуляцій. \\
+ESKF / micro Lie & Є starts + local TeX worker fragments. & Це лишається P0: повний Solà ESKF і повні micro-Lie fragments під чистою wrapper-збіркою. \\
+Kalman practical & Є bridge. & Labbe notebooks треба конвертувати у TeX skeletons і перекласти chapters 01--04. \\
+\bottomrule
+\end{longtable}

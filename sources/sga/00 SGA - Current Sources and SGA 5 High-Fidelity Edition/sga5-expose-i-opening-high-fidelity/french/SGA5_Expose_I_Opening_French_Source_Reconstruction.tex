@@ -1,0 +1,181 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\car}{\operatorname{car}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+\begin{document}
+
+\begin{center}
+{\Large \textbf{SGA 5 --- Exposé I}}\\[0.4em]
+{\large \textbf{COMPLEXES DUALISANTS}}\\[0.3em]
+par A.~Grothendieck\\
+(rédaction de L.~Illusie)
+\end{center}
+
+\section*{Introduction}
+
+Cet exposé est consacré au théorème de bidualité en cohomologie étale. La théorie développée ici et dans SGA~A~XVIII (SGA~A = SGA~4), pour la topologie étale et les faisceaux constructibles de torsion sur les préschémas, est formellement très analogue à celle développée dans HARTSHORNE~[H] pour la topologie de Zariski et les faisceaux cohérents: cette dernière lui a, dans une très large mesure, servi de modèle. Mais, tandis que dans le cas des coefficients ``continus'' l'existence de complexes dualisants ne présente pas de difficultés, dans le cas des coefficients ``discrets'', en revanche, elle est beaucoup plus délicate à prouver, et il semble qu'elle requière de façon essentielle la résolution des singularités. Voir cependant le théorème de bidualité de Deligne (SGA~$4^{1/2}$~Th.~finitude~4.3.).
+
+Le paragraphe~1 contient la définition des complexes dualisants et les propriétés formelles qui en découlent, notamment l'interprétation des foncteurs dualisants comme ``échangeurs de foncteurs''.
+
+Dans le paragraphe~2, on montre que, sur un préschéma localement noethérien connexe, un complexe dualisant est déterminé de manière unique, à translation près des degrés et tensorisation par un faisceau inversible.
+
+Dans le paragraphe~3, on en vient au théorème central de l'exposé (3.4.1.), qui assure que, sur un ``bon'' préschéma régulier $X$, par exemple un excellent préschéma noethérien régulier de caractéristique nulle\footnote{Cette dernière restriction sera inutile une fois qu'on disposera de la résolution des singularités à la Hironaka pour ces derniers, et du ``théorème de pureté''.}, le complexe $(\Z/n\Z)_X$ est dualisant.
+
+Le paragraphe~4 donne les applications de la théorie au théorème de dualité locale. Ce dernier exprime que l'on a, sur un ``bon'' préschéma $X$ muni d'un point fermé $x$ de corps résiduel séparablement clos, et pour un faisceau constructible $F$, un accouplement parfait entre $\underline{\H}^i_x(F')$ et $\underline{\H}^{-i}_x(F)$, où $F'$ est le dual de $F$, i.e.\ $F' = \R\,\underline{\Hom}(F,K_X)$, où $K_X$ est un complexe dualisant.
+
+Enfin, dans le paragraphe~5, on prouve directement que sur un préschéma régulier de dimension~1 le complexe $(\Z/n\Z)_X$ est dualisant ($n$ premier aux caractéristiques résiduelles).
+
+\section{Définition et propriétés formelles des complexes dualisants}
+
+On se fixe un anneau de coefficients $A = \Z/n\Z$. Si $X$ est un préschéma, on note $A_X$ le faisceau constant sur $X_{\mathrm{\acute{e}t}}$ de valeur $A$, et $\D(X)$ la catégorie dérivée de celle des $A_X$-Modules. On note d'autre part $\D_c(X)$ la sous-catégorie triangulée pleine de $\D(X)$ formée des complexes $F$ tels que $\H^i(F)$ soit un $A_X$-Module constructible pour tout $i$. On pose $\D_c^{*}(X) = \D^{*}(X) \cap \D_c(X)$, où $* = \varnothing$, $+$, $-$, ou $b$.
+
+\subsection*{Définition 1.1}
+On dit qu'un $A_X$-Module $I$ est \emph{quasi-injectif} si l'on a
+\[
+\underline{\Ext}^i(F,I) = 0
+\]
+pour tout $A_X$-Module \emph{constructible} $F$ et tout $i > 0$.
+
+\subsection*{Remarques 1.2}
+\begin{enumerate}[label=\alph*)]
+\item Contrairement à ce qui se passe dans le cas des coefficients ``continus'' (cf.~[H]~II.7.17), un faisceau quasi-injectif n'est pas en général injectif. Soit par exemple $X = \Spec(\R)$, $A = \Z/2\Z$ : le faisceau $A_X$ est quasi-injectif, mais n'est pas injectif, ni même de dimension injective finie, puisque $\H^{*}(X; A_X) = \H^{*}(\Z/2\Z; \Z/2\Z)$ est une algèbre de polynômes à un générateur de dimension~1.
+
+\item Soit $I$ un $A_X$-Module quasi-injectif. Il est faux en général que la relation $\underline{\Ext}^i(F,I) = 0$ pour $i > 0$, valable pour $F$ constructible, soit valable pour tout $F$. Prenons en effet $A = \F_{\ell}$. Soient $k$ un corps, $\ol{k}$ une clôture séparable de $k$, $f : \ol{x} = \Spec(\ol{k}) \to X = \Spec(k)$ le morphisme canonique, et supposons que, pour tout revêtement étale connexe $X' \to X$, il existe un revêtement étale connexe $X'' \to X'$ tel que $[X'':X']$ soit divisible par $\ell$ (prendre par exemple $k = \Q$). Considérons la suite exacte
+\[
+(*) \qquad 0 \longrightarrow A_X \xrightarrow{\;\varepsilon\;} f_{*}f^{*}A_X \longrightarrow F \longrightarrow 0
+\]
+définie par la flèche d'adjonction $\varepsilon$. Vu l'hypothèse, la section de $\Ext^1(F,A_X)$ définie par $(*)$ ne s'annule au-dessus d'aucun $U$ étale sur $X$, donc $\underline{\Ext}^1(F,A_X)_{\ol{x}} \neq 0$. Or on vérifie trivialement que $A_X$ est quasi-injectif.
+\end{enumerate}
+
+\subsection*{Proposition 1.3 {\normalfont (cf.~[H]~1.7.6)}}
+Soient $X$ un préschéma et $N \in \Z$. Conditions équivalentes sur $K \in \ob \D^{+}(X)$ :
+\begin{enumerate}[label=(\roman*)]
+\item $K$ est isomorphe, dans $\D(X)$, à un complexe $I$ à degrés bornés tel que $I^i$ soit quasi-injectif pour tout $i$ et nul pour $i > N$;
+\item pour tout $F \in \ob \D_c^{b}(X)$ tel que $\H^i(F) = 0$ pour $i < 0$, on a $\underline{\Ext}^i(F,K) = 0$ pour $i > N$;
+\item pour tout $A_X$-Module constructible $F$, on a $\underline{\Ext}^i(F,K) = 0$ pour $i > N$.
+\end{enumerate}
+
+\emph{Preuve.} $(i) \Rightarrow (ii)$. Soient $F \in \ob \D_c^{b}(X)$ tel que $\H^i(F) = 0$ pour $i < 0$, et $I \in \ob \D^{+}(X)$ à degrés bornés et tel que $I^i$ soit quasi-injectif pour tout $i$ et nul pour $i > N$; montrons que $\underline{\Ext}^i(F,I) = 0$ pour $i > N$. Raisonnant par récurrence sur le nombre d'indices $i$ tels que $\H^i \neq 0$, on se ramène, par dévissage, au cas où $N = 0$ et $I$ est réduit au degré $0$. On a alors une suite spectrale birégulière
+\[
+\E_2^{pq} = \underline{\Ext}^p(\H^{-q}(F),I) \Rightarrow \underline{\Ext}^{*}(F,I).
+\]
+Comme $I$ est quasi-injectif, $\E_2^{pq} = 0$ pour $p > 0$ et tout $q$, donc on a $\E_2^{0i} = \underline{\Hom}(\H^{-i}(F),I) \xrightarrow{\sim} \underline{\Ext}^i(F,I)$, d'où la conclusion.
+
+$(ii) \Rightarrow (iii)$ est trivial.
+
+$(iii) \Rightarrow (i)$ On peut supposer $K$ à degrés bornés inférieurement et à composantes injectives. L'hypothèse, appliquée à $F = A_X$, entraîne que $\H^i(K) = 0$ pour $i > N$. On peut donc remplacer $K$ par un complexe isomorphe $K'$, à degrés bornés et tel que $K'^i$ soit injectif pour $i < N$ et nul pour $i > N$. On constate alors que $K'^N$ est quasi-injectif, ce qui achève la démonstration.
+
+\subsection*{Remarque 1.3.1}
+Le rédacteur ignore si (1.3) est encore vraie lorsqu'on remplace, dans la condition (ii), l'hypothèse ``$F \in \ob \D_c^{b}(X)$'' par ``$F \in \ob \D_c^{+}(X)$''.
+
+\subsection*{Définition 1.4}
+On appellera \emph{dimension quasi-injective} de $K$, et on notera $\dim.\,q.\,inj(K)$ la borne inférieure (dans $\overline{\R}$) des entiers $N$ vérifiant les conditions équivalentes de (1.3).
+
+Si $K$ est de dimension quasi-injective finie, le foncteur $\R\,\underline{\Hom}(\quad,K) : \D(X) \to \D(X)$ induit un foncteur $\D_c^{b}(X) \to \D^{b}(X)$.
+
+On verra plus bas que si $X$ est lisse de dimension $d$ sur un corps $k$ et $n$ premier à la caractéristique de $k$, $\dim.\,q.\,inj(A_X) = 2d$.
+
+L'exemple de (1.2~a)) montre qu'un complexe de dimension quasi-injective finie n'est pas nécessairement de dimension injective finie. On a cependant :
+
+\subsection*{Proposition 1.5}
+Soient $X$ un préschéma localement noethérien et $K \in \ob \D^{+}(X)$. On suppose qu'il existe un entier $N$ tel que $\cd_{\mathbf{n}}(X) \leqslant N$, où $\mathbf{n}$ est l'ensemble des diviseurs premiers de $n$ (notation de SGAA~X~1). On a alors, pour $N' \in \Z$,
+\[
+\dim.\,q.\,inj(K) \leqslant N' \quad \Longrightarrow \quad \dim.\,inj(K) \leqslant N + N'.
+\]
+
+On utilisera, dans la démonstration, le
+
+\subsection*{Lemme 1.5.1}
+Soit $C$ une catégorie abélienne satisfaisant à (AB5) et possédant une famille de générateurs $(U_i)_{i \in I}$. Soient $K \in \ob \D^{+}(C)$ et $N \in \Z$. Conditions équivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item $\dim.\,inj(K) \leqslant N$
+\item pour tout $i \in I$ et tout quotient $F$ de $U_i$, on a
+\[
+\Ext^n(F,K) = 0 \qquad \text{pour } n > N.
+\]
+\end{enumerate}
+
+\emph{Preuve.} Il suffit de prouver $(ii) \Rightarrow (i)$. Par un argument bien connu (cf.\ par exemple [H]~1.7.6), on est ramené à montrer que si $K' \in \ob(C)$ est tel que $\Ext^1(F,K') = 0$ chaque fois que $F$ est quotient d'un $U_i$, alors $K'$ est injectif. En d'autres termes, il s'agit de prouver que, si tout morphisme d'un sous-objet $V$ d'un $U_i$ dans $K'$ se prolonge à $U_i$, alors $K'$ est injectif. Mais cela résulte aussitôt de la démonstration du lemme~1 p.~136 de (Tohoku).
+
+\emph{Preuve de (1.5).} Supposons $\dim.\,q.\,inj(K) \leqslant N'$ et prouvons $\dim.\,inj(K) \leqslant N + N'$. Comme la catégorie des $A_X$-Modules admet comme générateurs les $A_{U,X}$ où $U$ est étale de type fini sur $X$, il suffit, en vertu de (1.5.1), de prouver que $\Ext^i(X; F,K) = 0$ pour $i > N + N'$ quand $F$ est quotient d'un tel $A_{U,X}$, donc constructible (SGAA~IX~2.9). Considérons la suite spectrale
+\[
+\E_2^{pq} = \H^p(X; \underline{\Ext}^q(F,K)) \Rightarrow \Ext^{*}(X; F,K).
+\]
+L'hypothèse $\cd_{\mathbf{n}}(X) \leqslant N$ (resp.~$\dim.\,q.\,inj(K) \leqslant N'$) implique $\E_2^{pq} = 0$ pour $p > N$ (resp.~$q > N'$). Donc $\E_2^{pq} = 0$ pour $p+q > N+N'$, d'où la conclusion.
+
+\subsection*{Remarque 1.5.2}
+L'hypothèse de (1.5) est vérifiée (avec $N = 2d$) si $X$ est un préschéma de type fini et de dimension $d$ sur un corps $k$ séparablement clos, $n$ étant premier à $\car(k)$ (SGAA~X~4).
+
+\subsection*{Proposition 1.6}
+Soient $f : X \to Y$ un morphisme quasi-fini séparé de préschémas noethériens, et $K \in \ob \D^{+}(Y)$. Alors, pour $N \in \Z$, on a
+\[
+\dim.\,q.\,inj(K) \leqslant N \quad \Longrightarrow \quad \dim.\,q.\,inj(\R^{!}f(K)) \leqslant N.
+\]
+
+\emph{Preuve.} D'après le ``Main theorem'' (EGA~IV~8.12.6), il existe une factorisation de $f$ en $f = uf'$, où $f'$ est une immersion ouverte et $u$ un morphisme fini. On a $\R^{!}f = \R^{!}f' \, \R^{!}u$, ce qui nous ramène à examiner séparément le cas d'une immersion ouverte et d'un morphisme fini. Si $f$ est une immersion ouverte, l'assertion est triviale (puisque tout faisceau constructible sur $X$ est alors induit par un faisceau constructible sur $Y$). Supposons donc que $f$ soit un morphisme fini, et soit $F$ un $A_X$-Module constructible. On a alors les isomorphismes de dualité (SGAA~XVIII~3.1.9.6)
+\[
+f_{*}\underline{\Ext}^i(F, \R^{!}f(K)) \xrightarrow{\sim} \underline{\Ext}^i(f_{*}F, K).
+\]
+Comme $f_{*}(F)$ est constructible (SGAA~IX~2.14), il en résulte que, si $\dim.\,q.\,inj(K) \leqslant N$, on a $f_{*}\underline{\Ext}^i(F, \R^{!}f(K)) = 0$ pour $i > N$, donc $\underline{\Ext}^i(F, \R^{!}f(K)) = 0$ pour $i > N$ (SGAA~VIII~5.5), cqfd.
+
+Soient maintenant $X$ un préschéma, et $K \in \ob \D^{+}(X)$. Notons $\underline{D}_K$ le foncteur $\R\,\underline{\Hom}(\quad, K)$. Nous allons définir, pour $F \in \ob \D(X)$ un homomorphisme fonctoriel $F \to \underline{D}_K \underline{D}_K F$ (cf.~[H]~V.1.2). La construction qui suit vaudrait plus généralement sur un topos annelé. On peut d'abord supposer $K$ formé d'injectifs, ce qui permet ``d'ôter les $\R$''. Le morphisme identique $\underline{\Hom}(F,K) \to \underline{\Hom}(F,K)$ définit, par la formule chère à Cartan, un homomorphisme $F \otimes \underline{\Hom}(F,K) \to K$, d'où, par une deuxième application de ladite, un homomorphisme $F \to \underline{\Hom}(\underline{\Hom}(F,K), K)$, qui est l'homomorphisme annoncé, et qu'on baptise homomorphisme canonique. On dit que le couple $(F,K)$ est \emph{bidualisant}, ou \emph{satisfait à la bidualité}, ou encore que $F$ est \emph{réflexif} relativement à $K$, si l'homomorphisme canonique $F \to \underline{D}_K \underline{D}_K F$ est un isomorphisme.
+
+\textbf{\underline{À partir de maintenant, tous les préschémas considérés seront, sauf mention expresse du contraire, supposés localement noethériens.}}
+
+\subsection*{Définition 1.7}
+Soit $X$ un préschéma. On dit qu'un complexe $K \in \ob \D^{+}(X)$ est \emph{dualisant} si les conditions suivantes sont vérifiées :
+\begin{enumerate}[label=(\roman*)]
+\item $K$ est de dimension quasi-injective finie;
+\item pour tout $F \in \ob \D_c^{-}(X)$, on a $\underline{D}_K(F) \in \ob \D_c^{+}(X)$;
+\item tout $F \in \ob \D_c^{b}(X)$ est réflexif relativement à $K$.
+\end{enumerate}
+
+\subsection*{Remarque 1.8}
+\begin{enumerate}[label=\alph*)]
+\item Par un dévissage standard (tronquer $F$ et utiliser le fait que $\D_c(X)$ est triangulée), on voit que la condition (ii) équivaut à
+
+(ii~bis) : pour tout $A_X$-Module constructible $F$ et tout $i \in \Z$, $\underline{\Ext}^i(F,K)$ est constructible.
+
+\item La condition (ii~bis) implique $K \in \ob \D_c^{+}(X)$. Contrairement à l'exemple des faisceaux cohérents (EGA~$0_{\mathrm{III}}$~12.3.3), la réciproque n'est peut-être pas automatiquement vérifiée. Elle l'est cependant (voir n${}^{\circ}$~3) dans les ``bons'' cas, par exemple lorsqu'on dispose sur $X$ de la résolution des singularités et de la pureté (en particulier si $X$ est un excellent préschéma de caractéristique nulle).
+
+\item Par dévissage sur $F$, on voit que la condition (iii) équivaut à (iii~bis) : tout $A_X$-Module constructible $F$ est réflexif relativement à $K$.
+
+\item Si $K \in \ob \D^{+}(X)$ vérifie (i) et (ii) (resp.~est dualisant), le foncteur $\underline{D}_K$ induit un foncteur (resp.~une équivalence de catégories) $(\D_c^{b}(X))^{\circ} \to \D_c^{b}(X)$.
+
+\item Si $K \in \ob \D^{+}(X)$ est de dimension \emph{injective} finie (cf.~1.5.2) et vérifie (ii), alors, pour tout $F \in \ob \D_c(X)$, on a $\underline{D}_K(F) \in \D_c(X)$, et $\underline{D}_K$ induit un foncteur $(\D_c^{+}(X))^{\circ} \to \D_c^{-}(X)$.
+
+Si en outre $K$ est dualisant, tout $F \in \ob \D_c(X)$ est réflexif relativement à $K$, et $\underline{D}_K$ induit des équivalences de catégories
+\[
+(\D_c(X))^{\circ} \xrightarrow{\approx} \D_c(X), \quad (\D_c^{-}(X))^{\circ} \xrightarrow{\approx} \D_c^{+}(X), \quad (\D_c^{+}(X))^{\circ} \xrightarrow{\approx} \D_c^{-}(X).
+\]
+On ignore si cette conclusion reste valable sans la restriction que $K$ soit de dimension injective finie.
+\end{enumerate}
+
+\end{document}

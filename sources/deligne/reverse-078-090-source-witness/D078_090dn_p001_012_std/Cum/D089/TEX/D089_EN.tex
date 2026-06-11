@@ -1,0 +1,726 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.05in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em}
+\setlist[enumerate]{leftmargin=1.5em}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\OSp}{\operatorname{OSp}}
+\newcommand{\SOSp}{\operatorname{SOSp}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Sp}{\operatorname{Sp}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\rd}{\mathrm{rd}}
+\newcommand{\red}{\mathrm{red}}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\calO}{\mathcal O}
+\newcommand{\barQ}{\overline Q}
+\newcommand{\VN}{V^N}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\et}{\mathrm{et}}
+\newcommand{\inv}{^{-1}}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\im}{im}
+\title{The First Fundamental Theorem of Invariant Theory\\for the Orthosymplectic Super Group}
+\author{P. Deligne, G. I. Lehrer, and R. B. Zhang}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a new proof, inspired by an argument of Atiyah, Bott and Patodi, of the first fundamental theorem of invariant theory for the orthosymplectic super group. We treat in a similar way the case of the periplectic super group. Lastly, the same method is used to explain the fact that Sergeev's super Pfaffian, an invariant for the special orthosymplectic super group, is polynomial.
+\end{abstract}
+
+\begin{center}
+\begin{tabular}{rl}
+1. & Introduction\\
+2. & Tools from algebraic geometry\\
+3. & Reduction of the FFT for $\OSp$ to the FFT for $\GL$\\
+4. & Periplectic analog\\
+5. & Super Pfaffian\\
+& References
+\end{tabular}
+\end{center}
+
+\section{Introduction}
+
+\paragraph{1.1.}
+Let $V$ be a finite dimensional complex vector space, with a non-degenerate symmetric bilinear form $B$. The first fundamental theorem (FFT) for the orthogonal group $O(V)$ gives generators for the linear space of $O(V)$-invariant multilinear forms on $V\times V\times\cdots\times V$ ($N$ factors). The generators are obtained from partitions $P$ of $\{1,\ldots,N\}$ into subsets with two elements: to each $P$ corresponds the multilinear form
+\begin{equation}
+\label{eq:111}
+(v_1,\ldots,v_N)\longmapsto \prod_{\{i_1,i_2\}\in P} B(v_{i_1},v_{i_2}).
+\end{equation}
+
+This theorem is proved in Weyl \cite{Weyl46} using the Capelli identity. In Appendix 1 to \cite{ABP73}, Atiyah, Bott and Patodi suggested a more geometric approach, reducing the FFT for $O(V)$ to the FFT for $\GL(V)$. The latter gives generators for the linear space of $\GL(V)$-invariant multilinear forms on
+\[
+V\times\cdots\times V\times V^\vee\times\cdots\times V^\vee:
+\]
+the generators arise from pairings between the factors $V$ and $V^\vee$, by a formula similar to \eqref{eq:111}. The FFT for $\GL(V)$ is equivalent to the Schur-Weyl duality between $\GL(V)$ and the symmetric group $S_M$, both acting on $V^{\otimes M}$.
+
+\medskip
+\noindent 2010 Mathematics Subject Classification. 15A72 (primary); 16A22, 14M30 (secondary).\par
+\noindent Key words and phrases. super algebraic geometry, orthosymplectic group, periplectic group, super Pfaffian, tensor invariant.
+
+\paragraph{1.2.}
+We show that this idea can be made to work in the ``super world'', where one systematically considers $\Z/2$-graded objects, and where for super vector spaces (that is, $\Z/2$-graded vector spaces) $V$ and $W$, the isomorphism $V\otimes W\to W\otimes V$ is defined to be
+\begin{equation}
+\label{eq:121}
+v\otimes w\longmapsto (-1)^{|v||w|}w\otimes v
+\end{equation}
+for $v$ and $w$ homogeneous of degrees $|v|$ and $|w|$ (sign rule). For an explanation of how concepts of algebraic or differential geometry extend to the super world, we refer to Leites \cite{Lei90}, Manin \cite{Man88}, or Bernstein, Deligne and Morgan \cite{DM99}, as well as to Section 2 below.
+
+In the super world, $V$ is taken to be a super vector space, and $B$ to be a non-degenerate bilinear form, symmetric in the sense of being invariant by \eqref{eq:121}. The FFT describes the multilinear forms on $V\times V\times\cdots\times V$, invariant by the algebraic super group $O(V)$. They are derived from $B$ by \eqref{eq:111}. This was announced by Sergeev in \cite{Ser92}, and we obtain a new proof of this FFT in Section 3. Another approach, also inspired by \cite{ABP73}, using as ring of coefficients the infinite dimensional Grassmann algebra, may be found in \cite{LZ14a}. In \cite{LZ14b}, this reduction to the case of $\GL(V)$ leads to a new second fundamental theorem (SFT), which describes all relations among the generators.
+
+The form $B$ can be viewed as a morphism
+\[
+V\otimes V\longrightarrow \C
+\]
+invariant by \eqref{eq:121}. ``Morphism'' implies ``compatible with the $\Z/2$-grading''. As
+\[
+(V\otimes V)_0=V_0\otimes V_0\oplus V_1\otimes V_1,
+\]
+and $\C$ is purely of degree $0$, $B$ is given by non-degenerate bilinear forms on the vector spaces $V_0$ and $V_1$. The symmetry condition is that $B$ be symmetric on $V_0$ and antisymmetric on $V_1$. Because of this, $O(V)$ is called orthosymplectic and is also denoted $\OSp(V)$.
+
+\paragraph{1.3.}
+In Section 4, we apply the same idea to a super vector space $V$ equipped with an odd symmetric non-degenerate bilinear form $B$. Let $\Pi$ be $\C$, with the $\Z/2$-grading for which it is purely odd. The tensor product with $\Pi$ is the parity change functor. The form $B$ is a morphism $V\otimes V\to \Pi$, invariant by \eqref{eq:121}. The FFT for the algebraic super group
+\[
+\pi O(V):=\Aut(V,B)
+\]
+says that $\pi O(V)$-invariant multilinear forms on $V\times\cdots\times V$, with values in $\Pi$ or $\C$, are generated by forms \eqref{eq:111}.
+
+\paragraph{1.4.}
+Let us return to the orthosymplectic case, with $\dim V=m|2n$, that is $\dim V_0=m$ and $\dim V_1=2n$. If $m>0$, $\OSp(V)$ has two connected components, because $O(V_0)$ has two connected components while $\Sp(V_1)$ is connected. Let $\SOSp(V)$ be the connected component of the identity. In the classical case of a purely even $V$, $\bigwedge^m V=\bigwedge^m V_0$ is the trivial representation of $\SO(V)$, and for any isomorphism
+\[
+\operatorname{vol}:\bigwedge^m V\longrightarrow \C,
+\]
+\[
+v_1,\ldots,v_m\longmapsto \operatorname{vol}(v_1\wedge\cdots\wedge v_m)
+\]
+is an $\SO(V)$-invariant multilinear form which is not $O(V)$-invariant. Up to a factor depending on $\operatorname{vol}$, its square is
+\[
+\det(B(v_i,v_j)).
+\]
+In the super world, a similar $\SOSp(V)$-invariant is a square root of $\det(B(v_i,v_j))^{2n+1}$, which Sergeev calls the super Pfaffian. We explain the existence of such a polynomial invariant in Section 5. See \cite{LZ15} for an alternative approach to the proof of its basic properties, as well as a discussion of the invariants of $\SOSp(V)$.
+
+\section{Tools from algebraic geometry}
+
+\paragraph{2.1.}
+Let us explore where the sign rule \eqref{eq:121} leads us. A commutative super ring is a mod $2$-graded ring (with unit) such that
+\begin{equation}
+\label{eq:211}
+ab=(-1)^{|a||b|}ba
+\end{equation}
+and such that $a^2=0$ for $a$ odd (a consequence of \eqref{eq:211} if $2$ is invertible). Starting with commutative super rings, the definitions of super schemes, super schemes over a field $k$, super group schemes over $k$, and so on, are modeled on the parallel notions in algebraic geometry, and many theorems admit a straightforward generalization. We will use freely theorems in super algebraic geometry whose proof is an easy extension of the proof of a parallel classical theorem. This applies to the formalism of flat, etale, smooth, unramified maps, and to the formalism of faithfully flat descent as expounded in SGA1 (talks I--III and VIII). Some definitions are recalled below and also in 2.8.
+
+A commutative super ring $R$ has a spectrum $\Spec(R)$. This spectrum is a topological space endowed with a sheaf of commutative super rings, the structural sheaf $\calO$. Super schemes are obtained by gluing such spectra. A closed subscheme of $\Spec(R)$ is a $\Spec(R/I)$, for $I$ a mod $2$-graded ideal of $R$.
+
+An equivalent definition of super schemes is that they are topological spaces $S$ endowed with a sheaf of commutative super rings, the structural sheaf $\calO$, or $\calO_S$, such that $(S,\calO_0)$ is a scheme and $\calO_1$ a quasi-coherent $\calO_0$-module. An open subscheme is an open subset endowed with the restriction to it of the structural sheaf. A super scheme $S$ is over $k$ if it comes with a morphism $S\to\Spec(k)$, that is, if $\calO$ is a $k$-algebra.
+
+The ordinary schemes form a full subcategory of the category of super schemes: they are the super schemes for which $\calO_1=0$. Any super scheme $S$ contains a largest (closed) ordinary scheme $S_{\rd}$, with structural sheaf the quotient of $\calO_S$ by the sheaf of ideals $(\calO_1)$ generated by $\calO_1$. For $T$ an ordinary scheme,
+\[
+\Hom(T,S_{\rd})\xrightarrow{\sim}\Hom(T,S).
+\]
+The ideal $(\calO_1)$ being nilpotent, one can picture $S$ as being the ordinary scheme $S_{\rd}$, surrounded by a nilpotent fuzz. Topological notions (the underlying topological space, its Krull dimension, Zariski density of subsets, and so on) depend only on $S_{\rd}$.
+
+As in algebraic geometry, to capture the geometric meaning of these definitions, one should consider the corresponding representable functors. See below.
+
+\paragraph{Notation.}
+We fix a field $k$. From Section 3 on, $k=\C$. We will work in the category of super schemes $S$ over $k$. Super vector spaces will as a rule be assumed to be finite dimensional, and super schemes to be of finite type over $k$. Group schemes of finite type over $k$ will be called algebraic groups. When this does not lead to ambiguities, we will drop the adjective ``super'', or, as a reminder, write it parenthetically.
+
+\paragraph{2.2.}
+If $X$ and $S$ are over $k$, an $S$-point of $X$ is a morphism from $S$ to $X$: intuitively, a family of points of $X$ parametrized by $S$. The functor of points $h_X$ of $X$ is the contravariant functor
+\[
+h_X:S\longmapsto X(S):=\text{the set }\Hom(S,X)\text{ of }S\text{-points of }X.
+\]
+By Yoneda's lemma, the functor $X\mapsto h_X$ is fully faithful. It will often be convenient to define a morphism $X\to Y$ by defining its effect on $S$-points: by defining a morphism of functors $h_X\to h_Y$.
+
+For $U$ running over the open subsets of $S$ (with the induced (super) scheme structure), $U\mapsto X(U)$ is a sheaf on $S$. Because of this, $h_X$ is determined by its restriction to affine schemes (those of the form $\Spec(R)$): $X$ is determined by the covariant functor of $R$-points
+\[
+R\longmapsto X(R):=X(\Spec(R)),
+\]
+and to define a morphism $X\to Y$, it suffices to define a functorial morphism $X(R)\to Y(R)$.
+
+\paragraph{2.3. Example.}
+Let $V$ be a finite dimensional super vector space over $k$. The functor of points of the corresponding affine space $V$ is
+\[
+R\longmapsto \text{even component of }V_R:=R\otimes V.
+\]
+If $V=k^{p|q}$, that is if $V_0=k^p$ and $V_1=k^q$, this affine super space is the standard affine space $\mathbb A^{p|q}$.
+
+By ``basis'', we will always mean homogeneous basis: in a basis $(e_i)$, each $e_i$ is either even or odd. If $(e_i)$ is a basis of $V$, the $R$-points $x$ of $V$ are the $\sum x_i e_i$ with $x_i$ in $R$ of the same parity as $e_i$. The $x_i$ are the coordinates of $x$ in the basis $(e_i)$, and $V$ is the spectrum of $k[(X_i)]$, freely generated over $k$ by indeterminates $X_i$, with $X_i$ of parity equal to that of $e_i$. Suppose $V$ is in duality with $W$. If $(e^i)$ is the basis of $W$ dual to the basis $(e_i)$ of $V$, meaning that $\langle e_i,e^j\rangle=\delta_i^j$, the coordinates of $x\in V(R)$ are the $\langle x,e^i\rangle$, and
+\[
+V=\Spec(\Sym^*(W)),
+\]
+for $\Sym^*(W)$ the commutative super $k$-algebra freely generated by the super vector space $W$. This algebra is $\Z$-graded, with $W$ the component of degree one.
+
+\paragraph{2.4. Example.}
+If $V=k$, purely even, we get the additive group scheme $\Ga=\Spec k[X]$ with functor of points $R\mapsto R_0$. The group law is $+$. If $V=k$, purely odd, we get the odd additive group $\Ga^- =\Spec(k[\theta])$, with $\theta$ odd and hence $\theta^2=0$. The functor of points is $R\mapsto R_1$. The group law is $+$.
+
+More generally, for any $X$ over $k$, even (respectively odd) global sections of the structural sheaf $\calO$ can be identified with morphisms $X\to\Ga$ (respectively $X\to\Ga^-$). Passing to corresponding functors of points, we get an interpretation of even (respectively odd, respectively arbitrary) global sections of $\calO$ as functions $f$ which to each $R$-point $x$ of $X$, functorially in $R$, attach a value $f(x)$ in $R_0$ (respectively $R_1$, respectively $R$). The global sections of the structural sheaf $\calO$ of $X$ will be called functions on $X$, and the above explains how this terminology is to be interpreted.
+
+\paragraph{2.5. Example.}
+Let $V$ and $W$ be super vector spaces. The inner $\Hom(V,W)$ is the vector space of all linear maps from $V$ to $W$, with its natural $\Z/2$-grading. Let $\Hom(V,W)$ be the corresponding affine space. The $R$-points of $\Hom(V,W)$ are the super $R$-module morphisms from $V_R$ to $W_R$.
+
+\paragraph{2.6. Example.}
+Let $U,V,W$ be super vector spaces, and let
+\begin{equation}
+\label{eq:261}
+f:U\otimes V\longrightarrow W
+\end{equation}
+be a morphism. After extension of scalars to $R$, $f$ induces $f_R:U_R\otimes_R V_R\to W_R$, and a map
+\begin{equation}
+\label{eq:262}
+U(R)\times V(R)\longrightarrow W(R).
+\end{equation}
+Applying Yoneda's lemma, we get from \eqref{eq:262} a morphism
+\begin{equation}
+\label{eq:263}
+f:U\times V\longrightarrow W.
+\end{equation}
+
+The morphism $f$ is bilinear, meaning that for any $R$, \eqref{eq:262} is $R_0$-bilinear. Conversely, any bilinear morphism \eqref{eq:263} is induced by a unique morphism \eqref{eq:261} (cf. \cite{DM99}, 1.7). The condition that $f$ be bilinear is implied by it being homogeneous of degree one in each variable. Writing $W$ as a product of $\Ga$ and $\Ga^-$, this claim reduces to the case of functions on $U\times V$. If $U$ and $U'$, $V$ and $V'$ are in duality, a function $f$ on $U\times V$, that is $f$ in $\Sym^*(U')\otimes\Sym^*(V')$, is homogeneous of degree $n$ in the first variable if and only if it is in $\Sym^n(U')\otimes\Sym^*(V')$. Similarly for the second variable. Homogeneity of degree one of $f$ in both variables means that $f$ is in $U'\otimes V'$, hence bilinear.
+
+\paragraph{2.7.}
+With the notation of 2.3, a quadratic form $q$ on $V$ is an even function $q$ on $V$ homogeneous of degree $2$, meaning that for any $R$-point $x$ of $V$ and $r_0$ in $R_0$,
+\[
+q(r_0x)=r_0^2q(x).
+\]
+Equivalently, $q$ is in the even part of $\Sym^2(W)\subset\Gamma(V,\calO)$. If $q$ is a quadratic form, the associated $B:V\times V\to\Ga$, defined by
+\begin{equation}
+\label{eq:271}
+B(x,y)=q(x+y)-q(x)-q(y),
+\end{equation}
+is symmetric bilinear and $q(x)=\tfrac12B(x,x)$. By 2.6, \eqref{eq:271} is induced by a morphism, also denoted $B$,
+\begin{equation}
+\label{eq:272}
+B:V\otimes V\longrightarrow k.
+\end{equation}
+
+\paragraph{2.8.}
+Etale and unramified morphisms $f:X\to Y$ are defined as in SGA1. Their counterparts in differential geometry are local isomorphisms and immersions. A morphism $f:X\to Y$ is smooth of relative dimension $p|q$ if locally on $X$ it factors through an etale map to $Y\times \mathbb A^{p|q}$:
+\begin{equation}
+\label{eq:281}
+X\supset U\longrightarrow Y\times\mathbb A^{p|q}\longrightarrow Y.
+\end{equation}
+The counterpart in differential geometry of ``smooth'' is ``submersion''. A factorization \eqref{eq:281} is a relative local coordinate system.
+
+\paragraph{2.9.}
+The constructions 2.3 to 2.7 can be repeated over a scheme $S$. A vector bundle $\mathcal V$ over $S$ is a sheaf of $\calO$-modules locally free of finite type. More precisely, as we are in the super world, it is a sheaf of $\Z/2$-graded modules $\mathcal V$ over the $\Z/2$-graded structural sheaf $\calO$, locally admitting a basis $(e_i)$, each $e_i$ either even or odd. Locally on $S$, $\mathcal V$ admits non-canonical decompositions $\mathcal V=\mathcal V_+\oplus\mathcal V_-$ such that $\mathcal V_+$ has a purely even basis, and $\mathcal V_-$ a purely odd one. Only when $S$ is an ordinary scheme, that is when $\calO_1=0$, does such a decomposition agree with the grading $\mathcal V=\mathcal V_0\oplus\mathcal V_1$.
+
+If $s$ is an $R$-point of $S$, an $R$-point over $s$ of the corresponding affine space bundle $\mathcal V$ is an even section of the pull-back of $\mathcal V$ to $\Spec(R)$. If $\mathcal V$ and $\mathcal W$ are in duality, a quadratic form on $\mathcal V$ is an even section of $\Sym^2(\mathcal W)$. The associated bilinear form $B$ is bilinear, and corresponds to a morphism
+\[
+\mathcal V\otimes\mathcal V\longrightarrow \calO_S.
+\]
+
+\paragraph{2.10. Example.}
+Let $V$ be a super vector space. The general linear group $\GL(V)$ is the algebraic group with functor of points
+\[
+R\longmapsto \text{group of automorphisms of }V_R.
+\]
+As a scheme, it is an open subscheme of $\Hom(V,V)$ considered in 2.5.
+
+\paragraph{2.11. Example.}
+Assume we are not in characteristic $2$. A quadratic form $q$ on $V$ is non-degenerate if the associated bilinear form $B$ (\eqref{eq:272}) is a self-duality of $V$. The corresponding orthosymplectic group $O(V,q)$ is the subgroup of $\GL(V)$ respecting $q$, or, what amounts to the same, respecting $B$. Define $V_R$ to be the scheme $V\times\Spec(R)$ over $\Spec(R)$. An $R$-point of $O(V,q)$ is an automorphism $g$ of $V_R$ such that the induced automorphism of $V_R$ fixes the inverse image of $q$ in $\Gamma(V_R,\calO)$; equivalently, $g$ should fix the bilinear form $V_R\times V_R\to R$ induced by $B$.
+
+The bilinear form $B$ on $V$ is symmetric, in the super sense. It is the orthogonal direct sum of a form $B^+$ on $V^+:=V_0$, such that $B^+(x,y)=B^+(y,x)$, and of a form $B^-$ on $V^-:=V_1$, such that
+\[
+B^-(x,y)=-B^-(y,x),
+\]
+hence $B^-(x,x)=0$. This explains the terminology ``orthosymplectic''.
+
+If $q$ is non-degenerate, after a separable extension $k'/k$ and in a suitable basis $(e_i)$ (with $e_i$ even for $1\leq i\leq m$, odd for $m+1\leq i\leq m+2n$), $q$ can be written
+\begin{equation}
+\label{eq:2111}
+q(x)=\frac12\sum_{1}^{m}x_i^2+\sum_{1}^{n}x_{m+i}x_{m+i+n}.
+\end{equation}
+For the corresponding $B$, one has
+\begin{equation}
+\label{eq:2112}
+B(e_i,e_i)=1\quad (1\leq i\leq m),
+\end{equation}
+\[
+B(e_{m+i},e_{m+i+n})=-1=-B(e_{m+i+n},e_{m+i}),
+\]
+and the other $B(e_i,e_j)$ vanish. To put $q$ in this canonical form, one may have to extract square roots, hence the need for the extension $k'/k$.
+
+\paragraph{2.12.}
+One can repeat 2.10 and 2.11 over a base $S$. If $\mathcal V$ is a vector bundle over $S$, $\GL(\mathcal V)$ is the group scheme over $S$ whose $R$-points over an $R$-point $s$ of $S$ form the group of automorphisms of the pull-back of $\mathcal V$ by $s$. Assuming $2$ invertible on $S$, the definition of non-degenerate quadratic forms on $\mathcal V$ repeats 2.11.
+
+\paragraph{Proposition 2.13.}
+Let $q$ be a non-degenerate quadratic form on $\mathcal V$. Locally on $S$ for the etale topology, $\mathcal V$ admits a basis in which $q$ is given by \eqref{eq:2111}.
+
+\paragraph{Proof.}
+We may suppose that $\mathcal V$ is everywhere of some dimension $m|2n$. The proof is by induction on $m+2n$, the case $m=n=0$ being trivial. If $m>0$, the fiber $V$ of $\mathcal V$ at any $\C$-point $s$ contains an even $v$ such that $q(v)\ne0$. Let $e$ be an even local section passing through $v$. In some open neighborhood $U$ of $s$, $q(e)$ is invertible. On an etale double cover of $U$, $1/2q(e)$ has a square root $r$. Replacing $e$ by $re$, we may assume that $q(e)=1/2$. Because $q(e)$ is invertible, $\mathcal V$ is the direct sum of $\calO e$ and of its orthogonal $\mathcal V'$ which is of dimension $(m-1)|2n$. The local section $e$ is the beginning of the desired basis. One completes it by applying the induction hypothesis to $\mathcal V'$.
+
+If $m=0$ and $n>0$, one similarly finds odd local sections $e$ and $f$ such that $B(e,f)$ is invertible. Dividing $f$ by $-B(e,f)$ one may assume that $B(e,f)=-1$. The symmetry of $B$ ensures that $B(f,e)=1$, and that $B(e,e)=B(f,f)=0$. One concludes by applying the induction hypothesis to the orthogonal complement of $\calO e\oplus\calO f$. \hfill $\square$
+
+\paragraph{2.14.}
+The group scheme $O(\mathcal V,q)$ over $S$ is defined as $O(V,q)$ is. Both $\GL(\mathcal V)$ and $O(\mathcal V,q)$ are smooth over $S$. Indeed, locally over $S$ for the etale topology, they are pull-backs of algebraic groups $\GL(V)$ and $O(V,q)$ smooth over $\Spec(R)$. In characteristic zero, the only case we need, any algebraic group over $k$ is smooth (Cartier's theorem, extended to the super world).
+
+\paragraph{2.15.}
+Suppose that $V$ is a linear representation of the algebraic super group $G$, meaning that $\rho:G\to\GL(V)$ is given. A vector $v$ in $V$ is said to be $G$-invariant if for any $R$, the image of $v$ in $V_R$ is $G(R)$-invariant. If $G=\Spec(A)$, then ``$G$ is a group scheme'' translates to ``$A$ is a super Hopf algebra''. Let $\id$ be the $A$-point of $G$ corresponding to the identity map $G=\Spec(A)\to G$. Then, for any $R$, an $R$-point $g\in G(R)$ is deduced from $\id$ by functoriality: $g$ is the image of $\id$ by $g^*:A\to R$. Invariance of $v$ can hence be checked just in the universal case $R=A$, $g=\id$.
+
+The action of $G$ is determined by the action of $\id$, or equivalently by the comodule structure
+\[
+V\longrightarrow V_A \xrightarrow{\text{action of }\id} V_A=V\otimes A.
+\]
+The vector $v$ is fixed by $G$ if and only if it is fixed by $\id$, that is, is in the kernel of the double arrow
+\[
+(\text{extension of scalars, comodule structure}): V \rightrightarrows V\otimes A.
+\]
+
+\paragraph{2.16.}
+An open subscheme $U$ of a scheme $X$ is schematically dense in $X$ if for any open $V$ in $X$ and for any $f$ in $\Gamma(V,\calO)$, the vanishing of the restriction of $f$ to $U\cap V$ implies that $f=0$. Example: if $X$ is smooth, for instance an affine space, any Zariski dense open subscheme is schematically dense.
+
+\paragraph{Lemma 2.17.}
+Suppose $X=\Spec(R)$, with $R$ of finite type over $k$, and that the $f_i$ in $R_0$ ($1\leq i\leq n$) define a closed subscheme whose complement is $U$. Then $U$ is schematically dense in $X$ if and only if
+\begin{equation}
+\label{eq:2171}
+R\longrightarrow R^n:1\longmapsto(f_1,\ldots,f_n)
+\end{equation}
+is injective.
+
+\paragraph{Proof.}
+We show that \eqref{eq:2171} is not injective if and only if there exists $g\ne0$ in $R$ vanishing on $U$. If $f\ne0$ is in the kernel of \eqref{eq:2171}, the image of $f$ in $R[f_i^{-1}]$ vanishes: $f$ vanishes on the open $U_i$ where $f_i$ is invertible, hence on the union $U$ of the $U_i$. Conversely, suppose that $f\ne0$ vanishes on $U$. This means that the image of $f$ in each $R[f_i^{-1}]$ vanishes, that is, for some $\ell$, $ff_i^\ell=0$. Let $I$ be the ideal generated by the $f_i$. For some $\ell$, $I^\ell f=0$. Let $m\geq0$ be the largest integer such that $I^m f\ne0$, and pick $g\ne0$ in $I^m f$. By construction, $Ig=0$: $g$ is in the kernel of \eqref{eq:2171}. \hfill $\square$
+
+\paragraph{Corollary 2.18.}
+If $f:X\to Y$ is flat and if $U$ is schematically dense in $X$, then $f^{-1}(U)$ is schematically dense in $Y$.
+
+\paragraph{Proof.}
+The question is local: we may assume that $X=\Spec(R)$ and that $Y=\Spec(R')$, with $R'$ flat over $R$. By flatness, if \eqref{eq:2171} is injective, the same holds for $R'$. \hfill $\square$
+
+\paragraph{Proposition 2.19.}
+Suppose that $f:X\to Y$ is a faithfully flat morphism and that $V$, open in $Y$, is schematically dense. Let $s$ be a function on $V$, $s\in\Gamma(V,\calO)$. If the pull-back of $s$ to $f^{-1}(V)$ extends to $X$, then $s$ extends to $Y$.
+
+\paragraph{Proof.}
+Let $t$ in $\Gamma(X,\calO)$ be an extension to $X$ of $f^*(s)$ on $f^{-1}(V)$. Consider
+\[
+X\times_Y X \rightrightarrows X\longrightarrow Y.
+\]
+By schematic density in $X\times_Y X$ of the inverse image $V_1$ of $V$ (2.18), one has $\pr_1^*t=\pr_2^*t$: both pull-backs are extensions to $X\times_Y X$ of the inverse image on $V_1$ of $s$. By faithfully flat descent, this implies that $t$ is the pull-back of some $\widetilde s$ on $Y$, and this $\widetilde s$ is the required extension of $s$ to $Y$. \hfill $\square$
+
+\paragraph{Corollary 2.20.}
+The same holds under the weaker assumption that $X$ covers $Y$ for the faithfully flat topology.
+
+\paragraph{Proof.}
+The assumption is that there exists a commutative diagram
+\[
+\begin{array}{ccc}
+X'&\xrightarrow{u}&X\\
+\scriptstyle f'\downarrow&&\downarrow\scriptstyle f\\
+Y&=&Y
+\end{array}
+\]
+with $X'$ faithfully flat over $Y$. If $t$ on $X$ extends $f^*(s)$ on $f^{-1}(V)$, then $u^*(t)$ on $X'$ extends $f'^*(s)$ on $f'^{-1}(V)$, and one applies 2.19 to $f'$. \hfill $\square$
+
+\paragraph{2.21.}
+If $X$ is smooth, and if the complement of the open subscheme $U$ is of codimension $\geq2$, one has
+\[
+\Gamma(X,\calO)\xrightarrow{\sim}\Gamma(U,\calO).
+\]
+The proof is by reduction to the same statement for ordinary schemes, using that the ordinary scheme $X_{\rd}$ is smooth and that locally $X$ can be retracted to $X_{\rd}$, making $\calO_X$ a free module over $X_{\rd}$.
+
+\section{Reduction of the FFT for $\OSp$ to the FFT for $\GL$}
+
+From now on, the ground field is $\C$. The adjective ``super'' will be omitted.
+
+\paragraph{3.1.}
+Let $V$ be a vector space of dimension $m|2n$. As in 2.3, suppose $V$ is in duality with $W$. The space $\barQ$ of quadratic forms (2.7) on $V$ is the affine space attached to $\Sym^2(W)$. Its $R$-points are the even functions $q$ on $V_R$ homogeneous of degree $2$.
+
+Choose a basis $(e_i)$ of $V$ and let $p(i)$ be the parity of $e_i$. In coordinates, the $R$-points $q$ of $\barQ$ can be written uniquely in the form
+\[
+q(x)=\sum a_{ij}x_i x_j,
+\]
+with $a_{ij}$ in $R$ of parity $p(i)+p(j)$, and the sum being over $\{(i,j)\mid i\leq j\text{ and } i\ne j\text{ if }e_i\text{ is odd}\}$. Let $Q\subset\barQ$ be the open and dense subscheme of non-degenerate quadratic forms. The $R$-points of $Q$, in coordinates, are the $\sum a_{ij}x_i x_j$ such that the associated bilinear form
+\[
+B(x,y)=\sum a_{ij}\bigl(x_i y_j+(-1)^{p(i)p(j)}x_j y_i\bigr)
+\]
+is induced by a self-duality of $V_R$. It follows from 2.13 that $Q$ is a homogeneous space of $\GL(V)$. More precisely, if $q$ and $q'$ are two $S$-points of $Q$, then, locally for the etale topology on $S$, there exists an $S$-point $g$ of $\GL(V)$ such that $g(q)=q'$, meaning that $q(g^{-1}v)=q'(v)$ after any subsequent change of basis.
+
+From now on, we fix a non-degenerate quadratic form $q$ on $V$, and write $B$ for the associated bilinear form (2.7). The map $g\mapsto g(q)$ induces
+\begin{equation}
+\label{eq:311}
+\GL(V)/O(V,q)\xrightarrow{\sim}Q.
+\end{equation}
+The $\GL(V)$-homogeneity of $Q$ explained above means that \eqref{eq:311} is an isomorphism when both sides are interpreted, via the functor of points, as sheaves on the site of schemes of finite type over $\C$, with the etale topology. This isomorphism implies that
+\[
+g\longmapsto g(q)=q\circ g^{-1}:\GL(V)\longrightarrow Q
+\]
+is faithfully flat, with $O(V,q)$ as fiber above $q$.
+
+\paragraph{3.2.}
+Our aim is a description of the $O(V,q)$-invariant tensors on $V$. Because the self-duality $B$ is $O(V,q)$-invariant, it suffices to describe the $O(V,q)$-invariant elements in $\Hom(V^{\otimes N},\C)$. Because $O(V,q)$ contains the parity automorphism of $V$ ($1$ on $V_0$ and $-1$ on $V_1$), any such invariant element is even. Because $-1$ is in $O(V,q)$, there can be non-zero invariant elements only when $N$ is even. Using 2.6, the problem can be rephrased as describing the $O(V,q)$-invariant even functions on $V^N$ of degree one in each variable.
+
+\paragraph{Lemma 3.3.}
+Evaluation at $q$ induces an isomorphism from $\GL(V)$-invariant functions on $V^N\times Q$ to $O(V,q)$-invariant functions on $V^N$. The same holds when one considers only even functions of degree one in each variable $v$ in $V$.
+
+In other words, functions $f(v_1,\ldots,v_N)$ on $V^N$, invariant under $O(V,q)$, extend uniquely to functions $F(v_1,\ldots,v_N,q')$ on $V^N\times Q$, invariant under $\GL(V)$. Invariance means that for any $R$, and $R$-points $v_1,\ldots,v_N$ in $V(R)$, $q'$ in $Q(R)$ and $g$ in $\GL(V)(R)$, one has
+\[
+F(v_1,\ldots,v_N,q')=F(gv_1,\ldots,gv_N,g(q')).
+\]
+As $g(q')=q'\circ g^{-1}$, this can be restated as
+\begin{equation}
+\label{eq:331}
+F(v_1,\ldots,v_N,q'\circ g)=F(gv_1,\ldots,gv_N,q').
+\end{equation}
+Special case, for $q'=q$:
+\begin{equation}
+\label{eq:332}
+F(v_1,\ldots,v_N,q\circ g)=f(gv_1,\ldots,gv_N).
+\end{equation}
+
+\paragraph{Theorem 3.4.}
+Let $f$ be an $O(V,q)$-invariant function on $V^N$, and let $F$ be the corresponding $\GL(V)$-invariant function on $V^N\times Q$, for which \eqref{eq:331}, \eqref{eq:332} hold. Then $F$ extends to a function $\overline F$ on $V^N\times\barQ$.
+
+\paragraph{Remarks 3.5.}
+\begin{enumerate}[label=(\roman*)]
+\item $Q$ is open non-empty in the affine space $\barQ$, hence schematically dense. It follows that the function $\overline F$ whose existence is promised by 3.4 is unique.
+\item Define $E$ to be the affine space $\Hom(V,V)$ of 2.5. As $\GL(V)$ is open non-empty in $E$, it is schematically dense in $E$, and the identity \eqref{eq:331}, which is an identity on $V^N\times Q\times\GL(V)$, extends to an identity
+\begin{equation}
+\label{eq:351}
+\overline F(v_1,\ldots,v_N,q'\circ T)=\overline F(Tv_1,\ldots,Tv_N,q')
+\end{equation}
+for $v_i$ in $V$, $q'$ in $\barQ$ and $T$ in $E$. Special case: $\overline F$ is $\GL(V)$-invariant.
+\item Similar density arguments show that if $f$ is even (respectively homogeneous of degree one in each variable $v_i$), so is $\overline F$. Under the same assumption, taking $T$ scalar, one gets for $r_0\in R_0$
+\[
+\overline F(v_1,\ldots,v_N,r_0^2q')=r_0^N\overline F(v_1,\ldots,v_N,q'),
+\]
+which implies that $\overline F$ is homogeneous of degree $N/2$ in $q'$.
+\end{enumerate}
+
+To prove Theorem 3.4, we require several lemmas. Let $u:E=\Hom(V,V)\to\barQ$ be the morphism $T\mapsto q\circ T$. One has $u^{-1}(Q)=\GL(V)$:
+\begin{equation}
+\label{eq:352}
+\begin{array}{ccc}
+\GL(V)&\subset&E\\
+\scriptstyle u\downarrow&&\downarrow\scriptstyle u\\
+Q&\subset&\barQ.
+\end{array}
+\end{equation}
+
+\paragraph{Lemma 3.6.}
+Let $\widetilde F$ be the function on $V^N\times\GL(V)$ which is the inverse image by $u$ of the function $F$ on $V^N\times Q$. Then $\widetilde F$ extends to a function $\overline{\widetilde F}$ on $V^N\times E$.
+
+As the arguments of 3.5 show, this extension $\overline{\widetilde F}$ is unique.
+
+\paragraph{Proof.}
+By \eqref{eq:332}, for $T$ in $\GL(V)$,
+\[
+\overline F(v_1,\ldots,v_N,T)=F(v_1,\ldots,v_N,q\circ T)=f(Tv_1,\ldots,Tv_N).
+\]
+The right hand side continues to make sense for $T$ in $E$, and provides the required extension of $\widetilde F$. \hfill $\square$
+
+\paragraph{3.7.}
+The condition on $q'$ in $\barQ$ that there exists in $V$ a subspace $V_1\subset V$ of codimension $1|0$ on which $q'$ is non-degenerate is an open condition. Let $\barQ_1$ be the open subscheme of $\barQ$ where it holds. Similarly, let $\barQ_2$ be the open subscheme where there exists $V_2\subset V$ of codimension $0|2$ on which $q'$ is non-degenerate.
+
+\paragraph{Lemma 3.8.}
+The complement in $\barQ$ of $\barQ_1\cup\barQ_2$ is of codimension $\geq2$.
+
+This is a topological question, hence concerns only the reduced scheme $\barQ_{\rd}$, which is the product of the ordinary schemes parametrizing a quadratic form on $V^+:=V_0$ and an alternating form on $V^-:=V_1$. These schemes are stratified by rank, the stratum after the open stratum is an irreducible hypersurface, and we are removing the next one.
+
+\paragraph{Lemma 3.9.}
+For the faithfully flat topology, $u^{-1}(\barQ_1)\subset E$ covers $\barQ_1$.
+
+This means there exists a faithfully flat morphism $S\to\barQ_1$, which factors through the morphism $u^{-1}(\barQ_1)\to\barQ_1$. In fact, as we will see in 3.11, the proof shows that $u^{-1}(\barQ_1)$ is itself faithfully flat over $\barQ_1$.
+
+\paragraph{Proof.}
+It suffices to show that for any scheme $S$, any subbundle (locally direct factor) $\mathcal V_1$ of the pull back $\mathcal V=\calO_S\otimes V$ of $V$ to $S$, of codimension $1|0$, and any quadratic form $q'$ on $\mathcal V$, non-degenerate on $\mathcal V_1$, there exists a faithfully flat $S'\to S$ such that, after pull-back to $S'$, $q'$ is of the form $q\circ T$ for an endomorphism $T$ of $\mathcal V$. Indeed, once this is proven, one can apply it locally to $S=\barQ_1$.
+
+Because $q'$ is non-degenerate on $\mathcal V_1$, $\mathcal V$ is the direct sum of $\mathcal V_1$ and of its orthogonal, relative to the bilinear form $B'$ associated to $q'$. Indeed, this orthogonal $\mathcal V_1^\perp$ is the kernel
+\[
+0\longrightarrow \mathcal V_1^\perp\longrightarrow \mathcal V\longrightarrow \mathcal V_1^\vee\longrightarrow 0
+\]
+of a morphism defined by $B'$, for which $\mathcal V_1\subset\mathcal V$ maps isomorphically to $\mathcal V_1^\vee$.
+
+Let us fix $V_1\subset V$ of codimension $1|0$ on which $q$ is non-degenerate, and let $\mathcal V_1$ be the corresponding subbundle of $\mathcal V$. Let us look for a $T$ mapping $\mathcal V_1$ to $\mathcal V_1$ and $\mathcal V_1^{\prime\perp}$ (orthogonal for $q'$) to $\mathcal V_1^\perp$ (orthogonal for $q$). This means finding an isomorphism from $(\mathcal V_1,q')$ to $(\mathcal V_1,q)$ and a morphism from $\mathcal V_1^{\prime\perp}$ to $\mathcal V_1^\perp$ compatible with $q'$ and $q$. The first exists locally for the etale topology (2.13). The second is essentially the original problem in dimension $1|0$.
+
+Indeed, locally on $S$, $\mathcal V_1^\perp$ is $\calO$, with a quadratic form $ax^2$ with $a$ invertible, while $\mathcal V_1^{\prime\perp}$ is locally isomorphic to $\calO$, with a quadratic form $bx^2$. We need to find a morphism from $\calO$ to $\calO$, that is an even function $f$ such that $f^2=b/a$. This equation defines a flat covering of $S$, on which $f$ exists. \hfill $\square$
+
+\paragraph{Lemma 3.10.}
+For the flat topology, $u^{-1}(\barQ_2)\subset E$ covers $\barQ_2$.
+
+The proof follows the same step, reducing us this time to dimension $0|2$. We have now to consider $E$, with an odd basis $e_1,e_2$, and a non-degenerate $q$, written in coordinates as $ax_1x_2$ with $a$ invertible, and $E'$, with an odd basis $e'_1,e'_2$ and $q'$ of the form $bx'_1x'_2$. We need to find $T:E'\to E$ such that $q'=q\circ T$. Writing $T$ as a $2\times2$ matrix, this means solving an equation $\det T=b/a$. One can either argue that this equation has the solution
+\[
+\begin{pmatrix}b/a&0\\0&1\end{pmatrix},
+\]
+or that it defines $S'/S$ faithfully flat.
+
+\paragraph{Remark 3.11.}
+The proof can be rephrased as expressing $u:u^{-1}(\barQ_i)\to\barQ_i$ as a composite
+\[
+u^{-1}(\barQ_i)\xrightarrow{v}Y\xrightarrow{w}\barQ_i,
+\]
+where a point of $Y$ above $q'$ is a subspace of $V$ of codimension $1|0$ or $0|2$ on which $q'$ is non-degenerate, and where $v(T)$ is the image $T(V_i)$. Both maps are faithfully flat.
+
+\paragraph{3.12. Proof of 3.4.}
+By 3.6, 3.9, 3.10 and 2.20, the function $F$ on $V^N\times Q$ extends to $V^N\times(\barQ_1\cup\barQ_2)$. As the complement of $\barQ_1\cup\barQ_2$ in $\barQ$ is of codimension $\geq2$ (3.8), it extends to $V^N\times\barQ$ (2.21). \hfill $\square$
+
+\paragraph{3.13. FFT: reduction from $\OSp$ to $\GL$.}
+Suppose $f:V^{\otimes N}\to\C$ is $\OSp(V,q)$-invariant. We may suppose $N$ even. Interpret $f$ as a function on $V^N$, even and of degree one in each variable. By 3.4 and 3.5, there exist a $\GL(V)$-invariant function $F(v_1,\ldots,v_N,q')$ on $V^N\times\barQ$, even of degree one in the $v_i$, and of degree $N/2$ in $q'$, such that
+\[
+f(v_1,\ldots,v_N)=F(v_1,\ldots,v_N,q).
+\]
+The usual polarization argument shows that there exists a $\GL(V)$-invariant function
+\[
+F_1(v_1,\ldots,v_N,q'_1,\ldots,q'_{N/2})
+\]
+on $V^N\times\barQ^{N/2}$, homogeneous of degree one in each variable, such that
+\[
+F(v_1,\ldots,v_N,q)=F_1(v_1,\ldots,v_N,q,\ldots,q).
+\]
+As in 2.3, let $W$ be in duality with $V$. Interpret $F_1$ as a morphism
+\[
+V^{\otimes N}\otimes \Sym^2(W)^{\otimes N/2}\longrightarrow \C,
+\]
+invariant by $\GL(V)$. As the decomposition
+\[
+W\otimes W=\Sym^2(W)\oplus\bigwedge\nolimits^2 W
+\]
+is $\GL(V)$-invariant, $F_1$ comes from a $\GL(V)$-invariant morphism
+\[
+V^{\otimes N}\otimes W^{\otimes N}\longrightarrow \C.
+\]
+This is the announced reduction.
+
+The FFT for $\GL(V)$ says that a generating set for the $\GL(V)$-invariant morphisms is obtained by pairing in all possible ways each factor $V$ with a factor $W$, and taking the product:
+\[
+v_1,\ldots,v_N,w_1,\ldots,w_N\longmapsto\prod \langle v_i,w_{\sigma(i)}\rangle.
+\]
+Passing back to the $\OSp$-invariant, we find a generating set consisting of
+\[
+V^{\otimes N}\to\C:
+(v_1,\ldots,v_N)\longmapsto B(v_1,v_2)B(v_3,v_4)\cdots B(v_{N-1},v_N)
+\]
+and its transforms by the symmetric group.
+
+\section{Periplectic analog}
+
+\paragraph{4.1.}
+Let $V$ be a vector space of dimension $n|n$. An odd quadratic form $q$ on $V$ is an odd function of degree $2$ on $V$. Equivalently, if $V$ and $W$ are in duality, it is an odd element of $\Sym^2(W)$. The associated bilinear form $B$ is the odd function $q(x+y)-q(x)-q(y)$ on $V\times V$. If $\Pi$ is $\C$, viewed as an odd vector space with basis $e:=1$, so that $\Pi=\Ga^-$, $B$ is induced (2.6) by a super symmetric morphism again denoted $B$:
+\begin{equation}
+\label{eq:411}
+V\otimes V\longrightarrow \Pi.
+\end{equation}
+
+The form $q$ is non-degenerate if \eqref{eq:411} is a perfect pairing, that is, induces an isomorphism of $V$ with $\Pi V^\vee:=\Pi\otimes V^\vee$. Suppose $q$ is non-degenerate. The periplectic group $\pi O(V,q)$ is the subgroup of $\GL(V)$ respecting $q$ or, equivalently, $B$. The description of $R$-points is the same as in 2.11.
+
+As in 2.9 and 2.12, these definitions can be repeated over a scheme $S$. The analog of 2.13 is the following proposition.
+
+\paragraph{Proposition 4.2.}
+Let $q$ be an odd non-degenerate quadratic form on a vector bundle $\mathcal V$ on $S$. Let $B$ be the associated bilinear form
+\[
+B:\mathcal V\otimes\mathcal V\longrightarrow \Pi\otimes\calO.
+\]
+Then, locally on $S$, for some $n$, $\mathcal V$ admits a basis $e_1,\ldots,e_n,f_1,\ldots,f_n$, with even $e_i$ and odd $f_i$, such that on this basis $B$ vanishes, except for
+\[
+B(e_i,f_i)=B(f_i,e_i)=e.
+\]
+
+\paragraph{Proof.}
+As in 2.13, we may assume $\mathcal V$ of some dimension $m|n$. Because $\mathcal V$ is isomorphic to $\mathcal V^\vee\otimes\Pi$, one has $m=n$. The proof is by induction on $n$, the case $n=0$ being trivial. It will be convenient to view $B$ as an odd bilinear map: (previous $B$) equals $e$ times this new $B$.
+
+If $n=1$, let $(e,f)$ be a basis of $\mathcal V$ with $e$ even, $f$ odd. The symmetry of $B$ implies that $B(f,f)=0$. Non-degeneracy then implies that $B(e,f)$ is even and invertible. Dividing $f$ by $B(e,f)$, we may assume that $B(e,f)=1$. As $B$ is odd, so is $\alpha:=B(e,e)$. The basis $(e-\frac{\alpha}{2}f,f)$ is of the announced type. If $n\ge1$, one finds as in 2.13 even and odd local sections $e$ and $f$ such that $B(e,f)$ is invertible. The bundle $\mathcal V$ is then the orthogonal direct sum of $\mathcal V'$, spanned by $e$ and $f$, and of its orthogonal complement $\mathcal V''$. One concludes by applying the induction hypothesis to $\mathcal V''$. \hfill $\square$
+
+\paragraph{4.3.}
+Let $\barQ$ be the space of odd quadratic forms on $V$. It is the affine space attached to $\Sym^2W\otimes\Pi$. Let $Q$ be the open and dense subscheme of non-degenerate quadratic forms. As in 3.1, it follows from 4.2 that it is a homogeneous space of $\GL(V)$. Let us fix a non-degenerate odd quadratic form $q$ on $V$, with the associated odd bilinear form $B$. As in 3.1, the map
+\[
+g\longmapsto g(q):=q\circ g^{-1}:\GL(V)\longrightarrow Q
+\]
+is flat, with fiber $\pi O(V,q)$ at $q$, and induces an isomorphism
+\begin{equation}
+\label{eq:431}
+\GL(V)/\pi O(V,q)\xrightarrow{\sim}Q.
+\end{equation}
+
+\paragraph{4.4.}
+Our aim is a description of the $\pi O(V,q)$-invariant tensors on $V$. Because $B$ is a perfect pairing, it suffices to describe the $\pi O(V,q)$-invariant elements in $\Hom(V^{\otimes N},\C)$. Because $-1$ is in $\pi O(V,q)$, non-zero invariants can exist only for $N$ even. Using 2.6, the problem can be rephrased as describing the $O(V,q)$-invariant functions on $V^N$, of degree one in each variable.
+
+From \eqref{eq:431}, we get that evaluation at $q$ induces an isomorphism from $\GL(V)$-invariant functions on $V^N\times Q$ and $\pi O(V,q)$-invariant functions on $V^N$, and the same holds when considering only functions of degree one in each variable $v$ in $V$. The key result (cf. 3.4) is:
+
+\paragraph{Theorem 4.5.}
+Let $f$ be a $\pi O(V,q)$-invariant function on $V^N$, and let $F$ be the corresponding $\GL(V)$-invariant function on $V^N\times Q$. Then $F$ extends to a function $\overline F$ on $V^N\times\barQ$.
+
+The remarks 3.5 continue to hold, mutatis mutandis. Let $u:E=\Hom(V,V)\to\barQ$ be the morphism $T\mapsto q\circ T$. One has $u^{-1}(Q)=\GL(V)$:
+\begin{equation}
+\label{eq:451}
+\begin{array}{ccc}
+\GL(V)&\subset&E\\
+\scriptstyle u\downarrow&&\downarrow\scriptstyle u\\
+Q&\subset&\barQ.
+\end{array}
+\end{equation}
+Let $\widetilde F$ be the function on $V^N\times\GL(V)$ which is the inverse image by $u$ of $F$. The same proof as in 3.6 shows that $\widetilde F$ extends to a function $\overline{\widetilde F}$ on $V^N\times E$.
+
+Imitating the proof of 3.4, one deduces 4.5 from Lemmas 4.7 and 4.8 below.
+
+\paragraph{4.6.}
+The condition on $q'$ in $\barQ$ that there exists in $V$ a subspace $V'$ of codimension $1|1$ on which $q'$ is non-degenerate is an open condition. Let $\barQ_1$ be the open subscheme of $\barQ$ where it holds.
+
+\paragraph{Lemma 4.7.}
+The complement of $\barQ_1$ in $\barQ$ is of codimension $\ge2$.
+
+\paragraph{Proof.}
+This is a topological question, hence concerns only the reduced scheme $\barQ_{\rd}$, which is the space of bilinear pairings between $V_0$ and $V_1$. This space is stratified by rank. The stratum after the open strata is an irreducible hypersurface, and we are considering the next one. \hfill $\square$
+
+\paragraph{Lemma 4.8.}
+For the faithfully flat topology, $u^{-1}(\barQ_1)\subset E$ covers $\barQ_1$.
+
+Here, it is not true that $u^{-1}(\barQ_1)\subset E$ is flat over $\barQ_1$. But we will show that there exist local sections, so that the existence of $\overline{\widetilde F}$ trivially implies that $F$ on $V^N\times Q$ extends to $V^N\times Q_1$.
+
+\paragraph{Proof.}
+Proceeding as in the proof of 3.9, one has to show that if on $S$ we have vector bundles $\mathcal V$ and $\mathcal V'$ of dimension $1|1$, a non-degenerate odd quadratic form $q$ on $\mathcal V$, and an odd quadratic form $q'$ on $\mathcal V'$, then locally on $S$, there exists $T:\mathcal V'\to\mathcal V$ such that $q'=q\circ T$.
+
+In coordinates, in a suitable local basis, $q$ can be written as
+\[
+q(x,y)=xy\qquad (x\text{ even},\ y\text{ odd}),
+\]
+while $q'$ can be written
+\[
+q'(x,y)=\alpha x+axy\qquad (x\text{ even},\ y\text{ odd},\ \alpha\text{ even},\ a\text{ even}).
+\]
+One takes
+\[
+T:(x,y)\longmapsto (x,\alpha x+ay).
+\]
+\hfill $\square$
+
+\paragraph{4.9. FFT: reduction from $\pi O$ to $\GL$.}
+One proceeds as in 3.13 to deduce from 4.5 and from the first fundamental theorem for $\GL(V)$ that the $\pi O(V,q)$-invariant multilinear forms on $V^{\otimes N}$, with $N$ even, with values in $\C$ or $\Pi$, are the form
+\[
+v_1,\ldots,v_N\longmapsto B(v_1,v_2)\cdots B(v_{N-1},v_N)
+\]
+and its transforms under the symmetric group.
+
+\section{Super Pfaffian}
+
+\paragraph{5.1.}
+Let $q$ be a non-degenerate quadratic form on a vector space $V$ of dimension $m|2n$, and let $B:V\otimes V\to\C$ be the associated super symmetric bilinear form. Let $\operatorname{vol}$ be one of the two opposite isomorphisms of $\bigwedge^m V_0$ with $\C$ such that for $v_1,\ldots,v_m$ in $V_0$ one has
+\begin{equation}
+\label{eq:511}
+\operatorname{vol}(v_1\wedge\cdots\wedge v_m)^2=\det B(v_i,v_j).
+\end{equation}
+We will view $\operatorname{vol}$ as an alternating multilinear form on $V_0$. As such, it defines a function, still denoted $\operatorname{vol}$, on $V_0^m$ (2.6). Similarly, one views $B(v_i,v_j)$ as a function on $V^m$.
+
+The scheme $V_0$ is $V_{\rd}$, and is the reduced subscheme of $V$. It is defined in $V$ by a nilpotent ideal. Let $U$ be the open subscheme of $V^m$ on which $\det B(v_i,v_j)$ is invertible.
+
+\paragraph{Proposition 5.2.}
+On $U$, the function $D:=\det B(v_i,v_j)$ has a unique square root $\Delta$ which, on $U_{\rd}\subset V_0^m$, agrees with $\operatorname{vol}(v_1,\ldots,v_m)$.
+
+\paragraph{Proof.}
+Let $R$ be the double covering of $V^m$ defined by the equation $T^2=D$. An $R$-point of $R$ above an $R$-point $(v_1,\ldots,v_m)$ of $V^m$ is a square root in $R_0$ of $\det B(v_i,v_j)$. Over $U$, this double covering is etale. A section of $R$ above $U_{\rd}$ hence uniquely extends to $U$. This is applied to the restriction to $U_{\rd}$ of $\operatorname{vol}(v_1,\ldots,v_m)$ on $V_0^m$. \hfill $\square$
+
+\paragraph{5.3.}
+Suppose we have $U$ schematically dense in a scheme $X$, and a function $\delta$ on $U$ such that:
+\begin{enumerate}[label=(\alph*)]
+\item the restriction of $\delta$ to the reduced scheme $U_{\red}$ extends to $X_{\red}$;
+\item the extension vanishes outside of $U_{\red}$, that is, its invertibility locus is contained in $U_{\red}$.
+\end{enumerate}
+Then, any large enough power $\delta^N$ of $\delta$ extends to $X$. In the case of $\Delta$, we want to prove a more precise statement.
+
+\paragraph{Theorem 5.4.}
+The power $\Delta^{2n+1}$ of $\Delta$ extends to $V^m$.
+
+\paragraph{Proof when $m=1$.}
+Let us work in coordinates, using a basis in which the function $B(v,v)$ on $V$ has a standard form: if the coordinates of $v$ are $x$, even, and $y_i$ ($1\leq i\leq 2n$), odd, we assume that
+\begin{equation}
+\label{eq:541}
+B(v,v)=x^2+\sum_1^n y_i y_{i+n}.
+\end{equation}
+For a suitable choice of $\operatorname{vol}$, $\Delta$, defined for $x$ invertible, is then the square root of $B(v,v)$, which reduces to $x$ when the $y_i$ vanish. It is given by the binomial expansion of $(x^2+\sum y_i y_{i+n})^{1/2}$:
+\begin{equation}
+\label{eq:542}
+\Delta=\sum \binom{1/2}{k} x^{1-2k}\left(\sum_1^n y_i y_{i+n}\right)^k.
+\end{equation}
+Because $(\sum_1^n y_i y_{i+n})^k=0$ for $k>n$, this expansion terminates. Similarly,
+\begin{equation}
+\label{eq:543}
+\Delta^{2n+1}=\sum_{k=0}^n \binom{n+1/2}{k}x^{2n+1-2k}\left(\sum_1^n y_i y_{i+n}\right)^k,
+\end{equation}
+which is a polynomial in $x$ and the $y_i$, meaning that $\Delta^{2n+1}$ extends to $V$. \hfill $\square$
+
+\paragraph{5.5. Proof of 5.4.}
+Define
+\[
+D_1:=\det(B(v_i,v_j)_{1\leq i,j\leq m-1}),
+\]
+and let $U_1$ be the open subset of $V^m$ where $D_1$ is invertible.
+
+\paragraph{Lemma 5.6.}
+The complement of $U\cup U_1$ in $V^m$ is of codimension $\geq2$.
+
+Indeed, the complements of $U$ and $U_1$ are distinct irreducible hypersurfaces.
+
+\paragraph{Lemma 5.7.}
+$\Delta^{2n+1}$ extends from $U_1\cap U$ to $U_1$.
+
+This lemma implies that $\Delta^{2n+1}$ extends from $U$ to $U\cup U_1$, while 2.21 and 5.6 then imply that it extends to $V^m$, proving 5.4. By 2.19, it suffices to prove 5.7 locally for the etale topology on $U_1$.
+
+\paragraph{Proof of 5.7.}
+Let $\mathcal V$ be the vector bundle $V\otimes\calO$ on $V^m$. On $U_1$, the vector bundle $\mathcal V$ is the orthogonal direct sum of a subbundle $\mathcal V'$ with basis $v_1,\ldots,v_{m-1}$, and of its orthogonal complement $\mathcal V''$, of dimension $1|2n$. Indeed, this orthogonal complement of $v_1,\ldots,v_{m-1}$ is the kernel of
+\[
+b:\mathcal V\longrightarrow \calO^{m-1}:v\longmapsto(B(v,v_i)_{1\leq i\leq m-1}),
+\]
+and the composite
+\[
+\calO^{m-1}\xrightarrow{(v_1,\ldots,v_{m-1})}\mathcal V\xrightarrow{b}\calO^{m-1}
+\]
+is an isomorphism.
+
+Decompose $v_m$ as $v'_m+v''_m$, with $v'_m$ a linear combination of the $v_i$ ($1\leq i\leq m-1$), and $v''_m$ in $\mathcal V''$. One has
+\[
+D=D_1\,B(v''_m,v''_m).
+\]
+Locally for the etale topology, that is after a pull-back by $u:U'_1\to U_1$ etale and surjective,
+\begin{enumerate}[label=(\alph*)]
+\item $D_1$ has a square root $D_1^{1/2}$ (indeed, $D_1$ is invertible);
+\item $\mathcal V''$ has a basis in which $B$ has the standard form \eqref{eq:541} (cf. 2.13).
+\end{enumerate}
+Let $U''_1$ be any connected component of $U'_1$, and let $(U\cap U_1)''$ be the trace on $U''_1$ of the inverse image of $U\cap U_1$ in $U'_1$. As $U'_1$ is smooth, $U''_1$ is irreducible and $(U\cap U_1)''$, dense in $U''_1$, is connected. We will show that the pull-back of $\Delta^{2n+1}$ extends from $(U\cap U_1)''$ to $U''_1$.
+
+On $(U\cap U_1)''$, $\Delta/D_1^{1/2}$ is a square root $B(v'',v'')^{1/2}$ of $B(v'',v'')$. As $\Delta=D_1^{1/2}B(v'',v'')^{1/2}$, it suffices to show that $[B(v'',v'')^{1/2}]^{2n+1}$ extends to $U''_1$.
+
+Let $x$ and the $y_i$ be the coordinates of $v''$. On $U'_1$, $x$ is invertible. On $(U\cap U_1)''$, which is connected, $B(v'',v'')$ has only two square roots, differing by a sign. It follows that $B(v'',v'')^{1/2}$ is given by \eqref{eq:542}, or its opposite. The desired extension of $[B(v'',v'')^{1/2}]^{2n+1}$ is given by \eqref{eq:543}, or its opposite. \hfill $\square$
+
+\paragraph{5.8.}
+Sergeev calls the square root $\Delta^{2n+1}$ of $(\det B(v_i,v_j))^{2n+1}$ the super Pfaffian. The connected component $\SOSp(V,q)$ of $\OSp(V,q)$ is the kernel of the Berezinian, with values in $\mu_2=\{\pm1\}$. The super Pfaffian is invariant by $\SOSp(V,q)$, because $\det B(v_i,v_j)$ is, and because $\SOSp$ is connected. The elements of the other connected component of $\OSp$ transform the super Pfaffian into its opposite.
+
+\paragraph{5.9.}
+In \cite{LZ15}, Theorem 5.4 is proved by giving a second definition of the super Pfaffian and showing it is equivalent to the one above. It is also proved there that the invariants of $\SOSp(V,q)$ on $S^*(V\otimes\C^N)$ are generated by the invariants of $\OSp(V,q)$, together with the super Pfaffian. For this, the $\mathfrak{gl}_N$-module structure of the space of invariants is relevant, and elucidated in \cite{LZ15}.
+
+\begin{thebibliography}{9}
+\bibitem{ABP73} M. Atiyah, R. Bott and V. K. Patodi, On the heat equation and the index theorem, \emph{Invent. Math.} 19 (1973), pp. 279--330.
+\bibitem{DM99} P. Deligne and J. W. Morgan, Notes on Supersymmetry (following J. Bernstein), in \emph{Quantum Fields and Strings: A Course for Mathematicians}, vol. 1, pp. 41--97, AMS, 1999.
+\bibitem{LZ14a} G. I. Lehrer and R. B. Zhang, The first fundamental theorem of invariant theory for the orthosymplectic supergroup, arXiv:1401.7395.
+\bibitem{LZ14b} G. I. Lehrer and R. B. Zhang, The second fundamental theorem of invariant theory for the orthosymplectic supergroup, arXiv:1401.1058.
+\bibitem{LZ15} G. I. Lehrer and R. B. Zhang, Invariants of the orthosymplectic Lie superalgebra and super Pfaffians, arXiv:1507.01329.
+\bibitem{Lei90} D. Leites, Introduction to the theory of super manifolds, \emph{Uspekhi Mat. Nauk} 35 (1980), no. 1, pp. 3--57; translated in \emph{Russian Math. Surveys} 35 (1980), no. 1, pp. 1--64.
+\bibitem{Man88} Yu. Manin, \emph{Gauge Field Theory and Complex Geometry}, Grundlehren 289, Springer-Verlag, 1988.
+\bibitem{SGA1} SGA1: \emph{Séminaire de Géométrie Algébrique du Bois-Marie 1960/61}, dirigé par A. Grothendieck: Revêtements étales et groupe fondamental, Springer Lecture Notes in Mathematics 224.
+\bibitem{Ser92} A. Sergeev, An analogue of the classical theory of invariants for Lie superalgebras, \emph{Funktsional. Anal. i Prilozhen.} 26 (1992), no. 3, pp. 88--90; translated in \emph{Funct. Anal. Appl.} 26 (1992), no. 3, pp. 223--225.
+\bibitem{Weyl46} H. Weyl, \emph{The Classical Groups: Their Invariants and Representations}, Princeton University Press, 1946.
+\end{thebibliography}
+
+\vspace{1em}
+\noindent P. Deligne: \texttt{deligne@math.ias.edu}\par
+\noindent School of Mathematics, IAS, Princeton, NJ 08540, USA
+
+\medskip
+\noindent G. I. Lehrer: \texttt{gustav.lehrer@sydney.edu.au}\par
+\noindent School of Mathematics and Statistics, University of Sydney, NSW 2006, Australia
+
+\medskip
+\noindent R. B. Zhang: \texttt{ruibin.zhang@sydney.edu.au}\par
+\noindent School of Mathematics and Statistics, University of Sydney, NSW 2006, Australia
+
+\end{document}

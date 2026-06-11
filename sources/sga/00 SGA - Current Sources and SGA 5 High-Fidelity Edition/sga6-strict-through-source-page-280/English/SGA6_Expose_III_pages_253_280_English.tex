@@ -1,0 +1,663 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Additions for Exposé III, pages 253--280
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\D}{\mathrm D}
+\providecommand{\Ho}{\mathrm H}
+\providecommand{\RHom}{\mathrm R\!\operatorname{Hom}}
+\providecommand{\parfamp}{\operatorname{parf.amp}}
+\providecommand{\tamp}{\operatorname{tor.amp}}
+\providecommand{\Qcoh}{\operatorname{Qcoh}}
+\providecommand{\Mod}{\operatorname{Mod}}
+\providecommand{\Coh}{\operatorname{Coh}}
+\providecommand{\Lib}{\operatorname{Lib}}
+\providecommand{\Loclib}{\operatorname{Loclib}}
+\providecommand{\qcoh}{\mathrm{qcoh}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\torf}{\mathrm{torf}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rg}{\operatorname{rg}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Cone}{\operatorname{Cone}}
+\providecommand{\pt}{\operatorname{Pt}}
+\providecommand{\ind}{\operatorname{ind}}
+\hbadness=10000
+\emergencystretch=3em
+\begin{center}
+{\Large SGA 6 Exposé III: Relative Perfection and Semi-continuity}\\[0.4em]
+{\large Original source scan pages 253--280}
+\end{center}
+
+\textbf{Proposition 3.6.} Let
+\[
+\begin{tikzcd}
+X \arrow[r,"i"] \arrow[d,"f"'] & X' \arrow[dl,"f'"]\\
+Y &
+\end{tikzcd}
+\]
+be a commutative triangle of schemes, where \(i\) is a closed immersion and \(f'\) is smooth, and let \(E\in\Ob D(X)\). For \(E\) to be locally of finite flat amplitude relative to \(f\), it is necessary and sufficient that \(i_*(E)\) be locally of finite flat amplitude in the absolute sense. More precisely, if \(f'\) is of relative dimension \(\leq d\), then
+\begin{align*}
+\text{(i)}\quad &\tamp(i_*E)\subset[a,b] \Longrightarrow \tamp_f(E)\subset[a,b],\\
+\text{(ii)}\quad &\tamp_f(E)\subset[a,b] \Longrightarrow \tamp(i_*E)\subset[a-d,b].
+\end{align*}
+
+\emph{Proof.} If \([m,n]\) is an interval in \(\mathbb Z\), one has evidently
+\[
+ \tamp(E)\subset[m,n] \Longleftrightarrow \tamp(i_*E)\subset[m,n]
+\]
+in the reduction in which one tests by modules after the closed immersion. Thus it remains to treat the case \(X=X'\), \(i=\id_X\), \(f=f'\). Assertion (i) is immediate from (3.4.1 a). For (ii), consider the diagonal section
+\[
+ s:X\longrightarrow X\times_YX
+\]
+of the two projections. If \(f\) is smooth of relative dimension \(d\), then, by VII 1.10, \(s\) is a regular immersion of codimension \(\leq d\), hence of Tor-dimension \(\leq d\) (as is seen from the Koszul complex). By (3.5.2),
+\[
+ \tamp_f(E)\subset[a,b]
+ \Longleftrightarrow
+ \tamp_{\operatorname{pr}_2}(\operatorname{pr}_1^*E)\subset[a,b].
+\]
+By (3.4.1 b) it follows that
+\[
+ \tamp(s^*\operatorname{pr}_1^*E)
+ \subset[a-d,b],
+\]
+and the implication follows because \(s^*\operatorname{pr}_1^*\simeq\id\).
+
+\textbf{Remark 3.6.1.} The statement (3.6) would be false if one supposed only that \(f'\) were flat; see (3.4.2).
+
+\textbf{Proposition 3.7 (projection formula).} Let \(S\) be a quasi-compact scheme, let \(f:X\to Y\) be a quasi-compact and quasi-separated \(S\)-morphism of quasi-compact schemes over \(S\), let \(E\in\Ob D^{-}(X)_{\qcoh}\), and let \(M\in\Ob D^b(S)_{\qcoh}\). If \(M\) has finite flat amplitude, or if \(E\) has finite flat amplitude relative to \(S\), there is a functorial canonical isomorphism in \(D(Y)_{\qcoh}\)
+\[
+ Rf_*(E)\otimes_S^{\mathbf L}M
+ \xrightarrow{\sim}
+ Rf_*(E\otimes_S^{\mathbf L}M).
+\]
+
+\emph{Proof.} First, by EGA III 1.4.12 and IV 1.7.21, there is an integer \(N\) such that \(R^if_*(F)=0\) for \(i>N\) and for every quasi-coherent \(\mathcal O_X\)-module \(F\). Hence \(Rf_*\) sends \(D^{-}(X)_{\qcoh}\) into \(D^{-}(Y)_{\qcoh}\). The adjunction arrow
+\[
+ Lf^*Rf_*(E)\longrightarrow E
+\]
+yields, after tensoring with \(M\), an arrow
+\[
+ Lf^*(Rf_*(E)\otimes_S^{\mathbf L}M)
+ \longrightarrow E\otimes_S^{\mathbf L}M,
+\]
+and therefore, by adjunction, the canonical arrow
+\[
+ Rf_*(E)\otimes_S^{\mathbf L}M
+ \longrightarrow Rf_*(E\otimes_S^{\mathbf L}M).\tag{*}
+\]
+Both sides have quasi-coherent cohomology. The assertion is local on \(Y\), so assume \(S\) and \(Y\) affine. If \(M\) has finite flat amplitude, devissage and the way-out property of the two functors in \((*)\) reduce successively to \(M\) an ordinary quasi-coherent module, then to \(M\) free, then to \(M\) free of finite type, and finally to \(M=\mathcal O_S\), where \((*)\) is tautological. If instead \(E\) has finite flat amplitude relative to \(S\), devissage reduces to the case \(M=P\), with \(P\) a flat \(A\)-module and \(S=\Spec A\). Put \(A'=D_A(P)\) (EGA \(0_{\mathrm{IV}}\), 18.2.3) and \(S'=\Spec A'\). Then the assertion is the flat base-change assertion that
+\[
+ q^*Rf_*(E)\longrightarrow Rf'_*p^*(E)
+\]
+is an isomorphism for the base change to \(S'\), which is EGA III 1.4.15 together with IV 1.7.21.
+
+\textbf{Corollary 3.7.1.} Let \(S\) be a scheme, let \(f:X\to Y\) be a quasi-compact and quasi-separated \(S\)-morphism of quasi-compact schemes over \(S\), and let \(E\in\Ob D^{-}(X)_{\qcoh}\). If \(E\) is locally of finite flat amplitude relative to \(S\), then the same is true of \(Rf_*(E)\). More precisely, if \(S\) is quasi-compact and if \(N\) is an integer such that \(R^if_*(F)=0\) for \(i>N\) and every quasi-coherent \(\mathcal O_X\)-module \(F\), then
+\[
+ \tamp_S(E)\subset[a,b]
+ \Longrightarrow
+ \tamp_S(Rf_*E)\subset[a,b+N].
+\]
+
+\emph{Proof.} By (3.3 (1) (iv)), and using that \(Rf_*\) commutes with restriction to an open of \(S\), it suffices to prove that the hypothesis implies
+\[
+ H^i(Rf_*E\otimes_S^{\mathbf L}M)=0
+\]
+for \(i\notin[a,b+N]\) and every quasi-coherent \(\mathcal O_S\)-module \(M\). But the hypothesis says that \(H^i(E\otimes_S^{\mathbf L}M)=0\) for \(i\notin[a,b]\), and (3.7) gives the result.
+
+\textbf{Corollary 3.7.2.} Let \(f:X\to Y\) be quasi-compact, quasi-separated, and locally of finite Tor-dimension, and let \(E\in\Ob D^{-}(X)_{\qcoh}\). If \(E\) is locally of finite flat amplitude in the absolute sense, then so is \(Rf_*(E)\).
+
+\emph{Proof.} Combine (3.4.1 a) and (3.7.1).
+
+\section*{4. Relative perfection}
+
+\textbf{Definition 4.1.} Let \(f:X\to Y\) be a morphism locally of finite type of schemes, let \(E\in\Ob D(X)\), and let \([a,b]\) be an interval of \(\mathbb Z\). We say that \(E\) is of perfect amplitude relative to \(f\) (or to \(Y\), if there is no ambiguity), contained in \([a,b]\), and write
+\[
+ \parfamp_f(E)\subset[a,b]
+\]
+if \(E\), relative to \(f\), is pseudo-coherent (1.2) and of flat amplitude contained in \([a,b]\) (3.1). We say that \(f\) is of perfect amplitude contained in \([-n,0]\), or of perfect dimension \(\leq n\), if \(\mathcal O_X\) has perfect amplitude contained in \([-n,0]\). We say that \(E\) is of finite perfect amplitude relative to \(f\) if such an interval \([a,b]\) exists. We say that \(E\) is perfect relative to \(f\) if it is locally of finite perfect amplitude relative to \(f\). We say that \(f\) is perfect if \(\mathcal O_X\) is locally of finite perfect amplitude relative to \(f\).
+
+\textbf{Example 4.1.1.} A regular immersion of codimension \(d\) (VII 1.4) is of perfect dimension \(\leq d\), as follows from the Koszul complex. A morphism locally a complete intersection, i.e. locally the composite of a regular immersion and a smooth morphism, is a perfect morphism.
+
+\textbf{Notation 4.2.} Let \(f:X\to Y\) be locally of finite type. We write
+\[
+ D(f)_{\parf},\qquad D(f)_{\mathrm{parf}},\qquad D(f)_{\mathrm{parf}}^{-}
+\]
+when no confusion is possible, for the full subcategories of \(D(X)\) formed by complexes perfect, respectively of finite perfect amplitude, relative to \(f\). By (I 5.3) and (1.4), these are triangulated subcategories of \(D(X)\). If \(X\) is quasi-compact, the two finite-amplitude/perfect notations coincide in the evident bounded sense.
+
+\textbf{Proposition 4.3} (cf. I 5.8). Let \(f:X\to Y\) be locally of finite type, let \(E\in\Ob D(X)\), let \([a,b]\) be an interval of \(\mathbb Z\), and let \(x\in X\), \(y=f(x)\). The following conditions are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item \(\parfamp_f(E)\subset[a,b]\) in a neighbourhood of \(x\);
+\item in a neighbourhood of \(x\), \(E\) is \((a-1)\)-pseudo-coherent relative to \(f\), is acyclic outside \([a,b]\), and
+\[
+ \tamp_{\mathcal O_{Y,y}}(E_x)\subset[a,b].
+\]
+\end{enumerate}
+
+\emph{Proof.} The implication i) \(\Rightarrow\) ii) is immediate. For the converse, the question is local aupdate \(x\), and by the definitions one reduces to the case where \(f\) is smooth. Then \(E\) is \((a-1)\)-pseudo-coherent near \(x\); after localizing, one may assume that \(E\) is strictly \((a-1)\)-pseudo-coherent and zero in degrees \(>b\). After truncating, one may represent it by a complex with \(E^i\) free of finite type for \(i>a\), \(E^a\) of finite presentation, and zero outside \([a,b]\). By (I 5.1.1), the term in degree \(a\) modulo boundaries is flat relative to \(f\) near \(x\). Since \(f\) is smooth, one embeds locally into an affine space over \(Y\) and descends finite presentation and flatness from a noetherian approximation; pseudo-coherence follows from (1.10 a), and the desired perfect-amplitude assertion follows.
+
+\textbf{Corollary 4.3.1.} Let \(f:X\to Y\) be locally of finite type and let \(E\) be an \(\mathcal O_X\)-module. One has \(\parfamp_f(E)\subset[0,0]\) if and only if \(E\) is flat and of finite presentation relative to \(f\) (1.2.1 c). In particular, \(f\) is of perfect dimension zero if and only if \(f\) is flat and locally of finite presentation.
+
+\textbf{Corollary 4.3.2.} Let \(f:X\to Y\) be locally of finite type, let \(E\) be a complex of \(\mathcal O_X\)-modules flat and of finite presentation relative to \(f\), and let \([a,b]\) be an interval. If \(E^i=0\) for \(i\notin[a,b]\), then \(\parfamp_f(E)\subset[a,b]\). If \(E\) is bounded above, then \(E\) is pseudo-coherent relative to \(f\).
+
+\emph{Proof.} This follows from (4.3.1) and from I 4.15 and I 4.8.
+
+\textbf{Proposition 4.4.} Let
+\[
+\begin{tikzcd}
+X \arrow[r,"i"] \arrow[d,"f"'] & X' \arrow[dl,"g"]\\
+Y &
+\end{tikzcd}
+\]
+be a commutative triangle of schemes, where \(i\) is a closed immersion and \(g\) is smooth, and let \(E\in\Ob D(X)\). Then \(E\) is perfect relative to \(f\) if and only if \(i_*(E)\) is perfect in the absolute sense. More precisely, if \(g\) has relative dimension \(\leq d\), then
+\begin{align*}
+\parfamp(i_*E)
+  \subset[a,b]&\Longrightarrow \parfamp_f(E)
+  \subset[a,b],\\
+\parfamp_f(E)
+  \subset[a,b]&\Longrightarrow \parfamp(i_*E)
+  \subset[a-d,b].
+\end{align*}
+
+\emph{Proof.} This is an immediate consequence of (3.6).
+
+\textbf{Proposition 4.5.} Let
+\[
+\begin{tikzcd}
+X \arrow[r,"f"] \arrow[dr,"h"'] & Y \arrow[d,"g"]\\
+& S
+\end{tikzcd}
+\]
+be a commutative triangle of morphisms locally of finite type, let \(E\in\Ob D(X)\), \(F\in\Ob D(Y)\), and let \([a,b]\), \([c,d]\) be intervals of \(\mathbb Z\). Then
+\[
+ \parfamp_f(E)\subset[a,b],\quad
+ \parfamp_g(F)\subset[c,d]
+ \Longrightarrow
+ \parfamp_h(E\otimes_Y^{\mathbf L}F)
+     \subset[a+c,b+d].
+\]
+In particular, if \(E\) is perfect relative to \(f\) and \(F\) is perfect relative to \(g\), then \(E\otimes_Y^{\mathbf L}F\) is perfect relative to \(h\).
+
+\emph{Proof.} Combine (1.1) and (3.4).
+
+\textbf{Corollary 4.5.1.} Under the hypotheses of (4.5):
+\begin{enumerate}[label=\alph*)]
+\item if \(g\) is of perfect dimension \(\leq n\), then
+\[
+ \parfamp_f(E)
+  \subset[a,b]
+ \Longrightarrow
+ \parfamp_h(E)
+  \subset[a-n,b];
+\]
+therefore, if \(g\) is perfect, \(E\) perfect relative to \(f\) implies \(E\) perfect relative to \(h\);
+\item if \(f\) is of perfect dimension \(\leq m\), then
+\[
+ \parfamp_g(F)
+  \subset[c,d]
+ \Longrightarrow
+ \parfamp_h(Lf^*F)
+  \subset[c-m,d];
+\]
+therefore, if \(f\) is perfect, \(F\) perfect relative to \(g\) implies \(Lf^*F\) perfect relative to \(h\).
+\end{enumerate}
+
+\textbf{Remark 4.5.2.} With the preceding notation, if \(g\) is perfect, \(E\) perfect relative to \(h\) does not necessarily imply that \(E\) is perfect relative to \(f\); the usual example of a singular point of a scheme over a field already shows this. The following criterion is available.
+
+\textbf{Proposition 4.6} (criterion of perfection by fibers). Let
+\[
+\begin{tikzcd}
+X \arrow[r,"f"] \arrow[dr,"h"'] & Y \arrow[d,"g"]\\
+& S
+\end{tikzcd}
+\]
+be a commutative triangle of morphisms of schemes. Suppose that \(f\) and \(h\) are locally of finite type, and that \(g\) is locally of finite presentation and flat. Let \(x\in X\), \(y=f(x)\), \(s=h(x)=g(y)\), and let \(E\in\Ob D(X)\). Let \([a,b]\) be an interval of \(\mathbb Z\), and let \(f_s:X_s\to Y_s\) be the fiber of \(f\) over \(s\), i.e. the morphism obtained from \(f\) by the base change \(\Spec k(s)\to S\). Then the following conditions are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item \(\parfamp_h(E)\subset[a,b]\) near \(x\), and
+\[
+ \tamp_{\mathcal O_{Y_s,y}}(E_x\otimes_{\mathcal O_{Y,y}}^{\mathbf L}\mathcal O_{Y_s,y})
+ \subset[a,b];
+\]
+\item \(\parfamp_f(E)\subset[a,b]\) near \(x\).
+\end{enumerate}
+
+\emph{Proof.} The implication ii) \(\Rightarrow\) i) follows because \(g\) has perfect dimension zero by (4.3.1), hence (4.5.1 a) gives \(\parfamp_h(E)\subset[a,b]\) near \(x\); the asserted Tor-amplitude condition follows from (4.3). Conversely, the question is local aupdate \(x\). We may factor \(f\) as a closed immersion followed by a smooth morphism. Replacing \(E\) by its direct image under the immersion and replacing the smooth factor accordingly does not change the conditions; hence one may suppose \(f\) smooth. Since \(g\) is perfect of dimension zero and \(h\) is perfect by hypothesis, \(E\) is pseudo-coherent. After localizing, use (II 2.2.10 b) and (I 2.10 a) to suppose that \(E\) is strictly pseudo-coherent, zero in degrees \(>b\), and quasi-isomorphic to the truncation
+\[
+ t:
+ E\longrightarrow
+ (0\to E^a/B^a\to E^{a+1}\to\cdots\to E^b\to0).
+\]
+It remains to prove that \(E^a/B^a\) is \(f\)-flat near \(x\). Let \(i:X_s\to X\) be the canonical map. One has
+\[
+ E_x\otimes_{\\mathcal O_{Y,y}}^{\mathbf L}\mathcal O_{Y_s,y}
+ \simeq i^*(E)_x.
+\]
+Using (3.5.2), the Tor-amplitude hypothesis on the fiber shows that the truncated complex \(i^*(t)\) is a quasi-isomorphism, so \(i^*(E^a/B^a)_x\) is flat over \(\mathcal O_{Y_s,y}\). On the other hand, the Tor-amplitude of \(E\) relative to \(h\) implies that \(E^a/B^a\) is \(h\)-flat. The usual criterion of flatness by fibers (EGA IV 11.3.10) then gives that \(E^a/B^a\) is \(f\)-flat near \(x\).
+
+\textbf{Corollary 4.6.1.} Let \(f:X\to S\) be locally of finite presentation and flat, let \(x\in X\), \(s=f(x)\), let \(E\in\Ob D(X)\), and let \([a,b]\) be an interval. If \(i_s:X_s=X\times_S\Spec k(s)\to X\) is the canonical projection and \(E_s=Li_s^*E\), then
+\[
+ \parfamp_S(E)
+  \subset[a,b]\text{ near }x,
+ \quad
+ \tamp(E_s)
+  \subset[a,b]
+\]
+if and only if
+\[
+ \parfamp(E)
+  \subset[a,b]\text{ near }x.
+\]
+Consequently \(E\) is perfect if and only if \(E\) is perfect relative to \(f\) and \(E_s\) is perfect for every \(s\in S\).
+
+\emph{Proof.} Apply (4.6) with \(X=Y\) and \(f=\id_X\).
+
+\textbf{Remark 4.6.2.} From (4.6.1) and I 5.10 it follows that, if \(f\) is locally of finite presentation, flat, and has regular schemes as fibers, then \(E\) perfect relative to \(f\) is equivalent to \(E\) perfect. This equivalence was already obtained in (4.4) when \(f\) is smooth.
+
+\textbf{Proposition 4.7.} Let \(S\) be a scheme, and for \(i=1,2\) let
+\[
+ f_i:X_i\longrightarrow Y_i
+\]
+be an \(S\)-morphism locally of finite type, with \(E_i\in\Ob D(X_i)\) and intervals \([a_i,b_i]\). Suppose that \(X_1\) and \(X_2\), and also \(Y_1\) and \(Y_2\), are Tor-independent over \(S\). Put \(a=a_1+a_2\), \(b=b_1+b_2\), and \(f=f_1\times_S f_2\). Then:
+\begin{enumerate}[label=\alph*)]
+\item if \(\parfamp_{f_1}(E_1)\subset[a_1,b_1]\), and if \(E_2\) is pseudo-coherent relative to \(f_2\) and acyclic outside \([a_2,b_2]\), then \(E_1\otimes_S^{\mathbf L}E_2\) is pseudo-coherent relative to \(f\) and acyclic outside \([a,b]\);
+\item if \(\parfamp_{f_i}(E_i)\subset[a_i,b_i]\) for \(i=1,2\), then
+\[
+ \parfamp_f(E_1\otimes_S^{\mathbf L}E_2)
+ \subset[a,b].
+\]
+\end{enumerate}
+
+\emph{Proof.} Combine (1.9) and (3.5).
+
+\textbf{Corollary 4.7.1.} Under the hypotheses of (4.7), if \(f_i\) has perfect dimension \(\leq n_i\) for \(i=1,2\), then \(f\) has perfect dimension \(\leq n_1+n_2\). Consequently, if \(f_1\) and \(f_2\) are perfect, then so is \(f\).
+
+\textbf{Corollary 4.7.2.} In a Cartesian square
+\[
+\begin{tikzcd}
+X' \arrow[r,"g"] \arrow[d,"f'"'] & X \arrow[d,"f"]\\
+Y' \arrow[r,"h"'] & Y,
+\end{tikzcd}
+\]
+where \(f\) is locally of finite type and \(X\) and \(Y'\) are Tor-independent over \(Y\), one has
+\[
+ \parfamp_f(E)
+ \subset[a,b]
+ \Longrightarrow
+ \parfamp_{f'}(Lg^*E)
+ \subset[a,b].
+\]
+Consequently \(Lg^*:D^{-}(X)\to D^{-}(X')\) sends \(D(f)_{\parf}\), respectively \(D(f)_{\mathrm{parf}}\), into the corresponding categories for \(f'\).
+
+\textbf{Proposition 4.8.} Let \(S\) be a scheme, let \(f:X\to Y\) be a proper \(S\)-morphism of \(S\)-schemes locally of finite type, and let \(E\in\Ob D^{-}(X)\). Under the proviso that (2.1) is valid for \(f\) (hence at least if \(S\) is locally noetherian or if \(f\) is projective):
+\begin{enumerate}[label=\alph*)]
+\item if \(E\) is perfect relative to \(S\), then so is \(Rf_*(E)\);
+\item if \(S\) is quasi-compact, \(X\) and \(Y\) are of finite type over \(S\), \([a,b]\) is an interval, and \(N\) is such that \(R^if_*(M)=0\) for \(i>N\) and every quasi-coherent \(\mathcal O_X\)-module \(M\), then
+\[
+ \parfamp_S(E)\subset[a,b]
+ \Longrightarrow
+ \parfamp_S(Rf_*E)
+ \subset[a,b+N].
+\]
+\end{enumerate}
+Consequently \(Rf_*\) sends perfect complexes relative to \(S\) to perfect complexes relative to \(S\).
+
+\emph{Proof.} Assertion a) follows from b), and b) is obtained by combining (2.1) and (3.7).
+
+\textbf{Corollary 4.8.1.} Let \(f:X\to Y\) be proper and perfect, and let \(E\in\Ob D^{-}(X)\). Under the proviso that (2.1) holds for \(f\), if \(E\) is perfect then \(Rf_*(E)\) is perfect. If moreover \(Y\) is quasi-compact, \(Rf_*\) sends \(D(X)_{\parf}\) to \(D(Y)_{\parf}\).
+
+\emph{Proof.} If \(E\) is perfect, then \(E\) is perfect relative to \(f\) by (4.5.1 a).
+
+\textbf{Proposition 4.9.} Let \(S\) be noetherian, let \(X\) and \(Y\) be \(S\)-schemes of finite type, let \(f:X\to Y\) be a compactifiable \(S\)-morphism, i.e. the composite of an open immersion and a proper morphism, and let \(E\in\Ob D(X)\), \(F\in\Ob D^{-}(Y)\). If \(E\) is perfect relative to \(f\) and \(F\) is perfect relative to \(S\), then
+\[
+ \RHom(E,f^!F)
+\]
+is perfect relative to \(S\).
+
+\emph{Proof.} The question is local on \(X\). One may suppose that \(f\) factors as
+\[
+ X\xrightarrow{i}X'\xrightarrow{f'}Y,
+\]
+where \(i\) is a closed immersion and \(f'\) is smooth. If \(E\) is perfect relative to \(f\), then it is perfect relative to \(i\) by (4.4); if \(F\) is perfect relative to \(S\), then \(f'^!F\) is perfect relative to \(S\) by (4.5.1 b), since \(f'^!F\) is locally isomorphic to \(f'^*F\) up to translation. As \(f^!=i^!f'^!\), it remains to prove the assertion when \(f\) is a closed immersion. Then \(f_*E\) is perfect and, by global duality ([H] III 6.7),
+\[
+ f_*\RHom(E,f^!F)\simeq\RHom(f_*E,F).
+\]
+Since \(f_*E\) is perfect, (I 7.7) gives
+\[
+ \RHom(f_*E,F)\simeq(f_*E)^{\vee}\otimes^{\mathbf L}F,
+\]
+and the result follows from (4.5) with the identity morphism on \(Y\).
+
+\textbf{Corollary 4.9.1.} Under the hypotheses of (4.8), if \(f\) is perfect, then \(f^!\) sends \(D(Y)_{\parf}\) into \(D(X)_{\parf}\).
+
+\emph{Proof.} Take \(E=\mathcal O_X\) in (4.9).
+
+\textbf{Corollary 4.9.2.} Let \(S\) be noetherian and let \(f:X\to S\) be compactifiable. Put \(K_X=f^!(\mathcal O_S)\), and \(D_X(\cdot)=\RHom(\cdot,K_X)\). For \(E\in\Ob D(f)_{\parf}\), one has \(D_X(E)\in\Ob D(f)_{\parf}\), and the canonical arrow
+\[
+ E\longrightarrow D_XD_X(E)
+\]
+is an isomorphism.
+
+\emph{Proof.} For the first assertion, apply (4.9) with \(Y=S\) and \(F=\mathcal O_S\). For the second, one reduces easily to the case where \(f\) is a closed immersion. It is enough then to apply \(f_*\) to the canonical arrow. By global duality one has \(f_*D_X=D_Sf_*\), and one is reduced to ordinary biduality for perfect complexes (I 7.2).
+
+\section*{5. Applications: exchange and semi-continuity theorems}
+
+\textbf{Lemma 5.1.} Let \((X,\mathcal O_X)\) be a commutatively ringed topos, let \(\Mod(X)\) be the category of \(\mathcal O_X\)-modules, and write \(D(X)=D(\Mod(X))\). Let \(E\in\Ob D(X)\) and let \(p\in\mathbb Z\). Consider the following conditions:
+\begin{enumerate}[label=\alph*)]
+\item the functor \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) from \(\Mod(X)\) to \(\Mod(X)\) is right exact;
+\item[\(\mathrm a'\)] the canonical map
+\[
+ H^p(E)\otimes M\longrightarrow H^p(E\otimes^{\mathbf L}M)
+\]
+is an isomorphism for all \(M\in\Ob\Mod(X)\);
+\item[\(\mathrm b\)] the functor \(M\mapsto H^{p+1}(E\otimes^{\mathbf L}M)\) is left exact;
+\item[\(\mathrm b'\)] the canonical map defined below
+\[
+ H^{p+1}(E\otimes^{\mathbf L}M)
+ \longrightarrow
+ \Hom(H^{-p-1}(E^{\vee}),M)
+\]
+is an isomorphism for all \(M\in\Ob\Mod(X)\).
+\end{enumerate}
+Then
+\[
+ \mathrm a\Longleftrightarrow \mathrm a'
+ \Longleftrightarrow \mathrm b
+ \Longleftarrow \mathrm b'.
+\]
+If \(E\) is pseudo-coherent, then a), a'), b), and b') are equivalent.
+
+The map in b') is obtained as follows. The canonical evaluation arrow \(E^{\vee}\otimes^{\mathbf L}E\to\mathcal O_X\), tensorized with \(M\), gives an arrow
+\[
+ E\otimes^{\mathbf L}M\longrightarrow\RHom(E^{\vee},M).
+\]
+On \(H^{p+1}\), and then by the canonical map
+\[
+ \Ext^{p+1}(E^{\vee},M)	o\Hom(H^{-p-1}(E^{\vee}),M),
+\]
+one obtains the arrow b').
+
+\emph{Proof.} The implications \(\mathrm a'\Rightarrow\mathrm a\Leftrightarrow\mathrm b\Leftarrow\mathrm b'\) are formal. To prove \(\mathrm a\Rightarrow\mathrm a'\), present \(M\) by a sequence \(M^0\to M^1\to M\to0\) in which \(M^0\) and \(M^1\) are direct sums of sheaves of the form \(\mathcal O_{U,X}\), with \(U\) an object of \(X\). Right exactness and compatibility with direct sums reduce the assertion to \(M=\mathcal O_{U,X}\). Then both sides are identified with extension by zero from \(U\), and exactness of that extension gives the result.
+
+Assume now that \(E\) is pseudo-coherent and prove \(\mathrm b\Rightarrow\mathrm b'\). It is enough to show that the preceding comparison arrow
+\[
+ E\otimes^{\mathbf L}M\longrightarrow\RHom(E^{\vee},M)
+\]
+is an isomorphism when \(M\) is injective. Let \(T(F)=F\otimes^{\mathbf L}M\) and \(T'(F)=\RHom(F^{\vee},M)\). Both functors have the same boundedness behaviour under truncation; the arrow is local and is compatible with restriction to opens, and an injective remains injective after such a restriction. After localizing and truncating, one may suppose \(E\) strictly perfect. A devissage then reduces to \(E=\mathcal O_X\), where the assertion is immediate.
+
+\textbf{Remarks 5.2.}
+\begin{enumerate}[label=\roman*)]
+\item Conditions a), a'), b), and b') are local on the topos: if \((X_\alpha)\) is an open covering of the final object and the condition holds for each \(X_\alpha\) and \(E|X_\alpha\), then it holds on \(X\).
+\item If \(x\) is a point of \(X\), write \(a_x\), \(a'_x\), \(b_x\), etc. for the corresponding conditions for \(E_x\) and \(\Mod(\mathcal O_{X,x})\). If \(X\) has enough points, condition a), respectively a'), b), is equivalent to the corresponding stalkwise condition for every \(x\); if \(E\) is pseudo-coherent, this is also equivalent to b') stalkwise. Moreover, a') may be tested on quotients of modules of the form \(\mathcal O_{U,x}^{(I)}\to\mathcal O_{U,x}\).
+\item The criterion EGA III 7.4.2 extends word for word: if \(E\) is represented by flat terms, condition a) says that \(\Coker(E^p\to E^{p+1})\) is flat, hence locally a direct factor of a free module of finite type when \(E^p\) and \(E^{p+1}\) are of finite presentation. In particular, for \(E\) perfect, condition a) for degree \(p\) is equivalent to the corresponding condition for \(E^{\vee}\) in degree \(-p-1\).
+\item Let \(X\) be a quasi-separated scheme and let \(E\in\Ob D(X)\) have locally bounded quasi-coherent cohomology. Let \(a_{\qcoh}\), \(a'_{\qcoh}\), etc. be the analogous conditions with \(\Mod(X)\) replaced by \(\Qcoh(X)\). Then
+\[
+ a\Rightarrow a_{\qcoh},\qquad
+ a'\Rightarrow a'_{\qcoh},\qquad
+ b\Rightarrow b_{\qcoh},
+\]
+and these conditions are all equivalent when \(E\) is pseudo-coherent. This follows by reducing to affine opens, using II 3.5 and II 2.2.10 a), and the fact that quasi-coherent sheaves extend from affine opens on a quasi-separated scheme.
+\end{enumerate}
+
+\textbf{Proposition 5.3} (exchange property; EGA III 7.7.5 II). Let \(f:X\to Y\) be a morphism of quasi-compact and quasi-separated schemes, let \(E\in\Ob D^{-}(X)\) have quasi-coherent cohomology and finite flat amplitude relative to \(f\), and let \(p\in\mathbb Z\). Consider:
+\begin{enumerate}[label=\alph*)]
+\item \(M\mapsto R^pf_*(E\otimes_Y^{\mathbf L}M)\), from \(\Qcoh(Y)\) to \(\Qcoh(Y)\), is right exact;
+\item[\(\mathrm a'\)] the canonical arrow
+\[
+ R^pf_*(E)\otimes M
+ \longrightarrow
+ R^pf_*(E\otimes_Y^{\mathbf L}M)
+\]
+is an isomorphism for every \(M\in\Ob\Qcoh(Y)\);
+\item[\(\mathrm b\)] \(M\mapsto R^{p+1}f_*(E\otimes_Y^{\mathbf L}M)\) is left exact;
+\item[\(\mathrm b'\)] the canonical arrow
+\[
+ R^{p+1}f_*(E\otimes_Y^{\mathbf L}M)
+ \longrightarrow
+ \Hom(H^{-p-1}((Rf_*E)^{\vee}),M)
+\]
+is an isomorphism for every \(M\in\Ob\Qcoh(Y)\);
+\item[\(\mathrm c\)] for every base change \(Y'\to Y\), the canonical arrow
+\[
+ R^pf_*(E)\otimes_Y\mathcal O_{Y'}
+ \longrightarrow
+ H^p(Rf_*E\otimes_Y^{\mathbf L}\mathcal O_{Y'})
+\]
+is an isomorphism.
+\end{enumerate}
+Then
+\[
+ a\Longleftrightarrow a'\Longleftrightarrow c\Longleftrightarrow b\Longleftarrow b'.
+\]
+If, moreover, \(f\) is proper, \(E\) is pseudo-coherent relative to \(f\) (hence perfect relative to \(f\)), and (2.1) is valid for \(f\), for instance if \(f\) is projective or \(Y\) is noetherian, then the preceding conditions are all equivalent.
+
+\emph{Proof.} The implications among a), a'), b), and b') follow at once from (3.7), (5.1), and (5.2 iv); the implication \(b\Rightarrow b'\) in the proper pseudo-coherent case follows from (2.1). It remains to compare a') and c). This is supplied by the following lemma.
+
+\textbf{Lemma 5.3.1.} Let \(X\) be a quasi-separated scheme, and let \(E\in\Ob D^{-}(X)\) have locally bounded quasi-coherent cohomology. Then condition (5.1 a) is equivalent to:
+\begin{enumerate}[label=\alph*)]
+\setcounter{enumi}{2}
+\item for every \(X'\to X\), the canonical map
+\[
+ H^p(E)\otimes_X\mathcal O_{X'}
+ \longrightarrow
+ H^p(E\otimes_X^{\mathbf L}\mathcal O_{X'})
+\]
+is an isomorphism.
+\end{enumerate}
+If \(E\) is pseudo-coherent, condition (5.1 a) also implies that, for every \(X'\to X\), the map
+\[
+ H^{-p-1}(E^{\vee})\otimes_X\mathcal O_{X'}
+ \longrightarrow
+ H^{-p-1}((E\otimes_X^{\mathbf L}\mathcal O_{X'})^{\vee})
+\tag{5.3.1.1}
+\]
+is an isomorphism.
+
+\emph{Proof of the lemma.} For \(a\Rightarrow c\), localize on \(X'\), and assume \(X=\Spec A\), \(X'=\Spec A'\), and \(E=\widetilde F\). By the affine case the hypothesis gives
+\[
+ H^p(F)\otimes_AA'
+ \longrightarrow
+ H^p(F\otimes_A^{\mathbf L}A')
+\]
+an isomorphism, which is exactly c). Conversely, by (5.2 iv) it suffices to prove \(c\Rightarrow a'_{\qcoh}\). Again localizing, write \(X=\Spec A\), \(E=\widetilde F\), and let \(M=\widetilde N\) be quasi-coherent. Taking \(A'=D_A(N)\) and applying c) to \(\Spec A'\to X\) gives the required map
+\[
+ H^p(F)\otimes_AN
+ \longrightarrow
+ H^p(F\otimes_A^{\mathbf L}N)
+\]
+as an isomorphism.
+
+For the last assertion, the question is local on \(X'\). By (II 2.2.10 b) and truncation, one may suppose \(E\) strictly perfect. Then \((E\otimes_X^{\mathbf L}\mathcal O_{X'})^{\vee}\) identifies canonically with \(E^{\vee}\otimes_X^{\mathbf L}\mathcal O_{X'}\), and (5.3.1.1) is the canonical map
+\[
+ H^{-p-1}(E^{\vee})\otimes_X\mathcal O_{X'}
+ \longrightarrow
+ H^{-p-1}(E^{\vee}\otimes_X^{\mathbf L}\mathcal O_{X'}).
+\tag{*}
+\]
+If \(E\) satisfies (5.1 a) for \(p\), then by (5.2 iii) \(E^{\vee}\) satisfies the same condition for \(-p-1\), and \((*)\) is an isomorphism by the first part of the lemma. The lemma, and therefore (5.3), follow.
+
+\textbf{Remark 5.3.2.} Proposition (5.3) applies in particular when \(E\) is a bounded complex of quasi-coherent flat \(\mathcal O_X\)-modules of finite presentation relative to \(f\): by (4.3.2), such a complex has finite perfect amplitude relative to \(f\).
+
+\textbf{Definition 5.4.} Let \(X\) be a topos, let \(\pt(X)\) be its set of points (SGA 4 IV 6.1), let \(M\) be an ordered set, and let \(\varphi:\pt(X)\to M\) be a function. We say that \(\varphi\) is upper semi-continuous at \(x\) (respectively lower semi-continuous, respectively locally constant) if there exists an \(x\)-pointed object \(U\) of \(X\) such that for every point \(y\) of \(U\), one has \(\varphi(y)\leq\varphi(x)\) (respectively \(\varphi(y)\geq\varphi(x)\), respectively \(\varphi(y)=\varphi(x)\)). We say that \(\varphi\) is upper semi-continuous (respectively lower semi-continuous, respectively locally constant) if it is so at every point.
+
+\textbf{Examples 5.4.1.}
+\begin{enumerate}[label=\alph*)]
+\item If \(\underline M\) is the constant sheaf with value \(M\) and \(s\in H^0(X,\underline M)\), then \(x\mapsto x^*s\) is locally constant. In particular, if \(X\) is locally ringed and \(E\) is a perfect complex on \(X\), the rank of \(E\) (I 6.11) defines a locally constant function on \(\pt(X)\) with values in \(\mathbb Z\).
+\item If \(X\) is locally ringed and \(P\) is an \(\mathcal O_X\)-module of finite type, then for \(x\in\pt(X)\), \(P_x\otimes_{\mathcal O_{X,x}}k(x)\) is a finite-dimensional vector space over \(k(x)\), and
+\[
+ x\longmapsto \dim_{k(x)}(P_x\otimes k(x))
+\]
+is upper semi-continuous. This is the usual Nakayama argument: an epimorphism \(\mathcal O_{X,x}^{n}\to P_x\) lifts over a pointed neighbourhood.
+\end{enumerate}
+
+\textbf{Lemma 5.5.} Let \((X,\mathcal O_X)\) be a locally ringed topos, let \(E\in\Ob D(X)\), and let \(p\in\mathbb Z\). Then:
+\begin{enumerate}[label=\roman*)]
+\item If \(E\) is perfect, the vector spaces
+\[
+ H^i(E_x\otimes_{\mathcal O_{X,x}}^{\mathbf L}k(x))
+\]
+are finite-dimensional over \(k(x)\), zero except for finitely many \(i\), and the function
+\[
+ x\longmapsto
+ \sum_i(-1)^i\dim_{k(x)}H^i(E_x\otimes^{\mathbf L}k(x))
+\]
+is locally constant on \(\pt(X)\).
+\item If \(E\) is \((p-1)\)-pseudo-coherent, then
+\[
+ H^p(E_x\otimes_{\mathcal O_{X,x}}^{\mathbf L}k(x))
+\]
+is finite-dimensional over \(k(x)\), and its dimension is upper semi-continuous on \(\pt(X)\). If moreover \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) is exact on \(\Mod(X)\), then \(H^p(E)\) is locally free of finite type and the preceding function is locally constant.
+\item If \(E\) is \(p\)-pseudo-coherent (respectively \((p-1)\)-pseudo-coherent), and if for a point \(x\) the functor
+\[
+ M\longmapsto H^p(E_x\otimes_{\mathcal O_{X,x}}^{\mathbf L}M)
+\]
+is right exact (respectively left exact) on \(\Mod(\mathcal O_{X,x})\), then there exists an \(x\)-pointed object \(U\) such that
+\[
+ M\longmapsto H^p(E|_U\otimes^{\mathbf L}M)
+\]
+is right exact (respectively left exact) on \(\Mod(U)\).
+\end{enumerate}
+
+\emph{Proof.} For i), by I 4.19.1 the complex \(E_x\otimes^{\mathbf L}k(x)\) is a perfect complex of \(k(x)\)-modules; hence its cohomology spaces have finite rank and vanish except for finitely many degrees. The identity
+\[
+ \rank(E_x\otimes^{\mathbf L}k(x))
+ =\sum_i(-1)^i\dim_{k(x)}H^i(E_x\otimes^{\mathbf L}k(x))
+\]
+follows by devissage from the additivity of rank. The assertion follows from the compatibility of the rank with inverse images (I 6.12).
+
+For ii), after truncation and translation, one may assume for the first assertion that \(E\) is strictly perfect, \(p=0\), and \(E^i=0\) for \(i\notin[-1,1]\). Put \(E(x)=E_x\otimes^{\mathbf L}k(x)\). Then
+\[
+ 0=\rank(E(x))
+ =\dim H^{-1}(E(x))-\dim H^0(E(x))+\dim H^1(E(x))
+\]
+up to the corresponding alternating-rank convention; hence upper semi-continuity of \(\dim H^0(E(x))\) follows from that of the neighbouring cohomology dimensions and from local constancy of the rank of the terms. For \(H^1\) this is immediate from (5.4.1 b). For \(H^{-1}\), replacing \(E\) by the truncated complex \((0\to E^{-1}\to E^0\to0)\) reduces to the same argument.
+
+For the second assertion in ii), after truncating one may suppose \(E\) strictly perfect and \(E^i=0\) for \(i<p-1\). Then \(Z'^{p+1}(E)=\Coker(E^p\to E^{p+1})\) is of finite presentation and one has an exact sequence
+\[
+0\to H^p(E)\to Z'^p(E)\to E^{p+1}\to Z'^{p+1}(E)\to0.
+\]
+Exactness of \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) implies, by (5.2 iii), that \(Z'^{p}(E)\) and \(Z'^{p+1}(E)\) are flat, hence locally free of finite type by I 5.8.3. The exact sequence then shows that \(H^p(E)\) is locally free of finite type, and the function \(x\mapsto\dim_{k(x)}H^p(E)_x\) is locally constant.
+
+For iii), assume \(E\) strictly perfect and zero outside the relevant degrees. Saying that the stalk functor is right exact (respectively left exact) is equivalent, by (5.2 iii), to saying that the corresponding module of cycles \(Z'^{p+1}(E_x)\) (respectively \(Z'^p(E_x)\)) is flat, hence free of finite type since it is of finite presentation. Because these modules are the stalks of \(Z'^{p+1}(E)\) and \(Z'^p(E)\), the usual openness argument (EGA \(0_I\), 5.2.7) gives an \(x\)-pointed object \(U\) on which the required cycle module is locally free of finite type. This proves the exactness assertion.
+
+\textbf{Corollary 5.6} (EGA III 7.6.9). Let \(X\) be a scheme, let \(p\in\mathbb Z\), and let \(E\in\Ob D(X)\) be \((p-1)\)-pseudo-coherent. Then:
+\begin{enumerate}[label=\roman*)]
+\item For \(x\in X\), \(H^p(E\otimes_X^{\mathbf L}k(x))\) has finite rank over \(k(x)\), and
+\[
+ x\longmapsto \dim_{k(x)}H^p(E\otimes_X^{\mathbf L}k(x))
+\]
+is constructible and upper semi-continuous on \(X\).
+\item Suppose \(X\) is quasi-separated and \(E\) has locally bounded quasi-coherent cohomology. If \(M\mapsto H^p(E\otimes^{\mathbf L}M)\) is exact on the category of quasi-coherent \(\mathcal O_X\)-modules, then the preceding function is locally constant and \(H^p(E)\) is locally free of finite type. Conversely, if \(X\) is locally noetherian and reduced and that function is locally constant, then the same functor is exact on quasi-coherent modules.
+\end{enumerate}
+
+\emph{Proof.} If \(X\) is integral with generic point \(x\), the functor \(M\mapsto H^p(E_x\otimes M)\) is exact on \(\mathcal O_{X,x}\)-modules, since \(\mathcal O_{X,x}=k(x)\). By (5.5 iii) there is a non-empty open neighbourhood \(U\) of \(x\) on which the corresponding functor is exact, and by (5.5 ii) the rank function is locally constant on \(U\). This gives constructibility. The other assertions follow from (5.5 ii, iii) and (5.2 iv), except for the converse in ii), for which one reduces locally and by truncation to the strictly perfect case and applies EGA III 7.6.2 and 7.6.5 to the functor \(T_M=H^p(E\otimes^{\mathbf L}M)\).
+
+\textbf{Proposition 5.7} (EGA III 7.7.5 and 7.9.4). Let \(f:X\to Y\) be a proper morphism of quasi-compact schemes, let \(E\in\Ob D(X)_{\parf}\), and let \(p\in\mathbb Z\). Assuming (2.1) is valid for \(f\), for instance if \(f\) is projective or if \(Y\) is noetherian, the following hold:
+\begin{enumerate}[label=\roman*)]
+\item For \(y\in Y\), the vector spaces \(H^i(Rf_*E\otimes_Y^{\mathbf L}k(y))\) are finite-dimensional over \(k(y)\), zero except for finitely many \(i\), and their alternating rank is locally constant on \(Y\).
+\item The function
+\[
+ y\longmapsto \dim_{k(y)}H^p(Rf_*E\otimes_Y^{\mathbf L}k(y))
+\]
+is constructible and upper semi-continuous on \(Y\).
+\item Suppose \(Y\) is quasi-separated. If \(M\mapsto R^pf_*(E\otimes_Y^{\mathbf L}M)\) is exact on the category of quasi-coherent \(\mathcal O_Y\)-modules, then \(R^pf_*(E)\) is locally free of finite type and the function in ii) is locally constant. Conversely, if \(Y\) is noetherian and reduced and the function in ii) is locally constant, then the same functor is exact on quasi-coherent modules.
+\end{enumerate}
+
+\emph{Proof.} By (4.8), \(Rf_*(E)\) is a perfect complex. Assertion i), respectively ii), follows from (5.5 i), respectively (5.6 i). If \(M\) is quasi-coherent on \(Y\), the canonical arrow
+\[
+ Rf_*(E)\otimes_Y^{\mathbf L}M
+ \xrightarrow{\sim}
+ Rf_*(E\otimes_Y^{\mathbf L}M)
+\]
+is an isomorphism by (3.7), and iii) follows from (5.6 ii).
+
+\textbf{Remarks 5.8.}
+\begin{enumerate}[label=\alph*)]
+\item In the situation of (5.7), let \(i_y:X_y\to X\) be the inclusion of the fiber over a point \(y\in Y\). One may show, under the usual flatness hypotheses, the Künneth formula
+\[
+ H^i(Rf_*E\otimes_Y^{\mathbf L}k(y))
+ \simeq H^i(X_y,E_y),
+\]
+where \(E_y=Li_y^*E\), or \(E_y=i_y^*E\) in the flat case.
+\item One can develop for complex analytic spaces a theory analogous to that of this section: exchange, semi-continuity, and continuity properties. Its essential inputs are Grauert's finiteness theorem for proper morphisms and the analytic analogue of the projection formula. More precisely, for a morphism \(f:X\to Y\) of analytic spaces, with \(X\) of bounded dimension, and for \(E\in\Ob D(X)\), \(M\in\Ob D(Y)_{\coh}\), the canonical arrow
+\[
+ Rf_*(E)\otimes_Y^{\mathbf L}M
+ \longrightarrow
+ Rf_*(E\otimes_Y^{\mathbf L}M)
+\]
+is an isomorphism. Unlike Grauert's theorem, this assertion is essentially formal; it follows by the same devissage as in the proof of (3.7), and requires no hypothesis on \(E\) beyond belonging to the appropriate derived category.
+\end{enumerate}
+
+\subsection*{Bibliography}
+\begin{enumerate}[label={[\arabic*]}]
+\item Grauert, H., \emph{Ein Theorem der Analytischen Garbentheorie}, Publ. IHES, no. 5.
+\item Hartshorne, R., \emph{Residues and Duality}, Lecture Notes in Mathematics, no. 20, Springer, 1966.
+\item Godement, R., \emph{Théorie des faisceaux}, Hermann, 1958.
+\end{enumerate}
+
+\end{document}
