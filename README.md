@@ -24,7 +24,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Corpus | Status | Zenodo |
 |---|---:|---|
 | Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
-| Workflow / replication packet | Small AI-run workflow and tooling packet | <https://zenodo.org/records/20641449> |
+| Workflow / replication packet | Small AI-run workflow and tooling packet; latest addendum documents OCR witnesses, high-DPI aid packets, source-window sampling, and release hygiene. | <https://zenodo.org/records/20650700> |
 | Emmy Noether | Numbered-paper German/English corpus plus multilingual working translations; latest public version keeps raw audit/witness material out of the reader-facing surface while DE/EN remain the canonical source branch and multilingual branches continue as working translations. | <https://zenodo.org/records/20643913> |
 | Heinrich Weber | Lehrbuch Volume I complete; Volume II current German/English readers through §176 with localized recursive gap repairs through Batch119; Volume III in progress; 95 priority gap-audit rows still open. | <https://zenodo.org/records/20650399> |
 | Arthur Cayley | Suspect draft/provenance readers; current PDFs and TeX are not accuracy-certified. The current promoted narrow tranche is `Cayley_V1_critical_p001_045_v2_20260609.zip` for Volume I pp.1-45 / complete Papers 1-9; older Cayley material remains de-promoted until page-by-page source audit. | <https://zenodo.org/records/20617845> |

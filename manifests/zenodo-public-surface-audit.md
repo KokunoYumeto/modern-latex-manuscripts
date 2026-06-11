@@ -5,7 +5,7 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | Record | Files | PDFs | ZIPs | Total MB | Link |
 |---|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
-| workflow | 10 | 3 | 7 | 0.3228 | [record](https://zenodo.org/records/20641449) |
+| workflow | 11 | 3 | 7 | 0.3274 | [record](https://zenodo.org/records/20650700) |
 | noether | 99 | 90 | 8 | 949.6987 | [record](https://zenodo.org/records/20643913) |
 | weber | 35 | 8 | 24 | 786.8418 | [record](https://zenodo.org/records/20650399) |
 | cayley | 84 | 13 | 69 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
@@ -22,10 +22,10 @@ Generated from public Zenodo file catalog on 2026-06-11.
 | historical_references | 15 | 13 | 1 | 58.5912 | [record](https://zenodo.org/records/20415777) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
 | sylvester | 3 | 1 | 1 | 91.8621 | [record](https://zenodo.org/records/20649689) |
+| gibbs_old_physics | 10 | 3 | 3 | 18.6216 | [record](https://zenodo.org/records/20649836) |
 | dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
 | bianchi | 11 | 5 | 5 | 738.5711 | [record](https://zenodo.org/records/20650630) |
 | gordan_clebsch_gordan | 25 | 0 | 24 | 1352.6456 | [record](https://zenodo.org/records/20650618) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 88 | 10 | 78 | 4412.9940 | [record](https://zenodo.org/records/20650532) |
-| gibbs_old_physics | 10 | 3 | 3 | 18.6216 | [record](https://zenodo.org/records/20649836) |
+| additional_author_cluster | 88 | 10 | 78 | 4412.994 | [record](https://zenodo.org/records/20650532) |
