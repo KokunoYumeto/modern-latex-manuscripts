@@ -1,0 +1,941 @@
+%% ========================================================================
+%% Kitab Shakl al-Qatta' -- Treatise on the Quadrilateral
+%% by Nasir al-Din al-Tusi (1201-1274)
+%%
+%% BILINGUAL EDITION: Arabic (Left) -- English (Right)
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{etoolbox}
+% Using minipage-based bilingual environment instead of parcolumns/paracol
+
+\usetikzlibrary{arrows.meta,calc,intersections,through,backgrounds,patterns}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+
+%% Arabic Font (as specified)
+\TeXXeTstate=1
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Amiri}
+
+\emergencystretch=4em
+\sloppy
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{arabicblue}{RGB}{25,55,95}
+\definecolor{goldaccent}{RGB}{140,110,70}
+\definecolor{leftbg}{RGB}{252,250,245}
+\definecolor{rightbg}{RGB}{245,248,252}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}\centering}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}\centering}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Kitab Shakl al-Qatta' --- Bilingual Edition}}
+\fancyhead[C]{\small\thepage}
+\fancyhead[R]{\small\textit{al-Tusi (c.~1260)}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Theorem Environments --------
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Arabic inline helper with RTL
+\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
+\newcommand{\artext}[1]{\ar{#1}}
+
+%% Bilingual command using minipage
+\newcommand{\bilingualpair}[2]{%
+  \par\noindent
+  \begin{minipage}[t]{0.48\textwidth}
+  #1
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+  \vspace*{0pt}#2
+  \end{minipage}\par\vspace{0.3cm}%
+}
+
+%% Decorative ornaments
+\newcommand{\ornament}{\begin{center}\textcolor{goldaccent}{$\ast$~$\ast$~$\ast$}\end{center}}
+\newcommand{\dblornament}{\begin{center}\textcolor{goldaccent}{$\ast$~$\ast$~$\ast$~$\ast$~$\ast$}\end{center}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Kitab Shakl al-Qatta by Nasir al-Din al-Tusi -- Bilingual Edition},
+  pdfauthor={Nasir al-Din al-Tusi (1201-1274)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{24}{30}\selectfont\textsc{Kitab Shakl al-Qatta'}}\\[0.5cm]
+{\fontsize{18}{22}\selectfont\textsc{Treatise on the Quadrilateral}}\\[0.8cm]
+
+\dblornament
+
+\vspace{0.5cm}
+
+{\Large\textbf{Bilingual Edition}}\\[0.3cm]
+{\large\textit{Arabic Original -- English Translation}}\\[1cm]
+
+\shortline
+
+\vspace{0.5cm}
+
+\ar{\LARGE كِتَابُ شَكْلِ الْقِطَّاعِ}\\[0.3cm]
+{\large\textit{The Book of the Figure of Secants}}\\[0.8cm]
+
+\ar{\large لِلْعَلَّامَةِ نَصِيرِ الدِّينِ الطُّوسِي}\\[0.2cm]
+{\textit{By the Learned Nasir al-Din al-Tusi}}\\[0.3cm]
+{\small (1201--1274 CE / 597--672 AH)}\\[1cm]
+
+\shortline
+
+\vspace{0.5cm}
+
+{\small Critical edition based on the 1891 Constantinople edition}\\
+{\small edited and translated by Alexandre Pacha Caratheodory}\\[0.5cm]
+
+\dblornament
+
+\vspace{0.5cm}
+
+{\small English translation prepared for this bilingual edition}\\[0.3cm]
+
+{\small\textit{In the Name of God, the Compassionate, the Merciful}}\\
+{\small\ar{بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ}}\\
+
+\end{center}
+\clearpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\clearpage
+
+%% ========================================================================
+%% PREFACE (Bilingual)
+%% ========================================================================
+\section*{Preface}
+\addcontentsline{toc}{section}{Preface}
+
+\begin{center}
+\ar{\Large بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ}\\[0.3cm]
+\textbf{\large In the Name of God, the Compassionate, the Merciful}\\[0.3cm]
+\textit{I have no support but in God. In Him I have placed my devotion.}
+\end{center}
+
+\ornament
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{النص العربي الأصلي / Arabic Original}}}}{\noindent\textcolor{sectioncolor}{\textbf{English Translation}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{الْحَمْدُ لِلَّهِ الَّذِي بِابْتِدَاعِهِ الْحَقَائِقَ الْغَيْبِيَّةَ أَتَمَّ الْمَوَاهِبَ الْجَسِيمَةَ، وَأَخْرَجَ بِخَلْقِهِ الْمَوْجُودَاتِ مِنْ غَيْبِ الْعَدَمِ إِلَى شَهَادَةِ الْوُجُودِ وَأَوْدَعَ فِي طِيبَاتِ الْأَشْيَاءِ أَسْرَارًا جَلِيلَةً وَمُلْكًا عَظِيمًا. وَالصَّلَاةُ وَالسَّلَامُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ.}}{\noindent\textbf{Praise be to God,} who by originating hidden realities perfected the greatest gifts, and by creating existent things brought them from the concealment of non-existence to the testimony of existence, and placed in the goodness of things sublime secrets and a mighty dominion. Blessings and peace be upon our master Muhammad and upon his family and all his companions.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{أَمَّا بَعْدُ: فَقَدْ كُنْتُ قَدْ أَلَّفْتُ فِي سِنِينَ مَاضِيَةٍ مُصَنَّفًا فِيهِ جَمِيعُ كَلَامِنَا فِي شَكْلِ الْقِطَّاعِ الْمُكَمَّلِ مَعَ الْبُرُوهَانِ، وَأَلْحَقْتُ بِهِ مَا يَقُومُ مَقَامَهُ وَيَتَعَلَّقُ بِهِ، وَكَانَ ذٰلِكَ فِي لِسَانِ الْفَارِسِيَّةِ، ثُمَّ إِنَّ بَعْضَ الْإِخْوَانِ الْمُتَطَلِّبِينَ لِلْعُلُومِ طَلَبُوا مِنِّي أَنْ أُتَرْجِمَهُ إِلَى اللُّغَةِ الْعَرَبِيَّةِ، فَوَفَّقْتُ لِمَا أَحَبُّوا، وَحَذَفْتُ مِنْهُ بَعْضَ الْفُصُولِ الَّتِي لَا مَعْنَى لَهَا، وَشَرَعْتُ فِي الْعَمَلِ بِمُعَاوَنَةِ الْعَلِيِّ الْقَدِيرِ.}}{\noindent\textbf{Now then:} I had composed, in past years, a treatise containing all our discourse on the \textit{complete quadrilateral figure} with proofs, and appended to it what takes its place and relates to it, and that was in the Persian language. Then some brethren who seek knowledge asked me to translate it into the Arabic language, and I complied with their wish, and omitted from it some sections that had no essential meaning, and set to work with the assistance of the Exalted, the All-Powerful.}
+
+\ornament
+
+%% ========================================================================
+%% STRUCTURE OF THE WORK
+%% ========================================================================
+\section*{Structure of the Treatise}
+\addcontentsline{toc}{section}{Structure of the Treatise}
+
+\begin{center}
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Book} & \textbf{Contents} \\
+\midrule
+\endhead
+
+\textbf{Book I} & \textit{On Compound Ratios and Their Rules} --- On compound ratios and their rules, in fourteen propositions. \\
+\addlinespace[0.3cm]
+
+\textbf{Book II} & \textit{On the Plane Quadrilateral Figure} --- On the plane quadrilateral figure and the ratios found therein, in eleven chapters. \\
+\addlinespace[0.3cm]
+
+\textbf{Book III} & \textit{Introduction to the Spherical Quadrilateral} --- Introduction to the theory of the spherical quadrilateral and what completes the utility to be drawn from this figure, in three chapters. \\
+\addlinespace[0.3cm]
+
+\textbf{Book IV} & \textit{On the Spherical Quadrilateral} --- On the spherical quadrilateral and the ratios found therein, in five chapters. \\
+\addlinespace[0.3cm]
+
+\textbf{Book V} & \textit{On Computational Methods} --- Exposition of the methods which take the place of the theory of the quadrilateral, for what concerns the knowledge of arcs of great circles, in seven chapters. \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\clearpage
+
+
+%% ========================================================================
+%% BOOK I -- COMPOUND RATIOS
+%% ========================================================================
+\section{Book I: On Compound Ratios}
+\label{sec:book1}
+
+\subsection*{General Rule}
+\addcontentsline{toc}{subsection}{General Rule}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{الباب الأول: في أصول الأسباب المركبة}}}}{\noindent\textcolor{sectioncolor}{\textbf{Book I: On the Principles of Compound Ratios}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَنَقُولُ: إِنَّ أَصْلَ الْمَعْنَى فِي الْقَوْلِ إِنَّ هٰذَا النِّسْبَةَ مُرَكَّبَةٌ مِنْ هٰذَيْنِ النِّسْبَتَيْنِ أَوْ هٰذَا النِّسْبَةَ مُفَرَّقَةٌ إِلَى هٰذَيْنِ النِّسْبَتَيْنِ: أَنَّ النِّسْبَةَ الْمُرَكَّبَةَ نِسْبَتَانِ مَفْرُوقَتَانِ مِنْ نِسْبَةٍ، فَإِذَا وُضِعَتْ إِحْدَاهُمَا فِي الْأُخْرَى عَلَى التَّكْرَارِ حَصَلَ نِسْبَةٌ مَعْيُنَةٌ.}}{\noindent\textbf{We say:} The basis of the meaning in saying that ``this ratio is composed of these two ratios,'' or that ``this ratio is decomposed into these two ratios,'' is that the compound ratio consists of two ratios separated from one ratio, so that when one is placed in the other by repetition, a certain ratio is obtained.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَأَمَّا التَّفْرِيقُ: فَهُوَ أَنْ تَكُونَ النِّسْبَةُ مَفْرُوقَةً إِلَى نِسْبَتَيْنِ فَيَكُونُ كُلُّ وَاحِدَةٍ مِنْهُمَا بِمَنْزِلَةِ الْجُزْءِ مِنَ الْكُلِّ.}}{As for decomposition: it is that the ratio be divided into two ratios, so that each one of them is in the position of a part from the whole.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{فَإِذَا وُجِدَ هٰذَا فَلْنَقُلْ: أَيُّ نِسْبَةٍ كَانَتْ لِثَلَاثَةِ مُتَجَانِسَاتٍ إِلَى إِحْدَاهُنَّ فَهِيَ مُرَكَّبَةٌ مِنْ نِسْبَتِهِ إِلَى الثَّالِثَةِ وَنِسْبَةِ تِلْكَ الثَّالِثَةِ إِلَى الْأُولَى.}}{When this is established, let us say: Any ratio whatsoever of three homogeneous quantities to one of them is composed of its ratio to the third and the ratio of that third to the first.}
+
+\vspace{0.5cm}
+
+\noindent\textit{[Just as to give exact measure of discontinuous quantity we make use of certain properties essential to continuous magnitude, such as infinite divisibility, so also in the measure of continuous magnitude we bring in certain properties essential to discontinuous quantity. Such is the supposition according to which continuous magnitude is composed of discrete or discontinuous units which we imagine in order to arrive at the measure of continuous magnitude.]}
+
+\ornament
+
+%% ========================================================================
+%% PROPOSITION I
+%% ========================================================================
+\subsection{First Proposition}
+\label{prop:1}
+
+\bilingualpair{\ar{\textbf{المسألة الأولى:} فَلْيَكُنْ ثَلَاثَةُ مُتَجَانِسَاتٍ أ وَ ب وَ ج، فَأَقُولُ: إِنَّ نِسْبَةَ أ إِلَى ب تُسَاوِي نِسْبَةَ أ إِلَى ج فِي نِسْبَةِ ج إِلَى ب.}}{\noindent\textbf{Proposition I.} Let there be three homogeneous quantities A, B, and C. I say that the ratio of A to B is equal to the ratio of A to C multiplied by the ratio of C to B.}
+
+\vspace{0.3cm}
+
+\begin{center}
+\textbf{In modern notation:}
+\[
+\frac{A}{B} = \frac{A}{C} \times \frac{C}{B}, \quad
+\frac{A}{C} = \frac{A}{B} \times \frac{B}{C}, \quad
+\frac{B}{C} = \frac{B}{A} \times \frac{A}{C}
+\]
+\end{center}
+
+\bilingualpair{\ar{وَلْنَجْعَلْ وَاحِدَةً تَقِيسُ هٰذِهِ الْمُتَجَانِسَاتِ، وَلْتَكُنْ تِلْكَ الْوَاحِدَةُ تَقِيسُ د كَمَا تَقِيسُ أ ج، وَتَقِيسُ تَ كَمَا تَقِيسُ ج ب، وَتَقِيسُ هـ كَمَا تَقِيسُ أ ب. فَد هِيَ مِقْدَارُ نِسْبَةِ أ إِلَى ج، وَتَ هِيَ مِقْدَارُ نِسْبَةِ ج إِلَى ب، وَهـ هِيَ مِقْدَارُ نِسْبَةِ أ إِلَى ب.}}{Let us suppose that a unit measures these quantities, and let that unit measure D as A measures C; let it measure T as C measures B; and let it measure H as A measures B. Then D is the \textit{quantity} of the ratio $A:C$; T is the quantity of the ratio $C:B$; and H is the quantity of the ratio $A:B$.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَهٰذَا لِأَنَّ كُلَّ نِسْبَةٍ لَهَا اسْمٌ وَاحِدٌ مَعَ الْعَدَدِ الَّذِي تَقِيسُهُ الْوَاحِدَةُ بِقِيَاسِ مَا يَقِيسُهُ طَرَفُهَا الْأَوَّلُ مِنْ طَرَفِهَا الثَّانِي. وَالْعَدَدُ الَّذِي لَهُ اسْمُ النِّسْبَةِ هُوَ مِقْدَارُهَا.}}{This is because every ratio has one name with the number that the unit measures in the same manner as the first term of the ratio measures the second. And the number that has the name of the ratio is its quantity.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{فَإِذَا كَانَ هٰكَذَا فَقَدْ بَيَّنَّا أَنَّ التَّرْكِيبَ نَحْوُ التَّكْرَارِ، وَالتَّكْرَارُ بَيْنَ عَدَدَيْنِ هُوَ ضَرْبُ أَحَدِهِمَا فِي الْآخَرِ، فَهـ هُوَ أَيْضًا حَاصِلُ ضَرْبِ د فِي تَ.}}{When this is so, we have explained that composition is a kind of repetition, and repetition between two numbers is the multiplication of one of them by the other; therefore H is also the product of D multiplied by T.}
+
+\vspace{0.3cm}
+
+\noindent\textit{[Al-Tusi here establishes the fundamental property of compound ratios: that any ratio between two quantities can be decomposed through an intermediate third quantity. This is the foundation upon which all subsequent propositions rest. The proof proceeds by proportion theory:]}
+
+\bilingualpair{\ar{إِنَّ أ:ج::وَاحِدَة:د، وَبِالْعَكْسِ ج:أ::د:وَاحِدَةٍ. وَأَيْضًا أ:ب::وَاحِدَة:هـ، فَبِالنِّسْبَةِ الْمُرَتَّبَةِ يَكُونُ ج:ب::د:هـ، وَج:ب::وَاحِدَة:تَ، فَوَاحِدَة:تَ::د:هـ، فَتَعْلَمُ أَنَّ تَ فِي د تُسَاوِي هـ فِي وَاحِدَةٍ، وَحَاصِلُ كُلِّ عَدَدٍ فِي وَاحِدَةٍ هُوَ ذٰلِكَ الْعَدَدُ، فَهـ تُسَاوِي تَ فِي د، فَنِسْبَةُ أ إِلَى ب تُسَاوِي نِسْبَةَ أ إِلَى ج فِي نِسْبَةِ ج إِلَى ب. وَهُوَ الْمَطْلُوبُ.}}{Indeed, $A:C::1:D$, and conversely $C:A::D:1$. Also $A:B::1:H$; therefore by the \textit{ordered proportion} we obtain $C:B::D:H$, and $C:B::1:T$, so $1:T::D:H$, which gives finally $T \times D = H \times 1$. Now the product of any number by the unit is that number itself; therefore $H = T \times D$, that is,
+\[
+\frac{A}{B} = \frac{A}{C} \times \frac{C}{B},
+\]
+\textit{quod erat demonstrandum.}}
+
+\ornament
+
+%% ========================================================================
+%% PROPOSITION II
+%% ========================================================================
+\subsection{Second Proposition}
+\label{prop:2}
+
+\bilingualpair{\ar{\textbf{المسألة الثانية:} نِسْبَةُ أَحَدِ الثَّلَاثَةِ أ وَ ب وَ ج إِلَى آخَرَ تُسَاوِي نِسْبَةَ الثَّالِثِ إِلَى ذٰلِكَ الْآخَرِ فِي نِسْبَةِ هٰذَا إِلَى الْأَوَّلِ.}}{\noindent\textbf{Proposition II.} The ratio of any one of the three quantities A, B, C to any other is equal to the ratio of the third to that latter composed with that of that quantity to the first.}
+
+\begin{center}
+\[
+\frac{A}{B} = \frac{A}{C} \times \frac{C}{B} = \frac{C}{B} \times \frac{A}{C}
+\]
+\textit{for the composition of ratios is like the multiplication of numbers; one may transpose the factors.}
+\end{center}
+
+\ornament
+
+%% ========================================================================
+%% PROPOSITIONS III--XIV SUMMARY
+%% ========================================================================
+\subsection{Summary of Propositions III--XIV}
+\label{sec:prop3-14}
+
+\begin{center}
+\textcolor{sectioncolor}{\textbf{Summary of Propositions III--XIV / \ar{ملخص المسائل من الثالثة إلى الرابعة عشر}}}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Prop.~III.} Every ratio composed of two arbitrary ratios is also composed of two other ratios that can be deduced from those by means of homogeneous quantities taken in the first and in the second ratio.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~IV.} If any quantity measures two others, the ratio of these two latter quantities between them is equal to the ratio composed of the inverse of the first ratio with the second ratio.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~V.} The ratio composed of two arbitrary ratios is also composed of the inverse of the first of these two ratios with the inverse of the second.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~VI.} Every composed ratio can be decomposed into simple ratios in two ways: either as fractions having unity for numerator, or as expressions having unity for denominator.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~VII.} If one has six quantities of which the composed ratios give rise to other composed ratios, then to decompose any composed ratio it suffices to know the quantities of a single column.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~VIII.} Every composed ratio gives rise to 9 other composed ratios and to 18 expressions of component ratios, or with their inverses 36 expressions.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~IX.} Two ways of decomposing a composed ratio: by making the two terms of the second ratio precede, or by making them follow the two terms of the first ratio.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~X.} Every composed ratio gives rise to 9 other composed ratios and to 18 expressions of component ratios, or with their inverses 36 expressions of composed ratios. This number can be carried to 72.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~XI.} If two of the six quantities taken each in one of the two members are equal, the 4 others are in proportion.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~XII.} If the two equal quantities belong to the same member, the other 4 are not proportional.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~XIII.} Every simple ratio can be considered as composed if one multiplies it by a ratio of identity, e.g.~if $\frac{A}{B} = \frac{C}{D}$, one also has $\frac{A}{B} = \frac{C}{D} \times \frac{D}{D}$.
+
+\vspace{0.2cm}
+
+\noindent\textbf{Prop.~XIV.} Every simple ratio of identity is equivalent to any ratio whatsoever multiplied by its inverse: $\frac{A}{A} = \frac{X}{X} \times \frac{X}{X}$.
+
+\clearpage
+
+
+%% ========================================================================
+%% BOOK II -- THE PLANE QUADRILATERAL
+%% ========================================================================
+\section{Book II: On the Plane Quadrilateral Figure}
+\label{sec:book2}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{المقالة الثانية: في شكل القطاع والنسب الموجودة فيه}}}}{\noindent\textcolor{sectioncolor}{\textbf{Book II: On the Figure of Secants and the Ratios Found Therein}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَهٰذَا الشَّكْلُ يُسَمَّى شَكْلَ الْقِطَّاعِ لِأَنَّهُ مُنشَأٌ مِنْ أَرْبَعَةِ خُطُوطٍ مُقَاطِعَةٍ، وَيُسَمَّى أَيْضًا شَكْلَ الْقَطَائِعِ الْمُكَمَّلَةِ. وَقَدْ أَطْلَقَ عَلَيْهِ بَعْضُ الْمُتَأَخِّرِينَ اسْمَ الْمُخَمَّسِ لِأَنَّهُ يَحْتَوِي عَلَى خَمْسَةِ أَضْلَاعٍ فِي الْحَقِيقَةِ إِذَا أُضِيفَ إِلَيْهِ قُطْرٌ وَاحِدٌ.}}{\noindent This figure is called \textit{shakl al-qa\d{t}\d{t}a`} (the figure of secants) because it is generated from four intersecting lines, and is also called the figure of \textit{complete secants}. Some later scholars have given it the name of ``pentagonal figure'' because it contains five sides in reality when one diagonal is added.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَقَدْ أَخْطَأَ حُسَامُ الدِّينِ فِي قَوْلِهِ إِنَّ هٰذَا الشَّكْلَ إِنَّمَا يَكُونُ فِي تِسْعَةِ أَشْكَالٍ، وَهُوَ فِي اثْنَيْ عَشَرَ شَكْلًا. وَقَدْ بَيَّنَّا ذٰلِكَ فِي هٰذَا الْمَكَانِ وَأَثْبَتْنَاهُ بِالْبُرْهَانِ.}}{\noindent\textbf{Note.} Hussam al-Din erred in saying that this figure only occurs in nine configurations; it is in fact twelve figures. We have demonstrated this at this point and proved it rigorously.}
+
+\vspace{0.5cm}
+
+\subsection{The Twelve Figures of the Quadrilateral}
+\label{sec:12figs}
+
+\noindent\textit{[The quadrilateral figure (\textit{shakl al-qa\d{t}\d{t}a`}) is generated by the intersection of four straight lines. The twelve configurations are classified into three groups of four:]}
+
+\begin{center}
+\textbf{I.} The point of intersection of two lines falls between the two points of intersection on each of them.\\[0.3cm]
+\textbf{II.} The point of intersection falls outside one or both segments.\\[0.3cm]
+\textbf{III.} More complex configurations with all points of intersection external.\\[0.3cm]
+\end{center}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَقَدْ بَيَّنَ الْمُتَقَدِّمُونَ أَنَّ نِسْبَةَ خَطِّ أ ب إِلَى خَطِّ ب د مُرَكَّبَةٌ مِنْ نِسْبَةِ أ هـ إِلَى هـ ج وَنِسْبَةِ ج و إِلَى و د. وَهٰذَا مَا يَتَضَمَّنُهُ كُلُّ وَاحِدٍ مِنَ الْأَشْكَالِ الثَّنَا عَشَرَ.}}{\noindent The ancients have demonstrated that the ratio of line AB to line BD is composed of the ratio of AE to EC and the ratio of CF to FD. And this is what is contained in each one of the twelve figures.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{فَمِنَ النُّقْطَةِ أ نَخْرُجُ خَطًّا أ هـ مُوَازِيًا لِخَطِّ ج د حَتَّى يُقَابِلَ خَطَّ ب هـ. فَنَحْصُلُ عَلَى أ هـ:ج و::أ هـ:هـ ج بِسَبَبِ الْمُثَلَّثَيْنِ الْمُتَشَابِهَيْنِ هـ أ هـ وَ هـ ج و.}}{From point A draw the line AH parallel to CD until it meets BE. You will have $AH : CF :: AE : EC$ because of the similar triangles EAH, ECF; and $AH : FD :: AB : BD$ because of the similar triangles AFH, DBF.}
+
+\begin{center}
+\[
+\frac{AH}{FD} = \frac{AE}{EC} \times \frac{CF}{DF}
+\]
+\textit{(replacing AH by its value drawn from the first proportion,)} therefore also
+\[
+\frac{AB}{BD} = \frac{AE}{EC} \times \frac{CF}{FD}.
+\]
+\end{center}
+
+\subsubsection*{Classification of the Twelve Figures}
+
+\begin{center}
+\begin{tabular}{cccc}
+\textbf{I} & \textbf{II} & \textbf{III} & \textbf{IV} \\
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\coordinate (A) at (0,0); \coordinate (B) at (2,0);
+\coordinate (C) at (0.5,1.5); \coordinate (D) at (1.5,-1);
+\coordinate (E) at (0.8,0.6); \coordinate (F) at (1.2,-0.4);
+\coordinate (H) at (0.3,0.9);
+\draw[thick] (C)--(D); \draw[thick] (A)--(B); \draw[thick] (0,-0.8)--(2,1);
+\draw[thick] (0.2,1.2)--(1.8,-1.2);
+\foreach \p/\n in {A/A,B/B,C/C,D/D,E/E,F/F,H/H} \node at (\p) {\tiny\n};
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.5); \draw[thick] (0.5,1.5)--(2,0);
+\draw[thick] (0,0.8)--(2,0.8); \draw[thick] (1,0)--(1,1.5);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.5); \draw[thick] (0,1.2)--(2,0);
+\draw[thick] (0.3,1.5)--(1.7,-0.3); \draw[thick] (0.5,-0.3)--(2,1.2);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,0); \draw[thick] (0.5,-0.5)--(1.5,1.5);
+\draw[thick] (1.2,-0.5)--(0.3,1.5); \draw[thick] (0,0.8)--(2,0.5);
+\end{tikzpicture} \\[0.5cm]
+\textbf{V} & \textbf{VI} & \textbf{VII} & \textbf{VIII} \\
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1); \draw[thick] (0.5,1)--(2,-0.5);
+\draw[thick] (0.3,0.8)--(1.8,0.8); \draw[thick] (1,0.5)--(1,-0.5);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.2); \draw[thick] (0,1)--(2,0);
+\draw[thick] (0.5,1.2)--(1.5,-0.2); \draw[thick] (1,1.2)--(1,-0.2);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0.5)--(2,0.5); \draw[thick] (0.8,1.2)--(1.2,-0.3);
+\draw[thick] (0,0)--(2,1); \draw[thick] (0.3,-0.2)--(1.8,1.2);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,0.5); \draw[thick] (0,0.8)--(2,0.3);
+\draw[thick] (0.5,1)--(1.5,-0.3); \draw[thick] (1.2,1)--(0.3,-0.3);
+\end{tikzpicture} \\[0.5cm]
+\textbf{IX} & \textbf{X} & \textbf{XI} & \textbf{XII} \\
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1); \draw[thick] (0.3,1)--(2,0);
+\draw[thick] (0,0.3)--(2,0.7); \draw[thick] (0.8,1)--(1.5,-0.3);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,0); \draw[thick] (0.5,1.2)--(1.5,-0.3);
+\draw[thick] (0.8,1.2)--(1.8,-0.3); \draw[thick] (0,0.5)--(2,0.8);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.2); \draw[thick] (0.5,1.2)--(2,0);
+\draw[thick] (0,0.5)--(1.8,1); \draw[thick] (0.3,0.8)--(2,0.3);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.5,baseline=(current bounding box.center)]
+\draw[thick] (0,0.5)--(2,1); \draw[thick] (0,0.8)--(2,0);
+\draw[thick] (0.5,1.2)--(1.5,-0.2); \draw[thick] (1,1.2)--(0.3,-0.2);
+\end{tikzpicture} \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent\textit{Note.} The geometers establish the ratio of these twelve figures by means of a single proposition and demonstration that applies to each of them, saying that the ratio of line AB to line BD is composed of the ratio of AE to EC and that of CF to FD.
+
+\clearpage
+
+
+%% ========================================================================
+%% BOOK III -- SPHERICAL QUADRILATERAL: INTRODUCTION
+%% ========================================================================
+\section{Book III: Introduction to the Spherical Quadrilateral}
+\label{sec:book3}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{المقالة الثالثة: في تمام الانتفاع بشكل القطاع الكروي}}}}{\noindent\textcolor{sectioncolor}{\textbf{Book III: On Completing the Utility of the Spherical Quadrilateral Figure}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل الأول:} فِي تَقْسِيمِ الْمُحِيطِ وَالْقُطْرِ. التَّقْسِيمُ الْخَاصُّ لِلْبِيرُونِيّ. حَلُّ الْمُثَلَّثَاتِ. طَرِيقَةُ الْأَقْوَاسِ وَالْأَوْتَارِ. الْمُثَلَّثَاتُ الْقَائِمَةُ. كَيْفَ تُرَدُّ أَنْوَاعُ هٰذِهِ الْمُثَلَّثَاتِ إِلَى الْمُثَلَّثِ الْمُعْتَادِ الْمَرْسُومِ فِي الدَّائِرَةِ الَّتِي قُطْرُهَا ١٢٠.}}{\noindent\textbf{Chapter I.} On the division of the circumference and the diameter. The special division of Albiruni. Resolution of triangles. Method of arcs and chords. Right triangles. How the different cases of these triangles are reduced to the normal triangle inscribed in the circle whose diameter is 120.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{طَرِيقَةُ الْأَقْوَاسِ وَالْجُيُوبِ. بُرْهَانُ الْقَاعِدَةِ الْأَصْلِيَّةِ: وَهِيَ أَنَّهُ فِي كُلِّ مُثَلَّثٍ مُسْتَقِيمٍ نِسْبَةُ أَضْلَاعِهِ تُسَاوِي نِسْبَةَ جِيُوبِ زَوَايَاهَا الْمُقَابِلَةِ لَهَا.}}{\textit{Method of arcs and sines.} Demonstration of the fundamental theorem: that in every rectilinear triangle the ratio of its sides is equal to the ratio of the sines of its opposite angles.}
+
+\vspace{0.5cm}
+
+\subsection{On Chords, Arcs, and Sines}
+\label{sec:chords-arcs}
+
+\begin{proposition}[Fundamental Theorem of Sines]
+In any plane triangle, the ratio of the sides is equal to the ratio of the sines of the opposite angles:
+\[
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
+\]
+\end{proposition}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{هٰذِهِ هِيَ الْقَاعِدَةُ الْأَصْلِيَّةُ الَّتِي بَنَى عَلَيْهَا جَمِيعُ مَا يَأْتِي فِي عِلْمِ الْمُثَلَّثَاتِ الْكُرَوِيَّةِ. وَقَدْ أَثْبَتَّهَا بِأَكْثَرَ مِنْ وَجْهٍ وَطَرِيقَةٍ.}}{This is the fundamental theorem upon which all that follows in the science of spherical triangles is built. I have proved it by more than one method and way.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَقَدْ طَبَّقَ الْمُتَقَدِّمُونَ هٰذَا عَلَى حِسَابِ فَلَكِيَّاتِهِمْ وَأَعْمَالِهِمْ فِي عِلْمِ الْهَيْئَةِ، وَلَمْ يُفَرِّقُوا بَيْنَ الْمُثَلَّثِ الْمُسْتَقِيمِ وَالْمُثَلَّثِ الْكُرَوِيِّ إِلَّا عَلَى وَجْهِ التَّقْرِيبِ.}}{The ancients applied this to their astronomical calculations and their works in the science of configuration (astronomy), and did not distinguish between the plane triangle and the spherical triangle except approximately.}
+
+\vspace{0.5cm}
+
+\subsection{The Fundamental Problem}
+\label{sec:fundamental-problem}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{المسألة الأساسية}}}}{\noindent\textcolor{sectioncolor}{\textbf{The Fundamental Problem}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل الثالث:} الْمَسْألَةُ الْأَصْلِيَّةُ: مَعْرِفَةُ جَمْعِ قَوْسَيْنِ أَوْ تَفْرِيقِهِمَا مَعَ مَعْرِفَةِ نِسْبَةِ جِيْبَيْهِمَا، فَإِيجَادُ الْقَوْسَيْنِ. وَإِثْبَاتُ الْحِسَابِ لِلْحَالَتَيْنِ.}}{\noindent\textbf{Chapter III.} \textit{The fundamental problem:} knowing the sum of two arcs or their difference together with knowing the ratio of their sines, then finding the two arcs. Establishment of the calculation for the two cases.}
+
+\vspace{0.3cm}
+
+\noindent\textit{[This fundamental problem --- given $\alpha \pm \beta$ and $\dfrac{\sin\alpha}{\sin\beta}$, find $\alpha$ and $\beta$ --- is of central importance in spherical astronomy. Al-Tusi gives a complete algebraic solution, reducing it to the solution of a quadratic equation. Abu Nasr ibn `Iraq had previously solved it geometrically.]}
+
+\clearpage
+
+%% ========================================================================
+%% BOOK IV -- THE SPHERICAL QUADRILATERAL
+%% ========================================================================
+\section{Book IV: On the Spherical Quadrilateral}
+\label{sec:book4}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{المقالة الرابعة: في شكل القطاع الكروي والنسب الموجودة فيه}}}}{\noindent\textcolor{sectioncolor}{\textbf{Book IV: On the Spherical Quadrilateral and the Ratios Found Therein}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل الأول:} فِي تَعْرِيفِ شَكْلِ الْقِطَّاعِ الْكُرَوِيِّ. الْمُسْتَدِيرَةُ تُقَاطِعُ أَرْبَعَةُ دَوَائِرِ كُبْرَى عَلَى سَطْحِ الْكُرَةِ فَتُنْشِئُ شَكْلًا يُسَمَّى شَكْلَ الْقِطَّاعِ الْكُرَوِيِّ. كُلُّ وَاحِدٍ مِنَ الْأَرْبَعَةِ أَضْلَاعٍ هُوَ قَوْسُ دَائِرَةٍ كُبْرَى. وَالزَّوَايَا تُقَاسُ بِأَقْوَاسِ الدَّوَائِرِ الْكُبْرَى الْمُنْحَنَاةِ عِنْدَ رُؤُوسِهَا عَلَى الْأَضْلَاعِ الْمُقَابِلَةِ.}}{\noindent\textbf{Chapter I.} Four great circles intersect on the surface of a sphere generating a figure called \textit{the spherical quadrilateral}. Each of the four sides is an arc of a great circle. The angles are measured by the arcs of great circles drawn through their vertices perpendicular to the opposite sides.}
+
+\vspace{0.5cm}
+
+\subsection{Definition of the Spherical Quadrilateral}
+\label{sec:def-sph-quad}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+% Outer circle (sphere projection)
+\draw[thick] (0,0) circle (2.5cm);
+% Two intersecting great circles
+\draw[thick,red] (0,2.5) arc (90:-90:2.5 and 1.2);
+\draw[thick,red] (0,2.5) arc (90:270:2.5 and 1.2);
+\draw[thick,blue] (2.5,0) arc (0:180:1.2 and 2.5);
+\draw[thick,blue] (-2.5,0) arc (180:360:1.2 and 2.5);
+% Labels
+\node at (0,2.8) {\small A};
+\node at (2.8,0) {\small B};
+\node at (0,-2.8) {\small C};
+\node at (-2.8,0) {\small D};
+\node at (0.3,0.3) {\small E};
+\node at (-0.3,-0.3) {\small F};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+\bilingualpair{\ar{وَهٰذَا الشَّكْلُ هُوَ الَّذِي يُسَمِّيهِ الْمُتَقَدِّمُونَ \textit{شَكْلَ الْقِطَّاعِ} لِأَنَّ كُلَّ ضَلْعَيْنِ مِنْ أَضْلَاعِهِ يَلْتَقِيَانِ فِي قَطْعٍ. وَقَدْ عَرَّفَهُ بُطْلَمْيُوسُ فِي الْمَجِسْطِيِّ وَبَيَّنَ نِسَبَهُ.}}{This is the figure that the ancients call \textit{the figure of secants} because every two of its sides meet at an intersection. Ptolemy defined it in the Almagest and explained its ratios.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَقَدْ بَيَّنَّا أَنَّ النِّسْبَ الَّتِي ثَبَتَتْ لِشَكْلِ الْقِطَّاعِ الْمُسَطَّحِ تُطْبَقُ عَلَى جِيُوبِ شَكْلِ الْقِطَّاعِ الْكُرَوِيِّ أَيْضًا، وَهٰذَا هُوَ الْأَصْلُ الَّذِي بَنَيْنَا عَلَيْهِ كُلَّ مَا يَأْتِي.}}{We have demonstrated that the ratios established for the plane quadrilateral apply also to the sines of the spherical quadrilateral, and this is the principle upon which we have built all that follows.}
+
+\vspace{0.5cm}
+
+\subsection{Theorems of Ptolemy Applied to the Spherical Quadrilateral}
+\label{sec:ptolemy}
+
+\bilingualpair{\ar{\textbf{الفصل الثاني:} فِي تَطْبِيقِ أَحْكَامِ شَكْلِ الْقِطَّاعِ الْمُسَطَّحِ عَلَى جِيُوبِ شَكْلِ الْقِطَّاعِ الْكُرَوِيِّ. نِسْبَةُ بُطْلَمْيُوسَ الْمُعْلَنَةِ.}}{\noindent\textbf{Chapter II.} On the application of the theorems of the plane quadrilateral to the sines of the spherical quadrilateral. The explicit ratio of Ptolemy.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل الثالث:} نِسْبَةُ بُطْلَمْيُوسَ الْمُضْمَرَةِ. بُرْهَانُهَا. وَلِمَاذَا هٰذَا الْبُرْهَانُ وَإِنْ كَانَ صَحِيحًا لَيْسَ بِكَافٍ فِي الْحَالَةِ الْحَاضِرَةِ. الْقَاعِدَةُ التَّيَقُّنِيَّةُ. تَرْكِيعُ الْحَالَاتِ السَّبْعِ وَالْعِشْرِينَ الَّتِي تَرَدَّدَ فِيهَا صَاحِبُنَا إِلَى ثَلَاثَةَ عَشَرَ.}}{\noindent\textbf{Chapter III.} The implicit ratio of Ptolemy. Its demonstration. Why this demonstration, however exact it may be, is not sufficient in the present case. The preliminary lemma. Reduction of the 27 cases in which our author hesitated to 13. Examination of each case in particular.}
+
+\vspace{0.5cm}
+
+\begin{proposition}[The Sine Theorem for Spherical Triangles]
+In any spherical triangle, the sines of the sides are in the same ratio as the sines of the opposite angles:
+\[
+\frac{\sin a}{\sin A} = \frac{\sin b}{\sin B} = \frac{\sin c}{\sin C}
+\]
+\end{proposition}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَمِنْ هٰذَا يَتَبَيَّنُ أَنَّ جِيبَ قَوْس أ ب إِلَى جِيبِ قَوْس أ ج كَنِسْبَةِ جِيبِ قَوْس أ د إِلَى جِيبِ قَوْس د ب، وَذٰلِكَ مَا أَرَدْنَا إِثْبَاتَهُ. وَإِنِ انْطَبَقَ أَحَدُ الْمُثَلَّثَيْنِ عَلَى الْآخَرِ فِي كُلِّ وَاحِدٍ مِنْ هٰذِهِ الْأَشْكَالِ فَالْبَيَانُ عَلَى قِيَاسِ ذٰلِكَ.}}{From this it is clear that the sine of arc AB is to the sine of arc AC as the sine of arc AD is to the sine of arc DB, which is what we wanted to prove. And if one of the triangles coincides with the other in any one of these configurations, the explanation follows the same pattern.}
+
+\vspace{0.5cm}
+
+\bilingualpair{\ar{\textbf{الفصل الرابع:} كَيْفَ يُؤَدِّي فَحْصُ النِّسْبَتَيْنِ الْمُضْمَرَةِ وَالْمُعْلَنَةِ إِلَى مِفْتَاحِ جَمِيعِ الْبُرْهَانَاتِ الْأُخْرَى. مُقَارَنَةُ مَسْلَكِ هٰذَا الْبُرْهَانِ مَعَ قَوَاعِدِ الْقِيَاسِ الِاسْتِدْلَالِيِّ.}}{\noindent\textbf{Chapter IV.} How the examination of the implicit and explicit ratios gives the key to all other demonstrations. Comparison of the course followed in this demonstration with the formulas of deductive syllogism.}
+
+\clearpage
+
+
+%% ========================================================================
+%% BOOK V -- METHODS OF SOLUTION
+%% ========================================================================
+\section{Book V: On Computational Methods}
+\label{sec:book5}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{المقالة الخامسة: في بيان الضوابط البديلة لنظرية الشكل}}}}{\noindent\textcolor{sectioncolor}{\textbf{Book V: Exposition of the Methods Which Replace the Theory of the Figure}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل الأول:} مُقَاطَعَاتُ ثَلَاثِ دَوَائِرَ كُبْرَى تُنْشِئُ مُثَلَّثَاتٍ عَلَى سَطْحِ الْكُرَةِ. طَبِيعَةُ هٰذِهِ الْمُثَلَّثَاتِ. يَكْفِي مَعْرِفَةُ وَاحِدَةٍ مِنْهَا لِمَعْرِفَةِ جَمِيعِهَا.}}{\noindent\textbf{Chapter I.} The intersections of three great circles generate triangles on the surface of a sphere. Nature of these triangles. It suffices to know one of them to know them all.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل الثاني:} تَحْلِيلُ أَنْوَاعِ الْمُثَلَّثَاتِ الْكُرَوِيَّةِ حَسَبَ زَوَايَاهَا (عَشَرُ أَصْنَافٍ) أَوْ حَسَبَ أَقْوَاسِهَا (عَشَرُ أَصْنَافٍ).}}{\noindent\textbf{Chapter II.} Analysis of the different spherical triangles according to their angles (ten categories) or according to their arcs (ten categories).}
+
+\vspace{0.5cm}
+
+\subsection{On Inclinations and the Sine Theorem}
+\label{sec:inclinations}
+
+\bilingualpair{\ar{وَفِي هٰذِهِ الْمُثَلَّثَاتِ يُسَمَّى قَوْسُ ب ج \textit{مَيْلَ} قَوْسِ أ ج، وَهٰذَا الْمَيْلُ ب ج هُوَ نَصِيبُ قَوْسِ أ ج مِنَ الْمَيْلِ الْكُلِّيِّ لِدَائِرَةِ أ د عَلَى دَائِرَةِ أ هـ، وَهُوَ الَّذِي تَقِيسُهُ زَاوِيَةُ أ.}}{In these triangles, arc BC is called the \textit{inclination} of arc AC, which inclination BC is but the part of arc AC in the total inclination of circle AD to circle AE, which the angle A measures. And if arc BC is related to arc AB, then BC is called the second inclination.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَهٰذَا مَا يُسَمِّيهِ أَبُو رَيْحَانَ الْبِيرُونِيُّ \textit{الْعَرْضَ}، فَقَوْسُ ب ج يَكُونُ الْمَيْلَ الْأَوَّلَ بِالنِّسْبَةِ لِأ ج، وَالْمَيْلَ الثَّانِيَ بِالنِّسْبَةِ لِقَوْسِ أ ب.}}{This is what Abu Rayhan al-Biruni calls the \textit{width}; so arc BC would be the first inclination with respect to AC, and the second inclination with respect to arc AB.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{فَفِي هٰذَا الْمَعْنَى نَقُولُ: إِنَّ نِسَبَ جِيُوبِ الْمَيَالِي تُسَاوِي نِسَبَ جِيُوبِ أَقْوَاسِهَا، وَنِسْبَةُ جِيبِ كُلِّ مَيْلٍ إِلَى جِيبِ قَوْسِهِ تُسَاوِي نِسْبَةَ جِيبِ مَيْلٍ آخَرَ إِلَى جِيبِ قَوْسِهِ.}}{In this manner of speaking we say that the ratios of the sines of the inclinations are equal to the ratios of the sines of their arcs, and the ratio of the sine of any inclination to the sine of its arc is equal to the ratio of the sine of another inclination to the sine of its arc.}
+
+\vspace{0.3cm}
+
+\noindent\textit{[In modern notation:]}\\
+If $BC$ is the inclination of $AC$, and $LM$ is the inclination of $AE$, then:
+\[
+\frac{\sin BC}{\sin LM} = \frac{\sin AC}{\sin AE}
+\]
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَإِنْ لَمْ يَنْطَبِقْ مُثَلَّثُ أ ب ج عَلَى مُثَلَّثِ د أ هـ، لٰكِنْ كَانَتْ زَاوِيَةُ أ فِي هٰذَيْنِ الْمُثَلَّثَيْنِ مُتَسَاوِيَةً، وَكَانَتْ زَاوِيَتَا ب وَ هـ قَائِمَتَيْنِ، فَالْقَاعِدَةُ ثَابِتَةٌ.}}{If triangle ABC does not coincide with triangle DAE, but nevertheless angle A is equal in these two triangles and angles B and E are right, the theorem remains proved nonetheless.}
+
+\ornament
+
+%% ========================================================================
+%% THE EIGHT DEMONSTRATIONS
+%% ========================================================================
+\subsection{The Eight Demonstrations of the Sine Theorem}
+\label{sec:sine-theorem}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{البرهان على القاعدة في ثمانية وجوه}}}}{\noindent\textcolor{sectioncolor}{\textbf{Eight Demonstrations of the Fundamental Theorem}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{سِتَّةُ بُرْهَانَاتٍ فِي تَسَاوِي نِسَبِ الْجِيُوبِ وَالْأَقْوَاسِ وَأَظِلَّةِ الزَّوَايَا وَنَحْوِهَا. تَعْمِيمُ هٰذَا الْأَصْلِ عَلَى جَمِيعِ الْمُثَلَّثَاتِ الْكُرَوِيَّةِ. تَابِعَاتٌ.}}{Six demonstrations concerning the equality of ratios of sines, arcs, tangents of angles, etc. Generalization of this principle to all spherical triangles. Corollaries.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَقَدْ حَاوَلَ بَعْضُهُمْ أَنْ يَرْفَعُوا شُبْهَاتٍ عَلَى صِحَّةِ اسْتِعْمَالِ الظِّلِّ لِسُرْعَةِ زِيَادَتِهِ بَعْدَ ٤٥ دَرَجَةً. رَدُّ هٰذِهِ الشُّبْهَاتِ وَتَحْلِيلُ الْحَالَاتِ الْمُخْتَلِفَةِ الَّتِي يَجِبُ فِيهَا اسْتِبْدَالُ الظِّلِّ بِظِلِّ التَّمَامِ.}}{Objections that some have attempted to raise against the legitimacy of the use of tangents by reason of their rapid growth beyond 45° --- Refutation of these objections and analysis of the different cases in which one must replace the tangent by the cotangent.}
+
+\vspace{0.5cm}
+
+\subsection{The Figure of Shadows (Tangent Theorem)}
+\label{sec:shadows}
+
+\bilingualpair{\noindent\textcolor{arabicblue}{\textbf{\ar{شكل الظلال (قاعدة الظلال)}}}}{\noindent\textcolor{sectioncolor}{\textbf{The Figure of Shadows (Tangent Theorem)}}}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{\textbf{الفصل السادس:} \textit{فِي الشَّكْلِ الْمُظَلَّلِ (قَاعِدَةُ الظِّلَالِ).} اخْتِرَاعُهُ مِنْ قِبَلِ أَبِي الْوَفَاءِ. تَعْرِيفُ الظِّلِّ الْأَوَّلِ وَالثَّانِي (الظِّلُّ وَظِلُّ التَّمَامِ، الْقَاطِعُ وَقَاطِعُ التَّمَامِ). أَشْكَالُ مُخْتَلِفَةٌ.}}{\noindent\textbf{Chapter VI.} \textit{On the shaded figure (Theorem of Tangents).} The invention thereof is due to Abu'l-Wafa. Definition of first and second shadows (tangent and cotangent, secant and cosecant). Different formulas.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{الظِّلُّ الْأَوَّلُ لِلْقَوْسِ هُوَ جِيبُ اِرْتِفَاعِهِ أَوْ مَا يُسَمِّيهِ الْمُتَأَخِّرُونَ \textit{جَيْبَ التَّمَامِ}. وَالظِّلُّ الْأَوَّلُ هُوَ \textit{الظِّلُّ}؛ وَالظِّلُّ الثَّانِي هُوَ \textit{ظِلُّ التَّمَامِ}.}}{The \textit{first shadow} of an arc is the sine of its altitude or what the moderns call its \textit{cosine}. The first shadow is the \textit{tangent}; the second shadow is the \textit{cotangent}.}
+
+\ornament
+
+%% ========================================================================
+%% APPLICATIONS TO ASTRONOMY
+%% ========================================================================
+\subsection{Applications to Spherical Astronomy}
+\label{sec:applications}
+
+\bilingualpair{\ar{\textbf{الفصل السابع:} الْمَنَافِعُ الَّتِي يُمْكِنُ الِاسْتِفَادَةُ بِهَا مِنْ قَاعِدَةِ الْجِيُوبِ وَكَذٰلِكَ قَاعِدَةِ الظِّلَالِ فِي حَلِّ الْمُثَلَّثَاتِ الْكُرَوِيَّةِ. طُرُقٌ مُخْتَلِفَةٌ تُؤَدِّي إِلَى غَرَضٍ وَاحِدٍ.}}{\noindent\textbf{Chapter VII.} The uses that can be drawn from the sine theorem as well as from the tangent theorem for the resolution of spherical triangles. Different paths leading to the same goal.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَأَعْتَرِفُ أَنَّنِي لَا أَعْرِفُ الطَّرِيقَ الَّتِي تُحَلُّ بِهَا هٰذِهِ الْمَسْألَةُ بِوَاسِطَةِ الظِّلَالِ: \textit{مَعَ مَعْرِفَةِ ثَلَاثَ زَوَايَا مُثَلَّثٍ كُرَوِيٍّ تُعَيَّنُ أَضْلَاعُهُ}.}}{The author confesses not to know the path by which the following problem is solved by means of tangents: \textit{``Given the three angles of a spherical triangle, determine its sides.''}}
+
+\vspace{0.5cm}
+
+\noindent\textit{[This problem --- the polar triangle case --- is solved by passing to the polar triangle: if the three angles $A$, $B$, $C$ are given, the sides of the polar triangle are $a' = 180° - A$, $b' = 180° - B$, $c' = 180° - C$, which can then be solved by the sine theorem, and the angles of the polar triangle give the sides of the original triangle.]}
+
+\clearpage
+
+%% ========================================================================
+%% EPILOGUE AND HISTORICAL NOTES
+%% ========================================================================
+\section*{Epilogue / Historical and Biographical Notes}
+\addcontentsline{toc}{section}{Epilogue and Historical Notes}
+
+\begin{center}
+\ar{\large فِي ذِكْرِ الْعُلَمَاءِ الْمَذْكُورِينَ فِي هٰذَا الْكِتَابِ}
+
+\vspace{0.2cm}
+\textit{On the Scholars Mentioned in This Book}
+\end{center}
+
+\ornament
+
+\begin{center}
+\begin{longtable}{p{0.27\textwidth}p{0.62\textwidth}}
+\toprule
+\textbf{Name} & \textbf{Details} \\
+\midrule
+\endhead
+
+\textsc{Sabit-Ibn-Kourah} (\ar{ثابت بن قرة}) & One of the most celebrated translators of Greek scientific works. Born 836, died 901 in Baghdad. Hadji Khalifa No.~3374. Author of a work on the quadrilateral. \\
+\addlinespace[0.2cm]
+
+\textsc{Abou-Rihan Albirouni} (\ar{ابو ريحان البيروني}) & From Biroun, city of Kharesm. Died 1038--1039. Hadji Khalifa No.~7420. Author of works on the chord and the sine. Translator or abbreviator of the Almagest. First to take the radius as unity. Gave a demonstration of the proportionality of the sines of the arcs and the angles in the spherical triangle. \\
+\addlinespace[0.2cm]
+
+\textsc{Abou-Mahmoud Alhodjendi} (\ar{ابو محمود الخجندي}) & c.~992. Disputed with Aboul V\'efa the priority concerning the theorem of the proportionality of the sines of the angles and the arcs. \\
+\addlinespace[0.2cm]
+
+\textsc{Abou-Djafar Alhazin} (\ar{ابو جعفر الخازن}) & c.~1000. (Hadji Khalifa No.~4137). The surname Hazin = librarian. \\
+\addlinespace[0.2cm]
+
+\textsc{Aboul-Fazl Al Nerizi} (\ar{ابو الفضل النريزي}) & (Hadji Khalifa No.~2548). One of the principal commentators of Euclid, and author of astronomical tables in the Indian manner. \\
+\addlinespace[0.2cm]
+
+\textsc{Houssam-Uddin-Ali-Bn-Fazlullah Essalar} (\ar{حسام الدين علي بن فضل الله السالار}) & Author of a treatise on the quadrilateral which served as the basis for the treatise of Nasiruddin. \\
+\addlinespace[0.2cm]
+
+\textsc{Abdullah-Abdul-Kiafi-Bn-Abdul-Medjid} (\ar{عبدالله عبدالكافي بن عبدالمجيد}) & The copyist of the manuscript and a disciple of Nasiruddin. \\
+
+\bottomrule
+\end{longtable}
+\end{center}
+
+\clearpage
+
+
+%% ========================================================================
+%% SCHOLARLY APPARATUS
+%% ========================================================================
+\section*{Scholarly Apparatus}
+\addcontentsline{toc}{section}{Scholarly Apparatus}
+
+\subsection*{Note on the Edition}
+
+This typeset edition reproduces the bilingual edition published in Constantinople (Istanbul) in 1891 under the authority of the Ottoman Ministry of Public Instruction. The original edition comprised:
+
+\begin{itemize}
+\item \textbf{French Translation} (pp.~1--214): A complete translation by Alexandre Pacha Carath\'eodory (1833--1906), Ottoman diplomat and mathematician, with extensive notes and a biographical appendix on the mathematicians cited in the treatise.
+\item \textbf{Arabic Original} (pp.~1--178): The original Arabic text, printed in lithographic form from the manuscript belonging to Edhem Pasha, with its own pagination in Arabic numerals.
+\end{itemize}
+
+\subsection*{The Significance of the Work}
+
+Al-Tusi's \textit{Kitab Shakl al-Qa\d{t}\d{t}a`} represents one of the most important contributions to trigonometry in the medieval Islamic world. The work:
+
+\begin{enumerate}
+\item \textbf{Systematized the theory of compound ratios} (Book I), providing a complete algebraic foundation for ratio theory that went beyond Euclid's \textit{Elements}.
+\item \textbf{Analyzed the complete quadrilateral figure} (Book II), classifying all twelve configurations generated by four intersecting lines and deriving the fundamental proportional relationships.
+\item \textbf{Established the foundations of spherical trigonometry} (Books III--IV), including the sine theorem for spherical triangles and its systematic application.
+\item \textbf{Developed practical computational methods} (Book V) for solving spherical triangles, which were essential for astronomical calculations.
+\end{enumerate}
+
+\subsection*{Al-Tusi's Key Contributions to Trigonometry}
+
+\begin{itemize}
+\item \textbf{First systematic treatment} of plane and spherical trigonometry as an independent science, separate from astronomy.
+\item \textbf{Sine law for plane triangles:} $\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$
+\item \textbf{Sine law for spherical triangles:} $\dfrac{\sin a}{\sin A} = \dfrac{\sin b}{\sin B} = \dfrac{\sin c}{\sin C}$
+\item \textbf{Polar triangle method:} The transformation of angle-given problems to side-given problems via the polar triangle.
+\item \textbf{Complete classification} of spherical triangle cases (27 reduced to 13).
+\item \textbf{Systematic use} of tangent and cotangent functions.
+\end{itemize}
+
+\clearpage
+
+%% ========================================================================
+%% MATHEMATICAL TERMINOLOGY
+%% ========================================================================
+\section*{Mathematical Terminology}
+\addcontentsline{toc}{section}{Mathematical Terminology (Arabic--English)}
+
+\begin{center}
+\begin{longtable}{lll}
+\toprule
+\textbf{Arabic} & \textbf{Transliteration} & \textbf{English} \\
+\midrule
+\endhead
+\ar{شَكْلُ الْقِطَّاعِ} & shakl al-qa\d{t}\d{t}a` & figure of secants / quadrilateral \\
+\ar{الْقَطَائِعُ الْمُكَمَّلَةُ} & al-qa\d{t}a'i` al-mukammala & complete secants \\
+\ar{نِسْبَةٌ مُرَكَّبَةٌ} & nisba murakkaba & compound ratio \\
+\ar{قُطْرٌ} & qu\d{t}r & diagonal \\
+\ar{ضَلْعٌ} & \d{d}al` & side \\
+\ar{قَاعِدَةٌ} & q\=a`ida & base / theorem \\
+\ar{جِيبُ قَوْسٍ} & jayb qaws & sine of an arc \\
+\ar{جِيبُ التَّمَامِ} & jayb al-tam\=am & cosine \\
+\ar{ظِلُّ قَوْسٍ} & \d{z}ill qaws & tangent \\
+\ar{ظِلُّ التَّمَامِ} & \d{z}ill al-tam\=am & cotangent \\
+\ar{مُثَلَّثٌ كُرَوِيٌّ} & muthallath kuraw\=i & spherical triangle \\
+\ar{مُثَلَّثٌ مُسْتَقِيمٌ} & muthallath mustaq\=im & plane (rectilinear) triangle \\
+\ar{إِكْلِيلٌ} & ikl\=il & spherical zone / crown \\
+\ar{زَاوِيَةٌ مُحِيطَةٌ} & z\=awiya mu\d{h}\=i\d{t}a & exterior angle \\
+\ar{مَيْلٌ} & mayl & inclination \\
+\ar{عَرْضٌ} & `ar\d{d} & width / latitude \\
+\ar{قَطْعٌ} & qa\d{t}` & intersection / secant \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\clearpage
+
+%% ========================================================================
+%% SAMPLE ARABIC TEXT PASSAGES
+%% ========================================================================
+\section*{Original Arabic Text Passages}
+\addcontentsline{toc}{section}{Original Arabic Text Passages}
+
+\begin{center}
+\textcolor{sectioncolor}{\Large\textbf{Selected Passages from the Arabic Original}}\\[0.3cm]
+\textcolor{notecolor}{\textit{The following pages reproduce key passages from the original Arabic text}}\\
+\textcolor{notecolor}{\textit{with their distinctive mathematical terminology and geometric structure.}}
+\end{center}
+
+\ornament
+
+\subsection*{\ar{المقالة الأولى: في الأسباب المركبة وأحكامها}}
+\addcontentsline{toc}{subsection}{First Treatise: On Compound Ratios (Arabic)}
+
+\bilingualpair{\ar{قَالَ الْمُصَنِّفُ رَحِمَهُ اللهُ تَعَالَى: نُقُولُ إِنَّ أَصْلَ الْمَعْنَى فِي الْقَوْلِ إِنَّ هٰذَا النِّسْبَةَ مُرَكَّبَةٌ مِنْ هٰذَيْنِ النِّسْبَتَيْنِ أَوْ هٰذَا النِّسْبَةَ مُفَرَّقَةٌ إِلَى هٰذَيْنِ النِّسْبَتَيْنِ: أَنَّ النِّسْبَةَ الْمُرَكَّبَةَ نِسْبَتَانِ مَفْرُوقَتَانِ مِنْ نِسْبَةٍ، فَإِذَا وُضِعَتْ إِحْدَاهُمَا فِي الْأُخْرَى عَلَى التَّكْرَارِ حَصَلَ نِسْبَةٌ مَعْيُنَةٌ.}}{The author (may God Exalted have mercy on him) says: We say that the basis of the meaning in saying that this ratio is composed of these two ratios, or that this ratio is decomposed into these two ratios, is that the compound ratio consists of two ratios separated from one ratio, so that when one is placed in the other by repetition, a certain ratio is obtained.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَأَمَّا التَّفْرِيقُ: فَهُوَ أَنْ تَكُونَ النِّسْبَةُ مَفْرُوقَةً إِلَى نِسْبَتَيْنِ فَيَكُونُ كُلُّ وَاحِدَةٍ مِنْهُمَا بِمَنْزِلَةِ الْجُزْءِ مِنَ الْكُلِّ.}}{As for decomposition: it is that the ratio be divided into two ratios, so that each one of them is in the position of a part from the whole.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{فَإِذَا وُجِدَ هٰذَا فَلْنَقُلْ: أَيُّ نِسْبَةٍ كَانَتْ لِثَلَاثَةِ مُتَجَانِسَاتٍ إِلَى إِحْدَاهُنَّ فَهِيَ مُرَكَّبَةٌ مِنْ نِسْبَتِهِ إِلَى الثَّالِثَةِ وَنِسْبَةِ تِلْكَ الثَّالِثَةِ إِلَى الْأُولَى.}}{When this is established, let us say: Any ratio whatsoever of three homogeneous quantities to one of them is composed of its ratio to the third and the ratio of that third to the first.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{فَلْيَكُنْ ثَلَاثَةُ مُتَجَانِسَاتٍ أ وَ ب وَ ج، فَأَقُولُ: إِنَّ نِسْبَةَ أ إِلَى ب تُسَاوِي نِسْبَةَ أ إِلَى ج فِي نِسْبَةِ ج إِلَى ب، وَنِسْبَةَ أ إِلَى ج تُسَاوِي نِسْبَةَ أ إِلَى ب فِي نِسْبَةِ ب إِلَى ج، وَنِسْبَةَ ب إِلَى ج تُسَاوِي نِسْبَةَ ب إِلَى أ فِي نِسْبَةِ أ إِلَى ج، وَهَكَذَا.}}{Let there be three homogeneous quantities A, B, and C. Then I say: the ratio of A to B is equal to the ratio of A to C multiplied by the ratio of C to B, and the ratio of A to C is equal to the ratio of A to B multiplied by the ratio of B to C, and the ratio of B to C is equal to the ratio of B to A multiplied by the ratio of A to C, and so on.}
+
+\ornament
+
+\subsection*{\ar{المقالة الثانية: في شكل القطاع والنسب الموجودة فيه}}
+\addcontentsline{toc}{subsection}{Second Treatise: The Quadrilateral Figure (Arabic)}
+
+\bilingualpair{\ar{وَهٰذَا الشَّكْلُ يُسَمَّى شَكْلَ الْقِطَّاعِ لِأَنَّهُ مُنشَأٌ مِنْ أَرْبَعَةِ خُطُوطٍ مُقَاطِعَةٍ، وَيُسَمَّى أَيْضًا شَكْلَ الْقَطَائِعِ الْمُكَمَّلَةِ. وَقَدْ أَطْلَقَ عَلَيْهِ بَعْضُ الْمُتَأَخِّرِينَ اسْمَ الْمُخَمَّسِ لِأَنَّهُ يَحْتَوِي عَلَى خَمْسَةِ أَضْلَاعٍ فِي الْحَقِيقَةِ إِذَا أُضِيفَ إِلَيْهِ قُطْرٌ وَاحِدٌ.}}{This figure is called the figure of secants (\textit{shakl al-qa\d{t}\d{t}a`}) because it is generated from four intersecting lines, and is also called the figure of complete secants. Some later scholars have called it the ``pentagonal figure'' because it contains five sides in reality when one diagonal is added.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَقَدْ أَخْطَأَ حُسَامُ الدِّينِ فِي قَوْلِهِ إِنَّ هٰذَا الشَّكْلَ إِنَّمَا يَكُونُ فِي تِسْعَةِ أَشْكَالٍ، وَهُوَ فِي اثْنَيْ عَشَرَ شَكْلًا. وَقَدْ بَيَّنَّا ذٰلِكَ فِي هٰذَا الْمَكَانِ وَأَثْبَتْنَاهُ بِالْبُرْهَانِ.}}{Hussam al-Din erred in saying that this figure only occurs in nine configurations; it is in fact twelve figures. We have demonstrated this at this point and proved it rigorously.}
+
+\ornament
+
+\subsection*{\ar{المقالة الخامسة: في الضوابط البديلة لنظرية الشكل}}
+\addcontentsline{toc}{subsection}{Fifth Treatise: Methods Replacing the Theory (Arabic)}
+
+\bilingualpair{\ar{الضَّرْبُ الْأَوَّلُ وَلْيَكُنِ الْمَعْلُومُ وَتَرُ الْقَاعِدَةِ وَوَتَرُ النَّهَايَةِ الْآخَرِ وَضَلْعٌ مُجَاوِرٌ لِإِحْدَاهُمَا فَلْنَفْرِضْ أَنَّهُ أ ج وَالْمَعْلُومُ أَيْضًا ضَلْعٌ آخَرُ مُجَاوِرٌ لِتِلْكَ الْقَاعِدَةِ فَلْيَكُنْ د أ، وَلْيَكُنِ الْمَجْهُولُ بَقِيَّةُ جَوَانِبِ هٰذَا الشَّكْلِ.}}{The first case: Let the known quantities be the base, the other extreme, and a side adjacent to one of them. Let us suppose that it is AC, and let the known quantity also be another side adjacent to that base, let it be DA, and let the unknown be the remaining sides of this figure.}
+
+\vspace{0.3cm}
+
+\bilingualpair{\ar{وَمِنْ هٰذَا يَتَبَيَّنُ أَنَّ جِيبَ قَوْس أ ب إِلَى جِيبِ قَوْس أ ج كَنِسْبَةِ جِيبِ قَوْس أ د إِلَى جِيبِ قَوْس د ب، وَذٰلِكَ مَا أَرَدْنَا إِثْبَاتَهُ وَإِنِ انْطَبَقَ أَحَدُ الْمُثَلَّثَيْنِ عَلَى الْآخَرِ فِي كُلِّ وَاحِدٍ مِنْ هٰذِهِ الْأَشْكَالِ فَكَانَ الْبَيَانُ بِحَسَبِهِ عَلَى قِيَاسِ ذٰلِكَ.}}{From this it is clear that the sine of arc AB is to the sine of arc AC as the sine of arc AD is to the sine of arc DB, which is what we wanted to prove. And if one of the triangles coincides with the other in any one of these configurations, then the explanation follows accordingly.}
+
+\ornament
+
+%% ========================================================================
+%% BIBLIOGRAPHY
+%% ========================================================================
+\clearpage
+\section*{Bibliographical References}
+\addcontentsline{toc}{section}{Bibliographical References}
+
+\begin{enumerate}
+\item Na\c{s}\=ir al-D\=in al-\d{T}\=us\=i. \textit{Kit\=ab Shakl al-Qa\d{t}\d{t}a`}. Arabic manuscript, Edhem Pasha Library, Constantinople. Circa 1260.
+
+\item Al-\d{T}\=us\=i, N.~al-D. \textit{Trait\'e du Quadrilat\`ere attribu\'e \`a Nassiruddin-El-Toussy}. Translated by Alexandre Pacha Carath\'eodory. Constantinople: Typographie et Lithographie Osmanie, 1891.
+
+\item Carath\'eodory, A.~P. ``Sur le trait\'e du quadrilat\`ere de Nassiruddin-el-Toussy.'' \textit{Journal de Math\'ematiques Pures et Appliqu\'ees}, 4$^{\text{e}}$ s\'erie, tome 8 (1892), pp.~215--218.
+
+\item Suter, H. ``Die Mathematiker und Astronomen der Araber und ihre Werke.'' \textit{Abhandlungen zur Geschichte der mathematischen Wissenschaften}, 10 (1900), No.~368, p.~132.
+
+\item Krause, M. ``Die Sph\"arik von Menelaos aus Alexandrien.'' \textit{Abhandlungen der Gesellschaft der Wissenschaften zu G\"ottingen}, Phil.-hist. Klasse, 3$^{\text{e}}$ Folge, No.~17 (1936).
+
+\item Kennedy, E.~S. ``The History of Trigonometry: An Overview.'' \textit{Mathematics Teacher}, 1967.
+
+\item Berggren, J.~L. \textit{Episodes in the Mathematics of Medieval Islam}. Springer, 1986.
+
+\item Dold-Samplonius, Y. et al.~(eds.). \textit{From China to Paris: 2000 Years Transmission of Mathematical Ideas}. Franz Steiner Verlag, 2002.
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+\dblornament\vspace{0.5cm}
+{\small\textit{End of the Treatise / \ar{نهاية الكتاب}}}\\[0.3cm]
+
+\end{center}
+
+\end{document}

@@ -1,0 +1,352 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\prodword}{\operatorname{prod}}
+\title{Action of the Braid Group on a Category\\\large Working English translation}
+\author{P. Deligne}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We describe how to define, by generators and relations, an action of the braid group on a category. More generally, we describe how to define a functor from a generalized positive braid monoid, corresponding to a finite Coxeter group, to a monoidal category. Applications are given to constructions of Bondal, namely exceptional systems, and of Broué--Michel, namely correspondences on flag varieties.
+\end{abstract}
+
+\tableofcontents
+
+\section*{0. Introduction}
+\addcontentsline{toc}{section}{0. Introduction}
+
+An action of a monoid $M$ (not necessarily having a unit) on a category $C$ is the data of functors
+\[
+T(f) \qquad (f\in M)
+\]
+and of isomorphisms of functors
+\[
+c_{f,g}:T(f)\circ T(g)\longrightarrow T(fg)
+\]
+which make the diagrams
+\begin{equation}
+\begin{tikzcd}
+T(f)\circ T(g)\circ T(h) \arrow[r] \arrow[d] & T(fg)\circ T(h) \arrow[d]\\
+T(f)\circ T(gh) \arrow[r] & T(fgh)
+\end{tikzcd}\tag{0.1}
+\end{equation}
+commutative.
+
+The actions of a monoid $M$ on a category $C$ form a category. A morphism $(T,c)\to (T',c')$ is the data of morphisms of functors $T(f)\to T'(f)$ which make the diagrams
+\[
+\begin{tikzcd}
+T(f)T(g) \arrow[r,"c_{f,g}"] \arrow[d] & T(fg) \arrow[d]\\
+T'(f)T'(g) \arrow[r,"c'_{f,g}"] & T'(fg)
+\end{tikzcd}
+\]
+commutative.
+
+Suppose $M$ is given by generators and relations, $M=\langle G\mid R\rangle$. If to each generator $g\in G$ one assigns a functor $T(g):C\to C$, and if each relation $r_1=r_2$ in $R$ gives an equality of composite functors, then by composition of the $T(g)$ one obtains an action of $M$ on $C$ for which the $c_{f,g}$ are identity isomorphisms. This construction is not the useful one. The useful question is this. Consider systems consisting of:
+\begin{enumerate}[label=(\alph*)]
+\item functors $T(g):C\to C$ for $g\in G$;
+\item isomorphisms between composite functors for each relation $r_1=r_2$ in $R$;
+\item compatibility conditions of the type (0.1), to be specified.
+\end{enumerate}
+How should (c) be specified so that the restriction functor from the category of actions of $M$ on $C$ to the category of systems (a),(b) satisfying (c) is an equivalence of categories? In other words, when is giving an action of $M$ on $C$ the same thing as giving such a system?
+
+In this paper we treat the case in which $M$ is the monoid $B_n^+$ of strictly positive braids (1.2). We use a system of generators indexed by the non-trivial elements of the symmetric group $S_n$. For $b\in B_n^+$, let $E(b)$ be the set of decompositions of $b$ as a product of generators. This set has a natural order, and our main tool is the theorem that the geometric realization of the ordered set $E(b)$ is contractible. One may think of this theorem as a uniqueness result, up to homotopy, for decompositions of $b$ as a product of generators. In proving contractibility of $E(b)$, our methods are those of Deligne (1972) and therefore, indirectly, those of Garside (1969).
+
+The methods apply equally well to generalized strictly positive braid monoids (1.4), corresponding to finite Coxeter groups. Moreover $f\mapsto T(f)$ may take values in any monoidal category, rather than in $\Hom(C,C)$.
+
+At the end of this introduction we give the two applications which motivated us. The reader may prefer to read them after §2.
+
+\paragraph{Application 1.} Let $T$ be a triangulated category and let
+\[
+W_1\subset\cdots\subset W_N=T
+\]
+be a filtration of $T$ by triangulated subcategories, with $W_n$ thick in $W_{n+1}$; set $W_0=0$. Following Bondal--Kapranov, say that $W$ is right admissible if, for $1\le n<N$, the following equivalent conditions hold:
+\begin{enumerate}[label=(\roman*)]
+\item the inclusion $W_n\hookrightarrow W_{n+1}$ has a right adjoint;
+\item the quotient functor $W_{n+1}\to W_{n+1}/W_n$ has a right adjoint;
+\item every object $Y$ of $W_{n+1}$ occurs in a distinguished triangle $(X,Y,Z)$ with $X\in W_n$ and $Z$ in the right orthogonal of $W_n$ in $W_{n+1}$.
+\end{enumerate}
+Left admissibility is defined in the opposite triangulated category; admissibility means both left and right admissibility.
+
+Put $\operatorname{Gr}_n^W(T)=W_n/W_{n-1}$. For $W$ right admissible, write
+\[
+in_*:W_n\to T,
+\qquad i_n^!:T\to W_n,
+\]
+for the inclusion and its right adjoint; and write
+\[
+j_{n*}:\operatorname{Gr}_n^W(T)\to T,
+\qquad j_n^!:T\to\operatorname{Gr}_n^W(T)
+\]
+for the composites given by the quotient and adjoint functors.
+
+As explained by Bondal--Kapranov, a right admissible filtration $W$ is equivalent to a sequence $(B_i)_{1\le i\le N}$ of strictly full triangulated subcategories of $T$ which generate $T$, with $B_j$ right orthogonal to $B_i$ for $i<j$. Passing from $W$ to $(B_i)$, $B_n$ is the essential image of $\operatorname{Gr}_n^W(T)$ by $j_{n!}$; conversely $W_n$ is the triangulated subcategory generated by the $B_i$ with $i\le n$.
+
+For a permutation $\sigma$ of $\{1,\ldots,N\}$, the right mutation $\sigma_d W$, or simply $\sigma W$, is defined by letting $(\sigma W)_n$ be the triangulated subcategory generated by the $B_i$ with $\sigma i\le n$. Equivalently, it is the category of objects $K$ of $T$ such that $j_i^!K=0$ for $\sigma i>n$. The equivalences
+\begin{equation}
+\operatorname{Gr}_n^W(T) \xleftarrow{\sim} B_n \xrightarrow{\sim} \operatorname{Gr}_{\sigma n}^{\sigma W}(T)
+\tag{0.2}
+\end{equation}
+identify $\operatorname{Gr}_n^W(T)$ with $\operatorname{Gr}_{\sigma n}^{\sigma W}(T)$.
+
+A filtration is $\infty$-admissible if it is admissible and if all iterated left or right mutations are admissible. This gives an action of the braid group on the category of exceptional systems. In the special case of a $k$-linear triangulated category $T$, with finite-dimensional total Hom spaces, and when the categories $T_i$ are the bounded derived categories of finite-dimensional vector spaces, exceptional systems reduce to exceptional sequences $(X_i)$: one has $\Hom^*(X_i,X_j)=0$ for $i<j$, $\Hom^*(X_i,X_i)=k$, and the objects generate $T$.
+
+\paragraph{Application 2.} Let $G$ be a split reductive group over a field $k$, and let $\mathcal B$ be the variety of its Borel subgroups. Let $M$ be the category of schemes over $\mathcal B\times\mathcal B$, regarded as correspondences from $\mathcal B$ to $\mathcal B$. Composition of correspondences makes $M$ a monoidal category. Let $W$ be the Weyl group, identified with the set of relative positions of Borel subgroups, or equivalently the orbits of $G(k)$ on $\mathcal B(k)\times\mathcal B(k)$. For $w\in W$, write $X(w)$ for the variety of pairs $(B',B'')$ of Borel subgroups in relative position $w$. The identity orbit $X(e)$ is the diagonal, and the distinguished generators correspond to the orbits whose closure is the orbit together with the diagonal. The product in $W$ is characterized by
+\begin{equation}
+X(w)=X(w')\circ X(w'')
+\quad\text{if } w=w'w'' \text{ and } \ell(w)=\ell(w')+\ell(w'').\tag{0.3}
+\end{equation}
+Broué and Michel deduce from (0.3) that $w\mapsto X(w)$ extends to a construction attaching to $b\in B^+$ an isomorphism class of schemes $X(b)$ over $\mathcal B\times\mathcal B$, with $X(b)\simeq X(b')\circ X(b'')$ for $b=b'b''$. Our results show that $X(b)$ is in fact defined up to unique isomorphism.
+
+\section{Actions}
+
+\subsection*{1.1}
+As explained in the introduction, the actions of a monoid $M$ on a category $C$ form a category. Saying that it is ``the same thing'' to give an action of $M$ on $C$ as to give some other system means the construction of an equivalence between the category of actions and the category of those systems.
+
+\subsection*{1.2}
+The monoid without unit $B_n^+$ of strictly positive braids on $n$ strands is generated by generators $s_i$ ($1\le i\le n-1$) subject to the relations
+\begin{align}
+s_i s_{i+1}s_i &= s_{i+1}s_i s_{i+1}, \tag{1.2.1}\\
+s_i s_j &= s_j s_i \quad\text{for } j\ge i+2.
+\end{align}
+It is known to inject into the braid group $B_n$ defined by the same generators and relations.
+
+\subsection*{1.3}
+To define an action of $B_n^+$ on a set $E$, it is enough to give maps $T(s_i):E\to E$ satisfying (1.2.1). To define an action on a category $C$, it is not enough to give functors $T(s_i):C\to C$ and isomorphisms
+\begin{align}
+T(s_i)T(s_{i+1})T(s_i)&\xrightarrow{\sim}T(s_{i+1})T(s_i)T(s_{i+1}),\tag{1.3.1}\\
+T(s_i)T(s_j)&\xrightarrow{\sim}T(s_j)T(s_i) \quad (j\ge i+2).
+\end{align}
+For $B_4^+$ one must also impose an additional compatibility. Put $a=T(s_1)$, $b=T(s_2)$, and $c=T(s_3)$. In the following cycle of twelve functors,
+\[
+\begin{array}{llll}
+acbcab & abcbab & abcaba & abacba\\
+babcba & bacbca & bcabac & bcbabc\\
+cbcabc & cbacbc & cbabcb & cabacb,
+\end{array}\tag{1.3.2}
+\]
+each is connected to the next by the isomorphisms (1.3.1) or their inverses, applied to the underlined subcomposites in the original notation. The composite of these isomorphisms must be the identity.
+
+Geometrically, consider the sphere $S^2$ cut into spherical triangles by the root hyperplanes of the root system $A_3$. A regular tetrahedron inscribed in $S^2$ gives a decomposition into four spherical triangles; one considers its barycentric subdivision. A chosen triangle is the fundamental chamber. A gallery from the fundamental chamber $C_0$ to the opposite chamber $\bar C_0$, crossing each root hyperplane exactly once, gives a word in $a,b,c$. The cycle (1.3.2) gives a cycle of such galleries; the homotopies between successive paths sweep out $S^2$ and give the generator of $\pi_2(S^2)$.
+
+Theorem 1.5 below implies that (1.3.2) is sufficient. More precisely, the restriction functor from the category of actions of $B_4^+$ on $C$ to the category of triples $T(s_1),T(s_2),T(s_3)$ endowed with isomorphisms (1.3.1) satisfying (1.3.2) is an equivalence of categories.
+
+\subsection*{1.4}
+It is more convenient to replace (1.2.1) by a redundant system of generators and relations. Let $B^+$ be the generalized strictly positive braid monoid corresponding to a finite Coxeter group $W$ with distinguished generating set $R$. The usual braids correspond to $W=S_n$ and to the transpositions $(i,i+1)$. Let $\ell:W\to\mathbb N$ be the length function for $R$.
+
+Write $\prodword(m,a,b)$ for the alternating product of $m$ factors $abab\cdots$. The group $W$ is generated by $i\in R$ subject to
+\begin{align}
+\prodword(m_{ij},i,j)&=\prodword(m_{ij},j,i)\qquad (i,j\in R,\ i\ne j),\tag{1.4.1}\\
+i^2&=e \qquad (i\in R).\tag{1.4.2}
+\end{align}
+The monoid $B^+$ is generated by symbols $\tilde i$ ($i\in R$) subject only to (1.4.1). It injects into the corresponding generalized braid group $B$. The projection $\tilde i\mapsto i$ of $B^+$ onto $W$ admits, away from the identity, a canonical set-theoretic section $\tau$, characterized by
+\begin{align}
+\tau(i)&=\tilde i,\tag{1.4.3}\\
+\tau(w'w'')&=\tau(w')\tau(w'')\quad\text{if }\ell(w'w'')=\ell(w')+\ell(w'').\tag{1.4.4}
+\end{align}
+This gives a new presentation of $B^+$:
+\[
+\text{generators }\tau(w)\quad (w\in W,\ w\ne e),\tag{1.4.5}
+\]
+with relations (1.4.4).
+
+\begin{theorem}[1.5]
+It is the same thing to give an action of $B^+$ on $C$ as to give:
+\begin{enumerate}
+\item for every $w\in W$, $w\ne e$, a functor $T(w):C\to C$;
+\item for $w',w''$ with $\ell(w'w'')=\ell(w')+\ell(w'')$, an isomorphism
+\[
+T(w')T(w'')\longrightarrow T(w'w'');
+\]
+\item for $\ell(w'w''w''')=\ell(w')+\ell(w'')+\ell(w''')$, commutativity of
+\[
+\begin{tikzcd}
+T(w')T(w'')T(w''') \arrow[r] \arrow[d] & T(w'w'')T(w''') \arrow[d]\\
+T(w')T(w''w''') \arrow[r] & T(w'w''w''').
+\end{tikzcd}\tag{1.5.3}
+\]
+\end{enumerate}
+\end{theorem}
+
+The phrase ``it is the same thing'' here means an equivalence of the corresponding categories. We construct the quasi-inverse to the restriction functor. The difficult part is the contractibility theorem 1.7, proved in §2.
+
+Let data (1.5.1), (1.5.2) satisfying (1.5.3) be given. For $b\in B^+$ let $E(b)$ be the set of ways of writing $b$ as a product of elements $\tau(w)$. If $L(W-\{e\})$ is the free monoid on $W-\{e\}$, then $E(b)$ is the inverse image of $b$ under $L(W-\{e\})\to B^+$. The data (1.5.1) attach to every word $A$ a composite functor $T(A)$.
+
+Whenever words $A_1$ and $A_2$ have the forms
+\begin{equation}
+B:w':w'':C \qquad\text{and}\qquad B:(w'w''):C,
+\tag{1.5.4}
+\end{equation}
+with $\ell(w'w'')=\ell(w')+\ell(w'')$, (1.5.2) gives an isomorphism
+\begin{equation}
+T(A_1)\longrightarrow T(A_2).\tag{1.5.5}
+\end{equation}
+
+\begin{lemma}[1.6]
+The isomorphisms (1.5.5) generate a transitive system of isomorphisms among the $T(A)$, for $A\in E(b)$.
+\end{lemma}
+
+Assuming this lemma, define $T(b)$ as the common value of the $T(A)$, more precisely the projective limit of this transitive system. For $b,c\in B^+$ and for decompositions $B\in E(b)$, $C\in E(c)$, the concatenation $BC$ lies in $E(bc)$. This defines $T(b)T(c)\to T(bc)$ and hence the desired action. Functoriality gives the quasi-inverse to restriction.
+
+Let $\le$ be the order on $E(b)$ generated by the elementary contractions (1.5.4). The following theorem is proved in 2.3 and 2.4.
+
+\begin{theorem}[1.7]
+The geometric realization $|E(b)|$ of the ordered set $E(b)$ is contractible.
+\end{theorem}
+
+The proof that 1.6 follows from connectedness and simple connectedness of $|E(b)|$ uses Quillen's description of coverings of the realization of a category: a functor from $E(b)$ to sets and bijections is locally constant; if the realization is connected and simply connected, it is isomorphic to a constant functor. Applying this to the Hom-sets $\Hom(A,T(x))$ in an arbitrary category gives the assertion for functors.
+
+\subsection*{1.8. Units}
+A unital action of a monoid with unit $(M,e)$ on $C$ is an action $T$ such that $T(e)$ is an autoequivalence. There is then a unique isomorphism
+\begin{equation}
+T(e)\xrightarrow{\sim}\Id\tag{1.8.1}
+\end{equation}
+for which $c_{e,f}$ and $c_{f,e}$ are induced by (1.8.1). If $M^+$ is obtained from $M$ by adjoining a unit, giving an action of $M$ is equivalent to giving a unital action of $M^+$.
+
+An action of a group $G$ is a unital action of $G$.
+
+\begin{proposition}[1.9]
+Let $M$ be a monoid with unit satisfying the left or right Ore condition, and let $G$ be its group of fractions. It is the same thing to give an action of $G$ on $C$ as to give a unital action of $M$ on $C$ by autoequivalences.
+\end{proposition}
+\begin{proof}
+Assume the left Ore condition. For $f\in G$, let $L_f$ be the category whose objects are pairs $(x,y)\in M\times M$ with $f=x^{-1}y$, and whose arrows are left multiplications. This category is filtered. The functors $T(x)^{-1}T(y)$ form a filtered inductive system with isomorphism transitions; define $T(f)$ as its colimit. For $f,g\in G$, write $f=x^{-1}y$ and $g=y^{-1}z$ after refinement. Then $T(f)T(g)\to T(fg)$ is the colimit of the isomorphisms
+\[
+T(x)^{-1}T(y)T(y)^{-1}T(z)\longrightarrow T(x)^{-1}T(z).
+\]
+Associativity follows by writing $f,g,h$ as $x^{-1}y$, $y^{-1}z$, $z^{-1}t$.
+\end{proof}
+
+\subsection*{1.10}
+By Deligne (1972), the positive generalized braid monoid obtained from $B^+$ by adjoining an identity satisfies both left and right Ore conditions. Combining 1.8, 1.9, and 1.5, giving an action of the corresponding generalized braid group on a category is equivalent to giving data (1.5.1)--(1.5.3) with each $T(w)$ an autoequivalence.
+
+\subsection*{1.11. Monoidal variant}
+Let $\mathcal M$ be a monoidal category. Consider systems of type (A): objects $T(b)$ for $b\in B^+$, with isomorphisms $T(b')T(b'')\to T(b'b'')$ satisfying the associativity square; and systems of type (B): objects $T(w)$ for $w\in W-\{e\}$, with isomorphisms $T(w')T(w'')\to T(w'w'')$ whenever lengths add, satisfying the analogous square. The restriction functor from (A) to (B) is an equivalence. The proof is the same as that of 1.5. If $\mathcal M$ is a Picard category and $B^+$ is replaced in (A) by the generalized braid group $B$, the same conclusion follows from the argument of 1.9 and 1.10.
+
+\section{Contractibility}
+
+\subsection*{2.1}
+Let $V$ be a finite-dimensional real vector space and let $\mathcal M$ be a finite set of homogeneous hyperplanes, called walls. Assume that the connected components of $V-\bigcup_{M\in\mathcal M}M$, called chambers, are open simplicial cones. We use the terminology of walls, chambers, faces and facets, and the terminology of Deligne (1972) recalled below.
+
+Two chambers $A$ and $B$ are adjacent if they are distinct and have a common face. A gallery of length $n$ from $A$ to $B$ is a sequence $C_i$ ($0\le i\le n$) with $C_0=A$, $C_n=B$, and successive chambers adjacent. Minimal galleries from $A$ to $B$ have length $d(A,B)$, the number of walls separating $A$ and $B$; they cross each separating wall exactly once. The equivalence relation on galleries is the finest relation compatible with composition such that all minimal galleries between two fixed chambers are equivalent. The class of minimal galleries from $A$ to $B$ is denoted $u(A,B)$; if
+\[
+d(A,B)+d(B,C)=d(A,C),
+\]
+then $u(A,B)u(B,C)=u(A,C)$.
+
+For three chambers $A,B,C$, the following are equivalent: $d(A,B)+d(B,C)=d(A,C)$; a minimal gallery from $A$ to $C$ passes through $B$; and $B$ lies in every half-space bounded by a wall which contains both $A$ and $C$. Write $D(A,C)$ for the set of chambers between $A$ and $C$. For fixed $A$, the relation ``$B$ is between $A$ and $C$'' is an order relation.
+
+A central technical result of Deligne (1972) says that for any equivalence class $g$ of galleries starting at $A$, if $g$ begins with $u(A,C)$ then the remaining class $g'$ is unique; moreover, there is an optimal chamber $C$ such that $g$ begins with $u(A,B)$ exactly when $B$ is between $A$ and $C$.
+
+\subsection*{2.2}
+Let $g$ be an equivalence class of galleries from $A$ to $B$, and let $E(g)$ be the set of decompositions of $g$ as a composite of classes $u(C,D)$. Thus an element of $E(g)$ is a sequence of chambers $(C_i)$ with $C_0=A$, $C_n=B$, $C_i\ne C_{i+1}$, and
+\begin{equation}
+g=u(C_0,C_1)u(C_1,C_2)\cdots u(C_{n-1},C_n).
+\tag{2.2.1}
+\end{equation}
+This implies
+\begin{equation}
+\sum_i d(C_i,C_{i+1})=\ell(g).\tag{2.2.2}
+\end{equation}
+The order on $E(g)$ is given by coarsening such decompositions: one sequence is below another if the second is obtained by replacing consecutive factors by their product whenever lengths add.
+
+\subsection*{2.3}
+Let $W\subset GL(V)$ be a finite group generated by reflections, with fixed subspace $V^W=0$. Take the walls to be the reflecting hyperplanes. The chambers are simplicial cones permuted simply transitively by $W$. Choosing a fundamental chamber $C_0$, the relative position of two chambers $A,B$ is the element
+\[
+w(A,B)=g(A)^{-1}g(B)\in W.
+\]
+With the distinguished generating set $R$, $W$ is a Coxeter group. If $G=(A_0,\ldots,A_n)$ is a gallery, attach to it
+\begin{equation}
+b(G)=\tilde r(0)\cdots\tilde r(n-1)\in B^+,
+\tag{2.3.1}
+\end{equation}
+where $r(i)$ is the relative position of $A_i$ and $A_{i+1}$. This construction is compatible with composition and induces a bijection
+\begin{equation}
+\{\text{equivalence classes of galleries of fixed source and positive length}\}
+\xrightarrow{\sim} B^+ .\tag{2.3.3}
+\end{equation}
+Moreover $E(g)\to E(b(g))$ is an isomorphism of ordered sets. Theorem 1.7 therefore follows from the next theorem.
+
+\begin{theorem}[2.4]
+With the notation of 2.2, the geometric realization $|E(g)|$ is contractible.
+\end{theorem}
+
+\begin{proof}
+We argue by induction on $\ell(g)$. The case $\ell(g)=0$ is clear. Let $g$ have source $A$ and target $B$, and let $C$ be the optimal chamber such that $g$ begins with $u(A,C)$. Let $S$ be the non-empty set of walls of $A$ which separate $A$ from $C$.
+
+For $s\in S$, let $E_s(g)$ be the subset of $E(g)$ consisting of sequences whose first step crosses the wall $s$. Then
+\begin{equation}
+|E(g)|=\bigcup_{s\in S}|E_s(g)|.
+\tag{2.4.1}
+\end{equation}
+For a non-empty subset $T\subset S$, put $E_T(g)=\bigcap_{t\in T}E_t(g)$. Then
+\begin{equation}
+|E_T(g)|=\bigcap_{t\in T}|E_t(g)|.
+\tag{2.4.2}
+\end{equation}
+
+\begin{lemma}[2.5]
+Each $|E_T(g)|$ is contractible.
+\end{lemma}
+\begin{proof}
+Let $F_T$ be the facet of $A$ open in the intersection of the walls in $T$, and let $A_T$ be the chamber opposite to $A$ in the star of $F_T$. The chamber $A_T$ is the least chamber separated from $A$ by all walls in $T$; in particular $A_T$ lies between $A$ and $C$. Let $h$ be the unique class of galleries from $A_T$ to $B$ such that $g=u(A,A_T)h$. Then $\ell(h)<\ell(g)$.
+
+The increasing map
+\begin{equation}
+f:E(h)\longrightarrow E_T(g),\qquad
+(C_0=A_T,\ldots,C_n)\longmapsto(A,C_0,\ldots,C_n)
+\tag{2.5.1}
+\end{equation}
+identifies $E(h)$ with an initial segment of $E_T(g)$. Define
+\begin{equation}
+f_*:E_T(g)\to E(h)
+\tag{2.5.2}
+\end{equation}
+by deleting the first $A$ if $C_1=A_T$, and otherwise by inserting $A_T$ after $A$. Then
+\begin{equation}
+f(x)\le y \Longleftrightarrow x\le f_*(y).\tag{2.5.3}
+\end{equation}
+Thus $f$ and $f_*$ are adjoint functors between the corresponding categories, and Quillen's result implies that $|f|$ is a homotopy equivalence. By induction, $|E(h)|$ is contractible.
+\end{proof}
+
+All non-empty intersections of the closed sets $|E_s(g)|$ are contractible. The realization $|E(g)|$ has the same homotopy type as the nerve of this finite closed covering. Since all intersections are non-empty, the nerve is a simplex; hence $|E(g)|$ is contractible.
+\end{proof}
+
+\begin{remark}[2.6]
+Let $\mathcal C$ be a 2-category whose objects are indexed by chambers. Theorem 2.4 implies, by the same proof as 1.5, an analogous equivalence between two descriptions. In the first, one gives a 1-arrow $T(g):X_A\to X_B$ for every equivalence class of galleries $g$ of positive length from $A$ to $B$, and compatible isomorphisms for products of such classes. In the second, one gives arrows $T_{B,A}:X_A\to X_B$ for pairs of distinct chambers, and for $A,B,C$ with $C$ between $A$ and $B$ one gives isomorphisms
+\[
+T_{C,B}T_{B,A}\xrightarrow{\sim}T_{C,A},
+\]
+with the evident associativity condition whenever
+\[
+d(A,D)=d(A,B)+d(B,C)+d(C,D).
+\]
+The first application in the introduction is most conveniently expressed in this language: total orders on a finite set $I$ identify with the chambers of a root system of type $A_n$, $n=|I|-1$, and Bondal's construction is precisely such data of type (B).
+\end{remark}
+
+\begin{thebibliography}{9}
+\bibitem{BK} A. I. Bondal and M. M. Kapranov, \emph{Representable functors, Serre functors and mutations}, Math. USSR Izvestiya 63, 1183--1205 (1989); AMS translation 35, 519--541 (1990).
+\bibitem{BM} M. Broué and J. Michel, \emph{Sur certains éléments réguliers des groupes de Weyl et les variétés de Deligne--Lusztig associées}, in \emph{Finite reductive groups, related structures and representations}, Basel--Boston: Birkhäuser, 1996.
+\bibitem{D} P. Deligne, \emph{Les immeubles des groupes de tresses généralisés}, Invent. Math. 17, 273--302 (1972).
+\bibitem{G} F. A. Garside, \emph{The braid group and other groups}, Quart. J. Math. Oxford (2) 20, 235--254 (1969).
+\bibitem{Q} D. Quillen, \emph{Higher algebraic K-theory I}, Lecture Notes in Math. 341, Springer, 1973, 85--142.
+\bibitem{V} J. L. Verdier, \emph{Catégories dérivées}, in SGA $4\frac12$, Lecture Notes in Math. 569, Springer, 1977, 262--311.
+\end{thebibliography}
+
+\end{document}

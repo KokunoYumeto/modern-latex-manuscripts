@@ -1,0 +1,1587 @@
+%% ========================================================================
+%% Kitab al-Jabr wa-l-Muqabala — Bilingual English-Arabic Edition
+%% by Muhammad ibn Musa al-Khwarizmi (c. 820 CE)
+%% LEFT COLUMN: Original Arabic  |  RIGHT COLUMN: English Translation
+%% Translation adapted from Frederic Rosen (1831) with modern notation
+%% ========================================================================
+
+\documentclass[11pt,a4paper,openany,oneside]{book}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{tocloft}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks
+% framed package replaced with custom environments
+% Round 7 layout repairs: avoid overfull display math in narrow bilingual columns.
+\newcommand{\narrowmathbox}[1]{\begin{gathered}#1\end{gathered}}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+
+%% -------- Font Configuration --------
+%% Using exact file paths for OTF fonts
+\setmainfont[Ligatures=TeX]{TeXGyrePagella}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmonofont[
+  Path=/usr/share/fonts/truetype/dejavu/,
+  BoldFont=DejaVuSansMono-Bold.ttf,
+  Scale=MatchLowercase
+]{DejaVuSansMono.ttf}
+
+%% Arabic Font (system fonts)
+\TeXXeTstate=1
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.08]{Amiri}
+\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.08]{Amiri}
+
+%% -------- Paracol Setup --------
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{arabicbg}{RGB}{252,250,245}
+\definecolor{dropgold}{RGB}{139,90,43}
+\definecolor{transbg}{RGB}{248,246,240}
+\definecolor{mathbg}{RGB}{245,245,250}
+
+%% -------- Section Formatting --------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{titlecolor}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Kit\=ab al-Jabr wa-l-Muq\=abala — Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\editornote}[1]{\footnote{\textcolor{notecolor}{\textbf{[Ed.]} #1}}}
+
+%% Arabic inline helper with RTL
+\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
+
+%% Custom framed environments (replacing tcolorbox)
+\newsavebox{\arabicboxsave}
+\newenvironment{arabicbox}[1][]{%
+  \smallskip\par\noindent
+  \begin{lrbox}{\arabicboxsave}
+  \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}%
+  \setlength{\parskip}{0.3em}%
+  \ifx&#1&\else\textbf{#1}\\[0.2cm]\fi
+}{%
+  \end{minipage}%
+  \end{lrbox}
+  \fcolorbox{rulecolor}{arabicbg}{\usebox{\arabicboxsave}}%
+  \smallskip}
+
+\newenvironment{transbox}[1][]{%
+  \smallskip\par\noindent\begingroup
+  \setlength{\parskip}{0.3em}%
+  \ifx&#1&\else\textbf{#1}\par\smallskip\fi
+}{%
+  \par\endgroup\smallskip}
+
+\newenvironment{mathbox}[1][]{%
+  \smallskip\par\noindent\begingroup
+  \setlength{\parskip}{0.3em}%
+  \ifx&#1&\else\textbf{#1}\par\smallskip\fi
+}{%
+  \par\endgroup\smallskip}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Kitab al-Jabr wa-l-Muqabala - Bilingual Edition},
+  pdfauthor={al-Khwarizmi}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+\newcommand{\vs}{\vspace{0.5em}}
+\let\cleardoublepage\clearpage
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+
+\vspace*{1cm}
+
+{\fontsize{28}{34}\selectfont\textcolor{titlecolor}{\textsc{Kit\=ab al-Mukhta\d{s}ar f\={i} \d{H}is\=ab al-Jabr}}}
+
+\vspace{0.2cm}
+
+{\fontsize{28}{34}\selectfont\textcolor{titlecolor}{\textsc{wa-l-Muq\=abala}}}
+
+\vspace{0.5cm}
+
+\begin{center}
+\fcolorbox{rulecolor}{arabicbg}{%
+\begin{minipage}{0.75\textwidth}
+\begin{center}
+\Large
+{\arabicfont\beginR كتاب المختصر في حساب الجبر والمقابلة\endR}
+\end{center}
+\end{minipage}}
+\end{center}
+
+\vspace{0.8cm}
+
+\rule{0.5\textwidth}{1pt}
+
+\vspace{0.8cm}
+
+{\Large\textit{The Compendious Book on Calculation}}\\[0.2cm]
+{\Large\textit{by Completion and Balancing}}\\[0.4cm]
+{\normalsize And on the laws of inheritance (al-far\=a'i\d{d}) and the distribution of legacies}
+
+\vspace{1cm}
+
+{\LARGE\textbf{Mu\d{h}ammad ibn M\=us\=a al-Khw\=arizm\={i}}}\\[0.3cm]
+{\Large\ar{محمد بن موسى الخوارزمي}}
+
+\vspace{0.8cm}
+
+\begin{center}
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{0.8\textwidth}
+\begin{center}
+\textbf{Bilingual Edition --- \ar{الطبعة الثنائية اللغة}}\\[0.3cm]
+\textbf{Arabic Original (left)} \quad $\longleftrightarrow$ \quad \textbf{English Translation (right)}\\[0.2cm]
+{\small Adapted from Frederic Rosen's translation (London, 1831)}\\[0.1cm]
+{\small With modern mathematical notation and explanatory notes}
+\end{center}
+\end{minipage}}
+\end{center}
+
+\vspace{0.8cm}
+
+{\small Critical Arabic text: 'Al\={i} Mu\d{s}\d{t}af\=a Musharrafa \& Mu\d{h}ammad Murs\={i} A\d{h}mad}\\[0.1cm]
+{\small Cairo: Egyptian University, 1359 AH / 1939 CE}
+
+\vfill
+
+{\footnotesize Typeset in Linux Libertine and Noto Naskh Arabic via XeLaTeX}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% COPYRIGHT / EDITION NOTE
+%% ========================================================================
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2cm}
+
+{\Large\textbf{About This Bilingual Edition}}
+
+\vspace{0.8cm}
+
+\begin{minipage}{0.85\textwidth}
+\small
+This bilingual edition presents the foundational text of algebra, composed by
+Mu\d{h}ammad ibn M\=us\=a al-Khw\=arizm\={i} (circa 780--850 CE) at the court
+of the Caliph al-Ma'm\=un in Baghdad. The \textbf{left column} contains the
+original Arabic text; the \textbf{right column} provides an English translation
+adapted from Frederic Rosen's 1831 edition, with corrections and modernization
+of mathematical notation.
+
+\vspace{0.4cm}
+
+\textbf{Key terminology:}
+\begin{itemize}[leftmargin=1.5em,topsep=2pt]
+  \item \ar{الجبر} (\textit{al-jabr}) = ``restoration'' or ``completion'' — adding terms to both sides of an equation
+  \item \ar{المقابلة} (\textit{al-muq\=abala}) = ``balancing'' or ``reduction'' — subtracting like terms from both sides
+  \item \ar{المال} (\textit{al-m\=al}) = ``square'' (of the unknown, $x^2$)
+  \item \ar{الجذر} (\textit{al-jadhr}) = ``root'' (the unknown quantity, $x$)
+  \item \ar{العدد} (\textit{al-'adad}) = ``number'' (constant term)
+  \item \ar{الشيء} (\textit{al-shay'}) = ``thing'' (another term for the unknown)
+\end{itemize}
+
+\vspace{0.4cm}
+
+The Arabic text is reproduced from the critical edition of 'Al\={i} Mu\d{s}\d{t}af\=a
+Musharrafa and Mu\d{h}ammad Murs\={i} A\d{h}mad (Cairo, 1939), based on the
+unique complete manuscript preserved in the Bodleian Library at Oxford
+(Hunt.~214, copied in 743 AH / 1342 CE).
+\end{minipage}
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% ========================================================================
+%% PART ONE: ALGEBRA
+%% ========================================================================
+%% ========================================================================
+% Part heading removed to avoid sparse/blank spacer pages.
+
+%% ========================================================================
+%% CHAPTER: AUTHOR'S PREFACE
+%% ========================================================================
+\chapter*{The Author's Preface}
+\addcontentsline{toc}{chapter}{The Author's Preface}
+\markboth{The Author's Preface}{The Author's Preface}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{بسم الله الرحمن الرحيم.}
+
+الحمد لله على نعمه لأهل طاعته، بأدائها بقدرته على عباده المؤمنين به، ليثيبهم بها ثواباً، ويحفظهم بها عن التغيير، ويعرفهم قدرته، ويذللهم لعظمته. أرسل محمداً صلى الله عليه وسلم برسالته بعد انقطاع الرسل، وذهاب العدل، وفساد النُُّصُل.
+
+وقد كان العلماء في الأزمان الخالية وفي الأمم السالفة يؤلفون الكتب في أبواب العلوم وفروع المعرفة، يتذكرون من بعدهم، ويرجون الأجر بقدر ما كان منهم، ويثقون بما يحصل لهم من الشكر والإجلال والإعظام، راضين ولو بقليل من الثناء، قليلاً مقارنةً بما بذلوه من الجهد والمشقة في كشف خفايا العلم وإزالة ستائره.
+
+وذلك الحب للعلم الذي ميَّز الله به الإمام المأمون أمير المؤمنين (مع ما منَّ به عليه من الخلافة بالإجماع، واللباس الذي ألبسه إياه، والزينة التي زيَّنه بها)، وذلك اللطف والتودد الذي يبديه للعلماء، وتلك السرعة التي يحميها وينصرها في توضيح المبهمات وإزالة الصعوبات — قد حملني على أن أؤلف مختصراً في الجبر والمقابلة، أقتصر فيه على ما هو أيسر وأنفع في الحساب، مما يحتاج إليه الناس دائماً في مسائل الميراث والعطايا والقسمة والخصومات والتجارة وكل ما يتعاملون به فيما بينهم، أو في مساحة الأرضين وحفر الأنهار ومسائل الهندسة وغيرها من أنواع الأشياء المختلفة الأصناف.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{I}}{n the Name of God,} gracious and merciful! Praised be God for His bounty towards those who deserve it by their virtuous acts: in performing which, as by Him prescribed to His adoring creatures, we express our thanks, and render ourselves worthy of the continuance (of His mercy), and preserve ourselves from change: acknowledging His might, bending before His power, and revering His greatness! He sent Mohammed (on whom may the blessing of God repose!) with the mission of a prophet, long after any messenger from above had appeared, when justice had fallen into neglect, and when the true way of life was sought for in vain.
+
+\vspace{0.3cm}
+
+The learned in times which have passed away, and among nations which have ceased to exist, were constantly employed in writing books on the several departments of science and on the various branches of knowledge, bearing in mind those that were to come after them, and hoping for a reward proportionate to their ability, and trusting that their endeavours would meet with acknowledgment, attention, and remembrance---content as they were even with a small degree of praise; small, if compared with the pains which they had undergone, and the difficulties which they had encountered in revealing the secrets and obscurities of science.
+
+\vspace{0.3cm}
+
+That fondness for science, by which God has distinguished the Im\=am al-M\=a'mun, the Commander of the Faithful (besides the caliphat which He has vouchsafed unto him by lawful succession, in the robe of which He has invested him, and with the honours of which He has adorned him), that affability and condescension which he shows to the learned, that promptitude with which he protects and supports them in the elucidation of obscurities and in the removal of difficulties---has encouraged me to compose a short work on Calculating by (the rules of) Completion and Reduction, confining it to what is easiest and most useful in arithmetic, such as men constantly require in cases of inheritance, legacies, partition, law-suits, and trade, and in all their dealings with one another, or where the measuring of lands, the digging of canals, geometrical computation, and other objects of various sorts and kinds are concerned.
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: ON NUMBERS AND THE THREE KINDS
+%% ========================================================================
+\chapter{On Numbers and the Three Kinds}
+\label{ch:intro}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{أقسام الأعداد في الجبر والمقابلة}
+
+لما نظرت فيما يحتاج إليه الناس في حساباتهم، وجدت أن ذلك كله عدد. ووجدت أيضاً أن كل عدد مؤلف من الوحدات، وأنه لا يخلو عدد من أن ينقسم إلى وحدات. وعلمت أن كل عدد يعدَّ من الواحد إلى العشرة يزيد على الذي قبله بواحد، ثم يضاعف العشر ويثلث، كما فعل بالوحدات، فيكون عشرون وثلاثون وهكذا إلى المائة، ثم يضاعف المائة ويثلثها كما فعل بالعشرات والوحدات إلى الألف، ثم يكرر الألف كذلك في كل عدد مركب، وهكذا إلى أقصى حدٍّ في العدِّ.
+
+فوجدت أن الأعداد التي يحتاج إليها في حساب الجبر والمقابلة ثلاثة أنواع: \textbf{جذور}، و\textbf{أموال}، و\textbf{أعداد مفردة} لا تتعلق بجذر ولا بمال.
+
+أما \textbf{الجذر} فهو كل مقدار يضرب في نفسه مؤلفاً من وحدات أو أعداد صاعدة أو كسور نازلة.
+
+وأما \textbf{المال} فهو جميع ما حصل من ضرب الجذر في نفسه.
+
+وأما \textbf{العدد المفرد} فهو كل عدد يذكر بغير نسبة إلى جذر ولا مال.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{W}}{hen I considered} what people generally want in calculating, I found that it always is a number. I also observed that every number is composed of units, and that any number may be divided into units. Moreover, I found that every number, which may be expressed from one to ten, surpasses the preceding by one unit: afterwards the ten is doubled or tripled, just as before the units were: thus arise twenty, thirty, etc., until a hundred; then the hundred is doubled and tripled in the same manner as the units and the tens, up to a thousand; then the thousand can be thus repeated at any complex number; and so forth to the utmost limit of numeration.
+
+\vspace{0.3cm}
+
+I observed that the numbers which are required in calculating by Completion and Reduction are of \textbf{three kinds}, namely, \textit{roots} (\ar{جذور}), \textit{squares} (\ar{أموال}), and \textit{simple numbers} (\ar{أعداد مفردة}) relative to neither root nor square.
+
+\begin{transbox}[The Three Kinds]
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em,topsep=1pt]
+  \item A \textbf{root} (\textit{jadhr} / \ar{جذر}) is any quantity which is to be multiplied by itself, consisting of units, or numbers ascending, or fractions descending.\editornote{In modern notation: $x$.}
+  \item A \textbf{square} (\textit{m\=al} / \ar{مال}) is the whole amount of the root multiplied by itself.\editornote{In modern notation: $x^2$.}
+  \item A \textbf{simple number} (\textit{'adad mufrad} / \ar{عدد مفرد}) is any number which may be pronounced without reference to root or square.
+\end{enumerate}
+\end{transbox}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% THE SIX CANONICAL CASES
+%% ========================================================================
+\chapter{The Six Canonical Cases}
+\label{ch:six-cases}
+
+\section*{Introduction to the Six Cases}
+\addcontentsline{toc}{section}{Introduction to the Six Cases}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+هذه هي الحالات الستّ التي ذكرتها في مقدمة هذا الكتاب. ثلاث منها لا تحتاج إلى أن تنصف الجذور، وقد بيَّنت كيف تجاب. وأما الثلاث الأخرى التي يجب فيها نصف الجذور، فأرى أن أبيّنها أيضاً مفصَّلة مع ذكر الشكل لكل حالة يبين سبب النصف.
+
+\textbf{الحالات الست:}
+\begin{enumerate}[label=\arabic*.]
+\item المال يساوي الأصول
+\item المال يساوي عدداً
+\item الأصول تساوي عدداً
+\item مال وأصول يساوي عدداً
+\item مال وعدد يساوي أصولاً
+\item أصول وعدد يساوي مالاً
+\end{enumerate}
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+From these three kinds, \textbf{six cases} arise---three simple and three compound. Al-Khw\=arizm\={i} presents them in a well-defined order that would become standard for centuries of algebraic practice.
+
+\begin{transbox}[The Six Canonical Cases]
+\begin{enumerate}[label=\textbf{Case \Roman*:},leftmargin=2.5em,topsep=2pt]
+  \item \textbf{Squares equal to Roots:} $ax^2 = bx$
+  \item \textbf{Squares equal to Numbers:} $ax^2 = c$
+  \item \textbf{Roots equal to Numbers:} $bx = c$
+  \item \textbf{Squares and Roots equal to Numbers:} $ax^2 + bx = c$
+  \item \textbf{Squares and Numbers equal to Roots:} $ax^2 + c = bx$
+  \item \textbf{Roots and Numbers equal to Squares:} $bx + c = ax^2$
+\end{enumerate}
+\end{transbox}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% THE THREE SIMPLE CASES
+%% ========================================================================
+\section{The Three Simple Cases}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الحالة الأولى: المال يساوي الأصول}
+
+مثال: «مال يساوي خمسة أصوله». فجذر المال خمسة، والمال خمسة وعشرون، وهو يساوي خمسة أضعاف جذره.
+
+ومثال: «ثلث مال يساوي أربعة أصول». فالمال كله يساوي اثني عشر أصلاً؛ وهو مائة وأربعة وأربعون، وجذره اثنا عشر.
+
+ومثال: «خمسة أموال تساوي عشرة أصول». فمال واحد يساوي أصلين؛ وجذر المال اثنان، وماله أربعة.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Case I: Squares equal to Roots}
+
+\textit{Example:} ``A square is equal to five roots of the same.'' The root of the square is five, and the square is twenty-five, which is equal to five times its root.
+
+\textit{Example:} ``One third of the square is equal to four roots.'' Then the whole square is equal to twelve roots; that is a hundred and forty-four; and its root is twelve.
+
+\textit{Example:} ``Five squares are equal to ten roots.'' Then one square is equal to two roots; the root of the square is two, and its square is four.
+
+\begin{equation}
+\begin{gathered}
+\boxed{x^2 = 5x \Rightarrow x = 5}\\[0.35em]
+\boxed{\tfrac{1}{3}x^2 = 4x \Rightarrow x = 12}\\[0.35em]
+\boxed{5x^2 = 10x \Rightarrow x = 2}
+\end{gathered}
+\end{equation}
+\par\endgroup
+\vspace{0.3cm}
+
+\vspace{0.5cm}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الحالة الثانية: المال يساوي عدداً}
+
+مثال: «مال يساوي تسعة». فهذا مال وجذره ثلاثة.
+
+ومثال: «خمسة أموال تساوي ثمانين». فمال واحد يساوي خمساً وثمانين، وهي ستة عشر.
+
+ومثال: «نصف مال يساوي ثمانية عشر». فالمال ستة وثلاثون، وجذره ستة.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Case II: Squares equal to Numbers}
+
+\textit{Example:} ``A square is equal to nine.'' Then this is a square, and its root is three.
+
+\textit{Example:} ``Five squares are equal to eighty.'' Then one square is equal to one-fifth of eighty, which is sixteen.
+
+\textit{Example:} ``The half of the square is equal to eighteen.'' Then the square is thirty-six, and its root is six.
+
+\begin{equation}
+\begin{gathered}
+\boxed{x^2 = 9 \Rightarrow x = 3}\\[0.35em]
+\boxed{5x^2 = 80 \Rightarrow x = 4}\\[0.35em]
+\boxed{\tfrac{1}{2}x^2 = 18 \Rightarrow x = 6}
+\end{gathered}
+\end{equation}
+\par\endgroup
+\vspace{0.3cm}
+
+\vspace{0.5cm}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الحالة الثالثة: الأصول تساوي عدداً}
+
+مثال: «أصل واحد يساوي ثلاثة عدداً». فالأصل ثلاثة، وماله تسعة.
+
+ومثال: «أربعة أصول تساوي عشرين». فأصل واحد يساوي خمسة، والمال الذي يتركب منه خمسة وعشرون.
+
+ومثال: «نصف أصل يساوي عشرة». فالأصل كله يساوي عشرين، والمال الذي يتركب منه أربعمائة.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Case III: Roots equal to Numbers}
+
+\textit{Example:} ``One root equals three in number.'' Then the root is three, and its square nine.
+
+\textit{Example:} ``Four roots are equal to twenty.'' Then one root is equal to five, and the square to be formed of it is twenty-five.
+
+\textit{Example:} ``Half the root is equal to ten.'' Then the whole root is equal to twenty, and the square which is formed of it is four hundred.
+
+\begin{equation}
+\begin{gathered}
+\boxed{x = 3}\\[0.35em]
+\boxed{4x = 20 \Rightarrow x = 5}\\[0.35em]
+\boxed{\tfrac{1}{2}x = 10 \Rightarrow x = 20}
+\end{gathered}
+\end{equation}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% THE THREE COMPOUND CASES
+%% ========================================================================
+\section{The Three Compound Cases}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الحالة الرابعة: مال وأصول يساوي عدداً}
+
+مثال: «مال وعشرة أصوله تساوي تسعة وثلاثين درهماً». يعني: ما هو المال الذي إذا أُضيف إليه عشرة من جذوره بلغ تسعة وثلاثين؟
+
+الحل: نصف عدد الجذور، فيكون خمسة، ونضربه في نفسه فيكون خمسة وعشرين، فنضيفه إلى تسعة وثلاثين فيكون أربعة وستين، فنأخذ جذره فيكون ثمانية، فننقص منه نصف عدد الجذور وهو خمسة، يبقى ثلاثة، وهذا هو جذر المال المطلوب، والمال نفسه تسعة.
+
+والحل واحد في مالين أو ثلاثة أو أكثر أو أقل؛ فتردها إلى مال واحد، وعلى ذلك ترد الأصول والأعداد الملحقة بها.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Case IV: Squares and Roots equal to Numbers}
+
+\textit{Example:} ``One square, and ten roots of the same, amount to thirty-nine dirhems.''
+
+\textbf{Solution:} You halve the number of the roots, which in the present instance yields five. This you multiply by itself; the product is twenty-five. Add this to thirty-nine; the sum is sixty-four. Now take the root of this, which is eight, and subtract from it half the number of the roots, which is five; the remainder is three. This is the root of the square which you sought for; the square itself is nine.
+
+\begin{mathbox}[Algorithm for Case IV]
+\begin{equation}
+x^2 + bx = c \quad\Longrightarrow\quad x = \sqrt{\left(\frac{b}{2}\right)^2 + c} - \frac{b}{2}
+\end{equation}
+\textit{Applied:} $x^2 + 10x = 39 \Rightarrow x = \sqrt{25 + 39} - 5 = 8 - 5 = 3$
+\end{mathbox}
+
+The solution is the same when two squares or three, or more or less be specified; you reduce them to one single square, and in the same proportion you reduce also the roots and simple numbers which are connected therewith.
+\par\endgroup
+\vspace{0.3cm}
+
+\vspace{0.5cm}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+مثال: «مالان وعشرة أصول يساوي ثمانية وأربعين درهماً».
+
+يجب أن ترد المالين إلى واحد؛ وإنما المال الواحد من المالين نصفهما. ثم ترد كل ما ذكر في المسألة إلى نصفه: «مال وخمسة أصول يساوي أربعة وعشرين درهماً». الآن نصف عدد الجذور؛ النصف اثنان ونصف. اضربه في نفسه: الناتج ستة وربع. أضفه إلى أربعة وعشرين؛ المجموع ثلاثون وربع. خذ جذره؛ هو خمسة ونصف. انقص منه نصف عدد الجذور، وهو اثنان ونصف؛ الباقي ثلاثة. وهذا جذر المال، والمال نفسه تسعة.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\textit{Example:} ``Two squares and ten roots are equal to forty-eight dirhems.''
+
+You must at first reduce the two squares to one; and you know that one square of the two is the moiety of both. Then reduce everything mentioned in the statement to its half: ``a square and five roots of the same are equal to twenty-four dirhems.'' Now halve the number of the roots; the moiety is two and a half. Multiply that by itself: the product is six and a quarter. Add this to twenty-four; the sum is thirty and a quarter. Take the root of this; it is five and a half. Subtract from this the moiety of the number of the roots, that is two and a half; the remainder is three. This is the root of the square, and the square itself is nine.
+
+\begin{equation}
+\begin{aligned}
+2x^2 + 10x &= 48,\\
+x^2 + 5x &= 24,\\
+x &= \sqrt{6\tfrac{1}{4} + 24} - 2\tfrac{1}{2} = 3.
+\end{aligned}
+\end{equation}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الحالة الخامسة: مال وعدد يساوي أصولاً}
+
+مثال: «مال وواحد وعشرون عدداً يساوي عشرة أصوله».
+
+الحل: نصف عدد الجذور فيكون خمسة، ونضربه في نفسه فيكون خمسة وعشرين، فننقص منه الواحد والعشرين الملحقين بالمال، يبقى أربعة، فنستخرج جذرها فيكون اثنين، فننقصه من نصف عدد الجذور وهو خمسة، يبقى ثلاثة، وهذا جذر المال المطلوب، والمال تسعة. أو تضيف الجذر إلى نصف الجذور، فيكون سبعة، وهذا جذر المال المطلوب، والمال تسعة وأربعون.
+
+واعلم أنه إذا نصفت الجذور وضربت النصف في نفسه، فإن كان الناتج أقل من عدد الدراهم الملصقة بالمال، فالمسألة مستحيلة؛ وإن كان الناتج مساوياً للدراهم، فجذر المال يساوي نصف الجذور وحده، بلا زيادة ولا نقصان.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Case V: Squares and Numbers equal to Roots}
+
+\textit{Example:} ``A square and twenty-one in numbers are equal to ten roots of the same square.''
+
+\textbf{Solution:} Halve the number of the roots; the moiety is five. Multiply this by itself; the product is twenty-five. Subtract from this the twenty-one which are connected with the square; the remainder is four. Extract its root; it is two. Subtract this from the moiety of the roots, which is five; the remainder is three. This is the root of the square which you required, and the square is nine. \textbf{Or} you may add the root to the moiety of the roots; the sum is seven; this is the root of the square which you sought for, and the square itself is forty-nine.
+
+\begin{mathbox}[Algorithm for Case V]
+\begin{equation}
+x^2 + c = bx \quad\Longrightarrow\quad x = \frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}
+\end{equation}
+\textit{Applied:} $x^2 + 21 = 10x \Rightarrow x = 5 \pm \sqrt{25 - 21} = 5 \pm 2 = 3 \text{ or } 7$
+\end{mathbox}
+
+When you meet with an instance which refers you to this case, try its solution by addition, and if that do not serve, then subtraction certainly will. For in this case both addition and subtraction may be employed, which will not answer in any other of the three cases in which the number of the roots must be halved.
+
+\cnote{Note on impossibility:} And know that, when in a question belonging to this case you have halved the number of the roots and multiplied the moiety by itself, if the product be \textbf{less} than the number of dirhems connected with the square, then the instance is \textbf{impossible}; but if the product be \textbf{equal} to the dirhems by themselves, then the root of the square is equal to the moiety of the roots alone, without either addition or subtraction.
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الحالة السادسة: أصول وعدد يساوي مالاً}
+
+مثال: «ثلاثة أصول وأربعة أعداد يساوي مالاً».
+
+الحل: نصف الجذور فيكون واحداً ونصفاً، ونضربه في نفسه فيكون اثنين وربعاً، فنضيفه إلى الأربعة فيكون ستة وربعاً، فنستخرج جذرها فيكون اثنين ونصفاً، فنضيفه إلى نصف الجذور وهو واحد ونصف فيكون أربعة، وهذا جذر المال، والمال ستة عشر.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Case VI: Roots and Numbers equal to Squares}
+
+\textit{Example:} ``Three roots and four of simple numbers are equal to a square.''
+
+\textbf{Solution:} Halve the roots; the moiety is one and a half. Multiply this by itself; the product is two and a quarter. Add this to the four; the sum is six and a quarter. Extract its root; it is two and a half. Add this to the moiety of the roots, which was one and a half; the sum is four. This is the root of the square, and the square is sixteen.
+
+\begin{mathbox}[Algorithm for Case VI]
+\begin{equation}
+bx + c = x^2 \quad\Longrightarrow\quad x = \frac{b}{2} + \sqrt{\left(\frac{b}{2}\right)^2 + c}
+\end{equation}
+\textit{Applied:} $3x + 4 = x^2 \Rightarrow x = 1\tfrac{1}{2} + \sqrt{2\tfrac{1}{4} + 4} = 1\tfrac{1}{2} + 2\tfrac{1}{2} = 4$
+\end{mathbox}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: GEOMETRICAL DEMONSTRATIONS
+%% ========================================================================
+\chapter{Geometrical Demonstrations}
+\label{ch:geom}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+هذه هي الحالات الستّ التي ذكرتها في مقدمة هذا الكتاب. وقد فُسّرت الآن. وقد أظهرت أن ثلاثاً منها لا تحتاج إلى نصف الجذور، وعلمت كيف تجاب. وأما الثلاث الأخرى التي يجب فيها نصف الجذور، فأرى أن أبيّنها بأبواب مفصّلة، أضع في كل حالة شكلاً يبين سبب النصف.
+
+\textbf{البرهان على الحالة الرابعة: «مال وعشرة أصول يساوي تسعة وثلاثين»}
+
+الشكل المبيّن لذلك هو مربع، أضلاعه مجهولة. وهو يمثل المال، جذره المطلوب معرفته. وهذا الشكل أ ب، وكل ضلع منه يعتبر واحداً من أصوله؛ وإذا ضربت أحد هذه الأضلاع في أي عدد، فإن مقدار ذلك العدد يعتبر عدد الأصول التي تُضاف إلى المال.
+
+ونحن نأخذ ربع العشرة، أي اثنين ونصف، ونضمّها إلى كل من الأضلاع الأربعة للشكل. فمع المربع الأصلي أ ب، تُضمّ أربعة متوازيات أضلاع، طول كل منها ضلع من المربع، وعرضها اثنان ونصف؛ وهي المتوازيات ج، د، ط، ك.
+
+فليكن لدينا مربع أضلاعه متساوية ومجهولة؛ ولكن في كل من زواياه الأربع ينقص مربع صغير اثنين ونصف في اثنين ونصف. ولتعويض هذا النقص وإتمام المربع، يجب أن نضيف أربعة أمثال مربع اثنين ونصف، أي خمسة وعشرين.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{T}}{hese are the six cases} which I mentioned in the introduction to this book. They have now been explained. I have shown that three among them do not require that the roots be halved, and I have taught how they must be resolved. As for the other three, in which halving the roots is necessary, I think it expedient, more accurately, to explain them by separate chapters, in which a figure will be given for each case, to point out the reasons for halving.
+
+\section*{Demonstration of Case IV: ``A Square and Ten Roots equal to 39''}
+
+The figure to explain this is a \textbf{quadrate}, the sides of which are unknown. It represents the square, the root of which you wish to know. This is the figure $AB$, each side of which may be considered as one of its roots; and if you multiply one of these sides by any number, then the amount of that number may be looked upon as the number of the roots which are added to the square.
+
+Each side of the quadrate represents the root of the square; and, as in the instance the roots were connected with the square, we may take one-fourth of ten, that is to say, two and a half, and combine it with each of the four sides of the figure. Thus with the original quadrate $AB$, four new parallelograms are combined, each having a side of the quadrate as its length, and the number of two and a half as its breadth; they are the parallelograms $C$, $G$, $T$, and $K$.
+
+We have now a quadrate of equal, though unknown sides; but in each of the four corners of which a square piece of two and a half multiplied by two and a half is wanting. In order to compensate for this want and to complete the quadrate, we must add (to that which we have already) four times the square of two and a half, that is, twenty-five.
+\par\endgroup
+\vspace{0.3cm}
+
+\begin{mathbox}[Geometric Proof of Case IV — Completion of the Square]
+\begin{center}
+\textbf{Given:} $x^2 + 10x = 39$
+
+\vspace{0.2cm}
+
+\small
+\begin{tabular}{@{}rcl@{}}
+Square $AB$ (the unknown square) & $=$ & $x^2$ \\
++ 4 parallelograms around it & $=$ & $4 \times (2\tfrac{1}{2} \times x) = 10x$ \\
+\hline
+Subtotal & $=$ & $39$ (given) \\
++ 4 corner squares ($2\frac{1}{2} \times 2\frac{1}{2}$ each) & $=$ & $4 \times 6\tfrac{1}{4} = 25$ \\
+\hline
+Great Square $DH$ & $=$ & $39 + 25 = 64$ \\
+Side of Great Square & $=$ & $\sqrt{64} = 8$ \\
+$x = 8 - 2 \times 2\tfrac{1}{2} = 8 - 5$ & $=$ & \fbox{3}
+\end{tabular}
+\end{center}
+\end{mathbox}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+ونعلم (من المسألة) أن الشكل الأول، أي المربع الممثل للمال، مع المتوازيات الأربع المحيطة به، الممثلة للعشرة أصول، يساوي تسعة وثلاثين عدداً. فإذا أضفنا إليها خمسة وعشرين، وهي كفاءة المربعات الأربع في زوايا الشكل أ ب، التي تكمل المربع الكبير د ه، فإننا نعلم أن هذا المجموع يصير أربعة وستين. أحد أضلاع هذا المربع الكبير هو جذره، أي ثمانية. فإذا نقصنا ضعف ربع العشرة، أي خمسة، من الثمانية، كما من طرفي ضلع المربع الكبير د ه، فإن بقية هذا الضلع يكون ثلاثة، وهذا هو جذر المال، أو ضلع الشكل الأصلي أ ب.
+
+ويلاحظ أننا نصف عدد الجذور، ونضيف حاصل ضرب النصف في نفسه إلى العدد تسعة وثلاثين، لنكمل المربع الكبير في زواياه الأربع؛ لأن ربع أي عدد مضروباً في نفسه ثم في أربعة، يساوي حاصل ضرب نصف ذلك العدد في نفسه.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+We know (by the statement) that the first figure, namely, the quadrate representing the square, together with the four parallelograms around it, which represent the ten roots, is equal to thirty-nine of numbers. If to this we add twenty-five, which is the equivalent of the four quadrates at the corners of the figure $AB$, by which the great figure $DH$ is completed, then we know that this together makes sixty-four. One side of this great quadrate is its root, that is, eight. If we subtract twice a fourth of ten, that is five, from eight, as from the two extremities of the side of the great quadrate $DH$, then the remainder of such a side will be three, and that is the root of the square, or the side of the original figure $AB$.
+
+\vspace{0.3cm}
+
+It must be observed, that we have halved the number of the roots, and added the product of the moiety multiplied by itself to the number thirty-nine, in order to complete the great figure in its four corners; because the fourth of any number multiplied by itself, and then by four, is equal to the product of the moiety of that number multiplied by itself.
+
+\cnote{Note:} This is the celebrated method of ``\textbf{completion of the square}'' (\ar{إتمام المربع}), which gives algebra its very name: \textit{al-jabr} refers to the ``restoration'' of the deficient corners. The identity underlying the proof is: $\left(x + \frac{b}{2}\right)^2 = x^2 + bx + \left(\frac{b}{2}\right)^2$.
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\section*{Demonstration of Case V: ``A Square and 21 equal to 10 Roots''}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{البرهان على الحالة الخامسة: «مال وواحد وعشرون يساوي عشرة أصول»}
+
+نمثل المال بمربع أ د، طول ضلعه مجهول لنا. ونلحق به متوازي أضلاع، عرضه يساوي أحد أضلاع المربع أ د، كالضلع هـ ن. وهذا المتوازي هو هـ ب. طول الشكلين معاً يساوي الخط هـ س. ونعلم أن طوله هو عشرة أعداد؛ فكل مربع له أضلاع متساوية وزوايا متساوية، وأحد أضلاعه مضروباً بواحد هو جذر المربع، أو مضروباً باثنين فهو ضعف جذره.
+
+فكما قيل: إن مالاً وواحداً وعشرين عدداً يساوي عشرة أصول، فإننا نستنتج أن طول الخط هـ س يساوي عشرة أعداد، إذن الخط س د يمثل جذر المال. والآن نقسم الخط س هـ إلى نصفين عند النقطة ج: فالخط ج س يساوي هـ ج.
+
+ونعلم أن الرباعي هـ ب يمثل الواحد والعشرين عدداً التي أضيفت إلى المربع. ووجد المربع الكلي م ط يساوي خمسة وعشرين. فإذا نقصنا من هذا المربع م ط المربعين هـ ط وم ر، وهما يساويان واحداً وعشرين، يبقى مربع صغير ك ر، يمثل الفرق بين خمسة وعشرين وواحد وعشرين. وهو أربعة؛ وجذره، الممثل بالخط ر ج، المساوي لـ ج أ، هو اثنان.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+We represent the square by a quadrate $AD$, the length of whose side we do not know. To this we join a parallelogram, the breadth of which is equal to one of the sides of the quadrate $AD$, such as the side $HN$. This parallelogram is $HB$. The length of the two figures together is equal to the line $HC$. We know that its length is ten of numbers; for every quadrate has equal sides and angles, and one of its sides multiplied by a unit is the root of the quadrate, or multiplied by two it is twice the root of the same.
+
+As it is stated, therefore, that a square and twenty-one of numbers are equal to ten roots, we may conclude that the length of the line $HC$ is equal to ten of numbers, since the line $CD$ represents the root of the square. We now divide the line $CH$ into two equal parts at the point $G$: the line $GC$ is then equal to $HG$.
+
+We know that the quadrangle $HB$ represents the twenty-one of numbers which were added to the quadrate. The whole quadrate $MT$ was found to be equal to twenty-five. If we now subtract from this quadrate, $MT$, the quadrangles $HT$ and $MR$, which are equal to twenty-one, there remains a small quadrate $KR$, which represents the difference between twenty-five and twenty-one. This is four; and its root, represented by the line $RG$, which is equal to $GA$, is two.
+\par\endgroup
+\vspace{0.3cm}
+
+\begin{mathbox}[Geometric Proof of Case V]
+\begin{center}
+\textbf{Given:} $x^2 + 21 = 10x$
+
+\vspace{0.2cm}
+
+$MT = \left(\frac{10}{2}\right)^2 = 25$
+
+$HT + MR = HB = 21$
+
+$KR = 25 - 21 = 4 \quad\Rightarrow\quad \sqrt{KR} = 2$
+
+\vspace{0.2cm}
+
+\begin{gather*}
+x = GC - GA = 5 - 2 = 3,\\
+x = GC + GA = 5 + 2 = 7.
+\end{gather*}
+\end{center}
+\end{mathbox}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+فإذا نقصت هذا العدد اثنين من الخط ج س، وهو نصف الجذور، فإن الباقي هو الخط أ س؛ أي ثلاثة، وهو جذر المال الأصلي. ولكن إذا أضفت العدد اثنين إلى الخط ج س، وهو نصف عدد الجذور، فإن المجموع سبعة، الممثل بالخط ج ر، وهو جذر مال أكبر. ومع ذلك، فإذا أضفت واحداً وعشرين إلى هذا المال، فإن المجموع يساوي كذلك عشرة أصول من ذلك المال.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+If you subtract this number two from the line $CG$, which is the moiety of the roots, then the remainder is the line $AC$; that is to say, three, which is the root of the original square. But if you add the number two to the line $CG$, which is the moiety of the number of the roots, then the sum is seven, represented by the line $CR$, which is the root to a larger square. However, if you add twenty-one to this square, then the sum will likewise be equal to ten roots of the same square.
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\section*{Demonstration of Case VI: ``3 Roots and 4 equal to a Square''}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{البرهان على الحالة السادسة: «ثلاثة أصول وأربعة يساوي مالاً»}
+
+ليمثل المال رباعياً، أضلاعه مجهولة لنا، وهي متساوية فيما بينها، كما هي زواياه. وهذا هو المربع أ د، الذي يشتمل على الأصول الثلاثة والأربعة أعداد المذكورة في هذه المسألة.
+
+وفي كل مربع أحد أضلاعه مضروباً بواحد هو جذره. والآن نقطع الرباعي هـ د من المربع أ د، ونتخذ أحد أضلاعه هـ س ثلاثة، وهو عدد الأصول. وهو يساوي ر د. فمن ثم، يمثل الرباعي هـ ب الأربعة أعداد التي تُضاف إلى الأصول. والآن نصف الضلع س هـ، المساوي لثلاثة أصول، عند النقطة ج؛ من هذا القسم نبني المربع هـ ط، وهو حاصل ضرب نصف الأصول (أي واحد ونصف) في نفسه، أي اثنين وربع.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+Let the square be represented by a quadrangle, the sides of which are unknown to us, though they are equal among themselves, as also the angles. This is the quadrate $AD$, which comprises the three roots and the four of numbers mentioned in this instance.
+
+In every quadrate one of its sides, multiplied by a unit, is its root. We now cut off the quadrangle $HD$ from the quadrate $AD$, and take one of its sides $HC$ for three, which is the number of the roots. The same is equal to $RD$. It follows, then, that the quadrangle $HB$ represents the four of numbers which are added to the roots. Now we halve the side $CH$, which is equal to three roots, at the point $G$; from this division we construct the square $HT$, which is the product of half the roots (or one and a half) multiplied by themselves, that is to say, two and a quarter.
+\par\endgroup
+\vspace{0.3cm}
+
+\begin{mathbox}[Geometric Proof of Case VI]
+\begin{center}
+\textbf{Given:} $3x + 4 = x^2$
+
+\vspace{0.2cm}
+
+Square $HT = \left(\frac{3}{2}\right)^2 = 2\tfrac{1}{4}$
+
+$AN + KL = AR = 4$ (the added numbers)
+
+$GM = HT + (AN + KL) = 2\tfrac{1}{4} + 4 = 6\tfrac{1}{4}$
+
+$AG = \sqrt{GM} = 2\tfrac{1}{2}$
+
+\[
+x = AG + GC = 2\tfrac{1}{2} + 1\tfrac{1}{2} = \boxed{4}
+\]
+\end{center}
+\end{mathbox}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: MULTIPLICATION
+%% ========================================================================
+\chapter{On Multiplication of Algebraic Expressions}
+\label{ch:multiplication}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{في ضرب المقادير المجهولة}
+
+سأعلمك الآن كيف تضرب المقادير المجهولة، أي الجذور، بعضها ببعض، إذا كانت وحدها، أو إذا أُضيفت إليها أعداد، أو نُقصت منها أعداد، أو نُقصت هي من أعداد؛ وكيف تجمعها بعضها إلى بعض، أو تنقص بعضها من بعض.
+
+كلما أريد ضرب عدد بآخر، وجب تكرار أحدهما بعدد الوحدات التي في الآخر.
+
+فإن كان هناك أعداد كبيرة مضافة إلى وحدات، لتُضاف أو تُنقص، فإن \textbf{أربع ضربات} لازمة؛ وهي: الكبير بالكبير، والكبير بالوحدات، والوحدات بالكبير، والوحدات بالوحدات.
+
+فإن كانت الوحدات المضافة إلى الأعداد الكبيرة موجبة في كليهما، فالضربة الرابعة موجبة؛ وإن كانت سالبة في كليهما، فالرابعة موجبة أيضاً. ولكن إن كانت إحداهما موجبة والأخرى سالبة، فالضربة الرابعة سالبة.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{I}}{ shall now teach you} how to multiply the unknown numbers, that is to say, the roots, one by the other, if they stand alone, or if numbers are added to them, or if numbers are subtracted from them, or if they are subtracted from numbers; also how to add them one to the other, or how to subtract one from the other.
+
+Whenever one number is to be multiplied by another, the one must be repeated as many times as the other contains units.
+
+If there are greater numbers combined with units to be added to or subtracted from them, then \textbf{four multiplications} are necessary; namely, the greater numbers by the greater numbers, the greater numbers by the units, the units by the greater numbers, and the units by the units.
+
+If the units, combined with the greater numbers, are both positive, then the last multiplication is positive; if they are both negative, then the fourth multiplication is likewise positive. But if one of them is positive, and one negative, then the fourth multiplication is negative.
+
+\begin{transbox}[The Fourfold Multiplication Rule]
+To multiply $(a + x)$ by $(b + y)$:
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em,topsep=1pt]
+  \item Greater by greater: $a \times b$
+  \item Greater by units: $a \times y$
+  \item Units by greater: $x \times b$
+  \item Units by units: $x \times y$
+\end{enumerate}
+Sign rule: $(+x)(+y) = +xy$ \quad $(-x)(-y) = +xy$ \quad $(+x)(-y) = -xy$ \quad $(-x)(+y) = -xy$
+\end{transbox}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\section*{Worked Examples}
+\addcontentsline{toc}{section}{Worked Examples}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المثال الأول:} «عشرة وواحد يُضرب في عشرة واثنين».
+
+عشرة في عشرة مائة؛ الواحد في العشرة عشرة موجبة؛ الاثنان في العشرة عشرون موجبة؛ والواحد في الاثنين اثنان موجبة؛ المجموع مائة واثنتان وثلاثون.
+
+\textbf{المثال الثاني:} «عشرة ناقص واحد، يُضرب في عشرة ناقص واحد».
+
+عشرة في عشرة مائة؛ السالب واحد في العشرة عشرة سالبة؛ والسالب الآخر في العشرة عشرة سالبة أيضاً، فيصير ثمانون؛ ولكن السالب واحد في السالب واحد واحد موجب، فيصير الناتج واحداً وثمانين.
+
+\textbf{المثال الثالث:} «عشرة وشيء يُضرب في عشرة وشيء».
+
+عشرة في عشرة مائة؛ وعشرة في الشيء عشرة أشياء؛ وعشرة في الشيء عشرة أشياء أخرى؛ والشيء في الشيء مال موجب؛ فالحاصل كله مائة درهم وعشرون شيئاً ومالاً موجباً.
+
+\textbf{المثال الرابع:} «عشرة ناقص شيء يُضرب في عشرة ناقص شيء».
+
+عشرة في عشرة مائة؛ وسالب شيء في العشرة سالب عشرة أشياء؛ وسالب شيء في العشرة سالب عشرة أشياء أخرى. وسالب شيء في سالب شيء مال موجب. فالحاصل مائة ومال ناقص عشرين شيئاً.
+
+\textbf{المثال الخامس:} «عشرة ناقص شيء يُضرب في عشرة وزيادة شيء».
+
+عشرة في عشرة مائة؛ وسالب شيء في العشرة سالب عشرة أشياء؛ وشيء في العشرة عشرة أشياء موجبة؛ وسالب شيء في الشيء سالب مال؛ فالحاصل مائة درهم ناقص مال.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\textbf{Example 1:} ``Ten and one to be multiplied by ten and two.''
+
+Ten times ten is a hundred; once ten is ten positive; twice ten is twenty positive, and once two is two positive; this altogether makes a hundred and thirty-two.
+
+$(10 + 1)(10 + 2) = 100 + 10 + 20 + 2 = 132$
+
+\vspace{0.3cm}
+
+\textbf{Example 2:} ``Ten less one, to be multiplied by ten less one.''
+
+Then ten times ten is a hundred; the negative one by ten is ten negative; the other negative one by ten is likewise ten negative, so that it becomes eighty: but the negative one by the negative one is one positive, and this makes the result eighty-one.
+
+$(10 - 1)(10 - 1) = 100 - 10 - 10 + 1 = 81$
+
+\vspace{0.3cm}
+
+\textbf{Example 3:} ``Ten and thing to be multiplied by ten and thing''
+
+Then ten times ten is a hundred, and ten times thing is ten things; and again, ten times thing is ten things; and thing multiplied by thing is a square positive, so that the whole product is a hundred dirhems and twenty things and one positive square.
+
+$(10 + x)(10 + x) = 100 + 10x + 10x + x^2 = 100 + 20x + x^2$
+
+\vspace{0.3cm}
+
+\textbf{Example 4:} ``Ten minus thing to be multiplied by ten minus thing''
+
+Then ten times ten is a hundred; and minus thing by ten is minus ten things; and again, minus thing by ten is minus ten things. But minus thing multiplied by minus thing is a positive square. The product is therefore a hundred and a square, minus twenty things.
+
+$(10 - x)(10 - x) = 100 - 10x - 10x + x^2 = 100 - 20x + x^2$
+
+\vspace{0.3cm}
+
+\textbf{Example 5:} ``Ten minus thing to be multiplied by ten and thing''
+
+Then you say, ten times ten is a hundred; and minus thing by ten is ten things negative; and thing by ten is ten things positive; and minus thing by thing is a square negative; therefore, the product is a hundred dirhems, minus a square.
+
+$(10 - x)(10 + x) = 100 - 10x + 10x - x^2 = 100 - x^2$
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: ADDITION AND SUBTRACTION
+%% ========================================================================
+\chapter{On Addition and Subtraction}
+\label{ch:addition}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{في جمع وطرح الجذور والأعداد}
+
+اعلم أن جذر مائتين ناقص عشرة، مضافاً إلى عشرين ناقص جذر مائتين، هو عشرة.
+
+وجذر المائتين ناقص العشرة، منقوصاً من عشرين ناقص جذر المائتين، هو ثلاثون ناقص ضعف جذر مائتين؛ وضعف جذر المائتين يساوي جذر ثمانمائة.
+
+ومائة ومال ناقص عشرون أصلاً، مضافاً إلى خمسين وعشرة أصول ناقص مالان، هو مائة وخمسون ناقص مال وناقص عشرة أصول.
+
+ومائة ومال ناقص عشرون أصلاً، منقوصاً من خمسين وعشرة أصول ناقص مالان، هو خمسون درهماً وثلاثة أموال ناقص ثلاثون أصلاً.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\section*{Operations on Algebraic Expressions}
+\addcontentsline{toc}{section}{Operations on Algebraic Expressions}
+
+Know that the root of two hundred minus ten, added to twenty minus the root of two hundred, is just ten.
+
+$(\sqrt{200} - 10) + (20 - \sqrt{200}) = 10$
+
+\vspace{0.2cm}
+
+The root of two hundred, minus ten, subtracted from twenty minus the root of two hundred, is thirty minus twice the root of two hundred; twice the root of two hundred is equal to the root of eight hundred.
+
+$(20 - \sqrt{200}) - (\sqrt{200} - 10) = 30 - 2\sqrt{200} = 30 - \sqrt{800}$
+
+\vspace{0.2cm}
+
+A hundred and a square minus twenty roots, added to fifty and ten roots minus two squares, is a hundred and fifty, minus a square and minus ten roots.
+
+$(100 + x^2 - 20x) + (50 + 10x - 2x^2) = 150 - x^2 - 10x$
+
+\vspace{0.2cm}
+
+A hundred and a square, minus twenty roots, diminished by fifty and ten roots minus two squares, is fifty dirhems and three squares minus thirty roots.
+
+$(100 + x^2 - 20x) - (50 + 10x - 2x^2) = 50 + 3x^2 - 30x$
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\section*{On Doubling, Tripling, and Halving Roots}
+\addcontentsline{toc}{section}{On Doubling, Tripling, and Halving Roots}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{في مضاعفة الجذور ونصفها}
+
+إذا أردت مضاعفة جذر أي مال معلوم أو مجهول، (ومعنى مضاعفته أن تضربه في اثنين) فإنه يكفي أن تضرب اثنين في اثنين، ثم في المال؛ فجذر الحاصل يساوي ضعف جذر المال الأصلي.
+
+وإذا أردت أخذه ثلاثاً، فتضرب ثلاثة في ثلاثة، ثم في المال؛ فجذر الحاصل ثلاثة أمثال جذر المال الأصلي.
+
+وإذا أردت أن تجد نصف جذر المال، فلا يحتاج إلا أن تضرب نصفاً في نصف، وهو ربع؛ ثم هذا في المال: فجذر الحاصل يكون نصف جذر المال الأول.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+If you require to double the root of any known or unknown square, (the meaning of its duplication being that you multiply it by two) then it will suffice to multiply two by two, and then by the square; the root of the product is equal to twice the root of the original square.
+
+$2\sqrt{S} = \sqrt{4S}$
+
+\vspace{0.2cm}
+
+If you require to take it thrice, you multiply three by three, and then by the square; the root of the product is thrice the root of the original square.
+
+$3\sqrt{S} = \sqrt{9S}$
+
+\vspace{0.2cm}
+
+If you require to find the moiety of the root of the square, you need only multiply a half by a half, which is a quarter; and then this by the square: the root of the product will be half the root of the first square.
+
+$\tfrac{1}{2}\sqrt{S} = \sqrt{\tfrac{1}{4}S}$
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: DIVISION
+%% ========================================================================
+\chapter{On Division}
+\label{ch:division}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{في قسمة الجذور والأعداد}
+
+إذا أردت قسمة جذر تسعة على جذر أربعة، فتبدأ بقسمة تسعة على أربعة، فيعطي اثنين وربعاً: فجذر ذلك هو العدد المطلوب — وهو واحد ونصف.
+
+وإذا أردت قسمة جذر أربعة على جذر تسعة، فتقسم أربعة على تسعة؛ فهي أربعة أتساع الوحدة؛ وجذرها اثنان مقسوماً على ثلاثة؛ أي ثلثا الوحدة.
+
+وإذا أردت ضرب جذر تسعة في جذر أربعة، فاضرب تسعة في أربعة؛ فهذا يعطي ستة وثلاثين؛ فخذ جذرها، فهو ستة؛ وهذا هو جذر تسعة مضروباً في جذر أربعة.
+
+وإذا أردت ضرب ضعف جذر تسعة في ثلاثة أضعاف جذر أربعة، فخذ ضعف جذر تسعة، بحسب القاعدة المذكورة أعلاه، لتعرف جذر أي مال هو. وتفعل المثل بخصوص ثلاثة جذور أربعة لتعرف ما يجب أن يكون مال ذلك الجذر. ثم تضرب هذين المالين أحدهما في الآخر، فجذر الحاصل يساوي ضعف جذر تسعة مضروباً في ثلاثة أضعاف جذر أربعة.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+If you will divide the root of nine by the root of four, you begin with dividing nine by four, which gives two and a quarter: the root of this is the number which you require---it is one and a half.
+
+$\dfrac{\sqrt{9}}{\sqrt{4}} = \sqrt{\dfrac{9}{4}} = \dfrac{3}{2} = 1\tfrac{1}{2}$
+
+\vspace{0.3cm}
+
+If you will divide the root of four by the root of nine, you divide four by nine; it is four-ninths of the unit; the root of this is two divided by three; namely, two-thirds of the unit.
+
+$\dfrac{\sqrt{4}}{\sqrt{9}} = \sqrt{\dfrac{4}{9}} = \dfrac{2}{3}$
+
+\vspace{0.3cm}
+
+If you wish to multiply the root of nine by the root of four, multiply nine by four; this gives thirty-six; take its root, it is six; this is the root of nine, multiplied by the root of four.
+
+$\sqrt{9} \times \sqrt{4} = \sqrt{9 \times 4} = \sqrt{36} = 6$
+
+\vspace{0.3cm}
+
+If you wish to multiply twice the root of nine by thrice the root of four, then take twice the root of nine, according to the rule above given, so that you may know the root of what square it is. You do the same with respect to the three roots of four in order to know what must be the square of such a root. You then multiply these two squares, the one by the other, and the root of the product is equal to twice the root of nine, multiplied by thrice the root of four.
+
+$(2\sqrt{9}) \times (3\sqrt{4}) = \sqrt{36 \times 36} = 36$
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: THE SIX PROBLEMS
+%% ========================================================================
+\chapter{The Six Illustrative Problems}
+\label{ch:six-problems}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المسائل الست التوضيحية}
+
+قبل أبواب الحساب وأنواعه المتعددة، سأذكر الآن ست مسائل، كأمثلة للحالات الست التي تقدم ذكرها في مطلع هذا الكتاب. وقد أظهرت أن ثلاثاً من هذه الحالات لا تحتاج في حلها إلى نصف الجذور، وقد ذكرت أيضاً أن الحساب بالجبر والمقابلة لا بد أن يورثك إحدى هذه الحالات. وسألحق هذه المسائل الآن، لتقرب الموضوع إلى الفهم، وتسهل إدراكه، وتجعل الحجج أوضح.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+Before the chapters on computation and the several species thereof, I shall now introduce six problems, as instances of the six cases treated of in the beginning of this work. I have shown that three among these cases, in order to be solved, do not require that the roots be halved, and I have also mentioned that the calculating by completion and reduction must always necessarily lead you to one of these cases. I now subjoin these problems, which will serve to bring the subject nearer to the understanding, to render its comprehension easier, and to make the arguments more perspicuous.
+\par\endgroup
+\vspace{0.3cm}
+
+\vspace{0.5cm}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المسألة الأولى}
+
+«قسمت عشرة إلى قسمين؛ فضربت أحدهما في الآخر؛ ثم ضربت أحدهما في نفسه، فكان حاصل ضربه في نفسه أربعة أمثال حاصل ضرب أحدهما في الآخر.»
+
+الحل: ليكن أحد القسمين شيئاً، والآخر عشرة ناقص الشيء. تضرب الشيء في عشرة ناقص شيء؛ فهو عشرة أشياء ناقص مال. ثم تضربه في أربعة، لأن المسألة تقول «أربعة أمثال». فيكون حاصل أربعين شيئاً ناقص أربعة أموال. ثم تضرب الشيء في شيء، أي أحد القسمين في نفسه. وهذا مال، يساوي أربعين شيئاً ناقص أربعة أموال. فأكمله بالجبر بأربعة أموال، وأضفها إلى المال الواحد. فيكون المقابلة: أربعون شيئاً تساوي خمسة أموال؛ فالمال يساوي ثمانية أصول، أي أربعة وستين؛ وجذرها ثمانية.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{First Problem}
+
+\textbf{Statement:} ``I have divided ten into two portions; I have multiplied the one of the two portions by the other; after this I have multiplied the one of the two by itself, and the product of the multiplication by itself is four times as much as that of one of the portions by the other.''
+
+\textbf{Solution:} Suppose one of the portions to be $x$, and the other $10 - x$. You multiply $x$ by $10 - x$; it is $10x - x^2$. Then multiply it by four, because the instance states ``four times as much.'' The result will be $40x - 4x^2$. After this you multiply $x$ by $x$, that is to say, one of the portions by itself. This is a square, which is equal to $40x - 4x^2$. Reduce it now by the four squares, and add them to the one square. Then the equation is: forty things are equal to five squares; and one square will be equal to eight roots, that is, sixty-four; the root of this is eight.
+
+\begin{mathbox}
+$x^2 = 4x(10-x) = 40x - 4x^2 \Rightarrow 5x^2 = 40x \Rightarrow x^2 = 8x = 64 \Rightarrow x = 8$
+\end{mathbox}
+
+The portions are: $x = 8$ and $10 - x = 2$. This question leads you to Case I: ``squares equal to roots.''
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المسألة الثانية}
+
+«قسمت عشرة إلى قسمين؛ فضربت كل قسم في نفسه، ثم ضربت العشرة في نفسها؛ فكان حاصل العشرة في نفسها يساوي أحد القسمين مضروباً في نفسه ثم في اثنين وسبعة أتساع.»
+
+\textbf{المسألة الثالثة}
+
+«قسمت عشرة إلى قسمين؛ فقسمت أحدهما على الآخر، فكان الخارج أربعة.»
+
+\textbf{المسألة الرابعة}
+
+«ضربت ثلث شيء ودرهم في ربع شيء ودرهم، فكان الحاصل عشرين.»
+
+\textbf{المسألة الخامسة}
+
+«قسمت عشرة إلى قسمين؛ وضربت كل قسم في نفسه، فجمعتهما معاً؛ وكان المجموع ثمانية وخمسين درهماً.»
+
+\textbf{المسألة السادسة}
+
+«ضربت ثلث جذر في ربع جذر، وكان الحاصل يساوي الجذر وأربعة وعشرين درهماً.»
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\subsection*{Second Problem}
+
+\textbf{Statement:} ``I have divided ten into two portions: I have multiplied each of the parts by itself, and afterwards ten by itself: the product of ten by itself is equal to one of the two parts multiplied by itself, and afterwards by two and seven-ninths.''
+
+\begin{mathbox}
+$100 = x^2 \times 2\tfrac{7}{9} = x^2 \times \tfrac{25}{9} \Rightarrow x^2 = \tfrac{900}{25} = 36 \Rightarrow x = 6$
+\end{mathbox}
+The portions are: $x = 6$ and $10 - x = 4$.
+
+\subsection*{Third Problem}
+
+\textbf{Statement:} ``I have divided ten into two parts. I have afterwards divided the one by the other, and the quotient was four.''
+
+\begin{mathbox}
+$\dfrac{10 - x}{x} = 4 \Rightarrow 10 - x = 4x \Rightarrow 10 = 5x \Rightarrow x = 2$
+\end{mathbox}
+The portions are: $x = 2$ and $10 - x = 8$.
+
+\subsection*{Fourth Problem}
+
+\textbf{Statement:} ``I have multiplied one-third of thing and one dirhem by one-fourth of thing and one dirhem, and the product was twenty.''
+
+\begin{mathbox}
+$\left(\frac{x}{3} + 1\right)\left(\frac{x}{4} + 1\right) = 20 \Rightarrow \frac{x^2}{12} + \frac{7x}{12} + 1 = 20 \Rightarrow x^2 + 7x = 228$
+\end{mathbox}
+Halve the roots: $3\tfrac{1}{2}$. Square: $12\tfrac{1}{4}$. Add to 228: $240\tfrac{1}{4}$. Root: $15\tfrac{1}{2}$. Subtract $3\tfrac{1}{2}$: $x = 12$.
+
+\subsection*{Fifth Problem}
+
+\textbf{Statement:} ``I have divided ten into two parts; and having multiplied each part by itself, I have added them together; and the sum was fifty-eight dirhems.''
+
+\begin{mathbox}
+$x^2 + (10-x)^2 = 58 \Rightarrow 2x^2 - 20x + 100 = 58 \Rightarrow x^2 + 28 = 11x$
+\end{mathbox}
+$x = \frac{11}{2} \pm \sqrt{\frac{121}{4} - 28} = 5\tfrac{1}{2} \pm 2\tfrac{1}{2}$. The portions are: $x = 3$ or $x = 7$.
+
+\subsection*{Sixth Problem}
+
+\textbf{Statement:} ``I have multiplied one-third of a root by one-fourth of a root, and the product is equal to the root and twenty-four dirhems.''
+
+\begin{mathbox}
+$\frac{x}{3} \cdot \frac{x}{4} = x + 24 \Rightarrow \frac{x^2}{12} = x + 24 \Rightarrow x^2 = 12x + 288$
+\end{mathbox}
+$x = 6 + \sqrt{36 + 288} = 6 + 18 = 24$
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% ========================================================================
+%% PART TWO: PRACTICAL APPLICATIONS
+%% ========================================================================
+%% ========================================================================
+% Part heading removed to avoid sparse/blank spacer pages.
+
+%% ========================================================================
+%% CHAPTER: MERCANTILE TRANSACTIONS
+%% ========================================================================
+\chapter{On Mercantile Transactions}
+\label{ch:mercantile}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المعاملات التجارية — قاعدة الأربعة أعداد}
+
+اعلم أن جميع معاملات الناس من بيع وشراء ومصارفة وإجارة، فإنها لا تخلو من قدرين وأربعة أعداد يسأل عنها السائل، وهي المقدار والثمن والكيفية والجميع.
+
+عدد المقدار يناسب عدد الجميع، وعدد الثمن يناسب عدد الكيفية. ثلاثة من هذه الأربعة دائماً معلومة، وواحد مجهول، وهو الذي يتضمنه قوله «كم؟» وهو المطلوب.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{Y}}{ou know that} all mercantile transactions of people, such as buying and selling, exchange and hire, comprehend always \textbf{two notions} and \textbf{four numbers}, which are stated by the enquirer; namely, \textit{measure} (\ar{مقدار}) and \textit{price} (\ar{ثمن}), and \textit{quantity} (\ar{كيفية}) and \textit{sum} (\ar{جميع}).
+
+The number which expresses the measure is inversely proportionate to the number which expresses the sum, and the number of the price inversely proportionate to that of the quantity. Three of these four numbers are always known, one is unknown, and this is implied when the person inquiring says \textit{how much?} (\ar{كم؞}) and it is the object of the question.
+
+\begin{transbox}[The Rule of Four Numbers (al-nisba)]
+\begin{center}
+\small
+\begin{tabular}{@{}c|c@{}}
+\textbf{Measure} & \textbf{Price} \\
+\hline
+$a$ (known) & $b$ (known) \\
+$c$ (known or unknown) & $d$ (known or unknown) \\
+\end{tabular}
+
+\vspace{0.2cm}
+
+\[
+a \times b = c \times d \qquad \text{(Rule of Three)}
+\]
+\[
+\text{Unknown} =
+\dfrac{\text{product of the two proportionate numbers}}
+      {\text{the third known number}}.
+\]
+\end{center}
+\end{transbox}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\section*{Examples}
+\addcontentsline{toc}{section}{Examples}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المثال الأول:} «عشرة بستة، كم بأربعة؟»
+
+هنا العشرة هي المقدار؛ والستة هي الثمن؛ و«كم» تفيد الكيفية المجهولة؛ والأربعة هي عدد الجميع. المقدار (10) يناسب الجميع (4).
+
+\textbf{المثال الثاني:} «عشرة بثمانية، فما هو المبلغ لأربعة؟»
+
+\textbf{المثال الثالث:} «يأخذ عامل أجراً قدره عشرة دراهم في الشهر؛ فكم يكون أجره في ستة أيام؟»
+
+الستة أيام خمس الشهر؛ وحصته من الدراهم يجب أن تكون مناسبة لحصته من الشهر.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\textbf{Example 1:} ``Ten for six, how much for four?''
+
+Here ten is the measure; six is the price; ``how much'' implies the unknown quantity; and four is the number of the sum. The measure (10) is inversely proportionate to the sum (4).
+
+$\text{Quantity} = \dfrac{10 \times 4}{6} = \dfrac{40}{6} = 6\tfrac{2}{3}$
+
+\vspace{0.3cm}
+
+\textbf{Example 2:} ``Ten for eight, what must be the sum for four?''
+
+$\text{Sum} = \dfrac{8 \times 4}{10} = \dfrac{32}{10} = 3\tfrac{1}{5}$
+
+\vspace{0.3cm}
+
+\textbf{Example 3:} ``A workman receives a pay of ten dirhems per month; how much must be his pay for six days?''
+
+Six days are one-fifth of the month; and his portion of the dirhems must be proportionate to the portion of the month.
+
+$\text{Pay} = \dfrac{10 \times 6}{30} = 2 \text{ dirhems}$
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: MENSURATION
+%% ========================================================================
+\chapter{Mensuration}
+\label{ch:mensuration}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{المساحة والحجم}
+
+اعلم أن معنى قولنا «واحد في واحد» هو المساحة: أي ذراع في ذراع.
+
+كل مربع ذو أضلاع متساوية وزوايا متساوية، له ذراع في كل ضلع، فله واحد في مساحته. وإن كان لهذا المربع ذراعان في ضلعه، فإن مساحة المربع أربعة أمثال مساحة مربع ضلعه ذراع واحد.
+
+\textbf{المثلثات}
+
+إذا ضربت ارتفاع أي مثلث متساوي الأضلاع في نصف القاعدة التي يقف عليها الخط المار بالارتفاع عمودياً، فالحاصل يعطي مساحة ذلك المثلث.
+
+\textbf{الدوائر}
+
+وفي كل دائرة، حاصل ضرب قطرها في ثلاثة وسبعاً واحداً يساوي المحيط.
+
+ومساحة أي دائرة توجد بضرب نصف المحيط في نصف القطر.
+
+وإذا ضربت قطر أي دائرة في نفسه، ونقصت من الحاصل سبعاً ونصف سبع منه، فإن الباقي يساوي مساحة الدائرة.
+
+\textbf{الأحجام}
+
+حجم الجسم الرباعي يوجد بضرب الطول في العرض ثم في الارتفاع.
+
+والمخروطات والأهرامات، كالمثلثة والرباعية، تحسب بضرب ثلث مساحة القاعدة في الارتفاع.
+
+\textbf{المثلث القائم}
+
+ولاحظ أنه في كل مثلث قائم الضلعين القصيرين، كل منهما مضروباً في نفسه، والحاصلان مجتمعان، يساويان حاصل الضلع الطويل مضروباً في نفسه.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{K}}{now that} the meaning of the expression ``one by one'' is mensuration: one yard (in length) by one yard (in breadth) being understood.
+
+Every quadrangle of equal sides and angles, which has one yard for every side, has also one for its area. Has such a quadrangle two yards for its side, then the area of the quadrangle is four times the area of a quadrangle, the side of which is one yard.
+
+\subsection*{Triangles}
+
+If you multiply the height of any equilateral triangle by the moiety of the basis upon which the line marking the height stands perpendicularly, the product gives the area of that triangle.
+
+$\text{Area of triangle} = \text{height} \times \frac{\text{basis}}{2}$
+
+\subsection*{Circles}
+
+In any circle, the product of its diameter, multiplied by three and one-seventh, will be equal to the periphery.
+
+$C = \pi d \approx \frac{22}{7} \times d$
+
+The area of any circle will be found by multiplying the moiety of the circumference by the moiety of the diameter.
+
+$A = \frac{C}{2} \times \frac{d}{2} = \frac{Cd}{4}$
+
+If you multiply the diameter of any circle by itself, and subtract from the product one-seventh and half one-seventh of the same, then the remainder is equal to the area of the circle.
+
+$A = d^2 - \frac{d^2}{7} - \frac{d^2}{14} = d^2 \times \frac{11}{14} \approx \frac{\pi}{4} d^2$
+
+\cnote{Note:} This gives $\pi \approx \frac{22}{7}$, the well-known approximation.
+
+\subsection*{Volumes}
+
+The bulk of a quadrangular body will be found by multiplying the length by the breadth, and then by the height.
+
+Cones and pyramids, such as triangular or quadrangular ones, are computed by multiplying one-third of the area of the basis by the height.
+
+$V_{\text{pyramid}} = \frac{1}{3} \times \text{(area of base)} \times \text{height}$
+
+\subsection*{The Right Triangle (Pythagorean Theorem)}
+
+Observe, that in every rectangular triangle the two short sides, each multiplied by itself and the products added together, equal the product of the long side multiplied by itself.
+
+\begin{mathbox}[The Pythagorean Theorem]
+$a^2 + b^2 = c^2$
+\textit{Where $a$ and $b$ are the two shorter sides (catheti) and $c$ is the hypotenuse (long side).}
+\end{mathbox}
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: ON LEGACIES
+%% ========================================================================
+\chapter{On Legacies and the Laws of Inheritance}
+\label{ch:legacies}
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{الوصايا والفرائض}
+
+الجزء الأخير من هذا الكتاب يعالج قوانين الميراث الإسلامية (الفرائض). وهذا الموضوع، على الرغم من أنه يبدو أنه ينتمي إلى الفقه وليس إلى الرياضيات، إلا أنه يتطلب كامل أدوات الجبر لحله عندما تُفرض الوصايا فوق الأسهم القانونية.
+
+\textbf{في رأس المال والديون}
+
+مسألة: «توفي رجل وترك ولدين، و أوصى بثلث رأس ماله لغريب. وترك عشرة دراهم من المال وديناً قدره عشرة دراهم على أحد الولدين.»
+
+الحل: تسمي المبلغ المأخوذ من الدين شيئاً. فتضيفه إلى رأس المال، وهو عشرة دراهم. فيكون المجموع عشرة زائد شيء. تنقص ثلث هذا، إذ أوصى بثلث ماله: ثلاثة وثلث زائد ثلث شيء. والباقي ستة وثلثان زائد ثلثا شيء. فتقسم هذا بين الولدين: يأخذ كل منهما ثلاثة وثلث زائد ثلث شيء. وهذا يساوي الشيء المطلوب.
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\lettrine[lines=2, lhang=0.33, nindent=0em, findent=3pt, loversize=0.14]{
+\textcolor{dropgold}{T}}{he final portion} of this work treats of the Islamic laws of inheritance (\textit{al-farā'iḍ}). This subject, while seemingly belonging to jurisprudence rather than mathematics, requires the full apparatus of algebra for its solution when legacies are superimposed upon the statutory shares.
+
+\section*{On Capital and Money Lent}
+\addcontentsline{toc}{section}{On Capital and Money Lent}
+
+\textbf{Problem:} ``A man dies, leaving two sons behind him, and bequeathing one-third of his capital to a stranger. He leaves ten dirhems of property and a claim of ten dirhems upon one of the sons.''
+
+\textbf{Solution:} You call the sum which is taken out of the debt $x$ (thing). Add this to the capital, which is ten dirhems. The sum is $10 + x$. Subtract one-third of this, since he has bequeathed one-third of his property: $3\tfrac{1}{3} + \tfrac{1}{3}x$. The remainder is $6\tfrac{2}{3} + \tfrac{2}{3}x$. Divide this between the two sons: each receives $3\tfrac{1}{3} + \tfrac{1}{3}x$. This is equal to the thing which was sought for.
+
+\begin{mathbox}
+$3\tfrac{1}{3} + \tfrac{1}{3}x = x \Rightarrow 3\tfrac{1}{3} = \tfrac{2}{3}x \Rightarrow x = 5$
+\end{mathbox}
+
+The stranger receives 5; and each son receives 5 (the indebted son retains his full debt as a set-off against his share).
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+\par\noindent\begingroup\raggedleft
+\begin{Arabic}
+\textbf{في نوع آخر من الوصايا}
+
+مسألة: «توفي رجل وترك أمه وزوجته، وإخوة له اثنان وأختان اثنتان لأب وأم. وأوصى لغريب بتسع رأس ماله.»
+
+الحل: تحدد أسهم ميراثهم بأخذها من \textbf{ثمانية وأربعين جزءاً}. وإياك أن تأخذ تسعاً من أي رأس مال، يبقى ثمانية أتساعه. فأضف الآن إلى الثمانية الأتساع الثمن منها، وإلى الثمانية والأربعين أيضاً ثمنها، أي ستة، لإتمام رأس المال. فهذا يعطي أربعة وخمسين. فالشخص الموصى له بالتاسع يأخذ من هذا ستة. والثمانية والأربعون الباقية توزع على الورثة، بما يتناسب مع حصصهم الشرعية.
+
+\textbf{المسألة المركبة}
+
+مسألة: «توفيت امرأة وتركت زوجها وابنها وأمها. فأوصت لشخص بخمسين، ولآخر بربع رأس مالها. ففرضت الوصيتين معاً على ابنها، وعلى أمها نصف (حصة أمها من البقية)؛ وعلى زوجها لا تفرض شيئاً إلا الثلث (الذي يجب أن يساهم به بحسب القانون).»
+\end{Arabic}
+\par\endgroup
+
+\medskip
+\noindent\begingroup\raggedright
+\section*{On Another Species of Legacy}
+\addcontentsline{toc}{section}{On Another Species of Legacy}
+
+\textbf{Problem:} ``A man dies, leaving his mother, his wife, and two brothers and two sisters by the same father and mother with himself; and he bequeaths to a stranger one-ninth of his capital.''
+
+\textbf{Solution:} You constitute their shares by taking them out of \textbf{forty-eight parts}. You know that if you take one-ninth from any capital, eight-ninths of it will remain. Add now to the eight-ninths one-eighth of the same, and to the forty-eight also one-eighth of them, namely, six, in order to complete your capital. This gives fifty-four. The person to whom one-ninth is bequeathed receives six out of this. The remaining forty-eight will be distributed among the heirs, proportionably to their legal shares.
+
+\vspace{0.3cm}
+
+\section*{Complex Legacy Problems}
+\addcontentsline{toc}{section}{Complex Legacy Problems}
+
+\textbf{Problem:} ``A woman dies, leaving her husband, a son, and her mother. She bequeaths to a person two-fifths, and to another one-fourth of her capital. She imposes the two legacies together on her son, and on her mother one moiety (of the mother's share of the residue); on her husband she imposes nothing but one-third (which he must contribute, according to the law).''
+
+\textbf{Solution:} You constitute the shares of the heritage by taking them out of twelve parts: the son receives seven of them, the husband three, and the mother two parts. You know that the husband must give up one-third of his share; accordingly he retains twice as much as that which is detracted from his share for the legacy. As he has three parts in hand, one of these falls to the legacy, and the remaining two parts he retains for himself.
+\par\endgroup
+\vspace{0.3cm}
+
+\newpage
+
+%% ========================================================================
+%% APPENDIX: SUMMARY OF THE SIX CASES
+%% ========================================================================
+\appendix
+\chapter{Summary of the Six Cases}
+\label{app:six-cases}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{longtable}{|c|l|l|c|}
+\hline
+\textbf{Case} & \textbf{Arabic Name} & \textbf{Equation} & \textbf{Solution} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Case} & \textbf{Arabic Name} & \textbf{Equation} & \textbf{Solution} \\
+\hline
+\endhead
+\hline
+\endfoot
+I & \ar{مال يساوي أصولاً} & $ax^2 = bx$ & $x = b/a$ \\
+\hline
+II & \ar{مال يساوي عدداً} & $ax^2 = c$ & $x = \sqrt{c/a}$ \\
+\hline
+III & \ar{أصول تساوي عدداً} & $bx = c$ & $x = c/b$ \\
+\hline
+IV & \ar{مال وأصول يساوي عدداً} & $ax^2 + bx = c$ & $x = \sqrt{(b/2a)^2 + c/a} - b/2a$ \\
+\hline
+V & \ar{مال وعدد يساوي أصولاً} & $ax^2 + c = bx$ & $x = \frac{b}{2a} \pm \sqrt{(b/2a)^2 - c/a}$ \\
+\hline
+VI & \ar{أصول وعدد يساوي مالاً} & $bx + c = ax^2$ & $x = \frac{b}{2a} + \sqrt{(b/2a)^2 + c/a}$ \\
+\hline
+\end{longtable}
+\end{center}
+
+\vspace{0.5cm}
+
+\cnote{Historical Note:} These six cases exhaust all possibilities for quadratic equations with \textit{positive} coefficients. The restriction to positive coefficients was necessitated by the geometric interpretation: al-Khw\=arizm\={i} understood all terms as geometric magnitudes (areas and lengths), which cannot be negative. The full treatment of all quadratic equations, including negative coefficients, would have to wait until the Renaissance.
+
+\newpage
+
+%% ========================================================================
+%% APPENDIX: GLOSSARY
+%% ========================================================================
+\chapter{Glossary of Arabic Terms}
+\label{app:glossary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{|l|l|l|}
+\hline
+\textbf{Arabic} & \textbf{Transliteration} & \textbf{Meaning} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Arabic} & \textbf{Transliteration} & \textbf{Meaning} \\
+\hline
+\endhead
+\hline
+\endfoot
+\ar{الجبر} & \textit{al-jabr} & Completion, restoration (adding terms to both sides) \\
+\hline
+\ar{المقابلة} & \textit{al-muq\=abala} & Balancing, reduction (cancelling like terms) \\
+\hline
+\ar{الجذر} & \textit{al-jadhr} & Root (the unknown quantity, $x$) \\
+\hline
+\ar{المال} & \textit{al-m\=al} & Square of the unknown ($x^2$) \\
+\hline
+\ar{العدد المفرد} & \textit{al-'adad al-mufrad} & Simple number (constant term) \\
+\hline
+\ar{الشيء} & \textit{al-shay'} & Thing (another term for the unknown) \\
+\hline
+\ar{الدرهم} & \textit{al-dirham} & Dirhem (unit of currency/measure) \\
+\hline
+\ar{الوصية} & \textit{al-wa\d{s}iyya} & Legacy, bequest \\
+\hline
+\ar{الفرائض} & \textit{al-far\=a'i\d{d}} & Obligatory shares (Islamic inheritance law) \\
+\hline
+\ar{مساحة} & \textit{mis\=a\d{h}a} & Area, mensuration \\
+\hline
+\ar{ضرب} & \textit{\d{d}arb} & Multiplication \\
+\hline
+\ar{قسمة} & \textit{qisma} & Division \\
+\hline
+\ar{جمع} & \textit{jam'} & Addition \\
+\hline
+\ar{طرح} & \textit{tar\d{h}} & Subtraction \\
+\hline
+\ar{شيء} & \textit{shay'} & Thing (the unknown, $x$) \\
+\hline
+\end{longtable}
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% BIBLIOGRAPHIC NOTE
+%% ========================================================================
+\chapter*{Bibliographic Note}
+\addcontentsline{toc}{chapter}{Bibliographic Note}
+\markboth{Bibliographic Note}{Bibliographic Note}
+
+\begin{small}
+\textbf{Manuscript Sources:}
+
+The principal manuscript of al-Khw\=arizm\={i}'s \textit{Kit\=ab al-Mukhta\d{s}ar
+f\={i} \d{H}is\=ab al-Jabr wa-l-Muq\=abala} is preserved in the Bodleian
+Library at Oxford (MS Hunt.~214, fols.~1--123), copied in 743 AH / 1342 CE.
+
+\vspace{0.3cm}
+
+\textbf{Editions and Translations:}
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=2em]
+  \item Frederic Rosen, \textit{The Algebra of Mohammed ben Musa}, London:
+  Oriental Translation Fund, 1831.
+  \item 'Al\={i} Mu\d{s}\d{t}af\=a Musharrafa and Mu\d{h}ammad Murs\={i} A\d{h}mad
+  (eds.), \textit{Kit\=ab al-Jabr wa-l-Muq\=abala}, Cairo: Egyptian
+  University, 1359 AH / 1939 CE.
+\end{enumerate}
+\end{small}
+
+\vfill
+
+\begin{center}
+\rule{0.3\textwidth}{0.4pt}
+
+\vspace{0.3cm}
+
+{\small\textit{Bilingual edition typeset in Linux Libertine and Noto Naskh Arabic}}\\[0.1cm]
+{\small\textit{Via XeLaTeX with polyglossia and fontspec}}
+
+\vspace{0.3cm}
+
+\begin{Arabic}
+تمّ بحمد الله
+\end{Arabic}
+\end{center}
+\end{document}

@@ -1,0 +1,459 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,calc,decorations.pathmorphing}
+\newcommand{\semistableSketch}{%
+\begin{tikzpicture}[scale=.75,baseline=-.5ex]
+  \draw[->] (-.2,0) -- (2.2,0) node[right]{$S$};
+  \draw[->] (.45,.15) -- (.45,3.0);
+  \draw[thick] (.1,.45) .. controls (.9,1.35) and (1.0,2.0) .. (.4,2.75);
+  \draw[thick] (.7,.45) .. controls (.0,1.25) and (.1,1.95) .. (.95,2.65);
+  \draw[thick] (1.05,.72) .. controls (1.55,1.25) and (1.4,1.85) .. (1.95,2.55);
+  \fill (.52,1.22) circle (1.5pt) node[right]{$x$};
+  \fill (1.45,1.05) circle (1.5pt) node[right]{$F$};
+\end{tikzpicture}%
+}
+\newcommand{\semistableCoverSketch}{%
+\begin{tikzpicture}[scale=.75,baseline=-.5ex]
+  \draw[->] (-.2,0) -- (2.2,0) node[right]{$S$};
+  \draw[thick] (.15,.35) .. controls (.85,1.05) and (.82,1.75) .. (.35,2.7);
+  \draw[thick] (.7,.35) .. controls (.15,1.05) and (.15,1.65) .. (1.0,2.65);
+  \draw[thick] (1.1,.45) .. controls (1.65,1.05) and (1.55,1.75) .. (2.0,2.55);
+  \draw[thick] (.1,1.05) -- (1.65,1.05);
+  \draw[thick] (.2,1.55) -- (1.45,1.55);
+  \node[left] at (.15,2.85){$X'/S$};
+\end{tikzpicture}%
+}
+\newcommand{\transverseCurveSketch}{%
+\begin{tikzpicture}[scale=.8,baseline=-.5ex]
+  \draw[thick] (-.15,0) .. controls (.7,.15) and (1.35,.05) .. (2.15,.15) node[right]{$D^\circ$};
+  \draw[thick] (.85,-.75) .. controls (.95,-.1) and (1.05,.45) .. (1.5,1.0) node[right]{$Y$};
+  \fill (1.02,.09) circle (1.4pt) node[below right]{$a$};
+  \node[left] at (-.15,.25){$X$};
+\end{tikzpicture}%
+}
+\newcommand{\familySquareSketch}{%
+\begin{tikzpicture}[scale=.82,baseline=-.5ex]
+  \draw (0,0) rectangle (1.6,1.6);
+  \draw[thick] (.12,.85) -- (1.48,.85) node[right]{$D$};
+  \draw[thick] (.8,.2) -- (.8,1.4);
+  \fill (.8,.85) circle (1.5pt) node[above left]{$x$};
+  \draw[->] (.8,-.15) -- (.8,-.65);
+  \draw (-.25,-.85) -- (1.85,-.85) node[right]{$\mathbb A^1$};
+  \node[right] at (1.65,1.45){$X$};
+\end{tikzpicture}%
+}
+\newcommand{\jetSketch}{%
+\begin{tikzpicture}[scale=.9,baseline=-.5ex]
+  \draw[thick] (-.25,.2) .. controls (.45,.45) and (1.15,.48) .. (2.1,.25) node[right]{$D$};
+  \draw[thick] (.95,-.75) .. controls (1.05,-.15) and (1.08,.45) .. (1.1,1.05);
+  \node[right] at (1.14,-.45){$Y$};
+  \node[left] at (-.25,.05){$X$};
+  \fill (1.02,.35) circle (1.4pt);
+\end{tikzpicture}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.58em}
+\setlist[enumerate]{leftmargin=2.1em,itemsep=0.35em,topsep=0.25em}
+\newcommand{\F}{\mathcal F}
+\newcommand{\G}{\mathcal G}
+\newcommand{\Zell}{\mathbf Z/\ell\mathbf Z}
+\newcommand{\Fell}{\mathbf F_\ell}
+\newcommand{\Fp}{\mathbf F_p}
+\newcommand{\A}{\mathbf A}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\U}{\mathcal U}
+\DeclareMathOperator{\Sw}{Sw}
+\DeclareMathOperator{\rk}{rg}
+\DeclareMathOperator{\Tot}{tot}
+\DeclareMathOperator{\Supp}{Supp}
+\begin{document}
+
+\begin{flushright}
+28/10/76
+\end{flushright}
+
+Cher Luc,
+
+Voici une semi-continuité que j'avais conjecturée dans le temps sur le conducteur de Swan.
+
+\section*{II. Semi-continuité du conducteur de Swan}
+
+Soit
+\[
+  f:X\longrightarrow S
+\]
+un morphisme lisse séparé de dimension relative 1, soit \(F\subset X\) un sous-schéma fini sur \(S\), et soit \(\F\) un faisceau lisse de rang constant \(r\) sur
+\[
+  U=X-F,
+\]
+prolongé par zéro sur \(X\). Pour ce qui suit, \(\F\) peut être simplement un faisceau de \(\Zell\)-modules. On suppose \(F\to S\) universellement ouvert.
+\[
+\semistableSketch
+\]
+
+Pour \(s\in S\), soit \(\bar s\) un point géométrique au-dessus de \(s\). On pose
+\[
+  \varphi(s)=\sum_{x\in F_{\bar s}}
+  \bigl(\Sw_x(\F|_{X_{\bar s}})+r\bigr).
+\]
+Alors:
+\begin{enumerate}[label=(\roman*)]
+\item la fonction \(\varphi(s)\) est constructible et semi-continue inférieurement;
+\item si elle est constante, le couple \((X,\F)\) est universellement localement acyclique sur \(S\).
+\end{enumerate}
+
+Des arguments bien connus donnent que \(\varphi\) est constructible. Ils ramènent la preuve de la semi-continuité au cas où \(S\) est un trait. Le résultat suivant ramène de même la preuve de l'acyclicité locale au cas où \(S\) est un trait.
+
+\paragraph{Proposition 2.}
+Soient \(S'\to S\) un morphisme local de schémas strictement locaux, \(\bar\eta'\) un point géométrique de \(S'\), et \(\bar\eta\) son image dans \(S\). Soient \(s'\) et \(s\) les points fermés. Soit \(X\) sur \(S\), et soit \(X'\) le changement de base sur \(S'\). Si \(\F\) est un faisceau sur \(X\), et si le lieu de non-local-acyclicité de \((X,\F)/S\) coupe \(X_s\) en un point isolé \(x\), alors, hors de \(x\),
+\[
+  i^{\prime *} R\bar j'_{*}\,\bar j^{\prime *}\F
+\]
+est l'image inverse de
+\[
+  i^{*}R\bar j_{*}\,\bar j^{*}\F.
+\]
+La formation de ce faisceau commute au changement de base.
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.6em]
+X'_{\bar\eta'} \arrow[r] \arrow[d] & X' \arrow[r] \arrow[d] & X_{\bar\eta} \arrow[d] \\
+\bar\eta' \arrow[r] & S' \arrow[r] & S
+\end{tikzcd}
+\]
+
+La preuve est celle de SGA 7, XIII, 2.4.2: réduction au cas propre, théorème d'acyclicité locale pour assurer que \(R\Phi\) est à support dans \(x\) au voisinage de \(x\), invariance de la cohomologie par changement de corps algébriquement clos, puis changement de base propre, celui des cycles évanescents et celui de la fibre générale.
+
+Supposons donc \(S\) un trait strictement local. Les assertions précédentes résultent du résultat suivant.
+
+\paragraph{Proposition 3.}
+Soit \(f:X\to S\) lisse séparé, soit \(F\subset X\) fini plat sur \(S\), local de point fermé \(x\), et soit \(\F\) un faisceau localement constant de rang \(r\) sur \(X-F\), prolongé par zéro. Alors
+\[
+\Sw_x(\F|_{X_{\bar s}})+r
+=
+\sum_{y\in F_{\bar\eta}}
+\bigl(\Sw_y(\F|_{X_{\bar\eta}})+r\bigr)
+-
+\dim R\Psi_x^1(\F).
+\]
+
+En particulier, l'hypothèse de platitude sur \(F\) assure que
+\[
+  R\Psi_x^u(\F)=0\qquad (u\ne 1),
+\]
+ce qui explique la condition demandée ci-dessus: \(F/S\) universellement ouvert.
+
+Pour prouver les assertions (i) et (ii), il suffit de prouver ce résultat avec \(F\) connexe. Pour un \(F\) somme disjointe des \(F_i\), on a les implications usuelles: le résultat pour les \(F_i\) implique le résultat pour \(F\), et la constance de \(\varphi(s)\) équivaut à la constance correspondante pour les \(F_i\).
+
+Le cas le plus utile est celui où \(F\) est une section de \(X/S\). Dans ce cas, on trouve que
+\[
+  \Sw_{s(F)}(\F|_{X_{\bar s}})
+\]
+est semi-continu inférieurement. Toutefois on peut avoir égalité, donc constance de \(\varphi\), sans être dans ce cas: deux points quadratiques ordinaires peuvent confluer en caractéristique zéro en un point quadratique non dégénéré, et en caractéristique deux en un point de Swan égal à 1.
+
+De façon moins elliptique, considérons sur \(\mathbb A^1\setminus\{0\}\) le faisceau défini par le revêtement double
+\[
+  T^2+bT+b=0,
+\]
+où \(\ell\) est impair, \(p=2\), et \(b\) s'annule simplement en \(0\).
+
+La preuve se ramène à supposer que \(X\) se plonge dans \(\bar X\) propre sur \(S\), avec \(\bar X/S\) propre et lisse sauf en un nombre fini de points quadratiques ordinaires en réduction. Le faisceau \(\F\) donne alors sur \(\bar X\) un faisceau localement constant sur
+\[
+  \bar X-F-\{
+  \text{partie de la fibre spéciale, finie et ne contenant pas }x
+  \},
+\]
+qui prolonge le précédent.
+\[
+\semistableSketch
+\]
+
+On passe ensuite de \(\bar X\) à un revêtement \(X'\to\bar X\) tel que:
+\begin{enumerate}[label=\alph*)]
+\item \(X'\) soit une courbe comme \(\bar X\), et soit étale au-dessus de \(x\);
+\item sur \(X'-(\text{image réciproque de }F)\), le faisceau \(\F\) se prolonge en un faisceau localement constant.
+\end{enumerate}
+
+On le fait par étapes. On trouve d'abord \(X'/\bar X\), étale au-dessus de \(x\) et propre sur \(\bar X\), au-dessus duquel \(\F\) se prolonge en dehors de \(F'\). Ce \(X'\) est défini comme un joint; il suffit donc de le choisir, localement sur \(X\), de manière à supprimer la ramification de \(\F\). Si
+\[
+  \sum_i a_i T^i=0
+\]
+définit un revêtement de \(U\), ramifié le long de \(V\), alors, en perturbant les \(a_i\) par des quantités très nulles le long de \(V\), on obtient un revêtement qui, le long de \(V\), est localement isomorphe au précédent. On simplifie ensuite par le théorème de réduction semi-stable.
+\[
+\semistableCoverSketch
+\]
+
+Comparons maintenant
+\[
+  \chi(X'_s,\F)\qquad\text{et}\qquad \chi(X'_{\bar\eta},\F).
+\]
+Par la formule d'Euler-Poincaré, si \(X'/X\) est à \(k\) feuillets,
+\[
+ \chi(X'_{\bar\eta},\F)
+ =\chi(X_{\bar\eta})\,r
+ -k\sum_{y\in F_{\bar\eta}}
+   \bigl(\Sw_y(\F|_{X_{\bar\eta}})+r\bigr),
+\]
+et
+\[
+ \chi(X'_s,\F)
+ =\chi(X_s)\,r
+ -k\bigl(\Sw_x(\F|_{X_s})+r\bigr).
+\]
+De plus
+\[
+  \chi(X'_s)=\chi(X_s)-
+  \#\{\text{points doubles dans la fibre spéciale}\}.
+\]
+Par conséquent
+\[
+\begin{aligned}
+\chi(X'_{\bar\eta},\F)-\chi(X'_s,\F)
+={}&-\bigl(\#\{\text{points doubles sur }X_s\}\bigr)r \\
+&-k\left(
+ \sum_{y\in F_{\bar\eta}}\bigl(\Sw_y+r\bigr)
+ -\bigl(\Sw_x+r\text{ sur }X_s\bigr)
+\right).
+\end{aligned}
+\]
+
+D'autre part, par la méthode des cycles évanescents, en \(x\) on a \(\Phi_x^2=0\); aux points doubles apparus en fibre spéciale on a seulement \(\Phi^1\), de dimension \(r\). Au total,
+\[
+  \Delta\chi
+  =-\bigl(\#\{\text{points doubles sur }X_s\}\bigr)r
+   -k\dim \Psi_x^1(\F|_X).
+\]
+En comparant les deux formules, on trouve le résultat annoncé.
+
+\paragraph{Variante.}
+Soit
+\[
+  F\subset X\longrightarrow S
+\]
+avec \(F\) fini sur \(S\), \(X\) lisse de dimension \(1\) sur \(S\) en dehors de \(F\), et \(\F\) localement constant de rang \(r\) sur \(X-F\). Alors, pour le faisceau virtuel de dimension zéro, on a
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.4em]
+F \arrow[r, hook] \arrow[dr] & X \arrow[d] \\
+& S
+\end{tikzcd}
+\]
+\[
+\sum_{y\in F_{\bar s}\atop b\text{ branche de }X_s\text{ en }y}
+\Sw_b(\F)
+=
+\sum_{y\in F_{\bar\eta}\atop b\text{ branche de }X_{\bar\eta}\text{ en }y}
+\Sw_b(\F)
++
+\sum_{y\in F_s}\dim \Psi_y^*(\F).
+\]
+La preuve est la même.
+
+Bien à toi,
+
+\hspace{2em}P. Deligne
+
+\newpage
+
+\begin{flushright}
+28/10/76
+\end{flushright}
+
+Cher Luc,
+
+Troisième lettre; j'étais en forme hier.
+
+\section*{III. Caractéristiques d'Euler-Poincaré et ramification}
+
+Soit \(X\) propre sur \(k\) algébriquement clos, et soient \(\F_1,\F_2\) deux éléments du groupe de Grothendieck des faisceaux constructibles de \(\Zell\)-vectoriels. Si \(\F_1\) et \(\F_2\) sont localement égaux, alors
+\[
+  \chi(\F_1)=\chi(\F_2).
+\]
+
+On procède par récurrence sur la dimension de \(X\). Soit \(\pi:X'\to X\) birationnel.
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.2em]
+X' \arrow[r,"\pi"] & X \\
+F' \arrow[u,hook] \arrow[r] & F \arrow[u,hook]
+\end{tikzcd}
+\] La récurrence montre qu'il suffit de comparer \(X\) et \(X'\), ainsi que les images réciproques \(\F'_1,\F'_2\). On écrit
+\[
+  \chi(X,\F)=\chi(X',\F')+
+  \chi\bigl(\text{fermé où }\pi\text{ n'est pas un isomorphisme},\F\bigr)
+  -\chi\bigl(\text{image inverse de ce fermé},\F'\bigr).
+\]
+On regarde la suite spectrale de Leray de \(\pi\). On a
+\[
+  \chi(X',\F')
+  =\chi(R\pi_*\F')
+  =\chi(\text{fibre générale},\F)
+   -\sum_t \dim_{\Tot}R\Gamma(X_t,\Phi^t\F'),
+\]
+le dernier terme comptant le défaut, c'est-à-dire les termes de cycles évanescents.
+
+On va voir que ce second membre est terme à terme pareil pour \(\F_1\) et \(\F_2\). Pour le premier terme, cela résulte de l'hypothèse de récurrence. Reste à voir, plus généralement, que
+\[
+  \dim_{\Tot} R\Gamma(X_t,\Phi^t)
+\tag{1}
+\]
+ne dépend que de la classe locale considérée. L'hypothèse assure que, dans la catégorie des faisceaux de modules munis de l'action du groupe de Galois ou du groupe de monodromie, les \(R\Phi(\F_1)\) et \(R\Phi(\F_2)\) sont localement égaux.
+
+Il reste à disposer de l'hypothèse de récurrence pour les \(\Fell[I]\)-faisceaux. Il suffit de noter que
+\[
+K\bigl(\Zell[I]\text{-faisceaux constructibles sur }X\bigr)
+=
+K\bigl(\Zell\text{-faisceaux sur }X\bigr)
+\otimes
+K\bigl(\Zell[I]\text{-modules}\bigr),
+\]
+où, dans le second facteur, il s'agit des \(\Zell\)-modules de base, représentés irréductiblement par \(I\).
+
+\paragraph{Remarque.}
+L'ingrédient essentiel de cette preuve est le théorème de finitude pour les faisceaux de cycles évanescents de SGA \(4\frac12\).
+
+Je crois maintenant comprendre \(\chi\) pour les surfaces. Lorsque, en codimension \(1\), on ne fait pas apparaître d'extension résiduelle inséparable, on a une formule analogue à celle de la lettre à Katz. Voici un énoncé de démonstration complète.
+
+Soit \(X\) une surface supposée normale, pour simplifier, sur \(k\) algébriquement clos. Soit \(D\) un diviseur de Weil sur \(X\), soit \(U=X-D\), et soit \(\F\) un faisceau localement constant sur \(U\), de rang \(r\).
+
+Par localisation en un point générique \(\delta\) de \(D\), on obtient un trait \(X_\delta\), de corps des fractions \(K\). Le faisceau \(\F\) correspond à une représentation fidèle de \(\operatorname{Gal}(K'/K)\), où \(K'/K\) est une extension galoisienne finie de \(K\). On fait l'hypothèse suivante:
+\[
+(*)\qquad
+\text{les corps résiduels des points du normalisé de }X_\delta
+\text{ dans }K'\text{, au-dessus de }\delta,\text{ sont séparables sur }k(\delta).
+\]
+Si \(\bar\delta\) est le spectre d'une clôture séparable de \(\delta\), et si \(X(\bar\delta)\) est le localisé strict de \(X\) en \(\bar\delta\), avec les mêmes notations, \((*)\) devient:
+\[
+(*')\qquad \text{le corps résiduel de }K'\text{ coïncide avec celui de }K.
+\]
+
+On peut sous cette hypothèse définir le conducteur de Swan de \(\F\) en \(\bar\delta\), noté
+\[
+  \Sw_{\bar\delta}(\F).
+\]
+Il existe alors un ouvert dense \(D^\circ\) de \(D\), tel que, chaque fois qu'une courbe lisse \(Y\) sur \(X\) coupe transversalement \(D^\circ\) en un point \(a\), spécialisation d'un point générique \(\delta\), on ait
+\[
+  \Sw(\F|_Y\text{ en }a)=\Sw_{\bar\delta}(\F).
+\]
+Tout ceci vaut pour \(D\) lisse ou non, et pour \(X\) lisse ou non.
+\[
+\transverseCurveSketch
+\]
+
+Si \(Y\) bouge et continue à couper \(D\) dans \(D^\circ\) transversalement, on est dans une situation d'acyclicité locale. On peut le voir directement: le point est que \(\F\) se trivialise sur un \(X'\to X\), et que, pour \(Y\) lisse coupant \(D\) dans \(D^\circ\) et transversalement, \(\varphi^{-1}Y\) est encore lisse.
+
+\paragraph{Résultat local.}
+On prend \(X\) strictement local, essentiellement de type fini sur \(k\).
+
+\paragraph{Théorème 2.}
+Soit
+\[
+  f:X\longrightarrow \A^1
+\]
+envoyant le point fermé \(x\) sur \(0\). On suppose que \(f\) est lisse en dehors de \(x\), et que \(f|_D\) est étale en dehors de \(x\). Soient \(D_i\) les composantes irréductibles de \(D\), soit \(j:U\hookrightarrow X\), et soit \(\Sw_i\) le conducteur de Swan de \(\F\) au point générique de \(D_i\). Alors, en notant \(\Psi_x^*\) la fibre en \(x\) du faisceau des cycles évanescents,
+\[
+  \dim_{\Tot}\Psi_x^*(j_!\F)
+  +\sum_i \Sw_i(\F_{D_i})
+\tag{2}
+\]
+est indépendant de \(f\). On le note \(\Sw_x(\F)\).
+
+Ici \(\dim_{\Tot}\) est la somme alternée, ou totale, des dimensions des cycles évanescents. L'expression ci-dessus est un \(\Fell\)-faisceau virtuel; elle ne dépend que de sa fibre générale. Considérée comme faisceau virtuel sur une courbe, elle a les propriétés suivantes: son rang est nul au point générique et, en tout point,
+\[
+  \text{rang générique}-\text{rang de la fibre au point}+\Sw=0.
+\]
+
+\paragraph{Résultat global.}
+On prend \(X\) propre. Supposons \(X\) normal, et soient \(D_i\) les composantes irréductibles de \(D\). Soit \(D_i^\circ=D_i\cap D^\circ\), et soit \(\Sw_i\) comme précédemment. On a
+\[
+  \chi(X,j_!\F)
+  =\chi_c(U)\,\rk\F
+   -\sum_i \chi(D_i^\circ)\Sw_i
+   -\sum_{x\in D-D^\circ}\Sw_x(\F).
+\tag{3}
+\]
+La formule se prouve en réécrivant le théorème 2 sous la forme
+\[
+  \chi(X,j_!\F)-\rk\F\,\chi_c(U)
+  +\sum_i \Sw_i\,\chi(D_i^\circ)
+  =\sum_{x\in D-D^\circ}\Sw_x(\F).
+\]
+
+Calculons \(\chi\) à l'aide d'un pinceau de sections hyperplanes dont l'axe coupe \(D\). Si les sections sont en général transverses à \(D^\circ\), et tout à fait générales ailleurs, la formule d'Euler-Poincaré donne la formule écrite ci-dessus, avec un \(\Sw_x\) calculé en termes du pinceau. Quand on varie le pinceau, deux problèmes restent:
+\begin{enumerate}[label=\alph*)]
+\item les tangences entre \(D^\circ\) et les sections du pinceau;
+\item la variation du morphisme \(f\), à section fixée, aux sections passant par les points de \(D-D^\circ\).
+\end{enumerate}
+Pour le premier point, on se ramène à montrer que, si \(x\in D_i^\circ\), alors
+\[
+  \Sw_x(\F)=\Sw_i.
+\tag{4}
+\]
+On commence par prendre des pinceaux généraux de haut degré, à axe variable. Cela fait varier le nombre de points de tangence de \(D^\circ\) avec le pinceau, et on trouve que la formule (3) n'est tenable que si (4) est vraie pour une tangence générale. Ensuite, par passage du global au local, comme dans la lettre précédente, on en déduit le théorème 2.
+
+\paragraph{Exemple 1.}
+Soient localement \(X\) lisse, \(D\) lisse, et une section locale de
+\[
+  f:X\longrightarrow \A^1
+\]
+qui coupe \(D\) transversalement. On a
+\[
+\familySquareSketch
+\]
+\[
+\begin{aligned}
+\Sw_x(\F)
+&=\dim_{\Tot}\Psi_x^*(j_!\F)
+  +\Sw(\F\text{ en fibre générique}) \\
+&=\Sw(\Psi_x^*j_!\F)
+  +\dim\Psi_x^*(j_!\F)
+  +\Sw(\F\text{ en fibre générique}) \\
+&=\Sw(\Psi_x^*j_!\F)+\Sw(\F\text{ en fibre spéciale}).
+\end{aligned}
+\]
+Si le Swan est le même dans les fibres générales et spéciale, on sait que \(\Psi=0\), et \(\Sw_x(\F)\) est le Swan générique. Les conditions suivantes sont donc équivalentes:
+\begin{enumerate}[label=(\roman*)]
+\item \(\Sw_x=\Sw\) générique;
+\item pour une section transverse, le Swan en fibre spéciale est le même qu'en fibre générique;
+\item cela a lieu pour toute section transverse.
+\end{enumerate}
+
+\paragraph{Exemple 2.}
+Soient \(x\) et \(y\) des coordonnées sur \(X\), lisse et local, avec \(D\) donné par \(x=0\). Soit \(\psi_0\) un caractère additif non trivial de \(\Fp\). Soit \(\F\) le faisceau de rang \(1\) défini par \(\psi_0\) et par le revêtement d'Artin--Schreier
+\[
+  T^p-T=\frac{y}{x^d},
+  \qquad (d,p)=1.
+\]
+Alors, à l'origine,
+\[
+  \Sw_0(\F)=0.
+\]
+On prend \(f=y\) et on calcule avec la formule de l'exemple 1. En fibre spéciale, le faisceau est constant, donc \(\Sw=0\). La ramification de \(\Psi\) est modérée: on le voit en passant à la situation globale analogue, où \(X\) est le plan affine, et en notant que le \(R^1f_*\) se trivialise sur le revêtement \(\sqrt[d]{y}\), car
+\[
+ H_c^1\bigl(\A^1,\text{faisceau défini par }T^p-T=a/x^d\bigr)
+ \simeq
+ H_c^1\bigl(\A^1,\text{faisceau défini par }T^p-T=1/x^d\bigr),
+\]
+indépendamment de \(a\ne 0\).
+
+Bien à toi,
+
+\hspace{2em}P. Deligne
+
+\paragraph{P.S.}
+Si on poursuit en codimension \(1\), avec des extensions inséparables, le problème essentiel semble être le suivant. Soient \(X\) une surface lisse, \(D\subset X\) lisse comme ci-dessus, et \(\F\) localement constant sur \(X-D\). Existe-t-il un ouvert \(D^\circ\ne\varnothing\) de \(D\) tel que, quand on restreint \(\F\) à une courbe lisse coupant transversalement \(D\), on trouve toujours le même conducteur de Swan?
+\[
+\jetSketch
+\]
+
+Le conducteur trouvé ne dépend que du jet de la courbe au point où elle coupe \(D\), si l'on prend le jet d'ordre assez grand. Regardons donc sur \(D\) le fibré des jets d'ordre assez grand de courbes transverses à \(D\). La fonction conducteur de Swan sur ce fibré est constructible, et la lettre précédente montre que sa valeur générique est sa valeur maximum. Soit \(\mathcal J'\subset\mathcal J\) le fermé où le conducteur est plus petit. Question: \(\mathcal J'\) peut-il avoir une composante de codimension \(1\) s'envoyant sur \(D\)?
+
+\end{document}

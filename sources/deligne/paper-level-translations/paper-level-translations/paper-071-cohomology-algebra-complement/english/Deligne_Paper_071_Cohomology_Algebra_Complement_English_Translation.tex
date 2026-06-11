@@ -1,0 +1,666 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{construction}[theorem]{Construction}
+
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\ornt}{\operatorname{or}}
+\newcommand{\coor}{\operatorname{coor}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\Inf}{\operatorname{inf}}
+\newcommand{\incl}{\operatorname{incl}}
+
+\title{The Cohomology Algebra of the Complement, in an Affine Space, of a Finite Family of Affine Subspaces}
+\author{P. Deligne, M. Goresky, and R. MacPherson}
+\date{}
+
+\begin{document}
+\maketitle
+
+This paper is dedicated to W. Fulton in admiration for his mathematical achievements and his broad influence on the field of algebraic geometry.
+
+\section*{0. Introduction}
+
+Let $X$ be the complement, in a real affine space $V$, of a locally finite set $E$ of proper affine subspaces of $V$.  The flats of $E$ are $V$ and the non-empty intersections of elements of $E$.  In \cite{GM}, Part III, Goresky and MacPherson apply Morse theory to a function ``distance to $v_0\in V$'' in order (a) to decompose the homology of $X$ into factors indexed by the flats, and (b) to give a combinatorial description of each factor.  In Section~1 we recover these results by sheaf-theoretic techniques.  These techniques make clear what the decomposition of \cite{GM} depends on, and they also apply to the determination of the $\ell$-adic cohomology of the complement of a finite family of affine subspaces in an affine space over an algebraically closed field.
+
+By duality, these homology results are transported to cohomology.  For $E$ finite, one has a decomposition indexed by the flats
+\begin{equation}
+H^*(X)=\bigoplus h^*(A). \tag{0.1}
+\end{equation}
+Let $\coor(A)$ be the free rank-one $\ZZ$-module with bases $\pm e$ the coorientations of $A$ in $V$, placed in degree $\codim(A)$; then
+\begin{equation}
+\coor(A)=H_A^*(V,\ZZ). \tag{0.2}
+\end{equation}
+The direct factor $h^*(A)$ is the tensor product of $\coor(A)$ with a group depending only on the combinatorics of the arrangement, that is, only on the set $\mathcal A^+$ of flats ordered by inclusion.  The decomposition (0.1) depends on the choice, for each flat $A$, of a point
+\[
+ x_A\in A^0:=A-\bigcup\{\text{smaller flats}\}.
+\]
+Only the connected component of $A^0$ containing $x_A$ matters.  In particular, if the following connectedness hypothesis \textup{(CONN)} is satisfied, then the decomposition (0.1) depends on no choice:
+\begin{equation*}
+\text{if a flat } B \text{ is contained in a flat } A,
+\qquad A=B \text{ or } \dim(A)-\dim(B)\geq 2.\tag{CONN}
+\end{equation*}
+
+In Section~4.2, under the hypothesis \textup{(CONN)}, we compute the cup product of $H^*(X)$ in terms of the decomposition (0.1).  The essential point is that the component
+\[
+ h(A)\otimes h(B)\longrightarrow h(C)
+\]
+of the cup product can be non-zero only for $C=A\cap B$, the intersection being transverse.  We prove this by interpreting the cup product as the exterior product followed by restriction to the diagonal $X\to X\times X$, and by treating this restriction as a special case of a restriction morphism
+\[
+H^*(X)\longrightarrow H^*(X'),
+\]
+where $X'=V'\cap X$ is the trace of $X$ on an affine subspace.
+
+Under \textup{(CONN)}, it follows from this calculation that the cohomology algebra $H^*(X)$ depends, up to unique isomorphism, only on the following data:
+\begin{enumerate}[label=(\alph*)]
+\item the set $\mathcal A^+$ of flats, ordered by inclusion;
+\item the function $A\mapsto \codim(A)$;
+\item for each flat $A$, the free rank-one $\ZZ$-module $\coor(A)$;
+\item for $C=\inf(A,B)$ and $\codim(C)=\codim(A)+\codim(B)$, that is, for a transverse intersection $C=A\cap B$, the natural isomorphism from $\coor(A)\otimes\coor(B)$ to $\coor(C)$.
+\end{enumerate}
+
+M. de Longueville and C. Schultz independently determined the integral cohomology algebra of the complement of a central arrangement satisfying \textup{(CONN)} \cite{dS}.  See also \cite{FZ}.
+
+\paragraph{Acknowledgments.} Our interest in these questions was drawn by the preprint \cite{Y} of Yuzvinsky.  In the case of complex arrangements, Yuzvinsky determines, up to isomorphism and using the results of Morgan \cite{M}, the rational cohomology algebra of the complement of an arrangement.
+
+\section{Decomposition of Cohomology}
+
+\subsection*{1.1}
+We shall use the following weak sense of stratification.  A stratification of a topological space $T$, indexed by a finite ordered set $I$, is a decomposition indexed by $I$ of $T$ into non-empty disjoint subsets $S_i$, the strata, such that for every $i\in I$ the union
+\[
+T_i:=\bigcup_{j\leq i} S_j
+\]
+is closed.  The $T_i$ are the closed strata.  Note that $i\leq j$ if and only if $T_i\subset T_j$, and that the $T_i$ determine the $S_i$ by
+\begin{equation}
+S_i=T_i-\bigcup_{j<i}T_j.\tag{1.1.1}
+\end{equation}
+Let $\varphi:T\to I$ be the map equal to $i$ on $S_i$.  If $I$ is given the topology for which the closure of a point $i$ is the interval
+\[
+[\cdot,i]:=\{j\mid j\leq i\},
+\]
+then saying that the $T_i$ are closed is equivalent to saying that $\varphi$ is continuous.
+
+\subsection*{1.2}
+We shall also write $I$ for the category whose objects are the elements of $I$, with a unique arrow from $i$ to $j$ for $i\leq j$.
+
+Each point $i$ of the topological space $I$ has a smallest neighborhood, namely the interval
+\[
+[i,\cdot]:=\{j\mid i\leq j\}.
+\]
+For a sheaf $F$ on $I$, the fiber $F_i$ of $F$ at $i$ coincides with $F([i,\cdot])$.  For $i\leq j$, restriction from $[i,\cdot]$ to $[j,\cdot]$ is a morphism from $F_i$ to $F_j$, and this construction identifies sheaves of abelian groups on $I$ with functors from $I$ to \textup{(Ab)}.
+
+If $I$ has a least element $0$, the functor $\Gamma(I,F)=F_0$ is exact and the higher $H^i$ vanish.  If $I$ has a greatest element $1$, every constant sheaf is flasque and its higher $H^i$ therefore vanish: the space $I$ is acyclic, i.e. its cohomology with constant coefficients is that of a point.
+
+Another proof is the following.  Computing cohomology by the canonical flasque resolution, one verifies that the cohomology of $I$ with constant coefficients coincides with that of the classifying space $|I|$ of the category $I$.  In particular, it is the same for $I$ and for $I$ with the opposite order, and we have already seen that every $I$ having a least element is acyclic.
+
+\begin{lemma}[Devissage, 1.3]
+Let $\mathcal C$ be a class of sheaves on $I$.  Suppose that $\mathcal C$ contains the zero sheaf, contains every constant sheaf on a closed subset $[\cdot,i]$ extended by zero to $I$, and has the following two-out-of-three property: for every short exact sequence
+\[
+0\to F_1\to F_2\to F_3\to 0
+\]
+of sheaves on $I$, if two of the $F_i$ belong to $\mathcal C$, then the third does as well.  Then $\mathcal C$ contains all sheaves on $I$.
+\end{lemma}
+
+\begin{proof}
+Proceed by induction on the number of elements of $I$.  For a closed subset $i:J\hookrightarrow I$ different from $I$, applying the induction hypothesis to the class of sheaves on $J$ such that $i_!F$ is in $\mathcal C$, one sees that every sheaf with support not equal to $I$ is in $\mathcal C$.  If $I$ is empty, the lemma is clear.  Otherwise, let $x$ be a maximal element of $I$ and let $j$ be the inclusion of $\{x\}$ in $I$.  Taking $F_1$, $F_2$, $F_3$ to be respectively a constant sheaf on $\{x\}$, on $[\cdot,x]$, and on $[\cdot,x[$, each extended by zero, one sees that for every abelian group $\Lambda$, $j_!\Lambda$ belongs to $\mathcal C$.  For a sheaf $F$ on $I$, conclude by observing that the support of $F/j_!j^*F$ is contained in the closed set $I-\{x\}$.
+\end{proof}
+
+\begin{proposition}[1.4]
+If the closed strata are acyclic, then for every sheaf $F$ on $I$ one has
+\begin{equation}
+H^*(I,F)\xrightarrow{\sim}H^*(T,\varphi^*F).\tag{1.4.1}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If $F$ is a constant sheaf on a closed set $[\cdot,i]$, extended by zero to $I$, then $\varphi^*F$ is constant on $T_i$, extended by zero to $T$, and (1.4.1) follows from the acyclicity of $[\cdot,i]$ and of $T_i$.
+
+The general case follows by devissage: for a short exact sequence $0\to F_1\to F_2\to F_3\to 0$ of sheaves on $I$, the two sides of (1.4.1) give long exact cohomology sequences, and if (1.4.1) is an isomorphism for two of the $F_i$, it is so for the third.  Conclude by 1.3.
+\end{proof}
+
+\begin{remark}[1.5]
+If $|I|$ is the classifying space of the category $I$, define a continuous map $|I|\to I$ by sending the interior of the simplex $[i_0,\ldots,i_n]$ with $i_0<i_1<\cdots<i_n$ to $i_n$.  Under this map the inverse image of $[\cdot,i]$ is $|[\cdot,i]|$, a cone with vertex $i$.  The hypothesis of 1.4 is therefore satisfied, and taking $F$ to be a constant sheaf one recovers the fact that $I$ and $|I|$ have the same cohomology.
+\end{remark}
+
+\subsection*{1.6}
+Assume that $T$ is locally compact, separated, and countable at infinity, and that the closed strata $T_i$ are acyclic manifolds without boundary.  Being acyclic, $T_i$ is orientable and connected.
+
+For every connected orientable manifold $V$, write $\ornt(V)$ for the free rank-one graded $\ZZ$-module, pure of degree $\dim(V)$, whose generators $\pm e$ correspond to the two orientations of $V$.  For every abelian group $\Lambda$ and every point $x\in V$,
+\begin{equation}
+\Lambda\otimes\ornt(V)=H^*_{\{x\}}(V,\Lambda)\xrightarrow{\sim}H_c^{\dim(V)}(V,\Lambda),\tag{1.6.1}
+\end{equation}
+and, if $V$ is acyclic, Poincare duality gives
+\begin{equation}
+\Lambda\otimes\ornt(V)\xrightarrow{\sim}H_c^*(V,\Lambda).\tag{1.6.2}
+\end{equation}
+Write simply $\ornt_i$ for $\ornt(T_i)$.
+
+Choose, in each stratum $S_i$, a point $x_i$.  For every sheaf $F$ on $I$ there is an inverse-image map in cohomology with support
+\begin{equation}
+\varphi^*:H^*_{\{i\}}([i,\cdot],F)\longrightarrow H^*_{S_i}\left(\bigcup_{i\leq j}S_j,\varphi^*F\right).\tag{1.6.3}
+\end{equation}
+Note that $U_i:=\bigcup_{i\leq j}S_j$ is an open subset of $T$, and that $S_i$ is closed in $U_i$.  There is a cup product
+\begin{equation}
+H^*_{S_i}(U_i,\varphi^*F)\otimes H^*_{\{x_i\}}(S_i,\ZZ)\longrightarrow H^*_{\{x_i\}}(U_i,\varphi^*F).\tag{1.6.4}
+\end{equation}
+In the language of derived categories, $H^*_{S_i}(U_i,\varphi^*F)$ is a $\Hom^*$ in $D(U_i)$ from $\ZZ_{S_i}$ to $\varphi^*F$, $H^*_{\{x_i\}}(S_i,\ZZ)$ is a $\Hom^*$ from $\ZZ_{\{x_i\}}$ to $\ZZ_{S_i}$, and the cup product is simply composition.  The composite
+\begin{equation}
+H^*_{S_i}(U_i,\varphi^*F)\otimes \ornt_i\xrightarrow{1.6.4}H^*_{\{x_i\}}(U_i,\varphi^*F)\longrightarrow H^*_c(U_i,\varphi^*F)\tag{1.6.5}
+\end{equation}
+depends only on the connected component of $S_i$ in which $x_i$ lies.  Indeed, it factors through the tensor product by $H^*_{S_i}(U_i,\varphi^*F)$ of the morphism
+\[
+\ornt_i=H^*_{\{x_i\}}(S_i,\ZZ)\longrightarrow H_c^*(S_i,\ZZ).
+\]
+Composing (1.6.3) and (1.6.5), one obtains morphisms
+\begin{equation}
+H^*_{\{i\}}([i,\cdot],F)\otimes \ornt_i\longrightarrow H_c^*(U_i,\varphi^*F),\tag{1.6.6}
+\end{equation}
+which, composed with $H_c^*(U_i,\varphi^*F)\to H_c^*(T,\varphi^*F)$, give
+\begin{equation}
+\bigoplus_i H^*_{\{i\}}([i,\cdot],F)\otimes \ornt_i\longrightarrow H_c^*(T,\varphi^*F).\tag{1.6.7}
+\end{equation}
+
+\begin{theorem}[1.7]
+Under the hypotheses and with the notation of 1.6, the morphism (1.6.7) is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+For a short exact sequence $0\to F_1\to F_2\to F_3\to 0$, the two sides of (1.6.7) give long exact cohomology sequences.  Applying 1.3, we reduce to verifying the assertion for $F=\Lambda_{[\cdot,i]}$, the constant sheaf $\Lambda$ on a closed set $[\cdot,i]$, extended by zero to $I$.
+
+Compute $H^*_{\{j\}}([j,\cdot],\Lambda_{[\cdot,i]})$.  If $j\nleq i$, then $\Lambda_{[\cdot,i]}$ is zero on $[j,\cdot]$, and one gets $0$.  Suppose that $j\leq i$.  There is a long exact sequence
+\[
+\cdots\to H^*_{\{j\}}([j,\cdot],\Lambda_{[\cdot,i]})\to H^*([j,\cdot],\Lambda_{[\cdot,i]})\to H^*(]j,\cdot],\Lambda_{[\cdot,i]})\to\cdots
+\]
+which identifies with
+\[
+\cdots\to H^*_{\{j\}}([j,i],\Lambda)\to H^*([j,i],\Lambda)\to H^*(]j,i],\Lambda)\to\cdots .
+\]
+For $j<i$, both $[j,i]$ and $]j,i]$ are acyclic, and $H^*_{\{j\}}([j,i],\Lambda)=0$.  For $i=j$, one has $]j,i]=\varnothing$, $[j,i]=\{j\}$, and $H^*_{\{j\}}(\{j\},\Lambda)=\Lambda$ in degree $0$.  The map (1.6.7) is therefore reduced to the isomorphism (1.6.2) for $T_i$.
+\end{proof}
+
+\begin{corollary}[1.8]
+With the hypotheses and notation of 1.6, suppose that $I$ has a greatest element $1$, and let $S_1$ be the corresponding stratum.  Let $j_1$ be the inclusion of $\{1\}$ in $I$, and let $j_{1!}\Lambda$ be the constant sheaf $\Lambda$ on the open set $\{1\}$, extended by zero to $I$.  Then the choice of a connected component of each $S_i$ defines an isomorphism
+\begin{equation}
+\bigoplus_i H^*_{\{i\}}([i,1],j_{1!}\Lambda)\otimes\ornt_i\xrightarrow{\sim}H_c^*(S_1,\Lambda).\tag{1.8.1}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Let $j$ be the inclusion of $S_1$ in $T$.  The inverse image of $j_{1!}\Lambda$ on $T$ is $j_!\Lambda$, the constant sheaf $\Lambda$ on $S_1$ extended by zero to $T$.  We have
+\[
+H_c^*(S_1,\Lambda)\xrightarrow{\sim}H_c^*(T,j_!\Lambda),
+\]
+and 1.8 follows from 1.7 applied to $j_{1!}\Lambda$.
+\end{proof}
+
+\begin{construction}[1.9]
+Let $I$ be a finite ordered set with greatest element $1$, and let $j_1$ be the inclusion of the open set $\{1\}$ in $I$.  Then
+\[
+H^*_{\{i\}}([i,1],j_{1!}\Lambda)=
+\begin{cases}
+\Lambda & \text{in degree }0,\text{ if }i=1,\\
+\widetilde H^{*-2}(]i,1[,\Lambda) & \text{otherwise.}
+\end{cases}
+\]
+If $]i,1[$ is empty, the reduced cohomology $\widetilde H^*$ is $\Lambda$ in degree $-1$.
+\end{construction}
+
+\begin{proof}[Construction]
+The case $i=1$ is clear.  Suppose $i<1$ and put $F:=j_{1!}\Lambda$.  The groups $H^p([i,1],F)$ are then all zero: for $p>0$ because $[i,1]$ has a least element, and for $p=0$ because $F([i,1])=F_i=0$.  The long exact sequence
+\[
+\cdots\to H^*_{\{i\}}([i,1],\cdot)\to H^*([i,1],\cdot)\to H^*(]i,1],\cdot)\to\cdots
+\]
+therefore reduces, for $F$, to an isomorphism
+\begin{equation}
+\partial:H^p(]i,1],F)\xrightarrow{\sim}H^{p+1}_{\{i\}}([i,1],F).\tag{1.9.1}
+\end{equation}
+Let $\Lambda_{]i,1[}$ be the constant sheaf $\Lambda$ on the closed subset $]i,1[$ of $]i,1]$, extended by zero to $]i,1]$.  Since $]i,1]$ is acyclic, because it has a greatest element, the long exact cohomology sequence defined by
+\[
+0\to F\to\Lambda\to\Lambda_{]i,1[}\to 0
+\]
+reduces to an isomorphism
+\begin{equation}
+\partial:\widetilde H^p(]i,1[,\Lambda)\xrightarrow{\sim}H^{p+1}(]i,1],F).\tag{1.9.2}
+\end{equation}
+The isomorphism of 1.9 is the composite of (1.9.1) and (1.9.2).
+\end{proof}
+
+\subsection*{1.10. Variants: homology and cohomology of $S_1$}
+If $V$ is an oriented pure $n$-dimensional manifold, cap product with the fundamental class is an isomorphism from compactly supported cohomology of $V$ to homology of $V$:
+\[
+H_c^i(V,\Lambda)\xrightarrow{\sim}H_{n-i}(V,\Lambda).
+\]
+Under the hypotheses of 1.8, and up to a renumbering and a twist by $\ornt(T)$, (1.8.1) therefore also computes the homology of $S_1$.
+
+The results obtained in compactly supported cohomology, or equivalently here in homology, give by duality--between homology and cohomology, or by Poincare duality between cohomology and compactly supported cohomology--analogous results in cohomology.
+
+For cohomology with coefficients in a field $k$, one simply has
+\[
+H^i=\Hom_k(H_i,k)
+\]
+respectively $H^i=\Hom_k(H_c^{n-i},k)$, and in the present case these vector spaces are finite-dimensional.  The same statement holds for $k=\ZZ/N\ZZ$.  For $\Lambda$ finite and $\Lambda'$ its $\QQ/\ZZ$-dual, one similarly has
+\[
+H^i(\cdot,\Lambda')=\Hom(H_i(\cdot,\Lambda),\QQ/\ZZ),
+\]
+respectively
+\[
+H^i(\cdot,\Lambda')=\Hom(H_c^{n-i}(\cdot,\Lambda),\QQ/\ZZ).
+\]
+More generally, one may use Pontryagin duality, with values in $\RR/\ZZ$.
+
+Another method, for $\Lambda$ finitely generated over $\ZZ$, is to work systematically in derived categories, taking as coefficient $\Lambda$ an object of $D^b(\ZZ)$ with finitely generated cohomology over $\ZZ$.  If $\Lambda'$ is the dual $R\Hom(\Lambda,\ZZ)$ of $\Lambda$, then one still has
+\[
+R\Gamma(S_1,\Lambda')=\RHom(R\Gamma_c(S_1,\Lambda),\ZZ)\otimes\ornt(T).
+\]
+
+\paragraph{Notation.} We shall write $h_c^*(i)$ for the groups
+\[
+H^*_{\{i\}}([i,1],F)\otimes\ornt_i
+\]
+which occur in the decomposition (1.8.1) of $H_c^*(S_1,\Lambda)$.  The factors in the corresponding decompositions of $H_*(S_1,\Lambda)$ and $H^*(S_1,\Lambda)$ will be denoted by $h_*(i)$ and $h^*(i)$.
+
+The free rank-one graded $\ZZ$-module of coorientations of $T_i$ in $T$, denoted $\coor(T_i)$, or simply $\coor_i$, is defined by
+\[
+\ornt(T_i)\otimes\coor(T_i)\xrightarrow{\sim}\ornt(T).
+\]
+By duality, one deduces from 1.8 and 1.9 that
+\begin{equation}
+h^*(i)=
+\begin{cases}
+\Lambda & \text{in degree zero for }i=1,\\
+\widetilde H_*(]i,1[,\Lambda)[2]\otimes\coor_i & \text{otherwise.}
+\end{cases}\tag{1.10.1}
+\end{equation}
+In the second line, homological degree $p$ is identified with cohomological degree $-p$: for $i\neq 1$,
+\[
+h^p(i)=\widetilde H_{\codim(T_i)-p-2}(]i,1[,\Lambda)\otimes\coor_i.
+\]
+
+\begin{example}[1.11]
+Let $V$ be a real affine space and let $\mathcal A$ be a finite set of affine subspaces $A\neq\varnothing,V$ of $V$, such that if the intersection of two elements of $\mathcal A$ is non-empty, then that intersection belongs to $\mathcal A$.  Put
+\[
+\mathcal A^+:=\mathcal A\cup\{V\},\qquad X:=V-\bigcup\mathcal A.
+\]
+We call $\mathcal A^+$, respectively $\mathcal A$, the set of flats, respectively of proper flats, of the arrangement $\mathcal A$.  The flats are the closed strata of a stratification of $V$, indexed by the set $\mathcal A^+$ ordered by inclusion.  Let $\varphi:V\to\mathcal A^+$ be the corresponding map.  We shall sometimes write $A^0$ for the stratum corresponding to the flat $A$:
+\begin{equation}
+A^0:=\varphi^{-1}(A)=A-\bigcup\{\text{smaller flats}\}.\tag{1.11.1}
+\end{equation}
+The flats are acyclic varieties.  Applying 1.8, the choice in each stratum $A^0$ of a point $x_A$ defines an isomorphism
+\begin{equation}
+H_c^*(X,\Lambda)=\bigoplus_A h_c^*(A)\qquad\text{(sum over the flats)},\tag{1.11.2}
+\end{equation}
+where
+\[
+h_c^*(A)=H^*_{\{A\}}([A,V],j_{V!}\Lambda)\otimes\ornt(A),
+\]
+and $j_V$ is the inclusion of $\{V\}$ in $\mathcal A^+$.
+
+In \cite{GM}, Goresky and MacPherson obtain such a decomposition of the homology of $X$ by applying Morse theory to a function ``distance to $v_0\in V$''.  The Euclidean structure on $V$ and the point $v_0$ are chosen generically, in the sense that:
+\begin{enumerate}[label=(\alph*)]
+\item for each flat $A$, the critical point on $A$ of the distance function $d(v_0,\cdot)$, that is, the foot $x_A$ of the perpendicular dropped from $v_0$ to $A$, lies in $A^0$;
+\item the critical values $d(v_0,x_A)$ are distinct.
+\end{enumerate}
+For the flat $V$, one has $x_V=v_0$.
+
+Let $B(r)$ be the open ball with center $v_0$ and radius $r$.  Endow it with the stratification induced by that of $V$, whose closed strata are the traces on $B(r)$ of the flats which meet $B(r)$.  The hypotheses of 1.8 are again satisfied.  If a flat $A$ meets $B(r)$, then every flat $B\supset A$ also meets $B(r)$, and the group $h_c^*(A)$ is the same for $B(r)$ and for $V$.  The diagram
+\begin{equation}
+\begin{tikzcd}
+\displaystyle\bigoplus_{A\cap B(r)\neq\varnothing}h_c(A) \arrow[r] \arrow[d,"\sim"'] & \displaystyle\bigoplus_A h_c(A) \arrow[d,"\sim"] \\
+H_c(X\cap B(r),\Lambda) \arrow[r] & H_c(X,\Lambda)
+\end{tikzcd}\tag{1.11.3}
+\end{equation}
+is commutative.  Orient $V$, and identify homology and compactly supported cohomology as in 1.10.  When $r$, increasing, passes a critical value $r_A:=d(v_0,x_A)$, the Morse group, in homology, which measures the change from $H_*(B(r_A-\epsilon),\Lambda)$ to $H_*(B(r_A+\epsilon),\Lambda)$ is, by (1.11.3), the group $h(A)$.  Our definition of the map
+\[
+h(A)\longrightarrow H_c^*(X\cap B(r_A+\epsilon),\Lambda)\longrightarrow H_c^*(X,\Lambda)
+\]
+corresponding to the choice of $x_A$ as marked point in $A^0$ is inspired by the proof in \cite{GM} that the Morse function $d(v_0,\cdot)$ is perfect.  The decomposition by flats of $H_*(X,\Lambda)$ implicit in \cite{GM} therefore coincides with the decomposition (1.11.2) of $H_c^*(X,\Lambda)$, for the choice of the $x_A$ as marked points.
+\end{example}
+
+\begin{example}[1.12]
+If $T$ is a convex open subset of $\RR^n$ and $E$ is a finite set of traces on $T$ of affine subspaces, then the intersections $T\cap F$ for $F\subset E$ which are non-empty are the closed strata of a stratification of $T$ satisfying the hypotheses of 1.8.  More generally, one may take $T$ to be a convex subset of a space of negative curvature and $E$ a set of totally geodesic subspaces.
+\end{example}
+
+\begin{example}[1.13]
+In Examples 1.11 and 1.12, the ordered set $I$ indexing the strata has the property that if $i$ and $j$ in $I$ have a lower bound, then they have a greatest lower bound $\inf(i,j)$.  This is not necessarily the case in applications of 1.8.  For example, one may have a disk, two curves $A$ and $B$, and the two points of intersection as closed strata; the two intersection points have the same two curve strata above them without a single greatest lower bound.
+\end{example}
+
+\begin{example}[1.14]
+Our proof of 1.8 is sheaf-theoretic.  It does not use Morse theory.  It therefore applies in $\ell$-adic cohomology.  The only difference is that for $V$ a connected smooth algebraic variety of dimension $n$ over an algebraically closed field, the group $\ornt(V)$ of 1.6 must be replaced by the Tate module $\ZZ_\ell(-n)$ placed in degree $2n$.
+
+Let $V$ be an affine space over $k$, let $\mathcal A$ be a finite set of affine subspaces, and let $\mathcal A^+$ and $X$ be as in 1.11.  One has
+\begin{equation}
+\bigoplus_A H^*_{\{A\}}([A,V],j_{V!}\ZZ_\ell)(-\dim A)[-2\dim A]
+\xrightarrow{\sim}H_c^*(X,\ZZ_\ell).\tag{1.14.1}
+\end{equation}
+Since the $A^0$ are connected here, (1.14.1) does not depend on the choice of marked points in the strata.
+
+If $k=\CC$, the same decomposition holds in mixed Hodge theory: in the decomposition (1.11.2) of $H_c^*(X,\ZZ)$, the factor $h_c^*(A)$ is pure of Hodge type $(\dim_\CC A,\dim_\CC A)$.  Dually, $h^*(A)$ is pure of Hodge type $(\codim(A),\codim(A))$.
+
+In the complex case, cup product is compatible with the mixed Hodge structure.  In algebraic geometry the arrangement $\mathcal A$ may be defined over a subfield $k_0$ of $k$ of finite type over its prime subfield; the Galois group $\operatorname{Gal}(\overline{k}_0/k_0)$ acts on cohomology, and cup product is compatible with the Galois action.  Under the above hypotheses and in rational cohomology, respectively $\QQ_\ell$-cohomology, the component
+\[
+h^*(A)\otimes h^*(B)\longrightarrow h^*(C)
+\]
+of the cup product can therefore be non-zero only if
+\[
+\codim(C)=\codim(A)+\codim(B).
+\]
+\end{example}
+
+\section{Functoriality in the Arrangement}
+
+\subsection*{2.1}
+Let $V$, $\mathcal A$, $\mathcal A^+:=\mathcal A\cup\{V\}$, $X:=V-\bigcup\mathcal A$, and $\varphi:V\to\mathcal A^+$ be as in 1.11.  Let $\mathcal A'\subset\mathcal A$ satisfy the same hypotheses as $\mathcal A$, and denote the corresponding objects by primes.  The stratification of $V$ defined by $\mathcal A$ refines that defined by $\mathcal A'$.  If
+\[
+\alpha:\mathcal A^+\longrightarrow \mathcal A'{}^+
+\]
+assigns to a flat of $\mathcal A$ the smallest flat of $\mathcal A'$ containing it, then the diagram
+\[
+\begin{tikzcd}
+& V \arrow[dl,"\varphi"'] \arrow[dr,"\varphi'"] & \\
+\mathcal A^+ \arrow[rr,"\alpha"'] && \mathcal A'{}^+
+\end{tikzcd}
+\]
+is commutative.  Note that if the ordered sets $\mathcal A^+$ and $\mathcal A'{}^+$ are viewed as categories, then $\alpha$ is left adjoint to the inclusion $\incl$ of $\mathcal A'{}^+$ in $\mathcal A^+$.  Indeed,
+\[
+\alpha(A)\subset A'\Longleftrightarrow A\subset\incl(A').
+\]
+Mark each flat $A$ of $\mathcal A^+$ by a point $x_A\in A^0$, and mark $A'$ in $\mathcal A'{}^+$ by $x_{A'}:=x_{\incl(A')}$.  These points define decompositions (1.11.2) of $H_c^*(X,\Lambda)$ and $H_c^*(X',\Lambda)$.
+
+\paragraph{Notation.} Below, if a flat $A$ of $\mathcal A^+$ lies in $\mathcal A'{}^+$, we shall write it as $A'$ when it is to be considered as an element of $\mathcal A'{}^+$.  Thus the interval $[A,V]$ in $\mathcal A'{}^+$ will be denoted $[A',V]$, and $A'{}^0$ is $A-\bigcup\{\text{smaller flats of }\mathcal A'\}$.
+
+The inclusion $X\subset X'$ induces a morphism
+\begin{equation}
+H_c^*(X,\Lambda)\longrightarrow H_c^*(X',\Lambda).\tag{2.1.1}
+\end{equation}
+
+\begin{proposition}[2.2]
+Let $A$ be a flat of $\mathcal A^+$.
+\begin{enumerate}[label=(\roman*)]
+\item If $A$ is not a flat of $\mathcal A'{}^+$, then (2.1.1) is zero on $h_c^*(A)$.
+\item If $A$ is a flat of $\mathcal A'{}^+$, say $A=\incl(A')$, then (2.1.1) sends $h_c^*(A)$ into $h_c^*(A')$.  The morphism induced by (2.1.1) from $h_c^*(A)$ to $h_c^*(A')$ is the twist by $\ornt(A)$ of
+\begin{equation}
+\incl^*:H^*_{\{A\}}([A,V],j_{V!}\Lambda)\longrightarrow H^*_{\{A'\}}([A',V],j'_{V!}\Lambda).\tag{2.2.1}
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+Note that $\incl^{-1}(A)$ is reduced to $\{A'\}$, and that $j'_{V!}\Lambda$ is the inverse image on $[A',V]$ of $j'_{V!}\Lambda$, so that (2.2.1) is defined.  The inclusion of $X$, respectively $X'$, in $V$ will be denoted by $j_X$, respectively $j_{X'}$.
+
+\begin{proof}[Proof of (ii)]
+In the definition of the morphism $h_c^*(A')\to H_c^*(X',\Lambda)$, we interpret $H_c^*(X',\Lambda)$ as $H_c^*(V,j_{X'!}\Lambda)$ and take the cup product of an element of
+\[
+\ornt_A=H^*_{\{x_A\}}(\varphi'{}^{-1}(A'),\ZZ)
+\]
+with a class in $H^*_{A'}(\varphi'{}^{-1}([A',V]),j_{X'!}\Lambda)$.  Since we take the product with a class supported at $x_A$, it matters only through its restriction to a neighborhood of $x_A$.  Take as neighborhood the open set $U:=\varphi^{-1}([A,V])$.  The morphism from $h_c^*(A')$ to $H_c^*(X',\Lambda)$ is deduced from
+\[
+\varphi'{}^*:H^*_{\{A'\}}([A',V],j'_{V!}\Lambda)\to H_{A^0}(U,j_{X'!}\Lambda).
+\]
+Again write $\alpha$ for the restriction $[A,V]\to[A',V]$ of $\alpha$ to $[A,V]$.  The inverse image of $A'$ in $[A,V]$ is reduced to $A$, and $\alpha$ induces
+\begin{equation}
+\alpha^*:H^*_{\{A'\}}([A',V],j'_{V!}\Lambda)\to H^*_{\{A\}}([A,V],\alpha^*j'_{V!}\Lambda).\tag{2.2.2}
+\end{equation}
+The morphism $\alpha^*$ is an isomorphism.  By the long exact sequence for cohomology with support, it is enough to verify that for every sheaf $F$ on $[A',V]$ one has
+\[
+H^*([A',V],F)\xrightarrow{\sim}H^*([A,V],\alpha^*F),
+\qquad
+H^*(]A',V],F)\xrightarrow{\sim}H^*(]A,V],\alpha^*F).
+\]
+This is an application of 1.4, with $\alpha$ viewed as a stratification of $[A,V]$ or $]A,V]$: the inverse image of $[\cdot,x]$ is $[\cdot,\incl(x)]$, acyclic because it has a greatest element.
+
+Consider the commutative diagram
+\begin{equation}
+\begin{tikzcd}[column sep=small]
+H^*_{\{A\}}([A,V],j_{V!}\Lambda) \arrow[r] \arrow[d] & H^*_{\{A\}}([A,V],\alpha^*j'_{V!}\Lambda) & H^*_{\{A'\}}([A',V],j'_{V!}\Lambda) \arrow[l,"\sim"'] \arrow[dl] \\
+H_{\varphi^{-1}(A)}(U,j_{X!}\Lambda) \arrow[r] & H_{\varphi^{-1}(A)}(U,j_{X'!}\Lambda) &
+\end{tikzcd}\tag{2.2.3}
+\end{equation}
+It defines a commutative diagram
+\[
+\begin{tikzcd}
+h_c^*(A) \arrow[r] \arrow[d] & h_c^*(A') \arrow[d]\\
+H_c^*(X,\Lambda) \arrow[r] & H_c^*(X',\Lambda),
+\end{tikzcd}
+\]
+whose first line is the twist by $\ornt(A)$ of the first line of (2.2.3).  Since $\alpha\circ\incl$ is the identity of $\mathcal A'{}^+$, the corresponding commutative diagram shows that this first line coincides with the inverse image by $\incl$ used in the statement of (ii).
+\end{proof}
+
+\begin{proof}[Proof of (i) if $\bigcup\mathcal A=\bigcup\mathcal A'$]
+Under the hypothesis $\bigcup\mathcal A=\bigcup\mathcal A'$, one has $X=X'$.  We prove more precisely that $h_c^*(A)=0$ if the flat $A$ of $\mathcal A^+$ is not in $\mathcal A'{}^+$.  This is clear from the interpretation (1.10) of $h_c^*(A)$ as a Morse group: the ``critical point'' corresponding to $A$ is superfluous, and its passage does not correspond to a change in the topology of $X'\cap B(r)$.  Another proof is as follows.  The inverse image of $V$ by $\alpha:[A,V]\to[A',V]$ is reduced to $V$, and by (2.2.2), $h_c^*(A)\to h_c^*(A')$ is an isomorphism.  From the commutative diagram
+\[
+\begin{tikzcd}
+\displaystyle\bigoplus_A h_c^*(A) \arrow[rr] \arrow[dr,"\sim"'] && \displaystyle\bigoplus_{A'} h_c^*(A') \arrow[dl,"\sim"]\\
+& H_c^*(X,\Lambda) &
+\end{tikzcd}
+\]
+it follows that $h_c^*(A)=0$ for $A$ in $\mathcal A$ and not in $\mathcal A'$.
+\end{proof}
+
+\begin{proof}[Proof of (i) if $A\neq V$ and $A\not\subset\bigcup\mathcal A'$]
+One has $\varphi^{-1}(A)\subset X'$.  The diagram
+\[
+\begin{tikzcd}
+H^*_{\{A\}}([A,V],j_{V!}\Lambda)\otimes\ornt(A) \arrow[r] \arrow[d] & H^*_{\{A\}}([A,V],\Lambda)\otimes\ornt(A) \arrow[d]\\
+H_c(X,\Lambda) \arrow[r] & H_c^*(X',\Lambda)
+\end{tikzcd}
+\]
+is commutative, and $H^*_{\{A\}}([A,V],\Lambda)=0$, because $[A,V]$ and $]A,V]$ are both acyclic.
+\end{proof}
+
+\begin{proof}[Proof of (i), general case]
+Let $\mathcal A''$ be the set of flats of $\mathcal A$ contained in $\bigcup\mathcal A'$.  Then $\mathcal A'\subset\mathcal A''\subset\mathcal A$, and it is enough to treat separately the inclusions of $\mathcal A'$ in $\mathcal A''$ and of $\mathcal A''$ in $\mathcal A$, both consequences of the cases already treated.
+\end{proof}
+
+\subsection*{2.3}
+Assume that the arrangement $\mathcal A$ satisfies the connectedness hypothesis \textup{(CONN)} of the introduction.  Let $A$ be a flat, let $x_A$ be a point of the corresponding stratum $A^0$, and let $U$ be an open ball with center $x_A$, small enough to meet no flats other than those which contain $A$.  As observed in 1.12, one may apply 1.8 to $U$, endowed with the stratification induced by $\mathcal A$, indexed by $[A,V]$.  The inclusion of $U-\bigcup[A,V]$ in $V-\bigcup[A,V]$ is a homotopy equivalence, and by 2.2 one has a commutative diagram
+\begin{equation}
+\begin{tikzcd}
+\displaystyle\bigoplus_{B\in[A,V]}h_c(B) \arrow[r] \arrow[d] & \displaystyle\bigoplus h_c(B) \arrow[r] \arrow[d] & \displaystyle\bigoplus_{B\in[A,V]}h_c(B) \arrow[d]\\
+H_c^*(U-\bigcup[A,V],\Lambda) \arrow[r] & H_c^*(X,\Lambda) \arrow[r] & H_c^*(V-\bigcup[A,V],\Lambda).
+\end{tikzcd}\tag{2.3.1}
+\end{equation}
+The composite in the second line is an isomorphism.  It makes $H_c^*(U-\bigcup[A,V])$ a direct factor of $H_c^*(X,\Lambda)$, and the corresponding idempotent $p_A$ is identified by 2.2 with the projection of $\bigoplus_{B\in\mathcal A^+}h(B)$ onto the partial sum $\bigoplus_{B\in[A,V]}h(B)$.  The idempotents $p_A$ for $A\in\mathcal A^+$ defined by the second line of (2.3.1) therefore commute with one another.  They allow one to recover the decomposition of $H_c^*(X,\Lambda)$ indexed by the flats.  The dual decomposition of $H^*(X,\Lambda)$ may similarly be reconstructed from the idempotents defined by
+\[
+H^*\bigl(V-\bigcup[A,V],\Lambda\bigr)\longrightarrow H^*(X,\Lambda)\longrightarrow H^*\bigl(U-\bigcup[A,V],\Lambda\bigr),
+\]
+whose composite is an isomorphism.
+
+\section{Restriction to a Linear Subspace}
+
+\subsection*{3.1}
+Resume the notation $V$, $\mathcal A$, $\mathcal A^+$, $X$, and $\varphi:V\to\mathcal A^+$ of 1.11.  Let $V'$ be an affine subspace of $V$ not contained in $\bigcup\mathcal A$, let $\mathcal A'$ be the set of non-empty intersections of $V'$ with a flat $A\in\mathcal A$, and let
+\[
+X':=V'-\bigcup\mathcal A'=X\cap V'.
+\]
+Choose a coorientation of $V'$ in $V$.  It defines a Gysin morphism
+\begin{equation}
+H_c^*(X',\Lambda)\longrightarrow H_c^*(X,\Lambda).\tag{3.1.1}
+\end{equation}
+
+\begin{theorem}[3.2]
+Assume that $(V,\mathcal A)$ and $(V',\mathcal A')$ satisfy the connectedness hypothesis \textup{(CONN)}.  Then, for $A$ in $\mathcal A$ and $A'$ in $\mathcal A'$, the component
+\begin{equation}
+h_c^*(A')\longrightarrow h_c^*(A)\tag{3.2.1}
+\end{equation}
+of the morphism (3.1.1), in the decompositions (1.11.2), can be non-zero only if $A'=A\cap V'$ and the intersection of $A$ and $V'$ is transverse.  In that case, the choice of the coorientation of $V'$ in $V$ defines an isomorphism $\epsilon:\ornt(A')\xrightarrow{\sim}\ornt(A)$; the map ``trace on $V'$'',
+\[
+\alpha:[A,V]\longrightarrow[A',V'],
+\]
+is injective, and (3.2.1) is the tensor product of $\epsilon$ with
+\begin{equation}
+\alpha^*:H^*_{\{A'\}}([A',V'],j_{V'!}\Lambda)\longrightarrow H^*_{\{A\}}([A,V],j_{V!}\Lambda).\tag{3.2.2}
+\end{equation}
+\end{theorem}
+
+Let $A\in\mathcal A$, let $\mathcal A_A:=[A,V]\subset\mathcal A$, let $X_A:=V-\bigcup\mathcal A_A$, let $\mathcal A'_A$ be the set of non-empty intersections of $V'$ with a flat $B\in\mathcal A_A$, and let
+\[
+X'_A=V'-\bigcup\mathcal A'_A=V'\cap X_A.
+\]
+The group $h_c^*(A)$ is the same for $(V,\mathcal A)$ and for $(V,\mathcal A_A)$.  The diagram
+\[
+\begin{tikzcd}
+H_c^*(X',\Lambda) \arrow[r] \arrow[d] & H_c^*(X,\Lambda) \arrow[r] \arrow[d] & h_c^*(A) \arrow[d,equal]\\
+H_c^*(X'_A,\Lambda) \arrow[r] & H_c^*(X_A,\Lambda) \arrow[r] & h_c^*(A)
+\end{tikzcd}
+\]
+is commutative.  For the square on the right, apply 2.2.  The first vertical arrow was computed in 2.2.  It remains to compute the composite in the second line.  In other words, in order to compute $H_c^*(X',\Lambda)\to h_c^*(A)$, we have reduced to the case in which $A$ is the least element of $\mathcal A$.
+
+\begin{lemma}[3.3]
+If $A$ is the least element of $\mathcal A$ and the intersection of $A$ and $V'$ is empty or is not transverse, then the composite
+\[
+H_c^*(X')\longrightarrow H_c^*(X)\longrightarrow h(A)
+\]
+is zero.
+\end{lemma}
+
+\begin{proof}
+Choose a Euclidean structure.  If $A$ and $V'$ are disjoint, then for $\epsilon$ small enough the set $U$ of points of $V$ at distance $<\epsilon$ from $V'$ is disjoint from $A$.  The Gysin morphism factors through $H_c^*(U\cap X',\Lambda)$.  Applying (1.8) to $U$, with the stratification induced by that of $V$, one sees that $H_c^*(U\cap X,\Lambda)$ maps into
+\[
+\bigoplus_{B\cap U\neq\varnothing} h(B)\subset H_c^*(X,\Lambda),
+\]
+and therefore has zero projection to $h(A)$.
+
+If $A$ meets $V'$ and the intersection is non-transverse, there exists a hyperplane $H$ containing $A$ and $V'$.  Let $U$ be one of the two half-spaces defined by $H$.  The map from $H_c^*(X',\Lambda)$ to $H_c^*(X,\Lambda)$ then factors through $H_c^*(U\cap X)$.  This is clear if, applying 1.10, one replaces $H_c^*$ by homology $H_*$, the Gysin morphism becoming a direct image in homology.  Indeed, $X'$ lies in the boundary of $U$, in a part of the boundary of $U$, namely $H\cap X$, where the closure $\overline U$ of $U$ is a manifold with boundary.  This permits any cycle traced on $X'$ to be pushed into the interior of $U$.
+
+As before, the image of $H_c^*(U\cap X)$ in $H_c^*(X)$ is contained in the sum of the $h_c^*(B)$ for $B\cap U\neq\varnothing$, and hence has zero projection to $h(A)$.
+\end{proof}
+
+\subsection*{3.4}
+It remains to treat the case in which $A$ is the least element of $V$, $A\cap V'\neq\varnothing$, and the intersection of $A$ and $V'$ is transverse.  For affine spaces $V_1$ and $V_2$, for a system $\mathcal A_1$ of flats of $V_1$, and for a point $0$ of $V_2$, the triple $(V,V',\mathcal A)$ is isomorphic to
+\[
+(V_1\times V_2,\, V_1\times\{0\},\, \{B\times V_2\mid B\in\mathcal A_1\}).
+\]
+If $X_1=V_1-\bigcup\mathcal A_1$, then $X=X_1\times V_2$ and $X'=X_1\times\{0\}$; the Gysin morphism is the Kunneth isomorphism
+\[
+H_c^*(X_1,\Lambda)\otimes H_c^{\dim V_2}(V_2,\ZZ)\xrightarrow{\sim}H_c^*(X,\Lambda).
+\]
+It sends each $h_c^*(B_1)$ isomorphically to $h_c^*(B_1\times V_2)$, by the map indicated in 3.2.
+
+\subsection*{3.5}
+Dually, consider the restriction morphism
+\begin{equation}
+H^*(X,\Lambda)\longrightarrow H^*(X',\Lambda).\tag{3.5.1}
+\end{equation}
+In terms of the decompositions of 1.10 indexed by $\mathcal A$ and $\mathcal A'$, respectively
+\[
+H^*(X,\Lambda)=\bigoplus h^*(A),\qquad H^*(X',\Lambda)=\bigoplus h^*(A'),
+\]
+3.2 implies by duality that the only non-zero components of the restriction morphism (3.5.1) are the
+\[
+h_A\longrightarrow h_{A'}
+\]
+for $A'=A\cap X'$, the intersection being transverse, and they are deduced by duality from (3.2.2).
+
+\section{Application to the Cup Product}
+
+\subsection*{4.1}
+Let $(V_1,\mathcal A_1)$ and $(V_2,\mathcal A_2)$ satisfy the hypotheses of (1.11), and let $V$ be the affine space $V_1\times V_2$.  Use the notation of 1.11 for $V_1$ and $V_2$, and also for $V$ endowed with the product stratification, whose strata, respectively closed strata, are products of strata, respectively closed strata, of $V_1$ and $V_2$.  The notation for $V_1$, respectively $V_2$, will carry subscript $1$, respectively $2$.  The ordered set $\mathcal A^+$ is naturally identified with the product of the ordered sets $\mathcal A_1^+$ and $\mathcal A_2^+$, and the diagram
+\[
+\begin{tikzcd}
+V \arrow[r,equal] \arrow[d,"\varphi"'] & V_1\times V_2 \arrow[d,"\varphi_1\times\varphi_2"]\\
+\mathcal A^+ \arrow[r,equal] & \mathcal A_1^+\times\mathcal A_2^+
+\end{tikzcd}
+\]
+is commutative.  Suppose that each stratum $A^0$ of $V_i$ is equipped with a marked point $x_A$, and mark the stratum $A^0\times B^0$ of $V_1\times V_2$ by the point $(x_A,x_B)$.
+
+Take as coefficients $\Lambda$ a commutative ring.  The cohomology of $X=X_1\times X_2$ is given by the Kunneth formula, which it is convenient for us to write in the derived category.  Only the case $\Lambda=\ZZ$ matters; the general case follows by extension of scalars $\otimes^L_\ZZ\Lambda$.  With the notation and hypotheses of 1.6, the isomorphism (1.6.7) refines to an isomorphism in the derived category
+\begin{equation}
+\bigoplus_i R\Gamma_{\{i\}}([i,\cdot],F)\otimes\ornt_i\xrightarrow{\sim}R\Gamma_c(T,\varphi^*F).\tag{4.1.1}
+\end{equation}
+The definition of the map is the same as in 1.6, and the fact that it is an isomorphism follows from 1.7.
+
+Special case: for $V_i$ with $i=1,2$,
+\begin{equation}
+\bigoplus_A R\Gamma_{\{A\}}([A,V_i],j_{V_i!}\Lambda)\otimes\ornt(A)\xrightarrow{\sim}R\Gamma_c(X_i,\Lambda),\tag{4.1.2}
+\end{equation}
+and similarly for $V$.  One advantage of the derived category is that the Kunneth formulas take the simple form that the cohomology of a product is the derived tensor product of the cohomologies of the factors.  The morphisms (4.1.2) are compatible with the following three Kunneth formulas: first, for the intervals $[A_i,V_i]$,
+\begin{equation}
+R\Gamma_{\{A_1\}}([A_1,V_1],j_{V_1!}\Lambda)\otimes^L R\Gamma_{\{A_2\}}([A_2,V_2],j_{V_2!}\Lambda)
+\xrightarrow{\sim}R\Gamma_{\{A_1\times A_2\}}([A_1\times A_2,V],j_{V!}\Lambda);\tag{4.1.3}
+\end{equation}
+second, for the $A_i$, $\ornt(A_1)\otimes\ornt(A_2)\xrightarrow{\sim}\ornt(A_1\times A_2)$; and third, for $X_1\times X_2$.  The diagram
+\begin{equation}
+\begin{tikzcd}[column sep=small]
+\left(R\Gamma_{\{A_1\}}([A_1,V_1],j_{V_1!}\Lambda)\otimes\ornt(A_1)\right)
+\otimes^L_\Lambda
+\left(R\Gamma_{\{A_2\}}([A_2,V_2],j_{V_2!}\Lambda)\otimes\ornt(A_2)\right)
+\arrow[r]\arrow[d,"\sim"']
+& R\Gamma_c(X_1,\Lambda)\otimes^L_\Lambda R\Gamma_c(X_2,\Lambda)\arrow[d,"\sim"]\\
+R\Gamma_{\{A_1\times A_2\}}([A_1\times A_2,V],j_{V!}\Lambda)\otimes\ornt(A_1\times A_2)\arrow[r]
+& R\Gamma_c(X,\Lambda)
+\end{tikzcd}\tag{4.1.4}
+\end{equation}
+is commutative.  Thus the decomposition (4.1.2) of $R\Gamma_c(X,\Lambda)$ is simply the derived tensor product of the decompositions (4.1.2) of the factors $R\Gamma_c(X_i,\Lambda)$ for $i=1,2$.
+
+Pass to the dual, denoted
+\[
+D(\cdots):=R\Hom_\Lambda(\cdots,\Lambda).
+\]
+Under the finiteness hypotheses verified here, this is an involutive operation in the derived category and it commutes with tensor product.  Poincare duality says that $R\Gamma(X_i,\Lambda)$ is the dual of $R\Gamma_c(X_i,\Lambda)$, twisted by $\ornt(V_i)$:
+\[
+R\Gamma(X_i,\Lambda)=D(R\Gamma_c(X_i,\Lambda))\otimes\ornt(V_i).
+\]
+The same holds for $X$.
+
+The isomorphism (4.1.2) therefore dualizes to an isomorphism
+\[
+R\Gamma(X_i,\Lambda)\xrightarrow{\sim}\bigoplus_A D\bigl(R\Gamma_{\{A\}}([A_i,V_i],j_{V_i!}\Lambda)\bigr)\otimes\coor(A),
+\]
+and, by compatibility between the Kunneth formula and Poincare duality, the corresponding diagram for $R\Gamma(X_1,\Lambda)\otimes^L_\Lambda R\Gamma(X_2,\Lambda)$ and $R\Gamma(X,\Lambda)$ is commutative.  The isomorphism in the second column is the tensor product of an isomorphism
+\[
+\coor(A_1\times A_2)=\coor(A_1)\otimes\coor(A_2)
+\]
+with the isomorphism deduced by duality from (4.1.3).
+
+\subsection*{4.2}
+Now let $(V,\mathcal A)$ be as in 1.11, and suppose that the connectedness hypothesis \textup{(CONN)} of the introduction is satisfied.  We apply 4.1 to $V\times V$.  The cup product in cohomology is the composite of the exterior product deduced from the isomorphism studied in 4.1,
+\[
+R\Gamma(X,\Lambda)\otimes^L R\Gamma(X,\Lambda)\xrightarrow{\sim}R\Gamma(X\times X,\Lambda),
+\]
+and the restriction to the diagonal
+\[
+\Delta^*:H^*(X\times X,\Lambda)\longrightarrow H^*(X,\Lambda).
+\]
+This is the restriction to the diagonal subspace $V$ of $V\times V$; it is a special case of (3.5.1).  By (4.1.4), the exterior product sends $h_c^*(A_1)\otimes h_c^*(A_2)$ into $h_c^*(A_1\times A_2)$.  The condition that $A_1\times A_2$ meet the diagonal transversely is equivalent to the condition that $A_1$ and $A_2$ meet transversely in $V$.  By 3.5, the only non-zero components of the cup product are therefore the components
+\begin{equation}
+h^*(A)\otimes h^*(B)\longrightarrow h^*(C)\tag{4.2.1}
+\end{equation}
+for $C=A\cap B$, this intersection being transverse.  In that case, (4.2.1) is deduced from the dual of the isomorphism (4.1.3) and from the dual of
+\[
+\alpha^*:R\Gamma_{\{C\}}([C,V],j_{V!}\Lambda)\to R\Gamma_{\{(A,B)\}}([A,V]\times[B,V],j_{(V,V)!}\Lambda),
+\]
+where $\alpha:[A,V]\times[B,V]\to[C,V]$ is intersection.
+
+\begin{remark}[4.3]
+Let $V$ be an affine space over an algebraically closed field $k$, and let $\mathcal A$, $\mathcal A^+$, and $X$ be as in 1.14.  The arguments used in 2.2 carry over unchanged to the case of $\ell$-adic cohomology.  By contrast, 3.3 creates a difficulty.  Consequently, our arguments do not determine the cup product in $\ell$-adic cohomology.  We conjecture that it remains given by the same formulas as in 4.2.
+\end{remark}
+
+\begin{thebibliography}{9}
+\bibitem[dS]{dS} M. de Longueville and C. Schultz, \emph{The cohomology rings of complements of subspace arrangements}, preprint, Technische Universit\"at Berlin, 2000.
+\bibitem[FZ]{FZ} E. Feichtner and G. Ziegler, \emph{On cohomology algebras of complex subspace arrangements}, Trans. Amer. Math. Soc. 352 (2000), 3523--3555.
+\bibitem[GM]{GM} M. Goresky and R. MacPherson, \emph{Stratified Morse theory}, Ergeb. Math. Grenzgeb. (3), 14, Springer-Verlag, Berlin, 1988.
+\bibitem[M]{M} J. W. Morgan, \emph{The algebraic topology of smooth algebraic varieties}, Inst. Hautes \`Etudes Sci. Publ. Math. 48 (1978), 137--204.
+\bibitem[Y]{Y} S. Yuzvinsky, \emph{Small rational model of subspace complement}, preprint.
+\end{thebibliography}
+
+\end{document}

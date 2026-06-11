@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\car}{\operatorname{car}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Dctf}{D_{\mathrm{ctf}}}
+\providecommand{\Id}{\mathrm{Id}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Gr}{\Gamma}
+\providecommand{\Fix}{\operatorname{Fix}}
+\providecommand{\Loc}{\operatorname{Loc}}
+\providecommand{\lto}{\longrightarrow}
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\lisom}{\xrightarrow{\sim}}
+\providecommand{\ctf}{\mathrm{ctf}}
+\providecommand{\et}{\mathrm{\acute{e}t}}
+\providecommand{\Sfrac}{SGA~$4^{1/2}$}
+
+
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\EP}{\operatorname{EP}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\DF}{\operatorname{DF}}
+
+
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\Dparf}{D_{\mathrm{parf}}}
+\providecommand{\Rr}{\mathrm{R}}
+\providecommand{\LL}{\mathbf L}
+\providecommand{\OO}{\mathcal O}
+\providecommand{\Res}{\operatorname{Res}}
+\providecommand{\Card}{\operatorname{Card}}
+\begin{document}
+
+\begin{statement}{6.5}
+
+\begin{equation}
+\tag{6.5.4}
+f_*c_*\RHom(c_1^*L_1,c_2^!L_2)
+\longrightarrow
+d_*\RHom(d_1^*(f_{1*}L_1),d_2^!(f_{2*}L_2)),
+\end{equation}
+\begin{equation}
+\tag{6.5.5}
+f_*:\Hom(c_1^*L_1,c_2^!L_2)
+\longrightarrow
+\Hom(d_1^*(f_{1*}L_1),d_2^!(f_{2*}L_2)),
+\end{equation}
+analogues à 3.7.5, 3.7.6.
+\end{statement}
+
+\begin{statement}{6.6}
+Soient, pour $i=1,2$, $X_i$ des $S$-schémas de tor-dimension finie et tor-indépendants, et $L_i\in\ob D(X_i)_{\parf/S}$. Le produit tensoriel externe des flèches d'évaluation
+\[
+DL_i\otimes^{\LL}L_i\longrightarrow K_{X_i}
+\]
+définit, comme en 4.1, des accouplements ``cup-produits'' analogues à 4.1.2, 4.1.3, 4.1.4.
+
+Soient $c:C\to X$, $d:D\to X$ des morphismes propres, $e=c\times_X d:E\to X$, $P,Q\in\ob D(X)_{\parf/S}$. D'après 6.1.1, on a
+\[
+c_*c^!P=\RHom(Rc_*\OO_C,P)
+\]
+(et un isomorphisme analogue avec $d$). Supposant $c$ et $d$ de tor-dimension finie aux points au-dessus de $e(E)$, on en déduit, par produit tensoriel, une flèche canonique
+\begin{equation}
+\tag{6.6.1}
+c_*c^!P\otimes^{\LL}d_*d^!Q
+\longrightarrow
+\RHom(Rc_*\OO_C\otimes^{\LL}Rd_*\OO_D,P\otimes^{\LL}Q).
+\end{equation}
+Quand $c$ et $d$ sont tor-indépendants, le second membre se récrit, par Künneth et 6.1.1, $e_*e^!(P\otimes^{\LL}Q)$, et 6.6.1 prend la forme 4.2.3. Pour $P=DL_1\otimes_S^{\LL}L_2$, $Q=L_1\otimes_S^{\LL}DL_2$, on déduit de 6.6.1 et des accouplements indiqués ci-dessus des accouplements analogues à 4.2.4, 4.2.5:
+\begin{equation}
+\tag{6.6.2}
+c_*\RHom(c_1^*L_1,c_2^!L_2)\otimes^{\LL}d_*\RHom(d_2^*L_2,d_1^!L_1)
+\longrightarrow
+\RHom(Rc_*\OO_C\otimes^{\LL}Rd_*\OO_D,K_X),
+\end{equation}
+\begin{equation}
+\tag{6.6.3}
+\langle\ ,\ \rangle:\Hom(c_1^*L_1,c_2^!L_2)\otimes\Hom(d_2^*L_2,d_1^!L_1)
+\longrightarrow
+\Hom(Rc_*\OO_C\otimes^{\LL}Rd_*\OO_D,K_X).
+\end{equation}
+Tout comme les accouplements de 4.2, ceux-ci sont compatibles à la localisation étale. Quand $c$ et $d$ sont tor-indépendants, le second membre de 6.6.2 (resp. 6.6.3) s'identifie canoniquement à $e_*K_E$ (resp. $H^0(E,K_E)$).
+\end{statement}
+
+\begin{statement}{Théorème 6.7}
+Soient, pour $i=1,2$, $f_i:X_i\to Y_i$ un $S$-morphisme propre, $f=f_1\times_S f_2:X\to Y$, $p_i:X\to X_i$, $q_i:Y\to Y_i$ les projections. Soit d'autre part un cube 4.4.0 à faces horizontales cartésiennes, avec $c'$, $c''$, $d'$, $d''$ propres, et $c'$, $c''$ (resp. $d'$, $d''$) de tor-dimension finie aux points au-dessus de $c(C)$ (resp. $d(D)$). On pose $c'_i=p_ic'$, $c''_i=p_ic''$, $d'_i=q_id'$, $d''_i=p_id''$. Soient enfin $L_i\in\ob D(X_i)_{\parf/S}$. On suppose les couples $(X_1,X_2)$, $(X_1,Y_2)$, $(Y_1,X_2)$, $(Y_1,Y_2)$ tor-indépendants sur $S$, et $X_i$ et $Y_i$ de tor-dimension finie sur $S$. On a alors un carré commutatif
+\begin{equation}
+\tag{6.7.1}
+\begin{array}{ccc}
+f_*c'_*\RHom(c_1'^*L_1,c_2'^!L_2)\otimes^{\LL} f_*c''_*\RHom(c_2''^*L_2,c_1''^!L_1)
+&\xrightarrow{(1)}&
+f_*\RHom(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''},K_X)\\[0.8em]
+\downarrow{(2)}&&\downarrow{(4)}\\[0.8em]
+d'_*\RHom(d_1'^*M_1,d_2'^!M_2)\otimes^{\LL} d''_*\RHom(d_2''^*M_2,d_1''^!M_1)
+&\xrightarrow{(3)}&
+\RHom(Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''},K_Y),
+\end{array}
+\end{equation}
+où $M_i=f_{i*}L_i$, $(3)$ est donné par 6.6.2, $(1)$ est déduit de 6.6.2 par application de $f_*$ et composition avec la flèche canonique
+\[
+f_*c'_*\otimes^{\LL}f_*c''_*\longrightarrow f_*(c'_*\otimes^{\LL}c''_*),
+\]
+$(2)$ est produit tensoriel des flèches 6.5.4 relatives aux faces contenant $f$, et $(4)$ est composé de l'isomorphisme de dualité 6.1.1 et de la flèche définie par la flèche canonique
+\[
+Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''}
+\longrightarrow
+f_*(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''})
+\]
+(adjointe du produit tensoriel des flèches ``de changement de base'' $f^*Rd'_*\OO_{D'}\to Rc'_*\OO_{C'}$, $f^*Rd''_*\OO_{D''}\to Rc''_*\OO_{C''}$).
+
+La démonstration est essentiellement la même que celle de 4.4, nous laissons au lecteur les menues modifications à apporter.
+
+Lorsque $c'$, $c''$ sont tor-indépendants, ainsi que $d'$, $d''$, la flèche $(4)$ de 6.7.1 se récrit sous la forme $f_*c_*K_C\to d_*K_D$, elle est simplement définie par la flèche d'adjonction $g_*K_C=g_*g^!K_D\to K_D$ (comme la flèche $(4)$ de 4.4.1). Il ne serait cependant pas naturel de ne considérer que ce cas, car on exclurait ainsi les correspondances à intersection excédentaire.
+
+On déduit de 6.7 des formules analogues à 4.5.1, 4.7.1: sous les hypothèses de 6.7, on a, pour $u\in\Hom(c_1'^*L_1,c_2'^!L_2)$, $v\in\Hom(c_2''^*L_2,c_1''^!L_1)$,
+\begin{equation}
+\tag{6.7.2}
+\langle f_*u,f_*v\rangle=f_*\langle u,v\rangle,
+\end{equation}
+où $f_*u$ (resp. $f_*v$) désigne la correspondance image directe de $u$ (resp. $v$) au sens de 6.5.5, et $f_*$ au second membre est l'homomorphisme
+\begin{equation}
+\tag{6.7.3}
+\Hom(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''},K_X)
+\longrightarrow
+\Hom(Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''},K_Y)
+\end{equation}
+composé de l'isomorphisme de dualité 6.1.1 et de la flèche induite par la flèche canonique
+\[
+Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''}
+\longrightarrow
+f_*(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''}),
+\]
+citée dans 6.7. Quand $Y_1=Y_2=S=D'=D''$, 6.7.2 est la formule de Lefschetz-Verdier.
+
+À titre d'illustration, nous allons montrer que cette formule implique la formule de Woods Hole [1].
+\end{statement}
+
+\begin{statement}{6.8}
+Nous aurons besoin pour cela de quelques rappels sur la classe de cohomologie ``de Hodge'' associée à un sous-schéma régulièrement plongé d'un schéma lisse et les résidus de Grothendieck ([8] III 9). Soient $f=X\to S$ un morphisme lisse purement de dimension relative $N$, $i:Y\hookrightarrow X$ une immersion régulière de codimension $d$ (i.e. ((SGA IV 16.9.2), (SGA 6 VII 1)) un sous-schéma fermé défini localement par une suite régulière de $d$ équations, ou, dans une terminologie équivalente ((8 III 1), (SGA 6 VIII 1)) une immersion fermée (localement) d'intersection complète de codimension $d$). Posons $g=fi$. On associe alors à $Y$ un élément
+\begin{equation}
+\tag{6.8.1}
+\cl_{X/S}(Y)\in\Ext^d_{\OO_X}(\OO_Y,\Omega^d_{X/S}),
+\end{equation}
+appelé classe de cohomologie associée à $Y$, défini de la manière suivante. D'après le théorème ``de pureté'' ([8] III 7.2), on a
+\begin{equation}
+\tag{6.8.2}
+\uExt^i_{\OO_X}(\OO_Y,\Omega^d_{X/S})=
+\begin{cases}
+0 & \text{si } i\ne d,\\
+\underline{\Hom}(\Lambda^dN_{Y/X},\Omega^d_{X/S}\otimes\OO_Y) & \text{si } i=d,
+\end{cases}
+\end{equation}
+où $N_{Y/X}=I/I^2$ est le faisceau conormal ($I=\Ker(\OO_X\to\OO_Y)$). Par suite,
+\begin{equation}
+\tag{6.8.3}
+\Ext^d_{\OO_X}(\OO_Y,\Omega^d_{X/S})=H^0(Y,\underline{\Hom}(\Lambda^dN_{Y/X},\Omega^d_{X/S}\otimes\OO_Y)).
+\end{equation}
+La différentielle $d_{X/S}:\OO_X\to\Omega^1_{X/S}$ induit une application $\OO_Y$-linéaire
+\[
+d_{X/S}\otimes 1:N_{Y/X}\longrightarrow \Omega^1_{X/S}\otimes\OO_Y.
+\]
+La puissance extérieure $d$-ième de cette application est une section globale, sur $Y$, de $\Lambda^dN^\vee_{Y/X}\otimes\Omega^d_{X/S}$, dont l'image dans $\Ext^d_{\OO_X}(\OO_Y,\Omega^d_{X/S})$ par l'isomorphisme 6.8.3 est par définition la classe 6.8.1.
+
+Supposons $g$ fini et plat (donc $d=N$). Soit $\omega\in H^0(Y,\Lambda^dN^\vee_{Y/X}\otimes\Omega^d_{X/S})$. D'après 6.8.2 et 6.1, on peut voir $\omega$ comme un homomorphisme $\OO_Y\to g^!\OO_S=(\Lambda^dN^\vee_{Y/X}\otimes\Omega^d_{X/S})$, donc, par adjonction, comme un homomorphisme $g_*\OO_Y\to\OO_S$. On définit le résidu (relatif à $g$) de $\omega$ comme la section de $\OO_S$ image de $1$ par cet homomorphisme, et on le note $\Res_{Y/S}(\omega)$ (cf. ([8] III 9)). Notons d'autre part $i_*\omega\in H^N(X,\Omega^N_{X/S})$ l'image de $\omega$ par le composé de l'isomorphisme 6.8.3 et de la flèche canonique $\Ext^N_{\OO_X}(\OO_Y,\Omega^N_{X/S})\to H^N(X,\Omega^N_{X/S})$. Quand $f$ est propre, il découle de la transitivité pour les morphismes trace (ou flèches d'adjonction) $i_*i^!\to 1$, $f_*f^!\to 1$, que l'on a
+\begin{equation}
+\tag{6.8.4}
+\Res_{Y/S}(\omega)=\Tr_f(i_*\omega),
+\end{equation}
+où $\Tr_f:H^N(X,\Omega^N_{X/S})\to H^0(S,\OO_S)$ est défini par la flèche d'adjonction $f_*f^!\OO_S=Rf_*\Omega^N_{X/S}[N]\to\OO_S$ (6.1). D'autre part, sans hypothèse de propreté, on a la compatibilité importante ([8] III 9 R6)
+\begin{equation}
+\tag{6.8.5}
+\Res_{Y/S}(\gamma\cl_{X/S}(Y))=\Tr_{Y/S}(\gamma),
+\end{equation}
+pour $\gamma\in H^0(Y,\OO_Y)$, où $\Tr_{Y/S}:g_*\OO_Y\to\OO_S$ désigne la trace au sens classique, i.e. $\Tr_{Y/S}(\gamma)$ = trace de l'endomorphisme de $g_*\OO_Y$ défini par la multiplication par $\gamma$ (cette compatibilité n'est pas démontrée dans loc. cit.; le cas $N=1$ est traité dans [Raynaud, Anneaux locaux henséliens, VII 1, Lecture Notes in Math. n\textsuperscript{o}169, Springer Verlag, 1970]). En d'autres termes, $\Tr_{Y/S}$ correspond, par adjonction, à l'homomorphisme $\OO_Y\to g^!\OO_S$ défini par la multiplication par $\cl_{X/S}(Y)$. Il en résulte que, pour $F\in\ob D(S)_{\coh}$, la flèche
+\begin{equation}
+\tag{6.8.6}
+g^*F\longrightarrow g^!F=g^*F\otimes g^!\OO_S
+\end{equation}
+donnée par le produit par $\cl_{X/S}(Y)$ correspond par adjonction à la flèche
+\begin{equation}
+\tag{6.8.7}
+g_*g^*F=F\otimes g_*\OO_Y\longrightarrow F
+\end{equation}
+définie par $\Tr_{Y/S}:g_*\OO_Y\to\OO_S$.
+\end{statement}
+
+\begin{statement}{6.9}
+Soient $X$ (resp. $Y$) un $S$-schéma propre et lisse de dimension relative $m$ (resp. $n$), $Z=X\times_SY$, $a:A\hookrightarrow Z$, $b:B\hookrightarrow Z$ des immersions régulières telles que $a_2:A\to Y$, $b_1:B\to X$ soient finis et plats (on note $p_1:Z\to X$, $p_2:Z\to Y$ les projections, et $a_i=p_ia$, $b_i=p_ib$), $c:C=A\times_ZB\to Z$, $L\in\ob D(X)_{\parf}$, $M\in\ob D(Y)_{\parf}$ (l'indice parf signifie ``parfait au sens absolu'', ce qui équivaut aussi à parfait rel. à $S$, $X$ et $Y$ étant lisses). On suppose $C$ fini et plat sur $S$. Les hypothèses faites entraînent donc que $c$ est une immersion régulière et que $a$ et $b$ sont tor-indépendants.
+
+On a $p_1^*\Omega^1_{X/S}=\Omega^1_{Z/Y}$, $p_2^*\Omega^1_{Y/S}=\Omega^1_{Z/X}$, et une décomposition $\Omega^1_{Z/S}=\Omega^1_{Z/Y}\oplus\Omega^1_{Z/X}$, d'où, pour tout entier $r$, une décomposition
+\begin{equation}
+\tag{6.9.0}
+\Omega^r_{Z/S}=\bigoplus_{i+j=r}\Omega^i_{Z/Y}\otimes\Omega^j_{Z/X}.
+\end{equation}
+D'autre part, d'après 6.1.2, on a $p_2^!M=p_2^*M\otimes\Omega^m_{Z/Y}[m]$, donc
+\[
+H^0(Z,a_*a^!\RHom(p_1^*L,p_2^!M))=
+\Ext^m_{\OO_Z}(a_1^*L,a_2^*M\otimes\Omega^m_{Z/Y}),
+\]
+d'où, par 6.4.4 et 6.8.2, un isomorphisme
+\begin{equation}
+\tag{6.9.1}
+\Hom(a_1^*L,a_2^!M)=H^0(A,\RHom(a_1^*L,a_2^*M)\otimes\Lambda^mN^\vee_{A/Z}\otimes\Omega^m_{Z/Y}).
+\end{equation}
+On a de même un isomorphisme
+\begin{equation}
+\tag{6.9.2}
+\Hom(b_2^*M,b_1^!L)=H^0(B,\RHom(b_2^*M,b_1^*L)\otimes\Lambda^nN^\vee_{B/Z}\otimes\Omega^n_{Z/X}).
+\end{equation}
+Soient $u\in\Hom(a_1^*L,a_2^*M)$, $v\in\Hom(b_2^*M,b_1^*L)$, notons
+\begin{equation}
+\tag{6.9.3}
+\langle u,v\rangle\in H^0(C,\OO_C)
+\end{equation}
+la section $\Tr(u_Cv_C)=\Tr(v_Cu_C)$, où $u_C\in\Hom(c_1^*L,c_2^*M)$ et $v_C\in\Hom(c_2^*M,c_1^*L)$ sont induits par $u$ et $v$. Considérons la correspondance cohomologique $u^!\in\Hom(a_1^*L,a_2^!M)$ (resp. $v^!\in\Hom(b_2^*M,b_1^!L)$) déduite de $u$ (resp. $v$) par composition avec l'homomorphisme trace 6.8.7 $a_{2*}a_2^*M\to M$ (resp. $b_{1*}b_1^*L\to L$), ou, ce qui revient au même (6.8.6), par produit avec $\cl_{Z/Y}(A)$ (resp. $\cl_{Z/X}(B)$). Notons en passant que $\cl_{Z/Y}(A)$ (resp. $\cl_{Z/X}(B)$) est la composante dans $H^0(A,\Lambda^mN^\vee_{A/Z}\otimes\Omega^m_{Z/Y})$ (resp. $H^0(B,\Lambda^nN^\vee_{B/Z}\otimes\Omega^n_{Z/X})$) de $\cl_{Z/S}(A)$ (resp. $\cl_{Z/S}(B)$) définie par la projection $\Omega^m_{Z/S}\to\Omega^m_{Z/Y}$ (resp. $\Omega^n_{Z/S}\to\Omega^n_{Z/X}$) de 6.9.0. On vérifie aisément que le cup-produit
+\[
+\langle u^!,v^!\rangle\in\Ext^{m+n}_{\OO_Z}(\OO_C,\Omega^{m+n}_{Z/S})=H^0(C,\Lambda^{m+n}N^\vee_{C/Z}\otimes\Omega^{m+n}_{Z/S})
+\]
+défini en 6.6.3 est donné par
+\begin{equation}
+\tag{6.9.4}
+\langle u^!,v^!\rangle=\langle u,v\rangle\cl_{Z/Y}(A)\cl_{Z/X}(B).
+\end{equation}
+On vérifie d'autre part que l'homomorphisme 6.7.3
+\[
+\Ext^{m+n}_{\OO_Z}(\OO_C,\Omega^{m+n}_{Z/S})\longrightarrow H^0(S,\OO_S)
+\]
+est composé de la flèche canonique $\Ext^{m+n}_{\OO_Z}(\OO_C,\Omega^{m+n}_{Z/S})\to H^{m+n}(Z,\Omega^{m+n}_{Z/S})$ et du morphisme trace $\Tr_{Z/S}:H^{m+n}(Z,\Omega^{m+n}_{Z/S})\to H^0(S,\OO_S)$. La formule de Lefschetz-Verdier 6.7.2 fournit donc la relation
+\begin{equation}
+\tag{6.9.5}
+\langle (u^!)_*,(v^!)_*\rangle=\Tr_{Z/S}(\langle u,v\rangle\cl_{Z/Y}(A)\cl_{Z/X}(B)).
+\end{equation}
+Grâce à 6.8.4 on peut récrire le second membre comme un résidu, de sorte qu'en résumé on a obtenu:
+\end{statement}
+
+\begin{statement}{Théorème 6.10}
+Sous les hypothèses du premier alinéa de 6.9, soient $u\in\Hom(a_1^*L,a_2^*M)$, $v\in\Hom(b_2^*M,b_1^*L)$, et considérons la correspondance cohomologique $u^!$ (resp. $v^!$) de $L$ à $M$ (resp. $M$ à $L$) à support dans $A$ (resp. $B$) déduite de $u$ (resp. $v$) par composition avec la trace $a_{2*}a_2^*M\to M$ (resp. $b_{1*}b_1^*L\to L$) (6.8.7), et l'homomorphisme $(u^!)_*:f_*L\to g_*M$ (resp. $(v^!)_*:g_*M\to f_*L$) déduit de $u^!$ (resp. $v^!$) par image directe (6.5.5) ($f:X\to S$, $g:Y\to S$ désignant les projections). Alors, avec les notations de 6.8, 6.9.3, on a
+\begin{equation}
+\tag{6.10.1}
+\langle (u^!)_*,(v^!)_*\rangle=\Res_{C/S}(\langle u,v\rangle\cl_{Z/Y}(A)\cl_{Z/X}(B)).
+\end{equation}
+\end{statement}
+
+\begin{statement}{Remarques 6.11}
+\begin{enumerate}[label=\alph*)]
+\item On vérifie comme en 3.6, à l'aide de la description 3.5 b) de l'image directe d'une correspondance, que, si $h:Z\to S$ est la projection, $(u^!)_*$ (resp. $(v^!)_*$) est composé des flèches
+\[
+f_*L\xrightarrow{(1)}(ha)_*a_1^*L\xrightarrow{(ha)_*u}(ha)_*a_2^*M=g_*a_{2*}a_2^*M\xrightarrow{(2)}g_*M
+\]
+(resp.
+\[
+g_*M\xrightarrow{(1)}(hb)_*b_2^*M\xrightarrow{(hb)_*v}(hb)_*b_1^*L=f_*b_{1*}b_1^*L\xrightarrow{(2)}f_*L),
+\]
+où $(1)$ est la flèche de fonctorialité usuelle (définie par la flèche d'adjonction $1\to a_{1*}a_1^*$ (resp. $1\to b_{2*}b_2^*$)) et $(2)$ est donné par la trace $a_{2*}a_2^*M\to M$ (resp. $b_{1*}b_1^*L\to L$) (6.8.7).
+
+\item Supposons que $S$ soit le spectre d'un corps. L'intersection $C=A\times_{(X\times_SY)}B$ est donc formée de points isolés. En chaque point $z$ de $C$, choisissons, près des images de $z$, des suites régulières $(s_1,\ldots,s_m)$, $(t_1,\ldots,t_n)$ d'équations de $A,B$. Alors 6.10.1 s'écrit, avec la notation des symboles résiduels de ([8] III 9),
+\begin{equation}
+\tag{6.11.1}
+\langle (u^!)_*,(v^!)_*\rangle=
+\sum_{z\in C}\Res_z\left(\langle u,v\rangle
+\prod_{1\le i\le m}\frac{d_{Z/Y}s_i}{s_i}
+\prod_{1\le j\le n}\frac{d_{Z/X}t_j}{t_j}\right),
+\end{equation}
+où $d_{Z/Y}s_i$ (resp. $d_{Z/X}t_j$) désigne la composante de type $(1,0)$ (resp. $(0,1)$) de $d_Zs_i$ (resp. $d_Zt_j$) dans la décomposition 6.9.0.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{Corollaire 6.12 --- formule de Woods-Hole [1]}
+On suppose que $S$ est le spectre d'un corps. Soient $X$ un $S$-schéma propre et lisse, $F$ un $S$-endomorphisme de $X$, $L$ un objet de $D(X)_{\parf}$ (i.e. un complexe parfait sur $X$), $u\in\Hom(F^*L,L)$. On suppose que le schéma des points fixes $X^F$ est fini et formé de points transversaux (i.e. où le graphe de $F$ coupe transversalement la diagonale). Alors on a
+\begin{equation}
+\tag{6.12.1}
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=
+\sum_{x\in X^F}\frac{\Tr(u_x)}{\det(1-dF_x)},
+\end{equation}
+où $(F,u)$ est l'endomorphisme de $H^i(X,L)$ composé de $H^i(X,L)\to H^i(X,F^*L)$ (image inverse) et de $H^i(X,u)$, $\Tr(u_x)$ désigne la valeur en $x$ de l'endomorphisme induit par $u$ sur la fibre de $L$ en $x$, et $\det(1-dF_x)$ la valeur en $x$ du déterminant de l'application $(1-$application induite par $F$ sur $\Omega^1_{X,x})$.
+
+\emph{Démonstration.} On applique 6.10 en tenant compte de 6.11 a), b). Posons $Z=X\times_SX$. Soit $x\in X^F$. Près de $x$, choisissons un système de coordonnées locales $(x_1,\ldots,x_n)$ (définissant un morphisme étale dans $\mathbb A^n_S$), posons $F_i=x_iF$, notons $(x_1,\ldots,x_n,y_1,\ldots,y_n)$ les coordonnées locales correspondantes sur $Z$ près de $z=(x,x)$ ($x_i=x_i\otimes1$, $y_i=1\otimes x_i$). Alors, près de $z$, $(x_1-y_1,\ldots,x_n-y_n)$ (resp. $(y_1-F_1,\ldots,y_n-F_n)$) est un système régulier d'équations de la diagonale $A$ (resp. du graphe $B$ de $F$). La contribution du second membre de 6.11.1 en $z$ est
+\[
+\langle u,1\rangle_z=\Res_z\left(\Tr(u)\frac{dx_1\cdots dx_n\,dy_1\cdots dy_n}{(x_1-y_1)\cdots(x_n-y_n)(y_1-F_1)\cdots(y_n-F_n)}\right).
+\]
+Notons qu'au numérateur on peut remplacer $dy_i$ par
+\[
+dy_i-dF_i=dy_i-\sum_{1\le j\le n}(dF_i/dx_j)dx_j.
+\]
+Appliquant alors la formule ([8] III 9 R3) à la situation $(B\hookrightarrow Z\to S)$, $(s_1,\ldots,s_p)=(y_1-F_1,\ldots,y_n-F_n)$, $(t_1,\ldots,t_n)=(x_1-y_1,\ldots,x_n-y_n)$, $\omega=(\Tr(u)\,dx_1\cdots dx_n)$, on obtient
+\begin{equation}
+\tag{*}
+\langle u,1\rangle_z=\Res_x\left(\Tr(u)\frac{dx_1\cdots dx_n}{(x_1-F_1)\cdots(x_n-F_n)}\right).
+\end{equation}
+Comme $x$ est transversal, les $x_i-F_i$ forment un système régulier de paramètres de $\OO_{X,x}$, donc on peut écrire, près de $x$,
+\[
+x_i=\sum_j(x_j-F_j)c_{ij},
+\]
+où $(c_{ij})$ est une matrice de sections de $\OO_X$ inversible en $x$, son déterminant ayant pour valeur en $x$ $\det(1-dF_x)^{-1}$. Grâce à ([8] III 9 R1) on déduit donc de (*)
+\[
+\langle u,1\rangle_z=\Res_x\left(\Tr(u)\det(c_{ij})\frac{dx_1\cdots dx_n}{x_1\cdots x_n}\right),
+\]
+d'où, par ([8] III 9 R6),
+\[
+\langle u,1\rangle_z=\Tr(u(x))\det(c_{ij}(x))=\Tr(u(x))\det(1-dF_x)^{-1}.
+\]
+Le corollaire résulte donc de 6.11.1.
+\end{statement}
+
+\begin{statement}{Remarque 6.12.1}
+Si $X^F$ est supposé seulement fini, le calcul précédent montre que l'on a
+\[
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=
+\sum_{x\in X^F}\Res_x\left(\Tr(u)\frac{dx_1\cdots dx_n}{(x_1-F_1)\cdots(x_n-F_n)}\right),
+\]
+où $(x_i)$ est un système de coordonnées locales en $x$, et les $F_i$ sont les coordonnées de $F$ (près de $x$) dans ce système.
+
+Le lecteur se convaincra, d'autre part, que la formule précédente est encore valable si $X$ est propre et supposé seulement lisse aux points de $X^F$.
+\end{statement}
+
+\begin{statement}{6.13}
+Supposons que $S$ soit le spectre d'une clôture algébrique du corps fini $\mathbb F_q$ et que $X/S$ provienne par extension des scalaires d'un schéma propre et lisse $X_0/\mathbb F_q$. Prenons pour $F$ l'endomorphisme de Frobenius de $X/S$ ``défini par l'élévation à la puissance $q$-ième sur les coordonnées''. On a $X^F=X_0(\mathbb F_q)$ et $X^F$ est formé de points transversaux puisque $dF=0$. Si $L$ est un faisceau localement libre de type fini sur $X$ et $u\in\Hom(F^*L,L)$, la formule de Woods-Hole s'écrit donc
+\begin{equation}
+\tag{6.13.1}
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=
+\sum_{x\in X_0(\mathbb F_q)}\Tr(u_x,L_x).
+\end{equation}
+En particulier, pour $L=\OO_X$, $u$ l'isomorphisme canonique $F^*\OO_X\xrightarrow{\sim}\OO_X$, on trouve:
+\begin{equation}
+\tag{6.13.2}
+\sum_i(-1)^i\Tr(F,H^i(X,\OO_X))=\Card(X_0(\mathbb F_q))\quad (\bmod\ p).
+\end{equation}
+La théorie d'Artin-Schreier permet de récrire le premier membre sous la forme $\sum(-1)^i\Tr(F,H^i(X,\mathbb F_p))$, où $H^*(X,\mathbb F_p)$ désigne la cohomologie étale de $X$ à valeurs dans le faisceau constant $\mathbb F_p$. Par un raffinement de cet argument, Deligne, dans (SGA $4^{1/2}$ Fonctions L), a déduit de 6.13.1 la généralisation suivante de 6.13.2:
+\end{statement}
+
+\begin{statement}{Théorème 6.13.3 (Deligne)}
+Soient $X_0$ un schéma séparé et de type fini sur $\mathbb F_q$, $X$ le schéma déduit de $X_0$ par extension des scalaires à une clôture algébrique $k$ de $\mathbb F_q$, $F$ l'endomorphisme de Frobenius de $X/k$. Alors, pour tout $L_0\in\ob D_{\ctf}(X_0,\mathbb F_p)$, on a, notant $L$ l'image inverse de $L_0$ sur $X$,
+\[
+\sum_i(-1)^i\Tr(F,H^i_c(X,L))=\sum_{x\in X^F}\Tr(F,L_x).
+\]
+Signalons que le cas particulier de 6.13.3 correspondant à $L_0=\mathbb F_p$ a été établi par Katz dans (SGA 7 XXII) par une méthode toute différente, fondée sur le calcul à la Dwork de la fonction zêta d'une hypersurface. Par ailleurs, 6.13.2 dans le cas propre et lisse est aussi conséquence immédiate de la formule de Lefschetz en cohomologie cristalline ([5] VII 3.1.9). En fait, la cohomologie cristalline donne l'information plus précise que chaque facteur $\det(1-Ft,H^i(X_0/W))\in W[t]$ de la fonction zêta est congru mod $p$ à $\det(1-Ft,H^i(X_0,\OO_{X_0}))$ (du moins si $H^*(X_0/W)$ est sans torsion). Katz a montré [11] qu'on pouvait obtenir, à l'aide des estimations de B. Mazur [14], des congruences supérieures (faisant intervenir les $H^i(X_0,\Omega^j_{X_0})$ et l'opération de Cartier) pour des hypersurfaces (ou intersections complètes) lisses dont on suppose les nombres de Hodge (dans la dimension intéressante) nuls jusqu'à un certain cran.
+
+D'autre part, si $X_0$ est un schéma propre sur $\mathbb F_q$, géométriquement intègre, et tel que $H^i(X_0,\OO_{X_0})=0$ pour $i>0$, la formule de Lefschetz-Verdier 6.7.2, appliquée à $X=X_0\otimes k$ et l'endomorphisme de Frobenius de $X$, entraîne aussitôt que $X_0$ possède au moins un point rationnel sur $\mathbb F_q$ (puisque $\Tr(F,R\Gamma(X,\OO_X))=1$). Serre demande si cette conclusion est encore vraie lorsqu'on remplace $\mathbb F_q$ par un corps vérifiant $(C_1)$ ([17] II 3), par exemple $\mathbb C(t)$ (Tsen), ou $\mathbb C((t))$ (Lang) (voir loc. cit. pour d'autres exemples); il fait observer en effet que, si $X_0$ est une intersection complète de multi-degré $(m_1,\ldots,m_r)$ dans $\mathbb P^n$, la condition de trivialité de la cohomologie équivaut ([16] n\textsuperscript{o} 78) à la condition $m_1+\cdots+m_r<n+1$, qui est aussi celle qui intervient quand on écrit la condition $(C_1)$.
+\end{statement}
+
+\begin{statement}{6.14}
+La formule de Woods Hole a de nombreuses autres applications, pour lesquelles nous renvoyons à [2] et à l'exposé de Beauville [4].
+\end{statement}
+
+\begin{statement}{6.15}
+Le rédacteur n'a pas examiné le cas des composantes de points fixes de dimension $\ge 1$, mais il n'est pas exclu que l'on puisse déduire de 6.7.2 (conjugué probablement à Riemann-Roch) des formules de Lefschetz-Riemann-Roch dans le style de celles de Donovan [7], Iversen [10], Nielsen [15] (du moins à valeurs dans le corps de base). Il n'est pas exclu d'autre part que la formule 6.7.2, appliquée au-dessus des nombres duaux, fournisse des formules de résidus pour les champs de vecteurs analogues à celles de Bott [6], [3].
+\end{statement}
+
+\section*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.5em]
+\item Atiyah, M. et Bott, R. On the Woods Hole Fixed point theorem, Proceedings of the Woods Hole Conference on Algebraic Geometry, 1964.
+\item Atiyah, M. et Bott, R., Notes on the Lefschetz fixed point theorem for elliptic complexes, Harvard University, 1964.
+\item Baum, P. et Bott, R., On the zeroes of meromorphic vector-fields, in Essays on topology and related topics, mémoires dédiés à Georges De Rham, Springer Verlag, 1970.
+\item Beauville, A., Formules de points fixes en cohomologie cohérente, in Séminaire de géométrie algébrique, Université de Paris-Sud, Orsay, 1970.
+\item Berthelot, P., Cohomologie cristalline des schémas de car. $p>0$, Lecture Notes in Mathematics n\textsuperscript{o} 407, Springer-Verlag, 1974.
+\item Bott, R., A residue formula for holomorphic vector-fields, J. of Diff. Geometry Vol 1, p. 311--330, 1967.
+\item Donovan, P., The Lefschetz-Riemann-Roch formula, Bull. S.M.F., 97, p.257--273, 1969.
+\item Hartshorne, R., Residues and duality, Lecture Notes in Mathematics n\textsuperscript{o} 20, Springer-Verlag, 1966.
+\item Illusie, L., Complexe cotangent et déformations I, Lecture Notes in Math. n\textsuperscript{o} 239, Springer-Verlag, 1971.
+\item Iversen, B., A fixed point formula for action of tori on algebraic varieties, Inv. Math., 16, p. 229--236, 1972.
+\item Katz, N., Lettre à B. Mazur, 1971.
+\item Kleiman, S., Algebraic cycles and the Weil conjectures, in Dix exposés sur la cohomologie des schémas, North Holland Pub. Company, 1968.
+\item Langlands, R.P., Modular forms and $\ell$-adic representations, in Modular functions of one variable II, Lecture Notes in Math. n\textsuperscript{o} 349, Springer-Verlag, 1973.
+\item Mazur, B., Frobenius and the Hodge filtration (estimates), Ann. of Math., 98, p. 58--95, 1973.
+\item Nielsen, H.A., Diagonalizably linearized coherent sheaves, Bull. SMF, 102, p. 85--97, 1974.
+\item Serre, J.-P., Faisceaux algébriques cohérents, Ann. of Math., 61, p. 197--278, 1955.
+\item Serre, J.P., Cohomologie galoisienne, Lecture Notes in Math. n\textsuperscript{o} 5, Springer Verlag, 1964.
+\item Verdier, J.-L., The Lefschetz fixed point formula in étale cohomology, Proceedings of a conference on local fields, Springer-Verlag, 1967.
+\end{enumerate}
+
+SGA $4^{1/2}$ Cohomologie étale, Par P. Deligne, Séminaire de Géométrie Algébrique du Bois-Marie, Lecture Notes in Mathematics n\textsuperscript{o} 569, Springer-Verlag, 1977.
+
+Dans SGA $4^{1/2}$:
+\begin{description}[leftmargin=3.5em]
+\item[Finitude:] Théorème de finitude en cohomologie $\ell$-adique.
+\item[Cycle:] La classe de cohomologie associée à un cycle, par A. Grothendieck, rédigé par P. Deligne (remplace l'exposé absent SGA 5 IV).
+\item[Rapport:] Rapport sur la formule des traces.
+\item[Fonctions L:] Fonctions L mod $\ell^n$ et mod $p$.
+\end{description}
+
+\end{document}

@@ -1,0 +1,65 @@
+\chapter{Інтеграція корпусу і наступна черга}
+
+\section{Що вже не треба робити}
+
+Після перевірки відсортованого корпусу стало ясно, що частину роботи не треба повторювати:
+
+\begin{enumerate}[label=\arabic*.]
+  \item PySDR вже має українську RST-гілку. Її треба інтегрувати, перевірити термінологію, за потреби конвертувати в LaTeX або лишити як Sphinx/RST.
+  \item arXiv-джерела для кватерніонів, мікротеорії Лі та неперервного оцінювання стану вже є як TeX. Їх не потрібно OCR-транскрибувати.
+  \item Великі FDM/FEM/optimization книги треба різати за розділами. Повний переклад без відбору розмиє перший практичний результат.
+\end{enumerate}
+
+\section{Перша практична черга}
+
+Перші пакети для перекладу і складання:
+
+\begin{longtable}{L{0.18\linewidth}L{0.30\linewidth}L{0.42\linewidth}}
+\toprule
+\textbf{Черга} & \textbf{Джерело} & \textbf{Дія}\\
+\midrule
+P0-01 & arXiv:1711.02508, кватерніони/ESKF & Перекласти Abstract, notation, quaternion basics, error-state core; зберегти формули і макроси.\\
+P0-02 & arXiv:1812.01537, micro Lie theory & Перекласти Introduction, Rn, SO2, SO3, SE3, table of Lie groups; потім localization examples.\\
+P0-03 & arXiv:2411.03951, continuous-time state estimation survey & Перекласти problem statement, discrete-time estimation, continuous-time estimation, variable definitions table.\\
+P0-04 & PySDR Ukrainian RST & Не перекладати заново; перевірити consistency із словником, винести формули в TeX-шпаргалки.\\
+P0-05 & Kalman and Bayesian Filters in Python & Перекладати Markdown notebook cells: g-h filter, discrete Bayes, Kalman filter, extended/unscented chapters.\\
+P0-06 & Introduction to Autonomous Robots & Перекладати coordinate frames, kinematics, localization, planning overview; не починати з peripheral build notes.\\
+P1-01 & FDM/FEM sources & Вибрати: grids, finite differences, stability, wave/heat equations, verification.\\
+P1-02 & Open Optimization OR book & Вибрати: linear programming, least squares/QP, network flows, convexity.\\
+\bottomrule
+\end{longtable}
+
+\section{Правило локальних агентів}
+
+Кожен наступний batch має повертати не лише переклад, а й машинну перевірку:
+
+\begin{enumerate}[label=\arabic*.]
+  \item Чи компілюється TeX.
+  \item Чи збігається кількість equation environments до і після перекладу.
+  \item Чи не змінено labels, refs, citations, macro names.
+  \item Чи збережено кодові блоки і Python snippets без перекладу ідентифікаторів.
+  \item Чи додано словникові нові терміни в таблицю термінів.
+\end{enumerate}
+
+\section{Публічна і приватна гілки}
+
+Публічна гілка повинна містити відкриті або source-backed навчальні тексти, словники, TeX, RST/Markdown, build scripts, QA і PDF. Приватна робоча гілка може тримати OCR-чернетки, локальні PDF-фрагменти, погані скани та матеріали, які ще потребують правової або змістової перевірки.
+
+Для практичності це означає: не змішувати чистий TeX-переклад відкритого джерела з OCR-чернеткою скану в одному каталозі. У кожного файлу має бути provenance.
+
+\section{Нормальна назва репозиторію}
+
+Рекомендована назва:
+
+\begin{center}
+\textbf{Ukrainian Applied Mathematics and Resilient Engineering Library}
+\end{center}
+
+Українська назва:
+
+\begin{center}
+\textbf{Українська бібліотека прикладної математики та стійкої інженерії}
+\end{center}
+
+Це ширше і чесніше за вузький набір «корисних нотаток». У такому вигляді корпус має навчальний, університетський, інженерний і цивільний сенс, а пріоритетність сигналів, оцінювання стану, чисельних методів і оптимізації випливає з практичної інженерної логіки.
+

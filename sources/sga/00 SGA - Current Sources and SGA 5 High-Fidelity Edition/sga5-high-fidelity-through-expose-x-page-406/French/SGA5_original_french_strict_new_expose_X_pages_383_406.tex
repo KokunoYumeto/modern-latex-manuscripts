@@ -1,0 +1,955 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\car}{\operatorname{car}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Dctf}{D_{\mathrm{ctf}}}
+\providecommand{\Id}{\mathrm{Id}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Gr}{\Gamma}
+\providecommand{\Fix}{\operatorname{Fix}}
+\providecommand{\Loc}{\operatorname{Loc}}
+\providecommand{\lto}{\longrightarrow}
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\lisom}{\xrightarrow{\sim}}
+\providecommand{\ctf}{\mathrm{ctf}}
+\providecommand{\et}{\mathrm{\acute{e}t}}
+\providecommand{\Sfrac}{SGA~$4^{1/2}$}
+
+
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\EP}{\operatorname{EP}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\DF}{\operatorname{DF}}
+
+\providecommand{\OO}{\mathcal{O}}
+\providecommand{\LL}{\mathbf L}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\frob}{\operatorname{Frob}}
+\nofiles
+
+\providecommand{\RGamma}{\mathrm R\Gamma}
+\providecommand{\Rj}{\mathrm Rj}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\cone}{\operatorname{cone}}
+\providecommand{\lten}{\overset{\mathrm L}{\otimes}}
+\providecommand{\Dctf}{D_{\mathrm{ctf}}}
+\providecommand{\Ob}{\operatorname{ob}}
+
+
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\ob}{\operatorname{ob}}
+\providecommand{\lten}{\overset{\mathrm L}{\otimes}}
+\providecommand{\nat}{\natural}
+\providecommand{\dfn}{\mathrm{dfn}}
+
+
+\providecommand{\Fl}{\operatorname{Fl}}
+\providecommand{\MLAR}{\mathrm{MLAR}}
+\providecommand{\AR}{\mathrm{AR}}
+\providecommand{\NN}{\mathbb N}
+\providecommand{\Ens}{\mathrm{Ens}}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cE}{\mathcal E}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\cG}{\mathfrak G}
+\providecommand{\source}{\operatorname{source}}
+\providecommand{\op}{\mathrm{op}}
+
+
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\gr}{\operatorname{gr}}
+
+\renewcommand{\Im}{\operatorname{Im}}
+
+\providecommand{\Rlim}{\varprojlim}
+\providecommand{\adn}{\operatorname{adn}}
+\providecommand{\adf}{\operatorname{adf}}
+\providecommand{\AR}{\mathrm{AR}}
+\providecommand{\MLAR}{\mathrm{MLAR}}
+\providecommand{\Ecat}{\mathcal E}
+\providecommand{\Dcat}{\mathcal D}
+\providecommand{\Ccat}{\mathcal C}
+\providecommand{\Bcat}{\mathcal B}
+\providecommand{\Pcat}{\mathcal P}
+\providecommand{\J}{J}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\grs}{\operatorname{grs}}
+\providecommand{\Homcat}{\operatorname{Hom}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\can}{\operatorname{can}}
+\providecommand{\epi}{\operatorname{epi}}
+\providecommand{\id}{\operatorname{id}}
+
+
+\providecommand{\RGamma}{\mathrm R\Gamma}
+\providecommand{\RHom}{\mathrm R\mathcal{H}om}
+\providecommand{\Zell}{\mathbb Z_\ell}
+\providecommand{\Qell}{\mathbb Q_\ell}
+\providecommand{\Ql}{\mathbb Q_\ell}
+\providecommand{\lten}{\overset{\mathrm L}{\otimes}}
+\providecommand{\Ob}{\operatorname{ob}}
+\providecommand{\Ens}{\operatorname{Ens}}
+\providecommand{\Ensf}{\operatorname{Ensf}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Sp}{\operatorname{Sp}}
+\providecommand{\Ab}{\operatorname{Ab}}
+\providecommand{\Abc}{\operatorname{Abc}}
+\providecommand{\Abf}{\operatorname{Abf}}
+\providecommand{\fct}{\operatorname{fct}}
+\providecommand{\Lc}{\operatorname{Lc}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\car}{\operatorname{car}}
+\providecommand{\cHom}{\mathcal{H}om}
+\providecommand{\fc}{\operatorname{fc}}
+\providecommand{\adc}{\operatorname{adc}}
+\providecommand{\ad}{\operatorname{ad}}
+\providecommand{\adn}{\operatorname{adn}}
+\providecommand{\modn}{\operatorname{mod}}
+\providecommand{\AR}{\operatorname{AR}}
+
+
+\providecommand{\R}{\mathrm R}
+\providecommand{\V}{\mathrm V}
+\providecommand{\A}{\mathbb A}
+\providecommand{\P}{\mathbb P}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\muS}{\mu_S}
+\providecommand{\cupdot}{\smile}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\coker}{\operatorname{coker}}
+\providecommand{\lten}{\overset{\mathrm L}{\otimes}}
+\newenvironment{proposition}[1][]{\par\medskip\noindent\textbf{Proposition #1.}\ }{\par\medskip}
+\newenvironment{corollaire}[1][]{\par\medskip\noindent\textbf{Corollaire #1.}\ }{\par\medskip}
+\newenvironment{theoreme}[1][]{\par\medskip\noindent\textbf{Théorème #1.}\ }{\par\medskip}
+\newenvironment{lemme}[1][]{\par\medskip\noindent\textbf{Lemme #1.}\ }{\par\medskip}
+
+
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Gm}{\mathbb G_m}
+\providecommand{\Et}{\mathrm{et}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\EP}{\operatorname{EP}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\lten}{\overset{\mathrm L}{\otimes}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\im}{\operatorname{Im}}
+\providecommand{\coker}{\operatorname{Coker}}
+
+
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\cA}{\mathcal A}
+\providecommand{\cB}{\mathcal B}
+\providecommand{\Ab}{\operatorname{Ab}}
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\lten}{\overset{\mathrm L}{\otimes}}
+
+
+\providecommand{\Mod}{\operatorname{Mod}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\Sw}{\operatorname{Sw}}
+\providecommand{\Art}{\operatorname{Art}}
+\providecommand{\etG}{\mathrm{\acute et},G}
+\providecommand{\cT}{\mathcal T}
+
+
+\providecommand{\clK}[1]{\operatorname{cl}_{K(#1)}}
+\providecommand{\clKstar}[1]{\operatorname{cl}_{K^*(#1)}}
+\providecommand{\epsD}{\varepsilon^\Delta}
+\providecommand{\alphaD}{\alpha^\Delta}
+\providecommand{\bbone}{\mathbf 1}
+\providecommand{\sw}{\operatorname{sw}}
+\providecommand{\art}{\operatorname{art}}
+\providecommand{\RG}{\mathrm R\Gamma}
+\providecommand{\RGc}{\mathrm R\Gamma_c}
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Rpi}{\mathrm R\pi}
+\providecommand{\rG}{\mathrm R\Gamma^G}
+\providecommand{\wh}[1]{\widehat{#1}}
+\providecommand{\checkSw}{\check{\operatorname{Sw}}}
+
+\begin{document}
+
+Dans le produit $E\times E$, la diagonale et le graphe de l'endomorphisme $g$ seront désignés respectivement par $\Delta$ et $\Gamma_g$. Soient
+\[
+\gamma:E\longrightarrow E\times E,\qquad
+\delta:E\longrightarrow E\times E
+\]
+les immersions respectives. Elles sont données, sur les anneaux locaux complétés de $x$ resp. $(x,x)$, par les homomorphismes
+\[
+\gamma^*,\delta^*:\widehat A\widehat\otimes\widehat A\longrightarrow \widehat A
+\qquad (A=\widehat{\mathcal O}_x),
+\]
+où
+\[
+\delta^*(a\otimes b)=ab,\qquad
+\gamma^*(a\otimes b)=a\,g^*(b).
+\]
+Il s'agit d'évaluer la multiplicité $v_x(g)$ du point $\delta(x)$ dans l'intersection $\Delta\Gamma_g$ sur $E\times E$. Or le diviseur $\Delta$ correspond à l'idéal engendré par l'élément $1\otimes\pi-\pi\otimes1$ de $\widehat A\widehat\otimes\widehat A$. Donc la multiplicité de $\delta(x)$ dans l'intersection $\Delta\Gamma_g$ est
+\[
+v_x(g)=v_x\bigl(\gamma^*(1\otimes\pi-\pi\otimes1)\bigr)
+      =v_x(g(\pi)-\pi),
+\]
+cqfd.
+
+\subsubsection*{4.2}
+
+Soit $C$ une courbe algébrique lisse, propre et connexe sur le corps $k$ algébriquement clos. Si $\eta$ est son point générique, désignons par $K=k(\eta)$ son corps de fonctions rationnelles.
+
+Soit
+\[
+K'\supset K,\qquad [K':K]=n
+\]
+une extension galoisienne finie de degré $n$ et de groupe de Galois $G$. Désignons par $C'$ la normalisée de $C$ dans $K'$ et soit
+\[
+p:C'\longrightarrow C
+\]
+la projection canonique. Le groupe de Galois $G$ opère évidemment sur $C'$. Le stabilisateur de $y'\in C'$ dans $G$ sera noté $G_{y'}$.
+
+Si $\pi$ est une uniformisante de $\mathcal O_{C',y'}$ et si $s\in G_{y'}$, $s\ne e$, posons
+\[
+v_{y'}(s(\pi)-\pi)=v_{y'}(s)
+\tag{4.2.1}
+\]
+(la multiplicité du point fixe $y'$ pour l'application $s:C'\to C'$ (lemme 4.1)).
+
+La représentation de Swan associée à $y'$ est définie par son caractère $\sigma_{y'}$, qui est donné par la formule
+\[
+\sigma_{y'}(s)=
+\begin{cases}
+1-v_{y'}(s),& s\ne e,\\[0.4em]
+\displaystyle\sum_{s\ne e}\bigl(v_{y'}(s)-1\bigr),& s=e.
+\end{cases}
+\tag{4.2.2}
+\]
+Les résultats d'Artin--Serre--Swan (IX Th. 4) montrent que, $\ell$ étant un nombre premier distinct de la caractéristique de $k$, il existe un $\mathbb Z_\ell[G_{y'}]$-module projectif de type fini $Sw_{y'}$, déterminé à isomorphisme près, qui a pour caractère $\sigma_{y'}$.
+
+Il y a aussi intérêt à considérer le $\mathbb Z_\ell[G_{y'}]$-module
+\[
+Sw'_{y'}=Sw_{y'}\otimes_{\mathbb Z_\ell}\mathbb Z_\ell[G_{y'}].
+\tag{4.2.3}
+\]
+Le caractère $\sigma'_{y'}$ de $Sw'_{y'}$ est donné par la formule
+\[
+\sigma'_{y'}(s)=
+\begin{cases}
+1-v_{y'}(s),& s\ne e,\\[0.4em]
+\displaystyle 1+\sum_{s\ne e}v_{y'}(s)
+=1+v_{y'}(\mathfrak D_{C'/C}),& s=e,
+\end{cases}
+\tag{4.2.4}
+\]
+où $\mathfrak D_{C'/C}$ est la différente du revêtement $C'/C$, la dernière formule n'étant autre que [3, Chap. VI 2, prop. 4] où on fait $H=\{1\}$.
+
+Enfin, la fonction
+\[
+a_{y'}=\sigma_{y'}+u_{G_{y'}}=\sigma'_{y'}-1_{G_{y'}},
+\tag{4.2.5}
+\]
+où $u_{G_{y'}}$ désigne le caractère de l'idéal d'augmentation de $\mathbb Z_\ell[G_{y'}]$, est aussi le caractère d'un $\mathbb Q_\ell[G_{y'}]$-module, la représentation d'Artin de $G_{y'}$, qui sera désigné par $Art_{y'}$.
+
+On a donc
+\[
+a_{y'}(s)=
+\begin{cases}
+-v_{y'}(s),& s\ne e,\\[0.4em]
+\displaystyle\sum_{s\ne e}v_{y'}(s)=v_{y'}(\mathfrak D_{C'/C}),& s=e.
+\end{cases}
+\tag{4.2.6}
+\]
+
+Considérons maintenant l'inclusion $G_{y'}\subset G$. On pose:
+\[
+Sw_y=Sw_{y'}\otimes_{\mathbb Z_\ell[G_{y'}]}\mathbb Z_\ell[G],
+\qquad
+Sw'_y=Sw'_{y'}\otimes_{\mathbb Z_\ell[G_{y'}]}\mathbb Z_\ell[G],
+\tag{4.2.7}
+\]
+\[
+Art_y=Art_{y'}\otimes_{\mathbb Q_\ell[G_{y'}]}\mathbb Q_\ell[G].
+\tag{4.2.8}
+\]
+Les caractères des représentations précédentes sont notés $\sigma_y$, $\sigma'_y$, $a_y$.
+
+\subsubsection*{4.3}
+
+Notons que les modules ainsi obtenus ne dépendent, à isomorphisme près, que du point $y\in C$, et non du choix du point $y'$ de $C'$ au-dessus de $y$. Soit donc $y''$ un autre tel point. Il existe donc $g\in G$ tel que $y''=g y'$. La situation $(C',y'',G)$ se déduit donc de la situation $(C',y',G)$ par l'isomorphisme $g$ sur $C'$, $\operatorname{int}(g):h\mapsto ghg^{-1}$ sur $G$. On en conclut par transport de structure que les modules $Sw_y$, etc., associés à $y''$ se déduisent de ceux associés à $y'$ par extension des opérateurs à l'aide de $\operatorname{int}(g):G\to G$. On sait que cette extension transforme un module en un module isomorphe.
+
+\begin{statement}{Proposition 4.4}
+Les notations étant celles de 3.7 avec $(\Lambda=\mathbb Z_\ell)$ et $M^\bullet$ étant un objet de $D^+(A[G])$, on a des isomorphismes:
+\[
+(*)\qquad Sw_y\simeq \check{Sw}_y,
+\]
+\[
+(**)\qquad
+\Hom^\bullet_{\mathbb Z_\ell[G]}(Sw_y,M^\bullet)
+\simeq Sw_y\otimes_{\mathbb Z_\ell[G]}M^\bullet.
+\]
+\end{statement}
+
+Démonstration. Pour que deux $\mathbb Z_\ell[G]$-modules projectifs de type fini soient isomorphes, il suffit qu'ils aient même caractère (3.2). Or si l'on désigne par $\check\sigma_y$ le caractère de $\check{Sw}_y$, on a (3.7.2):
+\[
+\check\sigma_y(s)=\sigma_y(s^{-1}).
+\]
+D'autre part on a
+\[
+v_{y'}(s^{-1}(\pi)-\pi)
+=v_{y'}(s^{-1}(s(\pi)-\pi))
+=v_{y'}(\pi-s(\pi))
+=v_{y'}(s(\pi)-\pi),
+\]
+donc $Sw_y\simeq\check{Sw}_y$, d'où la formule $(*)$ par définition (4.2.7). La formule $(**)$ en résulte grâce à 3.8.
+
+\subsubsection*{4.5}
+
+Nous aurons besoin plus bas d'une formule explicite pour le caractère de la représentation de Swan. On a en fait les formules:
+\[
+\sigma_y(s)=
+\begin{cases}
+\displaystyle\sum_{\substack{p(z')=y\\s(z')=z'}}\bigl(1-v_{z'}(s)\bigr),& s\ne e,\\[0.8em]
+\displaystyle\sum_{p(z')=y}\bigl(1+v_{z'}(\mathfrak D_{C'/C})\bigr)-n,& s=e,
+\end{cases}
+\tag{4.5.1}
+\]
+\[
+\sigma'_y(s)=
+\begin{cases}
+\displaystyle\sum_{\substack{p(z')=y\\s(z')=z'}}\bigl(1-v_{z'}(s)\bigr),& s\ne e,\\[0.8em]
+\displaystyle\sum_{p(z')=y}\bigl(1+v_{z'}(\mathfrak D_{C'/C})\bigr),& s=e,
+\end{cases}
+\tag{4.5.2}
+\]
+\[
+a_y(s)=
+\begin{cases}
+\displaystyle-\sum_{\substack{p(z')=y\\s(z')=z'}}v_{z'}(s),& s\ne e,\\[0.8em]
+\displaystyle\sum_{p(z')=y}v_{z'}(\mathfrak D_{C'/C}),& s=e.
+\end{cases}
+\tag{4.5.3}
+\]
+Pour déduire ces formules on utilise (3.3.1) et l'on tient compte du fait que si l'on fixe un point $y'_0\in C'$, alors on peut trouver, pour chaque $y'\in C'$ tel que $p(y')=p(y'_0)$, un élément $g'\in G$ tel que $g'(y')=y'_0$. Les éléments $g'$ constituent un système de représentants pour les classes à droite de $G_{y'_0}$ dans $G$, et on a de plus
+\[
+G_{y'_0}=g'G_{y'}g'^{-1}.
+\]
+Ce système de représentants peut être utilisé dans le deuxième membre de la formule (3.3.1), et on obtient les formules écrites.
+
+\subsubsection*{4.6}
+
+Les invariants $Sw_y$, $Sw'_y$, $Art_y$ peuvent se définir dans des conditions plus générales. Soit pour cela $C'$ une courbe algébrique lisse sur $k$, non nécessairement connexe. Supposons que le groupe fini $G$ opère sur $C'$ et qu'il existe un ouvert $U$ de $C=C'/G$ dense dans $C$ tel que $C'|U$ soit un revêtement principal de $U$ de groupe $G$. Pour un point $y\in C$ on peut définir les modules $Sw_y$, $Sw'_y$, $Art_y$ en procédant comme plus haut. On peut se ramener au cas où $C'$ est connexe de la façon suivante. Soient $y'\in C'$ tel que $p(y')=y$, $C'_1$ la composante irréductible de $C'$ qui contient $y'$ et $C_1$ la composante irréductible de $C$ qui contient $y$. Si $G_{C'_1}$ est le stabilisateur de la composante $C'_1$ et si $\eta'_1$ (resp. $\eta_1$) est le point générique de $C'_1$ (resp. $C_1$), alors l'extension
+\[
+K'_1=k(\eta'_1)\supset k(\eta_1)=K_1
+\]
+est galoisienne de groupe de Galois $G_{C'_1}$ et $C'_1$ est la normalisée de $C_1$ dans $K'_1$ (SGA 1 I 10). On peut donc appliquer les considérations faites plus haut pour les courbes $C'_1$, $C_1$ et le groupe $G_{C'_1}$. De cette façon on obtient les $\mathbb Z_\ell[G_{C'_1}]$-modules projectifs de type fini
+\[
+Sw_{G_{C'_1},y},\qquad Sw'_{G_{C'_1},y},\qquad Art_{G_{C'_1},y},
+\]
+et $Sw_y$, $Sw'_y$, $Art_y$ sont les modules induits associés à l'inclusion $G_{C'_1}\subset G$.
+
+Remarque 4.6. Les modules $Sw_y$, $Sw'_y$, $Art_y$ sont des invariants purement locaux: ils sont connus par le groupe $G_{y'}$ opérant sur le complété de l'anneau local $\mathcal O_{C',y'}$. En plus on a $Sw_y=0$ si et seulement si $p:C'\to C$ est modérément ramifiée en $y'$, ou, ce qui revient au même, si $G_{y'}$ est d'ordre premier à la caractéristique de $k$ [3 VI].
+
+\subsection*{5. La formule de Weil (comparer [3 VI §4])}
+
+\subsubsection*{5.0}
+
+Tous les schémas considérés dans ce numéro seront définis sur un corps de base $k$ algébriquement clos.
+
+Nous utiliserons les notations suivantes:
+\[
+\Lambda_\nu=\mathbb Z/\ell^\nu\mathbb Z,
+\]
+$\ell$ étant un nombre premier donné, distinct de la caractéristique de $k$.
+
+Soit $\mathbb Z_\ell\to\Lambda_\nu$ l'homomorphisme canonique. Il induit un homomorphisme
+\[
+\lambda_\nu:\mathbb Z_\ell[G]\longrightarrow \Lambda_\nu[G]
+\]
+et par conséquent [VIII 9] un homomorphisme de réduction
+\[
+\lambda_\nu^*:K^*(\mathbb Z_\ell[G])\longrightarrow K^*(\Lambda_\nu[G]).
+\]
+Les images par $\lambda_\nu^*$ des éléments associés aux modules $Sw_y$, $Sw'_y$ seront désignées par
+\[
+Sw_y^{\Lambda_\nu},\qquad Sw_y'{}^{\Lambda_\nu}.
+\]
+L'homomorphisme de réduction $\lambda_\nu^*$ est en fait un isomorphisme [IX 1.5]. L'inverse de $\lambda_\nu^*$ sera désigné par $\mu_\nu$.
+
+Le faisceau constant sur le schéma $X$ associé à l'anneau $\Lambda_\nu$ sera désigné par $\Lambda_{\nu,X}$.
+
+Soit $V$ un ouvert de $X$, $j:V\to X$ l'immersion canonique. On pose
+\[
+j_!(\Lambda_{\nu,V})=\Lambda_{\nu,V,X}.
+\]
+
+\begin{statement}{Proposition 5.1}
+Soient $C'$ une courbe algébrique, lisse et propre sur le corps $k$ algébriquement clos, $G$ un groupe fini opérant sur $C'$, $C=C'/G$, $p:C'\to C$ la projection canonique, $U$ un ouvert dense de $C$ tel que $U'=p^{-1}(U)$ soit un revêtement principal de $U$ de groupe $G$, $Y=C-U$, $Y'=p^{-1}(Y)=C'-U'$, et soit $\EP(C)$ la caractéristique d'Euler-Poincaré de $C$ (égale à $2-2g$ si $C$ est connexe de genre $g$).
+Dans ces conditions on a la formule de Weil:
+\[
+\clKstar{\Lambda_\nu[G]}\bigl(\RG_{C'}(\Lambda_{\nu,U',C'})\bigr)
+=
+\EP(C)\clKstar{\Lambda_\nu[G]}(\Lambda_\nu[G])
+-\sum_{y\in Y}Sw_y'{}^{\Lambda_\nu},
+\tag{5.2}
+\]
+où le premier membre de (5.2) est défini grâce à 2.1.
+\end{statement}
+
+Démonstration. Désignons par $S_1$ (resp. $S_2$) le premier (resp. le deuxième) membre de la formule à démontrer. L'homomorphisme de réduction $\lambda_\nu^*$ étant en fait un isomorphisme, il suffit de démontrer que
+\[
+\mu_\nu(S_1)=\mu_\nu(S_2).
+\]
+D'autre part (3.3.1), l'homomorphisme trace
+\[
+K^*(\mathbb Z_\ell[G])\xrightarrow{\ tr\ }\mathcal F(G,\mathbb Z_\ell)
+\]
+est un monomorphisme. Par conséquent il suffit de démontrer que
+\[
+\operatorname{tr}(\mu_\nu(S_1))=\operatorname{tr}(\mu_\nu(S_2)).
+\]
+Le caractère $\sigma_2=\operatorname{tr}(\mu_\nu(S_2))$ est évidemment donné par la formule
+\[
+\sigma_2=\EP(C)r_G-\sum_{y\in Y}\sigma'_y,
+\tag{5.2.1}
+\]
+où $\sigma'_y$ est le caractère de $Sw'_y$ ((4.2.7) et (4.2.3)), $r_G$ la représentation régulière.
+
+Considérons maintenant les homomorphismes de réduction pour les traces:
+\[
+\mathcal F(G,\mathbb Z_\ell)\xrightarrow{\lambda_n^*}\mathcal F(G,\mathbb Z/\ell^n\mathbb Z).
+\]
+On a évidemment
+\[
+\mathcal F(G,\mathbb Z_\ell)=\varprojlim_n\mathcal F(G,\mathbb Z/\ell^n\mathbb Z).
+\]
+Il suffit donc de démontrer qu'on a, quel que soit $n$,
+\[
+\lambda_n^*(\operatorname{tr}(\mu_\nu(S_1)))=\lambda_n^*(\sigma_2).
+\]
+Le premier membre est égal à $\operatorname{tr}(\lambda_n^*(\mu_\nu(S_1)))$, or
+\[
+\lambda_n^*(\mu_\nu(S_1))
+=
+\clKstar{\Lambda_n[G]}\bigl(\RG_{C'}(\Lambda_{n,U',C'})\bigr),
+\]
+grâce à la formule de Künneth (SGA 4 XVIII)
+\[
+\RG_{C'}(\Lambda_{n,U',C'})\otimes_{\Lambda_n}^{L}\Lambda_\nu
+\simeq \RG_{C'}(\Lambda_{\nu,U',C'})
+\quad\text{pour } n\ge\nu.
+\]
+On est donc ramené à prouver l'égalité
+\[
+\operatorname{tr}\bigl(\clKstar{\Lambda_n[G]}(\RG_{C'}(\Lambda_{n,U',C'}))\bigr)
+=
+\lambda_n^*(\sigma_2).
+\]
+Désignons le premier membre de cette égalité par $\tau$ et soit $g\in G$. L'élément $g$ induit évidemment un endomorphisme du triangle distingué
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& \RG_{Y'}(\Lambda_{n,Y'}) \arrow[dr] & \\
+\RG_{C'}(\Lambda_{n,U',C'}) \arrow[rr] && \RG_{C'}(\Lambda_{n,C'})
+\end{tikzcd}
+\]
+On a donc
+\[
+\tau(g)=\Tr^*g_{\RG_{C'}(\Lambda_{n,U',C'})}
+=\Tr^*g_{\RG_{C'}(\Lambda_{n,C'})}
+-\Tr^*g_{\RG_{Y'}(\Lambda_{n,Y'})}.
+\]
+Pour abréger on a écrit $\Tr^*$ au lieu de $\Tr^*_{\Lambda_n}$.
+
+Or on a, en appliquant une formule de Lefschetz triviale sur l'espace discret $Y'$ sur lequel $g$ opère:
+\[
+\Tr^*g_{\RG_{Y'}(\Lambda_{n,Y'})}
+=
+\sum_{\substack{y'\in Y'\\gy'=y'}}1.
+\]
+D'autre part la formule de Lefschetz (III 4.7) pour $g$ opérant sur $C'$ nous donne, si $g\ne e$,
+\[
+\Tr^*g_{\RG_{C'}(\Lambda_{n,C'})}
+=
+\sum_{y'\in Y'} v_{y'}(g),
+\]
+la somme des multiplicités des points fixes de l'application $g_{C'}:C'\to C'$, et on a
+\[
+\Tr^*g_{\RG_{C'}(\Lambda_{n,C'})}=\EP(C')\cdot1_\Lambda
+\quad\text{pour }g=e,
+\]
+grâce au calcul explicite des $H^*(C',\Lambda_{n,C'})$, via (SGA 4 IX 4) et Künneth (SGA 4 XVII). Il en résulte donc la formule suivante pour $\tau$:
+\[
+\tau(g)=
+\begin{cases}
+\displaystyle\sum_{\substack{y'\in Y'\\g(y')=y'}}\bigl(v_{y'}(g)-1\bigr),& g\ne e,\\[0.8em]
+\EP(C')-\operatorname{card}(Y'),& g=e.
+\end{cases}
+\tag{5.2.2}
+\]
+Comparant avec (5.2.1), on trouve facilement $\tau=\lambda_n^*(\sigma_2)$. En effet, si $g\ne e$, l'égalité entre $\tau(g)$ et $\lambda_n^*(\sigma_2)$ est immédiate par (4.5.2). Si $g=e$, la formule à vérifier s'écrit
+\[
+\EP(C')-\operatorname{card}(Y')
+=
+N\EP(C)-\sum_{y\in Y}\sigma'_y(e),
+\qquad N=\operatorname{card}(G),
+\]
+c'est-à-dire, par (4.5.2),
+\[
+\EP(C')-N\EP(C)=-\deg(\mathfrak D_{C'/C}),
+\]
+qui n'est pas autre chose que la classique formule de Hurwitz.
+
+\subsection*{6. Définition des termes locaux $\varepsilon_x^\Delta(F)$}
+
+\subsubsection*{6.1}
+
+Soient $C$ une courbe algébrique connexe lisse sur le corps $k$ algébriquement clos, $A$ une $\Lambda$-algèbre ($\Lambda=\mathbb Z/\ell^\nu\mathbb Z$, $\ell$ distinct de la caractéristique de $k$) et $\Delta\subset D^+(A)$ une sous-catégorie triangulée de $D^+(A)$ stable par facteurs directs. Soit $F$ un complexe de faisceaux de $A$-modules sur $C$ tel que les conditions suivantes soient remplies:
+
+i) Pour tout point géométrique $\bar x\in C(k)$, on a $F_{\bar x}\in\Ob(\Delta)$.
+
+ii) Il existe un ouvert non vide de $C$ sur lequel $F$ soit localement constant; ou ce qui revient au même, il existe un ouvert non vide $U$ de $C$ et un revêtement galoisien connexe $C'\xrightarrow{p}C$ de $C$, de groupe $G$, tel que, si $F'=p^*(F)$ est l'image inverse de $F$ par $p$, alors $F'|U'$ est constant $(U'=p^{-1}(U))$.
+
+Le faisceau $F'|U'$ est donc défini par un complexe $M$ de $A$-modules sur lequel $G$ opère. Si on désigne par $\eta$ (resp. $\eta'$) le point générique de $C$ (resp. $C'$), et par $\bar\eta$ (resp. $\bar\eta'$) un point géométrique sur $\eta$ (resp. $\eta'$), on a:
+\[
+p(\eta')=\eta,\qquad
+F_{\bar\eta}=F'_{\bar\eta'}=M.
+\tag{6.1.1}
+\]
+Comme complexe de $A$-modules, $M$ est isomorphe à $F_{\bar\eta}$ et, grâce à la condition i), c'est un objet de $\Delta$. Donc (3.6) pour tout $x\in C(k)$,
+\[
+\Hom^\bullet_{A[G]}(Sw_x^A,M)
+\]
+est un objet de $\Delta$, d'où un élément de $K(\Delta)$.
+
+En fait l'objet de $\Delta$ défini par $\Hom^\bullet_{A[G]}(Sw_x^A,M)$ ne dépend pas, à isomorphisme près, du revêtement galoisien $C'\to C$ qui trivialise $F|U$. Pour le démontrer il suffit de comparer les éléments associés à deux revêtements
+\[
+C'\xrightarrow{p}C,\qquad C''\xrightarrow{p'}C'\xrightarrow{p}C.
+\]
+Dans ce cas, si $G'$ est le groupe de Galois du revêtement $C''\xrightarrow{p''}C$, alors $G$ est un groupe quotient de $G'$. Soit
+\[
+\varphi:\mathbb Z_\ell[G']\longrightarrow \mathbb Z_\ell[G]
+\]
+l'épimorphisme canonique associé. Les modules de Swan sont alors liés par la relation
+\[
+Sw_{G,x}\simeq Sw_{G',x}\otimes_{\mathbb Z_\ell[G']}\mathbb Z_\ell[G],
+\]
+qui résulte immédiatement du fait que le caractère $a_{G,x}$ est le caractère induit de $G'$ à $G$ ([3] VI Prop. 3).
+
+D'autre part on a un isomorphisme de complexes de $A[G']$-modules
+\[
+F_{\bar\eta'}\simeq [F_{\bar\eta''}]_\varphi.
+\]
+Il en résulte un isomorphisme canonique de complexes de $A$-modules entre
+\[
+\Hom^\bullet_{A[G]}(Sw_{G,x}^A,F_{\bar\eta})
+\quad\text{et}\quad
+\Hom^\bullet_{A[G']}(Sw_{G',x}^A,F_{\bar\eta''})
+\]
+(formule d'adjonction).
+
+\subsubsection*{6.2}
+
+Nous utiliserons les notations suivantes:
+\[
+\alpha_x^\Delta(F)
+=
+\clK{\Delta}\bigl(\Hom^\bullet_{A[G]}(Sw_x^A,F_{\bar\eta})\bigr),
+\tag{6.2.1}
+\]
+\[
+\varepsilon_x^\Delta(F)
+=
+\alpha_x^\Delta(F)+
+\bigl(\clK{\Delta}(F_{\bar\eta})-\clK{\Delta}(F_x)\bigr).
+\tag{6.2.2}
+\]
+Bien entendu dans la formule (6.2.1), $F_{\bar\eta}$ est muni de la structure de $A[G]$-module grâce à l'isomorphisme (6.1.1). Notons que si $x\in C(k)$ est tel que $C'$ soit modérément ramifiée en $x$, on aura (4.6) $Sw_x=0$, donc $\alpha_x^\Delta(F)=0$, donc dans ce cas on aura, en conformité avec Ogg-Shafarevitch:
+\[
+\varepsilon_x^\Delta(F)=\clK{\Delta}(F_{\bar\eta})-\clK{\Delta}(F_x).
+\tag{6.2.3}
+\]
+Il est clair que $\varepsilon_x^\Delta(F)=0$ si $x\notin Y=C-U$, et par conséquent il existe seulement un nombre fini de $x$ tel que $\varepsilon_x^\Delta(F)\ne0$.
+
+Donnons maintenant des exemples de catégories $\Delta$ et de complexes de faisceaux $F$ tels que les conditions énoncées plus haut soient vérifiées.
+
+a) Soient $\Delta=D^b(A)_{\coh}$ (VIII 5) et $F$ un complexe de faisceaux de $A$-modules constructible (SGA 4 XVII) et à cohomologie bornée. Dans ce cas $\varepsilon_x^\Delta(F)\in K_0(A)$.
+
+b) On prend $\Delta=D(A)_{\parf}$ (VIII 6) et $F$ un complexe de faisceaux de $A$-modules constructible et de tor-dimension finie. Dans ce cas $\varepsilon_x^\Delta(F)\in K^*(A)$.
+
+c) Soient $A$, $B$ deux $\Lambda$-algèbres et $\varphi:A\to B$ un homomorphisme de $\Lambda$-algèbres. On prend $\Delta=D^b(B\operatorname{ rel }A)_{\coh}$ (VIII 10) et $F$ un complexe de faisceaux de $B$-modules, constructible comme faisceau de complexes de $A$-modules et à cohomologie bornée. On obtient $\varepsilon_x^\Delta(F)\in K_0(B\operatorname{ rel }A)$. Évidemment on peut varier comme plus haut pour obtenir, par exemple, des éléments $\varepsilon_x^\Delta(F)\in K^*(B\operatorname{ rel }A)$.
+
+\subsection*{7. Formule d'Euler-Poincaré}
+
+\begin{statement}{Théorème 7.1}
+Soient $C$ une courbe algébrique connexe, lisse et propre sur le corps $k$ algébriquement clos, $\eta$ le point générique de $C$, $\Delta\subset D^+(A)$ une sous-catégorie triangulée de $D^+(A)$ stable par facteurs directs, $F$ un complexe de faisceaux de $A$-modules tel que les conditions i), ii) de 7.1 soient remplies. Sous ces conditions on a $\RG_C(F)\in\Ob(\Delta)$, et la formule suivante (formule d'Euler-Poincaré) est vraie:
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\EP(C)\clK{\Delta}(F_{\bar\eta})
+-\sum_{x\in C(k)}\varepsilon_x^\Delta(F),
+\tag{7.2}
+\]
+où les $\varepsilon_x^\Delta(F)$ sont définis dans 6.2 (formule 6.2.2).
+\end{statement}
+
+La démonstration de ce théorème sera faite en quelques étapes.
+
+a) Soit $\Psi$ un complexe borné à gauche de faisceaux de $\Lambda[G]$-modules sur $C$. On a un isomorphisme
+\[
+R\Gamma^G(\RG_C(\Psi))\simeq\RG_C(R\Gamma^G(\Psi)),
+\tag{7.3}
+\]
+où $\Gamma^G$ est le foncteur: «sous-faisceau des sections $G$-invariantes». En effet $\Gamma_C$ transforme un faisceau injectif de $\Lambda[G]$-modules dans un $\Lambda[G]$-module injectif et $\Gamma^G$ transforme un faisceau injectif de $\Lambda[G]$-modules dans un faisceau injectif de $\Lambda$-modules (utiliser pour cela par exemple des adjoints évidents de $\Gamma_C$ et $\Gamma^G$), et d'autre part on a
+\[
+\Gamma^G\circ\Gamma_C=\Gamma_C\circ\Gamma^G.
+\]
+Prenant les foncteurs dérivés des deux membres et appliquant [5] prop. 3.1), on obtient donc (7.3).
+
+b) Soit $\Phi$ un complexe limité à gauche de faisceaux de $\Lambda$-modules sur $C$, nul en dehors de $U$. On a un isomorphisme
+\[
+\Phi\simeq R\Gamma^G(p_*(\Phi')),
+\qquad \Phi'=p^*(\Phi).
+\tag{7.4}
+\]
+Remarquons d'abord que les foncteurs $p^*$, $\Gamma^G\circ p_*$ établissent des équivalences quasi-inverses l'une de l'autre de la catégorie des faisceaux de $\Lambda$-modules sur $C$ sur lesquels $G$ opère et nuls en dehors de $U'=p^{-1}(U)$, et de la catégorie des faisceaux de $\Lambda$-modules sur $C$ nuls en dehors de $U$. On aura donc l'isomorphisme
+\[
+\Phi\simeq R\bigl((\Gamma^G\circ p_*)\circ p^*\bigr)(\Phi).
+\]
+D'autre part, on peut appliquer de nouveau [5] Prop. 3.1) qui nous donne, compte tenu que $Rp^*=p^*$, $Rp_*=p_*$:
+\[
+\Phi\simeq R(\Gamma^G\circ p_*)(p^*(\Phi))
+\simeq (R\Gamma^G)(p_*p^*(\Phi)),
+\]
+ce qui est l'isomorphisme voulu.
+
+c) Soit $\Phi$ un complexe de faisceaux comme dans b). On a l'isomorphisme
+\[
+\RG_C(\Phi)=(R\Gamma^G)(\RG_{C'}(\Phi')),
+\qquad \Phi'=p^*(\Phi).
+\tag{7.5}
+\]
+En effet on a:
+\[
+(R\Gamma^G)(\RG_{C'}(\Phi'))
+\simeq
+(R\Gamma^G)(\RG_C(p_*(\Phi')))
+\simeq
+\RG_C(R\Gamma^G(p_*(\Phi')))
+\]
+grâce à (7.3), et (7.5) en résulte grâce à l'isomorphisme (7.4).
+
+d) Désignons par $i':U'\to C'$, $i:U\to C$ les inclusions canoniques et posons
+\[
+\Phi=F_{U,C}=i_!(F|U).
+\]
+Pour calculer $\RG_C(\Phi)$ on peut appliquer la formule (7.5). D'autre part, avec les notations de 7.1,
+\[
+\Phi'\simeq \Lambda_{U',C'}\otimes_\Lambda^L M,
+\]
+et la formule de Künneth (SGA 4 XVII) nous donne
+\[
+\RG_{C'}(\Phi')
+\simeq
+\RG_{C'}(\Lambda_{U',C'}\otimes_\Lambda^L M)
+\simeq
+\RG_{C'}(\Lambda_{U',C'})\otimes_\Lambda^L M.
+\tag{7.6}
+\]
+Ce dernier isomorphisme est en fait un isomorphisme entre les objets de $D(A[G])$ définis par les deux membres. En combinant (7.6), (7.5) et la formule (3.9.1), qui est applicable grâce à 2.1, on obtient
+\[
+\RG_C(F_{U,C})
+\simeq
+R\Gamma^G\bigl(\RG_{C'}(\Lambda_{U',C'})\otimes_\Lambda^L M\bigr)
+\simeq
+\RHom_{A[G]}\bigl(\RG_{C'}(\Lambda_{U',C'})^\vee,M\bigr).
+\tag{7.7}
+\]
+Donc compte tenu de $M\simeq F_{\bar\eta}\in\Ob(\Delta)$ (condition (i)) et de (3.6), on trouve
+\[
+\RG_C(F_{U,C})\in\Ob(\Delta).
+\]
+D'autre part on a le triangle distingué (où $Y=C-U$)
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& \RG_Y(F|Y) \arrow[dr] & \\
+\RG_C(F_{U,C}) \arrow[rr] && \RG_C(F)
+\end{tikzcd}
+\tag{7.8}
+\]
+où évidemment
+\[
+\RG_Y(F)=\sum_{y\in Y}F_y\in\Ob(\Delta),
+\]
+car $F_y\in\Ob(\Delta)$ (condition (i)). Il en résulte donc que $\RG_C(F)\in\Ob(\Delta)$, c'est-à-dire la première assertion du théorème. Le triangle distingué (7.8) nous donne de plus la relation
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\clK{\Delta}(\RG_C(F_{U,C}))
++\sum_{y\in Y}\clK{\Delta}(F_y),
+\]
+et en utilisant l'isomorphisme 7.7:
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\clK{\Delta}\bigl(\RHom_{A[G]}(\RG_{C'}(\Lambda_{U',C'})^\vee,F_{\bar\eta})\bigr)
++\sum_{y\in Y}\clK{\Delta}(F_y).
+\]
+Pour obtenir la formule d'Euler-Poincaré il suffit maintenant d'utiliser la formule de Weil (5.2). En effet d'abord 4.4, (5.2) et 3.6 (dans le cas particulier $B=A[G]$) nous donnent
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\sum_{y\in Y}\clK{\Delta}(F_y)
++\EP(C)\clK{\Delta}(F_{\bar\eta})
+-\sum_{y\in Y}\bigl(\alpha_y^\Delta(F)+\clK{\Delta}(F_{\bar\eta})\bigr).
+\]
+Compte tenu que $\varepsilon_x^\Delta(F)=0$ pour $x\notin Y$, ceci n'est autre que la formule (7.2). Pour un complexe de faisceaux $F$ satisfaisant les conditions de 7.1, on introduira la notation
+\[
+\EP_\Delta(C,F)=\clK{\Delta}(\RG_C(F)).
+\]
+
+\begin{statement}{Corollaire 7.9}
+Si $F$, $F'$ sont des complexes de faisceaux satisfaisant aux conditions de 7.1 et s'ils sont localement isomorphes (pour la topologie étale) comme complexes de $A$-modules, on a:
+\[
+\EP_\Delta(C,F)=\EP_\Delta(C,F').
+\tag{7.10}
+\]
+En particulier, si $F$ est localement constant de valeur $M^\bullet$, on a:
+\[
+\EP_\Delta(C,F)=\EP(C)\clK{\Delta}(M^\bullet).
+\tag{7.11}
+\]
+\end{statement}
+
+\begin{statement}{Corollaire 7.12}
+Soient $C$ une courbe algébrique connexe lisse, propre sur $k$, $V$ un ouvert non vide de $C$, $\Delta$ une sous-catégorie de $D^+(A)$ comme dans 7.1, et $F$ un complexe de faisceaux de $A$-modules sur $V$ tel que sa restriction à un sous-ouvert non vide convenable de $V$ soit trivialisée par un revêtement galoisien de $V$. Supposons de plus que $F_{\bar x}\in\Ob(\Delta)$ quelque soit $x\in V$. Sous ces conditions on a:
+\[
+(*)\qquad \RG_!V(F),\ \RG_V(F)\in\Ob(\Delta),
+\]
+\[
+(**)\qquad
+\clK{\Delta}(\RG_!V(F))=\clK{\Delta}(\RG_V(F)).
+\]
+Posons $\EP_\Delta(V,F)=\clK{\Delta}(\RG_V(F))$ et
+\[
+\EP(V)=\EP_{D(F_\ell)_{\coh}}(V,F_\ell)=\EP(C)-\operatorname{card}(Z),
+\]
+où $Z=C-V$ et où $F_\ell$ est le faisceau sur $C$ défini en dimension zéro par le faisceau constant associé à $F_\ell=\mathbb Z/\ell\mathbb Z$. On a alors la formule:
+\[
+\EP_\Delta(V,F)
+=
+\EP(V)\clK{\Delta}(F_{\bar\eta})
+-\sum_{x\in V(k)}\varepsilon_x^\Delta(F)
+-\sum_{x\in Z}\alpha_x^\Delta(F),
+\tag{7.13}
+\]
+où $\varepsilon_x^\Delta$ et $\alpha_x^\Delta$ sont définis par (6.2.1), (6.2.2).
+\end{statement}
+
+Nous utiliserons le lemme suivant:
+
+\begin{statement}{Lemme 7.14}
+Soient $K$ le corps des fractions d'un anneau de valuation discrète strictement local $R$, $W=\Spec K$, $A$ un anneau noethérien qui est annulé par un entier $n$ premier à la caractéristique résiduelle $p$ de $R$, et $F$ un complexe de faisceaux de $A$-modules sur $W$ trivialisé par une extension finie de $K$. Si $\Delta$ est une sous-catégorie triangulée de $D^+(A)$ stable par facteurs directs et si $F_{\bar\eta}\in\Ob(\Delta)$ ($\eta$ le point générique de $S$), alors $\RG_W(F)\in\Ob(\Delta)$ et
+\[
+\clK{\Delta}(\RG_W(F))=0.
+\]
+\end{statement}
+
+Démonstration de 7.14. Soit $\pi$ le groupe fondamental de $W$. Alors $F$ correspond à un complexe de $A$-modules $M^\bullet$ à groupe $\pi$ d'opérateurs. Le complexe de $A$-modules sous-jacent à $M^\bullet$ est isomorphe à $F_{\bar\eta}$ et par conséquent il appartient à $\Ob(\Delta)$. Introduisons le groupe quotient $\bar\pi$ de $\pi$ par son unique $p$-sous-groupe de Sylow $P$ [4, II 33], c'est-à-dire la limite projective de groupes quotients discrets de $\pi$ qui sont d'ordre premier à $p$, où $p$ est l'exposant caractéristique du corps résiduel de $R$ (si $p=1$, on pose $\bar\pi=\pi$). On a donc la suite exacte
+\[
+1\longrightarrow P\longrightarrow \pi\longrightarrow \bar\pi\longrightarrow0,
+\]
+et on obtient
+\[
+\RG_W(F)\simeq R\Gamma^\pi(M^\bullet)
+\simeq R\Gamma^{\bar\pi}(R\Gamma^P(M^\bullet))
+\]
+(isomorphisme de Hochschild-Serre). Or $P$ opère sur $M^\bullet$ via un groupe quotient fini, qui est donc un $p$-groupe, donc d'ordre premier à $n$. Donc on a
+\[
+R\Gamma^P(M^\bullet)\simeq \Gamma^P(M^\bullet),
+\]
+et $\Gamma^P(M^\bullet)$ est un facteur direct de $M^\bullet$, et appartient donc à $\Ob(\Delta)$. D'autre part
+\[
+\bar\pi=\prod_{\ell\ne p}\mathbb Z_\ell
+\]
+([4], II 33). Nous sommes donc ramenés à démontrer que si $M^\bullet\in\Ob(\Delta)$, alors $R\Gamma^{\bar\pi}(M^\bullet)\in\Ob(\Delta)$ et
+\[
+\clK{\Delta}(R\Gamma^{\bar\pi}(M^\bullet))=0.
+\]
+Soit pour cela $f$ un générateur topologique de $\bar\pi$. Nous pouvons supposer que les composantes $M^i$ de $M$ sont des $\bar\pi$-modules tels que
+\[
+H^j(\bar\pi,M^i)=0\quad\text{si }j\ge1.
+\]
+Il existe alors un triangle distingué
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& M^\bullet \arrow[dr,"1-f"] &\\
+R\Gamma^{\bar\pi}(M^\bullet) \arrow[rr] && M^\bullet .
+\end{tikzcd}
+\tag{7.15}
+\]
+En effet, d'une part il est clair que $R\Gamma^{\bar\pi}=\Ker(1-f)$. D'autre part $1-f:M^\bullet\to M^\bullet$ est surjectif. En effet
+\[
+H^1(\bar\pi,M)=M^\bullet/(1-f)M^\bullet
+\]
+(voir pour ce calcul [4] pp. 197, dans un cas sensiblement analogue), donc il en résulte $M^\bullet=(1-f)M^\bullet$. Le triangle (7.15) nous donne en même temps $R\Gamma^{\bar\pi}(M^\bullet)\in\Ob(\Delta)$ et
+\[
+\clK{\Delta}(R\Gamma^{\bar\pi}(M^\bullet))=0,
+\]
+ce qui prouve 7.14.
+
+Démonstration de 7.12. Le fait que $\RG_!V(F)\in\Ob(\Delta)$ résulte immédiatement de 7.1 appliqué au complexe $i_!(F)$, où $i:V\to C$; en effet on a
+\[
+\RG_!V(F)=\RG_C(i_!F).
+\]
+Pour prouver que $\RG_V(F)\in\Ob(\Delta)$, on considère le triangle distingué
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& Q^\bullet \arrow[dr] &\\
+Ri_!(F) \arrow[rr] && Ri_*(F),
+\end{tikzcd}
+\]
+où $Q^\bullet$ est concentré sur $Z=C-V$, d'où, en appliquant $\RG_C$, le triangle distingué
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& \RG_Z(Q^\bullet|Z) \arrow[dr] &\\
+\RG_!V(F) \arrow[rr] && \RG_V(F).
+\end{tikzcd}
+\tag{7.16}
+\]
+Comme $\RG_!V(F)\in\Ob(\Delta)$, il en résulte que $\RG_V(F)\in\Ob(\Delta)$ si et seulement si $\RG_Z(Q^\bullet|Z)\in\Ob(\Delta)$, c'est-à-dire $(Ri_*(F))_{\bar x}\in\Ob(\Delta)$ pour tout $x\in Z$. Rappelons que pour calculer $(Ri_*(F))_{\bar x}$ on considère le carré cartésien
+\[
+\begin{tikzcd}
+\bar V \arrow[r,"j"] \arrow[d,"u"'] & C_x \arrow[d]\\
+V \arrow[r] & C
+\end{tikzcd}
+\]
+où $C_x$ est le schéma localisé strict correspondant au point géométrique $x$; on a
+\[
+Ri_*(F)_{\bar x}\simeq \RG_{\bar V}(u^*(F)),
+\]
+en vertu de 7.14, et on a donc $(Ri_*(F))_{\bar x}\in\Ob(\Delta)$ et
+\[
+\clK{\Delta}((Ri_*(F))_{\bar x})=0.
+\]
+Il en résulte que
+\[
+\clK{\Delta}(\RG_Z(Q^\bullet|Z))=0
+\]
+et le triangle distingué (7.16) nous donne
+\[
+\clK{\Delta}(\RG_!V(F))=\clK{\Delta}(\RG_V(F)).
+\]
+Enfin pour établir (7.13) il suffit d'utiliser la formule d'Euler-Poincaré (7.2) pour le complexe de faisceaux $i_!(F)$:
+\[
+\EP_\Delta(V,F)
+=
+\clK{\Delta}(\RG_!V(F))
+=
+\clK{\Delta}(\RG_C(i_!(F)))
+=
+\EP(C)\clK{\Delta}(F_{\bar\eta})
+-\sum_{x\in C(k)}\varepsilon_x^\Delta(i_!(F)).
+\]
+Or on a
+\[
+\sum_{x\in C(k)}\varepsilon_x^\Delta(i_!(F))
+=
+\sum_{x\in V(k)}\varepsilon_x^\Delta(F)
++\sum_{x\in Z}\varepsilon_x^\Delta(F).
+\]
+Mais pour $x\in Z$ on a $(i_!(F))_{\bar x}=0$ et par conséquent pour un tel $x$ on a
+\[
+\varepsilon_x^\Delta(i_!(F))
+=
+\alpha_x^\Delta(F)+\clK{\Delta}(F_{\bar\eta}),
+\]
+d'où la formule (7.13).
+
+\section*{Références}
+
+\begin{enumerate}
+\item[{[1]}] M. Raynaud, Caractéristique d'Euler-Poincaré d'un faisceau et cohomologie des variétés abéliennes. Séminaire Bourbaki 1965, n\textsuperscript{o} 286.
+\item[{[2]}] A. Grothendieck, Sur quelques points d'algèbre homologique, Tohoku Math. Journal, vol. 9 (1957), p. 119--221, (cité [T]).
+\item[{[3]}] Serre, J.-P., Corps locaux, Act. Sci. Ind., 1296 (1962), Hermann, Paris.
+\item[{[4]}] Serre, J.-P., Cohomologie Galoisienne, Lecture Notes in Mathematics 5, 1964 (Springer).
+\item[{[5]}] Verdier, J.-L., Catégories dérivées, I H E S 1963 (publié dans SGA $4^{1/2}$).
+\end{enumerate}
+
+\end{document}

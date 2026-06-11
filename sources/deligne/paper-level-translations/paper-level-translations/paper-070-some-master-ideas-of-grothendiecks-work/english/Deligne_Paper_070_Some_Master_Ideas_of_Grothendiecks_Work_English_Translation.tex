@@ -1,0 +1,192 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.15in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french,english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{tikz-cd}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.35em}
+
+\title{Some Master Ideas in the Work of A. Grothendieck}
+\author{Pierre Deligne}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This article attempts to explain four fundamental mathematical concepts created by Grothendieck: schemes, topoi, the six operations, and motives.
+\end{abstract}
+
+In \emph{Récoltes et semailles} (third part), Grothendieck writes:
+\begin{quote}
+Take, for example, the task of proving a theorem which still remains hypothetical (to which, for some, mathematical work would seem to reduce). I see two extreme approaches to going about it. One is that of the hammer and chisel, when the problem posed is seen as a large nut, hard and smooth, whose inside one must reach, the nourishing flesh protected by the shell. The principle is simple: one places the edge of the chisel against the shell, and one strikes hard. If need be, one begins again at several different places, until the shell breaks — and one is satisfied. [...]
+
+I could illustrate the second approach while keeping the image of the nut which has to be opened. The first parable which came to my mind just now is that one plunges the nut into an emollient liquid, simply water, why not; from time to time one rubs it so that the liquid penetrates better, and for the rest one lets time do its work. The shell softens over the weeks and months; when the time is ripe, a pressure of the hand suffices, the shell opens like that of an avocado ripened to the point! Or again, one lets the nut ripen under the sun and the rain and perhaps also under the winter frosts. When the time is ripe, it is a delicate shoot issuing from the substantial flesh which will have pierced the shell as if in play; or, to speak more exactly, the shell will have opened of itself to let it pass. [...]
+
+The reader who is at all familiar with some of my work will have no difficulty recognizing which of these two modes of approach is ``mine.''
+\end{quote}
+
+A little farther on [ibid., p. 554, note (***)], Grothendieck puts forward four examples: Riemann--Roch, the structure of the prime-to-the-characteristic \(\pi_1\) for curves, rationality of \(L\)-functions for schemes of finite type over a finite field, and the semi-stable reduction theorem for abelian varieties. I remember my amazement, in 1965--66, after Grothendieck's lecture [SGA 5] proving the base-change theorem for \(Rf_!\): dévissages, dévissages, nothing seems to happen and yet at the end of the lecture a clearly non-trivial theorem is there.
+
+Many of Grothendieck's ideas have become so familiar to us, and are so perfectly adapted to their object, that we forget that they were far from obvious at their birth; we even forget their author. My aim in this article is to describe four of these ideas: schemes, topoi, the six operations, and motives.
+
+\section{Schemes}
+
+The invention of schemes is the first of Grothendieck's ideas that comes to mind, perhaps because it was the most quickly accepted. Serre's address in Stockholm in 1962 begins: ``I would like to describe here some of the recent developments in algebraic geometry. I should specify that I take this last term in the sense which it has acquired over the last few years: that of the theory of schemes.'' This acceptance was facilitated by the rapid publication, thanks to the collaboration of Dieudonné, of EGA.
+
+The boldness of Grothendieck's definition is to accept that every commutative ring (with unit) \(A\) defines an affine scheme \(\operatorname{Spec}(A)\), that is, not to try to restrict oneself to a category of ``good'' rings (domains, reduced rings, noetherian rings, \ldots). This has a price. The points of \(\operatorname{Spec}(A)\) (prime ideals of \(A\)) do not have a manageable geometric meaning, and the structural sheaf \(\mathcal O\) is not a sheaf of functions. When one has to construct a scheme, one does not in general begin by constructing its set of points.
+
+Perhaps more important is the decision to build a relative theory, to which the omnipresent
+\[
+  X \longrightarrow S
+\]
+in Grothendieck's lectures bears witness. The classical case of a variety defined over a field \(k\) becomes the special case \(S=\operatorname{Spec}(k)\). In a relative theory, with an \(S\)-scheme \(X\), that is, with a morphism of schemes \(f:X\to S\), one systematically considers the scheme \(X'\) deduced from \(X\) by a base change \(u:S'\to S\), that is, the fiber product \(X':=S'\times_S X\) and its projection \(f'\) onto \(S'\):
+\[
+\begin{tikzcd}
+X' \arrow[r] \arrow[d,"f'"'] & X \arrow[d,"f"]\\
+S' \arrow[r,"u"'] & S .
+\end{tikzcd}
+\]
+In the category of schemes, fiber products always exist: if allowing every commutative ring to define an affine scheme gives citizenship to strange schemes, allowing it supplies a category of schemes with good properties.
+
+A property of \(X\) over \(S\) will be called geometric if it has good invariance properties under base change. Classical analogue: for a variety \(X\) defined over a field \(k\), the set of points of \(X\) over an algebraically closed extension \(\Omega\) of \(k\) (for example, Weil's universal domain) is regarded as ``geometric'', while the set of \(k\)-points is ``arithmetic''.
+
+If \(X\) is a scheme over \(S\), and \(u:S'\to S\) is a morphism of schemes, an \(S'\)-point \(p\) of \(X\) is a morphism of \(S\)-schemes:
+\[
+\begin{tikzcd}
+ & X \arrow[d]\\
+S' \arrow[ur,"p"] \arrow[r,"u"'] & S .
+\end{tikzcd}
+\]
+One denotes by \(X(S')\) the set of \(S'\)-points of \(X\). It identifies with the set of sections of \(X'\to S'\).
+
+\paragraph{Example 1.1.}
+Let \(X\) be the affine scheme over a field \(k\) defined by equations
+\[
+  P_\alpha(X_1,\ldots,X_n)=0:
+  \qquad
+  X=\operatorname{Spec}\bigl(k[X_1,\ldots,X_n]/(P_\alpha)\bigr).
+\]
+Let \(k'\) be a \(k\)-algebra. The set \(X(k'):=X(\operatorname{Spec}(k'))\) is the set of solutions in \(k'^n\) of the equations \(P_\alpha=0\). For \(k'\), an algebraically closed extension \(\Omega\) of \(k\), this is the set \(X(\Omega)\) that Weil regards as underlying \(X\).
+
+\paragraph{Example 1.2.}
+The scheme \(GL_N\) over \(\operatorname{Spec}(\mathbb Z)\) is such that for every commutative ring \(A\) (automatically a \(\mathbb Z\)-algebra: \(\operatorname{Spec}(A)\) is a scheme over \(\operatorname{Spec}(\mathbb Z)\)), \(GL_N(\operatorname{Spec}(A))\) ``is'' \(GL_N(A)\).
+
+In these examples, the geometric intuition that one has of \(X\), a scheme over \(S\), is well reflected in \(X(S')\). Better than in the underlying set of \(X\). In the case of Example 1.2, this underlying set is not a group, whereas each \(GL_N(S')\) is one. More precisely, it is useful to attach to the scheme \(X\) over \(S\) the contravariant functor from \(S\)-schemes to sets
+\[
+  S' \longmapsto \text{the set } X(S') \text{ of } S'\text{-points of } X.
+\]
+In the category of \(S\)-schemes, this is simply the representable functor
+\[
+  h_X:S'\longmapsto \operatorname{Hom}(S',X)
+\]
+attached to \(X\). By the Yoneda lemma, the functor \(X\mapsto h_X\) is fully faithful. Rather than thinking of an \(S\)-scheme \(X\) as a ringed space, equipped with \(X\to S\), with suitable properties, it is often convenient to think of it as a functor
+\[
+  \text{\(S\)-points}:(\text{Schemes}/S)^\circ\longrightarrow(\text{Sets}),
+\]
+which has the virtue of being representable. When one wants to define a ``fine moduli space'', the first step is to define the corresponding functor. Typically, defining this functor requires a relative theory.
+
+\paragraph{Example 1.3.}
+Let \(X\) be projective over a field \(k\). Question: what does ``moduli space of closed subschemes of \(X\)'' mean? For \(u:S'\to\operatorname{Spec}(k)\), let \(X'\) over \(S'\) be deduced from \(X\) by base change. Let \(\mathcal H(S')\) be the set of closed subschemes \(Z'\) of \(X'\) which are flat over \(S'\) (flat of finite presentation, if one does not want to assume \(S'\) noetherian). Answer: it is a scheme \(\operatorname{Hilb}(X)\) representing the functor \(S'\mapsto\mathcal H(S')\).
+
+For this point of view to be viable, one must have methods for verifying when a functor is representable. Most of the lectures of FGA are devoted to this problem. A definitive solution, extending this work, was obtained by M. Artin [1969], at least if one agrees to replace the category of schemes by the more natural category of algebraic spaces. More natural: in the same sense in which the étale topology is more natural than the Zariski topology.
+
+\section{Topoi}
+
+Let \(u:S'\to S\) be a morphism of schemes, the ``base-change morphism''. Descent theory [Grothendieck FGA, Séminaire Bourbaki 190, 1959--60] considers problems of the following kinds. Descent of properties: let \(X\) be a scheme over \(S\), and \(X'\) over \(S'\) deduced from \(X\) by base change. Suppose that \(X'/S'\) has a property \(P\). Can one conclude that \(X/S\) satisfies \(P\)? Descent of morphisms: let \(X,Y\) be over \(S\), let \(X',Y'\) be deduced by base change, and let \(g':X'\to Y'\) be a morphism of \(S'\)-schemes. When does \(g'\) arise by base change from \(g:X\to Y\)? Descent of objects: let \(X'\) be over \(S'\). What descent datum on \(S'\) is required in order to construct \(X\) over \(S\) from which \(X'\) is deduced by base change?
+
+If \(S'\) is the disjoint union of the open subsets \((U_i)_{i\in I}\) of a covering of \(S\), the base change to \(S'\) is essentially the restriction to each \(U_i\), and the preceding problems are problems of localization on \(S\) and gluing. Gluing typically requires considering the pairwise intersections \(U_i\cap U_j\), and in terms of \(u:S'\to S\), the disjoint union of the \(U_i\cap U_j\) is simply the fiber product \(S'\times_S S'\).
+
+The theory of topoi makes it possible to transpose topological intuition into descent theory. For \(u:S'\to S\), a base-change morphism of a type considered in descent theory, for example faithfully flat and quasi-compact (fpqc), base change from \(S\) to \(S'\) becomes a localization. A descent datum is the analogue of a gluing datum.
+
+An antecedent of descent theory is Galois descent, corresponding to \(S\), the spectrum of a field \(k\), and \(S'\), the spectrum of a Galois extension. Here, \(S'\times_S S'\) is a sum of copies of \(S'\) indexed by \(\operatorname{Gal}(k'/k)\). The proofs, and in particular Galois theory, are however simpler in the more general framework of descent theory. In Cartier's phrase: Grothendieck proves Galois theory, and Galois descent, by Galois descent.
+
+The tool that is topos theory enabled the construction of étale cohomology of schemes, and this is its best-known success. A sheaf on \(X\) for the Zariski topology is a contravariant functor from the category of Zariski open subsets of \(X\) to the category of sets, with a gluing condition for \((U_i)_{i\in I}\), a Zariski open covering of \(U\). In the étale topology, the Zariski site considered above is replaced by the étale site: the category of Zariski open subsets is replaced by that of \(f:U\to X\) étale over \(X\), and coverings by the covering families \((U_i)_{i\in I}\), that is, a surjective morphism of schemes over \(X\) from the disjoint union of the \(U_i\) to \(U\). An antecedent: Serre's introduction of the notion of an isotrivial principal homogeneous space (= locally trivial for a topology close to the étale topology). In his Kansas [1955] and Tôhoku [1957] papers, Grothendieck had shown that, once a category of sheaves is given, a notion of cohomology groups results. The étale topology thus supplies étale cohomology. That the \(H^1\) groups obtained are reasonable is not surprising. The miracle is that the higher \(H^i\) are reasonable too.
+
+For Grothendieck, the importance of topos theory goes far beyond the single case of the étale topology. The title given to SGA 4 bears witness to this: ``Theory of topoi and étale cohomology of schemes.''
+
+Other applications:
+
+\begin{description}[leftmargin=2.6em,labelwidth=2em]
+\item[(A)] \emph{Crystalline cohomology.} Crystalline cohomology is the cohomology of the crystalline topos, and this definition makes its functoriality clear. The crystalline topos is nevertheless delicate to use, and it is often necessary to pass to an interpretation in terms of de Rham complexes.
+\item[(B)] \emph{Rigid analytic spaces.} Tate's rigid analytic sheaves are coherent sheaves on a suitable ringed topos, and their cohomology is the corresponding cohomology.
+\item[(C)] \emph{Foliations.} A variety \(X\) equipped with a foliation \(\mathcal F\) defines a ``quotient'' \(X/\mathcal F\), which is a topos locally isomorphic to that of sheaves on a variety. This point of view seems to have been eclipsed by that of Connes, who instead associates to \(\mathcal F\) a non-commutative \(C^*\)-algebra.
+\end{description}
+
+I would also like to mention Grothendieck's use of ``big'' sites (topoi), notably for interpreting classifying spaces.
+
+\section{The six operations}
+
+The formalism of the six operations presupposes that of derived categories. For a history of the latter, I refer to Illusie's text [1990]. Basic idea: for all sorts of cohomology groups, their definition supplies not only these groups, but also a complex \(K\) whose cohomology groups they are. Typically, this complex is not uniquely determined, but it is so up to quasi-isomorphism: for two variants \(K'\), \(K''\) of \(K\), one has \(K'''\) and morphisms \(K'\leftarrow K'''\to K''\) inducing isomorphisms on cohomology. In the derived category, \(K\) thereby becomes unique up to unique isomorphism.
+
+The six operations are functors between derived categories. They are the derived tensor product \(\otimes^L\), the internal Hom \(R\mathcal Hom\) (giving rise to the local \(\mathcal Ext^i\)), and, for \(f:X\to Y\) a morphism of schemes, two direct-image functors: \(Rf_*\) and \(Rf_!\), and two inverse-image functors: \(Lf^*\) and \(Rf^!\).
+
+The formalism of these operations was first isolated in the cohomology of coherent sheaves [Grothendieck 1963]. Here, for direct images, one should consider only proper morphisms, for which \(Rf_* = Rf_!\). The formalism provides a relative version of Serre duality, in the form of an adjunction between the functors \(Rf_*\) and \(Rf^!\). It also provides a fixed-point formula more general than the ``Woodshole fixed point formula'', which is contemporary with it (Summer Institute on Algebraic Geometry, Whitney estate, Woodshole, Massachusetts, 1964).
+
+Miraculously, the same formalism applies in étale cohomology — with very different proofs. It again supplies a formalism of duality (Poincaré duality) and fixed-point formulae (Lefschetz formulae).
+
+\section{Motives}
+
+Let \(X\) be an algebraic variety over an algebraically closed field \(k\). For each prime number \(\ell\) prime to the characteristic, the étale topology supplies \(\ell\)-adic cohomology groups \(H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\). If \(k\) is a subfield of \(\mathbb C\), one has comparison isomorphisms
+\[
+  H^i(X(\mathbb C),\mathbb Z)\otimes\mathbb Z_\ell
+  \xrightarrow{\sim}
+  H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell).
+\]
+For \(k\) of characteristic \(>0\), there is no functorial integral cohomology giving rise to such isomorphisms. Nevertheless, the \(H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\) have, as \(\ell\) varies, a ``family resemblance''. For \(i=1\), and \(X\) projective and smooth, \(\operatorname{Pic}^0(X)\) plays the role of the nonexistent integral theory: it recovers the \(H^1_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\) and is an object ``over \(\mathbb Z\)'', in that groups of homomorphisms between abelian schemes are of finite type.
+
+The theory of motives is first of all an attempt to find a substitute for the nonexistent integral cohomology, explaining the family resemblance among the \(H^i_{\mathrm{\acute et}}(X,\mathbb Z_\ell)\), especially for \(X\) projective and smooth. One recognizes the Master's hand in the idea that the problem is not to define what a motive is: the problem is to define the category of motives, and to bring out the structures it carries. These structures should make it possible to prove the Weil conjecture on the model of Serre [1960]. See Grothendieck [1969].
+
+It was on this occasion that Grothendieck invented the notion of a Tannakian category, developed in Saavedra's thesis [1972]. The aim was to formalize the notion of tensor product of motives, corresponding by the Künneth formula to the product of varieties.
+
+Even if the theory of motives has not achieved its original aim, its influence has been great. I refer to the Seattle conference on motives [Jannsen et al., 1994] for a panorama of its applications.
+
+\section*{Bibliography}
+
+A bibliography of Grothendieck is given at the beginning of his Festschrift [Cartier et al. 1990, p. xiii--xx].
+
+Other sources: the introduction, and J. Dieudonné's article ``From functional analysis to the foundations of algebraic geometry'', in the same Festschrift (p. 1--14); the International Congress of Mathematicians addresses by J.-P. Serre (Stockholm 1962), ``Algebraic geometry'' (p. 190--496), J. Dieudonné (Moscow 1966), ``The work of Alexander Grothendieck'' (p. 21--24), and, for Riemann--Roch and Grothendieck groups, H. Cartan (Moscow 1966), ``The work of Michael F. Atiyah'' (p. 9--14).
+
+\begin{description}[leftmargin=2em]
+\item[ARTIN (M.)]
+\item[{[1969]}] Algebraization of formal moduli, I, in \emph{Global Analysis} (Papers in honor of K. Kodaira), Tokyo: Univ. Tokyo Press, 1969, p. 21--71.
+
+\item[CARTIER (P.), ILLUSIE (L.), KATZ (N.M.) et al., eds.]
+\item[{[1990]}] \emph{The Grothendieck Festschrift}, vol. I, vol. 86 of \emph{Progress in Mathematics}, Boston: Birkhäuser, 1990.
+
+\item[GROTHENDIECK (A.)]
+\item[{[1955]}] A general theory of fibre spaces with structure sheaf, University of Kansas, 1955.
+\item[{[1957]}] Sur quelques points d'algèbre homologique, \emph{Tôhoku Math. J.}, 9 (1957), p. 119--221.
+\item[{[1963]}] Résidus et dualité, prenotes for a ``Hartshorne seminar'', manuscript. See Hartshorne [1966].
+\item[{[1969]}] Standard conjectures on algebraic cycles, in \emph{Algebraic Geometry} (Colloquium Tata Inst., Bombay, 1968), Oxford Univ. Press, 1969, p. 193--199.
+\item[{[1985]}] \emph{Récoltes et semailles : Réflexions et témoignages sur un passé de mathématicien}, Montpellier: Univ. Sci. et Tech. Languedoc et CNRS, 1985.
+\item[{[EGA]}] \emph{Éléments de Géométrie algébrique}. Inst. Hautes Études Sci. Publ. Math, 4, 8, 11, 17, 20, 24, 28, 32. In collaboration with J. Dieudonné.
+\item[{[FGA]}] \emph{Fondements de la Géométrie algébrique}. Extracts from the Séminaire Bourbaki 1957--1962: seminars 149, 182, 190, 195, 212, 221, 232 and 236.
+\item[{[SGA]}] \emph{Séminaire de Géométrie algébrique du Bois Marie}. The seminar SGA 5: \emph{Cohomologie \(\ell\)-adique et Fonctions \(L\)} (1965--66), was finally published: vol. 589 of Lecture Notes in Math., Berlin--Heidelberg: Springer, 1977.
+
+\item[HARTSHORNE (R.)]
+\item[{[1966]}] \emph{Residues and duality}, vol. 20 of Lecture Notes in Math., Berlin--Heidelberg: Springer, 1966.
+
+\item[ILLUSIE (L.)]
+\item[{[1990]}] Catégories dérivées et dualité, travaux de J.-L. Verdier, \emph{Enseign. math.}, 36 (1990), p. 369--391.
+
+\item[JANNSEN (U.), KLEIMAN (S.) and SERRE (J.-P.), eds.]
+\item[{[1994]}] \emph{Motives}, vol. 55 of the \emph{Proceedings of Symposia in Pure Mathematics}, Providence: Amer. Math. Soc., 1994.
+
+\item[SAAVEDRA (N.)]
+\item[{[1972]}] \emph{Catégories tannakiennes}, vol. 265 of Lecture Notes in Math., Berlin--Heidelberg: Springer, 1972.
+
+\item[SERRE (J.-P.)]
+\item[{[1960]}] Analogues kähleriens de certaines conjectures de Weil, \emph{Ann. of Math.}, 71 (1960), p. 392--394; \emph{Œuvres}, vol. II, Berlin--Heidelberg: Springer, 1986, p. 1--3.
+\end{description}
+
+\end{document}

@@ -1,0 +1,1303 @@
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{tikz-cd}
+\geometry{margin=0.86in}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.12em}
+\emergencystretch=3em
+\setlist{leftmargin=2.1em,itemsep=0.08em,topsep=0.2em}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Ql}{\mathbb Q_\ell}
+\newcommand{\Zl}{\mathbb Z_\ell}
+\newcommand{\A}{\mathbb A}
+\newcommand{\G}{\mathbb G}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\Inf}{\operatorname{Inf}}
+\newcommand{\detm}{\operatorname{det}}
+\newcommand{\dimv}{\operatorname{dim}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Fr}{\operatorname{Frob}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\ppcm}{\operatorname{ppcm}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\coker}{\operatorname{coker}}
+\providecommand{\Stab}{\operatorname{Stab}}
+\providecommand{\Char}{\operatorname{Hom}}
+\providecommand{\Frac}{\operatorname{Frac}}
+\providecommand{\ord}{\operatorname{ord}}
+\providecommand{\im}{\operatorname{im}}
+
+
+\providecommand{\OO}{\mathcal O}
+\providecommand{\mm}{\mathfrak m}
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\geom}{\mathrm{geom}}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\Frob}{\operatorname{Frob}}
+\providecommand{\vol}{\operatorname{vol}}
+
+
+\providecommand{\R}{\mathbb R}
+\providecommand{\OO}{\mathcal O}
+\providecommand{\mm}{\mathfrak m}
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\geom}{\mathrm{geom}}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\Frob}{\operatorname{Frob}}
+\providecommand{\vol}{\operatorname{vol}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries THE CONSTANTS OF THE FUNCTIONAL EQUATIONS OF \(L\)-FUNCTIONS}\\[2em]
+{\large By P. Deligne}\\[6em]
+International Summer School on Modular Functions, Antwerp 1972
+\end{center}
+
+\newpage
+
+\begin{center}
+\bfseries Contents
+\end{center}
+
+\begin{tabularx}{\textwidth}{@{}p{0.04\textwidth}Xr@{}}
+--& Introduction & 3\\
+--& \S1. Virtual representations of a finite group & 7\\
+--& \S2. Weil groups & 21\\
+--& \S3. Reminders on \(L\)-functions & 26\\
+--& \S4. Existence of local constants & 35\\
+--& \S5. Formula sheet & 48\\
+--& \S6. Reduction modulo \(\ell\) of local constants & 54\\
+--& \S7. Modular \(L\)-functions & 58\\
+--& \S8. \(\ell\)-adic representations of Weil groups of non-archimedean local fields; Hodge structures and archimedean local Weil groups & 66\\
+--& \S9. Compatible systems of \(\ell\)-adic representations & 74\\
+--& \S10. Grothendieck's theory & 81\\
+--& \S11. Appendix. The computation of \(\varepsilon\) modulo roots of unity & 93\\
+& Bibliography & 96
+\end{tabularx}
+
+\newpage
+
+\section*{Introduction}
+
+The essential results of this article are the following.
+
+\paragraph{(A)} We give a simple proof of Langlands' theorem [9], already proved up to sign by Dwork [6], which makes it possible to write the constant in the functional equations of Artin \(L\)-functions, or of Weil \(L\)-functions [19], as a product of local constants.
+
+The theorem to be proved is local, and Langlands' proof had the elegance of being purely local. Essentially, the problem is to prove a multiplicative identity between somewhat generalized Gauss sums whenever one has a \(\Z\)-linear relation between characters of local Galois groups induced by characters of one-dimensional representations of subgroups. Langlands constructed a generating set of such relations, and reduced the identities to be proved to identities between Gauss sums, which he proved using Stickelberger's theorem.
+
+The proof presented here is very close to the proof [5] of the Hasse--Davenport identity (cf. also Weil [18]). It uses a global argument (4.12), and the fact that the local constants to be defined are essentially trivial at infinity, in the unramified case, and in certain very ramified cases (4.14).
+
+\paragraph{(B)} Let \(K\) be a function field and
+\[
+\rho:\Gal(\overline K/K)\longrightarrow \GL(n,\Q_\ell)
+\]
+an \(\ell\)-adic representation of the Galois group of \(K\), unramified almost everywhere. Grothendieck showed that the Euler product over the places of \(K\), with \(p^{-s}\) replaced by an indeterminate \(t\),
+\[
+Z(\rho,t)=\prod_v\det\bigl(1-F_vt^{\deg(v)},(\Q_\ell^n)^{\rho(I_v)}\bigr)^{-1}
+\in\Q_\ell[[t]],
+\]
+is a rational function, and that a functional equation relates \(Z(\rho,t)\) to
+\[
+Z^\vee(\rho,t):
+\qquad
+Z^\vee(\rho,p^{-1}t^{-1})=\varepsilon\, Z(\rho,t),
+\]
+where the constant \(\varepsilon\) is a monomial \(at^b\). This theory is summarized in §10. Result (A) suggests a formula expressing \(\varepsilon\) as a product of local constants. We prove that this formula is true when \(\rho\) belongs to an infinite compatible system of \(\ell\)-adic representations (9.3 and 9.9). According to Weil [16] and Jacquet--Langlands [8], this formula, applied to the compatible system of \(\ell\)-adic representations defined by an elliptic curve over \(K\), makes it possible to attach to every elliptic curve over \(K\) a modular form for \(\GL(2,K)\).
+
+It would be very interesting to know whether the formula obtained remains valid for an arbitrary \(\ell\)-adic representation.
+
+Here is the content of the various sections, and their interdependence.
+
+The beginning of §1 gathers a few results on induced representations of finite groups which will be useful to us.
+
+The end of §1, from 1.11 to the end, is not used in the rest of the article. For a solvable group \(G\), it describes a set \(R\) of \(\Z\)-linear relations between the characters of \(G\) induced by one-dimensional characters of subgroups, and proves that every such relation is a linear combination of elements of \(R\). The result and its proof are implicitly contained in [9].
+
+Sections 2 and 3 serve mainly to fix notation. In §2 we recall the structure of the Galois group of a local field [10], define the Weil groups, a variant of Galois groups, and give a few statements from class field theory. The reader should note that throughout this article the isomorphism of local class field theory sends a uniformizer to the inverse of the Frobenius substitution; the reason is given in 3.6. Section 3 recalls Tate's thesis and Artin [1].
+
+Section 4 contains the proof of result (A) above. The formula sheet in §5 gives a list of fundamental properties of the local constants constructed in §4, and a few identities between Gauss sums that follow from them.
+
+Sections 6, 7, and 8, the latter depending only on §2, are preliminaries to the proof of (B), given in §9. In the statements of §§3 and 4, we were very careful to use only rational formulas, involving neither passage to a limit nor square roots, even of a positive integer. We harvest the benefit of this in §§6 and 7. In §6, for \(K\) a non-archimedean local field and \(V\) a modular representation of \(W(\overline K/K)\) over a field \(A\) of characteristic \(\ell\ne p\), we define, by transport of structure for \(\ell=0\) and by reduction modulo \(\ell\) for \(\ell\ne0\), a local constant
+\[
+\varepsilon(V,\psi,dx)\in A^*.
+\]
+In §7, for \(K\) global of characteristic \(p\) and \(V\) a modular representation of \(W(\overline K/K)\), we prove, by reduction modulo \(\ell\), a functional equation for the corresponding \(L\)-function \(L\in\Lambda(t)\).
+
+In §8 we give the isomorphism classes of \(\ell\)-adic representations of the Weil group of a local field a purely algebraic description, independent of the topology of \(\Q_\ell\). This is used to define compatibility of \(\ell\)-adic and \(\ell'\)-adic representations. The notion introduced is finer than Serre's [12].
+
+Section 9 gives the proof of (B) (9.3 and 9.9). The idea is that, to prove an identity, it is enough to prove it modulo \(\ell\) for infinitely many \(\ell\). We also give, for function fields, a partial answer to a question of Serre by showing (9.8) that two \(\ell\)- and \(\ell'\)-adic representations giving the same characteristic polynomial of Frobenius, assumed to lie in \(\Q[t]\), at almost all places satisfy compatibility at the residual places.
+
+Section 10 summarizes Grothendieck's theory of \(L\)-functions (cf. [7] and SGA 5), which is used crucially in §9. In 10.11 I try to explain the point of his method. The odd results 10.13 follow immediately from what precedes. I do not know their meaning.
+
+\section*{\S1. Virtual representations of a finite group}
+
+\paragraph{1.1.} Let \(K\) be a commutative field. The most important case for us will be that in which \(K\) is algebraically closed of characteristic \(0\), for example \(K=\C\). Let \(G\) be a group. We shall write \(R_K(G)\) for the Grothendieck group of the category of finite-dimensional \(K[G]\)-modules over \(K\). It is identified with the free \(\Z\)-module with basis the set of isomorphism classes of irreducible \(K\)-linear representations of \(G\). It is a commutative ring with unit, for tensor product over \(K\), and even a \(\lambda\)-ring in the sense of Grothendieck. Its elements are the virtual representations of \(G\) over \(K\).
+
+To define a homomorphism \(f\) from \(R_K(G)\) to a commutative group \(X\), it is enough:
+\begin{enumerate}[label=\alph*)]
+\item to define \(f(V)\) for \(V\) a representation of \(G\) over \(K\);
+\item to check that for every exact sequence of representations
+\[
+0\longrightarrow V'\longrightarrow V\longrightarrow V''\longrightarrow0,
+\]
+one has \(f(V)=f(V')+f(V'')\).
+\end{enumerate}
+Applying this rule, one defines the dimension of a virtual representation
+\[
+\dim:R_K(G)\longrightarrow\Z,
+\]
+and its determinant
+\[
+\det:R_K(G)\longrightarrow\Hom(G,K^*).
+\]
+
+If \(H\) is a subgroup of finite index in \(G\), define induction
+\[
+\Ind_H^G:R_K(H)\longrightarrow R_K(G)
+\]
+as corresponding to extension of scalars
+\[
+V\longmapsto K[G]\otimes_{K[H]}V.
+\]
+This is an exact functor, and therefore passes to virtual representations. For \(f:G\to H\), define restriction
+\[
+\Res_G^H:R_K(H)\longrightarrow R_K(G)
+\]
+as restriction of scalars from \(K[H]\) to \(K[G]\). For \(f\) surjective one sometimes speaks rather of inflation.
+
+For every group \(G\), write \(G^{\mathrm{ab}}\) for the largest abelian quotient of \(G\). A \(K\)-quasi-character \(\chi\) of \(G\) is a homomorphism
+\[
+\chi:G\longrightarrow K^*;
+\]
+we identify it with the \(K\)-quasi-character of \(G^{\mathrm{ab}}\) through which it factors, and denote by \([\chi]\) the corresponding one-dimensional representation. For \(G\) finite, we shall use the words character and quasi-character interchangeably. The word character will never mean the character of a representation of dimension \(>1\).
+
+The following proposition is due to P. Gallagher [20].
+
+\paragraph{Proposition 1.2.} Let \(G\) be a group, \(H\) a subgroup of finite index, and
+\[
+t:G^{\mathrm{ab}}\longrightarrow H^{\mathrm{ab}}
+\]
+the transfer. For \(\rho\) a virtual representation of dimension \(0\) of \(H\), and \(x\in G^{\mathrm{ab}}\), one has
+\[
+\det(\Ind_H^G(\rho))(x)=\det(\rho)(t(x)).
+\]
+We shall prove, in only slightly greater generality, that if \(\varepsilon\) is the determinant of the permutation representation of \(G\) on \(G/H\),
+\[
+\varepsilon:G\longrightarrow \mathfrak S_{G/H}\longrightarrow \{\pm1\},
+\]
+then, for \(\rho\) of arbitrary dimension,
+\[
+\det(\Ind_H^G(\rho))(x)=\varepsilon^{\dim\rho}\det(\rho)(t(x)).
+\]
+
+This is fairly evident in topological terms. Let \(BG\) be the classifying space of \(G\), and let \(B_H\) be that of \(H\), regarded as a covering of \(B_G\). Representations of \(G\) are identified with local systems of finite-dimensional \(K\)-vector spaces on \(B_G\), and \(\Ind_H^G\) with the functor \(f_*\). The transfer \(H^1(B_G,X)\to H^1(B_H,X)\), for \(X=K^*\), corresponds to the norm \(f_!\). If \(\rho\in H^1(B_G,K^*)\) is the class of a rank-one local system of \(K\)-vector spaces, then \(f_!(\rho)\) is the class of \(N(L)\), the local system on \(B_G\) which, locally on \(B_G\), is the tensor product of the inverse images of \(L\) by the \([G:H]\) disjoint sections.
+
+Put
+\[
+\det V=\bigwedge^{\dim V}V
+\]
+for a local system \(V\), and let \(\varepsilon\) be the local system \(\det f_*K\). Proposition 1.2 follows from the existence of a canonical isomorphism, for \(V\) a local system on \(B_H\),
+\[
+\det f_*V\simeq \varepsilon^{\otimes\dim V}\otimes N(\det V).
+\]
+The construction of this isomorphism is local on \(B_G\), and reduces to the following construction.
+
+\paragraph{Construction 1.3.} For \((V_i)_{i\in I}\) a finite family of \(K\)-vector spaces of dimension \(d\), and \(\varepsilon=\det(K^I)\), one has canonically
+\[
+\det\Bigl(\bigoplus_{i\in I}V_i\Bigr)\simeq
+\varepsilon^{\otimes d}\otimes\bigotimes_{i\in I}\det(V_i).
+\]
+For \(i_1,\ldots,i_N\) the sequence of elements of \(I\), the map is
+\[
+\begin{aligned}
+&(e_{i_1,1}\wedge\cdots\wedge e_{i_1,d})\wedge\cdots\wedge
+(e_{i_N,1}\wedge\cdots\wedge e_{i_N,d}) \\
+&\quad\longmapsto
+(i_1\wedge\cdots\wedge i_N)^{\otimes d}\otimes
+(e_{i_1,1}\wedge\cdots\wedge e_{i_1,d})\otimes\cdots\otimes
+(e_{i_N,1}\wedge\cdots\wedge e_{i_N,d}).
+\end{aligned}
+\]
+
+\paragraph{Parenthesis 1.4.} Instead of a classifying space \(BG\), one could more intrinsically have used, in the preceding argument, Grothendieck's classifying topos \(B_G\) (SGA 4, IV, 2.4, p. 315, for \(E=(\mathrm{Ens})\)).
+
+Assume \(G\) finite. We shall say that \(K\) is large enough if it contains all roots of unity whose orders divide the l.c.m. of the orders of elements of \(G\). A group \(H\) will be called \(p\)-elementary if it is the product of a \(p\)-group and a cyclic group; elementary if it is \(p\)-elementary for some prime \(p\). We shall need the following variant of Brauer's theorem on induced characters, obtained by omitting everywhere ``of dimension zero.''
+
+\paragraph{Proposition 1.5.} If \(K\) is large enough, every virtual representation of dimension \(0\) of \(G\) is a sum of virtual representations
+\[
+\Ind_H^G(\chi),
+\]
+where \(\chi\) is virtual of dimension \(0\), \(H\) is elementary, and \(\chi\) is a linear combination of one-dimensional representations of \(H\).
+
+By Brauer's theorem applied to the trivial representation \(1_G\) of \(G\), there is a decomposition
+\[
+1_G=\sum_H \Ind_H^G(z_H),
+\qquad H\text{ elementary}.
+\]
+For \(y\) a virtual representation of dimension \(0\) of \(G\), one then has
+\[
+y=\sum_H y\cdot \Ind_H^G(z_H)
+  =\sum_H\Ind_H^G(\Res_H^G(y)\cdot z_H),
+\]
+with \(\dim(\Res_H^G(y)\cdot z_H)=0\). This reduces us to the case where \(G\) is elementary.
+
+By linearity, one may suppose that \(y\) is of the form
+\[
+\rho-\dim(\rho)\,1_G,
+\]
+with \(\rho\) irreducible, hence, since \(G\) is nilpotent, induced by a character \(\chi\) of a subgroup \(H\) of \(G\) containing the center \(Z\). Then
+\[
+\rho-\dim(\rho)\,1_G
+=
+\Ind_H^G(\chi-1_H)+\bigl(\Ind_H^G(1_H)-[G:H]1_G\bigr).
+\]
+The first term is of the desired type, and the second is the inflation of a virtual representation of dimension \(0\) of \(G/Z\). One concludes by induction on the order of \(G\), noting that \(|G/Z|<|G|\) if \(G\ne\{e\}\).
+
+\paragraph{Scholium 1.6.} A homomorphism
+\[
+f:R_K(G)\longrightarrow X
+\]
+is known once its value on \(1_G\) and on the
+\[
+\Ind_H^G(\chi-1_H),
+\]
+for \(H\) elementary and \(\chi\) a character of \(H\), are known.
+
+\paragraph{1.7.} Let \(A\) be a discrete valuation ring of unequal characteristic \(p\), with fraction field \(K\) and residue field \(k=A/\mathfrak m\). Recall the definition of the decomposition homomorphism ([11], III, 2.2)
+\[
+d:R_K(G)\longrightarrow R_k(G):
+\]
+for \(V\) a representation of \(G\) over \(K\), and \(E\) a \(G\)-invariant lattice,
+\[
+d([V])=[E\otimes_Ak].
+\]
+
+
+
+
+\paragraph{Proposition 1.8.} Assume that \(K\) is sufficiently large. The kernel of the decomposition homomorphism \(d\) is then generated by the elements
+\[
+\Ind_H^G(\chi')-\Ind_H^G(\chi'')
+\]
+where \(H\) is an elementary subgroup and \(\chi',\chi''\in\Hom(H,K^*)\) are congruent modulo \(\mathfrak m\).
+
+Since the ring homomorphism \(d\) commutes with induction, the argument of 1.5 reduces us to the case where \(G\) is elementary, hence the product of a \(p\)-group \(P\) and a group \(H\) of order prime to \(p\). Since \(K\) and \(k\) are sufficiently large, one has
+\[
+R(G)=R(P)\otimes R(H),
+\]
+and similarly over \(k\). For a group of order prime to \(p\), \(d\) is bijective. Applying Brauer's theorem to \(H\), it is enough to prove 1.8 for a \(p\)-group. This case is trivial, since every character \(\chi\in\Hom(P,K^*)\) of a \(p\)-group is congruent to \(1\) modulo \(\mathfrak m\).
+
+\paragraph{1.9.} For the rest of this subsection, assume that \(K=\C\), consider only finite groups, and abbreviate \(R_\C(G)\) to \(R(G)\). For \(G\) commutative, write \(G^*\) for the group of characters of \(G\).
+
+Let \(R^+(G)\) be the free \(\Z\)-module with basis the set of \(G\)-conjugacy classes of pairs \((H,\chi)\), where \(H\) is a subgroup of \(G\) and \(\chi\) a character of \(H\). Define a multiplication in \(R^+(G)\) by
+\[
+\tag{1.9.1}
+(A,\alpha)\,(B,\beta)=
+\sum_{(x,y)\in G\backslash(G/A\times G/B)}
+\bigl(A^x\cap B^y,\,
+(\alpha^x|_{A^x\cap B^y})(\beta^y|_{A^x\cap B^y})\bigr),
+\]
+where \((x,y)\) runs through representatives of the orbits of \(G\) in \(G/A\times G/B\), \(A^x=xAx^{-1}\), and \(\alpha^x\) is the character \(a\mapsto \alpha(x^{-1}ax)\) of \(A^x\). With this multiplication, \(R^+(G)\) is a commutative ring with unit \((G,1)\), and one defines a ring homomorphism
+\[
+\tag{1.9.2}
+b:R^+(G)\longrightarrow R(G),\qquad (H,\chi)\longmapsto \Ind_H^G(\chi).
+\]
+This homomorphism is surjective by Brauer's theorem. For \(\chi\) a character of \(G\), multiplication by \((G,\chi)\) is denoted \(\cdot\chi\) and is called twisting by \(\chi\):
+\[
+\tag{1.9.3}
+(H,\varphi)\cdot\chi=(H,\varphi\cdot\chi|_H).
+\]
+For \(G'\subset G\), define induction
+\[
+\tag{1.9.4}
+\Ind_{G'}^G:R^+(G')\longrightarrow R^+(G),\qquad (H,\chi)\longmapsto(H,\chi).
+\]
+For a morphism \(u:G\to G'\), define restriction by
+\[
+\tag{1.9.5}
+\Res_u(H,\chi)=
+\sum_{s\in u(G)\backslash G'/H}
+\bigl(u^{-1}(sHs^{-1}),\,\chi^s\circ u\bigr),
+\]
+where \(s\) runs over a set of representatives of the double classes. There are commutative diagrams
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=2.0em]
+R^+(G') \arrow[r,"\Ind"] \arrow[d,"b"'] & R^+(G) \arrow[d,"b"]\\
+R(G') \arrow[r,"\Ind"'] & R(G)
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=3.0em,row sep=2.0em]
+R^+(G') \arrow[r,"\Res"] \arrow[d,"b"'] & R^+(G) \arrow[d,"b"]\\
+R(G') \arrow[r,"\Res"'] & R(G),
+\end{tikzcd}
+\]
+for the second, see [11], p. 75. For \(R\in R^+(G)\) one has
+\[
+\tag{1.9.6}
+R\cdot(H,\chi)=\Ind_H^G\bigl(\Res_H^G(R)\cdot\chi\bigr).
+\]
+When \(u\) is surjective, one speaks of inflation.
+
+\paragraph{Notation 1.9.8.} For every additive function of representations \(F\), write the same symbol for the function it defines on \(R(G)\), and for \(F\circ b\). Thus
+\[
+\dim(v)=\dim(b(v)),\quad\ldots
+\]
+
+\paragraph{Variants 1.10.} (i) Let \(R^+_0(G)\) be the subgroup of \(R^+(G)\) generated by the \((H,\chi)-(H,1)\). As \((H,\chi)\) runs through the canonical basis of \(R^+(G)\), except for the \((H,1)\), these elements form a basis of \(R^+_0(G)\). One checks that \(R^+_0(G)\) is an ideal of \(R^+(G)\). Let \(R^0(G)\subset R(G)\) be the set of virtual representations of dimension \(0\) of \(G\). By 1.5, the natural map, induced by (1.9.2), from \(R^+_0(G)\) to \(R^0(G)\) is surjective.
+
+(ii) For a topological group \(G\), finite or not, \(R^+(G)\) and \(R^+_0(G)\) denote the analogous groups obtained by restricting to closed subgroups \(H\) of finite index and continuous quasi-characters. The functorialities of 1.9 generalize mutatis mutandis.
+
+The rest of this subsection will not be used below. We give results drawn from Langlands [9].
+
+\paragraph{Lemma 1.11.} Suppose that \(G=H\cdot C\), where \(C\) is commutative and normal, and let \(\chi\) be a character of \(H\). For every \(\mu\in C^*\), let \(G_\mu\subset G\) be the stabilizer of \(\mu\) under conjugation. If
+\[
+\chi|_{H\cap C}=\mu|_{H\cap C},
+\]
+write \(\{\chi,\mu\}\) for the character of \(G_\mu=(H\cap G_\mu)\cdot C\) which extends \(\chi|_{H\cap G_\mu}\) and \(\mu\). Then
+\[
+\Ind_H^G(\chi)=
+\sum_{\substack{\mu\in C^*/G\\ \chi|_{H\cap C}=\mu|_{H\cap C}}}
+\Ind_{G_\mu}^G\{\chi,\mu\}.
+\]
+The verification is left to the reader.
+
+\paragraph{1.12.} An element \(R\) of \(\Ker(R^+(G)\to R(G))\) will be said to be of type I, II, or III if there exists a quotient \(A\) of a subgroup \(B\) of \(G\) such that \(R\) is obtained from an element \(S\) of one of the following respective types in \(\Ker(R^+(A)\to R(A))\), by inflation from \(A\) to \(B\), twisting by a character of \(B\), and induction from \(B\) to \(G\). Let \(\ell\) be a prime number.
+
+\emph{I.} \(A\simeq\Z/\ell\Z\), and
+\[
+S=(e,1)-\sum_{\chi\in A^*}(A,\chi).
+\]
+
+\emph{II.} \(A\) is a central extension of \((\Z/\ell\Z)^2\) by an abelian group \(Z\). Let \(H_i\), \(i=1,2\), be the inverse images in \(A\) of the first and second factors \(\Z/\ell\Z\), and let \(\chi_i\) be a character of \(H_i\). Assume that \(\chi_1|_Z=\chi_2|_Z\), and that this character of \(Z\) is nontrivial on a commutator. The relation \(S\) is
+\[
+S=(H_1,\chi_1)-(H_2,\chi_2).
+\]
+
+\emph{III.} \(A\) is a semidirect product \(H\cdot C\), \(\chi\) is a character of \(H\), and the normal subgroup \(C\) is minimal among the nontrivial commutative normal subgroups of \(A\). For every character \(\mu\) of \(C\), \(A_\mu\) is the stabilizer of \(\mu\), and \(\{\chi,\mu\}\) is the character of \(A_\mu\) extending \(\chi\) and \(\mu\). The relation \(S\) expresses
+\[
+S=(H,\chi)-
+\sum_{\mu\in C^*/A}
+(A_\mu,\{\chi,\mu\}),
+\]
+where \(\mu\) runs over a set of representatives for the orbits of \(A\) in \(C^*\).
+
+These relations are special cases of 1.11: for I, \(H=\{e\}\) and \(C=A\); for II, \(H=H_1\) and \(C=H_2\); for III, \(H\) and \(C\) are as indicated.
+
+Every relation obtained by induction, inflation, or twisting from a relation of type I, respectively II or III, is again of the same type.
+
+\paragraph{Theorem 1.13 (Langlands [9], §18).} If \(G\) is nilpotent, the kernel of
+\[
+b:R^+(G)\longrightarrow R(G)
+\]
+is generated, as a \(\Z\)-module, by the relations of type I and II.
+
+\paragraph{Lemma 1.13.1.} If \(G\) is commutative, \(\Ker(b)\) is generated by the relations of type I.
+
+One has to show that, for every subgroup \(H\) of \(G\) and every \(\chi\in H^*\), the relation
+\[
+(H,\chi)-\sum_{\psi\in (G/H)^*}(G,\tilde\chi\psi)
+\]
+is a consequence of relations of type I. These are the following: for \(H'\subset H''\subset G\), with \([H'':H']\) prime, and \(\chi\) a character of \(H'\), always induced by a character of \(G\),
+\[
+\Ind_{H'}^G(\chi)-\sum_{\chi''|_{H'}=\chi}\Ind_{H''}^G(\chi'')=0.
+\]
+The general relation follows by taking a Jordan--Hölder series of \(G/H\).
+
+\paragraph{Lemma 1.13.2.} Let \(C\) be a commutative normal subgroup of \(G\), let \(T\) be a set of representatives of \(C^*/G\), let \(\mu\in T\), and let \(G_\mu\) be the stabilizer of \(\mu\). Let \((H_i)\) be a family of subgroups of \(G\) containing \(C\), and let \(\chi_i\) be a character of \(H_i\), with \(\chi_i|_C\in T\). If the relation
+\[
+\sum_i n_i\,\Ind_{H_i}^G(\chi_i)=0
+\]
+holds in \(R(G)\), then
+\[
+\sum_{\chi_i|_C=\mu}
+n_i\,\Ind_{H_i}^{G_\mu}(\chi_i)=0
+\]
+holds in \(R(G_\mu)\). The verification is left to the reader.
+
+Let \(Z\) be the center of \(G\), and prove 1.13 by induction on the order of \(G/Z\). By 1.13.1, we may suppose \(G\) noncommutative. Let \(C\) be a commutative normal subgroup containing \(Z\), with \([C:Z]=\ell\) prime, and with central image in \(G/Z\).
+
+Consider a relation
+\[
+\tag{1}
+\sum_i n_i\,\Ind_{H_i}^G(\chi_i)=0.
+\]
+It is a consequence of relations induced by
+\[
+\sum_{\chi_i|_{H_i\cap Z}=\chi}\Ind_{H_i}^G(\chi_i)=\Ind_{H_iZ}^G(\chi)
+\]
+and of a relation (2) analogous to (1), with \(H_i\supset Z\). The displayed relations are linear combinations of relations of type I; this follows from 1.13.1 applied to \(H_iZ/\Ker(\chi_i)\).
+
+The relation (2) is a consequence of relations induced from 1.11 for \(HC,H,C,\chi\), with \(H\supset Z\),
+\[
+\tag{b}
+\Ind_H^{HC}(\chi)=
+\sum_{\substack{\mu\in C^*/H\\ \chi|_{H\cap C}=\mu|_{H\cap C}}}
+\Ind_{G_\mu}^{HC}\{\chi,\mu\},
+\]
+and of a relation (3) analogous to (1), this time with \(H_i\supset C\). Apply 1.13.2 to (3), to express it as a sum of relations induced by relations
+\[
+\sum_i n_i\,\Ind_{H_i}^{G_\mu}(\chi_i)=0.
+\]
+The image of \(C\) in \(G/\Ker(\mu)\) is central, and the induction hypothesis therefore applies to \(G_\mu\); the resulting relations are of the desired type.
+
+It remains to prove that the relations (b) are of the desired type. If \(HC\ne G\), this follows from the induction hypothesis applied to \(HC\). If \(HC=G\), then \(H\) is normal, because it contains \(Z\) and \(C\) is central modulo \(Z\). Let \(A\) be the intersection of the kernels of the conjugates of \(\chi\). The relation (b) is the inflation of an analogous relation for \(G/A\). If the induction hypothesis applies to \(G/A\), we are done. Otherwise we are in the same situation as before, with \(A=\{e\}\), and we conclude by the following lemma.
+
+\paragraph{Lemma 1.13.3.} With the preceding notation, if \(A=\{e\}\), the relation (b) is of type II.
+
+The group \(H\) is commutative, since characters separate its elements. The group \(Z\) is cyclic, since one character separates its elements. For \(c\in C\) and \(h\in H\), put
+\[
+u(c,h)=chc^{-1}h^{-1}.
+\]
+This is an element of \(Z\), since \(C\) is central modulo \(Z\). It depends biadditively on \(c\) and \(h\), and defines
+\[
+u:C/Z\otimes H/Z\longrightarrow Z.
+\]
+Let \(c\) generate \(C/Z\). Since \(Z\) is the center and \(G\ne Z\), the map \(u(c,\ ):H/Z\to Z\) is injective, with nontrivial cyclic image killed by \(\ell\). Hence \(|C/Z|=|H/Z|=\ell\), and \(G\) is a central extension of \(C/Z\times H/Z\) by \(Z\). The character \(\chi\) is distinct from at least one of its conjugates, otherwise \(H\) would be central; it is therefore nontrivial on a commutator, and we are in situation II.
+
+\paragraph{Theorem 1.14 (Langlands [9]).} If \(G\) is solvable, the kernel of
+\[
+b:R^+(G)\longrightarrow R(G)
+\]
+is generated by the relations of type I, II, and III.
+
+\paragraph{Lemma 1.14.1.} If \(G\) is solvable, the \(\Z\)-submodule \(N(G)\) of \(R^+(G)\) generated by the relations of type I, II, and III is an ideal.
+
+We prove 1.14 and 1.14.1 by simultaneous induction on the order of \(G\).
+
+(A) Theorem 1.14 for the proper subgroups of \(G\) implies 1.14.1 for \(G\). Let \(R\in R^+(G)\) be of type I, II, or III, let \(H\) be a subgroup, and let \(\chi\) be a character of \(H\). We prove that
+\[
+R\cdot(H,\chi)\in N(G).
+\]
+If \(H=G\), this follows from the stability of \(N(G)\) under twisting by a character of \(G\). If \(H\ne G\), then by (1.9.6)
+\[
+R\cdot(H,\chi)=\Ind_H^G(\Res_H^G(R)\cdot\chi).
+\]
+By the hypothesis, \(\Res_H^G(R)\in N(H)\), and twisting followed by induction gives an element of \(N(G)\).
+
+(B) Lemma 1.14.1 for \(G\), together with Theorem 1.14 for groups of smaller order, implies 1.14 for \(G\). Let \(Z\) be the center of \(G\). By 1.13, we may and shall suppose that \(G\) is not nilpotent. There are two cases.
+
+(B1) \(Z\ne\{e\}\). By Brauer's theorem in \(G/Z\), there exist nilpotent subgroups \(H_i\supset Z\) of \(G\), and characters \(\chi_i\) of \(H_i/Z\), such that
+\[
+\sum_i n_i\,\Ind_{H_i/Z}^{G/Z}(\chi_i)=1_{G/Z}.
+\]
+Since this relation lifts to a relation \(S\) in \(R^+(G)\), and since the induction hypothesis applies to \(G/Z\), one has \(S-(G,1)\in N(G)\). For \(R\in\Ker(b)\), one has \(R\cdot S\in N(G)\) by 1.14.1, while (1.9.6) reduces the terms to restrictions to the \(H_i\), where the induction hypothesis applies. This proves the assertion.
+
+(B2) \(Z=\{e\}\). Let \(C\) be a nontrivial minimal commutative normal subgroup and, for \(\mu\in C^*\), let \(G_\mu\) be its stabilizer. Proceed as in the proof of 1.13. One finds that every relation \(R\in\Ker(b)\) is a linear combination of:
+\begin{enumerate}[label=(\alph*)]
+\item relations induced from 1.11 for \(HC,H,C,\chi\), with \(H\subset G\), \(\chi\) a character of \(H\), and \(H\not\supset C\);
+\item relations induced from identities in \(G_\mu\).
+\end{enumerate}
+Since \(Z=\{e\}\), one has \(|G_\mu/\Ker(\mu)|<|G|\), and the induction hypothesis applies to the latter relations. Consider a relation of type (a). If \(HC\ne G\), apply the induction hypothesis. If \(HC=G\), then \(H\cap C\) is normal, since it is normal in both \(H\) and \(C\). By minimality of \(C\), \(H\cap C=\{e\}\), and the relation is of type III.
+
+\paragraph{Remark 1.15.} It is probably possible to extract from [9] a description of a system of generators of
+\[
+\Ker(R^+_0(G)\longrightarrow R^0(G))
+\]
+for suitable groups \(G\). I have not had the courage to try.
+
+\section*{2. Weil groups}
+
+\paragraph{2.1. Roots of unity.} Let \(K\) be a separably closed field of characteristic exponent \(p\). For every integer \(n\), write \(\mu_n(1)(K)\), or simply \(\mu_n(1)\), for the group of \(n\)-th roots of unity in \(K\). For \(n\mid m\), there is a transition map
+\[
+\mu_m(1)\longrightarrow\mu_n(1),\qquad x\longmapsto x^{m/n};
+\]
+put
+\[
+\widehat\Z(1)=\varprojlim_n \mu_n(1).
+\]
+For a prime number \(\ell\), similarly put
+\[
+\Z_\ell(1)=\varprojlim_r\mu_{\ell^r}(1).
+\]
+The evident maps \(\widehat\Z(1)\to\Z_\ell(1)\) induce an isomorphism
+\[
+\widehat\Z(1)\iso\prod_{\ell\ne p}\Z_\ell(1).
+\]
+For every \(\widehat\Z\)-module \(V\), put \(V(1)=V\otimes_{\widehat\Z}\widehat\Z(1)\). For a \(\Z_\ell\)-module \(V\), one has
+\[
+V(1)\simeq V\otimes_{\Z_\ell}\Z_\ell(1).
+\]
+For \(K=\C\), the group \(\mu_n(1)\) is canonically isomorphic to the group of roots of unity in \(\C\). For \(x\in\mu_n(1)\) and \(\xi\in\Z/n\Z\), the image of \(\xi\otimes x\) in \(\Q/\Z(1)\) is \(\xi x\), giving the usual identifications.
+
+For \(\ell\ne p\), \(\Z_\ell(1)\) is a free rank-one \(\Z_\ell\)-module. For \(i\in\Z\), write \(\Z_\ell(i)\) for its \(i\)-th tensor power, and for \(i<0\) for the dual of \(\Z_\ell(-i)\). For every \(\Z_\ell\)-module \(V\), put again \(V(i)=V\otimes_{\Z_\ell}\Z_\ell(i)\).
+
+\paragraph{2.2. Notation.} Let \(K\) be a local field. We write \(\|\ \|\) for the normalized absolute value of \(K\). If \(dx\) is a Haar measure, then
+\[
+\int f(ax)\,dx=\|a\|^{-1}\int f(x)\,dx,
+\]
+i.e. \(d(ax)=\|a\|\,dx\).
+
+
+
+
+For \(s\in\C\), write \(\omega_s\) for the quasi-character
+\[
+x\longmapsto \|x\|^s
+\]
+from \(K^*\) to \(\C^*\).
+
+If \(K\) is nonarchimedean, i.e. \(K\ne\R,\C\), write \(\mathcal O\) for the valuation ring of the valuation \(v\) of \(K\), \(\pi\) for a uniformizer, \(k\) for the residue field \(\mathcal O/(\pi)\), \(p\) for the characteristic of \(k\), and put
+\[
+d=[k:\F_p],\qquad q=p^d=\#k.
+\]
+Thus
+\[
+\|x\|=q^{-v(x)}.
+\]
+
+\paragraph{2.2.2.} Suppose \(K\) is nonarchimedean. Let \(\overline K\) be a separable closure of \(K\), write \(\overline{\mathcal O}\) for the integral closure of \(\mathcal O\) in \(\overline K\), let \(\overline k\) be the residue field of \(\overline{\mathcal O}\), an algebraic closure of \(k\), and let \(v\) be the valuation of \(\overline K\), with values in \(\Q\), extending that of \(K\).
+
+There is a three-step filtration of the Galois group
+\[
+\Gal(\overline K/K)\supset I\supset P
+\]
+whose successive quotients are
+\[
+\begin{array}{rcl}
+\Gal(\overline K/K)/I&\iso&\Gal(\overline k/k)\iso\widehat\Z,\\[0.35em]
+I/P&\iso&\widehat\Z(1)(\overline k),\\[0.35em]
+P&:&\text{a pro-\(p\)-group.}
+\end{array}
+\]
+It is obtained as follows; for proofs we refer to [10].
+
+\begin{enumerate}[label=\alph*)]
+\item By transport of structure, \(\Gal(\overline K/K)\) acts on \(\overline{\mathcal O}\) and on \(\overline k\). The inertia group \(I\) is the kernel of the reduction map
+\[
+v':\Gal(\overline K/K)\longrightarrow \Gal(\overline k/k).
+\]
+The quotient \(\Gal(\overline k/k)\) is canonically isomorphic to \(\widehat\Z\), with topological generator the Frobenius substitution
+\[
+\varphi:x\longmapsto x^q.
+\]
+
+\item The wild inertia group \(P\) is the unique pro-\(p\)-Sylow subgroup of \(I\). The equivariant morphism
+\[
+t:I\longrightarrow \widehat\Z(1)(\overline k),
+\]
+with kernel \(P\), is characterized by the congruence, modulo the maximal ideal of \(\overline{\mathcal O}\),
+\[
+\frac{\sigma(x)}{x}=t(\sigma)\,v(x)
+\qquad(\sigma\in I,\ x\in\overline K).
+\]
+For a prime \(\ell\ne p\), write \(t_\ell\) for the composite
+\[
+I\longrightarrow\widehat\Z(1)(\overline k)\longrightarrow\Z_\ell(1)(\overline k).
+\]
+\end{enumerate}
+
+\paragraph{2.2.3.} Let \(k\) be a finite field with \(q\) elements, and let \(\overline k\) be its algebraic closure. Let \(W(\overline k/k)\) be the subgroup of \(\Gal(\overline k/k)\simeq\widehat\Z\) generated by
+\[
+\varphi:x\longmapsto x^q.
+\]
+There is a canonical isomorphism
+\[
+W(\overline k/k)\simeq\Z
+\]
+with generator \(\varphi\). The geometric Frobenius \(F\in W(\overline k/k)\) is, by definition, \(\varphi^{-1}\).
+
+\paragraph{2.2.4.} Let \(K,\overline K\) be as in 2.2.2. The Weil group \(W(\overline K/K)\), or absolute Weil group of \(K\), is the subgroup of \(\Gal(\overline K/K)\) consisting of the \(\sigma\) such that \(v'(\sigma)\) is an integral power of Frobenius \(\varphi\). It is endowed with the topology inducing the natural topology on \(I\), and for which \(I\) is open. The group \(\Gal(\overline K/K)\) is the completion of \(W(\overline K/K)\) for the topology of open subgroups of finite index; if \(L\) is a finite extension of \(K\) in \(\overline K\), the corresponding subgroup of \(W(\overline K/K)\) is identified with \(W(\overline K/L)\). We shall sometimes call geometric Frobenius elements those elements of \(\Gal(\overline K/K)\) or \(W(\overline K/K)\) whose image is \(F\).
+
+\paragraph{2.2.5.} Suppose \(K\) is archimedean, with algebraic closure \(\overline K\). Define \(W(\overline K/K)\) as the following extension of \(\Gal(\overline K/K)\) by \(\overline K^*\):
+\begin{enumerate}[label=\arabic*)]
+\item \(K\simeq\R\): \(W(\overline K/K)\) is generated by \(\overline K^*\) and an element \(F\), with
+\[
+F^2=-1,\qquad FzF^{-1}=\overline z\quad(z\in\overline K^*).
+\]
+\item \(K\simeq\C\): \(W(\overline K/K)=\overline K^*\).
+\end{enumerate}
+
+\paragraph{2.3.} Local class field theory provides an isomorphism between \(W(\overline K/K)^{\ab}\) and \(K^*\).
+
+Assume \(K\) nonarchimedean. For a reason explained in 3.6, we normalize this isomorphism, i.e. choose it or its inverse, so that geometric Frobenius elements correspond to uniformizers:
+\[
+\begin{tikzcd}[column sep=2.7em,row sep=1.9em]
+P \arrow[r,hook] \arrow[d] & I \arrow[r,hook] \arrow[d] &
+W(\overline K/K) \arrow[r] \arrow[d] &
+W(\overline k/k)\simeq\Z \arrow[d,"{-1}"]\\
+1+(\pi) \arrow[r,hook] & \mathcal O^* \arrow[r,hook] &
+K^* \arrow[r,"v"] & \Z .
+\end{tikzcd}
+\]
+A representation of \(W(\overline K/K)\) is unramified, respectively tamely ramified, if it is trivial on \(I\), respectively on \(P\). Similarly, a quasi-character \(\chi\) of \(K^*\) is unramified, respectively tamely ramified, if it is trivial on \(\mathcal O^*\), respectively on \(1+(\pi)\). For \(\ell\) prime to \(p\), the action of \(\Gal(\overline K/K)\) on \(\Z_\ell(1)\) is unramified, described by the quasi-character
+\[
+\omega_1=\|x\|
+\]
+of \(K^*\).
+
+For \(K\) complex, the isomorphism of local class field theory is the evident one on 2.2.5; for \(K\) real, it is the one which makes 2.3.1 and 2.3.2 below true.
+
+Let \(L\subset\overline K\) be a finite extension of \(K\), so that \(W(\overline K/L)\subset W(\overline K/K)\). The following diagrams, where \(N\) is the norm and \(t\) the transfer, are commutative ([10], XIII, §4):
+\[
+\tag{2.3.1}
+\begin{tikzcd}[column sep=3.3em,row sep=2.2em]
+W(\overline K/L) \arrow[r] \arrow[d] &
+W(\overline K/L)^{\ab} \arrow[r,"\sim"] \arrow[d] &
+L^* \arrow[d,"N_{L/K}"]\\
+W(\overline K/K) \arrow[r] &
+W(\overline K/K)^{\ab} \arrow[r,"\sim"] &
+K^* ,
+\end{tikzcd}
+\]
+\[
+\tag{2.3.2}
+\begin{tikzcd}[column sep=3.5em,row sep=2.3em]
+W(\overline K/K)^{\ab} \arrow[r,"\sim"] \arrow[d,"t"'] &
+K^* \arrow[d]\\
+W(\overline K/L)^{\ab} \arrow[r,"\sim"] &
+L^* .
+\end{tikzcd}
+\]
+
+\paragraph{2.4.} Let \(K\) be a function field in one variable over \(\F_p\), and let \(k\) be its field of constants, the algebraic closure of \(\F_p\) in \(K\). Let \(\overline K\) be a separable closure of \(K\), let \(\overline k\) be the algebraic closure of \(k\) in \(\overline K\), and let \(\Gal^0(\overline K/K)\) be the kernel of the restriction map from \(\Gal(\overline K/K)\) to \(\Gal(\overline k/k)\). The absolute global Weil group \(W(\overline K/K)\) is, by analogy with 2.2.4, defined by the diagram
+\[
+\begin{tikzcd}[column sep=1.7em,row sep=2.1em]
+0 \arrow[r] & \Gal^0(\overline K/K) \arrow[r] \arrow[d,equal] &
+W(\overline K/K) \arrow[r] \arrow[d,hook] &
+W(\overline k/k) \arrow[r] \arrow[d,hook] & 0\\
+0 \arrow[r] & \Gal^0(\overline K/K) \arrow[r] &
+\Gal(\overline K/K) \arrow[r] &
+\Gal(\overline k/k) \arrow[r] & 0 .
+\end{tikzcd}
+\]
+Let \(v\) be a place of \(K\), and suppose a place of \(\overline K\) above \(v\) has been chosen. There is then a commutative diagram
+\[
+\begin{tikzcd}[column sep=1.6em,row sep=2.1em]
+0 \arrow[r] & I_v \arrow[r] \arrow[d,hook] &
+W(\overline K_v/K_v) \arrow[r] \arrow[d,hook] &
+W(\overline k_v/k_v) \arrow[r] \arrow[d,hook] & 0\\
+0 \arrow[r] & \Gal^0(\overline K/K) \arrow[r] &
+W(\overline K/K) \arrow[r] &
+W(\overline k/k) \arrow[r] & 0 .
+\end{tikzcd}
+\]
+Global class field theory provides an isomorphism
+\[
+W(\overline K/K)^{\ab}\iso\A_K^*/K^*
+\]
+where \(\A_K^*/K^*\) is the idèle-class group, making the diagrams
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=2.0em]
+W(\overline K_v/K_v)^{\ab} \arrow[r] \arrow[d] &
+W(\overline K/K)^{\ab} \arrow[d]\\
+K_v^* \arrow[r] & \A_K^*/K^*
+\end{tikzcd}
+\]
+commutative.
+
+\paragraph{2.5.} For the definition of global Weil groups in the case of number fields, we refer to Weil [19] or to [2], XIV. We shall use them only incidentally.
+
+\section*{3. Reminders on \(L\)-functions}
+
+\paragraph{3.1.} Let \(K\) be a local field and use again the notation of 2.2.1. We denote by \(dx\) a Haar measure on \(K\), by \(d^*x\) a Haar measure on \(K^*\), and by \(\psi\) a nontrivial additive character of \(K\).
+
+\paragraph{3.2.} For a quasi-character, i.e. a continuous homomorphism,
+\[
+\chi:K^*\longrightarrow\C^*,
+\]
+define \(L(\chi)\in\C\cup\{\infty\}\) as follows.
+
+\[
+\tag{3.2.1}
+K\simeq\R.
+\]
+Put
+\[
+\Gamma_\R(s)=\pi^{-s/2}\Gamma(s/2),
+\]
+and, for \(x\) the embedding of \(K\) in \(\C\) and \(N=0\) or \(1\),
+\[
+L(x^{-N}\omega_s)=\Gamma_\R(s).
+\]
+
+\[
+\tag{3.2.2}
+K\simeq\C.
+\]
+Put
+\[
+\Gamma_\C(s)=2(2\pi)^{-s}\Gamma(s),
+\]
+and, for \(z\) an embedding of \(K\) in \(\C\) and \(N\ge0\),
+\[
+L(z^{-N}\omega_s)=\Gamma_\C(s).
+\]
+
+\[
+\tag{3.2.3}
+K\text{ nonarchimedean.}
+\]
+Put
+\[
+L(\chi)=1\quad(\chi\text{ ramified}),
+\qquad
+L(\chi)=\frac1{1-\chi(\pi)}\quad(\chi\text{ unramified}).
+\]
+
+\paragraph{3.3.} Given \(\psi\) and \(dx\), put, for \(f\) a \(C^\infty\) function of compact support on \(K\),
+\[
+\widehat f(y)=\int_K f(x)\psi(xy)\,dx.
+\]
+Define \(\varepsilon(\chi,\psi,dx)\in\C^*\) by Tate's local functional equation, independent of \(f\),
+\[
+\tag{3.3.1}
+\frac{\displaystyle\int_{K^*}\widehat f(x)\,\omega_1\chi^{-1}(x)\,d^*x}
+     {L(\omega_1\chi^{-1})}
+=
+\varepsilon(\chi,\psi,dx)\,
+\frac{\displaystyle\int_{K^*}f(x)\chi(x)\,d^*x}
+     {L(\chi)}.
+\]
+The same Haar measure \(d^*x\) is used on both sides. Both sides are defined by analytic continuation in \(\chi\) in the families \(\chi\omega_s\), \(s\in\C\). In these families, \(\varepsilon\) is of the form \(Ae^{Bs}\).
+
+One has
+\[
+\tag{3.3.2}
+\varepsilon(\chi,\psi,a\,dx)=a\,\varepsilon(\chi,\psi,dx),
+\]
+\[
+\tag{3.3.3}
+\varepsilon(\chi,\psi(ax),dx)=\chi(a)\|a\|^{-1}\varepsilon(\chi,\psi,dx).
+\]
+
+\paragraph{3.4.} For \(K\) nonarchimedean, put:
+\[
+n(\psi)=\text{the largest integer }n\text{ such that }\psi|_{\pi^{-n}\mathcal O}=1;
+\]
+\[
+a(\chi)=
+\begin{cases}
+0,&\chi\text{ unramified},\\
+\text{the least }m\text{ such that }\chi|_{1+(\pi)^m}=1,&\chi\text{ ramified};
+\end{cases}
+\]
+\[
+sw(\chi)=
+\begin{cases}
+0,&\chi\text{ unramified or tamely ramified},\\
+a(\chi)-1,&\chi\text{ ramified};
+\end{cases}
+\]
+and let \(\gamma\) be an element of \(K^*\) of valuation
+\[
+v(\gamma)=n(\psi)+sw(\chi)+1.
+\]
+The local constant \(\varepsilon\) is given by (3.3.2), (3.3.3), and the following formulas.
+
+\[
+\tag{3.4.1}
+K\simeq\R.
+\]
+Let \(x\) be the embedding of \(K\) in \(\C\), and \(N=0\) or \(1\). For \(\psi=\exp(2\pi ix)\) and \(dx\) the Lebesgue measure,
+\[
+\varepsilon(x^{-N}\omega_s,\psi,dx)=i^N.
+\]
+
+\[
+\tag{3.4.2}
+K\simeq\C.
+\]
+Let \(z\) be an embedding of \(K\) in \(\C\), and \(N\ge0\). For
+\[
+\psi=\exp(2\pi i\,\Tr_{\C/\R}(z))
+\]
+and
+\[
+dx=|dz\wedge d\overline z|=2\,da\,db\quad(z=a+bi),
+\]
+one has
+\[
+\varepsilon(z^{-N}\omega_s,\psi,dx)=i^N.
+\]
+
+\paragraph{3.4.3.} \(K\) nonarchimedean. If \(\chi\) is unramified,
+\[
+\int_{\mathcal O}dx=1,\qquad n(\psi)=0,
+\]
+then
+\[
+\tag{3.4.3.1}
+\varepsilon(\chi,\psi,dx)=1.
+\]
+For \(\chi\) ramified, one has
+\[
+\tag{3.4.3.2}
+\varepsilon(\chi,\psi,dx)=
+\int_{K^*}\chi^{-1}(x)\psi(x)\,dx
+=
+\sum_n\int_{v(x)=n}\chi^{-1}(x)\psi(x)\,dx
+=
+\int_{\gamma^{-1}\mathcal O^*}\chi^{-1}(x)\psi(x)\,dx.
+\]
+
+We shall see that it is natural to unify these two formulas as follows. If \(\varepsilon_0(\chi,\psi,dx)\) is defined by
+\[
+\varepsilon(\chi,\psi,dx)=\varepsilon_0(\chi,\psi,dx)
+\quad(\chi\text{ ramified}),
+\]
+and
+\[
+\tag{3.4.3.3}
+\varepsilon(\chi,\psi,dx)=\varepsilon_0(\chi,\psi,dx)\,\chi(\pi)^{-1}
+\quad(\chi\text{ unramified}),
+\]
+then
+\[
+\tag{3.4.3.4}
+\varepsilon_0(\chi,\psi,dx)=
+\int_{\gamma^{-1}\mathcal O^*}\chi^{-1}(x)\psi(x)\,dx.
+\]
+From (3.4.3.3) and (3.4.3.4), one deduces that, for \(\omega\) unramified,
+\[
+\tag{3.4.3.5}
+\varepsilon_0(\chi\omega,\psi,dx)
+=
+\omega(\pi)^{n(\psi)+sw(\chi)+1}\varepsilon_0(\chi,\psi,dx),
+\]
+and
+\[
+\varepsilon(\chi\omega,\psi,dx)
+=
+\omega(\pi)^{n(\psi)+a(\chi)}\varepsilon(\chi,\psi,dx).
+\]
+
+\paragraph{3.5.} Suppose \(K\) nonarchimedean, and resume the notation of 2.2.1. Let \(V\) be a finite-dimensional vector space over a field \(E\) of characteristic \(0\), or over \(\C\). The representations
+\[
+\rho:W(\overline K/K)\longrightarrow\GL(V)
+\]
+will always be assumed continuous: an open subgroup of \(I\) acts trivially. For \(V\) the space of a representation and \(V^I\) the subspace of inertia invariants, put
+\[
+\tag{3.5.1}
+Z(V;t)=\det(1-Ft^d,V^I)^{-1},
+\]
+\[
+\tag{3.5.2}
+L(V)=Z(V;1)\qquad(E\in E^*\cup\{\infty\}).
+\]
+Let
+\[
+\omega^t:W(\overline K/K)\longrightarrow E((t))^*
+\]
+be the unramified character such that \(\omega^t(F)=t^d\). In an evident sense, \(\omega_s=\omega^{p^{-s}}\). One has
+\[
+\tag{3.5.3}
+Z(V,t)=L(V\otimes\omega^t).
+\]
+
+\paragraph{3.6.} It is so that (3.2.3) and (3.5.2) are compatible that we normalized the local class field theory isomorphism so that geometric Frobenius elements correspond to uniformizers. Both (3.2.3) and (3.5.2) are very natural: 3.2.3 is forced from the analytic point of view (cf. 3.3.1), and 3.5.2 follows the tradition of geometers; it is geometric Frobenius which tends to act on the cohomology of algebraic varieties with algebraic integers as eigenvalues.
+
+\paragraph{3.7.} The irreducible continuous complex representations of \(W(\overline K/K)\) are, for \(K\) complex, the quasi-characters. For \(K\) real, besides the quasi-characters of \(K^*\), they are the representations induced by quasi-characters \(\chi\) of \(\overline K^*\) such that \(\chi\ne\chi\circ\sigma\), where \(\sigma\) is complex conjugation of \(\overline K\).
+
+For any complex representation \(V\), expressed in the Grothendieck group of representations of \(W(\overline K/K)\) as a sum of simple representations, define \(L(V)\) as follows:
+\[
+\tag{3.7.1}
+K\simeq\R,\quad
+V=\sum_i[\chi_i]+\sum_j\Ind_{\overline K^*}^{W}(\chi_j),
+\]
+\[
+L(V)=\prod_i L_K(\chi_i)\prod_j L_{\overline K}(\chi_j).
+\]
+\[
+\tag{3.7.2}
+K\simeq\C,\quad V=\sum_i[\chi_i],
+\qquad
+L(V)=\prod_iL(\chi_i).
+\]
+
+\paragraph{Proposition 3.8.} Let \(K\) be a local field and \(\overline K\) an algebraic closure of \(K\).
+\begin{enumerate}[label=(\roman*)]
+\item For every exact sequence
+\[
+0\longrightarrow V'\longrightarrow V\longrightarrow V''\longrightarrow0
+\]
+of complex representations of \(W(\overline K/K)\), one has
+\[
+\tag{3.8.1}
+L(V)=L(V')L(V'').
+\]
+\item Let \(L\) be a finite separable extension of \(K\) in \(\overline K\), and let \(V_L\) be a complex representation of \(W(\overline K/L)\). Let \(V_K\) be the representation induced to \(W(\overline K/K)\). Then
+\[
+\tag{3.8.2}
+L(V_K)=L(V_L).
+\]
+\end{enumerate}
+
+Assertion (i) is trivial. In the archimedean case, assertion (ii) follows from the duplication formula
+\[
+\Gamma_\C(s)=\Gamma_\R(s)\Gamma_\R(s+1),
+\]
+corresponding to
+\[
+\Ind([\omega_s])=[\omega_s]+[\chi^{-1}\omega_{s+1}].
+\]
+
+We prove (ii) for \(K\) nonarchimedean. Let \(k\) and \(\ell\) be the residue fields of \(K\) and \(L\). Then
+\[
+V_K^{I_K}=
+\left(\Ind_{W(\overline K/L)}^{W(\overline K/K)}V_L\right)^{I_K}
+\simeq
+\Ind_{W(\overline\ell/\ell)}^{W(\overline k/k)}(V_L^{I_L})
+\]
+as \(W(\overline k/k)\)-representations, both sides being identified with
+\[
+\Hom_{W(\overline K/L)}(W(\overline k/k),V_L),
+\]
+the covariant functions from \(W(\overline k/k)\) to \(V_L\), \(W(\overline K/L)\) acting on \(W(\overline k/k)\) by translation; cf. the commutative diagram
+
+
+
+
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=2.0em]
+W(\overline K/L)\arrow[r]\arrow[d]&W(\overline\ell/\ell)\arrow[d]\\
+W(\overline K/K)\arrow[r]&W(\overline k/k).
+\end{tikzcd}
+\]
+This reduces (3.8.2) to the following well-known lemma.
+
+\paragraph{Lemma 3.9.} Let \(F\) be an endomorphism of \(V\), let \(n\) be an integer, and let \(F_n\) be the endomorphism of
+\[
+V_n=V\otimes\C^n
+\]
+such that, for a basis \(e_0,\ldots,e_{n-1}\) of \(\C^n\),
+\[
+F_n(v\otimes e_i)=v\otimes e_{i+1}\quad(0\le i<n-1),
+\qquad
+F_n(v\otimes e_{n-1})=F(v)\otimes e_0.
+\]
+Then
+\[
+\det(1-F_nt)=\det(1-Ft^n).
+\]
+By the principle of continuation of algebraic identities, one may suppose \(F\) diagonal in a suitable basis of \(V\). One is immediately reduced to the case \(\dim(V)=1\), where \(F\) is multiplication by a number \(a^n\), \(a\ne0\). In the basis \(f_i=a^{-i}(v\otimes e_i)\), one has \(F_n(f_i)=af_{i+1}\), for \(i\in\Z/n\Z\). The eigenvectors of \(F_n\) are the
+\[
+\sum_i\chi(i)f_i
+\]
+where \(\chi\) runs through the characters of \(\Z/n\Z\), and the determinant identity follows.
+
+\paragraph{3.10.} Let \(K\) be a global field, an \(\mathfrak A\)-field in the sense of [15]. For every place \(v\) of \(K\), write \(K_v\) for the local field which is the completion of \(K\) at \(v\). The objects defined above for local fields will be denoted, for \(K_v\), with a subscript \(v\). Let \(\mathbb A\) be the adele ring of \(K\), let \(\|\ \|\) be the absolute value satisfying
+\[
+d(ax)=\|a\|\,dx
+\]
+for a Haar measure \(dx\) on \(\mathbb A\), and let \(\omega_s\) be the quasi-character \(\|x\|^s\) of \(\mathbb A^*\). If \(x_v\) is the component of \(x\in\mathbb A\) in \(K_v\), then
+\[
+\|x\|=\prod_v\|x_v\|_v.
+\]
+Let \(dx\) denote the unique Haar measure on \(\mathbb A\) such that
+\[
+\int_{\mathbb A/K}dx=1
+\]
+(the Tamagawa measure), let \(d^*x\) be a Haar measure on \(\mathbb A^*\), and let \(\psi\) be a character trivial on \(\mathbb A/K\), with local components \(\psi_v\). For \(f\) a \(C^\infty\) function with compact support on \(\mathbb A\), put
+\[
+\widehat f(y)=\int_{\mathbb A}f(x)\psi(xy)\,dx.
+\]
+
+\paragraph{3.11.} Tate's global functional equation [14] says, for \(\chi\) a quasi-character of \(\mathbb A^*/K^*\),
+\[
+\tag{3.11.1}
+\int_{\mathbb A^*}\widehat f(x)\chi'(x)\,d^*x
+=
+\int_{\mathbb A^*}f(x)\chi(x)\,d^*x,
+\qquad
+\chi'=\omega_1\chi^{-1},
+\]
+the integrals being defined by analytic continuation in the families \(\chi\omega_s\). Put
+\[
+\tag{3.11.2}
+L(\chi)=\prod_vL(\chi_v)
+\]
+by analytic continuation, and, for \(dx=\otimes_vdx_v\),
+\[
+\tag{3.11.3}
+\varepsilon(\chi)=\prod_v\varepsilon(\chi_v,\psi_v,dx_v).
+\]
+The product (3.11.3) is independent of the choice of \(\psi\) and of the decomposition of \(dx\), as follows from (3.3.2) and (3.3.3). If, for almost all \(v\),
+\[
+\int_{\mathcal O_v}dx_v=1,
+\]
+then almost all its factors are equal to \(1\). Formulas (3.3.1) and (3.11.1) give the global functional equation of Hecke \(L\)-functions:
+\[
+\tag{3.11.4}
+\varepsilon(\chi)L(\chi')=L(\chi).
+\]
+
+\paragraph{3.12.} The results stated below are proved in [1] and [19]. Let \(K\) be a global field, \(\overline K\) an algebraic closure of \(K\), and \(V\) a complex representation of \(\Gal(\overline K/K)\), always assumed continuous: the action of \(\Gal(\overline K/K)\) factors through a finite Galois group \(\Gal(K'/K)\). For every place \(v\) of \(K\), choose a place of \(\overline K\) above it, and let \(V_v\) be the representation obtained from \(V\) by restriction to the subgroup
+\[
+W(\overline K_v/K_v)
+\]
+of the decomposition group \(\Gal(\overline K_v/K_v)\).
+
+\begin{enumerate}[label=(\Alph*)]
+\item For \(\chi\) a quasi-character of \(\mathbb A^*/K^*\), with local components \(\chi_v\), the infinite product
+\[
+L(V,\chi)=\prod_vL(V_v\otimes\chi_v)
+\]
+can be defined by analytic continuation in \(\chi\) in the families \(\chi\omega_s\). It converges for \(\Re(s)\) large and extends to a meromorphic function of \(s\).
+
+\item Let \(V^*\) denote the dual of \(V\). One has
+\[
+L(V,\chi)=\varepsilon(V,\chi)\,L(V^*,\chi'),
+\qquad \chi'=\omega_1\chi^{-1},
+\]
+with \(\varepsilon(V,\chi)\in\C^*\), of the form \(Ae^{Bs}\) as \(\chi\) varies in the families \(\chi\omega_s\).
+
+\item Let \(L\) be a finite extension of \(K\) in \(\overline K\), let \(N_{L/K}\) be the norm, let \(V_L\) be a representation of \(\Gal(\overline K/L)\), and put
+\[
+V_K=\Ind_{\Gal(\overline K/L)}^{\Gal(\overline K/K)}(V_L).
+\]
+For \(\chi\) a quasi-character of \(\mathbb A_K^*/K^*\), one has
+\[
+L(V_K,\chi)=L(V_L,\chi\circ N_{L/K}),
+\]
+and similarly
+\[
+\varepsilon(V_K,\chi)=\varepsilon(V_L,\chi\circ N_{L/K}).
+\]
+\item One also has
+\[
+\varepsilon(V'\oplus V'',\chi)=\varepsilon(V',\chi)\varepsilon(V'',\chi),
+\]
+which makes it possible to define \(\varepsilon(V,\chi)\) when \(V\) is only a virtual representation.
+\end{enumerate}
+The assertions (A) and (B) are proved by reduction to the case \(\dim V=1\), via Brauer's theorem. Assertion (C) follows from (B) and from the compatibility of norm and transfer recalled above.
+
+\section*{4. Existence of local constants}
+
+\paragraph{Theorem 4.1.} There exists a unique function \(\varepsilon\), satisfying conditions (1) to (4) below, which associates a number
+\[
+\varepsilon(V,\psi,dx)\in\C^*
+\]
+to each isomorphism class of sextuples \((K,\overline K,\psi,dx,V,\rho)\), consisting of a local field \(K\), an algebraic closure \(\overline K\) of \(K\), a nontrivial additive character \(\psi:K\to\C^*\), a Haar measure \(dx\) on \(K\), a finite-dimensional complex vector space \(V\), and a representation
+\[
+\rho:W(\overline K/K)\longrightarrow\GL(V).
+\]
+\begin{enumerate}[label=(\arabic*)]
+\item For every exact sequence of representations
+\[
+0\to V'\to V\to V''\to0,
+\]
+one has
+\[
+\varepsilon(V,\psi,dx)=\varepsilon(V',\psi,dx)\varepsilon(V'',\psi,dx).
+\]
+This condition shows that \(\varepsilon(V,\psi,dx)\) depends only on the class of \(V\) in the Grothendieck group of representations of \(W(\overline K/K)\), and allows \(\varepsilon(V,\psi,dx)\) to be interpreted when \(V\) is only a virtual representation.
+
+\item
+\[
+\varepsilon(V,\psi,a\,dx)=a^{\dim V}\varepsilon(V,\psi,dx).
+\]
+In particular, for virtual \(V\) of dimension \(0\), \(\varepsilon(V,\psi,dx)\) is independent of \(dx\); it is denoted \(\varepsilon(V,\psi)\).
+
+\item If \(L\) is a finite separable extension of \(K\) in \(\overline K\), and \(V_K\) is the virtual representation of \(W(\overline K/K)\) induced by a virtual representation of dimension zero \(V_L\) of \(W(\overline K/L)\), then
+\[
+\varepsilon(V_K,\psi)=\varepsilon(V_L,\psi\circ\Tr_{L/K}).
+\]
+
+\item If \(\dim V=1\), and \(\rho\) is defined by a quasi-character \(\chi\) of \(K^*\), then
+\[
+\varepsilon(V,\psi,dx)=\varepsilon(\chi,\psi,dx).
+\]
+\end{enumerate}
+
+\paragraph{4.2.} Let
+\[
+v=\sum_{i,j}n_{ij}(H_i,\chi_{ij})\in R^+_0(W(\overline K/K))
+\]
+(1.10). Assume that the \(H_i\) are pairwise nonconjugate. Let \(K_i\) be the extension of \(K\) defined by \(H_i\), and again denote by \(\chi_{ij}\) the quasi-character of \(K_i^*\) defined by \(\chi_{ij}\). For any choice of Haar measures \(dx_i\) on the \(K_i\), and for \(\psi\) an additive character of \(K\), put
+\[
+\tag{4.2.1}
+\varepsilon(v,\psi)=
+\prod_{i,j}\varepsilon(\chi_{ij},\psi\circ\Tr_{K_i/K},dx_i)^{n_{ij}}.
+\]
+It follows from (3.3.2) that \(\varepsilon(v,\psi)\) is independent of the choice of the \(dx_i\).
+
+\paragraph{Lemma 4.3.} With the notation 1.9.8, for \(v\in R^+_0(W(\overline K/K))\),
+\[
+\varepsilon(v,\psi(ax))=\det(v)(a)\,\varepsilon(v,\psi).
+\]
+It is enough to check this for \(v=(H,\chi)-(H,1)\), where \(H\) corresponds to an extension \(L\) of \(K\). Let \(v_0\) be the virtual representation \([\chi]-[1]\) of \(W(\overline K/L)\). Formula (3.3.3) gives the assertion over \(L\). It is known ([10], XII, §4) that the inclusion of \(K^*\) into \(L^*\) is identified with the transfer
+\[
+W(\overline K/K)^{\ab}\longrightarrow W(\overline K/L)^{\ab}.
+\]
+Since \(b(v)=\Ind(v_0)\), the lemma follows from 1.2.
+
+\paragraph{Lemma 4.4.} The theorem is true in the archimedean case.
+
+For \(K\simeq\C\), define \(\varepsilon\) by (1) and (4), and (2) is automatic. For \(K\simeq\R\), one checks from 2.9 that
+\[
+b:R^+(W(\overline K/K))\longrightarrow R(W(\overline K/K))
+\]
+is surjective, with kernel generated by the \(\chi_s-\chi_t\) where
+\[
+\chi_s=(K^*,\omega_s)-[\omega_s]-[\chi^{-1}\omega_{s+1}].
+\]
+For a virtual representation \(V\), and \(v\in R^+_0(W(\overline K/K))\) such that
+\[
+b(v)=V-\dim(V)[1],
+\]
+put
+\[
+\tag{4.4.1}
+\varepsilon(V,\psi,dx)=\varepsilon(v,\psi)\,\varepsilon(1,\psi,dx)^{\dim V}.
+\]
+We check that the right-hand side is independent of the choice of \(v\), i.e. that, for \(v\) satisfying \(b(v)=0\), one has \(\varepsilon(v,\psi)=1\). By 4.3, it is enough to check this for \(\psi(x)=\exp(2\pi ix)\). For this choice of \(\psi\), the assertion follows from the preceding determination of \(\Ker(b)\), and from the fact that the right-hand sides of (3.4.1), (3.4.2) are independent of \(s\). It is clear that \(\varepsilon\) defined by (4.4.1) satisfies (1) to (4).
+
+We now restrict to the nonarchimedean case.
+
+\paragraph{4.5.} Let \(K\) be a nonarchimedean local field, \(\overline K\) a separable closure of \(K\), and \(K_{nr}\subset\overline K\) the maximal unramified extension of \(K\). Let \(J\) be an open normal subgroup of the inertia group
+\[
+I=\Gal(\overline K/K_{nr})
+\]
+and let \(L\) be the corresponding extension of \(K_{nr}\). For \(\sigma\in I/J\), put
+\[
+t_{I/J}(\sigma)=\inf\bigl(v_L(\sigma(x)-x)\mid x\text{ integral in }L\bigr),
+\]
+and define functions \(a_{I/J}\) and \(sw_{I/J}\) by
+\[
+\tag{4.5.1}
+a_{I/J}(\sigma)=-t_{I/J}(\sigma)\quad(\sigma\ne e),
+\]
+\[
+sw_{I/J}(\sigma)=1-t_{I/J}(\sigma)\quad(\sigma\ne e),
+\]
+\[
+\sum_\sigma a_{I/J}(\sigma)=\sum_\sigma sw_{I/J}(\sigma)=0.
+\]
+By Artin (see [10], VI, §2, th. 1), \(a_{I/J}\) is the character of a representation \(A_{I/J}\) of \(I/J\), the Artin representation. By loc. cit., prop. 2, \(sw_{I/J}\) is likewise the character of a representation \(Sw_{I/J}\), the Swan representation. These representations are defined only up to isomorphism. \(A_{I/J}\) is the sum of \(Sw_{I/J}\) and the augmentation representation of \(I/J\). For \(I\supset J\supset K\), one has (loc. cit., prop. 3)
+\[
+\tag{4.5.2}
+(A_{I/K})^{J/K}\iso A_{I/J},
+\qquad
+(Sw_{I/K})^{J/K}\iso Sw_{I/J}.
+\]
+If \(d\) is the valuation of the discriminant \(\delta_{L/K_{nr}}\), i.e. the valuation of the different \(\mathfrak D_{L/K}\) ([10], III, §3, prop. 6), and \(r\) denotes a regular representation, then (loc. cit., prop. 4)
+\[
+\tag{4.5.3}
+A_{I/K}|_{J/K}=d\,r_{J/K}+A_{J/K}.
+\]
+Let \(V\) be a representation of \(W(\overline K/K)\), trivial on \(J\subset I\), with character \(\psi\). Define the Artin and Swan conductors of \(V\) by
+\[
+\tag{4.5.4}
+a(V)=\dim\Hom_{I/J}(A_{I/J},V)=sw(V)+\dim V-\dim V^I,
+\]
+\[
+sw(V)=\dim\Hom_{I/J}(Sw_{I/J},V)
+=\frac1{|I/J|}\sum_\sigma sw_{I/J}(\sigma)\psi(\sigma).
+\]
+By 4.5.2, these conductors are independent of the choice of \(J\). For \(V\) of dimension \(1\), defined by a quasi-character \(\chi\), one has (loc. cit., prop. 5)
+\[
+\tag{4.5.5}
+a(V)=\text{the conductor }a(\chi)\text{ of }\chi.
+\]
+The preceding notation is therefore compatible with that introduced in 3.4.
+
+With the notation 1.9.8, one has:
+
+\paragraph{Lemma 4.5.} For \(v\in R^+_0(W(\overline K/K))\) and \(\chi\) an unramified quasi-character of \(K^*\),
+\[
+\varepsilon(v\cdot\chi,\psi)=\chi(\pi)^{a(v)}\varepsilon(v,\psi).
+\]
+It suffices to verify this for \(v=(H,\lambda)-(H,\mu)\), where \(H\) defines an extension \(L\) of \(K\), and \(\lambda,\mu\) are two quasi-characters of \(L^*\). Let \(d\) be the valuation of the different of \(L/K\), let \(f\) be the residue-degree, let \(I\subset W(\overline K/K)\) and \(J\subset W(\overline K/L)\) be the inertia groups, and choose \(K\subset J\) small enough. We compute \(a(v)\). The adjunction formula for induced representations, (4.5.3), and (4.5.5) give, for every quasi-character \(\nu\) of \(H\), i.e. of \(L^*\),
+\[
+\tag{4.5.1'}
+a((H,\nu))
+=\dim\Hom_{I/K}(A_{I/K},\Ind_H^W(\nu))
+=f\,\dim\Hom_{J/K}(A_{J/K}+d\,r_{J/K},[\nu]|_J)
+=f\,a(\nu)+fd.
+\]
+Thus
+\[
+a(v)=f(a(\lambda)-a(\mu)).
+\]
+For \(\nu\) a quasi-character of \(L^*\), \(\chi_1\) an unramified quasi-character of \(L^*\), and \(n=n(\psi\circ\Tr_{L/K})\) as in 3.4, one has by (3.4.3.1) or (3.4.3.2)
+\[
+\frac{\varepsilon(\nu\chi_1,\psi\circ\Tr,dx)}
+     {\varepsilon(\nu,\psi\circ\Tr,dx)}
+=
+\chi_1(\pi_L)^{a(\nu)+n}.
+\]
+Hence
+\[
+\varepsilon(v\cdot\chi,\psi)\varepsilon(v,\psi)^{-1}
+=
+\chi\circ N_{L/K}\bigl(\pi_L^{a(\lambda)-a(\mu)}\bigr)
+=
+\chi(\pi)^{f(a(\lambda)-a(\mu))},
+\]
+which is the announced formula.
+
+\paragraph{Terminology 4.6.} Let \(K_1\) be a Galois extension, finite or not, of \(K\), with Galois group \(G\). Let \(\alpha\) be a quasi-character of \(K^*\), and \(\psi\) a nontrivial additive character of \(K\). We shall say that there exists an \(\alpha,\psi\)-theory of constants for \(K_1/K\) if there exists \(\varepsilon_{\alpha,\psi}\) of the following type:
+\begin{enumerate}[label=(\arabic*)]
+\setcounter{enumi}{-1}
+\item For \(H\) an open subgroup of \(G\), defining a finite extension \(L\) of \(K\), for \(V\) a representation of \(H\), and \(dx\) a Haar measure on \(L\),
+\[
+\varepsilon_{\alpha,\psi}(V,dx)\in\C^*
+\]
+is defined.
+\item For every exact sequence of representations
+\[
+0\to V'\to V\to V''\to0,
+\]
+one has
+\[
+\varepsilon_{\alpha,\psi}(V,dx)=
+\varepsilon_{\alpha,\psi}(V',dx)\varepsilon_{\alpha,\psi}(V'',dx).
+\]
+Thus \(\varepsilon_{\alpha,\psi}\) still makes sense for virtual representations.
+\item One has
+\[
+\varepsilon_{\alpha,\psi}(V,a\,dx)=a^{\dim V}\varepsilon_{\alpha,\psi}(V,dx).
+\]
+In particular, for virtual \(V\) of dimension \(0\), \(\varepsilon_{\alpha,\psi}(V,dx)\) is independent of \(dx\); it is denoted \(\varepsilon_{\alpha,\psi}(V)\).
+\item For \(H_1\subset H_2\subset G\), defining \(L_1\supset L_2\), and \(V\) a virtual representation of dimension \(0\) of \(H_1\), one has
+\[
+\varepsilon_{\alpha,\psi}(\Ind_{H_1}^{H_2}V)=\varepsilon_{\alpha,\psi}(V).
+\]
+\item For \(V\) of dimension \(1\), defined by a character \(\chi\) of \(L^*\),
+\[
+\varepsilon_{\alpha,\psi}(V,dx)
+=
+\varepsilon(\chi\,\alpha\circ N_{L/K},\,\psi\circ\Tr_{L/K},\,dx).
+\]
+\end{enumerate}
+
+\paragraph{Lemma 4.7.} Let \(K_1/K\) and \(\alpha\) be as above, and let \(\psi\) be a nontrivial additive character of \(K\). There exists at most one \(\alpha,\psi\)-theory of constants for \(K_1/K\). For one to exist, it is necessary and sufficient that, for every
+\[
+v\in\Ker(R^+_0(G)\longrightarrow R(G)),
+\]
+one have
+\[
+\varepsilon(v\cdot\alpha,\psi)=1.
+\]
+Let \(H\subset G\), \(L\), and \(V\) be as above. By 1.5, there exists \(v\in R^+_0(H)\) whose image in \(R(H)\) is \(V-\dim(V)[1]\). Necessarily
+\[
+\tag{4.7.1}
+\varepsilon_{\alpha,\psi}(V,dx)
+=
+\varepsilon(v\cdot(\alpha\circ N_{L/K}),\,\psi\circ\Tr_{L/K})\,
+\varepsilon(\alpha\circ N_{L/K},\,\psi\circ\Tr_{L/K},\,dx)^{\dim V},
+\]
+which gives uniqueness. The hypothesis ensures that \(\varepsilon_{\alpha,\psi}\), defined by this formula, is independent of the choice of \(v\); one easily checks axioms (0) to (4).
+
+\end{document}

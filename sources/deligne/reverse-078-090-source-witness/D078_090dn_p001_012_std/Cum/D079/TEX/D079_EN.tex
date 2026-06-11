@@ -1,0 +1,2375 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newcommand{\Aone}{\mathbb A^1}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\Et}{\mathrm{Et}}
+\newcommand{\et}{\mathrm{et}}
+\newcommand{\Nis}{\mathrm{Nis}}
+\newcommand{\Zar}{\mathrm{Zar}}
+\newcommand{\Sm}{\mathrm{Sm}}
+\newcommand{\SmCor}{\mathrm{SmCor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Tot}{\operatorname{Tot}}
+\newcommand{\forget}{\operatorname{forget}}
+\newcommand{\Sing}{C_*}
+\newcommand{\D}{D}
+\newcommand{\Ho}{\mathcal H}
+\newcommand{\Hob}{\mathcal H_\bullet}
+\newcommand{\HoA}{\mathcal H_{\bullet,A^1}}
+\newcommand{\Ch}{\mathrm{Ch}}
+\newcommand{\sSh}{\mathrm{sSh}}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\pt}{*}
+\newcommand{\ZZ}{\widetilde{\Z}}
+\newcommand{\HH}{\mathrm H}
+\newcommand{\red}{\mathrm{red}}
+\newtheoremstyle{deligne}{0.5em}{0.5em}{\itshape}{}{}{.}{0.5em}{\bfseries #1\thmnote{ #3}}
+\theoremstyle{deligne}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{example*}{Example}
+\newcommand{\heading}[1]{\vspace{0.7em}\noindent{\bfseries #1}\quad}
+\newenvironment{proofdel}{\noindent\textit{Proof.}}{\hfill$\square$}
+\newenvironment{proofnamed}[1]{\noindent\textit{#1.}}{}
+
+\newcommand{\uHom}{\underline{\Hom}}
+\newcommand{\sk}{\operatorname{sk}}
+\newcommand{\Wr}{\operatorname{Wr}}
+\newcommand{\colim}{\operatorname{colim}}
+\newcommand{\diag}{\Delta}
+\newcommand{\inj}{\mathrm{inj}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\limi}{\operatorname{lim}}
+\newcommand{\Ex}{\operatorname{Ex}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\cyl}{\operatorname{cyl}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Voevodsky's Lectures on Motivic Cohomology\ 2000/2001}\\[0.6em]
+{\large Pierre Deligne}
+\end{center}
+
+\textbf{Abstract.} These lectures cover several important topics of motivic homotopy theory which have not been covered elsewhere. These topics include the definition of equivariant motivic homotopy categories, the definition and basic properties of solid and ind-solid sheaves, and the proof of the basic properties of the operations of twisted powers and group quotients relative to the \(\Aone\)-equivalences between ind-solid sheaves.
+
+\section*{1. Introduction}
+
+The lectures which provided the source for these notes covered several different topics which are related to each other but which do not in any reasonable sense form a coherent whole. As a result, this text is a collection of four parts which refer to each other but otherwise are independent.
+
+In the first part we introduce the motivic homotopy category and connect it with the motivic cohomology theory discussed in [7]. The exposition is a little unusual because we wanted to avoid any references to model structures and still prove the main theorem 2. We were able to do it modulo 6, where we had to refer to the next part.
+
+The second part is about the motivic homotopy category of \(G\)-schemes, where \(G\) is a finite flat group scheme, with respect to an equivariant analog of the Nisnevich topology. Our main result is a description of the class of \(\Aone\)-equivalences, formerly called \(\Aone\)-weak equivalences, given in Theorem 4, also in Theorem 5. For the trivial group \(G\) we get a new description of the \(\Aone\)-equivalences in the non-equivariant setting.
+
+In the third part we define a class of sheaves on \(G\)-schemes which we call solid sheaves. It contains all representable sheaves and quotients of representable sheaves by subsheaves corresponding to open subschemes. In particular the Thom spaces of vector bundles are solid sheaves. The key property of solid sheaves can be expressed by saying that any right exact functor which takes open embeddings to monomorphisms is left exact on solid sheaves. A more precise statement is Theorem 6.
+
+In the fourth part we study two functors. One is the extension to pointed sheaves of the functor from \(G\)-schemes to schemes which takes \(X\) to \(X/G\). The other one is the extension to pointed sheaves of the functor which takes \(X\) to \(X^W\), where \(W\) is a finite flat \(G\)-scheme. We show that both functors take solid sheaves to solid sheaves and preserve local and \(\Aone\)-equivalences between termwise (ind-)solid sheaves.
+
+The material of all the parts of these notes but the first one was originally developed with one particular goal in mind - to extend non-additive functors, such as the symmetric product, from schemes to the motivic homotopy category. More precisely, we were interested in functors given by
+\[
+  T:X\longmapsto (X^W\times E)/G,
+\]
+where \(G\) is a finite flat group scheme, \(W\) is a finite flat \(G\)-scheme and \(E\) any \(G\)-scheme of finite type. The equivariant motivic homotopy category was introduced to represent \(T\) as a composition
+\[
+  X\longmapsto X^W\longmapsto X^W\times E
+  \longmapsto (X^W\times E)/G,
+\]
+and solid sheaves as a natural class of sheaves on which the derived functor \(LT\) coincides with \(T\).
+
+In the present form these notes are the result of an interactive process which involved all listeners of the lectures. A very special role was played by Pierre Deligne. The text as it is now was completely written by him. He also cleared up a lot of messy parts and simplified the arguments in several important places.
+
+\begin{flushright}
+Princeton, NJ, 2001.\\
+Vladimir Voevodsky
+\end{flushright}
+
+\section*{2. Motivic Cohomology and Motivic Homotopy Category}
+
+We first recall some of last year's results; see [7].
+
+\subsection*{2.1. Last Year}
+
+\heading{1.1.} We work over a field \(k\), which sometimes will have to be assumed perfect. The schemes over \(k\) that we consider will usually be assumed separated and smooth of finite type over \(k\). We denote their category by \(\Sm/k\). Three Grothendieck topologies on \(\Sm/k\) will be useful: Zariski, Nisnevich, and étale. For each of these topologies, a sheaf on \(\Sm/k\) amounts to the following data: for \(X\) smooth over \(k\), a sheaf \(F_X\) on the corresponding small site of \(X\), functorial in \(X\); a map \(f:X\to Y\) induces \(f^*F_Y\to F_X\).
+
+\heading{1.2.} The definition of the motivic cohomology groups of \(X\) smooth over \(k\) has the following form:
+\begin{enumerate}[label=(\alph*)]
+\item One defines for each \(q\in\Z\) a complex of presheaves of abelian groups \(\Z(q)\) on \(\Sm/k\). It is in fact a complex of sheaves for the etale topology, hence a fortiori for the Nisnevich and Zariski topology. For any abelian group \(A\) the same applies to
+\[
+  A(q):=A\otimes\Z(q).
+\]
+\item The motivic cohomology groups of \(X\) with coefficients in \(A\) are the hypercohomology groups of the \(A(q)\), in the Nisnevich topology:
+\[
+  H^{p,q}(X,A):=\mathrm H^p(X_{\Nis},A(q)).
+\]
+\end{enumerate}
+For \(A=\Z\) we will write simply \(H^{p,q}(X)\).
+
+Motivic cohomology has the following properties:
+\begin{enumerate}[label=\arabic*.]
+\item The complex \(\Z(q)\) is zero for \(q<0\). For any \(q\) it lives in cohomological degree \(\le q\). As a complex of Nisnevich sheaves it is quasi-isomorphic to \(\Z\) for \(q=0\) and to \(\Gm[-1]\) for \(q=1\).
+\item \(H^{p,p}(\Spec(k))=K_p^M(k)\) for any \(p\ge0\).
+\item For any \(X\) in \(\Sm/k\) one has
+\[
+  H^{p,q}(X)=CH^q(X,2q-p),
+\]
+where \(CH^q(X,2q-p)\) is the \((2q-p)\)-th higher Chow group of cycles of codimension \(q\).
+\item In the etale topology, for \(n\) prime to the characteristic of \(k\), the complex \(\Z/n(q)\) is quasi-isomorphic to \(\mu_n^{\otimes q}\), giving for the etale analog of \(H^{p,q}\) the formula
+\[
+  H^{p,q}_{\et}(X,\Z/n):=\mathrm H^p(X_{\et},\Z/n(q))
+  =\mathrm H^p(X_{\et},\mu_n^{\otimes q}).
+\]
+\end{enumerate}
+
+\heading{1.3.} The category \(\SmCor(k)\) is the category whose objects are separated schemes smooth of finite type over \(k\), and for which a morphism \(C:X\to Y\) is a cycle \(C=\sum n_i C_i\) on \(X\times Y\), each irreducible component \(C_i\) being finite over \(X\) and projecting onto a connected component of \(X\). A morphism \(C\) can be thought of as a finitely valued map from \(X\) to \(Y\). For \(x\in X\), with residue field \(k(x)\), it defines a zero-cycle \(C(x)\) on \(Y\otimes_k k(x)\), and the assumption made on \(C\) implies that the degree of this zero-cycle is locally constant on \(X\).
+
+A morphism of schemes \(f:X\to Y\) defines a morphism in \(\SmCor(k)\): the graph of \(f\). This graph construction defines a faithful functor from \(\Sm/k\) to the additive category \(\SmCor(k)\).
+
+A presheaf with transfers is a contravariant additive functor from \(\SmCor(k)\) to the category of abelian groups. The embedding of \(\Sm/k\) in \(\SmCor(k)\) allows us to view a presheaf with transfers as a presheaf on \(\Sm/k\) endowed with extra structure. A sheaf with transfers, for a given topology on \(\Sm/k\), usually the Nisnevich topology, is a presheaf with transfers which, as a presheaf on \(\Sm/k\), is a sheaf. The Nisnevich and the étale topologies have the virtue that if \(F\) is a presheaf with transfers, the associated sheaf \(a(F)\) carries a structure of sheaf with transfers. This structure is uniquely determined by requiring \(F\to a(F)\) to be a morphism of presheaves with transfers. For any sheaf with transfers \(G\), one has
+\[
+  \Hom(a(F),G)\simeq \Hom(F,G),
+\]
+where \(\Hom\) denotes morphisms of presheaves with transfers. All of this fails for the Zariski topology. The complexes \(\Z(q)\), and hence also \(A(q)\), start life as complexes of sheaves with transfers.
+
+\heading{1.4.} A presheaf \(F\) on \(\Sm/k\) is called homotopy invariant if
+\[
+  F(X)\simeq F(X\times \Aone).
+\]
+Since the point \(0\) of \(\Aone\) defines a section of the projection \(X\times\Aone\to X\), for any presheaf of abelian groups \(F\), \(F(X)\) is naturally a direct factor of \(F(X\times\Aone)\). It follows that the condition of homotopy invariance is stable under kernels, cokernels and extensions of presheaves. The following construction is a derived version of the left adjoint to the inclusion
+\[
+  \{
+  \Aone\text{-homotopy invariant abelian presheaves}
+  \}\subset
+  \{
+  \text{abelian presheaves}
+  \}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item For \(I\) a finite set, let \(\Delta(I)\) be the affine space freely spanned, in the sense of barycentric calculus, by \(I\). Over \(\mathbb C\) or \(\mathbb R\), \(\Delta(I)\) contains the standard topological simplex spanned by \(I\). The schemes
+\[
+  \Delta^n:=\Delta(\{0,\ldots,n\})
+\]
+form a cosimplicial scheme.
+\item For \(F\) a presheaf, \(C_*(F)\), the ``singular complex'' of \(F\), is the simplicial presheaf
+\[
+  C_n(F):X\longmapsto F(X\times\Delta^n).
+\]
+\end{enumerate}
+Arguments imitated from topology show that, for \(F\) a presheaf of abelian groups, the cohomology presheaves of the complex \(C_*(F)\), obtained from \(C_*(F)\) by taking the alternating sum of the face maps, are homotopy invariant. If \(F\) has transfers, so do the \(C_n(F)\) and hence the cohomology presheaves of \(C_*(F)\). A basic theorem proved last year is the following.
+
+\begin{theorem*}[1]
+Let \(F\) be a homotopy invariant presheaf with transfers over a perfect field, with associated Nisnevich sheaf \(a_{\Nis}(F)\). Then the presheaves with transfers
+\[
+  X\longmapsto H^i(X_{\Nis},a_{\Nis}(F))
+\]
+are homotopy invariant as well.
+\end{theorem*}
+
+The particular case of this theorem for \(i=0\) asserts the homotopy invariance of the sheaf with transfers \(a_{\Nis}(F)\).
+
+Last year, the equivalence of a number of definitions of \(\Z(q)\) was proven. Equivalence means: a construction of an isomorphism in a suitable derived category, implying an isomorphism for the corresponding motivic cohomology groups. For our present purpose the most convenient definition is as follows.
+
+Let \(\Z_{tr}(X)\) be the sheaf with transfers represented by \(X\) (on the category \(\SmCor(k)\)). We set
+\[
+K_q=\begin{cases}
+0,& q<0,\\
+\Z_{tr}(\A^q)/\Z_{tr}(\A^q-\{0\}),& q\ge0,
+\end{cases}
+\]
+and
+\[
+  \Z(q)=C_*(K_q)[-q].
+\]
+
+\subsection*{2.2. Motivic Homotopy Category}
+
+The motivic homotopy category \(\HoA(S)\), the pointed \(\Aone\)-homotopy category of \(S\), for \(S\) a finite-dimensional noetherian scheme, will be the category deduced from a category of simplicial sheaves by two successive localizations.
+
+One starts with the category \(\Sm/S\) of schemes smooth over \(S\), with the Nisnevich topology, and the category of pointed simplicial sheaves on \(\Sm/S\). For any site \(\mathcal S\), for instance \((\Sm/S)_{\Nis}\), there is a notion of local equivalence of pointed simplicial sheaves. It proceeds as follows.
+\begin{enumerate}[label=(\alph*)]
+\item A sheaf \(G\) defines a simplicial sheaf with all \(G_n=G\) and all simplicial maps the identities. The functor \(G\mapsto G_\bullet\) has a left adjoint
+\[
+  F_\bullet\longmapsto \pi_0(F_\bullet),
+\qquad
+  \Hom(F_\bullet,G_\bullet)=\Hom(\pi_0(F_\bullet),G).
+\]
+The sheaf \(\pi_0(F_\bullet)\) can be described as the equalizer of \(F_0\rightrightarrows F_1\), as well as the sheaf associated to the presheaf
+\[
+  U\longmapsto \pi_0(F_\bullet(U)).
+\]
+The same holds in the pointed context. We often write simply \(G\) for the corresponding constant simplicial sheaf.
+\end{enumerate}
+For a pointed sheaf \(G\) on \(\Sm/S\), Proposition 7 applies to \(G\) and to the localization by local equivalences: one has
+\[
+  \Hom_{\Hob}(F_\bullet,G)=\Hom(F_\bullet,G)=\Hom(\pi_0(F_\bullet),G). \tag{0.1}
+\]
+
+\begin{definition*}[1]
+An object \(G\) of \(\Hob(\Sm/S)\) is called \(\Aone\)-local if for any simplicial sheaf \(F_\bullet\) one has
+\[
+  \Hom_{\Hob}(F_\bullet,G)
+  \simeq
+  \Hom_{\Hob}(F_\bullet\times\Aone/\pt\times\Aone,G).
+\]
+On the right hand side, \(\pt\times\Aone\) means that, in the product, \(\pt\times\Aone\) is contracted to a point, the new base point.
+\end{definition*}
+
+\begin{proposition*}[1]
+For a pointed sheaf \(G\) on \(\Sm/S\), the simplicial sheaf \(G\) is \(\Aone\)-local if and only if \(G\) is homotopy invariant.
+\end{proposition*}
+
+\begin{proofdel}
+We have
+\[
+  \pi_0(F_\bullet\times\Aone)=\pi_0(F_\bullet)\times\Aone,
+\]
+so that, by (0.1), \(\Aone\)-locality means that for any pointed sheaf \(F\), one has
+\[
+  \Hom(F,G)=\Hom(F\times\Aone/\pt\times\Aone,G).
+\]
+A morphism \(F\to G\) can be viewed as the data, for each \(x\in F(U)\), of \(f(x)\in G(U)\), functorial in \(U\), and with marked point going to marked point. A morphism \(F\times\Aone\to G\) can similarly be described as data, for \(x\in F(U)\), of an element in \(G(U\times\Aone)\). Homotopy invariance hence implies \(\Aone\)-locality. The converse is checked by taking for \(F\) the disjoint union of a representable sheaf and the base point.
+\end{proofdel}
+
+\begin{definition*}[2]
+\begin{enumerate}[label=(\arabic*)]
+\item A morphism \(f:F'_\bullet\to F_\bullet\) in \(\Hob(\Sm/S)\) is an \(\Aone\)-equivalence if, for any \(\Aone\)-local \(G\), one has in \(\Hob(\Sm/S)\)
+\[
+  \Hom(F_\bullet,G)\simeq \Hom(F'_\bullet,G).
+\]
+\item The category \(\HoA(\Sm/S)\) is deduced from \(\Hob(\Sm/S)\) by formally inverting \(\Aone\)-equivalences.
+\end{enumerate}
+\end{definition*}
+
+\begin{remark*}[1]
+If a morphism in \(\Hob(\Sm/S)\) becomes an isomorphism in \(\HoA(\Sm/S)\), it is an \(\Aone\)-equivalence. Indeed, if \(G\) in \(\Hob(\Sm/S)\) is \(\Aone\)-local, an application of Proposition 7 shows that, for any \(F\),
+\[
+  \Hom_{\Hob}(F,G)\simeq \Hom_{\HoA}(F,G)
+\]
+is bijective. If \(f:F'_\bullet\to F_\bullet\) in \(\Hob(\Sm/S)\) has an image in \(\HoA(\Sm/S)\) which is an isomorphism, it follows that, for any \(\Aone\)-local \(G\), one has
+\[
+  \Hom_{\Hob}(F_\bullet,G)\simeq \Hom_{\Hob}(F'_\bullet,G).
+\]
+Such an \(f\) is an \(\Aone\)-equivalence.
+\end{remark*}
+
+\begin{example*}[1]
+Arguments similar to those given before show that if \(G\) is a homotopy invariant pointed sheaf, then for any simplicial pointed sheaf \(F_\bullet\), one has
+\[
+  \Hom_{\HoA(\Sm/S)}(F_\bullet,G)
+  =\Hom(F_\bullet,G)=\Hom(\pi_0(F_\bullet),G).
+\]
+In particular, if \(U\) is smooth over \(S\) and if \(U_+\) is the disjoint union of \(U\) and of a base point, then
+\[
+  \Hom_{\HoA(\Sm/S)}(U_+,G)=G(U).
+\]
+\end{example*}
+
+\subsection*{2.3. Derived Categories Vs. Homotopy Categories}
+
+For any topos \(T\), which for us will be the category of sheaves on some site \(S\), the pointed homotopy category \(\Hob(S)\) as well as the derived category \(D(S)\) are obtained by localization. For the derived category, one starts with the category of complexes of abelian sheaves. The subcategory of complexes living in homological degree \(\ge0\) is naturally equivalent, by the Dold--Puppe construction, to the category of simplicial sheaves of abelian groups. The equivalence is
+\[
+  N:(\text{simplicial }F_\bullet)
+  \longmapsto
+  \text{complex}\left(\bigcap_{i\ne0}\ker(\partial_i),\partial_0\right).
+\]
+We write \(K\) for the inverse equivalence. For a point \(S\), and an abelian group \(\pi\), \(K(\pi[n])\) is the Eilenberg--MacLane space \(K(\pi,n)\). For a complex \(C\) not assumed to live in homological degree \(\ge0\), we define
+\[
+  K(C):=K(\tau_{\ge0}C),
+\]
+where \(\tau_{\ge n}C\) is the subcomplex in \(C\) of the form
+\[
+  \cdots \longrightarrow C_{n+2}\xrightarrow{d_{n+1}}C_{n+1}
+  \longrightarrow \ker(d_n)\longrightarrow0.
+\]
+Note that \(C\mapsto\tau_{\ge0}C\) is right adjoint to the inclusion functor
+\[
+  (\text{complexes in homological degree }\ge0)
+  \hookrightarrow
+  (\text{all complexes}),
+\]
+so that \((N,K)\) form a pair of adjoint functors:
+\[
+  (\text{simplicial abelian sheaves})\rightleftarrows(\text{complexes of sheaves}).
+\]
+
+\begin{theorem*}[2]
+Assume that \(S=\Spec(k)\), with \(k\) perfect. Then, for \(F\) a presheaf with transfers, for \(U_+\) as above, and for \(p\ge0\),
+\[
+  \Hom_{\HoA}(U_+,K(F[p]))=\HH^p(U_{\Nis},C_*(F)).
+\]
+\end{theorem*}
+
+In this theorem \(K(F[p])\) is the simplicial sheaf of abelian groups whose normalized chain complex is \(F\) in homological degree \(p\).
+
+To prove the theorem we establish the chain of equalities
+\[
+\begin{aligned}
+\HH^p(U_{\Nis},C_*(F))
+&=\Hom_{\Hob}(U_+,K(C_*(F)[p])) \\
+&=\Hom_{\HoA}(U_+,K(C_*(F)[p])) \\
+&=\Hom_{\HoA}(U_+,K(F[p])),
+\end{aligned}\tag{1.1}
+\]
+the first equality being proved right before Proposition 4, the second right after Proposition 5, and the last one following from Lemma 1.
+
+Let \(\forget\) be the forgetful functor from abelian sheaves to sheaves of sets. Its left adjoint is \(F\mapsto \Z[F]\), the sheaf associated to the presheaf
+\[
+  U\longmapsto (\text{abelian group freely generated by }F(U)).
+\]
+In the pointed context, the adjoint is
+\[
+  (F,\pt)\longmapsto \ZZ(F):=\Z(F)/\Z(\pt).
+\]
+We have the same adjunction for pointed simplicial objects.
+
+\begin{proposition*}[2]
+On a site with enough points, and presumably always, one has:
+\begin{enumerate}[label=(\arabic*)]
+\item The functor \(F_\bullet\mapsto N\ZZ(F_\bullet)\), from pointed simplicial sheaves to complexes of abelian groups, transforms local equivalences into quasi-isomorphisms.
+\item The right adjoint \(C\mapsto \forget(K(C))\) transforms quasi-isomorphisms to local equivalences.
+\end{enumerate}
+\end{proposition*}
+
+The assumption ``enough points'' applies to \(\Sm/k\) with the Nisnevich topology: for any \(U\in\Sm/k\) and any point \(x\) of \(U\), the functor
+\[
+  F\longmapsto F(\Spec(\mathcal O^h_{U,x}))
+\]
+is a point, and they form a conservative system.
+
+\begin{proofdel}
+Local equivalence, respectively quasi-isomorphism, can be checked point by point, and the two functors considered commute with passage to the fibre at a point. This reduces the proposition to the case when the site is just a point, i.e. to usual homotopy theory. In that case, (1) boils down to the fact that a weak equivalence induces an isomorphism on reduced homology, a theorem of Whitehead, and (2) reduces to the fact that, for a complex \(C\), \(\pi_i(K(C))\), computed using any base point, is \(H_i(C)\). The \(\pi_i(K(C))\) are easy to compute because \(K(C)\) has the Kan property.
+\end{proofdel}
+
+Applying Proposition 8, we deduce from Proposition 2 the following.
+
+\begin{proposition*}[3]
+Under the same assumptions as in Proposition 2, for \(F_\bullet\) a pointed simplicial sheaf and \(C\) a complex of abelian sheaves, one has
+\[
+  \Hom_{\Hob}(F_\bullet,K(C))=\Hom_D(N\ZZ(F_\bullet),C). \tag{3.1}
+\]
+\end{proposition*}
+
+Let \(F\) be a sheaf, and let \(F_+\) be deduced from \(F\) by adjunction of a base point. We also write \(F\) and \(F_+\) for the corresponding constant simplicial sheaves. One has
+\[
+  N\ZZ(F_+)=N\Z(F)=(\Z(F)\text{ in degree zero}).
+\]
+For the pointed simplicial sheaf \(F_+\), the group \(\Hom_D(\Z(F),C)\) which now occurs on the right-hand side of (3.1) can be interpreted as hypercohomology of \(C\) ``over \(F\) viewed as a space'', i.e. in the topos of sheaves over \(F\). For \(F\) defined by an object \(U\) of the site \(S\), this is the same as hypercohomology of the site \(S/U\). As we do not want to assume \(C\) bounded below, checking this requires a little care.
+
+For a complex of sheaves \(K\) over a site \(S\), not necessarily bounded below, \(\HH^0(S,K)\) can be defined as the \(\Hom\) group in the derived category \(\Hom_D(\Z,K)\). For \(F\) in a topos \(T\), and the topos \(T/F\), ``\(F\) viewed as a space'', besides the morphism of topoi \(j:T/F\to T\), i.e. the adjoint pair \((j^*,j_*)\), we have, for abelian sheaves, an adjoint pair \((j_!,j^*)\), with \(j_!\) and \(j^*\) both exact. By Proposition 8, \((j_!,j^*)\) induces an adjoint pair for the corresponding derived categories. As \(j_!\Z=\Z[F]\), we get
+\[
+  \Hom_D(\Z(F),C)=\HH^0(T/F,j^*C), \tag{3.2}
+\]
+hence
+\[
+  \Hom_{\Hob}(F_+,K(C))=\HH^0(T/F,j^*C). \tag{3.3}
+\]
+
+Let us consider the particular case of \(\Sm/k\) with the Nisnevich topology. For any complex of sheaves, (3.3) gives, for \(U\) smooth over \(k\),
+\[
+  \Hom_{\Hob}(U_+,K(C))=\HH^0(U_{big-\Nis},C). \tag{3.4}
+\]
+Here \(U_{big-\Nis}\) is the site \((\Sm/S)/U\) with the Nisnevich topology. It has however the same hypercohomology as the small Nisnevich site \(U_{\Nis}\). Indeed, one has a morphism \(\epsilon:U_{big,\Nis}\to U_{\Nis}\), and the functors \(\epsilon^*\) and \(\epsilon_*\) are exact. One again applies Proposition 8. Applying (3.4) to a translate, that is a shift, of \(C\), we get
+\[
+  \Hom_{\Hob}(U_+,K(C[p]))=\HH^p(U_{\Nis},C). \tag{3.5}
+\]
+Applying (3.5) to \(C_*(F)\), we get the first equality in (1.1).
+
+\begin{proposition*}[4]
+Let \(C\) be a complex of abelian sheaves on \(\Sm/k\). The following conditions are equivalent:
+\begin{enumerate}[label=\arabic*.]
+\item \(K(C)\) is \(\Aone\)-local.
+\item For \(i\le0\), the functor \(U\mapsto H^i(U,C)\) is homotopy invariant.
+\item For any complex \(L\) in cohomological degree \(\le0\), one has in the derived category
+\[
+  \Hom(L\otimes\Z(\Aone),C)\overset{\sim}{\longrightarrow}\Hom(L,C).
+\]
+\end{enumerate}
+\end{proposition*}
+
+\noindent\textit{Proof.} By Proposition 3, condition (1) can be rewritten: for any pointed simplicial sheaf \(F_\bullet\),
+\[
+  \Hom_D(N\ZZ(F_\bullet),C)=
+  \Hom_D(N\ZZ(F_\bullet\times\Aone/\pt\times\Aone),C).
+\]
+The operation \(F_\bullet\mapsto F_\bullet\times\Aone/\pt\times\Aone\) is better written as a smash product \(F_\bullet\wedge\Aone_+\) with \(\Aone_+\). For pointed sets \(E\) and \(F\),
+\[
+  \ZZ(E\wedge F)=\ZZ(E)\otimes\ZZ(F).
+\]
+It follows that
+\[
+\begin{aligned}
+\ZZ(F_\bullet\times\Aone/\pt\times\Aone)
+&=\ZZ(F_\bullet\wedge\Aone_+)        \\
+&=\ZZ(F_\bullet)\otimes\ZZ(\Aone_+) \\
+&=\ZZ(F_\bullet)\otimes\Z(\Aone),
+\end{aligned}
+\]
+as isomorphisms of simplicial sheaves, hence
+\[
+  N\ZZ(F_\bullet\times\Aone/\pt\times\Aone)
+  =N\ZZ(F_\bullet)\otimes\Z(\Aone).
+\]
+It follows that (1) is the particular case of (3) for \(L\) of the form \(N\ZZ(F_\bullet)\). Similarly, (2) is the particular case of (3) for \(L\) of the form \(\Z(U)[i]\), with \(i\ge0\).
+
+The suspension \(\Sigma^iF_\bullet\) of a simplicial pointed sheaf \(F_\bullet\) is its smash product with the simplicial sphere \(S^i\), the \(i\)-simplex modulo its boundary. It follows that
+\[
+  \ZZ(\Sigma^iF_\bullet)=\ZZ(F_\bullet)\otimes\ZZ(S^i),
+\]
+as an isomorphism of simplicial sheaves, and, by Eilenberg--Zilber, the normalized complex \(N\ZZ(\Sigma^iF_\bullet)\) is homotopic to the tensor product of the normalized complexes of \(\ZZ(F_\bullet)\) and \(\ZZ(S^i)\). The latter is simply \(\Z[i]\):
+\[
+  N\ZZ(\Sigma^iF_\bullet)\simeq N\ZZ(F_\bullet)[i].
+\]
+This is just a high-brow way of saying that the reduced homology of a suspension is the corresponding shift of the reduced homology of the space one started with.
+
+Applying this to \(F_\bullet=U_+\), one obtains that (1) implies (3). Indeed, \(\ZZ(\Sigma^iU_+)\) is homotopic to \(\ZZ(U_+)[i]=\Z(U)[i]\).
+
+We now prove that (2) implies (1). For \(L\) a complex, let \((*)\) be the statement that the conclusion of (3) holds for all \(L[i]\), \(i\ge0\). The assumption (2) is that \((*)\) holds for \(L\) reduced to \(\Z(U)\) in degree zero, and we will conclude that it holds for all \(L\) in cohomological degree \(\le0\) by dévissage.
+\begin{enumerate}[label=(\alph*)]
+\item The case of a sum of \(\Z(U)\), in degree zero, follows from Corollary 10.
+\item Suppose that \(L\) is bounded, is in cohomological degree \(\le0\), and that \((*)\) holds for all \(L^n\).
+\end{enumerate}
+The functors
+\[
+  h':L\longmapsto \Hom^n(L,C),\qquad
+  h'':L\longmapsto \Hom^n(L\otimes\Z(\Aone),C) \tag{3.6}
+\]
+
+
+are contravariant cohomological functors, hence give rise to convergent spectral sequences
+\[
+E_1^{pq}=h^q(L^{-p})\Rightarrow h^{p+q}(L).
+\]
+One has a morphism of spectral sequences
+\[
+E(\hbox{for }h')\longrightarrow E(\hbox{for }h'')
+\]
+which is an isomorphism for \(q\le0\), and both \(E^{pq}\) vanish for \(p<0\) or \(p\) large. It follows that \(h'^n(L)\simeq h''^n(L)\) for \(n\le0\), i.e. that \(L\) satisfies \((*)\).
+
+The same argument can be expressed as an induction on the number of \(i\) such that \(L^i\ne0\). If \(n\) is the largest (with \(n\le0\)), the induction assumption applies to \(\sigma^{<n}L\), even to \((\sigma^{<n}L)[-1]\), and one concludes by the long exact sequence defined by
+\[
+0\longrightarrow L^n[-n]\longrightarrow L\longrightarrow\sigma^{<n}L\longrightarrow0.
+\]
+
+\begin{enumerate}[label=(\alph*),start=3]
+\item Expressing \(L\) as the inductive limit of the \(\sigma^{\ge-n}L\) and using Proposition 11, one sees that we need not assume that \(L\) is bounded.
+\item If \(L'\to L''\) is a quasi-isomorphism, \(L'\otimes\Z(\Aone)\to L''\otimes\Z(\Aone)\) is one too (flatness of \(\Z(\Aone)\)), and \((*)\) holds for \(L'\) if and only if it holds for \(L''\).
+\item Any abelian sheaf \(L\) is a quotient of a direct sum of sheaves \(\Z(U)\). For instance, the sum over \((U,s)\), \(s\in\Gamma(U,L)\), of \(\Z(U)\) mapping to \(L\) by \(s\). It follows that \(L\) admits a resolution \(L^*\) by such sheaves. By (a) and (c), \(L^*\) satisfies \((*)\). It follows from (d) that \(L\) satisfies \((*)\), and then by (c) that any complex in degree \(\le0\) satisfies \((*)\).
+\end{enumerate}
+
+\section*{2.4 Application to Presheaves with Transfers}
+
+Let \(F\) be a presheaf with transfers. A formal argument [7] shows that the presheaves with transfers \(H^i C_*(F)\) are homotopy invariant. By the basic result (Theorem 1) recalled in the first lecture, it follows that for any \(U\), one has
+\[
+\mathbf H^*(U,C_*(F))=\mathbf H^*(U\times\Aone,C_*(F)) \tag{4.1}
+\]
+Indeed, as \(U\) and \(U\times\Aone\) are of finite cohomological dimension, both sides are abutment of a convergent spectral sequence
+\[
+E_2^{pq}=H^p(U,H^qC_*(F))\Rightarrow H^{p+q}(U,C_*(F))
+\]
+and the same for \(U\times\Aone\). By Theorem 1 applied to \(H^qC_*(F)\),
+\[
+H^p(X,H^qC_*(F)):=H^p(X,aH^qC_*(F))
+\]
+is the same for \(X=U\) or for \(X=U\times\Aone\). Applying (3.5), we conclude from Proposition 4 \((2)\Rightarrow(1)\) that
+
+\begin{proposition*}[5]
+For \(k\) perfect, if \(F\) is a presheaf with transfers, for all \(p\), \(K(C_*(F)[p])\) is \(\Aone\)-local.
+\end{proposition*}
+
+Combining Proposition 5 with Proposition 7 we get the second equality in (1.1).
+
+\section*{2.5 End of the Proof of Theorem 2}
+
+For any pointed simplicial sheaf \(G_\bullet\), \(C_\bullet(G_\bullet)\) is a pointed bisimplicial sheaf of which one can take the diagonal \(\Delta C_\bullet(G_\bullet)\). For any pointed sheaf \(G\), one has a natural map \(G\to C_\bullet(G)\), and for a pointed simplicial sheaf \(G_\bullet\), those maps for the \(G_n\) induce
+\[
+a:G_\bullet\longrightarrow \Delta C_\bullet(G_\bullet).
+\]
+
+\begin{proposition*}[6]
+The morphism \(a:G_\bullet\to\Delta C_\bullet(G_\bullet)\) is an \(\Aone\)-equivalence.
+\end{proposition*}
+
+\begin{proofdel}
+We deduce Proposition 6 from Proposition 20.
+
+The two maps \(0,1:F_\bullet\to F_\bullet\wedge\Aone_+\) are equalized by \(F_\bullet\wedge\Aone_+\to F_\bullet\), hence become equal in the \(\Aone\)-homotopy category. If two maps of pointed simplicial sheaves \(F_\bullet\rightrightarrows G_\bullet\) factor as \(F_\bullet\to F_\bullet\wedge\Aone_+\to G_\bullet\), they also become equal. By the adjunction of \(\wedge\Aone_+\) and of \(C_1(-)=\Hom(\Aone_+,-)\), such a factorization can be rewritten as
+\[
+F_\bullet\longrightarrow C_1(G_\bullet)\longrightarrow G_\bullet.
+\]
+Particular case: the maps \(C_1(G_\bullet)\to G_\bullet\) become equal in the homotopy category. Evaluated on \(X\), these maps are the restriction maps \(0^*,1^*:G_\bullet(X\times\Aone)\to G_\bullet(X)\).
+
+The affine space \(\A^n\) is homotopic to a point in the sense that
+\[
+H:\Aone\times\A^n\longrightarrow\A^n,\qquad (t,x)\longmapsto tx
+\]
+interpolates between the identity map (for \(t=1\)) and the constant map \(0\) (for \(t=0\)). The map \(H\) induces
+\[
+G_\bullet(S\times\A^n)\longrightarrow G_\bullet(S\times\A^n\times\Aone)
+\]
+and, composing with \(0,1\) in \(\Aone\), we obtain that
+\[
+G_\bullet(S\times\A^n)\rightrightarrows G_\bullet(S\times\A^n)
+\]
+the identity map, and the map induced by \(0:\A^n\to\A^n\), are equal in the \(\Aone\)-homotopy category. The map of simplicial sheaves \(G_\bullet\to C_nG_\bullet\) is hence an \(\Aone\)-equivalence. It has as inverse in the \(\Aone\)-homotopy category the map induced by \(0:\Spec(k)\to\A^n\), and one applies Remark 1.
+
+We now apply Proposition 20 to the bisimplicial sheaves
+\[
+G_{pq}:=G_p,\qquad
+H_{pq}:=C_qG_p:S\longmapsto G_p(S\times\Delta^q)
+\]
+and to the natural map \(G_{pq}\to H_{pq}\). For fixed \(q\), this is just \(G(S)\to G(S\times\A^q)\), and Proposition 20 gives Proposition 6.
+\end{proofdel}
+
+To prove the last equality in (1.1), it suffices to show that:
+
+\begin{lemma*}[1]
+For any abelian sheaf \(F\), \(F[p]\to C_*(F)[p]\) induces an \(\Aone\)-equivalence from \(K(F[p])\) to \(K(C_*(F)[p])\).
+\end{lemma*}
+
+\begin{proofdel}
+For \(G\) a monoid (with unit), the pointed simplicial set \(B_\bullet G\) is given by
+\[
+B_nG=\left\{
+\begin{array}{c}
+\hbox{functors from the ordered set }(0,\ldots,n)\hbox{ viewed as a category}\\
+\hbox{to }G\hbox{ viewed as a category with one object}
+\end{array}
+\right\}.
+\]
+This construction can be sheafified, and can be applied termwise to a simplicial sheaf of monoids, leading to a pointed bisimplicial sheaf of which one can take the diagonal
+\[
+BG_\bullet:=\Delta B_\bullet(G_\bullet).
+\]
+This construction commutes with the construction \(G_\bullet\to\Delta C_\bullet(G_\bullet)\). Indeed, \(B_nG_p\) is naturally isomorphic to \(G_p^n\); the operation \(C_m\) commutes with products, and \(B(\Delta C_\bullet(G_\bullet))\) and \(\Delta C_\bullet(BG_\bullet)\) are both diagonals of the trisimplicial pointed sheaf \(C_\bullet B_\bullet G_\bullet\).
+
+For abelian simplicial sheaves, the operation \(B\) gives again abelian simplicial sheaves, hence can be iterated, and \(\Delta C_\bullet\) commutes with \(B^n\).
+
+Via Dold--Puppe construction, \(B\) corresponds, up to homotopy, to the shift \([1]\) of complexes:
+\[
+NBG_\bullet\simeq(NG_\bullet)[1].
+\]
+This can be viewed as an application of the Eilenberg--Zilber Theorem (see [9, Theorem 8.5.1]): one has
+\[
+NBG_\bullet\simeq BG_*\simeq \Tot B_*G_*\qquad\hbox{(Eilenberg--Zilber),}
+\]
+and for each \(G_q\), the normalization of \(B_\bullet G_q\) is just \(G_q[1]\), so that the double complexes \(B_*G_*\) and \(H_{pq}:=G_q\) for \(p=1,0\) otherwise, have homotopic \(\Tot\).
+
+If \(G_\bullet\) is an abelian simplicial sheaf, applying Proposition 6 to \(B^pG_\bullet\), we obtain that
+\[
+B^pG_\bullet\longrightarrow \Delta C_\bullet B^pG_\bullet
+       =B^p\Delta C_\bullet G_\bullet                       \tag{6.1}
+\]
+is an \(\Aone\)-equivalence. The functor \(K\) transforms chain homotopy equivalences into simplicial equivalences. For any simplicial abelian group \(L_\bullet\) (to be \(G_\bullet\) or \(\Delta C_\bullet G_\bullet\)), we hence have a simplicial homotopy equivalence
+\[
+B^pL_\bullet=KNB^pL_\bullet\simeq K((NL_\bullet)[p]).
+\]
+Simplicial homotopy equivalences being \(\Aone\)-equivalences, we conclude that (6.1) induces an \(\Aone\)-equivalence
+\[
+K((NG_\bullet)[p])\longrightarrow K(N(\Delta C_\bullet G_\bullet)[p]).
+\]
+\end{proofdel}
+
+\section*{2.6 Appendix: Localization}
+
+Let \(C\) be a category and \(S\) be a set of morphisms of \(C\). The localized category \(C[S^{-1}]\) is deduced from \(C\) by ``formally inverting all \(s\in S\)''. With this definition, it is clear that one has a natural functor
+\[
+\operatorname{loc}:C\longrightarrow C[S^{-1}],
+\]
+bijective on the set of objects, and that for any category \(D\),
+\[
+F\longmapsto F\circ\operatorname{loc}:\Hom(C[S^{-1}],D)\longrightarrow\Hom(C,D)
+\]
+is a bijection from \(\Hom(C[S^{-1}],D)\) to the set of functors from \(C\) to \(D\) transforming morphisms in \(S\) into isomorphisms.
+
+If one remembers that the categories form a 2-category, and if one agrees with the principle that one should not try to define a category more precisely than up to equivalence (unique up to unique isomorphism), the universal property of \(C[S^{-1}]\) given above is doubly unsatisfactory. The easily checked and useful universal property is the following: \(F\mapsto F\circ\operatorname{loc}\) is an equivalence from the category \(\Hom(C[S^{-1}],D)\) to the full subcategory of \(\Hom(C,D)\) consisting of the functors \(F\) which map \(S\) to isomorphisms.
+
+\begin{proposition*}[7]
+If \(Y\) in \(C\) is such that the functor
+\[
+h_Y:C^{op}\longrightarrow \mathrm{Sets}:X\longmapsto\Hom_C(X,Y)
+\]
+transforms maps in \(S\) into bijections, then
+\[
+\Hom_C(X,Y)\overset{\sim}{\longrightarrow}\Hom_{C[S^{-1}]}(X,Y).
+\]
+\end{proposition*}
+
+\begin{proofdel}
+By Yoneda construction \(Y\mapsto h_Y\), \(C\) embeds into the category \(C^\wedge\) of contravariant functors from \(C\) to \(\mathrm{Sets}\), while \(C[S^{-1}]\) embeds into \(C[S^{-1}]^\wedge\), identified by (a) with the full subcategory of \(C^\wedge\) consisting of the \(F\) transforming \(S\) into bijections. For \(Y\) in \(C\), with image \(\bar Y\) in \(C[S^{-1}]\), and for any \(F\) in \(C[S^{-1}]^\wedge\subset C^\wedge\), one has
+\[
+\Hom(h_Y,F)=\Hom(h_{\bar Y},F).
+\]
+Indeed, by (a) and the Yoneda lemma for \(C\) and \(C[S^{-1}]\), both sides are \(F(Y)\). This means that \(h_{\bar Y}\) is the solution of the universal problem of mapping \(h_Y\) into an object of \(C[S^{-1}]^\wedge\subset C^\wedge\). In particular, for \(Y\) as in (b), i.e. in \(C[S^{-1}]^\wedge\), \(h_{\bar Y}\) coincides with \(h_Y\), as claimed by (b).
+\end{proofdel}
+
+\begin{proposition*}[8]
+Let \((L,R)\) be a pair of adjoint functors between categories \(C\) and \(D\). Let \(S\) and \(T\) be sets of morphisms in \(C\) and \(D\). Assume that \(F\) maps \(S\) to \(T\) and that \(G\) maps \(T\) to \(S\). Then the functors \(\bar L,\bar R\) between \(C[S^{-1}]\) and \(D[T^{-1}]\) induced by \(L\) and \(R\) again form an adjoint pair.
+\end{proposition*}
+
+\begin{proofdel}
+The functors \(\bar L\) and \(\bar R\) induced by \(F\) and \(G\) are characterized by commutative diagrams
+\[
+\begin{tikzcd}[column sep=3.4em,row sep=2.2em]
+C \arrow[r,"L"] \arrow[d] & D \arrow[d]\\
+C[S^{-1}] \arrow[r,"\bar L"] & D[T^{-1}]
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=3.4em,row sep=2.2em]
+D \arrow[r,"R"] \arrow[d] & C \arrow[d]\\
+D[T^{-1}] \arrow[r,"\bar R"] & C[S^{-1}].
+\end{tikzcd}
+\]
+Adjunction can be expressed by the data of \(\varepsilon:Id\to RL\) and \(\eta:LR\to Id\), such that the compositions
+\[
+R\longrightarrow RLR\longrightarrow R,\qquad
+L\longrightarrow LRL\longrightarrow L
+\]
+are the identity automorphisms of \(R\) and \(L\), respectively (see, e.g., [6]).
+
+By the universal property of localization, \(\varepsilon\) induces a morphism \(\bar\varepsilon\to\bar R\bar L\), indeed to define such a morphism amounts to defining a morphism \(\operatorname{loc}\to\bar R\bar L\operatorname{loc}\), and \(\bar R\bar L\operatorname{loc}=\operatorname{loc}RL\). Similarly, \(\eta\) induces \(\bar\eta:\bar L\bar R\to Id\). The morphism \(\bar R\to\bar R\bar L\bar R\to\bar R\), and similarly for \(\bar L\), is induced by \(R\to RLR\to R\), and the proposition follows.
+\end{proofdel}
+
+\begin{proposition*}[9]
+Suppose that:
+\begin{enumerate}[label=\arabic*.]
+\item The localization \(C[S^{-1}]\) gives rise to a right calculus of fractions.
+\item Coproducts exist in \(C\), and \(S\) is stable by coproducts.
+\end{enumerate}
+Then a coproduct in \(C\) is also a coproduct in \(C[S^{-1}]\).
+\end{proposition*}
+
+For the definition of ``gives rise to a right calculus of fractions'' see [10]. It implies that for \(X\) in \(C\), the category of \(s:X'\to X\) with \(s\in S\) is filtering, and that
+\[
+\Hom_{C[S^{-1}]}(X,Y)=
+\operatorname*{colim}_{s:X'\to X}\Hom_C(X',Y).
+\]
+
+\begin{proofdel}
+For \(X\) in \(C\), let \((S/X)\) be the filtering category of morphisms \(X'\to X\) in \(S\). For \(X\) the coproduct of \(X_\alpha\), \(\alpha\in A\), one has a functor ``coproduct''
+\[
+\prod_{\alpha\in A}(S/X_\alpha)\longrightarrow(S/X).
+\]
+It is cofinal: for \(s:X'\to X\) in \(S\), one can construct a diagram
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.2em]
+X'_\alpha \arrow[r] \arrow[d,"s_\alpha"'] & X_\alpha \arrow[d]\\
+X' \arrow[r,"s"'] & X
+\end{tikzcd}
+\]
+with \(s_\alpha:X'_\alpha\to X\) in \(S\), and \(\coprod s_\alpha\) dominates \(s\). For any \(Y\), it follows that
+\[
+\begin{aligned}
+\Hom_{C[S^{-1}]}(X,Y)
+&=\operatorname*{colim}_{(S/X)}\Hom_C(X',Y)\\
+&=\operatorname*{colim}_{\prod(S/X_\alpha)}\Hom\Bigl(\coprod X'_\alpha,Y\Bigr)\\
+&=\operatorname*{colim}_{\prod(S/X_\alpha)}\prod\Hom(X'_\alpha,Y)\\
+&=\prod\operatorname*{colim}_{S/X_\alpha}\Hom(X'_\alpha,Y)
+ =\prod\Hom_{C[S^{-1}]}(X_\alpha,Y),
+\end{aligned}
+\]
+meaning that \(X\) is also the coproduct of the \(X_\alpha\) in \(C[S^{-1}]\).
+\end{proofdel}
+
+\begin{corollary*}[10]
+Suppose that in the abelian category \(A\) arbitrary direct sums exist and are exact. Then arbitrary direct sums exist in the derived category \(D(A)\), and the localization functor
+\[
+C(A)\longrightarrow D(A)
+\]
+commutes with direct sums.
+\end{corollary*}
+
+\begin{proofdel}
+The functor \(C(A)\to D(A)\) factors through the category \(K(A)\) of complexes and maps up to homotopy. Direct sums in \(C(A)\) are also direct sums in \(K(A)\). Indeed,
+\[
+\begin{aligned}
+\Hom_{K(A)}(\oplus K_\alpha,L)
+&=H^0\Hom^\bullet(\oplus K_\alpha,L)\\
+&=H^0\prod\Hom^\bullet(K_\alpha,L)
+ =\prod H^0\Hom^\bullet(K_\alpha,L),
+\end{aligned}
+\]
+as \(\prod\) is exact for abelian groups. Exactness of \(\oplus\) in \(A\) ensures that a direct sum of quasi-isomorphisms is again a quasi-isomorphism, and Proposition 9 applies to \(K(A)\) and the set \(S\) of quasi-isomorphisms, proving the corollary.
+\end{proofdel}
+
+If \(A_i\), \(i\ge0\), is an inductive system of objects of \(A\), the colimit of \(A_i\) is the cokernel
+\[
+\oplus A_i\overset{d}{\longrightarrow}\oplus A_i\longrightarrow \operatorname{colim}A_i\longrightarrow0
+\]
+of the difference of the identity map and of the sum of the \(A_i\to A_{i+1}\). If taking the inductive limit of a sequence is an exact functor, the map \(d\) is injective: it is the colimit of the
+\[
+\oplus_{i=0}^n A_i\longrightarrow \oplus_{i=0}^{n+1}A_i,
+\]
+each of which is injective, as its graded for the filtration by the \(\oplus_{i\ge p}A_i\) is the identity inclusion.
+
+Under the assumptions of Corollary 10 if a complex \(K\) is the colimit of an inductive sequence \(K_{(i)}\), and if the sequence
+\[
+0\longrightarrow\oplus K_{(i)}\overset{d}{\longrightarrow}\oplus K_{(i)}\longrightarrow K\longrightarrow0 \tag{10.1}
+\]
+is exact, then for any \(L\), the long exact sequence of cohomology reads
+\[
+\longrightarrow \Hom(K,L)\longrightarrow\prod\Hom(K_{(i)},L)
+ \overset{d}{\longrightarrow}\prod\Hom(K_{(i)},L)\longrightarrow
+\]
+The kernel of \(d\) is simply the projective limit of the \(\Hom(K_{(i)},L)\). The cokernel is \(\operatorname{lim}^1\). One concludes.
+
+\begin{proposition*}[11]
+Suppose that in \(A\) countable direct sums exist and are exact. If the complex \(K\) is the colimit of the \(K_{(i)}\), and if the sequence (10.1) is exact, for instance if either:
+\begin{enumerate}[label=\arabic*.]
+\item in \(A\) inductive limits of sequences are exact;
+\item in each degree \(n\), each \(K^n_{(i)}\to K^n_{(i+1)}\) is the inclusion of a direct factor;
+\end{enumerate}
+then one has a short exact sequence
+\[
+0\longrightarrow\operatorname{lim}^1\Hom(K_{(i)},L[-1])
+\longrightarrow\Hom(K,L)
+\longrightarrow\operatorname{lim}\Hom(K_{(i)},L)\longrightarrow0.
+\]
+\end{proposition*}
+
+\begin{proofdel}
+It remains to check that condition (2) implies the exactness of (10.1). This is to be seen degree by degree. By assumption, the \(A_i:=K^n_{(i)}\) have decompositions compatible with the transition maps \(A_i=\oplus_{j=0}^i B_i\). A corresponding decomposition of (10.1) in direct sum follows, and we are reduced to check exactness of the particular case \((10.1)_{(A,n)}\) of (10.1) when \(B_i=0\) for \(i\ne n\), i.e. when \(A_i\) is a fixed \(A\) from \(i\ge n\), and is \(0\) otherwise. Let \((10.1)_0\) be the sequence \((10.1)_{\Z,n}\) in \(Ab\) for \(A=\Z\). It is a split exact sequence of free abelian groups. Because direct sums exist, \(L\otimes A\), for \(L\) a free abelian group, is defined and functorial in \(L\). It is a sum of copies of \(A\), indexed by a basis of \(L\), and is characterized by
+\[
+\Hom(L\otimes A,B)=\Hom(L,\Hom(A,B))
+\]
+(functorial in \(B\)). The sequence \((10.1)_{A,n}\) is \((10.1)_0\otimes A\), and, \((10.1)_0\) being split exact, it splits and in particular is exact.
+\end{proofdel}
+
+The truncation \(\sigma_{\le n}K=\sigma_{\ge -n}K\) of a complex \(K\) is the subcomplex which coincides with \(K\) in homological degree \(\le n\) and is \(0\) in homological degree \(>n\). For any complex \(K\), one has
+\[
+K=\operatorname*{colim}_{\sigma_{\le n}}K
+\]
+and this colimit satisfies condition (2) of Proposition 11. It follows that
+
+\begin{corollary*}[12]
+Under the assumptions of Corollary 10, for any \(K\) and \(L\), one has a short exact sequence
+\[
+0\longrightarrow\operatorname{lim}^1\Hom(\sigma_{\le n}K,L[-1])
+\longrightarrow\Hom(K,L)
+\longrightarrow\operatorname{lim}\Hom(\sigma_{\le n}K,L)\longrightarrow0.
+\]
+\end{corollary*}
+
+\section*{3 \(\Aone\)-Equivalences of Simplicial Sheaves on \(G\)-Schemes}
+
+\section*{3.1 Sheaves on a Site of \(G\)-Schemes}
+
+We fix a base scheme \(S\), supposed to be separated noetherian and of finite dimension; fiber product \(X\times_S Y\) will be written simply as \(X\times Y\). We also fix a group scheme \(G\) over \(S\), supposed to be finite and flat. We note \(h_X\) the representable sheaf defined by \(X\).
+
+Let \(QP/G\) be the category of schemes quasi-projective over \(S\), given with an action of \(G\). Any \(X\) in \(QP/G\) admits an open covering \((U_i)\) by affine open subschemes which are \(G\)-stable. This makes it possible to define a reasonable quotient \(X/G\) in the category of schemes over \(S\) (rather than in the larger category of algebraic spaces). For each \(U_i\), \(U_i/G\) is defined as the spectrum of the equalizer
+\[
+\mathcal O(U_i)\rightrightarrows\mathcal O(U_i\times G),
+\]
+and \(X/G\) is obtained by gluing the \(U_i/G\). It is a categorical quotient, i.e. the coequalizer of \(G\times X\rightrightarrows X\). The map \(X\to X/G\) is finite, open, and the topological space \(|X/G|\) is the coequalizer of the map of topological spaces \(|G\times X|\rightrightarrows |X|\). One can show that \(X/G\) is again quasi-projective. Remark 2 below shows that this fact, while convenient for the exposition, is irrelevant.
+
+One defines on \(QP/G\) a pretopology [3, II.1.3] by taking as coverings the family of etale maps \(Y_i\to X\) with the following property: \(X\) admits a filtration by closed equivariant subschemes \(\emptyset=X_n\subset\cdots\subset X_1\subset X_0=X\) such that for each \(j\), some map \(Y_i\to X\) has a section over \(X_j-X_{j+1}\). The Nisnevich topology on \(QP/G\) is the topology generated by this pretopology. The category \(QP/G\) with the Nisnevich topology is the \emph{Nisnevich site} \((QP/G)_{\Nis}\).
+
+\begin{remark*}[1]
+The corresponding topos is not the classifying topos of [2, IV.2.5]. A morphism \(X\to Y\) can become a Nisnevich covering after forgetting the action of \(G\), and not be a Nisnevich covering. Example: \(S=\Spec(k)\), \(G=\Z/2\), \(X=S\), \(Y=S\coprod S\), and \(G\) permutes two copies of \(S\) in \(Y\).
+\end{remark*}
+
+\begin{remark*}[2]
+Let \((\mathrm{affine}/G)_{\Nis}\) be the site defined as above, with ``quasi-projective'' replaced by ``affine''. It is equivalent to \((QP/G)_{\Nis}\), in the sense that restriction to \((\mathrm{affine}/G)_{\Nis}\) is an equivalence from the category of sheaves on \((QP/G)_{\Nis}\) to the category of sheaves on \((\mathrm{affine}/G)_{\Nis}\).
+\end{remark*}
+
+\begin{remark*}[3]
+If \(G\) is the trivial group \(e\), the definition given above recovers the usual Nisnevich topology. For \(G=e\), the condition usually considered: ``every point \(x\) of \(X\) is the image of a point with the same residue field of some \(Y_i\)'', is indeed equivalent to the condition imposed above. This is checked by noetherian induction: if a generic point \(\xi\) of \(X\) can be lifted to \(Y_i\), some open neighborhood \(U\subset X\) of \(\xi\) can be lifted to \(Y_i\), and one applies the induction hypothesis to \(X_1=(X-U)_{\red}\).
+\end{remark*}
+
+We write \((QP)_{\Nis}\) for the category of quasi-projective schemes over \(S\), with the Nisnevich topology.
+
+\begin{lemma*}[2]
+If \(U:Y_i\to X\), \(i\in I\), is a covering of \(X\) in \((QP/G)_{\Nis}\), there is a covering \(\mathcal V\) of \(X/G\) in \((QP)_{\Nis}\) whose pull-back to \(X\) is finer than \(U\).
+\end{lemma*}
+
+\begin{proofdel}
+Fix a filtration \(\emptyset=X_n\subset\cdots\subset X_0=X\) as in the definition of the Nisnevich topology. We write \(q\) for the quotient map \(X\to X/G\). For \(x\) in \(X/G\), \((q^{-1}(x))_{\red}\) is in some \(X_j-X_{j+1}\), by equivariance of the \(X_j\), and one of the maps \(Y_i\to X\) has an equivariant section \(s\) over \(X_j-X_{j+1}\). Let \((X/G)^h_x\) be the henselization of \(X/G\) at \(x\). The map \(q\) being finite, the pull-back of \((X/G)^h_x\) to \(X\) is the coproduct of the \(X^h_y\) for \(q(y)=x\). The map from \(Y_i\) to \(X\) being etale, the section \(s\), restricted to \((q^{-1}(y))_{\red}\), extends uniquely to a section (automatically equivariant) of \(Y_i\) over \(\coprod_{q(y)=x}X^h_y\). Writing \((X/G)^h_x\) as the limit of etale neighborhoods of \(x\), one finds that \(x\) has an etale neighborhood \(V(x)\) such that \(Y_i\) has an equivariant section over \(X\times_{X/G}V(x)\). The \(V(x)\) form the required covering \(\mathcal V\).
+\end{proofdel}
+
+We define the \(G\)-local henselian schemes to be the schemes \(Y\) obtained in the following way. For \(X\) in \((QP/G)\), \(y\) a point of \(X/G\), and \((X/G)^h_y\) the henselization of \(X/G\) at \(y\), take the fiber product
+\[
+Y:=X\times_{X/G}(X/G)^h_y.
+\]
+As \(X\) is finite over \(X/G\), this fiber product is a finite disjoint union of local henselian schemes, and \(G\)-local henselian schemes are simply the \(G\)-equivariant finite disjoint unions of \(Y\) of local henselian schemes, for which \(Y/G\) is local.
+
+\begin{proposition*}[13]
+If \(Y\) is \(G\)-local henselian, the functor \(X\mapsto\Hom(Y,X)\) is a point of the site \((QP/G)_{\Nis}\), i.e. it defines a morphism of the punctual site \((\mathrm{Sets})\) to \((QP/G)_{\Nis}\). If \(Y=X\times_{X/G}(X/G)^h_y\), the corresponding fiber functor is
+\[
+F\longmapsto \operatorname*{colim}_{Y\subset X\times_{X/G}V}F(X\times_{X/G}V),
+\]
+the colimit being taken over the etale neighborhoods of \(y\) in \(X/G\). The collection of fiber functors so obtained is conservative.
+\end{proposition*}
+
+\begin{proofdel}
+The functor \(X\mapsto\Hom(Y,X)\) commutes with finite limits. It follows from Lemma 2 that it transforms coverings into surjective families of maps, hence is a morphism of sites \((\mathrm{Sets})\to(QP/G)_{\Nis}\).
+
+To check that the resulting set of fiber functors is conservative, it suffices to check that a family of etale \(f_i:U_i\to X\) is a covering if for any \(G\)-local henselian \(Y\),
+\[
+\coprod_i \Hom(Y,U_i)\longrightarrow \Hom(Y,X)
+\]
+is onto. The proof, parallel to that of Lemma 2, is left to the reader.
+\end{proofdel}
+
+\section*{3.2 The Brown--Gersten Closed Model Structure on Simplicial Sheaves on \(G\)-Schemes}
+
+We recall that a commutative square of simplicial sets (or pointed simplicial sets)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+K \arrow[r] \arrow[d] & L \arrow[d]\\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{13.1}
+\]
+is homotopy cartesian (or a homotopy pull-back square) if, when \(L\) is replaced by \(L'\) weakly equivalent to it and mapping to \(N\) by a (Kan) fibration \(L\overset{\sim}{\to}L'\to N\), the map from \(K\) to \(L'\times_NM\) is a weak equivalence.
+
+\begin{definition*}[3]
+A simplicial presheaf \(F_\bullet\) on \((QP/G)_{\Nis}\) is flasque if \(F(\emptyset)\) is contractible and if for any (upper) distinguished square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+B \arrow[r] \arrow[d] & Y \arrow[d,"p"]\\
+A \arrow[r,"j"'] & X
+\end{tikzcd}
+\]
+(\(p\) etale, \(j\) open embedding, \(B=p^{-1}(A)\), and \(Y-B\simeq X-A\)), the square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+F(X) \arrow[r] \arrow[d] & F(Y) \arrow[d,"p"]\\
+F(A) \arrow[r,"j"'] & F(B)
+\end{tikzcd}
+\]
+is homotopy cartesian.
+\end{definition*}
+
+\begin{theorem*}[3]
+Let \(f:F_\bullet\to F'_\bullet\) be a morphism of flasque simplicial presheaves. If the induced morphism of simplicial sheaves \(aF_\bullet\to aF'_\bullet\) is a local equivalence, then, for any \(U\) in \(QP/G\), \(F_\bullet(U)\to F'_\bullet(U)\) is a weak equivalence.
+\end{theorem*}
+
+
+\begin{proofdel}
+For a \(G\)-scheme \(X\), let \(X_{\Nis}\) be the small Nisnevich site of \(X\), and for a presheaf \(F\) on \((QP/G)\), let \(F_{|X}\) be the restriction of \(F\) to \(X_{\Nis}\). Our assumption that
+\[
+  aF_\bullet\longrightarrow aF'_\bullet
+\]
+is a local equivalence implies that
+\[
+  aF_{\bullet,|U}\longrightarrow aF'_{\bullet,|U}
+\]
+is a local equivalence. The map \(U\to U/G\) defines a morphism of sites
+\[
+  p:U_{\Nis}\longrightarrow (U/G)_{\Nis},
+\]
+and Lemma 2 implies that the direct image functor \(p_*\) commutes with the associated sheaf functor and takes local equivalences to local equivalences. Therefore the morphism
+\[
+  a p_*(F_{\bullet,|U})\longrightarrow a p_*(F'_{\bullet,|U})
+\]
+is a local equivalence. The presheaves \(p_*(F_{\bullet,|U})\) and \(p_*(F'_{\bullet,|U})\) are flasque on \((U/G)_{\Nis}\), and by [8, Lemma 3.1.18] we conclude that
+\[
+F_\bullet(U)=p_*(F_{\bullet,|U})(U/G)
+  \longrightarrow p_*(F'_{\bullet,|U})(U/G)=F'_\bullet(U)
+\]
+is a weak equivalence.
+\end{proofdel}
+
+In [1], Brown and Gersten define a simplicial closed model structure on the category of pointed simplicial sheaves on a Noetherian topological space of finite dimension. As in Jardine [11], the equivalences are the local equivalences. The homotopy category is hence the same as Joyal's, but the model structure is different: fewer cofibrations, more fibrations.
+
+The arguments of [1] work as well in the Nisnevich topology, for the big as well as for the small Nisnevich site, or for \((QP/G)_{\Nis}\), once Theorem 3 is available. We review the basic definitions, working in \((QP/G)_{\Nis}\). Let \(\Lambda^{n,k}\) be the subsimplicial set of \(\partial\Delta^n\), union of all faces but the \(k\)-th face. For \(n=0\), \(\Lambda^{0,0}=\varnothing\). One takes as generating trivial cofibrations the maps of the form \((J)\):
+\[
+\begin{array}{ll}
+(J_a) & (\Lambda^{n,k}\times h_X)_+\longrightarrow (\Delta^n\times h_X)_+,\\[0.4em]
+(J_b) & \text{for } U\to X \text{ an open embedding,}\quad
+\bigl((\Delta^n\times h_U)\coprod_{\Lambda^{n,k}\times h_U}(\Lambda^{n,k}\times h_X)\bigr)_+
+\longrightarrow (\Delta^n\times h_X)_+.
+\end{array}
+\]
+One then defines the \emph{fibrations} to be the morphisms \(p\) having the right lifting property with respect to generating trivial cofibrations (see, e.g. [5]), the \emph{(weak) equivalences} to be the local equivalences, the \emph{trivial fibrations} to be fibrations which are also (weak) equivalences, and the \emph{cofibrations} to be the morphisms having the left lifting property with respect to trivial fibrations.
+
+Following [1] and using Theorem 3, one proves that the trivial fibrations can be equivalently described as morphisms having the right lifting property with respect to the following class of morphisms \((I)\):
+\[
+\begin{array}{ll}
+(I_a) & (\partial\Delta^n\times h_X)_+\subset (\Delta^n\times h_X)_+,\\[0.4em]
+(I_b) & \text{for } U\to X \text{ an open embedding,}\quad
+\bigl((\Delta^n\times h_U)\coprod_{\partial\Delta^n\times h_U}(\partial\Delta^n\times h_X)\bigr)_+
+\longrightarrow (\Delta^n\times h_X)_+.
+\end{array}
+\]
+The maps of the form \((I)\) are called generating cofibrations.
+
+For \(X\) and \(Y\) pointed simplicial sheaves, one defines a pointed simplicial set \(S(X,Y)\) by
+\[
+S(X,Y)_n=\Hom(X\wedge(\Delta^n)_+,Y).
+\]
+Following [1], one sees that the classes of cofibrations, (weak) equivalences, fibrations, and \(S\) are a simplicial closed model structure in the sense of []. This has the following consequences.
+
+\begin{corollary*}[14]
+If \(X\) is cofibrant and \(Y\) fibrant, for any pointed simplicial set \(K\), one has in the relevant homotopy categories
+\[
+\Hom_{H_0}(X\wedge K,Y)=\Hom_{H_0}(K,S(X,Y)).
+\]
+In particular, taking \(K=(\Delta^0)_+\), one gets
+\[
+\Hom_{H_0}(X,Y)=\pi_0S(X,Y).
+\]
+\end{corollary*}
+
+\begin{corollary*}[15]
+If \(X\to Y\) is a cofibration and \(Z\) a cofibrant object, then \(X\wedge Z\to Y\wedge Z\) is a cofibration.
+\end{corollary*}
+
+\begin{corollary*}[16]
+If \(X\) is cofibrant and \(Y\) is fibrant, then for any \(Z\)
+\[
+\Hom_{H_0}(Z,\uHom(X,Y))=\Hom_{H_0}(Z\wedge X,Y). \tag{16.1}
+\]
+In (16.1), \(\uHom(X,Y)\) is the pointed simplicial sheaf with components the sheaves of homomorphisms from \(X\wedge(\Delta^n)_+\) to \(Y\).
+\end{corollary*}
+
+We now apply this framework to prove the following criterion for \(\Aone\)-locality.
+
+\begin{proposition*}[17]
+Let \(F\) be a pointed simplicial sheaf on \((QP/G)\). If, as a simplicial presheaf, \(F\) is flasque, then \(F\) is \(\Aone\)-local if and only if, for any \(U\) in \((QP/G)\),
+\[
+F(U)\longrightarrow F(U\times\Aone)
+\]
+is a weak equivalence.
+\end{proposition*}
+
+We recall that \(\Aone\)-local means that for any \(Y\) one has the following in the homotopy category:
+\[
+\Hom_{H_0}(Y,F)=\Hom_{H_0}(Y\wedge(h_{\Aone})_+,F). \tag{17.1}
+\]
+
+\begin{lemma*}[3]
+A fibrant pointed simplicial sheaf is flasque.
+\end{lemma*}
+
+\begin{proofdel}
+The right lifting property of \(F\to *\) relative to the morphisms \((J_b)\) means that for \(U\subset X\) an open embedding, the morphism \(F(X)\to F(U)\) is a Kan fibration. As \(F\) is a sheaf, an upper distinguished square
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.0em]
+B \arrow[r] \arrow[d] & Y \arrow[d] \\
+A \arrow[r] & X
+\end{tikzcd}
+\]
+gives rise to a Cartesian square
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.0em]
+F(X) \arrow[r] \arrow[d] & F(Y) \arrow[d] \\
+F(A) \arrow[r] & F(B).
+\end{tikzcd}
+\]
+As \(F(Y)\to F(B)\) is a Kan fibration, this square is also homotopy Cartesian.
+\end{proofdel}
+
+\begin{lemma*}[4]
+Proposition 17 holds if the assumption ``\(F\) is flasque'' is replaced by the assumption ``\(F\) is fibrant''.
+\end{lemma*}
+
+\begin{proofdel}
+``Only if.'' \((I_a)\) for \(n=0\) says that for any \(U\), \((h_U)_+\) is cofibrant. By Corollary 14, for any pointed simplicial set \(K\), one has
+\[
+\Hom_{H_0}((h_U)_+\wedge K,F)=\Hom_{H_0}(K,S((h_U)_+,F)),
+\]
+and \(S((h_U)_+,F)\) is just \(F(U)\). If in (17.1) we take \(Y=K\wedge(h_U)_+\), so that
+\[
+Y\wedge(h_{\Aone})_+=K\wedge(h_{U\times\Aone})_+,
+\]
+we get
+\[
+\Hom_{H_0}(K,F(U\times\Aone))=\Hom_{H_0}(K,F(U)).
+\]
+That this holds for any \(K\) means that \(F(U)\to F(U\times\Aone)\) becomes an isomorphism in the homotopy category, hence is a weak equivalence.
+
+``If.'' We apply Corollary 16. As \((h_{\Aone})_+\) is cofibrant and \(F\) fibrant,
+\[
+\Hom_{H_0}(Y\wedge(h_{\Aone})_+,F)=\Hom_{H_0}(Y,\uHom((h_{\Aone})_+,F)),
+\]
+and it suffices to show that
+\[
+F\longrightarrow \uHom((h_{\Aone})_+,F)
+\]
+is a local equivalence. This \(\uHom\) is the simplicial sheaf \(U\mapsto F(U\times\Aone)\), and the claim follows.
+\end{proofdel}
+
+\begin{proofdel}
+We can now finish the proof of Proposition 17. Let \(F\to F'\) be a fibrant replacement of \(F\). As \(F\) and \(F'\) are flasque, \(F(U)\to F'(U)\) is a weak equivalence for any \(U\). Thus all \(F(U)\to F(U\times\Aone)\) being weak equivalences is equivalent to all \(F'(U)\to F'(U\times\Aone)\) being weak equivalences, while \(F\) is \(\Aone\)-local if and only if \(F'\) is.
+\end{proofdel}
+
+\subsection*{3.3 \(\bar\Delta\)-Closed Classes}
+
+The proof of the main theorem of this section will be postponed.
+
+\begin{definition*}[4]
+A class \(S\) of morphisms of pointed simplicial sheaves is \(\Delta\)-closed if:
+\begin{enumerate}[label=\arabic*.]
+\item (Simplicial) homotopy equivalences are in \(S\).
+\item If two of \(f\), \(g\), and \(fg\) are in \(S\), then so is the third.
+\item \(S\) is stable by finite coproducts.
+\item If \(F_{**}\to G_{**}\) is a morphism of pointed bisimplicial sheaves, and if all \(F_{*p}\to G_{*p}\) are in \(S\), so is the diagonal \(\Delta(F)\to\Delta(G)\).
+\end{enumerate}
+\end{definition*}
+
+\begin{definition*}[5]
+The class \(S\) is \(\bar\Delta\)-closed if, in addition, it is stable by arbitrary coproducts and colimits of sequences \((F_*\to G_*)_n\) with the property that, degree by degree, \((F_*)_n\to(F_*)_{n+1}\) (respectively \((G_*)_n\to(G_*)_{n+1}\)) is isomorphic to an embedding \(A\subset A\coprod B\) of pointed sheaves.
+\end{definition*}
+
+\begin{theorem*}[4]
+The class of \(\Aone\)-equivalences is the \(\bar\Delta\)-closure of the union of the classes of:
+\begin{enumerate}[label=\arabic*.]
+\item local equivalences;
+\item morphisms \((U\times\Aone)_+\to U_+\), for \(U\) in \(\Sm/k\).
+\end{enumerate}
+In particular, the class of \(\Aone\)-equivalences is \(\bar\Delta\)-closed.
+\end{theorem*}
+
+\subsection*{3.4 The Class of \(\Aone\)-Equivalences Is \(\bar\Delta\)-Closed}
+
+The properties 4(1), 4(2), and 4(3) are clear. The last property is proved in Proposition 20.
+
+\begin{lemma*}[5]
+Let \(A\) be a pointed simplicial set and \(X\) a pointed simplicial sheaf. If \(X\) is fibrant and \(\Aone\)-local, then \(X^A\) is \(\Aone\)-local.
+\end{lemma*}
+
+\begin{proofdel}
+Because \(X\) is fibrant, for any \(Y\), one has in the homotopy category
+\[
+\Hom_{H_0}(Y,X^A)=\Hom_{H_0}(A\wedge Y,X). \tag{17.1}
+\]
+Applying this to \(Y\) and \(Y\wedge(\Aone_+)\), and using
+\[
+(A\wedge Y)\wedge(\Aone_+)=A\wedge(Y\wedge(\Aone_+)),
+\]
+one deduces from the \(\Aone\)-locality of \(X\) that of \(X^A\).
+\end{proofdel}
+
+\begin{lemma*}[6]
+Let \(f:K\to L\) be a morphism of pointed simplicial sheaves and \(A\) be a pointed simplicial set. If \(f\) is an \(\Aone\)-equivalence, then so is
+\[
+f\wedge A:X\wedge A\longrightarrow Y\wedge A.
+\]
+\end{lemma*}
+
+\begin{proofdel}
+One has to check that for any \(\Aone\)-local \(X\), one has in the homotopy category
+\[
+\Hom_{H_0}(A\wedge L,X)=\Hom_{H_0}(A\wedge K,X).
+\]
+Replacing \(X\) by a fibrant replacement, one may assume \(X\) fibrant. Applying (17.1), one is reduced to Lemma 5.
+\end{proofdel}
+
+\begin{lemma*}[7]
+Let \(f:K\to L\) be a morphism of pointed simplicial sheaves. If \(K\) and \(L\) are cofibrant, then \(f\) is an \(\Aone\)-equivalence if and only if, for any fibrant \(\Aone\)-local \(X\), the morphism of simplicial sets
+\[
+S(L,X)\longrightarrow S(K,X)
+\]
+is a weak equivalence.
+\end{lemma*}
+
+\begin{proofdel}
+``If.'' Taking \(\pi_0\), one deduces from the assumptions that
+\[
+\Hom_{H_0}(L,X)\overset{\sim}{\longrightarrow}\Hom_{H_0}(K,X).
+\]
+``Only if.'' The assumptions imply that \(S(K,X)\) and \(S(L,X)\) are fibrant. For any pointed simplicial set \(A\), one has
+\[
+\Hom_{H_0}(A,S(K,X))=\Hom_{H_0}(K\wedge A,X),
+\]
+and similarly for \(L\), and one applies Lemma 6.
+\end{proofdel}
+
+\begin{proposition*}[18]
+The coproduct of a family of \(\Aone\)-equivalences
+\[
+f_\alpha:X_\alpha\longrightarrow Y_\alpha
+\]
+is an \(\Aone\)-equivalence.
+\end{proposition*}
+
+\begin{proofdel}
+There are commutative diagrams
+\[
+\begin{tikzcd}[column sep=2.5em,row sep=1.8em]
+* \arrow[r] \arrow[d] & X'_\alpha \arrow[r,"f'_\alpha"] \arrow[d] & Y'_\alpha \arrow[d] \\
+* \arrow[r] & X_\alpha \arrow[r,"f_\alpha"] & Y_\alpha,
+\end{tikzcd}
+\]
+where morphisms on the first line are cofibrations, and where the vertical maps are local equivalences, and similarly for \(Y\). Replacing \(X_\alpha\) (respectively \(Y_\alpha\)) by \(X'_\alpha\) (respectively \(Y'_\alpha\)), we may and shall assume that the \(X_\alpha\) and \(Y_\alpha\) are cofibrant. The coproducts \(\coprod X_\alpha\), \(\coprod Y_\alpha\) are then cofibrant too. One has
+\[
+S\bigl(\coprod X_\alpha,X\bigr)=\prod S(X_\alpha,X),
+\]
+and similarly for the \(Y_\alpha\), and one applies Lemma 7 and the fact that a product of a family of weak equivalences of fibrant pointed simplicial sets is a weak equivalence.
+\end{proofdel}
+
+\begin{proposition*}[19]
+The colimit
+\[
+f:\colim F_n\longrightarrow\colim G_n
+\]
+of an inductive sequence of \(\Aone\)-equivalences \(f_n:F_n\to G_n\) is again an \(\Aone\)-equivalence.
+\end{proposition*}
+
+\begin{proofdel}
+One inductively constructs an inductive sequence of commutative squares
+\[
+\begin{tikzcd}[column sep=2.5em,row sep=1.8em]
+F'_n \arrow[r,"f'_n"] \arrow[d] & G'_n \arrow[d] \\
+F_n \arrow[r,"f_n"] & G_n,
+\end{tikzcd}
+\]
+in which the vertical maps are local equivalences, the \(F'_n\) and \(G'_n\) are cofibrant, and the transition maps \(F'_n\to F'_{n+1}\), \(G'_n\to G'_{n+1}\) are cofibrations. A colimit of local equivalences being a local equivalence, it is sufficient to prove the proposition for the sequence \((f'_n)\). We hence may and shall assume that
+\[
+*\longrightarrow F_1\longrightarrow\cdots\longrightarrow F_n\longrightarrow\cdots
+\]
+is a sequence of cofibrations and similarly for
+\[
+*\longrightarrow G_1\longrightarrow\cdots\longrightarrow G_n\longrightarrow\cdots.
+\]
+The colimits \(F\) and \(G\) of those sequences are then cofibrant.
+
+If \(X\) is fibrant and \(\Aone\)-local, \(S(G,X)\to S(F,X)\) is the limit of the sequence of weak equivalences
+\[
+S(G_n,X)\longrightarrow S(F_n,X).
+\]
+In the sequences \(S(G_n,X)\) and \(S(F_n,X)\), the transition maps are fibrations of fibrant objects. It follows that the limit is again a weak equivalence: the \(\pi_i\) of the limit map onto the limit of \(\pi_i\), with fibers \((\limi{}^1\pi_{i+1})\)-torsors. It remains to apply Lemma 7.
+\end{proofdel}
+
+\begin{proposition*}[20]
+Let \(F_{**}\to G_{**}\) be a morphism of pointed bisimplicial sheaves. If all \(F_{p*}\to G_{p*}\) are \(\Aone\)-equivalences, so is \(\Delta(F)\to\Delta(G)\).
+\end{proposition*}
+
+To prove Proposition 20 we will functorially attach to \(F_{**}\) an inductive sequence of pointed simplicial sheaves \(F^{(n)}\), whose colimit maps to \(\Delta(F)\) by a local equivalence. We will then inductively prove that \(F^{(n)}\to G^{(n)}\) is an \(\Aone\)-equivalence, and apply Proposition 19. We begin with preliminaries to the construction of the \(F^{(n)}\).
+
+\begin{proposition*}[21]
+Let \(\Delta_{\inj}\) be the category of finite ordered sets \(\Delta^n=(0,\ldots,n)\) and increasing injective maps. For any category \(C\) with finite coproducts, the forgetting functor
+\[
+\omega:\Delta^{\op}C\longrightarrow \Delta^{\op}_{\inj}C
+\]
+has a left adjoint \(\omega'\): ``formally adding degenerate simplices'': \((\omega'X)_n\) is the coproduct, over all \(p\) and all increasing surjective maps \(s:\Delta^n\to\Delta^p\), of copies of \(X_p\),
+\[
+(\omega'X)_n=\coprod_s X_p.
+\]
+We define the wrapping functor
+\[
+\Wr:\Delta^{\op}C\longrightarrow\Delta^{\op}C
+\]
+as the composite \(\Wr:=\omega'\omega\). For \(C\) the category of sets or of pointed sets one has the following.
+\end{proposition*}
+
+\begin{lemma*}[8]
+The adjunction map \(a:\Wr(X)\to X\) is a weak equivalence.
+\end{lemma*}
+
+\begin{proofdel}
+We will prove it for \(C\) the category of sets. The pointed case is similar. The fundamental groupoid of \(X\) is the category with set of objects \(X_0\), in which all maps are isomorphisms, and universal for the property that:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\sigma\in X_1\) defines a morphism \(f(\sigma):\partial_1(\sigma)\to\partial_0(\sigma)\).
+\item For \(\tau\in X_2\), \(f(\partial_1\tau)=f(\partial_0\tau)f(\partial_2\tau)\).
+\end{enumerate}
+One has \(X_0=\Wr(X)_0\). To handle \(\pi_0\) and \(\pi_1\) it suffices to show that \(a\) induces an isomorphism of fundamental groupoids. For any \(X\) and any \(p\in X_0\), \(f(s_0(p))\) is the identity of \(p\). This results from (2) applied to \(s_0s_0(p)\), which gives
+\[
+f(s_0(p))=f(s_0(p))f(s_0(p)).
+\]
+As generators of the fundamental groupoid, it hence suffices to take non-degenerate \(\sigma\in X_1\). For relations, it then suffices to take those coming from non-degenerate \(\tau\in X_2\): the degenerate \(\tau\) give nothing new.
+
+If we apply this to \(\Wr(X)\), we find as set of generators \(X_1\), and relations indexed by \(X_2\), the same relations as for \(X\).
+
+The functor \(\Wr\) commutes with passage to connected components and to passage to a covering. To handle higher \(\pi_i\), this reduces us to the case where \(X\) (and hence \(\Wr(X)\)) is connected and simply connected. In this case it suffices to check that \(a\) induces an isomorphism in homology. It does because one has a commutative diagram
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.6em]
+C_*(X) \arrow[r,"\sim"] \arrow[dr] & C_*(\Wr(X))/\text{degeneracies} \arrow[d] \\
+& C_*(X)/\text{degeneracies},
+\end{tikzcd}
+\]
+in which the first arrow is an isomorphism, the second the effect of \(a\) on homology, and the composite is a homotopy equivalence.
+\end{proofdel}
+
+\begin{proposition*}[22]
+For \(X\) a pointed simplicial sheaf, let \(\sk_n(X)\) be the \(n\)-th skeleton of \(X\), i.e. the simplicial subsheaf of \(X\) for which \((\sk_n(X))_p\) is the union of the images of the degeneracies \(X_q\to X_p\) for \(q\le n\). One has push-out squares
+\[
+\begin{tikzcd}[column sep=4.2em,row sep=2.0em]
+X_{n+1}\wedge(\partial\Delta^{n+1})_+ \arrow[r] \arrow[d] & \sk_n(\Wr(X)) \arrow[d] \\
+X_{n+1}\wedge(\Delta^{n+1})_+ \arrow[r] & \sk_{n+1}(\Wr(X)).
+\end{tikzcd}
+\tag{22.1}
+\]
+Let now \(F\) be bisimplicial. Each \(F_{n,\bullet}\) is simplicial, and they form a simplicial system of pointed simplicial sheaves. Let us apply \(\Wr\) and \(\sk_n\) to the first variable, i.e. to the simplicial sheaf \(F_{\bullet,m}\) for each fixed \(m\). We again have diagrams (22.1) and, taking the diagonal \(\Delta\), one obtains push-out squares:
+\[
+\begin{tikzcd}[column sep=4.2em,row sep=2.0em]
+F_{n+1}\wedge(\partial\Delta^{n+1})_+ \arrow[r] \arrow[d] & \Delta(\sk_n(\Wr(F))) \arrow[d] \\
+F_{n+1}\wedge(\Delta^{n+1})_+ \arrow[r] & \Delta(\sk_{n+1}(\Wr(F))).
+\end{tikzcd}
+\tag{22.2}
+\]
+Here \(F_n\) now stands for the pointed simplicial sheaf \(F_{n,\bullet}\). In this way the simplicial sheaf \(\Delta(\Wr(F))\), which by Lemma 8 maps to \(\Delta(F)\) by a local equivalence, appears as an inductive limit of (22.2).
+\end{proposition*}
+
+\begin{proofnamed}{Proof of Proposition 20}
+With the notations of 22 it suffices to show that the
+\[
+\Delta\sk_n\Wr(F)\longrightarrow\Delta\sk_n\Wr(G)
+\]
+(with \(\sk_n\Wr\) applied in the first variable) are \(\Aone\)-equivalences. We prove it by induction on \(n\). For \(n=0\), \(\Delta\sk_0\Wr(F)=F_0\), and \(F_0\to G_0\) is assumed to be an \(\Aone\)-equivalence. From \(n\) to \(n+1\), we have a morphism of push-out squares
+\[
+\text{(22.2) for }F\quad\longrightarrow\quad\text{(22.2) for }G.
+\]
+As \(F_{n+1}\to G_{n+1}\) is an \(\Aone\)-equivalence, by Lemma 6 so are its smash products with \((\partial\Delta^{n+1})_+\) and \((\Delta^{n+1})_+\). It remains to apply the following lemma.
+\end{proofnamed}
+
+\begin{lemma*}[9]
+Suppose given a morphism of push-out squares
+\[
+\begin{tikzcd}[column sep=2.0em,row sep=1.5em]
+1 \arrow[r] \arrow[d] & 2 \arrow[d]
+&[-0.2em] \arrow[r,phantom,"\longrightarrow"] &[-0.2em]
+1' \arrow[r] \arrow[d] & 2' \arrow[d] \\
+3 \arrow[r] & 4 && 3' \arrow[r] & 4'
+\end{tikzcd}
+\]
+which is an \(\Aone\)-equivalence in positions \(1\), \(2\), and \(3\). If in each square the first vertical map is injective, then the morphism of squares is an \(\Aone\)-equivalence in position \(4\) as well.
+\end{lemma*}
+
+\begin{proofdel}
+Replacing the push-out squares by push-out squares of locally equivalent objects, we may and shall assume that all objects considered are cofibrant, and that the vertical maps are cofibrant.
+
+If \(X\) is fibrant, applying \(S(-,X)\) to each of the squares we get a morphism of Cartesian squares of pointed simplicial sets in which the vertical maps are cofibrations:
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.5em]
+S(4,X) \arrow[r] \arrow[d] & S(3,X) \arrow[d]
+&[-0.2em] \arrow[l,phantom,"\longleftarrow"] &[-0.2em]
+S(4',X) \arrow[r] \arrow[d] & S(3',X) \arrow[d] \\
+S(2,X) \arrow[r] & S(1,X) && S(2',X) \arrow[r] & S(1',X).
+\end{tikzcd}
+\]
+If \(X\) is in addition \(\Aone\)-local, it is a weak equivalence in positions \(1\), \(2\), and \(3\), hence also in position \(4\). By Lemma 7, this proves Lemma 9, finishing the proof of Proposition 20 as well as of the claim that the class of \(\Aone\)-equivalences is \(\bar\Delta\)-closed.
+\end{proofdel}
+
+\subsection*{3.5 The Class of \(\Aone\)-Equivalences as a \(\bar\Delta\)-Closure}
+
+In this section we finish the proof of Theorem 4.
+
+\begin{proposition*}[23]
+The homotopy push-out of a diagram
+\[
+Q:\quad
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d] & L \\
+M
+\end{tikzcd}
+\tag{23.1}
+\]
+is the push-out \(K_Q\) of
+\[
+Q':\quad
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K\vee K \arrow[r] \arrow[d] & M\vee L \\
+K\wedge(\Delta^1)_+ .
+\end{tikzcd}
+\tag{23.2}
+\]
+Here the vertical map \(K\wedge((\Delta^0\coprod\Delta^0)_+)\to K\wedge(\Delta^1)_+\) is induced by \(\partial_1,\partial_0:\Delta^0\to\Delta^1\), mapping \(\Delta^0\) to \(0\) (respectively \(1\)) in \(\Delta^1\). In the case of simplicial sets, \(|K_Q|\) maps to \(|\Delta^1|=[0,1]\), with fibers \(|M|\) above \(0\), \(|L|\) above \(1\), and \(|K|\) above \((0,1)\).
+
+The homotopy push-out \(K_Q\) is the diagonal of the bisimplicial object with columns \(M\vee K^{\vee n}\vee L\), obtained by formally adding degeneracies to
+\[
+K\rightrightarrows M\vee L
+\]
+in \(\Delta^{\op}_{\inj}\Delta^{\op}(\Sh_\bullet)\) (cf. 21) [\(\partial_0\) maps \(K\) to \(L\), \(\partial_1\) maps \(K\) to \(M\)]. If \(f:Q\to Q'\) is a morphism of diagrams (23.1), the induced morphism from \(K_Q\) to \(K_{Q'}\) is hence in the closure of the three components of \(f\) for the operations of finite coproduct and diagonal (4(3), (4)).
+
+A commutative square
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{23.3}
+\]
+induces a morphism \(K_Q\to N\).
+\end{proposition*}
+
+\begin{example*}[1]
+Let \(f:K\to L\) be a morphism. The homotopy push-out of
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d,"{id}"'] & L \\
+K
+\end{tikzcd}
+\]
+is the cylinder \(\operatorname{cyl}(f)\) of \(f\). The morphisms
+\[
+L\longrightarrow\operatorname{cyl}(f)\longrightarrow L
+\]
+are homotopy equivalences. To check that the composite \(\operatorname{cyl}(f)\to L\to\operatorname{cyl}(f)\) is homotopic to the identity, one observes that \(\operatorname{cyl}(f)\) is the push-out of
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d] & L \\
+K\wedge(\Delta^1)_+
+\end{tikzcd}
+\]
+(the vertical map induced by \(\partial_0:\Delta^0\to\Delta^1\) mapping \(\Delta^0\) to \(1\)) and that the composite \(\operatorname{cyl}(f)\to\operatorname{cyl}(f)\) is induced by \(\Delta^1\to\Delta^0\to\Delta^1\), homotopic to the identity by a homotopy fixing \(1\).
+
+Similar arguments would show that the homotopy push-out \(\operatorname{cyl}'(f)\) of
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r,"{id}"] \arrow[d] & K \\
+M
+\end{tikzcd}
+\]
+is homotopic to \(L\) by \(L\to\operatorname{cyl}'(L)\to L\).
+\end{example*}
+
+\heading{Example 2.} In any category with finite coproducts, a coprojection is a map isomorphic to the natural map \(A\to A\coprod B\) for some \(A\) and \(B\). If in a push-out square of pointed simplicial sheaves
+
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+K \arrow[r,"f"] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{23.4}
+\]
+the morphism \(f\) is a coprojection: \(L=K\vee A\), the square (23.4) is the coproduct of the squares
+\[
+\begin{tikzcd}[column sep=2.4em,row sep=1.6em]
+K \arrow[r,"id"] \arrow[d] & K \arrow[d] \\
+M \arrow[r,"id"'] & M
+\end{tikzcd}
+\qquad\text{and}\qquad
+\begin{tikzcd}[column sep=2.4em,row sep=1.6em]
+\pt \arrow[r] \arrow[d] & A \arrow[d] \\
+\pt \arrow[r] & A
+\end{tikzcd}
+\tag{23.5}
+\]
+and the resulting morphism \(K_Q\to N\) is a homotopy equivalence, being the coproduct of the homotopy equivalences of Example 1 resulting from the two squares (23.5). The same conclusion applies if \(K\to M\) is a coprojection.
+
+A morphism of pointed simplicial sheaves \(K\to L\) is a termwise coprojection if each \(K_n\to L_n\) is a coprojection of pointed sheaves. Example: for any diagram (23.1), the morphisms \(L,M\to K_Q\) are termwise coprojections. For any morphism \(f:K\to L\), this applies in particular to \(K,L\to \cyl(f)\).
+
+\begin{proposition*}[24]
+If in a cocartesian square (23.3) either \(K\to L\) or \(K\to M\) is a termwise coprojection, then the resulting morphism from \(K_Q\) to \(N\) is in the \(\bar\Delta\)-closure of the empty set of morphisms.
+\end{proposition*}
+
+\begin{proofdel}
+For each \(n\), we have a cocartesian square of pointed sheaves
+\[
+Q_n:\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.6em]
+K_n \arrow[r] \arrow[d] & L_n \arrow[d] \\
+M_n \arrow[r] & N_n .
+\end{tikzcd}
+\]
+Let us view it as a cocartesian square of pointed simplicial sheaves. By Example 2, it gives rise to a homotopy equivalence \(K_{Q_n}\to N_n\). One concludes by observing that \(K_Q\to N\) is the diagonal of this simplicial system of morphisms.
+\end{proofdel}
+
+\begin{corollary*}[25]
+If in a cocartesian square (23.3)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+K \arrow[r,"f"] \arrow[d,"g"'] & L \arrow[d,"g'"] \\
+M \arrow[r,"f'"'] & N
+\end{tikzcd}
+\]
+either \(f\) or \(g\) is a termwise coprojection, then:
+\begin{enumerate}[label=\arabic*.]
+\item \(f'\) is in the \(\bar\Delta\)-closure of \(\{f\}\).
+\item \(g'\) is in the \(\bar\Delta\)-closure of \(\{g\}\).
+\end{enumerate}
+\end{corollary*}
+
+\begin{proofdel}
+Proof of (1): the morphism of cocartesian squares
+\[
+Q':\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r,"id"] \arrow[d] & K \arrow[d] \\
+M \arrow[r,"id"'] & M
+\end{tikzcd}
+\quad\longrightarrow\quad
+Q:\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\]
+defines a commutative square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.6em]
+K_{Q'} \arrow[r] \arrow[d] & K_Q \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\]
+in which the vertical maps are in the \(\bar\Delta\)-closure of the empty set by Proposition 24, while the first horizontal map is in the \(\bar\Delta\)-closure of \(f\) by 8.
+
+Proof of (2): one similarly uses
+\[
+Q':\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r] \arrow[d,"id"'] & L \arrow[d,"id"] \\
+K \arrow[r] & L
+\end{tikzcd}
+\quad\longrightarrow\quad
+Q:\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N .
+\end{tikzcd}
+\]
+\end{proofdel}
+
+\begin{proposition*}[26]
+A pointed simplicial sheaf \(F_\bullet\) is reliably compact if it coincides with its \(n\)-skeleton for some \(n\) and each \(F_i\) is compact in the sense that the functor \(\Hom(F_i,-)\) commutes with filtering colimits. This property is stable by \(F_\bullet\to F_\bullet\wedge K\) for \(K\) a finite pointed simplicial set (finite number of non-degenerate simplices) and implies that \(F_\bullet\) is compact.
+\end{proposition*}
+
+\begin{proposition*}[Construction 27]
+Let \(E\) and \(N\) be classes of morphisms such that:
+\begin{enumerate}[label=(\alph*)]
+\item sources and targets are reliably compact;
+\item each \(f\) in \(N\) is a termwise coprojection.
+\end{enumerate}
+We will construct a functor \(\Ex\) from pointed simplicial sheaves to pointed simplicial sheaves and a morphism \(\Id\to\Ex\) such that:
+\begin{enumerate}[label=(\roman*)]
+\item for any \(F\), \(F\to\Ex(F)\) is in the \(\bar\Delta\)-closure of \(E\);
+\item if \(f:K\to L\) is in \(E\), the morphism
+\[
+S(L,\Ex(X))\longrightarrow S(K,\Ex(X))
+\tag{27.1}
+\]
+is a weak equivalence;
+\item if \(f:K\to L\) is in \(N\), the morphism (27.1) is a Kan fibration.
+\end{enumerate}
+\end{proposition*}
+
+Let us factorize \(f:K\to L\) as \(K\to \cyl(f)\to L\). As the second map is a homotopy equivalence, the first is in the \(\bar\Delta\)-closure of \(E\). In the corresponding factorization of (27.1),
+\[
+S(L,\Ex(F))\to S(\cyl(f),\Ex(F))\to S(K,\Ex(F)),
+\]
+the first map is a homotopy equivalence. To obtain (ii), it hence suffices that \(S(\cyl(f),\Ex(F))\to S(K,\Ex(F))\) be a weak equivalence. Replacing each \(f:K\to L\) in \(E\) by the corresponding \(K\to\cyl(f)\), this reduces us to the case where each \(f\) in \(E\) is a termwise coprojection, and we will construct in this case a functor \(\Ex\) such that, for \(f\in E\), (27.1) is a trivial fibration.
+
+The conditions (ii), (iii) are lifting properties. For \(f\in E\), in squares
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.6em]
+\partial\Delta^n_+ \arrow[r] \arrow[d] & S(L,\Ex(F)) \arrow[d] \\
+\Delta^n_+ \arrow[r] & S(K,\Ex(F)),
+\end{tikzcd}
+\]
+and, for \(f\in N\), in squares
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.6em]
+(\Lambda^n_k)_+ \arrow[r] \arrow[d] & S(L,\Ex(F)) \arrow[d] \\
+\Delta^n_+ \arrow[r] & S(K,\Ex(F)).
+\end{tikzcd}
+\]
+In the first case, the data are morphisms \(\Delta^n_+\wedge K\to\Ex(F)\) and \(\partial\Delta^n_+\wedge L\to\Ex(F)\) agreeing on \(\partial\Delta^n_+\wedge K\), i.e. a morphism
+\[
+(\Delta^n_+\wedge K)\coprod_{\partial\Delta^n_+\wedge K}(\partial\Delta^n_+\wedge L)\longrightarrow \Ex(F),
+\]
+and we want it to extend to \(\Delta^n_+\wedge L\). Similarly in the second case, with \(\partial\Delta^n\) replaced by \(\Lambda^n_k\). Thus, for \(f\in E\):
+\[
+\begin{tikzcd}[column sep=3.1em,row sep=1.8em]
+(\Delta^n_+\wedge K)\coprod_{\partial\Delta^n_+\wedge K}(\partial\Delta^n_+\wedge L) \arrow[r] \arrow[d] & \Ex(F) \arrow[d] \\
+\Delta^n_+\wedge L \arrow[r] & \pt
+\end{tikzcd}
+\tag{27.2}
+\]
+and for \(f\in N\):
+\[
+\begin{tikzcd}[column sep=3.1em,row sep=1.8em]
+(\Delta^n_+\wedge K)\coprod_{(\Lambda^n_k)_+\wedge K}((\Lambda^n_k)_+\wedge L) \arrow[r] \arrow[d] & \Ex(F) \arrow[d] \\
+\Delta^n_+\wedge L \arrow[r] & \pt .
+\end{tikzcd}
+\tag{27.3}
+\]
+The left vertical maps are termwise coprojections, and their sources are compact. One now uses the standard trick of defining \(\Ex(F)\) as the inductive limit of the iterates of functors \(F\to T(F)\), where \(T(F)\) is deduced from \(F\) by push-out, simultaneously for all
+\[
+(\Delta^n_+\wedge K)\coprod_{\partial\Delta^n_+\wedge K}(\partial\Delta^n_+\wedge L)\to \Ex(F)
+\quad (f:K\to L\text{ in }E)
+\]
+and
+\[
+(\Delta^n_+\wedge K)\coprod_{(\Lambda^n_k)_+\wedge K}((\Lambda^n_k)_+\wedge L)\to \Ex(F)
+\quad (f:K\to L\text{ in }N).
+\]
+The push-out is by
+\[
+\bigvee(\text{sources})\longrightarrow \bigvee(\Delta^n_+\wedge L),
+\]
+a morphism which is a termwise coprojection. By 26, to check that the resulting \(F\to\Ex(F)\) is in the \(\bar\Delta\)-closure of \(E\), it suffices to check that the left vertical morphism in (27.2) (respectively (27.3)) is in the \(\bar\Delta\)-closure of \(E\) (respectively of the empty set).
+
+For (27.2), this is the map marked \(3\) in
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+\partial\Delta^n_+\wedge K \arrow[r,"1"] \arrow[d] & \partial\Delta^n_+\wedge L \arrow[d] \\
+\Delta^n_+\wedge K \arrow[r,"2"'] & \cdots \arrow[r,"3"'] & \Delta^n_+\wedge L .
+\end{tikzcd}
+\]
+The morphisms \(1\) and \(3\circ2\) are in the \(\bar\Delta\)-closure of \(E\). So is \(2\), by 26, and one applies the two-out-of-three property. For (27.3), the diagram is
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+(\Lambda^n_k)_+\wedge K \arrow[r] \arrow[d,"1"'] & (\Lambda^n_k)_+\wedge L \arrow[d,"2"] \\
+\Delta^n_+\wedge K \arrow[r] & \cdots \arrow[r,"3"'] & \Delta^n_+\wedge L,
+\end{tikzcd}
+\]
+with \(1\) and \(3\circ2\) in the \(\bar\Delta\)-closure of the empty set. Indeed, \(\Lambda^n_k\) and \(\Delta^n\) are both contractible.
+
+\begin{remark*}[4]
+Let \(P\) be a property of pointed simplicial schemes stable by coproduct, and suppose that:
+\begin{enumerate}[label=(\alph*)]
+\item for \(f:K\to L\) in \(E\), the \(K_n\) and \(L_n\) have property \(P\);
+\item for \(f:K\to L\) in \(N\), \(f\) is in degree \(n\) isomorphic to the natural map \(K_n\to K_n\vee A\), for some \(A\) having property \(P\).
+\end{enumerate}
+Then the functor \(\Ex\) constructed in Construction 27 is such that for any \(K\), each morphism \(K_n\to\Ex(K)_n\) is isomorphic to some \(K_n\to K_n\vee A\), where \(A\) has property \(P\). In particular, if the \(K_n\) have property \(P\), so have the \(\Ex(K)_n\).
+\end{remark*}
+
+\begin{proposition*}[28]
+(Proof of Theorem 4.) We apply Construction 27, on the site \(QP/G\), taking for \(E\) and \(N\) the following classes.
+\[
+E:\quad (X\times \Aone)_+\longrightarrow X_+ \tag{28.1}
+\]
+for any \(X\) in the site, and, for any upper distinguished square
+\[
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+B \arrow[r] \arrow[d] & Y \arrow[d] \\
+A \arrow[r] & X,
+\end{tikzcd}
+\tag{28.2}
+\]
+the morphism
+\[
+(K_Q)_+\longrightarrow X_+,
+\tag{28.3}
+\]
+and
+\[
+N:\quad (\emptyset)_+\longrightarrow X_+
+\tag{28.4}
+\]
+for any \(X\) in the site. If a pointed simplicial sheaf \(G\) is of the form \(\Ex(F)\), then (28.4) in \(N\) ensures that each \(G(X)\) is Kan. That (28.3) in \(E\) ensures that for each upper distinguished square (28.2), the morphism
+\[
+G(X)\longrightarrow S((K_Q)_+,G)
+\]
+is a weak equivalence. As each \(G(Y)\) is Kan, \(S((K_Q)_+,G)\) is the homotopy fiber product of \(G(A)\) over \(G(B)\), and
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+G(X) \arrow[r] \arrow[d] & G(A) \arrow[d] \\
+G(Y) \arrow[r] & G(B)
+\end{tikzcd}
+\]
+is homotopy cartesian: \(G\) is flasque.
+
+Further, as (28.1) is in \(E\), for each \(X\),
+\[
+G(X)\longrightarrow G(X\times\Aone)
+\]
+is a weak equivalence: by Theorem 3, \(G\) is \(\Aone\)-local. Suppose now that \(f:F\to G\) is an \(\Aone\)-equivalence. In the commutative diagram
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d] \\
+\Ex(F) \arrow[r] & \Ex(G)
+\end{tikzcd}
+\]
+the vertical maps are in the \(\bar\Delta\)-closure of the morphisms (28.1) and (28.2), the latter being local equivalences. In particular, they are \(\Aone\)-equivalences, and \(\Ex(F)\to\Ex(G)\) is an \(\Aone\)-equivalence between \(\Aone\)-local objects, hence a local equivalence. It follows that \(f\) is in the required \(\bar\Delta\)-closure, proving Theorem 4. The functor \(\Ex\) used in 28 can also be used to prove the following lemma.
+\end{proposition*}
+
+\begin{lemma*}[10]
+If \(F^{(i)}\to F^{(j)}\) is a filtering system of \(\Aone\)-equivalences, then \(F^{(n)}\to \colim_iF^{(i)}\) is again an \(\Aone\)-equivalence.
+\end{lemma*}
+
+\begin{proofdel}
+Consider the square
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.7em]
+F^{(n)} \arrow[r] \arrow[d] & \colim_iF^{(i)} \arrow[d] \\
+\Ex(F^{(n)}) \arrow[r] & \Ex(\colim_iF^{(i)}) .
+\end{tikzcd}
+\]
+Since the functor \(\Ex\) commutes with filtering colimits, the bottom arrow is a filtering colimit of local equivalences, hence a local equivalence. The vertical maps are \(\Aone\)-equivalences, hence the top map is an \(\Aone\)-equivalence.
+\end{proofdel}
+
+\subsection*{3.6 One More Characterization of Equivalences}
+
+Denote by \([QP/G]_+\) the full subcategory in the category of pointed sheaves on \(QP/G\) generated by all coproducts of sheaves of the form \((h_X)_+\).
+
+\begin{theorem*}[5]
+The class of local equivalences (respectively \(\Aone\)-equivalences) in \(\Delta^{\op}[QP/G]_+\) is the smallest class \(W\) which contains morphisms \((K_Q)_+\to X_+\) for \(Q\) upper distinguished and has the following properties:
+\begin{enumerate}[label=\arabic*.]
+\item Simplicial homotopy equivalences (respectively \(\Aone\)-homotopy equivalences) are in \(W\).
+\item If two of \(f,g,fg\) are in \(W\), then so is the third.
+\item If \(F^{(i)}\to F^{(j)}\) is a filtering system of termwise coprojections in \(W\), then \(F^{(n)}\to\colim_iF^{(i)}\) is again in \(W\).
+\item If \(F_{**}\to F'_{**}\) is a morphism of bisimplicial objects, and if all \(F_{*p}\to F'_{*p}\) are in \(W\), so is the diagonal \(\Delta(F)\to\Delta(F')\).
+\end{enumerate}
+\end{theorem*}
+
+The proof is given in 32.
+
+\begin{lemma*}[11]
+If the morphism \(f:F\to G\) is such that, for each \(U\), \(F(U)\to G(U)\) is a weak equivalence, and if the \(F_n\) and \(G_n\) are all of the form \((\coprod h_{U_i})_+\), then \(f\) is in the \(\bar\Delta\)-closure of the empty set.
+\end{lemma*}
+
+The proof will use the following construction.
+
+\begin{proposition*}[Construction 29]
+Let \(C\) be a category, and let \(C_0\) be a set of objects of \(C\), such that any isomorphism class has a representative in \(C_0\). Let \(i_*\) be the functor which to a presheaf of pointed sets on \(C\) attaches the family of pointed sets \((F(U))_{U\in C_0}\). It has a left adjoint \(i^*\):
+\[
+\text{family }(A_U)_{U\in C_0}\longmapsto
+\bigvee_U\bigl((h_U)_+\wedge A_U\bigr)
+= \text{(disjoint sum over }U\in C_0\text{ and }(A_U-* )\text{ of }h_U)_+ .
+\]
+If \(C_0\) is viewed as a category whose only morphisms are identities, the natural functor
+\[
+i:C_0\longrightarrow C
+\]
+defines a morphism of sites \(C\to C_0\), both endowed with the trivial topology (any presheaf a sheaf), and \(i_*,i^*\) are the corresponding direct and inverse image of pointed sheaves.
+
+By a general story valid for any pair of adjoint functors, for any pointed presheaf \(F\) on \(C\), the \((i^*i_*)^{n+1}(F)\) form a pointed simplicial presheaf \(R(F)\) augmented to \(F\):
+\[
+a:R(F)\longrightarrow F.
+\]
+Furthermore:
+\begin{enumerate}[label=(\alph*)]
+\item if \(F\) is of the form \(i^*A\), i.e. of the form \((\coprod h_{U_i})_+\), \(a\) is a homotopy equivalence;
+\item for any \(F\), \(i^*(a)\) is a homotopy equivalence: for each \(U\) in \(C\), \(R(F)(U)\to F(U)\) is a homotopy equivalence.
+\end{enumerate}
+For a simplicial presheaf \(F\), we define
+\[
+R(F)=\Delta\bigl(\text{simplicial system of }R(F_p)\bigr).
+\]
+\end{proposition*}
+
+\begin{proposition*}[30]
+(Proof of Lemma 11.) Let us say that \(X\) in \(QP/G\) is connected if it is not empty and is not a disjoint union: \(G\) should act transitively on the set of connected components of \(X\). Let \(C\subset QP/G\) be the full subcategory of connected objects. A sheaf \(F\) on \(QP/G\) is determined by its restriction to \(C\). Indeed, \(F(\coprod X_i)=\prod F(X_i)\). To apply Construction 29, we will use this remark to identify the category of sheaves on \(QP/G\) with a full subcategory of the category of presheaves on \(C\). For any \(C_0\) as in Construction 29, the functor \(i^*\) takes values in sheaves; that is, in the restriction of sheaves to \(C\). Indeed, for \(X\) connected, \((\coprod h_{U_i})_+(X)\) is the same, whether \(\coprod\) and \(+\) are taken in the sheaf or in the presheaf sense.
+
+Fix \(f:F\to G\) as in Lemma 11. For each \(n\), the assumption on \(F_n\) ensures that \(R(F_n)\to F_n\) is in the \(\bar\Delta\)-closure of the empty set, and similarly for \(G\). For each connected \(U\), the morphism of pointed simplicial sets \(F(U)\to G(U)\) is a weak equivalence, hence in the \(\bar\Delta\)-closure of the empty set. It follows that \(i^*i_*(F)\to i^*i_*(G)\), the wedge over \(C_0\) of the
+\[
+(h_U)_+\wedge F(U)\longrightarrow (h_U)_+\wedge G(U),
+\]
+is in the \(\bar\Delta\)-closure of the empty set. Iterating, one finds the same for \((i^*i_*)^n(F)\to(i^*i_*)^n(G)\), and \(R(F)\to R(G)\) is in this \(\bar\Delta\)-closure too. It remains to apply the two-out-of-three property to
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+R(F) \arrow[r] \arrow[d] & R(G) \arrow[d] \\
+F \arrow[r] & G .
+\end{tikzcd}
+\]
+\end{proposition*}
+
+\begin{lemma*}[12]
+If \(f:F\to G\) is a local equivalence and if the \(F_n\) and \(G_n\) are all of the form \((\coprod h_{U_i})_+\), then \(f\) is in the \(\bar\Delta\)-closure of the \((K_Q)_+\to X_+\) for \(Q\) upper distinguished.
+\end{lemma*}
+
+\begin{proofdel}
+We will use Construction 27 for \(E\) the class of morphisms \((K_Q)_+\to X_+\) for \(Q\) upper distinguished, and for \(N\) the class of morphisms \(*\to X_+\). By Remark 4, if the \(F_n\) are of the form \((\coprod h_{U_i})_+\), so are the \(\Ex(F)_n\). In the commutative diagram
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d] \\
+\Ex(F) \arrow[r] & \Ex(G)
+\end{tikzcd}
+\]
+the vertical maps are in the required \(\bar\Delta\)-closure. They are in particular local equivalences, and so is \(\Ex(f)\). One verifies as in 28 that \(\Ex(F)\) and \(\Ex(G)\) are flasque. By Construction 27(iii), for each \(U\), \(\Ex(f)(U)\) is a weak equivalence, and it remains to apply Lemma 11 to \(\Ex(f)\).
+\end{proofdel}
+
+\begin{lemma*}[13]
+If \(f:F\to G\) is an \(\Aone\)-equivalence and if the \(F_n\) and \(G_n\) are all of the form \((\coprod h_{U_i})_+\), then \(f\) is in the \(\bar\Delta\)-closure of the \((K_Q)_+\to X_+\) for \(Q\) upper distinguished and \((X\times\Aone\to X)_+\) for \(X\in QP\).
+\end{lemma*}
+
+\begin{proofdel}
+Similar to the proof of Lemma 12.
+\end{proofdel}
+
+\begin{proposition*}[31]
+Since for any simplicial sheaf \(F\) the map \(R(F)\to F\) is a local equivalence, Lemmas 12 and 13 imply that for any local (respectively \(\Aone\)-) equivalence \(f:F\to G\), the morphism \(R(f)\) belongs to the \(\bar\Delta\)-closure of the \((K_Q)_+\to X_+\) for \(Q\) upper distinguished (respectively the \((K_Q)_+\to X_+\) for \(Q\) upper distinguished and \((X\times\Aone\to X)_+\) for \(X\in QP\)).
+\end{proposition*}
+
+\begin{proposition*}[32]
+Proof of Theorem 5. We consider only the case of \(\Aone\)-equivalences. Proposition 20 and Lemma 10 imply that \(\Aone\)-equivalences contain the class \(W\). In view of Lemma 13, it remains to see that \(W\) is \(\bar\Delta\)-closed. The only condition to check is that it is closed under coproducts. Let
+\[
+f_\alpha:F^{(\alpha)}\longrightarrow H^{(\alpha)},\qquad \alpha\in A,
+\]
+be a family of morphisms in \(W\). For a finite subset \(I\subset A\), set
+\[
+\Phi_I=\Bigl(\coprod_{\alpha\in I} H^{(\alpha)}\Bigr)\coprod\Bigl(\coprod_{\alpha\in A-I}F^{(\alpha)}\Bigr).
+\]
+For \(I\subset J\), we have a morphism \(\Phi_I\to\Phi_J\), and the map \(\coprod f_\alpha\) is isomorphic to the map
+\[
+\Phi_\emptyset\longrightarrow \colim_{I\subset A}\Phi_I.
+\]
+It remains to show that \(\Phi_I\to \Phi_{I\cup\{\alpha\}}\) is in \(W\). This morphism is of the form \(\Id_H\coprod(f:F\to F')\), where \(f\) is in \(W\). Using the fact that \(W\) is closed for diagonals we reduce to the case \(H=(\coprod h_U)_+\). Using the same reasoning as above, we further reduce to the case \(H=(h_U)_+\). Consider the class of \(f\) such that \(\Id_{(h_U)_+}\coprod f\) is in \(W\). This class clearly contains the morphisms \((K_Q)_+\to X_+\), has the two-out-of-three property, and is closed under filtering colimits. It also contains simplicial homotopy equivalences. It contains morphisms of the form \(p_+:(X\times\Aone)_+\to X_+\) because such morphisms are \(\Aone\)-homotopy equivalences.
+\end{proposition*}
+
+\section*{4 Solid Sheaves}
+
+\subsection*{4.1 Open Morphisms and Solid Morphisms of Sheaves}
+
+We fix \(S\) and \(G\) as in Sect. 3.1, and will work in \((QP/G)_{\Nis}\). The story could be repeated in \((\Sm/S)_{\Nis}\).
+
+\begin{definition*}[6]
+A morphism of sheaves \(f:F\to G\) is open if it is relatively representable by open embeddings, i.e. if for any morphism \(u:h_X\to G\) (that is, \(u\in G(X)\), \(X\) in \(QP/G\)), the fiber product \(F\times_G h_X\) mapping to \(h_X\) is isomorphic to \(h_U\to h_X\) for \(U\) a \(G\)-stable open subset of \(X\).
+\end{definition*}
+
+In other words: \(f\) should identify \(F\) with a subsheaf of \(G\), and, for any \(s\in G(X)\), there is \(U\) open in \(X\) and \(G\)-stable such that the pull-back of \(s\) with respect to \(Y\to X\) is in \(F(Y)\) if and only if \(Y\) maps to \(U\).
+
+The property ``open'' is stable under composition. It is also stable by pull-back: if in a cartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F' \arrow[r,"f'"] \arrow[d] & G' \arrow[d,"u"] \\
+F \arrow[r,"f"'] & G
+\end{tikzcd}
+\tag{32.1}
+\]
+\(f\) is open, then \(f'\) is open. This follows from transitivity of pull-backs. Conversely, if \(f'\) is open and \(u\) is an epimorphism, then \(f\) is open. Indeed:
+
+\begin{lemma*}[14]
+For \(F\to h_X\) a morphism, the property that \(F\) is represented by \(U\) open in \(X\) is local on \(X\) (for the Nisnevich topology).
+\end{lemma*}
+
+\begin{proofdel}
+Suppose that the \(X_\alpha\) cover \(X\), and that each \(F_\alpha=F\times_{h_X}h_{X_\alpha}\) is represented by \(U_\alpha\subset X_\alpha\). For \(Y\to X_\alpha\), \(F_Y:=F\times_{h_X}h_Y\) is then represented by \(U_Y\subset Y\), with \(U_Y\) the inverse image of \(U_\alpha\). By descent for open embeddings, the \(U_\alpha\) come from some \(U\subset X\); we have locally on \(X\) an isomorphism \(F\xrightarrow{\sim}h_U\), and by descent for isomorphisms of sheaves one has \(F\xrightarrow{\sim}h_U\).
+\end{proofdel}
+
+Given a square of the form (32.1) with \(f'\) open and \(u\) an epimorphism, if \(s\) is in \(G(X)\), \(s\) can locally be lifted to a section of \(G'\). As \(f'\) is open, it follows that locally on \(X\), \(F\times_G h_X\) is represented by an open subset. Applying Lemma 14 one concludes that \(f\) is open. The same argument shows that if we have cartesian diagrams
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F'_\alpha \arrow[r,"f'_\alpha"] \arrow[d] & G'_\alpha \arrow[d,"u_\alpha"] \\
+F \arrow[r,"f"'] & G
+\end{tikzcd}
+\]
+with each \(f'_\alpha\) open and \(\coprod u_\alpha:\coprod G'_\alpha\to G\) onto, then \(f\) is open.
+
+\begin{proposition*}[33]
+The property ``open'' is stable by push-outs.
+\end{proposition*}
+
+\begin{proofdel}
+Suppose
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F \arrow[r,"f"] \arrow[d] & G \arrow[d] \\
+F' \arrow[r,"f'"'] & G'
+\end{tikzcd}
+\]
+is a push-out square of sheaves, with \(f\) open.
+\end{proofdel}
+
+\section*{Continuation of 4.1}
+
+\begin{proofdel}
+The preceding square is a cocartesian diagram, with \(f\) open. In particular \(f\) is a monomorphism, whence \(f'\) is a monomorphism and the square is cartesian as well. The morphism \(F'\amalg G\to G'\) is onto. The pull-back of \(f'\) by \(f':F'\to G'\) is an isomorphism, since \(f'\) is a monomorphism, and hence is open. The pull-back of \(f'\) by \(G\to G'\) is just \(f\), open by assumption. It follows that \(f'\) is open.
+\end{proofdel}
+
+We now fix a class \(\mathcal E\) of open embeddings \(U\to X\) in \((QP/G)\). We require the following stability properties.
+
+\begin{definition*}[Conditions 34]
+\begin{enumerate}[label=\arabic*.]
+\item If \(U\to U'\to X\) are open embeddings and \(U\to X\) is in \(\mathcal E\), then \(U'\to X\) is in \(\mathcal E\).
+\item If \(U\to X\) is an open embedding in \(\mathcal E\), and if \(f:X'\to X\) is étale, inducing an isomorphism from \(f^{-1}(Z)\) to \(Z\), where \(Z\) is the complement of \(U\) in \(X\), then \(f^{-1}(U)\to X'\) is in \(\mathcal E\).
+\end{enumerate}
+\end{definition*}
+
+The classes \(\mathcal E\) that will be used are the following: the open embeddings \(U\to X\) with \(X\) smooth; the open embeddings \(U\to X\) with \(X\) smooth and the action of \(G\) free on \(X-U\), equivalently \(X\) is the union of \(U\) and the open subset on which the action of \(G\) is free; and, when working in \((Sch/S)\), all open embeddings.
+
+\begin{definition*}[7]
+A morphism \(f:F\to G\) is \(\mathcal E\)-solid if it is a composite
+\[
+F=F_0\longrightarrow F_1\longrightarrow \cdots\longrightarrow F_n=G
+\]
+where each \(F_i\to F_{i+1}\) is deduced by push-out from some \(h_U\to h_X\), with \(U\subset X\) in \(\mathcal E\). A sheaf \(F\) is solid if \(\emptyset\to F\) is \(\mathcal E\)-solid. In the pointed context, a pointed sheaf is pointed \(\mathcal E\)-solid if the morphism \(\pt\to F\) is \(\mathcal E\)-solid.
+\end{definition*}
+
+\begin{example*}[1]
+For \(U\) open in \(X\), let \(h_X/h_U\) be the sheaf \(h_X\) with the subsheaf \(h_U\) contracted to the base point. If \(U\to X\) is in \(\mathcal E\), then \(\pt\to h_X/h_U\) is solid: it is the push-out of \(h_U\to h_X\) by \(h_U\to\pt\). Thom spaces are of this form: from a vector bundle \(E\) on \(T\), one contracts, in the total space of \(E\), the complement of the zero section to a point.
+\end{example*}
+
+The class of solid morphisms is the smallest class, closed under compositions and push-outs, which contains all \(h_U\to h_X\), \(U\subset X\) in \(\mathcal E\). By Proposition 33, solid morphisms are open.
+
+For a monomorphism \(F\to G\) of sheaves, define \(G/F\) to be the pointed sheaf obtained by contracting \(F\) to a point. Thus one has a cocartesian square
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+\pt \arrow[r] & G/F .
+\end{tikzcd}
+\]
+By transitivity of push-outs, any cocartesian diagram
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+F' \arrow[r] & G'
+\end{tikzcd}
+\]
+induces an isomorphism \(G/F\simeq G'/F'\).
+
+\begin{proposition*}[35]
+A morphism of sheaves \(f:F\to G\) is \(\mathcal E\)-solid if and only if it is a composite
+\[
+F=F_0\longrightarrow F_1\longrightarrow \cdots\longrightarrow F_n=G
+\]
+of monomorphisms such that each \(F_{i+1}/F_i\) is isomorphic to some \(h_X/h_U\), with \(U\subset X\) in \(\mathcal E\).
+\end{proposition*}
+
+\begin{proofdel}
+If a morphism \(F\to G\) is deduced by push-out from \(U\to X\), then \(G/F\) is isomorphic to \(h_X/h_U\). This gives the ``only if'' direction.
+
+Conversely, suppose first that we have a cocartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+\pt \arrow[r] & h_X/h_U
+\end{tikzcd}
+\tag{35.1}
+\]
+and that the natural map \(h_X\to h_X/h_U\) lifts to \(G\). Then \(F\to G\) is obtained by push-out from \(h_U\to h_X\). Indeed, (35.1) is cartesian as well as cocartesian, so that we have a cartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+F \arrow[r] & G .
+\end{tikzcd}
+\]
+If \(G'\) is obtained from \(F\) by push-out from \(h_U\to h_X\),
+\[
+\begin{tikzcd}[column sep=2.3em,row sep=1.6em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d] \arrow[r,equal] & h_X \arrow[d]\\
+F \arrow[r] & G' \arrow[r] & G ,
+\end{tikzcd}
+\]
+then \(G'/F\simeq G/F\), and it follows that \(G'\simeq G\).
+
+It is enough, more generally, to have an étale map \(v:\widetilde X\to X\), inducing an isomorphism from \(\widetilde X-v^{-1}(U)\) to \(X-U\), together with a lifting of \(h_{\widetilde X}\to h_X/h_U\) to \(G\). If \(\widetilde U=v^{-1}(U)\), then \(h_{\widetilde X}/h_{\widetilde U}\to h_X/h_U\) is an isomorphism. This is checked most directly on the fibre functors defined by \(G\)-local henselian schemes: a morphism \(T\to X\) which does not map to \(U\) lifts uniquely to \(\widetilde X\). Under these assumptions \(F\to G\) is a push-out of \(h_{\widetilde U}\to h_{\widetilde X}\). By the second stability property of \(\mathcal E\), the open embedding \(\widetilde U\to \widetilde X\) is in \(\mathcal E\).
+
+We reduce the general case to this one. Suppose \(f:F\to G\) is a monomorphism with \(G/F\simeq h_X/h_U\), \(U\to X\) in \(\mathcal E\). The cocartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+\pt \arrow[r] & G/F
+\end{tikzcd}
+\tag{35.2}
+\]
+gives an epimorphism \(\pt\amalg G\to h_X/h_U\). The natural section of \(h_X/h_U\) on \(X\) can therefore be lifted locally either to \(\pt\) or to \(G\). Thus, for a filtration
+\[
+\emptyset=C_{n+1}\subset C_n\subset\cdots\subset C_1\subset C_0=X
+\]
+by closed equivariant subschemes, there are étale maps \(T_i\to X\), with equivariant sections over \(C_i-C_{i+1}\), and liftings of \(h_{T_i}\to h_X/h_U\) to \(\pt\) or to \(G\). We may start with \(X_0=U\), where the lifting is to \(\pt\), and then shrink the \(T_i\) so that the succeeding liftings are to \(G\) and induce isomorphisms over the strata.
+
+Since \(F\to G\) is a monomorphism, (35.2) is also cartesian. Pulling back the composite
+\[
+\pt\longrightarrow h_{X_1}/h_U\longrightarrow h_{X_2}/h_U\longrightarrow\cdots\longrightarrow h_X/h_U
+\]
+gives a factorization of \(F\to G\) in which each quotient is of the form \(h_{T_i}/h_{T_i'}\), and the maps \(h_{T_i}\to h_X/h_U\) lift to the intermediate sheaves. Hence each step is a push-out of an open embedding in \(\mathcal E\), and solidity follows.
+\end{proofdel}
+
+\begin{remark*}[1]
+Equivalently, \(F\to G\) is \(\mathcal E\)-solid if and only if the pointed sheaf \(G/F\) is an iterated extension of sheaves \(h_X/h_U\), with \(U\to X\) in \(\mathcal E\): there are morphisms
+\[
+\pt=E_0\to E_1\to\cdots\to E_n=G/F
+\]
+with each \(E_{i+1}/E_i\) of the form \(h_X/h_U\).
+\end{remark*}
+
+\begin{proposition*}[36]
+If \(f:F\to G\) is open and \(G\) is \(\mathcal E\)-solid, then \(f\) is \(\mathcal E\)-solid.
+\end{proposition*}
+
+\begin{proofdel}
+We say ``solid'' for \(\mathcal E\)-solid. Let \((*)\) be the property of a sheaf \(G\) that every open \(F\to G\) is solid. If \(G\) is solid, it lies at the end of a chain
+\[
+\emptyset=G_0\to G_1\to\cdots\to G_n=G
+\]
+in which each \(G_i\to G_{i+1}\) is a push-out of some \(h_U\to h_X\), \(U\subset X\) in \(\mathcal E\). We prove by induction on \(n\) that \(G_i\) satisfies \((*)\).
+
+For \(n=0\), \(G_1=h_X\) is representable and \(\emptyset\to X\) is in \(\mathcal E\). If \(F\to h_X\) is open, it is \(h_U\to h_X\) for \(U\) open in \(X\), hence solid by Condition 34(1).
+
+It remains to check the induction step. In a cocartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+G' \arrow[r] & G
+\end{tikzcd}
+\tag{36.1}
+\]
+the map \(h_U\to h_X\) is a monomorphism, and the square is therefore cartesian as well as cocartesian. Let \(F\to G\) be open. Pull back (36.1) by \(F\to G\). We obtain a cartesian and cocartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_V \arrow[r] \arrow[d] & h_Y \arrow[d]\\
+F' \arrow[r] & F
+\end{tikzcd}
+\tag{36.2}
+\]
+where \(Y\) is open in \(X\) and \(V=U\cap Y\). The diagram
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.55em]
+F' \arrow[r] \arrow[d] & F \arrow[r] \arrow[d] & h_Y/h_V \arrow[d]\\
+G' \arrow[r] \arrow[d] & G \arrow[r] \arrow[d] & h_X/h_U \arrow[d]\\
+G'/F' \arrow[r] & G/F \arrow[r] & h_X/(h_U\cup h_Y)
+\end{tikzcd}
+\]
+expresses \(G/F\) as an extension of \(h_X/h_{U\cup Y}\) by \(G'/F'\). By the induction hypothesis applied to \(G'\), and by Remark 1, it follows that \(F\to G\) is solid. Here \(U\cup Y\to X\) lies in \(\mathcal E\).
+\end{proofdel}
+
+\begin{proposition*}[37]
+The pull-back of a solid morphism by an open morphism is solid. In particular, if \(F\to G\) is open and \(G\) is solid, then \(F\) is solid.
+\end{proposition*}
+
+\begin{proofdel}
+Since the pull-back of an open morphism is open, it suffices to check the assertion for a solid morphism obtained as a push-out of \(h_U\subset h_X\):
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+G' \arrow[r] & G .
+\end{tikzcd}
+\]
+After pulling back by an open morphism \(F\to G\), we obtain a cocartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_{U'} \arrow[r] \arrow[d] & h_{X'} \arrow[d]\\
+F' \arrow[r] & F
+\end{tikzcd}
+\]
+with \(U'\) open in \(U\) and \(X'\) open in \(X\). This shows that \(F'\to F\) is solid.
+\end{proofdel}
+
+Suppose now that two classes \(\mathcal E\) and \(\mathcal E'\) of open embeddings satisfying Conditions 34 are given. Define \(\mathcal E\times\mathcal E'\) to be the smallest class, stable under Conditions 34, containing the open embeddings
+\[
+(U\times X')\cup(X\times U')\subset X\times X',
+\]
+for \(U\subset X\) in \(\mathcal E\) and \(U'\subset X'\) in \(\mathcal E'\).
+
+\begin{example*}[2]
+If \(\mathcal E\) is the class of all open embeddings and \(\mathcal E'\) is the class of those \(U'\subset X'\) for which \(G\) acts freely outside \(U'\), then \(\mathcal E\times\mathcal E'=\mathcal E'\).
+\end{example*}
+
+\begin{proposition*}[38]
+If the pointed sheaves \(F\) and \(F'\) are respectively \(\mathcal E\)- and \(\mathcal E'\)-solid, then \(F\wedge F'\) is \(\mathcal E\times\mathcal E'\)-solid.
+\end{proposition*}
+
+\begin{proofdel}
+By assumption, \(F\) is an iterated extension, in the sense of Remark 1, of pointed sheaves \(h_{X_i}/h_{U_i}\), \(U_i\subset X_i\) in \(\mathcal E\). Similarly \(F'\) is built from \(h_{X'_j}/h_{U'_j}\), \(U'_j\subset X'_j\) in \(\mathcal E'\). The smash product \(F\wedge F'\) is then an iterated extension, for instance in lexicographic order, of
+\[
+(h_{X_i}/h_{U_i})\wedge(h_{X'_j}/h_{U'_j})
+\simeq
+h_{X_i\times X'_j}\big/
+h_{(U_i\times X'_j)\cup(X_i\times U'_j)}.
+\]
+Hence it is \(\mathcal E\times\mathcal E'\)-solid.
+\end{proofdel}
+
+\begin{definition*}[8]
+A morphism is called ind-solid relative to \(\mathcal E\) if it is a filtered colimit of \(\mathcal E\)-solid morphisms.
+\end{definition*}
+
+\heading{Exercise 39.}
+Take \(G\) to be the trivial group. A section on \(T\) of a push-out
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+can be described as follows. For an open subset \(V\) of \(T\) and a section \(s\) of \(F\) on \(V\), consider on the small Nisnevich site \(T_{\Nis}\) the presheaf \(a(V,s)\) which sends \(Y\to T\) to the set of morphisms \(f:Y\to X\) such that \(f^{-1}(U)=Y^{-1}(V)\) and such that the restriction is compatible with \(s\). A section of \(G\) on \(T\) is given by:
+\begin{enumerate}[label=\arabic*.]
+\item an open subset \(V\) of \(T\);
+\item a section \(s\) of \(F\) on \(V\);
+\item a section of \(i_*(a(V,s)_{\Nis})\) on \(T-V\), where \(i:T-V\to T\) is the closed embedding.
+\end{enumerate}
+
+\heading{Exercise 40.}
+In the notation of Exercise 39, if \(F\) is a sheaf for the étale topology, so is \(G\). For fixed \((V,s)\), the datum in (3) is an étale sheaf. This follows from the usual criterion for a Nisnevich sheaf to be étale: for \(x\in T\) and for a finite separable extension \(K/k(x)\), after extension of the residue field from the henselization \(\mathcal O^h_{T,x}\), the corresponding functor of étale neighbourhoods must be an étale sheaf on \(\Spec k(x)\).
+
+\heading{Exercise 41.}
+It follows from Exercises 39 and 40 that if \(f:F\to G\) is ind-solid, and if \(F\) is étale, then \(G\) is étale. In particular, solid sheaves, as well as pointed solid sheaves, are étale sheaves.
+
+\begin{remark*}[2]
+The same formalism of open and solid morphisms holds in the site of all schemes of finite type over \(S\), with the étale topology.
+\end{remark*}
+
+\subsection*{4.2 A criterion for preservation of local equivalences}
+
+We work with pointed sheaves on \(QP/G\). The aim of this section is to prove the following result.
+
+\begin{theorem*}[6]
+Let \(a\) be a functor from pointed sheaves to pointed sets. Suppose that \(a\) commutes with all colimits, and that for every open embedding \(U\to X\), the map
+\[
+a((h_U)_+)\longrightarrow a((h_X)_+)
+\]
+is a monomorphism. If \(f:F_\bullet\to G_\bullet\) is a local equivalence and the terms \(F_n\) and \(G_n\) are pointed ind-solid, then \(a(f)\) is a weak equivalence.
+\end{theorem*}
+
+Suppose that
+\[
+Q=\begin{tikzcd}[column sep=2.5em,row sep=1.6em,baseline=(current bounding box.center)]
+B \arrow[r] \arrow[d] & Y \arrow[d]\\
+A \arrow[r] & X
+\end{tikzcd}
+\]
+is an upper distinguished square. Adding a base point, we obtain \(Q_+\). The morphism \(K_Q\to X_+\) is a local equivalence. Let us check that \(a(K_Q)\to a(X_+)\) is a weak equivalence. Since \(a\) commutes with coproducts, this morphism is obtained from the commutative square
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.8em]
+a((h_B)_+) \arrow[r] \arrow[d] & a((h_Y)_+) \arrow[d]\\
+a((h_A)_+) \arrow[r] & a((h_X)_+)
+\end{tikzcd}
+\]
+by applying the same construction as in (23.3). The square is cocartesian because \(Q\) is. The top horizontal map is a monomorphism, hence the square is homotopy cocartesian, and the claim follows. Since \(a\) commutes with colimits, this special case implies the following.
+
+\begin{lemma*}[15]
+If \(f\) is in the \(\bar\Delta\)-closure of the morphisms \((K_Q)_+\to X_+\) as above, then \(a(f)\) is a weak equivalence.
+\end{lemma*}
+
+\begin{proposition*}[42]
+Proof of Theorem 6.
+\end{proposition*}
+
+\begin{proofdel}
+For any pointed sheaf \(F\), the morphism \(S(F)\to F\) is a local equivalence: for every connected \(X\in QP/G\), \(S(F)(X)\to F(X)\) is a weak equivalence by Construction 29. Hence, for a local equivalence \(f:F\to G\), the square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+S(F) \arrow[r] \arrow[d] & S(G) \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+is a commutative square of local equivalences. By Lemmas 15 and 12, \(a(S(f))\) is a weak equivalence. It remains to prove that \(a(S(F))\to a(F)\) is a weak equivalence, and similarly for \(G\). Since \(a\) and \(S\) commute with filtered colimits, ind-solid reduces to solid, and by the inductive definition of solidity it suffices to prove the following lemma.
+\end{proofdel}
+
+\begin{lemma*}[16]
+Let \(U\to X\) be an open embedding. Suppose that in a cartesian square of pointed sheaves
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+(h_U)_+ \arrow[r] \arrow[d] & (h_X)_+ \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+the sheaf \(F\) is such that \(a(S(F))\to a(F)\) is a weak equivalence. Then the same holds for \(G\).
+\end{lemma*}
+
+\begin{proofdel}
+Consider the cocartesian square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+S((h_U)_+) \arrow[r] \arrow[d] & S((h_X)_+) \arrow[d]\\
+S(F) \arrow[r] & S(G).
+\end{tikzcd}
+\]
+The top morphism is a monomorphism. It follows that this square is pointwise homotopy cocartesian, and \(S\to S(G)\) is a local equivalence. The functor \(i^*i_*\) of Construction 29 sends a monomorphism to a coprojection of the form \(F\to F\amalg\coprod(h_{U_\alpha})_+\). Consequently each \(S_n\) is of the form \((\coprod h_{U_\alpha})_+\), and by Lemmas 15 and 12 the map \(a(S)\to a(S(G))\) is a weak equivalence. It remains to show that \(a(S)\to a(G)\) is a weak equivalence.
+
+Apply \(a\) to the morphism from the square just displayed to the original cartesian square. By Construction 29, both
+\[
+S((h_U)_+)\to(h_U)_+,\qquad S((h_X)_+)\to(h_X)_+
+\]
+are homotopy equivalences and remain so after applying \(a\). We assumed \(a(S(F))\to a(F)\) to be a weak equivalence. Since \(a\) sends both squares to cocartesian squares with top morphisms monomorphisms, it follows that \(a(S)\to a(G)\) is a weak equivalence. Hence so is \(a(S(G))\to a(G)\).
+\end{proofdel}
+
+\section*{5 Two functors}
+
+\subsection*{5.1 The functor \(X\mapsto X/G\)}
+
+There is a natural morphism of sites
+\[
+p:(QP/G)_{\Nis}\longrightarrow (QP)_{\Nis}
+\]
+given by the functor
+\[
+p^*:\ QP\longrightarrow QP/G,\qquad X\longmapsto (X\hbox{ with the trivial }G\hbox{-action}).
+\]
+Indeed \(p^*\) commutes with finite limits and sends covering families to covering families. In particular it is continuous: if \(F\) is a sheaf on \((QP/G)_{\Nis}\), the presheaf
+\[
+X\longmapsto F(X\hbox{ with trivial }G\hbox{-action})
+\]
+is a sheaf on \((QP)_{\Nis}\). The functor \(p^*\) has a left adjoint
+\[
+q:\ QP/G\longrightarrow QP,\qquad X\longmapsto X/G .
+\]
+As \(p^*\) is continuous, the functor \(q\) is cocontinuous, and the inverse-image functor \(p^*\) from sheaves on \((QP)_{\Nis}\) to sheaves on \((QP/G)_{\Nis}\) is
+\[
+F\longmapsto \bigl(\hbox{sheaf associated to }X\longmapsto F(X/G)\bigr).
+\]
+
+\begin{proposition*}[43]
+The cocontinuous functor \(q:X\mapsto X/G\) is also continuous. Equivalently, if \(F\) is a sheaf on \(QP\), then the presheaf \(X\mapsto F(X/G)\) on \(QP/G\) is a sheaf.
+\end{proposition*}
+
+\begin{proofdel}
+By Lemma 2 it is enough to test the sheaf property of \(X\mapsto F(X/G)\) for a covering of \(X\) obtained by pull-back from a Nisnevich covering \(U_i\to X/G\). Passage to quotients commutes with flat base change. Taking \(X/G\) as base, this identifies \(X\times_{X/G}U_i\to U_i\) with the quotient, by \(G\), equal to \(U_i\). The same holds for multiple intersections. Thus the sheaf property for the covering of \(X\) by the \(X\times_{X/G}U_i\) is reduced to the sheaf property of \(F\) for the covering \((U_i)\) of \(X/G\).
+\end{proofdel}
+
+The functor \(q:X\mapsto X/G\) gives rise to a pair of adjoint functors between the categories of presheaves on \(QP/G\) and \(QP\). Since \(q\) is continuous, it induces a similar pair on sheaves. We write this pair as
+\[
+(p_\#,p^*),
+\]
+so that one has a sequence of adjunctions \((p_\#,p^*,p_*)\). If \(F\) on \(QP/G\) is representable, \(F=h_X\), then \(p_\#F=h_{X/G}\). In particular, \(p_\#\) sends the final sheaf, or point, on \(QP/G\) to the final sheaf on \(QP\), and \((p_\#,p^*)\) is an adjoint pair for pointed sheaves as well. It is clear that \(p_\#\) sends solid sheaves to solid sheaves. We also have the following.
+
+\begin{proposition*}[44]
+Let \(F\) be a pointed sheaf which is solid with respect to open embeddings \(U\subset X\) of smooth schemes such that the action of \(G\) on \(X\) is free outside \(U\). Then \(p_\#(F)\) is solid with respect to open embeddings of smooth schemes.
+\end{proposition*}
+
+\begin{proofdel}
+If \(X'\) is the open subset of \(X\) where the action of \(G\) is free, then \(U\cup X'\to X\) is in the same class, and, putting \(U'=U\cap X'\), a push-out of \(U\to X\) is also a push-out of \(U'\to X'\). Thus we may suppose that the action is free everywhere. Since \(p_\#\) is a left adjoint, it preserves colimits and in particular push-outs. It sends \(h_U\) to \(h_{U/G}\). Hence the assertion is reduced to the following lemma.
+\end{proofdel}
+
+\begin{lemma*}[17]
+If \(G\) acts freely on \(U\), smooth over \(S\), then \(U/G\) is smooth.
+\end{lemma*}
+
+\begin{proofdel}
+If \(G\) is finite étale, for instance \(S_n\), the case most relevant here, this is clear, since \(U\to U/G\) is étale. In general, the assumption that \(G\) acts freely on \(U\) implies that \(U\) is a \(G\)-torsor over \(U/G\). In particular \(U\to U/G\) is faithfully flat. Since \(U\) is flat over \(S\), this forces \(U/G\) to be flat over \(S\). To check smoothness of \(U/G\) over \(S\), it suffices to check it geometric fibre by geometric fibre. For a geometric point \(\bar s\) of \(S\), smoothness of \((U/G)_{\bar s}\) amounts to regularity. Since \(U_{\bar s}\) is smooth over \(\bar s\), hence regular, and \(U_{\bar s}\to(U/G)_{\bar s}\) is faithfully flat, this is [4], an application of Serre's cohomological criterion for regularity.
+\end{proofdel}
+
+\begin{proposition*}[45]
+The functor \(p_\#\) respects local, respectively \(\Aone\)-, equivalences between termwise ind-solid simplicial sheaves.
+\end{proposition*}
+
+\begin{proofdel}
+Let \(f:F\to F'\) be a local equivalence between termwise ind-solid simplicial sheaves on \(QP/G\). To verify that \(p_\#(f)\) is a local equivalence, it is enough to check that for every \(X\in QP\) and \(x\in X\) the map
+\[
+p_\#(F)(\Spec\mathcal O^h_{X,x})\longrightarrow
+p_\#(F')(\Spec\mathcal O^h_{X,x})
+\]
+is a weak equivalence of simplicial sets. Since \(p_\#\) is a left adjoint, the functor
+\[
+F\longmapsto p_\#(F)(\Spec\mathcal O^h_{X,x})
+\tag{45.1}
+\]
+commutes with colimits. For an open embedding \(U\to X\) in \(QP/G\), the map \(U/G\to X/G\) is again an open embedding, and Theorem 6 applies to (45.1).
+
+Let \(f:F\to F'\) be an \(\Aone\)-equivalence. Consider the square
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+S(F) \arrow[r] \arrow[d] & S(F') \arrow[d]\\
+F \arrow[r] & F' .
+\end{tikzcd}
+\]
+By the first part of the proposition, \(p_\#\) takes the vertical arrows to local equivalences. Since \(p_\#\) commutes with colimits, Lemma 13 implies that \(p_\#(S(f))\) is in the \(\bar\Delta\)-closure of the class containing the \(p_\#((K_Q)_+\to X_+)\), for \(Q\) upper distinguished, and the \(p_\#((X\times\Aone)_+\to X_+)\), for \(X\in QP/G\). By Theorem 4 it remains to prove that morphisms of these two types are \(\Aone\)-equivalences. For the first type this follows from the first half of the proposition. For the second type, it follows from the fact that
+\[
+p_\#((X\times\Aone)_+)\longrightarrow p_\#(X_+)
+\]
+and
+\[
+p_\#(X_+)\times\Aone\longrightarrow p_\#((X\times\Aone)_+)
+\]
+are mutually inverse \(\Aone\)-homotopy equivalences.
+\end{proofdel}
+
+Define
+\[
+Lp_\#:\Ho_{A^1}(QP/G)\longrightarrow \Ho_{A^1}(QP)
+\]
+(and similarly in the pointed setting) by
+\[
+Lp_\#(F):=p_\#(S(F)),
+\]
+where \(S(F)\) is Construction 29. Proposition 45 shows that \(Lp_\#\) is well-defined, and that, for a termwise ind-solid \(F\), one has \(Lp_\#(F)\simeq p_\#(F)\).
+
+\subsection*{5.2 The functor \(X\mapsto X^T\)}
+
+As in Sect. 3.1, we fix \(G\) and \(S\). We also fix \(T\in QP/G\), finite and flat over \(S\).
+
+For a presheaf \(F\) on \(QP/G\), define \(F^T\) to be the internal Hom object \(\underline{\Hom}(h_T,F)\). Its value on \(U\) is
+\[
+F^T(U)=F(U\times_S T).
+\]
+If \(F\) is a sheaf, so is \(F^T\).
+
+\begin{example*}[6]
+Take \(G\) and \(T\) deduced from the finite group \(S_n\) acting on \(\{1,\ldots,n\}\) by permutations. If \(F\) is represented by \(X\), with trivial \(S_n\)-action, then \(F^T\) is represented by \(X^n\), on which \(S_n\) acts by permutation of the factors.
+\end{example*}
+
+\begin{remark*}[1]
+If \(F\) is representable, and represented by \(X\) smooth over \(S\), then \(F^T\) is representable, and represented by a smooth \(G\)-scheme. More precisely, if \(F\) is represented by \(X\in QP/G\), consider the contravariant functor on \(Sch/S\) of morphisms of schemes from \(T\) to \(X\),
+\[
+U\longmapsto \Hom_S(T\times_S U,\; X\times_S U).
+\]
+This functor is represented by a scheme \(Y\), quasi-projective over \(S\) and smooth if \(X\) is smooth. The scheme \(Y\) carries the evident action of \(G\), and \((Y,G)\) represents \(F^T\). Indeed, by attaching to a morphism \(T\to X\) its graph, one maps the functor into the Hilbert functor of finite subschemes of \(T\times_S X\) of the same rank as \(T\). This Hilbert functor is represented by a quasi-projective Hilbert scheme. The condition that a finite flat subscheme be the graph of a morphism from \(T\) to \(X\) is an open condition; it gives the required open subscheme \(Y\). If \(X\) is smooth, smoothness of \(Y\) follows from the infinitesimal lifting criterion. The \(G\)-action is the evident one. For \(Z\in QP/G\) one has the chain of identifications
+\[
+\Hom_{QP/G}(Z,Y)
+\simeq \Hom_S(Z,\Hom(T,X))
+\simeq \Hom_S(Z\times_S T,X)
+\simeq F^T(Z).
+\]
+\end{remark*}
+
+Let \(\mathcal E\) be a class of open embeddings in \((QP/G)_{\Nis}\). We will simply say ``solid'' for \(\mathcal E\)-solid.
+
+\begin{theorem*}[7]
+If \(F\) is a solid sheaf on \((QP/G)_{\Nis}\), then \(F^T\) is solid.
+\end{theorem*}
+
+If \(A\to F\) is open, that is, relatively representable by open equivariant embeddings, there is a natural sequence of sheaves between \(A^T\) and \(F^T\). In the situation of Example 6, and for \(h_U\to h_X\), these are represented by the open equivariant subschemes of \(X^n\) consisting of the \(n\)-tuples \((x_1,\ldots,x_n)\) for which at least \(i\) of the \(x_j\) lie in \(U\).
+
+Formally, a section of \(F^T\) over \(Z\) is a section \(s\) of \(F\) over \(T\times_S Z\). Let \(U(s)\) be the equivariant open subscheme of \(T\times_S Z\) on which \(s\) lies in \(A\). The sheaf \((F,A)^T_i\) is the subsheaf of \(F^T\) consisting of those \(s\) such that all fibres of \(U(s)\to Z\) have degree at least \(i\). The condition that the degree be at least \(i\) is open; hence the inclusion \((F,A)^T_i\subset F^T\) is open. For \(i=0\), this sheaf is \(F^T\); for \(i\) large, it is \(A^T\).
+
+\begin{lemma*}[18]
+Suppose that \(A\to F\) is deduced by push-out from an open map \(B\to C\), so that
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+B \arrow[r] \arrow[d] & C \arrow[d]\\
+A \arrow[r] & F
+\end{tikzcd}
+\tag{45.2}
+\]
+is cocartesian. Then, for each \(i\), the cartesian square
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=1.8em]
+\text{fiber product} \arrow[r] \arrow[d] &
+(A\amalg C,A)^T_i \arrow[d]\\
+(F,A)^T_{i+1} \arrow[r] &
+(F,A)^T_i
+\end{tikzcd}
+\tag{45.3}
+\]
+is cocartesian as well.
+\end{lemma*}
+
+\begin{proofdel}
+The site \((QP/G)_{\Nis}\) has enough points. As a consequence of Lemma 2, for each \(X\in QP/G\) and each \(x\in X/G\), the functor
+\[
+F\longmapsto \varinjlim F(X\times_{X/G}U)
+\]
+where \(U\) ranges over the Nisnevich neighbourhoods of \(x\) in \(X/G\), is a point. Such points are represented by \(G\)-local henselian schemes \(Z\), finite disjoint unions of local henselian schemes essentially of finite type over \(S\), with \(Z/G\) local.
+
+We show that (45.3) becomes cocartesian after applying any such fibre functor \(F\mapsto F(Z)\). Fix \(s\in (F,A)^T_i(Z)\), viewed as a section of \(F\) over \(T\times_S Z\), and let \(U\subset T\times_S Z\) be the open subset on which \(s\) lies in \(A\). The assumption means that the degree of the fibre \(U_z\) is at least \(i\), independently of the chosen closed point \(z\) of \(Z\). It remains to show that, if \(s\) is not in \((F,A)^T_{i+1}(Z)\), so that this degree is exactly \(i\), then \(s\) has a unique lifting to \((A\amalg C,A)^T_i(Z)\).
+
+The scheme \(T\times_S Z\) is a disjoint union of \(G\)-local henselian schemes. On each component on which \(s\) does not lie in \(A\), cocartesianness of (45.2) gives a unique lift to \(C\). On the components on which \(s\) lies in \(A\), the lift is the given section in \(A\). This produces a section of \(A\amalg C\) over \(T\times_S Z\) lifting \(s\), and it is unique by the same componentwise argument.
+\end{proofdel}
+
+\begin{proofnamed}{Proof of Theorem 7}
+Since \(F\) is solid, it lies at the end of a sequence
+\[
+\emptyset=F_0\to F_1\to\cdots\to F_n=F
+\]
+where each \(F_i\to F_{i+1}\) is a push-out of an open embedding in \(QP/G\). We prove by induction on \(i\) that for every \(Z\), \((F_i\amalg h_Z)^T\) is solid. For \(i=0\), \(F_0\) is representable, and so is \((F_0\amalg h_Z)^T\) by the representability statement above. For the induction step, one applies the following lemma to \(F_i\amalg h_Z\to F_{i+1}\amalg h_Z\).
+\end{proofnamed}
+
+\begin{lemma*}[19]
+Let
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+be a cocartesian square with \(U\) open in \(X\). Suppose that, for every \(Z\), \((F\amalg h_Z)^T\) is solid. Then \(F^T\to G^T\) is solid.
+\end{lemma*}
+
+\begin{proofdel}
+Since \(F\to G\) is open by Proposition 33, the \((G,F)^T_i\) are defined. It suffices to prove that, for each \(i\), the open morphism
+\[
+(G,F)^T_{i+1}\longrightarrow (G,F)^T_i
+\]
+is solid. By Lemma 18, this morphism sits in a cartesian and cocartesian square
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+\text{fiber product} \arrow[r] \arrow[d] &
+(F\amalg h_X,F)^T_i \arrow[d]\\
+(G,F)^T_{i+1} \arrow[r] &
+(G,F)^T_i .
+\end{tikzcd}
+\tag{45.4}
+\]
+By assumption \((F\amalg h_X)^T\) is solid; hence \((F\amalg h_X,F)^T_i\) is solid as well, by Proposition 37 applied to the open morphism into \((F\amalg h_X)^T\). The right vertical arrow in (45.4) is open, hence solid by Proposition 36, and the lower horizontal arrow is solid as the push-out of a solid map.
+\end{proofdel}
+
+\begin{example*}[7]
+It is not always true that, if \(f:A\to F\) is a solid morphism, then \(f^T\) is solid. Take \(G\) trivial and \(T\) two points, so that \(F^T=F^2\). For every sheaf \(F\), the inclusion \(F\to F\amalg\pt\) is solid. Applying \((-)^T\), one obtains
+\[
+F^2\longrightarrow F^2\amalg F\amalg F\amalg \pt .
+\]
+Pulling back by the natural map from \(F\) to one of the two summands \(F\), which is an open map, we see that if \(f^T\) were solid, then \(F\) would be solid.
+\end{example*}
+
+\begin{corollary*}[46]
+If \(f:F\to G\) is open and \(G\) is solid, then
+\[
+f^T:F^T\longrightarrow G^T
+\]
+is solid. In particular, if \(G\) is pointed solid, then \(G^T\) is pointed solid.
+\end{corollary*}
+
+\begin{proofdel}
+The morphism \(f^T\) is open, and one applies Theorem 7 and Proposition 36.
+\end{proofdel}
+
+We now define, for pointed sheaves on \((QP/G)_{\Nis}\), a smash variant of the construction \(F\mapsto F^T\). If the marked point \(\pt\to F\) is open, it is
+\[
+F^{\wedge T}:=F^T/(F,\pt)^T_1,
+\]
+that is, \(F^T\) with \((F,\pt)^T_1\) contracted to the new base point. This definition can be repeated for any pointed sheaf if, for every monomorphism \(A\to F\), \((F,A)^T_1\) is defined as the following subsheaf of \(F^T\): a section \(s\) of \(F^T(X)=F(X\times T)\) is in \((F,A)^T_1\) if, for every non-empty \(X'\to X\), there is a commutative diagram
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+X'' \arrow[r] \arrow[d] & X\times T \arrow[d]\\
+X' \arrow[r] & X
+\end{tikzcd}
+\]
+with \(X''\) non-empty and \(s\) lying in \(A\) on \(X''\).
+
+\begin{example*}[8]
+Under the assumptions of Example 6, if \(U\) is open in \(X\) with complement \(Z\), and if \(F=h_X/h_U\), then \(F^{\wedge T}\) is \(h_{X^n}/h_{X^n-Z^n}\), where \(X^n\) has its natural \(S_n\)-action. In particular, if \(F\) is the Thom space of a vector bundle \(E\) on \(Y\), then \(F^{\wedge T}\) is the Thom space of the \(S_n\)-equivariant vector bundle \(\bigoplus_1^n E\) on \(Y^n\).
+\end{example*}
+
+\begin{proposition*}[47]
+If a pointed sheaf \(F\) is pointed solid, that is, if \(\pt\to F\) is solid, then \(F^{\wedge T}\) is pointed solid.
+\end{proposition*}
+
+\begin{proofdel}
+Since \(F^T\) is solid, the open morphism \((F,\pt)^T_1\to F^T\) is solid by Proposition 36, and \(\pt\to F^{\wedge T}\) is obtained from it by push-out.
+\end{proofdel}
+
+The definition of \(F^{\wedge T}\) immediately implies the following.
+
+\begin{lemma*}[20]
+Let \(Z\) be a \(G\)-local henselian scheme. Then
+\[
+F^{\wedge T}(Z)=\bigwedge_i F((T\times Z)_i),
+\]
+where the \((T\times Z)_i\) are the \(G\)-local henselian components of \(T\times Z\).
+\end{lemma*}
+
+\begin{proposition*}[48]
+The functor \(F\mapsto F^{\wedge T}\) respects local and \(\Aone\)-equivalences.
+\end{proposition*}
+
+\begin{proofdel}
+Let \(f:F\to G\) be a local equivalence. To check that \(F^{\wedge T}\to G^{\wedge T}\) is a local equivalence, it is enough to test on any \(G\)-local henselian \(Z\). By Lemma 20, the map becomes the smash product of the maps
+\[
+F((T\times Z)_i)\longrightarrow G((T\times Z)_i),
+\]
+and hence is a weak equivalence of simplicial sets.
+
+Let \(f\) be an \(\Aone\)-equivalence. By the first part it is enough to show that
+\[
+S(f)^{\wedge T}: S(F)^{\wedge T}\longrightarrow S(G)^{\wedge T}
+\]
+is an \(\Aone\)-equivalence. We use the characterization of \(\Aone\)-equivalences in Theorem 5. Since \(F\mapsto F^{\wedge T}\) commutes with filtered colimits and preserves local equivalences, it suffices to check that it takes \(\Aone\)-homotopy equivalences to \(\Aone\)-homotopy equivalences. This follows from the natural map
+\[
+F^{\wedge T}\wedge(\Aone)_+\longrightarrow (F\wedge(\Aone)_+)^{\wedge T}.
+\]
+\end{proofdel}
+
+\section*{Acknowledgements}
+
+Supported by the NSF grants DMS-97-29992 and DMS-9901219 and The Ambrose Monell Foundation.
+
+\section*{References}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item K. S. Brown and S. M. Gersten, \emph{Algebraic \(K\)-theory and generalized sheaf cohomology}, Lecture Notes in Mathematics 341, Springer, 1973, pp. 266--292.
+\item A. Grothendieck, M. Artin, and J.-L. Verdier, \emph{Théorie des topos et cohomologie étale des schémas} (SGA 4), Lecture Notes in Mathematics 269, 270, 305, Springer, 1972--1973.
+\item A. Grothendieck and M. Demazure, \emph{Schémas en groupes} (SGA 3), Lecture Notes in Mathematics 151, 152, 153, Springer, 1970.
+\item A. Grothendieck and J. Dieudonné, \emph{Étude locale des schémas et des morphismes de schémas} (EGA 4), Publ. Math. IHES 20, 24, 28, 32, 1964--1967.
+\item Mark Hovey, \emph{Model Categories}, American Mathematical Society, Providence, 1999.
+\item S. Mac Lane, \emph{Categories for the Working Mathematician}, Graduate Texts in Mathematics 5, Springer, 1971.
+\item Carlo Mazza, Vladimir Voevodsky, and Charles Weibel, \emph{Lecture Notes on Motivic Cohomology}, Clay Mathematics Monographs 2, AMS, Providence, RI, 2006.
+\item Fabien Morel and Vladimir Voevodsky, \emph{\(\Aone\)-homotopy theory of schemes}, Publ. Math. IHES 90 (1999), 45--143.
+\item Charles A. Weibel, \emph{An Introduction to Homological Algebra}, Cambridge University Press, 1994.
+\item P. Gabriel and M. Zisman, \emph{Calculus of Fractions and Homotopy Theory}, Springer-Verlag, Berlin, 1967.
+\item J. F. Jardine, \emph{Simplicial presheaves}, J. Pure Appl. Algebra 47 (1987), 35--87.
+\end{enumerate}
+\end{document}

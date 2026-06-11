@@ -1,0 +1,2370 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newcommand{\Aone}{\mathbb A^1}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\Et}{\mathrm{Et}}
+\newcommand{\et}{\mathrm{et}}
+\newcommand{\Nis}{\mathrm{Nis}}
+\newcommand{\Zar}{\mathrm{Zar}}
+\newcommand{\Sm}{\mathrm{Sm}}
+\newcommand{\SmCor}{\mathrm{SmCor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Tot}{\operatorname{Tot}}
+\newcommand{\forget}{\operatorname{forget}}
+\newcommand{\Sing}{C_*}
+\newcommand{\D}{D}
+\newcommand{\Ho}{\mathcal H}
+\newcommand{\Hob}{\mathcal H_\bullet}
+\newcommand{\HoA}{\mathcal H_{\bullet,A^1}}
+\newcommand{\Ch}{\mathrm{Ch}}
+\newcommand{\sSh}{\mathrm{sSh}}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\pt}{*}
+\newcommand{\ZZ}{\widetilde{\Z}}
+\newcommand{\HH}{\mathrm H}
+\newcommand{\red}{\mathrm{red}}
+\newtheoremstyle{deligne}{0.5em}{0.5em}{\itshape}{}{}{.}{0.5em}{\bfseries #1\thmnote{ #3}}
+\theoremstyle{deligne}
+\newtheorem*{theorem*}{Théorème}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemme}
+\newtheorem*{corollary*}{Corollaire}
+\newtheorem*{definition*}{Définition}
+\newtheorem*{remark*}{Remarque}
+\newtheorem*{example*}{Exemple}
+\newcommand{\heading}[1]{\vspace{0.7em}\noindent{\bfseries #1}\quad}
+\newenvironment{proofdel}{\noindent\textit{Preuve.}}{\hfill$\square$}
+\newenvironment{proofnamed}[1]{\noindent\textit{#1.}}{}
+
+\newcommand{\uHom}{\underline{\Hom}}
+\newcommand{\sk}{\operatorname{sk}}
+\newcommand{\Wr}{\operatorname{Wr}}
+\newcommand{\colim}{\operatorname{colim}}
+\newcommand{\diag}{\Delta}
+\newcommand{\inj}{\mathrm{inj}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\limi}{\operatorname{lim}}
+\newcommand{\Ex}{\operatorname{Ex}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\cyl}{\operatorname{cyl}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Leçons de Voevodsky sur la cohomologie motivique\ 2000/2001}\\[0.6em]
+{\large Pierre Deligne}
+\end{center}
+
+\textbf{Résumé.} Ces leçons couvrent plusieurs thèmes importants de la théorie de l'homotopie motivique qui n'ont pas été traités ailleurs. Parmi eux figurent la définition des catégories d'homotopie motivique équivariantes, la définition et les propriétés de base des faisceaux solides et ind-solides, ainsi que la preuve des propriétés fondamentales des opérations de puissances tordues et de quotients par des groupes relativement aux équivalences \(\Aone\) entre faisceaux ind-solides.
+
+\section*{1. Introduction}
+
+Les leçons qui sont à la source de ces notes portaient sur plusieurs sujets différents, liés entre eux, mais qui ne forment pas, en un sens raisonnable, un tout cohérent. Le présent texte est donc une collection de quatre parties qui se renvoient les unes aux autres, mais qui sont par ailleurs indépendantes.
+
+Dans la première partie, nous introduisons la catégorie d'homotopie motivique et la relions à la théorie de la cohomologie motivique discutée dans [7]. L'exposé est un peu inhabituel parce que nous voulions éviter toute référence aux structures de modèles tout en prouvant le théorème principal 2. Nous avons pu le faire modulo 6, où il nous a fallu renvoyer à la partie suivante.
+
+La deuxième partie traite de la catégorie d'homotopie motivique des \(G\)-schémas, où \(G\) est un schéma en groupes fini et plat, relativement à un analogue équivariant de la topologie de Nisnevich. Le résultat principal est une description de la classe des équivalences \(\Aone\), anciennement appelées équivalences faibles \(\Aone\), donnée au théorème 4, et aussi au théorème 5. Pour le groupe trivial \(G\), on obtient une nouvelle description des équivalences \(\Aone\) dans le cadre non équivariant.
+
+Dans la troisième partie, nous définissons une classe de faisceaux sur les \(G\)-schémas que nous appelons faisceaux solides. Elle contient tous les faisceaux représentables et les quotients de faisceaux représentables par des sous-faisceaux correspondant à des sous-schémas ouverts. En particulier, les espaces de Thom des fibrés vectoriels sont des faisceaux solides. La propriété clé des faisceaux solides peut s'exprimer en disant que tout foncteur exact à droite qui transforme les immersions ouvertes en monomorphismes est exact à gauche sur les faisceaux solides. Un énoncé plus précis est le théorème 6.
+
+Dans la quatrième partie, nous étudions deux foncteurs. Le premier est l'extension aux faisceaux pointés du foncteur des \(G\)-schémas vers les schémas qui envoie \(X\) sur \(X/G\). Le second est l'extension aux faisceaux pointés du foncteur qui envoie \(X\) sur \(X\times_G T\), où \(T\) est un \(G\)-schéma fini et plat. Nous montrons que ces deux foncteurs envoient les faisceaux solides sur des faisceaux solides et préservent les équivalences locales et les équivalences \(\Aone\) entre faisceaux terme à terme ind-solides.
+
+Le matériel de toutes les parties de ces notes, sauf la première, a été développé à l'origine avec un but précis: étendre des foncteurs non additifs, tels que le produit symétrique, des schémas à la catégorie d'homotopie motivique. Plus précisément, nous nous intéressions aux foncteurs donnés par
+\[
+  X\longmapsto (X^T\times S)/G,
+\]
+où \(G\) est un schéma en groupes fini et plat, \(T\) un \(G\)-schéma fini et plat et \(S\) un \(G\)-schéma de type fini quelconque. La catégorie d'homotopie motivique équivariante a été introduite afin de représenter un tel foncteur comme une composition
+\[
+  X\longmapsto X^T\longmapsto X^T\times S\longmapsto (X^T\times S)/G,
+\]
+et les faisceaux solides comme une classe naturelle de faisceaux sur lesquels le foncteur dérivé coïncide avec le foncteur initial.
+
+Sous sa forme présente, ces notes sont le résultat d'un processus interactif qui a impliqué tous les auditeurs des leçons. Un rôle très particulier a été joué par Pierre Deligne. Le texte, tel qu'il est maintenant, a été entièrement écrit par lui. Il a aussi clarifié de nombreuses parties confuses et simplifié les arguments en plusieurs endroits importants.
+
+\begin{flushright}
+Princeton, NJ, 2001.\\
+Vladimir Voevodsky
+\end{flushright}
+
+\section*{2. Cohomologie motivique et catégorie d'homotopie motivique}
+
+Nous rappelons d'abord quelques résultats de l'année précédente; voir [7].
+
+\subsection*{2.1. L'année précédente}
+
+\heading{1.1.} Nous travaillons sur un corps \(k\), qu'il faudra parfois supposer parfait. Les schémas sur \(k\) que nous considérerons seront en général supposés séparés, lisses et de type fini sur \(k\). Nous notons leur catégorie \(\Sm/k\). Trois topologies de Grothendieck sur \(\Sm/k\) seront utiles: Zariski, Nisnevich et étale. Pour chacune de ces topologies, un faisceau sur \(\Sm/k\) équivaut aux données suivantes: pour \(X\) lisse sur \(k\), un faisceau \(F_X\) sur le petit site correspondant de \(X\), fonctoriel en \(X\); un morphisme \(f:X\to Y\) induit \(f^*F_Y\to F_X\).
+
+\heading{1.2.} La définition des groupes de cohomologie motivique de \(X\) lisse sur \(k\) a la forme suivante:
+\begin{enumerate}[label=(\alph*)]
+\item On définit pour chaque \(q\in\Z\) un complexe de préfaisceaux de groupes abéliens \(\Z(q)\) sur \(\Sm/k\). C'est en fait un complexe de faisceaux pour la topologie étale, donc a fortiori pour les topologies de Nisnevich et de Zariski. Pour tout groupe abélien \(A\), il en est de même de
+\[
+  A(q):=A\otimes\Z(q).
+\]
+\item Les groupes de cohomologie motivique de \(X\) à coefficients dans \(A\) sont les groupes d'hypercohomologie des \(A(q)\), dans la topologie de Nisnevich:
+\[
+  H^{p,q}(X,A):=\mathrm H^p(X_{\Nis},A(q)).
+\]
+\end{enumerate}
+Pour \(A=\Z\), nous écrirons simplement \(H^{p,q}(X)\).
+
+La cohomologie motivique a les propriétés suivantes:
+\begin{enumerate}[label=\arabic*.]
+\item Le complexe \(\Z(q)\) est nul pour \(q<0\). Pour tout \(q\), il est concentré en degrés cohomologiques \(\le q\). Comme complexe de faisceaux de Nisnevich, il est quasi-isomorphe à \(\Z\) pour \(q=0\), et à \(\Gm[-1]\) pour \(q=1\).
+\item \(H^{p,p}(\Spec(k))=K_p^M(k)\) pour tout \(p\ge0\).
+\item Pour tout \(X\) dans \(\Sm/k\), on a
+\[
+  H^{p,q}(X)=CH^q(X,2q-p),
+\]
+où \(CH^q(X,2q-p)\) est le \((2q-p)\)-ième groupe de Chow supérieur des cycles de codimension \(q\).
+\item Dans la topologie étale, pour \(n\) premier à la caractéristique de \(k\), le complexe \(\Z/n(q)\) est quasi-isomorphe à \(\mu_n^{\otimes q}\), ce qui donne, pour l'analogue étale de \(H^{p,q}\), la formule
+\[
+  H^{p,q}_{\et}(X,\Z/n):=\mathrm H^p(X_{\et},\Z/n(q))
+  =\mathrm H^p(X_{\et},\mu_n^{\otimes q}).
+\]
+\end{enumerate}
+
+\heading{1.3.} La catégorie \(\SmCor(k)\) est la catégorie dont les objets sont les schémas séparés, lisses et de type fini sur \(k\), et dans laquelle un morphisme \(C:X\to Y\) est un cycle \(C=\sum n_iC_i\) sur \(X\times Y\), chaque composante irréductible \(C_i\) étant finie sur \(X\) et se projetant sur une composante connexe de \(X\). Un morphisme \(C\) peut être pensé comme une application à valeurs finies de \(X\) vers \(Y\). Pour \(x\in X\), de corps résiduel \(k(x)\), il définit un zéro-cycle \(C(x)\) sur \(Y\otimes_k k(x)\), et l'hypothèse faite sur \(C\) implique que le degré de ce zéro-cycle est localement constant sur \(X\).
+
+Un morphisme de schémas \(f:X\to Y\) définit un morphisme dans \(\SmCor(k)\): le graphe de \(f\). Cette construction du graphe définit un foncteur fidèle de \(\Sm/k\) vers la catégorie additive \(\SmCor(k)\).
+
+Un préfaisceau avec transferts est un foncteur additif contravariant de \(\SmCor(k)\) vers la catégorie des groupes abéliens. Le plongement de \(\Sm/k\) dans \(\SmCor(k)\) permet de voir un préfaisceau avec transferts comme un préfaisceau sur \(\Sm/k\) muni d'une structure supplémentaire. Un faisceau avec transferts, pour une topologie donnée sur \(\Sm/k\), ordinairement la topologie de Nisnevich, est un préfaisceau avec transferts qui, comme préfaisceau sur \(\Sm/k\), est un faisceau. Les topologies de Nisnevich et étale ont la propriété que si \(F\) est un préfaisceau avec transferts, le faisceau associé \(a(F)\) porte une structure de faisceau avec transferts. Cette structure est uniquement déterminée par la condition que \(F\to a(F)\) soit un morphisme de préfaisceaux avec transferts. Pour tout faisceau avec transferts \(G\), on a
+\[
+  \Hom(a(F),G)\simeq \Hom(F,G),
+\]
+où \(\Hom\) désigne les morphismes de préfaisceaux avec transferts. Tout cela échoue pour la topologie de Zariski. Les complexes \(\Z(q)\), et donc aussi \(A(q)\), naissent comme complexes de faisceaux avec transferts.
+
+\heading{1.4.} Un préfaisceau \(F\) sur \(\Sm/k\) est dit invariant par homotopie si
+\[
+  F(X)\simeq F(X\times\Aone).
+\]
+Comme le point \(0\) de \(\Aone\) définit une section de la projection \(X\times\Aone\to X\), pour tout préfaisceau de groupes abéliens \(F\), \(F(X)\) est naturellement facteur direct de \(F(X\times\Aone)\). Il en résulte que la condition d'invariance par homotopie est stable par noyaux, conoyaux et extensions de préfaisceaux. La construction suivante est une version dérivée de l'adjoint à gauche de l'inclusion
+\[
+  \{\text{préfaisceaux abéliens invariants par homotopie }\Aone\}
+  \subset
+  \{\text{préfaisceaux abéliens}\}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Si \(I\) est un ensemble fini, soit \(\Delta(I)\) l'espace affine librement engendré, au sens du calcul barycentrique, par \(I\). Sur \(\mathbb C\) ou \(\mathbb R\), \(\Delta(I)\) contient le simplexe topologique standard engendré par \(I\). Les schémas
+\[
+  \Delta^n:=\Delta(\{0,\ldots,n\})
+\]
+forment un schéma cosimplicial.
+\item Pour un préfaisceau \(F\), \(C_*(F)\), le «complexe singulier» de \(F\), est le préfaisceau simplicial
+\[
+  C_n(F):X\longmapsto F(X\times\Delta^n).
+\]
+\end{enumerate}
+Des arguments imités de la topologie montrent que, pour \(F\) un préfaisceau de groupes abéliens, les préfaisceaux de cohomologie du complexe \(C_*(F)\), obtenu en prenant la somme alternée des faces, sont invariants par homotopie. Si \(F\) a des transferts, les \(C_n(F)\) en ont aussi, et il en va de même pour les préfaisceaux de cohomologie de \(C_*(F)\). Un théorème fondamental prouvé l'année précédente est le suivant.
+
+\begin{theorem*}[1]
+Soit \(F\) un préfaisceau avec transferts, invariant par homotopie, sur un corps parfait, et soit \(a_{\Nis}(F)\) le faisceau de Nisnevich associé. Alors les préfaisceaux avec transferts
+\[
+  X\longmapsto H^i(X_{\Nis},a_{\Nis}(F))
+\]
+sont eux aussi invariants par homotopie.
+\end{theorem*}
+
+Le cas particulier \(i=0\) de ce théorème affirme l'invariance par homotopie du faisceau avec transferts \(a_{\Nis}(F)\).
+
+L'année précédente, on a prouvé l'équivalence d'un certain nombre de définitions de \(\Z(q)\). Par équivalence, on entend la construction d'un isomorphisme dans une catégorie dérivée convenable, impliquant un isomorphisme pour les groupes de cohomologie motivique correspondants. Pour notre usage présent, la définition la plus commode est la suivante. Soit \(\Z_{tr}(X)\) le faisceau avec transferts représenté par \(X\), sur la catégorie \(\SmCor(k)\). On pose
+\[
+  F_q=
+  \begin{cases}
+  0, & q<0,\\
+  \Z_{tr}(\A^q)/\Z_{tr}(\A^q-\{0\}), & q\ge0,
+  \end{cases}
+\]
+et
+\[
+  \Z(q)=C_*(F_q)[-q].
+\]
+
+\subsection*{2.2. Catégorie d'homotopie motivique}
+
+La catégorie d'homotopie motivique \(\HoA(S)\), c'est-à-dire la catégorie d'homotopie pointée \(\Aone\) de \(S\), pour \(S\) un schéma noethérien de dimension finie, sera la catégorie déduite d'une catégorie de faisceaux simpliciaux par deux localisations successives.
+
+On part de la catégorie \(\Sm/S\) des schémas lisses sur \(S\), munie de la topologie de Nisnevich, et de la catégorie des faisceaux simpliciaux pointés sur \(\Sm/S\). Pour tout site \(\mathcal S\), par exemple \((\Sm/S)_{\Nis}\), il existe une notion d'équivalence locale de faisceaux simpliciaux pointés. Elle est définie comme suit.
+\begin{enumerate}[label=(\alph*)]
+\item Un faisceau \(G\) définit un faisceau simplicial tel que tous les \(G_n\) soient égaux à \(G\), et que toutes les applications simpliciales soient les identités. Le foncteur \(G\mapsto G_\bullet\) a un adjoint à gauche
+\[
+  F_\bullet\longmapsto \pi_0(F_\bullet),
+\qquad
+  \Hom(F_\bullet,G_\bullet)=\Hom(\pi_0(F_\bullet),G).
+\]
+Le faisceau \(\pi_0(F_\bullet)\) peut être décrit comme l'égalisateur de \(F_0\rightrightarrows F_1\), ou encore comme le faisceau associé au préfaisceau
+\[
+  U\longmapsto \pi_0(F_\bullet(U)).
+\]
+Il en va de même dans le contexte pointé. Nous écrirons souvent simplement \(G\) pour le faisceau simplicial constant correspondant.
+\end{enumerate}
+Pour un faisceau pointé \(G\) sur \(\Sm/S\), la proposition 7 s'applique à \(G\) et à la localisation par équivalences locales: on a
+\[
+  \Hom_{\Hob}(F_\bullet,G)=\Hom(F_\bullet,G)=\Hom(\pi_0(F_\bullet),G). \tag{0.1}
+\]
+
+\begin{definition*}[1]
+Un objet \(G\) de \(\Hob(\Sm/S)\) est dit \(\Aone\)-local si, pour tout faisceau simplicial \(F_\bullet\), on a
+\[
+  \Hom_{\Hob}(F_\bullet,G)
+  \simeq
+  \Hom_{\Hob}(F_\bullet\times\Aone/\pt\times\Aone,G).
+\]
+Dans le membre de droite, \(\pt\times\Aone\) signifie que, dans le produit, \(\pt\times\Aone\) est contracté en un point, le nouveau point base.
+\end{definition*}
+
+\begin{proposition*}[1]
+Pour un faisceau pointé \(G\) sur \(\Sm/S\), le faisceau simplicial \(G\) est \(\Aone\)-local si et seulement si \(G\) est invariant par homotopie.
+\end{proposition*}
+
+\begin{proofdel}
+On a
+\[
+  \pi_0(F_\bullet\times\Aone)=\pi_0(F_\bullet)\times\Aone,
+\]
+de sorte que, par (0.1), la \(\Aone\)-localité signifie que, pour tout faisceau pointé \(F\), on a
+\[
+  \Hom(F,G)=\Hom(F\times\Aone/\pt\times\Aone,G).
+\]
+Un morphisme \(F\to G\) peut être vu comme la donnée, pour chaque \(x\in F(U)\), d'un élément \(f(x)\in G(U)\), fonctorielle en \(U\), et envoyant le point marqué sur le point marqué. De même, un morphisme \(F\times\Aone\to G\) est décrit par des données, pour \(x\in F(U)\), d'un élément de \(G(U\times\Aone)\). L'invariance par homotopie implique donc la \(\Aone\)-localité. La réciproque se vérifie en prenant pour \(F\) la somme disjointe d'un faisceau représentable et du point base.
+\end{proofdel}
+
+\begin{definition*}[2]
+\begin{enumerate}[label=(\arabic*)]
+\item Un morphisme \(f:F'_\bullet\to F_\bullet\) dans \(\Hob(\Sm/S)\) est une équivalence \(\Aone\) si, pour tout \(G\) \(\Aone\)-local, on a dans \(\Hob(\Sm/S)\)
+\[
+  \Hom(F_\bullet,G)\simeq \Hom(F'_\bullet,G).
+\]
+\item La catégorie \(\HoA(\Sm/S)\) est déduite de \(\Hob(\Sm/S)\) en inversant formellement les équivalences \(\Aone\).
+\end{enumerate}
+\end{definition*}
+
+\begin{remark*}[1]
+Si un morphisme de \(\Hob(\Sm/S)\) devient un isomorphisme dans \(\HoA(\Sm/S)\), c'est une équivalence \(\Aone\). En effet, si \(G\) dans \(\Hob(\Sm/S)\) est \(\Aone\)-local, une application de la proposition 7 montre que, pour tout \(F\),
+\[
+  \Hom_{\Hob}(F,G)\simeq \Hom_{\HoA}(F,G)
+\]
+est bijectif. Si \(f:F'_\bullet\to F_\bullet\) dans \(\Hob(\Sm/S)\) a une image dans \(\HoA(\Sm/S)\) qui est un isomorphisme, il en résulte que, pour tout \(G\) \(\Aone\)-local, on a
+\[
+  \Hom_{\Hob}(F_\bullet,G)\simeq \Hom_{\Hob}(F'_\bullet,G).
+\]
+Un tel \(f\) est une équivalence \(\Aone\).
+\end{remark*}
+
+\begin{example*}[1]
+Des arguments analogues à ceux donnés plus haut montrent que si \(G\) est un faisceau pointé invariant par homotopie, alors, pour tout faisceau simplicial pointé \(F_\bullet\), on a
+\[
+  \Hom_{\HoA(\Sm/S)}(F_\bullet,G)
+  =\Hom(F_\bullet,G)=\Hom(\pi_0(F_\bullet),G).
+\]
+En particulier, si \(U\) est lisse sur \(S\) et si \(U_+\) est l'union disjointe de \(U\) et d'un point base, alors
+\[
+  \Hom_{\HoA(\Sm/S)}(U_+,G)=G(U).
+\]
+\end{example*}
+
+\subsection*{2.3. Catégories dérivées et catégories d'homotopie}
+
+Pour tout topos \(T\), qui sera pour nous la catégorie des faisceaux sur un certain site \(S\), la catégorie d'homotopie pointée \(\Hob(S)\) aussi bien que la catégorie dérivée \(D(S)\) s'obtiennent par localisation. Pour la catégorie dérivée, on part de la catégorie des complexes de faisceaux abéliens. La sous-catégorie des complexes concentrés en degré homologique \(\ge0\) est naturellement équivalente, par la construction de Dold--Puppe, à la catégorie des faisceaux simpliciaux de groupes abéliens. L'équivalence est
+\[
+  N:(\text{faisceau simplicial }F_\bullet)
+  \longmapsto
+  \text{complexe}\left(\bigcap_{i\ne0}\ker(\partial_i),\partial_0\right).
+\]
+Nous écrivons \(K\) pour l'équivalence inverse. Pour \(S\) réduit à un point, et \(\pi\) un groupe abélien, \(K(\pi[n])\) est l'espace d'Eilenberg--MacLane \(K(\pi,n)\). Pour un complexe \(C\) qui n'est pas supposé concentré en degrés homologiques \(\ge0\), on définit
+\[
+  K(C):=K(\tau_{\ge0}C),
+\]
+où \(\tau_{\ge n}C\) est le sous-complexe de \(C\) de la forme
+\[
+  \cdots \longrightarrow C_{n+2}\xrightarrow{d_{n+1}}C_{n+1}
+  \longrightarrow \ker(d_n)\longrightarrow0.
+\]
+Notons que \(C\mapsto\tau_{\ge0}C\) est adjoint à droite au foncteur d'inclusion
+\[
+  (\text{complexes en degré homologique }\ge0)
+  \hookrightarrow
+  (\text{tous les complexes}),
+\]
+de sorte que \((N,K)\) forment une paire de foncteurs adjoints:
+\[
+  (\text{faisceaux abéliens simpliciaux})\rightleftarrows(\text{complexes de faisceaux}).
+\]
+
+\begin{theorem*}[2]
+Supposons que \(S=\Spec(k)\), avec \(k\) parfait. Alors, pour \(F\) un préfaisceau avec transferts, pour \(U_+\) comme ci-dessus, et pour \(p\ge0\),
+\[
+  \Hom_{\HoA}(U_+,K(F[p]))=\HH^p(U_{\Nis},C_*(F)).
+\]
+\end{theorem*}
+
+Dans ce théorème, \(K(F[p])\) est le faisceau simplicial de groupes abéliens dont le complexe de chaînes normalisé est \(F\) en degré homologique \(p\).
+
+Pour prouver le théorème, nous établissons la chaîne d'égalités
+\[
+\begin{aligned}
+\HH^p(U_{\Nis},C_*(F))
+&=\Hom_{\Hob}(U_+,K(C_*(F)[p])) \\
+&=\Hom_{\HoA}(U_+,K(C_*(F)[p])) \\
+&=\Hom_{\HoA}(U_+,K(F[p])),
+\end{aligned}\tag{1.1}
+\]
+la première égalité étant prouvée juste avant la proposition 4, la deuxième juste après la proposition 5, et la dernière résultant du lemme 1.
+
+Soit \(\forget\) le foncteur d'oubli des faisceaux abéliens vers les faisceaux d'ensembles. Son adjoint à gauche est \(F\mapsto \Z[F]\), le faisceau associé au préfaisceau
+\[
+  U\longmapsto (\text{groupe abélien librement engendré par }F(U)).
+\]
+Dans le contexte pointé, l'adjoint est
+\[
+  (F,\pt)\longmapsto \ZZ(F):=\Z(F)/\Z(\pt).
+\]
+On a la même adjonction pour les objets simpliciaux pointés.
+
+\begin{proposition*}[2]
+Sur un site ayant assez de points, et vraisemblablement toujours, on a:
+\begin{enumerate}[label=(\arabic*)]
+\item Le foncteur \(F_\bullet\mapsto N\ZZ(F_\bullet)\), des faisceaux simpliciaux pointés vers les complexes de groupes abéliens, transforme les équivalences locales en quasi-isomorphismes.
+\item L'adjoint à droite \(C\mapsto \forget(K(C))\) transforme les quasi-isomorphismes en équivalences locales.
+\end{enumerate}
+\end{proposition*}
+
+L'hypothèse «assez de points» s'applique à \(\Sm/k\) muni de la topologie de Nisnevich: pour tout \(U\in\Sm/k\) et tout point \(x\) de \(U\), le foncteur
+\[
+  F\longmapsto F(\Spec(\mathcal O^h_{U,x}))
+\]
+est un point, et ces foncteurs forment un système conservatif.
+
+\begin{proofdel}
+Les équivalences locales, respectivement les quasi-isomorphismes, se vérifient point par point, et les deux foncteurs considérés commutent au passage à la fibre en un point. Cela ramène la proposition au cas où le site est réduit à un point, c'est-à-dire à l'homotopie usuelle. Dans ce cas, (1) se réduit au fait qu'une équivalence faible induit un isomorphisme sur l'homologie réduite, théorème de Whitehead, et (2) au fait que, pour un complexe \(C\), \(\pi_i(K(C))\), calculé avec n'importe quel point base, est \(H_i(C)\). Les \(\pi_i(K(C))\) sont faciles à calculer parce que \(K(C)\) possède la propriété de Kan.
+\end{proofdel}
+
+En appliquant la proposition 8, on déduit de la proposition 2 ce qui suit.
+
+\begin{proposition*}[3]
+Sous les mêmes hypothèses que dans la proposition 2, pour \(F_\bullet\) un faisceau simplicial pointé et \(C\) un complexe de faisceaux abéliens, on a
+\[
+  \Hom_{\Hob}(F_\bullet,K(C))=\Hom_D(N\ZZ(F_\bullet),C). \tag{3.1}
+\]
+\end{proposition*}
+
+Soit \(F\) un faisceau, et soit \(F_+\) le faisceau obtenu à partir de \(F\) par adjonction d'un point base. Nous écrivons aussi \(F\) et \(F_+\) pour les faisceaux simpliciaux constants correspondants. On a
+\[
+  N\ZZ(F_+)=N\Z(F)=(\Z(F)\text{ en degré zéro}).
+\]
+Pour le faisceau simplicial pointé \(F_+\), le groupe \(\Hom_D(\Z(F),C)\) qui apparaît maintenant au membre de droite de (3.1) s'interprète comme l'hypercohomologie de \(C\) «sur \(F\) vu comme un espace», c'est-à-dire dans le topos des faisceaux au-dessus de \(F\). Si \(F\) est défini par un objet \(U\) du site \(S\), c'est la même chose que l'hypercohomologie du site \(S/U\). Comme nous ne voulons pas supposer \(C\) borné inférieurement, cette vérification demande un peu de soin.
+
+Pour un complexe de faisceaux \(K\) sur un site \(S\), pas nécessairement borné inférieurement, \(\HH^0(S,K)\) peut être défini comme le groupe \(\Hom\) dans la catégorie dérivée, \(\Hom_D(\Z,K)\). Pour \(F\) dans un topos \(T\), et le topos \(T/F\), «\(F\) vu comme un espace», outre le morphisme de topos \(j:T/F\to T\), c'est-à-dire la paire adjointe \((j^*,j_*)\), on a, pour les faisceaux abéliens, une paire adjointe \((j_!,j^*)\), avec \(j_!\) et \(j^*\) tous deux exacts. Par la proposition 8, \((j_!,j^*)\) induit une paire adjointe pour les catégories dérivées correspondantes. Comme \(j_!\Z=\Z[F]\), on obtient
+\[
+  \Hom_D(\Z(F),C)=\HH^0(T/F,j^*C), \tag{3.2}
+\]
+d'où
+\[
+  \Hom_{\Hob}(F_+,K(C))=\HH^0(T/F,j^*C). \tag{3.3}
+\]
+
+Considérons le cas particulier de \(\Sm/k\) avec la topologie de Nisnevich. Pour tout complexe de faisceaux, (3.3) donne, pour \(U\) lisse sur \(k\),
+\[
+  \Hom_{\Hob}(U_+,K(C))=\HH^0(U_{big-\Nis},C). \tag{3.4}
+\]
+Ici \(U_{big-\Nis}\) est le site \((\Sm/S)/U\) muni de la topologie de Nisnevich. Il a cependant la même hypercohomologie que le petit site de Nisnevich \(U_{\Nis}\). En effet, on a un morphisme \(\epsilon:U_{big,\Nis}\to U_{\Nis}\), et les foncteurs \(\epsilon^*\) et \(\epsilon_*\) sont exacts. On applique à nouveau la proposition 8. En appliquant (3.4) à un translaté, c'est-à-dire à un décalage, de \(C\), on obtient
+\[
+  \Hom_{\Hob}(U_+,K(C[p]))=\HH^p(U_{\Nis},C). \tag{3.5}
+\]
+En appliquant (3.5) à \(C_*(F)\), on obtient la première égalité de (1.1).
+
+\begin{proposition*}[4]
+Soit \(C\) un complexe de faisceaux abéliens sur \(\Sm/k\). Les conditions suivantes sont équivalentes:
+\begin{enumerate}[label=\arabic*.]
+\item \(K(C)\) est \(\Aone\)-local.
+\item Pour \(i\le0\), le foncteur \(U\mapsto H^i(U,C)\) est invariant par homotopie.
+\item Pour tout complexe \(L\) en degré cohomologique \(\le0\), on a dans la catégorie dérivée
+\[
+  \Hom(L\otimes\Z(\Aone),C)\overset{\sim}{\longrightarrow}\Hom(L,C).
+\]
+\end{enumerate}
+\end{proposition*}
+
+\noindent\textit{Preuve.} Par la proposition 3, la condition (1) se réécrit: pour tout faisceau simplicial pointé \(F_\bullet\),
+\[
+  \Hom_D(N\ZZ(F_\bullet),C)=
+  \Hom_D(N\ZZ(F_\bullet\times\Aone/\pt\times\Aone),C).
+\]
+L'opération \(F_\bullet\mapsto F_\bullet\times\Aone/\pt\times\Aone\) s'écrit mieux comme un smash produit \(F_\bullet\wedge\Aone_+\) avec \(\Aone_+\). Pour des ensembles pointés \(E\) et \(F\),
+\[
+  \ZZ(E\wedge F)=\ZZ(E)\otimes\ZZ(F).
+\]
+Il s'ensuit que
+\[
+\begin{aligned}
+\ZZ(F_\bullet\times\Aone/\pt\times\Aone)
+&=\ZZ(F_\bullet\wedge\Aone_+)        \\
+&=\ZZ(F_\bullet)\otimes\ZZ(\Aone_+) \\
+&=\ZZ(F_\bullet)\otimes\Z(\Aone),
+\end{aligned}
+\]
+comme isomorphismes de faisceaux simpliciaux, donc
+\[
+  N\ZZ(F_\bullet\times\Aone/\pt\times\Aone)
+  =N\ZZ(F_\bullet)\otimes\Z(\Aone).
+\]
+Il en résulte que (1) est le cas particulier de (3) pour \(L\) de la forme \(N\ZZ(F_\bullet)\). De même, (2) est le cas particulier de (3) pour \(L\) de la forme \(\Z(U)[i]\), avec \(i\ge0\).
+
+La suspension \(\Sigma^iF_\bullet\) d'un faisceau simplicial pointé \(F_\bullet\) est son smash produit avec la sphère simpliciale \(S^i\), le \(i\)-simplexe modulo son bord. Il s'ensuit que
+\[
+  \ZZ(\Sigma^iF_\bullet)=\ZZ(F_\bullet)\otimes\ZZ(S^i),
+\]
+comme isomorphisme de faisceaux simpliciaux, et, par Eilenberg--Zilber, le complexe normalisé \(N\ZZ(\Sigma^iF_\bullet)\) est homotope au produit tensoriel des complexes normalisés de \(\ZZ(F_\bullet)\) et de \(\ZZ(S^i)\). Ce dernier est simplement \(\Z[i]\):
+\[
+  N\ZZ(\Sigma^iF_\bullet)\simeq N\ZZ(F_\bullet)[i].
+\]
+C'est une manière savante de dire que l'homologie réduite d'une suspension est le décalage correspondant de l'homologie réduite de l'espace de départ.
+
+En appliquant ceci à \(F_\bullet=U_+\), on obtient que (1) implique (3). En effet, \(\ZZ(\Sigma^iU_+)\) est homotope à \(\ZZ(U_+)[i]=\Z(U)[i]\).
+
+Montrons maintenant que (2) implique (1). Pour \(L\) un complexe, soit \((*)\) l'énoncé que la conclusion de (3) vaut pour tous les \(L[i]\), \(i\ge0\). L'hypothèse (2) est que \((*)\) vaut pour \(L\) réduit à \(\Z(U)\) en degré zéro, et nous conclurons par dévissage qu'il vaut pour tout \(L\) en degré cohomologique \(\le0\).
+\begin{enumerate}[label=(\alph*)]
+\item Le cas d'une somme de \(\Z(U)\), en degré zéro, résulte du corollaire 10.
+\item Supposons que \(L\) soit borné, en degré cohomologique \(\le0\), et que \((*)\) vaille pour tous les \(L^n\).
+\end{enumerate}
+Les foncteurs
+\[
+  h':L\longmapsto \Hom^n(L,C),\qquad
+  h'':L\longmapsto \Hom^n(L\otimes\Z(\Aone),C) \tag{3.6}
+\]
+
+
+sont des foncteurs cohomologiques contravariants, et donnent donc naissance à des suites spectrales convergentes
+\[
+E_1^{pq}=h^q(L^{-p})\Rightarrow h^{p+q}(L).
+\]
+On a un morphisme de suites spectrales
+\[
+E(\hbox{pour }h')\longrightarrow E(\hbox{pour }h'')
+\]
+qui est un isomorphisme pour \(q\le0\), et les deux \(E^{pq}\) s'annulent pour \(p<0\) ou \(p\) grand. Il en résulte que \(h'^n(L)\simeq h''^n(L)\) pour \(n\le0\), c'est-à-dire que \(L\) satisfait \((*)\).
+
+Le même argument peut s'exprimer comme une induction sur le nombre des \(i\) tels que \(L^i\ne0\). Si \(n\) est le plus grand d'entre eux (avec \(n\le0\)), l'hypothèse d'induction s'applique à \(\sigma^{<n}L\), même à \((\sigma^{<n}L)[-1]\), et l'on conclut par la suite exacte longue définie par
+\[
+0\longrightarrow L^n[-n]\longrightarrow L\longrightarrow\sigma^{<n}L\longrightarrow0.
+\]
+
+\begin{enumerate}[label=(\alph*),start=3]
+\item En exprimant \(L\) comme limite inductive des \(\sigma^{\ge-n}L\) et en utilisant la proposition 11, on voit qu'il n'est pas nécessaire de supposer \(L\) borné.
+\item Si \(L'\to L''\) est un quasi-isomorphisme, \(L'\otimes\Z(\Aone)\to L''\otimes\Z(\Aone)\) en est encore un (platitude de \(\Z(\Aone)\)), et \((*)\) vaut pour \(L'\) si et seulement s'il vaut pour \(L''\).
+\item Tout faisceau abélien \(L\) est quotient d'une somme directe de faisceaux \(\Z(U)\). Par exemple, la somme, sur les \((U,s)\), \(s\in\Gamma(U,L)\), des \(\Z(U)\) envoyés vers \(L\) par \(s\). Il en résulte que \(L\) admet une résolution \(L^*\) par de tels faisceaux. Par (a) et (c), \(L^*\) satisfait \((*)\). Il résulte de (d) que \(L\) satisfait \((*)\), puis de (c) que tout complexe en degré \(\le0\) satisfait \((*)\).
+\end{enumerate}
+
+\section*{2.4 Application aux préfaisceaux avec transferts}
+
+Soit \(F\) un préfaisceau avec transferts. Un argument formel [7] montre que les préfaisceaux avec transferts \(H^i C_*(F)\) sont homotopiquement invariants. Par le résultat de base (théorème 1) rappelé dans la première leçon, il s'ensuit que, pour tout \(U\), on a
+\[
+\mathbf H^*(U,C_*(F))=\mathbf H^*(U\times\Aone,C_*(F)) \tag{4.1}
+\]
+En effet, comme \(U\) et \(U\times\Aone\) sont de dimension cohomologique finie, les deux côtés sont l'aboutissement d'une suite spectrale convergente
+\[
+E_2^{pq}=H^p(U,H^qC_*(F))\Rightarrow H^{p+q}(U,C_*(F))
+\]
+et de même pour \(U\times\Aone\). Par le théorème 1 appliqué à \(H^qC_*(F)\),
+\[
+H^p(X,H^qC_*(F)):=H^p(X,aH^qC_*(F))
+\]
+est le même pour \(X=U\) ou pour \(X=U\times\Aone\). En appliquant (3.5), nous déduisons de la proposition 4 \((2)\Rightarrow(1)\) que
+
+\begin{proposition*}[5]
+Pour \(k\) parfait, si \(F\) est un préfaisceau avec transferts, alors, pour tout \(p\), \(K(C_*(F)[p])\) est \(\Aone\)-local.
+\end{proposition*}
+
+En combinant la proposition 5 avec la proposition 7, on obtient la deuxième égalité de (1.1).
+
+\section*{2.5 Fin de la preuve du théorème 2}
+
+Pour tout faisceau simplicial pointé \(G_\bullet\), \(C_\bullet(G_\bullet)\) est un faisceau bisimplicial pointé dont on peut prendre la diagonale \(\Delta C_\bullet(G_\bullet)\). Pour tout faisceau pointé \(G\), on a une application naturelle \(G\to C_\bullet(G)\), et, pour un faisceau simplicial pointé \(G_\bullet\), ces applications pour les \(G_n\) induisent
+\[
+a:G_\bullet\longrightarrow \Delta C_\bullet(G_\bullet).
+\]
+
+\begin{proposition*}[6]
+Le morphisme \(a:G_\bullet\to\Delta C_\bullet(G_\bullet)\) est une \(\Aone\)-équivalence.
+\end{proposition*}
+
+\begin{proofdel}
+Nous déduisons la proposition 6 de la proposition 20.
+
+Les deux applications \(0,1:F_\bullet\to F_\bullet\wedge\Aone_+\) sont égalisées par \(F_\bullet\wedge\Aone_+\to F_\bullet\), donc deviennent égales dans la catégorie homotopique \(\Aone\). Si deux applications de faisceaux simpliciaux pointés \(F_\bullet\rightrightarrows G_\bullet\) se factorisent comme \(F_\bullet\to F_\bullet\wedge\Aone_+\to G_\bullet\), elles deviennent elles aussi égales. Par l'adjonction de \(\wedge\Aone_+\) et de \(C_1(-)=\Hom(\Aone_+,-)\), une telle factorisation se réécrit
+\[
+F_\bullet\longrightarrow C_1(G_\bullet)\longrightarrow G_\bullet.
+\]
+Cas particulier: les applications \(C_1(G_\bullet)\to G_\bullet\) deviennent égales dans la catégorie homotopique. Évaluées en \(X\), ces applications sont les restrictions \(0^*,1^*:G_\bullet(X\times\Aone)\to G_\bullet(X)\).
+
+L'espace affine \(\A^n\) est homotope à un point en ce sens que
+\[
+H:\Aone\times\A^n\longrightarrow\A^n,\qquad (t,x)\longmapsto tx
+\]
+interpelle entre l'identité (pour \(t=1\)) et l'application constante \(0\) (pour \(t=0\)). L'application \(H\) induit
+\[
+G_\bullet(S\times\A^n)\longrightarrow G_\bullet(S\times\A^n\times\Aone)
+\]
+et, en composant avec \(0,1\) dans \(\Aone\), on obtient que
+\[
+G_\bullet(S\times\A^n)\rightrightarrows G_\bullet(S\times\A^n)
+\]
+l'identité, et l'application induite par \(0:\A^n\to\A^n\), sont égales dans la catégorie homotopique \(\Aone\). L'application de faisceaux simpliciaux \(G_\bullet\to C_nG_\bullet\) est donc une \(\Aone\)-équivalence. Elle a pour inverse dans la catégorie homotopique \(\Aone\) l'application induite par \(0:\Spec(k)\to\A^n\), et l'on applique la remarque 1.
+
+Nous appliquons maintenant la proposition 20 aux faisceaux bisimpliciaux
+\[
+G_{pq}:=G_p,\qquad
+H_{pq}:=C_qG_p:S\longmapsto G_p(S\times\Delta^q)
+\]
+et à l'application naturelle \(G_{pq}\to H_{pq}\). Pour \(q\) fixé, c'est simplement \(G(S)\to G(S\times\A^q)\), et la proposition 20 donne la proposition 6.
+\end{proofdel}
+
+Pour prouver la dernière égalité de (1.1), il suffit de montrer que:
+
+\begin{lemma*}[1]
+Pour tout faisceau abélien \(F\), \(F[p]\to C_*(F)[p]\) induit une \(\Aone\)-équivalence de \(K(F[p])\) vers \(K(C_*(F)[p])\).
+\end{lemma*}
+
+\begin{proofdel}
+Pour \(G\) un monoïde (avec unité), l'ensemble simplicial pointé \(B_\bullet G\) est donné par
+\[
+B_nG=\left\{
+\begin{array}{c}
+\hbox{foncteurs de l'ensemble ordonné }(0,\ldots,n)\hbox{ vu comme catégorie}\\
+\hbox{vers }G\hbox{ vu comme catégorie à un seul objet}
+\end{array}
+\right\}.
+\]
+Cette construction se faisceautise, et peut s'appliquer terme à terme à un faisceau simplicial de monoïdes, donnant un faisceau bisimplicial pointé dont on peut prendre la diagonale
+\[
+BG_\bullet:=\Delta B_\bullet(G_\bullet).
+\]
+Cette construction commute avec la construction \(G_\bullet\to\Delta C_\bullet(G_\bullet)\). En effet, \(B_nG_p\) est naturellement isomorphe à \(G_p^n\); l'opération \(C_m\) commute aux produits, et \(B(\Delta C_\bullet(G_\bullet))\) et \(\Delta C_\bullet(BG_\bullet)\) sont toutes deux les diagonales du faisceau trisimplicial pointé \(C_\bullet B_\bullet G_\bullet\).
+
+Pour les faisceaux simpliciaux abéliens, l'opération \(B\) donne encore des faisceaux simpliciaux abéliens, donc peut être itérée, et \(\Delta C_\bullet\) commute à \(B^n\).
+
+Par la construction de Dold--Puppe, \(B\) correspond, à homotopie près, au décalage \([1]\) des complexes:
+\[
+NBG_\bullet\simeq(NG_\bullet)[1].
+\]
+Cela peut se voir comme une application du théorème d'Eilenberg--Zilber (voir [9, théorème 8.5.1]): on a
+\[
+NBG_\bullet\simeq BG_*\simeq \Tot B_*G_*\qquad\hbox{(Eilenberg--Zilber),}
+\]
+et, pour chaque \(G_q\), la normalisation de \(B_\bullet G_q\) est simplement \(G_q[1]\), de sorte que les doubles complexes \(B_*G_*\) et \(H_{pq}:=G_q\), pour \(p=1,0\) sinon, ont des \(\Tot\) homotopes.
+
+Si \(G_\bullet\) est un faisceau simplicial abélien, en appliquant la proposition 6 à \(B^pG_\bullet\), on obtient que
+\[
+B^pG_\bullet\longrightarrow \Delta C_\bullet B^pG_\bullet
+       =B^p\Delta C_\bullet G_\bullet                       \tag{6.1}
+\]
+est une \(\Aone\)-équivalence. Le foncteur \(K\) transforme les équivalences d'homotopie de chaînes en équivalences simpliciales. Pour tout groupe abélien simplicial \(L_\bullet\) (qui sera \(G_\bullet\) ou \(\Delta C_\bullet G_\bullet\)), on a donc une équivalence d'homotopie simpliciale
+\[
+B^pL_\bullet=KNB^pL_\bullet\simeq K((NL_\bullet)[p]).
+\]
+Les équivalences d'homotopie simpliciale étant des \(\Aone\)-équivalences, on conclut que (6.1) induit une \(\Aone\)-équivalence
+\[
+K((NG_\bullet)[p])\longrightarrow K(N(\Delta C_\bullet G_\bullet)[p]).
+\]
+\end{proofdel}
+
+\section*{2.6 Appendice: localisation}
+
+Soient \(C\) une catégorie et \(S\) un ensemble de morphismes de \(C\). La catégorie localisée \(C[S^{-1}]\) est déduite de \(C\) en «inversant formellement tous les \(s\in S\)». Avec cette définition, il est clair que l'on a un foncteur naturel
+\[
+\operatorname{loc}:C\longrightarrow C[S^{-1}],
+\]
+bijectif sur l'ensemble des objets, et que, pour toute catégorie \(D\),
+\[
+F\longmapsto F\circ\operatorname{loc}:\Hom(C[S^{-1}],D)\longrightarrow\Hom(C,D)
+\]
+est une bijection de \(\Hom(C[S^{-1}],D)\) vers l'ensemble des foncteurs de \(C\) vers \(D\) transformant les morphismes de \(S\) en isomorphismes.
+
+Si l'on se souvient que les catégories forment une 2-catégorie, et si l'on accepte le principe qu'il ne faut pas essayer de définir une catégorie plus précisément qu'à équivalence près (unique à isomorphisme unique près), la propriété universelle de \(C[S^{-1}]\) donnée ci-dessus est doublement insatisfaisante. La propriété universelle utile et facile à vérifier est la suivante: \(F\mapsto F\circ\operatorname{loc}\) est une équivalence de la catégorie \(\Hom(C[S^{-1}],D)\) vers la sous-catégorie pleine de \(\Hom(C,D)\) formée des foncteurs \(F\) qui envoient \(S\) sur des isomorphismes.
+
+\begin{proposition*}[7]
+Si \(Y\) dans \(C\) est tel que le foncteur
+\[
+h_Y:C^{op}\longrightarrow \mathrm{Sets}:X\longmapsto\Hom_C(X,Y)
+\]
+transforme les applications de \(S\) en bijections, alors
+\[
+\Hom_C(X,Y)\overset{\sim}{\longrightarrow}\Hom_{C[S^{-1}]}(X,Y).
+\]
+\end{proposition*}
+
+\begin{proofdel}
+Par la construction de Yoneda \(Y\mapsto h_Y\), \(C\) s'immerge dans la catégorie \(C^\wedge\) des foncteurs contravariants de \(C\) vers \(\mathrm{Sets}\), tandis que \(C[S^{-1}]\) s'immerge dans \(C[S^{-1}]^\wedge\), identifié par (a) à la sous-catégorie pleine de \(C^\wedge\) constituée des \(F\) qui transforment \(S\) en bijections. Pour \(Y\) dans \(C\), d'image \(\bar Y\) dans \(C[S^{-1}]\), et pour tout \(F\) dans \(C[S^{-1}]^\wedge\subset C^\wedge\), on a
+\[
+\Hom(h_Y,F)=\Hom(h_{\bar Y},F).
+\]
+En effet, par (a) et le lemme de Yoneda pour \(C\) et \(C[S^{-1}]\), les deux côtés valent \(F(Y)\). Cela signifie que \(h_{\bar Y}\) est la solution du problème universel consistant à envoyer \(h_Y\) dans un objet de \(C[S^{-1}]^\wedge\subset C^\wedge\). En particulier, pour \(Y\) comme en (b), c'est-à-dire dans \(C[S^{-1}]^\wedge\), \(h_{\bar Y}\) coïncide avec \(h_Y\), comme l'affirme (b).
+\end{proofdel}
+
+\begin{proposition*}[8]
+Soit \((L,R)\) une paire de foncteurs adjoints entre les catégories \(C\) et \(D\). Soient \(S\) et \(T\) des ensembles de morphismes de \(C\) et \(D\). Supposons que \(F\) envoie \(S\) dans \(T\) et que \(G\) envoie \(T\) dans \(S\). Alors les foncteurs \(\bar L,\bar R\) entre \(C[S^{-1}]\) et \(D[T^{-1}]\) induits par \(L\) et \(R\) forment encore une paire adjointe.
+\end{proposition*}
+
+\begin{proofdel}
+Les foncteurs \(\bar L\) et \(\bar R\) induits par \(F\) et \(G\) sont caractérisés par des diagrammes commutatifs
+\[
+\begin{tikzcd}[column sep=3.4em,row sep=2.2em]
+C \arrow[r,"L"] \arrow[d] & D \arrow[d]\\
+C[S^{-1}] \arrow[r,"\bar L"] & D[T^{-1}]
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=3.4em,row sep=2.2em]
+D \arrow[r,"R"] \arrow[d] & C \arrow[d]\\
+D[T^{-1}] \arrow[r,"\bar R"] & C[S^{-1}].
+\end{tikzcd}
+\]
+L'adjonction peut s'exprimer par les données de \(\varepsilon:Id\to RL\) et \(\eta:LR\to Id\), telles que les composés
+\[
+R\longrightarrow RLR\longrightarrow R,\qquad
+L\longrightarrow LRL\longrightarrow L
+\]
+soient les automorphismes identiques de \(R\) et \(L\), respectivement (voir par exemple [6]).
+
+Par la propriété universelle de la localisation, \(\varepsilon\) induit un morphisme \(\bar\varepsilon\to\bar R\bar L\): en effet, définir un tel morphisme revient à définir un morphisme \(\operatorname{loc}\to\bar R\bar L\operatorname{loc}\), et \(\bar R\bar L\operatorname{loc}=\operatorname{loc}RL\). De même, \(\eta\) induit \(\bar\eta:\bar L\bar R\to Id\). Le morphisme \(\bar R\to\bar R\bar L\bar R\to\bar R\), et de même pour \(\bar L\), est induit par \(R\to RLR\to R\), et la proposition en résulte.
+\end{proofdel}
+
+\begin{proposition*}[9]
+Supposons que:
+\begin{enumerate}[label=\arabic*.]
+\item la localisation \(C[S^{-1}]\) donne lieu à un calcul de fractions à droite;
+\item les coproduits existent dans \(C\), et \(S\) est stable par coproduits.
+\end{enumerate}
+Alors un coproduit dans \(C\) est aussi un coproduit dans \(C[S^{-1}]\).
+\end{proposition*}
+
+Pour la définition de «donne lieu à un calcul de fractions à droite», voir [10]. Cela implique que, pour \(X\) dans \(C\), la catégorie des \(s:X'\to X\), avec \(s\in S\), est filtrante, et que
+\[
+\Hom_{C[S^{-1}]}(X,Y)=
+\operatorname*{colim}_{s:X'\to X}\Hom_C(X',Y).
+\]
+
+\begin{proofdel}
+Pour \(X\) dans \(C\), soit \((S/X)\) la catégorie filtrante des morphismes \(X'\to X\) dans \(S\). Pour \(X\) coproduit des \(X_\alpha\), \(\alpha\in A\), on a un foncteur «coproduit»
+\[
+\prod_{\alpha\in A}(S/X_\alpha)\longrightarrow(S/X).
+\]
+Il est cofinal: pour \(s:X'\to X\) dans \(S\), on peut construire un diagramme
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.2em]
+X'_\alpha \arrow[r] \arrow[d,"s_\alpha"'] & X_\alpha \arrow[d]\\
+X' \arrow[r,"s"'] & X
+\end{tikzcd}
+\]
+avec \(s_\alpha:X'_\alpha\to X\) dans \(S\), et \(\coprod s_\alpha\) domine \(s\). Pour tout \(Y\), il en résulte que
+\[
+\begin{aligned}
+\Hom_{C[S^{-1}]}(X,Y)
+&=\operatorname*{colim}_{(S/X)}\Hom_C(X',Y)\\
+&=\operatorname*{colim}_{\prod(S/X_\alpha)}\Hom\Bigl(\coprod X'_\alpha,Y\Bigr)\\
+&=\operatorname*{colim}_{\prod(S/X_\alpha)}\prod\Hom(X'_\alpha,Y)\\
+&=\prod\operatorname*{colim}_{S/X_\alpha}\Hom(X'_\alpha,Y)
+ =\prod\Hom_{C[S^{-1}]}(X_\alpha,Y),
+\end{aligned}
+\]
+ce qui signifie que \(X\) est aussi le coproduit des \(X_\alpha\) dans \(C[S^{-1}]\).
+\end{proofdel}
+
+\begin{corollary*}[10]
+Supposons que, dans la catégorie abélienne \(A\), les sommes directes arbitraires existent et soient exactes. Alors les sommes directes arbitraires existent dans la catégorie dérivée \(D(A)\), et le foncteur de localisation
+\[
+C(A)\longrightarrow D(A)
+\]
+commute aux sommes directes.
+\end{corollary*}
+
+\begin{proofdel}
+Le foncteur \(C(A)\to D(A)\) se factorise par la catégorie \(K(A)\) des complexes et applications à homotopie près. Les sommes directes dans \(C(A)\) sont aussi des sommes directes dans \(K(A)\). En effet,
+\[
+\begin{aligned}
+\Hom_{K(A)}(\oplus K_\alpha,L)
+&=H^0\Hom^\bullet(\oplus K_\alpha,L)\\
+&=H^0\prod\Hom^\bullet(K_\alpha,L)
+ =\prod H^0\Hom^\bullet(K_\alpha,L),
+\end{aligned}
+\]
+car \(\prod\) est exact pour les groupes abéliens. L'exactitude de \(\oplus\) dans \(A\) assure qu'une somme directe de quasi-isomorphismes est encore un quasi-isomorphisme, et la proposition 9 s'applique à \(K(A)\) et à l'ensemble \(S\) des quasi-isomorphismes, ce qui prouve le corollaire.
+\end{proofdel}
+
+Si \(A_i\), \(i\ge0\), est un système inductif d'objets de \(A\), la colimite des \(A_i\) est le conoyau
+\[
+\oplus A_i\overset{d}{\longrightarrow}\oplus A_i\longrightarrow \operatorname{colim}A_i\longrightarrow0
+\]
+de la différence de l'identité et de la somme des \(A_i\to A_{i+1}\). Si la prise de la limite inductive d'une suite est un foncteur exact, l'application \(d\) est injective: c'est la colimite des
+\[
+\oplus_{i=0}^n A_i\longrightarrow \oplus_{i=0}^{n+1}A_i,
+\]
+chacune étant injective, car son gradué pour la filtration par les \(\oplus_{i\ge p}A_i\) est l'inclusion identique.
+
+Sous les hypothèses du corollaire 10, si un complexe \(K\) est la colimite d'une suite inductive \(K_{(i)}\), et si la suite
+\[
+0\longrightarrow\oplus K_{(i)}\overset{d}{\longrightarrow}\oplus K_{(i)}\longrightarrow K\longrightarrow0 \tag{10.1}
+\]
+est exacte, alors, pour tout \(L\), la suite exacte longue de cohomologie se lit
+\[
+\longrightarrow \Hom(K,L)\longrightarrow\prod\Hom(K_{(i)},L)
+ \overset{d}{\longrightarrow}\prod\Hom(K_{(i)},L)\longrightarrow
+\]
+Le noyau de \(d\) est simplement la limite projective des \(\Hom(K_{(i)},L)\). Le conoyau est \(\operatorname{lim}^1\). On conclut.
+
+\begin{proposition*}[11]
+Supposons que, dans \(A\), les sommes directes dénombrables existent et soient exactes. Si le complexe \(K\) est la colimite des \(K_{(i)}\), et si la suite (10.1) est exacte, par exemple si:
+\begin{enumerate}[label=\arabic*.]
+\item dans \(A\), les limites inductives de suites sont exactes;
+\item en chaque degré \(n\), chaque \(K^n_{(i)}\to K^n_{(i+1)}\) est l'inclusion d'un facteur direct;
+\end{enumerate}
+alors on a une suite exacte courte
+\[
+0\longrightarrow\operatorname{lim}^1\Hom(K_{(i)},L[-1])
+\longrightarrow\Hom(K,L)
+\longrightarrow\operatorname{lim}\Hom(K_{(i)},L)\longrightarrow0.
+\]
+\end{proposition*}
+
+\begin{proofdel}
+Il reste à vérifier que la condition (2) implique l'exactitude de (10.1). Cela se voit degré par degré. Par hypothèse, les \(A_i:=K^n_{(i)}\) ont des décompositions compatibles avec les applications de transition \(A_i=\oplus_{j=0}^i B_i\). Il s'ensuit une décomposition correspondante de (10.1) en somme directe, et l'on est ramené à vérifier l'exactitude du cas particulier \((10.1)_{(A,n)}\) de (10.1) où \(B_i=0\) pour \(i\ne n\), c'est-à-dire où \(A_i\) est un \(A\) fixé à partir de \(i\ge n\), et est \(0\) sinon. Soit \((10.1)_0\) la suite \((10.1)_{\Z,n}\) dans \(Ab\) pour \(A=\Z\). C'est une suite exacte scindée de groupes abéliens libres. Comme les sommes directes existent, \(L\otimes A\), pour \(L\) un groupe abélien libre, est défini et fonctoriel en \(L\). C'est une somme de copies de \(A\), indexée par une base de \(L\), et caractérisée par
+\[
+\Hom(L\otimes A,B)=\Hom(L,\Hom(A,B))
+\]
+(fonctoriellement en \(B\)). La suite \((10.1)_{A,n}\) est \((10.1)_0\otimes A\), et, \((10.1)_0\) étant scindée exacte, elle se scinde et est donc exacte.
+\end{proofdel}
+
+La troncature \(\sigma_{\le n}K=\sigma_{\ge -n}K\) d'un complexe \(K\) est le sous-complexe qui coïncide avec \(K\) en degré homologique \(\le n\) et qui est \(0\) en degré homologique \(>n\). Pour tout complexe \(K\), on a
+\[
+K=\operatorname*{colim}_{\sigma_{\le n}}K
+\]
+et cette colimite satisfait la condition (2) de la proposition 11. Il en résulte que
+
+\begin{corollary*}[12]
+Sous les hypothèses du corollaire 10, pour tous \(K\) et \(L\), on a une suite exacte courte
+\[
+0\longrightarrow\operatorname{lim}^1\Hom(\sigma_{\le n}K,L[-1])
+\longrightarrow\Hom(K,L)
+\longrightarrow\operatorname{lim}\Hom(\sigma_{\le n}K,L)\longrightarrow0.
+\]
+\end{corollary*}
+
+\section*{3 \(\Aone\)-équivalences des faisceaux simpliciaux sur les \(G\)-schémas}
+
+\section*{3.1 Faisceaux sur un site de \(G\)-schémas}
+
+Fixons un schéma de base \(S\), supposé noethérien séparé et de dimension finie; le produit fibré \(X\times_S Y\) sera simplement noté \(X\times Y\). Nous fixons aussi un schéma en groupes \(G\) sur \(S\), supposé fini et plat. On note \(h_X\) le faisceau représentable défini par \(X\).
+
+Soit \(QP/G\) la catégorie des schémas quasi-projectifs sur \(S\), munis d'une action de \(G\). Tout \(X\) dans \(QP/G\) admet un recouvrement ouvert \((U_i)\) par des sous-schémas ouverts affines \(G\)-stables. Cela permet de définir un quotient raisonnable \(X/G\) dans la catégorie des schémas sur \(S\) (plutôt que dans la catégorie plus large des espaces algébriques). Pour chaque \(U_i\), \(U_i/G\) est défini comme le spectre de l'égaliseur
+\[
+\mathcal O(U_i)\rightrightarrows\mathcal O(U_i\times G),
+\]
+et \(X/G\) s'obtient en recollant les \(U_i/G\). C'est un quotient catégorique, c'est-à-dire le coégaliseur de \(G\times X\rightrightarrows X\). L'application \(X\to X/G\) est finie, ouverte, et l'espace topologique \(|X/G|\) est le coégaliseur de l'application d'espaces topologiques \(|G\times X|\rightrightarrows |X|\). On peut montrer que \(X/G\) est encore quasi-projectif. La remarque 2 ci-dessous montre que ce fait, commode pour l'exposition, est sans importance.
+
+On définit sur \(QP/G\) une prétopologie [3, II.1.3] en prenant pour recouvrements les familles d'applications étales \(Y_i\to X\) ayant la propriété suivante: \(X\) admet une filtration par sous-schémas fermés équivariants \(\emptyset=X_n\subset\cdots\subset X_1\subset X_0=X\) telle que, pour tout \(j\), l'une des applications \(Y_i\to X\) admette une section au-dessus de \(X_j-X_{j+1}\). La topologie de Nisnevich sur \(QP/G\) est la topologie engendrée par cette prétopologie. La catégorie \(QP/G\) avec la topologie de Nisnevich est le \emph{site de Nisnevich} \((QP/G)_{\Nis}\).
+
+\begin{remark*}[1]
+Le topos correspondant n'est pas le topos classifiant de [2, IV.2.5]. Un morphisme \(X\to Y\) peut devenir un recouvrement de Nisnevich après oubli de l'action de \(G\), sans être un recouvrement de Nisnevich. Exemple: \(S=\Spec(k)\), \(G=\Z/2\), \(X=S\), \(Y=S\coprod S\), et \(G\) permute les deux copies de \(S\) dans \(Y\).
+\end{remark*}
+
+\begin{remark*}[2]
+Soit \((\mathrm{affine}/G)_{\Nis}\) le site défini comme ci-dessus, en remplaçant «quasi-projectif» par «affine». Il est équivalent à \((QP/G)_{\Nis}\), en ce sens que la restriction à \((\mathrm{affine}/G)_{\Nis}\) est une équivalence de la catégorie des faisceaux sur \((QP/G)_{\Nis}\) vers la catégorie des faisceaux sur \((\mathrm{affine}/G)_{\Nis}\).
+\end{remark*}
+
+\begin{remark*}[3]
+Si \(G\) est le groupe trivial \(e\), la définition donnée ci-dessus retrouve la topologie de Nisnevich usuelle. Pour \(G=e\), la condition habituellement considérée: «tout point \(x\) de \(X\) est l'image d'un point ayant le même corps résiduel d'un certain \(Y_i\)», est bien équivalente à la condition imposée ci-dessus. On le vérifie par induction noethérienne: si un point générique \(\xi\) de \(X\) peut être relevé à \(Y_i\), un voisinage ouvert \(U\subset X\) de \(\xi\) peut être relevé à \(Y_i\), et l'on applique l'hypothèse d'induction à \(X_1=(X-U)_{\red}\).
+\end{remark*}
+
+On écrit \((QP)_{\Nis}\) pour la catégorie des schémas quasi-projectifs sur \(S\), munie de la topologie de Nisnevich.
+
+\begin{lemma*}[2]
+Si \(U:Y_i\to X\), \(i\in I\), est un recouvrement de \(X\) dans \((QP/G)_{\Nis}\), il existe un recouvrement \(\mathcal V\) de \(X/G\) dans \((QP)_{\Nis}\) dont le tiré en arrière sur \(X\) est plus fin que \(U\).
+\end{lemma*}
+
+\begin{proofdel}
+Fixons une filtration \(\emptyset=X_n\subset\cdots\subset X_0=X\) comme dans la définition de la topologie de Nisnevich. Écrivons \(q\) pour l'application quotient \(X\to X/G\). Pour \(x\) dans \(X/G\), \((q^{-1}(x))_{\red}\) est contenu dans un certain \(X_j-X_{j+1}\), par équivariance des \(X_j\), et l'une des applications \(Y_i\to X\) admet une section équivariante \(s\) au-dessus de \(X_j-X_{j+1}\). Soit \((X/G)^h_x\) l'hensélisation de \(X/G\) en \(x\). L'application \(q\) étant finie, le tiré en arrière de \((X/G)^h_x\) à \(X\) est le coproduit des \(X^h_y\) pour \(q(y)=x\). L'application de \(Y_i\) vers \(X\) étant étale, la section \(s\), restreinte à \((q^{-1}(y))_{\red}\), se prolonge de façon unique en une section (automatiquement équivariante) de \(Y_i\) au-dessus de \(\coprod_{q(y)=x}X^h_y\). En écrivant \((X/G)^h_x\) comme limite des voisinages étales de \(x\), on trouve que \(x\) possède un voisinage étale \(V(x)\) tel que \(Y_i\) ait une section équivariante au-dessus de \(X\times_{X/G}V(x)\). Les \(V(x)\) forment le recouvrement \(\mathcal V\) requis.
+\end{proofdel}
+
+On définit les schémas henséliens \(G\)-locaux comme les schémas \(Y\) obtenus de la façon suivante. Pour \(X\) dans \((QP/G)\), \(y\) un point de \(X/G\), et \((X/G)^h_y\) l'hensélisation de \(X/G\) en \(y\), on prend le produit fibré
+\[
+Y:=X\times_{X/G}(X/G)^h_y.
+\]
+Comme \(X\) est fini sur \(X/G\), ce produit fibré est une union disjointe finie de schémas henséliens locaux, et les schémas henséliens \(G\)-locaux sont simplement les unions disjointes finies \(G\)-équivariantes de tels \(Y\) de schémas henséliens locaux, pour lesquels \(Y/G\) est local.
+
+\begin{proposition*}[13]
+Si \(Y\) est \(G\)-local hensélien, le foncteur \(X\mapsto\Hom(Y,X)\) est un point du site \((QP/G)_{\Nis}\), c'est-à-dire qu'il définit un morphisme du site ponctuel \((\mathrm{Sets})\) vers \((QP/G)_{\Nis}\). Si \(Y=X\times_{X/G}(X/G)^h_y\), le foncteur fibre correspondant est
+\[
+F\longmapsto \operatorname*{colim}_{Y\subset X\times_{X/G}V}F(X\times_{X/G}V),
+\]
+la colimite étant prise sur les voisinages étales de \(y\) dans \(X/G\). La collection des foncteurs fibres ainsi obtenue est conservative.
+\end{proposition*}
+
+\begin{proofdel}
+Le foncteur \(X\mapsto\Hom(Y,X)\) commute aux limites finies. Il résulte du lemme 2 qu'il transforme les recouvrements en familles surjectives d'applications, donc qu'il est un morphisme de sites \((\mathrm{Sets})\to(QP/G)_{\Nis}\).
+
+Pour vérifier que l'ensemble de foncteurs fibres obtenu est conservatif, il suffit de vérifier qu'une famille étale \(f_i:U_i\to X\) est un recouvrement si, pour tout \(G\)-local hensélien \(Y\),
+\[
+\coprod_i \Hom(Y,U_i)\longrightarrow \Hom(Y,X)
+\]
+est surjective. La preuve, parallèle à celle du lemme 2, est laissée au lecteur.
+\end{proofdel}
+
+\section*{3.2 La structure de modèle fermée de Brown--Gersten sur les faisceaux simpliciaux sur les \(G\)-schémas}
+
+Rappelons qu'un carré commutatif d'ensembles simpliciaux (ou d'ensembles simpliciaux pointés)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+K \arrow[r] \arrow[d] & L \arrow[d]\\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{13.1}
+\]
+est homotopiquement cartésien (ou un carré de tiré en arrière homotopique) si, lorsque \(L\) est remplacé par \(L'\) faiblement équivalent à lui et envoyé vers \(N\) par une fibration (de Kan) \(L\overset{\sim}{\to}L'\to N\), l'application de \(K\) vers \(L'\times_NM\) est une équivalence faible.
+
+\begin{definition*}[3]
+Un préfaisceau simplicial \(F_\bullet\) sur \((QP/G)_{\Nis}\) est flasque si \(F(\emptyset)\) est contractile et si, pour tout carré distingué (supérieur)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+B \arrow[r] \arrow[d] & Y \arrow[d,"p"]\\
+A \arrow[r,"j"'] & X
+\end{tikzcd}
+\]
+(\(p\) étale, \(j\) immersion ouverte, \(B=p^{-1}(A)\), et \(Y-B\simeq X-A\)), le carré
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=2em]
+F(X) \arrow[r] \arrow[d] & F(Y) \arrow[d,"p"]\\
+F(A) \arrow[r,"j"'] & F(B)
+\end{tikzcd}
+\]
+est homotopiquement cartésien.
+\end{definition*}
+
+\begin{theorem*}[3]
+Soit \(f:F_\bullet\to F'_\bullet\) un morphisme de préfaisceaux simpliciaux flasques. Si le morphisme induit de faisceaux simpliciaux \(aF_\bullet\to aF'_\bullet\) est une équivalence locale, alors, pour tout \(U\) dans \(QP/G\), \(F_\bullet(U)\to F'_\bullet(U)\) est une équivalence faible.
+\end{theorem*}
+
+
+\begin{proofdel}
+Pour un \(G\)-schéma \(X\), soit \(X_{\Nis}\) le petit site de Nisnevich de \(X\); et, pour un préfaisceau \(F\) sur \((QP/G)\), soit \(F_{|X}\) la restriction de \(F\) à \(X_{\Nis}\). L'hypothèse que
+\[
+  aF_\bullet\longrightarrow aF'_\bullet
+\]
+est une équivalence locale implique que
+\[
+  aF_{\bullet,|U}\longrightarrow aF'_{\bullet,|U}
+\]
+est une équivalence locale. L'application \(U\to U/G\) définit un morphisme de sites
+\[
+  p:U_{\Nis}\longrightarrow (U/G)_{\Nis},
+\]
+et le lemme 2 implique que le foncteur image directe \(p_*\) commute au foncteur faisceau associé et envoie les équivalences locales sur des équivalences locales. Par conséquent le morphisme
+\[
+  a p_*(F_{\bullet,|U})\longrightarrow a p_*(F'_{\bullet,|U})
+\]
+est une équivalence locale. Les préfaisceaux \(p_*(F_{\bullet,|U})\) et \(p_*(F'_{\bullet,|U})\) sont flasques sur \((U/G)_{\Nis}\), et par [8, lemme 3.1.18] on conclut que
+\[
+F_\bullet(U)=p_*(F_{\bullet,|U})(U/G)
+  \longrightarrow p_*(F'_{\bullet,|U})(U/G)=F'_\bullet(U)
+\]
+est une équivalence faible.
+\end{proofdel}
+
+Dans [1], Brown et Gersten définissent une structure de modèle simpliciale fermée sur la catégorie des faisceaux simpliciaux pointés sur un espace topologique noethérien de dimension finie. Comme chez Jardine [11], les équivalences sont les équivalences locales. La catégorie homotopique est donc la même que celle de Joyal, mais la structure de modèle est différente: moins de cofibrations, plus de fibrations.
+
+Les arguments de [1] fonctionnent également pour la topologie de Nisnevich, pour le grand comme pour le petit site de Nisnevich, ou pour \((QP/G)_{\Nis}\), une fois le théorème 3 disponible. Rappelons les définitions de base, en travaillant dans \((QP/G)_{\Nis}\). Soit \(\Lambda^{n,k}\) le sous-ensemble simplicial de \(\partial\Delta^n\), réunion de toutes les faces sauf la \(k\)-ième. Pour \(n=0\), \(\Lambda^{0,0}=\varnothing\). On prend comme cofibrations triviales génératrices les applications de la forme \((J)\):
+\[
+\begin{array}{ll}
+(J_a) & (\Lambda^{n,k}\times h_X)_+\longrightarrow (\Delta^n\times h_X)_+,\\[0.4em]
+(J_b) & \text{pour } U\to X \text{ une immersion ouverte,}\quad
+\bigl((\Delta^n\times h_U)\coprod_{\Lambda^{n,k}\times h_U}(\Lambda^{n,k}\times h_X)\bigr)_+
+\longrightarrow (\Delta^n\times h_X)_+.
+\end{array}
+\]
+On définit alors les \emph{fibrations} comme les morphismes \(p\) ayant la propriété de relèvement à droite relativement aux cofibrations triviales génératrices (voir, par exemple, [5]), les \emph{équivalences (faibles)} comme les équivalences locales, les \emph{fibrations triviales} comme les fibrations qui sont aussi des équivalences (faibles), et les \emph{cofibrations} comme les morphismes ayant la propriété de relèvement à gauche relativement aux fibrations triviales.
+
+En suivant [1] et en utilisant le théorème 3, on prouve que les fibrations triviales peuvent aussi être décrites comme les morphismes ayant la propriété de relèvement à droite relativement à la classe suivante de morphismes \((I)\):
+\[
+\begin{array}{ll}
+(I_a) & (\partial\Delta^n\times h_X)_+\subset (\Delta^n\times h_X)_+,\\[0.4em]
+(I_b) & \text{pour } U\to X \text{ une immersion ouverte,}\quad
+\bigl((\Delta^n\times h_U)\coprod_{\partial\Delta^n\times h_U}(\partial\Delta^n\times h_X)\bigr)_+
+\longrightarrow (\Delta^n\times h_X)_+.
+\end{array}
+\]
+Les applications de la forme \((I)\) sont appelées cofibrations génératrices.
+
+Pour \(X\) et \(Y\) des faisceaux simpliciaux pointés, on définit un ensemble simplicial pointé \(S(X,Y)\) par
+\[
+S(X,Y)_n=\Hom(X\wedge(\Delta^n)_+,Y).
+\]
+D'après [1], les classes de cofibrations, d'équivalences (faibles), de fibrations, et \(S\) forment une structure de modèle simpliciale fermée au sens de []. Cela a les conséquences suivantes.
+
+\begin{corollary*}[14]
+Si \(X\) est cofibrant et \(Y\) fibrant, pour tout ensemble simplicial pointé \(K\), on a, dans les catégories homotopiques correspondantes,
+\[
+\Hom_{H_0}(X\wedge K,Y)=\Hom_{H_0}(K,S(X,Y)).
+\]
+En particulier, en prenant \(K=(\Delta^0)_+\), on obtient
+\[
+\Hom_{H_0}(X,Y)=\pi_0S(X,Y).
+\]
+\end{corollary*}
+
+\begin{corollary*}[15]
+Si \(X\to Y\) est une cofibration et \(Z\) un objet cofibrant, alors \(X\wedge Z\to Y\wedge Z\) est une cofibration.
+\end{corollary*}
+
+\begin{corollary*}[16]
+Si \(X\) est cofibrant et \(Y\) est fibrant, alors, pour tout \(Z\),
+\[
+\Hom_{H_0}(Z,\uHom(X,Y))=\Hom_{H_0}(Z\wedge X,Y). \tag{16.1}
+\]
+Dans (16.1), \(\uHom(X,Y)\) est le faisceau simplicial pointé dont les composantes sont les faisceaux d'homomorphismes de \(X\wedge(\Delta^n)_+\) vers \(Y\).
+\end{corollary*}
+
+Nous appliquons maintenant ce formalisme pour prouver le critère suivant de \(\Aone\)-localité.
+
+\begin{proposition*}[17]
+Soit \(F\) un faisceau simplicial pointé sur \((QP/G)\). Si, comme préfaisceau simplicial, \(F\) est flasque, alors \(F\) est \(\Aone\)-local si et seulement si, pour tout \(U\) dans \((QP/G)\),
+\[
+F(U)\longrightarrow F(U\times\Aone)
+\]
+est une équivalence faible.
+\end{proposition*}
+
+Rappelons que \(\Aone\)-local signifie que, pour tout \(Y\), on a dans la catégorie homotopique
+\[
+\Hom_{H_0}(Y,F)=\Hom_{H_0}(Y\wedge(h_{\Aone})_+,F). \tag{17.1}
+\]
+
+\begin{lemma*}[3]
+Un faisceau simplicial pointé fibrant est flasque.
+\end{lemma*}
+
+\begin{proofdel}
+La propriété de relèvement à droite de \(F\to *\) relativement aux morphismes \((J_b)\) signifie que, pour une immersion ouverte \(U\subset X\), le morphisme \(F(X)\to F(U)\) est une fibration de Kan. Puisque \(F\) est un faisceau, un carré distingué supérieur
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.0em]
+B \arrow[r] \arrow[d] & Y \arrow[d] \\
+A \arrow[r] & X
+\end{tikzcd}
+\]
+donne naissance à un carré cartésien
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=2.0em]
+F(X) \arrow[r] \arrow[d] & F(Y) \arrow[d] \\
+F(A) \arrow[r] & F(B).
+\end{tikzcd}
+\]
+Comme \(F(Y)\to F(B)\) est une fibration de Kan, ce carré est aussi homotopiquement cartésien.
+\end{proofdel}
+
+\begin{lemma*}[4]
+La proposition 17 reste vraie si l'hypothèse «\(F\) est flasque» est remplacée par l'hypothèse «\(F\) est fibrant».
+\end{lemma*}
+
+\begin{proofdel}
+«Seulement si.» \((I_a)\), pour \(n=0\), dit que pour tout \(U\), \((h_U)_+\) est cofibrant. Par le corollaire 14, pour tout ensemble simplicial pointé \(K\), on a
+\[
+\Hom_{H_0}((h_U)_+\wedge K,F)=\Hom_{H_0}(K,S((h_U)_+,F)),
+\]
+et \(S((h_U)_+,F)\) n'est autre que \(F(U)\). Si, dans (17.1), on prend \(Y=K\wedge(h_U)_+\), de sorte que
+\[
+Y\wedge(h_{\Aone})_+=K\wedge(h_{U\times\Aone})_+,
+\]
+on obtient
+\[
+\Hom_{H_0}(K,F(U\times\Aone))=\Hom_{H_0}(K,F(U)).
+\]
+Le fait que ceci vaille pour tout \(K\) signifie que \(F(U)\to F(U\times\Aone)\) devient un isomorphisme dans la catégorie homotopique, donc une équivalence faible.
+
+«Si.» On applique le corollaire 16. Comme \((h_{\Aone})_+\) est cofibrant et \(F\) fibrant,
+\[
+\Hom_{H_0}(Y\wedge(h_{\Aone})_+,F)=\Hom_{H_0}(Y,\uHom((h_{\Aone})_+,F)),
+\]
+et il suffit de montrer que
+\[
+F\longrightarrow \uHom((h_{\Aone})_+,F)
+\]
+est une équivalence locale. Ce \(\uHom\) est le faisceau simplicial \(U\mapsto F(U\times\Aone)\), et l'assertion en résulte.
+\end{proofdel}
+
+\begin{proofdel}
+Nous pouvons maintenant terminer la preuve de la proposition 17. Soit \(F\to F'\) un remplacement fibrant de \(F\). Comme \(F\) et \(F'\) sont flasques, \(F(U)\to F'(U)\) est une équivalence faible pour tout \(U\). Que tous les \(F(U)\to F(U\times\Aone)\) soient des équivalences faibles équivaut donc à ce que tous les \(F'(U)\to F'(U\times\Aone)\) le soient, tandis que \(F\) est \(\Aone\)-local si et seulement si \(F'\) l'est.
+\end{proofdel}
+
+\subsection*{3.3 Classes \(\bar\Delta\)-fermées}
+
+La preuve du théorème principal de cette section sera différée.
+
+\begin{definition*}[4]
+Une classe \(S\) de morphismes de faisceaux simpliciaux pointés est \(\Delta\)-fermée si:
+\begin{enumerate}[label=\arabic*.]
+\item les équivalences d'homotopie (simpliciales) appartiennent à \(S\);
+\item si deux des morphismes \(f\), \(g\) et \(fg\) appartiennent à \(S\), alors le troisième aussi;
+\item \(S\) est stable par coproduits finis;
+\item si \(F_{**}\to G_{**}\) est un morphisme de faisceaux bisimpliciaux pointés, et si tous les \(F_{*p}\to G_{*p}\) appartiennent à \(S\), alors la diagonale \(\Delta(F)\to\Delta(G)\) appartient à \(S\).
+\end{enumerate}
+\end{definition*}
+
+\begin{definition*}[5]
+La classe \(S\) est \(\bar\Delta\)-fermée si, de plus, elle est stable par coproduits arbitraires et par colimites de suites \((F_*\to G_*)_n\) telles que, degré par degré, \((F_*)_n\to(F_*)_{n+1}\) (respectivement \((G_*)_n\to(G_*)_{n+1}\)) soit isomorphe à une immersion \(A\subset A\coprod B\) de faisceaux pointés.
+\end{definition*}
+
+\begin{theorem*}[4]
+La classe des \(\Aone\)-équivalences est la \(\bar\Delta\)-fermeture de l'union des classes de:
+\begin{enumerate}[label=\arabic*.]
+\item équivalences locales;
+\item morphismes \((U\times\Aone)_+\to U_+\), pour \(U\) dans \(\Sm/k\).
+\end{enumerate}
+En particulier, la classe des \(\Aone\)-équivalences est \(\bar\Delta\)-fermée.
+\end{theorem*}
+
+\subsection*{3.4 La classe des \(\Aone\)-équivalences est \(\bar\Delta\)-fermée}
+
+Les propriétés 4(1), 4(2) et 4(3) sont claires. La dernière propriété est prouvée dans la proposition 20.
+
+\begin{lemma*}[5]
+Soient \(A\) un ensemble simplicial pointé et \(X\) un faisceau simplicial pointé. Si \(X\) est fibrant et \(\Aone\)-local, alors \(X^A\) est \(\Aone\)-local.
+\end{lemma*}
+
+\begin{proofdel}
+Comme \(X\) est fibrant, pour tout \(Y\), on a dans la catégorie homotopique
+\[
+\Hom_{H_0}(Y,X^A)=\Hom_{H_0}(A\wedge Y,X). \tag{17.1}
+\]
+En appliquant ceci à \(Y\) et à \(Y\wedge(\Aone_+)\), et en utilisant
+\[
+(A\wedge Y)\wedge(\Aone_+)=A\wedge(Y\wedge(\Aone_+)),
+\]
+on déduit de la \(\Aone\)-localité de \(X\) celle de \(X^A\).
+\end{proofdel}
+
+\begin{lemma*}[6]
+Soient \(f:K\to L\) un morphisme de faisceaux simpliciaux pointés et \(A\) un ensemble simplicial pointé. Si \(f\) est une \(\Aone\)-équivalence, alors il en est de même de
+\[
+f\wedge A:X\wedge A\longrightarrow Y\wedge A.
+\]
+\end{lemma*}
+
+\begin{proofdel}
+Il faut vérifier que, pour tout \(\Aone\)-local \(X\), on a dans la catégorie homotopique
+\[
+\Hom_{H_0}(A\wedge L,X)=\Hom_{H_0}(A\wedge K,X).
+\]
+En remplaçant \(X\) par un remplacement fibrant, on peut supposer \(X\) fibrant. En appliquant (17.1), on est ramené au lemme 5.
+\end{proofdel}
+
+\begin{lemma*}[7]
+Soit \(f:K\to L\) un morphisme de faisceaux simpliciaux pointés. Si \(K\) et \(L\) sont cofibrants, alors \(f\) est une \(\Aone\)-équivalence si et seulement si, pour tout \(X\) fibrant et \(\Aone\)-local, le morphisme d'ensembles simpliciaux
+\[
+S(L,X)\longrightarrow S(K,X)
+\]
+est une équivalence faible.
+\end{lemma*}
+
+\begin{proofdel}
+«Si.» En prenant \(\pi_0\), on déduit des hypothèses que
+\[
+\Hom_{H_0}(L,X)\overset{\sim}{\longrightarrow}\Hom_{H_0}(K,X).
+\]
+«Seulement si.» Les hypothèses impliquent que \(S(K,X)\) et \(S(L,X)\) sont fibrants. Pour tout ensemble simplicial pointé \(A\), on a
+\[
+\Hom_{H_0}(A,S(K,X))=\Hom_{H_0}(K\wedge A,X),
+\]
+et de même pour \(L\); on applique alors le lemme 6.
+\end{proofdel}
+
+\begin{proposition*}[18]
+Le coproduit d'une famille de \(\Aone\)-équivalences
+\[
+f_\alpha:X_\alpha\longrightarrow Y_\alpha
+\]
+est une \(\Aone\)-équivalence.
+\end{proposition*}
+
+\begin{proofdel}
+Il existe des diagrammes commutatifs
+\[
+\begin{tikzcd}[column sep=2.5em,row sep=1.8em]
+* \arrow[r] \arrow[d] & X'_\alpha \arrow[r,"f'_\alpha"] \arrow[d] & Y'_\alpha \arrow[d] \\
+* \arrow[r] & X_\alpha \arrow[r,"f_\alpha"] & Y_\alpha,
+\end{tikzcd}
+\]
+dans lesquels les morphismes de la première ligne sont des cofibrations et les flèches verticales des équivalences locales, et de même pour \(Y\). En remplaçant \(X_\alpha\) (respectivement \(Y_\alpha\)) par \(X'_\alpha\) (respectivement \(Y'_\alpha\)), on peut et on va supposer que les \(X_\alpha\) et les \(Y_\alpha\) sont cofibrants. Les coproduits \(\coprod X_\alpha\), \(\coprod Y_\alpha\) sont alors aussi cofibrants. On a
+\[
+S\bigl(\coprod X_\alpha,X\bigr)=\prod S(X_\alpha,X),
+\]
+et de même pour les \(Y_\alpha\); on applique le lemme 7 et le fait qu'un produit d'une famille d'équivalences faibles d'ensembles simpliciaux pointés fibrants est une équivalence faible.
+\end{proofdel}
+
+\begin{proposition*}[19]
+La colimite
+\[
+f:\colim F_n\longrightarrow\colim G_n
+\]
+d'une suite inductive de \(\Aone\)-équivalences \(f_n:F_n\to G_n\) est encore une \(\Aone\)-équivalence.
+\end{proposition*}
+
+\begin{proofdel}
+On construit inductivement une suite inductive de carrés commutatifs
+\[
+\begin{tikzcd}[column sep=2.5em,row sep=1.8em]
+F'_n \arrow[r,"f'_n"] \arrow[d] & G'_n \arrow[d] \\
+F_n \arrow[r,"f_n"] & G_n,
+\end{tikzcd}
+\]
+dans lesquels les flèches verticales sont des équivalences locales, les \(F'_n\) et les \(G'_n\) sont cofibrants, et les morphismes de transition \(F'_n\to F'_{n+1}\), \(G'_n\to G'_{n+1}\) sont des cofibrations. Une colimite d'équivalences locales étant une équivalence locale, il suffit de prouver la proposition pour la suite \((f'_n)\). On peut donc supposer que
+\[
+*\longrightarrow F_1\longrightarrow\cdots\longrightarrow F_n\longrightarrow\cdots
+\]
+est une suite de cofibrations, et de même pour
+\[
+*\longrightarrow G_1\longrightarrow\cdots\longrightarrow G_n\longrightarrow\cdots.
+\]
+Les colimites \(F\) et \(G\) de ces suites sont alors cofibrantes.
+
+Si \(X\) est fibrant et \(\Aone\)-local, \(S(G,X)\to S(F,X)\) est la limite de la suite d'équivalences faibles
+\[
+S(G_n,X)\longrightarrow S(F_n,X).
+\]
+Dans les suites \(S(G_n,X)\) et \(S(F_n,X)\), les morphismes de transition sont des fibrations d'objets fibrants. Il s'ensuit que la limite est encore une équivalence faible: les \(\pi_i\) de la limite s'envoient sur la limite des \(\pi_i\), avec des fibres des torseurs sous \((\limi{}^1\pi_{i+1})\). Il reste à appliquer le lemme 7.
+\end{proofdel}
+
+\begin{proposition*}[20]
+Soit \(F_{**}\to G_{**}\) un morphisme de faisceaux bisimpliciaux pointés. Si tous les \(F_{p*}\to G_{p*}\) sont des \(\Aone\)-équivalences, alors \(\Delta(F)\to\Delta(G)\) en est une.
+\end{proposition*}
+
+Pour prouver la proposition 20, on attachera fonctoriellement à \(F_{**}\) une suite inductive de faisceaux simpliciaux pointés \(F^{(n)}\), dont la colimite s'envoie vers \(\Delta(F)\) par une équivalence locale. On prouvera ensuite inductivement que \(F^{(n)}\to G^{(n)}\) est une \(\Aone\)-équivalence, puis on appliquera la proposition 19. Commençons par des préliminaires à la construction des \(F^{(n)}\).
+
+\begin{proposition*}[21]
+Soit \(\Delta_{\inj}\) la catégorie des ensembles finis ordonnés \(\Delta^n=(0,\ldots,n)\) et des applications croissantes injectives. Pour toute catégorie \(C\) ayant des coproduits finis, le foncteur d'oubli
+\[
+\omega:\Delta^{\op}C\longrightarrow \Delta^{\op}_{\inj}C
+\]
+a un adjoint à gauche \(\omega'\): «ajout formel de simplexes dégénérés»: \((\omega'X)_n\) est le coproduit, sur tous les \(p\) et toutes les applications croissantes surjectives \(s:\Delta^n\to\Delta^p\), de copies de \(X_p\),
+\[
+(\omega'X)_n=\coprod_s X_p.
+\]
+On définit le foncteur d'enveloppement
+\[
+\Wr:\Delta^{\op}C\longrightarrow\Delta^{\op}C
+\]
+comme le composé \(\Wr:=\omega'\omega\). Pour \(C\) la catégorie des ensembles ou des ensembles pointés, on a le résultat suivant.
+\end{proposition*}
+
+\begin{lemma*}[8]
+Le morphisme d'adjonction \(a:\Wr(X)\to X\) est une équivalence faible.
+\end{lemma*}
+
+\begin{proofdel}
+Nous le prouvons pour \(C\) la catégorie des ensembles. Le cas pointé est analogue. Le groupoïde fondamental de \(X\) est la catégorie dont l'ensemble des objets est \(X_0\), dans laquelle tous les morphismes sont inversibles, et universelle pour la propriété suivante:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\sigma\in X_1\) définit un morphisme \(f(\sigma):\partial_1(\sigma)\to\partial_0(\sigma)\).
+\item Pour \(\tau\in X_2\), \(f(\partial_1\tau)=f(\partial_0\tau)f(\partial_2\tau)\).
+\end{enumerate}
+On a \(X_0=\Wr(X)_0\). Pour traiter \(\pi_0\) et \(\pi_1\), il suffit de montrer que \(a\) induit un isomorphisme des groupoïdes fondamentaux. Pour tout \(X\) et tout \(p\in X_0\), \(f(s_0(p))\) est l'identité de \(p\). Cela résulte de (2) appliqué à \(s_0s_0(p)\), qui donne
+\[
+f(s_0(p))=f(s_0(p))f(s_0(p)).
+\]
+Comme générateurs du groupoïde fondamental, il suffit donc de prendre les \(\sigma\in X_1\) non dégénérés. Pour les relations, il suffit alors de prendre celles qui proviennent des \(\tau\in X_2\) non dégénérés: les \(\tau\) dégénérés ne donnent rien de nouveau.
+
+En appliquant ceci à \(\Wr(X)\), on trouve comme ensemble de générateurs \(X_1\), et des relations indexées par \(X_2\), les mêmes relations que pour \(X\).
+
+Le foncteur \(\Wr\) commute au passage aux composantes connexes et au passage à un revêtement. Pour traiter les \(\pi_i\) supérieurs, on se ramène ainsi au cas où \(X\) (et donc \(\Wr(X)\)) est connexe et simplement connexe. Dans ce cas il suffit de vérifier que \(a\) induit un isomorphisme en homologie. C'est le cas car on a un diagramme commutatif
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.6em]
+C_*(X) \arrow[r,"\sim"] \arrow[dr] & C_*(\Wr(X))/\text{dégénérescences} \arrow[d] \\
+& C_*(X)/\text{dégénérescences},
+\end{tikzcd}
+\]
+dans lequel la première flèche est un isomorphisme, la deuxième est l'effet de \(a\) en homologie, et le composé est une équivalence d'homotopie.
+\end{proofdel}
+
+\begin{proposition*}[22]
+Pour \(X\) un faisceau simplicial pointé, soit \(\sk_n(X)\) le \(n\)-ième squelette de \(X\), c'est-à-dire le sous-faisceau simplicial de \(X\) pour lequel \((\sk_n(X))_p\) est la réunion des images des dégénérescences \(X_q\to X_p\), pour \(q\le n\). On a des carrés cocartésiens
+\[
+\begin{tikzcd}[column sep=4.2em,row sep=2.0em]
+X_{n+1}\wedge(\partial\Delta^{n+1})_+ \arrow[r] \arrow[d] & \sk_n(\Wr(X)) \arrow[d] \\
+X_{n+1}\wedge(\Delta^{n+1})_+ \arrow[r] & \sk_{n+1}(\Wr(X)).
+\end{tikzcd}
+\tag{22.1}
+\]
+Soit maintenant \(F\) bisimplicial. Chaque \(F_{n,\bullet}\) est simplicial, et ils forment un système simplicial de faisceaux simpliciaux pointés. Appliquons \(\Wr\) et \(\sk_n\) à la première variable, c'est-à-dire au faisceau simplicial \(F_{\bullet,m}\) pour chaque \(m\) fixé. On a de nouveau les diagrammes (22.1), et, en prenant la diagonale \(\Delta\), on obtient des carrés cocartésiens:
+\[
+\begin{tikzcd}[column sep=4.2em,row sep=2.0em]
+F_{n+1}\wedge(\partial\Delta^{n+1})_+ \arrow[r] \arrow[d] & \Delta(\sk_n(\Wr(F))) \arrow[d] \\
+F_{n+1}\wedge(\Delta^{n+1})_+ \arrow[r] & \Delta(\sk_{n+1}(\Wr(F))).
+\end{tikzcd}
+\tag{22.2}
+\]
+Ici \(F_n\) désigne maintenant le faisceau simplicial pointé \(F_{n,\bullet}\). Ainsi le faisceau simplicial \(\Delta(\Wr(F))\), qui par le lemme 8 s'envoie vers \(\Delta(F)\) par une équivalence locale, apparaît comme une limite inductive de (22.2).
+\end{proposition*}
+
+\begin{proofnamed}{Preuve de la proposition 20}
+Avec les notations de 22, il suffit de montrer que les morphismes
+\[
+\Delta\sk_n\Wr(F)\longrightarrow\Delta\sk_n\Wr(G)
+\]
+(où \(\sk_n\Wr\) est appliqué à la première variable) sont des \(\Aone\)-équivalences. On le prouve par récurrence sur \(n\). Pour \(n=0\), \(\Delta\sk_0\Wr(F)=F_0\), et \(F_0\to G_0\) est supposé être une \(\Aone\)-équivalence. Du rang \(n\) au rang \(n+1\), on a un morphisme de carrés cocartésiens
+\[
+\text{(22.2) pour }F\quad\longrightarrow\quad\text{(22.2) pour }G.
+\]
+Comme \(F_{n+1}\to G_{n+1}\) est une \(\Aone\)-équivalence, le lemme 6 implique qu'il en est de même de ses smash-produits avec \((\partial\Delta^{n+1})_+\) et \((\Delta^{n+1})_+\). Il reste à appliquer le lemme suivant.
+\end{proofnamed}
+
+\begin{lemma*}[9]
+Supposons donné un morphisme de carrés cocartésiens
+\[
+\begin{tikzcd}[column sep=2.0em,row sep=1.5em]
+1 \arrow[r] \arrow[d] & 2 \arrow[d]
+&[-0.2em] \arrow[r,phantom,"\longrightarrow"] &[-0.2em]
+1' \arrow[r] \arrow[d] & 2' \arrow[d] \\
+3 \arrow[r] & 4 && 3' \arrow[r] & 4'
+\end{tikzcd}
+\]
+qui est une \(\Aone\)-équivalence aux positions \(1\), \(2\) et \(3\). Si, dans chaque carré, la première flèche verticale est injective, alors le morphisme de carrés est aussi une \(\Aone\)-équivalence en position \(4\).
+\end{lemma*}
+
+\begin{proofdel}
+En remplaçant les carrés cocartésiens par des carrés cocartésiens d'objets localement équivalents, on peut et on va supposer que tous les objets considérés sont cofibrants et que les flèches verticales sont des cofibrations.
+
+Si \(X\) est fibrant, en appliquant \(S(-,X)\) à chacun des carrés, on obtient un morphisme de carrés cartésiens d'ensembles simpliciaux pointés dans lesquels les flèches verticales sont des cofibrations:
+\[
+\begin{tikzcd}[column sep=2.2em,row sep=1.5em]
+S(4,X) \arrow[r] \arrow[d] & S(3,X) \arrow[d]
+&[-0.2em] \arrow[l,phantom,"\longleftarrow"] &[-0.2em]
+S(4',X) \arrow[r] \arrow[d] & S(3',X) \arrow[d] \\
+S(2,X) \arrow[r] & S(1,X) && S(2',X) \arrow[r] & S(1',X).
+\end{tikzcd}
+\]
+Si \(X\) est de plus \(\Aone\)-local, c'est une équivalence faible aux positions \(1\), \(2\) et \(3\), donc aussi à la position \(4\). Par le lemme 7, ceci prouve le lemme 9, achève la preuve de la proposition 20, et prouve aussi que la classe des \(\Aone\)-équivalences est \(\bar\Delta\)-fermée.
+\end{proofdel}
+
+\subsection*{3.5 La classe des \(\Aone\)-équivalences comme \(\bar\Delta\)-fermeture}
+
+Dans cette section, nous terminons la preuve du théorème 4.
+
+\begin{proposition*}[23]
+Le push-out homotopique d'un diagramme
+\[
+Q:\quad
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d] & L \\
+M
+\end{tikzcd}
+\tag{23.1}
+\]
+est le push-out \(K_Q\) de
+\[
+Q':\quad
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K\vee K \arrow[r] \arrow[d] & M\vee L \\
+K\wedge(\Delta^1)_+ .
+\end{tikzcd}
+\tag{23.2}
+\]
+Ici la flèche verticale \(K\wedge((\Delta^0\coprod\Delta^0)_+)\to K\wedge(\Delta^1)_+\) est induite par \(\partial_1,\partial_0:\Delta^0\to\Delta^1\), envoyant \(\Delta^0\) sur \(0\) (respectivement \(1\)) dans \(\Delta^1\). Dans le cas des ensembles simpliciaux, \(|K_Q|\) s'envoie vers \(|\Delta^1|=[0,1]\), avec fibres \(|M|\) au-dessus de \(0\), \(|L|\) au-dessus de \(1\), et \(|K|\) au-dessus de \((0,1)\).
+
+Le push-out homotopique \(K_Q\) est la diagonale de l'objet bisimplicial dont les colonnes sont \(M\vee K^{\vee n}\vee L\), obtenu en ajoutant formellement des dégénérescences à
+\[
+K\rightrightarrows M\vee L
+\]
+dans \(\Delta^{\op}_{\inj}\Delta^{\op}(\Sh_\bullet)\) (cf. 21) [\(\partial_0\) envoie \(K\) vers \(L\), \(\partial_1\) envoie \(K\) vers \(M\)]. Si \(f:Q\to Q'\) est un morphisme de diagrammes (23.1), le morphisme induit de \(K_Q\) vers \(K_{Q'}\) appartient donc à la fermeture des trois composantes de \(f\) pour les opérations de coproduit fini et de diagonale (4(3), (4)).
+
+Un carré commutatif
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{23.3}
+\]
+induit un morphisme \(K_Q\to N\).
+\end{proposition*}
+
+\begin{example*}[1]
+Soit \(f:K\to L\) un morphisme. Le push-out homotopique de
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d,"{id}"'] & L \\
+K
+\end{tikzcd}
+\]
+est le cylindre \(\operatorname{cyl}(f)\) de \(f\). Les morphismes
+\[
+L\longrightarrow\operatorname{cyl}(f)\longrightarrow L
+\]
+sont des équivalences d'homotopie. Pour vérifier que le composé \(\operatorname{cyl}(f)\to L\to\operatorname{cyl}(f)\) est homotope à l'identité, on observe que \(\operatorname{cyl}(f)\) est le push-out de
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r] \arrow[d] & L \\
+K\wedge(\Delta^1)_+
+\end{tikzcd}
+\]
+(la flèche verticale étant induite par \(\partial_0:\Delta^0\to\Delta^1\), envoyant \(\Delta^0\) sur \(1\)) et que le composé \(\operatorname{cyl}(f)\to\operatorname{cyl}(f)\) est induit par \(\Delta^1\to\Delta^0\to\Delta^1\), homotope à l'identité par une homotopie fixant \(1\).
+
+Des arguments analogues montreraient que le push-out homotopique \(\operatorname{cyl}'(f)\) de
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+K \arrow[r,"{id}"] \arrow[d] & K \\
+M
+\end{tikzcd}
+\]
+est homotope à \(L\) par \(L\to\operatorname{cyl}'(L)\to L\).
+\end{example*}
+
+\heading{Exemple 2.} Dans toute catégorie ayant des coproduits finis, une coprojection est une application isomorphe à l'application naturelle \(A\to A\coprod B\), pour certains \(A\) et \(B\). Si, dans un carré cocartésien de faisceaux simpliciaux pointés,
+
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+K \arrow[r,"f"] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\tag{23.4}
+\]
+le morphisme \(f\) est une coprojection: \(L=K\vee A\), le carré (23.4) est le coproduit des carrés
+\[
+\begin{tikzcd}[column sep=2.4em,row sep=1.6em]
+K \arrow[r,"id"] \arrow[d] & K \arrow[d] \\
+M \arrow[r,"id"'] & M
+\end{tikzcd}
+\qquad\text{et}\qquad
+\begin{tikzcd}[column sep=2.4em,row sep=1.6em]
+\pt \arrow[r] \arrow[d] & A \arrow[d] \\
+\pt \arrow[r] & A
+\end{tikzcd}
+\tag{23.5}
+\]
+et le morphisme résultant \(K_Q\to N\) est une équivalence d'homotopie, étant le coproduit des équivalences d'homotopie de l'Exemple 1 provenant des deux carrés (23.5). La même conclusion vaut si \(K\to M\) est une coprojection.
+
+Un morphisme de faisceaux simpliciaux pointés \(K\to L\) est une coprojection terme à terme si chaque \(K_n\to L_n\) est une coprojection de faisceaux pointés. Exemple: pour tout diagramme (23.1), les morphismes \(L,M\to K_Q\) sont des coprojections terme à terme. Pour tout morphisme \(f:K\to L\), cela s'applique en particulier à \(K,L\to \cyl(f)\).
+
+\begin{proposition*}[24]
+Si dans un carré cocartésien (23.3) soit \(K\to L\), soit \(K\to M\), est une coprojection terme à terme, alors le morphisme résultant de \(K_Q\) vers \(N\) appartient à la \(\bar\Delta\)-clôture de l'ensemble vide de morphismes.
+\end{proposition*}
+
+\begin{proofdel}
+Pour chaque \(n\), on a un carré cocartésien de faisceaux pointés
+\[
+Q_n:\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.6em]
+K_n \arrow[r] \arrow[d] & L_n \arrow[d] \\
+M_n \arrow[r] & N_n .
+\end{tikzcd}
+\]
+Regardons-le comme un carré cocartésien de faisceaux simpliciaux pointés. Par l'Exemple 2, il donne naissance à une équivalence d'homotopie \(K_{Q_n}\to N_n\). On conclut en observant que \(K_Q\to N\) est la diagonale de ce système simplicial de morphismes.
+\end{proofdel}
+
+\begin{corollary*}[25]
+Si dans un carré cocartésien (23.3)
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+K \arrow[r,"f"] \arrow[d,"g"'] & L \arrow[d,"g'"] \\
+M \arrow[r,"f'"'] & N
+\end{tikzcd}
+\]
+soit \(f\), soit \(g\), est une coprojection terme à terme, alors:
+\begin{enumerate}[label=\arabic*.]
+\item \(f'\) appartient à la \(\bar\Delta\)-clôture de \(\{f\}\).
+\item \(g'\) appartient à la \(\bar\Delta\)-clôture de \(\{g\}\).
+\end{enumerate}
+\end{corollary*}
+
+\begin{proofdel}
+Preuve de (1): le morphisme de carrés cocartésiens
+\[
+Q':\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r,"id"] \arrow[d] & K \arrow[d] \\
+M \arrow[r,"id"'] & M
+\end{tikzcd}
+\quad\longrightarrow\quad
+Q:\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\]
+définit un carré commutatif
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.6em]
+K_{Q'} \arrow[r] \arrow[d] & K_Q \arrow[d] \\
+M \arrow[r] & N
+\end{tikzcd}
+\]
+dans lequel les flèches verticales appartiennent à la \(\bar\Delta\)-clôture de l'ensemble vide par la Proposition 24, tandis que la première flèche horizontale appartient à la \(\bar\Delta\)-clôture de \(f\), par 8.
+
+Preuve de (2): on utilise de même
+\[
+Q':\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r] \arrow[d,"id"'] & L \arrow[d,"id"] \\
+K \arrow[r] & L
+\end{tikzcd}
+\quad\longrightarrow\quad
+Q:\quad
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+K \arrow[r] \arrow[d] & L \arrow[d] \\
+M \arrow[r] & N .
+\end{tikzcd}
+\]
+\end{proofdel}
+
+\begin{proposition*}[26]
+Un faisceau simplicial pointé \(F_\bullet\) est fiablement compact s'il coïncide avec son \(n\)-squelette pour un certain \(n\), et si chaque \(F_i\) est compact au sens où le foncteur \(\Hom(F_i,-)\) commute aux colimites filtrantes. Cette propriété est stable par \(F_\bullet\to F_\bullet\wedge K\), pour \(K\) un ensemble simplicial pointé fini (nombre fini de simplexes non dégénérés), et implique que \(F_\bullet\) est compact.
+\end{proposition*}
+
+\begin{proposition*}[Construction 27]
+Soient \(E\) et \(N\) des classes de morphismes telles que:
+\begin{enumerate}[label=(\alph*)]
+\item les sources et les buts soient fiablement compacts;
+\item chaque \(f\) dans \(N\) soit une coprojection terme à terme.
+\end{enumerate}
+Nous construirons un foncteur \(\Ex\), des faisceaux simpliciaux pointés vers eux-mêmes, et un morphisme \(\Id\to\Ex\), tels que:
+\begin{enumerate}[label=(\roman*)]
+\item pour tout \(F\), \(F\to\Ex(F)\) soit dans la \(\bar\Delta\)-clôture de \(E\);
+\item si \(f:K\to L\) est dans \(E\), le morphisme
+\[
+S(L,\Ex(X))\longrightarrow S(K,\Ex(X))
+\tag{27.1}
+\]
+soit une équivalence faible;
+\item si \(f:K\to L\) est dans \(N\), le morphisme (27.1) soit une fibration de Kan.
+\end{enumerate}
+\end{proposition*}
+
+Factorisons \(f:K\to L\) comme \(K\to \cyl(f)\to L\). Comme la seconde flèche est une équivalence d'homotopie, la première est dans la \(\bar\Delta\)-clôture de \(E\). Dans la factorisation correspondante de (27.1),
+\[
+S(L,\Ex(F))\to S(\cyl(f),\Ex(F))\to S(K,\Ex(F)),
+\]
+la première flèche est une équivalence d'homotopie. Pour obtenir (ii), il suffit donc que \(S(\cyl(f),\Ex(F))\to S(K,\Ex(F))\) soit une équivalence faible. En remplaçant chaque \(f:K\to L\) de \(E\) par le morphisme correspondant \(K\to\cyl(f)\), on se ramène au cas où chaque \(f\) de \(E\) est une coprojection terme à terme, et l'on construira dans ce cas un foncteur \(\Ex\) tel que, pour \(f\in E\), (27.1) soit une fibration triviale.
+
+Les conditions (ii), (iii) sont des propriétés de relèvement. Pour \(f\in E\), dans les carrés
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.6em]
+\partial\Delta^n_+ \arrow[r] \arrow[d] & S(L,\Ex(F)) \arrow[d] \\
+\Delta^n_+ \arrow[r] & S(K,\Ex(F)),
+\end{tikzcd}
+\]
+et, pour \(f\in N\), dans les carrés
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.6em]
+(\Lambda^n_k)_+ \arrow[r] \arrow[d] & S(L,\Ex(F)) \arrow[d] \\
+\Delta^n_+ \arrow[r] & S(K,\Ex(F)).
+\end{tikzcd}
+\]
+Dans le premier cas, les données sont des morphismes \(\Delta^n_+\wedge K\to\Ex(F)\) et \(\partial\Delta^n_+\wedge L\to\Ex(F)\) qui coïncident sur \(\partial\Delta^n_+\wedge K\), c'est-à-dire un morphisme
+\[
+(\Delta^n_+\wedge K)\coprod_{\partial\Delta^n_+\wedge K}(\partial\Delta^n_+\wedge L)\longrightarrow \Ex(F),
+\]
+et l'on veut le prolonger à \(\Delta^n_+\wedge L\). De même dans le second cas, avec \(\partial\Delta^n\) remplacé par \(\Lambda^n_k\). Ainsi, pour \(f\in E\):
+\[
+\begin{tikzcd}[column sep=3.1em,row sep=1.8em]
+(\Delta^n_+\wedge K)\coprod_{\partial\Delta^n_+\wedge K}(\partial\Delta^n_+\wedge L) \arrow[r] \arrow[d] & \Ex(F) \arrow[d] \\
+\Delta^n_+\wedge L \arrow[r] & \pt
+\end{tikzcd}
+\tag{27.2}
+\]
+et pour \(f\in N\):
+\[
+\begin{tikzcd}[column sep=3.1em,row sep=1.8em]
+(\Delta^n_+\wedge K)\coprod_{(\Lambda^n_k)_+\wedge K}((\Lambda^n_k)_+\wedge L) \arrow[r] \arrow[d] & \Ex(F) \arrow[d] \\
+\Delta^n_+\wedge L \arrow[r] & \pt .
+\end{tikzcd}
+\tag{27.3}
+\]
+Les flèches verticales de gauche sont des coprojections terme à terme, et leurs sources sont compactes. On emploie alors l'artifice standard qui consiste à définir \(\Ex(F)\) comme la limite inductive des itérés de foncteurs \(F\to T(F)\), où \(T(F)\) se déduit de \(F\) par push-out, simultanément pour tous les morphismes
+\[
+(\Delta^n_+\wedge K)\coprod_{\partial\Delta^n_+\wedge K}(\partial\Delta^n_+\wedge L)\to \Ex(F)
+\quad (f:K\to L\text{ dans }E)
+\]
+et
+\[
+(\Delta^n_+\wedge K)\coprod_{(\Lambda^n_k)_+\wedge K}((\Lambda^n_k)_+\wedge L)\to \Ex(F)
+\quad (f:K\to L\text{ dans }N).
+\]
+Le push-out se fait par
+\[
+\bigvee(\text{sources})\longrightarrow \bigvee(\Delta^n_+\wedge L),
+\]
+un morphisme qui est une coprojection terme à terme. Par 26, pour vérifier que le morphisme résultant \(F\to\Ex(F)\) est dans la \(\bar\Delta\)-clôture de \(E\), il suffit de vérifier que la flèche verticale gauche de (27.2) (respectivement (27.3)) est dans la \(\bar\Delta\)-clôture de \(E\) (respectivement de l'ensemble vide).
+
+Pour (27.2), c'est la flèche marquée \(3\) dans
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+\partial\Delta^n_+\wedge K \arrow[r,"1"] \arrow[d] & \partial\Delta^n_+\wedge L \arrow[d] \\
+\Delta^n_+\wedge K \arrow[r,"2"'] & \cdots \arrow[r,"3"'] & \Delta^n_+\wedge L .
+\end{tikzcd}
+\]
+Les morphismes \(1\) et \(3\circ2\) sont dans la \(\bar\Delta\)-clôture de \(E\). Il en est donc de même de \(2\), par 26, et l'on applique la propriété «deux sur trois». Pour (27.3), le diagramme est
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+(\Lambda^n_k)_+\wedge K \arrow[r] \arrow[d,"1"'] & (\Lambda^n_k)_+\wedge L \arrow[d,"2"] \\
+\Delta^n_+\wedge K \arrow[r] & \cdots \arrow[r,"3"'] & \Delta^n_+\wedge L,
+\end{tikzcd}
+\]
+avec \(1\) et \(3\circ2\) dans la \(\bar\Delta\)-clôture de l'ensemble vide. En effet, \(\Lambda^n_k\) et \(\Delta^n\) sont tous deux contractiles.
+
+\begin{remark*}[4]
+Soit \(P\) une propriété des schémas simpliciaux pointés stable par coproduit, et supposons que:
+\begin{enumerate}[label=(\alph*)]
+\item pour \(f:K\to L\) dans \(E\), les \(K_n\) et \(L_n\) aient la propriété \(P\);
+\item pour \(f:K\to L\) dans \(N\), \(f\) soit, en degré \(n\), isomorphe au morphisme naturel \(K_n\to K_n\vee A\), pour un certain \(A\) ayant la propriété \(P\).
+\end{enumerate}
+Alors le foncteur \(\Ex\) construit dans la Construction 27 est tel que, pour tout \(K\), chaque morphisme \(K_n\to\Ex(K)_n\) soit isomorphe à un \(K_n\to K_n\vee A\), où \(A\) a la propriété \(P\). En particulier, si les \(K_n\) ont la propriété \(P\), il en est de même des \(\Ex(K)_n\).
+\end{remark*}
+
+\begin{proposition*}[28]
+(Preuve du Théorème 4.) Nous appliquons la Construction 27, sur le site \(QP/G\), en prenant pour \(E\) et \(N\) les classes suivantes.
+\[
+E:\quad (X\times \Aone)_+\longrightarrow X_+ \tag{28.1}
+\]
+pour tout \(X\) du site et, pour tout carré supérieur distingué
+\[
+\begin{tikzcd}[column sep=2.4em,row sep=1.5em]
+B \arrow[r] \arrow[d] & Y \arrow[d] \\
+A \arrow[r] & X,
+\end{tikzcd}
+\tag{28.2}
+\]
+le morphisme
+\[
+(K_Q)_+\longrightarrow X_+,
+\tag{28.3}
+\]
+et
+\[
+N:\quad (\emptyset)_+\longrightarrow X_+
+\tag{28.4}
+\]
+pour tout \(X\) du site. Si un faisceau simplicial pointé \(G\) est de la forme \(\Ex(F)\), (28.4) dans \(N\) assure que chaque \(G(X)\) est de Kan. Que (28.3) soit dans \(E\) assure que, pour chaque carré supérieur distingué (28.2), le morphisme
+\[
+G(X)\longrightarrow S((K_Q)_+,G)
+\]
+est une équivalence faible. Comme chaque \(G(Y)\) est de Kan, \(S((K_Q)_+,G)\) est le produit fibré homotopique de \(G(A)\) au-dessus de \(G(B)\), et
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+G(X) \arrow[r] \arrow[d] & G(A) \arrow[d] \\
+G(Y) \arrow[r] & G(B)
+\end{tikzcd}
+\]
+est homotopiquement cartésien: \(G\) est flasque.
+
+De plus, comme (28.1) est dans \(E\), pour chaque \(X\),
+\[
+G(X)\longrightarrow G(X\times\Aone)
+\]
+est une équivalence faible: par le Théorème 3, \(G\) est \(\Aone\)-local. Supposons maintenant que \(f:F\to G\) soit une \(\Aone\)-équivalence. Dans le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d] \\
+\Ex(F) \arrow[r] & \Ex(G)
+\end{tikzcd}
+\]
+les flèches verticales sont dans la \(\bar\Delta\)-clôture des morphismes (28.1) et (28.2), ces derniers étant des équivalences locales. En particulier, ce sont des \(\Aone\)-équivalences, et \(\Ex(F)\to\Ex(G)\) est une \(\Aone\)-équivalence entre objets \(\Aone\)-locaux, donc une équivalence locale. Il en résulte que \(f\) est dans la \(\bar\Delta\)-clôture voulue, ce qui prouve le Théorème 4. Le foncteur \(\Ex\) utilisé en 28 peut aussi servir à prouver le lemme suivant.
+\end{proposition*}
+
+\begin{lemma*}[10]
+Si \(F^{(i)}\to F^{(j)}\) est un système filtrant de \(\Aone\)-équivalences, alors \(F^{(n)}\to \colim_iF^{(i)}\) est encore une \(\Aone\)-équivalence.
+\end{lemma*}
+
+\begin{proofdel}
+Considérons le carré
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.7em]
+F^{(n)} \arrow[r] \arrow[d] & \colim_iF^{(i)} \arrow[d] \\
+\Ex(F^{(n)}) \arrow[r] & \Ex(\colim_iF^{(i)}) .
+\end{tikzcd}
+\]
+Puisque le foncteur \(\Ex\) commute aux colimites filtrantes, la flèche du bas est une colimite filtrante d'équivalences locales, donc une équivalence locale. Les flèches verticales sont des \(\Aone\)-équivalences; la flèche du haut est donc une \(\Aone\)-équivalence.
+\end{proofdel}
+
+\subsection*{3.6 Une caractérisation supplémentaire des équivalences}
+
+Notons \([QP/G]_+\) la sous-catégorie pleine de la catégorie des faisceaux pointés sur \(QP/G\) engendrée par tous les coproduits de faisceaux de la forme \((h_X)_+\).
+
+\begin{theorem*}[5]
+La classe des équivalences locales (respectivement des \(\Aone\)-équivalences) dans \(\Delta^{\op}[QP/G]_+\) est la plus petite classe \(W\) qui contient les morphismes \((K_Q)_+\to X_+\), pour \(Q\) supérieur distingué, et possède les propriétés suivantes:
+\begin{enumerate}[label=\arabic*.]
+\item Les équivalences d'homotopie simpliciale (respectivement les \(\Aone\)-équivalences d'homotopie) appartiennent à \(W\).
+\item Si deux parmi \(f,g,fg\) sont dans \(W\), alors le troisième l'est aussi.
+\item Si \(F^{(i)}\to F^{(j)}\) est un système filtrant de coprojections terme à terme dans \(W\), alors \(F^{(n)}\to\colim_iF^{(i)}\) appartient encore à \(W\).
+\item Si \(F_{**}\to F'_{**}\) est un morphisme d'objets bisimpliciaux, et si tous les \(F_{*p}\to F'_{*p}\) sont dans \(W\), alors la diagonale \(\Delta(F)\to\Delta(F')\) l'est aussi.
+\end{enumerate}
+\end{theorem*}
+
+La preuve est donnée en 32.
+
+\begin{lemma*}[11]
+Si le morphisme \(f:F\to G\) est tel que, pour chaque \(U\), \(F(U)\to G(U)\) soit une équivalence faible, et si les \(F_n\) et les \(G_n\) sont tous de la forme \((\coprod h_{U_i})_+\), alors \(f\) appartient à la \(\bar\Delta\)-clôture de l'ensemble vide.
+\end{lemma*}
+
+La preuve utilisera la construction suivante.
+
+\begin{proposition*}[Construction 29]
+Soit \(C\) une catégorie, et soit \(C_0\) un ensemble d'objets de \(C\) tel que toute classe d'isomorphisme ait un représentant dans \(C_0\). Soit \(i_*\) le foncteur qui, à un préfaisceau pointé sur \(C\), associe la famille d'ensembles pointés \((F(U))_{U\in C_0}\). Il admet un adjoint à gauche \(i^*\):
+\[
+\text{famille }(A_U)_{U\in C_0}\longmapsto
+\bigvee_U\bigl((h_U)_+\wedge A_U\bigr)
+= \text{(somme disjointe sur }U\in C_0\text{ et }(A_U-* )\text{ de }h_U)_+ .
+\]
+Si \(C_0\) est vu comme une catégorie dont les seuls morphismes sont les identités, le foncteur naturel
+\[
+i:C_0\longrightarrow C
+\]
+définit un morphisme de sites \(C\to C_0\), tous deux munis de la topologie triviale (tout préfaisceau est un faisceau), et \(i_*,i^*\) sont les images directe et inverse correspondantes de faisceaux pointés.
+
+Par l'histoire générale valable pour toute paire de foncteurs adjoints, pour tout préfaisceau pointé \(F\) sur \(C\), les \((i^*i_*)^{n+1}(F)\) forment un préfaisceau simplicial pointé \(R(F)\) augmenté vers \(F\):
+\[
+a:R(F)\longrightarrow F.
+\]
+De plus:
+\begin{enumerate}[label=(\alph*)]
+\item si \(F\) est de la forme \(i^*A\), c'est-à-dire de la forme \((\coprod h_{U_i})_+\), \(a\) est une équivalence d'homotopie;
+\item pour tout \(F\), \(i^*(a)\) est une équivalence d'homotopie: pour chaque \(U\) de \(C\), \(R(F)(U)\to F(U)\) est une équivalence d'homotopie.
+\end{enumerate}
+Pour un préfaisceau simplicial \(F\), on définit
+\[
+R(F)=\Delta\bigl(\text{système simplicial des }R(F_p)\bigr).
+\]
+\end{proposition*}
+
+\begin{proposition*}[30]
+(Preuve du Lemme 11.) Disons que \(X\) dans \(QP/G\) est connexe s'il n'est pas vide et n'est pas réunion disjointe: \(G\) doit agir transitivement sur l'ensemble des composantes connexes de \(X\). Soit \(C\subset QP/G\) la sous-catégorie pleine des objets connexes. Un faisceau \(F\) sur \(QP/G\) est déterminé par sa restriction à \(C\). En effet, \(F(\coprod X_i)=\prod F(X_i)\). Pour appliquer la Construction 29, nous utiliserons cette remarque pour identifier la catégorie des faisceaux sur \(QP/G\) à une sous-catégorie pleine de la catégorie des préfaisceaux sur \(C\). Pour tout \(C_0\) comme dans la Construction 29, le foncteur \(i^*\) prend ses valeurs dans les faisceaux, c'est-à-dire dans la restriction des faisceaux à \(C\). En effet, pour \(X\) connexe, \((\coprod h_{U_i})_+(X)\) est le même, que \(\coprod\) et \(+\) soient pris au sens des faisceaux ou au sens des préfaisceaux.
+
+Fixons \(f:F\to G\) comme dans le Lemme 11. Pour chaque \(n\), l'hypothèse sur \(F_n\) assure que \(R(F_n)\to F_n\) est dans la \(\bar\Delta\)-clôture de l'ensemble vide, et de même pour \(G\). Pour chaque \(U\) connexe, le morphisme d'ensembles simpliciaux pointés \(F(U)\to G(U)\) est une équivalence faible, donc appartient à la \(\bar\Delta\)-clôture de l'ensemble vide. Il s'ensuit que \(i^*i_*(F)\to i^*i_*(G)\), le bouquet sur \(C_0\) des
+\[
+(h_U)_+\wedge F(U)\longrightarrow (h_U)_+\wedge G(U),
+\]
+est dans la \(\bar\Delta\)-clôture de l'ensemble vide. En itérant, on trouve la même chose pour \((i^*i_*)^n(F)\to(i^*i_*)^n(G)\), et \(R(F)\to R(G)\) est également dans cette \(\bar\Delta\)-clôture. Il reste à appliquer la propriété deux sur trois à
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+R(F) \arrow[r] \arrow[d] & R(G) \arrow[d] \\
+F \arrow[r] & G .
+\end{tikzcd}
+\]
+\end{proposition*}
+
+\begin{lemma*}[12]
+Si \(f:F\to G\) est une équivalence locale et si les \(F_n\) et les \(G_n\) sont tous de la forme \((\coprod h_{U_i})_+\), alors \(f\) appartient à la \(\bar\Delta\)-clôture des \((K_Q)_+\to X_+\), pour \(Q\) supérieur distingué.
+\end{lemma*}
+
+\begin{proofdel}
+Nous utiliserons la Construction 27 avec, pour \(E\), la classe des morphismes \((K_Q)_+\to X_+\) pour \(Q\) supérieur distingué, et, pour \(N\), la classe des morphismes \(*\to X_+\). Par la Remarque 4, si les \(F_n\) sont de la forme \((\coprod h_{U_i})_+\), il en est de même des \(\Ex(F)_n\). Dans le diagramme commutatif
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d] \\
+\Ex(F) \arrow[r] & \Ex(G)
+\end{tikzcd}
+\]
+les flèches verticales sont dans la \(\bar\Delta\)-clôture requise. Ce sont en particulier des équivalences locales, et il en est de même de \(\Ex(f)\). On vérifie comme en 28 que \(\Ex(F)\) et \(\Ex(G)\) sont flasques. Par la Construction 27(iii), pour chaque \(U\), \(\Ex(f)(U)\) est une équivalence faible, et il reste à appliquer le Lemme 11 à \(\Ex(f)\).
+\end{proofdel}
+
+\begin{lemma*}[13]
+Si \(f:F\to G\) est une \(\Aone\)-équivalence et si les \(F_n\) et les \(G_n\) sont tous de la forme \((\coprod h_{U_i})_+\), alors \(f\) appartient à la \(\bar\Delta\)-clôture des \((K_Q)_+\to X_+\), pour \(Q\) supérieur distingué, et des \((X\times\Aone\to X)_+\), pour \(X\in QP\).
+\end{lemma*}
+
+\begin{proofdel}
+Semblable à la preuve du Lemme 12.
+\end{proofdel}
+
+\begin{proposition*}[31]
+Puisque, pour tout faisceau simplicial \(F\), l'application \(R(F)\to F\) est une équivalence locale, les Lemmes 12 et 13 impliquent que, pour toute équivalence locale (respectivement \(\Aone\)-équivalence) \(f:F\to G\), le morphisme \(R(f)\) appartient à la \(\bar\Delta\)-clôture des \((K_Q)_+\to X_+\), pour \(Q\) supérieur distingué (respectivement des \((K_Q)_+\to X_+\), pour \(Q\) supérieur distingué, et des \((X\times\Aone\to X)_+\), pour \(X\in QP\)).
+\end{proposition*}
+
+\begin{proposition*}[32]
+Preuve du Théorème 5. Nous ne considérons que le cas des \(\Aone\)-équivalences. La Proposition 20 et le Lemme 10 impliquent que les \(\Aone\)-équivalences contiennent la classe \(W\). Compte tenu du Lemme 13, il reste à voir que \(W\) est \(\bar\Delta\)-fermée. La seule condition à vérifier est sa stabilité par coproduits. Soit
+\[
+f_\alpha:F^{(\alpha)}\longrightarrow H^{(\alpha)},\qquad \alpha\in A,
+\]
+une famille de morphismes dans \(W\). Pour une partie finie \(I\subset A\), posons
+\[
+\Phi_I=\Bigl(\coprod_{\alpha\in I} H^{(\alpha)}\Bigr)\coprod\Bigl(\coprod_{\alpha\in A-I}F^{(\alpha)}\Bigr).
+\]
+Pour \(I\subset J\), on a un morphisme \(\Phi_I\to\Phi_J\), et l'application \(\coprod f_\alpha\) est isomorphe à
+\[
+\Phi_\emptyset\longrightarrow \colim_{I\subset A}\Phi_I.
+\]
+Il reste à montrer que \(\Phi_I\to\Phi_{I\cup\{\alpha\}}\) est dans \(W\). Ce morphisme est de la forme \(\Id_H\coprod(f:F\to F')\), avec \(f\) dans \(W\). En utilisant le fait que \(W\) est stable par diagonales, on se ramène au cas \(H=(\coprod h_U)_+\). Par le même raisonnement que ci-dessus, on se ramène ensuite au cas \(H=(h_U)_+\). Considérons la classe des \(f\) tels que \(\Id_{(h_U)_+}\coprod f\) appartienne à \(W\). Cette classe contient clairement les morphismes \((K_Q)_+\to X_+\), possède la propriété deux sur trois, et est stable par colimites filtrantes. Elle contient aussi les équivalences d'homotopie simpliciale. Elle contient les morphismes de la forme \(p_+:(X\times\Aone)_+\to X_+\), car de tels morphismes sont des \(\Aone\)-équivalences d'homotopie.
+\end{proposition*}
+
+\section*{4 Faisceaux solides}
+
+\subsection*{4.1 Morphismes ouverts et morphismes solides de faisceaux}
+
+Nous fixons \(S\) et \(G\) comme dans le §3.1, et nous travaillerons dans \((QP/G)_{\Nis}\). La théorie pourrait être répétée dans \((\Sm/S)_{\Nis}\).
+
+\begin{definition*}[6]
+Un morphisme de faisceaux \(f:F\to G\) est ouvert s'il est relativement représentable par des immersions ouvertes, c'est-à-dire si, pour tout morphisme \(u:h_X\to G\) (autrement dit \(u\in G(X)\), \(X\) dans \(QP/G\)), le produit fibré \(F\times_G h_X\), envoyé vers \(h_X\), est isomorphe à \(h_U\to h_X\), pour \(U\) un ouvert \(G\)-stable de \(X\).
+\end{definition*}
+
+Autrement dit, \(f\) doit identifier \(F\) à un sous-faisceau de \(G\), et, pour tout \(s\in G(X)\), il existe \(U\) ouvert dans \(X\) et \(G\)-stable tel que le tiré en arrière de \(s\) par \(Y\to X\) appartienne à \(F(Y)\) si et seulement si \(Y\) se factorise par \(U\).
+
+La propriété «ouvert» est stable par composition. Elle est aussi stable par changement de base: si, dans un carré cartésien,
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F' \arrow[r,"f'"] \arrow[d] & G' \arrow[d,"u"] \\
+F \arrow[r,"f"'] & G
+\end{tikzcd}
+\tag{32.1}
+\]
+\(f\) est ouvert, alors \(f'\) est ouvert. Cela résulte de la transitivité des produits fibrés. Réciproquement, si \(f'\) est ouvert et \(u\) un épimorphisme, alors \(f\) est ouvert. En effet:
+
+\begin{lemma*}[14]
+Pour un morphisme \(F\to h_X\), la propriété que \(F\) soit représenté par un ouvert \(U\) de \(X\) est locale sur \(X\) (pour la topologie de Nisnevich).
+\end{lemma*}
+
+\begin{proofdel}
+Supposons que les \(X_\alpha\) recouvrent \(X\), et que chaque \(F_\alpha=F\times_{h_X}h_{X_\alpha}\) soit représenté par \(U_\alpha\subset X_\alpha\). Pour \(Y\to X_\alpha\), \(F_Y:=F\times_{h_X}h_Y\) est alors représenté par \(U_Y\subset Y\), où \(U_Y\) est l'image inverse de \(U_\alpha\). Par descente des immersions ouvertes, les \(U_\alpha\) proviennent d'un \(U\subset X\); localement sur \(X\), on a un isomorphisme \(F\xrightarrow{\sim}h_U\), et par descente des isomorphismes de faisceaux on a \(F\xrightarrow{\sim}h_U\).
+\end{proofdel}
+
+Étant donné un carré de la forme (32.1), avec \(f'\) ouvert et \(u\) un épimorphisme, si \(s\) appartient à \(G(X)\), \(s\) se relève localement en une section de \(G'\). Comme \(f'\) est ouvert, il s'ensuit que, localement sur \(X\), \(F\times_G h_X\) est représenté par un ouvert. Le Lemme 14 permet alors de conclure que \(f\) est ouvert. Le même argument montre que si l'on a des diagrammes cartésiens
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F'_\alpha \arrow[r,"f'_\alpha"] \arrow[d] & G'_\alpha \arrow[d,"u_\alpha"] \\
+F \arrow[r,"f"'] & G
+\end{tikzcd}
+\]
+avec chaque \(f'_\alpha\) ouvert et \(\coprod u_\alpha:\coprod G'_\alpha\to G\) surjectif, alors \(f\) est ouvert.
+
+\begin{proposition*}[33]
+La propriété «ouvert» est stable par push-out.
+\end{proposition*}
+
+\begin{proofdel}
+Supposons
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F \arrow[r,"f"] \arrow[d] & G \arrow[d] \\
+F' \arrow[r,"f'"'] & G'
+\end{tikzcd}
+\]
+un carré de push-out de faisceaux, avec \(f\) ouvert.
+\end{proofdel}
+
+\section*{Suite de 4.1}
+
+\begin{proofdel}
+Le carré précédent est cocartésien, avec \(f\) ouvert. En particulier \(f\) est un monomorphisme; il s'ensuit que \(f'\) est un monomorphisme et que le carré est aussi cartésien. Le morphisme \(F'\amalg G\to G'\) est surjectif. Le tiré en arrière de \(f'\) par \(f':F'\to G'\) est un isomorphisme, puisque \(f'\) est un monomorphisme, et il est donc ouvert. Le tiré en arrière de \(f'\) par \(G\to G'\) n'est autre que \(f\), ouvert par hypothèse. Il en résulte que \(f'\) est ouvert.
+\end{proofdel}
+
+Nous fixons maintenant une classe \(\mathcal E\) de plongements ouverts \(U\to X\) dans \((QP/G)\). Nous exigeons les propriétés de stabilité suivantes.
+
+\begin{definition*}[Conditions 34]
+\begin{enumerate}[label=\arabic*.]
+\item Si \(U\to U'\to X\) sont des plongements ouverts et si \(U\to X\) appartient à \(\mathcal E\), alors \(U'\to X\) appartient à \(\mathcal E\).
+\item Si \(U\to X\) est un plongement ouvert de \(\mathcal E\), et si \(f:X'\to X\) est étale, induisant un isomorphisme de \(f^{-1}(Z)\) sur \(Z\), où \(Z\) est le complémentaire de \(U\) dans \(X\), alors \(f^{-1}(U)\to X'\) appartient à \(\mathcal E\).
+\end{enumerate}
+\end{definition*}
+
+Les classes \(\mathcal E\) que nous aurons à considérer sont les suivantes: les plongements ouverts \(U\to X\) avec \(X\) lisse; les plongements ouverts \(U\to X\) avec \(X\) lisse et l'action de \(G\) libre sur \(X-U\), c'est-à-dire \(X\) réunion de \(U\) et de l'ouvert où l'action de \(G\) est libre; et, lorsqu'on travaille dans \((Sch/S)\), tous les plongements ouverts.
+
+\begin{definition*}[7]
+Un morphisme \(f:F\to G\) est \(\mathcal E\)-solide s'il est un composé
+\[
+F=F_0\longrightarrow F_1\longrightarrow \cdots\longrightarrow F_n=G
+\]
+où chaque \(F_i\to F_{i+1}\) est déduit par somme amalgamée d'un \(h_U\to h_X\), avec \(U\subset X\) dans \(\mathcal E\). Un faisceau \(F\) est solide si \(\emptyset\to F\) est \(\mathcal E\)-solide. Dans le contexte pointé, un faisceau pointé est \(\mathcal E\)-solide si le morphisme \(\pt\to F\) est \(\mathcal E\)-solide.
+\end{definition*}
+
+\begin{example*}[1]
+Pour \(U\) ouvert dans \(X\), soit \(h_X/h_U\) le faisceau \(h_X\) où le sous-faisceau \(h_U\) est contracté au point-base. Si \(U\to X\) est dans \(\mathcal E\), alors \(\pt\to h_X/h_U\) est solide: c'est le poussé en avant de \(h_U\to h_X\) par \(h_U\to\pt\). Les espaces de Thom sont de cette forme: à partir d'un fibré vectoriel \(E\) sur \(T\), on contracte, dans l'espace total de \(E\), le complément de la section nulle en un point.
+\end{example*}
+
+La classe des morphismes solides est la plus petite classe, stable par composition et sommes amalgamées, qui contient tous les \(h_U\to h_X\), \(U\subset X\) dans \(\mathcal E\). Par la proposition 33, les morphismes solides sont ouverts.
+
+Pour un monomorphisme \(F\to G\) de faisceaux, on définit \(G/F\) comme le faisceau pointé obtenu en contractant \(F\) en un point. On a donc un carré cocartésien
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+\pt \arrow[r] & G/F .
+\end{tikzcd}
+\]
+Par transitivité des sommes amalgamées, tout diagramme cocartésien
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.6em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+F' \arrow[r] & G'
+\end{tikzcd}
+\]
+induit un isomorphisme \(G/F\simeq G'/F'\).
+
+\begin{proposition*}[35]
+Un morphisme de faisceaux \(f:F\to G\) est \(\mathcal E\)-solide si et seulement s'il est un composé
+\[
+F=F_0\longrightarrow F_1\longrightarrow \cdots\longrightarrow F_n=G
+\]
+de monomorphismes tel que chaque \(F_{i+1}/F_i\) soit isomorphe à un \(h_X/h_U\), avec \(U\subset X\) dans \(\mathcal E\).
+\end{proposition*}
+
+\begin{proofdel}
+Si un morphisme \(F\to G\) est déduit par somme amalgamée de \(U\to X\), alors \(G/F\) est isomorphe à \(h_X/h_U\). Ceci donne le sens «seulement si».
+
+Réciproquement, supposons d'abord que l'on ait un carré cocartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+\pt \arrow[r] & h_X/h_U
+\end{tikzcd}
+\tag{35.1}
+\]
+et que le morphisme naturel \(h_X\to h_X/h_U\) se relève à \(G\). Alors \(F\to G\) est obtenu par somme amalgamée à partir de \(h_U\to h_X\). En effet, (35.1) est cartésien aussi bien que cocartésien; on a donc un carré cartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+F \arrow[r] & G .
+\end{tikzcd}
+\]
+Si \(G'\) est déduit de \(F\) par somme amalgamée de \(h_U\to h_X\),
+\[
+\begin{tikzcd}[column sep=2.3em,row sep=1.6em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d] \arrow[r,equal] & h_X \arrow[d]\\
+F \arrow[r] & G' \arrow[r] & G ,
+\end{tikzcd}
+\]
+alors \(G'/F\simeq G/F\), et il s'ensuit que \(G'\simeq G\).
+
+Il suffit plus généralement d'avoir un morphisme étale \(v:\widetilde X\to X\), induisant un isomorphisme de \(\widetilde X-v^{-1}(U)\) sur \(X-U\), et un relèvement de \(h_{\widetilde X}\to h_X/h_U\) à \(G\). Si \(\widetilde U=v^{-1}(U)\), alors \(h_{\widetilde X}/h_{\widetilde U}\to h_X/h_U\) est un isomorphisme. Cela se vérifie sur les foncteurs fibres définis par les schémas henséliens \(G\)-locaux: un morphisme \(T\to X\) qui n'arrive pas dans \(U\) se relève de façon unique à \(\widetilde X\). Sous ces hypothèses, \(F\to G\) est une somme amalgamée de \(h_{\widetilde U}\to h_{\widetilde X}\). Par la seconde propriété de stabilité de \(\mathcal E\), le plongement \(\widetilde U\to\widetilde X\) appartient à \(\mathcal E\).
+
+On réduit le cas général à celui-ci. Soit \(f:F\to G\) un monomorphisme tel que \(G/F\simeq h_X/h_U\), \(U\to X\) dans \(\mathcal E\). Le carré cocartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+F \arrow[r] \arrow[d] & G \arrow[d]\\
+\pt \arrow[r] & G/F
+\end{tikzcd}
+\tag{35.2}
+\]
+donne un épimorphisme \(\pt\amalg G\to h_X/h_U\). La section naturelle de \(h_X/h_U\) sur \(X\) peut donc être relevée localement soit à \(\pt\), soit à \(G\). Ainsi, pour une filtration
+\[
+\emptyset=C_{n+1}\subset C_n\subset\cdots\subset C_1\subset C_0=X
+\]
+par sous-schémas fermés équivariants, il existe des morphismes étales \(T_i\to X\), munis de sections équivariantes au-dessus de \(C_i-C_{i+1}\), et des relèvements de \(h_{T_i}\to h_X/h_U\) à \(\pt\) ou à \(G\). On peut commencer par \(X_0=U\), où le relèvement est à \(\pt\), puis rétrécir les \(T_i\) de sorte que les relèvements suivants soient à \(G\) et induisent des isomorphismes au-dessus des strates.
+
+Comme \(F\to G\) est un monomorphisme, (35.2) est aussi cartésien. En tirant en arrière le composé
+\[
+\pt\longrightarrow h_{X_1}/h_U\longrightarrow h_{X_2}/h_U\longrightarrow\cdots\longrightarrow h_X/h_U
+\]
+on obtient une factorisation de \(F\to G\) dont chaque quotient est de la forme \(h_{T_i}/h_{T_i'}\), et où les morphismes \(h_{T_i}\to h_X/h_U\) se relèvent aux faisceaux intermédiaires. Chaque étape est donc une somme amalgamée d'un plongement ouvert de \(\mathcal E\), et la solidité s'ensuit.
+\end{proofdel}
+
+\begin{remark*}[1]
+Autrement dit, \(F\to G\) est \(\mathcal E\)-solide si et seulement si le faisceau pointé \(G/F\) est une extension itérée de faisceaux \(h_X/h_U\), avec \(U\to X\) dans \(\mathcal E\): il existe des morphismes
+\[
+\pt=E_0\to E_1\to\cdots\to E_n=G/F
+\]
+avec chaque quotient \(E_{i+1}/E_i\) de la forme \(h_X/h_U\).
+\end{remark*}
+
+\begin{proposition*}[36]
+Si \(f:F\to G\) est ouvert et si \(G\) est \(\mathcal E\)-solide, alors \(f\) est \(\mathcal E\)-solide.
+\end{proposition*}
+
+\begin{proofdel}
+Nous disons «solide» pour \(\mathcal E\)-solide. Soit \((*)\) la propriété d'un faisceau \(G\): tout morphisme ouvert \(F\to G\) est solide. Si \(G\) est solide, il apparaît au bout d'une chaîne
+\[
+\emptyset=G_0\to G_1\to\cdots\to G_n=G
+\]
+dans laquelle chaque \(G_i\to G_{i+1}\) est une somme amalgamée d'un \(h_U\to h_X\), \(U\subset X\) dans \(\mathcal E\). On prouve par récurrence que \(G_i\) vérifie \((*)\).
+
+Pour \(n=0\), \(G_1=h_X\) est représentable et \(\emptyset\to X\) appartient à \(\mathcal E\). Si \(F\to h_X\) est ouvert, il est de la forme \(h_U\to h_X\), pour \(U\) ouvert dans \(X\), donc solide par la condition 34(1).
+
+Il reste l'étape de récurrence. Dans un carré cocartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+G' \arrow[r] & G
+\end{tikzcd}
+\tag{36.1}
+\]
+le morphisme \(h_U\to h_X\) est un monomorphisme; le carré est donc cartésien aussi bien que cocartésien. Soit \(F\to G\) ouvert. En tirant (36.1) en arrière par \(F\to G\), on obtient un carré cartésien et cocartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_V \arrow[r] \arrow[d] & h_Y \arrow[d]\\
+F' \arrow[r] & F
+\end{tikzcd}
+\tag{36.2}
+\]
+où \(Y\) est ouvert dans \(X\) et \(V=U\cap Y\). Le diagramme
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.55em]
+F' \arrow[r] \arrow[d] & F \arrow[r] \arrow[d] & h_Y/h_V \arrow[d]\\
+G' \arrow[r] \arrow[d] & G \arrow[r] \arrow[d] & h_X/h_U \arrow[d]\\
+G'/F' \arrow[r] & G/F \arrow[r] & h_X/(h_U\cup h_Y)
+\end{tikzcd}
+\]
+exprime \(G/F\) comme une extension de \(h_X/h_{U\cup Y}\) par \(G'/F'\). Par l'hypothèse de récurrence appliquée à \(G'\), et par la remarque 1, on en déduit que \(F\to G\) est solide. Ici \(U\cup Y\to X\) appartient à \(\mathcal E\).
+\end{proofdel}
+
+\begin{proposition*}[37]
+Le tiré en arrière d'un morphisme solide par un morphisme ouvert est solide. En particulier, si \(F\to G\) est ouvert et si \(G\) est solide, alors \(F\) est solide.
+\end{proposition*}
+
+\begin{proofdel}
+Comme le tiré en arrière d'un morphisme ouvert est ouvert, il suffit de vérifier l'assertion pour un morphisme solide obtenu comme somme amalgamée d'un \(h_U\subset h_X\):
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+G' \arrow[r] & G .
+\end{tikzcd}
+\]
+En tirant par un morphisme ouvert \(F\to G\), on obtient un carré cocartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_{U'} \arrow[r] \arrow[d] & h_{X'} \arrow[d]\\
+F' \arrow[r] & F
+\end{tikzcd}
+\]
+avec \(U'\) ouvert dans \(U\) et \(X'\) ouvert dans \(X\). Ceci montre que \(F'\to F\) est solide.
+\end{proofdel}
+
+Supposons maintenant données deux classes \(\mathcal E\) et \(\mathcal E'\) de plongements ouverts vérifiant les conditions 34. On définit \(\mathcal E\times\mathcal E'\) comme la plus petite classe, stable par les conditions 34, contenant les plongements ouverts
+\[
+(U\times X')\cup(X\times U')\subset X\times X',
+\]
+pour \(U\subset X\) dans \(\mathcal E\) et \(U'\subset X'\) dans \(\mathcal E'\).
+
+\begin{example*}[2]
+Si \(\mathcal E\) est la classe de tous les plongements ouverts et si \(\mathcal E'\) est la classe des \(U'\subset X'\) tels que \(G\) agisse librement hors de \(U'\), alors \(\mathcal E\times\mathcal E'=\mathcal E'\).
+\end{example*}
+
+\begin{proposition*}[38]
+Si les faisceaux pointés \(F\) et \(F'\) sont respectivement \(\mathcal E\)- et \(\mathcal E'\)-solides, alors \(F\wedge F'\) est \(\mathcal E\times\mathcal E'\)-solide.
+\end{proposition*}
+
+\begin{proofdel}
+Par hypothèse, \(F\) est une extension itérée, au sens de la remarque 1, de faisceaux pointés \(h_{X_i}/h_{U_i}\), \(U_i\subset X_i\) dans \(\mathcal E\). De même \(F'\) est construit à partir de \(h_{X'_j}/h_{U'_j}\), \(U'_j\subset X'_j\) dans \(\mathcal E'\). Le smash-produit \(F\wedge F'\) est alors une extension itérée, par exemple dans l'ordre lexicographique, des
+\[
+(h_{X_i}/h_{U_i})\wedge(h_{X'_j}/h_{U'_j})
+\simeq
+h_{X_i\times X'_j}\big/
+h_{(U_i\times X'_j)\cup(X_i\times U'_j)}.
+\]
+Il est donc \(\mathcal E\times\mathcal E'\)-solide.
+\end{proofdel}
+
+\begin{definition*}[8]
+Un morphisme est dit ind-solide relativement à \(\mathcal E\) s'il est une limite inductive filtrante de morphismes \(\mathcal E\)-solides.
+\end{definition*}
+
+\heading{Exercice 39.}
+On prend \(G\) trivial. Une section sur \(T\) d'une somme amalgamée
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+se décrit comme suit. Pour un ouvert \(V\) de \(T\) et une section \(s\) de \(F\) sur \(V\), considérons sur le petit site de Nisnevich \(T_{\Nis}\) le préfaisceau \(a(V,s)\) qui envoie \(Y\to T\) sur l'ensemble des morphismes \(f:Y\to X\) tels que \(f^{-1}(U)=Y^{-1}(V)\) et dont la restriction soit compatible avec \(s\). Une section de \(G\) sur \(T\) est donnée par:
+\begin{enumerate}[label=\arabic*.]
+\item un ouvert \(V\) de \(T\);
+\item une section \(s\) de \(F\) sur \(V\);
+\item une section de \(i_*(a(V,s)_{\Nis})\) sur \(T-V\), où \(i:T-V\to T\) est l'immersion fermée.
+\end{enumerate}
+
+\heading{Exercice 40.}
+Avec les notations de l'exercice 39, si \(F\) est un faisceau pour la topologie étale, alors \(G\) l'est aussi. Pour \((V,s)\) fixé, la donnée (3) forme un faisceau étale. Cela se vérifie au moyen du critère usuel permettant de reconnaître qu'un faisceau de Nisnevich est étale: pour \(x\in T\) et pour une extension finie séparable \(K/k(x)\), après extension du corps résiduel à partir de l'hensélisé \(\mathcal O^h_{T,x}\), le foncteur correspondant des voisinages étales doit être un faisceau étale sur \(\Spec k(x)\).
+
+\heading{Exercice 41.}
+Il résulte des exercices 39 et 40 que si \(f:F\to G\) est ind-solide et si \(F\) est étale, alors \(G\) est étale. En particulier, les faisceaux solides, ainsi que les faisceaux pointés solides, sont des faisceaux étales.
+
+\begin{remark*}[2]
+Le même formalisme des morphismes ouverts et solides vaut dans le site de tous les schémas de type fini sur \(S\), muni de la topologie étale.
+\end{remark*}
+
+\subsection*{4.2 Un critère de préservation des équivalences locales}
+
+Nous travaillons avec les faisceaux pointés sur \(QP/G\). Le but de cette section est de prouver le résultat suivant.
+
+\begin{theorem*}[6]
+Soit \(a\) un foncteur des faisceaux pointés vers les ensembles pointés. Supposons que \(a\) commute à toutes les colimites, et que, pour tout plongement ouvert \(U\to X\), le morphisme
+\[
+a((h_U)_+)\longrightarrow a((h_X)_+)
+\]
+soit un monomorphisme. Si \(f:F_\bullet\to G_\bullet\) est une équivalence locale et si les termes \(F_n\) et \(G_n\) sont ind-solides pointés, alors \(a(f)\) est une équivalence faible.
+\end{theorem*}
+
+Supposons que
+\[
+Q=\begin{tikzcd}[column sep=2.5em,row sep=1.6em,baseline=(current bounding box.center)]
+B \arrow[r] \arrow[d] & Y \arrow[d]\\
+A \arrow[r] & X
+\end{tikzcd}
+\]
+soit un carré distingué supérieur. En ajoutant un point-base, on obtient \(Q_+\). Le morphisme \(K_Q\to X_+\) est une équivalence locale. Vérifions que \(a(K_Q)\to a(X_+)\) est une équivalence faible. Comme \(a\) commute aux coproduits, ce morphisme se déduit du carré commutatif
+\[
+\begin{tikzcd}[column sep=2.6em,row sep=1.8em]
+a((h_B)_+) \arrow[r] \arrow[d] & a((h_Y)_+) \arrow[d]\\
+a((h_A)_+) \arrow[r] & a((h_X)_+)
+\end{tikzcd}
+\]
+par la même construction qu'en (23.3). Le carré est cocartésien parce que \(Q\) l'est. La flèche horizontale supérieure étant un monomorphisme, le carré est homotopiquement cocartésien, d'où l'assertion. Comme \(a\) commute aux colimites, ce cas particulier implique le lemme suivant.
+
+\begin{lemma*}[15]
+Si \(f\) appartient à la \(\bar\Delta\)-clôture des morphismes \((K_Q)_+\to X_+\) ci-dessus, alors \(a(f)\) est une équivalence faible.
+\end{lemma*}
+
+\begin{proposition*}[42]
+Preuve du théorème 6.
+\end{proposition*}
+
+\begin{proofdel}
+Pour tout faisceau pointé \(F\), le morphisme \(S(F)\to F\) est une équivalence locale: pour tout \(X\in QP/G\) connexe, \(S(F)(X)\to F(X)\) est une équivalence faible par la construction 29. Ainsi, pour une équivalence locale \(f:F\to G\), le carré
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+S(F) \arrow[r] \arrow[d] & S(G) \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+est un carré commutatif d'équivalences locales. Par les lemmes 15 et 12, \(a(S(f))\) est une équivalence faible. Il reste à montrer que \(a(S(F))\to a(F)\) est une équivalence faible, et de même pour \(G\). Comme \(a\) et \(S\) commutent aux colimites filtrantes, le cas ind-solide se ramène au cas solide; par la définition inductive de la solidité, il suffit de prouver le lemme suivant.
+\end{proofdel}
+
+\begin{lemma*}[16]
+Soit \(U\to X\) un plongement ouvert. Supposons que dans un carré cartésien de faisceaux pointés
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+(h_U)_+ \arrow[r] \arrow[d] & (h_X)_+ \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+le faisceau \(F\) soit tel que \(a(S(F))\to a(F)\) soit une équivalence faible. Alors la même propriété vaut pour \(G\).
+\end{lemma*}
+
+\begin{proofdel}
+Considérons le carré cocartésien
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+S((h_U)_+) \arrow[r] \arrow[d] & S((h_X)_+) \arrow[d]\\
+S(F) \arrow[r] & S(G).
+\end{tikzcd}
+\]
+La flèche horizontale supérieure est un monomorphisme. Il s'ensuit que ce carré est point par point homotopiquement cocartésien, et que \(S\to S(G)\) est une équivalence locale. Le foncteur \(i^*i_*\) de la construction 29 transforme un monomorphisme en une coprojection de la forme \(F\to F\amalg\coprod(h_{U_\alpha})_+\). Par conséquent chaque \(S_n\) est de la forme \((\coprod h_{U_\alpha})_+\), et, par les lemmes 15 et 12, \(a(S)\to a(S(G))\) est une équivalence faible. Il reste à montrer que \(a(S)\to a(G)\) est une équivalence faible.
+
+Appliquons \(a\) au morphisme du carré que l'on vient d'écrire vers le carré cartésien initial. Par la construction 29, les deux morphismes
+\[
+S((h_U)_+)\to(h_U)_+,\qquad S((h_X)_+)\to(h_X)_+
+\]
+sont des équivalences d'homotopie et le restent après application de \(a\). Nous avons supposé que \(a(S(F))\to a(F)\) était une équivalence faible. Comme \(a\) envoie les deux carrés sur des carrés cocartésiens dont les flèches horizontales supérieures sont des monomorphismes, il s'ensuit que \(a(S)\to a(G)\) est une équivalence faible. Donc \(a(S(G))\to a(G)\) l'est aussi.
+\end{proofdel}
+
+\section*{5 Deux foncteurs}
+
+\subsection*{5.1 Le foncteur \(X\mapsto X/G\)}
+
+Il y a un morphisme naturel de sites
+\[
+p:(QP/G)_{\Nis}\longrightarrow (QP)_{\Nis}
+\]
+donné par le foncteur
+\[
+p^*:\ QP\longrightarrow QP/G,\qquad X\longmapsto (X\text{ avec l'action triviale de }G).
+\]
+En effet \(p^*\) commute aux limites finies et transforme les familles couvrantes en familles couvrantes. En particulier il est continu: si \(F\) est un faisceau sur \((QP/G)_{\Nis}\), le préfaisceau
+\[
+X\longmapsto F(X\text{ avec action triviale de }G)
+\]
+est un faisceau sur \((QP)_{\Nis}\). Le foncteur \(p^*\) admet un adjoint à gauche
+\[
+q:\ QP/G\longrightarrow QP,\qquad X\longmapsto X/G .
+\]
+Comme \(p^*\) est continu, \(q\) est cocontinu, et l'image inverse \(p^*\) des faisceaux sur \((QP)_{\Nis}\) vers les faisceaux sur \((QP/G)_{\Nis}\) est
+\[
+F\longmapsto \bigl(\text{faisceau associé à }X\longmapsto F(X/G)\bigr).
+\]
+
+\begin{proposition*}[43]
+Le foncteur cocontinu \(q:X\mapsto X/G\) est aussi continu. Autrement dit, si \(F\) est un faisceau sur \(QP\), le préfaisceau \(X\mapsto F(X/G)\) sur \(QP/G\) est un faisceau.
+\end{proposition*}
+
+\begin{proofdel}
+Par le lemme 2, il suffit de tester la propriété de faisceau de \(X\mapsto F(X/G)\) pour un recouvrement de \(X\) obtenu par tiré en arrière d'un recouvrement de Nisnevich \(U_i\to X/G\). Le passage au quotient commute au changement de base plat. En prenant \(X/G\) pour base, cela identifie \(X\times_{X/G}U_i\to U_i\) à un quotient par \(G\) égal à \(U_i\). Il en va de même pour les intersections multiples. La propriété de faisceau pour le recouvrement de \(X\) par les \(X\times_{X/G}U_i\) se ramène donc à la propriété de faisceau de \(F\) pour le recouvrement \((U_i)\) de \(X/G\).
+\end{proofdel}
+
+Le foncteur \(q:X\mapsto X/G\) donne une paire de foncteurs adjoints entre préfaisceaux sur \(QP/G\) et \(QP\). Comme \(q\) est continu, il induit une paire analogue sur les faisceaux. Nous la notons
+\[
+(p_\#,p^*),
+\]
+de sorte que l'on dispose d'une suite d'adjonctions \((p_\#,p^*,p_*)\). Si \(F\) sur \(QP/G\) est représentable, \(F=h_X\), alors \(p_\#F=h_{X/G}\). En particulier \(p_\#\) transforme le faisceau final, ou point, sur \(QP/G\), en le faisceau final sur \(QP\), et \((p_\#,p^*)\) est aussi une paire adjointe dans la catégorie des faisceaux pointés. Il est clair que \(p_\#\) envoie les faisceaux solides sur des faisceaux solides. On a aussi le résultat suivant.
+
+\begin{proposition*}[44]
+Soit \(F\) un faisceau pointé solide relativement aux plongements ouverts \(U\subset X\) de schémas lisses tels que l'action de \(G\) sur \(X\) soit libre hors de \(U\). Alors \(p_\#(F)\) est solide relativement aux plongements ouverts de schémas lisses.
+\end{proposition*}
+
+\begin{proofdel}
+Si \(X'\) est l'ouvert de \(X\) où l'action de \(G\) est libre, alors \(U\cup X'\to X\) appartient à la même classe, et, en posant \(U'=U\cap X'\), une somme amalgamée de \(U\to X\) est aussi une somme amalgamée de \(U'\to X'\). On s'est donc ramené au cas où l'action est libre partout. Puisque \(p_\#\) est adjoint à gauche, il préserve les colimites et en particulier les sommes amalgamées. Il envoie \(h_U\) sur \(h_{U/G}\). L'assertion se réduit donc au lemme suivant.
+\end{proofdel}
+
+\begin{lemma*}[17]
+Si \(G\) agit librement sur \(U\), lisse sur \(S\), alors \(U/G\) est lisse.
+\end{lemma*}
+
+\begin{proofdel}
+Si \(G\) est fini étale, par exemple \(S_n\), ce qui est le cas qui nous intéresse le plus, c'est clair puisque \(U\to U/G\) est étale. En général, l'hypothèse que \(G\) agit librement sur \(U\) implique que \(U\) est un \(G\)-torseur sur \(U/G\). En particulier \(U\to U/G\) est fidèlement plat. Comme \(U\) est plat sur \(S\), cela force \(U/G\) à être plat sur \(S\). Pour vérifier que \(U/G\) est lisse sur \(S\), il suffit de le vérifier fibre géométrique par fibre géométrique. Pour un point géométrique \(\bar s\) de \(S\), la lissité de \((U/G)_{\bar s}\) revient à la régularité. Comme \(U_{\bar s}\) est lisse sur \(\bar s\), donc régulier, et que \(U_{\bar s}\to(U/G)_{\bar s}\) est fidèlement plat, ceci résulte de [4], application du critère cohomologique de régularité de Serre.
+\end{proofdel}
+
+\begin{proposition*}[45]
+Le foncteur \(p_\#\) respecte les équivalences locales, respectivement les \(\Aone\)-équivalences, entre faisceaux simpliciaux terme à terme ind-solides.
+\end{proposition*}
+
+\begin{proofdel}
+Soit \(f:F\to F'\) une équivalence locale entre faisceaux simpliciaux terme à terme ind-solides sur \(QP/G\). Pour vérifier que \(p_\#(f)\) est une équivalence locale, il suffit de voir que pour tout \(X\in QP\) et tout \(x\in X\), le morphisme
+\[
+p_\#(F)(\Spec\mathcal O^h_{X,x})\longrightarrow
+p_\#(F')(\Spec\mathcal O^h_{X,x})
+\]
+est une équivalence faible d'ensembles simpliciaux. Comme \(p_\#\) est un adjoint à gauche, le foncteur
+\[
+F\longmapsto p_\#(F)(\Spec\mathcal O^h_{X,x})
+\tag{45.1}
+\]
+commute aux colimites. Pour un plongement ouvert \(U\to X\) dans \(QP/G\), le morphisme \(U/G\to X/G\) est encore un plongement ouvert, et le théorème 6 s'applique à (45.1).
+
+Soit \(f:F\to F'\) une \(\Aone\)-équivalence. Considérons le carré
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+S(F) \arrow[r] \arrow[d] & S(F') \arrow[d]\\
+F \arrow[r] & F' .
+\end{tikzcd}
+\]
+Par la première partie de la proposition, \(p_\#\) transforme les flèches verticales en équivalences locales. Comme \(p_\#\) commute aux colimites, le lemme 13 implique que \(p_\#(S(f))\) appartient à la \(\bar\Delta\)-clôture de la classe contenant les \(p_\#((K_Q)_+\to X_+)\), pour \(Q\) distingué supérieur, et les \(p_\#((X\times\Aone)_+\to X_+)\), pour \(X\in QP/G\). Par le théorème 4, il reste à prouver que les morphismes de ces deux types sont des \(\Aone\)-équivalences. Pour le premier type cela résulte de la première moitié de la proposition. Pour le second, cela résulte du fait que
+\[
+p_\#((X\times\Aone)_+)\longrightarrow p_\#(X_+)
+\]
+et
+\[
+p_\#(X_+)\times\Aone\longrightarrow p_\#((X\times\Aone)_+)
+\]
+sont des équivalences d'homotopie \(\Aone\) mutuellement inverses.
+\end{proofdel}
+
+On définit
+\[
+Lp_\#:\Ho_{A^1}(QP/G)\longrightarrow \Ho_{A^1}(QP)
+\]
+(et de même dans le cadre pointé) par
+\[
+Lp_\#(F):=p_\#(S(F)),
+\]
+où \(S(F)\) est défini dans la construction 29. La proposition 45 montre que \(Lp_\#\) est bien défini et que, pour \(F\) terme à terme ind-solide, on a \(Lp_\#(F)\simeq p_\#(F)\).
+
+\subsection*{5.2 Le foncteur \(X\mapsto X^T\)}
+
+Comme au paragraphe 3.1, nous fixons \(G\) et \(S\). Nous fixons aussi \(T\in QP/G\), fini et plat sur \(S\).
+
+Pour un préfaisceau \(F\) sur \(QP/G\), on définit \(F^T\) comme l'objet Hom interne \(\underline{\Hom}(h_T,F)\). Sa valeur sur \(U\) est
+\[
+F^T(U)=F(U\times_S T).
+\]
+Si \(F\) est un faisceau, alors \(F^T\) en est un.
+
+\begin{example*}[6]
+Prenons \(G\) et \(T\) déduits du groupe fini \(S_n\) agissant sur \(\{1,\ldots,n\}\) par permutations. Si \(F\) est représenté par \(X\), avec action triviale de \(S_n\), alors \(F^T\) est représenté par \(X^n\), où \(S_n\) agit par permutation des facteurs.
+\end{example*}
+
+\begin{remark*}[1]
+Si \(F\) est représentable, et représenté par \(X\) lisse sur \(S\), alors \(F^T\) est représentable, et représenté par un \(G\)-schéma lisse. Plus précisément, si \(F\) est représenté par \(X\in QP/G\), considérons le foncteur contravariant sur \(Sch/S\) des morphismes de schémas de \(T\) vers \(X\),
+\[
+U\longmapsto \Hom_S(T\times_S U,\; X\times_S U).
+\]
+Ce foncteur est représenté par un schéma \(Y\), quasi-projectif sur \(S\), et lisse si \(X\) l'est. Le schéma \(Y\) porte l'action évidente de \(G\), et \((Y,G)\) représente \(F^T\). En effet, en associant à un morphisme \(T\to X\) son graphe, on envoie le foncteur dans le foncteur de Hilbert des sous-schémas finis de \(T\times_S X\) de même rang que \(T\). Ce foncteur de Hilbert est représenté par un schéma de Hilbert quasi-projectif. La condition qu'un sous-schéma fini plat soit le graphe d'un morphisme de \(T\) vers \(X\) est ouverte; elle définit le sous-schéma ouvert \(Y\) requis. Si \(X\) est lisse, la lissité de \(Y\) résulte du critère infinitésimal de relèvement. L'action de \(G\) est évidente. Pour \(Z\in QP/G\), on a les identifications
+\[
+\Hom_{QP/G}(Z,Y)
+\simeq \Hom_S(Z,\Hom(T,X))
+\simeq \Hom_S(Z\times_S T,X)
+\simeq F^T(Z).
+\]
+\end{remark*}
+
+Soit \(\mathcal E\) une classe de plongements ouverts dans \((QP/G)_{\Nis}\). Nous dirons simplement «solide» pour \(\mathcal E\)-solide.
+
+\begin{theorem*}[7]
+Si \(F\) est un faisceau solide sur \((QP/G)_{\Nis}\), alors \(F^T\) est solide.
+\end{theorem*}
+
+Si \(A\to F\) est ouvert, c'est-à-dire relativement représentable par des plongements ouverts équivariants, il existe une suite naturelle de faisceaux intermédiaires entre \(A^T\) et \(F^T\). Dans la situation de l'exemple 6, et pour \(h_U\to h_X\), ils sont représentés par les sous-schémas ouverts équivariants de \(X^n\) formés des \(n\)-uplets \((x_1,\ldots,x_n)\) pour lesquels au moins \(i\) des \(x_j\) sont dans \(U\).
+
+Formellement, une section de \(F^T\) sur \(Z\) est une section \(s\) de \(F\) sur \(T\times_S Z\). Soit \(U(s)\) l'ouvert équivariant de \(T\times_S Z\) sur lequel \(s\) appartient à \(A\). Le faisceau \((F,A)^T_i\) est le sous-faisceau de \(F^T\) formé des \(s\) tels que toutes les fibres de \(U(s)\to Z\) soient de degré au moins \(i\). La condition sur le degré étant ouverte, l'inclusion \((F,A)^T_i\subset F^T\) est ouverte. Pour \(i=0\), ce faisceau est \(F^T\); pour \(i\) assez grand, il est \(A^T\).
+
+\begin{lemma*}[18]
+Supposons que \(A\to F\) soit déduit par somme amalgamée d'un morphisme ouvert \(B\to C\), de sorte que
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+B \arrow[r] \arrow[d] & C \arrow[d]\\
+A \arrow[r] & F
+\end{tikzcd}
+\tag{45.2}
+\]
+soit cocartésien. Alors, pour tout \(i\), le carré cartésien
+\[
+\begin{tikzcd}[column sep=3.2em,row sep=1.8em]
+\text{produit fibré} \arrow[r] \arrow[d] &
+(A\amalg C,A)^T_i \arrow[d]\\
+(F,A)^T_{i+1} \arrow[r] &
+(F,A)^T_i
+\end{tikzcd}
+\tag{45.3}
+\]
+est aussi cocartésien.
+\end{lemma*}
+
+\begin{proofdel}
+Le site \((QP/G)_{\Nis}\) possède assez de points. Par le lemme 2, pour chaque \(X\in QP/G\) et chaque \(x\in X/G\), le foncteur
+\[
+F\longmapsto \varinjlim F(X\times_{X/G}U),
+\]
+où \(U\) parcourt les voisinages de Nisnevich de \(x\) dans \(X/G\), est un point. Ces points sont représentés par des schémas henséliens \(G\)-locaux \(Z\): réunions disjointes finies de schémas locaux henséliens essentiellement de type fini sur \(S\), avec \(Z/G\) local.
+
+Nous montrons que (45.3) devient cocartésien après application d'un tel foncteur fibre \(F\mapsto F(Z)\). Fixons \(s\in(F,A)^T_i(Z)\), vu comme une section de \(F\) sur \(T\times_S Z\), et soit \(U\subset T\times_S Z\) l'ouvert où \(s\) appartient à \(A\). L'hypothèse signifie que le degré de la fibre \(U_z\) est au moins \(i\), indépendamment du point fermé \(z\) de \(Z\). Il reste à montrer que, si \(s\) n'appartient pas à \((F,A)^T_{i+1}(Z)\), donc si ce degré vaut exactement \(i\), alors \(s\) admet un relèvement unique à \((A\amalg C,A)^T_i(Z)\).
+
+Le schéma \(T\times_S Z\) est une réunion disjointe de schémas henséliens \(G\)-locaux. Sur chaque composante où \(s\) n'appartient pas à \(A\), la cocartésianité de (45.2) donne un relèvement unique à \(C\). Sur les composantes où \(s\) appartient à \(A\), le relèvement est la section donnée dans \(A\). On obtient ainsi une section de \(A\amalg C\) sur \(T\times_S Z\) relevant \(s\), et elle est unique par le même raisonnement composante par composante.
+\end{proofdel}
+
+\begin{proofnamed}{Preuve du théorème 7}
+Comme \(F\) est solide, il apparaît au bout d'une suite
+\[
+\emptyset=F_0\to F_1\to\cdots\to F_n=F
+\]
+où chaque \(F_i\to F_{i+1}\) est une somme amalgamée d'un plongement ouvert dans \(QP/G\). On prouve par récurrence sur \(i\) que, pour tout \(Z\), \((F_i\amalg h_Z)^T\) est solide. Pour \(i=0\), \(F_0\) est représentable, et \((F_0\amalg h_Z)^T\) l'est aussi par l'énoncé de représentabilité ci-dessus. Pour l'étape de récurrence, on applique le lemme suivant à \(F_i\amalg h_Z\to F_{i+1}\amalg h_Z\).
+\end{proofnamed}
+
+\begin{lemma*}[19]
+Soit
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.8em]
+h_U \arrow[r] \arrow[d] & h_X \arrow[d]\\
+F \arrow[r] & G
+\end{tikzcd}
+\]
+un carré cocartésien avec \(U\) ouvert dans \(X\). Supposons que, pour tout \(Z\), \((F\amalg h_Z)^T\) soit solide. Alors \(F^T\to G^T\) est solide.
+\end{lemma*}
+
+\begin{proofdel}
+Comme \(F\to G\) est ouvert par la proposition 33, les \((G,F)^T_i\) sont définis. Il suffit de montrer que, pour chaque \(i\), le morphisme ouvert
+\[
+(G,F)^T_{i+1}\longrightarrow (G,F)^T_i
+\]
+est solide. Par le lemme 18, ce morphisme s'insère dans un carré à la fois cartésien et cocartésien
+\[
+\begin{tikzcd}[column sep=3.0em,row sep=1.8em]
+\text{produit fibré} \arrow[r] \arrow[d] &
+(F\amalg h_X,F)^T_i \arrow[d]\\
+(G,F)^T_{i+1} \arrow[r] &
+(G,F)^T_i .
+\end{tikzcd}
+\tag{45.4}
+\]
+Par hypothèse \((F\amalg h_X)^T\) est solide; donc \((F\amalg h_X,F)^T_i\) l'est aussi, par la proposition 37 appliquée au morphisme ouvert vers \((F\amalg h_X)^T\). La flèche verticale droite de (45.4) est ouverte, donc solide par la proposition 36, et la flèche horizontale inférieure est solide comme somme amalgamée d'un morphisme solide.
+\end{proofdel}
+
+\begin{example*}[7]
+Il n'est pas toujours vrai que, si \(f:A\to F\) est un morphisme solide, alors \(f^T\) soit solide. Prenons \(G\) trivial et \(T\) formé de deux points, de sorte que \(F^T=F^2\). Pour tout faisceau \(F\), l'inclusion \(F\to F\amalg\pt\) est solide. En appliquant \((-)^T\), on obtient
+\[
+F^2\longrightarrow F^2\amalg F\amalg F\amalg \pt .
+\]
+En tirant en arrière par le morphisme naturel de \(F\) vers l'un des deux facteurs \(F\), morphisme ouvert, on voit que si \(f^T\) était solide, alors \(F\) serait solide.
+\end{example*}
+
+\begin{corollary*}[46]
+Si \(f:F\to G\) est ouvert et si \(G\) est solide, alors
+\[
+f^T:F^T\longrightarrow G^T
+\]
+est solide. En particulier, si \(G\) est solide pointé, alors \(G^T\) est solide pointé.
+\end{corollary*}
+
+\begin{proofdel}
+Le morphisme \(f^T\) est ouvert, et l'on applique le théorème 7 et la proposition 36.
+\end{proofdel}
+
+Nous définissons maintenant, pour les faisceaux pointés sur \((QP/G)_{\Nis}\), une variante smash de la construction \(F\mapsto F^T\). Si le point marqué \(\pt\to F\) est ouvert, c'est
+\[
+F^{\wedge T}:=F^T/(F,\pt)^T_1,
+\]
+c'est-à-dire \(F^T\) avec \((F,\pt)^T_1\) contracté au nouveau point-base. Cette définition se répète pour tout faisceau pointé si, pour tout monomorphisme \(A\to F\), on définit \((F,A)^T_1\) comme le sous-faisceau suivant de \(F^T\): une section \(s\) de \(F^T(X)=F(X\times T)\) est dans \((F,A)^T_1\) si, pour tout \(X'\to X\) non vide, il existe un diagramme commutatif
+\[
+\begin{tikzcd}[column sep=2.8em,row sep=1.7em]
+X'' \arrow[r] \arrow[d] & X\times T \arrow[d]\\
+X' \arrow[r] & X
+\end{tikzcd}
+\]
+avec \(X''\) non vide et \(s\) appartenant à \(A\) sur \(X''\).
+
+\begin{example*}[8]
+Sous les hypothèses de l'exemple 6, si \(U\) est ouvert dans \(X\), de complément \(Z\), et si \(F=h_X/h_U\), alors \(F^{\wedge T}\) est \(h_{X^n}/h_{X^n-Z^n}\), où \(X^n\) porte son action naturelle de \(S_n\). En particulier, si \(F\) est l'espace de Thom d'un fibré vectoriel \(E\) sur \(Y\), alors \(F^{\wedge T}\) est l'espace de Thom du fibré vectoriel \(S_n\)-équivariant \(\bigoplus_1^n E\) sur \(Y^n\).
+\end{example*}
+
+\begin{proposition*}[47]
+Si un faisceau pointé \(F\) est solide pointé, c'est-à-dire si \(\pt\to F\) est solide, alors \(F^{\wedge T}\) est solide pointé.
+\end{proposition*}
+
+\begin{proofdel}
+Comme \(F^T\) est solide, le morphisme ouvert \((F,\pt)^T_1\to F^T\) est solide par la proposition 36, et \(\pt\to F^{\wedge T}\) s'en déduit par somme amalgamée.
+\end{proofdel}
+
+La définition de \(F^{\wedge T}\) implique immédiatement le résultat suivant.
+
+\begin{lemma*}[20]
+Soit \(Z\) un schéma hensélien \(G\)-local. Alors
+\[
+F^{\wedge T}(Z)=\bigwedge_i F((T\times Z)_i),
+\]
+où les \((T\times Z)_i\) sont les composantes henséliennes \(G\)-locales de \(T\times Z\).
+\end{lemma*}
+
+\begin{proposition*}[48]
+Le foncteur \(F\mapsto F^{\wedge T}\) respecte les équivalences locales et les \(\Aone\)-équivalences.
+\end{proposition*}
+
+\begin{proofdel}
+Soit \(f:F\to G\) une équivalence locale. Pour vérifier que \(F^{\wedge T}\to G^{\wedge T}\) est une équivalence locale, il suffit de tester sur tout schéma hensélien \(G\)-local \(Z\). Par le lemme 20, le morphisme devient le smash-produit des morphismes
+\[
+F((T\times Z)_i)\longrightarrow G((T\times Z)_i),
+\]
+donc une équivalence faible d'ensembles simpliciaux.
+
+Supposons maintenant que \(f\) soit une \(\Aone\)-équivalence. Par la première partie il suffit de montrer que
+\[
+S(f)^{\wedge T}:S(F)^{\wedge T}\longrightarrow S(G)^{\wedge T}
+\]
+est une \(\Aone\)-équivalence. On utilise la caractérisation des \(\Aone\)-équivalences donnée au théorème 5. Comme \(F\mapsto F^{\wedge T}\) commute aux colimites filtrantes et préserve les équivalences locales, il suffit de vérifier qu'il transforme les équivalences d'homotopie \(\Aone\) en équivalences d'homotopie \(\Aone\). Cela résulte du morphisme naturel
+\[
+F^{\wedge T}\wedge(\Aone)_+\longrightarrow (F\wedge(\Aone)_+)^{\wedge T}.
+\]
+\end{proofdel}
+
+\section*{Remerciements}
+
+Travail soutenu par les subventions NSF DMS-97-29992 et DMS-9901219, ainsi que par la Fondation Ambrose Monell.
+
+\section*{Références}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item K. S. Brown et S. M. Gersten, \emph{Algebraic \(K\)-theory and generalized sheaf cohomology}, Lecture Notes in Mathematics 341, Springer, 1973, p. 266--292.
+\item A. Grothendieck, M. Artin et J.-L. Verdier, \emph{Théorie des topos et cohomologie étale des schémas} (SGA 4), Lecture Notes in Mathematics 269, 270, 305, Springer, 1972--1973.
+\item A. Grothendieck et M. Demazure, \emph{Schémas en groupes} (SGA 3), Lecture Notes in Mathematics 151, 152, 153, Springer, 1970.
+\item A. Grothendieck et J. Dieudonné, \emph{Étude locale des schémas et des morphismes de schémas} (EGA 4), Publ. Math. IHES 20, 24, 28, 32, 1964--1967.
+\item Mark Hovey, \emph{Model Categories}, American Mathematical Society, Providence, 1999.
+\item S. Mac Lane, \emph{Categories for the Working Mathematician}, Graduate Texts in Mathematics 5, Springer, 1971.
+\item Carlo Mazza, Vladimir Voevodsky et Charles Weibel, \emph{Lecture Notes on Motivic Cohomology}, Clay Mathematics Monographs 2, AMS, Providence, RI, 2006.
+\item Fabien Morel et Vladimir Voevodsky, \emph{\(\Aone\)-homotopy theory of schemes}, Publ. Math. IHES 90 (1999), 45--143.
+\item Charles A. Weibel, \emph{An Introduction to Homological Algebra}, Cambridge University Press, 1994.
+\item P. Gabriel et M. Zisman, \emph{Calculus of Fractions and Homotopy Theory}, Springer-Verlag, Berlin, 1967.
+\item J. F. Jardine, \emph{Simplicial presheaves}, J. Pure Appl. Algebra 47 (1987), 35--87.
+\end{enumerate}
+\end{document}

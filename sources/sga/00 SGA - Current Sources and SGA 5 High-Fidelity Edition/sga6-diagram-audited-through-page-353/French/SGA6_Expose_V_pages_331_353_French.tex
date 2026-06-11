@@ -1,0 +1,486 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Exposé V continuation macros
+\providecommand{\Ghat}{\widehat G}
+\providecommand{\Gg}{\widehat G_g}
+\providecommand{\Gcirc}{\widehat G_{\circ}}
+\providecommand{\Gnabla}{\widehat G_{\nabla}}
+\providecommand{\Grhat}{\widehat{\operatorname{Gr}}}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Mon}{\operatorname{Mon}}
+
+\begin{center}
+{\Large SGA 6, Exposé V : opérations gamma et lambda-anneaux libres}\\[0.3em]
+{\large Pages 331--353 du scan original}
+\end{center}
+
+
+\subsection*{Suite de 2.9}
+
+On suppose toujours que \(K\) est binomial. La multiplication, pour la loi \(\circ\), par \(\lambda_t(a)\), où \(a\in K\), définit un morphisme de foncteurs
+\[
+  \Ghat_K\longrightarrow \Ghat_K
+\]
+caractérisé par sa valeur sur l'élément \(1+Xt\) de \(G(K[X])\). Ainsi
+\[
+  \lambda_t(a)\circ(1+Xt)=\lambda_{Xt}(a),
+\]
+et donc
+\begin{equation}\tag{2.9.3}
+  \lambda_t(a)\circ(1+Xt)
+  =(1+Xt)^a
+  =\exp(a\Log(1+Xt))
+  =\sum_{n=0}^{\infty}\binom{a}{n}X^nt^n .
+\end{equation}
+Il en résulte que
+\begin{equation}\tag{2.9.4}
+  \lambda_t(a)\circ\varphi=\varphi^a
+  \quad(=\exp(a\Log\varphi)).
+\end{equation}
+En effet, les deux membres sont des foncteurs additifs qui coïncident sur \(1+Xt\). De (2.9.3) et 1.15, on tire que le polynôme universel de degré \(n\) définissant la multiplication par \(\lambda_t(a)\) est isobare de poids \(n\). On le notera \(R_{n,a}\).
+
+Enfin, si \(A\) est une \(K\)-\(\lambda\)-algèbre et si \(b\in A\), on a
+\begin{equation}\tag{2.9.5}
+  \lambda_t(ab)=(\lambda_t(b))^a .
+\end{equation}
+Cela résulte de \(\lambda_t(ab)=\lambda_t(a)\circ\lambda_t(b)\) et de (2.9.4).
+
+\section*{3. Les opérations \(\gamma\)}
+
+Nous travaillons encore sur la catégorie \(\mathscr C_0\).
+
+\textbf{3.1.} Soit \(K\) un \(\lambda\)-anneau. À partir des opérations \(\lambda^i\) sur \(K\), nous allons définir de nouvelles opérations, notées \(\gamma^i\). Ce sont les opérations adaptées aux classes de Chern. Si \(E\) est un fibré vectoriel de rang \(d\), sa classe de Chern de rang maximal est représentée, en langage \(K\)-théorique, par la somme alternée des puissances extérieures. Pour obtenir la classe d'ordre \(n\), on remplace \(E\) par \(E\oplus\mathbf1^{\,n-d}\), afin de pouvoir appliquer la même recette de classe maximale. Ceci justifie la formule suivante.
+
+\textbf{Proposition 3.2.} Soit \(K\) un \(\lambda\)-anneau.
+\begin{enumerate}[label=\roman*)]
+\item Pour tout \(x\in K\) et tout \(n\in\mathbb N\),
+\[
+  \lambda^n(x+n-1)=(-1)^n\sum_{i=0}^n(-1)^i\lambda^i(x+n).
+\]
+\item Si
+\[
+  \gamma^n(x)=\lambda^n(x+n-1),\qquad
+  \gamma_t(x)=\sum_{n\ge0}\gamma^n(x)t^n,
+\]
+alors
+\[
+  \gamma_t(x)=\lambda_{t/(1-t)}(x),
+  \qquad\text{d'où}\qquad
+  \lambda_t(x)=\gamma_{t/(1+t)}(x).
+\]
+\end{enumerate}
+La connaissance des opérations \(\gamma\) équivaut donc à celle des opérations \(\lambda\).
+
+\emph{Démonstration.} Pour i),
+\[
+  \lambda^n(x+n-1)=\sum_{i=0}^{n}\lambda^i(x+n)\lambda^{n-i}(-1).
+\]
+Comme \(\lambda_t(1)=1+t\), on a \(\lambda_t(-1)=1/(1+t)\), donc \(\lambda^k(-1)=(-1)^k\), ce qui donne la relation voulue. Pour ii),
+\[
+  \lambda_{t/(1-t)}(x)=\sum_{n\ge0}\lambda^n(x)t^n(1-t)^{-n},
+\]
+et
+\[
+  t^n(1-t)^{-n}=\sum_{p\ge n}\binom{p-1}{p-n}t^p.
+\]
+Le coefficient de \(t^p\) est donc
+\[
+  \sum_{n=0}^{p}\lambda^n(x)\binom{p-1}{p-n}
+  =\sum_{n=0}^{p}\lambda^n(x)\lambda^{p-n}(p-1)
+  =\lambda^p(x+p-1).
+\]
+
+\textbf{3.3.} Si \(f:K\to K'\) est un homomorphisme de \(\lambda\)-anneaux, alors \(f\) est un \(\lambda\)-homomorphisme si et seulement si, pour tout \(i\in\mathbb N\),
+\[
+  f(\gamma^i(x))=\gamma^i(f(x)),
+\]
+ou encore
+\[
+  \gamma_t(f(x))=\Ghat(f)(\gamma_t(x)).
+\]
+
+\textbf{3.4.} De 3.2 on déduit les relations
+\begin{equation}\tag{3.4.1}
+  \gamma^0(x)=1,
+  \qquad \gamma^1(x)=x,
+  \qquad \gamma^n(x+y)=\sum_{p+q=n}\gamma^p(x)\gamma^q(y).
+\end{equation}
+Ainsi \(\gamma_t\) définit une nouvelle structure de pré-\(\lambda\)-anneau. Ce n'est pas en général une structure de \(\lambda\)-anneau. Notons \(\rho_t\) l'automorphisme du foncteur \(\Ghat\) induit par le changement de variable
+\[
+  t\longmapsto \frac{t}{1-t}.
+\]
+On a \(\gamma_t=\rho_t\lambda_t\). Le transport de structure par \(\rho_t\) donne sur \(\Ghat\) une seconde structure de foncteur en \(\lambda\)-anneaux, pour laquelle \(\gamma_t:K\to\Ghat(K)\) est un \(\lambda\)-homomorphisme dès que \(K\) est un \(\lambda\)-anneau.
+
+\textbf{3.5.} La multiplication dans cette structure transportée est le composé
+\[
+  \Ghat\times\Ghat\xrightarrow{\rho_t^{-1}\times\rho_t^{-1}}
+  \Ghat\times\Ghat\xrightarrow{\circ}\Ghat\xrightarrow{\rho_t}\Ghat .
+\]
+On la notera \(\nabla\). Elle est déterminée par
+\begin{align}
+ (1+Xt)\nabla(1+Yt)
+ &=\rho_t\!\left(\rho_t^{-1}(1+Xt)\circ\rho_t^{-1}(1+Yt)\right) \notag\\
+ &=\rho_t\!\left(\frac{1+(X+1)t}{1+t}\circ
+                 \frac{1+(Y+1)t}{1+t}\right) \notag\\
+ &=\rho_t\!\left(\frac{(1+((X+1)(Y+1))t)(1+t)}
+                      {(1+(X+1)t)(1+(Y+1)t)}\right) \notag\\
+ &=\frac{1+(1+X+Y+XY)t}{(1+Xt)(1+Yt)} . \tag{3.5.1}
+\end{align}
+Donc, pour \(x,y\in K\),
+\begin{equation}\tag{3.5.2}
+  \gamma_t(xy)=\gamma_t(x)\nabla\gamma_t(y).
+\end{equation}
+Le polynôme universel de degré \(n\) pour cette loi sera noté \(P'_n\). Ses composantes isobares ont des poids compris entre \(n\) et \(2n\) par rapport à chacun des deux groupes de variables, et
+\begin{equation}\tag{3.5.3}
+  \gamma^n(xy)
+  =P'_n(\gamma^1(x),\ldots,\gamma^n(x),
+       \gamma^1(y),\ldots,\gamma^n(y)).
+\end{equation}
+L'unité pour \(\nabla\) est \(\gamma_t(1)=1/(1-t)\).
+
+\textbf{3.6.} Les opérations \(\lambda'\) de la structure transportée sont définies par
+\[
+\begin{tikzcd}[column sep=large]
+1+K[[t]]^+ \arrow[r,"\lambda_u"] \arrow[d,"\rho_t"'] &
+1+\{1+K[[t]]^+\}[[u]]^+ \arrow[d,"\Ghat(\rho_t)"]\\
+1+K[[t]]^+ \arrow[r,"\lambda'_u"'] &
+1+\{1+K[[t]]^+\}[[u]]^+ .
+\end{tikzcd}
+\tag{3.6.1}
+\]
+Si \(\gamma'\) désigne les opérations \(\gamma\) attachées à ces opérations \(\lambda'\), alors
+\begin{equation}\tag{3.6.2}
+  \gamma'_u(1+Xt)=\frac1{1-u}+\{1+Xt\}u .
+\end{equation}
+Soit \(Q'_{i,j}\) le coefficient de \(t^j\) dans \(\gamma'^i(1+X_1t+X_2t^2+\cdots)\). C'est un polynôme de \(\mathbb Z[X_1,\ldots,X_{ij}]\), dont les composantes isobares ont des poids de \(j\) à \(ij\). Pour un \(\lambda\)-anneau \(K\) et \(x\in K\),
+\begin{equation}\tag{3.6.3}
+  \gamma_t(\lambda^i(x))=\lambda'^i(\gamma_t(x)),
+  \qquad
+  \gamma_t(\gamma^i(x))=\gamma'^i(\gamma_t(x)),
+\end{equation}
+et par suite
+\begin{equation}\tag{3.6.4}
+  \gamma^j(\gamma^i(x))
+  =Q'_{i,j}(\gamma^1(x),\ldots,\gamma^{ij}(x)).
+\end{equation}
+La structure de pré-\(\lambda\)-anneau ainsi définie sur \(\Ghat\) est elle-même une structure de \(\lambda\)-anneau.
+
+\textbf{3.7.} Pour éviter toute confusion, on notera \(\Gcirc\) le foncteur \(\Ghat\) muni de la structure du §2, et \(\Gnabla\) le même foncteur muni de la structure du §3. Donner une structure de \(\lambda\)-anneau sur un anneau \(A\) revient soit à donner un homomorphisme \(A\to\Gcirc(A)\) satisfaisant le diagramme usuel pour \(\lambda_t\), soit à donner un homomorphisme \(A\to\Gnabla(A)\) satisfaisant le diagramme correspondant pour \(\gamma_t\). Les diagrammes sont
+\[
+\begin{tikzcd}[column sep=large]
+A \arrow[r,"\lambda_u"] \arrow[d,"\lambda_t"'] & \Gcirc^u(A) \arrow[d,"\Gcirc^u(\lambda_t)"]\\
+\Gcirc^t(A) \arrow[r,"\lambda_u"'] & \Gcirc^u(\Gcirc^t(A))
+\end{tikzcd}
+\tag{3.7.1}
+\]
+et
+\[
+\begin{tikzcd}[column sep=large]
+A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(\gamma_t)"]\\
+\Gnabla^t(A) \arrow[r,"\gamma'_u"'] & \Gnabla^u(\Gnabla^t(A)).
+\end{tikzcd}
+\tag{3.7.2}
+\]
+
+\textbf{3.8.} Soit \(K\) un anneau binomial. D'après (2.6.1), pour \(x\in K\),
+\begin{equation}\tag{3.8.1}
+  \gamma_t(x)=\left(\frac1{1-t}\right)^x
+  =\exp(-x\Log(1-t)).
+\end{equation}
+Si \(a\in K\), la multiplication par \(\gamma_t(a)\), pour la loi \(\nabla\), est caractérisée par sa valeur sur \(1+Xt\) :
+\begin{equation}\tag{3.8.2}
+  \gamma_t(a)\nabla(1+Xt)
+  =(1+Xt)^a
+  =\exp(a\Log(1+Xt))
+  =\sum_{n=0}^{\infty}\binom{a}{n}X^nt^n .
+\end{equation}
+Ainsi le polynôme universel de degré \(n\) définissant cette multiplication est encore \(R_{n,a}\).
+
+\textbf{Définition 3.9.} Soit \(K\) un \(\lambda\)-anneau. Une \emph{\(K\)-\(\lambda\)-algèbre augmentée} est une \(K\)-\(\lambda\)-algèbre \(A\), munie d'un \(\lambda\)-homomorphisme de \(K\)-algèbres
+\[
+  \epsilon:A\longrightarrow K.
+\]
+Les morphismes sont les \(\lambda\)-homomorphismes compatibles aux augmentations.
+
+\textbf{Exemple 3.9.1.} Soit \((X,A)\) un topos localement annelé. Le groupe de Grothendieck \(K^\circ(X)\) de la catégorie des \(A\)-modules localement libres de type fini possède une structure naturelle de pré-\(\lambda\)-anneau par les puissances extérieures. Il existe un \(\lambda\)-homomorphisme naturel de \(H^0(X,\mathbb Z)\) dans \(K^\circ(X)\) : une section \(a\) du faisceau constant \(\mathbb Z\) décompose l'objet final en ouverts \(U_n\) où \(a=n\), et l'on associe à \(a\) la différence des classes des modules localement libres égaux à \(A^n\) sur les \(U_n\) pour \(n\ge0\) et à \(A^{-n}\) sur les morceaux négatifs. L'application rang donne l'augmentation. C'est cette structure augmentée que l'on utilisera ci-dessous.
+
+\textbf{3.10.} Soit \(A\) une \(K\)-\(\lambda\)-algèbre augmentée. Pour \(n>0\), on définit \(\Fil^n A\) comme l'idéal engendré par les produits
+\begin{equation}\tag{3.10.1}
+  \gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k),
+  \qquad i_1+\cdots+i_k\ge n,
+  \qquad \epsilon(x_i)=0.
+\end{equation}
+Si \(A\) est engendré comme groupe abélien par une famille \((x_\alpha)\), alors \(\Fil^nA\) est engendré comme \(K\)-module par
+\begin{equation}\tag{3.10.2}
+  \gamma^{i_1}(x_{\alpha_1}-\epsilon(x_{\alpha_1}))\cdots
+  \gamma^{i_k}(x_{\alpha_k}-\epsilon(x_{\alpha_k})),
+  \qquad i_1+\cdots+i_k\ge n.
+\end{equation}
+Cette filtration est décroissante et multiplicative, et
+\[
+  \Fil^0A=A,
+  \qquad \Fil^1A=\Ker\epsilon.
+\]
+Elle est fonctorielle pour les homomorphismes de \(K\)-\(\lambda\)-algèbres augmentées.
+
+\textbf{Proposition 3.11.} Soient \(A\) un \(\lambda\)-anneau et \(y_1,\ldots,y_n\) des éléments de \(A\) tels que \(\gamma^j(y_i)=0\) pour \(j\ge2\). Posons \(x=\sum_i y_i\). Alors \(\gamma^k(x-n)=0\) pour \(k>n\), et, pour \(1\le k\le n\), \(\gamma^k(x-n)\) est la \(k\)-ième fonction symétrique élémentaire des \(y_i-1\). Cela résulte de
+\[
+  \gamma_t(x-n)=\prod_{i=1}^{n}\gamma_t(y_i-1).
+\]
+
+\section*{4. \(\lambda\)-anneaux définis par générateurs et relations}
+
+\textbf{4.1.} Soient \(K\) un \(\lambda\)-anneau et \((X_i)_{i\in I}\) des indéterminées. Posons
+\[
+  A=K[X_i,{}^nX_i]_{i\in I,\ n\ge2}.
+\]
+On définit
+\begin{equation}\tag{4.1.1}
+  \lambda_t(X_i)=1+X_it+\sum_{n\ge2}{}^nX_i t^n,
+  \qquad
+  \lambda_t({}^nX_i)=\lambda^n(\lambda_t(X_i)).
+\end{equation}
+Ceci donne sur \(A\) une structure de \(\lambda\)-anneau prolongeant celle de \(K\).
+
+\textbf{Proposition 4.2.} Pour toute \(K\)-\(\lambda\)-algèbre \(B\) et toute famille \((b_i)_{i\in I}\) d'éléments de \(B\), il existe un unique \(K\)-\(\lambda\)-homomorphisme \(A\to B\) envoyant \(X_i\) sur \(b_i\). Il envoie nécessairement \({}^nX_i\) sur \(\lambda^n(b_i)\), et cette condition suffit.
+
+\textbf{4.3.} On peut faire la même construction avec les \(\gamma\). Soit
+\[
+  A'=K[X_i,{}^\gamma_nX_i]_{i\in I,\ n\ge2},
+\]
+et définissons
+\begin{equation}\tag{4.3.1}
+  \gamma_t(X_i)=1+X_it+\sum_{n\ge2}{}^\gamma_nX_i t^n,
+  \qquad
+  \gamma_t({}^\gamma_nX_i)=\gamma'^n(\gamma_t(X_i)).
+\end{equation}
+On obtient un \(\lambda\)-anneau ayant la même propriété universelle, donc canoniquement isomorphe à \(A\).
+
+\textbf{Définition 4.4.} Le \(\lambda\)-anneau précédent est le \emph{\(\lambda\)-anneau libre} sur \(K\) engendré par la famille \((X_i)\).
+
+\textbf{Définition 4.5.} Un idéal \(J\) d'un \(\lambda\)-anneau \(A\) est un \emph{\(\lambda\)-idéal} si \(\lambda^n(x)\in J\) pour tout \(x\in J\) et tout \(n>1\). Les noyaux de \(\lambda\)-homomorphismes sont des \(\lambda\)-idéaux; inversement, si \(J\) est un \(\lambda\)-idéal, \(A/J\) reçoit une unique structure de \(\lambda\)-anneau. Toute intersection de \(\lambda\)-idéaux est un \(\lambda\)-idéal. Ainsi toute famille d'éléments est contenue dans un plus petit \(\lambda\)-idéal, engendré par ces éléments et toutes leurs images itérées par les \(\lambda^n\).
+
+\textbf{Définition 4.6.} Le quotient du \(\lambda\)-anneau libre par le \(\lambda\)-idéal engendré par des relations \((P_i)\) est le \(\lambda\)-anneau engendré par les générateurs \((X_i)\) soumis aux relations \((P_i)\). On peut formuler la même construction en termes d'opérations \(\gamma\).
+
+\textbf{Proposition 4.7.} Ce quotient a la propriété universelle attendue : toute famille \((b_i)\) dans une \(K\)-\(\lambda\)-algèbre vérifiant les relations \((P_i)\) définit un unique \(K\)-\(\lambda\)-homomorphisme du quotient vers cette algèbre.
+
+\textbf{Proposition 4.8.} Soit \(n\ge0\). Dans le \(\lambda\)-anneau libre sur \(K\) à un générateur \(X\), l'idéal engendré par les \(\lambda^kX\), \(k>n\), est un \(\lambda\)-idéal. En effet, après passage au quotient, il suffit de vérifier que, si \(\varphi\in\Ghat(C)\) n'a pas de termes de degré \(>n\), alors \(\lambda^k(\varphi)=0\) pour \(k>n\). Par le principe de scindage, il suffit d'écrire
+\[
+  \varphi=\prod_{i=1}^{n}(1+T_it),
+\]
+et alors
+\[
+  \lambda_u(\varphi)=\prod_{i=1}^{n}\bigl(1+\{1+T_it\}u\bigr),
+\]
+qui est de degré \(n\) en \(u\).
+
+\textbf{Corollaire 4.9.} Le \(\lambda\)-anneau engendré sur \(K\) par un élément \(X\), avec les relations \(\lambda^k(X)=0\) pour \(k>n\), est
+\[
+  K[X,\lambda^2X,\ldots,\lambda^nX].
+\]
+Plus généralement, pour une famille \((X_i)\) avec des bornes \((n_i)\), le quotient défini par \(\lambda^k(X_i)=0\) pour \(k>n_i\) est l'anneau de polynômes engendré par \(X_i,\lambda^2X_i,\ldots,\lambda^{n_i}X_i\).
+
+\textbf{4.10.} Soient \(K\) binomial et \(A\) une \(K\)-\(\lambda\)-algèbre augmentée. Posons
+\[
+  B=A[X,\gamma^2X,\gamma^3X,\ldots],
+\]
+le \(A\)-\(\lambda\)-anneau libre à un générateur \(X\), écrit en coordonnées \(\gamma\). On prolonge l'augmentation par \(\epsilon(X)=0\), donc \(\epsilon(\gamma^iX)=0\) pour \(i>0\). Soit \(M_k\) l'ensemble des monômes en les variables \(\gamma^jX\), comptés avec le poids \(j\), de poids total \(k\), et \(M_0=\{1\}\).
+
+\textbf{Lemme 4.11.} Si \(x\in\Fil^pA\), alors tout coefficient de \(\gamma^n(x+X)\), homogène de poids \(k\) en les \(\gamma^jX\), appartient à \(\Fil^{p+n-k}A\).
+
+\textbf{Proposition 4.12.} Pour tout \(k\ge0\),
+\begin{equation}\tag{4.12.1}
+  \Fil^kB=
+  \Fil^kA+\Fil^{k-1}A\,M_1+\cdots+\Fil^1A\,M_{k-1}
+  +\Fil^0A\,M_k+B\,M_{k+1}.
+\end{equation}
+L'inclusion de droite à gauche résulte du lemme 4.11. L'inclusion inverse s'obtient en écrivant les générateurs de \(\Fil^kB\) comme produits d'opérations \(\gamma\), puis en les réduisant terme à terme selon les poids indiqués.
+
+\textbf{Remarques 4.13.} La démonstration donne le même énoncé pour un \(\lambda\)-anneau libre à un nombre quelconque de générateurs, avec le multi-poids évident. Elle ne change pas si l'on utilise les coordonnées \(\lambda\), les coordonnées \(\lambda\) et \(\gamma\) étant reliées par des formules universelles triangulaires.
+
+\textbf{Corollaire 4.14.} En passant au gradué associé, on obtient
+\begin{equation}\tag{4.14.1}
+  \Gr^kB\simeq
+  \Gr^kA\oplus \Gr^{k-1}A\,M_1\oplus\cdots\oplus\Gr^0A\,M_k.
+\end{equation}
+
+\textbf{Corollaire 4.15.} Si \(B'=K[X,\gamma^2X,\ldots,\gamma^nX]\) est la \(K\)-\(\lambda\)-algèbre engendrée par un élément vérifiant \(\gamma^k(X)=0\) pour \(k>n\), alors la filtration de \(\lambda\)-anneau sur \(B'\) est exactement la filtration par les poids en les variables \(\gamma^jX\).
+
+\section*{5. Les éléments \(\lambda^p(N,x)\)}
+
+Cette section ne sera utilisée que dans l'Exposé VII, §4, pour l'étude des immersions régulières; on peut l'omettre en première lecture.
+
+\textbf{5.1.} Soit \(d\ge1\). Soit \(A\) la \(\mathbb Z\)-\(\lambda\)-algèbre engendrée par \(N\) et \(x\), soumise aux relations \(\lambda^i(N)=0\) pour \(i>d\). Ainsi
+\[
+  A=\mathbb Z[N,\ldots,\lambda^dN;
+       x,\ldots,\lambda^jx,\ldots].
+\]
+On pose
+\begin{equation}\tag{5.1.1}
+  \lambda_{-1}(N)=\sum_{i=0}^{d}(-1)^i\lambda^i(N).
+\end{equation}
+
+\textbf{Lemme 5.2.} Pour tout \(p\ge1\), l'élément \(\lambda^p(x\lambda_{-1}(N))\) est divisible par \(\lambda_{-1}(N)\).
+
+Il suffit, par isobarie, de le démontrer pour \(\lambda^p(\lambda_{-1}(N))\). Soit \(B\) le \(\lambda\)-anneau engendré par \(N_1,\ldots,N_d\), avec \(\lambda^i(N_j)=0\) pour \(i\ge2\). L'application \(N\mapsto\sum_iN_i\) identifie \(A\) aux polynômes symétriques en les \(N_i\), et
+\[
+  \lambda_{-1}(N)=\prod_{i=1}^{d}(1-N_i).
+\]
+Si l'un des \(N_i\) vaut \(1\), alors \(\lambda_t(\lambda_{-1}(N))=\lambda_t(0)=1\), donc tout coefficient positif s'annule. Chaque \(\lambda^p(\lambda_{-1}(N))\) est donc divisible par chacun des \(1-N_i\), et par leur produit.
+
+\textbf{Définition 5.3.} Comme \(A\) est intègre, on définit \(\lambda^p(N,x)\) par
+\begin{equation}\tag{5.3.1}
+  \lambda^p(N,x)\lambda_{-1}(N)=\lambda^p(x\lambda_{-1}(N)),
+  \qquad p\ge1.
+\end{equation}
+Ainsi \(\lambda^p(N,x)\) est un polynôme en les \(\lambda^i(x)\) et les \(\lambda^j(N)\), isobare de poids \(p\) en les \(\lambda^i(x)\). Si un \(\lambda\)-anneau \(B\) contient un élément \(N'\) tel que \(\lambda^k(N')=0\) pour \(k>d\), alors \(\lambda^p(N',x')\) se définit par substitution et ne dépend pas de la borne \(d\) choisie.
+
+\textbf{5.4.} Dans le \(\lambda\)-anneau engendré par \(N,x,y\), avec \(\lambda^k(N)=0\) pour \(k>d\), la formule (5.3.1) donne
+\begin{align}
+ \lambda^p(N,x+y)
+ &=\lambda^p(N,x)+\lambda^p(N,y)
+   +\sum_{\substack{i+j=p\\ i,j>0}}
+     \lambda^i(N,x)\lambda^j(N,y)\lambda_{-1}(N).
+ \tag{5.4.1}
+\end{align}
+Si \(N,N',x\) satisfont les hypothèses de rang fini correspondantes, alors
+\begin{equation}\tag{5.4.2}
+  \lambda^p(N+N',x)\lambda_{-1}(N)
+  =\lambda^p\bigl(N',x\lambda_{-1}(N)\bigr).
+\end{equation}
+
+\textbf{5.5.} Soient \(A\) un \(\lambda\)-anneau et \(N\in A\) tel que \(\lambda^k(N)=0\) pour \(k>d\). Définissons sur le groupe abélien sous-jacent de \(A\) une nouvelle multiplication par
+\[
+  x\cdot_N y=xy\lambda_{-1}(N).
+\]
+Après adjonction d'une unité, on obtient un anneau \(\mathbb Z\times A\) avec
+\[
+  (n,x)(m,y)=(nm,ny+mx+x\cdot_N y).
+\]
+Les formules
+\begin{equation}\tag{5.5.1}
+  \lambda_t(n,x)=(1+t)^n\left(1+
+  \sum_{p\ge1}\lambda^p(N,x)t^p\right)
+\end{equation}
+définissent une structure de pré-\(\lambda\)-anneau. En fait, lorsque \(A\) est un \(\lambda\)-anneau, c'est une structure de \(\lambda\)-anneau : elle est transportée de la structure initiale par la multiplication par \(\lambda_{-1}(N)\). On note \(\widehat A_N\) ce \(\lambda\)-anneau augmenté. Ses opérations \(\gamma\) vérifient
+\begin{equation}\tag{5.5.2}
+  \gamma^p(N,x)\lambda_{-1}(N)=\gamma^p(x\lambda_{-1}(N)).
+\end{equation}
+
+\textbf{5.6.} Supposons en outre que \(L\) soit tel que \(\lambda^k(L)=0\) pour \(k>1\). Alors \(\lambda^p(N+L,x)\) est le coefficient de \(t^p\) dans la série
+\begin{equation}\tag{5.6.1}
+  \frac{\displaystyle\sum_{k\ge1}\lambda^k(N,x)
+        (1+L+\cdots+L^{k-1})t^k}
+       {\displaystyle 1+\sum_{k\ge1}\lambda^k(N,x)
+        \lambda_{-1}(N)L^k t^k}.
+\end{equation}
+Cela s'obtient en appliquant (5.4.2) à \(N+L\) et en utilisant \(\lambda_{-1}(L)=1-L\).
+
+\textbf{Proposition 5.7.} Soient \(K\) un anneau binomial, \(A\) une \(K\)-\(\lambda\)-algèbre augmentée, et \(N\in A\) tel que \(\lambda^k(N)=0\) pour \(k>d\). Alors, pour tout \(x\in A\) et tout \(p\ge1\),
+\begin{equation}\tag{5.7.1}
+  \gamma^p(N,x)\in\Fil^{p-d}A.
+\end{equation}
+En effet, soit \(A_0\) la \(K\)-\(\lambda\)-algèbre engendrée par \(N'_0,X'_0\), avec \(\lambda^k(N'_0)=0\) pour \(k>d\), et augmentée par \(\epsilon(N'_0)=\epsilon(X'_0)=0\). C'est un anneau de polynômes sur \(K\) en les variables \(\gamma^i(N'_0)\), \(1\le i\le d\), et \(\gamma^j(X'_0)\), \(j\ge1\), et sa filtration de \(\lambda\)-anneau est la filtration par les poids. Posons
+\[
+  N_0=N'_0+d,
+  \qquad X_0=X'_0+\epsilon(x).
+\]
+Pour \(N_0,X_0\), l'assertion équivaut à
+\[
+  \gamma^p(N_0,X_0)\gamma^d(N'_0)\in\Fil^pA_0.
+\]
+Comme \(\gamma^d(N'_0)=(-1)^d\lambda_{-1}(N_0)\), cela devient
+\[
+  (-1)^d\gamma^p(X_0\gamma^d(N'_0))\in\Fil^pA_0,
+\]
+ce qui est clair puisque \(\gamma^d(N'_0)\) est d'augmentation nulle. Un \(K\)-\(\lambda\)-homomorphisme \(A_0\to A\), compatible aux augmentations et envoyant \(N'_0\) sur \(N-d\) et \(X'_0\) sur \(x-\epsilon(x)\), donne le résultat.
+
+\section*{6. Anneau de Chern : ouverture}
+
+Dans tout ce paragraphe, l'anneau de base est un anneau binomial fixé \(K\). Nous utilisons le foncteur \(G\) de 1.1 et revenons aux notations du §1 : \(G\) désigne le foncteur qui y est défini et \(G_i\) sa restriction à \(\mathscr C_0\).
+
+\textbf{6.1.} Dans 3.5 et 3.6, nous avons défini des morphismes de foncteurs
+\[
+  G_i\times G_i\xrightarrow{\star}G_i,
+  \qquad
+  G_i^\circ\xrightarrow{\gamma'}G_i^\circ\circ G_S,
+  \qquad
+  G_i\xrightarrow{a}G_i,
+\]
+le dernier étant la multiplication, pour la loi \(\nabla\), par \(\gamma_t(a)\), avec \(a\in K\). D'après 1.9, ils donnent des morphismes
+\[
+  G\times G\xrightarrow{\star}G,
+  \qquad
+  G\xrightarrow{\gamma'}G\circ G_S,
+  \qquad
+  G\xrightarrow{a}G.
+\]
+L'isobarie des polynômes universels qui interviennent implique que les images des premier et troisième foncteurs sont dans \(G\), tandis que celle du second est dans le sous-groupe des séries formelles en \(u\) dont les termes non nuls ont les degrés prescrits.
+
+\end{document}

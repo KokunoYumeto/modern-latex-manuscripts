@@ -1,0 +1,124 @@
+\chapter{Фільтр Калмана та ESKF: формули, які треба зберегти без пошкоджень}
+
+\sourcebox{Цей модуль є власним TeX-шаром інтеграції для корпусу: він зводить формули з P0-джерел у короткий QA-орієнтований формат. Його призначення - допомогти локальним агентам і людям перевіряти перекладені розділи.}
+
+\section{Лінійна гаусова модель}
+
+Базова дискретна модель:
+\begin{subequations}\label{eq:linear_gaussian_model_session02}
+\begin{align}
+\vect{x}_{k+1}&=\mat{F}_k\vect{x}_k+\mat{G}_k\vect{w}_k,
+&\vect{w}_k&\sim\Normal(\vect{0},\mat{Q}_k),\\
+\vect{y}_k&=\mat{H}_k\vect{x}_k+\vect{v}_k,
+&\vect{v}_k&\sim\Normal(\vect{0},\mat{R}_k).
+\end{align}
+\end{subequations}
+Прогноз:
+\begin{subequations}\label{eq:kf_predict_session02}
+\begin{align}
+\hat{\vect{x}}_{k|k-1}&=\mat{F}_{k-1}\hat{\vect{x}}_{k-1|k-1},\\
+\mat{P}_{k|k-1}&=\mat{F}_{k-1}\mat{P}_{k-1|k-1}\mat{F}_{k-1}\trans
++\mat{G}_{k-1}\mat{Q}_{k-1}\mat{G}_{k-1}\trans.
+\end{align}
+\end{subequations}
+Оновлення:
+\begin{subequations}\label{eq:kf_update_session02}
+\begin{align}
+\vect{r}_k&=\vect{y}_k-\mat{H}_k\hat{\vect{x}}_{k|k-1},\\
+\mat{S}_k&=\mat{H}_k\mat{P}_{k|k-1}\mat{H}_k\trans+\mat{R}_k,\\
+\mat{K}_k&=\mat{P}_{k|k-1}\mat{H}_k\trans\mat{S}_k^{-1},\\
+\hat{\vect{x}}_{k|k}&=\hat{\vect{x}}_{k|k-1}+\mat{K}_k\vect{r}_k.
+\end{align}
+\end{subequations}
+Для коваріації краще використовувати форму Джозефа:
+\begin{equation}\label{eq:joseph_session02}
+\mat{P}_{k|k}=(\mat{I}-\mat{K}_k\mat{H}_k)\mat{P}_{k|k-1}(\mat{I}-\mat{K}_k\mat{H}_k)\trans
++\mat{K}_k\mat{R}_k\mat{K}_k\trans.
+\end{equation}
+Вона чисельно стабільніша і краще зберігає додатну напіввизначеність.
+
+\section{EKF і ESKF}
+
+Для нелінійної моделі
+\begin{align}
+\vect{x}_{k+1}&=f(\vect{x}_k,\vect{u}_k,\vect{w}_k),\\
+\vect{y}_k&=h(\vect{x}_k,\vect{v}_k),
+\end{align}
+EKF використовує якобіани навколо поточної оцінки:
+\begin{equation}
+\mat{F}_k=\left.\frac{\partial f}{\partial\vect{x}}\right|_{\hat{\vect{x}}_k},
+\qquad
+\mat{H}_k=\left.\frac{\partial h}{\partial\vect{x}}\right|_{\hat{\vect{x}}_k}.
+\end{equation}
+У ESKF якобіани будуються не за повним станом, а за станом похибки:
+\begin{equation}
+\mat{F}_{\delta x}=\left.\frac{\partial f_\delta}{\partial\delta\vect{x}}\right|_{\delta\vect{x}=0},
+\qquad
+\mat{H}_{\delta x}=\left.\frac{\partial h(\vect{x}\oplus\delta\vect{x})}{\partial\delta\vect{x}}\right|_{\delta\vect{x}=0}.
+\end{equation}
+Це ключова відмінність. Якщо переклад або переписування коду випадково замінить $\delta\vect{x}$ на $\vect{x}$, формула може виглядати правдоподібно, але буде іншою математичною моделлю.
+
+\section{Ін'єкція і скидання}
+
+Після корекції ESKF має оцінку малої похибки $\widehat{\delta\vect{x}}$. Номінальний стан оновлюється:
+\begin{equation}
+\vect{x}^{+}=\vect{x}^{-}\oplus\widehat{\delta\vect{x}}.
+\end{equation}
+Після цього середнє похибки скидається:
+\begin{equation}
+\widehat{\delta\vect{x}}^{+}=\vect{0}.
+\end{equation}
+Коваріація має бути перенесена через якобіан скидання:
+\begin{equation}\label{eq:reset_cov_session02}
+\mat{P}^{+}=\mat{G}\mat{P}^{-}\mat{G}\trans,
+\end{equation}
+де $\mat{G}$ - якобіан перетворення старої похибки у нову після ін'єкції. У простих наближеннях $\mat{G}\approx\mat{I}$, але для орієнтації точніша форма може мати додаткові члени.
+
+\section{Нев'язки і перевірка узгодженості}
+
+Нормалізована інновація:
+\begin{equation}\label{eq:nis_session02}
+\epsilon_k=\vect{r}_k\trans\mat{S}_k^{-1}\vect{r}_k.
+\end{equation}
+Для коректної гаусової моделі $\epsilon_k$ має приблизно відповідати $\chi^2$-розподілу з кількістю ступенів вільності, рівною розмірності вимірювання. Це не польова інструкція, а базова статистична перевірка: якщо нев'язки систематично завеликі або замалі, коваріації $\mat{Q}$ і $\mat{R}$ або модель $h$ не узгоджені з даними.
+
+\section{Перевірки коду і TeX}
+
+\begin{longtable}{L{0.32\linewidth}L{0.58\linewidth}}
+\toprule
+Перевірка & Що вона ловить\\
+\midrule
+$\mat{P}=\mat{P}\trans$ & Втрата симетрії через чисельну або формульну помилку.\\
+$\lambda_i(\mat{P})\ge 0$ & Неможлива коваріація, неправильний знак шуму або некоректне оновлення.\\
+Розмірності матриць & Переплутаний повний стан і стан похибки.\\
+Одиниці виміру $\mat{Q}$ & Помилка у масштабуванні через $\dt$ або $\dt^2$.\\
+Малі кути & Нестабільність формул $\sin\theta/\theta$ при $\theta\to0$.\\
+Нормалізація кватерніона & Дрейф норми під час інтегрування.\\
+\bottomrule
+\end{longtable}
+
+\section{Стабільний обчислювальний шаблон}
+
+\begin{lstlisting}[language=Python,caption={Математичний псевдокод корекції.}]
+# residual
+r = y - h(x_nominal)
+H = jacobian_wrt_error_state(h, x_nominal)
+S = H @ P @ H.T + R
+K = solve(S.T, (H @ P.T)).T  # equivalent to P @ H.T @ inv(S), but stabler
+
+# estimated small error
+dx = K @ r
+
+# inject into nominal state
+x_nominal = boxplus(x_nominal, dx)
+
+# Joseph covariance update
+I = eye(P.shape[0])
+P = (I - K @ H) @ P @ (I - K @ H).T + K @ R @ K.T
+
+# optional reset Jacobian for ESKF
+P = G_reset @ P @ G_reset.T
+P = 0.5*(P + P.T)
+\end{lstlisting}
+
+У перекладеному корпусі цей блок має лишатися саме псевдокодом для навчання і перевірки формул. Він не повинен перетворюватися на інструкцію для конкретної апаратної системи.

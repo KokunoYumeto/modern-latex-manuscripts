@@ -1,0 +1,710 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{variante}[theorem]{Variante}
+
+\makeatletter
+\newenvironment{manualblock}[4]{%
+  \par\medskip\noindent\textbf{#1~#2#3.}\def\@currentlabel{#2}\label{#4}\itshape\ }{\par\normalfont\medskip}
+\newenvironment{manualremark}[4]{%
+  \par\medskip\noindent\textbf{#1~#2#3.}\def\@currentlabel{#2}\label{#4}\ }{\par\medskip}
+\makeatother
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Sw}{Sw}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\Isom}{Isom}
+
+\begin{document}
+
+\title{Finitude de l'extension de $\mathbb{Q}$ engendr\'ee par des traces de Frobenius, en caract\'eristique finie}
+\author{Pierre Deligne}
+\date{}
+\maketitle
+
+\begin{center}
+\textit{D\'edi\'e \`a la m\'emoire de I.~M.~Gelfand}
+\end{center}
+
+\noindent\textbf{R\'esum\'e.} Soient $Z_0$ un sch\'ema de type fini sur $\mathbb{F}_q$ et $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau sur $Z_0$. Nous montrons qu'il existe une extension de type fini $E \subset \overline{\mathbb{Q}}_\ell$ de $\mathbb{Q}$ telle que les facteurs locaux de la fonction $L$ de $\mathcal{F}_0$ soient tous \`a coefficients dans $E$. Si $Z_0$ est normal connexe et que $\mathcal{F}_0$ est un syst\`eme local $\ell$-adique irr\'eductible, dont le d\'eterminant est d'ordre fini, on peut prendre pour $E$ une extension finie de $\mathbb{Q}$.
+
+\medskip
+\noindent\textbf{Abstract.} Let $\mathcal{F}_0$ be a $\overline{\mathbb{Q}}_\ell$-sheaf on a scheme $Z_0$ of finite type over $\mathbb{F}_q$. We show the existence of a finite type extension $E \subset \overline{\mathbb{Q}}_\ell$ of $\mathbb{Q}$, such that all local factors of the $L$-function of $\mathcal{F}_0$ have coefficients in $E$. When $Z_0$ is normal and connected, and $\mathcal{F}_0$ an irreducible $\ell$-adic local system whose determinant is of finite order, $E$ can be taken to be a finite extension of $\mathbb{Q}$.
+
+\tableofcontents
+
+\section*{0. Introduction}
+\addcontentsline{toc}{section}{0. Introduction}
+
+\subsection*{0.0}
+\addcontentsline{toc}{subsection}{0.0}
+
+Fixons les notations suivantes:
+
+$\mathbb{F}_q$ : un corps fini \`a $q$ \'el\'ements, de caract\'eristique $p$;
+
+$\mathbb{F}$ : une cl\^oture alg\'ebrique de $\mathbb{F}_q$;
+
+$\mathbb{F}_{q^n}$ : l'extension de degr\'e $n$ de $\mathbb{F}_q$ dans $\mathbb{F}$;
+
+$W(\mathbb{F}/\mathbb{F}_{q^n})$ : le sous-groupe $\mathbb{Z}$ de $\Gal(\mathbb{F}/\mathbb{F}_{q^n}) = \hat{\mathbb{Z}}$ engendr\'e par le Frobenius g\'eom\'etrique $F$ (l'inverse de $x \mapsto x^{q^n}$);
+
+$\ell$ : un nombre premier autre que $p$;
+
+$\overline{\mathbb{Q}}_\ell$ : une cl\^oture alg\'ebrique de $\mathbb{Q}_\ell$.
+
+Un objet sur $\mathbb{F}_q$ sera affect\'e d'un indice $0$, et la suppression de cet indice indiquera l'extension du corps de base de $\mathbb{F}_q$ \`a $\mathbb{F}$.
+
+Pour un r\'esum\'e du formalisme des $\overline{\mathbb{Q}}_\ell$-faisceaux, et de celui des $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil, je renvoie \`a [De2] 1.1.1 et 1.1.10.
+
+Soient $\bar{X}_0$ une courbe projective lisse et absolument irr\'eductible sur $\mathbb{F}_q$, $S_0$ un ensemble fini de points ferm\'es de $\bar{X}_0$ et $X_0 := \bar{X}_0 - S_0$. On notera $K_0$ le corps de fonctions rationnelles sur $X_0$ et $A$ l'anneau de ses ad\`eles.
+
+\subsection*{0.1}
+\addcontentsline{toc}{subsection}{0.1}
+
+Lafforgue [L] fournit une bijection naturelle entre
+
+(A) Classes d'isomorphie de $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil lisses irr\'eductibles de rang $r$ sur $X_0$, et
+
+(B) Repr\'esentations automorphes cuspidales $\pi$ de $GL(r,A)$, non ramifi\'ees en dehors de $S_0$.
+
+Cette bijection est caract\'eris\'ee par l'\'egalit\'e en chaque point ferm\'e $x_0$ de $X_0$ de facteurs locaux de fonctions $L$ attach\'es aux objets (A) et (B).
+
+Dans (B), la notion de repr\'esentation automorphe cuspidale est purement alg\'ebrique: on peut prendre comme corps de coefficients n'importe quel corps $k$ alg\'ebriquement clos de caract\'eristique $0$. On prend $k = \overline{\mathbb{Q}}_\ell$. La topologie de $\overline{\mathbb{Q}}_\ell$ ne joue aucun r\^ole.
+
+Si $Z_0$ est un sch\'ema de type fini sur $\mathbb{F}_q$, l'action sur $\mathbb{F}$ de $W(\mathbb{F}/\mathbb{F}_q)$ induit une action de ce groupe de Weil sur $Z = Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}$. Un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil $\mathcal{F}_0$ sur $Z_0$ est un $\overline{\mathbb{Q}}_\ell$-faisceau $\mathcal{F}$ sur $Z$, muni d'une action de $W(\mathbb{F}/\mathbb{F}_q)$ sur $(Z,\mathcal{F})$ relevant son action sur $Z$. La notion de $\overline{\mathbb{Q}}_\ell$-faisceau est d\'efinie par passage \`a la limite \`a partir de celle de faisceau \'etale de $\mathcal{O}_\lambda/I$-module, pour $\mathcal{O}_\lambda$ la cl\^oture int\'egrale de $\mathbb{Z}_\ell$ dans une extension finie $E_\lambda \subset \overline{\mathbb{Q}}_\ell$ de $\mathbb{Q}_\ell$, et $I$ une puissance de l'id\'eal maximal. La topologie de $\overline{\mathbb{Q}}_\ell$ joue ici un r\^ole crucial. Une cons\'equence surprenante de l'\'equivalence entre (A) et (B) est que, dans le cas des faisceaux lisses semi-simples sur les courbes, ce r\^ole est illusoire.
+
+\subsection*{0.2}
+\addcontentsline{toc}{subsection}{0.2}
+
+On prendra garde que Lafforgue suppose choisi un isomorphisme $\iota: \mathbb{C} \xrightarrow{\sim} \overline{\mathbb{Q}}_\ell$, et l'utilise pour comparer plut\^ot repr\'esentations automorphes au sens classique (corps de coefficients $\mathbb{C}$) et $\overline{\mathbb{Q}}_\ell$-faisceaux. Si on utilise l'isomorphisme $\iota$ pour remplacer les repr\'esentations automorphes cuspidales \`a coefficients dans $\mathbb{C}$ par celles \`a valeurs dans $\overline{\mathbb{Q}}_\ell$, la correspondance obtenue d\'epend, si $r$ est pair et $q$ une puissance impaire de $p$, de la racine carr\'ee $\iota\sqrt{q}$ de $q$ dans $\overline{\mathbb{Q}}_\ell$. Changer $\sqrt{q}$ en $-\sqrt{q}$ change la correspondance en sa compos\'ee avec la torsion (voir 0.3) par le caract\`ere $n \mapsto (-1)^{n(r-1)}$ de $W(\mathbb{F}/\mathbb{F}_q) = \mathbb{Z}$.
+
+\`A la correspondance utilis\'ee par Lafforgue nous pr\'ef\'erons sa tordue par le caract\`ere $n \mapsto \sqrt{q}^{\,n(r-1)}$ de $W(\mathbb{F}/\mathbb{F}_q)$. Cette correspondance rationalis\'ee fournit une bijection entre (A) et (B) ind\'ependante de $\iota$.
+
+\subsection*{0.3}
+\addcontentsline{toc}{subsection}{0.3}
+
+Tant pour les objets (A) que pour les objets (B) la torsion par un caract\`ere $\chi: W(\mathbb{F}/\mathbb{F}_q) = \mathbb{Z} \to \overline{\mathbb{Q}}_\ell^*$ est d\'efinie, et ces torsions se correspondent.
+
+L'ensemble des caract\`eres $\chi$ de $W(\mathbb{F}/\mathbb{F}_q)$ est en bijection naturelle avec l'ensemble des classes d'isomorphie de $\overline{\mathbb{Q}}_\ell$-faisceau de Weil de rang un $\mathcal{L}_0$ sur $\Spec(\mathbb{F}_q)$, et pour les objets (A) la torsion est donn\'ee par le produit tensoriel avec l'image inverse, par $X_0 \to \Spec(\mathbb{F}_q)$, d'un tel faisceau.
+
+Soit $v: A^* \to \mathbb{Z}$ l'homomorphisme tel que $|x|_k = q^{-v(x)}$. Il se factorise par le groupe des classes d'id\`eles $K_0^* \setminus A^*$. Dans (B), si $\pi$ est une repr\'esentation automorphe cuspidale de $GL(r,A)$, vue comme contenue dans l'espace des fonctions localement constantes sur $GL(r,K_0) \setminus GL(r,A)$, la tordue $\pi\chi$ de $\pi$ par $\chi$ est l'espace des fonctions $f(x)\chi(v(\det x))$ pour $f$ dans $\pi$.
+
+Nous dirons parfois ``torsion par $b$'' pour ``torsion par le caract\`ere $\chi$ de $\mathbb{Z}$ tel que $\chi(1)=b$''.
+
+\subsection*{0.4}
+\addcontentsline{toc}{subsection}{0.4}
+
+Les $\overline{\mathbb{Q}}_\ell$-faisceaux forment une sous-cat\'egorie ab\'elienne pleine de la cat\'egorie ab\'elienne des $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil. Sur $\Spec(\mathbb{F}_q)$, la classe d'isomorphie d'un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil de rang un $\mathcal{L}_0$ est d\'etermin\'ee par un caract\`ere $\chi: W(\mathbb{F}/\mathbb{F}_q) = \mathbb{Z} \to \overline{\mathbb{Q}}_\ell^*$, et pour que $\mathcal{L}_0$ soit un $\overline{\mathbb{Q}}_\ell$-faisceau il faut et il suffit que $\chi$ se prolonge en un caract\`ere continu de $\Gal(\mathbb{F}/\mathbb{F}_q) = \hat{\mathbb{Z}}$, i.e. que $\chi(1)$ soit une unit\'e $\ell$-adique. C'est ce qui oblige dans 0.1(A) \`a utiliser les $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil. Si on voulait dans (A) se limiter aux $\overline{\mathbb{Q}}_\ell$-faisceaux, il faudrait dans (B) se limiter aux repr\'esentations automorphes cuspidales $\pi$ dont le caract\`ere central $\omega_\pi$ se prolonge en un caract\`ere continu du compl\'et\'e profini du groupe des classes d'id\`eles. Ceci d\'etruirait le caract\`ere purement alg\'ebrique de (B).
+
+Les th\'eor\`emes suivants permettent de passer des $\overline{\mathbb{Q}}_\ell$-faisceaux aux $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil.
+
+(a) Soient $Z_0$ une vari\'et\'e connexe normale de type fini sur $\mathbb{F}_q$, et $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse irr\'eductible de rang $r$ sur $Z_0$. Alors, $\mathcal{F}_0$ est un $\overline{\mathbb{Q}}_\ell$-faisceau si et seulement si $\det(\mathcal{F}_0) := \bigwedge^r \mathcal{F}_0$ en est un ([De2] 1.3.14).
+
+(b) Soit $\mathcal{L}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse de rang un sur $Z_0$. D\'efinition: $\mathcal{L}_0$ est d'ordre fini s'il existe $N > 0$ tel que $\mathcal{L}_0^{\otimes N}$ soit isomorphe au faisceau constant $\overline{\mathbb{Q}}_\ell$. Il existe toujours $N > 0$ tel que $\mathcal{L}_0^{\otimes N}$ soit l'image inverse d'un faisceau de Weil sur $\Spec(\mathbb{F}_q)$ ([De2] 1.3.4 (i)). Le groupe (pour $\otimes$) des classes d'isomorphie de faisceaux de Weil de rang un sur $\Spec(\mathbb{F}_q)$ est divisible. Tout $\mathcal{L}_0$ est donc le produit tensoriel d'un $\mathcal{L}_0'$, d'ordre fini, et de l'image inverse d'un faisceau de Weil $\mathcal{L}_0''$ sur $\Spec(\mathbb{F}_q)$. Pour que $\mathcal{L}_0$ soit un $\overline{\mathbb{Q}}_\ell$-faisceau, il faut et il suffit que $\mathcal{L}_0''$ en soit un.
+
+(c) Tout $\mathcal{F}_0$ comme en (a) est donc d\'eduit par torsion d'un $\overline{\mathbb{Q}}_\ell$-faisceau $\mathcal{F}_0'$ tel que $\det(\mathcal{F}_0')$ soit d'ordre fini, et $\mathcal{F}_0$ est un $\overline{\mathbb{Q}}_\ell$-faisceau si et seulement si la torsion est le produit tensoriel avec l'image inverse d'un $\overline{\mathbb{Q}}_\ell$-faisceau de rang un sur $\Spec(\mathbb{F}_q)$.
+
+Dans [L], Lafforgue \'enonce la correspondance entre (A) et (B) en se limitant dans (A) aux $\overline{\mathbb{Q}}_\ell$-faisceaux lisses irr\'eductibles dont le d\'eterminant est d'ordre fini, et en imposant dans (B) une restriction correspondante aux repr\'esentations automorphes. Ce qui pr\'ec\`ede montre qu'il n'y perd rien.
+
+\subsection*{0.5}
+\addcontentsline{toc}{subsection}{0.5}
+
+Notations. Soient $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil sur $Z_0$ de type fini sur $\mathbb{F}_q$, $x_0$ un point ferm\'e de $Z_0$ et $\deg(x_0) := [k(x_0):\mathbb{F}_q]$ son degr\'e. Le choix de $\bar{x}$ dans $Z$ au-dessus de $x_0$ d\'efinit un plongement de $k(x_0)$ dans $k(\bar{x}) = \mathbb{F}$. Le groupe de Weil $W(\mathbb{F}/k(x_0))$ est engendr\'e par le Frobenius g\'eom\'etrique $F_{x_0}$. Il est d'indice $\deg(x_0)$ dans $W(\mathbb{F}/\mathbb{F}_q)$, fixe $\bar{x}$ et agit sur la fibre $\mathcal{F}_{\bar{x}}$ de $\mathcal{F}$ en le point g\'eom\'etrique $\bar{x}$. En particulier, $F_{x_0}$ agit sur $\mathcal{F}_{\bar{x}}$. Le facteur local en $x_0$ de la fonction $L$ de $\mathcal{F}_0$ est
+\begin{equation}\label{eq:0.5.1}
+\det(1 - F_{x_0}t^{\deg(x_0)}, \mathcal{F}_{\bar{x}})^{-1}.
+\end{equation}
+Il ne d\'epend pas de $\bar{x}$, seulement de $x_0$.
+
+Soient $n \geq 1$ et $x$ un $\mathbb{F}_{q^n}$-point de $Z_0$: $x \in Z_0(\mathbb{F}_{q^n})$. Le point $x$ est un $\mathbb{F}_q$-morphisme $\Spec(\mathbb{F}_{q^n}) \to Z_0$. Soient $x_0$ le point ferm\'e de $Z_0$ qui en est l'image, et $\bar{x}$ le point g\'eom\'etrique $\Spec(\mathbb{F}) \to \Spec(\mathbb{F}_{q^n}) \xrightarrow{x} Z_0$. On notera $F_x$ le g\'en\'erateur ``Frobenius g\'eom\'etrique'' de $W(\mathbb{F}/\mathbb{F}_{q^n})$. On a $W(\mathbb{F}/\mathbb{F}_{q^n}) \subset W(\mathbb{F}/k(x_0))$, et
+\begin{equation}\label{eq:0.5.2}
+F_x = F_{x_0}^{n/\deg(x_0)}.
+\end{equation}
+
+On dira ``action de $F_x$ (resp.~$F_{x_0}$) sur $\mathcal{F}_0$'' pour ``action de $F_x$ (resp.~$F_{x_0}$) sur $\mathcal{F}_{\bar{x}}$''. Avec cet abus de langage, le facteur local (\ref{eq:0.5.1}) s'\'ecrit
+\[
+\det(1 - F_{x_0}t^{\deg(x_0)}, \mathcal{F}_0)^{-1}.
+\]
+
+Il nous sera commode de consid\'erer, plut\^ot que ces facteurs locaux, les traces $\tr(F_{x_0},\mathcal{F}_0)$ pour $x$ dans un $Z_0(\mathbb{F}_{q^n})$. L'identit\'e entre s\'eries formelles
+\[
+\log \det(1 - ft, V)^{-1} = \sum_{n \geq 1} \frac{\tr(f^n,V)}{n} t^n,
+\]
+pour $f$ un endomorphisme de $V$, montre que ces traces pour $x$ au-dessus de $x_0$ et le facteur local en $x_0$ se d\'eterminent l'un l'autre.
+
+Lafforgue [L] VII 6 prouve le th\'eor\`eme suivant, dans lequel (ii) et (iii) r\'esultent de l'\'equivalence entre (A) et (B) de 0.1.
+
+\begin{manualblock}{Théorème}{0.6}{ (Lafforgue)}{thm:0.6}
+Soient $X_0/\mathbb{F}_q$ comme en 0.0, et $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse irr\'eductible de rang $r$ sur $X_0$, dont le d\'eterminant $\det(\mathcal{F}_0)$ est d'ordre fini.
+
+\emph{(i)} En tout point ferm\'e $x_0$ de $X_0$, les valeurs propres de $F_{x_0}$ agissant sur $\mathcal{F}_0$ sont des nombres de Weil de poids $0$, i.e. sont des nombres alg\'ebriques de valeur absolue un en toute place ne divisant pas $p$. En particulier, $\mathcal{F}_0$ est pur de poids $0$.
+
+\emph{(ii)} Il existe une extension finie $E \subset \overline{\mathbb{Q}}_\ell$ de $\mathbb{Q}$ telle que pour tout point ferm\'e $x_0$ de $X_0$, le polyn\^ome $\det(1 - F_{x_0}t, \mathcal{F}_0)$ soit \`a coefficients dans $E$.
+
+\emph{(iii)} Pour $E$ comme en (ii), pour tout nombre premier $\ell' \neq p$ et pour tout plongement $\sigma$ de $E$ dans $\overline{\mathbb{Q}}_{\ell'}$, il existe un $\overline{\mathbb{Q}}_{\ell'}$-faisceau de Weil lisse $\mathcal{F}_0'$ sur $X_0$, tel qu'en tout point ferm\'e $x_0$ de $X_0$ on ait
+\[
+\det(1 - F_{x_0}t, \mathcal{F}_0') = \sigma \det(1 - F_{x_0}t, \mathcal{F}_0).
+\]
+\end{manualblock}
+
+L'extension $E$ minimale est le corps de d\'efinition de la repr\'esentation automorphe $\pi$ correspondant \`a $\mathcal{F}_0$, vue au choix comme classe d'isomorphie de repr\'esentation de $GL(r,A)$ ou comme sous-espace de l'espace des fonctions sur $GL(r,K_0) \setminus GL(r,A)$. Il faut ici utiliser la correspondance rationalis\'ee de 0.2.
+
+\subsection*{0.7}
+\addcontentsline{toc}{subsection}{0.7}
+
+Soient $Z_0$ un sch\'ema connexe normal de type fini sur $\mathbb{F}_q$ et $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse irr\'eductible sur $Z_0$, dont le d\'eterminant est d'ordre fini. Lafforgue [L] VII 7 montre, en se r\'eduisant au cas des courbes par un argument de sections planes, que l'assertion (i) du th\'eor\`eme \ref{thm:0.6} reste vraie pour $\mathcal{F}_0$. Prendre garde que la r\'ef\'erence \`a Hartshorne que Lafforgue donne pour l'irr\'eductibilit\'e de la restriction de $\mathcal{F}_0$ \`a une courbe $X_0$ section plane de $Z_0$ n'est pas ad\'equate: Hartshorne suppose $Z_0$ projectif. Nous expliquerons en 1.5--1.9 comment corriger l'argument, en rempla\c{c}ant la r\'ef\'erence \`a Hartshorne par une r\'ef\'erence \`a Jouanolou [J].
+
+\subsection*{0.8}
+\addcontentsline{toc}{subsection}{0.8}
+
+Soient $\mathcal{F}_0$ et $Z_0$ comme en 0.7. Utilisant une m\'ethode d\'evelopp\'ee par Wiesend [W] et le th\'eor\`eme de Lafforgue, Drinfeld [Dr] a montr\'e, sous l'hypoth\`ese additionnelle que $Z_0$ est lisse, que si $\mathcal{F}_0$ v\'erifie l'assertion (ii) du th\'eor\`eme alors $\mathcal{F}_0$ v\'erifie aussi (iii). Notre but est de montrer que tout $\mathcal{F}_0$ comme en 0.7 v\'erifie (ii).
+
+\subsection*{0.9}
+\addcontentsline{toc}{subsection}{0.9}
+
+Passons en revue les sections du pr\'esent article. Dans la section 1, on consid\`ere les $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil lisses semi-simples sur $Z_0$ normal absolument irr\'eductible de type fini sur $\mathbb{F}_q$. On montre comment les d\'ecrire en terme de $\overline{\mathbb{Q}}_\ell$-faisceaux lisses sur des sch\'emas $Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^a}$, de d\'eterminant d'ordre fini, et dont l'image inverse sur $Z = Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}$ est irr\'eductible. La d\'ecomposition (\ref{eq:1.4.1}) obtenue traduit (0.3), joint \`a des r\'esultats bien connus sur la relation entre repr\'esentations irr\'eductibles d'un groupe $G$ et d'une extension de $\mathbb{Z}$ par $G$.
+
+Dans la section 2, on consid\`ere un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse $\mathcal{F}_0$ sur une courbe $X_0$ lisse et absolument irr\'eductible sur $\mathbb{F}_q$. Pour simplifier, on suppose $X_0$ affine. La ``complexit\'e'' de $X_0$ sera mesur\'ee par l'entier $b_1(X_0) := \dim H_c^1(X, \overline{\mathbb{Q}}_\ell)$. On suppose $\mathcal{F}_0$ alg\'ebrique, i.e. que les traces $\tr(F_{x_0},\mathcal{F}_0)$, pour $x$ dans un $X_0(\mathbb{F}_{q^n})$, sont des nombres alg\'ebriques. D'apr\`es \ref{thm:0.6} (ii) appliqu\'e \`a des tordus des sous-quotients irr\'eductibles de $\mathcal{F}_0$, on sait que ces traces engendrent une extension finie $E$ de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$. Notre but est d'expliciter un entier $N$, d\'ependant d'une ``complexit\'e'' de $(X_0,\mathcal{F}_0)$ telle que $E$ soit engendr\'e par les $\tr(F_{x_0},\mathcal{F}_0)$ pour $x$ dans un $X_0(\mathbb{F}_{q^n})$ avec $n \leq N$. Posons $\log_q^+(a) = \sup(0, \log_q(a))$. Si $\mathcal{F}$ est \`a ramification mod\'er\'ee, on obtient $N$ de la forme
+\begin{equation}\label{eq:0.9.1}
+O(\log_q^+(b_1(X_0))) + O(1)
+\end{equation}
+o\`u les constantes implicites dans $O$ d\'ependent du rang de $\mathcal{F}_0$. Pour $\mathcal{F}_0$ quelconque, il faut remplacer $b_1(X_0)$ par $b_1(X_0) + \sum_s \alpha_s(\mathcal{F})$, o\`u $\alpha_s(\mathcal{F})$ mesure la sauvagerie de la ramification de $\mathcal{F}$ en $s \in S$.
+
+Une autre fa\c{c}on de mesurer la sauvagerie de $\mathcal{F}$, beaucoup moins \'economique mais qui sera commode dans la section 3, est en terme d'un rev\^etement \'etale connexe $X'$ de $X$ sur lequel l'image inverse de $\mathcal{F}$ est \`a ramification mod\'er\'ee. On obtiendra un autre $N$, de la forme
+\begin{equation}\label{eq:0.9.2}
+O(\log_q^+(b_1(X'))) + O(1).
+\end{equation}
+Ici aussi, les constantes implicites dans $O$ d\'ependent du rang de $\mathcal{F}_0$.
+
+Les preuves font un usage essentiel de \ref{thm:0.6} (iii), pour ramener le probl\`eme pos\'e au suivant. Pour $\mathcal{F}_0$ et $\mathcal{G}_0$ des faisceaux de Weil lisses semi-simples sur $X_0$, trouver $N$ tel que si $\tr(F_{x_0},\mathcal{F}_0) = \tr(F_{x_0},\mathcal{G}_0)$ pour tout $x$ dans un $X(\mathbb{F}_{q^n})$ avec $n \leq N$, alors $\mathcal{F}_0$ et $\mathcal{G}_0$ sont isomorphes.
+
+\subsection*{0.10}
+\addcontentsline{toc}{subsection}{0.10}
+
+Le th\'eor\`eme principal est prouv\'e dans la section 3. Apr\`es quelques d\'evissages, on est amen\'e \`a traiter le cas o\`u $\mathcal{F}_0$ est un $\overline{\mathbb{Q}}_\ell$-faisceau lisse sur un sch\'ema $Z_0$ qui est lisse et absolument irr\'eductible sur $\mathbb{F}_q$, et o\`u $\mathcal{F}_0$ est alg\'ebrique (alg\'ebricit\'e des traces des Frobenius). Il s'agit de montrer que l'extension de $\mathbb{Q}$ engendr\'ee par les traces des Frobenius est une extension finie. On le fait en montrant qu'il existe un entier $N$ tel que pour tout entier $n > N$ et tout point $x \in Z_0(\mathbb{F}_{q^n})$, la trace $\tr(F_{x_0}, \mathcal{F}_0)$ est contenue dans l'extension de $\mathbb{Q}$ engendr\'ee par les $\tr(F_{x'_0}, \mathcal{F}_0)$ avec $x'$ dans un $Z_0(\mathbb{F}_{q^{n'}})$ et $n' < n$. Pour le prouver, on fait passer par $x$ une courbe $X_0$ telle que $(X_0, \mathcal{F}_0|_{X_0})$ ne soit pas trop complexe, et on applique \`a cette courbe les r\'esultats de la section 2. Plus pr\'ecis\'ement, on construit une courbe affine lisse $X_0$, un point $\tilde{x} \in X_0(\mathbb{F}_{q^n})$ et un $\mathbb{F}_q$-morphisme $\phi: X_0 \to Z_0$ qui envoie $\tilde{x}$ sur $x$. La construction ne garantit pas que la courbe $X_0$ soit connexe. Rempla\c{c}ons-la par sa composante connexe $X_1$ telle que $\tilde{x} \in X_1(\mathbb{F}_{q^n})$. La courbe $X_1$ pourrait ne pas \^etre absolument irr\'eductible sur $\mathbb{F}_q$, mais on dispose d'une borne $D$ (ne d\'ependant que de $Z_0$) telle que $X_1$ soit absolument irr\'eductible sur un $\mathbb{F}_{q^d}$ avec $d \leq D$. C'est \`a $X_1/\mathbb{F}_{q^d}$ qu'on appliquera les r\'esultats de la section 2. Pour simplifier l'expos\'e de la strat\'egie, nous pr\'etendons ici (\`a tort) $X_0$ absolument irr\'eductible sur $\mathbb{F}_q$.
+
+Choisissons un rev\^etement \'etale connexe $Z'$ de $Z$ sur lequel $\mathcal{F}$ devienne \`a ramification mod\'er\'ee. Ceci est un \'enorme gaspillage mais n'est fait qu'une seule fois. Soit $X'$ une composante connexe de l'image inverse de $Z'$ sur $X$. La complexit\'e de $(X_1, \phi^* \mathcal{F}_0)$ sera mesur\'ee par $b_1(X')$. Nous la contr\^olerons par le th\'eor\`eme de Katz [K]. Comme il ne s'agit ici que de courbes, on pourrait plut\^ot utiliser Bombieri [B], sur lequel se base Katz, et estimer le nombre de composantes connexes par le produit des degr\'es d'\'equations de $X'$, mais ce ne serait que refaire dans un cas simple l'argument de Katz. On obtient une borne pour la complexit\'e qui est polyn\^omiale en $n$. D\`es que $n$ est assez grand, l'entier $N$ de (\ref{eq:0.9.2}) v\'erifie $N < n$ et $\tr(F_{x_0}, \mathcal{F}_0) = \tr(F_{\tilde{x}}, \phi^* \mathcal{F}_0)$ est dans l'extension de $\mathbb{Q}$ engendr\'ee par les $\tr(F_{x'_0}, \mathcal{F}_0)$ pour $x' \in X_0(\mathbb{F}_{q^{n'}})$ et $n' \leq N < n$.
+
+Je remercie H.~Esnault d'une lecture attentive du texte et de ses suggestions qui m'ont permis, je l'esp\`ere, de le rendre plus lisible.
+
+\section{Irr\'eductibilit\'e et extensions du corps de base}
+
+\subsection*{1.1}
+\addcontentsline{toc}{subsection}{1.1}
+
+Soient $Z_0$ un sch\'ema normal absolument irr\'eductible de type fini sur $\mathbb{F}_q$, $Z := Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}$ et $x$ un point g\'eom\'etrique de $Z$. Il d\'efinit un point g\'eom\'etrique, encore not\'e $x$, de $Z_0$. Le groupe fondamental de $Z_0$ est une extension
+\[
+1 \to \pi_1(Z,x) \to \pi_1(Z_0,x) \to \Gal(\mathbb{F}/\mathbb{F}_q) \to 1
+\]
+Prenant le produit fibr\'e avec $W(\mathbb{F}/\mathbb{F}_q) = \mathbb{Z} \subset \Gal(\mathbb{F}/\mathbb{F}_q) = \hat{\mathbb{Z}}$, on obtient le groupe de Weil $W(Z_0,x)$:
+\[
+1 \to \pi_1(Z,x) \to W(Z_0,x) \to \mathbb{Z} \to 1.
+\]
+Le foncteur ``fibre en $x$'' est une \'equivalence de la cat\'egorie des $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil lisses sur $Z_0$ avec celle des repr\'esentations lin\'eaires continues de $W(Z_0,x)$ sur un $\overline{\mathbb{Q}}_\ell$-espace vectoriel de dimension finie.
+
+\subsection*{1.2}
+\addcontentsline{toc}{subsection}{1.2}
+
+Si $V$ est une $\overline{\mathbb{Q}}_\ell$-repr\'esentation irr\'eductible de $W(Z_0,x)$, sa restriction \`a $\pi_1(Z,x)$ est somme de repr\'esentations irr\'eductibles non isomorphes de $\pi_1(Z,x)$, permut\'ees entre elles transitivement par $W(Z_0,x)/\pi_1(Z_0,x) = \mathbb{Z}$.
+
+Soient $n$ le nombre de sommands, et $Z_1 := Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^n}$; $W(Z_1,x)$ est l'image inverse dans $W(Z_0,x)$ de $n\mathbb{Z}$. Si $S$ est l'un des sommands irr\'eductibles de la restriction de $V$ \`a $\pi_1(Z,x)$, $S$ est une repr\'esentation de $W(Z_1,x)$ et $V$ est l'induite $\Ind_{W(Z_1,x)}^{W(Z_0,x)}(S)$.
+
+Si $\mathcal{V}$ (resp.~$\mathcal{S}$) est le $\overline{\mathbb{Q}}_\ell$-faisceau de Weil correspondant \`a $V$ (resp.~$S$), $\mathcal{V}$ est l'image directe, par $Z_1 \to Z_0$, de $\mathcal{S}$.
+
+\subsection*{1.3}
+\addcontentsline{toc}{subsection}{1.3}
+
+Soit maintenant $V$ une repr\'esentation semi-simple de $W(Z_0,x)$. Le quotient $\mathbb{Z}$ de $W(Z_0,x)$ permute les classes d'isomorphie de constituants simples de la restriction de $V$ \`a $\pi_1(Z,x)$. Soit $A$ l'ensemble des orbites, dans chaque orbite $a$ choisissons un repr\'esentant $S'_a$, et soit $n(a)$ le nombre d'\'el\'ements de l'orbite. Si $Z_a = Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^{n(a)}}$, la repr\'esentation $S'_a$ se prolonge en une repr\'esentation $S_a$ de $W(Z_a,x)$, et $S_a$ est unique \`a torsion pr\`es par un caract\`ere du quotient $\mathbb{Z}$ de $W(Z_a,x)$. Nous choisirons la torsion pour que le caract\`ere $\det(S_a)$ de $W(Z_a,x)$ soit d'ordre fini.
+
+Appliquons 1.2 aux constituants irr\'eductibles de $V$, et regroupons les occurrences de $S_a$. On obtient une d\'ecomposition
+\begin{equation}\label{eq:1.3.1}
+V = \bigoplus_a \Ind_{W(Z_a,x)}^{W(Z_0,x)}(S_a \otimes W_a)
+\end{equation}
+pour $W_a$ une repr\'esentation de $W(Z_a,x)$ triviale sur $\pi_1(Z,x)$. Cette description de $V$ est unique, \`a cela pr\`es qu'on peut
+
+(a) tordre $S_a$ par un caract\`ere d'ordre fini de $\mathbb{Z} = W(Z_a,x)/\pi_1(Z,x)$, et $W_a$ par le caract\`ere inverse;
+
+(b) remplacer $S_a$ par son conjugu\'e $S_a(i)$ par un \'el\'ement $i$ de $W(Z_0,x)/W(Z_a,x) = \mathbb{Z}/n(a)$.
+
+\subsection*{1.4}
+\addcontentsline{toc}{subsection}{1.4}
+
+Passons du langage des repr\'esentations de groupes \`a celui des faisceaux: $S_a$ (resp.~$S_a(i)$) correspond \`a $\mathcal{S}_{a,1}$ (resp.~$\mathcal{S}_{a,1}^{(i)}$) sur $Z_a$, $W_a$ \`a $\mathcal{W}_a$ sur $\Spec(\mathbb{F}_{q^{n(a)}})$ et, si $p_a$ est la projection de $Z_a$ sur $Z_0$, et $pr_a$ celle de $Z_a$ sur $\Spec(\mathbb{F}_{q^{n(a)}})$, (\ref{eq:1.3.1}) devient une d\'ecomposition du $\overline{\mathbb{Q}}_\ell$-faisceau de Weil $\mathcal{V}$ correspondant \`a $V$:
+\begin{equation}\label{eq:1.4.1}
+\mathcal{V} = \bigoplus_{a \in A} p_a^*(\mathcal{S}_{a,1} \otimes pr_a^* \mathcal{W}_a).
+\end{equation}
+Dans cette d\'ecomposition, les $\det(\mathcal{S}_a)$ sont d'ordre fini, et les images inverses $\mathcal{S}_a^{(i)}$ sur $Z$ des $\mathcal{S}_{a,1}^{(i)}$ ($a \in A$, $i \in \mathbb{Z}/n(a)$) sont des $\overline{\mathbb{Q}}_\ell$-faisceaux irr\'eductibles non isomorphes.
+
+\subsection*{1.5}
+\addcontentsline{toc}{subsection}{1.5}
+
+Soit $\mathcal{F}_0$ lisse irr\'eductible de d\'eterminant d'ordre fini sur $Z_0$ comme en 1.1. D'apr\`es 1.2, l'image inverse $\mathcal{F}$ de $\mathcal{F}_0$ sur $Z := Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}$ est somme directe de faisceaux lisses irr\'eductibles $\mathcal{S}^{(i)}$ non isomorphes, permut\'es transitivement par $\mathbb{Z} = W(\mathbb{F}/\mathbb{F}_q)$. On note $n$ le nombre des $\mathcal{S}^{(i)}$. Dans la fin de cette section, nous donnons une preuve de l'\'enonc\'e [L] VII 7 suivant de Lafforgue (cf 0.7)
+
+\begin{manualblock}{Théorème}{1.6}{ (Lafforgue)}{thm:1.6}
+En tout point ferm\'e $x_0$ de $Z_0$, les valeurs propres de $F_{x_0}$ agissant sur $\mathcal{F}_0$ sont des nombres de Weil de poids $0$.
+\end{manualblock}
+
+Si $U_0$ est un ouvert non vide de $Z_0$, la restriction de $\mathcal{F}_0$ \`a $U_0$ est encore irr\'eductible. Recouvrant $Z_0$ par des ouverts affines, on se ram\`ene \`a supposer, et on supposera, que $Z_0$ est affine.
+
+\begin{manualblock}{Lemme}{1.7}{}{lem:1.7}
+Il existe un rev\^etement \'etale connexe galoisien $Z'$ de $Z_0$ tel que si l'image inverse $Y'$ de $Z'$ par un morphisme $f: Y \to Z_0$ est connexe, alors $\mathcal{F}_0$ et $f^* \mathcal{F}_0$ ont m\^eme monodromie.
+\end{manualblock}
+
+Fixons un point base $a$ de $Y$, et notons encore $a$ son image dans $Z_0$. On dispose d'un morphisme
+\[
+\pi_1(Y,a) \to \pi_1(X,a)
+\]
+et la conclusion ``m\^eme monodromie'' signifie que $\pi_1(Y,a)$ s'envoie sur l'image de $\pi_1(X,a)$ dans $GL(\mathcal{F}_a)$. Elle implique que les $f^* \mathcal{S}^{(i)}$ restent lisses irr\'eductibles non isomorphes.
+
+\noindent\textit{Preuve de \ref{lem:1.7}.} Le groupe de monodromie $M$, image de $\pi_1(X,a)$ dans $GL(\mathcal{F}_a)$, est un sous-groupe ferm\'e d'un groupe $GL(n, \mathcal{O}_\lambda)$, donc est un groupe de Lie $\ell$-adique compact. Il admet donc un pro-$\ell$ sous-groupe invariant ouvert $H$, et l'intersection $H'$ des noyaux des homomorphismes $H \to \mathbb{Z}/\ell$ est encore un sous-groupe invariant ouvert. On prend pour $Z'$ le rev\^etement correspondant \`a $H'$. Supposons $Y'$ connexe. Ceci \'equivaut \`a ce que $\pi_1(Y,a)$ s'envoie sur $M/H'$. Puisque tout sous-groupe ferm\'e de $H$ qui s'envoie sur $H/H'$ co\"ncide avec $H$, $\pi_1(Y,a)$ s'envoie sur $M$.
+
+\subsection*{1.8}
+\addcontentsline{toc}{subsection}{1.8}
+
+Choisissons un plongement ferm\'e de $Z_0$ dans un espace affine type $\mathbb{A}_0^{k}$ sur $\mathbb{F}_q$ et $Z'$ comme en \ref{lem:1.7}. Soit $G_0$ le $\mathbb{F}_q$-sch\'ema qui param\'etrise les sous-espaces lin\'eaires affines de codimension $\dim(Z_0)-1$ dans $\mathbb{A}_0^{k}$. Etendons le corps de base de $\mathbb{F}_q$ \`a $\mathbb{F}$ et appliquons au morphisme compos\'e $f: Z' \to Z \hookrightarrow \mathbb{A}^{k}$ le th\'eor\`eme de Bertini sous la forme que lui a donn\'ee Jouanolou [J] Th.~6.3(iv) p.~67. On obtient l'existence d'un ouvert non vide $U$ du sch\'ema lisse irr\'eductible $G = G_0 \otimes_{\mathbb{F}_q} \mathbb{F}$, tel que pour tout $u \in U(\mathbb{F})$, correspondant \`a un sous-espace lin\'eaire affine $L_u$ de $\mathbb{A}^{k}$, l'image inverse $f^{-1}(L_u)$ de $Z'$ sur $Z \cap L_u$ soit irr\'eductible. Noter que cette irr\'eductibilit\'e implique celle de $Z \cap L_u$. L'ensemble des $u$ tels que $Z \cap L_u$ ne soit pas une courbe lisse est de dimension strictement plus petite que celle de $U$. On peut donc, quitte \`a r\'etr\'ecir $U$, supposer que les $Z \cap L_u$ sont des courbes lisses. Quitte \`a r\'etr\'ecir $U$ davantage, on peut aussi supposer que $U$ est de la forme $U_0 \otimes_{\mathbb{F}_q} \mathbb{F}$, pour $U_0$ un ouvert de $G_0$.
+
+Le nombre de $\mathbb{F}_{q^m}$-points de $U_0$ est, pour $m \to \infty$, de la forme $q^{m\dim(U)}(1+O(q^{-m/2}))$ (Lang-Weil ou la formule des traces plus la conjecture de Weil). D\`es que $m$ est assez grand, $U_0(\mathbb{F}_{q^m})$ est donc non vide. Ceci permet de choisir $m$ premier \`a $n$ tel que $U_0(\mathbb{F}_{q^m})$ soit non vide.
+
+Pour que $\mathcal{F}_0$ sur $Z_0$ v\'erifie la conclusion de \ref{thm:1.6}, il faut et il suffit que cette conclusion soit v\'erifi\'ee par l'image inverse de $\mathcal{F}_0$ sur $Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^m}$. Rempla\c{c}ant $\mathbb{F}_q$ par $\mathbb{F}_{q^m}$, $Z_0$ par $Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^m}$ et $\mathcal{F}_0$ par son image inverse, on est ramen\'e \`a prouver \ref{thm:1.6} sous l'hypoth\`ese additionnelle que $U_0$ contienne un $\mathbb{F}_q$-point $u_0$. La section plane $Z_0 \cap L_{u_0}$ de $Z_0$ est alors une courbe lisse absolument irr\'eductible $Y_0$. Etendons le corps de base \`a $\mathbb{F}$. Puisque $u_0$ est dans $U_0$, \ref{lem:1.7} assure que les restrictions des $\mathcal{S}^{(i)}$ \`a $Y$ sont irr\'eductibles non isomorphes. Parce que $m$ est premier \`a $n$, elles sont permut\'ees par $W(\mathbb{F}/\mathbb{F}_q)$: la restriction de $\mathcal{F}_0$ \`a $Y_0$ est irr\'eductible. Appliquons-lui \ref{thm:0.6}(i): quelque soit le point ferm\'e $y_0$ de $Y_0 \subset Z_0$, les valeurs propres de $F_{y_0}$ agissant sur $\mathcal{F}_0$ sont des nombres de Weil de poids $0$. On conclut par la
+
+\begin{manualblock}{Proposition}{1.9}{}{prop:1.9}
+Soit $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse sur un sch\'ema connexe $X_0$ sur $\mathbb{F}_q$. Les conditions suivantes sont \'equivalentes:
+
+\emph{(i)} il existe un point ferm\'e $x_0$ de $X_0$ tel que les valeurs propres de $F_{x_0}$ agissant sur $\mathcal{F}_0$ soient des nombres de Weil de poids $0$;
+
+\emph{(ii)} m\^eme assertion en tous les points ferm\'es de $X_0$.
+\end{manualblock}
+
+\noindent\textit{Preuve (pour $X_0$ une courbe lisse et connexe).} Supposons que $\mathcal{F}_0$ v\'erifie (i). Tout sous-quotient irr\'eductible $\mathcal{F}'_0$ v\'erifie encore (i), et il suffit de v\'erifier (ii) pour chaque $\mathcal{F}'_0$. Soit $\mathcal{F}''_0$ un tordu de $\mathcal{F}'_0$ dont le d\'eterminant soit d'ordre fini. Par \ref{thm:0.6}(i), $\mathcal{F}''_0$ v\'erifie (ii). Testant en $x_0$, on voit que la torsion est par un nombre de Weil de poids $0$, et la validit\'e de (ii) est invariante par une telle torsion.
+
+\medskip
+\noindent\textit{Preuve (cas g\'en\'eral).} Quel que soit le point ferm\'e $x'_0$ de $X_0$, il existe une suite de courbes lisses et connexes $Y_j$ et de morphismes $f_j: Y_j \to X_0$ ($1 \leq j \leq N$) telle que $x_0$ soit dans l'image de $Y_1$, $x'_0$ dans celle de $Y_N$, et que l'intersection des images de $Y_j$ et $Y_{j+1}$ ($1 \leq j < N$) soit non vide. Si (i) est v\'erifi\'e en $x_0$, la premi\`ere partie de la preuve montre que (ii) est v\'erifi\'e pour l'image inverse de $\mathcal{F}_0$ sur $Y_1$, donc que (i) est v\'erifi\'e en tout point ferm\'e de $X_0$ dans l'image de $Y_1$. De m\^eme, si (i) est v\'erifi\'e en les points ferm\'es dans $f_j(Y_j)$, donc en au moins un point ferm\'e de $f_{j+1}(Y_{j+1})$, (i) est v\'erifi\'e en les points ferm\'es dans $f_{j+1}(Y_{j+1})$, et on atteint finalement $x'_0$.
+
+
+\section{Le cas des courbes: versions quantitatives}
+
+\subsection*{2.1}
+\addcontentsline{toc}{subsection}{2.1}
+
+Soient $X$ une courbe lisse et connexe sur un corps alg\'ebriquement clos de caract\'eristique $p$, $\bar{X}$ la compl\'et\'ee projective et lisse de $X$ et $S$ l'ensemble des points \`a l'infini: $X = \bar{X} - S$. Soit $\mathcal{F}$ un $\overline{\mathbb{Q}}_\ell$-faisceau lisse de rang $r$ sur $X$. Posons
+\[
+\chi_c(X, \mathcal{F}) := \sum_i (-1)^i \dim H_c^i(X, \mathcal{F}).
+\]
+Cette caract\'eristique d'Euler-Poincar\'e est donn\'ee par la formule de Grothendieck-Ogg-Shafarevich
+\begin{equation}\label{eq:2.1.1}
+\chi_c(X, \mathcal{F}) = r\chi_c(X) - \sum_{s \in S} \Sw_s(\mathcal{F}).
+\end{equation}
+Si la courbe $\bar{X}$ est de genre $g$, on a
+\begin{equation}\label{eq:2.1.2}
+\chi_c(X) = 2 - 2g - |S|.
+\end{equation}
+Le terme $\Sw_s(\mathcal{F})$ est le conducteur de Swan de $\mathcal{F}$ en $s$.
+
+Soit $K_s$ le corps des fractions de l'hens\'elis\'e de $X$ en $s$. Le lecteur qui le pr\'ef\`ere peut remplacer ``hens\'elis\'e'' par ``compl\'et\'e''. Cela ne change pas $\Gal(\bar{K}_s/K_s)$, pour $\bar{K}_s$ une cl\^oture alg\'ebrique de $K_s$. Les $\overline{\mathbb{Q}}_\ell$-faisceaux sur $\Spec(K_s)$ s'identifient aux repr\'esentations continues $\overline{\mathbb{Q}}_\ell$-lin\'eaires $V$ de $\Gal(\bar{K}_s/K_s)$. Le conducteur $\Sw_s(\mathcal{F})$ est le conducteur de Swan $\Sw(V)$ de la repr\'esentation lin\'eaire $V$ de $\Gal(\bar{K}_s/K_s)$ correspondant \`a l'image inverse de $\mathcal{F}$ sur $\Spec(K_s)$.
+
+Le conducteur $\Sw(V)$ est additif en $V$ (pour les suites exactes courtes). Notons $\Gal(\bar{K}_s/K_s)^\beta$ les sous-groupes de ramification de $\Gal(\bar{K}_s/K_s)$, en num\'erotation sup\'erieure. D\'efinissons $\alpha(V)$ comme \'etant la borne inf\'erieure des $\beta > 0$ tels que $\Gal(\bar{K}_s/K_s)^\beta$ agisse trivialement sur $V$. Si la repr\'esentation $V$ est irr\'eductible, on a
+\begin{equation}\label{eq:2.1.3}
+\Sw(V) = \dim(V) \cdot \alpha(V) \quad \text{(V irr\'eductible)}
+\end{equation}
+(une cons\'equence de Serre [S] 19.1 et de la d\'efinition des fonctions de Herbrand reliant la num\'erotation inf\'erieure \`a la num\'erotation sup\'erieure). Si $V$ provient de $\mathcal{F}$ sur $X$, on posera $\alpha_s(\mathcal{F}) := \alpha(V)$.
+
+Il r\'esulte de (\ref{eq:2.1.3}) par additivit\'e que
+\begin{equation}\label{eq:2.1.4}
+\Sw(V) \leq \dim(V) \cdot \alpha(V).
+\end{equation}
+
+Soit $P$ le pro-$p$-sous-groupe de Sylow de $\Gal(\bar{K}_s/K_s)$. Puisque $V$ est $\ell$-adique, il agit sur $V$ \`a travers un quotient fini $\bar{P}$.
+
+Tant $\Sw(V)$ que $\alpha(V)$ s'annulent si et seulement si $V$ est mod\'er\'ee, i.e. si $P$ agit trivialement. Sinon, $\alpha(V)$ est le plus grand nombre (rationnel) tel que $\bar{P}^{\alpha(V)}$ soit non trivial. L'importance pour nous de l'invariant $\alpha(V)$ provient de l'observation que
+\begin{equation}\label{eq:2.1.5}
+\alpha(V \otimes W) \leq \sup(\alpha(V), \alpha(W)).
+\end{equation}
+
+La dualit\'e de Poincar\'e met en dualit\'e parfaite $H_c^2(X, \mathcal{F})$ et $H^0(X, \mathcal{F}^\vee(1))$. En particulier, $H_c^2(X, \mathcal{F})$ est de rang au plus $r$ et de rang $r$ si $\mathcal{F}$ est constant. Si la courbe $X$ est affine, on a $H_c^0(X, \mathcal{F}) = 0$, et (\ref{eq:2.1.1}), (\ref{eq:2.1.4}) donnent
+\begin{equation}\label{eq:2.1.6}
+\dim H_c^1(X, \mathcal{F}) \leq r(b_1(X) + \sum_s \alpha_s(\mathcal{F})) \quad (X \text{ affine}),
+\end{equation}
+o\`u on a pos\'e
+\begin{equation}\label{eq:2.1.7}
+b_1(X) = \dim H_c^1(X, \overline{\mathbb{Q}}_\ell) = 2g + |S| - 1 \quad (X \text{ affine}).
+\end{equation}
+
+\subsection*{2.2}
+\addcontentsline{toc}{subsection}{2.2}
+
+Soient $X = \bar{X} - S$ une courbe sur $\mathbb{F}_q$ comme en 0.0, et $\mathcal{F}_0$ un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse de rang $r$ sur $X_0$. On suppose $\mathcal{F}_0$ alg\'ebrique (0.9). On ne suppose pas $\mathcal{F}_0$ irr\'eductible. Soit $E$ une extension galoisienne de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$ contenant les $\tr(F_{x_0}, \mathcal{F}_0)$ pour $x$ dans un quelconque $X_0(\mathbb{F}_{q^n})$, $n \geq 1$. D'apr\`es 0.6, pour tout $\sigma \in \Gal(E/\mathbb{Q})$, il existe un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse semi-simple $\sigma(\mathcal{F}_0)$ tel que pour tout $x$ dans un $X_0(\mathbb{F}_{q^n})$, on ait
+\[
+\tr(F_{x_0}, \sigma(\mathcal{F}_0)) = \sigma(\tr(F_{x_0}, \mathcal{F}_0)).
+\]
+On notera $\sigma(\mathcal{F})$ l'image inverse de $\sigma(\mathcal{F}_0)$ sur $X$. Cette notation est raisonnable, car $\sigma(\mathcal{F})$, qui est d\'efini \`a isomorphisme pr\`es, ne d\'epend que de $\mathcal{F}$ (r\'esulte de \ref{eq:1.4.1} et d'une compatibilit\'e entre ``$\sigma$'' et torsion). Pour chaque $s \in S$, on a
+\begin{equation}\label{eq:2.2.1}
+\Sw_s(\sigma \mathcal{F}) = \Sw_s(\mathcal{F}), \quad \alpha_s(\sigma \mathcal{F}) = \alpha_s(\mathcal{F}).
+\end{equation}
+Esquisse de preuve: on peut supposer $\mathcal{F}_0$ irr\'eductible. Si $\mathcal{F}_0$ correspond \`a une repr\'esentation automorphe $\pi$ (par la correspondance rationalis\'ee), $\pi$ est d\'efinie sur $E$ et $\sigma \mathcal{F}_0$ correspond \`a $\sigma \pi$. En chaque $s \in S$, $\mathcal{F}_0$ d\'efinit une repr\'esentation du groupe de Weil local. Par la correspondance locale, sa Frobenius-semi-simplifi\'ee ([De1] 8.6) correspond \`a la composante locale $\pi_s$ de $\pi$. Noter que les classes d'isomorphie de $\overline{\mathbb{Q}}_\ell$-repr\'esentations lin\'eaires continues $F$-semi-simples du groupe de Weil local sont en correspondance bijective avec les classes d'isomorphie de $\overline{\mathbb{Q}}_\ell$-repr\'esentations lin\'eaires $F$-semi-simple (loc.~cit.) du groupe de Weil-Deligne. Ces derni\`eres sont des objets purement alg\'ebriques. Si $\pi_s$ est d\'efinie sur $E$, la repr\'esentation correspondante le sera aussi, et conjuguer par $\sigma$ est compatible \`a la correspondance (rationalis\'ee). En particulier, $\mathcal{F}_0$ et $\sigma(\mathcal{F}_0)$ donnent lieu \`a des repr\'esentations du groupe d'inertie sauvage en $s$ ayant le m\^eme noyau, et on se r\'eduit \`a (\ref{eq:2.1.3}).
+
+Pour notre r\'esultat principal, le lemme plus \'el\'ementaire suivant suffit.
+
+\begin{manualblock}{Lemme}{2.3}{}{lem:2.3}
+Si $\mathcal{F}_0$ est mod\'er\'ement ramifi\'e, $\sigma(\mathcal{F}_0)$ l'est aussi.
+\end{manualblock}
+
+\noindent\textit{Preuve.} L'image par $\sigma$ de la fonction $L$ de $\mathcal{F}_0$:
+\[
+L(X_0, \mathcal{F}_0, t) = \prod_{x \in X_0} \det(1 - F_{x_0} t^{\deg(x_0)}, \mathcal{F}_0)^{-1} \in \mathbb{Q}(t)
+\]
+est la fonction $L$ de $\sigma(\mathcal{F}_0)$. Cette fonction $L$ est une fonction rationnelle, et d'apr\`es l'interpr\'etation cohomologique de Grothendieck des fonctions $L$ l'ordre de son p\^ole en $t = \infty$ est $-\chi_c(\mathcal{F})$. On a donc $\chi_c(\mathcal{F}) = \chi_c(\sigma \mathcal{F})$. Puisque $\mathcal{F}_0$ est \`a ramification mod\'er\'ee, les $\Sw_s(\mathcal{F})$ sont nuls. Comparaissant (\ref{eq:2.1.1}) pour $\mathcal{F}$ et $\sigma \mathcal{F}$, on voit que la somme des $\Sw_s(\sigma \mathcal{F})$, et donc chacun d'eux, est nul, i.e. que $\sigma(\mathcal{F}_0)$ est \`a ramification mod\'er\'ee.
+
+\subsection*{2.4}
+\addcontentsline{toc}{subsection}{2.4}
+
+Supposons $X$ affine, et soient $\mathcal{F}_0$, $\mathcal{G}_0$ deux faisceaux de Weil lisses semi-simples de rang $r$ sur $X_0$. Notons $\log_q^+$ la fonction $\sup(0, \log_q)$ et $[\ ]$ la fonction ``partie enti\`ere''. Posons
+\begin{equation}\label{eq:2.4.1}
+\alpha_s(\mathcal{F}, \mathcal{G}) := \alpha_s(\mathcal{F} \oplus \mathcal{G}) = \sup(\alpha_s(\mathcal{F}), \alpha_s(\mathcal{G}))
+\end{equation}
+\begin{equation}\label{eq:2.4.2}
+N_0 = 2\log_q^+\left(2r^2 \cdot b_1(X) + \sum_{s \in S} \alpha_s(\mathcal{F}, \mathcal{G})\right)
+\end{equation}
+\begin{equation}\label{eq:2.4.3}
+N = [N_0] + 2r.
+\end{equation}
+
+\begin{manualblock}{Proposition}{2.5}{}{prop:2.5}
+Si pour tout entier $n \leq N$ et tout $x \in X(\mathbb{F}_{q^n})$ on a
+\[
+\tr(F_{x_0}, \mathcal{F}_0) = \tr(F_{x_0}, \mathcal{G}_0),
+\]
+alors $\mathcal{F}_0$ est isomorphe \`a $\mathcal{G}_0$.
+\end{manualblock}
+
+\noindent\textit{Preuve.} Appliquons (\ref{eq:1.3.1}) (\ref{eq:1.4.1}) \`a $\mathcal{F}_0 \oplus \mathcal{G}_0$. On obtient des d\'ecompositions (\ref{eq:1.4.1})
+\begin{equation}\label{eq:2.5.1}
+\mathcal{F}_0 = \bigoplus_{a \in A} p_a^*(\mathcal{S}_{a,1} \otimes pr_a^* \mathcal{W}_a), \quad \mathcal{G}_0 = \bigoplus_{a \in A} p_a^*(\mathcal{S}_{a,1} \otimes pr_a^* \mathcal{W}'_a).
+\end{equation}
+Dans (\ref{eq:2.5.1}), \`a chaque $a \in A$ est attach\'e un entier $n(a) \geq 1$, $\mathcal{S}_{a,1}$ est un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil lisse sur $X_a := X_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^{n(a)}}$, $\mathcal{W}_a$ et $\mathcal{W}'_a$ sont des $\overline{\mathbb{Q}}_\ell$-faisceaux de Weil sur $\Spec(\mathbb{F}_{q^{n(a)}})$, et $p_a$ et $pr_a$ sont les projections de $X_a$ sur $X_0$ et sur $\Spec(\mathbb{F}_{q^{n(a)}})$. Notons $\mathcal{S}_{a,1}^{(i)}$, l'image de $\mathcal{S}_{a,1}$, par la puissance $i$\`eme du Frobenius $F \in \Gal(\mathbb{F}_{q^{n(a)}}/\mathbb{F}_q)$, et omettons l'indice $1$ pour indiquer l'image inverse de $X_a$ \`a $X$. D'apr\`es (1.4), les $\mathcal{S}_{a,1}$, $\mathcal{W}_a$ et $\mathcal{W}'_a$ dans (\ref{eq:2.5.1}) v\'erifient
+
+(i) $\det(\mathcal{S}_{a,1})$ est d'ordre fini;
+
+(ii) les $\mathcal{S}_{a,1}^{(i)}$ ($a \in A$, $i \in \mathbb{Z}/n(a)$) sont des $\overline{\mathbb{Q}}_\ell$-faisceaux lisses irr\'eductibles sur $X$, deux \`a deux non isomorphes;
+
+(iii) Pour chaque $a$, $\mathcal{W}_a$ ou $\mathcal{W}'_a$ est non nul.
+
+Puisque $\mathcal{S}_a^{(i)}$ est un facteur direct de $\mathcal{F}$ ou de $\mathcal{G}$, on a en tout point $s \in S$
+\[
+\alpha_s(\mathcal{S}_a^{(i)}) \leq \sup(\alpha_s(\mathcal{F}), \alpha_s(\mathcal{G})).
+\]
+Notons $A(n)$ l'ensemble des $a$ dans $A$ tels que $n(a) | n$.
+
+\begin{manualblock}{Lemme}{2.6}{}{lem:2.6}
+Si $n > N_0$ (\ref{eq:2.4.2}), les fonctions sur $X_0(\mathbb{F}_{q^n})$
+\[
+t_{a,i}: x \mapsto \tr(F_x, \mathcal{S}_{a,1}^{(i)}) \quad (a \in A(n), i \in \mathbb{Z}/n(a))
+\]
+sont lin\'eairement ind\'ependantes.
+\end{manualblock}
+
+\noindent\textit{Preuve.} Les fonctions $t_{a,i}$ sont \`a valeurs dans un corps de nombres $E \subset \overline{\mathbb{Q}}_\ell$. Plongeons $E$ dans $\mathbb{C}$ pour les traiter comme des fonctions \`a valeurs complexes. L'id\'ee de la preuve est de montrer qu'elles sont presque orthogonales, dans $L^2(X_0(\mathbb{F}_{q^n}))$.
+
+D'apr\`es \ref{thm:0.6}(i), $\mathcal{S}_{a,1}^{(i)}$ est pur de poids $0$. La fonction complexe conjugu\'ee de $t_{a,i}$ est donc $x \mapsto \tr(F_x, \mathcal{S}_{a,1}^{\vee(i)})$, et le produit scalaire $\langle t_{a,i}, t_{b,j} \rangle = \sum_x t_{a,i}(x) \overline{t_{b,j}(x)}$ est
+\[
+\langle t_{a,i}, t_{b,j} \rangle = \sum_x \tr(F_x, \Hom(\mathcal{S}_{a,1}^{(i)}, \mathcal{S}_{b,1}^{(j)})).
+\]
+Par la formule des traces, cette somme est la trace du Frobenius $F \in W(\mathbb{F}/\mathbb{F}_{q^n})$
+\begin{equation}\label{eq:2.6.1}
+\langle t_{a,i}, t_{b,j} \rangle = \sum_k (-1)^k \tr(F, H_c^k(X, \Hom(\mathcal{S}_a^{(i)}, \mathcal{S}_b^{(j)}))).
+\end{equation}
+Puisque $X$ est affine, $H_c^0$ est nul. Le terme ``dominant'' est donn\'e par $H_c^2$: il vaut $q^n$ si $(a,i) = (b,j)$ et est nul sinon. La presque orthogonalit\'e promise vient de ce que le terme $k=1$ est en $O(q^{n/2})$ pour $n$ grand. Plus pr\'ecis\'ement, puisque $\Hom(\mathcal{S}_a^{(i)}, \mathcal{S}_b^{(j)})$ est pur de poids $0$, les valeurs propres de $F$ sur son $H_c^1$ sont de valeur absolue $q^{n/2}$ ou $1$, et le terme $k=1$ est born\'e en valeur absolue par $q^{n/2} \cdot \dim \mathcal{S}_a^{(i)} \cdot \dim \mathcal{S}_b^{(j)} \cdot (b_1(X) + \sum_s \alpha_s(\mathcal{F}, \mathcal{G}))$.
+
+Supposons qu'il existe une relation de d\'ependance lin\'eaire $\sum \lambda_{b,j} t_{b,j} = 0$. Soit $a,i$ tel que $|\lambda_{a,i}|$ soit maximal parmi les $|\lambda_{b,j}|$. Divisant par $\lambda_{a,i}$, on peut supposer que $\lambda_{a,i} = 1$ et que $|\lambda_{b,j}| \leq 1$ pour $b \in A(n)$ et $j \in \mathbb{Z}/n(b)$. On a alors
+\[
+0 = \langle \sum \lambda_{b,j} t_{b,j}, t_{a,i} \rangle = q^n + \text{reste}
+\]
+o\`u la valeur absolue du reste est major\'ee par
+\[
+\sum_{b,j} |\lambda_{b,j}| \cdot |\tr(F, H_c^1(X, \Hom(\mathcal{S}_a^{(i)}, \mathcal{S}_b^{(j)})))| \leq q^{n/2} \cdot 2r^2 \cdot (b_1(X) + \sum_s \alpha_s(\mathcal{F}, \mathcal{G})).
+\]
+L'hypoth\`ese sur $n$ assure que $|\text{reste}| < q^n$: contradiction.
+
+\begin{manualblock}{Corollaire}{2.7}{}{cor:2.7}
+Notons $F$ le Frobenius de $W(\mathbb{F}/\mathbb{F}_{q^n})$. Si $n > N_0$ et que $\tr(F_{x_0}, \mathcal{F}_0) = \tr(F_{x_0}, \mathcal{G}_0)$ pour $x \in X_0(\mathbb{F}_{q^n})$, alors
+\[
+\tr(F, \mathcal{W}_a) = \tr(F, \mathcal{W}'_a)
+\]
+pour chaque $a \in A(n)$.
+\end{manualblock}
+
+\noindent\textit{Preuve.} Les d\'ecompositions (\ref{eq:2.5.1}) fournissent l'identit\'e entre fonctions traces
+\[
+\sum_i \tr(F, \mathcal{W}_a) = \sum_i \tr(F, \mathcal{W}'_a)
+\]
+et on applique \ref{lem:2.6}.
+
+\subsection*{2.8}
+\addcontentsline{toc}{subsection}{2.8}
+
+Fin de la preuve de \ref{prop:2.5}. Il faut montrer que pour chaque $a$, et pour $F$ le Frobenius g\'eom\'etrique g\'en\'erateur de $W(\mathbb{F}/\mathbb{F}_{q^{n(a)}})$, $F$ a m\^eme multi-ensemble de valeurs propres sur $\mathcal{W}_a$ et $\mathcal{W}'_a$. D'apr\`es \ref{cor:2.7}, si $n$ est divisible par $n(a)$ et que $[N_0]+1 \leq n \leq N = [N_0]+2r$, on a
+\[
+\tr(F^{n/n(a)}, \mathcal{W}_a) = \tr(F^{n/n(a)}, \mathcal{W}'_a).
+\]
+Il y a au moins $[2r/a]$ telles valeurs de $n$, $\mathcal{W}_a$ et $\mathcal{W}'_a$ sont de dimension au plus $[r/a]$ et il reste \`a appliquer le lemme suivant
+
+\begin{manualblock}{Lemme}{2.9}{}{lem:2.9}
+Soient $\alpha_i$ $k$ nombres non nuls distincts. Si les $\lambda_i$ v\'erifient, pour $m$ convenable,
+\begin{equation}\label{eq:2.9.1}
+\sum_i \lambda_i \alpha_i^r = 0 \quad \text{pour} \quad m \leq r < m+k,
+\end{equation}
+les $\lambda_i$ sont tous nuls.
+\end{manualblock}
+
+\noindent\textit{Preuve.} (\ref{eq:2.9.1}) peut se r\'ecrire
+\[
+\sum_i (\lambda_i \alpha_i^m) \cdot \alpha_i^s = 0 \quad \text{pour} \quad 0 \leq s < k
+\]
+et le d\'eterminant de Vandermonde $\det(\alpha_i^s)$ est non nul.
+
+\subsection*{2.10}
+\addcontentsline{toc}{subsection}{2.10}
+
+Dans la proposition qui suit, $X_0$ est suppos\'ee affine, et $\mathcal{F}_0$ est un faisceau de Weil lisse de rang $r$ sur $X_0$. On suppose que $\mathcal{F}_0$ est alg\'ebrique au sens de 0.9. Posons
+\[
+N_0 = 2\log_q^+\left(2r^2 \cdot b_1(X) + \sum_s \alpha_s(\mathcal{F})\right), \quad N = [N_0] + 2r.
+\]
+\begin{manualblock}{Proposition}{2.10}{}{prop:2.10}
+Soit $E_0$ l'extension de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$ engendr\'ee par les $\tr(F_{x_0}, \mathcal{F}_0)$ pour $x$ dans un $X_0(\mathbb{F}_{q^n})$ avec $n \leq N$. Alors, pour tout $n$ et tout $x \in X_0(\mathbb{F}_{q^n})$, $\tr(F_{x_0}, \mathcal{F}_0)$ est dans $E_0$.
+\end{manualblock}
+
+\noindent\textit{Preuve.} Semi-simplifiant $\mathcal{F}_0$, on se ram\`ene \`a supposer $\mathcal{F}_0$ semi-simple. Soit $E$ comme en 2.2 une extension galoisienne assez grande de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$. Il nous faut montrer que pour $\sigma \in \Gal(E/E_0)$, les $\tr(F_{x_0}, \mathcal{F}_0)$ sont fix\'es par $\sigma$. Ceci \'equivaut \`a
+\begin{equation}\label{eq:2.10.1}
+\tr(F_{x_0}, \mathcal{F}_0) = \tr(F_{x_0}, \sigma(\mathcal{F}_0)).
+\end{equation}
+Par hypoth\`ese, (\ref{eq:2.10.1}) est vraie si $x$ est dans un $X(\mathbb{F}_{q^n})$ avec $n \leq N$. D'apr\`es \ref{prop:2.5} et le fait que $\alpha_s(\mathcal{F}_0) = \alpha_s(\sigma(\mathcal{F}_0))$, $\mathcal{F}_0$ est isomorphe \`a $\sigma(\mathcal{F}_0)$. L'assertion en r\'esulte.
+
+\subsection*{2.11}
+\addcontentsline{toc}{subsection}{2.11}
+
+Variantes. Gardons les hypoth\`eses et notations de \ref{prop:2.5}. Soit $q: X' \to X$ un rev\^etement \'etale connexe de $X$ sur lequel les images inverses de $\mathcal{F}$ et $\mathcal{G}$ soient \`a ramification mod\'er\'ee. Pour tout $\overline{\mathbb{Q}}_\ell$-faisceau $\mathcal{H}$ sur $X$, dont l'image inverse sur $X'$ est \`a ramification mod\'er\'ee, le morphisme
+\[
+q^*: H_c^*(X, \mathcal{H}) \to H_c^*(X', q^*\mathcal{H})
+\]
+est injectif, car son compos\'e avec $\tr_q$ est la multiplication par le degr\'e du rev\^etement. On a donc
+\[
+\dim H_c^1(X, \mathcal{H}) \leq \dim H_c^1(X', \mathcal{H}) \leq \rang(\mathcal{H}) \cdot b_1(X').
+\]
+Si on r\'ep\`ete les arguments prouvant \ref{prop:2.5} en utilisant cette estimation plut\^ot que (\ref{eq:2.1.6}), on obtient:
+
+\begin{manualblock}{Variante}{2.12}{}{var:2.12}
+Posons $N'_0 := 2\log_q^+(2r^2 b_1(X'))$ et $N' := [N'_0]+2r$. Si pour tout entier $n \leq N'$ et tout $x \in X_0(\mathbb{F}_{q^n})$, on a
+\[
+\tr(F_{x_0}, \mathcal{F}_0) = \tr(F_{x_0}, \mathcal{G}_0),
+\]
+alors $\mathcal{F}_0$ est isomorphe \`a $\mathcal{G}_0$.
+\end{manualblock}
+
+De m\^eme si $\mathcal{F}_0$ est comme en \ref{prop:2.10}, et que son image inverse par $q: X' \to X$ est \`a ramification mod\'er\'ee, $\sigma(\mathcal{F}_0)$ a la m\^eme propri\'et\'e: apr\`es une extension finie du corps de base $\mathbb{F}_q$, on peut supposer que $q: X' \to X$ provient de $q_0: X'_0 \to X_0$ et on applique \ref{lem:2.3}. R\'ep\'etant de m\^eme les arguments qui prouvent \ref{prop:2.10}, on obtient la
+
+\begin{manualblock}{Variante}{2.13}{}{var:2.13}
+Soit $E'_0$ l'extension de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$ engendr\'ee par les $\tr(F_{x_0}, \mathcal{F}_0)$ pour $x$ dans un $X_0(\mathbb{F}_{q^n})$ avec $n \leq N'$, $N'$ \'etant comme en \ref{var:2.12}. Alors, pour tout $n$ et tout $x \in X_0(\mathbb{F}_{q^n})$, $\tr(F_{x_0}, \mathcal{F}_0)$ est dans $E'_0$.
+\end{manualblock}
+
+\begin{manualremark}{Remarque}{2.14}{}{rem:2.14}
+L'hypoth\`ese que $\mathcal{F}_0$ est alg\'ebrique assure que $E'_0$ est une extension finie de $\mathbb{Q}$. Elle n'est pas requise pour prouver \ref{var:2.13}. Si $E_0 \subset E$ sont des extensions de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$, si $\Sigma$ est l'ensemble des $\sigma: E \to \overline{\mathbb{Q}}_\ell$ qui prolongent l'inclusion de $E_0$ dans $\overline{\mathbb{Q}}_\ell$, alors
+\[
+E_0 = \{e \in E \mid \sigma(e) = e \text{ pour tout } \sigma \in \Sigma\},
+\]
+et cette observation peut se substituer \`a l'argument galoisien.
+\end{manualremark}
+
+\section{Le th\'eor\`eme principal}
+
+\begin{manualblock}{Théorème}{3.1}{}{thm:3.1}
+Soit $Z_0$ un sch\'ema de type fini sur $\mathbb{F}_q$. Si $\mathcal{F}_0$ est un $\overline{\mathbb{Q}}_\ell$-faisceau de Weil alg\'ebrique (0.9) sur $Z_0$, il existe une extension finie $E \subset \overline{\mathbb{Q}}_\ell$ de $\mathbb{Q}$ telle que pour tout $n$ et tout $x \in Z_0(\mathbb{F}_{q^n})$, $\tr(F_{x_0}, \mathcal{F}_0)$ soit dans $E$.
+\end{manualblock}
+
+Que ces traces soient toutes dans $E$ revient \`a ce qu'en tout point ferm\'e $x_0$ de $Z_0$ le facteur local de la fonction $L$ de $\mathcal{F}_0$ soit \`a coefficients dans $E$ (voir 0.5).
+
+\begin{manualblock}{Lemme}{3.2}{}{lem:3.2}
+Le th\'eor\`eme \ref{thm:3.1} est impliqu\'e par son cas particulier o\`u on suppose que
+
+\emph{(i)} $Z_0$ est affine, lisse, irr\'eductible, et est muni d'un morphisme \'etale $\phi: Z_0 \to \mathbb{A}_0^{k}$ vers un espace affine sur $\mathbb{F}_q$;
+
+\emph{(ii)} $\mathcal{F}_0$ est lisse, irr\'eductible et $\det(\mathcal{F}_0)$ est d'ordre fini.
+\end{manualblock}
+
+\noindent\textit{Preuve.} Le sch\'ema $Z_0$ de \ref{thm:3.1} admet une partition en parties localement ferm\'ees irr\'eductibles $\mathcal{F}_i$ v\'erifiant (i) et telles que $\mathcal{F}_0|_{\mathcal{F}_i}$ soit lisse. Il suffit de traiter s\'epar\'ement chaque $(\mathcal{F}_i, \mathcal{F}_0|_{\mathcal{F}_i})$. On peut ensuite traiter s\'epar\'ement chaque sous-quotient irr\'eductible de $\mathcal{F}_0|_{\mathcal{F}_i}$ et le tordre pour qu'il v\'erifie (ii).
+
+\begin{manualblock}{Lemme}{3.3}{}{lem:3.3}
+Il existe un rev\^etement \'etale connexe $q: Z' \to Z$ tel que le groupe de monodromie de $q^*\mathcal{F}$ soit un pro-$\ell$-groupe.
+\end{manualblock}
+
+Ce qui nous importe est que la restriction de $q^*\mathcal{F}$ \`a une courbe trac\'ee sur $Z$ soit mod\'er\'ement ramifi\'ee \`a l'infini.
+
+\noindent\textit{Preuve.} Il existe une extension finie $E_\lambda$ de $\mathbb{Q}_\ell$ dans $\overline{\mathbb{Q}}_\ell$, d'anneau d'entiers $\mathcal{O}_\lambda$, et un $\mathcal{O}_\lambda$-faisceau lisse sans torsion $\tilde{\mathcal{F}}$ tel que $\mathcal{F}$ soit isomorphe \`a $\tilde{\mathcal{F}} \otimes_{\mathcal{O}_\lambda} \overline{\mathbb{Q}}_\ell$. La r\'eduction de $\tilde{\mathcal{F}}$ modulo l'id\'eal maximal $\mathfrak{m}_\lambda$ de $\mathcal{O}_\lambda$ est un faisceau \'etale localement constant, et il suffit de prendre pour $Z'$ un rev\^etement de $Z$ sur lequel il devienne constant. Si $\mathcal{F}$ est de rang $r$, on peut prendre pour $Z'$ une composante connexe du rev\^etement $\Isom(\tilde{\mathcal{F}}/\mathfrak{m}_\lambda\tilde{\mathcal{F}}, (\mathcal{O}_\lambda/\mathfrak{m}_\lambda)^r)$. Sur le rev\^etement $Z'$, la monodromie de chaque $\tilde{\mathcal{F}}/\mathfrak{m}_\lambda^n\tilde{\mathcal{F}}$ est un $\ell$-groupe.
+
+\begin{manualblock}{Proposition}{3.4}{}{prop:3.4}
+Si l'entier $n$ est suffisamment grand, pour tout $x \in Z_0(\mathbb{F}_{q^n})$, la trace $\tr(F_{x_0}, \mathcal{F}_0)$ est contenue dans l'extension de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$ engendr\'ee par les traces $\tr(F_{y_0}, \mathcal{F}_0)$ avec $y \in Z_0(\mathbb{F}_{q^m})$ et $m < n$.
+\end{manualblock}
+
+Si $N$ est tel que les entiers $n > N$ soient ``suffisamment grands'', on en d\'eduit par r\'ecurrence que toute trace $\tr(F_{x_0}, \mathcal{F}_0)$ est contenue dans l'extension de $\mathbb{Q}$ engendr\'ee par les $\tr(F_{y_0}, \mathcal{F}_0)$ avec $y$ dans un $Z_0(\mathbb{F}_{q^m})$ avec $m \leq N$. Cette extension est finie et \ref{prop:3.4} implique donc \ref{thm:3.1}.
+
+Soit $x \in Z_0(\mathbb{F}_{q^n})$ et essayons de prouver la conclusion de \ref{prop:3.4} pour $x$. On y arrivera pour $n$ assez grand.
+
+Choisissons un g\'en\'erateur de $\mathbb{F}_{q^n}$ sur $\mathbb{F}_q$. Ce choix d\'efinit un $\mathbb{F}_{q^n}$-point $x'$ de la droite affine $\mathbb{A}_0^1$ sur $\mathbb{F}_q$, dont les $\Gal(\mathbb{F}_{q^n}/\mathbb{F}_q)$-conjugu\'es sont tous distincts.
+
+\begin{manualblock}{Lemme}{3.5}{}{lem:3.5}
+Si $y$ est un $\mathbb{F}_{q^n}$-point de $\mathbb{A}_0^1$, il existe un $\mathbb{F}_q$-morphisme $P: \mathbb{A}_0^1 \to \mathbb{A}_0^1$, i.e. un polyn\^ome $P \in \mathbb{F}_q[T]$, qui envoie $x'$ sur $y$ et soit de degr\'e $\leq n-1$.
+\end{manualblock}
+
+\noindent\textit{Preuve.} Les $\sigma x'$, pour $\sigma \in \Gal(\mathbb{F}_{q^n}/\mathbb{F}_q)$, sont $n$ points distincts de la droite affine. Il existe donc un unique polyn\^ome $P \in \mathbb{F}_{q^n}[T]$, de degr\'e $\leq n-1$, qui pour chaque $\sigma$ prenne en $\sigma x'$ la valeur $\sigma y$. Son unicit\'e assure son invariance par Galois, donc qu'il est dans $\mathbb{F}_q[T]$.
+
+\begin{manualblock}{Corollaire}{3.6}{}{cor:3.6}
+Il existe un $\mathbb{F}_q$-morphisme $P: \mathbb{A}_0^1 \to \mathbb{A}_0^k$, de coordonn\'ees des polyn\^omes de degr\'e $\leq n-1$, qui envoie $x' \in \mathbb{A}_0^1(\mathbb{F}_{q^n})$ sur $\phi(x) \in \mathbb{A}_0^k(\mathbb{F}_{q^n})$.
+\end{manualblock}
+
+Cela se v\'erifie en appliquant \ref{lem:3.5} \`a chaque coordonn\'ee de $\phi(x)$.
+
+\subsection*{3.7}
+\addcontentsline{toc}{subsection}{3.7}
+
+Fixons $P$ comme en \ref{cor:3.6}. Soit $X_0''$ le produit fibr\'e de $Z_0$ et $\mathbb{A}_0^1$ sur $\mathbb{A}_0^k$. Puisque $\phi(x) = P(x')$, il existe $\bar{x} \in X_0''(\mathbb{F}_{q^n})$ s'envoyant sur $x$ et $x'$. On note $X_0$ la composante connexe de $X_0''$ contenant $\bar{x}$:
+\begin{equation}\label{eq:3.7.1}
+\xymatrix{
+X_0 \ar@{^{(}->}[r] & X_0'' \ar[r]^{\phi''} \ar[d]_{P} & \mathbb{A}_0^k \\
+& \mathbb{A}_0^1 \ar[ur]_{P} &
+}
+\quad
+\xymatrix{
+\bar{x} \in X_0(\mathbb{F}_{q^n}) \ar@{|->}[d] \ar@{|->}[r] & x \in Z_0(\mathbb{F}_{q^n}) \ar@{|->}[d] \\
+x' \in \mathbb{A}_0^1(\mathbb{F}_{q^n}) \ar@{|->}[r] & \phi(x) \in \mathbb{A}_0^k(\mathbb{F}_{q^n})
+}
+\end{equation}
+Le morphisme $\phi''$ est \'etale, de degr\'e au-dessus du point g\'en\'erique de $\mathbb{A}_0^1$ au plus \'egal au degr\'e $D$ de $\phi$. Soit $k_0$ le corps des constantes de la courbe $X_0$ sur $\mathbb{F}_q$. Le degr\'e de $k_0$ sur $\mathbb{F}_q$ est $\leq D$, car $X_0$ est de degr\'e $\leq D$ sur $\mathbb{A}_0^1$, et $d$ divise $n$, car $X_0$ a un point sur $\mathbb{F}_{q^n}$. Etendons le corps de base de $\mathbb{F}_q$ \`a $\mathbb{F}_{q^d}$, et soit $X_1$ (resp.~$Z_1$) la composante connexe de $X_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^d}$ (resp.~$Z_0 \otimes_{\mathbb{F}_q} \mathbb{F}_{q^d}$) qui contient $\bar{x}$ (resp.~$x$):
+\begin{equation}\label{eq:3.7.2}
+\xymatrix{
+\bar{x}: \Spec(\mathbb{F}_{q^n}) \ar[r] \ar[d] & X_1 \ar[r]^{\sim} \ar[d] & X_0 \ar[d]^{P} \\
+x: \Spec(\mathbb{F}_{q^n}) \ar[r] & Z_1 \ar[r] & Z_0 \\
+& \Spec(\mathbb{F}_{q^d}) \ar[r] & \Spec(\mathbb{F}_q)
+}
+\end{equation}
+La courbe $X_1$ sur $\mathbb{F}_{q^d}$ est lisse et absolument irr\'eductible. Etendons enfin le corps de base de $\mathbb{F}_{q^d}$ \`a $\mathbb{F}$, pour obtenir $X$ et $Z$, et soit $X'$ une composante connexe de l'image inverse $X''$ du rev\^etement \'etale $Z'$ de $Z$:
+\begin{equation}\label{eq:3.7.3}
+\xymatrix{
+X' \ar@{^{(}->}[r] & X'' \ar[r] & X \\
+& Z' \ar[r] & Z
+}
+\end{equation}
+
+\subsection*{3.8}
+\addcontentsline{toc}{subsection}{3.8}
+
+Preuve de \ref{prop:3.4}. L'image inverse de $\mathcal{F}$ sur $X'$ est mod\'er\'ement ramifi\'ee. Nous nous proposons d'appliquer \ref{var:2.13} \`a la courbe $X_1$ sur $\mathbb{F}_{q^d}$, \`a $X' \to X$ et \`a l'image inverse $\mathcal{F}_1$ de $\mathcal{F}_0$ sur $X_1$. Estimons $b_1(X')$.
+
+Le $\mathbb{F}$-morphisme compos\'e
+\[
+Z' \to Z \to \mathbb{A}^k
+\]
+est affine. Il se factorise donc par un plongement ferm\'e $Z' \hookrightarrow \mathbb{A}^{k+k'}$, et il existe une famille de $A$ \'equations de degr\'e $\leq B$ d\'efinissant $Z'$ dans $\mathbb{A}^{k+k'}$.
+
+Le graphe $\Gamma_P$ de $P: \mathbb{A}^1 \to \mathbb{A}^k$ est d\'efini dans $\mathbb{A}^{1+k}$ par $k$ \'equations de degr\'e $\leq n-1$.
+
+Le produit fibr\'e, calcul\'e sur $\mathbb{F}$, de $Z' \to \mathbb{A}^k$ et $P: \mathbb{A}^1 \to \mathbb{A}^k$ est l'intersection, dans $\mathbb{A}^{1+k+k'}$, des images inverses de $Z' \subset \mathbb{A}^{k+k'}$ et de $\Gamma_P \subset \mathbb{A}^{1+k}$. Il est donc d\'efini, dans $\mathbb{A}^{1+k+k'}$, par $A' := A+k$ \'equations de degr\'e $\sup(B, n-1)$. D'apr\`es Katz [K] ceci implique une majoration de la somme des nombres de Betti de ce produit fibr\'e, et a fortiori de $b_1(X')$, puisque $X'$ est une composante connexe du produit fibr\'e.
+
+Pour $n > B$, on a $A'$ \'equations de degr\'e $\leq n-1$ dans un espace affine \`a $k+k'+1$ dimensions, et Katz donne
+\begin{equation}\label{eq:3.8.1}
+b_1(X') \leq 6.2 \cdot A' \cdot (A'n+3)^{k+k'+1}.
+\end{equation}
+Posons comme en \ref{var:2.12}
+\[
+N'_0 = 2\log_{q^d}^+(2r^2 \cdot b_1(X')) \quad \text{et} \quad N' = [N'_0] + 2r.
+\]
+La borne (\ref{eq:3.8.1}) est polyn\^omiale en $n$ et $d$ est born\'e par $D$. D\`es que $n$ est assez grand, on a donc
+\[
+n > N' \cdot d.
+\]
+Supposons $n$ assez grand pour que cette in\'egalit\'e soit v\'erifi\'ee.
+
+Par (\ref{eq:3.7.2}), on a $\tr(F_{\bar{x}}, \mathcal{F}_1) = \tr(F_{x_0}, \mathcal{F}_0)$. D'apr\`es \ref{var:2.13}, cette trace est contenue dans le corps engendr\'e par les $\tr(F_y, \mathcal{F}_1)$ pour $y$ dans un $X_1(\mathbb{F}_{q^m})$ avec $d|m$ et $m/d$ au plus \'egal \`a $N'$. Par (\ref{eq:3.7.2}) encore, ces traces sont aussi les $\tr(F_{y_0}, P^*\mathcal{F}_0)$ pour $y$ dans un $X_0(\mathbb{F}_{q^m})$ avec $d|m$ et $m/d \leq N'$. On a
+\[
+\tr(F_{y_0}, P^*\mathcal{F}_0) = \tr(F_{P(y)_0}, \mathcal{F}_0)
+\]
+et $\tr(F_{x_0}, \mathcal{F}_0)$ est dans le corps engendr\'e par les $\tr(F_{y_0}, \mathcal{F}_0)$ avec $y \in Z_0(\mathbb{F}_{q^m})$ et $m/d \leq N'$, et donc $m < n$. Ceci prouve \ref{prop:3.4}.
+
+\begin{manualremark}{Remarque}{3.9}{}{rem:3.9}
+Si on ne suppose pas $\mathcal{F}_0$ alg\'ebrique, il reste vrai que l'extension de $\mathbb{Q}$ dans $\overline{\mathbb{Q}}_\ell$ engendr\'ee par les $\tr(F_{x_0}, \mathcal{F}_0)$ pour $x$ dans un quelconque $Z_0(\mathbb{F}_{q^n})$ est une extension de type fini. On peut le d\'eduire par torsion du cas alg\'ebrique, ou r\'ep\'eter les arguments qui pr\'ec\`edent en appliquant \ref{rem:2.14}.
+\end{manualremark}
+
+\begin{manualremark}{Remarque}{3.10}{}{rem:3.10}
+Sauf dans la preuve de \ref{lem:3.3}, nos arguments n'ont utilis\'e le faisceau $\mathcal{F}_0$ que via ses images inverses sur des courbes lisses. Le th\'eor\`eme \ref{thm:3.1} reste donc valable si on se donne, non pas $\mathcal{F}_0$, mais des fonctions ``trace'' $t_n$ sur les $Z_0(\mathbb{F}_{q^n})$, \`a valeurs dans $\overline{\mathbb{Q}}_\ell$, ayant les deux propri\'et\'es suivantes:
+
+\emph{a.} Pour toute courbe lisse $X_0$ et tout morphisme $\phi: X_0 \to Z_0$, il existe un $\overline{\mathbb{Q}}_\ell$-faisceau lisse $\mathcal{F}_0[\phi]$ sur $X_0$, tel que pour tout $n$ et tout $x \in X_0(\mathbb{F}_{q^n})$ on ait
+\[
+\tr(F_{x_0}, \mathcal{F}_0[\phi]) = t_n(\phi(x)).
+\]
+
+\emph{b.} Il existe un rev\^etement \'etale connexe $q: Z' \to Z$ tel que pour tout $\phi: X_0 \to Z_0$ comme en a., notant $X'$ la rev\^etement \'etale de $X_0$ image inverse de $Z'$, on ait: l'image inverse de $\mathcal{F}_0[\phi]$ sur $X'$ est mod\'er\'ement ramifi\'ee \`a l'infini.
+
+L'hypoth\`ese a. se substitue \`a \ref{lem:3.3}. La conclusion est que les valeurs des $t_n$ engendrent une extension de type fini de $\mathbb{Q}$ (une extension finie si les valeurs des $t_n$ sont alg\'ebriques).
+\end{manualremark}
+
+\section*{Bibliographie}
+\addcontentsline{toc}{section}{Bibliographie}
+
+\begin{enumerate}
+\item[{[B]}] E. Bombieri, On exponential sums in finite fields II. Inv. Math. 42 (1978) p. 29--39.
+
+\item[{[De1]}] P. Deligne, Les constantes des \'equations fonctionnelles des fonctions $L$, in Modular Functions of One Variable II, Lecture Notes in Mathematics 349 (Springer 1973).
+
+\item[{[De2]}] P. Deligne, La conjecture de Weil II. Publ. Math. IHES 52 (1980) p. 137--252.
+
+\item[{[Dr]}] V. Drinfeld, On a conjecture of Deligne, to appear in the MMJ volume dedicated to I. M. Gelfand.
+
+\item[{[J]}] J.-P. Jouanolou, Th\'eor\`eme de Bertini et Applications, Progress in Math. 42, Birkh\"auser 1983.
+
+\item[{[K]}] N. Katz, Sums of Betti Numbers in Arbitrary Characteristic, Finite fields and their Applications 7 (2001) p. 29--44.
+
+\item[{[L]}] L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Inv. Math. 147 (2002) p. 1--241.
+
+\item[{[S]}] J.-P. Serre, Repr\'esentations lin\'eaires des groupes finis, Hermann 1971.
+
+\item[{[W]}] G. Wiesend, A construction of covers of arithmetic schemes, J. Number Theory 121 (2006) p. 118--131.
+\end{enumerate}
+
+\end{document}

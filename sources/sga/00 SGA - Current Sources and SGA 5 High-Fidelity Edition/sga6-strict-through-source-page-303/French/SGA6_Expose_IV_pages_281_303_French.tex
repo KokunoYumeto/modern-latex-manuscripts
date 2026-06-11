@@ -1,0 +1,828 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Exposé IV macros
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\Mod}{\operatorname{Mod}}
+\providecommand{\Coh}{\operatorname{Coh}}
+\providecommand{\Loclib}{\operatorname{Loclib}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\naif}{\mathrm{naif}}
+\providecommand{\loc}{\mathrm{loc}}
+\providecommand{\fin}{\mathrm{fin}}
+\providecommand{\clA}{\operatorname{cl}}
+\providecommand{\Rg}{\operatorname{rg}}
+\providecommand{\varinjlim}{\varinjlim}
+\providecommand{\varprojlim}{\varprojlim}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Th}{\operatorname{Th}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Dcat}{\mathrm D}
+\providecommand{\Kcat}{\mathrm K}
+\providecommand{\Kdot}{K_{\bullet}}
+\providecommand{\Kprime}{K'}
+\providecommand{\naif}{\mathrm{na\ddot{\i}f}}
+
+
+\section*{Exposé IV. Groupes de Grothendieck des topos annelés}
+\begin{center}
+par L. Illusie
+\end{center}
+
+\section*{1. Rappels et généralités sur les groupes de Grothendieck}
+
+\textbf{1.1.} Soit \(C\) une catégorie triangulée. Rappelons qu'une application \(f\) de \(\Ob C\) dans un groupe abélien \(G\) est dite \emph{additive} si l'on a
+\[
+ f(E)=f(E')+f(E'')
+\]
+pour tout triangle distingué
+\[
+ E'\longrightarrow E\longrightarrow E''\longrightarrow E'[1].
+\]
+Les applications additives de \(\Ob C\) dans \(G\) forment un groupe abélien, qui dépend fonctoriellement de \(G\). Le foncteur ainsi obtenu est représenté par un groupe abélien \(k(C)\) et une application additive universelle
+\[
+ \cl_C:\Ob C\longrightarrow k(C),
+\]
+notée \(\cl\) quand il n'y a pas de confusion à craindre.
+
+Le groupe \(k(C)\) dépend fonctoriellement de \(C\) vis-à-vis des foncteurs exacts. Si \(C,C'\) sont des catégories triangulées, deux foncteurs exacts isomorphes de \(C\) dans \(C'\) induisent le même homomorphisme \(k(C)\to k(C')\); en particulier, si \(u:C\to C'\) est un foncteur exact qui est une équivalence de catégories, \(k(u):k(C)\to k(C')\) est un isomorphisme.
+
+\textbf{Lemme 1.2.} Soient \(C\) une catégorie triangulée et \(L\in\Ob C\).
+\begin{enumerate}[label=\alph*)]
+\item Pour tout \(n\in\mathbb Z\), on a
+\[
+ \cl(L[n])=(-1)^n\cl(L).
+\]
+Si \(L',L''\) sont des objets de \(C\) tels qu'on ait \(L\simeq L'\oplus L''\), alors
+\[
+ \cl(L)=\cl(L')+\cl(L'').
+\]
+\item Supposons qu'il existe \(n\in\mathbb Z\) tel que
+\[
+ \coprod_{i\geq0} L[2ni]
+\]
+soit représentable. Alors \(\cl(L)=0\).
+\end{enumerate}
+
+\emph{Preuve.} L'assertion a) découle directement des définitions. Pour b), il suffit de remarquer qu'on a
+\[
+ \coprod_{i\geq0} L[2ni]\simeq
+ L\oplus\left(\coprod_{i\geq0}L[2ni]\right)[2n],
+\]
+et d'appliquer a).
+
+\textbf{Lemme 1.3.} Soient \(C\) une catégorie triangulée, \(A\) une sous-catégorie épaisse de \(C\) \(([\mathrm V]\ \mathrm I\ 2.1)\). Les foncteurs d'inclusion et de passage au quotient définissent une suite exacte
+\[
+ k(A)\longrightarrow k(C)\longrightarrow k(C/A)\longrightarrow 0.
+\]
+
+\emph{Preuve.} Voir SGA 5 VIII 3.1.
+
+\textbf{Lemme 1.4.} Soient \(A\) une catégorie additive, respectivement abélienne, et \(f\) une fonction additive sur \(\Ob K^b(A)\), respectivement \(\Ob D^b(A)\). Pour \(E\in\Ob K^b(A)\), respectivement \(E\in\Ob D^b(A)\), on a
+\[
+ f(E)=\sum_i(-1)^i f(E^i),
+\]
+respectivement
+\[
+ f(E)=\sum_i(-1)^i f(H^i(E)).
+\]
+
+\emph{Preuve.} Laissée en exercice au lecteur.
+
+\textbf{1.5.} Soient \(C\) une catégorie abélienne et \(A\) une sous-catégorie pleine de \(C\), stable par sommes finies. Une application \(f\) de \(\Ob A\) dans un groupe abélien \(G\) est dite \emph{additive} si l'on a
+\[
+ \sum_i(-1)^i f(E^i)=0
+\]
+pour tout complexe acyclique borné \(E\) de \(C\), dont les composantes appartiennent à \(A\). Lorsque \(A\) est stable par noyau d'épimorphisme (I 1.2), il revient au même de dire qu'on a
+\[
+ f(L)=f(L')+f(L'')
+\]
+pour toute suite exacte
+\[
+ 0\longrightarrow L'\longrightarrow L\longrightarrow L''\longrightarrow0
+\]
+de \(C\) dont les termes appartiennent à \(A\). Les applications additives de \(\Ob A\) dans \(G\) forment un groupe abélien dépendant fonctoriellement de \(G\). Notons \(K^{b,\emptyset}(A)\) la sous-catégorie épaisse de \(K^b(A)\) formée des complexes acycliques. On déduit aisément de (1.3) et (1.4) que l'application
+\begin{equation}\tag{1.5.1}
+ \cl_A:\Ob A\longrightarrow k\bigl(K^b(A)/K^{b,\emptyset}(A)\bigr)
+\end{equation}
+induite par \(\cl_{K^b(A)/K^{b,\emptyset}(A)}\) est une application additive universelle, c'est-à-dire que le couple
+\[
+ \left(k\bigl(K^b(A)/K^{b,\emptyset}(A)\bigr),\cl_A\right)
+\]
+représente le foncteur associant à chaque groupe abélien \(G\) le groupe abélien des applications additives de \(\Ob A\) dans \(G\). On posera
+\begin{equation}\tag{1.5.2}
+ k\bigl(K^b(A)/K^{b,\emptyset}(A)\bigr)=k(A),
+\end{equation}
+en écrivant \(k(A,C)\) au lieu de \(k(A)\) quand on voudra éviter toute ambiguïté sur la catégorie abélienne ambiante.\footnote{La notation \(k(A)\) avait été introduite dans I 6.3 pour désigner le groupe \(k(K^b(A))\), qui n'est pas en général isomorphe au groupe défini par (1.5.2). Nous changeons donc ici de convention : dans le présent exposé la notation \(k(A)\) désignera exclusivement le groupe défini par (1.5.2).}
+En particulier, pour \(A=C\), on a
+\begin{equation}\tag{1.5.3}
+ k(D^b(C))=k(C).
+\end{equation}
+
+\textbf{Lemme 1.6.} Soient \(C\) une catégorie abélienne, \(A\) une sous-catégorie épaisse, c'est-à-dire une sous-catégorie pleine stable par noyaux, conoyaux et extensions. Notons \(D_A(C)\) la sous-catégorie pleine de \(D(C)\) formée des objets \(E\) tels que \(H^i(E)\in\Ob A\) pour tout \(i\). Alors \(D_A(C)\) est une sous-catégorie triangulée \(([\mathrm V]\ \mathrm I\ 2.3)\) de \(D(C)\), et le foncteur canonique
+\[
+ D^b(A)\longrightarrow D_A^b(C)=D^b(C)\cap D_A(C)
+\]
+induit un isomorphisme
+\[
+ k(A)\xrightarrow{\sim} k(D_A^b(C)),
+\]
+où \(k(A)\) est défini par (1.5.2).
+
+\emph{Preuve.} La première assertion est conséquence immédiate de la suite exacte de cohomologie. Pour la seconde, considérons l'application
+\[
+ f:\Ob D_A^b(C)\longrightarrow k(A)
+\]
+définie par
+\[
+ f(E)=\sum_i(-1)^i\cl_A(H^i(E)).
+\]
+D'après la suite exacte de cohomologie, \(f\) est additive (1.1), donc définit un homomorphisme
+\[
+ \varphi:k(D_A^b(C))\longrightarrow k(A).
+\]
+Il résulte aussitôt de (1.4) que \(\varphi\) est inverse de l'homomorphisme canonique \(k(A)\to k(D_A^b(C))\).
+
+\textbf{Remarque 1.6.1.} Dans la situation de (1.6), le foncteur canonique
+\[
+ D^b(A)\longrightarrow D_A^b(C)
+\]
+n'est pas en général une équivalence de catégories, comme le montre l'exemple où \(S\) est un schéma, \(C\) la catégorie des \(\mathcal O_S\)-modules, \(A\) la catégorie des \(\mathcal O_S\)-modules quasi-cohérents (II App. I 0.3). Voir cependant le critère (II 2.1.3).
+
+\textbf{Définition 1.7.} Soient \(C\) une catégorie triangulée, respectivement abélienne, et \(C'\) une partie de \(\Ob C\). Nous dirons que \(C'\) est un \emph{sous-ensemble exact} si, pour tout triangle distingué
+\[
+ E'\longrightarrow E\longrightarrow E''\longrightarrow E'[1],
+\]
+respectivement toute suite exacte
+\[
+ 0\longrightarrow E'\longrightarrow E\longrightarrow E''\longrightarrow0,
+\]
+tel, respectivement telle, que deux des termes \(E',E,E''\) appartiennent à \(C'\), le troisième y appartient également. Nous dirons que \(C'\) est \emph{dense} dans \(\Ob C\) si \(\Ob C\) est le plus petit sous-ensemble exact de \(\Ob C\) contenant \(C'\).
+
+\textbf{Lemme 1.8.} Soient \(C\) une catégorie triangulée, respectivement abélienne, et \(C'\) une partie dense de \(\Ob C\). Alors les éléments \(\cl_C(E)\), pour \(E\in C'\), engendrent \(k(C)\).
+
+\emph{Preuve.} Posons \(C'=C_0\), et, pour \(i\geq1\), définissons \(C_i\) par récurrence comme l'ensemble des objets de \(C\) figurant dans un triangle distingué, respectivement une suite exacte courte, dont deux des termes appartiennent à \(C_{i-1}\). Les \(C_i\) forment une filtration croissante de \(\Ob C\), qui, par hypothèse, est exhaustive. Pour \(i\geq0\), notons \(k(C)_i\) le sous-groupe de \(k(C)\) engendré par les éléments \(\cl_C(E)\), pour \(E\in C_i\). Il est immédiat, par les définitions, que l'on a, pour tout \(i\geq0\), \(k(C)_i=k(C)_{i+1}\), donc \(k(C)_i=k(C)_0\). Soit alors \(x\in k(C)\); on peut écrire \(x=\cl(E')-\cl(E'')\) pour \(E',E''\in\Ob C\), et même, dans le cas non respé, s'arranger pour que \(E''=0\). Comme la filtration \((C_i)\) est exhaustive, il existe \(i\geq0\) tel que \(E'\) et \(E''\) appartiennent à \(C_i\); on a alors \(x\in k(C)_i=k(C)_0\), et l'on gagne.
+
+\textbf{Exercice 1.9.} Soient \(C\) une catégorie abélienne, \(A\) une sous-catégorie pleine stable par sommes finies, sous-objets et quotients, et telle que \(\Ob A\) soit dense dans \(\Ob C\). Alors l'homomorphisme
+\[
+ k(A,C)\longrightarrow k(C)
+\]
+défini par la fonction additive \(E\mapsto\cl_C(E)\) sur \(\Ob A\) (cf. (1.5)) est un isomorphisme.
+
+\emph{Indication.} Poser \(A=A_0\), et définir \(A_i\), pour \(i\geq1\), comme la sous-catégorie pleine de \(C\) formée des objets de \(C\) qui sont extensions de deux objets de \(A_{i-1}\). Prouver que \(A_i\) vérifie les mêmes hypothèses que \(A\), puis montrer que l'homomorphisme canonique
+\[
+ \varinjlim_i k(A_i,C)\longrightarrow k(C)
+\]
+est un isomorphisme. La conclusion voulue en résulte aussitôt.
+
+\section*{2. Les foncteurs \(K_{\bullet}\) et \(K'\) d'un topos annelé}
+
+\textbf{2.1.} Soit \((X,A)\) un topos annelé. Rappelons les notations suivantes :
+\[
+ D^b(A_X)_{\coh}
+\]
+est la catégorie des complexes pseudo-cohérents et à cohomologie bornée de \(A\)-modules à gauche (I 2.15);
+\[
+ D(A_X)_{\parf}
+\]
+est la catégorie des complexes de \(A\)-modules à gauche d'amplitude parfaite finie (I 5.8.4);
+\[
+ \Loclib(A_X)
+\]
+est la catégorie des \(A\)-modules à gauche localement facteurs directs de modules libres de type fini (II 2.0);
+\[
+ \Coh(A_X)
+\]
+est la catégorie des \(A\)-modules à gauche cohérents, relativement à la catégorie des \(A\)-modules libres de type fini (I 3.1).
+
+Les deux dernières catégories sont des sous-catégories pleines de la catégorie \(\Mod(A_X)\) des \(A\)-modules à gauche; les deux premières sont des sous-catégories triangulées pleines de
+\[
+ D(A_X)=D(\Mod(A_X)).
+\]
+
+\textbf{Définition 2.2.} Soit \((X,A)\) un topos annelé. Sauf mention du contraire, nous poserons
+\[
+ K_{\bullet}(A_X)=k(D^b(A_X)_{\coh}),\qquad
+ K'(A_X)=k(D(A_X)_{\parf}),
+\]
+où \(k(\ )\) est défini en (1.1), et
+\[
+ K_{\bullet}(A_X)_{\naif}=k(\Coh(A_X)),\qquad
+ K'(A_X)_{\naif}=k(\Loclib(A_X)),
+\]
+où \(k(\ )\) est défini par (1.5.2), la catégorie abélienne ambiante étant \(\Mod(A_X)\). Nous dirons que \(K_{\bullet}(A_X)\), respectivement \(K'(A_X)\), est le groupe de Grothendieck des complexes pseudo-cohérents, respectivement parfaits, de \(A\)-modules à gauche, et que \(K_{\bullet}(A_X)_{\naif}\), respectivement \(K'(A_X)_{\naif}\), est le groupe de Grothendieck des \(A\)-modules à gauche cohérents, respectivement localement libres.
+
+\textbf{Remarques 2.3.}
+\begin{enumerate}[label=\alph*)]
+\item On peut définir des variantes de \(K_{\bullet}(\ )\) et \(K'(\ )\) en posant
+\[
+ K_{\bullet}^{\loc}(A_X)=k(D^{\loc b}(A_X)_{\coh}),
+\]
+où « loc \(b\) » signifie « à cohomologie localement bornée », et
+\[
+ K_{\loc}'(A_X)=k(D(A_X)_{\parf}).
+\]
+Ces groupes coïncident avec ceux définis en (2.2) lorsque l'objet final de \(X\) est quasi-compact, mais d'une manière générale se prêtent moins bien au calcul des intersections.
+\item Le groupe \(K_{\bullet}(A_X)_{\naif}\) n'a pratiquement d'intérêt que si \(A\) est cohérent comme \(A\)-module à gauche; autrement il risque d'y avoir fort peu de faisceaux cohérents.
+\item La considération du \(k\) de catégories triangulées « trop grosses » n'offre pas d'intérêt. Ainsi, de (1.2 b), on déduit facilement les relations
+\[
+ k(D(A_X))=
+ k(D^-(A_X))=
+ k(D^+(A_X))=
+ k(D^b(A_X))=
+ k(D^-(A_X)_{\coh})=0,
+\]
+pour la dernière égalité, observant que \(L\in\Ob D^-(A_X)_{\coh}\) implique
+\[
+ \coprod_{i\geq0}L[2i]\in\Ob D^-(A_X)_{\coh}.
+\]
+\end{enumerate}
+
+\textbf{2.4. Cas d'un faisceau d'anneaux cohérent.} Soit \((X,A)\) un topos annelé, où \(A\) est supposé cohérent en tant que \(A\)-module à gauche (I 3.1 et 3.6). Tout \(A\)-module à gauche cohérent est un complexe pseudo-cohérent (I 3.5), et l'on a un foncteur pleinement fidèle
+\begin{equation}\tag{2.4.1}
+ \Coh(A_X)\longrightarrow D^b(A_X)_{\coh}.
+\end{equation}
+Or \(\Coh(A_X)\) est une sous-catégorie épaisse de \(\Mod(A_X)\) (I 3.4), et, en vertu de (I 3.5), \(D^b(A_X)_{\coh}\) est la sous-catégorie pleine de \(D^b(A_X)\) formée des objets \(L\) tels que \(H^i(L)\in\Ob\Coh(A_X)\) pour tout \(i\). Par suite, il résulte de (1.6) que l'homomorphisme
+\begin{equation}\tag{2.4.2}
+ K_{\bullet}(A_X)_{\naif}\longrightarrow K_{\bullet}(A_X)
+\end{equation}
+défini par (2.4.1) est un isomorphisme.
+
+\textbf{2.5. L'homomorphisme \(K'\to K_{\bullet}\).} Soit \((X,A)\) un topos annelé. Le foncteur d'inclusion
+\[
+ D(A_X)_{\parf}\longrightarrow D^b(A_X)_{\coh}
+\]
+définit un homomorphisme
+\begin{equation}\tag{2.5.1}
+ K'(A_X)\longrightarrow K_{\bullet}(A_X).
+\end{equation}
+Celui-ci n'est en général ni injectif ni surjectif. Cependant, faisons les hypothèses suivantes :
+\begin{enumerate}[label=(\roman*)]
+\item l'objet final de \(X\) est quasi-compact;
+\item \(X\) a assez de points, et, pour tout point \(x\) de \(X\), tout \(A_x\)-module à gauche est de tor-dimension finie.
+\end{enumerate}
+Alors on a, d'après (I 5.10),
+\[
+ D(A_X)_{\parf}=D^b(A_X)_{\coh},
+\]
+et l'homomorphisme (2.5.1) est un isomorphisme. Les hypothèses (i) et (ii) sont satisfaites par exemple dans le cas d'un espace compact annelé en anneaux locaux réguliers.
+
+\textbf{2.6. Accouplements entre \(K'\) et \(K'\) dans le cas non commutatif.} Soit
+\[
+ f:(X',A')\longrightarrow (X,A)
+\]
+un morphisme de topos annelés, et notons \(\Mod(A',X',A)\) la catégorie des bimodules, à gauche sur \(A'\), à droite sur \(f^{-1}(A)\). Soit
+\[
+ \Loclib_A^b(A',X',A)
+\]
+la sous-catégorie pleine formée des objets qui appartiennent, en tant qu'objets sur \(A'\), à \(\Loclib(A',X')\). Par analogie avec (2.2), nous poserons
+\[
+ K'_{\naif}(A',X',A)_{A'}=k(\Loclib_A^b(A',X',A)).
+\]
+Le produit tensoriel
+\[
+ \otimes_A:\Mod(A',X',A)\times\Mod(A_X)\longrightarrow \Mod(A',X')
+\]
+envoie
+\[
+ (E',E)\longmapsto E'\otimes_{f^{-1}(A)}f^{-1}(E),
+\]
+et induit un foncteur
+\begin{equation}\tag{2.6.1}
+ \Loclib_A^b(A',X',A)\times\Loclib(A_X)\longrightarrow\Loclib(A',X').
+\end{equation}
+L'application \((E',E)\mapsto\cl(E'\otimes_A E)\), déduite de (2.6.1), est biadditive au sens de (1.5), et définit par suite un homomorphisme
+\begin{equation}\tag{2.6.2}
+ K'_{\naif}(A',X',A)_{A'}\otimes K'_{\naif}(A_X)\longrightarrow K'_{\naif}(A',X').
+\end{equation}
+
+Notons \(D^-(A',X',A)\) la catégorie dérivée de \(\Mod(A',X',A)\), et \(D^-(A',X',A)_{A'\text{-}\parf}\) la sous-catégorie pleine formée des complexes d'amplitude parfaite finie relativement à \(A'\), c'est-à-dire en tant qu'objets de \(D^-(A',X')\). Posons, comme en (2.2),
+\[
+ K'(A',X',A)_{A'}=k(D^-(A',X',A)_{A'\text{-}\parf}).
+\]
+Les foncteurs d'inclusion définissent de manière évidente des homomorphismes
+\begin{align}
+ K'_{\naif}(A',X',A)_{A'}&\longrightarrow K'(A',X',A)_{A'}, \tag{2.6.3.1}\\
+ K'_{\naif}(A_X)&\longrightarrow K'(A_X), \tag{2.6.3.2}\\
+ K'_{\naif}(A',X')&\longrightarrow K'(A',X'). \tag{2.6.3.3}
+\end{align}
+On sait d'autre part (I 4.18, 4.19) que le foncteur dérivé de \(\otimes_A\),
+\[
+ \otimes_A^{\mathbf L}:D^-(A',X',A)\times D^-(A_X)\longrightarrow D^-(A',X'),
+\]
+induit un foncteur exact
+\begin{equation}\tag{2.6.4}
+ D^-(A',X',A)_{A'\text{-}\parf}\times D(A_X)_{\parf}
+ \longrightarrow D(A',X')_{\parf}.
+\end{equation}
+Ce dernier définit un homomorphisme
+\begin{equation}\tag{2.6.5}
+ K'(A',X',A)_{A'}\otimes K'(A_X)\longrightarrow K'(A',X').
+\end{equation}
+Comme le foncteur (2.6.1) est induit par (2.6.4), les homomorphismes (2.6.2) et (2.6.5) sont compatibles avec les homomorphismes (2.6.3.1), (2.6.3.2) et (2.6.3.3); en d'autres termes, on a un diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large]
+K'_{\naif}(A',X',A)_{A'}\otimes K'_{\naif}(A_X)\arrow[r]\arrow[d]
+&K'_{\naif}(A',X')\arrow[d]\\
+K'(A',X',A)_{A'}\otimes K'(A_X)\arrow[r]
+&K'(A',X'),
+\end{tikzcd}
+\tag{2.6.6}
+\]
+où les flèches horizontales supérieure et inférieure sont respectivement (2.6.2) et (2.6.5), et les flèches verticales sont définies par (2.6.3.1), (2.6.3.2) et (2.6.3.3).
+
+\textbf{2.7. Loi contravariante et structure d'anneau sur \(K'\).} Nous allons expliciter quelques cas particuliers importants des accouplements (2.6), dont l'étude directe est d'ailleurs immédiate.
+\begin{enumerate}[label=\alph*)]
+\item Soit
+\[
+ f:(X',A')\longrightarrow (X,A)
+\]
+un morphisme de topos annelés. Le foncteur
+\[
+ Lf^*:D^-(A_X)\longrightarrow D^-(A',X')
+\]
+envoie \(D(A_X)_{\parf}\) dans \(D(A',X')_{\parf}\) (I 4.19.1), respectivement \(\Loclib(A_X)\) dans \(\Loclib(A',X')\), et définit un homomorphisme
+\begin{equation}\tag{2.7.1}
+ f^*:K'(A_X)\longrightarrow K'(A',X')
+\end{equation}
+respectivement
+\begin{equation}\tag{2.7.2}
+ f^*:K'(A_X)_{\naif}\longrightarrow K'(A',X')_{\naif}.
+\end{equation}
+On peut encore l'interpréter comme le produit par \(\cl(A')\) dans (2.6.2), respectivement (2.6.5). On a un diagramme commutatif, cas particulier de (2.6.6),
+\[
+\begin{tikzcd}
+K'(A_X)_{\naif}\arrow[r,"f^*"]\arrow[d]
+&K'(A',X')_{\naif}\arrow[d]\\
+K'(A_X)\arrow[r,"f^*"]
+&K'(A',X'),
+\end{tikzcd}
+\]
+où les flèches verticales de gauche et de droite sont respectivement (2.6.3.2) et (2.6.3.3).
+
+Soit \(g:(X,A)\to(X'',A'')\) un morphisme de topos annelés. La transitivité des foncteurs images inverses implique que les homomorphismes du type (2.7.1), respectivement (2.7.2), vérifient la relation
+\begin{equation}\tag{2.7.3}
+ (gf)^*=f^*g^*.
+\end{equation}
+Ainsi \(K'(A_X)\), respectivement \(K'(A_X)_{\naif}\), est un foncteur contravariant de \((X,A)\).
+
+\item Soit \((X,\mathcal O_X)\) un topos commutativement annelé. Grâce à l'associativité et à la commutativité du produit tensoriel, l'homomorphisme (2.6.5), respectivement (2.6.2), où l'on fait \(A=\mathcal O_X\), \((X',A')=(X,A)\), \(f=\id\), munit \(K'(X)\), respectivement \(K'(X)_{\naif}\), d'une structure d'anneau commutatif avec unité
+\[
+ 1=\cl(\mathcal O_X).
+\]
+L'homomorphisme canonique
+\[
+ K'(X)_{\naif}\longrightarrow K'(X)
+\]
+est un homomorphisme d'anneaux unifères.
+
+Soit \(f:(X,\mathcal O_X)\to(Y,\mathcal O_Y)\) un morphisme de topos annelés en anneaux commutatifs. Alors la compatibilité du produit tensoriel avec les images inverses montre que
+\[
+ f^*:K'(Y)\longrightarrow K'(X),
+\]
+respectivement
+\[
+ f^*:K'(Y)_{\naif}\longrightarrow K'(X)_{\naif},
+\]
+est un homomorphisme d'anneaux unifères.
+\end{enumerate}
+
+\textbf{2.8. Augmentation de \(K'\) vers \(H^0(\ ,\mathbb Z)\).} Soit \((X,\mathcal O_X)\) un topos localement annelé (I 2.15.1). Rappelons qu'on a défini (I 6.11 à 6.14) un homomorphisme d'anneaux unifères
+\[
+ i:H^0(X,\mathbb Z)\longrightarrow K'(X)_{\naif},
+\]
+munissant ainsi \(K'(X)_{\naif}\), et par suite aussi \(K'(X)\) via l'homomorphisme canonique \(K'(X)_{\naif}\to K'(X)\), d'une structure d'algèbre à unité sur \(H^0(X,\mathbb Z)\). De plus, l'algèbre \(K'(X)_{\naif}\), respectivement \(K'(X)\), est augmentée vers \(H^0(X,\mathbb Z)\) par le rang, et l'homomorphisme canonique \(K'(X)_{\naif}\to K'(X)\) est un homomorphisme d'algèbres augmentées.
+
+Soit \(f:(X,\mathcal O_X)\to(Y,\mathcal O_Y)\) un morphisme de topos localement annelés. Les homomorphismes
+\[
+ f^*:K'(Y)\longrightarrow K'(X),\qquad
+ f^*:K'(Y)_{\naif}\longrightarrow K'(X)_{\naif}
+\]
+sont compatibles (I 6.12, 6.13) avec les structures d'algèbres augmentées précédentes, ce qui s'exprime par la commutativité du diagramme suivant, où \(\Rg\) désigne le rang :
+\[
+\begin{tikzcd}[column sep=large]
+H^0(Y,\mathbb Z)\arrow[r,"i"]\arrow[d]
+&K'(Y)_{\naif}\arrow[r]\arrow[d]
+&K'(Y)\arrow[r,"\Rg"]\arrow[d]
+&H^0(Y,\mathbb Z)\arrow[d]\\
+H^0(X,\mathbb Z)\arrow[r,"i"]
+&K'(X)_{\naif}\arrow[r]
+&K'(X)\arrow[r,"\Rg"]
+&H^0(X,\mathbb Z).
+\end{tikzcd}
+\]
+On verra dans la suite du Séminaire (V 3.9.1 et VI) que \(K'(X)_{\naif}\) peut être muni d'une structure plus riche que celle d'algèbre augmentée vers \(H^0(X,\mathbb Z)\), à savoir d'une structure de \(\lambda\)-algèbre augmentée vers \(H^0(X,\mathbb Z)\), considéré comme anneau binômial (V 2.8), cette structure étant compatible avec les homomorphismes image inverse. Deligne a prouvé récemment que \(K'(X)\) peut être muni d'une structure analogue, du moins si \(X\) est de caractéristique \(p\geq0\), et que l'homomorphisme canonique
+\[
+ K'(X)_{\naif}\longrightarrow K'(X)
+\]
+est un homomorphisme de \(\lambda\)-algèbres augmentées, répondant ainsi par l'affirmative à une conjecture de Grothendieck (XIV 1).
+
+\textbf{2.9. Comparaison de \(K'\) et \(K'_{\naif}\).} Soit \((X,A)\) un topos annelé. Il n'y a pas de raison en général pour que l'homomorphisme canonique
+\[
+ K'(X)_{\naif}\longrightarrow K'(X)
+\]
+soit injectif ou surjectif. Cependant, les « critères d'existence de résolutions globales » de l'Exposé II montrent que c'est un isomorphisme dans les cas suivants :
+\begin{enumerate}[label=(\roman*)]
+\item \(X\) est le topos zariskien d'un schéma divisoriel, séparé ou noethérien, et \(A=\mathcal O_X\) (II 2.2.9);
+\item \(X\) est le topos défini par un espace compact et \(A\) est un faisceau mou (II 2.3.2);
+\item \(X\) est un topos de Stein dont l'objet final est quasi-compact et \(A=\mathcal O_X\) (II 2.4.5).
+\end{enumerate}
+
+\textbf{2.10. Accouplement entre \(K'\) et \(K_{\bullet}\).} Soit \((X,\mathcal O_X)\) un topos commutativement annelé. On sait (I 5.8.4 b) que l'on a un accouplement
+\[
+ \otimes_{\mathcal O_X}^{\mathbf L}:D(X)_{\parf}\times D^b(X)_{\coh}
+ \longrightarrow D^b(X)_{\coh}.
+\]
+Celui-ci définit un homomorphisme
+\begin{equation}\tag{2.10.1}
+ K'(X)\otimes K_{\bullet}(X)\longrightarrow K_{\bullet}(X).
+\end{equation}
+Grâce à l'associativité du produit tensoriel, on voit que (2.10.1) munit \(K_{\bullet}(X)\) d'une structure de \(K'(X)\)-module. Plus généralement, si
+\[
+ f:(X,\mathcal O_X)\longrightarrow(Y,\mathcal O_Y)
+\]
+est un morphisme de topos commutativement annelés, on peut regarder \(K_{\bullet}(X)\) comme un \(K'(Y)\)-module via l'homomorphisme
+\[
+ f^*:K'(Y)\longrightarrow K'(X).
+\]
+
+\textbf{2.11. Loi covariante sur \(K_{\bullet}\) et formule de projection.} Soit \((X,A)\) un topos annelé. À la différence de \(K'(A_X)\), le groupe \(K_{\bullet}(A_X)\) n'a pas de variance naturelle par rapport à \((X,A)\). Cependant, en géométrie algébrique et en géométrie analytique, \(K_{\bullet}(X)\) a tendance à être covariant en \(X\) pour les morphismes propres. Précisons ce point.
+
+\textbf{2.11.1.} Soit \(f:X\to Y\) un morphisme propre et pseudo-cohérent (III 1.2) de schémas quasi-compacts. Alors, sous réserve de validité de la conjecture de finitude pour \(f\) (III 2.1), donc en particulier (III 2.2) si \(Y\) est noethérien, auquel cas l'hypothèse de pseudo-cohérence sur \(f\) est automatiquement vérifiée (III 1.3), ou si \(f\) est projectif, le foncteur \(Rf_*\) induit, en vertu de (III 2.6), un foncteur
+\[
+ Rf_*:D^b(X)_{\coh}\longrightarrow D^b(Y)_{\coh}.
+\]
+Celui-ci définit un homomorphisme
+\begin{equation}\tag{2.11.1.1}
+ f_*:K_{\bullet}(X)\longrightarrow K_{\bullet}(Y).
+\end{equation}
+Cet homomorphisme est \(K'(Y)\)-linéaire (cf. (2.10)), autrement dit, pour \(y\in K'(Y)\) et \(x\in K_{\bullet}(X)\), on a la \emph{formule dite de projection}
+\begin{equation}\tag{2.11.1.2}
+ f_*(yx)=y f_*(x).
+\end{equation}
+En effet, si \(x=\cl(E)\) pour \(E\in\Ob D^b(X)_{\coh}\) et \(y=\cl(M)\) pour \(M\in\Ob D(Y)_{\parf}\), on a (III 3.7)
+\[
+ Rf_*(E)\otimes_Y^{\mathbf L}M\simeq
+ Rf_*(E\otimes_Y^{\mathbf L}M).
+\]
+Enfin, si \(g:Y\to Z\) est un morphisme propre satisfaisant aux mêmes hypothèses que \(f\) et pour lequel la conjecture de finitude (III 2.1) est vraie, la transitivité des foncteurs images directes implique, pour les homomorphismes (2.11.1.1), la formule
+\begin{equation}\tag{2.11.1.3}
+ g_*f_*=(gf)_*.
+\end{equation}
+
+\textbf{2.11.2.} Soit \(f:X\to Y\) un morphisme propre d'espaces analytiques de dimension finie. Alors, d'après le théorème de finitude de Grauert [2], \(Rf_*\) envoie \(D^b(X)_{\coh}\) dans \(D^b(Y)_{\coh}\), et définit donc un homomorphisme
+\begin{equation}\tag{2.11.2.1}
+ f_*:K_{\bullet}(X)\longrightarrow K_{\bullet}(Y).
+\end{equation}
+Comme son analogue algébrique (2.11.1.1), celui-ci est \(K'(Y)\)-linéaire, c'est-à-dire que la formule (2.11.1.2) est valable, ainsi qu'il résulte de la formule de projection au niveau des catégories dérivées (III 5.9 b). On a de même la formule de transitivité (2.11.1.3).
+
+\textbf{2.11.3.} Dès qu'on sort du cadre algébrique ou analytique, ce caractère covariant de \(K_{\bullet}\) pour les morphismes propres disparaît. Ainsi, soit
+\[
+ f:X\to Y
+\]
+un morphisme propre d'espaces topologiques annelés par le faisceau des fonctions continues complexes. Alors, si \(E\in\Ob D^b(X)_{\coh}\), on n'a pas en général \(Rf_*(E)\in\Ob D^b(Y)_{\coh}\), comme il est déjà évident pour \(E=\mathcal O_X\) et \(Y\) réduit à un point. En fait, la définition (2.2) de \(K_{\bullet}\) paraît surtout adaptée aux besoins de la géométrie algébrique et de la géométrie analytique, et une bonne définition du \(K_{\bullet}\) d'un espace topologique reste à trouver. Il semble d'ailleurs qu'il faudra sortir du cadre des complexes \(\mathcal O_X\)-linéaires, et définir pour un morphisme \(f:X\to Y\), d'espaces topologiques, respectivement de variétés mixtes (II App. II), une classe convenable de complexes de faisceaux vectoriels topologiques sur \(X\), devant englober par exemple, quand \(f\) est le morphisme structural d'une variété mixte, les complexes elliptiques sur \(X\) relativement à \(Y\). C'est ce que suggère le théorème de finitude (II App. II), ainsi qu'un théorème analogue, où \(Y\) est supposé réduit à un point, démontré par Grothendieck dans [3].
+
+\textbf{2.12. Variances inhabituelles de \(K'\) et \(K_{\bullet}\).} Soit
+\[
+ f:(X,A)\longrightarrow(Y,B)
+\]
+un morphisme de tor-dimension finie de topos annelés (III 3.1). Le foncteur
+\[
+ Lf^*:D^-(B_Y)\longrightarrow D^-(A_X)
+\]
+envoie \(D^b(B_Y)_{\coh}\) dans \(D^b(A_X)_{\coh}\) (I 2.16.1), et par suite définit un homomorphisme
+\begin{equation}\tag{2.12.1}
+ f^*:K_{\bullet}(B_Y)\longrightarrow K_{\bullet}(A_X).
+\end{equation}
+Si \(A\) et \(B\) sont commutatifs, la commutation de l'image inverse au produit tensoriel montre que l'homomorphisme (2.12.1) est compatible avec les structures de modules de \(K_{\bullet}(Y)\) et \(K_{\bullet}(X)\) sur \(K'(Y)\) et \(K'(X)\) respectivement (2.10); autrement dit, pour \(a\in K'(Y)\) et \(y\in K_{\bullet}(Y)\), on a la formule
+\begin{equation}\tag{2.12.2}
+ f^*(ay)=a f^*(y).
+\end{equation}
+Si \(g:(Y,B)\to(Z,C)\) est un morphisme de tor-dimension finie de topos annelés, la transitivité des foncteurs images inverses implique que les homomorphismes (2.12.1) vérifient la formule
+\begin{equation}\tag{2.12.1.1}
+ f^*g^*=(gf)^*.
+\end{equation}
+
+Supposons maintenant qu'on soit dans la situation de (2.11.1), respectivement (2.11.2), avec \(f\) de tor-dimension finie. Alors (III 4.8.1 et 5.9 b), le foncteur \(Rf_*\) envoie \(D(X)_{\parf}\) dans \(D(Y)_{\parf}\), et par suite définit un homomorphisme
+\begin{equation}\tag{2.12.3}
+ f_*:K'(X)\longrightarrow K'(Y).
+\end{equation}
+Celui-ci n'est pas en général un homomorphisme d'anneaux. Cependant, pour \(y\in K_{\bullet}(Y)\), respectivement \(K'(Y)\), et \(x\in K'(X)\), on a la formule
+\begin{equation}\tag{2.12.4}
+ f_*(f^*(y)x)=y f_*(x),
+\end{equation}
+où \(f^*\) est l'homomorphisme (2.12.1), respectivement (2.7.1). La démonstration est analogue à celle de (2.11.1.2). Si \(g:Y\to Z\) est un morphisme satisfaisant aux mêmes hypothèses que \(f\), les homomorphismes (2.12.3) vérifient la formule de transitivité
+\begin{equation}\tag{2.12.3.1}
+ g_*f_*=(gf)_*.
+\end{equation}
+
+L'homomorphisme (2.12.3) est l'un des ingrédients essentiels du théorème de Riemann--Roch, aussi bien en géométrie algébrique qu'en géométrie analytique, pour des indications dans le cas analytique, voir Exposé 0, 5.
+
+Supposons que \(X\) et \(Y\) soient des schémas séparés et divisoriels (II 2.2.5), par exemple s'ils possèdent des faisceaux inversibles amples. Alors (2.9 (i)) \(K'(X)\), respectivement \(K'(Y)\), s'identifie à \(K'(X)_{\naif}\), respectivement \(K'(Y)_{\naif}\), et (2.12.3) définit donc un homomorphisme
+\begin{equation}\tag{2.12.3'}
+ f_*:K'(X)_{\naif}\longrightarrow K'(Y)_{\naif}.
+\end{equation}
+Comme il a déjà été expliqué dans l'Exposé 0, 3.1, la définition de (2.12.3') n'était nullement évidente a priori. Elle constitue même, dans l'optique de notre Séminaire, l'une des motivations principales des sorties de l'Exposé I à l'Exposé IV.
+
+\section*{3. Compléments sur les groupes de Grothendieck des schémas}
+
+Les résultats de ce numéro ne seront pas utilisés dans les Exposés V à VIII.
+
+\textbf{Proposition 3.1.0.} Soit
+\[
+\begin{tikzcd}
+X' \arrow[r,"g"]\arrow[d,"f'"'] & X\arrow[d,"f"]\\
+Y' \arrow[r,"h"'] & Y
+\end{tikzcd}
+\]
+un carré cartésien de schémas, où \(Y\) est quasi-compact et \(f\) quasi-compact et quasi-séparé, et soit \(E\in\Ob D^b(X)\) un complexe à cohomologie quasi-cohérente. On suppose que \(X\) et \(Y'\) sont tor-indépendants sur \(Y\) (III 1.5). On suppose d'autre part qu'on a ou bien \(h\) de tor-dimension finie, ou bien \(E\) d'amplitude plate finie relativement à \(f\). Dans ces conditions, la flèche de changement de base
+\[
+ Lh^*\,Rf_*E\longrightarrow Rf'_*\,Lg^*E
+\]
+est définie et est un isomorphisme.
+
+\emph{Preuve.} Pour définir la flèche, on utilise la formule de dualité triviale (SGA 4 XVII 2.3) pour \(h\), qui dit que l'on a un isomorphisme fonctoriel canonique
+\[
+ \Hom(Lh^*L,M)\xrightarrow{\sim}\Hom(L,Rh_*M)
+\]
+pour \(L\in\Ob D^-(Y)\), \(M\in\Ob D^+(Y')\). Utilisant (III 3.5.2) et (III 3.7.1), on vérifie facilement qu'on a \(L=Rf_*E\in\Ob D^-(Y)\) et \(Rf'_*Lg^*E\in\Ob D^+(Y')\), de sorte qu'appliquant cette formule on est ramené à définir une flèche
+\[
+ Rf_*E\longrightarrow Rf_*Rg_*Lg^*E.
+\]
+On prend pour celle-ci l'image par \(Rf_*\) de la flèche d'adjonction
+\[
+ E\longrightarrow Rg_*Lg^*E,
+\]
+provenant de la formule de dualité triviale pour \(g\). La flèche de changement de base est donc définie.
+
+Reste à montrer que c'est un isomorphisme. Pour cela, on peut d'abord supposer \(Y\) et \(Y'\) affines. Puis, par la suite spectrale de Leray d'un recouvrement ouvert de \(X\), on se ramène au cas où \(X\) et \(X'\) sont affines. On a donc un carré cartésien d'anneaux
+\[
+\begin{tikzcd}
+B\arrow[r] & B'\\
+A\arrow[u]\arrow[r] & A'\arrow[u],
+\end{tikzcd}
+\]
+et l'on peut supposer que \(E\) est défini par un complexe borné supérieurement de \(B\)-modules. La tor-indépendance de \(A'\) et \(B\) sur \(A\), qui s'écrit
+\[
+ B\otimes_A^{\mathbf L}A'\xrightarrow{\sim}B',
+\]
+implique alors qu'on a dans \(D(A')\)
+\[
+ E\otimes_A^{\mathbf L}A'\xrightarrow{\sim}E\otimes_B^{\mathbf L}B',
+\]
+d'où la proposition.
+
+Traduisant (3.1.0) en termes de groupes de Grothendieck, on obtient :
+
+\textbf{Proposition 3.1.1.} Soit
+\[
+\begin{tikzcd}
+X' \arrow[r,"g"]\arrow[d,"f'"'] & X\arrow[d,"f"]\\
+Y' \arrow[r,"h"'] & Y
+\end{tikzcd}
+\]
+un carré cartésien de schémas. On suppose \(Y\) et \(Y'\) quasi-compacts, \(X\) et \(Y'\) tor-indépendants sur \(Y\) (III 1.5), \(f\) propre et pseudo-cohérent, et la conjecture de finitude (III 2.1) vérifiée pour \(f\) et \(f'\), par exemple \(Y\) et \(Y'\) noethériens, ou \(f\) projectif. Alors, si \(f\) est parfait, respectivement \(h\) de tor-dimension finie, on a, pour \(x\in K'(X)\), respectivement \(x\in K_{\bullet}(X)\),
+\[
+ h^* f_*(x)=f'_* g^*(x),
+\]
+où \(h^*,g^*\) sont définis par (2.7.1), respectivement (2.12.1), et \(f_*,f'_*\) par (2.12.3), respectivement (2.11.1.1). Noter qu'en vertu de (III 4.7.1) \(f'\) est parfait si \(f\) l'est, et qu'en vertu de (III 3.5.1) \(g\) est de tor-dimension finie si \(h\) l'est.
+
+\textbf{3.2. Passage à la limite sur \(K'_{\naif}\) et \(K_{\bullet}\).} Soit \((X_i,f_{ij})_{i\in I}\) un système projectif filtrant de schémas quasi-compacts et quasi-séparés, les morphismes de transition étant affines (cf. EGA IV 8.2.2). Posons
+\[
+ X=\varprojlim_i X_i,
+\]
+et notons \(f_i:X\to X_i\) l'homomorphisme canonique.
+
+\textbf{3.2.1.} Les homomorphismes (2.7.2)
+\[
+ f_i^*:K'(X_i)_{\naif}\longrightarrow K'(X)_{\naif}
+\]
+définissent, grâce à la formule de transitivité (2.7.3), un homomorphisme
+\begin{equation}\tag{3.2.1.1}
+ \varinjlim_i K'(X_i)_{\naif}\longrightarrow K'(X)_{\naif}.
+\end{equation}
+Je dis que cet homomorphisme est un isomorphisme. En effet, soit \(E\) un \(\mathcal O_X\)-module localement libre de type fini. D'après EGA IV 8.5.2 et 8.5.5, il existe un indice \(i\) et un \(\mathcal O_{X_i}\)-module localement libre de type fini \(E_i\) tel que l'on ait
+\[
+ E\simeq f_i^*(E_i).
+\]
+En vertu de EGA IV 8.5.2.5, l'image de \(\cl(E_i)\) dans \(\varinjlim_i K'(X_i)_{\naif}\) ne dépend pas du choix de \(E_i\); notons-la \(u(E)\). D'après EGA IV 8.5.2 et 8.5.6, l'application
+\[
+ u:\Ob\Loclib(X)\longrightarrow \varinjlim_i K'(X_i)_{\naif}
+\]
+ainsi définie est additive (1.5). Elle définit donc un homomorphisme
+\[
+ K'(X)_{\naif}\longrightarrow \varinjlim_i K'(X_i)_{\naif},
+\]
+dont on constate aussitôt, grâce à EGA IV 8.5.2, qu'il est inverse de (3.2.1.1), ce qui prouve notre assertion.
+
+\textbf{3.2.2.} On définit de même un homomorphisme canonique
+\begin{equation}\tag{3.2.2.1}
+ \varinjlim_i K'(X_i)\longrightarrow K'(X).
+\end{equation}
+Utilisant la technique de localisation de Deligne (SGA 4 XVII), qui implique que la catégorie des complexes parfaits sur \(X\) est équivalente à la catégorie
+\[
+ \varinjlim_i \Parf(X_i)
+\]
+des catégories analogues sur les \(X_i\), on trouve encore que (3.2.2.1) est un isomorphisme.
+
+\textbf{3.2.3.} Supposons les \(X_i\), et \(X\), noethériens, et les morphismes \(f_i\) plats; il en est alors de même des \(f_{ij}\). Alors les homomorphismes (2.12.1)
+\[
+ f_i^*:K_{\bullet}(X_i)\longrightarrow K_{\bullet}(X)
+\]
+définissent un isomorphisme
+\[
+ \varinjlim_i K_{\bullet}(X_i)\xrightarrow{\sim}K_{\bullet}(X).
+\]
+La démonstration est analogue à celle de (3.2.1), en utilisant le fait (2.4) que \(K_{\bullet}(X)\simeq K_{\bullet}(X)_{\naif}\) se calcule en termes de faisceaux cohérents sur \(X\).
+
+Comme les structures de modules des \(K_{\bullet}(X_i)\) sur les \(K'(X_i)_{\naif}\) sont compatibles avec les images inverses \(f_{ij}^*\) d'après (2.7.1) et (2.12.2), on trouve, par passage à la limite, que \(\varinjlim_i K_{\bullet}(X_i)\) est muni d'une structure de module sur \(\varinjlim_i K'(X_i)_{\naif}\); celle-ci est compatible, via les isomorphismes (3.2.1.1) et (3.2.2.1), avec la structure de module de \(K_{\bullet}(X)\) sur \(K'(X)_{\naif}\). En d'autres termes, on a un diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large]
+\varinjlim K'(X_i)_{\naif}\otimes \varinjlim K_{\bullet}(X_i)
+\arrow[r]\arrow[d,"\sim"']
+&\varinjlim K_{\bullet}(X_i)\arrow[d,"\sim"]\\
+K'(X)_{\naif}\otimes K_{\bullet}(X)\arrow[r]
+&K_{\bullet}(X).
+\end{tikzcd}
+\]
+
+\textbf{3.3. Groupes de Grothendieck relatifs.}
+
+\textbf{3.3.1.} Soit
+\[
+ f:X\longrightarrow Y
+\]
+un morphisme localement de type fini de schémas. Nous poserons
+\[
+ K'(f)=k(D(f)_{\parf}),\qquad
+ K_{\bullet}(f)=k(D^b(f)_{\coh}),
+\]
+où \(D^b(f)_{\coh}\) désigne la catégorie des complexes pseudo-cohérents relativement à \(f\) et à cohomologie bornée (III 1.2), et \(D(f)_{\parf}\) la catégorie des complexes d'amplitude parfaite finie relativement à \(f\) (III 4.2). Quand il n'y aura pas d'ambiguïté possible, nous écrirons parfois \(K'(X/Y)\), respectivement \(K_{\bullet}(X/Y)\), au lieu de \(K'(f)\), respectivement \(K_{\bullet}(f)\).
+
+Les groupes \(K'(f)\) et \(K_{\bullet}(f)\) ne possèdent pas la riche structure de leurs analogues absolus \(K'(X)\) et \(K_{\bullet}(X)\), car le produit tensoriel ne définit pas en général d'homomorphisme
+\[
+ K'(f)\otimes K'(f)\longrightarrow K'(f),
+ \qquad
+ K'(f)\otimes K_{\bullet}(f)\longrightarrow K_{\bullet}(f).
+\]
+En revanche, ils vérifient d'intéressantes propriétés de variance, que nous allons passer en revue.
+
+\textbf{3.3.2.} Soit
+\[
+\begin{tikzcd}
+X\arrow[rr,"f"]\arrow[dr,"h"'] &&Y\arrow[dl,"g"]\\
+&S&
+\end{tikzcd}
+\]
+un triangle commutatif de morphismes localement de type fini de schémas.
+\begin{enumerate}[label=\textbf{3.3.2.\arabic*.}, leftmargin=4em]
+\item Si \(g\) est pseudo-cohérent, on a
+\[
+ K_{\bullet}(f)=K_{\bullet}(h)
+\]
+(III 1.12). Si \(g\) est lisse et \(X\) quasi-compact, on a
+\[
+ K'(f)=K'(h)
+\]
+(III 4.4.1).
+
+\item D'après (III 1.11 et 4.5), le foncteur \(\otimes_Y^{\mathbf L}\) définit des accouplements
+\[
+ D(f)_{\parf}\times D^b(g)_{\coh}\longrightarrow D^b(h)_{\coh},
+\]
+\[
+ D(f)_{\parf}\times D(g)_{\parf}\longrightarrow D(h)_{\parf},
+\]
+qui induisent des homomorphismes
+\[
+ K'(f)\otimes K_{\bullet}(g)\longrightarrow K_{\bullet}(h),
+\]
+\[
+ K'(f)\otimes K'(g)\longrightarrow K'(h).
+\]
+On en déduit en particulier, en faisant \(X=Y\), \(f=\id\), que \(K_{\bullet}(g)\) est un \(K'(Y)\)-module. D'autre part, si \(f\) est parfait, le produit par
+\[
+ \cl(\mathcal O_X)\in K'(f)
+\]
+définit des homomorphismes \(K'(Y)\)-linéaires
+\[
+ f^*:K_{\bullet}(Y/S)\longrightarrow K_{\bullet}(X/S),
+\]
+et
+\[
+ f^*:K'(Y/S)\longrightarrow K'(X/S).
+\]
+
+\item Supposons \(S\) quasi-compact, \(X\) et \(Y\) de type fini sur \(S\), et \(f\) propre. Alors, sous réserve de validité de la conjecture de finitude (III 2.1), donc en particulier si \(Y\) est noethérien ou si \(f\) est projectif, le foncteur \(Rf_*\) envoie \(D^b(h)_{\coh}\) dans \(D^b(g)_{\coh}\), donc définit un homomorphisme
+\[
+ f_*:K_{\bullet}(X/S)\longrightarrow K_{\bullet}(Y/S).
+\]
+Si en outre \(f\) est parfait, \(Rf_*\) envoie \(D(h)_{\parf}\) dans \(D(g)_{\parf}\) (III 4.8), et définit un homomorphisme
+\[
+ f_*:K'(X/S)\longrightarrow K'(Y/S).
+\]
+De la formule de projection (III 3.7), on déduit la formule
+\[
+ f_*(a x)=a f_*(x),
+\]
+pour \(f\) propre, \(a\in K'(S)\), \(x\in K_{\bullet}(X)\), respectivement \(f\) propre et parfait, \(a\in K_{\bullet}(S)\), \(x\in K'(X/S)\).
+
+\item Supposons \(S\) noethérien, \(X\) et \(Y\) de type fini sur \(S\), et \(f\) compactifiable et parfait. Alors (III 4.9.1), le foncteur \(f^!\) envoie \(D(g)_{\parf}\) dans \(D(h)_{\parf}\), et définit un homomorphisme
+\[
+ f^!:K'(Y/S)\longrightarrow K'(X/S).
+\]
+\end{enumerate}
+
+\textbf{3.3.3.} Sous les hypothèses de (III 4.7), le foncteur \(\otimes_S^{\mathbf L}\) définit des accouplements
+\[
+ D(f_1)_{\parf}\times D^b(f_2)_{\coh}\longrightarrow D^b(f)_{\coh},
+\]
+\[
+ D(f_1)_{\parf}\times D(f_2)_{\parf}\longrightarrow D(f)_{\parf},
+\]
+qui induisent des homomorphismes
+\[
+ K'(f_1)\otimes K_{\bullet}(f_2)\longrightarrow K_{\bullet}(f),
+\]
+\[
+ K'(f_1)\otimes K'(f_2)\longrightarrow K'(f).
+\]
+Bien entendu, pour \(X_i=Y_i=S\), on retrouve la structure de \(K'(S)\)-module de \(K_{\bullet}(S)\).
+
+Si \(X\) est plat sur \(S\), on en déduit, pour \(n\geq1\), des homomorphismes
+\[
+ K'(X/S)^{\otimes n}\longrightarrow K'\bigl((X/S)^n\bigr),
+\]
+qui devraient en un sens remplacer la structure d'anneau absente sur \(K'(X/S)\).
+
+\subsection*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]}]
+\item Deligne, P., papiers secrets.
+\item Grauert, H., \emph{Ein Theorem der Analytischen Garbentheorie}, Publ. Math. IHES, no. 5 (1960).
+\item Grothendieck, A., \emph{Théorèmes de finitude pour la cohomologie des faisceaux}, Bull. Soc. Math. France, 84, 1956, pp. 1--7.
+\item[{[V]}] Verdier, J.-L., \emph{Catégories dérivées}, IHES (1964), miméographié.
+\end{enumerate}
+
+\end{document}

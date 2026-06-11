@@ -1,0 +1,143 @@
+%% ========================================================================
+%% Master Preamble for Historical Mathematical Manuscripts Typesetting
+%% Supports: Arabic, Devanagari/Sanskrit, Chinese, English, French, German
+%% Engine: XeLaTeX
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{verse}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{verse}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\setotherlanguage{french}
+\setotherlanguage{german}
+
+%% -------- Font Configuration --------
+\setmainfont{LinLibertine_R.otf}[
+  Path=/usr/share/fonts/opentype/linux-libertine/,
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf,
+  Renderer=Harfbuzz
+]
+\setsansfont{LinBiolinum_R.otf}[
+  Path=/usr/share/fonts/opentype/linux-libertine/,
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf,
+  Renderer=Harfbuzz
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Arabic Font
+\TeXXeTstate=1
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.1,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
+\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.1]{Noto Sans Arabic}
+
+%% Devanagari (Sanskrit/Hindi) Font
+\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Noto Serif Devanagari}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.1]{Noto Sans Devanagari}
+
+%% Chinese Fonts
+\newfontfamily\chinesefont{Noto Sans CJK SC}[Scale=1.0]
+\newfontfamily\chinesefonttt{Noto Sans CJK SC}[Scale=0.9]
+\newfontfamily\chinesefontbf{Noto Sans CJK SC Bold}[Scale=1.0]
+
+%% CJK Support via xeCJK (if available, otherwise font switching)
+\IfFileExists{xeCJK.sty}{
+  \usepackage{xeCJK}
+  \setCJKmainfont{Noto Sans CJK SC}
+  \setCJKsansfont{Noto Sans CJK SC}
+  \setCJKmonofont{Noto Sans CJK SC}
+}{\typeout{xeCJK not available, using font switching}}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{\leftmark}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Theorem Environments --------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{problem}{Problem}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{note}{Note}[section]
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Arabic inline helper with RTL
+\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+\newcommand{\zh}[1]{{\chinesefont #1}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================

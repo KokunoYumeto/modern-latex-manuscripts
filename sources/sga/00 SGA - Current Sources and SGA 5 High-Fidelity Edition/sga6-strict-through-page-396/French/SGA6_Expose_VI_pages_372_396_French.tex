@@ -1,0 +1,439 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Exposé VI projective-bundle macro additions
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Projz}{\operatorname{Proj}_0}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Comp}{\operatorname{Comp}}
+\providecommand{\Dplus}{D_{+}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\cG}{\mathcal G}
+\providecommand{\cA}{\mathcal A}
+\providecommand{\cB}{\mathcal B}
+\providecommand{\cL}{\mathscr L}
+\providecommand{\cM}{\mathscr M}
+\providecommand{\cN}{\mathscr N}
+\providecommand{\cE}{\mathscr E}
+\providecommand{\cK}{\mathscr K}
+\providecommand{\cP}{\mathscr P}
+\providecommand{\cQ}{\mathscr Q}
+\providecommand{\OO}{\mathcal O}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\colim}{\operatorname*{colim}}
+
+
+\section*{Exposé VI. Le \(K^\bullet\) d'un fibré projectif : calculs et conséquences}
+\begin{center}
+Pierre Berthelot
+\end{center}
+
+\section*{1. Calcul de \(K^\bullet\) d'un fibré projectif : cas des faisceaux localement libres de type fini}
+
+Dans ce paragraphe, la notation \(K^\bullet(X)\) désignera le groupe de Grothendieck des faisceaux localement libres de type fini sur un schéma \(X\). Le but du paragraphe est de démontrer le théorème suivant.
+
+\textbf{Théorème 1.1.} Soient \(S\) un schéma quasi-compact, \(E\) un \(\mathcal O_S\)-module localement libre de rang \(r+1\), et
+\[
+  X=\mathbf P(E)
+\]
+le fibré projectif associé. Le morphisme structural \(f:X\to S\) donne à \(K^\bullet(X)\) une structure de \(K^\bullet(S)\)-algèbre. Si \(\xi\in K^\bullet(X)\) désigne la classe de \(\mathcal O_X(1)\), alors \(K^\bullet(X)\) est un \(K^\bullet(S)\)-module libre ayant pour base
+\[
+  1,\xi,\ldots,\xi^r .
+\]
+
+\subsection*{1.2. Plan de la démonstration}
+La démonstration comporte trois parties.
+
+On montre d'abord que les puissances de \(\xi\) engendrent \(K^\bullet(X)\) comme \(K^\bullet(S)\)-module. Pour cela il suffit d'établir les faits suivants. Si \(F\) est localement libre de type fini sur \(X\), il existe un module gradué \(M\) sur \(\Sym(E)\), de présentation finie et plat sur \(\mathcal O_S\), tel que \(F=\Proj_0(M)\). Un tel module \(M\) admet une résolution graduée finie
+\[
+  0\longrightarrow L_{r+1}\longrightarrow \cdots \longrightarrow L_0\longrightarrow M\longrightarrow 0
+\]
+par des modules gradués localement libres de type fini sur \(\Sym(E)\). Enfin, chaque \(L_i\) possède une filtration finie dont les quotients sont de la forme
+\[
+  N\otimes_{\mathcal O_S}\Sym(E)(n),
+\]
+avec \(N\) localement libre de type fini sur \(S\). L'application de \(\Proj_0\) donne alors l'engendrement par les puissances de \(\xi\).
+
+On montre ensuite que \(1,\xi,\ldots,\xi^{r+1}\) sont linéairement dépendants sur \(K^\bullet(S)\). Cette relation est tirée de l'épimorphisme canonique \(f^*E\to\mathcal O_X(1)\).
+
+Enfin on démontre que \(1,\xi,\ldots,\xi^r\) sont linéairement indépendants sur \(K^\bullet(S)\).
+
+Soient \(S\) un schéma, \(B=\bigoplus_{n\geq0}B_n\) une \(\mathcal O_S\)-algèbre graduée, et \(M\) un \(B\)-module gradué. Si \(N\) est un \(B\)-module gradué, on note \(N(n)\) le module gradué défini par
+\[
+  N(n)_k=N_{n+k}.
+\]
+Un \(B\)-module gradué est dit libre, respectivement localement libre, respectivement localement libre de type fini, si localement sur \(S\) il est somme directe, respectivement somme directe localement, respectivement somme directe finie localement, de modules \(B(n)\). Il est dit de présentation finie si, localement sur \(S\), il admet une présentation par des modules gradués libres de type fini.
+
+Pour tout entier \(n\), on a un homomorphisme canonique de \(B\)-modules gradués
+\begin{equation}\tag{1.2.1}
+  M_n\otimes_{\mathcal O_S}B(-n)\longrightarrow M,
+\end{equation}
+défini par \(x\otimes a\mapsto ax\). Un module gradué libre de type fini admet une décomposition
+\begin{equation}\tag{1.2.2}
+  M\simeq \bigoplus_{n=n_0}^{n_1}B(-n)^{k_n}.
+\end{equation}
+
+\textbf{Proposition 1.2.} Les entiers \(k_n\) qui interviennent dans une décomposition (1.2.2) ne dépendent pas de la décomposition choisie.
+
+En effet, après restriction à un ouvert où \(B_0=\mathcal O_S\), on compare la première composante homogène non nulle. Cela détermine \(k_{n_0}\); en passant au quotient et en raisonnant par récurrence, on obtient tous les \(k_n\).
+
+\textbf{Proposition 1.3.} Soient \(S\) quasi-compact, \(E\) un \(\mathcal O_S\)-module localement libre de type fini, \(X=\mathbf P(E)\), et \(F\) un \(\mathcal O_X\)-module de présentation finie, plat sur \(S\). Il existe alors un entier \(n_0\) tel que, pour tout \(n\geq n_0\),
+\[
+\begin{array}{ll}
+\text{\rm (i)}& R^i f_*(F(n))=0\quad (i\geq 1),\\[2mm]
+\text{\rm (ii)}& f_*(F(n))\text{ est localement libre de type fini sur }S,\\[2mm]
+\text{\rm (iii)}& \displaystyle M=\bigoplus_{n\geq n_0} f_*(F(n))
+\text{ est un }\Sym(E)\text{-module gradué de présentation finie.}
+\end{array}
+\]
+
+L'énoncé est local sur \(S\). Comme \(S\) est quasi-compact, on se ramène au cas affine. Si \(S\) est noethérien, (i) est le théorème de Serre, (ii) résulte de EGA III, 7.9.10, et (iii) de la comparaison usuelle entre un faisceau cohérent sur un fibré projectif et le module gradué qui le définit.
+
+Dans le cas affine général, on procède par passage à la limite. On écrit \(S=\Spec(A)\) comme limite projective filtrante de schémas affines noethériens \(S_\lambda=\Spec(A_\lambda)\), à morphismes de transition affines. Le module localement libre \(E\), le schéma \(X\), et le faisceau \(F\) se descendent, après augmentation de \(\lambda\), en des objets \(E_\lambda,X_\lambda,F_\lambda\), avec \(F_\lambda\) plat sur \(S_\lambda\). Le cas noethérien s'applique à \(F_\lambda\), et le théorème de changement de base donne les assertions après image réciproque sur \(S\).
+
+Dans cette réduction on utilise le carré cartésien
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"g"] \arrow[d,"f"'] & X_0 \arrow[d,"f_0"]\\
+S \arrow[r,"g_0"'] & S_0 .
+\end{tikzcd}
+\]
+Ici \(S_0\) est noethérien, \(X_0=\mathbf P(E_0)\), et \(F=g^*(F_0)\). Le paragraphe précédent établit le résultat pour \(F_0\), et EGA III, 7.7.5 et 7.8.5 fournissent les identifications de changement de base nécessaires pour \(F\).
+
+\textbf{Corollaire 1.4.} Sous les hypothèses de la proposition 1.3, il existe un \(\Sym(E)\)-module gradué \(M\), de présentation finie et plat sur \(\mathcal O_S\), tel que
+\[
+  F=\Proj_0(M).
+\]
+
+\textbf{Proposition 1.5.} Soient \(A\) un anneau, \(B\) une \(A\)-algèbre de présentation finie, et \(M\) un \(B\)-module de présentation finie. Supposons que \(B\) et \(M\) soient plats sur \(A\), et que, pour tout corps résiduel \(k\) de \(A\), le \(B\otimes_A k\)-module \(M\otimes_A k\) soit de dimension projective au plus \(n\). Alors \(M\) possède une résolution de longueur \(n\) par des \(B\)-modules projectifs de type fini :
+\[
+  0\longrightarrow L_n\longrightarrow\cdots\longrightarrow L_0\longrightarrow M\longrightarrow 0.
+\]
+C'est le critère local de EGA IV, 12.3.2.
+
+\textbf{Proposition 1.7.} Soient \(S\) quasi-compact, \(E\) localement libre de rang \(r+1\), \(B=\Sym(E)\) munie de sa graduation usuelle, et \(M\) un \(B\)-module gradué de présentation finie, plat sur \(S\). Alors \(M\) admet une résolution graduée
+\[
+  0\longrightarrow L_{r+1}\longrightarrow\cdots\longrightarrow L_0\longrightarrow M\longrightarrow 0,
+\]
+où les \(L_i\) sont des \(B\)-modules gradués localement libres de type fini.
+
+D'abord \(M\) admet un épimorphisme gradué \(L\to M\), avec \(L\) localement libre de type fini : on choisit un entier \(N\) tel que \(M\) soit engendré en degrés \(\leq N\), et l'on pose
+\[
+  L=\bigoplus_{i\leq N}M_i\otimes_{\mathcal O_S}B(-i),
+\]
+le morphisme étant celui de (1.2.1). En recommençant cette construction sur les noyaux successifs on obtient une résolution graduée globale. Après \(r+1\) étapes, la proposition 1.5 montre localement sur les ouverts affines que le dernier noyau est projectif sur \(B\), donc localement libre comme module gradué; la troncature donne la résolution annoncée.
+
+\textbf{Proposition 1.8.} Soient \(S\) quasi-compact, \(E\) localement libre de type fini, \(B=\Sym(E)\), et \(L\) un \(B\)-module gradué localement libre de type fini. Alors \(L\) admet une filtration décroissante finie par sous-modules gradués \(L^{(m)}\) telle que
+\[
+\begin{array}{ll}
+\text{\rm (i)}& L^{(m)}=L\quad\text{pour }m\leq m_0,\\
+\text{\rm (ii)}& L^{(m)}=0\quad\text{pour }m\geq m_1,\\
+\text{\rm (iii)}& \operatorname{gr}^mL\simeq N_m\otimes_{\mathcal O_S}B(m),
+\end{array}
+\]
+où \(N_m\) est localement libre de type fini sur \(S\).
+
+La question est locale sur \(S\). Comme \(S\) est quasi-compact, les degrés des bases homogènes qui interviennent localement sont compris entre deux entiers fixes. On raisonne par récurrence sur la longueur de cet intervalle. La première étape est le morphisme canonique issu de la plus basse composante homogène non nulle,
+\[
+  L_{n_0}\otimes_{\mathcal O_S}B(-n_0)\longrightarrow L,
+\]
+qui identifie localement le facteur direct correspondant. Le quotient a des bases homogènes locales en degrés plus grands, et l'on applique la récurrence.
+
+\subsection*{1.9. Génération et relation}
+Soit \(F\) localement libre de type fini sur \(X\). Par le corollaire 1.4 et la proposition 1.7, \(F\) provient d'un module gradué \(M\) admettant une résolution graduée finie par des \(L_i\). L'application de \(\Proj_0\) donne une suite exacte de faisceaux localement libres sur \(X\), donc dans \(K^\bullet(X)\)
+\[
+  \cl(F)=\sum_i(-1)^i\cl(\Proj_0(L_i)).
+\]
+En utilisant la filtration de la proposition 1.8, chaque terme est somme de classes
+\[
+  \cl\bigl(f^*N_{ij}(j)\bigr)=f^*\cl(N_{ij})\,\xi^j .
+\]
+Ainsi \(K^\bullet(X)\) est engendré comme \(K^\bullet(S)\)-module par les puissances de \(\xi\).
+
+Pour la relation de dépendance, on utilise l'épimorphisme canonique \(f^*E\to\mathcal O_X(1)\). Son noyau est localement libre de rang \(r\). Par conséquent
+\[
+  \lambda^{r+1}(f^*E-\xi)=0.
+\]
+Comme \(\lambda_t(-\xi)=1/(1+\xi t)\), on obtient
+\begin{equation}\tag{1.9.1}
+  \sum_{i=0}^{r+1}(-1)^i\,\lambda^i(E)\,\xi^{r+1-i}=0,
+\end{equation}
+c'est-à-dire l'équation caractéristique de \(\xi\) associée au module localement libre \(E\).
+
+\subsection*{1.10--1.11. Indépendance linéaire}
+La démonstration de l'indépendance linéaire est due à J.-P. Jouanolou.
+
+\textbf{Lemme 1.10.} Sous les hypothèses du théorème 1.1, soient \(F\) et \(G\) des faisceaux localement libres de type fini sur \(X\), ayant même classe dans \(K^\bullet(X)\). Il existe alors un entier \(n_0\) tel que, pour tout \(n\geq n_0\),
+\[
+\begin{array}{ll}
+\text{\rm (i)}& f_*(F(n))\text{ et }f_*(G(n))\text{ soient localement libres de type fini sur }S,\\
+\text{\rm (ii)}& \cl f_*(F(n))=\cl f_*(G(n))\text{ dans }K^\bullet(S).
+\end{array}
+\]
+
+Une égalité de classes dans \(K^\bullet(X)\) est une combinaison entière finie de relations provenant de suites exactes courtes de faisceaux localement libres. En tensorisant par \(\mathcal O_X(n)\) et en appliquant \(f_*\), pour \(n\) assez grand toutes les images directes supérieures s'annulent et toutes les images directes sont localement libres de type fini; les mêmes relations descendent alors dans \(K^\bullet(S)\).
+
+Supposons que
+\begin{equation}\tag{1.11.1}
+  f^*(x_0)+f^*(x_1)\xi+\cdots+f^*(x_r)\xi^r=0 .
+\end{equation}
+En écrivant chaque \(x_i\) comme différence de classes de faisceaux localement libres et en ajoutant des facteurs convenables, on transforme (1.11.1) en une égalité \(\cl(F)=\cl(G)\) pour des faisceaux localement libres de type fini sur \(X\). Par le lemme 1.10, pour tout \(n\) assez grand on a
+\begin{equation}\tag{1.11.2}
+  \sum_{i=0}^{r} x_i\,\sigma_{n+i}(E)=0
+  \quad\text{dans }K^\bullet(S),
+\end{equation}
+où \(\sigma_p(E)\) désigne la classe de \(\Sym^p(E)\), avec \(\sigma_p(E)=0\) pour \(p<0\).
+
+Le complexe de Koszul de l'algèbre symétrique donne, pour \(p\geq1\),
+\begin{equation}\tag{1.11.3}
+  \sum_{i=0}^{r+1}(-1)^i\lambda^i(E)\,\sigma_{p-i}(E)=0 .
+\end{equation}
+Grâce à cette relation, on descend par récurrence à partir des grandes valeurs de \(n\) dans (1.11.2). Il en résulte que (1.11.2) vaut pour tout \(n\geq -r\). Pour \(n=-r\), on obtient \(x_r=0\); en recommençant, on obtient successivement tous les \(x_i=0\). Cela prouve l'indépendance linéaire et donc le théorème 1.1.
+
+\textbf{Remarque 1.12.} Si
+\[
+  \sigma_t(E)=\sum_{i\geq0}\sigma_i(E)t^i,
+\]
+la relation (1.11.3) équivaut à
+\[
+  \lambda_t(E)\,\sigma_{-t}(E)=1.
+\]
+Il en résulte notamment que \(\sigma_t\) est additive et se prolonge en un homomorphisme
+\[
+  K^\bullet(S)\longrightarrow 1+K^\bullet(S)[[t]]_+ .
+\]
+
+\textbf{Remarque 1.13.} Toute suite de \(r+1\) puissances consécutives de \(\xi\) est une base de \(K^\bullet(X)\) sur \(K^\bullet(S)\). Si
+\[
+  x=1-\xi^{-1}
+\]
+est la classe d'une section hyperplane, alors \(1,x,\ldots,x^r\) est encore une base. La relation de dépendance devient
+\begin{equation}\tag{1.13.1}
+  \sum_{k=0}^{r+1}\lambda^{r+1-k}(\check E-r-1)\,x^k=0.
+\end{equation}
+Pour \(E=\mathcal O_S^{r+1}\), donc \(X=\mathbf P^r_S\), elle se réduit à
+\[
+  x^{r+1}=0.
+\]
+En utilisant les schémas relatifs au sens de Hakim, le théorème 1.1 a encore un sens lorsque \(S\) est un topos localement annelé; si l'objet final du topos est quasi-compact, la démonstration se transporte sans changement essentiel.
+
+\section*{2. Calcul de \(K^\bullet\) d'un fibré projectif : cas des complexes parfaits}
+
+Ce paragraphe ne sera pas utilisé dans la suite du Séminaire. Ici \(K^\bullet(X)\) désigne le groupe de Grothendieck des complexes parfaits sur \(X\).
+
+\textbf{Théorème 2.1.} Soient \(S\) quasi-compact, \(E\) un \(\mathcal O_S\)-module localement libre de rang \(r+1\), \(X=\mathbf P(E)\), et \(\xi\in K^\bullet(X)\) la classe du complexe réduit à \(\mathcal O_X(1)\) en degré zéro. Alors \(K^\bullet(X)\) est un \(K^\bullet(S)\)-module libre de base
+\[
+  1,\xi,\ldots,\xi^r .
+\]
+
+\subsection*{2.2. Notations}
+Soit \(B=\Sym(E)\). On note \(\mathcal A\) la catégorie des \(\mathcal O_X\)-modules, \(\mathcal G\) la catégorie des \(B\)-modules gradués, \(\mathcal G_0\) la sous-catégorie pleine des \(B\)-modules gradués localement libres de type fini, et \(\mathcal G'\) la catégorie des \(\mathcal O_S\)-modules. Si \(L^\bullet\) est un complexe sur \(X\), on pose
+\[
+  L^\bullet(n)=L^\bullet\otimes_{\mathcal O_X}\mathcal O_X(n).
+\]
+
+\subsection*{2.3. Le foncteur \(\Proj_0\)}
+On aura besoin d'appliquer \(\Proj_0\) à des \(B\)-modules gradués quelconques, et non seulement aux modules quasi-cohérents. Si \(Y=\Spec(A)\) et \(f:Y\to S\), l'isomorphisme
+\[
+  A\simeq f_*\mathcal O_Y
+\]
+donne, par adjonction, un morphisme d'espaces annelés
+\[
+  \widetilde f:(Y,\mathcal O_Y)\longrightarrow (S,A)
+\]
+et donc un foncteur image inverse exact
+\[
+  \widetilde f^{\,*}(M)=f^{-1}(M)\otimes_{f^{-1}A}\mathcal O_Y.
+\]
+Pour les \(A\)-modules quasi-cohérents, c'est le module associé habituel.
+
+Soient maintenant \(B\) graduée et quasi-cohérente, \(M\) un \(B\)-module gradué, et \(X=\Proj(B)\). Pour un ouvert affine \(U\subset S\) et une section homogène \(s\) de degré positif au-dessus de \(U\), on désigne par \(M_{(s),U}\) la composante homogène de degré zéro du module des fractions \(M_s\). Ainsi
+\[
+  M_{(s),U}=
+  \bigl((M|_U)\otimes_{B|_U}(B|_U)_s\bigr)_0 .
+\]
+Sur l'ouvert affine standard
+\[
+  D_+(U,s)\simeq \Spec\bigl((B|_U)_{(s)}\bigr)
+\]
+on définit
+\[
+  \Proj_0(M)_{U,s}
+  =
+  \widetilde f_{U,s}^{\,*}\bigl(M_{(s),U}\bigr).
+\]
+
+Si \(V\subset U\) est affine, les modules ainsi définis se restreignent de façon compatible. Si \(t\) est une autre section homogène sur \(U\), on utilise le diagramme standard
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+D_+(st) \arrow[r,"i"] \arrow[d,"f_{U,st}"'] &
+D_+(s) \arrow[d,"f_{U,s}"]\\
+U \arrow[r,equal] & U
+\end{tikzcd}
+\]
+et les identifications canoniques des modules localisés de degré zéro pour constater que les faisceaux locaux se recollent. On obtient ainsi un foncteur
+\[
+  \Proj_0:\mathcal G\longrightarrow\mathcal A .
+\]
+Il est exact, et, pour les modules gradués quasi-cohérents, il coïncide avec le foncteur usuel de EGA II. Par passage aux catégories dérivées, on obtient donc
+\[
+  \Proj_0:D^+(\mathcal G)\longrightarrow D^+(\mathcal A).
+\]
+
+\subsection*{2.4. Le foncteur \(F_k\)}
+Pour un \(\mathcal O_X\)-module \(L\) et un entier \(k\), on pose
+\begin{equation}\tag{2.4.1}
+  F_k(L)=\bigoplus_{n\geq k} f_*(L(n)).
+\end{equation}
+Le foncteur \(F_k\) est exact à gauche, donc possède un foncteur dérivé droit
+\begin{equation}\tag{2.4.2}
+  RF_k:D^+(\mathcal A)\longrightarrow D^+(\mathcal G).
+\end{equation}
+Si \(L\) est localement libre de type fini, il est \(F_k\)-acyclique pour \(k\) assez grand, par le théorème d'annulation utilisé en 1.3.
+
+Pour tout \(k\), on a un morphisme fonctoriel
+\begin{equation}\tag{2.5.1}
+  \beta:\Proj_0(F_k(F))\longrightarrow F,
+\end{equation}
+construit sur chaque \(D_+(U,s)\) par la formule de localisation usuelle : une fraction représentée par une section homogène de degré suffisamment grand est envoyée sur la section locale correspondante de \(F\). Dans le cas quasi-cohérent, c'est le morphisme canonique de EGA. Par passage aux catégories dérivées, cela donne
+\begin{equation}\tag{2.5.2}
+  \Proj_0\circ RF_k\longrightarrow \operatorname{id}_{D^+(\mathcal A)}.
+\end{equation}
+
+\textbf{Proposition 2.6.} Soient \(S\) quasi-compact, \(E\) localement libre de type fini, \(X=\mathbf P(E)\), et \(L^\bullet\) un complexe parfait sur \(X\). Pour \(k\) assez grand,
+\[
+\begin{array}{ll}
+\text{\rm (i)}& RF_k(L^\bullet)\text{ est }\mathcal G_0\text{-parfait},\\[1mm]
+\text{\rm (ii)}& \Proj_0 RF_k(L^\bullet)\longrightarrow L^\bullet
+\text{ est un isomorphisme dans }D^+(\mathcal A).
+\end{array}
+\]
+
+L'énoncé est local sur \(S\). On peut donc supposer \(S\) affine. Comme \(\mathcal O_X(1)\) est ample, le complexe parfait \(L^\bullet\) est localement, puis globalement après raffinement, représenté par un complexe borné dont les termes sont localement libres de type fini. Pour \(k\) assez grand, ces termes, en nombre fini, sont tous \(F_k\)-acycliques, et les modules gradués \(F_k(L^i)\) sont \(\mathcal G_0\)-parfaits. Cela donne (i), et le morphisme (2.5.2) est alors un isomorphisme terme à terme, ce qui donne (ii).
+
+\subsection*{2.7. Décomposition d'un complexe \(\mathcal G_0\)-parfait}
+Sur \(\mathcal G\), le foncteur qui associe à un \(B\)-module gradué sa \(n\)-ième composante homogène est exact à valeurs dans \(\mathcal G'\); il définit un foncteur
+\begin{equation}\tag{2.7.1}
+  \Comp_n:D^+(\mathcal G)\longrightarrow D^+(\mathcal G').
+\end{equation}
+L'homomorphisme (1.2.1) donne un morphisme de foncteurs
+\begin{equation}\tag{2.7.2}
+  \Comp_n\otimes_{\mathcal O_S}B(-n)\longrightarrow
+  \operatorname{id}_{D^+(\mathcal G)}.
+\end{equation}
+
+Soit \(M^\bullet\) un complexe \(\mathcal G_0\)-parfait. Nous allons montrer qu'il existe une suite finie de triangles distingués
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& P_1^\bullet \arrow[dl] \arrow[dr] &\\
+N_1^\bullet && M^\bullet
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+& P_2^\bullet \arrow[dl] \arrow[dr] &\\
+N_2^\bullet && P_1^\bullet
+\end{tikzcd}
+\]
+\[
+\cdots\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+& P_k^\bullet \arrow[dl] \arrow[dr] &\\
+N_k^\bullet && P_{k-1}^\bullet .
+\end{tikzcd}
+\]
+où le \(P_k^\bullet\) final est acyclique, les termes \(N_i^\bullet\) sont de la forme
+\[
+  N_i^\bullet=K_i^\bullet\otimes_{\mathcal O_S}B(d_i),
+\]
+et les \(K_i^\bullet\) sont des complexes parfaits sur \(S\), au sens ordinaire.
+
+En effet, puisque \(M^\bullet\) est \(\mathcal G_0\)-parfait et que \(S\) est quasi-compact, il existe un recouvrement fini de \(S\) et un entier \(d_0\) tels que, sur tout ouvert du recouvrement, \(M^\bullet\) soit représenté par un complexe borné de \(B\)-modules localement libres de type fini, sans générateurs homogènes en degrés \(<d_0\). En prenant \(d_0\) minimal, le morphisme (2.7.2) extrait la partie du plus petit degré. Son cône a tous ses générateurs homogènes en degrés strictement plus grands. En répétant le procédé, et en utilisant la finitude de l'intervalle des degrés fournie par la proposition 1.8, on obtient la suite finie de triangles désirée.
+
+\subsection*{2.8. Démonstration du théorème 2.1}
+Soit \(L^\bullet\) un complexe parfait sur \(X\). Pour \(k\) assez grand posons
+\[
+  M^\bullet=RF_k(L^\bullet).
+\]
+Par la proposition 2.6, \(M^\bullet\) est \(\mathcal G_0\)-parfait et \(\Proj_0(M^\bullet)\simeq L^\bullet\). En appliquant la décomposition de 2.7 puis \(\Proj_0\), on obtient dans \(K^\bullet(X)\)
+\[
+  \cl(L^\bullet)
+  =
+  \sum_i\cl\bigl(f^*K_i^\bullet(d_i)\bigr)
+  =
+  \sum_i f^*\cl(K_i^\bullet)\,\xi^{d_i}.
+\]
+Ainsi les puissances de \(\xi\) engendrent \(K^\bullet(X)\) comme \(K^\bullet(S)\)-module.
+
+La relation de dépendance est la même relation (1.9.1), interprétée cette fois dans le groupe de Grothendieck des complexes parfaits. Pour l'indépendance linéaire, on utilise l'homomorphisme \(K^\bullet(S)\)-linéaire
+\[
+  f_*:K^\bullet(X)\longrightarrow K^\bullet(S).
+\]
+Pour le faisceau structural et les puissances négatives du fibré projectif, on a
+\[
+  f_*(1)=1,\qquad f_*(\xi^n)=0\quad(-r\leq n<0).
+\]
+En multipliant une relation entre \(1,\xi,\ldots,\xi^r\) par des puissances négatives convenables de \(\xi\), puis en appliquant successivement \(f_*\), on obtient que tous ses coefficients sont nuls. Ceci achève la démonstration du théorème 2.1.
+
+\end{document}

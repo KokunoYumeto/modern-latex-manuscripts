@@ -1,0 +1,583 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\hfuzz=20pt
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+\begin{center}
+{\Large SGA 6, Exposé VIII : théorème de Riemann--Roch, démonstration}\\[0.4em]
+{\large Pages 493--504 du scan original}
+\end{center}
+
+
+\subsection*{Suite de la démonstration du théorème 3.6}
+
+La démonstration du théorème 3.6 occupera la fin de cet exposé. Donnons quelques préliminaires.
+
+\textbf{Proposition 3.7.} Quels que soient
+\[
+x\in \Gr K^{\bullet}(X)_{\mathbb Q},\qquad
+y\in \Gr K^{\bullet}(Y)_{\mathbb Q},
+\]
+on a :
+\[
+ f^{\mathrm{gr}}_*\bigl(x\cdot f^{\mathrm{gr}}(y)\bigr)
+ =
+ f^{\mathrm{gr}}_*(x)\,y .
+\]
+
+Par additivité, on peut supposer \(x\) et \(y\) homogènes; soit
+\[
+x\in \Gr^iK^{\bullet}(X)_{\mathbb Q},\qquad
+y\in \Gr^jK^{\bullet}(Y)_{\mathbb Q}.
+\]
+Soient
+\[
+x'\in \Fil^iK^{\bullet}(X)_{\mathbb Q},\qquad
+y'\in \Fil^jK^{\bullet}(Y)_{\mathbb Q}
+\]
+des éléments relevant \(x\) et \(y\). Alors la formule de projection donne :
+\[
+ f_*\bigl(x'\cdot f^*(y')\bigr)=f_*(x')\,y'.
+\]
+D'après 3.2, cette égalité s'écrit dans
+\(\Fil^{i+j-d}K^{\bullet}(Y)_{\mathbb Q}\). On en déduit une égalité dans
+\(\Gr^{i+j-d}K^{\bullet}(Y)_{\mathbb Q}\), et on vérifie immédiatement que c'est bien l'égalité cherchée.
+
+\textbf{Lemme 3.8.} Soient \(f:X\to Y\), et \(g:Y\to Z\) deux morphismes vérifiant les hypothèses de 3.6. Alors \(g\circ f\) les vérifie également. Si \(x\) est un élément de \(K^{\bullet}(X)\), et si 3.6 est vérifié par \(f\) pour l'élément \(x\), et par \(g\) pour l'élément \(f_*(x)\), alors il est vérifié par \(g\circ f\) pour l'élément \(x\).
+
+Par hypothèse, on a :
+\begin{equation}\tag{3.8.1}
+ \ch(f_*(x))=
+ f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr),
+\end{equation}
+et :
+\begin{equation}\tag{3.8.2}
+ \ch(g_*(f_*(x)))=
+ g^{\mathrm{gr}}_*\bigl(\ch(f_*(x))\Todd(\check T_g)\bigr).
+\end{equation}
+En combinant (3.8.1) et (3.8.2), on obtient :
+\[
+\ch(g_*(f_*(x)))=
+g^{\mathrm{gr}}_*\!\left(
+ f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr)\cdot \Todd(\check T_g)
+\right).
+\]
+En appliquant 3.7, on trouve :
+\[
+\ch(g_*(f_*(x)))=
+g^{\mathrm{gr}}_*\!\left(
+ f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\cdot
+ f^{\mathrm{gr}}(\Todd(\check T_g))\bigr)
+\right).
+\]
+La fonctorialité de \(c\) et de \(\Todd\) entraîne :
+\[
+ f^{\mathrm{gr}}(\Todd(\check T_g))=\Todd(f^*(\check T_g)).
+\]
+D'après 2.7, on a :
+\[
+ \check T_{g\circ f}=\check T_f+f^*(\check T_g).
+\]
+La multiplicativité du caractère de Todd entraîne donc :
+\[
+ \Todd(\check T_f)\,f^{\mathrm{gr}}(\Todd(\check T_g))
+ =
+ \Todd(\check T_{g\circ f}).
+\]
+On obtient donc finalement :
+\[
+ \ch(g_*(f_*(x)))=
+ g^{\mathrm{gr}}_* f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_{g\circ f})\bigr),
+\]
+ce qui est le résultat annoncé.
+
+\textbf{3.9.} Si on applique 3.8 à la factorisation de \(f\) donnée en 3.1, on voit qu'il suffit, pour démontrer le théorème de Riemann--Roch, de la démontrer dans le cas d'une immersion régulière de codimension constante, et dans le cas du morphisme structural
+\[
+ \mathbb P^r_Y\longrightarrow Y .
+\]
+En outre, on peut supposer que l'immersion \(i\) satisfait la condition de VII 4.1. Soit en effet \(s\) la section de
+\[
+ \mathbb P^2_{\mathbb P^r_Y}
+\]
+introduite en VII 4.2. Alors \(s\circ i\) est une immersion régulière vérifiant la condition de VII 4.1 (VII 4.2), et d'après 3.8, il suffit de montrer 3.6 pour
+\[
+s\circ i,\qquad
+\mathbb P^2_{\mathbb P^r_Y}\longrightarrow\mathbb P^r_Y,\qquad
+\mathbb P^r_Y\longrightarrow Y .
+\]
+
+On va donc prouver 3.6 en prouvant les deux cas particuliers suivants :
+\begin{enumerate}[label=\roman*)]
+\item \(f\) est une immersion régulière de codimension constante, satisfaisant la condition de VII 4.1;
+\item \(f\) est le morphisme structural \(\mathbb P^r_Y\to Y\).
+\end{enumerate}
+
+\section*{4. Théorème de Riemann--Roch : cas d'une immersion fermée régulière}
+
+\textbf{4.1.} Soit \(i:Y\to X\) une immersion fermée régulière. Le théorème de Riemann--Roch pour \(i\) est essentiellement la relation VII 4.4, qui permet de calculer les classes de Chern de \(i_*(x)\) à partir des \(\gamma^p(N,x)\). Plus précisément, si on introduit le \(\lambda\)-anneau \(K^{\bullet}(Y)_{\mathbb Q N}\) défini en V 5.5, alors l'homomorphisme
+\[
+K^{\bullet}(Y)_{\mathbb Q N}\longrightarrow K^{\bullet}(X)_{\mathbb Q}
+\]
+déduit de \(i_*\) est un \(\lambda\)-homomorphisme d'après VII 2.8 et VII 4.3. Le théorème de Riemann--Roch se ramène alors à une formule analogue concernant l'homomorphisme additif
+\[
+K^{\bullet}(Y)\longrightarrow K^{\bullet}(Y)_{\mathbb Q N}
+\]
+défini par \(y\mapsto(0,y)\), c'est-à-dire à une relation de nature formelle, valable pour tout \(\lambda\)-anneau. Nous ne développerons pas ici cette démonstration, afin d'éviter de faire encore du formalisme sur les \(\lambda\)-anneaux (cf. \(\RRR\), I 1.5), et nous reprendrons la méthode de [1] qui utilisait les schémas éclatés. C'est la méthode déjà employée pour la démonstration de VII 4.3, et qui est aussi celle de la fin de \(\RRR\).
+
+Comme il a été indiqué dans 3.9, on peut se limiter au cas d'une immersion régulière de codimension constante \(d\) vérifiant la condition de VII 4.1; le cas d'une immersion régulière générale se déduisant ensuite de 3.8. On reprendra dans ce paragraphe les notations de VII 3.1. On a donc le carré cartésien :
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X ,
+\end{tikzcd}
+\]
+où \(X'\) est le \(X\)-schéma obtenu en faisant éclater \(Y\). On suppose en outre que \(X\) est quasi-compact et a un faisceau ample.
+
+\textbf{Proposition 4.2.} Le morphisme \(f\) est projectif, d'intersection complète, et de dimension relative virtuelle nulle. On a de plus la relation :
+\[
+ f^{\mathrm{gr}}_* f^{\mathrm{gr}}=\operatorname{Id}_{\Gr K^{\bullet}(X)_{\mathbb Q}} .
+\]
+La première assertion découle immédiatement de VII 1.8. La deuxième relation est conséquence de la relation :
+\[
+ f_*f^*=\operatorname{Id}_{K^{\bullet}(X)},
+\]
+montrée dans VII 3.6.
+
+\textbf{Proposition 4.3.} Pour tout \(y\in K^{\bullet}(Y)_{\mathbb Q}\), on a la relation :
+\[
+ f^{\mathrm{gr}}_* i^{\mathrm{gr}}_*(y)
+ =
+ j^{\mathrm{gr}}_*\bigl(g^{\mathrm{gr}}(y)\,c^{d-1}(\check F)\bigr),
+\]
+où \(c^{d-1}\) désigne la \((d-1)\)-ième classe de Chern.
+
+Cette relation est contenue dans VII 4.8, car elle n'est autre que
+\[
+ v^{\mathrm{gr}}\circ u^{\mathrm{gr}}=0 .
+\]
+
+\textbf{Proposition 4.4.} Soit \(X\) un schéma quasi-compact. Si \(E\) est un faisceau localement libre de type fini sur \(X\), de classe \(E\) dans \(K^{\bullet}(X)\), et de rang \(n\), on a :
+\[
+ \ch(\lambda_{-1}(E))=c^n(\check E)\Todd(\check E)^{-1}.
+\]
+
+Les deux membres de la relation à démontrer sont multiplicatifs : c'est clair pour \(\ch\circ\lambda_{-1}\) et pour \(\Todd\); c'est aussi vrai pour \(c^n\), qui est la classe de \((-1)^nE\lambda_{-1}(E)\). Par suite, on peut, en passant au fibré en drapeaux de \(E\), supposer que \(E\) est somme de classes de faisceaux inversibles, et se ramener à montrer la formule pour un faisceau inversible. Soit \(\xi\) la classe d'un tel faisceau. On a alors :
+\[
+ \ch(\lambda_{-1}(\xi))=\ch(1-\xi)=1-\ch(\xi).
+\]
+Comme \(\widetilde c(\xi)=(1,1+c^1(\xi))\), on obtient, d'après la définition de \(\ch\) :
+\[
+ \ch(\lambda_{-1}(\xi))=1-\exp(c^1(\xi)).
+\]
+Par ailleurs, \(\xi\) est d'augmentation \(1\); la classe de Chern qui intervient dans la formule 4.4 relative à \(\xi\) est donc \(c^1\). Compte tenu de la définition de \(\Todd\), et de 3.5, la relation à démontrer s'écrit :
+\[
+ 1-\exp(c^1(\xi))
+ =
+ -c^1(\xi)\left(\frac{-c^1(\xi)}{1-\exp(c^1(\xi))}\right)^{-1},
+\]
+et est donc vérifiée.
+
+\textbf{Remarque 4.4.1.} Il est possible aussi de déduire 4.4 d'un énoncé purement algébrique correspondant, cf. \(\RRR\), I 1.3.
+
+\textbf{4.5.} Nous allons montrer maintenant que pour montrer le théorème de Riemann--Roch dans le cas envisagé dans ce paragraphe, on peut se ramener au cas où \(Y\) est un diviseur de \(X\), et où l'élément auquel s'applique la formule est image inverse d'un élément de \(K^{\bullet}(X)\).
+
+D'après 3.2, la formule à démontrer :
+\[
+ \ch(i_*(x))=
+ i^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_i)\bigr)
+\]
+est équivalente à la formule :
+\[
+ f^{\mathrm{gr}}\bigl(\ch(i_*(x))\bigr)
+ =
+ f^{\mathrm{gr}}i^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_i)\bigr).
+\]
+Compte tenu de la fonctorialité de \(\ch\), et de 4.3, elle peut encore s'écrire :
+\[
+ \ch\bigl(f^*(i_*(x))\bigr)
+ =
+ j^{\mathrm{gr}}_*\bigl(\ch(g^*(x))\Todd(g^*(\check T_i))\,c^{d-1}(\check F)\bigr),
+\]
+soit, d'après VII 3.4 :
+\[
+ \ch\bigl(j_*(g^*(x)\lambda_{-1}(F))\bigr)
+ =
+ j^{\mathrm{gr}}_*\bigl(\ch(g^*(y))\Todd(g^*(\check T_i))\,c^{d-1}(\check F)\bigr).
+\]
+
+Or on a par définition :
+\[
+ T_i=-c^1(J/J^2)=-N,\qquad
+ T_j=-c^1(J'/J'^2)=-L.
+\]
+Par ailleurs, la suite exacte :
+\[
+0\longrightarrow F\longrightarrow g^*(N)\longrightarrow \mathcal O_{Y'}(1)\longrightarrow0
+\]
+donne la relation :
+\[
+ g^*(T_i)=-(F+L),
+\]
+d'où on déduit :
+\[
+ \Todd(g^*(\check T_i))=\Todd(\check T_j)\Todd(\check F)^{-1}.
+\]
+Compte tenu de 4.4, la relation à démontrer s'écrit donc :
+\[
+ \ch\bigl(j_*(g^*(x)\lambda_{-1}(F))\bigr)
+ =
+ j^{\mathrm{gr}}_*\bigl(\ch(g^*(x)\lambda_{-1}(F))\Todd(\check T_j)\bigr).
+\]
+Posant
+\[
+z=g^*(x)\lambda_{-1}(F),
+\]
+cette relation n'est autre que le théorème de Riemann--Roch appliqué à l'immersion régulière de codimension \(1\), \(j\), et à l'élément \(z\) de \(K^{\bullet}(Y')\).
+
+De plus, comme on a supposé que \(i\) vérifie l'hypothèse de VII 4.1, \(\lambda_{-1}(F)\) est divisible par \(1-L\). On peut donc trouver \(z'\) tel que \(z=z'(1-L)\), soit encore
+\[
+ z=j^*(j_*(z'))
+\]
+(Exp. VII 2.7). On est donc ramené au cas où \(Y\) est un diviseur, et à un élément \(x\) tel qu'il existe \(y\), avec \(x=i^*(y)\).
+
+\textbf{4.6.} Il faut donc montrer la relation :
+\[
+ \ch\bigl(i_*(i^*(y))\bigr)
+ =
+ i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr).
+\]
+Or la formule de projection donne :
+\[
+ i_*(i^*(y))=y\,i_*(1),
+\]
+et de la suite exacte :
+\[
+0\longrightarrow J\longrightarrow\mathcal O_X\longrightarrow\mathcal O_Y\longrightarrow0,
+\]
+où \(J\) est ici inversible, on tire :
+\[
+ i_*(1)=1-J.
+\]
+D'où
+\[
+ \ch(i_*(i^*(y)))=\ch(y)\,\ch(1-J).
+\]
+Comme \(J\) est inversible, on a
+\[
+ \widetilde c(J)=(1,1+c^1(J)),\qquad \ch(J)=\exp(c^1(J)).
+\]
+Par suite, on a :
+\[
+ \ch(i_*(i^*(y)))=\ch(y)(1-\exp(c^1(J))).
+\]
+
+Par ailleurs, la fonctorialité de \(\ch\), et la formule de projection 3.7 entraînent :
+\[
+ i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr)
+ =
+ \ch(y)\,i^{\mathrm{gr}}_*(\Todd(\check T_i)).
+\]
+Or
+\[
+T_i=-c^1(J/J^2)=-i^*(J).
+\]
+Donc :
+\[
+ i^{\mathrm{gr}}_*(\Todd(\check T_i))
+ =
+ i^{\mathrm{gr}}_*\,i^{\mathrm{gr}}(\Todd(-\check J))
+ =
+ i^{\mathrm{gr}}_*(1)\Todd(-\check J).
+\]
+Comme \(i_*(1)=1-J\), \(i^{\mathrm{gr}}_*(1)\) est l'image dans \(\Gr^1K^{\bullet}(X)\) de \(1-J\), donc c'est \(-c^1(J)\). Par ailleurs, on a :
+\[
+ \Todd(-\check J)=\Todd(J)^{-1}
+ =
+ \frac{1-\exp(c^1(J))}{-c^1(J)}.
+\]
+On obtient donc finalement :
+\[
+ i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr)
+ =
+ \ch(y)(1-\exp(c^1(J))),
+\]
+ce qui prouve la relation à démontrer.
+
+\section*{5. Théorème de Riemann--Roch : cas du morphisme structural d'un fibré projectif}
+
+\textbf{5.1.} D'après 3.9, il reste, pour prouver le théorème de Riemann--Roch, à le prouver pour le morphisme structural
+\[
+f:\mathbb P^r_Y\longrightarrow Y,
+\]
+où \(Y\) est un schéma quasi-compact, admettant un faisceau ample. On pose
+\[
+P=\mathbb P^r_Y,\qquad \xi=c^1(\mathcal O_P(1)),\qquad E=(\mathcal O_Y)^{r+1}.
+\]
+
+\textbf{Proposition 5.2.} On a sur \(P\) la suite exacte :
+\[
+0\longrightarrow\Omega^1_{P/Y}\longrightarrow f^*(E)(-1)\longrightarrow\mathcal O_P\longrightarrow0,
+\]
+i.e. on a un isomorphisme
+\[
+\Omega^1_{P/Y}\simeq F(-1),
+\qquad
+F=\Ker\bigl(f^*(E)\longrightarrow\mathcal O_P(1)\bigr).
+\]
+
+On considère le fibré vectoriel sur \(Y\) défini par \(E\), et on note \(Z\) le complémentaire de la section nulle de ce fibré. On a le diagramme commutatif :
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+P \arrow[d,"f"'] & Z \arrow[l,"h"'] \arrow[dl,"g"]\\
+Y &
+\end{tikzcd}
+\]
+Le morphisme \(h\) identifie \(Z\) au \(P\)-schéma affine défini par le faisceau d'algèbres
+\[
+B=\bigoplus_{n\in\mathbb Z}\mathcal O_P(n);
+\]
+\(B\) est une \(\mathcal O_P\)-algèbre graduée.
+
+Comme \(f,g,h\) sont des morphismes lisses, on peut écrire la suite exacte des faisceaux de différentielles relatives. Comme \(Z\) est affine sur \(P\), on peut écrire cette suite en termes de \(B\)-modules; on obtient ainsi :
+\begin{equation}\tag{5.2.1}
+0\longrightarrow
+ \Omega^1_{P/Y}\otimes_{\mathcal O_P}B
+\longrightarrow
+ \Omega^1_{B/Y}
+\longrightarrow
+ \Omega^1_{B/\mathcal O_P}
+\longrightarrow0 .
+\end{equation}
+Or cette suite exacte est une suite exacte graduée de \(B\)-modules gradués. En effet, elle résulte du diagramme commutatif :
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+S(E) \arrow[rr] && \displaystyle\bigoplus_{n\in\mathbb Z}S(E)(n)\simeq S(E)[T,T^{-1}]\\
+& \mathcal O_X \arrow[ul] \arrow[ur] &
+\end{tikzcd}
+\]
+où les flèches sont des homomorphismes d'algèbres, compatibles avec la graduation de \(S(E)[T,T^{-1}]\) (graduation définie par le degré par rapport à l'indéterminée \(T\)), les deux autres algèbres étant supposées réduites au degré \(0\).
+
+Le module des différentielles \(\Omega^1_{B/\mathcal O_P}\) est isomorphe à
+\[
+ B(-1)\otimes_{\mathcal O_P}\mathcal O_P(1),
+\]
+car on peut définir une \(S(E)\)-dérivation
+\[
+S(E)[T,T^{-1}]
+\longrightarrow
+S(E)[T,T^{-1}]\otimes_{S(E)}S(E)\,dT
+\]
+de façon à satisfaire la propriété universelle qui définit \(\Omega^1_{B/\mathcal O_P}\), en posant
+\[
+ d(aT^n)=naT^{n-1}\otimes dT;
+\]
+de plus, \(d\) est compatible aux graduations si on attribue le degré \(1\) au facteur \(S(E)\,dT\).
+
+Soit \(V\) le \(Y\)-fibré vectoriel défini par \(E\). Alors \(\Omega^1_{Z/Y}\) est la restriction à \(Z\) de \(\Omega^1_{V/Y}\). Or \(V\) est le \(Y\)-schéma affine défini par \(S(E)\), donc \(\Omega^1_{V/Y}\) est défini par
+\[
+S(E)\otimes_{\mathcal O_Y}E
+\]
+(car \(E\) est localement libre de type fini), donc \(\Omega^1_{V/Y}\) est égal à \(g^*(E)\), et par suite,
+\[
+\Omega^1_{B/Y}=f^*(E)\otimes_{\mathcal O_P}B.
+\]
+Pour voir sa graduation, on regarde localement, et on voit aussitôt que \(f^*(E)\) doit être considéré comme étant de degré \(1\). En prenant les termes de degré \(0\) dans la suite exacte (5.2.1), on trouve la suite exacte annoncée.
+
+\textbf{Remarque 5.2.1.} En utilisant les résultats généraux sur l'étude différentielle des foncteurs de Hilbert ([2], 5), on obtient directement un isomorphisme
+\[
+\Omega^1_{P/Y}\xrightarrow{\sim}F(-1)
+\]
+d'après la caractérisation fonctorielle donnée de \(g^*(\Omega^1_{P/Y})\) pour tout \(Y\)-morphisme \(g:Y'\to P\).
+
+\textbf{5.3.} D'après 5.2, on a :
+\[
+ T_f=c_1(\Omega^1_{P/Y})=f^*(E)\xi^{-1}-1.
+\]
+Par conséquent :
+\[
+ \widetilde c(T_f)=\widetilde c(E)\,\widetilde c(\xi^{-1})-\widetilde c(1).
+\]
+Comme \(E=(\mathcal O_Y)^{r+1}\), on a \(E=r+1\), et par suite :
+\[
+ \widetilde c(E)=(r+1,1).
+\]
+Posons :
+\[
+ x=c^1_{\Gr^1K^{\bullet}(P)}(\xi-1)
+ =
+ c^1_{\Gr^1K^{\bullet}(P)}(1-\xi^{-1})
+ =
+ c^1(\xi).
+\]
+Comme \(\xi^{-1}=\check \xi\), on a :
+\[
+ \widetilde c(\xi^{-1})=(1,1-x).
+\]
+On en déduit, d'après V (6.2.1) :
+\[
+ \widetilde c(T_f)=(r,(1-x)^{r+1}).
+\]
+Compte tenu de 3.5, on obtient finalement :
+\[
+ \widetilde c(\check T_f)=(r,(1+x)^{r+1}).
+\]
+D'après la définition de \(\Todd\), on a donc :
+\begin{equation}\tag{5.3.1}
+ \Todd(\check T_f)=
+ \left(\frac{x}{1-\exp(-x)}\right)^{r+1}.
+\end{equation}
+
+\textbf{5.4.} En utilisant la base de \(K^{\bullet}(P)\) sur \(K^{\bullet}(Y)\) formée des éléments \(\xi^k\), avec \(-r\leq k\leq0\), on voit par additivité qu'il suffit de prouver le théorème pour des éléments de la forme
+\[
+ f^*(a)\xi^k.
+\]
+On a alors :
+\[
+ \ch\bigl(f_*(f^*(a)\xi^k)\bigr)
+ =
+ \ch(a f_*(\xi^k))
+ =
+ \ch(a)\,\ch(f_*(\xi^k)).
+\]
+D'autre part :
+\[
+ f^{\mathrm{gr}}_*\bigl(\ch(f^*(a)\xi^k)\Todd(\check T_f)\bigr)
+ =
+ f^{\mathrm{gr}}_*\bigl(f^{\mathrm{gr}}(\ch(a))\ch(\xi^k)\Todd(\check T_f)\bigr)
+ =
+ \ch(a)\,f^{\mathrm{gr}}_*\bigl(\ch(\xi^k)\Todd(\check T_f)\bigr).
+\]
+On voit donc qu'il suffit de montrer le théorème pour les \(\xi^k\), avec \(-r\leq k\leq0\). Or d'après VI (5.2.3), on a
+\[
+ f_*(\xi^k)=0\quad\text{pour }-r\leq k<0,\qquad f_*(1)=1.
+\]
+Par suite :
+\begin{equation}\tag{5.4.1}
+ \ch(f_*(\xi^k))=0\quad\text{si }-r\leq k<0,\qquad
+ \ch(f_*(1))=1.
+\end{equation}
+
+Calculons maintenant le second membre de la formule de Riemann--Roch. Pour tout \(k\), on a :
+\[
+ \widetilde c(\xi^k)=(\widetilde c(\xi))^k=(1,1+x)^k=(1,1+kx)
+\]
+d'après V (6.2.1). Par suite :
+\begin{equation}\tag{5.4.2}
+ \ch(\xi^k)=\exp(kx).
+\end{equation}
+Le second membre de la formule de Riemann--Roch est donc :
+\begin{equation}\tag{5.4.3}
+ f^{\mathrm{gr}}_*\left(\exp(kx)\,
+ \frac{x^{r+1}}{(1-\exp(-x))^{r+1}}\right).
+\end{equation}
+Comme \(x\) est la classe dans \(\Gr^1K^{\bullet}(P)\) de \(1-\xi^{-1}\), \(f^{\mathrm{gr}}_*(x^n)\) est, pour \(0\leq n\leq r\), la classe dans
+\(\Gr^{n-r}K^{\bullet}(Y)\) de \(f_*((1-\xi^{-1})^n)=1\). On a donc :
+\begin{equation}\tag{5.4.4}
+ f^{\mathrm{gr}}_*(x^n)=0\quad\text{si }0\leq n<r,\qquad
+ f^{\mathrm{gr}}_*(x^r)=1.
+\end{equation}
+Rappelons enfin que les éléments
+\[
+1,x,\ldots,x^{r+1}
+\]
+sont linéairement dépendants sur \(\Gr K^{\bullet}(Y)\) (VI 5.6), et vérifient l'équation :
+\begin{equation}\tag{5.4.5}
+ x^{r+1}=0,
+\end{equation}
+et que \(1,\ldots,x^r\) sont linéairement indépendants sur \(\Gr K^{\bullet}(Y)\).
+
+On peut alors écrire la série
+\[
+\varphi_k=\exp(kx)\,
+\frac{x^{r+1}}{(1-\exp(-x))^{r+1}}
+\]
+de façon unique comme combinaison linéaire à coefficients dans
+\(\Gr K^{\bullet}(Y)_{\mathbb Q}\) des éléments \(1,\ldots,x^r\). L'image par \(f^{\mathrm{gr}}_*\) de \(\varphi_k\) est alors, d'après (5.4.4) et 3.7, son coefficient sur \(x^r\). Compte tenu de (5.4.1), le théorème de Riemann--Roch pour \(f\) est donc équivalent à :
+\[
+\left\{
+\begin{array}{ll}
+\text{pour }-r\leq k<0,\text{ le coefficient de }x^r\text{ dans }\varphi_k\text{ est }0,\\
+\text{pour }k=0,\text{ le coefficient de }x^r\text{ dans }\varphi_k\text{ est }1.
+\end{array}
+\right.
+\tag{RR}
+\]
+Ce coefficient est le résidu de la forme différentielle
+\[
+ \frac{\exp(kx)\,dx}{(1-\exp(-x))^{r+1}}.
+\]
+En posant \(y=1-\exp(-x)\), on se ramène à calculer le résidu de :
+\[
+ \frac{(1-y)^{-k-1}\,dy}{y^{r+1}},
+\]
+c'est-à-dire le coefficient de \(y^r\) dans \((1-y)^{-k-1}\). Pour \(-r\leq k<0\), il est nul, et pour \(k=0\), c'est \(1\).
+
+Ainsi s'achève la démonstration du théorème de Riemann--Roch.
+
+\subsection*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]}]
+\item A. Borel et J.-P. Serre, \emph{Le théorème de Riemann--Roch}, Bull. Soc. Math. de France, t. 86, 1958.
+\item A. Grothendieck, \emph{Techniques de construction et théorèmes d'existence en Géométrie Algébrique}, Sém. Bourbaki, 1960--61.
+\end{enumerate}
+
+\end{document}

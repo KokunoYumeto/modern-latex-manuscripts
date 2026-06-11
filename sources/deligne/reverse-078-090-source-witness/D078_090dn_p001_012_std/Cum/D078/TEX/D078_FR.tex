@@ -1,0 +1,641 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french,english]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.52em}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Inj}{\operatorname{Inj}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\ACU}{\mathrm{ACU}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\psab}{\mathrm{ps\,ab}}
+\newcommand{\add}{\mathrm{add}}
+\newcommand{\ob}{\operatorname{Ob}}
+\newcommand{\card}[1]{\lvert #1\rvert}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\muTwo}{\mu_2}
+\newcommand{\hook}{\hookrightarrow}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+\newtheoremstyle{deligne}{0.45em}{0.45em}{\itshape}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{deligne}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{construction*}{Construction}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{examples*}{Examples}
+\newenvironment{proofdel}{\textit{Proof.}}{\hfill$\square$}
+\newcommand{\heading}[1]{\vspace{0.7em}\noindent{\bfseries #1}\quad}
+\newcommand{\para}[1]{\vspace{0.65em}\noindent{\bfseries #1}\quad}
+\begin{document}
+
+
+\selectlanguage{french}
+
+\begin{center}
+{\Large\bfseries La catégorie des représentations du groupe symétrique \(S_t\),\\
+lorsque \(t\) n'est pas un entier naturel}\\[0.5em]
+{\large P. Deligne}
+\end{center}
+
+\begin{center}
+Proceedings of the International Colloquium on Algebraic Groups and Homogeneous Spaces, January 2004, TIFR, Mumbai.
+\end{center}
+
+\textbf{Résumé.}
+Soient \(k\) un corps de caractéristique \(0\) et \(t\in k\), supposé ne pas être un entier \(\geq 0\). Nous construisons une catégorie tensorielle semi-simple \(\Rep(S_t)\) qui «interpole» les catégories des représentations linéaires (sur \(k\)) des groupes symétriques \(S_n\), \(n\) grand. En une valeur entière \(\geq 0\) de \(t\), au moins deux catégories tensorielles «spécialisation» de \(\Rep(S_t)\) existent, l'une la catégorie des représentations de \(S_t\), l'autre non semi-simple.
+
+La théorie reproduit, en plus simple, des résultats connus analogues pour les groupes linéaires ou orthogonaux, qui seront rappelés.
+
+\textbf{Abstract.}
+Let \(k\) be a field of characteristic \(0\). For \(t\in k\) which is not an integer \(\geq0\), we construct a semi-simple tensor category \(\Rep(S_t)\) which ``interpolates'' the categories of linear representations (over \(k\)) of the symmetric groups \(S_n\), \(n\) large. When \(t\) becomes a natural integer, \(\Rep(S_t)\) can be ``specialized'' to a tensor category in at least two ways: as the usual category of representations of \(S_t\), or as a non-semisimple tensor category.
+
+Known parallel results for the series of linear or orthogonal groups will be recalled in Sections 9 and 10.
+
+\section*{Introduction}
+
+Si \(G\) est un schéma en groupe affine sur un corps \(k\), la catégorie \(\Rep(G)\) des représentations linéaires de dimension finie de \(G\) sur \(k\) est une catégorie abélienne. Elle est munie du foncteur produit tensoriel de représentations
+\[
+  \otimes:\Rep(G)\times \Rep(G)\longrightarrow \Rep(G).
+\]
+Ce foncteur est \(\ACU\), c'est-à-dire qu'il est muni de contraintes d'associativité et de commutativité, et il admet un objet unité \(\mathbf 1\). Il est rigide, c'est-à-dire que chaque objet \(X\) admet un dual \(X^\vee\): un objet muni de
+\[
+  \delta:\mathbf 1\longrightarrow X\otimes X^\vee,\qquad
+  \ev:X^\vee\otimes X\longrightarrow \mathbf 1
+\]
+tels que les morphismes composés
+\[
+\begin{tikzcd}[column sep=large]
+X \arrow[r,"\delta\otimes X"] &
+X\otimes X^\vee\otimes X \arrow[r,"X\otimes \ev"] &
+X
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large]
+X^\vee \arrow[r,"X^\vee\otimes\delta"] &
+X^\vee\otimes X\otimes X^\vee \arrow[r,"\ev\otimes X^\vee"] &
+X^\vee
+\end{tikzcd}
+\]
+soient une identité. Enfin,
+\[
+  k\overset{\sim}{\longrightarrow}\End(\mathbf 1).
+\]
+En d'autres termes, \(\Rep(G)\) est, dans la terminologie de (Deligne 1990), 2.1, une catégorie tensorielle sur \(k\).
+
+Si \(k\) est algébriquement clos, la catégorie tensorielle \(\Rep(G)\) détermine \(G\) à isomorphisme près (Saavedra 1972). De ce point de vue, les catégories tensorielles généralisent les schémas en groupes affines. On dispose d'autres exemples de catégories tensorielles que les \(\Rep(G)\), mais on n'a aucune idée de comment les classifier toutes, ni même celles qui sont semi-simples de \(\otimes\)-génération finie (et par là analogues aux catégories \(\Rep(G)\) pour \(G\) un groupe algébrique extension d'un groupe fini par un groupe réductif).
+
+Un autre exemple de catégorie tensorielle est la catégorie des super-représentations d'un super schéma en groupe affine \(G\). Une variante plus naturelle est de considérer \(G\) muni de \(\varepsilon:\muTwo\to G\) tel que l'action intérieure de \(\muTwo\) sur l'algèbre affine \(\mathcal O(G)\) de \(G\) définisse la graduation modulo \(2\) de \(\mathcal O(G)\), et la catégorie \(\Rep(G,\varepsilon)\) des super-représentations \(V\) pour lesquelles l'action de \(\muTwo\) donne la graduation modulo \(2\) de \(V\).
+
+En caractéristique \(p\), S. Gelfand et D. Kazhdan (1992) ont construit de nouvelles catégories tensorielles semi-simples comme «sous-quotients» de catégories de représentations. Par contre, sur \(k\) algébriquement clos de caractéristique \(0\), les seules catégories tensorielles que je connaisse sont obtenues par «interpolation» de catégories \(\Rep(G,\varepsilon)\).
+
+Voici une méthode d'interpolation: on part d'une famille infinie de catégories tensorielles \(C_i\) sur \(k\), d'un ultrafiltre non trivial \(F\) sur l'ensemble d'indices \(I\), et on prend l'ultraproduit \(C\) des \(C_i\). Un objet de \(C\) est donc une famille \((X_i)\) d'objets des \(C_i\), un morphisme \((X_i)\to (Y_i)\) est un germe selon \(F\) de familles de morphismes \(X_i\to Y_i\), et le produit tensoriel est donné par
+\[
+  (X_i)\otimes (Y_i)=(X_i\otimes Y_i).
+\]
+La catégorie \(C\) est tensorielle sur le corps \(k_F\), ultrapuissance de \(k\). Elle est peu sympathique en ce que, même si les \(C_i\) sont des catégories de représentations de groupes algébriques linéaires, des groupes \(\Hom\) dans \(C\) seront de dimension infinie. Pour faire mieux, on peut partir de catégories tensorielles \(C_i\) sur \(k\), chacune étant munie d'un objet \(X_i\), et considérer la sous-catégorie tensorielle pleine \(C'\) de \(C\) engendrée par \(X=(X_i)\). Les objets de \(C'\) sont donc les sous-quotients des sommes de
+\[
+  T^{r,s}(X):=X^{\otimes r}\otimes (X^\vee)^{\otimes s}.
+\]
+Supposons que
+\begin{quote}
+\((*)\) quels que soient \(r\) et \(s\), l'objet \(T^{r,s}(X_i)\) de \(C_i\) est de longueur finie, bornée indépendamment de \(i\).
+\end{quote}
+Sous cette hypothèse, les objets de \(C'\) sont de longueur finie, et les groupes \(\Hom\) sont donc de dimension finie sur \(k_F\) (considérer \(\Hom(X,Y)\) et appliquer 3.2.4).
+
+La définition par ultraproduit est quelque peu théologique. Dans de bons cas, on peut associer à chaque \(i\) un paramètre \(\lambda_i\) dans \(k\), qui décrit \((C_i,X_i)\), et \(C'\) peut être construite purement en termes de \(\lambda=(\lambda_i)\in k_F\). Plus précisément, pour \(k_1\) une extension de \(k\) et \(\lambda_1\in k_1\) transcendant sur \(k\), on peut construire une catégorie tensorielle \(C(\lambda_i)\) sur \(k_1\), qui donne \(C'\) quand on prend \(k_1=k_F\) et \(\lambda_1=(\lambda_i)\). Le rôle des ultraproduits n'est plus que d'avoir attiré l'attention sur la condition \((*)\).
+
+Le cas «\(\lambda_1\) transcendant» est le cas facile. Plus intéressant, et plus difficile, est de prendre \(\lambda_1\) quelconque dans une extension \(k_1\) de \(k\), ou au moins de comprendre quelles valeurs de \(\lambda_1\) sont «singulières», et comment.
+
+On suppose dorénavant \(k\) de caractéristique \(0\). Le cas traité dans l'article est le suivant:
+\[
+\begin{array}{rl}
+I: & \text{l'ensemble des entiers }\geq0;\\
+C_n: & \text{la catégorie des représentations de }S_n;\\
+X_n: & \text{la représentation de permutation sur }k^n;\\
+\text{paramètre:} & n;\\
+\text{valeurs singulières:} & \text{les entiers }\geq0.
+\end{array}
+\]
+Les cas suivants sont essentiellement connus et seront rappelés:
+\[
+\begin{array}{rl}
+I=&\text{l'ensemble des entiers }\geq0;\\
+C_n=&\Rep(\GL(n))\ \text{(resp. }\Rep(O(n))\text{)};\\
+X_n=&\text{représentation évidente};\\
+\text{paramètre:}&n;\\
+\text{valeurs singulières:}&\Z.
+\end{array}
+\]
+
+Dans le cas où \(C_i\) est la catégorie des représentations d'un groupe fini \(G_i\), et où \(X_i\) est la représentation de permutation définie par une action de \(G_i\) sur un ensemble fini \(B_i\), la condition \((*)\) équivaut à
+\[
+  (*')\quad \text{quel que soit \(r\), le nombre d'orbites de \(G_i\) dans \(B_i^r\) est borné indépendamment de \(i\).}
+\]
+Voici des exemples où la condition \((*')\) est vérifiée. Dans chacun, on fixe un corps fini \(\mathbb F_q\) et \(I\) est l'ensemble des entiers \(\geq0\):
+\[
+\begin{array}{ll}
+(A)&G_n=\GL(n,\mathbb F_q),\quad B_n=\mathbb F_q^n;\\
+(B)&G_n=O(n,\mathbb F_q),\quad B_n=\mathbb F_q^n;\\
+(C)&G_n=Sp(2n,\mathbb F_q),\quad B_n=\mathbb F_q^{2n}.
+\end{array}
+\]
+Dans le cas (A), on peut prendre pour paramètre \(\lambda_n:=q^n\), et je conjecture que les valeurs singulières du paramètre sont les \(q^n\), pour \(n\) entier \(\geq0\).
+
+Je remercie le referee d'une lecture attentive, qui m'a amené à corriger plusieurs points obscurs.
+
+\section*{1. Terminologie et notations}
+
+\para{1.1.}
+On utilisera les notations suivantes.
+
+\(k\): corps de caractéristique \(0\), fixé dans toute la suite. Pour \(I\) un ensemble fini:
+\[
+\begin{array}{rl}
+S_I:&\text{groupe symétrique des permutations de }I;\\
+k^I:&\text{espace vectoriel sur \(k\) librement engendré par }I;\\
+(e_i)_{i\in I}:&\text{sa base évidente.}
+\end{array}
+\]
+Si \(I=\{1,\ldots,n\}\), on écrit \(S_n\) (resp. \(k^n\)) plutôt que \(S_I\) (resp. \(k^I\)).
+
+\para{1.2.}
+Soit \((\, ,\, )\) la forme bilinéaire symétrique sur \(k^I\) définie par \((e_i,e_j)=\delta_{ij}\). Elle identifie \(k^I\) à son dual. Regardant \(k^I\) comme l'espace des fonctions de \(I\) dans \(k\), par
+\[
+  u\longmapsto \sum u(i)e_i,
+\]
+on définit sur \(k^I\) une structure d'algèbre par
+\[
+  (u\cdot v)(i)=u(i)v(i).
+\]
+Pour cette structure d'algèbre, on a
+\[
+  (u,v)=\Tr(uv).
+\]
+
+\para{1.3.}
+Le foncteur \(I\mapsto k^I\) étant un adjoint à gauche, il respecte les limites inductives, et en particulier transforme sommes disjointes en sommes directes. Il transforme produits finis en produits tensoriels, par
+\[
+  \bigotimes_{j\in J} k^{I_j}\overset{\sim}{\longrightarrow}
+  k^{\prod I_j},\qquad
+  \bigotimes e_{a(j)}\longmapsto e_{(a(j))_{j\in J}}.
+\]
+
+\para{1.4.}
+Si un groupe \(G\) agit sur \(I\), il agit sur \(k^I\) par transport de structures:
+\[
+  g e_i=e_{g i}.
+\]
+On appelle la représentation linéaire \(k^I\) de \(G\) la représentation de permutation définie par le \(G\)-ensemble \(I\). La forme \((\, ,\, )\) et la structure d'algèbre de 1.2 sont \(G\)-invariantes. Le foncteur \(I\mapsto k^I\) transforme encore sommes disjointes (resp. produits finis) de \(G\)-ensembles en sommes directes (resp. produits tensoriels) de représentations.
+
+\para{1.5.}
+Soit \((U_j)_{j\in J}\) une famille finie d'ensembles finis. Un recollement des \(U_j\) est un ensemble fini \(A\) muni d'une famille d'injections
+\[
+  f_j:U_j\hookrightarrow A
+\]
+telle que \(A\) soit la réunion des \(f_j(U_j)\).
+
+Les \(U_j\) étant considérés comme fixes, une donnée de recollement sur les \(U_j\) est une classe d'isomorphie de recollements. Si \(r\) est une donnée de recollement, et \((f_j:U_j\hookrightarrow A)\) un représentant de \(r\), \(A\) est déterminé à isomorphisme unique près par \(r\). Ceci rend anodin l'abus de langage, que nous nous permettrons, de dire «recollement» pour «donnée de recollement». Par exemple, dire «somme sur les recollements \((f_j:U_j\hookrightarrow A)\) des \(U_j\) de \(\varphi(A)\)» pour «somme sur les données de recollements \(r\) sur les \(U_j\) de \(\varphi(A_r)\), pour \((f_j:U_j\hookrightarrow A_r)\) un représentant de \(r\)».
+
+Une donnée de recollement sur les \(U_j\) s'identifie à une relation d'équivalence \(R\) sur la somme disjointe des \(U_j\) qui induise l'équivalence discrète \(x=y\) sur chaque \(U_j\): à \(R\) associer les
+\[
+  U_j\hookrightarrow \bigl(\coprod U_j\bigr)/R.
+\]
+Pour \(J=\{1,2\}\), elle s'identifie aussi à la donnée de sous-ensembles \(U'_j\subset U_j\) et d'une bijection
+\[
+  \varphi:U'_1\longrightarrow U'_2:
+\]
+lui associer les \(U_j\hookrightarrow U_1\coprod_\varphi U_2\).
+
+Pour \(K\subset J\) et \((f_j:U_j\hookrightarrow A)\) un recollement des \(U_j\), le recollement induit des \(U_j\) (\(j\in K\)) est la famille des
+\[
+  f_j:U_j\hookrightarrow \bigcup_{j\in K} f_j(U_j).
+\]
+
+\para{1.6.}
+Soit \(A\) un anneau commutatif. Une catégorie \(A\) est dite \(A\)-linéaire si les groupes \(\Hom\) sont munis de structures de \(A\)-module pour lesquelles la composition est bilinéaire. Pour \(B\) une \(A\)-algèbre commutative, \(A\otimes_A B\) est alors la catégorie déduite de \(A\) par extension des scalaires de \(A\) à \(B\): mêmes objets, et
+\[
+  \Hom(X,Y)=\Hom_A(X,Y)\otimes_A B.
+\]
+
+\para{1.7.}
+Soit \(\mathcal A\) \(A\)-linéaire. L'enveloppe additive \(\mathcal A^{\add}\) de \(\mathcal A\) est la catégorie additive \(A\)-linéaire des sommes formelles finies d'objets de \(\mathcal A\):
+\[
+\begin{array}{rl}
+\text{objets:}&\text{familles finies }(A_j)_{j\in J}\text{ d'objets de }\mathcal A;\\
+\text{morphismes }(A_j)_{j\in J}\to(B_k)_{k\in K}:&
+\text{matrice }(f^j_k)\text{ de morphismes }A_j\to B_k;\\
+\text{composition:}&\text{produit matriciel.}
+\end{array}
+\]
+
+\para{1.8.}
+Une catégorie pseudo-abélienne (SGA4 I 8.7.8 dit «additive et karoubienne») est une catégorie additive dans laquelle tout endomorphisme idempotent est la projection sur un facteur direct. L'enveloppe pseudo-abélienne \(\mathcal A^{\psab}\) d'une catégorie \(A\)-linéaire \(\mathcal A\) est la catégorie \(A\)-linéaire pseudo-abélienne des facteurs directs formels (images d'endomorphismes idempotents) de sommes formelles finies d'objets de \(\mathcal A\). Voir SGA4 loc. cit.
+
+\para{1.9.}
+Notons \(\Hom_A(\mathcal A_1,\mathcal A_2)\) la catégorie des foncteurs \(A\)-linéaires de \(\mathcal A_1\) dans \(\mathcal A_2\). Les constructions 1.7 et 1.8 ont une propriété universelle: si \(\mathcal B\) est \(A\)-linéaire et additive (resp. pseudo-abélienne), le foncteur de restriction
+\[
+  \Hom_A(\mathcal A^{\add},\mathcal B)\longrightarrow\Hom_A(\mathcal A,\mathcal B)
+\]
+(resp.
+\[
+  \Hom_A(\mathcal A^{\psab},\mathcal B)\longrightarrow\Hom_A(\mathcal A,\mathcal B))
+\]
+est une équivalence. Il «revient au même» de se donner un foncteur \(A\)-linéaire de \(\mathcal A\) dans \(\mathcal B\), ou de \(\mathcal A^{\add}\) (resp. \(\mathcal A^{\psab}\)) dans \(\mathcal B\).
+
+Un foncteur \(A\)-bilinéaire
+\[
+  \mathcal A\times\mathcal A\longrightarrow \mathcal A^{\add}
+\]
+se prolonge donc en un foncteur \(A\)-bilinéaire
+\[
+  \mathcal A^{\add}\times\mathcal A^{\add}\longrightarrow \mathcal A^{\add},
+\]
+et ce prolongement est unique à isomorphisme unique près. De même avec «add» remplacé par «ps ab».
+
+Si la catégorie \(A\)-linéaire \(\mathcal A\) est munie d'un produit tensoriel \(A\)-bilinéaire \(\ACU\) (associatif, commutatif, à unité), \(\mathcal A^{\add}\) et \(\mathcal A^{\psab}\) en héritent. Si le produit tensoriel de \(\mathcal A\) est rigide, celui de \(\mathcal A^{\add}\) (resp. \(\mathcal A^{\psab}\)) l'est aussi.
+
+\para{1.10.}
+Une partition \(\lambda\) est une suite décroissante d'entiers \((\lambda_a)_{a\ge1}\), nuls pour \(a\) assez grand. On pose
+\[
+  |\lambda|=\sum_a \lambda_a
+\]
+et on dit que \(\lambda\) est une partition de \(\ell\) si \(|\lambda|=\ell\). On regarde une suite \(\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_r\) comme une partition en la prolongeant par des zéros. La partition \(\lambda^*\), transposée d'une partition \(\lambda\), est caractérisée par l'équivalence entre \(\lambda_i\ge j\) et \(\lambda^*_j\ge i\). Si \(\lambda\) est une partition de \(\ell\), on notera encore \(\lambda\) les objets suivants attachés à \(\lambda\).
+
+\begin{enumerate}[label=(\Alph*)]
+\item La classe d'isomorphie de représentations irréductibles de \(S_\ell\) correspondante; sa classe dans le groupe de Grothendieck \(R(S_\ell)\) des représentations de \(S_\ell\), et son caractère. La représentation triviale de \(S_\ell\) correspond à la partition grossière \(\ell\) de \(\ell\).
+\item Pour \(N\) assez grand pour que \(\lambda_{N+1}=0\): le poids dominant \((\lambda_1,\ldots,\lambda_N)\) de \(\GL(N)\).
+\end{enumerate}
+
+On supposera choisie pour chaque \(\ell\) et chaque partition \(\lambda\) de \(\ell\) une représentation irréductible de classe \(\lambda\) de \(S_\ell\). La catégorie des ensembles \(U\) à \(\ell\) éléments et des bijections entre eux étant équivalente à sa sous-catégorie pleine réduite à l'objet \(\{1,\ldots,\ell\}\), il revient au même de se donner une telle représentation \(V_\lambda\), ou un foncteur \(U\mapsto V_\lambda[U]\). En particulier, le choix de \(V_\lambda\) définit, pour tout ensemble \(U\) à \(\ell\) éléments, une représentation de \(S_U\), que nous noterons encore \(\lambda\). Elle est déduite de \(V_\lambda\) par torsion par le \(S_\ell\)-torseur des bijections de \(\{1,\ldots,\ell\}\) avec \(U\).
+
+Dans ce qui précède, le corps de base est \(\Q\). On pourrait même prendre l'anneau de base \(\Z(1/\ell!)\). Le cas d'autres corps ou anneaux de base s'en déduit par extension des scalaires. Si \(X\) est une représentation de \(S_U\), on pose
+\[
+  X_\lambda:=\Hom(\lambda,X).
+  \tag{1.10.1}
+\]
+On sait que
+\[
+  \Q[S_U]\overset{\sim}{\longrightarrow}
+  \bigoplus_{|\lambda|=\ell}\End(\lambda),
+  \tag{1.10.2}
+\]
+et il résulte que l'application \(S_U\)-équivariante naturelle
+\[
+  \bigoplus_{|\lambda|=\ell}X_\lambda\otimes\lambda
+  \overset{\sim}{\longrightarrow} X
+  \tag{1.10.3}
+\]
+est un isomorphisme. Cette construction garde un sens pour \(X\) dans une catégorie pseudo-abélienne \(\Z(1/\ell!)\)-linéaire.
+
+\section*{2. La catégorie \(\Rep(S_T)\)}
+
+\para{2.1.}
+Fixons un ensemble fini \(I\). Pour \(U\) un ensemble fini, notons \([U]_I\) la représentation de permutation de \(S_I\) sur l'ensemble \(\Inj(U,I)\) des injections de \(U\) dans \(I\). Pour \(U\) (resp. \(I\)) l'ensemble fini \(\{1,2,\ldots,n\}\), on remplace dans la notation \(U\) (resp. \(I\)) par \(n\).
+
+Pour \(\varphi:U\hookrightarrow V\) une injection, la composition avec \(\varphi\),
+\[
+  \Inj(V,I)\longrightarrow \Inj(U,I),
+\]
+induit
+\[
+  \res_\varphi:[V]_I\longrightarrow [U]_I
+\]
+de transposé (1.2)
+\[
+  \res_\varphi^*:[U]_I\longrightarrow [V]_I.
+\]
+On a
+\[
+  \res_\varphi(e_g)=e_{g\varphi},\qquad
+  \res_\varphi^*(e_f)=\sum_{g\varphi=f} e_g.
+\]
+
+\para{2.2.}
+Soient \(C\) un recollement des ensembles finis \(U\) et \(V\), et \(D\) le produit fibré de \(U\) et \(V\) sur \(C\):
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+D \arrow[r,"a'"] \arrow[d,"b'"'] & U \arrow[d,"a",hook]\\
+V \arrow[r,"b"',hook] & C .
+\end{tikzcd}
+\tag{2.2.1}
+\]
+Si \(U':=a'(D)\), \(V':=b'(D)\), et si \(\varphi\) est la bijection \(b'a'^{-1}:U'\overset{\sim}{\to}V'\), on a
+\[
+  U\coprod_\varphi V\overset{\sim}{\longrightarrow}C.
+\]
+Posons
+\[
+  \{C\}_I:=\res_{b'}^*\,\res_{a'}
+  \qquad
+  \text{(resp. }(C)_I:=\res_b\,\res_a^*\text{)}:
+  [U]_I\longrightarrow [V]_I.
+\]
+Ces morphismes seront aussi notés \(\{\varphi\}_I\) et \((\varphi)_I\) et, quand cela ne crée pas d'ambiguïté, l'indice \(I\) sera omis.
+
+On définit une relation d'ordre entre données de recollements de \(U\) et \(V\) en disant que \(A\) est plus grossier que \(C\) (\(A\le C\)), si \(D\) et \(\varphi\) étant comme ci-dessus, le diagramme
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+D \arrow[r] \arrow[d] & U \arrow[d,hook]\\
+V \arrow[r,hook] & A
+\end{tikzcd}
+\]
+est commutatif, c'est-à-dire si \(A\) est défini par une bijection
+\[
+  \psi:U''\overset{\sim}{\longrightarrow}V'',
+\]
+avec \(U'\subset U''\subset U\) et \(V'\subset V''\subset V\), qui prolonge \(\varphi\).
+
+Pour \(f\) dans \(\Inj(U,I)\), l'image de \(e_f\) par \(\{C\}\) (resp. \((C)\)) est la somme des \(e_g\), \(g\) dans \(\Inj(V,I)\), tels que \(f\) et \(g\) se recollent en une application (resp. une application injective) de \(C\) dans \(I\). Cette description montre que
+\[
+  \{C\}=\sum_{A\le C}(A).
+  \tag{2.2.2}
+\]
+Si \(A\le C\) est défini par \(\psi:U''\overset{\sim}{\to}V''\), l'ensemble ordonné des recollements \(A_1\) entre \(A\) et \(C\) est isomorphe à l'ensemble ordonné par \(\supset\) des parties de \(U''-U'\): à \(A_1\), défini par \(\psi_1:U''_1\to V''_1\), où \(U'\subset U''_1\subset U''\) et où \(\psi_1\) est la restriction de \(\psi\), associer \(U''_1-U'\). La fonction de Möbius pour l'ensemble ordonné des données de recollements est donc
+\[
+  \mu(A,C)=(-1)^{|U''|-|U'|}=(-1)^{|C|-|A|},
+\]
+et (2.2.2) s'inverse en
+\[
+  (C)=\sum_{A\le C}(-1)^{|C|-|A|}\{A\}.
+  \tag{2.2.3}
+\]
+
+\para{2.3.}
+Cas particuliers:
+\begin{enumerate}[label=(\roman*)]
+\item Si dans (2.2.1) \(a'\) (resp. \(b'\)) est bijectif, de sorte que le recollement \(C\) est défini par \(\varphi:U\hookrightarrow V\) (resp. \(\varphi:V\hookrightarrow U\)), on a
+\[
+  (C)=\{C\}=\res_\varphi^*
+  \quad
+  \text{(resp. }(C)=\{C\}=\res_\varphi\text{)}.
+\]
+\item Si le recollement est défini par une bijection \(\varphi\) de \(U\) avec \(V\), \((\varphi)\) est la fonctorialité de \(U\mapsto[U]_I\) pour les bijections, telle que définie par transport de structures.
+\end{enumerate}
+
+\begin{construction*}[2.4]
+Soit \((U_j)_{j\in J}\) une famille finie d'ensembles finis. Le produit tensoriel des \([U_j]_I\) est naturellement isomorphe à la somme directe, étendue aux recollements \((u_j:U_j\hookrightarrow C)\), des \([C]_I\).
+\end{construction*}
+
+\begin{proofdel}
+Le produit tensoriel des \([U]_I\) est la représentation de permutation définie par le \(S_I\)-ensemble produit des \(\Inj(U_j,I)\). Chaque système d'injections \(u_j:U_j\hookrightarrow I\) définit le recollement
+\[
+  u_j:U_j\hookrightarrow \bigcup u_j(U_j).
+\]
+La donnée de recollement correspondante ne dépend que de la \(S_I\)-orbite de \((u_j)_{j\in J}\), et ceci fait de \(\prod \Inj(U_j,I)\) la somme disjointe des \(\Inj(C,I)\), pour \((a_j:U_j\hookrightarrow C)\) une donnée de recollement. On conclut par 1.3.
+\end{proofdel}
+
+\begin{examples*}[2.5]
+\begin{enumerate}[label=(\roman*)]
+\item La représentation \([\varnothing]_I\) est la représentation unité: \(k\) muni de l'action triviale de \(S_I\). Le morphisme
+\[
+  [U]_I\otimes[\varnothing]_I\overset{\sim}{\longrightarrow}[U]_I
+\]
+correspondant est défini par le recollement évident de \(U\) et \(\varnothing\) en \(U\).
+\item La structure d'algèbre
+\[
+  [U]_I\otimes[U]_I\longrightarrow[U]_I
+\]
+de \([U]_I\) définie en 1.2 est la projection sur le facteur direct correspondant au recollement évident de \(U\) et \(U\) en \(U\).
+\item L'autodualité 1.2 de \([U]_I\) est
+\[
+  [U]_I\otimes[U]_I \xto{(ii)} [U]_I \xto{\res_{\varnothing\to U}} [\varnothing],
+\]
+et le morphisme \(\delta:\mathbf 1\to[U]_I\otimes[U]_I\) correspondant est
+\[
+  [\varnothing]\xto{\res_{\varnothing\to U}^*}[U]_I
+  \longrightarrow [U]_I\otimes[U]_I,
+\]
+où la seconde flèche est l'inclusion du facteur direct \([U]_I\).
+\end{enumerate}
+\end{examples*}
+
+\para{2.6.}
+Soit une famille de familles \(((U_{j,k})_{j\in J_k})_{k\in K}\). Elle définit la famille des \(U_{j,k}\), indexée par \(\coprod_k J_k\). On a une bijection naturelle entre:
+\begin{enumerate}[label=(\Alph*)]
+\item les données de recollement \(C\) sur les \(U_{j,k}\);
+\item les systèmes formés par:
+\begin{enumerate}[label=(\alph*)]
+\item pour chaque \(k\), une donnée de recollement \(C_k\) sur les \(U_{j,k}\), \(j\in J_k\);
+\item une donnée de recollement \(D\) sur les \(C_k\), \(k\in K\).
+\end{enumerate}
+\end{enumerate}
+À \(C\), on associe les recollements induits, et leur recollement en \(C\).
+
+On laisse au lecteur le soin de vérifier que l'isomorphisme
+\[
+  \bigotimes_{k\in K}\bigotimes_{j\in J_k}[U_{j,k}]_I
+  =
+  \bigotimes [U_{j,k}]_I
+\]
+devient, via les isomorphismes 2.4, l'isomorphisme de
+\[
+  \bigoplus_{(C_k)}\bigotimes_{k\in K}[C_k]_I
+  =
+  \bigoplus_{(D,C_k)}[D]_I
+\]
+avec la somme des \([C]_I\), définie par les bijections \((A)\leftrightarrow(B)\).
+
+\para{2.7.}
+Ceci décrit les contraintes d'associativité et de commutativité et l'unité du produit tensoriel de représentations \([U]_I\) en termes de la description 2.4 du produit tensoriel. Pour l'associativité
+\[
+  ([U]_I\otimes[V]_I)\otimes[W]_I
+  \longrightarrow
+  [U]_I\otimes([V]_I\otimes[W]_I),
+\]
+on identifie les deux membres à la somme des \([C]_I\), pour \(C\) recollement de \(U,V,W\). Pour la commutativité
+\[
+  [U]_I\otimes[V]_I\longrightarrow [V]_I\otimes[U]_I,
+\]
+utiliser qu'un recollement de \(U\) et \(V\) s'identifie à un recollement de \(V\) et \(U\). L'unité est \([\varnothing]_I\).
+
+\begin{proposition*}[2.8]
+Soient \((U_j)_{j\in J}\) et \((V_j)_{j\in J}\) deux familles indexées par \(J\), et, pour chaque \(j\), soit \(U_j,V_j\hookrightarrow C_j\) un recollement de \(U_j\) et \(V_j\). Identifions, par 2.3, le produit tensoriel des \([U_j]\) (resp. \([V_j]_I\)) avec la somme des \([A]_I\) (resp. \([B]_I\)), pour \(A\) (resp. \(B\)) un recollement des \(U_j\) (resp. \(V_j\)). Alors le coefficient matriciel
+\[
+  [A]_I\longrightarrow \bigotimes[U_j]_I
+  \longrightarrow \bigotimes[V_j]_I
+  \longrightarrow [B]_I
+\]
+de
+\[
+  \bigotimes(C_j):\bigotimes[U_j]_I\longrightarrow \bigotimes[V_j]_I
+\]
+est la somme des
+\[
+  (C):[A]_I\longrightarrow[B]_I,
+\]
+pour \(C\) une donnée de recollement sur \(A\) et \(B\) qui, vue par 2.6 comme donnée de recollement sur les \(U_j\) et \(V_j\), induit pour chaque \(j\) la donnée de recollement \(C_j\) de \(U_j\) et \(V_j\).
+\end{proposition*}
+
+La vérification, immédiate sur la description 2.2 des \((C_j)\), est laissée au lecteur.
+
+\begin{proposition*}[2.9]
+\begin{enumerate}[label=(\roman*)]
+\item Les morphismes \((C):[U]_I\to[V]_I\), pour \(U,V\hookrightarrow C\) un recollement de \(U\) et \(V\) tel que \(|C|\le |I|\), forment une base de \(\Hom_{S_I}([U]_I,[V]_I)\).
+\item La condition \(|C|\le |I|\) est vérifiée par tout recollement \(U,V\hookrightarrow C\) si \(|U|+|V|\le |I|\).
+\end{enumerate}
+\end{proposition*}
+
+\begin{proofdel}
+Par autodualité de la représentation de permutation \([U]_I\), le groupe \(\Hom_{S_I}([U]_I,[V]_I)\) s'identifie à l'espace des \(S_I\)-invariants dans \([U]_I\otimes[V]_I\), qui est la représentation de permutation définie par \(\Inj(U,I)\times\Inj(V,I)\). Les \(S_I\)-invariants ont une base indexée par les \(S_I\)-orbites: à une orbite \(K\) correspondant la somme des \(e_k\) pour \(k\) dans \(K\). Des injections \(u:U\hookrightarrow I\) et \(v:V\hookrightarrow I\) définissent la donnée de recollement
+\[
+  U,V\hookrightarrow u(U)\cup v(V).
+\]
+Notons-la \(C_{u,v}\). Elle ne dépend que de l'orbite de \((u,v)\) et la détecte. On laisse au lecteur le soin de vérifier que le morphisme de \([U]_I\) dans \([V]_I\) défini par l'orbite de \((u,v)\) est \((C_{u,v})\). Les données de recollement \(C\) ainsi obtenues sont celles pour lesquelles \(|C|\le |I|\). Pour les autres, \([C]=0\). Ceci prouve (i), et (ii) est trivial.
+\end{proofdel}
+
+\begin{proposition*}[2.10]
+Soient trois ensembles finis \(U,V\) et \(W\). Soient \(U,V\hookrightarrow C\) un recollement de \(U\) et \(V\), et \(V,W\hookrightarrow D\) un recollement de \(V\) et \(W\). Alors le morphisme composé
+\[
+  (D)(C):[U]_I\longrightarrow[W]_I
+\]
+est la somme, étendue aux recollements \(a,b,c:U,V,W\hookrightarrow A\) qui induisent \(C\) et \(D\):
+\[
+  (D)(C)=\sum_A P_A(|I|)(A'),
+  \tag{2.10.1}
+\]
+où \(A'\) est le recollement de \(U\) et \(W\) induit par \(A\), et où \(P_A(T)\) est le polynôme à coefficients entiers
+\[
+  P_A(T):=(T-|A'|)(T-|A'|-1)\cdots(T-|A|+1).
+  \tag{2.10.2}
+\]
+\end{proposition*}
+
+\begin{proofdel}
+Notons
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V \arrow[dl,"v'"'] \arrow[dr,"v''"] &\\
+C && D\\
+U \arrow[u,"u"] && W \arrow[u,"w"']
+\end{tikzcd}
+\]
+les recollements. Par définition (2.2),
+\[
+  (D)(C)=\res_w\,\res_{v''}^*\,\res_{v'}\,\res_u^*.
+\]
+Le composé \(\res_{v''}^*\res_{v'}\) est calculé par (2.2.2): c'est la somme, sur les recollements \(x,y:C,D\hookrightarrow A\) de \(C\) et \(D\) rendant
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V \arrow[dl,"v'"'] \arrow[dr,"v''"] &\\
+C \arrow[dr,"x"'] && D \arrow[dl,"y"]\\
+U \arrow[u,"u"] & A & W \arrow[u,"w"']
+\end{tikzcd}
+\tag{2.10.3}
+\]
+commutatif, des \(\res_y\res_x^*\).
+
+L'application qui à \(x,y:C,D\hookrightarrow A\) associe
+\[
+  xu,\quad xv'=yv'',\quad yw:U,V,W\hookrightarrow A
+\]
+est bijective, des données de recollement considérées vers les données de recollement de \(U,V,W\) induisant celles données sur \(U,V\) et \(V,W\). On a, pour chaque diagramme (2.10.3),
+\[
+  \res_w\,\res_y\,\res_x^*\,\res_u^*=\res_{yw}\,\res_{xu}^*,
+\]
+et le composé \((D)(C)\) est donc la somme, sur les \(a,b,c:U,V,W\hookrightarrow A\) induisant \(C\) et \(D\), des \(\res_c\res_a^*\). Soit \(A':=a(U)\cup c(W)\):
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,hook,"a'"] \arrow[dr,"a"'] &
+A' \arrow[d,hook,"j"] &
+W \arrow[l,hook',"c'"'] \arrow[dl,"c"]\\
+& A &
+\end{tikzcd}
+\]
+On a
+\[
+  \res_c\res_a^*=\res_{c'}\,\res_j\,\res_j^*\,\res_{a'}^*,
+\]
+et \(\res_j\res_j^*\) est la multiplication par le nombre \(P_A(|I|)\) de façons d'étendre une injection de \(A'\) dans \(I\) en une injection de \(A\) dans \(I\). On a donc
+\[
+  (D)(C)=\sum_A\res_c\res_a^*
+  =
+  \sum_A P_A(|I|)\res_{c'}\res_{a'}^*
+  =
+  \sum_A P_A(|I|)(A').
+\]
+\end{proofdel}
+
+\para{Remarque 2.11.}
+Un calcul analogue, avec (2.2.2) remplacé par (2.2.3), exprime la composition de morphismes \(\{C\}\). Supposons que
+\[
+  C=U\coprod_E V,\qquad D=V\coprod_F W:
+\]
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& E \arrow[dl,"u"'] \arrow[dr,"v'"] &&
+F \arrow[dl,"v''"'] \arrow[dr,"w"] &\\
+U && V && W .
+\end{tikzcd}
+\]
+Par définition,
+\[
+  \{D\}\{C\}=\res_w^*\,\res_{v''}\,\res_{v'}^*\,\res_u.
+\]
+Posons \(V_1:=v'(E)\cup v''(F)\):
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+E \arrow[r,hook,"x"] \arrow[dr,"v'"'] &
+V_1 \arrow[d,hook,"j"] &
+F \arrow[l,hook',"y"'] \arrow[dl,"v''"]\\
+& V &
+\end{tikzcd}
+\]
+On a
+\[
+  \res_{v''}\res_{v'}^*
+  =
+  \res_y\,\res_j\,\res_j^*\,\res_x^*
+  =
+  P_{C,D}(|I|)\res_y\res_x^*,
+\]
+pour \(P_{C,D}\) le polynôme à coefficients entiers
+\[
+  P_{C,D}(T):=(T-|V_1|)\cdots(T-|V|+1).
+  \tag{2.11.1}
+\]
+Le composé \(\res_y\res_x^*\) est
+\[
+  (V_1):[E]_I\longrightarrow[F]_I.
+\]
+D'après (2.2.3), c'est une somme alternée de morphismes \(\{A\}\), pour \(A\) un recollement de \(E\) et \(F\) plus grossier que \(V_1\). Pour \(A_1\) le produit fibré \(E\times_A F\), c'est-à-dire pour \(A=E\coprod_{A_1}F\),
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& A_1 \arrow[dl] \arrow[dr] &\\
+E \arrow[r,hook] \arrow[dr] &
+V_1 \arrow[d] &
+F \arrow[l,hook'] \arrow[dl]\\
+& A &
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+& V_1 \arrow[dl] \arrow[dr] &\\
+U && V
+\end{tikzcd}
+\]
+\(A_1\) définit un recollement \(A'\) de \(U\) et \(V\), et \(\{D\}\{C\}\) est la somme sur \(A\)
+\[
+  \{D\}\{C\}
+  =
+  P_{C,D}(|I|)
+  \sum (-1)^{|V_1|-|A|}\{A'\}.
+  \tag{2.11.2}
+\]
+
+
+\end{document}

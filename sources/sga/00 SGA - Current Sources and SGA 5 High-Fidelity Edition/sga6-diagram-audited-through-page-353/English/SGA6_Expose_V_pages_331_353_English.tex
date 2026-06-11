@@ -1,0 +1,487 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Exposé V continuation macros
+\providecommand{\Ghat}{\widehat G}
+\providecommand{\Gg}{\widehat G_g}
+\providecommand{\Gcirc}{\widehat G_{\circ}}
+\providecommand{\Gnabla}{\widehat G_{\nabla}}
+\providecommand{\Grhat}{\widehat{\operatorname{Gr}}}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Mon}{\operatorname{Mon}}
+
+\begin{center}
+{\Large SGA 6, Exposé V: Gamma operations and free lambda-rings}\\[0.3em]
+{\large Original source pages 331--353}
+\end{center}
+
+
+\subsection*{Continuation of 2.9}
+
+We still suppose that \(K\) is binomial. Multiplication, for the law \(\circ\), by \(\lambda_t(a)\), where \(a\in K\), defines a morphism of functors
+\[
+  \Ghat_K\longrightarrow \Ghat_K
+\]
+which is characterized by its value on the element \(1+Xt\) of \(G(K[X])\). Thus
+\[
+  \lambda_t(a)\circ(1+Xt)=\lambda_{Xt}(a),
+\]
+and hence
+\begin{equation}\tag{2.9.3}
+  \lambda_t(a)\circ(1+Xt)
+  =(1+Xt)^a
+  =\exp(a\Log(1+Xt))
+  =\sum_{n=0}^{\infty}\binom{a}{n}X^nt^n .
+\end{equation}
+It follows that
+\begin{equation}\tag{2.9.4}
+  \lambda_t(a)\circ\varphi=\varphi^a
+  \quad(=\exp(a\Log\varphi)).
+\end{equation}
+Indeed, the two members are additive functors which coincide on \(1+Xt\). From (2.9.3) and 1.15 one obtains that the universal polynomial of degree \(n\) defining multiplication by \(\lambda_t(a)\) is isobaric of weight \(n\). We denote it by \(R_{n,a}\).
+
+Finally, if \(A\) is a \(K\)-\(\lambda\)-algebra and \(b\in A\), then
+\begin{equation}\tag{2.9.5}
+  \lambda_t(ab)=(\lambda_t(b))^a .
+\end{equation}
+This follows from \(\lambda_t(ab)=\lambda_t(a)\circ\lambda_t(b)\) and from (2.9.4).
+
+\section*{3. The operations \(\gamma\)}
+
+We still work over the category \(\mathscr C_0\).
+
+\textbf{3.1.} Let \(K\) be a \(\lambda\)-ring. We shall define from the operations \(\lambda^i\) new operations denoted \(\gamma^i\). They are the operations which are adapted to Chern classes. If \(E\) is a vector bundle of rank \(d\), the top Chern class of \(E\) is represented, in \(K\)-theoretic language, by the alternating sum of the exterior powers. To obtain the \(n\)-th class, one first replaces \(E\) by \(E\oplus\mathbf1^{\,n-d}\), so that the same top-class recipe applies. This motivates the formula below.
+
+\textbf{Proposition 3.2.} Let \(K\) be a \(\lambda\)-ring.
+\begin{enumerate}[label=\roman*)]
+\item For every \(x\in K\) and every \(n\in\mathbb N\),
+\[
+  \lambda^n(x+n-1)=(-1)^n\sum_{i=0}^n(-1)^i\lambda^i(x+n).
+\]
+\item If
+\[
+  \gamma^n(x)=\lambda^n(x+n-1),\qquad
+  \gamma_t(x)=\sum_{n\ge0}\gamma^n(x)t^n,
+\]
+then
+\[
+  \gamma_t(x)=\lambda_{t/(1-t)}(x),
+  \qquad\text{hence}\qquad
+  \lambda_t(x)=\gamma_{t/(1+t)}(x).
+\]
+\end{enumerate}
+Thus knowledge of the operations \(\gamma\) is equivalent to knowledge of the operations \(\lambda\).
+
+\emph{Proof.} For i),
+\[
+  \lambda^n(x+n-1)=\sum_{i=0}^{n}\lambda^i(x+n)\lambda^{n-i}(-1).
+\]
+Since \(\lambda_t(1)=1+t\), one has \(\lambda_t(-1)=1/(1+t)\), and hence \(\lambda^k(-1)=(-1)^k\), giving the desired relation. For ii),
+\[
+  \lambda_{t/(1-t)}(x)=\sum_{n\ge0}\lambda^n(x)t^n(1-t)^{-n},
+\]
+and
+\[
+  t^n(1-t)^{-n}=\sum_{p\ge n}\binom{p-1}{p-n}t^p.
+\]
+The coefficient of \(t^p\) is therefore
+\[
+  \sum_{n=0}^{p}\lambda^n(x)\binom{p-1}{p-n}
+  =\sum_{n=0}^{p}\lambda^n(x)\lambda^{p-n}(p-1)
+  =\lambda^p(x+p-1).
+\]
+
+\textbf{3.3.} If \(f:K\to K'\) is a homomorphism of \(\lambda\)-rings, then \(f\) is a \(\lambda\)-homomorphism if and only if, for every \(i\in\mathbb N\),
+\[
+  f(\gamma^i(x))=\gamma^i(f(x)),
+\]
+or equivalently
+\[
+  \gamma_t(f(x))=\Ghat(f)(\gamma_t(x)).
+\]
+
+\textbf{3.4.} From 3.2 one obtains
+\begin{equation}\tag{3.4.1}
+  \gamma^0(x)=1,
+  \qquad \gamma^1(x)=x,
+  \qquad \gamma^n(x+y)=\sum_{p+q=n}\gamma^p(x)\gamma^q(y).
+\end{equation}
+Thus \(\gamma_t\) defines a new pre-\(\lambda\)-ring structure. It is not, in general, a \(\lambda\)-ring structure. Let \(\rho_t\) denote the automorphism of the functor \(\Ghat\) induced by the change of variable
+\[
+  t\longmapsto \frac{t}{1-t}.
+\]
+Then \(\gamma_t=\rho_t\lambda_t\). Transporting the \(\lambda\)-ring functor structure of \(\Ghat\) by \(\rho_t\) gives a second structure on \(\Ghat\), for which \(\gamma_t:K\to\Ghat(K)\) is a \(\lambda\)-homomorphism whenever \(K\) is a \(\lambda\)-ring.
+
+\textbf{3.5.} The multiplication in this transported structure is the composite
+\[
+  \Ghat\times\Ghat\xrightarrow{\rho_t^{-1}\times\rho_t^{-1}}
+  \Ghat\times\Ghat\xrightarrow{\circ}\Ghat\xrightarrow{\rho_t}\Ghat .
+\]
+It will be denoted \(\nabla\). It is determined by
+\begin{align}
+ (1+Xt)\nabla(1+Yt)
+ &=\rho_t\!\left(\rho_t^{-1}(1+Xt)\circ\rho_t^{-1}(1+Yt)\right) \notag\\
+ &=\rho_t\!\left(\frac{1+(X+1)t}{1+t}\circ
+                 \frac{1+(Y+1)t}{1+t}\right) \notag\\
+ &=\rho_t\!\left(\frac{(1+((X+1)(Y+1))t)(1+t)}
+                      {(1+(X+1)t)(1+(Y+1)t)}\right) \notag\\
+ &=\frac{1+(1+X+Y+XY)t}{(1+Xt)(1+Yt)} . \tag{3.5.1}
+\end{align}
+Thus, for \(x,y\in K\),
+\begin{equation}\tag{3.5.2}
+  \gamma_t(xy)=\gamma_t(x)\nabla\gamma_t(y).
+\end{equation}
+The universal polynomial of degree \(n\) for this law will be denoted \(P'_n\). Its isobaric components have weights between \(n\) and \(2n\) in each of the two groups of variables, and
+\begin{equation}\tag{3.5.3}
+  \gamma^n(xy)
+  =P'_n(\gamma^1(x),\ldots,\gamma^n(x),
+       \gamma^1(y),\ldots,\gamma^n(y)).
+\end{equation}
+The unit for \(\nabla\) is \(\gamma_t(1)=1/(1-t)\).
+
+\textbf{3.6.} The operations \(\lambda'\) of the transported structure are defined by
+\[
+\begin{tikzcd}[column sep=large]
+\Ghat \\[-0.6em]
+1+K[[t]]^+ \arrow[r,"\lambda_u"] \arrow[d,"\rho_t"'] &
+1+\{1+K[[t]]^+\}[[u]]^+ \arrow[d,"\Ghat(\rho_t)"]\\
+1+K[[t]]^+ \arrow[r,"\lambda'_u"'] &
+1+\{1+K[[t]]^+\}[[u]]^+ .
+\end{tikzcd}
+\tag{3.6.1}
+\]
+If \(\gamma'\) denotes the \(\gamma\)-operations attached to these operations \(\lambda'\), then
+\begin{equation}\tag{3.6.2}
+  \gamma'_u(1+Xt)=\frac1{1-u}+\{1+Xt\}u .
+\end{equation}
+Let \(Q'_{i,j}\) be the coefficient of \(t^j\) in \(\gamma'^i(1+X_1t+X_2t^2+\cdots)\). It is a polynomial in \(\mathbb Z[X_1,\ldots,X_{ij}]\), whose isobaric components have weights from \(j\) to \(ij\). For a \(\lambda\)-ring \(K\) and \(x\in K\),
+\begin{equation}\tag{3.6.3}
+  \gamma_t(\lambda^i(x))=\lambda'^i(\gamma_t(x)),
+  \qquad
+  \gamma_t(\gamma^i(x))=\gamma'^i(\gamma_t(x)),
+\end{equation}
+and therefore
+\begin{equation}\tag{3.6.4}
+  \gamma^j(\gamma^i(x))
+  =Q'_{i,j}(\gamma^1(x),\ldots,\gamma^{ij}(x)).
+\end{equation}
+The transported pre-\(\lambda\)-ring structure on \(\Ghat\) is itself a \(\lambda\)-ring structure.
+
+\textbf{3.7.} We denote by \(\Gcirc\) the functor \(\Ghat\) with the structure of §2, and by \(\Gnabla\) the same functor with the structure of §3. Giving a \(\lambda\)-ring structure on a ring \(A\) is equivalent either to giving a ring homomorphism \(A\to\Gcirc(A)\) satisfying the usual diagram for \(\lambda_t\), or to giving a ring homomorphism \(A\to\Gnabla(A)\) satisfying the corresponding diagram for \(\gamma_t\). Explicitly, the two diagrams are
+\[
+\begin{tikzcd}[column sep=large]
+A \arrow[r,"\lambda_u"] \arrow[d,"\lambda_t"'] & \Gcirc^u(A) \arrow[d,"\Gcirc^u(\lambda_t)"]\\
+\Gcirc^t(A) \arrow[r,"\lambda_u"'] & \Gcirc^u(\Gcirc^t(A))
+\end{tikzcd}
+\tag{3.7.1}
+\]
+and
+\[
+\begin{tikzcd}[column sep=large]
+A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(\gamma_t)"]\\
+\Gnabla^t(A) \arrow[r,"\gamma'_u"'] & \Gnabla^u(\Gnabla^t(A)).
+\end{tikzcd}
+\tag{3.7.2}
+\]
+
+\textbf{3.8.} Let \(K\) be a binomial ring. From (2.6.1), for \(x\in K\),
+\begin{equation}\tag{3.8.1}
+  \gamma_t(x)=\left(\frac1{1-t}\right)^x
+  =\exp(-x\Log(1-t)).
+\end{equation}
+For \(a\in K\), multiplication by \(\gamma_t(a)\) for the law \(\nabla\) is characterized by its value on \(1+Xt\):
+\begin{equation}\tag{3.8.2}
+  \gamma_t(a)\nabla(1+Xt)
+  =(1+Xt)^a
+  =\exp(a\Log(1+Xt))
+  =\sum_{n=0}^{\infty}\binom{a}{n}X^nt^n .
+\end{equation}
+Thus the universal polynomial of degree \(n\) defining this multiplication is again \(R_{n,a}\).
+
+\textbf{Definition 3.9.} Let \(K\) be a \(\lambda\)-ring. An \emph{augmented \(K\)-\(\lambda\)-algebra} is a \(K\)-\(\lambda\)-algebra \(A\), together with a \(\lambda\)-homomorphism of \(K\)-algebras
+\[
+  \epsilon:A\longrightarrow K.
+\]
+Morphisms are \(\lambda\)-homomorphisms compatible with the augmentations.
+
+\textbf{Example 3.9.1.} Let \((X,A)\) be a locally ringed topos. The Grothendieck group \(K^\circ(X)\) of locally free finite-type \(A\)-modules has a natural pre-\(\lambda\)-ring structure by exterior powers. There is a natural \(\lambda\)-homomorphism from \(H^0(X,\mathbb Z)\) to \(K^\circ(X)\): a section \(a\) of the constant sheaf \(\mathbb Z\) partitions the final object into opens \(U_n\) on which \(a=n\), and is sent to the class of the locally free module which is \(A^n\) on \(U_n\) for \(n\ge0\), minus the analogous class on the negative pieces. The rank map is the augmentation. This is the augmented structure used below.
+
+\textbf{3.10.} Let \(A\) be an augmented \(K\)-\(\lambda\)-algebra. For \(n>0\), define \(\Fil^n A\) to be the ideal generated by products
+\begin{equation}\tag{3.10.1}
+  \gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k),
+  \qquad i_1+\cdots+i_k\ge n,
+  \qquad \epsilon(x_i)=0.
+\end{equation}
+If \(A\) is generated as an abelian group by \((x_\alpha)\), then \(\Fil^nA\) is generated over \(K\) by
+\begin{equation}\tag{3.10.2}
+  \gamma^{i_1}(x_{\alpha_1}-\epsilon(x_{\alpha_1}))\cdots
+  \gamma^{i_k}(x_{\alpha_k}-\epsilon(x_{\alpha_k})),
+  \qquad i_1+\cdots+i_k\ge n.
+\end{equation}
+The filtration is decreasing and multiplicative, and
+\[
+  \Fil^0A=A,
+  \qquad \Fil^1A=\Ker\epsilon.
+\]
+It is functorial for homomorphisms of augmented \(K\)-\(\lambda\)-algebras.
+
+\textbf{Proposition 3.11.} Let \(A\) be a \(\lambda\)-ring and let \(y_1,\ldots,y_n\) be elements of \(A\) such that \(\gamma^j(y_i)=0\) for \(j\ge2\). Put \(x=\sum_i y_i\). Then \(\gamma^k(x-n)=0\) for \(k>n\), and, for \(1\le k\le n\), \(\gamma^k(x-n)\) is the \(k\)-th elementary symmetric function of the \(y_i-1\). This follows from
+\[
+  \gamma_t(x-n)=\prod_{i=1}^{n}\gamma_t(y_i-1).
+\]
+
+\section*{4. \(\lambda\)-rings generated by generators and relations}
+
+\textbf{4.1.} Let \(K\) be a \(\lambda\)-ring and let \((X_i)_{i\in I}\) be indeterminates. Put
+\[
+  A=K[X_i,{}^nX_i]_{i\in I,\ n\ge2}.
+\]
+Define
+\begin{equation}\tag{4.1.1}
+  \lambda_t(X_i)=1+X_it+\sum_{n\ge2}{}^nX_i t^n,
+  \qquad
+  \lambda_t({}^nX_i)=\lambda^n(\lambda_t(X_i)).
+\end{equation}
+This gives a \(\lambda\)-ring structure on \(A\) extending that of \(K\).
+
+\textbf{Proposition 4.2.} For every \(K\)-\(\lambda\)-algebra \(B\) and every family \((b_i)_{i\in I}\) in \(B\), there exists a unique \(K\)-\(\lambda\)-homomorphism \(A\to B\) carrying \(X_i\) to \(b_i\). Necessarily it carries \({}^nX_i\) to \(\lambda^n(b_i)\), and this condition is sufficient.
+
+\textbf{4.3.} The same construction may be made using \(\gamma\)'s. Let
+\[
+  A'=K[X_i,{}^\gamma_nX_i]_{i\in I,\ n\ge2},
+\]
+and define
+\begin{equation}\tag{4.3.1}
+  \gamma_t(X_i)=1+X_it+\sum_{n\ge2}{}^\gamma_nX_i t^n,
+  \qquad
+  \gamma_t({}^\gamma_nX_i)=\gamma'^n(\gamma_t(X_i)).
+\end{equation}
+This gives a \(\lambda\)-ring satisfying the same universal property, hence canonically isomorphic to \(A\).
+
+\textbf{Definition 4.4.} The preceding \(\lambda\)-ring is the \emph{free \(\lambda\)-ring} over \(K\) generated by the family \((X_i)\).
+
+\textbf{Definition 4.5.} An ideal \(J\) of a \(\lambda\)-ring \(A\) is a \emph{\(\lambda\)-ideal} if \(\lambda^n(x)\in J\) for every \(x\in J\) and \(n>1\). Kernels of \(\lambda\)-homomorphisms are \(\lambda\)-ideals; conversely, if \(J\) is a \(\lambda\)-ideal, \(A/J\) receives a unique \(\lambda\)-ring structure. The intersection of \(\lambda\)-ideals is a \(\lambda\)-ideal. Thus every family of elements has a smallest containing \(\lambda\)-ideal, generated by the elements and all their iterated \(\lambda^n\)'s.
+
+\textbf{Definition 4.6.} The quotient of the free \(\lambda\)-ring by the \(\lambda\)-ideal generated by prescribed relations \((P_i)\) is called the \(\lambda\)-ring generated by the generators \((X_i)\) subject to the relations \((P_i)\). Equivalently, one may formulate the same construction in terms of \(\gamma\)-operations.
+
+\textbf{Proposition 4.7.} This quotient has the expected universal property: every family \((b_i)\) in a \(K\)-\(\lambda\)-algebra satisfying the relations \((P_i)\) determines a unique \(K\)-\(\lambda\)-homomorphism from the quotient to that algebra.
+
+\textbf{Proposition 4.8.} Let \(n\ge0\). In the free \(\lambda\)-ring over \(K\) on one generator \(X\), the ideal generated by the \(\lambda^kX\), \(k>n\), is a \(\lambda\)-ideal. Indeed, after quotienting, one has only to check that if \(\varphi\in\Ghat(C)\) has no terms of degree \(>n\), then \(\lambda^k(\varphi)=0\) for \(k>n\). By the splitting principle, it is enough to write
+\[
+  \varphi=\prod_{i=1}^{n}(1+T_it),
+\]
+and then
+\[
+  \lambda_u(\varphi)=\prod_{i=1}^{n}\bigl(1+\{1+T_it\}u\bigr),
+\]
+which has degree \(n\) in \(u\).
+
+\textbf{Corollary 4.9.} The \(\lambda\)-ring generated over \(K\) by one element \(X\), subject to \(\lambda^k(X)=0\) for \(k>n\), is
+\[
+  K[X,\lambda^2X,\ldots,\lambda^nX].
+\]
+More generally, for a family \((X_i)\) with bounds \((n_i)\), the quotient subject to \(\lambda^k(X_i)=0\) for \(k>n_i\) is the polynomial ring generated by \(X_i,\lambda^2X_i,\\ldots,\lambda^{n_i}X_i\).
+
+\textbf{4.10.} Let \(K\) be binomial and let \(A\) be an augmented \(K\)-\(\lambda\)-algebra. Put
+\[
+  B=A[X,\gamma^2X,\gamma^3X,\ldots],
+\]
+the free \(A\)-\(\lambda\)-algebra on \(X\), written in \(\gamma\)-coordinates. Extend the augmentation by \(\epsilon(X)=0\), hence \(\epsilon(\gamma^iX)=0\) for \(i>0\). Let \(M_k\) be the set of monomials in the variables \(\gamma^jX\), counted with weight \(j\), of total weight \(k\), and set \(M_0=\{1\}\).
+
+\textbf{Lemma 4.11.} If \(x\in\Fil^pA\), then every coefficient of \(\gamma^n(x+X)\) which is homogeneous of weight \(k\) in the \(\gamma^jX\) belongs to \(\Fil^{p+n-k}A\).
+
+\textbf{Proposition 4.12.} For every \(k\ge0\),
+\begin{equation}\tag{4.12.1}
+  \Fil^kB=
+  \Fil^kA+\Fil^{k-1}A\,M_1+\cdots+\Fil^1A\,M_{k-1}
+  +\Fil^0A\,M_k+B\,M_{k+1}.
+\end{equation}
+The inclusion from right to left follows from Lemma 4.11. The reverse inclusion is obtained by writing the generators of \(\Fil^kB\) as products of \(\gamma\)-operations and reducing, term by term, to the displayed weights.
+
+\textbf{Remarks 4.13.} The proof gives the same assertion for a free \(\lambda\)-algebra on any finite or infinite family of generators, with the evident multi-weight. It is also unchanged when one uses the \(\lambda\)-coordinates, since \(\lambda\) and \(\gamma\) coordinates differ by triangular universal formulas.
+
+\textbf{Corollary 4.14.} Passing to the associated graded ring, one has
+\begin{equation}\tag{4.14.1}
+  \Gr^kB\simeq
+  \Gr^kA\oplus \Gr^{k-1}A\,M_1\oplus\cdots\oplus\Gr^0A\,M_k.
+\end{equation}
+
+\textbf{Corollary 4.15.} If \(B'=K[X,\gamma^2X,\ldots,\gamma^nX]\) is the \(K\)-\(\lambda\)-algebra generated by one element satisfying \(\gamma^k(X)=0\) for \(k>n\), then the \(\lambda\)-ring filtration of \(B'\) is exactly the weight filtration in the variables \(\gamma^jX\).
+
+\section*{5. The elements \(\lambda^p(N,x)\)}
+
+This section will be used only in Exposé VII, §4, in the study of regular immersions; it may be omitted on first reading.
+
+\textbf{5.1.} Let \(d\ge1\). Let \(A\) be the \(\mathbb Z\)-\(\lambda\)-algebra generated by \(N\) and \(x\), subject to the relations \(\lambda^i(N)=0\) for \(i>d\). Thus
+\[
+  A=\mathbb Z[N,\ldots,\lambda^dN;
+       x,\ldots,\lambda^jx,\ldots].
+\]
+Put
+\begin{equation}\tag{5.1.1}
+  \lambda_{-1}(N)=\sum_{i=0}^{d}(-1)^i\lambda^i(N).
+\end{equation}
+
+\textbf{Lemma 5.2.} For every \(p\ge1\), the element \(\lambda^p(x\lambda_{-1}(N))\) is divisible by \(\lambda_{-1}(N)\).
+
+It is enough, by isobaricity, to prove this for \(\lambda^p(\lambda_{-1}(N))\). Let \(B\) be the \(\lambda\)-ring generated by \(N_1,\ldots,N_d\), with \(\lambda^i(N_j)=0\) for \(i\ge2\). The map \(N\mapsto\sum_iN_i\) identifies \(A\) with the symmetric polynomials in the \(N_i\), and
+\[
+  \lambda_{-1}(N)=\prod_{i=1}^{d}(1-N_i).
+\]
+If some \(N_i=1\), then \(\lambda_t(\lambda_{-1}(N))=\lambda_t(0)=1\), so every positive coefficient vanishes. Thus each \(\lambda^p(\lambda_{-1}(N))\) is divisible by every \(1-N_i\), hence by their product.
+
+\textbf{Definition 5.3.} Since \(A\) is integral, define \(\lambda^p(N,x)\) by
+\begin{equation}\tag{5.3.1}
+  \lambda^p(N,x)\lambda_{-1}(N)=\lambda^p(x\lambda_{-1}(N)),
+  \qquad p\ge1.
+\end{equation}
+Thus \(\lambda^p(N,x)\) is a polynomial in the \(\lambda^i(x)\) and \(\lambda^j(N)\), isobaric of weight \(p\) in the \(\lambda^i(x)\). If a \(\lambda\)-ring \(B\) contains an element \(N'\) with \(\lambda^k(N')=0\) for \(k>d\), then \(\lambda^p(N',x')\) is defined by substitution; it is independent of the chosen bound \(d\).
+
+\textbf{5.4.} In the \(\lambda\)-ring generated by \(N,x,y\), subject to \(\lambda^k(N)=0\) for \(k>d\), the formula (5.3.1) gives
+\begin{align}
+ \lambda^p(N,x+y)
+ &=\lambda^p(N,x)+\lambda^p(N,y) 
+   +\sum_{\substack{i+j=p\\ i,j>0}}
+     \lambda^i(N,x)\lambda^j(N,y)\lambda_{-1}(N).
+ \tag{5.4.1}
+\end{align}
+If \(N,N',x\) satisfy the corresponding finite-rank hypotheses, then
+\begin{equation}\tag{5.4.2}
+  \lambda^p(N+N',x)\lambda_{-1}(N)
+  =\lambda^p\bigl(N',x\lambda_{-1}(N)\bigr).
+\end{equation}
+
+\textbf{5.5.} Let \(A\) be a \(\lambda\)-ring and let \(N\in A\) satisfy \(\lambda^k(N)=0\) for \(k>d\). Define on the underlying abelian group of \(A\) a new multiplication by
+\[
+  x\cdot_N y=xy\lambda_{-1}(N).
+\]
+After adjoining a unit, one obtains a ring \(\mathbb Z\times A\) with
+\[
+  (n,x)(m,y)=(nm,ny+mx+x\cdot_N y).
+\]
+The formulas
+\begin{equation}\tag{5.5.1}
+  \lambda_t(n,x)=(1+t)^n\left(1+
+  \sum_{p\ge1}\lambda^p(N,x)t^p\right)
+\end{equation}
+define a pre-\(\lambda\)-ring structure. In fact, when \(A\) is a \(\lambda\)-ring, this is a \(\lambda\)-ring structure; it is the one transported from the original structure by multiplication by \(\lambda_{-1}(N)\). We denote this augmented \(\lambda\)-ring by \(\widehat A_N\). Its \(\gamma\)-operations satisfy
+\begin{equation}\tag{5.5.2}
+  \gamma^p(N,x)\lambda_{-1}(N)=\gamma^p(x\lambda_{-1}(N)).
+\end{equation}
+
+\textbf{5.6.} Suppose that, in addition, \(L\) is an element such that \(\lambda^k(L)=0\) for \(k>1\). Then \(\lambda^p(N+L,x)\) is the coefficient of \(t^p\) in the series
+\begin{equation}\tag{5.6.1}
+  \frac{\displaystyle\sum_{k\ge1}\lambda^k(N,x)
+        (1+L+\cdots+L^{k-1})t^k}
+       {\displaystyle 1+\sum_{k\ge1}\lambda^k(N,x)
+        \lambda_{-1}(N)L^k t^k}.
+\end{equation}
+This is obtained by applying (5.4.2) to \(N+L\) and using \(\lambda_{-1}(L)=1-L\).
+
+\textbf{Proposition 5.7.} Let \(K\) be a binomial ring, \(A\) an augmented \(K\)-\(\lambda\)-algebra, and \(N\in A\) such that \(\lambda^k(N)=0\) for \(k>d\). Then, for every \(x\in A\) and every \(p\ge1\),
+\begin{equation}\tag{5.7.1}
+  \gamma^p(N,x)\in\Fil^{p-d}A.
+\end{equation}
+Indeed, let \(A_0\) be the \(K\)-\(\lambda\)-algebra generated by \(N'_0,X'_0\), with \(\lambda^k(N'_0)=0\) for \(k>d\), and augmented by \(\epsilon(N'_0)=\epsilon(X'_0)=0\). This is a polynomial algebra over \(K\) in the variables \(\gamma^i(N'_0)\), \(1\le i\le d\), and \(\gamma^j(X'_0)\), \(j\ge1\), and its \(\lambda\)-filtration is the weight filtration. Put
+\[
+  N_0=N'_0+d,
+  \qquad X_0=X'_0+\epsilon(x).
+\]
+For \(N_0,X_0\), the assertion is equivalent to
+\[
+  \gamma^p(N_0,X_0)\gamma^d(N'_0)\in\Fil^pA_0.
+\]
+Since \(\gamma^d(N'_0)=(-1)^d\lambda_{-1}(N_0)\), this becomes
+\[
+  (-1)^d\gamma^p(X_0\gamma^d(N'_0))\in\Fil^pA_0,
+\]
+which is clear because \(\gamma^d(N'_0)\) has zero augmentation. A \(K\)-\(\lambda\)-homomorphism \(A_0\to A\), compatible with augmentations and sending \(N'_0\) to \(N-d\) and \(X'_0\) to \(x-\epsilon(x)\), gives the stated result.
+
+\section*{6. Chern ring: opening}
+
+Throughout this section the base ring is a fixed binomial ring \(K\). We use the functor \(G\) of 1.1, and return to the notation of §1: \(G\) denotes the functor there defined and \(G_i\) its restriction to \(\mathscr C_0\).
+
+\textbf{6.1.} In 3.5 and 3.6 we defined morphisms of functors
+\[
+  G_i\times G_i\xrightarrow{\star}G_i,
+  \qquad
+  G_i^\circ\xrightarrow{\gamma'}G_i^\circ\circ G_S,
+  \qquad
+  G_i\xrightarrow{a}G_i,
+\]
+where the last map is multiplication, for the law \(\nabla\), by \(\gamma_t(a)\) with \(a\in K\). By 1.9 these give morphisms
+\[
+  G\times G\xrightarrow{\star}G,
+  \qquad
+  G\xrightarrow{\gamma'}G\circ G_S,
+  \qquad
+  G\xrightarrow{a}G.
+\]
+The isobaricity of the universal polynomials involved implies that the first and third images lie in \(G\), while the second lies in the subgroup of formal series in \(u\) whose non-zero terms have the prescribed degrees.
+
+\end{document}
