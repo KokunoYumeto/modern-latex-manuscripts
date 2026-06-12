@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 14 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20652117) |
-| Emmy Noether | 62 | 49 | 8 | 135.1 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20668017) |
+| Emmy Noether | 65 | 49 | 9 | 147.6 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20668796) |
 | Heinrich Weber | 45 | 8 | 31 | 1021.8 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20667337) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20454552) |
@@ -26,7 +26,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | J. Willard Gibbs / Old Physics | 10 | 3 | 3 | 18.6 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://zenodo.org/records/20649836) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 13 | 5 | 7 | 1222.1 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20664430) |
+| Luigi Bianchi | 15 | 5 | 8 | 1449.1 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20668784) |
 | Paul Gordan and Clebsch-Gordan | 30 | 0 | 28 | 1540.4 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20667319) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Additional Author Cluster | 94 | 10 | 84 | 5369.0 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20664437) |
+| Additional Author Cluster | 96 | 10 | 85 | 5447.9 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20668791) |
