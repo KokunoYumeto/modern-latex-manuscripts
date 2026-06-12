@@ -15,7 +15,7 @@ Good starting points:
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
 | SGA | [SGA record](https://zenodo.org/records/20668022), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
-| Weber | [Weber record](https://zenodo.org/records/20667337), Volume I first; later volumes are in progress |
+| Weber | [Weber record](https://zenodo.org/records/20669232), Volume I first; later volumes are in progress |
 | Noether | [Noether record](https://zenodo.org/records/20668796), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20668784), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip` as the latest continuation layer through p0090, with older p0001-p0066 re-audit/HQ/audit ZIPs retained as provenance/support layers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20668971), open Abel22 for the current Abelsche continuation through source pp.292-299 / printed pp.270-277 and cumulative stream through source p299. Earlier Abel and AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside. |
