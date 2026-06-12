@@ -11,7 +11,7 @@ Good starting points:
 | Interest | Start With |
 |---|---|
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
-| SGA | [SGA record](https://zenodo.org/records/20651984), the current reader PDFs first, then the audit/source ZIPs |
+| SGA | [SGA record](https://zenodo.org/records/20661245), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20660948), Volume I first; later volumes are in progress |
 | Noether | [Noether record](https://zenodo.org/records/20651590), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
