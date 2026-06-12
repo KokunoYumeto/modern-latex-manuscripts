@@ -5,7 +5,7 @@ The public project is intentionally split across a small number of logical Zenod
 | Record | Role |
 |---|---|
 | <https://zenodo.org/records/20415117> | Main project landing page and current bulk archive. |
-| <https://zenodo.org/records/20652117> | Compact workflow / replication packet for the AI-run scan to TeX to translation to audit to publication process. |
+| <https://zenodo.org/records/20670272> | Compact workflow / replication packet for the AI-run scan to TeX to translation to audit to publication process. |
 | <https://zenodo.org/records/20669591> | Emmy Noether author record: curated reader-facing surface with cumulative readers, 43 standalone English paper PDFs, compact language/source ZIPs, RA23 display-layout corrections, and the RA25/RA26/RA27/RA28 Paper 02 source-critical symbol audit packages plus the RA28 ν/v source-audit correction package. |
 | <https://zenodo.org/records/20669232> | Heinrich Weber author record: `Lehrbuch der Algebra` Volume I represented as a repaired/front-facing working branch, current Volume II German/English readers through §176, recursive repairs through Batch127, ledger 28/112 closed and 84/112 open, and Volume III retained as the current repaired cumulative. |
 | <https://zenodo.org/records/20617845> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified. The current narrow promoted restart packet is `Cayley_V1_critical_p001_045_v2_20260609.zip`, covering Volume I printed pp.1-45 / Papers 1-9 with the Paper 6 low-comma/layout correction; despite the filename, it is a source-inspected working packet, not a critical edition. |

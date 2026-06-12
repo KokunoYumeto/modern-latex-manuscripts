@@ -5,7 +5,7 @@ Generated from `manifests/public-file-catalog.csv` after the 2026-06-12 archive 
 | record | files | pdfs | zips | manifests | total MB | link |
 |---|---:|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
-| workflow | 14 | 3 | 7 | 4 | 0.3402 | [record](https://zenodo.org/records/20652117) |
+| workflow | 15 | 3 | 7 | 5 | 0.3428 | [record](https://zenodo.org/records/20670272) |
 | noether | 67 | 49 | 10 | 8 | 152.5910 | [record](https://zenodo.org/records/20669591) |
 | weber | 45 | 8 | 31 | 6 | 1021.8377 | [record](https://zenodo.org/records/20669232) |
 | cayley | 84 | 13 | 69 | 2 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
