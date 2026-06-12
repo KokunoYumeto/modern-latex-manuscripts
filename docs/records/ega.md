@@ -4,6 +4,8 @@ Zenodo record: [20454552](https://zenodo.org/records/20454552)
 
 Public title: Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 16 | 10 | 4 | 471.7 |

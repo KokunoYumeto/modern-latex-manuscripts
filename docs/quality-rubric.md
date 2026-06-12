@@ -2,6 +2,12 @@
 
 This archive is a working corpus. A public file is useful enough to inspect and improve; it is not automatically a final scholarly edition.
 
+## Critical Edition Rule
+
+No public record in this archive is a critical edition, critically complete edition, or mathematically certified edition unless a future record explicitly says that the user/project maintainer has certified it at that level. Current records should be read as working drafts, source-witnessed tranches, translation drafts, OCR/witness layers, or repair packets according to their status notes.
+
+Words such as `complete`, `source_checked`, `strict`, or `critical` in older filenames can be inherited package names or structural coverage labels. They do not override the record-level caveats. For serious use, verify important formulas, diagrams, tables, theorem statements, cross-references, and unusual notation against the bundled source witnesses.
+
 ## Naming Rule
 
 The filename should expose the quality layer. `OCR_candidate`, `formula_witness`, `crop_witness`, and `locator_aid` are checking aids, not editions. `working_draft`, `source_checked`, `reader`, and `cumulative` are reserved for compiled TeX/PDF surfaces with an explicit audit level. When in doubt, choose the lower-confidence name.
@@ -25,9 +31,9 @@ The practical distinction is important. OCR converted to TeX is usually not impr
 |---|---|---|
 | OCR/candidate witness | Finding text regions, formula regions, diagram locations, and likely omissions. | Do not cite or rely on it as an edition. |
 | Readable working draft | Reading a work in modern TeX form and continuing repair/translation. | May still include OCR mistakes, skipped details, or layout problems. |
-| Source-checked range | More serious use for the declared page/range. | The declaration may be local; adjacent ranges can still be weaker. |
+| Source-checked range | More serious use for the declared page/range. | The declaration may be local and may still need mathematical proofreading; adjacent ranges can be weaker. |
 | Multilingual working translation | Access where no convenient translation exists, especially for mathematical structure and terminology. | Check the original for important formulas and hard passages. |
-| Proofread edition | Citation-level confidence if explicitly declared. | Rare in the current archive. |
+| Proofread edition | Citation-level confidence if explicitly declared by the maintainer after source and mathematical review. | Not the default status of current records. |
 
 ## Review Levels
 
@@ -38,7 +44,7 @@ The practical distinction is important. OCR converted to TeX is usually not impr
 | Readable draft | A human can browse the PDF and see coherent typeset text. | It may still contain OCR errors, formula mistakes, or missing diagrams. |
 | Source-check candidate | Source witnesses and TeX/provenance are available for comparison. | It has not necessarily been checked page by page. |
 | Source-checked | A contributor has compared the draft against a source witness for a named range. | Other ranges may still be unchecked. |
-| Proofread edition | The work has sustained mathematical, typographical, and source review. | Most current files are not at this level unless explicitly stated. |
+| Proofread edition | The work has sustained mathematical, typographical, and source review and has been explicitly certified as such. | Most current files are not at this level unless explicitly stated. |
 
 ## Audit Claims
 
@@ -46,7 +52,7 @@ The public readability audit checks for configured metadata and filename problem
 
 The public PDF surface audit checks that top-level PDFs open and do not trip configured surface defects. It can classify known image-based reference scans as expected.
 
-Neither audit proves mathematical correctness. The strongest review is still source comparison against scans, reference PDFs, or trusted existing TeX.
+Neither audit proves mathematical correctness. The strongest review is still source comparison against scans, reference PDFs, or trusted existing TeX, followed by mathematical proofreading of the resulting TeX/PDF.
 
 ## How To Review A File
 

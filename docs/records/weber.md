@@ -4,6 +4,8 @@ Zenodo record: [20660948](https://zenodo.org/records/20660948)
 
 Public title: Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 39 | 8 | 27 | 854.8 |
@@ -12,7 +14,7 @@ Public title: Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Tra
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-Current Weber public surface: Volume I is complete as a repaired/source-scan-audited working edition; Volume II has current German/English cumulative reader PDFs through section 176, with Batch104-Batch106 covering sections 169-176 and localized Batch107-Batch122 recursive repairs/ledgers added for sections including Vol. I §§124, 151, 183 and Vol. II §§20, 21, 52, 57, 58, 60, 61, 77, 81, 99, 101, 106, 114, 118, 126. Batch122 closes Vol. II §81 and fixes the §81/§82 boundary by placing the Tripel/Quadrupel tables visible on source p313 before the §82 heading. The active repair ledger is now 20 closed priority repair rows and 92 open. Volume III remains the current repaired cumulative from the earlier baseline. OCR and display ledgers are omission guards and locator layers, not independent authority; continuation ranges remain working drafts unless the package declares source-checked coverage.
+Current Weber public surface: Volume I is represented as a repaired/source-scan-audited working edition; Volume II has current German/English cumulative reader PDFs through section 176, with Batch104-Batch106 covering sections 169-176 and localized Batch107-Batch122 recursive repairs/ledgers added for sections including Vol. I §§124, 151, 183 and Vol. II §§20, 21, 52, 57, 58, 60, 61, 77, 81, 99, 101, 106, 114, 118, 126. Batch122 closes Vol. II §81 and fixes the §81/§82 boundary by placing the Tripel/Quadrupel tables visible on source p313 before the §82 heading. The active repair ledger is now 20 closed priority repair rows and 92 open. Volume III remains the current repaired cumulative from the earlier baseline. OCR and display ledgers are omission guards and locator layers, not independent authority; continuation ranges remain working drafts unless the package declares source-checked coverage.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

@@ -4,6 +4,8 @@ Zenodo record: [20649836](https://zenodo.org/records/20649836)
 
 Public title: J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 10 | 3 | 3 | 18.6 |

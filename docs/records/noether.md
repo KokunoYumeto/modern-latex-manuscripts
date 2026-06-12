@@ -4,6 +4,8 @@ Zenodo record: [20651590](https://zenodo.org/records/20651590)
 
 Public title: Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 55 | 49 | 5 | 95.6 |
@@ -12,7 +14,7 @@ Public title: Emmy Noether: Modern LaTeX Drafts and English Translation Working 
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-Current Noether public surface: the latest version is a curated reader-facing cleanup rather than a raw workbench dump. It contains cumulative reader PDFs, 43 standalone English paper PDFs, and compact language/source ZIPs. German/source exposes the RA20 Paper 02 display-fix branch; English/Spanish/Japanese expose RA10 working branches; French/Simplified Chinese remain checkpoint streams through Paper 19 section 6. Known open items remain explicit: RA20 non-German propagation is queued, RA10 restores Papers 40-43 apparatus but leaves inline body resynchronization open, and the FR/ZH Paper 19 section 6 tau correction still needs EN/ES/JA propagation. Raw audit/witness bundles should be distilled into corrected TeX/PDF or concise public status notes before publication.
+Current Noether public surface: the latest version is a curated reader-facing cleanup rather than a raw workbench dump. It contains cumulative reader PDFs, 43 standalone English paper PDFs, and compact language/source ZIPs. German/source exposes the RA20 Paper 02 display-fix branch; English/Spanish/Japanese expose RA10 working branches; French/Simplified Chinese remain checkpoint streams through Paper 19 section 6. This is not a certified critical edition; subtle formula, scan-reading, and cross-language synchronization errors may remain. Known open items remain explicit: RA20 non-German propagation is queued, RA10 restores Papers 40-43 apparatus but leaves inline body resynchronization open, and the FR/ZH Paper 19 section 6 tau correction still needs EN/ES/JA propagation. Raw audit/witness bundles should be distilled into corrected TeX/PDF or concise public status notes before publication.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

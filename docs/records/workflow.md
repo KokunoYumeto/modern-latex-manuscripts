@@ -4,6 +4,8 @@ Zenodo record: [20652117](https://zenodo.org/records/20652117)
 
 Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 14 | 3 | 7 | 0.3 |

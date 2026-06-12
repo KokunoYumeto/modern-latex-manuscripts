@@ -2,6 +2,8 @@
 
 Generated from the public Zenodo records API.
 
+**Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 Total files indexed: 946
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
@@ -244,7 +246,7 @@ Record: <https://zenodo.org/records/20660948>
 
 Record: <https://zenodo.org/records/20617845>
 
-Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / complete Papers 1-9; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
+Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / Papers 1-9 as a source-inspected working packet, not as a critical edition; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -623,9 +625,11 @@ Record: <https://zenodo.org/records/20586894>
 | artifact/source ZIP | 64.5375 | [gauss_r36_de_nexu_VI_fix_20260605.zip](https://zenodo.org/records/20586894/files/gauss_r36_de_nexu_VI_fix_20260605.zip) |
 | artifact/source ZIP | 64.1296 | [gauss_r37_repair_closure_p001_303_20260605.zip](https://zenodo.org/records/20586894/files/gauss_r37_repair_closure_p001_303_20260605.zip) |
 
-## al-Battani: Opus Astronomicum / Kitab al-Zij, Complete Text Working Edition and Audited Table Data
+## al-Battani: Opus Astronomicum / Kitab al-Zij, Text Working Edition and Audited Table Data
 
 Record: <https://zenodo.org/records/20584850>
+
+Legacy filename warning: the fixed-star catalogue PDF name contains `Complete Critical Edition`, but the current project status does not certify it as a final critical edition. Read it as a working data/catalogue layer with source witnesses, not as maintainer-certified critical finality.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -652,6 +656,8 @@ Record: <https://zenodo.org/records/20584850>
 ## Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources
 
 Record: <https://zenodo.org/records/20586401>
+
+Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -895,7 +901,7 @@ Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained
 | manifest/status | 0.1411 | [Record Summary - Classical Algebra and Arithmetic.json](https://zenodo.org/records/20583048/files/Record%20Summary%20-%20Classical%20Algebra%20and%20Arithmetic.json) |
 | artifact/source ZIP | 6766.9812 | [Supplementary Sources - Classical Algebra and Arithmetic.zip](https://zenodo.org/records/20583048/files/Supplementary%20Sources%20-%20Classical%20Algebra%20and%20Arithmetic.zip) |
 
-## James Joseph Sylvester: Collected Mathematical Papers, Source-Checked Modern LaTeX Working Editions
+## James Joseph Sylvester: Collected Mathematical Papers, Source-Witnessed Modern LaTeX Working Drafts
 
 Record: <https://zenodo.org/records/20649689>
 
@@ -905,11 +911,11 @@ Record: <https://zenodo.org/records/20649689>
 | reader/reference PDF | 2.4204 | [Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 608.pdf](https://zenodo.org/records/20649689/files/Sylvester%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Edition%20through%20Book%20Page%20608.pdf) |
 | artifact/source ZIP | 89.4409 | [Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip](https://zenodo.org/records/20649689/files/Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip) |
 
-## James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Checked LaTeX Working Tranches
+## James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 
 Record: <https://zenodo.org/records/20660332>
 
-Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-046, plus earlier ledger-backed source-checked working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern source-checked claims, while OCR/XML material is only a locator/provenance layer. Printed p.047 is the next continuation point and is not part of this public update boundary.
+Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-046, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. Printed p.047 is the next continuation point and is not part of this public update boundary.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -935,7 +941,7 @@ Record: <https://zenodo.org/records/20649836>
 | artifact/source ZIP | 4.7775 | [Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip](https://zenodo.org/records/20649836/files/Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip) |
 | manifest/status | 0.0017 | [STATUS_GIBBS_OLD_PHYSICS_20260611.md](https://zenodo.org/records/20649836/files/STATUS_GIBBS_OLD_PHYSICS_20260611.md) |
 
-## Richard Dedekind: Source-Checked Editions and English Translations
+## Richard Dedekind: Source-Witnessed Working Drafts and English Translations
 
 Record: <https://zenodo.org/records/20586067>
 
@@ -960,7 +966,7 @@ Record: <https://zenodo.org/records/20586067>
 | reader/reference PDF | 0.1526 | [Dedekind and Dirichlet - Prefaces and Notices LII-LIX - German Source-Checked Edition.pdf](https://zenodo.org/records/20586067/files/Dedekind%20and%20Dirichlet%20-%20Prefaces%20and%20Notices%20LII-LIX%20-%20German%20Source-Checked%20Edition.pdf) |
 | artifact/source ZIP | 1.9226 | [DR22_V1X_p95_100.zip](https://zenodo.org/records/20586067/files/DR22_V1X_p95_100.zip) |
 
-## P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations
+## P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations
 
 Record: <https://zenodo.org/records/20586064>
 
@@ -993,7 +999,7 @@ Record: <https://zenodo.org/records/20651036>
 | artifact/source ZIP | 245.2296 | [Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip) |
 | artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
 
-## Paul Gordan and Clebsch-Gordan: Source-Checked LaTeX and Translation Working Drafts
+## Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
 
 Record: <https://zenodo.org/records/20660721>
 

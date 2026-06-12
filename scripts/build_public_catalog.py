@@ -54,14 +54,29 @@ RECORDS: list[tuple[str, str]] = [
 
 RECORD_NOTES = {
     "cayley": [
-        "Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / complete Papers 1-9; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.",
+        "Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / Papers 1-9 as a source-inspected working packet, not as a critical edition; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.",
     ],
     "classical_algebra_arithmetic": [
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.",
     ],
     "maxwell": [
-        "Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-046, plus earlier ledger-backed source-checked working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern source-checked claims, while OCR/XML material is only a locator/provenance layer. Printed p.047 is the next continuation point and is not part of this public update boundary.",
+        "Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-046, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. Printed p.047 is the next continuation point and is not part of this public update boundary.",
     ],
+    "albattani_opus_astronomicum": [
+        "Legacy filename warning: the fixed-star catalogue PDF name contains `Complete Critical Edition`, but the current project status does not certify it as a final critical edition. Read it as a working data/catalogue layer with source witnesses, not as maintainer-certified critical finality.",
+    ],
+    "non_european_consolidated": [
+        "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
+    ],
+}
+
+TITLE_OVERRIDES = {
+    "albattani_opus_astronomicum": "al-Battani: Opus Astronomicum / Kitab al-Zij, Text Working Edition and Audited Table Data",
+    "sylvester": "James Joseph Sylvester: Collected Mathematical Papers, Source-Witnessed Modern LaTeX Working Drafts",
+    "maxwell": "James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches",
+    "dedekind": "Richard Dedekind: Source-Witnessed Working Drafts and English Translations",
+    "dirichlet": "P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations",
+    "gordan_clebsch_gordan": "Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts",
 }
 
 
@@ -93,7 +108,7 @@ def build_rows() -> list[dict[str, str]]:
     for label, record_id in RECORDS:
         record = fetch_record(record_id)
         actual_record_id = str(record.get("id", record_id))
-        title = record.get("metadata", {}).get("title", "")
+        title = TITLE_OVERRIDES.get(label, record.get("metadata", {}).get("title", ""))
         for item in sorted(record.get("files", []), key=lambda value: value.get("key", "").lower()):
             filename = item.get("key", "")
             size_mb = float(item.get("size", 0)) / (1024 * 1024)
@@ -140,6 +155,8 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
         "# Public File Catalog",
         "",
         "Generated from the public Zenodo records API.",
+        "",
+        "**Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.",
         "",
         f"Total files indexed: {len(rows)}",
         "",

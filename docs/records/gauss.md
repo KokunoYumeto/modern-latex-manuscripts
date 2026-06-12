@@ -4,6 +4,8 @@ Zenodo record: [20586894](https://zenodo.org/records/20586894)
 
 Public title: Carl Friedrich Gauss: Werke and Individual Papers (Modern LaTeX Working Drafts)
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 24 | 14 | 9 | 1267.5 |

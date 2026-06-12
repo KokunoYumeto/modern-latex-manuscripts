@@ -4,6 +4,8 @@ Zenodo record: [20651148](https://zenodo.org/records/20651148)
 
 Public title: Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 92 | 10 | 82 | 5039.3 |

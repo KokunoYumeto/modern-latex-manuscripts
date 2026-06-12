@@ -2,7 +2,9 @@
 
 Zenodo record: [20584850](https://zenodo.org/records/20584850)
 
-Public title: al-Battani: Opus Astronomicum / Kitab al-Zij, Complete Text Working Edition and Audited Table Data
+Public title: al-Battani: Opus Astronomicum / Kitab al-Zij, Text Working Edition and Audited Table Data
+
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
@@ -11,6 +13,8 @@ Public title: al-Battani: Opus Astronomicum / Kitab al-Zij, Complete Text Workin
 ## How To Read This Record
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+
+Work-level al-Battani record. The 251-page trilingual text reader, catalogue data, geography gazetteer, chronology layer, source witnesses, and workflow notes are useful working materials. Legacy filenames such as `Complete Critical Edition` for the fixed-star catalogue are not maintainer-certified critical-edition claims; read them as inherited data/workflow labels. The text and tables should continue to be checked against Nallino and the source witnesses for citation-critical use.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

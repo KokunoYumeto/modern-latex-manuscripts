@@ -2,7 +2,9 @@
 
 Zenodo record: [20586064](https://zenodo.org/records/20586064)
 
-Public title: P. G. Lejeune Dirichlet: Werke Band II Source-Checked Editions and English Translations
+Public title: P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations
+
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
