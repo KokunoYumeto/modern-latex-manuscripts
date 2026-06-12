@@ -16,7 +16,7 @@ Good starting points:
 | SGA | [SGA record](https://zenodo.org/records/20672608), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20672355), Volume I first; later volumes are in progress |
-| Noether | [Noether record](https://zenodo.org/records/20672553), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
+| Noether | [Noether record](https://zenodo.org/records/20673149), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages and active Paper 02 source-audit correction packets |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20672976), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_cont_p0001_0105_IT_EN_20260612.zip` as the latest continuation through p0105, with older p0001-p0090 repair and p0001-p0066 re-audit/HQ/audit ZIPs retained as provenance/support layers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20672969), open `Gordan_Abel25_p322_331_DE_EN_20260612.zip` for the current Abelsche continuation through source pp.322-331 / printed pp.300-309 and cumulative stream through source p331. Earlier Abel and AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside. |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20583048), numbered reader PDFs by author; inherited Cayley `source_checked` filenames are de-promoted unless re-promoted by a later source audit |

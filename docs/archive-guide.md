@@ -12,7 +12,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | Workflow and replication notes | <https://zenodo.org/records/20672843> |
-| Emmy Noether | <https://zenodo.org/records/20672553> |
+| Emmy Noether | <https://zenodo.org/records/20673149> |
 | Heinrich Weber | <https://zenodo.org/records/20672355> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
 | SGA source and English/French translation drafts | <https://zenodo.org/records/20672608> |
