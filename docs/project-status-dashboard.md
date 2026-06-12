@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 26 |
-| Public files indexed | 997 |
+| Public files indexed | 998 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 383 |
+| Artifact/source ZIPs | 384 |
 | Manifest/status files | 65 |
-| Total public file surface | 32.94 GB |
+| Total public file surface | 32.96 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -23,7 +23,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://zenodo.org/records/20670272) | 15 | 3 | 7 | 0.3 MB | Latest workflow refresh adds reader-first public records, source-image authority, derivative-PDF traps, OCR as locator rather than judge, page-map requirements, aid-package design, reliability labels, and the SGA lesson that GPU OCR can be a strong locator while OCR from a mismatched source copy needs page-map/checksum guards. Earlier workflow files still document source/edition checks, repair worklists, high-DPI aid packets, SGA/Deligne/Gordan witness packets, and Lean/Lake as selective formal-checking companions rather than bulk scan-transcription verifiers. |
-| [Noether](https://zenodo.org/records/20672323) | 71 | 49 | 14 | 198.61 MB | Curated reader-facing working surface with cumulative readers, 43 standalone English paper PDFs, compact language/source packages, RA23 display-layout corrections, and RA25-RA30 Paper 02 source-critical symbol/body/table audit packages. RA29 closes the Paper 02 body through printed pp.84-90 at the current page-level standard; RA30 adds the final-summary/table-plate audit package. Full Table II lower-row audit and multilingual propagation remain open. |
+| [Noether](https://zenodo.org/records/20672553) | 72 | 49 | 15 | 213.25 MB | Curated reader-facing working surface with cumulative readers, 43 standalone English paper PDFs, compact language/source packages, RA23 display-layout corrections, and RA25-RA31 Paper 02 source-critical symbol/body/table audit packages. RA29 closes the Paper 02 body through printed pp.84-90 at the current page-level standard; RA30 adds the final-summary/table-plate audit package; RA31 source-checks Tabelle I on printed/source p.91. Tabelle II p.92 and multilingual propagation remain open. |
 | [Weber](https://zenodo.org/records/20672355) | 49 | 8 | 34 | 1237.96 MB | `Lehrbuch der Algebra` Volume I represented as repaired; Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch129 expose supporting repairs and source checks; Batch129 repairs Volume II §§33-34 from source scans pp.134-140, with p.141 / §35 as the handoff boundary, replacing compressed/simple-group material and adding Frobenius proof material, footnotes, and explicit permutation arrays; Batch129 reports 68/112 repair rows closed and 44/112 open. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://zenodo.org/records/20670531) | 100 | 74 | 23 | 3.02 GB | SGA working translation/source snapshots; latest repair019/repair020 packets repair concrete SGA5 French diagram clusters on source pp.030-048 and pp.083-086 plus p102. SGA6 French is unchanged from the current cumulative, English remains unsynchronized, and SGA6/SGA7 compression/source-check caveats remain explicit. |
