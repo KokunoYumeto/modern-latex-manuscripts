@@ -23,7 +23,7 @@ Current record: <https://zenodo.org/records/20454552>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20668022> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
+Current record: <https://zenodo.org/records/20670531> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
@@ -45,7 +45,7 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 Weber: <https://zenodo.org/records/20669232>
 
-Noether: <https://zenodo.org/records/20669591>
+Noether: <https://zenodo.org/records/20670504>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch127 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 157, 166, 171, 183 and Vol. II §§6, 14, 16, 17, 20, 21, 52, 57, 58, 60, 61, 71, 77, 81, 99, 101, 106, 114, 118, 126. Batch127 refreshes the stable Volume I/II readers, integrates 36 pass02 closure/repair events, applies the Volume I n(m) to Pi(m) glyph correction, repairs Volume I §§63/100/113/170 and Volume II §§65/68/100, and leaves larger compression clusters explicitly open. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
@@ -73,7 +73,7 @@ Current dedicated record: <https://zenodo.org/records/20669390>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20668971>
+Current dedicated record: <https://zenodo.org/records/20670492>
 
 - The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel22_p292_299_DE_EN_20260612.zip`, extending `Theorie der Abelschen Functionen` through source pp.292-299 / printed pp.270-277 and cumulative German/English TeX/PDF through source p299. It covers the beginning of Elfter Abschnitt, all §77, all §78, and the opening of §79 through the displayed w_i transformation. The next continuation point is source p300 / printed p278. Earlier Abel13-Abel20 tranches remain support/provenance layers. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
