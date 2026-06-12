@@ -14,6 +14,8 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 Accuracy warning 2026-06-09: this record is not a completed or proofed edition. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription, unless a future page-by-page glyph/source audit explicitly re-promotes a specific range. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / complete Papers 1-9; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace.
 
+Do not infer reliability from inherited filenames. Several older reader PDFs and ZIPs still contain phrases such as `Source-Checked` in their filenames, but those labels are obsolete for Cayley unless the specific package is named in the promoted restart note above or in a later source-audit note.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs

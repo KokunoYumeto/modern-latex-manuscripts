@@ -61,7 +61,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 | Author | Works Or Volumes |
 |---|---|
-| Cayley | Collected Mathematical Papers, Volumes IV, VII, X, XI, XII, and XIII, as modern LaTeX drafts. |
+| Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `source_checked` filenames as obsolete unless a later source-audit note explicitly re-promotes the specific range; the narrow promoted restart packet is Volume I pp.1-45 / Papers 1-9. |
 | Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
