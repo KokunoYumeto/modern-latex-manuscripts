@@ -6,8 +6,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 15 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20670272) |
-| Emmy Noether | 70 | 49 | 13 | 184.3 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20672174) |
-| Heinrich Weber | 48 | 8 | 33 | 1211.3 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20672175) |
+| Emmy Noether | 71 | 49 | 14 | 198.6 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20672323) |
+| Heinrich Weber | 49 | 8 | 34 | 1238.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20672355) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20454552) |
 | SGA | 100 | 74 | 24 | 3295.0 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20670531) |
