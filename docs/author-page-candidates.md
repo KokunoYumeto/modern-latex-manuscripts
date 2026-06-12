@@ -24,15 +24,15 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
-| None at this sweep | The obvious recent split candidates have either been promoted or still need cleaner cumulative rollups. | Continue using the hold list below until a lane has a coherent reader surface, exact coverage, and compact provenance. |
+| Frobenius | The mixed additional-author shelf now contains `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a coherent selected Frobenius group-character/hypercomplex sequence package with German and English cumulatives, per-work TeX/PDF, source scans, and QA ledgers for declared items 053, 054, 056, 057, 058, 059, 060, 061, 070, and 071. | Good candidate for a dedicated Frobenius working-edition record once a concise public status file and top-level reader PDFs are extracted from the QA03 package. |
+| Kneser | The `Lehrbuch der Variationsrechnung` lane is now a substantial German/English sequence through p0177 / §§37-39, with a preferred hqfig repair replacing weak figure witnesses in the latest range. | Candidate for a dedicated Kneser work record after a clean cumulative reader rollup is made; current mixed-shelf packets remain package-by-package working drafts. |
 
 ## Hold Until Cleaner Rollup
 
 | Candidate | Why Hold |
 |---|---|
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
-| Kneser | The LVR branch now has German/English working material through p0158-p0177 / §§37-39 and a preferred hqfig repair package replacing weak scan/figure witnesses through p177, but it still needs a cleaner author-level rollup before splitting. |
-| Poincare / Picard | Poincare Tome I now has v1_18 on the mixed additional-author shelf, and Picard has a figure-refined Tome I package through source leaf 107, but both need cleaner cumulative reader rollups before splitting. |
+| Poincare / Picard | Poincare Tome I now has `poincare_v1_20.zip` on the mixed additional-author shelf, through Chapters XII-XIII with Chapter XIV / v1_0274 as next handoff, and Picard has a figure-refined Tome I package through source leaf 107. Both need cleaner cumulative reader rollups before splitting. |
 | Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
 | Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
 | Klein-Fricke | Authorship/provenance cleanup exists through early Volume I pages, but the lane is still in proof-of-structure stage. |
