@@ -6,7 +6,7 @@ Generated from `manifests/public-file-catalog.csv`.
 |---|---:|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | workflow | 16 | 3 | 7 | 6 | 0.3457 | [record](https://zenodo.org/records/20672843) |
-| noether | 72 | 49 | 15 | 8 | 213.2481 | [record](https://zenodo.org/records/20672553) |
+| noether | 74 | 49 | 16 | 9 | 225.8033 | [record](https://zenodo.org/records/20673149) |
 | weber | 49 | 8 | 34 | 7 | 1237.9617 | [record](https://zenodo.org/records/20672355) |
 | cayley | 84 | 13 | 69 | 2 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
 | sga | 100 | 74 | 24 | 2 | 3236.8850 | [record](https://zenodo.org/records/20672608) |
