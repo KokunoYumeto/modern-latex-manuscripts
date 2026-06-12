@@ -63,10 +63,10 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20668784>
+Current dedicated record: <https://zenodo.org/records/20669390>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
-- The 2026-06-12 public surface now includes `Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip` as the latest A2 continuation layer through p0001-p0090. It retains the lower p0066 section-13 restoration and continues the current slice through Chapter II / sections 17-22. Earlier p0001-p0066 audit/HQ packages remain provenance/support layers.
+- The 2026-06-12 public surface now includes `Bianchi_A2_sumfix_p0001_0090_IT_EN_20260612.zip` as the latest A2 summation-limit repair layer through p0001-p0090. It adds no new source pages; it retains p0001-p0090 coverage while repairing summation-limit rendering through Chapter II / sections 17-22. Earlier p0001-p0066 audit/HQ packages and the p0090 continuation package remain provenance/support layers.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
 - A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English working start through source p0001-p0090, roughly 12 percent of the 731-page source. It retains sections 1-16 from earlier packets and continues the current slice through Chapter II / sections 17-22; p0091 is the next handoff. A2 is not complete.
@@ -89,11 +89,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20668791>
+Current record: <https://zenodo.org/records/20669391>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
 - Latest Poincare tranche is `poincare_v1_21.zip`, a Tome I FR/EN working package through Chapter XIV, with Chapter XV / the torus study as next continuation. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-12 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_p0193_0206_DE_EN_20260612.zip`, a Kneser LVR continuation for source p0193-p0206 upper / sections 43-45 with source-derived crops for Figures 21-23. Lower p0206 / section 46 is the next handoff; earlier p0158-p0177 and p0177-p0192 packages remain previous tranches/provenance. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- The 2026-06-12 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_p0206_0219_DE_EN_20260612.zip`, a Kneser LVR continuation for source p0206 lower-p0219 upper / sections 46-48 with Fig. 24 as a source-derived crop. Lower p0219 / section 49 is the next handoff; earlier p0158-p0177 and p0177-p0192 packages remain previous tranches/provenance. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
