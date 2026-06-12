@@ -1,5 +1,13 @@
 # Cayley Vol VIII --- Typesetting Pilot Notes
 
+## 2026-06-12 Quality Caveat
+
+This pilot note is retained as process/provenance evidence, not as a current
+accuracy certificate. Later Cayley source comparison found that broad Cayley
+readers and TeX can contain substantial symbol, wording, and layout mismatches.
+Any local words such as "faithful" below describe the original pilot's
+self-assessment and must be rechecked against the source scan before promotion.
+
 ## Range typeset
 
 Original task asked for book pages 32-50. Investigation: PNGs `p-001`-`p-080` map to volume **front matter and beginning** of math content:
