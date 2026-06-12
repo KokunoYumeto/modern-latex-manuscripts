@@ -124,4 +124,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 0.0008 | [99 SGA - Public Summary.json](https://zenodo.org/records/20650065/files/99%20SGA%20-%20Public%20Summary.json) |
+| 0.0025 | [99 SGA - Public Summary.json](https://zenodo.org/records/20650065/files/99%20SGA%20-%20Public%20Summary.json) |
