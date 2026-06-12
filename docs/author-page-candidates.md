@@ -23,7 +23,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
-| Maxwell / old physics | Compact source-checked working deltas now cover a substantial portion of `Treatise on Electricity and Magnetism`, Vol. I, but the broad draft still has figure/table gaps and OCR-derived regions. | Old physics / Maxwell source-checked working drafts once a cleaner reader rollup exists. |
+| Maxwell / old physics | A first-edition restart and selected later Vol. I repairs are active locally, but the broader Vol. I/II draft remains OCR-derived in places and still has LaTeX, figure, and table gaps. | Old physics / Maxwell source-checked working drafts only after a cleaner reader rollup separates promoted pages from witness/provenance material. |
 
 ## Hold Until Cleaner Rollup
 
