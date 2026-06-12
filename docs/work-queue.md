@@ -6,8 +6,8 @@ This page turns the current archive gaps into concrete contribution targets. It 
 
 | Area | Task | Start From |
 |---|---|---|
-| EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20414353) |
-| EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20414353) |
+| EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20454552) |
+| EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20454552) |
 | SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20651984) |
 | SGA | Continue SGA5/SGA6 repair after repair016: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the SGA6 dense-cluster lanes around pp.388-460 and 571-680. | [SGA record](https://zenodo.org/records/20651984) |
 | SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20651984) |

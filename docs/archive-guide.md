@@ -17,8 +17,8 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
 | SGA source and English translation drafts | <https://zenodo.org/records/20651984> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
-| EGA French originals and English working translation | <https://zenodo.org/records/20414353> |
-| Ukrainian applied mathematics | <https://zenodo.org/records/20490906> |
+| EGA French originals and English working translation | <https://zenodo.org/records/20454552> |
+| Ukrainian applied mathematics | <https://zenodo.org/records/20520721> |
 | Gauss | <https://zenodo.org/records/20410934> |
 | Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20410957> |
 | Chinese mathematical classics only | <https://zenodo.org/records/20415752> |

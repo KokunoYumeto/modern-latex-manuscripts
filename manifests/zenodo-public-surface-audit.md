@@ -9,8 +9,8 @@
 | cayley | 84 | 13 | 69 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
 | sga | 95 | 74 | 20 | 2644.8712 | [record](https://zenodo.org/records/20651984) |
 | deligne | 100 | 96 | 3 | 448.2286 | [record](https://zenodo.org/records/20617786) |
-| ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20414353) |
-| ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20490906) |
+| ega | 16 | 10 | 4 | 471.6669 | [record](https://zenodo.org/records/20454552) |
+| ukrainian_applied_math | 19 | 18 | 1 | 13.2662 | [record](https://zenodo.org/records/20520721) |
 | gauss | 24 | 14 | 9 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 317.7318 | [record](https://zenodo.org/records/20584850) |
 | non_european_consolidated | 100 | 71 | 24 | 3176.9107 | [record](https://zenodo.org/records/20586401) |

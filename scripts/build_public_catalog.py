@@ -31,8 +31,8 @@ RECORDS: list[tuple[str, str]] = [
     ("cayley", "20617845"),
     ("sga", "20651984"),
     ("deligne", "20617786"),
-    ("ega", "20414353"),
-    ("ukrainian_applied_math", "20490906"),
+    ("ega", "20454552"),
+    ("ukrainian_applied_math", "20520721"),
     ("gauss", "20586894"),
     ("albattani_opus_astronomicum", "20584850"),
     ("non_european_consolidated", "20586401"),
@@ -92,6 +92,7 @@ def build_rows() -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     for label, record_id in RECORDS:
         record = fetch_record(record_id)
+        actual_record_id = str(record.get("id", record_id))
         title = record.get("metadata", {}).get("title", "")
         for item in sorted(record.get("files", []), key=lambda value: value.get("key", "").lower()):
             filename = item.get("key", "")
@@ -99,12 +100,12 @@ def build_rows() -> list[dict[str, str]]:
             rows.append(
                 {
                     "record_label": label,
-                    "record_id": record_id,
+                    "record_id": actual_record_id,
                     "record_title": title,
                     "file_role": file_role(filename),
                     "filename": filename,
                     "size_mb": f"{size_mb:.4f}",
-                    "url": file_url(record_id, filename),
+                    "url": file_url(actual_record_id, filename),
                 }
             )
     return rows

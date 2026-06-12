@@ -11,8 +11,8 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20617845> | Arthur Cayley author record: draft/provenance readers and salvage packages. Current Cayley PDFs/TeX are retained, but they are not accuracy-certified. The current narrow promoted restart packet is `Cayley_V1_critical_p001_045_v2_20260609.zip`, covering Volume I printed pp.1-45 / complete Papers 1-9 with the Paper 6 low-comma/layout correction. |
 | <https://zenodo.org/records/20651984> | SGA source/translation snapshots and working English/French translation material, with repair016, earlier repair packets, and witness-aid packets; English remains unsynchronized and SGA6 still has explicit compression-repair caveats. |
 | <https://zenodo.org/records/20617786> | Pierre Deligne paper PDFs, letters, translation drafts, source packets, and the latest D001-D017 witness/equation-dense audit plus D074-D090 triage and math-audit repair bundles. |
-| <https://zenodo.org/records/20414353> | EGA originals and working English translation material. |
-| <https://zenodo.org/records/20490906> | Ukrainian applied mathematics and engineering translation working drafts. |
+| <https://zenodo.org/records/20454552> | EGA originals and working English translation material. |
+| <https://zenodo.org/records/20520721> | Ukrainian applied mathematics and engineering translation working drafts. |
 | <https://zenodo.org/records/20410934> | Gauss Werke modern LaTeX drafts, repair/source packages, and partial translation/transcription starts. |
 | <https://zenodo.org/records/20584850> | al-Battani Opus Astronomicum / Kitab al-Zij working edition, trilingual reader, catalogue/table data, and provenance material. |
 | <https://zenodo.org/records/20410957> | Consolidated non-European mathematics corpus: Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent works and translation/source packages. |
