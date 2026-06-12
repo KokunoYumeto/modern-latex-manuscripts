@@ -26,7 +26,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20583048> |
 | Luigi Bianchi | <https://zenodo.org/records/20668784> |
-| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20667319> |
+| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20668971> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
 | Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20668791> |
 
