@@ -45,7 +45,7 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 Weber: <https://zenodo.org/records/20669232>
 
-Noether: <https://zenodo.org/records/20668796>
+Noether: <https://zenodo.org/records/20669591>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch127 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 157, 166, 171, 183 and Vol. II §§6, 14, 16, 17, 20, 21, 52, 57, 58, 60, 61, 71, 77, 81, 99, 101, 106, 114, 118, 126. Batch127 refreshes the stable Volume I/II readers, integrates 36 pass02 closure/repair events, applies the Volume I n(m) to Pi(m) glyph correction, repairs Volume I §§63/100/113/170 and Volume II §§65/68/100, and leaves larger compression clusters explicitly open. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
