@@ -4,7 +4,7 @@ Generated from the public Zenodo records API.
 
 **Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-Total files indexed: 998
+Total files indexed: 999
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -945,17 +945,18 @@ Record: <https://zenodo.org/records/20649689>
 
 ## James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 
-Record: <https://zenodo.org/records/20670590>
+Record: <https://zenodo.org/records/20672724>
 
-Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-055, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. Printed p.056 is the next continuation point; the local pp.001-056 rolling build is not promoted because it ends mid-page/mid-sentence.
+Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058 and p.059 queued for the next register refresh, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. Printed p.060 is the next continuation point.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20670590/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
-| artifact/source ZIP | 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20670590/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
-| artifact/source ZIP | 76.5056 | [Maxwell_Vol1_Reverify_pp001_058_20260612.zip](https://zenodo.org/records/20670590/files/Maxwell_Vol1_Reverify_pp001_058_20260612.zip) |
-| manifest/status | 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20670590/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
-| manifest/status | 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20670590/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
+| artifact/source ZIP | 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20672724/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
+| artifact/source ZIP | 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20672724/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
+| artifact/source ZIP | 76.5056 | [Maxwell_Vol1_Reverify_pp001_058_20260612.zip](https://zenodo.org/records/20672724/files/Maxwell_Vol1_Reverify_pp001_058_20260612.zip) |
+| artifact/source ZIP | 64.9250 | [Maxwell_Vol1_Reverify_pp001_059_20260612.zip](https://zenodo.org/records/20672724/files/Maxwell_Vol1_Reverify_pp001_059_20260612.zip) |
+| manifest/status | 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20672724/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
+| manifest/status | 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20672724/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
 
 ## J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 
