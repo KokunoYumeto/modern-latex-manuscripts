@@ -6,12 +6,12 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 
 | Metric | Current Count |
 |---|---:|
-| Public records tracked here | 25 |
-| Public files indexed | 937 |
+| Public records tracked here | 26 |
+| Public files indexed | 940 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 345 |
-| Manifest/status files | 43 |
-| Total public file surface | 30.02 GB |
+| Artifact/source ZIPs | 346 |
+| Manifest/status files | 45 |
+| Total public file surface | 30.19 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -37,12 +37,13 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
 | [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-checked working edition through book page 608; Papers 59-60 complete in the latest tranche, next continuation p.609. |
+| [Maxwell](https://zenodo.org/records/20653108) | 2 | 0 | 1 | 167 MB | `A Treatise on Electricity and Magnetism`, Volume I source-checked working tranches: ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. The batch TeX/PDF substrate is status-mixed; ledger and delta packets govern source-checked claims. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20651036) | 12 | 5 | 6 | 984 MB | `Lezioni di geometria differenziale` Vol. I complete through source pdfpages 001-543; A2 preferred re-audit layer now covers p0001-p0066; §§10-12 remain complete and §13 is deliberately deferred. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20650618) | 25 | 0 | 24 | 1.32 GB | Dedicated package set now adds Abel16, extending Abelsche Functionen through source p227 / printed p205; Abel13-15 remain the preceding p182-p217 tranches. AllPrior AuditFix01 remains the consolidated prior checkpoint. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
-| [Additional author cluster](https://zenodo.org/records/20651148) | 92 | 10 | 82 | 4.92 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface adds `poincare_v1_20.zip`, `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, and the preferred Kneser figure/source-witness repair through p0177. Maxwell has active local first-edition/source-repair work, but no dedicated public record yet because the source-checked pages still need to be separated from the broad OCR-derived draft. |
+| [Additional author cluster](https://zenodo.org/records/20651148) | 92 | 10 | 82 | 4.92 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface adds `poincare_v1_20.zip`, `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, and the preferred Kneser figure/source-witness repair through p0177. Bianchi, Gordan, Steinitz, Sylvester, Gibbs, and Maxwell now have standalone records; their older mixed-shelf copies remain provenance/backstop where present. |
 
 ## Completion Read
 
