@@ -12,7 +12,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20668022) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
-| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20668796) |
+| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20669591) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20669232) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20454552) |
@@ -53,7 +53,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Emmy Noether](https://zenodo.org/records/20668796) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. RA23 display-layout corrections plus RA25, RA26, and RA27 Paper 02 source-critical symbol audit packages are included, but source corrections still need cross-language propagation. |
+| [Emmy Noether](https://zenodo.org/records/20669591) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. RA23 display-layout corrections plus RA25, RA26, and RA27 Paper 02 source-critical symbol audit packages are included, but source corrections still need cross-language propagation. |
 | [Heinrich Weber](https://zenodo.org/records/20669232) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch127. Batch127 refreshes the stable Volume I/II readers, integrates 36 pass02 closure/repair events, applies the Volume I n(m) to Pi(m) glyph correction, repairs Volume I §§63/100/113/170 and Volume II §§65/68/100, and leaves larger compression clusters explicitly open. |
 | [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts; Cayley material there is provenance/repair material unless a specific range has been re-promoted by a later source audit. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
