@@ -42,7 +42,7 @@ RECORDS: list[tuple[str, str]] = [
     ("historical_references", "20415777"),
     ("classical_algebra_arithmetic", "20583048"),
     ("sylvester", "20649689"),
-    ("maxwell", "20654339"),
+    ("maxwell", "20654974"),
     ("gibbs_old_physics", "20649836"),
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
@@ -60,7 +60,7 @@ RECORD_NOTES = {
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.",
     ],
     "maxwell": [
-        "Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-027, plus earlier ledger-backed source-checked working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern source-checked claims, while OCR/XML material is only a locator/provenance layer.",
+        "Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-028, plus earlier ledger-backed source-checked working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern source-checked claims, while OCR/XML material is only a locator/provenance layer.",
     ],
 }
 
