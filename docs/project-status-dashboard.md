@@ -7,13 +7,15 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 26 |
-| Public files indexed | 942 |
+| Public files indexed | 946 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 347 |
-| Manifest/status files | 46 |
-| Total public file surface | 30.51 GB |
+| Artifact/source ZIPs | 350 |
+| Manifest/status files | 47 |
+| Total public file surface | 30.46 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
+
+Quality rule: the dashboard counts public files and working coverage, not critical-edition certification. No record here is a certified critical edition unless a future release explicitly says so. Filename terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy labels or scoped working labels; record caveats and source witnesses govern reliability.
 
 ## Current Records
 
@@ -21,26 +23,26 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://zenodo.org/records/20652117) | 14 | 3 | 7 | 0.3 MB | Latest workflow refresh adds reader-first public records, source-image authority, derivative-PDF traps, OCR as locator rather than judge, page-map requirements, aid-package design, and reliability labels. Earlier workflow files still document source/edition checks, repair worklists, high-DPI aid packets, SGA/Deligne/Gordan witness packets, and Lean/Lake as selective formal-checking companions rather than bulk scan-transcription verifiers. |
-| [Noether](https://zenodo.org/records/20651590) | 55 | 49 | 5 | 96 MB | Curated reader-facing surface with cumulative reader PDFs, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Raw audit bundles stay out of the live page unless distilled into corrected artifacts or concise status notes. |
-| [Weber](https://zenodo.org/records/20660948) | 39 | 8 | 27 | 855 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch122 expose supporting provenance, repairs, and source checks; Batch122 repairs the Vol. II §81 table/boundary issue and reports 92 open gap-audit rows. |
-| [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
+| [Noether](https://zenodo.org/records/20651590) | 55 | 49 | 5 | 96 MB | Curated reader-facing working surface with cumulative reader PDFs, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Not a certified critical edition; raw audit bundles stay out of the live page unless distilled into corrected artifacts or concise status notes. |
+| [Weber](https://zenodo.org/records/20660948) | 39 | 8 | 27 | 855 MB | `Lehrbuch der Algebra` Volume I represented as a repaired working branch; current Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch122 expose supporting provenance, repairs, and source checks; Batch122 repairs the Vol. II §81 table/boundary issue and reports 92 open gap-audit rows. |
+| [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://zenodo.org/records/20661245) | 96 | 74 | 21 | 2.71 GB | SGA working translation/source snapshots; latest SGA5/SGA6 repair017 repairs concrete SGA5 diagrams, adds a 179-row SGA5 diagram index, and restores SGA6 Expose VI pp.391-397 while diagram, exact-symbol, English-sync, and remaining SGA6 v3 worklist lanes remain open; SGA5/SGA6/SGA7 caveats explicit. |
 | [Deligne](https://zenodo.org/records/20617786) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [EGA](https://zenodo.org/records/20454552) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://zenodo.org/records/20520721) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
 | [Gauss](https://zenodo.org/records/20586894) | 24 | 14 | 9 | 1.24 GB | Gauss Werke modern-LaTeX working drafts, source packets, and repair/transcription starts. |
-| [al-Battani](https://zenodo.org/records/20584850) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition, trilingual/catalogue data, geography, chronology, manifests, and workflow material. |
+| [al-Battani](https://zenodo.org/records/20584850) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition, trilingual/catalogue data, geography, chronology, manifests, and workflow material. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | [Non-European consolidated](https://zenodo.org/records/20586401) | 100 | 71 | 24 | 3.10 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
 | [Chinese classics](https://zenodo.org/records/20415752) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
 | [Indian and Sanskrit classics](https://zenodo.org/records/20415755) | 13 | 11 | 1 | 549 MB | Current Indian/Sanskrit mathematical classics shelf. |
 | [Islamic and Arabic texts](https://zenodo.org/records/20415770) | 19 | 17 | 1 | 46 MB | Current Islamic/Arabic mathematical texts shelf. |
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
-| [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-checked working edition through book page 608; Papers 59-60 complete in the latest tranche, next continuation p.609. |
-| [Maxwell](https://zenodo.org/records/20660332) | 4 | 0 | 2 | 229 MB | `A Treatise on Electricity and Magnetism`, Volume I source-checked working tranches: IA 1873 first-edition pp.001-046 plus earlier ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. Broader batch TeX/PDF substrate is status-mixed; ledgers and source witnesses govern source-checked claims. |
-| [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
-| [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
-| [Luigi Bianchi](https://zenodo.org/records/20651036) | 12 | 5 | 6 | 984 MB | `Lezioni di geometria differenziale` Vol. I complete through source pdfpages 001-543; A2 preferred re-audit layer now covers p0001-p0066; §§10-12 remain complete and §13 is deliberately deferred. |
+| [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
+| [Maxwell](https://zenodo.org/records/20660332) | 4 | 0 | 2 | 229 MB | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-046 plus earlier ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. Broader batch TeX/PDF substrate is status-mixed; ledgers and source witnesses govern promoted range claims. |
+| [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-witnessed working drafts and English translations. |
+| [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-witnessed working drafts and English translations. |
+| [Luigi Bianchi](https://zenodo.org/records/20651036) | 12 | 5 | 6 | 984 MB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 preferred re-audit layer now covers p0001-p0066; §§10-12 are represented and §13 is deliberately deferred. |
 | [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20660721) | 26 | 0 | 25 | 1.39 GB | Dedicated package set now adds Abel17, extending Abelsche Functionen through source p243 / printed p221; Abel13-16 remain the preceding p182-p227 tranches. AllPrior AuditFix01 remains the consolidated prior checkpoint. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
 | [Additional author cluster](https://zenodo.org/records/20651148) | 92 | 10 | 82 | 4.92 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface adds `poincare_v1_20.zip`, `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, and the preferred Kneser figure/source-witness repair through p0177. Bianchi, Gordan, Steinitz, Sylvester, Gibbs, and Maxwell now have standalone records; their older mixed-shelf copies remain provenance/backstop where present. |
@@ -56,7 +58,7 @@ The project is best read as a live corpus rather than a finished edition. The nu
 | PDF technical surface | 90/100 | The latest local public PDF surface audit checked 356 PDFs with no configured defect flags. |
 | Source/provenance availability | 85/100 | Most records include artifact ZIPs with TeX, sources, or checking material. |
 | Human browseability | 88/100 | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; refreshed non-European and SGA records now expose more work-level PDFs and repair packets. |
-| Mathematical/source proofreading | 35/100 | Many drafts still need page-by-page checking against source witnesses. |
+| Mathematical/source proofreading | 25/100 | Many drafts still need page-by-page checking against source witnesses; no record is currently treated as critically certified by default. |
 | Translation completeness | 32/100 | Several corpora have substantial translation drafts, but EGA, SGA, Weber, Noether, and many classical works remain incomplete. |
 
 ## Most Useful Next Work

@@ -2,7 +2,9 @@
 
 Zenodo record: [20660721](https://zenodo.org/records/20660721)
 
-Public title: Paul Gordan and Clebsch-Gordan: Source-Checked LaTeX and Translation Working Drafts
+Public title: Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
+
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|

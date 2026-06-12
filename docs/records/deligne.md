@@ -4,6 +4,8 @@ Zenodo record: [20617786](https://zenodo.org/records/20617786)
 
 Public title: Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 100 | 96 | 3 | 448.2 |

@@ -2,6 +2,8 @@
 
 This is a curated index of the main public reading surfaces. It is not a replacement for the full [public file catalog](public-file-catalog.md); it is the shorter human map for deciding what to open first.
 
+Quality rule: these are working reader surfaces and source/provenance records, not certified critical editions unless a later maintainer-certified release explicitly says otherwise. Structural coverage phrases such as "complete through" describe what is represented in a draft or package, not proofread mathematical finality.
+
 ## Algebraic Geometry
 
 | Author/Corpus | Works Or Volumes | Record |
@@ -72,12 +74,12 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 | Author | Current Public Surface | Record |
 |---|---|---|
-| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volume II current readers through section 176 with recursive gap repairs through Batch122, including the Vol. II §81 table/boundary repair; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20660948) |
-| Emmy Noether | Curated numbered-paper corpus: cumulative readers, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. | [Noether](https://zenodo.org/records/20651590) |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a preferred p0001-p0066 re-audit correction package; §§10-12 remain complete and §13 is deliberately deferred. | [Bianchi](https://zenodo.org/records/20651036) |
+| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch122, including the Vol. II §81 table/boundary repair; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20660948) |
+| Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://zenodo.org/records/20651590) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a preferred p0001-p0066 re-audit correction package; §§10-12 are represented and §13 is deliberately deferred. | [Bianchi](https://zenodo.org/records/20651036) |
 | Paul Gordan / Clebsch-Gordan | Abel17 extends Abelsche Functionen through source p243 / printed p221; Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14-16 continue p194-p227. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20660721) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
-| James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I source-checked working tranches: IA 1873 first-edition pp.001-046, plus earlier book pages 95-101, 103, 105, 109, and continuous pp.111-267. Broader batch TeX/PDF substrate is status-mixed; ledgers and source witness images govern source-checked claims. | [Maxwell](https://zenodo.org/records/20660332) |
+| James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-046, plus earlier book pages 95-101, 103, 105, 109, and continuous pp.111-267. Broader batch TeX/PDF substrate is status-mixed; ledgers and source witness images govern promoted range claims. | [Maxwell](https://zenodo.org/records/20660332) |
 
 ## Additional Selected Authors
 

@@ -4,6 +4,8 @@ Zenodo record: [20415755](https://zenodo.org/records/20415755)
 
 Public title: Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 13 | 11 | 1 | 548.6 |

@@ -4,6 +4,8 @@ Zenodo record: [20520721](https://zenodo.org/records/20520721)
 
 Public title: Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
 | 19 | 18 | 1 | 13.3 |
