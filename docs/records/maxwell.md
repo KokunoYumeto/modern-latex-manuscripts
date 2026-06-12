@@ -1,6 +1,6 @@
 # James Clerk Maxwell
 
-Zenodo record: [20667750](https://zenodo.org/records/20667750)
+Zenodo record: [20670590](https://zenodo.org/records/20670590)
 
 Public title: James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 
@@ -8,7 +8,7 @@ Public title: James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volu
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 4 | 0 | 2 | 240.6 |
+| 5 | 0 | 3 | 317.1 |
 
 ## How To Read This Record
 
@@ -26,12 +26,13 @@ No files in this group.
 
 | Size MB | File |
 |---:|---|
-| 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20667750/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
-| 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20667750/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
+| 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20670590/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
+| 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20670590/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
+| 76.5056 | [Maxwell_Vol1_Reverify_pp001_058_20260612.zip](https://zenodo.org/records/20670590/files/Maxwell_Vol1_Reverify_pp001_058_20260612.zip) |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20667750/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
-| 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20667750/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
+| 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20670590/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
+| 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20670590/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
