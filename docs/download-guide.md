@@ -10,7 +10,7 @@ Good starting points:
 
 | Interest | Start With |
 |---|---|
-| EGA | [EGA record](https://zenodo.org/records/20414353), current English working build and French/source artifacts |
+| EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
 | SGA | [SGA record](https://zenodo.org/records/20651984), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20651306), Volume I first; later volumes are in progress |

@@ -11,7 +11,7 @@ This page records the main incompleteness that a reader or contributor should kn
 
 ## EGA
 
-Current record: <https://zenodo.org/records/20414353>
+Current record: <https://zenodo.org/records/20454552>
 
 - EGA I and EGA II are largely inherited from the public community translation base.
 - EGA 0_IV sections 15 through 23 are present as substantive working translations in the current 578-page build.
