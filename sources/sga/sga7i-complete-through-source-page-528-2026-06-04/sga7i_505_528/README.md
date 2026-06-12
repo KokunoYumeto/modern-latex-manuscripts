@@ -1,5 +1,13 @@
 # SGA 7-I pages 505--528
 
+## 2026-06-12 Quality Caveat
+
+This packet is preserved as a working-draft/provenance packet. The lines below
+describing a strict continuation and completion of the SGA 7-I scan belong to
+the original intake context and are not a current global source-check
+certification. Current public metadata treats SGA 7-I material as provisional
+unless a later packet declares source-checked coverage for a named range.
+
 Strict continuation from the original SGA 7-I scan.
 
 Coverage: Expose IX conclusion, Section 13.5, Section 14, and bibliography.  This completes the SGA 7-I scan in this intake.
