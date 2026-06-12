@@ -4,7 +4,7 @@ Generated from the public Zenodo records API.
 
 **Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-Total files indexed: 959
+Total files indexed: 967
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -136,117 +136,121 @@ Record: <https://zenodo.org/records/20652117>
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20665205>
+Record: <https://zenodo.org/records/20667332>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20665205/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
-| reader/reference PDF | 2.5616 | [01 Noether - German Source Cumulative RA20 Paper02 Display Fix.pdf](https://zenodo.org/records/20665205/files/01%20Noether%20-%20German%20Source%20Cumulative%20RA20%20Paper02%20Display%20Fix.pdf) |
-| reader/reference PDF | 2.4925 | [02 Noether - English Cumulative RA10 Apparatus Branch.pdf](https://zenodo.org/records/20665205/files/02%20Noether%20-%20English%20Cumulative%20RA10%20Apparatus%20Branch.pdf) |
-| reader/reference PDF | 2.3587 | [03 Noether - Spanish Cumulative RA10.pdf](https://zenodo.org/records/20665205/files/03%20Noether%20-%20Spanish%20Cumulative%20RA10.pdf) |
-| reader/reference PDF | 2.2272 | [04 Noether - Japanese Cumulative RA10.pdf](https://zenodo.org/records/20665205/files/04%20Noether%20-%20Japanese%20Cumulative%20RA10.pdf) |
-| reader/reference PDF | 1.3822 | [05 Noether - French Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20665205/files/05%20Noether%20-%20French%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
-| reader/reference PDF | 1.2276 | [06 Noether - Simplified Chinese Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20665205/files/06%20Noether%20-%20Simplified%20Chinese%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
-| artifact/source ZIP | 43.6905 | [10 Noether - German Source Current 20260612.zip](https://zenodo.org/records/20665205/files/10%20Noether%20-%20German%20Source%20Current%2020260612.zip) |
-| artifact/source ZIP | 13.7201 | [11 Noether - English Papers Current 20260612.zip](https://zenodo.org/records/20665205/files/11%20Noether%20-%20English%20Papers%20Current%2020260612.zip) |
-| artifact/source ZIP | 2.9758 | [12 Noether - Spanish Current RA10 20260612.zip](https://zenodo.org/records/20665205/files/12%20Noether%20-%20Spanish%20Current%20RA10%2020260612.zip) |
-| artifact/source ZIP | 2.8659 | [13 Noether - Japanese Current RA10 20260612.zip](https://zenodo.org/records/20665205/files/13%20Noether%20-%20Japanese%20Current%20RA10%2020260612.zip) |
-| artifact/source ZIP | 9.1047 | [14 Noether - French and Simplified Chinese Checkpoint P19s06 20260612.zip](https://zenodo.org/records/20665205/files/14%20Noether%20-%20French%20and%20Simplified%20Chinese%20Checkpoint%20P19s06%2020260612.zip) |
-| reader/reference PDF | 0.2069 | [20.01 Noether Paper 01 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.01%20Noether%20Paper%2001%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.5139 | [20.02 Noether Paper 02 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.02%20Noether%20Paper%2002%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1955 | [20.03 Noether Paper 03 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.03%20Noether%20Paper%2003%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4010 | [20.04 Noether Paper 04 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.04%20Noether%20Paper%2004%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1495 | [20.05 Noether Paper 05 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.05%20Noether%20Paper%2005%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3565 | [20.06 Noether Paper 06 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.06%20Noether%20Paper%2006%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2221 | [20.07 Noether Paper 07 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.07%20Noether%20Paper%2007%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2542 | [20.08 Noether Paper 08 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.08%20Noether%20Paper%2008%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3509 | [20.09 Noether Paper 09 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.09%20Noether%20Paper%2009%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2694 | [20.10 Noether Paper 10 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.10%20Noether%20Paper%2010%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2453 | [20.11 Noether Paper 11 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.11%20Noether%20Paper%2011%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2423 | [20.12 Noether Paper 12 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.12%20Noether%20Paper%2012%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3009 | [20.13 Noether Paper 13 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.13%20Noether%20Paper%2013%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3175 | [20.14 Noether Paper 14 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.14%20Noether%20Paper%2014%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3281 | [20.15 Noether Paper 15 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.15%20Noether%20Paper%2015%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2377 | [20.16 Noether Paper 16 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.16%20Noether%20Paper%2016%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3854 | [20.17 Noether Paper 17 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.17%20Noether%20Paper%2017%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1424 | [20.18 Noether Paper 18 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.18%20Noether%20Paper%2018%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4197 | [20.19 Noether Paper 19 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.19%20Noether%20Paper%2019%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2543 | [20.20 Noether Paper 20 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.20%20Noether%20Paper%2020%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1784 | [20.21 Noether Paper 21 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.21%20Noether%20Paper%2021%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3868 | [20.22 Noether Paper 22 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.22%20Noether%20Paper%2022%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2426 | [20.23 Noether Paper 23 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.23%20Noether%20Paper%2023%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3888 | [20.24 Noether Paper 24 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.24%20Noether%20Paper%2024%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1820 | [20.25 Noether Paper 25 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.25%20Noether%20Paper%2025%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0585 | [20.26 Noether Paper 26 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.26%20Noether%20Paper%2026%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0961 | [20.27 Noether Paper 27 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.27%20Noether%20Paper%2027%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0582 | [20.28 Noether Paper 28 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.28%20Noether%20Paper%2028%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2346 | [20.29 Noether Paper 29 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.29%20Noether%20Paper%2029%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4011 | [20.30 Noether Paper 30 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.30%20Noether%20Paper%2030%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3566 | [20.31 Noether Paper 31 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.31%20Noether%20Paper%2031%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2478 | [20.32 Noether Paper 32 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.32%20Noether%20Paper%2032%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1516 | [20.33 Noether Paper 33 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.33%20Noether%20Paper%2033%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4001 | [20.34 Noether Paper 34 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.34%20Noether%20Paper%2034%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1985 | [20.35 Noether Paper 35 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.35%20Noether%20Paper%2035%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0715 | [20.36 Noether Paper 36 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.36%20Noether%20Paper%2036%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2056 | [20.37 Noether Paper 37 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.37%20Noether%20Paper%2037%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1940 | [20.38 Noether Paper 38 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.38%20Noether%20Paper%2038%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1775 | [20.39 Noether Paper 39 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.39%20Noether%20Paper%2039%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3093 | [20.40 Noether Paper 40 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.40%20Noether%20Paper%2040%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2072 | [20.41 Noether Paper 41 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.41%20Noether%20Paper%2041%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2077 | [20.42 Noether Paper 42 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.42%20Noether%20Paper%2042%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2368 | [20.43 Noether Paper 43 - English Translation.pdf](https://zenodo.org/records/20665205/files/20.43%20Noether%20Paper%2043%20-%20English%20Translation.pdf) |
-| manifest/status | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20665205/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
-| artifact/source ZIP | 16.3629 | [N_SYM_RA23_display_all_20260612.zip](https://zenodo.org/records/20665205/files/N_SYM_RA23_display_all_20260612.zip) |
+| manifest/status | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20667332/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
+| reader/reference PDF | 2.5616 | [01 Noether - German Source Cumulative RA20 Paper02 Display Fix.pdf](https://zenodo.org/records/20667332/files/01%20Noether%20-%20German%20Source%20Cumulative%20RA20%20Paper02%20Display%20Fix.pdf) |
+| reader/reference PDF | 2.4925 | [02 Noether - English Cumulative RA10 Apparatus Branch.pdf](https://zenodo.org/records/20667332/files/02%20Noether%20-%20English%20Cumulative%20RA10%20Apparatus%20Branch.pdf) |
+| reader/reference PDF | 2.3587 | [03 Noether - Spanish Cumulative RA10.pdf](https://zenodo.org/records/20667332/files/03%20Noether%20-%20Spanish%20Cumulative%20RA10.pdf) |
+| reader/reference PDF | 2.2272 | [04 Noether - Japanese Cumulative RA10.pdf](https://zenodo.org/records/20667332/files/04%20Noether%20-%20Japanese%20Cumulative%20RA10.pdf) |
+| reader/reference PDF | 1.3822 | [05 Noether - French Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20667332/files/05%20Noether%20-%20French%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
+| reader/reference PDF | 1.2276 | [06 Noether - Simplified Chinese Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20667332/files/06%20Noether%20-%20Simplified%20Chinese%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
+| artifact/source ZIP | 43.6905 | [10 Noether - German Source Current 20260612.zip](https://zenodo.org/records/20667332/files/10%20Noether%20-%20German%20Source%20Current%2020260612.zip) |
+| artifact/source ZIP | 13.7201 | [11 Noether - English Papers Current 20260612.zip](https://zenodo.org/records/20667332/files/11%20Noether%20-%20English%20Papers%20Current%2020260612.zip) |
+| artifact/source ZIP | 2.9758 | [12 Noether - Spanish Current RA10 20260612.zip](https://zenodo.org/records/20667332/files/12%20Noether%20-%20Spanish%20Current%20RA10%2020260612.zip) |
+| artifact/source ZIP | 2.8659 | [13 Noether - Japanese Current RA10 20260612.zip](https://zenodo.org/records/20667332/files/13%20Noether%20-%20Japanese%20Current%20RA10%2020260612.zip) |
+| artifact/source ZIP | 9.1047 | [14 Noether - French and Simplified Chinese Checkpoint P19s06 20260612.zip](https://zenodo.org/records/20667332/files/14%20Noether%20-%20French%20and%20Simplified%20Chinese%20Checkpoint%20P19s06%2020260612.zip) |
+| reader/reference PDF | 0.2069 | [20.01 Noether Paper 01 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.01%20Noether%20Paper%2001%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.5139 | [20.02 Noether Paper 02 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.02%20Noether%20Paper%2002%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1955 | [20.03 Noether Paper 03 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.03%20Noether%20Paper%2003%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4010 | [20.04 Noether Paper 04 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.04%20Noether%20Paper%2004%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1495 | [20.05 Noether Paper 05 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.05%20Noether%20Paper%2005%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3565 | [20.06 Noether Paper 06 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.06%20Noether%20Paper%2006%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2221 | [20.07 Noether Paper 07 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.07%20Noether%20Paper%2007%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2542 | [20.08 Noether Paper 08 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.08%20Noether%20Paper%2008%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3509 | [20.09 Noether Paper 09 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.09%20Noether%20Paper%2009%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2694 | [20.10 Noether Paper 10 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.10%20Noether%20Paper%2010%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2453 | [20.11 Noether Paper 11 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.11%20Noether%20Paper%2011%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2423 | [20.12 Noether Paper 12 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.12%20Noether%20Paper%2012%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3009 | [20.13 Noether Paper 13 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.13%20Noether%20Paper%2013%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3175 | [20.14 Noether Paper 14 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.14%20Noether%20Paper%2014%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3281 | [20.15 Noether Paper 15 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.15%20Noether%20Paper%2015%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2377 | [20.16 Noether Paper 16 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.16%20Noether%20Paper%2016%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3854 | [20.17 Noether Paper 17 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.17%20Noether%20Paper%2017%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1424 | [20.18 Noether Paper 18 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.18%20Noether%20Paper%2018%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4197 | [20.19 Noether Paper 19 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.19%20Noether%20Paper%2019%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2543 | [20.20 Noether Paper 20 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.20%20Noether%20Paper%2020%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1784 | [20.21 Noether Paper 21 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.21%20Noether%20Paper%2021%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3868 | [20.22 Noether Paper 22 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.22%20Noether%20Paper%2022%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2426 | [20.23 Noether Paper 23 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.23%20Noether%20Paper%2023%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3888 | [20.24 Noether Paper 24 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.24%20Noether%20Paper%2024%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1820 | [20.25 Noether Paper 25 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.25%20Noether%20Paper%2025%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0585 | [20.26 Noether Paper 26 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.26%20Noether%20Paper%2026%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0961 | [20.27 Noether Paper 27 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.27%20Noether%20Paper%2027%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0582 | [20.28 Noether Paper 28 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.28%20Noether%20Paper%2028%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2346 | [20.29 Noether Paper 29 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.29%20Noether%20Paper%2029%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4011 | [20.30 Noether Paper 30 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.30%20Noether%20Paper%2030%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3566 | [20.31 Noether Paper 31 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.31%20Noether%20Paper%2031%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2478 | [20.32 Noether Paper 32 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.32%20Noether%20Paper%2032%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1516 | [20.33 Noether Paper 33 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.33%20Noether%20Paper%2033%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4001 | [20.34 Noether Paper 34 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.34%20Noether%20Paper%2034%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1985 | [20.35 Noether Paper 35 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.35%20Noether%20Paper%2035%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0715 | [20.36 Noether Paper 36 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.36%20Noether%20Paper%2036%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2056 | [20.37 Noether Paper 37 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.37%20Noether%20Paper%2037%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1940 | [20.38 Noether Paper 38 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.38%20Noether%20Paper%2038%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1775 | [20.39 Noether Paper 39 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.39%20Noether%20Paper%2039%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3093 | [20.40 Noether Paper 40 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.40%20Noether%20Paper%2040%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2072 | [20.41 Noether Paper 41 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.41%20Noether%20Paper%2041%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2077 | [20.42 Noether Paper 42 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.42%20Noether%20Paper%2042%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2368 | [20.43 Noether Paper 43 - English Translation.pdf](https://zenodo.org/records/20667332/files/20.43%20Noether%20Paper%2043%20-%20English%20Translation.pdf) |
+| manifest/status | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20667332/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
+| manifest/status | 0.0004 | [99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json](https://zenodo.org/records/20667332/files/99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json) |
+| artifact/source ZIP | 16.3629 | [N_SYM_RA23_display_all_20260612.zip](https://zenodo.org/records/20667332/files/N_SYM_RA23_display_all_20260612.zip) |
+| artifact/source ZIP | 15.3214 | [N_SYM_RA26_P02_p76_80_20260612.zip](https://zenodo.org/records/20667332/files/N_SYM_RA26_P02_p76_80_20260612.zip) |
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20665199>
+Record: <https://zenodo.org/records/20667337>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.5571 | [00 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - English Translation.pdf](https://zenodo.org/records/20665199/files/00%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.6830 | [01 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - German Source.pdf](https://zenodo.org/records/20665199/files/01%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.3314 | [02 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - English Translation.pdf](https://zenodo.org/records/20665199/files/02%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.0291 | [02 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - English Translation.pdf](https://zenodo.org/records/20665199/files/02%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.4833 | [03 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - German Source.pdf](https://zenodo.org/records/20665199/files/03%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.1631 | [03 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - German Source.pdf](https://zenodo.org/records/20665199/files/03%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.2769 | [04 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - English Translation.pdf](https://zenodo.org/records/20665199/files/04%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.3058 | [05 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - German Source.pdf](https://zenodo.org/records/20665199/files/05%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20German%20Source.pdf) |
-| artifact/source ZIP | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/20665199/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
-| manifest/status | 0.0007 | [90 Weber - Public Summary.json](https://zenodo.org/records/20665199/files/90%20Weber%20-%20Public%20Summary.json) |
-| manifest/status | 0.0008 | [91 Weber - Public Summary - Batch103 Section168.json](https://zenodo.org/records/20665199/files/91%20Weber%20-%20Public%20Summary%20-%20Batch103%20Section168.json) |
-| manifest/status | 0.0010 | [92 Weber - Public Summary - Provenance Bridge 144-162.json](https://zenodo.org/records/20665199/files/92%20Weber%20-%20Public%20Summary%20-%20Provenance%20Bridge%20144-162.json) |
-| manifest/status | 0.0008 | [93 Weber - Public Summary - Batch122 Section81.json](https://zenodo.org/records/20665199/files/93%20Weber%20-%20Public%20Summary%20-%20Batch122%20Section81.json) |
-| artifact/source ZIP | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/20665199/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/20665199/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
-| artifact/source ZIP | 25.7835 | [97 Heinrich Weber - Batch103 Canonical Vol II Sections 166-168 and Cumulative Through Section 168.zip](https://zenodo.org/records/20665199/files/97%20Heinrich%20Weber%20-%20Batch103%20Canonical%20Vol%20II%20Sections%20166-168%20and%20Cumulative%20Through%20Section%20168.zip) |
-| manifest/status | 0.0004 | [99 Weber - Public Summary - Batch125 20260612.json](https://zenodo.org/records/20665199/files/99%20Weber%20-%20Public%20Summary%20-%20Batch125%2020260612.json) |
-| artifact/source ZIP | 171.9360 | [Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip](https://zenodo.org/records/20665199/files/Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip) |
-| artifact/source ZIP | 18.6428 | [Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 59.4899 | [Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 18.3324 | [Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 16.9607 | [Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip) |
-| artifact/source ZIP | 24.5225 | [Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip) |
-| artifact/source ZIP | 36.4318 | [Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip) |
-| artifact/source ZIP | 26.4806 | [Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip) |
-| artifact/source ZIP | 22.8698 | [Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip) |
-| artifact/source ZIP | 32.2279 | [Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip) |
-| artifact/source ZIP | 61.9324 | [Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip) |
-| artifact/source ZIP | 45.6006 | [Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip) |
-| artifact/source ZIP | 14.8929 | [Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip) |
-| artifact/source ZIP | 24.3356 | [Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip) |
-| artifact/source ZIP | 35.0592 | [Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip) |
-| artifact/source ZIP | 23.3620 | [Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip) |
-| artifact/source ZIP | 23.6081 | [Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip) |
-| artifact/source ZIP | 26.3664 | [Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip) |
-| artifact/source ZIP | 17.9662 | [Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip) |
-| artifact/source ZIP | 22.2705 | [Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip) |
-| artifact/source ZIP | 42.6188 | [Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip) |
-| artifact/source ZIP | 53.9502 | [Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip) |
-| artifact/source ZIP | 13.0605 | [Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip) |
-| artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
-| artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20665199/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
-| artifact/source ZIP | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/20665199/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
+| reader/reference PDF | 1.5571 | [00 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - English Translation.pdf](https://zenodo.org/records/20667337/files/00%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.6830 | [01 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - German Source.pdf](https://zenodo.org/records/20667337/files/01%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.3314 | [02 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - English Translation.pdf](https://zenodo.org/records/20667337/files/02%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.0291 | [02 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - English Translation.pdf](https://zenodo.org/records/20667337/files/02%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.4833 | [03 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - German Source.pdf](https://zenodo.org/records/20667337/files/03%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.1631 | [03 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - German Source.pdf](https://zenodo.org/records/20667337/files/03%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.2769 | [04 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - English Translation.pdf](https://zenodo.org/records/20667337/files/04%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.3058 | [05 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - German Source.pdf](https://zenodo.org/records/20667337/files/05%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20German%20Source.pdf) |
+| artifact/source ZIP | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/20667337/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
+| manifest/status | 0.0007 | [90 Weber - Public Summary.json](https://zenodo.org/records/20667337/files/90%20Weber%20-%20Public%20Summary.json) |
+| manifest/status | 0.0008 | [91 Weber - Public Summary - Batch103 Section168.json](https://zenodo.org/records/20667337/files/91%20Weber%20-%20Public%20Summary%20-%20Batch103%20Section168.json) |
+| manifest/status | 0.0010 | [92 Weber - Public Summary - Provenance Bridge 144-162.json](https://zenodo.org/records/20667337/files/92%20Weber%20-%20Public%20Summary%20-%20Provenance%20Bridge%20144-162.json) |
+| manifest/status | 0.0008 | [93 Weber - Public Summary - Batch122 Section81.json](https://zenodo.org/records/20667337/files/93%20Weber%20-%20Public%20Summary%20-%20Batch122%20Section81.json) |
+| artifact/source ZIP | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/20667337/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/20667337/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
+| artifact/source ZIP | 25.7835 | [97 Heinrich Weber - Batch103 Canonical Vol II Sections 166-168 and Cumulative Through Section 168.zip](https://zenodo.org/records/20667337/files/97%20Heinrich%20Weber%20-%20Batch103%20Canonical%20Vol%20II%20Sections%20166-168%20and%20Cumulative%20Through%20Section%20168.zip) |
+| manifest/status | 0.0004 | [99 Weber - Public Summary - Batch125 20260612.json](https://zenodo.org/records/20667337/files/99%20Weber%20-%20Public%20Summary%20-%20Batch125%2020260612.json) |
+| manifest/status | 0.0005 | [99_Weber_-_Public_Summary_-_Batch126_20260612.json](https://zenodo.org/records/20667337/files/99_Weber_-_Public_Summary_-_Batch126_20260612.json) |
+| artifact/source ZIP | 171.9360 | [Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip](https://zenodo.org/records/20667337/files/Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip) |
+| artifact/source ZIP | 18.6428 | [Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 59.4899 | [Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 18.3324 | [Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 16.9607 | [Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip) |
+| artifact/source ZIP | 24.5225 | [Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip) |
+| artifact/source ZIP | 36.4318 | [Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip) |
+| artifact/source ZIP | 26.4806 | [Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip) |
+| artifact/source ZIP | 22.8698 | [Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip) |
+| artifact/source ZIP | 32.2279 | [Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip) |
+| artifact/source ZIP | 61.9324 | [Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip) |
+| artifact/source ZIP | 45.6006 | [Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip) |
+| artifact/source ZIP | 14.8929 | [Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip) |
+| artifact/source ZIP | 24.3356 | [Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip) |
+| artifact/source ZIP | 35.0592 | [Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip) |
+| artifact/source ZIP | 23.3620 | [Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip) |
+| artifact/source ZIP | 23.6081 | [Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip) |
+| artifact/source ZIP | 26.3664 | [Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip) |
+| artifact/source ZIP | 17.9662 | [Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip) |
+| artifact/source ZIP | 22.2705 | [Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip) |
+| artifact/source ZIP | 42.6188 | [Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip) |
+| artifact/source ZIP | 53.9502 | [Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip) |
+| artifact/source ZIP | 48.2140 | [Weber_Cumulative_ThreeVolumes_Batch126_LocalLedgerIntegration_Microfixes_20260612.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch126_LocalLedgerIntegration_Microfixes_20260612.zip) |
+| artifact/source ZIP | 13.0605 | [Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip) |
+| artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
+| artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20667337/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
+| artifact/source ZIP | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/20667337/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
 
 ## Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
@@ -343,108 +347,110 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 ## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20665102>
+Record: <https://zenodo.org/records/20667338>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.5375 | [01 SGA 5 - Current English Working Draft unsynchronized carry-forward.pdf](https://zenodo.org/records/20665102/files/01%20SGA%205%20-%20Current%20English%20Working%20Draft%20unsynchronized%20carry-forward.pdf) |
-| reader/reference PDF | 5.0861 | [02 SGA 3 - Existing English Translation Clean Rebuild.pdf](https://zenodo.org/records/20665102/files/02%20SGA%203%20-%20Existing%20English%20Translation%20Clean%20Rebuild.pdf) |
-| reader/reference PDF | 1.6048 | [02 SGA 5 - Current French Working Draft with repair012 patches.pdf](https://zenodo.org/records/20665102/files/02%20SGA%205%20-%20Current%20French%20Working%20Draft%20with%20repair012%20patches.pdf) |
-| reader/reference PDF | 54.9596 | [03 SGA 5 - Exact Source Scan for Complete High-Fidelity Edition.pdf](https://zenodo.org/records/20665102/files/03%20SGA%205%20-%20Exact%20Source%20Scan%20for%20Complete%20High-Fidelity%20Edition.pdf) |
-| reader/reference PDF | 1.2002 | [10 SGA 1 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20665102/files/10%20SGA%201%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
-| reader/reference PDF | 0.7950 | [11 SGA 2 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20665102/files/11%20SGA%202%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
-| reader/reference PDF | 2.0727 | [13 SGA 4 - English Translation Working Draft.pdf](https://zenodo.org/records/20665102/files/13%20SGA%204%20-%20English%20Translation%20Working%20Draft.pdf) |
-| reader/reference PDF | 1.9559 | [20 SGA 6 - Complete Strict Source-Checked Edition - English Translation.pdf](https://zenodo.org/records/20665102/files/20%20SGA%206%20-%20Complete%20Strict%20Source-Checked%20Edition%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.9176 | [21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/21%20SGA%206%20-%20Complete%20Strict%20Source-Checked%20Edition%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 51.7662 | [22 SGA 6 - Exact Source Scan for Complete Strict Edition.pdf](https://zenodo.org/records/20665102/files/22%20SGA%206%20-%20Exact%20Source%20Scan%20for%20Complete%20Strict%20Edition.pdf) |
-| reader/reference PDF | 0.2749 | [23 SGA 6 - Expose III Perfection and Semicontinuity Pages 253-280 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/23%20SGA%206%20-%20Expose%20III%20Perfection%20and%20Semicontinuity%20Pages%20253-280%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2864 | [24 SGA 6 - Expose III Perfection and Semicontinuity Pages 253-280 - English Translation.pdf](https://zenodo.org/records/20665102/files/24%20SGA%206%20-%20Expose%20III%20Perfection%20and%20Semicontinuity%20Pages%20253-280%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 2.1724 | [25 SGA 6 - Source Scan Slice for Expose III Pages 253-280.pdf](https://zenodo.org/records/20665102/files/25%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20III%20Pages%20253-280.pdf) |
-| reader/reference PDF | 0.3053 | [26 SGA 6 - Expose IV Grothendieck Groups Pages 281-303 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/26%20SGA%206%20-%20Expose%20IV%20Grothendieck%20Groups%20Pages%20281-303%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.3041 | [27 SGA 6 - Expose IV Grothendieck Groups Pages 281-303 - English Translation.pdf](https://zenodo.org/records/20665102/files/27%20SGA%206%20-%20Expose%20IV%20Grothendieck%20Groups%20Pages%20281-303%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.6939 | [28 SGA 6 - Source Scan Slice for Expose IV Pages 281-303.pdf](https://zenodo.org/records/20665102/files/28%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20IV%20Pages%20281-303.pdf) |
-| reader/reference PDF | 0.2831 | [29 SGA 6 - Expose V Lambda Rings Opening Pages 304-330 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/29%20SGA%206%20-%20Expose%20V%20Lambda%20Rings%20Opening%20Pages%20304-330%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.7989 | [30 SGA 5 - Current English Working Draft from Available Segments.pdf](https://zenodo.org/records/20665102/files/30%20SGA%205%20-%20Current%20English%20Working%20Draft%20from%20Available%20Segments.pdf) |
-| reader/reference PDF | 0.2944 | [30 SGA 6 - Expose V Lambda Rings Opening Pages 304-330 - English Translation.pdf](https://zenodo.org/records/20665102/files/30%20SGA%206%20-%20Expose%20V%20Lambda%20Rings%20Opening%20Pages%20304-330%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.8639 | [31 SGA 6 - Source Scan Slice for Expose V Pages 304-330.pdf](https://zenodo.org/records/20665102/files/31%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20V%20Pages%20304-330.pdf) |
-| reader/reference PDF | 0.7016 | [32 SGA 7-I - Current English Working Draft through Expose IX Section 6.6.pdf](https://zenodo.org/records/20665102/files/32%20SGA%207-I%20-%20Current%20English%20Working%20Draft%20through%20Expose%20IX%20Section%206.6.pdf) |
-| reader/reference PDF | 0.4235 | [33 SGA 7-I - Expose VII Section 2.3 to Expose IX Section 6.6 Continuation.pdf](https://zenodo.org/records/20665102/files/33%20SGA%207-I%20-%20Expose%20VII%20Section%202.3%20to%20Expose%20IX%20Section%206.6%20Continuation.pdf) |
-| reader/reference PDF | 0.2579 | [34 SGA 6 - Expose V Pages 331-353 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/34%20SGA%206%20-%20Expose%20V%20Pages%20331-353%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2566 | [35 SGA 6 - Expose V Pages 331-353 - English Translation.pdf](https://zenodo.org/records/20665102/files/35%20SGA%206%20-%20Expose%20V%20Pages%20331-353%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.6395 | [36 SGA 6 - Source Scan Slice for Expose V Pages 331-353.pdf](https://zenodo.org/records/20665102/files/36%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20V%20Pages%20331-353.pdf) |
-| reader/reference PDF | 0.2742 | [37 SGA 6 - Expose V Pages 354-371 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/37%20SGA%206%20-%20Expose%20V%20Pages%20354-371%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2719 | [38 SGA 6 - Expose V Pages 354-371 - English Translation.pdf](https://zenodo.org/records/20665102/files/38%20SGA%206%20-%20Expose%20V%20Pages%20354-371%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.2499 | [39 SGA 6 - Source Scan Slice for Expose V Pages 354-371.pdf](https://zenodo.org/records/20665102/files/39%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20V%20Pages%20354-371.pdf) |
-| reader/reference PDF | 0.2258 | [39A SGA 6 - Expose VI Pages 372-396 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39A%20SGA%206%20-%20Expose%20VI%20Pages%20372-396%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2248 | [39B SGA 6 - Expose VI Pages 372-396 - English Translation.pdf](https://zenodo.org/records/20665102/files/39B%20SGA%206%20-%20Expose%20VI%20Pages%20372-396%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.8891 | [39C SGA 6 - Source Scan Slice for Expose VI Pages 372-396.pdf](https://zenodo.org/records/20665102/files/39C%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VI%20Pages%20372-396.pdf) |
-| reader/reference PDF | 0.3100 | [39D SGA 6 - Expose VI Pages 397-422 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39D%20SGA%206%20-%20Expose%20VI%20Pages%20397-422%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.3087 | [39E SGA 6 - Expose VI Pages 397-422 - English Translation.pdf](https://zenodo.org/records/20665102/files/39E%20SGA%206%20-%20Expose%20VI%20Pages%20397-422%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.9663 | [39F SGA 6 - Source Scan Slice for Expose VI Pages 397-422.pdf](https://zenodo.org/records/20665102/files/39F%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VI%20Pages%20397-422.pdf) |
-| reader/reference PDF | 0.2460 | [39G SGA 6 - Expose VII Regular Immersions and Blowups Pages 423-454 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39G%20SGA%206%20-%20Expose%20VII%20Regular%20Immersions%20and%20Blowups%20Pages%20423-454%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2426 | [39H SGA 6 - Expose VII Regular Immersions and Blowups Pages 423-454 - English Translation.pdf](https://zenodo.org/records/20665102/files/39H%20SGA%206%20-%20Expose%20VII%20Regular%20Immersions%20and%20Blowups%20Pages%20423-454%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 2.5520 | [39I SGA 6 - Source Scan Slice for Expose VII Pages 423-454.pdf](https://zenodo.org/records/20665102/files/39I%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VII%20Pages%20423-454.pdf) |
-| reader/reference PDF | 0.2851 | [39J SGA 6 - Expose VII Filtration and Blowup K-Theory Pages 455-472 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39J%20SGA%206%20-%20Expose%20VII%20Filtration%20and%20Blowup%20K-Theory%20Pages%20455-472%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2834 | [39K SGA 6 - Expose VII Filtration and Blowup K-Theory Pages 455-472 - English Translation.pdf](https://zenodo.org/records/20665102/files/39K%20SGA%206%20-%20Expose%20VII%20Filtration%20and%20Blowup%20K-Theory%20Pages%20455-472%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.2758 | [39L SGA 6 - Source Scan Slice for Expose VII Pages 455-472.pdf](https://zenodo.org/records/20665102/files/39L%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VII%20Pages%20455-472.pdf) |
-| reader/reference PDF | 0.2772 | [39M SGA 6 - Expose VIII Riemann-Roch Statement Pages 473-492 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39M%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Statement%20Pages%20473-492%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2754 | [39N SGA 6 - Expose VIII Riemann-Roch Statement Pages 473-492 - English Translation.pdf](https://zenodo.org/records/20665102/files/39N%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Statement%20Pages%20473-492%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.4448 | [39O SGA 6 - Source Scan Slice for Expose VIII Pages 473-492.pdf](https://zenodo.org/records/20665102/files/39O%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VIII%20Pages%20473-492.pdf) |
-| reader/reference PDF | 0.2475 | [39P SGA 6 - Expose VIII Riemann-Roch Proof Pages 493-504 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39P%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Proof%20Pages%20493-504%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.2456 | [39Q SGA 6 - Expose VIII Riemann-Roch Proof Pages 493-504 - English Translation.pdf](https://zenodo.org/records/20665102/files/39Q%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Proof%20Pages%20493-504%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.7805 | [39R SGA 6 - Source Scan Slice for Expose VIII Pages 493-504.pdf](https://zenodo.org/records/20665102/files/39R%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VIII%20Pages%20493-504.pdf) |
-| reader/reference PDF | 0.2670 | [39S SGA 6 - Expose IX K-Groups and Computations, Pages 505-525 - English.pdf](https://zenodo.org/records/20665102/files/39S%20SGA%206%20-%20Expose%20IX%20K-Groups%20and%20Computations%2C%20Pages%20505-525%20-%20English.pdf) |
-| reader/reference PDF | 0.2649 | [39T SGA 6 - Expose IX K-Groups and Computations, Pages 505-525 - French.pdf](https://zenodo.org/records/20665102/files/39T%20SGA%206%20-%20Expose%20IX%20K-Groups%20and%20Computations%2C%20Pages%20505-525%20-%20French.pdf) |
-| reader/reference PDF | 1.4666 | [39U SGA 6 - Source Scan Slice for Expose IX Pages 505-525.pdf](https://zenodo.org/records/20665102/files/39U%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20IX%20Pages%20505-525.pdf) |
-| reader/reference PDF | 0.2675 | [39V SGA 6 - Expose XIII Picard Finiteness Opening Pages 619-653 - English Translation.pdf](https://zenodo.org/records/20665102/files/39V%20SGA%206%20-%20Expose%20XIII%20Picard%20Finiteness%20Opening%20Pages%20619-653%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2384 | [39W SGA 6 - Expose XIII Picard Finiteness Opening Pages 619-653 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39W%20SGA%206%20-%20Expose%20XIII%20Picard%20Finiteness%20Opening%20Pages%20619-653%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 2.5200 | [39X SGA 6 - Source Scan Slice for Expose XIII Pages 619-653.pdf](https://zenodo.org/records/20665102/files/39X%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20XIII%20Pages%20619-653.pdf) |
-| reader/reference PDF | 0.2567 | [39Y SGA 6 - Expose XIII Neron-Severi and Hodge Index Pages 654-669 - English Translation.pdf](https://zenodo.org/records/20665102/files/39Y%20SGA%206%20-%20Expose%20XIII%20Neron-Severi%20and%20Hodge%20Index%20Pages%20654-669%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2591 | [39Z SGA 6 - Expose XIII Neron-Severi and Hodge Index Pages 654-669 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39Z%20SGA%206%20-%20Expose%20XIII%20Neron-Severi%20and%20Hodge%20Index%20Pages%20654-669%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 1.1034 | [39ZA SGA 6 - Source Scan Slice for Expose XIII Pages 654-669.pdf](https://zenodo.org/records/20665102/files/39ZA%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20XIII%20Pages%20654-669.pdf) |
-| reader/reference PDF | 0.1494 | [39ZB SGA 6 - Terminological and Notation Indexes Pages 693-702 - English Translation.pdf](https://zenodo.org/records/20665102/files/39ZB%20SGA%206%20-%20Terminological%20and%20Notation%20Indexes%20Pages%20693-702%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1496 | [39ZC SGA 6 - Terminological and Notation Indexes Pages 693-702 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/39ZC%20SGA%206%20-%20Terminological%20and%20Notation%20Indexes%20Pages%20693-702%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 0.3685 | [39ZD SGA 6 - Source Scan Slice for Indexes Pages 693-702.pdf](https://zenodo.org/records/20665102/files/39ZD%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Indexes%20Pages%20693-702.pdf) |
-| reader/reference PDF | 2.4478 | [40 SGA 1 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/40%20SGA%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 1.5039 | [41 SGA 2 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/41%20SGA%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 5.4631 | [42 SGA 3 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/42%20SGA%203%20Part%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 3.8318 | [43 SGA 3 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/43%20SGA%203%20Part%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 2.9650 | [44 SGA 3 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/44%20SGA%203%20Part%203%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 2.4100 | [45 SGA 4 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/45%20SGA%204%20Part%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 2.2773 | [46 SGA 4 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/46%20SGA%204%20Part%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 3.2955 | [47 SGA 4 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/47%20SGA%204%20Part%203%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 1.8876 | [48 SGA 4.5 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/48%20SGA%204.5%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 56.2983 | [49 SGA 5 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/49%20SGA%205%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 51.8090 | [50 SGA 6 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/50%20SGA%206%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 35.6319 | [51 SGA 7 Tome 1 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/51%20SGA%207%20Tome%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 26.2210 | [52 SGA 7 Tome 2 - French Reference PDF.pdf](https://zenodo.org/records/20665102/files/52%20SGA%207%20Tome%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 0.2394 | [53 SGA 7-I - Source-Checked Working Edition Pages 1-24 - English Translation.pdf](https://zenodo.org/records/20665102/files/53%20SGA%207-I%20-%20Source-Checked%20Working%20Edition%20Pages%201-24%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2152 | [54 SGA 7-I - Source-Checked Working Edition Pages 1-24 - French Reconstruction.pdf](https://zenodo.org/records/20665102/files/54%20SGA%207-I%20-%20Source-Checked%20Working%20Edition%20Pages%201-24%20-%20French%20Reconstruction.pdf) |
-| reader/reference PDF | 1.6562 | [55 SGA 7-I - Source Scan Slice Pages 1-24.pdf](https://zenodo.org/records/20665102/files/55%20SGA%207-I%20-%20Source%20Scan%20Slice%20Pages%201-24.pdf) |
-| artifact/source ZIP | 358.8781 | [80 SGA - Current TeX Sources, Manifests, and Build Logs.zip](https://zenodo.org/records/20665102/files/80%20SGA%20-%20Current%20TeX%20Sources%2C%20Manifests%2C%20and%20Build%20Logs.zip) |
-| artifact/source ZIP | 373.7911 | [81 SGA - Prior Segment Source Packets through Sequence 033.zip](https://zenodo.org/records/20665102/files/81%20SGA%20-%20Prior%20Segment%20Source%20Packets%20through%20Sequence%20033.zip) |
-| artifact/source ZIP | 0.0050 | [82 SGA - Correction A TeX Sources and Metadata for SGA5 SGA6 and SGA7-I Pages 1-24.zip](https://zenodo.org/records/20665102/files/82%20SGA%20-%20Correction%20A%20TeX%20Sources%20and%20Metadata%20for%20SGA5%20SGA6%20and%20SGA7-I%20Pages%201-24.zip) |
-| artifact/source ZIP | 74.2903 | [95 SGA - Update Packets 2026-06-07.zip](https://zenodo.org/records/20665102/files/95%20SGA%20-%20Update%20Packets%202026-06-07.zip) |
-| manifest/status | 0.0006 | [99 SGA - Public Summary - repair018 20260612.json](https://zenodo.org/records/20665102/files/99%20SGA%20-%20Public%20Summary%20-%20repair018%2020260612.json) |
-| manifest/status | 0.0017 | [99 SGA - Public Summary.json](https://zenodo.org/records/20665102/files/99%20SGA%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 115.9803 | [SGA.zip](https://zenodo.org/records/20665102/files/SGA.zip) |
-| artifact/source ZIP | 101.1260 | [SGA5_next_aid_manual_source_witnesses_20260609.zip](https://zenodo.org/records/20665102/files/SGA5_next_aid_manual_source_witnesses_20260609.zip) |
-| artifact/source ZIP | 74.2894 | [SGA5_onward_ordered_rebuild_010_sga7i_001_036.zip](https://zenodo.org/records/20665102/files/SGA5_onward_ordered_rebuild_010_sga7i_001_036.zip) |
-| artifact/source ZIP | 201.7440 | [SGA5_onward_ordered_rebuild_011_sga7i_037_050.zip](https://zenodo.org/records/20665102/files/SGA5_onward_ordered_rebuild_011_sga7i_037_050.zip) |
-| artifact/source ZIP | 63.7455 | [SGA5_r007_diag_aid_20260609.zip](https://zenodo.org/records/20665102/files/SGA5_r007_diag_aid_20260609.zip) |
-| artifact/source ZIP | 74.9229 | [sga5_repair004_20260609.zip](https://zenodo.org/records/20665102/files/sga5_repair004_20260609.zip) |
-| artifact/source ZIP | 101.0843 | [sga5_repair006_20260609.zip](https://zenodo.org/records/20665102/files/sga5_repair006_20260609.zip) |
-| artifact/source ZIP | 83.9335 | [SGA5_repair006_next_aid_footnotes_diagrams_20260609.zip](https://zenodo.org/records/20665102/files/SGA5_repair006_next_aid_footnotes_diagrams_20260609.zip) |
-| artifact/source ZIP | 82.5564 | [sga5_repair007_20260609.zip](https://zenodo.org/records/20665102/files/sga5_repair007_20260609.zip) |
-| artifact/source ZIP | 85.3250 | [sga5_repair008_20260609.zip](https://zenodo.org/records/20665102/files/sga5_repair008_20260609.zip) |
-| artifact/source ZIP | 60.6566 | [sga5_repair009_20260609.zip](https://zenodo.org/records/20665102/files/sga5_repair009_20260609.zip) |
-| artifact/source ZIP | 51.7115 | [sga5_repair010_20260609.zip](https://zenodo.org/records/20665102/files/sga5_repair010_20260609.zip) |
-| artifact/source ZIP | 70.9450 | [sga5_repair011_20260610.zip](https://zenodo.org/records/20665102/files/sga5_repair011_20260610.zip) |
-| artifact/source ZIP | 80.9819 | [sga5_repair012_20260610.zip](https://zenodo.org/records/20665102/files/sga5_repair012_20260610.zip) |
-| artifact/source ZIP | 118.1306 | [sga5_sga6_repair016_20260611.zip](https://zenodo.org/records/20665102/files/sga5_sga6_repair016_20260611.zip) |
-| artifact/source ZIP | 133.1503 | [sga5_sga6_repair017_20260611.zip](https://zenodo.org/records/20665102/files/sga5_sga6_repair017_20260611.zip) |
-| artifact/source ZIP | 142.2608 | [sga5_sga6_repair018_20260612.zip](https://zenodo.org/records/20665102/files/sga5_sga6_repair018_20260612.zip) |
-| artifact/source ZIP | 115.9803 | [SGA_current_sga5_sga6_sga7i_001_050_20260608.zip](https://zenodo.org/records/20665102/files/SGA_current_sga5_sga6_sga7i_001_050_20260608.zip) |
+| reader/reference PDF | 1.5375 | [01 SGA 5 - Current English Working Draft unsynchronized carry-forward.pdf](https://zenodo.org/records/20667338/files/01%20SGA%205%20-%20Current%20English%20Working%20Draft%20unsynchronized%20carry-forward.pdf) |
+| reader/reference PDF | 5.0861 | [02 SGA 3 - Existing English Translation Clean Rebuild.pdf](https://zenodo.org/records/20667338/files/02%20SGA%203%20-%20Existing%20English%20Translation%20Clean%20Rebuild.pdf) |
+| reader/reference PDF | 1.6048 | [02 SGA 5 - Current French Working Draft with repair012 patches.pdf](https://zenodo.org/records/20667338/files/02%20SGA%205%20-%20Current%20French%20Working%20Draft%20with%20repair012%20patches.pdf) |
+| reader/reference PDF | 54.9596 | [03 SGA 5 - Exact Source Scan for Complete High-Fidelity Edition.pdf](https://zenodo.org/records/20667338/files/03%20SGA%205%20-%20Exact%20Source%20Scan%20for%20Complete%20High-Fidelity%20Edition.pdf) |
+| reader/reference PDF | 1.2002 | [10 SGA 1 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20667338/files/10%20SGA%201%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
+| reader/reference PDF | 0.7950 | [11 SGA 2 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20667338/files/11%20SGA%202%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
+| reader/reference PDF | 2.0727 | [13 SGA 4 - English Translation Working Draft.pdf](https://zenodo.org/records/20667338/files/13%20SGA%204%20-%20English%20Translation%20Working%20Draft.pdf) |
+| reader/reference PDF | 1.9559 | [20 SGA 6 - Complete Strict Source-Checked Edition - English Translation.pdf](https://zenodo.org/records/20667338/files/20%20SGA%206%20-%20Complete%20Strict%20Source-Checked%20Edition%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.9176 | [21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/21%20SGA%206%20-%20Complete%20Strict%20Source-Checked%20Edition%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 51.7662 | [22 SGA 6 - Exact Source Scan for Complete Strict Edition.pdf](https://zenodo.org/records/20667338/files/22%20SGA%206%20-%20Exact%20Source%20Scan%20for%20Complete%20Strict%20Edition.pdf) |
+| reader/reference PDF | 0.2749 | [23 SGA 6 - Expose III Perfection and Semicontinuity Pages 253-280 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/23%20SGA%206%20-%20Expose%20III%20Perfection%20and%20Semicontinuity%20Pages%20253-280%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2864 | [24 SGA 6 - Expose III Perfection and Semicontinuity Pages 253-280 - English Translation.pdf](https://zenodo.org/records/20667338/files/24%20SGA%206%20-%20Expose%20III%20Perfection%20and%20Semicontinuity%20Pages%20253-280%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 2.1724 | [25 SGA 6 - Source Scan Slice for Expose III Pages 253-280.pdf](https://zenodo.org/records/20667338/files/25%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20III%20Pages%20253-280.pdf) |
+| reader/reference PDF | 0.3053 | [26 SGA 6 - Expose IV Grothendieck Groups Pages 281-303 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/26%20SGA%206%20-%20Expose%20IV%20Grothendieck%20Groups%20Pages%20281-303%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.3041 | [27 SGA 6 - Expose IV Grothendieck Groups Pages 281-303 - English Translation.pdf](https://zenodo.org/records/20667338/files/27%20SGA%206%20-%20Expose%20IV%20Grothendieck%20Groups%20Pages%20281-303%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.6939 | [28 SGA 6 - Source Scan Slice for Expose IV Pages 281-303.pdf](https://zenodo.org/records/20667338/files/28%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20IV%20Pages%20281-303.pdf) |
+| reader/reference PDF | 0.2831 | [29 SGA 6 - Expose V Lambda Rings Opening Pages 304-330 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/29%20SGA%206%20-%20Expose%20V%20Lambda%20Rings%20Opening%20Pages%20304-330%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.7989 | [30 SGA 5 - Current English Working Draft from Available Segments.pdf](https://zenodo.org/records/20667338/files/30%20SGA%205%20-%20Current%20English%20Working%20Draft%20from%20Available%20Segments.pdf) |
+| reader/reference PDF | 0.2944 | [30 SGA 6 - Expose V Lambda Rings Opening Pages 304-330 - English Translation.pdf](https://zenodo.org/records/20667338/files/30%20SGA%206%20-%20Expose%20V%20Lambda%20Rings%20Opening%20Pages%20304-330%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.8639 | [31 SGA 6 - Source Scan Slice for Expose V Pages 304-330.pdf](https://zenodo.org/records/20667338/files/31%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20V%20Pages%20304-330.pdf) |
+| reader/reference PDF | 0.7016 | [32 SGA 7-I - Current English Working Draft through Expose IX Section 6.6.pdf](https://zenodo.org/records/20667338/files/32%20SGA%207-I%20-%20Current%20English%20Working%20Draft%20through%20Expose%20IX%20Section%206.6.pdf) |
+| reader/reference PDF | 0.4235 | [33 SGA 7-I - Expose VII Section 2.3 to Expose IX Section 6.6 Continuation.pdf](https://zenodo.org/records/20667338/files/33%20SGA%207-I%20-%20Expose%20VII%20Section%202.3%20to%20Expose%20IX%20Section%206.6%20Continuation.pdf) |
+| reader/reference PDF | 0.2579 | [34 SGA 6 - Expose V Pages 331-353 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/34%20SGA%206%20-%20Expose%20V%20Pages%20331-353%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2566 | [35 SGA 6 - Expose V Pages 331-353 - English Translation.pdf](https://zenodo.org/records/20667338/files/35%20SGA%206%20-%20Expose%20V%20Pages%20331-353%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.6395 | [36 SGA 6 - Source Scan Slice for Expose V Pages 331-353.pdf](https://zenodo.org/records/20667338/files/36%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20V%20Pages%20331-353.pdf) |
+| reader/reference PDF | 0.2742 | [37 SGA 6 - Expose V Pages 354-371 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/37%20SGA%206%20-%20Expose%20V%20Pages%20354-371%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2719 | [38 SGA 6 - Expose V Pages 354-371 - English Translation.pdf](https://zenodo.org/records/20667338/files/38%20SGA%206%20-%20Expose%20V%20Pages%20354-371%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.2499 | [39 SGA 6 - Source Scan Slice for Expose V Pages 354-371.pdf](https://zenodo.org/records/20667338/files/39%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20V%20Pages%20354-371.pdf) |
+| reader/reference PDF | 0.2258 | [39A SGA 6 - Expose VI Pages 372-396 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39A%20SGA%206%20-%20Expose%20VI%20Pages%20372-396%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2248 | [39B SGA 6 - Expose VI Pages 372-396 - English Translation.pdf](https://zenodo.org/records/20667338/files/39B%20SGA%206%20-%20Expose%20VI%20Pages%20372-396%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.8891 | [39C SGA 6 - Source Scan Slice for Expose VI Pages 372-396.pdf](https://zenodo.org/records/20667338/files/39C%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VI%20Pages%20372-396.pdf) |
+| reader/reference PDF | 0.3100 | [39D SGA 6 - Expose VI Pages 397-422 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39D%20SGA%206%20-%20Expose%20VI%20Pages%20397-422%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.3087 | [39E SGA 6 - Expose VI Pages 397-422 - English Translation.pdf](https://zenodo.org/records/20667338/files/39E%20SGA%206%20-%20Expose%20VI%20Pages%20397-422%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.9663 | [39F SGA 6 - Source Scan Slice for Expose VI Pages 397-422.pdf](https://zenodo.org/records/20667338/files/39F%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VI%20Pages%20397-422.pdf) |
+| reader/reference PDF | 0.2460 | [39G SGA 6 - Expose VII Regular Immersions and Blowups Pages 423-454 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39G%20SGA%206%20-%20Expose%20VII%20Regular%20Immersions%20and%20Blowups%20Pages%20423-454%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2426 | [39H SGA 6 - Expose VII Regular Immersions and Blowups Pages 423-454 - English Translation.pdf](https://zenodo.org/records/20667338/files/39H%20SGA%206%20-%20Expose%20VII%20Regular%20Immersions%20and%20Blowups%20Pages%20423-454%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 2.5520 | [39I SGA 6 - Source Scan Slice for Expose VII Pages 423-454.pdf](https://zenodo.org/records/20667338/files/39I%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VII%20Pages%20423-454.pdf) |
+| reader/reference PDF | 0.2851 | [39J SGA 6 - Expose VII Filtration and Blowup K-Theory Pages 455-472 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39J%20SGA%206%20-%20Expose%20VII%20Filtration%20and%20Blowup%20K-Theory%20Pages%20455-472%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2834 | [39K SGA 6 - Expose VII Filtration and Blowup K-Theory Pages 455-472 - English Translation.pdf](https://zenodo.org/records/20667338/files/39K%20SGA%206%20-%20Expose%20VII%20Filtration%20and%20Blowup%20K-Theory%20Pages%20455-472%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.2758 | [39L SGA 6 - Source Scan Slice for Expose VII Pages 455-472.pdf](https://zenodo.org/records/20667338/files/39L%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VII%20Pages%20455-472.pdf) |
+| reader/reference PDF | 0.2772 | [39M SGA 6 - Expose VIII Riemann-Roch Statement Pages 473-492 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39M%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Statement%20Pages%20473-492%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2754 | [39N SGA 6 - Expose VIII Riemann-Roch Statement Pages 473-492 - English Translation.pdf](https://zenodo.org/records/20667338/files/39N%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Statement%20Pages%20473-492%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.4448 | [39O SGA 6 - Source Scan Slice for Expose VIII Pages 473-492.pdf](https://zenodo.org/records/20667338/files/39O%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VIII%20Pages%20473-492.pdf) |
+| reader/reference PDF | 0.2475 | [39P SGA 6 - Expose VIII Riemann-Roch Proof Pages 493-504 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39P%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Proof%20Pages%20493-504%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.2456 | [39Q SGA 6 - Expose VIII Riemann-Roch Proof Pages 493-504 - English Translation.pdf](https://zenodo.org/records/20667338/files/39Q%20SGA%206%20-%20Expose%20VIII%20Riemann-Roch%20Proof%20Pages%20493-504%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.7805 | [39R SGA 6 - Source Scan Slice for Expose VIII Pages 493-504.pdf](https://zenodo.org/records/20667338/files/39R%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20VIII%20Pages%20493-504.pdf) |
+| reader/reference PDF | 0.2670 | [39S SGA 6 - Expose IX K-Groups and Computations, Pages 505-525 - English.pdf](https://zenodo.org/records/20667338/files/39S%20SGA%206%20-%20Expose%20IX%20K-Groups%20and%20Computations%2C%20Pages%20505-525%20-%20English.pdf) |
+| reader/reference PDF | 0.2649 | [39T SGA 6 - Expose IX K-Groups and Computations, Pages 505-525 - French.pdf](https://zenodo.org/records/20667338/files/39T%20SGA%206%20-%20Expose%20IX%20K-Groups%20and%20Computations%2C%20Pages%20505-525%20-%20French.pdf) |
+| reader/reference PDF | 1.4666 | [39U SGA 6 - Source Scan Slice for Expose IX Pages 505-525.pdf](https://zenodo.org/records/20667338/files/39U%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20IX%20Pages%20505-525.pdf) |
+| reader/reference PDF | 0.2675 | [39V SGA 6 - Expose XIII Picard Finiteness Opening Pages 619-653 - English Translation.pdf](https://zenodo.org/records/20667338/files/39V%20SGA%206%20-%20Expose%20XIII%20Picard%20Finiteness%20Opening%20Pages%20619-653%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2384 | [39W SGA 6 - Expose XIII Picard Finiteness Opening Pages 619-653 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39W%20SGA%206%20-%20Expose%20XIII%20Picard%20Finiteness%20Opening%20Pages%20619-653%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 2.5200 | [39X SGA 6 - Source Scan Slice for Expose XIII Pages 619-653.pdf](https://zenodo.org/records/20667338/files/39X%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20XIII%20Pages%20619-653.pdf) |
+| reader/reference PDF | 0.2567 | [39Y SGA 6 - Expose XIII Neron-Severi and Hodge Index Pages 654-669 - English Translation.pdf](https://zenodo.org/records/20667338/files/39Y%20SGA%206%20-%20Expose%20XIII%20Neron-Severi%20and%20Hodge%20Index%20Pages%20654-669%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2591 | [39Z SGA 6 - Expose XIII Neron-Severi and Hodge Index Pages 654-669 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39Z%20SGA%206%20-%20Expose%20XIII%20Neron-Severi%20and%20Hodge%20Index%20Pages%20654-669%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 1.1034 | [39ZA SGA 6 - Source Scan Slice for Expose XIII Pages 654-669.pdf](https://zenodo.org/records/20667338/files/39ZA%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Expose%20XIII%20Pages%20654-669.pdf) |
+| reader/reference PDF | 0.1494 | [39ZB SGA 6 - Terminological and Notation Indexes Pages 693-702 - English Translation.pdf](https://zenodo.org/records/20667338/files/39ZB%20SGA%206%20-%20Terminological%20and%20Notation%20Indexes%20Pages%20693-702%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1496 | [39ZC SGA 6 - Terminological and Notation Indexes Pages 693-702 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/39ZC%20SGA%206%20-%20Terminological%20and%20Notation%20Indexes%20Pages%20693-702%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 0.3685 | [39ZD SGA 6 - Source Scan Slice for Indexes Pages 693-702.pdf](https://zenodo.org/records/20667338/files/39ZD%20SGA%206%20-%20Source%20Scan%20Slice%20for%20Indexes%20Pages%20693-702.pdf) |
+| reader/reference PDF | 2.4478 | [40 SGA 1 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/40%20SGA%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 1.5039 | [41 SGA 2 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/41%20SGA%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 5.4631 | [42 SGA 3 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/42%20SGA%203%20Part%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 3.8318 | [43 SGA 3 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/43%20SGA%203%20Part%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 2.9650 | [44 SGA 3 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/44%20SGA%203%20Part%203%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 2.4100 | [45 SGA 4 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/45%20SGA%204%20Part%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 2.2773 | [46 SGA 4 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/46%20SGA%204%20Part%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 3.2955 | [47 SGA 4 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/47%20SGA%204%20Part%203%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 1.8876 | [48 SGA 4.5 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/48%20SGA%204.5%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 56.2983 | [49 SGA 5 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/49%20SGA%205%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 51.8090 | [50 SGA 6 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/50%20SGA%206%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 35.6319 | [51 SGA 7 Tome 1 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/51%20SGA%207%20Tome%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 26.2210 | [52 SGA 7 Tome 2 - French Reference PDF.pdf](https://zenodo.org/records/20667338/files/52%20SGA%207%20Tome%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 0.2394 | [53 SGA 7-I - Source-Checked Working Edition Pages 1-24 - English Translation.pdf](https://zenodo.org/records/20667338/files/53%20SGA%207-I%20-%20Source-Checked%20Working%20Edition%20Pages%201-24%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2152 | [54 SGA 7-I - Source-Checked Working Edition Pages 1-24 - French Reconstruction.pdf](https://zenodo.org/records/20667338/files/54%20SGA%207-I%20-%20Source-Checked%20Working%20Edition%20Pages%201-24%20-%20French%20Reconstruction.pdf) |
+| reader/reference PDF | 1.6562 | [55 SGA 7-I - Source Scan Slice Pages 1-24.pdf](https://zenodo.org/records/20667338/files/55%20SGA%207-I%20-%20Source%20Scan%20Slice%20Pages%201-24.pdf) |
+| artifact/source ZIP | 358.8781 | [80 SGA - Current TeX Sources, Manifests, and Build Logs.zip](https://zenodo.org/records/20667338/files/80%20SGA%20-%20Current%20TeX%20Sources%2C%20Manifests%2C%20and%20Build%20Logs.zip) |
+| artifact/source ZIP | 373.7911 | [81 SGA - Prior Segment Source Packets through Sequence 033.zip](https://zenodo.org/records/20667338/files/81%20SGA%20-%20Prior%20Segment%20Source%20Packets%20through%20Sequence%20033.zip) |
+| artifact/source ZIP | 0.0050 | [82 SGA - Correction A TeX Sources and Metadata for SGA5 SGA6 and SGA7-I Pages 1-24.zip](https://zenodo.org/records/20667338/files/82%20SGA%20-%20Correction%20A%20TeX%20Sources%20and%20Metadata%20for%20SGA5%20SGA6%20and%20SGA7-I%20Pages%201-24.zip) |
+| artifact/source ZIP | 74.2903 | [95 SGA - Update Packets 2026-06-07.zip](https://zenodo.org/records/20667338/files/95%20SGA%20-%20Update%20Packets%202026-06-07.zip) |
+| manifest/status | 0.0006 | [99 SGA - Public Summary - repair018 20260612.json](https://zenodo.org/records/20667338/files/99%20SGA%20-%20Public%20Summary%20-%20repair018%2020260612.json) |
+| manifest/status | 0.0004 | [99 SGA - Public Summary - repair020 20260612.json](https://zenodo.org/records/20667338/files/99%20SGA%20-%20Public%20Summary%20-%20repair020%2020260612.json) |
+| manifest/status | 0.0017 | [99 SGA - Public Summary.json](https://zenodo.org/records/20667338/files/99%20SGA%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 115.9803 | [SGA.zip](https://zenodo.org/records/20667338/files/SGA.zip) |
+| artifact/source ZIP | 101.1260 | [SGA5_next_aid_manual_source_witnesses_20260609.zip](https://zenodo.org/records/20667338/files/SGA5_next_aid_manual_source_witnesses_20260609.zip) |
+| artifact/source ZIP | 74.2894 | [SGA5_onward_ordered_rebuild_010_sga7i_001_036.zip](https://zenodo.org/records/20667338/files/SGA5_onward_ordered_rebuild_010_sga7i_001_036.zip) |
+| artifact/source ZIP | 201.7440 | [SGA5_onward_ordered_rebuild_011_sga7i_037_050.zip](https://zenodo.org/records/20667338/files/SGA5_onward_ordered_rebuild_011_sga7i_037_050.zip) |
+| artifact/source ZIP | 63.7455 | [SGA5_r007_diag_aid_20260609.zip](https://zenodo.org/records/20667338/files/SGA5_r007_diag_aid_20260609.zip) |
+| artifact/source ZIP | 74.9229 | [sga5_repair004_20260609.zip](https://zenodo.org/records/20667338/files/sga5_repair004_20260609.zip) |
+| artifact/source ZIP | 101.0843 | [sga5_repair006_20260609.zip](https://zenodo.org/records/20667338/files/sga5_repair006_20260609.zip) |
+| artifact/source ZIP | 83.9335 | [SGA5_repair006_next_aid_footnotes_diagrams_20260609.zip](https://zenodo.org/records/20667338/files/SGA5_repair006_next_aid_footnotes_diagrams_20260609.zip) |
+| artifact/source ZIP | 82.5564 | [sga5_repair007_20260609.zip](https://zenodo.org/records/20667338/files/sga5_repair007_20260609.zip) |
+| artifact/source ZIP | 85.3250 | [sga5_repair008_20260609.zip](https://zenodo.org/records/20667338/files/sga5_repair008_20260609.zip) |
+| artifact/source ZIP | 60.6566 | [sga5_repair009_20260609.zip](https://zenodo.org/records/20667338/files/sga5_repair009_20260609.zip) |
+| artifact/source ZIP | 51.7115 | [sga5_repair010_20260609.zip](https://zenodo.org/records/20667338/files/sga5_repair010_20260609.zip) |
+| artifact/source ZIP | 70.9450 | [sga5_repair011_20260610.zip](https://zenodo.org/records/20667338/files/sga5_repair011_20260610.zip) |
+| artifact/source ZIP | 80.9819 | [sga5_repair012_20260610.zip](https://zenodo.org/records/20667338/files/sga5_repair012_20260610.zip) |
+| artifact/source ZIP | 118.1306 | [sga5_sga6_repair016_20260611.zip](https://zenodo.org/records/20667338/files/sga5_sga6_repair016_20260611.zip) |
+| artifact/source ZIP | 133.1503 | [sga5_sga6_repair017_20260611.zip](https://zenodo.org/records/20667338/files/sga5_sga6_repair017_20260611.zip) |
+| artifact/source ZIP | 142.2608 | [sga5_sga6_repair018_20260612.zip](https://zenodo.org/records/20667338/files/sga5_sga6_repair018_20260612.zip) |
+| artifact/source ZIP | 138.9594 | [sga5_sga6_repair020_20260612.zip](https://zenodo.org/records/20667338/files/sga5_sga6_repair020_20260612.zip) |
+| artifact/source ZIP | 115.9803 | [SGA_current_sga5_sga6_sga7i_001_050_20260608.zip](https://zenodo.org/records/20667338/files/SGA_current_sga5_sga6_sga7i_001_050_20260608.zip) |
 
 ## Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
@@ -1010,38 +1016,40 @@ Record: <https://zenodo.org/records/20664430>
 
 ## Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
 
-Record: <https://zenodo.org/records/20664425>
+Record: <https://zenodo.org/records/20667319>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20664425/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
-| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
-| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
-| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
-| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
-| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
-| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
-| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
-| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
-| artifact/source ZIP | 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
-| artifact/source ZIP | 38.2240 | [Gordan_Abel18_p244_251_DE_EN_20260612.zip](https://zenodo.org/records/20664425/files/Gordan_Abel18_p244_251_DE_EN_20260612.zip) |
-| artifact/source ZIP | 40.3067 | [Gordan_Abel19_p252_270_DE_EN_20260612.zip](https://zenodo.org/records/20664425/files/Gordan_Abel19_p252_270_DE_EN_20260612.zip) |
-| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
-| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_AuditFix_theta_form_20260609.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
+| manifest/status | 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20667319/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
+| manifest/status | 0.0004 | [99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json](https://zenodo.org/records/20667319/files/99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20667319/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20667319/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20667319/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
+| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20667319/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
+| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20667319/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
+| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
+| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
+| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
+| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
+| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
+| artifact/source ZIP | 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20667319/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.2240 | [Gordan_Abel18_p244_251_DE_EN_20260612.zip](https://zenodo.org/records/20667319/files/Gordan_Abel18_p244_251_DE_EN_20260612.zip) |
+| artifact/source ZIP | 40.3067 | [Gordan_Abel19_p252_270_DE_EN_20260612.zip](https://zenodo.org/records/20667319/files/Gordan_Abel19_p252_270_DE_EN_20260612.zip) |
+| artifact/source ZIP | 43.2832 | [Gordan_Abel21_p279_291_DE_EN_20260612.zip](https://zenodo.org/records/20667319/files/Gordan_Abel21_p279_291_DE_EN_20260612.zip) |
+| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20667319/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
+| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_AuditFix_theta_form_20260609.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20667319/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20667319/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20667319/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20667319/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20667319/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 

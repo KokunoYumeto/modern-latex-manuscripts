@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 26 |
-| Public files indexed | 946 |
+| Public files indexed | 967 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 350 |
-| Manifest/status files | 47 |
-| Total public file surface | 30.46 GB |
+| Artifact/source ZIPs | 364 |
+| Manifest/status files | 54 |
+| Total public file surface | 31.60 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -23,10 +23,10 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://zenodo.org/records/20652117) | 14 | 3 | 7 | 0.3 MB | Latest workflow refresh adds reader-first public records, source-image authority, derivative-PDF traps, OCR as locator rather than judge, page-map requirements, aid-package design, and reliability labels. Earlier workflow files still document source/edition checks, repair worklists, high-DPI aid packets, SGA/Deligne/Gordan witness packets, and Lean/Lake as selective formal-checking companions rather than bulk scan-transcription verifiers. |
-| [Noether](https://zenodo.org/records/20665205) | 57 | 49 | 6 | 111.96 MB | Curated reader-facing working surface with cumulative reader PDFs, 43 standalone English paper PDFs, compact language/source packages, and the RA23 compact display-layout correction package for DE/EN/ES/JA/FR. Not a certified critical edition; raw audit bundles stay out of the live page unless distilled into corrected artifacts or concise status notes. |
-| [Weber](https://zenodo.org/records/20665199) | 43 | 8 | 30 | 973.62 MB | `Lehrbuch der Algebra` Volume I represented as a repaired working branch; current Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch125 expose supporting provenance, repairs, and source checks; Batch123-125 close Vol. II §71 and Vol. I §§166, 171, and 157, leaving 88 open gap-audit rows. |
+| [Noether](https://zenodo.org/records/20667332) | 59 | 49 | 7 | 127.28 MB | Curated reader-facing working surface with cumulative readers, 43 standalone English paper PDFs, compact language/source packages, RA23 display-layout corrections, and the RA26 Paper 02 source-critical symbol audit package. Not a certified critical edition; source corrections still need cross-language propagation. |
+| [Weber](https://zenodo.org/records/20667337) | 45 | 8 | 31 | 1021.84 MB | `Lehrbuch der Algebra` Volume I represented as repaired; Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch126 expose supporting repairs and source checks; Batch126 closes Vol. II §6 and §§14/16/17 symbol/footnote patches, leaving 84 open gap-audit rows. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
-| [SGA](https://zenodo.org/records/20665102) | 98 | 74 | 22 | 2.92 GB | SGA working translation/source snapshots; latest SGA5/SGA6 repair018 repairs concrete SGA5 French diagrams on source pp.030, 031, and 084 using the 179-row diagram aid. SGA6 French is carried forward from the earlier Expose VI repair lane, while diagram, exact-symbol, English-sync, and remaining SGA6 v3 worklist lanes remain open; SGA5/SGA6/SGA7 caveats explicit. |
+| [SGA](https://zenodo.org/records/20667338) | 100 | 74 | 23 | 2.99 GB | SGA working translation/source snapshots; latest repair020 repairs concrete SGA5 French diagrams on source pp.083-086 and p102. SGA6 French is unchanged from the current cumulative, English remains unsynchronized, and SGA6/SGA7 compression/source-check caveats remain explicit. |
 | [Deligne](https://zenodo.org/records/20617786) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [EGA](https://zenodo.org/records/20454552) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://zenodo.org/records/20520721) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
@@ -43,7 +43,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-witnessed working drafts and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-witnessed working drafts and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20664430) | 13 | 5 | 7 | 1.22 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest continuation now covers p0001-p0077, restores the lower p0066 section-13 material, runs through §16, and starts Chapter II / §17. |
-| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20664425) | 28 | 0 | 27 | 1.50 GB | Dedicated package set now adds Abel18 and Abel19, extending Abelsche Functionen through source p270 / printed p248; Abel13-17 remain the preceding p182-p243 tranches. AllPrior AuditFix01 remains the consolidated prior checkpoint. |
+| [Paul Gordan and Clebsch-Gordan](https://zenodo.org/records/20667319) | 30 | 0 | 28 | 1.50 GB | Dedicated package set now adds Abel21, extending `Theorie der Abelschen Functionen` through source pp.279-291 / printed pp.257-269; next continuation is source p292 / printed p270, Elfter Abschnitt / §77. |
 | [Ernst Steinitz](https://zenodo.org/records/20617915) | 6 | 0 | 5 | 440 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13; later Steinitz gaps remain explicit. |
 | [Additional author cluster](https://zenodo.org/records/20664437) | 94 | 10 | 84 | 5.37 GB | Selected drafts and update packets for authors not yet split into full author records; newest surface adds `poincare_v1_21.zip`, `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, and `Kneser_LVR_p0177_0192_DE_EN_20260612.zip` through Kneser §§40-42. Bianchi, Gordan, Steinitz, Sylvester, Gibbs, and Maxwell now have standalone records; older mixed-shelf copies remain provenance/backstop where present. |
 
