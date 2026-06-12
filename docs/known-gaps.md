@@ -63,19 +63,19 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20651036>
+Current dedicated record: <https://zenodo.org/records/20664430>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
-- The 2026-06-11 public surface now includes `Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip` as the preferred A2 continuation layer through p0001-p0066. It restores the deferred section 10 opening on p0057 and completes sections 10-12. The p0001-p0057 audit-continuation and p0001-p0066 HQ package remain provenance/support layers.
+- The 2026-06-12 public surface now includes `Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip` as the latest A2 continuation layer through p0001-p0077. It restores lower p0066 section-13 material, continues through section 16, and starts Chapter II / section 17. Earlier p0001-p0066 audit/HQ packages remain provenance/support layers.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
-- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has a promoted high-quality Italian/English working start through source p0001-p0066, about 9 percent of the 731-page source. It covers sections 1-12; section 13 starts at the lower part of p0066 and continues on p0067, so that handoff is deliberate. A2 is not complete.
+- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English working start through source p0001-p0077, about 10 percent of the 731-page source. It covers sections 1-16 and starts Chapter II / section 17; p0078 is the next handoff. A2 is not complete.
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20660721>
+Current dedicated record: <https://zenodo.org/records/20664425>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel17_p228_243_DE_EN_20260611.zip`, extending Abelsche Functionen through source p243 / printed p221. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14, Abel15, and Abel16 continue p194-p227. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel19_p252_270_DE_EN_20260612.zip`, extending Abelsche Functionen through source p270 / printed p248. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14, Abel15, and Abel16 continue p194-p227, Abel17 covers p228-p243, and Abel18 covers p244-p251. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-217 coverage statement.
 
@@ -89,11 +89,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20651148>
+Current record: <https://zenodo.org/records/20664437>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Latest Poincare tranche is `poincare_v1_20.zip`, a Tome I FR/EN working package through Chapters XII-XIII, with source witnesses v1_0263-v1_0273 and next continuation at v1_0274 / Chapter XIV. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-11 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip`, a high-quality figure and scan-witness repair for the Kneser LVR pp.158-177 / §§37-39 tranche. The Kneser package keeps the text/math scope unchanged, removes visible AI/TikZ figure reconstructions, and is preferred over the earlier p0158-p0177 package for checking figures and scan witnesses. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- Latest Poincare tranche is `poincare_v1_21.zip`, a Tome I FR/EN working package through Chapter XIV, with Chapter XV / the torus study as next continuation. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
+- The 2026-06-11 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_p0177_0192_DE_EN_20260612.zip`, a Kneser LVR continuation for source p0177-p0192 / sections 40-42 with source-derived crops for Figures 19 and 20. The earlier p0158-p0177 package remains the previous tranche. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 

@@ -4,7 +4,7 @@ Generated from the public Zenodo records API.
 
 **Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-Total files indexed: 946
+Total files indexed: 951
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -980,57 +980,60 @@ Record: <https://zenodo.org/records/20586064>
 | artifact/source ZIP | 26.7974 | [Dirichlet_R27_V1_IVa_div4_20260606.zip](https://zenodo.org/records/20586064/files/Dirichlet_R27_V1_IVa_div4_20260606.zip) |
 | artifact/source ZIP | 26.5376 | [Dirichlet_R28_V1_IVb75_80_20260607.zip](https://zenodo.org/records/20586064/files/Dirichlet_R28_V1_IVb75_80_20260607.zip) |
 
-## Luigi Bianchi: Modern LaTeX Working Editions and Source-Intake Witnesses
+## Luigi Bianchi: Modern LaTeX Working Drafts and Source-Intake Witnesses
 
-Record: <https://zenodo.org/records/20651036>
+Record: <https://zenodo.org/records/20664430>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20651036/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
-| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20651036/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
-| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20651036/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
-| reader/reference PDF | 0.4351 | [03 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - English Working Translation.pdf](https://zenodo.org/records/20651036/files/03%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20English%20Working%20Translation.pdf) |
-| reader/reference PDF | 0.4310 | [04 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - Italian Source Transcription.pdf](https://zenodo.org/records/20651036/files/04%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20Italian%20Source%20Transcription.pdf) |
-| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20651036/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
-| manifest/status | 0.0008 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20651036/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 173.2165 | [Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip) |
-| artifact/source ZIP | 206.9177 | [Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip) |
-| artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
-| artifact/source ZIP | 245.2296 | [Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip) |
-| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20651036/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
+| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20664430/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
+| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20664430/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
+| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20664430/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
+| reader/reference PDF | 0.4351 | [03 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - English Working Translation.pdf](https://zenodo.org/records/20664430/files/03%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20English%20Working%20Translation.pdf) |
+| reader/reference PDF | 0.4310 | [04 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - Italian Source Transcription.pdf](https://zenodo.org/records/20664430/files/04%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20Italian%20Source%20Transcription.pdf) |
+| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20664430/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
+| manifest/status | 0.0008 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20664430/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 173.2165 | [Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip](https://zenodo.org/records/20664430/files/Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip) |
+| artifact/source ZIP | 206.9177 | [Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20664430/files/Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip) |
+| artifact/source ZIP | 238.2539 | [Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip](https://zenodo.org/records/20664430/files/Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip) |
+| artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20664430/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
+| artifact/source ZIP | 245.2296 | [Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20664430/files/Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip) |
+| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20664430/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
 
 ## Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
 
-Record: <https://zenodo.org/records/20660721>
+Record: <https://zenodo.org/records/20664425>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20660721/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20660721/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20660721/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20660721/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
-| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20660721/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
-| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20660721/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
-| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
-| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
-| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
-| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
-| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
-| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
-| artifact/source ZIP | 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20660721/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
-| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20660721/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
-| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_AuditFix_theta_form_20260609.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20660721/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20660721/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20660721/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20660721/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20660721/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
+| manifest/status | 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20664425/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
+| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
+| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
+| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
+| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
+| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
+| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
+| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
+| artifact/source ZIP | 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20664425/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.2240 | [Gordan_Abel18_p244_251_DE_EN_20260612.zip](https://zenodo.org/records/20664425/files/Gordan_Abel18_p244_251_DE_EN_20260612.zip) |
+| artifact/source ZIP | 40.3067 | [Gordan_Abel19_p252_270_DE_EN_20260612.zip](https://zenodo.org/records/20664425/files/Gordan_Abel19_p252_270_DE_EN_20260612.zip) |
+| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20664425/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
+| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_AuditFix_theta_form_20260609.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20664425/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20664425/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 
@@ -1047,99 +1050,101 @@ Record: <https://zenodo.org/records/20617915>
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
-Record: <https://zenodo.org/records/20651148>
+Record: <https://zenodo.org/records/20664437>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7218 | [00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf](https://zenodo.org/records/20651148/files/00%20Reader%20PDF%20-%20Minkowski%20-%20Gesammelte%20Abhandlungen%20Volume%20II%20-%20Selected%20Papers.pdf) |
-| reader/reference PDF | 1.1760 | [01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf](https://zenodo.org/records/20651148/files/01%20Reader%20PDF%20-%20Hecke%20-%20Vorlesungen%20ueber%20die%20Theorie%20der%20algebraischen%20Zahlen.pdf) |
-| reader/reference PDF | 1.2384 | [02 Reader PDF - Landau - Elementary Number Theory.pdf](https://zenodo.org/records/20651148/files/02%20Reader%20PDF%20-%20Landau%20-%20Elementary%20Number%20Theory.pdf) |
-| reader/reference PDF | 0.4828 | [03 Reader PDF - Steinitz - Algebraische Theorie der Koerper.pdf](https://zenodo.org/records/20651148/files/03%20Reader%20PDF%20-%20Steinitz%20-%20Algebraische%20Theorie%20der%20Koerper.pdf) |
-| reader/reference PDF | 1.3360 | [04 Reader PDF - Hensel - Zahlentheorie.pdf](https://zenodo.org/records/20651148/files/04%20Reader%20PDF%20-%20Hensel%20-%20Zahlentheorie.pdf) |
-| reader/reference PDF | 0.8881 | [05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf](https://zenodo.org/records/20651148/files/05%20Reader%20PDF%20-%20Oka%20-%20Analytic%20Functions%20of%20Several%20Variables%20I-X.pdf) |
-| reader/reference PDF | 1.6622 | [06 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20651148/files/06%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
-| reader/reference PDF | 2.2522 | [07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf](https://zenodo.org/records/20651148/files/07%20Reader%20PDF%20-%20Grassmann%20-%20Ausdehnungslehre%20and%20Related%20Works.pdf) |
-| reader/reference PDF | 3.7181 | [08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf](https://zenodo.org/records/20651148/files/08%20Reader%20PDF%20-%20Hausdorff%20-%20Mengenlehre%20and%20Descriptive%20Set%20Theory%20Writings.pdf) |
-| reader/reference PDF | 0.1077 | [09 Reader PDF - Killing - Transformationsgruppen.pdf](https://zenodo.org/records/20651148/files/09%20Reader%20PDF%20-%20Killing%20-%20Transformationsgruppen.pdf) |
-| artifact/source ZIP | 196.9815 | [80 Additional Author Cluster - Sources, TeX, and Provenance.zip](https://zenodo.org/records/20651148/files/80%20Additional%20Author%20Cluster%20-%20Sources%2C%20TeX%2C%20and%20Provenance.zip) |
-| artifact/source ZIP | 100.2561 | [95 Additional Authors - Bianchi - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Bianchi%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 475.9464 | [95 Additional Authors - Edge Intake Additions 2026-06-08.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Edge%20Intake%20Additions%202026-06-08.zip) |
-| artifact/source ZIP | 78.5837 | [95 Additional Authors - Frobenius - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Frobenius%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 29.2836 | [95 Additional Authors - Gordan - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Gordan%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 102.9025 | [95 Additional Authors - Klein-Fricke - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Klein-Fricke%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 62.9228 | [95 Additional Authors - Kneser - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Kneser%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 70.9352 | [95 Additional Authors - Kron - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Kron%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 67.6848 | [95 Additional Authors - Picard - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Picard%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 47.0198 | [95 Additional Authors - Poincare - Update Packets 2026-06-07.zip](https://zenodo.org/records/20651148/files/95%20Additional%20Authors%20-%20Poincare%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 591.6659 | [96 Additional Authors - Edge Intake Follow-up 2026-06-08.zip](https://zenodo.org/records/20651148/files/96%20Additional%20Authors%20-%20Edge%20Intake%20Follow-up%202026-06-08.zip) |
-| artifact/source ZIP | 31.4853 | [Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip) |
-| artifact/source ZIP | 36.0024 | [Bianchi_A1_p0001_0096_IT_EN_20260607.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_p0001_0096_IT_EN_20260607.zip) |
-| artifact/source ZIP | 39.5293 | [Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip) |
-| artifact/source ZIP | 28.5907 | [Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip) |
-| artifact/source ZIP | 36.9750 | [Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip) |
-| artifact/source ZIP | 41.1040 | [Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip) |
-| artifact/source ZIP | 34.1537 | [Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip) |
-| artifact/source ZIP | 47.1970 | [Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip](https://zenodo.org/records/20651148/files/Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip) |
-| artifact/source ZIP | 2.3255 | [Frob058_crit_GE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Frob058_crit_GE_EN_20260608.zip) |
-| artifact/source ZIP | 2.8936 | [Frob059_crit_GE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Frob059_crit_GE_EN_20260609.zip) |
-| artifact/source ZIP | 3.4395 | [Frob060_crit_GE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Frob060_crit_GE_EN_20260609.zip) |
-| artifact/source ZIP | 1.9921 | [Frob061_crit_GE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Frob061_crit_GE_EN_20260609.zip) |
-| artifact/source ZIP | 2.5502 | [Frob070_p016_034_final_GE_EN_20260611.zip](https://zenodo.org/records/20651148/files/Frob070_p016_034_final_GE_EN_20260611.zip) |
-| artifact/source ZIP | 17.6889 | [Frob071_crit_GE_EN_scans_20260611.zip](https://zenodo.org/records/20651148/files/Frob071_crit_GE_EN_scans_20260611.zip) |
-| artifact/source ZIP | 2.5906 | [Frob18872_crit_GE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Frob18872_crit_GE_EN_20260608.zip) |
-| artifact/source ZIP | 43.9932 | [Frob18877_p014_021_GE_EN_20260606.zip](https://zenodo.org/records/20651148/files/Frob18877_p014_021_GE_EN_20260606.zip) |
-| artifact/source ZIP | 34.5896 | [Frob18877_p022_030_GE_EN_fixed_20260607.zip](https://zenodo.org/records/20651148/files/Frob18877_p022_030_GE_EN_fixed_20260607.zip) |
-| artifact/source ZIP | 62.9763 | [Frob18877_p031_039_GE_EN_final_20260607.zip](https://zenodo.org/records/20651148/files/Frob18877_p031_039_GE_EN_final_20260607.zip) |
-| artifact/source ZIP | 1.9401 | [Frob18879_crit_GE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Frob18879_crit_GE_EN_20260608.zip) |
-| artifact/source ZIP | 36.5771 | [Frob18882_p001_012_GE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Frob18882_p001_012_GE_EN_20260607.zip) |
-| artifact/source ZIP | 79.8374 | [Frob18882_p013_024_GE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Frob18882_p013_024_GE_EN_20260607.zip) |
-| artifact/source ZIP | 53.1129 | [Frob18882_p025_031_GE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Frob18882_p025_031_GE_EN_20260607.zip) |
-| artifact/source ZIP | 93.8083 | [Frob18882_p032_045_GE_EN_final_20260608.zip](https://zenodo.org/records/20651148/files/Frob18882_p032_045_GE_EN_final_20260608.zip) |
-| artifact/source ZIP | 159.6225 | [Frobenius_all_GE_EN_cum_scans_20260611.zip](https://zenodo.org/records/20651148/files/Frobenius_all_GE_EN_cum_scans_20260611.zip) |
-| artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20651148/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
-| artifact/source ZIP | 14.9382 | [Frobenius_frob053_GE_EN_p001_009_20260605.zip](https://zenodo.org/records/20651148/files/Frobenius_frob053_GE_EN_p001_009_20260605.zip) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 9.8210 | [Gordan_DL02_p013_017_LAT_EN_20260606.zip](https://zenodo.org/records/20651148/files/Gordan_DL02_p013_017_LAT_EN_20260606.zip) |
-| artifact/source ZIP | 12.6690 | [Gordan_DL03_p018_027_LAT_EN_20260606.zip](https://zenodo.org/records/20651148/files/Gordan_DL03_p018_027_LAT_EN_20260606.zip) |
-| artifact/source ZIP | 16.6137 | [Gordan_DL04_p028_035_LAT_EN_20260606.zip](https://zenodo.org/records/20651148/files/Gordan_DL04_p028_035_LAT_EN_20260606.zip) |
-| artifact/source ZIP | 28.4108 | [Gordan_DL05_corrected_LAT_EN_20260607.zip](https://zenodo.org/records/20651148/files/Gordan_DL05_corrected_LAT_EN_20260607.zip) |
-| artifact/source ZIP | 4.8175 | [Gordan_DL_actual_01_20260605.zip](https://zenodo.org/records/20651148/files/Gordan_DL_actual_01_20260605.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20651148/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 17.0625 | [KF_real_V1_provfix_20260607.zip](https://zenodo.org/records/20651148/files/KF_real_V1_provfix_20260607.zip) |
-| artifact/source ZIP | 25.3755 | [Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip) |
-| artifact/source ZIP | 47.3617 | [Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip) |
-| artifact/source ZIP | 86.3298 | [Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip) |
-| artifact/source ZIP | 7.5288 | [Kneser_LVR_p0007_0013_DE_EN_20260605.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0007_0013_DE_EN_20260605.zip) |
-| artifact/source ZIP | 13.4491 | [Kneser_LVR_p0014_0022_DE_EN_20260606.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0014_0022_DE_EN_20260606.zip) |
-| artifact/source ZIP | 16.9320 | [Kneser_LVR_p0023_0031_DE_EN_20260606.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0023_0031_DE_EN_20260606.zip) |
-| artifact/source ZIP | 20.6141 | [Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip) |
-| artifact/source ZIP | 27.5925 | [Kneser_LVR_p0042_0054_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0042_0054_DE_EN_20260607.zip) |
-| artifact/source ZIP | 31.4609 | [Kneser_LVR_p0055_0064_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0055_0064_DE_EN_20260607.zip) |
-| artifact/source ZIP | 38.4663 | [Kneser_LVR_p0065_0082_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0065_0082_DE_EN_20260607.zip) |
-| artifact/source ZIP | 34.7475 | [Kneser_LVR_p0082_0096_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0082_0096_DE_EN_20260607.zip) |
-| artifact/source ZIP | 40.0767 | [Kneser_LVR_p0111_0122_DE_EN_20260608.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0111_0122_DE_EN_20260608.zip) |
-| artifact/source ZIP | 38.4592 | [Kneser_LVR_p0122_0138_DE_EN_20260609.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0122_0138_DE_EN_20260609.zip) |
-| artifact/source ZIP | 47.7080 | [Kneser_LVR_p0139_0158_DE_EN_20260611.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0139_0158_DE_EN_20260611.zip) |
-| artifact/source ZIP | 63.0505 | [Kneser_LVR_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20651148/files/Kneser_LVR_p0158_0177_DE_EN_20260611.zip) |
-| artifact/source ZIP | 6.2967 | [kr_p01_20260607.zip](https://zenodo.org/records/20651148/files/kr_p01_20260607.zip) |
-| artifact/source ZIP | 5.6911 | [kron01.zip](https://zenodo.org/records/20651148/files/kron01.zip) |
-| artifact/source ZIP | 33.5600 | [Kron_author_restart_p005_041_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kron_author_restart_p005_041_DE_EN_20260607.zip) |
-| artifact/source ZIP | 10.5498 | [Kron_bookclean_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kron_bookclean_p001_014_DE_EN_20260607.zip) |
-| artifact/source ZIP | 9.1795 | [Kron_clean_p005_018_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kron_clean_p005_018_DE_EN_20260607.zip) |
-| artifact/source ZIP | 12.3856 | [Kron_restart_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20651148/files/Kron_restart_p001_014_DE_EN_20260607.zip) |
-| artifact/source ZIP | 60.8802 | [Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip](https://zenodo.org/records/20651148/files/Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip) |
-| artifact/source ZIP | 7.9331 | [Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip](https://zenodo.org/records/20651148/files/Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip) |
-| artifact/source ZIP | 173.1888 | [poincare_v1_18.zip](https://zenodo.org/records/20651148/files/poincare_v1_18.zip) |
-| artifact/source ZIP | 207.2206 | [poincare_v1_19.zip](https://zenodo.org/records/20651148/files/poincare_v1_19.zip) |
-| artifact/source ZIP | 214.2228 | [poincare_v1_20.zip](https://zenodo.org/records/20651148/files/poincare_v1_20.zip) |
-| artifact/source ZIP | 22.2851 | [Steinitz_38_canonical_redo_1894_1897_shortpaths.zip](https://zenodo.org/records/20651148/files/Steinitz_38_canonical_redo_1894_1897_shortpaths.zip) |
-| artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20651148/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
-| artifact/source ZIP | 72.1474 | [Steinitz_42_bedingtII_p012-024_shortpaths.zip](https://zenodo.org/records/20651148/files/Steinitz_42_bedingtII_p012-024_shortpaths.zip) |
+| reader/reference PDF | 1.7218 | [00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf](https://zenodo.org/records/20664437/files/00%20Reader%20PDF%20-%20Minkowski%20-%20Gesammelte%20Abhandlungen%20Volume%20II%20-%20Selected%20Papers.pdf) |
+| reader/reference PDF | 1.1760 | [01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf](https://zenodo.org/records/20664437/files/01%20Reader%20PDF%20-%20Hecke%20-%20Vorlesungen%20ueber%20die%20Theorie%20der%20algebraischen%20Zahlen.pdf) |
+| reader/reference PDF | 1.2384 | [02 Reader PDF - Landau - Elementary Number Theory.pdf](https://zenodo.org/records/20664437/files/02%20Reader%20PDF%20-%20Landau%20-%20Elementary%20Number%20Theory.pdf) |
+| reader/reference PDF | 0.4828 | [03 Reader PDF - Steinitz - Algebraische Theorie der Koerper.pdf](https://zenodo.org/records/20664437/files/03%20Reader%20PDF%20-%20Steinitz%20-%20Algebraische%20Theorie%20der%20Koerper.pdf) |
+| reader/reference PDF | 1.3360 | [04 Reader PDF - Hensel - Zahlentheorie.pdf](https://zenodo.org/records/20664437/files/04%20Reader%20PDF%20-%20Hensel%20-%20Zahlentheorie.pdf) |
+| reader/reference PDF | 0.8881 | [05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf](https://zenodo.org/records/20664437/files/05%20Reader%20PDF%20-%20Oka%20-%20Analytic%20Functions%20of%20Several%20Variables%20I-X.pdf) |
+| reader/reference PDF | 1.6622 | [06 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20664437/files/06%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
+| reader/reference PDF | 2.2522 | [07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf](https://zenodo.org/records/20664437/files/07%20Reader%20PDF%20-%20Grassmann%20-%20Ausdehnungslehre%20and%20Related%20Works.pdf) |
+| reader/reference PDF | 3.7181 | [08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf](https://zenodo.org/records/20664437/files/08%20Reader%20PDF%20-%20Hausdorff%20-%20Mengenlehre%20and%20Descriptive%20Set%20Theory%20Writings.pdf) |
+| reader/reference PDF | 0.1077 | [09 Reader PDF - Killing - Transformationsgruppen.pdf](https://zenodo.org/records/20664437/files/09%20Reader%20PDF%20-%20Killing%20-%20Transformationsgruppen.pdf) |
+| artifact/source ZIP | 196.9815 | [80 Additional Author Cluster - Sources, TeX, and Provenance.zip](https://zenodo.org/records/20664437/files/80%20Additional%20Author%20Cluster%20-%20Sources%2C%20TeX%2C%20and%20Provenance.zip) |
+| artifact/source ZIP | 100.2561 | [95 Additional Authors - Bianchi - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Bianchi%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 475.9464 | [95 Additional Authors - Edge Intake Additions 2026-06-08.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Edge%20Intake%20Additions%202026-06-08.zip) |
+| artifact/source ZIP | 78.5837 | [95 Additional Authors - Frobenius - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Frobenius%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 29.2836 | [95 Additional Authors - Gordan - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Gordan%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 102.9025 | [95 Additional Authors - Klein-Fricke - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Klein-Fricke%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 62.9228 | [95 Additional Authors - Kneser - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Kneser%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 70.9352 | [95 Additional Authors - Kron - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Kron%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 67.6848 | [95 Additional Authors - Picard - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Picard%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 47.0198 | [95 Additional Authors - Poincare - Update Packets 2026-06-07.zip](https://zenodo.org/records/20664437/files/95%20Additional%20Authors%20-%20Poincare%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 591.6659 | [96 Additional Authors - Edge Intake Follow-up 2026-06-08.zip](https://zenodo.org/records/20664437/files/96%20Additional%20Authors%20-%20Edge%20Intake%20Follow-up%202026-06-08.zip) |
+| artifact/source ZIP | 31.4853 | [Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip) |
+| artifact/source ZIP | 36.0024 | [Bianchi_A1_p0001_0096_IT_EN_20260607.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_p0001_0096_IT_EN_20260607.zip) |
+| artifact/source ZIP | 39.5293 | [Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip) |
+| artifact/source ZIP | 28.5907 | [Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip) |
+| artifact/source ZIP | 36.9750 | [Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip) |
+| artifact/source ZIP | 41.1040 | [Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip) |
+| artifact/source ZIP | 34.1537 | [Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip) |
+| artifact/source ZIP | 47.1970 | [Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip](https://zenodo.org/records/20664437/files/Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip) |
+| artifact/source ZIP | 2.3255 | [Frob058_crit_GE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Frob058_crit_GE_EN_20260608.zip) |
+| artifact/source ZIP | 2.8936 | [Frob059_crit_GE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Frob059_crit_GE_EN_20260609.zip) |
+| artifact/source ZIP | 3.4395 | [Frob060_crit_GE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Frob060_crit_GE_EN_20260609.zip) |
+| artifact/source ZIP | 1.9921 | [Frob061_crit_GE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Frob061_crit_GE_EN_20260609.zip) |
+| artifact/source ZIP | 2.5502 | [Frob070_p016_034_final_GE_EN_20260611.zip](https://zenodo.org/records/20664437/files/Frob070_p016_034_final_GE_EN_20260611.zip) |
+| artifact/source ZIP | 17.6889 | [Frob071_crit_GE_EN_scans_20260611.zip](https://zenodo.org/records/20664437/files/Frob071_crit_GE_EN_scans_20260611.zip) |
+| artifact/source ZIP | 2.5906 | [Frob18872_crit_GE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Frob18872_crit_GE_EN_20260608.zip) |
+| artifact/source ZIP | 43.9932 | [Frob18877_p014_021_GE_EN_20260606.zip](https://zenodo.org/records/20664437/files/Frob18877_p014_021_GE_EN_20260606.zip) |
+| artifact/source ZIP | 34.5896 | [Frob18877_p022_030_GE_EN_fixed_20260607.zip](https://zenodo.org/records/20664437/files/Frob18877_p022_030_GE_EN_fixed_20260607.zip) |
+| artifact/source ZIP | 62.9763 | [Frob18877_p031_039_GE_EN_final_20260607.zip](https://zenodo.org/records/20664437/files/Frob18877_p031_039_GE_EN_final_20260607.zip) |
+| artifact/source ZIP | 1.9401 | [Frob18879_crit_GE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Frob18879_crit_GE_EN_20260608.zip) |
+| artifact/source ZIP | 36.5771 | [Frob18882_p001_012_GE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Frob18882_p001_012_GE_EN_20260607.zip) |
+| artifact/source ZIP | 79.8374 | [Frob18882_p013_024_GE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Frob18882_p013_024_GE_EN_20260607.zip) |
+| artifact/source ZIP | 53.1129 | [Frob18882_p025_031_GE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Frob18882_p025_031_GE_EN_20260607.zip) |
+| artifact/source ZIP | 93.8083 | [Frob18882_p032_045_GE_EN_final_20260608.zip](https://zenodo.org/records/20664437/files/Frob18882_p032_045_GE_EN_final_20260608.zip) |
+| artifact/source ZIP | 159.6225 | [Frobenius_all_GE_EN_cum_scans_20260611.zip](https://zenodo.org/records/20664437/files/Frobenius_all_GE_EN_cum_scans_20260611.zip) |
+| artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20664437/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
+| artifact/source ZIP | 14.9382 | [Frobenius_frob053_GE_EN_p001_009_20260605.zip](https://zenodo.org/records/20664437/files/Frobenius_frob053_GE_EN_p001_009_20260605.zip) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 9.8210 | [Gordan_DL02_p013_017_LAT_EN_20260606.zip](https://zenodo.org/records/20664437/files/Gordan_DL02_p013_017_LAT_EN_20260606.zip) |
+| artifact/source ZIP | 12.6690 | [Gordan_DL03_p018_027_LAT_EN_20260606.zip](https://zenodo.org/records/20664437/files/Gordan_DL03_p018_027_LAT_EN_20260606.zip) |
+| artifact/source ZIP | 16.6137 | [Gordan_DL04_p028_035_LAT_EN_20260606.zip](https://zenodo.org/records/20664437/files/Gordan_DL04_p028_035_LAT_EN_20260606.zip) |
+| artifact/source ZIP | 28.4108 | [Gordan_DL05_corrected_LAT_EN_20260607.zip](https://zenodo.org/records/20664437/files/Gordan_DL05_corrected_LAT_EN_20260607.zip) |
+| artifact/source ZIP | 4.8175 | [Gordan_DL_actual_01_20260605.zip](https://zenodo.org/records/20664437/files/Gordan_DL_actual_01_20260605.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20664437/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 17.0625 | [KF_real_V1_provfix_20260607.zip](https://zenodo.org/records/20664437/files/KF_real_V1_provfix_20260607.zip) |
+| artifact/source ZIP | 25.3755 | [Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip) |
+| artifact/source ZIP | 47.3617 | [Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip) |
+| artifact/source ZIP | 86.3298 | [Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip) |
+| artifact/source ZIP | 7.5288 | [Kneser_LVR_p0007_0013_DE_EN_20260605.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0007_0013_DE_EN_20260605.zip) |
+| artifact/source ZIP | 13.4491 | [Kneser_LVR_p0014_0022_DE_EN_20260606.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0014_0022_DE_EN_20260606.zip) |
+| artifact/source ZIP | 16.9320 | [Kneser_LVR_p0023_0031_DE_EN_20260606.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0023_0031_DE_EN_20260606.zip) |
+| artifact/source ZIP | 20.6141 | [Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip) |
+| artifact/source ZIP | 27.5925 | [Kneser_LVR_p0042_0054_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0042_0054_DE_EN_20260607.zip) |
+| artifact/source ZIP | 31.4609 | [Kneser_LVR_p0055_0064_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0055_0064_DE_EN_20260607.zip) |
+| artifact/source ZIP | 38.4663 | [Kneser_LVR_p0065_0082_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0065_0082_DE_EN_20260607.zip) |
+| artifact/source ZIP | 34.7475 | [Kneser_LVR_p0082_0096_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0082_0096_DE_EN_20260607.zip) |
+| artifact/source ZIP | 40.0767 | [Kneser_LVR_p0111_0122_DE_EN_20260608.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0111_0122_DE_EN_20260608.zip) |
+| artifact/source ZIP | 38.4592 | [Kneser_LVR_p0122_0138_DE_EN_20260609.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0122_0138_DE_EN_20260609.zip) |
+| artifact/source ZIP | 47.7080 | [Kneser_LVR_p0139_0158_DE_EN_20260611.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0139_0158_DE_EN_20260611.zip) |
+| artifact/source ZIP | 63.0505 | [Kneser_LVR_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0158_0177_DE_EN_20260611.zip) |
+| artifact/source ZIP | 98.1142 | [Kneser_LVR_p0177_0192_DE_EN_20260612.zip](https://zenodo.org/records/20664437/files/Kneser_LVR_p0177_0192_DE_EN_20260612.zip) |
+| artifact/source ZIP | 6.2967 | [kr_p01_20260607.zip](https://zenodo.org/records/20664437/files/kr_p01_20260607.zip) |
+| artifact/source ZIP | 5.6911 | [kron01.zip](https://zenodo.org/records/20664437/files/kron01.zip) |
+| artifact/source ZIP | 33.5600 | [Kron_author_restart_p005_041_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kron_author_restart_p005_041_DE_EN_20260607.zip) |
+| artifact/source ZIP | 10.5498 | [Kron_bookclean_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kron_bookclean_p001_014_DE_EN_20260607.zip) |
+| artifact/source ZIP | 9.1795 | [Kron_clean_p005_018_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kron_clean_p005_018_DE_EN_20260607.zip) |
+| artifact/source ZIP | 12.3856 | [Kron_restart_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20664437/files/Kron_restart_p001_014_DE_EN_20260607.zip) |
+| artifact/source ZIP | 60.8802 | [Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip](https://zenodo.org/records/20664437/files/Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip) |
+| artifact/source ZIP | 7.9331 | [Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip](https://zenodo.org/records/20664437/files/Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip) |
+| artifact/source ZIP | 173.1888 | [poincare_v1_18.zip](https://zenodo.org/records/20664437/files/poincare_v1_18.zip) |
+| artifact/source ZIP | 207.2206 | [poincare_v1_19.zip](https://zenodo.org/records/20664437/files/poincare_v1_19.zip) |
+| artifact/source ZIP | 214.2228 | [poincare_v1_20.zip](https://zenodo.org/records/20664437/files/poincare_v1_20.zip) |
+| artifact/source ZIP | 231.5475 | [poincare_v1_21.zip](https://zenodo.org/records/20664437/files/poincare_v1_21.zip) |
+| artifact/source ZIP | 22.2851 | [Steinitz_38_canonical_redo_1894_1897_shortpaths.zip](https://zenodo.org/records/20664437/files/Steinitz_38_canonical_redo_1894_1897_shortpaths.zip) |
+| artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20664437/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
+| artifact/source ZIP | 72.1474 | [Steinitz_42_bedingtII_p012-024_shortpaths.zip](https://zenodo.org/records/20664437/files/Steinitz_42_bedingtII_p012-024_shortpaths.zip) |

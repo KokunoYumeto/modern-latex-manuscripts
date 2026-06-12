@@ -76,14 +76,14 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch122, including the Vol. II §81 table/boundary repair; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20660948) |
 | Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://zenodo.org/records/20651590) |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a preferred p0001-p0066 re-audit correction package; §§10-12 are represented and §13 is deliberately deferred. | [Bianchi](https://zenodo.org/records/20651036) |
-| Paul Gordan / Clebsch-Gordan | Abel17 extends Abelsche Functionen through source p243 / printed p221; Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14-16 continue p194-p227. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20660721) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a latest p0001-p0077 continuation package; §§13-16 are represented and Chapter II / §17 has started. | [Bianchi](https://zenodo.org/records/20664430) |
+| Paul Gordan / Clebsch-Gordan | Abel19 extends Abelsche Functionen through source p270 / printed p248; Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14-16 continue p194-p227, Abel17 covers p228-p243, Abel18 covers p244-p251, and Abel19 covers p252-p270. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20664425) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
 | James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-046, plus earlier book pages 95-101, 103, 105, 109, and continuous pp.111-267. Broader batch TeX/PDF substrate is status-mixed; ledgers and source witness images govern promoted range claims. | [Maxwell](https://zenodo.org/records/20660332) |
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20651148)
+Record: [Additional author cluster](https://zenodo.org/records/20664437)
 
 | Author | Current Public Surface |
 |---|---|
@@ -96,11 +96,11 @@ Record: [Additional author cluster](https://zenodo.org/records/20651148)
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20651036) for current readers, auditfix ZIP, and A2 HQ/audit-continuation/provenance caveats. |
-| Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_20.zip`, cumulative through Chapters XII-XIII with next continuation at v1_0274 / Chapter XIV. |
+| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20664430) for current readers, auditfix ZIP, the latest A2 p0001-p0077 continuation, and earlier HQ/audit-continuation/provenance caveats. |
+| Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_21.zip`, cumulative through Chapter XIV with next continuation at Chapter XV / the torus study. |
 | Frobenius | Selected GE/EN group-character and hypercomplex sequence cumulative/QA package through items 053, 054, 056-061, 070, and 071; use package-level ledgers and source caveats. |
-| Kneser | `Lehrbuch der Variationsrechnung` German/English routed working tranches. Prefer `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip` for checking figures/source witnesses through p0177; it is a repair package, not a continuation beyond p0177. |
-| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20660721) for Abel11-Abel17, AllPrior AuditFix01, and branch-specific auditfix packets. |
+| Kneser | `Lehrbuch der Variationsrechnung` German/English routed working tranches. Current routed continuation is `Kneser_LVR_p0177_0192_DE_EN_20260612.zip` for source p0177-p0192 / §§40-42 with source-derived crops for Figures 19 and 20; the earlier `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip` remains the preferred repair/source-witness package for the previous p0158-p0177 tranche. |
+| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20664425) for Abel11-Abel19, AllPrior AuditFix01, and branch-specific auditfix packets. |
 | Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
 
 ## Reference Witnesses
