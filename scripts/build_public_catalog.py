@@ -26,10 +26,10 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20652117"),
-    ("noether", "20651590"),
-    ("weber", "20660948"),
+    ("noether", "20665205"),
+    ("weber", "20665199"),
     ("cayley", "20617845"),
-    ("sga", "20661245"),
+    ("sga", "20665102"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),

@@ -12,10 +12,10 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | Workflow and replication notes | <https://zenodo.org/records/20652117> |
-| Emmy Noether | <https://zenodo.org/records/20651590> |
-| Heinrich Weber | <https://zenodo.org/records/20660948> |
+| Emmy Noether | <https://zenodo.org/records/20665205> |
+| Heinrich Weber | <https://zenodo.org/records/20665199> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
-| SGA source and English/French translation drafts | <https://zenodo.org/records/20661245> |
+| SGA source and English/French translation drafts | <https://zenodo.org/records/20665102> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20454552> |
 | Ukrainian applied mathematics | <https://zenodo.org/records/20520721> |

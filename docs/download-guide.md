@@ -13,10 +13,10 @@ Good starting points:
 | Interest | Start With |
 |---|---|
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
-| SGA | [SGA record](https://zenodo.org/records/20661245), the current reader PDFs first, then the audit/source ZIPs |
+| SGA | [SGA record](https://zenodo.org/records/20665102), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
-| Weber | [Weber record](https://zenodo.org/records/20660948), Volume I first; later volumes are in progress |
-| Noether | [Noether record](https://zenodo.org/records/20651590), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
+| Weber | [Weber record](https://zenodo.org/records/20665199), Volume I first; later volumes are in progress |
+| Noether | [Noether record](https://zenodo.org/records/20665205), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20664430), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip` as the latest continuation layer through p0077, with older p0001-p0066 re-audit/HQ/audit ZIPs retained as provenance/support layers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20664425), open Abel19 for the current Abelsche continuation through source p270 / printed p248; Abel13 includes the p190 continuation of equation (4), while Abel14-16 continue p194-p227, Abel17 covers p228-p243, Abel18 covers p244-p251, and Abel19 covers p252-p270. AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20583048), numbered reader PDFs by author; inherited Cayley `source_checked` filenames are de-promoted unless re-promoted by a later source audit |

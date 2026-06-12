@@ -10,10 +10,10 @@ This page is the human entry point for the archive. Use it when you want to find
 | Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20652117) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
-| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20661245) |
+| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20665102) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
-| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20651590) |
-| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20660948) |
+| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20665205) |
+| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20665199) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20454552) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20583048) |
@@ -34,7 +34,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [EGA](https://zenodo.org/records/20454552) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
-| [SGA](https://zenodo.org/records/20661245) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5/SGA6 repair017 package repairs concrete SGA5 diagrams, adds a 179-row SGA5 diagram index, and restores SGA6 Expose VI pp.391-397 in French, while diagram, exact-symbol, English-sync, and remaining SGA6 v3 worklist lanes remain open; witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
+| [SGA](https://zenodo.org/records/20665102) | SGA 5/6 and further SGA working translation material, plus source/reference packets. SGA5 and SGA6 are structurally covered in current drafts, but audits found localized compression/omission gaps; the latest SGA5/SGA6 repair018 package repairs concrete SGA5 French diagrams on source pp.030, 031, and 084, using the 179-row diagram micropass aid. SGA6 French remains carried forward from the earlier Expose VI repair lane, while diagram, exact-symbol, English-sync, and remaining SGA6 v3 worklist lanes remain open; witness-aid/candidate output is not promoted without independent source checks. | Open the reader PDFs first, then source ZIPs and audit packets. |
 | [Deligne](https://zenodo.org/records/20617786) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v3 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
@@ -53,8 +53,8 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Emmy Noether](https://zenodo.org/records/20651590) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. The status file records RA20, RA10, and FR/ZH correction-stream caveats. |
-| [Heinrich Weber](https://zenodo.org/records/20660948) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch122; Batch122 repairs the Vol. II §81 table/boundary issue. |
+| [Emmy Noether](https://zenodo.org/records/20665205) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. The latest RA23 compact correction package fixes display-layout/vertical-rule issues across DE/EN/ES/JA/FR branches; Chinese has been scanned with no promoted RA23 candidate yet. |
+| [Heinrich Weber](https://zenodo.org/records/20665199) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch125; Batch123-125 close Vol. II §71 and Vol. I §§166, 171, and 157. |
 | [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts; Cayley material there is provenance/repair material unless a specific range has been re-promoted by a later source audit. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [James Clerk Maxwell](https://zenodo.org/records/20660332) | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches. Current public coverage is IA 1873 first-edition pp.001-046 plus earlier book pages 95-101, 103, 105, 109, and continuous pp.111-267; not a complete Treatise edition. | Start with the status files, then the ZIPs for TeX/PDF, source witnesses, ledgers, render checks, and IA/OCR witness material. |
