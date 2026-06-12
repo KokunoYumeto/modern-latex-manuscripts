@@ -26,9 +26,9 @@ Generated from `manifests/public-file-catalog.csv` after the 2026-06-12 archive 
 | gibbs_old_physics | 10 | 3 | 3 | 1 | 18.6216 | [record](https://zenodo.org/records/20649836) |
 | dedekind | 18 | 14 | 3 | 1 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 1 | 168.3875 | [record](https://zenodo.org/records/20586064) |
-| bianchi | 15 | 5 | 8 | 2 | 1449.1401 | [record](https://zenodo.org/records/20668784) |
+| bianchi | 17 | 5 | 9 | 3 | 1676.2605 | [record](https://zenodo.org/records/20669390) |
 | gordan_clebsch_gordan | 32 | 0 | 29 | 3 | 1573.5554 | [record](https://zenodo.org/records/20668971) |
 | steinitz | 6 | 0 | 5 | 1 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 96 | 10 | 85 | 1 | 5447.8907 | [record](https://zenodo.org/records/20668791) |
+| additional_author_cluster | 98 | 10 | 86 | 2 | 5530.3723 | [record](https://zenodo.org/records/20669391) |
 
 Reliability rule: legacy file names can include words such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; current record notes and scoped source-audit ledgers govern reliability.
