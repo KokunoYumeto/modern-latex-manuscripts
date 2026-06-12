@@ -3,7 +3,7 @@
 | record | files | pdfs | zips | total_mb | link |
 |---|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
-| workflow | 13 | 3 | 7 | 0.3377 | [record](https://zenodo.org/records/20651670) |
+| workflow | 14 | 3 | 7 | 0.3402 | [record](https://zenodo.org/records/20652117) |
 | noether | 55 | 49 | 5 | 95.59 | [record](https://zenodo.org/records/20651590) |
 | weber | 37 | 8 | 26 | 836.8163 | [record](https://zenodo.org/records/20651306) |
 | cayley | 84 | 13 | 69 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
