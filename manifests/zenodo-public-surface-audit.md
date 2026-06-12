@@ -24,7 +24,7 @@
 | dedekind | 18 | 14 | 3 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 168.3875 | [record](https://zenodo.org/records/20586064) |
 | bianchi | 12 | 5 | 6 | 983.8007 | [record](https://zenodo.org/records/20651036) |
-| gordan_clebsch_gordan | 25 | 0 | 24 | 1352.6456 | [record](https://zenodo.org/records/20650618) |
+| gordan_clebsch_gordan | 26 | 0 | 25 | 1418.5858 | [record](https://zenodo.org/records/20660721) |
 | steinitz | 6 | 0 | 5 | 439.5617 | [record](https://zenodo.org/records/20617915) |
 | additional_author_cluster | 92 | 10 | 82 | 5039.3261 | [record](https://zenodo.org/records/20651148) |
 
