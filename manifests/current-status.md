@@ -1,6 +1,6 @@
 # Current Status
 
-Generated from the local Codex working project; manually refreshed during the 2026-06-11 archive sweep.
+Generated from the local Codex working project; manually refreshed during the 2026-06-12 archive sweep.
 
 | Area | Current State |
 |---|---|
