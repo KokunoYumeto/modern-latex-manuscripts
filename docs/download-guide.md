@@ -13,7 +13,7 @@ Good starting points:
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
 | SGA | [SGA record](https://zenodo.org/records/20651984), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
-| Weber | [Weber record](https://zenodo.org/records/20651306), Volume I first; later volumes are in progress |
+| Weber | [Weber record](https://zenodo.org/records/20660948), Volume I first; later volumes are in progress |
 | Noether | [Noether record](https://zenodo.org/records/20651590), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20651036), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip` as the preferred correction layer through p0066, with older continuation/HQ/audit ZIPs retained as provenance/support layers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20660721), open Abel17 for the current Abelsche continuation through source p243 / printed p221; Abel13 includes the p190 continuation of equation (4), while Abel14-16 continue p194-p227. AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside |

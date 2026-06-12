@@ -42,11 +42,11 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20651306>
+Weber: <https://zenodo.org/records/20660948>
 
 Noether: <https://zenodo.org/records/20651590>
 
-- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch120 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 183 and Vol. II §§20, 21, 52, 57, 58, 60, 61, 77, 99, 101, 106, 114, 118, 126. Batch121 corrects the Batch120 inspection package by splitting the non-contiguous §§106/114 repair artifacts and adding contiguous §§106-114 extracts confirming §§107-113 are present in order. The active repair ledger still reports 93 open priority repair rows. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
+- Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch122 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 183 and Vol. II §§20, 21, 52, 57, 58, 60, 61, 77, 81, 99, 101, 106, 114, 118, 126. Batch122 closes the Vol. II §81 row and fixes the §81/§82 boundary by placing the Tripel/Quadrupel tables visible on source p313 before the §82 heading. The active repair ledger still reports 92 open priority repair rows. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
 - Noether now has a curated public surface: cumulative reader PDFs, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Known open items remain: RA20 fixes German/source Paper 02 p.63 display layout but non-German propagation is queued; RA10 restores scan-visible apparatus for Papers 40-43 but leaves inline body resynchronization open; the FR/ZH checkpoint is through Paper 19 §6 and its tau-exponent correction still needs EN/ES/JA propagation.
 - Both author records need continued translation, source comparison, and final proofing.

@@ -72,7 +72,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 | Author | Current Public Surface | Record |
 |---|---|---|
-| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volume II current readers through section 176 with recursive gap repairs through Batch120 plus Batch121 continuity correction for §§106-114; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20651306) |
+| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English complete; Volume II current readers through section 176 with recursive gap repairs through Batch122, including the Vol. II §81 table/boundary repair; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20660948) |
 | Emmy Noether | Curated numbered-paper corpus: cumulative readers, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. | [Noether](https://zenodo.org/records/20651590) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working edition complete through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a preferred p0001-p0066 re-audit correction package; §§10-12 remain complete and §13 is deliberately deferred. | [Bianchi](https://zenodo.org/records/20651036) |
 | Paul Gordan / Clebsch-Gordan | Abel17 extends Abelsche Functionen through source p243 / printed p221; Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14-16 continue p194-p227. AllPrior AuditFix01 remains the consolidated support checkpoint for the earlier branches. | [Gordan](https://zenodo.org/records/20660721) |
