@@ -17,13 +17,14 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Paul Gordan and Clebsch-Gordan | Abelsche Functionen, De linea geodetica, Formensystem, and theta packets now have a dedicated working-edition record. |
 | Ernst Steinitz | Package-audited German/English working packets now have a dedicated record, covering 1910 fields, 1913/1914 Bedingt material, and strict early works, with later gaps explicitly labelled. |
 | James Joseph Sylvester | Volume I now has a dedicated source-checked working-edition record through book page 608. |
+| James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I now has a dedicated source-checked working-tranche record for ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. |
 | J. Willard Gibbs / old physics | Gibbs Volume I old-physics working tranches through printed page 124 now have a dedicated record. |
 
 ## Strong Split Candidates
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
-| Maxwell / old physics | A first-edition restart and selected later Vol. I repairs are active locally, but the broader Vol. I/II draft remains OCR-derived in places and still has LaTeX, figure, and table gaps. | Old physics / Maxwell source-checked working drafts only after a cleaner reader rollup separates promoted pages from witness/provenance material. |
+| None at this sweep | The obvious recent split candidates have either been promoted or still need cleaner cumulative rollups. | Continue using the hold list below until a lane has a coherent reader surface, exact coverage, and compact provenance. |
 
 ## Hold Until Cleaner Rollup
 

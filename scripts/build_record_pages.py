@@ -38,6 +38,7 @@ RECORD_ORDER = [
     "historical_references",
     "classical_algebra_arithmetic",
     "sylvester",
+    "maxwell",
     "gibbs_old_physics",
     "dedekind",
     "dirichlet",
@@ -67,6 +68,7 @@ DISPLAY_NAMES = {
     "historical_references": "Historical Reference Witnesses",
     "classical_algebra_arithmetic": "Classical Algebra and Arithmetic",
     "sylvester": "James Joseph Sylvester",
+    "maxwell": "James Clerk Maxwell",
     "gibbs_old_physics": "J. Willard Gibbs / Old Physics",
     "dedekind": "Richard Dedekind",
     "dirichlet": "P. G. Lejeune Dirichlet",
@@ -101,6 +103,9 @@ RECORD_NOTES = {
     ],
     "sylvester": [
         "Dedicated Sylvester working-edition split. This record now has a top-level reader and source/index package for Volume I through book page 608. The newest tranche covers book pp.595-608 and completes Papers 59-60; the package audit reports no screenshot substitutions, no placeholders, no includegraphics in the new range, and TeX arrays for the Ferrers partition arrays and ternary-period table. Next continuation starts at book page 609, Paper 61. These are source-checked working editions, not final critical editions; OCR/math-OCR witnesses remain locator/check aids rather than source authority.",
+    ],
+    "maxwell": [
+        "Dedicated Maxwell working-tranche split. Current coverage is A Treatise on Electricity and Magnetism, Volume I, with ledger-backed source-checked material for book pages 95-101, 103, 105, 109, and the main continuous run 111-267. The included batch TeX/PDF substrate is status-mixed; source-checked claims are governed by the ledger and source-checked delta packets. OCR/XML witnesses are locator/provenance aids, not textual authority. This is not a complete Maxwell Treatise or final critical edition.",
     ],
     "gibbs_old_physics": [
         "Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-124: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.124.",
