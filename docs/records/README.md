@@ -26,7 +26,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | J. Willard Gibbs / Old Physics | 10 | 3 | 3 | 18.6 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://zenodo.org/records/20649836) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 12 | 5 | 6 | 983.8 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20651036) |
-| Paul Gordan and Clebsch-Gordan | 26 | 0 | 25 | 1418.6 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20660721) |
+| Luigi Bianchi | 13 | 5 | 7 | 1222.1 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20664430) |
+| Paul Gordan and Clebsch-Gordan | 28 | 0 | 27 | 1497.1 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20664425) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Additional Author Cluster | 92 | 10 | 82 | 5039.3 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20651148) |
+| Additional Author Cluster | 94 | 10 | 84 | 5369.0 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20664437) |
