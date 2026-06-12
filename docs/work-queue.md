@@ -8,11 +8,11 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20454552) |
 | EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20454552) |
-| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20667338) |
-| SGA | Continue SGA5/SGA6 repair after repair020: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, SGA6 v3 worklist rows, and SGA7 compression/source-check lanes. | [SGA record](https://zenodo.org/records/20667338) |
-| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20667338) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20668022) |
+| SGA | Continue SGA5/SGA6 repair after repair019/repair020: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, SGA6 v3 worklist rows, and SGA7 compression/source-check lanes. | [SGA record](https://zenodo.org/records/20668022) |
+| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20668022) |
 | Weber | Continue the English translation and repair of `Lehrbuch der Algebra` beyond the current Volume II draft surface, while continuing recursive gap repairs after Batch126. Current ledger: 28/112 closed, 84/112 open; Batch126 closes Vol. II §6 and §§14/16/17 symbol/footnote patches and preserves V2 §71 p277 as witness-only. | [Weber record](https://zenodo.org/records/20667337) |
-| Noether | Continue source checking and multilingual translation branches from the curated numbered-paper corpus; carry RA23 display-layout fixes and RA26 Paper 02 source-critical corrections forward, finish Paper 02 from p80 §23 onward including table plates, propagate RA12-RA26 symbol corrections across EN/ES/JA/FR/ZH, and run a full symbol audit beyond Paper 01. | [Noether record](https://zenodo.org/records/20667332) |
+| Noether | Continue source checking and multilingual translation branches from the curated numbered-paper corpus; carry RA23 display-layout fixes and RA25/RA26 Paper 02 source-critical corrections forward, finish Paper 02 from p80 §23 onward including table plates, propagate RA12-RA26 symbol corrections across EN/ES/JA/FR/ZH, and run a full symbol audit beyond Paper 01. | [Noether record](https://zenodo.org/records/20668017) |
 
 ## Highest-Value Typesetting And Source-Check Work
 
