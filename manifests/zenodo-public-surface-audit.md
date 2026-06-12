@@ -26,7 +26,7 @@ Generated from `manifests/public-file-catalog.csv`.
 | gibbs_old_physics | 10 | 3 | 3 | 1 | 18.6216 | [record](https://zenodo.org/records/20649836) |
 | dedekind | 18 | 14 | 3 | 1 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 1 | 168.3875 | [record](https://zenodo.org/records/20586064) |
-| bianchi | 17 | 5 | 9 | 3 | 1676.2604 | [record](https://zenodo.org/records/20669390) |
-| gordan_clebsch_gordan | 33 | 0 | 30 | 3 | 1607.5751 | [record](https://zenodo.org/records/20671984) |
+| bianchi | 18 | 5 | 10 | 3 | 1927.9946 | [record](https://zenodo.org/records/20672976) |
+| gordan_clebsch_gordan | 34 | 0 | 31 | 3 | 1642.1507 | [record](https://zenodo.org/records/20672969) |
 | steinitz | 6 | 0 | 5 | 1 | 439.5617 | [record](https://zenodo.org/records/20617915) |
-| additional_author_cluster | 99 | 10 | 87 | 2 | 5612.1095 | [record](https://zenodo.org/records/20672178) |
+| additional_author_cluster | 100 | 10 | 88 | 2 | 5731.6387 | [record](https://zenodo.org/records/20672984) |
