@@ -72,9 +72,9 @@ Current dedicated record: <https://zenodo.org/records/20651036>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20650618>
+Current dedicated record: <https://zenodo.org/records/20660721>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel16_p218_227_DE_EN_20260611.zip`, extending Abelsche Functionen through source p227 / printed p205. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14 and Abel15 continue p194-p217. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel17_p228_243_DE_EN_20260611.zip`, extending Abelsche Functionen through source p243 / printed p221. Abel13 p182-p193 includes the p190 continuation of equation (4), while Abel14, Abel15, and Abel16 continue p194-p227. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-217 coverage statement.
 

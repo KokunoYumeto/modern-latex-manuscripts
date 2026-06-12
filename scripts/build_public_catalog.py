@@ -47,7 +47,7 @@ RECORDS: list[tuple[str, str]] = [
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
     ("bianchi", "20651036"),
-    ("gordan_clebsch_gordan", "20650618"),
+    ("gordan_clebsch_gordan", "20660721"),
     ("steinitz", "20617915"),
     ("additional_author_cluster", "20651148"),
 ]
