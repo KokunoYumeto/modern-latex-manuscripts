@@ -26,8 +26,8 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20670272"),
-    ("noether", "20670504"),
-    ("weber", "20669232"),
+    ("noether", "20672174"),
+    ("weber", "20672175"),
     ("cayley", "20617845"),
     ("sga", "20670531"),
     ("deligne", "20617786"),
@@ -49,7 +49,7 @@ RECORDS: list[tuple[str, str]] = [
     ("bianchi", "20669390"),
     ("gordan_clebsch_gordan", "20671984"),
     ("steinitz", "20617915"),
-    ("additional_author_cluster", "20669391"),
+    ("additional_author_cluster", "20672178"),
 ]
 
 RECORD_NOTES = {

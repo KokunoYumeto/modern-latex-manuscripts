@@ -4,7 +4,7 @@ Generated from the public Zenodo records API.
 
 **Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-Total files indexed: 991
+Total files indexed: 995
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -137,132 +137,135 @@ Record: <https://zenodo.org/records/20670272>
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20670504>
+Record: <https://zenodo.org/records/20672174>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20670504/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
-| reader/reference PDF | 2.5616 | [01 Noether - German Source Cumulative RA20 Paper02 Display Fix.pdf](https://zenodo.org/records/20670504/files/01%20Noether%20-%20German%20Source%20Cumulative%20RA20%20Paper02%20Display%20Fix.pdf) |
-| reader/reference PDF | 2.4925 | [02 Noether - English Cumulative RA10 Apparatus Branch.pdf](https://zenodo.org/records/20670504/files/02%20Noether%20-%20English%20Cumulative%20RA10%20Apparatus%20Branch.pdf) |
-| reader/reference PDF | 2.3587 | [03 Noether - Spanish Cumulative RA10.pdf](https://zenodo.org/records/20670504/files/03%20Noether%20-%20Spanish%20Cumulative%20RA10.pdf) |
-| reader/reference PDF | 2.2272 | [04 Noether - Japanese Cumulative RA10.pdf](https://zenodo.org/records/20670504/files/04%20Noether%20-%20Japanese%20Cumulative%20RA10.pdf) |
-| reader/reference PDF | 1.3822 | [05 Noether - French Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20670504/files/05%20Noether%20-%20French%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
-| reader/reference PDF | 1.2276 | [06 Noether - Simplified Chinese Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20670504/files/06%20Noether%20-%20Simplified%20Chinese%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
-| artifact/source ZIP | 43.6905 | [10 Noether - German Source Current 20260612.zip](https://zenodo.org/records/20670504/files/10%20Noether%20-%20German%20Source%20Current%2020260612.zip) |
-| artifact/source ZIP | 13.7201 | [11 Noether - English Papers Current 20260612.zip](https://zenodo.org/records/20670504/files/11%20Noether%20-%20English%20Papers%20Current%2020260612.zip) |
-| artifact/source ZIP | 2.9758 | [12 Noether - Spanish Current RA10 20260612.zip](https://zenodo.org/records/20670504/files/12%20Noether%20-%20Spanish%20Current%20RA10%2020260612.zip) |
-| artifact/source ZIP | 2.8659 | [13 Noether - Japanese Current RA10 20260612.zip](https://zenodo.org/records/20670504/files/13%20Noether%20-%20Japanese%20Current%20RA10%2020260612.zip) |
-| artifact/source ZIP | 9.1047 | [14 Noether - French and Simplified Chinese Checkpoint P19s06 20260612.zip](https://zenodo.org/records/20670504/files/14%20Noether%20-%20French%20and%20Simplified%20Chinese%20Checkpoint%20P19s06%2020260612.zip) |
-| reader/reference PDF | 0.2069 | [20.01 Noether Paper 01 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.01%20Noether%20Paper%2001%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.5139 | [20.02 Noether Paper 02 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.02%20Noether%20Paper%2002%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1955 | [20.03 Noether Paper 03 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.03%20Noether%20Paper%2003%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4010 | [20.04 Noether Paper 04 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.04%20Noether%20Paper%2004%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1495 | [20.05 Noether Paper 05 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.05%20Noether%20Paper%2005%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3565 | [20.06 Noether Paper 06 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.06%20Noether%20Paper%2006%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2221 | [20.07 Noether Paper 07 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.07%20Noether%20Paper%2007%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2542 | [20.08 Noether Paper 08 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.08%20Noether%20Paper%2008%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3509 | [20.09 Noether Paper 09 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.09%20Noether%20Paper%2009%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2694 | [20.10 Noether Paper 10 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.10%20Noether%20Paper%2010%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2453 | [20.11 Noether Paper 11 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.11%20Noether%20Paper%2011%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2423 | [20.12 Noether Paper 12 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.12%20Noether%20Paper%2012%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3009 | [20.13 Noether Paper 13 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.13%20Noether%20Paper%2013%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3175 | [20.14 Noether Paper 14 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.14%20Noether%20Paper%2014%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3281 | [20.15 Noether Paper 15 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.15%20Noether%20Paper%2015%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2377 | [20.16 Noether Paper 16 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.16%20Noether%20Paper%2016%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3854 | [20.17 Noether Paper 17 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.17%20Noether%20Paper%2017%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1424 | [20.18 Noether Paper 18 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.18%20Noether%20Paper%2018%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4197 | [20.19 Noether Paper 19 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.19%20Noether%20Paper%2019%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2543 | [20.20 Noether Paper 20 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.20%20Noether%20Paper%2020%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1784 | [20.21 Noether Paper 21 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.21%20Noether%20Paper%2021%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3868 | [20.22 Noether Paper 22 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.22%20Noether%20Paper%2022%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2426 | [20.23 Noether Paper 23 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.23%20Noether%20Paper%2023%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3888 | [20.24 Noether Paper 24 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.24%20Noether%20Paper%2024%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1820 | [20.25 Noether Paper 25 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.25%20Noether%20Paper%2025%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0585 | [20.26 Noether Paper 26 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.26%20Noether%20Paper%2026%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0961 | [20.27 Noether Paper 27 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.27%20Noether%20Paper%2027%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0582 | [20.28 Noether Paper 28 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.28%20Noether%20Paper%2028%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2346 | [20.29 Noether Paper 29 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.29%20Noether%20Paper%2029%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4011 | [20.30 Noether Paper 30 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.30%20Noether%20Paper%2030%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3566 | [20.31 Noether Paper 31 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.31%20Noether%20Paper%2031%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2478 | [20.32 Noether Paper 32 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.32%20Noether%20Paper%2032%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1516 | [20.33 Noether Paper 33 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.33%20Noether%20Paper%2033%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4001 | [20.34 Noether Paper 34 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.34%20Noether%20Paper%2034%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1985 | [20.35 Noether Paper 35 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.35%20Noether%20Paper%2035%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0715 | [20.36 Noether Paper 36 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.36%20Noether%20Paper%2036%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2056 | [20.37 Noether Paper 37 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.37%20Noether%20Paper%2037%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1940 | [20.38 Noether Paper 38 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.38%20Noether%20Paper%2038%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1775 | [20.39 Noether Paper 39 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.39%20Noether%20Paper%2039%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3093 | [20.40 Noether Paper 40 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.40%20Noether%20Paper%2040%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2072 | [20.41 Noether Paper 41 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.41%20Noether%20Paper%2041%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2077 | [20.42 Noether Paper 42 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.42%20Noether%20Paper%2042%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2368 | [20.43 Noether Paper 43 - English Translation.pdf](https://zenodo.org/records/20670504/files/20.43%20Noether%20Paper%2043%20-%20English%20Translation.pdf) |
-| manifest/status | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20670504/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
-| manifest/status | 0.0004 | [99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json](https://zenodo.org/records/20670504/files/99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json) |
-| manifest/status | 0.0009 | [99_Noether_Public_Summary_RA28_nu_inversion_20260612.json](https://zenodo.org/records/20670504/files/99_Noether_Public_Summary_RA28_nu_inversion_20260612.json) |
-| artifact/source ZIP | 16.3629 | [N_SYM_RA23_display_all_20260612.zip](https://zenodo.org/records/20670504/files/N_SYM_RA23_display_all_20260612.zip) |
-| artifact/source ZIP | 7.7748 | [N_SYM_RA25_P02_p71_76_20260612.zip](https://zenodo.org/records/20670504/files/N_SYM_RA25_P02_p71_76_20260612.zip) |
-| artifact/source ZIP | 15.3214 | [N_SYM_RA26_P02_p76_80_20260612.zip](https://zenodo.org/records/20670504/files/N_SYM_RA26_P02_p76_80_20260612.zip) |
-| artifact/source ZIP | 12.5866 | [N_SYM_RA27_P02_p80_83_20260612.zip](https://zenodo.org/records/20670504/files/N_SYM_RA27_P02_p80_83_20260612.zip) |
-| artifact/source ZIP | 12.0009 | [N_SYM_RA28_nu_restore_20260612.zip](https://zenodo.org/records/20670504/files/N_SYM_RA28_nu_restore_20260612.zip) |
-| manifest/status | 0.0010 | [noether_ra25_public_summary.json](https://zenodo.org/records/20670504/files/noether_ra25_public_summary.json) |
-| manifest/status | 0.0005 | [noether_ra27_public_summary.json](https://zenodo.org/records/20670504/files/noether_ra27_public_summary.json) |
-| artifact/source ZIP | 4.9474 | [nu_inversion_revert_for_RA28_20260612.zip](https://zenodo.org/records/20670504/files/nu_inversion_revert_for_RA28_20260612.zip) |
-| manifest/status | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20670504/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
-| manifest/status | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20670504/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
+| manifest/status | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20672174/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
+| reader/reference PDF | 2.5616 | [01 Noether - German Source Cumulative RA20 Paper02 Display Fix.pdf](https://zenodo.org/records/20672174/files/01%20Noether%20-%20German%20Source%20Cumulative%20RA20%20Paper02%20Display%20Fix.pdf) |
+| reader/reference PDF | 2.4925 | [02 Noether - English Cumulative RA10 Apparatus Branch.pdf](https://zenodo.org/records/20672174/files/02%20Noether%20-%20English%20Cumulative%20RA10%20Apparatus%20Branch.pdf) |
+| reader/reference PDF | 2.3587 | [03 Noether - Spanish Cumulative RA10.pdf](https://zenodo.org/records/20672174/files/03%20Noether%20-%20Spanish%20Cumulative%20RA10.pdf) |
+| reader/reference PDF | 2.2272 | [04 Noether - Japanese Cumulative RA10.pdf](https://zenodo.org/records/20672174/files/04%20Noether%20-%20Japanese%20Cumulative%20RA10.pdf) |
+| reader/reference PDF | 1.3822 | [05 Noether - French Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20672174/files/05%20Noether%20-%20French%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
+| reader/reference PDF | 1.2276 | [06 Noether - Simplified Chinese Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20672174/files/06%20Noether%20-%20Simplified%20Chinese%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
+| artifact/source ZIP | 43.6905 | [10 Noether - German Source Current 20260612.zip](https://zenodo.org/records/20672174/files/10%20Noether%20-%20German%20Source%20Current%2020260612.zip) |
+| artifact/source ZIP | 13.7201 | [11 Noether - English Papers Current 20260612.zip](https://zenodo.org/records/20672174/files/11%20Noether%20-%20English%20Papers%20Current%2020260612.zip) |
+| artifact/source ZIP | 2.9758 | [12 Noether - Spanish Current RA10 20260612.zip](https://zenodo.org/records/20672174/files/12%20Noether%20-%20Spanish%20Current%20RA10%2020260612.zip) |
+| artifact/source ZIP | 2.8659 | [13 Noether - Japanese Current RA10 20260612.zip](https://zenodo.org/records/20672174/files/13%20Noether%20-%20Japanese%20Current%20RA10%2020260612.zip) |
+| artifact/source ZIP | 9.1047 | [14 Noether - French and Simplified Chinese Checkpoint P19s06 20260612.zip](https://zenodo.org/records/20672174/files/14%20Noether%20-%20French%20and%20Simplified%20Chinese%20Checkpoint%20P19s06%2020260612.zip) |
+| reader/reference PDF | 0.2069 | [20.01 Noether Paper 01 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.01%20Noether%20Paper%2001%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.5139 | [20.02 Noether Paper 02 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.02%20Noether%20Paper%2002%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1955 | [20.03 Noether Paper 03 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.03%20Noether%20Paper%2003%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4010 | [20.04 Noether Paper 04 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.04%20Noether%20Paper%2004%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1495 | [20.05 Noether Paper 05 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.05%20Noether%20Paper%2005%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3565 | [20.06 Noether Paper 06 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.06%20Noether%20Paper%2006%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2221 | [20.07 Noether Paper 07 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.07%20Noether%20Paper%2007%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2542 | [20.08 Noether Paper 08 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.08%20Noether%20Paper%2008%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3509 | [20.09 Noether Paper 09 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.09%20Noether%20Paper%2009%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2694 | [20.10 Noether Paper 10 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.10%20Noether%20Paper%2010%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2453 | [20.11 Noether Paper 11 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.11%20Noether%20Paper%2011%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2423 | [20.12 Noether Paper 12 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.12%20Noether%20Paper%2012%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3009 | [20.13 Noether Paper 13 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.13%20Noether%20Paper%2013%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3175 | [20.14 Noether Paper 14 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.14%20Noether%20Paper%2014%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3281 | [20.15 Noether Paper 15 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.15%20Noether%20Paper%2015%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2377 | [20.16 Noether Paper 16 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.16%20Noether%20Paper%2016%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3854 | [20.17 Noether Paper 17 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.17%20Noether%20Paper%2017%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1424 | [20.18 Noether Paper 18 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.18%20Noether%20Paper%2018%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4197 | [20.19 Noether Paper 19 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.19%20Noether%20Paper%2019%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2543 | [20.20 Noether Paper 20 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.20%20Noether%20Paper%2020%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1784 | [20.21 Noether Paper 21 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.21%20Noether%20Paper%2021%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3868 | [20.22 Noether Paper 22 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.22%20Noether%20Paper%2022%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2426 | [20.23 Noether Paper 23 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.23%20Noether%20Paper%2023%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3888 | [20.24 Noether Paper 24 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.24%20Noether%20Paper%2024%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1820 | [20.25 Noether Paper 25 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.25%20Noether%20Paper%2025%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0585 | [20.26 Noether Paper 26 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.26%20Noether%20Paper%2026%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0961 | [20.27 Noether Paper 27 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.27%20Noether%20Paper%2027%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0582 | [20.28 Noether Paper 28 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.28%20Noether%20Paper%2028%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2346 | [20.29 Noether Paper 29 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.29%20Noether%20Paper%2029%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4011 | [20.30 Noether Paper 30 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.30%20Noether%20Paper%2030%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3566 | [20.31 Noether Paper 31 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.31%20Noether%20Paper%2031%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2478 | [20.32 Noether Paper 32 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.32%20Noether%20Paper%2032%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1516 | [20.33 Noether Paper 33 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.33%20Noether%20Paper%2033%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.4001 | [20.34 Noether Paper 34 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.34%20Noether%20Paper%2034%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1985 | [20.35 Noether Paper 35 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.35%20Noether%20Paper%2035%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.0715 | [20.36 Noether Paper 36 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.36%20Noether%20Paper%2036%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2056 | [20.37 Noether Paper 37 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.37%20Noether%20Paper%2037%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1940 | [20.38 Noether Paper 38 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.38%20Noether%20Paper%2038%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.1775 | [20.39 Noether Paper 39 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.39%20Noether%20Paper%2039%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.3093 | [20.40 Noether Paper 40 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.40%20Noether%20Paper%2040%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2072 | [20.41 Noether Paper 41 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.41%20Noether%20Paper%2041%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2077 | [20.42 Noether Paper 42 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.42%20Noether%20Paper%2042%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 0.2368 | [20.43 Noether Paper 43 - English Translation.pdf](https://zenodo.org/records/20672174/files/20.43%20Noether%20Paper%2043%20-%20English%20Translation.pdf) |
+| manifest/status | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20672174/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
+| manifest/status | 0.0004 | [99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json](https://zenodo.org/records/20672174/files/99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json) |
+| manifest/status | 0.0009 | [99_Noether_Public_Summary_RA28_nu_inversion_20260612.json](https://zenodo.org/records/20672174/files/99_Noether_Public_Summary_RA28_nu_inversion_20260612.json) |
+| artifact/source ZIP | 16.3629 | [N_SYM_RA23_display_all_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA23_display_all_20260612.zip) |
+| artifact/source ZIP | 7.7748 | [N_SYM_RA25_P02_p71_76_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA25_P02_p71_76_20260612.zip) |
+| artifact/source ZIP | 15.3214 | [N_SYM_RA26_P02_p76_80_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA26_P02_p76_80_20260612.zip) |
+| artifact/source ZIP | 12.5866 | [N_SYM_RA27_P02_p80_83_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA27_P02_p80_83_20260612.zip) |
+| artifact/source ZIP | 12.0009 | [N_SYM_RA28_nu_restore_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA28_nu_restore_20260612.zip) |
+| artifact/source ZIP | 6.6298 | [N_SYM_RA28_nu_validated_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA28_nu_validated_20260612.zip) |
+| artifact/source ZIP | 13.0741 | [N_SYM_RA29_P02_p84_90_20260612.zip](https://zenodo.org/records/20672174/files/N_SYM_RA29_P02_p84_90_20260612.zip) |
+| manifest/status | 0.0010 | [noether_ra25_public_summary.json](https://zenodo.org/records/20672174/files/noether_ra25_public_summary.json) |
+| manifest/status | 0.0005 | [noether_ra27_public_summary.json](https://zenodo.org/records/20672174/files/noether_ra27_public_summary.json) |
+| artifact/source ZIP | 4.9474 | [nu_inversion_revert_for_RA28_20260612.zip](https://zenodo.org/records/20672174/files/nu_inversion_revert_for_RA28_20260612.zip) |
+| manifest/status | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20672174/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
+| manifest/status | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20672174/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20669232>
+Record: <https://zenodo.org/records/20672175>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.5890 | [00 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - English Translation.pdf](https://zenodo.org/records/20669232/files/00%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.7305 | [01 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - German Source.pdf](https://zenodo.org/records/20669232/files/01%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.4617 | [02 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - English Translation.pdf](https://zenodo.org/records/20669232/files/02%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.0291 | [02 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - English Translation.pdf](https://zenodo.org/records/20669232/files/02%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.6057 | [03 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - German Source.pdf](https://zenodo.org/records/20669232/files/03%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.1631 | [03 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - German Source.pdf](https://zenodo.org/records/20669232/files/03%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20German%20Source.pdf) |
-| reader/reference PDF | 1.2769 | [04 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - English Translation.pdf](https://zenodo.org/records/20669232/files/04%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 1.3058 | [05 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - German Source.pdf](https://zenodo.org/records/20669232/files/05%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20German%20Source.pdf) |
-| artifact/source ZIP | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/20669232/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
-| manifest/status | 0.0007 | [90 Weber - Public Summary.json](https://zenodo.org/records/20669232/files/90%20Weber%20-%20Public%20Summary.json) |
-| manifest/status | 0.0008 | [91 Weber - Public Summary - Batch103 Section168.json](https://zenodo.org/records/20669232/files/91%20Weber%20-%20Public%20Summary%20-%20Batch103%20Section168.json) |
-| manifest/status | 0.0010 | [92 Weber - Public Summary - Provenance Bridge 144-162.json](https://zenodo.org/records/20669232/files/92%20Weber%20-%20Public%20Summary%20-%20Provenance%20Bridge%20144-162.json) |
-| manifest/status | 0.0008 | [93 Weber - Public Summary - Batch122 Section81.json](https://zenodo.org/records/20669232/files/93%20Weber%20-%20Public%20Summary%20-%20Batch122%20Section81.json) |
-| artifact/source ZIP | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669232/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/20669232/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
-| artifact/source ZIP | 25.7835 | [97 Heinrich Weber - Batch103 Canonical Vol II Sections 166-168 and Cumulative Through Section 168.zip](https://zenodo.org/records/20669232/files/97%20Heinrich%20Weber%20-%20Batch103%20Canonical%20Vol%20II%20Sections%20166-168%20and%20Cumulative%20Through%20Section%20168.zip) |
-| manifest/status | 0.0004 | [99 Weber - Public Summary - Batch125 20260612.json](https://zenodo.org/records/20669232/files/99%20Weber%20-%20Public%20Summary%20-%20Batch125%2020260612.json) |
-| manifest/status | 0.0005 | [99_Weber_-_Public_Summary_-_Batch126_20260612.json](https://zenodo.org/records/20669232/files/99_Weber_-_Public_Summary_-_Batch126_20260612.json) |
-| manifest/status | 0.0010 | [99_Weber_-_Public_Summary_-_Batch127_20260612.json](https://zenodo.org/records/20669232/files/99_Weber_-_Public_Summary_-_Batch127_20260612.json) |
-| artifact/source ZIP | 171.9360 | [Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip](https://zenodo.org/records/20669232/files/Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip) |
-| artifact/source ZIP | 18.6428 | [Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 59.4899 | [Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 18.3324 | [Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip) |
-| artifact/source ZIP | 16.9607 | [Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip) |
-| artifact/source ZIP | 24.5225 | [Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip) |
-| artifact/source ZIP | 36.4318 | [Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip) |
-| artifact/source ZIP | 26.4806 | [Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip) |
-| artifact/source ZIP | 22.8698 | [Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip) |
-| artifact/source ZIP | 32.2279 | [Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip) |
-| artifact/source ZIP | 61.9324 | [Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip) |
-| artifact/source ZIP | 45.6006 | [Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip) |
-| artifact/source ZIP | 14.8929 | [Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip) |
-| artifact/source ZIP | 24.3356 | [Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip) |
-| artifact/source ZIP | 35.0592 | [Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip) |
-| artifact/source ZIP | 23.3620 | [Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip) |
-| artifact/source ZIP | 23.6081 | [Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip) |
-| artifact/source ZIP | 26.3664 | [Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip) |
-| artifact/source ZIP | 17.9662 | [Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip) |
-| artifact/source ZIP | 22.2705 | [Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip) |
-| artifact/source ZIP | 42.6188 | [Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip) |
-| artifact/source ZIP | 53.9502 | [Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip) |
-| artifact/source ZIP | 48.2140 | [Weber_Cumulative_ThreeVolumes_Batch126_LocalLedgerIntegration_Microfixes_20260612.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch126_LocalLedgerIntegration_Microfixes_20260612.zip) |
-| artifact/source ZIP | 139.2795 | [Weber_Cumulative_ThreeVolumes_Batch127_Pass02Integration_MicroRepairs_20260612.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch127_Pass02Integration_MicroRepairs_20260612.zip) |
-| artifact/source ZIP | 13.0605 | [Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip) |
-| artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
-| artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20669232/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
-| artifact/source ZIP | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/20669232/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
+| reader/reference PDF | 1.5890 | [00 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - English Translation.pdf](https://zenodo.org/records/20672175/files/00%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.7305 | [01 Heinrich Weber - Lehrbuch der Algebra, Volume I Complete - German Source.pdf](https://zenodo.org/records/20672175/files/01%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20I%20Complete%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.4617 | [02 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - English Translation.pdf](https://zenodo.org/records/20672175/files/02%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.0291 | [02 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - English Translation.pdf](https://zenodo.org/records/20672175/files/02%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.6057 | [03 CURRENT Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 176 - German Source.pdf](https://zenodo.org/records/20672175/files/03%20CURRENT%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20176%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.1631 | [03 Heinrich Weber - Lehrbuch der Algebra, Volume II Source-Checked through Section 143 - German Source.pdf](https://zenodo.org/records/20672175/files/03%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20II%20Source-Checked%20through%20Section%20143%20-%20German%20Source.pdf) |
+| reader/reference PDF | 1.2769 | [04 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - English Translation.pdf](https://zenodo.org/records/20672175/files/04%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20English%20Translation.pdf) |
+| reader/reference PDF | 1.3058 | [05 Heinrich Weber - Lehrbuch der Algebra, Volume III Current Repaired Cumulative - German Source.pdf](https://zenodo.org/records/20672175/files/05%20Heinrich%20Weber%20-%20Lehrbuch%20der%20Algebra%2C%20Volume%20III%20Current%20Repaired%20Cumulative%20-%20German%20Source.pdf) |
+| artifact/source ZIP | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/20672175/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
+| manifest/status | 0.0007 | [90 Weber - Public Summary.json](https://zenodo.org/records/20672175/files/90%20Weber%20-%20Public%20Summary.json) |
+| manifest/status | 0.0008 | [91 Weber - Public Summary - Batch103 Section168.json](https://zenodo.org/records/20672175/files/91%20Weber%20-%20Public%20Summary%20-%20Batch103%20Section168.json) |
+| manifest/status | 0.0010 | [92 Weber - Public Summary - Provenance Bridge 144-162.json](https://zenodo.org/records/20672175/files/92%20Weber%20-%20Public%20Summary%20-%20Provenance%20Bridge%20144-162.json) |
+| manifest/status | 0.0008 | [93 Weber - Public Summary - Batch122 Section81.json](https://zenodo.org/records/20672175/files/93%20Weber%20-%20Public%20Summary%20-%20Batch122%20Section81.json) |
+| artifact/source ZIP | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672175/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/20672175/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
+| artifact/source ZIP | 25.7835 | [97 Heinrich Weber - Batch103 Canonical Vol II Sections 166-168 and Cumulative Through Section 168.zip](https://zenodo.org/records/20672175/files/97%20Heinrich%20Weber%20-%20Batch103%20Canonical%20Vol%20II%20Sections%20166-168%20and%20Cumulative%20Through%20Section%20168.zip) |
+| manifest/status | 0.0004 | [99 Weber - Public Summary - Batch125 20260612.json](https://zenodo.org/records/20672175/files/99%20Weber%20-%20Public%20Summary%20-%20Batch125%2020260612.json) |
+| manifest/status | 0.0005 | [99_Weber_-_Public_Summary_-_Batch126_20260612.json](https://zenodo.org/records/20672175/files/99_Weber_-_Public_Summary_-_Batch126_20260612.json) |
+| manifest/status | 0.0010 | [99_Weber_-_Public_Summary_-_Batch127_20260612.json](https://zenodo.org/records/20672175/files/99_Weber_-_Public_Summary_-_Batch127_20260612.json) |
+| artifact/source ZIP | 171.9360 | [Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip](https://zenodo.org/records/20672175/files/Weber_Batches97_101_Vol2_Sections144_162_ProvenanceBridge_20260609.zip) |
+| artifact/source ZIP | 18.6428 | [Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch104_Vol2_Sections169_171_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 59.4899 | [Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch105_Vol2_Sections172_173_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 18.3324 | [Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch106_Vol2_Sections174_176_CANONICAL_20260610.zip) |
+| artifact/source ZIP | 16.9607 | [Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch108_Vol2_Section61_Repaired_GapLedgerV2_20260610.zip) |
+| artifact/source ZIP | 24.5225 | [Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch109_Vol1_Section183_Repaired_20260610.zip) |
+| artifact/source ZIP | 36.4318 | [Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch110_Vol2_Section118_Repaired_20260610.zip) |
+| artifact/source ZIP | 26.4806 | [Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch111_GeneralGapRepairs_Vol2_Section58_20260610.zip) |
+| artifact/source ZIP | 22.8698 | [Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch112_GapTally_Vol1_Section151_Repaired_20260611.zip) |
+| artifact/source ZIP | 32.2279 | [Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch113_RecursiveGapRepair_Vol2_Section20_20260611.zip) |
+| artifact/source ZIP | 61.9324 | [Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch114_RecursiveGapRepair_Vol2_Section21_20260611.zip) |
+| artifact/source ZIP | 45.6006 | [Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch115_RecursiveGapRepair_Vol2_Section99_20260611.zip) |
+| artifact/source ZIP | 14.8929 | [Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch116_RecursiveGapRepair_Vol2_Section126_20260611.zip) |
+| artifact/source ZIP | 24.3356 | [Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch117_RecursiveGapRepair_Vol2_S52_Vol1S124Audit_20260611.zip) |
+| artifact/source ZIP | 35.0592 | [Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch118_RecursiveGapRepair_Vol2_Sections57_60_20260611.zip) |
+| artifact/source ZIP | 23.3620 | [Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch119_RecursiveGapRepair_Vol2_Sections77_101_20260611.zip) |
+| artifact/source ZIP | 23.6081 | [Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch120_RecursiveGapRepair_Vol2_Sections106_114_20260611.zip) |
+| artifact/source ZIP | 26.3664 | [Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch121_B120Corrections_Section106_114Continuity_20260611.zip) |
+| artifact/source ZIP | 17.9662 | [Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch122_RecursiveGapRepair_Vol2_Section81_20260612.zip) |
+| artifact/source ZIP | 22.2705 | [Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch123_RecursiveGapRepair_Vol2_Section71_20260612.zip) |
+| artifact/source ZIP | 42.6188 | [Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch124_RecursiveGapRepair_Vol1_Sections166_171_20260612.zip) |
+| artifact/source ZIP | 53.9502 | [Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch125_RecursiveGapRepair_Vol1_Section157_20260612.zip) |
+| artifact/source ZIP | 48.2140 | [Weber_Cumulative_ThreeVolumes_Batch126_LocalLedgerIntegration_Microfixes_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch126_LocalLedgerIntegration_Microfixes_20260612.zip) |
+| artifact/source ZIP | 139.2795 | [Weber_Cumulative_ThreeVolumes_Batch127_Pass02Integration_MicroRepairs_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch127_Pass02Integration_MicroRepairs_20260612.zip) |
+| artifact/source ZIP | 49.8803 | [Weber_Cumulative_ThreeVolumes_Batch128_RecursiveGapRepair_Vol2_Sections29_30_20260612.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch128_RecursiveGapRepair_Vol2_Sections29_30_20260612.zip) |
+| artifact/source ZIP | 13.0605 | [Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch94_Vol1_RecursiveAudit_Sections41_45_MR_20260605.zip) |
+| artifact/source ZIP | 14.3282 | [Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch95_Vol1_RecursiveAudit_Sections46_54_MR_20260607.zip) |
+| artifact/source ZIP | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/20672175/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
+| artifact/source ZIP | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/20672175/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
 
 ## Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
@@ -1086,105 +1089,106 @@ Record: <https://zenodo.org/records/20617915>
 
 ## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
-Record: <https://zenodo.org/records/20669391>
+Record: <https://zenodo.org/records/20672178>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7218 | [00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf](https://zenodo.org/records/20669391/files/00%20Reader%20PDF%20-%20Minkowski%20-%20Gesammelte%20Abhandlungen%20Volume%20II%20-%20Selected%20Papers.pdf) |
-| reader/reference PDF | 1.1760 | [01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf](https://zenodo.org/records/20669391/files/01%20Reader%20PDF%20-%20Hecke%20-%20Vorlesungen%20ueber%20die%20Theorie%20der%20algebraischen%20Zahlen.pdf) |
-| reader/reference PDF | 1.2384 | [02 Reader PDF - Landau - Elementary Number Theory.pdf](https://zenodo.org/records/20669391/files/02%20Reader%20PDF%20-%20Landau%20-%20Elementary%20Number%20Theory.pdf) |
-| reader/reference PDF | 0.4828 | [03 Reader PDF - Steinitz - Algebraische Theorie der Koerper.pdf](https://zenodo.org/records/20669391/files/03%20Reader%20PDF%20-%20Steinitz%20-%20Algebraische%20Theorie%20der%20Koerper.pdf) |
-| reader/reference PDF | 1.3360 | [04 Reader PDF - Hensel - Zahlentheorie.pdf](https://zenodo.org/records/20669391/files/04%20Reader%20PDF%20-%20Hensel%20-%20Zahlentheorie.pdf) |
-| reader/reference PDF | 0.8881 | [05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf](https://zenodo.org/records/20669391/files/05%20Reader%20PDF%20-%20Oka%20-%20Analytic%20Functions%20of%20Several%20Variables%20I-X.pdf) |
-| reader/reference PDF | 1.6622 | [06 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20669391/files/06%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
-| reader/reference PDF | 2.2522 | [07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf](https://zenodo.org/records/20669391/files/07%20Reader%20PDF%20-%20Grassmann%20-%20Ausdehnungslehre%20and%20Related%20Works.pdf) |
-| reader/reference PDF | 3.7181 | [08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf](https://zenodo.org/records/20669391/files/08%20Reader%20PDF%20-%20Hausdorff%20-%20Mengenlehre%20and%20Descriptive%20Set%20Theory%20Writings.pdf) |
-| reader/reference PDF | 0.1077 | [09 Reader PDF - Killing - Transformationsgruppen.pdf](https://zenodo.org/records/20669391/files/09%20Reader%20PDF%20-%20Killing%20-%20Transformationsgruppen.pdf) |
-| artifact/source ZIP | 196.9815 | [80 Additional Author Cluster - Sources, TeX, and Provenance.zip](https://zenodo.org/records/20669391/files/80%20Additional%20Author%20Cluster%20-%20Sources%2C%20TeX%2C%20and%20Provenance.zip) |
-| artifact/source ZIP | 100.2561 | [95 Additional Authors - Bianchi - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Bianchi%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 475.9464 | [95 Additional Authors - Edge Intake Additions 2026-06-08.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Edge%20Intake%20Additions%202026-06-08.zip) |
-| artifact/source ZIP | 78.5837 | [95 Additional Authors - Frobenius - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Frobenius%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 29.2836 | [95 Additional Authors - Gordan - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Gordan%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 102.9025 | [95 Additional Authors - Klein-Fricke - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Klein-Fricke%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 62.9228 | [95 Additional Authors - Kneser - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Kneser%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 70.9352 | [95 Additional Authors - Kron - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Kron%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 67.6848 | [95 Additional Authors - Picard - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Picard%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 47.0198 | [95 Additional Authors - Poincare - Update Packets 2026-06-07.zip](https://zenodo.org/records/20669391/files/95%20Additional%20Authors%20-%20Poincare%20-%20Update%20Packets%202026-06-07.zip) |
-| artifact/source ZIP | 591.6659 | [96 Additional Authors - Edge Intake Follow-up 2026-06-08.zip](https://zenodo.org/records/20669391/files/96%20Additional%20Authors%20-%20Edge%20Intake%20Follow-up%202026-06-08.zip) |
-| manifest/status | 0.0005 | [99_Additional_Author_Public_Summary_Kneser_p0206_20260612.json](https://zenodo.org/records/20669391/files/99_Additional_Author_Public_Summary_Kneser_p0206_20260612.json) |
-| manifest/status | 0.0003 | [99_Additional_Author_Public_Summary_Kneser_p0219_20260612.json](https://zenodo.org/records/20669391/files/99_Additional_Author_Public_Summary_Kneser_p0219_20260612.json) |
-| artifact/source ZIP | 31.4853 | [Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip) |
-| artifact/source ZIP | 36.0024 | [Bianchi_A1_p0001_0096_IT_EN_20260607.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_p0001_0096_IT_EN_20260607.zip) |
-| artifact/source ZIP | 39.5293 | [Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip) |
-| artifact/source ZIP | 28.5907 | [Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip) |
-| artifact/source ZIP | 36.9750 | [Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip) |
-| artifact/source ZIP | 41.1040 | [Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip) |
-| artifact/source ZIP | 34.1537 | [Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip) |
-| artifact/source ZIP | 47.1970 | [Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip](https://zenodo.org/records/20669391/files/Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip) |
-| artifact/source ZIP | 2.3255 | [Frob058_crit_GE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Frob058_crit_GE_EN_20260608.zip) |
-| artifact/source ZIP | 2.8936 | [Frob059_crit_GE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Frob059_crit_GE_EN_20260609.zip) |
-| artifact/source ZIP | 3.4395 | [Frob060_crit_GE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Frob060_crit_GE_EN_20260609.zip) |
-| artifact/source ZIP | 1.9921 | [Frob061_crit_GE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Frob061_crit_GE_EN_20260609.zip) |
-| artifact/source ZIP | 2.5502 | [Frob070_p016_034_final_GE_EN_20260611.zip](https://zenodo.org/records/20669391/files/Frob070_p016_034_final_GE_EN_20260611.zip) |
-| artifact/source ZIP | 17.6889 | [Frob071_crit_GE_EN_scans_20260611.zip](https://zenodo.org/records/20669391/files/Frob071_crit_GE_EN_scans_20260611.zip) |
-| artifact/source ZIP | 2.5906 | [Frob18872_crit_GE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Frob18872_crit_GE_EN_20260608.zip) |
-| artifact/source ZIP | 43.9932 | [Frob18877_p014_021_GE_EN_20260606.zip](https://zenodo.org/records/20669391/files/Frob18877_p014_021_GE_EN_20260606.zip) |
-| artifact/source ZIP | 34.5896 | [Frob18877_p022_030_GE_EN_fixed_20260607.zip](https://zenodo.org/records/20669391/files/Frob18877_p022_030_GE_EN_fixed_20260607.zip) |
-| artifact/source ZIP | 62.9763 | [Frob18877_p031_039_GE_EN_final_20260607.zip](https://zenodo.org/records/20669391/files/Frob18877_p031_039_GE_EN_final_20260607.zip) |
-| artifact/source ZIP | 1.9401 | [Frob18879_crit_GE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Frob18879_crit_GE_EN_20260608.zip) |
-| artifact/source ZIP | 36.5771 | [Frob18882_p001_012_GE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Frob18882_p001_012_GE_EN_20260607.zip) |
-| artifact/source ZIP | 79.8374 | [Frob18882_p013_024_GE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Frob18882_p013_024_GE_EN_20260607.zip) |
-| artifact/source ZIP | 53.1129 | [Frob18882_p025_031_GE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Frob18882_p025_031_GE_EN_20260607.zip) |
-| artifact/source ZIP | 93.8083 | [Frob18882_p032_045_GE_EN_final_20260608.zip](https://zenodo.org/records/20669391/files/Frob18882_p032_045_GE_EN_final_20260608.zip) |
-| artifact/source ZIP | 159.6225 | [Frobenius_all_GE_EN_cum_scans_20260611.zip](https://zenodo.org/records/20669391/files/Frobenius_all_GE_EN_cum_scans_20260611.zip) |
-| artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20669391/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
-| artifact/source ZIP | 14.9382 | [Frobenius_frob053_GE_EN_p001_009_20260605.zip](https://zenodo.org/records/20669391/files/Frobenius_frob053_GE_EN_p001_009_20260605.zip) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 9.8210 | [Gordan_DL02_p013_017_LAT_EN_20260606.zip](https://zenodo.org/records/20669391/files/Gordan_DL02_p013_017_LAT_EN_20260606.zip) |
-| artifact/source ZIP | 12.6690 | [Gordan_DL03_p018_027_LAT_EN_20260606.zip](https://zenodo.org/records/20669391/files/Gordan_DL03_p018_027_LAT_EN_20260606.zip) |
-| artifact/source ZIP | 16.6137 | [Gordan_DL04_p028_035_LAT_EN_20260606.zip](https://zenodo.org/records/20669391/files/Gordan_DL04_p028_035_LAT_EN_20260606.zip) |
-| artifact/source ZIP | 28.4108 | [Gordan_DL05_corrected_LAT_EN_20260607.zip](https://zenodo.org/records/20669391/files/Gordan_DL05_corrected_LAT_EN_20260607.zip) |
-| artifact/source ZIP | 4.8175 | [Gordan_DL_actual_01_20260605.zip](https://zenodo.org/records/20669391/files/Gordan_DL_actual_01_20260605.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20669391/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 17.0625 | [KF_real_V1_provfix_20260607.zip](https://zenodo.org/records/20669391/files/KF_real_V1_provfix_20260607.zip) |
-| artifact/source ZIP | 25.3755 | [Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip) |
-| artifact/source ZIP | 47.3617 | [Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip) |
-| artifact/source ZIP | 86.3298 | [Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip) |
-| artifact/source ZIP | 7.5288 | [Kneser_LVR_p0007_0013_DE_EN_20260605.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0007_0013_DE_EN_20260605.zip) |
-| artifact/source ZIP | 13.4491 | [Kneser_LVR_p0014_0022_DE_EN_20260606.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0014_0022_DE_EN_20260606.zip) |
-| artifact/source ZIP | 16.9320 | [Kneser_LVR_p0023_0031_DE_EN_20260606.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0023_0031_DE_EN_20260606.zip) |
-| artifact/source ZIP | 20.6141 | [Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip) |
-| artifact/source ZIP | 27.5925 | [Kneser_LVR_p0042_0054_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0042_0054_DE_EN_20260607.zip) |
-| artifact/source ZIP | 31.4609 | [Kneser_LVR_p0055_0064_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0055_0064_DE_EN_20260607.zip) |
-| artifact/source ZIP | 38.4663 | [Kneser_LVR_p0065_0082_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0065_0082_DE_EN_20260607.zip) |
-| artifact/source ZIP | 34.7475 | [Kneser_LVR_p0082_0096_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0082_0096_DE_EN_20260607.zip) |
-| artifact/source ZIP | 40.0767 | [Kneser_LVR_p0111_0122_DE_EN_20260608.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0111_0122_DE_EN_20260608.zip) |
-| artifact/source ZIP | 38.4592 | [Kneser_LVR_p0122_0138_DE_EN_20260609.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0122_0138_DE_EN_20260609.zip) |
-| artifact/source ZIP | 47.7080 | [Kneser_LVR_p0139_0158_DE_EN_20260611.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0139_0158_DE_EN_20260611.zip) |
-| artifact/source ZIP | 63.0505 | [Kneser_LVR_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0158_0177_DE_EN_20260611.zip) |
-| artifact/source ZIP | 98.1142 | [Kneser_LVR_p0177_0192_DE_EN_20260612.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0177_0192_DE_EN_20260612.zip) |
-| artifact/source ZIP | 78.9024 | [Kneser_LVR_p0193_0206_DE_EN_20260612.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0193_0206_DE_EN_20260612.zip) |
-| artifact/source ZIP | 82.4816 | [Kneser_LVR_p0206_0219_DE_EN_20260612.zip](https://zenodo.org/records/20669391/files/Kneser_LVR_p0206_0219_DE_EN_20260612.zip) |
-| artifact/source ZIP | 6.2967 | [kr_p01_20260607.zip](https://zenodo.org/records/20669391/files/kr_p01_20260607.zip) |
-| artifact/source ZIP | 5.6911 | [kron01.zip](https://zenodo.org/records/20669391/files/kron01.zip) |
-| artifact/source ZIP | 33.5600 | [Kron_author_restart_p005_041_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kron_author_restart_p005_041_DE_EN_20260607.zip) |
-| artifact/source ZIP | 10.5498 | [Kron_bookclean_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kron_bookclean_p001_014_DE_EN_20260607.zip) |
-| artifact/source ZIP | 9.1795 | [Kron_clean_p005_018_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kron_clean_p005_018_DE_EN_20260607.zip) |
-| artifact/source ZIP | 12.3856 | [Kron_restart_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20669391/files/Kron_restart_p001_014_DE_EN_20260607.zip) |
-| artifact/source ZIP | 60.8802 | [Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip](https://zenodo.org/records/20669391/files/Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip) |
-| artifact/source ZIP | 7.9331 | [Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip](https://zenodo.org/records/20669391/files/Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip) |
-| artifact/source ZIP | 173.1888 | [poincare_v1_18.zip](https://zenodo.org/records/20669391/files/poincare_v1_18.zip) |
-| artifact/source ZIP | 207.2206 | [poincare_v1_19.zip](https://zenodo.org/records/20669391/files/poincare_v1_19.zip) |
-| artifact/source ZIP | 214.2228 | [poincare_v1_20.zip](https://zenodo.org/records/20669391/files/poincare_v1_20.zip) |
-| artifact/source ZIP | 231.5475 | [poincare_v1_21.zip](https://zenodo.org/records/20669391/files/poincare_v1_21.zip) |
-| artifact/source ZIP | 22.2851 | [Steinitz_38_canonical_redo_1894_1897_shortpaths.zip](https://zenodo.org/records/20669391/files/Steinitz_38_canonical_redo_1894_1897_shortpaths.zip) |
-| artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20669391/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
-| artifact/source ZIP | 72.1474 | [Steinitz_42_bedingtII_p012-024_shortpaths.zip](https://zenodo.org/records/20669391/files/Steinitz_42_bedingtII_p012-024_shortpaths.zip) |
+| reader/reference PDF | 1.7218 | [00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf](https://zenodo.org/records/20672178/files/00%20Reader%20PDF%20-%20Minkowski%20-%20Gesammelte%20Abhandlungen%20Volume%20II%20-%20Selected%20Papers.pdf) |
+| reader/reference PDF | 1.1760 | [01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf](https://zenodo.org/records/20672178/files/01%20Reader%20PDF%20-%20Hecke%20-%20Vorlesungen%20ueber%20die%20Theorie%20der%20algebraischen%20Zahlen.pdf) |
+| reader/reference PDF | 1.2384 | [02 Reader PDF - Landau - Elementary Number Theory.pdf](https://zenodo.org/records/20672178/files/02%20Reader%20PDF%20-%20Landau%20-%20Elementary%20Number%20Theory.pdf) |
+| reader/reference PDF | 0.4828 | [03 Reader PDF - Steinitz - Algebraische Theorie der Koerper.pdf](https://zenodo.org/records/20672178/files/03%20Reader%20PDF%20-%20Steinitz%20-%20Algebraische%20Theorie%20der%20Koerper.pdf) |
+| reader/reference PDF | 1.3360 | [04 Reader PDF - Hensel - Zahlentheorie.pdf](https://zenodo.org/records/20672178/files/04%20Reader%20PDF%20-%20Hensel%20-%20Zahlentheorie.pdf) |
+| reader/reference PDF | 0.8881 | [05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf](https://zenodo.org/records/20672178/files/05%20Reader%20PDF%20-%20Oka%20-%20Analytic%20Functions%20of%20Several%20Variables%20I-X.pdf) |
+| reader/reference PDF | 1.6622 | [06 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20672178/files/06%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
+| reader/reference PDF | 2.2522 | [07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf](https://zenodo.org/records/20672178/files/07%20Reader%20PDF%20-%20Grassmann%20-%20Ausdehnungslehre%20and%20Related%20Works.pdf) |
+| reader/reference PDF | 3.7181 | [08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf](https://zenodo.org/records/20672178/files/08%20Reader%20PDF%20-%20Hausdorff%20-%20Mengenlehre%20and%20Descriptive%20Set%20Theory%20Writings.pdf) |
+| reader/reference PDF | 0.1077 | [09 Reader PDF - Killing - Transformationsgruppen.pdf](https://zenodo.org/records/20672178/files/09%20Reader%20PDF%20-%20Killing%20-%20Transformationsgruppen.pdf) |
+| artifact/source ZIP | 196.9815 | [80 Additional Author Cluster - Sources, TeX, and Provenance.zip](https://zenodo.org/records/20672178/files/80%20Additional%20Author%20Cluster%20-%20Sources%2C%20TeX%2C%20and%20Provenance.zip) |
+| artifact/source ZIP | 100.2561 | [95 Additional Authors - Bianchi - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Bianchi%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 475.9464 | [95 Additional Authors - Edge Intake Additions 2026-06-08.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Edge%20Intake%20Additions%202026-06-08.zip) |
+| artifact/source ZIP | 78.5837 | [95 Additional Authors - Frobenius - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Frobenius%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 29.2836 | [95 Additional Authors - Gordan - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Gordan%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 102.9025 | [95 Additional Authors - Klein-Fricke - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Klein-Fricke%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 62.9228 | [95 Additional Authors - Kneser - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Kneser%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 70.9352 | [95 Additional Authors - Kron - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Kron%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 67.6848 | [95 Additional Authors - Picard - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Picard%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 47.0198 | [95 Additional Authors - Poincare - Update Packets 2026-06-07.zip](https://zenodo.org/records/20672178/files/95%20Additional%20Authors%20-%20Poincare%20-%20Update%20Packets%202026-06-07.zip) |
+| artifact/source ZIP | 591.6659 | [96 Additional Authors - Edge Intake Follow-up 2026-06-08.zip](https://zenodo.org/records/20672178/files/96%20Additional%20Authors%20-%20Edge%20Intake%20Follow-up%202026-06-08.zip) |
+| manifest/status | 0.0005 | [99_Additional_Author_Public_Summary_Kneser_p0206_20260612.json](https://zenodo.org/records/20672178/files/99_Additional_Author_Public_Summary_Kneser_p0206_20260612.json) |
+| manifest/status | 0.0003 | [99_Additional_Author_Public_Summary_Kneser_p0219_20260612.json](https://zenodo.org/records/20672178/files/99_Additional_Author_Public_Summary_Kneser_p0219_20260612.json) |
+| artifact/source ZIP | 31.4853 | [Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_audit_p0001_0082_IT_EN_20260607.zip) |
+| artifact/source ZIP | 36.0024 | [Bianchi_A1_p0001_0096_IT_EN_20260607.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_p0001_0096_IT_EN_20260607.zip) |
+| artifact/source ZIP | 39.5293 | [Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_real_p0001_0120_IT_EN_20260607.zip) |
+| artifact/source ZIP | 28.5907 | [Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_real_p0001_0144_IT_EN_20260607.zip) |
+| artifact/source ZIP | 36.9750 | [Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_real_p0001_0440_IT_EN_20260609.zip) |
+| artifact/source ZIP | 41.1040 | [Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_real_p0001_0472_IT_EN_20260609.zip) |
+| artifact/source ZIP | 34.1537 | [Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_real_p0001_0504_IT_EN_20260609.zip) |
+| artifact/source ZIP | 47.1970 | [Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip](https://zenodo.org/records/20672178/files/Bianchi_A1_real_p0001_0543_IT_EN_20260609.zip) |
+| artifact/source ZIP | 2.3255 | [Frob058_crit_GE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Frob058_crit_GE_EN_20260608.zip) |
+| artifact/source ZIP | 2.8936 | [Frob059_crit_GE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Frob059_crit_GE_EN_20260609.zip) |
+| artifact/source ZIP | 3.4395 | [Frob060_crit_GE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Frob060_crit_GE_EN_20260609.zip) |
+| artifact/source ZIP | 1.9921 | [Frob061_crit_GE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Frob061_crit_GE_EN_20260609.zip) |
+| artifact/source ZIP | 2.5502 | [Frob070_p016_034_final_GE_EN_20260611.zip](https://zenodo.org/records/20672178/files/Frob070_p016_034_final_GE_EN_20260611.zip) |
+| artifact/source ZIP | 17.6889 | [Frob071_crit_GE_EN_scans_20260611.zip](https://zenodo.org/records/20672178/files/Frob071_crit_GE_EN_scans_20260611.zip) |
+| artifact/source ZIP | 2.5906 | [Frob18872_crit_GE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Frob18872_crit_GE_EN_20260608.zip) |
+| artifact/source ZIP | 43.9932 | [Frob18877_p014_021_GE_EN_20260606.zip](https://zenodo.org/records/20672178/files/Frob18877_p014_021_GE_EN_20260606.zip) |
+| artifact/source ZIP | 34.5896 | [Frob18877_p022_030_GE_EN_fixed_20260607.zip](https://zenodo.org/records/20672178/files/Frob18877_p022_030_GE_EN_fixed_20260607.zip) |
+| artifact/source ZIP | 62.9763 | [Frob18877_p031_039_GE_EN_final_20260607.zip](https://zenodo.org/records/20672178/files/Frob18877_p031_039_GE_EN_final_20260607.zip) |
+| artifact/source ZIP | 1.9401 | [Frob18879_crit_GE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Frob18879_crit_GE_EN_20260608.zip) |
+| artifact/source ZIP | 36.5771 | [Frob18882_p001_012_GE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Frob18882_p001_012_GE_EN_20260607.zip) |
+| artifact/source ZIP | 79.8374 | [Frob18882_p013_024_GE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Frob18882_p013_024_GE_EN_20260607.zip) |
+| artifact/source ZIP | 53.1129 | [Frob18882_p025_031_GE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Frob18882_p025_031_GE_EN_20260607.zip) |
+| artifact/source ZIP | 93.8083 | [Frob18882_p032_045_GE_EN_final_20260608.zip](https://zenodo.org/records/20672178/files/Frob18882_p032_045_GE_EN_final_20260608.zip) |
+| artifact/source ZIP | 159.6225 | [Frobenius_all_GE_EN_cum_scans_20260611.zip](https://zenodo.org/records/20672178/files/Frobenius_all_GE_EN_cum_scans_20260611.zip) |
+| artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20672178/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
+| artifact/source ZIP | 14.9382 | [Frobenius_frob053_GE_EN_p001_009_20260605.zip](https://zenodo.org/records/20672178/files/Frobenius_frob053_GE_EN_p001_009_20260605.zip) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 9.8210 | [Gordan_DL02_p013_017_LAT_EN_20260606.zip](https://zenodo.org/records/20672178/files/Gordan_DL02_p013_017_LAT_EN_20260606.zip) |
+| artifact/source ZIP | 12.6690 | [Gordan_DL03_p018_027_LAT_EN_20260606.zip](https://zenodo.org/records/20672178/files/Gordan_DL03_p018_027_LAT_EN_20260606.zip) |
+| artifact/source ZIP | 16.6137 | [Gordan_DL04_p028_035_LAT_EN_20260606.zip](https://zenodo.org/records/20672178/files/Gordan_DL04_p028_035_LAT_EN_20260606.zip) |
+| artifact/source ZIP | 28.4108 | [Gordan_DL05_corrected_LAT_EN_20260607.zip](https://zenodo.org/records/20672178/files/Gordan_DL05_corrected_LAT_EN_20260607.zip) |
+| artifact/source ZIP | 4.8175 | [Gordan_DL_actual_01_20260605.zip](https://zenodo.org/records/20672178/files/Gordan_DL_actual_01_20260605.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20672178/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 17.0625 | [KF_real_V1_provfix_20260607.zip](https://zenodo.org/records/20672178/files/KF_real_V1_provfix_20260607.zip) |
+| artifact/source ZIP | 25.3755 | [Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_authorclean_p0011_0041_DE_EN_20260607.zip) |
+| artifact/source ZIP | 47.3617 | [Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_figsource_p0096_0111_DE_EN_20260608.zip) |
+| artifact/source ZIP | 86.3298 | [Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip) |
+| artifact/source ZIP | 7.5288 | [Kneser_LVR_p0007_0013_DE_EN_20260605.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0007_0013_DE_EN_20260605.zip) |
+| artifact/source ZIP | 13.4491 | [Kneser_LVR_p0014_0022_DE_EN_20260606.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0014_0022_DE_EN_20260606.zip) |
+| artifact/source ZIP | 16.9320 | [Kneser_LVR_p0023_0031_DE_EN_20260606.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0023_0031_DE_EN_20260606.zip) |
+| artifact/source ZIP | 20.6141 | [Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0032_0041_CORR_DE_EN_20260607.zip) |
+| artifact/source ZIP | 27.5925 | [Kneser_LVR_p0042_0054_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0042_0054_DE_EN_20260607.zip) |
+| artifact/source ZIP | 31.4609 | [Kneser_LVR_p0055_0064_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0055_0064_DE_EN_20260607.zip) |
+| artifact/source ZIP | 38.4663 | [Kneser_LVR_p0065_0082_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0065_0082_DE_EN_20260607.zip) |
+| artifact/source ZIP | 34.7475 | [Kneser_LVR_p0082_0096_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0082_0096_DE_EN_20260607.zip) |
+| artifact/source ZIP | 40.0767 | [Kneser_LVR_p0111_0122_DE_EN_20260608.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0111_0122_DE_EN_20260608.zip) |
+| artifact/source ZIP | 38.4592 | [Kneser_LVR_p0122_0138_DE_EN_20260609.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0122_0138_DE_EN_20260609.zip) |
+| artifact/source ZIP | 47.7080 | [Kneser_LVR_p0139_0158_DE_EN_20260611.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0139_0158_DE_EN_20260611.zip) |
+| artifact/source ZIP | 63.0505 | [Kneser_LVR_p0158_0177_DE_EN_20260611.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0158_0177_DE_EN_20260611.zip) |
+| artifact/source ZIP | 98.1142 | [Kneser_LVR_p0177_0192_DE_EN_20260612.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0177_0192_DE_EN_20260612.zip) |
+| artifact/source ZIP | 78.9024 | [Kneser_LVR_p0193_0206_DE_EN_20260612.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0193_0206_DE_EN_20260612.zip) |
+| artifact/source ZIP | 82.4816 | [Kneser_LVR_p0206_0219_DE_EN_20260612.zip](https://zenodo.org/records/20672178/files/Kneser_LVR_p0206_0219_DE_EN_20260612.zip) |
+| artifact/source ZIP | 6.2967 | [kr_p01_20260607.zip](https://zenodo.org/records/20672178/files/kr_p01_20260607.zip) |
+| artifact/source ZIP | 5.6911 | [kron01.zip](https://zenodo.org/records/20672178/files/kron01.zip) |
+| artifact/source ZIP | 33.5600 | [Kron_author_restart_p005_041_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kron_author_restart_p005_041_DE_EN_20260607.zip) |
+| artifact/source ZIP | 10.5498 | [Kron_bookclean_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kron_bookclean_p001_014_DE_EN_20260607.zip) |
+| artifact/source ZIP | 9.1795 | [Kron_clean_p005_018_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kron_clean_p005_018_DE_EN_20260607.zip) |
+| artifact/source ZIP | 12.3856 | [Kron_restart_p001_014_DE_EN_20260607.zip](https://zenodo.org/records/20672178/files/Kron_restart_p001_014_DE_EN_20260607.zip) |
+| artifact/source ZIP | 60.8802 | [Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip](https://zenodo.org/records/20672178/files/Mikami1913_realdiagrams_p001_059_EN_JA_20260607.zip) |
+| artifact/source ZIP | 7.9331 | [Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip](https://zenodo.org/records/20672178/files/Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip) |
+| artifact/source ZIP | 173.1888 | [poincare_v1_18.zip](https://zenodo.org/records/20672178/files/poincare_v1_18.zip) |
+| artifact/source ZIP | 207.2206 | [poincare_v1_19.zip](https://zenodo.org/records/20672178/files/poincare_v1_19.zip) |
+| artifact/source ZIP | 214.2228 | [poincare_v1_20.zip](https://zenodo.org/records/20672178/files/poincare_v1_20.zip) |
+| artifact/source ZIP | 231.5475 | [poincare_v1_21.zip](https://zenodo.org/records/20672178/files/poincare_v1_21.zip) |
+| artifact/source ZIP | 81.7369 | [poincare_v1_24.zip](https://zenodo.org/records/20672178/files/poincare_v1_24.zip) |
+| artifact/source ZIP | 22.2851 | [Steinitz_38_canonical_redo_1894_1897_shortpaths.zip](https://zenodo.org/records/20672178/files/Steinitz_38_canonical_redo_1894_1897_shortpaths.zip) |
+| artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20672178/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
+| artifact/source ZIP | 72.1474 | [Steinitz_42_bedingtII_p012-024_shortpaths.zip](https://zenodo.org/records/20672178/files/Steinitz_42_bedingtII_p012-024_shortpaths.zip) |

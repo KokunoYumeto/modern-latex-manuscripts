@@ -74,8 +74,8 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 | Author | Current Public Surface | Record |
 |---|---|---|
-| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch127, including Vol. II §6, §§14/16/17, §71, and earlier Vol. I repairs; Volume III in progress with source/provenance ZIPs. | [Weber](https://zenodo.org/records/20669232) |
-| Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://zenodo.org/records/20670504) |
+| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch128, including the latest Vol. II §§29-30 Sylow-theorem repair, earlier Vol. II §6, §§14/16/17, §71, and earlier Vol. I repairs; Volume III remains the earlier repaired cumulative. | [Weber](https://zenodo.org/records/20672175) |
+| Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://zenodo.org/records/20672174) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 has a latest p0001-p0090 summation-limit repair package; §§13-22 are represented through p0090. | [Bianchi](https://zenodo.org/records/20669390) |
 | Paul Gordan / Clebsch-Gordan | The revised Abel23 package extends `Theorie der Abelschen Functionen` through source pp.300-308 / printed pp.278-286 and cumulative German/English TeX/PDF through source p308. It continues and closes §79 and covers visible §80 through the final formula for the integral sums v_h. Earlier Abel13-Abel21 tranches and AllPrior AuditFix01 remain correction/provenance layers. | [Gordan](https://zenodo.org/records/20671984) |
 | Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
@@ -83,7 +83,7 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20669391)
+Record: [Additional author cluster](https://zenodo.org/records/20672178)
 
 | Author | Current Public Surface |
 |---|---|
@@ -97,7 +97,7 @@ Record: [Additional author cluster](https://zenodo.org/records/20669391)
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
 | Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20669390) for current readers, auditfix ZIP, the latest A2 p0001-p0090 summation-limit repair, and earlier HQ/audit-continuation/provenance caveats. |
-| Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_21.zip`, cumulative through Chapter XIV with next continuation at Chapter XV / the torus study. |
+| Poincare | Tome I French/English working tranches; current routed package is `poincare_v1_24.zip`, covering source witnesses v1_0329-v1_0345 / Chapters XVII-XVIII and stopping before Chapter XIX. It is not a continuous cumulative through v1_0345 because intervening v1_22/v1_23 artifacts were not locally available. |
 | Frobenius | Selected GE/EN group-character and hypercomplex sequence cumulative/QA package through items 053, 054, 056-061, 070, and 071; use package-level ledgers and source caveats. |
 | Kneser | `Lehrbuch der Variationsrechnung` German/English routed working tranches. Current routed continuation is `Kneser_LVR_p0206_0219_DE_EN_20260612.zip` for source p0206 lower-p0219 upper / §§46-48 with Fig. 24 as a source-derived crop; lower p0219 / §49 is the next handoff. The earlier `Kneser_LVR_p0177_0192_DE_EN_20260612.zip` and `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip` remain previous tranches/provenance. |
 | Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20671984) for Abel11-Abel23, AllPrior AuditFix01, and branch-specific auditfix packets. |

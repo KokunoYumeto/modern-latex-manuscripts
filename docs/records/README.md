@@ -6,8 +6,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 15 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20670272) |
-| Emmy Noether | 68 | 49 | 11 | 164.6 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20670504) |
-| Heinrich Weber | 47 | 8 | 32 | 1161.5 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20669232) |
+| Emmy Noether | 70 | 49 | 13 | 184.3 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20672174) |
+| Heinrich Weber | 48 | 8 | 33 | 1211.3 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20672175) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20454552) |
 | SGA | 100 | 74 | 24 | 3295.0 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20670531) |
@@ -29,4 +29,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Luigi Bianchi | 17 | 5 | 9 | 1676.3 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20669390) |
 | Paul Gordan and Clebsch-Gordan | 33 | 0 | 30 | 1607.6 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20671984) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Additional Author Cluster | 98 | 10 | 86 | 5530.4 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20669391) |
+| Additional Author Cluster | 99 | 10 | 87 | 5612.1 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20672178) |
