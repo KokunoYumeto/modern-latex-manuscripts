@@ -7,7 +7,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Goal | Open First |
 |---|---|
 | Get the whole preservation surface | [Main project landing](https://zenodo.org/records/20415117) |
-| Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20651670) |
+| Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20652117) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20651984) |

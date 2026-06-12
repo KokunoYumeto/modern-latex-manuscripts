@@ -86,6 +86,12 @@ Availability and provenance matter, but the public surface should not look like 
 
 Public-facing titles should name the author, work, language/status where needed, and role. Internal run names should stay inside raw provenance archives, not in Zenodo titles or top-level filenames.
 
+For large, iterative translation projects, separate the workbench from the reader surface. A web-session or agent ZIP may contain audits, screenshots, source slices, failed attempts, render checks, and intermediate TeX. That is useful provenance, but it is not automatically a public reader artifact. The publication step should extract the actual mathematical deliverables: individual paper PDFs/TeX, cumulative language branches, source/witness ZIPs, concise correction ledgers, and a short status note that says what is source-checked, what is OCR-derived, and what remains provisional.
+
+This is especially important for multilingual records. Do not make readers sort through dozens of audit bundles to find the translation. Put the clean language branch first, package each language or source branch coherently, and keep audit bundles as local QA evidence or deliberately labelled provenance. The Noether and SGA repair streams showed why this matters: raw audit bundles are essential for repair, but top-level records should foreground the usable German/source, English, Spanish, Japanese, French, Chinese, or other reader artifacts and their reliability labels.
+
+For a standalone statement of this rule, see [Curated Public Surfaces](workflow-addendum-20260612-curated-public-surfaces.md).
+
 ## Current Review Loop
 
 1. Run the public archive readability audit.
