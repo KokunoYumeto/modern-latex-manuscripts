@@ -22,7 +22,7 @@ Current record: <https://zenodo.org/records/20414353>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20650065> (concept DOI: <https://doi.org/10.5281/zenodo.20641485>)
+Current record: <https://zenodo.org/records/20651984> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
