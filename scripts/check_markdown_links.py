@@ -19,13 +19,21 @@ from urllib.parse import unquote
 
 LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SKIP_PREFIXES = ("http://", "https://", "mailto:", "#")
+SKIP_DIR_PARTS = {
+    ".git",
+    ".venv",
+    ".venv_ocr",
+    "node_modules",
+    "__pycache__",
+    "manuscript_translation_project",
+}
 
 
 def iter_markdown_files(root: Path) -> list[Path]:
     return sorted(
         path
         for path in root.rglob("*.md")
-        if ".git" not in path.parts and "node_modules" not in path.parts
+        if not (set(path.parts) & SKIP_DIR_PARTS)
     )
 
 

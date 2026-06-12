@@ -8,11 +8,11 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20454552) |
 | EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://zenodo.org/records/20454552) |
-| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20661245) |
-| SGA | Continue SGA5/SGA6 repair after repair017: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the remaining SGA6 v3 worklist rows. | [SGA record](https://zenodo.org/records/20661245) |
-| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20661245) |
-| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface, while continuing recursive gap repairs after Batch122's Vol. II §81 table/boundary correction. | [Weber record](https://zenodo.org/records/20660948) |
-| Noether | Continue source checking and multilingual translation branches from the curated numbered-paper corpus; propagate the RA20 Paper 02 German display correction and FR/ZH Paper 19 section 6 tau correction into EN/ES/JA, and resolve RA10 Papers 40-43 inline body resynchronization. | [Noether record](https://zenodo.org/records/20651590) |
+| SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://zenodo.org/records/20665102) |
+| SGA | Continue SGA5/SGA6 repair after repair018: synchronize English to the latest French repairs, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, and the remaining SGA6 v3 worklist rows. | [SGA record](https://zenodo.org/records/20665102) |
+| SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://zenodo.org/records/20665102) |
+| Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface, while continuing recursive gap repairs after Batch125's Vol. I §157 rho-notation correction and the remaining 88 open ledger rows. | [Weber record](https://zenodo.org/records/20665199) |
+| Noether | Continue source checking and multilingual translation branches from the curated numbered-paper corpus; carry RA23 display-layout fixes forward, finish the Paper 02 symbol pass from p.66/p.67 onward, propagate RA12-RA22 symbol corrections across language branches, and run a full symbol audit beyond Paper 01. | [Noether record](https://zenodo.org/records/20665205) |
 
 ## Highest-Value Typesetting And Source-Check Work
 
