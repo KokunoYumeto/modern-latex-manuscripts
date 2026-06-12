@@ -22,7 +22,7 @@ Generated from `manifests/public-file-catalog.csv` after the 2026-06-12 archive 
 | historical_references | 15 | 13 | 1 | 1 | 58.5912 | [record](https://zenodo.org/records/20415777) |
 | classical_algebra_arithmetic | 25 | 21 | 3 | 1 | 6883.6158 | [record](https://zenodo.org/records/20583048) |
 | sylvester | 3 | 1 | 1 | 1 | 91.8621 | [record](https://zenodo.org/records/20649689) |
-| maxwell | 5 | 0 | 3 | 2 | 317.149 | [record](https://zenodo.org/records/20670590) |
+| maxwell | 6 | 0 | 4 | 2 | 382.074 | [record](https://zenodo.org/records/20672724) |
 | gibbs_old_physics | 10 | 3 | 3 | 1 | 18.6216 | [record](https://zenodo.org/records/20649836) |
 | dedekind | 18 | 14 | 3 | 1 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 1 | 168.3875 | [record](https://zenodo.org/records/20586064) |
