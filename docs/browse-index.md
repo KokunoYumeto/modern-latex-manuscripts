@@ -10,9 +10,9 @@ This page is the human entry point for the archive. Use it when you want to find
 | Reproduce the workflow | [Workflow / replication packet](https://zenodo.org/records/20652117) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
-| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20667338) |
+| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20668022) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
-| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20667332) |
+| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20668017) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20667337) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20454552) |
@@ -34,7 +34,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [EGA](https://zenodo.org/records/20454552) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
-| [SGA](https://zenodo.org/records/20667338) | SGA 5/6 and further SGA working translation material, plus source/reference packets. Current drafts are structurally useful but not proofread final editions; latest SGA repair020 repairs concrete SGA5 French diagrams on source pp.083-086 and p102. SGA6 French is unchanged from the carried-forward cumulative, English remains unsynchronized, and SGA6/SGA7 compression/source-check caveats remain explicit. | Open the reader PDFs first, then source ZIPs and audit packets. |
+| [SGA](https://zenodo.org/records/20668022) | SGA 5/6 and further SGA working translation material, plus source/reference packets. Current drafts are structurally useful but not proofread final editions; latest SGA repair019/repair020 packets repair concrete SGA5 French diagram clusters on source pp.030-048 and pp.083-086 plus p102. SGA6 French is unchanged from the carried-forward cumulative, English remains unsynchronized, and SGA6/SGA7 compression/source-check caveats remain explicit. | Open the reader PDFs first, then source ZIPs and audit packets. |
 | [Deligne](https://zenodo.org/records/20617786) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v3 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
@@ -53,7 +53,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Emmy Noether](https://zenodo.org/records/20667332) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. RA23 display-layout corrections and the RA26 Paper 02 source-critical symbol audit package are included, but source corrections still need cross-language propagation. |
+| [Emmy Noether](https://zenodo.org/records/20668017) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. RA23 display-layout corrections plus RA25 and RA26 Paper 02 source-critical symbol audit packages are included, but source corrections still need cross-language propagation. |
 | [Heinrich Weber](https://zenodo.org/records/20667337) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch126. Batch126 closes Vol. II §6 and §§14/16/17 symbol/footnote patches; 84 priority repair rows remain open. |
 | [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts; Cayley material there is provenance/repair material unless a specific range has been re-promoted by a later source audit. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |

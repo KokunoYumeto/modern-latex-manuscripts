@@ -6,11 +6,11 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 14 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20652117) |
-| Emmy Noether | 59 | 49 | 7 | 127.3 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20667332) |
+| Emmy Noether | 62 | 49 | 8 | 135.1 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20668017) |
 | Heinrich Weber | 45 | 8 | 31 | 1021.8 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20667337) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20454552) |
-| SGA | 100 | 74 | 23 | 3059.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20667338) |
+| SGA | 100 | 74 | 23 | 3097.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20668022) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20617786) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20520721) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |

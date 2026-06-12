@@ -6,10 +6,10 @@ Generated from `manifests/public-file-catalog.csv` after the 2026-06-12 archive 
 |---|---:|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | workflow | 14 | 3 | 7 | 4 | 0.3402 | [record](https://zenodo.org/records/20652117) |
-| noether | 59 | 49 | 7 | 3 | 127.2781 | [record](https://zenodo.org/records/20667332) |
+| noether | 62 | 49 | 8 | 5 | 135.0545 | [record](https://zenodo.org/records/20668017) |
 | weber | 45 | 8 | 31 | 6 | 1021.8377 | [record](https://zenodo.org/records/20667337) |
 | cayley | 84 | 13 | 69 | 2 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
-| sga | 100 | 74 | 23 | 3 | 3059.2436 | [record](https://zenodo.org/records/20667338) |
+| sga | 100 | 74 | 23 | 3 | 3097.2148 | [record](https://zenodo.org/records/20668022) |
 | deligne | 100 | 96 | 3 | 1 | 448.2286 | [record](https://zenodo.org/records/20617786) |
 | ega | 16 | 10 | 4 | 2 | 471.6669 | [record](https://zenodo.org/records/20454552) |
 | ukrainian_applied_math | 19 | 18 | 1 | 0 | 13.2662 | [record](https://zenodo.org/records/20520721) |
