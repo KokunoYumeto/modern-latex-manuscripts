@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 26 |
-| Public files indexed | 940 |
+| Public files indexed | 942 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 346 |
-| Manifest/status files | 45 |
-| Total public file surface | 30.19 GB |
+| Artifact/source ZIPs | 347 |
+| Manifest/status files | 46 |
+| Total public file surface | 30.51 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -37,7 +37,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | [Historical reference witnesses](https://zenodo.org/records/20415777) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
 | [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-checked working edition through book page 608; Papers 59-60 complete in the latest tranche, next continuation p.609. |
-| [Maxwell](https://zenodo.org/records/20653108) | 2 | 0 | 1 | 167 MB | `A Treatise on Electricity and Magnetism`, Volume I source-checked working tranches: ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. The batch TeX/PDF substrate is status-mixed; ledger and delta packets govern source-checked claims. |
+| [Maxwell](https://zenodo.org/records/20653382) | 4 | 0 | 2 | 500 MB | `A Treatise on Electricity and Magnetism`, Volume I source-checked working tranches: IA 1873 first-edition pp.001-024 plus earlier ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. Broader batch TeX/PDF substrate is status-mixed; ledgers and source witnesses govern source-checked claims. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-checked editions and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-checked editions and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20651036) | 12 | 5 | 6 | 984 MB | `Lezioni di geometria differenziale` Vol. I complete through source pdfpages 001-543; A2 preferred re-audit layer now covers p0001-p0066; §§10-12 remain complete and §13 is deliberately deferred. |
