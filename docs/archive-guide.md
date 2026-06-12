@@ -12,8 +12,8 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | Workflow and replication notes | <https://zenodo.org/records/20670272> |
-| Emmy Noether | <https://zenodo.org/records/20670504> |
-| Heinrich Weber | <https://zenodo.org/records/20669232> |
+| Emmy Noether | <https://zenodo.org/records/20672174> |
+| Heinrich Weber | <https://zenodo.org/records/20672175> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
 | SGA source and English/French translation drafts | <https://zenodo.org/records/20670531> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
@@ -28,7 +28,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Luigi Bianchi | <https://zenodo.org/records/20669390> |
 | Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20671984> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
-| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20669391> |
+| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20672178> |
 
 ## File Types
 

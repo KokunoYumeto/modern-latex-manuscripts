@@ -32,7 +32,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Candidate | Why Hold |
 |---|---|
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
-| Poincare / Picard | Poincare Tome I now has `poincare_v1_21.zip` on the mixed additional-author shelf, through Chapter XIV with Chapter XV / the torus study as next handoff, and Picard has a figure-refined Tome I package through source leaf 107. Both need cleaner cumulative reader rollups before splitting. |
+| Poincare / Picard | Poincare Tome I now has `poincare_v1_24.zip` on the mixed additional-author shelf, covering source witnesses v1_0329-v1_0345 / Chapters XVII-XVIII and stopping before Chapter XIX, but it is not a continuous cumulative because v1_22/v1_23 artifacts are missing locally. Picard has a figure-refined Tome I package through source leaf 107. Both need cleaner cumulative reader rollups before splitting. |
 | Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
 | Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
 | Klein-Fricke | Authorship/provenance cleanup exists through early Volume I pages, but the lane is still in proof-of-structure stage. |

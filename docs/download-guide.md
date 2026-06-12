@@ -15,8 +15,8 @@ Good starting points:
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
 | SGA | [SGA record](https://zenodo.org/records/20670531), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
-| Weber | [Weber record](https://zenodo.org/records/20669232), Volume I first; later volumes are in progress |
-| Noether | [Noether record](https://zenodo.org/records/20670504), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
+| Weber | [Weber record](https://zenodo.org/records/20672175), Volume I first; later volumes are in progress |
+| Noether | [Noether record](https://zenodo.org/records/20672174), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20669390), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_sumfix_p0001_0090_IT_EN_20260612.zip` as the latest summation-limit repair layer through p0090, with older p0001-p0066 re-audit/HQ/audit ZIPs retained as provenance/support layers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20671984), open the revised Abel23 package for the current Abelsche continuation through source pp.300-308 / printed pp.278-286 and cumulative stream through source p308. Earlier Abel and AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside. |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20583048), numbered reader PDFs by author; inherited Cayley `source_checked` filenames are de-promoted unless re-promoted by a later source audit |
