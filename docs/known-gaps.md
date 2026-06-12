@@ -73,9 +73,9 @@ Current dedicated record: <https://zenodo.org/records/20669390>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20670492>
+Current dedicated record: <https://zenodo.org/records/20671984>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel22_p292_299_DE_EN_20260612.zip`, extending `Theorie der Abelschen Functionen` through source pp.292-299 / printed pp.270-277 and cumulative German/English TeX/PDF through source p299. It covers the beginning of Elfter Abschnitt, all §77, all §78, and the opening of §79 through the displayed w_i transformation. The next continuation point is source p300 / printed p278. Earlier Abel13-Abel20 tranches remain support/provenance layers. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is the revised `Gordan_Abel23_p300_308_DE_EN_20260612.zip`, extending `Theorie der Abelschen Functionen` through source pp.300-308 / printed pp.278-286 and cumulative German/English TeX/PDF through source p308. It continues and closes §79 and covers visible §80 through the final formula for the integral sums v_h. The next continuation point is after source p308 / printed p286. Earlier Abel tranches remain support/provenance layers. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and Abelsche through p121, including the theta FIX05 correction for the `c^8=1` display and wide-display reflow.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-217 coverage statement.
 
