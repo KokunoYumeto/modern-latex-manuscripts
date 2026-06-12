@@ -9,7 +9,7 @@ Generated from `manifests/public-file-catalog.csv` after the 2026-06-12 archive 
 | noether | 72 | 49 | 15 | 8 | 213.2481 | [record](https://zenodo.org/records/20672553) |
 | weber | 49 | 8 | 34 | 7 | 1237.9617 | [record](https://zenodo.org/records/20672355) |
 | cayley | 84 | 13 | 69 | 2 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
-| sga | 100 | 74 | 24 | 2 | 3294.9746 | [record](https://zenodo.org/records/20670531) |
+| sga | 100 | 74 | 24 | 2 | 3236.885 | [record](https://zenodo.org/records/20672608) |
 | deligne | 100 | 96 | 3 | 1 | 448.2286 | [record](https://zenodo.org/records/20617786) |
 | ega | 16 | 10 | 4 | 2 | 471.6669 | [record](https://zenodo.org/records/20454552) |
 | ukrainian_applied_math | 19 | 18 | 1 | 0 | 13.2662 | [record](https://zenodo.org/records/20520721) |

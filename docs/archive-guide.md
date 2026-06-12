@@ -15,7 +15,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Emmy Noether | <https://zenodo.org/records/20672553> |
 | Heinrich Weber | <https://zenodo.org/records/20672355> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
-| SGA source and English/French translation drafts | <https://zenodo.org/records/20670531> |
+| SGA source and English/French translation drafts | <https://zenodo.org/records/20672608> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20454552> |
 | Ukrainian applied mathematics | <https://zenodo.org/records/20520721> |
