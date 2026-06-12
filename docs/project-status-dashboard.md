@@ -7,10 +7,10 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 25 |
-| Public files indexed | 936 |
+| Public files indexed | 937 |
 | Top-level PDFs | 546 |
 | Artifact/source ZIPs | 345 |
-| Manifest/status files | 42 |
+| Manifest/status files | 43 |
 | Total public file surface | 30.02 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
@@ -20,7 +20,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [Workflow / replication packet](https://zenodo.org/records/20650989) | 12 | 3 | 7 | 0.3 MB | Latest workflow refresh adds source/edition identity checks, structured repair worklists, OCR and formula-recognition witness discipline, source-derived figure policy, language propagation after source closure, and public artifact labelling. Earlier workflow files still document high-DPI aid packets, SGA/Deligne/Gordan witness packets, and Lean/Lake as selective formal-checking companions rather than bulk scan-transcription verifiers. |
+| [Workflow / replication packet](https://zenodo.org/records/20651670) | 13 | 3 | 7 | 0.3 MB | Latest workflow refresh adds reader-first public records, source-image authority, derivative-PDF traps, OCR as locator rather than judge, page-map requirements, aid-package design, and reliability labels. Earlier workflow files still document source/edition checks, repair worklists, high-DPI aid packets, SGA/Deligne/Gordan witness packets, and Lean/Lake as selective formal-checking companions rather than bulk scan-transcription verifiers. |
 | [Noether](https://zenodo.org/records/20651590) | 55 | 49 | 5 | 96 MB | Curated reader-facing surface with cumulative reader PDFs, 43 standalone English paper PDFs, and compact German/source, Spanish, Japanese, French, and Simplified Chinese packages. Raw audit bundles stay out of the live page unless distilled into corrected artifacts or concise status notes. |
 | [Weber](https://zenodo.org/records/20651306) | 37 | 8 | 26 | 837 MB | `Lehrbuch der Algebra` Volume I complete; current Volume II readers through §176; Volume III current repaired cumulative. Batch104-Batch120 expose supporting provenance, repairs, and source checks; Batch121 corrects the §§106/114 inspection packaging and reports 93 open gap-audit rows. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
