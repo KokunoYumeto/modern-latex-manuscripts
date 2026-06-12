@@ -45,11 +45,11 @@ Current consolidated record: <https://zenodo.org/records/20410957>
 
 Weber: <https://zenodo.org/records/20667337>
 
-Noether: <https://zenodo.org/records/20668017>
+Noether: <https://zenodo.org/records/20668796>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch126 cover Volume II §§169-176 plus recursive repairs including Vol. I §§124, 151, 157, 166, 171, 183 and Vol. II §§6, 14, 16, 17, 20, 21, 52, 57, 58, 60, 61, 71, 77, 81, 99, 101, 106, 114, 118, 126. Batch126 closes the Vol. II §6 footnote patch and Vol. II §§14/16/17 kappa/varkappa symbol patches; V2 §71 p277 is preserved as witness only after adjudication. The active repair ledger reports 28/112 priority rows closed and 84 open, with Tier-3 11/11 closed. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
-- Noether now has a curated public surface: cumulative reader PDFs, 43 standalone English paper PDFs, compact German/source, Spanish, Japanese, French, and Simplified Chinese packages, plus the RA23 compact correction package and the RA25/RA26 Paper 02 source-critical symbol audit packages. RA25 covers Paper 02 printed pp.71-75 and p76 through formula (27); RA26 continues German/source printed pp.76-80 top and closes through printed p79 and p80 top before §23. Open items remain: p80 §23 onward, table plates, RA12-RA26 source-correction propagation across language branches, and a full symbol audit beyond Paper 01.
+- Noether now has a curated public surface: cumulative reader PDFs, 43 standalone English paper PDFs, compact German/source, Spanish, Japanese, French, and Simplified Chinese packages, plus the RA23 compact correction package and the RA25/RA26/RA27 Paper 02 source-critical symbol audit packages. RA25 covers Paper 02 printed pp.71-75 and p76 through formula (27); RA26 continues German/source printed pp.76-80 top and closes through printed p79 and p80 top before §23. Open items remain: §25 from p83 bottom/p84, p84-p90/table plates, RA12-RA27 source-correction propagation across language branches, and a full symbol audit beyond Paper 01.
 - Both author records need continued translation, source comparison, and final proofing. Noether should be treated as a curated working corpus, not a certified critical edition; scan-reading mistakes, subtle formula errors, and cross-language synchronization errors may remain.
 
 ## Classical Algebra and Arithmetic
@@ -63,13 +63,13 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20664430>
+Current dedicated record: <https://zenodo.org/records/20668784>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
-- The 2026-06-12 public surface now includes `Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip` as the latest A2 continuation layer through p0001-p0077. It restores lower p0066 section-13 material, continues through section 16, and starts Chapter II / section 17. Earlier p0001-p0066 audit/HQ packages remain provenance/support layers.
+- The 2026-06-12 public surface now includes `Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip` as the latest A2 continuation layer through p0001-p0090. It retains the lower p0066 section-13 restoration and continues the current slice through Chapter II / sections 17-22. Earlier p0001-p0066 audit/HQ packages remain provenance/support layers.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
-- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English working start through source p0001-p0077, about 10 percent of the 731-page source. It covers sections 1-16 and starts Chapter II / section 17; p0078 is the next handoff. A2 is not complete.
+- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English working start through source p0001-p0090, roughly 12 percent of the 731-page source. It retains sections 1-16 from earlier packets and continues the current slice through Chapter II / sections 17-22; p0091 is the next handoff. A2 is not complete.
 
 ## Gordan / Clebsch-Gordan
 
@@ -89,11 +89,11 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20664437>
+Current record: <https://zenodo.org/records/20668791>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
 - Latest Poincare tranche is `poincare_v1_21.zip`, a Tome I FR/EN working package through Chapter XIV, with Chapter XV / the torus study as next continuation. Treat package-level audit notes as authority for each tranche rather than assuming the whole mixed cluster is proofed.
-- The 2026-06-11 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_p0177_0192_DE_EN_20260612.zip`, a Kneser LVR continuation for source p0177-p0192 / sections 40-42 with source-derived crops for Figures 19 and 20. The earlier p0158-p0177 package remains the previous tranche. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
+- The 2026-06-12 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_p0193_0206_DE_EN_20260612.zip`, a Kneser LVR continuation for source p0193-p0206 upper / sections 43-45 with source-derived crops for Figures 21-23. Lower p0206 / section 46 is the next handoff; earlier p0158-p0177 and p0177-p0192 packages remain previous tranches/provenance. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
