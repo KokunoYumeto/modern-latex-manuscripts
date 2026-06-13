@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether Paper 03 GDZ standalone source webdrop
+
+Manifest: [20260614_noether_p03_gdz_source_webdrop.json](../manifests/pending-zenodo-uploads/20260614_noether_p03_gdz_source_webdrop.json)
+
+- Noether: `Noether_P03_GDZ_Standalone_Source_WebDrop_20260613.zip`, 9.4433 MB, SHA256 `F3606FF9B21DB15E4B666EE88E8C205EB0616DDC06767E9E84B64FFF9EA4935F`.
+- Contents: source/provenance support for Paper 03, `Zur Invariantentheorie der Formen von n Variablen`, Jahresbericht der Deutschen Mathematiker-Vereinigung 19 (1910), printed pp.101-104. The package includes the GDZ article-level PDF, GDZ IIIF manifest, page/canvas/source map for pp.101-104 / canvases 00000109-00000112, four raw full-resolution IIIF JPG witnesses at 3352x5277 px, checksums, source-quality note, and web-session source-gap note. Printed p.101 begins with the tail of the preceding article above Noether's title; that is retained as source evidence, not treated as a defect.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use this as Paper 03 source authority instead of the older small mixed-bundle `p03.pdf`; do not treat it as corrected TeX, source closure, or an edition.
+
 ## 2026-06-13: Noether Paper 12 GDZ source-witness locator
 
 Manifest: [20260613_noether_p12_gdz_source_witness_locator.json](../manifests/pending-zenodo-uploads/20260613_noether_p12_gdz_source_witness_locator.json)
