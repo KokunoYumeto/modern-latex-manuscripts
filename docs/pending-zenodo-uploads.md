@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 20 Lean/source-audit web drop
+
+Manifest: [20260613_noether_p20_lean_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p20_lean_audit_webdrop.json)
+
+- Noether: `Noether_P20_Lean_Audit_WebDrop_20260613.zip`, 1.752 MB, SHA256 `4562CEAC5C2BAEAA110857D7DF27B41A2AA9BE93ED7632A1E76E83409584158C`.
+- Contents: Paper 20 Lean/source-audit drop for `Ein algebraisches Kriterium für absolute Irreduzibilität`, printed pp.26-33. The audit requests one source-confirmed formula (13) correction: the two factor-sum indices should be `\kappa,\lambda`, not `\mu,\nu`; the following prose products `\varrho_\mu\sigma_\nu` remain unchanged. The local working TeX branch was patched and the corrected cumulative TeX copy is included under `applied_fixed_tex/`. The audit also records that Paper 20 uses ordinary numbered footnotes, so the Paper 06-Paper 08 symbolic-footnote correction pattern should not be applied to Paper 20.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 20 closure.
+
 ## 2026-06-13: Kneser `Lehrbuch der Variationsrechnung` p0234-p0248
 
 Manifest: [20260613_kneser_lvr_p0234_0248.json](../manifests/pending-zenodo-uploads/20260613_kneser_lvr_p0234_0248.json)
