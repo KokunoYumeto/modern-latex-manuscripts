@@ -2,6 +2,18 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether Papers 10-12 compact GDZ source-audit webdrops
+
+Manifest: [20260614_noether_p10_p11_p12_gdz_source_audits.json](../manifests/pending-zenodo-uploads/20260614_noether_p10_p11_p12_gdz_source_audits.json)
+
+- Noether: `Noether_P10_GDZ_Source_Audit_WebDrop_20260614.zip`, 7.2818 MB, SHA256 `F692224A0860459FBBEDCA6BBD87030CDF5DBDAAE82A8212F13C4F59442A6714`.
+- Noether: `Noether_P11_GDZ_Source_Audit_WebDrop_20260614.zip`, 7.2388 MB, SHA256 `E2A1AD3388FB46C04E7C3CAA32666558E7D17E2FFD131E7AA4A841770CB2E358`.
+- Noether: `Noether_P12_GDZ_Source_Audit_WebDrop_20260613.zip`, 7.4431 MB, SHA256 `5249E216EBDAC5D14B235C4CBC1EF6D1A185D622C535FEFE9EA785DF7E2B1505`.
+- Contents: compact targeted source-audit drops for Noether Papers 10-12 using GDZ source witnesses. They include article/source provenance, labelled high-resolution witness crops, confirmed-fix CSVs, no-fix trap CSVs, and patch suggestions/occurrence ledgers where relevant. They are actionable audit handoffs, not corrected cumulative TeX branches.
+- Key findings: Paper 10 requests restoring the source-visible author line, `k_\sigma` in definition (d), and `F(t;\vartheta_i)` in the p541 divisibility display; Paper 11 requests replacing all 25 Paper 11 `\mathfrak L_\Gamma` occurrences with source-visible `\Omega_\Gamma`, restoring the author line, and changing one final colon to a semicolon; Paper 12 requests front-matter/author-line handling plus `f(x;dx)`, `d\delta x`, and barred-delta-x notation corrections while explicitly preserving formula (9)'s plain `\delta x`.
+
+Next action when Zenodo API credentials are available: upload these with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Also use the findings as explicit patch targets in the next canonical German cumulative TeX pass. Do not treat these as applied TeX, translations, source closure, or critical-edition certification.
+
 ## 2026-06-14: Weber Batch137 final active-ledger closure / Volume I bulk audit
 
 Manifest: [20260614_weber_batch137_final_active_gap_closure.json](../manifests/pending-zenodo-uploads/20260614_weber_batch137_final_active_gap_closure.json)
