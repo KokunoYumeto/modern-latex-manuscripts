@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Weber Batch137 final active-ledger closure / Volume I bulk audit
+
+Manifest: [20260614_weber_batch137_final_active_gap_closure.json](../manifests/pending-zenodo-uploads/20260614_weber_batch137_final_active_gap_closure.json)
+
+- Weber: `Weber_Cumulative_ThreeVolumes_Batch137_FinalActiveGapClosure_Vol1_BulkAudit_20260613.zip`, 141.7367 MB, SHA256 `DEBDBF5D210523E85A094444E186830B0256B310E394582B9A723A5868DCE3E6`.
+- Contents: recursive gap-audit / active-ledger closure package for Weber, `Lehrbuch der Algebra`. The package status reports Volume I §§120, 122, 128, 145, 148, 149, 150, 156, 158, 162, 163, 168, 169, 173, 174, 175, 176, 179, 180, 181, 182, and 183 closed this turn as scan-reviewed no-change closures, bringing the active 112-row ledger to 112/112 closed and Tier-3 to 11/11 closed. It includes German/English audited slices, cumulative Volume I complete repaired German/English TeX/PDF, Volume II through §176 repaired German/English TeX/PDF, current Volume III German/English TeX/PDF, source cutouts/renders, page-by-page closure ledgers, display/formula audit metadata, source-cutout inventory, and core-intake/triage ledgers.
+- Sense-check caveats: this is a working/source-witnessed repair-ledger package, not a certified critical edition. The promoted Batch137 action is active-ledger closure and Volume I no-change scan review; the included Volume II core-intake CSVs contain patch candidates and triage evidence that should not be treated as applied fixes unless a later Weber package integrates them. Inspected build logs had no fatal, undefined-control-sequence, missing-character, or overfull hbox diagnostics, but did contain underfull hbox diagnostics.
+
+Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with or instead of earlier pending Batch136/Batch134 as appropriate, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. After upload, revise the public Weber status from Batch136 101/112 closed to Batch137 active 112/112 closed while keeping off-ledger and source-check caveats explicit.
+
 ## 2026-06-14: Noether Slavic multilingual handoff through Papers 01-21
 
 Manifest: [20260614_noether_slavic_core_handoff_papers01_21.json](../manifests/pending-zenodo-uploads/20260614_noether_slavic_core_handoff_papers01_21.json)
