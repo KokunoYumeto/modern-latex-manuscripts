@@ -29,6 +29,15 @@ Manifest: [20260613_gordan_abelsche_finalauditfix02.json](../manifests/pending-z
 
 Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the already pending `De linea` ZIP if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
+## 2026-06-13: Gordan `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p009
+
+Manifest: [20260613_gordan_vb1_01_p001_009.json](../manifests/pending-zenodo-uploads/20260613_gordan_vb1_01_p001_009.json)
+
+- Gordan: `Gordan_VB1_01_p001_009_DE_EN_20260613.zip`, 32.2733 MB, SHA256 `F3A9950D13C8447353C18C406467ED12F40AD6CD398BF6A5D18A43F70024ECF7`.
+- Contents: German/English source-witnessed working start for `Vorlesungen ueber Invariantentheorie`, Bd. 1, `Determinanten`, source witnesses 0001-0009. Canonical output covers the clean title page, dedication to Charles Hermite, and full `Vorwort`; duplicate/marginal title witness, library stamp, and blank reverse pages are retained as scan-only witnesses. Package includes 600ppi GDZ/SUB Goettingen TIFF witnesses, source maps, current and cumulative German/English TeX/PDF, render checks, prior Abelsche audit context, and a noncanonical OCR scaffold.
+
+Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Gordan `De linea geodetica` p025-p047
 
 Manifest: [20260613_gordan_de_linea_p025_047.json](../manifests/pending-zenodo-uploads/20260613_gordan_de_linea_p025_047.json)
