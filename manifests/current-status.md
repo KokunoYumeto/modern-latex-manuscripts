@@ -44,33 +44,33 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 
 | Record key | Current record ID | Concept DOI |
 |---|---:|---|
-|  | 20415117 | <https://doi.org/10.5281/zenodo.20393488> |
-|  | 20672843 | <https://doi.org/10.5281/zenodo.20461174> |
-|  | 20673808 | <https://doi.org/10.5281/zenodo.20412587> |
-|  | 20673435 | <https://doi.org/10.5281/zenodo.20412153> |
-|  | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-|  | 20673700 | <https://doi.org/10.5281/zenodo.20410947> |
-|  | 20617786 | <https://doi.org/10.5281/zenodo.20410853> |
-|  | 20454552 | <https://doi.org/10.5281/zenodo.20414353> |
-|  | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
-|  | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
-|  | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |
-|  | 20584850 | <https://doi.org/10.5281/zenodo.20539593> |
-|  | 20586401 | <https://doi.org/10.5281/zenodo.20410957> |
-|  | 20415752 | <https://doi.org/10.5281/zenodo.20415751> |
-|  | 20415755 | <https://doi.org/10.5281/zenodo.20415754> |
-|  | 20415770 | <https://doi.org/10.5281/zenodo.20415769> |
-|  | 20415777 | <https://doi.org/10.5281/zenodo.20415776> |
-|  | 20583048 | <https://doi.org/10.5281/zenodo.20414787> |
-|  | 20649689 | <https://doi.org/10.5281/zenodo.20520692> |
-|  | 20672919 | <https://doi.org/10.5281/zenodo.20653107> |
-|  | 20649836 | <https://doi.org/10.5281/zenodo.20649835> |
-|  | 20586067 | <https://doi.org/10.5281/zenodo.20520669> |
-|  | 20586064 | <https://doi.org/10.5281/zenodo.20520679> |
-|  | 20673932 | <https://doi.org/10.5281/zenodo.20615814> |
-|  | 20673769 | <https://doi.org/10.5281/zenodo.20616260> |
-|  | 20617915 | <https://doi.org/10.5281/zenodo.20616988> |
-|  | 20673445 | <https://doi.org/10.5281/zenodo.20673444> |
-|  | 20673462 | <https://doi.org/10.5281/zenodo.20673461> |
-|  | 20672984 | <https://doi.org/10.5281/zenodo.20411006> |
+| Main landing | 20415117 | <https://doi.org/10.5281/zenodo.20393488> |
+| Workflow / replication packet | 20672843 | <https://doi.org/10.5281/zenodo.20461174> |
+| Noether | 20673808 | <https://doi.org/10.5281/zenodo.20412587> |
+| Weber | 20673435 | <https://doi.org/10.5281/zenodo.20412153> |
+| Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
+| SGA | 20673700 | <https://doi.org/10.5281/zenodo.20410947> |
+| Deligne | 20617786 | <https://doi.org/10.5281/zenodo.20410853> |
+| EGA | 20454552 | <https://doi.org/10.5281/zenodo.20414353> |
+| Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
+| Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
+| Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |
+| al-Battani Opus Astronomicum | 20584850 | <https://doi.org/10.5281/zenodo.20539593> |
+| Non-European mathematics, consolidated | 20586401 | <https://doi.org/10.5281/zenodo.20410957> |
+| Chinese mathematical classics | 20415752 | <https://doi.org/10.5281/zenodo.20415751> |
+| Indian and Sanskrit mathematical classics | 20415755 | <https://doi.org/10.5281/zenodo.20415754> |
+| Islamic and Arabic mathematical texts | 20415770 | <https://doi.org/10.5281/zenodo.20415769> |
+| Historical reference witnesses | 20415777 | <https://doi.org/10.5281/zenodo.20415776> |
+| Classical algebra and arithmetic | 20583048 | <https://doi.org/10.5281/zenodo.20414787> |
+| Sylvester | 20649689 | <https://doi.org/10.5281/zenodo.20520692> |
+| Maxwell | 20672919 | <https://doi.org/10.5281/zenodo.20653107> |
+| Gibbs / old physics | 20649836 | <https://doi.org/10.5281/zenodo.20649835> |
+| Dedekind | 20586067 | <https://doi.org/10.5281/zenodo.20520669> |
+| Dirichlet | 20586064 | <https://doi.org/10.5281/zenodo.20520679> |
+| Bianchi | 20673932 | <https://doi.org/10.5281/zenodo.20615814> |
+| Gordan / Clebsch-Gordan | 20673769 | <https://doi.org/10.5281/zenodo.20616260> |
+| Steinitz | 20617915 | <https://doi.org/10.5281/zenodo.20616988> |
+| Frobenius | 20673445 | <https://doi.org/10.5281/zenodo.20673444> |
+| Poincare | 20673462 | <https://doi.org/10.5281/zenodo.20673461> |
+| Additional author cluster | 20672984 | <https://doi.org/10.5281/zenodo.20411006> |
 
