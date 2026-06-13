@@ -40,6 +40,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
 | [Sylvester](https://zenodo.org/records/20649689) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [Maxwell](https://zenodo.org/records/20672919) | 7 | 0 | 5 | 392 MB | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058 and p.059 queued for the next register refresh, plus earlier ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. The record now includes the IA master-image source-index helper; broader batch TeX/PDF substrate is status-mixed, and ledgers/source witnesses govern promoted range claims. |
+| [Gibbs / old physics](https://zenodo.org/records/20649836) | 10 | 3 | 3 | 18.6 MB | `The Scientific Papers of J. Willard Gibbs`, Volume I source-scan-backed working tranche through printed pp.001-124, including the thermodynamics papers and the opening of `On the Equilibrium of Heterogeneous Substances`. Not a complete Gibbs corpus or final critical edition. |
 | [Dedekind](https://zenodo.org/records/20586067) | 18 | 14 | 3 | 25 MB | Dedekind source-witnessed working drafts and English translations. |
 | [Dirichlet](https://zenodo.org/records/20586064) | 7 | 2 | 4 | 168 MB | Dirichlet source-witnessed working drafts and English translations. |
 | [Luigi Bianchi](https://zenodo.org/records/20673932) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. |
@@ -73,6 +74,6 @@ The project is best read as a live corpus rather than a finished edition. The nu
 
 ## Current Audit Notes
 
-The latest local public archive readability audit checked the current 13-record map and reported zero configured public metadata or filename flags at 2026-05-28 00:09:01.
+The latest record-map consistency checks on 2026-06-13 verify that the generated record pages, public file catalog, Zenodo record map, and machine-readable record manifest agree on 28 current public records.
 
-The latest local public PDF surface audit checked 356 public PDFs at 2026-05-28 00:09:01 and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.
+The older local public PDF surface audit checked 356 public PDFs at 2026-05-28 00:09:01 and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.

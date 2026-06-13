@@ -34,9 +34,9 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | Pierre Deligne papers | Paper and letter translation/source drafts; latest 2026-06-09 v3 bundle refresh keeps D001-D017 witness/repair and equation-dense math-audit material, keeps D074-D090 descending triage material, and adds D074-D090 math-audit repairpass1. Diagram-heavy material remains working/audit level. | <https://zenodo.org/records/20617786> |
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://zenodo.org/records/20454552> |
 | Ukrainian applied mathematics | Applied mathematics and engineering translation drafts | <https://zenodo.org/records/20520721> |
-| Gauss | Gauss Werke modern LaTeX drafts and repair/source packages | <https://zenodo.org/records/20410934> |
+| Gauss | Gauss Werke modern LaTeX drafts and repair/source packages | <https://zenodo.org/records/20674086> |
 | al-Battani Opus Astronomicum | Work-level trilingual reader/source package, recovered segment tree, and table/data layers | <https://zenodo.org/records/20584850> |
-| Non-European mathematics manuscripts, consolidated | Multilingual Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent material | <https://zenodo.org/records/20410957> |
+| Non-European mathematics manuscripts, consolidated | Multilingual Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent material | <https://zenodo.org/records/20586401> |
 | Chinese mathematical classics | 80/100 | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |

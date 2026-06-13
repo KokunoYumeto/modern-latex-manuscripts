@@ -35,7 +35,7 @@ Current record: <https://zenodo.org/records/20673700> (concept DOI: <https://doi
 
 ## Non-European Mathematical Classics
 
-Current consolidated record: <https://zenodo.org/records/20410957>
+Current consolidated record: <https://zenodo.org/records/20586401>
 
 - The current release is much more readable than the early path-dump stage: it has combined readers, work-level PDFs, source bundles, OCR notes, and page-image artifacts.
 - It still needs source-faithfulness review, terminology checks, and mathematical proofreading work by work.

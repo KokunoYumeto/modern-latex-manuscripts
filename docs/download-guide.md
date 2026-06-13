@@ -14,7 +14,7 @@ Good starting points:
 |---|---|
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
 | SGA | [SGA record](https://zenodo.org/records/20673700), the current reader PDFs first, then the audit/source ZIPs |
-| Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
+| Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20586401), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20673435), Volume I first; Volume II readers plus recursive repair packets through Batch132 |
 | Noether | [Noether record](https://zenodo.org/records/20673808), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages and active Paper 02 source-audit correction packets |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20673932), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` as the latest compact/core working package through p0135, with older scan-heavy p0105 and repair ZIPs retained as provenance/support layers. |

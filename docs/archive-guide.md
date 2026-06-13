@@ -16,11 +16,11 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Heinrich Weber | <https://zenodo.org/records/20673435> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
 | SGA source and English/French translation drafts | <https://zenodo.org/records/20673700> |
-| Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
+| Pierre Deligne papers and letters | <https://zenodo.org/records/20617786> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20454552> |
 | Ukrainian applied mathematics | <https://zenodo.org/records/20520721> |
-| Gauss | <https://zenodo.org/records/20410934> |
-| Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20410957> |
+| Gauss | <https://zenodo.org/records/20674086> |
+| Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20586401> |
 | Chinese mathematical classics only | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
@@ -60,4 +60,4 @@ The most useful corrections are:
 
 The archive is intentionally split into a main landing record plus topic/author records. The main record keeps broad preservation and a complete bulk ZIP; the topic and author records are the preferred public browsing surface.
 
-The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-11 and indexes 24 records.
+The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-13 and indexes 28 records.
