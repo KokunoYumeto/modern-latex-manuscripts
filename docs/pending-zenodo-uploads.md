@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 15 targeted source-audit web drop
+
+Manifest: [20260613_noether_p15_targeted_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p15_targeted_source_audit_webdrop.json)
+
+- Noether: `Noether_P15_Targeted_Source_Audit_WebDrop_20260613.zip`, 59.1544 MB, SHA256 `7C6C7422FF618B374CD40E49D79EB3E21586C8118D7E1084D7778118AAA86D74`.
+- Contents: Paper 15 targeted source-audit drop for `Die Endlichkeit des Systems der ganzzahligen Invarianten binaerer Formen`, Goettinger Nachrichten 1919, pp.138-156. The package reports two source-confirmed corrections: the normalization block on printed p.152 uses ordinary italic Latin `x_1,...,x_{\rho+\sigma}` index symbols, not Greek `\chi`, and the Schur citation on printed p.154 is `S. 355 (1912)`, not `S. 555 (1912)`. The local working TeX was patched, and a patched cumulative TeX copy is included under `applied_fixed_tex/`.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 15 closure.
+
 ## 2026-06-13: Noether Paper 16 source-audit web drop
 
 Manifest: [20260613_noether_p16_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p16_source_audit_webdrop.json)
@@ -10,6 +19,15 @@ Manifest: [20260613_noether_p16_source_audit_webdrop.json](../manifests/pending-
 - Contents: Paper 16 compact source-audit drop for `Zur Reihenentwicklung in der Formentheorie`, Math. Ann. 81 (1920), pp.25-30. The package reports one high-severity source-confirmed drift on printed p.30: the source says the invariants are composed from `F` and forms from `M`, not from `\Phi` and forms from `M`. The local working TeX was patched from `aus $\Phi$ und aus Formen aus $M$` to `aus $F$ und aus Formen aus $M$`, and a patched cumulative TeX copy is included under `applied_fixed_tex/`.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 16 closure.
+
+## 2026-06-13: Noether Paper 17 targeted source-audit web drop
+
+Manifest: [20260613_noether_p17_targeted_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p17_targeted_audit_webdrop.json)
+
+- Noether: `Noether_P17_Targeted_Audit_WebDrop_20260613.zip`, 19.6794 MB, SHA256 `6F6A87DD3614F9092FD808785AE07FF39619D5EE4A83C9099FF35803E375C9B3`.
+- Contents: Paper 17 targeted source-audit drop for Noether-Schmeidler, `Moduln in nichtkommutativen Bereichen, insbesondere aus Differential- und Differenzenausdruecken`, Math. Zs. 8 (1920), pp.1-35. The package reports two source-confirmed missing footnotes around formula (39): footnote 21 after the displayed equality ending `=r^{\sigma\rho}b_\rho`, and footnote 22 after the `=a_\sigma` relation. The local working TeX was patched, and a patched cumulative TeX copy is included under `applied_fixed_tex/`.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 17 closure.
 
 ## 2026-06-13: Noether Paper 18 source-audit web drop
 
