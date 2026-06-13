@@ -14,6 +14,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://doi.org/10.5281/zenodo.20414353> | EGA originals and working English translation material. |
 | <https://doi.org/10.5281/zenodo.20490906> | Ukrainian applied mathematics and engineering translation working drafts. |
 | <https://doi.org/10.5281/zenodo.20410934> | Carl Friedrich Gauss author record: Werke reader PDFs, modern-LaTeX working drafts, repair/source packages, and R38 `Geometrische Seite der ternären Formen` source-witnessed working package. Current material is useful working draft/source-witness material, not a certified critical edition. |
+| <https://doi.org/10.5281/zenodo.20429778> | Bernhard Riemann author record: selected-papers and broader Gesammelte Werke working-draft readers, plus TeX/source/provenance artifact ZIPs. Working drafts, not a certified critical edition. |
 | <https://doi.org/10.5281/zenodo.20539593> | al-Battani Opus Astronomicum / Kitab al-Zij working edition, trilingual reader, catalogue/table data, and provenance material. |
 | <https://doi.org/10.5281/zenodo.20410957> | Consolidated non-European mathematics corpus: Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent works and translation/source packages. This is a 100-file reader/source surface with explicit working-draft and inherited-filename caveats. |
 | <https://doi.org/10.5281/zenodo.20415751> | Chinese mathematical classics corpus page. |

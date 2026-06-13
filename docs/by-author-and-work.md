@@ -67,6 +67,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 | Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
+| Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. |
 | Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
 
@@ -76,6 +77,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 |---|---|---|
 | Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch132. Latest Batch132 repairs Vol. II §§120 and 128 and reports the active 112-row ledger at 73 closed / 39 open; Volume III remains the earlier repaired cumulative. | [Weber](https://doi.org/10.5281/zenodo.20412153) |
 | Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, compact German/source, Spanish, Japanese, French, and Simplified Chinese packages, plus active Paper 02 RA25-RA34 source-audit correction packets. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://doi.org/10.5281/zenodo.20412587) |
+| Bernhard Riemann | Selected-papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. | [Riemann](https://doi.org/10.5281/zenodo.20429778) |
 | Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 now has compact/core coverage through source p0135 via `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip`. | [Bianchi](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan / Clebsch-Gordan | `Gordan_Abel27_p343_355_DE_EN_20260612.zip` extends `Theorie der Abelschen Functionen` through source pp.343-355 / printed pp.321-333 and cumulative German/English TeX/PDF through source p355. It completes §§91-93 and the authorial text of the book; source pp.356-362 are blank/end/cover scan witnesses. Earlier Abel tranches and AllPrior AuditFix01 remain correction/provenance layers. | [Gordan](https://doi.org/10.5281/zenodo.20616260) |
 | Ferdinand Georg Frobenius | Selected group-character papers in German/English; QA03 cumulative package reports 10/10 selected items and 221/221 tracked source-intake pages. | [Frobenius](https://doi.org/10.5281/zenodo.20673444) |

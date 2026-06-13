@@ -130,4 +130,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0013 | [99 Deligne - Public Summary.json](https://zenodo.org/records/20617786/files/99%20Deligne%20-%20Public%20Summary.json) |
-

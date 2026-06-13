@@ -34,6 +34,7 @@ RECORDS: list[tuple[str, str]] = [
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
+    ("riemann", "20434317"),
     ("albattani_opus_astronomicum", "20584850"),
     ("non_european_consolidated", "20586401"),
     ("chinese", "20415752"),

@@ -60,4 +60,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0123 | [90 Chinese Mathematical Classics - Public Summary.json](https://zenodo.org/records/20415752/files/90%20Chinese%20Mathematical%20Classics%20-%20Public%20Summary.json) |
-

@@ -6,12 +6,12 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 
 | Metric | Current Count |
 |---|---:|
-| Public records tracked here | 28 |
-| Public files indexed | 1042 |
-| Top-level PDFs | 546 |
-| Artifact/source ZIPs | 417 |
+| Public records tracked here | 29 |
+| Public files indexed | 1046 |
+| Top-level PDFs | 548 |
+| Artifact/source ZIPs | 419 |
 | Manifest/status files | 76 |
-| Total public file surface | 36.14 GB |
+| Total public file surface | 36.19 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -31,6 +31,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 | [EGA](https://doi.org/10.5281/zenodo.20414353) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://doi.org/10.5281/zenodo.20490906) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
 | [Gauss](https://doi.org/10.5281/zenodo.20410934) | 26 | 14 | 10 | 1.30 GB | Gauss Werke modern-LaTeX working drafts, source packets, and repair/transcription starts; latest R38 package continues Band II through printed p.312 with p.313 only as a preview/handoff scan. |
+| [Riemann](https://doi.org/10.5281/zenodo.20429778) | 4 | 2 | 2 | 52.3 MB | Selected-papers and broader Gesammelte Werke working-draft readers with matching TeX/source/provenance artifacts. Not a certified critical edition. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition, trilingual/catalogue data, geography, chronology, manifests, and workflow material. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | [Non-European consolidated](https://doi.org/10.5281/zenodo.20410957) | 100 | 71 | 24 | 3.10 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
 | [Chinese classics](https://doi.org/10.5281/zenodo.20415751) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
@@ -74,7 +75,7 @@ The project is best read as a live corpus rather than a finished edition. The nu
 
 ## Current Audit Notes
 
-The latest record-map consistency checks on 2026-06-13 verify that the generated record pages, public file catalog, Zenodo record map, and machine-readable record manifest agree on 28 current public records.
+The latest record-map consistency checks on 2026-06-13 verify that the generated record pages, public file catalog, Zenodo record map, and machine-readable record manifest agree on 29 current public records.
 
 The older local public PDF surface audit checked 356 public PDFs at 2026-05-28 00:09:01 and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.
 

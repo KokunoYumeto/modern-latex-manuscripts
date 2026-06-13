@@ -48,4 +48,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0006 | [90 Dedekind - Public Summary.json](https://zenodo.org/records/20586067/files/90%20Dedekind%20-%20Public%20Summary.json) |
-

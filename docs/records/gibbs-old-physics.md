@@ -39,4 +39,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0017 | [STATUS_GIBBS_OLD_PHYSICS_20260611.md](https://zenodo.org/records/20649836/files/STATUS_GIBBS_OLD_PHYSICS_20260611.md) |
-

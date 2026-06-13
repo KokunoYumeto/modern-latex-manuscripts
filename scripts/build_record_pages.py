@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import csv
 import html
+import json
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -30,6 +31,7 @@ RECORD_ORDER = [
     "deligne",
     "ukrainian_applied_math",
     "gauss",
+    "riemann",
     "albattani_opus_astronomicum",
     "non_european_consolidated",
     "chinese",
@@ -62,6 +64,7 @@ DISPLAY_NAMES = {
     "deligne": "Pierre Deligne",
     "ukrainian_applied_math": "Ukrainian Applied Mathematics",
     "gauss": "Gauss",
+    "riemann": "Bernhard Riemann",
     "albattani_opus_astronomicum": "al-Battani Opus Astronomicum",
     "non_european_consolidated": "Non-European Mathematics, Consolidated",
     "chinese": "Chinese Mathematical Classics",
@@ -107,6 +110,9 @@ RECORD_NOTES = {
     ],
     "poincare": [
         "Dedicated Poincare split from the mixed additional-author shelf. The record publishes the currently available local `poincare_v1_*` working packages through `poincare_v1_26.zip`. The latest package covers source witnesses v1_0371-v1_0384 top and reaches the close of Section I of `Sur les equations lineaires`, before Section II `Equations aux differences finies`. This is not a seamless continuous Tome I edition: local artifacts currently include v1_01, v1_02, v1_08-v1_21, and v1_24-v1_26; v1_03-v1_07 and v1_22-v1_23 are not currently present as local package artifacts. Use package by package, not as blanket certification.",
+    ],
+    "riemann": [
+        "Dedicated Riemann author record. The current surface has two reader PDFs, one selected-papers reader and one broader Gesammelte Werke complete-draft reader, plus matching artifact ZIPs with TeX/source/provenance material. These are machine-assisted working drafts for checking and continuation, not proofread critical editions.",
     ],
     "classical_algebra_arithmetic": [
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only. A source comparison found substantial symbol/text mismatches in current Cayley Volume I material, so Cayley filenames containing `Source-Checked` should be read as obsolete package names rather than a current quality claim. Use the dedicated Cayley record for the latest warning/status.",
@@ -178,11 +184,30 @@ def table_for(rows: list[dict[str, str]], include_role: bool = False) -> list[st
     return lines
 
 
-def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path) -> None:
+def load_concept_urls(root: Path) -> dict[str, str]:
+    map_path = root / "manifests" / "zenodo-record-concept-doi-map.json"
+    if not map_path.exists():
+        return {}
+
+    try:
+        records = json.loads(map_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+    urls: dict[str, str] = {}
+    for record in records:
+        record_id = str(record.get("id", "")).strip()
+        concept_url = str(record.get("concepturl", "")).strip()
+        if record_id and concept_url:
+            urls[record_id] = concept_url
+    return urls
+
+
+def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, concept_urls: dict[str, str]) -> None:
     display = DISPLAY_NAMES.get(label, label.replace("_", " ").title())
     title = rows[0]["record_title"]
     record_id = rows[0]["record_id"]
-    url = f"https://zenodo.org/records/{record_id}"
+    url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
     pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
     zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
     manifests = role_rows(rows, "manifest/status")
@@ -238,11 +263,11 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path) -> 
     (out_dir / f"{slug(label)}.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path) -> None:
+def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path, concept_urls: dict[str, str]) -> None:
     lines = [
         "# Record Landing Pages",
         "",
-        "These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files.",
+        "These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files. This index uses compact browse labels; each linked record page gives the full public Zenodo title and current quality/status notes.",
         "",
         "| Record | Files | PDFs | ZIPs | MB | Page | Zenodo |",
         "|---|---:|---:|---:|---:|---|---|",
@@ -256,8 +281,9 @@ def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path) -> None
         pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
         zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
         page = f"{slug(label)}.md"
+        url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
         lines.append(
-            f"| {display} | {len(rows)} | {len(pdfs)} | {len(zips)} | {size_sum(rows):.1f} | [{page}]({page}) | [Zenodo](https://zenodo.org/records/{record_id}) |"
+            f"| {display} | {len(rows)} | {len(pdfs)} | {len(zips)} | {size_sum(rows):.1f} | [{page}]({page}) | [Zenodo]({url}) |"
         )
     lines.append("")
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -267,6 +293,7 @@ def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path) -> None
 def main() -> int:
     root = Path.cwd()
     rows = read_rows(root / "manifests" / "public-file-catalog.csv")
+    concept_urls = load_concept_urls(root)
     grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         grouped[row["record_label"]].append(row)
@@ -274,8 +301,8 @@ def main() -> int:
     out_dir = root / "docs" / "records"
     for label in RECORD_ORDER:
         if label in grouped:
-            write_record_page(label, grouped[label], out_dir)
-    write_index(grouped, out_dir)
+            write_record_page(label, grouped[label], out_dir, concept_urls)
+    write_index(grouped, out_dir, concept_urls)
     print(f"Wrote {len(grouped)} record landing pages to {out_dir}.")
     return 0
 

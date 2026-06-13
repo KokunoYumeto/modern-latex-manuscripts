@@ -130,4 +130,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0032 | [98 Metadata - Public Project Map Summary.json](https://zenodo.org/records/20415117/files/98%20Metadata%20-%20Public%20Project%20Map%20Summary.json) |
 | 0.0038 | [98 Metadata - SGA Reader QC Summary.json](https://zenodo.org/records/20415117/files/98%20Metadata%20-%20SGA%20Reader%20QC%20Summary.json) |
 | 0.0011 | [98 README - SGA Reader QC.txt](https://zenodo.org/records/20415117/files/98%20README%20-%20SGA%20Reader%20QC.txt) |
-

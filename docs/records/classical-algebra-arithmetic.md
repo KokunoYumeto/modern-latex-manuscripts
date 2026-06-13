@@ -57,4 +57,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.1411 | [Record Summary - Classical Algebra and Arithmetic.json](https://zenodo.org/records/20583048/files/Record%20Summary%20-%20Classical%20Algebra%20and%20Arithmetic.json) |
-

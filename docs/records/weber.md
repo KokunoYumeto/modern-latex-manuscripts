@@ -83,4 +83,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0005 | [99_Weber_-_Public_Summary_-_Batch126_20260612.json](https://zenodo.org/records/20673435/files/99_Weber_-_Public_Summary_-_Batch126_20260612.json) |
 | 0.0010 | [99_Weber_-_Public_Summary_-_Batch127_20260612.json](https://zenodo.org/records/20673435/files/99_Weber_-_Public_Summary_-_Batch127_20260612.json) |
 | 0.0007 | [99_Weber_-_Public_Summary_-_Batch132_20260613.json](https://zenodo.org/records/20673435/files/99_Weber_-_Public_Summary_-_Batch132_20260613.json) |
-
