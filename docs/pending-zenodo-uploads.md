@@ -2,6 +2,36 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA48 Paper 06 pp.191-196 tail source-critical candidate
+
+Manifest: [20260614_noether_ra48_p06_p191_196_tail.json](../manifests/pending-zenodo-uploads/20260614_noether_ra48_p06_p191_196_tail.json)
+
+- Noether: `Noether_P06_p191_196_RA48_SourceCritical_Fix_WebDrop_20260614.zip`, 13.7718 MB, SHA256 `3E355DD26F579E3C00F31FA132E5861F00F3D5A503986F1149F99F609A97806F`.
+- Contents: RA48 source-critical candidate for Noether Paper 06, printed/source pp.191-196, continuing after RA47. The package includes a compiled German cumulative RA48 candidate TeX/PDF/log, a RA47-to-RA48 TeX diff, the GDZ source PDF/IIIF manifest, 1000dpi labelled witness crops, fix/no-fix ledgers, witness-crop manifest, provenance, and checksums.
+- Sense-check caveats: this closes the local German-source audit tail of Paper 06 at the package level, moving Paper 06 local checked range to pp.161-196. It is not non-German propagation, not whole-corpus certification, and not a critical edition. RA48 changes need deliberate review before EN/ES/JA/FR/ZH/UK/RU/ISV branches are synchronized.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use this as the German Paper 06 tail candidate, then propagate only through separate language-branch audits.
+
+## 2026-06-14: Noether RA47 Paper 06 pp.185-190 German source audit
+
+Manifest: [20260614_noether_ra47_p06_p185_190.json](../manifests/pending-zenodo-uploads/20260614_noether_ra47_p06_p185_190.json)
+
+- Noether: `N_SYM_RA47_P06_p185_190_20260614.zip`, 7.8873 MB, SHA256 `EC205D34B249685EBCC36AD1C29ECF7FBF2C3698195D1ABD1902A3B55318C3A9`.
+- Contents: source-critical German audit tranche for Noether Paper 06, printed pp.185-190, continuing after RA46. The package includes cumulative German RA47 TeX/PDF, TeX diff, source-page PNG witnesses p185-p190, page-check dossier, audit PDF, display/symbol/source-page ledgers, external audit queue notes, progress ledger, checksums, and compile/audit logs.
+- Sense-check caveats: this extends the checked German Paper 06 range to pp.161-190, but does not close Paper 06; p.191 onward remains open. It is not non-German propagation, not whole-corpus certification, and not a critical edition.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Continue Paper 06 from p.191 onward, and do not propagate RA47 changes to other language branches without a separate language-branch audit.
+
+## 2026-06-14: Weber Batch138 recursive control-footnote fix
+
+Manifest: [20260614_weber_batch138_control_footnote_fix.json](../manifests/pending-zenodo-uploads/20260614_weber_batch138_control_footnote_fix.json)
+
+- Weber: `Weber_Cumulative_ThreeVolumes_Batch138_RecursiveHeuristicAudit_ControlFootnoteFix_20260613.zip`, 25.7392 MB, SHA256 `0051748D51D56F66DB683E682C9274D97473D3F7585278FEAD8566FDF9446EC8`.
+- Contents: focused off-ledger control-character footnote repair for Weber, `Lehrbuch der Algebra`, Volume II section 6. Batch138 fixes a corruption where `C. Jordan\footnote` had become `C. Jordan<FF>ootnote` after a scripted patch treated `\f` as a form-feed escape. It includes current German/English section 6 repair TeX/PDF/logs, cumulative Volume I complete German/English TeX/PDF, cumulative Volume II through section 176 German/English TeX/PDF/logs, current Volume III German/English TeX/PDF, source scans/renders for Volume II section 6 pp.15-17, render checks, page-by-page and patch-validation ledgers, recursive error heuristic logbook, cost/projection notes, and SHA256 sums.
+- Sense-check caveats: this is a working/source-witnessed repair-ledger package, not a critical edition. The active 112-row ledger remains 112/112 closed from Batch137; Batch138 is a focused post-closure corruption fix. Quick build-log scanning found no fatal errors, emergency stops, undefined-control-sequence diagnostics, or missing-character diagnostics, but the cumulative Volume II logs still contain overfull and underfull hbox diagnostics.
+
+Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with or after Batch137 as appropriate, publish, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs. Keep Batch137 as the active-ledger closure package and Batch138 as the focused post-closure control-character fix unless a later package supersedes both.
+
 ## 2026-06-14: Noether RA46 Paper 06 pp.179-184 German source audit
 
 Manifest: [20260614_noether_ra46_p06_p179_184.json](../manifests/pending-zenodo-uploads/20260614_noether_ra46_p06_p179_184.json)
