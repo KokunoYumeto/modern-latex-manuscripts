@@ -25,6 +25,8 @@ Known weak points should be treated seriously. Some large working drafts show lo
 
 Some local packages have been extracted, patched, and checksummed after the latest public Zenodo versions but are not yet public Zenodo files. The exact queue is tracked in [Pending Zenodo Uploads](docs/pending-zenodo-uploads.md). Fresh 2026-06-13/14 additions include Noether Paper 03/Paper 11/Paper 12/Paper 13 GDZ source/provenance witnesses, Noether Paper 08/Paper 14/Paper 15/Paper 16/Paper 17/Paper 18/Paper 19/Paper 20 targeted source-audit fixes/results, Noether RA43/RA44/RA45 Paper 06 pp.161-178 plus Paper 06 GDZ remaining-source witness pp.173-196, Gordan `Vorlesungen ueber Invariantentheorie` Bd. 1 p010-p028, and Maxwell Vol. I pp.001-059 web/promo index closeout with p.059 register refresh closed locally. These should be cited only after the next Zenodo upload/publish pass updates the public file catalog.
 
+Additional 2026-06-14 local staging includes a Noether Slavic multilingual handoff through Papers 01-21 in Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic. This is a translation/checkpoint handoff rather than a source-closed edition: Paper 22 is WIP only, the bundle carries provenance/tool baggage, and newer German source-audit fixes still need synchronization into those language branches before they should be treated as current against the latest local source-audit state.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |
