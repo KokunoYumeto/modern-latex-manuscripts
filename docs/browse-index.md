@@ -11,7 +11,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20673700) |
-| Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
+| Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20586401) |
 | Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20673808) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20673435) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
@@ -43,7 +43,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Consolidated non-European mathematics](https://zenodo.org/records/20410957) | Combined English translations, modern Chinese renderings, Arabic translation drafts, original-language modern LaTeX readers, work-level PDFs, TeX/source bundles, OCR notes, page images, and raw provenance archive. | Open the index/reader PDFs first; use ZIPs for checking. |
+| [Consolidated non-European mathematics](https://zenodo.org/records/20586401) | Combined English translations, modern Chinese renderings, Arabic translation drafts, original-language modern LaTeX readers, work-level PDFs, TeX/source bundles, OCR notes, page images, and raw provenance archive. | Open the index/reader PDFs first; use ZIPs for checking. |
 | [Chinese mathematical classics](https://zenodo.org/records/20415752) | Work-level modern LaTeX drafts and translations for Chinese mathematical texts. | Open the reader PDFs first; use the artifact ZIP for TeX and checking material. |
 | [Indian and Sanskrit mathematical classics](https://zenodo.org/records/20415755) | Work-level modern LaTeX drafts and translation material for Indian/Sanskrit mathematical texts. | Open the reader PDFs first; use the artifact ZIP for TeX and checking material. |
 | [Islamic and Arabic mathematical texts](https://zenodo.org/records/20415770) | Work-level modern LaTeX drafts and translation material for Islamic/Arabic mathematical texts. | Open the reader PDFs first; use the artifact ZIP for TeX and checking material. |

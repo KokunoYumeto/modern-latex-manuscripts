@@ -26,7 +26,7 @@ Record: [Chinese mathematical classics](https://zenodo.org/records/20415752)
 | Yang Hui, Xiangjie Jiuzhang | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
 | Zhu Shijie, Suanxue Qimeng | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
 
-The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://zenodo.org/records/20410957).
+The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://zenodo.org/records/20586401).
 
 ## Indian And Sanskrit Mathematical Classics
 
@@ -39,7 +39,7 @@ Record: [Indian and Sanskrit mathematical classics](https://zenodo.org/records/2
 | Bhaskara II, Lilavati | English translation draft and original-language modern LaTeX draft. |
 | Brahmagupta, Brahmasphutasiddhanta | English translation draft and original-language modern LaTeX draft. |
 
-The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://zenodo.org/records/20410957).
+The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://zenodo.org/records/20586401).
 
 ## Islamic And Arabic Mathematical Texts
 
@@ -55,7 +55,7 @@ Record: [Islamic and Arabic mathematical texts](https://zenodo.org/records/20415
 | Ruska, Oldest Arabic Algebra | English translation/reference draft and source-witness draft. |
 | Robert of Chester and Karpinski | English translation/reference draft and source-witness draft. |
 
-The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://zenodo.org/records/20410957).
+The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://zenodo.org/records/20586401).
 
 ## Classical Algebra And Arithmetic
 
