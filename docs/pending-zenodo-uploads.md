@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 16 source-audit web drop
+
+Manifest: [20260613_noether_p16_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p16_source_audit_webdrop.json)
+
+- Noether: `Noether_P16_Source_Audit_WebDrop_20260613.zip`, 2.4034 MB, SHA256 `F90F1E83EEF65BBFE0F6F7CFFC60EA761F726DEC6FC143485878615120D52C8B`.
+- Contents: Paper 16 compact source-audit drop for `Zur Reihenentwicklung in der Formentheorie`, Math. Ann. 81 (1920), pp.25-30. The package reports one high-severity source-confirmed drift on printed p.30: the source says the invariants are composed from `F` and forms from `M`, not from `\Phi` and forms from `M`. The local working TeX was patched from `aus $\Phi$ und aus Formen aus $M$` to `aus $F$ und aus Formen aus $M$`, and a patched cumulative TeX copy is included under `applied_fixed_tex/`.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 16 closure.
+
 ## 2026-06-13: Noether Paper 18 source-audit web drop
 
 Manifest: [20260613_noether_p18_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p18_source_audit_webdrop.json)
