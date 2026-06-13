@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Bianchi A2 p0135 compact core same-name collision
+
+Manifest: [20260613_bianchi_a2_p0135_edge_core_collision.json](../manifests/pending-zenodo-uploads/20260613_bianchi_a2_p0135_edge_core_collision.json)
+
+- Bianchi: `Bianchi_A2_core_p0001_0135_IT_EN_20260613_EDGE_5MB_NAME_COLLISION.zip`, 5.7126 MB, SHA256 `2EBA2F62F138EAE9898CBD5A1116895B9820348CB3B0256D4EF6705207C45E01`.
+- Contents: compact/core A2 Italian-English working package through source p0135, containing current/cumulative TeX/PDF, ledgers, formula/equation indexes, render checks, logs, and package manifest. The package README says source witness PDFs/images are excluded and should be taken from the full package or direct source witness files.
+- Collision note: the original Edge filename was `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip`, which matches an already cataloged Zenodo file but has a different size/hash. The routed local copy is intentionally renamed and must not silently replace the published catalog entry until a new Zenodo version is actually published.
+
+Next action when Zenodo API credentials are available: decide whether this compact re-export should supplement or replace the already published p0135 package, publish it under a disambiguated filename if appropriate, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Noether Paper 06 targeted source-audit web drop
 
 Manifest: [20260613_noether_p06_targeted_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p06_targeted_audit_webdrop.json)
