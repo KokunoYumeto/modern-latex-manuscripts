@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether German source-audit support core and companions
+
+Manifest: [20260613_noether_german_source_audit_support.json](../manifests/pending-zenodo-uploads/20260613_noether_german_source_audit_support.json)
+
+- Noether: `Noether_German_Source_Canonical_Audit_CORE_20260613.zip`, 465.2616 MB, SHA256 `77C6F4A1AABE35DDC06D07D15363C94B1612E172B3F5106C49F9ACDC875C45EA`.
+- Noether: `Noether_German_Source_HighDPI_Witness_Companion_20260613.zip`, 409.1823 MB, SHA256 `4AD3D2F5A36E4B5415463CCA4643E8E9DA7D44EE0C1451E936032F5244033B7A`.
+- Noether: `Noether_German_Source_Auxiliary_OCR_Locator_Companion_20260613.zip`, 31.2363 MB, SHA256 `E62E90C315549EA1470719B673E37299F03EC2F7703AC11A50D1C1C677D1E20A`.
+- Contents: source-critical German audit support package and companions. The core package collects current `N_SYM_RA*.zip` packages, compact source-original handoff files, normalized source-audit/error ledgers, and checksums. The high-DPI companion contains 650/1000 dpi visual witnesses for Papers 02, 08, 17, and 19. The OCR/Markdown companion is explicitly locator-only and non-authoritative.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload these three ZIPs together with the already pending RA37/RA40 ZIPs if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Frobenius RA05 recursive auditfix
 
 Manifest: [20260613_frobenius_ra05.json](../manifests/pending-zenodo-uploads/20260613_frobenius_ra05.json)
