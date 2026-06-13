@@ -2,6 +2,26 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA46 Paper 06 pp.179-184 German source audit
+
+Manifest: [20260614_noether_ra46_p06_p179_184.json](../manifests/pending-zenodo-uploads/20260614_noether_ra46_p06_p179_184.json)
+
+- Noether: `N_SYM_RA46_P06_p179_184_20260614.zip`, 8.2063 MB, SHA256 `179942F53163A7D92B314BBC91E07C2FF0A0FFEAA6B24566B16B6BD65CEF8B70`.
+- Contents: source-critical German audit tranche for Noether Paper 06, printed pp.179-184, continuing after RA45. The package includes cumulative German RA46 TeX/PDF, TeX diff, source-page PNG witnesses p179-p184, page-check dossier, audit PDF, display/symbol/source-page ledgers, external audit queue notes, checksums, and compile/audit logs.
+- Sense-check caveats: this extends the checked German Paper 06 range to pp.161-184, but does not close Paper 06; p.185 onward remains open. It is not non-German propagation, not whole-corpus certification, and not a critical edition.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Continue Paper 06 from p.185 onward, and do not propagate RA46 changes to other language branches without a separate language-branch audit.
+
+## 2026-06-14: Noether Paper 09 compact GDZ source-audit webdrop
+
+Manifest: [20260614_noether_p09_gdz_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260614_noether_p09_gdz_source_audit_webdrop.json)
+
+- Noether: `Noether_P09_GDZ_Source_Audit_WebDrop_20260614.zip`, 6.4961 MB, SHA256 `79F3108D42FFFC80A5A487785F624D137A415A8B7AE407B711CAB15600F083A6`.
+- Contents: targeted GDZ witness/audit package for Noether Paper 09, `Die allgemeinsten Bereiche aus ganzen transzendenten Zahlen`, Math. Ann. 77 (1916), pp.103-128. It includes the GDZ article PDF, provenance/page-map CSVs, image-dimension manifest, labelled 1000dpi witness crops, confirmed-fix CSV, no-fix-trap CSV, and checksums.
+- Key findings: restore the printed front-matter author line `Von / Emmy Noether in Erlangen`; change the first Zermelo footnote citation from Math. Ann. 75, S.434 to source-visible Math. Ann. 75, S.484 (1914). Checked no-fix traps preserve source p119 `\xi_t` in `z=\phi(\xi_1\ldots\xi_t)` and source p125 multiplicative dimension subscripts around formulas (5)-(6).
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use as patch-target evidence in the next canonical German TeX pass; do not treat as applied TeX, translation, Paper 09 closure, or critical-edition certification.
+
 ## 2026-06-14: Noether Papers 10-12 compact GDZ source-audit webdrops
 
 Manifest: [20260614_noether_p10_p11_p12_gdz_source_audits.json](../manifests/pending-zenodo-uploads/20260614_noether_p10_p11_p12_gdz_source_audits.json)
