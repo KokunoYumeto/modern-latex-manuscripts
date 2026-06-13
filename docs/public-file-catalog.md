@@ -1147,7 +1147,7 @@ Record: <https://zenodo.org/records/20673462>
 | artifact/source ZIP | 119.5292 | [poincare_v1_25.zip](https://zenodo.org/records/20673462/files/poincare_v1_25.zip) |
 | artifact/source ZIP | 102.3785 | [poincare_v1_26.zip](https://zenodo.org/records/20673462/files/poincare_v1_26.zip) |
 
-## Minkowski, Hecke, Landau, Sylvester, and Other Classical Mathematics Authors: Modern LaTeX Drafts
+## Minkowski, Hecke, Landau, Kneser, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
 Record: <https://zenodo.org/records/20672984>
 
