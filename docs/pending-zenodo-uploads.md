@@ -56,6 +56,15 @@ Manifest: [20260613_noether_ra43_p06_p161_166.json](../manifests/pending-zenodo-
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
 
+## 2026-06-13: Noether RA44 Paper 06 pp.167-p172
+
+Manifest: [20260613_noether_ra44_p06_p167_172.json](../manifests/pending-zenodo-uploads/20260613_noether_ra44_p06_p167_172.json)
+
+- Noether: `N_SYM_RA44_P06_p167_172_20260613.zip`, 7.6813 MB, SHA256 `8154D098DD36C6D0B5302F52C839B4B392138306656C8B590CDA9A3AA65A93F9`.
+- Contents: source-critical German audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.167-172. Package notes report corrected `k(x)` continuation in the §2 Hilfssatz, restored compact dotted argument notation, restored source-style left-numbered displays in the §§3-5 range, converted checked-range footnote markers to source-style page-local symbols, and rebuilt cumulative German TeX/PDF. Workspace status reports Paper 06 pp.161-172 checked, with p.173 onward, full Paper 06 symbolic footnote conversion, and non-German propagation still open.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
+
 ## 2026-06-13: Gordan `Vorlesungen ueber Invariantentheorie` Bd.1 p010-p028
 
 Manifest: [20260613_gordan_vb1_02_p010_028.json](../manifests/pending-zenodo-uploads/20260613_gordan_vb1_02_p010_028.json)
