@@ -1,6 +1,6 @@
 # Record Landing Pages
 
-These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files.
+These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files. This index uses compact browse labels; each linked record page gives the full public Zenodo title and current quality/status notes.
 
 | Record | Files | PDFs | ZIPs | MB | Page | Zenodo |
 |---|---:|---:|---:|---:|---|---|
