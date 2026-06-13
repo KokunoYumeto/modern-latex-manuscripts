@@ -22,6 +22,16 @@ Manifest: [20260614_noether_p09_gdz_source_audit_webdrop.json](../manifests/pend
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use as patch-target evidence in the next canonical German TeX pass; do not treat as applied TeX, translation, Paper 09 closure, or critical-edition certification.
 
+## 2026-06-14: Noether Paper 07/08 refined candidate German TeX branch
+
+Manifest: [20260614_noether_p07_p08_refined_candidate_tex.json](../manifests/pending-zenodo-uploads/20260614_noether_p07_p08_refined_candidate_tex.json)
+
+- Noether: `Noether_P07_P08_GDZ_Refined_Fix_WebDrop_20260614.zip`, 0.4923 MB, SHA256 `C50345FB9B25432C1C78684C1FA316606F01F6AFC32A0E3432E950A47BB0B810`.
+- Contents: a small locally wrapped webdrop containing one candidate cumulative German TeX branch, `cum_de_RA41_p07_p08_sourcecritical_candidate_20260614.tex`, apparently derived from the Paper 07/Paper 08 GDZ source-audit/refinement lane.
+- Sense-check caveats: the original folder had empty `audit`, `source`, and `witness_crops_1000dpi` directories and no README, PDF, build log, source-image payload, TeX diff, or producer checksums. Treat it as a candidate TeX input for controlled compile/render/source comparison, not as a validated reader artifact, source-witness package, Paper 07/08 closure, or multilingual propagation.
+
+Next action when Zenodo API credentials are available: either upload this as a clearly labelled candidate-TeX handoff together with the older Paper 07/Paper 08 source-audit packages, or wait for a later validation package containing rendered output, diff, and source-comparison logs. Do not promote it to reader-facing status without a separate compile/render/source audit.
+
 ## 2026-06-14: Noether Papers 10-12 compact GDZ source-audit webdrops
 
 Manifest: [20260614_noether_p10_p11_p12_gdz_source_audits.json](../manifests/pending-zenodo-uploads/20260614_noether_p10_p11_p12_gdz_source_audits.json)
