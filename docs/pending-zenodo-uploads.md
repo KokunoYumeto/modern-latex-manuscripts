@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: SGA repair029
+
+Manifest: [20260613_sga_repair029.json](../manifests/pending-zenodo-uploads/20260613_sga_repair029.json)
+
+- SGA: `sga5_sga6_repair029_cumulative_20260613.zip`, 4.0436 MB, SHA256 `6A30D66204A2D6A7D79528DC1A43030ECDFC547515AF843498E0F407177C8B62`.
+- Contents: compact cumulative French-output refresh for SGA5 and SGA6, with `sga5_fr.{tex,pdf}`, `sga6_fr.{tex,pdf}`, and checksum CSV.
+
+Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Noether RA37 and Weber Batch134
 
 Manifest: [20260613_noether_ra37_weber_batch134.json](../manifests/pending-zenodo-uploads/20260613_noether_ra37_weber_batch134.json)
