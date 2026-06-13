@@ -13,12 +13,14 @@ Good starting points:
 | Interest | Start With |
 |---|---|
 | EGA | [EGA record](https://zenodo.org/records/20454552), current English working build and French/source artifacts |
-| SGA | [SGA record](https://zenodo.org/records/20672608), the current reader PDFs first, then the audit/source ZIPs |
+| SGA | [SGA record](https://zenodo.org/records/20673346), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
-| Weber | [Weber record](https://zenodo.org/records/20672355), Volume I first; later volumes are in progress |
+| Weber | [Weber record](https://zenodo.org/records/20673435), Volume I first; Volume II readers plus recursive repair packets through Batch132 |
 | Noether | [Noether record](https://zenodo.org/records/20673149), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages and active Paper 02 source-audit correction packets |
-| Bianchi | [Bianchi record](https://zenodo.org/records/20672976), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_cont_p0001_0105_IT_EN_20260612.zip` as the latest continuation through p0105, with older p0001-p0090 repair and p0001-p0066 re-audit/HQ/audit ZIPs retained as provenance/support layers. |
-| Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20672969), open `Gordan_Abel25_p322_331_DE_EN_20260612.zip` for the current Abelsche continuation through source pp.322-331 / printed pp.300-309 and cumulative stream through source p331. Earlier Abel and AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside. |
+| Bianchi | [Bianchi record](https://zenodo.org/records/20673425), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip` as the latest compact/core working package through p0120, with older scan-heavy p0105 and repair ZIPs retained as provenance/support layers. |
+| Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20673409), open `Gordan_Abel26_p332_342_DE_EN_20260612.zip` for the current Abelsche continuation through source pp.332-342 / printed pp.310-320 and cumulative stream through source p342. Earlier Abel and AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside. |
+| Frobenius | [Frobenius record](https://zenodo.org/records/20673445), open the QA03 package for the selected group-character German/English cumulative working draft and source scans. |
+| Poincare | [Poincare record](https://zenodo.org/records/20673462), use `poincare_v1_*` packages individually; this is a non-continuous recovery stream, not a seamless Tome I edition. |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20583048), numbered reader PDFs by author; inherited Cayley `source_checked` filenames are de-promoted unless re-promoted by a later source audit |
 
 If you want usable mathematical text rather than repair evidence, prefer top-level PDFs and files named `reader`, `working_draft`, `source_checked`, or `cumulative`. Treat files named `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` as checking aids. Even for reader PDFs and source-checked ranges, verify serious formulas, diagrams, tables, theorem statements, and unusual notation against source witnesses.

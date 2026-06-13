@@ -13,9 +13,9 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | Workflow and replication notes | <https://zenodo.org/records/20672843> |
 | Emmy Noether | <https://zenodo.org/records/20673149> |
-| Heinrich Weber | <https://zenodo.org/records/20672355> |
+| Heinrich Weber | <https://zenodo.org/records/20673435> |
 | Arthur Cayley | <https://zenodo.org/records/20617845> |
-| SGA source and English/French translation drafts | <https://zenodo.org/records/20672608> |
+| SGA source and English/French translation drafts | <https://zenodo.org/records/20673346> |
 | Pierre Deligne papers and letters | <https://zenodo.org/records/20410853> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20454552> |
 | Ukrainian applied mathematics | <https://zenodo.org/records/20520721> |
@@ -25,9 +25,11 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20583048> |
-| Luigi Bianchi | <https://zenodo.org/records/20672976> |
-| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20672969> |
+| Luigi Bianchi | <https://zenodo.org/records/20673425> |
+| Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20673409> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
+| Ferdinand Georg Frobenius | <https://zenodo.org/records/20673445> |
+| Henri Poincare | <https://zenodo.org/records/20673462> |
 | Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://zenodo.org/records/20672984> |
 
 ## File Types

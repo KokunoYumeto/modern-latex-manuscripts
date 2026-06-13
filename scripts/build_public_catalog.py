@@ -27,9 +27,9 @@ RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20672843"),
     ("noether", "20673149"),
-    ("weber", "20672355"),
+    ("weber", "20673435"),
     ("cayley", "20617845"),
-    ("sga", "20672608"),
+    ("sga", "20673346"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -46,9 +46,11 @@ RECORDS: list[tuple[str, str]] = [
     ("gibbs_old_physics", "20649836"),
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
-    ("bianchi", "20672976"),
-    ("gordan_clebsch_gordan", "20672969"),
+    ("bianchi", "20673425"),
+    ("gordan_clebsch_gordan", "20673409"),
     ("steinitz", "20617915"),
+    ("frobenius", "20673445"),
+    ("poincare", "20673462"),
     ("additional_author_cluster", "20672984"),
 ]
 
@@ -68,6 +70,9 @@ RECORD_NOTES = {
     "non_european_consolidated": [
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
+    "sga": [
+        "Current SGA repair026 update: the latest surface adds `sga5_sga6_repair026_cumulative_20260612.zip`, a compact cumulative French-output refresh containing SGA5 and SGA6 French TeX/PDF only. It does not include the source-indexed/page-expanded audit PDF that appeared in repair025, which remains preserved in the immediately preceding Zenodo version. SGA6 is carried forward unchanged from repair025/repair021; SGA5 English remains unsynchronized; SGA6 dense-worklist material and SGA6/SGA7 compression caveats remain open. Legacy filenames containing `Complete`, `Strict`, or `Source-Checked` are not current global certification claims.",
+    ],
 }
 
 TITLE_OVERRIDES = {
@@ -77,6 +82,8 @@ TITLE_OVERRIDES = {
     "dedekind": "Richard Dedekind: Source-Witnessed Working Drafts and English Translations",
     "dirichlet": "P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations",
     "gordan_clebsch_gordan": "Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts",
+    "frobenius": "Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts",
+    "poincare": "Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts",
 }
 
 
