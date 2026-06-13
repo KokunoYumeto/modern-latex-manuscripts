@@ -31,6 +31,15 @@ Manifest: [20260613_noether_p13_gdz_source_witness_locator.json](../manifests/pe
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use these files to support Paper 13 correction, but do not treat them as Paper 13 source closure, applied TeX, or an edition.
 
+## 2026-06-14: Noether Paper 06 GDZ remaining-source witness webdrop
+
+Manifest: [20260614_noether_p06_gdz_remaining_source.json](../manifests/pending-zenodo-uploads/20260614_noether_p06_gdz_remaining_source.json)
+
+- Noether: `Noether_P06_GDZ_Remaining_Source_p173_196_WebDrop_20260613.zip`, 31.6197 MB, SHA256 `4D5370E1887ADD33372AFB94B251B3BCF7F4FEE7E822C6ABF346D32C9403B527`.
+- Contents: source/provenance support for the remaining GDZ pages of Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 (1915), source/printed pp.173-196. The package includes the GDZ article-level PDF for pp.161-196, GDZ IIIF manifest, page/source map for pp.173-196, full-resolution source JPG witnesses, source-quality note, continuation note, and checksums. It overlaps RA45 on pp.173-178 as source witness material and extends source witnesses through p.196, but it contains no corrected TeX branch.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use this as source-witness support for finishing Paper 06 after RA45; do not treat it as Paper 06 closure, applied TeX, or an edition.
+
 ## 2026-06-13: Noether Paper 14 targeted source-audit results web drop
 
 Manifest: [20260613_noether_p14_audit_results_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p14_audit_results_webdrop.json)
@@ -91,7 +100,7 @@ Next action when Zenodo API credentials are available: create a new Noether Zeno
 Manifest: [20260613_noether_ra43_p06_p161_166.json](../manifests/pending-zenodo-uploads/20260613_noether_ra43_p06_p161_166.json)
 
 - Noether: `N_SYM_RA43_P06_p161_166_20260613.zip`, 9.6944 MB, SHA256 `C7AAD79F1F42644ED490F83C549277ABB42E865470734B7BED0964D520BFEBAA`.
-- Contents: source-critical German audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.161-166. Package notes say this continues the page-by-page workflow after Papers 01, 02, 04, and 05 and records compact-argument notation plus left-numbered display heuristics.
+- Contents: German source-audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.161-166. Package notes say this continues the page-by-page workflow after Papers 01, 02, 04, and 05 and records compact-argument notation plus left-numbered display heuristics.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
 
@@ -100,7 +109,7 @@ Next action when Zenodo API credentials are available: create a new Noether Zeno
 Manifest: [20260613_noether_ra44_p06_p167_172.json](../manifests/pending-zenodo-uploads/20260613_noether_ra44_p06_p167_172.json)
 
 - Noether: `N_SYM_RA44_P06_p167_172_20260613.zip`, 7.6813 MB, SHA256 `8154D098DD36C6D0B5302F52C839B4B392138306656C8B590CDA9A3AA65A93F9`.
-- Contents: source-critical German audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.167-172. Package notes report corrected `k(x)` continuation in the §2 Hilfssatz, restored compact dotted argument notation, restored source-style left-numbered displays in the §§3-5 range, converted checked-range footnote markers to source-style page-local symbols, and rebuilt cumulative German TeX/PDF. Workspace status reports Paper 06 pp.161-172 checked, with p.173 onward, full Paper 06 symbolic footnote conversion, and non-German propagation still open.
+- Contents: German source-audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.167-172. Package notes report corrected `k(x)` continuation in the §2 Hilfssatz, restored compact dotted argument notation, restored source-style left-numbered displays in the §§3-5 range, converted checked-range footnote markers to source-style page-local symbols, and rebuilt cumulative German TeX/PDF. Workspace status reports Paper 06 pp.161-172 checked, with p.173 onward, full Paper 06 symbolic footnote conversion, and non-German propagation still open.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
 
@@ -109,7 +118,7 @@ Next action when Zenodo API credentials are available: create a new Noether Zeno
 Manifest: [20260613_noether_ra45_p06_p173_178.json](../manifests/pending-zenodo-uploads/20260613_noether_ra45_p06_p173_178.json)
 
 - Noether: `N_SYM_RA45_P06_p173_178_20260613.zip`, 7.9981 MB, SHA256 `7E208F059922E0731B4C6D24408AD19F69F8B369D05B58789A69E5FA38EB2A6D`.
-- Contents: source-critical German audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.173-178. Package contents include cumulative German RA45 TeX/PDF, a TeX diff, source page PNGs p173-p178, audit PDFs, display/symbol/source-page ledgers, checksums, and compile/audit logs. Workspace status reports Paper 06 pp.161-178 checked, p.179 onward still open, page-local symbolic footnotes converted only for checked pages, and one validated Paper 02 carry-forward fix distinguishing prose `Faltung von K mit H_3` from table/form entries `KH^3u`.
+- Contents: German source-audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.173-178. Package contents include cumulative German RA45 TeX/PDF, a TeX diff, source page PNGs p173-p178, audit PDFs, display/symbol/source-page ledgers, checksums, and compile/audit logs. Workspace status reports Paper 06 pp.161-178 checked, p.179 onward still open, page-local symbolic footnotes converted only for checked pages, and one validated Paper 02 carry-forward fix distinguishing prose `Faltung von K mit H_3` from table/form entries `KH^3u`.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure; do not propagate RA45 changes to non-German branches without separate language-branch checks.
 
@@ -209,7 +218,7 @@ Next action when Zenodo API credentials are available: create a new SGA Zenodo v
 Manifest: [20260613_noether_ra41.json](../manifests/pending-zenodo-uploads/20260613_noether_ra41.json)
 
 - Noether: `N_SYM_RA41_P04_complete_20260613.zip`, 12.9468 MB, SHA256 `78D5ADAFC2C1D6CEE084DCA6ABB9A0E16438F7FA187EF93BD55E3CC441948CE3`.
-- Contents: source-critical German Paper 04 closure package at the current source-symbol standard. Package status reports Paper 04 source pages corresponding to printed pp.118-154 opened/rendered and checked across RA36-RA41; source PDF tail p.155 belongs to the next article and is excluded. The package includes cumulative German TeX/PDF, standalone Paper 04 German critical TeX/PDF, source PNGs p146-p154 for this tranche, render checks, logs, source-page/display/symbol ledgers, and a page-check dossier. This does not certify the whole Noether corpus: the package reports 3/43 German source-symbol closed papers, Papers 01, 02, and 04.
+- Contents: German source-audit Paper 04 closure package at the current source-symbol standard. Package status reports Paper 04 source pages corresponding to printed pp.118-154 opened/rendered and checked across RA36-RA41; source PDF tail p.155 belongs to the next article and is excluded. The package includes cumulative German TeX/PDF, standalone Paper 04 German audit TeX/PDF, source PNGs p146-p154 for this tranche, render checks, logs, source-page/display/symbol ledgers, and a page-check dossier. This does not certify the whole Noether corpus: the package reports 3/43 German source-symbol closed papers, Papers 01, 02, and 04.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the already pending RA37/RA40 ZIPs and source-audit support set if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
@@ -220,7 +229,7 @@ Manifest: [20260613_noether_german_source_audit_support.json](../manifests/pendi
 - Noether: `Noether_German_Source_Canonical_Audit_CORE_20260613.zip`, 469.33 MB, SHA256 `EA233B32EB56961231803A396F94FE799E3B50332F8E5541EF32D7F42766F6BF`.
 - Noether: `Noether_German_Source_HighDPI_Witness_Companion_20260613.zip`, 409.1823 MB, SHA256 `4AD3D2F5A36E4B5415463CCA4643E8E9DA7D44EE0C1451E936032F5244033B7A`.
 - Noether: `Noether_German_Source_Auxiliary_OCR_Locator_Companion_20260613.zip`, 31.2363 MB, SHA256 `E62E90C315549EA1470719B673E37299F03EC2F7703AC11A50D1C1C677D1E20A`.
-- Contents: source-critical German audit support package and companions. The core package collects current `N_SYM_RA*.zip` packages, compact source-original handoff files, normalized source-audit/error ledgers, high-DPI visual follow-up rows for selected Paper 02 `KH^3u` candidates, one source-confirmed Paper 02 prose-subscript fix request, and checksums. The high-DPI companion contains 650/1000 dpi visual witnesses for Papers 02, 08, 17, and 19. The OCR/Markdown companion is explicitly locator-only and non-authoritative.
+- Contents: source-audit German audit support package and companions. The core package collects current `N_SYM_RA*.zip` packages, compact source-original handoff files, normalized source-audit/error ledgers, high-DPI visual follow-up rows for selected Paper 02 `KH^3u` candidates, one source-confirmed Paper 02 prose-subscript fix request, and checksums. The high-DPI companion contains 650/1000 dpi visual witnesses for Papers 02, 08, 17, and 19. The OCR/Markdown companion is explicitly locator-only and non-authoritative.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload these three ZIPs together with the already pending RA37/RA40 ZIPs if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
@@ -238,7 +247,7 @@ Next action when Zenodo API credentials are available: create a new Frobenius Ze
 Manifest: [20260613_noether_ra40.json](../manifests/pending-zenodo-uploads/20260613_noether_ra40.json)
 
 - Noether: `N_SYM_RA40_P04_p140_145_20260613.zip`, 16.1672 MB, SHA256 `C9E10E182D0AA6395546586F4457DEACA50D982FA4F683491136900E1788DEE4`.
-- Contents: Paper 04 source-critical page-level German audit package for printed/source pp.140-145. Package notes report Paper 04 progress at 28/38 source pages checked, printed pp.118-145 checked, and six display/symbol corrections in this tranche, including source-style paired summation bounds on p140, formula (45)/(46) condition repairs, p143 phi-prime and prime-on-p repairs, and p144 formula (57) corrected from `\sim\Delta` to `=\Delta`.
+- Contents: Paper 04 source-audit page-level German audit package for printed/source pp.140-145. Package notes report Paper 04 progress at 28/38 source pages checked, printed pp.118-145 checked, and six display/symbol corrections in this tranche, including source-style paired summation bounds on p140, formula (45)/(46) condition repairs, p143 phi-prime and prime-on-p repairs, and p144 formula (57) corrected from `\sim\Delta` to `=\Delta`.
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the already pending RA37 ZIP if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
