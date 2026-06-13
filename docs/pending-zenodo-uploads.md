@@ -2,6 +2,24 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Kneser `Lehrbuch der Variationsrechnung` p0234-p0248
+
+Manifest: [20260613_kneser_lvr_p0234_0248.json](../manifests/pending-zenodo-uploads/20260613_kneser_lvr_p0234_0248.json)
+
+- Kneser: `Kneser_LVR_p0234_0248_DE_EN_20260613.zip`, 107.952 MB, SHA256 `5E27483A484886DB5BD80268A497A0FE8E333B024D4929DD5D391488E035F037`.
+- Contents: German/English source-visible working continuation for Adolf Kneser's `Lehrbuch der Variationsrechnung`, current slice source p0234 lower-p0248, sections 53-55, completing the Sixth Section. The package uses the higher-quality archive.org source witness, includes current-slice and cumulative German/English TeX/PDF through p0248, HQ current/cumulative source scans, render checks, ledgers, and mathematical source checks for formulas (37)-(50). The worklist reports 248/336 source pages done, 73.8%, with next start at p0249, Seventh Section, section 56.
+
+Next action when Zenodo API credentials are available: create a new additional-author-cluster Zenodo version, upload this ZIP together with other pending mixed-author packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Consider a dedicated Kneser author record if the sequence keeps growing.
+
+## 2026-06-13: Noether Paper 07 targeted source-audit web drop
+
+Manifest: [20260613_noether_p07_targeted_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p07_targeted_audit_webdrop.json)
+
+- Noether: `Noether_P07_Targeted_Source_Audit_WebDrop_20260613.zip`, 28.4518 MB, SHA256 `F6B2196E902DE0BC839953928B8CF80E9C04AC061A38791E72D58C9B64F148CC`.
+- Contents: targeted Paper 07 source-audit / witness drop for `Der Endlichkeitssatz der Invarianten endlicher Gruppen`, printed pp.89-92. The package reports content largely present at checked formula anchors, but flags the same footnote-apparatus issue as Paper 06: the source uses page-local symbolic notes `*)` and `**)`, while the current cumulative TeX uses ordinary numbered footnotes for all six Paper 07 notes. It also records checked no-fix anchors for the Galois resolvent display and the Weber II, section 58 derivative correction formula.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with earlier pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 07 closure.
+
 ## 2026-06-13: Bianchi A2 p0135 compact core same-name collision
 
 Manifest: [20260613_bianchi_a2_p0135_edge_core_collision.json](../manifests/pending-zenodo-uploads/20260613_bianchi_a2_p0135_edge_core_collision.json)
