@@ -6,7 +6,7 @@ Generated from `manifests/public-file-catalog.csv`.
 |---|---:|---:|---:|---:|---:|---|
 | main | 100 | 58 | 38 | 4 | 4513.0752 | [record](https://zenodo.org/records/20415117) |
 | workflow | 16 | 3 | 7 | 6 | 0.3457 | [record](https://zenodo.org/records/20672843) |
-| noether | 76 | 49 | 17 | 10 | 237.5821 | [record](https://zenodo.org/records/20673808) |
+| noether | 76 | 49 | 17 | 10 | 237.5815 | [record](https://zenodo.org/records/20673808) |
 | weber | 51 | 8 | 35 | 8 | 1302.8867 | [record](https://zenodo.org/records/20673435) |
 | cayley | 84 | 13 | 69 | 2 | 1203.0193 | [record](https://zenodo.org/records/20617845) |
 | sga | 100 | 74 | 24 | 2 | 3235.246 | [record](https://zenodo.org/records/20673700) |
@@ -26,8 +26,8 @@ Generated from `manifests/public-file-catalog.csv`.
 | gibbs_old_physics | 10 | 3 | 3 | 1 | 18.6216 | [record](https://zenodo.org/records/20649836) |
 | dedekind | 18 | 14 | 3 | 1 | 25.1085 | [record](https://zenodo.org/records/20586067) |
 | dirichlet | 7 | 2 | 4 | 1 | 168.3875 | [record](https://zenodo.org/records/20586064) |
-| bianchi | 20 | 5 | 11 | 4 | 1933.6223 | [record](https://zenodo.org/records/20673425) |
-| gordan_clebsch_gordan | 36 | 0 | 32 | 4 | 1679.5464 | [record](https://zenodo.org/records/20673409) |
+| bianchi | 22 | 5 | 12 | 5 | 1964.9268 | [record](https://zenodo.org/records/20673932) |
+| gordan_clebsch_gordan | 38 | 0 | 33 | 5 | 1717.4799 | [record](https://zenodo.org/records/20673769) |
 | steinitz | 6 | 0 | 5 | 1 | 439.5617 | [record](https://zenodo.org/records/20617915) |
 | frobenius | 2 | 0 | 1 | 1 | 166.1577 | [record](https://zenodo.org/records/20673445) |
 | poincare | 20 | 0 | 19 | 1 | 2401.6073 | [record](https://zenodo.org/records/20673462) |
