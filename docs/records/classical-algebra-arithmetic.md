@@ -1,6 +1,6 @@
 # Classical Algebra and Arithmetic
 
-Zenodo record: [20583048](https://zenodo.org/records/20583048)
+Zenodo record: [20583048](https://doi.org/10.5281/zenodo.20414787)
 
 Public title: Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts
 
@@ -57,3 +57,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.1411 | [Record Summary - Classical Algebra and Arithmetic.json](https://zenodo.org/records/20583048/files/Record%20Summary%20-%20Classical%20Algebra%20and%20Arithmetic.json) |
+

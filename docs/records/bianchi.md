@@ -1,6 +1,6 @@
 # Luigi Bianchi
 
-Zenodo record: [20673932](https://zenodo.org/records/20673932)
+Zenodo record: [20673932](https://doi.org/10.5281/zenodo.20615814)
 
 Public title: Luigi Bianchi: Modern LaTeX Working Drafts and Source-Intake Witnesses
 
@@ -54,3 +54,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0005 | [99_Bianchi_Public_Summary_A2_p0090_20260612.json](https://zenodo.org/records/20673932/files/99_Bianchi_Public_Summary_A2_p0090_20260612.json) |
 | 0.0010 | [99_Bianchi_Public_Summary_A2_p0135_20260613.json](https://zenodo.org/records/20673932/files/99_Bianchi_Public_Summary_A2_p0135_20260613.json) |
 | 0.0003 | [99_Bianchi_Public_Summary_A2_sumfix_p0090_20260612.json](https://zenodo.org/records/20673932/files/99_Bianchi_Public_Summary_A2_sumfix_p0090_20260612.json) |
+

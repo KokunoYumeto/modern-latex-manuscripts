@@ -1,6 +1,6 @@
 # James Clerk Maxwell
 
-Zenodo record: [20672919](https://zenodo.org/records/20672919)
+Zenodo record: [20672919](https://doi.org/10.5281/zenodo.20653107)
 
 Public title: James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 
@@ -38,3 +38,4 @@ No files in this group.
 |---:|---|
 | 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20672919/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
 | 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20672919/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
+

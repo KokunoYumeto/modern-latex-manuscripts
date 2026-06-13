@@ -1,6 +1,6 @@
 # Emmy Noether
 
-Zenodo record: [20673808](https://zenodo.org/records/20673808)
+Zenodo record: [20673808](https://doi.org/10.5281/zenodo.20412587)
 
 Public title: Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
@@ -108,3 +108,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0010 | [Noether_RA34_Public_Status_20260613.md](https://zenodo.org/records/20673808/files/Noether_RA34_Public_Status_20260613.md) |
 | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20673808/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
 | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20673808/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
+

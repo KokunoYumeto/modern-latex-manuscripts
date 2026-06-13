@@ -1,6 +1,6 @@
 # Paul Gordan and Clebsch-Gordan
 
-Zenodo record: [20673769](https://zenodo.org/records/20673769)
+Zenodo record: [20673769](https://doi.org/10.5281/zenodo.20616260)
 
 Public title: Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
 
@@ -69,3 +69,4 @@ No files in this group.
 | 0.0012 | [99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json) |
 | 0.0007 | [99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json) |
 | 0.0014 | [99_Paul_Gordan_Public_Summary_Abel27_20260613.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_Public_Summary_Abel27_20260613.json) |
+

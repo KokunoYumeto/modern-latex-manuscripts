@@ -12,7 +12,7 @@ This page records the main incompleteness that a reader or contributor should kn
 
 ## EGA
 
-Current record: <https://zenodo.org/records/20454552>
+Current record: <https://doi.org/10.5281/zenodo.20414353>
 
 - EGA I and EGA II are largely inherited from the public community translation base.
 - EGA 0_IV sections 15 through 23 are present as substantive working translations in the current 578-page build.
@@ -23,7 +23,7 @@ Current record: <https://zenodo.org/records/20454552>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20673700> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
+Current record: <https://doi.org/10.5281/zenodo.20410947> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
@@ -35,7 +35,7 @@ Current record: <https://zenodo.org/records/20673700> (concept DOI: <https://doi
 
 ## Non-European Mathematical Classics
 
-Current consolidated record: <https://zenodo.org/records/20586401>
+Current consolidated record: <https://doi.org/10.5281/zenodo.20410957>
 
 - The current release is much more readable than the early path-dump stage: it has combined readers, work-level PDFs, source bundles, OCR notes, and page-image artifacts.
 - It still needs source-faithfulness review, terminology checks, and mathematical proofreading work by work.
@@ -43,9 +43,9 @@ Current consolidated record: <https://zenodo.org/records/20586401>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20673435>
+Weber: <https://doi.org/10.5281/zenodo.20412153>
 
-Noether: <https://zenodo.org/records/20673808>
+Noether: <https://doi.org/10.5281/zenodo.20412587>
 
 - Weber currently has Volume I complete and current public Volume II German/English cumulative readers through §176. Older §143 reader PDFs remain as historical artifacts in the same record; use files prefixed `CURRENT` for the latest Volume II surface. Batch104-Batch132 cover Volume II §§169-176 plus recursive repairs, with Batch132 repairing Volume II §§120 and 128 and reporting the active 112-row ledger at 73 closed / 39 open. Larger compression clusters remain explicitly open. The next continuation point follows Volume II §176 at source p643 while the recursive repair lane remains active.
 - Weber continuation material is useful and often readable, but some batches have needed recursive audit/backfill for compression, omissions, and source alignment. Treat current Volume II/III continuation ranges as working drafts unless the packet declares a source-checked range and includes page-by-page display/prose audit material.
@@ -54,7 +54,7 @@ Noether: <https://zenodo.org/records/20673808>
 
 ## Classical Algebra and Arithmetic
 
-Current record: <https://zenodo.org/records/20583048>
+Current record: <https://doi.org/10.5281/zenodo.20414787>
 
 - This is an organized shelf of selected working drafts, not a complete author-by-author collected corpus.
 - Gauss, Cayley, Dedekind, Dirichlet, Weber, and Noether material should be treated as staged working drafts unless a later author record marks a work as fully proofed.
@@ -63,7 +63,7 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20673932>
+Current dedicated record: <https://doi.org/10.5281/zenodo.20615814>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
 - The 2026-06-13 public surface now includes `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` as the latest compact/core A2 working package through source p0135. Earlier scan-heavy p0105 and repair packages remain provenance/backstop layers.
@@ -73,7 +73,7 @@ Current dedicated record: <https://zenodo.org/records/20673932>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20673769>
+Current dedicated record: <https://doi.org/10.5281/zenodo.20616260>
 
 - The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel27_p343_355_DE_EN_20260612.zip`, extending `Theorie der Abelschen Functionen` through source pp.343-355 / printed pp.321-333 and cumulative German/English TeX/PDF through source p355. It completes §§91-93 and the authorial text of the book; source pp.356-362 are blank/end/cover scan witnesses. Earlier Abel tranches remain support/provenance layers. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and earlier Abelsche support branches.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
@@ -81,7 +81,7 @@ Current dedicated record: <https://zenodo.org/records/20673769>
 
 ## Steinitz
 
-Current dedicated record: <https://zenodo.org/records/20617915>
+Current dedicated record: <https://doi.org/10.5281/zenodo.20616988>
 
 - The dedicated Steinitz record is now the preferred surface for current Steinitz work. It includes package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13.
 - These are source-witnessed working drafts, not final critical editions. Use each package's internal README, progress ledger, source scans, and render/audit files as authority for its exact promoted scope.
@@ -89,18 +89,19 @@ Current dedicated record: <https://zenodo.org/records/20617915>
 
 ## Additional Author Cluster
 
-Current record: <https://zenodo.org/records/20672984>
+Current record: <https://doi.org/10.5281/zenodo.20411006>
 
 - This record keeps useful selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed working packets for Poincare, Frobenius, Kneser, Picard, Kron/Kronecker, and related lanes while cleaner author pages are not yet warranted. Bianchi, Gordan, and Steinitz now have standalone records; their files here are retained as backstop/provenance copies.
-- Poincare now has a preferred dedicated record: <https://zenodo.org/records/20673462>. Latest local package is `poincare_v1_26.zip`, a Tome I FR/EN working package for source witnesses v1_0371-v1_0384 top. The record is explicitly non-continuous because local `poincare_v1_*` artifacts currently omit v1_03-v1_07 and v1_22-v1_23. Treat package-level audit notes as authority for each tranche rather than assuming the whole stream is proofed.
-- Frobenius now has a preferred dedicated record: <https://zenodo.org/records/20673445>. The QA03 selected group-character package reports 10/10 selected items and 221/221 tracked source-intake pages, but remains a working/source-witnessed package rather than a certified critical edition.
+- Poincare now has a preferred dedicated record: <https://doi.org/10.5281/zenodo.20673461>. Latest local package is `poincare_v1_26.zip`, a Tome I FR/EN working package for source witnesses v1_0371-v1_0384 top. The record is explicitly non-continuous because local `poincare_v1_*` artifacts currently omit v1_03-v1_07 and v1_22-v1_23. Treat package-level audit notes as authority for each tranche rather than assuming the whole stream is proofed.
+- Frobenius now has a preferred dedicated record: <https://doi.org/10.5281/zenodo.20673444>. The QA03 selected group-character package reports 10/10 selected items and 221/221 tracked source-intake pages, but remains a working/source-witnessed package rather than a certified critical edition.
 - The 2026-06-12 routed sweep consolidation now includes `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a selected Frobenius sequence cumulative/QA package, and `Kneser_LVR_p0206_0219_DE_EN_20260612.zip`, a Kneser LVR continuation for source p0206 lower-p0219 upper / sections 46-48 with Fig. 24 as a source-derived crop. Lower p0219 / section 49 is the next handoff; earlier p0158-p0177 and p0177-p0192 packages remain previous tranches/provenance. Older Zenodo versions retain superseded provenance. Prefer the dedicated Bianchi, Gordan, and Steinitz records for their current public surfaces.
 
 ## Deligne
 
-Current latest record: <https://zenodo.org/records/20617786> (concept DOI: <https://doi.org/10.5281/zenodo.20410853>)
+Current latest record: <https://doi.org/10.5281/zenodo.20410853> (concept DOI: <https://doi.org/10.5281/zenodo.20410853>)
 
 - This is kept as a separate record so it can be revised independently.
 - It is useful for access and translation work, but it is not proofread or legally curated to the same comfort level as the public-domain historical corpus.
 - Diagram-heavy papers are a known weak point. Commutative diagrams and geometry displays may be flattened, omitted, or represented as inadequate OCR-derived displays until a source-crop audit rebuilds them.
 - Deligne quality is uneven by range. The 2026-06-09 v3 public refresh publishes `95 Pierre Deligne - Update Packets 2026-06-09 v3.zip`, carrying `D001_D017_witness_pass_complete_seqcum.zip`, `D001_D017_equation_dense_math_audit_seqcum.zip`, `D074_090dn_actualtriage4.zip`, and `D074_090dn_mathaudit_repairpass1.zip`. The early sequential packets around D001-D017 and the later descending/letters packets around D074-D090+letters contain useful material and source/diagram witnesses, but not every paper there should be treated as equally polished. The D001-D017 witness pass includes a promoted D017 source-page-16 level-congruence square repair, and the equation-dense supplement adds formula/diagram/source-certification ledgers; many other diagram/witness rows still require source-crop comparison before promotion. The D074-D090 repair pass records D074 completion and targeted D076 product-morphism/diagram repairs, but the D077-D090 geometry aids are still locator/check layers and may contain false positives. Some material remains rough-draft or OCR/source-witness level rather than finished translation.
+

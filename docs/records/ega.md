@@ -1,6 +1,6 @@
 # EGA
 
-Zenodo record: [20454552](https://zenodo.org/records/20454552)
+Zenodo record: [20454552](https://doi.org/10.5281/zenodo.20414353)
 
 Public title: Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft
 
@@ -46,3 +46,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 0.0022 | [90 EGA - README and Status.md](https://zenodo.org/records/20454552/files/90%20EGA%20-%20README%20and%20Status.md) |
 | 0.0049 | [91 EGA - Public Summary.json](https://zenodo.org/records/20454552/files/91%20EGA%20-%20Public%20Summary.json) |
+

@@ -4,31 +4,32 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 
 | Record | Files | PDFs | ZIPs | MB | Page | Zenodo |
 |---|---:|---:|---:|---:|---|---|
-| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
-| Workflow / Replication Packet | 16 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20672843) |
-| Emmy Noether | 76 | 49 | 17 | 237.6 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20673808) |
-| Heinrich Weber | 51 | 8 | 35 | 1302.9 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20673435) |
-| Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
-| EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20454552) |
-| SGA | 100 | 74 | 24 | 3235.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20673700) |
-| Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20617786) |
-| Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20520721) |
-| Gauss | 26 | 14 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20674086) |
-| al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
-| Non-European Mathematics, Consolidated | 100 | 71 | 24 | 3176.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20586401) |
-| Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
-| Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://zenodo.org/records/20415755) |
-| Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://zenodo.org/records/20415770) |
-| Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://zenodo.org/records/20415777) |
-| Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20583048) |
-| James Joseph Sylvester | 3 | 1 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://zenodo.org/records/20649689) |
-| James Clerk Maxwell | 7 | 0 | 5 | 392.2 | [maxwell.md](maxwell.md) | [Zenodo](https://zenodo.org/records/20672919) |
-| J. Willard Gibbs / Old Physics | 10 | 3 | 3 | 18.6 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://zenodo.org/records/20649836) |
-| Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
-| P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20673932) |
-| Paul Gordan and Clebsch-Gordan | 38 | 0 | 33 | 1717.5 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20673769) |
-| Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
-| Ferdinand Georg Frobenius | 2 | 0 | 1 | 166.2 | [frobenius.md](frobenius.md) | [Zenodo](https://zenodo.org/records/20673445) |
-| Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://zenodo.org/records/20673462) |
-| Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20672984) |
+| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
+| Workflow / Replication Packet | 16 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
+| Emmy Noether | 76 | 49 | 17 | 237.6 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
+| Heinrich Weber | 51 | 8 | 35 | 1302.9 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
+| Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |
+| EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
+| SGA | 100 | 74 | 24 | 3235.2 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
+| Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
+| Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://doi.org/10.5281/zenodo.20490906) |
+| Gauss | 26 | 14 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410934) |
+| al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
+| Non-European Mathematics, Consolidated | 100 | 71 | 24 | 3176.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410957) |
+| Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415751) |
+| Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415754) |
+| Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415769) |
+| Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415776) |
+| Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
+| James Joseph Sylvester | 3 | 1 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
+| James Clerk Maxwell | 7 | 0 | 5 | 392.2 | [maxwell.md](maxwell.md) | [Zenodo](https://doi.org/10.5281/zenodo.20653107) |
+| J. Willard Gibbs / Old Physics | 10 | 3 | 3 | 18.6 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://doi.org/10.5281/zenodo.20649835) |
+| Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
+| P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |
+| Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
+| Paul Gordan and Clebsch-Gordan | 38 | 0 | 33 | 1717.5 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
+| Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616988) |
+| Ferdinand Georg Frobenius | 2 | 0 | 1 | 166.2 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
+| Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
+| Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
+

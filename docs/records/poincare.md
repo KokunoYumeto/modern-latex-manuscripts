@@ -1,6 +1,6 @@
 # Henri Poincare
 
-Zenodo record: [20673462](https://zenodo.org/records/20673462)
+Zenodo record: [20673462](https://doi.org/10.5281/zenodo.20673461)
 
 Public title: Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts
 
@@ -51,3 +51,4 @@ No files in this group.
 | Size MB | File |
 |---:|---|
 | 0.0011 | [99_Poincare_-_Public_Summary_20260613.json](https://zenodo.org/records/20673462/files/99_Poincare_-_Public_Summary_20260613.json) |
+

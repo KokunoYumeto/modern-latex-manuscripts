@@ -8,7 +8,7 @@ Total files indexed: 1042
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
-Record: <https://zenodo.org/records/20415117>
+Record: <https://doi.org/10.5281/zenodo.20393488>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -115,7 +115,7 @@ Record: <https://zenodo.org/records/20415117>
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://zenodo.org/records/20672843>
+Record: <https://doi.org/10.5281/zenodo.20461174>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -138,7 +138,7 @@ Record: <https://zenodo.org/records/20672843>
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20673808>
+Record: <https://doi.org/10.5281/zenodo.20412587>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -221,7 +221,7 @@ Record: <https://zenodo.org/records/20673808>
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20673435>
+Record: <https://doi.org/10.5281/zenodo.20412153>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -279,7 +279,7 @@ Record: <https://zenodo.org/records/20673435>
 
 ## Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaTeX Readers and Repair Packets
 
-Record: <https://zenodo.org/records/20617845>
+Record: <https://doi.org/10.5281/zenodo.20520749>
 
 Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / Papers 1-9 as a source-inspected working packet, not as a critical edition; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
 
@@ -372,7 +372,7 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 ## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20673700>
+Record: <https://doi.org/10.5281/zenodo.20410947>
 
 Current SGA repair027 update: the latest surface adds `sga5_sga6_repair027_cumulative_20260613.zip`, a compact cumulative French-output refresh containing SGA5 and SGA6 French TeX/PDF only. It does not include the source-indexed/page-expanded audit PDF that appeared in repair025, which remains preserved in a previous Zenodo version. SGA5 changes are small relative to repair026; SGA6 TeX/PDF are materially refreshed relative to repair026. SGA5 English remains unsynchronized; SGA6 dense-worklist material and SGA6/SGA7 compression caveats remain open. Legacy filenames containing `Complete`, `Strict`, or `Source-Checked` are not current global certification claims.
 
@@ -481,7 +481,7 @@ Current SGA repair027 update: the latest surface adds `sga5_sga6_repair027_cumul
 
 ## Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
-Record: <https://zenodo.org/records/20617786>
+Record: <https://doi.org/10.5281/zenodo.20410853>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -588,7 +588,7 @@ Record: <https://zenodo.org/records/20617786>
 
 ## Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft
 
-Record: <https://zenodo.org/records/20454552>
+Record: <https://doi.org/10.5281/zenodo.20414353>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -611,7 +611,7 @@ Record: <https://zenodo.org/records/20454552>
 
 ## Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 
-Record: <https://zenodo.org/records/20520721>
+Record: <https://doi.org/10.5281/zenodo.20490906>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -637,7 +637,7 @@ Record: <https://zenodo.org/records/20520721>
 
 ## Carl Friedrich Gauss: Werke and Individual Papers (Modern LaTeX Working Drafts)
 
-Record: <https://zenodo.org/records/20674086>
+Record: <https://doi.org/10.5281/zenodo.20410934>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -670,7 +670,7 @@ Record: <https://zenodo.org/records/20674086>
 
 ## al-Battani: Opus Astronomicum / Kitab al-Zij, Text Working Edition and Audited Table Data
 
-Record: <https://zenodo.org/records/20584850>
+Record: <https://doi.org/10.5281/zenodo.20539593>
 
 Legacy filename warning: the fixed-star catalogue PDF name contains `Complete Critical Edition`, but the current project status does not certify it as a final critical edition. Read it as a working data/catalogue layer with source witnesses, not as maintainer-certified critical finality.
 
@@ -698,7 +698,7 @@ Legacy filename warning: the fixed-star catalogue PDF name contains `Complete Cr
 
 ## Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources
 
-Record: <https://zenodo.org/records/20586401>
+Record: <https://doi.org/10.5281/zenodo.20410957>
 
 Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.
 
@@ -807,7 +807,7 @@ Legacy filename warning: inherited al-Battani files in this consolidated shelf c
 
 ## Chinese Mathematical Classics: Original LaTeX and Multilingual Translation Drafts
 
-Record: <https://zenodo.org/records/20415752>
+Record: <https://doi.org/10.5281/zenodo.20415751>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -844,7 +844,7 @@ Record: <https://zenodo.org/records/20415752>
 
 ## Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts
 
-Record: <https://zenodo.org/records/20415755>
+Record: <https://doi.org/10.5281/zenodo.20415754>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -864,7 +864,7 @@ Record: <https://zenodo.org/records/20415755>
 
 ## Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts
 
-Record: <https://zenodo.org/records/20415770>
+Record: <https://doi.org/10.5281/zenodo.20415769>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -890,7 +890,7 @@ Record: <https://zenodo.org/records/20415770>
 
 ## Historical Reference Witnesses for Non-European Mathematics: LaTeX and Translation Drafts
 
-Record: <https://zenodo.org/records/20415777>
+Record: <https://doi.org/10.5281/zenodo.20415776>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -912,7 +912,7 @@ Record: <https://zenodo.org/records/20415777>
 
 ## Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts
 
-Record: <https://zenodo.org/records/20583048>
+Record: <https://doi.org/10.5281/zenodo.20414787>
 
 Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.
 
@@ -946,7 +946,7 @@ Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained
 
 ## James Joseph Sylvester: Collected Mathematical Papers, Source-Witnessed Modern LaTeX Working Drafts
 
-Record: <https://zenodo.org/records/20649689>
+Record: <https://doi.org/10.5281/zenodo.20520692>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -956,7 +956,7 @@ Record: <https://zenodo.org/records/20649689>
 
 ## James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 
-Record: <https://zenodo.org/records/20672919>
+Record: <https://doi.org/10.5281/zenodo.20653107>
 
 Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058 and p.059 queued for the next register refresh, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. Printed p.060 is the next continuation point.
 
@@ -972,7 +972,7 @@ Dedicated Maxwell working-tranche record. Current public coverage is A Treatise 
 
 ## J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 
-Record: <https://zenodo.org/records/20649836>
+Record: <https://doi.org/10.5281/zenodo.20649835>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -989,7 +989,7 @@ Record: <https://zenodo.org/records/20649836>
 
 ## Richard Dedekind: Source-Witnessed Working Drafts and English Translations
 
-Record: <https://zenodo.org/records/20586067>
+Record: <https://doi.org/10.5281/zenodo.20520669>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1014,7 +1014,7 @@ Record: <https://zenodo.org/records/20586067>
 
 ## P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations
 
-Record: <https://zenodo.org/records/20586064>
+Record: <https://doi.org/10.5281/zenodo.20520679>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1028,7 +1028,7 @@ Record: <https://zenodo.org/records/20586064>
 
 ## Luigi Bianchi: Modern LaTeX Working Drafts and Source-Intake Witnesses
 
-Record: <https://zenodo.org/records/20673932>
+Record: <https://doi.org/10.5281/zenodo.20615814>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1057,7 +1057,7 @@ Record: <https://zenodo.org/records/20673932>
 
 ## Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
 
-Record: <https://zenodo.org/records/20673769>
+Record: <https://doi.org/10.5281/zenodo.20616260>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1102,7 +1102,7 @@ Record: <https://zenodo.org/records/20673769>
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 
-Record: <https://zenodo.org/records/20617915>
+Record: <https://doi.org/10.5281/zenodo.20616988>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1115,7 +1115,7 @@ Record: <https://zenodo.org/records/20617915>
 
 ## Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20673445>
+Record: <https://doi.org/10.5281/zenodo.20673444>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1124,7 +1124,7 @@ Record: <https://zenodo.org/records/20673445>
 
 ## Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts
 
-Record: <https://zenodo.org/records/20673462>
+Record: <https://doi.org/10.5281/zenodo.20673461>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1151,7 +1151,7 @@ Record: <https://zenodo.org/records/20673462>
 
 ## Minkowski, Hecke, Landau, Kneser, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
-Record: <https://zenodo.org/records/20672984>
+Record: <https://doi.org/10.5281/zenodo.20411006>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1255,3 +1255,4 @@ Record: <https://zenodo.org/records/20672984>
 | artifact/source ZIP | 22.2851 | [Steinitz_38_canonical_redo_1894_1897_shortpaths.zip](https://zenodo.org/records/20672984/files/Steinitz_38_canonical_redo_1894_1897_shortpaths.zip) |
 | artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20672984/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
 | artifact/source ZIP | 72.1474 | [Steinitz_42_bedingtII_p012-024_shortpaths.zip](https://zenodo.org/records/20672984/files/Steinitz_42_bedingtII_p012-024_shortpaths.zip) |
+

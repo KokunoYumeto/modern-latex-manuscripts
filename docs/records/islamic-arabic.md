@@ -1,6 +1,6 @@
 # Islamic and Arabic Mathematical Texts
 
-Zenodo record: [20415770](https://zenodo.org/records/20415770)
+Zenodo record: [20415770](https://doi.org/10.5281/zenodo.20415769)
 
 Public title: Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts
 
@@ -49,3 +49,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0078 | [90 Islamic and Arabic Mathematical Texts - Public Summary.json](https://zenodo.org/records/20415770/files/90%20Islamic%20and%20Arabic%20Mathematical%20Texts%20-%20Public%20Summary.json) |
+

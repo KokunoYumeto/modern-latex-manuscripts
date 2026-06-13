@@ -1,6 +1,6 @@
 # Workflow / Replication Packet
 
-Zenodo record: [20672843](https://zenodo.org/records/20672843)
+Zenodo record: [20672843](https://doi.org/10.5281/zenodo.20461174)
 
 Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
@@ -48,3 +48,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0046 | [workflow_addendum_20260611_sga_noether_weber_aid_lessons.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260611_sga_noether_weber_aid_lessons.md) |
 | 0.0059 | [Workflow_Addendum_20260612_Source_Audit_Public_Surface.md](https://zenodo.org/records/20672843/files/Workflow_Addendum_20260612_Source_Audit_Public_Surface.md) |
 | 0.0044 | [workflow_addendum_20260612_source_identity_repair_worklists.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260612_source_identity_repair_worklists.md) |
+

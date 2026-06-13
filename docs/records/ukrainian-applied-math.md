@@ -1,6 +1,6 @@
 # Ukrainian Applied Mathematics
 
-Zenodo record: [20520721](https://zenodo.org/records/20520721)
+Zenodo record: [20520721](https://doi.org/10.5281/zenodo.20490906)
 
 Public title: Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 
@@ -48,3 +48,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 ## Manifest And Status Files
 
 No files in this group.
+
