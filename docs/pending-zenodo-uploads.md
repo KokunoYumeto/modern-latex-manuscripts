@@ -95,6 +95,15 @@ Manifest: [20260613_noether_ra44_p06_p167_172.json](../manifests/pending-zenodo-
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
 
+## 2026-06-13: Noether RA45 Paper 06 pp.173-p178
+
+Manifest: [20260613_noether_ra45_p06_p173_178.json](../manifests/pending-zenodo-uploads/20260613_noether_ra45_p06_p173_178.json)
+
+- Noether: `N_SYM_RA45_P06_p173_178_20260613.zip`, 7.9981 MB, SHA256 `7E208F059922E0731B4C6D24408AD19F69F8B369D05B58789A69E5FA38EB2A6D`.
+- Contents: source-critical German audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.173-178. Package contents include cumulative German RA45 TeX/PDF, a TeX diff, source page PNGs p173-p178, audit PDFs, display/symbol/source-page ledgers, checksums, and compile/audit logs. Workspace status reports Paper 06 pp.161-178 checked, p.179 onward still open, page-local symbolic footnotes converted only for checked pages, and one validated Paper 02 carry-forward fix distinguishing prose `Faltung von K mit H_3` from table/form entries `KH^3u`.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure; do not propagate RA45 changes to non-German branches without separate language-branch checks.
+
 ## 2026-06-13: Gordan `Vorlesungen ueber Invariantentheorie` Bd.1 p010-p028
 
 Manifest: [20260613_gordan_vb1_02_p010_028.json](../manifests/pending-zenodo-uploads/20260613_gordan_vb1_02_p010_028.json)
