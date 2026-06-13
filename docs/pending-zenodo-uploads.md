@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether RA42 Paper 05 source-audit web drop
+
+Manifest: [20260613_noether_ra42_p05_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_ra42_p05_webdrop.json)
+
+- Noether: `Noether_P05_RA42_Source_Audit_WebDrop_20260613.zip`, 21.3821 MB, SHA256 `9B8C126FDB657089623E85E1A5B80181319ADBC0381BD05D16792A130DC3F98F`.
+- Contents: Paper 05 source-audit / witness drop for `Rationale Funktionenkörper`, source pp.316-319. It contains the newer standalone RA42 PDF copy, source PDF copy, 650 dpi source page renders, 220 dpi RA42 render witnesses, labelled witness crops, OCR/PDF text locators, and audit CSV/Markdown ledgers. The drop reports RA42 standalone Paper 05 as source-clean at checked page-level anchors and flags one source-confirmed RA41 cumulative integration defect: the source-visible title footnote `Vortrag, gehalten auf der Naturforscherversammlung Wien 1913.` is missing in RA41 cumulative but restored in RA42.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the already pending RA37/RA40/RA41 ZIPs and source-audit support set if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus closure.
+
 ## 2026-06-13: Weber Batch136 recursive gap audit
 
 Manifest: [20260613_weber_batch136.json](../manifests/pending-zenodo-uploads/20260613_weber_batch136.json)
