@@ -2,6 +2,24 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Frobenius RA05 recursive auditfix
+
+Manifest: [20260613_frobenius_ra05.json](../manifests/pending-zenodo-uploads/20260613_frobenius_ra05.json)
+
+- Frobenius: `Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip`, 163.9990 MB, SHA256 `497956E905347D2DFB86E7D235499D60BAD75624675EAA3ABF3AA043DFECE8A9`.
+- Contents: recursive German/English working-auditfix package for selected group-character items 053, 054, 056, 057, 058, 059, 060, 061, 070, and 071. Package notes report English item 070 formula-punctuation fixes, directly compilable all-author cumulative TeX/PDF replacing source-archive concatenations, verified ZIP extraction, 221/221 aid source page images present, zero German/English structural flags, zero `\fnum` skeleton mismatches after correction, and repaired cumulative German/English PDFs of 173/171 pages plus 241 cumulative source-scan pages.
+
+Next action when Zenodo API credentials are available: create a new Frobenius Zenodo version, upload this ZIP, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
+## 2026-06-13: Noether RA40 Paper 04 pp.140-p145
+
+Manifest: [20260613_noether_ra40.json](../manifests/pending-zenodo-uploads/20260613_noether_ra40.json)
+
+- Noether: `N_SYM_RA40_P04_p140_145_20260613.zip`, 16.1672 MB, SHA256 `C9E10E182D0AA6395546586F4457DEACA50D982FA4F683491136900E1788DEE4`.
+- Contents: Paper 04 source-critical page-level German audit package for printed/source pp.140-145. Package notes report Paper 04 progress at 28/38 source pages checked, printed pp.118-145 checked, and six display/symbol corrections in this tranche, including source-style paired summation bounds on p140, formula (45)/(46) condition repairs, p143 phi-prime and prime-on-p repairs, and p144 formula (57) corrected from `\sim\Delta` to `=\Delta`.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the already pending RA37 ZIP if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Gordan/Clebsch-Gordan `Abelsche` FinalAuditFix02
 
 Manifest: [20260613_gordan_abelsche_finalauditfix02.json](../manifests/pending-zenodo-uploads/20260613_gordan_abelsche_finalauditfix02.json)
