@@ -13,7 +13,7 @@ Generated from `manifests/public-file-catalog.csv`.
 | deligne | 100 | 96 | 3 | 1 | 448.2286 | [record](https://zenodo.org/records/20617786) |
 | ega | 16 | 10 | 4 | 2 | 471.6669 | [record](https://zenodo.org/records/20454552) |
 | ukrainian_applied_math | 19 | 18 | 1 | 0 | 13.2662 | [record](https://zenodo.org/records/20520721) |
-| gauss | 24 | 14 | 9 | 1 | 1267.5461 | [record](https://zenodo.org/records/20586894) |
+| gauss | 26 | 14 | 10 | 2 | 1335.2045 | [record](https://zenodo.org/records/20674086) |
 | albattani_opus_astronomicum | 19 | 7 | 4 | 8 | 317.7318 | [record](https://zenodo.org/records/20584850) |
 | non_european_consolidated | 100 | 71 | 24 | 5 | 3176.9107 | [record](https://zenodo.org/records/20586401) |
 | chinese | 30 | 28 | 1 | 1 | 98.7323 | [record](https://zenodo.org/records/20415752) |

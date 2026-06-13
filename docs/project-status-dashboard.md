@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 28 |
-| Public files indexed | 1034 |
+| Public files indexed | 1042 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 413 |
-| Manifest/status files | 72 |
-| Total public file surface | 36.00 GB |
+| Artifact/source ZIPs | 417 |
+| Manifest/status files | 76 |
+| Total public file surface | 36.14 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -30,7 +30,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 | [Deligne](https://zenodo.org/records/20617786) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [EGA](https://zenodo.org/records/20454552) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://zenodo.org/records/20520721) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
-| [Gauss](https://zenodo.org/records/20586894) | 24 | 14 | 9 | 1.24 GB | Gauss Werke modern-LaTeX working drafts, source packets, and repair/transcription starts. |
+| [Gauss](https://zenodo.org/records/20674086) | 26 | 14 | 10 | 1.30 GB | Gauss Werke modern-LaTeX working drafts, source packets, and repair/transcription starts; latest R38 package continues Band II through printed p.312 with p.313 only as a preview/handoff scan. |
 | [al-Battani](https://zenodo.org/records/20584850) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition, trilingual/catalogue data, geography, chronology, manifests, and workflow material. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | [Non-European consolidated](https://zenodo.org/records/20586401) | 100 | 71 | 24 | 3.10 GB | Combined multilingual release, work-level readers, and raw provenance archive. |
 | [Chinese classics](https://zenodo.org/records/20415752) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
