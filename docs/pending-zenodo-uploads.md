@@ -2,6 +2,24 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Weber Batch136 recursive gap audit
+
+Manifest: [20260613_weber_batch136.json](../manifests/pending-zenodo-uploads/20260613_weber_batch136.json)
+
+- Weber: `Weber_Cumulative_ThreeVolumes_Batch136_RecursiveGapAudit_Vol1_Sections56_63_64_68_70_73_78_89_100_113_20260613.zip`, 77.9325 MB, SHA256 `013DE46E707D32366A018A28F0A29BE23488F1E4D2CF07477C4DCEE898BFE5FF`.
+- Contents: recursive gap-audit / scan-reviewed no-change closure packet for Volume I sections 56, 63, 64, 68, 70, 73, 78, 89, 100, and 113. Package status reports the active 112-row ledger at 101 closed / 11 open, Tier-3 closed 11/11, with direct audited slices and source scans supplied for independent checking. Cumulative Volume I/II/III TeX/PDF is re-included unchanged.
+
+Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with earlier pending Weber Batch134 if still wanted, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
+## 2026-06-13: SGA repair030
+
+Manifest: [20260613_sga_repair030.json](../manifests/pending-zenodo-uploads/20260613_sga_repair030.json)
+
+- SGA: `sga5_sga6_repair030_cumulative_20260613.zip`, 4.0404 MB, SHA256 `D41EEF7D04AD1AA450EC2730598DC03102E9215E794FFC819394818E073EF9A1`.
+- Contents: compact SGA5/SGA6 cumulative French-output refresh containing SGA5/SGA6 cumulative French TeX/PDF only. README explicitly says it contains no source-index-expanded audit PDFs. A duplicate copy was found in the Noether Multilingual folder with the same SHA256; the SGA continuation copy is the canonical route.
+
+Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP together with earlier pending repair029 if still wanted, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Noether RA41 Paper 04 closure
 
 Manifest: [20260613_noether_ra41.json](../manifests/pending-zenodo-uploads/20260613_noether_ra41.json)
