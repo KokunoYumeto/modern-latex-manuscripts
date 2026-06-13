@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 12 GDZ source-witness locator
+
+Manifest: [20260613_noether_p12_gdz_source_witness_locator.json](../manifests/pending-zenodo-uploads/20260613_noether_p12_gdz_source_witness_locator.json)
+
+- Noether: `Noether_P12_GDZ_Source_Witness_Locator_20260613.zip`, 52.1279 MB, SHA256 `8D4BCA9B930458369396DB967C5C2E5BB14C3017DF63B4977D505C2F376ECF92`.
+- Contents: source-master witness/provenance support for Paper 12, `Invarianten beliebiger Differentialausdruecke`, Goettinger Nachrichten 1918, printed pp.37-44. The package includes the GDZ full-volume source PDF, IIIF manifest, source metadata page, article page/canvas map for original printed pp.37-44 / canvases 41-48, full-resolution page-image witnesses, candidate-compare images, selected labeled witness crops, and a current RA41 working TeX excerpt for localization/context only. Earlier RA03 notes reported Paper 12 clean at checked anchors, but this package does not independently re-certify that claim.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use these files to support Paper 12 checking, but do not treat them as Paper 12 source closure, applied TeX, or an edition.
+
 ## 2026-06-13: Noether Paper 13 GDZ source-witness locator, targeted crops, and source-audit webdrop
 
 Manifest: [20260613_noether_p13_gdz_source_witness_locator.json](../manifests/pending-zenodo-uploads/20260613_noether_p13_gdz_source_witness_locator.json)
