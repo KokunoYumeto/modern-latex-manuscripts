@@ -69,7 +69,7 @@ Current dedicated record: <https://doi.org/10.5281/zenodo.20615814>
 - The 2026-06-13 public surface now includes `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` as the latest compact/core A2 working package through source p0135. Earlier scan-heavy p0105 and repair packages remain provenance/backstop layers.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
-- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English working start through source p0001-p0105, about 14.36 percent of the 731-page source. It retains earlier packets plus the p0091-p0105 continuation; p0106 is the next handoff. A2 is not complete, and TeX build success is not glyph-level certification.
+- A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English compact/core working start through source p0001-p0135, about 18.47 percent of the 731-page source. It retains earlier p0105 and repair packets as provenance/backstop layers; p0136 is the next source-continuation handoff. A2 is not complete, and TeX build success is not glyph-level certification.
 
 ## Gordan / Clebsch-Gordan
 
