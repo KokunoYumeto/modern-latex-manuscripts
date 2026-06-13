@@ -2,6 +2,42 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 18 source-audit web drop
+
+Manifest: [20260613_noether_p18_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p18_source_audit_webdrop.json)
+
+- Noether: `Noether_P18_Source_Audit_WebDrop_20260613.zip`, 1.1477 MB, SHA256 `9C37798142FE0978C562EDA776F9FA941D2D33109E37AC00967F500DA93D9938`.
+- Contents: Paper 18 source-audit drop for `Ueber eine Arbeit des im Kriege gefallenen K. Hentzelt zur Eliminationstheorie`, source p.101. The package reports one high-severity source-confirmed resultant-display defect: the source relation is congruence modulo `\mathfrak M`, not equality. The local working TeX was patched from `R^{(n)}(x_n)=0(\mathfrak M)` to `R^{(n)}(x_n)\equiv0(\mathfrak M)`, and a patched cumulative TeX copy is included under `applied_fixed_tex/`.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 18 closure.
+
+## 2026-06-13: Noether Paper 08 targeted source-audit web drop
+
+Manifest: [20260613_noether_p08_targeted_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p08_targeted_audit_webdrop.json)
+
+- Noether: `Noether_P08_Targeted_Source_Audit_WebDrop_20260613.zip`, 41.7576 MB, SHA256 `7BD3E884E7FEAE867656D9BC2F7D06E1642277073548968FDE5ED2DA21CE8ED1`.
+- Contents: Paper 08 targeted source-audit drop for `Ueber ganze rationale Darstellung der Invarianten eines Systems von beliebig vielen Grundformen`, printed pp.93-102. The local working TeX was patched for three source-confirmed math-level defects: `(zy)x` replaces `(xy)x` in the binary substitution formula; the first operator argument is `\partial/\partial\lambda`; and the Omega-process display now includes the missing middle equality. The package still leaves the broader Paper 08 source-style symbolic footnote apparatus open.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 08 closure.
+
+## 2026-06-13: Noether RA43 Paper 06 pp.161-p166
+
+Manifest: [20260613_noether_ra43_p06_p161_166.json](../manifests/pending-zenodo-uploads/20260613_noether_ra43_p06_p161_166.json)
+
+- Noether: `N_SYM_RA43_P06_p161_166_20260613.zip`, 9.6944 MB, SHA256 `C7AAD79F1F42644ED490F83C549277ABB42E865470734B7BED0964D520BFEBAA`.
+- Contents: source-critical German audit tranche for Paper 06, `Koerper und Systeme rationaler Funktionen`, Math. Ann. 76 source scan, printed pp.161-166. Package notes say this continues the page-by-page workflow after Papers 01, 02, 04, and 05 and records compact-argument notation plus left-numbered display heuristics.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
+
+## 2026-06-13: Gordan `Vorlesungen ueber Invariantentheorie` Bd.1 p010-p028
+
+Manifest: [20260613_gordan_vb1_02_p010_028.json](../manifests/pending-zenodo-uploads/20260613_gordan_vb1_02_p010_028.json)
+
+- Gordan: `Gordan_VB1_02_p010_028_DE_EN_20260613.zip`, 46.5065 MB, SHA256 `2FA5FEBE71A6550622E01483713EE2C7FC9740073F7CB6525173F8F5B06A75DD`.
+- Contents: German transcription and English translation continuation for Paul Gordan, `Vorlesungen ueber Invariantentheorie`, Bd. 1, source TIFF witnesses 0010-0028. The package covers the Inhaltsverzeichniss pages VIII-XI, blank scan-only source page 0014/label XII, and printed pages 1-14 through §1 paragraphs 1-12. It includes current/cumulative German/English TeX/PDF, GDZ 600ppi source witnesses, render checks, ledgers, and no reported red flags.
+
+Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Noether Paper 19 tail source-audit web drop
 
 Manifest: [20260613_noether_p19_tail_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p19_tail_audit_webdrop.json)

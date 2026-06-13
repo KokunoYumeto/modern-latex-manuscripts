@@ -21,6 +21,10 @@ No public record in this project should be read as a critical edition, criticall
 
 Known weak points should be treated seriously. Some large working drafts show localized compression or omissions where generated text compressed the source instead of fully transcribing it; this is documented for parts of SGA 5, SGA 6, likely SGA 7 material, and some Weber continuation/audit ranges. Diagram-heavy Deligne papers sometimes need commutative diagrams rebuilt from source rather than accepted from flattened or OCR-derived displays. Deligne material is mixed: some early sequential papers and later descending/letters packets are useful working drafts or geometry-witness packages, while some papers remain rough-draft or OCR/source-witness level. Check important equations, tables, diagrams, theorem statements, and unusual notation against the source before serious use.
 
+## Latest Local Staging Notes
+
+Some local packages have been extracted, patched, and checksummed after the latest public Zenodo versions but are not yet public Zenodo files. The exact queue is tracked in [Pending Zenodo Uploads](docs/pending-zenodo-uploads.md). Fresh 2026-06-13 additions include Noether Paper 08/Paper 18/Paper 19/Paper 20 targeted source-audit fixes, Noether RA43 Paper 06 pp.161-166, and Gordan `Vorlesungen ueber Invariantentheorie` Bd. 1 p010-p028. These should be cited only after the next Zenodo upload/publish pass updates the public file catalog.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |
