@@ -12,7 +12,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20673700) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20410957) |
-| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20673149) |
+| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20673808) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20673435) |
 | Work on Cayley only | [Arthur Cayley record](https://zenodo.org/records/20617845) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20454552) |
@@ -53,7 +53,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Emmy Noether](https://zenodo.org/records/20673149) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. RA23 display-layout corrections plus RA25-RA33 Paper 02 source-critical symbol/body/table audit packages are included; RA29 closes the Paper 02 body through printed pp.84-90; RA31 source-checks Tabelle I p.91; RA33 source-checks Tabelle II p.92 rows 0-7, while rows 8-23 and cross-language propagation remain open. |
+| [Emmy Noether](https://zenodo.org/records/20673808) | Curated numbered-paper corpus with cumulative readers, 43 standalone English paper PDFs, and multilingual working branches. | Open the cumulative reader PDFs first; use compact language/source ZIPs for TeX/source checking. RA23 display-layout corrections plus RA25-RA34 Paper 02 source-critical symbol/body/table audit packages are included; RA29 closes the Paper 02 body through printed pp.84-90; RA31 source-checks Tabelle I p.91; RA33/RA34 source-check Tabelle II p.92 rows 0-23 at plate-row level, while final Paper 02 inventory and cross-language propagation remain open. |
 | [Heinrich Weber](https://zenodo.org/records/20673435) | Modern LaTeX drafts and English translation drafts for `Lehrbuch der Algebra`. | Open Volume I first; Volume II readers run through §176, with recursive repair packets through Batch132. Batch132 repairs Volume II §§120 and 128 and reports the active 112-row repair ledger at 73 closed / 39 open; larger compression clusters remain explicitly open. |
 | [Arthur Cayley](https://zenodo.org/records/20617845) | Draft/provenance readers and salvage packages for `Collected Mathematical Papers`; current Cayley output is not accuracy-certified, except for the narrow v2 pp.1-45 / complete Papers 1-9 promoted restart packet. | Use older material only for repair/salvage until page-by-page source audit re-promotes specific ranges. |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20583048) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts; Cayley material there is provenance/repair material unless a specific range has been re-promoted by a later source audit. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
