@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Gordan/Clebsch-Gordan `Abelsche` FinalAuditFix02
+
+Manifest: [20260613_gordan_abelsche_finalauditfix02.json](../manifests/pending-zenodo-uploads/20260613_gordan_abelsche_finalauditfix02.json)
+
+- Gordan / Clebsch-Gordan: `Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip`, 45.8149 MB, SHA256 `DA48DEA62A420AC5078605B752817692C30F21DD129B0694EAC9BEDC33F54C4A`.
+- Contents: German/English source-witnessed auditfix package for the final `Theorie der Abelschen Functionen` tranche, with current and cumulative TeX/PDF through source p355, source witnesses through p362, crops, render checks, ledgers, and a FIX02 notation correction from `n_k^{(h)}` to source-visible `w_k^{(h)}` in §91's composed-period family.
+
+Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the already pending `De linea` ZIP if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: Gordan `De linea geodetica` p025-p047
 
 Manifest: [20260613_gordan_de_linea_p025_047.json](../manifests/pending-zenodo-uploads/20260613_gordan_de_linea_p025_047.json)
