@@ -16,7 +16,7 @@ Good starting points:
 | SGA | [SGA record](https://zenodo.org/records/20673700), the current reader PDFs first, then the audit/source ZIPs |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20410957), index/readers first, then work-level and source ZIPs |
 | Weber | [Weber record](https://zenodo.org/records/20673435), Volume I first; Volume II readers plus recursive repair packets through Batch132 |
-| Noether | [Noether record](https://zenodo.org/records/20673149), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages and active Paper 02 source-audit correction packets |
+| Noether | [Noether record](https://zenodo.org/records/20673808), cumulative reader PDFs and standalone English paper PDFs first; ZIPs contain TeX/source packages and active Paper 02 source-audit correction packets |
 | Bianchi | [Bianchi record](https://zenodo.org/records/20673425), English or Italian Vol. I reader first; for A2 use `Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip` as the latest compact/core working package through p0120, with older scan-heavy p0105 and repair ZIPs retained as provenance/support layers. |
 | Gordan / Clebsch-Gordan | [Gordan record](https://zenodo.org/records/20673769), open `Gordan_Abel27_p343_355_DE_EN_20260612.zip` for the current Abelsche continuation through source pp.343-355 / printed pp.321-333 and cumulative stream through source p355. Earlier Abel and AllPrior/auditfix packages cover earlier branches; PDFs, TeX, source witnesses, and audit ledgers are inside. |
 | Frobenius | [Frobenius record](https://zenodo.org/records/20673445), open the QA03 package for the selected group-character German/English cumulative working draft and source scans. |
