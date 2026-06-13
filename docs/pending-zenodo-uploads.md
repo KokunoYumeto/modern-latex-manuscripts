@@ -2,15 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
-## 2026-06-13: Noether Paper 13 GDZ source-witness locator and targeted crops
+## 2026-06-13: Noether Paper 13 GDZ source-witness locator, targeted crops, and source-audit webdrop
 
 Manifest: [20260613_noether_p13_gdz_source_witness_locator.json](../manifests/pending-zenodo-uploads/20260613_noether_p13_gdz_source_witness_locator.json)
 
 - Noether: `Noether_P13_GDZ_Source_Witness_Locator_20260613.zip`, 60.2304 MB, SHA256 `BB4AB280D72D9B38289BFD09635251E954471028C3F44DD7467AFFCC9E655C0F`.
 - Noether: `Noether_P13_GDZ_Targeted_Witness_Crops_20260613.zip`, 8.4044 MB, SHA256 `9A7A0E9B1519F5E365F141494F29159846D5C101CE6A97F85373245A21A6B3B2`.
-- Contents: source-master witness/provenance support for Paper 13, not a corrected TeX branch. The locator package includes the GDZ full-volume source PDF, IIIF manifest, source metadata page, article page/canvas map for original printed pp.235-257, and full-resolution page-image witnesses. The crops package adds seven labeled high-resolution page-local witnesses for front matter, footnote/citation readings, derivative-index notation, the `u_i`/`v_i` initial-system check, and formula (30).
+- Noether: `Noether_P13_GDZ_Source_Audit_WebDrop_20260613.zip`, 8.8276 MB, SHA256 `6C150A46E979E56713DBAAE1B2AF0E581A095D93186FE68C3E4E144877E423DD`.
+- Contents: source-master witness/provenance support and targeted audit material for Paper 13, not a corrected TeX branch. The locator package includes the GDZ full-volume source PDF, IIIF manifest, source metadata page, article page/canvas map for original printed pp.235-257, and full-resolution page-image witnesses. The crops package adds seven labeled high-resolution page-local witnesses for front matter, footnote/citation readings, derivative-index notation, the `u_i`/`v_i` initial-system check, and formula (30). The source-audit webdrop adds CSV findings, patch suggestions, source-quality note, and witness manifests; it reports a high-priority source-confirmed formula (30) defect, a derivative-index source-fidelity correction, a Lie citation omission, and front-matter/orthography editorial decisions.
 
-Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use these files to support Paper 13 correction, but do not treat them as Paper 13 source closure or an edition.
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use these files to support Paper 13 correction, but do not treat them as Paper 13 source closure, applied TeX, or an edition.
 
 ## 2026-06-13: Noether Paper 14 targeted source-audit results web drop
 
