@@ -14,6 +14,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://doi.org/10.5281/zenodo.20490906) |
 | Gauss | 26 | 14 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410934) |
+| Bernhard Riemann | 4 | 2 | 2 | 52.3 | [riemann.md](riemann.md) | [Zenodo](https://doi.org/10.5281/zenodo.20429778) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | Non-European Mathematics, Consolidated | 100 | 71 | 24 | 3176.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410957) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415751) |
@@ -32,4 +33,3 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Ferdinand Georg Frobenius | 2 | 0 | 1 | 166.2 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
-

@@ -108,4 +108,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0010 | [Noether_RA34_Public_Status_20260613.md](https://zenodo.org/records/20673808/files/Noether_RA34_Public_Status_20260613.md) |
 | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20673808/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
 | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20673808/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
-

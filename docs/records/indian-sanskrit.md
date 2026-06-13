@@ -43,4 +43,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0051 | [90 Indian and Sanskrit Mathematical Classics - Public Summary.json](https://zenodo.org/records/20415755/files/90%20Indian%20and%20Sanskrit%20Mathematical%20Classics%20-%20Public%20Summary.json) |
-

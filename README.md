@@ -35,6 +35,7 @@ Known weak points should be treated seriously. Some large working drafts show lo
 | EGA working English translation | Partial EGA 0_IV / EGA IV working draft material | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | Applied mathematics and engineering translation drafts | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | Gauss Werke modern LaTeX drafts and repair/source packages | <https://doi.org/10.5281/zenodo.20410934> |
+| Bernhard Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with TeX/source/provenance artifacts. Not a certified critical edition. | <https://doi.org/10.5281/zenodo.20429778> |
 | al-Battani Opus Astronomicum | Work-level trilingual reader/source package, recovered segment tree, and table/data layers | <https://doi.org/10.5281/zenodo.20539593> |
 | Non-European mathematics manuscripts, consolidated | Multilingual Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent material | <https://doi.org/10.5281/zenodo.20410957> |
 | Chinese mathematical classics | 80/100 | <https://doi.org/10.5281/zenodo.20415751> |

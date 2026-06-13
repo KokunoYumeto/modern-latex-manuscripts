@@ -20,6 +20,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | EGA French originals and English working translation | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | <https://doi.org/10.5281/zenodo.20410934> |
+| Riemann | <https://doi.org/10.5281/zenodo.20429778> |
 | Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://doi.org/10.5281/zenodo.20410957> |
 | Chinese mathematical classics only | <https://doi.org/10.5281/zenodo.20415751> |
 | Indian and Sanskrit mathematical classics only | <https://doi.org/10.5281/zenodo.20415754> |
@@ -60,5 +61,5 @@ The most useful corrections are:
 
 The archive is intentionally split into a main landing record plus topic/author records. The main record keeps broad preservation and a complete bulk ZIP; the topic and author records are the preferred public browsing surface.
 
-The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-13 and indexes 28 records.
+The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-13 and indexes 29 records.
 

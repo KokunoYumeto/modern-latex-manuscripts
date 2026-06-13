@@ -33,4 +33,3 @@ No files in this group.
 | Size MB | File |
 |---:|---|
 | 0.0007 | [99_Frobenius_-_Public_Summary_20260613.json](https://zenodo.org/records/20673445/files/99_Frobenius_-_Public_Summary_20260613.json) |
-

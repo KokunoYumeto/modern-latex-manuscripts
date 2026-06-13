@@ -48,4 +48,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 ## Manifest And Status Files
 
 No files in this group.
-

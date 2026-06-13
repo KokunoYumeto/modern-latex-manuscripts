@@ -35,4 +35,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0008 | [90 Sylvester - Public Summary.json](https://zenodo.org/records/20649689/files/90%20Sylvester%20-%20Public%20Summary.json) |
-

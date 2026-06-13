@@ -51,4 +51,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0100 | [21 al-Battani - Geographical Gazetteer - Dataset.csv](https://zenodo.org/records/20584850/files/21%20al-Battani%20-%20Geographical%20Gazetteer%20-%20Dataset.csv) |
 | 0.0094 | [31 al-Battani - Chronology and Canon of Kings - Data.json](https://zenodo.org/records/20584850/files/31%20al-Battani%20-%20Chronology%20and%20Canon%20of%20Kings%20-%20Data.json) |
 | 0.0142 | [42 al-Battani - Table Reconstruction Lessons Learned.md](https://zenodo.org/records/20584850/files/42%20al-Battani%20-%20Table%20Reconstruction%20Lessons%20Learned.md) |
-

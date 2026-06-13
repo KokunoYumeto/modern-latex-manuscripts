@@ -45,4 +45,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0060 | [90 Historical Reference Witnesses - Public Summary.json](https://zenodo.org/records/20415777/files/90%20Historical%20Reference%20Witnesses%20-%20Public%20Summary.json) |
-

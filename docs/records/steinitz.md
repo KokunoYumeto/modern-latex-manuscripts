@@ -37,4 +37,3 @@ No files in this group.
 | Size MB | File |
 |---:|---|
 | 0.0020 | [99 Ernst Steinitz - Public Summary.json](https://zenodo.org/records/20617915/files/99%20Ernst%20Steinitz%20-%20Public%20Summary.json) |
-

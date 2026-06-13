@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1042
+Total files indexed: 1046
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -679,6 +679,17 @@ Record: <https://doi.org/10.5281/zenodo.20410934>
 | artifact/source ZIP | 67.6572 | [gauss_r38_geometric_ternary_forms_20260605.zip](https://zenodo.org/records/20674086/files/gauss_r38_geometric_ternary_forms_20260605.zip) |
 | manifest/status | 0.0012 | [Gauss_R38_Public_Status_20260613.md](https://zenodo.org/records/20674086/files/Gauss_R38_Public_Status_20260613.md) |
 
+## Bernhard Riemann: Selected Mathematical Papers and Collected Works (Modern LaTeX Working Drafts)
+
+Record: <https://doi.org/10.5281/zenodo.20429778>
+
+| Role | Size MB | File |
+|---|---:|---|
+| reader/reference PDF | 2.7934 | [10 Reader PDF - Riemann - Gesammelte Werke Complete Draft.pdf](https://zenodo.org/records/20434317/files/10%20Reader%20PDF%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.pdf) |
+| reader/reference PDF | 1.3248 | [10 Reader PDF - Riemann - Selected Papers.pdf](https://zenodo.org/records/20434317/files/10%20Reader%20PDF%20-%20Riemann%20-%20Selected%20Papers.pdf) |
+| artifact/source ZIP | 3.3523 | [90 Artifacts - Riemann - Gesammelte Werke Complete Draft.zip](https://zenodo.org/records/20434317/files/90%20Artifacts%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.zip) |
+| artifact/source ZIP | 44.8768 | [90 Artifacts - Riemann - Selected Papers.zip](https://zenodo.org/records/20434317/files/90%20Artifacts%20-%20Riemann%20-%20Selected%20Papers.zip) |
+
 ## al-Battani: Opus Astronomicum / Kitab al-Zij, Text Working Edition and Audited Table Data
 
 Record: <https://doi.org/10.5281/zenodo.20539593>
@@ -1266,4 +1277,3 @@ Record: <https://doi.org/10.5281/zenodo.20411006>
 | artifact/source ZIP | 22.2851 | [Steinitz_38_canonical_redo_1894_1897_shortpaths.zip](https://zenodo.org/records/20672984/files/Steinitz_38_canonical_redo_1894_1897_shortpaths.zip) |
 | artifact/source ZIP | 28.9547 | [Steinitz_41_strict_1894_1897_1906_shortpaths.zip](https://zenodo.org/records/20672984/files/Steinitz_41_strict_1894_1897_1906_shortpaths.zip) |
 | artifact/source ZIP | 72.1474 | [Steinitz_42_bedingtII_p012-024_shortpaths.zip](https://zenodo.org/records/20672984/files/Steinitz_42_bedingtII_p012-024_shortpaths.zip) |
-

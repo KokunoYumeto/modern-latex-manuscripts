@@ -116,4 +116,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 0.0010 | [90 Arthur Cayley - Public Summary.json](https://zenodo.org/records/20617845/files/90%20Arthur%20Cayley%20-%20Public%20Summary.json) |
 | 0.0008 | [_cayley_patch_upload_inventory_20260603.json](https://zenodo.org/records/20617845/files/_cayley_patch_upload_inventory_20260603.json) |
-

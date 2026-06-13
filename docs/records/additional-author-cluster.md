@@ -132,4 +132,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 0.0005 | [99_Additional_Author_Public_Summary_Kneser_p0206_20260612.json](https://zenodo.org/records/20672984/files/99_Additional_Author_Public_Summary_Kneser_p0206_20260612.json) |
 | 0.0003 | [99_Additional_Author_Public_Summary_Kneser_p0219_20260612.json](https://zenodo.org/records/20672984/files/99_Additional_Author_Public_Summary_Kneser_p0219_20260612.json) |
-
