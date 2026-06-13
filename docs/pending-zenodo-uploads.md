@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Gordan `De linea geodetica` p025-p047
+
+Manifest: [20260613_gordan_de_linea_p025_047.json](../manifests/pending-zenodo-uploads/20260613_gordan_de_linea_p025_047.json)
+
+- Gordan / Clebsch-Gordan: `Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip`, 26.5073 MB, SHA256 `13F6113993B07FE45CACC371BC85EF626C6262A054AF007D534335D819F68AF4`.
+- Contents: Latin/English working package for Gordan's `De linea geodetica`, final tranche p025-p047 plus cumulative Latin/English TeX/PDF through p001-p047, source scans, ledgers, and render checks.
+
+Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-13: SGA repair029
 
 Manifest: [20260613_sga_repair029.json](../manifests/pending-zenodo-uploads/20260613_sga_repair029.json)
