@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether Slavic multilingual handoff through Papers 01-21
+
+Manifest: [20260614_noether_slavic_core_handoff_papers01_21.json](../manifests/pending-zenodo-uploads/20260614_noether_slavic_core_handoff_papers01_21.json)
+
+- Noether: `Noether_Slavic_Core_Handoff_20260614T222005Z.zip`, 329.1773 MB, SHA256 `F6EF76A11DE40ADD4AE28E2E8A426B3919392A709DE445BBE6C5757A8A6FA901`.
+- Contents: an all-in-one multilingual handoff bundle for Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic Noether translation branches. The archive README/status files report completed rendered/audited cumulative checkpoints through Papers 01-21 in all four lanes, with Paper 22 only as an explicit intro/WIP branch. The package includes TeX/work files, cumulative PDFs, logs, status JSON, glossaries/term ledgers, constructed-language methodology notes, scripts/tools, and provenance/source-update material.
+- Sense-check caveats: ZIP integrity passes and the deliverable render logs under the translation/render trees show no fatal TeX or missing-character diagnostics in the inspected logs, but this is a handoff/provenance package rather than a clean reader-only release. It bundles a 7-Zip tool subtree with executable binaries, excludes bulky source-scan PDFs by design, and depends on the existing Noether source records and witness packages. Newer local German source-audit findings and fixes still need synchronization into these Slavic branches.
+
+Next action when Zenodo API credentials are available: decide whether to upload this exact handoff ZIP with the next Noether multilingual/provenance version, or first derive a cleaner public reader/source package without bundled executables and older source-update baggage. Do not describe this as a critical edition, source-closed Noether corpus, or independent source-audit closure.
+
 ## 2026-06-14: Maxwell Vol. I pp.001-059 web/promo index closeout
 
 Manifest: [20260614_maxwell_webpromo_index_closeout_p001_059.json](../manifests/pending-zenodo-uploads/20260614_maxwell_webpromo_index_closeout_p001_059.json)
