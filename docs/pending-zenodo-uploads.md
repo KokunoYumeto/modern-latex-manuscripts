@@ -64,6 +64,16 @@ Manifest: [20260614_noether_slavic_core_handoff_papers01_21.json](../manifests/p
 
 Next action when Zenodo API credentials are available: decide whether to upload this exact handoff ZIP with the next Noether multilingual/provenance version, or first derive a cleaner public reader/source package without bundled executables and older source-update baggage. Do not describe this as a critical edition, source-closed Noether corpus, or independent source-audit closure.
 
+## 2026-06-14: Maxwell Vol. I pp.060-079 source-witnessed continuation
+
+Manifest: [20260614_maxwell_vol1_pp060_079_cum_scans.json](../manifests/pending-zenodo-uploads/20260614_maxwell_vol1_pp060_079_cum_scans.json)
+
+- Maxwell: `Maxwell_Vol1_pp060_079_cum_scans_20260613.zip`, 199.9790 MB, SHA256 `5C40DDA74AA5BC5A82801D8C7F242DC1C9077406DA990266186713C15D2FBC58`.
+- Contents: source-witnessed working continuation for Maxwell, `A Treatise on Electricity and Magnetism`, Volume I, 1873 first edition. The package covers current tranche printed pp.060-079 and cumulative transcription pp.001-079. It includes current pp.060-079 TeX/PDF/log, cumulative pp.001-079 TeX/PDF/log, IA 500-PPI JP2 source leaves, source preview PDFs, current view JPGs, display inventory, notation delta, editorial-choice ledger, reverify page log, source availability audit, render contact sheets, and selected source-vs-edition checks. The included completion bar reports pp.001-079 closed, 79/467 pages or 16.9 percent of the uploaded source map.
+- Sense-check caveats: this is a source-witnessed working tranche, not a complete Treatise edition or certified critical edition. OCR/text PDF witnesses were not treated as authority. The current pp.060-079 build log reports zero overfull hboxes, zero underfull hboxes, zero LaTeX warnings, zero missing-character warnings, and zero fatal errors; the cumulative pp.001-079 build log retains one inherited overfull hbox from earlier pp.001-059 material. The source-availability audit reports a future source gap at printed p.463 / IA leaf 501, outside the current tranche.
+
+Next action when Zenodo API credentials are available: create a new Maxwell Zenodo version, upload this ZIP together with the pp.001-059 closeout if still pending, publish, then regenerate the public file catalog and update record pages, status docs, and metadata. Continue the source-witnessed sequence at printed p.080 / IA leaf 118.
+
 ## 2026-06-14: Maxwell Vol. I pp.001-059 web/promo index closeout
 
 Manifest: [20260614_maxwell_webpromo_index_closeout_p001_059.json](../manifests/pending-zenodo-uploads/20260614_maxwell_webpromo_index_closeout_p001_059.json)
@@ -71,7 +81,7 @@ Manifest: [20260614_maxwell_webpromo_index_closeout_p001_059.json](../manifests/
 - Maxwell: `Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip`, 108.4564 MB, SHA256 `7E77058B074413CE7AA9A7479C876E1417F678600DAE75A9A00647965C8006C8`.
 - Contents: source-witnessed working closeout for Maxwell, `A Treatise on Electricity and Magnetism`, Volume I, IA 1873 first-edition printed pp.001-059. The package includes cumulative pp.001-059 TeX/PDF/log, current pp.058-059 closeout TeX/PDF/log, JP2 master leaves pp.001-059, p059 source/render images, figure crops, updated page-completion index, math index, notation-token register, source-verification logbook, notation heuristic diary, editorial choices CSV, structural audit, build-log diagnostics, checksums, and p59 visual closeout audit. It closes the previous local note that p.059 still needed a math/token/register refresh for the pp.001-059 tranche.
 
-Next action when Zenodo API credentials are available: create a new Maxwell Zenodo version, upload this ZIP, publish, then update record IDs if needed, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as a complete Treatise edition or certified critical edition; it does not include p.060 onward, and the next continuation point is printed p.060 / IA leaf 98.
+Next action when Zenodo API credentials are available: create a new Maxwell Zenodo version, upload this ZIP together with the newer pp.060-079 continuation if still pending, publish, then update record IDs if needed, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as a complete Treatise edition or certified critical edition; by itself it does not include p.060 onward.
 
 ## 2026-06-14: Noether Paper 03 GDZ standalone source webdrop
 

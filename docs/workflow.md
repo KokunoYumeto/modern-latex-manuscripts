@@ -88,6 +88,16 @@ Scan quality is a first-order method variable. Bad scans or overcompressed page 
 
 This aid-packet method is not free, but it is cheaper and more reproducible than blind rereading. Local rendering, cropping, OCR, and TeX compilation cost CPU/GPU time rather than model tokens. The expensive part is making a model inspect many images. Use OCR/prose witnesses and object ledgers to reduce that cost: identify likely gaps locally, send only the relevant page/crop evidence, and require the review thread to return accepted/rejected/uncertain statuses with source-page references.
 
+## Constructed And Semi-Constructed Language Lanes
+
+The Noether Slavic/Interslavic lane adds a separate workflow lesson. Translation into Ukrainian and Russian can be checked against established mathematical registers, but Interslavic is better understood as constrained register construction: the AI is not an authority inventing a language, but a proposal, consistency, and audit engine for candidate technical terminology.
+
+For semi-constructed-language work, keep the terminology trail as a first-class artifact. The package should include rendered PDFs, TeX, glossaries, term ledgers, script-conversion rules, review flags, and notes explaining why recurring technical terms were selected. Weak, coined, or institution-forming terms should be labelled for human/community review rather than silently frozen into the public record.
+
+When a lane has multiple scripts, use one lexical authority branch and generate reader variants from it only when the transformation is explicit and auditable. In the Noether package, Latin Interslavic is treated as the working lexical authority, while Cyrillic Interslavic is a deterministic reader variant requiring separate visual and text-layer checks. Citation islands, proper names, Roman numerals, TeX commands, and mathematical identifiers must be protected from blind transliteration.
+
+Mathematics is a good pilot domain for this because formulas, theorem structures, and repeated proof patterns provide anchors. Those anchors do not eliminate responsibility: they make inconsistent terminology easier to find and review. Public descriptions should therefore describe such packages as translation/register-construction handoffs or checkpoints unless a later human review certifies the language branch.
+
 ## Publication Rule
 
 Availability and provenance matter, but the public surface should not look like a raw tool dump. When a source packet has internal run names, partial folders, or repair logs, keep those inside artifact ZIPs and give the Zenodo record a human title organized by author, work, corpus, or mathematical tradition.
