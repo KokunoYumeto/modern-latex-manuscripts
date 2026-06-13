@@ -18,6 +18,7 @@ This page lists the main coordination documents in this repository and what each
 |---|---|
 | [Public file catalog](public-file-catalog.md) | Full searchable list of every current public Zenodo file. |
 | [Current Zenodo records](zenodo-records.md) | Compact record map. |
+| [Pending Zenodo uploads](pending-zenodo-uploads.md) | Extracted/checksummed local packages waiting for token-backed Zenodo upload and catalog regeneration. |
 | [Known gaps](known-gaps.md) | Current incompleteness and caveats by corpus. |
 | [Work queue](work-queue.md) | Concrete translation, typesetting, source-check, and metadata tasks. |
 | [Author page candidates](author-page-candidates.md) | Human-readable triage for deciding when a mixed shelf should become a dedicated Zenodo author/topic record. |
