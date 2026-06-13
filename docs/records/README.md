@@ -7,10 +7,10 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | Workflow / Replication Packet | 16 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/20672843) |
 | Emmy Noether | 74 | 49 | 16 | 225.8 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20673149) |
-| Heinrich Weber | 49 | 8 | 34 | 1238.0 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20672355) |
+| Heinrich Weber | 51 | 8 | 35 | 1302.9 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20673435) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://zenodo.org/records/20617845) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20454552) |
-| SGA | 100 | 74 | 24 | 3236.9 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20672608) |
+| SGA | 100 | 74 | 24 | 3235.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20673346) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20617786) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20520721) |
 | Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
@@ -26,7 +26,9 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | J. Willard Gibbs / Old Physics | 10 | 3 | 3 | 18.6 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://zenodo.org/records/20649836) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://zenodo.org/records/20586067) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://zenodo.org/records/20586064) |
-| Luigi Bianchi | 18 | 5 | 10 | 1928.0 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20672976) |
-| Paul Gordan and Clebsch-Gordan | 34 | 0 | 31 | 1642.2 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20672969) |
+| Luigi Bianchi | 20 | 5 | 11 | 1933.6 | [bianchi.md](bianchi.md) | [Zenodo](https://zenodo.org/records/20673425) |
+| Paul Gordan and Clebsch-Gordan | 36 | 0 | 32 | 1679.5 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20673409) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20617915) |
+| Ferdinand Georg Frobenius | 2 | 0 | 1 | 166.2 | [frobenius.md](frobenius.md) | [Zenodo](https://zenodo.org/records/20673445) |
+| Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://zenodo.org/records/20673462) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20672984) |
