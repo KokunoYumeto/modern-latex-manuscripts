@@ -152,11 +152,33 @@ def write_csv(rows: list[dict[str, str]], path: Path) -> None:
         writer.writerows(rows)
 
 
+def load_concept_urls(root: Path) -> dict[str, str]:
+    map_path = root / "manifests" / "zenodo-record-concept-doi-map.json"
+    if not map_path.exists():
+        return {}
+
+    try:
+        records = json.loads(map_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+    urls: dict[str, str] = {}
+    for record in records:
+        record_id = str(record.get("id", "")).strip()
+        concept_url = str(record.get("concepturl", "")).strip()
+        if record_id and concept_url:
+            urls[record_id] = concept_url
+    return urls
+
+
 def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     grouped: dict[str, list[dict[str, str]]] = {}
     for row in rows:
         grouped.setdefault(row["record_label"], []).append(row)
+
+    root = path.parent.parent
+    concept_urls = load_concept_urls(root)
 
     lines: list[str] = [
         "# Public File Catalog",
@@ -186,11 +208,12 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
             continue
         title = group[0]["record_title"]
         record_id = group[0]["record_id"]
+        record_url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
         lines.extend(
             [
                 f"## {html.escape(title)}",
                 "",
-                f"Record: <https://zenodo.org/records/{record_id}>",
+                f"Record: <{record_url}>",
                 "",
             ]
         )
