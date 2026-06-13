@@ -73,9 +73,9 @@ Current dedicated record: <https://zenodo.org/records/20673425>
 
 ## Gordan / Clebsch-Gordan
 
-Current dedicated record: <https://zenodo.org/records/20673409>
+Current dedicated record: <https://zenodo.org/records/20673769>
 
-- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel26_p332_342_DE_EN_20260612.zip`, extending `Theorie der Abelschen Functionen` through source pp.332-342 / printed pp.310-320 and cumulative German/English TeX/PDF through source p342. It completes §87 and §§88-90 and repairs a prior cumulative-inclusion bug. Earlier Abel tranches remain support/provenance layers. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and earlier Abelsche support branches.
+- The dedicated Gordan/Clebsch-Gordan record is now the preferred surface for this lane. The current top continuation package is `Gordan_Abel27_p343_355_DE_EN_20260612.zip`, extending `Theorie der Abelschen Functionen` through source pp.343-355 / printed pp.321-333 and cumulative German/English TeX/PDF through source p355. It completes §§91-93 and the authorial text of the book; source pp.356-362 are blank/end/cover scan witnesses. Earlier Abel tranches remain support/provenance layers. `Gordan_AllPrior_AuditFix01_20260610.zip` remains the consolidated checkpoint for De linea, theta, Formensystem, and earlier Abelsche support branches.
 - These are package-audited, source-witnessed working drafts. OCR scaffolds are non-authoritative locator/check layers, and important formulas or table/section boundaries should still be checked against bundled source scans before citation-critical use.
 - Some nested cumulative provenance notes inside older Abel packages carry stale older coverage wording; use the main READMEs, build checks, current/cumulative outputs, and ledgers for the current pp.001-217 coverage statement.
 
