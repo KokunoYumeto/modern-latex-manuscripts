@@ -6,12 +6,12 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 
 | Metric | Current Count |
 |---|---:|
-| Public records tracked here | 26 |
-| Public files indexed | 1006 |
+| Public records tracked here | 28 |
+| Public files indexed | 1034 |
 | Top-level PDFs | 546 |
-| Artifact/source ZIPs | 390 |
-| Manifest/status files | 67 |
-| Total public file surface | 33.38 GB |
+| Artifact/source ZIPs | 413 |
+| Manifest/status files | 72 |
+| Total public file surface | 36.00 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -26,7 +26,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 | [Noether](https://zenodo.org/records/20673149) | 74 | 49 | 16 | 225.80 MB | Curated reader-facing working surface with cumulative readers, 43 standalone English paper PDFs, compact language/source packages, RA23 display-layout corrections, and RA25-RA33 Paper 02 source-critical symbol/body/table audit packages. RA29 closes the Paper 02 body through printed pp.84-90 at the current page-level standard; RA30 adds the final-summary/table-plate audit package; RA31 source-checks Tabelle I on printed/source p.91; RA33 source-checks the top band of Tabelle II on printed/source p.92, rows 0-7. Tabelle II rows 8-23, final Paper 02 tag/layout inventory, and multilingual propagation remain open. |
 | [Weber](https://zenodo.org/records/20673435) | 51 | 8 | 35 | 1302.89 MB | `Lehrbuch der Algebra` Volume I represented as repaired; Volume II readers through §176 plus recursive repair packets; Volume III current repaired cumulative. Batch132 repairs Volume II §§120 and 128 and reports the active 112-row repair ledger at 73 closed / 39 open, Tier-3 rows 11/11 closed. |
 | [Cayley](https://zenodo.org/records/20617845) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
-| [SGA](https://zenodo.org/records/20673346) | 100 | 74 | 24 | 3.16 GB | SGA working translation/source snapshots; latest repair026 package is a compact cumulative SGA5/SGA6 French-output refresh. The repair025 source-indexed SGA5 audit PDF and page map remain preserved in the previous Zenodo version. SGA6 French is carried forward unchanged, SGA5 English remains unsynchronized, and SGA6/SGA7 compression/source-check caveats remain explicit. |
+| [SGA](https://zenodo.org/records/20673700) | 100 | 74 | 24 | 3.16 GB | SGA working translation/source snapshots; latest repair027 package is a compact cumulative SGA5/SGA6 French-output refresh. The repair025 source-indexed SGA5 audit PDF and page map remain preserved in a previous Zenodo version. SGA5 changes are small relative to repair026; SGA6 TeX/PDF are materially refreshed relative to repair026. SGA5 English remains unsynchronized, and SGA6/SGA7 compression/source-check caveats remain explicit. |
 | [Deligne](https://zenodo.org/records/20617786) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [EGA](https://zenodo.org/records/20454552) | 16 | 10 | 4 | 472 MB | English working build, French originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [Ukrainian applied mathematics](https://zenodo.org/records/20520721) | 19 | 18 | 1 | 13 MB | Applied mathematics and engineering translation/readers. |
