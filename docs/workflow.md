@@ -42,6 +42,12 @@ Manifest/status files explain what is included, what passed technical checks, an
 
 For the vocabulary used to describe draft quality, see the [quality rubric](quality-rubric.md).
 
+## Recovered Workflow Artifacts
+
+Some earlier Codex-side workflow material lives in the repository as historical evidence rather than as a current public-edition claim. The recovered GitHub-side packet includes local OCR scripts under [`scripts/ocr`](../scripts/ocr/README.md), Cayley cost/coverage notes under [`workflow/audits`](../workflow/audits/cayley-raw-efficiency-note-20260603.md), non-European public-surface audit material under [`workflow/audits/non-european-public-surface-current`](../workflow/audits/non-european-public-surface-current/README_FOR_WEB_SESSION.md), and June 2026 status manifests under [`manifests`](../manifests/current_archive_status.md).
+
+These files are useful for reproducing the process and understanding failure modes. They should not be read as later certification of the mathematical accuracy of any reader unless a current record page or audit ledger explicitly says so.
+
 ## Quality Checks
 
 A technical audit means that a file opens, has plausible page counts, has no configured public naming problems, and does not trip the current surface checks. It does not mean the mathematics has been proofread.
