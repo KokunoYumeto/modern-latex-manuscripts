@@ -13,7 +13,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | SGA | 100 | 74 | 24 | 3235.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20673700) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20617786) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://zenodo.org/records/20520721) |
-| Gauss | 24 | 14 | 9 | 1267.5 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20586894) |
+| Gauss | 26 | 14 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://zenodo.org/records/20674086) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://zenodo.org/records/20584850) |
 | Non-European Mathematics, Consolidated | 100 | 71 | 24 | 3176.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20586401) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
