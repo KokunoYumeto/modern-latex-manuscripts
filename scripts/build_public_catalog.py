@@ -29,7 +29,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "20673149"),
     ("weber", "20673435"),
     ("cayley", "20617845"),
-    ("sga", "20673346"),
+    ("sga", "20673700"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -71,7 +71,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA repair026 update: the latest surface adds `sga5_sga6_repair026_cumulative_20260612.zip`, a compact cumulative French-output refresh containing SGA5 and SGA6 French TeX/PDF only. It does not include the source-indexed/page-expanded audit PDF that appeared in repair025, which remains preserved in the immediately preceding Zenodo version. SGA6 is carried forward unchanged from repair025/repair021; SGA5 English remains unsynchronized; SGA6 dense-worklist material and SGA6/SGA7 compression caveats remain open. Legacy filenames containing `Complete`, `Strict`, or `Source-Checked` are not current global certification claims.",
+        "Current SGA repair027 update: the latest surface adds `sga5_sga6_repair027_cumulative_20260613.zip`, a compact cumulative French-output refresh containing SGA5 and SGA6 French TeX/PDF only. It does not include the source-indexed/page-expanded audit PDF that appeared in repair025, which remains preserved in a previous Zenodo version. SGA5 changes are small relative to repair026; SGA6 TeX/PDF are materially refreshed relative to repair026. SGA5 English remains unsynchronized; SGA6 dense-worklist material and SGA6/SGA7 compression caveats remain open. Legacy filenames containing `Complete`, `Strict`, or `Source-Checked` are not current global certification claims.",
     ],
 }
 
