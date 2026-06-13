@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 14 targeted source-audit results web drop
+
+Manifest: [20260613_noether_p14_audit_results_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p14_audit_results_webdrop.json)
+
+- Noether: `Noether_P14_Audit_Results_WebDrop_20260613.zip`, 0.0166 MB, SHA256 `32B14684CAF5D836B1E64E4D912477C5C8180ECDA8B21F2CD30C9EC11295F310`.
+- Contents: Paper 14 targeted German source-audit results for `Die arithmetische Theorie der algebraischen Funktionen einer Veraenderlichen in ihrer Beziehung zu den uebrigen Theorien und zur Zahlkoerpertheorie`, JDMV 38 (1919), printed pp.182-203. This is a results-only package: it does not include bulk 650 dpi source images and it does not include a patched cumulative TeX branch. The audit reports three high-severity source-confirmed mismatches: printed p.190 has `(z-c)`, not `(z-\alpha)`; printed p.198 has factorization exponents `\rho_i` and terminal `\sigma`, not `e_i` and terminal `\rho`; printed p.200 uses exponent pair `\rho,\sigma`, not `\nu,\nu'`. Checked no-fix anchors for other formula blocks are included.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Also use these findings as explicit patch targets in the next canonical German cumulative TeX pass. Do not treat this as whole-corpus or complete Paper 14 closure.
+
 ## 2026-06-13: Noether Paper 15 targeted source-audit web drop
 
 Manifest: [20260613_noether_p15_targeted_source_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p15_targeted_source_audit_webdrop.json)
