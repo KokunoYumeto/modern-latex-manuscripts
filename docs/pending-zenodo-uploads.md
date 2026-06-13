@@ -11,6 +11,15 @@ Manifest: [20260614_noether_p03_gdz_source_webdrop.json](../manifests/pending-ze
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use this as Paper 03 source authority instead of the older small mixed-bundle `p03.pdf`; do not treat it as corrected TeX, source closure, or an edition.
 
+## 2026-06-14: Noether Paper 11 GDZ source-witness locator
+
+Manifest: [20260614_noether_p11_gdz_source_witness_locator.json](../manifests/pending-zenodo-uploads/20260614_noether_p11_gdz_source_witness_locator.json)
+
+- Noether: `Noether_P11_GDZ_Source_Witness_Locator_20260614.zip`, 11.7732 MB, SHA256 `4DB744B79CB5342D8383C32B7FDAED7215BA256030D2253C119DE708B8A7BA39`.
+- Contents: source/provenance support for Paper 11, `Invarianten beliebiger Differentialausdruecke`, Goettinger Nachrichten 1916, printed pp.221-229. The package includes the GDZ article-level PDF, GDZ IIIF manifest, page/canvas map for pp.221-229 / canvases 00000225-00000233, raw full-resolution IIIF JPG page witnesses, image-dimension manifest, OCR locator text, source-quality note, README, and checksums.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use this as Paper 11 source witness support for checking or later repair; do not treat it as source closure, applied TeX, translation, or an edition.
+
 ## 2026-06-13: Noether Paper 12 GDZ source-witness locator
 
 Manifest: [20260613_noether_p12_gdz_source_witness_locator.json](../manifests/pending-zenodo-uploads/20260613_noether_p12_gdz_source_witness_locator.json)
