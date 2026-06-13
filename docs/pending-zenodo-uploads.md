@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 19 tail source-audit web drop
+
+Manifest: [20260613_noether_p19_tail_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p19_tail_audit_webdrop.json)
+
+- Noether: `Noether_P19_Tail_Source_Audit_WebDrop_20260613.zip`, 5.2554 MB, SHA256 `46593900222F7DA23A114753B7F2DBF624FEE4F8412D90EB60C655BC00C1C4C2`.
+- Contents: Paper 19 tail source-audit drop for `Idealtheorie in Ringbereichen`, printed pp.58-66, focusing on §§10-12 and the final element-divisor proof. The package reports one high-severity source-confirmed mathematical index error in the element-divisor proof: the source uses C/D exponent systems `s_1...s_\lambda` and `t_1...t_\mu`, and the continuation inequality `r_\nu=s_1\le s_2\le\cdots\le s_\lambda\le r_\nu`, not the current `s_\nu...s_i` / `t_\nu...t_i` shift. It also reports one low-severity source-order cleanup for the congruence pair after `Wegen`. Both fixes were applied locally and a patched cumulative TeX copy is included under `applied_fixed_tex/`. Checked no-fix anchors for pp.59-66 are included.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 19 closure.
+
 ## 2026-06-13: Noether Paper 20 Lean/source-audit web drop
 
 Manifest: [20260613_noether_p20_lean_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p20_lean_audit_webdrop.json)
