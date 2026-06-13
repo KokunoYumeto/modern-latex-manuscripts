@@ -1,6 +1,6 @@
 # Indian and Sanskrit Mathematical Classics
 
-Zenodo record: [20415755](https://zenodo.org/records/20415755)
+Zenodo record: [20415755](https://doi.org/10.5281/zenodo.20415754)
 
 Public title: Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts
 
@@ -43,3 +43,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0051 | [90 Indian and Sanskrit Mathematical Classics - Public Summary.json](https://zenodo.org/records/20415755/files/90%20Indian%20and%20Sanskrit%20Mathematical%20Classics%20-%20Public%20Summary.json) |
+

@@ -1,6 +1,6 @@
 # Chinese Mathematical Classics
 
-Zenodo record: [20415752](https://zenodo.org/records/20415752)
+Zenodo record: [20415752](https://doi.org/10.5281/zenodo.20415751)
 
 Public title: Chinese Mathematical Classics: Original LaTeX and Multilingual Translation Drafts
 
@@ -60,3 +60,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0123 | [90 Chinese Mathematical Classics - Public Summary.json](https://zenodo.org/records/20415752/files/90%20Chinese%20Mathematical%20Classics%20-%20Public%20Summary.json) |
+

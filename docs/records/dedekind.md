@@ -1,6 +1,6 @@
 # Richard Dedekind
 
-Zenodo record: [20586067](https://zenodo.org/records/20586067)
+Zenodo record: [20586067](https://doi.org/10.5281/zenodo.20520669)
 
 Public title: Richard Dedekind: Source-Witnessed Working Drafts and English Translations
 
@@ -48,3 +48,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0006 | [90 Dedekind - Public Summary.json](https://zenodo.org/records/20586067/files/90%20Dedekind%20-%20Public%20Summary.json) |
+

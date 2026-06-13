@@ -8,13 +8,13 @@ Quality rule: these are working reader surfaces and source/provenance records, n
 
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
-| Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://zenodo.org/records/20454552) |
-| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest repair027 is a compact cumulative SGA5/SGA6 French-output refresh, while the repair025 targeted SGA5 source-page audit remains preserved in a previous Zenodo version. | [SGA](https://zenodo.org/records/20673700) |
-| Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v3 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | [Deligne](https://zenodo.org/records/20617786) |
+| Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://doi.org/10.5281/zenodo.20414353) |
+| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest repair027 is a compact cumulative SGA5/SGA6 French-output refresh, while the repair025 targeted SGA5 source-page audit remains preserved in a previous Zenodo version. | [SGA](https://doi.org/10.5281/zenodo.20410947) |
+| Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v3 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | [Deligne](https://doi.org/10.5281/zenodo.20410853) |
 
 ## Chinese Mathematical Classics
 
-Record: [Chinese mathematical classics](https://zenodo.org/records/20415752)
+Record: [Chinese mathematical classics](https://doi.org/10.5281/zenodo.20415751)
 
 | Work | Current Public Layers |
 |---|---|
@@ -26,11 +26,11 @@ Record: [Chinese mathematical classics](https://zenodo.org/records/20415752)
 | Yang Hui, Xiangjie Jiuzhang | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
 | Zhu Shijie, Suanxue Qimeng | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
 
-The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://zenodo.org/records/20586401).
+The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://doi.org/10.5281/zenodo.20410957).
 
 ## Indian And Sanskrit Mathematical Classics
 
-Record: [Indian and Sanskrit mathematical classics](https://zenodo.org/records/20415755)
+Record: [Indian and Sanskrit mathematical classics](https://doi.org/10.5281/zenodo.20415754)
 
 | Work | Current Public Layers |
 |---|---|
@@ -39,11 +39,11 @@ Record: [Indian and Sanskrit mathematical classics](https://zenodo.org/records/2
 | Bhaskara II, Lilavati | English translation draft and original-language modern LaTeX draft. |
 | Brahmagupta, Brahmasphutasiddhanta | English translation draft and original-language modern LaTeX draft. |
 
-The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://zenodo.org/records/20586401).
+The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://doi.org/10.5281/zenodo.20410957).
 
 ## Islamic And Arabic Mathematical Texts
 
-Record: [Islamic and Arabic mathematical texts](https://zenodo.org/records/20415770)
+Record: [Islamic and Arabic mathematical texts](https://doi.org/10.5281/zenodo.20415769)
 
 | Work | Current Public Layers |
 |---|---|
@@ -55,11 +55,11 @@ Record: [Islamic and Arabic mathematical texts](https://zenodo.org/records/20415
 | Ruska, Oldest Arabic Algebra | English translation/reference draft and source-witness draft. |
 | Robert of Chester and Karpinski | English translation/reference draft and source-witness draft. |
 
-The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://zenodo.org/records/20586401).
+The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://doi.org/10.5281/zenodo.20410957).
 
 ## Classical Algebra And Arithmetic
 
-Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
+Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.20414787)
 
 | Author | Works Or Volumes |
 |---|---|
@@ -74,40 +74,41 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20583048)
 
 | Author | Current Public Surface | Record |
 |---|---|---|
-| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch132. Latest Batch132 repairs Vol. II §§120 and 128 and reports the active 112-row ledger at 73 closed / 39 open; Volume III remains the earlier repaired cumulative. | [Weber](https://zenodo.org/records/20673435) |
-| Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, compact German/source, Spanish, Japanese, French, and Simplified Chinese packages, plus active Paper 02 RA25-RA34 source-audit correction packets. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://zenodo.org/records/20673808) |
-| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 now has compact/core coverage through source p0135 via `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip`. | [Bianchi](https://zenodo.org/records/20673932) |
-| Paul Gordan / Clebsch-Gordan | `Gordan_Abel27_p343_355_DE_EN_20260612.zip` extends `Theorie der Abelschen Functionen` through source pp.343-355 / printed pp.321-333 and cumulative German/English TeX/PDF through source p355. It completes §§91-93 and the authorial text of the book; source pp.356-362 are blank/end/cover scan witnesses. Earlier Abel tranches and AllPrior AuditFix01 remain correction/provenance layers. | [Gordan](https://zenodo.org/records/20673769) |
-| Ferdinand Georg Frobenius | Selected group-character papers in German/English; QA03 cumulative package reports 10/10 selected items and 221/221 tracked source-intake pages. | [Frobenius](https://zenodo.org/records/20673445) |
-| Henri Poincare | `Oeuvres`, Tome I French/English working packages through `poincare_v1_26.zip`; explicitly non-continuous local stream with missing v1_03-v1_07 and v1_22-v1_23 artifacts. | [Poincare](https://zenodo.org/records/20673462) |
-| Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://zenodo.org/records/20617915) |
-| James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058 and p.059 queued for the next register refresh, plus earlier book pages 95-101, 103, 105, 109, and continuous pp.111-267. The record includes an IA master-image source-index helper; broader batch TeX/PDF substrate is status-mixed, and ledgers/source witness images govern promoted range claims. | [Maxwell](https://zenodo.org/records/20672919) |
+| Heinrich Weber | `Lehrbuch der Algebra`: Volume I German/English represented as a repaired working branch; Volume II current readers through section 176 with recursive gap repairs through Batch132. Latest Batch132 repairs Vol. II §§120 and 128 and reports the active 112-row ledger at 73 closed / 39 open; Volume III remains the earlier repaired cumulative. | [Weber](https://doi.org/10.5281/zenodo.20412153) |
+| Emmy Noether | Curated numbered-paper working corpus: cumulative readers, 43 standalone English paper PDFs, compact German/source, Spanish, Japanese, French, and Simplified Chinese packages, plus active Paper 02 RA25-RA34 source-audit correction packets. Not a certified critical edition; synchronization and source-check corrections remain active. | [Noether](https://doi.org/10.5281/zenodo.20412587) |
+| Luigi Bianchi | `Lezioni di geometria differenziale` Vol. I Italian source transcription and English translation working draft represented through source pdfpages 001-543, with source witness and TeX/auditfix ZIP; A2 now has compact/core coverage through source p0135 via `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip`. | [Bianchi](https://doi.org/10.5281/zenodo.20615814) |
+| Paul Gordan / Clebsch-Gordan | `Gordan_Abel27_p343_355_DE_EN_20260612.zip` extends `Theorie der Abelschen Functionen` through source pp.343-355 / printed pp.321-333 and cumulative German/English TeX/PDF through source p355. It completes §§91-93 and the authorial text of the book; source pp.356-362 are blank/end/cover scan witnesses. Earlier Abel tranches and AllPrior AuditFix01 remain correction/provenance layers. | [Gordan](https://doi.org/10.5281/zenodo.20616260) |
+| Ferdinand Georg Frobenius | Selected group-character papers in German/English; QA03 cumulative package reports 10/10 selected items and 221/221 tracked source-intake pages. | [Frobenius](https://doi.org/10.5281/zenodo.20673444) |
+| Henri Poincare | `Oeuvres`, Tome I French/English working packages through `poincare_v1_26.zip`; explicitly non-continuous local stream with missing v1_03-v1_07 and v1_22-v1_23 artifacts. | [Poincare](https://doi.org/10.5281/zenodo.20673461) |
+| Ernst Steinitz | Package-audited German/English working packets: 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. | [Steinitz](https://doi.org/10.5281/zenodo.20616988) |
+| James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058 and p.059 queued for the next register refresh, plus earlier book pages 95-101, 103, 105, 109, and continuous pp.111-267. The record includes an IA master-image source-index helper; broader batch TeX/PDF substrate is status-mixed, and ledgers/source witness images govern promoted range claims. | [Maxwell](https://doi.org/10.5281/zenodo.20653107) |
 
 ## Additional Selected Authors
 
-Record: [Additional author cluster](https://zenodo.org/records/20672984)
+Record: [Additional author cluster](https://doi.org/10.5281/zenodo.20411006)
 
 | Author | Current Public Surface |
 |---|---|
 | Minkowski | Gesammelte Abhandlungen Volume II selected papers. |
 | Hecke | Vorlesungen ueber die Theorie der algebraischen Zahlen. |
 | Landau | Elementary number theory. |
-| Steinitz | Backstop reader/source copies; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915) for current package-audited work. |
+| Steinitz | Backstop reader/source copies; prefer the standalone [Steinitz record](https://doi.org/10.5281/zenodo.20616988) for current package-audited work. |
 | Hensel | Zahlentheorie. |
 | Oka | Analytic functions of several variables I-X. |
 | Hausdorff | Set theory; Mengenlehre and descriptive set theory writings. |
 | Grassmann | Ausdehnungslehre and related works. |
 | Killing | Transformationsgruppen. |
-| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://zenodo.org/records/20673932) for current readers and the latest A2 p0135 compact/core package. |
-| Poincare | Prefer the standalone [Poincare record](https://zenodo.org/records/20673462). Mixed-shelf Poincare copies remain provenance/backstop where present. |
+| Bianchi | Backstop/routed copies for the now-dedicated Bianchi record; prefer the standalone [Bianchi record](https://doi.org/10.5281/zenodo.20615814) for current readers and the latest A2 p0135 compact/core package. |
+| Poincare | Prefer the standalone [Poincare record](https://doi.org/10.5281/zenodo.20673461). Mixed-shelf Poincare copies remain provenance/backstop where present. |
 | Frobenius | Selected GE/EN group-character and hypercomplex sequence cumulative/QA package through items 053, 054, 056-061, 070, and 071; use package-level ledgers and source caveats. |
 | Kneser | `Lehrbuch der Variationsrechnung` German/English routed working tranches. Current routed continuation is `Kneser_LVR_p0206_0219_DE_EN_20260612.zip` for source p0206 lower-p0219 upper / §§46-48 with Fig. 24 as a source-derived crop; lower p0219 / §49 is the next handoff. The earlier `Kneser_LVR_p0177_0192_DE_EN_20260612.zip` and `Kneser_LVR_hqfig_p0158_0177_DE_EN_20260611.zip` remain previous tranches/provenance. |
-| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://zenodo.org/records/20673769) for Abel11-Abel27, AllPrior AuditFix01, and branch-specific auditfix packets. |
-| Frobenius | Prefer the standalone [Frobenius record](https://zenodo.org/records/20673445). Mixed-shelf Frobenius copies remain provenance/backstop where present. |
-| Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://zenodo.org/records/20617915). |
+| Gordan / Clebsch-Gordan | Backstop/routed copies for the now-dedicated Gordan record; prefer the standalone [Gordan record](https://doi.org/10.5281/zenodo.20616260) for Abel11-Abel27, AllPrior AuditFix01, and branch-specific auditfix packets. |
+| Frobenius | Prefer the standalone [Frobenius record](https://doi.org/10.5281/zenodo.20673444). Mixed-shelf Frobenius copies remain provenance/backstop where present. |
+| Steinitz | Backstop/routed copies for the now-dedicated Steinitz record; prefer the standalone [Steinitz record](https://doi.org/10.5281/zenodo.20616988). |
 
 ## Reference Witnesses
 
-Record: [Historical reference witnesses](https://zenodo.org/records/20415777)
+Record: [Historical reference witnesses](https://doi.org/10.5281/zenodo.20415776)
 
 This record keeps useful historical witnesses for checking the non-European mathematics releases, including al-Muqaddasi, Ibn al-Nadim, Ibn al-Qifti, and Smith-Karpinski reference material.
+

@@ -1,6 +1,6 @@
 # Non-European Mathematics, Consolidated
 
-Zenodo record: [20586401](https://zenodo.org/records/20586401)
+Zenodo record: [20586401](https://doi.org/10.5281/zenodo.20410957)
 
 Public title: Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources
 
@@ -132,3 +132,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0012 | [95 al-Battani - Opus Astronomicum Coverage and Table Status.md](https://zenodo.org/records/20586401/files/95%20al-Battani%20-%20Opus%20Astronomicum%20Coverage%20and%20Table%20Status.md) |
 | 0.0009 | [96 Seki Takakazu - Direct Kokusho Work Status 2026-06-07.md](https://zenodo.org/records/20586401/files/96%20Seki%20Takakazu%20-%20Direct%20Kokusho%20Work%20Status%202026-06-07.md) |
 | 0.0100 | [98 al-Battani - Geography Gazetteer - Regions and Cities Dataset.csv](https://zenodo.org/records/20586401/files/98%20al-Battani%20-%20Geography%20Gazetteer%20-%20Regions%20and%20Cities%20Dataset.csv) |
+

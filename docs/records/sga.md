@@ -1,6 +1,6 @@
 # SGA
 
-Zenodo record: [20673700](https://zenodo.org/records/20673700)
+Zenodo record: [20673700](https://doi.org/10.5281/zenodo.20410947)
 
 Public title: Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
@@ -132,3 +132,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 0.0013 | [99 SGA - Public Summary.json](https://zenodo.org/records/20673700/files/99%20SGA%20-%20Public%20Summary.json) |
 | 0.0009 | [sga_repair019_public_summary.json](https://zenodo.org/records/20673700/files/sga_repair019_public_summary.json) |
+

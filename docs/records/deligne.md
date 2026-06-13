@@ -1,6 +1,6 @@
 # Pierre Deligne
 
-Zenodo record: [20617786](https://zenodo.org/records/20617786)
+Zenodo record: [20617786](https://doi.org/10.5281/zenodo.20410853)
 
 Public title: Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
@@ -130,3 +130,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0013 | [99 Deligne - Public Summary.json](https://zenodo.org/records/20617786/files/99%20Deligne%20-%20Public%20Summary.json) |
+

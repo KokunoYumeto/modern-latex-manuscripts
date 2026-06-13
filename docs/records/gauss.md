@@ -1,6 +1,6 @@
 # Gauss
 
-Zenodo record: [20674086](https://zenodo.org/records/20674086)
+Zenodo record: [20674086](https://doi.org/10.5281/zenodo.20410934)
 
 Public title: Carl Friedrich Gauss: Werke and Individual Papers (Modern LaTeX Working Drafts)
 
@@ -56,3 +56,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 0.0011 | [90 Carl Friedrich Gauss - Public Summary.json](https://zenodo.org/records/20674086/files/90%20Carl%20Friedrich%20Gauss%20-%20Public%20Summary.json) |
 | 0.0012 | [Gauss_R38_Public_Status_20260613.md](https://zenodo.org/records/20674086/files/Gauss_R38_Public_Status_20260613.md) |
+

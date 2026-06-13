@@ -1,6 +1,6 @@
 # P. G. Lejeune Dirichlet
 
-Zenodo record: [20586064](https://zenodo.org/records/20586064)
+Zenodo record: [20586064](https://doi.org/10.5281/zenodo.20520679)
 
 Public title: P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations
 
@@ -37,3 +37,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0011 | [90 Dirichlet - Public Summary.json](https://zenodo.org/records/20586064/files/90%20Dirichlet%20-%20Public%20Summary.json) |
+
