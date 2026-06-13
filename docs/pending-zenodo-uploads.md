@@ -2,6 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-13: Noether Paper 06 targeted source-audit web drop
+
+Manifest: [20260613_noether_p06_targeted_audit_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_p06_targeted_audit_webdrop.json)
+
+- Noether: `Noether_P06_Targeted_Source_Audit_WebDrop_20260613.zip`, 23.673 MB, SHA256 `84B466C387424552DF485A2045CBBE9B8DB267751F35363205B74B8003E6DCBF`.
+- Contents: targeted Paper 06 source-audit / witness drop for `Körper und Systeme rationaler Funktionen`, source `Math. Ann. 76 (1915), S. 161-196`. It includes source PDF, selected 650 dpi source page renders, labelled witness crops, OCR locator text, and audit CSV/Markdown ledgers. It is explicitly not a complete Paper 06 certification. The drop reports a systematic source-fidelity issue: source pages use page-local symbolic footnote markers such as `*)` and `**)`, while current TeX uses ordinary numbered footnotes throughout the Paper 06 block. It also records checked no-fix rows for the p.196 `Umstand` phrase and tail formulas.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 06 closure.
+
 ## 2026-06-13: Noether RA42 Paper 05 source-audit web drop
 
 Manifest: [20260613_noether_ra42_p05_webdrop.json](../manifests/pending-zenodo-uploads/20260613_noether_ra42_p05_webdrop.json)
