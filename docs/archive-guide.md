@@ -25,7 +25,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20583048> |
-| Luigi Bianchi | <https://zenodo.org/records/20673425> |
+| Luigi Bianchi | <https://zenodo.org/records/20673932> |
 | Paul Gordan and Clebsch-Gordan | <https://zenodo.org/records/20673769> |
 | Ernst Steinitz current working packets | <https://zenodo.org/records/20617915> |
 | Ferdinand Georg Frobenius | <https://zenodo.org/records/20673445> |

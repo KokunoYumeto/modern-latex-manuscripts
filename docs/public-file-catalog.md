@@ -4,7 +4,7 @@ Generated from the public Zenodo records API.
 
 **Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-Total files indexed: 1038
+Total files indexed: 1040
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -1026,30 +1026,32 @@ Record: <https://zenodo.org/records/20586064>
 
 ## Luigi Bianchi: Modern LaTeX Working Drafts and Source-Intake Witnesses
 
-Record: <https://zenodo.org/records/20673425>
+Record: <https://zenodo.org/records/20673932>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20673425/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
-| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20673425/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
-| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20673425/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
-| reader/reference PDF | 0.4351 | [03 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - English Working Translation.pdf](https://zenodo.org/records/20673425/files/03%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20English%20Working%20Translation.pdf) |
-| reader/reference PDF | 0.4310 | [04 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - Italian Source Transcription.pdf](https://zenodo.org/records/20673425/files/04%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20Italian%20Source%20Transcription.pdf) |
-| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20673425/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
-| manifest/status | 0.0008 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20673425/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
-| manifest/status | 0.0006 | [99_Bianchi_-_Public_Summary_-_A2_p0120_20260613.json](https://zenodo.org/records/20673425/files/99_Bianchi_-_Public_Summary_-_A2_p0120_20260613.json) |
-| manifest/status | 0.0005 | [99_Bianchi_Public_Summary_A2_p0090_20260612.json](https://zenodo.org/records/20673425/files/99_Bianchi_Public_Summary_A2_p0090_20260612.json) |
-| manifest/status | 0.0003 | [99_Bianchi_Public_Summary_A2_sumfix_p0090_20260612.json](https://zenodo.org/records/20673425/files/99_Bianchi_Public_Summary_A2_sumfix_p0090_20260612.json) |
-| artifact/source ZIP | 173.2165 | [Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip) |
-| artifact/source ZIP | 206.9177 | [Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip) |
-| artifact/source ZIP | 238.2539 | [Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip) |
-| artifact/source ZIP | 227.0850 | [Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip) |
-| artifact/source ZIP | 251.7342 | [Bianchi_A2_cont_p0001_0105_IT_EN_20260612.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_cont_p0001_0105_IT_EN_20260612.zip) |
-| artifact/source ZIP | 5.6271 | [Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip) |
-| artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
-| artifact/source ZIP | 245.2296 | [Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip) |
-| artifact/source ZIP | 227.1200 | [Bianchi_A2_sumfix_p0001_0090_IT_EN_20260612.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_sumfix_p0001_0090_IT_EN_20260612.zip) |
-| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20673425/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
+| reader/reference PDF | 1.7727 | [00 Luigi Bianchi - Lezioni di geometria differenziale Vol I - English Translation Working Edition.pdf](https://zenodo.org/records/20673932/files/00%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20English%20Translation%20Working%20Edition.pdf) |
+| reader/reference PDF | 1.7780 | [01 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Italian Source Transcription.pdf](https://zenodo.org/records/20673932/files/01%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Italian%20Source%20Transcription.pdf) |
+| reader/reference PDF | 11.9676 | [02 Luigi Bianchi - Lezioni di geometria differenziale Vol I - Source Scan Witness p0001-p0543.pdf](https://zenodo.org/records/20673932/files/02%20Luigi%20Bianchi%20-%20Lezioni%20di%20geometria%20differenziale%20Vol%20I%20-%20Source%20Scan%20Witness%20p0001-p0543.pdf) |
+| reader/reference PDF | 0.4351 | [03 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - English Working Translation.pdf](https://zenodo.org/records/20673932/files/03%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20English%20Working%20Translation.pdf) |
+| reader/reference PDF | 0.4310 | [04 Luigi Bianchi - Lezioni gruppi continui A2 HQ p0001-p0066 - Italian Source Transcription.pdf](https://zenodo.org/records/20673932/files/04%20Luigi%20Bianchi%20-%20Lezioni%20gruppi%20continui%20A2%20HQ%20p0001-p0066%20-%20Italian%20Source%20Transcription.pdf) |
+| artifact/source ZIP | 48.4705 | [95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip](https://zenodo.org/records/20673932/files/95%20Luigi%20Bianchi%20-%20Volume%20I%20Complete%20TeX%20Source%20Witnesses%20and%20Auditfix%20Package.zip) |
+| manifest/status | 0.0008 | [99 Luigi Bianchi - Public Summary.json](https://zenodo.org/records/20673932/files/99%20Luigi%20Bianchi%20-%20Public%20Summary.json) |
+| manifest/status | 0.0006 | [99_Bianchi_-_Public_Summary_-_A2_p0120_20260613.json](https://zenodo.org/records/20673932/files/99_Bianchi_-_Public_Summary_-_A2_p0120_20260613.json) |
+| manifest/status | 0.0005 | [99_Bianchi_Public_Summary_A2_p0090_20260612.json](https://zenodo.org/records/20673932/files/99_Bianchi_Public_Summary_A2_p0090_20260612.json) |
+| manifest/status | 0.0010 | [99_Bianchi_Public_Summary_A2_p0135_20260613.json](https://zenodo.org/records/20673932/files/99_Bianchi_Public_Summary_A2_p0135_20260613.json) |
+| manifest/status | 0.0003 | [99_Bianchi_Public_Summary_A2_sumfix_p0090_20260612.json](https://zenodo.org/records/20673932/files/99_Bianchi_Public_Summary_A2_sumfix_p0090_20260612.json) |
+| artifact/source ZIP | 173.2165 | [Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_auditcont_p0001_0057_IT_EN_20260611.zip) |
+| artifact/source ZIP | 206.9177 | [Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_cont_p0001_0066_IT_EN_20260611.zip) |
+| artifact/source ZIP | 238.2539 | [Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_cont_p0001_0077_IT_EN_20260612.zip) |
+| artifact/source ZIP | 227.0850 | [Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_cont_p0001_0090_IT_EN_20260612.zip) |
+| artifact/source ZIP | 251.7342 | [Bianchi_A2_cont_p0001_0105_IT_EN_20260612.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_cont_p0001_0105_IT_EN_20260612.zip) |
+| artifact/source ZIP | 5.6271 | [Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip) |
+| artifact/source ZIP | 31.3035 | [Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip) |
+| artifact/source ZIP | 222.1925 | [Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_HQ_p0001_0066_IT_EN_20260610.zip) |
+| artifact/source ZIP | 245.2296 | [Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_reaudit_p0001_0066_IT_EN_20260611.zip) |
+| artifact/source ZIP | 227.1200 | [Bianchi_A2_sumfix_p0001_0090_IT_EN_20260612.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_sumfix_p0001_0090_IT_EN_20260612.zip) |
+| artifact/source ZIP | 71.3887 | [Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip](https://zenodo.org/records/20673932/files/Bianchi_A2_witness_p0001_0060_IT_EN_20260609.zip) |
 
 ## Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
 

@@ -63,10 +63,10 @@ Current record: <https://zenodo.org/records/20583048>
 
 ## Bianchi
 
-Current dedicated record: <https://zenodo.org/records/20673425>
+Current dedicated record: <https://zenodo.org/records/20673932>
 
 - Bianchi Vol. I is now split into its own reader-facing record, with Italian source transcription, corrected English translation working edition, source scan witness, and TeX/auditfix ZIP through source pdfpages 001-543.
-- The 2026-06-13 public surface now includes `Bianchi_A2_core_p0001_0120_IT_EN_20260612.zip` as the latest compact/core A2 working package through source p0120. Earlier scan-heavy p0105 and repair packages remain provenance/backstop layers.
+- The 2026-06-13 public surface now includes `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` as the latest compact/core A2 working package through source p0135. Earlier scan-heavy p0105 and repair packages remain provenance/backstop layers.
 - The package audit treats p537-p543 as non-authorial digitization/provenance/back-cover material retained in source witnesses rather than normal reader flow.
 - This is a package-audited working edition, not a final critical edition. Important formulas, references, and geometric terminology should still be checked against the source witness before scholarly citation.
 - A2, `Lezioni sulla teoria dei gruppi continui finiti di trasformazioni`, now has an Italian/English working start through source p0001-p0105, about 14.36 percent of the 731-page source. It retains earlier packets plus the p0091-p0105 continuation; p0106 is the next handoff. A2 is not complete, and TeX build success is not glyph-level certification.
