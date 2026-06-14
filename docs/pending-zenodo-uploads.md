@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P19 RA50 targeted source-critical candidate
+
+Manifest: [20260614_noether_p19_ra50_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p19_ra50_sourcecritical_candidate.json)
+
+- Noether: `Noether_P19_RA50_SourceCritical_Fix_WebDrop_20260614.zip`, 13.3435 MB, SHA256 `5D68C270FB8F23FC6A17397880A892BFB341D5B7AACD17890F3750B32D89D6BD`.
+- Contents: targeted German cumulative source-critical candidate applying two source-confirmed Paper 19 tail corrections to a reversible TeX branch. It includes a compiled German cumulative RA50 candidate TeX/PDF/log, RA47-to-RA50 P19 TeX diff, source PDF for Math. Ann. 83 pp.24-66, enlarged 1000dpi labelled witness crops for source pp.58, 65, and 66, input audit findings, checked no-fix anchors, source mapping, source-image inventory, and provenance.
+- Key fixes: restores source order in the congruence pair after `Wegen` on printed p.58; restores source indices in the elementary-divisor display and continuation inequality on printed pp.65-66, replacing erroneous `s_\nu...s_i` / `t_\nu...t_i` style sequences with source `s_1...s_\lambda` / `t_1...t_\mu`.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is targeted to the listed Paper 19 tail repairs, not full Paper 19 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P19 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether P20 RA49 targeted source-critical candidate
 
 Manifest: [20260614_noether_p20_ra49_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p20_ra49_sourcecritical_candidate.json)
