@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA83 Paper 23 footnote reset
+
+Manifest: [20260614_noether_ra83_p23_footnote_reset.json](../manifests/pending-zenodo-uploads/20260614_noether_ra83_p23_footnote_reset.json)
+
+- Noether: `Noether_RA83_P23_FootnoteReset_WebDrop_20260614.zip`, 5.8622 MB, SHA256 `D64880349212171E756D06C916A9B06FDC7AF9141D76318ABF6E95B11B51338C`.
+- Contents: German cumulative targeted Paper 23 article-boundary footnote reset repair after RA82. It includes the RA83 German cumulative TeX/PDF/log candidate, RA82-to-RA83 reversible diff, P23 local DMV 32 source cutout, structural scan classification, footnote-reset ledger, rendered text extraction, README, and checksums.
+- Key fix: inserts `\setcounter{footnote}{0}` immediately before Paper 23. The package reports RA82 rendered the first Paper 23 source note as inherited note 20, while the J. Ber. d. DMV 32 (1923), pp.177-184 source cutout starts the article footnotes at 1).
+- Sense-check caveats: targeted footnote-counter repair only. No prose, mathematical formula, table, diagram, or bibliography content changed. The P23 source cutout is below the current 650/1000 dpi dense-source-check rule and is used only for source-boundary/local-footnote-sequence evidence. It is not full Paper 23 certification, not dense-math certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA83 with later German branches before non-German propagation.
+
 ## 2026-06-14: Noether RA82 Papers 39-42 footnote resets
 
 Manifest: [20260614_noether_ra82_p39_p42_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra82_p39_p42_footnote_resets.json)
