@@ -32,6 +32,8 @@ Latest Noether staging note 2026-06-14: `Noether_P33_RA75_Bologna_SourceText_Web
 
 Latest Noether staging note 2026-06-14: `Noether_P34_GDZ_SourceWitness_WebDrop_20260614.zip` is queued as compact Paper 34 GDZ/EuDML source-navigation support for printed pp.641-692. Use it instead of the weaker local p34a/p34b/p34c scan slices when auditing Paper 34, but do not treat it as corrected TeX or dense-math certification: the images are about 400 ppi and below the 650 dpi crop-certification rule.
 
+Latest Noether staging note 2026-06-14: `Noether_RA76_StructuralDuplicateFix_P40_P43_WebDrop_20260614.zip` is queued as a German cumulative structural/render cleanup after RA75. Use it as the current duplicate-free German cumulative structure candidate for Papers 40-43: it removes the first duplicated P40-P43 run and keeps the later RA10-appended body with apparatus after Paper 43. Continue by source-checking the retained P40-P43 body, reconciling RA76 with the other RA branches, and propagating accepted changes to EN/ES/JA/FR/ZH/UK/RU/ISV only after source comparison.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
