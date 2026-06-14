@@ -2,6 +2,26 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA87 Paper 20 clearpage boundary
+
+Manifest: [20260614_noether_ra87_p20_clearpage_boundary.json](../manifests/pending-zenodo-uploads/20260614_noether_ra87_p20_clearpage_boundary.json)
+
+- Noether: `Noether_RA87_P20_ClearpageBoundary_WebDrop_20260614.zip`, 4.7357 MB, SHA256 `ED9F661687F0216C4FD15524FEBA07C44ECBC00B93888B0B59C1F496C03E1164`.
+- Contents: German cumulative structural page-boundary repair candidate after RA85. It inserts `\clearpage` after the end of Paper 19's received-date block and before Paper 20's footnote reset / numbered section boundary. The package includes RA85 base TeX, RA87 candidate TeX/PDF/logs, a reversible diff, fix ledger, pdfinfo, compile-log scan, and checksums.
+- Sense-check caveats: structural/page-boundary repair only. It changes no source prose, formulas, tables, diagrams, footnotes, or bibliographic text. It is not dense-math certification, source certification, a critical edition, or multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then reconcile with later German source-audit branches before reader promotion or multilingual propagation.
+
+## 2026-06-14: Noether RA86 Papers 09-20 source-quality witness ledger
+
+Manifest: [20260614_noether_ra86_p09_p20_source_quality_witness_ledger.json](../manifests/pending-zenodo-uploads/20260614_noether_ra86_p09_p20_source_quality_witness_ledger.json)
+
+- Noether: `Noether_RA86_P09_P20_SourceQuality_WitnessLedger_WebDrop_20260614.zip`, 0.0077 MB, SHA256 `753CB7A68A46B54833DF25A9879A7CBD82F9651ECC38605F3D5F222126C9155A`.
+- Contents: compact source-quality and witness-selection ledger for Papers 09-20 after RA85. It records which current witnesses are only 400-600 ppi page-map/provenance aids and which targeted loci have 1000 dpi crops or higher-quality localized evidence.
+- Sense-check caveats: no TeX changes, no source images, no translations, and no reader update. This is coordination/audit guardrail evidence only. It exists specifically to stop downstream sessions from treating 400-600 ppi pages as dense-math certification.
+
+Next action when Zenodo API credentials are available: upload as a compact source-quality guardrail if retained. Use it to require explicit >=650 dpi source or >=1000 dpi dense crop before certifying formulas, tables, and diagrams in Papers 09-20.
+
 ## 2026-06-14: Noether RA85 Papers 09-15 section anchors
 
 Manifest: [20260614_noether_ra85_p09_p15_section_anchors.json](../manifests/pending-zenodo-uploads/20260614_noether_ra85_p09_p15_section_anchors.json)
