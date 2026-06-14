@@ -528,6 +528,16 @@ Manifest: [20260613_noether_p20_lean_audit_webdrop.json](../manifests/pending-ze
 
 Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload this ZIP together with the other pending Noether source-audit packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as whole-corpus or complete Paper 20 closure.
 
+## 2026-06-13: Noether Paper 20 Lean/source-audit applied-fix companion
+
+Manifest: [20260613_noether_p20_lean_applied_fix_companion.json](../manifests/pending-zenodo-uploads/20260613_noether_p20_lean_applied_fix_companion.json)
+
+- Noether: `Noether_P20_Lean_Audit_WebDrop_20260613.zip`, 1.7510 MB, SHA256 `4562CEAC5C2BAEAA110857D7DF27B41A2AA9BE93ED7632A1E76E83409584158C`.
+- Contents: applied-fix companion to the Paper 20 Lean/source-audit drop. It includes the source PDF, 650dpi witness crop, audit notes, fix-request/disposition CSV, checksums, and a patched German cumulative TeX copy under `applied_fixed_tex/` for the source-confirmed formula (13) `\kappa,\lambda` correction. The following prose products `\varrho_\mu\sigma_\nu` remain unchanged.
+- Sense-check caveats: this package is provenance for the P20 formula-fix chain, not a complete Paper 20 certification and not a critical edition. The later `Noether_P20_RA49_SourceCritical_Fix_WebDrop_20260614.zip` remains the preferred German candidate branch for promotion/reconciliation.
+
+Next action when Zenodo API credentials are available: upload as provenance only if keeping the full P20 Lean chain is useful; otherwise RA49 can carry the applied correction in the next Noether source-audit upload. In either case, do not treat this as whole-corpus or complete Paper 20 closure.
+
 ## 2026-06-13: Kneser `Lehrbuch der Variationsrechnung` p0234-p0248
 
 Manifest: [20260613_kneser_lvr_p0234_0248.json](../manifests/pending-zenodo-uploads/20260613_kneser_lvr_p0234_0248.json)
