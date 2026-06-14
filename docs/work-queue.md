@@ -40,6 +40,8 @@ Latest Noether staging note 2026-06-14: `Noether_RA78_P14_P15_P16_FootnoteResets
 
 Latest Noether staging note 2026-06-14: `Noether_RA79_P09_P13_FootnoteResets_WebDrop_20260614.zip` is queued as a targeted German Paper 09-13 page-boundary/footnote-counter repair candidate after RA78. It resets ordinary footnote numbering before Papers 09, 10, 11, 12, and 13, and inserts the missing clear page before Paper 13. It changes no prose, mathematics, tables, diagrams, or equations; reconcile it with the other RA branches before any promoted German cumulative or multilingual propagation.
 
+Latest Noether staging note 2026-06-14: `Noether_RA80_P02_P05_FootnoteResets_WebDrop_20260614.zip` is queued as a targeted German Paper 02-05 footnote-counter repair candidate after RA79. It resets ordinary footnote numbering before Papers 02, 03, 04, and 05, while leaving title/source marker style audit open. It changes no prose, formulas, tables, diagrams, or bibliography content; reconcile it with the other RA branches before any promoted German cumulative or multilingual propagation.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |

@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA80 Paper 02-05 footnote resets
+
+Manifest: [20260614_noether_ra80_p02_p05_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra80_p02_p05_footnote_resets.json)
+
+- Noether: `Noether_RA80_P02_P05_FootnoteResets_WebDrop_20260614.zip`, 23.7527 MB, SHA256 `D178E7E9F4A1AC9CACA05B312F077000A00423101F6279D251A3E72E6262D3F9`.
+- Contents: German cumulative targeted Paper 02-05 footnote reset repair after RA79. It includes the RA80 German cumulative TeX/PDF/TXT candidate, RA79-to-RA80 reversible diff, source/provenance files already staged for Papers 02-05, fix ledger, rendered footnote verification, build summary, README, and checksums.
+- Key fixes: inserts ordinary footnote-counter resets at the starts of Papers 02, 03, 04, and 05. The package reports old starts of 7 for Paper 02, 32 for Paper 03, inherited prior-paper numbering for Paper 04, and 82 for Paper 05; the RA80 candidate renders those opening notes locally from 1.
+- Sense-check caveats: targeted footnote-counter repair only. Package metadata says prose, formulas, tables, diagrams, and bibliography content were not changed. It does not certify whether every early title/source note should be represented with numeric or symbolic source markers. It is not full Paper 02-05 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA80 with later German branches before non-German propagation.
+
 ## 2026-06-14: Noether RA79 Paper 09-13 footnote resets
 
 Manifest: [20260614_noether_ra79_p09_p13_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra79_p09_p13_footnote_resets.json)
