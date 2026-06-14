@@ -36,6 +36,38 @@ Manifests: [P39 ICM1932 source witness](../manifests/pending-zenodo-uploads/2026
 
 Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use as source-witness input for later Paper 39-41 comparison, not as promoted text.
 
+## 2026-06-14: Noether Paper 05 official GDZ source backfill
+
+Manifest: [20260614_noether_p05_official_gdz_source_backfill.json](../manifests/pending-zenodo-uploads/20260614_noether_p05_official_gdz_source_backfill.json)
+
+- Noether: `Noether_P05_OfficialGDZ_SourceBackfill_WebDrop_20260614.zip`, 9.09 MB, SHA256 `7F0D234235D01A94E8AD79F2E3B6F8F8F7D8DB97A0167E8CB3F9F3E36FE4C1AA`.
+- Contents: official GDZ source/provenance and page-map support for Paper 05, `Rationale Funktionenkörper`, Jahresbericht der Deutschen Mathematiker-Vereinigung 22 (1913), pp.316-319. It includes the GDZ article PDF, IIIF manifest, printed-page/canvas map, raw full-page GDZ JPEGs, dimensions CSV, checksums, and inventory.
+- Sense-check caveats: source/provenance and page-map material only. Raw GDZ page images are 600 ppi, below the project 650 dpi checking floor and 1000 dpi dense-math floor. This package contains no cumulative TeX/prose/math changes, no corrected TeX, no translation, no dense mathematical certification, no critical-edition claim, and no multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use as official Paper 05 source/page-map backfill, not as promoted text.
+
+## 2026-06-14: Noether Papers 18-20 official source backfill
+
+Manifest: [20260614_noether_p18_p19_p20_official_source_backfill.json](../manifests/pending-zenodo-uploads/20260614_noether_p18_p19_p20_official_source_backfill.json)
+
+- Noether: `Noether_P18_P19_P20_OfficialSourceBackfill_WebDrop_20260614.zip`, 76.095 MB, SHA256 `42876C80DB5E0A4575AF047D58B84193EE7DD21D634ED1EBB9D30BCDB58E7BB6`.
+- Contents: official GDZ/IIIF source/provenance and page-map backfill for Papers 18-20, including manifests, printed-page/canvas maps, raw full-resolution GDZ page images, article PDFs, image-dimension CSVs, inventory, source-quality/use-limit CSV, README, and checksums.
+- Key findings: P18 resolves two duplicated printed-p101 candidates and retains the visible start of the Noether/Hentzelt item; P19 maps Math. Ann. 83 LOG_0008 / printed pp.24-66; P20 is Math. Ann. 85 LOG_0010 / canvases 00000036-00000043 / printed pp.26-33, while earlier exploratory LOG_0004-LOG_0008 downloads are false candidates.
+- Sense-check caveats: source/provenance and page-map material only. P18 is 600 ppi, below the current 650 dpi checking floor. P19/P20 are official GDZ raw images but about 400 ppi, below the 650/1000 dpi dense-certification thresholds. This package contains no corrected TeX, no translation, no full Paper 18/19/20 certification, no critical-edition claim, and no multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use as source/page-map backfill and false-candidate avoidance for future Paper 18-20 comparison, not as promoted text.
+
+## 2026-06-14: Noether RA83 current coverage and gap ledger
+
+Manifest: [20260614_noether_ra83_current_coverage_gap_ledger.json](../manifests/pending-zenodo-uploads/20260614_noether_ra83_current_coverage_gap_ledger.json)
+
+- Noether: `Noether_RA83_CurrentCoverage_GapLedger_WebDrop_20260614.zip`, 0.0048 MB, SHA256 `FD291950F6773737B72AF56FD9B9E79D5D275B8A86392FEEF3F838B1F34C1C3C`.
+- Contents: compact audit/coordination package only: gap ledger CSV, numbered-section inventory, repeated numbered-section hotspot report, README, and checksums. It records the current local Codex view after RA83 plus the Paper 05 and Papers 18-20 official source backfills.
+- Key findings: Papers 09-23 have substantial targeted source-critical coverage; several source witnesses remain below 650/1000 dpi and must not be dense-certified; Paper 05 is official GDZ source staging at 600 ppi; Papers 18-20 official staging records Paper 18 at 600 ppi and Papers 19-20 at about 400 ppi; RA83 TeX has three top-level Paper 34 headings, which is a structural hotspot to audit before certification.
+- Sense-check caveats: no TeX changes and no source images. This is coordination/audit evidence only: not corrected TeX, not translation, not source certification, not dense-math certification, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use it to avoid duplicate work and plan source-audit/branch reconciliation, not as promoted text.
+
 ## 2026-06-14: Noether RA81 Paper 38 footnote reset
 
 Manifest: [20260614_noether_ra81_p38_footnote_reset.json](../manifests/pending-zenodo-uploads/20260614_noether_ra81_p38_footnote_reset.json)
