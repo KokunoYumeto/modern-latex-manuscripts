@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA76 structural duplicate fix for Papers 40-43
+
+Manifest: [20260614_noether_ra76_structural_duplicate_fix_p40_p43.json](../manifests/pending-zenodo-uploads/20260614_noether_ra76_structural_duplicate_fix_p40_p43.json)
+
+- Noether: `Noether_RA76_StructuralDuplicateFix_P40_P43_WebDrop_20260614.zip`, 4.8629 MB, SHA256 `0D0CC47382D75935961D453B5D7D35DCBC48D0200D3214D5256F6F7C494345CF`.
+- Contents: German cumulative structural/render cleanup after RA75. The package README reports that RA75 contained two full runs of Papers 40-43; RA76 removes the first duplicate run and retains the later RA10-appended P40-P43 body, including the scan-visible apparatus after Paper 43. It includes the German cumulative TeX/PDF/log candidate, RA75-to-RA76 diff, duplicate-span inventory, confirmed structural-fix CSV, section inventories/counts, build logs, README, and checksums.
+- Local sense check: the retained PDF reports 398 A4 pages. The confirmed-fix CSV records duplicate-run removal, macro-support relocation needed for compilation after deleting the duplicate block, and mechanical Unicode quote/guillemet/em-dash conversion to TeX-safe forms to clear XeLaTeX missing-character warnings.
+- Sense-check caveats: structural/render cleanup only. This is not source-image certification for Papers 40-43, not full paper-level source closure, not Paper 34 dense-math certification, not a critical edition, and not propagated to non-German branches. Use RA76 as the current duplicate-free German cumulative structure candidate after RA75, while keeping source certification, branch reconciliation, and multilingual propagation open.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-14: Noether P34 GDZ/EuDML source witness pp.641-692
 
 Manifest: [20260614_noether_p34_gdz_source_witness.json](../manifests/pending-zenodo-uploads/20260614_noether_p34_gdz_source_witness.json)
