@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P09/P10/P11 RA56 targeted source-critical candidate
+
+Manifest: [20260614_noether_p09_p10_p11_ra56_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p09_p10_p11_ra56_sourcecritical_candidate.json)
+
+- Noether: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip`, 20.3002 MB, SHA256 `7BAFF38484F7F73D12C3F457A9DB02F947AB162CADAF6C402D4055BB93441DB0`.
+- Contents: targeted German cumulative source-critical candidate promoting existing GDZ raw-source audit findings for Papers 09, 10, and 11 into a fresh RA47-based cumulative German TeX candidate. It includes compiled German cumulative RA56 candidate TeX/PDF/log, RA47-to-RA56 diff, source PDF cutouts for Papers 09-11, targeted 1000dpi labelled witness crops, applied-fix CSV, prior GDZ fix/no-fix ledgers, P11 Omega-Gamma occurrence ledger, build summary, provenance, and checksums.
+- Key fixes: P09 restores the source-visible author line and corrects the Zermelo citation to `S. 484`; P10 restores the author line, changes definition (d) terminal index from `k_\nu` to `k_\sigma`, and corrects the divisibility display to `F(t;\vartheta_i)`; P11 restores the author line, changes all 25 P11 occurrences of `\mathfrak L_\Gamma` to source `\Omega_\Gamma`, and changes final theorem punctuation from colon to semicolon.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is targeted repair evidence, not full Paper 09/Paper 10/Paper 11 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P14 RA55, P15 RA54, P16 RA53, P17 RA52, P18 RA51, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P09/P10/P11 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether P14 RA55 targeted source-critical candidate
 
 Manifest: [20260614_noether_p14_ra55_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p14_ra55_sourcecritical_candidate.json)

@@ -6,6 +6,8 @@ Global quality rule: these records are working drafts, translation drafts, sourc
 
 Latest local Noether source-audit staging 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip` and `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip` are queued for the next Noether upload. P14 RA55 applies three targeted source-confirmed symbol/index repairs on printed pp.190, 198, and 200; P15 RA54 applies two targeted source-confirmed repairs on printed pp.152 and 154. These supersede older unpatched P14/P15 audit notes for those loci only and remain German source-critical candidates, not full-paper certification or multilingual propagation.
 
+Latest local Noether source-audit staging 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is also queued. RA56 applies eight targeted German source-confirmed repairs across Papers 09-11, including source-visible author lines, P09 Zermelo `S. 484`, P10 `k_\sigma` and `F(t;\vartheta_i)`, and P11 `\Omega_\Gamma`. This is a RA47-based candidate branch and must be reconciled with the other pending RA candidates before promotion.
+
 | Area | Current State |
 |---|---|
 | Main landing record | Current clean public landing page published as <https://doi.org/10.5281/zenodo.20393488>. |
