@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P31 RA73 source-header / footnote-counter repair candidate
+
+Manifest: [20260614_noether_p31_ra73_source_header_footnote_counter.json](../manifests/pending-zenodo-uploads/20260614_noether_p31_ra73_source_header_footnote_counter.json)
+
+- Noether: `Noether_P31_RA73_SourceHeader_FootnoteCounter_WebDrop_20260614.zip`, 74.2329 MB, SHA256 `26D6204549AE4593488124534326AB58F2458A516FBF154282860B2AFF227122`.
+- Contents: narrow German cumulative source-header and footnote-counter repair candidate for Noether Paper 31, `Der Diskriminantensatz für die Ordnungen eines algebraischen Zahl- oder Funktionenkörpers`, `Journal für die reine und angewandte Mathematik` 157 (1927), pp.82-104. It includes cumulative TeX/PDF/log, RA72-to-RA73 diff, GDZ IIIF manifest and page/canvas map, raw full-resolution article-span JPG witnesses, labelled 1200dpi inspection crops, fix/disposition/source-crop CSVs, method note, README, and checksums.
+- Key fix: restores the source author line `Von Emmy Noether in Göttingen.` and inserts `\setcounter{footnote}{0}` before Paper 31 so the first source footnote renders as `1)`. No body prose or mathematical content changed. XeLaTeX compiled successfully twice.
+- Sense-check caveats: targeted German source-header/footnote-counter repair candidate only. It is not full Paper 31 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA73 with the other Noether candidate branches before promotion or multilingual propagation.
+
 ## 2026-06-14: Noether P30 RA72 source-header / footnote-counter repair candidate
 
 Manifest: [20260614_noether_p30_ra72_source_header_footnote_counter.json](../manifests/pending-zenodo-uploads/20260614_noether_p30_ra72_source_header_footnote_counter.json)
