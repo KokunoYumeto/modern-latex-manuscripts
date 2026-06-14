@@ -62,6 +62,10 @@ Latest Noether coordination note 2026-06-14: `Noether_RA84_P40_P43_RA10_Apparatu
 
 Latest Noether structural note 2026-06-14: `Noether_RA85_P09_P15_SectionAnchors_WebDrop_20260614.zip` is queued as a German cumulative section-anchor repair candidate. It restores top-level numbered anchors for Papers 9, 10, 11, 12, 13, and 15 without changing body content; reconcile it with later German source-audit branches before any promoted cumulative or multilingual propagation.
 
+Latest Noether source-quality note 2026-06-14: `Noether_RA86_P09_P20_SourceQuality_WitnessLedger_WebDrop_20260614.zip` is queued as a compact source-quality guardrail for Papers 09-20 after RA85. It contains no TeX changes, source images, translations, or reader PDFs. Use it to distinguish 400-600 ppi page-map/provenance witnesses from actual dense-math certification requirements before accepting future P09-P20 repairs.
+
+Latest Noether structural note 2026-06-14: `Noether_RA87_P20_ClearpageBoundary_WebDrop_20260614.zip` is queued as a German cumulative Paper 20 clearpage-boundary repair candidate. It inserts `\clearpage` after Paper 19 and before Paper 20's footnote reset / numbered section boundary, with no prose, math, table, diagram, footnote, or bibliography changes. Reconcile it with later German source-audit branches before reader promotion or multilingual propagation.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
