@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: workflow source-quality audit for Gibbs and Gauss
+
+Manifest: [20260614_workflow_gibbs_gauss_source_quality_audit.json](../manifests/pending-zenodo-uploads/20260614_workflow_gibbs_gauss_source_quality_audit.json)
+
+- Workflow: `source_quality_audit_gibbs_gauss_20260614.zip`, 0.9160 MB, SHA256 `BEF63219AE532656EAFC1D10444B86E9323386F76D1852A6A868B3359DF9A5F8`.
+- Contents: audit notes, source-quality status tables, local inventory CSVs, Internet Archive/GDZ metadata captures, source-quality probes, and session notes for the Gibbs and Gauss source baselines.
+- Key finding: future Gibbs work should use IA raw JP2/scandata for the 1906 *Scientific Papers* volumes, with the separate *On the Equilibrium of Heterogeneous Substances* witness as comparator. Future Gauss work should use the coherent GDZ Werke PDFs plus IIIF manifests across Bands I-XII as the source baseline; older IA/Rich/Google PDFs and old reader PDFs are fallback/provenance, not current authority.
+- Sense-check caveat: this is a workflow/source-intake packet only. It does not extend reader coverage, upload the large raw source files themselves, or certify any older Gauss/Gibbs TeX. OCR and derivative PDFs remain witness/locator layers.
+
+Next action when Zenodo API credentials are available: upload with the next workflow/replication refresh, then update workflow metadata, record pages, public catalog, and status docs.
+
 ## 2026-06-14: Noether P22 RA62 pages 61-69 source-critical candidate
 
 Manifest: [20260614_noether_p22_ra62_pages61_69_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p22_ra62_pages61_69_sourcecritical_candidate.json)
