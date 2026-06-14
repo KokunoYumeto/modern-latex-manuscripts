@@ -50,6 +50,12 @@ Latest Noether staging note 2026-06-14: `Noether_RA83_P23_FootnoteReset_WebDrop_
 
 Latest Noether source-witness note 2026-06-14: `Noether_P39_ICM1932_SourceWitness_WebDrop_20260614.zip`, `Noether_P40_GDZ_MathZ37_SourceWitness_WebDrop_20260614.zip`, and `Noether_P41_GDZ_MathAnn108_SourceWitness_WebDrop_20260614.zip` are queued as source/provenance witnesses for Papers 39-41. Use them for future source comparison of the retained RA76 P40-P43 body and the Paper 39-41 language branches; do not treat them as corrected TeX, translations, certification, or critical editions.
 
+Latest Noether source/page-map note 2026-06-14: `Noether_P18_P19_P20_OfficialSourceBackfill_WebDrop_20260614.zip` is queued as official GDZ source/provenance support for Papers 18-20. Use it to avoid the documented false Paper 20 source-intake candidates and to anchor future Paper 18-20 comparison; do not treat it as corrected TeX, translation, dense-math certification, paper certification, or a critical edition.
+
+Latest Noether source/page-map note 2026-06-14: `Noether_P05_OfficialGDZ_SourceBackfill_WebDrop_20260614.zip` is queued as official GDZ source/provenance support for Paper 05. Use it as the page-map/source anchor for future Paper 05 comparison, while remembering that its 600 ppi images are below the dense-math certification threshold and that it contains no corrected TeX or translation.
+
+Latest Noether coordination note 2026-06-14: `Noether_RA83_CurrentCoverage_GapLedger_WebDrop_20260614.zip` is queued as a compact coverage/gap ledger. Use it to avoid duplicate source-audit work and to plan branch reconciliation across Papers 09-23; audit the reported three top-level Paper 34 headings before treating the RA83 structure as clean. It contains no TeX changes or source images.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
