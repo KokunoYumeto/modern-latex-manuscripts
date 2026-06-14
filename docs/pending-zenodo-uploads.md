@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P08 RA68 p096 source-marker placement repair candidate
+
+Manifest: [20260614_noether_p08_ra68_source_marker_placement.json](../manifests/pending-zenodo-uploads/20260614_noether_p08_ra68_source_marker_placement.json)
+
+- Noether: `Noether_P08_RA68_P096_SourceMarker_Placement_WebDrop_20260614.zip`, 4.0258 MB, SHA256 `17DBBCB5DAFE89E3C2A11E0CD3A2B7E0E875B1FB241E15DA57CE863BAD1948B5`.
+- Contents: narrow German cumulative source-marker placement repair candidate for Noether Paper 08 printed p.96. It includes cumulative TeX/PDF/log, RA67-to-RA68 diff, source-marker fix ledger, residual caveat dispositions, source-witness manifest, one 1000dpi source evidence crop, method note, README, and checksums.
+- Key fix: the `*)` marker for the operator-definition note is attached to the displayed formula with `\srcfnmark{*)}`, and the note body is emitted with `\srcfntext{*)}{...}`. Formula content and note text are unchanged. XeLaTeX compile succeeded.
+- Sense-check caveats: targeted German source-apparatus placement repair candidate only. It is not full Paper 08 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA68 with the other Noether candidate branches before promotion or multilingual propagation.
+
 ## 2026-06-14: Noether P06 RA67 source-marker repair candidate
 
 Manifest: [20260614_noether_p06_ra67_source_marker_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p06_ra67_source_marker_candidate.json)
