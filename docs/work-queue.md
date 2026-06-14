@@ -34,6 +34,8 @@ Latest Noether staging note 2026-06-14: `Noether_P34_GDZ_SourceWitness_WebDrop_2
 
 Latest Noether staging note 2026-06-14: `Noether_RA76_StructuralDuplicateFix_P40_P43_WebDrop_20260614.zip` is queued as a German cumulative structural/render cleanup after RA75. Use it as the current duplicate-free German cumulative structure candidate for Papers 40-43: it removes the first duplicated P40-P43 run and keeps the later RA10-appended body with apparatus after Paper 43. Continue by source-checking the retained P40-P43 body, reconciling RA76 with the other RA branches, and propagating accepted changes to EN/ES/JA/FR/ZH/UK/RU/ISV only after source comparison.
 
+Latest Noether staging note 2026-06-14: `Noether_RA77_P17_FootnoteContinuity_WebDrop_20260614.zip` is queued as a targeted German Paper 17 footnote-continuity repair candidate after RA76. Use it to fix the Paper 17 title/split-header/continuation-footnote numbering problem before reconciling RA77 with the other RA branches. It does not certify Paper 17 as a whole and does not propagate the change to EN/ES/JA/FR/ZH/UK/RU/ISV by itself.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |

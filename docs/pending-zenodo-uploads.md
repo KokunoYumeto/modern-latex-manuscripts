@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA77 Paper 17 footnote-continuity repair
+
+Manifest: [20260614_noether_ra77_p17_footnote_continuity.json](../manifests/pending-zenodo-uploads/20260614_noether_ra77_p17_footnote_continuity.json)
+
+- Noether: `Noether_RA77_P17_FootnoteContinuity_WebDrop_20260614.zip`, 11.7793 MB, SHA256 `BF3D1CD0F4D846A39A0B009CCA1A8D6B5896DAA5BCAA80E3D95AED3D766E22B7`.
+- Contents: German cumulative targeted Paper 17 footnote-continuity repair after RA76. It includes the RA77 German cumulative TeX/PDF/log candidate, RA76-to-RA77 diff, applied-fixes CSV, no-fix traps, footnote-anchor inventory, rendered-text verification, source Paper 17 PDF, source p.25 PDF, 1000dpi labelled formula (39) witness crop, README, build summary, and checksums.
+- Key fixes: restores the full source title including `Differential- und Differenzenausdrücken`; replaces an artificial duplicate Paper 17 split header before Section 5 with a continuation note; corrects the Section 5 continuation footnote counter so the first continuation note renders as 13; and makes formula (39) source footnote markers 21 and 22 explicit before resetting the counter to 22. Local pdfinfo reports a 398-page A4 candidate PDF, same page count as RA76.
+- Sense-check caveats: targeted footnote-counter/rendering repair only. It is not full Paper 17 source certification, not whole-corpus source closure, not a critical edition, not a Paper 34 continuation-block fix, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-14: Noether RA76 structural duplicate fix for Papers 40-43
 
 Manifest: [20260614_noether_ra76_structural_duplicate_fix_p40_p43.json](../manifests/pending-zenodo-uploads/20260614_noether_ra76_structural_duplicate_fix_p40_p43.json)
