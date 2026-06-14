@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA78 Paper 14-16 footnote resets
+
+Manifest: [20260614_noether_ra78_p14_p15_p16_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra78_p14_p15_p16_footnote_resets.json)
+
+- Noether: `Noether_RA78_P14_P15_P16_FootnoteResets_WebDrop_20260614.zip`, 7.3596 MB, SHA256 `A8D28B2C607DD6D1BAF240A44E31BE01E3DC5E0F60D20070470D8DA8C6E28191`.
+- Contents: German cumulative targeted Paper 14-16 footnote reset repair after RA77. It includes the RA78 German cumulative TeX/PDF/log candidate, RA77-to-RA78 diff, source PDFs for Papers 14, 15, and 16, extracted candidate text, generated README, and checksums.
+- Key fixes: adds `\clearpage` plus `\setcounter{footnote}{0}` before Papers 14, 15, and 16 so ordinary source footnotes start cleanly for those papers instead of inheriting cumulative numbering. Local pdfinfo reports a 398-page A4 candidate PDF.
+- Sense-check caveats: targeted page-boundary/footnote-counter repair only. It is not full Paper 14, Paper 15, or Paper 16 source certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-14: Noether RA77 Paper 17 footnote-continuity repair
 
 Manifest: [20260614_noether_ra77_p17_footnote_continuity.json](../manifests/pending-zenodo-uploads/20260614_noether_ra77_p17_footnote_continuity.json)
