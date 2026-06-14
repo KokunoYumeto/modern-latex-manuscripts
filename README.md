@@ -55,6 +55,8 @@ Latest Noether source/provenance staging 2026-06-14 also adds `Noether_P33_IA_So
 
 Latest Noether source-audit staging 2026-06-14 also adds `Noether_P33_RA75_Bologna_SourceText_WebDrop_20260614.zip`. RA75 is a targeted German Paper 33 Bologna source-text repair candidate: it replaces a mismatched active Paper 33 block with the Bologna congress text, restores the Bologna author/title block, resets Paper 33 footnotes, inserts the article boundary, and preserves/adjusts the two source matrix displays. Its own open-items ledger still requests a further visual pass before Paper 33 certification and explicitly does not audit Paper 34. It is not a critical edition and not propagated to other languages.
 
+Latest Noether source/provenance staging 2026-06-14 also adds `Noether_P34_GDZ_SourceWitness_WebDrop_20260614.zip`. This is a GDZ/EuDML source-navigation witness for Paper 34, `Hyperkomplexe Größen und Darstellungstheorie`, printed pp.641-692, with full-page GDZ images, IIIF metadata, page/canvas maps, a convenience source-witness PDF, and checksums. It should replace the weaker local three-part p34a/p34b/p34c scan slices as the Paper 34 source witness, but its roughly 400 ppi images are below the 650 dpi crop-certification rule; it is not corrected TeX, not dense-math certification, not a critical edition, and not propagated to other languages.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |
