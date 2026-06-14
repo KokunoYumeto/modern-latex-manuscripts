@@ -668,7 +668,7 @@ Next action when Zenodo API credentials are available: create a new Noether Zeno
 Manifest: [20260613_gordan_abelsche_finalauditfix02.json](../manifests/pending-zenodo-uploads/20260613_gordan_abelsche_finalauditfix02.json)
 
 - Gordan / Clebsch-Gordan: `Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip`, 45.8149 MB, SHA256 `DA48DEA62A420AC5078605B752817692C30F21DD129B0694EAC9BEDC33F54C4A`.
-- Contents: German/English source-witnessed auditfix package for the final `Theorie der Abelschen Functionen` tranche, with current and cumulative TeX/PDF through source p355, source witnesses through p362, crops, render checks, ledgers, and a FIX02 notation correction from `n_k^{(h)}` to source-visible `w_k^{(h)}` in §91's composed-period family.
+- Contents: German/English source-witnessed auditfix package for the final `Theorie der Abelschen Functionen` tranche, with current and cumulative TeX/PDF through source p355, source witnesses through p362, crops, render checks, and ledgers. The package includes the FIX01 full-symbol repairs (`w`/`v` family, `\sigma_i'`, `\sigma_h\omega_h`, and `v_i` / `\Theta(v,b)` simple-transformation readings) plus the FIX02 notation correction from `n_k^{(h)}` to source-visible `w_k^{(h)}` in §91's composed-period family.
 
 Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the already pending `De linea` ZIP if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
