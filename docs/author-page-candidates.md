@@ -18,7 +18,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Ernst Steinitz | Package-audited German/English working packets now have a dedicated record, covering 1910 fields, 1913/1914 Bedingt material, and strict early works, with later gaps explicitly labelled. |
 | James Joseph Sylvester | Volume I now has a dedicated source-checked working-edition record through book page 608. |
 | James Clerk Maxwell | `A Treatise on Electricity and Magnetism`, Volume I now has a dedicated source-witnessed working-tranche record for IA 1873 first-edition pp.001-059, with p.059 register/index closeout and pp.060-079 continuation staged locally for the next upload, plus earlier ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267. |
-| J. Willard Gibbs / old physics | Gibbs Volume I old-physics working tranches through printed page 124 now have a dedicated record. |
+| J. Willard Gibbs / old physics | Gibbs Volume I old-physics public working tranches through printed page 124 now have a dedicated record; local pending p125-134 extends Paper 3 cumulative staging to p134. |
 
 ## Strong Split Candidates
 

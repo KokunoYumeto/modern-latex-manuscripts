@@ -2,6 +2,36 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Gibbs Volume I Paper 3 pp.125-134 continuation
+
+Manifest: [20260614_gibbs_v1_p125_134.json](../manifests/pending-zenodo-uploads/20260614_gibbs_v1_p125_134.json)
+
+- Gibbs / old physics: `GibbsV1_P3_p125_134.zip`, 9.6451 MB, SHA256 `369A9C078C4FF896B826A179853DAF04653BD6F0F98A9E3C5D84655565D48A5A`.
+- Contents: source-scan-backed working continuation for J. Willard Gibbs, `The Scientific Papers`, Volume I, Paper 3, `On the Equilibrium of Heterogeneous Substances`, printed pp.125-134, plus a cumulative Paper 3 TeX/PDF/source-scan surface for pp.055-134. The package includes installment and cumulative TeX/PDF/scan files, formula inventories, table inventories, scan maps, unit JSONL, compile QC, repair log, notation notes, method notes, and SHA256 manifest.
+- Sense-check caveats: compile QC reports both the p125-134 installment and pp.055-134 cumulative with zero overfull and zero underfull boxes. The repair log records a formulas-ledger rebuild for pp.115-124 because equations 191-198 were present in TeX/PDF but absent from the prior CSV, and p125-134 figure/layout repairs for Figs. 7 and 9 plus source-style asterisk footnote markers. This is a working tranche, not a complete Gibbs corpus or critical edition; the package notes that the separate `Onequilibriumhe00GibbA` witness does not cover collected pp.125-134, so the current scan baseline remains the collected-volume IA 400 ppi page-image PDF until raw Vol. I JP2 witness material is available.
+
+Next action when Zenodo API credentials are available: create a new Gibbs old-physics Zenodo version, upload this ZIP and update the reader-facing Gibbs surface from pp.001-124 to pp.001-134 / Paper 3 pp.055-134 as appropriate, then regenerate the public file catalog, record page, status docs, and metadata.
+
+## 2026-06-14: Weber B139 merged equation-tag heuristic fix
+
+Manifest: [20260614_weber_b139_heuristic_fix.json](../manifests/pending-zenodo-uploads/20260614_weber_b139_heuristic_fix.json)
+
+- Weber: `Weber_B139_heuristic_fix.zip`, 16.4926 MB, SHA256 `77F725864C181EF2D77161B7CCF558412CE5A890D85183310C67E61D5BB37596`.
+- Contents: focused off-ledger repair for Weber, `Lehrbuch der Algebra`, Volume II English section 49. B139 fixes a merged display tag where equations (5) and (6) had been collapsed into one display tagged `5--6`; German section 49 and the source scan split them, so the English cumulative and direct §49 slice now split them into source-aligned equations (5) and (6). The package includes patched German/English §49 slices, cumulative Volume II TeX/PDF, section 49 source scan slice/renders for pp.189-190, render checks, page ledger, heuristic scan/logbook, manifest, and SHA256 sums.
+- Sense-check caveats: this is a working/source-witnessed repair-ledger package, not a certified critical edition. The active 112-row ledger remains 112/112 closed from Batch137. B139 adds a recursive rule to scan cumulative TeX for `\tag{m--n}` and treat each hit as a source-check target; remaining range tags in Volume I/III are logged as off-ledger targets rather than changed without source confirmation.
+
+Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with Batch137 and Batch138 as appropriate, publish, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs. Keep Batch137 as the active-ledger closure package, Batch138 as the control-character fix, and B139 as the merged-tag heuristic fix unless later packages supersede them.
+
+## 2026-06-14: SGA repair031 compact French-output refresh
+
+Manifest: [20260614_sga_repair031.json](../manifests/pending-zenodo-uploads/20260614_sga_repair031.json)
+
+- SGA: `sga5_sga6_repair031_cumulative_20260613.zip`, 4.0467 MB, SHA256 `3F78837ADA5A0BBDB3D8B38E8527F86A2F5846207431760D2290B55C3E5E809A`.
+- Contents: compact cumulative SGA5/SGA6 French-output refresh containing SGA5/cumulative/fr/sga5_fr.{tex,pdf}, SGA6/cumulative/fr/sga6_fr.{tex,pdf}, and README.md. Package README says: SGA5/SGA6 repair031 cumulative: canonical French TeX/PDF only. SGA5 patched; SGA6 carried forward unchanged.
+- Sense-check caveats: this compact branch does not include the source-index-expanded audit PDF or page map from repair025. SGA5 English remains unsynchronized. SGA6 and SGA7 retain the existing compression/source-check caveats unless a later package narrows them. Do not describe repair031 as a complete source-indexed SGA audit or critical edition. This supersedes the older locally queued repair030 compact-output branch unless upload policy deliberately keeps both.
+
+Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP instead of or after the older pending repair030 as the newest compact French-output refresh, publish, then update record id/catalog/docs/metadata. Keep repair025 preserved as the relevant source-indexed SGA5 audit provenance.
+
 ## 2026-06-14: Maxwell missing IA/source/OCR supplements
 
 Manifest: [20260614_maxwell_missing_source_supplements.json](../manifests/pending-zenodo-uploads/20260614_maxwell_missing_source_supplements.json)
@@ -489,12 +519,13 @@ Manifest: [20260613_weber_batch136.json](../manifests/pending-zenodo-uploads/202
 
 Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with earlier pending Weber Batch134 if still wanted, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
-## 2026-06-13: SGA repair030
+## 2026-06-13: SGA repair030 (superseded locally by repair031)
 
 Manifest: [20260613_sga_repair030.json](../manifests/pending-zenodo-uploads/20260613_sga_repair030.json)
 
 - SGA: `sga5_sga6_repair030_cumulative_20260613.zip`, 4.0404 MB, SHA256 `D41EEF7D04AD1AA450EC2730598DC03102E9215E794FFC819394818E073EF9A1`.
 - Contents: compact SGA5/SGA6 cumulative French-output refresh containing SGA5/SGA6 cumulative French TeX/PDF only. README explicitly says it contains no source-index-expanded audit PDFs. A duplicate copy was found in the Noether Multilingual folder with the same SHA256; the SGA continuation copy is the canonical route.
+- Supersession note: `sga5_sga6_repair031_cumulative_20260613.zip` is now the newer locally staged compact French-output branch and should be preferred unless upload policy deliberately keeps both repair030 and repair031.
 
 Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP together with earlier pending repair029 if still wanted, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
