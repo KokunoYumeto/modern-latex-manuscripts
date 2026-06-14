@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P12/P13 RA48 targeted source-critical candidate
+
+Manifest: [20260614_noether_p12_p13_ra48_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p12_p13_ra48_sourcecritical_candidate.json)
+
+- Noether: `Noether_P12_P13_GDZ_RA48_SourceCritical_Fix_WebDrop_20260614.zip`, 19.8096 MB, SHA256 `59FDD86F6E479FE6E375B7DAF8C05361BA5010CB0B1F66947764E7B12586BCEE`.
+- Contents: targeted German cumulative source-critical candidate applying earlier P12/P13 GDZ audit findings to a reversible TeX branch. It includes a compiled German cumulative candidate TeX/PDF/log, RA47-to-RA48 P12/P13 TeX diff, applied-fix ledger, no-fix trap ledger, P12/P13 audit CSVs and patch suggestions, GDZ source provenance/page maps, image-dimension manifests, source-quality notes, checksums, and labelled 1000ppi GDZ witness crops.
+- Key fixes: Paper 12 restores the author line and corrects `f(x;dx)`, `d\delta x`, and barred-delta identity locations; Paper 13 restores the Klein dedication and author line, source spelling `endgiltige`, the Lie citation bracket, a derivative-index display, and the dense Klein/Einstein formula (30).
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It does not include non-German propagation, is targeted to listed defects only, does not certify Papers 12/13 globally, and must be reconciled with the separate Paper 06 RA48 tail candidate before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P12/P13 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether RA48 Paper 06 pp.191-196 tail source-critical candidate
 
 Manifest: [20260614_noether_ra48_p06_p191_196_tail.json](../manifests/pending-zenodo-uploads/20260614_noether_ra48_p06_p191_196_tail.json)
