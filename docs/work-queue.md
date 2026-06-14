@@ -2,6 +2,8 @@
 
 This page turns the current archive gaps into concrete contribution targets. It is intentionally practical: pick a row, open the linked record, compare against source witnesses, and submit a narrow correction or continuation.
 
+Latest Noether staging note 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip` and `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip` are now queued as targeted German source-critical candidate repairs. P14 RA55 repairs source-confirmed symbol/index loci on printed pp.190, 198, and 200; P15 RA54 repairs the printed p.152 Latin-`x` index block and printed p.154 Schur `S. 355` citation. They still need branch reconciliation and multilingual propagation before any unified Noether branch is promoted.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |

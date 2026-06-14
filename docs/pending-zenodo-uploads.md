@@ -2,6 +2,28 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P14 RA55 targeted source-critical candidate
+
+Manifest: [20260614_noether_p14_ra55_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p14_ra55_sourcecritical_candidate.json)
+
+- Noether: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip`, 27.1012 MB, SHA256 `D38A8AC2C72E020BB39DF320545A2A287C6583145E8975CAB7625A6736AB49EA`.
+- Contents: targeted German cumulative source-critical candidate applying three source-confirmed Paper 14 symbol/index repairs to the RA47 German cumulative base. It includes compiled German cumulative RA55 candidate TeX/PDF/log, applied-fix CSV, prior checked/no-fix anchors, source cutout for Journal DMV 1919 printed pp.182-203, 1000dpi labelled witness images, build summary, provenance, and checksums.
+- Key fixes: printed p.190/source PDF p.9 changes `mod. (z-\alpha)` to source `mod. (z-c)` in the line-factorization sentence; printed p.198/source PDF p.17 changes the ideal factorization exponent/index family from `e_1...e_\rho` to source `\rho_1...\rho_\sigma`; printed p.200/source PDF p.19 changes polygon exponents from `\nu,\nu'` to source `\rho,\sigma`.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It supersedes the earlier unpatched Paper 14 audit-result note for these three loci, but it is still targeted repair evidence, not full Paper 14 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P15 RA54, P16 RA53, P17 RA52, P18 RA51, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P14 applied-fix evidence, not as a critical edition or full source closure.
+
+## 2026-06-14: Noether P15 RA54 targeted source-critical candidate
+
+Manifest: [20260614_noether_p15_ra54_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p15_ra54_sourcecritical_candidate.json)
+
+- Noether: `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip`, 18.6311 MB, SHA256 `047DD6F4C8D18F5C94EFF671DA21FC453CBC99DEED992736F2B153124AD9275F`.
+- Contents: targeted German cumulative source-critical candidate promoting two source-confirmed Paper 15 corrections into the RA47 German cumulative base. It includes compiled German cumulative RA54 candidate TeX/PDF/log, RA47-to-RA54 P15 diff, Goettinger Nachrichten 1919 source cutout pp.138-156, 1000dpi labelled witness images, applied-fix CSV, no-fix anchors/traps, source mapping reference, build summary, and checksums.
+- Key fixes: printed p.152/source PDF p.15 changes Greek `\chi` index readings to source Latin `x` symbols in the normalization block around formulas (11)-(13); printed p.154/source PDF p.17 changes the Schur citation from `S. 555 (1912)` to source `S. 355 (1912)`.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is targeted repair evidence, not full Paper 15 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P14 RA55, P16 RA53, P17 RA52, P18 RA51, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P15 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether P16 RA53 targeted source-critical candidate
 
 Manifest: [20260614_noether_p16_ra53_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p16_ra53_sourcecritical_candidate.json)
