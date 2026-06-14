@@ -13,6 +13,17 @@ Manifest: [20260614_noether_p31_ra73_source_header_footnote_counter.json](../man
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA73 with the other Noether candidate branches before promotion or multilingual propagation.
 
+## 2026-06-14: Noether P32 RA74 source-author-block / page-break repair candidate
+
+Manifest: [20260614_noether_p32_ra74_source_author_block.json](../manifests/pending-zenodo-uploads/20260614_noether_p32_ra74_source_author_block.json)
+
+- Noether: `Noether_P32_RA74_SourceAuthorBlock_WebDrop_20260614.zip`, 72.2577 MB, SHA256 `14C4A69F2C8134A1D005D392B7ED712B7CBF19D255DD9A011CB24175D5C3110E`.
+- Contents: narrow German cumulative source-author-block/page-break repair candidate for Noether/Brauer Paper 32, `Über minimale Zerfällungskörper irreduzibler Darstellungen`, `Sitzungsberichte der Preussischen Akademie der Wissenschaften` 1927, printed pp.221-228. It includes cumulative TeX/PDF/log, RA73-to-RA74 diff, IA/scandata source mapping, extracted JP2/JPG source leaves, JP2-derived article source PDF, labelled 1200dpi inspection crops, audit/provenance CSVs, method note, README, and checksums.
+- Key fix: inserts `\clearpage` before Paper 32, restores the source author block `Von Privatdozent Dr. Richard Brauer` / `in Königsberg` / `und Prof. Dr. Emmy Noether` / `in Göttingen.`, and keeps the existing Schur presentation note below the restored author block. The Paper 32 footnote reset already existed in RA73 and was not duplicated. No body prose or mathematical content changed. XeLaTeX compiled successfully twice.
+- Sense-check caveats: targeted German source-apparatus/front-matter repair candidate only. It is not full Paper 32 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA74 with the other Noether candidate branches before promotion or multilingual propagation.
+
 ## 2026-06-14: Noether P32 IA source witness pp.221-228
 
 Manifest: [20260614_noether_p32_ia_source_witness_pp221_228.json](../manifests/pending-zenodo-uploads/20260614_noether_p32_ia_source_witness_pp221_228.json)
