@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA81 Paper 38 footnote reset
+
+Manifest: [20260614_noether_ra81_p38_footnote_reset.json](../manifests/pending-zenodo-uploads/20260614_noether_ra81_p38_footnote_reset.json)
+
+- Noether: `Noether_RA81_P38_FootnoteReset_WebDrop_20260614.zip`, 43.4563 MB, SHA256 `3E4DE4E42C3BB7C2EDBAA4D202853F25B566DF1F05B070AFD5236E10BC1F8ED6`.
+- Contents: German cumulative targeted Paper 38 footnote reset repair after RA80. It includes the RA81 German cumulative TeX/PDF/TXT candidate, RA80-to-RA81 reversible diff, GDZ/JRAM 167 source witness material for printed pp.399-404, fix ledger, rendered footnote verification, build summary, README, and checksums.
+- Key fix: inserts `\setcounter{footnote}{0}` after the Paper 37 clearpage and before the Paper 38 heading. The package reports RA80 rendered the Paper 38 opening note pair as 13/14; RA81 renders them as 1/2, with the next Hasse source note as 3.
+- Sense-check caveats: targeted footnote-counter repair only. Package metadata says prose, formulas, tables, diagrams, and bibliography content were not changed. Source images are 600 ppi, below the dense-math certification threshold. It is not full Paper 38 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches. Papers 39-42 remain a separate article-boundary counter audit queue.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA81 with later German branches before non-German propagation.
+
 ## 2026-06-14: Noether RA80 Paper 02-05 footnote resets
 
 Manifest: [20260614_noether_ra80_p02_p05_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra80_p02_p05_footnote_resets.json)
