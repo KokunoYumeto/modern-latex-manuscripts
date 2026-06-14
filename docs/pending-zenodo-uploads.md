@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P08 RA66 p100 Omega-note micro-audit/no-patch trap
+
+Manifest: [20260614_noether_p08_ra66_p100_omega_microaudit.json](../manifests/pending-zenodo-uploads/20260614_noether_p08_ra66_p100_omega_microaudit.json)
+
+- Noether: `Noether_P08_RA66_P100_Omega_MicroAudit_WebDrop_20260614.zip`, 3.0791 MB, SHA256 `9D7E50479E527C2C6499CD008FF8F6A1191FB70E69E6D34174239793A9B4623E`.
+- Contents: compact Paper 08 printed p.100 Omega-note micro-audit package. It includes 1000dpi source-window crops, the current RA64 TeX anchor snippet, micro-audit CSV, no-new-patch trap CSV, source-witness manifest, checksums, method note, and README.
+- Sense-check caveats: this package deliberately produces no patched TeX file. The previously uncertain right-edge material in the dense Omega-note formula resolves in the 1000dpi slices as the continuation and closing of the existing `[z(...)]^{p-1}` bracket followed by `g(lambda;xi,eta)`, not a missing separate factor. This is not full Paper 08 certification, not whole-corpus source closure, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Carry the right-edge bracket/factor finding as a no-patch trap during branch reconciliation and future language propagation.
+
 ## 2026-06-14: Noether P02 RA65 final consolidation audit/no-patch trap
 
 Manifest: [20260614_noether_p02_ra65_final_consolidation_audit.json](../manifests/pending-zenodo-uploads/20260614_noether_p02_ra65_final_consolidation_audit.json)
