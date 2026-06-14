@@ -56,6 +56,12 @@ Latest Noether source/page-map note 2026-06-14: `Noether_P05_OfficialGDZ_SourceB
 
 Latest Noether coordination note 2026-06-14: `Noether_RA83_CurrentCoverage_GapLedger_WebDrop_20260614.zip` is queued as a compact coverage/gap ledger. Use it to avoid duplicate source-audit work and to plan branch reconciliation across Papers 09-23; audit the reported three top-level Paper 34 headings before treating the RA83 structure as clean. It contains no TeX changes or source images.
 
+Latest Noether source/page-map note 2026-06-14: `Noether_P26_P27_P28_CleanShortAbstractSources_WebDrop_20260614.zip` is queued as clean source/provenance support for Papers 26-28. Use it as page-map evidence for future P26-P28 source comparison, while remembering that it contains no corrected TeX/translation and its 600 ppi GDZ images are below dense-certification thresholds.
+
+Latest Noether coordination note 2026-06-14: `Noether_RA84_P40_P43_RA10_ApparatusPlacement_Audit_WebDrop_20260614.zip` is queued as a no-TeX-change audit for the RA10 apparatus appendix after Papers 40-43. Use it as a branch-reconciliation blocker: map apparatus inline after source checking or keep it as an explicit appendix, but do not delete or certify it blindly.
+
+Latest Noether structural note 2026-06-14: `Noether_RA85_P09_P15_SectionAnchors_WebDrop_20260614.zip` is queued as a German cumulative section-anchor repair candidate. It restores top-level numbered anchors for Papers 9, 10, 11, 12, 13, and 15 without changing body content; reconcile it with later German source-audit branches before any promoted cumulative or multilingual propagation.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |

@@ -2,6 +2,36 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA85 Papers 09-15 section anchors
+
+Manifest: [20260614_noether_ra85_p09_p15_section_anchors.json](../manifests/pending-zenodo-uploads/20260614_noether_ra85_p09_p15_section_anchors.json)
+
+- Noether: `Noether_RA85_P09_P15_SectionAnchors_WebDrop_20260614.zip`, 2.376 MB, SHA256 `D046EBBBEFDE17343C88429173CC6FA63EAE0C821985E3129439D8D2D25E5ED1`.
+- Contents: German cumulative structural-anchor repair candidate after RA83. It adds missing top-level numbered `\section*{...}` anchors before already-present source title blocks for Papers 9, 10, 11, 12, 13, and 15. Paper 14 and Paper 16 already had top-level numbered anchors. XeLaTeX pass 1 and pass 2 succeeded; the package reports a 400-page German cumulative PDF.
+- Sense-check caveats: navigation/inventory repair only. It changes no source prose, mathematical content, tables, diagrams, or footnotes. It does not certify dense math, diagrams, tables, or source fidelity and is not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA85 with later German source-audit branches before reader promotion or multilingual propagation.
+
+## 2026-06-14: Noether RA84 P40-P43 RA10 apparatus-placement audit
+
+Manifest: [20260614_noether_ra84_p40_p43_apparatus_audit.json](../manifests/pending-zenodo-uploads/20260614_noether_ra84_p40_p43_apparatus_audit.json)
+
+- Noether: `Noether_RA84_P40_P43_RA10_ApparatusPlacement_Audit_WebDrop_20260614.zip`, 0.0134 MB, SHA256 `60453E5C1A75019C1D69B232A1BE7948BF78AFBC01D77B98309D530AEB2E6608`.
+- Contents: compact audit/coordination package only. It records that RA83 still carries a top-level appended `RA10: scan-sichtbarer Apparat zu den Arbeiten 40--43` section after Paper 43, and that RA10's own notes did not claim full inline apparatus resynchronization for Papers 40-43.
+- Sense-check caveats: no TeX changes. Do not blindly delete the appendix, because it may contain source-visible apparatus; do not blindly certify it, because an appended apparatus is not an inline source-critical state. Current P40/P41 and RA10 source witnesses are below the 650/1000 dpi dense-certification threshold.
+
+Next action when Zenodo API credentials are available: upload as a coordination/audit packet if retained. Use it to drive inline source placement or explicit audit-appendix handling for Papers 40-43.
+
+## 2026-06-14: Noether Papers 26-28 clean short-source witnesses
+
+Manifest: [20260614_noether_p26_p27_p28_clean_short_sources.json](../manifests/pending-zenodo-uploads/20260614_noether_p26_p27_p28_clean_short_sources.json)
+
+- Noether: `Noether_P26_P27_P28_CleanShortAbstractSources_WebDrop_20260614.zip`, 8.0341 MB, SHA256 `1F6EE1731BD5EA279FC4F0E25AC961FF28874D5D4AAD301CF148F31489FE8FC1`.
+- Contents: source/page-map provenance support for the short DMV/JDMV report entries Papers 26-28. It includes the visually selected correct GDZ pages for P26 JDMV 33 (1924) printed p.102 canvas 000367, P27 JDMV 34 (1925) printed p.101 canvas 000358, and P28 JDMV 34 (1925) printed p.144 canvas 000401, while recording duplicate/false printed-page candidates that were excluded.
+- Sense-check caveats: source/provenance support only. No TeX changes and no translations. The selected GDZ images report 600 ppi, below the project 650 dpi source-checking floor and below the 1000 dpi dense-math floor. It is not Paper 26/27/28 certification, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then use as page-map evidence for later Paper 26-28 source audits.
+
 ## 2026-06-14: Noether RA83 Paper 23 footnote reset
 
 Manifest: [20260614_noether_ra83_p23_footnote_reset.json](../manifests/pending-zenodo-uploads/20260614_noether_ra83_p23_footnote_reset.json)
