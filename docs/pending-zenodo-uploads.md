@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P02 RA65 final consolidation audit/no-patch trap
+
+Manifest: [20260614_noether_p02_ra65_final_consolidation_audit.json](../manifests/pending-zenodo-uploads/20260614_noether_p02_ra65_final_consolidation_audit.json)
+
+- Noether: `Noether_P02_RA65_FinalConsolidation_Audit_WebDrop_20260614.zip`, 0.3394 MB, SHA256 `10BF8E4A1E849807CC00C5CBE9843C1414C563071F009072710A7199D80BF975`.
+- Contents: compact German Paper 02 final-consolidation audit/drop package against the RA64 base. It includes tag inventory, environment-balance CSV, prior Table I/Table II propagation checks, nu/v rebase checks, no-new-patch traps, source-witness manifest, checksums, method note, README, and one 1000dpi inspection slice for printed p.66.
+- Sense-check caveats: this package deliberately produces no patched TeX file. The remaining concrete suspicion was that a body display `L_j^2` near Section 14 / System III might be contamination from the separate Table I row-10 repair. The source slice confirms `L_j` on the first display row and `L_j^2` on the second display row, so the action is no patch. This is not full Paper 02 certification, not whole-corpus source closure, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Carry the `L_j`/`L_j^2` finding as a no-patch trap during branch reconciliation and future language propagation.
+
 ## 2026-06-14: Noether P04 RA64 source-critical heading-footnote repair
 
 Manifest: [20260614_noether_p04_ra64_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p04_ra64_sourcecritical_candidate.json)
