@@ -2,6 +2,22 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Maxwell missing IA/source/OCR supplements
+
+Manifest: [20260614_maxwell_missing_source_supplements.json](../manifests/pending-zenodo-uploads/20260614_maxwell_missing_source_supplements.json)
+
+- Maxwell source/provenance supplements:
+  - `Maxwell_WebPromo_MISSING_IA_500ppi_JP2_remaining_not_pp001_059_leaf0001_0344_chunk01of02.zip`, 428.84 MB, SHA256 `CB7A1124D934E8090D7B386E53C77E5838D34A2BFCD07B33D4DAACA264B33097`.
+  - `Maxwell_WebPromo_MISSING_IA_500ppi_JP2_remaining_not_pp001_059_leaf0345_0505_chunk02of02.zip`, 240.69 MB, SHA256 `7664C48F0C0E232BC0EC3CAD9438F178207D40FB2FDCA3F4EE7067800A738B15`.
+  - `Maxwell_WebPromo_MISSING_IA_raw_JP2_remaining_not_pp001_059_leaf0001_0273_chunk01of03.zip`, 429.85 MB, SHA256 `32A7E75AC82BCBDE7B032A2734F72F77F5C3A38A2B58A80B215ED01EDBDA6F8D`.
+  - `Maxwell_WebPromo_MISSING_IA_raw_JP2_remaining_not_pp001_059_leaf0274_0487_chunk02of03.zip`, 429.89 MB, SHA256 `AFA287AD04ABDAD97CEC57EE63043D15AED84C325DCA245FF4C37B54CAD9A241`.
+  - `Maxwell_WebPromo_MISSING_IA_raw_JP2_remaining_not_pp001_059_leaf0488_0505_chunk03of03.zip`, 34.07 MB, SHA256 `54413AB8F749D873B58702772D8A6B208674B7CE4E85955DEAA35B8800C32727`.
+  - `Maxwell_WebPromo_MISSING_Metadata_PDF_OCR_Witnesses.zip`, 177.32 MB, SHA256 `20393242F36EF0EF0B0AC98991AB20F56BF76B0B04D1282FF8720FA1BBD0548F`.
+- Contents: IA 500ppi and raw JP2 source leaves not already included in the pp.001-059 handoff, plus metadata/PDF/OCR witnesses, scandata/XML, pp.001-059 convenience source PDF, and DLI Vol. I PDF witnesses.
+- Sense-check caveats: these are source/provenance supplements, not reader PDFs, not new TeX coverage, and not a critical edition. OCR/XML/PDF text witnesses are locator/provenance layers only. The promoted Maxwell TeX coverage remains governed by the separately staged pp.001-059 and pp.060-079 working-tranche packages.
+
+Next action when Zenodo API credentials are available: decide whether these large source supplements belong on the dedicated Maxwell record or on the main raw/provenance landing record, upload the selected ZIPs, regenerate the public file catalog and record pages, and keep them labelled as source/provenance supplements.
+
 ## 2026-06-14: Noether P21 RA59 targeted source-critical candidate
 
 Manifest: [20260614_noether_p21_ra59_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p21_ra59_sourcecritical_candidate.json)
