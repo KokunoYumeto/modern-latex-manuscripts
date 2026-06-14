@@ -6,6 +6,8 @@ Latest Noether staging note 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_Web
 
 Latest Noether staging note 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is also queued as a targeted German source-critical candidate. It promotes existing GDZ source-audit findings for Papers 09-11 into a compiled RA47-based cumulative candidate; reconcile it with the other pending RA branches before any non-German propagation.
 
+Latest Noether staging note 2026-06-14: `Noether_P03_RA57_SourceCritical_Fix_WebDrop_20260614.zip` is queued as a targeted German source-critical candidate. It applies the Paper 03 source-confirmed `Variabeln` title spelling, restores the source-visible author line, and changes formula (2) from strict inequality to source `\rho=\sum_i\rho_i\le n`; it also closes the older Paper 05 RA42 title-footnote row as stale in the current base. Reconcile it with the other pending RA branches before promotion or multilingual propagation.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
