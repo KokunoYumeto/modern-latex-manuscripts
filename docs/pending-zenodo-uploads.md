@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P18 RA51 targeted source-critical candidate
+
+Manifest: [20260614_noether_p18_ra51_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p18_ra51_sourcecritical_candidate.json)
+
+- Noether: `Noether_P18_RA51_SourceCritical_Fix_WebDrop_20260614.zip`, 4.7636 MB, SHA256 `F53F177A12EEF7B7F8264AEA2718071300EE7DC0469331089F43BF839846015C`.
+- Contents: targeted German cumulative source-critical candidate applying the source-confirmed Paper 18 resultant-display correction to a reversible TeX branch. It includes a compiled German cumulative RA51 candidate TeX/PDF/log, RA47-to-RA51 P18 TeX diff, single-page source PDF for source p.101, labelled 1000dpi witness crops for the resultant display, the input audit finding, checked no-fix anchors, and source mapping.
+- Key fix: changes the endpoint relation in the resultant display from `R^{(n)}(x_n)=0(\mathfrak M)` to source `R^{(n)}(x_n)\equiv0(\mathfrak M)`, while preserving the already-correct final factor `R^{(n)}(x_n)`.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted Paper 18 display correction, not full Paper 18 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P18 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether P19 RA50 targeted source-critical candidate
 
 Manifest: [20260614_noether_p19_ra50_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p19_ra50_sourcecritical_candidate.json)
