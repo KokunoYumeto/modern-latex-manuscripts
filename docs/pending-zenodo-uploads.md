@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA58 compact source-critical roll-up candidate
+
+Manifest: [20260614_noether_ra58_sourcecritical_rollup_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_ra58_sourcecritical_rollup_candidate.json)
+
+- Noether: `Noether_RA58_SourceCritical_Rollup_WebDrop_20260614.zip`, 6.2482 MB, SHA256 `B5CA4D9EEA7E6C3D5C643247E538CD97099EB2BF7D920B9FC89824CE228E546C`.
+- Contents: compact German cumulative source-critical roll-up candidate consolidating the already source-confirmed RA48 through RA57 repair packages into one compiled German TeX/PDF branch. It includes the RA58 cumulative German TeX/PDF/log, RA57-to-RA58 roll-up diff, RA47-to-RA58 all-known-source-critical diff, diff-application ledger, applied-source ledger, validation checks, caveats, build summary, provenance, and checksums.
+- Applied source packages: P06 pp.191-196 RA48; P07/P08 refined source-critical branch; P12/P13 RA48; P14 RA55; P15 RA54; P16 RA53; P17 RA52; P18 RA51; P19 RA50; and P20 RA49. The candidate is based on the RA57 Paper 03 branch, so the Paper 03 RA57 repairs remain part of the roll-up context.
+- Sense-check caveats: this is the preferred compact pending German roll-up candidate, but it is still a targeted repair consolidation, not a fresh page-by-page certification of the Noether corpus, not a critical edition, and not multilingual propagation. P08 still carries an exact-symbol micro-audit caveat, and the high-resolution witnesses/crops remain in the individual paper packages.
+
+Next action when Zenodo API credentials are available: upload this with the next Noether source-audit/provenance Zenodo version while retaining the individual RA packages as witness/provenance layers, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as a compact German roll-up candidate only; synchronize fixes to EN/ES/JA/FR/ZH/UK/RU/ISV through separate language-branch audits.
+
 ## 2026-06-14: Noether P03 RA57 targeted source-critical candidate
 
 Manifest: [20260614_noether_p03_ra57_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p03_ra57_sourcecritical_candidate.json)
