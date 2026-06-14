@@ -2,6 +2,18 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether Paper 39-41 source witness packets
+
+Manifests: [P39 ICM1932 source witness](../manifests/pending-zenodo-uploads/20260614_noether_p39_icm1932_source_witness.json), [P40 GDZ MathZ37 source witness](../manifests/pending-zenodo-uploads/20260614_noether_p40_gdz_mathz37_source_witness.json), [P41 GDZ MathAnn108 source witness](../manifests/pending-zenodo-uploads/20260614_noether_p41_gdz_mathann108_source_witness.json)
+
+- Noether: `Noether_P39_ICM1932_SourceWitness_WebDrop_20260614.zip`, 47.8178 MB, SHA256 `A66B41F14956B2B5CA5F3CA715AE26D2228191614EEEDD1A247937C4C7161A07`.
+- Noether: `Noether_P40_GDZ_MathZ37_SourceWitness_WebDrop_20260614.zip`, 38.407 MB, SHA256 `D52CC52071FA5CA4BF4C27FD1F22AEF88C751084BBCA27C40BD5F7ADC46D2BAB`.
+- Noether: `Noether_P41_GDZ_MathAnn108_SourceWitness_WebDrop_20260614.zip`, 12.7791 MB, SHA256 `5433841A70CEBBA69B2986174E3A994EE06B0DC9F3902CBAD03620516D042B5D`.
+- Contents: P39 contains local ICM 1932 PDF witnesses, official cutout/page-split helpers, and OCR locator text for printed pp.189-194. P40 contains GDZ/IIIF manifest, page/canvas map, full-resolution GDZ page images, and metadata for `Nichtkommutative Algebren`, printed pp.515-542. P41 contains GDZ/IIIF manifest, page/canvas map, full-resolution GDZ page images, and PDF/source metadata witnesses for `Der Hauptgeschlechtssatz`, printed pp.411-419.
+- Sense-check caveats: source/provenance and locator/page-map material only. These are not corrected TeX, not translations, not Paper 39/40/41 source certification, not dense-math certification, not critical editions, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use as source-witness input for later Paper 39-41 comparison, not as promoted text.
+
 ## 2026-06-14: Noether RA81 Paper 38 footnote reset
 
 Manifest: [20260614_noether_ra81_p38_footnote_reset.json](../manifests/pending-zenodo-uploads/20260614_noether_ra81_p38_footnote_reset.json)

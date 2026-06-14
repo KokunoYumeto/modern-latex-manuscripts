@@ -44,6 +44,8 @@ Latest Noether staging note 2026-06-14: `Noether_RA80_P02_P05_FootnoteResets_Web
 
 Latest Noether staging note 2026-06-14: `Noether_RA81_P38_FootnoteReset_WebDrop_20260614.zip` is queued as a targeted German Paper 38 footnote-counter repair candidate after RA80. It resets ordinary footnote numbering before Paper 38 after RA80 rendered the opening source-note pair as 13/14. It changes no prose, formulas, tables, diagrams, or bibliography content; reconcile it with later German branches before any promoted German cumulative or multilingual propagation. Papers 39-42 remain a separate article-boundary counter audit queue.
 
+Latest Noether source-witness note 2026-06-14: `Noether_P39_ICM1932_SourceWitness_WebDrop_20260614.zip`, `Noether_P40_GDZ_MathZ37_SourceWitness_WebDrop_20260614.zip`, and `Noether_P41_GDZ_MathAnn108_SourceWitness_WebDrop_20260614.zip` are queued as source/provenance witnesses for Papers 39-41. Use them for future source comparison of the retained RA76 P40-P43 body and the Paper 39-41 language branches; do not treat them as corrected TeX, translations, certification, or critical editions.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
