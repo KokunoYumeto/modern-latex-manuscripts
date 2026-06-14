@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P20 RA49 targeted source-critical candidate
+
+Manifest: [20260614_noether_p20_ra49_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p20_ra49_sourcecritical_candidate.json)
+
+- Noether: `Noether_P20_RA49_SourceCritical_Fix_WebDrop_20260614.zip`, 5.3904 MB, SHA256 `C2A6DDEA80A54972695F1C707C327FB24A94D18C1ED65DE86DEE6694301E7099`.
+- Contents: targeted German cumulative source-critical candidate applying the source-confirmed Paper 20 formula (13) correction to a reversible TeX branch. It includes a compiled German cumulative RA49 candidate TeX/PDF/log, RA47-to-RA49 P20 TeX diff, the source article PDF for pp.26-33, an enlarged 1000dpi labelled source p.31 witness crop, applied-fix ledger, no-fix trap ledger, build summary, source-image inventory, and checksums.
+- Key fix: formula (13) changes the two factor-sum indices from `\mu,\nu` to source `\kappa,\lambda` while preserving the following prose products `\varrho_\mu\sigma_\nu` as a no-fix trap.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted formula correction, not full Paper 20 certification, not non-German propagation, and must be reconciled with the separate P06 RA48 and P12/P13 RA48 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P20 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether P12/P13 RA48 targeted source-critical candidate
 
 Manifest: [20260614_noether_p12_p13_ra48_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p12_p13_ra48_sourcecritical_candidate.json)
