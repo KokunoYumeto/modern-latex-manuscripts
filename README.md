@@ -51,6 +51,8 @@ Latest Noether source/provenance staging 2026-06-14 also adds `Noether_P32_IA_So
 
 Latest Noether source-audit staging 2026-06-14 also adds `Noether_P32_RA74_SourceAuthorBlock_WebDrop_20260614.zip`. RA74 builds on RA73 and restores the Paper 32 source author block for Brauer and Noether, inserts a clear page before Paper 32, and keeps the existing Schur presentation note below the restored author block. It changes no Paper 32 mathematical body text and is targeted source-apparatus/front-matter repair evidence only: not full Paper 32 certification, not a critical edition, and not propagated to other languages.
 
+Latest Noether source/provenance staging 2026-06-14 also adds `Noether_P33_IA_SourceWitness_pp071_073_20260614.zip`. This is a compact IA source-witness subset for Paper 33 / printed pp.071-073, with source PDF, IA metadata/scandata/file XML, OCR/DJVU locator text/XML, a JP2-derived source slice, extracted original JP2 leaves, JPG page witnesses, page/leaf map, README, and checksums. It is not a corrected TeX branch, not a translation, not Paper 33 certification, and not a critical edition.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |

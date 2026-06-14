@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P33 IA source witness pp.071-073
+
+Manifest: [20260614_noether_p33_ia_source_witness_pp071_073.json](../manifests/pending-zenodo-uploads/20260614_noether_p33_ia_source_witness_pp071_073.json)
+
+- Noether: `Noether_P33_IA_SourceWitness_pp071_073_20260614.zip`, 100.3808 MB, SHA256 `E8B43DADC1A1608C5E16C303B3AE41533D1FC17CCF4DD51B674A00F7E08F4FCD`.
+- Contents: compact source/provenance witness for Noether Paper 33, `Hyperkomplexe Größen und Darstellungstheorie in arithmetischer Auffassung`, from `Atti del congresso internazionale dei matematici`, Bologna, Volume 2, printed/source pp.071-073. It includes the IA source PDF, IA scandata/metadata/file XML, IA OCR/DJVU locator text/XML, a source-slice PDF derived from original IA JP2 leaves, the three valid extracted original JP2 leaves, JPG render witnesses for each page, an explicit page/leaf map, README, and checksums.
+- Queue decision: the full 558 MB IA original-JP2 tar and zero-byte failed direct JP2 attempts were excluded; the package keeps the relevant valid source leaves and locator/provenance material.
+- Sense-check caveats: source/provenance support only. It is not a corrected TeX branch, not a translation, not Paper 33 certification, not a critical edition, and not propagated to non-German branches. OCR is a locator aid only; source images control readings.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if this compact Paper 33 witness subset is retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-14: Noether P31 RA73 source-header / footnote-counter repair candidate
 
 Manifest: [20260614_noether_p31_ra73_source_header_footnote_counter.json](../manifests/pending-zenodo-uploads/20260614_noether_p31_ra73_source_header_footnote_counter.json)
