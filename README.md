@@ -53,6 +53,8 @@ Latest Noether source-audit staging 2026-06-14 also adds `Noether_P32_RA74_Sourc
 
 Latest Noether source/provenance staging 2026-06-14 also adds `Noether_P33_IA_SourceWitness_pp071_073_20260614.zip`. This is a compact IA source-witness subset for Paper 33 / printed pp.071-073, with source PDF, IA metadata/scandata/file XML, OCR/DJVU locator text/XML, a JP2-derived source slice, extracted original JP2 leaves, JPG page witnesses, page/leaf map, README, and checksums. It is not a corrected TeX branch, not a translation, not Paper 33 certification, and not a critical edition.
 
+Latest Noether source-audit staging 2026-06-14 also adds `Noether_P33_RA75_Bologna_SourceText_WebDrop_20260614.zip`. RA75 is a targeted German Paper 33 Bologna source-text repair candidate: it replaces a mismatched active Paper 33 block with the Bologna congress text, restores the Bologna author/title block, resets Paper 33 footnotes, inserts the article boundary, and preserves/adjusts the two source matrix displays. Its own open-items ledger still requests a further visual pass before Paper 33 certification and explicitly does not audit Paper 34. It is not a critical edition and not propagated to other languages.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |

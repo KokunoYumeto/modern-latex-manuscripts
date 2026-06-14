@@ -28,6 +28,8 @@ Latest Noether staging note 2026-06-14: `Noether_P32_RA74_SourceAuthorBlock_WebD
 
 Latest Noether staging note 2026-06-14: `Noether_P33_IA_SourceWitness_pp071_073_20260614.zip` is queued as compact Paper 33 source/provenance support. Use it as the IA source witness subset for later Paper 33 source comparison; do not treat it as applied TeX, translation, source closure, or critical edition evidence.
 
+Latest Noether staging note 2026-06-14: `Noether_P33_RA75_Bologna_SourceText_WebDrop_20260614.zip` is queued as a targeted German Paper 33 Bologna source-text repair candidate. It should be reconciled with RA58-RA74 and later candidates before any promoted German cumulative branch or multilingual propagation. Do not infer Paper 34 correctness from this package; RA75 explicitly did not audit Paper 34.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |

@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P33 RA75 Bologna source-text repair candidate
+
+Manifest: [20260614_noether_p33_ra75_bologna_source_text.json](../manifests/pending-zenodo-uploads/20260614_noether_p33_ra75_bologna_source_text.json)
+
+- Noether: `Noether_P33_RA75_Bologna_SourceText_WebDrop_20260614.zip`, 186.6568 MB, SHA256 `BA019A4D52337C2E93BD68DE7E6DD8CB0D7DDCCFDFACA336543B79F93148DE04`.
+- Contents: targeted German cumulative source-text repair candidate for Noether Paper 33, `Hyperkomplexe Größen und Darstellungstheorie in arithmetischer Auffassung`, `Atti del Congresso Internazionale dei Matematici`, Bologna, Volume 2, printed/source pp.071-073. It includes cumulative TeX/PDF/log, RA74-to-RA75 diff, IA source/provenance material, original JP2/JPG page witnesses, JP2-derived source slice, rendered QA pages, labelled inspection crops, audit CSVs, method note, README, and checksums.
+- Key fix: replaces the active Paper 33 block, which the package reports began with a later Math. Z. introduction, with the Bologna congress source text beginning `Ich möchte Ihnen zeigen...`; restores the Bologna author/title block; resets Paper 33 footnotes; inserts the article boundary; and preserves/adjusts the two source matrix displays as editable TeX. XeLaTeX pass 2 produced a 433-page A4 PDF, and local spot render checks of the title/opening and matrix pages were visually sane.
+- Sense-check caveats: targeted German source-text repair candidate only. Its own open-items ledger requests a further visual pass before declaring Paper 33 fully certified and explicitly does not audit Paper 34. It is not whole-corpus source closure, not a critical edition, not corrected non-German branches, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA75 with RA58-RA74 and later candidates before promotion or multilingual propagation.
+
 ## 2026-06-14: Noether P33 IA source witness pp.071-073
 
 Manifest: [20260614_noether_p33_ia_source_witness_pp071_073.json](../manifests/pending-zenodo-uploads/20260614_noether_p33_ia_source_witness_pp071_073.json)
