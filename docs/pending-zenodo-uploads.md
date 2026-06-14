@@ -18,6 +18,23 @@ Manifest: [20260614_maxwell_missing_source_supplements.json](../manifests/pendin
 
 Next action when Zenodo API credentials are available: decide whether these large source supplements belong on the dedicated Maxwell record or on the main raw/provenance landing record, upload the selected ZIPs, regenerate the public file catalog and record pages, and keep them labelled as source/provenance supplements.
 
+## 2026-06-14: Noether P22 RA61 pages 53-60 no-patch source audit
+
+Manifest: [20260614_noether_p22_ra61_pages53_60_sourcecritical_audit.json](../manifests/pending-zenodo-uploads/20260614_noether_p22_ra61_pages53_60_sourcecritical_audit.json)
+
+- Noether: `Noether_P22_RA61_Pages53_60_SourceCritical_Audit_WebDrop_20260614.zip`, 2.2369 MB, SHA256 `711BC8725FA9F5A1B664ACD333638AFE3AFB8CC41E4AA2FE6B9FF8DB23402C15`.
+- Contents: lean source-critical audit packet for Paper 22 printed pp.53-60 / cumulative book pp.409-416 against the RA60 German base. It includes the Paper 22 source PDF, the RA60-base German cumulative TeX used for comparison, checked-anchor CSV, no-fix trap ledger, page dispositions, summary JSON, file inventory, and checksums.
+- Sense-check caveats: this is checked-no-patch evidence, not a patched TeX branch and not a rendered reader update. It records that the local fraktur/module macros are intentional project style and that the 1000dpi renders used during inspection are enlargements from embedded 360ppi source images. Next Paper 22 audit target is printed p.61 / source PDF page 9. Not full Paper 22 certification and not a critical edition.
+
+## 2026-06-14: Noether P23 RA60 targeted source-critical candidate
+
+Manifest: [20260614_noether_p23_ra60_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p23_ra60_sourcecritical_candidate.json)
+
+- Noether: `Noether_P23_RA60_SourceCritical_Fix_WebDrop_20260614.zip`, 7.8257 MB, SHA256 `AF919E34664858CF2802CEA4DB211D49FE775A1D9DE138CE301B2EC570F7D10C`.
+- Contents: targeted German cumulative source-critical candidate promoting one source-confirmed Paper 23 repair into the RA59 German base. It includes the compiled 430-page RA60 German candidate TeX/PDF/log, RA59-to-RA60 diff, Paper 23 source PDF cutout, 1000dpi labelled inspection crop, fix ledger, no-fix anchor ledger, page dispositions, validation checks, source-quality note, build summary, provenance, and checksums.
+- Key fix: source p183 / cumulative book p442 restores the second expansion in the displayed `f(x,dx)` formula to use primed coefficients with `j` indices and terminal function `g(y,dy)`, instead of reusing `i` indices and ending with `\varphi(y,dy)`.
+- Sense-check caveats: this is now the newest German cumulative candidate after RA59, but it is still a targeted Paper 23 repair package. The 1000dpi crop is an inspection enlargement from a 360ppi embedded source image, not native higher-detail source. It is not full Paper 23 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
 ## 2026-06-14: Noether P21 RA59 targeted source-critical candidate
 
 Manifest: [20260614_noether_p21_ra59_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p21_ra59_sourcecritical_candidate.json)
