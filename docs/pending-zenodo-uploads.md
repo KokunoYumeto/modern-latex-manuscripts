@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P22 RA63 pages 70-79 source-critical candidate
+
+Manifest: [20260614_noether_p22_ra63_pages70_79_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p22_ra63_pages70_79_sourcecritical_candidate.json)
+
+- Noether: `Noether_P22_RA63_Pages70_79_SourceCritical_Fix_WebDrop_20260614.zip`, 12.1304 MB, SHA256 `78F2A07F13F2C35DE278C654C2CDFB6AADB58A85EA489BC5C519F961D9F3B5BE`.
+- Contents: targeted German cumulative source-critical candidate for Noether Paper 22 source PDF pages 18-27 / printed pp.70-79 / book pp.426-435. It includes compiled cumulative German RA63 TeX/PDF/log, RA62-to-RA63 diff, full Paper 22 source PDF, worked source slice pp.70-79, labelled 1000dpi inspection crops, confirmed-repair CSV, no-fix traps, page dispositions, source-crop manifest, summary JSON, source-quality note, extracted text, and checksums.
+- Key fixes: restores the auxiliary-module `\mathfrak C_{i-1}` issue in Satz IX after the norm equality and adds the missing bar on `\bar R^{(i)}(z,x)` in the closing specialization paragraph. Page dispositions record no-patch checks for printed pp.70-71 and 73-78, with closing footnote and received date checked on p.79.
+- Sense-check caveats: this is a targeted German source-critical candidate only. The 1000dpi crops are inspection enlargements from source PDF images embedded at about 360ppi, not native higher-resolution source. It is not full Paper 22 certification, not whole-corpus source closure, not a critical edition, and not propagated to EN/ES/JA/FR/ZH/UK/RU/ISV or the newer Slavic branches. RA63 builds from the RA62 candidate and still needs branch reconciliation before reader promotion.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs.
+
 ## 2026-06-14: workflow source-quality audit for Gibbs and Gauss
 
 Manifest: [20260614_workflow_gibbs_gauss_source_quality_audit.json](../manifests/pending-zenodo-uploads/20260614_workflow_gibbs_gauss_source_quality_audit.json)
