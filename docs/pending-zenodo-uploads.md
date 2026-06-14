@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P04 RA64 source-critical heading-footnote repair
+
+Manifest: [20260614_noether_p04_ra64_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p04_ra64_sourcecritical_candidate.json)
+
+- Noether: `Noether_P04_RA64_SourceCritical_Fix_WebDrop_20260614.zip`, 10.3651 MB, SHA256 `5F4045F1443398DFD3AF866582A1AA9C2F350788992EEBA1A3ED861E8B063413`.
+- Contents: targeted German cumulative source-critical candidate for Noether Paper 04, printed pp.148-152 checked in this pass, with one patched locus on printed p.152. It includes compiled 430-page cumulative German RA64 TeX/PDF/log, RA63-to-RA64 diff, Paper 04 tail source cutout, full-page and targeted 1000dpi inspection crops for the repaired heading footnote, confirmed-fix CSV, no-new-patch traps, source witness manifest, summary JSON, extracted text, and checksums.
+- Key fix: restores the missing source-visible footnote attached to the Section 9 heading, `§ 9. Formenreihen. Reduktionssätze`.
+- Sense-check caveats: this is a narrow targeted German source-critical candidate only. It is not full Paper 04 certification, not whole-corpus source closure, not a critical edition, and not propagated to EN/ES/JA/FR/ZH/UK/RU/ISV or the newer Slavic branches. RA64 builds from the RA63 candidate and still needs branch reconciliation before reader promotion.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs.
+
 ## 2026-06-14: Noether P22 RA63 pages 70-79 source-critical candidate
 
 Manifest: [20260614_noether_p22_ra63_pages70_79_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p22_ra63_pages70_79_sourcecritical_candidate.json)
