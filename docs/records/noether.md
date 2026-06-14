@@ -24,6 +24,8 @@ Local staging update 2026-06-14: `Noether_Slavic_Core_Handoff_20260614T222005Z.z
 
 Local staging update 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip` and `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip` are queued as targeted German cumulative source-critical candidate repairs. P14 RA55 applies three source-confirmed repairs: printed p.190 `mod. (z-c)`, printed p.198 ideal-factorization indices/exponents `\rho_1...\rho_\sigma`, and printed p.200 polygon exponents `\rho,\sigma`. P15 RA54 applies two source-confirmed repairs: printed p.152 Latin `x` index symbols in the normalization block around formulas (11)-(13), and printed p.154 Schur citation `S. 355 (1912)`. These packages supersede the older P14/P15 unpatched audit notes for those loci only. They are still targeted German candidates, not full Paper 14/Paper 15 certifications, not multilingual propagation, and not a critical-edition claim.
 
+Local staging update 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is queued as a targeted German cumulative source-critical candidate for Papers 09-11. RA56 applies eight targeted fixes: P09 author line plus Zermelo `S. 484`; P10 author line, definition (d) terminal index `k_\sigma`, and divisibility display `F(t;\vartheta_i)`; P11 author line, 25 `\Omega_\Gamma` notation repairs replacing `\mathfrak L_\Gamma`, and final theorem semicolon. It remains targeted repair evidence only, not full source closure for Papers 09-11 and not multilingual propagation.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs

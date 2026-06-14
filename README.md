@@ -29,6 +29,8 @@ Additional 2026-06-14 local staging includes a Noether Slavic multilingual hando
 
 Latest Noether source-audit staging 2026-06-14 also adds `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip` and `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip`. These are targeted German cumulative candidate repairs only: P14 RA55 applies three source-confirmed symbol/index repairs on printed pp.190, 198, and 200; P15 RA54 applies the source-confirmed Latin-`x` index repair on printed p.152 and Schur `S. 355` citation repair on printed p.154. They supersede the older unpatched P14/P15 audit notes for those loci, but they do not certify either full paper and do not propagate to other languages yet.
 
+Additional Noether staging 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is queued as a targeted German cumulative candidate for Papers 09-11. It restores source-visible author lines, applies the P09 Zermelo `S. 484` citation repair, P10 `k_\sigma` and `F(t;\vartheta_i)` repairs, and P11 `\Omega_\Gamma` notation repair. It is not full P09-P11 certification and still needs reconciliation with the other RA candidate branches before multilingual propagation.
+
 ## Current Zenodo Records
 
 | Corpus | Status | Zenodo |
