@@ -2,6 +2,28 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P25 RA70 source-header / footnote-placement repair candidate
+
+Manifest: [20260614_noether_p25_ra70_source_header_footnote_placement.json](../manifests/pending-zenodo-uploads/20260614_noether_p25_ra70_source_header_footnote_placement.json)
+
+- Noether: `Noether_P25_RA70_SourceHeader_FootnotePlacement_WebDrop_20260614.zip`, 10.2567 MB, SHA256 `A2C4D9884983B1880330D54112977695A02D1C063146C15C3CF58657C62572FF`.
+- Contents: narrow German cumulative source-header and footnote-placement repair candidate for Noether Paper 25, `Eliminationstheorie und Idealtheorie`, J. Ber. d. DMV 33 (1924), printed pp.116-120. It includes cumulative TeX/PDF/log, RA69-to-RA70 diff, GDZ article source PDF, GDZ structure/canvas maps, raw-image inventory, a 1000dpi inspection witness, fix and disposition CSVs, method note, README, and checksums.
+- Key fix: restores the source subtitle/occasion line `Vortrag, gehalten in Marburg am 25. September 1923.` with its source footnote marker `1)`, restores `Von Emmy Noether in Göttingen.`, resets Paper 25 footnotes, and moves the existing footnote text from the first body sentence to the subtitle marker. No mathematical or body prose content changed. XeLaTeX compiled successfully and reported a 432-page output.
+- Sense-check caveats: targeted German source-header/footnote-placement repair candidate only. It is not full Paper 25 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA70 with the other Noether candidate branches before promotion or multilingual propagation.
+
+## 2026-06-14: Noether P24 RA69 footnote-counter source-apparatus repair candidate
+
+Manifest: [20260614_noether_p24_ra69_footnote_counter.json](../manifests/pending-zenodo-uploads/20260614_noether_p24_ra69_footnote_counter.json)
+
+- Noether: `Noether_P24_RA69_FootnoteCounter_SourceCritical_WebDrop_20260614.zip`, 13.7132 MB, SHA256 `B566CD7CC1DC7F040E83DAB535868E5735B8E428FAD5B90078534CDB8464B9FF`.
+- Contents: narrow German cumulative source-apparatus repair candidate for Noether Paper 24, `Eliminationstheorie und allgemeine Idealtheorie`, Math. Ann. 90 (1923), printed p.229 opening/source PDF p.2. It includes cumulative TeX/PDF/log, RA68-to-RA69 diff, GDZ article source PDF, GDZ canvas/raw-image inventories, a 1000dpi inspection witness, fix and disposition CSVs, method note, README, and checksums.
+- Key fix: inserts `\setcounter{footnote}{0}` immediately before the Paper 24 section heading so the ordinary source footnotes begin again at printed `1)`, `2)`, `3)`. No prose or mathematical content changed. XeLaTeX compiled successfully and reported a 432-page output.
+- Sense-check caveats: targeted German source-apparatus/footnote-numbering repair candidate only. It is not full Paper 24 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA69 with the other Noether candidate branches before promotion or multilingual propagation.
+
 ## 2026-06-14: Noether P08 RA68 p096 source-marker placement repair candidate
 
 Manifest: [20260614_noether_p08_ra68_source_marker_placement.json](../manifests/pending-zenodo-uploads/20260614_noether_p08_ra68_source_marker_placement.json)
