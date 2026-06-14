@@ -8,6 +8,8 @@ Latest local Noether source-audit staging 2026-06-14: `Noether_P14_RA55_SourceCr
 
 Latest local Noether source-audit staging 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is also queued. RA56 applies eight targeted German source-confirmed repairs across Papers 09-11, including source-visible author lines, P09 Zermelo `S. 484`, P10 `k_\sigma` and `F(t;\vartheta_i)`, and P11 `\Omega_\Gamma`. This is a RA47-based candidate branch and must be reconciled with the other pending RA candidates before promotion.
 
+Latest local Noether source-audit staging 2026-06-14: `Noether_P03_RA57_SourceCritical_Fix_WebDrop_20260614.zip` is queued. RA57 applies three targeted German source-confirmed Paper 03 repairs: source title spelling `Variabeln`, restored title-block author line `Von Emmy Noether in Erlangen.`, and formula (2) `\rho=\sum_i\rho_i\le n`. It also records the older Paper 05 RA42 title-footnote issue as stale/closed in the current base. This is targeted repair evidence only, not full Paper 03 certification or multilingual propagation.
+
 | Area | Current State |
 |---|---|
 | Main landing record | Current clean public landing page published as <https://doi.org/10.5281/zenodo.20393488>. |

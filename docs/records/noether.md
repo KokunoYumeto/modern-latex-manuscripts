@@ -26,6 +26,8 @@ Local staging update 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20
 
 Local staging update 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is queued as a targeted German cumulative source-critical candidate for Papers 09-11. RA56 applies eight targeted fixes: P09 author line plus Zermelo `S. 484`; P10 author line, definition (d) terminal index `k_\sigma`, and divisibility display `F(t;\vartheta_i)`; P11 author line, 25 `\Omega_\Gamma` notation repairs replacing `\mathfrak L_\Gamma`, and final theorem semicolon. It remains targeted repair evidence only, not full source closure for Papers 09-11 and not multilingual propagation.
 
+Local staging update 2026-06-14: `Noether_P03_RA57_SourceCritical_Fix_WebDrop_20260614.zip` is queued as a targeted German cumulative source-critical candidate for Paper 03. RA57 applies three targeted source-confirmed repairs: title orthography `Variabeln`, restored title-block author line `Von Emmy Noether in Erlangen.`, and formula (2) on printed p.103 changed to source `\rho=\sum_i\rho_i\le n`. It also records the older Paper 05 RA42 Vienna-title-footnote issue as stale/closed in the current base. The package compiles to a 429-page German cumulative candidate and includes source PDF/JPG witnesses, 1000dpi crops, CSV ledgers, diff, build logs, and checksums. It remains targeted repair evidence only, not full Paper 03 certification and not multilingual propagation.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs

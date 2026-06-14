@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P03 RA57 targeted source-critical candidate
+
+Manifest: [20260614_noether_p03_ra57_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p03_ra57_sourcecritical_candidate.json)
+
+- Noether: `Noether_P03_RA57_SourceCritical_Fix_WebDrop_20260614.zip`, 25.1618 MB, SHA256 `1D07BE9F2A337FF09A1EB5837C31892BC1E8111F955D8EE203505FFE7AEDEA0F`.
+- Contents: targeted German cumulative source-critical candidate applying three source-confirmed Paper 03 repairs to a RA56-based cumulative German TeX candidate. It includes the compiled 429-page German cumulative RA57 candidate TeX/PDF/log, RA56-to-RA57 Paper 03 diff, GDZ article PDF for Jahresbericht DMV 19 (1910) pp.101-104, raw full-resolution GDZ IIIF JPG witnesses, 1000dpi labelled witness crops, applied-fix/no-fix/source-page CSVs, source map, source-quality note, build summary, provenance, and checksums.
+- Key fixes: restores source title orthography `Variabeln`; restores the source-visible title-block author line `Von Emmy Noether in Erlangen.`; changes formula (2) on printed p.103 from a strict inequality to source `\rho=\sum_i\rho_i\le n`. The package also records that the older Paper 05 RA42 Vienna-title-footnote issue is stale/closed in the current base and should not be repatched from that row.
+- Sense-check caveats: this is a German source-critical candidate only. It is targeted repair evidence for Paper 03, not full Paper 03 certification, not non-German propagation, and not a critical edition. It must be reconciled with the separate pending German RA candidate branches before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P03 applied-fix evidence, not as critical-edition or full source-closure proof.
+
 ## 2026-06-14: Noether P09/P10/P11 RA56 targeted source-critical candidate
 
 Manifest: [20260614_noether_p09_p10_p11_ra56_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p09_p10_p11_ra56_sourcecritical_candidate.json)
