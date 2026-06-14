@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P21 RA59 targeted source-critical candidate
+
+Manifest: [20260614_noether_p21_ra59_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p21_ra59_sourcecritical_candidate.json)
+
+- Noether: `Noether_P21_RA59_SourceCritical_Fix_WebDrop_20260614.zip`, 9.0040 MB, SHA256 `0AA7EBC7B61C47F2D3D0DFF516A743C5C06AF5F9B58D4815050B1C0A34F6F7DE`.
+- Contents: targeted German cumulative source-critical candidate promoting three source-confirmed Paper 21 repairs into the RA58 German roll-up base. It includes the compiled 430-page RA59 German candidate TeX/PDF/log, RA58-to-RA59 Paper 21 diff, four-page source PDF cutout, 1000dpi labelled witness crops, fix ledger, checked no-fix anchor ledger, source-page disposition ledger, validation checks, source-quality note, build summary, provenance, and checksums.
+- Key fixes: Riemann cross-reference `72)` to source `78)` in the opening paragraph; Heun article citation `Artikel IV, 1 11` to source `Artikel IV, 1 II` in footnote 150; prose after formula (143) from `$h^{(1)}(dx,dx)$ stellt` to source `$h^{(1)}(dx,\delta x)$ stellt`.
+- Sense-check caveats: this is the newest German candidate after RA58, but it remains a targeted Paper 21 repair package. It is not a fresh whole-corpus certification, not full Paper 21 proofread closure, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload this with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Propagate applicable Paper 21 fixes to EN/ES/JA/FR/ZH/UK/RU/ISV only through separate language-branch audits.
+
 ## 2026-06-14: Noether RA58 compact source-critical roll-up candidate
 
 Manifest: [20260614_noether_ra58_sourcecritical_rollup_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_ra58_sourcecritical_rollup_candidate.json)
