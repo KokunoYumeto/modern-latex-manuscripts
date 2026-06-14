@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P06 RA67 source-marker repair candidate
+
+Manifest: [20260614_noether_p06_ra67_source_marker_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p06_ra67_source_marker_candidate.json)
+
+- Noether: `Noether_P06_RA67_SourceMarker_Fix_WebDrop_20260614.zip`, 14.4253 MB, SHA256 `18C6B7E1EE82DE2E85A7BF3144F688B10682DF4426C6E4E4E5D383A09278F5AF`.
+- Contents: narrow German cumulative source-marker repair candidate for Noether Paper 06 opening source apparatus. It includes cumulative TeX/PDF/log, RA64-to-RA67 diff, source-marker fix ledger, remaining ordinary-footnote check, source-witness manifest, 1000dpi evidence crops for printed pp.161, 164, and 165, method note, README, and checksums.
+- Key fixes: six early Paper 06 notes that were ordinary numbered footnotes are changed to page-local source-symbol wrappers matching printed markers `*)`, `**)`, and `***)`. No note prose is rewritten and no mathematical formula is changed. XeLaTeX compile succeeded and reported a 432-page PDF.
+- Sense-check caveats: targeted German source-apparatus repair candidate only. It is not full Paper 06 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches. Existing missing-character warnings are inherited from the cumulative base and unrelated to RA67.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA67 with the other Noether candidate branches before promotion or multilingual propagation.
+
 ## 2026-06-14: Noether P08 RA66 p100 Omega-note micro-audit/no-patch trap
 
 Manifest: [20260614_noether_p08_ra66_p100_omega_microaudit.json](../manifests/pending-zenodo-uploads/20260614_noether_p08_ra66_p100_omega_microaudit.json)
