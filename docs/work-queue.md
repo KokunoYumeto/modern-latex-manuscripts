@@ -36,6 +36,8 @@ Latest Noether staging note 2026-06-14: `Noether_RA76_StructuralDuplicateFix_P40
 
 Latest Noether staging note 2026-06-14: `Noether_RA77_P17_FootnoteContinuity_WebDrop_20260614.zip` is queued as a targeted German Paper 17 footnote-continuity repair candidate after RA76. Use it to fix the Paper 17 title/split-header/continuation-footnote numbering problem before reconciling RA77 with the other RA branches. It does not certify Paper 17 as a whole and does not propagate the change to EN/ES/JA/FR/ZH/UK/RU/ISV by itself.
 
+Latest Noether staging note 2026-06-14: `Noether_RA78_P14_P15_P16_FootnoteResets_WebDrop_20260614.zip` is queued as a targeted German Paper 14-16 page-boundary/footnote-counter repair candidate after RA77. It only resets ordinary footnotes at the start of Papers 14, 15, and 16; reconcile it with the other RA branches before any promoted German cumulative or multilingual propagation.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
