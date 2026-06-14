@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P34 GDZ/EuDML source witness pp.641-692
+
+Manifest: [20260614_noether_p34_gdz_source_witness.json](../manifests/pending-zenodo-uploads/20260614_noether_p34_gdz_source_witness.json)
+
+- Noether: `Noether_P34_GDZ_SourceWitness_WebDrop_20260614.zip`, 113.1300 MB, SHA256 `AA99E42CC272860983459C3D6D5AFC23EF0D79A47AA1929C453E8A602433C1BD`.
+- Contents: compact GDZ/EuDML source-navigation witness for Noether Paper 34, `Hyperkomplexe Größen und Darstellungstheorie`, `Mathematische Zeitschrift` 30 (1929), printed pp.641-692. It includes GDZ/EuDML metadata, the GDZ IIIF manifest for volume `PPN266833020_0030`, a printed-page-to-canvas map for pp.641-692 / canvases 00000645-00000696, one full-resolution GDZ JPEG per printed page, a convenience source-witness PDF assembled from those images, image-dimension metadata, README, and checksums.
+- Queue decision: the package README says this should replace the weaker local three-part `p34a_scan.pdf`, `p34b_scan.pdf`, and `p34c_scan.pdf` slices as the source-navigation witness for Paper 34.
+- Sense-check caveats: source/provenance support only. The GDZ images are about 400 ppi, stronger than the old 360 ppi slices but below the project's 650 dpi crop-certification rule; this is not dense-math certification, not corrected TeX, not translation, not full Paper 34 certification, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Use this witness for future Paper 34 repairs, while keeping Paper 34 marked as needing dense math/source micro-audit.
+
 ## 2026-06-14: Noether P33 RA75 Bologna source-text repair candidate
 
 Manifest: [20260614_noether_p33_ra75_bologna_source_text.json](../manifests/pending-zenodo-uploads/20260614_noether_p33_ra75_bologna_source_text.json)

@@ -30,6 +30,8 @@ Latest Noether staging note 2026-06-14: `Noether_P33_IA_SourceWitness_pp071_073_
 
 Latest Noether staging note 2026-06-14: `Noether_P33_RA75_Bologna_SourceText_WebDrop_20260614.zip` is queued as a targeted German Paper 33 Bologna source-text repair candidate. It should be reconciled with RA58-RA74 and later candidates before any promoted German cumulative branch or multilingual propagation. Do not infer Paper 34 correctness from this package; RA75 explicitly did not audit Paper 34.
 
+Latest Noether staging note 2026-06-14: `Noether_P34_GDZ_SourceWitness_WebDrop_20260614.zip` is queued as compact Paper 34 GDZ/EuDML source-navigation support for printed pp.641-692. Use it instead of the weaker local p34a/p34b/p34c scan slices when auditing Paper 34, but do not treat it as corrected TeX or dense-math certification: the images are about 400 ppi and below the 650 dpi crop-certification rule.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
