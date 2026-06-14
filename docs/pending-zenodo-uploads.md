@@ -13,6 +13,17 @@ Manifest: [20260614_noether_p31_ra73_source_header_footnote_counter.json](../man
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA73 with the other Noether candidate branches before promotion or multilingual propagation.
 
+## 2026-06-14: Noether P32 IA source witness pp.221-228
+
+Manifest: [20260614_noether_p32_ia_source_witness_pp221_228.json](../manifests/pending-zenodo-uploads/20260614_noether_p32_ia_source_witness_pp221_228.json)
+
+- Noether: `Noether_P32_IA_SourceWitness_pp221_228_20260614.zip`, 65.9863 MB, SHA256 `BCC4D009A79A8F48938352D2E942054C87D24E924969DA5AA5D4257F5A4AA1C1`.
+- Contents: compact source/provenance witness for Noether/Brauer Paper 32, `Über minimale Zerfällungskörper irreduzibler Darstellungen`, from `Sitzungsberichte der Preussischen Akademie der Wissenschaften`, 1927, printed/source pp.221-228. It includes the IA source PDF, IA scandata XML, two IA OCR/DJVU text witnesses, the pp.221-228 leaf map, and extracted JP2 plus JPG witnesses for IA leaves 0382-0389.
+- Queue decision: the full IA JP2 volume ZIP is about 685 MB and contains many leaves outside the Paper 32 source span, so the queued package keeps the compact relevant witness subset.
+- Sense-check caveats: source/provenance support only. It is not a corrected TeX branch, not a translation, not full Paper 32 certification, not a critical edition, and not propagated to non-German branches. OCR text is a locator aid only; source images control readings.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if the compact Paper 32 witness subset is desired, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
 ## 2026-06-14: Noether P30 RA72 source-header / footnote-counter repair candidate
 
 Manifest: [20260614_noether_p30_ra72_source_header_footnote_counter.json](../manifests/pending-zenodo-uploads/20260614_noether_p30_ra72_source_header_footnote_counter.json)

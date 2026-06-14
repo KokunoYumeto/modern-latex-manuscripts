@@ -22,6 +22,8 @@ Latest Noether staging note 2026-06-14: `Noether_P30_RA72_SourceHeader_FootnoteC
 
 Latest Noether staging note 2026-06-14: `Noether_P31_RA73_SourceHeader_FootnoteCounter_WebDrop_20260614.zip` is queued as a targeted German source-header/footnote-counter repair candidate. It restores the Paper 31 source author line `Von Emmy Noether in Göttingen.` and resets Paper 31 ordinary footnotes so the first source note renders as `1)`. It changes no body prose or mathematics and must be reconciled with the other pending RA branches before promotion or multilingual propagation.
 
+Latest Noether staging note 2026-06-14: `Noether_P32_IA_SourceWitness_pp221_228_20260614.zip` is queued as compact Paper 32 source/provenance support. Use it as the IA source witness subset for later Paper 32 source comparison; do not treat it as applied TeX, translation, source closure, or critical edition evidence.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
