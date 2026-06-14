@@ -98,6 +98,8 @@ When a lane has multiple scripts, use one lexical authority branch and generate 
 
 Mathematics is a good pilot domain for this because formulas, theorem structures, and repeated proof patterns provide anchors. Those anchors do not eliminate responsibility: they make inconsistent terminology easier to find and review. Public descriptions should therefore describe such packages as translation/register-construction handoffs or checkpoints unless a later human review certifies the language branch.
 
+The 2026-06-14 Noether Slavic handoff is a representative example. The rendered Papers 01-21 Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic readers are useful translation artifacts, and the constructed-language reflection/logbooks are methodologically valuable. At the same time, support JSON/glossary sidecars contain question-mark mojibake in some places and Paper 22 is WIP only, so the package belongs in the archive as a checkpoint with caveats rather than as clean stable terminology data.
+
 ## Publication Rule
 
 Availability and provenance matter, but the public surface should not look like a raw tool dump. When a source packet has internal run names, partial folders, or repair logs, keep those inside artifact ZIPs and give the Zenodo record a human title organized by author, work, corpus, or mathematical tradition.

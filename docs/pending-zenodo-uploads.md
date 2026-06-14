@@ -2,6 +2,66 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA93 current-state ledger after RA92
+
+Manifest: [20260614_noether_ra93_current_state_after_ra92_ledger.json](../manifests/pending-zenodo-uploads/20260614_noether_ra93_current_state_after_ra92_ledger.json)
+
+- Noether: `Noether_RA93_CurrentStateAfterRA92_Ledger_WebDrop_20260614.zip`, 0.0125 MB, SHA256 `F070E4CC8AAFCAA92BF87A11B2DC053D1CE6E9F9DA1F5F21250DA643A4E31E8A`.
+- Contents: compact current-state ledger after RA92. It contains no TeX changes, but updates the stale RA83 structural/gap view: RA91 closes the repeated Paper 34 heading hotspot; RA92 gives every numeric top-level paper section a nearby `\clearpage`; duplicate numeric top-level paper headings are now zero; Papers 1-6 are inventoried as center-title blocks rather than numeric `\section*` anchors; P09 corrected `Math. Ann. 75, S. 484` is present; old P34 scaffold labels are absent.
+- Sense-check caveats: coordination/audit ledger only. It is not corrected TeX, not source certification, not dense-math certification, not a critical edition, and not multilingual propagation. RA93 keeps the visible RA10 apparatus section after Paper 43 open by design as an apparatus-placement blocker.
+
+Next action when Zenodo API credentials are available: upload as a compact coordination ledger if retained, and use it to stop downstream sessions from re-opening closed RA83 structural items while keeping the RA10 apparatus placement issue active.
+
+## 2026-06-14: Noether RA92 boundary clearpage cleanup
+
+Manifest: [20260614_noether_ra92_boundary_clearpage_cleanup.json](../manifests/pending-zenodo-uploads/20260614_noether_ra92_boundary_clearpage_cleanup.json)
+
+- Noether: `Noether_RA92_BoundaryClearpageCleanup_WebDrop_20260614.zip`, 2.8301 MB, SHA256 `5D38E74BBD90A4D6D3F33A0E4DDEEE08ADE572C1B55C4253F0DD5CCE38BCCD75`.
+- Contents: German cumulative structural page-boundary cleanup candidate after RA91. It adds missing `\clearpage` boundaries before Papers 7, 23, 24, 25, 26, 27, 28, 29, 34, 37, 40, and 42; adds paper-start footnote resets before Papers 7 and 37; removes one duplicate `\clearpage` before Paper 35; and includes the RA91 base TeX, RA92 candidate TeX/PDF, diff, boundary ledger, section-boundary scan, XeLaTeX logs, and checksums.
+- Sense-check caveats: structural boundary cleanup only. It changes no source prose, formulas, tables, diagrams, or footnote text. It is not full source certification, not dense-math certification, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then reconcile against RA93 and later source-audit branches before reader promotion or language-branch propagation.
+
+## 2026-06-14: Noether RA91 Paper 34 duplicate-section scaffold fix
+
+Manifest: [20260614_noether_ra91_p34_duplicate_section_scaffold_fix.json](../manifests/pending-zenodo-uploads/20260614_noether_ra91_p34_duplicate_section_scaffold_fix.json)
+
+- Noether: `Noether_RA91_P34_DuplicateSectionScaffoldFix_WebDrop_20260614.zip`, 2.8285 MB, SHA256 `E5293B3F9ED37A3B30FD3847D69971A33F2DB5694A3C0475297213A2F7C45E83`.
+- Contents: German cumulative structural cleanup candidate for Paper 34. It removes two duplicate visible Paper 34 headings, non-source continuation labels, and a suspicious mid-article footnote reset tied to prior batch scaffolding. The package includes RA87 base TeX, RA91 candidate TeX/PDF, diff, section inventory, structural fix ledger, XeLaTeX logs, and checksums.
+- Sense-check caveats: structural cleanup only. It changes no source prose, formulas, tables, diagrams, or footnote text. It is not full Paper 34 certification, not dense-math certification, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then reconcile with Paper 34 source/dense-math audits before reader promotion or language-branch propagation.
+
+## 2026-06-14: Noether RA90 Papers 14-17 official GDZ source routes
+
+Manifest: [20260614_noether_ra90_p14_p17_official_gdz_source_routes.json](../manifests/pending-zenodo-uploads/20260614_noether_ra90_p14_p17_official_gdz_source_routes.json)
+
+- Noether: `Noether_RA90_P14_P17_OfficialGDZ_SourceRoutes_WebDrop_20260614.zip`, 0.005 MB, SHA256 `88F52DD5F0DB73194AA73BA7B75414F10C6CFC9645CDC0056360006F027073B6`.
+- Contents: exact official GDZ page/canvas/IIIF route ledger for Papers 14-17. It lists 82 printed pages with GDZ identifiers, canvas numbers, image dimensions, IIIF service URLs, full-JPG URLs, and info JSON URLs.
+- Sense-check caveats: source-route/provenance support only. It bundles no source images, no TeX changes, no translations, and no reader PDF. The sampled official routes are still 400-600 ppi and do not certify dense formulas or tables by themselves.
+
+Next action when Zenodo API credentials are available: upload as compact route/provenance support if retained, and use it to fetch official source pages for future P14-P17 source comparisons.
+
+## 2026-06-14: Noether RA89 Papers 14-17 source-PDF native-resolution amendment
+
+Manifest: [20260614_noether_ra89_p14_p17_source_pdf_native_resolution.json](../manifests/pending-zenodo-uploads/20260614_noether_ra89_p14_p17_source_pdf_native_resolution.json)
+
+- Noether: `Noether_RA89_P14_P17_SourcePDF_NativeResolution_Amendment_WebDrop_20260614.zip`, 0.0067 MB, SHA256 `3646418B2F4064861F29FC41D17D236D630B6AB26FF44315CC879C3CC1D95E50`.
+- Contents: compact source-quality amendment for the earlier P14-P17 RA52-RA55 source PDFs. It records that P14/P15/P16 embed 120/360 ppi image layers and P17 embeds 600 ppi image layers.
+- Sense-check caveats: no TeX changes, source images, translations, or reader update. It corrects witness-quality interpretation only: targeted 1000 dpi PNG renders should be treated as localized visual aids, not native high-resolution source evidence.
+
+Next action when Zenodo API credentials are available: upload as a compact source-quality amendment if retained. For disputed dense P14-P17 formulas/tables, either find stronger institutional/raw sources or record the source-quality limitation explicitly.
+
+## 2026-06-14: Noether RA88 Papers 09-20 dense hotspot aid ledger
+
+Manifest: [20260614_noether_ra88_p09_p20_dense_hotspot_aid_ledger.json](../manifests/pending-zenodo-uploads/20260614_noether_ra88_p09_p20_dense_hotspot_aid_ledger.json)
+
+- Noether: `Noether_RA88_P09_P20_DenseHotspot_AidLedger_WebDrop_20260614.zip`, 0.0118 MB, SHA256 `C7DD8F1507A97635B12979B254110B5CFFD49A713FC70BA68FCBC32535238F4D`.
+- Contents: compact targeting ledger for Papers 09-20 in the RA87 German candidate. It identifies 61 priority dense/table/matrix/alignment-style loci that should receive targeted source crops before source-critical correction or certification, and it also records per-paper display-like trigger counts plus a no-hit marker scan.
+- Sense-check caveats: no TeX changes, source images, translations, or reader update. Rows are not defect claims; they are crop/source-check targeting aids.
+
+Next action when Zenodo API credentials are available: upload as a compact source-audit guardrail if retained, and use it to request explicit >=1000 dpi crops for listed dense loci before accepting future formula/table/diagram fixes.
+
 ## 2026-06-14: Noether RA87 Paper 20 clearpage boundary
 
 Manifest: [20260614_noether_ra87_p20_clearpage_boundary.json](../manifests/pending-zenodo-uploads/20260614_noether_ra87_p20_clearpage_boundary.json)
