@@ -2,6 +2,28 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P16 RA53 targeted source-critical candidate
+
+Manifest: [20260614_noether_p16_ra53_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p16_ra53_sourcecritical_candidate.json)
+
+- Noether: `Noether_P16_RA53_SourceCritical_Fix_WebDrop_20260614.zip`, 10.9318 MB, SHA256 `E56EC9D5F48609C275C28EEA5B6016120B957EC634931DFB6451B8AF12B9D19E`.
+- Contents: targeted German cumulative source-critical candidate promoting the earlier RA41 Paper 16 correction into the RA47 German cumulative base. It includes compiled German cumulative RA53 candidate TeX/PDF/log, RA47-to-RA53 P16 diff, six-page Math. Ann. 81 source cutout, 1000dpi labelled witness image, applied-fix CSV, carried-forward no-fix traps, provenance, and checksums.
+- Key fix: printed p.30/source PDF p.6 changes the older erroneous `\Phi` reading to source `F` in the sentence about composing linearly from `F` and forms from `M`.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted Paper 16 correction, not full Paper 16 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P17 RA52, P18 RA51, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P16 applied-fix evidence, not as a critical edition or full source closure.
+
+## 2026-06-14: Noether P17 RA52 targeted source-critical candidate
+
+Manifest: [20260614_noether_p17_ra52_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p17_ra52_sourcecritical_candidate.json)
+
+- Noether: `Noether_P17_RA52_SourceCritical_Fix_WebDrop_20260614.zip`, 10.5832 MB, SHA256 `DAFC9C3F1585F928E0F86697EE6E901E7A971DA7E16F0D43EB4495C548929EF6`.
+- Contents: targeted German cumulative source-critical candidate restoring two source-confirmed missing Paper 17 footnotes around formula (39) on the RA47 German cumulative base. It includes compiled German cumulative RA52 candidate TeX/PDF/log, RA47-to-RA52 P17 diff, source PDF and 1000dpi labelled witness image for the printed p.25 footnote loci, applied-fix CSV, targeted audit findings, checked no-fix anchors, no-fix traps, build summary, and checksums.
+- Key fixes: restores source footnote 21 after the displayed equality ending `=r^{\sigma\rho}b_\rho`; restores source footnote 22 immediately after `=a_\sigma` inside formula (39).
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is targeted missing-footnote restoration, not full Paper 17 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P16 RA53, P18 RA51, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P17 applied-fix evidence, not as a critical edition or full source closure.
+
 ## 2026-06-14: Noether P18 RA51 targeted source-critical candidate
 
 Manifest: [20260614_noether_p18_ra51_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p18_ra51_sourcecritical_candidate.json)
@@ -9,7 +31,7 @@ Manifest: [20260614_noether_p18_ra51_sourcecritical_candidate.json](../manifests
 - Noether: `Noether_P18_RA51_SourceCritical_Fix_WebDrop_20260614.zip`, 4.7636 MB, SHA256 `F53F177A12EEF7B7F8264AEA2718071300EE7DC0469331089F43BF839846015C`.
 - Contents: targeted German cumulative source-critical candidate applying the source-confirmed Paper 18 resultant-display correction to a reversible TeX branch. It includes a compiled German cumulative RA51 candidate TeX/PDF/log, RA47-to-RA51 P18 TeX diff, single-page source PDF for source p.101, labelled 1000dpi witness crops for the resultant display, the input audit finding, checked no-fix anchors, and source mapping.
 - Key fix: changes the endpoint relation in the resultant display from `R^{(n)}(x_n)=0(\mathfrak M)` to source `R^{(n)}(x_n)\equiv0(\mathfrak M)`, while preserving the already-correct final factor `R^{(n)}(x_n)`.
-- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted Paper 18 display correction, not full Paper 18 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted Paper 18 display correction, not full Paper 18 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P16 RA53, P17 RA52, P19 RA50, and P20 RA49 candidates before any unified German branch is promoted.
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P18 applied-fix evidence, not as a critical edition or full source closure.
 
@@ -20,7 +42,7 @@ Manifest: [20260614_noether_p19_ra50_sourcecritical_candidate.json](../manifests
 - Noether: `Noether_P19_RA50_SourceCritical_Fix_WebDrop_20260614.zip`, 13.3435 MB, SHA256 `5D68C270FB8F23FC6A17397880A892BFB341D5B7AACD17890F3750B32D89D6BD`.
 - Contents: targeted German cumulative source-critical candidate applying two source-confirmed Paper 19 tail corrections to a reversible TeX branch. It includes a compiled German cumulative RA50 candidate TeX/PDF/log, RA47-to-RA50 P19 TeX diff, source PDF for Math. Ann. 83 pp.24-66, enlarged 1000dpi labelled witness crops for source pp.58, 65, and 66, input audit findings, checked no-fix anchors, source mapping, source-image inventory, and provenance.
 - Key fixes: restores source order in the congruence pair after `Wegen` on printed p.58; restores source indices in the elementary-divisor display and continuation inequality on printed pp.65-66, replacing erroneous `s_\nu...s_i` / `t_\nu...t_i` style sequences with source `s_1...s_\lambda` / `t_1...t_\mu`.
-- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is targeted to the listed Paper 19 tail repairs, not full Paper 19 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, and P20 RA49 candidates before any unified German branch is promoted.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is targeted to the listed Paper 19 tail repairs, not full Paper 19 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P16 RA53, P17 RA52, P18 RA51, and P20 RA49 candidates before any unified German branch is promoted.
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P19 applied-fix evidence, not as a critical edition or full source closure.
 
@@ -31,7 +53,7 @@ Manifest: [20260614_noether_p20_ra49_sourcecritical_candidate.json](../manifests
 - Noether: `Noether_P20_RA49_SourceCritical_Fix_WebDrop_20260614.zip`, 5.3904 MB, SHA256 `C2A6DDEA80A54972695F1C707C327FB24A94D18C1ED65DE86DEE6694301E7099`.
 - Contents: targeted German cumulative source-critical candidate applying the source-confirmed Paper 20 formula (13) correction to a reversible TeX branch. It includes a compiled German cumulative RA49 candidate TeX/PDF/log, RA47-to-RA49 P20 TeX diff, the source article PDF for pp.26-33, an enlarged 1000dpi labelled source p.31 witness crop, applied-fix ledger, no-fix trap ledger, build summary, source-image inventory, and checksums.
 - Key fix: formula (13) changes the two factor-sum indices from `\mu,\nu` to source `\kappa,\lambda` while preserving the following prose products `\varrho_\mu\sigma_\nu` as a no-fix trap.
-- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted formula correction, not full Paper 20 certification, not non-German propagation, and must be reconciled with the separate P06 RA48 and P12/P13 RA48 candidates before any unified German branch is promoted.
+- Sense-check caveats: this is a German source-critical candidate only, based on the RA47 cumulative German TeX. It is a targeted formula correction, not full Paper 20 certification, not non-German propagation, and must be reconciled with the separate P06 RA48, P12/P13 RA48, P16 RA53, P17 RA52, P18 RA51, and P19 RA50 candidates before any unified German branch is promoted.
 
 Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Treat as targeted P20 applied-fix evidence, not as a critical edition or full source closure.
 
@@ -134,7 +156,7 @@ Manifest: [20260614_noether_slavic_core_handoff_papers01_21.json](../manifests/p
 
 - Noether: `Noether_Slavic_Core_Handoff_20260614T222005Z.zip`, 329.1773 MB, SHA256 `F6EF76A11DE40ADD4AE28E2E8A426B3919392A709DE445BBE6C5757A8A6FA901`.
 - Contents: an all-in-one multilingual handoff bundle for Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic Noether translation branches. The archive README/status files report completed rendered/audited cumulative checkpoints through Papers 01-21 in all four lanes, with Paper 22 only as an explicit intro/WIP branch. The package includes TeX/work files, cumulative PDFs, logs, status JSON, glossaries/term ledgers, constructed-language methodology notes, scripts/tools, and provenance/source-update material.
-- Sense-check caveats: ZIP integrity passes and the deliverable render logs under the translation/render trees show no fatal TeX or missing-character diagnostics in the inspected logs, but this is a handoff/provenance package rather than a clean reader-only release. It bundles a 7-Zip tool subtree with executable binaries, excludes bulky source-scan PDFs by design, and depends on the existing Noether source records and witness packages. Newer local German source-audit findings and fixes still need synchronization into these Slavic branches.
+- Sense-check caveats: ZIP integrity passes, Paper 21 checkpoint logs report source/structure, text/log, raster-margin, visual-inspection, merge-manifest, and final-sanity checks, and local spot rendering found nonblank A4 cumulative pages with Cyrillic/math rendering intact. This is still a handoff/provenance package rather than a clean reader-only release. Raw audit/log material includes expected warning history, it bundles a 7-Zip tool subtree with executable binaries, excludes bulky source-scan PDFs by design, and depends on the existing Noether source records and witness packages. Newer local German source-audit findings and fixes still need synchronization into these Slavic branches.
 
 Next action when Zenodo API credentials are available: decide whether to upload this exact handoff ZIP with the next Noether multilingual/provenance version, or first derive a cleaner public reader/source package without bundled executables and older source-update baggage. Do not describe this as a critical edition, source-closed Noether corpus, or independent source-audit closure.
 
