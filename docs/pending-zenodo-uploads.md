@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether P22 RA62 pages 61-69 source-critical candidate
+
+Manifest: [20260614_noether_p22_ra62_pages61_69_sourcecritical_candidate.json](../manifests/pending-zenodo-uploads/20260614_noether_p22_ra62_pages61_69_sourcecritical_candidate.json)
+
+- Noether: `Noether_P22_RA62_Pages61_69_SourceCritical_Fix_WebDrop_20260614.zip`, 24.9544 MB, SHA256 `3596311268D399CE773914D80D2820282C67F3C4D0BFF7E1430E99F2F7D14DB4`.
+- Contents: targeted German cumulative source-critical candidate for Noether Paper 22 source PDF pages 9-17 / printed pp.61-69 / book pp.417-425. It includes a 430-page RA62 German cumulative TeX/PDF/log, RA60-to-RA62 diff, full Paper 22 source PDF, worked source slice pp.61-69, labelled 1000dpi inspection crops, confirmed-repair CSV, no-fix traps, page dispositions, source-crop manifest, summary JSON, source-quality note, extracted text, and checksums.
+- Key fixes: removes a false mid-article continuation heading; restores congruence signs in formulas (21)-(22); restores auxiliary fraktur-C modules and zeta variables in formulas and prose around (23), (24), (27), (28), and (32); and corrects repeated `\xi`/`\xi` independence language to source-visible `\xi`/`\zeta`. Package summary reports 14 confirmed repairs.
+- Sense-check caveats: this is a targeted German source-critical candidate only. The 1000dpi crops are inspection enlargements from source PDF images embedded at about 360ppi, not native higher-resolution source. It is not full Paper 22 certification, not whole-corpus source closure, not a critical edition, and not propagated to EN/ES/JA/FR/ZH/UK/RU/ISV or the newer Slavic branches. RA62 builds from the RA60 base after the P23 fix; branch reconciliation with other Noether candidates remains required.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs. Continue Paper 22 source audit from printed p.70 / source PDF page 18 unless a later package supersedes this range.
+
 ## 2026-06-14: Gibbs Volume I Paper 3 pp.125-134 continuation
 
 Manifest: [20260614_gibbs_v1_p125_134.json](../manifests/pending-zenodo-uploads/20260614_gibbs_v1_p125_134.json)
