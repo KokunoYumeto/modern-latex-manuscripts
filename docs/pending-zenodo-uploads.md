@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA79 Paper 09-13 footnote resets
+
+Manifest: [20260614_noether_ra79_p09_p13_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra79_p09_p13_footnote_resets.json)
+
+- Noether: `Noether_RA79_P09_P13_FootnoteResets_WebDrop_20260614.zip`, 113.8285 MB, SHA256 `31CC9E4DFA06EE70A8B7FA261D5FD9061AE165CC641DCB646ED4A8D4600CB98E`.
+- Contents: German cumulative targeted Paper 09-13 footnote reset/page-boundary repair after RA78. It includes the RA79 German cumulative TeX/PDF/log candidate, source/provenance witnesses for Papers 09-13, diff/audit/verification material, README, and checksums.
+- Key fixes: resets ordinary footnote numbering before Papers 09, 10, 11, 12, and 13, and inserts the missing clear page before Paper 13. The older cumulative starts were 87, 129, 145, 160, and 163.
+- Sense-check caveats: targeted page-boundary/footnote-counter repair only. Package metadata says prose, mathematics, tables, diagrams, and equations were not changed. It is not full Paper 09-13 certification, not whole-corpus source closure, not a critical edition, and not propagated to non-German branches.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Reconcile RA79 with later German branches before non-German propagation.
+
 ## 2026-06-14: Noether RA78 Paper 14-16 footnote resets
 
 Manifest: [20260614_noether_ra78_p14_p15_p16_footnote_resets.json](../manifests/pending-zenodo-uploads/20260614_noether_ra78_p14_p15_p16_footnote_resets.json)
