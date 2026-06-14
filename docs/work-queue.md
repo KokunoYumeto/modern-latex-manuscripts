@@ -2,6 +2,8 @@
 
 This page turns the current archive gaps into concrete contribution targets. It is intentionally practical: pick a row, open the linked record, compare against source witnesses, and submit a narrow correction or continuation.
 
+Latest Noether staging note 2026-06-14: `Noether_RA58_SourceCritical_Rollup_WebDrop_20260614.zip` is now queued as the preferred compact German source-critical roll-up candidate. It consolidates the RA57 Paper 03 branch plus the already source-confirmed targeted repairs from RA48 through RA55/RA53/RA52/RA51/RA50/RA49 into one 430-page German cumulative TeX/PDF. Use it as the current branch-reconciliation target, while keeping the individual RA packages as witness/provenance layers. It is not full corpus certification and has not been propagated to non-German branches.
+
 Latest Noether staging note 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip` and `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip` are now queued as targeted German source-critical candidate repairs. P14 RA55 repairs source-confirmed symbol/index loci on printed pp.190, 198, and 200; P15 RA54 repairs the printed p.152 Latin-`x` index block and printed p.154 Schur `S. 355` citation. They still need branch reconciliation and multilingual propagation before any unified Noether branch is promoted.
 
 Latest Noether staging note 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is also queued as a targeted German source-critical candidate. It promotes existing GDZ source-audit findings for Papers 09-11 into a compiled RA47-based cumulative candidate; reconcile it with the other pending RA branches before any non-German propagation.

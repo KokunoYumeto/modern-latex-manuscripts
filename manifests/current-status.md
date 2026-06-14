@@ -4,6 +4,8 @@ Generated from the local Codex working project; manually refreshed during the 20
 
 Global quality rule: these records are working drafts, translation drafts, source-witnessed tranches, and preservation packets. None of the public records should be read as a critical edition or critically complete mathematical edition unless a future release explicitly says the maintainer has certified that status. Filename words such as `complete`, `strict`, `source-checked`, or `critical` can be legacy package labels or structural coverage labels; use the current status notes and source witnesses when judging reliability.
 
+Latest local Noether source-audit staging 2026-06-14: `Noether_RA58_SourceCritical_Rollup_WebDrop_20260614.zip` is queued as the preferred compact German source-critical roll-up candidate. It consolidates the RA57 Paper 03 branch plus the already source-confirmed RA48-RA55/RA53-RA49 targeted repairs for Papers 06-08 and 12-20 into one 430-page German cumulative TeX/PDF branch. This reduces pending-queue fragmentation, but it remains targeted repair consolidation only: not a fresh page-by-page certification, not a critical edition, and not multilingual propagation.
+
 Latest local Noether source-audit staging 2026-06-14: `Noether_P14_RA55_SourceCritical_Fix_WebDrop_20260614.zip` and `Noether_P15_RA54_SourceCritical_Fix_WebDrop_20260614.zip` are queued for the next Noether upload. P14 RA55 applies three targeted source-confirmed symbol/index repairs on printed pp.190, 198, and 200; P15 RA54 applies two targeted source-confirmed repairs on printed pp.152 and 154. These supersede older unpatched P14/P15 audit notes for those loci only and remain German source-critical candidates, not full-paper certification or multilingual propagation.
 
 Latest local Noether source-audit staging 2026-06-14: `Noether_P09_P10_P11_RA56_SourceCritical_Fix_WebDrop_20260614.zip` is also queued. RA56 applies eight targeted German source-confirmed repairs across Papers 09-11, including source-visible author lines, P09 Zermelo `S. 484`, P10 `k_\sigma` and `F(t;\vartheta_i)`, and P11 `\Omega_\Gamma`. This is a RA47-based candidate branch and must be reconciled with the other pending RA candidates before promotion.
@@ -79,4 +81,3 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Frobenius | 20673445 | <https://doi.org/10.5281/zenodo.20673444> |
 | Poincare | 20673462 | <https://doi.org/10.5281/zenodo.20673461> |
 | Additional author cluster | 20672984 | <https://doi.org/10.5281/zenodo.20411006> |
-
