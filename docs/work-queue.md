@@ -26,6 +26,8 @@ Latest Noether staging note 2026-06-14: `Noether_P32_IA_SourceWitness_pp221_228_
 
 Latest Noether staging note 2026-06-14: `Noether_P32_RA74_SourceAuthorBlock_WebDrop_20260614.zip` is queued as a targeted German source-author-block/page-break repair candidate for Paper 32. It restores the Brauer/Noether source author block and starts Paper 32 on a new rendered page without changing body prose or mathematics. Reconcile it with the other pending RA branches before promotion or multilingual propagation.
 
+Latest Noether staging note 2026-06-14: `Noether_P33_IA_SourceWitness_pp071_073_20260614.zip` is queued as compact Paper 33 source/provenance support. Use it as the IA source witness subset for later Paper 33 source comparison; do not treat it as applied TeX, translation, source closure, or critical edition evidence.
+
 ## Highest-Value Translation Work
 
 | Area | Task | Start From |
