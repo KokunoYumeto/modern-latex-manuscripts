@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-14: Noether RA94 Paper 17 source-unfaithful continuation scaffold fix
+
+Manifest: [20260614_noether_ra94_p17_source_unfaithful_continuation_scaffold_fix.json](../manifests/pending-zenodo-uploads/20260614_noether_ra94_p17_source_unfaithful_continuation_scaffold_fix.json)
+
+- Noether: `Noether_RA94_P17_SourceUnfaithfulContinuationScaffoldFix_WebDrop_20260614.zip`, 7.1457 MB, SHA256 `FCB4506B6AC3C339852F3B1ECB1A0113210E754AEF806118DA55CED57B518CD7`.
+- Contents: German cumulative Paper 17 structural/source-layout cleanup candidate after RA92. It removes one visible non-source centered production label, `Fortsetzung zu 17. Moduln in nichtkommutativen Bereichen, insbesondere aus Differential- und Differenzenausdrücken.`, before Section 5, and also removes the paired artificial `\clearpage` and `\setcounter{footnote}{12}`. The package includes the RA92 base TeX, RA94 candidate TeX/PDF, diff, applied-fix ledger, marker scan, XeLaTeX logs, 650 dpi source witness, build summary, and checksums.
+- Sense-check caveats: targeted structural/source-layout cleanup only. It changes no source prose, formulas, tables, diagrams, theorem text, or footnote text. It is not full Paper 17 certification, not dense-math certification, not a critical edition, and not multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload with the next Noether source-audit/provenance Zenodo version if retained, then reconcile RA94 with the wider German source-audit branch before reader promotion or language-branch propagation.
+
 ## 2026-06-14: Noether RA93 current-state ledger after RA92
 
 Manifest: [20260614_noether_ra93_current_state_after_ra92_ledger.json](../manifests/pending-zenodo-uploads/20260614_noether_ra93_current_state_after_ra92_ledger.json)
