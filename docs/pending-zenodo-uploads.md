@@ -2,6 +2,26 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-19: Noether R94-R101 / N_SYM RA61-RA64 German working-baseline wave
+
+Manifest: [20260619_noether_r94_r101_nsym_ra61_ra64_wave.json](../manifests/pending-zenodo-uploads/20260619_noether_r94_r101_nsym_ra61_ra64_wave.json)
+
+- Noether: `Noether_R101_working_20260619.zip`, 96.9076 MB, SHA256 `B5799C2CA57161240A4D66DB11416D289466DC96FFBB4A9AD8AD7B887E3DE202`.
+- Noether: `Noether_R99_closure_20260618.zip`, 41.9808 MB, SHA256 `47983C54560FA7E187CCD2CCCED897C2756454A82A98F7F6A065988A0C8F232D`.
+- Noether: `R97_defect_closure_20260618.zip`, 41.2469 MB, SHA256 `26B37A121E1D4A03BD53B6E4B9D6D11C50DF23D07AF3129C5EC6C24DEA81107E`.
+- Noether: `R96_known_defects_20260617.zip`, 24.3516 MB, SHA256 `582263725F3F41EAC936C0CA2DD0D815E71E5B0288EF7249A4ABDA92137B0627`.
+- Noether: `R95_recovery_author_layout_20260617.zip`, 16.4186 MB, SHA256 `09F15CC3B2D27FE8AB9089B86A837865681C524351F33A37FF916D207A8BB175`.
+- Noether: `R94_p10p12_fix.zip`, 25.1473 MB, SHA256 `2C4D88A7D97B8E60DEB30D9FC664F49B1152EBB4B4E1E8341F069EC147CD818B`.
+- Noether: `N_SYM_RA64_P14_182_194_20260617.zip`, 59.3954 MB, SHA256 `A04DCBAA57792875BB88EDD4BA341AC62E9701BFFFBCDB7CB9A4B72B5A73D6DA`.
+- Noether: `N_SYM_RA63_P13fix_workspace_20260617.zip`, 20.0649 MB, SHA256 `BEE83F97BF5CE7F97BF22FFE228C9CE1702FB8294F3F16A6FBFFE6A87E5AE8AB`.
+- Noether: `N_SYM_RA62_P13_p235_257_20260617.zip`, 44.7529 MB, SHA256 `3C00291256CEF2E113FF96D5BF2D48D2004A4FAEB19BDAF380C878C3E6FFE66D`.
+- Noether: `N_SYM_RA61_P13_p241_247_20260616.zip`, 21.4781 MB, SHA256 `FF86BD429473E70E07A9F7F9C339C397BA2A969210037C5CC822A0AB2BE75DCA`.
+- Noether: `N_SYM_RA61_P13_p241_246_20260616.zip`, 17.1391 MB, SHA256 `67C90B0E14134FD4E9A0E2FDA8C645837EE08C3B5FD60F9B7DCC9DF4F7421D19`.
+- Contents: R99 is the clean numbered German working-closure baseline through Paper 43, reporting 398 A4 pages and removal of non-reader apparatus/duplicate continuation material. R101 creates one 457-page unified German working draft by adding post-numbered authorial collected-volume material after Paper 43; it explicitly records missing image scans for collected-volume pages 725-796. N_SYM RA62/RA63 close Paper 13 through printed p.257 in the source-symbol German branch, and RA64 advances Paper 14 through printed p.194 / sections 1-5.
+- Sense-check caveats: working-baseline/source-audit material only. R101 should not be called source-certified because its post-numbered continuation still has a source-image dependency. R94-R97 and RA61 are mostly intermediate/superseded provenance; decide at upload time whether to keep all intermediate packets or upload only R101/R99/RA64 plus selected provenance.
+
+Next action when Zenodo API credentials are available: create a new Noether Zenodo version, upload the selected subset from this wave, publish, then update record IDs, metadata JSON, public file catalog, generated Noether page, and status docs. If R101 is included, label it as the current German working baseline, not a critical edition or whole-corpus mathematical certification.
+
 ## 2026-06-14: Noether RA94 Paper 17 source-unfaithful continuation scaffold fix
 
 Manifest: [20260614_noether_ra94_p17_source_unfaithful_continuation_scaffold_fix.json](../manifests/pending-zenodo-uploads/20260614_noether_ra94_p17_source_unfaithful_continuation_scaffold_fix.json)
