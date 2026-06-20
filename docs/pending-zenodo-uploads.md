@@ -2,6 +2,19 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-20: Noether R105/R107 German working draft plus tail source-gap packet
+
+Manifest: [20260620_noether_r105_r107_tail_source_gap.json](../manifests/pending-zenodo-uploads/20260620_noether_r105_r107_tail_source_gap.json)
+
+- Noether: `Noether_R107_working_20260619.zip`, 210.2899 MB, SHA256 `69D33B46C3C9C073DCCC993AF10273BA7669AA884E46C4AE2757C0F31A500F65`.
+- Noether: `Noether_R105_working_20260619.zip`, 99.9585 MB, SHA256 `74A31BFA3721874BE7EFA4C89D2E8081FD99BD6DA7F97EF6DABD759034086E94`.
+- Noether: `Noether_R101_SourceGap_pp725_796_IA_ScanSlice_WebDrop_20260619.zip`, 3.6601 MB, SHA256 `7C6D60D9D7BED9657A3C8ECD66228F97A5EBA9C3A94974F3BD5CD2DD1736FC4A`.
+- Contents: R105 is an earlier 453-page German working-draft/source-audit package covering Paper 02 printed pp.72-75, Paper 04 printed pp.118-154, and Paper 05 printed pp.316-319 while still recording an open queue and the collected-volume pp.725-796 source-image blocker. The tail source-gap packet supplies the Internet Archive source witness for that blocker. R107 is the current packaged German working draft after R106, still 453 pages, retaining Papers 01-43 plus post-P43 collected material and bundling the tail source-gap packet; its report records 57 verified patches already present and 0 newly applied from the checked patch corpus, with large open defect/actionable queues still active.
+- Loose observed but not upload-ready: `cum_de_R108.tex/pdf`, `cum_de_R106.tex/pdf`, `cum_de_R104.tex/pdf`, R102 audit indexes, and R103 repair queues were found locally, but no standalone R108/R106/R104/R103 package with README/checksums/source-witness report was found during this sweep.
+- Sense-check caveats: working draft, source witness, and audit/repair support only. Do not describe this wave as a critical edition, full source closure, whole-corpus mathematical certification, or synchronized multilingual propagation.
+
+Next action when Zenodo API credentials are available: upload R107 plus the tail source-gap packet to a new Noether version, and include R105 only if retaining intermediate audit provenance is useful. After publish, refresh the public file catalog, Noether record page, metadata JSON, and status docs.
+
 ## 2026-06-19: Noether R94-R101 / N_SYM RA61-RA64 German working-baseline wave
 
 Manifest: [20260619_noether_r94_r101_nsym_ra61_ra64_wave.json](../manifests/pending-zenodo-uploads/20260619_noether_r94_r101_nsym_ra61_ra64_wave.json)
