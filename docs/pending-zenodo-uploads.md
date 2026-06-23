@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 localfix P13 formula (6) dotted-row evidence
+
+Manifest: [20260623_noether_r121_localfix_p13_formula6.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_localfix_p13_formula6.json)
+
+- Noether pending ZIP: `Noether_R121_Localfix_P13_Formula6_WebDrop_20260623.zip`, 4.8434 MB, SHA256 `FF9EFF9D94F53ACCFBFED3C23F40218DE10EC3D86B261136660E6A5B8EA5645F`.
+- Contents observed: README, German cumulative R121 localfix candidate TeX/PDF/log, R121-to-localfix diff, confirmed-fix CSV, build-plumbing CSV, no-fix-trap CSV, source-quality note, one rendered check page, and P13 source p.238 full-page/crop witnesses.
+- Declared scope: targeted P13 German cumulative candidate restoring the source-visible vertical dotted continuation row in formula (6) before the final `(-1)^kappa` term. It also carries local FreeSerif fallback compile plumbing.
+- Sense-check caveats: the best local source authority is 400 PPI, below the usual 650+ PPI strict-certification rule. German cumulative candidate only; no multilingual propagation, no Paper 13 closure, no whole-corpus certification, and no critical-edition claim.
+
+Next action: upload only as targeted Noether P13 formula (6) localfix evidence, or feed it into the active Noether web thread for a reconciled later R12x release.
+
 ## 2026-06-23: Noether R121 localfix P16/P29 web-review package
 
 Manifest: [20260623_noether_r121_localfix_p16_p29_webdrop.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_localfix_p16_p29_webdrop.json)
