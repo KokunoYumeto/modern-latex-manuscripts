@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 combined localfix P13/P16/P29 webdrop
+
+Manifest: [20260623_noether_r121_combined_localfix_p13_p16_p29_webdrop.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_combined_localfix_p13_p16_p29_webdrop.json)
+
+- Noether pending ZIP: `Noether_R121_Combined_Localfix_P13_P16_P29_WebDrop_20260623.zip`, 22.1038 MB, SHA256 `3F8E12B7DC424EAA1B126DC1609E887D9602A062CCB90D68331D446937477500`.
+- Contents observed: README, German cumulative R121 combined localfix candidate TeX/PDF/log, R121-to-combined-localfix diff, confirmed-fix CSV, no-duplicate-trap CSV, source-availability notes, source witnesses for the P13/P16/P29 loci, previous localfix ledgers, rendered check PNGs, and checksum files.
+- Declared scope: convenience combined German web-review candidate carrying the already staged P13 formula (6) dotted-row restoration, P16 source-visible front matter/bracket-display-label/emphasis repairs, and the prior local P29 title/author/rule-block fix.
+- Sense-check caveats: this supersedes only the earlier not-upload-ready source-intake note for the same combined folder. It does not erase the separate P13 and P16/P29 evidence packages as provenance. Source witnesses are best-available but mostly about 400 PPI, below the current 650+ PPI strict dense-math certification threshold. German cumulative candidate only; no multilingual propagation, no Paper 13/16/29 closure, no whole-corpus certification, and no critical-edition claim.
+
+Next action: upload only as clearly labelled combined Noether R121 localfix evidence, or feed it to the active Noether web/cumulative branch and wait for a reconciled later R12x release.
+
 ## 2026-06-23: Noether R121 localfix P13 formula (6) dotted-row evidence
 
 Manifest: [20260623_noether_r121_localfix_p13_formula6.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_localfix_p13_formula6.json)
