@@ -2,15 +2,15 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
-## 2026-06-23: Noether P16 R121 local candidate, not upload-ready
+## 2026-06-23: Noether P16 R121 R120-based patch webdrop, packaged but not certification
 
-Manifest: [`20260623_noether_p16_r121_candidate_needs_packaging.json`](../manifests/pending-zenodo-uploads/20260623_noether_p16_r121_candidate_needs_packaging.json)
+Manifest: [20260623_noether_p16_r121_candidate_needs_packaging.json](../manifests/pending-zenodo-uploads/20260623_noether_p16_r121_candidate_needs_packaging.json)
 
-- Noether local candidate directory: `noether_p16_R121_audit_20260623`, 15.1708 MB, 13 files.
-- Contents observed: one German cumulative TeX candidate, `cum_de_R120_P16_R121_candidate.tex`, plus six IA JP2 leaves and six native PNG page witnesses for Mathematische Annalen 81 printed pp.25-30.
-- Sense-check caveats: not a ready Zenodo upload. At sweep time the folder had no README, checksum manifest, baseline diff, source map, render check, or audit ledger. The local XeLaTeX log writes a 457-page PDF and the quick warning scan found only inputenc/font-substitution warnings, so this is compile evidence, not render/source-audit certification. It may be a later R120-based Paper 16 candidate, but no supersession of the existing RA53 P16 package is established. Do not describe it as Paper 16 closure, source certification, multilingual propagation, or critical edition material.
+- Noether pending ZIP: Noether_P16_R121_R120Patch_WebDrop_20260623.zip, 3.3297 MB, SHA256 `BC2D3FD9CAB4812720A446500C187D86B514EEE101DA7FC18F12DC3D99C763DE`.
+- Contents observed: README/rebase instructions, R120 base snapshot, German cumulative P16 R121 candidate TeX/PDF/log, RA-style diff, confirmed-fix CSV, pending/limits CSV, source-witness manifest, logbook, IA JP2 and native PNG leaves for Math. Ann. 81 printed pp.25-30, and rendered candidate pages for the P16 region.
+- Sense-check caveats: packaged patch/rebase aid only. It restores the source-visible Paper 16 subtitle/author block, bracketed source formula labels [1] through [7] and [2a], source italics, and a local FreeSerif compile guard. The source witnesses are IA JP2-derived native page images with ambiguous/missing DPI metadata, better than the older RA78 comparator but below strict 650+ PPI certification. Do not describe as Paper 16 closure, full source certification, multilingual propagation, or critical edition material.
 
-Next action: package only after checksums, source map, render check, baseline diff, audit ledger, and explicit reconciliation against RA53/R120/R121.
+Next action: either upload as clearly labelled P16 R121 patch evidence, or feed it into the active web/cumulative branch and wait for a reconciled Noether release. Keep RA53 and earlier P16 evidence as prior provenance; supersession is not established.
 
 ## 2026-06-23: Noether P15 GDZ full-page source witness, needs packaging
 
