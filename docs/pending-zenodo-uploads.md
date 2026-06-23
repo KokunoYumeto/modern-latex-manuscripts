@@ -4,7 +4,7 @@ This page lists local packages that have been discovered, extracted, checksummed
 
 ## 2026-06-23: Takagi/Steinitz source-hunt and corpus-audit packet
 
-Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pending-zenodo-uploads/`20260623_takagi_steinitz_source_hunt_audit.json`)
+Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pending-zenodo-uploads/20260623_takagi_steinitz_source_hunt_audit.json)
 
 - Steinitz/Takagi source-intake: `Takagi_Steinitz_Corpus_Audit_20260623.zip`, 1.8240 MB, SHA256 DAAB19D61F456F080645D6D49F44D5BB0409DBB61AA82A3CBD05A1A4C650C751.
 - Contents: compact audit/status package with CSV ledgers, corpus priority notes, Takagi source-quality notes, Steinitz progress corrections, and a 22-page Ranicki offprint witness for Steinitz 1908 `Beitraege zur Analysis Situs`.
