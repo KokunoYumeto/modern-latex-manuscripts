@@ -2,13 +2,24 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
-## 2026-06-23: Gordan theta 1863 600-ppi fix05 source package
+## 2026-06-23: Noether R121 Paper 20 author-block candidate, not upload-ready
 
-Manifest: [`20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json`](../manifests/pending-zenodo-uploads/20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json)
+Manifest: [`20260623_noether_r121_p20_authorblock_candidate_needs_packaging.json`](../manifests/pending-zenodo-uploads/20260623_noether_r121_p20_authorblock_candidate_needs_packaging.json)
 
-- Gordan/Clebsch-Gordan: `Gordan_Theta_1863_600ppi_SourceFix_Package_fix05_20260623.zip`, 8.4326 MB, SHA256 `7B520C655AD0C69BAC61D40E10D4EE0C6DD432E08B7384FFAC57F23F88E4E96B`.
-- Contents: source-fix package for Paul Gordan, `Ueber die Transformation der Theta-Funktionen` (1863), replacing earlier low-resolution screenshot/page-image authority with a Basel/Google Books full-PDF 600-ppi witness. The package reports a new source-confirmed correction on printed page 10: inherited TeX `c^{2}=1` corrected to source-visible `c^8=1`, while retaining fix04 corrections and German/English TeX/PDF.
-- Sense-check caveats: package-audited source-fix working draft only. Use the included 600-ppi source PDF/rendered pages as source authority; older low-resolution page-image PDFs are historical provenance only. Not a certified critical edition.
+- Noether local candidate directory: `noether_p20_audit_R121_20260623`.
+- Contents: German cumulative R120-based Paper 20 author-block/realignment repair candidate, smaller fix-slice TeX/PDF, current and candidate render PNGs, and extracted TeX context for Paper 20.
+- Sense-check caveats: not a ready Zenodo upload. The cumulative candidate log records a `FreeSerif` fontspec error even though a 400-page PDF was written. Package only after a README, checksum manifest, explicit build caveat/clean compile resolution, and R120 reconciliation note exist. Do not describe as R121 complete, source-closed, or critical.
+
+Next action: if this remains the active Paper 20 branch, package it as a compact Noether candidate/evidence ZIP and then decide whether to upload as targeted repair evidence or wait for a fuller Noether source-audit roll-up.
+
+## 2026-06-23: Gordan theta 1863 full-audit fix06
+
+Manifest: [`20260623_gordan_theta_1863_fullaudit_fix06.json`](../manifests/pending-zenodo-uploads/20260623_gordan_theta_1863_fullaudit_fix06.json)
+
+- Gordan/Clebsch-Gordan: `Gordan_Theta_1863_FullAudit_fix06_20260623.zip`, 2.1203 MB, SHA256 `EABE4C519B9FF99AF56999EDA3FB51FC83201DA1CF6A2228C1F538B1101D8B4B`.
+- Contents: full-audit source-repair package for Paul Gordan, `Ueber die Transformation der Theta-Funktionen` (1863), using the local Google Books/Basel 600-ppi witness as working source authority. It retains the fix05 `c^8=1` correction and adds formula 9, odd-gamma reduction, and formula 19 repair/normalization evidence, with German/English TeX/PDF and source crops.
+- Sense-check caveats: package-audited source-fix working draft only. Formula 19 is recorded as mathematical normalization of a printed-source omission rather than literal transcription. Not a certified critical edition.
+- Supersedes preferred upload of fix05. Keep `Gordan_Theta_1863_600ppi_SourceFix_Package_fix05_20260623.zip` only as provenance/support if both are uploaded. Fix05 manifest: [`20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json`](../manifests/pending-zenodo-uploads/20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json).
 
 Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
