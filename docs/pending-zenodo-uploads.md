@@ -6,11 +6,11 @@ This page lists local packages that have been discovered, extracted, checksummed
 
 Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pending-zenodo-uploads/20260623_takagi_steinitz_source_hunt_audit.json)
 
-- Steinitz/Takagi source-intake: `Takagi_Steinitz_Corpus_Audit_20260623.zip`, 1.8240 MB, SHA256 DAAB19D61F456F080645D6D49F44D5BB0409DBB61AA82A3CBD05A1A4C650C751.
-- Contents: compact audit/status package with CSV ledgers, corpus priority notes, Takagi source-quality notes, Steinitz progress corrections, and a 22-page Ranicki offprint witness for Steinitz 1908 `Beitraege zur Analysis Situs`.
+- Steinitz/Takagi source-intake: `Takagi_Steinitz_Corpus_Audit_20260623.zip`, 1.8240 MB, SHA256 DAAB19D61F456F080645D6D49F44D5BB0409DBB61AA82A3CBD05A1A4C650C751; `Takagi_Steinitz_Project_Handoff_DOCS_MANIFESTS_20260623.zip`, 0.0086 MB, SHA256 A31E99B428C176D2D974E60F863240C348DD9AFD05E1F8A679F4417B3307AF8A; and `Takagi_Teiji_Project_Handoff_20260623.zip`, 369.3363 MB, SHA256 86FE12CD57FAAAB4D93F127957E741675DEB04A071D6D980952CA75FD9B98CBF.
+- Contents: compact audit/status package with CSV ledgers, corpus priority notes, Takagi source-quality notes, Steinitz progress corrections, a 22-page Ranicki offprint witness for Steinitz 1908 `Beitraege zur Analysis Situs`, plus a larger Takagi source-intake handoff carrying UTokyo 1903/1920/1922 PDFs, the existing Takagi 1920 aid ZIP, and JSTAGE/NDL source-hunt material.
 - Sense-check caveats: source-hunt/audit/handoff only. This does not add promoted reader coverage. Steinitz 1908 is now partially source-unblocked by a usable 300-ppi witness, but it is not strict 650+ certification. Takagi remains intake-only: local UTokyo PDFs cover the 1903, 1920, and 1922 papers at about 400 ppi, and the existing 100-dpi Takagi aid PNGs are locator-only.
 
-Next action when Zenodo API credentials are available: upload this compact packet to the Steinitz record or to the workflow/source-intake record, with explicit source-hunt wording. Separately check the BHL Journal of the College of Science JP2/PDF routes for Takagi v.19, v.41, and v.44 before opening a Takagi production lane.
+Next action when Zenodo API credentials are available: upload the compact packet and, if desired, the two project-handoff ZIPs to the Steinitz record or to the workflow/source-intake record, with explicit source-hunt wording. Separately check the BHL Journal of the College of Science JP2/PDF routes for Takagi v.19, v.41, and v.44 before opening a Takagi production lane.
 
 ## 2026-06-23: SGA6 repair033-088 source/French audit wave
 
