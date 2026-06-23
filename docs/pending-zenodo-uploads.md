@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 09 RA56/RA85 section-anchor candidate
+
+Manifest: [20260623_noether_r121_p09_ra56_ra85_candidate_fix.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p09_ra56_ra85_candidate_fix.json)
+
+- Noether pending ZIP: `Noether_R121_P09_RA56_RA85_CandidateFix_20260623.zip`, 4.6883 MB, SHA256 `D3444F51B2D786992AD09BB632C7805A614A0EE996D07FD908C64657A9301E8D`.
+- Contents observed: candidate German cumulative TeX/PDF, XeLaTeX build logs, generated candidate-vs-R121 diff, scope note, README, and checksums.
+- Declared scope: structural/indexing candidate. The observed delta adds paper-level `\section*{...}` anchors for Papers 9, 10, 11, 12, 13, and 15 in the German R121 cumulative.
+- Sense-check caveats: this is not a new source-text correction, not a reader-facing final, not multilingual propagation, not Paper 9 closure, not whole-corpus certification, and not a critical edition. It needs review and branch reconciliation before promotion into a canonical cumulative.
+
+Next action: review the section-anchor candidate against the active German cumulative branch, then promote only if the anchors do not interfere with source layout or downstream multilingual segmentation.
+
 ## 2026-06-23: Noether R121 Paper 10 RA56/RA57/R94 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p10_ra56_ra57_r94_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p10_ra56_ra57_r94_noduplicate_audit.json)
