@@ -2,6 +2,28 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether Slavic current-source transfer through Paper 32 second intro
+
+Manifest: [20260623_noether_slavic_zenododrive_transfer_current_sources.json](../manifests/pending-zenodo-uploads/20260623_noether_slavic_zenododrive_transfer_current_sources.json)
+
+- Noether pending ZIP: Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip, 695.7802 MB, SHA256 FD918BC10DCEDE080FF4D39062F0B3CEA7290213F89F2AC69332E69627EFD1AE.
+- Contents observed: 2,854 files including Ukrainian, Russian, Interslavic Latin, and deterministic Interslavic Cyrillic TeX/PDF translation sources, cumulative readers, glossaries, segment spines, source-control materials, logs, local tools, and authority-download metadata.
+- Declared scope: large Noether Slavic translation/source-transfer handoff. The package reports current validated/rendered cumulative translation state through Papers 01-32 through the Paper 32 second introductory paragraph. Reported cumulative reader lengths are 441 pages Ukrainian, 457 pages Russian, 422 pages Interslavic Latin, and 441 pages Interslavic Cyrillic.
+- Sense-check caveats: this is a working translation lane and source/provenance transfer, not a critical edition or source-closed Noether corpus. The package itself preserves known source-review flags, including Paper 02's visible Section 4 gap in the German source/control layer. Do not infer complete numbered-corpus Slavic closure from file count alone, and keep later working sections separate from validated cumulative checkpoints.
+
+Next action: upload or otherwise preserve as a large Noether Slavic translation/source-transfer artifact with explicit working-lane caveats. Do not store the binary in GitHub; keep GitHub as metadata, issue/PR, and correction surface.
+
+## 2026-06-23: Noether R121 Paper 15 RA54/RA78/RA85 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p15_ra54_ra78_ra85_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p15_ra54_ra78_ra85_noduplicate_audit.json)
+
+- Noether pending ZIP: Noether_R121_P15_RA54_RA78_RA85_NoDuplicate_Audit_20260623.zip, 0.0115 MB, SHA256 6BF225D2E0AF202E7C2DC3B5D45B013C194ADF44C08AC90EB854FA6FA7E910C7.
+- Contents observed: README, P15 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA54/RA78/RA85 prior ledgers/diffs.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 15. It reports that R121 already has the Paper 15 article boundary/footnote reset, numbered title, RA54 Latin x index correction, RA54 Schur S. 355 (1912) citation correction, and RA54 no-fix traps.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. It verifies survival of accepted repairs only, not a fresh dense-math certification. Best local P15 source package is recorded as native 360 PPI; later 1000 DPI crops are enlargements rather than additional optical detail. This is not P15 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 17 RA52/RA77/RA94 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p17_ra52_ra77_ra94_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p17_ra52_ra77_ra94_noduplicate_audit.json)
