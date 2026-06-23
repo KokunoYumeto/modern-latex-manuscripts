@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 08 RA66/RA68 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p08_ra66_ra68_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p08_ra66_ra68_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P08_RA66_RA68_NoDuplicate_Audit_20260623.zip`, 0.014 MB, SHA256 `794761A78A86687CDDF65B2691FCEC5B609FC3827A85BED5A59640A0729A81AC`.
+- Contents observed: README, P08 R121/current-candidate verification CSV, source-quality/scope CSV, logbook/checksum CSV, and P07/P08 refined, RA66, and RA68 prior ledgers.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 08. It reports that the P08 title/author block, p096 source-marker apparatus, p100 Omega-note formula, and `volle Systeme` no-fix trap are already represented in the current local TeX candidate.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies known P08 fix/no-fix loci against the current candidate rather than recertifying every Paper 08 symbol or page. Prior exact-source witnesses include targeted 1000-dpi crops referenced in the included ledgers. This is not Paper 08 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 09 RA56/RA85 section-anchor candidate
 
 Manifest: [20260623_noether_r121_p09_ra56_ra85_candidate_fix.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p09_ra56_ra85_candidate_fix.json)
