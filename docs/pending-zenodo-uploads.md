@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Takagi/Steinitz source-hunt and corpus-audit packet
+
+Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pending-zenodo-uploads/`20260623_takagi_steinitz_source_hunt_audit.json`)
+
+- Steinitz/Takagi source-intake: `Takagi_Steinitz_Corpus_Audit_20260623.zip`, 1.8240 MB, SHA256 DAAB19D61F456F080645D6D49F44D5BB0409DBB61AA82A3CBD05A1A4C650C751.
+- Contents: compact audit/status package with CSV ledgers, corpus priority notes, Takagi source-quality notes, Steinitz progress corrections, and a 22-page Ranicki offprint witness for Steinitz 1908 `Beitraege zur Analysis Situs`.
+- Sense-check caveats: source-hunt/audit/handoff only. This does not add promoted reader coverage. Steinitz 1908 is now partially source-unblocked by a usable 300-ppi witness, but it is not strict 650+ certification. Takagi remains intake-only: local UTokyo PDFs cover the 1903, 1920, and 1922 papers at about 400 ppi, and the existing 100-dpi Takagi aid PNGs are locator-only.
+
+Next action when Zenodo API credentials are available: upload this compact packet to the Steinitz record or to the workflow/source-intake record, with explicit source-hunt wording. Separately check the BHL Journal of the College of Science JP2/PDF routes for Takagi v.19, v.41, and v.44 before opening a Takagi production lane.
+
 ## 2026-06-23: SGA6 repair033-088 source/French audit wave
 
 Manifest: [20260623_sga6_repair033_088_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260623_sga6_repair033_088_source_audit_wave.json)

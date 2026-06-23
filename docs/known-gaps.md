@@ -110,7 +110,7 @@ Current dedicated record: <https://doi.org/10.5281/zenodo.20616988>
 
 - The dedicated Steinitz record is now the preferred surface for current Steinitz work. It includes package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13.
 - These are source-witnessed working drafts, not final critical editions. Use each package's internal README, progress ledger, source scans, and render/audit files as authority for its exact promoted scope.
-- Known gaps remain explicit in the public metadata: 1908 Analysis Situs source unresolved; the remainder of 1916 Bedingt III, 1916/1922 polyhedron-space-division work, and 1927/1928 isoperimetric papers not completed.
+- Known gaps remain explicit in the public metadata: 1908 Analysis Situs is no longer entirely source-unresolved because a 22-page Ranicki offprint witness is now locally staged, but that witness is only about 300 ppi and is provisional rather than strict 650+ source certification; the remainder of 1916 Bedingt III, 1916/1922 polyhedron-space-division work, and 1927/1928 isoperimetric papers are not completed.
 
 ## Additional Author Cluster
 
