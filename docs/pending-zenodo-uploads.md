@@ -6,6 +6,18 @@
 
 
 
+
+## 2026-06-24: Noether R121 combined P09/P13/P16/P29 web-review candidate
+
+Manifest: [20260623_noether_r121_webfix_combined_p09_p13_p16_p29.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_webfix_combined_p09_p13_p16_p29.json)
+
+- Noether pending ZIP: `Noether_R121_WebFix_Combined_P09_P13_P16_P29_20260623.zip`, 16.6763 MB, SHA256 `BABA85EA23A60E34B3387970473CA921126DCF74AF417AD4A132CF7C1CF14D58`.
+- Contents observed: German cumulative candidate TeX/PDF, build log, diff, audit CSVs, source witnesses for targeted P13/P16/P29 loci, README, manifest, and checksums.
+- Declared scope: combined German R121-derived review candidate. It gathers RA85-style section anchors for Papers 09-13 and 15, the targeted P13 formula (6) dotted-row restoration, and prior P16/P29 targeted localfixes into one auditable branch.
+- Sense-check caveats: this is not a promoted canonical branch, not multilingual propagation, not Paper 09/13/16/29 closure, not whole-corpus certification, and not a critical edition. P09 anchors are structural/navigation support only, and P13/P16/P29 witnesses support targeted loci rather than full paper-level certification.
+
+Next action: review and branch-reconcile before promotion; upload only as candidate review/source-provenance evidence if useful.
+
 ## 2026-06-23: Noether R121 P02-P05 web-session convenience bundle
 
 Manifest: [20260623_noether_r121_p02_p05_websession_drop.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p02_p05_websession_drop.json)
