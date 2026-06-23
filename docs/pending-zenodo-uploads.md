@@ -4,6 +4,18 @@
 
 
 
+
+## 2026-06-23: Noether R121 Paper 02 RA65/RA80 source-evidence no-duplicate audit
+
+Manifest: [20260623_noether_r121_p02_ra65_ra80_noduplicate_source_evidence.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p02_ra65_ra80_noduplicate_source_evidence.json)
+
+- Noether pending ZIP: `Noether_R121_P02_RA65_RA80_NoDuplicate_Audit_20260623.zip`, 0.4183 MB, SHA256 `A770DAC1BAD423668654C26EA14C8753EB86EC4D8CF55E07671CF0B0D70280BE`.
+- Contents observed: targeted Paper 02 source-evidence PDF/PNG, README, P02 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, RA65 prior table/no-fix ledgers, and RA80 footnote-reset ledgers.
+- Declared scope: source-evidence plus compact skip/anti-duplication guardrail for Paper 02. It reports that RA65 table/no-fix consolidation and RA80 article-boundary footnote reset are already represented in the current local candidate, including the source-valid `L_j^2` body/table no-fix trap.
+- Sense-check caveats: no new TeX patch, reader PDF, or translation output is included. Paper 02 is table-heavy; this package does not recertify every table cell, symbol, or page. This is not Paper 02 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as targeted source/provenance evidence and a compact web-session no-duplicate guardrail if useful.
+
 ## 2026-06-23: Noether R121 Paper 03 RA57/RA80 source-staged no-duplicate audit
 
 Manifest: [20260623_noether_r121_p03_ra57_ra80_noduplicate_source_staged.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p03_ra57_ra80_noduplicate_source_staged.json)
