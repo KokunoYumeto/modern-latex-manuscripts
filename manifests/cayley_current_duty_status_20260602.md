@@ -4,7 +4,9 @@ Generated: 2026-06-02
 
 ## Current Public State
 
-Arthur Cayley, *Collected Mathematical Papers*, Volume I has a complete source-checked public reader in this repository:
+**2026-06-23 accuracy caveat:** this is a legacy status note from before later source-comparison failures were found in Cayley Volume I. Do not treat inherited `Complete` / `Source-Checked` wording in this file or in older filenames as a maintained accuracy claim. The current public Cayley record de-promotes the broad readers to draft/provenance/repair material except for explicitly named narrow restart tranches, and even those are source-inspected working packets rather than critical editions.
+
+Arthur Cayley, *Collected Mathematical Papers*, Volume I has a legacy assembled public reader/provenance surface in this repository:
 
 `reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`
 
@@ -17,7 +19,7 @@ That reader was rebuilt from validated slices plus six source-checked gap fills:
 - pages 438-450
 - pages 501-525
 
-The full source/control packet is:
+The associated legacy source/control packet is:
 
 `sources/classical/cayley-volume-i-complete-source-checked-reader-2026-06-02/`
 
@@ -27,7 +29,7 @@ The repository also has volume-level slice readers for Volumes II-XIII under `re
 
 `sources/classical/cayley-current-slice-and-source-rebuild-2026-05-29/`
 
-Those broader volume readers are useful public surfaces, but they should not be described as final source-faithful editions. The safer measured progress remains the validated slice/gap-fill layer described in `manifests/cayley_claude_progress_cost_inventory_20260531.md`.
+Those broader volume readers are useful public surfaces, but they should not be described as final source-faithful editions. After the later Volume I source mismatch audit, the same caution applies to the assembled Volume I reader unless a specific range is explicitly re-promoted by a later page-by-page audit. The safer measured progress remains the validated slice/gap-fill layer described in `manifests/cayley_claude_progress_cost_inventory_20260531.md`.
 
 Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public source tree by a 52-page source-checked TeX/PDF slice. A second local pass added source-checked pages 517-528, replaced the incorrect pages 569-570 text, and then filled pages 529-541 from source-checked TeX. A third pass replaced the defective pages 67-116 slice, whose old PDF rendered but whose TeX source was effectively empty, with a 45-page native source-checked TeX/PDF slice. A fourth pass replaced the unsafe pages 117-166 slice with a 42-page native source-checked TeX/PDF rebuild. A fifth pass replaced the TODO-heavy pages 317-366 slice with a 50-page source-checked semantic TeX/PDF rebuild, including the corrected pp. 353 paragraphs and native table material. A sixth pass replaced the former pages 167-216 and 367-416 public slices with source-checked semantic TeX/PDF rebuilds; both include native diagram/table reconstructions and no image/facsimile stand-ins. The public Volume VIII reader was rebuilt from the non-facsimile source PDFs and now renders as 541 pages; page-count shifts reflect denser repaired TeX rather than omitted source coverage. A seventh local pass replaced explicit diagram placeholders in pages 001-016, 217-241, 242-266, and 517-528 with native TikZ reconstructions while preserving the fuller public prose/math bodies. An eighth pass promoted full source-checked pages 417-441 and 442-466 rebuilds with native TikZ figures and no image stand-ins. A ninth pass promoted source-checked repairs for pages 267-291 and 304-316. A tenth pass promoted the pages 467-516 tail splice, keeping the existing repaired front half and replacing pages 501-516 with verified native TeX from the scan. The Volume VIII reader was rebuilt again and now remains 536 selectable-text pages with zero embedded images.
 
@@ -142,7 +144,8 @@ Follow-up Volume III `301_325` repair, 2026-06-03: the disturbed-elliptic-motion
 
 Follow-up Volume III `288_300` repair, 2026-06-03: the departure-point diagram in Paper 212 was source-checked against the Volume III scan on printed p. 278. The boxed prose placeholder was replaced by native TikZ line art showing the horizontal reference line labelled `\theta`, the curved orbit line labelled `\sigma`, the upper departure segment labelled `\mathfrak{s}=\theta-\sigma`, and the source-visible tick marks at the reference and curve endpoints. The repaired slice compiles to 10 selectable-text pages and has zero embedded raster-image bodies. The public Volume III reader was rebuilt with the same legacy overlap pattern used by the previous Vol. III pass; it remains 322 pages, has file size 3774202 bytes, and has SHA-256 `00545308a22e91efef1628be76e040d3c4f49d9787d16d65ca4bb7b5c79a4d5f`.
 
-Follow-up Volume IX `600_625` repair, 2026-06-03: the coordinate-triangle/cubic-curve figure in Paper 624, "On the Bicursal Sextic," was source-checked against the Volume IX scan on printed p. 583. The prose placeholder was replaced by native TikZ line art showing vertices `A,B,C`, side-hit points `F,G,H`, the cubic loop/branch, and the side labels `\lambda=0`, `\mu=0`, and `\nu=0`. The repaired slice compiles to 20 selectable-text pages and has zero embedded raster-image bodies. The public Volume IX reader was rebuilt using the existing non-overlap policy; it remains 348 pages, has file size 5202205 bytes, and has SHA-256 `b024cca5eb4fed7075a0147aea1f1c997804a3caddfdf6f2594cfa8918c9b377`.
+Follow-up Volume IX `600_625` repair, 2026-06-03: the coordinate-triangle/cubic-curve figure in Paper 624, "On the Bicursal Sextic," was source-checked against the Volume IX scan on printed p. 583. The prose placeholder was replaced by native TikZ line art showing vertices `A,B,C`, side-hit points `F,G,H`, the cubic loop/branch, and the side labels `\lambda=0`, `\mu=0`, and `
+u=0`. The repaired slice compiles to 20 selectable-text pages and has zero embedded raster-image bodies. The public Volume IX reader was rebuilt using the existing non-overlap policy; it remains 348 pages, has file size 5202205 bytes, and has SHA-256 `b024cca5eb4fed7075a0147aea1f1c997804a3caddfdf6f2594cfa8918c9b377`.
 
 Follow-up Volume XI `176_200` repair, 2026-06-03: the two Schwarz/conformal-mapping figures in Paper 745 were source-checked against the Volume XI scan on printed pp. 171 and 174. The prose placeholders were replaced by native TikZ line art: first the dashed-circle/curvilinear-triangle construction over the labelled `a,b,c` line, then the shaded `s`-plane twelve-triangle diagram with the central dashed circle and labels `A,B,C,B',K`. The repaired slice compiles to 25 selectable-text pages and has zero embedded raster-image bodies. The public Volume XI reader was rebuilt from the existing non-overlap slice list; it remains 415 pages, has file size 4704908 bytes, and has SHA-256 `17da539f453a78d53eb8cad6a63d9d03e996afb8dec5d4d0838588436aa56e41`.
 
