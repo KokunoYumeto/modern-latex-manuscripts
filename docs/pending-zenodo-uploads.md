@@ -4,7 +4,7 @@
 
 Manifest: [20260624_noether_r122_p16p13_sourceaudit_webdrop.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p16p13_sourceaudit_webdrop.json)
 
-- Noether pending ZIP: `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip`, 10.0442 MB, SHA256 `07E09D7EEFE37E8592A329AC51FD98EF28B3CF07EBDD91D71DD3986E774739D8`.
+- Noether pending ZIP: `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip`, 10.0978 MB, SHA256 `DC9BED04D9A4CCF26BC8648FBC238C7A139E6FEE1FF8965A16F4880CCEBE4D7D`.
 - Contents observed: cumulative German TeX/PDF candidate based on the P16 sourcefix branch, diff, P13 fix/disposition/source-witness ledgers, GDZ original pp.235-238 witnesses, two targeted 1000 dpi crops, and rendered fixed pages.
 - Declared scope: targeted P13 micro-pass on pp.235-238 plus survival checks, preserving the earlier P16 alpha-coefficient fix. It reports two source-certain P13 corrections: suppressed-index example `u_\alpha/(x_\beta,x_\gamma)` on p.237, and `von Heun sogenannten` on p.238.
 - Caveats: candidate only; P13 pp.239-257 are explicitly unchecked in this drop, source images are mostly 400 PPI, no multilingual synchronization, no Paper 13 certification, no whole-corpus certification, and no critical-edition claim.
