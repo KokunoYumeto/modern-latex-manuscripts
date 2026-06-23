@@ -2,19 +2,6 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
-## 2026-06-23: Noether R120 Paper 31 source closure and P21/P23 source upgrades
-
-Manifest: [`20260623_noether_r120_p31_source_closure_and_source_upgrade.json`](../manifests/pending-zenodo-uploads/20260623_noether_r120_p31_source_closure_and_source_upgrade.json)
-
-- Noether: `Noether_R120_20260623.zip`, 85.9553 MB, SHA256 `3FA4D354DE2F5E80A3796D978C02F180FE81C5F64E1DA61D10814F1FE66A9378`.
-- Noether: `source_witness_cumulative_R120.pdf`, 247.0305 MB, SHA256 `9609BC80CB3A23683C97089E698BAAF2F038D8371AB45F531DFF91DE5CC9F32D`.
-- Noether source acquisition: `Noether_Better_Source_Upgrade_P21_P23_GDZ_600PPI_20260623.zip`, 26.6651 MB, SHA256 `ED30400AAEBBC496FFCA924915EDB95BEB6FDF0B733741FDB43D93141ED9781C`.
-- Contents: R120 German cumulative TeX/PDF, standalone Paper 31 TeX/PDF slice, current 23-page source witness, separate 176-page cumulative source witness PDF, raw native 600-PPI GDZ IIIF page images for Paper 31, ledgers, renders, diffs, logs, and source-policy note. The P21/P23 packet adds native 600-PPI GDZ source witnesses for later re-audit.
-- Scope: R120 closes Paper 31 from native 600-PPI source pages and reports a 455-page German cumulative reader plus a 15-page Paper 31 slice. It also reclassifies lower-resolution genuine source witnesses as actionable best-effort audit material rather than permanent blockers, while keeping uncertainty explicit.
-- Sense-check caveats: working draft/source-audit/provenance material only. This is not a critical edition, not whole-corpus mathematical certification, not synchronized multilingual propagation, and not TeX repair for P21/P23. The P21/P23 source-upgrade packet enables future visual audit; it does not itself certify those papers under the stricter local 650+ PPI rule.
-
-Next action when Zenodo API credentials are available: upload the R120 ZIP, separate cumulative source witness PDF, and P21/P23 source-upgrade ZIP to a new Noether version with explicit working-source-audit wording. Refresh the public file catalog, Noether record page, current status, and work queue after publish.
-
 ## 2026-06-23: Takagi/Steinitz source-hunt and corpus-audit packet
 
 Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pending-zenodo-uploads/20260623_takagi_steinitz_source_hunt_audit.json)
