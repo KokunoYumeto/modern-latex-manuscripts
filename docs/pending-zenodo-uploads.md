@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 14 RA55/RA64/RA78 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p14_ra55_ra64_ra78_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p14_ra55_ra64_ra78_noduplicate_audit.json)
+
+- Noether pending ZIP: Noether_R121_P14_RA55_RA64_RA78_NoDuplicate_Audit_20260623.zip, 0.0264 MB, SHA256 CD01B4A8C7311A1A00855D13C608E1397C88EE1C22E2C9DDF3CA786BB21147F6.
+- Contents observed: README, P14 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA55/RA64/RA78 prior ledgers/diffs.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 14. It reports that R121 already has the Paper 14 article boundary/footnote reset, numbered title, RA64/RA55 p190 mod. (z-c) correction, RA55 p198 \frp_1^{\rho_1}\cdots\frp_\sigma^{\rho_\sigma} correction, RA55 p200 \calA\calN^\rho / \calB\calN^\sigma correction, and sampled no-fix traps.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. RA64 source-checked only printed pp.182-194 through section 5; RA55 targeted pp.198 and 200 but does not certify the surrounding later pages. Local source-quality ledgers put P14 below the later 650 PPI floor. This is not P14 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether Slavic current-source transfer through Paper 32 second intro
 
 Manifest: [20260623_noether_slavic_zenododrive_transfer_current_sources.json](../manifests/pending-zenodo-uploads/20260623_noether_slavic_zenododrive_transfer_current_sources.json)
