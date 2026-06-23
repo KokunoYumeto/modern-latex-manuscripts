@@ -1,6 +1,18 @@
 # Pending Zenodo Uploads
 
 
+
+## 2026-06-23: Noether R121 Paper 05 RA80 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p05_ra80_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p05_ra80_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P05_RA80_NoDuplicate_Audit_20260623.zip`, 0.0079 MB, SHA256 `F2C0F4E816B7EB450A47C038D874F1116B250A3227062B437BF2232BE28CBB72`.
+- Contents observed: README, P05 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA80 prior ledgers/diff/render verification.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 05. It reports that the RA80 article-boundary footnote reset, P05 title/source note, opening source notes, and display-attached irreducible-equation note are already represented in the current local candidate.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies known prior RA80 fix loci against the current candidate rather than recertifying every Paper 05 symbol or page. This is not Paper 05 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if useful.
+
 ## 2026-06-23: Noether R121 Paper 06 RA67 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p06_ra67_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p06_ra67_noduplicate_audit.json)
