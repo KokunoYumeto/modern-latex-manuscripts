@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 18 RA51 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p18_ra51_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p18_ra51_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P18_RA51_NoDuplicate_Audit_20260623.zip`, 0.0047 MB, SHA256 `11F7B72F3ED7B34F582CA225CB45EF8D5EDB783DEBB9E595AE4CB491971CE83A`.
+- Contents observed: README, P18 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, RA47-to-RA51 diff, and RA51 applied-fix/no-fix ledgers.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 18. It reports that the P18 block in R121 is byte-identical to the repaired R118 P18 block, and that R121 already contains the RA51 source-critical resultant display endpoint `R^{(n)}(x_n)\equiv 0(\mathfrak M)`.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. The exact block match proves inheritance/no-regression, not full source-page certification. This is not P18 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 19 R118 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p19_r118_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p19_r118_noduplicate_audit.json)
