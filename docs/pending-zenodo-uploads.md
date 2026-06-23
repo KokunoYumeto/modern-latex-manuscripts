@@ -2,6 +2,26 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Gordan theta 1863 600-ppi fix05 source package
+
+Manifest: [`20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json`](../manifests/pending-zenodo-uploads/20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json)
+
+- Gordan/Clebsch-Gordan: `Gordan_Theta_1863_600ppi_SourceFix_Package_fix05_20260623.zip`, 8.4326 MB, SHA256 `7B520C655AD0C69BAC61D40E10D4EE0C6DD432E08B7384FFAC57F23F88E4E96B`.
+- Contents: source-fix package for Paul Gordan, `Ueber die Transformation der Theta-Funktionen` (1863), replacing earlier low-resolution screenshot/page-image authority with a Basel/Google Books full-PDF 600-ppi witness. The package reports a new source-confirmed correction on printed page 10: inherited TeX `c^{2}=1` corrected to source-visible `c^8=1`, while retaining fix04 corrections and German/English TeX/PDF.
+- Sense-check caveats: package-audited source-fix working draft only. Use the included 600-ppi source PDF/rendered pages as source authority; older low-resolution page-image PDFs are historical provenance only. Not a certified critical edition.
+
+Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+
+## 2026-06-23: Noether Slavic Paper 32 second-intro checkpoint
+
+Manifest: [`20260623_noether_slavic_paper32_second_intro_checkpoint.json`](../manifests/pending-zenodo-uploads/20260623_noether_slavic_paper32_second_intro_checkpoint.json)
+
+- Noether Slavic lane: `Noether_Paper32_SecondIntro_Cumulative_Update_20260615T200216Z.zip`, 135.8079 MB, SHA256 `7953C5A4B9849201077AB316B051C49CFF28301E34C09FE0F1F1AE9A4E4E3BB0`.
+- Contents: Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic translation-lane checkpoint. Package status reports Paper 32 through the second introductory paragraph/footnote and cumulative Papers 01-32 readers rebuilt/audited; sidecar page counts report Ukrainian 441 pages, Russian 457 pages, Interslavic Latin 422 pages, and Interslavic Cyrillic 441 pages.
+- Sense-check caveats: translation checkpoint/provenance only. It was built against its recorded RA34/control state and must be reconciled against the newer published Noether R120 source-closure baseline before it is treated as current. Not source-critical closure, not whole-corpus mathematical certification, and not a certified critical edition.
+
+Next action when Zenodo API credentials are available: either upload as a clearly labelled Slavic translation checkpoint/provenance file in the next Noether Zenodo version, or first derive a cleaner public reader-only package after R120 synchronization. Do not describe it as complete/current Noether certification.
+
 ## 2026-06-23: Takagi/Steinitz source-hunt and corpus-audit packet
 
 Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pending-zenodo-uploads/20260623_takagi_steinitz_source_hunt_audit.json)
