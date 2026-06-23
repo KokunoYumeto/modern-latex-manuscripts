@@ -1,6 +1,18 @@
 # Pending Zenodo Uploads
 
 
+## 2026-06-24: Noether Slavic lane source-check/status snapshot
+
+Manifest: [20260624_noether_slavic_sourcecheck_status_snapshot.json](../manifests/pending-zenodo-uploads/20260624_noether_slavic_sourcecheck_status_snapshot.json)
+
+- Noether pending ZIP: `Noether_Zenodo_SourceCheck_GitHubUpload_Status_20260623T174801Z.zip`, 65.4272 MB, SHA256 `A5DC8254DFAE2305C36B7DCA335B7D6AA5377D35B1FC60D08C9A4AA5070A7660`.
+- Contents observed: Slavic lane README, workflow/infrastructure logs, live Zenodo/source-check snapshot, GitHub upload status from the producing machine/session, package manifests, and status JSON.
+- Declared scope: Ukrainian, Russian, Interslavic Latin, and deterministic Interslavic Cyrillic Noether translation-lane status/provenance, not promoted reader output.
+- Caveats: imported status snapshot only; some GitHub-auth notes are stale for the current Codex session; Slavic translation units may be based on older German/RA baselines and need reconciliation against current R121/R122 source queues before canonical promotion. Not a critical edition or whole-corpus certification.
+
+Next action: upload/retain as workflow and translation-lane provenance; use for continuation orientation, not as final corpus closure.
+
+
 ## 2026-06-24: Noether R122 and Paper 39 webfix/source-fidelity cluster
 
 Manifest: [20260624_noether_r122_p39_webfix_cluster.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_webfix_cluster.json)
