@@ -3,6 +3,18 @@
 
 
 
+
+## 2026-06-23: Noether R121 Paper 03 RA57/RA80 source-staged no-duplicate audit
+
+Manifest: [20260623_noether_r121_p03_ra57_ra80_noduplicate_source_staged.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p03_ra57_ra80_noduplicate_source_staged.json)
+
+- Noether pending ZIP: `Noether_R121_P03_RA57_RA80_NoDuplicate_SourceStaged_20260623.zip`, 0.5177 MB, SHA256 `549FFA4AEC95EBCA738424002A55BF975A4C75BA946D81CC3B645F31C0BBCBF8`.
+- Contents observed: standalone Paper 03 GDZ article source PDF, README, P03 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, RA57 prior ledgers/witness manifest, and RA80 footnote-reset ledgers.
+- Declared scope: source-staging plus compact skip/anti-duplication guardrail for Paper 03. It reports that the RA57 formula/no-fix repairs and RA80 article-boundary footnote reset are already represented in the current local candidate, while the GDZ article cutout is now packaged for source reference.
+- Sense-check caveats: no new TeX patch, reader PDF, or translation output is included. The source PDF helps provenance/source comparison, but this verifies known prior RA57/RA80 fix/no-fix loci rather than recertifying every Paper 03 symbol or page. This is not Paper 03 closure, whole-corpus certification, or a critical edition.
+
+Next action: use to close old P03 source-staging complaints and as a compact web-session no-duplicate guardrail; upload only as source/provenance and coordination evidence if useful.
+
 ## 2026-06-23: Noether R121 Paper 04 RA64/RA80 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p04_ra64_ra80_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p04_ra64_ra80_noduplicate_audit.json)
