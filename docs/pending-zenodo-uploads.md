@@ -2,6 +2,26 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether P15 GDZ full-page source witness, needs packaging
+
+Manifest: [`20260623_noether_p15_gdz_fullpage_source_witness_needs_packaging.json`](../manifests/pending-zenodo-uploads/20260623_noether_p15_gdz_fullpage_source_witness_needs_packaging.json)
+
+- Noether local source-witness directory: `noether_p15_endlichkeit_20260623`, 24.6300 MB, 24 files.
+- Contents: GDZ full-page source witness/map support for Noether Paper 15, `Die Endlichkeit des Systems der ganzzahligen Invarianten binärer Formen`, Göttinger Nachrichten 1919, printed pp.138-156. It contains 20 labelled 400-ppi GDZ full-page JPG witnesses, page-map/dimension CSVs, HTML acquisition trace, and source manifest.
+- Sense-check caveats: source/provenance support only. It complements the earlier P15 targeted correction packages but contains no corrected TeX branch and no propagated translations. The witness is useful for page-level comparison and provenance, not strict dense-math certification where higher native resolution is needed. Not full Paper 15 source closure and not a critical edition.
+
+Next action: package/checksum as a compact source-witness ZIP if it should be uploaded with the next Noether source-audit/provenance version; otherwise fold it into a larger Noether source-witness roll-up.
+
+## 2026-06-23: Noether R120 source-resolution policy and backward-lane quality ledgers, needs packaging
+
+Manifest: [`20260623_noether_r120_source_resolution_policy_backward_lane.json`](../manifests/pending-zenodo-uploads/20260623_noether_r120_source_resolution_policy_backward_lane.json)
+
+- Noether local coordination directory: `Noether_R120_StrictSourceQuality_BackwardLane_WebDrop_20260623`, 0.0900 MB, 12 files.
+- Contents: R120 workbook, source-resolution policy note, source queue, P09-P13 backward-lane source-quality summary, IA/GDZ source-search and native-dimension probes, manual Hathi/reference targets, and checksums.
+- Sense-check caveats: coordination/provenance only. It explains the policy shift from a hard 650+ ppi blocker to best-effort lower-resolution queue work with explicit uncertainty notes. It does not add promoted reader coverage, corrected cumulative TeX, source-closed lower-resolution certification, or multilingual propagation.
+
+Next action: package/checksum only if useful as a small Noether workflow/source-quality support file; otherwise keep the key policy wording in public caveats and private workflow notes.
+
 ## 2026-06-23: Noether R121 Paper 20 author-block candidate, not upload-ready
 
 Manifest: [`20260623_noether_r121_p20_authorblock_candidate_needs_packaging.json`](../manifests/pending-zenodo-uploads/20260623_noether_r121_p20_authorblock_candidate_needs_packaging.json)
