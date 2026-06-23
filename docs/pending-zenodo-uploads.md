@@ -402,11 +402,12 @@ Next action when Zenodo API credentials are available: upload the compact packet
 
 Manifest: [`20260623_sga5_repair032_source_audit.json`](../manifests/pending-zenodo-uploads/20260623_sga5_repair032_source_audit.json)
 
-- SGA5 repair/audit staging: `SGA5_repair032_codex_final_20260620.zip`, 54.0795 MB, SHA256 F9D544EAEBD2C6AE57EB15395E90261A0C903525F1A8E46866982ED77D6867B1; `SGA5_repair032_codex_p205_226_microaudit_20260620.zip`, 2.7952 MB, SHA256 EE60E4C4E3BCC27E6A2093A417E3E7B375EEB997C070865AFCB7D5B387C10492; and `SGA5_Remaining_Error_Audit_WebDrop_20260619.zip`, 14.3088 MB, SHA256 13C6876D59D1FE0069F4F084E821F78A5EE068E15EF7AEB032796CE3A0541A47.
-- Contents: cumulative SGA5 French TeX/PDF for repair032, source scan PDF, repair031-to-repair032 diff, repair/equivalence ledgers, 650dpi rendered fixed pages, 1000dpi source loci/crops, and remaining-error/open-queue ledgers.
-- Sense-check caveats: this supersedes repair031 as the local SGA5 French repair branch, but it is not a global SGA5 certification or critical edition. SGA5 English remains unsynchronized, and open diagram/formula/notation queues remain live where listed.
+- Published 2026-06-24 on the SGA all-version DOI as latest record <https://doi.org/10.5281/zenodo.20821507>.
+- Public bundle: `SGA5_repair032_audit_support_20260624.zip`, 74.6572 MB, SHA256 `9CBEC3DBD3E210C6B67A9949895D1A380B647E6C17C37B73B9FB49EFD9A7AD99`.
+- Bundle contents: `SGA5_repair032_codex_final_20260620.zip`, `SGA5_repair032_codex_p205_226_microaudit_20260620.zip`, and `SGA5_Remaining_Error_Audit_WebDrop_20260619.zip`, plus README and checksums.
+- Caveat: this is repair/audit support evidence only. It does not certify SGA5 complete, does not synchronize English, and does not close open diagram/formula/notation queues except where a narrower later packet explicitly does so.
 
-Next action when Zenodo API credentials are available: upload these as SGA5 repair/audit support files on the SGA record or workflow/source-intake record with explicit repair032 caveats. Preserve repair025/repair031 provenance in earlier versions.
+No further action for these three files as separate uploads unless the archive later decides to expose them individually; they are now public as one bundle. Preserve repair025/repair031 provenance in earlier versions.
 
 ## 2026-06-23: SGA6 repair033-088 source/French audit wave
 

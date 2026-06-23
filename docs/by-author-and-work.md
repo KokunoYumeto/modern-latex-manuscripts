@@ -9,7 +9,7 @@ Quality rule: these are working reader surfaces and source/provenance records, n
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://doi.org/10.5281/zenodo.20414353) |
-| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Current drafts are structurally useful but not proofread final editions; latest repair027 is a compact cumulative SGA5/SGA6 French-output refresh, while the repair025 targeted SGA5 source-page audit remains preserved in a previous Zenodo version. | [SGA](https://doi.org/10.5281/zenodo.20410947) |
+| Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Latest public update 2026-06-24 adds a bundled SGA5 repair032 audit-support artifact; this is not a completed or certified SGA5 edition. Use it as repair evidence and check diagrams/formulas/notation against source scans. | [SGA](https://doi.org/10.5281/zenodo.20410947) |
 | Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v3 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | [Deligne](https://doi.org/10.5281/zenodo.20410853) |
 
 ## Chinese Mathematical Classics

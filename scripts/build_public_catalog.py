@@ -29,7 +29,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "20821409"),
     ("weber", "20673435"),
     ("cayley", "20617845"),
-    ("sga", "20673700"),
+    ("sga", "20821507"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -72,7 +72,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA repair027 update: the latest surface adds `sga5_sga6_repair027_cumulative_20260613.zip`, a compact cumulative French-output refresh containing SGA5 and SGA6 French TeX/PDF only. It does not include the source-indexed/page-expanded audit PDF that appeared in repair025, which remains preserved in a previous Zenodo version. SGA5 changes are small relative to repair026; SGA6 TeX/PDF are materially refreshed relative to repair026. SGA5 English remains unsynchronized; SGA6 dense-worklist material and SGA6/SGA7 compression caveats remain open. Legacy filenames containing `Complete`, `Strict`, or `Source-Checked` are not current global certification claims.",
+        "Current SGA update 2026-06-24: the latest surface adds `SGA5_repair032_audit_support_20260624.zip`, a compact bundle of repair032 SGA5 repair/audit evidence. SGA5 is explicitly not complete and remains errorful; the repair032 bundle is preservation/support evidence, not a certified edition, not English synchronization, and not closure of diagram/formula/notation queues. The record removed obsolete `sga_repair019_public_summary.json` from the latest 100-file surface to free one slot. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
     ],
 }
 
