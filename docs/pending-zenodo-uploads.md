@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 12 RA48/RA59/R94 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p12_ra48_ra59_r94_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p12_ra48_ra59_r94_noduplicate_audit.json)
+
+- Noether pending ZIP: Noether_R121_P12_RA48_RA59_R94_NoDuplicate_Audit_20260623.zip, 0.0143 MB, SHA256 899398E874979584E5B4EAA735C51F919D25C8A31C6AA87B5E9FE8E597B3A188.
+- Contents observed: README, P12 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA48/RA59/R94 prior ledgers/diffs.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 12. It reports that R121 already has the numbered P12 title/source author line, source-exact initial (x;dx), higher-differential d^2x,d\delta x loci, required barred-delta convention, source-style numbered-display wrappers (1)-(14), and final Math. Annalen publication sentence.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies survival of the prior RA59/R94 P12 closure anchors in R121 rather than performing a new page-by-page recertification; the full-resolution GDZ/IIIF source checking belongs to the older RA59 ledger. This is not whole-corpus certification or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 14 RA55/RA64/RA78 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p14_ra55_ra64_ra78_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p14_ra55_ra64_ra78_noduplicate_audit.json)
