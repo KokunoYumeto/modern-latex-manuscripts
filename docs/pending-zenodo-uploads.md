@@ -1,5 +1,29 @@
 # Pending Zenodo Uploads
 
+
+## 2026-06-23: Noether R121 Paper 06 RA67 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p06_ra67_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p06_ra67_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P06_RA67_NoDuplicate_Audit_20260623.zip`, 0.0106 MB, SHA256 `B4D1A4BFDDC4EBBD61A48CA86FBE4D3120B4EA0C912D0F89AB0DEC1F9E82FACD`.
+- Contents observed: README, P06 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA67 prior ledgers/diffs.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 06. It reports that P06 has the centered printed title block, the six RA67 symbolic source-note repairs, no ordinary footnote tokens in the checked P06 block, and that an older RA67 ordinary-footnote concern is stale for the current base.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies known prior fix/no-fix loci against the current candidate rather than recertifying every P06 symbol or page. This is not paper closure, whole-corpus certification, or a critical edition.
+
+Next action: Use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if useful.
+
+
+## 2026-06-23: Noether R121 Paper 07 RA52 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p07_ra52_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p07_ra52_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P07_RA52_NoDuplicate_Audit_20260623.zip`, 0.0131 MB, SHA256 `176FF1AB035C0F83884B7777488D918CB7CF81374273F0C6425DF87E605331FA`.
+- Contents observed: README, P07 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and P07/P08 refined plus RA52 prior ledgers.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 07. It reports that the P07 section anchor, journal citation, printed title, author block, source-style note apparatus, Weber II section 58 long source note, final Math. Ann. 76 / Satz III notes, and the Galois resolvent no-fix trap are already represented in the current local candidate.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies known prior fix/no-fix loci against the current candidate rather than recertifying every P07 symbol or page. This is not paper closure, whole-corpus certification, or a critical edition.
+
+Next action: Use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if useful.
+
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
 ## 2026-06-23: Noether R121 Paper 08 RA66/RA68 no-duplicate audit
@@ -41,7 +65,8 @@ Manifest: [20260623_noether_r121_p12_ra48_ra59_r94_noduplicate_audit.json](../ma
 
 - Noether pending ZIP: Noether_R121_P12_RA48_RA59_R94_NoDuplicate_Audit_20260623.zip, 0.0143 MB, SHA256 899398E874979584E5B4EAA735C51F919D25C8A31C6AA87B5E9FE8E597B3A188.
 - Contents observed: README, P12 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA48/RA59/R94 prior ledgers/diffs.
-- Declared scope: compact skip/anti-duplication guardrail for Paper 12. It reports that R121 already has the numbered P12 title/source author line, source-exact initial (x;dx), higher-differential d^2x,d\delta x loci, required barred-delta convention, source-style numbered-display wrappers (1)-(14), and final Math. Annalen publication sentence.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 12. It reports that R121 already has the numbered P12 title/source author line, source-exact initial
+(x;dx), higher-differential d^2x,d\delta x loci, required barred-delta convention, source-style numbered-display wrappers (1)-(14), and final Math. Annalen publication sentence.
 - Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies survival of the prior RA59/R94 P12 closure anchors in R121 rather than performing a new page-by-page recertification; the full-resolution GDZ/IIIF source checking belongs to the older RA59 ledger. This is not whole-corpus certification or a critical edition.
 
 Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
