@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 20 RA49/RA87 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p20_ra49_ra87_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p20_ra49_ra87_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P20_RA49_RA87_NoDuplicate_Audit_20260623.zip`, 0.0064 MB, SHA256 `E119E7BFFDD3FA649360B33FC2983324ABD433A042D6896EC0ACFACA28BE0477`.
+- Contents observed: README, P20 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and prior RA49/RA87 ledgers.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 20. It verifies that R121 already contains the RA49 localized formula (13) `\varrho_\kappa` / `\sigma_\lambda` correction and the RA87 clearpage boundary before Paper 20, while keeping the RA49 no-fix trap that nearby prose products remain `\varrho_\mu\sigma_\nu`.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. The RA49 dense-formula witness remains localized best-available evidence from a roughly 360-PPI native source, not 650+ PPI global certification. P20 remains queued for broader pagewise audit; this is not P20 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 compact web-fix P13/P16/P29 with P11 no-duplicate audit
 
 Manifest: [20260623_noether_r121_webfix_p13_p16_p29_with_p11_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_webfix_p13_p16_p29_with_p11_audit.json)
