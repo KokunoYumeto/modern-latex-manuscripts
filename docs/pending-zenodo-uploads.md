@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 10 RA56/RA57/R94 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p10_ra56_ra57_r94_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p10_ra56_ra57_r94_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P10_RA56_RA57_R94_NoDuplicate_Audit_20260623.zip`, 0.0265 MB, SHA256 `1A39B01F93435472C94B218A78F0D6513EF670E1E5A4072C9C9347C569641D76`.
+- Contents observed: README, P10 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, and RA56/RA57/R94 prior ledgers/diffs/source maps.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 10. It reports that R121 already has the numbered P10 title and author line, the `k_\sigma` terminal index in definition (d), the `F(t;\vartheta_i)` divisibility display, the rank-four determinant and following aligned equations, source-local note markers, and the final `Erlangen, 30. Oktober 1915.` date.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This verifies absorption of prior RA56/RA57/R94 P10 anchors in R121 rather than recertifying every P10 line against source. Source-critical witness work belongs to the older GDZ/IIIF and 1000-dpi RA56/RA57 ledgers. This is not Paper 10 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 12 RA48/RA59/R94 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p12_ra48_ra59_r94_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p12_ra48_ra59_r94_noduplicate_audit.json)
