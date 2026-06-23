@@ -2,6 +2,48 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: SGA6 repair033-088 source/French audit wave
+
+Manifest: [20260623_sga6_repair033_088_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260623_sga6_repair033_088_source_audit_wave.json)
+
+- SGA: 56 ZIP packages from `sga6_repair033_codex_audit_20260621.zip` through `sga6_repair088_corrected_wstein_endpoint_gap_20260622.zip`, total 3831.1335 MB.
+- Contents: source-witness, source/French repair, diagram/display, and dense-locus audit packets from the local SGA continuation lane.
+- Sense-check caveats: this is a large repair/audit staging wave, not a certified critical edition and not a global SGA6 certification. Dense displays, diagrams, compression checks, and English synchronization remain live unless a specific later packet closes a specific locus. Older filename words such as `complete` or `source-checked` are tranche labels, not global quality claims.
+
+Next action when Zenodo API credentials are available: decide whether to upload the full 56-package repair-audit wave or a curated subset. If uploaded, preserve the manifest and label the files as repair/source-witness/audit material.
+
+## 2026-06-23: SGA6 repair089-107 English synchronization wave
+
+Manifest: [20260623_sga6_repair089_107_english_sync_wave.json](../manifests/pending-zenodo-uploads/20260623_sga6_repair089_107_english_sync_wave.json)
+
+- SGA: 19 ZIP packages from `sga6_repair089_english_sync_inventory_20260622.zip` through `sga6_repair107_english_sync_repair046_20260622.zip`, total 916.0783 MB.
+- Contents: English-branch synchronization inventory and repair packets. The latest packaged repair107 synchronizes the English Expose VI 2.7 distinguished-triangle display with French/source repair046 for source p394 and restores the bottom arrow chain `N_1^\bullet -> M^\bullet`, `N_2^\bullet -> P_1^\bullet`, `N_k^\bullet -> P_{k-1}^\bullet`.
+- Loose observed but not upload-ready: repair108 PDF/render/text files were present locally, but no repair108 ZIP/README/checksum package was found during this sweep.
+- Sense-check caveats: English synchronization remains in progress beyond repair046. Expose X 7.14/7.15 source gap remains live. This is not global SGA6 certification and not a critical edition.
+
+Next action when Zenodo API credentials are available: upload selected English-sync packages to a new SGA version if retained, then refresh the public file catalog, SGA generated record page, and status docs.
+
+## 2026-06-23: Noether Paper 30 source-quality verdict
+
+Manifest: [20260623_noether_p30_source_quality_verdict.json](../manifests/pending-zenodo-uploads/20260623_noether_p30_source_quality_verdict.json)
+
+- Noether: `Noether_P30_IA_SourceQualityVerdict_20260623.zip`, 0.0020 MB, SHA256 `7C85908B79851A115E97142256A3F4A36082E67C9382B80D4E689D62`.
+- Contents: compact README and source-quality verdict CSV for Paper 30. It records that both the GDZ article PDF and IA processed-JP2 witness cover Paper 30, but both are effectively about 400 PPI and therefore do not unblock Paper 30 under the current 650+ PPI certification rule.
+- Sense-check caveats: coordination/provenance only. Not corrected TeX, not Paper 30 source closure, not critical-edition evidence. The README describes a fuller IA witness payload, but only the verdict/coordination files were found packaged in this local sweep.
+
+Next action when Zenodo API credentials are available: upload as a compact source-quality guardrail only if useful; keep Paper 30 listed as source-quality blocked until a genuine higher-resolution source is acquired.
+
+## 2026-06-23: Deligne D076-D090 compact cumulative/diagram-fix package
+
+Manifest: [20260623_deligne_d076_d090_diagfix_cumulative.json](../manifests/pending-zenodo-uploads/20260623_deligne_d076_d090_diagfix_cumulative.json)
+
+- Deligne: `Cum.zip` from `D076_090dn_p051_056_std_diagfix`, 18.2118 MB, SHA256 `5320F3A64B94A0B1E3C33294C5392EFD1F038A7360ACA60E571D3956937910F8`.
+- Suggested public filename: `Deligne_D076_D090_p051_p056_std_diagfix_cumulative_20260623.zip`.
+- Contents: 136-entry compact package with `Cum/D076` through `Cum/D090`, each carrying EN/FR PDF, EN/FR TeX, and source-scan PDF material.
+- Sense-check caveats: no standalone README, build summary, or audit ledger was found in the ZIP during this sweep. Treat as working cumulative/source packet requiring source/diagram review, not a certified repair release.
+
+Next action when Zenodo API credentials are available: upload with a clear public filename and working-draft caveat if this tranche is to be preserved.
+
 ## 2026-06-23: Noether R119 Papers 25-28 source-audit closure plus source witnesses
 
 Manifest: [20260623_noether_r119_p25_p28_source_closure.json](../manifests/pending-zenodo-uploads/20260623_noether_r119_p25_p28_source_closure.json)

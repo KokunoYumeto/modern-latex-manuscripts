@@ -14,6 +14,8 @@ Public title: Pierre Deligne Papers: Modern LaTeX Drafts and English Translation
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
+Local staging update 2026-06-23: `D076_090dn_p051_056_std_diagfix/Cum.zip` is queued under manifest `20260623_deligne_d076_d090_diagfix_cumulative.json` with suggested public filename `Deligne_D076_D090_p051_p056_std_diagfix_cumulative_20260623.zip`. The package contains per-paper EN/FR PDFs, EN/FR TeX, and source-scan PDFs for D076-D090. No standalone README, build summary, or audit ledger was found in the ZIP during this sweep, so it should be treated as a working cumulative/source packet requiring source/diagram review, not a certified repair release.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
