@@ -15,7 +15,7 @@ for Volume I printed pp. 1-45 / complete Papers 1-9, with the Paper 6
 low-comma/layout correction. Everything else here should be checked against the
 source scans before use.
 
-This source layer records the 2026-06-02 completion pass for the public Volume I source-checked reader.
+This source layer records the 2026-06-02 completion pass for the public Volume I assembled reader. The retained filenames preserve the historical export names, but the current archive status is "assembled draft/provenance, not accuracy-certified."
 
 The previous public Volume I slice reader covered the validated/repaired slice chain but still omitted six known missing ranges: 1-12, 38-50, 251-262, 389-400, 438-450, and 501-525. This package adds source-checked TeX/PDF repairs for those ranges and rebuilds the public Volume I reader from the repaired slice sequence.
 
@@ -35,10 +35,10 @@ The previous public Volume I slice reader covered the validated/repaired slice c
 - `gap_fills/pages_438_450/`
 - `gap_fills/pages_501_525/`
 
-Each gap-fill directory contains the source-checked TeX, compiled PDF, and local status note supplied by the repair pass.
+Each gap-fill directory contains TeX/PDF output and a local status note supplied by the repair pass. These are retained as repair/provenance artifacts and must be checked against the source scans before being cited as accurate transcription.
 
 ## Assembly
 
 The full reader was assembled by concatenating the older validated Volume I repaired-slice PDFs with the six new gap-fill PDFs. The ordered sequence is recorded in `slice_order_manifest.csv`.
 
-Policy: source-checked TeX/PDF only. No screenshots or facsimile placeholders are promoted as repaired reader content. Source scans and image witnesses remain provenance/checking material, not substitutes for typeset mathematics.
+Policy: draft/provenance TeX/PDF only for this folder. No screenshots or facsimile placeholders are promoted as repaired reader content. Source scans and image witnesses remain provenance/checking material, not substitutes for typeset mathematics. This folder is not a critical edition and not an accuracy-certified Cayley Volume I release.
