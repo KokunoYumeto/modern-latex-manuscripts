@@ -1,8 +1,12 @@
 # Work Queue
 
+Latest Noether source-index note 2026-06-23: `Noether_IA90_96_SourceDump_Index_WebDrop_20260623.zip` is staged as a tiny coordination package for IA Vol.90/96 source routing and a P20 R120 formula (13) no-duplicate-patch trap. It is not reader output.
+
+Latest Noether R121 note 2026-06-23: `Noether_R121_20260623.zip` is staged as a German P21/P23 source-audit working revision from R120. It declares P23 audited from native 600-PPI GDZ pages and P21 audited from the correct roughly 360-PPI source PDF after rejecting a bibliographically wrong 600-PPI-labelled set. Treat it as working/provenance until the detailed current R121 audit ledgers are present or the packaging caveat is accepted.
+
 This page turns the current archive gaps into concrete contribution targets. It is intentionally practical: pick a row, open the linked record, compare against source witnesses, and submit a narrow correction or continuation.
 
-Latest Noether source-witness note 2026-06-23: `Noether_P29_IA_SourceWitness_MathAnn90_400ppi_20260623.zip` is staged as a Paper 29 IA source/page-map aid for `Mathematische Annalen` 90 printed pp.229-261 / IA leaves 0234-0266. It is 400 PPI only, so it helps best-effort source comparison but does not unblock strict dense-math certification or Paper 29 promotion.
+Latest Noether source-witness note 2026-06-23: `Noether_P29_IA_400ppi_Source_WebDrop_20260623.zip` is staged as a Paper 29 IA source/page-map aid for `Mathematische Annalen` 90 printed pp.229-261 / IA leaves 0234-0266. It is 400 PPI only, so it helps best-effort source comparison but does not unblock strict dense-math certification or Paper 29 promotion.
 
 Latest source-intake note 2026-06-23: local OS/source queue now contains IA all-files payloads and PDF fallbacks for `Mathematische Annalen` volumes 90 and 96, plus newly observed Klein collected works, Hurwitz mathematical works, Einstein Annalen der Physik contributions, and Schuster exercise material. These are source/provenance intake only, not reader output or corrected TeX. Manifest: [`20260623_math_annalen_90_96_and_os_sources.json`](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json).
 
