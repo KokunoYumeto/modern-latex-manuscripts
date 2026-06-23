@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether P16 R121 local candidate, not upload-ready
+
+Manifest: [`20260623_noether_p16_r121_candidate_needs_packaging.json`](../manifests/pending-zenodo-uploads/20260623_noether_p16_r121_candidate_needs_packaging.json)
+
+- Noether local candidate directory: `noether_p16_R121_audit_20260623`, 15.1708 MB, 13 files.
+- Contents observed: one German cumulative TeX candidate, `cum_de_R120_P16_R121_candidate.tex`, plus six IA JP2 leaves and six native PNG page witnesses for Mathematische Annalen 81 printed pp.25-30.
+- Sense-check caveats: not a ready Zenodo upload. At sweep time the folder had no README, checksum manifest, baseline diff, source map, render check, or audit ledger. It may be a later R120-based Paper 16 candidate, but no supersession of the existing RA53 P16 package is established. Do not describe it as Paper 16 closure, source certification, multilingual propagation, or critical edition material.
+
+Next action: package only after checksums, source map, render check, baseline diff, audit ledger, and explicit reconciliation against RA53/R120/R121.
+
 ## 2026-06-23: Noether P15 GDZ full-page source witness, needs packaging
 
 Manifest: [`20260623_noether_p15_gdz_fullpage_source_witness_needs_packaging.json`](../manifests/pending-zenodo-uploads/20260623_noether_p15_gdz_fullpage_source_witness_needs_packaging.json)
