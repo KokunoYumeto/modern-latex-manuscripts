@@ -5,6 +5,18 @@
 
 
 
+
+## 2026-06-23: Noether R121 P02-P05 web-session convenience bundle
+
+Manifest: [20260623_noether_r121_p02_p05_websession_drop.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p02_p05_websession_drop.json)
+
+- Noether pending ZIP: `Noether_R121_P02_P05_WebSession_Drop_20260623.zip`, 0.949 MB, SHA256 `DA2B4EEFDEAB7AFA15008A357D73F30E20A15C5EDB69D65F90887060C9B966A9`.
+- Contents observed: README, manifest/checksum CSVs, and nested P02, P03, P04, and P05 no-duplicate/source-evidence ZIPs.
+- Declared scope: drag-and-drop web-session convenience bundle for the already staged P02-P05 guardrail/source-evidence packages.
+- Sense-check caveats: this is not a new independent correction layer, not a reader output, not P02-P05 certification, and not a critical edition. Use the individual P02-P05 manifests for paper-level scope and caveats.
+
+Next action: use for web-session handoff convenience only.
+
 ## 2026-06-23: Noether R121 Paper 02 RA65/RA80 source-evidence no-duplicate audit
 
 Manifest: [20260623_noether_r121_p02_ra65_ra80_noduplicate_source_evidence.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p02_ra65_ra80_noduplicate_source_evidence.json)
