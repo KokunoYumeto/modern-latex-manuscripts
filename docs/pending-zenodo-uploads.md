@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 localfix P16/P29 web-review package
+
+Manifest: [20260623_noether_r121_localfix_p16_p29_webdrop.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_localfix_p16_p29_webdrop.json)
+
+- Noether pending ZIP: `Noether_R121_Localfix_P16_P29_WebDrop_20260623.zip`, 18.2583 MB, SHA256 `6EB50B83C73C4C1D20A2A681D57FF1CB93265DBA617BE29A8356FC0B4401F019`.
+- Contents observed: README, German cumulative R121 localfix candidate TeX/PDF/log, R121-to-localfix diff, confirmed-fix CSV, source-witness ledger, no-duplicate-trap CSV, rendered check pages, P16 IA source page witnesses, and P29 IA first-page witness.
+- Declared scope: targeted R121 German cumulative candidate restoring P16 source-visible title/subtitle/author apparatus, selected source emphasis, P16 source-style bracketed formula labels `[1]` through `[7]` and `[2a]`, and the P29 source-visible title/author/rule block. It also carries local compile plumbing for a FreeSerif fallback and an explicit P20 no-duplicate trap.
+- Sense-check caveats: public wording must call this an R121 localfix P16/P29 web-review/evidence package, not an R122 release claim. Source witnesses are about 400 PPI or otherwise below the current 650+ strict-certification threshold. German cumulative candidate only; no multilingual propagation, no Paper 16 closure, no Paper 29 closure, no whole-corpus certification, and no critical-edition claim.
+
+Next action: either upload as clearly labelled targeted Noether localfix evidence, or feed it into the active Noether web thread and wait for a reconciled later R12x release.
+
 ## 2026-06-23: Noether IA90/96 source-dump index and P20 no-duplicate-patch trap
 
 Manifest: [20260623_noether_ia90_96_source_dump_index.json](../manifests/pending-zenodo-uploads/20260623_noether_ia90_96_source_dump_index.json)
