@@ -14,7 +14,7 @@ Public title: Ernst Steinitz: Modern LaTeX Source Transcriptions and English Tra
 
 This record has no top-level reader PDFs in the current file surface. Open the artifact ZIPs for TeX, component PDFs, source witnesses, OCR, page images, render checks, and provenance material.
 
-Dedicated Steinitz working-edition split from the mixed additional-author shelf. This record includes current package-audited German/English packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict early works from 1894/1897/1906, 1914 Bedingt II complete, and the first 1916 Bedingt III tranche through pp.1-13. Local 2026-06-23 source-intake now also stages a provisional 22-page, about-300-ppi Ranicki offprint witness for the formerly unresolved 1908 Beitraege zur Analysis Situs source gap; it is useful intake, not strict certification. These are source-witnessed working drafts, not final critical editions; OCR layers are locator/check aids only.
+Dedicated Steinitz working-edition split from the mixed additional-author shelf. This record includes current package-audited German/English packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict early works from 1894/1897/1906, 1914 Bedingt II complete, and the first 1916 Bedingt III tranche through pp.1-13. These are source-witnessed working drafts, not final critical editions; OCR layers are locator/check aids only.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

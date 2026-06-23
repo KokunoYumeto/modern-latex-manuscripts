@@ -14,8 +14,6 @@ Public title: Carl Friedrich Gauss: Werke and Individual Papers (Modern LaTeX Wo
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-A local 2026-06-14 source-quality refresh found that future Gauss continuation should use the coherent GDZ Werke source PDFs plus IIIF manifests across Bands I-XII as the baseline. Older IA/Rich/Google PDFs are fallback/provenance, and the broad old reader PDFs should not be treated as completed editions unless a specific tranche is re-audited against source.
-
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
