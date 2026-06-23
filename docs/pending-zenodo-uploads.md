@@ -2,6 +2,19 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R119 Papers 25-28 source-audit closure plus source witnesses
+
+Manifest: [20260623_noether_r119_p25_p28_source_closure.json](../manifests/pending-zenodo-uploads/20260623_noether_r119_p25_p28_source_closure.json)
+
+- Noether: `Noether_R119_20260622.zip`, 17.0038 MB, SHA256 `7ADE1280C3747AFE574BB58E24429523B4B53C5FDFD9C26EB804FA201464E67A`.
+- Noether: `source_witness_cumulative_R119.pdf`, 243.5053 MB, SHA256 `6E34A952B2F18A24A15BB669E95457EC5ED5AE46C2EFC52D5FD6846196FF07EA`.
+- Noether-related source/provenance backfill: `Noether_R101_publication_backfill_Kapferer_1927_HADW_20260622.zip`, 33.0007 MB, SHA256 `DFBDC4349A309F48F2A2F2B35184BD8A4ACB320DB93822A23DD3022B5CD2E398`.
+- Contents: R119 is a lean German source-audit working package with cumulative TeX/PDF, standalone P25-P28 TeX/PDF slice, current 8-page source witness, ledgers, render contacts, diff, and logs. It reports a 451-page cumulative reader and a clean LuaLaTeX pass-2 status: zero fatal errors, undefined controls, missing-character warnings, overfull boxes, or underfull boxes. The separate cumulative source witness is 153 pages and is distributed outside the lean ZIP because of size. The Kapferer/HADW backfill preserves a 106-page Heidelberg scan and page metadata for `Beiträge zur Algebra 5-10`, DOI `10.11588/diglit.43535`, including Kapferer's Noether-fundamental-theorem paper.
+- Scope: R119 closes Papers 25-28 from native 600-PPI full-page source witnesses. Papers 21-24 and 29 remain explicit low-resolution blockers; P29 needs genuine native 600+ PPI source before promotion, and P30 is the next queued whole-work tranche after that.
+- Sense-check caveats: working draft/source-audit/provenance material only. This is not a critical edition, not whole-corpus mathematical certification, not synchronized multilingual propagation, and the Kapferer/HADW package is not a corrected Noether TeX branch.
+
+Next action when Zenodo API credentials are available: upload the R119 lean ZIP and `source_witness_cumulative_R119.pdf` to a new Noether version. Include the Kapferer/HADW backfill if keeping related source-context packets on the Noether record. After publish, refresh the public file catalog, Noether record page, metadata JSON, and status docs.
+
 ## 2026-06-20: Noether R105/R107 German working draft plus tail source-gap packet
 
 Manifest: [20260620_noether_r105_r107_tail_source_gap.json](../manifests/pending-zenodo-uploads/20260620_noether_r105_r107_tail_source_gap.json)
