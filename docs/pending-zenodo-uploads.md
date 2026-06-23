@@ -2,6 +2,16 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether Paper 29 IA Math. Ann. 90 source witness, 400 PPI only
+
+Manifest: [20260623_noether_p29_ia_source_witness_mathann90_400ppi.json](../manifests/pending-zenodo-uploads/20260623_noether_p29_ia_source_witness_mathann90_400ppi.json)
+
+- Noether pending ZIP: `Noether_P29_IA_SourceWitness_MathAnn90_400ppi_20260623.zip`, 74.3281 MB, SHA256 `7AAEFB7165FAB38BB2A3A34C623ECED0CB8CF348D36252C034921BD9A8DE09B8`.
+- Contents observed: README/checksums, Paper 29 IA leaf map for Mathematische Annalen 90 printed pp.229-261 / IA leaves 0234-0266, source-quality verdict, raw IA processed-JP2 leaves, native PNG conversions, IA scandata/metadata/OCR sidecars.
+- Sense-check caveats: source witness/page-map aid only. The IA scandata declares 400 PPI and the native dimensions are about 2288/2296 x 3372 px, so this is useful for best-effort comparison and continuity but below the current strict 650+ PPI dense-math certification rule. It contains no corrected TeX branch, no translation output, no Paper 29 closure, no multilingual propagation, and no critical-edition claim.
+
+Next action: upload as a clearly labelled Noether source-witness/provenance supplement or roll it into a larger source-witness package; continue to seek a genuine 650+ PPI source before promoting Paper 29 as source-closed.
+
 ## 2026-06-23: Noether P16 R121 R120-based patch webdrop, packaged but not certification
 
 Manifest: [20260623_noether_p16_r121_candidate_needs_packaging.json](../manifests/pending-zenodo-uploads/20260623_noether_p16_r121_candidate_needs_packaging.json)
