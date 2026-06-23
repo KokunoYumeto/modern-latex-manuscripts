@@ -1,6 +1,19 @@
 # Pending Zenodo Uploads
 
 
+## 2026-06-24: Noether R122 Paper 39 source-fidelity candidate
+
+Manifest: [20260624_noether_r122_p39_sourcefidelity_current.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_sourcefidelity_current.json)
+
+- Noether pending ZIP: `Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip`, 24.4928 MB, SHA256 `08F89E8AA9FFA32D3DDED06040825CF1F8574F487744DD9560D6E590A4AF26A3`.
+- Contents observed: R122-based German cumulative candidate TeX/PDF, R122 diff, fix ledger/logbook, ICM 1932 cutout source PDF, and 650/1000 dpi source-page witnesses for printed pp.189-194.
+- Declared scope: Paper 39 source-fidelity candidate for printed pp.189-194, based on `Noether_R122_20260623.zip`.
+- Supersedes/contextualizes the earlier R121-based P39 title/page-level drops for archive purposes.
+- Caveats: candidate only, German branch only, no downstream Russian/Ukrainian/Interslavic synchronization, not a critical edition, not whole-corpus certification, and not final Noether closure.
+
+Next action: use as the preferred P39 source-fidelity candidate; reconcile into the current German branch before multilingual propagation.
+
+
 ## 2026-06-24: Noether Slavic lane source-check/status snapshot
 
 Manifest: [20260624_noether_slavic_sourcecheck_status_snapshot.json](../manifests/pending-zenodo-uploads/20260624_noether_slavic_sourcecheck_status_snapshot.json)
