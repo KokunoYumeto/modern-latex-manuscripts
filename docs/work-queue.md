@@ -2,6 +2,8 @@ Latest Noether localfix note 2026-06-23: `Noether_R121_Localfix_P16_P29_WebDrop_
 
 Latest Noether P13 localfix note 2026-06-23: `Noether_R121_Localfix_P13_Formula6_WebDrop_20260623.zip` is staged as targeted R121 German localfix evidence for Paper 13 source p.238 / formula (6), restoring a source-visible vertical dotted continuation row before the final `(-1)^kappa` term. The witness is best-available 400 PPI and below the usual 650+ PPI strict-certification threshold, so treat it as targeted evidence/web-review material only: not Paper 13 closure, not multilingual propagation, not whole-corpus certification, and not a critical edition. Manifest: [`20260623_noether_r121_localfix_p13_formula6.json`](../manifests/pending-zenodo-uploads/20260623_noether_r121_localfix_p13_formula6.json).
 
+Latest Noether loose-source note 2026-06-23: `noether_R121_combined_localfix_P13_P16_P29_20260623` is only a local combined TeX scratch candidate for already staged P13 and P16/P29 localfixes. It lacks README/audit/build/render/package files, so do not upload it or use it to supersede the separate staged evidence packages. Manifest: [`20260623_noether_r121_combined_localfix_p13_p16_p29_not_upload_ready.json`](../manifests/source-intake/20260623_noether_r121_combined_localfix_p13_p16_p29_not_upload_ready.json). A loose `noether_ia_probe_20260623` P30 IA Math. Ann. 96 source probe is also recorded in the P30 source-quality manifest as local/unpackaged 400-PPI-class comparator material only.
+
 # Work Queue
 
 Latest Noether source-index note 2026-06-23: `Noether_IA90_96_SourceDump_Index_WebDrop_20260623.zip` is staged as a tiny coordination package for IA Vol.90/96 source routing and a P20 R120 formula (13) no-duplicate-patch trap. It is not reader output.
