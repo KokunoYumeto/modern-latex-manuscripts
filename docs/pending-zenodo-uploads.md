@@ -1,50 +1,8 @@
 # Pending Zenodo Uploads
 
-## 2026-06-24: Noether R122 Paper 16 plus Paper 13 source-audit candidate
+## Recently published, no longer pending
 
-Manifest: [20260624_noether_r122_p16p13_sourceaudit_webdrop.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p16p13_sourceaudit_webdrop.json)
-
-- Noether pending ZIP: `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip`, 10.0978 MB, SHA256 `DC9BED04D9A4CCF26BC8648FBC238C7A139E6FEE1FF8965A16F4880CCEBE4D7D`.
-- Contents observed: cumulative German TeX/PDF candidate based on the P16 sourcefix branch, diff, P13 fix/disposition/source-witness ledgers, GDZ original pp.235-238 witnesses, two targeted 1000 dpi crops, and rendered fixed pages.
-- Declared scope: targeted P13 micro-pass on pp.235-238 plus survival checks, preserving the earlier P16 alpha-coefficient fix. It reports two source-certain P13 corrections: suppressed-index example `u_\alpha/(x_\beta,x_\gamma)` on p.237, and `von Heun sogenannten` on p.238.
-- Caveats: candidate only; P13 pp.239-257 are explicitly unchecked in this drop, source images are mostly 400 PPI, no multilingual synchronization, no Paper 13 certification, no whole-corpus certification, and no critical-edition claim.
-
-Next action: review/reconcile the two P13 corrections if accepted, then continue P13 source audit from p.239 onward before propagation.
-
-## 2026-06-24: Noether R122 Paper 16 source-audit candidate
-
-Manifest: [20260624_noether_r122_p16_sourceaudit_webdrop.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p16_sourceaudit_webdrop.json)
-
-- Noether pending ZIP: `Noether_R122_P16_SourceAudit_WebDrop_20260624.zip`, 16.4720 MB, SHA256 `CAB9B0CB594ACDE24AA6E38135BD3041AACCDD96284825F737CBBBB978BA6D3A`.
-- Contents observed: R122 German cumulative TeX/PDF candidate, diff, source-page witnesses for printed pp.25-30, p.29 formula [7] zoom crop, rendered fixed pages, page-disposition CSV, fix CSV, source-witness manifest, and logbook.
-- Declared scope: targeted Paper 16 source-audit candidate for printed pp.25-30. It reports one source-certain correction on printed p.29: formula [7] and following prose use `\alpha` coefficients rather than `c` coefficients.
-- Caveats: candidate only; source images are best staged local witnesses with ambiguous DPI metadata, no multilingual synchronization, no Paper 16 certification, no whole-corpus certification, and no critical-edition claim.
-
-Next action: review/reconcile the alpha-coefficient correction into the current German branch before multilingual propagation.
-
-## 2026-06-24: Noether R122 Paper 20 source-audit candidate
-
-Manifest: [20260624_noether_r122_p20_sourceaudit_webdrop.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p20_sourceaudit_webdrop.json)
-
-- Noether pending ZIP: `Noether_R122_P20_SourceAudit_WebDrop_20260624.zip`, 20.1956 MB, SHA256 `10D36379B114372EC79ED7BA6ECDD474F412BCEFC0F9311F82E1798E906CE203`.
-- Contents observed: R122 German cumulative TeX/PDF candidate, diff, 1000 dpi formula crops, official source cutout for pp.26-33, checked/no-patch CSV, fix CSV, witness manifest, and logbook.
-- Declared scope: targeted Paper 20 source-audit candidate for printed pp.26-33. It reports one source-certain correction on printed p.31: decomposition-display tag `\tag{12'}` should be source-visible `\tag{12}`.
-- Caveats: candidate only; no multilingual synchronization, no Paper 20 certification, no whole-corpus certification, and no critical-edition claim. The local witness-only wrapper `Noether_R122_P20_SourceAudit_Witness_20260624.zip` is superseded by this fuller webdrop for public staging.
-
-Next action: review/reconcile the one-line source-tag correction into the current German branch before multilingual propagation; retain the 1000 dpi crops as formula-audit support.
-
-## 2026-06-24: Noether R122 Paper 39 source-fidelity candidate
-
-Manifest: [20260624_noether_r122_p39_sourcefidelity_current.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_sourcefidelity_current.json)
-
-- Noether pending ZIP: `Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip`, 24.4928 MB, SHA256 `08F89E8AA9FFA32D3DDED06040825CF1F8574F487744DD9560D6E590A4AF26A3`.
-- Contents observed: R122-based German cumulative candidate TeX/PDF, R122 diff, fix ledger/logbook, ICM 1932 cutout source PDF, and 650/1000 dpi source-page witnesses for printed pp.189-194.
-- Declared scope: Paper 39 source-fidelity candidate for printed pp.189-194, based on `Noether_R122_20260623.zip`.
-- Supersedes/contextualizes the earlier R121-based P39 title/page-level drops for archive purposes.
-- Caveats: candidate only, German branch only, no downstream Russian/Ukrainian/Interslavic synchronization, not a critical edition, not whole-corpus certification, and not final Noether closure.
-
-Next action: use as the preferred P39 source-fidelity candidate; reconcile into the current German branch before multilingual propagation.
-
+- 2026-06-24: Noether R122 source-audit candidate batch published as Zenodo record <https://zenodo.org/records/20821409> / DOI <https://doi.org/10.5281/zenodo.20821409>. Published files: `Noether_R122_P16_SourceAudit_WebDrop_20260624.zip`, `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip`, `Noether_R122_P20_SourceAudit_WebDrop_20260624.zip`, and `Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip`. These remain candidate/source-audit/provenance packages only, with no critical-edition or multilingual-propagation claim. Their detailed manifests remain under `manifests/pending-zenodo-uploads/` as source/audit records even though the four files are no longer pending upload.
 
 ## 2026-06-24: Noether Slavic lane source-check/status snapshot
 
