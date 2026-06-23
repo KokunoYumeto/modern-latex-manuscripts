@@ -1,3 +1,5 @@
+Latest Noether local-candidate note 2026-06-23: `noether_R122_local_rebase_20260623` contains an unpackaged German cumulative candidate (`cum_de_R121_localfix_P16_P29_candidate.tex/pdf`) with real P16/P24/front-matter/display-label/fallback-font deltas against R121, but it is not upload-ready: no source-witness bundle or detailed audit ledgers were found, and the XeLaTeX log still records a FreeSerif fontspec error after writing a 400-page PDF. Treat it as a local comparison/cherry-pick candidate only, not a Zenodo package, not Paper 16/Paper 24 closure, and not a critical edition. Manifest: [`20260623_noether_r122_local_rebase_candidate.json`](../manifests/source-intake/20260623_noether_r122_local_rebase_candidate.json).
+
 # Work Queue
 
 Latest Noether source-index note 2026-06-23: `Noether_IA90_96_SourceDump_Index_WebDrop_20260623.zip` is staged as a tiny coordination package for IA Vol.90/96 source routing and a P20 R120 formula (13) no-duplicate-patch trap. It is not reader output.
