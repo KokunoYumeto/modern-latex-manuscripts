@@ -52,6 +52,8 @@ Latest Noether combined-localfix note 2026-06-23: `Noether_R121_Combined_Localfi
 
 # Work Queue
 
+Latest Noether P16/P20 source-audit note 2026-06-24: `Noether_R122_P16_SourceAudit_WebDrop_20260624.zip` and `Noether_R122_P20_SourceAudit_WebDrop_20260624.zip` are staged as targeted R122 German source-audit candidates. P16 corrects formula [7] and following prose from erroneous c-coefficients to source alpha-coefficients on printed p.29; P20 corrects a p.31 decomposition-display tag from `(12')` to source `(12)` and carries 1000 dpi formula witnesses for formulas (1)-(14). Manifests: [`20260624_noether_r122_p16_sourceaudit_webdrop.json`](../manifests/pending-zenodo-uploads/20260624_noether_r122_p16_sourceaudit_webdrop.json), [`20260624_noether_r122_p20_sourceaudit_webdrop.json`](../manifests/pending-zenodo-uploads/20260624_noether_r122_p20_sourceaudit_webdrop.json). Candidate/source-audit only: reconcile before any German promotion or multilingual propagation; no Paper 16/P20 certification, no whole-corpus certification, and no critical-edition claim.
+
 Latest Noether source-index note 2026-06-23: `Noether_IA90_96_SourceDump_Index_WebDrop_20260623.zip` is staged as a tiny coordination package for IA Vol.90/96 source routing and a P20 R120 formula (13) no-duplicate-patch trap. It is not reader output.
 
 Latest Noether R121 note 2026-06-23: `Noether_R121_20260623.zip` is staged as a German P21/P23 source-audit working revision from R120. It declares P23 audited from native 600-PPI GDZ pages and P21 audited from the correct roughly 360-PPI source PDF after rejecting a bibliographically wrong 600-PPI-labelled set. Treat it as working/provenance until the detailed current R121 audit ledgers are present or the packaging caveat is accepted.
