@@ -1,6 +1,21 @@
 # Pending Zenodo Uploads
 
 
+## 2026-06-24: Noether R122 and Paper 39 webfix/source-fidelity cluster
+
+Manifest: [20260624_noether_r122_p39_webfix_cluster.json](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_webfix_cluster.json)
+
+File list: [20260624_noether_r122_p39_webfix_cluster_files.csv](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_webfix_cluster_files.csv)
+
+- Noether pending cluster: 20 ZIP paths, total 258.8311 MB including top-level and nested handoff copies.
+- Main files: `Noether_R122_20260623.zip`, `Noether_R121_Current_WebDrops_LocalCodex_20260624.zip`, `Noether_R121_WebFix_P39_Title_SourceConfirmed_20260624.zip`, `Noether_R121_WebFix_P39_Page189_SourceFidelity_20260624.zip`, `Noether_R121_WebFix_P39_P190_P191_SourceFidelity_20260624.zip`, `Noether_R121_WebFix_P39_pp189_191_Rollup_WebDrop_20260624.zip`, and `Noether_R121_WebFix_P39_P192_SourceFidelity_20260624.zip`.
+- Guardrail/state packages: `Noether_R121_P22_RA61_RA63_Absorbed_NoDuplicate_Audit_20260623.zip`, `Noether_R121_P24_P25_P30_Absorbed_NoDuplicate_20260624.zip`, `Noether_R121_P31_P36_RA07_Absorbed_NoDuplicate_20260624.zip`, `Noether_R121_P37_RA08_Absorbed_P38_P39_Open_20260624.zip`, `Noether_R121_P38_P39_SlavicFinalAuditedSlices_DoNotOverwrite_20260624.zip`, and `Noether_R121_P38_P42_RA81_RA82_ResetsAbsorbed_SourceAuditStillOpen_20260624.zip`.
+- Declared scope: R122 working source-queue/cumulative candidate with Papers 32-33 source-audit work, a LocalCodex web-session state handoff, and targeted Paper 39 title/page-level source-fidelity candidates.
+- Caveats: not a critical edition, not whole-corpus certification, not Paper 39 closure, and not multilingual propagation. State-sync/no-duplicate packages are coordination evidence only.
+
+Next action: upload as candidate/source-provenance and web-handoff material only, or branch-reconcile before any promotion.
+
+
 
 
 
