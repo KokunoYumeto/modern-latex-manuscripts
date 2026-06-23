@@ -1,10 +1,10 @@
-# Cayley Volume I Completion Status
+# Cayley Volume I Legacy Completion / De-Promotion Status
 
 Generated: 2026-06-02
 
 ## Scope
 
-Arthur Cayley, *Collected Mathematical Papers*, Volume I now has a complete source-checked reader surface in this repository.
+**2026-06-23 accuracy caveat:** this file records the 2026-06-02 assembly state, but later source comparison found substantial symbol/text mismatches in current Cayley Volume I material. The broad Volume I reader should therefore be treated as a legacy assembled draft/provenance surface, not as a maintained complete source-checked edition or critical edition.
 
 Public reader:
 
@@ -37,13 +37,12 @@ The 2026-06-02 repair pass supplied source-checked TeX/PDF gap fills for all six
 
 ## Quality Policy
 
-This reader promotes source-checked TeX/PDF slices only.
+This historical note described the intended promotion policy for the 2026-06-02 assembly. Later audit supersedes the broad claim: readers must verify mathematical details against the source witnesses, and only later explicitly re-promoted narrow tranches should be treated as source-inspected working packets.
 
 No screenshots, facsimile placeholders, or scan-image substitutes are promoted as repaired mathematical text. Source scans and page images remain provenance/checking material.
 
 ## Caveats
 
-This status applies to Volume I only. The broader Cayley corpus still has mixed states by volume: some volume-level readers are strong repaired-slice surfaces, while broad cumulative drafts and older Claude-generated masters remain continuation/provenance material rather than certified final editions.
+This legacy status applies to the 2026-06-02 Volume I assembly only and is superseded by later Cayley public-record warnings. The broader Cayley corpus still has mixed states by volume: some volume-level readers are strong repaired-slice surfaces, while broad cumulative drafts and older Claude-generated masters remain continuation/provenance material rather than certified final editions.
 
 The next Cayley work should repeat this pattern volume by volume: inventory known gaps, fill them with source-checked TeX, rebuild the reader from verified slices, and only then update the public-facing claim.
-
