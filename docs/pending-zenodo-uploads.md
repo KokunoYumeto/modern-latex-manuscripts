@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 17 RA52/RA77/RA94 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p17_ra52_ra77_ra94_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p17_ra52_ra77_ra94_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P17_RA52_RA77_RA94_NoDuplicate_Audit_20260623.zip`, 0.0111 MB, SHA256 `B633F37CC836FD31DD27F283965A1BAD687FEACFFDA276FDA90CE21E5FCB4C36`.
+- Contents observed: README, P17 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, RA52/RA77/RA94 diffs and applied-fix/no-fix ledgers.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 17. It reports that R121 already has the full Paper 17 title, no fake `Fortsetzung zu 17` scaffold, explicit source footnotes 21 and 22 around formula (39), and the prior RA52 no-fix traps.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. This checks only prior RA52/RA77/RA94 anchors, not every Paper 17 line. The best local P17 source witness is recorded as native 600 PPI, below the later 650 PPI preference. This is not P17 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 18 RA51 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p18_ra51_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p18_ra51_noduplicate_audit.json)
