@@ -12,6 +12,16 @@ Manifest: [`20260623_takagi_steinitz_source_hunt_audit.json`](../manifests/pendi
 
 Next action when Zenodo API credentials are available: upload the compact packet and, if desired, the two project-handoff ZIPs to the Steinitz record or to the workflow/source-intake record, with explicit source-hunt wording. Separately check the BHL Journal of the College of Science JP2/PDF routes for Takagi v.19, v.41, and v.44 before opening a Takagi production lane.
 
+## 2026-06-23: SGA5 repair032 source-audit and remaining-error packets
+
+Manifest: [`20260623_sga5_repair032_source_audit.json`](../manifests/pending-zenodo-uploads/20260623_sga5_repair032_source_audit.json)
+
+- SGA5 repair/audit staging: `SGA5_repair032_codex_final_20260620.zip`, 54.0795 MB, SHA256 F9D544EAEBD2C6AE57EB15395E90261A0C903525F1A8E46866982ED77D6867B1; `SGA5_repair032_codex_p205_226_microaudit_20260620.zip`, 2.7952 MB, SHA256 EE60E4C4E3BCC27E6A2093A417E3E7B375EEB997C070865AFCB7D5B387C10492; and `SGA5_Remaining_Error_Audit_WebDrop_20260619.zip`, 14.3088 MB, SHA256 13C6876D59D1FE0069F4F084E821F78A5EE068E15EF7AEB032796CE3A0541A47.
+- Contents: cumulative SGA5 French TeX/PDF for repair032, source scan PDF, repair031-to-repair032 diff, repair/equivalence ledgers, 650dpi rendered fixed pages, 1000dpi source loci/crops, and remaining-error/open-queue ledgers.
+- Sense-check caveats: this supersedes repair031 as the local SGA5 French repair branch, but it is not a global SGA5 certification or critical edition. SGA5 English remains unsynchronized, and open diagram/formula/notation queues remain live where listed.
+
+Next action when Zenodo API credentials are available: upload these as SGA5 repair/audit support files on the SGA record or workflow/source-intake record with explicit repair032 caveats. Preserve repair025/repair031 provenance in earlier versions.
+
 ## 2026-06-23: SGA6 repair033-088 source/French audit wave
 
 Manifest: [20260623_sga6_repair033_088_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260623_sga6_repair033_088_source_audit_wave.json)
