@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 compact web-fix P13/P16/P29 with P11 no-duplicate audit
+
+Manifest: [20260623_noether_r121_webfix_p13_p16_p29_with_p11_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_webfix_p13_p16_p29_with_p11_audit.json)
+
+- Noether pending ZIP: `Noether_R121_WebFix_P13_P16_P29_with_P11_Audit_20260623.zip`, 2.8071 MB, SHA256 `9269E054B421E30FF5A71227D76E60D9C49A734B99A22B67DBFFB60946C88796`.
+- Contents observed: README, compact German cumulative webfix candidate TeX/PDF/log, P13/P16/P29 diff and confirmed-fix CSV, P11 RA56 checks-against-R121 CSV, source-quality/scope CSV, checksums, and prior P16/P29 localfix ledgers.
+- Declared scope: compact web-session handoff for replaying or comparing the already staged P13/P16/P29 R121 local fixes, plus a P11 no-duplicate audit. The P11 audit says no new P11 patch is required because the checked RA56 source-visible author line, `\Omega_\Gamma` notation, final-theorem wording, and no-fix traps are already correct in R121.
+- Sense-check caveats: this is not a richer source-witness package; use the larger combined localfix webdrop for source witnesses/rendered checks. German cumulative candidate only; no multilingual propagation, no Paper 11/13/16/29 closure, no whole-corpus certification, and no critical-edition claim.
+
+Next action: feed to the active Noether web thread as a compact integration/no-duplicate guardrail, or upload as clearly labelled coordination/localfix evidence if preserving the web handoff is useful.
+
 ## 2026-06-23: Noether R121 combined localfix P13/P16/P29 webdrop
 
 Manifest: [20260623_noether_r121_combined_localfix_p13_p16_p29_webdrop.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_combined_localfix_p13_p16_p29_webdrop.json)
