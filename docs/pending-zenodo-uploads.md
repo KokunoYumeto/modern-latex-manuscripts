@@ -8,7 +8,7 @@ Manifest: [`20260623_noether_p16_r121_candidate_needs_packaging.json`](../manife
 
 - Noether local candidate directory: `noether_p16_R121_audit_20260623`, 15.1708 MB, 13 files.
 - Contents observed: one German cumulative TeX candidate, `cum_de_R120_P16_R121_candidate.tex`, plus six IA JP2 leaves and six native PNG page witnesses for Mathematische Annalen 81 printed pp.25-30.
-- Sense-check caveats: not a ready Zenodo upload. At sweep time the folder had no README, checksum manifest, baseline diff, source map, render check, or audit ledger. It may be a later R120-based Paper 16 candidate, but no supersession of the existing RA53 P16 package is established. Do not describe it as Paper 16 closure, source certification, multilingual propagation, or critical edition material.
+- Sense-check caveats: not a ready Zenodo upload. At sweep time the folder had no README, checksum manifest, baseline diff, source map, render check, or audit ledger. The local XeLaTeX log writes a 457-page PDF and the quick warning scan found only inputenc/font-substitution warnings, so this is compile evidence, not render/source-audit certification. It may be a later R120-based Paper 16 candidate, but no supersession of the existing RA53 P16 package is established. Do not describe it as Paper 16 closure, source certification, multilingual propagation, or critical edition material.
 
 Next action: package only after checksums, source map, render check, baseline diff, audit ledger, and explicit reconciliation against RA53/R120/R121.
 
