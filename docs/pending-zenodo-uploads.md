@@ -2,6 +2,17 @@
 
 This page lists local packages that have been discovered, extracted, checksummed, and staged, but are not yet present in the public Zenodo file catalog. Do not cite these as public Zenodo files until a token-backed upload/publish pass succeeds and the public file catalog is regenerated.
 
+## 2026-06-23: Noether R121 Paper 19 R118 no-duplicate audit
+
+Manifest: [20260623_noether_r121_p19_r118_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p19_r118_noduplicate_audit.json)
+
+- Noether pending ZIP: `Noether_R121_P19_R118_NoDuplicate_Audit_20260623.zip`, 0.0408 MB, SHA256 `E08DFF87B10CCE1ABDDF42AE6F9DBB7EE78DF3D465B75E63D895281C16612965`.
+- Contents observed: README, P19 R121 verification CSV, source-quality/scope CSV, logbook/checksum CSV, R116-to-R117 and focused R117 diffs, RA50 applied-fix/no-fix ledgers, and visual-defect notes.
+- Declared scope: compact skip/anti-duplication guardrail for Paper 19. It reports that the Paper 19 block in R121 is byte-identical to the repaired R118 Paper 19 block, with block SHA256 `AAE10A460591DA2BC4E898DD767CA26B278182C3CC794B2C1A70B97E9D6691D6`, so R117/R118 and RA50 Paper 19 changes should not be replayed onto R121.
+- Sense-check caveats: no new TeX patch, no reader PDF, no source images, and no translation output are included. The exact block match proves inheritance/no-regression, not full source-page certification. RA50 tail fixes remain localized best-available evidence from roughly 360-PPI native source material, not 650+ PPI global certification. P19 remains queued for broader pagewise audit; this is not P19 closure, whole-corpus certification, or a critical edition.
+
+Next action: use as a compact web-session no-duplicate guardrail; upload only as coordination/provenance evidence if that is useful.
+
 ## 2026-06-23: Noether R121 Paper 20 RA49/RA87 no-duplicate audit
 
 Manifest: [20260623_noether_r121_p20_ra49_ra87_noduplicate_audit.json](../manifests/pending-zenodo-uploads/20260623_noether_r121_p20_ra49_ra87_noduplicate_audit.json)
