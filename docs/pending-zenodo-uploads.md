@@ -1698,3 +1698,18 @@ Manifest: [20260624_noether_p14_p17_survival_supplement.json](../manifests/pendi
 - Contents: targeted survival/source-fix support for Papers 14-17 plus the refreshed webdrop index/logbook. These are provenance and audit support only, not proof that Papers 14-17 are source-complete.
 
 Next action: retain for Noether project staging or attach to a deliberate Noether source-audit/provenance Zenodo version. Do not publish separately and do not present as final certification.
+
+## 2026-06-24: Noether R123 survival/source-closure supplement and R114/R115 provenance holds
+
+Manifest: [20260624_noether_r123_r115_source_queue_supplement.json](../manifests/pending-zenodo-uploads/20260624_noether_r123_r115_source_queue_supplement.json)
+
+- Noether: Noether_R123_P09_SurvivalAudit_Cumulative_WebDrop_20260624.zip, 3.5111 MB, SHA256 954327CB79E28534973A56B34C0C12D86BEDB2F679B4BCBAA34C23134BDEB5D2.
+- Noether: Noether_R123_P10_P13_SurvivalAudit_Cumulative_WebDrop_20260624.zip, 3.5084 MB, SHA256 5E506652CEBA2AED8EA82FFB665B8FFFB76222F0324D808A7D5DC31E7DDBB08C.
+- Noether: Noether_R123_P14_P18_SurvivalAudit_Cumulative_WebDrop_20260624.zip, 3.5076 MB, SHA256 5FA7AE6855AC03B437F1361BEEB2C5A86757209C94B6E4FF84E8699F364576CF.
+- Noether: Noether_R123_P19_P20_SurvivalAudit_Cumulative_WebDrop_20260624.zip, 3.5079 MB, SHA256 B944E4ECE9500A4388E1E0768C693A2EF33E416A2001174C02B0273B4CE360E2.
+- Noether: Noether_R123_P18_GDZ600_SourceClosure_WebDrop_20260624.zip, 5.0466 MB, SHA256 65DFA5EC25DC285CE786E1D7D6D8812E7BDBC589D5C6E7E72AA795A34B07BB36.
+- Noether: Noether_R114_20260621.zip, 132.2040 MB, SHA256 4072E9A2B55DB57F0617EF83BD6053FA8AB1090EC6578D456CFF16DE4CD28EF1, marked superseded provenance/source-queue hold.
+- Noether: Noether_R115_20260621.zip, 232.1990 MB, SHA256 EEFB13D4141A891F74947ACE6F3139DF343F78A54FE4122B8838E6D06832D013, marked superseded provenance/source-queue hold.
+- Contents: Noether project support packages only. R123 files are intermediate survival/source-closure support; R114/R115 preserve older source-queue evidence and 600-PPI closures but are not current reader-facing editions.
+
+Next action: retain as Noether project staging/provenance. If included on Zenodo, attach only to the Noether record with explicit support/superseded caveats. Do not publish separately and do not imply corpus-wide certification.
