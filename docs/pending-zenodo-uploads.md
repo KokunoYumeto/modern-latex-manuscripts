@@ -1,5 +1,21 @@
 # Pending Zenodo Uploads
 
+## 2026-06-24: Noether Paper 30 p058-061 source-repair candidate
+
+Manifest: [20260624_noether_p30_ma96_source_repair_p058_061.json](../manifests/pending-zenodo-uploads/20260624_noether_p30_ma96_source_repair_p058_061.json)
+
+- Noether pending ZIP: `Noether_P30_MA96_SourceRepair_p058_061_R123plusP08_20260624.zip`, 14.0509 MB, SHA256 `493B0659C09E84EEA1ADC7A72F30F82D6AD98A1E1F4C1B87B1BAC2406D1381FA`.
+- Contents observed: R123+P08 German cumulative candidate TeX/PDF/log for the Paper 30 p058-061 repair, baseline cumulative PDF/TXT, and four source-witness PNGs for printed pp.58-61 / leaves 63-66.
+- Caveat: candidate/source-repair support only. No local README was found at sweep time. Do not present as full Paper 30 closure, a critical edition, whole-corpus certification, or multilingual propagation.
+
+## 2026-06-24: Noether Slavic Paper 32 section 02 checkpoint - hold/prune before public upload
+
+Manifest: [20260624_noether_slavic_p32_section02_checkpoint_hold_prune.json](../manifests/pending-zenodo-uploads/20260624_noether_slavic_p32_section02_checkpoint_hold_prune.json)
+
+- Local ZIP observed: `Noether_Slavic_Paper32_Section02CyclicMinimalFields_R122Authority_R123Freshness_Triangulation_Checkpoint_20260624T0329Z.zip`, 123.6529 MB, SHA256 `6B6DF6EE085087490CABCBD82A7E7FEEB0AB5EF38FCD2CABF05238F9075504BF`.
+- Useful contents: Ukrainian/Russian/Interslavic Latin/Interslavic Cyrillic TeX/PDF checkpoint outputs, cumulative readers, terminology/logbook material, audit summaries, and source-control context.
+- Hold reason: the package also includes an `interslavic_triangulation` reference subtree with external modern Slavic algebra PDFs. Under the archive-scope guardrail, do not upload the full brick blindly. Derive a cleaned public package first, or upload the exact brick only if Floris explicitly authorizes it.
+
 ## 2026-06-24: Workflow archive-scope guardrail
 
 Manifest: [20260624_workflow_archive_scope_guardrail.json](../manifests/pending-zenodo-uploads/20260624_workflow_archive_scope_guardrail.json)
@@ -10,7 +26,7 @@ Local files staged for the next deliberate workflow refresh:
 
 - `AI_Run_Workflow_Addendum_Archive_Scope_Guardrail_20260624.zip`, 4,563 bytes, SHA256 `2F2B814004DCB35CE70B87BCF792ABCCC237D736C235820149454356C16CA08A`.
 - `workflow_addendum_20260624_archive_scope_guardrail.md`, standalone human-readable addendum.
-- `workflow_addendum_20260624_source_witness_public_surface.md`, updated SGA5 source-witness caveat from pp.1-27 to pp.1-60 plus p103 diagram locus.
+- `workflow_addendum_20260624_source_witness_public_surface.md`, updated SGA5 source-witness caveat from pp.1-27 to pp.1-65 plus p103 diagram locus.
 
 Scope correction: sweeping local folders does not mean publishing everything found. Only project-lane material belongs in Zenodo/GitHub by default: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, and author/corpus public-surface metadata. Unrelated third-party TeX, new research drafts, Reddit downloads, Lean experiments, and personal/novel math files stay out unless Floris explicitly names the exact item for upload.
 
