@@ -27,7 +27,7 @@ Generated from `manifests/public-file-catalog.csv`.
 | dedekind | 18 | 14 | 3 | 1 | 25.1085 | [record](https://doi.org/10.5281/zenodo.20520669) |
 | dirichlet | 7 | 2 | 4 | 1 | 168.3875 | [record](https://doi.org/10.5281/zenodo.20520679) |
 | bianchi | 22 | 5 | 12 | 5 | 1964.9268 | [record](https://doi.org/10.5281/zenodo.20615814) |
-| gordan_clebsch_gordan | 38 | 0 | 33 | 5 | 1717.4799 | [record](https://doi.org/10.5281/zenodo.20616260) |
+| gordan_clebsch_gordan | 44 | 0 | 38 | 6 | 1870.7028 | [record](https://doi.org/10.5281/zenodo.20616260) |
 | steinitz | 6 | 0 | 5 | 1 | 439.5617 | [record](https://doi.org/10.5281/zenodo.20616988) |
 | frobenius | 2 | 0 | 1 | 1 | 166.1577 | [record](https://doi.org/10.5281/zenodo.20673444) |
 | poincare | 20 | 0 | 19 | 1 | 2401.6073 | [record](https://doi.org/10.5281/zenodo.20673461) |
