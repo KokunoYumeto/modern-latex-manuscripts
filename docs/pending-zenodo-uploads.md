@@ -1,5 +1,19 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether post-P11 failed-web/salvage and survival queue
+
+Manifest: [20260625_noether_post_p11_salvage_queue.json](../manifests/pending-zenodo-uploads/20260625_noether_post_p11_salvage_queue.json)
+
+Observed after the current Noether public version [20836874](https://zenodo.org/records/20836874):
+
+- `Noether_R124_FailedWebThinking_Salvage_P19_P33_P37_P42_20260624.zip`, 66,953,506 bytes, SHA256 `94283139C9F630A53F66B1A6AA0E3734130B3B68CFF4FC4424CEC40E6C990E20`.
+- `Noether_R124plus_P11_p221_FrontMatterCommaFix_WebDrop_20260625.zip`, 6,150,604 bytes, SHA256 `C52E047A8181957D2612E9FC86B2E7EE7B0827F559F1CADBE69567EF65AB9B01`.
+- `Noether_R124plus_FailedWebThinking_Salvage_P42_ApparatusAudit_20260625.zip`, 1,456,100 bytes, SHA256 `B5657197B7362F4B8C71F963249D319C8608136333BC72FA6ABD84A337554D51`.
+- `Noether_R124plus_P09_PostP11Survival_NoNewPatch_20260625.zip`, 165,484 bytes, SHA256 `0D62DFC50E30B7AFD105F802A7D632808BCD19DB17845400B31D35B151A72D77`.
+- `Noether_R124plus_P10_PostP11Survival_NoNewPatch_20260625.zip`, 249,220 bytes, SHA256 `E27EC953C3AAFEE2DB67C1EAD339A30B57EF0B1DF70ECA31A01CE8E70482ACFE`.
+
+Status: pending consolidation only. Do not upload these one by one. The substantive new patch is the narrow P11 p221 front-matter comma/source-line correction; the other files are salvage, apparatus-audit, or post-P11 no-new-patch survival evidence. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
+
 ## 2026-06-24: Noether R124plus post-publication survival/status packets
 
 Manifest: [20260624_noether_r124plus_late_p09_p30_repairs.json](../manifests/pending-zenodo-uploads/20260624_noether_r124plus_late_p09_p30_repairs.json)
