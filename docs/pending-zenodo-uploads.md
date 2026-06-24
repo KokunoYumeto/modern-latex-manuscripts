@@ -951,11 +951,7 @@ Next action when Zenodo API credentials are available: upload with the next Noet
 
 Manifest: [20260614_gibbs_v1_p125_134.json](../manifests/pending-zenodo-uploads/20260614_gibbs_v1_p125_134.json)
 
-- Gibbs / old physics: `GibbsV1_P3_p125_134.zip`, 9.6451 MB, SHA256 `369A9C078C4FF896B826A179853DAF04653BD6F0F98A9E3C5D84655565D48A5A`.
-- Contents: source-scan-backed working continuation for J. Willard Gibbs, `The Scientific Papers`, Volume I, Paper 3, `On the Equilibrium of Heterogeneous Substances`, printed pp.125-134, plus a cumulative Paper 3 TeX/PDF/source-scan surface for pp.055-134. The package includes installment and cumulative TeX/PDF/scan files, formula inventories, table inventories, scan maps, unit JSONL, compile QC, repair log, notation notes, method notes, and SHA256 manifest.
-- Sense-check caveats: compile QC reports both the p125-134 installment and pp.055-134 cumulative with zero overfull and zero underfull boxes. The repair log records a formulas-ledger rebuild for pp.115-124 because equations 191-198 were present in TeX/PDF but absent from the prior CSV, and p125-134 figure/layout repairs for Figs. 7 and 9 plus source-style asterisk footnote markers. This is a working tranche, not a complete Gibbs corpus or critical edition; the package notes that the separate `Onequilibriumhe00GibbA` witness does not cover collected pp.125-134, so the current scan baseline remains the collected-volume IA 400 ppi page-image PDF until raw Vol. I JP2 witness material is available.
-
-Next action when Zenodo API credentials are available: create a new Gibbs old-physics Zenodo version, upload this ZIP and update the reader-facing Gibbs surface from pp.001-124 to pp.001-134 / Paper 3 pp.055-134 as appropriate, then regenerate the public file catalog, record page, status docs, and metadata.
+Published 2026-06-24 as Gibbs record <https://doi.org/10.5281/zenodo.20821820>. The manifest is retained as provenance. The public version adds `GibbsV1_P3_p125_134.zip` and fronts reader-facing Paper 3 cumulative PDF/TeX for pp.055-134. Continue after p.134; this remains a source-scan-backed working tranche, not a complete Gibbs corpus or critical edition.
 
 ## 2026-06-14: Weber B139 merged equation-tag heuristic fix
 

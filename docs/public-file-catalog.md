@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1061
+Total files indexed: 1065
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -1003,20 +1003,24 @@ Dedicated Maxwell working-tranche record. Current public coverage is A Treatise 
 
 ## J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 
-Record: <https://doi.org/10.5281/zenodo.20649835>
+Record: <https://zenodo.org/records/20821820>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.3027 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.pdf](https://zenodo.org/records/20649836/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.pdf) |
-| other | 0.0648 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.tex](https://zenodo.org/records/20649836/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.tex) |
-| reader/reference PDF | 0.3788 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.pdf](https://zenodo.org/records/20649836/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.pdf) |
-| other | 0.0920 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.tex](https://zenodo.org/records/20649836/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.tex) |
-| reader/reference PDF | 0.4873 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.pdf](https://zenodo.org/records/20649836/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.pdf) |
-| other | 0.1882 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.tex](https://zenodo.org/records/20649836/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.tex) |
-| artifact/source ZIP | 8.5164 | [Gibbs_Vol1_Equilibrium_Heterogeneous_Substances_p055_124_with_source_scan.zip](https://zenodo.org/records/20649836/files/Gibbs_Vol1_Equilibrium_Heterogeneous_Substances_p055_124_with_source_scan.zip) |
-| artifact/source ZIP | 3.8122 | [Gibbs_Vol1_Geometrical_Representation_p033_054_with_source_scan.zip](https://zenodo.org/records/20649836/files/Gibbs_Vol1_Geometrical_Representation_p033_054_with_source_scan.zip) |
-| artifact/source ZIP | 4.7775 | [Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip](https://zenodo.org/records/20649836/files/Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip) |
-| manifest/status | 0.0017 | [STATUS_GIBBS_OLD_PHYSICS_20260611.md](https://zenodo.org/records/20649836/files/STATUS_GIBBS_OLD_PHYSICS_20260611.md) |
+| manifest/status | 0.0012 | [99_Gibbs_Public_Summary_20260624.json](https://zenodo.org/records/20821820/files/99_Gibbs_Public_Summary_20260624.json) |
+| reader/reference PDF | 0.3027 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.pdf) |
+| other | 0.0648 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.tex) |
+| reader/reference PDF | 0.3788 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.pdf) |
+| other | 0.0920 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.tex) |
+| reader/reference PDF | 0.4873 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.pdf) |
+| other | 0.1882 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.tex) |
+| reader/reference PDF | 0.5190 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.pdf) |
+| other | 0.2191 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.tex) |
+| artifact/source ZIP | 8.5164 | [Gibbs_Vol1_Equilibrium_Heterogeneous_Substances_p055_124_with_source_scan.zip](https://zenodo.org/records/20821820/files/Gibbs_Vol1_Equilibrium_Heterogeneous_Substances_p055_124_with_source_scan.zip) |
+| artifact/source ZIP | 3.8122 | [Gibbs_Vol1_Geometrical_Representation_p033_054_with_source_scan.zip](https://zenodo.org/records/20821820/files/Gibbs_Vol1_Geometrical_Representation_p033_054_with_source_scan.zip) |
+| artifact/source ZIP | 4.7775 | [Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip](https://zenodo.org/records/20821820/files/Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip) |
+| artifact/source ZIP | 9.6451 | [GibbsV1_P3_p125_134.zip](https://zenodo.org/records/20821820/files/GibbsV1_P3_p125_134.zip) |
+| manifest/status | 0.0017 | [STATUS_GIBBS_OLD_PHYSICS_20260611.md](https://zenodo.org/records/20821820/files/STATUS_GIBBS_OLD_PHYSICS_20260611.md) |
 
 ## Richard Dedekind: Source-Witnessed Working Drafts and English Translations
 
