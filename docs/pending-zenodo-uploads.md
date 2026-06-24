@@ -14,9 +14,12 @@ Observed after the current Noether public version [20836874](https://zenodo.org/
 - `Noether_R124plus_P12_PostP11Survival_NoNewPatch_20260625.zip`, 146,762 bytes, SHA256 `B12A5C4171502DCEDA0DEDEEFEB2645B581ACAC23B7D018F8B0EABB36A108D66`.
 - `Noether_R124plus_P13_P18_PostP11Survival_NoNewPatch_20260625.zip`, 282,122 bytes, SHA256 `ABEDC2063510768D336B989072C4994AFC87DAA7590D0C75AD8932EABC00495C`.
 - `Noether_R124plus_P19_P20_PostP11Survival_NoNewPatch_20260625.zip`, 203,827 bytes, SHA256 `FB2A673D0F6EDA495550FE5EDE412DB93638FD2950E92DAF212075D9092E6F3B`.
-- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 393,004 bytes, SHA256 `6BB696046C8D88D532860CADD61E331885F3FF780F4CE199A63F770BE09A2EF4`.
+- `Noether_R124plus_P01_P08_PostP11BodySurvival_BoundaryOnlyDiff_NoNewPatch_20260625.zip`, 639,265 bytes, SHA256 `A164703BEB0AFF10E9607F5700323D499B569636400133067364AF86D8A0D18D`.
+- `Noether_R124plus_P21_P30_PostP11Survival_NoNewPatch_20260625.zip`, 321,456 bytes, SHA256 `BABC2807BE17FFFF2108C3BFA2A8B20B5B5DB080B9B73F01691866C0E546635B`.
+- `Noether_R124plus_P31_P43_PostP11Survival_NoNewPatch_20260625.zip`, 426,935 bytes, SHA256 `48F40337BC2C6C4929F395AEDAC574FC915E394EE738170EE1A6A425F9DDE8E4`.
+- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 397,221 bytes, SHA256 `2B23AE43DF18BB0D960ABB31225D901C089454EE252E82181F1977EBF6F63CB6`.
 
-Status: pending consolidation only. Do not upload these one by one. The substantive new patch is the narrow P11 p221 front-matter comma/source-line correction; the other files are salvage, apparatus-audit, post-P11 no-new-patch survival evidence, or live source-audit logbook/provenance material. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
+Status: pending consolidation only. Do not upload these one by one. The substantive new patch is the narrow P11 p221 front-matter comma/source-line correction; the other files are salvage, apparatus-audit, post-P11 no-new-patch survival evidence, boundary/regression proof, or live source-audit logbook/provenance material. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
 
 ## 2026-06-24: Noether R124plus post-publication survival/status packets
 
