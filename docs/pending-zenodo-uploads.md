@@ -1959,3 +1959,16 @@ Manifest: [20260624_noether_r124_german_cumulative_audit_rollup.json](../manifes
 - Caveat: R124 does **not** absorb the later separately staged P40 source-apparatus or P40 pp.517-520 body-repair tranches. It is not full Noether closure, not a critical edition, and not a reader-facing final edition by itself. Several witnesses are explicitly best-available but below the local strict 650ppi certification floor.
 
 Next action: attach to the next deliberate Noether source-support version if useful, while keeping the separate P40 staged tranches visible or waiting for a later R125+ package that actually merges them.
+
+## 2026-06-24: Noether R124 + P40 GDZ400 rebased body repair 002, pp.514-523
+
+Manifest: [20260624_noether_r124_p40_bodyrepair002_p514_523.json](../manifests/pending-zenodo-uploads/20260624_noether_r124_p40_bodyrepair002_p514_523.json)
+
+- Noether pending ZIP: `Noether_R124_P40_GDZ400_Rebased_BodyRepair002_p514_523_20260624.zip`, 44.4732 MB, SHA256 `C367DF1ADDBD42D82D89ED5457730201D332A95500A300516EBF9625FCE7A75B`.
+- Scope: current German working-baseline package that rebases the P40 source-apparatus/body repairs onto `Noether_R124_20260624.zip`, preserving R124 everywhere except the P40 block. It repairs P40 printed pp.514-523 and includes the full local GDZ 400ppi P40 witness set for pp.514-541.
+- Build/status: `cum_de_R124_plus_P40body002_p514_523_repair_20260624.pdf` is 457 pages and 3,621,633 bytes; the package reports successful two-pass `lualatex` with no fatal error, emergency stop, undefined control sequence, missing-character report, or LaTeX error.
+- Repairs: source title/author/opening and early footnotes; Par. 1 heading and proof after (1a); bridge after (2)/(2*); Abbildungsschlussweise paragraphs; Produktring theorem proof/construction; Par. 2 representation-theory block through printed p523.
+- Supersession: this should be preferred over the separate R124 rollup and the separate P40 apparatus/body001 packages when fronting the freshest Noether German working baseline. Those earlier packages remain provenance/source-support, not the freshest baseline.
+- Caveat: not P40 closure, not whole-Noether closure, not a critical edition. P40 printed pp.524-541 remain open; later footnotes 16-19 and 21-22 still require final recheck; P41-P43 are untouched; P40 source witness is 400ppi below the local 650ppi strict certification floor.
+
+Next action: if refreshing Noether Zenodo, front this as the freshest German working baseline package with clear caveats and retain earlier tranches as provenance only.
