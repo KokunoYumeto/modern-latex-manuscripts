@@ -1896,3 +1896,15 @@ Manifest: [20260624_noether_p40_gdz400_source_apparatus_repair.json](../manifest
 - Caveat: this is apparatus/source-repair support only. P40 remains visibly compressed in places and still needs page-by-page source rebuild/audit; footnotes 8-10 are at nearest stable anchors pending exact rebuild; footnotes 16-19 and 21-22 were carried but not fully rechecked. GDZ witnesses are 400ppi, below the local 650ppi strict certification floor.
 
 Next action: retain for Noether source-audit/provenance staging or attach to a deliberate Noether source-support version with explicit caveats. Do not present as Paper 40 closure, whole-Noether closure, multilingual propagation, reader-facing final edition, or critical edition.
+
+## 2026-06-24: Gordan Vorlesungen Bd. 1 p010-p028
+
+Manifest: [20260624_gordan_vb1_02_p010_028.json](../manifests/pending-zenodo-uploads/20260624_gordan_vb1_02_p010_028.json)
+
+- Gordan pending ZIP: `Gordan_VB1_02_p010_028_DE_EN_20260613.zip`, 46.5065 MB, SHA256 `2FA5FEBE71A6550622E01483713EE2C7FC9740073F7CB6525173F8F5B06A75DD`.
+- Scope: Paul Gordan, `Vorlesungen ueber Invariantentheorie`, Bd. 1, source pp.010-028; German transcription and English translation working tranche, with cumulative Bd.1 through p028.
+- Contents observed: current-slice DE/EN TeX/PDF, cumulative Bd.1 DE/EN TeX/PDF, source PDF/PNG/TIFF witnesses, cumulative source PDF, audit report, page coverage, equation/correction ledgers, heuristic logbook, render checks, and source/formula crops.
+- Audit report: no unresolved blocker or red flags; GDZ 600ppi TIFF witnesses are used as source witnesses; source page 0014 / label XII is blank scan-only. Build logs report zero fatal-like errors, zero overfull hboxes, and zero underfull hboxes. Copied-short-path `pdfinfo` reports current DE 15 pages, current EN 14 pages, cumulative DE 18 pages, cumulative EN 17 pages, and current source PDF 19 pages.
+- Caveat: source-witnessed working tranche only. This is not a critical edition and not full Gordan corpus closure. The `08_ocr_noncanonical` scaffold is locator/support material only. Prior completed Gordan branches included inside the package remain context and are not newly recertified by this tranche.
+
+Next action: attach to the existing Gordan/Clebsch-Gordan record or retain for the next deliberate Gordan version with explicit working-tranche caveats.
