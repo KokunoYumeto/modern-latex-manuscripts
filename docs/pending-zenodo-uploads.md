@@ -1837,6 +1837,16 @@ Manifest: [20260624_noether_p36_gdz600_source_style_repair.json](../manifests/pe
 
 Next action: retain for Noether source-audit/provenance staging; upload only with below-650ppi caveat and do not present as Paper 36 closure.
 
+## 2026-06-24: Noether P38 GDZ600 best-available source repair
+
+Manifest: [20260624_noether_p38_gdz600_source_repair.json](../manifests/pending-zenodo-uploads/20260624_noether_p38_gdz600_source_repair.json)
+
+- Noether: `Noether_P38_GDZ600_SourceRepair_R123plusP08P30P33P34P35P36_20260624.zip`, 27.7364 MB, SHA256 `23C2B38BE2B47E912A993773E529056237498107608CA692CA3D71297CBA6AED`; best-available source-repair package for Brauer-Hasse-Noether, `Beweis eines Hauptsatzes in der Theorie der Algebren`.
+- Contents: restores the source title/author block and Hasse drafting footnote, Reduktion 2/3 notation and wording, source `\Sigma` for the Sylowkorper, footnote 4 and the `Zusatz wahrend der Drucklegung`, the Lambda chain, and the p401 Normensatz paragraph. Includes cumulative German candidate, GDZ/JRAM167 printed pp.399-404 witnesses, native 600ppi crops for patched loci, confirmed-fixes ledger, diff, and provenance.
+- Caveat: best-available 600ppi source repair only, below the local 650ppi strict floor. pp.402-404 are included as witnesses but were not globally line-certified; later `Folgerungen` may still contain modernization/compression. Not full Paper 38 certification and not whole-Noether closure.
+
+Next action: retain for Noether source-audit/provenance staging; upload only with below-650ppi and partial-line-certification caveats and do not present as Paper 38 closure.
+
 ## 2026-06-24: Noether P24 MA90 gross-gap anchor audit
 
 Manifest: [20260624_noether_p24_ma90_gross_gap_anchor_audit.json](../manifests/pending-zenodo-uploads/20260624_noether_p24_ma90_gross_gap_anchor_audit.json)
