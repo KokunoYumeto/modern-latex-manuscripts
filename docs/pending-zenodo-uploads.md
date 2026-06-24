@@ -1826,3 +1826,34 @@ Manifest: [20260624_noether_p35_mathnet600_source_repair.json](../manifests/pend
 - Caveat: this is a source-checked repair against the best available 600 ppi witness found in this pass, but it remains below the local 650 ppi strict floor. It does not certify every symbol/formula/layout feature, is not a critical edition, and is not whole-Noether certification.
 
 Next action: review/reconcile before Noether reader promotion; upload only as source-repair candidate/provenance with the below-650ppi caveat.
+
+## 2026-06-24: Noether P36 GDZ600 source-style repair
+
+Manifest: [20260624_noether_p36_gdz600_source_style_repair.json](../manifests/pending-zenodo-uploads/20260624_noether_p36_gdz600_source_style_repair.json)
+
+- Noether: `Noether_P36_GDZ600_SourceStyleRepair_R123plusP08P30P33P34P35_20260624.zip`, 5.6643 MB, SHA256 `FFC7AECBEBA942B9B2161019D104114D385A73EF30A61017C990B913C3ECEFC9`; source-style repair package for `Idealdifferentiation und Differente`.
+- Contents: tiny source-confirmed repair package: bibliographic line restored to source `J. Ber. d. DMV39`, source italics restored for `Differentialquotient` and `Ideals`, plus cumulative German candidate, GDZ/JDMV39 600ppi witness, fix ledger, diff, and provenance.
+- Caveat: best-available 600ppi source-style repair only, below the local 650ppi strict floor. Not full Paper 36 certification and not whole-Noether closure.
+
+Next action: retain for Noether source-audit/provenance staging; upload only with below-650ppi caveat and do not present as Paper 36 closure.
+
+## 2026-06-24: Noether P24 MA90 gross-gap anchor audit
+
+Manifest: [20260624_noether_p24_ma90_gross_gap_anchor_audit.json](../manifests/pending-zenodo-uploads/20260624_noether_p24_ma90_gross_gap_anchor_audit.json)
+
+- Noether: `Noether_P24_MA90_GrossGapAnchorAudit_R123plusP08_20260624.zip`, 3.3729 MB, SHA256 `27BBC9289144A645FC305543089CFC5E38FD92D3D296FCDF9E7042738E39B9CB`; gross-gap/prose-anchor audit package for `Eliminationstheorie und allgemeine Idealtheorie`.
+- Contents: records that all 33 source pages have exact high-confidence OCR prose anchors in the current P24 TeX block after rough unTeX normalization; includes current cumulative TeX/PDF/TXT and OCR/prose-anchor ledgers.
+- Caveat: no TeX patch was applied. This is gross-gap/prose-locator evidence only, using 400ppi IA OCR/djvu XML below the local 650ppi strict floor; it does not certify symbols, formulas, punctuation, or layout.
+
+Next action: attach as Noether audit/provenance support if useful; do not publish separately and do not present as source-closed Paper 24 certification.
+
+## 2026-06-24: Noether R123 salvage for P12/P13/P16/P20/P39
+
+Manifest: [20260624_noether_r123_salvage_p12_p13_p16_p20_p39.json](../manifests/pending-zenodo-uploads/20260624_noether_r123_salvage_p12_p13_p16_p20_p39.json)
+
+- Noether: `Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip`, 33.3629 MB, SHA256 `2126BCE1AD1EDEEE768C17406B672F5644AE157A05B76CB6A38908D840560B54`; source-fix salvage package for the listed loci.
+- Supporting/superseded provenance: `Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip`, 0.5220 MB, SHA256 `C94B6AABE49CBFDD20F31E075526C7032508FE0642203624C557E9F51102AA0F`; and `Noether_R122_P10_P12_Reconcile_WebDrop_20260624.zip`, 3.8321 MB, SHA256 `9B132F2F13A0ECA36F0D12E57B857528B735CD77BC02AF96D227637FC72410CE`. These are tracked under the same manifest as provenance, not parallel current branches.
+- Contents: R123 salvage candidate compiles locally to 457 pages and integrates P12 formula punctuation, P13 footnote/index and Heun wording, P16 alpha notation, P20 formula tag `(12)`, and P39 pp.189-194 source-fidelity block plus refinements.
+- Caveat: source-certified only for listed loci and touched witnesses. Not full page-by-page Noether certification and not a complete reader edition.
+
+Next action: stage on Noether source-audit/provenance queue; if uploaded, describe as salvage/source-fix support rather than corpus closure.
