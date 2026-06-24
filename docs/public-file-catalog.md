@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1071
+Total files indexed: 1073
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -989,17 +989,19 @@ Record: <https://doi.org/10.5281/zenodo.20520692>
 
 Record: <https://doi.org/10.5281/zenodo.20653107>
 
-Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This public file catalog lists only files already present on Zenodo; newer local pending packages for the p.059 closeout and pp.060-079 continuation are tracked separately in docs/pending-zenodo-uploads.md. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer.
+Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition source-witnessed working sequence pp.001-079, or 79/467 source-map pages (16.9 percent), plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. The pp.001-079 sequence is governed by the closeout and continuation ledgers in the public ZIPs; it is not a complete Treatise edition or final critical edition. Source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. The next continuation point for the compact IA-first-edition sequence is printed p.080 / IA leaf 118.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 10.0988 | [Maxwell_IA_Master_Image_Index_20260612.zip](https://zenodo.org/records/20672919/files/Maxwell_IA_Master_Image_Index_20260612.zip) |
-| artifact/source ZIP | 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20672919/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
-| artifact/source ZIP | 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20672919/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
-| artifact/source ZIP | 76.5056 | [Maxwell_Vol1_Reverify_pp001_058_20260612.zip](https://zenodo.org/records/20672919/files/Maxwell_Vol1_Reverify_pp001_058_20260612.zip) |
-| artifact/source ZIP | 64.9250 | [Maxwell_Vol1_Reverify_pp001_059_20260612.zip](https://zenodo.org/records/20672919/files/Maxwell_Vol1_Reverify_pp001_059_20260612.zip) |
-| manifest/status | 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20672919/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
-| manifest/status | 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20672919/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
+| artifact/source ZIP | 10.0988 | [Maxwell_IA_Master_Image_Index_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_IA_Master_Image_Index_20260612.zip) |
+| artifact/source ZIP | 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
+| artifact/source ZIP | 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20821947/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
+| artifact/source ZIP | 199.9790 | [Maxwell_Vol1_pp060_079_cum_scans_20260613.zip](https://zenodo.org/records/20821947/files/Maxwell_Vol1_pp060_079_cum_scans_20260613.zip) |
+| artifact/source ZIP | 76.5056 | [Maxwell_Vol1_Reverify_pp001_058_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_Vol1_Reverify_pp001_058_20260612.zip) |
+| artifact/source ZIP | 64.9250 | [Maxwell_Vol1_Reverify_pp001_059_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_Vol1_Reverify_pp001_059_20260612.zip) |
+| artifact/source ZIP | 108.4564 | [Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip](https://zenodo.org/records/20821947/files/Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip) |
+| manifest/status | 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20821947/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
+| manifest/status | 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20821947/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
 
 ## J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 
