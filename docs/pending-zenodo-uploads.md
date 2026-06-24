@@ -1908,3 +1908,16 @@ Manifest: [20260624_gordan_vb1_02_p010_028.json](../manifests/pending-zenodo-upl
 - Caveat: source-witnessed working tranche only. This is not a critical edition and not full Gordan corpus closure. The `08_ocr_noncanonical` scaffold is locator/support material only. Prior completed Gordan branches included inside the package remain context and are not newly recertified by this tranche.
 
 Next action: attach to the existing Gordan/Clebsch-Gordan record or retain for the next deliberate Gordan version with explicit working-tranche caveats.
+
+## 2026-06-24: SGA5 full-audit workpass support snapshot
+
+Manifest: [20260624_sga5_full_audit_workpass_support.json](../manifests/pending-zenodo-uploads/20260624_sga5_full_audit_workpass_support.json)
+
+- SGA pending ZIP: `sga5_full_audit_workpass_support_20260624.zip`, 211.4127 MB, SHA256 `1DE36F03E5D0723F7D9AB411030BF9C51481158BB962B54B3C64CC35327DD74B`.
+- Scope: SGA5 French source-faithfulness workpass and audit-support snapshot after repair032. Includes `sga5_fr_workpass.tex`, `sga5_fr_workpass.pdf`, source-page findings, source-resolution notes, machine-readable index, work scripts, and source/crop witnesses. Copied-short-path `pdfinfo` reports the workpass PDF as 306 pages.
+- Status truth: serial audit reports 65 of 484 source pages fully audited plus p103 diagram (4.4.2); 26 transcription fixes, 6 emendations kept, 3 source errata flagged, 1 unresolved flag, and a systematic SGA-to-SGAA citation-classification pass still owed. Swarm status reports 226 verified corrections applied and compiling, but many pages returned no patch due to rate limiting and need one-at-a-time reruns.
+- Source-resolution note: best available SGA5 public/on-disk source in the audit is the 496-page Springer scan at about 2176 x 3035 pixels, roughly 360 dpi optical; no higher-resolution source was found in that audit.
+- Workflow lesson: at this scale, server-side/API rate limits, not token budget, became the bottleneck. Run one large find/verify/patch workflow at a time; use OCR/crops as witness/localization layers, not as canonical authority.
+- Caveat: this is workpass/source-audit support only. It is not complete SGA5, not a critical edition, and not a promoted reader-facing replacement. Canonical promotion still requires diff review, reruns of rate-limited pages, final compile gate, and page-by-page closure.
+
+Next action: attach to the SGA record only as source-audit/workpass support, or retain pending until the next deliberate SGA source-support version. Keep public SGA wording as working draft with significant remaining source errors.
