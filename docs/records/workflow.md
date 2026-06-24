@@ -14,7 +14,7 @@ Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-Latest workflow update 2026-06-12 adds source-audit/public-surface and object-level audit rules: reader-first latest records, source-image authority, derivative-PDF traps, OCR as locator rather than judge, page-map requirements, aid-package design, reliability labels, and the rule that diagram/table promotion needs a source object witness, output render witness, stable object ID, and explicit ledger verdict. The live workflow notes also record the SGA OCR lesson that Surya-style GPU OCR can be a stronger math/prose locator for French mathematical typescript than ordinary CPU OCR, while OCR from a mismatched source copy must not be used for page-precise claims without a source checksum and page map. Earlier workflow files document source/edition identity checks, structured repair worklists, high-DPI crop packets, local-to-web audit loops, Lean/Lake as a selective formal-checking companion, and GitHub/Zenodo publication hygiene.
+Latest workflow update 2026-06-24 adds the source-witness/public-surface addendum. It formalizes the practical quality labels used across the archive: OCR/source-witness aids, working drafts, source-witnessed tranches, source-closed loci, and critical editions. It also records that OCR/CV/VLM outputs are coverage and locator witnesses rather than authority; high-resolution source packets should include page maps, object inventories, contextual crops, output render witnesses, stable object IDs, and ledger verdicts; and audit/survival/no-patch bundles should be routed as compact provenance/support unless they close a public-facing uncertainty. Earlier workflow files document source/edition identity checks, structured repair worklists, high-DPI crop packets, local-to-web audit loops, Lean/Lake as a selective formal-checking companion, and GitHub/Zenodo publication hygiene.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
@@ -48,3 +48,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0046 | [workflow_addendum_20260611_sga_noether_weber_aid_lessons.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260611_sga_noether_weber_aid_lessons.md) |
 | 0.0059 | [Workflow_Addendum_20260612_Source_Audit_Public_Surface.md](https://zenodo.org/records/20672843/files/Workflow_Addendum_20260612_Source_Audit_Public_Surface.md) |
 | 0.0044 | [workflow_addendum_20260612_source_identity_repair_worklists.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260612_source_identity_repair_worklists.md) |
+
+## Latest Addendum
+
+- [workflow_addendum_20260624_source_witness_public_surface.md](../../workflow/workflow_addendum_20260624_source_witness_public_surface.md)
