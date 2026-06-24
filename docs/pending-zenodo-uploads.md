@@ -44,6 +44,18 @@ Quality caveat: These files support continuation, source checking, OCR/visual au
 Next action: Upload if the author record needs source-witness completeness; otherwise keep as pending tracked local source package. If uploaded, describe as source witnesses/project upload set, not reader-facing edition.
 
 
+## 2026-06-24: Noether Paper 30 Math. Ann. 96 source-witness upgrade
+
+Manifest: [20260624_noether_p30_ma96_source_upgrade.json](../manifests/pending-zenodo-uploads/20260624_noether_p30_ma96_source_upgrade.json)
+
+Local source root: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P30_MA96_SourceUpgrade_20260624`.
+
+- Noether pending ZIP: `Noether_P30_MA96_SourceUpgrade_20260624.zip`, 27.4995 MB, SHA256 `D37F91C3E0404181039188CE2D24F4AD4C09088D718941B5EE174F9BFD7CA85C`.
+- Contents observed: README, unchanged R123+P08 cumulative TeX/PDF/TXT baseline, IA raw JP2 leaves 0031-0066, IA source-PDF cutout, GDZ/PPN source-PDF cutout, P30 page concordance, source-witness ledger, open-items ledger, confirmed no-patch/source-upgrade ledger, IA provenance metadata, and checksums.
+- Scope: source-location/source-witness upgrade for Paper 30, `Abstrakter Aufbau der Idealtheorie in algebraischen Zahl- und FunktionenkÃ¶rpern`, Math. Ann. 96 (1927), printed pp.26-61. Printed pp.26-61 map to IA leaves 31-66 / IA PDF pp.32-67 / GDZ PDF pp.31-66.
+- Sense-check caveats: no TeX patch was applied and no source-certain body fix is claimed. This materially improves the local Paper 30 source gap, but both IA and GDZ witnesses are about 400 PPI, below the current 650+ source-certification floor and 1000+ dense-math floor. Paper 30 body prose, equations, and footnotes remain open for page-by-page audit.
+
+Next action: keep as Noether source-witness/provenance support or upload with a future Noether source-audit/provenance version. Do not present as Paper 30 closure, reader-facing promotion, multilingual propagation, whole-corpus certification, or a critical edition.
 ## 2026-06-24: Noether R123 / R123+P08 survival, context, and targeted P08 source-fix cluster
 
 Manifest: [20260624_noether_r123_survival_audit_cluster.json](../manifests/pending-zenodo-uploads/20260624_noether_r123_survival_audit_cluster.json)
