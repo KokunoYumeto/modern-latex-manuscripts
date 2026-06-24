@@ -182,3 +182,9 @@ Latest Noether structural note 2026-06-14: `Noether_RA87_P20_ClearpageBoundary_W
 - Replace a vague issue report with a precise record/file/page/source-witness report.
 - Identify a better public scan for a work already present in draft form.
 - Confirm whether a suspected duplicate is genuinely redundant or a different edition/version.
+
+
+## 2026-06-24 Project Upload Sets
+
+- `ChatGPT_Project_Uploads_20260624/Steinitz_Project_Upload_20260624`: source/control upload set for web-project continuation, not a public reader update. Continue 1916 Bedingt III from p.14; treat older accepted batches as handoff-produced until sampled source audits are done.
+- `ChatGPT_Project_Uploads_20260624/Gordan_Project_Upload_20260624`: source/control upload set for Gordan continuation, not a public reader update. Preferred next lane is `Vorlesungen ueber Invariantentheorie` Bd. 1 from the 600ppi GDZ source; full article register remains open.
