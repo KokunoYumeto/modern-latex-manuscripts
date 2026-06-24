@@ -1,5 +1,21 @@
 # Pending Zenodo Uploads
 
+## 2026-06-24: Workflow archive-scope guardrail
+
+Manifest: [20260624_workflow_archive_scope_guardrail.json](../manifests/pending-zenodo-uploads/20260624_workflow_archive_scope_guardrail.json)
+
+Workflow record: current record [20672843](https://zenodo.org/records/20672843); concept DOI [10.5281/zenodo.20461174](https://doi.org/10.5281/zenodo.20461174).
+
+Local files staged for the next deliberate workflow refresh:
+
+- `AI_Run_Workflow_Addendum_Archive_Scope_Guardrail_20260624.zip`, 4,563 bytes, SHA256 `2F2B814004DCB35CE70B87BCF792ABCCC237D736C235820149454356C16CA08A`.
+- `workflow_addendum_20260624_archive_scope_guardrail.md`, standalone human-readable addendum.
+- `workflow_addendum_20260624_source_witness_public_surface.md`, updated SGA5 source-witness caveat from pp.1-27 to pp.1-60 plus p103 diagram locus.
+
+Scope correction: sweeping local folders does not mean publishing everything found. Only project-lane material belongs in Zenodo/GitHub by default: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, and author/corpus public-surface metadata. Unrelated third-party TeX, new research drafts, Reddit downloads, Lean experiments, and personal/novel math files stay out unless Floris explicitly names the exact item for upload.
+
+Status: pending workflow-record update only. No Zenodo publish was performed for this addendum when staged.
+
 ## 2026-06-24: Gordan project-upload source witnesses and control ledgers
 
 Manifest: [20260624_gordan_project_upload_source_witnesses.json](../manifests/pending-zenodo-uploads/20260624_gordan_project_upload_source_witnesses.json)
