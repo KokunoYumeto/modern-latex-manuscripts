@@ -84,3 +84,4 @@ Manifest and summary files explain the state of the record. They are useful when
 | Non-European mathematics | Compare work-level English PDFs against the original-language or source-reference material and repair terminology, diagrams, and tables. |
 | Weber or Noether | Continue translation and source comparison from the author records rather than the bulk main record. |
 | Gauss and classical authors | Treat the classical shelf as staged working drafts; prioritize readability, source matching, and layout repair. |
+

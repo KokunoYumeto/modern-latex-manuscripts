@@ -114,3 +114,4 @@ Record: [Historical reference witnesses](https://doi.org/10.5281/zenodo.20415776
 
 This record keeps useful historical witnesses for checking the non-European mathematics releases, including al-Muqaddasi, Ibn al-Nadim, Ibn al-Qifti, and Smith-Karpinski reference material.
 
+
