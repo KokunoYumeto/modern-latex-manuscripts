@@ -28,7 +28,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |
 | Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
-| Paul Gordan and Clebsch-Gordan | 38 | 0 | 33 | 1717.5 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
+| Paul Gordan and Clebsch-Gordan | 44 | 0 | 38 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
 | Ernst Steinitz | 6 | 0 | 5 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616988) |
 | Ferdinand Georg Frobenius | 2 | 0 | 1 | 166.2 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |

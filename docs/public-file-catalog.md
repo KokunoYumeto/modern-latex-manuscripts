@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1055
+Total files indexed: 1061
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -1092,44 +1092,50 @@ Record: <https://doi.org/10.5281/zenodo.20616260>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20673769/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
-| manifest/status | 0.0004 | [99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json) |
-| manifest/status | 0.0012 | [99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json) |
-| manifest/status | 0.0007 | [99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json) |
-| manifest/status | 0.0014 | [99_Paul_Gordan_Public_Summary_Abel27_20260613.json](https://zenodo.org/records/20673769/files/99_Paul_Gordan_Public_Summary_Abel27_20260613.json) |
-| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20673769/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20673769/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20673769/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
-| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20673769/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
-| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20673769/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
-| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
-| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
-| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
-| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
-| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
-| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
-| artifact/source ZIP | 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20673769/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
-| artifact/source ZIP | 38.2240 | [Gordan_Abel18_p244_251_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel18_p244_251_DE_EN_20260612.zip) |
-| artifact/source ZIP | 40.3067 | [Gordan_Abel19_p252_270_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel19_p252_270_DE_EN_20260612.zip) |
-| artifact/source ZIP | 43.2832 | [Gordan_Abel21_p279_291_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel21_p279_291_DE_EN_20260612.zip) |
-| artifact/source ZIP | 33.1541 | [Gordan_Abel22_p292_299_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel22_p292_299_DE_EN_20260612.zip) |
-| artifact/source ZIP | 34.0197 | [Gordan_Abel23_p300_308_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel23_p300_308_DE_EN_20260612.zip) |
-| artifact/source ZIP | 34.5756 | [Gordan_Abel25_p322_331_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel25_p322_331_DE_EN_20260612.zip) |
-| artifact/source ZIP | 37.3950 | [Gordan_Abel26_p332_342_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel26_p332_342_DE_EN_20260612.zip) |
-| artifact/source ZIP | 37.9321 | [Gordan_Abel27_p343_355_DE_EN_20260612.zip](https://zenodo.org/records/20673769/files/Gordan_Abel27_p343_355_DE_EN_20260612.zip) |
-| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
-| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20673769/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
-| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_AuditFix_theta_form_20260609.zip) |
-| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20673769/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20673769/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20673769/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20673769/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20673769/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
+| manifest/status | 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20821766/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
+| manifest/status | 0.0004 | [99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json](https://zenodo.org/records/20821766/files/99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json) |
+| manifest/status | 0.0012 | [99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json](https://zenodo.org/records/20821766/files/99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json) |
+| manifest/status | 0.0007 | [99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json](https://zenodo.org/records/20821766/files/99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json) |
+| manifest/status | 0.0009 | [99_Paul_Gordan_Public_Summary_20260624.json](https://zenodo.org/records/20821766/files/99_Paul_Gordan_Public_Summary_20260624.json) |
+| manifest/status | 0.0014 | [99_Paul_Gordan_Public_Summary_Abel27_20260613.json](https://zenodo.org/records/20821766/files/99_Paul_Gordan_Public_Summary_Abel27_20260613.json) |
+| artifact/source ZIP | 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20821766/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
+| artifact/source ZIP | 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20821766/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
+| artifact/source ZIP | 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
+| artifact/source ZIP | 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
+| artifact/source ZIP | 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
+| artifact/source ZIP | 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
+| artifact/source ZIP | 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20821766/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
+| artifact/source ZIP | 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20821766/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
+| artifact/source ZIP | 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20821766/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
+| artifact/source ZIP | 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
+| artifact/source ZIP | 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
+| artifact/source ZIP | 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
+| artifact/source ZIP | 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
+| artifact/source ZIP | 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
+| artifact/source ZIP | 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20821766/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
+| artifact/source ZIP | 38.2240 | [Gordan_Abel18_p244_251_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel18_p244_251_DE_EN_20260612.zip) |
+| artifact/source ZIP | 40.3067 | [Gordan_Abel19_p252_270_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel19_p252_270_DE_EN_20260612.zip) |
+| artifact/source ZIP | 43.2832 | [Gordan_Abel21_p279_291_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel21_p279_291_DE_EN_20260612.zip) |
+| artifact/source ZIP | 33.1541 | [Gordan_Abel22_p292_299_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel22_p292_299_DE_EN_20260612.zip) |
+| artifact/source ZIP | 34.0197 | [Gordan_Abel23_p300_308_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel23_p300_308_DE_EN_20260612.zip) |
+| artifact/source ZIP | 34.5756 | [Gordan_Abel25_p322_331_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel25_p322_331_DE_EN_20260612.zip) |
+| artifact/source ZIP | 37.3950 | [Gordan_Abel26_p332_342_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel26_p332_342_DE_EN_20260612.zip) |
+| artifact/source ZIP | 37.9321 | [Gordan_Abel27_p343_355_DE_EN_20260612.zip](https://zenodo.org/records/20821766/files/Gordan_Abel27_p343_355_DE_EN_20260612.zip) |
+| artifact/source ZIP | 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
+| artifact/source ZIP | 45.8149 | [Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip](https://zenodo.org/records/20821766/files/Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip) |
+| artifact/source ZIP | 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20821766/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
+| artifact/source ZIP | 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_AuditFix_theta_form_20260609.zip) |
+| artifact/source ZIP | 26.5073 | [Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip](https://zenodo.org/records/20821766/files/Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip) |
+| artifact/source ZIP | 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20821766/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
+| artifact/source ZIP | 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20821766/files/Gordan_Form_complete_DE_EN_20260608.zip) |
+| artifact/source ZIP | 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20821766/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
+| artifact/source ZIP | 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20821766/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
+| artifact/source ZIP | 2.1203 | [Gordan_Theta_1863_FullAudit_fix06_20260623.zip](https://zenodo.org/records/20821766/files/Gordan_Theta_1863_FullAudit_fix06_20260623.zip) |
+| artifact/source ZIP | 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20821766/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
+| artifact/source ZIP | 32.2733 | [Gordan_VB1_01_p001_009_DE_EN_20260613.zip](https://zenodo.org/records/20821766/files/Gordan_VB1_01_p001_009_DE_EN_20260613.zip) |
+| artifact/source ZIP | 46.5065 | [Gordan_VB1_02_p010_028_DE_EN_20260613.zip](https://zenodo.org/records/20821766/files/Gordan_VB1_02_p010_028_DE_EN_20260613.zip) |
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 

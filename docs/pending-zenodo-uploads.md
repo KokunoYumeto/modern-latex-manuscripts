@@ -378,7 +378,7 @@ Manifest: [`20260623_gordan_theta_1863_fullaudit_fix06.json`](../manifests/pendi
 - Sense-check caveats: package-audited source-fix working draft only. Formula 19 is recorded as mathematical normalization of a printed-source omission rather than literal transcription. Not a certified critical edition.
 - Supersedes preferred upload of fix05. Keep `Gordan_Theta_1863_600ppi_SourceFix_Package_fix05_20260623.zip` only as provenance/support if both are uploaded. Fix05 manifest: [`20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json`](../manifests/pending-zenodo-uploads/20260623_gordan_theta_1863_fix05_600ppi_sourcefix.json).
 
-Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Published 2026-06-24 on the Gordan/Clebsch-Gordan record as part of version DOI `10.5281/zenodo.20821766`; this pending note is retained as provenance only.
 
 ## 2026-06-23: Noether Slavic Paper 32 second-intro checkpoint
 
@@ -1389,7 +1389,7 @@ Manifest: [20260613_gordan_vb1_02_p010_028.json](../manifests/pending-zenodo-upl
 - Gordan: `Gordan_VB1_02_p010_028_DE_EN_20260613.zip`, 46.5065 MB, SHA256 `2FA5FEBE71A6550622E01483713EE2C7FC9740073F7CB6525173F8F5B06A75DD`.
 - Contents: German transcription and English translation continuation for Paul Gordan, `Vorlesungen ueber Invariantentheorie`, Bd. 1, source TIFF witnesses 0010-0028. The package covers the Inhaltsverzeichniss pages VIII-XI, blank scan-only source page 0014/label XII, and printed pages 1-14 through §1 paragraphs 1-12. It includes current/cumulative German/English TeX/PDF, GDZ 600ppi source witnesses, render checks, ledgers, and no reported red flags.
 
-Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Published 2026-06-24 on the Gordan/Clebsch-Gordan record as part of version DOI `10.5281/zenodo.20821766`; this pending note is retained as provenance only.
 
 ## 2026-06-13: Noether Paper 19 tail source-audit web drop
 
@@ -1529,7 +1529,7 @@ Manifest: [20260613_gordan_abelsche_finalauditfix02.json](../manifests/pending-z
 - Gordan / Clebsch-Gordan: `Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip`, 45.8149 MB, SHA256 `DA48DEA62A420AC5078605B752817692C30F21DD129B0694EAC9BEDC33F54C4A`.
 - Contents: German/English source-witnessed auditfix package for the final `Theorie der Abelschen Functionen` tranche, with current and cumulative TeX/PDF through source p355, source witnesses through p362, crops, render checks, and ledgers. The package includes the FIX01 full-symbol repairs (`w`/`v` family, `\sigma_i'`, `\sigma_h\omega_h`, and `v_i` / `\Theta(v,b)` simple-transformation readings) plus the FIX02 notation correction from `n_k^{(h)}` to source-visible `w_k^{(h)}` in §91's composed-period family.
 
-Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the already pending `De linea` ZIP if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Published 2026-06-24 on the Gordan/Clebsch-Gordan record as part of version DOI `10.5281/zenodo.20821766`; this pending note is retained as provenance only.
 
 ## 2026-06-13: Gordan `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p009
 
@@ -1538,7 +1538,7 @@ Manifest: [20260613_gordan_vb1_01_p001_009.json](../manifests/pending-zenodo-upl
 - Gordan: `Gordan_VB1_01_p001_009_DE_EN_20260613.zip`, 32.2733 MB, SHA256 `F3A9950D13C8447353C18C406467ED12F40AD6CD398BF6A5D18A43F70024ECF7`.
 - Contents: German/English source-witnessed working start for `Vorlesungen ueber Invariantentheorie`, Bd. 1, `Determinanten`, source witnesses 0001-0009. Canonical output covers the clean title page, dedication to Charles Hermite, and full `Vorwort`; duplicate/marginal title witness, library stamp, and blank reverse pages are retained as scan-only witnesses. Package includes 600ppi GDZ/SUB Goettingen TIFF witnesses, source maps, current and cumulative German/English TeX/PDF, render checks, prior Abelsche audit context, and a noncanonical OCR scaffold.
 
-Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP together with the other pending Gordan packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Published 2026-06-24 on the Gordan/Clebsch-Gordan record as part of version DOI `10.5281/zenodo.20821766`; this pending note is retained as provenance only.
 
 ## 2026-06-13: Gordan `De linea geodetica` p025-p047
 
@@ -1547,7 +1547,7 @@ Manifest: [20260613_gordan_de_linea_p025_047.json](../manifests/pending-zenodo-u
 - Gordan / Clebsch-Gordan: `Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip`, 26.5073 MB, SHA256 `13F6113993B07FE45CACC371BC85EF626C6262A054AF007D534335D819F68AF4`.
 - Contents: Latin/English working package for Gordan's `De linea geodetica`, final tranche p025-p047 plus cumulative Latin/English TeX/PDF through p001-p047, source scans, ledgers, and render checks.
 
-Next action when Zenodo API credentials are available: create a new Gordan/Clebsch-Gordan Zenodo version, upload this ZIP, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Published 2026-06-24 on the Gordan/Clebsch-Gordan record as part of version DOI `10.5281/zenodo.20821766`; this pending note is retained as provenance only.
 
 ## 2026-06-13: SGA repair029
 
