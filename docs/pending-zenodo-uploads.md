@@ -1947,3 +1947,15 @@ Manifest: [20260624_noether_p40_gdz400_bodyrepair001_p517_520.json](../manifests
 - Caveat: this is source-body repair support only. P40 printed pp.521-541 remain open, later footnotes 16-19 and 21-22 still require recheck, and the source witness is 400ppi below the local 650ppi strict certification floor. Do not present as Paper 40 closure, whole-Noether closure, multilingual propagation, reader-facing final edition, or critical edition.
 
 Next action: retain for Noether source-audit/provenance staging or attach to a deliberate Noether source-support version with explicit caveats.
+
+## 2026-06-24: Noether R124 German cumulative and audit rollup
+
+Manifest: [20260624_noether_r124_german_cumulative_audit_rollup.json](../manifests/pending-zenodo-uploads/20260624_noether_r124_german_cumulative_audit_rollup.json)
+
+- Noether pending ZIP: `Noether_R124_20260624.zip`, 91.3557 MB, SHA256 `A152CCBB411767A7D3E9B44D6B7D81E5BDBDAEFCF539FD2ECC5EE9531D726F93`.
+- Scope: German cumulative/audit rollup from the Noether Multilingual lane. Contains `cum_de_R124.tex`, `cum_de_R124.pdf`, selected source witnesses, ledgers, render QA, candidate scoring, and an R122-to-R124 diff. Direct Python PDF read reports the cumulative PDF as 455 pages.
+- Contents observed: source witnesses for P16, P20, P30, P34, and P39; `complete_ledger_R124.csv` with 5517 rows; `closure_ledger_R124.csv` with 63 rows; `page_ledger_R124.csv` with 203 rows; `equation_index_R124.csv` with 179 rows; `source_queue_R124.csv` with 18 rows; `render_qa_R124.json`; and `candidate_score_R124.json`.
+- Queue status: R124 closes/removes P16, P20, and P39 from that package queue; keeps P30/P34 active or partial; and still queues P34-P38, P40-P43, P04, P09-P12, P22, P29, P30, and tail material for further source audit depending on locus/witness quality.
+- Caveat: R124 does **not** absorb the later separately staged P40 source-apparatus or P40 pp.517-520 body-repair tranches. It is not full Noether closure, not a critical edition, and not a reader-facing final edition by itself. Several witnesses are explicitly best-available but below the local strict 650ppi certification floor.
+
+Next action: attach to the next deliberate Noether source-support version if useful, while keeping the separate P40 staged tranches visible or waiting for a later R125+ package that actually merges them.
