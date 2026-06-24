@@ -2,6 +2,7 @@
 
 ## Recently published, no longer pending
 
+- 2026-06-24: Maxwell pp.001-079 compact working-tranche update published as latest Maxwell record <https://zenodo.org/records/20821947> / DOI <https://doi.org/10.5281/zenodo.20821947>. Published files: `Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip` and `Maxwell_Vol1_pp060_079_cum_scans_20260613.zip`. This makes IA 1873 first-edition pp.001-079 public as source-witnessed working tranches; the separate `Maxwell_WebPromo_MISSING_*` source/provenance supplements remain pending/provenance candidates and do not extend reader coverage. Not complete or critical.
 - 2026-06-24: Noether Slavic source-transfer package published as part of the current Noether Zenodo record <https://zenodo.org/records/20821644> / DOI <https://doi.org/10.5281/zenodo.20821644>. Published file: `Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip`, 695.7802 MB, SHA256 `FD918BC10DCEDE080FF4D39062F0B3CEA7290213F89F2AC69332E69627EFD1AE`. It is Ukrainian/Russian/Interslavic translation/source-transfer provenance only, not canonical multilingual promotion, not source closure, and not a critical edition.
 - 2026-06-24: Noether R122 consolidated source-queue package first published as Zenodo record <https://zenodo.org/records/20821592> / DOI <https://doi.org/10.5281/zenodo.20821592> and now carried forward in the current Noether record <https://zenodo.org/records/20821644>. Published file: `Noether_R122_20260623.zip`. It is a consolidated German R122 source-queue/cumulative working package reporting Papers 32-33 source-audit work closed in that branch and Paper 34 next; it is not a critical edition, not whole-corpus mathematical certification, and not multilingual propagation.
 - 2026-06-24: Noether R122 source-audit candidate batch published earlier as Zenodo record <https://zenodo.org/records/20821409> / DOI <https://doi.org/10.5281/zenodo.20821409>. Published files: `Noether_R122_P16_SourceAudit_WebDrop_20260624.zip`, `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip`, `Noether_R122_P20_SourceAudit_WebDrop_20260624.zip`, and `Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip`. These remain candidate/source-audit/provenance packages only, with no critical-edition or multilingual-propagation claim. Their detailed manifests remain under `manifests/pending-zenodo-uploads/` as source/audit records even though the four files are no longer pending upload.
@@ -1230,7 +1231,7 @@ Manifest: [20260614_noether_slavic_core_handoff_papers01_21.json](../manifests/p
 
 Next action when Zenodo API credentials are available: decide whether to upload this exact handoff ZIP with the next Noether multilingual/provenance version, or first derive a cleaner public reader/source package without bundled executables and older source-update baggage. Do not describe this as a critical edition, source-closed Noether corpus, or independent source-audit closure.
 
-## 2026-06-14: Maxwell Vol. I pp.060-079 source-witnessed continuation
+## 2026-06-14: Maxwell Vol. I pp.060-079 source-witnessed continuation — published 2026-06-24
 
 Manifest: [20260614_maxwell_vol1_pp060_079_cum_scans.json](../manifests/pending-zenodo-uploads/20260614_maxwell_vol1_pp060_079_cum_scans.json)
 
@@ -1238,16 +1239,16 @@ Manifest: [20260614_maxwell_vol1_pp060_079_cum_scans.json](../manifests/pending-
 - Contents: source-witnessed working continuation for Maxwell, `A Treatise on Electricity and Magnetism`, Volume I, 1873 first edition. The package covers current tranche printed pp.060-079 and cumulative transcription pp.001-079. It includes current pp.060-079 TeX/PDF/log, cumulative pp.001-079 TeX/PDF/log, IA 500-PPI JP2 source leaves, source preview PDFs, current view JPGs, display inventory, notation delta, editorial-choice ledger, reverify page log, source availability audit, render contact sheets, and selected source-vs-edition checks. The included completion bar reports pp.001-079 closed, 79/467 pages or 16.9 percent of the uploaded source map.
 - Sense-check caveats: this is a source-witnessed working tranche, not a complete Treatise edition or certified critical edition. OCR/text PDF witnesses were not treated as authority. The current pp.060-079 build log reports zero overfull hboxes, zero underfull hboxes, zero LaTeX warnings, zero missing-character warnings, and zero fatal errors; the cumulative pp.001-079 build log retains one inherited overfull hbox from earlier pp.001-059 material. The source-availability audit reports a future source gap at printed p.463 / IA leaf 501, outside the current tranche.
 
-Next action when Zenodo API credentials are available: create a new Maxwell Zenodo version, upload this ZIP together with the pp.001-059 closeout if still pending, publish, then regenerate the public file catalog and update record pages, status docs, and metadata. Continue the source-witnessed sequence at printed p.080 / IA leaf 118.
+Status: published on latest Maxwell Zenodo version <https://zenodo.org/records/20821947> / DOI <https://doi.org/10.5281/zenodo.20821947>. Continue the source-witnessed sequence at printed p.080 / IA leaf 118.
 
-## 2026-06-14: Maxwell Vol. I pp.001-059 web/promo index closeout
+## 2026-06-14: Maxwell Vol. I pp.001-059 web/promo index closeout — published 2026-06-24
 
 Manifest: [20260614_maxwell_webpromo_index_closeout_p001_059.json](../manifests/pending-zenodo-uploads/20260614_maxwell_webpromo_index_closeout_p001_059.json)
 
 - Maxwell: `Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip`, 108.4564 MB, SHA256 `7E77058B074413CE7AA9A7479C876E1417F678600DAE75A9A00647965C8006C8`.
 - Contents: source-witnessed working closeout for Maxwell, `A Treatise on Electricity and Magnetism`, Volume I, IA 1873 first-edition printed pp.001-059. The package includes cumulative pp.001-059 TeX/PDF/log, current pp.058-059 closeout TeX/PDF/log, JP2 master leaves pp.001-059, p059 source/render images, figure crops, updated page-completion index, math index, notation-token register, source-verification logbook, notation heuristic diary, editorial choices CSV, structural audit, build-log diagnostics, checksums, and p59 visual closeout audit. It closes the previous local note that p.059 still needed a math/token/register refresh for the pp.001-059 tranche.
 
-Next action when Zenodo API credentials are available: create a new Maxwell Zenodo version, upload this ZIP together with the newer pp.060-079 continuation if still pending, publish, then update record IDs if needed, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Do not treat this as a complete Treatise edition or certified critical edition; by itself it does not include p.060 onward.
+Status: published on latest Maxwell Zenodo version <https://zenodo.org/records/20821947> / DOI <https://doi.org/10.5281/zenodo.20821947>, together with the pp.060-079 continuation. Do not treat this as a complete Treatise edition or certified critical edition; by itself it does not include p.060 onward.
 
 ## 2026-06-14: Noether Paper 03 GDZ standalone source webdrop
 

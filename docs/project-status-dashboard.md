@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 29 |
-| Public files indexed | 1046 |
-| Top-level PDFs | 548 |
-| Artifact/source ZIPs | 419 |
-| Manifest/status files | 76 |
-| Total public file surface | 36.19 GB |
+| Public files indexed | 1073 |
+| Top-level PDFs | 552 |
+| Artifact/source ZIPs | 437 |
+| Manifest/status files | 78 |
+| Total public file surface | 38.14 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -40,7 +40,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 | [Historical reference witnesses](https://doi.org/10.5281/zenodo.20415776) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
 | [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.20414787) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
-| [Maxwell](https://doi.org/10.5281/zenodo.20653107) | 7 | 0 | 5 | 392 MB | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches: IA 1873 first-edition pp.001-059, with math/token registers in the published files refreshed through pp.001-058; local pending staging has a pp.001-059 web/promo closeout ZIP and a pp.060-079 continuation ZIP, extending local cumulative staging to pp.001-079 (79/467 pages, 16.9%). Earlier ledger-backed pp.95-101, 103, 105, 109, and continuous pp.111-267 remain included. The record includes the IA master-image source-index helper; broader batch TeX/PDF substrate is status-mixed, and ledgers/source witnesses govern promoted range claims. |
+| [Maxwell](https://doi.org/10.5281/zenodo.20653107) | 9 | 0 | 7 | 700.61 MB | `A Treatise on Electricity and Magnetism`, Volume I source-witnessed working tranches. Latest public version <https://doi.org/10.5281/zenodo.20821947> adds the pp.001-059 web/promo index closeout and pp.060-079 continuation ZIPs, so the compact IA 1873 first-edition source-witnessed sequence is public through printed pp.001-079 (79/467 pages, 16.9%). Earlier ledger-backed book pages 95-101, 103, 105, 109, and continuous pp.111-267 remain in the record. The separate `Maxwell_WebPromo_MISSING_*` source/provenance supplements remain pending/provenance candidates and do not extend reader coverage. Continue at printed p.080 / IA leaf 118. Not complete or critical. |
 | [Gibbs / old physics](https://doi.org/10.5281/zenodo.20649835) | 10 | 3 | 3 | 18.6 MB | `The Scientific Papers of J. Willard Gibbs`, Volume I source-scan-backed public working tranche through printed pp.001-134. The current version includes `GibbsV1_P3_p125_134.zip` plus reader-facing cumulative Paper 3 PDF/TeX for pp.055-134, with clean compile QC and formula/table/scan-map ledgers. Local source-quality refresh adds IA raw JP2/scandata sources for future continuation. Not a complete Gibbs corpus or final critical edition. |
 | [Dedekind](https://doi.org/10.5281/zenodo.20520669) | 18 | 14 | 3 | 25 MB | Dedekind source-witnessed working drafts and English translations. |
 | [Dirichlet](https://doi.org/10.5281/zenodo.20520679) | 7 | 2 | 4 | 168 MB | Dirichlet source-witnessed working drafts and English translations. |

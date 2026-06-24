@@ -23,7 +23,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415776) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
 | James Joseph Sylvester | 3 | 1 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
-| James Clerk Maxwell | 7 | 0 | 5 | 392.2 | [maxwell.md](maxwell.md) | [Zenodo](https://doi.org/10.5281/zenodo.20653107) |
+| James Clerk Maxwell | 9 | 0 | 7 | 700.6 | [maxwell.md](maxwell.md) | [Zenodo](https://doi.org/10.5281/zenodo.20653107) |
 | J. Willard Gibbs / Old Physics | 14 | 4 | 4 | 29.0 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://doi.org/10.5281/zenodo.20649835) |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |

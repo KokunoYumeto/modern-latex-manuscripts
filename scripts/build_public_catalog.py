@@ -43,7 +43,7 @@ RECORDS: list[tuple[str, str]] = [
     ("historical_references", "20415777"),
     ("classical_algebra_arithmetic", "20583048"),
     ("sylvester", "20649689"),
-    ("maxwell", "20672919"),
+    ("maxwell", "20821947"),
     ("gibbs_old_physics", "20821820"),
     ("dedekind", "20586067"),
     ("dirichlet", "20586064"),
@@ -63,7 +63,7 @@ RECORD_NOTES = {
         "Accuracy warning 2026-06-09: Cayley files in this older mixed shelf are retained for provenance and repair only; do not treat the Cayley slice readers as faithful editions without a new page-by-page audit.",
     ],
     "maxwell": [
-        "Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition pp.001-059, with math/token registers currently refreshed through pp.001-058, plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. This public file catalog lists only files already present on Zenodo; newer local pending packages for the p.059 closeout and pp.060-079 continuation are tracked separately in docs/pending-zenodo-uploads.md. This is not a complete Treatise edition or final critical edition; source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer.",
+        "Dedicated Maxwell working-tranche record. Current public coverage is A Treatise on Electricity and Magnetism, Volume I: IA 1873 first-edition source-witnessed working sequence pp.001-079, or 79/467 source-map pages (16.9 percent), plus earlier ledger-backed source-witnessed working tranches for book pages 95-101, 103, 105, 109, and continuous pp.111-267. The pp.001-079 sequence is governed by the closeout and continuation ledgers in the public ZIPs; it is not a complete Treatise edition or final critical edition. Source-check ledgers and witness images govern promoted range claims, while OCR/XML material is only a locator/provenance layer. The next continuation point for the compact IA-first-edition sequence is printed p.080 / IA leaf 118.",
     ],
     "albattani_opus_astronomicum": [
         "Legacy filename warning: the fixed-star catalogue PDF name contains `Complete Critical Edition`, but the current project status does not certify it as a final critical edition. Read it as a working data/catalogue layer with source witnesses, not as maintainer-certified critical finality.",
