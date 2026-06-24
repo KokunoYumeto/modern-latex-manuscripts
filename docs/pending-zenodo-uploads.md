@@ -1,5 +1,15 @@
 # Pending Zenodo Uploads
 
+## 2026-06-24: Noether source inventory summary
+
+Manifest: [20260624_noether_source_inventory_summary.json](../manifests/pending-zenodo-uploads/20260624_noether_source_inventory_summary.json)
+
+- GitHub summary index: [noether_source_inventory_summary_20260624.json](../manifests/noether_source_inventory_summary_20260624.json).
+- Scope: per-paper source-witness availability, printed page ranges, image counts, DPI tier, source PDF/render-on-demand flags, and raw local inventory fingerprint.
+- Caveat: this is source-evidence/navigation support only. It does not certify transcription completeness, formula/table/diagram accuracy, translation status, or critical-edition status.
+
+Status: pending/provenance/support only. Attach to Noether only as a compact source-audit index if preparing a deliberate Noether source/provenance update.
+
 ## 2026-06-24: Noether Paper 32 IA 600-DPI gross-gap anchor audit
 
 Manifest: [20260624_noether_p32_ia600_gross_gap_anchor_audit.json](../manifests/pending-zenodo-uploads/20260624_noether_p32_ia600_gross_gap_anchor_audit.json)
