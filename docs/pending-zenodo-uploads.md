@@ -1687,3 +1687,14 @@ Manifest: [20260624_noether_p18_p20_source_upgrades.json](../manifests/pending-z
 - Contents: source-witness and audit-support packages for Noether Paper 18 and Papers 19-20 against the current R123+P08 cumulative baseline. These provide page/source witnesses, concordances, fix-survival checks, audit ledgers, and provenance hashes. They are support material only: they do not certify Papers 18-20, do not certify the whole corpus, and should not be presented as standalone reader editions.
 
 Next action: retain in Noether project staging or attach to a future Noether source-witness/provenance version with explicit caveats. Do not upload as non-project mathematics or as a final critical edition.
+
+## 2026-06-24: Noether P14-P17 survival supplement and refreshed webdrop index
+
+Manifest: [20260624_noether_p14_p17_survival_supplement.json](../manifests/pending-zenodo-uploads/20260624_noether_p14_p17_survival_supplement.json)
+
+- Noether: Noether_P14_P16_SourceFixSurvival_R123plusP08_20260624.zip, 3.5193 MB, SHA256  3C720DD04AEB2133DA082C2A71588E6E2EF273C9824BD40DEEDBC22466E279A.
+- Noether: Noether_P17_RA94_ScaffoldFix_Survival_R123plusP08_20260624.zip, 6.0336 MB, SHA256 CC4BA4B40EC7E7EF089D1948767D848305D9DF1094919316827FCB1390606521.
+- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0482 MB, SHA256 F2008831C046683DC88B72F05AC32486E3CC877D2A5C5B5CF896865D2847DE11.
+- Contents: targeted survival/source-fix support for Papers 14-17 plus the refreshed webdrop index/logbook. These are provenance and audit support only, not proof that Papers 14-17 are source-complete.
+
+Next action: retain for Noether project staging or attach to a deliberate Noether source-audit/provenance Zenodo version. Do not publish separately and do not present as final certification.
