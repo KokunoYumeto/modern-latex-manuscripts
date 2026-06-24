@@ -1884,3 +1884,15 @@ Manifest: [20260624_noether_p39_icm1932_600ppi_source_repair.json](../manifests/
 - Caveat: best-available 600ppi source repair only, below the local 650ppi strict floor. Targeted repair/no-patch package only; not full Paper 39 line-by-line certification, not a critical edition, not whole-Noether closure, and not multilingual propagation.
 
 Next action: retain for Noether source-audit/provenance staging; upload only with below-650ppi and targeted-repair caveats and do not present as Paper 39 closure.
+
+## 2026-06-24: Noether Paper 40 GDZ400 source-apparatus repair
+
+Manifest: [20260624_noether_p40_gdz400_source_apparatus_repair.json](../manifests/pending-zenodo-uploads/20260624_noether_p40_gdz400_source_apparatus_repair.json)
+
+- Noether pending ZIP: `Noether_P40_GDZ400_SourceApparatusRepair_R123plusP08P30P33P34P35P36P38P39_20260624.zip`, 43.5204 MB, SHA256 `2B56DE17997693A95BC49422254592C01C3DEA88FDC6C2B2A8C70FB9379B9C73`.
+- Scope: best-available source-apparatus repair for Paper 40, `Nichtkommutative Algebren`, after the R123+P08+P30+P33+P34+P35+P36+P38+P39 cumulative line.
+- Contents observed: cumulative German TeX/PDF/TXT candidate, source-repair diff, confirmed-fixes ledger, footnote-status ledger, open-items ledger, GDZ printed pp.514-541 400ppi best-available witnesses, source cutout PDF, OCR/layout locator, page/canvas map, and checksums. Copied-short-path `pdfinfo` reports the candidate PDF as 459 A4 pages.
+- Repairs: restores P40 source title/author/opening framing and source footnotes 1-15 and 20.
+- Caveat: this is apparatus/source-repair support only. P40 remains visibly compressed in places and still needs page-by-page source rebuild/audit; footnotes 8-10 are at nearest stable anchors pending exact rebuild; footnotes 16-19 and 21-22 were carried but not fully rechecked. GDZ witnesses are 400ppi, below the local 650ppi strict certification floor.
+
+Next action: retain for Noether source-audit/provenance staging or attach to a deliberate Noether source-support version with explicit caveats. Do not present as Paper 40 closure, whole-Noether closure, multilingual propagation, reader-facing final edition, or critical edition.
