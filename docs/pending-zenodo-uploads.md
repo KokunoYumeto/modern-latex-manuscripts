@@ -1189,7 +1189,7 @@ Manifest: [20260614_weber_b139_heuristic_fix.json](../manifests/pending-zenodo-u
 - Contents: focused off-ledger repair for Weber, `Lehrbuch der Algebra`, Volume II English section 49. B139 fixes a merged display tag where equations (5) and (6) had been collapsed into one display tagged `5--6`; German section 49 and the source scan split them, so the English cumulative and direct Ãƒâ€šÃ‚Â§49 slice now split them into source-aligned equations (5) and (6). The package includes patched German/English Ãƒâ€šÃ‚Â§49 slices, cumulative Volume II TeX/PDF, section 49 source scan slice/renders for pp.189-190, render checks, page ledger, heuristic scan/logbook, manifest, and SHA256 sums.
 - Sense-check caveats: this is a working/source-witnessed repair-ledger package, not a certified critical edition. The active 112-row ledger remains 112/112 closed from Batch137. B139 adds a recursive rule to scan cumulative TeX for `\tag{m--n}` and treat each hit as a source-check target; remaining range tags in Volume I/III are logged as off-ledger targets rather than changed without source confirmation.
 
-Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with Batch137 and Batch138 as appropriate, publish, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs. Keep Batch137 as the active-ledger closure package, Batch138 as the control-character fix, and B139 as the merged-tag heuristic fix unless later packages supersede them.
+Status: published 2026-06-24 on the Weber record as DOI <https://doi.org/10.5281/zenodo.20837104>. This entry is retained as provenance; no further upload action is pending for B139 unless a later package supersedes it.
 
 ## 2026-06-14: SGA repair031 compact French-output refresh
 
@@ -1394,7 +1394,7 @@ Manifest: [20260614_weber_batch138_control_footnote_fix.json](../manifests/pendi
 - Contents: focused off-ledger control-character footnote repair for Weber, `Lehrbuch der Algebra`, Volume II section 6. Batch138 fixes a corruption where `C. Jordan\footnote` had become `C. Jordan<FF>ootnote` after a scripted patch treated `\f` as a form-feed escape. It includes current German/English section 6 repair TeX/PDF/logs, cumulative Volume I complete German/English TeX/PDF, cumulative Volume II through section 176 German/English TeX/PDF/logs, current Volume III German/English TeX/PDF, source scans/renders for Volume II section 6 pp.15-17, render checks, page-by-page and patch-validation ledgers, recursive error heuristic logbook, cost/projection notes, and SHA256 sums.
 - Sense-check caveats: this is a working/source-witnessed repair-ledger package, not a critical edition. The active 112-row ledger remains 112/112 closed from Batch137; Batch138 is a focused post-closure corruption fix. Quick build-log scanning found no fatal errors, emergency stops, undefined-control-sequence diagnostics, or missing-character diagnostics, but the cumulative Volume II logs still contain overfull and underfull hbox diagnostics.
 
-Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with or after Batch137 as appropriate, publish, then update record IDs, metadata JSON, public catalog, generated record pages, and status docs. Keep Batch137 as the active-ledger closure package and Batch138 as the focused post-closure control-character fix unless a later package supersedes both.
+Status: published 2026-06-24 on the Weber record as DOI <https://doi.org/10.5281/zenodo.20837104>. This entry is retained as provenance; no further upload action is pending for Batch138 unless a later package supersedes it.
 
 ## 2026-06-14: Noether RA46 Paper 06 pp.179-184 German source audit
 
@@ -1446,7 +1446,7 @@ Manifest: [20260614_weber_batch137_final_active_gap_closure.json](../manifests/p
 - Contents: recursive gap-audit / active-ledger closure package for Weber, `Lehrbuch der Algebra`. The package status reports Volume I Ãƒâ€šÃ‚Â§Ãƒâ€šÃ‚Â§120, 122, 128, 145, 148, 149, 150, 156, 158, 162, 163, 168, 169, 173, 174, 175, 176, 179, 180, 181, 182, and 183 closed this turn as scan-reviewed no-change closures, bringing the active 112-row ledger to 112/112 closed and Tier-3 to 11/11 closed. It includes German/English audited slices, cumulative Volume I complete repaired German/English TeX/PDF, Volume II through Ãƒâ€šÃ‚Â§176 repaired German/English TeX/PDF, current Volume III German/English TeX/PDF, source cutouts/renders, page-by-page closure ledgers, display/formula audit metadata, source-cutout inventory, and core-intake/triage ledgers.
 - Sense-check caveats: this is a working/source-witnessed repair-ledger package, not a certified critical edition. The promoted Batch137 action is active-ledger closure and Volume I no-change scan review; the included Volume II core-intake CSVs contain patch candidates and triage evidence that should not be treated as applied fixes unless a later Weber package integrates them. Inspected build logs had no fatal, undefined-control-sequence, missing-character, or overfull hbox diagnostics, but did contain underfull hbox diagnostics.
 
-Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with or instead of earlier pending Batch136/Batch134 as appropriate, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. After upload, revise the public Weber status from Batch136 101/112 closed to Batch137 active 112/112 closed while keeping off-ledger and source-check caveats explicit.
+Status: published 2026-06-24 on the Weber record as DOI <https://doi.org/10.5281/zenodo.20837104>, together with Batch138 and B139. This entry is retained as provenance; no further upload action is pending for Batch137 unless a later package supersedes it.
 
 ## 2026-06-14: Noether Slavic multilingual handoff through Papers 01-21
 
@@ -1696,7 +1696,7 @@ Manifest: [20260613_weber_batch136.json](../manifests/pending-zenodo-uploads/202
 - Weber: `Weber_Cumulative_ThreeVolumes_Batch136_RecursiveGapAudit_Vol1_Sections56_63_64_68_70_73_78_89_100_113_20260613.zip`, 77.9325 MB, SHA256 `013DE46E707D32366A018A28F0A29BE23488F1E4D2CF07477C4DCEE898BFE5FF`.
 - Contents: recursive gap-audit / scan-reviewed no-change closure packet for Volume I sections 56, 63, 64, 68, 70, 73, 78, 89, 100, and 113. Package status reports the active 112-row ledger at 101 closed / 11 open, Tier-3 closed 11/11, with direct audited slices and source scans supplied for independent checking. Cumulative Volume I/II/III TeX/PDF is re-included unchanged.
 
-Next action when Zenodo API credentials are available: create a new Weber Zenodo version, upload this ZIP together with earlier pending Weber Batch134 if still wanted, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Status: superseded as a next-upload target by the published Weber 2026-06-24 version <https://doi.org/10.5281/zenodo.20837104>, which carries the later Batch137/B138/B139 packages. Retain this Batch136 entry as provenance only.
 
 ## 2026-06-13: SGA repair030 (superseded locally by repair031)
 
@@ -1789,7 +1789,7 @@ Manifest: [20260613_noether_ra37_weber_batch134.json](../manifests/pending-zenod
 - Noether: `N_SYM_RA37_P04_p122_127_20260613.zip`, 10.5395 MB, SHA256 `BF60D4B5D29744AD2E702F69D29AB13FC386B1DB1243022A68839D3C73A26AAB`.
 - Weber: `Weber_Cumulative_ThreeVolumes_Batch134_RecursiveGapAudit_Vol1_Sections12_14_16_20_22_20260612.zip`, 234.1134 MB, SHA256 `8BDFF1D92B2B9D6B70C5F302ADA82A61DD617A8D23E44C70EA4DF5E7E2D77526`.
 
-Next action when Zenodo API credentials are available: create new Zenodo versions for the Noether and Weber records, upload these ZIPs, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
+Next action: the Weber Batch134 target is superseded as a next-upload target by the published Weber 2026-06-24 version <https://doi.org/10.5281/zenodo.20837104>, which carries later Batch137/B138/B139 packages. The Noether RA37 target remains governed by the Noether queue.
 
 ## 2026-06-24: Noether P18/P19/P20 source-witness upgrades
 
