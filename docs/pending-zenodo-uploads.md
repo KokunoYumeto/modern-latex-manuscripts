@@ -1,5 +1,24 @@
 # Pending Zenodo Uploads
 
+
+## 2026-06-24: Steinitz and Gordan ChatGPT Project upload consolidations
+
+Local source: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\ChatGPT_Project_Uploads_20260624`.
+
+Compact/public-useful control files:
+
+- `PROJECT_UPLOADS_INDEX_20260624.md`, 2,507 bytes, SHA256 `C715D1BA5568EDF2253636DD8EBEB3BA2AE12B7C031003B56E3BD546CAA47BAC`.
+- `STALE_STARTED_LANES_PRIORITY_20260624.md`, 4,140 bytes, SHA256 `F07C386A9079B4A26F3381E4EF45BF626470FD8C566488F5D1536A3380DDFA3F`.
+- `STEINITZ_VS_GORDAN_FINISH_ESTIMATE_20260624.md`, 2,974 bytes, SHA256 `5D322A6113D07DB8DBCF4963C578A1F99310C0DB3EBC7B40AFE49DCF30A6F780`.
+- Steinitz: `Steinitz_Project_Control_Ledgers_20260624.zip`, 7,022 bytes, SHA256 `F42B95AA4808CE805A172F931BB40FFF7FDB6B34469184ADB540E0F2CBE0CCC5`.
+- Gordan: `Gordan_Project_Control_Ledgers_20260624.zip`, 6,089 bytes, SHA256 `AB9DAB2A74D261C8EB7EA116F0C42C8175347A07D59DC442C29B3D439868C170`.
+
+Local project-upload folders also contain much larger source/image bricks: Steinitz about 3.09 GB across 23 files, Gordan about 1.62 GB across 16 files. These are web-session project inputs and source-witness bricks, not reader-facing promoted editions. Do not upload the whole folders blindly to author records unless the upload goal is explicitly source-provenance/source-intake. Prefer uploading the compact control files to the relevant author record or workflow/source-intake record first, then decide separately whether high-resolution source-image ZIPs belong on the raw/provenance DOI.
+
+Status summary: Steinitz is the more bounded finishable lane, roughly 478/713 handoff-produced pages (~67%) but only about 60-65% canonical confidence until older batches are visually sampled; continue at 1916 `Bedingt III` p.14. Gordan has stronger high-value source setup for invariant theory, especially 600-ppi GDZ sources for `Vorlesungen` Bd.1/Bd.2, but a full author corpus still needs article-register completion from Noether 1914. Treat both as working/source-audit lanes, not critical editions.
+
+Next action: decide whether to publish the compact control/status files to the Steinitz and Gordan records, and whether to route the large source-image bricks to the raw/provenance DOI instead of reader-facing author records.
+
 ## Recently published, no longer pending
 
 - 2026-06-24: Maxwell pp.001-079 compact working-tranche update published as latest Maxwell record <https://zenodo.org/records/20821947> / DOI <https://doi.org/10.5281/zenodo.20821947>. Published files: `Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip` and `Maxwell_Vol1_pp060_079_cum_scans_20260613.zip`. This makes IA 1873 first-edition pp.001-079 public as source-witnessed working tranches; the separate `Maxwell_WebPromo_MISSING_*` source/provenance supplements remain pending/provenance candidates and do not extend reader coverage. Not complete or critical.
