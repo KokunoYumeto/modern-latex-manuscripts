@@ -25,8 +25,8 @@ from typing import Any
 
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
-    ("workflow", "20672843"),
-    ("noether", "20827097"),
+    ("workflow", "20836364"),
+    ("noether", "20836432"),
     ("weber", "20673435"),
     ("cayley", "20617845"),
     ("sga", "20822648"),
@@ -72,10 +72,10 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and the later full-audit workpass support bundle, but SGA5 is explicitly not complete and remains errorful. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
+        "Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and later live-workpass evidence, but SGA5 is explicitly not complete and remains errorful. The live workpass reports 411 verified corrections in a compiling 307-page French workpass, a careful back-third pass through printed pp.375-484, and a front-grind cursor at printed p.100; open areas still include pp.1-74, pp.100-374, remaining front/middle heavy-QA pages, uncertain/type-B items, and English synchronization. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
     ],
     "noether": [
-        "Current Noether update 2026-06-24: latest public surface is record 20827097. It fronts file 115 as the current best local German cumulative source-repair baseline after rebasing P35/P36/P38/P39 repairs onto R124+P40, and adds file 116 as a narrow P34 hotspot no-new-patch disposition alongside the earlier P09-P20 survival/no-new-patch audit cluster. This is a working draft/source-audit record, not a certified critical edition. Paper 40 pp.514-541 are repaired against the best staged 400ppi GDZ witness, not final high-resolution certification; Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
+        "Current Noether update 2026-06-24: latest public surface is record 20836432. It carries forward the curated reader/source-audit surface and adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip`, a compact grouped post-R124 German/source-audit package containing the current cumulative German TeX/PDF candidate, R124 baseline TeX, unified diff, compile logs, audit ledger, inventories, queue maps, and logbook. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
     ],
 }
 
