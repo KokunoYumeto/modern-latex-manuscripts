@@ -1713,3 +1713,13 @@ Manifest: [20260624_noether_r123_r115_source_queue_supplement.json](../manifests
 - Contents: Noether project support packages only. R123 files are intermediate survival/source-closure support; R114/R115 preserve older source-queue evidence and 600-PPI closures but are not current reader-facing editions.
 
 Next action: retain as Noether project staging/provenance. If included on Zenodo, attach only to the Noether record with explicit support/superseded caveats. Do not publish separately and do not imply corpus-wide certification.
+
+## 2026-06-24: Noether P09-P13 anchor-regression support and P24 source-witness upgrade
+
+Manifest: [20260624_noether_p09_p24_source_support_supplement.json](../manifests/pending-zenodo-uploads/20260624_noether_p09_p24_source_support_supplement.json)
+
+- Noether: Noether_P09_P13_SourceFixSurvival_AnchorRegression_R123plusP08_20260624.zip, 3.5771 MB, SHA256 37BF5207DF81D688C07C792B613F1B4456DA1774E13002C958D2CB3EA635BB50.
+- Noether: Noether_P24_MA90_SourceUpgrade_R123plusP08_20260624.zip, 22.9416 MB, SHA256 FF7BB8D6AAC866DDE2F7F3ED0213A16E3EB0E6819C8509ED728433C70F955487.
+- Contents: source/audit support for the R123+P08 line: P09-P13 prior-fix survival and anchor-regression ledgers, plus P24 Math. Ann. 90 IA source-witness upgrade with page concordance and raw JP2 leaves. These are not standalone reader editions and not critical/source-complete certification.
+
+Next action: retain as Noether project staging/provenance or attach to a deliberate Noether source-audit support version with clear caveats. Do not publish separately.
