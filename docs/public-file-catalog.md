@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1097
+Total files indexed: 1105
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -156,7 +156,7 @@ Record: <https://doi.org/10.5281/zenodo.20461174>
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20836874>
+Record: <https://doi.org/10.5281/zenodo.20412587>
 
 Current Noether update 2026-06-24: latest public surface is record 20836874. It carries forward the curated reader/source-audit surface and adds file 119, `119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip`, a compact post-R124 survival/no-new-patch audit rollup. It confirms earlier repairs survive or that source-quality blockers remain; it does not introduce a new canonical TeX body patch. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. The Noether record is now at Zenodo's 100-file ceiling, so further Noether updates require deliberate pruning/replacement rather than simple append. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.
 
@@ -1035,13 +1035,13 @@ Record: <https://doi.org/10.5281/zenodo.20649835>
 |---|---:|---|
 | manifest/status | 0.0012 | [99_Gibbs_Public_Summary_20260624.json](https://zenodo.org/records/20821820/files/99_Gibbs_Public_Summary_20260624.json) |
 | reader/reference PDF | 0.3027 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.pdf) |
-| other | 0.0648 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.tex) |
+| editable TeX | 0.0648 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.tex) |
 | reader/reference PDF | 0.3788 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.pdf) |
-| other | 0.0920 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.tex) |
+| editable TeX | 0.0920 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.tex) |
 | reader/reference PDF | 0.4873 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.pdf) |
-| other | 0.1882 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.tex) |
+| editable TeX | 0.1882 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.tex) |
 | reader/reference PDF | 0.5190 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.pdf) |
-| other | 0.2191 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.tex) |
+| editable TeX | 0.2191 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.tex) |
 | artifact/source ZIP | 8.5164 | [Gibbs_Vol1_Equilibrium_Heterogeneous_Substances_p055_124_with_source_scan.zip](https://zenodo.org/records/20821820/files/Gibbs_Vol1_Equilibrium_Heterogeneous_Substances_p055_124_with_source_scan.zip) |
 | artifact/source ZIP | 3.8122 | [Gibbs_Vol1_Geometrical_Representation_p033_054_with_source_scan.zip](https://zenodo.org/records/20821820/files/Gibbs_Vol1_Geometrical_Representation_p033_054_with_source_scan.zip) |
 | artifact/source ZIP | 4.7775 | [Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip](https://zenodo.org/records/20821820/files/Gibbs_Vol1_Graphical_Methods_p001_032_with_source_scan.zip) |
@@ -1170,7 +1170,7 @@ Record: <https://doi.org/10.5281/zenodo.20616260>
 
 ## Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 
-Record: <https://doi.org/10.5281/zenodo.20547337>
+Record: <https://doi.org/10.5281/zenodo.20616988>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1193,9 +1193,9 @@ Record: <https://doi.org/10.5281/zenodo.20673444>
 | artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20821858/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
 | artifact/source ZIP | 163.9990 | [Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip](https://zenodo.org/records/20821858/files/Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip) |
 | reader/reference PDF | 1.1871 | [Frobenius_selected_EN_cumulative_all.pdf](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.pdf) |
-| other | 0.5140 | [Frobenius_selected_EN_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.tex) |
+| editable TeX | 0.5140 | [Frobenius_selected_EN_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.tex) |
 | reader/reference PDF | 1.2044 | [Frobenius_selected_GE_cumulative_all.pdf](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.pdf) |
-| other | 0.5290 | [Frobenius_selected_GE_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.tex) |
+| editable TeX | 0.5290 | [Frobenius_selected_GE_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.tex) |
 
 ## Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts
 
@@ -1224,9 +1224,28 @@ Record: <https://doi.org/10.5281/zenodo.20673461>
 | artifact/source ZIP | 119.5292 | [poincare_v1_25.zip](https://zenodo.org/records/20673462/files/poincare_v1_25.zip) |
 | artifact/source ZIP | 102.3785 | [poincare_v1_26.zip](https://zenodo.org/records/20673462/files/poincare_v1_26.zip) |
 
+## Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts
+
+Record: <https://doi.org/10.5281/zenodo.20836971>
+
+Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.
+
+| Role | Size MB | File |
+|---|---:|---|
+| reader/reference PDF | 0.9509 | [01 Adolf Kneser - Lehrbuch der Variationsrechnung English Working Reader p0011-0248 2026-06-13.pdf](https://zenodo.org/records/20836972/files/01%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20English%20Working%20Reader%20p0011-0248%202026-06-13.pdf) |
+| reader/reference PDF | 0.9684 | [02 Adolf Kneser - Lehrbuch der Variationsrechnung German Source Working Reader p0011-0248 2026-06-13.pdf](https://zenodo.org/records/20836972/files/02%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20German%20Source%20Working%20Reader%20p0011-0248%202026-06-13.pdf) |
+| editable TeX | 0.4500 | [03 Adolf Kneser - Lehrbuch der Variationsrechnung English Working TeX p0011-0248 2026-06-13.tex](https://zenodo.org/records/20836972/files/03%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20English%20Working%20TeX%20p0011-0248%202026-06-13.tex) |
+| editable TeX | 0.4615 | [04 Adolf Kneser - Lehrbuch der Variationsrechnung German Source Working TeX p0011-0248 2026-06-13.tex](https://zenodo.org/records/20836972/files/04%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20German%20Source%20Working%20TeX%20p0011-0248%202026-06-13.tex) |
+| reader/reference PDF | 5.9541 | [05 Adolf Kneser - Lehrbuch der Variationsrechnung HQ Source Witness p0001-0248 2026-06-13.pdf](https://zenodo.org/records/20836972/files/05%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20HQ%20Source%20Witness%20p0001-0248%202026-06-13.pdf) |
+| artifact/source ZIP | 107.9520 | [06 Adolf Kneser - LVR p0234-p0248 Current Slice and Cumulative Audit Package 2026-06-13.zip](https://zenodo.org/records/20836972/files/06%20Adolf%20Kneser%20-%20LVR%20p0234-p0248%20Current%20Slice%20and%20Cumulative%20Audit%20Package%202026-06-13.zip) |
+| manifest/status | 0.0016 | [07 Adolf Kneser - Current Status and Caveats 2026-06-24.md](https://zenodo.org/records/20836972/files/07%20Adolf%20Kneser%20-%20Current%20Status%20and%20Caveats%202026-06-24.md) |
+| manifest/status | 0.0006 | [08 Adolf Kneser - Worklist Progress p0248 2026-06-13.json](https://zenodo.org/records/20836972/files/08%20Adolf%20Kneser%20-%20Worklist%20Progress%20p0248%202026-06-13.json) |
+
 ## Minkowski, Hecke, Landau, Kneser, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20411006>
+
+Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.
 
 | Role | Size MB | File |
 |---|---:|---|

@@ -22,7 +22,7 @@ Good starting points:
 | Frobenius | [Frobenius record](https://doi.org/10.5281/zenodo.20673444), open the latest RA05 cumulative German/English reader PDFs or RA05 ZIP for the selected group-character working draft, directly compilable TeX, source scans, and audit refresh. |
 | Poincare | [Poincare record](https://doi.org/10.5281/zenodo.20673461), use `poincare_v1_*` packages individually; this is a non-continuous recovery stream, not a seamless Tome I edition. |
 | Maxwell / old physics | [Maxwell record](https://doi.org/10.5281/zenodo.20653107), latest version [10.5281/zenodo.20821947](https://doi.org/10.5281/zenodo.20821947), with source-witnessed Volume I working-tranche ZIPs public through pp.001-079. Use the status/readme files inside the ZIPs; separate `Maxwell_WebPromo_MISSING_*` source/provenance supplements are still pending and are not reader coverage. |
-| Kneser | [Additional author cluster](https://doi.org/10.5281/zenodo.20411006), current published mixed-shelf Kneser continuation is p0206-p0219. A local p0234-p0248 German/English continuation is routed/extracted and queued for upload, but is not a public Zenodo file until a new version publishes it. |
+| Kneser | [Dedicated Kneser record](https://doi.org/10.5281/zenodo.20836971), open the English working reader first, then the German source reader and HQ source witness. Current public surface runs through p0011-p0248 with p0234 lower-p0248 audit package; older mixed-shelf Kneser packets remain provenance/backstop. |
 | Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://doi.org/10.5281/zenodo.20414787), numbered reader PDFs by author; inherited Cayley `source_checked` filenames are de-promoted unless re-promoted by a later source audit |
 
 If you want usable mathematical text rather than repair evidence, prefer top-level PDFs and files named `reader`, `working_draft`, `source_checked`, or `cumulative`. Treat files named `OCR_candidate`, `formula_witness`, `crop_witness`, or `locator_aid` as checking aids. Even for reader PDFs and source-checked ranges, verify serious formulas, diagrams, tables, theorem statements, and unusual notation against source witnesses.
@@ -76,4 +76,3 @@ Start with:
 - [contributing guide](../CONTRIBUTING.md).
 
 For release work, use the [release checklist](release-checklist.md).
-

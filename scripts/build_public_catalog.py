@@ -52,6 +52,7 @@ RECORDS: list[tuple[str, str]] = [
     ("steinitz", "20822189"),
     ("frobenius", "20821858"),
     ("poincare", "20673462"),
+    ("kneser", "20836972"),
     ("additional_author_cluster", "20672984"),
 ]
 
@@ -77,6 +78,12 @@ RECORD_NOTES = {
     "noether": [
         "Current Noether update 2026-06-24: latest public surface is record 20836874. It carries forward the curated reader/source-audit surface and adds file 119, `119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip`, a compact post-R124 survival/no-new-patch audit rollup. It confirms earlier repairs survive or that source-quality blockers remain; it does not introduce a new canonical TeX body patch. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. The Noether record is now at Zenodo's 100-file ceiling, so further Noether updates require deliberate pruning/replacement rather than simple append. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
     ],
+    "kneser": [
+        "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
+    ],
+    "additional_author_cluster": [
+        "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
+    ],
 }
 
 TITLE_OVERRIDES = {
@@ -88,6 +95,7 @@ TITLE_OVERRIDES = {
     "gordan_clebsch_gordan": "Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts",
     "frobenius": "Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts",
     "poincare": "Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts",
+    "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
 }
 
 
@@ -103,6 +111,8 @@ def file_role(filename: str) -> str:
         return "artifact/source ZIP"
     if lower.endswith((".json", ".md", ".csv", ".txt")):
         return "manifest/status"
+    if lower.endswith(".tex"):
+        return "editable TeX"
     if lower.endswith(".pdf"):
         return "reader/reference PDF"
     return "other"

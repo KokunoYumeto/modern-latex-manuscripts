@@ -1650,7 +1650,7 @@ Manifest: [20260613_kneser_lvr_p0234_0248.json](../manifests/pending-zenodo-uplo
 - Kneser: `Kneser_LVR_p0234_0248_DE_EN_20260613.zip`, 107.952 MB, SHA256 `5E27483A484886DB5BD80268A497A0FE8E333B024D4929DD5D391488E035F037`.
 - Contents: German/English source-visible working continuation for Adolf Kneser's `Lehrbuch der Variationsrechnung`, current slice source p0234 lower-p0248, sections 53-55, completing the Sixth Section. The package uses the higher-quality archive.org source witness, includes current-slice and cumulative German/English TeX/PDF through p0248, HQ current/cumulative source scans, render checks, ledgers, and mathematical source checks for formulas (37)-(50). The worklist reports 248/336 source pages done, 73.8%, with next start at p0249, Seventh Section, section 56.
 
-Next action when Zenodo API credentials are available: create a new additional-author-cluster Zenodo version, upload this ZIP together with other pending mixed-author packages if still pending, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs. Consider a dedicated Kneser author record if the sequence keeps growing.
+Status 2026-06-24: published as part of the dedicated Kneser record, latest record <https://doi.org/10.5281/zenodo.20836972>, concept DOI <https://doi.org/10.5281/zenodo.20836971>. Keep this section as provenance only; do not republish this same package to the mixed additional-author shelf.
 
 ## 2026-06-13: Noether Paper 07 targeted source-audit web drop
 
