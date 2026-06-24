@@ -77,6 +77,10 @@ Local files staged for the next deliberate workflow refresh:
 - `AI_Run_Workflow_Addendum_Archive_Scope_Guardrail_20260624.zip`, 4,563 bytes, SHA256 `2F2B814004DCB35CE70B87BCF792ABCCC237D736C235820149454356C16CA08A`.
 - `workflow_addendum_20260624_archive_scope_guardrail.md`, standalone human-readable addendum.
 - `workflow_addendum_20260624_source_witness_public_surface.md`, updated SGA5 source-witness caveat from pp.1-27 to pp.1-65 plus p103 diagram locus.
+- `AI_Run_Workflow_Addendum_Page_Unit_Audit_Harness_20260624.zip`, 3,046 bytes, SHA256 `A271CCBBF5DEEBBC8ABC8A090F887C7AC027AFA8C125D1243D6DA2B08A34A951`.
+- `workflow_addendum_20260624_page_unit_audit_harness.md`, page-unit audit harness addendum distilled from Noether/Weber/SGA6/Steinitz harnesses.
+
+Workflow addition: page-unit audit harnesses should combine canonical TeX, source witness inventory, per-page/object audit manifest, and chunk-on-demand rendering; OCR/raw AI drops are locator-only, and public records must distinguish audit-ready from source-certified.
 
 Scope correction: sweeping local folders does not mean publishing everything found. Only project-lane material belongs in Zenodo/GitHub by default: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, and author/corpus public-surface metadata. Unrelated third-party TeX, new research drafts, Reddit downloads, Lean experiments, and personal/novel math files stay out unless Floris explicitly names the exact item for upload.
 
