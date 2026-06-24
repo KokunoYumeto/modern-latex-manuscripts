@@ -1774,7 +1774,7 @@ Manifest: [20260624_noether_p14_p17_survival_supplement.json](../manifests/pendi
 
 - Noether: Noether_P14_P16_SourceFixSurvival_R123plusP08_20260624.zip, 3.5193 MB, SHA256 3C720DD04AEB2133DA082C2A71588E6E2EF273C9824BD40DEEDBC22466E279A.
 - Noether: Noether_P17_RA94_ScaffoldFix_Survival_R123plusP08_20260624.zip, 6.0336 MB, SHA256 CC4BA4B40EC7E7EF089D1948767D848305D9DF1094919316827FCB1390606521.
-- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0047 MB, SHA256 7051ACCE4DDDA15F5C9D14656B96FE167449E3D1FC5719807EEB0AD2ECF75760 (live index; verify immediately before upload).
+- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0058 MB, SHA256 A3982EDEC484D7DFE1B31BA8C9028439704FE88DD8DCEA7F6A2E72E578D3EFE8 (live index; verify immediately before upload).
 - Contents: targeted survival/source-fix support for Papers 14-17 plus the refreshed webdrop index/logbook. These are provenance and audit support only, not proof that Papers 14-17 are source-complete.
 
 Next action: retain for Noether project staging or attach to a deliberate Noether source-audit/provenance Zenodo version. Do not publish separately and do not present as final certification.
@@ -1803,3 +1803,24 @@ Manifest: [20260624_noether_p09_p24_source_support_supplement.json](../manifests
 - Contents: source/audit support for the R123+P08 line: P09-P13 prior-fix survival and anchor-regression ledgers, plus P24 Math. Ann. 90 IA source-witness upgrade with page concordance and raw JP2 leaves. These are not standalone reader editions and not critical/source-complete certification.
 
 Next action: retain as Noether project staging/provenance or attach to a deliberate Noether source-audit support version with clear caveats. Do not publish separately.
+
+
+## 2026-06-24: Noether P33 Bologna matrix/notation repair
+
+Manifest: [20260624_noether_p33_bologna_matrix_notation_repair.json](../manifests/pending-zenodo-uploads/20260624_noether_p33_bologna_matrix_notation_repair.json)
+
+- Noether: `Noether_P33_Bologna_MatrixNotationRepair_R123plusP08P30_20260624.zip`, 38.6042 MB, SHA256 `37D44EC58C2C9092FF05688BDBAE8178799E05F652CC1C440788C9D565DE23D8`.
+- Contents: targeted Paper 33 Bologna congress source pp.71-73 repair package. It applies one source-confirmed notation correction from plain `$G$` to `\mathfrak{G}` in the opening representation definition, and includes 1200 dpi labelled inspection crops plus matrix/display no-fix trap ledgers.
+- Caveat: targeted source repair/provenance only. It is not full symbol-by-symbol Paper 33 certification, not whole-Noether closure, and not a standalone reader edition.
+
+Next action: retain for Noether project staging/provenance or attach to a future Noether source-audit support version with clear caveats. Do not publish separately.
+
+## 2026-06-24: Noether P35 MathNet 600ppi best-available source repair
+
+Manifest: [20260624_noether_p35_mathnet600_source_repair.json](../manifests/pending-zenodo-uploads/20260624_noether_p35_mathnet600_source_repair.json)
+
+- Noether: `Noether_P35_MathNet600_SourceRepair_R123plusP08P30P33P34_20260624.zip`, 23.5405 MB, SHA256 `A6D7318A93296B594C500AD86FE679F8FE4DCFDC00FBFA43CAEF0F34C3356208`.
+- Contents: best-available source repair for Paper 35, `Über Maximalbereiche aus ganzzahligen Funktionen`, using MathNet `sm7340` at 600 ppi. The package includes a repaired cumulative German candidate, MathNet source PDF and 600 ppi renders/crops, a six-row confirmed-fixes ledger, source-quality ledger, diff, and SHA256 provenance.
+- Caveat: this is a source-checked repair against the best available 600 ppi witness found in this pass, but it remains below the local 650 ppi strict floor. It does not certify every symbol/formula/layout feature, is not a critical edition, and is not whole-Noether certification.
+
+Next action: review/reconcile before Noether reader promotion; upload only as source-repair candidate/provenance with the below-650ppi caveat.
