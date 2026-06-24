@@ -1921,3 +1921,17 @@ Manifest: [20260624_sga5_full_audit_workpass_support.json](../manifests/pending-
 - Caveat: this is workpass/source-audit support only. It is not complete SGA5, not a critical edition, and not a promoted reader-facing replacement. Canonical promotion still requires diff review, reruns of rate-limited pages, final compile gate, and page-by-page closure.
 
 Next action: attach to the SGA record only as source-audit/workpass support, or retain pending until the next deliberate SGA source-support version. Keep public SGA wording as working draft with significant remaining source errors.
+
+## 2026-06-24: Workflow compact audit-harness snapshot
+
+Manifest: [20260624_workflow_audit_harnesses_noether_weber_sga6_steinitz.json](../manifests/pending-zenodo-uploads/20260624_workflow_audit_harnesses_noether_weber_sga6_steinitz.json)
+
+Workflow record: current record [20672843](https://zenodo.org/records/20672843); concept DOI [10.5281/zenodo.20461174](https://doi.org/10.5281/zenodo.20461174).
+
+- Workflow pending ZIP: `AI_Run_Workflow_Audit_Harnesses_Noether_Weber_SGA6_Steinitz_20260624.zip`, 83,790 bytes, SHA256 `0EE0341368D2F1A0C494C0D786D33D2AFD68754AF4D7664E37303CE3C986CD7B`.
+- Scope: compact control snapshot for Noether, Weber, SGA6, and Steinitz audit harnesses. It includes harness READMEs, audit manifests, source inventories, page maps, scripts, CSV/TXT controls, and a short README; it intentionally excludes generated crops/renders and large source-image witnesses.
+- Workflow lessons: use canonical TeX plus best source scans plus page-unit manifests; OCR is locator/witness only; render high-DPI chunks on demand; line hints are navigational unless sourcepage anchors exist; public records must distinguish OCR locator layers, audit-ready harnesses, source-witnessed working drafts, and source-certified or critical editions.
+- Rate-limit lesson carried from SGA5: large parallel find/verify/fix runs can become server-rate-limit-bound rather than token-budget-bound, so run one large workflow at a time once throttling appears.
+- Caveat: workflow/replication support only. This package does not certify any author corpus and contains absolute local paths that a replicator may need to adapt.
+
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh.
