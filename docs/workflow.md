@@ -92,6 +92,8 @@ The recommended harness contents are:
 
 Do not mass-render thousands of pages unless the next stage actually needs them. Render only the pages or objects being audited, and keep the resulting crops keyed to the manifest row that requested them.
 
+A June 25 SGA5 workpass snapshot adds a stricter find-verify-fix pattern for live source repair. Raw swarm passes can still discover likely defects, but the safer scalable unit is page-local discovery, independent source verification, deterministic old-string/new-string patching that refuses missing or non-unique matches, and a compile gate. That method snapshot is mirrored in `workflow/AI_Run_Workflow_SGA5_FindVerifyFix_Workpass_Method_20260625.zip` and queued for the workflow DOI; it is not a claim that SGA5 is complete.
+
 ## Local-To-Web Audit Workflow
 
 The current scalable pattern is a two-lane workflow: local machines prepare source-faithful aid packets, while web-based Pro review threads use those packets to translate, repair, and audit against the source. The two lanes are different on purpose. The local lane is good at downloading, slicing, rasterizing, cropping, OCR, math-OCR witnesses, compilation, checksum manifests, and publication. The web review lane is good at high-context mathematical translation, prose completion, and self-audit when the evidence is packaged clearly. This became explicit in SGA and Deligne repair work: local Codex packets supplied page maps, high-detail diagram/formula crops, OCR prose witnesses, and current TeX anchors, while the review thread used those witnesses to locate compression, missing prose, flattened commutative diagrams, and symbol-level mismatches.
