@@ -1935,3 +1935,15 @@ Workflow record: current record [20672843](https://zenodo.org/records/20672843);
 - Caveat: workflow/replication support only. This package does not certify any author corpus and contains absolute local paths that a replicator may need to adapt.
 
 Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh.
+
+## 2026-06-24: Noether Paper 40 GDZ400 body repair 001, pp.517-520
+
+Manifest: [20260624_noether_p40_gdz400_bodyrepair001_p517_520.json](../manifests/pending-zenodo-uploads/20260624_noether_p40_gdz400_bodyrepair001_p517_520.json)
+
+- Noether pending ZIP: `Noether_P40_GDZ400_BodyRepair001_p517_520_R123plusP08P30P33P34P35P36P38P39_20260624.zip`, 15.0677 MB, SHA256 `9D273A43C9FC7DF6982F582128F01A0D8E5FE88475B099EA5448A512B310B5E9`.
+- Scope: best-available source-body repair tranche 001 for Paper 40, `Nichtkommutative Algebren`, printed pp.517-520, after the R123+P08+P30+P33+P34+P35+P36+P38+P39 cumulative line. This supersedes the earlier apparatus-only cumulative as the current P40 working baseline, while the apparatus package remains useful as raw/source-apparatus provenance.
+- Contents observed: cumulative German candidate TeX/PDF/TXT, source-repair diff, confirmed-fixes ledger, open-items ledger, GDZ printed pp.514-520 400ppi best-available witnesses, source cutout PDF, OCR/layout locator, and checksums. Copied-short-path `pdfinfo` reports the current extracted candidate PDF as 460 A4 pages.
+- Repairs: corrects the Par. 1 heading; restores the missing source proof paragraph after formula (1a); restores the bridge after formulas (2) and (2*); restores Abbildungsschlussweise paragraphs; restores the Produktring theorem proof/construction and element/action formulas; restores the transition into Par. 2 before the Linearformenmodul definition.
+- Caveat: this is source-body repair support only. P40 printed pp.521-541 remain open, later footnotes 16-19 and 21-22 still require recheck, and the source witness is 400ppi below the local 650ppi strict certification floor. Do not present as Paper 40 closure, whole-Noether closure, multilingual propagation, reader-facing final edition, or critical edition.
+
+Next action: retain for Noether source-audit/provenance staging or attach to a deliberate Noether source-support version with explicit caveats.
