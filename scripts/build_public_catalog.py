@@ -26,7 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20672843"),
-    ("noether", "20826858"),
+    ("noether", "20827097"),
     ("weber", "20673435"),
     ("cayley", "20617845"),
     ("sga", "20822648"),
@@ -75,7 +75,7 @@ RECORD_NOTES = {
         "Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and the later full-audit workpass support bundle, but SGA5 is explicitly not complete and remains errorful. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
     ],
     "noether": [
-        "Current Noether update 2026-06-24: latest public surface is record 20826858. It carries the R124 plus Paper 40 full-range best-available source-repair package, the current source-audit status addendum, a corrected public summary, and a compact P09-P20 survival/no-new-patch audit cluster. This is a working draft/source-audit record, not a certified critical edition. Paper 40 pp.514-541 are repaired against the best staged 400ppi GDZ witness, not final high-resolution certification; Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
+        "Current Noether update 2026-06-24: latest public surface is record 20827097. It fronts file 115 as the current best local German cumulative source-repair baseline after rebasing P35/P36/P38/P39 repairs onto R124+P40, and adds file 116 as a narrow P34 hotspot no-new-patch disposition alongside the earlier P09-P20 survival/no-new-patch audit cluster. This is a working draft/source-audit record, not a certified critical edition. Paper 40 pp.514-541 are repaired against the best staged 400ppi GDZ witness, not final high-resolution certification; Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
     ],
 }
 
