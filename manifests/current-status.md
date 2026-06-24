@@ -171,5 +171,3 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Frobenius | 20821858 | <https://doi.org/10.5281/zenodo.20673444> |
 | Poincare | 20673462 | <https://doi.org/10.5281/zenodo.20673461> |
 | Additional author cluster | 20672984 | <https://doi.org/10.5281/zenodo.20411006> |
-
-
