@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests. For
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 29 |
-| Public files indexed | 1096 |
+| Public files indexed | 1097 |
 | Top-level PDFs | 552 |
-| Artifact/source ZIPs | 454 |
+| Artifact/source ZIPs | 455 |
 | Manifest/status files | 84 |
-| Total public file surface | 38.71 GB |
+| Total public file surface | 38.72 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -23,7 +23,7 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://doi.org/10.5281/zenodo.20393488) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
 | [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) | 23 | 3 | 11 | 0.45 MB | Latest workflow refresh published as <https://doi.org/10.5281/zenodo.20836364>. Adds archive-scope guardrails, source-witness/public-surface labels, audit harnesses, source inventory/page-object manifest patterns, OCR-as-locator guidance, and local/web handoff lessons. OCR/raw AI drops are locator layers unless promoted by source-specific audit. |
-| [Noether](https://doi.org/10.5281/zenodo.20412587) | 99 | 50 | 36 | 2.06 GB | Latest public version <https://doi.org/10.5281/zenodo.20836432> adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip` to the curated reader/source-audit surface. The record carries cumulative readers, standalone English paper PDFs, compact language/source packages, source-audit repair packets, and multilingual working branches. This is a working/source-audit record, not a critical edition or whole-corpus mathematical certification; source synchronization and multilingual propagation remain open where not explicitly closed by narrower audit packets. |
+| [Noether](https://doi.org/10.5281/zenodo.20412587) | 100 | 50 | 37 | 2.06 GB | Latest public version <https://doi.org/10.5281/zenodo.20836874> adds file 119, `119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip`, to the curated reader/source-audit surface. This is a compact survival/no-new-patch audit/status rollup, not a new canonical TeX body patch and not completion. The record carries cumulative readers, standalone English paper PDFs, compact language/source packages, source-audit repair packets, and multilingual working branches. It is now at the Zenodo 100-file ceiling, so future Noether updates require replacement/pruning. |
 | [Weber](https://doi.org/10.5281/zenodo.20412153) | 51 | 8 | 35 | 1302.89 MB | `Lehrbuch der Algebra` Volume I represented as repaired; Volume II readers through §176 plus recursive repair packets; Volume III current repaired cumulative. Batch132 is the latest public recursive repair packet; local staging now has Batch137 queued with scan-reviewed no-change closures for Vol. I §§120, 122, 128, 145, 148, 149, 150, 156, 158, 162, 163, 168, 169, 173, 174, 175, 176, 179, 180, 181, 182, 183 and the active 112-row ledger reported at 112 closed / 0 open. Batch138 is also queued as a focused post-closure Volume II section 6 control-character footnote fix. B139 is queued as a focused off-ledger Volume II English §49 split of merged display tag `5--6` into source-aligned equations (5) and (6), with a new range-tag scan rule. Off-ledger source-check and patch-integration caveats remain open. |
 | [Cayley](https://doi.org/10.5281/zenodo.20520749) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / Papers 1-9; v2 fixes Paper 6 low-comma notation and reader whitespace. Older Cayley drafts remain not accuracy-certified and need per-page source audit before promotion. |
 | [SGA](https://doi.org/10.5281/zenodo.20410947) | 100 | 74 | 25 | 3.23 GB | SGA working translation/source snapshots. Latest public update 2026-06-24 (`10.5281/zenodo.20822648`) adds `SGA5_repair032_audit_support_20260624.zip`, a bundled SGA5 repair/audit support artifact. It is not completion or certification: SGA5 remains incomplete and errorful. The later live workpass reports 411 verified corrections and a compiling 307-page French workpass, with p375-p484 carefully audited and the front-grind cursor at printed p100; p1-p74, p100-p374, heavy-QA/front-middle pages, uncertain/type-B items, and English synchronization remain open. SGA6/SGA7 compression/source-check caveats remain explicit. |

@@ -26,7 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20836364"),
-    ("noether", "20836432"),
+    ("noether", "20836874"),
     ("weber", "20673435"),
     ("cayley", "20617845"),
     ("sga", "20822648"),
@@ -75,7 +75,7 @@ RECORD_NOTES = {
         "Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and later live-workpass evidence, but SGA5 is explicitly not complete and remains errorful. The live workpass reports 411 verified corrections in a compiling 307-page French workpass, a careful back-third pass through printed pp.375-484, and a front-grind cursor at printed p.100; open areas still include pp.1-74, pp.100-374, remaining front/middle heavy-QA pages, uncertain/type-B items, and English synchronization. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
     ],
     "noether": [
-        "Current Noether update 2026-06-24: latest public surface is record 20836432. It carries forward the curated reader/source-audit surface and adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip`, a compact grouped post-R124 German/source-audit package containing the current cumulative German TeX/PDF candidate, R124 baseline TeX, unified diff, compile logs, audit ledger, inventories, queue maps, and logbook. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
+        "Current Noether update 2026-06-24: latest public surface is record 20836874. It carries forward the curated reader/source-audit surface and adds file 119, `119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip`, a compact post-R124 survival/no-new-patch audit rollup. It confirms earlier repairs survive or that source-quality blockers remain; it does not introduce a new canonical TeX body patch. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. The Noether record is now at Zenodo's 100-file ceiling, so further Noether updates require deliberate pruning/replacement rather than simple append. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
     ],
 }
 
