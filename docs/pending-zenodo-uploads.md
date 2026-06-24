@@ -1,3 +1,12 @@
+## 2026-06-24: Noether Paper 29 GDZ 400-ppi gross-gap anchor audit
+
+Manifest: [20260624_noether_p29_gdz400_gross_gap_anchor_audit.json](../manifests/pending-zenodo-uploads/20260624_noether_p29_gdz400_gross_gap_anchor_audit.json)
+
+- Noether pending ZIP: `Noether_P29_GDZ400_GrossGapAnchorAudit_R123plusP08P30_20260624.zip`, 3.4301 MB, SHA256 `62DABA24C83B6090C7B7DF4E3772AACB9A9BEF51F94B68C5BA4DE07D60F527BF`.
+- Contents observed: README, GDZ OCR locator XML/TXT for printed pp.28-35, page/acquisition maps, anchor-coverage CSV/JSON, no-patch dispositions, and the current P29 TeX block from the R123+P08+P30 cumulative candidate.
+- Caveat: this is gross-gap/source-locator evidence only. It reports all eight P29 source pages covered by exact or high-fuzzy anchors, but GDZ OCR is not authority and 400 ppi is below the local strict source-checking floor. It does not certify symbols, formulas, subscripts, punctuation, or layout, and no TeX patch was applied.
+
+Status: pending/provenance/support only. Do not present as Paper 29 closure, reader-facing promotion, full Noether certification, or critical edition.
 # Pending Zenodo Uploads
 
 ## 2026-06-24: Noether Paper 30 p058-061 source-repair candidate
@@ -114,8 +123,8 @@ Compact files observed:
 - `Noether_R123plusP08_P24_P30_Context_Cumulative_WebDrop_20260624.zip` - 323.0007 MB, SHA256 `8DE22EEFC9322B2E333D58564E64D3A6C3A440769053AE18B5071555A3905AEB`. Scope: P24-P30 context package on P08-fixed cumulative baseline; large context/source package, not paper-level certification
 - `Noether_R123plusP08_P31_P37_Context_Cumulative_WebDrop_20260624.zip` - 7.6665 MB, SHA256 `931A851EDD3646ED9CCB5258AD758816682F070A0720B9E74C3396A135F1876E`. Scope: P31-P37 context package on P08-fixed cumulative baseline; continuation context, not paper-level certification
 - `Noether_R123plusP08_P38_P43_Context_Cumulative_WebDrop_20260624.zip` - 67.477 MB, SHA256 `F3361ABD9FAF5ADC630D3A6FECFB7F650430D999763A7D9119BA717160D54AA2`. Scope: P38-P43 caveat-heavy context package; P38-P42 source audit open, P40-P43 apparatus placement unresolved; do not use as closure
-- `Noether_R123plusP08_WebDrop_Index_20260624.zip` - 0.0495 MB, SHA256 `9929338636D2080E7CD012C5EED1AE83EA249881845794EB32105784AF8D937B`. Scope: Index CSV/README for the full R123+P08 web-drop package set and upload order; coordination/provenance only
-- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` - 0.1560 MB, SHA256 `766EC60A7A9528430D78E5E7777C520AEB8CC915B6E8A870E0137303C0ACB8B8`. Scope: live source-audit logbook snapshot from the local Noether source-checking lane
+- `Noether_R123plusP08_WebDrop_Index_20260624.zip` - 0.0044 MB, SHA256 `5BDE8BD7B591B9238B57314CD8FE22F4A0D36017ACBDD889C1FCC6B1F91BE108`. Scope: live index CSV/README for the full R123+P08 web-drop package set and upload order; coordination/provenance only; verify immediately before upload
+- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` - 0.1604 MB, SHA256 `CCA59CF7370BFA9F6B982344CC505C746061EEFE9FF187501574C036C4BD6B19`. Scope: live source-audit logbook snapshot from the local Noether source-checking lane; verify immediately before upload
 
 Public action: candidate/provenance; use to coordinate web sessions and prevent stale R123 continuation; upload only as compact support/context if useful, not as a promoted edition or critical edition.
 
@@ -1724,7 +1733,7 @@ Manifest: [20260624_noether_p14_p17_survival_supplement.json](../manifests/pendi
 
 - Noether: Noether_P14_P16_SourceFixSurvival_R123plusP08_20260624.zip, 3.5193 MB, SHA256 3C720DD04AEB2133DA082C2A71588E6E2EF273C9824BD40DEEDBC22466E279A.
 - Noether: Noether_P17_RA94_ScaffoldFix_Survival_R123plusP08_20260624.zip, 6.0336 MB, SHA256 CC4BA4B40EC7E7EF089D1948767D848305D9DF1094919316827FCB1390606521.
-- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0495 MB, SHA256 9929338636D2080E7CD012C5EED1AE83EA249881845794EB32105784AF8D937B.
+- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0044 MB, SHA256 5BDE8BD7B591B9238B57314CD8FE22F4A0D36017ACBDD889C1FCC6B1F91BE108 (live index; verify immediately before upload).
 - Contents: targeted survival/source-fix support for Papers 14-17 plus the refreshed webdrop index/logbook. These are provenance and audit support only, not proof that Papers 14-17 are source-complete.
 
 Next action: retain for Noether project staging or attach to a deliberate Noether source-audit/provenance Zenodo version. Do not publish separately and do not present as final certification.
