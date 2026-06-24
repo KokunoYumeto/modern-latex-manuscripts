@@ -49,6 +49,7 @@ RECORD_ORDER = [
     "steinitz",
     "frobenius",
     "poincare",
+    "kneser",
     "additional_author_cluster",
 ]
 
@@ -82,6 +83,7 @@ DISPLAY_NAMES = {
     "steinitz": "Ernst Steinitz",
     "frobenius": "Ferdinand Georg Frobenius",
     "poincare": "Henri Poincare",
+    "kneser": "Adolf Kneser",
     "additional_author_cluster": "Additional Author Cluster",
 }
 
@@ -110,6 +112,9 @@ RECORD_NOTES = {
     ],
     "poincare": [
         "Dedicated Poincare split from the mixed additional-author shelf. The record publishes the currently available local `poincare_v1_*` working packages through `poincare_v1_26.zip`. The latest package covers source witnesses v1_0371-v1_0384 top and reaches the close of Section I of `Sur les equations lineaires`, before Section II `Equations aux differences finies`. This is not a seamless continuous Tome I edition: local artifacts currently include v1_01, v1_02, v1_08-v1_21, and v1_24-v1_26; v1_03-v1_07 and v1_22-v1_23 are not currently present as local package artifacts. Use package by package, not as blanket certification.",
+    ],
+    "kneser": [
+        "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
     ],
     "riemann": [
         "Dedicated Riemann author record. The current surface has two reader PDFs, one selected-papers reader and one broader Gesammelte Werke complete-draft reader, plus matching artifact ZIPs with TeX/source/provenance material. These are machine-assisted working drafts for checking and continuation, not proofread critical editions.",
@@ -143,7 +148,7 @@ RECORD_NOTES = {
         "Consolidated multilingual record. Some inherited al-Battani file names still contain `Complete Critical Edition`; those names are not current critical-edition certification. Treat OCR, reconstructed tables, translations, and source-intake readers as working material unless the relevant work-level record gives a narrower promoted status.",
     ],
     "additional_author_cluster": [
-        "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Poincare and Frobenius now have preferred standalone records; earlier Poincare/Frobenius/Kneser packets here remain provenance/backstop where present. `Kneser_LVR_p0206_0219_DE_EN_20260612.zip` remains the current published Kneser source-witnessed continuation in this mixed shelf. Local staging 2026-06-13 has `Kneser_LVR_p0234_0248_DE_EN_20260613.zip` queued for upload, covering p0234 lower-p0248 / sections 53-55 and reporting 248/336 source pages done (73.8%), with next start p0249 / Seventh Section / section 56. Bianchi, Gordan, Steinitz, Sylvester, Gibbs, Maxwell, Poincare, and Frobenius now have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
+        "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets here remain provenance/backstop where present. Bianchi, Gordan, Steinitz, Sylvester, Gibbs, Maxwell, Poincare, Frobenius, and Kneser now have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
     ],
 }
 

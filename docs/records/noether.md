@@ -1,6 +1,6 @@
 # Emmy Noether
 
-Zenodo record: [20836874](https://zenodo.org/records/20836874)
+Zenodo record: [20836874](https://doi.org/10.5281/zenodo.20412587)
 
 Public title: Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 

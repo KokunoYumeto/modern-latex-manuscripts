@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Emmy Noether | 100 | 50 | 37 | 2113.8 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20836874) |
+| Emmy Noether | 100 | 50 | 37 | 2113.8 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 51 | 8 | 35 | 1302.9 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
@@ -29,7 +29,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |
 | Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
-| Ernst Steinitz | 7 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20547337) |
+| Ernst Steinitz | 7 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616988) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
+| Adolf Kneser | 8 | 3 | 1 | 116.7 | [kneser.md](kneser.md) | [Zenodo](https://doi.org/10.5281/zenodo.20836971) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |

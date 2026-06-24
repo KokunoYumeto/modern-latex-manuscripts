@@ -25,7 +25,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
 | Frobenius | The mixed additional-author shelf now contains `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a coherent selected Frobenius group-character/hypercomplex sequence package with German and English cumulatives, per-work TeX/PDF, source scans, and QA ledgers for declared items 053, 054, 056, 057, 058, 059, 060, 061, 070, and 071. | Good candidate for a dedicated Frobenius working-edition record once a concise public status file and top-level reader PDFs are extracted from the QA03 package. |
-| Kneser | The `Lehrbuch der Variationsrechnung` lane is now a substantial German/English routed sequence through p0234 lower-p0248 / §§53-55, completing the Sixth Section in the latest queued tranche. The worklist reports 248/336 source pages done, 73.8%, with earlier hqfig/source-crop repair material retained as provenance. | Candidate for a dedicated Kneser work record after a clean cumulative reader rollup is made; current mixed-shelf packets remain package-by-package working drafts. |
+| Kneser | Published as a dedicated record on 2026-06-24: <https://doi.org/10.5281/zenodo.20836971>. | Split complete for now. Continue future Kneser updates on the dedicated record; keep mixed-shelf copies as provenance/backstop. |
 
 ## Hold Until Cleaner Rollup
 
