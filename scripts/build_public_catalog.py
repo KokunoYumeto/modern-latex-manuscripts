@@ -26,10 +26,10 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20672843"),
-    ("noether", "20822156"),
+    ("noether", "20826361"),
     ("weber", "20673435"),
     ("cayley", "20617845"),
-    ("sga", "20821507"),
+    ("sga", "20822648"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -72,7 +72,10 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA update 2026-06-24: the latest surface adds `SGA5_repair032_audit_support_20260624.zip`, a compact bundle of repair032 SGA5 repair/audit evidence. SGA5 is explicitly not complete and remains errorful; the repair032 bundle is preservation/support evidence, not a certified edition, not English synchronization, and not closure of diagram/formula/notation queues. The record removed obsolete `sga_repair019_public_summary.json` from the latest 100-file surface to free one slot. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
+        "Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and the later full-audit workpass support bundle, but SGA5 is explicitly not complete and remains errorful. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.",
+    ],
+    "noether": [
+        "Current Noether update 2026-06-24: latest public surface is record 20826361. It adds the R124 plus Paper 40 full-range best-available source-repair package and a current source-audit status addendum. This is a working draft/source-audit record, not a certified critical edition. Paper 40 pp.514-541 are repaired against the best staged 400ppi GDZ witness, not final high-resolution certification; Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
     ],
 }
 

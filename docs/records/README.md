@@ -6,11 +6,11 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 16 | 3 | 7 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Emmy Noether | 88 | 50 | 28 | 1558.1 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
+| Emmy Noether | 93 | 50 | 31 | 1932.3 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 51 | 8 | 35 | 1302.9 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |
 | EGA | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
-| SGA | 100 | 74 | 25 | 3306.4 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
+| SGA | 100 | 74 | 25 | 3306.5 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://doi.org/10.5281/zenodo.20490906) |
 | Gauss | 26 | 14 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410934) |
@@ -28,8 +28,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |
 | Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
-| Paul Gordan and Clebsch-Gordan | 45 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://zenodo.org/records/20822196) |
-| Ernst Steinitz | 7 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://zenodo.org/records/20822189) |
+| Paul Gordan and Clebsch-Gordan | 45 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
+| Ernst Steinitz | 7 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20547337) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |

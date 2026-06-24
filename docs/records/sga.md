@@ -8,13 +8,13 @@ Public title: Seminaire de Geometrie Algebrique (SGA): English Translation Worki
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 100 | 74 | 25 | 3306.4 |
+| 100 | 74 | 25 | 3306.5 |
 
 ## How To Read This Record
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-Current caveat from the 2026-06-24 SGA repair032 audit-support update: the latest published record is DOI `10.5281/zenodo.20822648`, which adds `SGA5_repair032_audit_support_20260624.zip`. SGA5 is explicitly not complete and should be assumed to contain many remaining errors unless a later, narrower source-audit packet promotes a specific locus. A later local SGA5 full-audit workpass (`sga5_full_audit_20260623`) confirms why the global caveat is necessary and has continued beyond the earlier p1-65 serial audit: the 2026-06-24 swarm status reports 226 verified corrections applied to `sga5_fr_workpass.tex` with `pdflatex` exit 0 / 306 pages, while also listing many p75-484 pages still pending because concurrent workflows hit API rate limits. This is strong repair evidence, not closure. It proves both diagram errors and prose/symbol-level errors exist in older SGA5 surfaces, and old `complete` labels mean only that a listed repair batch finished, not that SGA5 is source-faithful. Repair032 is preservation/support evidence for ongoing SGA5 repair, not a certified edition, not English synchronization, and not closure of diagram/formula/notation/typography queues. The SGA record remains at the 100-file ceiling; this version removed obsolete `sga_repair019_public_summary.json` to add the bundle. Treat SGA6 and SGA7 as substantial working drafts with explicit compression caveats unless a specific packet declares source-checked coverage. Older filenames containing words such as `Complete`, `Source-Checked`, `Strict`, or `High-Fidelity` are legacy package names, not current global certification. Witness-aid ZIPs are source-witness/anchor aids, not authority by themselves.
+Current caveat from the 2026-06-24 SGA audit-support updates: the latest published record is DOI `10.5281/zenodo.20822648`. SGA5 is explicitly not complete and should be assumed to contain many remaining errors unless a later, narrower source-audit packet promotes a specific locus. The public surface now carries repair032 support plus the later SGA5 full-audit workpass support bundle. The workpass reports source pages 1-65 of 484 plus source p103 serial-audited, 226 verified corrections applied in the workpass, rate-limited pages still open, and a 1141-element machine-readable index; it is preservation/support evidence for ongoing repair, not a certified edition, not English synchronization, and not closure of diagram/formula/notation/typography queues. Treat SGA6 and SGA7 as substantial working drafts with explicit compression caveats unless a specific packet declares source-checked coverage. Older filenames containing words such as `Complete`, `Source-Checked`, `Strict`, or `High-Fidelity` are legacy package names, not current global certification. Witness-aid ZIPs are source-witness/anchor aids, not authority by themselves.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
@@ -131,4 +131,4 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 0.0013 | [99 SGA - Public Summary.json](https://zenodo.org/records/20822648/files/99%20SGA%20-%20Public%20Summary.json) |
+| 0.0097 | [99 SGA - Public Summary.json](https://zenodo.org/records/20822648/files/99%20SGA%20-%20Public%20Summary.json) |
