@@ -1,6 +1,6 @@
 # Emmy Noether
 
-Zenodo record: [20836432](https://doi.org/10.5281/zenodo.20836432) (concept DOI: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587))
+Zenodo record: [20836432](https://doi.org/10.5281/zenodo.20412587)
 
 Public title: Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
@@ -8,13 +8,13 @@ Public title: Emmy Noether: Modern LaTeX Drafts and English Translation Working 
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 99 | 50 | 36 | 2105.4 |
+| 99 | 50 | 36 | 2105.5 |
 
 ## How To Read This Record
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-Current Noether public surface: latest published Zenodo version is record 20836432 / DOI 10.5281/zenodo.20836432 under the permanent concept DOI 10.5281/zenodo.20412587. It carries forward the curated reader/source-audit surface from record 20828102, fronts `115 Noether - R124plusP40 P35 P36 P38 P39 Rebased Source Repairs 2026-06-24.zip` as the current best local German cumulative source-repair baseline, includes `116 Noether - R124plusP40 P34 Hotspot Disposition NoNewPatch 2026-06-24.zip`, the corrected `90 Noether - Public Summary.json`, the P40 full-range package `112`, the source-audit addendum `113`, the P09-P20 survival cluster `114`, `117 Noether - Slavic WorkSoFar Papers01-34sec02 PublicSafe 2026-06-24.zip`, and `118 Noether - P30 Anchor-Closed Footnote Formula Date Source Repair 2026-06-24.zip`. This latest version also adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip`, a compact grouped post-R124 German/source-audit package containing the cumulative German TeX/PDF candidate, R124 baseline TeX, unified diff, compile logs, audit ledger, inventories, queue maps, and logbook. These files are working/source-audit/provenance packages only: not promoted critical editions, not whole-corpus mathematical certification, not new downstream multilingual synchronization proof, and not final high-resolution certification. File 115 uses best-staged 600ppi witnesses for P35/P36/P38/P39, below the local 650+ strict-certification floor; P34/P40 still rely on best-available 400ppi GDZ witnesses where noted. Ukrainian/Russian/Interslavic material remains work-so-far translation/linguistics apparatus. File 118 is source-confirmed against best-available local IA/JP2-derived witnesses, below the strict 650+ ppi final-certification floor, and does not certify the whole of Paper 30. A post-publication local P42 status packet is queued as a no-patch source-quality blocker: the best available local P42 witness is a readable RA10 cutout around 360 ppi, suitable only for orientation/rough checking and not final page-by-page source certification. Record 20826336 was a metadata-only intermediate correction after an upload-list BOM failure; 20826361, 20826858, 20827097, 20827751, 20827894, and 20828102 are now superseded by 20836432.
+Current Noether public surface: latest published Zenodo version is record 20836432 / DOI 10.5281/zenodo.20836432. It carries forward the curated reader/source-audit surface and adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip` as the current post-R124 local Codex consolidation/drop. These files are working/source-audit/provenance packages only: not promoted critical editions, not whole-corpus mathematical certification, not downstream multilingual synchronization proof, and not final high-resolution certification. Earlier R124-plus repair packages, P34/P40 hotspot dispositions, source-audit addenda, and survival clusters remain provenance layers; they are not blanket certification. Ukrainian/Russian/Interslavic material remains work-so-far translation/linguistics apparatus. Record 20836432 supersedes 20827097 as the current public Noether version.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers.
 
@@ -77,7 +77,6 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 4.5436 | [Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip) |
 | 43.6905 | [10 Noether - German Source Current 20260612.zip](https://zenodo.org/records/20836432/files/10%20Noether%20-%20German%20Source%20Current%2020260612.zip) |
 | 44.4732 | [108 Noether - German R124 plus P40 Source Repair Working Baseline 2026-06-24.zip](https://zenodo.org/records/20836432/files/108%20Noether%20-%20German%20R124%20plus%20P40%20Source%20Repair%20Working%20Baseline%202026-06-24.zip) |
 | 13.7201 | [11 Noether - English Papers Current 20260612.zip](https://zenodo.org/records/20836432/files/11%20Noether%20-%20English%20Papers%20Current%2020260612.zip) |
@@ -111,6 +110,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.5220 | [Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip) |
 | 24.4928 | [Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip) |
 | 33.3629 | [Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip) |
+| 4.5426 | [Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip) |
 | 695.7802 | [Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip](https://zenodo.org/records/20836432/files/Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip) |
 | 4.9474 | [nu_inversion_revert_for_RA28_20260612.zip](https://zenodo.org/records/20836432/files/nu_inversion_revert_for_RA28_20260612.zip) |
 
@@ -121,7 +121,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20836432/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
 | 0.0017 | [109 Noether - Source Audit Status and Caveats 2026-06-24.md](https://zenodo.org/records/20836432/files/109%20Noether%20-%20Source%20Audit%20Status%20and%20Caveats%202026-06-24.md) |
 | 0.0017 | [113 Noether - Current Source Audit Status Addendum 2026-06-24.md](https://zenodo.org/records/20836432/files/113%20Noether%20-%20Current%20Source%20Audit%20Status%20Addendum%202026-06-24.md) |
-| 0.0064 | [90 Noether - Public Summary.json](https://zenodo.org/records/20836432/files/90%20Noether%20-%20Public%20Summary.json) |
+| 0.0117 | [90 Noether - Public Summary.json](https://zenodo.org/records/20836432/files/90%20Noether%20-%20Public%20Summary.json) |
 | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20836432/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
 | 0.0004 | [99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json](https://zenodo.org/records/20836432/files/99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json) |
 | 0.0009 | [99_Noether_Public_Summary_RA28_nu_inversion_20260612.json](https://zenodo.org/records/20836432/files/99_Noether_Public_Summary_RA28_nu_inversion_20260612.json) |

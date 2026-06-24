@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1088
+Total files indexed: 1096
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -130,32 +130,38 @@ Record: <https://doi.org/10.5281/zenodo.20461174>
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20672843/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
-| artifact/source ZIP | 0.0102 | [AI-Run Modern LaTeX Workflow Packet - Local Aid Packets and OCR Witnesses 20260609.zip](https://zenodo.org/records/20672843/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.zip) |
-| artifact/source ZIP | 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20672843/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
-| artifact/source ZIP | 0.0095 | [AI-Run Modern LaTeX Workflow Packet - SGA Deligne Gordan Witness Addendum 20260609.zip](https://zenodo.org/records/20672843/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20SGA%20Deligne%20Gordan%20Witness%20Addendum%2020260609.zip) |
-| artifact/source ZIP | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20672843/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
-| reader/reference PDF | 0.0193 | [Project Workflow - Local Aid Packets and OCR Witnesses 20260609.pdf](https://zenodo.org/records/20672843/files/Project%20Workflow%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.pdf) |
-| reader/reference PDF | 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20672843/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
-| reader/reference PDF | 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20672843/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
-| artifact/source ZIP | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20672843/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
-| manifest/status | 0.0025 | [workflow-addendum-20260612-curated-public-surfaces.md](https://zenodo.org/records/20672843/files/workflow-addendum-20260612-curated-public-surfaces.md) |
-| manifest/status | 0.0029 | [workflow-addendum-20260612-object-level-audit.md](https://zenodo.org/records/20672843/files/workflow-addendum-20260612-object-level-audit.md) |
-| manifest/status | 0.0026 | [workflow-addendum-20260612-sga-ocr-page-map.md](https://zenodo.org/records/20672843/files/workflow-addendum-20260612-sga-ocr-page-map.md) |
-| manifest/status | 0.0046 | [workflow_addendum_20260611_sga_noether_weber_aid_lessons.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260611_sga_noether_weber_aid_lessons.md) |
-| manifest/status | 0.0059 | [Workflow_Addendum_20260612_Source_Audit_Public_Surface.md](https://zenodo.org/records/20672843/files/Workflow_Addendum_20260612_Source_Audit_Public_Surface.md) |
-| manifest/status | 0.0044 | [workflow_addendum_20260612_source_identity_repair_worklists.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260612_source_identity_repair_worklists.md) |
-| artifact/source ZIP | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20672843/files/Workflow_Lessons_20260611.zip) |
+| artifact/source ZIP | 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20836364/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
+| artifact/source ZIP | 0.0102 | [AI-Run Modern LaTeX Workflow Packet - Local Aid Packets and OCR Witnesses 20260609.zip](https://zenodo.org/records/20836364/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.zip) |
+| artifact/source ZIP | 0.0303 | [AI-Run Modern LaTeX Workflow Packet - OCR Witness Lessons 20260609.zip](https://zenodo.org/records/20836364/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20OCR%20Witness%20Lessons%2020260609.zip) |
+| artifact/source ZIP | 0.0095 | [AI-Run Modern LaTeX Workflow Packet - SGA Deligne Gordan Witness Addendum 20260609.zip](https://zenodo.org/records/20836364/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20SGA%20Deligne%20Gordan%20Witness%20Addendum%2020260609.zip) |
+| artifact/source ZIP | 0.0044 | [AI_Run_Workflow_Addendum_Archive_Scope_Guardrail_20260624.zip](https://zenodo.org/records/20836364/files/AI_Run_Workflow_Addendum_Archive_Scope_Guardrail_20260624.zip) |
+| artifact/source ZIP | 0.0029 | [AI_Run_Workflow_Addendum_Page_Unit_Audit_Harness_20260624.zip](https://zenodo.org/records/20836364/files/AI_Run_Workflow_Addendum_Page_Unit_Audit_Harness_20260624.zip) |
+| artifact/source ZIP | 0.0030 | [AI_Run_Workflow_Addendum_Source_Witness_Public_Surface_20260624.zip](https://zenodo.org/records/20836364/files/AI_Run_Workflow_Addendum_Source_Witness_Public_Surface_20260624.zip) |
+| artifact/source ZIP | 0.0799 | [AI_Run_Workflow_Audit_Harnesses_Noether_Weber_SGA6_Steinitz_20260624.zip](https://zenodo.org/records/20836364/files/AI_Run_Workflow_Audit_Harnesses_Noether_Weber_SGA6_Steinitz_20260624.zip) |
+| artifact/source ZIP | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20836364/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
+| reader/reference PDF | 0.0193 | [Project Workflow - Local Aid Packets and OCR Witnesses 20260609.pdf](https://zenodo.org/records/20836364/files/Project%20Workflow%20-%20Local%20Aid%20Packets%20and%20OCR%20Witnesses%2020260609.pdf) |
+| reader/reference PDF | 0.0797 | [Project Workflow and OCR Witness Lessons 20260609.pdf](https://zenodo.org/records/20836364/files/Project%20Workflow%20and%20OCR%20Witness%20Lessons%2020260609.pdf) |
+| reader/reference PDF | 0.0327 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20836364/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
+| artifact/source ZIP | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20836364/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
+| manifest/status | 0.0025 | [workflow-addendum-20260612-curated-public-surfaces.md](https://zenodo.org/records/20836364/files/workflow-addendum-20260612-curated-public-surfaces.md) |
+| manifest/status | 0.0029 | [workflow-addendum-20260612-object-level-audit.md](https://zenodo.org/records/20836364/files/workflow-addendum-20260612-object-level-audit.md) |
+| manifest/status | 0.0026 | [workflow-addendum-20260612-sga-ocr-page-map.md](https://zenodo.org/records/20836364/files/workflow-addendum-20260612-sga-ocr-page-map.md) |
+| manifest/status | 0.0046 | [workflow_addendum_20260611_sga_noether_weber_aid_lessons.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260611_sga_noether_weber_aid_lessons.md) |
+| manifest/status | 0.0059 | [Workflow_Addendum_20260612_Source_Audit_Public_Surface.md](https://zenodo.org/records/20836364/files/Workflow_Addendum_20260612_Source_Audit_Public_Surface.md) |
+| manifest/status | 0.0044 | [workflow_addendum_20260612_source_identity_repair_worklists.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260612_source_identity_repair_worklists.md) |
+| manifest/status | 0.0023 | [workflow_addendum_20260624_archive_scope_guardrail.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260624_archive_scope_guardrail.md) |
+| manifest/status | 0.0059 | [workflow_addendum_20260624_page_unit_audit_harness.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260624_page_unit_audit_harness.md) |
+| manifest/status | 0.0062 | [workflow_addendum_20260624_source_witness_public_surface.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260624_source_witness_public_surface.md) |
+| artifact/source ZIP | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20836364/files/Workflow_Lessons_20260611.zip) |
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20412587>
 
-Current Noether update 2026-06-24: latest public surface is record 20836432. It keeps file 115 as the current best local German cumulative source-repair baseline after rebasing P35/P36/P38/P39 repairs onto R124+P40, keeps file 116 as a narrow P34 hotspot no-new-patch disposition, adds file 117 as the public-safe Ukrainian/Russian/Interslavic work-so-far package, and keeps file 118 as the expanded Paper 30 anchor-closed footnote/formula/date source-repair and visual-disposition package, and adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip` as a compact grouped post-R124 German/source-audit package. File 117 keeps the translation outputs, logbooks, glossaries, audit/provenance notes, and source witnesses, while excluding contemporary third-party Slavic reference PDFs used only for terminology triangulation. This is a working draft/source-audit record, not a certified critical edition; downstream multilingual branches require source checking before mathematical reliance. File 118 is source-confirmed against best-available local IA/JP2-derived witnesses, below the strict 650+ ppi final-certification floor, and does not certify all of Paper 30; the earlier smaller file-118 package is superseded on this latest public surface.
+Current Noether update 2026-06-24: latest public surface is record 20836432. It carries forward the curated reader/source-audit surface and adds `Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip`, a compact grouped post-R124 German/source-audit package containing the current cumulative German TeX/PDF candidate, R124 baseline TeX, unified diff, compile logs, audit ledger, inventories, queue maps, and logbook. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 4.5436 | [Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip) |
 | manifest/status | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20836432/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
 | reader/reference PDF | 2.5616 | [01 Noether - German Source Cumulative RA20 Paper02 Display Fix.pdf](https://zenodo.org/records/20836432/files/01%20Noether%20-%20German%20Source%20Cumulative%20RA20%20Paper02%20Display%20Fix.pdf) |
 | reader/reference PDF | 2.4925 | [02 Noether - English Cumulative RA10 Apparatus Branch.pdf](https://zenodo.org/records/20836432/files/02%20Noether%20-%20English%20Cumulative%20RA10%20Apparatus%20Branch.pdf) |
@@ -220,7 +226,7 @@ Current Noether update 2026-06-24: latest public surface is record 20836432. It 
 | reader/reference PDF | 0.2072 | [20.41 Noether Paper 41 - English Translation.pdf](https://zenodo.org/records/20836432/files/20.41%20Noether%20Paper%2041%20-%20English%20Translation.pdf) |
 | reader/reference PDF | 0.2077 | [20.42 Noether Paper 42 - English Translation.pdf](https://zenodo.org/records/20836432/files/20.42%20Noether%20Paper%2042%20-%20English%20Translation.pdf) |
 | reader/reference PDF | 0.2368 | [20.43 Noether Paper 43 - English Translation.pdf](https://zenodo.org/records/20836432/files/20.43%20Noether%20Paper%2043%20-%20English%20Translation.pdf) |
-| manifest/status | 0.0064 | [90 Noether - Public Summary.json](https://zenodo.org/records/20836432/files/90%20Noether%20-%20Public%20Summary.json) |
+| manifest/status | 0.0117 | [90 Noether - Public Summary.json](https://zenodo.org/records/20836432/files/90%20Noether%20-%20Public%20Summary.json) |
 | manifest/status | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20836432/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
 | manifest/status | 0.0004 | [99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json](https://zenodo.org/records/20836432/files/99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json) |
 | manifest/status | 0.0009 | [99_Noether_Public_Summary_RA28_nu_inversion_20260612.json](https://zenodo.org/records/20836432/files/99_Noether_Public_Summary_RA28_nu_inversion_20260612.json) |
@@ -245,6 +251,7 @@ Current Noether update 2026-06-24: latest public surface is record 20836432. It 
 | artifact/source ZIP | 0.5220 | [Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip) |
 | artifact/source ZIP | 24.4928 | [Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip) |
 | artifact/source ZIP | 33.3629 | [Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip) |
+| artifact/source ZIP | 4.5426 | [Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip](https://zenodo.org/records/20836432/files/Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip) |
 | manifest/status | 0.0010 | [noether_ra25_public_summary.json](https://zenodo.org/records/20836432/files/noether_ra25_public_summary.json) |
 | manifest/status | 0.0005 | [noether_ra27_public_summary.json](https://zenodo.org/records/20836432/files/noether_ra27_public_summary.json) |
 | manifest/status | 0.0009 | [Noether_RA33_Public_Status_20260613.md](https://zenodo.org/records/20836432/files/Noether_RA33_Public_Status_20260613.md) |
@@ -410,7 +417,7 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and the later full-audit workpass support bundle, but SGA5 is explicitly not complete and remains errorful. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.
+Current SGA update 2026-06-24: the latest public surface is record 20822648. It carries SGA5 repair/audit support, including repair032 and later live-workpass evidence, but SGA5 is explicitly not complete and remains errorful. The live workpass reports 411 verified corrections in a compiling 307-page French workpass, a careful back-third pass through printed pp.375-484, and a front-grind cursor at printed p.100; open areas still include pp.1-74, pp.100-374, remaining front/middle heavy-QA pages, uncertain/type-B items, and English synchronization. These bundles are preservation/support evidence for ongoing repair, not certified editions, not English synchronization, and not closure of diagram/formula/notation queues. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.
 
 | Role | Size MB | File |
 |---|---:|---|
