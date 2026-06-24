@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Workflow SGA5 find-verify-fix workpass method snapshot
+
+Manifest: [20260625_workflow_sga5_find_verify_fix_workpass_method.json](../manifests/pending-zenodo-uploads/20260625_workflow_sga5_find_verify_fix_workpass_method.json)
+
+- Workflow pending ZIP: `AI_Run_Workflow_SGA5_FindVerifyFix_Workpass_Method_20260625.zip`, 149,526 bytes, SHA256 `7808CC08461D9274A2FA280644ABBDEF0DA09DF67ADD7B8940C642D9747BE88F`.
+- Scope: compact method snapshot from the live SGA5 source-audit lane. It preserves `sga5_audit_workflow.js`, deterministic patch-gate scripts, render/chunk/index helpers, the long SGA5 method/status note, consolidated findings, source-resolution notes, and the SGA5 element index.
+- Workflow lesson: after raw parallel swarms found many defects, the safer scalable method became one large workflow at a time: page-local discovery, independent verification, deterministic old-string/new-string patch application, then a compile gate. The binding constraint was server/API rate limits rather than token budget.
+- Caveat: workflow/replication support only. This is not an SGA5 reader replacement, not a certified edition, and not source-closure. It intentionally excludes bulky crops/renders and the full workpass TeX/PDF.
+
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh.
+
 ## 2026-06-25: Noether post-P11 failed-web/salvage and survival queue
 
 Manifest: [20260625_noether_post_p11_salvage_queue.json](../manifests/pending-zenodo-uploads/20260625_noether_post_p11_salvage_queue.json)
