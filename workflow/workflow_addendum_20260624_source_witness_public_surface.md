@@ -25,6 +25,26 @@ GPU OCR / Surya-style OCR / Pix2Text / VLM outputs are useful mainly as **covera
 
 The SGA5 audit lane showed the correct posture: OCR and indexes can locate dense loci, but source-page visual audit remains the authority. Current SGA5 workpass coverage has since advanced to source pages 1-65 plus the p103 diagram locus; this still proves the same workflow point: much more TeX can exist than has been source-page certified, and public records must state the narrower audited coverage.
 
+## 2a. Machine-Readable Indexes Are Navigation Layers
+
+Machine-readable theorem, definition, equation, diagram, table, and footnote indexes are valuable, but they are **navigation layers**, not textual authority.
+
+Use them to:
+
+- find where a statement, equation, diagram, or table appears across TeX, OCR, and rendered PDFs;
+- build per-paper checklists and anti-omission ledgers;
+- route a web/proofreading session directly to suspicious loci;
+- compare language branches by stable object IDs;
+- record no-patch decisions and source-closed loci.
+
+Do not use them to:
+
+- promote OCR-derived statements as accepted TeX;
+- overwrite a source reading without page-image confirmation;
+- certify a paper merely because every indexed item has an anchor;
+- publish raw local index dumps as reader-facing files without curation.
+
+The current Noether theorem/index extraction experiments illustrate the point: a generated theorem_index.csv/JSONL-style file is useful for search and triage, but it can contain OCR scars, duplicated phrases, flattened formulas, or contextless fragments. Public packages should either include such indexes as clearly labelled locator/audit aids, or summarize their lesson in the workflow record while keeping raw side outputs local.
 ## 3. High-Resolution Source Packets
 
 For difficult mathematical scans, useful aid packets should include:
