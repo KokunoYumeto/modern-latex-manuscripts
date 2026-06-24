@@ -76,6 +76,22 @@ Witness packages should distinguish certified repairs from candidate evidence. D
 
 For the object-level diagram/table promotion rule, see [Object-Level Diagram And Table Audit](workflow-addendum-20260612-object-level-audit.md). The short version is: full-page screenshots and contact sheets are orientation aids, not authority. Diagram/table promotion needs a source object witness, an output render witness, an object ID, and an explicit verdict in a ledger.
 
+## Page-Unit Audit Harnesses
+
+A reusable 2026-06-24 pattern is now visible across SGA6, Weber, and Steinitz: build a page-unit audit harness around the best cumulative TeX, not around raw OCR drops. The harness should declare the canonical TeX file, the source scan, the printed-page to PDF-page offset, any offset drift, and the exact scope of ready audit units.
+
+Raw OCR drops can be valuable, but only as locator aids. In the SGA6 harness, Kimi OCR drops are explicitly not the transcription basis; the audit basis is the mature cumulative French `sga6_fr.tex`, while the original scan remains ground truth. In Weber, the useful scaffold is a 1720-page manifest across the three volumes with volume-specific source scans and offsets. In Steinitz, only the 1910 `Algebraische Theorie der Körper` pages with explicit `\sourcepage{}` markers are truly page-unit audit-ready; other works with good TeX but no page anchors are spot-audit ready until page markers are added.
+
+The recommended harness contents are:
+
+- one manifest row per audit unit, with work, source file, printed page, PDF page or scan image, TeX file, and TeX line/page anchor;
+- a chunk-on-demand renderer that produces high-detail page crops only for requested pages;
+- explicit source-quality notes, including DPI, scan class, and any drift in page offsets;
+- a statement of which TeX branch is canonical and which older or OCR branches are superseded or locator-only;
+- a caveat separating page-unit readiness from whole-work certification.
+
+Do not mass-render thousands of pages unless the next stage actually needs them. Render only the pages or objects being audited, and keep the resulting crops keyed to the manifest row that requested them.
+
 ## Local-To-Web Audit Workflow
 
 The current scalable pattern is a two-lane workflow: local machines prepare source-faithful aid packets, while web-based Pro review threads use those packets to translate, repair, and audit against the source. The two lanes are different on purpose. The local lane is good at downloading, slicing, rasterizing, cropping, OCR, math-OCR witnesses, compilation, checksum manifests, and publication. The web review lane is good at high-context mathematical translation, prose completion, and self-audit when the evidence is packaged clearly. This became explicit in SGA and Deligne repair work: local Codex packets supplied page maps, high-detail diagram/formula crops, OCR prose witnesses, and current TeX anchors, while the review thread used those witnesses to locate compression, missing prose, flattened commutative diagrams, and symbol-level mismatches.
