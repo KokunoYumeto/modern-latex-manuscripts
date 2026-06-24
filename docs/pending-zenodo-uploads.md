@@ -1,5 +1,21 @@
 # Pending Zenodo Uploads
 
+## 2026-06-24: Noether R124plus post-publication survival/status packets
+
+Manifest: [20260624_noether_r124plus_late_p09_p30_repairs.json](../manifests/pending-zenodo-uploads/20260624_noether_r124plus_late_p09_p30_repairs.json)
+
+After Noether record [20836432](https://zenodo.org/records/20836432) was published, seven small follow-on no-new-patch/survival/status ZIPs were observed and queued in the grouped R124plus manifest:
+
+- `Noether_R124plus_P10_p537_FullPageSupplement_JdomainSurvival_NoNewPatch_20260624.zip`
+- `Noether_R124plus_P34_TablePatchSurvival_CurrentCandidate_NoNewPatch_20260624.zip`
+- `Noether_R124plus_P35_P36_P38_P39_Survival_CurrentCandidate_NoNewPatch_20260624.zip`
+- `Noether_R124plus_P37_RA08Survival_WrapperOnly_NoNewPatch_20260624.zip`
+- `Noether_R124plus_P40_GDZ400CompleteSurvival_NoNewPatch_20260624.zip`
+- `Noether_R124plus_P41_SourceRestorationSurvival_NoNewPatch_20260624.zip`
+- `Noether_R124plus_P43_SourceRestorationSurvival_NoNewPatch_20260624.zip`
+
+Status: hold for a future grouped Noether source-audit/status update. These are useful web-session control and survival-evidence packets, not separate reader-facing editions, not whole-corpus closure, and not critical-edition certification. Do not upload them one by one.
+
 ## 2026-06-24: Noether Paper 42 source-quality blocker / no-patch status
 
 Manifest: [20260624_noether_p42_source_quality_blocker_pending.json](../manifests/pending-zenodo-uploads/20260624_noether_p42_source_quality_blocker_pending.json)
