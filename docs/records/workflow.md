@@ -1,6 +1,6 @@
 # Workflow / Replication Packet
 
-Zenodo record: [20672843](https://doi.org/10.5281/zenodo.20461174)
+Zenodo record: [20822456](https://doi.org/10.5281/zenodo.20461174)
 
 Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
@@ -8,7 +8,7 @@ Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 16 | 3 | 7 | 0.3 |
+| 18 | 3 | 8 | 0.3 |
 
 ## How To Read This Record
 
@@ -37,6 +37,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0320 | [OCR Workflow Scripts and Lessons 20260604.zip](https://zenodo.org/records/20672843/files/OCR%20Workflow%20Scripts%20and%20Lessons%2020260604.zip) |
 | 0.0979 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20672843/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
 | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20672843/files/Workflow_Lessons_20260611.zip) |
+| 0.0025 | [AI_Run_Workflow_Addendum_Source_Witness_Public_Surface_20260624.zip](https://zenodo.org/records/20822456/files/AI_Run_Workflow_Addendum_Source_Witness_Public_Surface_20260624.zip) |
 
 ## Manifest And Status Files
 
@@ -48,6 +49,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0046 | [workflow_addendum_20260611_sga_noether_weber_aid_lessons.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260611_sga_noether_weber_aid_lessons.md) |
 | 0.0059 | [Workflow_Addendum_20260612_Source_Audit_Public_Surface.md](https://zenodo.org/records/20672843/files/Workflow_Addendum_20260612_Source_Audit_Public_Surface.md) |
 | 0.0044 | [workflow_addendum_20260612_source_identity_repair_worklists.md](https://zenodo.org/records/20672843/files/workflow_addendum_20260612_source_identity_repair_worklists.md) |
+| 0.0050 | [workflow_addendum_20260624_source_witness_public_surface.md](https://zenodo.org/records/20822456/files/workflow_addendum_20260624_source_witness_public_surface.md) |
 
 ## Latest Addendum
 
