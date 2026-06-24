@@ -397,7 +397,7 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA update 2026-06-24: the latest surface adds `SGA5_repair032_audit_support_20260624.zip`, a compact bundle of repair032 SGA5 repair/audit evidence. SGA5 is explicitly not complete and remains errorful; the later local full-audit workpass has source-audited pp.1-50 of 484 plus p103 only, with 17 fixes and unresolved/systematic issues logged. The repair032 bundle is preservation/support evidence, not a certified edition, not English synchronization, and not closure of diagram/formula/notation queues. The record removed obsolete `sga_repair019_public_summary.json` from the latest 100-file surface to free one slot. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.
+Current SGA update 2026-06-24: the latest surface adds `SGA5_repair032_audit_support_20260624.zip`, a compact bundle of repair032 SGA5 repair/audit evidence. SGA5 is explicitly not complete and remains errorful; the later local full-audit workpass has source-audited pp.1-60 of 484 plus p103 only, with 23 fixes and unresolved/systematic issues logged. The repair032 bundle is preservation/support evidence, not a certified edition, not English synchronization, and not closure of diagram/formula/notation queues. The record removed obsolete `sga_repair019_public_summary.json` from the latest 100-file surface to free one slot. Legacy filenames containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity` are not current global certification claims.
 
 | Role | Size MB | File |
 |---|---:|---|
