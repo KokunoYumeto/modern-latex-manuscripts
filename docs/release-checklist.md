@@ -36,7 +36,7 @@ Use this before publishing or replacing a Zenodo record.
 ## 5. Metadata
 
 - Description should explain the project, not just the latest upload.
-- Include current coverage/status, known incompleteness, provenance model, and file roles.
+- Include current coverage/status, known incompleteness, provenance model, and file roles. Base those labels on the newest local/source audits available, not only on package filenames.
 - Link related records in the metadata when a corpus is split across records.
 - Use CC0 where possible and document exceptions or caution areas in plain language.
 
@@ -49,3 +49,4 @@ Use this before publishing or replacing a Zenodo record.
 - Commit the mirror and attempt to push.
 - If push is blocked, refresh the portable mirror snapshot ZIP.
 - Update the session/project coordination notes with current record IDs, audit timestamps, and blockers.
+- Preserve audit/logbook material when it explains the real reliability level or reusable workflow, especially for constructed-language, OCR, diagram/table, and source-witness lanes.

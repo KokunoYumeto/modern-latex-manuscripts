@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1065
+Total files indexed: 1071
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -1003,7 +1003,7 @@ Dedicated Maxwell working-tranche record. Current public coverage is A Treatise 
 
 ## J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 
-Record: <https://zenodo.org/records/20821820>
+Record: <https://doi.org/10.5281/zenodo.20649835>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -1160,8 +1160,14 @@ Record: <https://doi.org/10.5281/zenodo.20673444>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0007 | [99_Frobenius_-_Public_Summary_20260613.json](https://zenodo.org/records/20673445/files/99_Frobenius_-_Public_Summary_20260613.json) |
-| artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20673445/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
+| manifest/status | 0.0007 | [99_Frobenius_-_Public_Summary_20260613.json](https://zenodo.org/records/20821858/files/99_Frobenius_-_Public_Summary_20260613.json) |
+| manifest/status | 0.0021 | [99_Frobenius_Public_Summary_20260624.json](https://zenodo.org/records/20821858/files/99_Frobenius_Public_Summary_20260624.json) |
+| artifact/source ZIP | 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20821858/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
+| artifact/source ZIP | 163.9990 | [Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip](https://zenodo.org/records/20821858/files/Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip) |
+| reader/reference PDF | 1.1871 | [Frobenius_selected_EN_cumulative_all.pdf](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.pdf) |
+| other | 0.5140 | [Frobenius_selected_EN_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.tex) |
+| reader/reference PDF | 1.2044 | [Frobenius_selected_GE_cumulative_all.pdf](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.pdf) |
+| other | 0.5290 | [Frobenius_selected_GE_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.tex) |
 
 ## Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts
 

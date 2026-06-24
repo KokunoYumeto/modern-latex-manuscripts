@@ -52,7 +52,7 @@ The public readability audit checks for configured metadata and filename problem
 
 The public PDF surface audit checks that top-level PDFs open and do not trip configured surface defects. It can classify known image-based reference scans as expected.
 
-Neither audit proves mathematical correctness. The strongest review is still source comparison against scans, reference PDFs, or trusted existing TeX, followed by mathematical proofreading of the resulting TeX/PDF.
+Neither audit proves mathematical correctness. The strongest review is still source comparison against scans, reference PDFs, or trusted existing TeX, followed by mathematical proofreading of the resulting TeX/PDF. Public completion labels should be revised from the newest available local/source audits, not from optimistic filenames or older session summaries. If an audit finds compression, symbol drift, diagram errors, stale language branches, or incomplete page coverage, the Zenodo/GitHub description should say that plainly in human-facing language.
 
 ## How To Review A File
 
