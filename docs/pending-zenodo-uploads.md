@@ -170,8 +170,8 @@ Compact files observed:
 - `Noether_R123plusP08_P24_P30_Context_Cumulative_WebDrop_20260624.zip` - 323.0007 MB, SHA256 `8DE22EEFC9322B2E333D58564E64D3A6C3A440769053AE18B5071555A3905AEB`. Scope: P24-P30 context package on P08-fixed cumulative baseline; large context/source package, not paper-level certification
 - `Noether_R123plusP08_P31_P37_Context_Cumulative_WebDrop_20260624.zip` - 7.6665 MB, SHA256 `931A851EDD3646ED9CCB5258AD758816682F070A0720B9E74C3396A135F1876E`. Scope: P31-P37 context package on P08-fixed cumulative baseline; continuation context, not paper-level certification
 - `Noether_R123plusP08_P38_P43_Context_Cumulative_WebDrop_20260624.zip` - 67.477 MB, SHA256 `F3361ABD9FAF5ADC630D3A6FECFB7F650430D999763A7D9119BA717160D54AA2`. Scope: P38-P43 caveat-heavy context package; P38-P42 source audit open, P40-P43 apparatus placement unresolved; do not use as closure
-- `Noether_R123plusP08_WebDrop_Index_20260624.zip` - 0.0574 MB, SHA256 `217C0A96414BCFEE910AA6D5B8742E500963DF753E148903E170E6D22203A23A`. Scope: live index CSV/README for the full R123+P08 web-drop package set and upload order; coordination/provenance only; verify immediately before upload
-- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` - 0.1751 MB, SHA256 `A308A330F155A090EDB63D733B3136DEF33838F72D9F3375F1F97A5A9CB6831D`. Scope: live source-audit logbook snapshot from the local Noether source-checking lane; verify immediately before upload
+- `Noether_R123plusP08_WebDrop_Index_20260624.zip` - 0.0586 MB, SHA256 `819AA9B0152D5175FE667525559FB73BB27ABB9F3733A5C3DCD07FBBD264C6F1`. Scope: live index CSV/README for the full R123+P08 web-drop package set and upload order; coordination/provenance only; verify immediately before upload
+- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` - 0.1775 MB, SHA256 `A5B65E62D83E3A25D0CFF52F4CE357146008E897042DEF9CFA2C1F5A48CF207E`. Scope: live source-audit logbook snapshot from the local Noether source-checking lane; verify immediately before upload
 
 Public action: candidate/provenance; use to coordinate web sessions and prevent stale R123 continuation; upload only as compact support/context if useful, not as a promoted edition or critical edition.
 
@@ -1780,7 +1780,7 @@ Manifest: [20260624_noether_p14_p17_survival_supplement.json](../manifests/pendi
 
 - Noether: Noether_P14_P16_SourceFixSurvival_R123plusP08_20260624.zip, 3.5193 MB, SHA256 3C720DD04AEB2133DA082C2A71588E6E2EF273C9824BD40DEEDBC22466E279A.
 - Noether: Noether_P17_RA94_ScaffoldFix_Survival_R123plusP08_20260624.zip, 6.0336 MB, SHA256 CC4BA4B40EC7E7EF089D1948767D848305D9DF1094919316827FCB1390606521.
-- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0574 MB, SHA256 217C0A96414BCFEE910AA6D5B8742E500963DF753E148903E170E6D22203A23A (live index; verify immediately before upload).
+- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0586 MB, SHA256 819AA9B0152D5175FE667525559FB73BB27ABB9F3733A5C3DCD07FBBD264C6F1 (live index; verify immediately before upload).
 - Contents: targeted survival/source-fix support for Papers 14-17 plus the refreshed webdrop index/logbook. These are provenance and audit support only, not proof that Papers 14-17 are source-complete.
 
 Next action: retain for Noether project staging or attach to a deliberate Noether source-audit/provenance Zenodo version. Do not publish separately and do not present as final certification.
@@ -1876,7 +1876,7 @@ Next action: stage on Noether source-audit/provenance queue; if uploaded, descri
 
 Manifest: [20260624_noether_p39_icm1932_600ppi_source_repair.json](../manifests/pending-zenodo-uploads/20260624_noether_p39_icm1932_600ppi_source_repair.json)
 
-- Noether: `Noether_P39_ICM1932_600ppi_SourceRepair_R123plusP08P30P33P34P35P36P38_20260624.zip`, 6.2741 MB, SHA256 `49214E84417EEC5244C4CDD6C880C244BF2E18B27B53F2464EA3E17519154E87`; best-available source-repair package for `Hyperkomplexe Systeme in ihren Beziehungen zur kommutativen Algebra und Zahlentheorie`.
+- Noether: `Noether_P39_ICM1932_600ppi_SourceRepair_R123plusP08P30P33P34P35P36P38_20260624.zip`, 9.6340 MB, SHA256 `3F9EA3B45ABFA7A7CCF86380EE29CF1C2CBD95D66066FD82D17D6D5DB52ACDBA`; best-available source-repair package for `Hyperkomplexe Systeme in ihren Beziehungen zur kommutativen Algebra und Zahlentheorie`.
 - Contents: rebased cumulative German candidate after the P38 repair line; official ICM 1932 cutout for printed pp.189-194; six native 600ppi page witnesses; targeted 600ppi crops; confirmed-fix ledger; no-fix trap ledger; source-repair diff; compile logs; refreshed text extraction.
 - Repairs: source title punctuation and author line; `Prinzip` spelling and source italics in the p189 principle sentence; crossed-product principle wording/style including `die`, restricted emphasis, and quotation marks around `verschränkten Produkts`; source italics on `Definition des verschränkten Produkts`.
 - No-patch traps: `endlichvielen` is source-visible as one word; formulas (1)-(5'), barred `\bar a`, `\mathfrak J`, `\Gg^\ast`, and Hauptgeschlecht expressions already survived from earlier repair.
