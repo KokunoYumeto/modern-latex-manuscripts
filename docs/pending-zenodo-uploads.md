@@ -519,7 +519,7 @@ Next action when Zenodo API credentials are available: upload the compact packet
 
 Manifest: [`20260623_sga5_repair032_source_audit.json`](../manifests/pending-zenodo-uploads/20260623_sga5_repair032_source_audit.json)
 
-- Published 2026-06-24 on the SGA all-version DOI as latest record <https://doi.org/10.5281/zenodo.20821507>.
+- Published 2026-06-24 on the SGA all-version DOI as latest record <https://doi.org/10.5281/zenodo.20822648>.
 - Public bundle: `SGA5_repair032_audit_support_20260624.zip`, 74.6572 MB, SHA256 `9CBEC3DBD3E210C6B67A9949895D1A380B647E6C17C37B73B9FB49EFD9A7AD99`.
 - Bundle contents: `SGA5_repair032_codex_final_20260620.zip`, `SGA5_repair032_codex_p205_226_microaudit_20260620.zip`, and `SGA5_Remaining_Error_Audit_WebDrop_20260619.zip`, plus README and checksums.
 - Caveat: this is repair/audit support evidence only. It does not certify SGA5 complete, does not synchronize English, and does not close open diagram/formula/notation queues except where a narrower later packet explicitly does so.
