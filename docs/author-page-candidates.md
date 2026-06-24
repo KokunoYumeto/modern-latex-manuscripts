@@ -19,13 +19,14 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | James Joseph Sylvester | Volume I now has a dedicated source-checked working-edition record through book page 608. |
 | James Clerk Maxwell | Dedicated source-witnessed working-tranche record for IA 1873 first-edition Maxwell Treatise Vol. I now public through pp.001-079 (latest version <https://doi.org/10.5281/zenodo.20821947> under concept DOI <https://doi.org/10.5281/zenodo.20653107>), plus earlier ledger-backed pp.95-101, 103, 105, 109, and pp.111-267. Continue at p.080 / IA leaf 118; not a complete Treatise or critical edition. |
 | J. Willard Gibbs / old physics | Gibbs Volume I old-physics public working tranches through printed page 134 now have a dedicated record; Paper 3 cumulative staging is public through pp.055-134. Continue after p134; not a complete Gibbs corpus or critical edition. |
+| Ferdinand Georg Frobenius | Dedicated selected group-character German/English working package now public; latest RA05 refresh reports 10/10 selected items and 221/221 tracked source-intake pages, still as working/source-witnessed material rather than a critical edition. |
+| Adolf Kneser | Dedicated `Lehrbuch der Variationsrechnung` source-witnessed working record now public through p0011-p0248 / sections 1-55, reporting 248/336 source pages done. |
 
 ## Strong Split Candidates
 
 | Candidate | Current Reason | Public Framing |
 |---|---|---|
-| Frobenius | The mixed additional-author shelf now contains `Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip`, a coherent selected Frobenius group-character/hypercomplex sequence package with German and English cumulatives, per-work TeX/PDF, source scans, and QA ledgers for declared items 053, 054, 056, 057, 058, 059, 060, 061, 070, and 071. | Good candidate for a dedicated Frobenius working-edition record once a concise public status file and top-level reader PDFs are extracted from the QA03 package. |
-| Kneser | Published as a dedicated record on 2026-06-24: <https://doi.org/10.5281/zenodo.20836971>. | Split complete for now. Continue future Kneser updates on the dedicated record; keep mixed-shelf copies as provenance/backstop. |
+| None urgent after 2026-06-24 split pass | Frobenius and Kneser have now moved to dedicated records. | Reassess only when another mixed-shelf author has a coherent reader surface, TeX/source witnesses, and a short public status statement. |
 
 ## Hold Until Cleaner Rollup
 
