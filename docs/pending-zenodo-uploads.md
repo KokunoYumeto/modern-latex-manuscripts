@@ -1,5 +1,23 @@
 # Pending Zenodo Uploads
 
+## 2026-06-24: Noether R123 survival / no-patch audit cluster
+
+Manifest: [20260624_noether_r123_survival_audit_cluster.json](../manifests/pending-zenodo-uploads/20260624_noether_r123_survival_audit_cluster.json)
+
+Local source root: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive`.
+
+Compact files observed:
+
+- `Noether_R123_P09_SurvivalAudit_Cumulative_WebDrop_20260624.zip`, 3,511,113 bytes, SHA256 `954327CB79E28534973A56B34C0C12D86BEDB2F679B4BCBAA34C23134BDEB5D2`.
+- `Noether_R123_P10_P13_SurvivalAudit_Cumulative_WebDrop_20260624.zip`, 3,508,429 bytes, SHA256 `5E506652CEBA2AED8EA82FFB665B8FFFB76222F0324D808A7D5DC31E7DDBB08C`.
+- `Noether_R123_P14_P18_SurvivalAudit_Cumulative_WebDrop_20260624.zip`, 3,507,604 bytes, SHA256 `5FA7AE6855AC03B437F1361BEEB2C5A86757209C94B6E4FF84E8699F364576CF`.
+- `Noether_R123_P19_P20_SurvivalAudit_Cumulative_WebDrop_20260624.zip`, 3,507,864 bytes, SHA256 `B944E4ECE9500A4388E1E0768C693A2EF33E416A2001174C02B0273B4CE360E2`.
+- `Noether_R123_P18_GDZ600_SourceClosure_WebDrop_20260624.zip`, 5,046,637 bytes, SHA256 `65DFA5EC25DC285CE786E1D7D6D8812E7BDBC589D5C6E7E72AA795A34B07BB36`.
+- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 127,460 bytes, SHA256 `0AFEB65032C7C3781F7966501C51E8549ADA73AE4EF75659A048C458DB96A8E8`.
+
+Declared scope: current-state R123 survival / source-closure support. These files prove that selected accepted repairs and no-fix decisions survived into the R123 salvage cumulative, or that a targeted locus is closed as no-patch under the stated source-quality caveat. They do **not** propose new TeX patches, do **not** certify full papers, do **not** propagate downstream multilingual branches, and are **not** critical-edition evidence by themselves.
+
+Next action: keep as compact provenance/anti-regression support. Upload only as a small Noether support update if useful; do not make a new reader-facing version from these alone.
 
 ## 2026-06-24: Steinitz and Gordan ChatGPT Project upload consolidations
 
