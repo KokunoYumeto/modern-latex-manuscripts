@@ -94,12 +94,13 @@ Files observed:
 
 - `PROJECT_README_GORDAN_20260624.md`, 4,204 bytes, SHA256 `598977D5A41200FAE98FD29B5071248E0CFDBE126D56E150382921ABAF0A3954`.
 - `Gordan_Project_Control_Ledgers_20260624.zip`, 6,089 bytes, SHA256 `AB9DAB2A74D261C8EB7EA116F0C42C8175347A07D59DC442C29B3D439868C170`.
+- `PROJECT_FILE_MANIFEST_GORDAN_20260624.csv` and `SHA256_PROJECT_FILES_20260624.csv` are tracked as folder-level audit controls; they do not promote every listed working file as a reader-facing edition.
 - `Gordan_Current_Work_Audit_Extracted_20260623.zip`, 198,043,422 bytes, SHA256 `0E1E48D4B85E571CE50F4F105A34E3AA29A2CB89815C8429DFE36CD5C18FDBE4`.
 - `Gordan_IA_theoriederabelsc00clebuoft_RAW_JP2_400ppi.zip`, 325,220,027 bytes, SHA256 `8A248F765EA6086253E34F7632F3C92A8AFBF57C46072697019D9C56D84AD7C7`.
 - `Gordan_IA_theoriederabelsc00clebuoft_processed_JP2_400ppi.zip`, 164,325,397 bytes, SHA256 `BE361A9F2AF1A01726AC51F3CF31E5EB672F34D1D0C1070BF91CF654F90E7BF0`.
 - `Gordan_IA_theoriederabels00clebgoog_processed_JP2.zip`, 68,010,271 bytes, SHA256 `9D5EC7BBC840A3D0441EC717D06D540AEB783A7E0BA59F48E4B711F898FAD60D`.
 - `Gordan_IA_bub_gb_d6RLAAAAMAAJ_Vorlesungen_processed_JP2.zip`, 183,482,891 bytes, SHA256 `96CB3A84485AE09217D45F80C2744B3FB95DD1FC6B275CA88890995A395100DF`.
-Quality caveat: These files support continuation, source checking, OCR/visual audit, and project handoff. They do not certify a complete author corpus or critical edition. Existing accepted labels remain handoff-produced unless separately line-certified.
+Quality caveat: These files support continuation, source checking, OCR/visual audit, and project handoff. They do not certify a complete author corpus or critical edition. Existing accepted labels remain handoff-produced unless separately line-certified. Folder-level manifest/checksum files are included as audit controls; individual listed working packages still retain their own caveats.
 
 Next action: Upload if the author record needs source-witness completeness; otherwise keep as pending tracked local source package. If uploaded, describe as source witnesses/project upload set, not reader-facing edition.
 
@@ -115,11 +116,12 @@ Files observed:
 
 - `PROJECT_README_STEINITZ_20260624.md`, 4,528 bytes, SHA256 `8B620B08436E1A0BA03A824C86164548C6E696535655D7B37B5C0BA5D77B898E`.
 - `Steinitz_Project_Control_Ledgers_20260624.zip`, 7,022 bytes, SHA256 `F42B95AA4808CE805A172F931BB40FFF7FDB6B34469184ADB540E0F2CBE0CCC5`.
+- `PROJECT_FILE_MANIFEST_STEINITZ_20260624.csv` and `SHA256_PROJECT_FILES_20260624.csv` are tracked as folder-level audit controls; they do not promote every listed working file as a reader-facing edition.
 - `Steinitz_HighRes_PageImages_A_1905_1912_1913_1914_20260624.zip`, 370,425,571 bytes, SHA256 `B41C21283C0B30D189081185F34403207DF24DC2906B899A225B3D51BC576AAC`.
 - `Steinitz_HighRes_PageImages_B1_1916_BedingtIII_20260624.zip`, 145,260,798 bytes, SHA256 `7B528F5559C8C52AFB644E0DC7C2860495C4F794B194350FD0BAD130024C83F0`.
 - `Steinitz_HighRes_PageImages_B2_1916_1922_Polyeder_Raumeinteilungen_20260624.zip`, 356,966,463 bytes, SHA256 `65C00AF2E55CB774C9F4CD050676A2D781170A4885A312579BCC4311C24C1FCA`.
 - `Steinitz_HighRes_PageImages_C_1927_1928_Isoperimetric_20260624.zip`, 94,706,176 bytes, SHA256 `59C903E48EF0ECD237F09429B133EF659D83345A3EA6A76F721E45D8C101C6C3`.
-Quality caveat: These files support continuation, source checking, OCR/visual audit, and project handoff. They do not certify a complete author corpus or critical edition. Existing accepted labels remain handoff-produced unless separately line-certified.
+Quality caveat: These files support continuation, source checking, OCR/visual audit, and project handoff. They do not certify a complete author corpus or critical edition. Existing accepted labels remain handoff-produced unless separately line-certified. Folder-level manifest/checksum files are included as audit controls; individual listed working packages still retain their own caveats.
 
 Next action: Upload if the author record needs source-witness completeness; otherwise keep as pending tracked local source package. If uploaded, describe as source witnesses/project upload set, not reader-facing edition.
 
