@@ -2,7 +2,8 @@
 
 ## Recently published, no longer pending
 
-- 2026-06-24: Noether R122 consolidated source-queue package published as Zenodo record <https://zenodo.org/records/20821592> / DOI <https://doi.org/10.5281/zenodo.20821592>. Published file: `Noether_R122_20260623.zip`. It is a consolidated German R122 source-queue/cumulative working package reporting Papers 32-33 source-audit work closed in that branch and Paper 34 next; it is not a critical edition, not whole-corpus mathematical certification, and not multilingual propagation.
+- 2026-06-24: Noether Slavic source-transfer package published as part of the current Noether Zenodo record <https://zenodo.org/records/20821644> / DOI <https://doi.org/10.5281/zenodo.20821644>. Published file: `Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip`, 695.7802 MB, SHA256 `FD918BC10DCEDE080FF4D39062F0B3CEA7290213F89F2AC69332E69627EFD1AE`. It is Ukrainian/Russian/Interslavic translation/source-transfer provenance only, not canonical multilingual promotion, not source closure, and not a critical edition.
+- 2026-06-24: Noether R122 consolidated source-queue package first published as Zenodo record <https://zenodo.org/records/20821592> / DOI <https://doi.org/10.5281/zenodo.20821592> and now carried forward in the current Noether record <https://zenodo.org/records/20821644>. Published file: `Noether_R122_20260623.zip`. It is a consolidated German R122 source-queue/cumulative working package reporting Papers 32-33 source-audit work closed in that branch and Paper 34 next; it is not a critical edition, not whole-corpus mathematical certification, and not multilingual propagation.
 - 2026-06-24: Noether R122 source-audit candidate batch published earlier as Zenodo record <https://zenodo.org/records/20821409> / DOI <https://doi.org/10.5281/zenodo.20821409>. Published files: `Noether_R122_P16_SourceAudit_WebDrop_20260624.zip`, `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip`, `Noether_R122_P20_SourceAudit_WebDrop_20260624.zip`, and `Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip`. These remain candidate/source-audit/provenance packages only, with no critical-edition or multilingual-propagation claim. Their detailed manifests remain under `manifests/pending-zenodo-uploads/` as source/audit records even though the four files are no longer pending upload.
 
 ## 2026-06-24: Noether Slavic lane source-check/status snapshot
@@ -23,13 +24,13 @@ Manifest: [20260624_noether_r122_p39_webfix_cluster.json](../manifests/pending-z
 
 File list: [20260624_noether_r122_p39_webfix_cluster_files.csv](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_webfix_cluster_files.csv)
 
-- Originally observed Noether cluster: 20 ZIP paths, total 258.8311 MB including top-level and nested handoff copies. The consolidated Noether_R122_20260623.zip member is now published in record 20821592; the rest remains local/pending or coordination evidence as described below.
+- Originally observed Noether cluster: 20 ZIP paths, total 258.8311 MB including top-level and nested handoff copies. The consolidated Noether_R122_20260623.zip member is now carried forward in current record 20821644 after first publication in record 20821592; the rest remains local/pending or coordination evidence as described below.
 - Main remaining/local files: `Noether_R121_Current_WebDrops_LocalCodex_20260624.zip`, `Noether_R121_WebFix_P39_Title_SourceConfirmed_20260624.zip`, `Noether_R121_WebFix_P39_Page189_SourceFidelity_20260624.zip`, `Noether_R121_WebFix_P39_P190_P191_SourceFidelity_20260624.zip`, `Noether_R121_WebFix_P39_pp189_191_Rollup_WebDrop_20260624.zip`, and `Noether_R121_WebFix_P39_P192_SourceFidelity_20260624.zip`.
 - Guardrail/state packages: `Noether_R121_P22_RA61_RA63_Absorbed_NoDuplicate_Audit_20260623.zip`, `Noether_R121_P24_P25_P30_Absorbed_NoDuplicate_20260624.zip`, `Noether_R121_P31_P36_RA07_Absorbed_NoDuplicate_20260624.zip`, `Noether_R121_P37_RA08_Absorbed_P38_P39_Open_20260624.zip`, `Noether_R121_P38_P39_SlavicFinalAuditedSlices_DoNotOverwrite_20260624.zip`, and `Noether_R121_P38_P42_RA81_RA82_ResetsAbsorbed_SourceAuditStillOpen_20260624.zip`.
 - Declared scope: R122 working source-queue/cumulative candidate with Papers 32-33 source-audit work, a LocalCodex web-session state handoff, and targeted Paper 39 title/page-level source-fidelity candidates.
 - Caveats: not a critical edition, not whole-corpus certification, not Paper 39 closure, and not multilingual propagation. State-sync/no-duplicate packages are coordination evidence only.
 
-Next action: `Noether_R122_20260623.zip` is now published in record 20821592. Retain the remaining LocalCodex/P39/state-sync files as candidate/source-provenance and web-handoff material only, or branch-reconcile before any promotion.
+Next action: `Noether_R122_20260623.zip` is now carried forward in current record 20821644 after first publication in record 20821592. Retain the remaining LocalCodex/P39/state-sync files as candidate/source-provenance and web-handoff material only, or branch-reconcile before any promotion.
 
 
 
@@ -194,7 +195,7 @@ Manifest: [20260623_noether_slavic_zenododrive_transfer_current_sources.json](..
 - Declared scope: large Noether Slavic translation/source-transfer handoff. The package reports current validated/rendered cumulative translation state through Papers 01-32 through the Paper 32 second introductory paragraph. Reported cumulative reader lengths are 441 pages Ukrainian, 457 pages Russian, 422 pages Interslavic Latin, and 441 pages Interslavic Cyrillic.
 - Sense-check caveats: this is a working translation lane and source/provenance transfer, not a critical edition or source-closed Noether corpus. The package itself preserves known source-review flags, including Paper 02's visible Section 4 gap in the German source/control layer. Do not infer complete numbered-corpus Slavic closure from file count alone, and keep later working sections separate from validated cumulative checkpoints.
 
-Next action: upload or otherwise preserve as a large Noether Slavic translation/source-transfer artifact with explicit working-lane caveats. Do not store the binary in GitHub; keep GitHub as metadata, issue/PR, and correction surface.
+Status: published on the current Noether Zenodo record <https://zenodo.org/records/20821644> as a large translation/source-transfer artifact with explicit working-lane caveats. Do not store the binary in GitHub; keep GitHub as metadata, issue/PR, and correction surface.
 
 ## 2026-06-23: Noether R121 Paper 15 RA54/RA78/RA85 no-duplicate audit
 
