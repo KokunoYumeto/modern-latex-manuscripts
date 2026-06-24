@@ -4,9 +4,9 @@
 
 Manifest: [20260624_noether_p30_ma96_source_repair_p058_061.json](../manifests/pending-zenodo-uploads/20260624_noether_p30_ma96_source_repair_p058_061.json)
 
-- Noether pending ZIP: `Noether_P30_MA96_SourceRepair_p058_061_R123plusP08_20260624.zip`, 14.0509 MB, SHA256 `493B0659C09E84EEA1ADC7A72F30F82D6AD98A1E1F4C1B87B1BAC2406D1381FA`.
+- Noether pending ZIP: `Noether_P30_MA96_SourceRepair_p058_061_R123plusP08_20260624.zip`, 15.3104 MB, SHA256 `84F9E753F0CF123A34DBB9674D3D0FC60CE0D5186E46150CE7FADF33E479E4C2`.
 - Contents observed: R123+P08 German cumulative candidate TeX/PDF/log for the Paper 30 p058-061 repair, baseline cumulative PDF/TXT, and four source-witness PNGs for printed pp.58-61 / leaves 63-66.
-- Caveat: candidate/source-repair support only. No local README was found at sweep time. Do not present as full Paper 30 closure, a critical edition, whole-corpus certification, or multilingual propagation.
+- Caveat: candidate/source-repair support only. The regenerated local package now includes a README and postrepair anchor audit summary. Do not present as full Paper 30 closure, a critical edition, whole-corpus certification, or multilingual propagation.
 
 ## 2026-06-24: Noether Slavic Paper 32 section 02 checkpoint - hold/prune before public upload
 
@@ -114,8 +114,8 @@ Compact files observed:
 - `Noether_R123plusP08_P24_P30_Context_Cumulative_WebDrop_20260624.zip` - 323.0007 MB, SHA256 `8DE22EEFC9322B2E333D58564E64D3A6C3A440769053AE18B5071555A3905AEB`. Scope: P24-P30 context package on P08-fixed cumulative baseline; large context/source package, not paper-level certification
 - `Noether_R123plusP08_P31_P37_Context_Cumulative_WebDrop_20260624.zip` - 7.6665 MB, SHA256 `931A851EDD3646ED9CCB5258AD758816682F070A0720B9E74C3396A135F1876E`. Scope: P31-P37 context package on P08-fixed cumulative baseline; continuation context, not paper-level certification
 - `Noether_R123plusP08_P38_P43_Context_Cumulative_WebDrop_20260624.zip` - 67.477 MB, SHA256 `F3361ABD9FAF5ADC630D3A6FECFB7F650430D999763A7D9119BA717160D54AA2`. Scope: P38-P43 caveat-heavy context package; P38-P42 source audit open, P40-P43 apparatus placement unresolved; do not use as closure
-- `Noether_R123plusP08_WebDrop_Index_20260624.zip` - 0.0429 MB, SHA256 `411483E1A6A869637D5E2D761AA96766B40B4D536511BAEF509D9CA49382E212`. Scope: Index CSV/README for the full R123+P08 web-drop package set and upload order; coordination/provenance only
-- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` - 0.14 MB, SHA256 `A5CD1F055023E9712949615540479CF7C94847E3B8854B7CC3A3B88C8FB3DF64`. Scope: live source-audit logbook snapshot from the local Noether source-checking lane
+- `Noether_R123plusP08_WebDrop_Index_20260624.zip` - 0.0495 MB, SHA256 `9929338636D2080E7CD012C5EED1AE83EA249881845794EB32105784AF8D937B`. Scope: Index CSV/README for the full R123+P08 web-drop package set and upload order; coordination/provenance only
+- `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` - 0.1560 MB, SHA256 `766EC60A7A9528430D78E5E7777C520AEB8CC915B6E8A870E0137303C0ACB8B8`. Scope: live source-audit logbook snapshot from the local Noether source-checking lane
 
 Public action: candidate/provenance; use to coordinate web sessions and prevent stale R123 continuation; upload only as compact support/context if useful, not as a promoted edition or critical edition.
 
@@ -1722,9 +1722,9 @@ Next action: retain in Noether project staging or attach to a future Noether sou
 
 Manifest: [20260624_noether_p14_p17_survival_supplement.json](../manifests/pending-zenodo-uploads/20260624_noether_p14_p17_survival_supplement.json)
 
-- Noether: Noether_P14_P16_SourceFixSurvival_R123plusP08_20260624.zip, 3.5193 MB, SHA256  3C720DD04AEB2133DA082C2A71588E6E2EF273C9824BD40DEEDBC22466E279A.
+- Noether: Noether_P14_P16_SourceFixSurvival_R123plusP08_20260624.zip, 3.5193 MB, SHA256 3C720DD04AEB2133DA082C2A71588E6E2EF273C9824BD40DEEDBC22466E279A.
 - Noether: Noether_P17_RA94_ScaffoldFix_Survival_R123plusP08_20260624.zip, 6.0336 MB, SHA256 CC4BA4B40EC7E7EF089D1948767D848305D9DF1094919316827FCB1390606521.
-- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0482 MB, SHA256 F2008831C046683DC88B72F05AC32486E3CC877D2A5C5B5CF896865D2847DE11.
+- Noether: Noether_R123plusP08_WebDrop_Index_20260624.zip, 0.0495 MB, SHA256 9929338636D2080E7CD012C5EED1AE83EA249881845794EB32105784AF8D937B.
 - Contents: targeted survival/source-fix support for Papers 14-17 plus the refreshed webdrop index/logbook. These are provenance and audit support only, not proof that Papers 14-17 are source-complete.
 
 Next action: retain for Noether project staging or attach to a deliberate Noether source-audit/provenance Zenodo version. Do not publish separately and do not present as final certification.
