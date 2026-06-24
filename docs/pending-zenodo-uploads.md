@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-24: Noether Paper 42 source-quality blocker / no-patch status
+
+Manifest: [20260624_noether_p42_source_quality_blocker_pending.json](../manifests/pending-zenodo-uploads/20260624_noether_p42_source_quality_blocker_pending.json)
+
+- Noether pending ZIP: `Noether_R124plus_P42_SourceQualityBlocker_BestAvailable_NoPatch_20260624.zip`, 2,131,721 bytes, SHA256 `DBC6FDFEB79646978CEBED333F0D1FB9522A8287539E41EFA2DF9965EC251220`.
+- Scope: Paper 42, `Zerfallende verschraenkte Produkte und ihre Maximalordnungen`, source print pages 679-689 / current candidate lines 19943-20199.
+- Contents observed: README, current cumulative candidate context, current P42 TeX slice, RA10 local cutout source PDF, one orientation render, source-quality blocker CSV, online/local source-search CSV, provenance note, and checksums.
+- Caveat: no TeX patch was made. The local source is readable as a locator/rough-check witness, but its embedded page images are about 2048 x 3322 px / roughly 360 ppi, below the strict 650+ page-checking target and far below dense-math certification targets. Direct extracted embedded image objects may be visually misleading; use the PDF or normal page renders.
+
+Status: hold for a future grouped Noether source-quality/source-audit update. Do not present as Paper 42 closure, a reader-facing promotion, full Noether certification, or a critical edition.
+
 ## 2026-06-24: Noether source inventory summary
 
 Manifest: [20260624_noether_source_inventory_summary.json](../manifests/pending-zenodo-uploads/20260624_noether_source_inventory_summary.json)
