@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Weber Rob/Web B139b p378-p388 delta
+
+Manifest: [20260625_weber_rob_b139b_delta_p378_p388.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139b_delta_p378_p388.json)
+
+- Weber pending ZIP: `Weber_Rob_B139b_Delta_p378_p388_WebDrop_20260625.zip`, 12,335,110 bytes, SHA256 `12B1080E9D148B872424A11DB9D1BDD0662FCA8A6C74249C5083B1CBF4DD4471`.
+- Scope: compact B139b Rob/Web delta after the p372-p377 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the prior B139 baseline, a source-checked change ledger, and p378-p388 source witnesses.
+- Applied delta represented: p378 formula (11), p379 formula (14), p382 Greek alpha/beta case labels and proof prose, p383 `giebt` spellings, plus §124-125 continuation repairs on p384, p385, p387, and p388.
+- Source verdict: package README states that all text/math changes in the diff are source-supported by included witnesses.
+- Caveat: source-supported candidate evidence only until reconciled with the main Weber branch. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+
+Next action: use this B139b p378-p388 delta as the current Weber staging head for the next compact author-record refresh; continue from Band I p389 unless a later compact package supersedes it.
+
 ## 2026-06-25: Weber Rob/Web B139 p378-p383 delta
 
 Manifest: [20260625_weber_rob_b139_delta_p378_p383.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139_delta_p378_p383.json)
@@ -8,9 +20,9 @@ Manifest: [20260625_weber_rob_b139_delta_p378_p383.json](../manifests/pending-ze
 - Scope: compact Rob/Web delta after the p372-p377 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the p377 baseline, current Rob method/certificate logs, and p378-p383 source witnesses.
 - Applied delta represented: p379 equation (14), p382 Greek alpha/beta case labels and prose order, and p383 `gibt` to `giebt` loci; p380 and p381 are logged clean.
 - Type-B errata policy: two likely Weber/print errata are deliberately restored to the printed text and flagged rather than silently modernized: p382 missing `+eta^2` in the beta-case formula and p378 inverse denominator `alpha_1`.
-- Caveat: finder/agent evidence only until reconciled with the main Weber branch. The observed log explicitly warns that the same workflow also produced hallucinated phantom-page suggestions, so this package records eye-checked p378-p383 candidate evidence only. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+- Caveat: finder/agent evidence only until reconciled with the main Weber branch. This package is now previous provenance and is superseded for current staging by the B139b p378-p388 delta. The observed log explicitly warns that the same workflow also produced hallucinated phantom-page suggestions, so this package records eye-checked p378-p383 candidate evidence only. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
 
-Next action: use this p378-p383 Rob/Web delta as the current Weber staging head for the next compact author-record refresh; continue from Band I p384 unless a later compact package supersedes it.
+Next action: keep as provenance; use the later B139b p378-p388 delta as the current Weber staging head for the next compact author-record refresh.
 
 ## 2026-06-25: Weber Rob/Web B139 p372-p377 delta
 
