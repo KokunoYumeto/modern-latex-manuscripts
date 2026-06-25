@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 37 GDZ source-fix candidate
+
+Manifest: [20260625_noether_r126_p37_gdz_source_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p37_gdz_source_fix.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P37_GDZSourceFix_WebDrop_20260625.zip`, 39,678,468 bytes, SHA256 `0CA48BE885A944D41C50E95CDD29B333CD31FE031C337650CC8258586F626E8A`.
+- Scope: Paper 37, printed pp.147-152, built from GDZ IIIF full-page witnesses and readability crops.
+- Result: P37-local German cumulative patch plus 466-page XeLaTeX compile. Quick local sense-check confirmed the source-backed Deuring footnote product factors, p150 parenthetical/semicolon, and footnote-10 `P` notation against crops.
+- Caveat: source-backed working repair candidate only. It has crops and a compile gate but no independent line-by-line audit ledger; not whole-Paper-37 certification, not whole-corpus certification, not critical edition, and not multilingual synchronization.
+
+Next action: reconcile with the current Noether German cumulative branch, then fold into a compact Noether rollup after file-ceiling pruning.
+
 ## 2026-06-25: Weber B143 Vol. I p480-p485 section 150 retranscribed
 
 Manifest: [20260625_weber_b143_p480_p485_section150_retranscribed.json](../manifests/pending-zenodo-uploads/20260625_weber_b143_p480_p485_section150_retranscribed.json)
