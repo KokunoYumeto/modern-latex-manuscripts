@@ -4024,3 +4024,27 @@ Manifest: [20260625_noether_r127_p09_p23_queue_indices.json](../manifests/pendin
 - Caveat: these are not loose reader additions, not whole-paper certification, not multilingual synchronization, and not critical-edition claims. P22 is a concrete patch context, but its source evidence is mixed 400/600ppi plus targeted crops, below final native-650 certification.
 
 Next action: fold both into the next deliberate compact Noether rollup/replacement pass; do not upload loose while Noether remains at the Zenodo file ceiling. Do not replay stale P09-P23 queue rows without a concrete source-current mismatch or better source witness.
+
+## 2026-06-26: SGA5 live French workpass through p154
+
+Manifest: [20260626_sga5_live_certlog_p154_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p154_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p154_Status_20260626.zip`, 2,173,208 bytes, SHA256 `804D6403E0ABAE88D572D549282DC93E7F95FCAA10C9F055F4DD6C6216392787`, 13 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, FINDINGS, swarm status, indexes, README, inventory, and checksums after the hand-certification log reached p154.
+- Status additions: pp.1-154 page-locally certified in the controlling CERT_LOG. Pages 1-72 close Expose I; pp.73-137 close Expose III; pp.138-154 cover Expose III B through Lemma 3.5 / diagram D074, with section 3 nearly complete.
+- Ledger warning: Expose III B still has intermittent dropped-referenced-label and notation-deviation defect classes; the next cursor is p155.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p155 in Expose III B; run a global referenced-label/notation audit before any stronger SGA5 claim.
+
+## 2026-06-26: Weber B139 live German Vol. I p100-p648 content-map closure / held-reconstruction status
+
+Manifest: [20260626_weber_b139_liveaudit_v1ge_p100_p648_held_status.json](../manifests/pending-zenodo-uploads/20260626_weber_b139_liveaudit_v1ge_p100_p648_held_status.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p648_HeldRangeStatus_20260626.zip`, 2,255,559 bytes, SHA256 `51B0974B6BB0536169D05E17B877544470A1928F4DFFEB9DAC0AED7DBB3B3470`, 11 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus updated certification/method logs after the live audit reached printed p648.
+- Status additions: p642-p648 produced no accepted TeX edits; the audit classifies sections 186-188 as held/reconstruction material around the metacyclic-quintic endgame. The Volume I content map is complete through p648, but this is a retranscription map rather than reader closure.
+- Held block: section 69, section 138 numbering/layout, section 141, p466, sections 148-156, section 158, sections 162-163, section 165, sections 167-170, and sections 173-188.
+- Caveat: status/retranscription-map artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
+
+Next action: Phase 2 coherent retranscription of held rewrite/reconstruction blocks section-by-section.
