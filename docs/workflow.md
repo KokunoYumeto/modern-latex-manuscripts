@@ -94,6 +94,8 @@ Do not mass-render thousands of pages unless the next stage actually needs them.
 
 A June 25 SGA5 workpass snapshot adds a stricter find-verify-fix pattern for live source repair. Raw swarm passes can still discover likely defects, but the safer scalable unit is page-local discovery, independent source verification, deterministic old-string/new-string patching that refuses missing or non-unique matches, and a compile gate. That method snapshot is mirrored in `workflow/AI_Run_Workflow_SGA5_FindVerifyFix_Workpass_Method_20260625.zip` and queued for the workflow DOI; it is not a claim that SGA5 is complete.
 
+A June 25 Weber adaptation shows how that method changes when the project has both a transcription track and a translation track. The German Weber branch can use the same scan-vs-TeX audit axis as SGA5, but the English branch needs a second translation-vs-German axis, using the scan for mathematical tie-breaks. The Weber packet is mirrored in `workflow/AI_Run_Workflow_Weber_FindVerifyFix_Audit_Method_20260625.zip` and queued for the workflow DOI. It deliberately excludes bulky source chunks; those should be generated on demand from the page manifest.
+
 ## Failed-Web Salvage Packets
 
 Failed or crashed web-review runs can still contain useful evidence, but they must be packaged as salvage and locator material, not as reader patches. The safe pattern is to preserve the transcript excerpts, source pointers, candidate TeX context, and next-action notes in a deliberately labelled packet with a README, `do_not_promote` or no-fix-trap ledger, salvaged-items ledger, source-quality note, and checksums where available.

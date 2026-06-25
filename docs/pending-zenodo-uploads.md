@@ -134,6 +134,18 @@ Manifest: [20260625_workflow_sga5_find_verify_fix_workpass_method.json](../manif
 
 Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh.
 
+## 2026-06-25: Workflow Weber find-verify-fix audit method
+
+Manifest: [20260625_workflow_weber_find_verify_fix_method.json](../manifests/pending-zenodo-uploads/20260625_workflow_weber_find_verify_fix_method.json)
+
+- Workflow pending ZIP: `AI_Run_Workflow_Weber_FindVerifyFix_Audit_Method_20260625.zip`, 41,377 bytes, SHA256 `6084EEA0C30BEE9E1B42F67B525ACBE174FF73872464EEDA87F8D47950C3950B`.
+- Scope: compact Weber audit method packet adapted from the SGA5 find-verify-fix workpass pattern.
+- Contents: Weber audit method note, runnable `weber_audit_workflow.js`, harness README, chunk/render helper, manifest builder, and compact three-volume audit manifest.
+- Workflow lesson: SGA5's page-local source-audit pattern transfers to Weber German transcription, but Weber also needs a second axis: English translation against the German branch, with the scan used for math tie-breaks.
+- Caveat: workflow support only. This is not a Weber reader update, not a Weber certification, and not proof that the manifest pages have all been audited.
+
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh, alongside the SGA5 method snapshot.
+
 ## 2026-06-25: SGA5 live workpass status reconciliation
 
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
