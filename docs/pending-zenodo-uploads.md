@@ -2510,6 +2510,19 @@ Manifest: [20260625_noether_r125_tail_p713_p740_section22_repair.json](../manife
 - Repair highlights: section 22 restores `\mathfrak K_r`, `\mathfrak L_s`, `\mathfrak M`, and `\mathsf P` notation, direct-product definitions and identities, class products and the group `\mathscr K`, inverse-class/rank argument, the definition of `einfacher Koerper`, the direct-product theorem, and the proof with `\mathfrak K^{(1)}`, `\mathfrak S`, `\mathfrak S_\lambda`, `t^2`, and final `\lambda`/`\mu` inner-automorphism formulas.
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify lower p740 / section 23, p741 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p740, or multilingual propagation.
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
-- Held-back follow-up: a local extracted p713-p742 folder exists, but no p742 ZIP is present; the current package itself says lower p740 starts section 23 and remains uninspected in this pass.
+- Historical follow-up: a coherent p713-p742 section-23-start ZIP now exists and supersedes this p713-p740 section-22 package for current tail-addendum purposes.
 
-Next action: use this p713-p740 section-22 package, not the narrower p713-p738/p713-p736/p713-p735 and older p713 tail packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from lower p740 / section 23 using p740-p741 together.
+Next action: superseded for current tail-addendum purposes by the p713-p742 section-23-start package below; retain this p713-p740 section-22 entry as provenance only and use the p713-p742 package for the next compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p742 section 23 start repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p742_section23start_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p742_section23start_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p742_Section23Start_WebDrop_20260625.zip`, 51,441,844 bytes, SHA256 `88E7487F844254A45D87BA7C9F8753C94B9BD062563A83FC7D187FBCB1AAAFC4`.
+- Scope: cumulative p713-p742 Noether-Deuring post-numbered tail repair, with new source work limited to lower p740 through p742, the start of section 23 (`Faktorensysteme`). It supersedes p713-p740 and all narrower p713 tail packages for current tail-addendum purposes.
+- Repair highlights: section 23 start restores source-consistent `\mathsf P`, `\mathfrak K`, `Z`, `\mathfrak Z`, and `\Gamma` notation, the decomposition of `\mathfrak K_{r\Gamma}` into simple left ideals, Galois-action/conjugacy formulas, the `Z_i,Z_k` compositum construction, barred ideals, matrix-unit expansions, pseudomatrix-unit definitions, factor-system relations, conjugacy law for `\alpha`, and the associated-system `\delta` quotient.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify the continuation after the associated-factor-system paragraph, section 23 as a whole, section 24, the whole tail/post-numbered apparatus, every micro-symbol on p713-p742, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 467.
+- Held-back follow-up: a local extracted p713-p746 folder exists, but no coherent p746 ZIP has been observed; do not register p746 until a matching ZIP, README, compile status, and ledger are present.
+
+Next action: use this p713-p742 section-23-start package, not the p713-p740 section-22 or narrower tail packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue from the paragraph after the associated-factor-system transformation and then section 24.
