@@ -3711,3 +3711,16 @@ Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/
 - Source-quality caveat: pp.235-246 use best-available about-400ppi GDZ/IIIF witnesses; pp.247-257 use higher-detail Commons DjVu images without native-PPI certification. This is targeted survival/source-support evidence, not strict full-page certification, not whole-paper closure, not multilingual synchronization, and not a critical edition.
 
 Next action: fold into the next deliberate compact Noether rollup with R127_REBUILT and the P09-P12/P14-P20 guardrail packages; do not upload loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether Slavic work-so-far through Paper 34 Section 26
+
+Manifest: [20260625_noether_slavic_p01_p34sec26_worksofar.json](../manifests/pending-zenodo-uploads/20260625_noether_slavic_p01_p34sec26_worksofar.json)
+
+- Noether pending ZIP: `Noether_Slavic_Cumulative_WorkSoFar_Papers01_34CompleteThroughSection26_SourceCorrected_Handoff_20260625T100442Z.zip`, 393,614,728 bytes, SHA256 `7806D2AD2225640EB799A4A5EDFEF3D51C97CA51690FB823525E4EC975B6AF95`, 4,465 entries.
+- Suggested public filename: `117 Noether - Slavic WorkSoFar Papers01-34sec26 2026-06-25.zip`.
+- Replacement policy: replace older file `117 Noether - Slavic WorkSoFar Papers01-34sec02 PublicSafe 2026-06-24.zip` rather than adding a duplicate loose Slavic file.
+- Scope: Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic cumulative readers through Paper 34 Section 26, with package notes stating that Section 26 completes Paper 34 in this lane.
+- Package contents: 4 cumulative PDFs, current TeX wrappers, 1,208 translation files, 249 logs, 204 glossary files, 120 segment records, source-fidelity evidence, and Interslavic/Slavic triangulation logbooks. The package contains no reference-corpus PDFs.
+- Caveat: rendered/audited working multilingual translation lane only. Not a critical edition, not independent source-perfect certification, and downstream mathematical use still requires source checks against the German/source-audit authority.
+
+Next action: use in a deliberate Noether record refresh/rebalance, replacing the older Slavic file if file-count constraints permit. Keep logbooks/glossaries because Interslavic is a linguistic artifact as well as a translation lane.
