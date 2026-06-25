@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 22 p.53/55-61 carry-forward plus p.64-69 RA62 reaudit
+
+Manifest: [20260625_noether_r126_p22_p064_069_ra62_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p064_069_ra62_reaudit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P22_p064_069_RA62Reaudit_WebDrop_20260625.zip`, 30,882,077 bytes, SHA256 `51BD6803ABA2D62CBAC224FDF85AD2D40A1EAF43160A1F96E35477147A18DB3A`.
+- Scope: current Paper 22 addendum carrying forward the p.53 title/editor/footnote-anchor fix and pp.55-61 bounded `\varrho` repair, then adding p.64 and p.69 source repairs plus pp.65-68 no-new-patch traps from the RA62 range.
+- Applied fixes: p.64 restores source-visible `\xi_i` and `a_i^{(i)}` in the opening linear-form setup; p.69 restores paired coefficient subscripts `c_{\alpha\lambda}`, `c_{\beta\tau}`, and `d_{\gamma\lambda}`; p.69 changes the displayed `H(x)`, `G(x)`, and `F(x)` relations back to congruences modulo `\mathfrak C_i`.
+- Checked without new patch: pp.65-68 confirm earlier RA62 repairs for formulas (21)-(29), `\mathfrak C_1`, `\mathfrak C_{i-1}`, `\zeta`, and the `\omega` family were already present.
+- Caveat: best-available mixed witnesses only. GDZ full pages are 600ppi for pp.64 and 66 and 400ppi for pp.65, 67, 68, and 69; 1000dpi crops are inspection enlargements from a 360ppi embedded RA source. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
+
+Next action: use this as the current Paper 22 addendum for the next deliberate compact Noether rollup; keep the p.53-only, p.53+pp.55-58, and p.53+pp.55-61 packages as previous provenance.
+
 ## 2026-06-25: Noether R126 Paper 22 p.53 + pp.55-61 title/varrho repair
 
 Manifest: [20260625_noether_r126_p22_p053_p055_061_title_varrho_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p053_p055_061_title_varrho_fix.json)
@@ -8,10 +20,9 @@ Manifest: [20260625_noether_r126_p22_p053_p055_061_title_varrho_fix.json](../man
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 plus pp.55-61, title/editor/footnote-anchor repair and bounded elementary-divisor/rank-index `\varrho` notation repair.
 - Applied fixes: restores p.53 source order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line; changes the visually checked pp.55-61 rank/elementary-divisor block from plain `\rho` to `\varrho` in loci such as `d_\varrho`, `e_\varrho`, `\eta_\varrho`, `a_\varrho(\xi)`, `\xi_{\varrho+1}`, `r_\varrho`, `s_\varrho`, and products through `\varrho`.
 - Checked without patch: p.54 theorem tail, explanatory paragraphs, and footnotes 2-4.
-- Caveat: mixed GDZ full-page witnesses, 400ppi for pp.53, 55-57, 60, and 61 and 600ppi for pp.54, 58, and 59. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. Other Paper 22 rho/varrho loci remain for later page-by-page verification.
-- Local-only note: a later `p064_069_RA62Reaudit` folder currently contains only a loose cumulative TeX file and no zip, README, source witnesses, audit ledger, or hash manifest, so it is not staged as a Zenodo-ready artifact.
+- Caveat: this package is previous provenance and is superseded for current staging by the p.53/55-61 carry-forward plus p.64-69 RA62 reaudit package above. It remains useful for comparing the bounded p055-p061 pass against the later p064-p069 pass.
 
-Next action: use this as the current Paper 22 addendum for the next deliberate compact Noether rollup; keep the p.53-only and p.53+pp.55-58 packages as previous provenance.
+Next action: keep as provenance; use the p.64-p69 RA62 reaudit package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Noether R126 Paper 22 p.53 + pp.55-58 title/varrho repair
 
@@ -20,9 +31,9 @@ Manifest: [20260625_noether_r126_p22_p053_p055_058_title_varrho_fix.json](../man
 - Noether pending ZIP: `Noether_R126_LocalCodex_P22_p053_p055_058_TitleVarrhoFix_WebDrop_20260625.zip`, 12,360,097 bytes, SHA256 `49FAA4313BDAE5B44FA4C6B67FF90ADF3DA8F2509A15170C4023945609B9B2C1`.
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 plus pp.55-58, title/editor/footnote-anchor repair and bounded elementary-divisor/rank-index `\varrho` notation repair.
 - Applied fixes: restores p.53 source order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line; changes the visually checked pp.55-58 rank/elementary-divisor block from plain `\rho` to `\varrho`.
-- Caveat: this package is previous provenance and is superseded for current staging by the p.53 + pp.55-61 title/varrho package above. It remains useful for comparing the narrow p055-p058 pass against the later p055-p061 pass.
+- Caveat: this package is previous provenance and is superseded for current staging by the p.64-p69 RA62 reaudit package above. It remains useful for comparing the narrow p055-p058 pass against the later p055-p061 and p064-p069 passes.
 
-Next action: keep as provenance; use the p.53 + pp.55-61 title/varrho package above as the current Paper 22 addendum for any future compact rollup.
+Next action: keep as provenance; use the p.64-p69 RA62 reaudit package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Noether R126 Paper 22 p.53 title/editor/footnote-anchor repair
 
@@ -32,9 +43,9 @@ Manifest: [20260625_noether_r126_p22_p053_title_footnote_anchor.json](../manifes
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 / GDZ `PPN235181684_0088` seq000057, title/editor/footnote-anchor source-layout repair.
 - Repair highlight: restores the source-visible order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line instead of later in the theorem block.
 - Contents: patched cumulative German TeX/PDF, exact TeX diff, source-confirmed fix CSV, Paper 22 full-page witness manifest for pp.53-79, and the p.53 full-page source witness.
-- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. This package is previous provenance and is superseded for current staging by the p.53 + pp.55-61 title/varrho package above.
+- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. This package is previous provenance and is superseded for current staging by the p.64-p69 RA62 reaudit package above.
 
-Next action: keep as provenance; use the p.53 + pp.55-61 title/varrho package above as the current Paper 22 addendum for any future compact rollup.
+Next action: keep as provenance; use the p.64-p69 RA62 reaudit package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Weber Rob/Web B139c p389-p401 delta
 
