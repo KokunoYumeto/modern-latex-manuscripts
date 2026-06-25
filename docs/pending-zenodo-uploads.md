@@ -2497,6 +2497,19 @@ Manifest: [20260625_noether_r125_tail_p713_p738_definition_repair.json](../manif
 - Repair highlights: p737-p738 rebuilds Satz 11's field/subgroup correspondence for closed subgroups `H` of `G` and fields between `\mathsf P` and `\mathfrak K`, removes broken nested Markdown list scaffolding, restores the three substatements plus the `3'` reduction, restores centralizer/invariant notation around `\mathfrak H^*`, `\mathfrak S^*/\mathsf P^*`, and `\mathfrak H^*/\mathsf P^*`, restores reciprocal-field inclusions, and rebuilds the representation-extension/rank argument with the `E_\nu`/`e_i^{(\nu)}` idempotent equations.
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p739 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p738, or multilingual propagation.
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
-- Held-back follow-up: a local extracted p713-p740 folder exists, but it is not registered because its README and compile status still self-identify as p713-p738 and no coherent p739-p740 ZIP/ledger was found.
+- Historical follow-up note: a p713-p740 folder was initially held back, but the coherent p713-p740 section-22 ZIP below resolves that holdback for current tail-addendum purposes.
 
-Next action: use this p713-p738 package, not the narrower p713-p736/p713-p735/p713-p734/p713-p733/p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p739.
+Next action: superseded for current tail-addendum purposes by the p713-p740 section-22 package below; retain this p713-p738 entry as provenance only and use the p713-p740 section-22 package for the next compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p740 section 22 repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p740_section22_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p740_section22_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p740_Section22Repair_WebDrop_20260625.zip`, 46,387,600 bytes, SHA256 `F188B712732B48DFD12E11838A4A7647D864D1A50FD2897450E94D3065B6F737`.
+- Scope: cumulative p713-p740 Noether-Deuring post-numbered tail repair, with new source work limited to collected p739 and upper p740, section 22 (`Die Gruppe der Koerper mit gegebenem Zentrum`). It supersedes p713-p738 and all narrower p713 tail packages for current tail-addendum purposes.
+- Repair highlights: section 22 restores `\mathfrak K_r`, `\mathfrak L_s`, `\mathfrak M`, and `\mathsf P` notation, direct-product definitions and identities, class products and the group `\mathscr K`, inverse-class/rank argument, the definition of `einfacher Koerper`, the direct-product theorem, and the proof with `\mathfrak K^{(1)}`, `\mathfrak S`, `\mathfrak S_\lambda`, `t^2`, and final `\lambda`/`\mu` inner-automorphism formulas.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify lower p740 / section 23, p741 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p740, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
+- Held-back follow-up: a local extracted p713-p742 folder exists, but no p742 ZIP is present; the current package itself says lower p740 starts section 23 and remains uninspected in this pass.
+
+Next action: use this p713-p740 section-22 package, not the narrower p713-p738/p713-p736/p713-p735 and older p713 tail packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from lower p740 / section 23 using p740-p741 together.
