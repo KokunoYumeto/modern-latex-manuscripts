@@ -1,5 +1,38 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 SourceQueueDisposition Update 2
+
+Manifest: [20260625_noether_r126_source_queue_disposition_update2.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_source_queue_disposition_update2.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_SourceQueueDisposition_Update2_WebDrop_20260625.zip`, 1,333,096 bytes, SHA256 `3272AA46D37C3E551BA6901D3E8637152170AB2BFA7F5D3E09011C0444F4BCC5`, 36 ZIP entries.
+- Scope: reconciles the active R126 source queue against Local Codex evidence already present on disk.
+- Result: no new cumulative TeX patch. P04, P09, P10, P11, P12, P22, P29, P30, Tail/Kapferer, and several P34-P43 exact fixes already have Local Codex evidence packages; most rows should be closed or downgraded from blind restart to reopen-only-if-defect/better-witness.
+- Caveat: P37 and P42 remain locator/salvage-only; broad P34-P43 certification is still a separate decision. This is queue disposition / duplicate-work prevention only, not strict certification, not whole-corpus closure, not a critical edition, and not multilingual synchronization.
+
+Next action: use to route web/Rob work away from stale queue rows and fold into a future compact Noether rollup after file-ceiling pruning.
+
+## 2026-06-25: SGA5 live CERT_LOG through p113
+
+Manifest: [20260625_sga5_live_certlog_p113_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p113_unpacked.json)
+
+- Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
+- Current controlling claim: the manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-113 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-113.
+- p113 opens Expose III section 5.1 on duals of correspondences, verifies formulas (5.1.1)-(5.1.5), diagrams D061-D062, and underlined `\uRHom` notation. It also notes a printed source typo in (5.1.5) where the TeX already carries the mathematically correct `c_2^!L_2`.
+- Caveat: p114-p116 crops/render aids exist locally but are locator material only until the CERT_LOG promotes those pages. This remains a live local workpass, not compact public packaging, not English synchronization, not global SGA5 certification, and not a critical edition.
+
+Next action: continue from p114; only fold into Zenodo after a compact status/method package and independent validation.
+
+## 2026-06-25: Weber live CERT_LOG through p473
+
+Manifest: [20260625_weber_live_certlog_p414_p473_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p473_unpacked.json)
+
+- Local live audit evidence only: `WEBER_CERT_LOG.md`, `WEBER_METHOD_LOG.md`, and the local Volume I German cumulative TeX/PDF.
+- Current compact public-staging head remains B140 p414-p467. The newer live log records p468-p473 as additional local source-audit work beyond B140.
+- p468-p473 reports about 40 verified fixes across sections 146-148, including a scoped delta-to-sigma substitution-symbol conversion in sections 146-147, restored Galois-theory prose/displays, and removal of one spurious draft artifact heading.
+- Caveat: standing holds remain for section 138 numbering/layout, section 141 reducibility prose, p466 coherent re-transcription, and finer section 148 introductory paraphrase. The live log also documents hallucinated no-scan agent candidates, so agent output remains finder evidence only.
+
+Next action: build a compact B141/p468-p473 handoff package with source witnesses, logs, checksums, README, and explicit holds before promoting beyond live status.
+
 ## 2026-06-25: Weber B140 Vol. I p414-p467 certified delta package
 
 Manifest: [20260625_weber_b140_v1_p414_p467_certified_delta.json](../manifests/pending-zenodo-uploads/20260625_weber_b140_v1_p414_p467_certified_delta.json)
@@ -34,25 +67,25 @@ Manifest: [20260625_noether_r126_highqueue_p34_p43_signature_reconciliation.json
 
 Next action: use as queue hygiene/stale-patch prevention and fold into the next Noether rollup; check excluded papers separately only if the live queue still points there.
 
-## 2026-06-25: SGA5 live CERT_LOG through p112
+## 2026-06-25: SGA5 live CERT_LOG through p112 (superseded by p113 entry above)
 
 Manifest: [20260625_sga5_live_certlog_p112_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p112_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
 - Current controlling claim: the manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-112 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-112.
 - p110 records Corollaire 4.9 cycle-class pairings, Corollaire 4.10 finite-intersection formula, and the 4.11 excess-intersection setup; p111 closes 4.11 with the normal-bundle / Gauss-Bonnet material; p112 adds 4.12.1 and 4.13 local-term / filtered-category material. No new diagram is added on p112, so D001-D060 remain the verified diagram range.
-- Caveat: p113-p116 crops/render aids exist locally but are locator material only until the CERT_LOG promotes those pages. This remains a live local workpass, not compact public packaging, not English synchronization, not global SGA5 certification, and not a critical edition.
+- Historical caveat at the p112 snapshot: p113-p116 crops/render aids were locator material only. The p113 entry above is now the current live edge; this remains a live local workpass, not compact public packaging, not English synchronization, not global SGA5 certification, and not a critical edition.
 
-Next action: continue from p113; only fold into Zenodo after a compact status/method package and independent validation.
+Historical next action superseded by the p113 entry above.
 
-## 2026-06-25: Weber live CERT_LOG through p467
+## 2026-06-25: Weber live CERT_LOG through p467 (superseded by p473 entry above)
 
 Manifest: [20260625_weber_live_certlog_p414_p467_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p467_unpacked.json)
 
 - Local live audit evidence only: `WEBER_CERT_LOG.md` and `WEBER_METHOD_LOG.md` in the Weber audit lane.
-- Current compact public-staging head remains B139e p408-p413. The newer live log records p414-p467 as hand-verified local source-audit work.
+- Historical p467 snapshot: this live-log section recorded p414-p467 before B140 packaging and before the p473 live-log entry above.
 - p462-p467 reports 22 applied fixes in sections 144-146 and grows the local PDF from 362 to 363 pages by restoring prose. p466 is explicitly held for coherent re-transcription; section 138 numbering/layout and section 141 reducibility paraphrase also remain held.
-- Caveat: p468-p473 crops exist only as preparation. The live log also documents hallucinated no-scan agent candidates, so the agent stream is finder evidence only.
+- Historical caveat at the p467 snapshot: p468-p473 existed only as preparation then. The p473 entry above is now the current live edge. The live log also documents hallucinated no-scan agent candidates, so the agent stream is finder evidence only.
 
 Next action: compact package now exists as `Weber_Rob_B140_Vol1_p414_p467_CertifiedDelta_WebDrop_20260625.zip`; use the B140 section above as the current pending Weber upload candidate and keep this live-log section as provenance.
 
@@ -763,7 +796,7 @@ Next action: use as status/caveat evidence for the SGA record and workflow-metho
 
 Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pending-zenodo-uploads/20260625_classical_lean_audit_watch_sensecheck.json)
 
-- Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 50,644 bytes, SHA256 `D713E61E9F6AAABC217F15EB70D93EF92C2F0A92AE0412499F565C80BE9A1EC2`.
+- Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 57,023 bytes, SHA256 `5A57E2157DC2F06582C6B2470FEE9797B3088F6D39E002DBA7482ABE03227AC7`.
 - Scope: compact audit handoff for Claude-started Lean formalization experiments attached to the classical transcription corpus. This is not a promoted proof corpus and not DOI-ready.
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public proof/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source anchors to the actual transcribed TeX/public catalog. A theorem map must distinguish the source statement, normalized mathematical statement, Lean theorem, and build status.
