@@ -2824,3 +2824,15 @@ Manifest: [20260625_noether_r126_postr126_p17_p18_status_rollup.json](../manifes
 - Boundary: compact continuation/status rollup only. Not a new independent source certification, not whole-Paper-17/18/20 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
 
 Next action: queue for the next deliberate compact Noether rollup/file-ceiling pruning pass. It can serve as the current continuation baseline if accepting Local Codex work over bare R126, but do not upload it as an extra loose Noether file while the record is still at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Papers 14-16 survival-audit addendum
+
+Manifest: [20260625_noether_r126_p14_p15_p16_survival_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p14_p15_p16_survival_audit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P14_P15_P16_SurvivalAudit_WebDrop_20260625.zip`, 3,279,567 bytes, SHA256 `960391B3B38E6ABACD0EC4241673A274F7BFCBC0180C4000B5E4BD7F04B1907A`.
+- Scope: compact post-R126 survival-audit handoff for Papers 14, 15, and 16. It confirms that prior RA55/RA54/RA53 corrections still survive in the current local cumulative built from R126 plus Kapferer/Noether pp.559-567 plus the Paper 20 bar repair.
+- Status additions: 18 survival checks across P14/P15/P16, including Hensel/local-arithmetic anchors in P14, finite-field/residue anchors and Schur citation repair in P15, and invariant-theory/Omega-process/Berichtigungen anchors in P16.
+- Source-quality caveat: the older RA53/RA54/RA55 witness packages often used approximately 360ppi embedded page images with enlarged inspection crops. Enlargement is not new optical detail.
+- Boundary: survival-audit evidence only. No new TeX edits, no new source images, no fresh 650+ppi certification, not whole-Paper-14/15/16 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
