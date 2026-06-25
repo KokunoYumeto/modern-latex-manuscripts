@@ -2936,6 +2936,22 @@ Manifest: [20260625_noether_r126_p03_survival_audit.json](../manifests/pending-z
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
 
+## 2026-06-25: Noether R126 Papers 01-02 source-support addendum
+
+Manifest: [20260625_noether_r126_p01_p02_source_support.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p01_p02_source_support.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P01_SourceRecheck_WebDrop_20260625.zip`, 19,087,732 bytes, SHA256 `39104A4F9067E16A7D3FA2B7B41E819D105075541F217180F40B9A6AF0C9CA33`.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P02_RA65_RA80SurvivalAudit_WebDrop_20260625.zip`, 18,163,200 bytes, SHA256 `36AAFCFC088F08E1FB5730490EE9F3836F8FC60A7EE24F4ED43227EE1D5F90A4`.
+- Support ledger observed: `complete_ledger_R126.csv`, 9,049,391 bytes, SHA256 `39262C5D58330734939176E34B28458F6FAC3E83E343E156200542101A386E62`; keep as rollup support/provenance, not a loose public upload.
+- Scope: Paper 01 source recheck plus Paper 02 RA65/RA80 survival audit against the current R126-plus-local cumulative.
+- P01 repair highlights: removes the invented Paper 01 author line, restores the source order of title, journal citation, and dissertation-extract line, and changes the Faltung-table prose from `durch` to source-visible `resp. durch`.
+- P01 no-patch traps: keep `\nu(s)`, not `\nu^{(s)}`; keep `u_\varrho^2` and module `(\varrho,t)`; keep the source-style spaced Faltung table and Pascal dot products.
+- P02 status additions: confirms survival of the Paper 02/Paper 03 line boundaries and footnote-counter resets, Table I row 21 `(KH^3u)^6`, Table II rows 20-23, and the p66 `L_j` / `L_j^2` no-patch trap.
+- Build/status: P01 carries a new patched cumulative TeX/PDF and reports two successful XeLaTeX passes, 466 pages, and no fatal/emergency/undefined/ref/rerun issues. P02 applies no new TeX patch in this pass.
+- Boundary: P01 is a targeted source recheck with a new TeX patch; P02 is targeted survival/source-support evidence only. This is not full Paper 01 or Paper 02 page-by-page certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold P01/P02 into the next deliberate compact Noether source-support rollup together with the P03-P20/Kapferer/R126 materials. Do not upload these as extra loose Noether files while the record remains at the Zenodo file ceiling.
+
 ## 2026-06-25: Noether R126 Papers 10-13 survival/queue-disposition addendum
 
 Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p10_p13_survival_queue_disposition.json)
