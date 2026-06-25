@@ -3586,7 +3586,7 @@ Next action: fold P09/P10 together with R127_REBUILT and P11/P12 guardrails into
 
 Manifest: [20260625_noether_r127_p19_p20_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p19_p20_survival_best_available.json)
 
-- Noether P19/P20 survival ZIP: `Noether_R127_LocalCodex_P19_P20_BestAvailableSurvival_NoNewPatch_WebDrop_20260625.zip`, 24,182,814 bytes, SHA256 `5D51969DA1F27EC010B69F6922A599E50032409F73E0ECDED912B2E3372D1223`, 42 entries.
+- Noether P19/P20 survival ZIP: `Noether_R127_LocalCodex_P19_P20_BestAvailableSurvival_NoNewPatch_WebDrop_20260625.zip`, 24,357,608 bytes, SHA256 `C8151FEF18022C3E75A56B7DD71C897E49A71F812DF8ADEED3867C4CDF1E0472`, 43 entries.
 - Scope: compact survival/queue-closure evidence against `Noether_R127_REBUILT_20260625.zip`, verifying that known Local Codex P19/P20 source-critical repairs survive in the rebuilt R127 German cumulative.
 - Contents: copied R127 authority cumulative, P19/P20 TeX spans, survival checks, best-available disposition ledger, no-fix traps, source article cutouts, targeted exact-locus 1000dpi crops, P20 pp.32-33 600ppi GDZ supplements, and prior ledgers.
 - Result: no new TeX patch.
