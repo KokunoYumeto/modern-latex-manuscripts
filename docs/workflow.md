@@ -187,3 +187,9 @@ Recommended use:
 - keep informal TeX statement, source page, and Lean theorem name linked in a small CSV or JSONL ledger;
 - use Lean first on modern algebraic identities, elementary number-theory lemmas, matrix/calculation checks, and small structural statements where definitions are already available in Mathlib;
 - avoid claiming large historical papers are "verified in Lean" unless every relevant theorem, definition, and dependency has actually been formalized and reviewed.
+
+## Fabrication As A Source-Audit Failure Mode
+
+The Weber p486-p497 live audit added an important guardrail. A draft can contain plausible mathematical prose that is not merely compressed, modernized, or mistranscribed, but fabricated from nearby context. In Weber section 152, the local audit replaced a foreign GPT body with the actual Weber source text; in section 153, a six-page permutation-decomposition section was held because the draft condensed, rewrote, and inserted plausible cycle-theory examples not present in Weber.
+
+This is a separate failure mode from OCR noise. Treat fluent mathematical prose as untrusted until it is page-mapped against the scan. The repair rule is: source page first, current TeX second, agent/OCR candidates third. If a section-level rewrite is found, do not promote surgical patches that leave a fabricated frame in place; either re-transcribe the coherent section from source or hold it explicitly.
