@@ -2486,4 +2486,17 @@ Manifest: [20260625_noether_r125_tail_p713_p735_definition_repair.json](../manif
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
 - Held-back follow-up: a local extracted p713-p736 folder exists, but it is not registered as current because its README and compile status still describe p713-p735 and no p736 fix ledger or ZIP was found.
 
-Next action: use this p713-p735 package, not the narrower p713-p734/p713-p733/p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p736.
+Next action: superseded for current tail-addendum purposes by the p713-p738 package below; retain this p713-p735 entry as provenance only and use the p713-p738 package for the next compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p738 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p738_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p738_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p738_DefinitionRepair_WebDrop_20260625.zip`, 40,569,092 bytes, SHA256 `F994EC00D961AF39B5F3A8BB12DE5E4ADEB5BF56D91BC709E1374BF61A8C5823`.
+- Scope: cumulative p713-p738 Noether-Deuring post-numbered tail repair. It supersedes p713-p736, p713-p735, p713-p734, p713-p733, p713-p732, p713-p731, p713-p730, p713-p729, and all narrower p713 tail packages; carries those repairs forward; and adds p737-p738 Satz 11 proof repairs through `w.z.b.w.`.
+- Repair highlights: p737-p738 rebuilds Satz 11's field/subgroup correspondence for closed subgroups `H` of `G` and fields between `\mathsf P` and `\mathfrak K`, removes broken nested Markdown list scaffolding, restores the three substatements plus the `3'` reduction, restores centralizer/invariant notation around `\mathfrak H^*`, `\mathfrak S^*/\mathsf P^*`, and `\mathfrak H^*/\mathsf P^*`, restores reciprocal-field inclusions, and rebuilds the representation-extension/rank argument with the `E_\nu`/`e_i^{(\nu)}` idempotent equations.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p739 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p738, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
+- Held-back follow-up: a local extracted p713-p740 folder exists, but it is not registered because its README and compile status still self-identify as p713-p738 and no coherent p739-p740 ZIP/ledger was found.
+
+Next action: use this p713-p738 package, not the narrower p713-p736/p713-p735/p713-p734/p713-p733/p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p739.
