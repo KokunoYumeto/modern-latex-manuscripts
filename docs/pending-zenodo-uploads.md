@@ -3749,6 +3749,19 @@ Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p551_workpass.json](../manife
 
 Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from p552 while retranscribing held blocks deliberately.
 
+## 2026-06-25: Weber B139 live German Vol. I p100-p575 workpass
+
+Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p575_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p575_workpass.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p575_Workpass_20260625.zip`, 2,213,149 bytes, SHA256 `4C2C12F118E7ED17A5F8749A8F5E9E6DAC73AA21088F0369358F0B36FBD9910C`, 7 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus method and certification logs after the live find-verify-fix audit reached printed p575.
+- Status additions: workpass PDF reports 367 pages. The audit log now explicitly distinguishes patchable faithful islands from sections that are source-unfaithful reconstructions or fabrications.
+- Held/retranscription ranges include section 69, section 138 numbering/layout, section 141, p466, sections 148-149, section 153 p492-p500, section 154 p502-p507, section 155 p507-p511, section 156 p511-p513, section 158, section 162 body, section 163, section 165, and sections 167-170.
+- Patchable/cleaner islands recorded in the log include section 150, section 152, section 157, sections 159-161, section 164, and section 166.
+- Caveat: German source-audit workpass/status artifact only. Not English synchronized, not whole-Volume-I certified, and not a critical edition.
+
+Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue after p575 while retranscribing held rewrite/reconstruction blocks deliberately.
+
 ## 2026-06-25: Noether R127 Paper 13 best-available survival audit
 
 Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p13_survival_best_available.json)
