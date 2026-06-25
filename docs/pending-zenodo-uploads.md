@@ -1,5 +1,27 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Weber Rob/Web B139 p372-p377 delta
+
+Manifest: [20260625_weber_rob_b139_delta_p372_p377.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139_delta_p372_p377.json)
+
+- Weber pending ZIP: `Weber_Rob_B139_Delta_p372_p377_WebDrop_20260625.zip`, 10,540,246 bytes, SHA256 `D61930A82FA2271C8238B82DF22A917C998245B509ED864A30B8071E95F1E838`.
+- Scope: compact Rob/Web delta after the local p365 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the p365 baseline, current Rob method/certificate logs, and p372-p377 source witnesses.
+- Applied delta represented: p373-p374 restores `M`, `M'`, the `M M'^{-1}` display, and `woraus folgt:` across the page break; p376 corrects the phrase to source-faithful `die Zahl der den uebereinstimmenden...`.
+- Caveat: finder/agent evidence only until reconciled with the main Weber branch. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+
+Next action: use this together with the p100-p365 local Codex Weber package for the next compact Weber author-record refresh; continue from Band I p378 unless a later compact package supersedes it.
+
+## 2026-06-25: Noether R126 Paper 11 full-page re-audit, no new patch
+
+Manifest: [20260625_noether_r126_p11_fullpage_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p11_fullpage_reaudit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P11_FullPageReaudit_WebDrop_20260625.zip`, 22,471,570 bytes, SHA256 `DF297BBC0DFB29A0331B6E292CED839367C3C707D824A91F8D6B5EC53E860231`.
+- Scope: Paper 11, `Gleichungen mit vorgeschriebener Gruppe`, Math. Ann. 78 (1918), pp.221-229, re-audited against available GDZ full-resolution page images.
+- Result: no new source-certain TeX patch; the current local cumulative remains unchanged by this P11 pass.
+- Survival checks: title/author heading, `\Omega_\Gamma`, formula (11) plain `G_k(x)`, Tschirnhaus coefficients including the suspicious repeated `a_2^3/a_3^2`, and final theorem punctuation/date remain represented.
+- Caveat: visual source-support evidence only. Not independent OCR proof, not whole-paper certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into a compact future Noether source-support rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
 ## 2026-06-25: Noether R125 source-audit checkpoint and Paper 42 rebuild
 
 Manifest: [20260625_noether_r125_source_audit_p42_rebuild.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_source_audit_p42_rebuild.json)
@@ -299,7 +321,7 @@ Manifest: [20260625_workflow_sga5_find_verify_fix_workpass_method.json](../manif
 - Workflow lesson: after raw parallel swarms found many defects, the safer scalable method became one large workflow at a time: page-local discovery, independent verification, deterministic old-string/new-string patch application, then a compile gate. The binding constraint was server/API rate limits rather than token budget.
 - Caveat: workflow/replication support only. This is not an SGA5 reader replacement, not a certified edition, and not source-closure. It intentionally excludes bulky crops/renders and the full workpass TeX/PDF.
 
-Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh. The refreshed embedded certification log now records pp.1-83 as page-locally certified, with p1-p72 closing Expose I and pp.73-83 opening Expose III through section 2.2 and the start of Proposition 2.3; p84 is the next hand-certification page.
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh. The refreshed embedded certification log now records pp.1-84 as page-locally certified, with p1-p72 closing Expose I and pp.73-84 covering Expose III through section 2.4, Proposition 2.5, and the opening of section 2.6; p85 is the next hand-certification page.
 
 ## 2026-06-25: Workflow Weber find-verify-fix audit method
 
@@ -380,7 +402,7 @@ Next action: attach this compact p100-p365 package to the Weber author record du
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `02901896A3F6D616E3CF0816A4266A809DA9C0EF36A6111A20E488F1B4C9C81C`; `sga5_fr_workpass.pdf` SHA256 `4E466D35709E0B96AE7707860FEAE8433D1D25C8B4D9885508BD33003D62ADE0`; `sga5_fr_workpass.log` SHA256 `CF9296D944F31339938CAD4C7DA3EB881FDEC0D992531C91FEFFB456E52D6458`.
-- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p83 are page-locally certified, with p1-p72 closing Expose I and pp.73-83 opening Expose III through section 2.2 and the start of Proposition 2.3; p84 is next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, p41-p43, and pp.73-83 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D016 are verified perfect.
+- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p84 are page-locally certified, with p1-p72 closing Expose I and pp.73-84 covering Expose III through section 2.4, Proposition 2.5, and the opening of section 2.6; p85 is next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, p41-p43, and pp.73-84 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D019 are verified perfect.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
