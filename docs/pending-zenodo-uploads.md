@@ -2812,3 +2812,15 @@ Manifest: [20260625_noether_r126_p20_absolute_irreduzibilitaet_barrepair.json](.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages.
 
 Next action: use this as a targeted P20 correction addendum for the next deliberate compact Noether rollup, and rebase these four corrections if Rob's newer Noether item appears. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 post-R126 continuation/status rollup
+
+Manifest: [20260625_noether_r126_postr126_p17_p18_status_rollup.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_postr126_p17_p18_status_rollup.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_PostR126_Rollup_P17_P18_Status_WebDrop_20260625.zip`, 3,306,625 bytes, SHA256 `2F5C9A1128B126382C571326A79719AAC4EA1D75A9D09E66ADA9BBC53DFC24EC`.
+- Scope: compact current-baseline/status web-drop for continuation after R126. It carries the active cumulative German TeX/PDF that includes R126, Kapferer/Noether Math. Ann. 97 pp.559-567, and the Paper 20 pp.32-33 bar/cdot micro-repair.
+- Status additions: records that no R127/R128 or newer Rob-named Noether package was found locally after R126; confirms survival of P18 RA51, P17 RA52, P17 RA94, and P20 local repairs in the active cumulative.
+- Source-quality caveat: R126 tail pp.747-763 remain best-available about-360ppi, Kapferer pp.559-567 about 400dpi, and P20 pp.32-33 600ppi. This is not strict 650+ ppi certification.
+- Boundary: compact continuation/status rollup only. Not a new independent source certification, not whole-Paper-17/18/20 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: queue for the next deliberate compact Noether rollup/file-ceiling pruning pass. It can serve as the current continuation baseline if accepting Local Codex work over bare R126, but do not upload it as an extra loose Noether file while the record is still at the Zenodo file ceiling.
