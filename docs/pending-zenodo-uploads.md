@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 22 p.53 + pp.55-58 title/varrho repair
+
+Manifest: [20260625_noether_r126_p22_p053_p055_058_title_varrho_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p053_p055_058_title_varrho_fix.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P22_p053_p055_058_TitleVarrhoFix_WebDrop_20260625.zip`, 12,360,097 bytes, SHA256 `49FAA4313BDAE5B44FA4C6B67FF90ADF3DA8F2509A15170C4023945609B9B2C1`.
+- Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 plus pp.55-58, title/editor/footnote-anchor repair and bounded elementary-divisor/rank-index `\varrho` notation repair.
+- Applied fixes: restores p.53 source order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line; changes the visually checked pp.55-58 rank/elementary-divisor block from plain `\rho` to `\varrho` in loci such as `d_\varrho`, `e_\varrho`, `\eta_\varrho`, `a_\varrho(\xi)`, and `\xi_{\varrho+1}`.
+- Checked without patch: p.54 theorem tail, explanatory paragraphs, and footnotes 2-4.
+- Caveat: mixed GDZ full-page witnesses, 400ppi for pp.53 and 55-57 and 600ppi for pp.54 and 58. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. Other Paper 22 rho/varrho loci remain for later page-by-page verification.
+
+Next action: use this as the current Paper 22 addendum for the next deliberate compact Noether rollup; keep the p.53-only package below as previous provenance.
+
 ## 2026-06-25: Noether R126 Paper 22 p.53 title/editor/footnote-anchor repair
 
 Manifest: [20260625_noether_r126_p22_p053_title_footnote_anchor.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p053_title_footnote_anchor.json)
@@ -8,9 +20,9 @@ Manifest: [20260625_noether_r126_p22_p053_title_footnote_anchor.json](../manifes
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 / GDZ `PPN235181684_0088` seq000057, title/editor/footnote-anchor source-layout repair.
 - Repair highlight: restores the source-visible order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line instead of later in the theorem block.
 - Contents: patched cumulative German TeX/PDF, exact TeX diff, source-confirmed fix CSV, Paper 22 full-page witness manifest for pp.53-79, and the p.53 full-page source witness.
-- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
+- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. This package is previous provenance and is superseded for current staging by the p.53 + pp.55-58 title/varrho package above.
 
-Next action: fold into the next deliberate compact Noether rollup after pruning/replacement; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+Next action: keep as provenance; use the p.53 + pp.55-58 title/varrho package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Weber Rob/Web B139b p378-p388 delta
 
