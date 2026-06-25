@@ -2910,6 +2910,19 @@ Manifest: [20260625_noether_r126_p04_p05_survival_audit.json](../manifests/pendi
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload these as extra loose Noether files while the record remains at the Zenodo file ceiling.
 
+## 2026-06-25: Noether R126 Paper 03 RA57 survival-audit addendum
+
+Manifest: [20260625_noether_r126_p03_survival_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p03_survival_audit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P03_RA57SurvivalAudit_WebDrop_20260625.zip`, 23,844,236 bytes, SHA256 `D39452D6B8F6C77A147B1E642D2F1D42FCBEA63044887555D4B3D1806839D8B4`.
+- Scope: targeted RA57 survival check for Paper 03 against the current `cum_de_R126_plus_Kapferer559_567_plus_P20_barrepair_plus_P08_omega_current_20260625.tex` baseline.
+- Status additions: confirms survival of the source title spelling `Variabeln`, the author line `Von Emmy Noether in Erlangen`, and formula (2) `\rho=\sum_i\rho_i\le n`.
+- Source-witness lesson: the older labelled p103 crop was not clear enough for the final `\rho=\cdots\le n` line, so this package adds a fresh raw-GDZ enlarged 1000dpi inspection crop for that locus.
+- Source-quality caveat: best staged GDZ raw pages are recorded as native 600ppi; enlarged 1000dpi inspection crops improve reading convenience but do not create new optical detail beyond the raw source.
+- Boundary: targeted survival/source-support evidence only. No new TeX patch, no full Paper 03 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
+
 ## 2026-06-25: Noether R126 Papers 10-13 survival/queue-disposition addendum
 
 Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p10_p13_survival_queue_disposition.json)
