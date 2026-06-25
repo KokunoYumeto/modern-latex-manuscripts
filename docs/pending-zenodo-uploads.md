@@ -1,5 +1,38 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Weber B141 Vol. I p468-p473 certified delta
+
+Manifest: [20260625_weber_b141_p468_p473_certified_delta.json](../manifests/pending-zenodo-uploads/20260625_weber_b141_p468_p473_certified_delta.json)
+
+- Weber pending ZIP: `Weber_Rob_B141_Vol1_p468_p473_CertifiedDelta_WebDrop_20260625.zip`, 13,713,645 bytes, SHA256 `0BF611951D80DDCA346D792EE5EE31B43B9A19F4637F248B7D3A3D2DCD668502`.
+- Scope: Vol. I pp.468-473, sections 146-148. This is now the compact p468-p473 package that supersedes the earlier unpackaged p468-p473 live-status note.
+- Result: current German cumulative TeX/PDF/log after p468-p473 integration, Rob certification/method logs, source crops, and batch/open-item ledgers. Reported compile state: 363 pages, 0 errors.
+- Caveat: still not global Weber Volume I certification, not English synchronization, and not a critical edition. B140 remains the compact p414-p467 evidence package; B141 is the compact p468-p473 continuation.
+
+Next action: consider B140+B141 together for a deliberate Weber author-record update; preserve held items for sections 69, 138, 141, p466, and finer section 148 prose.
+
+## 2026-06-25: Weber B142 Vol. I p474-p479 held diagnosis / p480-p485 staged
+
+Manifest: [20260625_weber_b142_p474_p479_hold_p480_p485_staged.json](../manifests/pending-zenodo-uploads/20260625_weber_b142_p474_p479_hold_p480_p485_staged.json)
+
+- Weber hold ZIP: `Weber_Rob_B142_Vol1_p474_p479_Held_p480_p485_Staged_WebDrop_20260625.zip`, 23,320,637 bytes, SHA256 `9A94D514C43CA1C4C261CE6F18534E6E509A5A4DCF0BA2C35BB758E967E90BC8`.
+- Scope: Vol. I pp.474-479, sections 148-149; pp.480-485 source crops are staged only.
+- Result: no TeX repair applied. Rob audit diagnoses pp.474-479 / sections 148-149 as a wholesale GPT rewrite/paraphrase requiring coherent retranscription, not piecemeal patching. The included cumulative TeX/PDF/log are unchanged from B141.
+- Caveat: do not treat p474-p479 as repaired or certified. p480-p485 is not certified.
+
+Next action: source-faithfully retranscribe Weber Vol. I sections 148-149 before ordinary continuation past p479.
+
+## 2026-06-25: Noether R126 Paper 42 Sp tilde-a source-order fix
+
+Manifest: [20260625_noether_r126_p42_sp_tilde_order_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p42_sp_tilde_order_fix.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P42_SpTildeOrderFix_WebDrop_20260625.zip`, 5,468,464 bytes, SHA256 `919EB80C6D7F20E543F7FA519AEF20C5007747152071A6D34D0C102813631C23`.
+- Scope: Paper 42, source p685 / source PDF p7. Corrects three source-order occurrences from Sp(a\widetilde a) to printed Sp(\widetilde a a).
+- Source quality: best-available local RA10 witness, native image about 360ppi, below the strict 650ppi target.
+- Caveat: source-critical patch only, not global Paper 42 certification, not critical edition, not multilingual synchronization, and not loose-upload material while the Noether record remains at the file ceiling.
+
+Next action: fold into a future compact Noether rollup/pruning pass.
+
 ## 2026-06-25: Noether R126 SourceQueueDisposition Update 2
 
 Manifest: [20260625_noether_r126_source_queue_disposition_update2.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_source_queue_disposition_update2.json)
