@@ -3702,6 +3702,18 @@ Manifest: [20260625_sga5_live_certlog_p136_status_package.json](../manifests/sou
 
 Next action: continue from p137, finish Expose III bibliography entries [12]-[18] and SGA 4 1/2 notes, then IIIB; fold into SGA metadata only with the above caveats.
 
+## 2026-06-25: SGA5 live French workpass through p138
+
+Manifest: [20260625_sga5_live_certlog_p138_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p138_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p138_Status_20260625.zip`, 2,105,590 bytes, SHA256 `F6E3D778323926268A2F78B6828B7CAFF8E53EF18E25E6840A46223AA4675A7D`, 7 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs plus README after the hand-certification log reached p138.
+- Status additions: pp.1-138 page-locally certified in the controlling CERT_LOG; pp.1-72 close Expose I; pp.73-137 close Expose III including bibliography [12]-[18] and SGA 4 1/2 notes; p138 starts Expose III B and removes one spurious duplicate section header from the TeX that came from a running-header artifact.
+- Ledger summary: p138 package reports 138 pages checked, 3 TeX fixes, 6 source typos plus one source cross-reference quirk, 0 content transcription errors, and 70 hand-verified diagrams perfect.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p139 in Expose III B; fold into SGA metadata only with the above caveats.
+
 ## 2026-06-25: Weber B139 live German Vol. I p100-p545 workpass
 
 Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json)
