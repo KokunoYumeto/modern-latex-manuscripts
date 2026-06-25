@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 22 p.53 title/editor/footnote-anchor repair
+
+Manifest: [20260625_noether_r126_p22_p053_title_footnote_anchor.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p053_title_footnote_anchor.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P22_p053_TitleFootnoteAnchor_WebDrop_20260625.zip`, 4,256,751 bytes, SHA256 `CFB51C13E8F271C314D0224CC00D5382825C9153661B55AD71A0CC2E51C24334`.
+- Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 / GDZ `PPN235181684_0088` seq000057, title/editor/footnote-anchor source-layout repair.
+- Repair highlight: restores the source-visible order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line instead of later in the theorem block.
+- Contents: patched cumulative German TeX/PDF, exact TeX diff, source-confirmed fix CSV, Paper 22 full-page witness manifest for pp.53-79, and the p.53 full-page source witness.
+- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate compact Noether rollup after pruning/replacement; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+
 ## 2026-06-25: Weber Rob/Web B139b p378-p388 delta
 
 Manifest: [20260625_weber_rob_b139b_delta_p378_p388.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139b_delta_p378_p388.json)
