@@ -3896,6 +3896,18 @@ Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p581_workpass.json](../manife
 
 Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from the p581-p582 section 172 derivation tail while retranscribing held rewrite/reconstruction blocks deliberately.
 
+## 2026-06-25: Weber B139 live German Vol. I p100-p629 workpass
+
+Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p629_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p629_workpass.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p629_Workpass_20260625.zip`, 2,253,461 bytes, SHA256 `9FC3E3D8755397A3A6A78130CE40F995E8C465D5E4DE4FAA4EE2E76F294CC3B7`, 11 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs, certification/method logs, audit harness notes, package README, inventory, and checksums after the live find-verify-fix audit reached printed p629.
+- Status additions: the workpass PDF was rebuilt from the current TeX and reports 369 pages. The controlling method log estimates roughly 97% of Volume I done at workpass level.
+- Held/retranscription ranges still include section 69, section 138 numbering/layout, section 141, p466, sections 148-156, section 158, sections 162-163, section 165, sections 167-170, and sections 173-184.
+- Caveat: German source-audit workpass/status artifact only. Not English synchronized, not whole-Volume-I certified, and not a critical edition.
+
+Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from p630-p635 while retranscribing held rewrite/reconstruction blocks deliberately.
+
 ## 2026-06-25: Noether R127 Paper 13 best-available survival audit
 
 Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p13_survival_best_available.json)
