@@ -1,26 +1,28 @@
 # Pending Zenodo Uploads
 
-## 2026-06-25: SGA5 live CERT_LOG through p100
+## 2026-06-25: SGA5 live CERT_LOG through p102
 
-Manifest: [20260625_sga5_live_certlog_p100_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p100_unpacked.json)
+Manifest: [20260625_sga5_live_certlog_p102_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p102_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
-- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-100 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-100.
-- The log reports D001-D037 hand-verified perfect through p100 and one substantive Expose III source-typo fix at p98 (`g'_*d'^!` to `g'_*c'^!`); p100 itself is logged clean.
+- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-102 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-102.
+- The log reports D001-D040 hand-verified perfect through p102. Page 102 covers Theoreme 4.4, the main Lefschetz-Verdier theorem statement, including D039 cube and D040 main square verified perfect.
+- The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p102 range.
 - Caveat: this is still a live local workpass, not a compact public package, not English synchronization, not global SGA5 certification, and not a critical edition. The local TeX remains a curated 10-expose SGA5 selection, not the whole LNM 589 scan.
 
-Next action: continue from p101 after rendering p101+ witnesses; only fold into Zenodo after a compact status/method package and independent validation.
+Next action: continue from p103, especially D041 / (4.4.2), the large three-row commutative diagram previously flagged as high-risk; only fold into Zenodo after a compact status/method package and independent validation.
 
-## 2026-06-25: Weber live CERT_LOG through p431
+## 2026-06-25: Weber live CERT_LOG through p443
 
-Manifest: [20260625_weber_live_certlog_p414_p431_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p431_unpacked.json)
+Manifest: [20260625_weber_live_certlog_p414_p443_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p443_unpacked.json)
 
 - Local live audit evidence only: `WEBER_CERT_LOG.md`, `WEBER_METHOD_LOG.md`, and the local Volume I German cumulative TeX/PDF in `Weber_B139_heuristic_fix`.
-- Current compact public-staging head remains B139e p408-p413. The newer live log has moved beyond that and records p414-p431 as hand-verified local source-audit work.
+- Current compact public-staging head remains B139e p408-p413. The newer live log has moved beyond that and records p414-p443 as hand-verified local source-audit work.
 - p420-p425 reports 14 applied fixes in the Kronecker/discriminant/quadratic-Gauss-sum section; p426-p431 reports 12 applied fixes plus one type-B erratum in the Fermat/primitive-congruence-root section.
+- p432-p437 reports 2 fixes with p433, p434, p436, and p437 clean. p438-p443 reports 6 fixes with p439 and p442 clean; the section 138 numbering block remains held because the print layout uses flush-left Legendre-symbol results that the current TeX re-laid as enumerate/equation tags.
 - Caveat: the same log warns that agent output also produced hallucinated fixes on phantom no-scan pages. The accepted lines were hand-confirmed, but this is not a compact upload artifact, not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
-Next action: build a compact Weber p414-p431 package with diff, source witnesses, logs, checksums, and README before treating it as a pending Zenodo upload.
+Next action: build a compact Weber p414-p443 package with diff, source witnesses, logs, checksums, and README before treating it as a pending Zenodo upload; resolve or explicitly ledger the section 138 numbering/layout issue.
 
 ## 2026-06-25: Noether R126 Paper 30 MA96 / IAJP2 source-status ZIP
 
@@ -32,16 +34,28 @@ Manifest: [20260625_noether_r126_p30_ma96_iajp2_source_status_zip.json](../manif
 
 Next action: keep for the next deliberate compact Noether rollup/replacement; do not upload loose while the Noether record remains file-count constrained.
 
-## 2026-06-25: Noether R126 Paper 30 pp.26-32 loose source-fix payload
+## 2026-06-25: Noether R126 Paper 30 pp.26-32 compact source-fix ZIP
 
-Manifest: [20260625_noether_r126_p30_p026_032_sourcefix_unpacked.json](../manifests/source-intake/20260625_noether_r126_p30_p026_032_sourcefix_unpacked.json)
+Manifest: [20260625_noether_r126_p30_p026_032_sourcefix_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_p026_032_sourcefix_zip.json)
 
-- Local source-intake payload: `Noether_R126_LocalCodex_P30_p026_032_SourceFix_WebDrop_20260625_payload`, 23 files, 24,555,446 bytes.
-- Scope: loose Paper 30 source-fix evidence for printed pp.26-32, including German cumulative TeX/PDF, patched-span TeX, source witnesses, page map, and a TeX diff.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_p026_032_SourceFix_WebDrop_20260625.zip`, 20,875,775 bytes, SHA256 `5873F069B60C2D4DD153F5D13CA0F5E106A073D1740BC589AD20CE90ABDCD702`.
+- Scope: compact Paper 30 source-fix evidence for printed pp.26-32, including README, source-quality/open-items/confirmed-fixes ledgers, checksum CSV, patched German cumulative TeX/PDF/log, patched-span TeX, source witnesses, page map, and a TeX diff.
 - Observed diff highlights include targeted repairs to opening punctuation/footnote placement, Krull citation page range, the R/T convention sentence, module-basis index families, a restored no-unit-ring footnote in the finite-module basis paragraph, and `\mathfrak A_n` chain notation replacing a prior `\mathfrak U_n` rendering.
-- Caveat: no README, checksum ledger CSV, source-quality CSV, confirmed-fixes CSV, or no-new-patch CSV was present in the observed payload. It is not upload-ready as-is and does not certify Paper 30.
+- Caveat: this supersedes the earlier loose-source-intake assessment, but it remains a targeted source-fix candidate below the strict 650+ppi source-certification preference. It does not close Paper 30, synchronize downstream languages, or certify Noether.
 
-Next action: package deliberately with README, checksums, source-quality ledger, confirmed-fix ledger, no-new-patch ledger, source witnesses, current TeX/PDF, and explicit caveats before any Zenodo rollup.
+Next action: keep for the next deliberate compact Noether rollup/replacement; do not upload loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether R126 Paper 30 pp.33-35 compact source-fix ZIP
+
+Manifest: [20260625_noether_r126_p30_p033_035_sourcefix_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_p033_035_sourcefix_zip.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_p033_035_SourceFix_WebDrop_20260625.zip`, 12,561,936 bytes, SHA256 `5A1C507FF8F3819059E9135017FA05E1B0F2D6DD942EF147652CD2624FA2243C`.
+- Scope: continuation of the pp.26-32 candidate through printed p35. The package includes README, ledgers, source witnesses for pp.33-35, patched German cumulative TeX/PDF/log, and TeX diff material.
+- Applied/source-checked highlights: p33 Folge I exponent/running-index repairs, p34 Folge II notation repairs, and p35 module-proof congruence-direction/minimal-length/chain-index repairs.
+- Build/status: the package README reports two XeLaTeX passes, a 466-page German cumulative PDF, and no fatal/emergency stops; warnings remain ordinary build warnings.
+- Caveat: source witnesses are IA JP2-derived approximately 400ppi leaves, below the preferred 650+ppi source-certification floor. Paper 30 printed p36 onward remains open; this is targeted source-fix evidence only, not Paper 30 closure, multilingual synchronization, or critical edition.
+
+Next action: keep with the pp.26-32 package for the next deliberate compact Noether rollup/replacement.
 
 ## 2026-06-25: Noether R126 Paper 29 GDZ400 survival/status package
 
