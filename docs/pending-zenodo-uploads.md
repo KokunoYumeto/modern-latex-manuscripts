@@ -1,5 +1,36 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: SGA5 live CERT_LOG through p112
+
+Manifest: [20260625_sga5_live_certlog_p112_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p112_unpacked.json)
+
+- Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
+- Current controlling claim: the manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-112 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-110.
+- p110 records Corollaire 4.9 cycle-class pairings, Corollaire 4.10 finite-intersection formula, and the 4.11 excess-intersection setup; no new diagram is added, so D001-D060 remain the verified diagram range.
+- Caveat: p113-p116 crops/render aids exist locally but are locator material only until the CERT_LOG promotes those pages. This remains a live local workpass, not compact public packaging, not English synchronization, not global SGA5 certification, and not a critical edition.
+
+Next action: continue from p111; only fold into Zenodo after a compact status/method package and independent validation.
+
+## 2026-06-25: Weber live CERT_LOG through p467
+
+Manifest: [20260625_weber_live_certlog_p414_p467_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p467_unpacked.json)
+
+- Local live audit evidence only: `WEBER_CERT_LOG.md` and `WEBER_METHOD_LOG.md` in the Weber audit lane.
+- Current compact public-staging head remains B139e p408-p413. The newer live log records p414-p467 as hand-verified local source-audit work.
+- p462-p467 reports 22 applied fixes in sections 144-146 and grows the local PDF from 362 to 363 pages by restoring prose. p466 is explicitly held for coherent re-transcription; section 138 numbering/layout and section 141 reducibility paraphrase also remain held.
+- Caveat: p468-p473 crops exist only as preparation. The live log also documents hallucinated no-scan agent candidates, so the agent stream is finder evidence only.
+
+Next action: build a compact Weber p414-p467 package with diff, source witnesses, logs, checksums, README, and explicit holds before treating it as a pending Zenodo upload.
+
+## 2026-06-25: Noether R126 P10/P30 queue reconciliation
+
+Manifest: [20260625_noether_r126_p10_p30_queue_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p10_p30_queue_reconciliation.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P10_P30_QueueReconciliation_WebDrop_20260625.zip`, 3,143,089 bytes, SHA256 `BCE11C6332313DE2DBF5C03C3E89E10C53700511DF110EE89635C14BCFF3035B`.
+- Scope: compact routing package to prevent duplicate web work on stale R126 queue rows. P30 is locally audited through printed pp.26-61 at best-available IA400 source level; P10 is covered by prior best-available P10 audits plus R126 survival checks.
+- Caveat: neither P10 nor P30 satisfies the preferred 650+ native ppi rule. This is queue hygiene/source-support evidence only, not strict certification, not multilingual synchronization, and not a loose Zenodo upload.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement after file-ceiling pruning.
 ## 2026-06-25: SGA5 live CERT_LOG through p109
 
 Manifest: [20260625_sga5_live_certlog_p109_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p109_unpacked.json)
