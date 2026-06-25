@@ -1,5 +1,18 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether Paper 12 pp.41-44 GDZ no-patch audit
+
+Manifest: [20260625_noether_p12_p041_044_gdz_nopatch_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_p12_p041_044_gdz_nopatch_audit.json)
+
+- Noether pending ZIP: `Noether_R124plus_P12_p041_044_GDZ_NoPatch_WebDrop_20260625.zip`, 12,282,070 bytes, SHA256 `520CF21BC7B80B46CD09836FD90201A3AD79D224409E416CD0DAE32308FFABC3`.
+- Scope: Paper 12, printed/source pp.41-44, checked against GDZ/Jahresbericht 1918 IIIF page images after the local P13 pp.255-257 source-fix base.
+- Result: no TeX patch. The package reports that checked tail anchors matched the current cumulative at the inspected loci.
+- Source quality: page images are 2296 x 3688 px, below the local 650+ PPI preference and 1000+ dense-math target; treat as best-available no-patch audit evidence, not strict high-resolution certification.
+- Build: XeLaTeX two-pass compile succeeded; package reports a 469-page candidate PDF and no fatal errors, undefined controls, unresolved references, rerun warnings, or over/underfull hbox matches in the log scan.
+- Caveat: do not upload this as a loose standalone Noether public file. The Noether record is already at the 100-file ceiling. Fold into the next compact reviewed Noether source-support/no-duplicate/no-patch rollup after pruning/replacement.
+
+Next action: preserve as Noether source-audit queue evidence; do not treat as Paper 12 closure, whole-Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-25: Poincare Edge gap-fill packages v1_03/v1_04/v1_05/v1_07
 
 Manifest: [20260625_poincare_edge_gapfill_v1_03_05_07.json](../manifests/pending-zenodo-uploads/20260625_poincare_edge_gapfill_v1_03_05_07.json)
@@ -80,7 +93,7 @@ Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `6C6F40D6CBFA2C2268A5B2CDC8E662C9B16582DBF7538312A1988ED8DC9730A7`; `sga5_fr_workpass.pdf` SHA256 `1A4E96159D4D2964BBADC174BCB3AC70D2B6101DB6395AC38202824F33F8FED8`; `sga5_fr_workpass.log` SHA256 `F4C8DAE232A8ACDAA658CB254210D3616A773A79BD9914D702AC64166F8735C4`.
 - Status: the live status file reports p75-p484 audited locally and a later p3-p32 workflow batch, with 411 verified corrections recorded in the status stream.
-- Caveat: this is not a clean compiled edition and not SGA5 closure. The latest observed log writes a 306-page PDF but also contains LaTeX error diagnostics around TikZ/equation environments. Open areas include p1-p2, p33-p74, deferred p344/p346-p347 diagram/prose-pass items and other deferred prose/notation items, clean-build repair, final diff/FINDINGS, uncertain/type-B review, and English synchronization.
+- Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package repairs the build errors and closes the open regions.
 
@@ -237,7 +250,7 @@ Local files staged for the next deliberate workflow refresh:
 
 - `AI_Run_Workflow_Addendum_Archive_Scope_Guardrail_20260624.zip`, 4,563 bytes, SHA256 `2F2B814004DCB35CE70B87BCF792ABCCC237D736C235820149454356C16CA08A`.
 - `workflow_addendum_20260624_archive_scope_guardrail.md`, standalone human-readable addendum.
-- `workflow_addendum_20260624_source_witness_public_surface.md`, updated SGA5 source-witness caveat from pp.1-27 to pp.1-65 plus p103 diagram locus.
+- `workflow_addendum_20260624_source_witness_public_surface.md`, updated SGA5 source-witness caveat from the early pp.1-27 snapshot to later source-witness coverage snapshots.
 - `AI_Run_Workflow_Addendum_Page_Unit_Audit_Harness_20260624.zip`, 3,046 bytes, SHA256 `A271CCBBF5DEEBBC8ABC8A090F887C7AC027AFA8C125D1243D6DA2B08A34A951`.
 - `workflow_addendum_20260624_page_unit_audit_harness.md`, page-unit audit harness addendum distilled from Noether/Weber/SGA6/Steinitz harnesses.
 
@@ -2075,8 +2088,8 @@ Published 2026-06-24 on the Gordan/Clebsch-Gordan record. This note is retained 
 Manifest: [20260624_sga5_full_audit_workpass_support.json](../manifests/pending-zenodo-uploads/20260624_sga5_full_audit_workpass_support.json)
 
 - SGA pending ZIP: `sga5_full_audit_workpass_support_20260624.zip`, 211.4127 MB, SHA256 `1DE36F03E5D0723F7D9AB411030BF9C51481158BB962B54B3C64CC35327DD74B`.
-- Scope: SGA5 French source-faithfulness workpass and audit-support snapshot after repair032. Includes `sga5_fr_workpass.tex`, `sga5_fr_workpass.pdf`, source-page findings, source-resolution notes, machine-readable index, work scripts, and source/crop witnesses. Copied-short-path `pdfinfo` reports the workpass PDF as 306 pages.
-- Status truth at the time this support snapshot was staged: serial audit reported 65 of 484 source pages fully audited plus p103 diagram (4.4.2); 26 transcription fixes, 6 emendations kept, 3 source errata flagged, 1 unresolved flag, and a systematic SGA-to-SGAA citation-classification pass still owed. A later observed live workpass supersedes that as the current working status: 411 verified corrections, p75-p484 audited locally, and p3-p32 audited locally; the latest workpass log still has LaTeX error diagnostics despite producing a 306-page PDF. Open areas still include p1-p2, p33-p74, clean-build repair, deferred p344/p346-p347 diagram/prose-pass items and other deferred prose/notation items, final compile/diff/FINDINGS refresh, remaining uncertain/type-B review as applicable, and English synchronization.
+- Scope: SGA5 French source-faithfulness workpass and audit-support snapshot after repair032. Includes `sga5_fr_workpass.tex`, `sga5_fr_workpass.pdf`, source-page findings, source-resolution notes, machine-readable index, work scripts, and source/crop witnesses. Copied-short-path `pdfinfo` in this older support snapshot recorded the then-current workpass PDF page count; a later live workpass writes a 307-page PDF.
+- Status truth at the time this support snapshot was staged: serial audit reported 65 of 484 source pages fully audited plus p103 diagram (4.4.2); 26 transcription fixes, 6 emendations kept, 3 source errata flagged, 1 unresolved flag, and a systematic SGA-to-SGAA citation-classification pass still owed. A later observed live workpass supersedes that as the current working status: 411 verified corrections, p1-p484 reported audited locally in the live status note; the latest observed log scan has no fatal/LaTeX error diagnostics and writes a 307-page PDF, but the workpass is still not independently packaged or promoted. Open areas still include final diff/FINDINGS refresh, compact packaging, independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 - Source-resolution note: best available SGA5 public/on-disk source in the audit is the 496-page Springer scan at about 2176 x 3035 pixels, roughly 360 dpi optical; no higher-resolution source was found in that audit.
 - Workflow lesson: at this scale, server-side/API rate limits, not token budget, became the bottleneck. Run one large find/verify/patch workflow at a time; use OCR/crops as witness/localization layers, not as canonical authority.
 - Caveat: this is workpass/source-audit support only. It is not complete SGA5, not a critical edition, and not a promoted reader-facing replacement. Canonical promotion still requires diff review, reruns of rate-limited pages, final compile gate, and page-by-page closure.
@@ -2133,3 +2146,4 @@ Manifest: [20260624_noether_r124_p40_bodyrepair002_p514_523.json](../manifests/p
 - Caveat: not P40 closure, not whole-Noether closure, not a critical edition. P40 printed pp.524-541 remain open; later footnotes 16-19 and 21-22 still require final recheck; P41-P43 are untouched; P40 source witness is 400ppi below the local 650ppi strict certification floor.
 
 Next action: if refreshing Noether Zenodo, front this as the freshest German working baseline package with clear caveats and retain earlier tranches as provenance only.
+

@@ -23,7 +23,7 @@ GPU OCR / Surya-style OCR / Pix2Text / VLM outputs are useful mainly as **covera
 - They are not automatically correct transcription and must not override page images or source PDFs.
 - OCR from a different copy or edition must not be used for page-precise claims without source identity, checksum, and page-map reconciliation.
 
-The SGA5 audit lane showed the correct posture: OCR and indexes can locate dense loci, but source-page visual audit remains the authority. Later local SGA5 workpass status reports pp.75-484 and pp.3-32 audited locally, while pp.1-2, pp.33-74, deferred diagram/prose/notation items, clean-build repair, final diff/FINDINGS refresh, uncertain/type-B review, and English synchronization remain open; the latest observed workpass produces a PDF but still logs LaTeX errors. This still proves the same workflow point: much more TeX can exist than has been source-page certified cleanly, and public records must state the narrower audited coverage and the remaining build/source caveats.
+The SGA5 audit lane showed the correct posture: OCR and indexes can locate dense loci, but source-page visual audit remains the authority. Later local SGA5 workpass status reports pp.1-484 reported audited locally in the live status note, while final diff/FINDINGS refresh, compact packaging, independent validation, optional low-value prose-fidelity review where desired, and English synchronization remain open; the latest observed workpass writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. This still proves the same workflow point: much more TeX can exist than has been source-page certified cleanly, and public records must state the narrower audited coverage and the remaining build/source caveats.
 
 ## 2a. Machine-Readable Indexes Are Navigation Layers
 
@@ -89,3 +89,4 @@ Best current loop:
 5. Human-facing public records state what is done, what is only working draft, and where corrections can be suggested through GitHub issues or pull requests.
 
 This workflow is AI-run, not merely AI-assisted, but its outputs must still be represented by source fidelity level rather than by agent confidence.
+
