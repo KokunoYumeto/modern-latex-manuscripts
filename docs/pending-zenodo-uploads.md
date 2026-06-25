@@ -2401,3 +2401,14 @@ Manifest: [20260625_noether_r125_tail_p713_p721_definition_repair.json](../manif
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468, bytes 2578053.
 
 Next action: use this p713-p721 package, not the narrower p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+
+## 2026-06-25: Noether R125 tail p713-p724 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p724_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p724_definition_repair.json)
+
+- Noether pending ZIP: Noether_R125_LocalCodex_Tail_p713_p724_DefinitionRepair_WebDrop_20260625.zip, 19848007 bytes, SHA256 `7B51F993BAC1AEEC710F1C9CBEDEB8DEB32DA1C38E02C43DCAE86D98E9E3E35C`.
+- Scope: cumulative p713-p724 Noether-Deuring post-numbered tail repair. It supersedes p713-p721 and narrower p713 tail packages; carries those repairs forward; and adds p724 group-ring radical proof continuation / section 15 opening repairs.
+- Repair highlights: p724 restores the nilpotence calculation, abelian-group converse, section 15 heading, abelian group/group-ring notation, cyclic-product proof variables, character paragraph, and Hauptcharakter computation opening.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p725 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p724, or multilingual propagation.
+
+Next action: use this p713-p724 package, not the narrower p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
