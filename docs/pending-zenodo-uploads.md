@@ -3568,6 +3568,19 @@ Manifest: [20260625_noether_r127_p10_queue_reconciliation.json](../manifests/pen
 
 Next action: treat P10 as covered by prior best-available source audits plus R127 survival verification unless a better native witness, concrete defect, or later cumulative change appears. Fold this into a future compact Noether rollup rather than uploading loose.
 
+## 2026-06-25: Noether R127 P09/P10 best-available full-page dispositions
+
+Manifest: [20260625_noether_r127_p09_p10_best_available_dispositions.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p09_p10_best_available_dispositions.json)
+
+- Noether P09 disposition ZIP: `Noether_R127_LocalCodex_P09_BestAvailableFullPageDisposition_NoNewPatch_WebDrop_20260625.zip`, 49,350,692 bytes, SHA256 `1A2BAB92BF38946632207A86841DF8195E30632A0A96649864C39468B0A0AD89`, 56 entries.
+- Noether P10 disposition ZIP: `Noether_R127_LocalCodex_P10_BestAvailableFullPageDisposition_NoNewPatch_WebDrop_20260625.zip`, 24,934,243 bytes, SHA256 `376F10355C34FE589693557D16F5B154B87B922A853E88D489AB4E25441BE139`, 52 entries.
+- Scope: adjacent R127 no-new-patch guardrails rebased against `Noether_R127_REBUILT_20260625.zip`. The packages carry current R127 TeX slices, survival checks, no-fix trap ledgers, best-available full-page source dispositions, source-quality caveats, image inventories, source PDFs, targeted high-resolution crop witnesses where available, and prior ledgers.
+- P09 result: no new TeX patch; package reports all 10 P09 R127 survival checks passing, including the author line, Zermelo `S. 484`, Weber footnote wording, p112 display anchors, p119 `\xi_t` no-fix trap, p125 subscripts, and p127 Omega-definition repair.
+- P10 result: no new TeX patch; package reports survival of the source-local footnote markers, J-domain/fraktur-J repair, terminal `k_\sigma`, `F(t;\vartheta_i)\cdot G(t;\vartheta_i)`, rank-three `i\cdot` display, and Erlangen date.
+- Caveat: best-available source-support/queue hygiene only. P09 and P10 full-page contexts are mixed 400/600 ppi, below strict native 650+ full-page certification; exact difficult loci use higher-resolution crops where available. These are not whole-paper certification, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold P09/P10 together with R127_REBUILT and P11/P12 guardrails into a compact Noether rollup after file-ceiling pruning. Reopen only on a better native source, concrete defect, or later section-hash change.
+
 ## 2026-06-25: Noether R127 rebuilt authority and P11/P12 guardrails
 
 Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json)
