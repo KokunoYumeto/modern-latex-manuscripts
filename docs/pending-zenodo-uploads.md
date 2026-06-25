@@ -3821,6 +3821,16 @@ Manifest: [20260625_sga5_live_certlog_p145_status_package.json](../manifests/sou
 - Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Rendered/cropped p146-p151 material exists locally, but it is not certified until the CERT_LOG promotes it. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
 
 Next action: continue from p146 in Expose III B; fold into SGA metadata only with the above caveats.
+## 2026-06-25: SGA5 live French workpass through p146
+
+Manifest: [20260625_sga5_live_certlog_p146_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p146_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p146_Status_20260625.zip`, 2,233,303 bytes, SHA256 `D93CE3CF3E56633903E01771410929EB74F31B31816D6764CF3ACCE940F64971`, 16 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, source-resolution/status/index files, and README after the hand-certification log reached p146.
+- Ledger summary: p146 package reports a 307-page workpass compile with no fatal/LaTeX-error diagnostics in the observed log, 146 pages checked, 6 TeX fixes, 8 source typos found, 2 copied-source typos corrected in TeX, 1 cross-reference quirk, and diagrams D001-D072 hand-verified perfect. p146 restores/render-checks missing diagram-square labels (1)-(4) in D071/D072. The grind cursor says p147 is next.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Rendered/cropped material beyond p146 exists locally, but it is not certified until the CERT_LOG promotes it. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p147 in Expose III B; fold into SGA metadata only with the above caveats.
 
 ## 2026-06-25: Noether R127 queue reconciliation plus P24-P34 no-new-patch survival
 
