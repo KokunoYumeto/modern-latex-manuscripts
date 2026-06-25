@@ -504,6 +504,17 @@ Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
 
+## 2026-06-25: Classical Lean audit watch sense-check
+
+Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pending-zenodo-uploads/20260625_classical_lean_audit_watch_sensecheck.json)
+
+- Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 50,644 bytes, SHA256 `D713E61E9F6AAABC217F15EB70D93EF92C2F0A92AE0412499F565C80BE9A1EC2`.
+- Scope: compact audit handoff for Claude-started Lean formalization experiments attached to the classical transcription corpus. This is not a promoted proof corpus and not DOI-ready.
+- Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
+- Required before any public proof/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source anchors to the actual transcribed TeX/public catalog. A theorem map must distinguish the source statement, normalized mathematical statement, Lean theorem, and build status.
+
+Next action: use as a web/pro review packet or workflow-record candidate only; verify source alignment for the three green Lean theorems before any public proof claim.
+
 ## 2026-06-25: Noether R126 P06/P07 survival audit queue
 
 Manifest: [20260625_noether_r126_p06_p07_survival_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p06_p07_survival_audit.json)
