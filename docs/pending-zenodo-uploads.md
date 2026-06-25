@@ -3822,6 +3822,22 @@ Manifest: [20260625_sga5_live_certlog_p145_status_package.json](../manifests/sou
 
 Next action: continue from p146 in Expose III B; fold into SGA metadata only with the above caveats.
 
+## 2026-06-25: Noether R127 queue reconciliation plus P24-P34 no-new-patch survival
+
+Manifests:
+
+- [20260625_noether_r127_queue_reconciliation_index.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_queue_reconciliation_index.json)
+- [20260625_noether_r127_p24_p30_middleband_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p24_p30_middleband_survival_nopatch.json)
+- [20260625_noether_r127_p31_p34_upperband_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p31_p34_upperband_survival_nopatch.json)
+
+- Queue index ZIP: `Noether_R127_LocalCodex_CurrentQueueReconciliation_Index_WebDrop_20260625.zip`, 758,963 bytes, SHA256 `D5BBDCFDC616EAF9AA4A73231921BD652BC05749834051CF655369B6B376FB53`, 7 entries.
+- Middle-band ZIP: `Noether_R127_LocalCodex_P24_P30_MiddleBandCurrentSurvival_NoNewPatch_WebDrop_20260625.zip`, 10,549,817 bytes, SHA256 `8E21A9C4119BA6AB0496C71E071A8FCC887D82287C7F93B9CF9215DBE8603136`, 21 entries.
+- Upper-band ZIP: `Noether_R127_LocalCodex_P31_P34_UpperBandCurrentSurvival_NoNewPatch_WebDrop_20260625.zip`, 836,303 bytes, SHA256 `60EE94006123980BF1362F489F9FE10DF6A73B329B1BD7C818E1CAA17AFD9899`, 13 entries.
+- Scope: compact queue hygiene and current-state anti-regression evidence. The queue index maps original R127 active rows to LocalCodex patch/survival/disposition packages. The P24-P30 and P31-P34 packages prove survival of known source-confirmed traps/anchors and explicitly avoid replaying stale fixes.
+- Caveat: no new TeX patch, no new reader-facing canonical body, no whole-paper certification, no multilingual synchronization, and no critical-edition claim. Noether remains at the Zenodo 100-file ceiling, so use these only in a deliberate compact rollup/replacement pass.
+
+Next action: fold into the next compact Noether rollup together with R127_REBUILT and targeted repair/survival packets; do not upload loose.
+
 ## 2026-06-25: Weber B139 live German Vol. I p100-p545 workpass
 
 Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json)
