@@ -2339,7 +2339,7 @@ Manifest: [20260625_noether_r125_tail_p713_p714_definition_repair.json](../manif
 - Source-quality caveat: best local witnesses are about 360ppi. The repaired loci are visually unambiguous, but the package does not certify p715 onward, the whole tail, the post-numbered apparatus, or multilingual propagation.
 - Relationship to previous bundle: this was created after `Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip`; the all-webdrops bundle does not contain this later tail addendum.
 
-Next action: superseded for current tail-addendum purposes by the p713-p715 package below; retain this p713-p714 entry as provenance only and use the p713-p715 package for any future compact Noether source-support rollup.
+Next action: superseded for current tail-addendum purposes by the p713-p716 package below; retain this p713-p714 entry as provenance only and use the p713-p716 package for any future compact Noether source-support rollup.
 
 ## 2026-06-25: Noether R125 tail p713-p715 definition repair addendum
 
@@ -2348,7 +2348,19 @@ Manifest: [20260625_noether_r125_tail_p713_p715_definition_repair.json](../manif
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p715_DefinitionRepair_WebDrop_20260625.zip`, 7,360,285 bytes, SHA256 `79B9B40F685A385C07051BD1544279E48D455F32930A3252A518606BDD8F9E15`.
 - Scope: cumulative p713-p715 Noether-Deuring post-numbered tail repair. It supersedes the narrower p713-p714 package, carries those repairs forward, and adds p715 section 3/section 4 continuation repairs, source-style Darstellungsmodul definitions, `\overline{\mathfrak D}`, the basis sentence, and the displayed `(c+d)`/`cd` formulas.
 - Build: package reports XeLaTeX pass 1 exit 0, pass 2 exit 0, with a 469-page candidate PDF.
-- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p716 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p715, or multilingual propagation.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this superseded p713-p715 package does not certify p716 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p715, or multilingual propagation; use the later p713-p716 package as the current tail addendum.
 - Relationship to previous bundle: this was created after `Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip`; the all-webdrops bundle does not contain this later tail addendum.
 
-Next action: use this p713-p715 package, not the narrower p713-p714 package, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+Next action: superseded for current tail-addendum purposes by the p713-p716 package below; retain this p713-p715 entry as provenance only and use the p713-p716 package for any future compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p716 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p716_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p716_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p716_DefinitionRepair_WebDrop_20260625.zip`, 8,759,713 bytes, SHA256 `4E72E54E7AB56182A3015E55107F4BF6753A8E641E4EA9827DE5D729621E9F4E`.
+- Scope: cumulative p713-p716 Noether-Deuring post-numbered tail repair. It supersedes the p713-p715 and p713-p714 packages, carries those repairs forward, and adds p716 change-of-basis and direct Darstellungsmodul-construction repairs, including `\mathfrak M`, `\mathfrak{o}`, `\mathsf T`, `x_\nu/y_\nu`, the aligned `P^{-1}CP` computation, and the `\mathsf T`-module arithmetic.
+- Build: package reports XeLaTeX pass 1 exit 0, pass 2 exit 0, with a candidate PDF bytes value of 2,576,635.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p717 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p716, or multilingual propagation.
+- Relationship to previous bundle: this was created after `Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip`; the all-webdrops bundle does not contain this later tail addendum.
+
+Next action: use this p713-p716 package, not the narrower p713-p715 or p713-p714 packages, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
