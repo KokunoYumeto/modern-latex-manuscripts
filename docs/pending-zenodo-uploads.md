@@ -165,10 +165,10 @@ Next action: attach to the workflow/replication record during the next deliberat
 
 Manifest: [20260625_workflow_weber_find_verify_fix_method.json](../manifests/pending-zenodo-uploads/20260625_workflow_weber_find_verify_fix_method.json)
 
-- Workflow pending ZIP: `AI_Run_Workflow_Weber_FindVerifyFix_Audit_Method_20260625.zip`, 41,377 bytes, SHA256 `6084EEA0C30BEE9E1B42F67B525ACBE174FF73872464EEDA87F8D47950C3950B`.
+- Workflow pending ZIP: `AI_Run_Workflow_Weber_FindVerifyFix_Audit_Method_20260625.zip`, 44,413 bytes, SHA256 `7BF1406BBE4325E3321FA6A917DEF89080AFFD27C62B3F9050D6BBA4EA174890`.
 - Scope: compact Weber audit method packet adapted from the SGA5 find-verify-fix workpass pattern.
-- Contents: Weber audit method note, runnable `weber_audit_workflow.js`, harness README, chunk/render helper, manifest builder, and compact three-volume audit manifest.
-- Workflow lesson: SGA5's page-local source-audit pattern transfers to Weber German transcription, but Weber also needs a second axis: English translation against the German branch, with the scan used for math tie-breaks.
+- Contents: Weber audit method note, runnable `weber_audit_workflow.js`, harness README, chunk/render helper, native-source measurement helper, manifest builder, and compact three-volume audit manifest.
+- Workflow lesson: SGA5's page-local source-audit pattern transfers to Weber German transcription, but the 2026-06-25 priority correction says Weber is German-transcription-first. The live risk is omission/summarization in half-baked GPT draft TeX, not English translation. Local source measurement found no native Weber scan at or above the 650dpi trust line; the best on-disk sources are about 500-560dpi and require tight crops plus uncertainty flags.
 - Caveat: workflow support only. This is not a Weber reader update, not a Weber certification, and not proof that the manifest pages have all been audited.
 
 Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh, alongside the SGA5 method snapshot.
