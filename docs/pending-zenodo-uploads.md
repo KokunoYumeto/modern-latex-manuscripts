@@ -2706,7 +2706,7 @@ Manifest: [20260625_noether_r126_source_audit_package.json](../manifests/pending
 - Source-quality caveat: the source pages embed 2048x3322 images at about 360 ppi. Treat this as best-available source repair, not strict 650+ ppi certification, not a critical edition, and not multilingual synchronization proof.
 - Boundary: R126 narrows the active tail record: pp.747-763 are repaired at the best-available source level; pp.711-746 and the Kapferer/post-763 material remain active/open unless covered by a later package.
 
-Next action: use R126 as the current Noether German source-audit baseline before applying the R126-based Kapferer/Noether p559-p560 addendum. Do not upload loose while the Noether record remains at the file ceiling.
+Next action: use R126 as the current Noether German source-audit baseline before applying the R126-based Kapferer/Noether p559-p561 addendum. Do not upload loose while the Noether record remains at the file ceiling.
 
 ## 2026-06-25: Noether R126 Kapferer/Noether p559-p560 repair addendum
 
@@ -2716,7 +2716,20 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p560_repair.json](../mani
 - Scope: rebases the Kapferer/Noether repair onto `Noether_R126_20260625.zip` / `cum_de_R126.tex` and repairs Math. Ann. 97 source pp.559-560 only.
 - Repair highlights: rebuilds the title/byline/supplement/bibliographic line, opening paragraph and source footnotes 1-4, Satz Ia, Satz Ib through the congruence reduction `K\equiv0(\mathfrak q_1),\ldots,K\equiv0(\mathfrak q_s)`, the Max Noether paragraph, `K=\lambda\cdot\varphi+\mu\cdot\psi`, the Reduktion footnote, and the sufficient-but-not-necessary multiplicity-condition paragraph.
 - Source-quality caveat: checked against the best staged local GDZ raw full-page witnesses for canvases 565-566, about 400 dpi and below the 650+ ppi strict certification floor.
-- Boundary: p559-p560 only. Kapferer/Noether p561 onward remains provisional/OCR-derived in R126 and should continue from Math. Ann. p561 / GDZ canvas 567. This supersedes the earlier R125-based p559-only package for current web handoff purposes.
+- Boundary: p559-p560 only. Kapferer/Noether p561 onward remains provisional/OCR-derived in this package; the later p559-p561 package supersedes this one for current web handoff purposes. This package remains provenance for the p559-p560 stage.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors.
 
-Next action: use this as the current Kapferer/Noether addendum for a future compact Noether rollup; continue page-by-page source audit from p561. Do not upload loose while Noether remains at the Zenodo file ceiling.
+Next action: retain this p559-p560 package as provenance only; use the p559-p561 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p562. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Kapferer/Noether p559-p561 repair addendum
+
+Manifest: [20260625_noether_r126_kapferer_noether_p559_p561_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_kapferer_noether_p559_p561_repair.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_KapfererNoether_MathAnn97_p559_p561_Repair_WebDrop_20260625.zip`, 53,919,872 bytes, SHA256 `D0B760B47DB372BB3954B7AE3FF9144338E2F8C68B2E244CC018178D29DE1636`.
+- Scope: rebases the Kapferer/Noether repair onto `Noether_R126_20260625.zip` / `cum_de_R126.tex` and repairs Math. Ann. 97 source pp.559-561 only.
+- Repair highlights: carries forward the p559-p560 title/byline/supplement line, opening paragraph, footnotes 1-4, Satz Ia, Satz Ib congruence reduction, Max Noether paragraph, Reduktion footnote, and multiplicity-condition repairs; adds p561 Satz II conditions, footnote 7, displayed system (1), source colon-division notation, first-row exponent `y^(g_1)`, and recurrence definitions.
+- Source-quality caveat: checked against the best staged local GDZ raw full-page witnesses for canvases 565-567, about 400 dpi and below the 650+ ppi strict certification floor.
+- Boundary: p559-p561 only. Kapferer/Noether p562 onward remains provisional/OCR-derived in R126 and should continue from Math. Ann. p562 / GDZ canvas 568. This supersedes the p559-only R125 and p559-p560 R126 packages for current web handoff purposes.
+- Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, or missing-character reports.
+
+Next action: use this as the current Kapferer/Noether addendum for a future compact Noether rollup; continue page-by-page source audit from p562. Do not upload loose while Noether remains at the Zenodo file ceiling.
