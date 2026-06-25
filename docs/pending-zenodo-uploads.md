@@ -3582,6 +3582,19 @@ Manifest: [20260625_noether_r127_p09_p10_best_available_dispositions.json](../ma
 
 Next action: fold P09/P10 together with R127_REBUILT and P11/P12 guardrails into a compact Noether rollup after file-ceiling pruning. Reopen only on a better native source, concrete defect, or later section-hash change.
 
+## 2026-06-25: Noether R127 P14-P18 best-available survival audits
+
+Manifest: [20260625_noether_r127_p14_p18_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p14_p18_survival_best_available.json)
+
+- Noether P14/P15/P16 survival ZIP: `Noether_R127_LocalCodex_P14_P15_P16_BestAvailableSurvival_NoNewPatch_WebDrop_20260625.zip`, 19,961,804 bytes, SHA256 `57F084837FE2E6AD1AF466BC7369D478E8849E4C9251AD24936844EB1F0B28F6`, 108 entries.
+- Noether P17/P18 survival ZIP: `Noether_R127_LocalCodex_P17_P18_BestAvailableSurvival_NoNewPatch_WebDrop_20260625.zip`, 18,005,253 bytes, SHA256 `07DADB67641F22E3DC3E05892A1708F3EF1B34E01CA07938952E435E1A205B4F`, 44 entries.
+- Scope: compact no-new-patch survival/queue-closure evidence against `Noether_R127_REBUILT_20260625.zip`, verifying that known Local Codex P14-P18 source-critical anchors survive in the rebuilt R127 German cumulative.
+- Contents: copied R127 authority spans, P14-P18 TeX spans, survival checks, best-available disposition ledgers, no-fix trap ledgers, high-value source witness crops/cutouts, source-quality ledgers, and prior audit ledgers.
+- Result: no new TeX patch.
+- Caveat: source-support evidence only. P14-P18 witnesses remain best-available mixed-resolution lanes with targeted high-resolution crops where available; these packages are not strict full-page certification, not whole-paper closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next Noether compact rollup with R127_REBUILT and the P09/P10/P11/P12/P19/P20 guardrail packages; reopen only for a better native source, concrete defect, or later section change.
+
 ## 2026-06-25: Noether R127 P19/P20 best-available survival audit
 
 Manifest: [20260625_noether_r127_p19_p20_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p19_p20_survival_best_available.json)
