@@ -1,15 +1,49 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Weber B140 Vol. I p414-p467 certified delta package
+
+Manifest: [20260625_weber_b140_v1_p414_p467_certified_delta.json](../manifests/pending-zenodo-uploads/20260625_weber_b140_v1_p414_p467_certified_delta.json)
+
+- Weber pending ZIP: `Weber_Rob_B140_Vol1_p414_p467_CertifiedDelta_WebDrop_20260625.zip`, 84,307,434 bytes, SHA256 `FA28FDB279FCE166A11CD8E660D1D49E0D1C28C3506193A535E4963A41132220`, 177 ZIP entries.
+- Scope: compact source-backed delta for Weber Volume I pp.414-p467 after the earlier B139e p408-p413 staging. It includes the current German cumulative TeX/PDF through p467, certification logs, method log, source crops, open-items CSV, batch summary, inventory, and checksums.
+- Certified range in the included log: pp.414-467, covering cyclotomic polynomials through the Galois-resolvent material.
+- Explicit holds: section 138 numbering/layout, section 141 reducibility paraphrase, p466 normal-body/Galois-resolvent construction, and p468-p473 crops remain outside the certified package.
+- Caveat: this is a compact source-backed delta, not global Weber Volume I certification, not English synchronization, and not a critical edition.
+
+Next action: queue for the next Weber author-record Zenodo refresh and update workflow lessons with the held-section/no-scan-agent caution.
+
+## 2026-06-25: Noether R126 Tail/Kapferer queue reconciliation
+
+Manifest: [20260625_noether_r126_tail_kapferer_queue_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_tail_kapferer_queue_reconciliation.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_Tail_Kapferer_QueueReconciliation_WebDrop_20260625.zip`, 4,457,487 bytes, SHA256 `61837C149EBBF4DC05F8C8C614666F15D34B7BA075B2AAD08BB0C32981452D92`, 20 ZIP entries.
+- Scope: reconciles stale R126 tail queue claims against Local Codex tail p713-p746, p747-p763, and Kapferer/Noether Math. Ann. 97 pp.559-p567 packages.
+- Result: the R126 workbook line saying pp.711-746 and p764 onward remain is stale for proof text: pp.713-746, pp.747-763, and Kapferer/Noether pp.559-p567 have existing best-available source-repair packages. pp.711-712 are front matter/title and table-of-contents witnesses included for disposition.
+- Caveat: Deuring tail witnesses are about native360; Kapferer/Noether witnesses are about 400dpi. This is not strict 650+ certification, not whole-Noether closure, not a critical edition, and not multilingual synchronization.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass; do not redo p713-p763 or Kapferer p559-p567 without stronger witnesses or concrete regression.
+
+## 2026-06-25: Noether R126 HighQueue P34-P43 signature reconciliation
+
+Manifest: [20260625_noether_r126_highqueue_p34_p43_signature_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_highqueue_p34_p43_signature_reconciliation.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_HighQueue_P34_P43_SignatureReconciliation_WebDrop_20260625.zip`, 3,312,477 bytes, SHA256 `DE39B7FBB18F822E4C7D6125E41E24082AAB8F7558934DDED5AB112F0B5D18E7`, 9 ZIP entries.
+- Scope: checks stale post-R124/high-queue rows against the current R126 German cumulative for Papers 34, 35, 36, 41, and 43.
+- Result: no new cumulative TeX change. The checked P34/P35/P36/P41/P43 signatures already survive in R126, so stale web/queue rows should not be replayed as missing.
+- Caveat: P37, P38/P39, P40, and P42 were not freshly checked by this package. Most witnesses remain below the strict 650+ ppi preference.
+
+Next action: use as queue hygiene/stale-patch prevention and fold into the next Noether rollup; check excluded papers separately only if the live queue still points there.
+
 ## 2026-06-25: SGA5 live CERT_LOG through p112
 
 Manifest: [20260625_sga5_live_certlog_p112_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p112_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
-- Current controlling claim: the manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-112 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-110.
-- p110 records Corollaire 4.9 cycle-class pairings, Corollaire 4.10 finite-intersection formula, and the 4.11 excess-intersection setup; no new diagram is added, so D001-D060 remain the verified diagram range.
+- Current controlling claim: the manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-112 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-112.
+- p110 records Corollaire 4.9 cycle-class pairings, Corollaire 4.10 finite-intersection formula, and the 4.11 excess-intersection setup; p111 closes 4.11 with the normal-bundle / Gauss-Bonnet material; p112 adds 4.12.1 and 4.13 local-term / filtered-category material. No new diagram is added on p112, so D001-D060 remain the verified diagram range.
 - Caveat: p113-p116 crops/render aids exist locally but are locator material only until the CERT_LOG promotes those pages. This remains a live local workpass, not compact public packaging, not English synchronization, not global SGA5 certification, and not a critical edition.
 
-Next action: continue from p111; only fold into Zenodo after a compact status/method package and independent validation.
+Next action: continue from p113; only fold into Zenodo after a compact status/method package and independent validation.
 
 ## 2026-06-25: Weber live CERT_LOG through p467
 
@@ -20,7 +54,7 @@ Manifest: [20260625_weber_live_certlog_p414_p467_unpacked.json](../manifests/sou
 - p462-p467 reports 22 applied fixes in sections 144-146 and grows the local PDF from 362 to 363 pages by restoring prose. p466 is explicitly held for coherent re-transcription; section 138 numbering/layout and section 141 reducibility paraphrase also remain held.
 - Caveat: p468-p473 crops exist only as preparation. The live log also documents hallucinated no-scan agent candidates, so the agent stream is finder evidence only.
 
-Next action: build a compact Weber p414-p467 package with diff, source witnesses, logs, checksums, README, and explicit holds before treating it as a pending Zenodo upload.
+Next action: compact package now exists as `Weber_Rob_B140_Vol1_p414_p467_CertifiedDelta_WebDrop_20260625.zip`; use the B140 section above as the current pending Weber upload candidate and keep this live-log section as provenance.
 
 ## 2026-06-25: Noether R126 P10/P30 queue reconciliation
 
@@ -31,6 +65,7 @@ Manifest: [20260625_noether_r126_p10_p30_queue_reconciliation.json](../manifests
 - Caveat: neither P10 nor P30 satisfies the preferred 650+ native ppi rule. This is queue hygiene/source-support evidence only, not strict certification, not multilingual synchronization, and not a loose Zenodo upload.
 
 Next action: fold into the next deliberate compact Noether rollup/replacement after file-ceiling pruning.
+
 ## 2026-06-25: SGA5 live CERT_LOG through p109
 
 Manifest: [20260625_sga5_live_certlog_p109_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p109_unpacked.json)
