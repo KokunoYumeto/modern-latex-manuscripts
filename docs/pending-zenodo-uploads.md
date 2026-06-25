@@ -27,6 +27,15 @@ Manifest: [20260625_noether_p14_p186_189_sourcefix.json](../manifests/pending-ze
 
 Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
 
+## 2026-06-25: 48-hour exact ZIP gap sweep
+
+Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
+
+- Scope: broad exact ZIP-name reconciliation across the main local drop, Edge dump, Downloads, Codex handoff root, and Claude work root after the narrower 12-hour sweep was clean.
+- Result: 284 unique recent ZIP names in the 48-hour window; 49 were not yet referenced exactly in the repo. The manifest records hashes and dispositions for all 49 so they are no longer invisible.
+- Classification: 45 Noether R124/R124-plus post-web backlog ZIPs; one tiny Noether failed-web P42 salvage subset; one nested Gordan prior-baseline ZIP; and two unrelated Downloads ZIPs (`dyadic-beurling-reduction-main.zip`, `helix_frobenius-master.zip`) marked ignore unless explicitly requested.
+- Caveat: this is a sweep/backlog manifest, not an upload instruction. The Noether items are local source-audit/backlog evidence only and must be pruned into a compact future Noether rollup if useful. The unrelated Downloads files are outside the manuscript translation archive by default.
+
 ## 2026-06-25: Noether WebFailedThinking5 P42 / RA82 salvage
 
 Manifest: [20260625_noether_webfailedthinking5_p42_ra82_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking5_p42_ra82_salvage.json)
