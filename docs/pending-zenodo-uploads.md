@@ -8,6 +8,7 @@ Manifest: [20260625_weber_b143_p480_p485_section150_retranscribed.json](../manif
 - Scope: Vol. I pp.480-485. Rob reports §150, "Transitive und intransitive Gruppen", re-transcribed from source; pp.483-485 are marked clean.
 - Result: current German cumulative TeX/PDF/log after B143, full certification/method logs, source crops for p474-p479 and p480-p485, B142-to-B143 diff, and open-items CSV. Compile state: 364 pages, 0 errors.
 - Caveat: B143 does not repair §148-149. pp.474-479 and pp.480-481 / §149 tail remain held as the major wholesale GPT-rewrite/paraphrase block. It also flags Weber erratum #9 on p482 while preserving the printed wording.
+- Workflow lesson: B143 records the false-clean trap from the prior handoff. A held/no-compile range must not suppress rendering, crop generation, or output checks for the next range; an unusually fast all-clean report after a held batch is a missing-scan/tooling warning until the source images and output PDF are actually inspected.
 
 Next action: coherent source retranscription of Weber Vol. I §148-149 / pp.474-481, then continue from p486 onward with the hold carried forward.
 ## 2026-06-25: Noether R126 Paper 37 GDZ full-resolution source witness
