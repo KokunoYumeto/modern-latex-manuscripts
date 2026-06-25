@@ -2297,3 +2297,13 @@ Manifest: [20260625_noether_r125_p04_p09_queue_disposition.json](../manifests/pe
 - Scope: small queue-disposition package for R125 queue rows P04 and P09, anchored to the current R125 + Local Codex P13/P14 candidate. It introduces no new TeX patch.
 - Disposition: P04 pp.140-145 are covered by best-available local page audit evidence with targeted 1000dpi crop support for difficult displays; P09 pp.103-128 are covered by best-available page-band audits, and the p106 Weber-footnote repair plus p127 Omega-definition repair survive in the current candidate.
 - Caveat: queue hygiene and survival evidence only. P09 remains below the strict 650+ source-certification floor, and P04 is not a full-page critical certification. Do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+
+## 2026-06-25: Noether R125 P31-P43 upper-band reconciliation package
+
+Manifest: [20260625_noether_r125_p31_p43_upperband_reconcile.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_p31_p43_upperband_reconcile.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_P31_P43_UpperBand_Reconcile_WebDrop_20260625.zip`, 516,064 bytes, SHA256 `AC96092EAC0BDF0C8D034054E7E6C5E5FCF2BA15AC846FA8CBF6B51188F4DC78`.
+- Scope: reconciliation/guardrail package for the upper-band Noether rows P31-P43, anchored to the current R125 + Local Codex P13/P14 candidate. It introduces no new TeX patch.
+- Result: P31-P41 and P43 are normalized-identical to the latest local upper-band candidate; P42 intentionally differs because R125 contains the newer complete Paper 42 source rebuild and supersedes the older local P42/RA82 survival state.
+- Web/local instruction: keep R125 P42; do not replay already-surviving targeted upper-band repairs unless a new source defect is found. Remaining open work is broad source certification/source-quality work, not stale patch replay.
+- Caveat: guardrail evidence only; not P31-P43 certification, not critical edition, and not loose Zenodo upload while the Noether record is at the file ceiling.
