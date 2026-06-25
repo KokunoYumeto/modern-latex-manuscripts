@@ -1,5 +1,48 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: SGA5 live CERT_LOG through p100
+
+Manifest: [20260625_sga5_live_certlog_p100_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p100_unpacked.json)
+
+- Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
+- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-100 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-100.
+- The log reports D001-D037 hand-verified perfect through p100 and one substantive Expose III source-typo fix at p98 (`g'_*d'^!` to `g'_*c'^!`); p100 itself is logged clean.
+- Caveat: this is still a live local workpass, not a compact public package, not English synchronization, not global SGA5 certification, and not a critical edition. The local TeX remains a curated 10-expose SGA5 selection, not the whole LNM 589 scan.
+
+Next action: continue from p101 after rendering p101+ witnesses; only fold into Zenodo after a compact status/method package and independent validation.
+
+## 2026-06-25: Weber live CERT_LOG through p431
+
+Manifest: [20260625_weber_live_certlog_p414_p431_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p431_unpacked.json)
+
+- Local live audit evidence only: `WEBER_CERT_LOG.md`, `WEBER_METHOD_LOG.md`, and the local Volume I German cumulative TeX/PDF in `Weber_B139_heuristic_fix`.
+- Current compact public-staging head remains B139e p408-p413. The newer live log has moved beyond that and records p414-p431 as hand-verified local source-audit work.
+- p420-p425 reports 14 applied fixes in the Kronecker/discriminant/quadratic-Gauss-sum section; p426-p431 reports 12 applied fixes plus one type-B erratum in the Fermat/primitive-congruence-root section.
+- Caveat: the same log warns that agent output also produced hallucinated fixes on phantom no-scan pages. The accepted lines were hand-confirmed, but this is not a compact upload artifact, not English synchronization, not whole-Volume-I certification, and not a critical edition.
+
+Next action: build a compact Weber p414-p431 package with diff, source witnesses, logs, checksums, and README before treating it as a pending Zenodo upload.
+
+## 2026-06-25: Noether R126 Paper 30 MA96 / IAJP2 source-status ZIP
+
+Manifest: [20260625_noether_r126_p30_ma96_iajp2_source_status_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_ma96_iajp2_source_status_zip.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_MA96_IAJP2_SourceStatus_WebDrop_20260625.zip`, 102,382,074 bytes, SHA256 `8302E672012229E67ECDE2918F71CBBB05712B63C950D657E840A1C5B87B9C42`.
+- Scope: compact version of the Paper 30 source-status payload mapping printed pp.26-61 to IA leaves 31-66 / PDF pages 32-67, with IA JP2 leaves, native PNG renders, PDF cutout, current R126 anchors, source-dimension ledgers, and page maps.
+- Caveat: source-status/source-witness material only. All listed JP2 witnesses are about 400ppi and below the strict 650+ppi source-certification floor. This does not apply a TeX patch, close Paper 30, synchronize downstream languages, or certify Noether.
+
+Next action: keep for the next deliberate compact Noether rollup/replacement; do not upload loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether R126 Paper 30 pp.26-32 loose source-fix payload
+
+Manifest: [20260625_noether_r126_p30_p026_032_sourcefix_unpacked.json](../manifests/source-intake/20260625_noether_r126_p30_p026_032_sourcefix_unpacked.json)
+
+- Local source-intake payload: `Noether_R126_LocalCodex_P30_p026_032_SourceFix_WebDrop_20260625_payload`, 23 files, 24,555,446 bytes.
+- Scope: loose Paper 30 source-fix evidence for printed pp.26-32, including German cumulative TeX/PDF, patched-span TeX, source witnesses, page map, and a TeX diff.
+- Observed diff highlights include targeted repairs to opening punctuation/footnote placement, Krull citation page range, the R/T convention sentence, module-basis index families, a restored no-unit-ring footnote in the finite-module basis paragraph, and `\mathfrak A_n` chain notation replacing a prior `\mathfrak U_n` rendering.
+- Caveat: no README, checksum ledger CSV, source-quality CSV, confirmed-fixes CSV, or no-new-patch CSV was present in the observed payload. It is not upload-ready as-is and does not certify Paper 30.
+
+Next action: package deliberately with README, checksums, source-quality ledger, confirmed-fix ledger, no-new-patch ledger, source witnesses, current TeX/PDF, and explicit caveats before any Zenodo rollup.
+
 ## 2026-06-25: Noether R126 Paper 29 GDZ400 survival/status package
 
 Manifest: [20260625_noether_r126_p29_gdz400_survival_status.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p29_gdz400_survival_status.json)
@@ -18,9 +61,9 @@ Manifest: [20260625_noether_r126_p30_ma96_iajp2_source_status_unpacked.json](../
 
 - Local source-intake payload: `Noether_R126_LocalCodex_P30_MA96_IAJP2_SourceStatus_WebDrop_20260625_payload`, 83 files, 104,035,149 bytes.
 - Scope: loose Paper 30 source-status payload mapping printed pp.26-61 to IA leaves 31-66 / PDF pages 32-67, with IA JP2 leaves, native PNG renders, current R126 TeX/PDF anchors, page map, and source-dimension ledger.
-- Caveat: not a compact upload ZIP and not Zenodo-ready as-is. All listed JP2 leaves are recorded as native 400ppi, `best_available_below_650`; this is source-intake/source-witness material only, not a TeX patch, Paper 30 closure, whole-Noether certification, or critical edition.
+- Caveat: this loose payload has now been superseded for transfer purposes by the compact ZIP manifest above, but the quality caveat is unchanged. All listed JP2 leaves are recorded as native 400ppi, `best_available_below_650`; this is source-intake/source-witness material only, not a TeX patch, Paper 30 closure, whole-Noether certification, or critical edition.
 
-Next action: package deliberately before any public rollup, or use locally behind the already staged P30 GDZ0096 source-map package.
+Next action: use the compact ZIP above for any future public rollup, or use the extracted payload locally behind the already staged P30 GDZ0096 source-map package.
 
 ## 2026-06-25: Noether R126 Paper 22 p.70-79 tail re-audit
 
