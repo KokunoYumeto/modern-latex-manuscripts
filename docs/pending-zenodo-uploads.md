@@ -1,5 +1,27 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 29 GDZ400 survival/status package
+
+Manifest: [20260625_noether_r126_p29_gdz400_survival_status.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p29_gdz400_survival_status.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P29_GDZ400_SurvivalStatus_WebDrop_20260625.zip`, 29,008,164 bytes, SHA256 `3DCD948D6BAB1C72475C95C195FBA0192AB6204546B991DC7D8DFADFB708C6C2`.
+- Scope: Paper 29 survival/status package against the R126 cumulative, using the correct GDZ full-page JPG witness set for `Der Endlichkeitssatz der Invarianten endlicher linearer Gruppen der Charakteristik p`.
+- Result: no new TeX patch is proposed. The package records that the prior RA71 source-header, author-line, Courant presentation-line, and footnote-counter fixes survive in R126.
+- Caveat: best staged source is GDZ native 400ppi plus convenience PDF and inspection crops. This is best-available-below-650 source support, not strict source certification, not whole-Paper-29 closure, not multilingual synchronization, and not a critical edition.
+- Trap closed: do not use the misnamed `noether_p29_ia_source_20260623` material for Paper 29; that source crosswalks to Paper 24.
+
+Next action: keep with the next deliberate compact Noether rollup as P29 source-support/queue-disposition evidence; do not upload loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether R126 Paper 30 MA96 / IAJP2 source-status payload
+
+Manifest: [20260625_noether_r126_p30_ma96_iajp2_source_status_unpacked.json](../manifests/source-intake/20260625_noether_r126_p30_ma96_iajp2_source_status_unpacked.json)
+
+- Local source-intake payload: `Noether_R126_LocalCodex_P30_MA96_IAJP2_SourceStatus_WebDrop_20260625_payload`, 83 files, 104,035,149 bytes.
+- Scope: loose Paper 30 source-status payload mapping printed pp.26-61 to IA leaves 31-66 / PDF pages 32-67, with IA JP2 leaves, native PNG renders, current R126 TeX/PDF anchors, page map, and source-dimension ledger.
+- Caveat: not a compact upload ZIP and not Zenodo-ready as-is. All listed JP2 leaves are recorded as native 400ppi, `best_available_below_650`; this is source-intake/source-witness material only, not a TeX patch, Paper 30 closure, whole-Noether certification, or critical edition.
+
+Next action: package deliberately before any public rollup, or use locally behind the already staged P30 GDZ0096 source-map package.
+
 ## 2026-06-25: Noether R126 Paper 22 p.70-79 tail re-audit
 
 Manifest: [20260625_noether_r126_p22_p070_079_tail_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p070_079_tail_reaudit.json)
@@ -31,7 +53,7 @@ Manifest: [20260625_weber_rob_b139e_delta_p408_p413.json](../manifests/pending-z
 - Scope: compact B139e Rob/Web delta after the B139d p402-p407 package, covering Weber Volume I printed/source pp.408-413, sections 131-133.
 - Result: package README and cert ledger report p408-p413 as the certified/logged range in this drop. The accepted delta includes p409 `k`/`k+\mu` corrections, p410 compact `r^\mu`/`r^n` forms, p412 systematic section 133 `x` to `\pi` and `q` to `\varrho` repairs, and p413 restoration of a dropped product symbol `\Pi`; p408 and p411 are logged clean.
 - Build/status: included German cumulative TeX/PDF/log and diff from B139d to B139e; certificate and method logs are included as full/excerpt files.
-- Boundary: p414-p419 source images exist in the Rob audit folder, but there is no certification-log entry for them in this package, so p414+ is not accepted production work here.
+- Boundary: p414-p419 source images exist in the Rob audit folder, but there is no certification-log entry for them in this package, so p414+ is not accepted production work in B139e. A later live local log now records p414-p419 as hand-checked with 16 applied fixes, but that evidence is still unpackaged source-intake/status material: see [20260625_weber_live_certlog_p414_p419_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p419_unpacked.json).
 - Caveat: source-witnessed local Rob/Web candidate evidence only until reconciled with the main Weber branch. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
 
 Next action: use B139e p408-p413 as the current Weber staging head for the next compact Weber author-record refresh; continue the audit from Band I p414 unless a later compact package supersedes it.
