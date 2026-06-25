@@ -147,11 +147,12 @@ Next action: preserve as Noether source-audit queue evidence; do not treat as Pa
 Manifest: [20260625_poincare_edge_gapfill_v1_03_05_07.json](../manifests/pending-zenodo-uploads/20260625_poincare_edge_gapfill_v1_03_05_07.json)
 
 - Poincare pending ZIPs: `poincare_v1_03.zip`, `poincare_v1_04.zip`, `poincare_v1_05.zip`, and `poincare_v1_07.zip`, recovered from the Microsoft Edge download dump.
+- Local upload rollup prepared: `Poincare_v1_03_04_05_07_gapfill_upload_rollup_20260625.zip` at `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Poincare\_zenodo_refresh_20260625\`, 171,303,507 bytes, SHA256 `E20D26601BAD75D6292E0F5412D99230449BBBC5C44F284603C5E53E242D9CBD`.
 - Scope: local French/English source-witnessed working packages for `Oeuvres`, Tome I that contradict the older status note saying all v1_03-v1_07 packages were absent.
 - Caveat: these are not yet public on the dedicated Poincare record in the observed file surface, and they do not make the stream continuous. `poincare_v1_06.zip` and v1_22-v1_23 remain absent by this sweep.
 - Quality label: working/source-witnessed recovery packages only, not certified critical editions.
 
-Next action: add these four ZIPs, or a compact rollup containing them, to the next dedicated Poincare Zenodo refresh and rebuild the public file list/metadata.
+Next action: upload the compact rollup to the next dedicated Poincare Zenodo refresh and rebuild the public file list/metadata.
 
 ## 2026-06-25: Edge download exact-name reconciliation
 
