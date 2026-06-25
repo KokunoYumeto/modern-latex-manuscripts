@@ -1,16 +1,64 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 22 p.70-79 tail re-audit
+
+Manifest: [20260625_noether_r126_p22_p070_079_tail_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p070_079_tail_reaudit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P22_p070_079_TailReaudit_WebDrop_20260625.zip`, 22,834,113 bytes, SHA256 `78AB6E39051D8A085FA9B997E7F96556101DBDEBA3151FC8E44C62EB6680CEB5`.
+- Scope: current Paper 22 tail addendum, continuing from the p.64-69 RA62 re-audit and finishing the Hentzelt-Noether Paper 22 lane through printed/source p.79.
+- Result: pp.70-75 were visually checked with no patch; pp.76-78 contain source-certain formula/index defects and are patched in the included cumulative TeX; p.79 barred `\bar R^{(i)}(z,x)` specialization sentence was checked and already correct.
+- Build/status: updated German cumulative compiles successfully to 466 pages; final log reports only ordinary font warnings and no fatal errors, emergency stops, undefined control sequences, or unresolved-reference warnings after pass two.
+- Caveat: source witnesses remain mixed quality: p.70 and p.79 full-page witnesses are 600ppi, p.71-p.78 are 400ppi, and the p.79 1000dpi witness is an inspection enlargement from a lower-resolution source. Targeted source-support evidence only, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
+
+Next action: use this p.70-p.79 tail package as the current Paper 22 addendum in the next compact Noether rollup; keep p.53/p.55-61 and p.64-69 packages as provenance. Do not upload loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether R126 queue reconciliation for P09-P12 and P22
+
+Manifest: [20260625_noether_r126_queue_reconciliation_p09_p12_p22.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_queue_reconciliation_p09_p12_p22.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_QueueReconciliation_P09_P12_P22_WebDrop_20260625.zip`, 20,728 bytes, SHA256 `6F6F4FF4B3FFE4A4A99E4A9B8CF1A58490F84C7432A09253257383EA1826E7DC`.
+- Scope: routing/status package, not a new source patch package. It reconciles stale R126 queue rows against local best-available P09, P10, P11, P12, and Paper 22 source-support packages.
+- Result: P09 and P10 have substantial local best-available page-band work plus survival checks; P11 and P12 have R126 full-page re-audit packages, with P12 carrying the confirmed p43 `analytischen` fix; P22 has fresh p53, p55-p61, p64-p79 fixes/checks while p62-p63 remain represented by older RA62 survival evidence.
+- Caveat: use the package to prevent duplicate web work and to choose next non-duplicate audits. It carries CSV routing ledgers and package README excerpts, not bulk source images or new edition TeX.
+
+Next action: keep with the next compact Noether rollup as a queue/routing ledger; do not upload as loose reader material.
+
+## 2026-06-25: Weber Rob/Web B139e p408-p413 delta
+
+Manifest: [20260625_weber_rob_b139e_delta_p408_p413.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139e_delta_p408_p413.json)
+
+- Weber pending ZIP: `Weber_Rob_B139e_Delta_p408_p413_WebDrop_20260625.zip`, 10,963,020 bytes, SHA256 `C716513B12968B159A10DEF4B1442A2F3BA77EF873AF9A06FDF1D20863D8C94D`.
+- Scope: compact B139e Rob/Web delta after the B139d p402-p407 package, covering Weber Volume I printed/source pp.408-413, sections 131-133.
+- Result: package README and cert ledger report p408-p413 as the certified/logged range in this drop. The accepted delta includes p409 `k`/`k+\mu` corrections, p410 compact `r^\mu`/`r^n` forms, p412 systematic section 133 `x` to `\pi` and `q` to `\varrho` repairs, and p413 restoration of a dropped product symbol `\Pi`; p408 and p411 are logged clean.
+- Build/status: included German cumulative TeX/PDF/log and diff from B139d to B139e; certificate and method logs are included as full/excerpt files.
+- Boundary: p414-p419 source images exist in the Rob audit folder, but there is no certification-log entry for them in this package, so p414+ is not accepted production work here.
+- Caveat: source-witnessed local Rob/Web candidate evidence only until reconciled with the main Weber branch. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+
+Next action: use B139e p408-p413 as the current Weber staging head for the next compact Weber author-record refresh; continue the audit from Band I p414 unless a later compact package supersedes it.
+
+## 2026-06-25: Weber Rob/Web B139d p402-p407 delta
+
+Manifest: [20260625_weber_rob_b139d_delta_p402_p407.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139d_delta_p402_p407.json)
+
+- Weber pending ZIP: `Weber_Rob_B139d_Delta_p402_p407_WebDrop_20260625.zip`, 14,953,093 bytes, SHA256 `A9266147E20DF2C9EEEDE9E622B2CDB236A3BC1580757B61CEFD041D31BDDC0D`.
+- Scope: compact B139d Rob/Web delta after the B139c p389-p401 package, covering Weber Volume I printed/source pp.402-407, sections 129-131.
+- Result: Rob log reports p402-p407 verified by eye plus math derivation and compiled successfully as a 361-page German cumulative with 0 errors. High-value repairs include p402 continued-fraction root-approximation material, section 129 Latin `a` partial quotients, Weber's printed a3/a4 label swap preserved as a type-B erratum, and p403-p407 restored prose, missing `\psi(x)` display, footnote, congruence details, and factorization-verification wording.
+- Boundary: source images for p408 onward were being generated locally after this pass, but no p408+ certified log entry was present when this package was made, so p408+ is not accepted production work here.
+- Caveat: source-supported candidate evidence from the local Rob/Web workpass, not whole-Volume-I certification, not English synchronization, and not a critical edition. This package is now previous provenance because B139e p408-p413 carries the current local staging head.
+
+Next action: keep as provenance; use the later B139e p408-p413 delta as the current Weber staging head for the next compact author-record refresh.
+
 ## 2026-06-25: Noether R126 Paper 22 p.53/55-61 carry-forward plus p.64-69 RA62 reaudit
 
 Manifest: [20260625_noether_r126_p22_p064_069_ra62_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p22_p064_069_ra62_reaudit.json)
 
 - Noether pending ZIP: `Noether_R126_LocalCodex_P22_p064_069_RA62Reaudit_WebDrop_20260625.zip`, 30,882,077 bytes, SHA256 `51BD6803ABA2D62CBAC224FDF85AD2D40A1EAF43160A1F96E35477147A18DB3A`.
-- Scope: current Paper 22 addendum carrying forward the p.53 title/editor/footnote-anchor fix and pp.55-61 bounded `\varrho` repair, then adding p.64 and p.69 source repairs plus pp.65-68 no-new-patch traps from the RA62 range.
+- Scope: previous Paper 22 addendum carrying forward the p.53 title/editor/footnote-anchor fix and pp.55-61 bounded `\varrho` repair, then adding p.64 and p.69 source repairs plus pp.65-68 no-new-patch traps from the RA62 range. This is now superseded for current P22 staging by the p.70-p.79 tail package above.
 - Applied fixes: p.64 restores source-visible `\xi_i` and `a_i^{(i)}` in the opening linear-form setup; p.69 restores paired coefficient subscripts `c_{\alpha\lambda}`, `c_{\beta\tau}`, and `d_{\gamma\lambda}`; p.69 changes the displayed `H(x)`, `G(x)`, and `F(x)` relations back to congruences modulo `\mathfrak C_i`.
 - Checked without new patch: pp.65-68 confirm earlier RA62 repairs for formulas (21)-(29), `\mathfrak C_1`, `\mathfrak C_{i-1}`, `\zeta`, and the `\omega` family were already present.
 - Caveat: best-available mixed witnesses only. GDZ full pages are 600ppi for pp.64 and 66 and 400ppi for pp.65, 67, 68, and 69; 1000dpi crops are inspection enlargements from a 360ppi embedded RA source. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
 
-Next action: use this as the current Paper 22 addendum for the next deliberate compact Noether rollup; keep the p.53-only, p.53+pp.55-58, and p.53+pp.55-61 packages as previous provenance.
+Next action: keep as provenance; use the p.70-p.79 tail package above as the current Paper 22 addendum for the next deliberate compact Noether rollup.
 
 ## 2026-06-25: Noether R126 Paper 22 p.53 + pp.55-61 title/varrho repair
 
@@ -20,9 +68,9 @@ Manifest: [20260625_noether_r126_p22_p053_p055_061_title_varrho_fix.json](../man
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 plus pp.55-61, title/editor/footnote-anchor repair and bounded elementary-divisor/rank-index `\varrho` notation repair.
 - Applied fixes: restores p.53 source order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line; changes the visually checked pp.55-61 rank/elementary-divisor block from plain `\rho` to `\varrho` in loci such as `d_\varrho`, `e_\varrho`, `\eta_\varrho`, `a_\varrho(\xi)`, `\xi_{\varrho+1}`, `r_\varrho`, `s_\varrho`, and products through `\varrho`.
 - Checked without patch: p.54 theorem tail, explanatory paragraphs, and footnotes 2-4.
-- Caveat: this package is previous provenance and is superseded for current staging by the p.53/55-61 carry-forward plus p.64-69 RA62 reaudit package above. It remains useful for comparing the bounded p055-p061 pass against the later p064-p069 pass.
+- Caveat: this package is previous provenance and is superseded for current staging by the p.70-p.79 tail package above. It remains useful for comparing the bounded p055-p061 pass against the later p064-p069 and p070-p079 passes.
 
-Next action: keep as provenance; use the p.64-p69 RA62 reaudit package above as the current Paper 22 addendum for any future compact rollup.
+Next action: keep as provenance; use the p.70-p.79 tail package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Noether R126 Paper 22 p.53 + pp.55-58 title/varrho repair
 
@@ -31,9 +79,9 @@ Manifest: [20260625_noether_r126_p22_p053_p055_058_title_varrho_fix.json](../man
 - Noether pending ZIP: `Noether_R126_LocalCodex_P22_p053_p055_058_TitleVarrhoFix_WebDrop_20260625.zip`, 12,360,097 bytes, SHA256 `49FAA4313BDAE5B44FA4C6B67FF90ADF3DA8F2509A15170C4023945609B9B2C1`.
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 plus pp.55-58, title/editor/footnote-anchor repair and bounded elementary-divisor/rank-index `\varrho` notation repair.
 - Applied fixes: restores p.53 source order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line; changes the visually checked pp.55-58 rank/elementary-divisor block from plain `\rho` to `\varrho`.
-- Caveat: this package is previous provenance and is superseded for current staging by the p.64-p69 RA62 reaudit package above. It remains useful for comparing the narrow p055-p058 pass against the later p055-p061 and p064-p069 passes.
+- Caveat: this package is previous provenance and is superseded for current staging by the p.70-p.79 tail package above. It remains useful for comparing the narrow p055-p058 pass against the later p055-p061 and p064-p069 passes.
 
-Next action: keep as provenance; use the p.64-p69 RA62 reaudit package above as the current Paper 22 addendum for any future compact rollup.
+Next action: keep as provenance; use the p.70-p.79 tail package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Noether R126 Paper 22 p.53 title/editor/footnote-anchor repair
 
@@ -43,9 +91,9 @@ Manifest: [20260625_noether_r126_p22_p053_title_footnote_anchor.json](../manifes
 - Scope: Paper 22, `Zur Theorie der Polynomideale und Resultanten`, printed p.53 / GDZ `PPN235181684_0088` seq000057, title/editor/footnote-anchor source-layout repair.
 - Repair highlight: restores the source-visible order title -> `Von` -> `Kurt Hentzelt dagger` -> `Bearbeitet von Emmy Noether in Goettingen` with the long Noether explanatory footnote attached to the editor line instead of later in the theorem block.
 - Contents: patched cumulative German TeX/PDF, exact TeX diff, source-confirmed fix CSV, Paper 22 full-page witness manifest for pp.53-79, and the p.53 full-page source witness.
-- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. This package is previous provenance and is superseded for current staging by the p.64-p69 RA62 reaudit package above.
+- Caveat: p.53 witness is 400x400ppi, sufficient for the title/author/footnote-anchor layout but below the preferred native 650ppi floor. This is targeted source-support evidence only, not whole-Paper-22 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition. This package is previous provenance and is superseded for current staging by the p.70-p.79 tail package above.
 
-Next action: keep as provenance; use the p.64-p69 RA62 reaudit package above as the current Paper 22 addendum for any future compact rollup.
+Next action: keep as provenance; use the p.70-p.79 tail package above as the current Paper 22 addendum for any future compact rollup.
 
 ## 2026-06-25: Weber Rob/Web B139c p389-p401 delta
 
@@ -57,7 +105,7 @@ Manifest: [20260625_weber_rob_b139c_delta_p389_p401.json](../manifests/pending-z
 - Source verdict: package README and compact ledger state that p402-p407 images existed locally but had no confirmed certificate log or TeX delta at package time, so p402-p407 is not accepted production work from this package.
 - Caveat: source-supported candidate evidence only until reconciled with the main Weber branch. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
 
-Next action: use this B139c p389-p401 delta as the current Weber staging head for the next compact author-record refresh; continue from Band I p402 unless a later compact package supersedes it.
+Next action: keep as provenance; use the later B139e p408-p413 delta above as the current Weber staging head for the next compact author-record refresh.
 
 ## 2026-06-25: Weber Rob/Web B139b p378-p388 delta
 
@@ -67,9 +115,9 @@ Manifest: [20260625_weber_rob_b139b_delta_p378_p388.json](../manifests/pending-z
 - Scope: compact B139b Rob/Web delta after the p372-p377 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the prior B139 baseline, a source-checked change ledger, and p378-p388 source witnesses.
 - Applied delta represented: p378 formula (11), p379 formula (14), p382 Greek alpha/beta case labels and proof prose, p383 `giebt` spellings, plus §124-125 continuation repairs on p384, p385, p387, and p388.
 - Source verdict: package README states that all text/math changes in the diff are source-supported by included witnesses.
-- Caveat: source-supported candidate evidence only until reconciled with the main Weber branch. This package is now previous provenance and is superseded for current staging by the B139c p389-p401 delta. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+- Caveat: source-supported candidate evidence only until reconciled with the main Weber branch. This package is now previous provenance and is superseded for current staging by the B139e p408-p413 delta. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
 
-Next action: keep as provenance; use the later B139c p389-p401 delta as the current Weber staging head for the next compact author-record refresh.
+Next action: keep as provenance; use the later B139e p408-p413 delta as the current Weber staging head for the next compact author-record refresh.
 
 ## 2026-06-25: Weber Rob/Web B139 p378-p383 delta
 
@@ -79,9 +127,9 @@ Manifest: [20260625_weber_rob_b139_delta_p378_p383.json](../manifests/pending-ze
 - Scope: compact Rob/Web delta after the p372-p377 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the p377 baseline, current Rob method/certificate logs, and p378-p383 source witnesses.
 - Applied delta represented: p379 equation (14), p382 Greek alpha/beta case labels and prose order, and p383 `gibt` to `giebt` loci; p380 and p381 are logged clean.
 - Type-B errata policy: two likely Weber/print errata are deliberately restored to the printed text and flagged rather than silently modernized: p382 missing `+eta^2` in the beta-case formula and p378 inverse denominator `alpha_1`.
-- Caveat: finder/agent evidence only until reconciled with the main Weber branch. This package is now previous provenance and is superseded for current staging by the B139c p389-p401 delta. The observed log explicitly warns that the same workflow also produced hallucinated phantom-page suggestions, so this package records eye-checked p378-p383 candidate evidence only. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+- Caveat: finder/agent evidence only until reconciled with the main Weber branch. This package is now previous provenance and is superseded for current staging by the B139e p408-p413 delta. The observed log explicitly warns that the same workflow also produced hallucinated phantom-page suggestions, so this package records eye-checked p378-p383 candidate evidence only. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
 
-Next action: keep as provenance; use the later B139c p389-p401 delta as the current Weber staging head for the next compact author-record refresh.
+Next action: keep as provenance; use the later B139e p408-p413 delta as the current Weber staging head for the next compact author-record refresh.
 
 ## 2026-06-25: Weber Rob/Web B139 p372-p377 delta
 
