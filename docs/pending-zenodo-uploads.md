@@ -3567,3 +3567,30 @@ Manifest: [20260625_noether_r127_p10_queue_reconciliation.json](../manifests/pen
 - Source-quality caveat: best staged P10 source is mixed around 400 ppi, below the preferred 650 ppi floor. This is survival verification of prior repairs/no-fix traps, not fresh full-page 650+ certification.
 
 Next action: treat P10 as covered by prior best-available source audits plus R127 survival verification unless a better native witness, concrete defect, or later cumulative change appears. Fold this into a future compact Noether rollup rather than uploading loose.
+
+## 2026-06-25: Noether R127 rebuilt authority and P11/P12 guardrails
+
+Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json)
+
+- Noether rebuilt R127 authority ZIP: `Noether_R127_REBUILT_20260625.zip`, 52,004,966 bytes, SHA256 `0F2E740924671F0C32E66524BC887DC8567B5CF3D9C0D920ACFE8AFCBB218497`, 85 entries.
+- Scope: coherent replacement for the earlier tiny/broken `Noether_R127_20260625.zip` surface and the emergency Paper 35 trace-salvage package. The rebuilt package contains German cumulative TeX/PDF, Paper 35 slice TeX/PDF, source witness, page/crop evidence, audit ledgers, build/render logs, diffs, and provenance.
+- R127 surface: `cum_de_R127.pdf` is a 466-page A4 cumulative; `p35_R127.pdf` is a 6-page Paper 35 slice; source witness covers collected-work pp. 615-622.
+- Status additions: README reports Paper 35 rebuilt and closed at best-available-source level, restoring note apparatus, starred correction, fraktur notation, derivative and p-th-power formulas, quotient-ring notation, and Russian summary.
+- Source-quality caveat: Paper 35 uses the best available complete matching 2048x3322 witness, approximately 360 ppi. This is below the preferred 650+ ppi final-certification floor.
+- Guardrail packages: P11/P12 queue reconciliation ZIP `Noether_R127_LocalCodex_P11_P12_QueueReconciliation_P12BadPriorFixRejected_WebDrop_20260625.zip`, 960,133 bytes, SHA256 `831A3F1EDFBD3D3B6C279B4DCA38719991DE12116A81FFC1FDA1FCE980A0F99F`; P11 best-available disposition ZIP `Noether_R127_LocalCodex_P11_BestAvailableFullPageDisposition_NoNewPatch_WebDrop_20260625.zip`, 22,337,420 bytes, SHA256 `5493B5D29CCCB701C18FD766B38DE6B49E3228C3620664A07BF6681DBFE6B11B`; P12 best-available disposition ZIP `Noether_R127_LocalCodex_P12_BestAvailableFullPageDisposition_NoNewPatch_WebDrop_20260625.zip`, 9,650,342 bytes, SHA256 `093DCBA1CD47370515AC3BC2C3AF6FF1D7EDE8ECF9E4D10F11FD49A5ECE0D6DF`.
+- P11/P12 caveat: these are queue/status guardrails and no-new-patch dispositions, not strict full-page certification. P11 is approximately in the 400 ppi source lane plus targeted 1000 dpi crops. P12 explicitly rejects the stale `aller analytischen Transformationen` correction at the final-paragraph locus and keeps R127 `aller analytischer Transformationen`.
+
+Next action: make R127_REBUILT the current German/source-audit authority for the next compact Noether rollup. Preserve the earlier trace-salvage package as provenance only. Fold P11/P12 guardrails into the compact rollup rather than uploading loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether Slavic work-so-far through Paper 34 Section 26
+
+Manifest: [20260625_noether_slavic_worksofar_p01_p34_s26.json](../manifests/pending-zenodo-uploads/20260625_noether_slavic_worksofar_p01_p34_s26.json)
+
+- Noether Slavic work-so-far ZIP: `Noether_Slavic_Cumulative_WorkSoFar_Papers01_34CompleteThroughSection26_SourceCorrected_Handoff_20260625T100442Z.zip`, 393,614,728 bytes, SHA256 `7806D2AD2225640EB799A4A5EDFEF3D51C97CA51690FB823525E4EC975B6AF95`, 4,465 entries.
+- Scope from package manifest: Papers 01-34 through complete Paper 34 Section 26, source-corrected through the late Section 18/19/20/21/22/23/24/25/26 boundary.
+- Languages/variants: Ukrainian, Russian, Interslavic Latin authority lane, and Interslavic Cyrillic reader variant.
+- Primary outputs: cumulative TeX/PDF readers for all four variants under `renders/cumulative/Noether_Papers01_34_Through_Section26_SourceCorrected_*`.
+- Important preservation point: include the logbooks and linguistics/methodology apparatus, not only the PDFs. The package contains `GENERAL_TRANSLATION_LOGBOOK.md`, `INTERSLAVIC_LOGBOOK.md`, `CONSTRUCTED_LANGUAGE_AI_REFLECTIONS.md`, `INFRASTRUCTURE_PROVENANCE.md`, terminology logs, glossaries, segment sidecars, translation-unit JSON, package manifests, and render/audit records.
+- Caveat: this is a rendered/audited work-so-far translation and constructed-language lane, not a complete 43-paper Slavic corpus, not independent German source closure, not source-perfect certification, and not a critical edition.
+
+Next action: fold into the next Noether multilingual refresh with a clear label such as "Slavic work-so-far through Paper 34 section 26 (Ukrainian/Russian/Interslavic, with logbooks)." Do not bury the Interslavic logbook and constructed-language reflections; they are part of the scholarly object.
