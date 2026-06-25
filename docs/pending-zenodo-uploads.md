@@ -3929,3 +3929,14 @@ Manifest: [20260625_noether_r127_tail_kapferer_reconciliation_nopatch.json](../m
 - Caveat: Deuring tail witnesses are about native360 and Kapferer about GDZ 400dpi, below the strict 650+ full-page certification floor. This is source-lead/reconciliation evidence only, not critical edition, not multilingual synchronization, and not whole-tail closure.
 
 Next action: fold into the next deliberate compact Noether rollup/replacement pass; do not upload loose while Noether remains at the Zenodo file ceiling. Reopen only for better source witnesses or concrete source-vs-TeX defects; post-Kapferer bibliography/end matter remains a separate optional source-inventory question.
+
+## 2026-06-25: Noether R127 P09-P23 queue indices and P22 context
+
+Manifest: [20260625_noether_r127_p09_p23_queue_indices.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p09_p23_queue_indices.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_P09_P20_NonOverlapLane_StatusIndex_WebDrop_20260625.zip`, 1,129,968 bytes, SHA256 `DD28CF9F70AD1A8ECCD9FFA479CC6ABE7D00628AD15B1258BA7BC9885FD57C74`, 305 entries.
+- Noether pending ZIP: `Noether_R127_LocalCodex_P21_P23_SurvivalBridge_P22PatchContext_WebDrop_20260625.zip`, 1,344,630 bytes, SHA256 `B48BF90A20615558E4F3AD30C67F40DCA5C46BE27EC72690D0DC4DC6AE7E292F`, 14 entries.
+- Scope: compact queue-management/status evidence around the rebuilt R127 German cumulative. P09-P20 records current no-new-patch/survival dispositions and source-quality caveats; P21/P23 are survival-only; P22 is the source-restoration patch already represented in the current local cumulative base.
+- Caveat: these are not loose reader additions, not whole-paper certification, not multilingual synchronization, and not critical-edition claims. P22 is a concrete patch context, but its source evidence is mixed 400/600ppi plus targeted crops, below final native-650 certification.
+
+Next action: fold both into the next deliberate compact Noether rollup/replacement pass; do not upload loose while Noether remains at the Zenodo file ceiling. Do not replay stale P09-P23 queue rows without a concrete source-current mismatch or better source witness.
