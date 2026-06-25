@@ -2277,3 +2277,14 @@ Manifest: [20260625_noether_r125_localcodex_rebase_p13_p14.json](../manifests/pe
 - Caveat: this is the freshest local German R125-plus-P13/P14 candidate, not a public Zenodo file yet, not a critical edition, not whole-corpus certification, and not multilingual synchronization proof. Noether is at Zenodo's 100-file ceiling, so fold this into a future compact source-support rollup after deliberate pruning/replacement rather than uploading it loose.
 
 Next action: treat as the preferred local German candidate after R125 for P13/P14 loci, while retaining R125's P42 caveat and future-rollup status.
+
+## 2026-06-25: Noether R125 P10-P12 queue-disposition package
+
+Manifest: [20260625_noether_r125_p10_p12_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_p10_p12_queue_disposition.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_P10_P12_QueueDisposition_WebDrop_20260625.zip`, 748,327 bytes, SHA256 `BD87EA79E41E10A6007D5D5A8F326F93E39870508FAED63D0FD72A8CEC449DF0`.
+- Scope: small queue-disposition package for R125 queue rows P10, P11, and P12, anchored to the current R125 + Local Codex P13/P14 candidate. It introduces no new TeX patch.
+- Result: 3 queue rows dispositioned; 8 anchor checks; 0 failed anchor checks. P10 p538 `\Jdom` and p544 display-dot fixes survive; P11 p221 author comma and p228 `\varphi_3=w\cdot u/v` source order survive; P12 p37-p44 audited anchors record no source-certain patch.
+- Caveat: guardrail/queue-hygiene evidence only. Source witnesses are best-available but below the strict 650+ floor where noted (P11 about 400ppi; P12 2296x3688 GDZ pages; P10 GDZ raw IIIF). Do not present as P10/P11/P12 certification, whole-Noether certification, or critical edition.
+
+Next action: fold into a compact Noether source-support or queue-status rollup; do not upload loose while the Noether record remains at Zenodo's 100-file ceiling.
