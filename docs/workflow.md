@@ -178,6 +178,8 @@ A Lean/Lake toolchain is useful as a selective formal companion layer, not as a 
 
 Do not use `lake build` success as evidence that a scanned work has been faithfully transcribed. Lean does not see page order, diagrams, typography, source omissions, historical notation, or prose-level mathematical intent unless those have been explicitly formalized. For this archive, Lean should be treated as another audit layer: TeX remains the reader/source-transcription layer; source scans remain the authority; Lean companion files can become machine-checkable witnesses for selected mathematical statements.
 
+Current local lesson, 2026-06-25: a Claude/Codex Lean side lane now contains small classical targets that build in the local Mathlib tree, including Jordan affine-line group cardinality, a Steinitz perfect-field/Frobenius criterion, and a Weber cubic polynomial identity. These are useful as formal companion witnesses only. They do not certify the corresponding scans, translations, diagrams, page order, or full papers. The lane also exposed an inventory trap: Lean target selection must be anchored to the public repo catalog and the actual transcribed TeX, not to loose local scan-folder searches.
+
 Recommended use:
 
 - attach Lean files to clearly scoped theorem or calculation IDs from the TeX/unit ledger;
