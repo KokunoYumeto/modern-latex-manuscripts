@@ -2307,3 +2307,25 @@ Manifest: [20260625_noether_r125_p31_p43_upperband_reconcile.json](../manifests/
 - Result: P31-P41 and P43 are normalized-identical to the latest local upper-band candidate; P42 intentionally differs because R125 contains the newer complete Paper 42 source rebuild and supersedes the older local P42/RA82 survival state.
 - Web/local instruction: keep R125 P42; do not replay already-surviving targeted upper-band repairs unless a new source defect is found. Remaining open work is broad source certification/source-quality work, not stale patch replay.
 - Caveat: guardrail evidence only; not P31-P43 certification, not critical edition, and not loose Zenodo upload while the Noether record is at the file ceiling.
+
+## 2026-06-25: Noether R125 P21-P30 middle-band reconciliation package
+
+Manifest: [20260625_noether_r125_p21_p30_middleband_reconcile.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_p21_p30_middleband_reconcile.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_P21_P30_MiddleBand_Reconcile_WebDrop_20260625.zip`, 10,532,256 bytes, SHA256 `B8EDED3EA3F5CA9DFAC92CB6B5AC29C270C9916F1E15D949B356E9316F9661D3`.
+- Scope: P21-P30 middle-band anti-regression reconciliation against an older local reference, anchored to the current R125 + Local Codex P13/P14 candidate. It introduces no new TeX patch.
+- Result: R125 already contains the later source-confirmed P24/P25/P27 repairs; the package documents stale traps that should not be replayed into R125.
+- Caveat: guardrail/queue-hygiene evidence only; not P21-P30 certification, not critical edition, and not loose Zenodo upload while Noether remains at the file ceiling.
+
+Next action: fold into the post-R125 consolidated bundle or a deliberate Noether source-support rollup.
+
+## 2026-06-25: Noether post-R125 Local Codex all-webdrops bundle
+
+Manifest: [20260625_noether_r125_postr125_all_webdrops_bundle.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_postr125_all_webdrops_bundle.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip`, 38,368,903 bytes, SHA256 `279640F36E41CD6B97734346DE9638D89BE229699E326599842C455956335BFC`.
+- Scope: consolidated post-R125 Local Codex bundle containing the P13/P14 TeX patch candidate plus P11 survival, P04/P09, P10/P12, P21/P30, and P31/P43 guardrail/queue-disposition packages, indexes, current candidate TeX, and the source-audit logbook.
+- Policy: this is the preferred compact future rollup/handoff unit over uploading all component ZIPs loose. Noether is at the Zenodo 100-file ceiling, so use deliberate replacement/pruning.
+- Caveat: source-audit and queue-control evidence only; not whole-corpus certification, not a critical edition, not downstream multilingual synchronization proof.
+
+Next action: use as current local post-R125 Noether consolidation for a future pruned Zenodo update and web-session handoff.

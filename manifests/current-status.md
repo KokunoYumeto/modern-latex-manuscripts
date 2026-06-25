@@ -198,3 +198,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Poincare | 20673462 | <https://doi.org/10.5281/zenodo.20673461> |
 | Kneser | 20836972 | <https://doi.org/10.5281/zenodo.20836971> |
 | Additional author cluster | 20672984 | <https://doi.org/10.5281/zenodo.20411006> |
+
+Noether P21-P30 middle-band reconciliation package 2026-06-25: Noether_R125_LocalCodex_P21_P30_MiddleBand_Reconcile_WebDrop_20260625.zip is queued under manifest 20260625_noether_r125_p21_p30_middleband_reconcile.json. It introduces no new TeX patch; it records that R125 already carries the later source-confirmed P24/P25/P27 repairs and should not be regressed to stale older-local variants. Treat as anti-regression/queue-hygiene evidence only, not middle-band certification.
+
+Noether post-R125 consolidated Local Codex web-drop bundle 2026-06-25: Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip is queued under manifest 20260625_noether_r125_postr125_all_webdrops_bundle.json. This is the preferred compact local consolidation of the post-R125 Local Codex line: it contains the P13/P14 TeX candidate plus P04/P09, P10/P12, P21/P30, P31/P43 guardrail packages, indexes, the current candidate TeX, and the German source-audit logbook. Use this as future rollup/handoff material after deliberate Noether file-ceiling pruning; do not treat it as critical-edition certification or whole-corpus closure.
