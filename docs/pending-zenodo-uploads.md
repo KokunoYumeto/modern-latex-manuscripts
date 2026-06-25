@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Weber Rob/Web B139 p378-p383 delta
+
+Manifest: [20260625_weber_rob_b139_delta_p378_p383.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139_delta_p378_p383.json)
+
+- Weber pending ZIP: `Weber_Rob_B139_Delta_p378_p383_WebDrop_20260625.zip`, 13,669,270 bytes, SHA256 `37EE4AE39CCF30504FAA197B49CF26D80C8BBF5B14D96BB29C42583B9818C811`.
+- Scope: compact Rob/Web delta after the p372-p377 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the p377 baseline, current Rob method/certificate logs, and p378-p383 source witnesses.
+- Applied delta represented: p379 equation (14), p382 Greek alpha/beta case labels and prose order, and p383 `gibt` to `giebt` loci; p380 and p381 are logged clean.
+- Type-B errata policy: two likely Weber/print errata are deliberately restored to the printed text and flagged rather than silently modernized: p382 missing `+eta^2` in the beta-case formula and p378 inverse denominator `alpha_1`.
+- Caveat: finder/agent evidence only until reconciled with the main Weber branch. The observed log explicitly warns that the same workflow also produced hallucinated phantom-page suggestions, so this package records eye-checked p378-p383 candidate evidence only. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+
+Next action: use this p378-p383 Rob/Web delta as the current Weber staging head for the next compact author-record refresh; continue from Band I p384 unless a later compact package supersedes it.
+
 ## 2026-06-25: Weber Rob/Web B139 p372-p377 delta
 
 Manifest: [20260625_weber_rob_b139_delta_p372_p377.json](../manifests/pending-zenodo-uploads/20260625_weber_rob_b139_delta_p372_p377.json)
@@ -7,9 +19,9 @@ Manifest: [20260625_weber_rob_b139_delta_p372_p377.json](../manifests/pending-ze
 - Weber pending ZIP: `Weber_Rob_B139_Delta_p372_p377_WebDrop_20260625.zip`, 10,540,246 bytes, SHA256 `D61930A82FA2271C8238B82DF22A917C998245B509ED864A30B8071E95F1E838`.
 - Scope: compact Rob/Web delta after the local p365 package, carrying an updated German Volume I cumulative TeX/PDF/log, exact diff from the p365 baseline, current Rob method/certificate logs, and p372-p377 source witnesses.
 - Applied delta represented: p373-p374 restores `M`, `M'`, the `M M'^{-1}` display, and `woraus folgt:` across the page break; p376 corrects the phrase to source-faithful `die Zahl der den uebereinstimmenden...`.
-- Caveat: finder/agent evidence only until reconciled with the main Weber branch. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
+- Caveat: finder/agent evidence only until reconciled with the main Weber branch. This package is now the previous Rob/Web transition package and is superseded for current staging by p378-p383. Not whole-Volume-I certification, not English synchronization, and not a critical edition.
 
-Next action: use this together with the p100-p365 local Codex Weber package for the next compact Weber author-record refresh; continue from Band I p378 unless a later compact package supersedes it.
+Next action: keep as provenance; use the later p378-p383 Rob/Web delta as the current Weber staging head for the next compact author-record refresh.
 
 ## 2026-06-25: Noether R126 Paper 11 full-page re-audit, no new patch
 
@@ -22,15 +34,20 @@ Manifest: [20260625_noether_r126_p11_fullpage_reaudit.json](../manifests/pending
 - Caveat: visual source-support evidence only. Not independent OCR proof, not whole-paper certification, not multilingual synchronization, and not a critical edition.
 
 Next action: fold into a compact future Noether source-support rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
-## 2026-06-25: Noether R126 Paper 12 full-page re-audit folder, no new patch inferred
+
+## 2026-06-25: Noether R126 Paper 12 full-page re-audit, one source correction
 
 Manifest: [20260625_noether_r126_p12_fullpage_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p12_fullpage_reaudit.json)
 
-- Noether pending ZIP: `Noether_R126_LocalCodex_P12_FullPageReaudit_WebDrop_20260625.zip`, 22,959,428 bytes, SHA256 `4DC122D61BB1AE595A47772750BDFA9123A637E6BBB4A9A317F003841EBD8FAE`.
-- Scope: folder-only local P12 full-page re-audit evidence packaged by Codex for tracking, including current TeX/PDF anchors named `no_new_P12_patch`, P12 current TeX span lines 08075-08471, raw GDZ full-page JPG witnesses for pp.37-44, exact-locus 1000ppi crops, and prior P12 audit ledgers.
-- Caveat: no README was present in the observed folder; the no-new-patch status is inferred from file names and anchors. Treat as source-support evidence only, not whole-paper certification, not multilingual synchronization, and not a critical edition.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P12_FullPageReaudit_WebDrop_20260625.zip`, 20,404,699 bytes, SHA256 `952E481DDE6C6867A075F349589CCE44A69B6D4F86968EBEBE17FAE8EA11D19E`.
+- Scope: Paper 12, `Invarianten beliebiger Differentialausdruecke`, printed pp.37-44, re-audited against staged GDZ full-page witnesses and bundled exact-locus 1000ppi crops.
+- Result: one confirmed German source correction, printed p.43 / current TeX around line 08443, changing `aller analytischer Transformationen` to source `aller analytischen Transformationen`.
+- Surviving prior repairs: the package reports survival of the earlier P12 exact-locus repairs, including `f(x;dx)`, `d\delta x`, barred-delta parentheticals around formulas (5)-(7), formula (9) retaining plain `\delta x`, and the final Math. Annalen notice.
+- Build: XeLaTeX compiled the current cumulative to a 466-page PDF.
+- Caveat: the full-page GDZ images are 2296x3688 best-local witnesses and below the preferred native 650ppi floor. They support page continuity and the simple prose correction on p.43. Dense math exactness is asserted only at bundled 1000ppi exact-locus witnesses. Treat as targeted source-support evidence only, not whole-paper certification, not multilingual synchronization, and not a critical edition.
 
 Next action: fold into a compact future Noether source-support rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
+
 ## 2026-06-25: Noether R125 source-audit checkpoint and Paper 42 rebuild
 
 Manifest: [20260625_noether_r125_source_audit_p42_rebuild.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_source_audit_p42_rebuild.json)
