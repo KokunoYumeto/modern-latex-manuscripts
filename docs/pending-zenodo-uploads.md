@@ -1,29 +1,41 @@
 # Pending Zenodo Uploads
 
-## 2026-06-25: SGA5 live CERT_LOG through p105
+## 2026-06-25: SGA5 live CERT_LOG through p108
 
-Manifest: [20260625_sga5_live_certlog_p105_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p105_unpacked.json)
+Manifest: [20260625_sga5_live_certlog_p108_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p108_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
-- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-105 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-105.
-- The log reports D001-D050 hand-verified perfect through p105. Pages 103-105 cover the dense Theoreme 4.4 proof diagrams, including the formerly high-risk (4.4.2) diagram D041, D044-D045, and D046-D050.
-- The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p105 range.
+- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-108 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-108.
+- The log reports D001-D060 hand-verified perfect through p108. Pages 103-108 cover the dense Theoreme 4.4 proof diagrams, including the formerly high-risk (4.4.2) diagram D041, D046-D057, the final adjunction/base-change diagrams D058-D059, and Corollaire 4.5 diagram D060.
+- p108 marks the main Lefschetz-Verdier Theoreme 4.4 proof complete. The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p108 range.
 - Caveat: this is still a live local workpass, not a compact public package, not English synchronization, not global SGA5 certification, and not a critical edition. The local TeX remains a curated 10-expose SGA5 selection, not the whole LNM 589 scan.
 
-Next action: continue from p106, especially D051/D052 and the remaining Theoreme 4.4 proof material; only fold into Zenodo after a compact status/method package and independent validation.
+Next action: continue from p109; only fold into Zenodo after a compact status/method package and independent validation.
 
-## 2026-06-25: Weber live CERT_LOG through p449
+## 2026-06-25: Weber live CERT_LOG through p461
 
-Manifest: [20260625_weber_live_certlog_p414_p449_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p449_unpacked.json)
+Manifest: [20260625_weber_live_certlog_p414_p461_unpacked.json](../manifests/source-intake/20260625_weber_live_certlog_p414_p461_unpacked.json)
 
 - Local live audit evidence only: `WEBER_CERT_LOG.md`, `WEBER_METHOD_LOG.md`, and the local Volume I German cumulative TeX/PDF in `Weber_B139_heuristic_fix`.
-- Current compact public-staging head remains B139e p408-p413. The newer live log has moved beyond that and records p414-p449 as hand-verified local source-audit work.
+- Current compact public-staging head remains B139e p408-p413. The newer live log has moved beyond that and records p414-p461 as hand-verified local source-audit work.
 - p420-p425 reports 14 applied fixes in the Kronecker/discriminant/quadratic-Gauss-sum section; p426-p431 reports 12 applied fixes plus one type-B erratum in the Fermat/primitive-congruence-root section.
 - p432-p437 reports 2 fixes with p433, p434, p436, and p437 clean. p438-p443 reports 6 fixes with p439 and p442 clean; the section 138 numbering block remains held because the print layout uses flush-left Legendre-symbol results that the current TeX re-laid as enumerate/equation tags.
-- p444-p449 reports 3 applied fixes with p445-p448 clean. This ends §138/Buch II, opens Drittes Buch / Galois theory / §139, and restores dropped material in the Zahlkörper definition paragraph.
+- p444-p449 reports 3 applied fixes with p445-p448 clean, ends §138/Buch II, and opens Drittes Buch / Galois theory / §139. p450-p455 reports 16 applied fixes, restores a dropped footnote and paragraphs, and holds the §141 reducibility paraphrase. p456-p461 reports 26 applied fixes in §142-144 and restores the full §143 title.
 - Caveat: the same log warns that agent output also produced hallucinated fixes on phantom no-scan pages. The accepted lines were hand-confirmed, but this is not a compact upload artifact, not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
-Next action: build a compact Weber p414-p449 package with diff, source witnesses, logs, checksums, and README before treating it as a pending Zenodo upload; resolve or explicitly ledger the section 138 numbering/layout issue.
+Next action: build a compact Weber p414-p461 package with diff, source witnesses, logs, checksums, README, and explicit §138/§141 holds before treating it as a pending Zenodo upload.
+
+## 2026-06-25: Noether R126 Paper 30 pp.53-55 compact source-fix ZIP
+
+Manifest: [20260625_noether_r126_p30_p053_055_sourcefix_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_p053_055_sourcefix_zip.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_p053_055_SourceFix_WebDrop_20260625.zip`, 10,453,765 bytes, SHA256 `4DB2792D2594711F5E2AE246393C5A0CB5F7628F17E0E596679A87B6E7D6F02B`.
+- Scope: continuation of the Local Codex Paper 30 source-fix candidate through printed p55, carrying forward the p26-p52 fixes. It includes README, confirmed-fix/source-quality ledgers, checksum CSV, source witnesses for pp.53-55, patched German cumulative TeX/PDF/log, patched-span TeX, anchor grep, and incremental diff.
+- Applied/source-checked highlights: p53 Axiom III congruence reversal and contradiction wording; pp.53-54 Axiom IV and Axioms I/II proof conditions; p54 Hauptidealring proof with quotient-ring/direct-sum details; p55 final equality, `tau_i=t_i/a` setup, and source form of the general solution to `AX=o`.
+- Build/status: the package summary reports successful XeLaTeX compilation of the cumulative German candidate and no fatal/warning hits in the final log scan.
+- Caveat: source witnesses are IA JP2-derived approximately 400ppi leaves, below the preferred 650+ppi source-certification floor. This is targeted source-fix evidence only, not Paper 30 closure, multilingual synchronization, or critical edition.
+
+Next action: keep with the pp.26-55 package sequence for the next deliberate compact Noether rollup/replacement; continue Paper 30 source audit from printed p56.
 
 ## 2026-06-25: Noether R126 Paper 30 MA96 / IAJP2 source-status ZIP
 
