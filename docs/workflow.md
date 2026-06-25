@@ -94,6 +94,14 @@ Do not mass-render thousands of pages unless the next stage actually needs them.
 
 A June 25 SGA5 workpass snapshot adds a stricter find-verify-fix pattern for live source repair. Raw swarm passes can still discover likely defects, but the safer scalable unit is page-local discovery, independent source verification, deterministic old-string/new-string patching that refuses missing or non-unique matches, and a compile gate. That method snapshot is mirrored in `workflow/AI_Run_Workflow_SGA5_FindVerifyFix_Workpass_Method_20260625.zip` and queued for the workflow DOI; it is not a claim that SGA5 is complete.
 
+## Failed-Web Salvage Packets
+
+Failed or crashed web-review runs can still contain useful evidence, but they must be packaged as salvage and locator material, not as reader patches. The safe pattern is to preserve the transcript excerpts, source pointers, candidate TeX context, and next-action notes in a deliberately labelled packet with a README, `do_not_promote` or no-fix-trap ledger, salvaged-items ledger, source-quality note, and checksums where available.
+
+The public rule is simple: a failed run may identify where to look; it does not itself certify what to print. OCR snippets, visual impressions, partial reconstructions, and crashed-response prose are locator evidence until a later pass checks the source scan, edits the TeX intentionally, records confirmed fixes, compiles the result, and states what remains open. This pattern is now used for Noether Paper 42 salvage material: the RA10/P42 package preserves useful scan and apparatus leads, while explicitly saying that Paper 42 remains open and that no cumulative patch is proposed.
+
+When a salvage packet is useful, queue it as provenance or workflow evidence. Do not front it as a reader-facing edition, paper closure, or corpus certification. If the record is file-count constrained, fold the salvage into one compact source-support rollup instead of uploading many failed-run artifacts one by one.
+
 ## Local-To-Web Audit Workflow
 
 The current scalable pattern is a two-lane workflow: local machines prepare source-faithful aid packets, while web-based Pro review threads use those packets to translate, repair, and audit against the source. The two lanes are different on purpose. The local lane is good at downloading, slicing, rasterizing, cropping, OCR, math-OCR witnesses, compilation, checksum manifests, and publication. The web review lane is good at high-context mathematical translation, prose completion, and self-audit when the evidence is packaged clearly. This became explicit in SGA and Deligne repair work: local Codex packets supplied page maps, high-detail diagram/formula crops, OCR prose witnesses, and current TeX anchors, while the review thread used those witnesses to locate compression, missing prose, flattened commutative diagrams, and symbol-level mismatches.
