@@ -2798,3 +2798,17 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p567_repair.json](../mani
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, duplicate destinations, or missing-character reports.
 
 Next action: use this as the current Kapferer/Noether article-coverage addendum for a future compact Noether rollup; seek stronger Math. Ann. 97 source witnesses before any strict-certification language. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Paper 20 absolute-irreducibility bar-repair addendum
+
+Manifest: [20260625_noether_r126_p20_absolute_irreduzibilitaet_barrepair.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p20_absolute_irreduzibilitaet_barrepair.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P20_AbsoluteIrreduzibilitaet_BarRepair_WebDrop_20260625.zip`, 9,963,158 bytes, SHA256 `D8EFD2A1FDC2BCB983C3CED4DB921FAADC0321FB6CF8358E6273A8C5350ABD64`.
+- Scope: starts from `Noether_R126_20260625.zip` plus the LocalCodex Kapferer/Noether pp.559-567 repair and adds four targeted Paper 20 corrections for `Ein algebraisches Kriterium fuer absolute Irreduzibilitaet`.
+- Repair highlights: p32 restores barred `\bar H` readings in two prose loci before display (15) and the Graderniedrigung sentence; p33 restores barred `\bar E` readings after display (16) and changes the final Ostrowski paragraph to the source-visible `\Delta\cdot\bar E(x)` form.
+- Source-quality caveat: the two staged GDZ full-page witnesses are marked 600 ppi, below the stricter 650+ ppi floor. Treat this as targeted best-available source confirmation only.
+- Map note: the local P20 `paper_tex_map.json` line end was too short; it ended at the first line of P20 section 7 while the TeX/source continue to printed p.33 before Paper 21. The package records this as a map issue, not a text omission.
+- Boundary: targeted four-locus Paper 20 correction addendum only. It is not whole-Paper-20 certification, not whole-Noether certification, not a critical edition, not strict 650+ ppi certification, and not multilingual synchronization proof.
+- Build: XeLaTeX was run twice; candidate PDF reports 466 pages.
+
+Next action: use this as a targeted P20 correction addendum for the next deliberate compact Noether rollup, and rebase these four corrections if Rob's newer Noether item appears. Do not upload loose while Noether remains at the Zenodo file ceiling.
