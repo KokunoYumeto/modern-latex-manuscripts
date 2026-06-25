@@ -3810,6 +3810,18 @@ Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p575_workpass.json](../manife
 
 Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue after p575 while retranscribing held rewrite/reconstruction blocks deliberately.
 
+## 2026-06-25: Weber B139 live German Vol. I p100-p581 workpass
+
+Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p581_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p581_workpass.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p581_Workpass_20260625.zip`, 2,219,038 bytes, SHA256 `B8ADD6E5C8633375F4E50A9F2F5ADA6E68A3D472DD1C9AA6870D0D046A2C83AD`, 7 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus method and certification logs after the live find-verify-fix audit reached printed p581.
+- Status additions: the workpass PDF was rebuilt from the current TeX and reports 368 pages. Section 171 is recorded clean/faithful. Section 172 is recorded as patchable for the p579-p580 worked-example material, with the p581-p582 derivation tail explicitly deferred for coherent continuation.
+- Held/retranscription ranges still include section 69, section 138 numbering/layout, section 141, p466, sections 148-149, section 153 p492-p500, section 154 p502-p507, section 155 p507-p511, section 156 p511-p513, section 158, section 162 body, section 163, section 165, and sections 167-170.
+- Caveat: German source-audit workpass/status artifact only. Not English synchronized, not whole-Volume-I certified, and not a critical edition.
+
+Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from the p581-p582 section 172 derivation tail while retranscribing held rewrite/reconstruction blocks deliberately.
+
 ## 2026-06-25: Noether R127 Paper 13 best-available survival audit
 
 Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p13_survival_best_available.json)
