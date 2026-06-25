@@ -2836,3 +2836,15 @@ Manifest: [20260625_noether_r126_p14_p15_p16_survival_audit.json](../manifests/p
 - Boundary: survival-audit evidence only. No new TeX edits, no new source images, no fresh 650+ppi certification, not whole-Paper-14/15/16 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Papers 10-13 survival/queue-disposition addendum
+
+Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p10_p13_survival_queue_disposition.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P10_P13_SurvivalQueueDisposition_WebDrop_20260625.zip`, 3,284,169 bytes, SHA256 `77A74EF18ED00C640F8D5EE9F0ACE82F351CED945D57F3E7D61736DB8F844826`.
+- Scope: compact post-R126 survival/queue-disposition handoff for Papers 10, 11, 12, and 13. It confirms earlier source-confirmed repairs and queue-disposition anchors survive in the current local cumulative built from R126 plus Kapferer/Noether pp.559-567 plus the Paper 20 bar repair.
+- Status additions: 23 survival checks across P10-P13, including P10 J-domain/indexed-symbol/display-dot anchors, P11 author/Omega/phi/final-semicolon anchors, P12 section/differential/barred-delta anchors, and P13 dedication/citation/dense-formula/no-second-summation anchors.
+- Source-quality caveat: prior P10/P12/P13 work used GDZ/Commons high-detail witnesses and targeted crops; P11 remains best-available around 400ppi unless a better witness is staged. This package does not certify every symbol of P10-P13 page by page.
+- Boundary: survival/queue-disposition evidence only. No new TeX patch, no fresh source-image bundle, no page-by-page P10-P13 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
