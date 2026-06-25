@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether WebFailedThinking3 P42 / RA10 salvage
+
+Manifest: [20260625_noether_webfailedthinking3_p42_ra10_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking3_p42_ra10_salvage.json)
+
+- Noether pending ZIP: `Noether_WebFailedThinking3_P42_RA10_Salvage_WebDrop_20260625.zip`, 25,453,495 bytes, SHA256 `17381992002B1AC047CDBD4A83F1B80DCB4E461620955CA5990C2A953FD1E9D5`.
+- Scope: salvage package extracted from a failed web-thinking run about Paper 42 and older RA10 P40-P43 apparatus/source material.
+- Safe findings: Paper 42 remains open for full source audit; RA10 contains an 11-page P42 scan witness, a German P41/P42 candidate TeX segment, and a German supplement/apparatus TeX layer; the failed run suggests the active P42 body is compressed relative to the source.
+- Caveat: this package explicitly does not propose a cumulative TeX patch. The web run crashed, no compiled checked P42 repair exists, and OCR/visual observations are locator evidence only. The known P42 scan is about 360ppi, below the preferred 650+ppi strict source-certification floor. Transcript excerpts should be reviewed before any public rollup.
+
+Next action: use the RA10 P42 scan and candidate TeX only as locator layers for a future page-by-page rebuild of Paper 42. Do not upload as a reader-facing edition, Paper 42 closure, whole-Noether closure, or critical edition.
+
 ## 2026-06-25: Noether Paper 13 continuation source-fix sweep
 
 Manifest: [20260625_noether_p13_continuation_sourcefixes_pending.json](../manifests/pending-zenodo-uploads/20260625_noether_p13_continuation_sourcefixes_pending.json)
