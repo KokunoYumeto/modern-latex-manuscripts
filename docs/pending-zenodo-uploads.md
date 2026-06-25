@@ -2897,6 +2897,19 @@ Manifest: [20260625_noether_p08_omega_repair.json](../manifests/pending-zenodo-u
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
 
+## 2026-06-25: Noether R126 Papers 04-05 survival-audit addendum
+
+Manifest: [20260625_noether_r126_p04_p05_survival_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p04_p05_survival_audit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P04_RA64SurvivalAudit_WebDrop_20260625.zip`, 12,337,099 bytes, SHA256 `CB243E1C44C56BB50BFCF6E38E19B03A47265A1412135CA7300C78F75EC3C73E`.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P05_SurvivalAudit_WebDrop_20260625.zip`, 6,909,256 bytes, SHA256 `54A740514509615EEEAA741891BD66207EBFD2CB4F20B72EC844F0CBFDE9A8A4`.
+- Scope: targeted survival/queue-disposition checks against the current `cum_de_R126_plus_Kapferer559_567_plus_P20_barrepair_plus_P08_omega_current_20260625.tex` baseline.
+- Status additions: P04 confirms RA64 source-critical repair survival, including source p152 star/double-star notes and no-patch traps for p148, p149, and p151; P05 confirms the old RA42/RA80 shifted-note issue is closed, with source notes `1)` and `2)` represented.
+- Source-quality caveat: P04 uses targeted 1000dpi witnesses; P05 notes GDZ backfill as 600ppi raw pages and hard-locus crops as 650dpi. This is enough for queue closure but not full page-by-page paper certification.
+- Boundary: targeted survival/source-support evidence only. No new TeX patch, no full Paper 04 or Paper 05 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload these as extra loose Noether files while the record remains at the Zenodo file ceiling.
+
 ## 2026-06-25: Noether R126 Papers 10-13 survival/queue-disposition addendum
 
 Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p10_p13_survival_queue_disposition.json)
