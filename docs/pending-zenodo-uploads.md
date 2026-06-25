@@ -22,6 +22,15 @@ Manifest: [20260625_noether_r126_p11_fullpage_reaudit.json](../manifests/pending
 - Caveat: visual source-support evidence only. Not independent OCR proof, not whole-paper certification, not multilingual synchronization, and not a critical edition.
 
 Next action: fold into a compact future Noether source-support rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
+## 2026-06-25: Noether R126 Paper 12 full-page re-audit folder, no new patch inferred
+
+Manifest: [20260625_noether_r126_p12_fullpage_reaudit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p12_fullpage_reaudit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P12_FullPageReaudit_WebDrop_20260625.zip`, 22,959,428 bytes, SHA256 `4DC122D61BB1AE595A47772750BDFA9123A637E6BBB4A9A317F003841EBD8FAE`.
+- Scope: folder-only local P12 full-page re-audit evidence packaged by Codex for tracking, including current TeX/PDF anchors named `no_new_P12_patch`, P12 current TeX span lines 08075-08471, raw GDZ full-page JPG witnesses for pp.37-44, exact-locus 1000ppi crops, and prior P12 audit ledgers.
+- Caveat: no README was present in the observed folder; the no-new-patch status is inferred from file names and anchors. Treat as source-support evidence only, not whole-paper certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into a compact future Noether source-support rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
 ## 2026-06-25: Noether R125 source-audit checkpoint and Paper 42 rebuild
 
 Manifest: [20260625_noether_r125_source_audit_p42_rebuild.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_source_audit_p42_rebuild.json)
@@ -321,7 +330,7 @@ Manifest: [20260625_workflow_sga5_find_verify_fix_workpass_method.json](../manif
 - Workflow lesson: after raw parallel swarms found many defects, the safer scalable method became one large workflow at a time: page-local discovery, independent verification, deterministic old-string/new-string patch application, then a compile gate. The binding constraint was server/API rate limits rather than token budget.
 - Caveat: workflow/replication support only. This is not an SGA5 reader replacement, not a certified edition, and not source-closure. It intentionally excludes bulky crops/renders and the full workpass TeX/PDF.
 
-Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh. The refreshed embedded certification log now records pp.1-84 as page-locally certified, with p1-p72 closing Expose I and pp.73-84 covering Expose III through section 2.4, Proposition 2.5, and the opening of section 2.6; p85 is the next hand-certification page.
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh. The refreshed embedded certification log now records pp.1-85 as page-locally certified, with p1-p72 closing Expose I and pp.73-85 covering Expose III through section 2.6, Corollary 2.6.1, and the type-(2,1) case; p86 is the next hand-certification page.
 
 ## 2026-06-25: Workflow Weber find-verify-fix audit method
 
@@ -402,7 +411,7 @@ Next action: attach this compact p100-p365 package to the Weber author record du
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `02901896A3F6D616E3CF0816A4266A809DA9C0EF36A6111A20E488F1B4C9C81C`; `sga5_fr_workpass.pdf` SHA256 `4E466D35709E0B96AE7707860FEAE8433D1D25C8B4D9885508BD33003D62ADE0`; `sga5_fr_workpass.log` SHA256 `CF9296D944F31339938CAD4C7DA3EB881FDEC0D992531C91FEFFB456E52D6458`.
-- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p84 are page-locally certified, with p1-p72 closing Expose I and pp.73-84 covering Expose III through section 2.4, Proposition 2.5, and the opening of section 2.6; p85 is next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, p41-p43, and pp.73-84 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D019 are verified perfect.
+- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p85 are page-locally certified, with p1-p72 closing Expose I and pp.73-85 covering Expose III through section 2.6, Corollary 2.6.1, and the type-(2,1) case; p86 is next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, p41-p43, and pp.73-85 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D021 are verified perfect.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
@@ -3003,7 +3012,7 @@ Next action: fold P01/P02 into the next deliberate compact Noether source-suppor
 
 Manifest: [20260625_noether_r126_p30_gdz0096_source_map.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_gdz0096_source_map.json)
 
-- Noether pending ZIP: `Noether_R126_LocalCodex_P30_GDZ0096_SourceMap_WebDrop_20260625.zip`, 20,821,429 bytes, SHA256 `EDD91D7F78BFD131491C4B565B604B479F8D9F3951DB58AF3121EB17185D9484`.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_GDZ0096_SourceMap_WebDrop_20260625_v3.zip`, 20,824,799 bytes, SHA256 `DC958114A15C8AE036FBBB664FF61E15F6430ED97291BC6921D6300DDD2331F5`.
 - Scope: Paper 30 source-map and witness package for GDZ `PPN235181684_0096`, mapping Paper 30 to full-volume PDF pages 31-66 / printed pp26-61 and providing a 36-page article cutout.
 - Status additions: records source quality as best available local GDZ at about 400x400 native ppi; confirms the RA72 Paper 30 title/author/footnote-reset repair survives in the current local cumulative; identifies the current cumulative Paper 30 span as beginning at TeX line 14456 and Paper 31 at line 15663.
 - Contents: page-map CSV, source-quality verdict CSV, visual-disposition/no-patch-trap CSV, target-crop manifest, article cutout PDF, 650dpi inspection renders, 1000dpi target crops, current TeX/PDF anchors, and provenance ledgers.
