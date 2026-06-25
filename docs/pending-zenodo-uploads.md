@@ -323,32 +323,45 @@ Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p311.json](../man
 - Important hold: §69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
 - Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
 
-Next action: retain as provenance only; the p100-p347 compact package below supersedes this narrower p100-p311 package for current Weber author-record staging. Do not upload the large salvage/crop bricks unless there is a deliberate provenance/raw-artifact reason.
+Next action: retain as provenance only; the p100-p359 compact package below supersedes this narrower p100-p311 package for current Weber author-record staging. Do not upload the large salvage/crop bricks unless there is a deliberate provenance/raw-artifact reason.
 
 ## 2026-06-25: Weber Volume I German source-audit workpass through p323
 
 Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p323.json](../manifests/pending-zenodo-uploads/20260625_weber_v1_german_source_audit_workpass_p100_p323.json)
 
 - Weber pending ZIP: `Weber_Vol1_German_SourceAudit_Workpass_p100_p323_20260625.zip`, 2,135,963 bytes, SHA256 `1592DE026D9AB7DCAFDB7752F274082FEF85A64E25013E17740075A77F5E57C1`.
-- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log plus the live Weber audit/method logs. This superseded the p100-p311 compact workpass, but is now itself superseded by the p100-p347 compact workpass below.
+- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log plus the live Weber audit/method logs. This superseded the p100-p311 compact workpass, but is now itself superseded by the p100-p359 compact workpass below.
 - Status additions: audit logs record source-verified, hand-gated fixes through Band I p323; current method cursor is Band I p324-p329 next; the German Volume I cumulative compiles to 360 pages.
 - Important hold: §69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
 - Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
 
-Next action: retain as provenance only; the p100-p347 compact package below supersedes this narrower p100-p323 package for current Weber author-record staging. Do not upload bulky crop bricks unless there is a deliberate provenance/raw-artifact reason.
+Next action: retain as provenance only; the p100-p359 compact package below supersedes this narrower p100-p323 package for current Weber author-record staging. Do not upload bulky crop bricks unless there is a deliberate provenance/raw-artifact reason.
 
 ## 2026-06-25: Weber Volume I German source-audit workpass through p347
 
 Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p347.json](../manifests/pending-zenodo-uploads/20260625_weber_v1_german_source_audit_workpass_p100_p347.json)
 
 - Weber pending ZIP: `Weber_Vol1_German_SourceAudit_Workpass_p100_p347_20260625.zip`, 2,129,100 bytes, SHA256 `ECE776557382E479D40E5969B854E06A66DD02CA9F007026705F61ADCE358FD6`.
-- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log plus the live Weber audit/method logs. This supersedes the p100-p311 and p100-p323 compact workpasses for current staging.
+- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log plus the live Weber audit/method logs. This superseded the p100-p311 and p100-p323 compact workpasses, but is now itself superseded by the p100-p359 compact workpass below.
 - Status additions: audit/certification logs record source-verified, hand-gated fixes through Band I p347; current method cursor is Band I p348-p353 next. New beyond p323: p324-p329 Laguerre-continuation repairs, p330-p335 numerical/Newton approximation repairs including p334 source-erratum discipline, p336-p341 approximation/Bernoulli repairs, and p342-p347 Bernoulli/Graeffe repairs including Berichtigungen handling.
 - Important hold: §69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
 - Large-brick boundary: `Weber_Rob_NewThing_FidelityPass_Salvage_20260625_1400.zip` is 421,586,727 bytes, SHA256 `F70B3C5C9EE7DAD8F669595DA92EAD3721407F5881FD42EE388CC24BBBE68B64`; the older `Weber_Rob_NewThing_FidelityPass_Salvage_20260625.zip` is 390,450,447 bytes, SHA256 `11A7C7E4110C134CAF64774CBF947ABFDF0D8060B3C0D665F86FD2623AD76079`. Both are local provenance/raw witness bricks, not ordinary author-record uploads.
 - Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, not English synchronization, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
 
-Next action: attach this compact p100-p347 package to the Weber author record during the next deliberate Weber DOI refresh if no newer Volume I source-audit package supersedes it. Do not upload bulky crop bricks unless there is a deliberate provenance/raw-artifact reason.
+Next action: retain as provenance only; the p100-p359 compact package below supersedes this narrower p100-p347 package for current Weber author-record staging. Do not upload bulky crop bricks unless there is a deliberate provenance/raw-artifact reason.
+
+## 2026-06-25: Weber Volume I German source-audit workpass through p359
+
+Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p359.json](../manifests/pending-zenodo-uploads/20260625_weber_v1_german_source_audit_workpass_p100_p359.json)
+
+- Weber pending ZIP: `Weber_Vol1_German_SourceAudit_Workpass_p100_p359_20260625.zip`, 2,136,877 bytes, SHA256 `B95BADFFC2D2B9254F9AD5576ED30A295B96CCD63580DBFB2A051A59DB2435F5`.
+- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log, p347-to-p359 diff, Rob heuristic audit files, and live Weber audit/method logs. This supersedes the p100-p311, p100-p323, and p100-p347 compact workpasses for current staging.
+- Status additions: package README scopes the absorbed ranges through printed/source p359 and gives p360 as the next continuation point. The p348-p353 range adds Graeffe/trigonometric-cubic repairs; p354-p359 adds trigonometric-cubic through number-theory repairs, including recurring `g^n` exponent correction, `Brigg'schen` orthography, `Decimalen`, and source-faithful printed-erratum handling for the 30-degree reading.
+- Live-log caution: the embedded certification/method logs also contain notes beyond p359. Those are retained as live-log context but should not be treated as author-record package coverage unless a later compact package explicitly scopes them.
+- Important hold: section 69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
+- Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, not English synchronization, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
+
+Next action: attach this compact p100-p359 package to the Weber author record during the next deliberate Weber DOI refresh if no newer Volume I source-audit package supersedes it. Do not upload bulky crop bricks unless there is a deliberate provenance/raw-artifact reason.
 
 ## 2026-06-25: SGA5 live workpass status reconciliation
 
@@ -2951,6 +2964,19 @@ Manifest: [20260625_noether_r126_p01_p02_source_support.json](../manifests/pendi
 - Boundary: P01 is a targeted source recheck with a new TeX patch; P02 is targeted survival/source-support evidence only. This is not full Paper 01 or Paper 02 page-by-page certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
 
 Next action: fold P01/P02 into the next deliberate compact Noether source-support rollup together with the P03-P20/Kapferer/R126 materials. Do not upload these as extra loose Noether files while the record remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Paper 30 GDZ0096 source-map package
+
+Manifest: [20260625_noether_r126_p30_gdz0096_source_map.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_gdz0096_source_map.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_GDZ0096_SourceMap_WebDrop_20260625.zip`, 20,821,429 bytes, SHA256 `EDD91D7F78BFD131491C4B565B604B479F8D9F3951DB58AF3121EB17185D9484`.
+- Scope: Paper 30 source-map and witness package for GDZ `PPN235181684_0096`, mapping Paper 30 to full-volume PDF pages 31-66 / printed pp26-61 and providing a 36-page article cutout.
+- Status additions: records source quality as best available local GDZ at about 400x400 native ppi; confirms the RA72 Paper 30 title/author/footnote-reset repair survives in the current local cumulative; identifies the current cumulative Paper 30 span as beginning at TeX line 14456 and Paper 31 at line 15663.
+- Contents: page-map CSV, source-quality verdict CSV, visual-disposition/no-patch-trap CSV, target-crop manifest, article cutout PDF, 650dpi inspection renders, 1000dpi target crops, current TeX/PDF anchors, and provenance ledgers.
+- Source-quality caveat: the 650dpi page images and 1000dpi crops are derived from the same 400x400 native GDZ embedded images. They are inspection aids, not true new optical detail and not strict 650-native certification.
+- Boundary: no TeX patch, not Paper 30 closure, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: use this as the source anchor for continuing Paper 30 sequential source audit; do not present it as a corrected Paper 30 reader and do not upload loose while Noether remains at the Zenodo file ceiling.
 
 ## 2026-06-25: Noether R126 Papers 10-13 survival/queue-disposition addendum
 
