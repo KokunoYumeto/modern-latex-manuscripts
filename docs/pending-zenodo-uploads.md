@@ -23,6 +23,27 @@ Manifest: [20260625_noether_r126_p38_source_repair_survival_nopatch.json](../man
 
 Next action: mark stale P38 queue rows as covered by surviving prior source repair; reopen only if a better native source or concrete new defect appears.
 
+
+## 2026-06-25: Noether R126 Papers 35-36 source-repair disposition / no-new-patch
+
+Manifest: [20260625_noether_r126_p35_p36_source_repair_disposition_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p35_p36_source_repair_disposition_nopatch.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P35_P36_SourceRepairDisposition_NoNewPatch_WebDrop_20260625.zip`, 3,324,555 bytes, SHA256 `A503A3E4E9A3AAF9A6CCB4E437532AC980F2F8A8FB702C85C905A0E85882087E`.
+- Result: no new TeX patch. Current R126 is preferred for P35/P36; stale high-queue fixes should not be replayed without a new concrete defect or better source.
+- Caveat: survival/current-state disposition evidence only, below strict 650+ source certification; not whole-paper certification, not critical edition, and not multilingual synchronization.
+
+Next action: fold into a later compact Noether rollup after file-ceiling pruning.
+
+## 2026-06-25: Noether R126 Papers 41 and 43 source-restoration survival / no-new-patch
+
+Manifest: [20260625_noether_r126_p41_p43_source_restoration_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p41_p43_source_restoration_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P41_P43_SourceRestorationSurvival_NoNewPatch_WebDrop_20260625.zip`, 3,370,738 bytes, SHA256 `3BFD8CB4DDF14F1CF6AE946D065F0D0C8DD5A1C6C1C4DDF9753136D72AEBB7CF`.
+- Result: no new TeX patch. Current R126 P41 and P43 slices are byte-identical to prior source-restored reference slices; both diffs are 0 bytes.
+- Caveat: source-restoration survival/current-state disposition evidence only. P41 lacks strict 650+ native DPI certainty; P43 is around 360ppi. Not whole-paper certification, not critical edition, and not multilingual synchronization.
+
+Next action: fold into a later compact Noether rollup after file-ceiling pruning.
+
 ## 2026-06-25: Weber B143 Vol. I p480-p485 section 150 retranscribed
 
 Manifest: [20260625_weber_b143_p480_p485_section150_retranscribed.json](../manifests/pending-zenodo-uploads/20260625_weber_b143_p480_p485_section150_retranscribed.json)
@@ -864,7 +885,7 @@ Next action: attach this compact p100-p365 package to the Weber author record du
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `02901896A3F6D616E3CF0816A4266A809DA9C0EF36A6111A20E488F1B4C9C81C`; `sga5_fr_workpass.pdf` SHA256 `4E466D35709E0B96AE7707860FEAE8433D1D25C8B4D9885508BD33003D62ADE0`; `sga5_fr_workpass.log` SHA256 `CF9296D944F31339938CAD4C7DA3EB881FDEC0D992531C91FEFFB456E52D6458`.
-- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p93 are page-locally certified, with p1-p72 closing Expose I and pp.73-p93 covering Expose III through Prop. 3.4 opening (including the end of section 2, the start of section 3.2, Corollary 2.6.1, the type-(3,4) case, Lemme 2.6.3, Proposition 2.5, the fundamental correspondence isomorphism, support/Frobenius/pushforward correspondences, and the first Prop. 3.4 diagrams); p94 is next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, p41-p43, and pp.73-p93 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D030 are verified perfect.
+- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log pp.1-122 are page-locally certified; pp.1-72 close Expose I; pp.73-122 cover Expose III through the etale body, section 5 complements, and coherent-sheaf appendix section 6.3; D001-D069 are hand-verified perfect through p118; p123 is next. The certified opening has been superseded by the p122 log: the ledger now reports 122 pages checked, 1 TeX fix, 4 source typos plus one trivial prose typo, 0 swarm transcription errors, and D001-D069 hand-verified perfect through p118.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
@@ -873,7 +894,7 @@ Next action: use as status/caveat evidence for the SGA record and workflow-metho
 
 Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pending-zenodo-uploads/20260625_classical_lean_audit_watch_sensecheck.json)
 
-- Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 57,023 bytes, SHA256 `5A57E2157DC2F06582C6B2470FEE9797B3088F6D39E002DBA7482ABE03227AC7`.
+- Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 56,634 bytes, SHA256 `AF877C2FD65E8D2D892AB19BBB662588F51EDA38E0D1B06BD31187AD93B726B9`.
 - Scope: compact audit handoff for Claude-started Lean formalization experiments attached to the classical transcription corpus. This is not a promoted proof corpus and not DOI-ready.
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public proof/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source anchors to the actual transcribed TeX/public catalog. A theorem map must distinguish the source statement, normalized mathematical statement, Lean theorem, and build status.
@@ -3496,6 +3517,10 @@ Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../man
 - Boundary: survival/queue-disposition evidence only. No new TeX patch, no fresh source-image bundle, no page-by-page P10-P13 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
+
+
+
+
 
 
 
