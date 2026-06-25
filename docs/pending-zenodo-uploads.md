@@ -108,7 +108,7 @@ Manifest: [20260625_noether_r125_tail_p747_p748_brauerschur_repair.json](../mani
 - Repair highlights: fixes product and associated-factor-system quotient formulas, restores invariance/conjugacy prose, rebuilds the Schur matrix/determinant argument, restores the `P_{ik}` representation/basis/conjugacy/homomorphy displays, restores Satz 4 including Sylow subgroup and Brauer footnote material, and restores Satz 5 prime-factorization/product-decomposition opening.
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually source-backed, but this does not certify p749 onward, the whole tail/post-numbered apparatus, every micro-symbol on p747-p748, or multilingual propagation.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p747-p752 Brauer / Schur / section 25 repair addendum (provenance only)
 
@@ -120,79 +120,79 @@ Manifest: [20260625_noether_r125_tail_p747_p752_brauerschur_section25_repair.jso
 - Repair highlights: carries the p747-p748 Brauer/Schur repairs forward; repairs p750 `u_T` / `\mathfrak R_r` and `H_T` calculation; repairs p751 product-chain, labels, basis, and associated-factor-system displays; repairs p752 group/field notation, matrix-representation display, display (IV), basis-change prose, and twisted-representation / right-module definitions.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p747-p753 Brauer / Schur / section 26 start repair addendum (provenance only)
 
 Manifest: [20260625_noether_r125_tail_p747_p753_brauerschur_section26start_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p753_brauerschur_section26start_repair.json)
 
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p753_BrauerSchurSection26StartRepair_WebDrop_20260625.zip`, 26,736,919 bytes, SHA256 `9B176F6A802267A7AA8487060697E87221D65CD1289CDA951533C00CFBA44155`.
-- Scope: cumulative p713-p753 Noether-Deuring post-numbered tail repair, carrying forward p713-p752 and adding a source-visible p753 repair at the start of section 26. p754-p758 are now carried by the p747-p758 package below; p759 onward remains open.
+- Scope: cumulative p713-p753 Noether-Deuring post-numbered tail repair, carrying forward p713-p752 and adding a source-visible p753 repair at the start of section 26. p754-p758 are now carried by the p747-p763 package below; the following Kapferer/Noether paper remains outside this source-witness span.
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 467 PDF pages.
 - Repair highlights: carries the p747-p752 repairs forward; repairs p753 `\mathfrak G^*` / `\mathfrak R_r` module notation, M.Z. section 18/rank formulas, the section-26 opening, the Speiser footnote and formula, and the two representation displays.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p747-p754 Brauer / Schur / sections 26-27 repair addendum (provenance only)
 
 Manifest: [20260625_noether_r125_tail_p747_p754_brauerschur_section26_27_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p754_brauerschur_section26_27_repair.json)
 
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p754_BrauerSchurSection26_27Repair_WebDrop_20260625.zip`, 31,098,151 bytes, SHA256 `5DA7BA49013A4D7E0882C2EB77CE61355D4E250B6C47778C7E586E9E71B9F7BC`.
-- Scope: cumulative p713-p754 Noether-Deuring post-numbered tail repair, carrying forward p713-p753 and adding a source-visible p754 repair through the section-27 heading, Satz 1, and visible start of Definition 1. p755-p758 are now carried by the p747-p758 package below; p759 onward remains open.
+- Scope: cumulative p713-p754 Noether-Deuring post-numbered tail repair, carrying forward p713-p753 and adding a source-visible p754 repair through the section-27 heading, Satz 1, and visible start of Definition 1. p755-p758 are now carried by the p747-p763 package below; the following Kapferer/Noether paper remains outside this source-witness span.
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 467 PDF pages.
 - Repair highlights: carries the p747-p753 repairs forward; repairs p754 Kronecker-product notation, proof setup display, matrix units, direct product of matrix rings over `\mathfrak Z`, final multiplier, section-27 opening/Satz 1, and the visible start of Definition 1.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p747-p755 Brauer / Schur / section 27 repair addendum (provenance only)
 
 Manifest: [20260625_noether_r125_tail_p747_p755_brauerschur_section27_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p755_brauerschur_section27_repair.json)
 
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p755_BrauerSchurSection27Repair_WebDrop_20260625.zip`, 35,598,858 bytes, SHA256 `D23E9ADB8C66D23C460C3F22703BD950F77571AE31C1FC018C71C9ECAD574A1F`.
-- Scope: cumulative p713-p755 Noether-Deuring post-numbered tail repair, carrying forward p713-p754 and adding a source-visible p755 repair through Definition 2 continuation and proof items 1-4. p756-p758 are now carried by the p747-p758 package below; p759 onward remains open.
+- Scope: cumulative p713-p755 Noether-Deuring post-numbered tail repair, carrying forward p713-p754 and adding a source-visible p755 repair through Definition 2 continuation and proof items 1-4. p756-p758 are now carried by the p747-p763 package below; the following Kapferer/Noether paper remains outside this source-witness span.
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 467 PDF pages.
 - Repair highlights: carries the p747-p754 repairs forward; repairs p755 `\mathfrak R_r`, `\mathfrak Z`, `\mathfrak G`, `\mathfrak G^*`, `\mathfrak T^*`, `\mathfrak Z^*`, direct-sum display, item 2 quotient statement, item 3 associativity law/calculation, and visible start of item 4.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p747-p756 Brauer / Schur / section 27 repair addendum (provenance only)
 
 Manifest: [20260625_noether_r125_tail_p747_p756_brauerschur_section27_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p756_brauerschur_section27_repair.json)
 
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p756_BrauerSchurSection27Repair_WebDrop_20260625.zip`, 40,235,530 bytes, SHA256 `5896569D93A95DE335E668193AACDAD67CF729F0EEFBDD2D13EB6E81A1D5637B`.
-- Scope: cumulative p713-p756 Noether-Deuring post-numbered tail repair, carrying forward p713-p755 and adding a source-visible p756 repair through item 4 continuation, Umkehrsatz 2, Hilfssaetze 1-4, and the Hilfssatz 4 proof start. p757-p758 are now carried by the p747-p758 package below; p759 onward remains open.
+- Scope: cumulative p713-p756 Noether-Deuring post-numbered tail repair, carrying forward p713-p755 and adding a source-visible p756 repair through item 4 continuation, Umkehrsatz 2, Hilfssaetze 1-4, and the Hilfssatz 4 proof start. p757-p758 are now carried by the p747-p763 package below; the following Kapferer/Noether paper remains outside this source-witness span.
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 466 PDF pages.
 - Repair highlights: carries the p747-p755 repairs forward; repairs p756 crossed-product notation, coefficient comparison, double-module statements, full-reducibility lemma, ring/subring correspondence statement, and proof start through the exact p756/p757 page break.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p747-p757 Brauer / Schur / sections 27-28 repair addendum (provenance only)
 
 Manifest: [20260625_noether_r125_tail_p747_p757_brauerschur_section27_28_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p757_brauerschur_section27_28_repair.json)
 
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p757_BrauerSchurSection27_28Repair_WebDrop_20260625.zip`, 44,731,837 bytes, SHA256 `D0F4E892AF65B6019092ED0DD1787FB668D1ACF84DB5F57CB70790CD7D7FC71F`.
-- Scope: cumulative p713-p757 Noether-Deuring post-numbered tail repair, carrying forward p713-p756 and adding a source-visible p757 repair through Hilfssatz 4 continuation, Hilfssatz 5, Bemerkungen 1-2, section 28 opening, product setup/Behauptung, and Satz 1 statement. p758 is now carried by the p747-p758 package below; p759 onward remains open.
+- Scope: cumulative p713-p757 Noether-Deuring post-numbered tail repair, carrying forward p713-p756 and adding a source-visible p757 repair through Hilfssatz 4 continuation, Hilfssatz 5, Bemerkungen 1-2, section 28 opening, product setup/Behauptung, and Satz 1 statement. p758 is now carried by the p747-p763 package below; the following Kapferer/Noether paper remains outside this source-witness span.
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 466 PDF pages.
 - Repair highlights: carries the p747-p756 repairs forward; repairs p757 center lemma, finite-sum description, crossed-matrix representation note, crossed-product setup, product-factor-system assertion, and Satz 1 statement.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: retain as provenance only; use the p747-p758 package below as the current tail addendum. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum. Start a separate source package/audit for the following Kapferer/Noether paper.
 
-## 2026-06-25: Noether R125 tail p747-p758 Brauer / Schur / section 28 repair addendum
+## 2026-06-25: Noether R125 tail p747-p758 Brauer / Schur / section 28 repair addendum (provenance only)
 
 Manifest: [20260625_noether_r125_tail_p747_p758_brauerschur_section28_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p758_brauerschur_section28_repair.json)
 
 - Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p758_BrauerSchurSection28Repair_WebDrop_20260625.zip`, 49,427,549 bytes, SHA256 `53F5A4A85B66EF998DDBBDB1283810EA81C168B3F5C8FB8BE10C3C5F3AD60502`.
-- Scope: cumulative p713-p758 Noether-Deuring post-numbered tail repair, carrying forward p713-p757 and adding a source-visible p758 repair through Hilfssaetze 1-3, step 2 decomposition, step 3, and Satz 2 statement. p759 onward remains open.
+- Scope: cumulative p713-p758 Noether-Deuring post-numbered tail repair, carrying forward p713-p757 and adding a source-visible p758 repair through Hilfssaetze 1-3, step 2 decomposition, step 3, and Satz 2 statement. This is now provenance only because the p747-p763 package carries it forward; the following Kapferer/Noether paper remains outside this source-witness span.
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 466 PDF pages.
 - Repair highlights: carries the p747-p757 repairs forward; repairs p758 absolute-length/rank argument, link ideal notation, `P_s` matrix-unit decomposition, crossed-product decomposition, and the Satz 2 setup with representatives `e_1u_S\bar u_Se_1`.
 - Source-quality caveat: best local witnesses are native about 360ppi, below the preferred 650+ppi floor. Treat this as best-available source-backed repair evidence only, not high-resolution page certification, not whole-tail certification, not a critical edition, and not multilingual synchronization proof.
 
-Next action: use this p747-p758 package as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo file ceiling. Continue source-critical work at p759.
+Next action: retain as provenance only; use the p747-p763 package as the current tail addendum for a future compact Noether source-support rollup. Do not upload loose while Noether remains at the Zenodo file ceiling. Start a separate source package/audit for the following Kapferer/Noether paper.
 ## 2026-06-25: 48-hour exact ZIP gap sweep
 
 Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
@@ -2448,7 +2448,7 @@ Manifest: [20260625_noether_r125_postr125_all_webdrops_bundle_v2.json](../manife
 - Policy: preferred compact future rollup/handoff unit over uploading all component ZIPs loose. Noether is at the Zenodo 100-file ceiling, so use deliberate replacement/pruning.
 - Caveat: source-audit and queue-control evidence only. The p713-p746 tail uses best-local native about-360ppi witnesses below the preferred 650+ppi floor; P14-P17 survival packages are audit-only and no-new-patch. Not whole-corpus certification, not a critical edition, not downstream multilingual synchronization proof.
 
-Next action: use v2 as the compact local post-R125 Noether consolidation through p746, and carry the p747-p758 addendum above until the next rollup. Continue source-critical work at p759.
+Next action: use v2 as the compact local post-R125 Noether consolidation through p746, and carry the p747-p763 addendum below until the next rollup. Start a separate source package/audit for the following Kapferer/Noether paper.
 
 ## 2026-06-25: Noether R125 tail p713-p714 definition repair addendum
 
@@ -2646,3 +2646,39 @@ Manifest: [20260625_noether_r125_tail_p713_p742_section23start_repair.json](../m
 - Historical follow-up: a coherent p713-p746 section-24/Satz-2-start ZIP now exists and supersedes this p713-p742 package for current tail-addendum purposes.
 
 Next action: superseded for current tail-addendum purposes by the p713-p746 section-24/Satz-2-start package below; retain this p713-p742 package as provenance only and use the p713-p746 package for the next compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p747-p759 Brauer/Schur section 28 repair addendum (provenance only)
+
+Manifest: [20260625_noether_r125_tail_p747_p759_brauerschur_section28_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p759_brauerschur_section28_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p760_BrauerSchurSection28_30Repair_WebDrop_20260625.zip`, 53,922,749 bytes, SHA256 `D992628E9808634DA32B36C950719732CA9914B287270AC9BC06A370EBF60328`.
+- Scope: cumulative p747-p759 Noether-Deuring post-numbered tail repair. It supersedes p747-p758 and narrower p747 tail packages for current tail-addendum purposes; carries those repairs forward; and adds p759 section-28 proof/Hilfssatz/associated-class repairs.
+- Repair highlights: p759 restores the Satz 2 proof opening, source footnotes 1 and 2, Hilfssaetze 1-3, the associated-class product formula with generator-change proof, and the item 5/item 6 unit-class/isomorphism statements.
+- Source-quality caveat: best local witnesses are native about 360ppi, below the strict 650+ppi source-certification floor. Treat this as a best-available source-visible repair addendum only; it is not a critical edition, not whole-tail certification, not p760-p762 certification, not next-paper/Kapferer-Noether certification, and not multilingual synchronization proof.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 466, bytes 2,578,529.
+
+Next action: keep p759 as the current local tail addendum for a future compact Noether source-support rollup; start a separate source package/audit for the following Kapferer/Noether paper. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R125 tail p747-p760 Brauer/Schur sections 28-30 repair addendum (provenance only)
+
+Manifest: [20260625_noether_r125_tail_p747_p760_brauerschur_section28_30_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p760_brauerschur_section28_30_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p760_BrauerSchurSection28_30Repair_WebDrop_20260625.zip`, 58,519,952 bytes, SHA256 `ECDAACB46ED78E7DCC0808784E15C805552D69D749DB169D0C6507F7D54FFBF2`.
+- Scope: cumulative p747-p760 Noether-Deuring post-numbered tail repair. It supersedes p747-p759 and narrower p747 tail packages for current tail-addendum purposes; carries those repairs forward; and adds p760 section-28 closing, section-29 Hauptgeschlecht, and section-30 cyclic-representation opening repairs.
+- Repair highlights: p760 closes section 28 with P as center; restores section 29 setup with `\mathfrak R_r=\mathfrak Z\cdot\mathfrak G`, `\mathfrak G^*`, and cosets; rebuilds the Hauptgeschlecht definition; repairs the section 29 Satz/proof; and opens section 30 through Satz 1, the normierte Darstellung definition, and Hilfssatz 1 statement.
+- Source-quality caveat: best local witnesses are native about 360ppi, below the strict 650+ppi source-certification floor. Treat this as a best-available source-visible repair addendum only; it is not a critical edition, not whole-tail certification, not next-paper/Kapferer-Noether certification, and not multilingual synchronization proof.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 466, bytes 2,578,943.
+
+Next action: keep p760 as the current local tail addendum for a future compact Noether source-support rollup; start a separate source package/audit for the following Kapferer/Noether paper. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R125 tail p747-p761 Brauer/Schur section 30 repair addendum
+
+Manifest: [20260625_noether_r125_tail_p747_p761_brauerschur_section30_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p761_brauerschur_section30_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p761_BrauerSchurSection30Repair_WebDrop_20260625.zip`, 62,946,133 bytes, SHA256 `82694B1D5C0F03685A0EE5AF8CBC3AF6B5628BEB0A3161F0114875F67C9C7CB5`.
+- Scope: cumulative p747-p761 Noether-Deuring post-numbered tail repair. It supersedes p747-p760 and narrower p747 tail packages for current tail-addendum purposes; carries those repairs forward; and adds p761 Hilfssatz/normed-class/Satz 2 repairs.
+- Repair highlights: p761 rebuilds Hilfssatz 1 proof, Hilfssaetze 2-3, the normed-class multiplication display, the transformation calculation `v=uc` through `v^n=u^nN(c)`, and the Satz 2 statement/proof opening through the source-page boundary.
+- Source-quality caveat: best local witnesses are native about 360ppi, below the strict 650+ppi source-certification floor. Treat this as a best-available source-visible repair addendum only; it is not a critical edition, not whole-tail certification, not next-paper/Kapferer-Noether certification, and not multilingual synchronization proof.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 466, bytes 2,579,069.
+
+Next action: keep p761 as the current local tail addendum for a future compact Noether source-support rollup; start a separate source package/audit for the following Kapferer/Noether paper. Do not upload loose while Noether remains at the Zenodo file ceiling.
