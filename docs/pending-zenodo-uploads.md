@@ -3919,3 +3919,13 @@ Manifest: [20260625_noether_slavic_p01_p34sec26_worksofar.json](../manifests/pen
 - Caveat: rendered/audited working multilingual translation lane only. Not a critical edition, not independent source-perfect certification, and downstream mathematical use still requires source checks against the German/source-audit authority.
 
 Next action: use in a deliberate Noether record refresh/rebalance, replacing the older Slavic file if file-count constraints permit. Keep logbooks/glossaries because Interslavic is a linguistic artifact as well as a translation lane.
+## 2026-06-25: Noether R127 Tail/Kapferer no-new-patch reconciliation
+
+Manifest: [20260625_noether_r127_tail_kapferer_reconciliation_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_tail_kapferer_reconciliation_nopatch.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_TailKapferer_Reconciliation_NoNewPatch_WebDrop_20260625.zip`, 2,184,041 bytes, SHA256 `D38A504A0F7A7E9B29B913037A035F12FB6BD961DE2D5DA3B892480201781F49`, 46 entries.
+- Scope: R127/LocalCodex tail and Kapferer queue reconciliation against `Noether_R127_REBUILT_20260625.zip` and the current LocalCodex cumulative carrying P01/P22/P30/P37/P42 source-backed patches.
+- Result: no new TeX patch. Kapferer/Noether Math. Ann. 97 article span and Section 39 are byte-identical between the current cumulative and local candidates. The broader Section 40-to-Kapferer candidate must not be applied wholesale because it would regress the current source-backed P42 `Sp(\widetilde a a)` fix and carries broad provisional formatting differences.
+- Caveat: Deuring tail witnesses are about native360 and Kapferer about GDZ 400dpi, below the strict 650+ full-page certification floor. This is source-lead/reconciliation evidence only, not critical edition, not multilingual synchronization, and not whole-tail closure.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement pass; do not upload loose while Noether remains at the Zenodo file ceiling. Reopen only for better source witnesses or concrete source-vs-TeX defects; post-Kapferer bibliography/end matter remains a separate optional source-inventory question.
