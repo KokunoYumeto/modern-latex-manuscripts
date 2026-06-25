@@ -1,5 +1,18 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether Paper 13 continuation source-fix sweep
+
+Manifest: [20260625_noether_p13_continuation_sourcefixes_pending.json](../manifests/pending-zenodo-uploads/20260625_noether_p13_continuation_sourcefixes_pending.json)
+
+- Noether pending ZIP: `Noether_R124plus_P13_p243_246_DxDotExampleFootnoteFix_BestAvailable400_WebDrop_20260625.zip`, 9,590,733 bytes, SHA256 `4EC47F5DFCB445EA4A9191D3B69DC1BB29C7E691EAE08A312D12D403892BEC9D`.
+- Scope: Noether Paper 13, printed pp.243-246, checked against best-available local GDZ/IIIF full-page JPGs at about 400ppi.
+- Confirmed fixes reported by the package: p244 restores source punctuation and product dot in `Setzt man also: Delta x = 1/f · (A-B)`; p245 corrects the worked-example denominator from `u'` to `u'^2`; p246 restores product dots and corrects the footnote first-integral statement to `u'^lambda = const.`.
+- Caveat: this is narrow source-fix evidence against best-available 400ppi witnesses, below the local 650ppi strict source-certification floor. It is not Paper 13 closure, not whole-Noether closure, not downstream multilingual synchronization, and not a critical edition.
+- Related local folder: `Noether_R124plus_P13_p247_250_CommonsDjVu_SourceFixes_WebDrop_20260625`, 14 files / 14,348,319 bytes, key TeX SHA256 `18C9D8AF89DAE3B5E5EF1BCF58E3FCCD75A49A4E37C8742F166B85481A7CC5B4`.
+- Folder status: discovered as local source-fix work material only. It has Commons DjVu page witnesses and targeted crops, but no README, confirmed-fixes ledger, source-quality ledger, compiled output PDF, or checksum/package manifest. Do not upload or front it until it is packaged, compiled, ledgered, and explicitly reviewed.
+
+Next action: keep both items in the Noether source-audit queue. If refreshing Noether Zenodo, fold only a compact, reviewed source-support rollup into the record after pruning/replacement, because the Noether record is already at the 100-file ceiling.
+
 ## 2026-06-25: Workflow SGA5 find-verify-fix workpass method snapshot
 
 Manifest: [20260625_workflow_sga5_find_verify_fix_workpass_method.json](../manifests/pending-zenodo-uploads/20260625_workflow_sga5_find_verify_fix_workpass_method.json)
