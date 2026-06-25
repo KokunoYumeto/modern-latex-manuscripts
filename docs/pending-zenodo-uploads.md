@@ -910,6 +910,7 @@ Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `02901896A3F6D616E3CF0816A4266A809DA9C0EF36A6111A20E488F1B4C9C81C`; `sga5_fr_workpass.pdf` SHA256 `4E466D35709E0B96AE7707860FEAE8433D1D25C8B4D9885508BD33003D62ADE0`; `sga5_fr_workpass.log` SHA256 `CF9296D944F31339938CAD4C7DA3EB881FDEC0D992531C91FEFFB456E52D6458`.
 - Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log pp.1-125 are page-locally certified; pp.1-72 close Expose I; pp.73-125 cover Expose III through the etale body, section 5 complements, and coherent-sheaf appendix sections 6.1-6.6 through coherent cup products; D001-D069 are hand-verified perfect through p118; p126 / Theoreme 6.7 is next. The certified opening has been superseded by the p125 log: the ledger now reports 125 pages checked, 1 TeX fix, 4 source typos plus one source cross-reference quirk, 0 swarm transcription errors, and D001-D069 hand-verified perfect through p118.
+- Supersession note: this entry is now history. The current local SGA5 edge is the 2026-06-26 p151 status package, with pp.1-151 page-locally certified, D001-D072 hand-verified perfect, and p152 next.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
@@ -3920,6 +3921,18 @@ Manifest: [20260626_weber_b139_liveaudit_v1ge_p100_p635_held_status.json](../man
 
 Next action: retranscribe held rewrite/reconstruction blocks section-by-section; continue after p635 only with the same hold-vs-patch gate.
 
+## 2026-06-26: Weber B139 live German Vol. I p100-p641 held/reconstruction status
+
+Manifest: [20260626_weber_b139_liveaudit_v1ge_p100_p641_held_status.json](../manifests/pending-zenodo-uploads/20260626_weber_b139_liveaudit_v1ge_p100_p641_held_status.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p641_HeldRangeStatus_20260626.zip`, 2,256,169 bytes, SHA256 `5588F310AA0FD1065C8B8DC9388BDD510BA1A77EA1A6E7FC9110FBB9E8FFB69B`, 11 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs from the p635 snapshot plus updated certification/method logs after the live audit reached printed p641.
+- Status additions: p636-p641 produced no accepted TeX edits; the audit classifies sections 185-186 around metacyclic-root theory as held/reconstruction material. The workpass still compiles as 369 pages with zero fatal errors at this snapshot.
+- Held/retranscription warning: sections 185-186 join the broader held range, now sections 173-186, alongside earlier held blocks. The logs explicitly record equation damage and hallucinated/phantom-page fixes produced by agents; every accepted or rejected line was confirmed by eye before applying.
+- Caveat: German source-audit status/retranscription-map artifact only. Not English synchronized, not whole-Volume-I certified, and not a critical edition.
+
+Next action: retranscribe held rewrite/reconstruction blocks section-by-section; continue after p641 only with the same hold-vs-patch gate.
+
 ## 2026-06-25: SGA5 live French workpass through p149
 
 Manifest: [20260625_sga5_live_certlog_p149_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p149_status_package.json)
@@ -3942,6 +3955,18 @@ Manifest: [20260626_sga5_live_certlog_p150_status_package.json](../manifests/sou
 - Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
 
 Next action: continue from p151 in Expose III B; run a global referenced-label audit before any stronger SGA5 claim.
+
+## 2026-06-26: SGA5 live French workpass through p151
+
+Manifest: [20260626_sga5_live_certlog_p151_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p151_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p151_Status_20260626.zip`, 2,145,235 bytes, SHA256 `481CFF3677C4C9D0FE487794A76506D115F96730B7212EB0552F8AE9D160B23A`, 11 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, FINDINGS, swarm status, README, inventory, and checksums after the hand-certification log reached p151.
+- Status additions: pp.1-151 page-locally certified in the controlling CERT_LOG. Pages 1-72 close Expose I; pp.73-137 close Expose III; pp.138-151 cover Expose III B through the end of section 2 and the opening of section 3.
+- Ledger warning: Expose III B has intermittent dropped-referenced-label and notation-deviation defect classes already seen/fixed around p146, p148, p150, and p151; the next cursor is p152.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p152 in Expose III B; run a global referenced-label/notation audit before any stronger SGA5 claim.
 
 ## 2026-06-25: Noether R127 P35/P36 source-disposition updates
 
