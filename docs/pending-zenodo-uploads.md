@@ -3700,3 +3700,14 @@ Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p551_workpass.json](../manife
 - Caveat: German source-audit workpass only. Held ranges remain; not English synchronized, not whole-Volume-I certification, and not a critical edition.
 
 Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from p552 while retranscribing held blocks deliberately.
+
+## 2026-06-25: Noether R127 Paper 13 best-available survival audit
+
+Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p13_survival_best_available.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_P13_BestAvailableSurvival_NoNewPatch_WebDrop_20260625.zip`, 36,616,820 bytes, SHA256 `526DB74A1CADC1C5DA4E76D7F077A0740AF418C6FECCE9904FD52E6D11C00928`, 141 entries.
+- Authority ZIP: `Noether_R127_REBUILT_20260625.zip`, 52,004,966 bytes, SHA256 `0F2E740924671F0C32E66524BC887DC8567B5CF3D9C0D920ACFE8AFCBB218497`, 85 entries.
+- Scope: Paper 13 (`Invariante Variationsprobleme`) survival/rebase evidence against the rebuilt R127 German cumulative. The package reports 23/23 survival checks passing and no new TeX patch.
+- Source-quality caveat: pp.235-246 use best-available about-400ppi GDZ/IIIF witnesses; pp.247-257 use higher-detail Commons DjVu images without native-PPI certification. This is targeted survival/source-support evidence, not strict full-page certification, not whole-paper closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate compact Noether rollup with R127_REBUILT and the P09-P12/P14-P20 guardrail packages; do not upload loose while the Noether record remains file-count constrained.
