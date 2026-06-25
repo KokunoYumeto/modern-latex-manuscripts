@@ -150,9 +150,9 @@ Next action: attach to the workflow/replication record during the next deliberat
 
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
-- SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `6C6F40D6CBFA2C2268A5B2CDC8E662C9B16582DBF7538312A1988ED8DC9730A7`; `sga5_fr_workpass.pdf` SHA256 `1A4E96159D4D2964BBADC174BCB3AC70D2B6101DB6395AC38202824F33F8FED8`; `sga5_fr_workpass.log` SHA256 `F4C8DAE232A8ACDAA658CB254210D3616A773A79BD9914D702AC64166F8735C4`.
-- Status: the live status file reports p75-p484 audited locally and a later p3-p32 workflow batch, with 411 verified corrections recorded in the status stream.
-- Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
+- SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `41A7F6D22438CBE4FE37D8263DE81B8CA614826ABD2B6DE206E28AA4A55FE900`; `sga5_fr_workpass.pdf` SHA256 `10A9B12BDA3751B45A163E54BF59E504043ECD500A7D64179827C0B0BDE61FCE`; `sga5_fr_workpass.log` SHA256 `C72A96B3654FEFC368A326466078E36BC616BE1E5AEFF769DE2EA48580194203`.
+- Status: the live status file reports p75-p484 audited locally and a later p3-p32 workflow batch, with 411 verified corrections recorded in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of 2026-06-25 04:33 local time only pages 1-6 are hand-certified clean against scan chunks, with p7 next.
+- Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package repairs the build errors and closes the open regions.
 
