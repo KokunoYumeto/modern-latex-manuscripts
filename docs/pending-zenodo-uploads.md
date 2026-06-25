@@ -1,16 +1,16 @@
 # Pending Zenodo Uploads
 
-## 2026-06-25: SGA5 live CERT_LOG through p102
+## 2026-06-25: SGA5 live CERT_LOG through p105
 
-Manifest: [20260625_sga5_live_certlog_p102_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p102_unpacked.json)
+Manifest: [20260625_sga5_live_certlog_p105_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p105_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
-- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-102 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-102.
-- The log reports D001-D040 hand-verified perfect through p102. Page 102 covers Theoreme 4.4, the main Lefschetz-Verdier theorem statement, including D039 cube and D040 main square verified perfect.
-- The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p102 range.
+- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-105 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-105.
+- The log reports D001-D050 hand-verified perfect through p105. Pages 103-105 cover the dense Theoreme 4.4 proof diagrams, including the formerly high-risk (4.4.2) diagram D041, D044-D045, and D046-D050.
+- The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p105 range.
 - Caveat: this is still a live local workpass, not a compact public package, not English synchronization, not global SGA5 certification, and not a critical edition. The local TeX remains a curated 10-expose SGA5 selection, not the whole LNM 589 scan.
 
-Next action: continue from p103, especially D041 / (4.4.2), the large three-row commutative diagram previously flagged as high-risk; only fold into Zenodo after a compact status/method package and independent validation.
+Next action: continue from p106, especially D051/D052 and the remaining Theoreme 4.4 proof material; only fold into Zenodo after a compact status/method package and independent validation.
 
 ## 2026-06-25: Weber live CERT_LOG through p449
 
@@ -82,6 +82,18 @@ Manifest: [20260625_noether_r126_p30_p043_049_sourcefix_zip.json](../manifests/p
 - Caveat: source witnesses are IA JP2-derived approximately 400ppi leaves, below the preferred 650+ppi source-certification floor. Paper 30 printed p50 onward remains open; this is targeted source-fix evidence only, not Paper 30 closure, multilingual synchronization, or critical edition.
 
 Next action: keep with the pp.26-42 packages for the next deliberate compact Noether rollup/replacement.
+
+## 2026-06-25: Noether R126 Paper 30 pp.50-52 compact source-fix ZIP
+
+Manifest: [20260625_noether_r126_p30_p050_052_sourcefix_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_p050_052_sourcefix_zip.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_p050_052_SourceFix_WebDrop_20260625.zip`, 10,227,104 bytes, SHA256 `D58789D1AF4DE07DF1DB41CCCA0989D73352F586340688412A236CD6132324DB`.
+- Scope: continuation of the pp.26-49 candidate through printed p52. The package includes README, confirmed-fixes/source-quality ledgers, source witnesses for pp.50-52, patched German cumulative TeX/PDF/log, TeX diff material, and checksum CSV.
+- Applied/source-checked highlights: p50 restores a Hilfssatz/Zusatz/proof block; p51 restores the source `c^rho != c^(rho+1)` consequence and determinant/coefficient equation; pp.51-52 rebuild the exponent-two primary-ideal proof; p52 restores the Hilfssatz 3 `sigma`/`lambda` second formulation and induction display.
+- Build/status: the package summary reports two XeLaTeX passes, a 466-page German cumulative PDF, and no fatal/warning hits in the final log scan.
+- Caveat: source witnesses are IA JP2-derived approximately 400ppi leaves, below the preferred 650+ppi source-certification floor. Paper 30 printed p53 onward remains open; this is targeted source-fix evidence only, not Paper 30 closure, multilingual synchronization, or critical edition.
+
+Next action: keep with the pp.26-49 packages for the next deliberate compact Noether rollup/replacement.
 
 ## 2026-06-25: Noether R126 Paper 29 GDZ400 survival/status package
 
