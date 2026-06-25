@@ -13,6 +13,20 @@ Manifest: [20260625_noether_p14_p183_185_sourcefix.json](../manifests/pending-ze
 
 Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
 
+## 2026-06-25: Noether Paper 14 pp.186-189 targeted source fixes
+
+Manifest: [20260625_noether_p14_p186_189_sourcefix.json](../manifests/pending-zenodo-uploads/20260625_noether_p14_p186_189_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R124plus_P14_p186_189_SourceFix_WebDrop_20260625.zip`, 25,883,548 bytes, SHA256 `D21A3B2C612A74DA6FBA817630A93E861DFE7A98E180E02DFFCC66FAB13C53D1`.
+- Scope: Paper 14, printed pp.186-189, incremental German source-critical candidate based on the local cumulative after the P14 pp.183-185 source-fix package.
+- Applied fixes: p187 restores the source-visible `a_n` and `a_n^{(i)}` coefficient family in the linear-form reduction proof; p188 restores the source notation in the Hilbert module-basis footnote, including `\xi_1,\ldots,\xi_\rho,\eta`, `\eta^n`, `a_i(\xi)\eta^{n-i}`, and substitution `\eta^{n-i}=x_i`.
+- Checked without patch: p186 source anchors and p189 formula/footnote anchors are recorded as checked/no-patch in the package ledgers.
+- Source witnesses: P14 full-page context images for printed pp.186-189 and targeted 1000-view crops for the two changed anchors. Prior ledgers record native embedded source around 360ppi; the 650/1000 labels are render/inspection scale, not new optical detail.
+- Build: XeLaTeX pass 1/pass 2 exit 0; package reports 469 PDF pages and zero fatal/undefined-control/rerun/overfull/underfull matches in its log scan.
+- Caveat: targeted German source-fix candidate only. Not Paper 14 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition. Reconcile with older P14 RA55/RA64/RA78/RA89/RA90 material before any unified German branch promotion.
+
+Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
+
 ## 2026-06-25: Noether WebFailedThinking5 P42 / RA82 salvage
 
 Manifest: [20260625_noether_webfailedthinking5_p42_ra82_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking5_p42_ra82_salvage.json)
