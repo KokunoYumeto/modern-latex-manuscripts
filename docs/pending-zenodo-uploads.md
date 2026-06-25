@@ -86,6 +86,17 @@ Manifest: [20260625_noether_post_p14_survival_nopatch_trio.json](../manifests/pe
 
 Next action: keep as compact source-support evidence for the next deliberate Noether rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
 
+
+## 2026-06-25: Noether R125 tail p713-p746 section 24 / Satz 2 start repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p746_section24_satz2start_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p746_section24_satz2start_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p746_Section24Satz2Start_WebDrop_20260625.zip`, 60,074,377 bytes, SHA256 `0E1471F1DE518509841AB00F0C26068A47541B9AD784EB31E2F4C66D5FC729A8`.
+- Scope: cumulative p713-p746 Noether-Deuring post-numbered tail repair, with new source work on p743-p746: section 24 / `Multiplikation von Faktorensystemen`, Satz 1, Hilfsbetrachtung, Hilfssatz, associated `r_ik` construction, Satz 2 product-factor-system proof, and the start of Satz 3 / Brauer proof.
+- Build: XeLaTeX pass 1/pass 2 exit 0; package reports 467 PDF pages.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify section 24 as a whole, Satz 3, p747 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p746, or multilingual propagation.
+
+Next action: use this p713-p746 section-24/Satz-2-start package, not the p713-p742 section-23-start or narrower tail packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source-critical work at p747.
 ## 2026-06-25: 48-hour exact ZIP gap sweep
 
 Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
@@ -2523,6 +2534,6 @@ Manifest: [20260625_noether_r125_tail_p713_p742_section23start_repair.json](../m
 - Repair highlights: section 23 start restores source-consistent `\mathsf P`, `\mathfrak K`, `Z`, `\mathfrak Z`, and `\Gamma` notation, the decomposition of `\mathfrak K_{r\Gamma}` into simple left ideals, Galois-action/conjugacy formulas, the `Z_i,Z_k` compositum construction, barred ideals, matrix-unit expansions, pseudomatrix-unit definitions, factor-system relations, conjugacy law for `\alpha`, and the associated-system `\delta` quotient.
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify the continuation after the associated-factor-system paragraph, section 23 as a whole, section 24, the whole tail/post-numbered apparatus, every micro-symbol on p713-p742, or multilingual propagation.
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 467.
-- Held-back follow-up: a local extracted p713-p746 folder exists, but no coherent p746 ZIP has been observed; do not register p746 until a matching ZIP, README, compile status, and ledger are present.
+- Historical follow-up: a coherent p713-p746 section-24/Satz-2-start ZIP now exists and supersedes this p713-p742 package for current tail-addendum purposes.
 
-Next action: use this p713-p742 section-23-start package, not the p713-p740 section-22 or narrower tail packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue from the paragraph after the associated-factor-system transformation and then section 24.
+Next action: superseded for current tail-addendum purposes by the p713-p746 section-24/Satz-2-start package below; retain this p713-p742 package as provenance only and use the p713-p746 package for the next compact Noether source-support rollup.
