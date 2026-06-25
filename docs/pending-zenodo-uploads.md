@@ -39,6 +39,20 @@ Observed after the current Noether public version [20836874](https://zenodo.org/
 
 Status: pending consolidation only. Do not upload these one by one. The substantive correction line is now the merged P25/P27 cumulative candidate plus later P24 p233 and p234 notation candidates; the separate P25 and P27 sibling ZIPs are retained only as provenance/reference. P26/P28 is a one-page no-new-patch audit package, not a promoted reader change. P42 remains salvage/next-action material only; the second R125 salvage ZIP rediscovered useful RA10/RA84 apparatus context but does not close P42. The other files are salvage, apparatus-audit, post-P11 no-new-patch survival evidence, boundary/regression proof, or live source-audit logbook/provenance material. The P25/P27/P26/P28 packages use selected 600 ppi GDZ/JDMV witnesses, and the P24 packages are best-available 400ppi only; both remain below the strict 650+ local source floor, so they remain reversible source-audit candidates until consolidated. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
 
+### Supplemental exact-name sweep
+
+Manifest: [20260625_noether_exact_filename_supplemental_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_exact_filename_supplemental_sweep.json)
+
+A later exact-filename check found 19 additional local ZIP names that were not yet named in repository metadata, even when their content was partly covered by rollups or cleaner sibling packages. They include:
+
+- current-candidate reconcile/status packets for P09-P13, P14-P17, P18-P20, P31-P43, and lower/middle/upper-band latest-candidate survival checks;
+- `Noether_R124plus_PostR124_SurvivalRollup_WebDrop_20260624.zip`, a compact rollup of post-R124 no-new-patch survival/blocker results;
+- `Noether_R124plus_P43Tail_R101Backfill_StatusCorrection_20260624.zip`, which is important because it states that the long R101-derived post-P43 Noether-Deuring/Kapferer tail exists in the cumulative draft but is visibly OCR-scarred and not source-certified;
+- `Noether_R124_P33_1200dpi_TargetedSourceAudit_NoNewPatch_20260624.zip`, which gives strong targeted 1200dpi evidence for risky P33 loci but not full page-by-page P33 certification;
+- `Noether_R125_WebFailedThinking2_P42_Salvage_PLUS_CurrentP24p234_WebDrop_20260625.zip`, which is the P42 failed-web salvage package plus the current local candidate after the P24 p234 fix.
+
+Status: exact-name traceability only. These should not be uploaded individually. Use the manifest when pruning/building a future compact Noether source-audit rollup, and keep the P42/P43-tail caveats visible.
+
 ## 2026-06-24: Noether R124plus post-publication survival/status packets
 
 Manifest: [20260624_noether_r124plus_late_p09_p30_repairs.json](../manifests/pending-zenodo-uploads/20260624_noether_r124plus_late_p09_p30_repairs.json)
