@@ -3594,3 +3594,36 @@ Manifest: [20260625_noether_slavic_worksofar_p01_p34_s26.json](../manifests/pend
 - Caveat: this is a rendered/audited work-so-far translation and constructed-language lane, not a complete 43-paper Slavic corpus, not independent German source closure, not source-perfect certification, and not a critical edition.
 
 Next action: fold into the next Noether multilingual refresh with a clear label such as "Slavic work-so-far through Paper 34 section 26 (Ukrainian/Russian/Interslavic, with logbooks)." Do not bury the Interslavic logbook and constructed-language reflections; they are part of the scholarly object.
+
+## 2026-06-25: Steinitz/Takagi corpus audit and source-intake status
+
+Manifest: [20260625_steinitz_takagi_corpus_audit_intake.json](../manifests/pending-zenodo-uploads/20260625_steinitz_takagi_corpus_audit_intake.json)
+
+- Steinitz/Takagi pending ZIP: `Takagi_Steinitz_Corpus_Audit_20260623.zip`, 1,912,440 bytes, SHA256 `DAAB19D61F456F080645D6D49F44D5BB0409DBB61AA82A3CBD05A1A4C650C751`, 9 entries.
+- Scope: source-intake/status audit for the active Steinitz lane and intake-only Takagi lane.
+- Status additions: Steinitz 1916 `Bedingt III` continues from p14; the formerly unresolved Steinitz 1908 `Beitraege zur Analysis Situs` source now has a provisional 300 ppi Ranicki offprint witness; Takagi 1903/1920/1922 remains intake-only with about 400 ppi UTokyo witnesses.
+- Caveat: audit/status package only. It does not add new completed reader text and does not certify either Steinitz or Takagi as a critical edition.
+
+Next action: fold into the next Steinitz record refresh as a compact audit/status file if useful, otherwise keep the status reflected in GitHub and metadata overlays.
+
+## 2026-06-25: Weber B139 live German Vol. I p100-p527 workpass
+
+Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p527_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p527_workpass.json)
+
+- Weber pending ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p527_Workpass_20260625.zip`, 2,221,797 bytes, SHA256 `8CD1BA452E421F23FB34DF47E5B61DCFA6C74C3DCEFDFEA5E44EDF3757C8AC86`, 10 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus method and certification logs after the live find-verify-fix audit reached printed p527.
+- Status additions: the workpass PDF is 366 pages; p528-p533 are rendered next; held/caution ranges still include section 69, section 138 numbering/layout, section 141 reducibility paraphrase, p466, sections 148-149, section 153, section 154, section 155, section 156, and section 158.
+- Caveat: German source-audit workpass only. Not English synchronized, not whole-Volume-I certification, and not a critical edition.
+
+Next action: use as a compact Weber status/workpass upload only if a cleaner B146-style package is not produced first.
+
+## 2026-06-25: Workflow SGA6 and Weber live audit harnesses
+
+Manifest: [20260625_workflow_sga6_weber_live_audit_harnesses.json](../manifests/pending-zenodo-uploads/20260625_workflow_sga6_weber_live_audit_harnesses.json)
+
+- Workflow pending ZIP: `AI_Run_Workflow_SGA6_PageUnit_AuditHarness_KimiLocator_20260624.zip`, 13,596 bytes, SHA256 `B03F3F80C3C8A502470A0F89E3261F0D51BF994B722289F3724E43118459579D`.
+- Workflow pending ZIP: `AI_Run_Workflow_Weber_LiveAudit_Method_p100_p527_20260625.zip`, 95,572 bytes, SHA256 `6389C15F9FC730F3519BDBEF655F7BFC4DB6F7A12566163D69D647D0D0B20F92`.
+- Scope: compact method/support artifacts for page-unit audit harnesses, OCR-as-locator use, and live find-verify-fix practice.
+- Caveat: workflow evidence only. These do not certify SGA6, Weber, SGA5, or any author record as complete.
+
+Next action: include both compact ZIPs in the next workflow DOI refresh.
