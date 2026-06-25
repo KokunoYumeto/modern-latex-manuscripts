@@ -1,5 +1,15 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Weber B143 Vol. I p480-p485 section 150 retranscribed
+
+Manifest: [20260625_weber_b143_p480_p485_section150_retranscribed.json](../manifests/pending-zenodo-uploads/20260625_weber_b143_p480_p485_section150_retranscribed.json)
+
+- Weber pending ZIP: `Weber_Rob_B143_Vol1_p480_p485_Section150_Retranscribed_WebDrop_20260625.zip`, 23,324,671 bytes, SHA256 `3267DC2A9DF6D4F3AA80EF67C8C34E19BDA5FE3F9751EC94B388B528AAA4D562`.
+- Scope: Vol. I pp.480-485. Rob reports §150, "Transitive und intransitive Gruppen", re-transcribed from source; pp.483-485 are marked clean.
+- Result: current German cumulative TeX/PDF/log after B143, full certification/method logs, source crops for p474-p479 and p480-p485, B142-to-B143 diff, and open-items CSV. Compile state: 364 pages, 0 errors.
+- Caveat: B143 does not repair §148-149. pp.474-479 and pp.480-481 / §149 tail remain held as the major wholesale GPT-rewrite/paraphrase block. It also flags Weber erratum #9 on p482 while preserving the printed wording.
+
+Next action: coherent source retranscription of Weber Vol. I §148-149 / pp.474-481, then continue from p486 onward with the hold carried forward.
 ## 2026-06-25: Noether R126 Paper 37 GDZ full-resolution source witness
 
 Manifest: [20260625_noether_r126_p37_gdz_fullres_source_witness.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p37_gdz_fullres_source_witness.json)
@@ -28,7 +38,7 @@ Manifest: [20260625_weber_b142_p474_p479_hold_p480_p485_staged.json](../manifest
 - Weber hold ZIP: `Weber_Rob_B142_Vol1_p474_p479_Held_p480_p485_Staged_WebDrop_20260625.zip`, 23,320,637 bytes, SHA256 `9A94D514C43CA1C4C261CE6F18534E6E509A5A4DCF0BA2C35BB758E967E90BC8`.
 - Scope: Vol. I pp.474-479, sections 148-149; pp.480-485 source crops are staged only.
 - Result: no TeX repair applied. Rob audit diagnoses pp.474-479 / sections 148-149 as a wholesale GPT rewrite/paraphrase requiring coherent retranscription, not piecemeal patching. The included cumulative TeX/PDF/log are unchanged from B141.
-- Caveat: do not treat p474-p479 as repaired or certified. p480-p485 is not certified.
+- Caveat: do not treat p474-p479 as repaired or certified. In B142, p480-p485 was staged only; newer B143 processes section 150/p480-p485 while still keeping p480-p481 / section 149 tail held.
 
 Next action: source-faithfully retranscribe Weber Vol. I sections 148-149 before ordinary continuation past p479.
 
