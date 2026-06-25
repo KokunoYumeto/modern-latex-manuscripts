@@ -3632,6 +3632,30 @@ Manifest: [20260625_noether_r127_p30_source_restoration_patch.json](../manifests
 
 Next action: use as the current Paper 30 restoration candidate in the next compact Noether rollup/file-ceiling pruning pass. Keep earlier P30 chunk packages as provenance beneath this combined patch rather than uploading all as loose files.
 
+## 2026-06-25: Noether R127 Paper 37 source-restoration patch
+
+Manifest: [20260625_noether_r127_p37_source_restoration_patch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p37_source_restoration_patch.json)
+
+- Noether P37 restoration ZIP: `Noether_R127_LocalCodex_P37_SourceRestorationPatch_WebDrop_20260625.zip`, 40,487,529 bytes, SHA256 `45E6E83529C0917A2889A326DE85BABD137D0704EC34B0A026DD93AF6BABA7CC`, 38 entries.
+- Scope: replaces only Paper 37 in the R127+P22+P30 German cumulative with the GDZ source-fixed Paper 37 span for printed pp.147-152.
+- Confirmed repairs include p147 Deuring footnote product factors, p148 `(einseitigen)` and lowercase `\frako`, p149 `(isomorphen)`, p150 `(rationalen)` and determinant semicolon, p151 footnote-10 plain `P`, p152 generic prime-decomposition notation, and the P38 footnote-counter boundary after P37.
+- Build/status: XeLaTeX pass 1 and pass 2 succeeded locally on 2026-06-25; compiled German cumulative PDF has 468 pages; package reports R127 P37 survival/patch checks pass 9/9.
+- Caveat: targeted source-backed patch only. The GDZ witness is strong but this is not blanket Paper 37 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next compact Noether rollup after P22/P30; do not upload loose while the Noether record remains file-count constrained.
+
+## 2026-06-25: Noether R127 Paper 42 Sp-tilde source-order fix
+
+Manifest: [20260625_noether_r127_p42_sp_tilde_order_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p42_sp_tilde_order_fix.json)
+
+- Noether P42 order-fix ZIP: `Noether_R127_LocalCodex_P42_SpTildeOrderFix_WebDrop_20260625.zip`, 8,664,232 bytes, SHA256 `C9D5FDF3E1CF4EE88FCD7463FD58474AB7882080E8400BBB64F78F6CACD357D2`, 23 entries.
+- Scope: replaces only Paper 42 in the R127+P22+P30+P37 German cumulative with the source-order-fixed Paper 42 span.
+- Confirmed repair: Paper 42 source p685 / source PDF page 7 has three trace-ideal loci printed as `Sp(\widetilde a a)`; the package changes only those three occurrences from `Sp(a\widetilde a)` and preserves earlier plain-product `a\widetilde a` contexts.
+- Build/status: XeLaTeX pass 1 and pass 2 succeeded locally on 2026-06-25; compiled German cumulative PDF has 468 pages; package reports R127 P42 survival/patch checks pass 4/4.
+- Caveat: best-available surgical patch below strict 650 ppi certification; not global Paper 42 certification, not whole-Noether certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next compact Noether rollup after P22/P30/P37; do not upload loose while the Noether record remains file-count constrained.
+
 ## 2026-06-25: Noether R127 rebuilt authority and P11/P12 guardrails
 
 Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json)
