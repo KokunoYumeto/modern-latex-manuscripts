@@ -3774,6 +3774,18 @@ Manifest: [20260625_sga5_live_certlog_p142_status_package.json](../manifests/sou
 
 Next action: continue from p143 in Expose III B; fold into SGA metadata only with the above caveats.
 
+## 2026-06-25: SGA5 live French workpass through p143
+
+Manifest: [20260625_sga5_live_certlog_p143_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p143_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p143_Status_20260625.zip`, 2,131,865 bytes, SHA256 `5B0C0A2E77FC4E563FDD97F75219A86C9839F516CF72F891532B6565F7C67298`, 9 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, and README after the hand-certification log reached p143.
+- Status additions: pp.1-143 page-locally certified in the controlling CERT_LOG; p143 records Corollary 1.3, Corollary 1.3.1, Frobenius trace material, and the start of section 1.4 on dual correspondences; it also records one accepted correction from a copied source typo, `(DM)_x` corrected to `(DL)_x`.
+- Ledger summary: p143 package reports 143 pages checked, 5 TeX fixes, 7 source typos plus one source cross-reference quirk, 0 content transcription errors, and 70 hand-verified diagrams perfect. The grind cursor says p144 is next.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p144 in Expose III B; fold into SGA metadata only with the above caveats.
+
 ## 2026-06-25: Weber B139 live German Vol. I p100-p545 workpass
 
 Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json)
