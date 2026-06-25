@@ -4,7 +4,7 @@ Generated: 2026-06-02
 
 ## Current Public State
 
-**2026-06-23 accuracy caveat:** this is a legacy status note from before later source-comparison failures were found in Cayley Volume I. Do not treat inherited `Complete` / `Source-Checked` wording in this file or in older filenames as a maintained accuracy claim. The current public Cayley record de-promotes the broad readers to draft/provenance/repair material except for explicitly named narrow restart tranches, and even those are source-inspected working packets rather than critical editions.
+**2026-06-25 accuracy caveat:** this is a legacy status note from before later source-comparison failures were found in Cayley Volume I. Do not treat inherited `Complete`, `Source-Checked`, or `critical` wording in this file or in older filenames as a maintained accuracy claim. The current public Cayley record de-promotes the broad readers to draft/provenance/repair material, and no Cayley range is presently promoted as source-faithful until a later page-by-page glyph/source audit re-promotes that exact range.
 
 Arthur Cayley, *Collected Mathematical Papers*, Volume I has a legacy assembled public reader/provenance surface in this repository:
 

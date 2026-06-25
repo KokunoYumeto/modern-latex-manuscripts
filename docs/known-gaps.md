@@ -83,7 +83,7 @@ Current record: <https://doi.org/10.5281/zenodo.20414787>
 
 - This is an organized shelf of selected working drafts, not a complete author-by-author collected corpus.
 - Gauss, Cayley, Dedekind, Dirichlet, Weber, and Noether material should be treated as staged working drafts unless a later author record marks a work as fully proofed.
-- Cayley is specifically de-promoted as of 2026-06-09: current Cayley PDFs/TeX are retained as provenance and repair material, but a source comparison found substantial symbol/text mismatches in Volume I material. Do not treat Cayley filenames containing `Source-Checked` as current quality claims until a new per-page source audit re-promotes specific ranges. The current exception is the narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` restart packet for Volume I printed pp.1-45 / complete Papers 1-9; v2 fixes Paper 6 low-comma notation and removes forced source-page whitespace from the reader PDF.
+- Cayley is specifically de-promoted as of 2026-06-09 and the warning is strengthened as of 2026-06-25: current Cayley PDFs/TeX are retained as provenance and repair material, but source comparison found substantial symbol/text mismatches in Volume I material, including rendered ranges that looked superficially usable. Do not treat Cayley filenames containing `Complete`, `Source-Checked`, or `critical` as current quality claims. No Cayley range is presently promoted as source-faithful until a new per-page glyph/source audit re-promotes that exact range.
 - Gauss in particular still needs deeper repair and verification.
 
 ## Bianchi

@@ -63,7 +63,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 
 | Author | Works Or Volumes |
 |---|---|
-| Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `source_checked` filenames as obsolete unless a later source-audit note explicitly re-promotes the specific range; the narrow promoted restart packet is Volume I pp.1-45 / Papers 1-9. |
+| Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `Complete`, `source_checked`, and `critical` filenames as obsolete quality labels; no Cayley range is presently promoted as source-faithful until a later page-by-page glyph/source audit re-promotes that exact range. |
 | Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
