@@ -54,6 +54,18 @@ Manifest: [20260625_noether_p14_p195_203_gdz600_sourcefix.json](../manifests/pen
 
 Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
 
+## 2026-06-25: Noether post-P14 survival/no-new-patch trio
+
+Manifest: [20260625_noether_post_p14_survival_nopatch_trio.json](../manifests/pending-zenodo-uploads/20260625_noether_post_p14_survival_nopatch_trio.json)
+
+- Noether pending ZIP: `Noether_R124plus_P01_P08_PostP14BodySurvival_NoNewPatch_20260625.zip`, 784,871 bytes, SHA256 `B228418301105EBA18EB40A7437205C936C17D5ED7C67B5FF4836450E88E31AF`.
+- Noether pending ZIP: `Noether_R124plus_P09_PostP14Survival_NoNewPatch_20260625.zip`, 600,811 bytes, SHA256 `8D6333D857504A6FEEFC9938F3B729ECA2E3F09F1C667E4343136CE2193D2B4D`.
+- Noether pending ZIP: `Noether_R124plus_P10_P12_PostP14Survival_NoNewPatch_20260625.zip`, 574,057 bytes, SHA256 `89BC9828146AB1A30887B22B7C1E0B7E7B5FE687F1D470CA47FEFA0BB7BFC065`.
+- Scope: regression/survival evidence against the current German R124-plus cumulative after the Paper 14 pp.195-203 GDZ600 source-fix candidate. P01-P08 and P09 spans are recorded as byte-identical to their prior reference spans; P10-P12 checks verify survival of earlier accepted repairs/no-fix traps.
+- Caveat: no new canonical TeX body patch is proposed. This is not whole-paper certification, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Source quality remains mixed/below-floor for several loci, with targeted high-detail evidence only where earlier packages supplied it.
+
+Next action: keep as compact source-support evidence for the next deliberate Noether rollup after pruning/replacement; do not upload loose while Noether is at the Zenodo 100-file ceiling.
+
 ## 2026-06-25: 48-hour exact ZIP gap sweep
 
 Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
