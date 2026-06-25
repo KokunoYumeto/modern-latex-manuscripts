@@ -23,7 +23,7 @@ GPU OCR / Surya-style OCR / Pix2Text / VLM outputs are useful mainly as **covera
 - They are not automatically correct transcription and must not override page images or source PDFs.
 - OCR from a different copy or edition must not be used for page-precise claims without source identity, checksum, and page-map reconciliation.
 
-The SGA5 audit lane showed the correct posture: OCR and indexes can locate dense loci, but source-page visual audit remains the authority. Current SGA5 workpass coverage has since advanced to source pages 1-65 plus the p103 diagram locus; this still proves the same workflow point: much more TeX can exist than has been source-page certified, and public records must state the narrower audited coverage.
+The SGA5 audit lane showed the correct posture: OCR and indexes can locate dense loci, but source-page visual audit remains the authority. Later local SGA5 workpass status reports pp.75-484 and pp.3-32 audited locally, while pp.1-2, pp.33-74, deferred diagram/prose/notation items, clean-build repair, final diff/FINDINGS refresh, uncertain/type-B review, and English synchronization remain open; the latest observed workpass produces a PDF but still logs LaTeX errors. This still proves the same workflow point: much more TeX can exist than has been source-page certified cleanly, and public records must state the narrower audited coverage and the remaining build/source caveats.
 
 ## 2a. Machine-Readable Indexes Are Navigation Layers
 
