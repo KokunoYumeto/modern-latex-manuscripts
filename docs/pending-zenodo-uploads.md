@@ -96,7 +96,19 @@ Manifest: [20260625_noether_r125_tail_p713_p746_section24_satz2start_repair.json
 - Build: XeLaTeX pass 1/pass 2 exit 0; package reports 467 PDF pages.
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify section 24 as a whole, Satz 3, p747 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p746, or multilingual propagation.
 
-Next action: use this p713-p746 section-24/Satz-2-start package, not the p713-p742 section-23-start or narrower tail packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source-critical work at p747.
+Next action: retain as provenance only; use the p747-p748 Brauer/Schur package below as the current tail addendum. Do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+
+## 2026-06-25: Noether R125 tail p747-p748 Brauer / Schur repair addendum
+
+Manifest: [20260625_noether_r125_tail_p747_p748_brauerschur_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p747_p748_brauerschur_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p747_p748_BrauerSchurRepair_WebDrop_20260625.zip`, 6,262,245 bytes, SHA256 `DFCCE51876752313F5D8F8F70BF302031CDE70890CA8946443511A0E6BECC574`.
+- Scope: cumulative p713-p748 Noether-Deuring post-numbered tail repair, with new source work on p747-p748: the end of the Brauer proof / Schur second proof, Satz 4, and the opening of Satz 5.
+- Build: XeLaTeX pass 1/pass 2 exit 0; package reports 467 PDF pages.
+- Repair highlights: fixes product and associated-factor-system quotient formulas, restores invariance/conjugacy prose, rebuilds the Schur matrix/determinant argument, restores the `P_{ik}` representation/basis/conjugacy/homomorphy displays, restores Satz 4 including Sylow subgroup and Brauer footnote material, and restores Satz 5 prime-factorization/product-decomposition opening.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually source-backed, but this does not certify p749 onward, the whole tail/post-numbered apparatus, every micro-symbol on p747-p748, or multilingual propagation.
+
+Next action: use this p747-p748 package as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo file ceiling. Continue source-critical work at p749.
 ## 2026-06-25: 48-hour exact ZIP gap sweep
 
 Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
@@ -2351,7 +2363,7 @@ Manifest: [20260625_noether_r125_postr125_all_webdrops_bundle_v2.json](../manife
 - Policy: preferred compact future rollup/handoff unit over uploading all component ZIPs loose. Noether is at the Zenodo 100-file ceiling, so use deliberate replacement/pruning.
 - Caveat: source-audit and queue-control evidence only. The p713-p746 tail uses best-local native about-360ppi witnesses below the preferred 650+ppi floor; P14-P17 survival packages are audit-only and no-new-patch. Not whole-corpus certification, not a critical edition, not downstream multilingual synchronization proof.
 
-Next action: use v2 as the current local post-R125 Noether consolidation for a future pruned Zenodo update and web-session handoff. Continue source-critical work at p747.
+Next action: use v2 as the compact local post-R125 Noether consolidation through p746, and carry the p747-p748 addendum below until the next rollup. Continue source-critical work at p749.
 
 ## 2026-06-25: Noether R125 tail p713-p714 definition repair addendum
 
