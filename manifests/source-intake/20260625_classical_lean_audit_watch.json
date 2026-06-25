@@ -1,16 +1,22 @@
 {
   "date": "2026-06-25",
   "lane": "Classical mathematics Lean formalization watch",
-  "publication_decision": "Do not publish yet. Track as a local proof/formalization lane and audit for reproducibility, source linkage, and actual Lean build status before considering a DOI or web-review packet.",
+  "publication_decision": "Do not publish yet. Track as a local proof/formalization lane and audit for reproducibility, source linkage, actual Lean build status, and mathematical/source fidelity before considering a DOI or public web-review packet.",
   "local_roots": [
     "C:\\Users\\Floris\\Documents\\classical_lean_audit",
     "C:\\Users\\Floris\\Documents\\arxiv_latex\\_lean",
     "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master"
   ],
+  "audit_handoff_zip": {
+    "path": "C:\\Users\\Floris\\Documents\\Codex\\2026-06-01\\we-are-currently-doing-a-massive\\Classical_Lean_Audit_Watch_20260625.zip",
+    "bytes": 42915,
+    "sha256": "2490DA28780A8E490DB2EC2CA73E322A7669321BF20C5E40F2A4F18C03C9B074",
+    "purpose": "Tiny local audit/watch handoff for future Codex or web/Pro review. Not a Zenodo-ready publication package."
+  },
   "observed_files": [
     {
       "path": "C:\\Users\\Floris\\Documents\\classical_lean_audit\\STATUS.md",
-      "note": "Reports a classical-mathematics Lean 4 formalization project, Mathlib v4.31.0 environment, one Jordan affine-group target green and axiom-clean, and several in-progress targets."
+      "note": "Reports a classical-mathematics Lean 4 formalization project, Mathlib v4.31.0 environment, multiple candidate targets, and a correction that the public repo catalog/transcribed TeX must be the authoritative source inventory rather than loose OS scan folders."
     },
     {
       "path": "C:\\Users\\Floris\\Documents\\classical_lean_audit\\PLAN.md",
@@ -21,15 +27,67 @@
       "note": "Candidate target list; must be verified against current Mathlib and source TeX before public claims."
     },
     {
+      "path": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\AffineGroup.lean",
+      "note": "Jordan affine-line group cardinality target. Locally rebuilt by Codex with exit 0 and ordinary Mathlib classical axioms only."
+    },
+    {
+      "path": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\Steinitz.lean",
+      "note": "Steinitz perfect-field/Frobenius-surjectivity target. Locally rebuilt by Codex with exit 0 and ordinary Mathlib classical axioms only."
+    },
+    {
+      "path": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\Weber.lean",
+      "note": "Weber cubic-root polynomial identity target. Locally rebuilt by Codex with exit 0 and ordinary Mathlib classical axioms only."
+    },
+    {
+      "path": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\ClassicalBatch2.lean",
+      "note": "Older batch/provenance file. Current log shows a failed Steinitz API attempt; treat as superseded by Steinitz.lean, not a promoted proof file."
+    },
+    {
       "path": "C:\\Users\\Floris\\Documents\\arxiv_latex\\_lean\\SplitZero.lean",
-      "note": "Separate SplitZero Lean formalization file; not part of the manuscript transcription project unless explicitly requested."
+      "note": "Separate SplitZero Lean formalization file. It rebuilt exit 0, but it is a side-paper formalization, not part of the manuscript transcription/translation archive unless explicitly requested."
+    }
+  ],
+  "codex_rebuilds": [
+    {
+      "file": "AffineGroup.lean",
+      "command": "lake env lean AffineGroup.lean",
+      "working_directory": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master",
+      "exit_code": 0,
+      "log": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\CodexAudit_AffineGroup.buildlog.txt",
+      "axiom_output": "'ClassicalAudit.Jordan.card_aff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "file": "Steinitz.lean",
+      "command": "lake env lean Steinitz.lean",
+      "working_directory": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master",
+      "exit_code": 0,
+      "log": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\CodexAudit_Steinitz.buildlog.txt",
+      "axiom_output": "'ClassicalAudit.Steinitz.perfectRing_iff_frobenius_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "file": "Weber.lean",
+      "command": "lake env lean Weber.lean",
+      "working_directory": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master",
+      "exit_code": 0,
+      "log": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\CodexAudit_Weber.buildlog.txt",
+      "axiom_output": "'ClassicalAudit.Weber.weber_cubic_roots' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "file": "SplitZero.lean",
+      "command": "lake env lean SplitZero.lean",
+      "working_directory": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master",
+      "exit_code": 0,
+      "log": "C:\\Users\\Floris\\Downloads\\helix_extract\\helix_frobenius-master\\CodexAudit_SplitZero.buildlog.txt",
+      "axiom_output": "No #print axioms output in the rebuilt side-lane file."
     }
   ],
   "initial_sense_check": [
     "This is an interesting proof/formalization side lane, but not a transcription/translation deliverable yet.",
-    "The STATUS file claims one green target: ClassicalAudit.Jordan.card_aff in helix_frobenius-master\\AffineGroup.lean, with axioms [propext, Classical.choice, Quot.sound]. This should be independently rebuilt before any public proof claim.",
-    "The lane explicitly corrected an earlier false inventory claim and now says the published repo catalog must be treated as the authoritative source inventory. That correction should be preserved as a workflow lesson.",
-    "Before DOI consideration, package the Lean files, lake/toolchain context, exact Mathlib commit/version, source citations to the transcribed TeX, build logs, and #print axioms output."
+    "Three active historical formalization files rebuild cleanly under the local Mathlib tree: Jordan affine group cardinality, Steinitz perfect-field criterion, and a Weber polynomial identity. These are small formal targets, not broad author-work verification.",
+    "The older ClassicalBatch2.lean should not be promoted because its log records a failed Steinitz API attempt; the newer Steinitz.lean supersedes it for that target.",
+    "The lane explicitly corrected an earlier false inventory claim and now says the published repo catalog/transcribed TeX must be treated as the authoritative source inventory. Preserve that as a workflow lesson.",
+    "Before DOI consideration, package exact Lean and Lake toolchain metadata, source citations to the actual transcribed TeX/public catalog, build logs, #print axioms output, and a human-readable statement distinguishing formal theorem, historical source claim, and modern restatement.",
+    "Do not describe any scanned work, author, or paper as verified in Lean unless every relevant theorem, definition, dependency, and source statement has actually been formalized and reviewed."
   ],
-  "next_action": "Keep on local watch list. If Floris asks for a Lean packet, build a small audit ZIP for web/pro review with STATUS, PLAN, target TSV, green Lean files, lake/toolchain metadata, build command, build output, and source-text anchors."
+  "recommended_next_action": "Keep on the local watch list. If this grows into a coherent lane, first make a source-anchored audit packet for web/pro review; only then consider a workflow DOI update or a separate Lean companion DOI."
 }
