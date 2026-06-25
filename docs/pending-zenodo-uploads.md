@@ -2461,4 +2461,16 @@ Manifest: [20260625_noether_r125_tail_p713_p733_definition_repair.json](../manif
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p734 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p733, or multilingual propagation.
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
 
-Next action: use this p713-p733 package, not the narrower p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p734.
+Next action: superseded for current tail-addendum purposes by the p713-p734 package below; retain this p713-p733 entry as provenance only and use the p713-p734 package for any future compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p734 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p734_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p734_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p734_DefinitionRepair_WebDrop_20260625.zip`, 32,080,941 bytes, SHA256 `F8C2CC4E5D59A2210153B1035B4280885B567D0A951C3EBD7741842C8417CB0F`.
+- Scope: cumulative p713-p734 Noether-Deuring post-numbered tail repair. It supersedes p713-p733, p713-p732, p713-p731, p713-p730, p713-p729, and narrower p713 tail packages; carries those repairs forward; and adds p734 Satz 4/Satz 5 repairs.
+- Repair highlights: p734 rebuilds Satz 4 proof parts 1 and 2, restores `\mathfrak K_Z`, `\mathfrak K_\Omega`, `\mathfrak T`, `\mathfrak T_\Omega`, `Z`, and `\Omega` coefficient displays, restores the rank argument proving `\mathfrak T=Z`, rebuilds Satz 5 and its converse, restores `n/t`, `r^*\leq r`, `n\leq n^*=r^*t\leq rt=n`, and restores the maximality contradiction with `\overline{\mathfrak T}`.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p735 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p734, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
+
+Next action: use this p713-p734 package, not the narrower p713-p733/p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p735.
