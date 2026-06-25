@@ -3908,6 +3908,29 @@ Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p629_workpass.json](../manife
 
 Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from p630-p635 while retranscribing held rewrite/reconstruction blocks deliberately.
 
+## 2026-06-25: SGA5 live French workpass through p149
+
+Manifest: [20260625_sga5_live_certlog_p149_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p149_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p149_Status_20260625.zip`, 2,237,263 bytes, SHA256 `01B780FB9133135A0625A3FB7A53A2DED91D592866001896B0DE517AFB5598CD`, 16 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, source-resolution/status/index files, and README after the hand-certification log reached p149.
+- Ledger summary: p149 package reports a 307-page workpass compile, 149 pages checked, 8 TeX fixes, 12 source typos found, 3 copied-source typos corrected in TeX, 1 cross-reference quirk, and diagrams D001-D072 hand-verified perfect. Expose III B p146 and p148 identify/fix an intermittent dropped-referenced-label defect class; p150 is next.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Rendered/cropped material beyond p149 exists locally, but it is not certified until the CERT_LOG promotes it. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p150 in Expose III B; run a global referenced-label audit before any stronger SGA5 claim.
+
+## 2026-06-25: Noether R127 P35/P36 source-disposition updates
+
+Manifest: [20260625_noether_r127_p35_p36_source_disposition_updates.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p35_p36_source_disposition_updates.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_P35_MathNet600_SourceUpgrade_NoPatch_WebDrop_20260625.zip`, 1,386,922 bytes, SHA256 `6E051152647E75D84E98313186D9CBC23CFEE55F2B5C00D25383CB2876FDE384`, 13 entries.
+- Noether pending ZIP: `Noether_R127_LocalCodex_P36_GDZ600_SourceDisposition_NoNewPatch_WebDrop_20260625.zip`, 3,711,407 bytes, SHA256 `5DFFA31EB192FD6DFB82398016EF7EB77F68828F909A9B90F2C4E12CF695742D`, 15 entries.
+- Scope: P35 and P36 source-disposition/no-new-patch evidence against the R127 plus local P01/P22/P30/P37/P42 German cumulative.
+- Result: P35 upgrades the staged source witness to MathNet 600ppi and confirms the current R127 span already includes source-backed Russian summary/closing apparatus; stale shorter prior repaired P35 slices must not be applied wholesale. P36 checks the GDZ/JDMV 600ppi source witness and finds no current TeX patch; the older DMV39 spacing claim is metadata style, not a source-page defect.
+- Caveat: queue-disposition/stale-patch-prevention evidence only. Not loose reader additions, not whole-paper certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement pass; reopen P35/P36 only for concrete source-current mismatches or better source witnesses.
+
 ## 2026-06-25: Noether R127 Paper 13 best-available survival audit
 
 Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p13_survival_best_available.json)
