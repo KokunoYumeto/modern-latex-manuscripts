@@ -3908,6 +3908,18 @@ Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p629_workpass.json](../manife
 
 Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from p630-p635 while retranscribing held rewrite/reconstruction blocks deliberately.
 
+## 2026-06-26: Weber B139 live German Vol. I p100-p635 held/reconstruction status
+
+Manifest: [20260626_weber_b139_liveaudit_v1ge_p100_p635_held_status.json](../manifests/pending-zenodo-uploads/20260626_weber_b139_liveaudit_v1ge_p100_p635_held_status.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p635_HeldRangeStatus_20260626.zip`, 2,254,795 bytes, SHA256 `09A1A304DE6F952B53D80D78CEEE0737F445A4047865D63FA09BB43BCA8EEC45`, 11 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs from the p629 snapshot plus updated certification/method logs after the live audit reached printed p635.
+- Status additions: p630-p635 produced no accepted TeX edits; the audit classifies section 184 p633-p635 as held/reconstruction material. The workpass still compiles as 369 pages with zero fatal errors at this snapshot.
+- Held/retranscription warning: sections 183-184 and the broader p624-p635 resolvent stretch include third-person/editorial or paraphrased content, dropped source prose/displays, and source-vs-TeX equation differences. These ranges need coherent retranscription, not patch-only promotion.
+- Caveat: German source-audit status/retranscription-map artifact only. Not English synchronized, not whole-Volume-I certified, and not a critical edition.
+
+Next action: retranscribe held rewrite/reconstruction blocks section-by-section; continue after p635 only with the same hold-vs-patch gate.
+
 ## 2026-06-25: SGA5 live French workpass through p149
 
 Manifest: [20260625_sga5_live_certlog_p149_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p149_status_package.json)
@@ -3918,6 +3930,18 @@ Manifest: [20260625_sga5_live_certlog_p149_status_package.json](../manifests/sou
 - Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Rendered/cropped material beyond p149 exists locally, but it is not certified until the CERT_LOG promotes it. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
 
 Next action: continue from p150 in Expose III B; run a global referenced-label audit before any stronger SGA5 claim.
+
+## 2026-06-26: SGA5 live French workpass through p150
+
+Manifest: [20260626_sga5_live_certlog_p150_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p150_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p150_Status_20260626.zip`, 2,142,189 bytes, SHA256 `9D42C9F827D30A69091BA7392571876AC15E1A8D34627CC1A6CBE7B08F35B270`, 11 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, FINDINGS, swarm status, README, inventory, and checksums after the hand-certification log reached p150.
+- Status additions: pp.1-150 page-locally certified in the controlling CERT_LOG. Pages 1-72 close Expose I; pp.73-137 close Expose III; pp.138-150 cover Expose III B through Proposition 2.5 and the opening of section 2.6.
+- Ledger warning: Expose III B has an intermittent dropped-referenced-label defect class already seen/fixed around p146 and p148; p150 adds a notation-deviation fix and leaves p151 as the next cursor.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p151 in Expose III B; run a global referenced-label audit before any stronger SGA5 claim.
 
 ## 2026-06-25: Noether R127 P35/P36 source-disposition updates
 
