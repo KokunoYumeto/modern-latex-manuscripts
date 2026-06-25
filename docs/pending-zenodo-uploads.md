@@ -2288,3 +2288,12 @@ Manifest: [20260625_noether_r125_p10_p12_queue_disposition.json](../manifests/pe
 - Caveat: guardrail/queue-hygiene evidence only. Source witnesses are best-available but below the strict 650+ floor where noted (P11 about 400ppi; P12 2296x3688 GDZ pages; P10 GDZ raw IIIF). Do not present as P10/P11/P12 certification, whole-Noether certification, or critical edition.
 
 Next action: fold into a compact Noether source-support or queue-status rollup; do not upload loose while the Noether record remains at Zenodo's 100-file ceiling.
+
+## 2026-06-25: Noether R125 P04-P09 queue-disposition package
+
+Manifest: [20260625_noether_r125_p04_p09_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_p04_p09_queue_disposition.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_P04_P09_QueueDisposition_WebDrop_20260625.zip`, 730,562 bytes, SHA256 `735BD83814184BF7797E918994B5B7ADBC71D1944BF0C6E8C540CFEEDC57FDBF`.
+- Scope: small queue-disposition package for R125 queue rows P04 and P09, anchored to the current R125 + Local Codex P13/P14 candidate. It introduces no new TeX patch.
+- Disposition: P04 pp.140-145 are covered by best-available local page audit evidence with targeted 1000dpi crop support for difficult displays; P09 pp.103-128 are covered by best-available page-band audits, and the p106 Weber-footnote repair plus p127 Omega-definition repair survive in the current candidate.
+- Caveat: queue hygiene and survival evidence only. P09 remains below the strict 650+ source-certification floor, and P04 is not a full-page critical certification. Do not upload loose while Noether remains at the Zenodo 100-file ceiling.
