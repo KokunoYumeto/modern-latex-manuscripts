@@ -4,12 +4,24 @@
 
 Manifest: [20260625_noether_r126_p37_gdz_source_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p37_gdz_source_fix.json)
 
-- Noether pending ZIP: `Noether_R126_LocalCodex_P37_GDZSourceFix_WebDrop_20260625.zip`, 39,678,468 bytes, SHA256 `0CA48BE885A944D41C50E95CDD29B333CD31FE031C337650CC8258586F626E8A`.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P37_GDZSourceFix_WebDrop_20260625.zip`, 39,846,706 bytes, SHA256 `E3EA6650C803C1D395B03CAC48BE3C0700C27C4B6B9417826E14F93C8F45AFE7`.
 - Scope: Paper 37, printed pp.147-152, built from GDZ IIIF full-page witnesses and readability crops.
 - Result: P37-local German cumulative patch plus 466-page XeLaTeX compile. Quick local sense-check confirmed the source-backed Deuring footnote product factors, p150 parenthetical/semicolon, and footnote-10 `P` notation against crops.
 - Caveat: source-backed working repair candidate only. It has crops and a compile gate but no independent line-by-line audit ledger; not whole-Paper-37 certification, not whole-corpus certification, not critical edition, and not multilingual synchronization.
 
 Next action: reconcile with the current Noether German cumulative branch, then fold into a compact Noether rollup after file-ceiling pruning.
+
+
+## 2026-06-25: Noether R126 Paper 38 source-repair survival / no-new-patch disposition
+
+Manifest: [20260625_noether_r126_p38_source_repair_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p38_source_repair_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P38_SourceRepairSurvival_NoNewPatch_WebDrop_20260625.zip`, 3,319,212 bytes, SHA256 `56CD60BD4884C8290F61FFA8D438F38B9E71A484FA26005B0647AEEBA9244AA9`.
+- Scope: Paper 38, Brauer-Hasse-Noether, Beweis eines Hauptsatzes in der Theorie der Algebren, J. reine angew. Math. 167 (1932), pp.399-404.
+- Result: the Paper 38 section in current cum_de_R126.tex is byte-identical to the previously source-repaired P38 section; included diff is 0 bytes and no new TeX patch is applied.
+- Caveat: stale-queue/source-repair-survival evidence only. Prior P38 source repair used GDZ/JRAM167 witnesses tagged 600ppi, below the strict 650+ source preference. Not whole-Paper-38 certification, not critical edition, and not multilingual synchronization.
+
+Next action: mark stale P38 queue rows as covered by surviving prior source repair; reopen only if a better native source or concrete new defect appears.
 
 ## 2026-06-25: Weber B143 Vol. I p480-p485 section 150 retranscribed
 
@@ -3484,3 +3496,6 @@ Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../man
 - Boundary: survival/queue-disposition evidence only. No new TeX patch, no fresh source-image bundle, no page-by-page P10-P13 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
+
+
+
