@@ -2447,6 +2447,18 @@ Manifest: [20260625_noether_r125_tail_p713_p730_definition_repair.json](../manif
 - Repair highlights: p730 restores Satz 1 as `\mathfrak S_{\mathsf K}` zweiseitig einfach, rebuilds the ideal/inner-automorphism proof with `\varkappa^{-1}\mathfrak a\varkappa=\bar{\mathfrak a}`, restores `\mathfrak a=\mathfrak A_{\mathsf K}` and the two ideal-inclusion displays, restores the reciprocal module `\mathfrak M=\mathsf K\cdot y_1+\cdots+\mathsf K\cdot y_r`, restores the commuting law and `\mathfrak S_{\mathsf K}` action definition, and restores equation (1), the target implication, and the bottom linear-dependence relation for `s_j`.
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p731 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p730, or multilingual propagation.
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468, bytes 2,577,540.
-- Held-back follow-up: a local extracted p713-p731 folder exists, but it is not registered as current because its README/status/ledgers still describe p713-p730 and it lacks a compiled p731 PDF/log pair.
+- Historical follow-up note: later coherent p713-p731, p713-p732, and p713-p733 packages exist locally. Use the p713-p733 package below as the current tail addendum; retain this p713-p730 entry as provenance only.
 
-Next action: use this p713-p730 package, not the narrower p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+Next action: superseded for current tail-addendum purposes by the p713-p733 package below; retain this p713-p730 entry as provenance only and use the p713-p733 package for any future compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p733 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p733_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p733_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p733_DefinitionRepair_WebDrop_20260625.zip`, 30,711,218 bytes, SHA256 `FA60DD58CCA24355BA912C57290CDB38B1EB3ED0B812CA1FA95688EE3274B9D2`.
+- Scope: cumulative p713-p733 Noether-Deuring post-numbered tail repair. It supersedes p713-p732, p713-p731, p713-p730, p713-p729, and narrower p713 tail packages; carries those repairs forward; and adds p733 section 20 repairs.
+- Repair highlights: p733 restores the `Z_{\mathfrak K}` display and `y_i\xi_j=\xi_jy_i`, rebuilds the `\mathfrak K_Z` setup, Satz 1 center statement for `\mathfrak K_\Omega`, Satz 2 two-sided simplicity proof, Satz 3 matrix-ring statement, `m=t^2`, the absolute component number definition, the `Zerfällungskörper` definition with source footnote, and Satz 4.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p734 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p733, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
+
+Next action: use this p713-p733 package, not the narrower p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p734.
