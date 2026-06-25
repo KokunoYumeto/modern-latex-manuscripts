@@ -1,5 +1,15 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether WebFailedThinking4 P37/P42 salvage
+
+Manifest: [20260625_noether_webfailedthinking4_p37_p42_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking4_p37_p42_salvage.json)
+
+- Noether pending ZIP: `Noether_WebFailedThinking4_P37_P42_Salvage_WebDrop_20260625.zip`, 53,674,407 bytes, SHA256 `F86E0E37096C0166BCA7B0783C2794B61A2A6A06DCA8188D34043B48750CC518`.
+- Scope: failed-web salvage/source-locator bundle for Papers 37 and 42. It extracts useful source-relevant transcript excerpts and preserves prior RA08 P37 and RA10 P40-P43 packages as provenance/source candidates.
+- Safe findings: P37 and P42 remain open for full source audit; RA08 gives a six-page P37 source witness and candidate segment files; RA10 gives an eleven-page P42 source witness, a German P41/P42 candidate segment, and a supplement/apparatus layer; the failed run suggests current P42 may be compressed relative to source.
+- Caveat: this is not a TeX repair package. The web run crashed before producing a finished checked repair, RA08/RA10 candidate TeX files are locator/candidate layers only, transcript/OCR snippets are locator evidence only, and the known P42 scan is below the preferred 650+ppi strict source-certification floor.
+
+Next action: keep in the Noether source-audit queue. Do not upload as reader-facing edition, Paper 37/Paper 42 closure, whole-Noether closure, or critical-edition material. Fold into a compact future Noether source-support rollup only after pruning, if useful.
 ## 2026-06-25: Noether WebFailedThinking3 P42 / RA10 salvage
 
 Manifest: [20260625_noether_webfailedthinking3_p42_ra10_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking3_p42_ra10_salvage.json)
@@ -2031,7 +2041,7 @@ Manifest: [20260624_sga5_full_audit_workpass_support.json](../manifests/pending-
 
 - SGA pending ZIP: `sga5_full_audit_workpass_support_20260624.zip`, 211.4127 MB, SHA256 `1DE36F03E5D0723F7D9AB411030BF9C51481158BB962B54B3C64CC35327DD74B`.
 - Scope: SGA5 French source-faithfulness workpass and audit-support snapshot after repair032. Includes `sga5_fr_workpass.tex`, `sga5_fr_workpass.pdf`, source-page findings, source-resolution notes, machine-readable index, work scripts, and source/crop witnesses. Copied-short-path `pdfinfo` reports the workpass PDF as 306 pages.
-- Status truth at the time this support snapshot was staged: serial audit reported 65 of 484 source pages fully audited plus p103 diagram (4.4.2); 26 transcription fixes, 6 emendations kept, 3 source errata flagged, 1 unresolved flag, and a systematic SGA-to-SGAA citation-classification pass still owed. A later observed live workpass supersedes that as the current working status: 411 verified corrections, pdflatex exit 0, 0 errors, and a 307-page French workpass, with the careful p375-p484 back-third pass complete (including Expose X p375-p406, Expose XII p407-p441, Expose XV p442-p480, and the p481-p484 index), and the front-grind now through printed p352 after manual p75-p101 and workflow p102-p352, with cursor at p353. Open areas still include p1-p74, p353-p374, deferred p344/p346-p347 diagram/prose-pass items, remaining heavy-QA/uncertain/type-B items, and English synchronization.
+- Status truth at the time this support snapshot was staged: serial audit reported 65 of 484 source pages fully audited plus p103 diagram (4.4.2); 26 transcription fixes, 6 emendations kept, 3 source errata flagged, 1 unresolved flag, and a systematic SGA-to-SGAA citation-classification pass still owed. A later observed live workpass supersedes that as the current working status: 411 verified corrections, pdflatex exit 0, 0 errors, and a 307-page French workpass, with the main body p75-p484 now reported audited after manual p75-p101, workflow p102-p374, and the p375-p484 back-third pass. Open areas still include p1-p74, deferred p344/p346-p347 diagram/prose-pass items and other deferred prose/notation items, final compile/diff/FINDINGS refresh, remaining uncertain/type-B review as applicable, and English synchronization.
 - Source-resolution note: best available SGA5 public/on-disk source in the audit is the 496-page Springer scan at about 2176 x 3035 pixels, roughly 360 dpi optical; no higher-resolution source was found in that audit.
 - Workflow lesson: at this scale, server-side/API rate limits, not token budget, became the bottleneck. Run one large find/verify/patch workflow at a time; use OCR/crops as witness/localization layers, not as canonical authority.
 - Caveat: this is workpass/source-audit support only. It is not complete SGA5, not a critical edition, and not a promoted reader-facing replacement. Canonical promotion still requires diff review, reruns of rate-limited pages, final compile gate, and page-by-page closure.
