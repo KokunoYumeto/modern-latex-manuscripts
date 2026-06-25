@@ -294,24 +294,24 @@ Next action: keep these items in the Noether source-audit queue. If refreshing N
 
 Manifest: [20260625_workflow_sga5_find_verify_fix_workpass_method.json](../manifests/pending-zenodo-uploads/20260625_workflow_sga5_find_verify_fix_workpass_method.json)
 
-- Workflow pending ZIP: `AI_Run_Workflow_SGA5_FindVerifyFix_Workpass_Method_20260625.zip`, 191,375 bytes, SHA256 `CAEA327057361864A80B9340B3737ABF1577B89FF34C127215004EBA39B3B84B`.
+- Workflow pending ZIP: `AI_Run_Workflow_SGA5_FindVerifyFix_Workpass_Method_20260625.zip`, 321,911 bytes, SHA256 `577A4DBD949BEBBEF07965C5A9FE89F01FD6B59010DE9034451FE1B840A8D808`.
 - Scope: compact method snapshot from the live SGA5 source-audit lane. It preserves `sga5_audit_workflow.js`, deterministic patch-gate scripts, render/chunk/index helpers, the long SGA5 method/status note, consolidated findings, source-resolution notes, and the SGA5 element index.
 - Workflow lesson: after raw parallel swarms found many defects, the safer scalable method became one large workflow at a time: page-local discovery, independent verification, deterministic old-string/new-string patch application, then a compile gate. The binding constraint was server/API rate limits rather than token budget.
 - Caveat: workflow/replication support only. This is not an SGA5 reader replacement, not a certified edition, and not source-closure. It intentionally excludes bulky crops/renders and the full workpass TeX/PDF.
 
-Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh.
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh. The refreshed embedded certification log now records pp.1-73 as page-locally certified, with p1-p72 closing Expose I and p73 cleanly starting Expose III; p74 is the next hand-certification page.
 
 ## 2026-06-25: Workflow Weber find-verify-fix audit method
 
 Manifest: [20260625_workflow_weber_find_verify_fix_method.json](../manifests/pending-zenodo-uploads/20260625_workflow_weber_find_verify_fix_method.json)
 
-- Workflow pending ZIP: `AI_Run_Workflow_Weber_FindVerifyFix_Audit_Method_20260625.zip`, 74,134 bytes, SHA256 `860426C91434EF553D78CB26C27BDA6BEE62F1C81DEA0483A657545012FF75C2`.
-- Scope: compact Weber audit method packet adapted from the SGA5 find-verify-fix workpass pattern and refreshed through the live Band I p100-p311 audit.
+- Workflow pending ZIP: `AI_Run_Workflow_Weber_FindVerifyFix_Audit_Method_20260625.zip`, 75,327 bytes, SHA256 `8A89DA951871904F8E6F23324502A2363350C8F27B4D3FCBADAC1A9C52ED15B3`.
+- Scope: compact Weber audit method packet adapted from the SGA5 find-verify-fix workpass pattern and refreshed through the live Band I p100-p323 audit.
 - Contents: Weber audit method note, current cert log, current method log, runnable `weber_audit_workflow.js`, harness README, chunk/render helper, native-source measurement helper, manifest builder, and compact three-volume audit manifest.
-- Workflow lesson: SGA5's page-local source-audit pattern transfers to Weber German transcription, but the 2026-06-25 priority correction says Weber is German-transcription-first. The live risk is omission/summarization in half-baked GPT draft TeX, mathematically material single-glyph errors, and occasional over-added editorial completions, not English translation. The p100-p311 passes restored determinant/proof/formula material, theorem numerals, source equation tags, sign-schema labels, roots-of-unity symbols, xrefs, Greek/Latin variable confusions, dense convergence-proof notation, dropped equations, Newton footnote material, symmetric-function displays, small prose omissions, tuple entries, the p154 beta-gamma sign error, p160-p161 prose omissions, p172 dropped equation, p175 ratio-chain content, p178 section divider, p179 coefficient-index order, p188 prose omission, p195 identity reconstruction, p198 dropped display material, p203 discriminant exponent, p204-p221 dense invariant/Hermite/Tschirnhausen repairs, p222-p257 Cardano/Bezoutiante/Sturm repairs, p258-p287 quadratic-form/Hermite/discriminant determinant repairs, and p288-p299 characteristic-theory/fundamental-theorem repairs, p300-p305 Budan-Fourier/Newton repairs including two restored sign tables, and p306-p311 Newton/Descartes/Jacobi criteria repairs including a restored double-row table and dropped formula material while preserving 357-360 page/0-error compile gates. New method lessons include structural holds for broken whole-section grafts, detecting over-expansion, grepping for line-wrap macro escape corruption, and treating page-count changes as swallow/restoration signals. Verifier quality is inconsistent and the p132-p137, p147, p155, p158, p162, p210-p215, and phantom no-scan cases show agent/verifier output can pass false candidates, source-typo reversions, or hallucinated no-scan fixes; the foreground source-eye and mathematical-context check remains the gate. Local source measurement found no native Weber scan at or above the 650dpi trust line; the best on-disk sources are about 500-560dpi and require tight crops plus uncertainty flags.
+- Workflow lesson: SGA5's page-local source-audit pattern transfers to Weber German transcription, but the 2026-06-25 priority correction says Weber is German-transcription-first. The live risk is omission/summarization in half-baked GPT draft TeX, mathematically material single-glyph errors, and occasional over-added editorial completions, not English translation. The p100-p323 passes restored determinant/proof/formula material, theorem numerals, source equation tags, sign-schema labels, roots-of-unity symbols, xrefs, Greek/Latin variable confusions, dense convergence-proof notation, dropped equations, Newton footnote material, symmetric-function displays, small prose omissions, tuple entries, the p154 beta-gamma sign error, p160-p161 prose omissions, p172 dropped equation, p175 ratio-chain content, p178 section divider, p179 coefficient-index order, p188 prose omission, p195 identity reconstruction, p198 dropped display material, p203 discriminant exponent, p204-p221 dense invariant/Hermite/Tschirnhausen repairs, p222-p257 Cardano/Bezoutiante/Sturm repairs, p258-p287 quadratic-form/Hermite/discriminant determinant repairs, p288-p299 characteristic-theory/fundamental-theorem repairs, p300-p305 Budan-Fourier/Newton repairs including two restored sign tables, p306-p311 Newton/Descartes/Jacobi criteria repairs including a restored double-row table and dropped formula material, p312-p317 Klein/Laguerre repairs, and p318-p323 Rolle/Laguerre repairs while preserving 357-360 page/0-error compile gates. New method lessons include structural holds for broken whole-section grafts, detecting over-expansion, grepping for line-wrap macro escape corruption, and treating page-count changes as swallow/restoration signals. Verifier quality is inconsistent and the p132-p137, p147, p155, p158, p162, p210-p215, and phantom no-scan cases show agent/verifier output can pass false candidates, source-typo reversions, or hallucinated no-scan fixes; the foreground source-eye and mathematical-context check remains the gate. Local source measurement found no native Weber scan at or above the 650dpi trust line; the best on-disk sources are about 500-560dpi and require tight crops plus uncertainty flags.
 - Caveat: workflow support only. This is not a Weber reader update, not a Weber certification, and not proof that the manifest pages have all been audited.
 
-Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh, alongside the SGA5 method snapshot. Current Weber method cursor: Band I p312-p317 next.
+Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh, alongside the SGA5 method snapshot. Current Weber method cursor: Band I p324-p329 next.
 
 ## 2026-06-25: Weber Volume I German source-audit workpass through p311
 
@@ -323,17 +323,40 @@ Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p311.json](../man
 - Important hold: §69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
 - Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
 
-Next action: attach this compact package to the Weber author record during the next deliberate Weber DOI refresh if no newer Volume I source-audit package supersedes it. Do not upload the 390 MB salvage/crop brick unless there is a deliberate provenance/raw-artifact reason.
+Next action: retain as provenance only; the p100-p323 compact package below supersedes this narrower p100-p311 package for current Weber author-record staging. Do not upload the 390 MB salvage/crop brick unless there is a deliberate provenance/raw-artifact reason.
+
+## 2026-06-25: Weber Volume I German source-audit workpass through p323
+
+Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p323.json](../manifests/pending-zenodo-uploads/20260625_weber_v1_german_source_audit_workpass_p100_p323.json)
+
+- Weber pending ZIP: `Weber_Vol1_German_SourceAudit_Workpass_p100_p323_20260625.zip`, 2,135,963 bytes, SHA256 `1592DE026D9AB7DCAFDB7752F274082FEF85A64E25013E17740075A77F5E57C1`.
+- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log plus the live Weber audit/method logs. This supersedes the p100-p311 compact workpass for current staging.
+- Status additions: audit logs record source-verified, hand-gated fixes through Band I p323; current method cursor is Band I p324-p329 next; the German Volume I cumulative compiles to 360 pages.
+- Important hold: §69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
+- Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
+
+Next action: attach this compact p100-p323 package to the Weber author record during the next deliberate Weber DOI refresh if no newer Volume I source-audit package supersedes it. Do not upload bulky crop bricks unless there is a deliberate provenance/raw-artifact reason.
 
 ## 2026-06-25: SGA5 live workpass status reconciliation
 
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `02901896A3F6D616E3CF0816A4266A809DA9C0EF36A6111A20E488F1B4C9C81C`; `sga5_fr_workpass.pdf` SHA256 `4E466D35709E0B96AE7707860FEAE8433D1D25C8B4D9885508BD33003D62ADE0`; `sga5_fr_workpass.log` SHA256 `CF9296D944F31339938CAD4C7DA3EB881FDEC0D992531C91FEFFB456E52D6458`.
-- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p72 are page-locally certified through the end of Expose I, with p73 starting Expose III. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, and p41-p43 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D013 are verified perfect; Expose I main text, Bibliographie, and Illusie Appendix §§1-7 through the end of Theoreme 7.5 are page-locally certified.
+- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p73 are page-locally certified, with p1-p72 closing Expose I and p73 cleanly starting Expose III; p74 is next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, and p41-p43 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D013 are verified perfect; Expose I main text, Bibliographie, and Illusie Appendix §§1-7 through the end of Theoreme 7.5 are page-locally certified.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
+
+## 2026-06-25: Noether R126 P06/P07 survival audit queue
+
+Manifest: [20260625_noether_r126_p06_p07_survival_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p06_p07_survival_audit.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P06_SurvivalAudit_WebDrop_20260625.zip`, 30,209,974 bytes, SHA256 `529204DE6A49AE4648DB8793DB7F4CB7FB79ED3347AEAAD8F5EAF6BCF51E71A1`.
+- Noether pending ZIP: `Noether_R126_LocalCodex_P07_SurvivalAudit_WebDrop_20260625.zip`, 11,603,591 bytes, SHA256 `C3C22CAE64C93C9F209BEED02E6FDA19489A9B13A4E29A7DE8ED3086C46FD07A`.
+- Scope: targeted survival/source-support audits against the current R126-plus-local cumulative. P06 records that prior source-symbolic footnote, RA67, and p173-p196 symbol/display repairs survive with no TeX change needed. P07 records that six prior symbolic-footnote requests are already represented via `\NoetherSrcNote` and that two formula rows remain no-fix traps, with one new 1000dpi p91 witness.
+- Boundary: no new TeX body patch. Not Paper 06 or Paper 07 full page-by-page certification, not whole-Noether certification, not critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next compact Noether source-support rollup after pruning; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
 
 ## 2026-06-25: Noether post-P11 failed-web/salvage and survival queue
 
