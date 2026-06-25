@@ -2424,4 +2424,16 @@ Manifest: [20260625_noether_r125_tail_p713_p726_definition_repair.json](../manif
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468, bytes 2,577,784.
 - Held-back follow-up: a local extracted p713-p727 folder exists, but it is not registered as current because its README/status/ledgers still describe p713-p726 and it lacks a compiled p727 PDF/log pair.
 
-Next action: use this p713-p726 package, not the narrower p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
+Next action: superseded for current tail-addendum purposes by the p713-p729 package below; retain this p713-p726 entry as provenance only and use the p713-p729 package for any future compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p729 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p729_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p729_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p729_DefinitionRepair_WebDrop_20260625.zip`, 25,254,622 bytes, SHA256 `769D0080C59FC34588CCF5A13A3809D1321D7C4BABC92E36FF7EBBACEC71EB2A`.
+- Scope: cumulative p713-p729 Noether-Deuring post-numbered tail repair. It supersedes p713-p726 and narrower p713 tail packages; carries those repairs forward; and adds p727-p729 continuation repairs through the end of §18 and the opening of §19.
+- Repair highlights: p729 closes the §18 Vorbemerkung proof, restores step 2 as source prose rather than list scaffold, reconstructs `\mathfrak c=z_1\mathsf P+\cdots+z_r\mathsf P` and `\mathfrak C=\mathfrak c_{\mathsf K}`, restores displays (1)-(3), coefficient comparison, `\gamma\cdot z_i=z_i`, and starts §19 with `\mathfrak S=x_1\mathsf P+\cdots+x_n\mathsf P` and the `\mathsf K`/`\mathsf P` center statement.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p730 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p729, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468, bytes 2,577,580.
+
+Next action: use this p713-p729 package, not the narrower p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future pruned Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
