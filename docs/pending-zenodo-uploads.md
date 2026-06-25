@@ -1,16 +1,16 @@
 # Pending Zenodo Uploads
 
-## 2026-06-25: SGA5 live CERT_LOG through p108
+## 2026-06-25: SGA5 live CERT_LOG through p109
 
-Manifest: [20260625_sga5_live_certlog_p108_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p108_unpacked.json)
+Manifest: [20260625_sga5_live_certlog_p109_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p109_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
-- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-108 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-108.
-- The log reports D001-D060 hand-verified perfect through p108. Pages 103-108 cover the dense Theoreme 4.4 proof diagrams, including the formerly high-risk (4.4.2) diagram D041, D046-D057, the final adjunction/base-change diagrams D058-D059, and Corollaire 4.5 diagram D060.
-- p108 marks the main Lefschetz-Verdier Theoreme 4.4 proof complete. The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p108 range.
+- Current controlling claim: the newer manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-109 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-109.
+- The log reports D001-D060 hand-verified perfect through p109. Pages 103-108 cover the dense Theoreme 4.4 proof diagrams, including the formerly high-risk (4.4.2) diagram D041, D046-D057, the final adjunction/base-change diagrams D058-D059, and Corollaire 4.5 diagram D060.
+- p108 marks the main Lefschetz-Verdier Theoreme 4.4 proof complete; p109 records Corollaire 4.7 (Formule de Lefschetz-Verdier) and Corollaire 4.8 (fixed-point formula). The earlier p98 source-typo fix (`g'_*d'^!` to `g'_*c'^!`) remains the only substantive Expose III fix recorded in the certified p73-p109 range.
 - Caveat: this is still a live local workpass, not a compact public package, not English synchronization, not global SGA5 certification, and not a critical edition. The local TeX remains a curated 10-expose SGA5 selection, not the whole LNM 589 scan.
 
-Next action: continue from p109; only fold into Zenodo after a compact status/method package and independent validation.
+Next action: continue from p110; only fold into Zenodo after a compact status/method package and independent validation.
 
 ## 2026-06-25: Weber live CERT_LOG through p461
 
@@ -25,6 +25,18 @@ Manifest: [20260625_weber_live_certlog_p414_p461_unpacked.json](../manifests/sou
 
 Next action: build a compact Weber p414-p461 package with diff, source witnesses, logs, checksums, README, and explicit §138/§141 holds before treating it as a pending Zenodo upload.
 
+## 2026-06-25: Noether R126 Paper 30 pp.56-61 compact source-fix ZIP
+
+Manifest: [20260625_noether_r126_p30_p056_061_sourcefix_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_p056_061_sourcefix_zip.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P30_p056_061_SourceFix_WebDrop_20260625.zip`, 16,401,613 bytes, SHA256 `BCB148ACF23051123E464586DC9177641EC9DB4391A507FCC8C8ABBCD0B10508`.
+- Scope: continuation of the Local Codex Paper 30 source-fix candidate through printed p61, carrying forward the p26-p55 fixes. The package includes README, confirmed-fix/source-quality/manual-disposition ledgers, checksum CSV, source witnesses for pp.56-61, patched German cumulative TeX/PDF/log, patched-span TeX, and incremental diff.
+- Applied/source-checked highlights: p56 restores the proof sentence in 6 alpha, the parenthetical and uniqueness proof in 6 beta, and the source `o eta` quotient derivation/divisibility condition in 6 gamma; p57 restores the omitted converse paragraph after Folgerung 8, replaces placeholder footnote 32 with source text, rebuilds item 9 with barred quotient-ring notation, and expands footnote 33.
+- Checked without patch: pp.58-61 were visually opened against the IA JP2-derived witnesses; no additional source-certified patch was promoted in this drop.
+- Build/status: the package summary reports two XeLaTeX passes, a cumulative German candidate through Paper 30 printed pp.26-61, and a final compile scan with no fatal errors, emergency stops, undefined controls, rerun/reference warnings, overfull/underfull boxes, or duplicate-anchor warnings.
+- Caveat: source witnesses are IA JP2-derived approximately 400ppi leaves, below the preferred 650+ppi source-certification floor. This likely closes the local Paper 30 article span at best-available source level, but remains targeted source-fix evidence only: not strict Paper 30 certification, not multilingual synchronization, and not a critical edition.
+
+Next action: keep with the pp.26-61 package sequence for the next deliberate compact Noether rollup/replacement; seek stronger Paper 30 source witnesses before any strict-certification language.
 ## 2026-06-25: Noether R126 Paper 30 pp.53-55 compact source-fix ZIP
 
 Manifest: [20260625_noether_r126_p30_p053_055_sourcefix_zip.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p30_p053_055_sourcefix_zip.json)
@@ -35,7 +47,7 @@ Manifest: [20260625_noether_r126_p30_p053_055_sourcefix_zip.json](../manifests/p
 - Build/status: the package summary reports successful XeLaTeX compilation of the cumulative German candidate and no fatal/warning hits in the final log scan.
 - Caveat: source witnesses are IA JP2-derived approximately 400ppi leaves, below the preferred 650+ppi source-certification floor. This is targeted source-fix evidence only, not Paper 30 closure, multilingual synchronization, or critical edition.
 
-Next action: keep with the pp.26-55 package sequence for the next deliberate compact Noether rollup/replacement; continue Paper 30 source audit from printed p56.
+Next action: superseded for current P30 continuation by the pp.56-61 package; retain pp.53-55 as provenance inside the p26-61 package sequence.
 
 ## 2026-06-25: Noether R126 Paper 30 MA96 / IAJP2 source-status ZIP
 
