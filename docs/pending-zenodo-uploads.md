@@ -313,6 +313,18 @@ Manifest: [20260625_workflow_weber_find_verify_fix_method.json](../manifests/pen
 
 Next action: attach to the workflow/replication record during the next deliberate workflow DOI refresh, alongside the SGA5 method snapshot. Current Weber method cursor: Band I p312-p317 next.
 
+## 2026-06-25: Weber Volume I German source-audit workpass through p311
+
+Manifest: [20260625_weber_v1_german_source_audit_workpass_p100_p311.json](../manifests/pending-zenodo-uploads/20260625_weber_v1_german_source_audit_workpass_p100_p311.json)
+
+- Weber pending ZIP: `Weber_Vol1_German_SourceAudit_Workpass_p100_p311_20260625.zip`, 2,134,628 bytes, SHA256 `D2A96459B99657632C780614AAA1E849A4296E22B58A9AB6EEC181B7D005DA58`.
+- Scope: compact author-record candidate containing the current German Volume I cumulative TeX/PDF/log plus the live Weber audit/method logs. This is separate from the workflow-method packet and from the 390 MB local salvage/crop brick.
+- Status additions: audit logs record source-verified, hand-gated fixes through Band I p311; current method cursor is Band I p312-p317 next; the German Volume I cumulative compiles to 360 pages.
+- Important hold: §69 around pp.212-216 remains held for coherent rework and should not be treated as closed.
+- Boundary: working source-audit pass only. Not whole-Volume-I certification, not a Weber certification, and not a critical edition. Agent/OCR output remains finder evidence only; source images and mathematical context remain the gate.
+
+Next action: attach this compact package to the Weber author record during the next deliberate Weber DOI refresh if no newer Volume I source-audit package supersedes it. Do not upload the 390 MB salvage/crop brick unless there is a deliberate provenance/raw-artifact reason.
+
 ## 2026-06-25: SGA5 live workpass status reconciliation
 
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
