@@ -2837,6 +2837,31 @@ Manifest: [20260625_noether_r126_p14_p15_p16_survival_audit.json](../manifests/p
 
 Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
 
+## 2026-06-25: Noether R126 Paper 09 survival/queue-disposition addendum
+
+Manifest: [20260625_noether_p09_survival_queue.json](../manifests/pending-zenodo-uploads/20260625_noether_p09_survival_queue.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P09_SurvivalQueueDisposition_WebDrop_20260625.zip`, 9,610,642 bytes, SHA256 `53B2046943B9F0C05CD65D1D548338C4F02848ECEF47ED4E40BB82FB97916419`.
+- Scope: compact Paper 09 survival/queue-disposition handoff for the current R126-plus-local cumulative. It applies no new TeX patch.
+- Status additions: confirms survival of the p103 author line, p103 Zermelo `S. 484` footnote/no-stale-`S. 434` trap, p119 indexed `\xi_t` relation, p125 module-subscript loci, and the p127 Omega definition fix.
+- Source-quality caveat: targeted crops are 1000dpi, but full-page P09 GDZ witnesses are mixed native 400/600 PPI, below the preferred 650 PPI floor for full-page certification and below the 1000 PPI dense-math preference.
+- Boundary: survival and queue-disposition evidence only. No new TeX patch, no full strict page-by-page Paper 09 closure, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Paper 08 Omega-process exact-locus repair addendum
+
+Manifest: [20260625_noether_p08_omega_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_p08_omega_repair.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_P08_OmegaRepair_WebDrop_20260625.zip`, 12,907,902 bytes, SHA256 `3A8939B671593D49AC72F17AF03F613778368872FA47975EA63366DD3EC3A6C1`.
+- Scope: Paper 08, printed pp.93-102, exact-locus repair package based on `cum_de_R126_plus_Kapferer559_567_plus_P20_barrepair_current_20260625.tex`.
+- Repair highlights: p100 restores the source-visible middle equality in the Omega-process differential equation and moves the existing `*)` note body into source-style `\srcfnmark{*)}` / `\srcfntext{*)}` placement attached to that equation.
+- Survival checks: p97 `(zy)x+(xz)y`, p98 `\partial/\partial\lambda`, and p93-p96 source-note apparatus are checked against targeted witnesses or existing apparatus.
+- Build: XeLaTeX was run twice; candidate PDF reports 466 pages; fatal/error scan is clean for fatal errors, emergency stops, and undefined control sequences.
+- Boundary: exact-locus repair and survival package only. Not full line-by-line Paper 08 certification, not whole-Noether certification, not a critical edition, and not multilingual synchronization proof.
+
+Next action: fold into the next deliberate compact Noether rollup/file-ceiling pruning pass. Do not upload it as an extra loose Noether file while the record remains at the Zenodo file ceiling.
+
 ## 2026-06-25: Noether R126 Papers 10-13 survival/queue-disposition addendum
 
 Manifest: [20260625_noether_r126_p10_p13_survival_queue_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p10_p13_survival_queue_disposition.json)
