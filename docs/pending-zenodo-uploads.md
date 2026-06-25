@@ -2265,3 +2265,15 @@ Manifest: [20260624_noether_r124_p40_bodyrepair002_p514_523.json](../manifests/p
 
 Next action: if refreshing Noether Zenodo, front this as the freshest German working baseline package with clear caveats and retain earlier tranches as provenance only.
 
+
+## 2026-06-25: Noether R125 + Local Codex P13/P14 rebase candidate
+
+Manifest: [20260625_noether_r125_localcodex_rebase_p13_p14.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_localcodex_rebase_p13_p14.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Rebase_P13_P14_WebReturn_20260625.zip`, 24.4670 MB, SHA256 `3D79FD2D4B98CD9DF84574BB71B0C78C272BC49A5F6CD9765576429A38DFA0F4`.
+- Scope: web-return package after the R125 drop. Starts from `cum_de_R125.tex`, keeps R125 Paper 42 as the authority, and applies only source-confirmed Local Codex P13/P14 fixes that R125 had not yet absorbed.
+- Repairs: P13 p256 removes an inserted second summation sign; P14 p183 restores Hurwitz `Ann. Bd. 28.`; P14 p185 restores Latin `j`; P14 p187 restores the `a_n` coefficient family; P14 p188 restores Hilbert footnote variables; P14 p190 restores singular `Funktion`; P14 p196 restores `gewöhnliche vielfache Punkte`; P14 p202 restores Latin `l` in the prime/root/power-residue loci.
+- Build/status: package reports two clean XeLaTeX passes, 14 anchor checks, and zero failed anchor checks. Included ledgers are `confirmed_rebased_fixes.csv`, `post_rebase_anchor_checks.csv`, and the R125-to-R125-plus diff.
+- Caveat: this is the freshest local German R125-plus-P13/P14 candidate, not a public Zenodo file yet, not a critical edition, not whole-corpus certification, and not multilingual synchronization proof. Noether is at Zenodo's 100-file ceiling, so fold this into a future compact source-support rollup after deliberate pruning/replacement rather than uploading it loose.
+
+Next action: treat as the preferred local German candidate after R125 for P13/P14 loci, while retaining R125's P42 caveat and future-rollup status.
