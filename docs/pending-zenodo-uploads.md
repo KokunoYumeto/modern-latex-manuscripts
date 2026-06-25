@@ -40,6 +40,20 @@ Manifest: [20260625_noether_p14_p190_194_gdz600_sourcefix.json](../manifests/pen
 
 Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
 
+## 2026-06-25: Noether Paper 14 pp.195-203 GDZ600 targeted source fixes
+
+Manifest: [20260625_noether_p14_p195_203_gdz600_sourcefix.json](../manifests/pending-zenodo-uploads/20260625_noether_p14_p195_203_gdz600_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R124plus_P14_p195_203_GDZ600_SourceFix_WebDrop_20260625.zip`, 28,588,803 bytes, SHA256 `0A4A6AA98F7209ECD668BA43BF4529AC611D24DD589DCE97736CF7EBDF60B631`.
+- Scope: Paper 14, printed pp.195-203, incremental German source-critical candidate based on the local cumulative after the P14 pp.190-194 GDZ600 source-fix package.
+- Applied fixes: p196 restores `gewöhnliche vielfache Punkte`; p202 changes three source-visible prime-letter loci from Greek `\ell` to Latin `l` in `Primzahl l`, `l`-te Wurzeln, and `l`-te Potenzreste.
+- Checked without patch: p195 singular-point derivative/eta-fraction material, p196 `\omega_i=G_i(z,\delta)/R(z)`, p199 footnote-2 ideal factors, and p203 Brouwer-boundary material are recorded as checked/no-patch.
+- Source witnesses: official GDZ IIIF full-page JPGs for pp.195-203 recorded by the package as about 600ppi, plus targeted 1000-view inspection crops. This is below the preferred 650+ floor but is the best staged witness for this slice.
+- Build: XeLaTeX pass 1/pass 2 exit 0; package reports 469 PDF pages and no fatal/emergency/undefined-reference findings in its final log scan.
+- Caveat: targeted German source-fix candidate only. Not Paper 14 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
+
 ## 2026-06-25: 48-hour exact ZIP gap sweep
 
 Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
