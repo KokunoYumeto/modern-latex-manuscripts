@@ -3671,7 +3671,7 @@ Next action: include both compact ZIPs in the next workflow DOI refresh.
 
 Manifest: [20260625_sga5_live_certlog_p134_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p134_status_package.json)
 
-- SGA5 status ZIP: $(C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\SGA5_LiveFrenchWorkpass_HandCert_p001_p134_Status_20260625.zip.Name), 2076441 bytes, SHA256 $sgaHash.
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p134_Status_20260625.zip`, 2,076,441 bytes, SHA256 `ACFC73E62A3BF093D0A354484A07ECB8D5A3872A50E05F084C548954F2F843B4`.
 - Scope: current local SGA5 French workpass with TeX/PDF/log, CERT_LOG, AGENT_SCORECARD, FINDINGS, and method note after the hand-certification log reached p134.
 - Status additions: pp.1-134 page-locally certified in the controlling CERT_LOG; pp.1-72 close Expose I; pp.73-134 cover Expose III through Deligne's l-adic Frobenius-Lefschetz formula and point-count congruence context.
 - Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
@@ -3682,9 +3682,21 @@ Next action: continue from p135, finish Expose III bibliography, then IIIB; fold
 
 Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json)
 
-- Weber status ZIP: $(C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\Weber_B139_LiveAudit_Vol1_GE_p100_p545_Workpass_20260625.zip.Name), 2215613 bytes, SHA256 $weberHash.
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p545_Workpass_20260625.zip`, 2,215,613 bytes, SHA256 `82017A1713CC0783794F021C1828CAE9CE337535618B1E04A81CE04BEAB3FE0A`.
 - Scope: current local German Volume I workpass TeX/PDF/logs plus method and certification logs after the live find-verify-fix audit reached printed p545.
 - Status additions: p540-p545 includes §164 Lagrange-resolvent restorations; §163 remains held as a theory re-exposition requiring coherent retranscription. Reported workpass PDF is 367 pages with zero compile errors.
 - Caveat: German source-audit workpass only. Held ranges remain; not English synchronized, not whole-Volume-I certification, and not a critical edition.
 
 Next action: use as a compact Weber status/workpass upload only if a cleaner later package is not produced first; continue from p546 while retranscribing held blocks deliberately.
+
+## 2026-06-25: Weber B139 live German Vol. I p100-p551 workpass
+
+Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p551_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p551_workpass.json)
+
+- Weber status ZIP: `Weber_B139_LiveAudit_Vol1_GE_p100_p551_Workpass_20260625.zip`, 2,199,752 bytes, SHA256 `34170A4707F1F76E223A58DE0BAE5D8A5E5123F483D36D48D947A90A52D83B1F`, 6 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus method and certification logs after the live find-verify-fix audit reached printed p551.
+- Status additions: p546-p551 / §165 is held as reconstruction rather than source-faithful transcription; no TeX patch was applied in that range. Reported workpass PDF is 367 pages with zero compile errors.
+- Workflow lessons: render the next batch every turn, including after holds; anomalously fast all-clean agent runs can indicate missing scans; GPT-derived section bodies can fabricate plausible mathematics and must be checked against source scans before patching.
+- Caveat: German source-audit workpass only. Held ranges remain; not English synchronized, not whole-Volume-I certification, and not a critical edition.
+
+Next action: use as the current compact Weber status/workpass snapshot unless a cleaner later package supersedes it; continue from p552 while retranscribing held blocks deliberately.
