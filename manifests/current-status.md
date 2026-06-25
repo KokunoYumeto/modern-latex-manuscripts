@@ -201,7 +201,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 
 Noether P21-P30 middle-band reconciliation package 2026-06-25: Noether_R125_LocalCodex_P21_P30_MiddleBand_Reconcile_WebDrop_20260625.zip is queued under manifest 20260625_noether_r125_p21_p30_middleband_reconcile.json. It introduces no new TeX patch; it records that R125 already carries the later source-confirmed P24/P25/P27 repairs and should not be regressed to stale older-local variants. Treat as anti-regression/queue-hygiene evidence only, not middle-band certification.
 
-Noether post-R125 consolidated Local Codex web-drop bundle 2026-06-25: Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip is queued under manifest 20260625_noether_r125_postr125_all_webdrops_bundle.json. This is the preferred compact local consolidation of the post-R125 Local Codex line: it contains the P13/P14 TeX candidate plus P04/P09, P10/P12, P21/P30, P31/P43 guardrail packages, indexes, the current candidate TeX, and the German source-audit logbook. Use this as future rollup/handoff material after deliberate Noether file-ceiling pruning; do not treat it as critical-edition certification or whole-corpus closure.
+Noether post-R125 consolidated Local Codex web-drop bundle v2 2026-06-25: Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_v2_20260625.zip is queued under manifest 20260625_noether_r125_postr125_all_webdrops_bundle_v2.json. It supersedes the original all-webdrops bundle for current use by adding the p713-p746 section-24/Satz-2-start tail package and the P14-P17 survival/anchor audit packages. The older v1 bundle remains provenance only. Use v2 as future rollup/handoff material after deliberate Noether file-ceiling pruning; do not treat it as critical-edition certification or whole-corpus closure.
 
 Noether tail p713-p714 definition repair addendum 2026-06-25: Noether_R125_LocalCodex_Tail_p713_p714_DefinitionRepair_WebDrop_20260625.zip is queued under manifest 20260625_noether_r125_tail_p713_p714_definition_repair.json. It is now provenance only, superseded by the p713-p715, p713-p716, p713-p717, and p713-p719 and later p713-p726 package. Treat as visually source-backed tail repair evidence from about-360ppi best-available witnesses only; not current tail addendum, not whole-tail/post-numbered certification, not critical edition, and not loose Zenodo upload while Noether is at the file ceiling.
 
@@ -239,7 +239,3 @@ Noether tail p713-p742 section 23 start repair addendum 2026-06-25: Noether_R125
 
 
 SGA5 live workpass status refresh 2026-06-25: CERT_LOG.md now records pp.1-42 certified page-locally, with p43 next. New since the previous caveat: p41 is clean and verifies the (4.5.3)'' xbar paren-placement fix; p42 is clean and verifies the Exercice 4.5.6 underlined local-cohomology functor fix plus Remarque 4.5.5 `R_!f` duality notation; p38 verifies diagram D004 perfectly and verifies four SGA→SGAA cross-reference fixes as source-faithful. AGENT_SCORECARD still records misses in the opening workflow comparison and confirms again that agents/workflows are finders, not certifiers. SGA5 remains incomplete/errorful globally, not critical, not English-synchronized, and not promoted beyond page-local certification evidence.
-
-
-
-
