@@ -41,6 +41,12 @@ Observed after the current Noether public version [20836874](https://zenodo.org/
 
 Status: pending consolidation only. Do not upload these one by one. The substantive correction line is now the merged P25/P27 cumulative candidate plus later P24 p233, P24 p234, and P13 p242 formula-punctuation candidates; the separate P25 and P27 sibling ZIPs are retained only as provenance/reference. P13 p235-p238 and P26/P28 are audit packages, not promoted reader changes; P13 p239-p242 adds one reversible p242 formula (13) punctuation correction but does not close Paper 13. P42 remains salvage/next-action material only; the second R125 salvage ZIP rediscovered useful RA10/RA84 apparatus context but does not close P42. The other files are salvage, apparatus-audit, post-P11 no-new-patch survival evidence, boundary/regression proof, or live source-audit logbook/provenance material. The P25/P27/P26/P28 packages use selected 600 ppi GDZ/JDMV witnesses, and the P13/P24 packages are best-available 400ppi only; both remain below the strict 650+ local source floor, so they remain reversible source-audit candidates until consolidated. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
 
+### R124/PostWeb exact-name sweep
+
+Manifest: [20260625_noether_r124_postweb_exact_name_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_exact_name_sweep.json)
+
+A later reconciliation found 32 recent Noether R124/PostWeb root ZIP names in the Codex handoff root that were not yet named in repository metadata. These are exact-name traceability entries for web-return, status-index, evidence-bundle, survival-audit, and intermediate source-audit packages. Do not upload them individually; use the manifest only when pruning/building a compact future Noether rollup, because later R124plus/R125 packages already supersede or consolidate much of this material.
+
 ### Supplemental exact-name sweep
 
 Manifest: [20260625_noether_exact_filename_supplemental_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_exact_filename_supplemental_sweep.json)
