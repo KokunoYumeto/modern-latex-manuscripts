@@ -8,13 +8,14 @@ They should not be collapsed into a single completion percentage.
 | Measure | Current meaning | Current observed value |
 |---|---:|---:|
 | Original scan/book pages | The historical Cayley volumes as scanned or printed. Scan PDF pages include front matter and sometimes do not match printed book pages exactly. | About 8000+ pages; prior chunk map counted 8394 source book pages. |
-| Front-facing reader pages | Pages produced by the current promoted modern TeX reader PDFs. These are reflowed and can be shorter or longer than the original. | 13 PDFs, 5713 rendered pages, 71571613 bytes. |
-| Older assembled scaffold pages | Earlier broad assembly before the current source-faithful filtering and repair pass. Useful provenance, not a clean completion claim. | 7216 rendered pages in the older inventory. |
+| Front-facing reader pages | Pages produced by the current modern TeX reader PDFs. These are reflowed and can be shorter or longer than the original. They are now treated as draft/provenance readers, not promoted source-faithful editions. | 13 PDFs, 5713 rendered pages, 71571613 bytes. |
+| Older assembled scaffold pages | Earlier broad assembly before the later filtering and repair pass. Useful provenance, not a clean completion claim. | 7216 rendered pages in the older inventory. |
 
 The current front-facing Cayley readers are therefore not a one-to-one 5713/8394
-coverage claim. They are the promoted reader surface after source-checked slice
-repairs, public-source reconciliation, and removal or quarantine of worse OCR
-scaffold material.
+coverage claim. They are a reader/provenance surface after several repair and
+reconciliation passes, but later source comparison found substantial symbol/text
+mismatches in Volume I material. No Cayley range is currently promoted as
+source-faithful until a new page-by-page glyph/source audit re-promotes it.
 
 ## Current front-facing reader surface
 
@@ -34,24 +35,27 @@ scaffold material.
 | XII | 437 | 6001148 |
 | XIII | 488 | 6130483 |
 
-## Approximate faithful-transcription percentage
+## Withdrawn faithful-transcription percentage
 
-For the specific question "what percent is first-pass but complete faithful
-transcription done?", the best current answer is an interval, not one magic
-number.
+The table below is retained as a historical 2026-06-03 project-management
+estimate only. It must not be cited as a current faithful-transcription
+percentage. Later direct source comparison showed that material previously
+counted as repaired/source-checked can still contain substantial symbol/text
+mismatches. The honest current status is: nearly the whole corpus has some TeX
+representation, but the source-faithful percentage is not certified and must be
+re-established by page-by-page audit.
 
 | Basis | Original book-page intervals counted | Against old 8394-page chunk map | Against current 8234-page public chunk map | Interpretation |
 |---|---:|---:|---:|---|
-| Strict repaired-slice tree only | 5986 | 71.3% | 72.7% | Conservative count: pages sitting in the canonical repaired/source-checked slice tree. |
-| Inclusive promoted-reader estimate | about 6690 | 79.7% | 81.3% | Adds the complete source-checked Volume I reader and the promoted Volume VIII lane, which currently live outside the repaired-slice tree. |
+| Strict repaired-slice tree only | 5986 | 71.3% | 72.7% | Historical count of pages sitting in the then-current repaired/source-checked slice tree; current source-faithfulness withdrawn pending re-audit. |
+| Inclusive reader estimate | about 6690 | 79.7% | 81.3% | Historical reader-surface estimate including Volume I and Volume VIII lanes; current source-faithfulness withdrawn pending re-audit. |
 | Represented somewhere in public TeX | 8234 | 98.1% | 100% | Includes scaffold/OCR-risk pages and therefore must not be called faithful completion. |
 
-So the human-facing status should be: Cayley is roughly **70% strict** and
-roughly **80% inclusive** for first-pass source-faithful transcription, while
-nearly all of the corpus is represented somewhere in TeX. The remaining
-20--30% is disproportionately hard material: coefficient tables, foldouts,
-plates, dense numerical arrays, and old OCR scaffold that should not be promoted
-without source comparison.
+So the human-facing status should be: Cayley has broad TeX representation and
+many useful repair surfaces, but **no current certified source-faithful
+completion percentage**. The remaining visible and invisible risk includes
+coefficient tables, foldouts, plates, dense numerical arrays, old OCR scaffold,
+and ordinary formula/prose passages whose symbols may not match the source.
 
 ## Approximate starting point for the current repair wave
 
@@ -61,8 +65,8 @@ Cayley-relevant snapshot before the June 1 daytime repair wave):
 
 | Basis | June 1 snapshot | Current snapshot | Change |
 |---|---:|---:|---:|
-| Strict repaired-slice intervals | 5922 / 8394 = 70.6% | 5986 / 8394 = 71.3% | +64 original-page intervals |
-| Inclusive estimate | about 6490 / 8394 = 77.3% | about 6690 / 8394 = 79.7% | about +200 original-page intervals |
+| Strict repaired-slice intervals | 5922 / 8394 = 70.6% | 5986 / 8394 = 71.3% | +64 original-page intervals; source-faithfulness later withdrawn pending re-audit |
+| Inclusive estimate | about 6490 / 8394 = 77.3% | about 6690 / 8394 = 79.7% | about +200 original-page intervals; source-faithfulness later withdrawn pending re-audit |
 | Represented somewhere in public TeX | 8234 / 8394 = 98.1% | 8234 / 8394 = 98.1% | unchanged |
 | Front-facing rendered reader pages | 5439 pages | 5713 pages | +274 rendered pages |
 
@@ -76,9 +80,9 @@ There is also an older conservative pre-wave inventory from 2026-05-31:
 `3917 / 8394 = 46.7%` validated pickup book pages. That number is stricter
 because it only counted slices explicitly marked as scan-validated pickup
 material, while the June 1 repaired-tree count includes more already-imported
-repair/source material. For cost/progress claims, use the 46.7% number for the
-first Claude/Cayley validated-pickup baseline and the 70--80% band for the
-current promoted-source-tree baseline.
+repair/source material. For cost/progress claims, these figures should now be
+described as workflow-throughput and represented-coverage estimates, not as
+current source-faithful completion percentages.
 
 ## What "not missing ordinary coverage" means
 

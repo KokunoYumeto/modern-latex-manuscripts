@@ -328,7 +328,7 @@ Record: <https://doi.org/10.5281/zenodo.20412153>
 
 Record: <https://doi.org/10.5281/zenodo.20520749>
 
-Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-45 / Papers 1-9 as a source-inspected working packet, not as a critical edition; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
+Accuracy warning 2026-06-09/12/25: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Complete`, `Source-Checked`, or `critical` are obsolete labels rather than current source-faithfulness claims. No Cayley range is presently promoted as source-faithful until a future per-page glyph/source audit re-promotes that exact range. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
 
 | Role | Size MB | File |
 |---|---:|---|
