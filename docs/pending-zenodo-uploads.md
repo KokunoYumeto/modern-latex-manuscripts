@@ -1,5 +1,15 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R126 Paper 37 GDZ full-resolution source witness
+
+Manifest: [20260625_noether_r126_p37_gdz_fullres_source_witness.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p37_gdz_fullres_source_witness.json)
+
+- Noether source-support ZIP: `Noether_R126_LocalCodex_P37_GDZFullres_SourceWitness_WebDrop_20260625.zip`, 17,807,828 bytes, SHA256 `DDC776C4C6F7493C8CD4A0BDD48C590EB3A477CB377299328294FC704079ACF3`.
+- Scope: Paper 37, printed pp.147-152. Bundles GDZ IIIF full-page witnesses, the GDZ manifest, and R126/RA08 TeX comparison slices.
+- Source quality: local estimate about 666-668 ppi wide and 627-628 ppi high, stronger than earlier P37 salvage material but still audit input only.
+- Caveat: no TeX patch, no Paper 37 certification, no critical edition claim, and no multilingual synchronization. Fold accepted findings into a future compact Noether rollup after file-ceiling pruning.
+
+Next action: line-by-line P37 comparison against the GDZ witnesses before promoting any source repair.
 ## 2026-06-25: Weber B141 Vol. I p468-p473 certified delta
 
 Manifest: [20260625_weber_b141_p468_p473_certified_delta.json](../manifests/pending-zenodo-uploads/20260625_weber_b141_p468_p473_certified_delta.json)
