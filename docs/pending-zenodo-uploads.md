@@ -3582,6 +3582,18 @@ Manifest: [20260625_noether_r127_p09_p10_best_available_dispositions.json](../ma
 
 Next action: fold P09/P10 together with R127_REBUILT and P11/P12 guardrails into a compact Noether rollup after file-ceiling pruning. Reopen only on a better native source, concrete defect, or later section-hash change.
 
+## 2026-06-25: Noether R127 P19/P20 best-available survival audit
+
+Manifest: [20260625_noether_r127_p19_p20_survival_best_available.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p19_p20_survival_best_available.json)
+
+- Noether P19/P20 survival ZIP: `Noether_R127_LocalCodex_P19_P20_BestAvailableSurvival_NoNewPatch_WebDrop_20260625.zip`, 24,182,814 bytes, SHA256 `5D51969DA1F27EC010B69F6922A599E50032409F73E0ECDED912B2E3372D1223`, 42 entries.
+- Scope: compact survival/queue-closure evidence against `Noether_R127_REBUILT_20260625.zip`, verifying that known Local Codex P19/P20 source-critical repairs survive in the rebuilt R127 German cumulative.
+- Contents: copied R127 authority cumulative, P19/P20 TeX spans, survival checks, best-available disposition ledger, no-fix traps, source article cutouts, targeted exact-locus 1000dpi crops, P20 pp.32-33 600ppi GDZ supplements, and prior ledgers.
+- Result: no new TeX patch.
+- Caveat: source-support evidence only. Complete article witnesses remain best-available lower-resolution lanes, not strict native 650+ full-page certification. This is not whole-paper closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next Noether compact rollup with R127_REBUILT and the P09/P10/P11/P12 guardrail packages; reopen only for a better native source, concrete defect, or later section change.
+
 ## 2026-06-25: Noether R127 rebuilt authority and P11/P12 guardrails
 
 Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json)
