@@ -3546,3 +3546,24 @@ Manifest: [20260625_noether_r127_package_surface_mismatch.json](../manifests/sou
 - Caveat: do not upload this R127 ZIP as-is. Treat as package-QA/source-policy evidence until the actual cumulative TeX/PDF, paper TeX/PDF, source witnesses, ledgers, and checksums are present in one coherent rollup.
 
 Next action: resolve the P35/P37 naming/scope mismatch and obtain/build a corrected R127 rollup before any Noether record refresh.
+
+## 2026-06-25: Noether R127 recovered cumulative / Paper 35 trace-replay salvage
+
+Manifest: [20260625_noether_r127_recovered_cumulative_p35trace.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_recovered_cumulative_p35trace.json)
+
+- Noether corrected R127 salvage ZIP: `Noether_R127_Recovered_Cumulative_P35Trace_WebDrop_20260625.zip`, 41,153,414 bytes, SHA256 `235D4BA6C1DC8F9C9CE33F29123CCD9E4CAB0AC8C7AF4ACB6EF2E17F89C7E01D`, 23 entries; ZIP extraction test passed.
+- Scope: repairs the earlier broken/near-empty `Noether_R127_20260625.zip` surface by bundling the recovered German cumulative TeX/PDF, R127 ledgers, Paper 35 diff, logs, trace-replay scripts, and the broken original drop as forensics.
+- Primary surface checked locally: `01_de/cum_de_R127.pdf` is a 467-page A4 PDF, 2,588,627 bytes, SHA256 `34273F1E30B053B9AED78162DA7F84B74A113DDFE9C8B791E6CB9D14C78805A9`; `01_de/cum_de_R127.tex` is 2,119,696 bytes, SHA256 `4C47C0DFCF540CA65171AD65C4363CBDEAA429CEDBFA0EFACC342D8EDE7AA6C0`.
+- Caveat: this is trace-replay salvage, not a new independent source re-audit of all Paper 35, not whole-Paper-35 certification, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+
+Next action: use as the corrected R127 salvage candidate in the next deliberate compact Noether rollup/file-ceiling pruning pass; ask web/pro review to compare the Paper 35 delta against source before any stronger certification language.
+
+## 2026-06-25: Noether R127 Paper 10 queue reconciliation / no-new-patch disposition
+
+Manifest: [20260625_noether_r127_p10_queue_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p10_queue_reconciliation.json)
+
+- Noether P10 queue ZIP: `Noether_R127_LocalCodex_P10_QueueReconciliation_NoNewPatch_WebDrop_20260625.zip`, 769,611 bytes, SHA256 `45313066BD32EB77B43A6AB91E42B24DFB0A3386B580B819931B5CE6110F48F0`, 20 entries; ZIP extraction test passed.
+- Scope: Paper 10 only. No new TeX patch is applied; the package records that the recovered R127 Paper 10 section is hash-identical to R126 and that prior P10 source-repaired/high-risk anchors survive.
+- Source-quality caveat: best staged P10 source is mixed around 400 ppi, below the preferred 650 ppi floor. This is survival verification of prior repairs/no-fix traps, not fresh full-page 650+ certification.
+
+Next action: treat P10 as covered by prior best-available source audits plus R127 survival verification unless a better native witness, concrete defect, or later cumulative change appears. Fold this into a future compact Noether rollup rather than uploading loose.
