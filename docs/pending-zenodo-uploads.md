@@ -1,5 +1,24 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Poincare Edge gap-fill packages v1_03/v1_04/v1_05/v1_07
+
+Manifest: [20260625_poincare_edge_gapfill_v1_03_05_07.json](../manifests/pending-zenodo-uploads/20260625_poincare_edge_gapfill_v1_03_05_07.json)
+
+- Poincare pending ZIPs: `poincare_v1_03.zip`, `poincare_v1_04.zip`, `poincare_v1_05.zip`, and `poincare_v1_07.zip`, recovered from the Microsoft Edge download dump.
+- Scope: local French/English source-witnessed working packages for `Oeuvres`, Tome I that contradict the older status note saying all v1_03-v1_07 packages were absent.
+- Caveat: these are not yet public on the dedicated Poincare record in the observed file surface, and they do not make the stream continuous. `poincare_v1_06.zip` and v1_22-v1_23 remain absent by this sweep.
+- Quality label: working/source-witnessed recovery packages only, not certified critical editions.
+
+Next action: add these four ZIPs, or a compact rollup containing them, to the next dedicated Poincare Zenodo refresh and rebuild the public file list/metadata.
+
+## 2026-06-25: Edge download exact-name reconciliation
+
+Manifest: [20260625_edge_exact_name_reconciliation.json](../manifests/source-intake/20260625_edge_exact_name_reconciliation.json)
+
+- Scope: exact-filename reconciliation for 83 Edge-download ZIP names since 2026-06-05 that were not literally named in repository metadata.
+- Result: most are duplicate browser downloads, superseded early tranches, or local provenance/backstop packages already represented through cleaner author records or renamed rollups. They should not be uploaded blindly.
+- Actionable exception found in this pass: Poincare v1_03, v1_04, v1_05, and v1_07 are valid local gap-fill candidates for the dedicated Poincare record.
+
 ## 2026-06-25: Noether WebFailedThinking4 P37/P42 salvage
 
 Manifest: [20260625_noether_webfailedthinking4_p37_p42_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking4_p37_p42_salvage.json)
