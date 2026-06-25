@@ -2329,3 +2329,14 @@ Manifest: [20260625_noether_r125_postr125_all_webdrops_bundle.json](../manifests
 - Caveat: source-audit and queue-control evidence only; not whole-corpus certification, not a critical edition, not downstream multilingual synchronization proof.
 
 Next action: use as current local post-R125 Noether consolidation for a future pruned Zenodo update and web-session handoff.
+
+## 2026-06-25: Noether R125 tail p713-p714 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p714_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p714_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p714_DefinitionRepair_WebDrop_20260625.zip`, 6,103,237 bytes, SHA256 `B8AC9980F5BE923C54B17C9B105C83D31F7BA01BD2DE16901BDEDD64CB35702F`.
+- Scope: narrow Noether-Deuring post-numbered tail repair on collected pp.713-714, anchored to the R125 + Local Codex P13/P14 candidate. It repairs the opening ring sentence, direct/reciprocal representation definitions, reciprocal ring construction, representation-class opening, and direct representation module heading.
+- Source-quality caveat: best local witnesses are about 360ppi. The repaired loci are visually unambiguous, but the package does not certify p715 onward, the whole tail, the post-numbered apparatus, or multilingual propagation.
+- Relationship to previous bundle: this was created after `Noether_R125_LocalCodex_PostR125_All_WebDrops_Bundle_20260625.zip`; the all-webdrops bundle does not contain this later tail addendum.
+
+Next action: fold this addendum plus the post-R125 all-webdrops bundle into a deliberate compact Noether source-support rollup after file-ceiling pruning; do not upload loose while Noether remains at the Zenodo 100-file ceiling.
