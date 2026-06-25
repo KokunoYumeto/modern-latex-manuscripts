@@ -3810,6 +3810,18 @@ Manifest: [20260625_sga5_live_certlog_p143_status_package.json](../manifests/sou
 
 Next action: continue from p144 in Expose III B; fold into SGA metadata only with the above caveats.
 
+## 2026-06-25: SGA5 live French workpass through p145
+
+Manifest: [20260625_sga5_live_certlog_p145_status_package.json](../manifests/source-intake/20260625_sga5_live_certlog_p145_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p145_Status_20260625.zip`, 2,171,349 bytes, SHA256 `29DC5590CCA2041614588750459D42489444CFB340BE12116C1EE45AC3C80146`, 14 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, source-resolution/status/index files, and README after the hand-certification log reached p145.
+- Status additions: pp.1-145 page-locally certified in the controlling CERT_LOG. Pages 1-72 close Expose I; pp.73-137 close Expose III; pp.138-145 cover Expose III B through the end of section 1, including Corollary 1.5, the Langlands-style l-adic specialization, and the section 1.7 intersection interpretation.
+- Ledger summary: p145 package reports a 307-page workpass compile with no fatal/LaTeX-error diagnostics in the observed log, 145 pages checked, 5 TeX fixes, 7 source typos found, 2 copied-source typos corrected in TeX, 1 cross-reference quirk, and diagrams D001-D070 hand-verified perfect. The grind cursor says p146 is next.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Rendered/cropped p146-p151 material exists locally, but it is not certified until the CERT_LOG promotes it. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p146 in Expose III B; fold into SGA metadata only with the above caveats.
+
 ## 2026-06-25: Weber B139 live German Vol. I p100-p545 workpass
 
 Manifest: [20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json](../manifests/pending-zenodo-uploads/20260625_weber_b139_liveaudit_v1ge_p100_p545_workpass.json)
