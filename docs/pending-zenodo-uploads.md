@@ -318,7 +318,7 @@ Next action: attach to the workflow/replication record during the next deliberat
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `C15E30B101228D1F4351261C40149FCB3208E6000CCF94AAA4CA6B9645D2C0AE`; `sga5_fr_workpass.pdf` SHA256 `B614E66405CF42D1D352952564E70724212CEBD150C667648E1B7372AB7159B5`; `sga5_fr_workpass.log` SHA256 `730A18ECB6831F1E886EEF820F1A9A6B126EB3E99E2B639FDFBE28E5EA8B6FC5`.
-- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log only p1-p45 are page-locally certified against scan chunks, with p46 next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, and p41-p43 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D005 are verified perfect.
+- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log p1-p58 are page-locally certified against scan chunks, with p59 next. The certified opening includes p1-p12, p14-p18, p20-p25, p27-p39, and p41-p43 clean; logged fixes include p13, p19, p26, p37, p40, p44, and p45; diagrams D001-D009 are verified perfect; Expose I main text, Bibliographie, and Illusie Appendix §1 are page-locally certified.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
@@ -2682,3 +2682,16 @@ Manifest: [20260625_noether_r125_tail_p747_p761_brauerschur_section30_repair.jso
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 466, bytes 2,579,069.
 
 Next action: keep p761 as the current local tail addendum for a future compact Noether source-support rollup; start a separate source package/audit for the following Kapferer/Noether paper. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R125 + Local Codex Kapferer/Noether p559 repair addendum
+
+Manifest: [20260625_noether_r125_localcodex_kapferer_noether_p559_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_localcodex_kapferer_noether_p559_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_KapfererNoether_MathAnn97_p559_Repair_WebDrop_20260625.zip`, 78,773,712 bytes, SHA256 `B88216FDC111EEBC1E9D231A8F098F3CD2609E43F06536C5E97A71395F587999`.
+- Scope: starts from the R125 cumulative plus Local Codex Deuring/Noether tail repairs through collected/source pp.747-763, then adds a best-available source repair for the next paper, Heinrich Kapferer with supplement jointly with E. Noether, `Notwendige und hinreichende Multiplizitätsbedingungen zum Noetherschen Fundamentalsatz der algebraischen Funktionen`, Math. Ann. 97 (1927), p559 only.
+- Repair highlights: rebuilt title/byline/supplement/bibliographic line, opening explanatory paragraph, source footnotes 1-3, Satz Ia, and the opening of Satz Ib through the `\mathfrak q`, `\mathfrak q_i`, `s` zeroes, and `x=\alpha_i,\ y=\beta_i` setup.
+- Source-quality caveat: Kapferer/Noether p559 is checked against the best staged local GDZ full-page witness at about 400 dpi, below the 650+ ppi strict certification floor. The carried-forward p747-p763 Deuring/Noether span remains native about 360ppi. Treat this as a best-available source repair only.
+- Boundary: p559 only. Kapferer/Noether p560 onward remains provisional/OCR-derived in the cumulative and must be continued page-by-page from Math. Ann. p560 / GDZ canvas 566. This package is not whole-paper certification, not a critical edition, and not multilingual synchronization proof.
+- Build: XeLaTeX was run twice; candidate PDF reports 466 pages; no fatal compile errors are reported in the package README.
+
+Next action: fold this into the next deliberately pruned compact Noether rollup after the Zenodo file-ceiling cleanup. Do not upload this loose while the Noether record remains at the file ceiling.
