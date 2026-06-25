@@ -1,5 +1,25 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R125 source-audit checkpoint and Paper 42 rebuild
+
+Manifest: [20260625_noether_r125_source_audit_p42_rebuild.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_source_audit_p42_rebuild.json)
+
+- Noether pending ZIP: `Noether_R125_20260625.zip`, 34,121,911 bytes, SHA256 `70C2CE5656209AC47A45C00FFBF8FC5FE03F257C41134F7262EAC8A747E280CB`.
+- Local path: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R125_20260625.zip`.
+- Contents/scope: German cumulative candidate `cum_de_R125.tex/pdf`, Paper 42 standalone slice, current source witness PDF, P13/P19/P42 source images, complete/page/equation/closure ledgers, source-quality ledger, notation diary, diff, logs, render contacts, and workflow notes.
+- Substantive changes: P13 p252 `\Div B` to `\Div\bar B`; P13 p254 source-visible `Divergenzrelationen'`; P19 p62 sigma-exponent family; complete Paper 42 rebuild from all eleven source pages.
+- Caveat: P42 is source-checked from the best available complete witness but that witness is about 360ppi, below the preferred 650+ppi floor. This supersedes earlier failed-web P42 salvage as the current P42 working reconstruction, but it is not a critical edition, not final dense-math certification, and not downstream multilingual propagation.
+- Publication decision: queue for the next compact Noether rollup after deliberate pruning/replacement. Do not upload loose while the Noether record is at the 100-file ceiling.
+
+## 2026-06-25: Noether post-P14 survival followups
+
+Manifest: [20260625_noether_post_p14_survival_followups.json](../manifests/pending-zenodo-uploads/20260625_noether_post_p14_survival_followups.json)
+
+- Noether pending ZIP: `Noether_R124plus_P11_PostP14FullPageAuditSurvival_NoNewPatch_20260625.zip`, 730,524 bytes, SHA256 `0677CCBFE0E3BFD7276141B81431D6FDE1C610D0CD691828623460DC4EADBE3A`.
+- Noether pending ZIP: `Noether_R124plus_P15_P20_PostP14AnchorSurvival_NoNewPatch_20260625.zip`, 794,009 bytes, SHA256 `3DE989865A451A845D868C4AFF70DBB46815FEDB80C869304AF49A74E7F1E3DB`.
+- Status: no-new-patch survival/anchor evidence only. P11 reports 17/17 checks passed; P15-P20 reports 38/38 checks passed. No fresh visual source certification and no reader text change.
+- Publication decision: queue as compact source-support evidence, not as loose Zenodo files.
+
 ## 2026-06-25: Noether Paper 14 pp.183-185 targeted source fixes
 
 Manifest: [20260625_noether_p14_p183_185_sourcefix.json](../manifests/pending-zenodo-uploads/20260625_noether_p14_p183_185_sourcefix.json)
@@ -223,7 +243,7 @@ Observed after the current Noether public version [20836874](https://zenodo.org/
 - `Noether_R124plus_P13_p239_242_Formula13PunctuationFix_BestAvailable400_WebDrop_20260625.zip`, 9,939,405 bytes, SHA256 `10D2FA22337D8E42F2B7DAF93D5BF641E06265542E23B7EB539EDE639E5875F9`; best-available 400ppi Paper 13 pp.239-242 visual audit and narrow formula (13) correction candidate changing `\Div B^{(1)},\ldots` to source-visible `\Div B^{(1)};\ldots` on p242.
 - `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 412,960 bytes, SHA256 `4FDFE75DACE32B54CABE513250FAC48515681CFB04A9382E02FC9A995CF0C200`.
 
-Status: pending consolidation only. Do not upload these one by one. The substantive correction line in this older queue is the merged P25/P27 cumulative candidate plus later P24 p233, P24 p234, and P13 p242 formula-punctuation candidates; the separate P25 and P27 sibling ZIPs are retained only as provenance/reference. P13 p235-p238 and P26/P28 are audit packages, not promoted reader changes; P13 p239-p242 adds one reversible p242 formula (13) punctuation correction but does not close Paper 13. Newer Paper 13 continuation material through pp.243-257 is tracked separately in [20260625_noether_p13_continuation_sourcefixes_pending.json](../manifests/pending-zenodo-uploads/20260625_noether_p13_continuation_sourcefixes_pending.json), so do not treat this older post-P11 queue as the current Paper 13 endpoint. P42 remains salvage/next-action material only; the second R125 salvage ZIP rediscovered useful RA10/RA84 apparatus context but does not close P42. The other files are salvage, apparatus-audit, post-P11 no-new-patch survival evidence, boundary/regression proof, or live source-audit logbook/provenance material. The P25/P27/P26/P28 packages use selected 600 ppi GDZ/JDMV witnesses, and the P13/P24 packages in this older queue are best-available 400ppi only; both remain below the strict 650+ local source floor, so they remain reversible source-audit candidates until consolidated. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
+Status: pending consolidation only. Do not upload these one by one. The substantive correction line in this older queue is the merged P25/P27 cumulative candidate plus later P24 p233, P24 p234, and P13 p242 formula-punctuation candidates; the separate P25 and P27 sibling ZIPs are retained only as provenance/reference. P13 p235-p238 and P26/P28 are audit packages, not promoted reader changes; P13 p239-p242 adds one reversible p242 formula (13) punctuation correction but does not close Paper 13. Newer Paper 13 continuation material through pp.243-257 is tracked separately in [20260625_noether_p13_continuation_sourcefixes_pending.json](../manifests/pending-zenodo-uploads/20260625_noether_p13_continuation_sourcefixes_pending.json), so do not treat this older post-P11 queue as the current Paper 13 endpoint. The older P42 failed-web packages remain salvage/next-action material only; they are now superseded for current P42 working-text status by `Noether_R125_20260625.zip`, which rebuilds Paper 42 from all eleven source pages under the explicit best-available 360ppi caveat. The other files are salvage, apparatus-audit, post-P11 no-new-patch survival evidence, boundary/regression proof, or live source-audit logbook/provenance material. The P25/P27/P26/P28 packages use selected 600 ppi GDZ/JDMV witnesses, and the P13/P24 packages in this older queue are best-available 400ppi only; both remain below the strict 650+ local source floor, so they remain reversible source-audit candidates until consolidated. Noether is already at Zenodo's 100-file ceiling, so the next public Noether refresh needs pruning/replacement or one compact rollup. These are working source-audit artifacts, not reader-facing completion, whole-corpus certification, or critical-edition material.
 
 ### R124/PostWeb exact-name sweep
 
