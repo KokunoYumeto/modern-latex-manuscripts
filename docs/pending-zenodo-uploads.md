@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R127 Paper 01 source repair and Papers 02-04 survival checks
+
+Manifest: [20260625_noether_r127_p01_repair_p02_p04_survival.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p01_repair_p02_p04_survival.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_P01_SourceRepair_P02_P04Survival_WebDrop_20260625.zip`, 64,949,810 bytes, SHA256 `315844A33D29B5CCB434BDEF38CC216F7400EADE37CAD76952D79BBFDEAA34E7`.
+- Result: applies two source-backed P01 fixes: removes an invented `Von Emmy Noether.` heading line, restores the source heading order, and changes the P01 table reading from `bzw. durch` to source `resp. durch`.
+- P02-P04 result: no new patch. P02, P03, and P04 match the audited prior anchors exactly.
+- Build: updated German cumulative TeX compiled with XeLaTeX in two passes to a 468-page PDF.
+- Caveat: targeted P01 source-backed repair plus P02-P04 anti-regression survival evidence only. Not whole-paper certification, not a critical edition, and not multilingual synchronization.
+
+Next action: fold into the next compact Noether rollup after file-ceiling pruning rather than uploading loose.
+
 ## 2026-06-25: Noether R127 source-survival/disposition guardrails P05-P08, P35-P36/P38, P41/P43
 
 Manifests: [20260625_noether_r127_p05_p08_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p05_p08_survival_nopatch.json), [20260625_noether_r127_p35_p36_p38_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p35_p36_p38_disposition.json), [20260625_noether_r127_p41_p43_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p41_p43_survival_nopatch.json)
