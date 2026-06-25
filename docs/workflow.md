@@ -193,3 +193,11 @@ Recommended use:
 The Weber p486-p497 live audit added an important guardrail. A draft can contain plausible mathematical prose that is not merely compressed, modernized, or mistranscribed, but fabricated from nearby context. In Weber section 152, the local audit replaced a foreign GPT body with the actual Weber source text; in section 153, a six-page permutation-decomposition section was held because the draft condensed, rewrote, and inserted plausible cycle-theory examples not present in Weber.
 
 This is a separate failure mode from OCR noise. Treat fluent mathematical prose as untrusted until it is page-mapped against the scan. The repair rule is: source page first, current TeX second, agent/OCR candidates third. If a section-level rewrite is found, do not promote surgical patches that leave a fabricated frame in place; either re-transcribe the coherent section from source or hold it explicitly.
+
+### Lean formalization watch lanes
+
+Claude and Codex may produce Lean formalization side lanes for selected explicit statements from the transcription corpus. These are useful as workflow evidence and possible future machine-checkable companion layers, but they are not proof publications by default. A Lean lane is not DOI-ready until it includes exact Lake/Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` output, no `sorry` or failed batch files in the promoted surface, source anchors to the actual public/transcribed TeX, and a human-readable statement distinguishing the historical source statement from the modern formal theorem. Failed or side-project files remain watch/provenance only unless explicitly promoted.
+
+### Package-surface verification before upload
+
+A ZIP README can advertise artifacts that are not actually present in the ZIP. Before any Zenodo refresh, inspect the archive contents, not just the README. If primary cumulative TeX/PDF files, ledgers, source witnesses, or checksums sit adjacent to a ZIP rather than inside it, mark the package as source-intake/package-QA evidence and request or build a corrected rollup. Naming conflicts such as a Paper 37 README beside a `p35` standalone PDF must be resolved before public promotion.

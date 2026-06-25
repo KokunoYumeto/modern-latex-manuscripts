@@ -109,16 +109,16 @@ Manifest: [20260625_noether_r126_source_queue_disposition_update2.json](../manif
 
 Next action: use to route web/Rob work away from stale queue rows and fold into a future compact Noether rollup after file-ceiling pruning.
 
-## 2026-06-25: SGA5 live CERT_LOG through p113
+## 2026-06-25: SGA5 live CERT_LOG through p113 (superseded by p125)
 
 Manifest: [20260625_sga5_live_certlog_p113_unpacked.json](../manifests/source-intake/20260625_sga5_live_certlog_p113_unpacked.json)
 
 - Local live workpass evidence only: `SGA continuation 2\_claude_aid\sga5_full_audit_20260623`, including `CERT_LOG.md`, `AGENT_SCORECARD.md`, `sga5_fr_workpass.tex`, and `sga5_fr_workpass.pdf`.
-- Current controlling claim: the manual `CERT_LOG.md` treats agents/workflows as finders, not certifiers, and records pp.1-113 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-113.
+- Superseded status snapshot: this p113 intake has been superseded by the later p125 CERT_LOG entry below. At this earlier checkpoint, the manual `CERT_LOG.md` treated agents/workflows as finders, not certifiers, and recorded pp.1-113 as page-locally hand-certified: Expose I pp.1-72 plus Expose III pp.73-113.
 - p113 opens Expose III section 5.1 on duals of correspondences, verifies formulas (5.1.1)-(5.1.5), diagrams D061-D062, and underlined `\uRHom` notation. It also notes a printed source typo in (5.1.5) where the TeX already carries the mathematically correct `c_2^!L_2`.
 - Caveat: p114-p116 crops/render aids exist locally but are locator material only until the CERT_LOG promotes those pages. This remains a live local workpass, not compact public packaging, not English synchronization, not global SGA5 certification, and not a critical edition.
 
-Next action: continue from p114; only fold into Zenodo after a compact status/method package and independent validation.
+Next action: historical source-intake snapshot only; use the later p125 CERT_LOG entry as the current SGA5 audit edge.
 
 ## 2026-06-25: Weber live CERT_LOG through p473
 
@@ -885,7 +885,7 @@ Next action: attach this compact p100-p365 package to the Weber author record du
 Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260625_sga5_live_workpass_status_reconciliation.json)
 
 - SGA5 local workpass files observed: `sga5_fr_workpass.tex` SHA256 `02901896A3F6D616E3CF0816A4266A809DA9C0EF36A6111A20E488F1B4C9C81C`; `sga5_fr_workpass.pdf` SHA256 `4E466D35709E0B96AE7707860FEAE8433D1D25C8B4D9885508BD33003D62ADE0`; `sga5_fr_workpass.log` SHA256 `CF9296D944F31339938CAD4C7DA3EB881FDEC0D992531C91FEFFB456E52D6458`.
-- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log pp.1-122 are page-locally certified; pp.1-72 close Expose I; pp.73-122 cover Expose III through the etale body, section 5 complements, and coherent-sheaf appendix section 6.3; D001-D069 are hand-verified perfect through p118; p123 is next. The certified opening has been superseded by the p122 log: the ledger now reports 122 pages checked, 1 TeX fix, 4 source typos plus one trivial prose typo, 0 swarm transcription errors, and D001-D069 hand-verified perfect through p118.
+- Status: the live status file reports broad p1-p484 French page-audit coverage and 411 verified corrections in the status stream. A newer `CERT_LOG.md` changes the quality interpretation: agents/workflows are explicitly finders, not certifiers, and as of the latest 2026-06-25 certification log pp.1-125 are page-locally certified; pp.1-72 close Expose I; pp.73-125 cover Expose III through the etale body, section 5 complements, and coherent-sheaf appendix sections 6.1-6.6 through coherent cup products; D001-D069 are hand-verified perfect through p118; p126 / Theoreme 6.7 is next. The certified opening has been superseded by the p125 log: the ledger now reports 125 pages checked, 1 TeX fix, 4 source typos plus one source cross-reference quirk, 0 swarm transcription errors, and D001-D069 hand-verified perfect through p118.
 - Caveat: this is not an independently packaged or promoted edition and not SGA5 closure. The latest observed log writes a 307-page PDF and the fatal-error/LaTeX-error scan is clean. Open areas now primarily include final diff/FINDINGS refresh, compact packaging, continued page-by-page hand certification or independent validation, optional low-value prose-fidelity review where desired, and English synchronization.
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
@@ -3524,3 +3524,25 @@ Next action: fold into the next deliberate compact Noether rollup/file-ceiling p
 
 
 
+
+## 2026-06-25: Weber B144/B145 Vol. I p486-p497 salvage
+
+Manifest: [20260625_weber_b144_b145_p486_p497_salvage.json](../manifests/pending-zenodo-uploads/20260625_weber_b144_b145_p486_p497_salvage.json)
+
+- Weber pending ZIP: `Weber_Rob_B144_B145_p486_p497_Salvage_WebDrop_20260625.zip`, 44,959,421 bytes, SHA256 `70A5BDCC36E45B8DBA87E7304AD5F26564CB438405C50D6EF82BFA65CE52EC8E`, 114 entries.
+- Scope: Vol. I pp.486-497. p486-p491 / section 152 is reported source-audited and fully re-transcribed, replacing fabricated/foreign GPT text with Weber source text.
+- Held range: p492-p497 / section 153 remains a six-page wholesale rewrite/condensation/fabrication requiring coherent retranscription. Do not present section 153 as repaired.
+- Caveat: source-audit/salvage candidate only; not English synchronization, not whole-Volume-I certification, and not a critical edition.
+
+Next action: fold accepted p486-p491 material into the next Weber compact refresh if branch reconciliation confirms it; re-transcribe section 153 coherently before promotion.
+
+## 2026-06-25: Noether R127 package-surface mismatch / not upload-ready
+
+Manifest: [20260625_noether_r127_package_surface_mismatch.json](../manifests/source-intake/20260625_noether_r127_package_surface_mismatch.json)
+
+- Observed ZIP: `Noether_R127_20260625.zip`, 7,041 bytes, SHA256 `6D5F473D3BC36395D774D1ED619666996844D41E34F05AFDAEA3B910CC94AC0C`.
+- Adjacent files: `complete_ledger_R127.csv` (9,067,436 bytes, SHA256 `65BC5142A9EB850C7E1C159F41686481F56A5161ED7CAC22AAD263B986C5BDC7`), `source_queue_R127.csv` (10,430 bytes, SHA256 `20D54D41E1B4F5EC9C1A7EDD8F74333914EF6A66EA71A331FC4AE50111D00669`), and `p35_R127_standalone.pdf` (115,047 bytes, SHA256 `B397AFEDD7D5A029805402D5798BD6D19EC173464EF409F355C75C9C30B4D466`).
+- Finding: the ZIP surface appears to contain documentation/log shells rather than the advertised primary cumulative artifacts, and the advertised Paper 37 / `p37_R127` language conflicts with an adjacent `p35_R127_standalone.pdf` file.
+- Caveat: do not upload this R127 ZIP as-is. Treat as package-QA/source-policy evidence until the actual cumulative TeX/PDF, paper TeX/PDF, source witnesses, ledgers, and checksums are present in one coherent rollup.
+
+Next action: resolve the P35/P37 naming/scope mismatch and obtain/build a corrected R127 rollup before any Noether record refresh.
