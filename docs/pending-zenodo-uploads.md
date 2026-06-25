@@ -27,6 +27,19 @@ Manifest: [20260625_noether_p14_p186_189_sourcefix.json](../manifests/pending-ze
 
 Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
 
+## 2026-06-25: Noether Paper 14 pp.190-194 GDZ600 targeted source fixes
+
+Manifest: [20260625_noether_p14_p190_194_gdz600_sourcefix.json](../manifests/pending-zenodo-uploads/20260625_noether_p14_p190_194_gdz600_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R124plus_P14_p190_194_GDZ600_SourceFix_WebDrop_20260625.zip`, 20,095,801 bytes, SHA256 `D7999D204B9C7071C6363088A0305EACCF47070974A2ED6558967E67041AF083`.
+- Scope: Paper 14, printed pp.190-194, incremental German source-critical candidate based on the local cumulative after the P14 pp.186-189 source-fix package.
+- Applied fix: p190 restores the source-visible singular wording from `bei den algebraischen Funktionen zu Sätzen` to `bei den algebraischen Funktion zu Sätzen`; the package records p191-p194 as checked/no-patch.
+- Source witnesses: official GDZ IIIF full-page JPGs for pp.190-194 recorded by the package as about 600ppi, plus a 1000-view p190 inspection crop. This is better than older 360ppi cutouts but still below the preferred 650+ floor.
+- Build: XeLaTeX pass 1/pass 2 exit 0; package reports 469 PDF pages and zero fatal/undefined-control/rerun/overfull/underfull matches in its log scan.
+- Caveat: targeted German source-fix candidate only. Not Paper 14 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition. README control-character damage in the incoming package was corrected before final ZIP rebuild.
+
+Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
+
 ## 2026-06-25: 48-hour exact ZIP gap sweep
 
 Manifest: [20260625_noether_r124_postweb_48h_gap_sweep.json](../manifests/pending-zenodo-uploads/20260625_noether_r124_postweb_48h_gap_sweep.json)
