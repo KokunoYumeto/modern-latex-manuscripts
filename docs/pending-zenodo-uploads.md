@@ -3607,6 +3607,19 @@ Manifest: [20260625_noether_r127_p19_p20_survival_best_available.json](../manife
 
 Next action: fold into the next Noether compact rollup with R127_REBUILT and the P09/P10/P11/P12 guardrail packages; reopen only for a better native source, concrete defect, or later section change.
 
+## 2026-06-25: Noether R127 Paper 22 source-restoration patch
+
+Manifest: [20260625_noether_r127_p22_source_restoration_patch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p22_source_restoration_patch.json)
+
+- Noether P22 restoration ZIP: `Noether_R127_LocalCodex_P22_SourceRestorationPatch_WebDrop_20260625.zip`, 69,466,597 bytes, SHA256 `32AF5216399BC2A90FB2C397BA0D05E5CA28D31AFF53617100A043A2DDF2B61C`, 62 entries.
+- Authority ZIP: `Noether_R127_REBUILT_20260625.zip`, 52,004,966 bytes, SHA256 `0F2E740924671F0C32E66524BC887DC8567B5CF3D9C0D920ACFE8AFCBB218497`, 85 entries.
+- Scope: replaces only Paper 22 in the R127 rebuilt German cumulative with the locally source-restored Paper 22 span. Paper 21 and Paper 23 are included only as survival checks.
+- Result: restores source-style Paper 22 title/front matter, Kurt Hentzelt dagger, Emmy Noether editor line, long Hentzelt note placement, varrho rank/determinant notation, and previously audited RA62/RA63/local P22 repairs through pp.64-79.
+- Build/status: patched German cumulative compiles to a 467-page PDF after two XeLaTeX passes; final log has inherited font warnings only, with no remaining rerun or undefined-reference warning according to the package README.
+- Caveat: source witnesses are still best-available mixed quality, including 400/600ppi pages and 1000dpi inspection crops from lower-native scans. This is a source-restoration patch against R127, not native-650 page-by-page certification, not whole-paper/whole-corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: use as the current Paper 22 restoration candidate in the next compact Noether rollup/file-ceiling pruning pass. Keep older P22 p53/p55-p61, p64-p69, and p70-p79 packages as provenance beneath it rather than uploading all as loose files.
+
 ## 2026-06-25: Noether R127 rebuilt authority and P11/P12 guardrails
 
 Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json)
