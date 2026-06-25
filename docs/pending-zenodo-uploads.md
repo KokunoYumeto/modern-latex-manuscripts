@@ -2473,4 +2473,17 @@ Manifest: [20260625_noether_r125_tail_p713_p734_definition_repair.json](../manif
 - Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p735 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p734, or multilingual propagation.
 - Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
 
-Next action: use this p713-p734 package, not the narrower p713-p733/p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p735.
+Next action: superseded for current tail-addendum purposes by the p713-p735 package below; retain this p713-p734 entry as provenance only and use the p713-p735 package for any future compact Noether source-support rollup.
+
+## 2026-06-25: Noether R125 tail p713-p735 definition repair addendum
+
+Manifest: [20260625_noether_r125_tail_p713_p735_definition_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r125_tail_p713_p735_definition_repair.json)
+
+- Noether pending ZIP: `Noether_R125_LocalCodex_Tail_p713_p735_DefinitionRepair_WebDrop_20260625.zip`, 33,683,955 bytes, SHA256 `1FA8288D964ED0F197890D376C1E22027A7EB5168AC5C4AC56FA9D7CCC8A5630`.
+- Scope: cumulative p713-p735 Noether-Deuring post-numbered tail repair. It supersedes p713-p734, p713-p733, p713-p732, p713-p731, p713-p730, p713-p729, and narrower p713 tail packages; carries those repairs forward; and adds p735 Satz 6-Satz 9 / quaternion-theorem-opening repairs.
+- Repair highlights: p735 restores Satz 6 and its source footnote placement, rebuilds Satz 7 on isomorphisms of simple subrings of `\mathfrak K_r` including `\tau^{-1}\sigma_1\tau=\sigma_2`, restores the proof using `\Sigma`, `\mathfrak S_1`, `\mathfrak S_2`, and reciprocal representation classes, restores Satz 8 on the Galois group and inner automorphisms of `\mathfrak K`, and restores Satz 9 plus the start of the quaternion theorem proof through the split word `Iso-`.
+- Source-quality caveat: best local witnesses are native about 360ppi. The repaired loci are visually unambiguous, but this does not certify p736 onward, the whole tail/post-numbered apparatus, every micro-symbol on p713-p735, or multilingual propagation.
+- Build: XeLaTeX pass 1 exit 0; pass 2 exit 0; candidate PDF pages 468.
+- Held-back follow-up: a local extracted p713-p736 folder exists, but it is not registered as current because its README and compile status still describe p713-p735 and no p736 fix ledger or ZIP was found.
+
+Next action: use this p713-p735 package, not the narrower p713-p734/p713-p733/p713-p732/p713-p731/p713-p730/p713-p729/p713-p726/p713-p724/p713-p721/p713-p719/p713-p717/p713-p716/p713-p715/p713-p714 packages, as the current tail addendum for a future compact Noether source-support rollup; do not upload loose while Noether remains at the Zenodo 100-file ceiling. Continue source work from p736.
