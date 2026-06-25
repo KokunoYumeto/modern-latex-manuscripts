@@ -2719,7 +2719,7 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p560_repair.json](../mani
 - Boundary: p559-p560 only. Kapferer/Noether p561 onward remains provisional/OCR-derived in this package; the later p559-p561 package supersedes this one for current web handoff purposes. This package remains provenance for the p559-p560 stage.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors.
 
-Next action: retain this p559-p560 package as provenance only; use the p559-p564 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p565. Do not upload loose while Noether remains at the Zenodo file ceiling.
+Next action: retain this p559-p560 package as provenance only; use the p559-p565 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p566. Do not upload loose while Noether remains at the Zenodo file ceiling.
 
 ## 2026-06-25: Noether R126 Kapferer/Noether p559-p561 repair addendum
 
@@ -2732,7 +2732,7 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p561_repair.json](../mani
 - Boundary: p559-p561 only. Kapferer/Noether p562 onward remains provisional/OCR-derived in this package; the later p559-p562 package supersedes this one for current web handoff purposes. This package remains provenance for the p559-p561 stage.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, or missing-character reports.
 
-Next action: retain this p559-p561 package as provenance only; use the p559-p564 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p565. Do not upload loose while Noether remains at the Zenodo file ceiling.
+Next action: retain this p559-p561 package as provenance only; use the p559-p565 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p566. Do not upload loose while Noether remains at the Zenodo file ceiling.
 
 ## 2026-06-25: Noether R126 Kapferer/Noether p559-p562 repair addendum
 
@@ -2745,7 +2745,7 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p562_repair.json](../mani
 - Boundary: p559-p562 only. Kapferer/Noether p563 onward remains provisional/OCR-derived in this package; the later p559-p563 package supersedes this one for current web handoff purposes. This package remains provenance for the p559-p562 stage.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, or missing-character reports.
 
-Next action: retain this p559-p562 package as provenance only; use the p559-p564 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p565. Do not upload loose while Noether remains at the Zenodo file ceiling.
+Next action: retain this p559-p562 package as provenance only; use the p559-p565 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p566. Do not upload loose while Noether remains at the Zenodo file ceiling.
 
 ## 2026-06-25: Noether R126 Kapferer/Noether p559-p563 repair addendum
 
@@ -2758,7 +2758,7 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p563_repair.json](../mani
 - Boundary: p559-p563 only. Kapferer/Noether p564 onward remains provisional/OCR-derived in this package; the later p559-p564 package supersedes this one for current web handoff purposes. This package remains provenance for the p559-p563 stage.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, or missing-character reports.
 
-Next action: retain this p559-p563 package as provenance only; use the p559-p564 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p565. Do not upload loose while Noether remains at the Zenodo file ceiling.
+Next action: retain this p559-p563 package as provenance only; use the p559-p565 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p566. Do not upload loose while Noether remains at the Zenodo file ceiling.
 
 ## 2026-06-25: Noether R126 Kapferer/Noether p559-p564 repair addendum
 
@@ -2768,7 +2768,20 @@ Manifest: [20260625_noether_r126_kapferer_noether_p559_p564_repair.json](../mani
 - Scope: rebases the Kapferer/Noether repair onto `Noether_R126_20260625.zip` / `cum_de_R126.tex` and repairs Math. Ann. 97 source pp.559-564 only.
 - Repair highlights: carries forward the p559-p563 title, Satz, Hilfssatz, formula, display, Zusatz, footnote, Bertini, and Satz III repairs; adds p564 differentiability criterion, formula for `A'`, homogeneous three-variable Zusatz, E. Noether appendix heading, and footnotes 11-13.
 - Source-quality caveat: checked against the best staged local GDZ raw full-page witnesses for canvases 565-570, about 400 dpi and below the 650+ ppi strict certification floor.
-- Boundary: p559-p564 only. Kapferer/Noether p565 onward remains provisional/OCR-derived in R126 and should continue from Math. Ann. p565 / GDZ canvas 571. This supersedes the p559-only R125 and p559-p560 through p559-p563 R126 packages for current web handoff purposes.
+- Boundary: p559-p564 only. Kapferer/Noether p565 onward remains provisional/OCR-derived in this package; the later p559-p565 package supersedes this one for current web handoff purposes. This package remains provenance for the p559-p564 stage.
 - Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, or missing-character reports.
 
-Next action: use this as the current Kapferer/Noether addendum for a future compact Noether rollup; continue page-by-page source audit from p565. Do not upload loose while Noether remains at the Zenodo file ceiling.
+Next action: retain this p559-p564 package as provenance only; use the p559-p565 package below as the current Kapferer/Noether addendum and continue page-by-page source audit from p566. Do not upload loose while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-25: Noether R126 Kapferer/Noether p559-p565 repair addendum
+
+Manifest: [20260625_noether_r126_kapferer_noether_p559_p565_repair.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_kapferer_noether_p559_p565_repair.json)
+
+- Noether pending ZIP: `Noether_R126_LocalCodex_KapfererNoether_MathAnn97_p559_p565_Repair_WebDrop_20260625.zip`, 95,144,120 bytes, SHA256 `3FABBAE1A572D8B5F7B5A97B358CF11642F81C53A90B8AEEE5FB0308DC5F3FAC`.
+- Scope: rebases the Kapferer/Noether repair onto `Noether_R126_20260625.zip` / `cum_de_R126.tex` and repairs Math. Ann. 97 source pp.559-565 only.
+- Repair highlights: carries forward the p559-p564 source-backed repairs and adds p565 footnote-14 continuation, Satz IV, residue-system list, relations (4) and (5), and the start of the proof through the p565 boundary.
+- Source-quality caveat: checked against the best staged local GDZ raw full-page witnesses for canvases 565-571, about 400 dpi and below the 650+ ppi strict certification floor.
+- Boundary: p559-p565 only. Kapferer/Noether p566 onward remains provisional/OCR-derived in R126 and should continue from Math. Ann. p566 / GDZ canvas 572. This supersedes the p559-only R125 and p559-p560 through p559-p564 R126 packages for current web handoff purposes.
+- Build: XeLaTeX was run twice; candidate PDF reports 466 pages; the package README reports no fatal compile errors, emergency stops, undefined references, rerun warnings, overfull boxes, underfull boxes, or missing-character reports.
+
+Next action: use this as the current Kapferer/Noether addendum for a future compact Noether rollup; continue page-by-page source audit from p566. Do not upload loose while Noether remains at the Zenodo file ceiling.
