@@ -3620,6 +3620,18 @@ Manifest: [20260625_noether_r127_p22_source_restoration_patch.json](../manifests
 
 Next action: use as the current Paper 22 restoration candidate in the next compact Noether rollup/file-ceiling pruning pass. Keep older P22 p53/p55-p61, p64-p69, and p70-p79 packages as provenance beneath it rather than uploading all as loose files.
 
+## 2026-06-25: Noether R127 Paper 30 source-restoration patch
+
+Manifest: [20260625_noether_r127_p30_source_restoration_patch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p30_source_restoration_patch.json)
+
+- Noether P30 restoration ZIP: `Noether_R127_LocalCodex_P30_SourceRestorationPatch_WebDrop_20260625.zip`, 21,845,652 bytes, SHA256 `DA8BAEC795218CC1399714056F924AC4498552CE90110F4DC77155AFCC0EE9BE`, 73 entries.
+- Scope: replaces only Paper 30 in the R127+P22 German cumulative with the locally source-fixed Paper 30 span assembled from the R126/P30 repair chain.
+- Result: inserts a 1,245-line P30 source-fix span and passes survival checks for the Krull citation page range, module-basis endpoint, p031 final clause, Dedekind Folgerung equation, note-9 reference, p43 exponent equality, p49 even-integers example, p51 power-chain condition, p56 divisibility condition, and stale Krull page-range absence.
+- Build/status: patched German cumulative compiles after two XeLaTeX passes; searched final-log warnings are inherited inputenc/font warnings only.
+- Caveat: source witnesses are still best-available mixed IA/GDZ/targeted-crop material, mostly below the strict native-650 ppi certification threshold. This is a source-restoration patch, not whole-Paper-30 closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+
+Next action: use as the current Paper 30 restoration candidate in the next compact Noether rollup/file-ceiling pruning pass. Keep earlier P30 chunk packages as provenance beneath this combined patch rather than uploading all as loose files.
+
 ## 2026-06-25: Noether R127 rebuilt authority and P11/P12 guardrails
 
 Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json)
