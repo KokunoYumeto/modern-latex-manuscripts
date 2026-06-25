@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether R127 source-survival/disposition guardrails P05-P08, P35-P36/P38, P41/P43
+
+Manifests: [20260625_noether_r127_p05_p08_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p05_p08_survival_nopatch.json), [20260625_noether_r127_p35_p36_p38_disposition.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p35_p36_p38_disposition.json), [20260625_noether_r127_p41_p43_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p41_p43_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_P05_P08_SourceRepairSurvival_NoNewPatch_WebDrop_20260625.zip`, 47,378,553 bytes, SHA256 `F0FB0F5968E1E4E454ED6CD3B718BF4014A1D40D7CAEB5EEAAC5F77D90867C20`.
+- Noether pending ZIP: `Noether_R127_LocalCodex_P35_P36_P38_Disposition_P38NoPatch_P35P36Review_WebDrop_20260625.zip`, 3,396,765 bytes, SHA256 `B13E7BE6064B9C38C85AA0A7DB2718663089C2895347487B4CB06314F89B6066`.
+- Noether pending ZIP: `Noether_R127_LocalCodex_P41_P43_SourceRestorationSurvival_NoNewPatch_WebDrop_20260625.zip`, 3,408,534 bytes, SHA256 `C255A5B396FFEC0FDD91EB819B0A20549927BA98613100C92C050BA4E1A2C32F`.
+- Result: no new TeX promotion. P05-P08 and P41/P43 survive against prior local source-repair/reference anchors; P38 survives exactly; P35/P36 are deliberately held for source review rather than blind stale-reference replacement.
+- Caveat: guardrail/status evidence only. These are not paper certifications, not a critical edition, and not multilingual synchronization. Fold into a compact Noether rollup after file-ceiling pruning rather than uploading loose.
+
+Next action: use these packets to prevent stale replay/regression while constructing the next coherent Noether rollup.
+
 ## 2026-06-25: Noether R126 Paper 37 GDZ source-fix candidate
 
 Manifest: [20260625_noether_r126_p37_gdz_source_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r126_p37_gdz_source_fix.json)
