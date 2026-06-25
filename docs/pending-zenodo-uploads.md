@@ -1,5 +1,29 @@
 # Pending Zenodo Uploads
 
+## 2026-06-25: Noether Paper 14 pp.183-185 targeted source fixes
+
+Manifest: [20260625_noether_p14_p183_185_sourcefix.json](../manifests/pending-zenodo-uploads/20260625_noether_p14_p183_185_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R124plus_P14_p183_185_SourceFix_WebDrop_20260625.zip`, 23,437,316 bytes, SHA256 `766E233649F788F492FF72BC4EAA57A1B725D597258DBBEE7438943A8E1DB032`.
+- Scope: Paper 14, printed pp.183-185, incremental German source-critical candidate based on the local R124-plus cumulative after the P12 pp.41-44 no-patch audit.
+- Applied fixes: p183 Hurwitz footnote journal abbreviation from `Math. Ann. Bd. 28.` to source `Ann. Bd. 28.`; p185 Steinitz/Kronecker root-symbol family from Greek xi to source-visible Latin `j`.
+- Source witnesses: full-page context images for pp.182-185 and targeted 1000-view crops for the two changed anchors. Prior ledgers record the native embedded source around 360ppi, so the crops are inspection enlargements rather than new optical detail.
+- Build: XeLaTeX pass 1/pass 2 exit 0; package reports 469 PDF pages and zero fatal/LaTeX/package/rerun/overfull/underfull matches in its log scan.
+- Caveat: targeted German source-fix candidate only. Not Paper 14 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition. Reconcile with older P14 RA55/RA64/RA78/RA89/RA90 material before any unified German branch promotion.
+
+Next action: fold into the next compact Noether source-support/source-fix rollup after pruning/replacement; do not upload as a loose standalone file while Noether is at the Zenodo 100-file ceiling.
+
+## 2026-06-25: Noether WebFailedThinking5 P42 / RA82 salvage
+
+Manifest: [20260625_noether_webfailedthinking5_p42_ra82_salvage.json](../manifests/pending-zenodo-uploads/20260625_noether_webfailedthinking5_p42_ra82_salvage.json)
+
+- Noether pending ZIP: `Noether_WebFailedThinking5_106m_P42_RA82_Salvage_WebDrop_20260625.zip`, 1,364,526 bytes, SHA256 `98F2B35A3A6C0C724CB41025B0694736E0D73236EF9EB16C754A745DC35A9D31`.
+- Scope: failed-web salvage package for Paper 42 / RA82 after a 106m49s failed remote run.
+- Useful facts: P42 source witness is the 11-page RA10/Actualites cutout with embedded images reported around 2048 x 3322 / 360ppi; RA82 footnote reset is structural article-boundary evidence; P42 remains a survival/disposition lane needing a fresh source audit.
+- Caveat: no source-certified TeX patch was produced. Do not import P42 TeX, dense formulas, page maps, or crop claims from this failed run. OCR/pdftotext is locator-only and visibly corrupt.
+
+Next action: search for a stronger Actualites/Hermann P42 witness. If none exists, use the RA10 cutout as best-available with explicit caveats in a new source-anchored P42 package from the current local cumulative.
+
 ## 2026-06-25: Noether Paper 12 pp.41-44 GDZ no-patch audit
 
 Manifest: [20260625_noether_p12_p041_044_gdz_nopatch_audit.json](../manifests/pending-zenodo-uploads/20260625_noether_p12_p041_044_gdz_nopatch_audit.json)
