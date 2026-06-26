@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 Deuring pp.727-734 source-audit fix
+
+Manifest: [20260626_noether_r128_deuring_pp727_734_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_deuring_pp727_734_sourceaudit_fix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_Deuring_pp727_734_SourceAuditFix_WebDrop_20260626.zip`, 29,535,796 bytes, SHA256 `746FE5522E89024B956620785606EE379FF345121CF4E638A2FA18B846C8CC89`, 30 entries.
+- Scope: Deuring/Noether post-numbered tail material, collected pp.727-734; IA-derived tail slice source PDF pp.741-748.
+- Applied repair: scoped pp.729-731 `\varkappa` to `\chi` cluster where source prints chi-like K-element/coefficient symbols; `\rho_i^{(j)}` coefficients are intentionally preserved.
+- Checked/no-patch pages: pp.727, 728, 732, 733, and 734.
+- Caveat: targeted German Deuring pp.727-734 source-audit fix package only. Native source is about 360 ppi; 650/1000dpi renders are legibility aids. Not Deuring tail closure, not strict high-resolution certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp.735-746, Kapferer p/q ideal-symbol policy, strict higher-resolution tail certification, and multilingual propagation remain open.
+
 ## 2026-06-26: SGA5 full-audit workpass status through p240
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p240.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p240.json)
@@ -31,7 +43,7 @@ Manifest: [20260626_noether_r128_deuring_pp711_718_nopatch.json](../manifests/pe
 - Source caveat: full-page renders/crops are output at 650 dpi for legibility and audit convenience, but the native source is about 360 ppi; this is not native 650+ ppi certification.
 - Caveat: Deuring pp.711-718 no-patch/source-locus guardrail only. Not Deuring tail closure, not whole-tail certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
 
-Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp.727-746, Kapferer p/q ideal-symbol policy, strict higher-resolution tail certification, and multilingual propagation remain open.
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp.735-746, Kapferer p/q ideal-symbol policy, strict higher-resolution tail certification, and multilingual propagation remain open.
 
 ## 2026-06-26: Noether R128 Deuring pp.719-726 source-audit fix
 
@@ -44,7 +56,7 @@ Manifest: [20260626_noether_r128_deuring_pp719_726_sourceaudit_fix.json](../mani
 - Source caveat: native source is about 360 ppi; 650 dpi renders and a 1000 dpi crop are legibility aids, not native high-resolution certification.
 - Caveat: targeted German Deuring pp.719-726 source-audit fix package only. Not Deuring tail closure, not strict high-resolution certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
 
-Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp.727-746, Kapferer p/q ideal-symbol policy, strict higher-resolution tail certification, and multilingual propagation remain open.
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp.735-746, Kapferer p/q ideal-symbol policy, strict higher-resolution tail certification, and multilingual propagation remain open.
 ## 2026-06-26: Noether R128 Tail/Kapferer pp.764-769 source-audit fix
 
 Manifest: [20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json)
@@ -52,7 +64,7 @@ Manifest: [20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json](.
 - Tail/Kapferer ZIP: `Noether_R128_LocalCodex_TailKapferer_pp764_769_SourceAuditFix_WebDrop_20260626.zip`, 19,336,148 bytes, SHA256 `5A023C2E282D95B5914F1022758196A8199C28D529B77E3FBD70F8749EA8940E`, 17 ZIP entries.
 - Result: two source-visible fixes are applied to the current German cumulative tail: the collected p764 title/byline now includes source `: von H. Kapferer` and removes the non-source expanded byline, and a visible escaped-percent source-page marker before Hilfssatz I on p767 is removed.
 - Source caveat: the IA-derived tail slice is best-available local source, rendered at 650 dpi for legibility from embedded about-native-360 ppi material. This is not strict native-650 page certification.
-- Open items: Kapferer p/q ideal-symbol style remains a focused visual-audit problem; pp770-772 and bibliography/backmatter pp773-777 are handled by the later backmatter addendum; Deuring pp711-718 has a no-patch/source-locus guardrail; Deuring pp727-746 remains open.
+- Open items: Kapferer p/q ideal-symbol style remains a focused visual-audit problem; pp770-772 and bibliography/backmatter pp773-777 are handled by the later backmatter addendum; Deuring pp711-718 has a no-patch/source-locus guardrail; Deuring pp735-746 remains open.
 - Caveat: targeted German tail repair/provenance only. Not whole-Kapferer certification, not whole-tail closure, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
 
 Next action: fold into the next deliberate compact Noether rollup or replacement plan. Do not upload loose while the Noether record remains file-count constrained unless replacing/pruning.
@@ -4947,4 +4959,4 @@ Manifest: [20260626_noether_r128_tail_kapferer_backmatter_pp770_777_sourceaudit_
 - Confirmed repairs: bibliography item 14 `zur Zahlkörpertheorie` -> `zu der Zahlkörpertheorie`; bibliography item 21 `Enzyklopädie` -> source `Encyklopädie`; books-under-Noether entry `Braunschweig` -> printed source form `Brauschweig`.
 - Caveat: best-available source witness is about native 360 ppi, with 650 dpi renders only for legibility. This is a targeted German bibliography/backmatter source-audit addendum, not Kapferer whole-paper certification, not Noether closure, not multilingual synchronization, and not a critical edition.
 
-Next action: fold into the next deliberate compact Noether rollup or replacement plan. Keep Deuring pp727-746 and Kapferer p/q ideal-symbol policy open; do not upload this loose while Noether remains file-count constrained unless replacing/pruning.
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Keep Deuring pp735-746 and Kapferer p/q ideal-symbol policy open; do not upload this loose while Noether remains file-count constrained unless replacing/pruning.
