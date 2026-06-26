@@ -11,6 +11,18 @@ Manifest: [20260626_sga5_live_certlog_p186_status_package.json](../manifests/sou
 
 Next action: continue page-local certification from p187; use this as the current compact SGA5 status packet until a later cursor supersedes it.
 
+## 2026-06-26: Noether P09-P20 non-overlap pointer refresh
+
+Manifest: [20260626_noether_source_library_p09_p20_nonoverlap_pointer_refresh.json](../manifests/source-intake/20260626_noether_source_library_p09_p20_nonoverlap_pointer_refresh.json)
+
+- Pointer ZIP: `Noether_R127_LocalCodex_SourceLibrary_P09_P20_NonOverlap_CumulativePointerIndex_WebDrop_20260626.zip`, 33,935 bytes, SHA256 `4FED19C17A12543F30500FCFE2E3EF2DB5F3A59D52AFEE9E3688EB08267E50FD`, 29 ZIP entries.
+- Refreshed manifest ZIP: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip`, 33,859 bytes, SHA256 `59B2BC2426D008B45DF8C6D1648380720CFAFB68B0A17320ACAAA0077C960F52`, 4 ZIP entries.
+- Scope: source-light routing/status index for the explicit Noether P09-P20 non-overlap lane, pointing web sessions to source-library parts 06, 09, 10, 11, and 12 plus the current source-library manifest.
+- Result: no new TeX patch. Existing P09-P20 packages remain targeted survival/rebase/disposition evidence; this package prevents duplicate work and stale-diff replay.
+- Caveat: source-routing/stale-work-prevention only. Not raw witnesses, not TeX promotion, not global 650+/1000dpi page-by-page certification, not Noether closure, not a critical edition, and not multilingual synchronization.
+
+Next action: use this tiny pointer ZIP when feeding P09-P20 work to web sessions; fold into a compact Noether source-support rollup rather than uploading loose while the Noether record is at the 100-file ceiling.
+
 ## 2026-06-26: Noether Part07 upper-tail pointer refresh through P43
 
 Manifest: [20260626_noether_source_library_part07_p40_p43_pointer_refresh.json](../manifests/source-intake/20260626_noether_source_library_part07_p40_p43_pointer_refresh.json)
