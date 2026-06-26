@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R138 Paper 11 RA58 regression-trap bridge
+
+Manifest: [20260626_noether_r138_r137_p11_ra58_regression_trap_nopatch.json](../manifests/source-intake/20260626_noether_r138_r137_p11_ra58_regression_trap_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R138_LocalCodex_R137_P11_RA58RegressionTrapBridge_NoPatch_WebDrop_20260626.zip`, 3,465,852 bytes, SHA256 `23EE3C4C0B2F6E67D77D170124FCF7C319F1BAAE509F0C24E4BD60F58DE269C5`, 18 entries, max path 170.
+- Scope: no-patch Paper 11 anti-regression bridge after R137. The P11 source-audit span survives byte-exact in the current German cumulative.
+- Trap: do not replay the older RA58 standalone regression candidate `\varphi_3(x)=u\cdot w/v`; the current/source-preferred reading remains `\varphi_3(x)=w\cdot u/v`. Do not replace established `\Omega_\Gamma` notation with `\mathfrak L_\Gamma`.
+- Source caveat: best staged GDZ source is around 400 ppi, below the strict native-650 preference. This is anti-regression/stale-queue evidence only, not full Paper 11 certification, Noether closure, multilingual synchronization, or a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful; do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R137 Paper 16 source-route warning bridge
 
 Manifest: [20260626_noether_r137_r136_p16_source_route_warning_nopatch.json](../manifests/source-intake/20260626_noether_r137_r136_p16_source_route_warning_nopatch.json)
