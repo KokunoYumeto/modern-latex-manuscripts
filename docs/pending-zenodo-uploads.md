@@ -1,3 +1,25 @@
+## 2026-06-26: Noether R128 post-Batch39 all-bridge handoff bundle
+
+Manifest: [20260626_noether_r128_postbatch39_all_bridge_zips_bundle.json](../manifests/source-intake/20260626_noether_r128_postbatch39_all_bridge_zips_bundle.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_PostBatch39_AllBridgeZips_WebDrop_20260626.zip`, 28,293,554 bytes, SHA256 `DFC4964F21C73B693A1E7A1418CA74F06E968F3488158F25882A20AACA52E273`, 9 entries.
+- Scope: one-drag web handoff wrapper for the compact post-Batch39 bridge ZIPs: P04, P09, P22/P29/P30, upper queue P34/P36/P37/P38/P40/P41/P43, and post-P43 tail.
+- Result: this bundle applies no German TeX patch and contains no bulk source images. It is a convenience wrapper to prevent stale queue replay after Batch39/P31; web reviewers should open only the nested bridge relevant to the queue item under consideration.
+- Caveat: component caveats remain controlling. In particular, the Deuring/Kapferer tail component is source-audited against best available local witnesses below strict native 650+ ppi.
+
+Next action: use only as a deliberate Noether refresh/rebalance candidate; avoid duplicate public uploads of both this wrapper and all component ZIPs while Noether is file-count constrained.
+
+## 2026-06-26: Noether R128 post-Batch39 tail survival bridge
+
+Manifest: [20260626_noether_r128_tail_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_tail_postbatch39_survival_nopatch.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_Tail_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,154,519 bytes, SHA256 `445DE61BEBDB8F6A8AD51ACB85F8339A5A55860177F28B151A657A205E6B246B`, 27 entries.
+- Result: no German TeX patch. The current Batch39 German cumulative preserves the accepted post-P43 tail byte-for-byte from `Vorlesung von Prof. E. Noether` onward: current start line 21337, 3,141 tail lines, SHA256 `133f24d34a4d095d2babac1ec67b10ead9f1bf07d5d99caa0458c2bd73e23771`.
+- Guardrail: do not replay older broad tail replacement spans; they may regress P42/P43 boundary handling and post-P43 material.
+- Caveat: Deuring/Kapferer tail material is source-audited against best available lower-native local witnesses (Deuring about 360 ppi IA-derived; Kapferer about 400 dpi GDZ). This is not strict native 650+ high-resolution recertification, not post-P43 tail certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 upper-queue post-Batch39 survival bridge
 
 Manifest: [20260626_noether_r128_upperqueue_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_upperqueue_postbatch39_survival_nopatch.json)
