@@ -5894,3 +5894,21 @@ Manifests: [20260627_noether_postbatch39_tail_survival_nopatch.json](../manifest
 - Tail scope: no-patch post-Batch39 check showing that the current Batch39 German cumulative preserves the accepted post-P43 tail byte-for-byte from `Vorlesung von Prof. E. Noether` onward against the latest LocalCodex tail rollup.
 - Bundle scope: convenience wrapper for five post-Batch39 bridge ZIPs covering P04, P09, P22/P29/P30, upper-queue P34/P36/P37/P38/P40/P41/P43, and the post-P43 tail bridge.
 - Caveat: web/pro handoff and stale-queue-prevention metadata only. No new German patch, no reader-facing edition claim, no source closure, no corpus certification, no multilingual synchronization, and no critical-edition material. Noether is at the Zenodo 100-file ceiling, so these should be used in a deliberate replacement/pruning refresh rather than appended loosely.
+
+## 2026-06-27: Noether R180 new-download routing check
+
+Manifest: [20260627_noether_r180_new_download_check_r158_r159_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r180_new_download_check_r158_r159_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R180_LocalCodex_NewNoetherDownloadCheck_R158_R159_NoPatch_WebDrop_20260627.zip`, 3,473,006 bytes, SHA256 `0D60B77706F7E9E875E6D2BFF3B4A70BFC629EA14DF5AF0D42374923643A40FA`, 14 entries.
+- Scope: no-patch routing check after R158/R159 were touched locally. It warns that R158/R159 are useful evidence ledgers but stale as cumulative bases, and that R178/R179 should remain the active current base unless a newer cumulative is explicitly compared.
+- Caveat: routing/control metadata only. Not a source repair, not reader-facing content, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R110/R111 older working/provenance packages
+
+Manifests: [20260627_noether_r110_working_defect_ledger.json](../manifests/pending-zenodo-uploads/20260627_noether_r110_working_defect_ledger.json), [20260627_noether_r111_working_p09_p13_tail_restore.json](../manifests/pending-zenodo-uploads/20260627_noether_r111_working_p09_p13_tail_restore.json)
+
+- Noether pending/provenance ZIP: `Noether_R110_working_20260620.zip`, 57,512,957 bytes, SHA256 `98C8324BBF3FCCD6AF031EEA9772E5F1058988C5F21E2D1DFEE079CDB954F9AD`, 55 entries.
+- Noether pending/provenance ZIP: `Noether_R111_working_20260620.zip`, 162,989,958 bytes, SHA256 `6E69D5135DB522947F1C137E423E2FD66AEF9ACA46A143B4CE7054DF6EF8D573`, 453 entries.
+- R110 scope: older 453-page German cumulative working pass plus defect/source-witness ledger consolidation; the package itself records thousands of open source-check rows.
+- R111 scope: older 453-page German cumulative working pass restoring Papers 9-13 blocks and collected-volume tail material, with bibliography/backmatter pp.773-777 manually retranscribed; Deuring/Kapferer tail material remained open for manual symbol-level transcription.
+- Caveat: historical working/provenance packages only. They are not current bases, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Use newer cumulative branches for active continuation unless explicitly comparing against these packages.
