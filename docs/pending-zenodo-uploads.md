@@ -5922,3 +5922,11 @@ Manifests: [20260627_noether_r181_two_output_disposition_nopatch.json](../manife
 - R181 scope: no-patch disposition of the newly touched R158/R159 outputs; confirms they did not advance the working cumulative and warns to continue from R178/R179 unless explicitly diffing a newer cumulative.
 - R182 scope: no-patch Paper 30 queue-disposition package showing that an old eight-page manual-anchor queue is stale because printed pp.36, 39, 42, 44, 47, 54, 59, and 61 have current TeX anchors in the R179/R180 line.
 - Caveat: control/provenance only. Not source repairs, not final Paper 30 symbol certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R183 tail visible-artifact cleanup
+
+Manifest: [20260627_noether_r183_tail_visible_sourcepages_artifact_fix.json](../manifests/pending-zenodo-uploads/20260627_noether_r183_tail_visible_sourcepages_artifact_fix.json)
+
+- Noether pending patch ZIP: `Noether_R183_LocalCodex_TailVisibleSourcePagesArtifactFix_WebDrop_20260627.zip`, 3,778,266 bytes, SHA256 `69F27237118B3962628E4C4D0A48B352092D88E0C0A7DDED10A7EC418D6ACA3E`, 16 entries.
+- Scope: one-line cleanup on top of the R179/R180 current line. It removes the visibly rendered escaped production locator `\%\% ===== source pages 751-760 =====` from the post-P43 tail immediately before `Satz 11. Hauptsatz der galoisschen Theorie`.
+- Caveat: no mathematical prose, formulas, theorem statements, tables, diagrams, or source footnotes changed. Tiny artifact-fix patch only: not tail certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
