@@ -5634,3 +5634,12 @@ Manifest: [20260626_noether_r153_p09_survival_nopatch.json](../manifests/pending
 - Noether pending ZIP: `Noether_R153_LocalCodex_R151_P09_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,753,251 bytes, SHA256 `4898FD9EEBF54F13B03C582A3EAB8FB24BC76B761DF909A2BC126D351797B047`, 22 entries.
 - Scope: compact no-patch bridge showing the accepted R134 Paper 09 source-backed span survives raw-exact and normalized-exact in the current R151/R153 cumulative.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not P09 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R154 Paper 01-Paper 04 no-patch survival bridge
+
+Manifest: [20260626_noether_r154_p01_p04_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r154_p01_p04_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R154_LocalCodex_R153_P01_P04_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,799,039 bytes, SHA256 `8E6233E74B79DC1995870DB3235AC082419BA1B37AF74D43DCFE74D725FE4889`, 18 entries.
+- Scope: compact no-patch bridge showing accepted P01-P04 source-backed/reference spans survive raw-exact and normalized-exact in the current R151/R153 cumulative.
+- Result: P01 keeps the prior source-backed regression fix; P02 and P03 keep prior source-backed spans; P04 keeps the accepted GDZ600 rebase body.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not P01-P04 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
