@@ -11,6 +11,17 @@ Manifest: [20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json](.
 
 Next action: use Batch13 as the current German-base web handoff until superseded. Do not upload Batch11/Batch12 or earlier P19 batches as loose reader-facing files unless a deliberate compact Noether rollup needs intermediate provenance.
 
+## 2026-06-26: Noether R128 Paper 17 Batch14 p26 dummy-index targeted fix
+
+Manifest: [20260626_noether_r128_p17_batch14_p26_dummy_index_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch14_p26_dummy_index_fix.json)
+
+- File: `Noether_R128_LocalCodex_P17_SourceAudit_Batch14_P26DummyIndexFix_WebDrop_20260626.zip` (17,884,589 bytes, SHA256 `D334848BB4B0984CA5F76EF92BCE2D6C805FA801F2C97B2497CDD03C38614FF4`).
+- Result: Batch14 makes `cum_de_R128_plus_LocalCodex_P17Batch14_P26DummyIndexFix_P19Batch13CarryForward_20260626.tex` the active local German handoff after Batch13. The package includes the Batch13 input PDF, current German cumulative TeX/PDF/logs, GDZ600 source witnesses for printed pp26-30, and a README.
+- Scope: targeted Paper 17 printed p26 correction in the displayed composition formula defining `\ell_{\rho\tau}b_\tau`: three dummy-index line pairs were restored from sigma drift to source `\varkappa` notation (`r_{\rho\varkappa}r^{\varkappa\tau}`, `t_{i\varkappa}a_\varkappa ... t_{\varkappa j}`, and the following zero relation).
+- Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is targeted source-visible correction evidence only, not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
+
+Next action: use Batch14 as the current German-base web handoff until superseded. Keep Batch13 as P19 provenance; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 17 tail pp31-35 no-new-patch guardrail
 
 Manifest: [20260626_noether_r128_p17_tail_pp31_35_gdz600_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_tail_pp31_35_gdz600_nopatch.json)
