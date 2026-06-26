@@ -5593,3 +5593,11 @@ Manifest: [20260626_noether_r128_p34_batch29_pp646_651_sourcefix.json](../manife
 - Caveat: targeted German cumulative source-audit repair evidence only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
 
 Next action: fold Batch28 and Batch29 into the next deliberate compact Noether rollup/replacement pass; continue Paper 34 from printed p652 unless a newer actual web package appears.
+## 2026-06-26: Noether R148/R149 P10-P14 no-patch bridge rollup
+
+Manifest: [20260626_noether_r148_r149_p10_p14_rollup_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r148_r149_p10_p14_rollup_nopatch.json)
+
+- Noether pending ZIP: `Noether_R148_LocalCodex_R147_P10_P11_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,796,195 bytes, SHA256 `861FE3CC07160DB54CD2AA4C3FF4F5DCBFE2B796B1643943E286ACE98B9BDF58`, 55 entries.
+- Noether pending ZIP: `Noether_R149_LocalCodex_R148_P10_P14_R129R130_Rollup_NoPatch_WebDrop_20260626_COMPACT.zip`, 3,796,955 bytes, SHA256 `95B4E3D322CCC2A03B3EB935E36CA5FC6E6AAE77B06B0D599A71604AEB02401F`, 67 entries.
+- Scope: R148 records no-patch current-survival evidence for P10/P11. R149 is the compact one-drop handoff for the P10-P14 bridge cluster, bundling R148 P10/P11, R146 P12, R145 P13, R144 P14, R129/R130 feedback, current cumulative TeX/PDF, and the running source-audit logbook.
+- Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P10-P14 certification, not corpus closure, not multilingual synchronization, and not critical-edition material. Prefer R149 over separate R144-R148 micro-uploads if Noether file-count pressure remains.
