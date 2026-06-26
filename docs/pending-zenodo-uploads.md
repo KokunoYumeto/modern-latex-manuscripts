@@ -1,5 +1,38 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 04 GDZ600 rebase no-patch control
+
+Manifest: [20260626_noether_r128_p04_gdz600_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p04_gdz600_rebase_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P04_GDZ600_Rebase_NoPatch_WebDrop_20260626.zip` (34,381,401 bytes, SHA256 `E7C98C39ECA5B30C303918ACE1F46C744499523EEA4656DF8AFF346A1CF12EE1`).
+- Result: no source-certain TeX patch was made. The active P04 body in the current cumulative matches the latest P04 GDZ600 source-upgrade authority span after normalized trimming.
+- Queue disposition: the stale pp.140-145 queue should not be replayed against the current cumulative unless a concrete source-current mismatch is found.
+- Caveat: best source in the included P04 source-upgrade package is GDZ raw JPEG material with 600 ppi metadata / 3888 x 5649 page images. This is an upgrade over older rendered witnesses, but still below strict native 650+ full-page certification. Not P04 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: preserve as current P04 no-redo/current-handoff provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 09/Paper 13 rebase no-patch control
+
+Manifest: [20260626_noether_r128_p09_p13_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p09_p13_rebase_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P09_P13_Rebase_NoPatch_WebDrop_20260626.zip` (92,569,268 bytes, SHA256 `8A577D1247FEA27E7F5923E5D308825D2B415C244B975158F5DD49C076D82603`).
+- Result: no source-certain TeX patch was made. P09 is byte-identical to the R127 source-backed rebuilt section; P13 is body-identical to the R127 source-backed rebuilt span after excluding three provenance comment lines.
+- Source/provenance note: the apparent raw P13 span mismatch was comment padding versus three lines of following Paper 14 header drift. Main proof is `03_audit/P09_P13_R128_rebase_span_comparison.csv`.
+- Caveat: no-redo/survival metadata for P09 and P13 only. Not full P09/P13 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: preserve as compact P09/P13 provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 14/Paper 18 rebase no-patch control
+
+Manifest: [20260626_noether_r128_p14_p18_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p14_p18_rebase_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P14_P18_Rebase_NoPatch_WebDrop_20260626.zip` (44,531,789 bytes, SHA256 `DD0BA3AA4023B6E9123BDA765E7782B9F449128F1C2684A46688852F417C9503`).
+- Result: no source-certain TeX patch was made. P14 and P18 current bodies are identical to their R127 source-backed rebuilt spans after excluding the three provenance comment lines from each extracted R127 span.
+- Source/provenance note: main proof is `03_audit/P14_P18_R128_rebase_span_comparison.csv`; carried ledgers report 24/24 targeted P14-P18 survival checks.
+- Caveat: survival/rebase proof for prior source-backed P14/P18 work only. Not fresh global page-by-page certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: preserve as compact P14/P18 provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 12 rebase no-patch control
 
 Manifest: [20260626_noether_r128_p12_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p12_rebase_nopatch.json)
