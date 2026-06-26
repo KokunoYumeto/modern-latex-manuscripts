@@ -96,6 +96,17 @@ Manifest: [20260626_noether_source_library_part07_pointer_refresh.json](../manif
 
 Next action: use these tiny pointer packets with Part07 when feeding upper-band Noether work to web sessions; keep actual TeX promotions in separate compact source-audit rollups.
 
+## 2026-06-26: Noether source-library Part07 P39 pointer refresh
+
+Manifest: [20260626_noether_source_library_part07_p39_pointer_refresh.json](../manifests/source-intake/20260626_noether_source_library_part07_p39_pointer_refresh.json)
+
+- Refreshed source-library manifest ZIP: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip`, 33,484 bytes, SHA256 `E87A678327F67A55DB19879C3F3439B866E12BDBEA5806204D28DE4E961692B0`, 4 ZIP entries.
+- P39 pointer ZIP: `Noether_R127_LocalCodex_SourceLibraryPart07_P39Pointer_WebDrop_20260626.zip`, 17,728 bytes, SHA256 `3BC7F43553D1C0B716C50EDCC3F4AA09BC82135680B08F0C8FD17853D2C57AA6`, 10 ZIP entries.
+- Scope: web-session routing/stale-patch-prevention support for the Noether Paper 39 Part07 source witness lane. It routes to the official ICM 1932 cutout PDF and 600ppi page/crop witnesses and records that known source-repair anchors survive in the current active span.
+- Caveat: source-routing support only. This does not certify Paper 39, close the Noether corpus, promote new TeX, or synchronize downstream translations.
+
+Next action: use this P39 pointer with Part07 when feeding upper-band Noether work to web sessions; keep actual TeX promotions in separate compact source-audit rollups.
+
 ## 2026-06-26: SGA5 live French workpass p176 status package
 
 Manifest: [20260626_sga5_live_certlog_p176_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p176_status_package.json)
