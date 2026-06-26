@@ -5714,3 +5714,20 @@ Manifest: [20260626_noether_r162_p16_p18_survival_nopatch.json](../manifests/pen
 - Scope: compact no-patch P16/P18 source-fix survival bridge against the current R157 cumulative.
 - Result: current R157 P16/P18 survive accepted R150/R137 and R150/R136 references after normalization; the bad P16 GDZ source-route warning remains active and P18 keeps the source-supported congruence endpoint.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ P16/P18 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R163 Paper 17 source-fix survival bridge
+
+Manifest: [20260626_noether_r163_p17_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r163_p17_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R163_LocalCodex_R157_P17_GDZ600SurvivalBridge_NoPatch_WebDrop_20260626.zip`, 702,182 bytes, SHA256 `6B093C74D386FC52ABE0975146E94A5DF0E0F6F1B10A4557326C9A7FA7E35794`, 26 entries.
+- Scope: compact no-patch P17 source-fix survival bridge against the current R157 cumulative.
+- Result: current R157 P17 survives the accepted P14-P20/P17 source-fixed reference after whitespace normalization; title/author/footnote/tag guardrails pass.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ P17 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R164 Paper 15-Paper 20 survival bridge bundle
+
+Manifest: [20260626_noether_r164_p15_p20_survival_bundle.json](../manifests/pending-zenodo-uploads/20260626_noether_r164_p15_p20_survival_bundle.json)
+
+- Noether pending ZIP: `Noether_R164_LocalCodex_R157_P15_P20_SurvivalBridgeBundle_WebDrop_20260626.zip`, 2,648,857 bytes, SHA256 `7BC6AD74DA5B671ADCC31C7477DE03A9214386501FAF7BF41A0D2880E77AE11E`, 6 entries.
+- Scope: convenience web-upload wrapper containing R160, R161, R162, and R163.
+- Caveat: bundle/handoff artifact only. It carries no new TeX patch and no independent source claim beyond the included bridge packages.
