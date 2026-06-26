@@ -5601,3 +5601,12 @@ Manifest: [20260626_noether_r148_r149_p10_p14_rollup_nopatch.json](../manifests/
 - Noether pending ZIP: `Noether_R149_LocalCodex_R148_P10_P14_R129R130_Rollup_NoPatch_WebDrop_20260626_COMPACT.zip`, 3,796,955 bytes, SHA256 `95B4E3D322CCC2A03B3EB935E36CA5FC6E6AAE77B06B0D599A71604AEB02401F`, 67 entries.
 - Scope: R148 records no-patch current-survival evidence for P10/P11. R149 is the compact one-drop handoff for the P10-P14 bridge cluster, bundling R148 P10/P11, R146 P12, R145 P13, R144 P14, R129/R130 feedback, current cumulative TeX/PDF, and the running source-audit logbook.
 - Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P10-P14 certification, not corpus closure, not multilingual synchronization, and not critical-edition material. Prefer R149 over separate R144-R148 micro-uploads if Noether file-count pressure remains.
+
+## 2026-06-26: Noether R150 P16/P18 no-patch survival bridge
+
+Manifest: [20260626_noether_r150_p16_p18_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r150_p16_p18_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R150_LocalCodex_R149_P16_P18_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,474,012 bytes, SHA256 `49F9A2CA9F704D9F864B09BBC8ED1653D2BF228C7F402383F3738216CB77B628`, 20 entries.
+- Scope: no-patch bridge rebasing Paper 16 and Paper 18 local audit evidence onto the current R149 German cumulative.
+- Result: P16 survives normalized-exact; P18 survives raw-exact and normalized-exact. The P16 source-route warning remains active because the staged GDZ-labelled route has a known false-positive page; use the IA Math. Ann. 81 route unless a stronger verified source appears.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not P16/P18 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
