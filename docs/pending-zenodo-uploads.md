@@ -444,6 +444,17 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p220.json](../manifests/sourc
 
 Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p228_20260626.zip`; keep the p220 package as compact provenance/history only.
 
+## 2026-06-26: SGA5 full-audit French workpass status through p230
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p230.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p230.json)
+
+- SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p230_20260626.zip`, 2,180,514 bytes, SHA256 `A2F38EA44FDBB97D0EE59DD9245CDF3FC7DFFDADF2F397E3073F5C7C69210E25`, 8 ZIP entries, 1 PDF.
+- Scope: compact status/workpass package preserving the current French workpass TeX/PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, method note, package status, and file manifest after the page-local ledger reached p230.
+- Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p230; p231 is the next cursor. Recent movement p226-p230 carries the p226 `gr^p(X_{n+r})` source-restoration, p227-p228 clean no-new-fix rows, p229 `\omega_{pq}` / Lemme 4.2.4 / Prop. 4.2.5 title material, and p230 Prop. 4.2.5 statement/proof opening with new array/column-exact cross diagram D136 verified edge-by-edge in the ledger.
+- Caveat: source-audit/workpass status evidence only. SGA5 remains incomplete/errorful globally; the current TeX is a curated expose selection from LNM 589, not the full source scan. Not an English synchronization, not global source certification, not a completed SGA5 edition, and not critical-edition material.
+
+Next action: continue from p231 under the page-local CERT_LOG method. Keep the p228 and earlier cursor packages as compact provenance/history only.
+
 ## 2026-06-26: SGA5 full-audit French workpass status through p228
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p228.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p228.json)
@@ -453,7 +464,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p228.json](../manifests/sourc
 - Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p228; p229 is the next cursor. Recent movement p224-p228 covers Expose V section 3 closure, section 4 opening, diagram D135, Def. 4.1.2, Prop. 4.1.3 proof end, and Lemme 4.2.2 / section 4.2.3 opening. The p223 `p_AR`/`P_AR` source-notation inconsistency is flagged and kept faithful; p226 restores source `gr^p(X_{n+r})`; p227-p228 are clean no-new-fix rows.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: use this as the current SGA5 local cursor and continue from p229. Keep older p226/p225/p220/p213/p208/p205/p199/p197/p194 packages as compact provenance/history only.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p230_20260626.zip`; keep the p228 package as compact provenance/history only.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p226
 
