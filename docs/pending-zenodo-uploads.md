@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 P04/P10 queue-correction current-cumulative control
+
+Manifest: [20260626_noether_r128_p04_p10_queuecorrection_currentcumulative.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p04_p10_queuecorrection_currentcumulative.json)
+
+- P04/P10 ZIP: `Noether_R128_LocalCodex_P04_P10_QueueCorrection_CurrentCumulative_WebDrop_20260626.zip`, 3,442,516 bytes, SHA256 `808BAF5D5BDE4B485ADB800AD4A5D9930E228DE2E7F556F59EF22003DE212748`, 31 ZIP entries.
+- Result: no TeX patch is proposed. P04's current full-body span is byte-identical to the latest P04 GDZ600 source-upgrade authority span; P10's current span is byte-identical to the earlier rebuilt/source-backed P10 span.
+- Queue disposition: remove P04/P10 from the stale replay queue. Reopen only for a concrete source-current mismatch or a genuinely stronger native source. P04 remains best-available GDZ600 but below the strict 650+ native full-page certification rule; P10 remains lower-resolution/best-available with IA processed JP2 as a secondary witness.
+- Caveat: current-branch routing/stale-queue prevention only. Not paper certification, not whole-Noether closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Do not upload loose while the Noether record remains file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 P36-P38/P40-P41-P43 queue-correction current-cumulative controls
 
 Manifests: [P36-P38](../manifests/pending-zenodo-uploads/20260626_noether_r128_p36_p38_queuecorrection_currentcumulative.json), [P40-P41-P43](../manifests/pending-zenodo-uploads/20260626_noether_r128_p40_p41_p43_queuecorrection_currentcumulative.json)
