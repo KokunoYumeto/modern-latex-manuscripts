@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R134 Paper 9 source-upgrade search / no-patch disposition
+
+Manifest: [20260626_noether_r134_p09_source_upgrade_search_nopatch.json](../manifests/source-intake/20260626_noether_r134_p09_source_upgrade_search_nopatch.json)
+
+- Current pending ZIP: `Noether_R134_LocalCodex_P09_SourceUpgradeSearch_NoPatch_WebDrop_20260626.zip`, 3,228,611 bytes, SHA256 `F9A68B92899F5D30AD8E17C632D0882B9696292306DC45EBCDC52A4FF7560C45`, 21 entries.
+- Scope: Paper 9 source-upgrade/routing disposition after R133. It records source-search results, IA/GDZ page-preference ledgers, and no-fix traps; the current P09 span survives the accepted source-backed reference.
+- Result: no German TeX body patch. Strict 650+ full-paper Paper 9 certification remains source-quality blocked; IA 400ppi issue witnesses improve selected page preferences but do not certify the whole paper. Bulk IA source images are retained locally and deliberately excluded from the compact webdrop.
+- Caveat: source-routing and stale-queue-prevention evidence only. Not strict Paper 9 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: use the IA-vs-GDZ preference ledger for future P09 checks; do not replay stale P09 queue rows without a concrete mismatch or stronger source. Fold into the next deliberate Noether refresh/rebalance if useful.
+
 ## 2026-06-26: Noether R133 Paper 10 source-upgrade search / no-patch disposition
 
 Manifest: [20260626_noether_r133_p10_source_upgrade_search_nopatch.json](../manifests/source-intake/20260626_noether_r133_p10_source_upgrade_search_nopatch.json)
