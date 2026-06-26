@@ -34,6 +34,16 @@ Manifest: [20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json](.
 
 Next action: use Batch13 as the current German-base web handoff until superseded. Do not upload Batch11/Batch12 or earlier P19 batches as loose reader-facing files unless a deliberate compact Noether rollup needs intermediate provenance.
 
+### P19 predecessor and superseded batch register
+
+Manifest: [20260626_noether_r128_p19_predecessor_and_superseded_batches.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_predecessor_and_superseded_batches.json)
+
+- Registered predecessor/superseded ZIPs: Batch2 (p31 footnote-10 exponent fix), Batch3 (pp35-38 source-restoration cluster), the plain Batch4 working export, Batch12 (pp61-62 rho/varrho index fix), and an alternate compact Batch13 export.
+- These packages are real provenance for the P19 repair chain, but they are carried forward or superseded by later cataloged packages. Do not upload them loose as five more Noether files while the record is at the file ceiling.
+- Source caveat: the P19 source witnesses in these packages are best-available GDZ imagery at about 400 ppi, below the strict 650+ ppi certification floor.
+
+Next action: preserve the manifest as the compact pointer to the predecessor/superseded P19 chain; use only if a future Noether rollup needs the old ledgers/diffs.
+
 ## 2026-06-26: Noether R128 Paper 17 Batch14 p26 dummy-index targeted fix
 
 Manifest: [20260626_noether_r128_p17_batch14_p26_dummy_index_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch14_p26_dummy_index_fix.json)
