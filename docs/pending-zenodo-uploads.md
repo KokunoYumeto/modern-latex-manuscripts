@@ -1,15 +1,26 @@
 # Pending Zenodo Uploads
 
-## 2026-06-26: SGA5 live French workpass p186 status package
+## 2026-06-26: SGA5 live French workpass p188 status package
 
-Manifest: [20260626_sga5_live_certlog_p186_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p186_status_package.json)
+Manifest: [20260626_sga5_live_certlog_p188_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p188_status_package.json)
 
-- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p186_Status_20260626.zip`, 2,221,319 bytes, SHA256 `9F25A939A4AEEBD179CE18A78C8B6A88D861240F9EA02C5853FD0CECE8CD7630`, 12 ZIP entries.
-- Scope: live French SGA5 workpass after the hand-certification ledger reached p186. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-186 are promoted by the page-local certification ledger.
-- Result: section 5 remains locally closed through p182; pp.183-186 start section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p186 defines the non-commutative local trace `(6.5.3)` and records D101, the fixed-point cartesian square, as perfect.
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p188_Status_20260626.zip`, 2,225,759 bytes, SHA256 `0FEB3930450F13F4D06771FFA8B003579E41ED887B4FEBF90D45A8DC0F21F23A`, 12 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p188. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-188 are promoted by the page-local certification ledger.
+- Result: section 5 remains locally closed through p182; pp.183-188 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the pairing/cup-product construction and the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p187; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: continue page-local certification from p189; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+
+## 2026-06-26: Noether R128 source-convergence/routing package
+
+Manifest: [20260626_noether_r128_source_convergence_package.json](../manifests/source-intake/20260626_noether_r128_source_convergence_package.json)
+
+- ZIP: `Noether_R128_20260626.zip`, 165,865,861 bytes, SHA256 `5FF94BB9830DDCA9BFC69B870DEBE3A09704F012319337D243632A9229223D95`, 97 ZIP entries.
+- Scope: convergence package around the current practical R127 German cumulative, Local Codex P01/P22/P30/P37/P42/tail-bibliography fixes, queue reconciliation, P35 source support, and source-inventory indexes.
+- Result: R128 carries 16 queue records and 28,020 indexed source-inventory rows. It identifies `cum_de_R127_plus_localcodex_P01_P22_P30_P37_P42_tailbibliographyfix_20260626.tex` as the current practical local German/source-audit candidate. P36/P38 salvage diagnostics produced no promoted change.
+- Caveat: source-routing/convergence support only. This is not a new whole-corpus closure claim, not a critical edition, not multilingual synchronization, and not a loose-file upload recommendation while the Noether record is at the file ceiling.
+
+Next action: use R128's queue-ranking and inventory files to decide the next non-duplicative Noether source-audit targets; fold it into a compact Noether source-support rollup after pruning/replacement planning.
 
 ## 2026-06-26: Noether P09-P20 non-overlap pointer refresh
 
@@ -1138,9 +1149,9 @@ Next action: use as status/caveat evidence for the SGA record and workflow-metho
 Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pending-zenodo-uploads/20260625_classical_lean_audit_watch_sensecheck.json)
 
 - Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 56,634 bytes, SHA256 `AF877C2FD65E8D2D892AB19BBB662588F51EDA38E0D1B06BD31187AD93B726B9`.
-- Scope: compact audit handoff for Claude-started Lean formalization experiments attached to the classical transcription corpus. This is not a promoted proof corpus and not DOI-ready.
+- Scope: compact watch handoff for Claude-started Lean formalization experiments attached to the classical transcription corpus. This is possible Lean/mathlib-adjacent library material, not archive certification and not DOI-ready.
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
-- Required before any public proof/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source anchors to the actual transcribed TeX/public catalog. A theorem map must distinguish the source statement, normalized mathematical statement, Lean theorem, and build status.
+- Required before any public Lean/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source or motivation anchors to the actual transcribed TeX/public catalog where applicable. A theorem map must distinguish the source or motivation statement, normalized mathematical statement, Lean theorem, and build status.
 
 Next action: use as a web/pro review packet or workflow-record candidate only; verify source alignment for the three green Lean theorems before any public proof claim.
 
