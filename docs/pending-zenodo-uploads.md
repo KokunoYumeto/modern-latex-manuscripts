@@ -5696,3 +5696,12 @@ Manifest: [20260626_noether_r160_p15_survival_nopatch.json](../manifests/pending
 - Scope: compact no-patch Paper 15 source-fix survival bridge against the current R157 cumulative.
 - Result: the current R157 Paper 15 span is byte-for-byte equal to the accepted R140/Batch25 P15 source-fix reference span; named p155 formula and Schur citation anchors pass.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ Paper 15 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R161 Paper 19/Paper 20 source-fix survival bridge
+
+Manifest: [20260626_noether_r161_p19_p20_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r161_p19_p20_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R161_LocalCodex_R157_P19_P20_SourceFixSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 829,398 bytes, SHA256 `ECB94EFB35064DAAD6D7A739C71B1B1196FF6E5C68650FD1F7B332A81A700296`, 175 entries.
+- Scope: compact no-patch P19/P20 source-fix survival bridge against the current R157 cumulative.
+- Result: current R157 P19/P20 match accepted R143/source-backed references after whitespace normalization; fragile P19 arithmetic anchors and the P20 author line pass.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ P19/P20 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
