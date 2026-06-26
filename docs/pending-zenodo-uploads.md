@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Classical Lean formalization candidates
+
+Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/pending-zenodo-uploads/20260626_classical_lean_formalization_candidates.json)
+
+- ZIP: `Classical_Lean_Formalization_Candidates_20260626.zip`, 48,862 bytes, SHA256 `7A6375AEF2913B586D5F98665E28699AD3E306C1DCE1B209166D7969F8E0F393`, 27 ZIP entries.
+- GitHub-visible path: `formalization/lean/classical_candidates_20260626`.
+- Scope: useful Lean 4 formalization/library candidates inspired by the historical transcription project and side work. Green classical modules: Jordan affine-line group order, Jordan primitive-root count, Steinitz perfect-field/Frobenius criterion, and Weber cubic polynomial identity. Side lane: split-zero globalization core algebra for the separate split-support/projectification paper.
+- Build/provenance: package includes Lean sources, copied toolchain/Lake metadata, build logs, planning/target notes, and a failed/superseded `ClassicalBatch2.lean` provenance file.
+- Caveat: this is useful formal mathematics / Lean candidate material. It is not a claim that scanned editions, translations, diagrams, or page order have been source-certified.
+
+Next action: publish as a standalone Lean/formalization companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
+
 ## 2026-06-26: SGA5 live French workpass p177 status package
 
 Manifest: [20260626_sga5_live_certlog_p177_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p177_status_package.json)
