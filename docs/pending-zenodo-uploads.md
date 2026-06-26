@@ -13,9 +13,9 @@ Next action: continue page-local certification from p178; use this as the curren
 
 ## 2026-06-26: Noether general source library v1
 
-Manifest: [20260626_noether_general_source_library_v1_full8.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full8.json)
+Manifest: [20260626_noether_general_source_library_v1_full9.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full9.json)
 
-- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` plus eight upload parts:
+- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` (82,003 bytes, SHA256 `70EE638CC8D583272B80FD223B0C6B1251FCADDB5360C5082273D53B9F869E59`) plus nine upload parts:
   `part01_core_collected_tail` (171,527,284 bytes),
   `part02_ia_mathann_96` (430,695,989 bytes),
   `part03_ia_mathann_83_85_90` (483,118,169 bytes),
@@ -23,11 +23,13 @@ Manifest: [20260626_noether_general_source_library_v1_full8.json](../manifests/s
   `part05_targeted_P29_P30_source_witnesses` (51,212,947 bytes),
   `part06_P09_P20_nonoverlap_source_witnesses` (192,352,588 bytes),
   `part07_P31_P43_upperband_source_witnesses` (368,553,908 bytes),
-  and `part08_P01_P08_P21_P23_source_witnesses` (200,134,395 bytes).
-- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, P09-P20 non-overlap source witnesses, P31-P43 upper-band source witnesses, P01-P08/P21-P23 bridge source material, crops, metadata, page maps, and source ledgers.
+  `part08_P01_P08_P21_P23_source_witnesses` (200,134,395 bytes),
+  and `part09_P14_P15_P16_GDZ_raw_source_upgrade` (83,585,846 bytes, SHA256 `BFC6D14BB37767D29E4AF1D97C55E7D4C8292EDDCF2BE45D8987A98337E664AD`).
+- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, P09-P20 non-overlap source witnesses, P31-P43 upper-band source witnesses, P01-P08/P21-P23 bridge source material, crops, metadata, page maps, source ledgers, and the P14/P15/P16 official GDZ raw source upgrade.
+- Part09 detail: route ledgers, GDZ manifests, raw full-page images, and image-info JSONs for P14 printed pp.182-203, P15 printed pp.138-156, and P16 printed pp.25-30.
 - Caveat: source-intake/project-source support only. This is not a cumulative reader, not a TeX patch, not paper certification, not multilingual synchronization, and not a critical edition.
 
-Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure.
+Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure. This supersedes the earlier full8 source-library staging.
 
 ## 2026-06-26: SGA5 live French workpass p176 status package
 
