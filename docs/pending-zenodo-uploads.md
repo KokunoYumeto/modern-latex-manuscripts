@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 P14-P20 post-Batch39 bridge with accepted P15 drift
+
+Manifest: [20260626_noether_r128_p14_p20_postbatch39_bridge_p15accepteddrift.json](../manifests/source-intake/20260626_noether_r128_p14_p20_postbatch39_bridge_p15accepteddrift.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_P14_P20_PostBatch39Bridge_P15AcceptedDrift_WebDrop_20260626.zip`, 4,258,658 bytes, SHA256 `0E737CF301E4F2B435FAFABF0BDD0E665B0876A23C6222B4BFE91102A6700169`, 39 entries.
+- Superseded local context ZIP: `Noether_R128_LocalCodex_P14_P20_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,220,381 bytes, SHA256 `8541E386D257CDA8704DB7E9B9E8AA694F01EE3BF3EB6A8F6014F79518DB827E`, 33 entries. It is useful provenance because it exposed that P15 no longer matched the older P14-P20 bridge, but it is superseded as active guidance by the accepted-drift bridge.
+- Result: no new German TeX patch. P14 and P16-P20 survive exactly against the earlier P14-P20 bridge; P15 intentionally differs from the old bridge and matches the newer P15 Batch25 source-audit branch exactly.
+- Guardrail: do not revert P15 to the old pre-Batch39 P14-P20 bridge span. Treat current Batch39 P15 as the accepted branch unless a concrete source-current mismatch appears.
+- Caveat: current-branch integration/survival control only. Not fresh full 650+ dpi visual certification, not P14-P20 certification, not Noether closure, not multilingual synchronization, and not a critical edition. P15/P16 native GDZ sources are 400ppi; targeted crops are render enlargements from native 400ppi images.
+
+Next action: fold the current ZIP into the next deliberate Noether Zenodo refresh/rebalance; do not loose-upload without replacement/pruning because the Noether record is at the file ceiling.
+
 ## 2026-06-26: Noether R128 Paper 31 Batch39 pp.095-104 targeted source fixes
 
 Manifest: [20260626_noether_r128_p31_batch39_pp095_104_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p31_batch39_pp095_104_sourcefix.json)
