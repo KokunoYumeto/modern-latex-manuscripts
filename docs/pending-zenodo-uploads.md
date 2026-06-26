@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R130 intake feedback / Batch39 plus P35 header handoff
+
+Manifest: [20260626_noether_r130_intake_feedback_batch39_p35header.json](../manifests/source-intake/20260626_noether_r130_intake_feedback_batch39_p35header.json)
+
+- Current pending ZIP: `Noether_R130_IntakeFeedback_Batch39PlusP35Header_WebDrop_20260626.zip`, 5,474,236 bytes, SHA256 `34BE977DE75C69E5DB5E3D8D0F7F005BFED74848D19E4BA8DD4BBDB96C47C8D5`, 23 entries.
+- Scope: merges exactly the source-certain R130 Paper 35 header fix into the newer Batch39 German cumulative and compiles the result as `cum_de_Batch39_plus_R130_P35Header_20260626.tex` / PDF.
+- Integrated fix: Paper 35 title now has the source-visible period and the source-visible author line `Von Emmy Noether (Göttingen).` before the journal citation.
+- Important disposition: do not use `cum_de_R130_web_cumulative_DO_NOT_USE_AS_MASTER.tex` as master. That loose R130 cumulative forks from the older P34 Batch36/R129 chain and is shorter than Batch39; P31 differs from the current Batch39 branch.
+- Caveat: current German handoff/control package only. Not a P35 body repair, not Paper 35 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: prefer this compact Batch39-plus-P35-header package over the raw R130 cumulative in the next deliberate Noether Zenodo refresh/rebalance.
+
 ## 2026-06-26: Noether R130 source-file probe and Paper 35 header fix
 
 Manifest: [20260626_noether_r130_p35_headerfix_sourcefiles.json](../manifests/source-intake/20260626_noether_r130_p35_headerfix_sourcefiles.json)
