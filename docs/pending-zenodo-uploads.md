@@ -12,6 +12,17 @@ Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/p
 
 Next action: publish as a standalone Lean/formalization companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
 
+## 2026-06-26: SGA5 live French workpass p182 status package
+
+Manifest: [20260626_sga5_live_certlog_p182_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p182_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p182_Status_20260626.zip`, 2,216,100 bytes, SHA256 `125B6E2FBC101FFEE673A82FA5EA54700B1683DBC3510E2B6B46CAB08496572A`, 12 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p182. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-182 are promoted by the page-local certification ledger.
+- Result: pp.181-182 close section 5's semi-linear / `\varphi`-twisted trace endpoint, mark D100 perfect, and record section 5 complete in the ledger. The ledger reports 15 TeX fixes plus one cosmetic p172 cleanup, 31 source typos found, D001-D100 covered, and the workpass compile gate at 307 pages / zero fatal errors.
+- Caveat: source-audit status evidence only. Section 5 is locally closed in the page-local ledger, but SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
+
+Next action: continue page-local certification into section 6 from p183; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+
 ## 2026-06-26: SGA5 live French workpass p180 status package
 
 Manifest: [20260626_sga5_live_certlog_p180_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p180_status_package.json)
@@ -21,7 +32,7 @@ Manifest: [20260626_sga5_live_certlog_p180_status_package.json](../manifests/sou
 - Result: pp.178-180 continue Expose III B Part II section 5, checking the Prop. 5.11.3 proof diagrams D095-D096, the Cor. 5.11.5 trace-divisibility material, the section 5.12 external-tensor-product diagrams D097-D099, and multiplicativity formula 5.12.5. The ledger reports 15 TeX fixes plus one cosmetic p172 cleanup, D001-D099 covered, and the workpass compile gate at 307 pages / zero fatal errors.
 - Caveat: source-audit status evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p181; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: superseded by the p182 package above; keep as provenance only.
 
 ## 2026-06-26: SGA5 live French workpass p177 status package
 
