@@ -387,3 +387,5 @@ Weber live audit later refresh 2026-06-25: WEBER_CERT_LOG now reaches p467. The 
 
 
 SGA5 live workpass status refresh 2026-06-25 (superseded cursor): earlier p93 opening-range notes are superseded by later manual audit entries above. They remain workflow history only; use the latest 2026-06-26 p240 status entry for the controlling current claim. SGA5 still remains incomplete/errorful globally.
+
+Noether P34 Batch35 local staging 2026-06-26: `Noether_R128_LocalCodex_P34_Batch35_pp683_686_SourceFix_WebDrop_20260626.zip` is queued under manifest 20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json. It continues the targeted German Paper 34 source-repair pass through printed pp.683-686, with cumulative TeX/PDF/TXT, a sourcefix diff, p683-p686 GDZ source witnesses, render checks, and XeLaTeX logs. Treat as targeted repair/provenance only: not Paper 34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.

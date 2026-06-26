@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 34 Batch35 pp.683-686 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch35_pp683_686_SourceFix_WebDrop_20260626.zip`, 15,477,758 bytes, SHA256 `FCFC0F3EAED220D9BCA76CC8D0F335264C5BE43C6B7FEF4D3E2E45A9DFD3814E`, 26 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.683-686.
+- Confirmed repairs/dispositions from the package diff: reworks the center-representation theorem block; restores the first-kind field-extension criterion and component behavior; restores the systems-without-radical application and associated Schur note; reworks the Abelian-group/character construction; and reworks the system-determinant section through the regular/antistrophe matrix discussion.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses p683-p686, about 400 ppi by continuity with the adjacent Paper 34 witness set. This remains below the strict native 650+ certification floor.
+- Build: XeLaTeX pass 2 produced a 470-page A4 cumulative PDF.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material. The tiny `02_span_tex` file is a placeholder; the cumulative TeX plus diff are the operative text witnesses.
+- Next action: fold into the next deliberate compact Noether rollup/replacement pass; continue Paper 34 from printed p687 unless a newer actual web package appears.
 ## 2026-06-26: Noether R128 Paper 34 Batch34 pp.676-682 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch34_pp676_682_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch34_pp676_682_sourcefix.json)
