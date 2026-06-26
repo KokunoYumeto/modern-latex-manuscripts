@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 latest cumulative all-local-audit handoff with tail-bibliography fix
+
+Manifests: [20260626_noether_r128_latest_cumulative_alllocalaudit_tailbibfix.json](../manifests/source-intake/20260626_noether_r128_latest_cumulative_alllocalaudit_tailbibfix.json), [20260626_noether_r128_p22_p30_tailbib_regressionfix.json](../manifests/source-intake/20260626_noether_r128_p22_p30_tailbib_regressionfix.json)
+
+- Latest cumulative/audit ZIP: `Noether_R128_LocalCodex_LatestCumulative_AllLocalAudit_WebDrop_20260626.zip`, 4,004,535 bytes, SHA256 `35FB4408C7F2B2796CC6F491D014392A422034F7A5796264089A730CCC9C399A`, 125 ZIP entries.
+- Direct P22/P30/tail repair ZIP: `Noether_R128_LocalCodex_P22P30TailRegressionFix_WebDrop_20260626.zip`, 3,783,455 bytes, SHA256 `D43BDEBAD65A24FDF930C22EF1B66D301F57F5E442307D0E026B6644556300F4`, 19 ZIP entries.
+- Scope: the direct repair package reinstates the Paper 22 source-restored span, Paper 30 source-restored span, and three exact source-confirmed tail bibliography/end-matter fixes. It preserves the P34 table/Dred trap, the P37 product-form Fuehrer-factor trap, and the P42 `Sp(\widetilde a a)` trap, with 32/32 combined survival checks and XeLaTeX pass1/pass2 exit 0.
+- Result: the latest cumulative/audit ZIP is the convenient current web-drag handoff. It bundles `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex` / PDF plus compact audit ledgers for P09-P18, P19-P20 routing, P34, P36/P38, P41-P43, P22/P30/P37/P42, and tail-bibliography controls.
+- Caveat: current German cumulative regression-repair and audit-control handoff only. It is not the full source-image library, not global page-by-page certification, not a critical edition, and not multilingual synchronization. Use the Noether general source-library ZIPs separately when source witnesses are needed.
+
+Next action: treat `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex` as the active Noether German base until superseded; fold this compact handoff into the next deliberate Noether Zenodo replacement/rollup plan.
+
 ## 2026-06-26: Noether R128 Paper 22/Paper 30 regression fix and P34/P41-P43 survival controls
 
 Manifests: [20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json](../manifests/source-intake/20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json), [20260626_noether_r128_p34_tabledred_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p34_tabledred_survival_nopatch.json), [20260626_noether_r128_p41_p43_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p41_p43_survival_nopatch.json)
@@ -11,7 +23,7 @@ Manifests: [20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json]
 - Result: use `cum_de_R128_plus_LocalCodex_P22P30P37P42antiRegression_20260626.tex` as the current active Noether German cumulative handoff until superseded. The P34 and P41-P43 packages apply no new TeX patch; they are queue-hygiene / anti-regression controls to prevent stale reopening of already represented loci.
 - Caveat: targeted German cumulative repair and regression-control material only. Not whole-paper certification, not whole-corpus closure, not multilingual synchronization, and not a critical edition. P34 uses earlier best-available about-400ppi witness context, below strict final-certification preference.
 
-Next action: fold these into the next compact Noether rollup/replacement plan rather than uploading loose, because the Noether Zenodo record is at the 100-file ceiling.
+Next action: superseded for active-base purposes by `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex`; keep these packages as P22/P30/P34/P41-P43 provenance/control layers and fold them into the next compact Noether rollup/replacement plan rather than uploading loose, because the Noether Zenodo record is at the 100-file ceiling.
 
 ## 2026-06-26: Noether R128 Paper 37 regression fix and P09-P13 survival control
 
