@@ -1,5 +1,18 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 22/Paper 30 regression fix and P34/P41-P43 survival controls
+
+Manifests: [20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json](../manifests/source-intake/20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json), [20260626_noether_r128_p34_tabledred_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p34_tabledred_survival_nopatch.json), [20260626_noether_r128_p41_p43_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p41_p43_survival_nopatch.json)
+
+- P22/P30 repair ZIP: `Noether_R128_LocalCodex_P22P30RegressionFix_P34P36P38Survival_WebDrop_20260626.zip`, 3,836,195 bytes, SHA256 `1BD8085744274C62A421E737F50644E2CC14220F1A1447A3A39AB2A7E92F9791`, 20 ZIP entries.
+- P34 no-patch control ZIP: `Noether_R128_LocalCodex_P34_TableDredSurvival_NoNewPatch_WebDrop_20260626.zip`, 3,157,883 bytes, SHA256 `B469A8879614804C54A1DDA894F15E4287DDB9D0A024DB6069B1B62234C08D1D`, 11 ZIP entries.
+- P41-P43 no-patch control ZIP: `Noether_R128_LocalCodex_P41_P43_SurvivalAudit_NoNewPatch_WebDrop_20260626.zip`, 3,162,966 bytes, SHA256 `6F7C83C0C1F54885EE2411990C89CE43D91E307BC83D280E052573677BCC6A2F`, 17 ZIP entries.
+- Scope: the P22/P30 package is a real targeted German cumulative regression repair. It restores the complete Paper 22 span from the prior source-restored R127 LocalCodex authority after R128 regressed the Hentzelt/Noether title and dropped source-restored anchors, and it restores the complete Paper 30 span after R128 regressed at least the Krull citation and missed Paper 30 source-restoration anchors. It carries forward the already-active P37/P42 anti-regression repairs.
+- Result: use `cum_de_R128_plus_LocalCodex_P22P30P37P42antiRegression_20260626.tex` as the current active Noether German cumulative handoff until superseded. The P34 and P41-P43 packages apply no new TeX patch; they are queue-hygiene / anti-regression controls to prevent stale reopening of already represented loci.
+- Caveat: targeted German cumulative repair and regression-control material only. Not whole-paper certification, not whole-corpus closure, not multilingual synchronization, and not a critical edition. P34 uses earlier best-available about-400ppi witness context, below strict final-certification preference.
+
+Next action: fold these into the next compact Noether rollup/replacement plan rather than uploading loose, because the Noether Zenodo record is at the 100-file ceiling.
+
 ## 2026-06-26: Noether R128 Paper 37 regression fix and P09-P13 survival control
 
 Manifests: [20260626_noether_r128_p37_regressionfix_p36p38_survival.json](../manifests/source-intake/20260626_noether_r128_p37_regressionfix_p36p38_survival.json), [20260626_noether_r128_p09_p13_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p09_p13_survival_nopatch.json)
@@ -10,7 +23,7 @@ Manifests: [20260626_noether_r128_p37_regressionfix_p36p38_survival.json](../man
 - Result: P37 product-form footnote factors such as `2\sqrt[5]{2}\cdot\sqrt[5]{2^4}` are restored, the Paper 37 group-ring ideal wording with `(einseitigen)` is restored, and the patched cumulative TeX/PDF compiled with XeLaTeX. P09-P13 report 5/5 survival checks with no new TeX patch.
 - Caveat: targeted German cumulative repair/regression control only. Not full Paper 09-13 or Paper 36-38 certification, not whole-corpus closure, not multilingual synchronization, and not a critical edition. P37 witnesses are strong but mixed-resolution; P36/P38 and P12 use best-available dispositions below strict global 650+ certification preference.
 
-Next action: use `cum_de_R128_plus_LocalCodex_P37P42antiRegression_20260626.tex` as the current active German R128 handoff until superseded; fold both packages into a compact Noether rollup after deliberate pruning/replacement because the Noether Zenodo record is at the file ceiling.
+Next action: superseded for active-base purposes by `cum_de_R128_plus_LocalCodex_P22P30P37P42antiRegression_20260626.tex`; keep this package as the P37 repair provenance layer and fold it into a compact Noether rollup after deliberate pruning/replacement because the Noether Zenodo record is at the file ceiling.
 
 ## 2026-06-26: SGA5 live French workpass p190 status package
 
@@ -79,7 +92,7 @@ Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/p
 - GitHub-visible path: `formalization/lean/classical_candidates_20260626`.
 - Scope: useful Lean 4 library/formalization candidate material inspired by the historical transcription project and side work. Green classical modules: Jordan affine-line group order, Jordan primitive-root count, Steinitz perfect-field/Frobenius criterion, and Weber cubic polynomial identity. Side lane: split-zero globalization core algebra for the separate split-support/projectification paper.
 - Build/provenance: package includes Lean sources, copied toolchain/Lake metadata, build logs, planning/target notes, and a failed/superseded `ClassicalBatch2.lean` provenance file.
-- Caveat: this is useful formal mathematics / Lean library-candidate material. It is not proof, certification, or audit of the scanned editions, translations, diagrams, page order, or source fidelity of the archive.
+- Caveat: this is useful formal mathematics / Lean library-candidate material and possible addition material for a Lean/mathlib-style library. It is not proof, certification, or audit of the scanned editions, translations, diagrams, page order, or source fidelity of the archive.
 
 Next action: publish as a standalone Lean/library companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
 
