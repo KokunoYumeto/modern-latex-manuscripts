@@ -5610,3 +5610,11 @@ Manifest: [20260626_noether_r150_p16_p18_survival_nopatch.json](../manifests/pen
 - Scope: no-patch bridge rebasing Paper 16 and Paper 18 local audit evidence onto the current R149 German cumulative.
 - Result: P16 survives normalized-exact; P18 survives raw-exact and normalized-exact. The P16 source-route warning remains active because the staged GDZ-labelled route has a known false-positive page; use the IA Math. Ann. 81 route unless a stronger verified source appears.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not P16/P18 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R151 P10-P20 compact bridge rollup
+
+Manifest: [20260626_noether_r151_p10_p20_bridge_rollup_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r151_p10_p20_bridge_rollup_nopatch.json)
+
+- Noether pending ZIP: `Noether_R151_LocalCodex_R150_P10_P20_CompactBridgeRollup_NoPatch_WebDrop_20260626.zip`, 3,512,589 bytes, SHA256 `9B15D471F79B36F03A1FE42F9FDE5C3C0D6A2815C6ADD0B6852426E2C03D0156`, 75 entries.
+- Scope: compact no-patch status handoff for the P10-P20 non-overlap lane after R150, with current cumulative TeX/PDF, P10-P20 status matrix, compact bridge docs/ledgers, and running source-audit logbook.
+- Caveat: backend coordination and stale-queue-prevention evidence only. Not a fresh repair, not strict page-by-page native-650 source certification, not P10-P20 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
