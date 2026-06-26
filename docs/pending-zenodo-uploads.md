@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R133 Paper 10 source-upgrade search / no-patch disposition
+
+Manifest: [20260626_noether_r133_p10_source_upgrade_search_nopatch.json](../manifests/source-intake/20260626_noether_r133_p10_source_upgrade_search_nopatch.json)
+
+- Current pending ZIP: `Noether_R133_LocalCodex_P10_SourceUpgradeSearch_NoPatch_WebDrop_20260626.zip`, 3,462,301 bytes, SHA256 `4C2795E7D2121E2D374F112D13E278B2AC33D919E447E88E16A6AA70A93FDC05`, 15 entries.
+- Scope: Paper 10 source-upgrade/routing disposition after R132. It records source-search results and no-fix traps; the current P10 span survives the accepted source-backed reference in R131/R132.
+- Result: no German TeX body patch. Strict 650+ full-paper Paper 10 certification remains source-quality blocked; best staged witnesses remain mixed GDZ 400/600 ppi plus IA secondary JP2, and the Springer PDF endpoint returned HTML rather than a usable PDF.
+- Caveat: source-routing and stale-queue-prevention evidence only. Not strict Paper 10 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: do not replay stale P10 queue rows unless a concrete source-current mismatch or genuinely stronger source witness appears. Fold into the next deliberate Noether refresh/rebalance if useful.
+
 ## 2026-06-26: Noether R132 P09-P20 survival bridge after R131
 
 Manifest: [20260626_noether_r132_r131_p09_p20_survival_bridge_nopatch.json](../manifests/source-intake/20260626_noether_r132_r131_p09_p20_survival_bridge_nopatch.json)
