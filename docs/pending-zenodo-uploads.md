@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 34 Batch36 pp.687-688 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch36_pp687_688_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch36_pp687_688_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch36_pp687_688_SourceFix_WebDrop_20260626.zip`, 10,380,083 bytes, SHA256 `6D053B61DCE23D51AAC6AE6F82AB680BB6CC0E6B98D8A55EAD9AB19FADEEBAA7`, 25 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.687-688 / section 24.
+- Confirmed repairs/dispositions: restores Sp_{\mathfrak D}(a), the source-shaped reducible trace block, Hauptspur/reduzierte Spur formulas, the character/homomorphism relation chi(z)=n_nu*Theta(z), and the representation-class proof formula p_nu=Sp e^(nu)/n_nu.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses p687-p688, about 400 ppi by continuity with the adjacent Paper 34 witness set. This remains below the strict native 650+ certification floor.
+- Build: XeLaTeX pass 2 produced a 470-page A4 cumulative PDF; rendered QA pages 347-350 are included.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+- Next action: fold into the next deliberate compact Noether rollup/replacement pass; continue Paper 34 from printed p689 / section 25 unless a newer actual web package appears.
 ## 2026-06-26: Noether R128 Paper 34 Batch35 pp.683-686 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json)
