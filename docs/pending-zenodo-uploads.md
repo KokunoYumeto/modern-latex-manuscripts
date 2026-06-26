@@ -4,12 +4,23 @@
 
 Manifest: [20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json)
 
-- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch13_P63P65P66VarrhoRankFix_WebDrop_20260626.zip` (9,649,351 bytes, SHA256 `622659CD3A41EEC21C4FD6595F998D76155E324CB0A1890F4BB77AC5693E7069`).
-- Result: Batch13 makes `cum_de_R128_plus_LocalCodex_P19Batch13_P65P66VarrhoRankFix_P19Batch12CarryForward_20260626.tex` the active local German handoff. The package includes a freshly compiled 468-page PDF, Batch13 TeX/log, p63/p65/p66 witness crops, carry-forward Batch4-Batch12 ledgers/diffs, checksums, and the Batch12-to-Batch13 diff.
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch13_P63P66TailNotationFix_WebDrop_20260626.zip` (12,234,641 bytes, SHA256 `43589ABC3534EB9B3A837DB984619713E723714B417C06031C31D75BFFCF974B`).
+- Result: Batch13 makes `cum_de_R128_plus_LocalCodex_P19Batch13_P65P66VarrhoRankFix_P19Batch12CarryForward_20260626.tex` the active local German handoff. The package includes compiled Batch12/Batch13 PDFs, Batch13 TeX/log, p63/p65/p66 witness crops, carry-forward Batch4-Batch12 ledgers/diffs, checksums, and the Batch12-to-Batch13 diff.
 - Scope: targeted Paper 19 corrections on printed p63 and pp65-66: fixed ideal `M` restored to fraktur `\mathfrak M`/`\ideal M` in the double-domain example, and the elementary-divisor/rank endpoint block restored from rho-style drift to source `\varrho` notation (`p^{r_\varrho}`, `r_\varrho`, rank `\varrho`, `B_{\varrho+1}`).
 - Caveat: P19 source remains about 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
 
 Next action: use Batch13 as the current German-base web handoff until superseded. Do not upload Batch11/Batch12 or earlier P19 batches as loose reader-facing files unless a deliberate compact Noether rollup needs intermediate provenance.
+
+## 2026-06-26: Noether R128 Paper 17 tail pp31-35 no-new-patch guardrail
+
+Manifest: [20260626_noether_r128_p17_tail_pp31_35_gdz600_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_tail_pp31_35_gdz600_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P17Tail_pp31_35_GDZ600_NoNewPatch_WebDrop_20260626.zip` (3,373,637 bytes, SHA256 `DA54E4D60F78A6A3836F4133375CDDAEB68DD90D76BD5ED5A5E400FD3154C4F0`).
+- Result: no TeX patch. The inspected Paper 17 tail loci on printed pp.31-35 match the current Batch13 cumulative TeX at checked formula/prose/footnote anchors.
+- Scope: source-locus guardrail/stale-loop prevention for formulas (41)-(44), reciprocal-matrix notation, Landau/Blumberg examples, derivative coefficient, integral expression, footnotes 20/27/28/29, and final dates.
+- Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
+
+Next action: keep as compact provenance for the next Noether rollup; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
 
 ## 2026-06-26: Noether R128 Paper 19 Batch11 p55-p58 targeted follow-up
 
