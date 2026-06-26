@@ -5731,3 +5731,12 @@ Manifest: [20260626_noether_r164_p15_p20_survival_bundle.json](../manifests/pend
 - Noether pending ZIP: `Noether_R164_LocalCodex_R157_P15_P20_SurvivalBridgeBundle_WebDrop_20260626.zip`, 2,648,857 bytes, SHA256 `7BC6AD74DA5B671ADCC31C7477DE03A9214386501FAF7BF41A0D2880E77AE11E`, 6 entries.
 - Scope: convenience web-upload wrapper containing R160, R161, R162, and R163.
 - Caveat: bundle/handoff artifact only. It carries no new TeX patch and no independent source claim beyond the included bridge packages.
+
+## 2026-06-26: Noether R165 Paper 10-Paper 14 current survival bridge
+
+Manifest: [20260626_noether_r165_p10_p14_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r165_p10_p14_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R165_LocalCodex_R157_P10_P14_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 769,762 bytes, SHA256 `095E1A35A6781AD120EE3F186B5D43112F54955B4B911AB9259D45326F00F2AE`, 35 entries.
+- Scope: compact no-patch P10-P14 current survival bridge against the current R157 cumulative.
+- Result: current R157 P10, P11, P12, P13, and P14 spans match their accepted prior source-backed bridge references after whitespace normalization; anchor-survival checks report no anomalies.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not native-650 optical recertification, not corpus closure, not multilingual synchronization, and not critical-edition material.
