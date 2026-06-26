@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 04 post-Batch39 survival bridge
+
+Manifest: [20260626_noether_r128_p04_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p04_postbatch39_survival_nopatch.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_P04_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,495,453 bytes, SHA256 `270DAE6B4456AC09D34C42EE2B13458CDD835F06C5A60D1F833D468D8F4800A2`, 40 entries.
+- Result: no German TeX patch. Paper 04's accepted R128 GDZ600-rebase body survives as a raw byte-exact substring of the current Batch39 German cumulative: current body lines 3562-4500, 939 lines total, current/reference hash `362096288dbf05475342a53245eea48141948aeedf08c8525d31cb6cafa9b4fd`.
+- Guardrail: do not patch or reopen Paper 04 from this package; keep the current Batch39 body. The older P04 pp.140-145 queue item remains closed by the GDZ600 source-upgrade no-patch result.
+- Caveat: current-branch survival/reconciliation only. Not a new visual source pass, not Paper 04 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition. P04 GDZ600 source-upgrade remains below the strict 650+ native full-page certification preference.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 09 post-Batch39 survival bridge
 
 Manifest: [20260626_noether_r128_p09_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p09_postbatch39_survival_nopatch.json)
