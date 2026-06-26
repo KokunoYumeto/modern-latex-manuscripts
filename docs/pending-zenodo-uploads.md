@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 34 Batch31 pp.658-663 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch31_pp658_663_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch31_pp658_663_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch31_pp658_663_SourceFix_WebDrop_20260626.zip`, 9,464,688 bytes, SHA256 `AAB0BD96834E5547213D9D1502AD4E0DF48AE2C1AE28D6D5DD44A7E5C2B26055`, 25 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, `Hyperkomplexe Groessen und Darstellungstheorie`, printed pp.658-663.
+- Confirmed repairs: p658 restores the source footnote marker for note 13 after the displayed equation `e_i^2a_i=e_i a_i=0`; p658 moves the matching footnote text to the source-adjacent locus; p661 corrects `Jeder zweiseitige Zerlegung` to source `Jede zweiseitige Zerlegung`.
+- Checked/source-disposition pages: printed pp.658-663; no broad rewrite, table rewrite, notation normalization, or page-range certification is claimed.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
 ## 2026-06-26: Noether R128 Paper 34 Batch30 pp.652-657 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch30_pp652_657_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch30_pp652_657_sourcefix.json)
