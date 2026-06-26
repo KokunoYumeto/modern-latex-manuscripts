@@ -1,3 +1,14 @@
+## 2026-06-26: SGA5 full-audit workpass status through p242
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p242.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p242.json)
+
+- SGA5 status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p242_20260626.zip`, 2,191,276 bytes, SHA256 `F43118B9A80603B7F2C367493E20F91DA30565DFC906129C509C724635FB46B7`, 8 entries.
+- Scope: compact local French workpass/status package preserving the live workpass TeX/PDF/log plus CERT_LOG, AGENT_SCORECARD, method note, status note, and file manifest.
+- Current cursor: completed rows reach p242; p243 is next. p241 checks Cor. 5.2.5, section 5.3 opening, functor prolongation, and Prop. 5.3.1 statement; p242 checks Prop. 5.3.1 proof and Cor. 5.3.2, closing section 5.3 and the main Expose V body sections 1-5 in the live ledger.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: continue from p243 under the CERT_LOG page-local method and keep English synchronization separate.
+
 ## 2026-06-26: Noether R128 Deuring pp.727-734 source-audit fix
 
 Manifest: [20260626_noether_r128_deuring_pp727_734_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_deuring_pp727_734_sourceaudit_fix.json)
