@@ -1,6 +1,6 @@
-# Classical Lean Audit Watch - 2026-06-25
+# Classical Lean Formalization Watch - 2026-06-25
 
-This is a watch/audit handoff, not a DOI-ready publication package.
+This is a watch handoff for Lean formalization/library-candidate material, not a DOI-ready publication package and not an audit or certification layer for the scanned editions.
 
 ## Local roots
 
@@ -27,8 +27,8 @@ This is a watch/audit handoff, not a DOI-ready publication package.
 
 ## Public-status rule
 
-Do not make a DOI or public proof claim yet. Before publication, require: exact Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` logs, no `sorry`, source anchors to the actual transcribed TeX/public catalog, and a human-readable statement distinguishing formal theorem, source theorem, and any modern restatement.
+Do not make a public archive-certification claim from this material. Before publication as a Lean/library-candidate package, require: exact Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` logs where relevant, no `sorry` in promoted modules, source or motivation anchors to the actual transcribed TeX/public catalog where applicable, and a human-readable statement distinguishing formal theorem, source/motivation statement, and any modern restatement.
 
 ## Workflow lesson
 
-The useful archival role of this lane is not just proof checking. It can become a machine-verifiable target layer for selected explicit algebra/arithmetic statements extracted from the transcription corpus. But the authoritative source inventory must be the GitHub/public catalog and transcribed TeX, not loose local scan folders.
+The useful role of this lane is not proof or certification of the archive. It can become a pool of useful Lean/mathlib-style formalization candidates for selected explicit algebra/arithmetic statements inspired by or extracted from the transcription corpus. The authoritative source inventory for motivation links remains the GitHub/public catalog and transcribed TeX, not loose local scan folders.
