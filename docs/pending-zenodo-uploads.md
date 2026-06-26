@@ -12,7 +12,7 @@ Next action: do not skip printed pp.689-692; run an actual source-audit/repair p
 
 Manifest: [20260626_noether_r128_p34_batch36_pp687_688_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch36_pp687_688_sourcefix.json)
 
-- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch36_pp687_688_SourceFix_WebDrop_20260626.zip`, 10,380,083 bytes, SHA256 `6D053B61DCE23D51AAC6AE6F82AB680BB6CC0E6B98D8A55EAD9AB19FADEEBAA7`, 25 entries.
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch36_pp687_688_SourceFix_WebDrop_20260626.zip`, 7,418,011 bytes, SHA256 `60EC8231169029B4E920F6A5FD58856D885C31EF697468529A485A3CBFC61189`, 23 entries.
 - Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.687-688 / section 24.
 - Confirmed repairs/dispositions: restores Sp_{\mathfrak D}(a), the source-shaped reducible trace block, Hauptspur/reduzierte Spur formulas, the character/homomorphism relation chi(z)=n_nu*Theta(z), and the representation-class proof formula p_nu=Sp e^(nu)/n_nu.
 - Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses p687-p688, about 400 ppi by continuity with the adjacent Paper 34 witness set. This remains below the strict native 650+ certification floor.
@@ -23,7 +23,7 @@ Manifest: [20260626_noether_r128_p34_batch36_pp687_688_sourcefix.json](../manife
 
 Manifest: [20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch35_pp683_686_sourcefix.json)
 
-- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch35_pp683_686_SourceFix_WebDrop_20260626.zip`, 15,477,758 bytes, SHA256 `FCFC0F3EAED220D9BCA76CC8D0F335264C5BE43C6B7FEF4D3E2E45A9DFD3814E`, 26 entries.
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch35_pp683_686_SourceFix_WebDrop_20260626.zip`, 12,519,825 bytes, SHA256 `1FF6D8966081102A606CE531FEE8630896A225D59FB429FA51373C29C3A3EBE3`, 29 entries.
 - Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.683-686.
 - Confirmed repairs/dispositions from the package diff: reworks the center-representation theorem block; restores the first-kind field-extension criterion and component behavior; restores the systems-without-radical application and associated Schur note; reworks the Abelian-group/character construction; and reworks the system-determinant section through the regular/antistrophe matrix discussion.
 - Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses p683-p686, about 400 ppi by continuity with the adjacent Paper 34 witness set. This remains below the strict native 650+ certification floor.
