@@ -42,7 +42,18 @@ Manifest: [20260626_noether_r128_p19_batch6_p44_li_complement_fix.json](../manif
 - Scope: one targeted Paper 19 printed p44 correction in the Zusatz to Satz IX, restoring source `L_i` as the complement of `Q_i` in the paragraph and display where the cumulative had drifted to `U_i`.
 - Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
 
-Next action: use the Batch6 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2-Batch5 separately unless a future rollup needs intermediate provenance.
+Next action: superseded for active-base selection by the Batch7 p45 footnote/C-notation follow-up (`20260626_noether_r128_p19_batch7_p45_cnotation_footnote24_fix.json`); keep this Batch6 package as compact P19 p44 provenance.
+
+### Noether R128 P19 Batch7 p45 footnote-24 and C-notation follow-up
+
+Manifest: [20260626_noether_r128_p19_batch7_p45_cnotation_footnote24_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch7_p45_cnotation_footnote24_fix.json)
+
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch7_P45CNotationFootnote24Fix_WebDrop_20260626.zip` (4,330,307 bytes, SHA256 `E77FBEE1823EE70965E68B8EC8B0E83E4FB4DFBC7EBFD123F416808E8F54A684`).
+- Result: active German TeX becomes `cum_de_R128_plus_LocalCodex_P19Batch7_P45CNotationFootnote24Fix_P19Batch6CarryForward_20260626.tex`. The ZIP tests successfully, includes one PDF, and carries current TeX/PDF/logs, p41/p43/p44/p45 witness crops, confirmed-fix CSVs, visual dispositions, diffs, and checksums/provenance.
+- Scope: two targeted Paper 19 printed p45 corrections. Footnote 24 restores source `T=S` in the non-symmetry/non-relatively-prime example; Satz X proof 2 restores source `C_1`, `C_{12}`, and `C_{12...lambda-1}` notation for successive complements instead of the drifted barred-`S` notation.
+- Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: use the Batch7 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2-Batch6 separately unless a future rollup needs intermediate provenance.
 
 ## 2026-06-26: Noether R128 Paper 20 author-line source-audit fix
 
@@ -1291,7 +1302,7 @@ Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pen
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public Lean/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source or motivation anchors to the actual transcribed TeX/public catalog where applicable. A theorem map must distinguish the source or motivation statement, normalized mathematical statement, Lean theorem, and build status.
 
-Next action: use as a web/pro review packet or workflow-record candidate only; verify source alignment for the three green Lean theorems before any public proof claim.
+Next action: use as a web/pro review packet or workflow-record candidate only. If any material is promoted, present it as Lean/formalization library-candidate material with build metadata and motivation anchors, not as a public proof/certification claim for the historical archive.
 
 ## 2026-06-25: Noether R126 P06/P07 survival audit queue
 
