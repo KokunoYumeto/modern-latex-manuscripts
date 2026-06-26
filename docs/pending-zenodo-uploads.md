@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 37 regression fix and P09-P13 survival control
+
+Manifests: [20260626_noether_r128_p37_regressionfix_p36p38_survival.json](../manifests/source-intake/20260626_noether_r128_p37_regressionfix_p36p38_survival.json), [20260626_noether_r128_p09_p13_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p09_p13_survival_nopatch.json)
+
+- P37 repair ZIP: `Noether_R128_LocalCodex_P37RegressionFix_P36P38Survival_WebDrop_20260626.zip`, 3,409,968 bytes, SHA256 `3B235DFE8C291EE5AE29E8918EC001A0C28377A9624F6A202B460B42D544D7AA`, 30 ZIP entries.
+- P09-P13 survival ZIP: `Noether_R128_LocalCodex_P09_P13_SurvivalAudit_NoNewPatch_WebDrop_20260626.zip`, 3,170,060 bytes, SHA256 `D4F2E0F30EDFF8DADEBEB14D4473B1282C5649DD677EE07B82CB251390BCE236`, 24 ZIP entries.
+- Scope: the P37 package supersedes the previous no-patch P36-P38 attempt because the R128 ingest had regressed Paper 37. It restores the prior source-fixed Paper 37 span on top of the active R128/P42 anti-regression base and checks that Paper 36/Paper 38 survived the splice. The P09-P13 package is a separate no-patch regression-control layer after R128.
+- Result: P37 product-form footnote factors such as `2\sqrt[5]{2}\cdot\sqrt[5]{2^4}` are restored, the Paper 37 group-ring ideal wording with `(einseitigen)` is restored, and the patched cumulative TeX/PDF compiled with XeLaTeX. P09-P13 report 5/5 survival checks with no new TeX patch.
+- Caveat: targeted German cumulative repair/regression control only. Not full Paper 09-13 or Paper 36-38 certification, not whole-corpus closure, not multilingual synchronization, and not a critical edition. P37 witnesses are strong but mixed-resolution; P36/P38 and P12 use best-available dispositions below strict global 650+ certification preference.
+
+Next action: use `cum_de_R128_plus_LocalCodex_P37P42antiRegression_20260626.tex` as the current active German R128 handoff until superseded; fold both packages into a compact Noether rollup after deliberate pruning/replacement because the Noether Zenodo record is at the file ceiling.
+
 ## 2026-06-26: SGA5 live French workpass p190 status package
 
 Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p190_status_package.json)
