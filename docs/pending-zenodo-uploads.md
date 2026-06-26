@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R140 Paper 15 source-fix survival bridge
+
+Manifest: [20260626_noether_r140_r139_p15_sourcefix_survival_nopatch.json](../manifests/source-intake/20260626_noether_r140_r139_p15_sourcefix_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R140_LocalCodex_R139_P15_SourceFixSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,502,944 bytes, SHA256 `61BF697182906D24FF23F317A61AD6CF66EB2F608CCEA16AD99FA0203F65F40D`, 39 entries, max path 227.
+- Scope: no-patch Paper 15 source-fix survival bridge after R139. The current P15 span is byte-identical to the accepted Batch25 source-audit span.
+- Caveat: source pages are native GDZ 400 ppi and 1000 ppi crops are derived readability aids only. Use this as survival/stale-queue evidence only, not full Paper 15 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful. Do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R139 Paper 10 source-quality bridge
 
 Manifest: [20260626_noether_r139_r138_p10_source_quality_bridge_nopatch.json](../manifests/source-intake/20260626_noether_r139_r138_p10_source_quality_bridge_nopatch.json)
