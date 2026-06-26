@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R136 Paper 18 best-available no-patch disposition
+
+Manifest: [20260626_noether_r136_r135_p18_best_available_nopatch.json](../manifests/source-intake/20260626_noether_r136_r135_p18_best_available_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R136_LocalCodex_R135_P18_CurrentBaseBestAvailable_NoPatch_WebDrop_20260626.zip`, 3,718,151 bytes, SHA256 `1FFDA2A773358FD8D5F671289837030F71363C7854E672248BD6090602EF9539`, 16 entries, max path 157.
+- Scope: no-patch Paper 18 current-base disposition after R135. The accepted Paper 18 body survives raw-exact and normalized-exact in the R135/R136 German cumulative.
+- Source caveat: best local P18 witness is GDZ 600 ppi, below the strict native-650 preference. This is best-available anti-regression/source-routing evidence only, not full Paper 18 certification, Noether closure, multilingual synchronization, or a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful; do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Workflow survival-bridge and source-search packet addendum
 
 Manifest: [20260626_workflow_survival_source_search_packets.json](../manifests/pending-zenodo-uploads/20260626_workflow_survival_source_search_packets.json)
