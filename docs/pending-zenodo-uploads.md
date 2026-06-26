@@ -5766,3 +5766,13 @@ Manifest: [20260626_noether_r168_new_thread_r129_r130_feedback_after_r167.json](
 - Scope: no-patch feedback/control packet for a new Noether web thread; reviews R129/R130 after R167.
 - Result: accepted R129 P34 lambda/k repair and accepted R130 P35 author-line/title-period repair already survive in current R157.
 - Caveat: integration guidance only. Not a fresh repair, not a master cumulative, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R169 Paper 42 best-available source-status bridge
+
+Manifest: [20260627_noether_r169_p42_source_status_best_available360_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r169_p42_source_status_best_available360_nopatch.json)
+
+- Noether pending ZIP: `Noether_R169_LocalCodex_P42_SourceStatus_BestAvailable360_NoPatch_WebDrop_20260627.zip`, 2,160,304 bytes, SHA256 `E6C933A083DA73C947BA4176633A67C5207F42AE00C6396FABE9EB3B86E24ADA`, 15 entries.
+- Scope: no-patch Paper 42 source-status/source-search bridge after R168.
+- Result: current R157 P42 still carries the accepted p685 trace-order anchors `\Sp(\widetilde a a)` and the no-global-replacement trap.
+- Source caveat: best staged source witness is `p42_scan_RA10_best_available_native360.pdf`, with native 360 ppi embedded page images. The 1000 dpi crops are readability enlargements from that witness, not independent high-native-DPI evidence.
+- Caveat: backend source-status/source-search/anti-regression evidence only. Not a fresh repair, not native-650/1000 dpi certification, not global Paper 42 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
