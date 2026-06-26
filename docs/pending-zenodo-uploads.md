@@ -1,3 +1,15 @@
+## 2026-06-26 - SGA5 full-audit webdrop status p001-p254, with staged p255-p484 witnesses
+
+Manifest: [20260626_sga5_fullaudit_webdrop_p254_staged_p255_p484.json](../manifests/source-intake/20260626_sga5_fullaudit_webdrop_p254_staged_p255_p484.json)
+
+- SGA5 webdrop ZIP: `SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip`, 379,545,322 bytes, SHA256 `8A3CD01CCD276167CEA31F81523AA6B97DEA0AAF0501DA0B4ECF75788667AB54`, 3,866 entries.
+- Local path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip`.
+- Scope: French source-audit/workpass status through the package-wrapper boundary p254. p253 closes Prop. 1.1.3 proof while opening section 1.1.4; p254 closes §1.1.4 with Z_l-category / Z_l-fc terminology and opens §1.2 with Definition 1.2.1 plus Example 1.2.2 on Z_l(1).
+- Staged but not promoted: p255-p484 source crops/images are included as continuation witnesses only. The embedded logs contain p255 planning/check text, but the wrapper caps the public boundary at p254, so p255 is not promoted by this package.
+- Caveat: page-local source-audit/workpass evidence only. Local ledger terms such as certified/complete mean page-local workpass status, not global project certification. SGA5 remains incomplete, not synchronized English, not globally source-faithful, and not a critical edition.
+
+Next action: supersedes the p253 webdrop as the current local SGA5 cursor. Continue from p255 unless a later package explicitly resolves/promotes the embedded p255 row.
+
 ## 2026-06-26: Noether R128 P09/P10 Batch25 survival/no-patch queue disposition
 
 Manifest: [20260626_noether_r128_p09_p10_batch25_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p09_p10_batch25_survival_nopatch.json)
@@ -1923,7 +1935,7 @@ Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pen
 
 - Lean/library-candidate watch ZIP (legacy filename, not an audit claim): `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 56,634 bytes, SHA256 `AF877C2FD65E8D2D892AB19BBB662588F51EDA38E0D1B06BD31187AD93B726B9`.
 - Scope: compact watch handoff for Claude-started Lean experiments attached to the classical transcription corpus. This is possible Lean/mathlib-adjacent library material, not proof of the transcription corpus, not archive certification, and not DOI-ready.
-- Naming note: the older `Audit_Watch` filename and `ClassicalAudit` namespace are internal legacy names only. Public wording should describe these as useful Lean/mathlib-style candidate additions, not proof, source audit, manuscript certification, or source-fidelity evidence.
+- Naming note: the older `Audit_Watch` filename and `ClassicalAudit` namespace are internal legacy names only. Public wording should describe these as useful Lean/mathlib-style formalization/library-candidate additions, not source audit, manuscript certification, or source-fidelity evidence.
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public Lean/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source or motivation anchors to the actual transcribed TeX/public catalog where applicable. A theorem map must distinguish the source or motivation statement, normalized mathematical statement, Lean theorem, and build status.
 
