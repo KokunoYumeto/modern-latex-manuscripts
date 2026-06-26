@@ -16,11 +16,22 @@ Next action: use Batch13 as the current German-base web handoff until superseded
 Manifest: [20260626_noether_r128_p17_batch14_p26_dummy_index_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch14_p26_dummy_index_fix.json)
 
 - File: `Noether_R128_LocalCodex_P17_SourceAudit_Batch14_P26DummyIndexFix_WebDrop_20260626.zip` (18,094,631 bytes, SHA256 `FEA21371FDF6C5CCE2B254CEEEEFA0410C95E8A0A246893A758640BA33E69B38`).
-- Result: Batch14 makes `cum_de_R128_plus_LocalCodex_P17Batch14_P26DummyIndexFix_P19Batch13CarryForward_20260626.tex` the active local German handoff after Batch13. The package includes the Batch13 input PDF, current German cumulative TeX/PDF/logs, GDZ600 source witnesses for printed pp26-30, and a README.
+- Result: Batch14 made `cum_de_R128_plus_LocalCodex_P17Batch14_P26DummyIndexFix_P19Batch13CarryForward_20260626.tex` the active local German handoff at that step after Batch13. The package includes the Batch13 input PDF, current German cumulative TeX/PDF/logs, GDZ600 source witnesses for printed pp26-30, and a README.
 - Scope: targeted Paper 17 printed p26 correction in the displayed composition formula defining `\ell_{\rho\tau}b_\tau`: three dummy-index line pairs were restored from sigma drift to source `\varkappa` notation (`r_{\rho\varkappa}r^{\varkappa\tau}`, `t_{i\varkappa}a_\varkappa ... t_{\varkappa j}`, and the following zero relation).
 - Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is targeted source-visible correction evidence only, not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
 
 Next action: use Batch14 as the current German-base web handoff until superseded. Keep Batch13 as P19 provenance; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 17 Batch15 p23 index-leg targeted fix
+
+Manifest: [20260626_noether_r128_p17_batch15_p23_index_leg_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch15_p23_index_leg_fix.json)
+
+- File: `Noether_R128_LocalCodex_P17_SourceAudit_Batch15_P23IndexLegFix_WebDrop_20260626.zip` (16,392,630 bytes, SHA256 `22FB9A1B2DDB95014E81939BC1E1498DDC9CDCF962C89B39B149AD046867E3B8`).
+- Result: Batch15 makes `cum_de_R128_plus_LocalCodex_P17Batch15_P23IndexLegFix_P19Batch13CarryForward_20260626.tex` the active local German handoff after Batch14. The package includes the Batch14 input PDF, current German cumulative TeX/PDF/logs, confirmed-fix and no-new-patch CSVs, GDZ600 source witnesses/crops for printed pp21-25, and a README.
+- Scope: targeted Paper 17 printed p23 correction in formulas (31) and (32). The second dummy index on the `A_1` to `A_\varkappa` leg is restored from collapsed `i` notation to source `\varkappa`.
+- Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is targeted source-visible correction evidence only, not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
+
+Next action: use Batch15 as the current German-base web handoff until superseded. Keep Batch14 and Batch13 as provenance; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
 
 ## 2026-06-26: Noether R128 Paper 17 tail pp31-35 no-new-patch guardrail
 
@@ -203,16 +214,27 @@ Manifest: [20260626_sga5_fullaudit_workpass_salvage_v2_p194.json](../manifests/s
 
 Next action: use this v2 package as the current compact SGA5 control package until a later cursor supersedes it; use CERT_LOG.md and AGENT_SCORECARD.md as the controlling status files.
 
+## 2026-06-26: SGA5 full-audit French workpass status through p205
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p205.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p205.json)
+
+- SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p205_20260626.zip`, 2,208,723 bytes, SHA256 `B30CCC288DAD26E879FFE12C0D97DC94A4706B090978D327EF5B936A61F45E05`, 13 ZIP entries, 1 PDF.
+- Scope: compact status/workpass package preserving the current `sga5_fr_workpass.tex` / PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, `FINDINGS.md`, method/source/index files, README, and checksums after the hand-audit ledger reached p205.
+- Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p205; p206 is the next cursor. Recent movement closes Expose III B through bibliography/scope pivot, opens Expose V at p204, checks p205, and points p206 at the Mittag-Leffler-Artin-Rees/projective-system machinery.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: continue from p206. Watch `u\otimes_A v`, representability criteria, `GX=\ker(p_X)`, `P=\mathrm{Hom}(\mathbf N^\circ,C)`, and shift notation `X[r]`.
+
 ## 2026-06-26: SGA5 full-audit French workpass status through p199
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p199.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p199.json)
 
 - SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p199_20260626.zip`, 2,285,853 bytes, SHA256 `FD4A862803E26C2FD541C4E237C53245DFD024A13D5D94CC45192F6467C61326`, 15 ZIP entries, 1 PDF.
 - Scope: compact status/workpass package preserving the current `sga5_fr_workpass.tex` / PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, `FINDINGS.md`, method/status notes, source/index files, README, and checksums after the hand-audit ledger reached p199.
-- Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p199; p200 is the next cursor. Recent movement checks p198-p199 cover Proposition 6.19, D106, section 6.20, Proposition 6.21, diagrams D107-D109, Corollary 6.22, and the opening of Proposition 6.23. The p199 pass corrects `(f^*v)^!` to source/type-correct `(h^*v)^!` in 6.22.1.
+- Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p199; p200 is the next cursor. Recent movement checks p198-p199 cover Proposition 6.19, D106, section 6.20, Proposition 6.21, diagrams D107-D109, Corollary 6.22, and the opening of Proposition 6.23. That p199 pass originally proposed `(f^*v)^!` to `(h^*v)^!` in 6.22.1, but the later p200 audit reverted it as intended source notation; use the p205 package for the current status.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: continue from p200, especially Proposition 6.23's conclusion and the remaining Expose III B tail before the next expose. Watch `v_0`/`E_0`/`\alpha`, `f_V^*E`, `c_{U,X}`, `u^!`, and the bridge between principal-cover local terms and algebraic traces.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p205_20260626.zip`; keep p199 as compact provenance/history.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p197
 
@@ -223,7 +245,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p197.json](../manifests/sourc
 - Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p197; p198 is the next cursor. Recent movement checks p195-p197 across the section 6.14 devissage, Proposition 6.16 / Corollary 6.17, the phi-not-identity divisibility generalization, norm `N_G`, Lemma 6.18.3, and the opening of Proposition 6.19 / D106. Accepted TeX fixes since p194 include `c_{X-U,U}` to source `c_{X-U,X}`; p197 flags a prose/source issue `x de G` -> `x de C`.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p199_20260626.zip`; keep p197 as compact provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p205_20260626.zip`; keep p197 as compact provenance/history.
 
 ## 2026-06-26: SGA5 live French workpass p190 status package (superseded cursor)
 
@@ -234,7 +256,7 @@ Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-190 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`. Page p189 checks scalar functoriality and D102; p190 checks trace transitivity, external multiplicativity, the G-equivariant opening, and D103.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p199_20260626.zip`; keep as p190 provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p205_20260626.zip`; keep as p190 provenance/history.
 
 ## 2026-06-26: Noether R128 source-convergence/routing package
 
@@ -4551,4 +4573,7 @@ Manifest: [20260626_weber_b139_phase2_v1ge_sec141_162_status.json](../manifests/
 - Caveat: source-audit/status artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
 
 Next action: continue Phase 2 coherent retranscription of held rewrite/reconstruction blocks, especially sections 148-156, 158, 163, 165, 167-170, and 173-188.
+
+
+
 
