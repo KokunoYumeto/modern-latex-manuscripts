@@ -81,6 +81,21 @@ Manifest: [20260626_noether_general_source_library_v1_full13.json](../manifests/
 
 Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure. This supersedes the earlier full12/full11/full9 source-library staging.
 
+## 2026-06-26: Noether source-library Part07 pointer refresh
+
+Manifest: [20260626_noether_source_library_part07_pointer_refresh.json](../manifests/source-intake/20260626_noether_source_library_part07_pointer_refresh.json)
+
+- Refreshed source-library manifest ZIP: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip`, 33,451 bytes, SHA256 `BD2EEF5D3DECA63B494ACD4F56F7A83980593F69A768334F80FEECB0D1719A2B`, 4 ZIP entries.
+- Part07 pointer ZIPs:
+  `Noether_R127_LocalCodex_SourceLibraryPart07_P35Pointer_WebDrop_20260626.zip` (48,962 bytes, SHA256 `6F331E0E8D9C96029B1B91FB56318B0088322C8614A75A245CEEC98BA92C276A`),
+  `Noether_R127_LocalCodex_SourceLibraryPart07_P36Pointer_WebDrop_20260626.zip` (13,163 bytes, SHA256 `C6FE3E5C2A6E1C3353822D48132DA2AE22D7AB9F8A00EF5C8D842C8421338299`),
+  `Noether_R127_LocalCodex_SourceLibraryPart07_P37Pointer_WebDrop_20260626.zip` (23,259 bytes, SHA256 `29C61894393B062F5F732A69E4FDB12B69F357CC97E0A084206336D5FE887B79`),
+  and `Noether_R127_LocalCodex_SourceLibraryPart07_P38Pointer_WebDrop_20260626.zip` (26,663 bytes, SHA256 `54892DC76AE9942EB62936E055E54AA9B5260CD8E686B50C8F216996AE901FEE`).
+- Scope: web-session routing/stale-patch-prevention support for upper-band Part07 source witnesses. P35 keeps the source-backed Russian summary/current span; P36 is no-new-patch unless stronger source proves the wrapper-spacing issue; P37 records known source-restoration fixes surviving 9/9; P38 records current normalized equality to the prior GDZ source-repaired reference.
+- Caveat: source-routing support only. This does not certify P35-P38, close the Noether corpus, promote new TeX, or synchronize downstream translations.
+
+Next action: use these tiny pointer packets with Part07 when feeding upper-band Noether work to web sessions; keep actual TeX promotions in separate compact source-audit rollups.
+
 ## 2026-06-26: SGA5 live French workpass p176 status package
 
 Manifest: [20260626_sga5_live_certlog_p176_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p176_status_package.json)
