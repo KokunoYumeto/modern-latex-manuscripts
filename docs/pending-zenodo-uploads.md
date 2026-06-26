@@ -1,15 +1,15 @@
 # Pending Zenodo Uploads
 
-## 2026-06-26: SGA5 live French workpass p188 status package
+## 2026-06-26: SGA5 live French workpass p190 status package
 
-Manifest: [20260626_sga5_live_certlog_p188_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p188_status_package.json)
+Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p190_status_package.json)
 
-- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p188_Status_20260626.zip`, 2,225,759 bytes, SHA256 `0FEB3930450F13F4D06771FFA8B003579E41ED887B4FEBF90D45A8DC0F21F23A`, 12 ZIP entries.
-- Scope: live French SGA5 workpass after the hand-certification ledger reached p188. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-188 are promoted by the page-local certification ledger.
-- Result: section 5 remains locally closed through p182; pp.183-188 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the pairing/cup-product construction and the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`.
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p190_Status_20260626.zip`, 2,229,266 bytes, SHA256 `ED7D1C90EC2620D3CEF82BE917F5E734DA46F0ABD3B4701D1548A9DF3F2EE003`, 12 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-audit ledger reached p190. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-190 are promoted by the page-local audit ledger.
+- Result: section 5 remains locally closed through p182; pp.183-190 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`. Page p189 checks scalar functoriality and D102; p190 checks trace transitivity, external multiplicativity, the G-equivariant opening, and D103.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p189; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: continue page-local audit from p191; use this as the current compact SGA5 status packet until a later cursor supersedes it.
 
 ## 2026-06-26: Noether R128 source-convergence/routing package
 
