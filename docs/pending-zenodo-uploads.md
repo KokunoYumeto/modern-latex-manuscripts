@@ -5854,3 +5854,13 @@ Manifest: [20260627_noether_r177_p15_p16_frontmatter_routefix.json](../manifests
 - Result: adds the Paper 15 title terminal period in both title loci and the Paper 16 section-heading terminal period. It also records that one tempting P15 route is a Prandtl page and that P16-labelled GDZ canvases 00000025-00000030 are offset/bad for Paper 16.
 - Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; the log scan reports no fatal, undefined, rerun, overfull, or underfull messages.
 - Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. P15 source witness is 400ppi; P16 source witness has undefined DPI metadata. Both are used only for visually unambiguous front matter and route confirmation. Targeted front-matter repair/source-route provenance only; not full Paper 15 or Paper 16 certification, not full-page dense-math certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R178 Paper 20 front-matter source-style fix
+
+Manifest: [20260627_noether_r178_p20_frontmatter_sourcestylefix.json](../manifests/pending-zenodo-uploads/20260627_noether_r178_p20_frontmatter_sourcestylefix.json)
+
+- Noether pending ZIP: `Noether_R178_LocalCodex_P20_FrontMatterSourceStyleFix_WebDrop_20260627.zip`, 4,634,733 bytes, SHA256 `B7BD054E5193AC435CE8FFED396CEB4111A04AACEADAC3C96373F3B6DB0495B4`, 24 entries.
+- Scope: narrow German cumulative Paper 20 front-matter repair on top of R177.
+- Result: adds the source-visible terminal period to `Ein algebraisches Kriterium für absolute Irreduzibilität.` and restores the source-style displayed byline layout `Von` / `Emmy Noether in Göttingen.`.
+- Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; the log scan reports no fatal, undefined, rerun, overfull, or underfull messages.
+- Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. The source witness is a 400ppi GDZ title-page image used only for visually unambiguous front matter. Targeted front-matter repair/provenance only; not full Paper 20 certification, not full-page dense-math certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
