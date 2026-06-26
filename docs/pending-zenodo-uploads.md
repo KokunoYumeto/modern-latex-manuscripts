@@ -31,7 +31,29 @@ Manifest: [20260626_noether_r128_p17_batch15_p23_index_leg_fix.json](../manifest
 - Scope: targeted Paper 17 printed p23 correction in formulas (31) and (32). The second dummy index on the `A_1` to `A_\varkappa` leg is restored from collapsed `i` notation to source `\varkappa`.
 - Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is targeted source-visible correction evidence only, not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
 
-Next action: use Batch15 as the current German-base web handoff until superseded. Keep Batch14 and Batch13 as provenance; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
+Next action: superseded for active-base selection by Batch16 and then Batch17 no-new-patch closure/control packets. Keep Batch15 as compact targeted-fix provenance; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 17 Batch16 pp16-20 no-new-patch closure
+
+Manifest: [20260626_noether_r128_p17_batch16_pp16_20_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch16_pp16_20_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P17_SourceAudit_Batch16_pp16_20_GDZ600_NoNewPatch_WebDrop_20260626.zip` (15,459,603 bytes, SHA256 `5B56E6A82C1F28549F1B8D7B16CA88A9813AE87FB02582E783F5FA1A2FDED91C`).
+- Result: no source-certain TeX patch. Batch16 carries the Batch15 p23 correction forward and names `cum_de_R128_plus_LocalCodex_P17Batch16_pp16_20_NoNewPatch_P17Batch15_P19Batch13CarryForward_20260626.tex` as the active German handoff at that step.
+- Scope: Paper 17 printed pp.16-20 checked at selected prose, displayed formula, footnote, section-heading, theorem-anchor, finite-basis, Satz III/IV, formula (22)-(24), diagonal-schema, Primmodul, divisor-display, isomorphism-proof, Satz V, and Blumberg-footnote anchors.
+- Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is source-audit no-new-patch closure/control evidence only, not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
+
+Next action: superseded for active-base selection by Batch17. Keep as compact no-patch provenance.
+
+## 2026-06-26: Noether R128 Paper 17 Batch17 pp11-15 no-new-patch closure
+
+Manifest: [20260626_noether_r128_p17_batch17_pp11_15_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch17_pp11_15_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P17_SourceAudit_Batch17_pp11_15_GDZ600_NoNewPatch_WebDrop_20260626.zip` (14,277,312 bytes, SHA256 `1B1030079D4692FD22816E11B40C7338C3FD0D14224CBB14363C694A7F8ED879`).
+- Result: no source-certain TeX patch. Batch17 carries Batch16 forward and names `cum_de_R128_plus_LocalCodex_P17Batch17_pp11_15_NoNewPatch_P17Batch16_P19Batch13CarryForward_20260626.tex` as the current active German handoff.
+- Scope: Paper 17 printed pp.11-15 checked at selected prose, displayed formula, footnote, section-heading, theorem-anchor, Satz I/II, formulas (12)-(14), formulas (17)-(21), brace display (20), total-coprime construction, and `F_i` basis-display anchors.
+- Caveat: source witnesses are official GDZ raw JPGs recorded as 600 ppi, below the strict 650+ ppi optical rule. This is source-audit no-new-patch closure/control evidence only, not full P17 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
+
+Next action: use Batch17 as the current German-base web handoff until superseded. Keep Batch16, Batch15, Batch14, and Batch13 as provenance; do not loose-upload while the Noether record remains at the file ceiling unless deliberately replacing/pruning.
 
 ## 2026-06-26: Noether R128 Paper 17 tail pp31-35 no-new-patch guardrail
 
