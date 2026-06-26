@@ -1,3 +1,16 @@
+## 2026-06-26: Noether R128 Paper 34 Batch28 pp.641-645 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch28_pp641_645_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch28_pp641_645_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch28_pp641_645_SourceFix_WebDrop_20260626.zip`, 3,184,230 bytes, SHA256 `E0CC7C1E27282DE501CC29D49DD6242A05BB789989E008770A8E86DB1F01D2AC`, 13 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, `Hyperkomplexe Groessen und Darstellungstheorie`, printed pp.641-645.
+- Confirmed repairs: p643 restores source `operator-isomorphe Gruppen`; p644 restores `d. h.` spacing and source citation hyphen `R. Brauer-E. Noether`; p645 moves note 6 from Example 2 back to the `§ 1. Gruppen mit Operatoren` heading.
+- Checked without patch: printed pp.641-642.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. This is best-available source checking, below the strict native 650+ certification floor.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement plan rather than uploading loose while the Noether record remains at the Zenodo file ceiling. Continue Paper 34 from printed p646 unless a newer actual web package appears.
+
 ## 2026-06-26 - SGA5 full-audit webdrop status p001-p254, with staged p255-p484 witnesses
 
 Manifest: [20260626_sga5_fullaudit_webdrop_p254_staged_p255_p484.json](../manifests/source-intake/20260626_sga5_fullaudit_webdrop_p254_staged_p255_p484.json)
