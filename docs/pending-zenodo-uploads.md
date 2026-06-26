@@ -33,6 +33,17 @@ Manifest: [20260626_noether_r128_p19_batch5_p43_footnote22_y2_fix.json](../manif
 
 Next action: use the Batch5 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2, Batch3, or Batch4 separately unless a future rollup needs intermediate provenance.
 
+### Noether R128 P19 Batch6 p44 L_i complement follow-up
+
+Manifest: [20260626_noether_r128_p19_batch6_p44_li_complement_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch6_p44_li_complement_fix.json)
+
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch6_P44LiComplementFix_WebDrop_20260626.zip` (3,969,456 bytes, SHA256 `A96253DB694ECFE4A84B8C497714719A697FABA7E351C8535AE8460C6A047B31`).
+- Result: active German TeX becomes `cum_de_R128_plus_LocalCodex_P19Batch6_P44LiComplementFix_P19Batch5CarryForward_20260626.tex`. The ZIP tests successfully, includes one PDF, and carries current TeX/PDF/logs, witness crops, confirmed-fix CSVs, visual dispositions, diffs, and checksums/provenance.
+- Scope: one targeted Paper 19 printed p44 correction in the Zusatz to Satz IX, restoring source `L_i` as the complement of `Q_i` in the paragraph and display where the cumulative had drifted to `U_i`.
+- Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: use the Batch6 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2-Batch5 separately unless a future rollup needs intermediate provenance.
+
 ## 2026-06-26: Noether R128 Paper 20 author-line source-audit fix
 
 Manifest: [20260626_noether_r128_p20_authorline_sourceaudit.json](../manifests/source-intake/20260626_noether_r128_p20_authorline_sourceaudit.json)
