@@ -22,6 +22,17 @@ Manifest: [20260626_noether_r128_p19_batch4_p41baru_fix.json](../manifests/pendi
 
 Next action: use the Batch4 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2 or Batch3 separately unless a future rollup needs intermediate provenance.
 
+### Noether R128 P19 Batch5 p43 footnote-22 y^2 follow-up
+
+Manifest: [20260626_noether_r128_p19_batch5_p43_footnote22_y2_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch5_p43_footnote22_y2_fix.json)
+
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch5_P43Footnote22Y2Fix_WebDrop_20260626.zip` (3,544,441 bytes, SHA256 `EE477CCAFBD182F09E5CE9B808CB655C309804EC0969D3609B0E9A373108885D`).
+- Result: active German TeX becomes `cum_de_R128_plus_LocalCodex_P19Batch5_P43Footnote22Y2Fix_P19Batch4CarryForward_20260626.tex`. The package includes current TeX/PDF/logs, p41 and p43 witness crops, confirmed-fix CSV, visual disposition, diff, summary JSON, and checksums/provenance.
+- Scope: one targeted Paper 19 printed p43 correction in footnote 22, restoring source `y^2` terms in the non-reduced example/decomposition loci. It carries forward Batch4, Batch3, p60 B_4, P20, P22/P30/P37/P42, and tail-bibliography repairs.
+- Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: use the Batch5 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2, Batch3, or Batch4 separately unless a future rollup needs intermediate provenance.
+
 ## 2026-06-26: Noether R128 Paper 20 author-line source-audit fix
 
 Manifest: [20260626_noether_r128_p20_authorline_sourceaudit.json](../manifests/source-intake/20260626_noether_r128_p20_authorline_sourceaudit.json)
