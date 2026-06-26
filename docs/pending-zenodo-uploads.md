@@ -5678,3 +5678,12 @@ Manifest: [20260626_noether_r158_r129_r130_weboutput_review_nopatch.json](../man
 - Scope: compact no-patch R129/R130 web-output review and stale-base-prevention packet after R157.
 - Result: R129 and R130 contain useful source-backed evidence, but their cumulative TeX should not be used wholesale as the current master; the accepted R129 P34 lambda/k repair and R130 P35 author/header restoration already survive in the current R157 bridge line.
 - Caveat: backend integration guidance/source-route and stale-base-prevention evidence only. Not a fresh repair, not a reader artifact, not paper or corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R159 post-P43 tail survival bridge
+
+Manifest: [20260626_noether_r159_tail_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r159_tail_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R159_LocalCodex_R157_TailSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 757,892 bytes, SHA256 `D9ED467ABFD5DB135EE6105CCA29848A681171B2660B5B8E348A7D15A1B6843E`, 20 entries.
+- Scope: compact no-patch post-P43 tail survival bridge after R157.
+- Result: the current R157 cumulative preserves the accepted tail from the `Vorlesung von Prof. E. Noether` marker onward after normalized/trimmed comparison with the R128 tail rollup reference; named Deuring/Kapferer/backmatter anchors pass.
+- Caveat: backend source-route and stale-tail-prevention evidence only. Not a fresh repair, not strict post-P43 tail certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
