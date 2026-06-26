@@ -5757,3 +5757,12 @@ Manifest: [20260626_noether_r167_p01_p20_current_bridge_bundle.json](../manifest
 - Noether pending ZIP: `Noether_R167_LocalCodex_R157_P01_P20_CurrentBridgeBundle_WebDrop_20260626.zip`, 4,230,428 bytes, SHA256 `6D9F44C81F71D141AA31128239366EA1676E91C7CEF84D4185CA97155349B80E`, 5 entries.
 - Scope: convenience web-upload wrapper containing R166, R165, and R164.
 - Caveat: bundle/handoff artifact only. It carries no new TeX patch and no independent source claim beyond the included bridge packages.
+
+## 2026-06-26: Noether R168 new-web-thread R129/R130 feedback
+
+Manifest: [20260626_noether_r168_new_thread_r129_r130_feedback_after_r167.json](../manifests/pending-zenodo-uploads/20260626_noether_r168_new_thread_r129_r130_feedback_after_r167.json)
+
+- Noether pending ZIP: `Noether_R168_LocalCodex_NewWebThread_R129_R130_Feedback_AfterR167_NoPatch_20260626.zip`, 630,093 bytes, SHA256 `0AC300CAC1854FF4F92EBA6D000A57F2B7D8AC77AAFF85D3467AA149221DA156`, 9 entries.
+- Scope: no-patch feedback/control packet for a new Noether web thread; reviews R129/R130 after R167.
+- Result: accepted R129 P34 lambda/k repair and accepted R130 P35 author-line/title-period repair already survive in current R157.
+- Caveat: integration guidance only. Not a fresh repair, not a master cumulative, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
