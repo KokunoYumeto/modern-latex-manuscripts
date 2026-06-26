@@ -1,3 +1,14 @@
+## 2026-06-26 - SGA5 compact full-audit workpass delta p255-p259
+
+Manifest: [20260626_sga5_fullaudit_webdrop_p255_p259_delta.json](../manifests/source-intake/20260626_sga5_fullaudit_webdrop_p255_p259_delta.json)
+
+- SGA5 compact delta ZIP: `SGA5_FullAudit_WebDrop_p255_p259_workpass_delta_20260626.zip`, 4,584,037 bytes, SHA256 `217D5610CD1F76F706767BA78352C221AFD472D591179DBA290B659A28F5672C`, 38 entries.
+- Local path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\SGA5_FullAudit_WebDrop_p255_p259_workpass_delta_20260626.zip`.
+- Scope: compact French source-audit/workpass delta promoting p255-p259 as page-local workpass evidence and setting p260 as next cursor. p255-p259 cover Expose VI Example 1.2.2 close, Rappels 1.2.3, Proposition 1.2.3.1, section 1.2.4, Lemmas 1.2.4.1/1.2.4.2, and Proposition 1.2.5.
+- Not promoted: p260+ crops/cursor text are active/pending scratch only. The presence of a crop/image is not page certification.
+- Caveat: source-audit/workpass evidence only. Local ledger terms such as certified/clean/complete mean page-local workpass status, not global project certification. SGA5 remains incomplete, not synchronized English, not globally source-faithful, and not a critical edition.
+
+Next action: supersedes the p254 webdrop as the current local SGA5 cursor. Keep the earlier p001-p254 webdrop as larger provenance/source-witness material and continue from p260 unless a newer package appears.
 ## 2026-06-26: Noether R128 Paper 34 Batch28 pp.641-645 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch28_pp641_645_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch28_pp641_645_sourcefix.json)
@@ -21,7 +32,7 @@ Manifest: [20260626_sga5_fullaudit_webdrop_p254_staged_p255_p484.json](../manife
 - Staged but not promoted: p255-p484 source crops/images are included as continuation witnesses only. The embedded logs contain p255 planning/check text, but the wrapper caps the public boundary at p254, so p255 is not promoted by this package.
 - Caveat: page-local source-audit/workpass evidence only. Local ledger terms such as certified/complete mean page-local workpass status, not global project certification. SGA5 remains incomplete, not synchronized English, not globally source-faithful, and not a critical edition.
 
-Next action: supersedes the p253 webdrop as the current local SGA5 cursor. Continue from p255 unless a later package explicitly resolves/promotes the embedded p255 row.
+Next action: superseded by the compact p255-p259 delta registered above; keep this p254 webdrop as larger provenance/source-witness material.
 
 ## 2026-06-26: Noether R128 P09/P10 Batch25 survival/no-patch queue disposition
 
