@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 PostR128 current-base tail queue rollup
+
+Manifest: [20260626_noether_r128_postr128_tailqueue_rollup.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_postr128_tailqueue_rollup.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_PostR128_CurrentBase_TailQueueRollup_WebDrop_20260626.zip`, 6,652,789 bytes, SHA256 `4D1982C569A9BE16CED922B7DDC35459225A46940D3F343CB02D78458D2EDB4B`, 68 entries.
+- Scope: compact current-base / tail-queue routing package after R128 and LocalCodex tail work. It points continuation work to `cum_de_R128_plus_LocalCodex_AllKnownLocalFixes_Deuring_p735_746_nopatch_20260626.tex`, summarizes current Deuring/Kapferer/tail status, and reconciles stale R128 queue rows.
+- Included controls: current cumulative TeX/PDF/log, tail-status CSV, R128 queue-reconciliation CSV, copied recent project manifests, source-quality limits, source/provenance pointers, and compile-check files.
+- Caveat: this is not a new source-heavy image package and not a reader-facing certification. It intentionally excludes bulk source images and should be used to prevent stale queue replay, not to claim Noether closure.
+- File-ceiling note: fold this into the next deliberate compact Noether rollup/replacement plan rather than loose-uploading while the Noether record remains at the 100-file ceiling.
+
+Next action: use this as the current compact Noether handoff for web/local continuation; reopen only concrete source-current mismatches, stronger source witnesses, or deliberate strict recertification passes.
+
 ## 2026-06-26: SGA5 full-audit workpass status through p242
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p242.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p242.json)
@@ -13,7 +25,7 @@ Next action: continue from p243 under the CERT_LOG page-local method and keep En
 
 Manifest: [20260626_noether_r128_deuring_pp735_746_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_deuring_pp735_746_nopatch.json)
 
-- Noether pending ZIP: Noether_R128_LocalCodex_Deuring_pp735_746_SourceAudit_NoPatch_WebDrop_20260626.zip, 45483181 bytes, SHA256 $hash, 30 entries.
+- Noether pending ZIP: `Noether_R128_LocalCodex_Deuring_pp735_746_SourceAudit_NoPatch_WebDrop_20260626.zip`, 45,483,181 bytes, SHA256 `FF480F288B2CC576FDC6F8DC733CE6BE153689AF81DBA7F8D1C7751EF8FF83FC`, 30 entries.
 - Scope: Deuring/Noether post-numbered tail material, collected pp.735-746; IA-derived tail slice source PDF pp.749-760.
 - Result: no source-certain TeX patch was found. The cumulative TeX included here is unchanged from the pp727-734 fixed cumulative; this package adds page-by-page visual dispositions, no-fix traps, source mapping, OCR locator text, and 650/1000dpi legibility witnesses.
 - No-fix traps include p745 gamma/index/product-display details and p746 Omega / xi / r-s identity details that are source-visible and should not be silently regularized.
