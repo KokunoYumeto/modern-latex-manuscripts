@@ -53,7 +53,18 @@ Manifest: [20260626_noether_r128_p19_batch7_p45_cnotation_footnote24_fix.json](.
 - Scope: two targeted Paper 19 printed p45 corrections. Footnote 24 restores source `T=S` in the non-symmetry/non-relatively-prime example; Satz X proof 2 restores source `C_1`, `C_{12}`, and `C_{12...lambda-1}` notation for successive complements instead of the drifted barred-`S` notation.
 - Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
 
-Next action: use the Batch7 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2-Batch6 separately unless a future rollup needs intermediate provenance.
+Next action: superseded for active-base selection by the Batch8 p46-p47 Satz XI exponent follow-up (`20260626_noether_r128_p19_batch8_p46_p47_satzxi_exponent_fix.json`); keep this Batch7 package as compact P19 p45 provenance.
+
+### Noether R128 P19 Batch8 p46-p47 Satz XI exponent follow-up
+
+Manifest: [20260626_noether_r128_p19_batch8_p46_p47_satzxi_exponent_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch8_p46_p47_satzxi_exponent_fix.json)
+
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch8_P46P47SatzXIExponentFix_WebDrop_20260626.zip` (4,715,403 bytes, SHA256 `48EC25E565BA0A0032ED04A6F218FEF61A3419341ABD0D90BFC328C226E4C952`).
+- Result: active German TeX becomes `cum_de_R128_plus_LocalCodex_P19Batch8_P46P47SatzXIExponentFix_P19Batch7CarryForward_20260626.tex`. The ZIP tests successfully, includes one PDF, and carries current TeX/PDF/logs, p41/p43/p44/p45/p46/p47 witness crops, confirmed-fix CSVs, visual dispositions, diffs, and checksums/provenance.
+- Scope: one targeted Paper 19 Satz XI proof correction across printed pp.46-47. It restores the source exponent chain: unpowered `Q_\mu`, then `Q_\mu^{\sigma_\nu}` and `R^{\sigma_\nu}`, and in the reverse proof `R^\tau`, `Q_i^\tau`, and `P_i^{\tau\varrho_i}` rather than the drifted generic `\varrho` chain.
+- Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: use the Batch8 cumulative TeX/PDF as the current German-base web handoff until superseded. Do not upload Batch2-Batch7 separately unless a future rollup needs intermediate provenance.
 
 ## 2026-06-26: Noether R128 Paper 20 author-line source-audit fix
 
