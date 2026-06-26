@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 P22/P29/P30 post-Batch39 survival bridge
+
+Manifest: [20260626_noether_r128_p22_p29_p30_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p22_p29_p30_postbatch39_survival_nopatch.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_P22_P29_P30_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,174,104 bytes, SHA256 `1A703CBB6AC15C53345F65DFCF1B881B2BBE8A0E008D2A81037521DD86A8B33B`, 47 entries.
+- Result: no German TeX patch. P22 survives as a raw exact substring of the current Batch39 German cumulative. P29 and P30 survive after exact section-boundary extraction; older raw reference-section files include boundary/wrapper differences, so do not describe P29/P30 as raw byte-identical to those wrappers.
+- Span facts: P22 lines 12798-13629 (832 lines, raw/normalized exact); P29 lines 14368-14468 (101 lines, normalized exact only); P30 lines 14469-15714 (1,246 lines, normalized exact only).
+- Guardrail: keep the current Batch39 sections for P22, P29, and P30; do not reopen already source-restored material from stale queue rows.
+- Caveat: current-branch survival/reconciliation only. Not new visual source certification, not Paper 22/P29/P30 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 04 post-Batch39 survival bridge
 
 Manifest: [20260626_noether_r128_p04_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p04_postbatch39_survival_nopatch.json)
