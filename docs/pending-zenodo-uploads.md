@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R131 Paper 29 p.28 title/footnote fix after R130
+
+Manifest: [20260626_noether_r131_p29_p028_title_footnote_fix.json](../manifests/source-intake/20260626_noether_r131_p29_p028_title_footnote_fix.json)
+
+- Current pending ZIP: `Noether_R131_LocalCodex_P29_p028_TitleFootnoteFix_AfterR130_WebDrop_20260626.zip`, 11,913,682 bytes, SHA256 `80734D4B389001E67D6DB2E1FAA225D84460C74551B2C1BA9ACDA7428E634FFC`, 21 entries.
+- Scope: starts from the Batch39-plus-R130-Paper-35-header German handoff and applies exactly two Paper 29 p.28 source-visible corrections: the final title period and the comma in the Steinitz `J. f. M., 137` footnote citation.
+- Build status: `cum_de_Batch39_plus_R130_P35Header_P29p28Fix_20260626.tex` compiled locally with XeLaTeX in two passes to a 471-page PDF. The patched TeX/PDF/log are included in the package.
+- Source witness: GDZ400 Paper 29 p.28 source image plus derived inspection crops. The source is useful but below the strict source-quality floor; 1200dpi crops are enlargements, not independent higher-native-DPI evidence.
+- Caveat: targeted title/footnote repair and handoff only. Not Paper 29 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: prefer this R131 package as the current German continuation handoff after R130 in the next deliberate Noether Zenodo refresh/rebalance; do not loose-upload while the record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R130 intake feedback / Batch39 plus P35 header handoff
 
 Manifest: [20260626_noether_r130_intake_feedback_batch39_p35header.json](../manifests/source-intake/20260626_noether_r130_intake_feedback_batch39_p35header.json)
