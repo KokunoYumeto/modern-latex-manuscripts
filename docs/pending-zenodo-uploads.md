@@ -1,3 +1,16 @@
+## 2026-06-26: Noether R144 Paper 14 survival bridge and R129/R130 feedback
+
+Manifest: [20260626_noether_r144_r143_p14_survival_feedback_nopatch.json](../manifests/source-intake/20260626_noether_r144_r143_p14_survival_feedback_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R144_LocalCodex_R143_P14_CurrentSurvival_R129R130Feedback_NoPatch_WebDrop_20260626_COMPACT.zip`, 3,642,109 bytes, SHA256 `1ABC688C4D656D25625CC82258CCB8C884C679AF033A76698A17F6EA4E80F452`, 109 entries, max path 176.
+- Scope: no-patch Paper 14 current-survival/source-route bridge after R143, plus feedback on R129/R130. The accepted P14 reference span from the R128 P14-P20 bridge survives the current R143/R144 German cumulative after normalization.
+- Source route: `Noether_GeneralSourceLibrary_v1_20260626/part09_P14_P15_P16_GDZ_raw_source_upgrade`. P14 official GDZ page images are recorded at about 600 ppi, below the preferred 650+ optical floor.
+- Packaging note: this is the compact handoff. The full local folder has a deeply nested `04_prior_p14_ledgers/` tree; the compact ZIP keeps active R144 materials and includes an omission note rather than packing very long internal paths.
+- Caveat: compact current-branch survival/source-route and stale-queue-prevention evidence only. Not a fresh German TeX repair, not full Paper 14 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful. Do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R143 Paper 19/Paper 20 survival bridge
 
 Manifest: [20260626_noether_r143_r142_p19_p20_survival_nopatch.json](../manifests/source-intake/20260626_noether_r143_r142_p19_p20_survival_nopatch.json)
