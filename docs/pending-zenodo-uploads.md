@@ -1,3 +1,16 @@
+## 2026-06-26: Noether R128 Paper 34 Batch30 pp.652-657 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch30_pp652_657_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch30_pp652_657_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch30_pp652_657_SourceFix_WebDrop_20260626.zip`, 15,060,312 bytes, SHA256 `996EB97BA8A902C687D49676052C0265A94B236F72AFDB036146008A18E817FF`, 27 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, `Hyperkomplexe Groessen und Darstellungstheorie`, printed pp.652-657.
+- Confirmed repairs: p653 restores source `>` relation signs in the composition-series chain; p653 restores source `\simeq` isomorphism signs in composition-factor/direct-product loci; p655 attaches footnote 12 to the source-visible item-3 anchor.
+- Checked without patch: printed pp.652, 654, 656, and 657.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are 2.5x upscaled for legibility only, not native 1000 ppi. This is best-available source checking, below the strict native 650+ certification floor.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement plan rather than uploading loose while the Noether record remains at the Zenodo file ceiling. Continue Paper 34 from printed p658 unless a newer actual web package appears.
+
 ## 2026-06-26 - SGA5 compact full-audit workpass delta p255-p259
 
 Manifest: [20260626_sga5_fullaudit_webdrop_p255_p259_delta.json](../manifests/source-intake/20260626_sga5_fullaudit_webdrop_p255_p259_delta.json)
