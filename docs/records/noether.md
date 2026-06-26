@@ -30,6 +30,8 @@ Local P11 rebase note: `Noether_R128_LocalCodex_P11_Rebase_NoPatch_TexAnchorRest
 
 Local P12 rebase note: `Noether_R128_LocalCodex_P12_Rebase_NoPatch_WebDrop_20260626.zip` applies no TeX patch. It records that the current R128/local P12 span is hash-identical to the prior source-backed R127 rebuilt P12 span and preserves a no-fix trap against globally replacing final-paragraph `aller analytischer Transformationen`. It is no-drift/no-patch metadata only, not P12 certification.
 
+Local P10-P12 compact bundle note: `Noether_R128_LocalCodex_P10_P12_RebaseBundle_NoPatch_WebDrop_20260626.zip` is a combined no-patch routing/control bundle for the three P10/P11/P12 rebase packets above. It includes the current cumulative TeX/PDF, the child ZIPs, rebase decision ledgers, web-drop checks, the source-audit logbook snapshot, and checksums. It is a compact replacement candidate for a future Noether record rebalance, not a fourth independent reader-facing certification claim.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers.
 
 ## Reader And Reference PDFs
@@ -146,4 +148,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0010 | [Noether_RA34_Public_Status_20260613.md](https://zenodo.org/records/20836874/files/Noether_RA34_Public_Status_20260613.md) |
 | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20836874/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
 | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20836874/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
-
