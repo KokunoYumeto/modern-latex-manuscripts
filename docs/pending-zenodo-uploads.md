@@ -4,13 +4,13 @@
 
 Manifest: [20260626_noether_r128_p01_regressionfix_p02_p03_survival.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p01_regressionfix_p02_p03_survival.json)
 
-- File: `Noether_R128_LocalCodex_P01RegressionFix_P02P03Survival_WebDrop_20260626.zip` (9,847,062 bytes, SHA256 `3CBBFA377BDFD21FE48763DBE0C5AE32DD548D00EE016E3830AE10211CFB4343`).
-- Result: P01 regression repair applied to the current R128/local cumulative. P02 and P03 were checked unchanged and exact against prior extracted source-backed span witnesses. The refreshed package also supplies a preferred current alias and survival checks for P20, P22, P30, P34, P37, P40-P43, and tail material carried in the same P01-fixed cumulative.
+- File: `Noether_R128_LocalCodex_P01RegressionFix_P02P03Survival_WebDrop_20260626.zip` (13,399,740 bytes, SHA256 `50E08D204920357FFEE8B3A1D36D273C54734999B1344B23A6F5B7DD0A0F9E9E`).
+- Result: P01 regression repair applied to the current R128/local cumulative. P02 and P03 were checked unchanged and exact against prior extracted source-backed span witnesses. The refreshed package also supplies a preferred current alias and survival checks for P20-P23, P30, P34-P38, P40-P43, and tail material carried in the same P01-fixed cumulative.
 - P01 repair summary: removes invented `Von Emmy Noether.` title-line, restores source title order (title, journal citation, then dissertation-excerpt note), and restores table phrase `resp. durch` instead of `bzw. durch`.
-- Evidence: `03_audit/confirmed_fix_ledger.csv`, `03_audit/P01_P03_postpatch_span_verification.csv`, `03_audit/P01_regression_fix_checks.json`, `03_audit/P22P30P34P37P42Tail_survival_checks_on_P01fixed_current.csv`, `03_audit/P40_P43_survival_checks_on_P01fixed_current.csv`, `03_audit/P41_P43_prior_slice_survival_on_P01fixed_current.csv`, `03_audit/preferred_current_alias.json`, and `04_diff/BASE_R128_to_P01Fixed_current.diff`.
+- Evidence: `03_audit/confirmed_fix_ledger.csv`, `03_audit/P01_P03_postpatch_span_verification.csv`, `03_audit/P01_regression_fix_checks.json`, `03_audit/P21_P23_span_survival_on_P01fixed_current.csv`, `03_audit/P21_P23_anchor_survival_on_P01fixed_current.csv`, `03_audit/P22P30P34P37P42Tail_survival_checks_on_P01fixed_current.csv`, `03_audit/P35_P36_P38_survival_checks_on_P01fixed_current.csv`, `03_audit/P40_P43_survival_checks_on_P01fixed_current.csv`, `03_audit/P41_P43_prior_slice_survival_on_P01fixed_current.csv`, `03_audit/preferred_current_alias.json`, and `04_diff/BASE_R128_to_P01Fixed_current.diff`.
 - Caveat: targeted P01 regression repair plus P02/P03 survival control only. High-DPI P01 source evidence remains in the earlier P01 source-repair package and is not duplicated here. Not Noether closure, multilingual synchronization, source-image certification, or critical-edition material.
 
-Next action: treat `cum_de_R128_plus_LocalCodex_AllKnownLocalFixes_P01_P20_P22_P30_Tail_20260626.tex` as the preferred compact local German handoff until a newer package supersedes it; fold into the next deliberate compact Noether rollup if needed.
+Next action: treat `cum_de_R128_plus_LocalCodex_AllKnownLocalFixes_20260626.tex` as the preferred compact local German handoff until a newer package supersedes it; the longer descriptive alias `cum_de_R128_plus_LocalCodex_AllKnownLocalFixes_P01_P20_P22_P30_Tail_20260626.tex` is also included. Fold into the next deliberate compact Noether rollup if needed.
 
 ## 2026-06-26: Noether R128 Paper 05-Paper 08 rebase no-patch control
 
