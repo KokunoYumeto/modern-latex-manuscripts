@@ -5660,3 +5660,12 @@ Manifest: [20260626_noether_r156_p21_p30_bridge_rollup_nopatch.json](../manifest
 - Scope: compact no-patch current-branch bridge/status package for the middle-band P21-P30 state after R155.
 - Result: P22 exact against accepted R128 reference; P29 normalized-exact against R131 fixed reference; P30 normalized-exact against accepted R128 reference; P24/P25/P27 stale local regression traps safe.
 - Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P21-P30 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R157 Paper 31-Paper 43 upper-band bridge
+
+Manifest: [20260626_noether_r157_p31_p43_upperband_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r157_p31_p43_upperband_bridge_nopatch.json)
+
+- Noether pending ZIP: `Noether_R157_LocalCodex_R156_P31_P43_UpperBandBridge_NoPatch_WebDrop_20260626.zip`, 3,934,607 bytes, SHA256 `4EC1848135D42F1AA3565AB2FC98CF3B47A8485179F6575126EF0BDA4279100A`, 51 entries.
+- Scope: compact no-patch current-branch bridge/status package for upper-band P31-P43 state after R156.
+- Result: P31 uses the later Batch39 source-fix reference; P34 keeps the R141 lambda correction; P35 keeps the R130 author/header restoration as a span; P42 has only surgical source-backed anchor survival checks; P43 survives through the received-date boundary while Deuring/tail material remains separate.
+- Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P31-P43 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
