@@ -7,12 +7,13 @@ Mathlib-aligned terms** (PR-able upstream, eventually Zenodo-published). Target 
 invariants, covariants, explicit forms), not the existence theorems Mathlib already has.
 
 **Why it's feasible.** Floris is already transcribing these German scans to LaTeX. Pipeline:
-*German scan → his LaTeX transcription → AI extracts an explicit computation with the source in
-hand → Lean checks the normalized formal statement.* This is not certification of the archive,
-the scan transcription, or the translation. The value is positive and independent: small useful
-Lean/mathlib-style library candidates can be produced from historically important explicit
-mathematics. Classical algebra needs no exotic Mathlib infrastructure, so it's the tractable
-regime; and explicit computation is where Lean's `decide`/`norm_num`/reflection shine.
+*historical mathematics / transcription context → explicit formal target → Lean 4 statement and
+build check.* This is not certification of the archive, the scan transcription, or the translation,
+and it is not an audit layer for the reader editions. The value is positive and independent: Lean
+needs more useful mathematics, and small Lean/mathlib-style library candidates can be produced from
+historically important explicit algebra, arithmetic, and geometry. Classical algebra needs no exotic
+Mathlib infrastructure, so it's the tractable regime; and explicit computation is where Lean's
+`decide`/`norm_num`/reflection shine.
 
 **Corpus (authors being mapped).** Gordan (invariant theory), Noether, Bianchi, Weber (Lehrbuch
 der Algebra), Frobenius, Steinitz, Sylvester, Camille Jordan, Gauss (Disquisitiones), Lie/Klein

@@ -1,6 +1,6 @@
 # Classical Lean Formalization Watch - 2026-06-25
 
-This is a watch handoff for Lean formalization/library-candidate material, not a DOI-ready publication package and not an audit or certification layer for the scanned editions.
+This is a watch handoff for Lean formalization/library-candidate material, not a DOI-ready publication package and not an audit or certification layer for the scanned editions. The point is library growth: Lean needs more useful mathematics, and this lane collects candidate additions.
 
 ## Local roots
 
@@ -27,7 +27,7 @@ This is a watch handoff for Lean formalization/library-candidate material, not a
 
 ## Public-status rule
 
-Do not make a public archive-certification claim from this material. Before publication as a Lean/library-candidate package, require: exact Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` logs where relevant, no `sorry` in promoted modules, source or motivation anchors to the actual transcribed TeX/public catalog where applicable, and a human-readable statement distinguishing formal theorem, source/motivation statement, and any modern restatement.
+Do not make a public archive-certification claim from this material. Before publication as a Lean/library-candidate package, require: exact Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` logs where relevant, no `sorry` in promoted modules, source or motivation anchors where applicable, and a human-readable statement distinguishing formal theorem, source/motivation statement, and any modern restatement.
 
 ## Workflow lesson
 
