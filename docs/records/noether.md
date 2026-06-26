@@ -22,6 +22,12 @@ Local P17/P16 follow-up after the Batch17 status paragraph above: Batch18 (`Noet
 
 Local P19 predecessor/supersession note: `20260626_noether_r128_p19_predecessor_and_superseded_batches.json` records the P19 Batch2, Batch3, plain Batch4, Batch12, and alternate Batch13 ZIPs found during sweep. Batch2/Batch3/Batch12 are real targeted repair provenance carried forward by later batches; the plain Batch4 and alternate Batch13 are superseded exports. This manifest prevents those packages from being lost without turning them into extra reader-facing Zenodo files.
 
+Local P15 tail source-map note: `Noether_R128_LocalCodex_P15_SourceAudit_Batch21_Tail_pp150_154_NoPatch_SourceMapCorrected_WebDrop_20260626.zip` applies no TeX patch, but records that the current cumulative branch still carries the earlier P15 tail fixes and that the local GDZ P15 tail filenames are offset by two pages (`p152` visibly contains printed p150 through `p156` visibly contains printed p154). Treat it as source-map correction and survival provenance only; it does not supersede stronger R115/R118 P15 closure evidence and is not a new certification claim.
+
+Local P10 IA-secondary rebase note: `Noether_R128_LocalCodex_P10_IASecondary_Rebase_NoPatch_WebDrop_20260626.zip` applies no TeX patch. It records that the current R128 P10 section is byte-identical to the earlier rebuilt/source-backed P10 section and that IA JP2 leaves are useful secondary witnesses where staged GDZ pages are only about 400 ppi. It is source-witness preference/no-drift metadata only, not P10 certification.
+
+Local P11 rebase note: `Noether_R128_LocalCodex_P11_Rebase_NoPatch_TexAnchorRestored_WebDrop_20260626.zip` applies no TeX patch. It records that the current R128 P11 section is byte-identical to the earlier rebuilt/source-backed P11 section, after restoring the missing comparison TeX anchor from the R127 ZIP. It is prior-repair survival/no-drift metadata only, not P11 certification.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers.
 
 ## Reader And Reference PDFs
