@@ -15,6 +15,17 @@ Manifest: [20260626_noether_general_source_library_v1.json](../manifests/source-
 
 Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure.
 
+## 2026-06-26: SGA5 live French workpass p175 status package
+
+Manifest: [20260626_sga5_live_certlog_p175_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p175_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p175_Status_20260626.zip`, 2,172,491 bytes, SHA256 `E87864245579BD91F09F42C5FCBBBC49B13A40A42AEC7E621E119C2A6DFAF758`, 10 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p175. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-175 are promoted by the certification ledger.
+- Result: p175 fixed the fourth recurring spurious enveloping-algebra superscript/base issue, correcting an evaluation-map tensor base from `\otimes_{B^e}E` to `\otimes_B E`. The ledger now reports 15 TeX fixes plus one cosmetic p172 cleanup, D001-D091 covered, and a 307-page / zero-fatal-error compilation.
+- Caveat: status/source-audit evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile success is not source fidelity; p171 remains the cautionary example because three math-bearing diagram errors compiled cleanly.
+
+Next action: fold into the next SGA record/workflow refresh as compact status evidence and continue page-local certification from p176.
+
 ## 2026-06-26: SGA5 live French workpass p174 status package
 
 Manifest: [20260626_sga5_live_certlog_p174_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p174_status_package.json)
