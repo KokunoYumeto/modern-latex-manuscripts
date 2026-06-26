@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 12 rebase no-patch control
+
+Manifest: [20260626_noether_r128_p12_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p12_rebase_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P12_Rebase_NoPatch_WebDrop_20260626.zip` (13,067,325 bytes, SHA256 `9C84C11F7C13CEB947BD488ECC915095EF461614776D4F55E32B06102EAA642F`).
+- Result: no source-certain TeX patch was made. The active R128/local P12 span is hash-identical to the prior source-backed R127 rebuilt P12 section (`A6D12165997F0F4BF00FDD0F37565CFA3A41997D96B8D4EB165B0D342F770631`).
+- No-fix trap: do not apply the earlier attempted global replacement of final-paragraph `aller analytischer Transformationen` with `aller analytischen Transformationen`; the staged GDZ source supports the current final-paragraph reading. A different earlier sentence legitimately uses `aller analytischen Transformationen`, so this is not a global search-and-replace issue.
+- Caveat: best-available GDZ full-page witnesses are below strict native 650+ ppi certification; exact 1000 dpi crops from earlier packages close only named loci. Not full P12 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: preserve as compact P12 provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 11 rebase no-patch control with restored TeX anchor
 
 Manifest: [20260626_noether_r128_p11_rebase_texanchor_restored_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p11_rebase_texanchor_restored_nopatch.json)
