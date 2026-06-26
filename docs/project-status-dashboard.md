@@ -17,6 +17,8 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 
 Quality rule: the dashboard counts public files and working coverage, not critical-edition status. No record here is a certified critical edition unless a future release explicitly says so. Filename terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy labels or scoped working labels; record caveats and source witnesses govern reliability.
 
+Latest Noether local queue hygiene: R128 P09/P10 Batch25 survival packages now record that current Paper 09 and Paper 10 spans are byte-identical to earlier rebuilt/source-backed spans, with no TeX patches. They are anti-regression/stale-queue controls only and should be folded into a compact Noether rollup rather than treated as standalone paper certification.
+
 ## Current Records
 
 | Record | Files | PDFs | ZIPs | Size | State |

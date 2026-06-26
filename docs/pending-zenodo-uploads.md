@@ -1,3 +1,16 @@
+## 2026-06-26: Noether R128 P09/P10 Batch25 survival/no-patch queue disposition
+
+Manifest: [20260626_noether_r128_p09_p10_batch25_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p09_p10_batch25_survival_nopatch.json)
+
+- Noether local ZIPs:
+  - `Noether_R128_LocalCodex_P09_Batch27_Batch25Survival_NoPatch_WebDrop_20260626.zip`, 852,864 bytes, SHA256 `7D44A441963D1088E4317608964C995B8A3D6FC3DB22E2680BD98F705D1DF563`, 15 entries.
+  - `Noether_R128_LocalCodex_P10_Batch26_Batch25Survival_NoPatch_WebDrop_20260626.zip`, 818,400 bytes, SHA256 `E0AC5FDB0F47FAF9F88589482C653DDA95C21CF5098B0A69A79340F7C905071A`, 16 entries.
+- Scope: compact current-branch queue-disposition/survival packages for Paper 09 and Paper 10 after Batch25/R128 local work.
+- Result: both packages apply no TeX patch. P09 is byte-identical to the prior R127 rebuilt/source-backed span; P10 is byte-identical to the earlier rebuilt/source-backed span.
+- Caveat: stale-queue prevention and provenance only. P09 remains mixed 400/600 ppi full-page evidence plus targeted 1000 dpi exact-locus crops; P10 remains a mixed IA/GDZ best-available lane. Not paper certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement plan rather than uploading loose while the Noether record remains at the Zenodo file ceiling.
+
 ## 2026-06-26: Noether R128 Paper 15 Batch25 pp.155-156 source-audit fix
 
 Manifest: [20260626_noether_r128_p15_batch25_pp155_156_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch25_pp155_156_sourcefix.json)
