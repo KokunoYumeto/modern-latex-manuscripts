@@ -1,5 +1,38 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 11 rebase no-patch control with restored TeX anchor
+
+Manifest: [20260626_noether_r128_p11_rebase_texanchor_restored_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p11_rebase_texanchor_restored_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P11_Rebase_NoPatch_TexAnchorRestored_WebDrop_20260626.zip` (3,605,289 bytes, SHA256 `B75B1CAC0071C290C0F4B7ECA1A5FF41A819CDC91DFBB0F60C5C0C3BCDB23B53`).
+- Result: no source-certain TeX patch was made in this rebase. The active R128 P11 section is byte-identical to the earlier rebuilt/source-backed P11 section (`2437F73AA342853094A04D2438991F3C1CDB66F316886C73B588C8139876F9B3`).
+- Source/provenance note: the extracted source-library folder lacked the advertised TeX anchor, so the comparison `P11_R127_REBUILT_section.tex` was restored directly from the R127 ZIP. The earlier p228 source-order repair is carried forward; this package does not apply a new patch.
+- Caveat: best-available GDZ/IA full-page context remains below strict native 650+ certification; exact 1000 dpi crops certify only their exact loci. Not full P11 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: preserve as compact P11 provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 10 IA-secondary rebase no-patch control
+
+Manifest: [20260626_noether_r128_p10_iasecondary_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p10_iasecondary_rebase_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P10_IASecondary_Rebase_NoPatch_WebDrop_20260626.zip` (3,594,607 bytes, SHA256 `28573DCC47F6FA22F4589B9443CD3706D5A0190010C2EEBD9714D6C33D8486AF`).
+- Result: no source-certain TeX patch was made. The active R128 P10 section is byte-identical to the earlier rebuilt/source-backed P10 section (`F9B71360A9AC0EFCE3EBA38762FC364C9CE81961651125DC01574E42681C3276`), so this is no-drift/rebase evidence.
+- Source disposition: IA JP2 leaves for `sim_mathematische-annalen_1916_77_4` are useful secondary witnesses, especially where the staged GDZ page is only about 400 ppi; GDZ remains preferred on the 600 ppi pages. Neither route is strict 650+ ppi certification by itself.
+- Caveat: IA-secondary source-disposition and no-new-patch control only. Not full P10 certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: preserve as compact P10 provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 15 Batch21 tail source-map correction and no-patch survival control
+
+Manifest: [20260626_noether_r128_p15_batch21_tail_source_map_corrected_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch21_tail_source_map_corrected_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P15_SourceAudit_Batch21_Tail_pp150_154_NoPatch_SourceMapCorrected_WebDrop_20260626.zip` (10,332,494 bytes, SHA256 `4269DFD512ADB50CAA363AE220D8D50EB6AF8B1260A63FF90EC7E2970FA5C2E9`).
+- Result: no source-certain TeX patch was made. The package confirms that the prior P15 tail fixes survive in the current cumulative branch: the printed p152 Latin `x` index block remains Latin `x`, and the printed p154 Schur citation remains `Math. Ann. 71, S. 355 (1912)`.
+- Source-map correction: the local GDZ image folder is useful but its P15 tail filenames are misleading. Visible printed pages are two pages lower than the nominal labels (`p152` shows printed p150 through `p156` shows printed p154). The package carries corrected-map witnesses under `02_source_pages_corrected_map`.
+- Caveat: route-correction and prior-fix survival evidence only. It does not supersede the stronger R115/R118 P15 closure evidence, and the current package's sanity witnesses are about 400 ppi, below the strict 650+ ppi page-level certification rule.
+
+Next action: preserve as compact P15 provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 16 no-patch IA witness and bad GDZ route warning
 
 Manifest: [20260626_noether_r128_p16_batch20_ia_witness_nopatch_bad_gdz_route.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p16_batch20_ia_witness_nopatch_bad_gdz_route.json)
