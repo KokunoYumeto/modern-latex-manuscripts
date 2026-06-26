@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 Paper 13 post-Batch39 survival bridge
+
+Manifest: [20260626_noether_r128_p13_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p13_postbatch39_survival_nopatch.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_P13_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 5,342,809 bytes, SHA256 `F8B3A6AD548AA451953B963490150BB61D4FF4D11F52D79C5C3FC150F1729464`, 135 entries.
+- Result: no German TeX patch. The accepted Paper 13 source-audit span from the prior P09-P13 bridge survives as an exact raw substring in the current Batch39 cumulative: 610 current lines, 610 reference lines, both hashing to `ee8476f93c66147c4df2f2c911f775b1e878bef6e976a68c05e1da01ff96ba6b`.
+- Guardrail: do not replay stale Paper 13 queue rows unless a concrete source-current mismatch or a genuinely stronger source witness appears.
+- Packaging note: this ZIP carries prior-context ledgers and has internal paths up to 351 characters; treat it as provenance/control material rather than a reader-facing loose upload unless repackaged.
+- Caveat: current-branch integration/survival proof only. Not fresh full visual source certification, not Paper 13 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition. Prior Paper 13 evidence uses about-400 ppi GDZ pages for pp.235-246 and higher-detail Commons DjVu-derived images for pp.247-257 without native PPI certification.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 P14-P20 post-Batch39 bridge with accepted P15 drift
 
 Manifest: [20260626_noether_r128_p14_p20_postbatch39_bridge_p15accepteddrift.json](../manifests/source-intake/20260626_noether_r128_p14_p20_postbatch39_bridge_p15accepteddrift.json)
