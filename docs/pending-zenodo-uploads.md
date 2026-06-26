@@ -22,6 +22,19 @@ Manifest: [20260626_noether_r128_source_convergence_package.json](../manifests/s
 
 Next action: use R128's queue-ranking and inventory files to decide the next non-duplicative Noether source-audit targets; fold it into a compact Noether source-support rollup after pruning/replacement planning.
 
+## 2026-06-26: Noether R128 active Local Codex handoff and P14-P18 survival checks
+
+Manifests: [20260626_noether_r128_localcodex_active_p42_p19p20_router.json](../manifests/source-intake/20260626_noether_r128_localcodex_active_p42_p19p20_router.json), [20260626_noether_r128_p14_p18_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p14_p18_survival_nopatch.json)
+
+- Active-ingest ZIP: `Noether_R128_LocalCodex_Ingested_CurrentPlusP19P20Router_WebDrop_20260626.zip`, 6,593,633 bytes, SHA256 `76B7D3F22CF7E7103724C2A77EDCCD4483EDC87B6084C2B88094CA9EB4FC90EF`, 30 ZIP entries.
+- P19/P20 source-quality router ZIP: `Noether_R127_LocalCodex_P19_P20_SourceQualityRecheck_NoNewSourcePart_WebDrop_20260626.zip`, 7,365 bytes, SHA256 `DDF14FE6EF83EB2B5A249E1F5D0FCBB5F570F5A25897B4063FDE6DD003629537`, 9 ZIP entries.
+- P14-P18 survival ZIP: `Noether_R128_LocalCodex_P14_P18_SurvivalAudit_NoNewPatch_WebDrop_20260626.zip`, 3,160,508 bytes, SHA256 `71EDE2FF03429A464BDDE6F869D65E92B042F83A922D2686503287C6B7E3FEFC`, 14 ZIP entries.
+- Scope: the active-ingest package adopts R128 as the current local German base, restores the Paper 42 source-backed `Sp(\widetilde a a)` anti-regression fix, and carries P19/P20 source-routing decisions. The P14-P18 package checks 24 targeted source-backed survival anchors/traps on top of the patched R128 base.
+- Result: P42 anti-regression passes; P19/P20 should keep using source-library part11 because no stronger 650+ ppi source was found; P14-P18 targeted checks report 24/24 pass and no new TeX patch.
+- Caveat: compact handoff/regression/source-routing support only. Not whole-corpus closure, not whole-paper certification, not multilingual synchronization, and not a critical edition.
+
+Next action: use `cum_de_R128_plus_LocalCodex_P42antiRegression_20260626.tex` as the active local German base until superseded; fold these packages into a compact Noether rollup after deliberate pruning/replacement because the Zenodo record is at the file ceiling.
+
 ## 2026-06-26: Noether P09-P20 non-overlap pointer refresh
 
 Manifest: [20260626_noether_source_library_p09_p20_nonoverlap_pointer_refresh.json](../manifests/source-intake/20260626_noether_source_library_p09_p20_nonoverlap_pointer_refresh.json)
