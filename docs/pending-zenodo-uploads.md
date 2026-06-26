@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R135 P05-P08 survival bridge after R134
+
+Manifest: [20260626_noether_r135_r134_p05_p08_survival_bridge_nopatch.json](../manifests/source-intake/20260626_noether_r135_r134_p05_p08_survival_bridge_nopatch.json)
+
+- Current pending ZIP: `Noether_R135_LocalCodex_R134_P05_P08_SurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,753,024 bytes, SHA256 `E0E0177BCCDEB214AFE43AC8CC4FF8196F1BB773A3D7AC8295C22EFDD3497614`, 16 entries.
+- Scope: no-patch survival bridge after R134. Accepted repaired/reference spans for Papers 05, 06, 07, and 08 survive raw-exact and normalized-exact in the R134 German cumulative.
+- Build/status: bundled cumulative TeX/PDF are copied forward unchanged from R134/R131, with 471-page PDF and unchanged TeX/PDF hashes. This package adds survival spans, CSV/JSON audit, R129/R130 feedback, and provenance log snapshots.
+- Caveat: integration/anti-regression evidence only. Not fresh page-by-page glyph/source certification of P05-P08, not whole-Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: use as compact current-position handoff after R134 when feeding web sessions; fold into the next deliberate Noether Zenodo refresh/rebalance if useful.
+
 ## 2026-06-26: Noether R134 Paper 9 source-upgrade search / no-patch disposition
 
 Manifest: [20260626_noether_r134_p09_source_upgrade_search_nopatch.json](../manifests/source-intake/20260626_noether_r134_p09_source_upgrade_search_nopatch.json)
