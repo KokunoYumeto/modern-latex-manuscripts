@@ -405,7 +405,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_salvage_v2_p194.json](../manifests/s
 - Result: CERT_LOG/AGENT_SCORECARD are the freshest controlling status files. Parsed completed rows in CERT_LOG reach p194; p195 is only the next cursor and is not promoted as a completed certification row. The included workpass compiles to a 307-page PDF of 2,017,419 bytes.
 - Caveat: source-audit salvage/status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. The reconciliation note still reports about 223 pages needing reconciliation/certification. Superseded as current cursor by the p225 package; keep this older caveat as provenance for the p194 salvage/status package only.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p225_20260626.zip`; keep this v2 package as compact provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep this v2 package as compact provenance/history.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p220
 
@@ -416,7 +416,18 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p220.json](../manifests/sourc
 - Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p220; p221 is the next cursor. Recent movement checks p214-p220 through Expose V Proposition 2.4.1, section 2 closure, and section 3.1 J-adic stability. p214 repairs copied source typo `Hom_P(X,Y')` to `Hom_P(X,Y)` and verifies D125-D128; p216 verifies D129-D130; p217 resolves lowercase `p_AR`; p219 closes section 2; p220 verifies D131.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p225_20260626.zip`; keep the p220 package as compact provenance/history only.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep the p220 package as compact provenance/history only.
+
+## 2026-06-26: SGA5 full-audit French workpass status through p226
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p226.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p226.json)
+
+- SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`, 2,176,379 bytes, SHA256 `38BAFC01B177E2BF74757A3300C9C8684BEE722E2511CDC003E9042F4029BB10`, 8 ZIP entries, 1 PDF.
+- Scope: compact status/workpass package preserving the current French workpass TeX/PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, method note, package status, and file manifest after the page-local ledger reached p226.
+- Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p226; p227 is the next cursor. Recent movement p222-p226 covers Prop. 3.2.3 close, Prop. 3.2.4, section 3 closure, section 4 opening, diagram checks D132-D135, Def. 4.1.2, and Prop. 4.1.3 proof end. The p223 `p_AR`/`P_AR` source-notation inconsistency is flagged and kept faithful; p226 restores source `gr^p(X_{n+r})` where the workpass had `gr^p(X_{p+r})`.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: use this as the current SGA5 local cursor and continue from p227. Keep older p225/p220/p213/p208/p205/p199/p197/p194 packages as compact provenance/history only.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p225
 
@@ -427,7 +438,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p225.json](../manifests/sourc
 - Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p225; p226 is the next cursor. Recent movement p221-p225 covers Prop. 3.2.1, Def. 3.2.2, Prop. 3.2.3, Prop. 3.2.4, section 3 closure, section 4 opening, diagram checks D132-D135, Def. 4.1.2, and Prop. 4.1.3 opening/partial proof. The p223 `p_AR`/`P_AR` source-notation inconsistency is flagged and kept faithful.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: use this as the current SGA5 local cursor and continue from p226. Keep older p220/p213/p208/p205/p199/p197/p194 packages as compact provenance/history only.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep the p225 package as compact provenance/history only.
 ## 2026-06-26: Noether R128 P10-P12 compact no-patch rebase bundle
 
 Manifest: [20260626_noether_r128_p10_p12_rebasebundle_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p10_p12_rebasebundle_nopatch.json)
@@ -439,6 +450,17 @@ Manifest: [20260626_noether_r128_p10_p12_rebasebundle_nopatch.json](../manifests
 
 Next action: if the Noether Zenodo record is pruned/rebalanced, consider this as a compact replacement for the three child P10/P11/P12 packets; do not upload it loose on top of the file-ceiling problem.
 
+## 2026-06-26: Noether R128 P10-P12 compact queue correction and current cumulative
+
+Manifest: [20260626_noether_r128_p10_p12_queuecorrection_currentcumulative.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p10_p12_queuecorrection_currentcumulative.json)
+
+- Noether queue-correction ZIP: `Noether_R128_LocalCodex_P10_P12_QueueCorrection_CurrentCumulative_WebDrop_20260626.zip`, 3,445,155 bytes, SHA256 `9780CF22A266718988DCC07E7CAF7409EE9F63138EC549A38F46BCAC0805635F`, 30 ZIP entries, 1 PDF.
+- Scope: compact web handoff for the R128 German current cumulative and the stale P10-P12 queue rows. It carries no TeX patch.
+- Result: P10 remains open as a lower-resolution/best-available lane. P11 and P12 are moved out of the active unknown queue for the current branch because their current spans are exact against the restored/rebuilt references unless a concrete mismatch or stronger native source appears. The current cumulative remains `cum_de_R128_plus_LocalCodex_AllKnownLocalFixes_20260626.tex` / PDF.
+- Caveat: routing and stale-queue correction only. P11/P12 "handled" here means current-branch survival against the available references, not whole-paper certification, whole-Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: fold into a compact Noether rollup or future record rebalance; do not upload loose on top of the Noether file-ceiling problem unless it replaces older support files.
+
 ## 2026-06-26: SGA5 full-audit French workpass status through p205
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p205.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p205.json)
@@ -448,7 +470,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p205.json](../manifests/sourc
 - Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p205; p206 is the next cursor. Recent movement closes Expose III B through bibliography/scope pivot, opens Expose V at p204, checks p205, and points p206 at the Mittag-Leffler-Artin-Rees/projective-system machinery.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p225_20260626.zip`; keep p205 as compact provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep p205 as compact provenance/history.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p199
 
@@ -459,7 +481,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p199.json](../manifests/sourc
 - Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p199; p200 is the next cursor. Recent movement checks p198-p199 cover Proposition 6.19, D106, section 6.20, Proposition 6.21, diagrams D107-D109, Corollary 6.22, and the opening of Proposition 6.23. That p199 pass originally proposed `(f^*v)^!` to `(h^*v)^!` in 6.22.1, but the later p200 audit reverted it as intended source notation; use the p208 package for the current status.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p225_20260626.zip`; keep p199 as compact provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep p199 as compact provenance/history.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p197
 
@@ -470,7 +492,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p197.json](../manifests/sourc
 - Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p197; p198 is the next cursor. Recent movement checks p195-p197 across the section 6.14 devissage, Proposition 6.16 / Corollary 6.17, the phi-not-identity divisibility generalization, norm `N_G`, Lemma 6.18.3, and the opening of Proposition 6.19 / D106. Accepted TeX fixes since p194 include `c_{X-U,U}` to source `c_{X-U,X}`; p197 flags a prose/source issue `x de G` -> `x de C`.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p225_20260626.zip`; keep p197 as compact provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep p197 as compact provenance/history.
 
 ## 2026-06-26: SGA5 live French workpass p190 status package (superseded cursor)
 
@@ -481,7 +503,7 @@ Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-190 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`. Page p189 checks scalar functoriality and D102; p190 checks trace transitivity, external multiplicativity, the G-equivariant opening, and D103.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p225_20260626.zip`; keep as p190 provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p226_20260626.zip`; keep as p190 provenance/history.
 
 ## 2026-06-26: Noether R128 source-convergence/routing package
 
