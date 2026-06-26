@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R142 Paper 17 GDZ600 survival bridge
+
+Manifest: [20260626_noether_r142_r141_p17_gdz600_survival_nopatch.json](../manifests/source-intake/20260626_noether_r142_r141_p17_gdz600_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R142_LocalCodex_R141_P17_GDZ600SurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,889,219 bytes, SHA256 `8DE03182892695EB60784F9AFB9AE3D0E0D33DDE574D01CFDEA6AAE3F3FC43C2`, 87 entries, max path 233.
+- Scope: no-patch Paper 17 survival/source-route bridge after R141. The accepted P17 reference span survives in the current R141/R142 German cumulative after whitespace normalization; the raw byte mismatch is line-wrapping/context only.
+- Source route: `Noether_GeneralSourceLibrary_v1_20260626/part12_P17_P18_GDZ_source_master`, with official GDZ P17 raw pages recorded as 600 ppi best-available, below the preferred 650+ optical floor.
+- Caveat: compact survival/source-route and anti-regression evidence only. Not a fresh German TeX repair, not full Paper 17 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful. Do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R141 Paper 34 lambda repair
 
 Manifest: [20260626_noether_r141_r140_p34_lambda_patch.json](../manifests/source-intake/20260626_noether_r141_r140_p34_lambda_patch.json)
