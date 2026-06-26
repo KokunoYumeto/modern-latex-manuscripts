@@ -2,7 +2,7 @@
 
 Manifest: [20260626_noether_r128_p15_batch25_pp155_156_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch25_pp155_156_sourcefix.json)
 
-- Noether pending ZIP: `Noether_R128_LocalCodex_P15_SourceAudit_Batch25_pp155_156_SourceFix_WebDrop_20260626.zip`, 6,559,744 bytes, SHA256 `611BE8CAC53AA0C997B454ECB250CD605155E45E018AE0619D370D4EEA8CA327`, 23 entries.
+- Noether pending ZIP: `Noether_R128_LocalCodex_P15_SourceAudit_Batch25_pp155_156_SourceFix_WebDrop_20260626.zip`, 6,562,105 bytes, SHA256 `36C92C17ABB16EBE70F3DF854168316B90AFACE427EBB7CE87F9B29964BC5674`, 25 entries.
 - Scope: targeted German cumulative source-audit repair for Paper 15 true visible printed pp.155-156, continuing from Batch24.
 - Confirmed repair: p155 formula (1) restores the printed multiplication dot after `1/h` before the summation.
 - Checked without patch: p155 formulas (2)-(3) and surrounding prose; p156 formula (4), basis statement, conjugate-coefficient paragraph, and closing sentence.
@@ -4544,7 +4544,7 @@ Next action: resolve the P35/P37 naming/scope mismatch and obtain/build a correc
 
 Manifest: [20260625_noether_r127_recovered_cumulative_p35trace.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_recovered_cumulative_p35trace.json)
 
-- Noether corrected R127 salvage ZIP: `Noether_R127_Recovered_Cumulative_P35Trace_WebDrop_20260625.zip`, 41,153,414 bytes, SHA256 `235D4BA6C1DC8F9C9CE33F29123CCD9E4CAB0AC8C7AF4ACB6EF2E17F89C7E01D`, 23 entries; ZIP extraction test passed.
+- Noether corrected R127 salvage ZIP: `Noether_R127_Recovered_Cumulative_P35Trace_WebDrop_20260625.zip`, 41,153,414 bytes, SHA256 `235D4BA6C1DC8F9C9CE33F29123CCD9E4CAB0AC8C7AF4ACB6EF2E17F89C7E01D`, 25 entries; ZIP extraction test passed.
 - Scope: repairs the earlier broken/near-empty `Noether_R127_20260625.zip` surface by bundling the recovered German cumulative TeX/PDF, R127 ledgers, Paper 35 diff, logs, trace-replay scripts, and the broken original drop as forensics.
 - Primary surface checked locally: `01_de/cum_de_R127.pdf` is a 467-page A4 PDF, 2,588,627 bytes, SHA256 `34273F1E30B053B9AED78162DA7F84B74A113DDFE9C8B791E6CB9D14C78805A9`; `01_de/cum_de_R127.tex` is 2,119,696 bytes, SHA256 `4C47C0DFCF540CA65171AD65C4363CBDEAA429CEDBFA0EFACC342D8EDE7AA6C0`.
 - Caveat: this is trace-replay salvage, not a new independent source re-audit of all Paper 35, not whole-Paper-35 certification, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
@@ -4641,7 +4641,7 @@ Next action: fold into the next compact Noether rollup after P22/P30; do not upl
 
 Manifest: [20260625_noether_r127_p42_sp_tilde_order_fix.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p42_sp_tilde_order_fix.json)
 
-- Noether P42 order-fix ZIP: `Noether_R127_LocalCodex_P42_SpTildeOrderFix_WebDrop_20260625.zip`, 8,664,232 bytes, SHA256 `C9D5FDF3E1CF4EE88FCD7463FD58474AB7882080E8400BBB64F78F6CACD357D2`, 23 entries.
+- Noether P42 order-fix ZIP: `Noether_R127_LocalCodex_P42_SpTildeOrderFix_WebDrop_20260625.zip`, 8,664,232 bytes, SHA256 `C9D5FDF3E1CF4EE88FCD7463FD58474AB7882080E8400BBB64F78F6CACD357D2`, 25 entries.
 - Scope: replaces only Paper 42 in the R127+P22+P30+P37 German cumulative with the source-order-fixed Paper 42 span.
 - Confirmed repair: Paper 42 source p685 / source PDF page 7 has three trace-ideal loci printed as `Sp(\widetilde a a)`; the package changes only those three occurrences from `Sp(a\widetilde a)` and preserves earlier plain-product `a\widetilde a` contexts.
 - Build/status: XeLaTeX pass 1 and pass 2 succeeded locally on 2026-06-25; compiled German cumulative PDF has 468 pages; package reports R127 P42 survival/patch checks pass 4/4.
