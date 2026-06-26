@@ -5815,3 +5815,12 @@ Manifest: [20260627_noether_r173_p10_frontmatter_sourcefix.json](../manifests/pe
 - Scope: narrow Paper 10 German cumulative front-matter repair on top of R171.
 - Result: adds the source-visible terminal period to `Die Funktionalgleichungen der isomorphen Abbildung.` and restores the source-style byline layout `Von` / `Emmy Noether in Göttingen.` from printed p.536.
 - Caveat: no mathematical body text changed; witnesses are visually sufficient for this front-matter block but below strict native-650 page certification. Not full Paper 10 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R174 new-thread web-output check
+
+Manifest: [20260627_noether_r174_new_thread_weboutput_check_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r174_new_thread_weboutput_check_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R174_LocalCodex_NewThreadWebOutputCheck_NoPatch_20260627.zip`, 284,304 bytes, SHA256 `B9606828ACAAF454BCE2FA50C9EDCAE45A1C0732BA40EF0BD0610BCCB51E203E`, 8 entries.
+- Scope: no-patch routing/control packet checking whether newer visible Noether web outputs exist after R173.
+- Result: no genuinely newer web package later than R173 was found locally; R129/R130 remain useful evidence but stale bases; R173 remains the preferred current local base.
+- Caveat: hold unless doing a Noether workflow/control refresh. Not reader content, not a source repair, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
