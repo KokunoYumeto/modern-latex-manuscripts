@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 P24-P30/P31-P34/P39 current-survival no-patch controls
+
+Manifests: [20260626_noether_r128_p24_p30_middleband_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p24_p30_middleband_survival_nopatch.json), [20260626_noether_r128_p31_p34_upperband_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p31_p34_upperband_survival_nopatch.json), [20260626_noether_r128_p39_current_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p39_current_survival_nopatch.json)
+
+- Middle-band ZIP: `Noether_R128_LocalCodex_P24_P30_MiddleBandCurrentSurvival_NoPatch_WebDrop_20260626.zip`, 13,250,827 bytes, SHA256 `E6E79B974553FB9225583B8E623071C9FDAB7990D11A567BB9E30325EF351A2A`, 45 ZIP entries.
+- Upper-band ZIP: `Noether_R128_LocalCodex_P31_P34_UpperBandCurrentSurvival_NoPatch_WebDrop_20260626.zip`, 3,521,105 bytes, SHA256 `2AB1D08E29AA0029264F38C2B6C3828725548E099C988A3A1B0E5CB0F410487B`, 26 ZIP entries.
+- P39 ZIP: `Noether_R128_LocalCodex_P39_CurrentSurvival_NoPatch_WebDrop_20260626.zip`, 3,403,184 bytes, SHA256 `364F6447B887D28B0EAEA5BA84D4EBAD072526DEB8C3C09A4FEA59A030EDE93A`, 19 ZIP entries.
+- Result: no TeX patch is proposed by any of these packages. P24-P30 and P31-P34 match their prior R127 current-reference spans after normalization; P39 matches its prior repaired active span and all listed P39 repair anchors pass.
+- Caveat: current-branch anti-regression / no-redo metadata only. Source witnesses range from targeted 650 dpi down to 600 ppi and about-400 dpi evidence, depending on paper. Not paper certification, not whole-corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold these into the next deliberate compact Noether rollup or replacement plan. Do not upload loose while the Noether record remains file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 01 regression fix plus Paper 02/Paper 03 survival control
 
 Manifest: [20260626_noether_r128_p01_regressionfix_p02_p03_survival.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p01_regressionfix_p02_p03_survival.json)
