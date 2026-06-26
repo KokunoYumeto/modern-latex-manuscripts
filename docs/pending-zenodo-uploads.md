@@ -147,6 +147,17 @@ Manifest: [20260626_sga5_fullaudit_workpass_salvage_v2_p194.json](../manifests/s
 
 Next action: use this v2 package as the current compact SGA5 control package until a later cursor supersedes it; use CERT_LOG.md and AGENT_SCORECARD.md as the controlling status files.
 
+## 2026-06-26: SGA5 full-audit French workpass status through p197
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p197.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p197.json)
+
+- SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p197_20260626.zip`, 2,165,278 bytes, SHA256 `A368023C2D57CF37635CF20900B3F2923309FE3003FA1E38F69D2E03823B2EF5`, 10 ZIP entries, 1 PDF.
+- Scope: compact status/workpass package preserving the current `sga5_fr_workpass.tex` / PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, `FINDINGS.md`, `STATUS.md`, `_GOAL.md`, README, and checksums after the hand-audit ledger reached p197.
+- Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p197; p198 is the next cursor. Recent movement checks p195-p197 across the section 6.14 devissage, Proposition 6.16 / Corollary 6.17, the phi-not-identity divisibility generalization, norm `N_G`, Lemma 6.18.3, and the opening of Proposition 6.19 / D106. Accepted TeX fixes since p194 include `c_{X-U,U}` to source `c_{X-U,X}`; p197 flags a prose/source issue `x de G` -> `x de C`.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: continue from p198, especially Proposition 6.19 and the section 6.18/6.19 norm/Tate criterion material; watch D106 edges, `N_G`/Tate notation, `d_1^*`/`d_2^!`, and `uRHom_{\\Lambda[G]}(\\Lambda,-)`.
+
 ## 2026-06-26: SGA5 live French workpass p190 status package (superseded cursor)
 
 Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p190_status_package.json)
@@ -156,7 +167,7 @@ Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-190 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`. Page p189 checks scalar functoriality and D102; p190 checks trace transitivity, external multiplicativity, the G-equivariant opening, and D103.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Salvage_v2_20260626.zip`; keep as p190 provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p197_20260626.zip`; keep as p190 provenance/history.
 
 ## 2026-06-26: Noether R128 source-convergence/routing package
 
