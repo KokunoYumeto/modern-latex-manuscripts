@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 Paper 15 Batch22 pp.138-143 source-audit fixes
+
+Manifest: [20260626_noether_r128_p15_batch22_pp138_143_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch22_pp138_143_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P15_SourceAudit_Batch22_pp138_143_SourceFix_WebDrop_20260626.zip`, 51,310,482 bytes, SHA256 `899B071AB6175B8EE200129BFBA0877A57BCA61246A2159808F24F3E0AD73A43`, 32 entries.
+- Scope: targeted German cumulative source-audit fix package for Noether Paper 15, true visible printed pp.138-143. Local P15 GDZ filenames are misleading here: visible pp.138-143 correspond to local labels p140-p145 / canvases 00000144-00000149, so `source_map_corrected.csv` controls.
+- Applied source-certain fixes: restore the source-visible p138 author line, change one p139 `in bezug` locus to source `inbezug`, move the Satz II source-note marker to the display position on p140, change the first generic symmetric display on p141 from Latin exponent letters to Greek alpha/beta/gamma, restore source semicolon separators on p142, and move the formula (3) binomial-coefficient note marker to the displayed formula.
+- No-fix traps: do not globally change Latin a,b,c to Greek letters; do not infer native 1000 ppi from the legibility crops; p143 formulas (4)-(9a) were visually checked in this pass with no patch.
+- Source-quality caveat: official GDZ images are tagged 400 ppi. The 1000 ppi crops are legibility aids made from native 400 ppi source, below strict high-resolution certification.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement plan. Do not loose-upload while Noether remains at the file ceiling. This is targeted source-audit repair evidence only, not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
+
 ## 2026-06-26: SGA5 full-audit workpass status through p245
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p245.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p245.json)
