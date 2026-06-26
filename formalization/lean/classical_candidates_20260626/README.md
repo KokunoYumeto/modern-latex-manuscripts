@@ -11,7 +11,7 @@ The files in `lean_green/` are the primary usable Lean candidates:
 - `Steinitz.lean`: Ernst Steinitz/perfect fields; `PerfectRing K p ↔ Function.Surjective (frobenius K p)`.
 - `Weber.lean`: Heinrich Weber modular-function cubic, formalized as a real polynomial identity.
 
-These are useful as Lean/mathlib-adjacent formal mathematics candidates. Their value is as library material and reusable formal statements. They are not presented as proof, audit, source-fidelity evidence, or certification of the scanned editions or translations.
+These are useful as Lean/mathlib-adjacent formal mathematics candidates. Their value is as library material and reusable formal statements. They are not proof-of-archive, audit evidence, source-fidelity evidence, or certification of the scanned editions or translations; the promoted value is as Lean/mathlib-style library material.
 
 The internal namespace prefix `ClassicalAudit` is a legacy code namespace from the first local experiment. It should not be read as a public audit or certification claim; the promoted public meaning of this package is formalization/library candidate material.
 
