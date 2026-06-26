@@ -5844,3 +5844,13 @@ Manifest: [20260627_noether_r176_p11_frontmatter_sourcefix.json](../manifests/pe
 - Result: adds the source-visible terminal period to `Gleichungen mit vorgeschriebener Gruppe.` and corrects the byline ending from comma to period: `Emmy Noether in Göttingen.`.
 - Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; the log scan reports no fatal, undefined, rerun, overfull, or underfull messages.
 - Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. The witness is a targeted 1000ppi crop, sufficient for title/byline punctuation only. Targeted front-matter repair/provenance only; not full Paper 11 certification, not full-page dense-math certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R177 Papers 15 and 16 front-matter/source-route fix
+
+Manifest: [20260627_noether_r177_p15_p16_frontmatter_routefix.json](../manifests/pending-zenodo-uploads/20260627_noether_r177_p15_p16_frontmatter_routefix.json)
+
+- Noether pending ZIP: `Noether_R177_LocalCodex_P15_P16_FrontMatterRouteFix_WebDrop_20260627.zip`, 6,342,992 bytes, SHA256 `465DD3604C991242795FB65D09B3BD387828C226828C03B3D9F8CCDCFC686C37`, 18 entries.
+- Scope: narrow German cumulative Papers 15 and 16 front-matter repair plus bad-source-route warning on top of R176.
+- Result: adds the Paper 15 title terminal period in both title loci and the Paper 16 section-heading terminal period. It also records that one tempting P15 route is a Prandtl page and that P16-labelled GDZ canvases 00000025-00000030 are offset/bad for Paper 16.
+- Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; the log scan reports no fatal, undefined, rerun, overfull, or underfull messages.
+- Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. P15 source witness is 400ppi; P16 source witness has undefined DPI metadata. Both are used only for visually unambiguous front matter and route confirmation. Targeted front-matter repair/source-route provenance only; not full Paper 15 or Paper 16 certification, not full-page dense-math certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
