@@ -421,7 +421,7 @@ Accuracy warning 2026-06-09/12/25: Cayley files listed here are retained for pro
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact control package is SGA5_FullAudit_Workpass_Status_p001_p245_20260626.zip. Completed rows reach p245, p246 is next; p243-p245 open the Shih appendix material, cover spectral filters and projective systems, and include bidegree TikZ figure D140 with a recorded layout simplification. This is opening-range workpass evidence, not complete SGA5, not English synchronization, not global source certification, and not critical-edition material. SGA5 remains incomplete, not critical, not globally source-faithful, and not English-synchronized.
+Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact control package is SGA5_FullAudit_Workpass_Status_p001_p249_20260626.zip. Completed rows reach p249, p250 is next; p246-p249 close Expose V Appendix A.2, open A.3, carry Theorem A.3 proof, and verify diagrams D141-D142. D140 keeps its earlier source-verified labels/content but simplified-layout caveat. This is opening-range workpass evidence, not complete SGA5, not English synchronization, not global source certification, and not critical-edition material. SGA5 remains incomplete, not critical, not globally source-faithful, and not English-synchronized.
 
 | Role | Size MB | File |
 |---|---:|---|

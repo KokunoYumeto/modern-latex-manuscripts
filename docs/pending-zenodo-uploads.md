@@ -22,6 +22,17 @@ Manifest: [20260626_noether_r128_p15_batch22_pp138_143_sourcefix.json](../manife
 
 Next action: fold into the next deliberate compact Noether rollup/replacement plan. Do not loose-upload while Noether remains at the file ceiling. This is targeted source-audit repair evidence only, not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
 
+## 2026-06-26: SGA5 full-audit workpass status through p249
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p249.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p249.json)
+
+- SGA5 status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p249_20260626.zip`, 2,265,518 bytes, SHA256 `03EABC3B144CF33A822F28A2311051C00E68CFD6B4FEA874485249238919D043`, 11 entries.
+- Scope: compact local French workpass/status package preserving the live workpass TeX/PDF/log plus CERT_LOG, AGENT_SCORECARD, FINDINGS, audit method note, swarm status note, package status note, manifest, and checksums.
+- Current cursor: completed rows reach p249; p250 is next. p246 closes Appendix A.2 part c) material; p247 closes A.2 and opens A.3 with diagram D141; p248 records Theorem A.3 statement/proof opening; p249 carries the proof continuation and verifies D142.
+- Diagram/layout note: D140 keeps the earlier source-verified labels/content but simplified layout caveat; D141 and D142 are recorded as checked in the included ledgers.
+- Caveat: source-audit/workpass status only. p250-p252 source chunks may exist locally but are not promoted by this package. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: continue from p250 under the CERT_LOG page-local method and keep English synchronization separate. Older p190-p245 status packages are compact provenance/history only.
 ## 2026-06-26: SGA5 full-audit workpass status through p245
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p245.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p245.json)
