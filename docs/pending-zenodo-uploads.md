@@ -4892,3 +4892,14 @@ Manifest: [20260626_weber_b139_phase2_v1ge_sec141_162_status.json](../manifests/
 - Caveat: source-audit/status artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
 
 Next action: continue Phase 2 coherent retranscription of held rewrite/reconstruction blocks, especially sections 148-156, 158, 163, 165, 167-170, and 173-188.
+
+## 2026-06-26: Noether R128 Tail/Kapferer backmatter pp770-777 source-audit fix
+
+Manifest: [20260626_noether_r128_tail_kapferer_backmatter_pp770_777_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_tail_kapferer_backmatter_pp770_777_sourceaudit_fix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_TailKapferer_Backmatter_pp770_777_SourceAuditFix_WebDrop_20260626.zip`, 19,095,794 bytes, SHA256 `B5A7FED128C69C01ECF0888387692FF57DBA159C248A078EAE67F38A4EA823B5`, 19 entries.
+- Scope: continuation from the p764-p769 Kapferer source-audit fix, covering Kapferer collected pp.770-772 plus the collected-volume bibliography/backmatter pp.773-777 against IA-derived source PDF pages 784-791.
+- Confirmed repairs: bibliography item 14 `zur Zahlkörpertheorie` -> `zu der Zahlkörpertheorie`; bibliography item 21 `Enzyklopädie` -> source `Encyklopädie`; books-under-Noether entry `Braunschweig` -> printed source form `Brauschweig`.
+- Caveat: best-available source witness is about native 360 ppi, with 650 dpi renders only for legibility. This is a targeted German bibliography/backmatter source-audit addendum, not Kapferer whole-paper certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Keep Deuring pp711-746 and Kapferer p/q ideal-symbol policy open; do not upload this loose while Noether remains file-count constrained unless replacing/pruning.
