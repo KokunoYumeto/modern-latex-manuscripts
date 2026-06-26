@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Tail/Kapferer pp.764-769 source-audit fix
+
+Manifest: [20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json)
+
+- Tail/Kapferer ZIP: `Noether_R128_LocalCodex_TailKapferer_pp764_769_SourceAuditFix_WebDrop_20260626.zip`, 19,336,148 bytes, SHA256 `5A023C2E282D95B5914F1022758196A8199C28D529B77E3FBD70F8749EA8940E`, 17 ZIP entries.
+- Result: two source-visible fixes are applied to the current German cumulative tail: the collected p764 title/byline now includes source `: von H. Kapferer` and removes the non-source expanded byline, and a visible escaped-percent source-page marker before Hilfssatz I on p767 is removed.
+- Source caveat: the IA-derived tail slice is best-available local source, rendered at 650 dpi for legibility from embedded about-native-360 ppi material. This is not strict native-650 page certification.
+- Open items: Kapferer p/q ideal-symbol style remains a focused visual-audit problem; pp770-772, bibliography/backmatter pp773-777, and Deuring pp711-746 remain open lanes.
+- Caveat: targeted German tail repair/provenance only. Not whole-Kapferer certification, not whole-tail closure, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Do not upload loose while the Noether record remains file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 P04/P10 queue-correction current-cumulative control
 
 Manifest: [20260626_noether_r128_p04_p10_queuecorrection_currentcumulative.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p04_p10_queuecorrection_currentcumulative.json)
