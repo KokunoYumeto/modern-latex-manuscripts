@@ -54,7 +54,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p249.json](../manifests/sourc
 - Diagram/layout note: D140 keeps the earlier source-verified labels/content but simplified layout caveat; D141 and D142 are recorded as checked in the included ledgers.
 - Caveat: source-audit/workpass status only. p250-p252 source chunks may exist locally but are not promoted by this package. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: continue from p250 under the CERT_LOG page-local method and keep English synchronization separate. Older p190-p245 status packages are compact provenance/history only.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p252_20260626.zip`; keep this p249 package as compact provenance/history only. Continue current work from p253 under the CERT_LOG page-local method and keep English synchronization separate.
 ## 2026-06-26: SGA5 full-audit workpass status through p245
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p245.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p245.json)
@@ -125,6 +125,15 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p240.json](../manifests/sourc
 Next action: continue from p241 under the CERT_LOG page-local method. Keep older p190-p237 status packages as compact provenance/history only.
 # Pending Zenodo Uploads
 
+
+## 2026-06-26 - SGA5 full-audit workpass status p001-p252
+
+- Target record: SGA concept DOI `10.5281/zenodo.20410947`.
+- SGA5 status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p252_20260626.zip`, 5,011,850 bytes, SHA256 `D71BCF83892ECF19AE83E7656E2AE2E1A1BEBFEBB90A74716A07BC3ECF4B2A73`, 42 entries.
+- Local path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\SGA5_FullAudit_Workpass_Status_p001_p252_20260626.zip`.
+- Scope: compact French source-audit/workpass status through completed ledger rows p252. p250 closes Expose V, p251 opens Expose VI, and p252 records the V-to-VI bridge plus Props. 1.1.2/1.1.3 opening.
+- Staged but not promoted: p253-p256 source crops are included as continuation witnesses only. No visible certified p253-p256 scorecard rows were found in this package.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 ## 2026-06-26: SGA5 full-audit French workpass status through p237
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p237.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p237.json)

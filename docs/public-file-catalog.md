@@ -421,7 +421,7 @@ Accuracy warning 2026-06-09/12/25: Cayley files listed here are retained for pro
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact control package is SGA5_FullAudit_Workpass_Status_p001_p249_20260626.zip. Completed rows reach p249, p250 is next; p246-p249 close Expose V Appendix A.2, open A.3, carry Theorem A.3 proof, and verify diagrams D141-D142. D140 keeps its earlier source-verified labels/content but simplified-layout caveat. This is opening-range workpass evidence, not complete SGA5, not English synchronization, not global source certification, and not critical-edition material. SGA5 remains incomplete, not critical, not globally source-faithful, and not English-synchronized.
+Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact control package is SGA5_FullAudit_Workpass_Status_p001_p252_20260626.zip. Completed rows reach p252, p253 is next; p250-p252 close Expose V and open Expose VI: p250 finishes Theorem A.3/QED and Expose V, p251 opens Expose VI, and p252 records the V-to-VI bridge plus Props. 1.1.2/1.1.3 opening; diagrams remain tallied D001-D142. D140 keeps its earlier source-verified labels/content but simplified-layout caveat. This is opening-range workpass evidence, not complete SGA5, not English synchronization, not global source certification, and not critical-edition material. SGA5 remains incomplete, not critical, not globally source-faithful, and not English-synchronized.
 
 | Role | Size MB | File |
 |---|---:|---|
