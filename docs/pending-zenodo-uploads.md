@@ -46,6 +46,16 @@ Manifests: [20260626_noether_r128_latest_cumulative_alllocalaudit_v2.json](../ma
 
 Next action: superseded for active-base selection by `cum_de_R128_plus_LocalCodex_P19B4Fix_P20AuthorLine_P22P30P37P42TailBibFix_20260626.tex`; keep this compact handoff as audit-control provenance for the next deliberate Noether Zenodo replacement/rollup plan.
 
+## 2026-06-25: Noether R126 Paper 30 GDZ0096 source-map v3
+
+Manifest: [20260625_noether_r126_p30_gdz0096_source_map_v3.json](../manifests/source-intake/20260625_noether_r126_p30_gdz0096_source_map_v3.json)
+
+- P30 source-map ZIP: `Noether_R126_LocalCodex_P30_GDZ0096_SourceMap_WebDrop_20260625_v3.zip`, 20,824,799 bytes, SHA256 `DC958114A15C8AE036FBBB664FF61E15F6430ED97291BC6921D6300DDD2331F5`, 27 ZIP entries.
+- Scope: source-anchor/support package for Paper 30, not a TeX patch. It cuts the article from local GDZ full-volume `PPN235181684_0096.pdf`, maps full-volume PDF pp.31-66 to printed pp.26-61, and includes a 36-page article cutout, labelled full-page renders, target crops, page/crop/source-quality ledgers, no-patch dispositions, and R126-plus-localfixes TeX/PDF anchor.
+- Caveat: the underlying GDZ source is reported as 400 x 400 ppi CCITT. The 650 dpi and 1000 dpi PNGs are high-zoom renders from that 400 ppi source layer, useful for navigation and visual checking but not native 650+ source evidence. Do not treat as global Paper 30 certification.
+
+Next action: keep as Paper 30 source support/provenance; do not loose-upload while the Noether record is at the file ceiling, and do not replace later R128/P30 repaired active-base layers with this R126 source-map package.
+
 ## 2026-06-26: Noether R128 Paper 22/Paper 30 regression fix and P34/P41-P43 survival controls
 
 Manifests: [20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json](../manifests/source-intake/20260626_noether_r128_p22_p30_regressionfix_p34p36p38_survival.json), [20260626_noether_r128_p34_tabledred_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p34_tabledred_survival_nopatch.json), [20260626_noether_r128_p41_p43_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p41_p43_survival_nopatch.json)
