@@ -169,6 +169,17 @@ Manifest: [20260626_sga5_fullaudit_workpass_salvage_v2_p194.json](../manifests/s
 
 Next action: use this v2 package as the current compact SGA5 control package until a later cursor supersedes it; use CERT_LOG.md and AGENT_SCORECARD.md as the controlling status files.
 
+## 2026-06-26: SGA5 full-audit French workpass status through p199
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p199.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p199.json)
+
+- SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p199_20260626.zip`, 2,285,853 bytes, SHA256 `FD4A862803E26C2FD541C4E237C53245DFD024A13D5D94CC45192F6467C61326`, 15 ZIP entries, 1 PDF.
+- Scope: compact status/workpass package preserving the current `sga5_fr_workpass.tex` / PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, `FINDINGS.md`, method/status notes, source/index files, README, and checksums after the hand-audit ledger reached p199.
+- Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p199; p200 is the next cursor. Recent movement checks p198-p199 cover Proposition 6.19, D106, section 6.20, Proposition 6.21, diagrams D107-D109, Corollary 6.22, and the opening of Proposition 6.23. The p199 pass corrects `(f^*v)^!` to source/type-correct `(h^*v)^!` in 6.22.1.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: continue from p200, especially Proposition 6.23's conclusion and the remaining Expose III B tail before the next expose. Watch `v_0`/`E_0`/`\alpha`, `f_V^*E`, `c_{U,X}`, `u^!`, and the bridge between principal-cover local terms and algebraic traces.
+
 ## 2026-06-26: SGA5 full-audit French workpass status through p197
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p197.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p197.json)
@@ -178,7 +189,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p197.json](../manifests/sourc
 - Result: CERT_LOG is the controlling live ledger. Promoted rows now reach p197; p198 is the next cursor. Recent movement checks p195-p197 across the section 6.14 devissage, Proposition 6.16 / Corollary 6.17, the phi-not-identity divisibility generalization, norm `N_G`, Lemma 6.18.3, and the opening of Proposition 6.19 / D106. Accepted TeX fixes since p194 include `c_{X-U,U}` to source `c_{X-U,X}`; p197 flags a prose/source issue `x de G` -> `x de C`.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: continue from p198, especially Proposition 6.19 and the section 6.18/6.19 norm/Tate criterion material; watch D106 edges, `N_G`/Tate notation, `d_1^*`/`d_2^!`, and `uRHom_{\\Lambda[G]}(\\Lambda,-)`.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p199_20260626.zip`; keep p197 as compact provenance/history.
 
 ## 2026-06-26: SGA5 live French workpass p190 status package (superseded cursor)
 
@@ -189,7 +200,7 @@ Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-190 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`. Page p189 checks scalar functoriality and D102; p190 checks trace transitivity, external multiplicativity, the G-equivariant opening, and D103.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p197_20260626.zip`; keep as p190 provenance/history.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p199_20260626.zip`; keep as p190 provenance/history.
 
 ## 2026-06-26: Noether R128 source-convergence/routing package
 
@@ -1337,12 +1348,12 @@ Manifest: [20260625_sga5_live_workpass_status_reconciliation.json](../manifests/
 
 Next action: use as status/caveat evidence for the SGA record and workflow-method record. Do not upload as a reader-facing SGA5 replacement unless a later package receives compact publication packaging, continued page-by-page certification or independent validation, and explicit promotion.
 
-## 2026-06-25: Classical Lean audit watch sense-check
+## 2026-06-25: Classical Lean library-candidate watch sense-check
 
 Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pending-zenodo-uploads/20260625_classical_lean_audit_watch_sensecheck.json)
 
 - Workflow/watch ZIP: `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 56,634 bytes, SHA256 `AF877C2FD65E8D2D892AB19BBB662588F51EDA38E0D1B06BD31187AD93B726B9`.
-- Scope: compact watch handoff for Claude-started Lean formalization experiments attached to the classical transcription corpus. This is possible Lean/mathlib-adjacent library material, not archive certification and not DOI-ready.
+- Scope: compact watch handoff for Claude-started Lean experiments attached to the classical transcription corpus. This is possible Lean/mathlib-adjacent library material, not proof of the transcription corpus, not archive certification, and not DOI-ready.
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public Lean/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source or motivation anchors to the actual transcribed TeX/public catalog where applicable. A theorem map must distinguish the source or motivation statement, normalized mathematical statement, Lean theorem, and build status.
 
