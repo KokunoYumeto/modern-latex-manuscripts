@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 15 Batch25 pp.155-156 source-audit fix
+
+Manifest: [20260626_noether_r128_p15_batch25_pp155_156_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch25_pp155_156_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P15_SourceAudit_Batch25_pp155_156_SourceFix_WebDrop_20260626.zip`, 6,559,744 bytes, SHA256 `611BE8CAC53AA0C997B454ECB250CD605155E45E018AE0619D370D4EEA8CA327`, 23 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 15 true visible printed pp.155-156, continuing from Batch24.
+- Confirmed repair: p155 formula (1) restores the printed multiplication dot after `1/h` before the summation.
+- Checked without patch: p155 formulas (2)-(3) and surrounding prose; p156 formula (4), basis statement, conjugate-coefficient paragraph, and closing sentence.
+- Caveat: this package uses the P15-specific GDZ source folder `noether_p15_endlichkeit_20260623/source_pages_gdz_full`, which contains correctly named printed pp.138-156 from GDZ canvases 144-162. GDZ source images are 400ppi; 1000ppi crops are legibility aids only. Not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold Batch22-Batch25 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
 ## 2026-06-26: Noether R128 Paper 15 Batch24 pp.151-154 source-audit fixes
 
 Manifest: [20260626_noether_r128_p15_batch24_pp151_154_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch24_pp151_154_sourcefix.json)
@@ -8,7 +19,7 @@ Manifest: [20260626_noether_r128_p15_batch24_pp151_154_sourcefix.json](../manife
 - Checked without patch: p152 formulas (11)-(13) and footnote start; p153 formulas (14)-(16); p154 section 4 opening, footnotes, and the `A_k` transformation display.
 - Caveat: local filenames p153-p156 visibly map to printed pp.151-154, and local files labelled p138/p139 belong to preceding non-Noether printed pp.136-137. The source is official GDZ 400ppi, with 1000ppi crops only as legibility aids. Not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
 
-Next action: fold Batch22-Batch24 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
+Next action: superseded for current P15 continuation by Batch25 above; fold Batch22-Batch25 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
 ## 2026-06-26: Noether R128 Paper 15 Batch23 pp.144-150 source-audit fixes
 
 Manifest: [20260626_noether_r128_p15_batch23_pp144_150_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch23_pp144_150_sourcefix.json)
@@ -19,7 +30,7 @@ Manifest: [20260626_noether_r128_p15_batch23_pp144_150_sourcefix.json](../manife
 - Checked without patch: pp144-147 page-local visual dispositions record no source-certain TeX patch for the inspected basis, invariant, P-system, Q-display, formula (11), Grundformensystem, section 3 opening, module formulas, and footnote-anchor loci.
 - Caveat: local filenames p146-p152 visibly map to printed pp.144-150; use the package source map. The source is official GDZ 400ppi, with 1000ppi crops only as legibility aids. Not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
 
-Next action: superseded for current P15 continuation by Batch24 above; fold Batch22-Batch24 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
+Next action: superseded for current P15 continuation by Batch25 above; fold Batch22-Batch25 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
 
 ## 2026-06-26: Noether R128 Paper 15 Batch22 pp.138-143 source-audit fixes
 
