@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 Paper 31 Batch38 pp.082-093 targeted source fixes
+
+Manifest: [20260626_noether_r128_p31_batch38_pp082_093_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p31_batch38_pp082_093_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P31_Batch38_pp082_093_SourceFix_WebDrop_20260626.zip`, 10,243,076 bytes, SHA256 `8ED6C9DC3DBB682E2A45F89C7DA76433BA1C839BD1101B3E033EA28E9F5FCA5E`, 17 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 31, using the pp.82-93 source-pass tranche and promoting two source-visible repairs on printed pp.89-90.
+- Confirmed repairs/dispositions: changes the middle relation in `(P)=(P,\mathfrak p)/\mathfrak p ... P/[P,\mathfrak p]` from equality to `\simeq`, and restores the omitted theorem parenthetical `vollstaendig reduzibel (erster Art)`.
+- Source quality: staged P31 GDZ/JRAM 157 full-page JPG witnesses for printed pp.89-90, about 600 ppi. Useful and visually source-certain for these loci, but below the strict 650+ page-level certification preference.
+- Build: XeLaTeX passed twice; final cumulative PDF reports 471 pages. TXT was generated through a short-path temp copy because `pdftotext` could not open the long Windows path directly.
+- Caveat: targeted German source-repair/provenance only. Not Paper 31 certification, corpus closure, multilingual synchronization, or critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup/replacement pass after checking whether a newer web cumulative should be rebased first.
 ## 2026-06-26: Noether R128 Paper 34 Batch37 pp.689-692 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch37_pp689_692_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch37_pp689_692_sourcefix.json)
