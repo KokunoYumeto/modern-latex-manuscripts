@@ -5687,3 +5687,12 @@ Manifest: [20260626_noether_r159_tail_survival_nopatch.json](../manifests/pendin
 - Scope: compact no-patch post-P43 tail survival bridge after R157.
 - Result: the current R157 cumulative preserves the accepted tail from the `Vorlesung von Prof. E. Noether` marker onward after normalized/trimmed comparison with the R128 tail rollup reference; named Deuring/Kapferer/backmatter anchors pass.
 - Caveat: backend source-route and stale-tail-prevention evidence only. Not a fresh repair, not strict post-P43 tail certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R160 Paper 15 source-fix survival bridge
+
+Manifest: [20260626_noether_r160_p15_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r160_p15_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R160_LocalCodex_R157_P15_SourceFixSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 626,576 bytes, SHA256 `8EB9BF754D93E1728E5479F956288BB374548D56979BB82FA96BAE3F1A2DF7B1`, 37 entries.
+- Scope: compact no-patch Paper 15 source-fix survival bridge against the current R157 cumulative.
+- Result: the current R157 Paper 15 span is byte-for-byte equal to the accepted R140/Batch25 P15 source-fix reference span; named p155 formula and Schur citation anchors pass.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ Paper 15 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
