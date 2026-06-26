@@ -5874,3 +5874,13 @@ Manifest: [20260627_noether_r179_p10_p20_frontmatter_sweep_closure_nopatch.json]
 - Contents: R178 current cumulative TeX/PDF, P10-P20 sweep-status ledger, no-fix traps, boundary-style notes, carried-forward survival ledgers, source-quality ledgers, and file checksums.
 - Result: no new TeX patch after R178; no mathematical body text changed.
 - Caveat: routing/audit closure and anti-regression metadata only. Not reader-facing edition material by itself, not full Papers 10-20 certification, not dense-math certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R158/R159 sweep-recovered no-patch control packets
+
+Manifests: [20260627_noether_r158_r129_r130_weboutput_review_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r158_r129_r130_weboutput_review_nopatch.json), [20260627_noether_r159_tail_survival_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r159_tail_survival_bridge_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R158_LocalCodex_R129_R130_WebOutputReview_NoPatch_20260626.zip`, 582,460 bytes, SHA256 `2337DB6175057AFBD976083B766C95488EA4E9C3F46C4B47AC262E22FDD2B46F`, 8 entries.
+- Noether pending/control ZIP: `Noether_R159_LocalCodex_R157_TailSurvivalBridge_NoPatch_20260626.zip`, 762,008 bytes, SHA256 `7E257293F90F35159C06B68BFCB25D8BBAD63C7EA75ED7558C92922D942C9763`, 21 entries.
+- R158 scope: no-patch review of R129/R130 web outputs; records useful source-backed anchors but warns not to rebase onto stale `cum_de_R130.tex`.
+- R159 scope: no-patch post-P43 tail survival bridge; records surviving Deuring/Kapferer/backmatter anchors and warns not to replay stale broad tail replacements.
+- Caveat: intake/provenance and anti-regression metadata only. Not reader-facing edition material by itself, not new TeX patches, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
