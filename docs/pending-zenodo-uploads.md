@@ -1,13 +1,14 @@
 # Pending Zenodo Uploads
 
-## 2026-06-26: Noether R128 latest cumulative all-local-audit handoff with tail-bibliography fix
+## 2026-06-26: Noether R128 latest cumulative all-local-audit handoff v2
 
-Manifests: [20260626_noether_r128_latest_cumulative_alllocalaudit_tailbibfix.json](../manifests/source-intake/20260626_noether_r128_latest_cumulative_alllocalaudit_tailbibfix.json), [20260626_noether_r128_p22_p30_tailbib_regressionfix.json](../manifests/source-intake/20260626_noether_r128_p22_p30_tailbib_regressionfix.json)
+Manifests: [20260626_noether_r128_latest_cumulative_alllocalaudit_v2.json](../manifests/source-intake/20260626_noether_r128_latest_cumulative_alllocalaudit_v2.json), [20260626_noether_r128_latest_cumulative_alllocalaudit_tailbibfix.json](../manifests/source-intake/20260626_noether_r128_latest_cumulative_alllocalaudit_tailbibfix.json), [20260626_noether_r128_p22_p30_tailbib_regressionfix.json](../manifests/source-intake/20260626_noether_r128_p22_p30_tailbib_regressionfix.json)
 
-- Latest cumulative/audit ZIP: `Noether_R128_LocalCodex_LatestCumulative_AllLocalAudit_WebDrop_20260626.zip`, 4,004,535 bytes, SHA256 `35FB4408C7F2B2796CC6F491D014392A422034F7A5796264089A730CCC9C399A`, 125 ZIP entries.
+- Latest cumulative/audit ZIP: `Noether_R128_LocalCodex_LatestCumulative_AllLocalAudit_v2_WebDrop_20260626.zip`, 4,207,512 bytes, SHA256 `C06AB4B324AB39098871424ACBDA830E35CD8BEF7FFC1E4E91679C4067A38628`, 140 ZIP entries.
+- Superseded cumulative/audit wrapper: `Noether_R128_LocalCodex_LatestCumulative_AllLocalAudit_WebDrop_20260626.zip`, 4,004,535 bytes, SHA256 `35FB4408C7F2B2796CC6F491D014392A422034F7A5796264089A730CCC9C399A`, 125 ZIP entries.
 - Direct P22/P30/tail repair ZIP: `Noether_R128_LocalCodex_P22P30TailRegressionFix_WebDrop_20260626.zip`, 3,783,455 bytes, SHA256 `D43BDEBAD65A24FDF930C22EF1B66D301F57F5E442307D0E026B6644556300F4`, 19 ZIP entries.
 - Scope: the direct repair package reinstates the Paper 22 source-restored span, Paper 30 source-restored span, and three exact source-confirmed tail bibliography/end-matter fixes. It preserves the P34 table/Dred trap, the P37 product-form Fuehrer-factor trap, and the P42 `Sp(\widetilde a a)` trap, with 32/32 combined survival checks and XeLaTeX pass1/pass2 exit 0.
-- Result: the latest cumulative/audit ZIP is the convenient current web-drag handoff. It bundles `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex` / PDF plus compact audit ledgers for P09-P18, P19-P20 routing, P34, P36/P38, P41-P43, P22/P30/P37/P42, and tail-bibliography controls.
+- Result: the v2 latest cumulative/audit ZIP is the convenient current web-drag handoff. It bundles `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex` / PDF plus compact audit ledgers for P09-P18, P19-P20 routing, P34, P36/P38, P41-P43, P22/P30/P37/P42, and tail-bibliography controls. v2 adds an updated remaining-queue CSV/MD after local salvage plus P40 complete-span survival ledgers; the current P40 span is recorded as byte-identical to the completed P40 span.
 - Caveat: current German cumulative regression-repair and audit-control handoff only. It is not the full source-image library, not global page-by-page certification, not a critical edition, and not multilingual synchronization. Use the Noether general source-library ZIPs separately when source witnesses are needed.
 
 Next action: treat `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex` as the active Noether German base until superseded; fold this compact handoff into the next deliberate Noether Zenodo replacement/rollup plan.
@@ -37,7 +38,18 @@ Manifests: [20260626_noether_r128_p37_regressionfix_p36p38_survival.json](../man
 
 Next action: superseded for active-base purposes by `cum_de_R128_plus_LocalCodex_P22P30P37P42antiRegression_20260626.tex`; keep this package as the P37 repair provenance layer and fold it into a compact Noether rollup after deliberate pruning/replacement because the Noether Zenodo record is at the file ceiling.
 
-## 2026-06-26: SGA5 live French workpass p190 status package
+## 2026-06-26: SGA5 full-audit French workpass salvage v2 through p194
+
+Manifest: [20260626_sga5_fullaudit_workpass_salvage_v2_p194.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_salvage_v2_p194.json)
+
+- SGA salvage ZIP: `SGA5_FullAudit_Workpass_Salvage_v2_20260626.zip`, 4,437,952 bytes, SHA256 `3CE6E93EBA39D80A68E0728296C79C32C3E01FBD9D13AD92AD640A32F941E1BA`, 32 ZIP entries.
+- Scope: compact salvage/control package preserving the fresh SGA5 full-audit French workpass from `SGA continuation 2/_claude_aid/sga5_full_audit_20260623`. It includes the current `sga5_fr_workpass.tex` / PDF/log, the repair032 baseline, the fresh repair032-to-current diff, CERT_LOG, AGENT_SCORECARD, and reconciliation notes.
+- Result: CERT_LOG/AGENT_SCORECARD are the freshest controlling status files. Parsed completed rows in CERT_LOG reach p194; p195 is only the next cursor and is not promoted as a completed certification row. The included workpass compiles to a 307-page PDF of 2,017,419 bytes.
+- Caveat: source-audit salvage/status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. The reconciliation note still reports about 223 pages needing reconciliation/certification. Continue from p195, especially the section 6.14 open-immersion devissage around `Tr_{c_2}`, `c_{2!}`, the filtration `F^n`, `gr^0/gr^1`, and `c_{U,X}` / `c_{X-U,X}` notation.
+
+Next action: use this v2 package as the current compact SGA5 control package until a later cursor supersedes it; use CERT_LOG.md and AGENT_SCORECARD.md as the controlling status files.
+
+## 2026-06-26: SGA5 live French workpass p190 status package (superseded cursor)
 
 Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p190_status_package.json)
 
@@ -46,7 +58,7 @@ Manifest: [20260626_sga5_live_certlog_p190_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-190 continue section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p187 fixes the first section-6 operator/shriek garble, `i^cc^!` to `i_*^c i^{c!}`. Page p188 checks the bridge identity `(6.6.4)`, `\langle u,v\rangle_A = Tr_A(vu)=Tr_A(uv)`. Page p189 checks scalar functoriality and D102; p190 checks trace transitivity, external multiplicativity, the G-equivariant opening, and D103.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local audit from p191; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Salvage_v2_20260626.zip`; keep as p190 provenance/history.
 
 ## 2026-06-26: Noether R128 source-convergence/routing package
 
