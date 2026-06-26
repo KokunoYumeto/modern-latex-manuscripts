@@ -204,4 +204,4 @@ A ZIP README can advertise artifacts that are not actually present in the ZIP. B
 
 ## Zenodo PDF-first file ordering
 
-When a Zenodo record has a reader-facing PDF, put that PDF first in the uploaded file list and use a filename prefix such as  0_ if needed. Zenodo previews PDFs natively, so fronting a README/Markdown/status file makes the public surface harder to read. Put short warnings, caveats, or source-status notes in the record description unless the warning itself is the primary deliverable. ZIPs, TeX, ledgers, and audit notes should follow the PDF, not replace it as the first visible object.
+When a Zenodo record has a reader-facing PDF, put that PDF first in the uploaded file list and use a filename prefix such as `00_` if needed. Zenodo previews PDFs natively, so fronting a README/Markdown/status file makes the public surface harder to read. Put short warnings, caveats, or source-status notes in the record description unless the warning itself is the primary deliverable. ZIPs, TeX, ledgers, and audit notes should follow the PDF, not replace it as the first visible object.

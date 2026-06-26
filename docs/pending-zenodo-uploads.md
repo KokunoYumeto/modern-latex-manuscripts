@@ -1,5 +1,15 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: SGA5 live French workpass p171 status package
+
+Manifest: [20260626_sga5_live_certlog_p171_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p171_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p171_Status_20260626.zip`, 2,286,970 bytes, SHA256 `C23E22C1DED238E9E99E5245B08B07ABC8436A16EFAB4840A4C5B71835A8AD86`, 19 ZIP entries.
+- Scope: live French SGA5 workpass after p171 fixes. The package includes the whole live TeX/PDF/log, but only pp.1-171 are promoted by the certification ledger.
+- Result: p171 found and fixed three math-bearing TeX content errors in diagram 5.9.1 that compiled cleanly. The ledger now reports 13 TeX fixes, 27 source typos/source oddities, and D001-D083 covered, with D082 perfect and D083 corrected.
+- Caveat: status/source-audit evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition.
+
+Next action: fold into the next SGA record/workflow refresh as compact status evidence and continue page-local certification from p172.
 ## 2026-06-25: Noether R127 Paper 01 source repair and Papers 02-04 survival checks
 
 Manifest: [20260625_noether_r127_p01_repair_p02_p04_survival.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p01_repair_p02_p04_survival.json)
