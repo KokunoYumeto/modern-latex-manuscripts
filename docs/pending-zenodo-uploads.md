@@ -1,5 +1,28 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: SGA5 live French workpass p186 status package
+
+Manifest: [20260626_sga5_live_certlog_p186_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p186_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p186_Status_20260626.zip`, 2,221,319 bytes, SHA256 `9F25A939A4AEEBD179CE18A78C8B6A88D861240F9EA02C5853FD0CECE8CD7630`, 12 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p186. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-186 are promoted by the page-local certification ledger.
+- Result: section 5 remains locally closed through p182; pp.183-186 start section 6 and check the non-commutative six-functor/Kunneth/duality/local-trace setup. Page p186 defines the non-commutative local trace `(6.5.3)` and records D101, the fixed-point cartesian square, as perfect.
+- Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
+
+Next action: continue page-local certification from p187; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+
+## 2026-06-26: Noether Part07 upper-tail pointer refresh through P43
+
+Manifest: [20260626_noether_source_library_part07_p40_p43_pointer_refresh.json](../manifests/source-intake/20260626_noether_source_library_part07_p40_p43_pointer_refresh.json)
+
+- Manifest ZIP: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip`, 33,818 bytes, SHA256 `26D0CA432167C3402980B2B7BA17C10075F7112FC4DB4707E0AC43DC68BE356B`, 4 ZIP entries.
+- Pointer ZIPs: `Noether_R127_LocalCodex_SourceLibraryPart07_P40Pointer_WebDrop_20260626.zip`, 74,506 bytes, SHA256 `13712B0342FB62DC8B2481B7CE69C7562B83659B9C0E409D96D4276EE5AF1F3E`; `Noether_R127_LocalCodex_SourceLibraryPart07_P41_P42_P43Pointer_WebDrop_20260626.zip`, 93,287 bytes, SHA256 `181C8CCAF89D0548E8D359F62ECF8A5327FD1777E0C3CDE8CB837C7964DAC5CF`; `Noether_R127_LocalCodex_SourceLibrary_P31_P43_CumulativePointerIndex_WebDrop_20260626.zip`, 11,298 bytes, SHA256 `29B6D30C1B0BC3EFCAC80E856BD51C45E0888EDE94CB8B59922EC56B52F6CE94`.
+- Scope: source-library routing and stale-patch prevention for upper-tail Noether Papers 40-43, plus a compact P31-P43 cumulative pointer index.
+- Result: P40 survives byte-identically from the earlier P40Complete span; P41 matches the prior source-restored reference; P42 matches the Sp-tilde-order fixed reference; P43 paper-length prefix matches the prior source-restored reference, with later tail/endmatter treated separately.
+- Caveat: source-routing evidence only. This is not a new TeX patch, not Papers 40-43 certification, not Noether corpus closure, and not downstream language synchronization.
+
+Next action: use these tiny pointers with source-library Part07/Part13 when feeding upper-tail Noether work to web sessions; keep actual TeX promotions in separate compact source-audit rollups.
+
 ## 2026-06-26: Classical Lean formalization candidates
 
 Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/pending-zenodo-uploads/20260626_classical_lean_formalization_candidates.json)
@@ -21,7 +44,7 @@ Manifest: [20260626_sga5_live_certlog_p185_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-185 start section 6 and check the non-commutative six-functor/Kunneth/duality setup. Page p185 checks `K A_T=t^!A`, `D_A=\uRHom_A(-,K A_T)`, biduality, Kunneth-duality `(6.4.1)`, induction `(6.4.2)`, and the dense `t^!`, `p_2^!`, `c^!`, and `c_2^!` shriek loci. No new TeX fix was applied on p185.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p186; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: superseded by the p186 package above; keep as provenance only.
 
 ## 2026-06-26: SGA5 live French workpass p184 status package
 
@@ -32,7 +55,7 @@ Manifest: [20260626_sga5_live_certlog_p184_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-184 start section 6 and check the non-commutative six-functor/Kunneth setup. The ledger reports 15 TeX fixes plus one cosmetic p172 cleanup, 31 source typos found, D001-D100 covered, and the workpass compile gate at 307 pages / zero fatal errors.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: superseded by the p185 package above; keep as provenance only.
+Next action: superseded by the p186 package above; keep as provenance only.
 
 ## 2026-06-26: SGA5 live French workpass p182 status package
 
