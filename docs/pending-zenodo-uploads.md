@@ -5786,3 +5786,14 @@ Manifest: [20260627_noether_r170_p16_source_route_correction_nopatch.json](../ma
 - Result: rejects the old P16-labelled GDZ canvas 00000025-00000030 route as a wrong-article/offset route; preserves IA leaves 0028-0033 and GDZ PDF pages 32-37 / canvases 00000031-00000036 as valid practical witnesses for printed pp.25-30.
 - Source caveat: IA and GDZ witnesses are practical/better staged routes, but not strict native 650+ full-page certification; GDZ embedded images are about 400 ppi.
 - Caveat: backend source-route/source-witness support only. Not a fresh repair, not strict native-650 certification, not full Paper 16 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R171 Paper 14 header/title source fix
+
+Manifest: [20260627_noether_r171_p14_header_title_sourcefix.json](../manifests/pending-zenodo-uploads/20260627_noether_r171_p14_header_title_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R171_LocalCodex_P14_HeaderTitleSourceFix_WebDrop_20260627.zip`, 5,120,720 bytes, SHA256 `ADBDBA55784A07D577DF4C0FBE4E25BD82C5FB1BB51323F5D80AC74E036ECA33`, 18 entries.
+- Scope: narrow Paper 14 German cumulative header/title repair on the R157/R165 line.
+- Result: restores the full source title, source byline `Bericht von Emmy Noether in Göttingen.`, and bibliographic volume `Jahresber. d. D. Math.-Verein. 28 (1919), S. 182--203`; no mathematical body text changed.
+- Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF with no undefined-reference warnings on the second pass.
+- Source caveat: official GDZ printed p182 witness is 600 ppi, below the preferred 650 ppi floor but visually unambiguous for the header block.
+- Caveat: targeted header repair/provenance only. Not full Paper 14 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
