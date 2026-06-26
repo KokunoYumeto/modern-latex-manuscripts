@@ -5776,3 +5776,13 @@ Manifest: [20260627_noether_r169_p42_source_status_best_available360_nopatch.jso
 - Result: current R157 P42 still carries the accepted p685 trace-order anchors `\Sp(\widetilde a a)` and the no-global-replacement trap.
 - Source caveat: best staged source witness is `p42_scan_RA10_best_available_native360.pdf`, with native 360 ppi embedded page images. The 1000 dpi crops are readability enlargements from that witness, not independent high-native-DPI evidence.
 - Caveat: backend source-status/source-search/anti-regression evidence only. Not a fresh repair, not native-650/1000 dpi certification, not global Paper 42 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R170 Paper 16 source-route correction
+
+Manifest: [20260627_noether_r170_p16_source_route_correction_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r170_p16_source_route_correction_nopatch.json)
+
+- Noether pending ZIP: `Noether_R170_LocalCodex_P16_SourceRouteCorrection_NoPatch_WebDrop_20260627.zip`, 21,588,112 bytes, SHA256 `C0A306D68497FF40B36E45C50BEEC1EB36432F59CDD6591AA064FF086FEE6B56`, 35 entries.
+- Scope: no-patch Paper 16 source-route correction and valid witness bundle.
+- Result: rejects the old P16-labelled GDZ canvas 00000025-00000030 route as a wrong-article/offset route; preserves IA leaves 0028-0033 and GDZ PDF pages 32-37 / canvases 00000031-00000036 as valid practical witnesses for printed pp.25-30.
+- Source caveat: IA and GDZ witnesses are practical/better staged routes, but not strict native 650+ full-page certification; GDZ embedded images are about 400 ppi.
+- Caveat: backend source-route/source-witness support only. Not a fresh repair, not strict native-650 certification, not full Paper 16 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
