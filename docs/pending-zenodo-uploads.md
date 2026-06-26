@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 19 Batch13 p63/p65/p66 targeted follow-up
+
+Manifest: [20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json)
+
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch13_P63P65P66VarrhoRankFix_WebDrop_20260626.zip` (9,649,351 bytes, SHA256 `622659CD3A41EEC21C4FD6595F998D76155E324CB0A1890F4BB77AC5693E7069`).
+- Result: Batch13 makes `cum_de_R128_plus_LocalCodex_P19Batch13_P65P66VarrhoRankFix_P19Batch12CarryForward_20260626.tex` the active local German handoff. The package includes a freshly compiled 468-page PDF, Batch13 TeX/log, p63/p65/p66 witness crops, carry-forward Batch4-Batch12 ledgers/diffs, checksums, and the Batch12-to-Batch13 diff.
+- Scope: targeted Paper 19 corrections on printed p63 and pp65-66: fixed ideal `M` restored to fraktur `\mathfrak M`/`\ideal M` in the double-domain example, and the elementary-divisor/rank endpoint block restored from rho-style drift to source `\varrho` notation (`p^{r_\varrho}`, `r_\varrho`, rank `\varrho`, `B_{\varrho+1}`).
+- Caveat: P19 source remains about 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, source-critical edition, or final critical-edition material.
+
+Next action: use Batch13 as the current German-base web handoff until superseded. Do not upload Batch11/Batch12 or earlier P19 batches as loose reader-facing files unless a deliberate compact Noether rollup needs intermediate provenance.
+
 ## 2026-06-26: Noether R128 Paper 19 Batch11 p55-p58 targeted follow-up
 
 Manifest: [20260626_noether_r128_p19_batch11_p55_p58_varrho_action_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch11_p55_p58_varrho_action_fix.json)
@@ -9,7 +20,7 @@ Manifest: [20260626_noether_r128_p19_batch11_p55_p58_varrho_action_fix.json](../
 - Scope: four targeted Paper 19 corrections across printed pp.55-58: `\varrho` module-basis index, dotted two-sided `\alpha\cdot c`, footnote-38 lambda exponents/product dots, and p58 `f\cdot g`, `P^e`, and ideal-font `\mathfrak M`.
 - Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
 
-Next action: use Batch11 as the current German-base web handoff until superseded. Do not upload Batch2-Batch10 separately unless a deliberate compact Noether rollup needs intermediate provenance.
+Next action: superseded for active-base selection by the Batch13 p63/p65/p66 follow-up (`20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json`); keep Batch11/Batch12 and earlier P19 batches as compact provenance.
 
 ## 2026-06-26: Noether R128 Paper 19 Batch9/Batch10 targeted follow-ups
 
