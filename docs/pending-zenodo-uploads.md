@@ -9,6 +9,17 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p242.json](../manifests/sourc
 
 Next action: continue from p243 under the CERT_LOG page-local method and keep English synchronization separate.
 
+## 2026-06-26: Noether R128 Deuring pp.735-746 source-audit no-patch disposition
+
+Manifest: [20260626_noether_r128_deuring_pp735_746_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_deuring_pp735_746_nopatch.json)
+
+- Noether pending ZIP: Noether_R128_LocalCodex_Deuring_pp735_746_SourceAudit_NoPatch_WebDrop_20260626.zip, 45483181 bytes, SHA256 $hash, 30 entries.
+- Scope: Deuring/Noether post-numbered tail material, collected pp.735-746; IA-derived tail slice source PDF pp.749-760.
+- Result: no source-certain TeX patch was found. The cumulative TeX included here is unchanged from the pp727-734 fixed cumulative; this package adds page-by-page visual dispositions, no-fix traps, source mapping, OCR locator text, and 650/1000dpi legibility witnesses.
+- No-fix traps include p745 gamma/index/product-display details and p746 Omega / xi / r-s identity details that are source-visible and should not be silently regularized.
+- Caveat: native source is about 360 ppi; 650/1000dpi renders are legibility aids. This is a targeted no-patch disposition only: not Deuring tail closure, not strict high-resolution certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp711-746 now have local guardrail/fix/no-patch packets, but tail-wide certification and multilingual propagation remain open.
 ## 2026-06-26: Noether R128 Deuring pp.727-734 source-audit fix
 
 Manifest: [20260626_noether_r128_deuring_pp727_734_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_deuring_pp727_734_sourceaudit_fix.json)
