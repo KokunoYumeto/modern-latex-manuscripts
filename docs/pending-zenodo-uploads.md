@@ -1,4 +1,14 @@
-## 2026-06-26: Noether R128 Paper 34 Batch33 pp.670-675 targeted source fixes
+## 2026-06-26: Noether R128 Paper 34 Batch34 pp.676-681 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch34_pp676_681_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch34_pp676_681_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch34_pp676_681_SourceFix_WebDrop_20260626.zip`, 25,257,256 bytes, SHA256 `B4A31D72049FEAB12EFF97235C50EAB56642340F83E388C0DC8DE454F8C0916D`, 34 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.676-681.
+- Diff-observed repairs: p676 corrects the representation paragraph start to source `a=\sum c_{ik}\alpha_{ik}`; restores source wording `dar, so ist`; replaces a compressed row-vector locus with the source row-vector equality; and restores the omitted subfield `\Gamma` reduction block with finite-rank `K/\Gamma` matrices, the `\mathfrak l_1` expansion, and the block matrix with `E_t` and zero blocks.
+- Checked/source-disposition pages: printed pp.676-681; source pages pp.676-681 are included for continuity, but this wrapper claims only the diff-observed targeted p676 repair unless a later audit adds more loci.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
+- Build: XeLaTeX pass 2 produced a 469-page A4 cumulative PDF.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.`n`n## 2026-06-26: Noether R128 Paper 34 Batch33 pp.670-675 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json)
 
@@ -2003,7 +2013,7 @@ Next action: use as status/caveat evidence for the SGA record and workflow-metho
 Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pending-zenodo-uploads/20260625_classical_lean_audit_watch_sensecheck.json)
 
 - Lean/library-candidate watch ZIP (legacy filename, not an audit claim): `Classical_Lean_Audit_Watch_CODEX_SenseCheck_20260625.zip`, 56,634 bytes, SHA256 `AF877C2FD65E8D2D892AB19BBB662588F51EDA38E0D1B06BD31187AD93B726B9`.
-- Scope: compact watch handoff for Claude-started Lean experiments attached to the classical transcription corpus. This is possible Lean/mathlib-adjacent library material, not proof of the transcription corpus, not archive certification, and not DOI-ready.
+- Scope: compact watch handoff for Claude-started Lean/library-candidate side material attached to the classical transcription corpus. This is possible Lean/mathlib-adjacent library material, not proof of the transcription corpus, not archive certification, and not DOI-ready.
 - Naming note: the older `Audit_Watch` filename and `ClassicalAudit` namespace are internal legacy names only. Public wording should describe these as useful Lean/mathlib-style formalization/library-candidate additions, not source audit, manuscript certification, or source-fidelity evidence.
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public Lean/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source or motivation anchors to the actual transcribed TeX/public catalog where applicable. A theorem map must distinguish the source or motivation statement, normalized mathematical statement, Lean theorem, and build status.
@@ -2180,7 +2190,7 @@ Local files staged for the next deliberate workflow refresh:
 
 Workflow addition: page-unit audit harnesses should combine canonical TeX, source witness inventory, per-page/object audit manifest, and chunk-on-demand rendering; OCR/raw AI drops are locator-only, and public records must distinguish audit-ready from source-certified.
 
-Scope correction: sweeping local folders does not mean publishing everything found. Only project-lane material belongs in Zenodo/GitHub by default: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, and author/corpus public-surface metadata. Unrelated third-party TeX, new research drafts, Reddit downloads, Lean experiments, and personal/novel math files stay out unless Floris explicitly names the exact item for upload.
+Scope correction: sweeping local folders does not mean publishing everything found. Only project-lane material belongs in Zenodo/GitHub by default: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, and author/corpus public-surface metadata. Unrelated third-party TeX, new research drafts, Reddit downloads, Lean/library-candidate side material, and personal/novel math files stay out unless Floris explicitly names the exact item for upload.
 
 Status: pending workflow-record update only. No Zenodo publish was performed for this addendum when staged.
 
