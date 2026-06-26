@@ -5626,3 +5626,11 @@ Manifest: [20260626_noether_r152_r129_r130_review_feedback.json](../manifests/pe
 - Noether pending ZIP: `Noether_R152_LocalCodex_R129_R130_ReviewOnly_WebFeedback_20260626.zip`, 2,757 bytes, SHA256 `A50577E96FC4F66DE25F406C5F8987D991384EB504E63E97011F3202F3616B22`, 3 entries.
 - Scope: feedback-only Markdown package saying R129/R130 are useful source-backed evidence, but `cum_de_R130.tex` is stale and must not become the active master.
 - Caveat: not a reader artifact, not replacement TeX, not source image bulk, not a repair package, not certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R153 Paper 09 no-patch survival bridge
+
+Manifest: [20260626_noether_r153_p09_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r153_p09_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R153_LocalCodex_R151_P09_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,753,251 bytes, SHA256 `4898FD9EEBF54F13B03C582A3EAB8FB24BC76B761DF909A2BC126D351797B047`, 22 entries.
+- Scope: compact no-patch bridge showing the accepted R134 Paper 09 source-backed span survives raw-exact and normalized-exact in the current R151/R153 cumulative.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not P09 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
