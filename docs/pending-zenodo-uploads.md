@@ -5740,3 +5740,20 @@ Manifest: [20260626_noether_r165_p10_p14_survival_nopatch.json](../manifests/pen
 - Scope: compact no-patch P10-P14 current survival bridge against the current R157 cumulative.
 - Result: current R157 P10, P11, P12, P13, and P14 spans match their accepted prior source-backed bridge references after whitespace normalization; anchor-survival checks report no anomalies.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not native-650 optical recertification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R166 Paper 01-Paper 09 raw-exact survival bridge
+
+Manifest: [20260626_noether_r166_p01_p09_raw_exact_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r166_p01_p09_raw_exact_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R166_LocalCodex_R157_P01_P09_RawExactSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 852,041 bytes, SHA256 `55E504E4FDFB3CEF33A472E768D387CF02F6FB6ACBEABB08156E912F2AA64ACD`, 32 entries.
+- Scope: compact no-patch P01-P09 raw-exact survival bridge against the current R157 cumulative.
+- Result: accepted source-backed spans for P01-P09 occur raw-exactly in current R157.
+- Caveat: backend survival/stale-queue-prevention evidence only. Not a fresh repair, not fresh native-650/1000 dpi optical recertification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R167 Paper 01-Paper 20 current bridge bundle
+
+Manifest: [20260626_noether_r167_p01_p20_current_bridge_bundle.json](../manifests/pending-zenodo-uploads/20260626_noether_r167_p01_p20_current_bridge_bundle.json)
+
+- Noether pending ZIP: `Noether_R167_LocalCodex_R157_P01_P20_CurrentBridgeBundle_WebDrop_20260626.zip`, 4,230,428 bytes, SHA256 `6D9F44C81F71D141AA31128239366EA1676E91C7CEF84D4185CA97155349B80E`, 5 entries.
+- Scope: convenience web-upload wrapper containing R166, R165, and R164.
+- Caveat: bundle/handoff artifact only. It carries no new TeX patch and no independent source claim beyond the included bridge packages.
