@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R139 Paper 10 source-quality bridge
+
+Manifest: [20260626_noether_r139_r138_p10_source_quality_bridge_nopatch.json](../manifests/source-intake/20260626_noether_r139_r138_p10_source_quality_bridge_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R139_LocalCodex_R138_P10_SourceQualityBridge_NoPatch_WebDrop_20260626.zip`, 3,468,215 bytes, SHA256 `D973AEF71843EAB8F9733AA51F83E7BB87551253D652BFDD4696AD13D2FD5EBC`, 18 entries, max path 177.
+- Scope: no-patch Paper 10 source-quality/current-survival bridge after R138. The source-backed P10 reference span survives byte-exact in the current German cumulative.
+- Caveat: preserve the no-fix traps (`Y\mp y`, final real `x`, and 16 source-local notes), but source quality remains mixed GDZ 400/600 ppi plus IA secondary witness and below strict native-650 whole-paper certification. Not full Paper 10 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful. Do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R138 Paper 11 RA58 regression-trap bridge
 
 Manifest: [20260626_noether_r138_r137_p11_ra58_regression_trap_nopatch.json](../manifests/source-intake/20260626_noether_r138_r137_p11_ra58_regression_trap_nopatch.json)
