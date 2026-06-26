@@ -36,9 +36,9 @@ Next action: superseded by the p180 package above; keep as provenance only.
 
 ## 2026-06-26: Noether general source library v1
 
-Manifest: [20260626_noether_general_source_library_v1_full11.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full11.json)
+Manifest: [20260626_noether_general_source_library_v1_full12.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full12.json)
 
-- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` (31,159 bytes, SHA256 `8315C9AB1515BE416BDB0EC3C6D62DAFFD9A3B32F77896E9B4BBB55B934FA48E`) plus eleven upload parts:
+- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` (32,329 bytes, SHA256 `FF5A0C5715995CA44B41A2B4EE262B04706CEEBD69A385CC4BDACA9920724224`) plus twelve upload parts:
   `part01_core_collected_tail` (171,527,284 bytes),
   `part02_ia_mathann_96` (430,695,989 bytes),
   `part03_ia_mathann_83_85_90` (483,118,169 bytes),
@@ -49,13 +49,14 @@ Manifest: [20260626_noether_general_source_library_v1_full11.json](../manifests/
   `part08_P01_P08_P21_P23_source_witnesses` (200,134,395 bytes),
   `part09_P14_P15_P16_GDZ_raw_source_upgrade` (83,585,846 bytes, SHA256 `BFC6D14BB37767D29E4AF1D97C55E7D4C8292EDDCF2BE45D8987A98337E664AD`),
   `part10_P10_IA_MathAnn77_issue4_secondary_source` (42,066,754 bytes, SHA256 `954C8D1EF271B2F73C89677F6516B2A405D916E55B098CBB1351A2EEA7C37A45`),
-  and `part11_P19_P20_GDZ_paperlevel_source_master` (75,105,394 bytes, SHA256 `40864999847D233474F7EAD6B39F1FA8514B670E8857DD9AE6868633847E290C`).
-- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, P09-P20 non-overlap source witnesses, P31-P43 upper-band source witnesses, P01-P08/P21-P23 bridge source material, crops, metadata, page maps, source ledgers, the P14/P15/P16 official GDZ raw source upgrade, P10 IA secondary witness material, and P19/P20 GDZ paper-level source masters.
+  `part11_P19_P20_GDZ_paperlevel_source_master` (75,105,394 bytes, SHA256 `40864999847D233474F7EAD6B39F1FA8514B670E8857DD9AE6868633847E290C`),
+  and `part12_P17_P18_GDZ_source_master` (87,745,270 bytes, SHA256 `1DF62D7A156E1819D18B6E3CACD7010668D8D655FD5E23C3B676C2DC9D024374`).
+- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, P09-P20 non-overlap source witnesses, P31-P43 upper-band source witnesses, P01-P08/P21-P23 bridge source material, crops, metadata, page maps, source ledgers, the P14/P15/P16 official GDZ raw source upgrade, P10 IA secondary witness material, P17/P18 GDZ source masters, and P19/P20 GDZ paper-level source masters.
 - Part09 detail: route ledgers, GDZ manifests, raw full-page images, and image-info JSONs for P14 printed pp.182-203, P15 printed pp.138-156, and P16 printed pp.25-30.
-- Part10/11 detail: P10 IA/MathAnn77 source material is secondary/no-new-patch support; P19/P20 GDZ masters add article PDFs, raw full-page images, IIIF/GDZ manifests, page/canvas maps, dimensions, and source-quality ledgers.
+- Part10/11/12 detail: P10 IA/MathAnn77 source material is secondary/no-new-patch support; P19/P20 GDZ masters add article PDFs, raw full-page images, IIIF/GDZ manifests, page/canvas maps, dimensions, and source-quality ledgers; P17/P18 GDZ masters add official 600ppi source witnesses plus current R127 survival/no-fix ledgers.
 - Caveat: source-intake/project-source support only. This is not a cumulative reader, not a TeX patch, not paper certification, not multilingual synchronization, and not a critical edition.
 
-Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure. This supersedes the earlier full9 source-library staging.
+Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure. This supersedes the earlier full11/full9 source-library staging.
 
 ## 2026-06-26: SGA5 live French workpass p176 status package
 
