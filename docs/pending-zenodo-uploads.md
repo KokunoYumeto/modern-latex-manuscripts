@@ -5912,3 +5912,13 @@ Manifests: [20260627_noether_r110_working_defect_ledger.json](../manifests/pendi
 - R110 scope: older 453-page German cumulative working pass plus defect/source-witness ledger consolidation; the package itself records thousands of open source-check rows.
 - R111 scope: older 453-page German cumulative working pass restoring Papers 9-13 blocks and collected-volume tail material, with bibliography/backmatter pp.773-777 manually retranscribed; Deuring/Kapferer tail material remained open for manual symbol-level transcription.
 - Caveat: historical working/provenance packages only. They are not current bases, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Use newer cumulative branches for active continuation unless explicitly comparing against these packages.
+
+## 2026-06-27: Noether R181/R182 no-patch queue-control packages
+
+Manifests: [20260627_noether_r181_two_output_disposition_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r181_two_output_disposition_nopatch.json), [20260627_noether_r182_p30_anchor_queue_disposition_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r182_p30_anchor_queue_disposition_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R181_LocalCodex_TwoNewOutputDisposition_R158_R159_NoPatch_WebDrop_20260627.zip`, 586,154 bytes, SHA256 `C18FACDFB83DC61DF365E0569C33598A375D042DE16FB1020E392F331ABEC479`, 12 entries.
+- Noether pending/control ZIP: `Noether_R182_LocalCodex_P30_EightPageAnchorQueueDisposition_NoPatch_WebDrop_20260627.zip`, 631,904 bytes, SHA256 `A591DDC1D389EA62241546D025EE27DC9C904820725F809E61A78A87F8ABDD64`, 22 entries.
+- R181 scope: no-patch disposition of the newly touched R158/R159 outputs; confirms they did not advance the working cumulative and warns to continue from R178/R179 unless explicitly diffing a newer cumulative.
+- R182 scope: no-patch Paper 30 queue-disposition package showing that an old eight-page manual-anchor queue is stale because printed pp.36, 39, 42, 44, 47, 54, 59, and 61 have current TeX anchors in the R179/R180 line.
+- Caveat: control/provenance only. Not source repairs, not final Paper 30 symbol certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
