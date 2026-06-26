@@ -204,6 +204,14 @@ Claude and Codex may produce Lean side lanes for selected explicit statements fr
 
 A ZIP README can advertise artifacts that are not actually present in the ZIP. Before any Zenodo refresh, inspect the archive contents, not just the README. If primary cumulative TeX/PDF files, ledgers, source witnesses, or checksums sit adjacent to a ZIP rather than inside it, mark the package as source-intake/package-QA evidence and request or build a corrected rollup. Naming conflicts such as a Paper 37 README beside a `p35` standalone PDF must be resolved before public promotion.
 
+### Survival Bridges And Source-Search Packets
+
+A no-patch survival bridge is useful when a later cumulative branch should be checked against earlier accepted spans. It can prove that a prior span still survives byte-exactly or normalized-exactly, and it can prevent stale queue rows from being replayed. It does not prove fresh page-level source fidelity.
+
+A source-search packet records which source witnesses were tried, which were rejected, and why a stronger source was or was not obtained. It is source-routing evidence, not a reader edition. If a raw IA/GDZ/JP2 archive is large, keep the checksum and local/source-library pointer in the compact handoff and upload the bulk source only as part of a deliberate source-support rollup.
+
+Public metadata should say "no TeX body patch", "survival/stale-queue prevention", "source-quality blocked", or "source-routing" where appropriate. Do not let these packets become proof, certification, critical-edition language, or reader-facing editions by accident.
+
 ## Zenodo PDF-first file ordering
 
 When a Zenodo record has a reader-facing PDF, put that PDF first in the uploaded file list and use a filename prefix such as `00_` if needed. Zenodo previews PDFs natively, so fronting a README/Markdown/status file makes the public surface harder to read. Put short warnings, caveats, or source-status notes in the record description unless the warning itself is the primary deliverable. ZIPs, TeX, ledgers, and audit notes should follow the PDF, not replace it as the first visible object.
