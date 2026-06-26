@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 01 regression fix plus Paper 02/Paper 03 survival control
+
+Manifest: [20260626_noether_r128_p01_regressionfix_p02_p03_survival.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p01_regressionfix_p02_p03_survival.json)
+
+- File: `Noether_R128_LocalCodex_P01RegressionFix_P02P03Survival_WebDrop_20260626.zip` (6,685,371 bytes, SHA256 `45CD7EB8FBA6DFA599249B10AF91FCE4E33C6BDD17556FEF42E6A84C5C8ACE98`).
+- Result: P01 regression repair applied to the current R128/local cumulative. P02 and P03 were checked unchanged and exact against prior extracted source-backed span witnesses.
+- P01 repair summary: removes invented `Von Emmy Noether.` title-line, restores source title order (title, journal citation, then dissertation-excerpt note), and restores table phrase `resp. durch` instead of `bzw. durch`.
+- Evidence: `03_audit/confirmed_fix_ledger.csv`, `03_audit/P01_P03_postpatch_span_verification.csv`, `03_audit/P01_regression_fix_checks.json`, and `04_diff/BASE_R128_to_P01Fixed_current.diff`.
+- Caveat: targeted P01 regression repair plus P02/P03 survival control only. High-DPI P01 source evidence remains in the earlier P01 source-repair package and is not duplicated here. Not Noether closure, multilingual synchronization, source-image certification, or critical-edition material.
+
+Next action: treat `cum_de_R128_plus_LocalCodex_P01Fix_P02P03Survival_P04P09P20_20260626.tex` as the current compact local German handoff until a newer package supersedes it; fold into the next deliberate compact Noether rollup if needed.
+
 ## 2026-06-26: Noether R128 Paper 05-Paper 08 rebase no-patch control
 
 Manifest: [20260626_noether_r128_p05_p08_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p05_p08_rebase_nopatch.json)
