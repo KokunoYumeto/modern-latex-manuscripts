@@ -6,7 +6,7 @@ This addendum records a publication-scope correction for the AI-run manuscript a
 
 A file being mathematical, interesting, recently downloaded, or technically publishable is not enough. The file must belong to one of the existing project lanes: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, or author/corpus public-surface metadata for the manuscript project.
 
-Unrelated third-party TeX, new research drafts, Reddit downloads, Lean experiments, and personal/novel math files stay out of Zenodo and out of the GitHub mirror unless explicitly named by Floris as an external upload.
+Unrelated third-party TeX, new research drafts, Reddit downloads, personal/novel math files, and loose Lean experiments stay out of Zenodo and out of the GitHub mirror unless explicitly named by Floris as an external upload. Coherent buildable Lean 4 / mathlib-style packets can be routed as a clearly labelled Lean/library-candidate companion lane, but not as proof, certification, source audit, or correctness evidence for the historical archive.
 
 ## Sweep Classifications
 
