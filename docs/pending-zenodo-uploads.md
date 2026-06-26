@@ -1,3 +1,15 @@
+## 2026-06-26: SGA5 full-audit workpass status through p245
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p245.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p245.json)
+
+- SGA5 status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p245_20260626.zip`, 2,208,812 bytes, SHA256 `94C84D85A93F3673E4CC34944D0E8594B23B33B75838CECDF2AC62FFCED16E24`, 8 entries.
+- Scope: compact local French workpass/status package preserving the live workpass TeX/PDF/log plus CERT_LOG, AGENT_SCORECARD, FINDINGS, package status note, and file manifest.
+- Current cursor: completed rows reach p245; p246 is next. p243 starts the Shih appendix material with spectral-filter terminology and Section A.1; p244 checks functoriality and opens projective systems; p245 checks Section A.2 continuation including bidegree TikZ figure D140 and the start of part c).
+- Diagram/layout note: D140 has source-verified mathematical labels and bidegree content, but the TeX drawing simplifies the source layout by collapsing distinct `O` and `alpha` verticals. The package records this as a layout-fidelity caveat, not as a fully mirrored source diagram.
+- Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
+
+Next action: continue from p246 under the CERT_LOG page-local method and keep English synchronization separate. Older p190-p242 status packages are compact provenance/history only.
+
 ## 2026-06-26: Noether R128 PostR128 current-base tail queue rollup
 
 Manifest: [20260626_noether_r128_postr128_tailqueue_rollup.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_postr128_tailqueue_rollup.json)
@@ -16,7 +28,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p242.json](../manifests/sourc
 
 - SGA5 status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p242_20260626.zip`, 2,191,276 bytes, SHA256 `F43118B9A80603B7F2C367493E20F91DA30565DFC906129C509C724635FB46B7`, 8 entries.
 - Scope: compact local French workpass/status package preserving the live workpass TeX/PDF/log plus CERT_LOG, AGENT_SCORECARD, method note, status note, and file manifest.
-- Current cursor: completed rows reach p242; p243 is next. p241 checks Cor. 5.2.5, section 5.3 opening, functor prolongation, and Prop. 5.3.1 statement; p242 checks Prop. 5.3.1 proof and Cor. 5.3.2, closing section 5.3 and the main Expose V body sections 1-5 in the live ledger.
+- Former cursor at the time of this package: completed rows reached p242; p243 was next. p241 checked Cor. 5.2.5, section 5.3 opening, functor prolongation, and Prop. 5.3.1 statement; p242 checked Prop. 5.3.1 proof and Cor. 5.3.2, closing section 5.3 and the main Expose V body sections 1-5 in the live ledger. Superseded as the live cursor by the p245 package above.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
 Next action: continue from p243 under the CERT_LOG page-local method and keep English synchronization separate.
