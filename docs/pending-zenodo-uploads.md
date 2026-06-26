@@ -1,14 +1,23 @@
-## 2026-06-26: Noether R128 Paper 34 Batch34 pp.676-681 targeted source fixes
+## 2026-06-26: Noether R128 Paper 34 Batch34 pp.676-682 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch34_pp676_682_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch34_pp676_682_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch34_pp676_682_SourceFix_WebDrop_20260626.zip`, 21,532,267 bytes, SHA256 `C4CD52F1ECD5E8606E12E2F1B04AB18D6A8EFBA402AA3C7D6F6772F83396B2C4`, 36 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.676-682.
+- Confirmed repairs: p676 restores the finite-subfield representation/block-matrix proof; p677 restores the closing §18 Bemerkung; pp.677-678 restore §19 theorem/proof/corollary/double-module material; p679 corrects §20 title to source Einordnung; pp.679-680 restore the explicit representation construction; pp.680-681 restore Burnside and generalized Burnside theorem/proof blocks; pp.681-682 restore no-radical/fully reducible and regular-representation/group-ring material; p682 corrects footnote 18a to source barred symbols.
+- Supersedes as current Batch34: Noether_R128_LocalCodex_P34_Batch34_pp676_681_SourceFix_WebDrop_20260626.zip, now provenance only.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses are about 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
+- Build: XeLaTeX pass 2 produced a 470-page A4 cumulative PDF.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+- Next action: fold into the next deliberate compact Noether rollup/replacement pass; continue Paper 34 from printed p683 unless a newer actual web package appears.
+
+### Superseded provenance: Noether R128 Paper 34 Batch34 pp.676-681
 
 Manifest: [20260626_noether_r128_p34_batch34_pp676_681_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch34_pp676_681_sourcefix.json)
 
-- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch34_pp676_681_SourceFix_WebDrop_20260626.zip`, 25,257,256 bytes, SHA256 `B4A31D72049FEAB12EFF97235C50EAB56642340F83E388C0DC8DE454F8C0916D`, 34 entries.
-- Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.676-681.
-- Diff-observed repairs: p676 corrects the representation paragraph start to source `a=\sum c_{ik}\alpha_{ik}`; restores source wording `dar, so ist`; replaces a compressed row-vector locus with the source row-vector equality; and restores the omitted subfield `\Gamma` reduction block with finite-rank `K/\Gamma` matrices, the `\mathfrak l_1` expansion, and the block matrix with `E_t` and zero blocks.
-- Checked/source-disposition pages: printed pp.676-681; source pages pp.676-681 are included for continuity, but this wrapper claims only the diff-observed targeted p676 repair unless a later audit adds more loci.
-- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
-- Build: XeLaTeX pass 2 produced a 469-page A4 cumulative PDF.
-- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.`n`n## 2026-06-26: Noether R128 Paper 34 Batch33 pp.670-675 targeted source fixes
+The pp.676-681 package remains recorded for provenance, but it is superseded as the current Batch34 package by the pp.676-682 package above.
+
+## 2026-06-26: Noether R128 Paper 34 Batch33 pp.670-675 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json)
 
