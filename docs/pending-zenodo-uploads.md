@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 34 Batch32 pp.664-669 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch32_pp664_669_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch32_pp664_669_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch32_pp664_669_SourceFix_WebDrop_20260626.zip`, 13,316,079 bytes, SHA256 `53D9F12EBAF038C87A79E9C1B9DC3EF10FDD44FD93588D6013D62AAA275233BE`, 25 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, `Hyperkomplexe Groessen und Darstellungstheorie`, printed pp.664-669.
+- Confirmed repairs: p666 restores the source footnote marker `13a)` at the matrix-unit construction proof; p667 corrects `a_{ij}` to source `a_{ii}` in the construction of `K`; p668 restores the source footnote marker `14)` and Artin footnote; p668 corrects the final section 14 theorem formula to `\alpha'\mapsto x^{-1}\alpha x` and `c'_{ik}=x^{-1}c_{ik}x`; p669 restores the source footnote marker `15)` at the section 15 title.
+- Checked/source-disposition pages: printed pp.664-669; p664-p665 are checked without source-certain patch, and no broad rewrite, table rewrite, notation normalization, or page-range certification is claimed.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
 ## 2026-06-26: Noether R128 Paper 34 Batch31 pp.658-663 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch31_pp658_663_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch31_pp658_663_sourcefix.json)
