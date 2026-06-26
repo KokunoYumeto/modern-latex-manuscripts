@@ -1,3 +1,14 @@
+## 2026-06-26: Workflow survival-bridge and source-search packet addendum
+
+Manifest: [20260626_workflow_survival_source_search_packets.json](../manifests/pending-zenodo-uploads/20260626_workflow_survival_source_search_packets.json)
+
+- Target record: workflow / replication packet, concept DOI `10.5281/zenodo.20461174`.
+- File: `workflow_addendum_20260626_survival_source_search_packets.md`, 2,130 bytes, SHA256 `3869A6652B7A5BC2E325A53B42144B9D7CE4FD2784147AB46739D357ACD025E3`.
+- Scope: documents no-patch survival bridges and source-search packets as anti-regression/source-routing aids.
+- Caveat: workflow/support material only. These packets are not reader editions, proof, certification, critical editions, or source-fidelity verification.
+
+Next action: include in the next deliberate workflow DOI refresh with the updated workflow metadata.
+
 ## 2026-06-26: Noether R135 P05-P08 survival bridge after R134
 
 Manifest: [20260626_noether_r135_r134_p05_p08_survival_bridge_nopatch.json](../manifests/source-intake/20260626_noether_r135_r134_p05_p08_survival_bridge_nopatch.json)
