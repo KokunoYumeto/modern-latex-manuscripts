@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: SGA5 live French workpass p177 status package
+
+Manifest: [20260626_sga5_live_certlog_p177_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p177_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p177_Status_20260626.zip`, 2,175,132 bytes, SHA256 `7CF0E5714C0C72AEB8E08DF7755A124B232E46E63036DB201FEDC9668E3F8A12`, 10 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p177. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-177 are promoted by the certification ledger.
+- Result: p177 completes the proof of 5.10.9, checks Corollary 5.10.11, verifies diagram 5.10.12 as D094, starts §5.11 on divisibility, and records Proposition 5.11.1, `Tr_K(u)=|G|·Tr_B(u)(e)`, as the SGA 4½ Rapport 4.5 anchor. The ledger still reports 15 TeX fixes plus one cosmetic p172 cleanup, D001-D094 covered, and the workpass compile gate at 307 pages / zero fatal errors.
+- Caveat: source-audit status evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
+
+Next action: continue page-local certification from p178; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+
 ## 2026-06-26: Noether general source library v1
 
 Manifest: [20260626_noether_general_source_library_v1_full8.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full8.json)
@@ -27,7 +38,7 @@ Manifest: [20260626_sga5_live_certlog_p176_status_package.json](../manifests/sou
 - Result: p176 checks the 5.10.10 square, vindicates the p175 tensor-base repair, marks D001-D093 covered, and keeps the workpass compile gate at 307 pages / zero fatal errors. The ledger still reports 15 TeX fixes plus one cosmetic p172 cleanup.
 - Caveat: source-audit status evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p177; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: superseded by the p177 package above; keep as provenance only.
 
 ## 2026-06-26: SGA5 live French workpass p175 status package
 
