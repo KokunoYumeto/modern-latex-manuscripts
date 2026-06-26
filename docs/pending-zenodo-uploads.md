@@ -5834,3 +5834,13 @@ Manifest: [20260627_noether_r175_p12_p13_frontmatter_sourcefix.json](../manifest
 - Result: adds source-visible terminal periods to `Invarianten beliebiger Differentialausdrücke.` and `Invariante Variationsprobleme.`, and restores the source-style byline layout `Von` / `Emmy Noether in Göttingen.` for both papers.
 - Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; only known font/inputenc warnings are reported.
 - Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. GDZ page witnesses are about 400ppi, below strict native-650 page certification. Targeted front-matter repair/provenance only; not full Paper 12/Paper 13 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R176 Paper 11 front-matter source fix
+
+Manifest: [20260627_noether_r176_p11_frontmatter_sourcefix.json](../manifests/pending-zenodo-uploads/20260627_noether_r176_p11_frontmatter_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R176_LocalCodex_P11_FrontMatterSourceFix_WebDrop_20260627.zip`, 3,823,501 bytes, SHA256 `4F08E59E38BF0B8BA70426267830EE500442692E72B263F3364362264B75608A`, 16 entries.
+- Scope: narrow German cumulative Paper 11 front-matter repair on top of R175.
+- Result: adds the source-visible terminal period to `Gleichungen mit vorgeschriebener Gruppe.` and corrects the byline ending from comma to period: `Emmy Noether in Göttingen.`.
+- Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; the log scan reports no fatal, undefined, rerun, overfull, or underfull messages.
+- Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. The witness is a targeted 1000ppi crop, sufficient for title/byline punctuation only. Targeted front-matter repair/provenance only; not full Paper 11 certification, not full-page dense-math certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
