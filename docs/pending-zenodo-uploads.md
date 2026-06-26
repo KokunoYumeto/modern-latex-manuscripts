@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 Paper 31 Batch39 pp.095-104 targeted source fixes
+
+Manifest: [20260626_noether_r128_p31_batch39_pp095_104_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p31_batch39_pp095_104_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P31_Batch39_pp095_104_SourceFix_WebDrop_20260626.zip`, 12,823,754 bytes, SHA256 `666AC2F6CCE57BA6840F4107B57AB40979786DB5B59DC33966B170DE2908D399`, 25 entries.
+- Scope: targeted German cumulative repair/provenance for Paper 31, source printed pp.95-104, carrying forward Batch38.
+- Applied fixes: p97 footnote matrix restored as `\begin{pmatrix}C_{\ma}&0\\ C_1&C_2\end{pmatrix}`; p103 exponent restored from `\alpha` to `e`; p103 Hilbert footnote index restored from `m` to `n`; p104 phrase restored to `dann und nur dann in dem Diskriminantenideal`.
+- Build/source: XeLaTeX two-pass cumulative build reports 471 pages; source witnesses are best-staged GDZ/JRAM157 full-page images at about 600ppi, below the strict 650+ ppi preference.
+- Caveat: targeted German source-repair/provenance only. Not Paper 31 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance; continue from the active R128 queue unless a newer authority package supersedes it.
+
 ## 2026-06-26: Noether Slavic cumulative work-so-far through Paper 34 section 26
 
 Manifest: [20260626_noether_slavic_worksofar_papers01_34_section26.json](../manifests/source-intake/20260626_noether_slavic_worksofar_papers01_34_section26.json)
