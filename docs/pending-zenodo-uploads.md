@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: SGA5 live French workpass p174 status package
+
+Manifest: [20260626_sga5_live_certlog_p174_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p174_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p174_Status_20260626.zip`, 2,170,618 bytes, SHA256 `738793E796C8E2CE56AEC621D7C17561545A1157B668410C080830111EB57267`, 10 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p174. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-174 are promoted by the certification ledger.
+- Result: p173 fixed a copied source typo `f_g` -> `fg`; p174 confirms diagrams D088 and D089 and a source typo already corrected in TeX. The ledger now reports 14 TeX fixes plus one cosmetic p172 cleanup, 29 source typos/source oddities, D001-D089 covered, and 307-page / zero-fatal-error compilation.
+- Caveat: status/source-audit evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile success is not source fidelity; p171 remains the cautionary example because three math-bearing diagram errors compiled cleanly.
+
+Next action: fold into the next SGA record/workflow refresh as compact status evidence and continue page-local certification from p175.
+
 ## 2026-06-26: SGA5 live French workpass p172 status package
 
 Manifest: [20260626_sga5_live_certlog_p172_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p172_status_package.json)
@@ -9,7 +20,7 @@ Manifest: [20260626_sga5_live_certlog_p172_status_package.json](../manifests/sou
 - Result: p171 found and fixed three math-bearing TeX content errors in diagram 5.9.1 that compiled cleanly. p172 then checked diagrams 5.9.2, 5.9.3, and 5.9.4 as perfect and made one cosmetic double-parenthesis cleanup. The ledger now reports 13 TeX fixes plus one cosmetic p172 cleanup, 27 source typos/source oddities, and D001-D086 covered, with D082/D084/D085/D086 perfect and D083 corrected.
 - Caveat: status/source-audit evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition.
 
-Next action: fold into the next SGA record/workflow refresh as compact status evidence and continue page-local certification from p173.
+Next action: superseded by the p174 package above; keep as provenance only.
 
 ## 2026-06-26: Noether R127 queue reconciliation index v2
 
@@ -31,7 +42,7 @@ Manifest: [20260626_sga5_live_certlog_p171_status_package.json](../manifests/sou
 - Result: p171 found and fixed three math-bearing TeX content errors in diagram 5.9.1 that compiled cleanly. The ledger now reports 13 TeX fixes, 27 source typos/source oddities, and D001-D083 covered, with D082 perfect and D083 corrected.
 - Caveat: status/source-audit evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition.
 
-Next action: superseded by the p172 package above; keep as provenance only.
+Next action: superseded by the p174 package above; keep as provenance only.
 ## 2026-06-25: Noether R127 Paper 01 source repair and Papers 02-04 survival checks
 
 Manifest: [20260625_noether_r127_p01_repair_p02_p04_survival.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_p01_repair_p02_p04_survival.json)
@@ -4103,7 +4114,7 @@ Manifest: [20260626_sga5_live_certlog_p170_status_package.json](../manifests/sou
 - Ledger warning: this remains a curated French workpass selection, not global SGA5 certification. English synchronization and a global referenced-label/notation audit remain open.
 - Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
 
-Next action: superseded by the p171 and p172 packages above; keep as provenance only.
+Next action: superseded by the p171, p172, and p174 packages above; keep as provenance only.
 
 ## 2026-06-26: Weber B139 Phase 2 German Vol. I section 141 and 162 retranscription status
 
@@ -4116,3 +4127,4 @@ Manifest: [20260626_weber_b139_phase2_v1ge_sec141_162_status.json](../manifests/
 - Caveat: source-audit/status artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
 
 Next action: continue Phase 2 coherent retranscription of held rewrite/reconstruction blocks, especially sections 148-156, 158, 163, 165, 167-170, and 173-188.
+
