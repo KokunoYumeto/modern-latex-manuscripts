@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 19 Batch11 p55-p58 targeted follow-up
+
+Manifest: [20260626_noether_r128_p19_batch11_p55_p58_varrho_action_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch11_p55_p58_varrho_action_fix.json)
+
+- File: `Noether_R128_LocalCodex_P19_SourceAudit_Batch11_P55VarrhoBasisFix_WebDrop_20260626.zip` (5,396,223 bytes, SHA256 `99DDC4156418BE6749485205C4FFD36174CD4CF9BA6578D4446964C5D5C6E619`).
+- Result: Batch11 makes `cum_de_R128_plus_LocalCodex_P19Batch11_P55VarrhoBasisFix_P19Batch10CarryForward_20260626.tex` the active local German handoff. The package includes a freshly compiled 468-page PDF, Batch11 TeX/log, p55/p56/p58 witness crops, ledgers, checksums, and the Batch10-to-Batch11 diff.
+- Scope: four targeted Paper 19 corrections across printed pp.55-58: `\varrho` module-basis index, dotted two-sided `\alpha\cdot c`, footnote-38 lambda exponents/product dots, and p58 `f\cdot g`, `P^e`, and ideal-font `\mathfrak M`.
+- Caveat: P19 source remains 400 ppi, below strict 650+ ppi. This is targeted source-visible correction evidence only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: use Batch11 as the current German-base web handoff until superseded. Do not upload Batch2-Batch10 separately unless a deliberate compact Noether rollup needs intermediate provenance.
+
 ## 2026-06-26: Noether R128 Paper 19 Batch9/Batch10 targeted follow-ups
 
 Manifests: [20260626_noether_r128_p19_batch9_p47_p48_group_index_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch9_p47_p48_group_index_fix.json), [20260626_noether_r128_p19_batch10_p54_left_action_dot_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch10_p54_left_action_dot_fix.json)
@@ -9,7 +20,7 @@ Manifests: [20260626_noether_r128_p19_batch9_p47_p48_group_index_fix.json](../ma
 - Result: Batch10 makes `cum_de_R128_plus_LocalCodex_P19Batch10_P54LeftActionDotFix_P19Batch9CarryForward_20260626.tex` the active local German handoff. Batch9 remains pp47-48 group-index provenance; Batch10 restores dotted left-action notation in printed p54 footnote 35.
 - Caveat: P19 source remains 400 ppi, below strict 650+ ppi. These are targeted source-visible correction packages only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
 
-Next action: use Batch10 as the current German-base web handoff until superseded. Do not upload Batch2-Batch9 separately unless a deliberate compact Noether rollup needs intermediate provenance.
+Next action: superseded for active-base selection by the Batch11 p55-p58 follow-up (`20260626_noether_r128_p19_batch11_p55_p58_varrho_action_fix.json`); keep Batch9/Batch10 as compact P19 provenance.
 
 ## 2026-06-26: Noether R128 Paper 19 B4 generator source-audit fix
 
