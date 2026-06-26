@@ -4057,6 +4057,18 @@ Manifest: [20260625_noether_r127_p09_p23_queue_indices.json](../manifests/pendin
 
 Next action: fold both into the next deliberate compact Noether rollup/replacement pass; do not upload loose while Noether remains at the Zenodo file ceiling. Do not replay stale P09-P23 queue rows without a concrete source-current mismatch or better source witness.
 
+## 2026-06-26: Noether R127 latest practical web/upload rollup
+
+Manifest: [20260626_noether_r127_latest_practical_webupload.json](../manifests/pending-zenodo-uploads/20260626_noether_r127_latest_practical_webupload.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_LatestPracticalWebUpload_20260626.zip`, 109,350,260 bytes, SHA256 `C07CAF2B5CB6F6628DB3810E69FF13110410F032C1A616A23F333AA75EDE5DF1`, 15 entries.
+- Scope: current one-file practical handoff around rebuilt R127, including the R127 fixed 50 MB authority package, current LocalCodex German cumulative TeX/PDF, recent 2026-06-26 LocalCodex drops, and queue reconciliation v3.
+- Current dispositions: P34 no-patch with the known product-table/discriminant/Dred defect cluster still surviving; P40 no-patch with prior complete span byte-identical; P04 pp.140-145 checked against best-found GDZ600 pages with no patch; tail bibliography/endmatter has three source-confirmed fixes integrated in the current working TeX.
+- Supersedes for practical handoff: `20260626_noether_r127_queue_reconciliation_index_v2.json`.
+- Caveat: continuation/routing rollup only. Not whole-Noether certification, not a critical edition, not full native-650 source certification, not multilingual synchronization, and not independent proof that every older source witness is present in this one ZIP.
+
+Next action: use this as the current compact candidate in the next deliberate Noether Zenodo rebalance/replacement pass. Do not add the smaller superseded queue packets as loose public files while Noether remains file-count constrained.
+
 ## 2026-06-26: SGA5 live French workpass through p154
 
 Manifest: [20260626_sga5_live_certlog_p154_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p154_status_package.json)
