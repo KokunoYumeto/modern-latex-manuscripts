@@ -1,5 +1,20 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether general source library v1
+
+Manifest: [20260626_noether_general_source_library_v1.json](../manifests/source-intake/20260626_noether_general_source_library_v1.json)
+
+- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` plus five upload parts:
+  `part01_core_collected_tail` (171,527,284 bytes),
+  `part02_ia_mathann_96` (430,695,989 bytes),
+  `part03_ia_mathann_83_85_90` (483,118,169 bytes),
+  `part04_targeted_recent` (35,937,455 bytes),
+  and `part05_targeted_P29_P30_source_witnesses` (51,212,947 bytes).
+- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, crops, metadata, page maps, and source ledgers.
+- Caveat: source-intake/project-source support only. This is not a cumulative reader, not a TeX patch, not paper certification, not multilingual synchronization, and not a critical edition.
+
+Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure.
+
 ## 2026-06-26: SGA5 live French workpass p174 status package
 
 Manifest: [20260626_sga5_live_certlog_p174_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p174_status_package.json)
