@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 Paper 09 post-Batch39 survival bridge
+
+Manifest: [20260626_noether_r128_p09_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p09_postbatch39_survival_nopatch.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_P09_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 12,264,124 bytes, SHA256 `1847E2703E4053278AB9CA9BA8989ECC62E6535B9A214009B6C99C63D6C0DEDA`, 1,420 entries.
+- Result: no German TeX patch. Paper 09's accepted Local Codex span survives as a raw byte-exact substring of the current Batch39 German cumulative: current lines 6337-7668, 1,332 lines total, current/reference hash `6df980bb84559a842d3f2fe21769b3a35bdb4b848de52e7ddf6449f469dc0bed`.
+- Guardrail: do not patch or reopen Paper 09 from this package; keep the current Batch39 span unless a concrete source-current mismatch appears.
+- Packaging note: this ZIP carries extensive prior P09 ledger trees, 1,420 entries, and internal paths up to 497 characters; treat it as provenance/control material rather than a reader-facing loose upload unless repackaged.
+- Caveat: current-branch survival/reconciliation only. Not new visual source certification, not Paper 09 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition. Prior Paper 09 source work had targeted 1000 dpi crops for known exact loci and mixed best-available full-page GDZ 400/600 ppi witnesses elsewhere.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is at the file ceiling unless replacing/pruning, preferably after path-safe repackaging.
+
 ## 2026-06-26: Noether R128 Paper 13 post-Batch39 survival bridge
 
 Manifest: [20260626_noether_r128_p13_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p13_postbatch39_survival_nopatch.json)
