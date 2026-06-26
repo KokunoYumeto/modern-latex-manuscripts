@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R137 Paper 16 source-route warning bridge
+
+Manifest: [20260626_noether_r137_r136_p16_source_route_warning_nopatch.json](../manifests/source-intake/20260626_noether_r137_r136_p16_source_route_warning_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R137_LocalCodex_R136_P16_SourceRouteWarningBridge_NoPatch_WebDrop_20260626.zip`, 3,461,724 bytes, SHA256 `DEECD7DD06B12C1D994898202B6A00A1E1235367408E0FB473A9D2B46D02FA28`, 16 entries, max path 170.
+- Scope: no-patch Paper 16 source-route warning bridge after R136. The accepted P16 reference span survives in the current German cumulative after normalized comparison.
+- Source caveat: a staged GDZ route labelled for P16 contains at least one wrong-article page image; use the prior IA Math. Ann. 81 witness route unless a better verified source appears. This is source-route warning and anti-regression evidence only, not full Paper 16 certification, Noether closure, multilingual synchronization, or a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful; do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R136 Paper 18 best-available no-patch disposition
 
 Manifest: [20260626_noether_r136_r135_p18_best_available_nopatch.json](../manifests/source-intake/20260626_noether_r136_r135_p18_best_available_nopatch.json)
