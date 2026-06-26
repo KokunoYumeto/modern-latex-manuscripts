@@ -1,3 +1,27 @@
+## 2026-06-26: Noether R130 source-file probe and Paper 35 header fix
+
+Manifest: [20260626_noether_r130_p35_headerfix_sourcefiles.json](../manifests/source-intake/20260626_noether_r130_p35_headerfix_sourcefiles.json)
+
+- Current pending ZIP: `Noether_R130_SourceFiles_P35_HeaderFix_WebDrop_20260626.zip`, 23,681,589 bytes, SHA256 `79B623A0B78ED196146525673C50342EC49D8D64F56461DC95F6C273488E8759`, 67 entries.
+- Scope: carries forward the R129 Paper 34 pp.689-692 source repair and adds a targeted Paper 35 source-file/header repair after checking the uploaded source archives.
+- Confirmed R130 repair: restores the source-visible Paper 35 author line `Von Emmy Noether (Göttingen).` and the visible terminal period in the title. It does not alter Paper 35 body prose, formulas, notes, or Russian summary text.
+- Source caveat: P34 carry-forward witnesses are about 400 ppi; the P35 MathNet source PDF reports 600 ppi embedded page images, below the preferred 650+ floor but usable for this header fix.
+- Caveat: targeted source-file/source-repair package only. Not Paper 35 body certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: use R130 as the newer cumulative/source-file continuation candidate in the next deliberate Noether Zenodo refresh/rebalance; do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
+## 2026-06-26: Noether R129 Paper 34 Batch37 pp.689-692 source fix
+
+Manifest: [20260626_noether_r129_p34_batch37_pp689_692_sourcefix.json](../manifests/source-intake/20260626_noether_r129_p34_batch37_pp689_692_sourcefix.json)
+
+- Current pending ZIP: `Noether_R129_LocalCodex_P34_Batch37_pp689_692_SourceFix_WebDrop_20260626.zip`, 14,678,044 bytes, SHA256 `6A9C306387F09E1A40BBD7FB93D83DB8F1DCBBBE9A567697FC47964BB198F119`, 54 entries.
+- Scope: targeted German cumulative source repair for Noether Paper 34 printed pp.689-692 / sections 25-26 through the received date.
+- Confirmed repairs: restores the source basis-change proof, nilpotent-ideal determinant block, direct-sum discriminant proof, editable matrix-ring product-table/discriminant cluster, footnote 22, group-ring trace proof, class-center averaging formula, and final character relation `\chi(K_i)=h_i\chi(a_i)`.
+- Source caveat: GDZ Math. Z. 30 page witnesses are best-staged local about-400ppi full-page images; rendered/zoomed crops are legibility aids only.
+- Caveat: targeted German source-repair/provenance package only. Not Paper 34 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: preserve R129 as the focused Paper 34 ending source-fix package, but prefer R130 as the newer cumulative continuation for a future Noether refresh/rebalance.
+
 ## 2026-06-26: Noether R128 post-Batch39 all-bridge handoff bundle
 
 Manifest: [20260626_noether_r128_postbatch39_all_bridge_zips_bundle.json](../manifests/source-intake/20260626_noether_r128_postbatch39_all_bridge_zips_bundle.json)
