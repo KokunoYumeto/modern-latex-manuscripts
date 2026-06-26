@@ -5643,3 +5643,11 @@ Manifest: [20260626_noether_r154_p01_p04_survival_nopatch.json](../manifests/pen
 - Scope: compact no-patch bridge showing accepted P01-P04 source-backed/reference spans survive raw-exact and normalized-exact in the current R151/R153 cumulative.
 - Result: P01 keeps the prior source-backed regression fix; P02 and P03 keep prior source-backed spans; P04 keeps the accepted GDZ600 rebase body.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not P01-P04 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R155 Paper 01-Paper 20 compact bridge rollup
+
+Manifest: [20260626_noether_r155_p01_p20_bridge_rollup_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r155_p01_p20_bridge_rollup_nopatch.json)
+
+- Noether pending ZIP: `Noether_R155_LocalCodex_R154_P01_P20_CompactBridgeRollup_NoPatch_WebDrop_20260626.zip`, 3,728,689 bytes, SHA256 `EA4662438B4F485568C03A24214E4C0E4EF1C94D0219C2E21830DF8CD7194E6F`, 14 entries.
+- Scope: compact no-patch current-branch bridge/status matrix for P01-P20, combining R154 P01-P04, R155 direct/R135 P05-P08, R153 P09, and R151 P10-P20 evidence.
+- Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P01-P20 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
