@@ -5651,3 +5651,12 @@ Manifest: [20260626_noether_r155_p01_p20_bridge_rollup_nopatch.json](../manifest
 - Noether pending ZIP: `Noether_R155_LocalCodex_R154_P01_P20_CompactBridgeRollup_NoPatch_WebDrop_20260626.zip`, 3,728,689 bytes, SHA256 `EA4662438B4F485568C03A24214E4C0E4EF1C94D0219C2E21830DF8CD7194E6F`, 14 entries.
 - Scope: compact no-patch current-branch bridge/status matrix for P01-P20, combining R154 P01-P04, R155 direct/R135 P05-P08, R153 P09, and R151 P10-P20 evidence.
 - Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P01-P20 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R156 Paper 21-Paper 30 compact bridge rollup
+
+Manifest: [20260626_noether_r156_p21_p30_bridge_rollup_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r156_p21_p30_bridge_rollup_nopatch.json)
+
+- Noether pending ZIP: `Noether_R156_LocalCodex_R155_P21_P30_CompactBridgeRollup_NoPatch_WebDrop_20260626.zip`, 3,655,889 bytes, SHA256 `77507C9C1343DE93DA35806F39933ED89BB93D0934A2DDD2266600294F0C4304`, 32 entries.
+- Scope: compact no-patch current-branch bridge/status package for the middle-band P21-P30 state after R155.
+- Result: P22 exact against accepted R128 reference; P29 normalized-exact against R131 fixed reference; P30 normalized-exact against accepted R128 reference; P24/P25/P27 stale local regression traps safe.
+- Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P21-P30 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
