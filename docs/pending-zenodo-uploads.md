@@ -5705,3 +5705,12 @@ Manifest: [20260626_noether_r161_p19_p20_survival_nopatch.json](../manifests/pen
 - Scope: compact no-patch P19/P20 source-fix survival bridge against the current R157 cumulative.
 - Result: current R157 P19/P20 match accepted R143/source-backed references after whitespace normalization; fragile P19 arithmetic anchors and the P20 author line pass.
 - Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ P19/P20 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R162 Paper 16/Paper 18 source-fix survival bridge
+
+Manifest: [20260626_noether_r162_p16_p18_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r162_p16_p18_survival_nopatch.json)
+
+- Noether pending ZIP: `Noether_R162_LocalCodex_R157_P16_P18_SourceFixSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 592,413 bytes, SHA256 `3ACC00B2CB49835045BFA79E1E92CBC57AD85AFF87B30A18AF095514EE4B75F6`, 18 entries.
+- Scope: compact no-patch P16/P18 source-fix survival bridge against the current R157 cumulative.
+- Result: current R157 P16/P18 survive accepted R150/R137 and R150/R136 references after normalization; the bad P16 GDZ source-route warning remains active and P18 keeps the source-supported congruence endpoint.
+- Caveat: backend source-route and stale-queue-prevention evidence only. Not a fresh repair, not strict native 650+ P16/P18 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
