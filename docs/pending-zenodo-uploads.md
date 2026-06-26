@@ -1,5 +1,27 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 05-Paper 08 rebase no-patch control
+
+Manifest: [20260626_noether_r128_p05_p08_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p05_p08_rebase_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P05_P08_Rebase_NoPatch_WebDrop_20260626.zip` (3,457,467 bytes, SHA256 `6EBB06A74450888AE4C7C3A798BA0B1E13F5831B5A9D4CCB4B7F75C116DB8737`).
+- Result: no source-certain TeX patch was made. P05, P06, P07, and P08 survive byte-identically in the current R128/local cumulative when compared with the prior source-backed P05-P08 reference package.
+- Evidence: `03_audit/P05_P08_R128_rebase_span_comparison.csv` records matching hashes for all four spans; the four diff files under `02_span_compare/` are zero-byte files.
+- Caveat: current-branch survival/rebase control only. The package intentionally does not duplicate earlier 650/1000 dpi source witnesses, and it is not fresh glyph-by-glyph source certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: preserve as compact P05-P08 no-redo/current-handoff provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 19/Paper 20 compact rollup no-patch status
+
+Manifest: [20260626_noether_r128_p19_p20_rollup_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_p20_rollup_nopatch.json)
+
+- File: `Noether_R128_LocalCodex_P19_P20_Rollup_NoPatch_WebDrop_20260626.zip` (3,442,882 bytes, SHA256 `0DD6F9C6C5F584258EF6933BC4C3FF2F624C66251F33B3473EA902B0353D703D`).
+- Result: no new TeX patch was made in this rollup. It consolidates the current active German cumulative TeX/PDF and records P19/P20 source-audit status after the local R128 work.
+- Carried work: P19 Batch13 through printed p63/p65/p66 fraktur-`M` and `\varrho` rank/index corrections; P20 source-visible author-line restoration.
+- Caveat: compact rollup/status evidence only. P19 best staged source is about 400 ppi and P20 is mixed 400/600 ppi, below strict 650+ source-certification. Do not call P19 or P20 fully source-critical certified from this package alone.
+
+Next action: preserve as compact P19/P20 current-state provenance and fold into the next deliberate compact Noether rollup if needed; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 04 GDZ600 rebase no-patch control
 
 Manifest: [20260626_noether_r128_p04_gdz600_rebase_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p04_gdz600_rebase_nopatch.json)
