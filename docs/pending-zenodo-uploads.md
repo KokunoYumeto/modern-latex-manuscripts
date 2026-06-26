@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R143 Paper 19/Paper 20 survival bridge
+
+Manifest: [20260626_noether_r143_r142_p19_p20_survival_nopatch.json](../manifests/source-intake/20260626_noether_r143_r142_p19_p20_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R143_LocalCodex_R142_P19_P20_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 4,014,485 bytes, SHA256 `7317F2E5C2B7BFE418320E3CD257E8389B5EF8D3D539B35671B28C9EB5DBEBF8`, 180 entries, max path 198.
+- Scope: no-patch Paper 19/Paper 20 survival/source-route bridge after R142. The accepted P19 and P20 reference spans survive in the current R142/R143 German cumulative after whitespace normalization; raw byte mismatches are line-wrapping/context only.
+- Source route: `Noether_GeneralSourceLibrary_v1_20260626/part11_P19_P20_GDZ_paperlevel_source_master`. P19 witnesses are about 400 ppi; P20 is mixed 400/600 ppi; both remain below the preferred 650+ optical floor.
+- Caveat: compact current-branch survival/source-route and anti-regression evidence only. Not a fresh German TeX repair, not full Paper 19/Paper 20 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful. Do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R142 Paper 17 GDZ600 survival bridge
 
 Manifest: [20260626_noether_r142_r141_p17_gdz600_survival_nopatch.json](../manifests/source-intake/20260626_noether_r142_r141_p17_gdz600_survival_nopatch.json)
