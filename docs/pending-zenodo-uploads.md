@@ -12,6 +12,17 @@ Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/p
 
 Next action: publish as a standalone Lean/formalization companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
 
+## 2026-06-26: SGA5 live French workpass p180 status package
+
+Manifest: [20260626_sga5_live_certlog_p180_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p180_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p180_Status_20260626.zip`, 2,213,177 bytes, SHA256 `590A48B5FAC47091BABDEFB668EC52CD0F12CE182850322F790F6D6D1896964C`, 12 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p180. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-180 are promoted by the page-local certification ledger.
+- Result: pp.178-180 continue Expose III B Part II section 5, checking the Prop. 5.11.3 proof diagrams D095-D096, the Cor. 5.11.5 trace-divisibility material, the section 5.12 external-tensor-product diagrams D097-D099, and multiplicativity formula 5.12.5. The ledger reports 15 TeX fixes plus one cosmetic p172 cleanup, D001-D099 covered, and the workpass compile gate at 307 pages / zero fatal errors.
+- Caveat: source-audit status evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
+
+Next action: continue page-local certification from p181; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+
 ## 2026-06-26: SGA5 live French workpass p177 status package
 
 Manifest: [20260626_sga5_live_certlog_p177_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p177_status_package.json)
@@ -21,13 +32,13 @@ Manifest: [20260626_sga5_live_certlog_p177_status_package.json](../manifests/sou
 - Result: p177 completes the proof of 5.10.9, checks Corollary 5.10.11, verifies diagram 5.10.12 as D094, starts §5.11 on divisibility, and records Proposition 5.11.1, `Tr_K(u)=|G|·Tr_B(u)(e)`, as the SGA 4½ Rapport 4.5 anchor. The ledger still reports 15 TeX fixes plus one cosmetic p172 cleanup, D001-D094 covered, and the workpass compile gate at 307 pages / zero fatal errors.
 - Caveat: source-audit status evidence only. Not complete SGA5, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p178; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: superseded by the p180 package above; keep as provenance only.
 
 ## 2026-06-26: Noether general source library v1
 
-Manifest: [20260626_noether_general_source_library_v1_full9.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full9.json)
+Manifest: [20260626_noether_general_source_library_v1_full11.json](../manifests/source-intake/20260626_noether_general_source_library_v1_full11.json)
 
-- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` (82,003 bytes, SHA256 `70EE638CC8D583272B80FD223B0C6B1251FCADDB5360C5082273D53B9F869E59`) plus nine upload parts:
+- Source-library ZIP set: `Noether_GeneralSourceLibrary_v1_20260626_MANIFEST.zip` (31,159 bytes, SHA256 `8315C9AB1515BE416BDB0EC3C6D62DAFFD9A3B32F77896E9B4BBB55B934FA48E`) plus eleven upload parts:
   `part01_core_collected_tail` (171,527,284 bytes),
   `part02_ia_mathann_96` (430,695,989 bytes),
   `part03_ia_mathann_83_85_90` (483,118,169 bytes),
@@ -36,12 +47,15 @@ Manifest: [20260626_noether_general_source_library_v1_full9.json](../manifests/s
   `part06_P09_P20_nonoverlap_source_witnesses` (192,352,588 bytes),
   `part07_P31_P43_upperband_source_witnesses` (368,553,908 bytes),
   `part08_P01_P08_P21_P23_source_witnesses` (200,134,395 bytes),
-  and `part09_P14_P15_P16_GDZ_raw_source_upgrade` (83,585,846 bytes, SHA256 `BFC6D14BB37767D29E4AF1D97C55E7D4C8292EDDCF2BE45D8987A98337E664AD`).
-- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, P09-P20 non-overlap source witnesses, P31-P43 upper-band source witnesses, P01-P08/P21-P23 bridge source material, crops, metadata, page maps, source ledgers, and the P14/P15/P16 official GDZ raw source upgrade.
+  `part09_P14_P15_P16_GDZ_raw_source_upgrade` (83,585,846 bytes, SHA256 `BFC6D14BB37767D29E4AF1D97C55E7D4C8292EDDCF2BE45D8987A98337E664AD`),
+  `part10_P10_IA_MathAnn77_issue4_secondary_source` (42,066,754 bytes, SHA256 `954C8D1EF271B2F73C89677F6516B2A405D916E55B098CBB1351A2EEA7C37A45`),
+  and `part11_P19_P20_GDZ_paperlevel_source_master` (75,105,394 bytes, SHA256 `40864999847D233474F7EAD6B39F1FA8514B670E8857DD9AE6868633847E290C`).
+- Scope: stable source witnesses and ledgers for Noether web-session/source-audit reuse. It includes collected-volume/tail witnesses, IA Mathematische Annalen host-volume sources, P04/P29/P30 targeted source material, P09-P20 non-overlap source witnesses, P31-P43 upper-band source witnesses, P01-P08/P21-P23 bridge source material, crops, metadata, page maps, source ledgers, the P14/P15/P16 official GDZ raw source upgrade, P10 IA secondary witness material, and P19/P20 GDZ paper-level source masters.
 - Part09 detail: route ledgers, GDZ manifests, raw full-page images, and image-info JSONs for P14 printed pp.182-203, P15 printed pp.138-156, and P16 printed pp.25-30.
+- Part10/11 detail: P10 IA/MathAnn77 source material is secondary/no-new-patch support; P19/P20 GDZ masters add article PDFs, raw full-page images, IIIF/GDZ manifests, page/canvas maps, dimensions, and source-quality ledgers.
 - Caveat: source-intake/project-source support only. This is not a cumulative reader, not a TeX patch, not paper certification, not multilingual synchronization, and not a critical edition.
 
-Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure. This supersedes the earlier full8 source-library staging.
+Next action: upload as a clearly labelled source-support set if useful for web sessions; keep active TeX/audit changes in separate compact Noether rollups because the Noether author record has file-ceiling pressure. This supersedes the earlier full9 source-library staging.
 
 ## 2026-06-26: SGA5 live French workpass p176 status package
 
