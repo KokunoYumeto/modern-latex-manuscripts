@@ -11,6 +11,16 @@ Manifest: [20260626_noether_r128_p20_authorline_sourceaudit.json](../manifests/s
 
 Next action: use the P20AuthorLine cumulative TeX as the active German base until superseded; keep the all-local-audit v2 wrapper as compact audit-control provenance.
 
+## 2026-06-26: Noether R127 auxiliary routing/provenance packets
+
+Manifest: [20260626_noether_r127_localcodex_auxiliary_packets.json](../manifests/source-intake/20260626_noether_r127_localcodex_auxiliary_packets.json)
+
+- Aggregate: nine R127 LocalCodex auxiliary ZIPs, including queue reconciliation v3, P04 GDZ600 no-new-patch source upgrade, P10 IA secondary source disposition, P34/P40 anti-regression/survival controls, Part06/09/11 source-library pointers, and tail-bibliography source fix.
+- Scope: provenance, routing, and stale-work prevention only. These packets document how later R128/P20 work was reached and which older source routes should not be replayed blindly.
+- Caveat: predecessor/control material only. Do not loose-upload these as reader-facing Noether files while the record is at the 100-file ceiling; fold useful pieces into a deliberate future rollup if needed. They are not whole-paper certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: keep as local/GitHub provenance so future Noether web sessions can understand the R127-to-R128 transition without adding more Zenodo clutter.
+
 
 ## 2026-06-26: Noether R128 latest cumulative all-local-audit handoff v2
 
