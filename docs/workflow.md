@@ -198,7 +198,7 @@ This is a separate failure mode from OCR noise. Treat fluent mathematical prose 
 
 ### Lean formalization lanes
 
-Claude and Codex may produce Lean formalization side lanes for selected explicit statements from the transcription corpus or for nearby classical mathematics that would be useful to have in Lean. These lanes are not proof certification of the archive. A Lean lane is DOI-ready when it includes exact Lake/Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` output where relevant, no `sorry` or failed batch files in the promoted surface, source or motivation anchors, and a human-readable statement distinguishing any historical source statement from the modern formal theorem. Failed files remain provenance only unless explicitly promoted.
+Claude and Codex may produce Lean formalization side lanes for selected explicit statements from the transcription corpus or for nearby classical mathematics that would be useful to have in Lean. These lanes are useful Lean/mathlib-style candidate material; they are not proof of archival source fidelity or certification of the scanned editions/translations. A Lean lane is DOI-ready when it includes exact Lake/Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` output where relevant, no `sorry` or failed batch files in the promoted surface, source or motivation anchors, and a human-readable statement distinguishing any historical source statement from the modern formal theorem. Failed files remain provenance only unless explicitly promoted.
 
 ### Package-surface verification before upload
 

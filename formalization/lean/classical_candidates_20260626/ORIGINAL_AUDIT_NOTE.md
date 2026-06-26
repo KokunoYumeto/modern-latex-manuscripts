@@ -31,4 +31,4 @@ Do not make a public archive-certification claim from this material. Before publ
 
 ## Workflow lesson
 
-The useful role of this lane is not proof or certification of the archive. It can become a pool of useful Lean/mathlib-style formalization candidates for selected explicit algebra/arithmetic statements inspired by or extracted from the transcription corpus. The authoritative source inventory for motivation links remains the GitHub/public catalog and transcribed TeX, not loose local scan folders.
+The useful role of this lane is not proof of archival source fidelity or certification of the archive. It can become a pool of useful Lean/mathlib-style formalization candidates for selected explicit algebra/arithmetic statements inspired by or extracted from the transcription corpus. The authoritative source inventory for motivation links remains the GitHub/public catalog and transcribed TeX, not loose local scan folders.

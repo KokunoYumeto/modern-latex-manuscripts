@@ -159,7 +159,7 @@ Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/p
 - GitHub-visible path: `formalization/lean/classical_candidates_20260626`.
 - Scope: useful Lean 4 library/formalization candidate material inspired by the historical transcription project and side work. Green classical modules: Jordan affine-line group order, Jordan primitive-root count, Steinitz perfect-field/Frobenius criterion, and Weber cubic polynomial identity. Side lane: split-zero globalization core algebra for the separate split-support/projectification paper.
 - Build/provenance: package includes Lean sources, copied toolchain/Lake metadata, build logs, planning/target notes, and a failed/superseded `ClassicalBatch2.lean` provenance file.
-- Caveat: this is useful formal mathematics / Lean library-candidate material and possible addition material for a Lean/mathlib-style library. It is not proof, certification, or audit of the scanned editions, translations, diagrams, page order, or source fidelity of the archive.
+- Caveat: this is useful formal mathematics / Lean library-candidate material and possible addition material for a Lean/mathlib-style library. It is not proof that the scanned editions, translations, diagrams, page order, or source transcription are faithful; it is also not certification or audit evidence for the archive.
 
 Next action: publish as a standalone Lean/library companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
 
