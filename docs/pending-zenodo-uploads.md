@@ -1,22 +1,33 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 19 B4 generator source-audit fix
+
+Manifest: [20260626_noether_r128_p19_b4_generator_sourceaudit.json](../manifests/source-intake/20260626_noether_r128_p19_b4_generator_sourceaudit.json)
+
+- P19 B4 generator fix ZIP: `Noether_R128_LocalCodex_P19_SourceAudit_B4GeneratorFix_WebDrop_20260626.zip`, 3,388,681 bytes, SHA256 `F504BF0F4D08C1721FB986F74AB9E322018C69871D03B564B6EA9860C7493E50`, 19 ZIP entries.
+- Scope: one confirmed Paper 19 source fix on top of the P20-author-line cumulative. Printed p60 has the second polynomial-domain example `B_4=(x^4,xy,y^2,xz,yz,z^2)`, not the erroneous `B_4=(x^4,x^3y,y^2,xz,yz,z^2)`.
+- Result: active German TeX becomes `cum_de_R128_plus_LocalCodex_P19B4Fix_P20AuthorLine_P22P30P37P42TailBibFix_20260626.tex`. The package includes current TeX/PDF/log, confirmed-fix CSV, no-fix traps, visual/source-quality dispositions, a small diff, and checksums/provenance.
+- Caveat: targeted German Paper 19 formula/list correction only. P19 source is the best-available staged GDZ paper-level source, reported as 400 ppi throughout and below the strict 650+ ppi rule. The neighboring derived `Q_4` and `R_3` displays on printed p61 intentionally keep `x^3y`; do not globally replace it. This is not whole-P19 certification, Noether closure, multilingual synchronization, or a critical edition.
+
+Next action: use the P19B4Fix cumulative TeX as the active German base until superseded; keep the P20 author-line package and all-local-audit v2 wrapper as compact audit-control provenance.
+
 ## 2026-06-26: Noether R128 Paper 20 author-line source-audit fix
 
 Manifest: [20260626_noether_r128_p20_authorline_sourceaudit.json](../manifests/source-intake/20260626_noether_r128_p20_authorline_sourceaudit.json)
 
 - P20 author-line fix ZIP: `Noether_R128_LocalCodex_P20_SourceAudit_AuthorLineFix_WebDrop_20260626.zip`, 3,380,870 bytes, SHA256 `CE114CB8ACE2EE61B9AB759E4339A113F8615D624481E6611575E2599CFB6862`, 17 ZIP entries.
 - Scope: one confirmed source fix on top of the R128 all-local-audit v2 cumulative. Paper 20 printed p26 has the centered source author line `Von Emmy Noether in Göttingen.` below the title; the previous cumulative jumped from title/citation into body.
-- Result: active German TeX becomes `cum_de_R128_plus_LocalCodex_P20AuthorLine_P22P30P37P42TailBibFix_20260626.tex`. The package includes current TeX/PDF/log, confirmed-fix CSV, no-fix traps, visual/source-quality dispositions, source-route CSVs, a small diff, and checksums/provenance.
+- Result: active German TeX became `cum_de_R128_plus_LocalCodex_P20AuthorLine_P22P30P37P42TailBibFix_20260626.tex` at this step. The package includes current TeX/PDF/log, confirmed-fix CSV, no-fix traps, visual/source-quality dispositions, source-route CSVs, a small diff, and checksums/provenance.
 - Caveat: targeted German Paper 20 front-matter source-audit fix only. P20 source is best-available local GDZ paper-level source, mixed 400/600 ppi and below strict 650+ throughout. This is not whole-P20 certification, Noether closure, multilingual synchronization, or a critical edition.
 
-Next action: use the P20AuthorLine cumulative TeX as the active German base until superseded; keep the all-local-audit v2 wrapper as compact audit-control provenance.
+Next action: superseded for active-base selection by the P19B4Fix package; keep as compact P20 author-line provenance.
 
 ## 2026-06-26: Noether R127 auxiliary routing/provenance packets
 
 Manifest: [20260626_noether_r127_localcodex_auxiliary_packets.json](../manifests/source-intake/20260626_noether_r127_localcodex_auxiliary_packets.json)
 
 - Aggregate: nine R127 LocalCodex auxiliary ZIPs, including queue reconciliation v3, P04 GDZ600 no-new-patch source upgrade, P10 IA secondary source disposition, P34/P40 anti-regression/survival controls, Part06/09/11 source-library pointers, and tail-bibliography source fix.
-- Scope: provenance, routing, and stale-work prevention only. These packets document how later R128/P20 work was reached and which older source routes should not be replayed blindly.
+- Scope: provenance, routing, and stale-work prevention only. These packets document how later R128/P20/P19B4 work was reached and which older source routes should not be replayed blindly.
 - Caveat: predecessor/control material only. Do not loose-upload these as reader-facing Noether files while the record is at the 100-file ceiling; fold useful pieces into a deliberate future rollup if needed. They are not whole-paper certification, Noether closure, multilingual synchronization, or critical-edition material.
 
 Next action: keep as local/GitHub provenance so future Noether web sessions can understand the R127-to-R128 transition without adding more Zenodo clutter.
@@ -33,7 +44,7 @@ Manifests: [20260626_noether_r128_latest_cumulative_alllocalaudit_v2.json](../ma
 - Result: the v2 latest cumulative/audit ZIP is the convenient current web-drag handoff. It bundles `cum_de_R128_plus_LocalCodex_P22P30P37P42TailBibFix_20260626.tex` / PDF plus compact audit ledgers for P09-P18, P19-P20 routing, P34, P36/P38, P41-P43, P22/P30/P37/P42, and tail-bibliography controls. v2 adds an updated remaining-queue CSV/MD after local salvage plus P40 complete-span survival ledgers; the current P40 span is recorded as byte-identical to the completed P40 span.
 - Caveat: current German cumulative regression-repair and audit-control handoff only. It is not the full source-image library, not global page-by-page certification, not a critical edition, and not multilingual synchronization. Use the Noether general source-library ZIPs separately when source witnesses are needed.
 
-Next action: superseded for active-base selection by `cum_de_R128_plus_LocalCodex_P20AuthorLine_P22P30P37P42TailBibFix_20260626.tex` in the P20 author-line package; keep this compact handoff as audit-control provenance for the next deliberate Noether Zenodo replacement/rollup plan.
+Next action: superseded for active-base selection by `cum_de_R128_plus_LocalCodex_P19B4Fix_P20AuthorLine_P22P30P37P42TailBibFix_20260626.tex`; keep this compact handoff as audit-control provenance for the next deliberate Noether Zenodo replacement/rollup plan.
 
 ## 2026-06-26: Noether R128 Paper 22/Paper 30 regression fix and P34/P41-P43 survival controls
 
