@@ -5618,3 +5618,11 @@ Manifest: [20260626_noether_r151_p10_p20_bridge_rollup_nopatch.json](../manifest
 - Noether pending ZIP: `Noether_R151_LocalCodex_R150_P10_P20_CompactBridgeRollup_NoPatch_WebDrop_20260626.zip`, 3,512,589 bytes, SHA256 `9B15D471F79B36F03A1FE42F9FDE5C3C0D6A2815C6ADD0B6852426E2C03D0156`, 75 entries.
 - Scope: compact no-patch status handoff for the P10-P20 non-overlap lane after R150, with current cumulative TeX/PDF, P10-P20 status matrix, compact bridge docs/ledgers, and running source-audit logbook.
 - Caveat: backend coordination and stale-queue-prevention evidence only. Not a fresh repair, not strict page-by-page native-650 source certification, not P10-P20 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R152 R129/R130 review-only feedback
+
+Manifest: [20260626_noether_r152_r129_r130_review_feedback.json](../manifests/pending-zenodo-uploads/20260626_noether_r152_r129_r130_review_feedback.json)
+
+- Noether pending ZIP: `Noether_R152_LocalCodex_R129_R130_ReviewOnly_WebFeedback_20260626.zip`, 2,757 bytes, SHA256 `A50577E96FC4F66DE25F406C5F8987D991384EB504E63E97011F3202F3616B22`, 3 entries.
+- Scope: feedback-only Markdown package saying R129/R130 are useful source-backed evidence, but `cum_de_R130.tex` is stale and must not become the active master.
+- Caveat: not a reader artifact, not replacement TeX, not source image bulk, not a repair package, not certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
