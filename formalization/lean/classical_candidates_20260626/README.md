@@ -11,7 +11,7 @@ The files in `lean_green/` are the primary usable Lean candidates:
 - `Steinitz.lean`: Ernst Steinitz/perfect fields; `PerfectRing K p ↔ Function.Surjective (frobenius K p)`.
 - `Weber.lean`: Heinrich Weber modular-function cubic, formalized as a real polynomial identity.
 
-These are useful as Lean/mathlib-adjacent formal mathematics candidates. Their value is as library material and reusable formal statements. They are not proof-of-archive, audit evidence, source-fidelity evidence, or certification of the scanned editions or translations; the promoted value is as Lean/mathlib-style library material.
+These are useful as Lean/mathlib-adjacent formal mathematics candidates. Their value is as library material and reusable formal statements. They are not proof or certification of the scanned editions or translations, and they are not archive-audit or source-fidelity evidence; the promoted value is as Lean/mathlib-style library material.
 
 The internal namespace prefix `ClassicalAudit` is a legacy code namespace from the first local experiment. It should not be read as a public audit or certification claim; the promoted public meaning of this package is formalization/library candidate material.
 
@@ -38,4 +38,4 @@ Recheck logs in `build_logs/` report successful builds for `AffineGroup.lean`, `
 
 Recommended Zenodo label: **Lean formalization candidates / useful formal mathematics additions**.
 
-Do not label this as a proof that any historical scanned edition is faithful. The value is independent and positive: these are small formalized mathematical results and a target list for expanding Lean coverage of classical algebra, arithmetic, invariant theory, and related historical mathematics.
+Do not label this as proof or certification that any historical scanned edition is faithful. The value is independent and positive: these are small formalized mathematical results and a target list for expanding Lean coverage of classical algebra, arithmetic, invariant theory, and related historical mathematics.
