@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R127 queue reconciliation index v2
+
+Manifest: [20260626_noether_r127_queue_reconciliation_index_v2.json](../manifests/pending-zenodo-uploads/20260626_noether_r127_queue_reconciliation_index_v2.json)
+
+- Noether pending ZIP: `Noether_R127_LocalCodex_CurrentQueueReconciliation_Index_v2_WebDrop_20260626.zip`, 765,894 bytes, SHA256 `6D145C66C0CD941ED9DEF4E434CED6F1C5EFAEEABE9122254E510E18B61ABC92`, 8 ZIP entries.
+- Scope: compact routing map after the fixed R127 rebuilt package plus later LocalCodex P34 table/Dred anti-regression, P40 prior-complete survival, and tail bibliography/endmatter updates.
+- Result: separates integrated source-confirmed patches, no-patch anti-regression checks, best-available lower-resolution dispositions, and broad future certification work. Includes the current German cumulative TeX `cum_de_R127_plus_localcodex_P01_P22_P30_P37_P42_tailbibliographyfix_20260626.tex` for routing/reference.
+- Caveat: queue hygiene and anti-regression evidence only. Not a loose reader upload, not a new whole-corpus TeX patch, not global certification, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next compact Noether rollup after file-ceiling pruning.
+
 ## 2026-06-26: SGA5 live French workpass p171 status package
 
 Manifest: [20260626_sga5_live_certlog_p171_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p171_status_package.json)
