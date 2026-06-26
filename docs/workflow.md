@@ -180,6 +180,8 @@ Do not use `lake build` success as evidence that a scanned work has been faithfu
 
 Current local lesson, 2026-06-25: a Claude/Codex Lean side lane now contains small classical targets that build in the local Mathlib tree, including Jordan affine-line group cardinality, a Steinitz perfect-field/Frobenius criterion, and a Weber cubic polynomial identity. These are useful as formal companion witnesses only. They do not certify the corresponding scans, translations, diagrams, page order, or full papers. The lane also exposed an inventory trap: Lean target selection must be anchored to the public repo catalog and the actual transcribed TeX, not to loose local scan-folder searches.
 
+Publication policy: do not silently merge arbitrary Lean experiments into author records. Project-specific Lean companions may be cross-linked from author records when they are source-anchored to a stable TeX theorem/calculation ID, but they should remain labelled as formalization/watch material until they have exact Lean/Lake/Mathlib metadata, clean build logs, `#print axioms` logs where relevant, no unadvertised `sorry`, source-page anchors, and a theorem-map ledger. A separate Lean/formalization DOI is reasonable once the lane has a coherent buildable corpus; Lean files for the split-support/projectification side paper belong with that side DOI or a clearly labelled companion to it, not in the historical-transcription author archive unless explicitly cross-referenced.
+
 Recommended use:
 
 - attach Lean files to clearly scoped theorem or calculation IDs from the TeX/unit ledger;
