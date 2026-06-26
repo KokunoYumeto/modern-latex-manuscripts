@@ -54,7 +54,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p249.json](../manifests/sourc
 - Diagram/layout note: D140 keeps the earlier source-verified labels/content but simplified layout caveat; D141 and D142 are recorded as checked in the included ledgers.
 - Caveat: source-audit/workpass status only. p250-p252 source chunks may exist locally but are not promoted by this package. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p252_20260626.zip`; keep this p249 package as compact provenance/history only. Continue current work from p253 under the CERT_LOG page-local method and keep English synchronization separate.
+Next action: superseded as current cursor by `SGA5_FullAudit_WebDrop_p001_p253_certified_staged_p254_p484_20260626.zip`; keep this p249 package as compact provenance/history only. Continue current work from p254 under the CERT_LOG page-local method and keep English synchronization separate.
 ## 2026-06-26: SGA5 full-audit workpass status through p245
 
 Manifest: [20260626_sga5_fullaudit_workpass_status_p245.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p245.json)
@@ -125,6 +125,19 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p240.json](../manifests/sourc
 Next action: continue from p241 under the CERT_LOG page-local method. Keep older p190-p237 status packages as compact provenance/history only.
 # Pending Zenodo Uploads
 
+
+## 2026-06-26 - SGA5 full-audit webdrop status p001-p253, with staged p254-p484 witnesses
+
+Target record: SGA concept DOI <https://doi.org/10.5281/zenodo.20410947>.
+
+- SGA5 webdrop ZIP: `SGA5_FullAudit_WebDrop_p001_p253_certified_staged_p254_p484_20260626.zip`, 374,431,099 bytes, SHA256 `5C7F7A8E6F89B4A5005CC661444B8E4BB906E747DB2861A69BF1D28E0853DB9A`, 3633 entries.
+- Local path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\SGA5_FullAudit_WebDrop_p001_p253_certified_staged_p254_p484_20260626.zip`.
+- Manifest: `manifests/source-intake/20260626_sga5_fullaudit_webdrop_p253_staged_p254_p484.json`.
+- Scope: French source-audit/workpass status through completed ledger rows p253. p250 closes Expose V, p251 opens Expose VI, p252 records the V-to-VI bridge plus Props. 1.1.2/1.1.3 opening, and p253 closes Prop. 1.1.3 proof while opening section 1.1.4.
+- Staged but not promoted: p254-p484 source crops/images are included as continuation witnesses only. A crop/image is not page certification.
+- Caveat: page-local source-audit/workpass evidence only. Local ledger terms such as certified/complete mean page-local workpass status, not global project certification. SGA5 remains incomplete, not synchronized English, not globally source-faithful, and not a critical edition.
+
+Next action: upload when refreshing the SGA record, while preserving the public caveats and treating p252 as provenance only.
 
 ## 2026-06-26 - SGA5 full-audit workpass status p001-p252
 
