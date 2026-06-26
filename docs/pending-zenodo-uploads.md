@@ -1,3 +1,15 @@
+## 2026-06-26: Noether Slavic cumulative work-so-far through Paper 34 section 26
+
+Manifest: [20260626_noether_slavic_worksofar_papers01_34_section26.json](../manifests/source-intake/20260626_noether_slavic_worksofar_papers01_34_section26.json)
+
+- Noether pending ZIP: `Noether_Slavic_Cumulative_WorkSoFar_Papers01_34CompleteThroughSection26_SourceCorrected_Handoff_20260625T100442Z.zip`, 394,672,460 bytes, SHA256 `627840629C2B383F927EEAE431BE7AE26DBE2F8673A8A75EE7B23CFB4448226F`, 3,714 entries.
+- Scope: Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic cumulative readers/TeX through Papers 01-34, complete through Paper 34 section 26 according to the package manifest.
+- Contents: cumulative PDFs/TeX, segment data, terminology glossaries, translation logbooks, uncertainty/rejected-term notes, source-control notes, manifests, status JSON, and deterministic language/register tooling.
+- Interslavic note: preserve the Interslavic Latin/Cyrillic branch as a linguistics-and-mathematics apparatus, not merely as four reader PDFs.
+- Caveat: substantial multilingual translation/register-construction handoff only. Not source-certified Noether closure, not independent certification of the German source line, not multilingual synchronization against all newer R128 German repairs, and not a critical edition.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance, likely replacing/superseding the older public-safe Slavic file 117 checkpoint through Paper 34 section 02.
+
 ## 2026-06-26: Noether R128 Paper 31 Batch38 pp.082-093 targeted source fixes
 
 Manifest: [20260626_noether_r128_p31_batch38_pp082_093_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p31_batch38_pp082_093_sourcefix.json)
@@ -4856,19 +4868,6 @@ Manifest: [20260625_noether_r127_rebuilt_and_p11_p12_guardrails.json](../manifes
 
 Next action: make R127_REBUILT the current German/source-audit authority for the next compact Noether rollup. Preserve the earlier trace-salvage package as provenance only. Fold P11/P12 guardrails into the compact rollup rather than uploading loose while the Noether record remains file-count constrained.
 
-## 2026-06-25: Noether Slavic work-so-far through Paper 34 Section 26
-
-Manifest: [20260625_noether_slavic_worksofar_p01_p34_s26.json](../manifests/pending-zenodo-uploads/20260625_noether_slavic_worksofar_p01_p34_s26.json)
-
-- Noether Slavic work-so-far ZIP: `Noether_Slavic_Cumulative_WorkSoFar_Papers01_34CompleteThroughSection26_SourceCorrected_Handoff_20260625T100442Z.zip`, 393,614,728 bytes, SHA256 `7806D2AD2225640EB799A4A5EDFEF3D51C97CA51690FB823525E4EC975B6AF95`, 4,465 entries.
-- Scope from package manifest: Papers 01-34 through complete Paper 34 Section 26, source-corrected through the late Section 18/19/20/21/22/23/24/25/26 boundary.
-- Languages/variants: Ukrainian, Russian, Interslavic Latin authority lane, and Interslavic Cyrillic reader variant.
-- Primary outputs: cumulative TeX/PDF readers for all four variants under `renders/cumulative/Noether_Papers01_34_Through_Section26_SourceCorrected_*`.
-- Important preservation point: include the logbooks and linguistics/methodology apparatus, not only the PDFs. The package contains `GENERAL_TRANSLATION_LOGBOOK.md`, `INTERSLAVIC_LOGBOOK.md`, `CONSTRUCTED_LANGUAGE_AI_REFLECTIONS.md`, `INFRASTRUCTURE_PROVENANCE.md`, terminology logs, glossaries, segment sidecars, translation-unit JSON, package manifests, and render/audit records.
-- Caveat: this is a rendered/audited work-so-far translation and constructed-language lane, not a complete 43-paper Slavic corpus, not independent German source closure, not source-perfect certification, and not a critical edition.
-
-Next action: fold into the next Noether multilingual refresh with a clear label such as "Slavic work-so-far through Paper 34 section 26 (Ukrainian/Russian/Interslavic, with logbooks)." Do not bury the Interslavic logbook and constructed-language reflections; they are part of the scholarly object.
-
 ## 2026-06-25: Steinitz/Takagi corpus audit and source-intake status
 
 Manifest: [20260625_steinitz_takagi_corpus_audit_intake.json](../manifests/pending-zenodo-uploads/20260625_steinitz_takagi_corpus_audit_intake.json)
@@ -5152,18 +5151,6 @@ Manifest: [20260625_noether_r127_p13_survival_best_available.json](../manifests/
 
 Next action: fold into the next deliberate compact Noether rollup with R127_REBUILT and the P09-P12/P14-P20 guardrail packages; do not upload loose while the Noether record remains file-count constrained.
 
-## 2026-06-25: Noether Slavic work-so-far through Paper 34 Section 26
-
-Manifest: [20260625_noether_slavic_p01_p34sec26_worksofar.json](../manifests/pending-zenodo-uploads/20260625_noether_slavic_p01_p34sec26_worksofar.json)
-
-- Noether pending ZIP: `Noether_Slavic_Cumulative_WorkSoFar_Papers01_34CompleteThroughSection26_SourceCorrected_Handoff_20260625T100442Z.zip`, 393,614,728 bytes, SHA256 `7806D2AD2225640EB799A4A5EDFEF3D51C97CA51690FB823525E4EC975B6AF95`, 4,465 entries.
-- Suggested public filename: `117 Noether - Slavic WorkSoFar Papers01-34sec26 2026-06-25.zip`.
-- Replacement policy: replace older file `117 Noether - Slavic WorkSoFar Papers01-34sec02 PublicSafe 2026-06-24.zip` rather than adding a duplicate loose Slavic file.
-- Scope: Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic cumulative readers through Paper 34 Section 26, with package notes stating that Section 26 completes Paper 34 in this lane.
-- Package contents: 4 cumulative PDFs, current TeX wrappers, 1,208 translation files, 249 logs, 204 glossary files, 120 segment records, source-fidelity evidence, and Interslavic/Slavic triangulation logbooks. The package contains no reference-corpus PDFs.
-- Caveat: rendered/audited working multilingual translation lane only. Not a critical edition, not independent source-perfect certification, and downstream mathematical use still requires source checks against the German/source-audit authority.
-
-Next action: use in a deliberate Noether record refresh/rebalance, replacing the older Slavic file if file-count constraints permit. Keep logbooks/glossaries because Interslavic is a linguistic artifact as well as a translation lane.
 ## 2026-06-25: Noether R127 Tail/Kapferer no-new-patch reconciliation
 
 Manifest: [20260625_noether_r127_tail_kapferer_reconciliation_nopatch.json](../manifests/pending-zenodo-uploads/20260625_noether_r127_tail_kapferer_reconciliation_nopatch.json)
