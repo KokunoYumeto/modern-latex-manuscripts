@@ -1,5 +1,28 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: SGA5 full-audit French workpass status through p237
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p237.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p237.json)
+
+- SGA status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p237_20260626.zip`, 2,185,805 bytes, SHA256 `082FF14EAF09E629CF9E23B04CFFD7B932DA598DC69FE2D3E4E2AB55191DCC9B`, 8 ZIP entries, 1 PDF.
+- Scope: compact status/workpass package preserving the current French workpass TeX/PDF/log plus `CERT_LOG.md`, `AGENT_SCORECARD.md`, method note, package status, and file manifest after the page-local ledger reached p237.
+- Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p237; p238 is the next cursor. Recent movement p235-p237 completes the Hilbert proof with D137, closes Corollary 5.1.5, records Proposition 5.1.6, and carries the Proposition 5.2.1 proof plus Lemma 5.2.1.1 showing the `E_C` abelian/exact-embedding step. No new diagram is introduced at p237; D001-D137 remain the current checked diagram range.
+- Caveat: source-audit/workpass status evidence only. SGA5 remains incomplete/errorful globally; the current TeX is a curated expose selection from LNM 589, not the full source scan. Not an English synchronization, not global source certification, not a completed SGA5 edition, and not critical-edition material.
+
+Next action: continue from p238 under the CERT_LOG page-local method. Keep older p190-p236 status packages as compact provenance/history only.
+
+## 2026-06-26: Noether R128 Deuring pp.711-718 source-audit no-patch guardrail
+
+Manifest: [20260626_noether_r128_deuring_pp711_718_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_deuring_pp711_718_nopatch.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_Deuring_pp711_718_SourceAudit_NoPatch_WebDrop_20260626.zip`, 21,245,443 bytes, SHA256 `BBE7CF27F4EE75366F2589EB0367CD391E47EA0C2F154D790FB970F72B3F0E68`, 22 entries.
+- Scope: no-patch source-audit/support package for the Deuring/Noether `Algebra der hyperkomplexen Größen` tail, collected pp.711-718, against IA-derived collected-volume tail-slice source pages 725-732.
+- Result: no TeX patch is proposed. The package records source-visible no-fix traps: p714 has a special/slashed reciprocal-representation arrow that should not be normalized to an ordinary arrow without stronger source; p714 has source-visible subset/inclusion symbols in the equivalence criterion that should not be changed to membership; p717 has a repeated `i`-index product display before expansion with `i,j` and should not be regularized in the source-critical German.
+- Source caveat: full-page renders/crops are output at 650 dpi for legibility and audit convenience, but the native source is about 360 ppi; this is not native 650+ ppi certification.
+- Caveat: Deuring pp.711-718 no-patch/source-locus guardrail only. Not Deuring tail closure, not whole-tail certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Deuring pp.719-746, Kapferer p/q ideal-symbol policy, strict higher-resolution tail certification, and multilingual propagation remain open.
+
 ## 2026-06-26: Noether R128 Tail/Kapferer pp.764-769 source-audit fix
 
 Manifest: [20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json)
@@ -7,7 +30,7 @@ Manifest: [20260626_noether_r128_tail_kapferer_pp764_769_sourceaudit_fix.json](.
 - Tail/Kapferer ZIP: `Noether_R128_LocalCodex_TailKapferer_pp764_769_SourceAuditFix_WebDrop_20260626.zip`, 19,336,148 bytes, SHA256 `5A023C2E282D95B5914F1022758196A8199C28D529B77E3FBD70F8749EA8940E`, 17 ZIP entries.
 - Result: two source-visible fixes are applied to the current German cumulative tail: the collected p764 title/byline now includes source `: von H. Kapferer` and removes the non-source expanded byline, and a visible escaped-percent source-page marker before Hilfssatz I on p767 is removed.
 - Source caveat: the IA-derived tail slice is best-available local source, rendered at 650 dpi for legibility from embedded about-native-360 ppi material. This is not strict native-650 page certification.
-- Open items: Kapferer p/q ideal-symbol style remains a focused visual-audit problem; pp770-772, bibliography/backmatter pp773-777, and Deuring pp711-746 remain open lanes.
+- Open items: Kapferer p/q ideal-symbol style remains a focused visual-audit problem; pp770-772 and bibliography/backmatter pp773-777 are handled by the later backmatter addendum; Deuring pp711-718 has a no-patch/source-locus guardrail; Deuring pp719-746 remains open.
 - Caveat: targeted German tail repair/provenance only. Not whole-Kapferer certification, not whole-tail closure, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
 
 Next action: fold into the next deliberate compact Noether rollup or replacement plan. Do not upload loose while the Noether record remains file-count constrained unless replacing/pruning.
@@ -487,7 +510,7 @@ Manifest: [20260626_sga5_fullaudit_workpass_status_p228.json](../manifests/sourc
 - Result: CERT_LOG and AGENT_SCORECARD are the controlling live ledgers. Promoted rows now reach p228; p229 is the next cursor. Recent movement p224-p228 covers Expose V section 3 closure, section 4 opening, diagram D135, Def. 4.1.2, Prop. 4.1.3 proof end, and Lemme 4.2.2 / section 4.2.3 opening. The p223 `p_AR`/`P_AR` source-notation inconsistency is flagged and kept faithful; p226 restores source `gr^p(X_{n+r})`; p227-p228 are clean no-new-fix rows.
 - Caveat: source-audit/workpass status only. SGA5 as a whole is not complete, not synchronized English, not independently source-certified, and not a critical edition. Compile-clean TeX can still be mathematically wrong; only the page-local ledger scope is promoted.
 
-Next action: superseded as current cursor by `SGA5_FullAudit_Workpass_Status_p001_p230_20260626.zip`; keep the p228 package as compact provenance/history only.
+Next action: superseded as current cursor by the later p237 status package; keep the p228 package as compact provenance/history only.
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p226
 
@@ -4902,4 +4925,4 @@ Manifest: [20260626_noether_r128_tail_kapferer_backmatter_pp770_777_sourceaudit_
 - Confirmed repairs: bibliography item 14 `zur Zahlkörpertheorie` -> `zu der Zahlkörpertheorie`; bibliography item 21 `Enzyklopädie` -> source `Encyklopädie`; books-under-Noether entry `Braunschweig` -> printed source form `Brauschweig`.
 - Caveat: best-available source witness is about native 360 ppi, with 650 dpi renders only for legibility. This is a targeted German bibliography/backmatter source-audit addendum, not Kapferer whole-paper certification, not Noether closure, not multilingual synchronization, and not a critical edition.
 
-Next action: fold into the next deliberate compact Noether rollup or replacement plan. Keep Deuring pp711-746 and Kapferer p/q ideal-symbol policy open; do not upload this loose while Noether remains file-count constrained unless replacing/pruning.
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Keep Deuring pp719-746 and Kapferer p/q ideal-symbol policy open; do not upload this loose while Noether remains file-count constrained unless replacing/pruning.
