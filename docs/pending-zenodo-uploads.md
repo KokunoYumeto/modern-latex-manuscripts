@@ -5123,3 +5123,16 @@ Manifest: [20260626_noether_r128_tail_kapferer_backmatter_pp770_777_sourceaudit_
 - Caveat: best-available source witness is about native 360 ppi, with 650 dpi renders only for legibility. This is a targeted German bibliography/backmatter source-audit addendum, not Kapferer whole-paper certification, not Noether closure, not multilingual synchronization, and not a critical edition.
 
 Next action: fold into the next deliberate compact Noether rollup or replacement plan. Keep Deuring pp735-746 and Kapferer p/q ideal-symbol policy open; do not upload this loose while Noether remains file-count constrained unless replacing/pruning.
+
+## 2026-06-26: Noether R128 P34 Batch29 pp646-651 source-fix package
+
+Manifest: [20260626_noether_r128_p34_batch29_pp646_651_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch29_pp646_651_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch29_pp646_651_SourceFix_WebDrop_20260626.zip`, 7,203,421 bytes, SHA256 `8EF5AC0F9788DB4542CF276B2BD3996140553680A6D12054648B44CB91AE3A9A`, 17 entries.
+- Scope: continuation from P34 Batch28, checking Paper 34 printed pp.646-651 against the GDZ Math. Z. 30 full-page source witnesses.
+- Confirmed repairs: p646 restores two `d. h.` spacing loci; p650 restores `z. B.`; p651 corrects three direct-product fact loci from fraktur `R` drift to source fraktur `K`.
+- Checked/no-patch pages: p647, p648, and p649.
+- Source-quality caveat: the source witnesses are best-available GDZ raw full-page JPGs identified as 400 ppi. The p651 crop is upscaled for legibility only, not native high-resolution certification.
+- Caveat: targeted German cumulative source-audit repair evidence only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold Batch28 and Batch29 into the next deliberate compact Noether rollup/replacement pass; continue Paper 34 from printed p652 unless a newer actual web package appears.
