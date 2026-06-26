@@ -95,6 +95,19 @@ Manifest: [20260626_noether_r128_p34_batch30_pp652_657_sourcefix.json](../manife
 
 Next action: fold into the next deliberate compact Noether rollup/replacement plan rather than uploading loose while the Noether record remains at the Zenodo file ceiling. Continue Paper 34 from printed p658 unless a newer actual web package appears.
 
+## 2026-06-26 - SGA5 compact full-audit workpass delta p260-p265
+
+Manifest: [20260626_sga5_fullaudit_webdrop_p260_p265_delta.json](../manifests/source-intake/20260626_sga5_fullaudit_webdrop_p260_p265_delta.json)
+
+- SGA5 compact delta ZIP: `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip`, 5,145,638 bytes, SHA256 `F99EBFD3C73160B5E9A551D5B51EA5CE5E4883878AA2EA87E9DDE8C80C819A79`, 41 entries.
+- Local path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip`.
+- Scope: compact French source-audit/workpass delta promoting p260-p265 as page-local workpass evidence and setting p266 as next cursor. p260-p265 cover Expose VI Remarque after Prop. 1.2.5, Prop. 1.2.6 and proof, tensor products, Prop. 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143 (the A-action square), and the opening of Q_l-faisceaux.
+- Supersedes as current cursor: `SGA5_FullAudit_WebDrop_p255_p259_workpass_delta_20260626.zip` remains provenance/source-witness material.
+- Not promoted: p266+ crops/cursor text are active/pending scratch only. The presence of a crop/image is not page certification.
+- Caveat: source-audit/workpass evidence only. Local ledger terms such as certified/clean/complete mean page-local workpass status, not global project certification. SGA5 remains incomplete, not synchronized English, not globally source-faithful, and not a critical edition.
+
+Next action: supersedes the p255-p259 compact delta as the current local SGA5 cursor. Keep the earlier p001-p254 webdrop and p255-p259 compact delta as provenance/source-witness material and continue from p266 unless a newer package appears.
+
 ## 2026-06-26 - SGA5 compact full-audit workpass delta p255-p259
 
 Manifest: [20260626_sga5_fullaudit_webdrop_p255_p259_delta.json](../manifests/source-intake/20260626_sga5_fullaudit_webdrop_p255_p259_delta.json)
