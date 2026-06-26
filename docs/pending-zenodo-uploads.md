@@ -5930,3 +5930,11 @@ Manifest: [20260627_noether_r183_tail_visible_sourcepages_artifact_fix.json](../
 - Noether pending patch ZIP: `Noether_R183_LocalCodex_TailVisibleSourcePagesArtifactFix_WebDrop_20260627.zip`, 3,778,266 bytes, SHA256 `69F27237118B3962628E4C4D0A48B352092D88E0C0A7DDED10A7EC418D6ACA3E`, 16 entries.
 - Scope: one-line cleanup on top of the R179/R180 current line. It removes the visibly rendered escaped production locator `\%\% ===== source pages 751-760 =====` from the post-P43 tail immediately before `Satz 11. Hauptsatz der galoisschen Theorie`.
 - Caveat: no mathematical prose, formulas, theorem statements, tables, diagrams, or source footnotes changed. Tiny artifact-fix patch only: not tail certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R184 current queue after R183
+
+Manifest: [20260627_noether_r184_current_queue_after_r183.json](../manifests/pending-zenodo-uploads/20260627_noether_r184_current_queue_after_r183.json)
+
+- Noether pending/control ZIP: `Noether_R184_LocalCodex_CurrentQueueAfterR183_WebDrop_20260627.zip`, 586,722 bytes, SHA256 `E118AD1417F21C0B7E3361B6F56202B7420F2C84E3DED447C8E4A1A265E35BCD`, 11 entries.
+- Scope: no-patch queue reconciliation after R183. It says the older R120/R128 source queue is historical source-queue material rather than a direct live missing-work list; reopen old rows only when a current anchor is missing, stronger source exists, a concrete mismatch is found, or a deliberate global page-by-page certification pass is underway.
+- Caveat: queue-control/provenance only. It explicitly keeps global page-by-page certification open and records that many papers still rely on best-available 360-600 ppi witnesses. Not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
