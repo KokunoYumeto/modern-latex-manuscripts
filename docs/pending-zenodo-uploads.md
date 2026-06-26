@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R128 Paper 15 Batch24 pp.151-154 source-audit fixes
+
+Manifest: [20260626_noether_r128_p15_batch24_pp151_154_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch24_pp151_154_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P15_SourceAudit_Batch24_pp151_154_SourceFix_WebDrop_20260626.zip`, 11,388,371 bytes, SHA256 `52378D27FA6E67E9251D30E491549A209A3E6FB09554095D23DF9B4A85245220`, 25 entries.
+- Scope: targeted German cumulative source-audit repairs for Paper 15 true visible printed pp.151-154, continuing from Batch23.
+- Confirmed repairs on p151: restore source `i_\sigma` throughout the normalization-product block, correct `P^{(1)}` to source `P^{(l)}`, and restore the final congruence chain ending `S_0^{(j)} \equiv F_0(\xi_{ik})`.
+- Checked without patch: p152 formulas (11)-(13) and footnote start; p153 formulas (14)-(16); p154 section 4 opening, footnotes, and the `A_k` transformation display.
+- Caveat: local filenames p153-p156 visibly map to printed pp.151-154, and local files labelled p138/p139 belong to preceding non-Noether printed pp.136-137. The source is official GDZ 400ppi, with 1000ppi crops only as legibility aids. Not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
+
+Next action: fold Batch22-Batch24 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
 ## 2026-06-26: Noether R128 Paper 15 Batch23 pp.144-150 source-audit fixes
 
 Manifest: [20260626_noether_r128_p15_batch23_pp144_150_sourcefix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p15_batch23_pp144_150_sourcefix.json)
@@ -8,7 +19,7 @@ Manifest: [20260626_noether_r128_p15_batch23_pp144_150_sourcefix.json](../manife
 - Checked without patch: pp144-147 page-local visual dispositions record no source-certain TeX patch for the inspected basis, invariant, P-system, Q-display, formula (11), Grundformensystem, section 3 opening, module formulas, and footnote-anchor loci.
 - Caveat: local filenames p146-p152 visibly map to printed pp.144-150; use the package source map. The source is official GDZ 400ppi, with 1000ppi crops only as legibility aids. Not Paper 15 closure, not Noether corpus certification, not multilingual synchronization, and not critical-edition material.
 
-Next action: fold Batch22 and Batch23 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
+Next action: superseded for current P15 continuation by Batch24 above; fold Batch22-Batch24 into the next deliberate compact Noether rollup/replacement plan rather than adding them loose while the Noether record remains at the Zenodo file ceiling.
 
 ## 2026-06-26: Noether R128 Paper 15 Batch22 pp.138-143 source-audit fixes
 
