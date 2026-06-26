@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R147 compact P12-P14/R129-R130 rollup
+
+Manifest: [20260626_noether_r147_p12_p14_rollup_nopatch.json](../manifests/source-intake/20260626_noether_r147_p12_p14_rollup_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_R147_LocalCodex_R146_P12_P14_R129R130_Rollup_NoPatch_WebDrop_20260626_COMPACT.zip`, 3,561,478 bytes, SHA256 `31E9AE8EC60F16F8F18CF50451FC5D87EDE9A53972E131C77FA00A95B1E0D487`, 89 entries, max path 207.
+- Scope: compact one-drop coordination rollup for R144-R146. It includes current cumulative German TeX/PDF, P14/P13/P12 bridge docs and ledgers, R129/R130 intake feedback, and the running source-audit logbook.
+- Packaging note: deep nested source-quality JSON/image-info trees are pruned from this compact ZIP for path safety; the full local R147 folder remains available if every nested source-quality file is needed.
+- Caveat: no-patch coordination/stale-queue-prevention evidence only. Not a fresh German TeX repair, not full Paper 12/Paper 13/Paper 14 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: prefer this compact rollup over separate R144/R145/R146 micro-uploads if only one handoff file is useful during a future Noether file-ceiling refresh/rebalance.
+
 ## 2026-06-26: Noether R145/R146 Paper 13 and Paper 12 survival bridges
 
 Manifest: [20260626_noether_r145_r146_p13_p12_survival_nopatch.json](../manifests/source-intake/20260626_noether_r145_r146_p13_p12_survival_nopatch.json)
