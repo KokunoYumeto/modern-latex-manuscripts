@@ -1,5 +1,16 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 19 Batch9/Batch10 targeted follow-ups
+
+Manifests: [20260626_noether_r128_p19_batch9_p47_p48_group_index_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch9_p47_p48_group_index_fix.json), [20260626_noether_r128_p19_batch10_p54_left_action_dot_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch10_p54_left_action_dot_fix.json)
+
+- Batch9 file: `Noether_R128_LocalCodex_P19_SourceAudit_Batch9_P47P48GroupIndexFix_WebDrop_20260626.zip` (5,393,610 bytes, SHA256 `02BAD339972E77C529F187574DA2A9E146E43D8096B0F3DA5ADFA3C166298C02`).
+- Batch10 file: `Noether_R128_LocalCodex_P19_SourceAudit_Batch10_P54LeftActionDotFix_WebDrop_20260626.zip` (5,582,212 bytes, SHA256 `F6AADBB108B2B5A60AAA35A2777333F942948236FC237CC38B805C958B18F5B3`).
+- Result: Batch10 makes `cum_de_R128_plus_LocalCodex_P19Batch10_P54LeftActionDotFix_P19Batch9CarryForward_20260626.tex` the active local German handoff. Batch9 remains pp47-48 group-index provenance; Batch10 restores dotted left-action notation in printed p54 footnote 35.
+- Caveat: P19 source remains 400 ppi, below strict 650+ ppi. These are targeted source-visible correction packages only, not whole-P19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: use Batch10 as the current German-base web handoff until superseded. Do not upload Batch2-Batch9 separately unless a deliberate compact Noether rollup needs intermediate provenance.
+
 ## 2026-06-26: Noether R128 Paper 19 B4 generator source-audit fix
 
 Manifest: [20260626_noether_r128_p19_b4_generator_sourceaudit.json](../manifests/source-intake/20260626_noether_r128_p19_b4_generator_sourceaudit.json)
