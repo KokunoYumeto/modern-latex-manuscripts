@@ -1,3 +1,13 @@
+## 2026-06-26: SGA5 full-audit workpass status through p240
+
+Manifest: [20260626_sga5_fullaudit_workpass_status_p240.json](../manifests/source-intake/20260626_sga5_fullaudit_workpass_status_p240.json)
+
+- SGA5 status ZIP: `SGA5_FullAudit_Workpass_Status_p001_p240_20260626.zip`, 2,188,739 bytes, SHA256 `6219AAF8C7EDE73568AFD266996075780B47F4EF2DDC7694703D59AFEE9D68C3`, 8 entries.
+- Scope: compact local French workpass/status package preserving the live workpass TeX/PDF/log plus CERT_LOG, AGENT_SCORECARD, method note, status note, and file manifest.
+- Current cursor: completed rows reach p240; p241 is next. p238 checks Exposé V Proposition 5.2.2; p239 checks Théorème 5.2.3, Proposition 5.2.4, and the opening of Lemme 5.2.4.1; p240 checks diagrams D138/D139 edge-by-edge and closes Lemme 5.2.4.1 / Proposition 5.2.4.
+- Caveat: source-audit/workpass status evidence only. SGA5 remains incomplete/errorful globally, English is not synchronized, and this is not source-certified closure or a critical edition.
+
+Next action: continue from p241 under the CERT_LOG page-local method. Keep older p190-p237 status packages as compact provenance/history only.
 # Pending Zenodo Uploads
 
 ## 2026-06-26: SGA5 full-audit French workpass status through p237
