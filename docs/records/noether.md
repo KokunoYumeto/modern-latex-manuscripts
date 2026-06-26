@@ -28,6 +28,8 @@ Local P10 IA-secondary rebase note: `Noether_R128_LocalCodex_P10_IASecondary_Reb
 
 Local P11 rebase note: `Noether_R128_LocalCodex_P11_Rebase_NoPatch_TexAnchorRestored_WebDrop_20260626.zip` applies no TeX patch. It records that the current R128 P11 section is byte-identical to the earlier rebuilt/source-backed P11 section, after restoring the missing comparison TeX anchor from the R127 ZIP. It is prior-repair survival/no-drift metadata only, not P11 certification.
 
+Local P12 rebase note: `Noether_R128_LocalCodex_P12_Rebase_NoPatch_WebDrop_20260626.zip` applies no TeX patch. It records that the current R128/local P12 span is hash-identical to the prior source-backed R127 rebuilt P12 span and preserves a no-fix trap against globally replacing final-paragraph `aller analytischer Transformationen`. It is no-drift/no-patch metadata only, not P12 certification.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers.
 
 ## Reader And Reference PDFs
