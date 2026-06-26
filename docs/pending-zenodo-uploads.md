@@ -5824,3 +5824,13 @@ Manifest: [20260627_noether_r174_new_thread_weboutput_check_nopatch.json](../man
 - Scope: no-patch routing/control packet checking whether newer visible Noether web outputs exist after R173.
 - Result: no genuinely newer web package later than R173 was found locally; R129/R130 remain useful evidence but stale bases; R173 remains the preferred current local base.
 - Caveat: hold unless doing a Noether workflow/control refresh. Not reader content, not a source repair, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R175 Papers 12 and 13 front-matter source fix
+
+Manifest: [20260627_noether_r175_p12_p13_frontmatter_sourcefix.json](../manifests/pending-zenodo-uploads/20260627_noether_r175_p12_p13_frontmatter_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R175_LocalCodex_P12_P13_FrontMatterSourceFix_WebDrop_20260627.zip`, 5,384,924 bytes, SHA256 `57240A61806BCCD8C4A3A540D269D7DD15CFBD55ADA0470D8B450298CF70C766`, 17 entries.
+- Scope: narrow German cumulative Papers 12 and 13 front-matter repair on top of R173.
+- Result: adds source-visible terminal periods to `Invarianten beliebiger Differentialausdrücke.` and `Invariante Variationsprobleme.`, and restores the source-style byline layout `Von` / `Emmy Noether in Göttingen.` for both papers.
+- Build: XeLaTeX two-pass compile produces a 471-page cumulative PDF; only known font/inputenc warnings are reported.
+- Caveat: no body prose, mathematics, footnotes, tables, diagrams, or bibliography material changed. GDZ page witnesses are about 400ppi, below strict native-650 page certification. Targeted front-matter repair/provenance only; not full Paper 12/Paper 13 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
