@@ -1,5 +1,17 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 P36-P38/P40-P41-P43 queue-correction current-cumulative controls
+
+Manifests: [P36-P38](../manifests/pending-zenodo-uploads/20260626_noether_r128_p36_p38_queuecorrection_currentcumulative.json), [P40-P41-P43](../manifests/pending-zenodo-uploads/20260626_noether_r128_p40_p41_p43_queuecorrection_currentcumulative.json)
+
+- P36-P38 ZIP: `Noether_R128_LocalCodex_P36_P38_QueueCorrection_CurrentCumulative_WebDrop_20260626.zip`, 3,477,383 bytes, SHA256 `B3C112ACC926E2412DACDC71EF6E41D34AC61318DC29DB1834458F2898F1AC80`, 56 ZIP entries.
+- P40-P41-P43 ZIP: `Noether_R128_LocalCodex_P40_P41_P43_QueueCorrection_CurrentCumulative_WebDrop_20260626.zip`, 3,517,011 bytes, SHA256 `4270C442FC5619F29CA253097326C1784D793EAFCBD51544271CE1D3043C326A`, 35 ZIP entries.
+- Result: no TeX patch is proposed by either package. They carry the current German cumulative `cum_de_R128_plus_LocalCodex_AllKnownLocalFixes_20260626.tex` plus span-comparison and queue-correction ledgers to prevent stale web/local loops.
+- Queue disposition: P36 survives against the intended reference but remains below strict whole-page certification; P37's source-restored span survives with the product-fuehrer factor `2\sqrt[5]{2}\cdot\sqrt[5]{2^4}` present and the stale quotient form absent; P38's prior source-repaired reference survives. P40 survives against the prior P40Complete repaired span; P41 and P43 survive against the R128 P41-P43 survival base; P43 ends at `Eingegangen 25. Oktober 1949.`, with Deuring wrapper material treated as separate tail.
+- Caveat: current-branch routing/stale-queue prevention only. These are not paper certifications, not whole-Noether closure, not multilingual synchronization, and not critical-edition material. Reopen these rows only for concrete source-current mismatch, targeted exact-symbol defect, or a genuinely stronger native full-page source.
+
+Next action: fold into the next deliberate compact Noether rollup or replacement plan. Do not upload loose while the Noether record remains file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 P09-P12/P22/P29-P30/P34 queue-correction current-cumulative controls
 
 Manifests: [P09-P12](../manifests/pending-zenodo-uploads/20260626_noether_r128_p09_p12_queuecorrection_currentcumulative.json), [P22](../manifests/pending-zenodo-uploads/20260626_noether_r128_p22_queuecorrection_currentcumulative.json), [P29-P30](../manifests/pending-zenodo-uploads/20260626_noether_r128_p29_p30_queuecorrection_currentcumulative.json), [P34](../manifests/pending-zenodo-uploads/20260626_noether_r128_p34_queuecorrection_currentcumulative.json)
