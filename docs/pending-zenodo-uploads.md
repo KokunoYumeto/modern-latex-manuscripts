@@ -1,3 +1,14 @@
+## 2026-06-26: Noether R132 P09-P20 survival bridge after R131
+
+Manifest: [20260626_noether_r132_r131_p09_p20_survival_bridge_nopatch.json](../manifests/source-intake/20260626_noether_r132_r131_p09_p20_survival_bridge_nopatch.json)
+
+- Current pending ZIP: `Noether_R132_LocalCodex_R131_P09_P20_SurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,881,986 bytes, SHA256 `6A7D0F96A56C6BB12D7ADED23A3F6665AED002109D6A644062EFBBEE32C95DD9`, 22 entries.
+- Scope: no-patch survival bridge after R131. P09-P13 accepted spans survive raw-exact; P14-P20 accepted spans survive normalized-exact in the R131 German cumulative.
+- Build/status: bundled cumulative TeX/PDF are the R131 current handoff surface; the PDF is 471 pages and byte-identical to the R131 handoff PDF. This package adds survival spans, CSV/JSON audit, and provenance log snapshots.
+- Caveat: anti-regression and stale-queue-prevention evidence only. Not a fresh page-by-page source audit, not P09-P20 certification, not whole-Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R131 Paper 29 p.28 title/footnote fix after R130
 
 Manifest: [20260626_noether_r131_p29_p028_title_footnote_fix.json](../manifests/source-intake/20260626_noether_r131_p29_p028_title_footnote_fix.json)
