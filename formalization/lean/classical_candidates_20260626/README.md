@@ -13,6 +13,8 @@ The files in `lean_green/` are the primary usable Lean candidates:
 
 These are useful as Lean/mathlib-adjacent formal mathematics candidates. They are not presented as certification of the scanned editions or translations.
 
+The internal namespace prefix `ClassicalAudit` is a legacy code namespace from the first local experiment. It should not be read as a public audit or certification claim; the promoted public meaning of this package is formalization/library candidate material.
+
 ## Side Lane
 
 `split_support_sidecar/` contains `SplitZero.lean` and its formalization plan for the separate split-support/projectification side paper. That belongs with the side-paper DOI or a formalization companion DOI, not silently inside a historical-author record.
