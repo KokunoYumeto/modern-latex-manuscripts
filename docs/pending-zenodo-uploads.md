@@ -4048,3 +4048,27 @@ Manifest: [20260626_weber_b139_liveaudit_v1ge_p100_p648_held_status.json](../man
 - Caveat: status/retranscription-map artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
 
 Next action: Phase 2 coherent retranscription of held rewrite/reconstruction blocks section-by-section.
+
+## 2026-06-26: SGA5 live French workpass through p170
+
+Manifest: [20260626_sga5_live_certlog_p170_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p170_status_package.json)
+
+- SGA5 status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p170_Status_20260626.zip`, 1,577,290 bytes, SHA256 `7267181C531CF324A67EAA40B7F68A80DF329CB2738054EF540A5AF8D46AAA0F`, 17 entries.
+- Scope: current local SGA5 French workpass with TeX/PDF/logs, certification logs, audit method note, FINDINGS, swarm status, indexes, README, inventory, and checksums after the hand-certification log reached p170.
+- Status additions: pp.1-170 are page-local ledger evidence in the controlling CERT_LOG. Pages 1-72 close Expose I; pp.73-137 close Expose III; Expose III B Part I (§1-§4, pp.140-161) is certified complete; Expose III B Part II §5 is underway through p170.
+- Ledger warning: this remains a curated French workpass selection, not global SGA5 certification. English synchronization and a global referenced-label/notation audit remain open.
+- Caveat: source-audit/workpass status only. The source scan is full LNM 589, while the TeX is a curated selection. Not complete SGA5, not English synchronization, not independent final certification, and not a critical edition.
+
+Next action: continue from p171 / Expose III B Part II §5; run a global referenced-label/notation audit before any stronger SGA5 claim.
+
+## 2026-06-26: Weber B139 Phase 2 German Vol. I section 141 and 162 retranscription status
+
+Manifest: [20260626_weber_b139_phase2_v1ge_sec141_162_status.json](../manifests/pending-zenodo-uploads/20260626_weber_b139_phase2_v1ge_sec141_162_status.json)
+
+- Weber status ZIP: `Weber_B139_Phase2_Vol1_GE_Section141_162_Retranscribed_Status_20260626.zip`, 2,266,965 bytes, SHA256 `557EFE660A045D1F8463C98ADB0C16C498642F8857104A2CE471DCCF37E6396A`, 11 entries.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus updated certification/method logs after Phase 2 accepted coherent retranscriptions for §141 and §162.
+- Status additions: §141 is marked held -> faithful; §162 is marked fully re-transcribed, including the commutativity/converse material; the available German cumulative workpass compiles to 371 pages with zero fatal errors.
+- Held block after this package: section 69, section 138 numbering/layout, p466, sections 148-156, section 158, section 163, section 165, sections 167-170, and sections 173-188.
+- Caveat: source-audit/status artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
+
+Next action: continue Phase 2 coherent retranscription of held rewrite/reconstruction blocks, especially sections 148-156, 158, 163, 165, 167-170, and 173-188.
