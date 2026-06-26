@@ -5884,3 +5884,13 @@ Manifests: [20260627_noether_r158_r129_r130_weboutput_review_nopatch.json](../ma
 - R158 scope: no-patch review of R129/R130 web outputs; records useful source-backed anchors but warns not to rebase onto stale `cum_de_R130.tex`.
 - R159 scope: no-patch post-P43 tail survival bridge; records surviving Deuring/Kapferer/backmatter anchors and warns not to replay stale broad tail replacements.
 - Caveat: intake/provenance and anti-regression metadata only. Not reader-facing edition material by itself, not new TeX patches, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether post-Batch39 bridge and tail-survival control packets
+
+Manifests: [20260627_noether_postbatch39_tail_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_postbatch39_tail_survival_nopatch.json), [20260627_noether_postbatch39_all_bridge_zips_bundle.json](../manifests/pending-zenodo-uploads/20260627_noether_postbatch39_all_bridge_zips_bundle.json)
+
+- Noether pending/control ZIP: `Noether_R128_LocalCodex_Tail_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,154,519 bytes, SHA256 `445DE61BEBDB8F6A8AD51ACB85F8339A5A55860177F28B151A657A205E6B246B`, 27 entries.
+- Noether pending/control ZIP: `Noether_R128_LocalCodex_PostBatch39_AllBridgeZips_WebDrop_20260626.zip`, 28,293,554 bytes, SHA256 `DFC4964F21C73B693A1E7A1418CA74F06E968F3488158F25882A20AACA52E273`, 9 entries.
+- Tail scope: no-patch post-Batch39 check showing that the current Batch39 German cumulative preserves the accepted post-P43 tail byte-for-byte from `Vorlesung von Prof. E. Noether` onward against the latest LocalCodex tail rollup.
+- Bundle scope: convenience wrapper for five post-Batch39 bridge ZIPs covering P04, P09, P22/P29/P30, upper-queue P34/P36/P37/P38/P40/P41/P43, and the post-P43 tail bridge.
+- Caveat: web/pro handoff and stale-queue-prevention metadata only. No new German patch, no reader-facing edition claim, no source closure, no corpus certification, no multilingual synchronization, and no critical-edition material. Noether is at the Zenodo 100-file ceiling, so these should be used in a deliberate replacement/pruning refresh rather than appended loosely.
