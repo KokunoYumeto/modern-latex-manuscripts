@@ -5669,3 +5669,12 @@ Manifest: [20260626_noether_r157_p31_p43_upperband_bridge_nopatch.json](../manif
 - Scope: compact no-patch current-branch bridge/status package for upper-band P31-P43 state after R156.
 - Result: P31 uses the later Batch39 source-fix reference; P34 keeps the R141 lambda correction; P35 keeps the R130 author/header restoration as a span; P42 has only surgical source-backed anchor survival checks; P43 survives through the received-date boundary while Deuring/tail material remains separate.
 - Caveat: backend coordination/source-route and stale-queue-prevention evidence only. Not a fresh repair, not P31-P43 certification, not corpus closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-26: Noether R158 R129/R130 web-output review
+
+Manifest: [20260626_noether_r158_r129_r130_weboutput_review_nopatch.json](../manifests/pending-zenodo-uploads/20260626_noether_r158_r129_r130_weboutput_review_nopatch.json)
+
+- Noether pending ZIP: `Noether_R158_LocalCodex_R129_R130_WebOutputReview_NoPatch_WebDrop_20260626.zip`, 581,018 bytes, SHA256 `43CDECB66CBE6F44B322B9E43F0B923A91D4157C8FDD44488105102533FDF235`, 7 entries.
+- Scope: compact no-patch R129/R130 web-output review and stale-base-prevention packet after R157.
+- Result: R129 and R130 contain useful source-backed evidence, but their cumulative TeX should not be used wholesale as the current master; the accepted R129 P34 lambda/k repair and R130 P35 author/header restoration already survive in the current R157 bridge line.
+- Caveat: backend integration guidance/source-route and stale-base-prevention evidence only. Not a fresh repair, not a reader artifact, not paper or corpus certification, not multilingual synchronization, and not critical-edition material.
