@@ -1,3 +1,13 @@
+## 2026-06-26: Noether R128 Paper 34 Batch33 pp.670-675 targeted source fixes
+
+Manifest: [20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json)
+
+- Noether pending ZIP: `Noether_R128_LocalCodex_P34_Batch33_pp670_675_SourceFix_WebDrop_20260626.zip`, 21,403,770 bytes, SHA256 `F178026EE7C3AB5B5696439ED034B1BBB7397BAC65FEC82059060DF595D23B34`, 35 entries.
+- Scope: targeted German cumulative source-audit repair for Paper 34, Hyperkomplexe Groessen und Darstellungstheorie, printed pp.670-675.
+- Confirmed repairs: p670 restores displayed formula (1) structure and source-style homomorphism arrows; p671 restores the omitted continuation of correction footnote 15a); p672 restores source operator-homomorphism notation and the bracketed equality in the multiplier-ring rule; pp.672-674 correct section-16 submodule notation from \mathfrak U drift to source \mathfrak A; p674 restores block display (3) for directly indecomposable summands.
+- Checked/source-disposition pages: printed pp.670-675; p675 source page is staged for continuity, but no separate p675 targeted repair is claimed by this wrapper.
+- Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
+- Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
 ## 2026-06-26: Noether R128 Paper 34 Batch32 pp.664-669 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch32_pp664_669_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch32_pp664_669_sourcefix.json)
@@ -214,7 +224,7 @@ Next action: continue from p241 under the CERT_LOG page-local method. Keep older
 
 Target record: SGA concept DOI <https://doi.org/10.5281/zenodo.20410947>.
 
-- SGA5 webdrop ZIP: `SGA5_FullAudit_WebDrop_p001_p253_certified_staged_p254_p484_20260626.zip`, 374,431,099 bytes, SHA256 `5C7F7A8E6F89B4A5005CC661444B8E4BB906E747DB2861A69BF1D28E0853DB9A`, 3633 entries.
+- SGA5 webdrop ZIP: `SGA5_FullAudit_WebDrop_p001_p253_certified_staged_p254_p484_20260626.zip`, 374,431,099 bytes, SHA256 `5C7F7A8E6F89B4A5005CC661444B8E4BB906E747DB2861A69BF1D28E0853DB9A`, 3635 entries.
 - Local path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\SGA5_FullAudit_WebDrop_p001_p253_certified_staged_p254_p484_20260626.zip`.
 - Manifest: `manifests/source-intake/20260626_sga5_fullaudit_webdrop_p253_staged_p254_p484.json`.
 - Scope: French source-audit/workpass status through completed ledger rows p253. p250 closes Expose V, p251 opens Expose VI, p252 records the V-to-VI bridge plus Props. 1.1.2/1.1.3 opening, and p253 closes Prop. 1.1.3 proof while opening section 1.1.4.
