@@ -1,3 +1,15 @@
+## 2026-06-26: Noether R128 upper-queue post-Batch39 survival bridge
+
+Manifest: [20260626_noether_r128_upperqueue_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_upperqueue_postbatch39_survival_nopatch.json)
+
+- Current pending ZIP: `Noether_R128_LocalCodex_UpperQueue_P34_P36_P37_P38_P40_P41_P43_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,317,996 bytes, SHA256 `F95A996B91A203FCC25FD0C0B23CD611D452C30C0A4C77C1D53EA09C19B76E28`, 83 entries.
+- Result: no German TeX patch. P34 survives raw-exact against the later accepted Batch37 source-fix cumulative, which supersedes the older P34 queue-correction reference. P43 survives raw-exact through the received-date note plus center closure, with Deuring tail material excluded. P36, P37, P38, P40, and P41 survive after exact section-boundary extraction; do not call their older reference wrapper files raw byte-identical.
+- Span facts: P34 lines 16548-18539 (1,992 lines); P36 lines 18803-18816 (14 lines); P37 lines 18817-19004 (188 lines); P38 lines 19005-19221 (217 lines); P40 lines 19317-20113 (797 lines); P41 lines 20114-20267 (154 lines); P43 lines 20501-21314 (814 lines).
+- Guardrails: keep the current Batch39 sections for the upper queue; do not replay stale queue diffs without a concrete source-current mismatch. For P34 use Batch37 as the comparison authority; for P43 keep Deuring tail separate.
+- Caveat: current-branch survival/reconciliation only. Not new visual source certification, not P34/P36/P37/P38/P40/P41/P43 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if useful; do not loose-upload while the Noether record is at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 P22/P29/P30 post-Batch39 survival bridge
 
 Manifest: [20260626_noether_r128_p22_p29_p30_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p22_p29_p30_postbatch39_survival_nopatch.json)
