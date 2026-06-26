@@ -12,6 +12,17 @@ Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/p
 
 Next action: publish as a standalone Lean/formalization companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
 
+## 2026-06-26: SGA5 live French workpass p185 status package
+
+Manifest: [20260626_sga5_live_certlog_p185_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p185_status_package.json)
+
+- SGA status ZIP: `SGA5_LiveFrenchWorkpass_HandCert_p001_p185_Status_20260626.zip`, 2,184,453 bytes, SHA256 `A1E185F0F3331A26F93FB01AA3A2E8147F9F153C673536F3C4768036AF642963`, 12 ZIP entries.
+- Scope: live French SGA5 workpass after the hand-certification ledger reached p185. The package includes the whole live TeX/PDF/log plus controlling audit ledgers, but only pp.1-185 are promoted by the page-local certification ledger.
+- Result: section 5 remains locally closed through p182; pp.183-185 start section 6 and check the non-commutative six-functor/Kunneth/duality setup. Page p185 checks `K A_T=t^!A`, `D_A=\uRHom_A(-,K A_T)`, biduality, Kunneth-duality `(6.4.1)`, induction `(6.4.2)`, and the dense `t^!`, `p_2^!`, `c^!`, and `c_2^!` shriek loci. No new TeX fix was applied on p185.
+- Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
+
+Next action: continue page-local certification from p186; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+
 ## 2026-06-26: SGA5 live French workpass p184 status package
 
 Manifest: [20260626_sga5_live_certlog_p184_status_package.json](../manifests/source-intake/20260626_sga5_live_certlog_p184_status_package.json)
@@ -21,7 +32,7 @@ Manifest: [20260626_sga5_live_certlog_p184_status_package.json](../manifests/sou
 - Result: section 5 remains locally closed through p182; pp.183-184 start section 6 and check the non-commutative six-functor/Kunneth setup. The ledger reports 15 TeX fixes plus one cosmetic p172 cleanup, 31 source typos found, D001-D100 covered, and the workpass compile gate at 307 pages / zero fatal errors.
 - Caveat: source-audit status evidence only. SGA5 as a whole is not complete, not synchronized English, not an independently certified edition, and not a critical edition. Compile-clean TeX can still be mathematically wrong.
 
-Next action: continue page-local certification from p185; use this as the current compact SGA5 status packet until a later cursor supersedes it.
+Next action: superseded by the p185 package above; keep as provenance only.
 
 ## 2026-06-26: SGA5 live French workpass p182 status package
 
