@@ -206,15 +206,15 @@ Manifest: [20260626_noether_source_library_part07_p40_p43_pointer_refresh.json](
 
 Next action: use these tiny pointers with source-library Part07/Part13 when feeding upper-tail Noether work to web sessions; keep actual TeX promotions in separate compact source-audit rollups.
 
-## 2026-06-26: Classical Lean library/formalization candidates
+## 2026-06-26: Classical Lean/mathlib candidate additions
 
 Manifest: [20260626_classical_lean_formalization_candidates.json](../manifests/pending-zenodo-uploads/20260626_classical_lean_formalization_candidates.json)
 
 - ZIP: `Classical_Lean_Formalization_Candidates_20260626.zip`, 48,862 bytes, SHA256 `7A6375AEF2913B586D5F98665E28699AD3E306C1DCE1B209166D7969F8E0F393`, 27 ZIP entries.
 - GitHub-visible path: `formalization/lean/classical_candidates_20260626`.
-- Scope: useful Lean 4 library/formalization candidate material inspired by the historical transcription project and side work. Green classical modules: Jordan affine-line group order, Jordan primitive-root count, Steinitz perfect-field/Frobenius criterion, and Weber cubic polynomial identity. Side lane: split-zero globalization core algebra for the separate split-support/projectification paper.
+- Scope: useful Lean 4 / mathlib-style candidate additions inspired by the historical transcription project and side work. Green classical modules: Jordan affine-line group order, Jordan primitive-root count, Steinitz perfect-field/Frobenius criterion, and Weber cubic polynomial identity. Side lane: split-zero globalization core algebra for the separate split-support/projectification paper.
 - Build/provenance: package includes Lean sources, copied toolchain/Lake metadata, build logs, planning/target notes, and a failed/superseded `ClassicalBatch2.lean` provenance file.
-- Caveat: this is useful formal mathematics / Lean library-candidate material and possible addition material for a Lean/mathlib-style library. It is not proof that the scanned editions, translations, diagrams, page order, or source transcription are faithful; it is also not certification or audit evidence for the archive.
+- Caveat: this is useful formal mathematics / Lean library-candidate material and possible addition material for a Lean/mathlib-style library. It is not a transcription or translation audit, not archive certification, and not source-fidelity evidence for any scanned edition.
 
 Next action: publish as a standalone Lean/library companion record, or attach as a clearly labelled companion to the workflow record if a standalone DOI feels premature. Do not bury it inside author records without the Lean label.
 
@@ -1313,7 +1313,7 @@ Manifest: [20260625_classical_lean_audit_watch_sensecheck.json](../manifests/pen
 - Codex independent recheck: `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` build with `lake env lean` from the local Mathlib build root and print only ordinary Mathlib axioms (`propext`, `Classical.choice`, `Quot.sound`). `ClassicalBatch2.lean` fails and prints `sorryAx`, so it is failed provenance only. `SplitZero.lean` exits 0 in the recheck, but belongs to a separate side-paper lane and lacks a `#print axioms` audit in this packet.
 - Required before any public Lean/formalization DOI: clean lake project root, exact toolchain metadata, no failed files in the promoted tree, `#print axioms` logs for every promoted theorem, no `sorry`/`admit`/`sorryAx`, and source or motivation anchors to the actual transcribed TeX/public catalog where applicable. A theorem map must distinguish the source or motivation statement, normalized mathematical statement, Lean theorem, and build status.
 
-Next action: use as a web/pro review packet or workflow-record candidate only. If any material is promoted, present it as Lean/formalization library-candidate material with build metadata and motivation anchors, not as a public proof/certification claim for the historical archive.
+Next action: use as a web/pro review packet or workflow-record candidate only. If any material is promoted, present it as Lean/mathlib-style library-candidate material with build metadata and motivation anchors, not as an archive-audit or source-certification claim for the historical archive.
 
 ## 2026-06-25: Noether R126 P06/P07 survival audit queue
 
