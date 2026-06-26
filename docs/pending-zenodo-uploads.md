@@ -1,5 +1,28 @@
 # Pending Zenodo Uploads
 
+## 2026-06-26: Noether R128 Paper 16 no-patch IA witness and bad GDZ route warning
+
+Manifest: [20260626_noether_r128_p16_batch20_ia_witness_nopatch_bad_gdz_route.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p16_batch20_ia_witness_nopatch_bad_gdz_route.json)
+
+- File: `Noether_R128_LocalCodex_P16_SourceAudit_IAWitness_NoPatch_BadGDZRouteWarning_WebDrop_20260626.zip` (15,191,122 bytes, SHA256 `26E25D1F4AF75A0ABBDC4D87AB9F03CC8A5C448348359A0BE6F98A0A3E5A2AA1`).
+- Result: no source-certain TeX patch was made for Paper 16 printed pp.25-30. The package carries `cum_de_R128_plus_LocalCodex_P16NoPatch_P17Batch19_P19Batch13CarryForward_20260626.tex`/PDF, IA Math. Ann. 81 native image witnesses, page dispositions, and before/after source-audit logbook snapshots.
+- Source-route warning: the staged `Noether_GeneralSourceLibrary_v1_20260626/part09_P14_P15_P16_GDZ_raw_source_upgrade` P16-labelled GDZ route is unsafe for P16 until remapped. At least the file labelled P16 printed p25 visibly shows page 19 of "Uber Gitterpunkte in der Ebene", not `Zur Reihenentwicklung in der Formentheorie`.
+- Caveat: practical IA-witness no-patch/source-route correction only. Not full P16 certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: keep the bad-source-route warning visible and fold the package into the next compact Noether source-support rollup; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
+## 2026-06-26: Noether R128 Paper 17 Batch18/Batch19 no-patch closure controls
+
+Manifests: [Batch18 pp6-10](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch18_pp06_10_nopatch.json), [Batch19 pp1-5](../manifests/pending-zenodo-uploads/20260626_noether_r128_p17_batch19_pp01_05_nopatch.json)
+
+- Batch18 file: `Noether_R128_LocalCodex_P17_SourceAudit_Batch18_pp06_10_GDZ600_NoNewPatch_WebDrop_20260626.zip` (15,688,185 bytes, SHA256 `7337D586B4A1E4D416EA39E72FA37BF296AEF4495F01D4FFD27D16F30ABB83C2`).
+- Batch19 file: `Noether_R128_LocalCodex_P17_SourceAudit_Batch19_pp01_05_GDZ600_NoNewPatch_WebDrop_20260626.zip` (14,741,877 bytes, SHA256 `85D513AB326A2411F34497558F5787188135A75F644BCFA2BB63F50E733319FC`).
+- Result: no source-certain TeX patch was made in either batch. Batch18 checks Paper 17 printed pp.6-10; Batch19 checks printed pp.1-5 and carries `cum_de_R128_plus_LocalCodex_P17Batch19_pp01_05_NoNewPatch_P17Batch18_P19Batch13CarryForward_20260626.tex`/PDF.
+- Source: official GDZ IIIF raw JPG witnesses recorded at 600 ppi, below the strict 650+ optical rule. Together with Batches 14-17 and the earlier tail packet, Batch19 closes the local P17 page sweep against currently staged GDZ600 witnesses, but this is still best-available control evidence rather than strict certification.
+- Caveat: no-patch closure/control packets only. Not full P17 certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
+
+Next action: use Batch19 as the latest P17 control layer and fold Batch18/Batch19 into the next compact Noether rollup; do not upload loose while the Noether record remains at the file ceiling unless replacing/pruning.
+
 ## 2026-06-26: Noether R128 Paper 19 Batch13 p63/p65/p66 targeted follow-up
 
 Manifest: [20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json](../manifests/pending-zenodo-uploads/20260626_noether_r128_p19_batch13_p63_p65_p66_varrho_rank_fix.json)
