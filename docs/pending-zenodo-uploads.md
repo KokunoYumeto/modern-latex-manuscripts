@@ -1,3 +1,16 @@
+## 2026-06-26: Noether R145/R146 Paper 13 and Paper 12 survival bridges
+
+Manifest: [20260626_noether_r145_r146_p13_p12_survival_nopatch.json](../manifests/source-intake/20260626_noether_r145_r146_p13_p12_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Packages:
+  - `Noether_R145_LocalCodex_R144_P13_CurrentSurvivalBridge_NoPatch_WebDrop_20260626_COMPACT.zip`, 3,756,934 bytes, SHA256 `A3D7388CAD2C787F0582B782F631AA31315B91B8362CF46F9EF0643BC77A49FA`, 14 entries, max path 94.
+  - `Noether_R146_LocalCodex_R145_P12_CurrentSurvivalBridge_NoPatch_WebDrop_20260626.zip`, 3,748,911 bytes, SHA256 `38BE79BEA2C0AFCC42B8E4312F704732ED500F8E0BD056044A87464803293AD2`, 29 entries, max path 167.
+- Scope: no-patch current-survival/source-route bridges. R145 records normalized-equal survival of the accepted P13 span in the R144/R145 base; R146 records normalized-equal survival of the accepted P12 Batch39/RA59 span in the R145/R146 base.
+- Caveat: compact current-branch survival/source-route and stale-queue-prevention evidence only. Not fresh German TeX repairs, not full Paper 12/Paper 13 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful. Do not loose-upload while the Noether record is file-count constrained unless replacing/pruning.
+
 ## 2026-06-26: Noether R144 Paper 14 survival bridge and R129/R130 feedback
 
 Manifest: [20260626_noether_r144_r143_p14_survival_feedback_nopatch.json](../manifests/source-intake/20260626_noether_r144_r143_p14_survival_feedback_nopatch.json)
