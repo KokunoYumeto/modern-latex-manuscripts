@@ -128,6 +128,8 @@ Record: <https://doi.org/10.5281/zenodo.20393488>
 
 Record: <https://doi.org/10.5281/zenodo.20461174>
 
+Lean note: older workflow filenames that say `Formal Checking` are legacy/local labels. The Lean lane should be read as useful Lean 4 / mathlib-style candidate additions motivated by adding more mathematics to Lean. It is not proof or certification of the transcription/translation archive, not a source-fidelity audit, and not a critical-edition claim.
+
 | Role | Size MB | File |
 |---|---:|---|
 | artifact/source ZIP | 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20836364/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
