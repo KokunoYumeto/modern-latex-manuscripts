@@ -582,3 +582,5 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: SGA status reconciliation added. Local SGA5 audit/workpass support and SGA6 repair107 were found and registered as evidence/control material only. Do not describe SGA5/SGA6/SGA7 as complete or critical from these local labels.
 
 - 2026-06-27: Noether R221 coverage/open-risk ledger registered. Public wording should foreground that P41-P43 remain the next true source-critical audit target and P34-P35 need better witnesses if available; bridge packages are anti-regression/control, not corpus certification.
+
+- 2026-06-27: Noether R222 P41 GDZ400 formula audit registered. It checks the Paper 41 formula spine and applies no patch; useful as survival/no-fix evidence but below strict source-certification quality because the available witness is 400ppi.
