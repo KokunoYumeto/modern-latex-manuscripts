@@ -365,3 +365,7 @@ Registered pending/control packages R216-R218 for Noether. These bridge Papers 0
 ### 2026-06-27: R219-R220 P01-P20 front bridge bundle
 
 Registered Noether R219 and R220. R219 completes the explicit P01-P04 current-base bridge against R204. R220 is a new-thread convenience bundle for the P01-P20 bridge story, wrapping R219, R218, R217, and R216 with R207 context for P14-P18. Classification: handoff/bridge/provenance only, not page-level certification, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: R221 current coverage and open-risk ledger
+
+Registered R221 as the current Noether coverage/risk ledger after R204/R220. It clarifies that P01-P20 has a bridge/handoff story, P21-P43/tail has survival/anti-regression coverage, and the highest-priority true source-critical audit target is P41-P43, followed by P34-P35 if better witnesses appear. Classification: risk/control ledger only, not TeX patch, source closure, multilingual synchronization, or critical-edition material.
