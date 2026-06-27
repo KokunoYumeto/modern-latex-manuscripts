@@ -605,3 +605,5 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R245 P19/P20 native source-resolution clarification registered. P19/P20 survive into R225 by exact section equality, but source-quality caveats remain: P19 is native GDZ400, P20 is mixed GDZ400/600, and P20 formula (13) printed p31 is native 400ppi. Older 1000dpi-labelled crops are enlarged witnesses only. No patch or certification.
 
 - 2026-06-27: Noether R246 P17/P18 native source-resolution clarification registered. P17/P18 anchors survive in R225; P18 GDZ p101 is now verified as the Noether/Hentzelt note, superseding the stale wrong-article caveat. P17 and P18 full-page witnesses are native 600ppi, still below the strict 650ppi certification floor. No patch or certification.
+
+- 2026-06-27: Noether German source-audit logbook refreshed after R246. Current local hash is `5AED831336A6D288F95CEE5FE961F6CA8A1FE2C55DFF80A0DA9B68470F4DF2C9` for 179,917 bytes. Support/provenance only.

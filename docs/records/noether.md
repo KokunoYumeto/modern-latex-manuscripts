@@ -434,3 +434,7 @@ Registered Noether R245 as source-quality caveat and anti-regression support onl
 ### 2026-06-27: R246 P17/P18 native source-resolution clarification
 
 Registered Noether R246 as source-quality caveat and anti-regression support only. `Noether_R246_LocalCodex_P17_P18_NativeSourceResolutionClarification_NoPatch_20260627.zip` applies no TeX patch and records that the P17 formula (39) footnotes 21/22 and the P18 Hentzelt resultant/norm anchor already survive in R225. It clarifies that P17 has a staged source PDF with 36 native 600ppi embedded page images, and P18 now has a verified official GDZ/JDMV 30 printed p101 source page/PDF at native 600ppi, superseding the old RA51 caveat that the GDZ p101 page was a different article. Both remain below the strict 650ppi full-page certification floor; old 1000dpi-labelled crops are enlarged known-locus witnesses only. Classification: support/provenance only, not P17/P18 source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+### 2026-06-27: German source-audit logbook post-R246 refresh
+
+Refreshed the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` after R245/R246: 179,917 bytes, SHA256 `5AED831336A6D288F95CEE5FE961F6CA8A1FE2C55DFF80A0DA9B68470F4DF2C9`, modified locally 2026-06-27T18:59:33. This supersedes the post-R243 same-day logbook metadata snapshot with SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`. Classification remains support/provenance only; do not front the logbook above reader PDFs/TeX.
