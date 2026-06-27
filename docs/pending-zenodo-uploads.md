@@ -6001,3 +6001,12 @@ Manifest: [20260627_noether_r191_p13_klein_formula30_sourcepatch.json](../manife
 - Scope: targeted source-confirmed Paper 13 patch on printed p.250, Klein formula (30). It places `\mathfrak{R}_{\mu\tau}` inside the numerator of the derivative fraction, changing the R183 reading to `+2\sum\frac{\p g^{\mu\nu}\mathfrak{R}_{\mu\tau}}{\p w^\sigma}=0`.
 - Contents: patched German cumulative candidate `cum_de_R191_after_P13_formula30_patch_20260627.tex`, R183/R191 line slices, R190 carried-forward base-disposition note, P13 source witnesses, prior ledgers, no-patch traps, source-fix ledger, and `R183_to_R191_P13_formula30.diff`.
 - Caveat: targeted source-patch/candidate cumulative only. Package provenance says `not_compiled_locally_one_line_tex_formula_patch_only`. Not full Paper 13 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R192 Paper 12 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r192_p12_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r192_p12_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R192_LocalCodex_P12_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 11,039,819 bytes, SHA256 `A4EAFF41972B312C99AC18164793657301A369B1F45948CD44689D969A731F27`, 26 entries.
+- Scope: no-patch Paper 12 source-anchor survival package on the carried R191 candidate base. It records that source-visible author/front matter, `f(x;dx)`, higher-differential `d^2x,d\delta x`, and barred `\bdelta x` in formula (5)/(6) contexts already survive.
+- Contents: current R191 candidate cumulative, P12 line slices, P12 source witnesses, prior P12/P13 ledgers, no-patch traps, and a P12 survival ledger.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 12 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Formula (9) must remain plain `\delta x`; do not propagate barred-delta changes there.
