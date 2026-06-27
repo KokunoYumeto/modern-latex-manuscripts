@@ -6240,3 +6240,20 @@ Manifest: [20260627_noether_r239_r242_source_quality_feedback_batch.json](../man
 - Noether routing ZIP: `Noether_R242_LocalCodex_NewThreadOutputSweep_NoNewPostR241_Feedback_20260627.zip`, 4,737 bytes, SHA256 `F317A390351FDE7FCE83DDA5B4C1C0ACA658568CE7881D8D9F862D57D769C316`, 6 entries.
 - Scope: R239/R242 report no newer visible post-R238/post-R241 Noether web output in the checked local lanes and recommend R238 as the broad current-base orientation package. R240 records P30 source-quality limits. R241 records P34/P35 source-quality limits and the instruction not to revert the intentional R225 P34 tail restore.
 - Caveat: support/control material only. No TeX patch, no reader edition, no strict source closure, no multilingual synchronization, no corpus certification, and no critical-edition claim. If uploaded, do not front these small packets above reader PDFs/TeX.
+
+## 2026-06-27: Noether R243 P41-P43 source-quality recheck and P43 GDZ600 upgrade
+
+Manifest: [20260627_noether_r243_p41_p43_source_quality_p43_gdz600_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r243_p41_p43_source_quality_p43_gdz600_nopatch.json)
+
+- Noether support/source-witness ZIP: `Noether_R243_LocalCodex_P41_P43_SourceQualityRecheck_P43_GDZ600_Upgrade_NoPatch_20260627.zip`, 45,788,564 bytes, SHA256 `080A393E3568BB9DDBB1EB132C5BF0907D8C85850ACA2A9BB704D7B02585F236`, 16 entries.
+- Scope: rechecks P41-P43 source-quality caveats. P41 remains best-local GDZ400; P42 remains best-local native 360ppi. P43 is upgraded to a GDZ JRAM 188 article-level source route, `PPN243919689_0188` / `LOG_0004`, with article pages embedded around 600ppi.
+- Result: no TeX patch. The current R225 P43 title already matches the source title `Idealdifferentiation und Differente`.
+- Caveat: source-witness/provenance support only. P43 GDZ600 is a major audit witness upgrade but still below the strict 650+ source-certification floor and below dense-math 1000+ review targets. Do not claim P43 source closure, corpus certification, multilingual synchronization, or critical-edition status from this package.
+
+## 2026-06-27: Noether German source-audit logbook post-R243 refresh
+
+Manifest: [20260627_noether_german_source_audit_logbook_refresh_post_r243.json](../manifests/pending-zenodo-uploads/20260627_noether_german_source_audit_logbook_refresh_post_r243.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 178,454 bytes, SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`, modified locally 2026-06-27T18:49:36.
+- Scope: live German source-audit logbook, now including the R243 P41-P43 source-quality recheck and P43 GDZ600 source upgrade.
+- Caveat: support/provenance only. This supersedes the earlier same-day logbook metadata snapshot with SHA256 `376BE4D493D1154DEF6CB060328594D8EC515EE1FB5DB91FABA3D00DE4A09066`. Prefer folding into a compact source-audit support rollup; do not front above reader PDFs/TeX.
