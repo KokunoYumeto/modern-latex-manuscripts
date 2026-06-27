@@ -402,3 +402,7 @@ Registered R232 as a tiny routing/check packet. It reports that no newer web-pro
 ### 2026-06-27: R233 P21-P30 R225 current-base bridge
 
 Registered R233. It applies no patch and records that Papers 21-30 are byte-exact between R204 and R225, carrying R208/R209 source-critical bridge evidence forward to the R225 base. Classification: anti-regression/current-base bridge evidence only; R208/R209 source-quality caveats remain active. Not global P21-P30 certification, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: R234-R236 P21-P43 R225 bridge bundle
+
+Registered R234-R236, with R236 treated as the preferred compact wrapper. R234 covers Papers 31-36 and records that P31-P33 and P35-P36 survive byte-exact while P34 differs intentionally because R225 restored the P34 tail from the R129 source-repaired span. R235 covers Papers 37-43 and records byte-exact survival from R204 to R225. R236 wraps R233/R234/R235 so the P21-P43 current-base bridge can be handed off in one package. Classification: current-base bridge/control evidence only, not global page-by-page certification, source closure, multilingual synchronization, corpus certification, or critical-edition material.

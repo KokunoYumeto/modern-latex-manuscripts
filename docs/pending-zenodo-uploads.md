@@ -6208,3 +6208,14 @@ Manifest: [20260627_noether_r233_p21_p30_r225_bridge_nopatch.json](../manifests/
 - Scope: carries the earlier R208/R209 P21-P30 source-critical bridge forward from R204 to the current R225 German base.
 - Result: no TeX patch. P21-P30 paper spans are byte-exact between R204 and R225, so the R208/R209 source-confirmed anchors and no-fix traps survive into R225.
 - Caveat: anti-regression/current-base bridge evidence only. R233 does not perform new source-image certification; R208/R209 source-quality caveats remain active, especially where full-page witnesses are below the strict native 650ppi floor. Not global P21-P30 certification, source closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-27: Noether R234-R236 P21-P43 R225 bridge bundle, no patch after R225
+
+Manifest: [20260627_noether_r234_r236_p21_p43_r225_bridge_bundle.json](../manifests/pending-zenodo-uploads/20260627_noether_r234_r236_p21_p43_r225_bridge_bundle.json)
+
+- Noether component ZIP: `Noether_R234_LocalCodex_P31_P36_R225Bridge_P34IntentionalPatch_WebDrop_20260627.zip`, 19,334,742 bytes, SHA256 `B34C68334444758AA4D3391D1CBCF632AB9594B4D143108884495229145FB546`, 23 entries.
+- Noether component ZIP: `Noether_R235_LocalCodex_P37_P43_R225CurrentBaseBridge_NoPatch_WebDrop_20260627.zip`, 26,425,385 bytes, SHA256 `F125EB3DD8C8F967379F3E804132AC915653A7E2F87A83ED5C816F910B5862D8`, 22 entries.
+- Noether preferred wrapper ZIP: `Noether_R236_LocalCodex_P21_P43_R225BridgeBundle_WebDrop_20260627.zip`, 57,322,335 bytes, SHA256 `C3D66AD68B9797AB14F211C5C8A9EB141879F8472B32D87B4C1DBED2F8A12027`, 6 entries.
+- Scope: R236 wraps R233/R234/R235 as the compact P21-P43 current-base bridge for the R225 German base.
+- Result: no new TeX patch after R225. R234 documents the intentional P34 delta from the R225 P34 tail restore; R235 documents P37-P43 byte-exact survival from R204 to R225. Do not revert P34 to the older R204/R210 state.
+- Caveat: bridge/control evidence only. Not global page-by-page certification, source closure, multilingual synchronization, corpus certification, or critical-edition material. Source-quality caveats remain active especially for P30, P34, P35, P41, P42, and P43.
