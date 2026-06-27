@@ -6037,3 +6037,12 @@ Manifest: [20260627_noether_r195_p19_p20_source_anchor_survival_nopatch.json](..
 - Scope: no-patch Paper 19/Paper 20 source-anchor survival package on the carried R191/R192/R193/R194 candidate base. It records that P19 p.58 source order and `P^e` exponent, P19 p.65/p.66 tail exponent repairs, and P20 formula (13) kappa/lambda sums versus mu/nu prose products already survive. It also records that R158/R159 remain stale and no fresh post-R194 web output was found.
 - Contents: current R191 candidate cumulative, P19/P20 source witnesses, prior ledgers, current-evidence snippets, survival checks, no-fix traps, and package summary JSON.
 - Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 19 or Paper 20 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Full-page P19/P20 witnesses remain below the strict source-certification resolution floor; included 1000 ppi crops are targeted local witnesses.
+
+## 2026-06-27: Noether R196 Paper 09 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r196_p09_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r196_p09_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R196_LocalCodex_P09_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 11,331,464 bytes, SHA256 `88F4688B78AF2A6BAD90774535AAFCDE1CA5FF714F57EC1FBABF02E882AE8892`, 28 entries.
+- Scope: no-patch Paper 09 source-anchor survival package on the carried R191/R192/R193/R194/R195 candidate base. It records that the P09 printed author line, Zermelo `S. 484` footnote, `\xi_t` no-fix trap, multiplicative module-subscript no-fix traps, and the dense p.109-p.110 `F_\nu`/`G_{\nu\chi}`/lambda-threshold hotspot already survive.
+- Contents: current cumulative, targeted 1000 ppi P09 witnesses, best-available full-page p.109/p.110 witnesses, current anchor snippets, web-feedback summary, survival-disposition CSV, and SHA256 manifest.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 09 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The p.109/p.110 dense hotspot uses best available native 600 ppi/400 ppi full-page witnesses, below strict dense-math certification resolution.
