@@ -36,3 +36,7 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://doi.org/10.5281/zenodo.20411006> | Additional author cluster: mixed backstop/provenance shelf for Mikami/Kronecker/Picard/Klein-Fricke and related material, plus older routed copies. Kneser, Poincare, and Frobenius now have preferred standalone records; older Kneser packets here remain provenance/backstop. Older Zenodo versions retain superseded provenance. |
 
 Large artifact ZIPs are part of the public records for provenance. The file list should keep reader PDFs first, then artifact/source ZIPs, then manifests and summaries.
+
+## Pending Standalone Records
+
+- Classical Mathematics Lean 4 Formalization Candidates: metadata is staged at [metadata_formalization_lean_candidates_current.json](../zenodo-metadata/metadata_formalization_lean_candidates_current.json), with package `Classical_Lean_Formalization_Candidates_20260626.zip` queued as useful Lean/mathlib-style library-candidate material. No DOI has been minted in this repo state. This lane is not proof or certification of the transcription/translation corpus, not source-fidelity audit evidence, and not a critical-edition claim.
