@@ -6019,3 +6019,12 @@ Manifest: [20260627_noether_r193_p11_source_anchor_survival_nopatch.json](../man
 - Scope: no-patch Paper 11 source-anchor survival package on the carried R191/R192 candidate base. It records that source-visible front matter, `\Omega_\Gamma`, formula (11) plain `G_k(x)`, Tschirnhaus source-style material, and the final-theorem semicolon already survive.
 - Contents: current R191 candidate cumulative, P11 current snippets, P11 source witnesses, prior P11 ledgers, no-fix traps, survival checks, and package summary JSON.
 - Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 11 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. No compile was run because this is a no-patch package.
+
+## 2026-06-27: Noether R194 Paper 10 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r194_p10_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r194_p10_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R194_LocalCodex_P10_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 24,261,650 bytes, SHA256 `3D7F144D4F50371281B73781AF8C5381E04852AE4B5C049CDD69EE350C6AAA0F`, 34 entries.
+- Scope: no-patch Paper 10 source-anchor survival package on the carried R191/R192/R193 candidate base. It records that source-visible front matter, definition (d) terminal `k_\sigma` indices, the `F(t;\vartheta_i)` divisibility display, the rank-three `x` no-fix trap, and the final Erlangen date line already survive.
+- Contents: current R191 candidate cumulative, P10 current snippets, targeted 1000 ppi source crops, raw GDZ page JPGs for pp.536-545, the P10 source cutout PDF, prior P10 ledgers, survival checks, no-fix traps, and package summary JSON.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 10 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. No compile was run because this is a no-patch package.
