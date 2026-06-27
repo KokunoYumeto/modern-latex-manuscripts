@@ -406,3 +406,7 @@ Registered R233. It applies no patch and records that Papers 21-30 are byte-exac
 ### 2026-06-27: R234-R236 P21-P43 R225 bridge bundle
 
 Registered R234-R236, with R236 treated as the preferred compact wrapper. R234 covers Papers 31-36 and records that P31-P33 and P35-P36 survive byte-exact while P34 differs intentionally because R225 restored the P34 tail from the R129 source-repaired span. R235 covers Papers 37-43 and records byte-exact survival from R204 to R225. R236 wraps R233/R234/R235 so the P21-P43 current-base bridge can be handed off in one package. Classification: current-base bridge/control evidence only, not global page-by-page certification, source closure, multilingual synchronization, corpus certification, or critical-edition material.
+
+### 2026-06-27: R237-R238 P01-P43 R225 bridge bundle
+
+Registered R237-R238, with R238 treated as the preferred full current-base orientation wrapper. R237 closes the P01-P09 current-base bridge by finding prior R204 paper blocks byte-exact inside R225. R238 wraps R237, R231, and R236 so a new web thread can receive the P01-P43 R225 bridge story in one package. Classification: orientation/bridge/control evidence only, not global page-by-page source certification, source closure, multilingual synchronization, corpus certification, or critical-edition material.
