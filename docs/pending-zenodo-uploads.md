@@ -6117,3 +6117,11 @@ Manifest: [20260627_noether_r219_r220_p01_p20_front_bridge_bundle_register.json]
 - Scope: R219 gives the missing front-paper R204 bridge for P01-P04. R220 is a convenience wrapper for a new web thread bundling R219, R218, R217, and R216, with R207 context for P14-P18.
 - Routing note: R204 remains the current German base for these front-paper bridge checks because it preserves the R203 P01 repair and rebases the web P06 source-symbol patch.
 - Caveat: handoff/bridge/provenance only. Not page-by-page certification, not source closure, not Noether closure, not multilingual synchronization, and not critical-edition material. R220 should not be counted as additional mathematical content beyond the bridge packets it wraps.
+
+## 2026-06-27: SGA local audit/status reconciliation
+
+Manifest: [20260627_sga_local_audit_status_reconciliation.json](../manifests/pending-zenodo-uploads/20260627_sga_local_audit_status_reconciliation.json)
+
+- SGA pending/status evidence: `sga5_full_audit_workpass_support_20260624.zip` and `sga6_repair107_english_sync_repair046_20260622.zip`.
+- Scope: sweep found later SGA5 audit/workpass material under `SGA continuation 2/_claude_aid/sga5_full_audit_20260623` plus an SGA6 English-sync repair107 package. The SGA5 folder contains workpass TeX/PDF, STATUS, CERT_LOG, AGENT_SCORECARD, FINDINGS, and method notes; repair107 synchronizes English with French repair046 for Expose VI p394 and reports a 364-page compile.
+- Caveat: status/evidence only. Do not promote SGA5 as complete or critical from these local labels; treat it as an audit/workpass under review. SGA6 still has global page-by-page certification and later English-sync work open. SGA7 remains a working draft with compression/source-check caveats.

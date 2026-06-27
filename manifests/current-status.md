@@ -578,3 +578,5 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R216-R218 survival bridge batch registered. R216 covers P10-P13/P19-P20, R217 P09, and R218 P05-P08 against R204; use with R207 for P14-P18. This is no-patch bridge/control evidence only, not source closure or certification.
 
 - 2026-06-27: Noether R219-R220 registered. R219 completes P01-P04 current-base bridge evidence; R220 wraps the P01-P20 front bridge story for a new web thread. Handoff/control only, not source closure or certification.
+
+- 2026-06-27: SGA status reconciliation added. Local SGA5 audit/workpass support and SGA6 repair107 were found and registered as evidence/control material only. Do not describe SGA5/SGA6/SGA7 as complete or critical from these local labels.
