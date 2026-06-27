@@ -5947,3 +5947,12 @@ Manifest: [20260627_noether_r185_new_thread_download_sweep_nonewpostr184.json](.
 - Scope: no-patch local download sweep and new-thread coordination package after R184. It records that no fresh post-R184 Noether production ZIP was found on disk; the two files matching the user's two-output note are R158/R159, already dispositioned in R180/R181 as stale bridge/review artifacts rather than current bases.
 - Contents: R183 current German TeX carried forward as `cum_de_R183_after_tail_visible_sourcepages_artifact_fix_20260627.tex`, R184 queue CSV carried forward as `current_queue_after_R183_carried_forward_R185.csv`, plus sweep/disposition ledgers and web-thread notes.
 - Caveat: coordination/provenance only. No new TeX patch, no source repair, no source closure, no corpus certification, no multilingual synchronization, and no critical-edition material.
+
+## 2026-06-27: Noether R186 Paper 18 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r186_p18_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r186_p18_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R186_LocalCodex_P18_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 4,162,574 bytes, SHA256 `FC393C718D5A07CEFADEE4085F16E1EA01EB62E9D3B67A448B70B69057CC1560`, 17 entries.
+- Scope: no-patch Paper 18 source-anchor survival check against printed p.101. It confirms that the old resultant-display defect is already fixed in the current R183 base: the final relation reads `R^{(n)}(x_n)\equiv 0(\mathfrak M)` rather than equality.
+- Contents: current R183 German TeX, a P18 line slice, checked anchor ledger, no-patch traps, a 600 ppi full-page GDZ witness, and 1000 dpi targeted resultant-display crops.
+- Caveat: anchor-survival/provenance only. No new TeX patch, not full Paper 18 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Full-page source remains below the strict 650+ ppi preference.
