@@ -6152,3 +6152,12 @@ Manifest: [20260627_noether_r223_p42_r204_survival_360ppi_nopatch.json](../manif
 - Scope: Paper 42 current-base survival bridge, R204 lines 20266-20498. The R204 P42 block equals the R169 P42 source-status span after trimming trailing whitespace.
 - Result: no TeX patch. The accepted trace-order correction survives: `\Sp(\widetilde a a)` occurs three times and `\Sp(a\widetilde a)` occurs zero times in P42; the remaining plain product `a\widetilde a` is a recorded no-fix trap.
 - Caveat: best-available native 360ppi witness only, below strict source-certification quality. Treat as anti-regression/survival evidence, not full P42 certification, source closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-27: Noether German source-audit logbook refresh
+
+Manifest: [20260627_noether_german_source_audit_logbook_refresh.json](../manifests/pending-zenodo-uploads/20260627_noether_german_source_audit_logbook_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 164,606 bytes, SHA256 `2C13AF085632ABAE05B743758912DACF389C7D552A514E010E621628A4FAD87E`, modified locally 2026-06-27T16:50:13.
+- Scope: live German source-audit logbook recording source leads, source-quality notes, candidate fixes, no-fix traps, and web/local routing notes across the Noether source-checking lane.
+- Caveat: support/provenance only. Not a reader edition, not a TeX patch, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Earlier pending references to this filename have stale hashes.
+- Public action: verify the hash immediately before upload. Prefer folding this into one compact Noether source-audit support rollup because the Noether Zenodo record is file-count constrained; do not front the logbook above reader PDFs or clean language branches.

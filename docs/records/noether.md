@@ -377,3 +377,7 @@ Registered R222 for Paper 41. It checks 14 formula/notation anchors against GDZ 
 ### 2026-06-27: R223 P42 current-base survival bridge
 
 Registered R223 for Paper 42. It confirms the R169/R127 trace-order correction survives in R204 and applies no patch. This helps close part of the R221 P41-P43 risk priority, but the source witness is native 360ppi, below the strict source-certification preference. Classification: anti-regression/survival evidence only, not full P42 certification, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: German source-audit logbook refresh
+
+Registered the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 164,606 bytes, SHA256 `2C13AF085632ABAE05B743758912DACF389C7D552A514E010E621628A4FAD87E`. This is a live audit/provenance logbook for the German source-checking lane. It should be used as support/routing material or folded into a compact Noether source-audit rollup, not fronted as a reader artifact. Earlier pending references to the same filename have stale hashes. Classification: source-audit support only, not TeX patch, source closure, multilingual synchronization, corpus certification, or critical-edition material.
