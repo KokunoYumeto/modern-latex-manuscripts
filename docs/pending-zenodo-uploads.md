@@ -6143,3 +6143,12 @@ Manifest: [20260627_noether_r222_p41_gdz400_formula_audit_nopatch.json](../manif
 - Scope: Paper 41 formula-spine audit against the current R204 German base, lines 20112-20265. It checks 14 formula/notation anchors across printed pp.411-419: displays (1)-(5), cyclic displays (1')-(6), class-factor quotients, Hilfssatz/local-prime notation, R-power/e-factor displays, and received date.
 - Result: no missing anchors and no TeX patch. All checked formula anchors are present in R204.
 - Caveat: best-available GDZ 400ppi witness only, below the strict 650+ source-certification preference. Treat as no-patch survival/provenance evidence, not full P41 certification, source closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-27: Noether R223 Paper 42 R204 survival bridge, no patch
+
+Manifest: [20260627_noether_r223_p42_r204_survival_360ppi_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r223_p42_r204_survival_360ppi_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R223_LocalCodex_P42_R204Survival_BestAvailable360_NoPatch_WebDrop_20260627.zip`, 2,161,862 bytes, SHA256 `AC9A3AA0D6B7729EE80E8009961AB471F85801224ABEEA04DD59A0A4C4D51995`, 19 entries.
+- Scope: Paper 42 current-base survival bridge, R204 lines 20266-20498. The R204 P42 block equals the R169 P42 source-status span after trimming trailing whitespace.
+- Result: no TeX patch. The accepted trace-order correction survives: `\Sp(\widetilde a a)` occurs three times and `\Sp(a\widetilde a)` occurs zero times in P42; the remaining plain product `a\widetilde a` is a recorded no-fix trap.
+- Caveat: best-available native 360ppi witness only, below strict source-certification quality. Treat as anti-regression/survival evidence, not full P42 certification, source closure, multilingual synchronization, or critical-edition material.

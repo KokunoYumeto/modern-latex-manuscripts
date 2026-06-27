@@ -373,3 +373,7 @@ Registered R221 as the current Noether coverage/risk ledger after R204/R220. It 
 ### 2026-06-27: R222 P41 best-available formula-spine audit
 
 Registered R222 for Paper 41. It checks 14 formula/notation anchors against GDZ Math. Ann. 108 400ppi witnesses and reports no missing anchors/no TeX patch. This partially addresses the R221 P41-P43 risk priority but remains below the strict source-certification source-quality threshold. Classification: best-available survival/provenance only, not full P41 certification, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: R223 P42 current-base survival bridge
+
+Registered R223 for Paper 42. It confirms the R169/R127 trace-order correction survives in R204 and applies no patch. This helps close part of the R221 P41-P43 risk priority, but the source witness is native 360ppi, below the strict source-certification preference. Classification: anti-regression/survival evidence only, not full P42 certification, source closure, multilingual synchronization, or critical-edition material.
