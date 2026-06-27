@@ -319,3 +319,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0010 | [Noether_RA34_Public_Status_20260613.md](https://zenodo.org/records/20836874/files/Noether_RA34_Public_Status_20260613.md) |
 | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20836874/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
 | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20836874/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
+
+## Local Pending Staging Notes
+
+2026-06-27 local staging now includes `Noether_R185_LocalCodex_NewThreadDownloadSweep_NoNewPostR184_WebDrop_20260627.zip`, a no-patch download-sweep/current-base coordination package after R184. It found no fresh post-R184 Noether production output on disk, keeps R158/R159 as stale evidence ledgers already dispositioned in R180/R181, and carries the R183 German TeX plus R184 queue CSV for web-thread restart. This is coordination/provenance only: not a source repair, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.

@@ -5938,3 +5938,12 @@ Manifest: [20260627_noether_r184_current_queue_after_r183.json](../manifests/pen
 - Noether pending/control ZIP: `Noether_R184_LocalCodex_CurrentQueueAfterR183_WebDrop_20260627.zip`, 586,722 bytes, SHA256 `E118AD1417F21C0B7E3361B6F56202B7420F2C84E3DED447C8E4A1A265E35BCD`, 11 entries.
 - Scope: no-patch queue reconciliation after R183. It says the older R120/R128 source queue is historical source-queue material rather than a direct live missing-work list; reopen old rows only when a current anchor is missing, stronger source exists, a concrete mismatch is found, or a deliberate global page-by-page certification pass is underway.
 - Caveat: queue-control/provenance only. It explicitly keeps global page-by-page certification open and records that many papers still rely on best-available 360-600 ppi witnesses. Not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R185 new-thread download sweep, no fresh post-R184 output
+
+Manifest: [20260627_noether_r185_new_thread_download_sweep_nonewpostr184.json](../manifests/pending-zenodo-uploads/20260627_noether_r185_new_thread_download_sweep_nonewpostr184.json)
+
+- Noether pending/control ZIP: `Noether_R185_LocalCodex_NewThreadDownloadSweep_NoNewPostR184_WebDrop_20260627.zip`, 587,281 bytes, SHA256 `CB07A4177F4F760B5030B8BA6E0B5CBEBE1BBBEFD774614765BEA6A701C5367A`, 10 entries.
+- Scope: no-patch local download sweep and new-thread coordination package after R184. It records that no fresh post-R184 Noether production ZIP was found on disk; the two files matching the user's two-output note are R158/R159, already dispositioned in R180/R181 as stale bridge/review artifacts rather than current bases.
+- Contents: R183 current German TeX carried forward as `cum_de_R183_after_tail_visible_sourcepages_artifact_fix_20260627.tex`, R184 queue CSV carried forward as `current_queue_after_R183_carried_forward_R185.csv`, plus sweep/disposition ledgers and web-thread notes.
+- Caveat: coordination/provenance only. No new TeX patch, no source repair, no source closure, no corpus certification, no multilingual synchronization, and no critical-edition material.
