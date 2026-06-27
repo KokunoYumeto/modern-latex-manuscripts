@@ -6266,3 +6266,12 @@ Manifest: [20260627_noether_r244_post_r243_no_new_web_output_feedback.json](../m
 - Scope: checks Noether Multilingual, Edge dump, Downloads, and Codex attachments after a reported new web-thread output.
 - Result: no new post-R243 web-produced Noether package is visible locally. R244 says R237 is only the P01-P09 component and R238 is the broad P01-P43 wrapper that contains R237 plus R231 and R236.
 - Caveat: routing/control only. No TeX patch, no new mathematical output, no source certification, no source closure, no multilingual synchronization, no corpus certification, and no critical-edition claim. Do not front this packet above reader PDFs/TeX.
+
+## 2026-06-27: Noether R245 P19/P20 native source-resolution clarification, no patch
+
+Manifest: [20260627_noether_r245_p19_p20_native_source_resolution_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r245_p19_p20_native_source_resolution_nopatch.json)
+
+- Noether source-quality support ZIP: `Noether_R245_LocalCodex_P19_P20_NativeSourceResolutionClarification_NoPatch_20260627.zip`, 5,184,871 bytes, SHA256 `7DA4A3D4B0A0B91140C2D6BA1D0E34BC02E4BF38DE8D993E94979B54851487B2`, 24 entries.
+- Scope: clarifies native source-resolution status for Papers 19 and 20 and includes current R225 P19/P20 extracts, compact GDZ source PDFs, page/canvas maps, raw-image resolution ledgers, and prior survival/no-fix ledgers.
+- Result: no TeX patch. P19/P20 survive into R225 by exact section equality; known P19 tail repairs and the P20 formula (13) kappa/lambda repair remain present.
+- Caveat: source-quality/anti-regression support only. P19 full-page source is native 400ppi; P20 is mixed native 400/600ppi and the formula (13) page is 400ppi. Older 1000dpi-labelled crops are enlarged known-locus witnesses only. Do not front this packet above reader PDFs/TeX.
