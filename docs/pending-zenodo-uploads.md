@@ -6157,7 +6157,17 @@ Manifest: [20260627_noether_r223_p42_r204_survival_360ppi_nopatch.json](../manif
 
 Manifest: [20260627_noether_german_source_audit_logbook_refresh.json](../manifests/pending-zenodo-uploads/20260627_noether_german_source_audit_logbook_refresh.json)
 
-- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 164,606 bytes, SHA256 `2C13AF085632ABAE05B743758912DACF389C7D552A514E010E621628A4FAD87E`, modified locally 2026-06-27T16:50:13.
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 167,902 bytes, SHA256 `4157620F76A82A206A2295CF3DB7A8BA24EAA051809951294E8139A3289EAA8A`, modified locally 2026-06-27T17:10:42.
 - Scope: live German source-audit logbook recording source leads, source-quality notes, candidate fixes, no-fix traps, and web/local routing notes across the Noether source-checking lane.
 - Caveat: support/provenance only. Not a reader edition, not a TeX patch, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Earlier pending references to this filename have stale hashes.
 - Public action: verify the hash immediately before upload. Prefer folding this into one compact Noether source-audit support rollup because the Noether Zenodo record is file-count constrained; do not front the logbook above reader PDFs or clean language branches.
+
+
+## 2026-06-27: Noether R224-R228 plus broad R219 hygiene/current-base collision
+
+Manifest: [20260627_noether_r224_r228_and_broad_r219_hygiene_register.json](../manifests/pending-zenodo-uploads/20260627_noether_r224_r228_and_broad_r219_hygiene_register.json)
+
+- Noether pending/control burst: `Noether_R224_LocalCodex_P43_R204Survival_BestAvailable360_NoPatch_WebDrop_20260627.zip`; `Noether_R225_LocalCodex_P34_TailSourceRestore_OnR204_WebDrop_20260627.zip`; `Noether_R226_LocalCodex_NewWebDropSweep_P19P20_R225Bridge_NoPatch_WebDrop_20260627.zip`; `Noether_R227_LocalCodex_P17_P18_R225SourceAnchorBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R228_LocalCodex_P15_P16_R225AnchorBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R219_BroadCurrentBase_SourceHygieneFix_WebDrop_20260627.zip`.
+- Routing note: broad R219 is not the same package as the earlier local R219 P01-P04 bridge already registered. Broad R219 applies two actual fixes on R204 and compiles to 470 pages. R225 separately applies a P34 tail source-restore patch on R204 and compiles to 471 pages. These branches require reconciliation before naming a single next German cumulative base.
+- Scope: R224 P43 survival/no patch; R225 P34 tail restore actual patch; R226 P19/P20 R225 bridge/no patch; R227 P17/P18 R225 bridge/no patch; R228 P15/P16 R225 bridge/no patch; broad R219 current-base source-hygiene actual patch/control packet.
+- Caveat: targeted source-audit/control material only. R225 and broad R219 contain actual candidate fixes but not full source closure. R224/R226/R227/R228 are survival/control. Not whole-corpus certification, not multilingual synchronization, and not critical-edition material.
