@@ -414,3 +414,11 @@ Registered R237-R238, with R238 treated as the preferred full current-base orien
 ### 2026-06-27: R239-R242 source-quality and routing feedback
 
 Registered Noether R239-R242 as support/control evidence only. R239 and R242 are local download/output sweeps: no newer post-R238/post-R241 web-produced Noether package was visible in the checked local lanes, and R238 remains the broad current-base orientation wrapper. R240 clarifies that Paper 30 remains best-available/survival-checked, not strict 650+ source-certified, from the current GDZ/IA local witnesses. R241 clarifies that Paper 34's R225 tail source restore is intentional and should not be reverted, and that the best local P34/P35 witnesses remain below the strict 650+ source-certification floor. Classification: routing/source-quality caveat support only, no TeX patch, not source closure, not multilingual synchronization, not corpus certification, and not critical-edition material.
+
+### 2026-06-27: R243 P41-P43 source-quality recheck and P43 GDZ600 upgrade
+
+Registered Noether R243 as source-quality support evidence only. `Noether_R243_LocalCodex_P41_P43_SourceQualityRecheck_P43_GDZ600_Upgrade_NoPatch_20260627.zip` rechecks the P41-P43 source-quality caveats, keeps P41 at best-local GDZ400 and P42 at best-local native 360ppi, and upgrades P43 to a GDZ JRAM 188 article source route (`PPN243919689_0188`, `LOG_0004`) with article pages embedded around 600ppi. No TeX patch is applied. The current R225 P43 title already matches the source title `Idealdifferentiation und Differente`; do not regress to older misspellings. Classification: source-witness/provenance support only, not P43 source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+### 2026-06-27: German source-audit logbook post-R243 refresh
+
+Refreshed the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` after R243: 178,454 bytes, SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`, modified locally 2026-06-27T18:49:36. This supersedes the earlier same-day logbook metadata snapshot with SHA256 `376BE4D493D1154DEF6CB060328594D8EC515EE1FB5DB91FABA3D00DE4A09066`. Classification remains support/provenance only; do not front the logbook above reader PDFs/TeX.
