@@ -6010,3 +6010,12 @@ Manifest: [20260627_noether_r192_p12_source_anchor_survival_nopatch.json](../man
 - Scope: no-patch Paper 12 source-anchor survival package on the carried R191 candidate base. It records that source-visible author/front matter, `f(x;dx)`, higher-differential `d^2x,d\delta x`, and barred `\bdelta x` in formula (5)/(6) contexts already survive.
 - Contents: current R191 candidate cumulative, P12 line slices, P12 source witnesses, prior P12/P13 ledgers, no-patch traps, and a P12 survival ledger.
 - Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 12 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Formula (9) must remain plain `\delta x`; do not propagate barred-delta changes there.
+
+## 2026-06-27: Noether R193 Paper 11 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r193_p11_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r193_p11_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R193_LocalCodex_P11_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 8,164,531 bytes, SHA256 `46242F2E41083A2F6EA4B8C0EB0246EB03BEA1C91EA79A36E855F7E8A55731E3`, 28 entries.
+- Scope: no-patch Paper 11 source-anchor survival package on the carried R191/R192 candidate base. It records that source-visible front matter, `\Omega_\Gamma`, formula (11) plain `G_k(x)`, Tschirnhaus source-style material, and the final-theorem semicolon already survive.
+- Contents: current R191 candidate cumulative, P11 current snippets, P11 source witnesses, prior P11 ledgers, no-fix traps, survival checks, and package summary JSON.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 11 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. No compile was run because this is a no-patch package.
