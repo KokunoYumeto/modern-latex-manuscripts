@@ -6275,3 +6275,12 @@ Manifest: [20260627_noether_r245_p19_p20_native_source_resolution_nopatch.json](
 - Scope: clarifies native source-resolution status for Papers 19 and 20 and includes current R225 P19/P20 extracts, compact GDZ source PDFs, page/canvas maps, raw-image resolution ledgers, and prior survival/no-fix ledgers.
 - Result: no TeX patch. P19/P20 survive into R225 by exact section equality; known P19 tail repairs and the P20 formula (13) kappa/lambda repair remain present.
 - Caveat: source-quality/anti-regression support only. P19 full-page source is native 400ppi; P20 is mixed native 400/600ppi and the formula (13) page is 400ppi. Older 1000dpi-labelled crops are enlarged known-locus witnesses only. Do not front this packet above reader PDFs/TeX.
+
+## 2026-06-27: Noether R246 P17/P18 native source-resolution clarification, no patch
+
+Manifest: [20260627_noether_r246_p17_p18_native_source_resolution_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r246_p17_p18_native_source_resolution_nopatch.json)
+
+- Noether source-quality support ZIP: `Noether_R246_LocalCodex_P17_P18_NativeSourceResolutionClarification_NoPatch_20260627.zip`, 11,027,052 bytes, SHA256 `10EDDB424F50114CC0FA75474FB0A368311A698CFC9887090E56D7F78A5AC185`, 21 entries.
+- Scope: clarifies native source-resolution status for Papers 17 and 18 and includes current R225 anchors, compact best-source witnesses, resolution ledgers, and prior applied-fix/no-fix ledgers.
+- Result: no TeX patch. P17 formula (39) footnotes 21/22 and the P18 Hentzelt resultant/norm anchor survive in R225. P18's GDZ p101 route is now verified as the Noether/Hentzelt note, superseding the old wrong-article caveat.
+- Caveat: source-quality/anti-regression support only. P17 and P18 best local full-page witnesses are native 600ppi, below the strict 650ppi full-page certification floor. Old 1000dpi-labelled crops are enlarged known-locus witnesses only. Do not front this packet above reader PDFs/TeX.

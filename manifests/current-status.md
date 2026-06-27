@@ -603,3 +603,5 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R244 routing check registered. No new post-R243 web-produced Noether package was visible in the checked local folders. Use R238 as the broad R225 orientation wrapper, with R240/R241/R243 as source-quality caveat updates. Routing/control only; no patch or certification.
 
 - 2026-06-27: Noether R245 P19/P20 native source-resolution clarification registered. P19/P20 survive into R225 by exact section equality, but source-quality caveats remain: P19 is native GDZ400, P20 is mixed GDZ400/600, and P20 formula (13) printed p31 is native 400ppi. Older 1000dpi-labelled crops are enlarged witnesses only. No patch or certification.
+
+- 2026-06-27: Noether R246 P17/P18 native source-resolution clarification registered. P17/P18 anchors survive in R225; P18 GDZ p101 is now verified as the Noether/Hentzelt note, superseding the stale wrong-article caveat. P17 and P18 full-page witnesses are native 600ppi, still below the strict 650ppi certification floor. No patch or certification.
