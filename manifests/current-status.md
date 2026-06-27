@@ -586,3 +586,4 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R222 P41 GDZ400 formula audit registered. It checks the Paper 41 formula spine and applies no patch; useful as survival/no-fix evidence but below strict source-certification quality because the available witness is 400ppi.
 
 - 2026-06-27: Noether R223 P42 R204 survival bridge registered. Trace-order correction survives in R204; no patch. Source witness is native 360ppi, so this is anti-regression evidence only, not strict certification.
+- 2026-06-27: Noether German source-audit logbook refreshed. Current snapshot `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` is 164,606 bytes, SHA256 `2C13AF085632ABAE05B743758912DACF389C7D552A514E010E621628A4FAD87E`. Support/provenance only; earlier pending hash entries for the same filename are stale.
