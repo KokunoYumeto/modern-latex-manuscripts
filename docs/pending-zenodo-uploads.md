@@ -6310,3 +6310,11 @@ Manifest: [20260627_noether_r248_newthread_two_output_triage.json](../manifests/
 - Scope: clarifies that R237 and R238 are not competing outputs. R237 is the P01-P09 bridge component; R238 is the preferred P01-P43 orientation wrapper containing R237, R231, and R236.
 - Result: no TeX patch and no new mathematical production output. R248 supersedes R244 as the clearer new-thread triage note.
 - Caveat: routing/control only; not source certification, source closure, multilingual synchronization, corpus certification, or critical-edition material. Do not front this packet above reader PDFs/TeX.
+
+## 2026-06-27: Seki direct Kokusho p008-p018 large local checkpoint
+
+Manifest: [20260627_seki_direct_kokusho_p008_p018_large_checkpoint.json](../manifests/pending-zenodo-uploads/20260627_seki_direct_kokusho_p008_p018_large_checkpoint.json)
+
+- Seki source/checkpoint ZIP: `Seki_Direct_Kokusho_p008_018_SecondHeikeiThroughShin_SourceIncluded_WorkCheckpoint_20260608.zip`, 3,091,073,821 bytes, SHA256 `AB2B0B4675B32748FDF09F5DF30E1073F177087E579A3BE2BC546CC02187CD08`, 958 entries, max internal path length 145.
+- Scope: local source-included direct Kokusho/Takebe witness checkpoint for the p008-p018 working range. It is mostly crop/source images: 910 PNG/JPG/JPEG files, 17 CSV ledgers, 10 MD notes, one TeX working note, and two PDF render/check files.
+- Caveat: not a clean reader release. Internal notes say OCR is only a locator/check layer; p008 is not yet promotable; p009 still has diagram blockers; and p010 still has unresolved readings/diagram reconstruction work. The public Seki surface should remain the earlier p001-p009 material until a compact p008+ reader/TeX rollup is produced. Do not call this complete p008-p018 text, page-complete certification, or a critical edition.

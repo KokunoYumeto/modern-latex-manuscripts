@@ -218,6 +218,7 @@ Latest Noether source/provenance staging 2026-06-14 also adds `Noether_P34_GDZ_S
 | Bernhard Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with TeX/source/provenance artifacts. Not a certified critical edition. | <https://doi.org/10.5281/zenodo.20429778> |
 | al-Battani Opus Astronomicum | Work-level trilingual reader/source package, recovered segment tree, and table/data layers | <https://doi.org/10.5281/zenodo.20539593> |
 | Non-European mathematics manuscripts, consolidated | Multilingual Chinese, Indian/Sanskrit, Islamic/Arabic, Persian/Japanese-adjacent material | <https://doi.org/10.5281/zenodo.20410957> |
+| Seki Takakazu / Japanese mathematics | Current public Seki material is inside the non-European consolidated record. Local pending checkpoint `Seki_Direct_Kokusho_p008_018_SecondHeikeiThroughShin_SourceIncluded_WorkCheckpoint_20260608.zip` is a 3.09 GB source/crop witness package for p008-p018 work, not a compact reader release or page-complete certification; internal notes still flag p008 promotion, p009 diagrams, and p010 readings/diagrams as open. | <https://doi.org/10.5281/zenodo.20410957> |
 | Chinese mathematical classics | 80/100 | <https://doi.org/10.5281/zenodo.20415751> |
 | Indian and Sanskrit mathematical classics | 80/100 | <https://doi.org/10.5281/zenodo.20415754> |
 | Islamic and Arabic mathematical texts | 80/100 | <https://doi.org/10.5281/zenodo.20415769> |
