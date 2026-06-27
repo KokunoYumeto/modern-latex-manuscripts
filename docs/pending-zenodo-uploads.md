@@ -6046,3 +6046,12 @@ Manifest: [20260627_noether_r196_p09_source_anchor_survival_nopatch.json](../man
 - Scope: no-patch Paper 09 source-anchor survival package on the carried R191/R192/R193/R194/R195 candidate base. It records that the P09 printed author line, Zermelo `S. 484` footnote, `\xi_t` no-fix trap, multiplicative module-subscript no-fix traps, and the dense p.109-p.110 `F_\nu`/`G_{\nu\chi}`/lambda-threshold hotspot already survive.
 - Contents: current cumulative, targeted 1000 ppi P09 witnesses, best-available full-page p.109/p.110 witnesses, current anchor snippets, web-feedback summary, survival-disposition CSV, and SHA256 manifest.
 - Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 09 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The p.109/p.110 dense hotspot uses best available native 600 ppi/400 ppi full-page witnesses, below strict dense-math certification resolution.
+
+## 2026-06-27: Noether R197 Paper 08 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r197_p08_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r197_p08_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R197_LocalCodex_P08_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 30,437,281 bytes, SHA256 `BBC79BCB2E188FE1F0DCA4F951C65C23B54DAE3858261716DFDDECF811E31272`, 53 entries.
+- Scope: no-patch Paper 08 source-anchor survival package on the carried R191/R192/R193/R194/R195/R196 candidate base. It consolidates older RA52/RA66/RA68 P08 checks and records that the source title/author block, source-style note apparatus, p096 display marker, p097 `(zy)x`, p098 partial-lambda operator argument, p100 Omega equation/no-second-bracket trap, and `volle Systeme` no-fix trap already survive.
+- Contents: current cumulative, targeted 1000 ppi P08 witnesses, full-page GDZ context JPGs, older 650 ppi note witnesses, prior ledgers, current anchor snippets, web-feedback summary, survival-disposition CSV, and SHA256 manifest.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 08 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Full-page GDZ witnesses are mostly 400 ppi context images; named loci use targeted 1000 ppi crops.
