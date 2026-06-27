@@ -386,3 +386,7 @@ Registered the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20
 ### 2026-06-27: R224-R228 and broad R219 hygiene/current-base collision
 
 Registered R224-R228 plus the later-visible `Noether_R219_BroadCurrentBase_SourceHygieneFix_WebDrop_20260627.zip`. R224 is a no-patch P43 survival bridge against native 360ppi source. R225 applies an actual P34 tail source-restore patch on R204 and compiles twice to 471 pages, but source quality is native 400ppi. R226-R228 are no-patch bridges on R225 for P19/P20, P17/P18, and P15/P16. The broad R219 hygiene package is a same-number collision with the earlier local R219 bridge: it applies two actual TeX fixes on R204 and compiles to 470 pages. R225 and broad R219 must be deliberately reconciled before either is promoted as the single next German cumulative base. Classification: targeted source-audit/control material only, not source closure, multilingual synchronization, corpus certification, or critical-edition material.
+
+### 2026-06-27: R229 P14 R225 anchor survival bridge
+
+Registered R229 for Paper 14. It applies no TeX patch and records that the accepted P14 anchor/no-fix loci from R190/R207 survive in the current R225 German base: `(z-c)`, the rho-indexed prime-ideal product, and the rho/sigma polygon exponent anchors. The best staged official P14 full-page route is 600ppi, below the strict source-certification floor. Classification: current-base survival/control evidence only, not full P14 certification, source closure, multilingual synchronization, or critical-edition material.
