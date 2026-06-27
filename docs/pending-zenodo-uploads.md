@@ -6284,3 +6284,11 @@ Manifest: [20260627_noether_r246_p17_p18_native_source_resolution_nopatch.json](
 - Scope: clarifies native source-resolution status for Papers 17 and 18 and includes current R225 anchors, compact best-source witnesses, resolution ledgers, and prior applied-fix/no-fix ledgers.
 - Result: no TeX patch. P17 formula (39) footnotes 21/22 and the P18 Hentzelt resultant/norm anchor survive in R225. P18's GDZ p101 route is now verified as the Noether/Hentzelt note, superseding the old wrong-article caveat.
 - Caveat: source-quality/anti-regression support only. P17 and P18 best local full-page witnesses are native 600ppi, below the strict 650ppi full-page certification floor. Old 1000dpi-labelled crops are enlarged known-locus witnesses only. Do not front this packet above reader PDFs/TeX.
+
+## 2026-06-27: Noether German source-audit logbook post-R246 refresh
+
+Manifest: [20260627_noether_german_source_audit_logbook_refresh_post_r246.json](../manifests/pending-zenodo-uploads/20260627_noether_german_source_audit_logbook_refresh_post_r246.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 179,917 bytes, SHA256 `5AED831336A6D288F95CEE5FE961F6CA8A1FE2C55DFF80A0DA9B68470F4DF2C9`, modified locally 2026-06-27T18:59:33.
+- Scope: live German source-audit logbook, now including R245 and R246 source-resolution clarifications.
+- Caveat: support/provenance only. This supersedes the post-R243 same-day logbook metadata snapshot with SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`. Prefer folding into a compact source-audit support rollup; do not front above reader PDFs/TeX.
