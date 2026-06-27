@@ -6082,3 +6082,12 @@ Manifest: [20260627_noether_r200_r206_batch_register.json](../manifests/pending-
 - Routing note: two distinct `R200` artifacts exist. The raw web `Noether_R200_P06_pp193_196_SourceSymbolPatch_WebDrop_20260627.zip` contains real P06 pp.193-196 source-symbol repairs, but it was built on the older R191 base. `Noether_R204_LocalCodex_Rebase_WebR200P06_OnR203_WebDrop_20260627.zip` rebases those repairs onto R203 and should be treated as the practical next German cumulative base.
 - Scope: R200 P05 best-source visual audit; raw web R200 P06 source-symbol patch; R201 no-new-output sweep; R202 P03 RA57 survival; R203 P01 RA14 front-matter patch; R204 current-base rebase; R205 P02 RA65/RA80 survival; R206 P04 RA64/R127 survival.
 - Caveat: targeted repair/survival/provenance only. Not whole-paper certification, not Noether closure, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Several source witnesses are best-available 600ppi or 400ppi with enlarged review crops, below strict native high-resolution closure.
+
+## 2026-06-27: Noether R207-R212 bridge batch
+
+Manifest: [20260627_noether_r207_r212_bridge_batch_register.json](../manifests/pending-zenodo-uploads/20260627_noether_r207_r212_bridge_batch_register.json)
+
+- Noether pending/control bridge burst: `Noether_R207_LocalCodex_NewThreadFeedback_P14_P18_CurrentBaseBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R208_LocalCodex_P21_P24_CurrentBaseSurvivalBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R209_LocalCodex_P25_P30_CurrentBaseSurvivalBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R210_LocalCodex_P31_P36_CurrentBaseSurvivalBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R211_LocalCodex_P37_P43_TailMarkerQueueBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R212_LocalCodex_NewThread_WebOutputSweep_R200Collision_NoPatch_20260627.zip`.
+- Routing note: R204 remains the current German base. R207-R211 bridge older source-critical fixes and marker queues across P14-P43/tail state against R204. R212 clarifies the R200 naming collision and reports that no second new web output was visible in the checked folders.
+- Scope: no-patch current-base survival/orientation only. R207 covers P14-P18, R208 P21-P24, R209 P25-P30, R210 P31-P36, R211 P37-P43/tail marker state, and R212 web-output/R200-collision routing.
+- Caveat: bridge/survival/provenance only. Not page-by-page certification, not source closure, not Noether closure, not multilingual synchronization, and not critical-edition material.
