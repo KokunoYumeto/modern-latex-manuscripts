@@ -6028,3 +6028,12 @@ Manifest: [20260627_noether_r194_p10_source_anchor_survival_nopatch.json](../man
 - Scope: no-patch Paper 10 source-anchor survival package on the carried R191/R192/R193 candidate base. It records that source-visible front matter, definition (d) terminal `k_\sigma` indices, the `F(t;\vartheta_i)` divisibility display, the rank-three `x` no-fix trap, and the final Erlangen date line already survive.
 - Contents: current R191 candidate cumulative, P10 current snippets, targeted 1000 ppi source crops, raw GDZ page JPGs for pp.536-545, the P10 source cutout PDF, prior P10 ledgers, survival checks, no-fix traps, and package summary JSON.
 - Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 10 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. No compile was run because this is a no-patch package.
+
+## 2026-06-27: Noether R195 Paper 19/Paper 20 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r195_p19_p20_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r195_p19_p20_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R195_LocalCodex_P19_P20_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 16,587,793 bytes, SHA256 `EACCC217C0024742B4C1D9504850E870154257161C51307D3489A54F9579B376`, 28 entries.
+- Scope: no-patch Paper 19/Paper 20 source-anchor survival package on the carried R191/R192/R193/R194 candidate base. It records that P19 p.58 source order and `P^e` exponent, P19 p.65/p.66 tail exponent repairs, and P20 formula (13) kappa/lambda sums versus mu/nu prose products already survive. It also records that R158/R159 remain stale and no fresh post-R194 web output was found.
+- Contents: current R191 candidate cumulative, P19/P20 source witnesses, prior ledgers, current-evidence snippets, survival checks, no-fix traps, and package summary JSON.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 19 or Paper 20 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Full-page P19/P20 witnesses remain below the strict source-certification resolution floor; included 1000 ppi crops are targeted local witnesses.
