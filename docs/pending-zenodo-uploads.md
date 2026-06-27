@@ -6108,3 +6108,12 @@ Manifest: [20260627_noether_r216_r218_p05_p20_survival_bridge_batch_register.jso
 - Scope: no-patch current-base bridge/survival checks for Papers 05-13 and 19-20 against the R204 German base. R216 covers P10-P13 and P19-P20, R217 covers P09, and R218 covers P05-P08 including the indexed P06 web source-symbol patch already rebased in R204.
 - Bridge context: together with R207 for P14-P18, this makes the P05-P20 current-base bridge story explicit. It is routing/provenance/control material for future web/local repair sessions.
 - Caveat: bridge/survival/provenance only. Not page-by-page certification, not source closure, not Noether closure, not multilingual synchronization, and not critical-edition material. R216 contains long internal paths; keep it as a control package rather than a polished reader-facing packet.
+
+## 2026-06-27: Noether R219-R220 P01-P20 front bridge bundle
+
+Manifest: [20260627_noether_r219_r220_p01_p20_front_bridge_bundle_register.json](../manifests/pending-zenodo-uploads/20260627_noether_r219_r220_p01_p20_front_bridge_bundle_register.json)
+
+- Noether pending/control handoff burst: `Noether_R219_LocalCodex_P01_P04_R204SurvivalBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R220_LocalCodex_NewThread_FrontP01_P20_BridgeBundle_WebDrop_20260627.zip`.
+- Scope: R219 gives the missing front-paper R204 bridge for P01-P04. R220 is a convenience wrapper for a new web thread bundling R219, R218, R217, and R216, with R207 context for P14-P18.
+- Routing note: R204 remains the current German base for these front-paper bridge checks because it preserves the R203 P01 repair and rebases the web P06 source-symbol patch.
+- Caveat: handoff/bridge/provenance only. Not page-by-page certification, not source closure, not Noether closure, not multilingual synchronization, and not critical-edition material. R220 should not be counted as additional mathematical content beyond the bridge packets it wraps.
