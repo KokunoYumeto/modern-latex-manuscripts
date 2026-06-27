@@ -380,7 +380,7 @@ Registered R223 for Paper 42. It confirms the R169/R127 trace-order correction s
 
 ### 2026-06-27: German source-audit logbook refresh
 
-Registered the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 167,902 bytes, SHA256 `4157620F76A82A206A2295CF3DB7A8BA24EAA051809951294E8139A3289EAA8A`. This is a live audit/provenance logbook for the German source-checking lane. It should be used as support/routing material or folded into a compact Noether source-audit rollup, not fronted as a reader artifact. Earlier pending references to the same filename have stale hashes. Classification: source-audit support only, not TeX patch, source closure, multilingual synchronization, corpus certification, or critical-edition material.
+Registered the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 173,789 bytes, SHA256 `376BE4D493D1154DEF6CB060328594D8EC515EE1FB5DB91FABA3D00DE4A09066`. This is a live audit/provenance logbook for the German source-checking lane. It should be used as support/routing material or folded into a compact Noether source-audit rollup, not fronted as a reader artifact. Earlier pending references to the same filename have stale hashes. Classification: source-audit support only, not TeX patch, source closure, multilingual synchronization, corpus certification, or critical-edition material.
 
 
 ### 2026-06-27: R224-R228 and broad R219 hygiene/current-base collision
