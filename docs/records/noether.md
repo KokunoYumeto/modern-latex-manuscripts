@@ -390,3 +390,7 @@ Registered R224-R228 plus the later-visible `Noether_R219_BroadCurrentBase_Sourc
 ### 2026-06-27: R229 P14 R225 anchor survival bridge
 
 Registered R229 for Paper 14. It applies no TeX patch and records that the accepted P14 anchor/no-fix loci from R190/R207 survive in the current R225 German base: `(z-c)`, the rho-indexed prime-ideal product, and the rho/sigma polygon exponent anchors. The best staged official P14 full-page route is 600ppi, below the strict source-certification floor. Classification: current-base survival/control evidence only, not full P14 certification, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: R230/R231 P10-P20 R225 bridge bundle
+
+Registered R230/R231. R230 applies no patch and checks P10-P13 against R225, confirming prior source-confirmed fixes/no-fix traps survive. R231 wraps R226-R230 as the preferred compact P10-P20 R225 bridge handoff. R225 remains the latest patched cumulative base inside the bundle. Classification: current-base bridge/control evidence only, not global P10-P20 certification, source closure, multilingual synchronization, or critical-edition material.

@@ -591,3 +591,4 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 
 - 2026-06-27: Noether R224-R228 plus broad R219 hygiene/current-base collision registered. R225 restores P34 tail on R204; broad R219 applies two actual hygiene fixes on R204. These are divergent actual-fix branches and need reconciliation before a single next German base is promoted. R224/R226-R228 are survival/control only.
 - 2026-06-27: Noether R229 P14 R225 anchor survival bridge registered. No patch; P14 `(z-c)`, rho-indexed prime-ideal product, and rho/sigma polygon exponent anchors survive in R225. Source route is 600ppi below strict floor, so this is survival/control evidence only, not certification.
+- 2026-06-27: Noether R230/R231 P10-P20 R225 bridge bundle registered. R230 covers P10-P13; R231 wraps R226-R230 as the preferred compact P10-P20 bridge handoff. No new patch after R225; bridge/control evidence only, not certification.
