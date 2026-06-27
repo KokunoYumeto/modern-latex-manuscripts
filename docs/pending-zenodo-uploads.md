@@ -5992,3 +5992,12 @@ Manifest: [20260627_noether_r190_p14_survival_nopatch.json](../manifests/pending
 - Scope: no-patch new-output/current-base disposition plus Paper 14 survival checks. It keeps R158/R159 classified as stale R157-era bridge/review artifacts, not production bases, and records that the old P14 hazards at printed p.190, p.198, and p.200 are already correct in current R183.
 - Contents: current R183 German TeX, current queue and stale-output disposition ledgers, P14 line slices, P14 source witnesses, prior P14/P14-P17 ledgers, no-patch traps, and a P14 survival ledger.
 - Caveat: target-locus survival/provenance and current-base guidance only. No new TeX patch, not full Paper 14 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The best staged official full-page P14 source route is 600 ppi, below the strict 650 ppi floor.
+
+## 2026-06-27: Noether R191 Paper 13 Klein formula (30) source patch
+
+Manifest: [20260627_noether_r191_p13_klein_formula30_sourcepatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r191_p13_klein_formula30_sourcepatch.json)
+
+- Noether pending/control ZIP: `Noether_R191_LocalCodex_P13_KleinFormula30_SourcePatch_WebDrop_20260627.zip`, 11,108,131 bytes, SHA256 `A4D6D5B48B93CD0E13C2647A19EA8CA8583F725F3D2D053A91CD027227A6CECE`, 38 entries.
+- Scope: targeted source-confirmed Paper 13 patch on printed p.250, Klein formula (30). It places `\mathfrak{R}_{\mu\tau}` inside the numerator of the derivative fraction, changing the R183 reading to `+2\sum\frac{\p g^{\mu\nu}\mathfrak{R}_{\mu\tau}}{\p w^\sigma}=0`.
+- Contents: patched German cumulative candidate `cum_de_R191_after_P13_formula30_patch_20260627.tex`, R183/R191 line slices, R190 carried-forward base-disposition note, P13 source witnesses, prior ledgers, no-patch traps, source-fix ledger, and `R183_to_R191_P13_formula30.diff`.
+- Caveat: targeted source-patch/candidate cumulative only. Package provenance says `not_compiled_locally_one_line_tex_formula_patch_only`. Not full Paper 13 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
