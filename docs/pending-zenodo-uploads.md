@@ -6257,3 +6257,12 @@ Manifest: [20260627_noether_german_source_audit_logbook_refresh_post_r243.json](
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 178,454 bytes, SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`, modified locally 2026-06-27T18:49:36.
 - Scope: live German source-audit logbook, now including the R243 P41-P43 source-quality recheck and P43 GDZ600 source upgrade.
 - Caveat: support/provenance only. This supersedes the earlier same-day logbook metadata snapshot with SHA256 `376BE4D493D1154DEF6CB060328594D8EC515EE1FB5DB91FABA3D00DE4A09066`. Prefer folding into a compact source-audit support rollup; do not front above reader PDFs/TeX.
+
+## 2026-06-27: Noether R244 post-R243 routing check, no new web output
+
+Manifest: [20260627_noether_r244_post_r243_no_new_web_output_feedback.json](../manifests/pending-zenodo-uploads/20260627_noether_r244_post_r243_no_new_web_output_feedback.json)
+
+- Noether routing ZIP: `Noether_R244_LocalCodex_NewThreadDownloadSweep_PostR243_Feedback_NoNewWebOutput_20260627.zip`, 5,105 bytes, SHA256 `076153AFF118204382D3C6D6D82B08B3E217ED45B1D087EB5B2596AB83C46578`, 6 entries.
+- Scope: checks Noether Multilingual, Edge dump, Downloads, and Codex attachments after a reported new web-thread output.
+- Result: no new post-R243 web-produced Noether package is visible locally. R244 says R237 is only the P01-P09 component and R238 is the broad P01-P43 wrapper that contains R237 plus R231 and R236.
+- Caveat: routing/control only. No TeX patch, no new mathematical output, no source certification, no source closure, no multilingual synchronization, no corpus certification, and no critical-edition claim. Do not front this packet above reader PDFs/TeX.
