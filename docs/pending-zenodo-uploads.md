@@ -6055,3 +6055,12 @@ Manifest: [20260627_noether_r197_p08_source_anchor_survival_nopatch.json](../man
 - Scope: no-patch Paper 08 source-anchor survival package on the carried R191/R192/R193/R194/R195/R196 candidate base. It consolidates older RA52/RA66/RA68 P08 checks and records that the source title/author block, source-style note apparatus, p096 display marker, p097 `(zy)x`, p098 partial-lambda operator argument, p100 Omega equation/no-second-bracket trap, and `volle Systeme` no-fix trap already survive.
 - Contents: current cumulative, targeted 1000 ppi P08 witnesses, full-page GDZ context JPGs, older 650 ppi note witnesses, prior ledgers, current anchor snippets, web-feedback summary, survival-disposition CSV, and SHA256 manifest.
 - Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 08 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Full-page GDZ witnesses are mostly 400 ppi context images; named loci use targeted 1000 ppi crops.
+
+## 2026-06-27: Noether R198 Paper 07 source-anchor survival, no patch
+
+Manifest: [20260627_noether_r198_p07_source_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r198_p07_source_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R198_LocalCodex_P07_SourceAnchorSurvival_NoPatch_WebDrop_20260627.zip`, 13,268,526 bytes, SHA256 `E150CAA8B7B3A2156AB71D535520E2C35B69E5D6616E38B28170B00D48670563`, 25 entries.
+- Scope: no-patch Paper 07 source-anchor survival package on the carried R191/R192/R193/R194/R195/R196/R197 candidate base. It records that the source title/author block, opening Weber `*)` note, formula (1), Galois resolvent display, p90 source-style `*)` and `**)` notes, Weber II section 58 correction note, final Math. Ann. 76 and relative-invariants source notes, and `Erlangen, Mai 1915.` closing line already survive.
+- Contents: current cumulative, P07 source witnesses, native GDZ full-page context JPGs, current anchor snippets, web-feedback summary, survival-disposition CSV, no-fix traps, and SHA256 manifest.
+- Caveat: targeted source-anchor survival/provenance only. No new TeX patch, not full Paper 07 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The p091 Weber derivative-note anchor is best available staged 650 ppi evidence below strict dense-math certification resolution; native GDZ full-page images are 400 ppi context witnesses.
