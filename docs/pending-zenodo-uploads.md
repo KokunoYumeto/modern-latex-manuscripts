@@ -6180,3 +6180,13 @@ Manifest: [20260627_noether_r229_p14_r225_anchor_survival_nopatch.json](../manif
 - Scope: Paper 14 anchor-survival check against the current R225 German base. It confirms survival of the `(z-c)` loci, the rho-indexed prime-ideal product, and the rho/sigma polygon exponent anchors from R190/R207.
 - Result: no TeX patch. R229 is stale-queue/current-base survival evidence only.
 - Caveat: the best staged official P14 full-page source route is recorded as 600ppi, below the strict 650ppi project floor. This is not full Paper 14 certification, not global source closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R230/R231 P10-P20 R225 bridge bundle, no patch
+
+Manifest: [20260627_noether_r230_r231_p10_p20_r225_bridge_bundle.json](../manifests/pending-zenodo-uploads/20260627_noether_r230_r231_p10_p20_r225_bridge_bundle.json)
+
+- Noether pending/control component ZIP: `Noether_R230_LocalCodex_P10_P13_R225CurrentBaseBridge_NoPatch_WebDrop_20260627.zip`, 3,293,354 bytes, SHA256 `905BFE03E60F8EE05D9B0B46287AB78A364101CE9D0A4040D28043977B9E2F84`, 73 entries.
+- Noether preferred wrapper ZIP: `Noether_R231_LocalCodex_P10_P20_R225BridgeBundle_WebDrop_20260627.zip`, 18,852,349 bytes, SHA256 `1E128EE9BC17C5AD3143F5C721029BBED0CB433B91B14133AA9D8C109A53BFCA`, 8 entries.
+- Scope: R230 confirms P10-P13 prior source-confirmed fixes/no-fix traps survive in the current R225 German base. R231 wraps R226-R230 so the P10-P20 R225 bridge can be handed off as one package.
+- Result: no new TeX patch after R225. R225 remains the latest patched cumulative base represented by this bridge bundle.
+- Caveat: current-base bridge/control evidence only. This does not certify P10-P20 globally page-by-page, close the source audit, synchronize other languages, or create critical-edition material. Prefer R231 over separate R226-R230 uploads if Noether file-count pressure remains.
