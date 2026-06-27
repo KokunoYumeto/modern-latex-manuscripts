@@ -6157,7 +6157,7 @@ Manifest: [20260627_noether_r223_p42_r204_survival_360ppi_nopatch.json](../manif
 
 Manifest: [20260627_noether_german_source_audit_logbook_refresh.json](../manifests/pending-zenodo-uploads/20260627_noether_german_source_audit_logbook_refresh.json)
 
-- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 167,902 bytes, SHA256 `4157620F76A82A206A2295CF3DB7A8BA24EAA051809951294E8139A3289EAA8A`, modified locally 2026-06-27T17:10:42.
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 173,789 bytes, SHA256 `376BE4D493D1154DEF6CB060328594D8EC515EE1FB5DB91FABA3D00DE4A09066`, modified locally 2026-06-27T18:23:59.
 - Scope: live German source-audit logbook recording source leads, source-quality notes, candidate fixes, no-fix traps, and web/local routing notes across the Noether source-checking lane.
 - Caveat: support/provenance only. Not a reader edition, not a TeX patch, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Earlier pending references to this filename have stale hashes.
 - Public action: verify the hash immediately before upload. Prefer folding this into one compact Noether source-audit support rollup because the Noether Zenodo record is file-count constrained; do not front the logbook above reader PDFs or clean language branches.
