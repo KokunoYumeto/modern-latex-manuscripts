@@ -6171,3 +6171,12 @@ Manifest: [20260627_noether_r224_r228_and_broad_r219_hygiene_register.json](../m
 - Routing note: broad R219 is not the same package as the earlier local R219 P01-P04 bridge already registered. Broad R219 applies two actual fixes on R204 and compiles to 470 pages. R225 separately applies a P34 tail source-restore patch on R204 and compiles to 471 pages. These branches require reconciliation before naming a single next German cumulative base.
 - Scope: R224 P43 survival/no patch; R225 P34 tail restore actual patch; R226 P19/P20 R225 bridge/no patch; R227 P17/P18 R225 bridge/no patch; R228 P15/P16 R225 bridge/no patch; broad R219 current-base source-hygiene actual patch/control packet.
 - Caveat: targeted source-audit/control material only. R225 and broad R219 contain actual candidate fixes but not full source closure. R224/R226/R227/R228 are survival/control. Not whole-corpus certification, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R229 Paper 14 R225 anchor survival bridge, no patch
+
+Manifest: [20260627_noether_r229_p14_r225_anchor_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r229_p14_r225_anchor_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R229_LocalCodex_P14_R225AnchorBridge_NoPatch_WebDrop_20260627.zip`, 3,215,705 bytes, SHA256 `FD492D1C86D96BD96757327B385955D4F815F7B9C9B4002C8104E81718632CA2`, 15 entries.
+- Scope: Paper 14 anchor-survival check against the current R225 German base. It confirms survival of the `(z-c)` loci, the rho-indexed prime-ideal product, and the rho/sigma polygon exponent anchors from R190/R207.
+- Result: no TeX patch. R229 is stale-queue/current-base survival evidence only.
+- Caveat: the best staged official P14 full-page source route is recorded as 600ppi, below the strict 650ppi project floor. This is not full Paper 14 certification, not global source closure, not multilingual synchronization, and not critical-edition material.
