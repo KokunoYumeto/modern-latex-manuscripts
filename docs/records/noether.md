@@ -394,3 +394,7 @@ Registered R229 for Paper 14. It applies no TeX patch and records that the accep
 ### 2026-06-27: R230/R231 P10-P20 R225 bridge bundle
 
 Registered R230/R231. R230 applies no patch and checks P10-P13 against R225, confirming prior source-confirmed fixes/no-fix traps survive. R231 wraps R226-R230 as the preferred compact P10-P20 R225 bridge handoff. R225 remains the latest patched cumulative base inside the bundle. Classification: current-base bridge/control evidence only, not global P10-P20 certification, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: R232 new-thread download check and R231 pointer
+
+Registered R232 as a tiny routing/check packet. It reports that no newer web-produced Noether ZIP was visible in the usual local download lanes and points to R231 as the current compact P10-P20 R225 bridge handoff. Classification: routing metadata only, not mathematical production output, source closure, multilingual synchronization, or critical-edition material.
