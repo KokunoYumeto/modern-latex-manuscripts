@@ -6125,3 +6125,12 @@ Manifest: [20260627_sga_local_audit_status_reconciliation.json](../manifests/pen
 - SGA pending/status evidence: `sga5_full_audit_workpass_support_20260624.zip` and `sga6_repair107_english_sync_repair046_20260622.zip`.
 - Scope: sweep found later SGA5 audit/workpass material under `SGA continuation 2/_claude_aid/sga5_full_audit_20260623` plus an SGA6 English-sync repair107 package. The SGA5 folder contains workpass TeX/PDF, STATUS, CERT_LOG, AGENT_SCORECARD, FINDINGS, and method notes; repair107 synchronizes English with French repair046 for Expose VI p394 and reports a 364-page compile.
 - Caveat: status/evidence only. Do not promote SGA5 as complete or critical from these local labels; treat it as an audit/workpass under review. SGA6 still has global page-by-page certification and later English-sync work open. SGA7 remains a working draft with compression/source-check caveats.
+
+## 2026-06-27: Noether R221 current coverage and open-risk ledger
+
+Manifest: [20260627_noether_r221_current_coverage_open_risk_ledger.json](../manifests/pending-zenodo-uploads/20260627_noether_r221_current_coverage_open_risk_ledger.json)
+
+- Noether control ZIP: `Noether_R221_LocalCodex_CurrentCoverage_OpenRiskLedger_WebDrop_20260627.zip`, 578,473 bytes, SHA256 `632DEE14A2DFE2DAA53AD27FCA032A31857B8E61C270A4AD1D0B8DF053EE6F57`, 14 entries.
+- Scope: current coverage/open-risk ledger after R204/R220. It records that P01-P20 has a clean web-upload bridge bundle in R220; P21-P43/tail has survival/anti-regression coverage through R208-R211 plus specific P38-P40 survival in R213-R215.
+- Highest-priority next work: true source-critical audit for P41-P43. Next source-quality target: P34-P35 if stronger witnesses can be found.
+- Caveat: no TeX patch and no certification. This is a human-facing risk/coverage ledger only: not source closure, not multilingual synchronization, and not critical-edition material.
