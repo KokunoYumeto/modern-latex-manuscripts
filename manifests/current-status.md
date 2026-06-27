@@ -599,3 +599,5 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R239-R242 source-quality/routing feedback registered. No newer post-R241 Noether web output was visible locally; R238 remains the broad R225 orientation wrapper; P30/P34/P35 source-quality caveats remain active and below strict source-certification thresholds.
 
 - 2026-06-27: Noether R243 source-quality recheck registered. P41 remains best-local GDZ400, P42 remains best-local native 360ppi, and P43 is upgraded to a GDZ JRAM 188 article-level source route (`PPN243919689_0188`, `LOG_0004`) with around-600ppi embedded article pages. No TeX patch; P43 still needs real page-by-page audit before stronger claims. The live German source-audit logbook now has SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`.
+
+- 2026-06-27: Noether R244 routing check registered. No new post-R243 web-produced Noether package was visible in the checked local folders. Use R238 as the broad R225 orientation wrapper, with R240/R241/R243 as source-quality caveat updates. Routing/control only; no patch or certification.

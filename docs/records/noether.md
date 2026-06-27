@@ -422,3 +422,7 @@ Registered Noether R243 as source-quality support evidence only. `Noether_R243_L
 ### 2026-06-27: German source-audit logbook post-R243 refresh
 
 Refreshed the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` after R243: 178,454 bytes, SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`, modified locally 2026-06-27T18:49:36. This supersedes the earlier same-day logbook metadata snapshot with SHA256 `376BE4D493D1154DEF6CB060328594D8EC515EE1FB5DB91FABA3D00DE4A09066`. Classification remains support/provenance only; do not front the logbook above reader PDFs/TeX.
+
+### 2026-06-27: R244 post-R243 routing check, no new web output
+
+Registered Noether R244 as routing/control metadata only. `Noether_R244_LocalCodex_NewThreadDownloadSweep_PostR243_Feedback_NoNewWebOutput_20260627.zip` rechecked the Noether Multilingual folder, Edge dump, Downloads, and Codex attachments after a reported new web-thread output and found no new post-R243 web-produced Noether package visible locally. It clarifies that R237 is a P01-P09 component while R238 is the broad wrapper containing R237, R231, and R236, and recommends giving/reading R238 plus R240/R241/R243 for caveat updates. No TeX patch, no new mathematical production output, not source certification, not source closure, not multilingual synchronization, and not critical-edition material.
