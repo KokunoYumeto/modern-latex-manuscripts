@@ -438,3 +438,11 @@ Registered Noether R246 as source-quality caveat and anti-regression support onl
 ### 2026-06-27: German source-audit logbook post-R246 refresh
 
 Refreshed the current local snapshot of `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md` after R245/R246: 179,917 bytes, SHA256 `5AED831336A6D288F95CEE5FE961F6CA8A1FE2C55DFF80A0DA9B68470F4DF2C9`, modified locally 2026-06-27T18:59:33. This supersedes the post-R243 same-day logbook metadata snapshot with SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`. Classification remains support/provenance only; do not front the logbook above reader PDFs/TeX.
+
+### 2026-06-27: R247 P15/P16 source-route and resolution clarification
+
+Registered Noether R247 as source-route caveat and anti-regression support only. `Noether_R247_LocalCodex_P15_P16_SourceRouteAndResolutionClarification_NoPatch_20260627.zip` applies no TeX patch and records that the known Paper 15 x-index/Schur and Paper 16 F-not-Phi repairs already survive in the current R225 German base. It clarifies that P15 remains best-available from a 360ppi article PDF plus a 400ppi title witness, and P16 remains best-available from 360ppi/400ppi or undefined-DPI witnesses. Bad-offset P16 GDZ canvases 00000025-00000030 must not be used as Paper 16 authority. Old 1000dpi-labelled crops are enlarged known-locus witnesses only. Classification: support/provenance only, not P15/P16 source closure, not corpus certification, not multilingual synchronization, and not critical-edition material.
+
+### 2026-06-27: R248 new-thread two-output triage
+
+Registered Noether R248 as routing/control support only. `Noether_R248_LocalCodex_NewThreadTwoOutputTriage_R237_R238_Status_20260627.zip` applies no TeX patch and clarifies that R237 and R238 are not competing outputs: R237 is the P01-P09 bridge component, while R238 is the preferred P01-P43 orientation wrapper containing R237, R231, and R236. R248 supersedes R244 as the clearer new-thread triage note. Classification: routing/provenance only, not mathematical production output, not source certification, not source closure, not multilingual synchronization, not corpus certification, and not critical-edition material.
