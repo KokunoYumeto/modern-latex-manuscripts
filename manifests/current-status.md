@@ -607,3 +607,7 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R246 P17/P18 native source-resolution clarification registered. P17/P18 anchors survive in R225; P18 GDZ p101 is now verified as the Noether/Hentzelt note, superseding the stale wrong-article caveat. P17 and P18 full-page witnesses are native 600ppi, still below the strict 650ppi certification floor. No patch or certification.
 
 - 2026-06-27: Noether German source-audit logbook refreshed after R246. Current local hash is `5AED831336A6D288F95CEE5FE961F6CA8A1FE2C55DFF80A0DA9B68470F4DF2C9` for 179,917 bytes. Support/provenance only.
+
+- 2026-06-27: Noether R247 P15/P16 source-route clarification registered. No patch; known P15/P16 repairs survive in R225, but current source witnesses remain below strict certification floor or undefined-DPI. Bad-offset P16 GDZ canvases 25-30 must not be reused.
+
+- 2026-06-27: Noether R248 new-thread two-output triage registered. No patch; R237 is only the P01-P09 component, while R238 is the preferred P01-P43 wrapper/orientation bundle. Routing/control only.

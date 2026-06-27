@@ -6292,3 +6292,21 @@ Manifest: [20260627_noether_german_source_audit_logbook_refresh_post_r246.json](
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 179,917 bytes, SHA256 `5AED831336A6D288F95CEE5FE961F6CA8A1FE2C55DFF80A0DA9B68470F4DF2C9`, modified locally 2026-06-27T18:59:33.
 - Scope: live German source-audit logbook, now including R245 and R246 source-resolution clarifications.
 - Caveat: support/provenance only. This supersedes the post-R243 same-day logbook metadata snapshot with SHA256 `B0E4D21E18AFDA5D7957EA5D478C0CB15BCBCAA7A0D4BDABF82E7BBDD836FCA5`. Prefer folding into a compact source-audit support rollup; do not front above reader PDFs/TeX.
+
+## 2026-06-27: Noether R247 P15/P16 source-route clarification, no patch
+
+Manifest: [20260627_noether_r247_p15_p16_source_route_resolution_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r247_p15_p16_source_route_resolution_nopatch.json)
+
+- Noether source-route support ZIP: `Noether_R247_LocalCodex_P15_P16_SourceRouteAndResolutionClarification_NoPatch_20260627.zip`, 3,365,975 bytes, SHA256 `6282DF7C50E162FB31306E06B68D326A445CB5BD34AEA09A0359E6B7F3B96824`, 27 entries.
+- Scope: clarifies valid and invalid Paper 15/Paper 16 source routes and native-resolution limits against the current R225 German base.
+- Result: no TeX patch. Known P15 x-index/Schur and P16 F-not-Phi repairs already survive in R225.
+- Caveat: source-route/anti-regression support only. P15/P16 current local witnesses are best-available but below the strict 650ppi certification floor or have undefined native DPI. Do not use bad-offset P16 GDZ canvases 00000025-00000030, and do not front this packet above reader PDFs/TeX.
+
+## 2026-06-27: Noether R248 new-thread two-output triage
+
+Manifest: [20260627_noether_r248_newthread_two_output_triage.json](../manifests/pending-zenodo-uploads/20260627_noether_r248_newthread_two_output_triage.json)
+
+- Noether routing/control ZIP: `Noether_R248_LocalCodex_NewThreadTwoOutputTriage_R237_R238_Status_20260627.zip`, 3,501 bytes, SHA256 `00DD8E04CCF4D2A19C692DAB9336128EBFAB76126033462A01660924FE1C4DE1`, 4 entries.
+- Scope: clarifies that R237 and R238 are not competing outputs. R237 is the P01-P09 bridge component; R238 is the preferred P01-P43 orientation wrapper containing R237, R231, and R236.
+- Result: no TeX patch and no new mathematical production output. R248 supersedes R244 as the clearer new-thread triage note.
+- Caveat: routing/control only; not source certification, source closure, multilingual synchronization, corpus certification, or critical-edition material. Do not front this packet above reader PDFs/TeX.
