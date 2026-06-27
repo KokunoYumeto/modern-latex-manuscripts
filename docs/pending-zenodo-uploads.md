@@ -6134,3 +6134,12 @@ Manifest: [20260627_noether_r221_current_coverage_open_risk_ledger.json](../mani
 - Scope: current coverage/open-risk ledger after R204/R220. It records that P01-P20 has a clean web-upload bridge bundle in R220; P21-P43/tail has survival/anti-regression coverage through R208-R211 plus specific P38-P40 survival in R213-R215.
 - Highest-priority next work: true source-critical audit for P41-P43. Next source-quality target: P34-P35 if stronger witnesses can be found.
 - Caveat: no TeX patch and no certification. This is a human-facing risk/coverage ledger only: not source closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R222 Paper 41 GDZ400 formula audit, no patch
+
+Manifest: [20260627_noether_r222_p41_gdz400_formula_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r222_p41_gdz400_formula_audit_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R222_LocalCodex_P41_GDZ400_BestAvailableFormulaAudit_NoPatch_WebDrop_20260627.zip`, 7,978,979 bytes, SHA256 `74C3643BAC5D8EBDC3FA2149DB2859C6580B61ED22F0945040F5E3F77A46859B`, 25 entries.
+- Scope: Paper 41 formula-spine audit against the current R204 German base, lines 20112-20265. It checks 14 formula/notation anchors across printed pp.411-419: displays (1)-(5), cyclic displays (1')-(6), class-factor quotients, Hilfssatz/local-prime notation, R-power/e-factor displays, and received date.
+- Result: no missing anchors and no TeX patch. All checked formula anchors are present in R204.
+- Caveat: best-available GDZ 400ppi witness only, below the strict 650+ source-certification preference. Treat as no-patch survival/provenance evidence, not full P41 certification, source closure, multilingual synchronization, or critical-edition material.
