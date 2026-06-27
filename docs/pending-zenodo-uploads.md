@@ -6099,3 +6099,12 @@ Manifest: [20260627_noether_r213_r215_p38_p40_survival_batch_register.json](../m
 - Noether pending/control survival burst: Noether_R213_LocalCodex_P38_SourceRepairSurvival_NoPatch_WebDrop_20260627.zip; Noether_R214_LocalCodex_P39_SourceRepairSurvival_NoPatch_WebDrop_20260627.zip; Noether_R215_LocalCodex_P40_CompleteSurvivalOnR204_NoPatch_WebDrop_20260627.zip.
 - Scope: no-patch survival/provenance checks for Papers 38, 39, and 40 against the current R204 German base. R213/R214 carry source-repair section comparisons and probes; R215 carries Paper 40 complete-pass section comparison, prior ledgers, and source probe.
 - Caveat: control/survival/provenance only. Not page-by-page certification, not source closure, not Noether closure, not multilingual synchronization, and not critical-edition material.
+
+## 2026-06-27: Noether R216-R218 P05-P20 survival bridge batch
+
+Manifest: [20260627_noether_r216_r218_p05_p20_survival_bridge_batch_register.json](../manifests/pending-zenodo-uploads/20260627_noether_r216_r218_p05_p20_survival_bridge_batch_register.json)
+
+- Noether pending/control bridge burst: `Noether_R216_LocalCodex_P10_P13_P19_P20_R204SurvivalBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R217_LocalCodex_P09_R204SurvivalBridge_NoPatch_WebDrop_20260627.zip`; `Noether_R218_LocalCodex_P05_P08_R204Bridge_P06WebPatchIndexed_WebDrop_20260627.zip`.
+- Scope: no-patch current-base bridge/survival checks for Papers 05-13 and 19-20 against the R204 German base. R216 covers P10-P13 and P19-P20, R217 covers P09, and R218 covers P05-P08 including the indexed P06 web source-symbol patch already rebased in R204.
+- Bridge context: together with R207 for P14-P18, this makes the P05-P20 current-base bridge story explicit. It is routing/provenance/control material for future web/local repair sessions.
+- Caveat: bridge/survival/provenance only. Not page-by-page certification, not source closure, not Noether closure, not multilingual synchronization, and not critical-edition material. R216 contains long internal paths; keep it as a control package rather than a polished reader-facing packet.
