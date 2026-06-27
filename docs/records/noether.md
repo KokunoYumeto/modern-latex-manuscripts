@@ -398,3 +398,7 @@ Registered R230/R231. R230 applies no patch and checks P10-P13 against R225, con
 ### 2026-06-27: R232 new-thread download check and R231 pointer
 
 Registered R232 as a tiny routing/check packet. It reports that no newer web-produced Noether ZIP was visible in the usual local download lanes and points to R231 as the current compact P10-P20 R225 bridge handoff. Classification: routing metadata only, not mathematical production output, source closure, multilingual synchronization, or critical-edition material.
+
+### 2026-06-27: R233 P21-P30 R225 current-base bridge
+
+Registered R233. It applies no patch and records that Papers 21-30 are byte-exact between R204 and R225, carrying R208/R209 source-critical bridge evidence forward to the R225 base. Classification: anti-regression/current-base bridge evidence only; R208/R209 source-quality caveats remain active. Not global P21-P30 certification, source closure, multilingual synchronization, or critical-edition material.

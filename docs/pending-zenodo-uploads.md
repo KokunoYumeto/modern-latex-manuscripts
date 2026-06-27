@@ -6199,3 +6199,12 @@ Manifest: [20260627_noether_r232_newthread_downloadcheck_r231_pointer.json](../m
 - Scope: checks the usual Noether download lanes after a new web-thread report and records that no newer web-produced Noether ZIP is visible. It points the new thread to R231 as the current compact P10-P20 R225 bridge bundle.
 - Result: no TeX patch, no merge action, and no new mathematical production output.
 - Caveat: routing/check metadata only. Do not count as additional Noether content, source certification, source closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-27: Noether R233 P21-P30 R225 current-base bridge, no patch
+
+Manifest: [20260627_noether_r233_p21_p30_r225_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r233_p21_p30_r225_bridge_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R233_LocalCodex_P21_P30_R225CurrentBaseBridge_NoPatch_WebDrop_20260627.zip`, 11,558,182 bytes, SHA256 `4BAD25454CCAD569BBB4F4C7DC5EB34C20DDBDB331BB2997D1E6D3130BF5C581`, 26 entries.
+- Scope: carries the earlier R208/R209 P21-P30 source-critical bridge forward from R204 to the current R225 German base.
+- Result: no TeX patch. P21-P30 paper spans are byte-exact between R204 and R225, so the R208/R209 source-confirmed anchors and no-fix traps survive into R225.
+- Caveat: anti-regression/current-base bridge evidence only. R233 does not perform new source-image certification; R208/R209 source-quality caveats remain active, especially where full-page witnesses are below the strict native 650ppi floor. Not global P21-P30 certification, source closure, multilingual synchronization, or critical-edition material.
