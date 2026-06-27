@@ -5965,3 +5965,21 @@ Manifest: [20260627_noether_r187_p17_footnote2122_survival_nopatch.json](../mani
 - Scope: no-patch Paper 17 source-anchor survival check for printed p.25, formula (39), footnotes 21 and 22. It records that the old RA41-era missing-footnote findings are already fixed in the current R183 base.
 - Contents: current R183 German TeX, a P17 line slice, prior ledgers, no-patch traps, a footnote survival ledger, a page PDF, a 650 dpi supporting crop, and a 1000 dpi labelled crop for the formula/footnote locus.
 - Caveat: footnote-locus survival/provenance only. No new TeX patch, not full Paper 17 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The global P17 source route remains 600 ppi.
+
+## 2026-06-27: Noether R188 Paper 16 F/Phi survival, no patch
+
+Manifest: [20260627_noether_r188_p16_fnotphi_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r188_p16_fnotphi_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R188_LocalCodex_P16_FnotPhiSurvival_NoPatch_WebDrop_20260627.zip`, 11,322,037 bytes, SHA256 `47FB7118F8A799343373DB345C3058B00FC18669686D2B6496331E776C9D47E2`, 19 entries.
+- Scope: no-patch Paper 16 survival check for printed p.30, paragraph immediately before formula [10]. It records that the old RA41 F/Phi finding is already fixed in the current R183 base: the prose has `Invarianten von F ... aus F und aus Formen aus M`, while formula [10] remains `\Phi=a_1SF=a_1S\Phi`.
+- Contents: current R183 German TeX, P16 line slices, prior P16 and P14-P17 ledgers, no-patch traps, an F/Phi survival ledger, 650 dpi and 1000 dpi targeted crops, and a carried RA53 source-critical PDF.
+- Caveat: target-locus survival/provenance only. No new TeX patch, not full Paper 16 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The best staged official full-page P16 source is 400 ppi; the 1000 dpi crop is a render aid from lower-native source.
+
+## 2026-06-27: Noether R189 Paper 15 x-index and Schur 355 survival, no patch
+
+Manifest: [20260627_noether_r189_p15_xindices_schur_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r189_p15_xindices_schur_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R189_LocalCodex_P15_XIndicesSchur355Survival_NoPatch_WebDrop_20260627.zip`, 9,540,918 bytes, SHA256 `2AB5233282DB41D7863529B3EE162785366857E218240B723CD51420B08FEF01`, 22 entries.
+- Scope: no-patch Paper 15 survival check for printed p.152 x-index block and printed p.154 Schur citation footnote. It records that the old RA41 defects are already fixed in the current R183 base: Latin `x` indices survive, and the Schur citation reads `Math. Ann. 71, S. 355 (1912)`.
+- Contents: current R183 German TeX, P15 line slices, prior P15 and P14-P17 ledgers, no-patch traps, an x-index/Schur survival ledger, 650 dpi and 1000 dpi targeted crops, and a carried RA54 source-critical PDF.
+- Caveat: target-locus survival/provenance only. No new TeX patch, not full Paper 15 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The best staged official full-page P15 source is 400 ppi; the 1000 dpi crops are render aids from lower-native source.
