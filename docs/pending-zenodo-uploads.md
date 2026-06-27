@@ -6219,3 +6219,13 @@ Manifest: [20260627_noether_r234_r236_p21_p43_r225_bridge_bundle.json](../manife
 - Scope: R236 wraps R233/R234/R235 as the compact P21-P43 current-base bridge for the R225 German base.
 - Result: no new TeX patch after R225. R234 documents the intentional P34 delta from the R225 P34 tail restore; R235 documents P37-P43 byte-exact survival from R204 to R225. Do not revert P34 to the older R204/R210 state.
 - Caveat: bridge/control evidence only. Not global page-by-page certification, source closure, multilingual synchronization, corpus certification, or critical-edition material. Source-quality caveats remain active especially for P30, P34, P35, P41, P42, and P43.
+
+## 2026-06-27: Noether R237-R238 P01-P43 R225 bridge bundle, no patch
+
+Manifest: [20260627_noether_r237_r238_p01_p43_r225_bridge_bundle.json](../manifests/pending-zenodo-uploads/20260627_noether_r237_r238_p01_p43_r225_bridge_bundle.json)
+
+- Noether component ZIP: `Noether_R237_LocalCodex_P01_P09_R225CurrentBaseBridge_NoPatch_WebDrop_20260627.zip`, 5,384,560 bytes, SHA256 `783EEBBE46F4EA6015C53ACC5BF70F7F5C92F4C395958EA147BA74D01D6F943B`, 27 entries.
+- Noether preferred wrapper ZIP: `Noether_R238_LocalCodex_P01_P43_R225BridgeBundle_WebDrop_20260627.zip`, 81,578,882 bytes, SHA256 `0F85EF86DBF2A7D824E00982E87F4EB3E5B0B7EE0302733CC3D43A6DA40F229F`, 6 entries.
+- Scope: R238 wraps R237 for P01-P09, R231 for P10-P20, and R236 for P21-P43 as the compact R225 current-base bridge/orientation package.
+- Result: no TeX patch. R237 records that all P01-P09 prior R204 blocks are found byte-exact in R225. R238 records P01-P33 and P35-P43 survival according to inner packages, while P34 remains the intentional R225 tail-source-restore delta.
+- Caveat: orientation/bridge/control evidence only. It should guide new web threads and prevent regression; it is not global page-by-page source certification, source closure, multilingual synchronization, corpus certification, or critical-edition material.
