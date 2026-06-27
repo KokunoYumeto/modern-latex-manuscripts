@@ -5983,3 +5983,12 @@ Manifest: [20260627_noether_r189_p15_xindices_schur_survival_nopatch.json](../ma
 - Scope: no-patch Paper 15 survival check for printed p.152 x-index block and printed p.154 Schur citation footnote. It records that the old RA41 defects are already fixed in the current R183 base: Latin `x` indices survive, and the Schur citation reads `Math. Ann. 71, S. 355 (1912)`.
 - Contents: current R183 German TeX, P15 line slices, prior P15 and P14-P17 ledgers, no-patch traps, an x-index/Schur survival ledger, 650 dpi and 1000 dpi targeted crops, and a carried RA54 source-critical PDF.
 - Caveat: target-locus survival/provenance only. No new TeX patch, not full Paper 15 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The best staged official full-page P15 source is 400 ppi; the 1000 dpi crops are render aids from lower-native source.
+
+## 2026-06-27: Noether R190 new-output disposition and Paper 14 survival, no patch
+
+Manifest: [20260627_noether_r190_p14_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r190_p14_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R190_LocalCodex_NewOutputCheck_P14Survival_NoPatch_WebDrop_20260627.zip`, 36,487,734 bytes, SHA256 `F46B3B86D7C7F9C94E0F2EDA4A126AB172E9A4005F767C54D5EB5A964575571D`, 31 entries.
+- Scope: no-patch new-output/current-base disposition plus Paper 14 survival checks. It keeps R158/R159 classified as stale R157-era bridge/review artifacts, not production bases, and records that the old P14 hazards at printed p.190, p.198, and p.200 are already correct in current R183.
+- Contents: current R183 German TeX, current queue and stale-output disposition ledgers, P14 line slices, P14 source witnesses, prior P14/P14-P17 ledgers, no-patch traps, and a P14 survival ledger.
+- Caveat: target-locus survival/provenance and current-base guidance only. No new TeX patch, not full Paper 14 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The best staged official full-page P14 source route is 600 ppi, below the strict 650 ppi floor.
