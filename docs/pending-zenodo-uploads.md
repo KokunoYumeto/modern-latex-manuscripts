@@ -6190,3 +6190,12 @@ Manifest: [20260627_noether_r230_r231_p10_p20_r225_bridge_bundle.json](../manife
 - Scope: R230 confirms P10-P13 prior source-confirmed fixes/no-fix traps survive in the current R225 German base. R231 wraps R226-R230 so the P10-P20 R225 bridge can be handed off as one package.
 - Result: no new TeX patch after R225. R225 remains the latest patched cumulative base represented by this bridge bundle.
 - Caveat: current-base bridge/control evidence only. This does not certify P10-P20 globally page-by-page, close the source audit, synchronize other languages, or create critical-edition material. Prefer R231 over separate R226-R230 uploads if Noether file-count pressure remains.
+
+## 2026-06-27: Noether R232 new-thread download check and R231 pointer
+
+Manifest: [20260627_noether_r232_newthread_downloadcheck_r231_pointer.json](../manifests/pending-zenodo-uploads/20260627_noether_r232_newthread_downloadcheck_r231_pointer.json)
+
+- Noether routing/check ZIP: `Noether_R232_LocalCodex_NewThreadDownloadCheck_R231Pointer_20260627.zip`, 3,977 bytes, SHA256 `33ED38B50F06DD22C13CECE3E23DD724DE7E9BBD5E98BED0EC4D45FE96C996CE`, 5 entries.
+- Scope: checks the usual Noether download lanes after a new web-thread report and records that no newer web-produced Noether ZIP is visible. It points the new thread to R231 as the current compact P10-P20 R225 bridge bundle.
+- Result: no TeX patch, no merge action, and no new mathematical production output.
+- Caveat: routing/check metadata only. Do not count as additional Noether content, source certification, source closure, multilingual synchronization, or critical-edition material.
