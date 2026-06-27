@@ -132,3 +132,9 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | Size MB | File |
 |---:|---|
 | 0.0097 | [99 SGA - Public Summary.json](https://zenodo.org/records/20822648/files/99%20SGA%20-%20Public%20Summary.json) |
+
+## Local Audit Reconciliation, 2026-06-27
+
+Sweep found newer local SGA5 audit/workpass evidence and SGA6 repair107 material not reflected in the older p260-p265 public caveat. The relevant files are `sga5_full_audit_workpass_support_20260624.zip` and `sga6_repair107_english_sync_repair046_20260622.zip`, plus the folder-level SGA5 workpass/audit files under `SGA continuation 2/_claude_aid/sga5_full_audit_20260623`.
+
+Important: these are audit/support and synchronization-control materials, not an accepted complete edition. The SGA5 folder notes claim broad/full page-by-page workpass coverage, but the public archive should still treat SGA5 as under review, not independently certified, not English-synchronized, and not a critical edition. SGA6 repair107 is part of the English-sync repair chain and still leaves global SGA6 certification plus later sync work open.
