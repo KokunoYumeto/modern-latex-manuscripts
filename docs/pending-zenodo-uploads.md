@@ -5956,3 +5956,12 @@ Manifest: [20260627_noether_r186_p18_source_anchor_survival_nopatch.json](../man
 - Scope: no-patch Paper 18 source-anchor survival check against printed p.101. It confirms that the old resultant-display defect is already fixed in the current R183 base: the final relation reads `R^{(n)}(x_n)\equiv 0(\mathfrak M)` rather than equality.
 - Contents: current R183 German TeX, a P18 line slice, checked anchor ledger, no-patch traps, a 600 ppi full-page GDZ witness, and 1000 dpi targeted resultant-display crops.
 - Caveat: anchor-survival/provenance only. No new TeX patch, not full Paper 18 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. Full-page source remains below the strict 650+ ppi preference.
+
+## 2026-06-27: Noether R187 Paper 17 footnote 21/22 survival, no patch
+
+Manifest: [20260627_noether_r187_p17_footnote2122_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260627_noether_r187_p17_footnote2122_survival_nopatch.json)
+
+- Noether pending/control ZIP: `Noether_R187_LocalCodex_P17_Footnote2122Survival_NoPatch_WebDrop_20260627.zip`, 4,962,495 bytes, SHA256 `FD406CBC77EE46CE4A9F04CDF6E696791BD5F96121479C0D48F4D93A4B23F1AA`, 17 entries.
+- Scope: no-patch Paper 17 source-anchor survival check for printed p.25, formula (39), footnotes 21 and 22. It records that the old RA41-era missing-footnote findings are already fixed in the current R183 base.
+- Contents: current R183 German TeX, a P17 line slice, prior ledgers, no-patch traps, a footnote survival ledger, a page PDF, a 650 dpi supporting crop, and a 1000 dpi labelled crop for the formula/footnote locus.
+- Caveat: footnote-locus survival/provenance only. No new TeX patch, not full Paper 17 certification, not source closure, not corpus certification, not multilingual synchronization, and not critical-edition material. The global P17 source route remains 600 ppi.
