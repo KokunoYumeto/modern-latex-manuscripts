@@ -410,3 +410,7 @@ Registered R234-R236, with R236 treated as the preferred compact wrapper. R234 c
 ### 2026-06-27: R237-R238 P01-P43 R225 bridge bundle
 
 Registered R237-R238, with R238 treated as the preferred full current-base orientation wrapper. R237 closes the P01-P09 current-base bridge by finding prior R204 paper blocks byte-exact inside R225. R238 wraps R237, R231, and R236 so a new web thread can receive the P01-P43 R225 bridge story in one package. Classification: orientation/bridge/control evidence only, not global page-by-page source certification, source closure, multilingual synchronization, corpus certification, or critical-edition material.
+
+### 2026-06-27: R239-R242 source-quality and routing feedback
+
+Registered Noether R239-R242 as support/control evidence only. R239 and R242 are local download/output sweeps: no newer post-R238/post-R241 web-produced Noether package was visible in the checked local lanes, and R238 remains the broad current-base orientation wrapper. R240 clarifies that Paper 30 remains best-available/survival-checked, not strict 650+ source-certified, from the current GDZ/IA local witnesses. R241 clarifies that Paper 34's R225 tail source restore is intentional and should not be reverted, and that the best local P34/P35 witnesses remain below the strict 650+ source-certification floor. Classification: routing/source-quality caveat support only, no TeX patch, not source closure, not multilingual synchronization, not corpus certification, and not critical-edition material.

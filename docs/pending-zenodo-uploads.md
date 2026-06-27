@@ -6229,3 +6229,14 @@ Manifest: [20260627_noether_r237_r238_p01_p43_r225_bridge_bundle.json](../manife
 - Scope: R238 wraps R237 for P01-P09, R231 for P10-P20, and R236 for P21-P43 as the compact R225 current-base bridge/orientation package.
 - Result: no TeX patch. R237 records that all P01-P09 prior R204 blocks are found byte-exact in R225. R238 records P01-P33 and P35-P43 survival according to inner packages, while P34 remains the intentional R225 tail-source-restore delta.
 - Caveat: orientation/bridge/control evidence only. It should guide new web threads and prevent regression; it is not global page-by-page source certification, source closure, multilingual synchronization, corpus certification, or critical-edition material.
+
+## 2026-06-27: Noether R239-R242 source-quality and routing feedback
+
+Manifest: [20260627_noether_r239_r242_source_quality_feedback_batch.json](../manifests/pending-zenodo-uploads/20260627_noether_r239_r242_source_quality_feedback_batch.json)
+
+- Noether routing ZIP: `Noether_R239_LocalCodex_NewNoetherDownloadSweep_NoNewPostR238_WebFeedback_20260627.zip`, 2,481 bytes, SHA256 `3870B7CB9A8E51D28256B3290B70615A2D19285FF2A749CFA313979A4624D71D`, 3 entries.
+- Noether source-quality caveat ZIP: `Noether_R240_LocalCodex_P30_SourceQualityRecheck_NoPatch_WebDrop_20260627.zip`, 7,625 bytes, SHA256 `929BDD4630533D0F1100AB3189D08E6D9376C163648B7854E81FB85D384930C3`, 9 entries.
+- Noether source-quality caveat ZIP: `Noether_R241_LocalCodex_P34_P35_SourceQualityClarification_NoPatch_WebDrop_20260627.zip`, 10,009 bytes, SHA256 `B7066D47C7E9D9BA0992184536B762D016B0F3C547A1A89229686E61856FD193`, 12 entries.
+- Noether routing ZIP: `Noether_R242_LocalCodex_NewThreadOutputSweep_NoNewPostR241_Feedback_20260627.zip`, 4,737 bytes, SHA256 `F317A390351FDE7FCE83DDA5B4C1C0ACA658568CE7881D8D9F862D57D769C316`, 6 entries.
+- Scope: R239/R242 report no newer visible post-R238/post-R241 Noether web output in the checked local lanes and recommend R238 as the broad current-base orientation package. R240 records P30 source-quality limits. R241 records P34/P35 source-quality limits and the instruction not to revert the intentional R225 P34 tail restore.
+- Caveat: support/control material only. No TeX patch, no reader edition, no strict source closure, no multilingual synchronization, no corpus certification, and no critical-edition claim. If uploaded, do not front these small packets above reader PDFs/TeX.
