@@ -3,9 +3,10 @@
 Manifest: [20260628_noether_p17_gdz600_maxprobe_fullrawpages_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p17_gdz600_maxprobe_fullrawpages_nopatch.json)
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Status ledger ZIP: `Noether_LocalCodex_after_WebR252_Global_P01_P43_StatusLedger_v11_PostP17MaxProbe_on_PromotedBase_20260628.zip`, 9,075 bytes, SHA256 `3E517728A4F790AC0E42E5F800A43E751CC47322B3E65628A26C47CB12EB0793`.
 - Package: `Noether_P17_GDZ600_MaxProbe_FullRawPages_NoPatch_20260628.zip`, 85,837,554 bytes, SHA256 `52153ADBEDDC027A1AA54FDDED0BB6867D535B0D2F35988DB6D7702CC1480F86`.
 - Scope: Noether Paper 17, `Moduln in nichtkommutativen Bereichen, insbesondere aus Differential- und Differenzenausdruecken`, Math. Z. 8, printed pp. 1-35.
-- Result: no TeX patch. The package adds an exact article PDF cutout, all 35 raw GDZ IIIF full-page images, fresh IIIF max-probe/source-quality ledgers, a promoted-base P17-only extract, carried-forward P17 page ledgers and no-fix traps, and labelled p23/p26 witness crops enlarged from GDZ600.
+- Result: no TeX patch. Status ledger v11 changes only P17 to `best_available_gdz600_max_source_probed_full_raw_pages_no_patch`, carrying forward v10's P19 GDZ400 dense/tail status and v9's P20 mixed400/600 dense-crop status. The P17 package adds an exact article PDF cutout, all 35 raw GDZ IIIF full-page images, fresh IIIF max-probe/source-quality ledgers, a promoted-base P17-only extract, carried-forward P17 page ledgers and no-fix traps, and labelled p23/p26 witness crops enlarged from GDZ600.
 - Caveat: every raw full page is native GDZ 600ppi. This is the best local usable source found, but it remains below the project native650+ full-page certification preference. The labelled crops are enlarged visual aids, not native 1000ppi source. This is not Paper 17 certification, not Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
 - Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
 
