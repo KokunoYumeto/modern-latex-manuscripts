@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P13 RA88 remaining broad-display formula (16) patch candidate
+
+Manifest: [20260628_noether_p13_ra88_broad_displays_source_audit_patch_candidate.json](../manifests/pending-zenodo-uploads/20260628_noether_p13_ra88_broad_displays_source_audit_patch_candidate.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P13_RA88RemainingBroadDisplays_SourceAudit_Patch_on_CurrentR259_20260628.zip`, 18,089,810 bytes, SHA256 `E08B0AC12DEF676B03019A470EF9E6C7BF164E326F148C06BED3A06174DBC1D9`, 24 entries, max path 109.
+- Scope: targeted Paper 13 RA88 remaining broad-display source audit against CurrentR259 after WebR252.
+- Result: one source-confirmed formula (16) lambda-range patch candidate on printed p243, changing `(\lambda=1,2,\ldots,\rho)` to `(\lambda=1,2\ldots\rho)`, plus ten no-patch source dispositions for RA88 broad-display rows on pp.237-246. Candidate cumulative compiles with XeLaTeX to 471 pages; inherited undefined refs unchanged.
+- Caveat: source pages are GDZ native400 with enlarged inspection crops, below the preferred 650+ native threshold. Targeted audit/patch candidate only: not Paper 13 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P12 formula (8) source-audit patch candidate
 
 Manifest: [20260628_noether_p12_formula8_source_audit_patch_candidate.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_formula8_source_audit_patch_candidate.json)
