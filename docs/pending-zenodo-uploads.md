@@ -1,3 +1,25 @@
+## 2026-06-28: Noether P12 source-dash survival / no patch
+
+Manifest: [20260628_noether_p12_source_dash_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_source_dash_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P12_SourceDashSurvival_NoPatch_on_CurrentR259_20260628.zip`, 8,409,650 bytes, SHA256 `3827EF5031ED868A602310D534AEB608314274900BF4BB010DE6444C47145EC7`, 33 entries, max path 92.
+- Scope: current-branch source-dash survival support after WebR252 on the CurrentR259 German base. It records byte-identical survival of the R257 accepted Paper 12 span and confirms that three R257 source-visible dash restorations survive.
+- Caveat: no TeX patch promoted. Full-page source context remains below the strict 650 dpi floor; targeted 1000-render crops support selected loci only. Not strict Paper 12 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
+## 2026-06-28: Noether P10 source-fix survival / no patch
+
+Manifest: [20260628_noether_p10_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p10_sourcefix_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P10_SourceFixSurvival_NoPatch_on_CurrentR259_20260628.zip`, 7,405,392 bytes, SHA256 `96657DECC5C0DAC87CE33DC5F77E7E3A5E48E1C83EC2DB038DC56947CC906A61`, 32 entries, max path 96.
+- Scope: current-branch source-fix survival support after WebR252 on the CurrentR259 German base. It records byte-identical survival of the R255/R254 Paper 10 reference span, including the author line, definition (d) terminal `k_\sigma`, divisibility display, rank-three sign pairing, final `x` formula, and final date.
+- Caveat: no TeX patch promoted. Mixed 400/600 ppi full-page source route with targeted 1000-render survival crops only. Not strict Paper 10 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P15/P17 current-survival audits / no patch
 
 Manifest: [20260628_noether_p15_p17_survival_audits_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_p17_survival_audits_nopatch.json)
