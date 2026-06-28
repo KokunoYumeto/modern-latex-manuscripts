@@ -628,4 +628,6 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 
 - 2026-06-28: Bianchi Edge exact-name sweep found five loose A2 p0135 reader-convenience files not represented by exact filename: English/Italian cumulative PDFs and TeX through p0001-p0135 plus `a2_hq_source_p0121_0135.pdf`. They duplicate content already inside `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` and are registered as pending top-level/fronting candidates, not as new content, A2 completion, or critical-edition material.
 
+- 2026-06-28: Local sweep/reader-priority cleanup ledger added at `manifests/source-intake/20260628_local_sweep_priority_cleanup_exact_name_audit.json`. It records the roots actually checked, the Noether P19 and Bianchi A2 actions above, the local P17 folder that was not registered as a pending upload because no lane ZIP was found, and the workflow lesson that `/100` progress labels should be avoided for source-accuracy/completion claims without an audited denominator.
+
 - 2026-06-28: Pending-Zenodo queue caveat audit added. `20260628_pending_zenodo_queue_caveat_audit.json` parses 525/525 pending manifests, reports zero duplicate artifact names, and flags 157 entries for later caveat/target/overclaim triage before any public Zenodo action. This is a machine-readable queue hygiene index, not a command to publish or rewrite the whole queue.
