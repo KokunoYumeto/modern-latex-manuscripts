@@ -347,6 +347,17 @@ Manifest: [20260628_noether_slavic_endmatter_post45_source_fidelity_update.json]
 
 Next action: fold into the next deliberate Noether Zenodo refresh/rebalance with reader-facing caveats and a GitHub issue/PR correction pointer; do not loose-upload as an unlabeled raw dump.
 
+## 2026-06-28: Noether recent local current-base archive sweep
+
+Manifest: [20260628_noether_recent_local_currentbase_archive_sweep.json](../manifests/source-intake/20260628_noether_recent_local_currentbase_archive_sweep.json)
+
+- Sweep scope: recent Noether/Slavic archives modified on 2026-06-28 across the Noether Multilingual local drop, Edge dump, Downloads, and Codex handoff roots.
+- Result: 71 unique recent archives indexed, 70 not represented by exact filename before this sweep. The index records local path, byte size, timestamp, exact-name representation state, SHA256 for unrepresented files, and a coarse classification hint.
+- Contents include WebR252/R259 current-base bridges, source-survival/no-patch packages, dense-hotspot disposition packages, source-quality/status packets, current upload index material, and the Slavic Post45 package already registered above.
+- Caveat: archive-maintenance index only. This is not a publication claim, not a loose-upload instruction, and not evidence that all 71 archives should be copied to Zenodo as separate files.
+
+Next action: use this index to drive the next deliberate Noether rollup/rebalance, pruning duplicates and keeping reader-facing caveats intact.
+
 ## 2026-06-26: Noether Slavic cumulative work-so-far through Paper 34 section 26
 
 Manifest: [20260626_noether_slavic_worksofar_papers01_34_section26.json](../manifests/source-intake/20260626_noether_slavic_worksofar_papers01_34_section26.json)
