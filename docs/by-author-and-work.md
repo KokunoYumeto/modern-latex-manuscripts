@@ -4,13 +4,23 @@ This is a curated index of the main public reading surfaces. It is not a replace
 
 Quality rule: these are working reader surfaces and source/provenance records, not certified critical editions unless a later maintainer-certified release explicitly says otherwise. Structural coverage phrases such as "complete through" describe what is represented in a draft or package, not proofread mathematical finality.
 
+## Reader Priority Tiers
+
+This index is ordered by current public usefulness. Substantial source-aware reader/translation work appears before OCR/support shelves and unsafe drafts.
+
+| Tier | Records | Practical Meaning |
+|---|---|---|
+| Substantial working editions/translations | Noether, Weber, SGA, Bianchi, Frobenius, Kneser, Sylvester, Steinitz, Gordan, al-Battani, Gibbs, Maxwell | Coherent reader surfaces and source/audit packages exist for a named scope. Still not certified critical editions. |
+| Substantial but mixed/actively repaired | Deligne, non-European/Chinese/Indian/Islamic records, Ukrainian applied mathematics, Dedekind, Dirichlet, Gauss, Riemann, Poincare | Real reader or translation work exists, but source closure, continuity, diagram/table fidelity, or work-level completion varies. |
+| Support/OCR/provenance/stub lanes | EGA, Cayley, Classical algebra/arithmetic mixed shelf, Additional author cluster, raw main landing | Useful for preservation, repair, or future work. Do not read these as accuracy-certified editions unless a specific later source-audit package promotes an exact range. |
+
 ## Algebraic Geometry
 
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
-| Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft with EGA 0_IV and EGA IV continuation; TeX/build artifacts. | [EGA](https://doi.org/10.5281/zenodo.20414353) |
 | Grothendieck and collaborators, SGA | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Latest local SGA5 compact delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip`, which advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier p001-p254 webdrop and p255-p259 compact delta remain provenance/source-witness material. p260-p265 cover Expose VI around Prop. 1.2.6, tensor products, Prop. 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143/A-action square, and the opening of Q_l-faisceaux. p266+ crops/cursor text are active/pending scratch only. Local ledger terms such as certified/clean/complete are page-local workpass status only. This is repair evidence for a curated SGA5 expose selection, not complete SGA5, not synchronized English, not a critical edition, and not global source-faithfulness. SGA6 and SGA7-I remain substantial working drafts with source-compression/detail caveats. Corrections are welcome via GitHub issues or pull requests. | [SGA](https://doi.org/10.5281/zenodo.20410947) |
 | Deligne | Paper/letter translation drafts, source packets, and diagram/math repair material in a separate working access record; latest refresh updates the 2026-06-09 v3 bundle with D001-D017 witness/repair material, D001-D017 equation-dense math-audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | [Deligne](https://doi.org/10.5281/zenodo.20410853) |
+| Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals plus partial English/OCR/draft continuation material. This is a support/stub lane relative to SGA: useful for preservation and future translation, but not a comparable source-audited working edition. | [EGA](https://doi.org/10.5281/zenodo.20414353) |
 
 ## Chinese Mathematical Classics
 
@@ -63,13 +73,13 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 
 | Author | Works Or Volumes |
 |---|---|
-| Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `Complete`, `source_checked`, and `critical` filenames as obsolete quality labels; no Cayley range is presently promoted as source-faithful until a later page-by-page glyph/source audit re-promotes that exact range. |
 | Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
 | Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. |
 | Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
+| Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `Complete`, `source_checked`, and `critical` filenames as obsolete quality labels; no Cayley range is presently promoted as source-faithful until a later page-by-page glyph/source audit re-promotes that exact range. |
 
 ## Author Records
 
