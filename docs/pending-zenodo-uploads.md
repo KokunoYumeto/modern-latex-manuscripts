@@ -370,6 +370,18 @@ Manifest: [20260628_noether_current_upload_set_after_webR252_on_currentR259.json
 
 Next action: use this manifest as the current Noether upload/rebalance map. Do not promote the legacy bare-R local names, and do not upload every support package as a separate public file.
 
+## 2026-06-28: Noether follow-up unrepresented archive sweep
+
+Manifest: [20260628_noether_followup_unrepresented_archive_sweep.json](../manifests/source-intake/20260628_noether_followup_unrepresented_archive_sweep.json)
+
+- Sweep result: the wider 2026-06-26+ archive sweep found 375 unique recent archives. Non-Noether lanes and already-staged Noether files were represented by exact filename; five Noether-family archives remained unrepresented.
+- Newer-than-pointer package: `Noether_LocalCodex_after_WebR252_P01_P04_BestSourceRouteAudit_SourceConflict_NoPromotedPatch_on_CurrentR259_20260628.zip`, SHA256 `105E620B07736DE7DB723F6E6246BDC3343DFCE48F7379608ED304CA5B4A368F`. It deliberately promotes no TeX patch because P01 has an original-publication versus collected-volume source-authority conflict; it includes an optional collected-volume variant only as non-promoted evidence.
+- Older/provenance packages: `Noether_R221_BroadBridge_P23_GDZ600_SourcePatch_P21Disposition_WebDrop_20260627.zip`, `Noether_R250_P42_P40_LowDPIZoomAudit_P42AstFix_20260627.zip`, and `Noether_R251_LocalCodex_R250_IntakeFeedback_AcceptP42Ast_CropWarning_20260627.zip`.
+- OCR/source-locator support: `_claude_handoff.zip` is a partial Marker OCR handoff for Noether pages 1-670 with heading candidates. It is not a reader, transcription, translation, or critical-edition object.
+- Caveat: this is source-intake/triage metadata only. Do not loose-upload these five as public reader files by default.
+
+Next action: fold the P01-P04 conflict package into the Noether rebalance map; keep R221/R250/R251 and `_claude_handoff.zip` as support/provenance unless a deliberate rollup needs them.
+
 ## 2026-06-26: Noether Slavic cumulative work-so-far through Paper 34 section 26
 
 Manifest: [20260626_noether_slavic_worksofar_papers01_34_section26.json](../manifests/source-intake/20260626_noether_slavic_worksofar_papers01_34_section26.json)
