@@ -1,3 +1,16 @@
+## 2026-06-28: Noether v8/P10 current-control source-audit follow-up
+
+Manifest: [20260628_noether_v8_p10_maxprobe_current_control.json](../manifests/pending-zenodo-uploads/20260628_noether_v8_p10_maxprobe_current_control.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Status ledger ZIP: `Noether_LocalCodex_after_WebR252_Global_P01_P43_StatusLedger_v8_PostP10MaxProbe_on_PromotedBase_20260628.zip`, 8,406 bytes, SHA256 `EFE6968FD8492E022C3E28FDEA9EA0F89CFD4EEF6AC89E496170D5AD4065AB41`.
+- P10 source-audit ZIP: `Noether_P10_GDZMixed_MaxProbe_Hotspots_NoPatch_20260628.zip`, 27,658,962 bytes, SHA256 `FCC43EBE003540081EFCEB5BED28131EF4233FF8D44140980E74806DE34836C2`.
+- Refreshed mutable upload-index ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 108,020 bytes, SHA256 `1D7FC02F94751048B795A446C8ACD3B7963F428EEEEA99AB692BB1839BEC4273`.
+- Scope: v8 advances the Noether P01-P43 control ledger after WebR252 on the promoted CurrentR259 base. The only substantive change from v7 is P10: `best_available_gdz_mixed400_600_max_source_probed_hotspot_crops_no_patch`.
+- P10 result: no TeX patch. The package adds the exact GDZ article PDF for Math. Ann. 77 pp.536-545, all ten raw GDZ IIIF full-page images, IIIF max probes, the promoted-base P10 extract, survival checks, existing 1000dpi targeted crops, and four new labelled 1000dpi crops for RA88 dense hotspots.
+- Caveat: source quality is mixed native 400/600ppi: 7 pages at 400ppi and 3 pages at 600ppi. The 1000dpi crops are enlarged visual aids from those native pages, not native 1000ppi source. This is not Paper 10 certification, not Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
+
 ## 2026-06-28: Broad local exact-name sweep / intake triage
 
 Manifest: [20260628_broad_local_exact_sweep_triage.json](../manifests/source-intake/20260628_broad_local_exact_sweep_triage.json)
