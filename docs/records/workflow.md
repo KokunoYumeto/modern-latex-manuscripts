@@ -20,6 +20,8 @@ A 2026-06-26 Noether maintenance lesson adds no-patch survival bridges and sourc
 
 A 2026-06-28 workflow addendum is staged locally for the next workflow DOI refresh. It records concurrent-agent release-label discipline, especially the rule that web/session-owned `R###` labels should not be reused by local support packages; local support packets should instead state what web drop they follow and what current cumulative branch they were checked on. It also records that upload-set indexes are control material, OCR/Marker handoff snapshots are locator evidence rather than canonical transcription, and source-authority conflicts may correctly result in no promoted TeX patch.
 
+The same staged 2026-06-28 workflow addendum now includes a pending-queue caveat-audit rule: pending Zenodo manifests should be parseable, deduplicated by artifact name, tied to a target DOI/record, and explicit about whether an artifact is a reader, source bundle, OCR locator, or support/control packet before it is used for public action.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
