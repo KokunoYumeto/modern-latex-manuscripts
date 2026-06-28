@@ -1,3 +1,15 @@
+## 2026-06-28: Broad local exact-name sweep / intake triage
+
+Manifest: [20260628_broad_local_exact_sweep_triage.json](../manifests/source-intake/20260628_broad_local_exact_sweep_triage.json)
+
+- Scope: full local ZIP exact-name sweep across the main translation/drop tree, the Edge download dump, the Codex handoff root, the Claude work root, and Downloads.
+- Result: 7,535 ZIP files / 3,876 unique ZIP names were seen. 744 recent 21-day ZIP names were not explicitly named in GitHub-facing metadata at the time of the sweep.
+- Category counts: Cayley 308, Noether 113, Deligne 86, Maxwell 74, SGA/EGA 51, Weber 41, non-European/Seki 38, Steinitz 19, Frobenius 5, Sylvester 3, Gordan 2, Bianchi 1, Gauss 1, Gibbs 1, other 1.
+- Interpretation: this is a triage backlog, not a loose-upload instruction. Most of the large categories are support/provenance/finder material: Cayley repair/salvage packets, Deligne diagram/OCR witnesses, Noether multilingual/source-audit support queues, Maxwell source/provenance deltas, and SGA/EGA support material.
+- Public policy: do not upload these files one by one just because the name is missing. Promote only curated reader/current-TeX/source-support rollups, or exact ranges that have been inspected and explicitly re-promoted. Cayley remains marked unsafe as an accurate transcription until exact page/range packages are independently source-audited. Deligne remains paper-by-paper and diagram-sensitive. Noether remains file-ceiling constrained and should receive deliberate rollups rather than loose micro-packages.
+
+Next action: use the triage manifest when preparing author-level Zenodo refreshes and when deciding whether a support bundle belongs on a reader-facing record, a provenance/support record, or only in the local repair queue.
+
 ## 2026-06-28: Noether P12/P13/P21/P22 source-certain patchset promotion-ready wrapper
 
 Manifest: [20260628_noether_p12_p13_p21_p22_source_certain_patchset_promotion_ready.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_p13_p21_p22_source_certain_patchset_promotion_ready.json)
