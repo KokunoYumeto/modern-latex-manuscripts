@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P12/P13/P21/P22 source-certain patchset promotion-ready wrapper
+
+Manifest: [20260628_noether_p12_p13_p21_p22_source_certain_patchset_promotion_ready.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_p13_p21_p22_source_certain_patchset_promotion_ready.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P12_P13_P21_P22_SourceCertainPatchsetPromotionReady_on_CurrentR259_20260628.zip`, 3,207,533 bytes, SHA256 `7012DFD3E5C4C802846E9FD9D6DF3EA923AA847A3E21E27D1B1B86915137F751`, 14 entries, max path 217.
+- Scope: web-facing no-bulk wrapper around the already verified source-certain cumulative patchset for P12/P13/P21/P22 after WebR252 on CurrentR259.
+- Result: includes the patched cumulative TeX/PDF, a diff from bare CurrentR259, patch-presence checks, promotion status CSV, build warning scan, and provenance hashes. The narrow source-confirmed fixes are P12 formula (8) punctuation/ellipsis commas, P13 formula (16) lambda range, P21 no-prime `f(dx)` / `\partial^2 f` corrections while preserving formula (140), and P22 Hentzelt source-form front matter/long-note placement. XeLaTeX two-pass build produced a 471-page PDF with no fatal/error-class hits.
+- Caveat: promotion-ready support wrapper only. It does not add global Noether certification, whole-paper certification for P12/P13/P21/P22, multilingual synchronization, or critical-edition evidence. P12/P13 still rely on native400 with enlarged inspection crops; P21/P22 are localized source-certain repairs.
+
+Next action: prefer this wrapper over the earlier loose patchset package when rebasing Web/local Noether work; use the included cumulative as the patched base or apply the included diff to bare CurrentR259.
+
 ## 2026-06-28: Noether P14 queue update / best-available page audit accounted / no patch
 
 Manifest: [20260628_noether_p14_queue_update_best_available_accounted_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p14_queue_update_best_available_accounted_nopatch.json)
