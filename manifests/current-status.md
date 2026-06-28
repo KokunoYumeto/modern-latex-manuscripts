@@ -619,3 +619,5 @@ Noether R213-R215 local staging adds Papers 38-40 no-patch survival/control pack
 - 2026-06-27: Noether R247 P15/P16 source-route clarification registered. No patch; known P15/P16 repairs survive in R225, but current source witnesses remain below strict certification floor or undefined-DPI. Bad-offset P16 GDZ canvases 25-30 must not be reused.
 
 - 2026-06-27: Noether R248 new-thread two-output triage registered. No patch; R237 is only the P01-P09 component, while R238 is the preferred P01-P43 wrapper/orientation bundle. Routing/control only.
+
+- 2026-06-28: Noether P20 dense-display audit registered. `Noether_LocalCodex_after_WebR252_P20_DenseDisplaySourceAudit_NoPatch_on_CurrentR259_20260628.zip` checks high-risk Paper 20 displays and proof/date anchors against the current R259 German base after WebR252 and applies no TeX patch. Treat as source-audit/anti-regression support only; witnesses are mixed native GDZ 400/600 ppi with enlarged crops, so this is not Paper 20 certification, multilingual synchronization, source closure, or critical-edition material.
