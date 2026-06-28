@@ -4,8 +4,8 @@ Slice: Arthur Cayley, Collected Mathematical Papers, Volume I, PDF pages 389--40
 
 ## Output Files
 
-- `cayley_vol01_pages389_400_source_checked.tex`
-- `cayley_vol01_pages389_400_source_checked.pdf`
+- `cayley_vol01_pages389_400_suspect_draft.tex`
+- `cayley_vol01_pages389_400_suspect_draft.pdf`
 - `STATUS.md`
 
 ## Source Checking
@@ -17,7 +17,7 @@ Slice: Arthur Cayley, Collected Mathematical Papers, Volume I, PDF pages 389--40
 
 ## Compile
 
-- Command: `pdflatex -interaction=nonstopmode -halt-on-error cayley_vol01_pages389_400_source_checked.tex`
+- Command: `pdflatex -interaction=nonstopmode -halt-on-error cayley_vol01_pages389_400_suspect_draft.tex`
 - Runs: 2
 - Status: success
 - PDF page count: 8

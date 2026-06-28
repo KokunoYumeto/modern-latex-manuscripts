@@ -10,19 +10,18 @@ this folder as current certification.
 
 Current public policy: Cayley material is not accuracy-certified unless a later
 packet explicitly re-promotes a named page range after page-by-page source audit.
-The narrow promoted restart tranche is `Cayley_V1_critical_p001_045_v2_20260609.zip`
-for Volume I printed pp. 1-45 / complete Papers 1-9, with the Paper 6
-low-comma/layout correction. Everything else here should be checked against the
-source scans before use.
+As of this cleanup, no Cayley range is promoted in the public GitHub mirror as
+source-faithful. All Cayley material here should be checked against the source
+scans before use.
 
 This source layer records the 2026-06-02 completion pass for the public Volume I assembled reader. The retained filenames preserve the historical export names, but the current archive status is "assembled draft/provenance, not accuracy-certified."
 
-The previous public Volume I slice reader covered the validated/repaired slice chain but still omitted six known missing ranges: 1-12, 38-50, 251-262, 389-400, 438-450, and 501-525. This package adds source-checked TeX/PDF repairs for those ranges and rebuilds the public Volume I reader from the repaired slice sequence.
+The previous public Volume I slice reader covered the older repaired-slice chain but still omitted six known missing ranges: 1-12, 38-50, 251-262, 389-400, 438-450, and 501-525. This package adds suspect-draft TeX/PDF fills for those ranges and rebuilds the public Volume I reader from the repaired slice sequence.
 
 ## Reader
 
-- `merged_reader/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`
-- Public mirror path: `reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`
+- `merged_reader/Arthur Cayley - Collected Mathematical Papers, Volume I - Suspect Draft Reader (Not Source-Faithful).pdf`
+- Public mirror path: `reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Suspect Draft Reader (Not Source-Faithful).pdf`
 - Rendered PDF pages: 488
 - Source-label coverage: Volume I pages 1-573
 

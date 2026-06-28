@@ -8,11 +8,11 @@ Generated: 2026-06-02
 
 Public reader:
 
-`reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`
+`reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Suspect Draft Reader (Not Source-Faithful).pdf`
 
 Source/control packet:
 
-`sources/classical/cayley-volume-i-complete-source-checked-reader-2026-06-02/`
+`sources/classical/cayley-volume-i-suspect-draft-reader-2026-06-02/`
 
 ## What Changed
 

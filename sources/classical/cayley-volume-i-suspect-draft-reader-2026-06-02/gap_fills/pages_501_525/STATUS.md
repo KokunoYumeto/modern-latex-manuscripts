@@ -9,8 +9,8 @@
 
 ## Output Files
 
-- `cayley_vol01_pages501_525_source_checked.tex`
-- `cayley_vol01_pages501_525_source_checked.pdf`
+- `cayley_vol01_pages501_525_suspect_draft.tex`
+- `cayley_vol01_pages501_525_suspect_draft.pdf`
 - `STATUS.md`
 
 ## Source Check

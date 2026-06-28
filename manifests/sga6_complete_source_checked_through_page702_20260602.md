@@ -8,8 +8,8 @@ This manifest records the promotion of the complete strict bilingual SGA 6 worki
 
 ## Front-Facing Readers
 
-- `reader-pdfs/sga/20 SGA 6 - Complete Strict Source-Checked Edition - English Translation.pdf`
-- `reader-pdfs/sga/21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf`
+- `reader-pdfs/sga/20 SGA 6 - Working English Translation (Compression Caveats).pdf`
+- `reader-pdfs/sga/21 SGA 6 - Working French Reconstruction (Compression Caveats).pdf`
 
 ## Source Packet
 
