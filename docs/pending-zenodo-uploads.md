@@ -1,3 +1,27 @@
+## 2026-06-28: Noether P17 queue update / best-available page audit accounted / no patch
+
+Manifest: [20260628_noether_p17_queue_update_best_available_accounted_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p17_queue_update_best_available_accounted_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P17_QueueUpdate_BestAvailablePageAuditAccounted_NoPatch_on_CurrentR259_20260628.zip`, 38,064 bytes, SHA256 `E75987F6829B3BBA478B1AAEAB2CC1882D03551B133E3C77DB51613A3F663F37`, 12 entries, max path 57.
+- Scope: compact Paper 17 queue update after WebR252 on CurrentR259.
+- Result: no TeX patch promoted. It reclassifies P17 in the P15-P20 queue: all 35 printed pages are accounted for by prior page-level no-patch ledgers, source-confirmed repair-survival ledgers, or tail visual-disposition ledgers; CurrentR259 P17 body is normalized-equal to the accepted source-fixed reference.
+- Caveat: best staged P17 source is official GDZ IIIF raw image at 600 ppi, below the project native650+ full-page preference and below the 1000 ppi dense-math ideal. This is best-available queue accounting only, not native650+/1000 global certification, Noether closure, multilingual synchronization, or critical-edition evidence.
+
+Next action: keep as support evidence for a Noether rollup/file-ceiling rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-28: Noether P15 queue update / best-available page audit accounted / no patch
+
+Manifest: [20260628_noether_p15_queue_update_best_available_accounted_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_queue_update_best_available_accounted_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P15_QueueUpdate_BestAvailablePageAuditAccounted_NoPatch_on_CurrentR259_20260628.zip`, 22,017 bytes, SHA256 `BC4577D9FDA70278DA9FC3D575EA4CE66F3FA2A8E482E52D4778A4F3C8565CC8`, 12 entries, max path 57.
+- Scope: compact Paper 15 queue update after WebR252 on CurrentR259.
+- Result: no TeX patch promoted. It reclassifies P15 in the P15-P20 queue: all 19 printed pages pp.138-156 are accounted for by prior source-checked page-batch ledgers; CurrentR259 P15 body is normalized-equal to the accepted source-fixed body. The title-period trap is handled separately by the P15 title-period cleanup package.
+- Caveat: best staged P15 source is GDZ/raw page imagery at 400 ppi. Enlarged/1000-tagged crops in prior packages are inspection aids, not native higher-resolution source. This is best-available queue accounting only, not native650+/1000 global certification, Noether closure, multilingual synchronization, or critical-edition evidence.
+
+Next action: keep as support evidence for a Noether rollup/file-ceiling rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P15 title-period queue cleanup / no patch
 
 Manifest: [20260628_noether_p15_title_period_queue_cleanup_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_title_period_queue_cleanup_nopatch.json)
@@ -520,10 +544,10 @@ Next action: use this index to drive the next deliberate Noether rollup/rebalanc
 
 Manifest: [20260628_noether_current_upload_set_after_webR252_on_currentR259.json](../manifests/source-intake/20260628_noether_current_upload_set_after_webR252_on_currentR259.json)
 
-- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 96,450 bytes, SHA256 `5ADBC491D1C87D285CBD8644B8A48298C2C9CBE0E34534223ECD5A50F8E888B5` (refreshed in place again after the earlier 94,816-byte / `3ED52DDA26E15BFE96324742760109977D12427FDE03F86065C3EFA55AAD6BB1`, 94,125-byte / `89B83A785C84C4987F3D67004E665102537FC0CAA68155F84AFD1FA7916BEE85`, and 87,391-byte / `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` copies; the first observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
+- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 97,787 bytes, SHA256 `9E6D02CAF9243793EEB28C8C1C4B6C99F486A6029A2C78F4D3200EFD14625B22` (refreshed in place again after the earlier 97,295-byte / `B18720806601EF96DB420AB4D7D4CA72BD9767C76B9630C3E69E3573B80CA4D5`, 96,450-byte / `5ADBC491D1C87D285CBD8644B8A48298C2C9CBE0E34534223ECD5A50F8E888B5`, 94,816-byte / `3ED52DDA26E15BFE96324742760109977D12427FDE03F86065C3EFA55AAD6BB1`, 94,125-byte / `89B83A785C84C4987F3D67004E665102537FC0CAA68155F84AFD1FA7916BEE85`, and 87,391-byte / `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` copies; the first observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
 - The current pointer package contains the drag index and persistent Noether German source-audit logbook. The earlier observed copy also carried `README_CURRENT_UPLOAD_POINTER.md`; that README is absent from the current refreshed ZIP.
 - Naming rule: web/session-owned drops keep bare `R###` labels. Local Codex addenda after WebR252 must use descriptive `after_WebR252/...on_CurrentR259` names. Old local bare-`R###` names are historical/do-not-upload unless they are genuine web/session-owned artifacts.
-- Parsed contents: 54 corrected drag-package rows and 20 legacy/do-not-use names. The newest rows add the P18 complete best-available page audit and the P12/P13/P21/P22 source-certain cumulative patchset. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
+- Parsed contents: 57 ZIP rows total: 56 real support/drag-package rows plus one self-index row, with no legacy rows visible in the current pointer. The newest rows add the P15 and P17 queue update / best-available page audit accounted packages after the P18 audit and the P12/P13/P21/P22 source-certain cumulative patchset. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
 - The current pointer ZIP has no README-derived `latest_added` field; treat the parsed drag index and package-specific manifests as authoritative instead of stale README metadata.
 
 Next action: use this manifest as the current Noether upload/rebalance map. Do not promote the legacy bare-R local names, and do not upload every support package as a separate public file.
