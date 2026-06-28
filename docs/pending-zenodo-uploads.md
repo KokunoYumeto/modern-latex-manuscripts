@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P19 RA88 dense-hotspot best-available audit / no patch
+
+Manifest: [20260628_noether_p19_ra88_dense_hotspots_best_available_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_ra88_dense_hotspots_best_available_audit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P19_RA88DenseHotspotsBestAvailableAudit_NoPatch_on_CurrentR259_20260628.zip`, 23,625,337 bytes, SHA256 `61438C929EA8ECEF2A40E42E259255E08EF3ADE14BC034F50AB8E2299A174FC0`, 24 entries, max path 117.
+- Scope: targeted Paper 19 RA88 dense/matrix hotspot audit against CurrentR259 after WebR252. It corrects stale RA88 line anchors, cleans up the old local R279 P19 bridge under current naming, and checks 11 hotspot loci on printed pp.59, 60, 61, 65, and 66 against best staged GDZ source with labelled enlarged crops.
+- Result: no TeX patch promoted. Current TeX is recorded as matching the source-visible mathematical content at those loci.
+- Caveat: source is GDZ native400, with 250 percent enlarged inspection crops carrying 1000 ppi metadata for readability. This is best-available targeted support evidence, not global Paper 19 certification, Noether closure, multilingual synchronization, strict native650 certification, or critical-edition material.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P13 RA88 remaining broad-display formula (16) patch candidate
 
 Manifest: [20260628_noether_p13_ra88_broad_displays_source_audit_patch_candidate.json](../manifests/pending-zenodo-uploads/20260628_noether_p13_ra88_broad_displays_source_audit_patch_candidate.json)
@@ -462,9 +474,9 @@ Next action: fold into the next deliberate Noether Zenodo refresh/rebalance with
 Manifest: [20260628_noether_recent_local_currentbase_archive_sweep.json](../manifests/source-intake/20260628_noether_recent_local_currentbase_archive_sweep.json)
 
 - Sweep scope: recent Noether/Slavic archives modified on 2026-06-28 across the Noether Multilingual local drop, Edge dump, Downloads, and Codex handoff roots.
-- Result: 71 unique recent archives indexed, 70 not represented by exact filename before this sweep. The index records local path, byte size, timestamp, exact-name representation state, SHA256 for unrepresented files, and a coarse classification hint.
+- Result: 72 unique recent archives indexed after the later P19 RA88 dense-hotspot package was appended; 71 were not represented by exact filename before this sweep. The index records local path, byte size, timestamp, exact-name representation state, SHA256 for unrepresented files, and a coarse classification hint.
 - Contents include WebR252/R259 current-base bridges, source-survival/no-patch packages, dense-hotspot disposition packages, source-quality/status packets, current upload index material, and the Slavic Post45 package already registered above.
-- Caveat: archive-maintenance index only. This is not a publication claim, not a loose-upload instruction, and not evidence that all 71 archives should be copied to Zenodo as separate files.
+- Caveat: archive-maintenance index only. This is not a publication claim, not a loose-upload instruction, and not evidence that all 72 archives should be copied to Zenodo as separate files.
 
 Next action: use this index to drive the next deliberate Noether rollup/rebalance, pruning duplicates and keeping reader-facing caveats intact.
 
@@ -472,10 +484,10 @@ Next action: use this index to drive the next deliberate Noether rollup/rebalanc
 
 Manifest: [20260628_noether_current_upload_set_after_webR252_on_currentR259.json](../manifests/source-intake/20260628_noether_current_upload_set_after_webR252_on_currentR259.json)
 
-- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 94,125 bytes, SHA256 `89B83A785C84C4987F3D67004E665102537FC0CAA68155F84AFD1FA7916BEE85` (refreshed in place again after the earlier 87,391-byte / `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` copy; the first observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
+- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 94,816 bytes, SHA256 `3ED52DDA26E15BFE96324742760109977D12427FDE03F86065C3EFA55AAD6BB1` (refreshed in place again after the earlier 94,125-byte / `89B83A785C84C4987F3D67004E665102537FC0CAA68155F84AFD1FA7916BEE85` and 87,391-byte / `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` copies; the first observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
 - The current pointer package contains the drag index and persistent Noether German source-audit logbook. The earlier observed copy also carried `README_CURRENT_UPLOAD_POINTER.md`; that README is absent from the current refreshed ZIP.
 - Naming rule: web/session-owned drops keep bare `R###` labels. Local Codex addenda after WebR252 must use descriptive `after_WebR252/...on_CurrentR259` names. Old local bare-`R###` names are historical/do-not-upload unless they are genuine web/session-owned artifacts.
-- Parsed contents: 51 corrected drag-package rows and 20 legacy/do-not-use names. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
+- Parsed contents: 52 corrected drag-package rows and 20 legacy/do-not-use names. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
 - The current pointer ZIP has no README-derived `latest_added` field; treat the parsed drag index and package-specific manifests as authoritative instead of stale README metadata.
 
 Next action: use this manifest as the current Noether upload/rebalance map. Do not promote the legacy bare-R local names, and do not upload every support package as a separate public file.
