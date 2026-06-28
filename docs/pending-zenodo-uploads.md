@@ -1,3 +1,15 @@
+## 2026-06-29: Noether WebR266 P34/P43 current-control follow-up
+
+Manifest: [20260629_noether_webr266_p34_p43_current_control.json](../manifests/pending-zenodo-uploads/20260629_noether_webr266_p34_p43_current_control.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P43 package: `Noether_LocalCodex_after_WebR266_P43_GDZ600_delta_20260628.zip`, 81,212,686 bytes, SHA256 `AE0AFCD4C4F0350019EC6FDC47B849ABD5B823C4F096BDEC44B8A5FFD4E61756`.
+- P34 package: `Noether_LocalCodex_after_WebR266_P34_p641_692_COMPLETE_delta_20260628.zip`, 34,135,164 bytes, SHA256 `AE6318F29A5014BEACBF75EF59216FED93017D5E39E0D76F4715398F39B44B6D`.
+- Tail/status package: `Noether_after_WebR266_tail_triage_status_20260628.zip`, 3,188,013 bytes, SHA256 `C8A7B40B5BE032BB255099F425930464CD3EC839AAE1F58B3507A55F3B7E9E8D`.
+- Scope/result: the P34 package supersedes the narrower p641-p678 delta and carries the current German cumulative candidate through Paper 34 printed pp.641-692, with fourteen confirmed p679-p692 source-visible fixes from GDZ 400ppi witnesses. The P43 package adds five confirmed German source-critical fixes from GDZ600 witnesses and checks Paper 43 printed pp.1-6 and 18-21 in this pass. The tail/status package applies no German TeX patch; it records that the inspected WebR266 drive/log drops were Slavic/endmatter or target-language repair context rather than a new German cumulative source patch.
+- Caveat: P34 p690 table geometry still needs an exact microaudit, P43 pp.7-17 remain open, P34 source witnesses are about native 400ppi, and P43 witnesses are native GDZ600 below the strict native650+ full-page preference. This is current-control/source-repair support, not Paper 34 certification, not Paper 43 certification, not whole-Noether closure, not multilingual synchronization, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact Noether current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P16 IA JP2 / GDZ400 source-upgrade support
 
 Manifest: [20260628_noether_p16_iajp2_gdz400_sourceupgrade_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p16_iajp2_gdz400_sourceupgrade_nopatch.json)
