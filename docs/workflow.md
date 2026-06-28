@@ -40,6 +40,14 @@ This distinction should also be reflected in Zenodo descriptions. Do not describ
 
 Manifest/status files explain what is included, what passed technical checks, and what still needs review. They should be short enough to read and precise enough to act on.
 
+## Sweep And Publication Gate
+
+The local sweep is a control mechanism, not a publication decision. A ZIP that is missing from GitHub-facing metadata is an intake item: it may be a current reader package, a superseded handoff, a source-witness bundle, a raw scan master, an OCR locator aid, or a bad/suspect draft. It should be categorized before it is described publicly.
+
+The 2026-06-28 broad local sweep made this explicit. It found hundreds of unmentioned recent ZIP names, but the largest families were not all reader-ready: Cayley repair/salvage packets, Deligne diagram and OCR witnesses, Noether source-audit/multilingual support queues, Maxwell source/provenance deltas, SGA/EGA support material, Weber continuation packets, and non-European/Seki work packages. These should feed author-level refresh planning and provenance ledgers, not become a loose dump of files.
+
+Before a package moves from local intake to public Zenodo/GitHub status, check its own README, manifest, build logs, and source/audit ledgers. Then choose one of the following dispositions: front-facing reader/current TeX, compact source-support rollup, provenance/source witness, workflow-method evidence, superseded/backstop material, or local-only repair queue. Reader PDFs should be fronted on Zenodo when they are the object a visitor is likely to inspect; audit/support bundles should not appear above the reader surface unless the record is intentionally a provenance or workflow record.
+
 For the vocabulary used to describe draft quality, see the [quality rubric](quality-rubric.md).
 
 ## Recovered Workflow Artifacts
