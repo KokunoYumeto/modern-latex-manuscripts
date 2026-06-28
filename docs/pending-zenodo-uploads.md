@@ -1,3 +1,16 @@
+## 2026-06-28: Noether P15/P17 current-survival audits / no patch
+
+Manifest: [20260628_noether_p15_p17_survival_audits_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_p17_survival_audits_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Packages:
+  - `Noether_LocalCodex_after_WebR252_P15_SourceFixSurvival_NoPatch_on_CurrentR259_20260628.zip`, 88,421,255 bytes, SHA256 `170F6EB16AAF905C981CE44299091609E6739DFD9738997806E671B1FB22358C`, 108 entries, max path 288.
+  - `Noether_LocalCodex_after_WebR252_P17_FullSweepSurvival_NoPatch_on_CurrentR259_20260628.zip`, 8,584,397 bytes, SHA256 `D30375F9F5C3F6A943EDE3A4073C5C83175E1E44E9A178648F19F56D083C668B`, 38 entries, max path 87.
+- Scope: current-branch survival/source-route support after WebR252 on the CurrentR259 German base. P15 isolates the prior R140/Batch25 Paper 15 source-fix chain for printed pp.138-156; P17 consolidates the Paper 17 full-sweep survival evidence and confirms the previously repaired p23 and p26 formula/index loci survive.
+- Caveat: no TeX patch promoted. These are anti-regression/source-audit support only, not Paper 15/Paper 17 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material. P15 uses native400 GDZ with derived 1000-render crops; P17 uses GDZ600/enlarged witnesses.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Bianchi A2 p0135 reader-convenience files
 
 Manifest: [20260628_bianchi_a2_p0135_reader_convenience_files.json](../manifests/pending-zenodo-uploads/20260628_bianchi_a2_p0135_reader_convenience_files.json)
