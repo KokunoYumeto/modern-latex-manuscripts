@@ -187,7 +187,7 @@ Next action: fold into the next deliberate Noether file-ceiling refresh/rebalanc
 Manifest: [20260626_noether_r141_r140_p34_lambda_patch.json](../manifests/source-intake/20260626_noether_r141_r140_p34_lambda_patch.json)
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
-- Package: `Noether_R141_LocalCodex_R140_R129R130_IntakeFix_P34Lambda_WebDrop_20260626.zip`, 5,505,154 bytes, SHA256 `772A94BD4A8F787B8151D5CEB5421C6527EB2D51197287D363E7D338C049D93D`, 26 entries, max path 165.
+- Package: `Noether_R141_LocalCodex_R140_R129R130_IntakeFix_P34Lambda_WebDrop_20260626.zip`, 5,505,944 bytes, SHA256 `881326D5223238CDA9D89393A437517CE31C00EE67DE4EDB4C9DC1BBEA6F6A41`, 26 entries, max path 165.
 - Scope: targeted Paper 34 section 26 German TeX repair after R140, changing `a_i a_k=a_l, l\ne k` to `a_i a_k=a_\lambda, \lambda\ne k`. The patched cumulative compiles to 471 pages.
 - Caveat: source witnesses are best-available GDZ Math. Z. 30 pp.691-692 native 400 ppi, below strict native-650. Use this as targeted source-visible repair/provenance only, not full Paper 34 certification, not Noether closure, not multilingual synchronization, and not a critical edition.
 
