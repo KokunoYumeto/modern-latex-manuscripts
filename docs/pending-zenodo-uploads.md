@@ -6365,3 +6365,12 @@ Manifest: [20260627_seki_direct_kokusho_p008_p018_large_checkpoint.json](../mani
 - Seki source/checkpoint ZIP: `Seki_Direct_Kokusho_p008_018_SecondHeikeiThroughShin_SourceIncluded_WorkCheckpoint_20260608.zip`, 3,091,073,821 bytes, SHA256 `AB2B0B4675B32748FDF09F5DF30E1073F177087E579A3BE2BC546CC02187CD08`, 958 entries, max internal path length 145.
 - Scope: local source-included direct Kokusho/Takebe witness checkpoint for the p008-p018 working range. It is mostly crop/source images: 910 PNG/JPG/JPEG files, 17 CSV ledgers, 10 MD notes, one TeX working note, and two PDF render/check files.
 - Caveat: not a clean reader release. Internal notes say OCR is only a locator/check layer; p008 is not yet promotable; p009 still has diagram blockers; and p010 still has unresolved readings/diagram reconstruction work. The public Seki surface should remain the earlier p001-p009 material until a compact p008+ reader/TeX rollup is produced. Do not call this complete p008-p018 text, page-complete certification, or a critical edition.
+
+## 2026-06-28: Noether P20 dense-display source audit, no patch
+
+Manifest: [20260628_noether_p20_dense_display_source_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p20_dense_display_source_audit_nopatch.json)
+
+- Noether support/source-audit ZIP: `Noether_LocalCodex_after_WebR252_P20_DenseDisplaySourceAudit_NoPatch_on_CurrentR259_20260628.zip`, 18,287,008 bytes, SHA256 `48B19D18B4F74D1528FD96145EF580CBEC592461D98773D91CEB0B652F18BDF1`, 15 entries.
+- Scope: Paper 20 dense-display audit against the current R259 German base after WebR252. It checks formulas (1)-(16), the repeated source number (12), the `S(Z,u)` display, the Ostrowski proof close, and final date lines.
+- Result: no TeX patch. The package contains labelled crops, current P20 TeX span, source-quality ledgers, and a machine-readable visual-disposition CSV.
+- Caveat: source-audit/anti-regression support only. Best witnesses are mixed native GDZ 400/600 ppi pages; enlarged crops are inspection witnesses, not native 1000 ppi source. Do not call this Paper 20 certification, whole-Noether certification, multilingual synchronization, source closure, or a critical edition.
