@@ -59,7 +59,7 @@ The two project-level records are listed first for orientation and preservation.
 | [Additional author cluster](https://doi.org/10.5281/zenodo.20411006) | 100 | 10 | 88 | 5.60 GB | Mixed backstop/provenance shelf for routed authors not yet split into full records. Kneser, Poincare, and Frobenius now have preferred standalone records; older Kneser packets here remain provenance/backstop. |
 | **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |
 | [EGA](https://doi.org/10.5281/zenodo.20414353) | 16 | 10 | 4 | 472 MB | French originals plus partial English/OCR/draft continuation support. Useful preservation and continuation material, not a source-audited working edition comparable to the active SGA lane. |
-| [Cayley](https://doi.org/10.5281/zenodo.20520749) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material with a narrow source-inspected v2 restart packet for Vol. I pp.1-45 / Papers 1-9; older Cayley drafts remain not accuracy-certified, and the record should be read primarily as salvage/repair evidence until exact ranges are re-promoted by page-by-page source audit. |
+| [Cayley](https://doi.org/10.5281/zenodo.20520749) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material. No Cayley range is presently promoted as source-faithful, including the v2/restart Vol. I packets, until a future page-by-page glyph/source audit explicitly re-promotes exact ranges; the current record should be read as salvage/repair/source-comparison evidence. |
 
 ## Completion Read
 
