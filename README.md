@@ -62,6 +62,8 @@ Detailed package-level staging changes are intentionally not expanded on the fro
 
 Reader-facing rule: front-page priority follows current usefulness and source confidence, not package count. Noether and Weber are large usable working-reader lanes with active source reconciliation. SGA is serious but caveat-heavy: SGA5 has real page-local repair work, while SGA6/SGA7 still carry compression/detail caveats. EGA is lower-confidence OCR/original/source-support material. Cayley is currently repair/provenance material and should not be treated as faithful transcription until exact page ranges are re-audited and re-promoted.
 
+Latest Noether local source-support note: a Paper 19 GDZ400 max-source/dense-tail-crop package is registered as full-source support for future checking, but it applies no TeX patch and does not certify Paper 19. It should be folded into a deliberate Noether rollup/rebalance rather than uploaded loose above reader-facing PDFs.
+
 ## Current Zenodo Records
 
 This section is reader-facing: open the strongest, most coherent working editions first. File counts, upload size, and local package percentages are not progress bars and do not imply source certification.
