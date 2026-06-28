@@ -1,3 +1,14 @@
+## 2026-06-28: Bianchi A2 p0135 reader-convenience files
+
+Manifest: [20260628_bianchi_a2_p0135_reader_convenience_files.json](../manifests/pending-zenodo-uploads/20260628_bianchi_a2_p0135_reader_convenience_files.json)
+
+- Record: Luigi Bianchi, concept DOI `10.5281/zenodo.20615814`.
+- Files: loose A2 cumulative Italian/English reader PDFs and TeX through p0001-p0135, plus `a2_hq_source_p0121_0135.pdf` as the source witness for the p0121-p0135 tranche.
+- Scope: reader-convenience/fronting candidates only. The same p0135 A2 content is already represented inside `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip`; these loose files make the current A2 branch easier to inspect without opening the ZIP.
+- Caveat: not new content, not A2 completion, and not a critical edition. Keep existing Bianchi caveats about working drafts and the need to verify matrix dots, prime marks, summation superscripts, and notation details against source witnesses.
+
+Next action: on a future Bianchi record refresh, front the English and Italian p0135 reader PDFs above the A2 ZIP, then the source witness PDF; keep TeX as support.
+
 ## 2026-06-28: Noether P19 tail-fix survival audit / no patch
 
 Manifest: [20260628_noether_p19_tail_survival_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_tail_survival_audit_nopatch.json)
