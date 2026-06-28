@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P19 queue update / best-available page audit accounted / no patch
+
+Manifest: [20260628_noether_p19_queue_update_best_available_accounted_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_queue_update_best_available_accounted_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P19_QueueUpdate_BestAvailablePageAuditAccounted_NoPatch_on_CurrentR259_20260628.zip`, 43,059 bytes, SHA256 `2CB3355811199228911DB6ABC740BEFEAE77B502E4E1210D7160521F2C2D1F4E`, 9 entries, max path 91.
+- Scope: compact Paper 19 queue update after WebR252 on CurrentR259.
+- Result: no TeX patch promoted. It corrects the todo classification for P19: all printed pages pp.24-66 are accounted for by older R118/R120 full-page ledgers, and the current R259 P19 span robust-normalizes equal to the accepted R161/R143 chain. Later P19 tail and RA88 dense-hotspot packages remain useful targeted anti-regression evidence.
+- Caveat: official GDZ Math. Annalen 83 paper-level source route is staged at about 400 ppi. R118/R120 ledgers refer to 650/1000 inspection images, but this package does not treat those as native higher-detail source. This is best-available page accounting only, not fresh page-by-page source certification, native650+/1000 global certification, Noether closure, multilingual synchronization, or critical-edition evidence.
+
+Next action: keep as support evidence for a Noether rollup/file-ceiling rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P17 queue update / best-available page audit accounted / no patch
 
 Manifest: [20260628_noether_p17_queue_update_best_available_accounted_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p17_queue_update_best_available_accounted_nopatch.json)
