@@ -1,3 +1,14 @@
+## 2026-06-28: Noether P16 corrected-source-route audit / no patch
+
+Manifest: [20260628_noether_p16_corrected_source_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p16_corrected_source_audit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P16_CorrectedSourceAudit_NoPatch_on_CurrentR259_20260628.zip`, 18,245,019 bytes, SHA256 `753BD7A6E37C06B2E7F232A9ADFEC27D2E00A56804AF28CCA426C43E5E2F1E5D`, 18 entries, max path 69.
+- Scope: corrected-source-route source audit for Paper 16 printed pp.25-30 against the current R259 German base after WebR252. It checks formulas [1]-[10], footnotes, Berichtigungen, and acceptance line, and promotes no TeX patch.
+- Caveat: source-route/anti-regression support only. It records that old P16-labelled GDZ canvases `00000025`-`00000030` are invalid for P16 and should not be reused. Valid witnesses are IA leaves `0028`-`0033` / GDZ canvases `00000031`-`00000036`; the staged witnesses are below strict native 650+ ppi. Not Paper 16 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: fold into the next deliberate Noether file-ceiling refresh/rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-26: Noether R147 compact P12-P14/R129-R130 rollup
 
 Manifest: [20260626_noether_r147_p12_p14_rollup_nopatch.json](../manifests/source-intake/20260626_noether_r147_p12_p14_rollup_nopatch.json)
