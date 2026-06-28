@@ -7,11 +7,17 @@ Run from the repository root after `manifests/public-file-catalog.csv` exists:
 
 Outputs:
     docs/records/README.md
-    docs/records/<record_label>.md
+    docs/records/<record_label>.md, when missing
+
+Existing individual record pages can contain hand-maintained status notes that
+are richer than the generator's compact notes. By default this script preserves
+those pages and only refreshes the index plus missing pages. Use
+`--overwrite-record-pages` only when a full regeneration is intentional.
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
 import html
 import json
@@ -20,38 +26,65 @@ from collections import defaultdict
 from pathlib import Path
 
 
-RECORD_ORDER = [
-    "main",
-    "workflow",
-    "noether",
-    "weber",
-    "cayley",
-    "ega",
-    "sga",
-    "deligne",
-    "ukrainian_applied_math",
-    "gauss",
-    "riemann",
-    "albattani_opus_astronomicum",
-    "non_european_consolidated",
-    "chinese",
-    "indian_sanskrit",
-    "islamic_arabic",
-    "historical_references",
-    "classical_algebra_arithmetic",
-    "sylvester",
-    "maxwell",
-    "gibbs_old_physics",
-    "dedekind",
-    "dirichlet",
-    "bianchi",
-    "gordan_clebsch_gordan",
-    "steinitz",
-    "frobenius",
-    "poincare",
-    "kneser",
-    "additional_author_cluster",
+RECORD_TIERS = [
+    (
+        "Project infrastructure and public entry points",
+        [
+            "main",
+            "workflow",
+        ],
+    ),
+    (
+        "Best current reader/translation surfaces",
+        [
+            "noether",
+            "weber",
+            "frobenius",
+            "kneser",
+            "sylvester",
+            "albattani_opus_astronomicum",
+        ],
+    ),
+    (
+        "Serious source-aware work, with caveats",
+        [
+            "sga",
+            "deligne",
+            "bianchi",
+            "gordan_clebsch_gordan",
+            "steinitz",
+            "maxwell",
+            "gibbs_old_physics",
+            "ukrainian_applied_math",
+            "non_european_consolidated",
+            "chinese",
+            "indian_sanskrit",
+            "islamic_arabic",
+            "historical_references",
+        ],
+    ),
+    (
+        "Partial or non-continuous author workstreams",
+        [
+            "dedekind",
+            "dirichlet",
+            "gauss",
+            "riemann",
+            "poincare",
+            "classical_algebra_arithmetic",
+            "additional_author_cluster",
+        ],
+    ),
+    (
+        "OCR/support/provenance or currently unsafe draft lanes",
+        [
+            "ega",
+            "cayley",
+        ],
+    ),
 ]
+
+RECORD_ORDER = [label for _, labels in RECORD_TIERS for label in labels]
 
 
 DISPLAY_NAMES = {
@@ -89,6 +122,8 @@ DISPLAY_NAMES = {
 
 INDEX_DISPLAY_NAMES = {
     "cayley": "Arthur Cayley (suspect draft/provenance; not accuracy-certified)",
+    "ega": "EGA (French originals + OCR/support + partial translation draft)",
+    "sga": "SGA (serious active work; not complete)",
 }
 
 RECORD_NOTES = {
@@ -279,30 +314,41 @@ def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path, concept
     lines = [
         "# Record Landing Pages",
         "",
-        "These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files. This index uses compact browse labels; each linked record page gives the full public Zenodo title and current quality/status notes.",
+        "These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files. This index is ordered by current reader usefulness and source-audit confidence, not by file count, storage size, or aspirational project importance. Each linked record page gives the full public Zenodo title and current quality/status notes.",
         "",
         "| Record | Files | PDFs | ZIPs | MB | Page | Zenodo |",
         "|---|---:|---:|---:|---:|---|---|",
     ]
-    for label in RECORD_ORDER:
-        rows = grouped.get(label)
-        if not rows:
+    for tier, labels in RECORD_TIERS:
+        present = [label for label in labels if grouped.get(label)]
+        if not present:
             continue
-        display = INDEX_DISPLAY_NAMES.get(label, DISPLAY_NAMES.get(label, label.replace("_", " ").title()))
-        record_id = rows[0]["record_id"]
-        pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
-        zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
-        page = f"{slug(label)}.md"
-        url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
-        lines.append(
-            f"| {display} | {len(rows)} | {len(pdfs)} | {len(zips)} | {size_sum(rows):.1f} | [{page}]({page}) | [Zenodo]({url}) |"
-        )
+        lines.append(f"| **{tier}** |  |  |  |  |  |  |")
+        for label in present:
+            rows = grouped[label]
+            display = INDEX_DISPLAY_NAMES.get(label, DISPLAY_NAMES.get(label, label.replace("_", " ").title()))
+            record_id = rows[0]["record_id"]
+            pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
+            zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
+            page = f"{slug(label)}.md"
+            url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
+            lines.append(
+                f"| {display} | {len(rows)} | {len(pdfs)} | {len(zips)} | {size_sum(rows):.1f} | [{page}]({page}) | [Zenodo]({url}) |"
+            )
     lines.append("")
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "README.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--overwrite-record-pages",
+        action="store_true",
+        help="Rewrite existing docs/records/<record>.md pages. Default preserves them.",
+    )
+    args = parser.parse_args()
+
     root = Path.cwd()
     rows = read_rows(root / "manifests" / "public-file-catalog.csv")
     concept_urls = load_concept_urls(root)
@@ -313,7 +359,9 @@ def main() -> int:
     out_dir = root / "docs" / "records"
     for label in RECORD_ORDER:
         if label in grouped:
-            write_record_page(label, grouped[label], out_dir, concept_urls)
+            target = out_dir / f"{slug(label)}.md"
+            if args.overwrite_record_pages or not target.exists():
+                write_record_page(label, grouped[label], out_dir, concept_urls)
     write_index(grouped, out_dir, concept_urls)
     print(f"Wrote {len(grouped)} record landing pages to {out_dir}.")
     return 0

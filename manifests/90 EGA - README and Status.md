@@ -16,21 +16,22 @@ Public-Domain Mathematics Manuscripts project.
 
 ## Status at a glance
 
-- French originals from NUMDAM: `[##########]` 8/8 EGA PMIHES volumes present.
-- English translation reader: `[####------]` useful working draft; EGA I and
+- French originals from NUMDAM: 8/8 EGA PMIHES volumes present as reference/source PDFs.
+- English translation reader: useful partial working draft; EGA I and
   EGA II are present from the community translation base, with additional EGA
   0_IV and EGA IV material added locally.
-- EGA 0_IV local continuation: `[##########]` sections 15 through 23 are present
+- EGA 0_IV local continuation: sections 15 through 23 are represented
   as substantive working translations.
-- EGA IV local continuation: `[##########]` sections 1 through 21 are present
+- EGA IV local continuation: sections 1 through 21 are represented
   as substantive working translations.
 - Current quality note: this release refreshes the compiled reader after the
   latest EGA IV continuation edits, including newer section 12 and 13 material.
-- Whole EGA completion against the long-term goal: `[#####-----]` the project is
+- Whole EGA completion against the long-term goal: the project is
   still far from a complete translated/proofread edition, especially for EGA
-  III and later preliminaries.
-- Proofreading/final edition status: `[----------]` working draft for checking
-  and continuation, not a certified critical edition.
+  III and later preliminaries. This is an OCR/support and partial-translation
+  lane, not comparable to the stronger SGA5 workpass/source-audit lane.
+- Proofreading/final edition status: working draft for checking and continuation,
+  not a certified critical edition.
 
 ## Provenance
 
