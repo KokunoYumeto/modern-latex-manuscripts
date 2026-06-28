@@ -32,6 +32,19 @@ Open the records in this order if the goal is to find useful mathematics quickly
 
 The SGA/EGA distinction matters. SGA has substantial real SGA5 repair and SGA6/SGA7 working-translation material under caveat. EGA is currently a support/stub lane: useful French originals plus partial OCR/English draft material, but not a comparable source-audited working edition.
 
+## How To Read Coverage
+
+Do not read file counts, upload size, or a local page percentage as a simple progress bar. The public question is: what can a reader responsibly use today?
+
+| Coverage Tier | Meaning | Examples |
+|---|---|---|
+| Coherent reader/translation surface | A named work, selected corpus, or large continuous tranche has reader PDFs and TeX that are meant to be opened first. | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani. |
+| Serious source-aware working lane | Real repair/source-audit/translation work exists, but reliability changes by page range or object type. | SGA, Deligne, Bianchi, Gordan, Steinitz, Gibbs, Maxwell, non-European records. |
+| Partial or non-continuous stream | Useful packages exist, but the record is not a seamless author edition. | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed shelves. |
+| Support, OCR, salvage, or provenance | Material is retained because it helps future work, not because it is a promoted reading edition. | EGA, Cayley, raw landing/provenance bundles. |
+
+When these tiers conflict with an older filename such as `complete`, `strict`, `source-checked`, or `critical`, the tier and the current caveat win. Cayley is currently de-promoted repair/provenance material. EGA is OCR/original/draft support. SGA is substantially more real than EGA, but still not complete or globally source-faithful.
+
 ## Current Records
 
 The two project-level records are listed first for orientation and preservation. After that, records are grouped by public usefulness and source-confidence, not by creation date, file count, or upload size. A high file count is not a progress bar and does not imply a high source-accuracy tier.
