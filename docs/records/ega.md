@@ -12,11 +12,11 @@ Public title: Elements de Geometrie Algebrique (EGA): French Originals and Engli
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Treat this as a reference/draft support lane. Open the French NUMDAM originals as source references; treat the English PDFs as partial working drafts; use artifact ZIPs when you need TeX, OCR, build material, source witnesses, page images, render checks, or provenance. This record is useful preservation and continuation material, not a source-audited working edition comparable to the active SGA lane.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
-## Reader And Reference PDFs
+## Reference PDFs And Draft Readers
 
 | Size MB | File |
 |---:|---|
