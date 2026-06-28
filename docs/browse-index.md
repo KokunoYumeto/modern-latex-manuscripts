@@ -6,22 +6,17 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Goal | Open First |
 |---|---|
+| Work on Noether only | [Emmy Noether record](https://doi.org/10.5281/zenodo.20412587) |
+| Work on Weber only | [Heinrich Weber record](https://doi.org/10.5281/zenodo.20412153) |
+| Read the strongest current reader surfaces | [Frobenius](https://doi.org/10.5281/zenodo.20673444), [Kneser](https://doi.org/10.5281/zenodo.20836971), [Sylvester](https://doi.org/10.5281/zenodo.20520692), [al-Battani](https://doi.org/10.5281/zenodo.20539593) |
+| Continue serious but caveat-heavy source-audit work | [SGA](https://doi.org/10.5281/zenodo.20410947), [Deligne](https://doi.org/10.5281/zenodo.20410853), [Bianchi](https://doi.org/10.5281/zenodo.20615814), [Gordan](https://doi.org/10.5281/zenodo.20616260), [Steinitz](https://doi.org/10.5281/zenodo.20616988) |
+| Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://doi.org/10.5281/zenodo.20410957) |
+| Browse partial or non-continuous author workstreams | [Dedekind](https://doi.org/10.5281/zenodo.20520669), [Dirichlet](https://doi.org/10.5281/zenodo.20520679), [Gauss](https://doi.org/10.5281/zenodo.20410934), [Riemann](https://doi.org/10.5281/zenodo.20429778), [Poincare](https://doi.org/10.5281/zenodo.20673461) |
+| Inspect support/salvage lanes, not promoted reader editions | [EGA](https://doi.org/10.5281/zenodo.20414353), [Cayley](https://doi.org/10.5281/zenodo.20520749), [Classical algebra and arithmetic shelf](https://doi.org/10.5281/zenodo.20414787), [Additional author cluster](https://doi.org/10.5281/zenodo.20411006) |
 | Get the whole preservation surface | [Main project landing](https://doi.org/10.5281/zenodo.20393488) |
 | Reproduce the workflow | [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
-| Read or continue SGA translation work | [SGA working English translation](https://doi.org/10.5281/zenodo.20410947) |
-| Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://doi.org/10.5281/zenodo.20410957) |
-| Work on Noether only | [Emmy Noether record](https://doi.org/10.5281/zenodo.20412587) |
-| Work on Weber only | [Heinrich Weber record](https://doi.org/10.5281/zenodo.20412153) |
-| Work on Cayley only | [Arthur Cayley record](https://doi.org/10.5281/zenodo.20520749) |
-| Read or continue EGA translation work | [EGA working English translation](https://doi.org/10.5281/zenodo.20414353) |
-| Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://doi.org/10.5281/zenodo.20414787) |
-| Work on Riemann only | [Bernhard Riemann record](https://doi.org/10.5281/zenodo.20429778) |
-| Work on Bianchi only | [Luigi Bianchi record](https://doi.org/10.5281/zenodo.20615814) |
-| Work on Gordan/Clebsch-Gordan only | [Paul Gordan and Clebsch-Gordan record](https://doi.org/10.5281/zenodo.20616260) |
-| Work on Steinitz only | [Ernst Steinitz record](https://doi.org/10.5281/zenodo.20616988) |
-| Browse additional selected author drafts | [Additional author cluster](https://doi.org/10.5281/zenodo.20411006) |
 | See which mixed-shelf authors may deserve dedicated pages | [Author page candidates](author-page-candidates.md) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
 | Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
