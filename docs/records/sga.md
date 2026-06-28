@@ -2,7 +2,7 @@
 
 Zenodo record: [20822648](https://doi.org/10.5281/zenodo.20410947)
 
-Public title: Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
+Public title: Seminaire de Geometrie Algebrique (SGA): Working Translation and Source-Audit Drafts
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
