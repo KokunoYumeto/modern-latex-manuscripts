@@ -1,3 +1,21 @@
+## 2026-06-28: Noether P11/P13/P14 survival audits / no patch
+
+Manifests:
+
+- [20260628_noether_p11_source_comma_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p11_source_comma_survival_nopatch.json)
+- [20260628_noether_p13_source_trap_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p13_source_trap_survival_nopatch.json)
+- [20260628_noether_p14_header_body_hazard_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p14_header_body_hazard_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Packages:
+  - `Noether_LocalCodex_after_WebR252_P11_SourceCommaSurvival_NoPatch_on_CurrentR259_20260628.zip`, 19,804,680 bytes, SHA256 `B0E12FEBD3D1483670F641FD22345A039074B419A71664B3AD77A40210AC9C62`, 27 entries, max path 120.
+  - `Noether_LocalCodex_after_WebR252_P13_SourceTrapSurvival_NoPatch_on_CurrentR259_20260628.zip`, 11,127,450 bytes, SHA256 `DD21663030613861D58D97C1E25506223C2E8F370A198EFC130DBEAFD26139BE`, 35 entries, max path 109.
+  - `Noether_LocalCodex_after_WebR252_P14_HeaderBodyHazardSurvival_NoPatch_on_CurrentR259_20260628.zip`, 2,509,220 bytes, SHA256 `43B68524BF7019684FD6BD9E77AB4191F9F760807266D314406865FC7182148F`, 26 entries, max path 95.
+- Scope: current-branch survival/source-audit support after WebR252 on the CurrentR259 German base. P11 confirms the R256 comma-fixed/source-critical Paper 11 span survives; P13 confirms accepted source-trap anchors survive; P14 confirms named header/body source-fix and hazard anchors survive.
+- Caveat: no TeX patch promoted. These are anti-regression/source-audit support packages only, not Paper 11/Paper 13/Paper 14 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material. P11 and P13 include targeted 1000ppi crops for fragile loci; P14 carries GDZ600 route guidance, but still needs page-by-page review and high-detail crops for dense formula/table regions before stronger claims.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P12 source-dash survival / no patch
 
 Manifest: [20260628_noether_p12_source_dash_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_source_dash_survival_nopatch.json)
