@@ -151,6 +151,8 @@ For a standalone statement of this rule, see [Curated Public Surfaces](workflow-
 5. Preserve older material in artifacts or version history when it is useful for provenance.
 6. Update the archive guide, file catalog, known gaps, and current-status manifest.
 
+Exact filename coverage is not enough for mutable pointer or index packages. A local workflow may refresh a same-named ZIP in place after adding rows, logs, or status corrections. Archive sweeps should therefore compare size and SHA256 for current upload-set indices, drag maps, status rollups, and other pointer packages, not only ask whether the filename appears somewhere in GitHub metadata. If the same filename has a new hash, update the manifest and human-facing status note rather than treating it as already represented.
+
 For the full publication pass, use the [release checklist](release-checklist.md).
 
 ## Local OCR And Math-Extraction Tooling Notes
