@@ -10,9 +10,10 @@ This index is ordered by current public usefulness. Substantial source-aware rea
 
 | Tier | Records | Practical Meaning |
 |---|---|---|
-| Substantial working editions/translations | Noether, Weber, SGA, Bianchi, Frobenius, Kneser, Sylvester, Steinitz, Gordan, al-Battani, Gibbs, Maxwell | Coherent reader surfaces and source/audit packages exist for a named scope. Still not certified critical editions. |
-| Substantial but mixed/actively repaired | Deligne, non-European/Chinese/Indian/Islamic records, Ukrainian applied mathematics, Dedekind, Dirichlet, Gauss, Riemann, Poincare | Real reader or translation work exists, but source closure, continuity, diagram/table fidelity, or work-level completion varies. |
-| Support/OCR/provenance/stub lanes | EGA, Cayley, Classical algebra/arithmetic mixed shelf, Additional author cluster, raw main landing | Useful for preservation, repair, or future work. Do not read these as accuracy-certified editions unless a specific later source-audit package promotes an exact range. |
+| Best current reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Coherent reader surfaces and source/audit packages exist for a named scope. Still not certified critical editions. |
+| Serious source-aware work, but caveat-heavy | SGA, Deligne, Bianchi, Gordan, Steinitz, Gibbs, Maxwell, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader or translation work exists, but source closure, continuity, diagram/table fidelity, or work-level completion varies. SGA belongs here rather than in a generic stub tier because SGA5 has real page-local repair work, while SGA6/SGA7 and parts of SGA5 still carry explicit source-faithfulness caveats. |
+| Partial author records and workstreams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, Classical algebra/arithmetic mixed shelf, Additional author cluster | Useful working material exists, but read package-by-package rather than as seamless author-complete editions. |
+| Support/OCR/provenance/stub lanes | EGA, Cayley, raw main landing | Useful for preservation, repair, or future work. EGA is partial/OCR-and-draft support; Cayley is currently salvage/repair material except for any exact range later re-promoted by page-by-page source audit. |
 
 ## Algebraic Geometry
 
