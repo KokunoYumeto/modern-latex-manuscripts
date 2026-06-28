@@ -60,15 +60,15 @@ Records are ordered roughly by current public usefulness, then by supporting she
 
 The project is best read as a live corpus rather than a finished edition. The numbers below describe the current archive surface, not final scholarly proof status.
 
-| Area | Current Readiness | Plain-English Meaning |
-|---|---:|---|
-| Preservation and discoverability | 100/100 | Current public records are indexed, linked, and mirrored in local manifests. |
-| Zenodo presentation hygiene | 95/100 | Current records have human titles and passed configured metadata/filename checks. |
-| PDF technical surface | 90/100 | The latest local public PDF surface audit checked 356 PDFs with no configured defect flags. |
-| Source/provenance availability | 85/100 | Most records include artifact ZIPs with TeX, sources, or checking material. |
-| Human browseability | 88/100 | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; refreshed non-European and SGA records now expose more work-level PDFs and repair packets. |
-| Mathematical/source proofreading | 25/100 | Many drafts still need page-by-page checking against source witnesses; no record is currently treated as critically certified by default. |
-| Reader/translation coverage | 35/100 | Several corpora have substantial reader or translation surfaces, but status is very uneven: Noether/Weber/SGA/al-Battani and several author records have real working editions, while EGA, Cayley, and mixed shelves are mostly partial, OCR/support, or repair-provenance lanes. |
+| Area | Current Status | Plain-English Meaning |
+|---|---|---|
+| Preservation and discoverability | Current preservation surface | Current public records are indexed, linked, and mirrored in local manifests. This says the archive is findable, not that the mathematics is proofread. |
+| Zenodo presentation hygiene | Strong but caveat-sensitive | Current records have human titles and configured metadata/filename checks, but record descriptions still need periodic review as audit evidence changes. |
+| PDF technical surface | Technically healthy in last audit | The latest local public PDF surface audit checked 356 PDFs with no configured defect flags; this is a file/render check, not a mathematical correctness check. |
+| Source/provenance availability | Broad but uneven | Most records include artifact ZIPs with TeX, sources, or checking material; quality and usefulness vary by author lane. |
+| Human browseability | Improved, still noisy | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; some older shelves remain provenance-heavy and need continued pruning/fronting. |
+| Mathematical/source proofreading | Early and uneven | Many drafts still need page-by-page checking against source witnesses; no record is currently treated as critically certified by default. |
+| Reader/translation coverage | Substantial but uneven | Several corpora have substantial reader or translation surfaces, but status differs sharply: Noether/Weber/SGA/al-Battani and several author records have real working editions, while EGA, Cayley, and mixed shelves are mostly partial, OCR/support, or repair-provenance lanes. |
 
 ## Most Useful Next Work
 
