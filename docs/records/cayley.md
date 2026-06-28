@@ -12,13 +12,13 @@ Public title: Arthur Cayley: Collected Mathematical Papers, Draft/Provenance LaT
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Treat this as a repair/provenance lane, not as a promoted reader edition. The PDFs below are retained because they are useful for salvage, comparison, and future correction, but they are not currently promoted as source-faithful transcriptions. Use the artifact ZIPs, source witnesses, OCR/crop material, and audit ledgers when repairing exact ranges.
 
 Accuracy warning 2026-06-09/12/25: this record is not a completed or proofed edition. Source comparison found substantial symbol/text mismatches in current Cayley Volume I material, including ranges that looked usable as rendered TeX. Existing PDFs, TeX, indexes, and ZIPs are retained as provenance, salvage, and repair material, not as source-faithful transcription. Do not infer reliability from inherited filenames: reader PDFs and ZIPs still contain phrases such as `Complete`, `Source-Checked`, or `critical`, but those are obsolete package names rather than current quality claims. No Cayley range is presently promoted as source-faithful until a future page-by-page glyph/source audit explicitly re-promotes that specific range. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
-## Reader And Reference PDFs
+## Legacy Reader PDFs Not Currently Promoted As Source-Faithful
 
 | Size MB | File |
 |---:|---|
