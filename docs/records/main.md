@@ -12,7 +12,9 @@ Public title: Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+This main record is the bulk-preservation and raw/provenance landing page. It is intentionally broad and therefore not the best first reader surface. Open the author/work records first for current quality status: Noether, Weber, Frobenius, Kneser, Sylvester, and al-Battani are usually the strongest reader-facing entries; SGA is serious source-aware working material with explicit incompleteness/compression caveats; EGA and Cayley are support/provenance lanes rather than promoted source-faithful editions.
+
+Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, logs, ledgers, or provenance material. File count and upload size are not progress bars.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

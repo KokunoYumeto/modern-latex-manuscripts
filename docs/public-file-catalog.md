@@ -419,7 +419,7 @@ Accuracy warning 2026-06-09/12/25: Cayley files listed here are retained for pro
 | artifact/source ZIP | 14.0192 | [Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip) |
 | artifact/source ZIP | 227.8307 | [Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip) |
 
-## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
+## Seminaire de Geometrie Algebrique (SGA): Working Translation and Source-Audit Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
@@ -637,7 +637,7 @@ Record: <https://doi.org/10.5281/zenodo.20410853>
 | artifact/source ZIP | 246.1374 | [95 Pierre Deligne - Update Packets 2026-06-09 v3.zip](https://zenodo.org/records/20617786/files/95%20Pierre%20Deligne%20-%20Update%20Packets%202026-06-09%20v3.zip) |
 | manifest/status | 0.0013 | [99 Deligne - Public Summary.json](https://zenodo.org/records/20617786/files/99%20Deligne%20-%20Public%20Summary.json) |
 
-## Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft
+## Elements de Geometrie Algebrique (EGA): French Originals, OCR/Support, and Partial English Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20414353>
 
