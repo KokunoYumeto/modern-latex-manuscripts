@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P12 formula (8) source-audit patch candidate
+
+Manifest: [20260628_noether_p12_formula8_source_audit_patch_candidate.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_formula8_source_audit_patch_candidate.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P12_Formula2_3_4_8_SourceAudit_Patch_on_CurrentR259_20260628.zip`, 12,870,607 bytes, SHA256 `B124FCFE94BE7682F3C93BD0DE43EF4780127FC2CEF2F4AD8448BAD89CA8E746`, 22 entries, max path 108.
+- Scope: targeted source audit for Paper 12 formulas (2), (3), (4), and (8) against the CurrentR259 German base after WebR252.
+- Result: formulas (2), (3), and (4) are recorded as no-patch source/current agreements. Formula (8) is a source-certain patch candidate removing extra display commas before/around ellipsis columns. The candidate cumulative TeX compiled twice with XeLaTeX to a 471-page PDF.
+- Caveat: targeted formula audit and patch candidate only. Source pages are GDZ native400 with 1000/1200 ppi inspection enlargements; this is not strict Paper 12 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P11/P13/P14 survival audits / no patch
 
 Manifests:
