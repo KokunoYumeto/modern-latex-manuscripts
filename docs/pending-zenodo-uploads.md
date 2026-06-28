@@ -10,6 +10,18 @@ Manifest: [20260628_broad_local_exact_sweep_triage.json](../manifests/source-int
 
 Next action: use the triage manifest when preparing author-level Zenodo refreshes and when deciding whether a support bundle belongs on a reader-facing record, a provenance/support record, or only in the local repair queue.
 
+## 2026-06-28: Bianchi A1 Volume I source-witnessed working package
+
+Manifest: [20260628_bianchi_a1_volume1_working_package_pending.json](../manifests/pending-zenodo-uploads/20260628_bianchi_a1_volume1_working_package_pending.json)
+
+- Record: Luigi Bianchi, concept DOI `10.5281/zenodo.20615814`.
+- Package: `95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Audit Package.zip`, 49,489,689 bytes, SHA256 `6BB22A3EF4679F538CEFDEFE722BEB12A7D679571A443A0BDAD6374FD96C9FF6`, 204 entries, max internal path 101.
+- Scope: Bianchi A1 Volume I source pdfpages 0001-0543, with Italian transcription and English translation cumulative TeX/PDF, current p0505-p0543 tranche, source witness PDF/PNGs, ledgers, render checks, and audit notes.
+- Inspection: internal build summary reports Italian cumulative 356 pages and English cumulative 354 pages, with final pass-2 diagnostic grep clean. Literal audit reports p0505-p0529 through the end of Chapter XIV / `FINE DEL VOLUME PRIMO`, p0530-p0536 authorial index, and p0537-p0543 as non-authorial blank/digitization/back-cover provenance. It records 34 corrected index page-number loci and one p0529 formula-denominator correction.
+- Caveat: strong source-witnessed working edition package, not a certified critical edition. Important equations, index rows, and terminology still need source checking for citation-critical use.
+
+Next action: use as a Bianchi record refresh candidate. If publishing, front the cumulative Italian and English reader PDFs when practical and keep the ZIP as TeX/source/audit support.
+
 ## 2026-06-28: Noether P12/P13/P21/P22 source-certain patchset promotion-ready wrapper
 
 Manifest: [20260628_noether_p12_p13_p21_p22_source_certain_patchset_promotion_ready.json](../manifests/pending-zenodo-uploads/20260628_noether_p12_p13_p21_p22_source_certain_patchset_promotion_ready.json)
