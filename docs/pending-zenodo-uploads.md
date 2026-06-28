@@ -1,3 +1,27 @@
+## 2026-06-28: Noether P12/P13/P21/P22 source-certain cumulative patchset
+
+Manifest: [20260628_noether_source_certain_patchset_p12_p13_p21_p22.json](../manifests/pending-zenodo-uploads/20260628_noether_source_certain_patchset_p12_p13_p21_p22.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_SourceCertainPatchset_P12_P13_P21_P22_on_CurrentR259_20260628.zip`, 3,202,752 bytes, SHA256 `6EE3E677A2B78F46E0C8EFCA0DD1249CC20D1A341FA70EEC7B6D30C689332BF9`, 11 entries, max path 110.
+- Scope: narrow CurrentR259 cumulative integration of source-confirmed fixes already established by separate source-audit packages: P12 formula (8) comma/ellipsis punctuation, P13 formula (16) lambda range, P21 f-prime removals while preserving formula (140), and P22 Hentzelt source front-matter/footnote normalization.
+- Result: promotes one cumulative German TeX/PDF patchset and a clean two-pass XeLaTeX build to a 471-page PDF.
+- Caveat: integration package only. This is not global Noether certification, not whole-paper certification for P12/P13/P21/P22, not multilingual synchronization, and not a critical-edition claim.
+
+Next action: fold into a deliberate Noether source-audit/cumulative-support rollup or file-ceiling rebalance; do not loose-upload every support package above reader PDFs.
+
+## 2026-06-28: Noether P18 complete best-available page audit / no patch
+
+Manifest: [20260628_noether_p18_complete_best_available_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p18_complete_best_available_audit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P18_CompleteBestAvailablePageAudit_NoPatch_on_CurrentR259_20260628.zip`, 9,583,433 bytes, SHA256 `AD45CD0A8D4531A1945E9BFF3C4EE97BBE9089C1F9E4987AEF519DC05024A36E`, 14 entries, max path 63.
+- Scope: complete CurrentR259 Paper 18 span audit for printed source page 101. It checks the mid-page P18 heading, Hentzelt prose, elimination problem, resultant display, R_N/R_M sentence, and norm/primary-decomposition paragraph.
+- Result: no TeX patch promoted. The current P18 span, lines 11257-11279, is recorded as matching the best-available source at the checked loci.
+- Caveat: source witness is GDZ/JDMV 30 native600, below the preferred native650 floor; included split PNGs are 1000 ppi render aids from native600, not higher-native scans. Best-available page audit only: not strict certification, not Noether closure, not multilingual synchronization, and not a critical-edition claim.
+
+Next action: fold into a deliberate Noether source-audit rollup/file-ceiling rebalance if useful; do not front above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P19 RA88 dense-hotspot best-available audit / no patch
 
 Manifest: [20260628_noether_p19_ra88_dense_hotspots_best_available_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_ra88_dense_hotspots_best_available_audit_nopatch.json)
@@ -484,10 +508,10 @@ Next action: use this index to drive the next deliberate Noether rollup/rebalanc
 
 Manifest: [20260628_noether_current_upload_set_after_webR252_on_currentR259.json](../manifests/source-intake/20260628_noether_current_upload_set_after_webR252_on_currentR259.json)
 
-- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 94,816 bytes, SHA256 `3ED52DDA26E15BFE96324742760109977D12427FDE03F86065C3EFA55AAD6BB1` (refreshed in place again after the earlier 94,125-byte / `89B83A785C84C4987F3D67004E665102537FC0CAA68155F84AFD1FA7916BEE85` and 87,391-byte / `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` copies; the first observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
+- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 96,450 bytes, SHA256 `5ADBC491D1C87D285CBD8644B8A48298C2C9CBE0E34534223ECD5A50F8E888B5` (refreshed in place again after the earlier 94,816-byte / `3ED52DDA26E15BFE96324742760109977D12427FDE03F86065C3EFA55AAD6BB1`, 94,125-byte / `89B83A785C84C4987F3D67004E665102537FC0CAA68155F84AFD1FA7916BEE85`, and 87,391-byte / `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` copies; the first observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
 - The current pointer package contains the drag index and persistent Noether German source-audit logbook. The earlier observed copy also carried `README_CURRENT_UPLOAD_POINTER.md`; that README is absent from the current refreshed ZIP.
 - Naming rule: web/session-owned drops keep bare `R###` labels. Local Codex addenda after WebR252 must use descriptive `after_WebR252/...on_CurrentR259` names. Old local bare-`R###` names are historical/do-not-upload unless they are genuine web/session-owned artifacts.
-- Parsed contents: 52 corrected drag-package rows and 20 legacy/do-not-use names. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
+- Parsed contents: 54 corrected drag-package rows and 20 legacy/do-not-use names. The newest rows add the P18 complete best-available page audit and the P12/P13/P21/P22 source-certain cumulative patchset. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
 - The current pointer ZIP has no README-derived `latest_added` field; treat the parsed drag index and package-specific manifests as authoritative instead of stale README metadata.
 
 Next action: use this manifest as the current Noether upload/rebalance map. Do not promote the legacy bare-R local names, and do not upload every support package as a separate public file.
