@@ -19,6 +19,19 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 
 Latest Noether local queue hygiene: R128 P09/P10 Batch25 survival packages now record that current Paper 09 and Paper 10 spans are byte-identical to earlier rebuilt/source-backed spans, with no TeX patches. They are anti-regression/stale-queue controls only and should be folded into a compact Noether rollup rather than treated as standalone paper certification.
 
+## Reader Priority And Quality
+
+Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
+
+| Priority | Records | Reader Surface | Source-Audit / Caveat |
+|---|---|---|---|
+| 1. Coherent reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Top-level PDFs or declared work-level readers exist for a named scope. | Still working scholarly drafts; Noether/Weber remain active source-reconciliation lanes rather than critical editions. |
+| 2. Serious source-aware work, caveat-heavy | SGA, Deligne, Bianchi, Gordan, Steinitz, Gibbs, Maxwell, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader, translation, data/table, or source-audit surfaces exist. | Range quality varies; diagrams, tables, page-local source closure, and language synchronization must be checked. |
+| 3. Partial author records and non-continuous streams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed classical shelves | Useful packages exist. | Read package-by-package; do not treat these as seamless author-complete editions. |
+| 4. OCR/support/provenance or unsafe draft lanes | EGA, Cayley, raw landing material | Preservation, OCR, salvage, or future continuation support. | EGA is mostly French-original/OCR/partial draft support. Cayley is de-promoted until exact page ranges are re-audited and re-promoted. |
+
+The SGA/EGA distinction matters. SGA has substantial real SGA5 repair and SGA6/SGA7 working-translation material under caveat. EGA is currently a support/stub lane: useful French originals plus partial OCR/English draft material, but not a comparable source-audited working edition.
+
 ## Current Records
 
 The two project-level records are listed first for orientation and preservation. After that, records are grouped by public usefulness and source-confidence, not by creation date, file count, or upload size. A high file count is not a progress bar and does not imply a high source-accuracy tier.

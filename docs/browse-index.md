@@ -6,9 +6,9 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Goal | Open First |
 |---|---|
-| Work on Noether only | [Emmy Noether record](https://doi.org/10.5281/zenodo.20412587) |
-| Work on Weber only | [Heinrich Weber record](https://doi.org/10.5281/zenodo.20412153) |
-| Read the strongest current reader surfaces | [Frobenius](https://doi.org/10.5281/zenodo.20673444), [Kneser](https://doi.org/10.5281/zenodo.20836971), [Sylvester](https://doi.org/10.5281/zenodo.20520692), [al-Battani](https://doi.org/10.5281/zenodo.20539593) |
+| Read the strongest current reader/translation surfaces | [Noether](https://doi.org/10.5281/zenodo.20412587), [Weber](https://doi.org/10.5281/zenodo.20412153), [Frobenius](https://doi.org/10.5281/zenodo.20673444), [Kneser](https://doi.org/10.5281/zenodo.20836971), [Sylvester](https://doi.org/10.5281/zenodo.20520692), [al-Battani](https://doi.org/10.5281/zenodo.20539593) |
+| Work on Noether only | [Emmy Noether record](https://doi.org/10.5281/zenodo.20412587), but read it as a large working corpus with active source-audit corrections, not a critical edition |
+| Work on Weber only | [Heinrich Weber record](https://doi.org/10.5281/zenodo.20412153), especially Volume I and the current Volume II repair stream |
 | Continue serious but caveat-heavy source-audit work | [SGA](https://doi.org/10.5281/zenodo.20410947), [Deligne](https://doi.org/10.5281/zenodo.20410853), [Bianchi](https://doi.org/10.5281/zenodo.20615814), [Gordan](https://doi.org/10.5281/zenodo.20616260), [Steinitz](https://doi.org/10.5281/zenodo.20616988) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://doi.org/10.5281/zenodo.20410957) |
 | Browse partial or non-continuous author workstreams | [Dedekind](https://doi.org/10.5281/zenodo.20520669), [Dirichlet](https://doi.org/10.5281/zenodo.20520679), [Gauss](https://doi.org/10.5281/zenodo.20410934), [Riemann](https://doi.org/10.5281/zenodo.20429778), [Poincare](https://doi.org/10.5281/zenodo.20673461) |
