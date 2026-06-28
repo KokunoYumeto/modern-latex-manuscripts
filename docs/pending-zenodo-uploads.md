@@ -335,6 +335,18 @@ Manifest: [20260626_noether_r128_p31_batch39_pp095_104_sourcefix.json](../manife
 
 Next action: fold into the next deliberate Noether Zenodo refresh/rebalance; continue from the active R128 queue unless a newer authority package supersedes it.
 
+## 2026-06-28: Noether Slavic endmatter/Post45 source-fidelity update
+
+Manifest: [20260628_noether_slavic_endmatter_post45_source_fidelity_update.json](../manifests/source-intake/20260628_noether_slavic_endmatter_post45_source_fidelity_update.json)
+
+- Noether pending ZIP: `Noether_Slavic_Endmatter_Post45_SourceFidelity_Update_20260628T034348Z.zip`, 89,845,999 bytes, SHA256 `D42D8F7FEEA445B2DE9B8097F3110537D91700A57AC42912A8A687D71BE0C178`, 1,985 entries.
+- Scope: Ukrainian, Russian, Interslavic Latin, and deterministic Interslavic Cyrillic language-lane update. The package declares Paper01-43 cumulative Slavic TeX/PDF readers and adds standalone source-fidelity endmatter readers for Post45 Kapferer-Noether and the terminal bibliography.
+- Current completed checkpoint: `post45_source_fidelity_v001_rendered_visual_validated`. Post45 renders as 7-page German witness, Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic PDFs.
+- Apparatus to preserve: `GENERAL_TRANSLATION_LOGBOOK.md`, `INTERSLAVIC_LOGBOOK.md`, constructed-language reflections, recovery/provenance notes, Post45 segment JSON, terminology glossaries, translation units, visual/render audit notes, and deterministic Latin/Cyrillic conversion material.
+- Caveat: multilingual translation/register-construction and linguistics apparatus only. This is not source-certified Noether closure, not independent certification of the German source line, not a critical edition, and not a reason to weaken formula/table/footnote/source-check warnings.
+
+Next action: fold into the next deliberate Noether Zenodo refresh/rebalance with reader-facing caveats and a GitHub issue/PR correction pointer; do not loose-upload as an unlabeled raw dump.
+
 ## 2026-06-26: Noether Slavic cumulative work-so-far through Paper 34 section 26
 
 Manifest: [20260626_noether_slavic_worksofar_papers01_34_section26.json](../manifests/source-intake/20260626_noether_slavic_worksofar_papers01_34_section26.json)
