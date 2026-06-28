@@ -18,6 +18,8 @@ Latest staged workflow refresh for the next workflow DOI update adds the 2026-06
 
 A 2026-06-26 Noether maintenance lesson adds no-patch survival bridges and source-search packets as distinct workflow objects. They are valuable anti-regression and source-routing aids and should record span hashes, source-search failures, raw-source archive checksums, and current branch pointers, but they are not reader editions, proof, certification, critical editions, or source-fidelity verification.
 
+A 2026-06-28 workflow addendum is staged locally for the next workflow DOI refresh. It records concurrent-agent release-label discipline, especially the rule that web/session-owned `R###` labels should not be reused by local support packages; local support packets should instead state what web drop they follow and what current cumulative branch they were checked on. It also records that upload-set indexes are control material, OCR/Marker handoff snapshots are locator evidence rather than canonical transcription, and source-authority conflicts may correctly result in no promoted TeX patch.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
