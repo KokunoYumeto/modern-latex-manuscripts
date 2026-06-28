@@ -1,3 +1,14 @@
+## 2026-06-28: Noether P19 GDZ400 max-source / dense-tail crop full-source support
+
+Manifest: [20260628_noether_p19_gdz400_maxprobe_dense_tail_crops_full_source_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_gdz400_maxprobe_dense_tail_crops_full_source_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_P19_GDZ400_MaxProbe_DenseTailCrops_NoPatch_20260628.zip`, 86,363,634 bytes, SHA256 `768DB5DB5CC4DC698F03C3867900258057C7624E7E6093A7584B4EC3585698F6`.
+- Scope: Noether Paper 19, `Idealtheorie in Ringbereichen`, Math. Ann. 83, printed pp. 24-66.
+- Result: no TeX patch. This is the larger source-support companion to the narrower P19 queue/tail/RA88 anti-regression packets: it adds the exact GDZ article PDF, all 43 raw GDZ IIIF full-page images, fresh IIIF max-probe/source-quality ledgers, the promoted-base P19 extract, carried-forward page-accounting/dense/tail ledgers, and labelled inspection crops.
+- Caveat: every raw full page is native GDZ 400ppi. The labelled 1000dpi crops are enlarged visual aids from those pages, not native 1000ppi sources. This is not Paper 19 certification, not Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
+
 ## 2026-06-28: Noether v9/P20 current-control source-audit follow-up
 
 Manifest: [20260628_noether_v9_p20_maxprobe_current_control.json](../manifests/pending-zenodo-uploads/20260628_noether_v9_p20_maxprobe_current_control.json)

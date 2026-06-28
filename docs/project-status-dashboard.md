@@ -34,6 +34,8 @@ Quality rule: the dashboard counts public files and working coverage, not critic
 
 Latest Noether local queue hygiene: R128 P09/P10 Batch25 survival packages now record that current Paper 09 and Paper 10 spans are byte-identical to earlier rebuilt/source-backed spans, with no TeX patches. They are anti-regression/stale-queue controls only and should be folded into a compact Noether rollup rather than treated as standalone paper certification.
 
+Latest Noether source-support hygiene: the Paper 19 GDZ400 max-source/dense-tail-crop package is registered as full-source support for future checking. It adds the exact GDZ article route and all 43 raw full-page images, but applies no TeX patch and does not certify Paper 19; it belongs in a compact Noether rollup/rebalance, not above reader-facing PDFs.
+
 ## How To Read Coverage
 
 Do not read file counts, upload size, or a local page percentage as a simple progress bar. The public question is: what can a reader responsibly use today?
