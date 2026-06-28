@@ -1,3 +1,14 @@
+## 2026-06-28: Noether P19 tail-fix survival audit / no patch
+
+Manifest: [20260628_noether_p19_tail_survival_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_tail_survival_audit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P19_TailFixSurvival_NoPatch_on_CurrentR259_20260628.zip`, 14,321,332 bytes, SHA256 `BA6679B6E14FEB65DFBD5E32A7F8026637A633654807E93B3E2FA1C1ED05E4B8`, 20 entries, max path 111.
+- Scope: tail/source-critical anti-regression audit for Paper 19, `Idealtheorie in Ringbereichen`, against the current R259 German base after WebR252. It checks two previously high-risk loci: printed p58 confirms the source exponent is `e`, not `\rho`; printed pp.65-66 confirm the current index-shift repair.
+- Caveat: source-audit/anti-regression support only. The source is a GDZ 400 ppi paper-level slice with enlarged labelled inspection crops, below the project native 650+ ppi preference. Not global Paper 19 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+Next action: fold into the next deliberate Noether support rollup/file-ceiling refresh if useful; do not loose-upload above reader PDFs/current TeX.
+
 ## 2026-06-28: Noether P16 corrected-source-route audit / no patch
 
 Manifest: [20260628_noether_p16_corrected_source_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p16_corrected_source_audit_nopatch.json)
