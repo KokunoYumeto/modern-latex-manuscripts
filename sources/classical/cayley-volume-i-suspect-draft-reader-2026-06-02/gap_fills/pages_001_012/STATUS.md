@@ -1,11 +1,11 @@
-# Cayley Volume I Pages 001-012 Source-Checked Pilot
+# Cayley Volume I Pages 001-012 Suspect Draft Pilot
 
 Date: 2026-06-02
 
 ## Deliverables
 
-- `cayley_vol01_pages001_012_source_checked.tex`
-- `cayley_vol01_pages001_012_source_checked.pdf`
+- `cayley_vol01_pages001_012_suspect_draft.tex`
+- `cayley_vol01_pages001_012_suspect_draft.pdf`
 - `STATUS.md`
 
 ## Source Files And Pages Used

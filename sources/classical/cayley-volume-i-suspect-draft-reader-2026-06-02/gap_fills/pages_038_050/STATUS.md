@@ -1,4 +1,4 @@
-# Cayley Vol. I Pages 038-050 Source-Checked Slice
+# Cayley Vol. I Pages 038-050 Suspect Draft Slice
 
 ## Source Pages Used
 
@@ -12,8 +12,8 @@
 
 ## Output
 
-- TeX: `cayley_vol01_pages038_050_source_checked.tex`
-- PDF: `cayley_vol01_pages038_050_source_checked.pdf`
+- TeX: `cayley_vol01_pages038_050_suspect_draft.tex`
+- PDF: `cayley_vol01_pages038_050_suspect_draft.pdf`
 - PDF page count: 13 pages
 
 ## Compile
@@ -21,11 +21,11 @@
 - Command run twice:
 
 ```powershell
-pdflatex -interaction=nonstopmode -halt-on-error cayley_vol01_pages038_050_source_checked.tex
+pdflatex -interaction=nonstopmode -halt-on-error cayley_vol01_pages038_050_suspect_draft.tex
 ```
 
 - Status: successful.
-- Output reported by log: `cayley_vol01_pages038_050_source_checked.pdf (13 pages, 236403 bytes)`.
+- Output reported by log: `cayley_vol01_pages038_050_suspect_draft.pdf (13 pages, 236403 bytes)`.
 
 ## Log Audit
 

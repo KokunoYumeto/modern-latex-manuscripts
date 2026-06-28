@@ -8,7 +8,7 @@ Generated: 2026-06-02
 
 Arthur Cayley, *Collected Mathematical Papers*, Volume I has a legacy assembled public reader/provenance surface in this repository:
 
-`reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`
+`reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Suspect Draft Reader (Not Source-Faithful).pdf`
 
 That reader was rebuilt from validated slices plus six source-checked gap fills:
 
@@ -21,7 +21,7 @@ That reader was rebuilt from validated slices plus six source-checked gap fills:
 
 The associated legacy source/control packet is:
 
-`sources/classical/cayley-volume-i-complete-source-checked-reader-2026-06-02/`
+`sources/classical/cayley-volume-i-suspect-draft-reader-2026-06-02/`
 
 ## Broader Cayley State
 

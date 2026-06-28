@@ -2,12 +2,12 @@
 
 ## Output
 
-- `cayley_vol01_pages438_450_source_checked.tex`
-- `cayley_vol01_pages438_450_source_checked.pdf`
+- `cayley_vol01_pages438_450_suspect_draft.tex`
+- `cayley_vol01_pages438_450_suspect_draft.pdf`
 
 ## Compile Status
 
-- Compiler: `pdflatex -interaction=nonstopmode -halt-on-error cayley_vol01_pages438_450_source_checked.tex`
+- Compiler: `pdflatex -interaction=nonstopmode -halt-on-error cayley_vol01_pages438_450_suspect_draft.tex`
 - Status: successful
 - Final PDF page count: 13
 - PDF page size: A4
