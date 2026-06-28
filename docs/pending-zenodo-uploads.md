@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P15 title-period queue cleanup / no patch
+
+Manifest: [20260628_noether_p15_title_period_queue_cleanup_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_title_period_queue_cleanup_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_LocalCodex_after_WebR252_P15_TitlePeriodQueueCleanup_NoPatch_on_CurrentR259_20260628.zip`, 1,450,428 bytes, SHA256 `A8F3135215475A23EE554C27F0B4197E19E3A0E035E198DBD5F8D33AE0AF3A2E`, 9 entries, max path 66.
+- Scope: narrow Paper 15 title-period queue cleanup after WebR252 on CurrentR259.
+- Result: no TeX patch promoted. The source confirms that CurrentR259 correctly keeps the terminal period in `Die Endlichkeit des Systems der ganzzahligen Invarianten binärer Formen.`; the older R140/Batch25 no-period reference is stale at this locus.
+- Caveat: source page is GDZ native400 with a 1000 ppi legibility render from native400. This is locus-specific queue cleanup only, not Paper 15 certification, Noether closure, multilingual synchronization, or critical-edition evidence.
+
+Next action: keep as anti-regression/no-revert support; fold into a compact Noether queue-cleanup/source-audit rollup if useful.
+
 ## 2026-06-28: Noether P12/P13/P21/P22 source-certain cumulative patchset
 
 Manifest: [20260628_noether_source_certain_patchset_p12_p13_p21_p22.json](../manifests/pending-zenodo-uploads/20260628_noether_source_certain_patchset_p12_p13_p21_p22.json)
