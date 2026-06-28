@@ -34,9 +34,9 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [EGA](https://doi.org/10.5281/zenodo.20414353) | French originals and partial/current English working translation material. | Open the reader PDFs first, then source ZIPs. |
 | [SGA](https://doi.org/10.5281/zenodo.20410947) | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Latest local SGA5 compact delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip`, which advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier p001-p254 webdrop and p255-p259 compact delta remain provenance/source-witness material. p260-p265 cover Expose VI around Prop. 1.2.6, tensor products, Prop. 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143/A-action square, and the opening of Q_l-faisceaux. p266+ crops/cursor text are active/pending scratch only. Local ledger terms such as certified/clean/complete are page-local workpass status only. This is repair evidence for a curated SGA5 expose selection, not complete SGA5, not synchronized English, not a critical edition, and not global source-faithfulness. SGA6 and SGA7-I remain substantial working drafts with source-compression/detail caveats. Corrections are welcome via GitHub issues or pull requests. | Open reader PDFs first, then source ZIPs and audit packets; check important diagrams/formulas against source scans. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | Separate working access record for Deligne papers, letters, draft TeX, and translation material; latest refresh updates the 2026-06-09 v3 repair/math-audit slot with D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1. | Top-level paper/letter PDFs, then the source/provenance and repair/audit ZIPs. |
+| [EGA](https://doi.org/10.5281/zenodo.20414353) | French originals plus partial English/OCR/draft continuation material. This is useful support material, not the same quality tier as the active SGA workpass/translation lane. | Treat as a preservation and continuation-support record; use source ZIPs and French originals before relying on the English draft. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
 
@@ -81,7 +81,7 @@ Manifest and summary files explain the state of the record. They are useful when
 | If You Want To Help With | Useful First Action |
 |---|---|
 | EGA | Compare the current English build against the French NUMDAM originals, especially sections marked as incomplete in [known gaps](known-gaps.md). |
-| SGA | Check the SGA 4 English drafts against the French reference PDFs and continue Expose VI from section 1.22. |
+| SGA | Continue page-local SGA5 French workpass/source checking from the current cursor and keep SGA6/SGA7 compression or diagram caveats explicit. |
 | Non-European mathematics | Compare work-level English PDFs against the original-language or source-reference material and repair terminology, diagrams, and tables. |
 | Weber or Noether | Continue translation and source comparison from the author records rather than the bulk main record. |
 | Gauss and classical authors | Treat the classical shelf as staged working drafts; prioritize readability, source matching, and layout repair. |
