@@ -35,6 +35,19 @@ A small "current upload set" index can be more valuable than a large pile of ZIP
 
 Do not front every support package on Zenodo. Use the index to decide which packages belong in the next deliberate author rollup or replacement set.
 
+## Pending-Queue Caveat Audits
+
+Before using a pending-Zenodo manifest for public action, run a machine-readable queue audit. The audit should check:
+
+- every pending JSON parses cleanly as UTF-8 without BOM surprises;
+- artifact names are not duplicated across pending manifests;
+- each manifest has a clear target record or concept DOI;
+- each artifact has a clear role: reader, TeX/source bundle, source witness, OCR locator, support/control packet, or no-patch audit;
+- support/control material has explicit caveats before publication;
+- words such as "complete", "critical", "source-checked", or "certified" are either avoided or negated by the current status note.
+
+The audit is a triage tool, not a bulk rewrite command. Older manifests may predate the current caveat policy. Correct them opportunistically when that lane is touched, and do not upload a flagged packet until its human-facing status is clear.
+
 ## OCR Handoffs Are Locator Evidence
 
 OCR or Marker-style handoff snapshots can be useful even when incomplete. They can provide:
