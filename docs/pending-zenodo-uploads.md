@@ -1,3 +1,15 @@
+## 2026-06-28: Noether P16 IA JP2 / GDZ400 source-upgrade support
+
+Manifest: [20260628_noether_p16_iajp2_gdz400_sourceupgrade_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p16_iajp2_gdz400_sourceupgrade_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Status ledger ZIP: `Noether_LocalCodex_after_WebR252_Global_P01_P43_StatusLedger_v12_PostP16SourceUpgrade_on_PromotedBase_20260628.zip`, 9,492 bytes, SHA256 `9593558E1575E5C3590635C94394FCC180E35AF7F69FEA8A8A566639E4047447`.
+- Package: `Noether_P16_IAJP2_GDZ400_SourceUpgrade_NoPatch_20260628.zip`, 39,454,702 bytes, SHA256 `094B3E5B0F52E63A2ED8CE93B469053966F79DDC87440678FDAA3E8DC184BD42`.
+- Scope: Noether Paper 16, `Zur Reihenentwicklung in der Formentheorie`, Math. Ann. 81 (1920), printed pp.25-30.
+- Result: no TeX patch. Status ledger v12 changes P16 to `best_available_ia_jp2_gdz400_source_upgrade_no_patch`, carrying forward v11's P17 GDZ600 full-raw-page status, v10's P19 GDZ400 dense/tail status, and v9's P20 mixed400/600 dense-crop status. The P16 package adds selected IA JP2 leaves 0028-0033 and PNG renders, corrected GDZ comparator canvases 00000031-00000036, a clean GDZ PDF slice for printed pp.25-30, the promoted-base P16 extract, and carried-forward formula crop witnesses and audit ledgers.
+- Caveat: the practical source-route correction is the main result. Do not use stale GDZ canvases 00000025-00000030 for P16. IA and GDZ evidence is best-available but about/at 400ppi, below strict native650/1000dpi certification. This is not Paper 16 certification, not Noether closure, not multilingual synchronization, not strict source closure, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
+
 ## 2026-06-28: Noether P17 GDZ600 max-source / full raw pages support
 
 Manifest: [20260628_noether_p17_gdz600_maxprobe_fullrawpages_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p17_gdz600_maxprobe_fullrawpages_nopatch.json)
