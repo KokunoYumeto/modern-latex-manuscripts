@@ -1,3 +1,14 @@
+## 2026-06-28: Noether P17 GDZ600 max-source / full raw pages support
+
+Manifest: [20260628_noether_p17_gdz600_maxprobe_fullrawpages_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p17_gdz600_maxprobe_fullrawpages_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_P17_GDZ600_MaxProbe_FullRawPages_NoPatch_20260628.zip`, 85,837,554 bytes, SHA256 `52153ADBEDDC027A1AA54FDDED0BB6867D535B0D2F35988DB6D7702CC1480F86`.
+- Scope: Noether Paper 17, `Moduln in nichtkommutativen Bereichen, insbesondere aus Differential- und Differenzenausdruecken`, Math. Z. 8, printed pp. 1-35.
+- Result: no TeX patch. The package adds an exact article PDF cutout, all 35 raw GDZ IIIF full-page images, fresh IIIF max-probe/source-quality ledgers, a promoted-base P17-only extract, carried-forward P17 page ledgers and no-fix traps, and labelled p23/p26 witness crops enlarged from GDZ600.
+- Caveat: every raw full page is native GDZ 600ppi. This is the best local usable source found, but it remains below the project native650+ full-page certification preference. The labelled crops are enlarged visual aids, not native 1000ppi source. This is not Paper 17 certification, not Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
+
 ## 2026-06-28: Noether P19 GDZ400 max-source / dense-tail crop full-source support
 
 Manifest: [20260628_noether_p19_gdz400_maxprobe_dense_tail_crops_full_source_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_gdz400_maxprobe_dense_tail_crops_full_source_nopatch.json)
