@@ -3742,6 +3742,7 @@ Manifest: [20260614_sga_repair031.json](../manifests/pending-zenodo-uploads/2026
 - SGA: `sga5_sga6_repair031_cumulative_20260613.zip`, 4.0467 MB, SHA256 `3F78837ADA5A0BBDB3D8B38E8527F86A2F5846207431760D2290B55C3E5E809A`.
 - Contents: compact cumulative SGA5/SGA6 French-output refresh containing SGA5/cumulative/fr/sga5_fr.{tex,pdf}, SGA6/cumulative/fr/sga6_fr.{tex,pdf}, and README.md. Package README says: SGA5/SGA6 repair031 cumulative: canonical French TeX/PDF only. SGA5 patched; SGA6 carried forward unchanged.
 - Sense-check caveats: this compact branch does not include the source-index-expanded audit PDF or page map from repair025. SGA5 English remains unsynchronized. SGA6 and SGA7 retain the existing compression/source-check caveats unless a later package narrows them. Do not describe repair031 as a complete source-indexed SGA audit or critical edition. This supersedes the older locally queued repair030 compact-output branch unless upload policy deliberately keeps both.
+- Queue decision: preferred compact-output branch among repair029/030/031 if a future SGA consolidation deliberately keeps a compact refresh, but still only support/provenance. Do not present it as completed SGA5, certified SGA6, English synchronization, source closure, or a critical edition.
 
 Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP instead of or after the older pending repair030 as the newest compact French-output refresh, publish, then update record id/catalog/docs/metadata. Keep repair025 preserved as the relevant source-indexed SGA5 audit provenance.
 
@@ -4249,6 +4250,7 @@ Manifest: [20260613_sga_repair030.json](../manifests/pending-zenodo-uploads/2026
 - SGA: `sga5_sga6_repair030_cumulative_20260613.zip`, 4.0404 MB, SHA256 `D41EEF7D04AD1AA450EC2730598DC03102E9215E794FFC819394818E073EF9A1`.
 - Contents: compact SGA5/SGA6 cumulative French-output refresh containing SGA5/SGA6 cumulative French TeX/PDF only. README explicitly says it contains no source-index-expanded audit PDFs. A duplicate copy was found in the Noether Multilingual folder with the same SHA256; the SGA continuation copy is the canonical route.
 - Supersession note: `sga5_sga6_repair031_cumulative_20260613.zip` is now the newer locally staged compact French-output branch and should be preferred unless upload policy deliberately keeps both repair030 and repair031.
+- Caveat: superseded compact snapshot only. Do not upload blindly or describe as SGA5 completion, SGA6 certification, source-indexed audit, English synchronization, source closure, or a critical edition.
 
 Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP together with earlier pending repair029 if still wanted, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
@@ -4323,6 +4325,7 @@ Manifest: [20260613_sga_repair029.json](../manifests/pending-zenodo-uploads/2026
 
 - SGA: `sga5_sga6_repair029_cumulative_20260613.zip`, 4.0436 MB, SHA256 `6A30D66204A2D6A7D79528DC1A43030ECDFC547515AF843498E0F407177C8B62`.
 - Contents: compact cumulative French-output refresh for SGA5 and SGA6, with `sga5_fr.{tex,pdf}`, `sga6_fr.{tex,pdf}`, and checksum CSV.
+- Caveat: older compact snapshot only. Preserve as provenance/support unless a future SGA consolidation deliberately keeps it; repair031 is the preferred compact branch. Do not upload blindly or describe as SGA5 completion, SGA6 certification, source-indexed audit, English synchronization, source closure, or a critical edition.
 
 Next action when Zenodo API credentials are available: create a new SGA Zenodo version, upload this ZIP, publish, then update record IDs, metadata JSON, `manifests/public-file-catalog.csv`, generated record pages, and status docs.
 
