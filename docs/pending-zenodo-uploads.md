@@ -1,3 +1,15 @@
+## 2026-06-28: Noether v9/P20 current-control source-audit follow-up
+
+Manifest: [20260628_noether_v9_p20_maxprobe_current_control.json](../manifests/pending-zenodo-uploads/20260628_noether_v9_p20_maxprobe_current_control.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Status ledger ZIP: `Noether_LocalCodex_after_WebR252_Global_P01_P43_StatusLedger_v9_PostP20MaxProbe_on_PromotedBase_20260628.zip`, 8,478 bytes, SHA256 `36CBF5A51AE17E54F0374125AFFD0767445ECE1D8BCEB9CD0C78A64F79EE7615`.
+- P20 source-audit ZIP: `Noether_P20_GDZMixed_MaxProbe_LabelledDenseCrops_NoPatch_20260628.zip`, 62,261,147 bytes, SHA256 `7D88B3CCD021A042081AC5DE3C6EF1974EE4CF405823D7A0B0B6BD72F5072A7D`.
+- Scope: v9 advances the Noether P01-P43 control ledger after WebR252 on the promoted CurrentR259 base. The substantive change from v8 is P20: `best_available_gdz_mixed400_600_max_source_probed_labelled_dense_crops_no_patch`.
+- P20 result: no TeX patch. The package adds the exact GDZ article PDF for Math. Ann. 85 pp.26-33, all eight raw GDZ IIIF full-page images, IIIF max probes, the promoted-base P20 extract, carried-forward page-level visual dispositions, and six labelled dense-display crops.
+- Caveat: source quality is mixed native 400/600ppi: 5 pages at 400ppi and 3 pages at 600ppi. The 1000dpi crops are enlarged visual aids from those native pages, not native 1000ppi source. This is not Paper 20 certification, not Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
+
 ## 2026-06-28: Noether v8/P10 current-control source-audit follow-up
 
 Manifest: [20260628_noether_v8_p10_maxprobe_current_control.json](../manifests/pending-zenodo-uploads/20260628_noether_v8_p10_maxprobe_current_control.json)
