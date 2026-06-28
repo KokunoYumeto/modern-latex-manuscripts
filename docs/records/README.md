@@ -11,9 +11,6 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Adolf Kneser | 8 | 3 | 1 | 116.7 | [kneser.md](kneser.md) | [Zenodo](https://doi.org/10.5281/zenodo.20836971) |
 | James Joseph Sylvester | 3 | 1 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
-| **Project infrastructure and public entry points** |  |  |  |  |  |  |
-| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |
 | SGA (serious active work; not complete) | 100 | 74 | 25 | 3306.5 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
@@ -36,6 +33,9 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
+| **Project infrastructure and public entry points** |  |  |  |  |  |  |
+| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
+| Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
 | **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |  |
 | EGA (French originals + OCR/support + partial translation draft) | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |

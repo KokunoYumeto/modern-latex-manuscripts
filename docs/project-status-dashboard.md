@@ -2,7 +2,22 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
+## Reader Priority And Quality
+
+Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
+
+| Priority | Records | Reader Surface | Source-Audit / Caveat |
+|---|---|---|---|
+| 1. Coherent reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Top-level PDFs or declared work-level readers exist for a named scope. | Still working scholarly drafts; Noether/Weber remain active source-reconciliation lanes rather than critical editions. |
+| 2. Serious source-aware work, caveat-heavy | Bianchi, Gordan, Steinitz, Gibbs, Maxwell, SGA, Deligne, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader, translation, data/table, or source-audit surfaces exist. | Range quality varies; diagrams, tables, page-local source closure, and language synchronization must be checked. |
+| 3. Partial author records and non-continuous streams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed classical shelves | Useful packages exist. | Read package-by-package; do not treat these as seamless author-complete editions. |
+| 4. OCR/support/provenance or unsafe draft lanes | EGA, Cayley, raw landing material | Preservation, OCR, salvage, or future continuation support. | EGA is mostly French-original/OCR/partial draft support. Cayley is de-promoted until exact page ranges are re-audited and re-promoted. |
+
+The SGA/EGA distinction matters. SGA has substantial real SGA5 repair and SGA6/SGA7 working-translation material under caveat. EGA is currently a support/stub lane: useful French originals plus partial OCR/English draft material, but not a comparable source-audited working edition.
+
 ## Archive Surface
+
+These counts describe the public file surface. They are useful for release hygiene, but they are not progress bars and do not measure mathematical correctness.
 
 | Metric | Current Count |
 |---|---:|
@@ -18,19 +33,6 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 Quality rule: the dashboard counts public files and working coverage, not critical-edition status. No record here is a certified critical edition unless a future release explicitly says so. Filename terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy labels or scoped working labels; record caveats and source witnesses govern reliability.
 
 Latest Noether local queue hygiene: R128 P09/P10 Batch25 survival packages now record that current Paper 09 and Paper 10 spans are byte-identical to earlier rebuilt/source-backed spans, with no TeX patches. They are anti-regression/stale-queue controls only and should be folded into a compact Noether rollup rather than treated as standalone paper certification.
-
-## Reader Priority And Quality
-
-Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
-
-| Priority | Records | Reader Surface | Source-Audit / Caveat |
-|---|---|---|---|
-| 1. Coherent reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Top-level PDFs or declared work-level readers exist for a named scope. | Still working scholarly drafts; Noether/Weber remain active source-reconciliation lanes rather than critical editions. |
-| 2. Serious source-aware work, caveat-heavy | SGA, Deligne, Bianchi, Gordan, Steinitz, Gibbs, Maxwell, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader, translation, data/table, or source-audit surfaces exist. | Range quality varies; diagrams, tables, page-local source closure, and language synchronization must be checked. |
-| 3. Partial author records and non-continuous streams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed classical shelves | Useful packages exist. | Read package-by-package; do not treat these as seamless author-complete editions. |
-| 4. OCR/support/provenance or unsafe draft lanes | EGA, Cayley, raw landing material | Preservation, OCR, salvage, or future continuation support. | EGA is mostly French-original/OCR/partial draft support. Cayley is de-promoted until exact page ranges are re-audited and re-promoted. |
-
-The SGA/EGA distinction matters. SGA has substantial real SGA5 repair and SGA6/SGA7 working-translation material under caveat. EGA is currently a support/stub lane: useful French originals plus partial OCR/English draft material, but not a comparable source-audited working edition.
 
 ## How To Read Coverage
 
@@ -58,9 +60,6 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Adolf Kneser](https://doi.org/10.5281/zenodo.20836971) | 8 | 3 | 1 | 116.74 MB | Dedicated `Lehrbuch der Variationsrechnung` German-source and English working-translation record through p0011-p0248, with HQ source witness through p0001-p0248 and the p0234 lower-p0248 slice/audit package. Worklist reports 248/336 source pages done (73.8%), latest slice §§53-55 completing the Sixth Section, next p0249 / Seventh Section / §56. Not a certified critical edition. |
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
-| **Project-level orientation and preservation** |  |  |  |  |  |
-| [Main project landing](https://doi.org/10.5281/zenodo.20393488) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. Open this for raw provenance, not as the first reader surface. |
-| [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) | 23 | 3 | 11 | 0.45 MB | Latest workflow refresh published as <https://doi.org/10.5281/zenodo.20836364>. Adds archive-scope guardrails, source-witness/public-surface labels, audit harnesses, source inventory/page-object manifest patterns, OCR-as-locator guidance, and local/web handoff lessons. New queued GitHub-side workflow artifacts add an SGA6 page-unit harness and a Weber live audit method snapshot through p527; these remain support evidence, not edition certification. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
 | [SGA](https://doi.org/10.5281/zenodo.20410947) | 100 | 74 | 25 | 3.23 GB | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Latest local SGA5 compact delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip`, which advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier p001-p254 webdrop and p255-p259 compact delta remain provenance/source-witness material. p260-p265 cover Expose VI around Prop. 1.2.6, tensor products, Prop. 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143/A-action square, and the opening of Q_l-faisceaux. p266+ crops/cursor text are active/pending scratch only. Local ledger terms such as certified/clean/complete are page-local workpass status only. SGA6 is substantial but not complete: a June 11 audit found 127/524 sampled source prose windows, about 24%, missing from current TeX in late regions. SGA7-I is still partial starter work. This is repair evidence for curated SGA selections, not complete SGA, not synchronized English, not a critical edition, and not global source-faithfulness. Corrections are welcome via GitHub issues or pull requests. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
@@ -83,6 +82,9 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Historical reference witnesses](https://doi.org/10.5281/zenodo.20415776) | 15 | 13 | 1 | 59 MB | Current reference-witness shelf. |
 | [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.20414787) | 25 | 21 | 3 | 6.72 GB | Organized shelf for selected classical algebra/arithmetic drafts, including large provenance bundles. |
 | [Additional author cluster](https://doi.org/10.5281/zenodo.20411006) | 100 | 10 | 88 | 5.60 GB | Mixed backstop/provenance shelf for routed authors not yet split into full records. Kneser, Poincare, and Frobenius now have preferred standalone records; older Kneser packets here remain provenance/backstop. |
+| **Project-level orientation and preservation** |  |  |  |  |  |
+| [Main project landing](https://doi.org/10.5281/zenodo.20393488) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. Open this for raw provenance, not as the first reader surface. |
+| [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) | 23 | 3 | 11 | 0.45 MB | Latest workflow refresh published as <https://doi.org/10.5281/zenodo.20836364>. Adds archive-scope guardrails, source-witness/public-surface labels, audit harnesses, source inventory/page-object manifest patterns, OCR-as-locator guidance, and local/web handoff lessons. New queued GitHub-side workflow artifacts add an SGA6 page-unit harness and a Weber live audit method snapshot through p527; these remain support evidence, not edition certification. |
 | **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |
 | [EGA](https://doi.org/10.5281/zenodo.20414353) | 16 | 10 | 4 | 472 MB | French originals plus partial English/OCR/draft continuation support. The cleaner local EGA support package contains NUMDAM scan PDFs, NUMDAM OAI metadata, and upstream/community `ryankeleti/ega` TeX; NUMDAM OAI is metadata only, and the community TeX is real but incomplete, especially EGA III/IV and parts of EGA 0_IV. Useful preservation and continuation material, not a source-audited working edition comparable to the active SGA lane. |
 | [Cayley](https://doi.org/10.5281/zenodo.20520749) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material. A 2026-06-28 exact-name follow-up triages 308 local Cayley names as quarantine/source-intake evidence, including page micro-ZIPs, unitized indexes, suspect Vol. I chunks, Pro salvage extracts, and source scans. No Cayley range is presently promoted as source-faithful, including the v2/restart Vol. I packets, until a future page-by-page glyph/source audit explicitly re-promotes exact ranges. |
