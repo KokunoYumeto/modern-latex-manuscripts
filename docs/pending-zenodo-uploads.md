@@ -6475,3 +6475,21 @@ Manifest: [20260628_noether_p20_dense_display_source_audit_nopatch.json](../mani
 - Scope: Paper 20 dense-display audit against the current R259 German base after WebR252. It checks formulas (1)-(16), the repeated source number (12), the `S(Z,u)` display, the Ostrowski proof close, and final date lines.
 - Result: no TeX patch. The package contains labelled crops, current P20 TeX span, source-quality ledgers, and a machine-readable visual-disposition CSV.
 - Caveat: source-audit/anti-regression support only. Best witnesses are mixed native GDZ 400/600 ppi pages; enlarged crops are inspection witnesses, not native 1000 ppi source. Do not call this Paper 20 certification, whole-Noether certification, multilingual synchronization, source closure, or a critical edition.
+
+## 2026-06-28: Noether P15-P20 queue update after P16 best-available audit
+
+Manifest: [20260628_noether_p15_p20_queue_update_p16_best_available_audit.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_p20_queue_update_p16_best_available_audit.json)
+
+- Noether queue/status ZIP: `Noether_LocalCodex_after_WebR252_P15_P20_QueueUpdate_P16BestAvailablePageAudit_on_CurrentR259_20260628.zip`, 6,804 bytes, SHA256 `4E589025A1DA71F128790BCA1A0931FB5A8EF9986813E205D3986857BBCC4C79`, 9 entries.
+- Scope: updates the Paper 15-Paper 20 strict-certification queue after re-reading the existing Paper 16 corrected-source audit package.
+- Result: no TeX patch. Paper 16 should no longer be treated as merely an old anti-regression hotspot; it has a best-available, caveated page audit with no source-certain patch.
+- Caveat: queue/status support only. The README contains a literal `$p16hash` placeholder, so use the already registered P16 corrected-source audit manifest for authoritative artifact hash metadata. Do not front this above reader PDFs/TeX or call it Paper 16 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+## 2026-06-28: Noether P15-P20 queue update after P20 best-available audit
+
+Manifest: [20260628_noether_p15_p20_queue_update_p20_best_available_audit.json](../manifests/pending-zenodo-uploads/20260628_noether_p15_p20_queue_update_p20_best_available_audit.json)
+
+- Noether queue/status ZIP: `Noether_LocalCodex_after_WebR252_P15_P20_QueueUpdate_P20BestAvailableDenseAudit_on_CurrentR259_20260628.zip`, 17,433 bytes, SHA256 `74A79EF7CAFE62F71A90D3B70B3466977A24F0F71292F88388C3B6668C3DA009`, 11 entries.
+- Scope: updates the Paper 15-Paper 20 strict-certification queue after the Paper 20 dense-display/page-anchor audit against CurrentR259.
+- Result: no TeX patch. Paper 20 should no longer be treated as merely an old dense-hotspot item; formulas (1)-(16), the repeated printed formula number (12), the `S(Z,u)` display, final Ostrowski proof display, footnotes/opening matter, and final date were checked against best staged local GDZ source.
+- Caveat: queue/status support only. Best Paper 20 witnesses remain mixed native GDZ 400/600 ppi; enlarged crops are inspection witnesses, not native 1000 ppi scans. Do not front this above reader PDFs/TeX or call it Paper 20 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
