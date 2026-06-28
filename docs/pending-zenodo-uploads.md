@@ -373,11 +373,11 @@ Next action: use this index to drive the next deliberate Noether rollup/rebalanc
 
 Manifest: [20260628_noether_current_upload_set_after_webR252_on_currentR259.json](../manifests/source-intake/20260628_noether_current_upload_set_after_webR252_on_currentR259.json)
 
-- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 85,722 bytes, SHA256 `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`.
-- The pointer package contains a drag index, `README_CURRENT_UPLOAD_POINTER.md`, and the persistent Noether German source-audit logbook.
+- Pointer ZIP: `Noether_LocalCodex_CurrentUploadSet_Index_after_WebR252_on_CurrentR259_20260628.zip`, 87,391 bytes, SHA256 `9C53A6424B427E8DF47D8A452372CCC5081943C85658E476DF68106C60B51BBB` (refreshed in place after the first sweep; prior observed SHA256 was `152FBF0D383DB8E2CD1E89795824AF5A1C8902A22F31C6854FB0DB128E8EB0DF`).
+- The current pointer package contains the drag index and persistent Noether German source-audit logbook. The earlier observed copy also carried `README_CURRENT_UPLOAD_POINTER.md`; that README is absent from the current refreshed ZIP.
 - Naming rule: web/session-owned drops keep bare `R###` labels. Local Codex addenda after WebR252 must use descriptive `after_WebR252/...on_CurrentR259` names. Old local bare-`R###` names are historical/do-not-upload unless they are genuine web/session-owned artifacts.
 - Parsed contents: 36 corrected drag packages and 20 legacy/do-not-use names. Many entries are no-TeX-patch survival, route, source-quality, or hotspot-disposition packages; they are support/provenance material, not reader-facing PDFs.
-- Latest package named by the pointer README: `Noether_LocalCodex_after_WebR252_P05_P06_BestSourceRouteAudit_NoPatch_on_CurrentR259_20260628.zip`, SHA256 `C01F7C1647ED98632B2B06D86F5EE366BAA8C4D24984369E12BDDAA8C0782934`.
+- Latest package recorded by the earlier parsed pointer metadata: `Noether_LocalCodex_after_WebR252_P05_P06_BestSourceRouteAudit_NoPatch_on_CurrentR259_20260628.zip`, SHA256 `C01F7C1647ED98632B2B06D86F5EE366BAA8C4D24984369E12BDDAA8C0782934`.
 
 Next action: use this manifest as the current Noether upload/rebalance map. Do not promote the legacy bare-R local names, and do not upload every support package as a separate public file.
 
