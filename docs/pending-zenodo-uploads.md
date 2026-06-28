@@ -3,9 +3,10 @@
 Manifest: [20260628_noether_p19_gdz400_maxprobe_dense_tail_crops_full_source_nopatch.json](../manifests/pending-zenodo-uploads/20260628_noether_p19_gdz400_maxprobe_dense_tail_crops_full_source_nopatch.json)
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Status ledger ZIP: `Noether_LocalCodex_after_WebR252_Global_P01_P43_StatusLedger_v10_PostP19MaxProbe_on_PromotedBase_20260628.zip`, 8,802 bytes, SHA256 `D3C40A10C574D2308CFFBAE931962233F135A8AECBD1166AFE7AC360F4711064`.
 - Package: `Noether_P19_GDZ400_MaxProbe_DenseTailCrops_NoPatch_20260628.zip`, 86,363,634 bytes, SHA256 `768DB5DB5CC4DC698F03C3867900258057C7624E7E6093A7584B4EC3585698F6`.
 - Scope: Noether Paper 19, `Idealtheorie in Ringbereichen`, Math. Ann. 83, printed pp. 24-66.
-- Result: no TeX patch. This is the larger source-support companion to the narrower P19 queue/tail/RA88 anti-regression packets: it adds the exact GDZ article PDF, all 43 raw GDZ IIIF full-page images, fresh IIIF max-probe/source-quality ledgers, the promoted-base P19 extract, carried-forward page-accounting/dense/tail ledgers, and labelled inspection crops.
+- Result: no TeX patch. Status ledger v10 changes P19 to `best_available_gdz400_max_source_probed_dense_tail_crops_no_patch` and carries forward v9's P20 status. The P19 package is the larger source-support companion to the narrower P19 queue/tail/RA88 anti-regression packets: it adds the exact GDZ article PDF, all 43 raw GDZ IIIF full-page images, fresh IIIF max-probe/source-quality ledgers, the promoted-base P19 extract, carried-forward page-accounting/dense/tail ledgers, and labelled inspection crops.
 - Caveat: every raw full page is native GDZ 400ppi. The labelled 1000dpi crops are enlarged visual aids from those pages, not native 1000ppi sources. This is not Paper 19 certification, not Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
 - Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rollup during a deliberate Noether rebalance rather than loose-uploading it as another micro-package.
 
