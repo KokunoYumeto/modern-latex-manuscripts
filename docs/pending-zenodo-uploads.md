@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P33 Bologna current-base closure
+
+Manifest: [20260629_noether_post_r269_p33_bologna_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p33_bologna_closure.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P33 Bologna closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P33_Bologna_CurrentBaseClosure_NoPatch_20260629.zip`, 40,281,713 bytes, SHA256 `EFCE1FC270AB59CDA9BFDCD5C0733C702821B368AFA968DD15A8C1B4AE6364F5`.
+- Scope/result: no TeX patch. Records survival of the RA75 Bologna congress short-text repair: clean boundary and footnote reset, `Emmy Noether (Göttingen -- Germania)`, Bologna title block with title footnote, opening `Ich möchte Ihnen zeigen...`, and the two source matrix displays.
+- No-fix guard: do not overwrite current P33 with stale material beginning from the later Math. Z. introduction `Die wichtigsten allgemeinen Sätze...`; the correct source here is the Bologna congress short text.
+- Source-quality caveat: includes targeted 1200dpi source-witness crops and RA75 ledgers. This is a current-base closure for a known P33 source-text repair, not a global certification of later papers.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P30-P32 current-base bridge/closures
 
 Manifest: [20260629_noether_post_r269_p30_p32_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p30_p32_closures.json)
