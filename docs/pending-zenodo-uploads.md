@@ -1,3 +1,16 @@
+## 2026-06-29: Noether post-R269 P10-P13 current-base closures
+
+Manifest: [20260629_noether_post_r269_p10_p13_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p10_p13_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P10 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P10_CurrentBaseClosure_NoPatch_20260629.zip`, 17,986,105 bytes, SHA256 `DD5BE84D599C0A52ACC290F09608D8710112CB0DC3892B5CB49781CAFD66D635`.
+- P11 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P11_CurrentBaseClosure_NoPatch_20260629.zip`, 3,332,006 bytes, SHA256 `85D9BBAB8BD2BDB0E38D17B959829DD7BDBE30EDA8421F6281028D477F71BB40`.
+- P12 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P12_CurrentBaseClosure_NoPatch_20260629.zip`, 3,328,739 bytes, SHA256 `1D7054EA16464F0FF77201C3206D001EC23557705D485887FA81CA0A9DEA8D66`.
+- P13 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P13_CurrentBaseClosure_NoPatch_20260629.zip`, 11,952,912 bytes, SHA256 `04485A47B1E6CE0A855651C39F989C34C97547F651219619471BC0363C292990`.
+- Scope/result: no TeX patches. These packets record current-base survival of already source-certain or source-critical P10-P13 repairs/anchors after Web R269 and later local P10/P20/P14/P13/P07 patches.
+- Source-quality caveat: P10 carries native400 enlarged inspection crops; P12/P13 rely on staged GDZ400/best-available witnesses for the relevant prior audits; P11 is a source-ledger/current-anchor closure. None of these packages is strict native650 page certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P14 current-base closure
 
 Manifest: [20260629_noether_post_r269_p14_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p14_closure.json)
