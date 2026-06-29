@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P14 current-base closure
+
+Manifest: [20260629_noether_post_r269_p14_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p14_closure.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P14 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P14_CurrentBaseClosure_NoPatch_20260629.zip`, 13,763,884 bytes, SHA256 `BA3F1B022F101C7E4EEFA34067E18EBD573A5E8107F7C7E3B0F2023FCEFED3DE`.
+- Scope/result: no TeX patch. Records survival of earlier P14 source-certain repairs: printed p199 footnote-2 decomposition uses `\frf`/`\frf'`/`\frf_1` rather than residual `\frr`; printed p200 polygon-class paragraph uses fraktur `\mA`, `\mB`, `\mN`; printed p203 final Furtwängler footnote includes `Annalen 67, (vgl. die Einleitung).`; and no-fix traps on p190 singular `Funktion` and p198 ideal-factorization rho exponents survive.
+- Source-quality caveat: carries prior staged P14 GDZ600 full-page and crop witnesses. GDZ600 is clear and best staged but below the preferred native650 target.
+- No-fix guard: merge nothing from this package as a patch. Use it as a no-patch closure/survival ledger for P14 on the R269+LocalP10/P20/P14/P13/P07 base.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P15 current-base closure
 
 Manifest: [20260629_noether_post_r269_p15_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p15_closure.json)
