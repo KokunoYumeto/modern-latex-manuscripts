@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P05/P06 current-base closures
+
+Manifest: [20260629_noether_post_r269_p05_p06_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p05_p06_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P05 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P05_CurrentBaseClosure_NoPatch_20260629.zip`, 16,210,141 bytes, SHA256 `1EA884CA43CD193AAB45A4B7525264C42B8CF14BEFA23AEA4FC98CD63287C771`.
+- P06 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P06_CurrentBaseClosure_NoPatch_20260629.zip`, 9,639,147 bytes, SHA256 `6313C4E56CFA79FE2F9EDD5EA9381017606838E545F4B0CF4C041FE09B31A5C8`.
+- Scope/result: both are no-TeX-patch current-base closure packages after Web R269 plus the local P07 patch. P05 confirms title/source footnotes, the displayed linear-form equation and source marker `2)`, and final boundary before the following Haentzschel article; P06 confirms survival of symbolic source note markers, P06_FIX_001 through P06_FIX_007, and the R200/R204 pp.193-196 tail repairs.
+- Source-quality caveat: P05 has GDZ600 full pages plus targeted 650dpi danger-locus crops; P06 mixes staged 1000dpi rendered/crop witnesses for pp.161-190/p185 with best-staged GDZ 400ppi evidence for pp.193-196. These are targeted closure/survival packages, not strict native650/1000dpi paper certification, not whole-Noether closure, not multilingual synchronization, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P07 source patch and P03/P04/P08/P09/P40-P42 closures
 
 Manifest: [20260629_noether_post_r269_p03_p09_p40_followup.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p03_p09_p40_followup.json)
