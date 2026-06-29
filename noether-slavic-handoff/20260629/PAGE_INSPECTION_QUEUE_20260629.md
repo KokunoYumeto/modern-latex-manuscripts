@@ -11,7 +11,7 @@ Companion machine-readable file: `PAGE_INSPECTION_QUEUE_20260629.json`
 - Inspection tasks: 153
 - Source index rows: 153
 - Source text copied into this artifact: false
-- Completed extraction inspections: 36
+- Completed extraction inspections: 48
 - Current approved terms: 0
 - Current accepted corrections: 0
 
@@ -28,7 +28,7 @@ Companion machine-readable file: `PAGE_INSPECTION_QUEUE_20260629.json`
 | simplified_chinese | 34 | 14 | 8 | 12 | 20 | 14 |
 | french | 21 | 8 | 4 | 9 | 13 | 8 |
 | spanish | 25 | 10 | 5 | 10 | 15 | 10 |
-| japanese | 41 | 17 | 12 | 12 | 37 | 4 |
+| japanese | 41 | 17 | 12 | 12 | 25 | 16 |
 | fa_IR | 22 | 10 | 7 | 5 | 22 | 0 |
 | prs_AF | 4 | 4 | 0 | 0 | 4 | 0 |
 | arabic | 6 | 6 | 0 | 0 | 6 | 0 |
