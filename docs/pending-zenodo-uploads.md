@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 9 R271CSI source-checked survival
+
+Manifest: [20260630_noether_r273_p09_r271csi_source_checked_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p09_r271csi_source_checked_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P09_R271CSI_SourceCheckedSurvival_NoPatch_20260630.zip`, 3,401,970 bytes, SHA256 `75A0D4A7426866DE733A79D6E6F31FDC3B7855413ACEADAAA06F448F871CD371`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 9 printed/source pp.103-128 in the current R273+LocalCodex cumulative after the P10 p.543 sourcefix is normalized-identical to the earlier R271CSI source-checked no-patch Paper 9 span, SHA256 `6B262C90A940C0160CB9D907BB7E911F905808D5FB28B13C370B30DDC4069758`.
+- No-patch traps carried forward: double-star Adjunktion note, `\mathfrak M(\mathfrak H)` / `\mathfrak M(\mathfrak G)` transition, Greek indexing such as `\xi-\zeta` and `\nu>\chi\lambda`, class-selector notation including `\mathfrak L(\mathfrak G)`, `\mathfrak R_i`, `\mathfrak M_{\nu\kappa}`, and the Paper 9 / Paper 10 boundary at the Erlangen date.
+- Caveat: this is current-base survival and no-redo support for the prior Paper 9 source-checked no-patch audit, not a new native650+ source certification, not Noether closure, not multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 10 p.543 source dot-leader fix
 
 Manifest: [20260630_noether_r273_p10_p543_source_dot_leader_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p10_p543_source_dot_leader_fix.json)
@@ -74,8 +85,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 606,019 bytes, SHA256 `4ABF5E7C3D34572CB863869766C0D09767EBDCAE7197CF2EF6DF8F041764621A`, modified locally 2026-06-30 01:14:11.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, and P10 p.543 source-dot-leader fix entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 606,895 bytes, SHA256 `5601498514BF238CF855E6EFBCDE66632AA4281E94C3F3DF82C784BB3D934BD0`, modified locally 2026-06-30 01:17:51.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, and P09 R271CSI source-checked survival entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
