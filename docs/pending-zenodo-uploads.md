@@ -1,3 +1,15 @@
+## 2026-06-29: Noether post-R269 P07 current-base closure
+
+Manifest: [20260629_noether_post_r269_p07_currentbase_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p07_currentbase_closure.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P07 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P07_CurrentBaseClosure_NoPatch_20260629.zip`, 7,238,030 bytes, SHA256 `040978D0B640109E1A94E5A2523EB9B6397EA6F541538EEFD622A59814FDF29C`.
+- Scope/result: no new TeX patch. The live P07 span in the current R269 plus LocalP10/P20/P14/P13/P07 base is byte-diff identical to the P07 patched extract from `Noether_LocalCodex_after_WebR269_P07_SourcePatch_20260629.zip`.
+- Confirmed P07 source patch: the Galois resolvent is source-visible `\Phi(\xi,u)`, not `\Phi(z,u)`, and the related bounded terms use `\xi+u_1x_1^{(k)}`, `\xi^h`, and `\xi^{\alpha}u_1^{\alpha_1}`.
+- No-fix guards: keep the Weber correction formulas using `\partial\Phi/\partial z` and evaluation at `z=-\xi_k`; the source uses `z` there. Also keep the Weber reference sentence `\Phi(t)`.
+- Source-quality caveat: targeted source-confirmed patch survival only, not a fresh glyph-by-glyph recertification of every P07 character. The package includes the P07 article source PDF, canvas map, and targeted 1000dpi/650dpi witness images for fragile loci.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P43 and post-P43 tail closures
 
 Manifest: [20260629_noether_post_r269_p43_tail_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p43_tail_closures.json)
