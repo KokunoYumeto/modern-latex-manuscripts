@@ -14,6 +14,12 @@ old physics/Gibbs, and the Edge dump. Its main result is that these packets are
 already represented as source-intake, pending-Zenodo, or public-catalog material;
 none should be promoted as a reader-facing completed edition by default.
 
+Resolution follow-up: `20260629_galois_eisenstein_dpi_source_quality.md`
+records the current DPI/source-quality sanity check for Galois and Eisenstein.
+Use IA/UMich scandata for the Galois 600 ppi claim; do not treat derivative PDF
+or helper-image metadata as optical DPI. For Eisenstein, describe the UofT layer
+as raw JP2/source-image intake without a strict optical-DPI certification.
+
 ## Highest-Readiness Quick Tests
 
 | Author/work | Local status | Pages | Practical next task |
