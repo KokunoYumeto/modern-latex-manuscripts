@@ -1,3 +1,13 @@
+## 2026-06-29: Noether post-R269 P40/P41/P42 live-base addendum
+
+Manifest: [20260629_noether_post_r269_p40_p42_livebase_addendum.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p40_p42_livebase_addendum.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P40/P41/P42 addendum package: `Noether_LocalCodex_after_WebR269_P07Patch_P40P41P42_LiveBaseAddendum_NoPatch_20260629.zip`, 43,118 bytes, SHA256 `FCF6AD208659243AAEEA1F4CECFC4904068DF7D6ACEF0D5E6C2283E2959094A5`.
+- Scope/result: no TeX patch. Confirms P40, P41, and P42 extracted from the live WebR269 plus LocalP10/P20/P14/P13/P07 base are normalized-identical to the earlier P40/P41/P42 current-base survival extracts.
+- Source-quality caveat: unchanged from the earlier package. P40/P41 are best-available GDZ400-style lanes; P42 is source-limited at about 360ppi. This addendum is a live-base regression guard, not final certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P37-P39 current-base closures
 
 Manifest: [20260629_noether_post_r269_p37_p39_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p37_p39_closures.json)
