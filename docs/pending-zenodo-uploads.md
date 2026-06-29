@@ -4,9 +4,11 @@ Manifest: [20260629_noether_r269_local_carrymerge_current_control.json](../manif
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
 - Package: `Noether_R269_Complete_LocalCarryMerge_20260629.zip`, 36,936,992 bytes, SHA256 `696C0D61297B9D965A3FB76ECAD6557293A4AACFC533D6B7F7D5EEE7EF2CFA71`.
+- Companion wrapper: `Noether_LocalCodex_after_WebR269_with_P02P43_AuditClosures_20260629.zip`, 5,768,294 bytes, SHA256 `6A5E9207DD532342903450AB4696B30A4ED9BE4C00D4DE869860C4C82EC2A2F4`. It contains the byte-identical R269 German cumulative plus LocalCodex P02-P43 audit/disposition ledgers that were not inside the shorter R269 ZIP.
 - Scope/result: current German cumulative after Web R268 plus the latest fix-bearing LocalCodex carry-forward. It promotes ten source-certain replacements across Papers 06, 08, and 09 and compiles to a 471-page German cumulative PDF.
 - Source witnesses: Paper 06 source pp.164, 166, 167, 174, 178, 185; Paper 08 source p.98; Paper 09 source pp.112 and 124. The package also carries unchanged-span guards for P13, P15, P16, P17, P19, P21, P22, P30, P35, P36, P43, and the post-P43 tail.
 - Not promoted: P09 p111 extra `ist` row remains a no-fix trap with available witnesses; latest local P11 page-audit package was no-patch and is not promoted in this pass.
+- Extra no-fix trap from the wrapper: the Cyrillic block immediately before Paper 36 is source-backed Russian resume material at the end of Paper 35 and should not be deleted as InterSlavic/Russian contamination.
 - Caveat: current-control/source-certain patch layer only. This is not whole-Noether closure, not paper-by-paper certification, not multilingual synchronization, and not critical-edition material.
 - Publication policy: Noether is already at the Zenodo 100-file ceiling. Fold this into a compact Noether current-control/source-audit rebalance rather than loose-uploading it above reader/current-TeX surfaces.
 
