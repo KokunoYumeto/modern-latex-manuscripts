@@ -4,7 +4,7 @@ This index summarizes the PC-local GitHub branch handoff for the active Noether 
 
 Branch: `codex/noether-pc-20260629`
 Draft PR: https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/1
-Head before this manifest commit: `67d9b7aabcbd049e2d523a4f9467d64dac5c2400`
+Head before this manifest commit: `8f930b9b6146b33d7361a2e0a85df0ec4cfb8f29`
 
 ## Current Counts
 
@@ -12,15 +12,16 @@ Head before this manifest commit: `67d9b7aabcbd049e2d523a4f9467d64dac5c2400`
 - URL validation: 20 accessible / 24 total
 - Term-anchor rows: 153
 - Pages analyzed for term anchors: 3942
-- JSON artifacts indexed: 24 plus this status manifest
-- Markdown artifacts indexed: 27 plus this status index
+- JSON artifacts indexed: 25 plus this status manifest
+- Markdown artifacts indexed: 28 plus this status index
 - Reproducible scripts indexed: 5
-- Page inspection queue: 153 tasks, 48 extraction-inspected, 69 high priority
+- Page inspection queue: 153 tasks, 60 extraction-inspected, 69 high priority
 - Page inspection batch 01: 12 Simplified Chinese high-priority tasks, 211 pages checked, 1 ready after extraction check, 0 approved terms
 - Page inspection batch 02: 12 high-priority tasks across french, simplified_chinese, spanish, 361 pages checked, 10 ready after extraction check, 0 approved terms
 - Page inspection batch 03: 12 high-priority tasks across japanese, spanish, 348 pages checked, 4 ready after extraction check, 0 approved terms
 - Page inspection batch 04: 12 high-priority tasks across japanese, 138 pages checked, 12 ready after extraction check, 0 approved terms
-- Page inspection batches total: 48 tasks, 1058 pages checked, 27 ready after extraction check
+- Page inspection batch 05: 12 high-priority tasks across fa_IR, japanese, prs_AF, 364 pages checked, 5 ready after extraction check, 0 approved terms
+- Page inspection batches total: 60 tasks, 1422 pages checked, 32 ready after extraction check
 - Review packet templates seeded: 8 lane/template groups, 13 ledger fields
 - Term ID registry seeded: 8 ranges, 153 reserved IDs, 0 approved terms, 0 accepted corrections
 
@@ -29,17 +30,17 @@ Head before this manifest commit: `67d9b7aabcbd049e2d523a4f9467d64dac5c2400`
 | Lane | Status | Key counts | Next gate |
 | --- | --- | --- | --- |
 | Slavic | review_ready_lane_maintained_by_prior_checkpoint_not_rebuilt_in_this_pc_branch_manifest | prior checkpoint maintained by pointer | review returns / new source corrections |
-| Simplified Chinese | evidence_shelf_reinforced_and_term_anchor_seeded; Paper34 through Section18 checkpoint recorded; page inspection batches 01-04 started | 34 term rows, 787 pages; 14 extraction-inspected queue tasks | human page-context notes / Section 19 continuation plus page-inspected glossary |
+| Simplified Chinese | evidence_shelf_reinforced_and_term_anchor_seeded; Paper34 through Section18 checkpoint recorded; page inspection batches 01-05 started | 34 term rows, 787 pages; 14 extraction-inspected queue tasks | human page-context notes / Section 19 continuation plus page-inspected glossary |
 | French/Spanish | validated source shelves and term-anchor seed for natural-language lanes; batch02-batch03 page inspection started; not a Romance interlanguage claim | 46 term rows, 1283 pages; 18 extraction-inspected queue tasks | page-inspected per-language glossary |
-| Japanese | validated source shelf and term-anchor seed with strong ring/module evidence; batch03-batch04 page inspection started | 41 term rows, 242 pages; 16 extraction-inspected queue tasks | page-inspected Japanese glossary |
-| Persian-family/Arabic | fa_IR strong seed; prs_AF broad seed only; ar reinforced but still needs module/representation and OCR/provenance work; tg_Cyrl_TJ unresolved | 32 term rows, 1630 pages | Tajik + Arabic module/representation reinforcement |
-| Interlanguage method / research publication | publication_outline_terminology_governance_authority_frameworks_review_templates_correction_ingestion_term_id_draft_glossary_page_inspection_queue_and_batches01_02_03_04_seeded_not_completion_claim | page inspection batches, publication outline, terminology governance, correction ledger template, lane term summaries, glossary templates, term ID registry, draft glossary indexes, authority matrix, reviewer framework, and review templates indexed | continue high-priority page inspection / populated lane packets / review-return ingestion |
+| Japanese | validated source shelf and term-anchor seed with strong ring/module evidence; batch03-batch05 page inspection started | 41 term rows, 242 pages; 17 extraction-inspected queue tasks | page-inspected Japanese glossary |
+| Persian-family/Arabic | fa_IR strong seed with batch05 page inspection started; prs_AF broad seed with first batch05 row inspected; ar reinforced but still needs module/representation and OCR/provenance work; tg_Cyrl_TJ unresolved | 32 term rows, 1630 pages; 11 extraction-inspected queue tasks | Tajik + Arabic module/representation reinforcement |
+| Interlanguage method / research publication | publication_outline_terminology_governance_authority_frameworks_review_templates_correction_ingestion_term_id_draft_glossary_page_inspection_queue_and_batches01_02_03_04_05_seeded_not_completion_claim | page inspection batches, publication outline, terminology governance, correction ledger template, lane term summaries, glossary templates, term ID registry, draft glossary indexes, authority matrix, reviewer framework, and review templates indexed | continue high-priority page inspection / populated lane packets / review-return ingestion |
 
 ## Boundaries
 
 - No native/external reviewer acceptance is implied by this manifest.
 - Extraction-inspected page tasks are not native review and not term approval.
-- Page inspection batches 01-04 copy no source-language term strings and no source passages.
+- Page inspection batches 01-05 copy no source-language term strings and no source passages.
 - Review packet templates are not review results.
 - Reviewer-facing glossary table templates are not populated glossaries.
 - Draft reviewer glossary indexes are not populated glossaries.
@@ -52,4 +53,4 @@ Head before this manifest commit: `67d9b7aabcbd049e2d523a4f9467d64dac5c2400`
 
 See `NOETHER_PC_MULTILINGUAL_STATUS_MANIFEST_20260629.json` for artifact hashes, lane gates, source-page counts, review packet metadata, correction ledger metadata, lane term-status metadata, glossary-template metadata, term-ID registry metadata, draft glossary index metadata, page inspection queue/batch metadata, research publication metadata, and reproducibility notes.
 
-Generated UTC: 2026-06-29T14:55:20.077500+00:00
+Generated UTC: 2026-06-29T15:00:26.928621+00:00
