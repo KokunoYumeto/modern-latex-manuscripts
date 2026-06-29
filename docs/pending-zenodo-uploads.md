@@ -6997,3 +6997,12 @@ Manifest: [20260629_noether_post_r269_p26_p28_fullvisual_p27dash_patch.json](../
 - Scope: Papers 26-28 short abstract cluster after WebR269 plus LocalCodex P10/P20/P14/P13/P07 source patches. It includes patched German cumulative TeX, current/patched extracts, full GDZ native600 source pages, labelled zoom splits, CSV ledgers, and a compiled 471-page XeLaTeX PDF.
 - Result: applies one source-certain Paper 27 German patch at current line 14338, restoring the source-visible leading em dash before `\textsc{E. Noether}: Hilbertsche Anzahlen in der Idealtheorie.` P26 and P28 visually check against their source pages with no TeX patch.
 - Caveat: targeted patch/visual-audit support only. Source witnesses are clean native GDZ full-page images but declared 600 ppi, below the strict native650 preference. This is not P26/P27/P28 certification, whole-Noether closure, multilingual synchronization, source closure, or critical-edition material. Fold into a compact Noether rebalance; do not front it above reader PDFs/TeX.
+
+## 2026-06-29: Noether post-R269 P24 p229-p230 footnote-4 source patch
+
+Manifest: [20260629_noether_post_r269_p24_footnote4_sourcepatch.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_footnote4_sourcepatch.json)
+
+- Noether source-patch/support ZIP: `Noether_LocalCodex_after_WebR269_P07Patch_P24_p229_230_Footnote4_SourcePatch_20260629.zip`, 8,947,018 bytes, SHA256 `125C1C21C6ADCB535866F3E76A7BD188453CF17A081A5803357784DB2E77954B`, 24 entries.
+- Scope: Paper 24, printed pp. 229-230 only, on the WebR269 plus LocalCodex P10/P20/P14/P13/P07 and P27-dash patched base. It includes patched German cumulative TeX, a patched extract for lines 13742-13764, full GDZ native400 page witnesses, labelled enlarged footnote crops, CSV ledgers, and a compiled 471-page XeLaTeX PDF.
+- Result: applies one source-certain German footnote correction at current line 13759: `vgl. dazu H.-N., Anm. *).` becomes source `vgl. dazu H.-N., Anm. 4).`
+- Caveat: targeted two-page slice repair/support only. Source witnesses are native GDZ full-page images declared 400 ppi, below the preferred native650+ threshold. Enlarged crops are readability aids only. This is not Paper 24 certification, whole-Noether closure, multilingual synchronization, source closure, or critical-edition material. Fold into a compact Noether rebalance; do not front it above reader PDFs/TeX.
