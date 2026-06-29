@@ -29,7 +29,7 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 | Cauchy | Two `Cours d'analyse` witnesses: `bub_gb_OlxT3B6EjykC`; `TO0E037871_TO0324_PNI-1898_000000` | 604 / 604 | PDFs, JP2s, ABBYY, DjVu text, metadata, scandata downloaded. | Good if targeting `Cours d'analyse`; not a whole-Cauchy corpus. |
 | Cantor | GDZ `Cantor_Gesammelte_Abhandlungen_GDZ_PPN237853094.pdf` | 501 | Full PDF downloaded. IA `gesammelteabhand0000cant` blocked PDF/JP2/OCR with 401, but metadata/scandata downloaded. | Use GDZ as local source. Needs OCR/JP2 source backfill if a better image route is found. |
 | Hausdorff | `grundzgedermen00hausuoft.pdf` | 496 | PDF, DjVu text, metadata downloaded. IA JP2 and ABBYY attempts returned 500. | Usable PDF/text start; needs image/OCR retry if selected. |
-| Ramanujan | `Collected Papers of Srinivasa Ramanujan.pdf`; `pli.kerala.rare.28155.pdf` | 393 / 393 | Open alternative PDFs, JP2, OCR/metadata downloaded after first IA source returned 401. | Good compact source set. Modern translation not the issue; TeX/source apparatus could be. |
+| Ramanujan | `Collected Papers of Srinivasa Ramanujan.pdf`; `pli.kerala.rare.28155.pdf`; packaged in `Ramanujan_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS` | 393 / 393 PDF pages; 393 / 393 JP2 image entries | Open alternative PDFs, JP2, OCR/metadata downloaded after first IA source returned 401, then packaged into under-500MB upload ZIPs. | Good compact source set. Modern translation not the issue; TeX/source apparatus could be. Source-intake only, not an edition. |
 | Dinostratus/Menaechmus/Heath | Heath `A History of Greek Mathematics` vol. 1 | 472 | PDF, JP2, ABBYY, DjVu text, metadata downloaded. | Commentary/source-reference lane, not a direct collected-works corpus for Dinostratus/Menaechmus. |
 
 ## Immediate Packaging Recommendations
@@ -39,7 +39,8 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 3. **Steiner packet is built**: Volume I primary is the MBP/Pittsburgh 600 ppi witness, Volume I BSB JP2 is a comparator, and Google `jacobsteinersge01steigoog` is the Volume II source. Duplicate/lower-priority Volume I witnesses are recorded locally but excluded from first upload.
 4. **Cantor is source-started but not image-complete**: GDZ PDF is enough for inspection, but a better page-image/OCR route should be found before declaring it a source-complete packet.
 5. **Abel is now packaged**: control plus one source ZIP per volume, all under 500 MB.
-6. **Möbius is good but bigger than a quick test**: split by volume and perhaps by paper.
+6. **Ramanujan is now packaged**: useful as a compact source/TeX apparatus lane rather than translation novelty.
+7. **Möbius is good but bigger than a quick test**: split by volume and perhaps by paper.
 
 ## Quality Rule
 
