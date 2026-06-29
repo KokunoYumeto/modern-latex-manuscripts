@@ -1,3 +1,13 @@
+## 2026-06-29: Noether post-R269 P02 current-base closure
+
+Manifest: [20260629_noether_post_r269_p02_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p02_closure.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P02 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P02_CurrentBaseClosure_NoPatch_20260629.zip`, 9,452,564 bytes, SHA256 `4EE6D6E4AD769E201E9F6D77D3E3C2020ABE99985423A24C77331DFA3497EE47`.
+- Scope/result: no TeX patch. Records current-base survival of known high-risk Paper 02 anchors after Web R269 plus local P07 patch: paper-local footnote reset, title/source footnote, Table I and Table II headings, absence of known bad older table strings, the source-supported body `L_j^2` no-fix trap, the p68 `H_3` / `H^3u` prose/formula distinction, and Table I row 21 `(KH^3u)^6`.
+- Source-quality caveat: includes the complete P02 source PDF and targeted 1000dpi crops for known high-risk loci. It does not perform fresh global page-by-page source certification or full table cell-by-cell recertification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P05/P06 current-base closures
 
 Manifest: [20260629_noether_post_r269_p05_p06_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p05_p06_closures.json)
