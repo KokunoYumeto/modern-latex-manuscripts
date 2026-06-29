@@ -1,3 +1,15 @@
+## 2026-06-29: Noether post-R269 P43 and post-P43 tail closures
+
+Manifest: [20260629_noether_post_r269_p43_tail_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p43_tail_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P43 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P43_CurrentBaseClosure_NoPatch_20260629.zip`, 55,239 bytes, SHA256 `1A6D1CFFD8E04953333AC9854351579B26BF5EE2E30D585D215001C510716598`.
+- Post-P43 tail closure package: `Noether_LocalCodex_after_WebR269_P07Patch_PostP43Tail_CurrentBaseClosure_SourceLimited_NoPatch_20260629.zip`, 7,034,216 bytes, SHA256 `FE56C253629266F011DE04E20B9155755EE6A93F6CFF4F10FCDC950C52881A54`.
+- Scope/result: no TeX patches. P43 records that the live article-only span at current lines 20477-21284 is byte-diff identical to the R266 full GDZ600 patched extract. The post-P43 lecture tail records that the live tail from line 21305 to line 24443 matches `Tail_R267_span.tex` apart from CRLF/LF warning.
+- Source-quality caveat: P43 source-image authority remains the earlier R266 GDZ600 full P43 package. The post-P43 tail is source-limited: its included IA-derived source slice for source PDF pages 725-796 was previously reported around native360ppi, and R267 did exact-locus fixes plus broad page checks, not strict native650+/1000dpi certification.
+- Boundary/no-fix guards: the post-P43 `Algebra der hyperkomplexen Größen` tail is not part of Paper 43. Do not silently modernize source-visible `Brauschweig` unless a stronger source contradicts it. Publisher ads/backmatter and blank/end leaves remain excluded from canonical mathematical output.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P40/P41/P42 live-base addendum
 
 Manifest: [20260629_noether_post_r269_p40_p42_livebase_addendum.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p40_p42_livebase_addendum.json)
