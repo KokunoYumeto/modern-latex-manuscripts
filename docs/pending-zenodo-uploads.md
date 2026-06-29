@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P16/P17 current-base closures
+
+Manifest: [20260629_noether_post_r269_p16_p17_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p16_p17_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P16 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P16_CurrentBaseClosure_NoPatch_20260629.zip`, 13,425,142 bytes, SHA256 `BB8314FA41948DFFC42A006C4813C1774D705D6F095DC3E74A73667C7BBD1A3D`.
+- P17 coverage package: `Noether_LocalCodex_after_WebR269_P07Patch_P17_CurrentBaseFullPageCoverage_NoPatch_20260629.zip`, 6,853,824 bytes, SHA256 `B7D6D230A02F454479CABB91EB5E224BAA59335FF4BD7A314306A61E4D6BF7D6`.
+- Scope/result: no TeX patches. P16 records survival of the source-visible F-not-Phi prose trap on printed p30 (`aus F und aus Formen aus M`) while formula [10] remains `\Phi=a_1SF=a_1S\Phi`, plus the dash-wrapped `--- \Omega\Delta F=PF ---` locus. P17 records that current-base P17 source-certain repairs survive and that the previous p23 follow-up is now covered by a whole-page GDZ600 bridge: formulas (31), (32), (33), and surrounding prose survive.
+- Source-quality caveat: P16 uses best-staged lower-native full-page evidence (about 360-400ppi depending on route) plus enlarged 1000dpi inspection crops; P17 uses GDZ600 and enlarged labelled crops. Neither package is strict native650 page certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P01 current-base authority closure
 
 Manifest: [20260629_noether_post_r269_p01_closure_fixedprov.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p01_closure_fixedprov.json)
