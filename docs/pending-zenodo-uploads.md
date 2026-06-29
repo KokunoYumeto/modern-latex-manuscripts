@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R273 P35/P36 and P06 survival guards
+
+Manifest: [20260630_noether_r273_p35p36_p06_survival_guards.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p35p36_p06_survival_guards.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P35P36_P06_SurvivalGuards_NoPatch_20260630.zip`, 3,186,316 bytes, SHA256 `0E92F297F4DBAEDB824BCAC4AE345C1F1B443CB71FDAF81BDCC19B0A0E5F78AE`. ZIP integrity test passed.
+- Scope/result: no TeX patch. This package makes explicit that the Paper 35 Cyrillic/Russian resume block remains source-real and should not be deleted as Paper 36 contamination, that Paper 36 starts cleanly at `Idealdifferentiation und Differente`, and that known Paper 6 source-critical repair anchors survive in the current R273+LocalCodex German base.
+- Source-quality caveat: Paper 6 tail repairs remain best-staged 400ppi plus enlarged-crop backed until better source appears, and the Paper 35 witness was previously recorded as about 600ppi, below the strict 650ppi floor. Treat this as survival/guard/current-control support only, not fresh full-page recertification, Noether closure, multilingual synchronization, whole-paper certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-29: Noether post-R272 broad source-audit wave
 
 Manifest: [20260629_noether_post_r272_broad_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r272_broad_source_audit_wave.json)
