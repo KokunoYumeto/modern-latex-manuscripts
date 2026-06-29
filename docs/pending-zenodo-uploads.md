@@ -11,6 +11,18 @@ Manifest: [20260629_noether_post_r269_p10_p13_closures.json](../manifests/pendin
 - Source-quality caveat: P10 carries native400 enlarged inspection crops; P12/P13 rely on staged GDZ400/best-available witnesses for the relevant prior audits; P11 is a source-ledger/current-anchor closure. None of these packages is strict native650 page certification.
 - Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
 
+## 2026-06-29: Noether post-R269 P18-P20 current-base closures
+
+Manifest: [20260629_noether_post_r269_p18_p20_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p18_p20_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P18 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P18_CurrentBaseClosure_NoPatch_20260629.zip`, 6,674,703 bytes, SHA256 `C04E73250C06EFE2AED1F6311ADA63759D3304507D401DC69281F3AFCC4FCA01`.
+- P19 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P19_CurrentBaseClosure_NoPatch_20260629.zip`, 8,128,613 bytes, SHA256 `693B6117B40CB0BF65F7D4BC06B54658B605685710EDCE03C8E90658DED1C4AD`.
+- P20 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P20_CurrentBaseClosure_NoPatch_20260629.zip`, 10,055,651 bytes, SHA256 `4337B60DCDDED0C4C3A44EB9ED147DF90C198C0229EC4AA4D203FA0FB81A1066`.
+- Scope/result: no TeX patches. These packets record current-base survival of already source-certain P18-P20 repairs/high-risk anchors after Web R269 and the later P07 source patch.
+- Source-quality caveat: P18 carries staged GDZ600 one-page evidence; P19 carries prior high-resolution GDZ/contact evidence; P20 carries GDZ native400 evidence plus an enlarged inspection crop. None of these packages is a global paper certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P14 current-base closure
 
 Manifest: [20260629_noether_post_r269_p14_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p14_closure.json)
