@@ -12,3 +12,9 @@ Important limits:
 - The audits report strong artifact/render/glossary evidence, but only Paper 01 has first-pass Codex source review; Papers 02-43 and endmatter still need Codex source review and external/native-language authority review before any final canonical claim.
 
 Use this folder as a Slavic translation lane control/handoff record, not as proof that the public Noether Zenodo record already contains the package.
+
+Follow-up note: the same remote branch later added
+`noether-slavic-handoff/20260629/CODEX_LAPTOP_LANGUAGE_PLANNING_CHECKPOINT_20260629T022535Z.md`.
+That 2026-06-29 file is also metadata only. It points to a laptop-local
+`Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260629T022535Z.zip`
+that was not uploaded to GitHub and has not yet been verified on this PC.
