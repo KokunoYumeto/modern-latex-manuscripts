@@ -21,7 +21,7 @@ Upload order:
 
 | Order | File | Bytes | SHA256 | Work range |
 |---:|---|---:|---|---|
-| 1 | `Gauss_CONTROL_START_HERE_MANIFESTS_v3_20260629.zip` | 5,540 | `2D6EAEECB89C9B4F17680DA49077552B9B41195372723ACEB6A47621FA8BF6A3` | Start-here, upload order, checksums, file lists. |
+| 1 | `Gauss_CONTROL_START_HERE_MANIFESTS_v3_20260629.zip` | 7,019 | `086E71F0627D6E21EB3125255D66527270EEBCD9189044F4452C8600D52BE04E` | Start-here, upload order, checksums, file lists. Rebuilt locally to remove one stray NUL byte from the start-here Markdown. |
 | 2 | `Gauss_01_start_biquadratic_pp001_076_v3_20260629.zip` | 221,522,455 | `F8C6A5CFA6FF7280DB48E21E7EB4BBA5205BDCEF8387F98329D3D9CDE359C3B9` | Start and biquadratic sections, pp.001-076. |
 | 3 | `Gauss_02_anzeigen_nachlass_pp149_211_v3_20260629.zip` | 265,383,147 | `848772B04C3F4AF0638A0C3078B8A33F885D35795079CBE6129E128FB211D94D` | Anzeigen/Nachlass, pp.149-211. |
 | 4 | `Gauss_03_congruences_pp212_268_v3_20260629.zip` | 388,047,754 | `67A914BEC4B5A44DF9A94EB578839FFE51A9E11B4FA8CBA8E98CF8DF631EAF59` | Congruences and pure equations, pp.212-268. |
@@ -49,7 +49,7 @@ Upload order:
 
 | Order | File | Bytes | SHA256 | Work range |
 |---:|---|---:|---|---|
-| 1 | `Dirichlet_CONTROL_START_HERE_MANIFESTS_v3_20260629.zip` | 3,272 | `4EEA740C55436419DBA26C06537942C357DA15FA20DE0EBD946B0D611BADCD7D` | Start-here, upload order, checksums, file lists. |
+| 1 | `Dirichlet_CONTROL_START_HERE_MANIFESTS_v3_20260629.zip` | 4,263 | `B9C55F9D42FBA1C008CAF4AA9133F79E8BBCF0BBC5BDBF9D5B2534AF3D2D0658` | Start-here, upload order, checksums, file lists. Rebuilt locally to remove one stray NUL byte from the start-here Markdown. |
 | 2 | `Dirichlet_01_papers01_14_foundation_cumulative_v3_20260629.zip` | 305,204,784 | `8FE808EE206C41B5E6F65EAEFCACFE6C136447520A07C664A80FD7F1EBD298B0` | Early papers, foundation, cumulative through round 14. |
 | 3 | `Dirichlet_02_papers23_41_main_continuation_v3_20260629.zip` | 318,830,937 | `C704C0269B5658854F9C3AA8D16B086EF498E4FE74A0DDE0C1771039DA14F75F` | Papers XXIII-XLI continuation. |
 | 4 | `Dirichlet_03_volume1_source_backfill_current_v3_20260629.zip` | 154,311,224 | `1FF4D103952A39B75758E7C2E312150AFA503C3C83DB0FB8D52F78836A8BF6B0` | Volume I source backfill/current through p.80. |
