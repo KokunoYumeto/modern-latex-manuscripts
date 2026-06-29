@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 10 p.543 source dot-leader fix
+
+Manifest: [20260630_noether_r273_p10_p543_source_dot_leader_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p10_p543_source_dot_leader_fix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P10_p543_SourceDotLeaderFix_20260630.zip`, 4,438,942 bytes, SHA256 `7B312B84DD81FDEC6AE9A32EF2BBBDA9BE4A10EF9F1B28ABF238B9B260075952`. ZIP integrity test passed.
+- Scope/result: targeted German TeX patch. Paper 10 printed p.543, the rank-four aligned equation system after `Die Gleichungen`, had three lower rows normalized to `\cdots`; the source uses explicit spaced dot leaders. The package replaces only those three tokens with source-style dot leaders and includes a patched German cumulative TeX/PDF that compiled with XeLaTeX to 471 pages.
+- No-patch trap: Paper 10 printed p.536 formula (4) and the Ostrowski footnote were checked; current R273 is correct there, with formula (4) ending in a period and the footnote citation ending with `§ 2:`.
+- Source-quality caveat: the staged source witness is a GDZ raw IIIF JPG recorded at 400ppi, below the preferred native650+ floor. The dot-leader reading is visually unambiguous, but this is targeted p.543 sourcefix/current-control support only, not Paper 10 certification, native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 11 R271CSI page-audit survival
 
 Manifest: [20260630_noether_r273_p11_r271csi_page_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p11_r271csi_page_audit_survival_nopatch.json)
@@ -63,8 +74,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 605,063 bytes, SHA256 `9C88D2CE548779461BC3D03BAECF087D5DCB683E124A7DBF0775CD247D706022`, modified locally 2026-06-30 01:08:19.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, and P11 R271CSI page-audit survival entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 606,019 bytes, SHA256 `4ABF5E7C3D34572CB863869766C0D09767EBDCAE7197CF2EF6DF8F041764621A`, modified locally 2026-06-30 01:14:11.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, and P10 p.543 source-dot-leader fix entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
