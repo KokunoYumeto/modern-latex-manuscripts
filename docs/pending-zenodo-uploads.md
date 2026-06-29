@@ -1,3 +1,15 @@
+## 2026-06-29: Noether PC multilingual linguistics branch handoff
+
+Manifest: [20260629_workflow_noether_pc_multilingual_linguistics_branch_handoff.json](../manifests/pending-zenodo-uploads/20260629_workflow_noether_pc_multilingual_linguistics_branch_handoff.json)
+
+- Primary recommended target: workflow / methodology record, concept DOI `10.5281/zenodo.20461174`.
+- Cross-reference / future rebalance target: Emmy Noether record, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629.zip`, 219,782 bytes, SHA256 `BB116422A902550BA4D03DB1A859B06712121CF6799AB3D58197BB387B484383`.
+- Source: GitHub branch `origin/codex/noether-pc-20260629`, commit `8f930b9b`, draft PR <https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/1>.
+- Contents: 60 committed files from `noether-slavic-handoff/20260629/` plus one archive inspection README. The package preserves the Noether multilingual/linguistics workflow branch: source-evidence shelves, term-anchor seeds, reviewer and correction-ledger scaffolds, term-ID registry seed, page-inspection queue, four high-priority page-inspection batches, helper scripts, interlanguage/constructed-language methodology notes, and an AI technical-register publication outline.
+- Validation: ZIP integrity passed with Python `zipfile.testzip`; 56 branch-manifest-listed artifacts were checked against Git blob bytes and SHA256 hashes with zero mismatches.
+- Scope/caveat: this is a first-class active linguistics / translation-methodology branch package, not merely a summary. It is not a completed reader release, not native/external review, not term approval, not source certification, not a critical edition, and not a replacement for actual TeX/PDF translation packages. Large local/laptop ZIP payloads referenced by the branch are not included and remain unverified until obtained separately.
+
 ## 2026-06-29: Noether post-R269 P24 p237-p239 and R270 tail patches
 
 Manifest: [20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json)
