@@ -8,7 +8,7 @@ Remote branch:
 
 Latest observed commit:
 
-`8f930b9b Add fourth page inspection batch`
+`db7ffc6c Start medium-priority page inspection batches`
 
 Draft PR:
 
@@ -32,7 +32,7 @@ material under:
 
 `noether-slavic-handoff/20260629/`
 
-The directory contains 60 tracked files at the latest observed commit.
+The directory contains 66 tracked files at the latest observed commit.
 
 ## What Is Present
 
@@ -43,7 +43,9 @@ The directory contains 60 tracked files at the latest observed commit.
 - Term-anchor seed JSON/Markdown files.
 - Reviewer glossary scaffolds and term-ID registry seed files.
 - Correction ledger and term-status templates.
-- Page-inspection queue plus four high-priority inspection batches.
+- Page-inspection queue plus seven inspection batches: six high-priority
+  batches completing the high-priority local extraction-inspection queue, and
+  one medium-priority batch.
 - Reproducible helper scripts for extracting/checking term anchors.
 - Pointers to large local/laptop ZIPs where full generated artifacts were not
   uploaded to GitHub.
@@ -55,8 +57,11 @@ The directory contains 60 tracked files at the latest observed commit.
 - Term-anchor rows: 153.
 - Pages analyzed for term anchors: 3942.
 - Page inspection queue: 153 tasks.
-- Page inspection batches 01-04: 48 tasks, 1058 pages checked, 27 ready after
+- Page inspection batches 01-07: 81 tasks, 1901 pages checked, 47 ready after
   extraction check.
+- Remaining high-priority queue tasks: 0.
+- Remaining medium-priority queue tasks: 24.
+- Remaining normal-priority queue tasks: 48.
 - Term approvals: 0.
 - Accepted corrections: 0.
 
