@@ -4,7 +4,7 @@ This index summarizes the PC-local GitHub branch handoff for the active Noether 
 
 Branch: `codex/noether-pc-20260629`
 Draft PR: https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/1
-Head before this manifest commit: `c8caffbb812dcc4ec934ae4e79a0cdf268b7ebe6`
+Head before this manifest commit: `c866686478ae8cb06a877cef7355fe47320a0556`
 
 ## Current Counts
 
@@ -12,14 +12,16 @@ Head before this manifest commit: `c8caffbb812dcc4ec934ae4e79a0cdf268b7ebe6`
 - URL validation: 20 accessible / 24 total
 - Term-anchor rows: 153
 - Pages analyzed for term anchors: 3942
-- JSON artifacts indexed: 16 plus this status manifest
-- Markdown artifacts indexed: 19 plus this status index
+- JSON artifacts indexed: 18 plus this status manifest
+- Markdown artifacts indexed: 21 plus this status index
 - Reproducible scripts indexed: 5
 - Review packet templates seeded: 8 lane/template groups, 13 ledger fields
 - Publication outline sections seeded: 10
 - Terminology governance seeded: 11 record types, 10 decision states, 18 ledger fields
 - Correction ledger template seeded: 10 states, 13 issue types, 24 required fields, 0 records
 - Lane term-status summaries seeded: 8 lane/sublane rows, 0 approved terms, 0 accepted corrections
+- Reviewer-facing glossary table templates seeded: 19 common columns, 9 lane templates, 6 population rules
+- Term ID registry seeded: 8 ranges, 153 reserved IDs, 0 approved terms, 0 accepted corrections
 
 ## Lane Status
 
@@ -30,12 +32,14 @@ Head before this manifest commit: `c8caffbb812dcc4ec934ae4e79a0cdf268b7ebe6`
 | French/Spanish | validated source shelves and term-anchor seed for natural-language lanes; not a Romance interlanguage claim | 46 term rows, 1283 pages | page-inspected per-language glossary |
 | Japanese | validated source shelf and term-anchor seed with strong ring/module evidence | 41 term rows, 242 pages | page-inspected Japanese glossary |
 | Persian-family/Arabic | fa_IR strong seed; prs_AF broad seed only; ar reinforced but still needs module/representation and OCR/provenance work; tg_Cyrl_TJ unresolved | 32 term rows, 1630 pages | Tajik + Arabic module/representation reinforcement |
-| Interlanguage method / research publication | publication_outline_terminology_governance_authority_frameworks_review_templates_and_correction_ingestion_scaffold_seeded_not_completion_claim | publication outline, terminology governance, correction ledger template, lane term summaries, authority matrix, reviewer framework, and review templates indexed | reviewer glossaries / lane term IDs / review-return ingestion |
+| Interlanguage method / research publication | publication_outline_terminology_governance_authority_frameworks_review_templates_correction_ingestion_and_term_id_scaffolds_seeded_not_completion_claim | publication outline, terminology governance, correction ledger template, lane term summaries, glossary templates, term ID registry, authority matrix, reviewer framework, and review templates indexed | populated draft glossaries / page-inspection status / review-return ingestion |
 
 ## Boundaries
 
 - No native/external reviewer acceptance is implied by this manifest.
 - Review packet templates are not review results.
+- Reviewer-facing glossary table templates are not populated glossaries.
+- Term ID ranges are stable handles, not term approvals.
 - Correction ledger templates contain zero accepted corrections until reviewer returns are actually ingested.
 - Lane term-status summaries are not approved glossaries.
 - Publication outline artifacts are not manuscript submission or completion claims.
@@ -49,6 +53,6 @@ Head before this manifest commit: `c8caffbb812dcc4ec934ae4e79a0cdf268b7ebe6`
 
 ## Machine-Readable Companion
 
-See `NOETHER_PC_MULTILINGUAL_STATUS_MANIFEST_20260629.json` for artifact hashes, lane gates, source-page counts, review packet metadata, correction ledger metadata, lane term-status metadata, research publication metadata, and reproducibility notes.
+See `NOETHER_PC_MULTILINGUAL_STATUS_MANIFEST_20260629.json` for artifact hashes, lane gates, source-page counts, review packet metadata, correction ledger metadata, lane term-status metadata, glossary-template metadata, term-ID registry metadata, research publication metadata, and reproducibility notes.
 
-Generated UTC: 2026-06-29T14:01:34.2634277+00:00
+Generated UTC: 2026-06-29T14:08:38.4712855+00:00
