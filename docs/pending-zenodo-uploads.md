@@ -1,3 +1,18 @@
+## 2026-06-29: Noether post-R269 P07 source patch and P03/P04/P08/P09/P40-P42 closures
+
+Manifest: [20260629_noether_post_r269_p03_p09_p40_followup.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p03_p09_p40_followup.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P07 patch package: `Noether_LocalCodex_after_WebR269_P07_SourcePatch_20260629.zip`, 11,012,889 bytes, SHA256 `C784294CE4BDF7ABA1443CD67AB3405548AF374F71FF70B5B0660BE112D9D45E`.
+- P03 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P03_CurrentBaseClosure_NoPatch_20260629.zip`, 13,878,096 bytes, SHA256 `F74C3F636623B9C2172989060F5C567D43EF744351F763B292BDF911D614CBA3`.
+- P04 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P04_CurrentBaseClosure_NoPatch_20260629.zip`, 20,563,559 bytes, SHA256 `8219CEDDC291F6D29D79318959918A9E882DD3554525163C927350BF6664A75D`.
+- P08 closure package: `Noether_LocalCodex_after_WebR269_P08_CurrentBaseClosure_NoPatch_20260629.zip`, 3,198,828 bytes, SHA256 `EC0B6632279A19430C46F5E83C8A1F94EE2FA2F1E775E46C8FB92D1B7DC701DE`.
+- P09 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P09_CurrentBaseClosure_NoPatch_20260629.zip`, 7,549,176 bytes, SHA256 `C12D7C0B105923F5FC99E5128D09222F711FC5ADD3C3899229AAC14353293795`.
+- P40/P41/P42 package: `Noether_LocalCodex_after_WebR269_P40P41P42_CurrentBaseSurvival_NoPatch_20260629.zip`, 3,235,315 bytes, SHA256 `572E9FE9CCE40391A1E0F3E72DE764A609E54A0C220F15C58B2A99A39A48B43F`.
+- Scope/result: P07 is the only TeX-changing package in this group; it restores source `\xi` notation in the Paper 07 Galois resolvent block while preserving the source `z` notation in Weber correction formulas. P03, P04, P08, P09, and P40-P42 apply no TeX patches; they are current-base closure, survival, no-fix-trap, or anti-regression guardrails.
+- Caveat: targeted source-patch/current-control support only. This is not certification of these papers, not whole-Noether closure, not multilingual synchronization, not strict native650/1000dpi source closure, and not critical-edition material.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P10 source patch, P42/P05/P30 no-fix/source traps, and P35/P36 boundary guard
 
 Manifest: [20260629_noether_p10_p42_after_r269_followup.json](../manifests/pending-zenodo-uploads/20260629_noether_p10_p42_after_r269_followup.json)
