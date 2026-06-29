@@ -10,6 +10,18 @@ Manifest: [20260629_workflow_noether_pc_multilingual_linguistics_branch_handoff.
 - Validation: ZIP integrity passed with Python `zipfile.testzip`; the ZIP was written from Git blob bytes, and all 66 committed branch files inside the ZIP were checked against Git blob bytes with zero mismatches.
 - Scope/caveat: this is a first-class active linguistics / translation-methodology branch package, not merely a summary. It is not a completed reader release, not native/external review, not term approval, not source certification, not a critical edition, and not a replacement for actual TeX/PDF translation packages. Large local/laptop ZIP payloads referenced by the branch are not included and remain unverified until obtained separately.
 
+## 2026-06-29: Noether Slavic/Interslavic branch text handoff
+
+Manifest: [20260629_workflow_noether_slavic_linguistics_branch_text_handoff.json](../manifests/pending-zenodo-uploads/20260629_workflow_noether_slavic_linguistics_branch_text_handoff.json)
+
+- Primary recommended target: workflow / methodology record, concept DOI `10.5281/zenodo.20461174`.
+- Cross-reference / future rebalance target: Emmy Noether record, concept DOI `10.5281/zenodo.20412587`.
+- Package: `Noether_Slavic_Linguistics_Branch_Text_Handoff_20260629_c0448847.zip`, 37,615 bytes, SHA256 `C728B9FFF084BB5062D497623C265828A300E75A887A5747B95324722A43B9C8`.
+- Source: GitHub branch `origin/codex/noether-slavic-handoff-20260628`, commit `c0448847`. The branch itself is not merge-safe wholesale because it is based on an older public-clean surface; only the `noether-slavic-handoff/` text/pointer/audit tree was imported.
+- Contents: GitHub connector handoff notes, render-integrity and terminology-rationale summaries, canonical review gap notes, latest cumulative-package pointer, external-review role-packet pointers, Arabic and broader language-planning checkpoint pointers, and archive-maintenance caveats.
+- Missing payload caveat: the package does **not** include the referenced 771 MB Slavic cumulative package, 221 MB external-review role-packet bundle, or 765/807 MB language-planning checkpoint ZIPs. Exact-name local search did not find those payloads on this PC on 2026-06-29.
+- Scope/caveat: this is mathematics-plus-linguistics workflow apparatus and branch provenance, not a reader release, not native/external review acceptance, not source certification, and not a critical edition.
+
 ## 2026-06-29: Noether post-R269 P24 p237-p239 and R270 tail patches
 
 Manifest: [20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json)
