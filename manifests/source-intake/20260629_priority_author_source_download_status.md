@@ -13,7 +13,7 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 | Author/work | Local status | Pages | Practical next task |
 |---|---:|---:|---|
 | Galois | Compact packet `Galois_SOURCE_PACKET_20260629.zip`, 71.29 MB, SHA256 `77DA4AC0B368A79E1F323C276E881FF12CBBEE3DA695522CFF48D6681E40E4A1` | 96-page 1897 scan; 65-page 1846 witness; 77-page 1908 witness | Best quick-win test: source-audited French TeX from the 1897 scan, with Gutenberg TeX as control only. |
-| Eisenstein | Three 1897/collected `Mathematische Abhandlungen` witnesses, including UofT raw JP2 | 348-355 pages depending witness | Strong compact number-theory lane. First task is choose canonical witness and make a source packet. |
+| Eisenstein | Source packet built with UofT raw JP2 as canonical witness and BSB/Google as comparators; four upload ZIPs in `Eisenstein_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS` | 354-page canonical UofT witness; 355-page BSB comparator; 348-page Google/IA comparator | Strong compact number-theory lane. Next task is source-audited modern TeX from UofT raw images; OCR/comparator text is control only. |
 | Abel | Two-volume collected works downloaded with PDF, JP2, OCR, metadata | 504 + 310 pages | Compact but larger than Galois. Good second quick lane if the colleague wants another famous corpus. |
 | Cantor | GDZ complete collected-abhandlungen PDF downloaded after IA access failed | 501 pages | Good source-audited German TeX target; translation novelty varies by paper. |
 
@@ -22,7 +22,7 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 | Author/work | Downloaded witnesses | Pages | Source/OCR status | Notes |
 |---|---|---:|---|---|
 | Galois | `uvresmathmatiqu00frangoog.pdf`; Numdam 1846 JMPA PDF; Gutenberg TeX/PDF; 1908 manuscript PDF/OCR | 96 / 65 / 78 / 77 | 1897 IA scan has JP2/OCR/ABBYY/metadata; 1897 scandata reports 600 dpi. Numdam original is mostly 300 ppi. 1908 manuscript PDF images report 600 ppi. | Source packet already built. Use scan as authority; Gutenberg TeX is convenience/control only. |
-| Eisenstein | `10053424bsb.pdf`; `bub_gb_NXBtAAAAMAAJ.pdf`; `mathematischeabh00eiseuoft.pdf` | 355 / 348 / 354 | BSB/Google processed JP2s downloaded; UofT has both processed JP2 and raw JP2. OCR/metadata downloaded for UofT/Google; BSB text/metadata downloaded. | UofT raw JP2 is the strongest local raw-source image layer. Some IA metadata titles are unreliable; inspect source itself. |
+| Eisenstein | `10053424bsb.pdf`; `bub_gb_NXBtAAAAMAAJ.pdf`; `mathematischeabh00eiseuoft.pdf`; UofT raw JP2; BSB/Google processed JP2/OCR sidecars | 355 / 348 / 354 | Source packet built. UofT raw JP2 is canonical; BSB/Google are comparators. Sample UofT raw page is `5010 x 3336`; embedded `72` metadata is not optical DPI. | Four upload ZIPs are under 500 MB and ZIP-tested. Some IA metadata titles are unreliable; inspect source itself. |
 | Steiner | `11740034bsb`; `jacobsteinersge01steigoog`; `jacobsteinersge02steigoog`; `jacobsteinersge03steigoog`; `jacobsteinersge04steigoog`; `jacobsteinersges027694mbp` | 633 / 808 / 627 / 636 / 636 / 631 | Multiple PDF/text/OCR/metadata witnesses downloaded; BSB has JP2. | Needs deduplication/canonical volume selection before a colleague packet. Likely duplicate/edition witnesses. |
 | Möbius | UofT `Gesammelte Werke` vols. 1-4 | 662 / 724 / 594 / 748 | PDFs, JP2s, and OCR mostly downloaded. Vol. 4 has the key PDF/JP2/ABBYY locally; some tiny text/meta/scandata sidecars failed earlier. | Good medium corpus, but not a quick test unless split by volume/paper. |
 | Abel | `oeuvrescomplte01abel`; `oeuvrescomplte02abel` | 504 / 310 | PDFs, JP2s, ABBYY, DjVu text, metadata, scandata downloaded. | Clean two-volume source spine. |
@@ -35,7 +35,7 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 ## Immediate Packaging Recommendations
 
 1. **Galois is ready now** as a 71 MB quick-win packet.
-2. **Eisenstein should be the next colleague packet**: choose UofT raw JP2 as strongest image witness, include BSB/Google as comparators, and write a one-page source-selection note.
+2. **Eisenstein packet is built**: UofT raw JP2 is the canonical image witness, BSB/Google are comparators, and a source-selection note plus upload order are included.
 3. **Steiner needs dedup first**: several local witnesses appear to overlap or duplicate volume numbering. Do not hand this to a web session until canonical volume grouping is written down.
 4. **Cantor is source-started but not image-complete**: GDZ PDF is enough for inspection, but a better page-image/OCR route should be found before declaring it a source-complete packet.
 5. **Möbius is good but bigger than a quick test**: split by volume and perhaps by paper.
