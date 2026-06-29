@@ -1,3 +1,15 @@
+## 2026-06-29: Noether post-R269 P25 native600 full-page audit
+
+Manifest: [20260629_noether_post_r269_p25_fullpage_native600_audit.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p25_fullpage_native600_audit.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P25 full-page audit package: `Noether_LocalCodex_after_WebR269_P07Patch_P25_FullPageAudit_Native600_NoPatch_20260629.zip`, 29,354,073 bytes, SHA256 `B21DCE70707DEDEE98B7EBD0ED5FAF58D9118EA0612A3EA0669D6701FDFF6E91`.
+- Scope/result: no TeX patch. Checks Paper 25, `Eliminationstheorie und Idealtheorie`, J. Ber. d. DMV 33 (1924), printed pp.116-120 against the current live German base lines 14260-14318.
+- Checked loci: opening/header/footnote apparatus, p119 Galois/overline passage, displayed formulas and IV norm block, and p120 end boundary before the following Koschmieder article.
+- Source-quality caveat: best staged source is GDZ JDMV33 raw full-resolution page images recorded as native 600ppi. The package includes native page images plus three zoomed labelled splits per page, but remains below the standing strict native650 rule.
+- Boundary note: the p120 image includes the start of the following Koschmieder article because it is on the same printed page; the Noether audit boundary stops at the receipt line `(Eingegangen am 19. 10. 1923.)`.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Workflow Noether memo digest and logbook hygiene snapshot
 
 Manifest: [20260629_workflow_noether_memo_digest_logbook_hygiene.json](../manifests/pending-zenodo-uploads/20260629_workflow_noether_memo_digest_logbook_hygiene.json)
