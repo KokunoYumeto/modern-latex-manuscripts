@@ -11,7 +11,7 @@ Companion machine-readable file: `PAGE_INSPECTION_QUEUE_20260629.json`
 - Inspection tasks: 153
 - Source index rows: 153
 - Source text copied into this artifact: false
-- Completed extraction inspections: 69
+- Completed extraction inspections: 81
 - Current approved terms: 0
 - Current accepted corrections: 0
 
@@ -25,8 +25,8 @@ Companion machine-readable file: `PAGE_INSPECTION_QUEUE_20260629.json`
 
 | Lane / sublane | Tasks | High | Medium | Normal | Not started | Completed extraction inspections |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| simplified_chinese | 34 | 14 | 8 | 12 | 20 | 14 |
-| french | 21 | 8 | 4 | 9 | 13 | 8 |
+| simplified_chinese | 34 | 14 | 8 | 12 | 12 | 22 |
+| french | 21 | 8 | 4 | 9 | 9 | 12 |
 | spanish | 25 | 10 | 5 | 10 | 15 | 10 |
 | japanese | 41 | 17 | 12 | 12 | 24 | 17 |
 | fa_IR | 22 | 10 | 7 | 5 | 12 | 10 |
@@ -60,5 +60,5 @@ Each machine-readable task includes:
 
 - Add human page-context notes for extraction-inspected ready rows.
 - Manually revisit rows where exact occurrence was not reverified by extraction.
-- Continue high-priority page inspection queue.
+- Continue medium-priority page inspection queue.
 - Preserve the unresolved Tajik Cyrillic gap until sources exist.
