@@ -4,6 +4,8 @@ Companion machine-readable ledger: `NON_SLAVIC_SOURCE_EVIDENCE_URL_VALIDATION_20
 
 This validation pass checked the 24 entries in `NON_SLAVIC_SOURCE_EVIDENCE_SEED_20260629.json` using HTTP HEAD first, then a response-header-only GET fallback. It does not download or redistribute source PDFs, and it does not validate license, mathematical adequacy, or native authority.
 
+Follow-up: the weak Simplified Chinese shelf identified here is reinforced in `CHINESE_SOURCE_EVIDENCE_REINFORCEMENT_20260629.md` and `CHINESE_SOURCE_EVIDENCE_REINFORCEMENT_20260629.json`.
+
 ## Result
 
 | Language | Entries | Accessible | Inaccessible |
