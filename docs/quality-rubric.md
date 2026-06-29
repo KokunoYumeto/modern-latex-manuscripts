@@ -71,6 +71,21 @@ When packaging serious updates, separate the layers:
 
 OCR, formula-recognition output, and LLM-generated text belong to the witness or candidate layer until source comparison promotes a patch. A "no patch promoted" result is valid and should be recorded rather than forced into the reader.
 
+## Source Resolution And DPI Claims
+
+Source-resolution claims are evidence claims, not decoration. Do not infer optical DPI from a filename, a PDF viewer, a derivative PDF, or generic `72 dpi` image metadata. Use the strongest available evidence and say exactly what it proves:
+
+| Evidence | Public Wording |
+|---|---|
+| Scandata or source metadata says 600 ppi/dpi and raw page images match that route. | "Source metadata reports 600 ppi/dpi." |
+| The raw TIFF/JPEG embeds `600 x 600 PixelsPerInch`. | "Sampled raw image embeds 600 x 600 PixelsPerInch." |
+| ImageMagick or another tool reports geometry only, with undefined units. | Give pixel geometry only; do not claim optical DPI. |
+| A raw JP2 has high pixel geometry but no embedded resolution units. | "High-resolution raw JP2 witness; no embedded optical DPI claim." |
+| A derivative PDF or PNG reports 1000 dpi after rasterization/enlargement. | "1000dpi inspection/render crop," not "native 1000dpi source." |
+| A source has `72 dpi` metadata but page geometry clearly came from a scanner/camera workflow. | Treat 72 as coordinate metadata unless independent evidence proves optical DPI. |
+
+When source packages mix routes, state that plainly. For example, a package can be "GDZ600 full pages plus targeted 650dpi crops" or "native400 pages enlarged to 1000dpi inspection crops." Those are useful witnesses, but they do not equal strict native650/1000 source closure. If a page/image-count mismatch exists, such as a JP2 archive with missing or extra numbered leaves, put the mismatch in the public manifest rather than hiding it in scratch notes.
+
 ## Audit Claims
 
 The public readability audit checks for configured metadata and filename problems such as stale record IDs, local paths, internal run labels, and rough placeholder wording.
