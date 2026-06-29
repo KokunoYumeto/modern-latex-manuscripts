@@ -40,6 +40,8 @@ This distinction should also be reflected in Zenodo descriptions. Do not describ
 
 Manifest/status files explain what is included, what passed technical checks, and what still needs review. They should be short enough to read and precise enough to act on.
 
+The 2026-06-29 Noether web-memo digest sharpened this into a practical rule: the German/source branch should not be outrun by translations. Translation branches can be valuable before full certification, but public metadata should say whether the underlying source branch is only a current-base survival check, a targeted source-certain patch, a source-limited best-available closure, or a fuller page/table/formula audit. Reader TeX/PDF should stay separate from apparatus/provenance ledgers so that useful translations are easy to find without hiding uncertainty.
+
 ## Sweep And Publication Gate
 
 The local sweep is a control mechanism, not a publication decision. A ZIP that is missing from GitHub-facing metadata is an intake item: it may be a current reader package, a superseded handoff, a source-witness bundle, a raw scan master, an OCR locator aid, or a bad/suspect draft. It should be categorized before it is described publicly.

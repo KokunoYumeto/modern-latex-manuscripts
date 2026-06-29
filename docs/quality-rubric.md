@@ -59,6 +59,22 @@ For paper-level or page-range dashboards, use short tier labels only when the ta
 
 Most current archive material should be described as Bronze, Silver, or untiered support material. Do not infer Gold or Platinum from old filenames containing words such as `complete`, `strict`, `critical`, or `source_checked`.
 
+## Evidence-Level Vocabulary
+
+Some newer audit and workflow notes use an L0-L6 ladder. These labels are operational shorthand and must still be tied to a named source witness, page range, and caveat.
+
+| Level | Meaning | Public Use |
+|---|---|---|
+| L0 | Source map, page map, or source route only. | Intake/support evidence, not a draft. |
+| L1 | Draft TeX compiles or opens but is not source-certain. | Working draft if clearly caveated. |
+| L2 | A named page range or paper has been checked against at least one source witness. | Source-checked range, with witness named. |
+| L3 | Formula, diagram, table, footnote, bibliography, heading, and boundary checks exist for the declared range. | Strong source-audit tranche, still not a critical edition. |
+| L4 | Translation/glossary audit exists against the source branch for the declared range. | Translation-audited range, not proofread unless separately reviewed. |
+| L5 | External or maintainer review exists for the declared range. | Review-backed subset; describe reviewer basis. |
+| L6 | Benchmark-ready/proofread subset explicitly certified by the maintainer. | Only use when the maintainer explicitly certifies it. |
+
+Do not describe a package as L4/L5/L6 because a sweep found no obvious defect. State the actual basis instead: source-certain patch applied, source-certain no-patch closure, current-base survival check, source-limited best-available closure, needs stronger source, or needs full page-by-page certification.
+
 ## Reader, Apparatus, Witness Layers
 
 When packaging serious updates, separate the layers:
