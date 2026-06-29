@@ -3,7 +3,7 @@
 Manifest: [20260629_noether_p10_p42_after_r269_followup.json](../manifests/pending-zenodo-uploads/20260629_noether_p10_p42_after_r269_followup.json)
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
-- P10 package: `Noether_LocalCodex_after_WebR269_P10_RA88_SourcePatch_20260629.zip`, 19,945,501 bytes, SHA256 `126BADD456DC47B15AF53C5F7BE87E0EFFB38BAE05F062A7E21EB5911630A749`.
+- P10 package: `Noether_LocalCodex_after_WebR269_P10_RA88_SourcePatch_20260629.zip`, 20,583,695 bytes, SHA256 `19C371ACC0F19BB3585E0D7D247ED99A66744921CDA3C927BCCD7C4CAC289AA6`.
 - P42 package: `Noether_P42_bestavailable_source_checks_20260629.zip`, 11,961,010 bytes, SHA256 `C051B273D31F54956CF5DCD456368E875E9E8CF7A2B9521E37AB94D8741DA8A3`.
 - Scope/result: P10 applies a narrow source-visible patch on top of Web R269: removes the non-source terminal period after functional equation (4), changes the Ostrowski citation close from `§ 2.` to source-style `§ 2:`, and restores source-visible spaced dot continuation marks in three linear equations. The patched cumulative German PDF builds to 471 pages. P42 applies no TeX patch; it records two no-fix/source-trap dispositions: the apparent missing final `ist` is source-backed as absent, and the R269 star product `K=G * k` is source-backed against an older stale comparator.
 - Source witnesses: P10 uses labelled native400/zoom3 witness crops for exact loci and nearby dense formula areas. P42 uses best-available page images embedded at about 2048 x 3322 / roughly 360ppi, rendered to 1000dpi PNGs for readability only.
