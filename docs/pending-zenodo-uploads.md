@@ -39,7 +39,7 @@ Manifest: [20260629_workflow_noether_memo_digest_logbook_hygiene.json](../manife
 
 - Target record: workflow / replication packet, concept DOI `10.5281/zenodo.20461174`.
 - Workflow digest ZIP: `Noether_WebMemoDigest_LogbookHygiene_20260629.zip`, 139,598 bytes, SHA256 `608E03695C0388C3C2F90288E67B33612C6EE0E816A733B02F1AEB82BE083538`.
-- Refreshed Noether German source-audit logbook snapshot: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 490,000 bytes, SHA256 `A944793FB0BB071318382635CF3EF57CD15C9B2F8F5DD42837E2C21F2D341000`.
+- Refreshed Noether German source-audit logbook snapshot: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 502,680 bytes, SHA256 `01111CE09B55700505B86CC4CF352DE084E63562850E2F30B2DA7C0FEA3323B1` after the P24 p237-p239 audit entry.
 - Scope/result: no TeX patch and no reader artifact. The digest records source-first Noether pipeline framing, explicit evidence-level vocabulary, disagreement-queue priorities, no-silent-normalization rules, and author-lane priority notes.
 - Caveat: workflow/method evidence only. Not a reader edition, not source closure, not Noether certification, not multilingual synchronization, and not critical-edition material.
 
