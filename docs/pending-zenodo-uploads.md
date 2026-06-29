@@ -22,8 +22,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 597,017 bytes, SHA256 `6FE9F9EEACB9234BB09876FACC95B8937970DC1C2423B5716224F0D34408F5D7`, modified locally 2026-06-30 00:41:22.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, and P22 pp.53-60/pp.61-69 entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 599,008 bytes, SHA256 `AD41133ADC92C8A97549B9C3A16C13B711463FAF36D85DCA7A0B3AD85BE89B14`, modified locally 2026-06-30 00:51:16.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, and P22 pp.53-60/pp.61-69/pp.70-79 entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
