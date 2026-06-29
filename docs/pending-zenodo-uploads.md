@@ -22,6 +22,17 @@ Manifest: [20260629_workflow_noether_slavic_linguistics_branch_text_handoff.json
 - Missing payload caveat: the package does **not** include the referenced 771 MB Slavic cumulative package, 221 MB external-review role-packet bundle, or 765/807 MB language-planning checkpoint ZIPs. Exact-name local search did not find those payloads on this PC on 2026-06-29.
 - Scope/caveat: this is mathematics-plus-linguistics workflow apparatus and branch provenance, not a reader release, not native/external review acceptance, not source certification, and not a critical edition.
 
+## 2026-06-29: Noether R271CSI source-audit staircase
+
+Manifest: [20260629_noether_r271csi_source_audit_staircase.json](../manifests/pending-zenodo-uploads/20260629_noether_r271csi_source_audit_staircase.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 14 ZIPs, 476,767,252 bytes total. All ZIP integrity tests passed.
+- Scope/result: Web R271 rebuilds the Paper 24 German section from source-audited P24 material and applies two CSI p248 footnote repairs. LocalCodex then carries that base through a source-audit staircase: P19 pp.61-66 with two P19 repairs plus the R271 P24 fixes integrated; P18 full-visual no-patch check; P09 contiguous pp.103-128 no-patch closure; P10 and P11 no-patch best-source audits; P12 pp.37-44 with one reversible formula (10) source patch; and P15 pp.138-156 with three source-confirmed German cumulative repairs.
+- Support bridge: `Noether_LocalCodex_after_WebR271CSI_P10_P20_ClosureBridge_20260629.zip` is a web-facing continuity/status bundle, not a reader release or new source-image dump.
+- Source-quality caveat: many witnesses are best-staged GDZ/IIIF 400 or 600 ppi, below the preferred native650+ floor. Enlarged 1000 dpi crops are readability/source-check witnesses, not native source scans.
+- Publication policy: fold this family into a compact Noether source-audit/support rebalance. Do not upload the 14 ZIPs as loose front-facing reader artifacts, and do not describe them as Noether closure, multilingual synchronization, whole-paper certification except where explicitly scoped, or a critical edition.
+
 ## 2026-06-29: Noether post-R269 P24 p237-p239 and R270 tail patches
 
 Manifest: [20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json)
