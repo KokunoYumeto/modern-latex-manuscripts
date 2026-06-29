@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R272 broad source-audit wave
+
+Manifest: [20260629_noether_post_r272_broad_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r272_broad_source_audit_wave.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 23 ZIPs, 764,232,742 bytes total. ZIP integrity tests passed.
+- Scope/result: broad post-R272 German source-audit/current-control wave covering Paper 17 pp.1-35, Paper 24 pp.229-261, Paper 29 pp.28-35, Paper 30 pp.26-61, Paper 31 pp.82-104, Paper 32 pp.221-228, Paper 33 pp.71-73, Paper 35/Paper 36 Cyrillic/Resume clarification, a Paper 37-Paper 43 survival bridge, Paper 37/Paper 38/Paper 39 source audits, and a later R273-merge package.
+- Important classifications: P17 has one p10 source fix and later no-patch coverage under GDZ600; P24 is a native400 sourcefix chain; P30 is best-available IA400 and the p56-61 package supersedes the p56-60 predecessor for closure; P35/P36 confirms the Cyrillic/Russian block is source-real Paper 35 Resume material; P39 is no-patch under ICM600; the R273 merge promotes only two useful P40 pp.518-519 fixes into the newer LocalCodex base and explicitly does not make raw R273 the new base.
+- Source-quality caveat: many witnesses are best available rather than strict native650+ evidence. Treat this as targeted source-audit/sourcefix/no-patch/current-control support only, not Noether closure, multilingual synchronization, whole-paper certification, strict native650/1000dpi source closure, or critical-edition material.
+- Publication policy: fold this wave into a compact Noether German current-control/source-audit rebalance. Do not upload these ZIPs as loose reader-facing artifacts while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-29: Noether post-R272 P40-P42 and R273 source-audit wave
 
 Manifest: [20260629_noether_post_r272_p40_p42_r273_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r272_p40_p42_r273_source_audit_wave.json)
