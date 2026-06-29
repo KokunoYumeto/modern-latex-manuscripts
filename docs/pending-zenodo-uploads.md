@@ -6988,3 +6988,12 @@ Manifest: [20260628_noether_p15_p20_queue_update_p20_best_available_audit.json](
 - Scope: updates the Paper 15-Paper 20 strict-certification queue after the Paper 20 dense-display/page-anchor audit against CurrentR259.
 - Result: no TeX patch. Paper 20 should no longer be treated as merely an old dense-hotspot item; formulas (1)-(16), the repeated printed formula number (12), the `S(Z,u)` display, final Ostrowski proof display, footnotes/opening matter, and final date were checked against best staged local GDZ source.
 - Caveat: queue/status support only. Best Paper 20 witnesses remain mixed native GDZ 400/600 ppi; enlarged crops are inspection witnesses, not native 1000 ppi scans. Do not front this above reader PDFs/TeX or call it Paper 20 certification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+## 2026-06-29: Noether post-R269 P26-P28 visual audit with P27 dash patch
+
+Manifest: [20260629_noether_post_r269_p26_p28_fullvisual_p27dash_patch.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p26_p28_fullvisual_p27dash_patch.json)
+
+- Noether source-patch/support ZIP: `Noether_LocalCodex_after_WebR269_P07Patch_P26P27P28_FullVisual_P27Dash_SourcePatch_20260629.zip`, 20,818,759 bytes, SHA256 `96682230F36839A16C7EB595881209996DE4DF31E60779ADF481C59EC7E516C8`, 32 entries.
+- Scope: Papers 26-28 short abstract cluster after WebR269 plus LocalCodex P10/P20/P14/P13/P07 source patches. It includes patched German cumulative TeX, current/patched extracts, full GDZ native600 source pages, labelled zoom splits, CSV ledgers, and a compiled 471-page XeLaTeX PDF.
+- Result: applies one source-certain Paper 27 German patch at current line 14338, restoring the source-visible leading em dash before `\textsc{E. Noether}: Hilbertsche Anzahlen in der Idealtheorie.` P26 and P28 visually check against their source pages with no TeX patch.
+- Caveat: targeted patch/visual-audit support only. Source witnesses are clean native GDZ full-page images but declared 600 ppi, below the strict native650 preference. This is not P26/P27/P28 certification, whole-Noether closure, multilingual synchronization, source closure, or critical-edition material. Fold into a compact Noether rebalance; do not front it above reader PDFs/TeX.
