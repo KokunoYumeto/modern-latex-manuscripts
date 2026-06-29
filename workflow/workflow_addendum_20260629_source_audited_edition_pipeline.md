@@ -34,6 +34,48 @@ Treat workflow tracking itself as a first-class output. For each serious lane, k
 
 This is not bureaucracy for its own sake. It is the mechanism that prevents old optimistic filenames, compacted chat memory, duplicate web outputs, and stale support packets from misleading future work.
 
+## Archive-Maintenance Responsibility Register
+
+These are not just good ideas for other sessions. They are standing responsibilities of the Codex archive-maintenance lane.
+
+### Already In Active Practice
+
+- Preserve useful local/web/Claude/Codex work before it is lost.
+- Sweep local drop folders, unpack or index new ZIPs, and identify high-signal author/work updates.
+- Separate reader-facing files from raw provenance, support packets, OCR witnesses, and failed attempts where practical.
+- Maintain GitHub as the forkable working mirror and Zenodo as the citable archival surface.
+- Add caveats when files are working drafts, OCR/source-locator aids, no-patch audits, or support packets rather than editions.
+- Keep SHA256 manifests, package inventories, public summaries, and pending-Zenodo manifests for serious updates.
+- Avoid claims of critical-edition or proofread status unless explicitly certified by the maintainer.
+
+### Not Yet Good Enough, Therefore Owned By Archive Maintenance
+
+- Build compact current-state dashboards for major lanes, especially Noether, SGA, Weber, Cayley, Deligne, and non-European mathematics. These should say what the current base is, what is source-checked, what is only represented, and what is explicitly weak.
+- Add status-tier fields where useful: Bronze/Silver/Gold/Platinum or equivalent conservative labels tied to named source witnesses.
+- Maintain a disagreement/open-risk queue rather than only long narrative logs. High-risk loci include formulas, diagrams, tables, title blocks, footnotes, source conflicts, low-DPI witnesses, and known bad OCR/LLM failure patterns.
+- Track no-patch outcomes as real outcomes. If a package inspects a source conflict and decides not to change the TeX, that needs to remain visible.
+- Make reader/apparatus/witness separation more consistent in author packages and public descriptions.
+- Turn source-image metadata into more regular CSV/JSON: source ID, institution, URL/IIIF if known, local file, page/canvas, resolution, crop coordinates, and hash.
+- Create or maintain editorial-policy stubs for flagship lanes before they are described as near-final.
+- Keep author pages ordered by real reader usefulness and confidence, not by upload date, local excitement, or old filenames.
+- Prepare smaller, reviewable release/review packets instead of allowing large opaque ZIPs to be the only practical public interface.
+- Record workflow lessons from local tools, OCR witnesses, Pro handoffs, and failed agents in public workflow notes when they are generalizable.
+
+### Immediate Maintenance Behavior
+
+When sweeping or staging updates, Codex should explicitly ask of each new artifact:
+
+```text
+Is this reader-facing, apparatus/control, witness/provenance, OCR locator, failed attempt, or private support?
+What current base does it modify or inspect?
+Does it apply a TeX/content patch, or is it no-patch evidence?
+What source witness and source quality does it rely on?
+Does public metadata need to change because this alters completeness/confidence?
+Is it superseded by a newer package or dangerous because of an optimistic filename?
+```
+
+If those answers are not discoverable, the package should be staged as uncertain/support material rather than promoted.
+
 ## Certification Dashboard
 
 Each serious author/work lane should grow a simple machine-readable status table, especially Noether. Minimum columns:
