@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P15 current-base closure
+
+Manifest: [20260629_noether_post_r269_p15_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p15_closure.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P15 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P15_CurrentBaseClosure_NoPatch_20260629.zip`, 179,829,546 bytes, SHA256 `296BAB432D54B01F44B35ED2A3BE7B131F89A7EFDA3FCBCD28CC8F4F746FEC84`.
+- Scope/result: no TeX patch. Records survival of earlier P15 source-certain repairs in the current base, including printed p138 dash punctuation, p141 lambda subscripts, p142/p143 prime-before-subscript notation, p149 formula (7) `\equiv` rather than equality, p150 footnote-marker position, p154 `h --- der Ordnung der Gruppe ---`, p154 Schur citation, and p156 `Substitution: \omega_i=w_i/h`.
+- Source-quality caveat: carries prior staged P15 GDZ400/best-available full-page and crop witnesses, below the preferred native650+ rule. It does not promote new readings from lower-quality images.
+- No-fix guard: merge nothing from this package as a patch. Use it as a no-patch closure/survival ledger for P15 on the R269+LocalP10/P20/P14/P13/P07 base.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P16/P17 current-base closures
 
 Manifest: [20260629_noether_post_r269_p16_p17_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p16_p17_closures.json)
@@ -35,7 +46,7 @@ Manifest: [20260629_noether_post_r269_p02_closure.json](../manifests/pending-zen
 Manifest: [20260629_noether_post_r269_p05_p06_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p05_p06_closures.json)
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
-- P05 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P05_CurrentBaseClosure_NoPatch_20260629.zip`, 16,210,141 bytes, SHA256 `1EA884CA43CD193AAB45A4B7525264C42B8CF14BEFA23AEA4FC98CD63287C771`.
+- P05 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P05_CurrentBaseClosure_NoPatch_20260629.zip`, 16,210,731 bytes, SHA256 `9E39446EF9A2E8B125BA5ABEC9FED9E6C318E47A1EDD35DC1E9C1CA452DBAEA6`.
 - P06 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P06_CurrentBaseClosure_NoPatch_20260629.zip`, 9,639,147 bytes, SHA256 `6313C4E56CFA79FE2F9EDD5EA9381017606838E545F4B0CF4C041FE09B31A5C8`.
 - Scope/result: both are no-TeX-patch current-base closure packages after Web R269 plus the local P07 patch. P05 confirms title/source footnotes, the displayed linear-form equation and source marker `2)`, and final boundary before the following Haentzschel article; P06 confirms survival of symbolic source note markers, P06_FIX_001 through P06_FIX_007, and the R200/R204 pp.193-196 tail repairs.
 - Source-quality caveat: P05 has GDZ600 full pages plus targeted 650dpi danger-locus crops; P06 mixes staged 1000dpi rendered/crop witnesses for pp.161-190/p185 with best-staged GDZ 400ppi evidence for pp.193-196. These are targeted closure/survival packages, not strict native650/1000dpi paper certification, not whole-Noether closure, not multilingual synchronization, and not critical-edition material.
