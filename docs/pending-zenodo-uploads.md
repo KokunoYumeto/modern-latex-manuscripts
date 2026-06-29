@@ -18,6 +18,14 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 - Source-quality caveat: the staged P22 source PDF embeds 360ppi page images. The included 1000dpi-style PNGs are enlarged/rendered inspection aids only, not native 1000ppi source. Treat this as targeted Paper 22 pp.61-69 current-control/survival-audit support only, not Paper 22 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
 - Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
 
+## 2026-06-30: Noether German source-audit logbook post-R273/P22 refresh
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 597,017 bytes, SHA256 `6FE9F9EEACB9234BB09876FACC95B8937970DC1C2423B5716224F0D34408F5D7`, modified locally 2026-06-30 00:41:22.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, and P22 pp.53-60/pp.61-69 entries.
+- Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
+
 ## 2026-06-30: Interlanguage / constructed-language methodology DOI candidate
 
 Manifest: [20260630_interlanguage_reflections_record_candidate.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_reflections_record_candidate.json)
