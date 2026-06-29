@@ -1,3 +1,15 @@
+## 2026-06-29: Noether post-R269 P34-P36 current-base closures
+
+Manifest: [20260629_noether_post_r269_p34_p36_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p34_p36_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P34 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P34_CurrentBaseClosure_NoPatch_20260629.zip`, 3,411,666 bytes, SHA256 `CB023BE18F1262EAE76717CBEF7ACD227419DF5CDC92A27F190617678982E1CA`.
+- P35/P36 current-base guardrail package: `Noether_LocalCodex_after_WebR269_P07Patch_P35P36_CurrentBaseClosure_NoPatch_20260629.zip`, 6,487,023 bytes, SHA256 `059F6DA75DD4591BCAD91EAE98F520413B4CFFA1A84E2BFE9C61BB2310B22428`.
+- Scope/result: no TeX patches. P34 records survival of the R266 complete source-repaired span, including the single visible Paper 34 heading, absence of old duplicate continuation scaffolding, R225/R129 source-tail restore through section 25, `\widetilde P` matrix anchors, determinant/table tail, and received-date anchor. P35/P36 records Paper 35/Paper 36 boundary guardrails, the Paper 35 Russian resume tail, and the vetoed `der Math. Ann.` no-fix trap.
+- Source-quality caveat: P34 remains best-available GDZ about native400 for complete staged source, below strict native650+/1000dpi certification. P35's best staged MathNet witness is about 600ppi and P36 has source-limited RA07 scan/disposition evidence. This is current-control support, not fresh native650/1000dpi recertification.
+- Relationship to earlier P35/P36 packet: this broader guardrail complements the narrower `P35P36_CyrillicTailClarification` package already registered above.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P33 Bologna current-base closure
 
 Manifest: [20260629_noether_post_r269_p33_bologna_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p33_bologna_closure.json)
