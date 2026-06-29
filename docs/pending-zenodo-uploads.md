@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 7 source-drift survival guard
+
+Manifest: [20260630_noether_r273_p07_source_drift_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p07_source_drift_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P07_SourceDriftSurvival_NoPatch_20260630.zip`, 4,979,117 bytes, SHA256 `59E0D67BC3118ABE5D505CD27FDB1E2B07CFD298BA6E634327D967DFF5D91C17`. ZIP integrity test passed.
+- Scope/result: no TeX patch. The current R273+LocalCodex Paper 7 span after the P10 and P13 fixes was compared against an older WebR269 P07 sourcepatch reference. Direct GDZ source inspection shows the older local sourcepatch ledger was wrong at the main Resolvente variable locus.
+- Current source-correct drifts retained: source p.90 has `\Phi(z,u)`, product factor `(z+...)`, `z^h`, and `z^\alpha`; source p.92 also refers to coefficients of `\Phi(z,u)`. Do not revert current P07 to the older `\xi` reference at this locus. The Weber footnote formulas still source-correctly retain `\Phi(-\xi_k,u)=0` and evaluation `z=-\xi_k`.
+- Source-quality caveat: witnesses are staged GDZ full-resolution page images for pp.90 and 92. This is drift-guard/current-control support and audit-history supersession, not Paper 7 certification, native650+ certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 8 source-drift survival guard
 
 Manifest: [20260630_noether_r273_p08_source_drift_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p08_source_drift_survival_nopatch.json)
@@ -150,8 +161,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 611,838 bytes, SHA256 `4619FA76A93FEA2B0A4DE87F47D99126B35746B7922C7EAA0274D6541F440FA9`, modified locally 2026-06-30 01:36:26.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, P18/P19/P20 survival with P20 p.31 comma trap, P14 R272 rebased survival, P13 apostrophe sourcefix, and P08 source-drift survival guard entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 612,991 bytes, SHA256 `F98B02FF2B8CD73FF30C5134C45EB70B711C78CE90A2E908985EDA7EDB266055`, modified locally 2026-06-30 01:38:56.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, P18/P19/P20 survival with P20 p.31 comma trap, P14 R272 rebased survival, P13 apostrophe sourcefix, P08 source-drift survival guard, and P07 source-drift survival guard entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
