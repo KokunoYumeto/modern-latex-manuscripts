@@ -28,7 +28,7 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 | Abel | `oeuvrescomplte01abel`; `oeuvrescomplte02abel`; packaged in `Abel_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS` | 504 / 310 PDF pages; 510 / 316 JP2 image entries | PDFs, JP2s, ABBYY, DjVu text, metadata, scandata downloaded and packaged into under-500MB upload ZIPs. | Clean two-volume source spine. Source-intake only, not an edition. |
 | Cauchy | Two `Cours d'analyse` witnesses packaged in `Cauchy_CoursAnalyse_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS`: `bub_gb_OlxT3B6EjykC`; `TO0E037871_TO0324_PNI-1898_000000` | 604 / 604 PDF pages; 604 / 604 JP2 image entries | PDFs, JP2s, ABBYY, DjVu text, metadata, scandata downloaded and packaged into under-500MB upload ZIPs. | Good if targeting `Cours d'analyse`; not a whole-Cauchy corpus. Source-intake only, not an edition. |
 | Cantor | GDZ `PPN237853094` compact packet built in `Cantor_GesammelteAbhandlungen_SOURCE_PACKET_20260629\01_UPLOAD_THIS_ZIP` | 501-page PDF; 500 IIIF manifest canvases | GDZ PDF, IIIF Presentation manifest, METS, BibTeX, generated 500-row IIIF page-image URL index, plus IA metadata/scandata provenance packaged into one under-500MB upload ZIP. | Good compact source spine; reconcile 501 PDF pages vs. 500 IIIF canvases before any page-complete claim. Not a bulk local image dump and not an edition. |
-| Hausdorff | `grundzgedermen00hausuoft.pdf` | 496 | PDF, DjVu text, metadata downloaded. IA JP2 and ABBYY attempts returned 500. | Usable PDF/text start; needs image/OCR retry if selected. |
+| Hausdorff | Source packet built in `Hausdorff_SOURCE_PACKET_20260629\01_UPLOAD_THIS_ZIP`: IA/UofT PDF, JP2 archive, ABBYY, DjVu text, metadata | 496 PDF pages; 500 JP2 image entries numbered 0001-0501 with 0497 absent | One under-500MB ZIP built and ZIP-tested. Sample JP2 files have high pixel geometry but undefined units, so no optical DPI claim is made. | Good compact set-theory source lane. Reconcile PDF pages against JP2 numbering before any page-complete transcription claim. |
 | Ramanujan | `Collected Papers of Srinivasa Ramanujan.pdf`; `pli.kerala.rare.28155.pdf`; packaged in `Ramanujan_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS` | 393 / 393 PDF pages; 393 / 393 JP2 image entries | Open alternative PDFs, JP2, OCR/metadata downloaded after first IA source returned 401, then packaged into under-500MB upload ZIPs. | Good compact source set. Modern translation not the issue; TeX/source apparatus could be. Source-intake only, not an edition. |
 | Dinostratus/Menaechmus/Heath | Heath `A History of Greek Mathematics` vol. 1 | 472 | PDF, JP2, ABBYY, DjVu text, metadata downloaded. | Commentary/source-reference lane, not a direct collected-works corpus for Dinostratus/Menaechmus. |
 
@@ -41,6 +41,7 @@ Purpose: source-intake evidence for possible colleague/web-session continuation 
 5. **Abel is now packaged**: control plus one source ZIP per volume, all under 500 MB.
 6. **Ramanujan is now packaged**: useful as a compact source/TeX apparatus lane rather than translation novelty.
 7. **Möbius is good but bigger than a quick test**: split by volume and perhaps by paper.
+8. **Hausdorff is now packaged**: compact single-work packet for `Grundzuge der Mengenlehre`; use the PDF/JP2 witnesses as authority and treat OCR as locator/control only.
 
 ## Quality Rule
 
