@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P37-P39 current-base closures
+
+Manifest: [20260629_noether_post_r269_p37_p39_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p37_p39_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P37/P38 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P37P38_CurrentBaseClosure_NoPatch_20260629.zip`, 3,361,065 bytes, SHA256 `847E28495C14A62DD95A75FEDCD8789913D2C90684FF67F0AF797F11667C0A2E`.
+- P39 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P39_CurrentBaseClosure_NoPatch_20260629.zip`, 3,348,228 bytes, SHA256 `CA9928096F04348EF70F0926E198E7AAE96997CC10C7463679DC0DB82ED4761D`.
+- Scope/result: no TeX patches. P37/P38 and P39 were extracted from the current WebR269 plus local P07 source-patch base and diffed against accepted prior extracts; content diffs are empty apart from serialization/line-ending warnings.
+- Source-quality caveat: P38 and P39 rely on prior best-available source packages reported around 600ppi, below the strict 650ppi target. P37 uses prior source ledgers. These are current-base survival/no-patch guards, not fresh native650/1000dpi page-by-page recertifications.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P34-P36 current-base closures
 
 Manifest: [20260629_noether_post_r269_p34_p36_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p34_p36_closures.json)
