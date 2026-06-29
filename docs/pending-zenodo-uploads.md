@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 8 source-drift survival guard
+
+Manifest: [20260630_noether_r273_p08_source_drift_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p08_source_drift_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P08_SourceDriftSurvival_NoPatch_20260630.zip`, 6,657,504 bytes, SHA256 `7C41631487D44A8E650A09EC13E239334AC25BB17DC048FE9E0E976FD495EE30`. ZIP integrity test passed.
+- Scope/result: no TeX patch. The current R273+LocalCodex Paper 8 span after the P10 and P13 fixes was compared against an older WebR269 P08 audited extract. Five drifts were source-checked and the current text was retained at all five.
+- Current source-correct drifts retained: p.97 source word `wo` before `(xy)=...`; p.98 semicolon in `g(\lambda;xy)`; p.100 source word `wo` before `\Delta_1=(yzt),...`; p.100 congruence `\equiv ... \pmod{\Delta}`; p.100 minus in the Omega/Delta differential equation rather than an equality-chain form.
+- Source-quality caveat: witnesses are staged GDZ full-resolution page images for pp.97, 98, and 100. This is drift-guard/current-control support, not Paper 8 certification, native650+ certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 turn rollup after P10/P13 fixes
 
 Manifest: [20260630_noether_r273_turnrollup_p09_p15_p18_p20_p13fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_turnrollup_p09_p15_p18_p20_p13fix.json)
@@ -139,8 +150,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 610,266 bytes, SHA256 `8DA53410EDF9581CD72D42DBAF66758D4FD8454CC2035E72E8BFF7D77926F402`, modified locally 2026-06-30 01:28:17.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, P18/P19/P20 survival with P20 p.31 comma trap, P14 R272 rebased survival, and P13 apostrophe sourcefix entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 611,838 bytes, SHA256 `4619FA76A93FEA2B0A4DE87F47D99126B35746B7922C7EAA0274D6541F440FA9`, modified locally 2026-06-30 01:36:26.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, P18/P19/P20 survival with P20 p.31 comma trap, P14 R272 rebased survival, P13 apostrophe sourcefix, and P08 source-drift survival guard entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
