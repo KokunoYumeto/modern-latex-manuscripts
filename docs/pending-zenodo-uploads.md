@@ -1,3 +1,13 @@
+## 2026-06-29: Noether post-R269 P29 current-base closure
+
+Manifest: [20260629_noether_post_r269_p29_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p29_closure.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P29 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P29_CurrentBaseClosure_NoPatch_20260629.zip`, 8,586,464 bytes, SHA256 `4CCEF9E3977886C7384F1F053C81B7469CF331E2E059E29D6E1E4F4422270BFB`.
+- Scope/result: no TeX patch. Records survival of earlier RA71 Paper 29 header/footnote repairs on the current WebR269 plus local P07 source-patch base: footnote counter reset, centered `Von Emmy Noether in Göttingen.` author line, Courant submission line, and body/first-footnote boundary.
+- Source-quality caveat: full staged page witness is native400, with 1200dpi inspection crops for the decisive header/footnote checks. Native400 is not globally sufficient for dense symbol certification, and the 1200dpi crops are inspection aids rather than native 1200ppi source pages.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P23-P28 current-base closures
 
 Manifest: [20260629_noether_post_r269_p23_p28_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p23_p28_closures.json)
