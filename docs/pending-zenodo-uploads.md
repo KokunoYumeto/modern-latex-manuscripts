@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P30-P32 current-base bridge/closures
+
+Manifest: [20260629_noether_post_r269_p30_p32_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p30_p32_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P30 bridge package: `Noether_LocalCodex_after_WebR269_P07Patch_P30_CurrentBaseBridge_NoPatch_20260629.zip`, 3,387,179 bytes, SHA256 `09F7DB6E30F7483917727CCC8BFF5768EDA2C9D5FA513A80C67E1442CC46542D`.
+- P31/P32 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P31P32_CurrentBaseClosure_NoPatch_20260629.zip`, 4,400,592 bytes, SHA256 `877BCBC2A4A1C74CED765E68C2C1039A1F694E2F7EDF14417235D3ED9F878994`.
+- Scope/result: no TeX patches. P30 bridges the existing P30 survival package from WebR269 plus LocalP10 onto the current WebR269 plus LocalP10/P20/P14/P13/P07 base; the Paper 30 span is byte-identical after LF normalization. P31/P32 records survival of RA73/RA74 source-header/article-boundary repairs.
+- Source-quality caveat: complete staged P30 source witnesses remain about native400/best-available, below the strict 650/1000dpi rule. P31/P32 includes targeted 1200dpi witness crops and ledgers only, not the full RA73/RA74 source packages. None of these packages is full line-by-line mathematics certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P29 current-base closure
 
 Manifest: [20260629_noether_post_r269_p29_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p29_closure.json)
