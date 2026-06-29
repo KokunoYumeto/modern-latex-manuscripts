@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P21/P22 and P35/P36 current-base closures
+
+Manifest: [20260629_noether_post_r269_p21_p22_p35_p36_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p21_p22_p35_p36_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P21/P22 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P21P22_CurrentBaseClosure_NoPatch_20260629.zip`, 81,606,477 bytes, SHA256 `31523167D27C0D3EBB24749017BB91A62DD509A46F7944490E3CB32D5258FA52`.
+- P35/P36 clarification package: `Noether_LocalCodex_after_WebR269_P07Patch_P35P36_CyrillicTailClarification_NoPatch_20260629.zip`, 6,450,465 bytes, SHA256 `6C0AB1C1C4AC1C11210FBAE21A5282BAF905DFB154AA4B56AEDBB90093E02C8F`.
+- Scope/result: no TeX patches. P21/P22 records survival of prior source-certain anchors on the current German base after Web R269 plus the local P07 source patch. P35/P36 clarifies that the Cyrillic/Russian block at current lines 18755-18773 is the Russian resume tail of Paper 35 and must not be deleted or moved as target-language contamination; Paper 36 begins after it at current line 18779.
+- Source-quality caveat: P21/P22 carries GDZ native600 evidence, full Paper 22 source support, and targeted 1000dpi labelled visual crops. The 1000dpi crops are inspection aids, not native 1000ppi source pages. P35/P36 carries boundary/disposition evidence and current-base extracts. Neither package is global paper certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P10-P13 current-base closures
 
 Manifest: [20260629_noether_post_r269_p10_p13_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p10_p13_closures.json)
