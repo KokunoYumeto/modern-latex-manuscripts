@@ -1,3 +1,35 @@
+## 2026-06-30: Noether R273 turn rollup after P10/P13 fixes
+
+Manifest: [20260630_noether_r273_turnrollup_p09_p15_p18_p20_p13fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_turnrollup_p09_p15_p18_p20_p13fix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_TurnRollup_P09_P15_P18_P20_P13Fix_20260630.zip`, 5,596,627 bytes, SHA256 `A26A26155262988530C0CEA4DFC9AC0C7CBB8E0D2A654F1F6A67D4ECD603CF44`. ZIP integrity test passed.
+- Scope/result: compact web-handoff/current-control rollup. It includes the current German cumulative TeX/PDF after the two actual TeX fixes in this turn: P10 p.543 source dot leaders and P13 p.256 non-source apostrophe removal.
+- Included controls: P09, P11, P12, P14, P15, P18, P19, and P20 survival/no-patch dispositions; P10 and P13 sourcefix dispositions; minimal source witnesses for the P13 and P20 punctuation/symbol loci.
+- Caveat: this is a web handoff/current-control rollup and provenance package, not a reader artifact, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material. Several source witnesses remain GDZ400-GDZ600 rather than preferred native650+.
+- Publication policy: use as a compact input for the next Noether rebalance or web continuation. Do not upload loose as a reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-30: Noether R273 Paper 13 apostrophe regression sourcefix
+
+Manifest: [20260630_noether_r273_p13_apostrophe_regression_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p13_apostrophe_regression_sourcefix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P13_ApostropheRegressionFix_SourcePatchSurvival_20260630.zip`, 4,316,368 bytes, SHA256 `8044BBB6425936D9C63AEA30F57F138DA6724071A42FE0E924FD92AE6085B272`. ZIP integrity test passed.
+- Scope/result: targeted German TeX patch. Paper 13 printed p.256 had a reintroduced non-source apostrophe, `Divergenzrelationen' werden`; the source and prior closure read `Divergenzrelationen werden`. The package removes the apostrophe and includes the patched German cumulative TeX/PDF compiled with XeLaTeX to 471 pages.
+- Post-patch status: after patch, P13 is normalized-identical to the R269 source-patched closure span, SHA256 `D8B0BE3A8C925F12D13A34620CD1C6B0810E93D90E24B90479DB4883440FB859`.
+- Source-quality caveat: the direct witness included here is GDZ400, with enlarged labelled witnesses in the prior closure package. This is targeted current-control/sourcefix support, not Paper 13 certification, native650+ certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
+## 2026-06-30: Noether R273 Paper 14 R272-rebased source-audit survival
+
+Manifest: [20260630_noether_r273_p14_r272_rebased_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p14_r272_rebased_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P14_R272Rebased_GDZ600_SourceAuditSurvival_NoPatch_20260630.zip`, 3,399,832 bytes, SHA256 `07A6059BA669CE25E26FD17B47A89EB76E0E01CB327B75F5F5231AF20861A8F6`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 14 printed/source pp.182-203 in the current R273+LocalCodex cumulative after the P10 p.543 sourcefix is normalized-identical to the earlier R272 rebased source-audited Paper 14 span, SHA256 `543A3F89786777DC0247D28A4A9F2E7D004BEA64C3E368E89289BF89BA6E9FB4`.
+- Source-quality caveat: the prior P14 audit used GDZ IIIF full JPGs at 600ppi native, below the preferred native650+ floor. This is current-base survival/no-redo support, not Paper 14 certification, native650+ certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Papers 18-20 survival and P20 comma trap
 
 Manifest: [20260630_noether_r273_p18_p19_p20_survival_p20_comma_trap.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p18_p19_p20_survival_p20_comma_trap.json)
@@ -107,8 +139,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 608,708 bytes, SHA256 `AAF0E19690D475E5E64978B50F9F7AFF17DB581FD041B08AE62FAFC855AA239B`, modified locally 2026-06-30 01:23:53.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, and P18/P19/P20 survival with P20 p.31 comma trap entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 610,266 bytes, SHA256 `8DA53410EDF9581CD72D42DBAF66758D4FD8454CC2035E72E8BFF7D77926F402`, modified locally 2026-06-30 01:28:17.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, P18/P19/P20 survival with P20 p.31 comma trap, P14 R272 rebased survival, and P13 apostrophe sourcefix entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
