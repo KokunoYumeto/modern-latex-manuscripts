@@ -1,3 +1,15 @@
+## 2026-06-29: Noether post-R269 P24 p231-p236 source patches
+
+Manifest: [20260629_noether_post_r269_p24_p231_p236_sourcepatches.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_p231_p236_sourcepatches.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P24 pp.231-233 source-patch package: `Noether_LocalCodex_after_WebR269_P07Patch_P24_p231_233_pg_SourcePatch_20260629.zip`, 14,420,137 bytes, SHA256 `922B7228479F44885A681D7477FA939BD1D2F855D838D27560C916FB4B42E62E`.
+- P24 pp.234-236 source-audit/source-patch package: `Noether_LocalCodex_after_WebR269_P07Patch_P24_p234_236_SourceAudit_20260629.zip`, 17,979,501 bytes, SHA256 `3CA4BC0888F153103323010784CFE600FB4D4033B4CDF331F921C46D7DB88AEC`.
+- Scope/result: both packages start from the current WebR269 plus local P07/P24 follow-up base and apply targeted source-visible German cumulative corrections in Paper 24. The p231-p233 package restores the source `p^g` / `g >= 0` exponent notation at current line 13761. The p234-p236 package restores the p234 `R^(i)` product opening `E^(i)`, the p235 `Q_lambda` norm-equality display, and the p236 formula (5) factorization with barred variables and `lambda_nu` exponents.
+- Source-quality caveat: both packages use GDZ Math. Ann. 90 native400 full-page witnesses plus enlarged labelled readability crops. Native400 is useful for these exact loci but below the preferred native650+ target for dense/global certification.
+- No-fix guards: transformed-range/barred/fraktur notation on pp.232-233, formula (1)/(1') layout punctuation, formula (2) source-style typography, and finite-chain example notation were not globally normalized. Use these packages as targeted source-patch support, not as Paper 24 certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P25 native600 full-page audit
 
 Manifest: [20260629_noether_post_r269_p25_fullpage_native600_audit.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p25_fullpage_native600_audit.json)
