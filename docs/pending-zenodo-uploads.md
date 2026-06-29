@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Papers 18-20 survival and P20 comma trap
+
+Manifest: [20260630_noether_r273_p18_p19_p20_survival_p20_comma_trap.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p18_p19_p20_survival_p20_comma_trap.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P18_P19_P20_R271CSI_SourceAuditSurvival_P20CommaTrap_20260630.zip`, 4,647,204 bytes, SHA256 `E4264F42A856498CAA7B846721CB133FE8E2DB8E8E56E75BD0E6FA197800D5AC`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 18 and Paper 19 in the current R273+LocalCodex cumulative after the P10 p.543 sourcefix are normalized-identical to their R271CSI source-audit references. Paper 20 has one bridge delta only: the older bridge has `derart, daß` on printed p.31, while current R273 has `derart daß`.
+- P20 no-patch trap: the included raw GDZ p.31 full-page witness confirms the source reads `derart daß` without a comma. Do not reintroduce the bridge comma.
+- Source-quality caveat: P18 prior evidence was GDZ600 plus enlarged crops, P19 prior evidence was GDZ400 plus enlarged crops, and the included P20 p.31 witness is GDZ400. This is current-base survival/no-redo and targeted comma-trap support, not Paper 18/Paper 19/Paper 20 certification, native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 15 R271CSI source-patch survival
 
 Manifest: [20260630_noether_r273_p15_r271csi_sourcepatch_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p15_r271csi_sourcepatch_survival_nopatch.json)
@@ -96,8 +107,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 607,746 bytes, SHA256 `8D45AE0F56947795084D88503DBB0954C7EFB632802506AFE3148C5C44C06843`, modified locally 2026-06-30 01:19:55.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, and P15 R271CSI source-patch survival entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 608,708 bytes, SHA256 `AAF0E19690D475E5E64978B50F9F7AFF17DB581FD041B08AE62FAFC855AA239B`, modified locally 2026-06-30 01:23:53.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, P16 p.29 dash-survival, P12 R272-audited survival, P11 R271CSI page-audit survival, P10 p.543 source-dot-leader fix, P09 R271CSI source-checked survival, P15 R271CSI source-patch survival, and P18/P19/P20 survival with P20 p.31 comma trap entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
