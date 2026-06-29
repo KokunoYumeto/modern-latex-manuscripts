@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R273 Paper 16 p.29 dash-survival no-patch guard
+
+Manifest: [20260630_noether_r273_p16_p029_dash_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p16_p029_dash_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P16_p029_DashSurvival_NoPatch_20260630.zip`, 6,279,051 bytes, SHA256 `4CA0E72144897C42FA6CFCA57A204ADF41160C317C8DE5B3DCC79ED358275C05`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 16 printed p.29, paragraph after formula [9], was checked against staged IA/GDZ witnesses. The current R273+LocalCodex base keeps source-style dashes around `\Omega\Delta F=PF`; an older promoted P16 extract omitted those dashes and should not overwrite the current cumulative at this locus.
+- Source-quality caveat: the best staged complete P16 witnesses are IA/GDZ approximately 400ppi, below the preferred native650+ floor. The dash-punctuation disposition is visually unambiguous in the included context, but this is targeted current-control/anti-regression support only, not Paper 16 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 17 GDZ600 audit survival bridge
 
 Manifest: [20260630_noether_r273_p17_gdz600_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p17_gdz600_audit_survival_nopatch.json)
@@ -33,8 +43,8 @@ Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manife
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
 
-- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 599,008 bytes, SHA256 `AD41133ADC92C8A97549B9C3A16C13B711463FAF36D85DCA7A0B3AD85BE89B14`, modified locally 2026-06-30 00:51:16.
-- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, and P22 pp.53-60/pp.61-69/pp.70-79 entries.
+- Support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 602,035 bytes, SHA256 `88456D06C7B6B897A3F63A9B070EA928006F83C4195A56217FF4772C703668A5`, modified locally 2026-06-30 01:02:25.
+- Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, P22 pp.53-60/pp.61-69/pp.70-79, P17 audit-survival bridge, and P16 p.29 dash-survival entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
 ## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
