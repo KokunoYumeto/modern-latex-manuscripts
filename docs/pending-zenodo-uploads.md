@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P01 current-base authority closure
+
+Manifest: [20260629_noether_post_r269_p01_closure_fixedprov.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p01_closure_fixedprov.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P01 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P01_CurrentBaseClosure_NoPatch_FIXEDPROV_20260629.zip`, 6,772,239 bytes, SHA256 `A530B38E2068F00798BCF448956A15A97AF448B1E0BE9742DA755CFE8A59EC55`.
+- Scope/result: no TeX patch. Records current-base survival of the original Erlangen-publication authority heading for Paper 01: `Von Emmy Noether.`, the dissertation excerpt line, and the Erlangen 1907 bibliographic line.
+- Source-quality caveat: includes the original Erlangen 1907 source PDF, a native-600ppi first-page source image, and a collected-volume heading crop explicitly labelled as a comparator that is not promoted over the original-publication authority.
+- Local normalization: this registered ZIP fixes the provenance sidecar placeholders present in the first local P01 closure ZIP. No mathematical TeX was changed by that normalization.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P02 current-base closure
 
 Manifest: [20260629_noether_post_r269_p02_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p02_closure.json)
