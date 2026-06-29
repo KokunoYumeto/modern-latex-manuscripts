@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R273 Paper 22 pp.53-60 fresh current audit
+
+Manifest: [20260630_noether_r273_p22_pp53_60_360ppi_fresh_current_audit.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p22_pp53_60_360ppi_fresh_current_audit.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P22_pp53_60_360ppi_FreshCurrentAudit_NoPatch_20260630.zip`, 43,621,467 bytes, SHA256 `9B8EA784E7572B788E877522B618EE37332977F73557BB7E3BEF7205C430740C`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 22 printed pp.53-60 in the current R273+LocalCodex German base were checked against the staged Paper 22 source PDF and page witnesses. The audit records survival of the source-faithful title/front matter, theorem opening, formulas (1)-(11), determinant array, footnotes 1-10, and local macro conventions across current lines 12792-13053.
+- Source-quality caveat: the staged P22 source PDF embeds 360ppi page images. The included `render1000style_from_360ppi` PNGs are enlarged/rendered inspection aids only, not native 1000ppi source. Treat this as targeted Paper 22 pp.53-60 current-control/source-audit support only, not Paper 22 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Interlanguage / constructed-language methodology DOI candidate
 
 Manifest: [20260630_interlanguage_reflections_record_candidate.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_reflections_record_candidate.json)
