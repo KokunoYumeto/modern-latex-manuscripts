@@ -8,6 +8,16 @@ Manifest: [20260630_noether_r273_p22_pp53_60_360ppi_fresh_current_audit.json](..
 - Source-quality caveat: the staged P22 source PDF embeds 360ppi page images. The included `render1000style_from_360ppi` PNGs are enlarged/rendered inspection aids only, not native 1000ppi source. Treat this as targeted Paper 22 pp.53-60 current-control/source-audit support only, not Paper 22 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
 - Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
 
+## 2026-06-30: Noether R273 Paper 22 pp.61-69 RA62 survival audit
+
+Manifest: [20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p22_pp61_69_ra62_survival_audit.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P22_pp61_69_360ppi_RA62SurvivalAudit_NoPatch_20260630.zip`, 48,355,668 bytes, SHA256 `E351284DAB82D21B7D00A1A9BBDB5E6F407CD8393267BA0B415667CACCA507EF`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 22 printed pp.61-69 in the current R273+LocalCodex German base were checked as a survival pass for the older RA62 source-critical repairs. The package confirms that the current base keeps the no-false-continuation-heading boundary before section 4, the congruence signs in formulas (21)/(22), and the restored `C_i`/`C_{i-1}` auxiliary modules with `\zeta`-family notation through formulas (21)-(24), (27), (28), and (32).
+- Source-quality caveat: the staged P22 source PDF embeds 360ppi page images. The included 1000dpi-style PNGs are enlarged/rendered inspection aids only, not native 1000ppi source. Treat this as targeted Paper 22 pp.61-69 current-control/survival-audit support only, not Paper 22 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Interlanguage / constructed-language methodology DOI candidate
 
 Manifest: [20260630_interlanguage_reflections_record_candidate.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_reflections_record_candidate.json)
