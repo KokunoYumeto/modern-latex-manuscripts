@@ -14,6 +14,20 @@ Size:
 
 74,750,992 bytes / 71.29 MB.
 
+Additional verified local staging packet created later the same morning:
+
+`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
+
+SHA256:
+
+`25F235E71DCAEC5F400DEC9CE1F90AD7E4B715D8FF5D1160953267C8CA3FCFBF`
+
+Size:
+
+73,814,908 bytes / 70.4 MB.
+
+This later packet includes a `README_START_HERE_GALOIS_20260629.md` and `SOURCE_MANIFEST_GALOIS_20260629.csv` inside its root folder. It is the more direct source-staging packet to hand to a web/pro session.
+
 ## Purpose
 
 Compact colleague/web-session test project for source-grounded transcription, modern LaTeX, and optional translation. Galois is a good test because the mathematical corpus is small but historically central.
@@ -26,6 +40,14 @@ Compact colleague/web-session test project for source-grounded transcription, mo
 | First-publication witness | `02_1846_original_JMPA/Galois_1846_JMPA_Oeuvres_mathematiques_Numdam.pdf` | 65 | Useful comparison witness; `pdfimages` reports mostly 300 ppi with page 1 around 387 ppi. |
 | Convenience/control text | `03_1897_gutenberg_tex_control/gutenberg_40213_1897_oeuvres.tex` and PDF | 78 | Use as a rough control only; promote text only after checking against the scan. |
 | Manuscript/secondary witness | `04_1908_manuscripts_scan/Galois_1908_Manuscrits_IA.pdf` plus OCR/metadata | 77 | Optional deeper witness. `pdfimages` reports 600 ppi images. |
+
+The later `Galois_source_staging_20260629.zip` carries the following direct source masters:
+
+| Layer | File | Pages/entries | Practical status |
+|---|---:|---:|---|
+| Printed Oeuvres source master | `galois_1897_oeuvres_ia_600ppi_jp2.zip` | 96 JP2 pages | IA metadata reports 600 PPI. A sampled JP2 reports undefined embedded DPI to ImageMagick but high-resolution page geometry (`5100 x 6600`), so cite this as "IA metadata 600 PPI" rather than "embedded 600 PPI." |
+| Manuscript source master | `galois_manuscripts_umich_600ppi_tif.zip` | 78 TIFF pages | IA metadata reports 600 PPI and sampled TIFF embeds `600 x 600 PixelsPerInch`. |
+| Convenience/control | derivative PDFs and OCR TXT files | - | Locator/prose witnesses only; not authority for formula transcription. |
 
 ## Recommended Task
 
