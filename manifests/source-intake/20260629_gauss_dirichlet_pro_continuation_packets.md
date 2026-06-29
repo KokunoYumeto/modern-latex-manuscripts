@@ -66,3 +66,20 @@ this v3 packet is for continuation and backfill, not a new completion claim.
   curator pass extracts a compact public-facing rollup.
 - Any resulting promoted text should say exactly which source pages/ranges were
   checked and which are still best-effort/OCR-supported.
+
+## Superseded Local Construction Sets
+
+The following local folders are retained only as construction/provenance
+workspaces. They should not be fed to web sessions or treated as missing public
+packets while the v3 upload folders above exist:
+
+- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_CONTINUATION_STAGING_20260629`
+- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629`
+- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v2`
+- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_CONTINUATION_STAGING_20260629`
+- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629`
+- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v2`
+
+Reason: those folders were intermediate split/packaging attempts. The v3
+folders are the current source-heavy continuation kits because they have the
+cleanest upload order, stable short names, and checked hashes recorded above.
