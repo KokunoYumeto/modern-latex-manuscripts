@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 21 GDZ600 fresh source audit
+
+Manifest: [20260630_noether_r273_p21_gdz600_fresh_source_audit.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p21_gdz600_fresh_source_audit.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P21_GDZ600_FreshSourceAudit_NoPatch_20260630.zip`, 45,130,677 bytes, SHA256 `E11A21285125508EFF497D7FE7706F2D40671C0F7BE9E3959F7E25A978C0B6E9`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 21 in the current R273+LocalCodex German base was freshly checked page by page against staged GDZ 600ppi witnesses for printed pp.68-71 / canvases 00000688-00000691, with enlarged inspection strips for dense loci. The package confirms that the prior source-certain P21 correction survives: the opening source reads `f(dx)`, and the determinant uses `\partial^2 f` without prime variants.
+- Checked loci include formulae (140)-(146), the Lagrange central identity, Christoffel-symbol notation, `p^\sigma(d,\delta)` and `p^\sigma(\delta,\delta)`, the Riemann/Lipschitz curvature-form discussion, the Levi-Civita/Weyl paragraph, invariant variational-problems paragraph, citation footnotes, and the closing date.
+- Source-quality caveat: this is a best-staged 600ppi GDZ fresh visual audit with derived enlarged strips, not native650/1000dpi certification. The included source manifest also has a row for canvas 00000692, while the README and audit ledger scope the checked P21 content to printed pp.68-71 / canvases 00000688-00000691. Treat it as targeted Paper 21 current-control/source-audit support only, not Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 P35/P36 and P06 survival guards
 
 Manifest: [20260630_noether_r273_p35p36_p06_survival_guards.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p35p36_p06_survival_guards.json)
