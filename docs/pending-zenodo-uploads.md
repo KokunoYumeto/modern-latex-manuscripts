@@ -1,3 +1,15 @@
+## 2026-06-29: Noether post-R269 P23-P28 current-base closures
+
+Manifest: [20260629_noether_post_r269_p23_p28_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p23_p28_closures.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P23 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P23_CurrentBaseClosure_NoPatch_20260629.zip`, 38,982,573 bytes, SHA256 `B0EA5EC335B44A47EA778E04324AFD50B170363B33814FB260EE4A32E740885F`.
+- P24/P25 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P24P25_CurrentBaseClosure_NoPatch_20260629.zip`, 13,663,464 bytes, SHA256 `78503B1F4A81F0C292C746A962863AB3C3F5A1F29C0AE13032F3208CE74EE387`.
+- P26/P27/P28 closure package: `Noether_LocalCodex_after_WebR269_P07Patch_P26P27P28_CurrentBaseClosure_NoPatch_20260629.zip`, 11,783,923 bytes, SHA256 `CFE48C7D10CC275AF018672A8F4589B844FD6EACC29EF8516601333AF126B5A6`.
+- Scope/result: no TeX patches. P23 records survival of the RA60 source-certain differential-invariant display repair; P24/P25 records survival of footnote/boundary and Galois-passage anchors; P26-P28 records survival of selected-source text for three short abstract entries.
+- Source-quality caveat: P23 includes GDZ native600 page images plus older 360ppi/1000dpi inspection evidence; P24/P25 mixes GDZ native400/native600 and 1000dpi inspection renders; P26-P28 uses clean selected GDZ native600 full-page images. Inspection renders and crops are aids, not native 1000ppi source pages. None of these packages is global paper certification.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold these into a compact current-control/source-audit rebalance rather than loose-uploading them above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P21/P22 and P35/P36 current-base closures
 
 Manifest: [20260629_noether_post_r269_p21_p22_p35_p36_closures.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p21_p22_p35_p36_closures.json)
