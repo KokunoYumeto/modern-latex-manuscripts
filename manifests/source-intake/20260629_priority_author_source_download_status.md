@@ -8,6 +8,12 @@ Local root:
 
 Purpose: source-intake evidence for possible colleague/web-session continuation projects. This is not a publication manifest and not a claim that any of these authors now have finished editions. It records what source material is actually local and usable.
 
+Related follow-up: `20260629_non_noether_local_sweep_followup.md` records the later
+same-day lane sweep across Galois, Gauss, Dirichlet, Cayley, Poincare, Bianchi,
+old physics/Gibbs, and the Edge dump. Its main result is that these packets are
+already represented as source-intake, pending-Zenodo, or public-catalog material;
+none should be promoted as a reader-facing completed edition by default.
+
 ## Highest-Readiness Quick Tests
 
 | Author/work | Local status | Pages | Practical next task |
