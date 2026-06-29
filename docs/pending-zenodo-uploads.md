@@ -1,3 +1,12 @@
+## 2026-06-30: Interlanguage / constructed-language methodology DOI candidate
+
+Manifest: [20260630_interlanguage_reflections_record_candidate.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_reflections_record_candidate.json)
+
+- Recommended action: create and maintain a dedicated Zenodo record for the interlanguage / constructed-language / Slavic-triangulation methodology branch, separate from the Noether reader record and cross-linked from the workflow DOI.
+- Seed artifacts already staged or identified: `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629_db7ffc6c.zip`, 262,163 bytes, SHA256 `B49FCD412AF45142E8489495E6B68E03A5D7DE96C8BDB976D49D5696E1BA1F0C`; `Noether_Slavic_Linguistics_Branch_Text_Handoff_20260629_c0448847.zip`, 37,615 bytes, SHA256 `C728B9FFF084BB5062D497623C265828A300E75A887A5747B95324722A43B9C8`; and the larger local `Noether_Slavic_Endmatter_Post45_SourceFidelity_Update_20260628T034348Z.zip`, 89,845,999 bytes, whose hash and final contents should be re-verified before public upload.
+- Scope: Ukrainian/Russian/Interslavic translation apparatus, constructed-language reflection notes, reviewer-authority frameworks, bibliography/authority matrices, terminology and term-ID scaffolds, source-evidence shelves, Slavic-triangulation notes, deterministic Interslavic Cyrillic transliteration apparatus, and AI/machine-translation methodology notes.
+- Caveat: this is methodology/linguistics/provenance material, not a Noether reader release, not mathematical source certification, not native-speaker approval, not term approval, and not critical-edition material.
+
 ## 2026-06-30: Noether R273 Paper 21 GDZ600 fresh source audit
 
 Manifest: [20260630_noether_r273_p21_gdz600_fresh_source_audit.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p21_gdz600_fresh_source_audit.json)
