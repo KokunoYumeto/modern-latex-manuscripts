@@ -1,3 +1,13 @@
+## 2026-06-29: Noether post-R272 P40-P42 and R273 source-audit wave
+
+Manifest: [20260629_noether_post_r272_p40_p42_r273_source_audit_wave.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r272_p40_p42_r273_source_audit_wave.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 8 ZIPs, 180,030,081 bytes total. ZIP integrity tests passed.
+- Scope/result: five LocalCodex Paper 40 packages form a contiguous sourcefix chain over printed pp.514-541 after Web R272, including source repairs to operator/barred-variable notation, centralizer direction, splitting-field notation, footnote anchors, idempotent/extension-system notation, and section 9 component notation. Paper 41 pp.411-419 contributes one source-visible printed-spelling patch, `einfacheres Analogon` to printed `einfacheres Anologon`. Paper 42 pp.5-15 is a best-available360 full-page no-patch audit. R273 is a separate narrow Paper 40 pp.514-520 branch with four source repairs on pp.518-519.
+- Source-quality caveat: P40/P41 witnesses are mostly GDZ full-resolution around 400ppi; P42 is best-available around 360ppi. R273 does **not** supersede the fuller LocalCodex P40 pp.520-541/P41/P42 chain. Treat this as source-audit/sourcefix/current-control support only, not Noether closure, multilingual synchronization, whole-paper certification, strict native650/1000dpi source closure, or critical-edition material.
+- Publication policy: fold this wave into a compact Noether German current-control/source-audit rebalance. Do not upload these ZIPs as loose reader-facing artifacts while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-29: Noether R272 current-base P19/P20 merge and P14 rebase audit
 
 Manifest: [20260629_noether_r272_currentbase_p19_p20_p14_rebase.json](../manifests/pending-zenodo-uploads/20260629_noether_r272_currentbase_p19_p20_p14_rebase.json)
