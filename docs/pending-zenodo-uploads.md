@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 17 GDZ600 audit survival bridge
+
+Manifest: [20260630_noether_r273_p17_gdz600_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p17_gdz600_audit_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P17_pp001_035_GDZ600_AuditSurvival_NoPatch_20260630.zip`, 82,562,467 bytes, SHA256 `6EF2DDC460CAA026590DF95A753205F2C841551ABBD22061254218627A6C5FE6`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 17 printed pp.1-35 in the current R273+LocalCodex German base is byte-for-byte identical to the final audited R272 P17 span: 92,825 characters and span SHA256 `97AB2AC64EA2255AEA3F2ACD7127E6C2A9AF3D36855B5BBFDB2BB9CE47EA3284` on both sides.
+- Carried-forward fix: the current base retains the prior printed p.10 source repair, reading `jedes Polynom $F\bara$ in $\mbarA$`, not the old wrong `jedes Polynom $F$ in $\mL$`.
+- Source-quality caveat: this is a current-base non-regression bridge, not a new full reread. The prior P17 audit used staged GDZ full-page images at native 600ppi, below the preferred 650ppi floor, plus a 1000dpi crop for the p.10 repair. Treat it as Paper 17 current-control/source-audit support only, not Paper 17 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 22 pp.53-60 fresh current audit
 
 Manifest: [20260630_noether_r273_p22_pp53_60_360ppi_fresh_current_audit.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p22_pp53_60_360ppi_fresh_current_audit.json)
