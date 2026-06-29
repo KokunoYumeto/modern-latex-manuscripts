@@ -11,7 +11,7 @@ Companion machine-readable file: `PAGE_INSPECTION_QUEUE_20260629.json`
 - Inspection tasks: 153
 - Source index rows: 153
 - Source text copied into this artifact: false
-- Completed inspections: 0
+- Completed extraction inspections: 12
 - Current approved terms: 0
 - Current accepted corrections: 0
 
@@ -23,16 +23,16 @@ Companion machine-readable file: `PAGE_INSPECTION_QUEUE_20260629.json`
 
 ## Lane Summary
 
-| Lane / sublane | Tasks | High | Medium | Normal | Not started |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| simplified_chinese | 34 | 14 | 8 | 12 | 34 |
-| french | 21 | 8 | 4 | 9 | 21 |
-| spanish | 25 | 10 | 5 | 10 | 25 |
-| japanese | 41 | 17 | 12 | 12 | 41 |
-| fa_IR | 22 | 10 | 7 | 5 | 22 |
-| prs_AF | 4 | 4 | 0 | 0 | 4 |
-| arabic | 6 | 6 | 0 | 0 | 6 |
-| tg_Cyrl_TJ | 0 | 0 | 0 | 0 | 0 |
+| Lane / sublane | Tasks | High | Medium | Normal | Not started | Completed extraction inspections |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| simplified_chinese | 34 | 14 | 8 | 12 | 22 | 12 |
+| french | 21 | 8 | 4 | 9 | 21 | 0 |
+| spanish | 25 | 10 | 5 | 10 | 25 | 0 |
+| japanese | 41 | 17 | 12 | 12 | 41 | 0 |
+| fa_IR | 22 | 10 | 7 | 5 | 22 | 0 |
+| prs_AF | 4 | 4 | 0 | 0 | 4 | 0 |
+| arabic | 6 | 6 | 0 | 0 | 6 | 0 |
+| tg_Cyrl_TJ | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Task Shape
 
@@ -50,7 +50,7 @@ Each machine-readable task includes:
 
 ## Boundaries
 
-- A completed page inspection does not approve a term.
+- A completed extraction inspection does not approve a term.
 - This queue does not copy source-language term strings.
 - This queue does not populate project-proposed terms.
 - Reviewer approval must still flow through review packets and accepted-correction ledgers.
@@ -58,6 +58,7 @@ Each machine-readable task includes:
 
 ## Immediate Next Gates
 
-- Perform high-priority page inspections first.
-- Populate reviewer-facing glossary rows only after inspection status changes.
+- Add human page-context notes for extraction-inspected ready rows.
+- Manually revisit rows where exact occurrence was not reverified by extraction.
+- Continue high-priority page inspection queue.
 - Preserve the unresolved Tajik Cyrillic gap until sources exist.
