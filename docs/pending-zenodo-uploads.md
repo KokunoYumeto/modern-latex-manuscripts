@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P02 table final consolidation
+
+Manifest: [20260629_noether_post_r269_p02_table_final_consolidation.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p02_table_final_consolidation.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P02 table consolidation package: `Noether_LocalCodex_after_WebR269_P07Patch_P02_TableFinalConsolidation_NoPatch_20260629.zip`, 21,091,437 bytes, SHA256 `C310B2C1FD8A14F2A45C633513C7AADD9F69DDEBBA314CF4E5A970B5AB083FF5`.
+- Scope/result: no new TeX patch. The current live P02 table block, live lines 3432-3517, is byte-diff identical to the table block in the RA34 validated German branch.
+- Evidence: current live P02 table extract, RA34 validated table extract, empty diff, RA31 Tabelle I row/cell audit ledger, RA33 Tabelle II rows 0-7 audit ledger, RA34 Tabelle II rows 8-23 audit ledger, and selected source witnesses for printed pp.91-92.
+- Source-quality caveat: the included high-detail table witnesses are 650dpi full-page references plus 1000dpi split/cell witnesses from the earlier RA31/RA33/RA34 table passes. This package proves survival of that validated table state in the current cumulative; it does not introduce a new source reading.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P07 current-base closure
 
 Manifest: [20260629_noether_post_r269_p07_currentbase_closure.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p07_currentbase_closure.json)
