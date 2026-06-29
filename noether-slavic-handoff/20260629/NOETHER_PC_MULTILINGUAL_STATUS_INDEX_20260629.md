@@ -4,7 +4,7 @@ This index summarizes the PC-local GitHub branch handoff for the active Noether 
 
 Branch: `codex/noether-pc-20260629`
 Draft PR: https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/1
-Head before this manifest commit: `dc0811c42a60537113a4b928e3e9349d14b24f48`
+Head before this manifest commit: `f58face2696de44051f1e13d8a12c80e2bc445a8`
 
 ## Current Counts
 
@@ -12,9 +12,10 @@ Head before this manifest commit: `dc0811c42a60537113a4b928e3e9349d14b24f48`
 - URL validation: 20 accessible / 24 total
 - Term-anchor rows: 153
 - Pages analyzed for term anchors: 3942
-- JSON artifacts indexed: 11 plus this status manifest
-- Markdown artifacts indexed: 14 plus this status index
+- JSON artifacts indexed: 12 plus this status manifest
+- Markdown artifacts indexed: 15 plus this status index
 - Reproducible scripts indexed: 5
+- Review packet templates seeded: 8 lane/template groups, 13 ledger fields
 
 ## Lane Status
 
@@ -25,11 +26,12 @@ Head before this manifest commit: `dc0811c42a60537113a4b928e3e9349d14b24f48`
 | French/Spanish | validated source shelves and term-anchor seed for natural-language lanes; not a Romance interlanguage claim | 46 term rows, 1283 pages | page-inspected per-language glossary |
 | Japanese | validated source shelf and term-anchor seed with strong ring/module evidence | 41 term rows, 242 pages | page-inspected Japanese glossary |
 | Persian-family/Arabic | fa_IR strong seed; prs_AF broad seed only; ar reinforced but still needs module/representation and OCR/provenance work; tg_Cyrl_TJ unresolved | 32 term rows, 1630 pages | Tajik + Arabic module/representation reinforcement |
-| Interlanguage method | bibliography_authority_matrix_and_reviewer_decision_framework_seeded_not_completion_claim | bibliography, authority matrix, and reviewer decision framework indexed | reviewer packet templates / publication outline / terminology governance |
+| Interlanguage method | bibliography_authority_matrix_reviewer_decision_framework_and_review_templates_seeded_not_completion_claim | bibliography, authority matrix, reviewer decision framework, and review templates indexed | publication outline / terminology governance / per-lane packet files |
 
 ## Boundaries
 
 - No native/external reviewer acceptance is implied by this manifest.
+- Review packet templates are not review results.
 - License/reuse status remains per-source and must be checked before downloading into an artifact release or quoting beyond short anchors.
 - Term-anchor counts are not term approvals; page inspection and rationale logs are still required.
 - Interlanguage, semi-constructed, and constructed-language work remains a research/publication lane unless explicitly reviewed and adopted; local mechanical validation is not language-community authority.
@@ -39,6 +41,6 @@ Head before this manifest commit: `dc0811c42a60537113a4b928e3e9349d14b24f48`
 
 ## Machine-Readable Companion
 
-See `NOETHER_PC_MULTILINGUAL_STATUS_MANIFEST_20260629.json` for artifact hashes, lane gates, source-page counts, and reproducibility notes.
+See `NOETHER_PC_MULTILINGUAL_STATUS_MANIFEST_20260629.json` for artifact hashes, lane gates, source-page counts, review packet template metadata, and reproducibility notes.
 
-Generated UTC: 2026-06-29T13:43:33.5690783+00:00
+Generated UTC: 2026-06-29T13:47:26.1752755+00:00
