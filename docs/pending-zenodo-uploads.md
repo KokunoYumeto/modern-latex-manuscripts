@@ -26,6 +26,16 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Scope: live German source-audit logbook refreshed after the post-WebR273 LocalCodex P8, P35/P36/P06, P21, and P22 pp.53-60/pp.61-69 entries.
 - Caveat: provenance/logbook support only. This supersedes older same-filename logbook hashes in local pending metadata, but it should be folded into a compact Noether source-audit/workflow rollup rather than fronted above reader PDFs/TeX.
 
+## 2026-06-30: Noether R273 Paper 22 pp.70-79 RA63 survival audit
+
+Manifest: [20260630_noether_r273_p22_pp70_79_ra63_survival_audit.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p22_pp70_79_ra63_survival_audit.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P22_pp70_79_360ppi_RA63SurvivalAudit_NoPatch_20260630.zip`, 59,090,262 bytes, SHA256 `1910D300271953DF7E2B4586CCAEFE8C9A4BF8C03AC51F5C5B1FB499927CBDE7`. ZIP integrity test passed.
+- Scope/result: no TeX patch. Paper 22 printed pp.70-79 in the current R273+LocalCodex German base were checked as a survival pass for the older RA63 source-critical repairs. The package confirms that printed p.72 keeps the `\Nmod_{i-1}=(\Nmod^*_{i-1},\mathfrak C_{i-1})` repair rather than the older wrong `\Gmod_{i-1}`, and printed p.79 keeps the barred final specialization term `\bar R^{(i)}(z,x)`.
+- Source-quality caveat: the authority PDF embeds 360ppi page images. The included 1000dpi-style PNGs are enlarged/rendered inspection aids only, not native 1000ppi source. Treat this as targeted Paper 22 pp.70-79 current-control/survival-audit support only, not Paper 22 certification, strict native650/1000dpi certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold this into a compact Noether German current-control/source-audit rebalance. Do not upload this ZIP as a loose reader-facing artifact while Noether remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Interlanguage / constructed-language methodology DOI candidate
 
 Manifest: [20260630_interlanguage_reflections_record_candidate.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_reflections_record_candidate.json)
