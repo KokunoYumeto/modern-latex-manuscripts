@@ -4,6 +4,10 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 
 | Record | Files | PDFs | ZIPs | MB | Page | Zenodo |
 |---|---:|---:|---:|---:|---|---|
+| **Project infrastructure and public entry points** |  |  |  |  |  |  |
+| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
+| Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
+| Interlanguage / Constructed-Language Notes | pending | pending | pending | pending | [interlanguage-reflections.md](interlanguage-reflections.md) | pending dedicated DOI |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |
 | Emmy Noether | 100 | 50 | 37 | 2113.8 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 54 | 8 | 38 | 1486.9 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
@@ -33,9 +37,6 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
-| **Project infrastructure and public entry points** |  |  |  |  |  |  |
-| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
 | **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |  |
 | EGA (French originals + OCR/support + partial translation draft) | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |
