@@ -1,0 +1,144 @@
+# Source-Audited Edition Pipeline Addendum
+
+Date: 2026-06-29
+
+This addendum records an outside ChatGPT Pro review of the project strategy and folds the useful parts into the working method. The central point is accepted: the strongest public framing is not "AI transcribed pages", but a source-audited, citable, reusable edition/OCR pipeline.
+
+The current archive already does some of this: source witnesses, SHA256 manifests, page/range ledgers, patch CSVs, rendered checks, GitHub mirrors, Zenodo records, caveats against critical-edition overclaiming, and no-screenshot/no-summary rules. The following items are adopted as additional workflow obligations.
+
+## Adopted Direction
+
+Noether should be treated as the flagship case for a general historical-mathematics pipeline:
+
+- stabilize the original-language corpus before treating translations as final products;
+- publish status by paper, page/range, and source witness;
+- separate reader TeX from apparatus/provenance data;
+- use OCR/model outputs as witnesses and disagreement detectors, not as authority;
+- invite narrow external review tasks rather than asking for whole-corpus review;
+- make small, citable, reviewable release packets instead of relying on giant opaque ZIPs as the public interface.
+
+This does not mean older large preservation packets are bad. They remain useful raw/provenance archives. It means the reader-facing and reviewer-facing surface should be smaller, clearer, and status-driven.
+
+## Certification Dashboard
+
+Each serious author/work lane should grow a simple machine-readable status table, especially Noether. Minimum columns:
+
+```csv
+work_id,paper_or_section,language,reader_pdf,tex_source,source_witness,page_map,formula_audit,table_diagram_audit,external_review,status_tier,status_note
+```
+
+The `status_tier` values should be conservative:
+
+- `bronze`: compiles or opens, readable enough to inspect, source route identified;
+- `silver`: page/range checked against a named source witness;
+- `gold`: formulas, footnotes, tables/diagrams, citations, and page boundaries checked for the declared range;
+- `platinum`: externally reviewed and explicitly certified by the maintainer as proofread/edition-grade.
+
+Most current files are below `gold`; many are merely useful working drafts or source-support packets. The public descriptions should keep saying this plainly.
+
+## Disagreement Queue
+
+Auditing should focus on likely-error loci rather than uniformly rereading everything forever. The pipeline should create or maintain queues for:
+
+- formulas with many indices, stacked symbols, primes, Greek/Latin ambiguity, Fraktur, or old-style glyphs;
+- tables, arrays, plates, foldouts, diagrams, and coefficient lists;
+- footnotes, bibliography entries, title/author blocks, and article boundary material;
+- locations where OCR/model witnesses disagree with current TeX;
+- places where render output visibly diverges from page images;
+- low-resolution witnesses and known prior correction sites.
+
+Preferred queue row:
+
+```csv
+work_id,unit_id,source_page,current_tex,witness_a,witness_b,issue_type,confidence,next_action
+```
+
+The result may be "no patch promoted" if the source conflict cannot be decided. That is a valid scholarly outcome.
+
+## Reader, Apparatus, Witness
+
+Keep three layers distinct:
+
+- reader layer: clean TeX/PDF for original language and translations;
+- apparatus layer: CSV/JSON records of variants, corrections, source decisions, confidence, and unresolved issues;
+- witness layer: source PDFs/images, IIIF-style references where available, crop references, page maps, OCR/model witnesses, hashes, and source-resolution notes.
+
+Do not overload reader TeX with every uncertainty. Do not hide uncertainty either. Put it in the apparatus.
+
+## Editorial Policy Work
+
+Before any lane is described as near-final, it needs an editorial policy. At minimum:
+
+- spelling modernization versus source spelling;
+- treatment of obvious printer errors;
+- collected edition versus original article authority;
+- visual versus semantic formula transcription;
+- policy for ambiguous glyphs such as `x`, `\chi`, `\kappa`, and `\varkappa`;
+- Fraktur and historical-symbol macro policy;
+- treatment of title pages, editor notes, acceptance lines, and corrections/errata;
+- translator interventions and terminology decisions;
+- definition of `source-certain`, `best-available`, and low-resolution fallback.
+
+This policy should be short and practical. It should not delay preservation work, but it should govern claims of source-checked or edition-grade status.
+
+## OCR/Model Witness Ensemble
+
+The project should not use a single LLM or OCR engine as source authority. Better pattern:
+
+1. current TeX candidate;
+2. source page image/PDF;
+3. OCR text witness;
+4. formula/table/image witness where useful;
+5. automatic or semi-automatic disagreement queue;
+6. human/model adjudication only on disputed loci;
+7. promoted patches only when source evidence is clear.
+
+Specialist OCR and math-OCR tools are useful here as independent witnesses. Their outputs should be labelled `OCR_candidate`, `formula_witness`, `layout_witness`, or `locator_aid` unless source comparison promotes them.
+
+## IIIF-Style Source Metadata
+
+For each serious source witness, preserve enough metadata that another worker can reconstruct the checking context:
+
+```csv
+work_id,paper_or_section,source_id,institution,url,iiif_manifest,canvas_or_leaf,printed_page,volume_page,local_file,sha256,resolution_ppi,crop_id,crop_box,notes
+```
+
+Full IIIF conversion is not required immediately, but canvas/page/crop thinking should inform file names and manifests. Giant folders of images are less useful without stable page identities.
+
+## Benchmark Dataset Track
+
+Create a small benchmark only after a subset is genuinely source-checked. Do not dump the whole archive as a benchmark.
+
+First benchmark candidate:
+
+- 50-100 representative Noether page images or stable page references;
+- ground-truth German TeX/transcription;
+- formula crops with ground-truth LaTeX;
+- source metadata and page maps;
+- hard-glyph and historical-notation notes;
+- baseline OCR/model outputs;
+- evaluation script.
+
+This would serve OCR/ML workers and also make the project more legible as a reusable research pipeline.
+
+## Public Review Strategy
+
+Ask for narrow review tasks:
+
+- check one formula group;
+- verify one title/author block;
+- compare one page range against a source witness;
+- review one terminology cluster;
+- verify one table or diagram.
+
+Record reviewers and decisions in contributor/review ledgers. Do not ask outsiders to review an entire corpus at once.
+
+## Immediate Practical Changes
+
+- Add status-tier columns where new dashboards or status CSVs are created.
+- Prefer compact source-audit rollups over many loose micro-ZIPs, especially for Noether at the Zenodo file ceiling.
+- Treat Noether German/source audit as the base branch; translations inherit from it and should not be represented as more reliable than the source branch they follow.
+- Add apparatus/witness CSVs when packaging serious updates, even if minimal.
+- Track "no patch promoted" as a first-class outcome.
+- Keep public wording conservative: working scholarly archive, source-audit draft, witness packet, support/control packet, not critical edition unless explicitly certified.
+

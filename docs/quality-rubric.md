@@ -46,6 +46,31 @@ The practical distinction is important. OCR converted to TeX is usually not impr
 | Source-checked | A contributor has compared the draft against a source witness for a named range. | Other ranges may still be unchecked. |
 | Proofread edition | The work has sustained mathematical, typographical, and source review and has been explicitly certified as such. | Most current files are not at this level unless explicitly stated. |
 
+## Dashboard Certification Tiers
+
+For paper-level or page-range dashboards, use short tier labels only when the table also gives the source witness and caveat. These tiers are operational labels, not marketing claims.
+
+| Tier | Meaning | Typical Required Evidence |
+|---|---|---|
+| Bronze | Compiles or opens, is readable enough to inspect, and has an identified source route. | Reader PDF/TeX plus source identity. |
+| Silver | A named paper, page range, or section has been checked against a named source witness. | Page map, source witness, and audit note. |
+| Gold | The declared range has formulas, footnotes, tables/diagrams, citations, headings, and boundaries checked. | Apparatus or audit CSV plus render/source checks. |
+| Platinum | External review or maintainer certification has promoted the range as proofread or edition-grade. | Reviewer/maintainer note and explicit certification. |
+
+Most current archive material should be described as Bronze, Silver, or untiered support material. Do not infer Gold or Platinum from old filenames containing words such as `complete`, `strict`, `critical`, or `source_checked`.
+
+## Reader, Apparatus, Witness Layers
+
+When packaging serious updates, separate the layers:
+
+| Layer | Purpose |
+|---|---|
+| Reader | Clean TeX/PDF for reading in the original language or translation. |
+| Apparatus | CSV/JSON/Markdown records of corrections, variants, unresolved issues, confidence, source decisions, and no-patch outcomes. |
+| Witness | Source scans, page maps, OCR/model witnesses, crop references, hashes, and source-resolution notes. |
+
+OCR, formula-recognition output, and LLM-generated text belong to the witness or candidate layer until source comparison promotes a patch. A "no patch promoted" result is valid and should be recorded rather than forced into the reader.
+
 ## Audit Claims
 
 The public readability audit checks for configured metadata and filename problems such as stale record IDs, local paths, internal run labels, and rough placeholder wording.

@@ -27,6 +27,8 @@ The preferred public shape is:
 
 This is a work-in-progress AI-run research and preservation workflow, not a benchmark. Human judgment is still used for source selection, public naming, audit decisions, legal/provenance boundaries, and publication, but much of the transcription, translation, repair, packaging, and indexing work is model-orchestrated. The exact model mix changes as rate limits and availability change.
 
+For the current source-audited edition direction, see `workflow_addendum_20260629_source_audited_edition_pipeline.md`. The practical shift is to make the project more reviewable: status tiers by paper/page, disagreement queues, separated reader/apparatus/witness layers, IIIF-style source metadata where possible, and small benchmark/review packets instead of relying only on large preservation ZIPs.
+
 ## Observed Cost and Throughput Notes
 
 These figures are informal project notes, not controlled measurements.
