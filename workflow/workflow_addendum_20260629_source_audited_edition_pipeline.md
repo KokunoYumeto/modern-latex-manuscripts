@@ -19,6 +19,21 @@ Noether should be treated as the flagship case for a general historical-mathemat
 
 This does not mean older large preservation packets are bad. They remain useful raw/provenance archives. It means the reader-facing and reviewer-facing surface should be smaller, clearer, and status-driven.
 
+## Workflow Tracking Is A Core Deliverable
+
+The project already uses many of the recommended practices: source witnesses, hashes, patch ledgers, status notes, render checks, public caveats, and GitHub/Zenodo separation. The improvement is not to rediscover those practices, but to make them more systematic and easier for outsiders to follow.
+
+Treat workflow tracking itself as a first-class output. For each serious lane, keep enough current public/private status that a later Codex, web session, reviewer, or human reader can answer:
+
+- what is the current base file or branch;
+- what was checked against which source witness;
+- what was changed, and what was deliberately not changed;
+- what is reader-facing versus support/control material;
+- what confidence level applies to each paper, page range, language branch, formula queue, or source package;
+- what should be done next without replaying stale or superseded work.
+
+This is not bureaucracy for its own sake. It is the mechanism that prevents old optimistic filenames, compacted chat memory, duplicate web outputs, and stale support packets from misleading future work.
+
 ## Certification Dashboard
 
 Each serious author/work lane should grow a simple machine-readable status table, especially Noether. Minimum columns:
@@ -141,4 +156,3 @@ Record reviewers and decisions in contributor/review ledgers. Do not ask outside
 - Add apparatus/witness CSVs when packaging serious updates, even if minimal.
 - Track "no patch promoted" as a first-class outcome.
 - Keep public wording conservative: working scholarly archive, source-audit draft, witness packet, support/control packet, not critical edition unless explicitly certified.
-
