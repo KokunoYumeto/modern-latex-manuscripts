@@ -49,7 +49,7 @@ as raw JP2/source-image intake without a strict optical-DPI certification.
 1. **Galois is ready now** as a 71 MB quick-win packet.
 2. **Eisenstein packet is built**: UofT raw JP2 is the canonical image witness, BSB/Google are comparators, and a source-selection note plus upload order are included.
 3. **Steiner packet is built**: Volume I primary is the MBP/Pittsburgh 600 ppi witness, Volume I BSB JP2 is a comparator, and Google `jacobsteinersge01steigoog` is the Volume II source. Duplicate/lower-priority Volume I witnesses are recorded locally but excluded from first upload.
-4. **Cantor is source-started but not image-complete**: GDZ PDF is enough for inspection, but a better page-image/OCR route should be found before declaring it a source-complete packet.
+4. **Cantor has a compact GDZ source packet**: use the GDZ PDF plus IIIF manifest/page-image URL index as the current source spine, but reconcile the 501 PDF pages against the 500 IIIF canvases before any page-complete transcription claim. This is not a bulk local image dump and not an edition.
 5. **Abel is now packaged**: control plus one source ZIP per volume, all under 500 MB.
 6. **Ramanujan is now packaged**: useful as a compact source/TeX apparatus lane rather than translation novelty.
 7. **Möbius is good but bigger than a quick test**: split by volume and perhaps by paper.
