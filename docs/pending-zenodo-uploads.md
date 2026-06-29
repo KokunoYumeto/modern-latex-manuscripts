@@ -1,3 +1,14 @@
+## 2026-06-29: Noether R272 current-base P19/P20 merge and P14 rebase audit
+
+Manifest: [20260629_noether_r272_currentbase_p19_p20_p14_rebase.json](../manifests/pending-zenodo-uploads/20260629_noether_r272_currentbase_p19_p20_p14_rebase.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 2 ZIPs, 250,438,530 bytes total. ZIP integrity tests passed.
+- R272 current-base package: `Noether_R272_Complete_P19P20_LocalFixMerge_20260629.zip`, 137,566,766 bytes, SHA256 `6528407CB5C5265A9332A02403C4BC533AB79CB96E5C943E8C3290BEF6CC72EE`.
+- R272 + local rebase/P14 audit package: `Noether_LocalCodex_after_WebR272_P12_P15_Rebased_P14_SourceAudit_20260629.zip`, 112,871,764 bytes, SHA256 `841DBD80256B9E1656D7657318CD90AA87885EA593BB5CADBD169E161B3784B9`.
+- Scope/result: Web R272 starts from Web R271 and promotes 24 source-certain P19/P20 line repairs from the local R271CSI bridge, rejecting wholesale import of the older local cumulative. The follow-up package keeps R272, reapplies four already source-verified P12/P15 repairs that R272 lacked, and visually audits P14 printed pp.182-203 against GDZ native600 witnesses with no source-certain P14 TeX patch.
+- Source-quality caveat: R272 P19/P20 witnesses are mixed GDZ 400/600 ppi. The P14 audit has full visual coverage under native600 best-staged source, still below the preferred native650+ threshold. Treat as current-control/source-audit support, not Noether closure, multilingual synchronization, paper certification, or critical-edition material.
+
 ## 2026-06-29: Noether PC multilingual linguistics branch handoff
 
 Manifest: [20260629_workflow_noether_pc_multilingual_linguistics_branch_handoff.json](../manifests/pending-zenodo-uploads/20260629_workflow_noether_pc_multilingual_linguistics_branch_handoff.json)
