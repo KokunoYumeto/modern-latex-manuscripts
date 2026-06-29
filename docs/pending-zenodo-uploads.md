@@ -1,3 +1,14 @@
+## 2026-06-29: Noether post-R269 P24 p237-p239 and R270 tail patches
+
+Manifest: [20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_p237_p239_r270_tail_patches.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- P24 pp.237-239 source-audit/source-patch package: `Noether_LocalCodex_after_WebR269_P07Patch_P24_p237_239_SourceAudit_20260629.zip`, 20,830,838 bytes, SHA256 `C2317C04CC7379747EC743396942AAD21437AD99C3873AF99302E544B5CB03AB`.
+- R270 tail CSI recheck/source-patch package: `Noether_R270_Tail_CSIRecheck_Complete_20260629.zip`, 10,029,062 bytes, SHA256 `5783C1EB7CF07028E5FB9151404A19390D921AEBAEC4D2A319637151440A61A6`.
+- Scope/result: the P24 package applies seven source-visible corrections on printed pp.237-239, including the missing `q congruent 0 mod p` condition, the indexed component list, barred transformed coefficient polynomials, barred coefficient ideals, exponent `h`, H.-N. `Anm. 13`, equality notation, and Hilfssatz II barred-component proof notation. The R270 package applies two non-overlapping post-P43 tail corrections on collected pp.747-748: a matrix-product parenthetical remark and the superscript `(k)` on `alpha_ij`.
+- Source-quality caveat: the P24 witnesses are GDZ Math. Ann. 90 native400 full-page images plus enlarged labelled readability crops. The R270 tail witnesses are best-available source-limited not-strict-native360 evidence with CSI crops/render comparisons. Both packages support exact recorded loci only.
+- Publication policy: Noether is at the Zenodo 100-file ceiling. Fold this into a compact current-control/source-audit rebalance rather than loose-uploading it above reader PDFs/current TeX.
+
 ## 2026-06-29: Noether post-R269 P24 p231-p236 source patches
 
 Manifest: [20260629_noether_post_r269_p24_p231_p236_sourcepatches.json](../manifests/pending-zenodo-uploads/20260629_noether_post_r269_p24_p231_p236_sourcepatches.json)
