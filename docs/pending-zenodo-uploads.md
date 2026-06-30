@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R359 Paper 11 full-source-audit survival no-patch support
+
+Manifest: [20260630_noether_r359_p11_full_source_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r359_p11_full_source_audit_survival_nopatch.json)
+
+- Artifact: `Noether_R359_LocalCodex_R347_P11_FullSourceAuditSurvival_NoPatch_20260630.zip`, 15,618,327 bytes, SHA256 `9F6697046FE5901C59C562646BF5D3E843BDF40A06FA0E234FD4994AC5F3071C`, 25 entries.
+- Scope/result: no-patch Paper 11 current-base survival support on R347. R359 records that the current R347 Paper 11 span is normalized-identical to the earlier R334 Paper 11 span that was visually checked page by page against staged GDZ witnesses.
+- Evidence: README, current-base span check CSV, manual trap recheck CSV, source-quality CSV, inherited R334 visual disposition/no-fix ledgers, R334/R347 span extracts, GDZ400 full-page witnesses for printed pp.221-229, pp.228-229 readability crops, and SHA256 ledger.
+- Caveat: no TeX patch. This is survival/anti-regression support against R334, not a fresh independent audit from scratch. The staged witnesses are GDZ400, below the preferred native650 threshold; crops are readability aids only. Not Paper 11 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R358 Paper 12 formula (10) source closure no-patch support
 
 Manifest: [20260630_noether_r358_p12_formula10_source_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r358_p12_formula10_source_closure_nopatch.json)
