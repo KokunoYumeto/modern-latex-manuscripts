@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R325 Paper 13 p251 fraktur transformation notation repair
+
+Manifest: [20260630_noether_r325_p13p251_fraktur_transformation_notation.json](../manifests/pending-zenodo-uploads/20260630_noether_r325_p13p251_fraktur_transformation_notation.json)
+
+- Artifact: `Noether_R325_LocalCodex_R324_P13p251_FrakturTransformationNotation_20260630.zip`, 5,513,211 bytes, SHA256 `232D127AC51B2946B31248918F65E3D4C697736A67700E305B8D331A7B812ACB`, 28 entries.
+- Scope/result: one source-certain German cumulative TeX patch in Paper 13 printed p.251, restoring source-style fraktur transformation notation in the local composition paragraph and displays: plain `T_q`, `T_p`, `T_r` become the existing macro forms `\mT_q`, `\mT_p`, `\mT_r`.
+- Evidence: R325 current cumulative TeX/PDF, exact R324-to-R325 diff, confirmed-fixes CSV, visual-disposition/source-quality CSVs, GDZ 600ppi full-page source witness for printed p.251, targeted 600ppi and 1200-equivalent crops, extracted PDF text pages, and XeLaTeX logs. The PDF remains 474 pages.
+- Caveat: narrow source-style notation repair only. It is not Paper 13 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. R325 did not produce render-check PNGs because local Poppler/ImageMagick render paths failed; regenerate render checks when folding into a larger compact rebalance.
+
 ## 2026-06-30: Noether R324 Paper 38 p401 `aber` source restoration
 
 Manifest: [20260630_noether_r324_p38p401_aber_restoration.json](../manifests/pending-zenodo-uploads/20260630_noether_r324_p38p401_aber_restoration.json)
