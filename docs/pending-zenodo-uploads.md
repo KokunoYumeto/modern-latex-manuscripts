@@ -9,6 +9,15 @@ Manifest: [20260630_noether_r307_p15p149_lambda_repetition_fix.json](../manifest
 - Caveat: targeted current-control/source-style support only. The staged page images are 650dpi renders from source whose native quality is lower than 650dpi; the 1000-equivalent crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
+## 2026-06-30: interlanguage logs snapshot from laptop Noether branch
+
+Manifest: [20260630_interlanguage_logs_noether_pc_branch_snapshot.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_logs_noether_pc_branch_snapshot.json)
+
+- Candidate record: Interlanguage and constructed-language mathematical translation notes, pending dedicated DOI; also relevant to the Noether multilingual support lane.
+- Artifact: `interlanguage_logs_noether_pc_branch_20260630.zip`, 284,078 bytes, SHA256 `CEF9B72D5CE516197932CC5720C730810575A97517A6BB65C4A00C73233C1426`, 93 entries.
+- Scope/result: quick Web/Pro handoff ZIP made from `origin/codex/noether-pc-20260629` without merging the older branch. It preserves review-gap matrices, external-review handoff pointers, terminology governance, draft reviewer glossary indexes, source-evidence reinforcement notes, page-inspection queue/batches, term-ID registry seeds, and small validation/extraction scripts.
+- Caveat: working methodology/review infrastructure only. Not a reader release, native-speaker approval, accepted glossary, source certification, Noether closure, multilingual synchronization proof, or critical edition. Do not raw-merge the branch into the public archive branch.
+
 ## 2026-06-30: Noether R306 Paper 15 p.148 `x` exponent repair
 
 Manifest: [20260630_noether_r306_p15p148_x_exponent_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r306_p15p148_x_exponent_fix.json)
