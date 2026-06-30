@@ -12,9 +12,14 @@ This lane collects the interlanguage side of the multilingual mathematics work: 
 
 It should not be buried only inside Noether. Noether is the first large testbed, but the interlanguage method is separately interesting as a language-technology and mathematical-translation experiment.
 
+## Current GitHub Status
+
+As of 2026-06-30, the `noether-slavic-handoff/20260629/` subtree from `origin/codex/noether-pc-20260629` has been imported directly into the main archive-maintenance branch. That import preserves the methodology/logbook/source-evidence files in GitHub for ordinary inspection, without taking the destructive repo-wide branch diff from the side branch. The compact ZIP handoffs remain useful for Web and Zenodo packaging, but GitHub now carries the underlying 20260629 tree itself.
+
 ## Seed Artifacts
 
 - `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629_db7ffc6c.zip`: compact package of the committed PC multilingual/linguistics branch handoff.
+- `interlanguage_logs_simple_webdrop_20260630.zip`: quick local Web handoff of interlanguage/logbook-style files only; not a curated public reader release unless deliberately repackaged.
 - `Noether_Slavic_Linguistics_Branch_Text_Handoff_20260629_c0448847.zip`: compact text-only Slavic/Interslavic branch handoff.
 - `Noether_Slavic_Endmatter_Post45_SourceFidelity_Update_20260628T034348Z.zip`: larger local package containing Ukrainian, Russian, Interslavic Latin, deterministic Interslavic Cyrillic readers, logbooks, reflection notes, and render artifacts. Verify hash and exact contents before public upload.
 
@@ -35,4 +40,3 @@ Representative notes to include or distill:
 ## Public Surface Rule
 
 Front a concise human-readable overview or PDF when available. Keep raw logbooks, role packets, and large internal package dumps in artifact ZIPs unless a logbook itself is the object being cited. Cross-link the Noether record because this branch began there, and cross-link the workflow record because the method generalizes beyond Noether.
-
