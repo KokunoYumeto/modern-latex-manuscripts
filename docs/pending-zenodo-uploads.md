@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R340 Paper 32 p226 Brauer beta-exponent source fix
+
+Manifest: [20260630_noether_r340_p32p226_brauer_beta_exponent_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r340_p32p226_brauer_beta_exponent_fix.json)
+
+- Artifact: `Noether_R340_LocalCodex_R339_P32p226_BrauerBetaExponentFix_20260630.zip`, 12,537,656 bytes, SHA256 `FE19EF5E58989605C9B0880A791AD53A4854151FFBEB321D76EAB04793F71B5A`, 16 entries.
+- Scope/result: one source-supported German cumulative TeX patch in Paper 32 printed p.226. It changes the Brauer/Noether footnote polynomial final term from `+b^2p^2\beta^2=0` to source-supported `+b^2p^2\beta=0`.
+- Evidence: R340 cumulative German TeX/PDF, R339 input reference PDF, exact R339-to-R340 diff, confirmed-fix CSV, source-quality/scope CSV, XeLaTeX logs and pass outputs, SHA256 ledger, IA leaf0387 raw JPG, high-magnification formula crops, and source-audit logbook snapshot.
+- Caveat: one-locus Paper 32 source fix only. It is not Paper 32 certification, Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material. The source authority is the best staged IA leaf image plus enlarged crops, not a true native650+ witness.
+
 ## 2026-06-30: Noether R339 Papers 21-30 source-fix survival/status guard no-patch support
 
 Manifest: [20260630_noether_r339_p21_p30_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r339_p21_p30_sourcefix_survival_nopatch.json)
