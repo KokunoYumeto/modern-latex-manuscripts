@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R303 Paper 15 p.140 inline congruence and footnote-marker fix
+
+Manifest: [20260630_noether_r303_p15p140_inline_congruence_footnote_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r303_p15p140_inline_congruence_footnote_fix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_R303_LocalCodex_R302_P15p140_SourceInlineCongruenceFootnoteFix_20260630.zip`, 28,145,920 bytes, SHA256 `021E808102D3B9D8E3AF0D3B1B9837E35C8F47680771BDFA0FE40EB3A3B5BCFA`, 39 entries.
+- Scope/result: narrow Paper 15 printed-p.140 repair on top of R302. It restores the Hilbert module-basis congruence from a separate displayed `\pmod` formula to the source's inline placement after the colon using `\modu{(f_1,\ldots,f_k)}` notation, and it moves source footnote marker `1)` onto the displayed final term `Af_\nu` while keeping the footnote text as `\srcfntext{1)}{...}`.
+- Evidence: updated cumulative German TeX/PDF, R302 base material, exact R302-to-R303 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output check page, a P15 p140 full-page 650dpi render from GDZ400 material, and 650dpi/1000-equivalent crops.
+- Caveat: targeted two-locus current-control/source-layout support only. The staged page image is a 650dpi render from source whose native quality is about 400ppi; the 1000-equivalent crop is a readability aid, not an independent higher-native witness. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R274 P24/tail provenance and P36 no-patch source closure
 
 Manifest: [20260630_noether_r274_p24tail_and_p36_source_closure_control.json](../manifests/pending-zenodo-uploads/20260630_noether_r274_p24tail_and_p36_source_closure_control.json)
