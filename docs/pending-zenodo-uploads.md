@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R343-R348 survival checks and Paper 34 p690 table-geometry fix
+
+Manifest: [20260630_noether_r343_r348_survival_and_p34_table_geometry.json](../manifests/pending-zenodo-uploads/20260630_noether_r343_r348_survival_and_p34_table_geometry.json)
+
+- Artifacts: six compact Noether support ZIPs, R343-R348, totaling 23,591,693 bytes. R343, R344, R345, R346, and R348 are no-patch survival/current-control checks for P16, P13/P14, P31, P33, and P35/P36. R347 is the one content-changing package, `Noether_R347_LocalCodex_R341_P34p690_ProductTableGeometryFix_20260630.zip`, 7,676,010 bytes, SHA256 `902818A765816770404A62485EB34BE0720608560EF3505DEF3529C394FBC956`, 20 entries.
+- Scope/result: R347 restores source-visible vertical block separators and row-block horizontal rules in the Paper 34 printed p690 product table; the algebraic entries and labels were already present. The remaining packages check that prior source-audited/source-fixed spans survive in R341/R347 and apply no TeX patch.
+- Evidence: README files, summary JSON, current/reference normalized span extracts, prior source-audit ledgers, R347 exact diff, XeLaTeX logs, rendered QA page, GDZ p690 source witness, table crop, source-audit logbook snapshots, and SHA256 ledgers.
+- Caveat: compact current-control/source-audit support only. R347 is one table-geometry locus, not Paper 34 certification. This is not Noether closure, not multilingual synchronization, not strict native650/1000 source closure, and not critical-edition material. Because the Noether record is at the Zenodo 100-file ceiling, fold this wave into a compact current-control/source-audit refresh rather than uploading six loose files unless the record is deliberately pruned/rebalanced.
+
 ## 2026-06-30: Noether R342 audit-only stale-base guard for Web R276 salvage
 
 Manifest: [20260630_noether_r342_auditonly_r341_web276_salvage_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r342_auditonly_r341_web276_salvage_nopatch.json)
