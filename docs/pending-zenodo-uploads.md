@@ -6,6 +6,7 @@ Manifest: [20260630_noether_webr270_p24_p20_p19_source_audit_lineage.json](../ma
 - Artifacts: 8 ZIPs, 333,831,077 bytes total. ZIP listing tests passed.
 - Scope/result: older WebR270 LocalCodex source-audit lineage covering Paper 24 pp.237-261, Paper 20 source pp.26-33, and Paper 19 pp.24-60. The packages contain real source-certain repairs and no-patch dispositions, but later WebR271/R272/R273 current-control packages carry the public control state.
 - Notable repair lineage: P24 includes the end-of-paper p237-p261 repair wave, P20 includes the full visual pass and p28 symbol-level repair, and P19 includes successive pp.24-60 repairs/no-patch traps, including the Sigma-ring `(#)` operation distinction on p54.
+- Superseded intermediates: six earlier P24 p237-242 / p237-245 / p237-248 / p237-251 / p237-254 / p237-257 ZIPs are now listed inside the manifest as intermediate snapshots superseded by the p237-261 package; do not upload them loose.
 - Caveat: mostly GDZ/Math. Ann. raw images around 400ppi, with some P20 pages at 600ppi and enlarged crops for dense loci. These packages certify only recorded pages/loci, not whole papers, not the Noether corpus, not multilingual synchronization, not strict native650+ certification, and not critical-edition material.
 - Publication policy: keep as source-audit lineage/provenance for the next compact Noether rebalance. Do not upload loose as reader-facing files while the Zenodo record remains at the file ceiling.
 
