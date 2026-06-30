@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R323 Paper 37 p150 basis-index source fix
+
+Manifest: [20260630_noether_r323_p37p150_basis_index_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r323_p37p150_basis_index_fix.json)
+
+- Artifact: `Noether_R323_LocalCodex_R322_P37p150_BasisIndexFix_20260630.zip`, 25,334,786 bytes, SHA256 `1CC36D741DC2548C55D3D7187380E5537C50E9DE68152C28D51B29B1F5D662C0`, 54 entries.
+- Scope/result: one source-certain German cumulative TeX patch in Paper 37 printed p.150, changing `v_1,\ldots,v_l` to source-visible `v_1,\ldots,v_t` in the basis line before the matrix display.
+- Evidence: R323 current cumulative TeX/PDF, R320-to-R323 one-line diff, confirmed-fixes CSV, visual-disposition CSV, source-quality/no-patch-trap CSVs, GDZ native-600 full-page witnesses for printed pp.147-152, targeted p150 crops, render check PNG, and XeLaTeX logs. Build log reports 474 output pages with inherited font/reference warnings only.
+- Caveat: narrow source-fix/current-control packet only. It is not Paper 37 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The p148 `E^{(1)}` display-placement difference is recorded as layout/source-style only, not promoted as a symbol patch.
+
 ## 2026-06-30: Noether R322 Papers 26-28 short abstracts closure no-patch support
 
 Manifest: [20260630_noether_r322_p26_p28_short_abstracts_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r322_p26_p28_short_abstracts_closure_nopatch.json)
