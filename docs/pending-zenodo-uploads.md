@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R335 Paper 15 source-fix survival bridge no-patch support
+
+Manifest: [20260630_noether_r335_p15_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r335_p15_sourcefix_survival_nopatch.json)
+
+- Artifact: `Noether_R335_LocalCodex_R334_P15_SourceFixSurvival_NoPatch_20260630.zip`, 3,478,173 bytes, SHA256 `486E88E0ABA1D599D0EB484DF2DC4C9AE8F3FA2E66E05EA65D5D1F86BC688AC0`, 12 entries.
+- Scope/result: no-patch survival/current-control bridge for Paper 15 printed pp.138-156 on the R334 line. The complete P15 span in current R334 is normalized-identical to the R332 Paper 15 R303-R307 source-fix survival comparator.
+- Evidence: R335 current cumulative German TeX/PDF, R332 reference and R335 current P15 span extracts, normalized span-comparison CSV, surviving source-anchor CSV, no-fix/regression-trap CSV, SHA256 ledger, and source-audit logbook snapshot.
+- Caveat: compact Paper 15 survival bridge only. It is not Paper 15 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. Do not reapply stale p149/p155 prior-ledger rows over this state.
+
 ## 2026-06-30: Noether R334 Paper 11 pp221-229 full source audit no-patch support
 
 Manifest: [20260630_noether_r334_p11p221_229_full_source_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r334_p11p221_229_full_source_audit_nopatch.json)
