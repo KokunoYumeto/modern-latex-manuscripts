@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R370 Paper 42 p11 Hilfssatz trap no-patch support
+
+Manifest: [20260630_noether_r370_p42p11_hilfssatz_trap_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r370_p42p11_hilfssatz_trap_nopatch.json)
+
+- Artifact: `Noether_R370_LocalCodex_R347_P42p11_HilfssatzTrap_NoPatch_20260630.zip`, 7,901,943 bytes, SHA256 `80675DA9DAD4229FDDF8CA4A31FD3AAC9BE60309DC9790ABBB40932D52657EF8`, 12 entries.
+- Scope/result: no-patch source-trap support for Paper 42 printed p.11, Hilfssatz paragraph. R370 keeps the current R347 reading `g=\oo` in the sentence `also ist g=\oo`; the best staged source is weak native360-class, but source context supports the full-order reading and excludes zero-ideal or congruence-like alternatives.
+- Evidence: README, P42 p11 disposition CSV, source-quality CSV, current R347 P42 span extract, current cumulative TeX/PDF, best-available360 source PDF, rendered 650dpi readability page, targeted context crop, targeted `g=\oo` crop, and SHA256 ledger.
+- Caveat: no TeX patch. This is a localized no-patch trap/source-disposition packet only. Rendered 650dpi page/crops are readability aids from native360-class source, not native650 witnesses. Not Paper 42 certification, Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material.
+
 ## 2026-06-30: Noether R369 Papers 01-08 source-core survival no-patch support
 
 Manifest: [20260630_noether_r369_p01_p08_source_core_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r369_p01_p08_source_core_survival_nopatch.json)
