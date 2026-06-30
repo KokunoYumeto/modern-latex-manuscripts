@@ -8,6 +8,17 @@ Manifest: [20260630_noether_p22_gdzvol88_source_upgrade_400600ppi.json](../manif
 - Caveat: source-witness/provenance only. It supersedes the older 360ppi route as the current best local P22 checking witness, but the embedded source imagery is still mixed 400/600ppi and below strict native650+ certification. Not a TeX patch, not Paper 22 certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/source-witness rebalance; do not front above reader PDFs/current TeX.
 
+## 2026-06-30: Noether R273 Paper 22 opening-spread header source patch
+
+Manifest: [20260630_noether_r273_p22_header_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p22_header_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P22_HeaderSourcePatch_20260630.zip`, 3,900,574 bytes, SHA256 `0E1BC5C7828D757DA734B93F47E1B35BECC2922A7280E75BEB1D3247DC8DDF73`. TAR listing check passed with 13 entries.
+- Scope/result: targeted Paper 22 opening-spread patch on the post-WebR273 local German base. It restores the source-visible title/author/editor block, moves footnote marker `1)` from the main result display to the editor line, and converts the opening body notes to explicit source-numbered notes `2)`, `3)`, and `4)`.
+- Evidence: patched cumulative TeX/PDF, source-diff, two XeLaTeX compile logs, rendered opening-page check, repair CSV, page map, and GDZVol88 opening-spread source witness.
+- Caveat: targeted pp.53-54 source patch only. The GDZVol88 source is mixed 400/600ppi and this package does not certify all of Paper 22. Later Paper 22 footnotes/body pages still need page-by-page audit if the P22 lane continues.
+- Publication policy: fold into the same compact Noether current-control/source-audit rebalance after the P22 GDZVol88 source-witness upgrade.
+
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
 
 Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
