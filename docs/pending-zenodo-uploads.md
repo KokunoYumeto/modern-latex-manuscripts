@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R329 Paper 14 p193 g-equation semicolon fix
+
+Manifest: [20260630_noether_r329_p14p193_g_equation_semicolon_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r329_p14p193_g_equation_semicolon_fix.json)
+
+- Artifact: `Noether_R329_LocalCodex_R328_P14p193_gEquationSemicolonFix_20260630.zip`, 18,136,136 bytes, SHA256 `BED78FB19DB30C832B2A363CF79375185BBFA1366899351D0D926CC95D4096F6`, 21 entries.
+- Scope/result: one source-confirmed German cumulative TeX repair in Paper 14 printed p.193 on the R328 line. It changes the first auxiliary equation from non-source `g_1(\eta,\tau_1)=0` to source-visible `g(\eta,\tau_1)=0`, restores the source semicolon after the first equation, preserves `g_2` for the second equation, and makes the same `g`/`g_2` distinction in the later prose repeat.
+- Evidence: R329 current cumulative TeX/PDF, R328 input PDF, exact R328-to-R329 diff, confirmed-fix CSV, visual-disposition CSV, source-quality CSV, SHA256 ledger, source-audit logbook snapshot, GDZ/JDMV28 600ppi full-page witnesses for printed pp.192-195, and targeted p193 equation crops.
+- Caveat: narrow inspected-locus source-fix support only. It is not Paper 14 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The 1200-equivalent crops are inspection enlargements from 600ppi witnesses.
+
 ## 2026-06-30: Noether R328 Paper 14 pp186-191 source-band audit no-patch support
 
 Manifest: [20260630_noether_r328_p14p186_191_source_band_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r328_p14p186_191_source_band_audit_nopatch.json)
