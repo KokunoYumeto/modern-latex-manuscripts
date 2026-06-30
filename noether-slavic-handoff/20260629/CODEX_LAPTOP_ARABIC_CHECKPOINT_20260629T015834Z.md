@@ -26,11 +26,3 @@ Status:
 - Next Arabic artifact should be `logs/CONTROLLED_ARABIC_60_TERM_SPINE_<timestamp>.md/json` with source snippets, regional variants, native/domain review route, and Arabic TeX render/inspection plan.
 
 Bandwidth rule for this laptop session: avoid full GitHub clones and large uploads; use small branch/API notes and local checkpoint zips unless a bulk deliverable is explicitly intended.
-
-Archive-maintenance interpretation:
-
-- This is a pointer/control note only.
-- The 765 MB checkpoint ZIP is not present in this repository or on this PC's
-  verified upload set at the time this note was imported.
-- Do not treat this as a Zenodo-ready package until the actual ZIP is located,
-  unpacked, and inspected.

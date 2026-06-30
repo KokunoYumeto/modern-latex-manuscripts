@@ -2,9 +2,7 @@
 
 Branch: `codex/noether-slavic-handoff-20260628`.
 
-This laptop/session produced a local language-planning checkpoint. The zip
-itself was not uploaded to GitHub because that machine was on a mobile data
-plan; use local/Drive handoff unless a deliberate release upload is requested.
+This laptop/session produced a local language-planning checkpoint. The zip itself was not uploaded to GitHub because this machine is on a mobile data plan; use local/Drive handoff unless a deliberate release upload is requested.
 
 Local checkpoint zip on laptop:
 
@@ -28,9 +26,3 @@ Status notes:
 - Controlled Arabic spine is evidence triage, not final glossary authority.
 - Arabic remains `pilot_ready=false`; direct classical invariant-theory authority, regional variants, native/domain review, and Arabic TeX render/inspection planning remain required.
 - Bandwidth rule for this laptop session remains: avoid full GitHub clones and large uploads; use small branch/API notes and local checkpoint zips unless bulk upload is explicitly intended.
-
-Archive-maintenance interpretation:
-
-- This is a pointer/control note only.
-- The 807 MB checkpoint ZIP is not present in this repository or on this PC's verified upload set at the time this note was imported.
-- Do not treat this as a Zenodo-ready package until the actual ZIP is located and inspected.
