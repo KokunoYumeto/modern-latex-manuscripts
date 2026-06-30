@@ -1,3 +1,13 @@
+## 2026-06-30: ClassicalAudit Lean sidecars for Noether, Steinitz, Weber, and Jordan
+
+Manifest: [20260630_classicalaudit_lean_sidecars_noether_steinitz_weber_jordan.json](../manifests/pending-zenodo-uploads/20260630_classicalaudit_lean_sidecars_noether_steinitz_weber_jordan.json)
+
+- Candidate record: ClassicalAudit Lean sidecars / workflow support, DOI target pending.
+- Artifact: `ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip`, 9,834 bytes, SHA256 `E9E494210774F814505CEC76F5AA5F2D6C8309EC46EA8B1A70CB77B070691FA9`, 14 entries.
+- Scope/result: small project-relevant extraction from the local Lean/Mathlib working tree. It includes Noether `Idealtheorie`, Steinitz perfect-field/Frobenius, Weber cubic, and Jordan affine-line-group Lean sidecars, plus build logs and minimal Lean project files. Unrelated helix/phaser, Python demo, SplitZero, and non-manuscript side research files were excluded.
+- Caveat: formalization-aided sanity anchors only. These files do not certify the historical editions, do not prove page-level transcription completeness, and do not replace source audit.
+- Publication policy: publish as a small dedicated Lean-sidecar DOI or as support material linked from relevant author/workflow records, but not as an edition/reader release.
+
 ## 2026-06-30: Noether R304/R305 Paper 15 source-style follow-ups
 
 Manifest: [20260630_noether_r304_r305_p15_source_style_followups.json](../manifests/pending-zenodo-uploads/20260630_noether_r304_r305_p15_source_style_followups.json)
