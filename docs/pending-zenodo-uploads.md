@@ -1,3 +1,15 @@
+## 2026-06-30: Noether R306 Paper 15 p.148 `x` exponent repair
+
+Manifest: [20260630_noether_r306_p15p148_x_exponent_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r306_p15p148_x_exponent_fix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_R306_LocalCodex_R305_P15p148_XExponentFix_20260630.zip`, 74,055,253 bytes, SHA256 `D628CF0284691024BA04A78AF129705F7227EED544DF5E7CA50D9119BD6B04B2`, 98 entries.
+- Scope/result: narrow Paper 15 printed-p.148 repair on top of R305. It changes the two-row-case homogeneity exponent from carried `\nu` to source-visible `x` in both `F=c\,\xi_{12}^x` and `c\,(12)^x\equiv0\pmod p`.
+- Evidence: updated cumulative German TeX/PDF, exact R305-to-R306 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output check page, P15 p148 650dpi render from GDZ400 material, and 1000-equivalent crops.
+- Caveat: targeted two-token current-control/source-style support only. The staged page image is a 650dpi render from source whose native quality is about 400ppi; the 1000-equivalent crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Not promoted: a later loose R307 folder was observed locally with an R306-to-R307 diff, but it lacks R307 build/PDF/logbook closure and a ZIP package at this sweep point.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: ClassicalAudit Lean sidecars for Noether, Steinitz, Weber, and Jordan
 
 Manifest: [20260630_classicalaudit_lean_sidecars_noether_steinitz_weber_jordan.json](../manifests/pending-zenodo-uploads/20260630_classicalaudit_lean_sidecars_noether_steinitz_weber_jordan.json)
