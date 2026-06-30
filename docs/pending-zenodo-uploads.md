@@ -7410,3 +7410,19 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 624,633 bytes, SHA256 `546585A0054D424DAEC4D439015D81796ACD1906E37CB11E2014629FFA869679`, modified locally 2026-06-30T02:18:51.
 - Scope: live German source-audit logbook now including the P31/P32 and P33 source-audit survival entries.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
+## 2026-06-30: Noether post-R273 P34 current-base closure survival
+
+Manifest: [20260630_noether_r273_p34_currentbase_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p34_currentbase_survival_nopatch.json)
+
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P34_CurrentBaseClosureSurvival_NoPatch_20260630.zip`, 3,414,209 bytes, SHA256 `B82F9864A4A79B2762D5E3D48284F5A1FAD185C6869EC3D5060476BC064C80D9`, 26 entries.
+- Scope: Paper 34 current-base closure survival after WebR273. Current P34 is normalized-identical to the prior R269/R266 complete P34 repair closure, and structural checks show the scaffold/tail repairs survive.
+- Caveat: no TeX patch. The complete P34 source remains GDZ around 400ppi, below the preferred native650+ threshold. This is current-base closure/source-repair survival support only, not Paper 34 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-30: Noether German source-audit logbook refresh after P34
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 625,819 bytes, SHA256 `1B31A368867D031FEB89CD8BF399A46EFEB97E5A6161CFE17B70BC12262EC2E2`, modified locally 2026-06-30T02:20:45.
+- Scope: live German source-audit logbook now including the P34 current-base closure survival entry.
+- Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
