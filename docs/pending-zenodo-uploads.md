@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R371 Paper 30 p33 beta-module-chain source fix
+
+Manifest: [20260630_noether_r371_p30p33_beta_module_chain_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r371_p30p33_beta_module_chain_sourcefix.json)
+
+- Artifact: `Noether_R371_LocalCodex_R347_P30p33_BetaModuleChain_SourceFix_20260630.zip`, 8,481,692 bytes, SHA256 `7A6984E5C88ECB0C07180E2AF1E457811BDFEF0EE62CDFF945608499CCAB9561`, 18 entries.
+- Scope/result: one content-changing source fix on the R347 base, Paper 30 printed p.33 / cumulative PDF p.281, in the Dedekindsche Folgerung I proof. R371 changes the module chain and explanatory phrase from `\mC\mR_1,\ldots,\mC\mR_\tau` / `\mR_\tau` to source-supported `\mC\mB_1,\ldots,\mC\mB_\tau` / `\mB_\tau`.
+- Evidence: patched cumulative German TeX/PDF, exact R347-to-R371 diff, confirmed-fix CSV, source-quality CSV, build summary, carried-context CSV, SIM/IA raw-JP2-derived printed p33 source PNG, context/tight crops, prepatch P30 span extract, XeLaTeX build logs, and SHA256 sidecar.
+- Caveat: localized Paper 30 p33 source fix only. The source witness is approximately native400 and below the preferred native650 threshold; crops are readability aids. R370 was a no-patch trap, so R371 legitimately bases from R347. This is not Paper 30 certification, Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material.
+
 ## 2026-06-30: Noether R370 Paper 42 p11 Hilfssatz trap no-patch support
 
 Manifest: [20260630_noether_r370_p42p11_hilfssatz_trap_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r370_p42p11_hilfssatz_trap_nopatch.json)
