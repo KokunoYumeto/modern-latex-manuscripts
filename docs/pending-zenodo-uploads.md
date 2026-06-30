@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R326 Paper 13 pp252-257 tail audit no-patch support
+
+Manifest: [20260630_noether_r326_p13p252_257_tail_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r326_p13p252_257_tail_audit_nopatch.json)
+
+- Artifact: `Noether_R326_LocalCodex_R325_P13p252_257_TailAudit_NoPatch_20260630.zip`, 16,137,959 bytes, SHA256 `B14B6FCF780653A1DDEBE1268FDB416F2E3710D3E126C4A8639196E79A9C72FB`, 23 entries.
+- Scope/result: no-patch Paper 13 tail audit/current-control packet on the R325 line, covering printed pp.252-257. It carries the R325 cumulative German TeX/PDF forward unchanged, confirms the p251 fraktur transformation-notation repair is consistent with the displayed labels on p252, and records no source-justified TeX patch for the checked pp.253-257 formula/prose/footnote loci.
+- Evidence: R326 current cumulative TeX/PDF, GDZ 600ppi full-page source witnesses for printed pp.252-257, targeted 1200-equivalent crops for dense pp.253-256 loci, visual-disposition CSV, no-patch-trap CSV, and source-quality CSV.
+- Caveat: bounded inspected-locus support only. It is not Paper 13 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The 1200-equivalent crops are readability aids from the 600ppi witnesses, not independent higher-detail source images.
+
 ## 2026-06-30: Noether R325 Paper 13 p251 fraktur transformation notation repair
 
 Manifest: [20260630_noether_r325_p13p251_fraktur_transformation_notation.json](../manifests/pending-zenodo-uploads/20260630_noether_r325_p13p251_fraktur_transformation_notation.json)
