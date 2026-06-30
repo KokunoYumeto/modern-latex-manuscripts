@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R369 Papers 01-08 source-core survival no-patch support
+
+Manifest: [20260630_noether_r369_p01_p08_source_core_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r369_p01_p08_source_core_survival_nopatch.json)
+
+- Artifact: `Noether_R369_LocalCodex_R347_P01_P08_SourceCoreSurvival_NoPatch_20260630.zip`, 3,553,101 bytes, SHA256 `52321740BD4F43918A34EDA987880D26A20918508D941A2E1BAD07212E0FCAE4`, 21 entries.
+- Scope/result: no-patch current-base survival support for Papers 01-08, from the front block through immediately before Paper 09. R369 records that R347 P01-P08 source cores match accepted P01-P08 reference spans after stripping paper-boundary wrappers; raw spans differ only by wrapper placement at boundaries.
+- Evidence: README, P01-P08 span-comparison CSV, inherited R337 P01-P06 ledgers, inherited R336 P07-P09 ledgers, source-quality CSV, R347 P01-P08 span extracts, cumulative TeX/PDF, and SHA256 ledger.
+- Caveat: no TeX patch. This is source-core survival/anti-regression support only. R369 does not bulk-copy source images and is not a fresh page-by-page glyph recertification of Papers 01-08. Not Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material.
+
 ## 2026-06-30: Noether R368 Paper 20 GDZ-mixed source-survival no-patch support
 
 Manifest: [20260630_noether_r368_p20_gdzmixed_source_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r368_p20_gdzmixed_source_survival_nopatch.json)
