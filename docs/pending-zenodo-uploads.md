@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R330 Paper 14 pp196-199 source-band audit no-patch support
+
+Manifest: [20260630_noether_r330_p14p196_199_source_band_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r330_p14p196_199_source_band_audit_nopatch.json)
+
+- Artifact: `Noether_R330_LocalCodex_R329_P14p196_199_SourceBandAudit_NoPatch_20260630.zip`, 14,389,352 bytes, SHA256 `F47BB6B8B455278CA91D92B00F06D66AD2B0E43847781502D0CA7F4621A4470F`, 16 entries.
+- Scope/result: no-patch source-band audit/current-control packet for Paper 14 printed pp.196-199 on the R329 line. It carries the R329 cumulative German TeX/PDF forward unchanged after checking the p196 basis/adjoined-form passage, p197 Fundamentalsatz passage, p198 section 7 opening and ideal-to-point-group construction, and p199 Restsatz/footnote material.
+- Evidence: R330 current cumulative TeX/PDF, empty R329-to-R330 diff, visual-disposition CSV, no-patch-trap CSV, source-quality CSV, SHA256 ledger, source-audit logbook snapshots, GDZ/JDMV28 600ppi full-page witnesses for printed pp.196-199, and a targeted p199 footnote crop at 1200-equivalent inspection scale.
+- Caveat: bounded inspected-locus support only. It is not Paper 14 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The 1200-equivalent crop is an inspection enlargement from a 600ppi witness.
+
 ## 2026-06-30: Noether R329 Paper 14 p193 g-equation semicolon fix
 
 Manifest: [20260630_noether_r329_p14p193_g_equation_semicolon_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r329_p14p193_g_equation_semicolon_fix.json)
