@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R361-R362 Papers 09 and 13-14 source-audit survival no-patch support
+
+Manifest: [20260630_noether_r361_r362_p09_p13_p14_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r361_r362_p09_p13_p14_survival_nopatch.json)
+
+- Artifacts: `Noether_R361_LocalCodex_R347_P09_pp103_128_SourceAuditSurvival_NoPatch_20260630.zip`, 3,278,864 bytes, SHA256 `59087E162129535C0BD827C5BC8DEAE8C6118451246E5433945A63412312A3BD`, 14 entries; and `Noether_R362_LocalCodex_R347_P13_P14_SourceSurvival_NoPatch_20260630.zip`, 3,346,932 bytes, SHA256 `073D3440A7CD869AB754F45041F2955AF2375DFA938B60321A18B53297F920AE`, 26 entries.
+- Scope/result: no-patch current-base survival support. R361 confirms the current R347 Paper 09 span is normalized-identical to the 2026-06-29 WebR271CSI P09 pp.103-128 source-audit closure TeX. R362 confirms the current R347 combined P13/P14 span is normalized-identical to the R344/R341 source-survival span.
+- Evidence: README files, span-check CSVs, R361 trap digest and source-quality CSVs, R362 regression-trap/source-quality/summary files, prior P13/P14 source ledgers, current/comparator span extracts, and SHA256 ledgers.
+- Caveat: no TeX patch. R361 points to prior Paper 09 page-band source packages rather than duplicating all source images. P09 source is mixed native400/600 with split 1000dpi readability derivatives; P13 is about 400ppi and P14 about GDZ600. Treat as survival/anti-regression support only, not source recertification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R360 Paper 10 full-source-audit survival no-patch support
 
 Manifest: [20260630_noether_r360_p10_full_source_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r360_p10_full_source_audit_survival_nopatch.json)
