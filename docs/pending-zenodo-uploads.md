@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R368 Paper 20 GDZ-mixed source-survival no-patch support
+
+Manifest: [20260630_noether_r368_p20_gdzmixed_source_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r368_p20_gdzmixed_source_survival_nopatch.json)
+
+- Artifact: `Noether_R368_LocalCodex_R347_P20_GDZMixed_SourceSurvival_NoPatch_20260630.zip`, 47,413,165 bytes, SHA256 `9ECDD5DDE19F3BA8A0AD1C1578E2B8ED8DFE7E5DDC2E4EB4C2DAB53E5FFA1B30`, 34 entries.
+- Scope/result: no-patch current-base survival support for Paper 20, `Ein algebraisches Kriterium für absolute Irreduzibilität`, Math. Ann. 85 (1922), printed pp. 26-33 / GDZ LOG_0010. R368 confirms the current R347 Paper 20 span is normalized-equal to the accepted R338 Paper 20 comparator.
+- Evidence: README, current-base P20 survival check CSV, P20 current-base disposition CSV, inherited R338/R354 source-anchor and regression-trap ledgers, prior P20 source-verdict CSV, source-quality CSV, GDZ article PDF, raw full-page JPGs for printed pp.26-33, labelled dense crops, span extracts, and SHA256 ledger.
+- Caveat: no TeX patch. Treat as survival/anti-regression support only. The best staged source is mixed GDZ 400/600ppi; labelled 1000dpi crops are readability aids derived from staged source, not independent native1000 scans. Not Paper 20 certification, Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material.
+
 ## 2026-06-30: Noether R367 Paper 19 GDZ400 max-probe survival no-patch support
 
 Manifest: [20260630_noether_r367_p19_gdz400_maxprobe_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r367_p19_gdz400_maxprobe_survival_nopatch.json)
