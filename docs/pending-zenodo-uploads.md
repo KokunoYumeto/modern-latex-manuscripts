@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R353-R354 current-base no-patch survival support
+
+Manifest: [20260630_noether_r353_r354_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r353_r354_survival_nopatch.json)
+
+- Artifacts: `Noether_R353_LocalCodex_R347_P22_SourceVettedSurvival_NoPatch_20260630.zip`, 8,920,394 bytes, SHA256 `940BAA2743BC8509961DE43DC0DBDA5FAD3BD86725033583B2FE29E4E8B78A79`, 24 entries; and `Noether_R354_LocalCodex_R347_P17_P20_CurrentBaseSurvival_NoPatch_20260630.zip`, 3,889,618 bytes, SHA256 `60A7E9CB0329C821E169BC11C67573CEBE1DEDD073C2243AA6CC32203671BD03`, 17 entries.
+- Scope/result: R353 confirms Paper 22 in R347 is normalized-identical to the R277 source-vetted Paper 22 span after comment/whitespace normalization. R354 confirms the current R347 P16-P19 structural span and separate P20 span are normalized-equal to the accepted R338 comparator spans.
+- Evidence: README files, source/survival CSVs, current and comparator span extracts, R353 P22 page-map/render/crop witnesses, source-audit logbook snapshots, and SHA256 ledgers.
+- Caveat: no TeX patches and no new full recertification from source. Treat as current-base survival/anti-regression support only, not Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material.
+
 ## 2026-06-30: Noether R352 Paper 12 formulas (2), (3), (4), and (8) no-patch closure
 
 Manifest: [20260630_noether_r352_p12_formula_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r352_p12_formula_closure_nopatch.json)
