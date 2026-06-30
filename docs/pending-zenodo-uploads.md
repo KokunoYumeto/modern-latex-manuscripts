@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R356-R357 Paper 30 source-witness and Web R277 disposition support
+
+Manifest: [20260630_noether_r356_r357_p30_source_witness_and_webr277_disposition.json](../manifests/pending-zenodo-uploads/20260630_noether_r356_r357_p30_source_witness_and_webr277_disposition.json)
+
+- Artifacts: `Noether_R356_LocalCodex_P30_SIM_RawJP2_PNG_SourceWitness_NoPatch_20260630.zip`, 197,662,957 bytes, SHA256 `E8EE386608BDDA3610896F5263A6F1C2A1F84F857190F177751FFCEFFB301A5F`, 87 entries; and `Noether_R357_LocalCodex_WebR277Disposition_NoPatch_20260630.zip`, 3,874,836 bytes, SHA256 `BDFE7AE23142A78375C79435C58A4F67EFE2FB192084D3695BC8DB73D5AAC1CE`, 22 entries.
+- Scope/result: R356 stages Paper 30 printed pp. 26-61 source witnesses from IA/SIM raw JP2 leaves 0031-0066, with PNG derivatives, a PDF wrapper, scandata metadata, and the R347 P30 span for anchoring. R357 inspects `Noether_R277_Complete_P24P32_SourceFix_20260630.zip` and records it as confirmation only: its P24 and P32 fixes are already represented in R347, while R347 P24/P30/P34 should not be replaced by the older Web span.
+- Evidence: R356/R357 READMEs, R356 source-quality and concordance CSVs, raw JP2/PNG/PDF Paper 30 witnesses, R357 span-disposition CSVs, normalized R347/WebR277 span extracts, Web R277 ledgers, and SHA256 ledgers.
+- Caveat: no TeX patch. R356 is source-witness/routing support only and does not certify Paper 30; no strict native650 witness was found locally. R357 is a stale-base guard/disposition packet only. The inspected Web R277 ZIP is not recommended as the current base or a fronted reader release.
+
 ## 2026-06-30: Noether R355 Papers 21-30 current-base no-patch survival support
 
 Manifest: [20260630_noether_r355_p21_p30_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r355_p21_p30_survival_nopatch.json)
