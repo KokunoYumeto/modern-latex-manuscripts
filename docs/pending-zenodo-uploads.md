@@ -1,8 +1,12 @@
-## 2026-06-30: Noether R311/R312 non-promotion notes
+## 2026-06-30: Noether R312 Paper 30 p.54 barred-index source repair
 
-- R311 hold: local `Noether_R311_LocalCodex_R310_P30p52_DurchTypoFix_20260630.zip` exists, but is not queued as a source-faithful repair. Its only TeX change normalizes printed `Duch Multiplikation` to modern German `Durch Multiplikation` on Paper 30 printed p.52; the source witness visibly prints `Duch`. Treat R311 as an editorial typo-normalization candidate only unless a future editorial-normalization layer is explicitly adopted and relabelled.
-- R312 scratch state: local `_work_R312_P30_visual_audit_p054_057` contains only witness images/crops for Paper 30 printed pp.54-57. It has no TeX diff, build artifact, no-patch audit, source-audit logbook entry, ZIP package, or public manifest. Do not upload or cite it as a release artifact.
-- Current narrow Noether source-control head in this chain remains R310 below. R309/R308/R307/R306 are provenance immediately below later patches, not independent current heads.
+Manifest: [20260630_noether_r312_p30p54_barred_index_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r312_p30p54_barred_index_fix.json)
+
+- Artifact: `Noether_R312_LocalCodex_R311_P30p54_BarredIndexFix_20260630.zip`, 21,242,125 bytes, SHA256 `EDA296E94662DB55A49A3B20C959EFDB7921E299936EED0DD20ADDD39F0E0EC9`, 27 entries.
+- Scope/result: narrow Paper 30 source-facing repair on top of R311. It restores R311's editorial `Durch Multiplikation` normalization back to source-visible `Duch Multiplikation` on printed p.52, then repairs the printed-p.54 product for `\ma` from an unbarred terminal index `r` to source-visible barred terminal index notation `\mbar{\mpideal}_{\bar r}^{\sigma_{\bar r}}`.
+- Evidence: updated cumulative German TeX/PDF, exact R311-to-R312 diff, confirmed-fix/no-fix/source-quality/build CSVs, XeLaTeX logs, rendered before/after checks for cumulative PDF pp291-292, and P30 pp52/p54 source witnesses/crops.
+- Caveat: targeted current-control/source-style support only. Source images are best-available native400-ish witnesses with enlarged readability renders/crops; not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
+- Supersession note: R312 is now the current narrow local Noether source-control head in this chain. R311 is not independently promoted because its only unique change was editorial normalization; R312 uses R311 only as a mechanical base and restores the source-visible `Duch` reading. R310/R309/R308/R307/R306 remain provenance beneath later patches.
 
 ## 2026-06-30: Noether R310 Paper 30 p.43 weak-prime element-notation repair
 
@@ -12,7 +16,7 @@ Manifest: [20260630_noether_r310_p30p43_weakprime_element_notation_fix.json](../
 - Scope/result: narrow Paper 30 printed-p.43 source-notation repair on top of R309. It restores source-visible element notation `a`, `b`, and `ab` in the weak-prime definition, while intentionally leaving the following strong-prime clause in ideal-level notation.
 - Evidence: updated cumulative German TeX/PDF, exact R309-to-R310 diff, confirmed-fix/no-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 286, and P30 p43 source witnesses/crops.
 - Caveat: targeted current-control/source-style support only. Source images are best-available native400-ish witnesses with enlarged readability renders; not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
-- Supersession note: R310 is now the current narrow local chain head; R309 remains provenance immediately before R310.
+- Supersession note: R312 now supersedes R310 as the current narrow local chain head. R310 remains provenance immediately below the R311/R312 branch; R309 remains provenance immediately before R310.
 
 ## 2026-06-30: Noether R309 Paper 30 p.34 Dedekindsche Folgerung II omitted-clause repair
 
@@ -22,7 +26,7 @@ Manifest: [20260630_noether_r309_p30p34_dedekind_clause_fix.json](../manifests/p
 - Scope/result: narrow Paper 30 printed-p.34 source repair on top of R308. It restores the omitted source-visible clause `wegen \sigma\ge1 sind das ganze Groessen der Reihe` in Dedekindsche Folgerung II after `m=c\beta^\sigma`, `n=c\beta^{\sigma-1}`, and keeps the assignments in source-style inline flow.
 - Evidence: updated cumulative German TeX/PDF, exact R308-to-R309 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 281, and P30 p34-p35 source witnesses/crops, plus a p35 no-fix trap for source-visible `+b_i\xi_i`.
 - Caveat: targeted current-control/source-style support only. Source images are best-available native400-ish GDZ/IA-derived witnesses with enlarged readability renders; not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
-- Supersession note: R310 now supersedes R309 as the current narrow local chain head. R309 remains provenance immediately before R310.
+- Supersession note: R310 and then R312 supersede R309 as later narrow local chain heads. R309 remains provenance immediately before R310.
 
 ## 2026-06-30: Noether R308 Paper 30 pp.32-33 source-notation repair
 
@@ -33,7 +37,7 @@ Manifest: [20260630_noether_r308_p30p32_source_notation_fix.json](../manifests/p
 - Scope/result: narrow Paper 30 printed-pp.32-33 source-notation repair on top of R307. It restores source-visible `\alpha\pm\beta` and unprimed `\mS` / `\mS_\alpha` notation in the transitivity paragraph across the p32-p33 break.
 - Evidence: updated cumulative German TeX/PDF, exact R307-to-R308 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 281, and P30 p32-p33 source witnesses.
 - Caveat: targeted current-control/source-style support only. The staged P30 source pages are native400-ish GDZ/IA-derived witnesses; 650/1000-equivalent images are readability aids, not independent higher-native witnesses, and a failed zero-byte p33 1000-equivalent render was excluded. This is not Paper 30 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
-- Supersession note: R309 and then R310 supersede R308 as later current-control patches. R308 remains provenance immediately before R309/R310.
+- Supersession note: R309, R310, and then R312 supersede R308 as later current-control patches. R308 remains provenance immediately before R309/R310/R312.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
 ## 2026-06-30: Noether R307 Paper 15 pp.149-150 lambda repetition repair
@@ -45,7 +49,7 @@ Manifest: [20260630_noether_r307_p15p149_lambda_repetition_fix.json](../manifest
 - Scope/result: narrow Paper 15 printed-pp.149-150 repair on top of R306. It changes the repeated lowering step from carried `F_0(\xi_{ik})\equiv\xi_{34}^2F_2(\xi_{ik})\pmod p` to source-visible `F_0(\xi_{ik})\equiv\xi_{34}^{\lambda}F_{\lambda}(\xi_{ik})\pmod p`, and changes the continuation sentence from `F_2` to `F_{\lambda}`.
 - Evidence: updated cumulative German TeX/PDF, exact R306-to-R307 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX log, rendered output check page, P15 pp.149-150 650dpi source renders, and 1000-equivalent crops.
 - Caveat: targeted current-control/source-style support only. The staged page images are 650dpi renders from source whose native quality is lower than 650dpi; the 1000-equivalent crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
-- Supersession note: R308, R309, and R310 are later current-control patches in the same narrow chain. R307 remains provenance beneath them.
+- Supersession note: R308, R309, R310, and R312 are later current-control patches in the same narrow chain. R307 remains provenance beneath them.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
 ## 2026-06-30: interlanguage logs snapshot from laptop Noether branch
@@ -66,7 +70,7 @@ Manifest: [20260630_noether_r306_p15p148_x_exponent_fix.json](../manifests/pendi
 - Scope/result: narrow Paper 15 printed-p.148 repair on top of R305. It changes the two-row-case homogeneity exponent from carried `\nu` to source-visible `x` in both `F=c\,\xi_{12}^x` and `c\,(12)^x\equiv0\pmod p`.
 - Evidence: updated cumulative German TeX/PDF, exact R305-to-R306 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output check page, P15 p148 650dpi render from GDZ400 material, and 1000-equivalent crops.
 - Caveat: targeted two-token current-control/source-style support only. The staged page image is a 650dpi render from source whose native quality is about 400ppi; the 1000-equivalent crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
-- Supersession note: R307, R308, R309, and R310 are later current-control patches in this narrow chain. R306 remains provenance beneath them.
+- Supersession note: R307, R308, R309, R310, and R312 are later current-control patches in this narrow chain. R306 remains provenance beneath them.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
 ## 2026-06-30: ClassicalAudit Lean sidecars for Noether, Steinitz, Weber, and Jordan
