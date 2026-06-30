@@ -8,15 +8,15 @@ Manifest: [20260630_noether_p22_gdzvol88_source_upgrade_400600ppi.json](../manif
 - Caveat: source-witness/provenance only. It supersedes the older 360ppi route as the current best local P22 checking witness, but the embedded source imagery is still mixed 400/600ppi and below strict native650+ certification. Not a TeX patch, not Paper 22 certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/source-witness rebalance; do not front above reader PDFs/current TeX.
 
-## 2026-06-30: Noether R273 Paper 22 pp.53-66 source patch
+## 2026-06-30: Noether R273 Paper 22 pp.53-79 source-note/formula patch
 
 Manifest: [20260630_noether_r273_p22_header_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p22_header_sourcepatch.json)
 
 - Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
-- Artifact: `Noether_LocalCodex_after_WebR273_P22_HeaderSourcePatch_20260630.zip`, 11,454,205 bytes, SHA256 `1D427647CC6DF62C50B78262F9920758B8A75416B4C74D5B13963F1F254A6649`. TAR listing check passed with 32 entries.
-- Scope/result: targeted Paper 22 pp.53-66 patch on the post-WebR273 local German base. It restores the source-visible title/author/editor block, moves footnote marker `1)` from the main result display to the editor line, converts source notes `2)` through `13)` to explicit source-numbered notes, corrects formula (15), and fixes the printed p.66 isomorphism sentence.
-- Evidence: patched cumulative TeX/PDF, source-diff, two XeLaTeX compile logs, rendered checks for the opening page, formula (15), and p.66, repair CSV, page map, GDZVol88 source witnesses, and high-resolution formula/isomorphism crops.
-- Caveat: targeted pp.53-66 source patch only. The GDZVol88 source is mixed 400/600ppi with enlarged readability crops, and this package does not certify all of Paper 22. Later Paper 22 footnotes/body pages still need page-by-page audit if the P22 lane continues.
+- Artifact: `Noether_LocalCodex_after_WebR273_P22_HeaderSourcePatch_20260630.zip`, 15,222,934 bytes, SHA256 `FAE09004E316F6B26A094AD095B56EF57CBA6D6372B454E710AF04EA5DAA07F5`. TAR listing check passed with 39 entries.
+- Scope/result: targeted Paper 22 pp.53-79 patch on the post-WebR273 local German base. It restores the source-visible title/author/editor block, moves footnote marker `1)` from the main result display to the editor line, converts source notes `2)` through `19)` to explicit source-numbered notes, corrects formula (15), fixes the printed p.66 isomorphism sentence, and closes the tail source-note apparatus through p.79.
+- Evidence: patched cumulative TeX/PDF, source-diff, two XeLaTeX compile logs, rendered checks for the opening page, formula (15), p.66, and tail source-note loci, repair CSV, page map, GDZVol88 source witnesses, and high-resolution formula/isomorphism/tail-note crops.
+- Caveat: targeted pp.53-79 source-note/formula patch only. The GDZVol88 source is mixed 400/600ppi with enlarged readability crops, and this package does not certify every body symbol/prose locus of Paper 22. P22 ordinary `\footnote` tokens are eliminated in this branch; nearby ordinary footnote hits belong to preceding Paper 21.
 - Publication policy: fold into the same compact Noether current-control/source-audit rebalance after the P22 GDZVol88 source-witness upgrade.
 
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
