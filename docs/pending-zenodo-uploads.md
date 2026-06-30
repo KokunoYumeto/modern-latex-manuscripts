@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R324 Paper 38 p401 `aber` source restoration
+
+Manifest: [20260630_noether_r324_p38p401_aber_restoration.json](../manifests/pending-zenodo-uploads/20260630_noether_r324_p38p401_aber_restoration.json)
+
+- Artifact: `Noether_R324_LocalCodex_R323_P38p401_AberRestoration_20260630.zip`, 28,542,722 bytes, SHA256 `2573B81475E18B12F310186EF6F2B859B5D46E558BD2AF0DA5E9FBE0D61362DA`, 34 entries.
+- Scope/result: one source-certain German cumulative TeX patch in Paper 38 printed p.401, restoring the source-visible word `aber` in `Nun steht aber III nach den Ergebnissen von H. Hasse [H, 24] fest.`
+- Evidence: R324 current cumulative TeX/PDF, R323 prepatch reference PDF, exact one-line R323-to-R324 diff, confirmed-fixes CSV, visual-disposition CSV, source-quality/no-patch-trap CSVs, GDZ native-600 full-page witnesses for printed pp.399-404, targeted p401/p402 crops, rendered check PNG, and XeLaTeX logs. The PDF remains 474 pages.
+- Caveat: narrow source-fix/current-control packet only. It is not Paper 38 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The p402 compositum wording is explicitly held as an alternate-witness trap; do not patch that locus from this single ambiguous crop.
+
 ## 2026-06-30: Noether R323 Paper 37 p150 basis-index source fix
 
 Manifest: [20260630_noether_r323_p37p150_basis_index_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r323_p37p150_basis_index_fix.json)
