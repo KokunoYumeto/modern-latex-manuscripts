@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R274 P24/tail provenance and P36 no-patch source closure
+
+Manifest: [20260630_noether_r274_p24tail_and_p36_source_closure_control.json](../manifests/pending-zenodo-uploads/20260630_noether_r274_p24tail_and_p36_source_closure_control.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: `Noether_R274_Complete_P24Tail_SourceVetted_20260630.zip`, 77,401,707 bytes, SHA256 `1DEC6E5B4FD8487E9DFD1D533D50EEBAE513DC8CE3C305B2B85E115D80E47A7B`, 104 entries; and `Noether_P36_SourceClosure_NoPatch_WebDrop_20260630.zip`, 914,282 bytes, SHA256 `2B38893D85CC8526A3231CD635861F99396246BC57A00AEAA914A74A5B4604B1`, 7 entries.
+- Scope/result: R274 is an older R273-based integration/provenance package that assembled the Paper 24 source-style chain and selected tail fixes, then recorded vetoes for uncertain or contradicted tail proposals. The current R302 line already preserves R274's accepted outcomes and veto decisions, so R274 is not the current head. The P36 package is a no-patch source-closure witness: Paper 36 is a one-page notice checked against a 650dpi render, and the suspicious Cyrillic/Russian-looking block belongs to the source-real Russian resume tail of Paper 35.
+- Caveat: support/provenance/control material only. Not reader-front material, not whole-paper certification, not Noether closure, not multilingual synchronization, and not a critical edition.
+
 ## 2026-06-30: Noether R302 Paper 24 p.233 equals-zero source-style fix
 
 Manifest: [20260630_noether_r302_p24p233_equals_zero_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r302_p24p233_equals_zero_sourcefix.json)
