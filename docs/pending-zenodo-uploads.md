@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R327 Paper 14 p183 source-order phrase fix
+
+Manifest: [20260630_noether_r327_p14p183_source_order_phrase_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r327_p14p183_source_order_phrase_fix.json)
+
+- Artifact: `Noether_R327_LocalCodex_R326_P14p183_SourceOrderPhraseFix_20260630.zip`, 10,597,612 bytes, SHA256 `0916564654BF0EA5A81F5AA9CCA6ADF2FB66751AAE8CAEAA4928D74CFDBDFE86`, 17 entries.
+- Scope/result: one source-confirmed German cumulative TeX patch in Paper 14 printed p.183, restoring source-style `Kurven (n-3). Ordnung` in the Spezialgruppen paragraph. The R326 TeX had regularized the phrase to `\((n-3)\)-ter Ordnung`; R327 changes it to `\((n-3).\) Ordnung`.
+- Evidence: R327 current cumulative TeX/PDF, R326 input PDF, exact R326-to-R327 diff, confirmed-fix CSV, source-quality CSV, visual-disposition CSV, source-audit logbook snapshot, GDZ/JDMV28 600ppi full-page p183 witness, and focused 600ppi/1200-equivalent crops. Printed pp.182, 184, and 185 were also opened visually with no other source-certain body-level patch promoted in this quick pass.
+- Caveat: narrow source-style phrase restoration only. It is not Paper 14 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The 1200-equivalent crop is an inspection enlargement from the 600ppi witness.
+
 ## 2026-06-30: Noether R326 Paper 13 pp252-257 tail audit no-patch support
 
 Manifest: [20260630_noether_r326_p13p252_257_tail_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r326_p13p252_257_tail_audit_nopatch.json)
