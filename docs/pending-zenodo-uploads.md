@@ -1,3 +1,15 @@
+## 2026-06-30: Noether R308 Paper 30 pp.32-33 source-notation repair
+
+Manifest: [20260630_noether_r308_p30p32_source_notation_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r308_p30p32_source_notation_fix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_R308_LocalCodex_R307_P30p32_SourceNotationFix_20260630.zip`, 150,112,780 bytes, SHA256 `CB969EA75E4DF71993E6329F02DD66F5EEE50B3B979FAC687882F2D259AFF12C`, 150 entries.
+- Scope/result: narrow Paper 30 printed-pp.32-33 source-notation repair on top of R307. It restores source-visible `\alpha\pm\beta` and unprimed `\mS` / `\mS_\alpha` notation in the transitivity paragraph across the p32-p33 break.
+- Evidence: updated cumulative German TeX/PDF, exact R307-to-R308 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 281, and P30 p32-p33 source witnesses.
+- Caveat: targeted current-control/source-style support only. The staged P30 source pages are native400-ish GDZ/IA-derived witnesses; 650/1000-equivalent images are readability aids, not independent higher-native witnesses, and a failed zero-byte p33 1000-equivalent render was excluded. This is not Paper 30 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Supersession note: R308 is now the current narrow local chain head; R307 remains provenance immediately before R308.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R307 Paper 15 pp.149-150 lambda repetition repair
 
 Manifest: [20260630_noether_r307_p15p149_lambda_repetition_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r307_p15p149_lambda_repetition_fix.json)
