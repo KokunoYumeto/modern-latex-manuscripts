@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R328 Paper 14 pp186-191 source-band audit no-patch support
+
+Manifest: [20260630_noether_r328_p14p186_191_source_band_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r328_p14p186_191_source_band_audit_nopatch.json)
+
+- Artifact: `Noether_R328_LocalCodex_R327_P14p186_191_SourceBandAudit_NoPatch_20260630.zip`, 23,222,585 bytes, SHA256 `2DCC4BD5750DAE699A4CD07300189070B348560ED0146202CBD8872F68CDAFEB`, 20 entries.
+- Scope/result: no-patch source-band audit/current-control packet for Paper 14 printed pp.186-191 on the R327 line. It carries the R327 cumulative TeX/PDF forward unchanged, confirms the suspected p190 source phrase `bei den algebraischen Funktion` is already present, and promotes no new TeX patch.
+- Evidence: R328 current cumulative TeX/PDF, full GDZ/JDMV28 600ppi source pages for pp.186-191, targeted 600ppi and 1200-equivalent crops, confirmed-fixes/no-new-patch CSV, visual-disposition CSV, no-fix-trap CSV, source-quality CSV, and source-audit logbook snapshot.
+- Caveat: bounded inspected-locus support only. It is not Paper 14 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The package explicitly rejects tempting changes to the pp.186-188 fraktur coefficient/domain symbol and p189 Verzweigungsideal/Differente symbol from the current witnesses.
+
 ## 2026-06-30: Noether R327 Paper 14 p183 source-order phrase fix
 
 Manifest: [20260630_noether_r327_p14p183_source_order_phrase_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r327_p14p183_source_order_phrase_fix.json)
