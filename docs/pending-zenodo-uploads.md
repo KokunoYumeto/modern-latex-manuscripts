@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R367 Paper 19 GDZ400 max-probe survival no-patch support
+
+Manifest: [20260630_noether_r367_p19_gdz400_maxprobe_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r367_p19_gdz400_maxprobe_survival_nopatch.json)
+
+- Artifact: `Noether_R367_LocalCodex_R347_P19_GDZ400_MaxProbeSurvival_NoPatch_20260630.zip`, 16,095,246 bytes, SHA256 `64B52D55F2AA4B13512FD35BF63B087A5611A8314B2CDA83103DEF58861CCD80`, 30 entries.
+- Scope/result: no-patch current-base survival support for Paper 19, `Idealtheorie in Ringbereichen`, Math. Ann. 83 (1921), pp. 24-66. R367 records that the R347 Paper 19 span differs from the older P19 GDZ400 max-probe promoted span because R347 already contains later accepted/source-supported fixes and source-style cleanups.
+- Evidence: README, current-base span check CSV, diff-disposition CSV, no-patch/regression-trap CSV, source-quality CSV, prior P19 max-probe evidence ledgers, selected dense-tail labelled crops, GDZ400 article source PDF for pp.24-66, span extracts, and SHA256 ledger.
+- Caveat: no TeX patch. Do not revert R347 to the older P19 promoted-base span. Best staged source is GDZ native400 throughout; 1000-render crops are readability aids from native400 pages, not independent native1000 evidence. Treat as survival/anti-regression support only, not Paper 19 certification, Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material.
+
 ## 2026-06-30: Noether R366 Paper 18 GDZ600 full-page audit survival no-patch support
 
 Manifest: [20260630_noether_r366_p18_gdz600_fullpage_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r366_p18_gdz600_fullpage_survival_nopatch.json)
@@ -56,7 +65,7 @@ Manifest: [20260630_noether_r359_p11_full_source_audit_survival_nopatch.json](..
 
 Manifest: [20260630_noether_r358_p12_formula10_source_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r358_p12_formula10_source_closure_nopatch.json)
 
-- Artifact: `Noether_R358_LocalCodex_R347_P12_FullPageAuditSurvival_Formula10SourceClosure_NoPatch_20260630.zip`, 20,877,116 bytes, SHA256 `07C716FA7AB7A2AC3DCD702DB7A0FF6FC7F87A0D4B88A510629EF6A580D5101E`, 36 entries.
+- Artifact: `Noether_R358_LocalCodex_R347_P12_FullPageAuditSurvival_Formula10SourceClosure_NoPatch_20260630.zip`, 21,114,973 bytes, SHA256 `07C716FA7AB7A2AC3DCD702DB7A0FF6FC7F87A0D4B88A510629EF6A580D5101E`, 36 entries.
 - Scope/result: no-patch Paper 12 printed pp.37-44 source-closure/survival support on the R347 base. R358 explains the deliberate R347/R269 difference at formula (10): older R269 had the tempting RHS `\varkappa^\rho\varphi_\rho^{(i)}(...)`, while the staged source witness supports R347's `\varkappa\varphi_\rho^{(i)}(...)` without the exponent on the RHS kappa.
 - Evidence: README, R269-to-R347 Paper 12 span diff, current-source-fix and current-base CSVs, R267/R269/R352 inherited Paper 12 ledgers, GDZ400 full-page witnesses for pp.37-44, labelled formula (10) crop, span extracts, and SHA256 ledger.
 - Caveat: no TeX patch and no strict native650 recertification. The full-page witness is GDZ400; enlarged crops are readability aids only. Treat as localized Paper 12 source-closure support, not global Paper 12 certification, Noether closure, multilingual synchronization, or critical-edition material.
