@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R332 Paper 15 R303-R307 survival bridge no-patch support
+
+Manifest: [20260630_noether_r332_p15_r303_r307_survival_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r332_p15_r303_r307_survival_bridge_nopatch.json)
+
+- Artifact: `Noether_R332_LocalCodex_R331_P15_R303_R307_SourceFixSurvival_NoPatch_20260630.zip`, 3,420,968 bytes, SHA256 `C87906293EDB1AE91CB0D41FF957AF95A4E4517179DEB38873601A356F58EE74`, 8 entries.
+- Scope/result: no-patch survival/current-control bridge for Paper 15 on the R331 line. It checks that source-certain Paper 15 repairs from LocalCodex R303-R307, plus earlier p149/p155 reversal controls, survive in the current cumulative German TeX/PDF.
+- Evidence: R332 current cumulative TeX/PDF, empty R331-to-R332 diff, P15 R303-R307 survival reconciliation CSV, source-quality CSV, SHA256 ledger, and source-audit logbook snapshot.
+- Caveat: survival bridge only. It is not Paper 15 certification, Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. The Paper 15 source witness is best-staged GDZ material at about native 400ppi, with higher-dpi renders/crops used only for readability.
+
 ## 2026-06-30: Noether R331 Paper 14 pp200-203 tail source closure no-patch support
 
 Manifest: [20260630_noether_r331_p14p200_203_tail_source_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r331_p14p200_203_tail_source_closure_nopatch.json)
