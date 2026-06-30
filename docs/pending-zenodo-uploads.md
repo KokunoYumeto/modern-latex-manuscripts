@@ -1,3 +1,23 @@
+## 2026-06-30: Noether R319 Paper 08 p.93 Deruyts citation source fix
+
+Manifest: [20260630_noether_r319_p08p93_deruyts_citation_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r319_p08p93_deruyts_citation_sourcefix.json)
+
+- Artifact: `Noether_R319_LocalCodex_R318_P08p93_DeruytsCitation_SourceFix_20260630.zip`, 5,309,975 bytes, SHA256 `40CE26B11BD0B18B80470A96C9BFA97125966B4119F693D6C088F9AB0529F413`, 15 entries.
+- Scope/result: localized source-certain German cumulative repair on top of R318. It corrects the Paper 08 printed-p.93 Deruyts bibliographic footnote from `Mém. d. 1. Soc. Roy. des Sciences de Liège (2) 17 (1892).` to source-visible `Mém. d. l. Soc. Roy. des Sciences de Liège (2) 17 (1892).`
+- Evidence: R319 cumulative German TeX/PDF, exact R318-to-R319 diff, confirmed-fix/build/checksum CSVs, XeLaTeX logs, full P08 p.93 source witness, and a tight enlarged Deruyts footnote crop.
+- Caveat: one-character citation repair only. The source is a GDZ/IIIF native-400 ppi page and the crop is a 3x readability enlargement. This does not certify Paper 08, close Noether, synchronize translations, or create critical-edition material.
+- Current-control note: where this P08 citation locus matters, R319 is the current narrow local German source-audit chain head above R318.
+
+## 2026-06-30: Noether after R318 Paper 32 p.226 alternate IA false-positive no-patch guard
+
+Manifest: [20260630_noether_after_r318_p32p226_alt_ia_false_positive_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_after_r318_p32p226_alt_ia_false_positive_nopatch.json)
+
+- Artifact: `Noether_LocalCodex_after_R318_P32p226_AltIAFalsePositive_NoPatchOpen_20260630.zip`, 26,897,267 bytes, SHA256 `50091D3677B483EBAF8BC1344272FDCBC45AE5692270D2E2677AC4689E43FA6F`, 13 entries.
+- Scope/result: no-patch source-quality guard for the open Noether/Brauer Paper 32 printed-p.226 polynomial microglyph question. It checks an alternate Internet Archive p226 candidate and rejects it as a wrong-volume/page-number false positive.
+- Evidence: current R318 reference TeX/PDF, accepted current IA math witness/crop, rejected alternate IA JP2/crop, side-by-side comparison image, source-search CSV, disposition CSV, source-quality note, input-file provenance, and checksums.
+- Caveat: wrong-source trap only. It applies no TeX patch, does not supersede R318, does not certify Paper 32 p.226, and does not close the open final-glyph question. Keep the current R318 polynomial line unchanged until a clearer math witness or secondary publication witness appears.
+- Relation to prior packet: this complements the earlier `Noether_LocalCodex_after_R318_P32p226_BrauerPolynomial_NoPatchEvidence_20260630.zip`, which records the ambiguous current math witness; this later packet prevents future workers from adopting a tempting but unrelated alternate IA witness.
+
 ## 2026-06-30: Noether after R318 R274/P10-P20 survival bridge no-patch support
 
 Manifest: [20260630_noether_after_r318_r274_p10p20_survival_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_after_r318_r274_p10p20_survival_bridge_nopatch.json)
