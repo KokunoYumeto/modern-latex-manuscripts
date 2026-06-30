@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
+
+Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: five ZIPs, 33,242,225 bytes total. ZIP listing tests passed.
+- Scope/result: post-WebR273 support wave on the P35/P43 local base. P05 receives a no-patch full-page GDZ600 audit; P06 receives one actual source patch on printed p.195, changing `\Gamma(H_1(x)\rcdots H_\sigma(x))/i` to source `\Gamma(H_1\rcdots H_\sigma)/i`; P07 and P08 get no-patch survival guards on the P06-p195 patched base; P12/P13/P20 get a small no-patch survival guard on the P43 base.
+- Caveat: current-control/source-audit/regression-guard material only. Only the P06 package applies a TeX patch. These are not reader artifacts, not paper certification, not strict native650+ certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance; do not upload loose above reader PDFs/current TeX while the Noether record remains at the file ceiling.
+
 ## 2026-06-30: Interlanguage logs quick Web/Pro handoff refresh
 
 Manifest: [20260630_interlanguage_logs_quick_webdrop_033913.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_logs_quick_webdrop_033913.json)
