@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R358 Paper 12 formula (10) source closure no-patch support
+
+Manifest: [20260630_noether_r358_p12_formula10_source_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r358_p12_formula10_source_closure_nopatch.json)
+
+- Artifact: `Noether_R358_LocalCodex_R347_P12_FullPageAuditSurvival_Formula10SourceClosure_NoPatch_20260630.zip`, 20,877,116 bytes, SHA256 `07C716FA7AB7A2AC3DCD702DB7A0FF6FC7F87A0D4B88A510629EF6A580D5101E`, 36 entries.
+- Scope/result: no-patch Paper 12 printed pp.37-44 source-closure/survival support on the R347 base. R358 explains the deliberate R347/R269 difference at formula (10): older R269 had the tempting RHS `\varkappa^\rho\varphi_\rho^{(i)}(...)`, while the staged source witness supports R347's `\varkappa\varphi_\rho^{(i)}(...)` without the exponent on the RHS kappa.
+- Evidence: README, R269-to-R347 Paper 12 span diff, current-source-fix and current-base CSVs, R267/R269/R352 inherited Paper 12 ledgers, GDZ400 full-page witnesses for pp.37-44, labelled formula (10) crop, span extracts, and SHA256 ledger.
+- Caveat: no TeX patch and no strict native650 recertification. The full-page witness is GDZ400; enlarged crops are readability aids only. Treat as localized Paper 12 source-closure support, not global Paper 12 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R356-R357 Paper 30 source-witness and Web R277 disposition support
 
 Manifest: [20260630_noether_r356_r357_p30_source_witness_and_webr277_disposition.json](../manifests/pending-zenodo-uploads/20260630_noether_r356_r357_p30_source_witness_and_webr277_disposition.json)
