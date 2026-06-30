@@ -1,3 +1,13 @@
+## 2026-06-30: Noether Paper 22 GDZVol88 source-witness upgrade
+
+Manifest: [20260630_noether_p22_gdzvol88_source_upgrade_400600ppi.json](../manifests/pending-zenodo-uploads/20260630_noether_p22_gdzvol88_source_upgrade_400600ppi.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_P22_SourceUpgrade_GDZVol88_400600ppi_20260630.zip`, 34,210,953 bytes, SHA256 `14913321494CB31558ECD5BD61E1D0FEAEE48CB2B496F7EB89879B8B8E547CB0`. TAR listing check passed with 35 entries.
+- Scope/result: source-witness upgrade for Paper 22, `Bearbeitung von K. Hentzelt: zur Theorie der Polynomideale und Resultanten`, Math. Annalen 88 (1923), printed pp.53-79. It stages the GDZVol88 article cutout, volume PDF page map, 400dpi renders, first/last contact verification, pdfimages metadata, and the full-volume witness PDF.
+- Caveat: source-witness/provenance only. It supersedes the older 360ppi route as the current best local P22 checking witness, but the embedded source imagery is still mixed 400/600ppi and below strict native650+ certification. Not a TeX patch, not Paper 22 certification, not Noether closure, not multilingual synchronization, and not critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/source-witness rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
 
 Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
