@@ -41,6 +41,83 @@ Manifest: [20260630_noether_r273_tail_p735_wisssch_source_typo_nopatch.json](../
 - Caveat: no TeX patch. This is a source-trap/provenance package only. It does not certify the post-P43 tail, the referenced footnote apparatus, the Noether corpus, multilingual synchronization, or a critical edition.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
+## 2026-06-30: Noether R273 post-P43 tail p754 matrix-ring `\mathfrak Z` source patch
+
+Manifest: [20260630_noether_r273_tail_p754_matrixring_z_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p754_matrixring_z_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p754_MatrixRingZ_SourcePatch_20260630.zip`, 8,421,741 bytes, SHA256 `38C3FB9828612CD1477ABB30F2B7AAB4E22CAF363B5383872146F2630D7CED92`. Sidecar SHA was written; ZIP listing check passed with 20 entries.
+- Scope/result: targeted post-P43 tail source-symbol patch on printed p.754. The updated cumulative changes the matrix-ring direct-product display from `\sum c_{ik}P\times\sum d_{\mu\nu}P.` to source-witnessed `\sum c_{ik}\mathfrak Z\times\sum d_{\mu\nu}\mathfrak Z.`
+- Evidence: updated cumulative TeX/PDF, two XeLaTeX compile logs, rendered page check, full 1000dpi page witness, targeted 1000dpi line crop, OCR locator text, audit CSV, source mapping, and checksum CSV.
+- Caveat: targeted one-line source-symbol patch only. OCR is a locator, not authority. This does not certify the post-P43 tail, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: Noether R273 post-P43 tail p755-p758 source-audit no-patch closure
+
+Manifest: [20260630_noether_r273_tail_p755_758_sourceaudit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p755_758_sourceaudit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p755_758_SourceAudit_NoPatch_on_p754Base_20260630.zip`, 20,083,363 bytes, SHA256 `54D168F739F1817A1F231EDFBA12CF8FF83A7D82A63B0995C991AFA7740CE5C9`. Sidecar SHA was written; ZIP listing check passed with 12 entries.
+- Scope/result: targeted post-P43 tail source-audit/no-patch closure for printed pp.755-758 on top of the p754 matrix-ring patch base. The pass visually checks all four pages against 1000dpi witnesses and finds no source-certain TeX correction.
+- Evidence: carried-forward p754-fixed cumulative TeX/PDF, four full-page 1000dpi source witnesses, a p758 Hilfssatz 3 crop, no-patch disposition CSV, source mapping, checksum CSV, README, and current live German source-audit logbook snapshot.
+- Caveat: targeted source-audit/no-patch support only. The p758 `\mathfrak R_rc_{11}` reading is retained from the current cumulative based on the crop and following proof display. This does not certify the post-P43 tail, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: Noether R273 post-P43 tail p759 unbarred-`u_S` source patch
+
+Manifest: [20260630_noether_r273_tail_p759_unbarred_us_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p759_unbarred_us_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p759_UnbarredUS_SourcePatch_on_p754Base_20260630.zip`, 7,524,998 bytes, SHA256 `B75EDFC79012CCC24A5DD1E8604B169C36D771CD5831FB3D31EEDB5E3C0DCD64`. Sidecar SHA was written; ZIP listing check passed with 11 entries.
+- Scope/result: targeted post-P43 tail source patch for printed p.759 on top of the p754 matrix-ring patch base. It unbars `u_S` in the Hilfssatz 1 proof setup and removes one non-source extra display line from the Hilfssatz 2 proof display.
+- Evidence: updated p754+p759 cumulative TeX/PDF, XeLaTeX compile log, 1000dpi p759 source witness, confirmed-repair CSV, sourcefix diff, source mapping, checksum CSV, README, and current live German source-audit logbook snapshot.
+- Caveat: targeted p759 source patch only. This is not post-P43 tail certification, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: Noether R273 post-P43 tail p760-p762 quotient-`\mathscr H` source patch
+
+Manifest: [20260630_noether_r273_tail_p760_762_quotienth_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p760_762_quotienth_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p760_762_QuotientH_SourcePatch_20260630.zip`, 16,098,300 bytes, SHA256 `428DEC703A0C1D18CABB52C901C34D5D78CAC1A849EEB2C68671EE82D7A770D3`. Sidecar SHA was written; ZIP listing check passed with 12 entries.
+- Scope/result: targeted post-P43 tail source-audit/source-patch packet for printed pp.760-762. It records pp.760-761 as no-patch visual checks and patches p762 in the displayed Geschlechtergruppe chain from `\mathfrak Z^*/P^*` to source-visible `\mathfrak Z^*/\mathscr H`.
+- Evidence: updated p754+p759+p762 cumulative TeX/PDF, XeLaTeX compile log, 1000dpi source witnesses for pp.760-762, disposition CSV, p762 sourcefix diff, source mapping, checksum CSV, README, and current live German source-audit logbook snapshot.
+- Caveat: targeted pp.760-762 source-audit/source-patch support only. This is not post-P43 tail certification, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: Noether R273 post-P43 tail p763-p766 Kapferer-transition source patch
+
+Manifest: [20260630_noether_r273_tail_p763_766_kapferer_transition_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p763_766_kapferer_transition_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p763_766_KapfererTransition_SourcePatch_20260630.zip`, 18,345,827 bytes, SHA256 `1758A0C6FB2DC85420EA115BC7B923E49600B2253D31B5CACB40832CC9407F15`. Sidecar SHA was written; ZIP listing check passed with 13 entries.
+- Scope/result: targeted post-P43 tail source-audit/source-patch packet for printed pp.763-766. It carries forward the p754, p759, and p762 fixes, patches p763 from `P^*/N\mathfrak Z^*\cong\mathfrak G` to source-visible `P^*/N\mathfrak Z^*\simeq\mathfrak G`, patches p764 from `(Mit einem Zusatz, gemeinsam mit E. Noether in Göttingen.)` to source-visible `(Mit einem Zusatz, gemeinsam mit E. Noether)`, and records pp.765-766 as no-patch visual checks.
+- Evidence: updated p754+p759+p762+p763+p764 cumulative German TeX/PDF, two XeLaTeX compile logs, full-page 1000dpi source witnesses for pp.763-766, confirmed-fix CSV, visual-disposition CSV, source mapping CSV, and README.
+- Caveat: targeted pp.763-766 source-audit/source-patch support only. This is not post-P43 tail certification, Kapferer/Noether article certification, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: Noether R273 post-P43 tail p770-p774 Kapferer exponent source patch
+
+Manifest: [20260630_noether_r273_tail_p770_774_kapferer_kexponent_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p770_774_kapferer_kexponent_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p770_774_KapfererKExponent_SourcePatch_20260630.zip`, 25,169,259 bytes, SHA256 `35C967827E31422FEE1FD79240D8F20F0F45B2738F9777F1FFD63EE889D61140`. Sidecar SHA was written; ZIP listing check passed with 18 entries.
+- Scope/result: targeted post-P43 tail source-audit/source-patch packet for printed pp.770-774. It carries forward the p754, p759, p762, p763, and p764 fixes, checks pp.770-771 through Satz IV, relations (4), (5), (6), and source footnotes 14-16 without patch, patches p772 from `(K,q^{(i)})=(h_i y^\lambda,q^{(i)})` to source-visible `(K,q^{(i)})=(h_i y^{(K)},q^{(i)})`, and checks pp.773-774 bibliography entries 1-33 without additional source-certain correction.
+- Evidence: updated p754+p759+p762+p763+p764+p772 cumulative German TeX/PDF, two XeLaTeX compile logs, full-page 1000dpi source witnesses for pp.770-774, p772 source crop, confirmed-fix CSV, visual-disposition CSV, source mapping CSV, checksum CSV, README, and live German source-audit logbook snapshot.
+- Caveat: targeted pp.770-774 source-audit/source-patch support only. This is not post-P43 tail certification, Kapferer/Noether article certification, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: Noether R273 post-P43 tail p775-p778 final-bibliography source patch
+
+Manifest: [20260630_noether_r273_tail_p775_778_final_biblio_sourcepatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p775_778_final_biblio_sourcepatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p775_778_FinalBiblio_SourcePatch_20260630.zip`, 12,914,196 bytes, SHA256 `FEA00B1208809FFBAB41CD045AB69F9D927AEA80C5BE65FF8C5B4D3814918E11`. Sidecar SHA was written; ZIP listing check passed with 16 entries.
+- Scope/result: targeted post-P43 tail source-audit/source-patch packet for printed pp.775-778. It carries forward the p772 Kapferer exponent fix, checks p775 bibliography entries 34-43 plus the Kapferer addendum without patch, checks p776 Kurzmitteilungen and Buchbesprechungen without patch, patches p777 from `E. N. Öystein Orne. Vieweg, Brauschweig` to source-visible `E. N. Öystein Ore. Vieweg, Braunschweig`, and records p778 as blank/end matter.
+- Evidence: updated p754+p759+p762+p763+p764+p772+p777 cumulative German TeX/PDF, two XeLaTeX compile logs, full-page 1000dpi source witnesses for pp.775-778, confirmed-fix CSV, visual-disposition CSV, source mapping CSV, checksum CSV, README, and live German source-audit logbook snapshot.
+- Caveat: targeted pp.775-778 source-audit/source-patch support only. The README says the IA tail slice p725-p778 textual tail has now been checked through the final printed text page of the cumulative tail segment, but the broader Noether corpus still requires non-tail page-by-page certification. This is not Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
 
 Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
