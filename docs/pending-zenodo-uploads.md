@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R352 Paper 12 formulas (2), (3), (4), and (8) no-patch closure
+
+Manifest: [20260630_noether_r352_p12_formula_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r352_p12_formula_closure_nopatch.json)
+
+- Artifact: `Noether_R352_LocalCodex_R347_P12_Formula2_3_4_8_CurrentBaseClosure_NoPatch_20260630.zip`, 11,305,637 bytes, SHA256 `2BFA836F6FBC9BFBFEAD182FD704144B96FDA258B3E871241BFEFA2D85D132C7`, 19 entries.
+- Scope/result: no-patch localized formula closure for Paper 12 formulas (2), (3), (4), and (8) on the R347 base. Formula (8)'s earlier source-certain punctuation repair is already present; formulas (2)-(4) remain compatible with prior source-crop dispositions.
+- Evidence: README, current-base formula-closure CSV, source-quality CSV, current formula-context extract, inherited visual/source-quality ledgers, source crops for formulas (2), (3), (4), and (8), source-audit logbook snapshots, and SHA256 ledger.
+- Caveat: localized formula closure only, not global Paper 12 certification. GDZ raw pages are below strict native650 full-page certification preference; 1000/1200 ppi crops are inspection enlargements, not new optical detail.
+
 ## 2026-06-30: Noether R351 Paper 32 beta-fix source-survival no-patch support
 
 Manifest: [20260630_noether_r351_p32_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r351_p32_sourcefix_survival_nopatch.json)
