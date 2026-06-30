@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R321 Web R275 P15 redundant no-patch bridge
+
+Manifest: [20260630_noether_r321_webr275_p15_redundant_nopatch_bridge.json](../manifests/pending-zenodo-uploads/20260630_noether_r321_webr275_p15_redundant_nopatch_bridge.json)
+
+- Artifact: `Noether_R321_LocalCodex_R320_WebR275_P15Redundant_NoPatchBridge_20260630.zip`, 7,119,717 bytes, SHA256 `2AF41B26985FB0C7010AF9CC059BBF59C2B45C1272A9B0504519F7EF05BF5A99`, 16 entries.
+- Scope/result: no-patch bridge for the late-visible Web R275 P15 pp.148-152 source-fix package. Web R275's useful Paper 15 p149 formula (7) correction is source-valid but already present in the current R320/R319 LocalCodex head.
+- Evidence: current R320-carried TeX/PDF renamed for this bridge, Web R275 ledgers/diff/source-quality note, P15 p149 source page/crop, line-check CSV showing `[G]_{\left(\xi_{14}=\xi_{13}\right)}` present and the older ratio condition absent, and bridge disposition/no-patch notes.
+- Caveat: bridge/provenance only. Do not replace the current R319/R320 cumulative with Web R275, because Web R275 is based on older Web R274 and would roll back later local work. This is not Paper 15 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R320 Paper 08 pp.93-94 opening closure no-patch support
 
 Manifest: [20260630_noether_r320_p08p93_094_opening_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r320_p08p93_094_opening_closure_nopatch.json)
