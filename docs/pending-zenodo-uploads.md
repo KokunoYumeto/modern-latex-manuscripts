@@ -1,3 +1,13 @@
+## 2026-06-30: Noether after R318 R274/P10-P20 survival bridge no-patch support
+
+Manifest: [20260630_noether_after_r318_r274_p10p20_survival_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_after_r318_r274_p10p20_survival_bridge_nopatch.json)
+
+- Artifact: `Noether_LocalCodex_after_R318_R274_P10P20_SurvivalBridge_NoPatch_20260630.zip`, 3,416,098 bytes, SHA256 `DDAFD7D79268862456B9C7F83FA5053DEBD2B2C0B65FBC69CEB6EB79EF276A63`, 7 entries.
+- Scope/result: no-patch survival/current-control bridge on the R318 German cumulative. It checks that older R274 P24/tail anchors and selected P10-P20 source-audit trap anchors survive in R318.
+- Evidence: current R318 cumulative German TeX/PDF, README, summary JSON, survival CSV, logbook snapshot, and checksums. No new source images are included.
+- Caveat: support/provenance only. This does not replace R318 with R274, does not certify P10-P20 or the tail, does not close Noether, does not synchronize translations, and is not critical-edition material.
+- Machine-ledger warning: one P19 Noether-Schmeidler spelling row in the CSV has an unquoted comma-separated line-number list, so naive CSV parsing misplaces its disposition/reason fields. Read the raw row/README or clean that row before using the CSV as strict machine-readable data.
+
 ## 2026-06-30: Noether after R318 Paper 32 p.226 Brauer polynomial no-patch evidence
 
 Manifest: [20260630_noether_after_r318_p32p226_brauer_polynomial_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_after_r318_p32p226_brauer_polynomial_nopatch.json)
