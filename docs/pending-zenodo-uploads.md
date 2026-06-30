@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R363-R364 Papers 15-16 source-fix/audit survival no-patch support
+
+Manifest: [20260630_noether_r363_r364_p15_p16_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r363_r364_p15_p16_survival_nopatch.json)
+
+- Artifacts: `Noether_R363_LocalCodex_R347_P15_SourceFixSurvival_NoPatch_20260630.zip`, 3,253,791 bytes, SHA256 `13DF2FC840CE77F20609BC0DE73D5CC294F3706A2BE380968DEAA758C564633A`, 19 entries; and `Noether_R364_LocalCodex_R347_P16_SourceAuditSurvival_NoPatch_20260630.zip`, 4,473,781 bytes, SHA256 `9066219E50AD1569E13810F931B1F816BDE9790A51E4EF31F77188D0ACE9024C`, 17 entries.
+- Scope/result: no-patch current-base survival support. R363 confirms current R347 Paper 15 is normalized-identical to the R335/R334 accepted Paper 15 source-fix survival span. R364 confirms current R347 Paper 16 is normalized-identical to the R343/R341 Paper 16 source-audit survival span.
+- Evidence: README files, span-check CSVs, no-patch/regression-trap CSVs, source-quality CSVs, current/comparator span extracts, and SHA256 ledgers.
+- Caveat: no TeX patch. R363 and R364 are survival/anti-regression support only, not fresh source recertification. P15 is best-staged around GDZ/native400; P16 is around 400ppi with enlarged crops as readability aids. Do not replay stale Web R275/P15 rows over R347, and do not use bad-offset GDZ canvases 25-30 for P16.
+
 ## 2026-06-30: Noether R361-R362 Papers 09 and 13-14 source-audit survival no-patch support
 
 Manifest: [20260630_noether_r361_r362_p09_p13_p14_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r361_r362_p09_p13_p14_survival_nopatch.json)
