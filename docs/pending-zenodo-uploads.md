@@ -7538,3 +7538,19 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 627,336 bytes, SHA256 `B4D800C8A1AEF8451F7AC6B6A566DF8ADF82920C0D8270ACB6B4A4551F1AEE1E`, modified locally 2026-06-30T02:23:45.
 - Scope: live German source-audit logbook now including the P41/P42/P43 tail source-audit survival entry.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
+## 2026-06-30: Noether post-R273 P11 pp.223-224 targeted audit
+
+Manifest: [20260630_noether_r273_p11_p223_224_targeted_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p11_p223_224_targeted_audit_nopatch.json)
+
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P06p195Base_P11_p223_224_TargetedAudit_NoPatch_20260630.zip`, 13,876,267 bytes, SHA256 `3362CF13403CE5B5DDC4AB4D8FA018E627A25684D62982F465F38A11EDE04F9E`, 8 entries.
+- Scope: Paper 11 printed pp.223-224, on the P06-p195 patched base. It checks formulas (2)-(7), source footnotes `*)` and `**)`, the `\pm\sigma_n(x)` passage, rationality-field wording, and the `\Omega_\Gamma` / `\Omega(\Omega_\Gamma)` minimal-basis paragraph.
+- Caveat: no TeX patch. Evidence is GDZ IIIF 400ppi plus 2.5x zoom inspection renders. This is targeted source-audit/current-control support only, not Paper 11 certification, native650+ recertification, Noether closure, multilingual synchronization, source closure, or critical-edition material.
+
+## 2026-06-30: Noether German source-audit logbook refresh after P11 pp.223-224
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 642,739 bytes, SHA256 `2EE8C33D392EFF8298BDF8ED0CA0A53EB968501B506B63C67425655478B9FD68`, modified locally 2026-06-30T03:56:59.
+- Scope: live German source-audit logbook now including the P11 pp.223-224 targeted audit on the P06-p195 patched base.
+- Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
