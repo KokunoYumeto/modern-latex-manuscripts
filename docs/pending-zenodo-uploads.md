@@ -1,3 +1,23 @@
+## 2026-06-30: Noether R302 Paper 24 p.233 equals-zero source-style fix
+
+Manifest: [20260630_noether_r302_p24p233_equals_zero_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r302_p24p233_equals_zero_sourcefix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_R302_LocalCodex_R301_P24p233_SourceStyleEqualsZeroFix_20260630.zip`, 16,763,135 bytes, SHA256 `D64250AAC73C0730593B87A08BF771E88B49992FEAF1ADD41136D5BE49C9E907`, 24 entries.
+- Scope/result: narrow Paper 24 printed-p.233 source-style repair on top of R301. It changes two carried `\equiv ... \pmod{...}` renderings in sections 1.4 and 1.5 back to the source-visible `=0(...)` notation: `b^{(i)}G(x)=0(\frakm)` and `b^{(i)}g(\xi)=0(\frakM)`. Formula (2) below the first repaired sentence was already correct in R301.
+- Evidence: updated cumulative German TeX/PDF, R301 base PDF reference, exact diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered checks, GDZ Math. Ann. 90 native400 printed-p.233 page, and enlarged crops.
+- Caveat: targeted two-locus current-control/source-style support only. The witness is best-staged native400, below the preferred native650 threshold; enlarged crops are readability aids, not native-resolution upgrades. This is not Paper 24 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
+## 2026-06-30: interlanguage logs quick Web/Pro handoff, small 06:56 refresh
+
+Manifest: [20260630_interlanguage_logs_quick_webdrop_065604.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_logs_quick_webdrop_065604.json)
+
+- Candidate record: Interlanguage and constructed-language mathematical translation notes, pending dedicated DOI.
+- Artifact: `interlanguage_logs_quick_webdrop_20260630_065604.zip`, 1,406,739 bytes, SHA256 `A8EBA2EEE3E1668DD689E4C4AB21D1D51CA5E83DE7A0BBF4BF74334C8AF015E1`, 119 entries.
+- Scope/result: small Web/Pro context handoff for the interlanguage / Slavic / Interslavic / constructed-language / multilingual Noether methodology lane. It keeps the branch/logbook/reviewer-authority/source-evidence notes available without uploading the larger payloads.
+- Caveat: working context only. Not a mathematical reader release, not source certification, not native-speaker approval, not term approval, and not a critical edition. The larger 03:39 quick-drop remains provenance; this 06:56 ZIP is the convenient small live handoff.
+
 ## 2026-06-30: Noether R290-R301 source-fix and survival batch
 
 Manifest: [20260630_noether_r290_r301_sourcefix_and_survival_batch.json](../manifests/pending-zenodo-uploads/20260630_noether_r290_r301_sourcefix_and_survival_batch.json)
