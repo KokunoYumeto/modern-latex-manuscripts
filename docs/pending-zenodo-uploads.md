@@ -2,7 +2,7 @@
 
 Manifest: [20260630_noether_r349_r350_tail_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r349_r350_tail_survival_nopatch.json)
 
-- Artifacts: `Noether_R349_LocalCodex_R347_P37_P39_SourceSurvival_NoPatch_20260630.zip`, 3,483,142 bytes, SHA256 `AB25DD73DF5DA9DC3CFC7A940A47688AF6DD20632910CA39C6BCE44B1256D315`, 24 entries; and `Noether_R350_LocalCodex_R347_P40_P43_SourceSurvival_NoPatch_20260630.zip`, 3,675,205 bytes, SHA256 `F3A68C5C12169F72EB25D6CC731E3600C2A731CECF016B382A359C5D8C70A8A8`, 23 entries.
+- Artifacts: `Noether_R349_LocalCodex_R347_P37_P39_SourceSurvival_NoPatch_20260630.zip`, 3,483,142 bytes, SHA256 `AB25DD73DF5DA9DC3CFC7A940A47688AF6DD20632910CA39C6BCE44B1256D315`, 24 entries; and `Noether_R350_LocalCodex_R347_P40_P43_SourceSurvival_NoPatch_20260630.zip`, 3,907,465 bytes, SHA256 `B95BF52BC981C495E0E592F813EC241C9932F244ED02756A0E56E6B02E271A85`, 24 entries.
 - Scope/result: no-patch tail survival checks on the R347 base. R349 confirms survival for Papers 37-39; R350 confirms survival for Papers 40-43.
 - Evidence: README files, summary JSON, survival-check CSV ledgers, current normalized span extracts, prior source-audit/source-fix ledgers, source-audit logbook snapshots, and SHA256 ledgers.
 - Caveat: current-base survival evidence only, not a fresh full recertification from scratch. P42 remains source-limited around 360ppi with rendered 650dpi readability aids. This is not Noether closure, not multilingual synchronization, not strict native650/1000 source closure, and not critical-edition material.
