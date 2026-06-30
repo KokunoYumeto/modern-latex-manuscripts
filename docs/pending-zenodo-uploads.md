@@ -118,6 +118,17 @@ Manifest: [20260630_noether_r273_tail_p775_778_final_biblio_sourcepatch.json](..
 - Caveat: targeted pp.775-778 source-audit/source-patch support only. The README says the IA tail slice p725-p778 textual tail has now been checked through the final printed text page of the cumulative tail segment, but the broader Noether corpus still requires non-tail page-by-page certification. This is not Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
+## 2026-06-30: Noether R273 Paper 24 p233 formula (2) source-style patch
+
+Manifest: [20260630_noether_r273_p24_p233_formula2_source_style_patch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p24_p233_formula2_source_style_patch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P24_p233_Formula2_SourceStylePatch_on_TailBase_20260630.zip`, 10,119,556 bytes, SHA256 `EE9BACBC4BF12D4568A636AC624F831D3D53676E90972E667DEA2026F02EB240`. Sidecar SHA was written; ZIP listing check passed with 16 entries.
+- Scope/result: targeted Paper 24 printed/source p.233 formula (2) source-style patch on top of the active local tail-fixed base. It changes the carried normalized congruence notation from `B^{(i)}\frakg_{i-1}\equiv0\pmod{\frakm}` to source-style `B^{(i)}\frakg_{i-1}=0\;(\frakm)`.
+- Evidence: updated p754+p759+p762+p763+p764+p772+p777+P24p233 cumulative German TeX/PDF, two XeLaTeX console logs, best staged GDZ native400 p233 full-page witness, labelled 3x inspection crop for formula (2), confirmed-fix CSV, source-quality CSV, visual-disposition CSV, checksum CSV, README, and live German source-audit logbook snapshot.
+- Caveat: targeted one-locus source-style patch only. The staged witness is best-available native400, below the preferred native650/1000 rule; the crop is an inspection enlargement from that source, not a new higher-native source. This is not full Paper 24 recertification, Noether closure, multilingual synchronization, whole-corpus source closure, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
 
 Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
