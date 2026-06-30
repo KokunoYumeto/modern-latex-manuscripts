@@ -1,3 +1,14 @@
+## 2026-06-30: Noether WebR270 P24/P20/P19 source-audit lineage
+
+Manifest: [20260630_noether_webr270_p24_p20_p19_source_audit_lineage.json](../manifests/pending-zenodo-uploads/20260630_noether_webr270_p24_p20_p19_source_audit_lineage.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 8 ZIPs, 333,831,077 bytes total. ZIP listing tests passed.
+- Scope/result: older WebR270 LocalCodex source-audit lineage covering Paper 24 pp.237-261, Paper 20 source pp.26-33, and Paper 19 pp.24-60. The packages contain real source-certain repairs and no-patch dispositions, but later WebR271/R272/R273 current-control packages carry the public control state.
+- Notable repair lineage: P24 includes the end-of-paper p237-p261 repair wave, P20 includes the full visual pass and p28 symbol-level repair, and P19 includes successive pp.24-60 repairs/no-patch traps, including the Sigma-ring `(#)` operation distinction on p54.
+- Caveat: mostly GDZ/Math. Ann. raw images around 400ppi, with some P20 pages at 600ppi and enlarged crops for dense loci. These packages certify only recorded pages/loci, not whole papers, not the Noether corpus, not multilingual synchronization, not strict native650+ certification, and not critical-edition material.
+- Publication policy: keep as source-audit lineage/provenance for the next compact Noether rebalance. Do not upload loose as reader-facing files while the Zenodo record remains at the file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 11 best-available-400 current-base audit
 
 Manifest: [20260630_noether_r273_p11_bestavailable400_currentbase_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p11_bestavailable400_currentbase_audit_nopatch.json)
