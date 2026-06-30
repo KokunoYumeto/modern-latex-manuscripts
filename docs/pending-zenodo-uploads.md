@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 24 p.234 formula (4) source-style follow-up
+
+Manifest: [20260630_noether_r273_p24_p234_formula4_source_style_followup.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p24_p234_formula4_source_style_followup.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P24_p234_Formula4_SourceStyleFollowup_on_P24p233Base_20260630.zip`, 4,936,634 bytes, SHA256 `4CAB7F782AD964AB9A9213A4355D0443B26C67B37B09AAC91B1A16780A5C9C25`. Sidecar SHA was written; ZIP listing check passed with 11 entries.
+- Scope/result: targeted Paper 24 printed p.234 formula (4) source-style follow-up on top of the registered P24 p233 formula (2) base. It changes four congruence relations from carried `\pmod{...}` notation to source-visible parenthetical congruence notation `( \frakg_i )` and `( \frakm )`.
+- Evidence: updated cumulative German TeX/PDF, XeLaTeX compile logs, diff from the registered p233 ZIP base, GDZ native400 p234 full-page source witness, enlarged formula (4) crop, confirmed-fix CSV, checksum CSV, and README.
+- Caveat: targeted one-locus support only. The witness is native400, below the preferred native650/1000 rule; the crop is an inspection enlargement, not a new higher-native source. This is not Paper 24 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance beside the p233 formula (2) packet; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether Paper 22 GDZVol88 source-witness upgrade
 
 Manifest: [20260630_noether_p22_gdzvol88_source_upgrade_400600ppi.json](../manifests/pending-zenodo-uploads/20260630_noether_p22_gdzvol88_source_upgrade_400600ppi.json)
