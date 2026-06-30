@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R342 audit-only stale-base guard for Web R276 salvage
+
+Manifest: [20260630_noether_r342_auditonly_r341_web276_salvage_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r342_auditonly_r341_web276_salvage_nopatch.json)
+
+- Artifact: `Noether_R342_LocalCodex_AuditOnly_R341_WebR276Salvage_NoPatch_20260630.zip`, 2,993,662 bytes, SHA256 `5C6E9E887F5595FE00DDECAAB04EE1E87E41E36E6D094AD690C5FAAC9911D9DC`, 7 entries.
+- Scope/result: audit-only no-patch stale-base guard after R341. It inspects the newer-timestamp Web R276 P13/P37/P38 source-fix package and records that R276 is based on the older Web R274/R275 line, so it must not replace R341.
+- Evidence: R342 README, disposition CSV, source-quality CSV, source-audit logbook snapshot, P13 p252 GDZ/400-class source witness, Deuring tail p735 native360 staged source witness, and SHA256 ledger.
+- Caveat: no cumulative TeX is included because there are no changes beyond R341. Treat this as anti-regression/source-disposition support only, not a reader release, not Noether closure, not multilingual synchronization, not strict native650/1000 source closure, and not critical-edition material.
+
 ## 2026-06-30: Noether R341 Paper 24 p232 source-left equation-tag layout fix
 
 Manifest: [20260630_noether_r341_p24p232_source_left_equation_tags.json](../manifests/pending-zenodo-uploads/20260630_noether_r341_p24p232_source_left_equation_tags.json)
