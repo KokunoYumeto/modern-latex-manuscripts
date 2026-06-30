@@ -30,6 +30,17 @@ Manifest: [20260630_noether_r273_p21_varrho_sourcepatch_on_p22base.json](../mani
 - Caveat: targeted one-locus P21 source-symbol patch only. It is not a full Paper 21 audit, not Paper 21 certification, not Noether closure, not multilingual synchronization, and not critical-edition material. The package also records that `PPN36060997X` / `P21_GDZ_Encyklopaedie_PPN36060997X_native600_jpg` is an invalid witness for P21 because it is C. Segre, `Mehrdimensionale Räume`.
 - Publication policy: fold into the next compact Noether German current-control/source-audit rebalance; do not upload loose above reader PDFs/current TeX while the Noether record remains at the file ceiling.
 
+## 2026-06-30: Noether R273 post-P43 tail p735 `Wisssch.` source-typo no-patch closure
+
+Manifest: [20260630_noether_r273_tail_p735_wisssch_source_typo_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_tail_p735_wisssch_source_typo_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_Tail_p735_Wisssch_SourceTypo_NoPatch_20260630.zip`, 8,064,128 bytes, SHA256 `9128EF9DBCBB36EDD9472CDA1272D516EB5486271108A3405E2B26AB48D9C8A5`. Sidecar SHA was written; ZIP listing check passed with 8 entries.
+- Scope/result: post-P43 tail source-typo no-patch closure. A suspicious reference in the Chapter IV, Satz 6 footnote on printed p.735 reads `Sitzungsberichte d. preuss. Akademie der Wisssch. 1927 XXXII, Seite 221.` The package confirms at 1000dpi that the printed source itself reads `Wisssch.`, so the current source-critical TeX should retain it rather than silently normalizing to `Wiss.` or `Wissensch.`.
+- Evidence: current cumulative TeX/PDF for context, source slice page mapping, full 1000dpi page witness, targeted 1000dpi footnote crop, audit CSV, and checksum CSV.
+- Caveat: no TeX patch. This is a source-trap/provenance package only. It does not certify the post-P43 tail, the referenced footnote apparatus, the Noether corpus, multilingual synchronization, or a critical edition.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
 
 Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
