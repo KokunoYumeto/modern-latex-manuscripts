@@ -1,3 +1,25 @@
+## 2026-06-30: Noether R273 Paper 11 best-available-400 current-base audit
+
+Manifest: [20260630_noether_r273_p11_bestavailable400_currentbase_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p11_bestavailable400_currentbase_audit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P11_CurrentBaseBestAvailable400_SourceAudit_NoPatch_20260630.zip`, 26,407,748 bytes, SHA256 `9AC351B7E31F75EA0EE95F3C0620ECCCFC0DB008B1706F93C3B6F0926C5041B0`. ZIP listing test passed with 21 entries.
+- Scope/result: no new TeX patch. Paper 11, printed/source pp.221-229, was checked as a current-base source audit after the P35 full650 sourcefix base. The package says the active P11 span survives the prior P11 source-page audit, with repeated direct visual checks of fragile loci.
+- Evidence: current cumulative TeX/PDF, current P11 TeX span, raw GDZ IIIF JPG source witnesses plus assembled source PDF for pp.221-229, prior P11 page-by-page ledgers, current-base survival/disposition CSV, source-resolution ledger, and SHA256 file manifest.
+- Caveat: the complete staged P11 source witness is GDZ IIIF JPG at 400ppi, below the preferred native650+ source floor. Dense formula areas on pp.223, 226, and 228 should be rechecked if a higher-resolution witness appears. This is best-available current-control/source-audit support only, not strict high-resolution certification, Paper 11 certification, Noether closure, multilingual synchronization, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance. Do not upload loose above reader PDFs/current TeX while the Noether record remains at the Zenodo file ceiling.
+
+## 2026-06-30: Noether R273 Paper 16 current-base survival audit
+
+Manifest: [20260630_noether_r273_p16_currentbase_survival_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p16_currentbase_survival_audit_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P16_CurrentBaseSurvival_Audit_NoPatch_20260630.zip`, 33,931,880 bytes, SHA256 `436B17BDB025670DCA0978CF0ACFBB9157C474AC82EEF8BFF8B1DA00733E756E`. ZIP listing test passed with 28 entries.
+- Scope/result: no new TeX patch. Paper 16, printed pp.25-30 / active cumulative lines 9941-10105, was checked as a current-base survival audit after the P35 full650 sourcefix base. The known printed p.29 source-visible dash punctuation around `\Omega\Delta F=PF` survives in the current cumulative.
+- Evidence: current cumulative TeX/PDF, current P16 extract, IA400 source pages for printed pp.25-30, enlarged formula crops, prior P16 source-fix/disposition ledgers, source-route CSVs, and this-turn survival disposition CSV.
+- Caveat: best staged complete P16 witnesses are IA/GDZ around 400ppi plus enlarged formula crops, below the preferred native650+ source floor. This is best-available current-control/source-survival support only, not strict high-resolution certification, Paper 16 certification, Noether closure, multilingual synchronization, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance. Do not upload loose above reader PDFs/current TeX while the Noether record remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 35 full-650dpi source-audit patch
 
 Manifest: [20260630_noether_r273_p35_full650_source_audit_patch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p35_full650_source_audit_patch.json)
