@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R322 Papers 26-28 short abstracts closure no-patch support
+
+Manifest: [20260630_noether_r322_p26_p28_short_abstracts_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r322_p26_p28_short_abstracts_closure_nopatch.json)
+
+- Artifact: `Noether_R322_LocalCodex_R321_P26_P28_ShortAbstracts_SourceClosure_NoPatch_20260630.zip`, 10,143,787 bytes, SHA256 `9AAC76145854D693F19BF685E27194E5916A7CA55B51D80AECB87C183180DCE9`, 12 entries.
+- Scope/result: no-patch source-audit/current-control packet for Noether short abstract entries Papers 26-28 on the R321/R320/R319 current line. It checks Paper 26 printed p.102, Paper 27 printed p.101, and Paper 28 printed p.144.
+- Evidence: current cumulative German TeX/PDF, focused 1200 dpi inspection crops from staged GDZ native-600 witnesses, visual-disposition CSV, source-quality CSV, no-patch trap CSV, source-audit logbook snapshot, and checksums.
+- Caveat: bounded inspected-locus support only. The package title says source closure, but this is not global Paper 26/Paper 27/Paper 28 certification, Noether closure, multilingual synchronization, or critical-edition material. Source pages are native 600 ppi, below the standing native-650 preference; inspection crops are enlargements.
+- No-patch traps: keep P27 source-visible plain italic `q`/`p`; keep P28 source spellings `soviel` and `Frobeniussche Theorie`; treat P26 dash-delimited Doppelkettensatz parenthetical as adequately represented by the current dash construction.
+
 ## 2026-06-30: Noether R321 Web R275 P15 redundant no-patch bridge
 
 Manifest: [20260630_noether_r321_webr275_p15_redundant_nopatch_bridge.json](../manifests/pending-zenodo-uploads/20260630_noether_r321_webr275_p15_redundant_nopatch_bridge.json)
