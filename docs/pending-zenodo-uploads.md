@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R338 Papers 10-20 source-fix survival/status guard no-patch support
+
+Manifest: [20260630_noether_r338_p10_p20_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r338_p10_p20_sourcefix_survival_nopatch.json)
+
+- Artifact: `Noether_R338_LocalCodex_R337_P10_P20_SourceFixSurvival_NoPatch_20260630.zip`, 4,230,869 bytes, SHA256 `075DF685A62DF31B1384FE38CB6AA84ADCB5B4D7BAA8077629BB50B9CD8D817E`, 37 entries.
+- Scope/result: no-patch survival/status guard for Papers 10-20 on the R337 line. It checks that the live cumulative still carries accepted local source-fix/source-audit states for P10, P11, P12, P13-P14, P15, P16-P19, and P20, with all listed spans surviving exactly or after normalization.
+- Evidence: R338 current cumulative German TeX/PDF, current/reference normalized and TeX span extracts, span survival comparison CSV, surviving source-anchor CSV, no-fix/regression-trap CSV, SHA256 ledger, and preentry/postentry source-audit logbook snapshots.
+- Caveat: compact Papers 10-20 status/survival guard only. It has no bulk source images and is not fresh page-by-page visual certification, paper certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R337 Papers 01-06 source-fix survival guard no-patch support
 
 Manifest: [20260630_noether_r337_p01_p06_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r337_p01_p06_sourcefix_survival_nopatch.json)
