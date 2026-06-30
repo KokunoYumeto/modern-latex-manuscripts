@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R309 Paper 30 p.34 Dedekindsche Folgerung II omitted-clause repair
+
+Manifest: [20260630_noether_r309_p30p34_dedekind_clause_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r309_p30p34_dedekind_clause_fix.json)
+
+- Artifact: `Noether_R309_LocalCodex_R308_P30p34_DedekindII_OmittedClause_20260630.zip`, 32,993,130 bytes, SHA256 `6377CA4DAD4C855F15E60A09FE0D104BE5213A45E69FF0F67C49A14918C50F9E`, 22 entries.
+- Scope/result: narrow Paper 30 printed-p.34 source repair on top of R308. It restores the omitted source-visible clause `wegen \sigma\ge1 sind das ganze Groessen der Reihe` in Dedekindsche Folgerung II after `m=c\beta^\sigma`, `n=c\beta^{\sigma-1}`, and keeps the assignments in source-style inline flow.
+- Evidence: updated cumulative German TeX/PDF, exact R308-to-R309 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 281, and P30 p34-p35 source witnesses/crops.
+- Caveat: targeted current-control/source-style support only. Source images are best-available native400-ish GDZ/IA-derived witnesses with enlarged readability renders; not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
+- Supersession note: R309 is now the current narrow local chain head; R308 remains provenance immediately before R309.
+
 ## 2026-06-30: Noether R308 Paper 30 pp.32-33 source-notation repair
 
 Manifest: [20260630_noether_r308_p30p32_source_notation_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r308_p30p32_source_notation_fix.json)
