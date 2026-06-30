@@ -19,6 +19,17 @@ Manifest: [20260630_noether_r273_p22_header_sourcepatch.json](../manifests/pendi
 - Caveat: targeted pp.53-79 source-note/formula patch only. The GDZVol88 source is mixed 400/600ppi with enlarged readability crops, and this package does not certify every body symbol/prose locus of Paper 22. P22 ordinary `\footnote` tokens are eliminated in this branch; nearby ordinary footnote hits belong to preceding Paper 21.
 - Publication policy: fold into the same compact Noether current-control/source-audit rebalance after the P22 GDZVol88 source-witness upgrade.
 
+## 2026-06-30: Noether R273 Paper 21 p.71 varrho source patch on P22 base
+
+Manifest: [20260630_noether_r273_p21_varrho_sourcepatch_on_p22base.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p21_varrho_sourcepatch_on_p22base.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P21_Varrho_SourcePatch_on_P22Base_20260630.zip`, 19,166,819 bytes, SHA256 `00AFEC360E22FCFB23CCBF408F044D273CE8DBC7C8F99071E867F32DECEF0974`. Sidecar SHA agrees; ZIP listing check passed with 49 entries.
+- Scope/result: targeted Paper 21 printed p.71 source-symbol patch on top of the current P22 source-patch base. It changes the final invariant-variational-problems paragraph from plain `\rho` to source-visible `\varrho` at `G_\varrho`, essential parameters, linearly independent divergences, arbitrary functions, and dependencies.
+- Evidence: patched cumulative TeX/PDF, diff, repair CSV, correct P21 source witness `PPN360610161_LOG0382` canvas `00000691`, enlarged p.71 crop, render checks for cumulative pages 226-228, and the carried-forward P22 source-patch base.
+- Caveat: targeted one-locus P21 source-symbol patch only. It is not a full Paper 21 audit, not Paper 21 certification, not Noether closure, not multilingual synchronization, and not critical-edition material. The package also records that `PPN36060997X` / `P21_GDZ_Encyklopaedie_PPN36060997X_native600_jpg` is an invalid witness for P21 because it is C. Segre, `Mehrdimensionale Räume`.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance; do not upload loose above reader PDFs/current TeX while the Noether record remains at the file ceiling.
+
 ## 2026-06-30: Noether R273 P05/P06/P07/P08 and P12/P13/P20 guard wave
 
 Manifest: [20260630_noether_r273_p05_p08_p06p195_guard_wave.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p05_p08_p06p195_guard_wave.json)
