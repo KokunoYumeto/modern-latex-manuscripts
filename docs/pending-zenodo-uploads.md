@@ -7435,6 +7435,14 @@ Manifest: [20260630_noether_r273_p41_p43_tail_survival_nopatch.json](../manifest
 - Scope: P41, P42, and the bounded P43 article body through `Eingegangen 25. Oktober 1949.` are byte-identical to their accepted prior source-audit/reference spans. P41 preserves `Anologon`; P42 preserves `K=\Gg\ast k`; P43 preserves source footnote 11 and the received-date boundary.
 - Caveat: no TeX patch. P41 is GDZ around 400ppi, P42 around 360ppi, and P43 has localized GDZ600 evidence but no global native650/1000dpi recertification. Compare P43 only through the received-date article boundary, not to end-of-file bibliography/endmatter. This is current-control/survival support only, not certification or critical-edition material.
 
+## 2026-06-30: Noether post-R273 P40 full-closure survival patch
+
+Manifest: [20260630_noether_r273_p40_fullclosure_survival_patch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p40_fullclosure_survival_patch.json)
+
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P40_FullClosureSurvivalPatch_20260630.zip`, 7,711,634 bytes, SHA256 `1320F73E7371C6DE1975C53E9FC09AFABFEBAC70FA98486BAB8A57B0E7A8196E`, 19 entries. This ZIP was created locally from the complete dropped folder after rebuilding it to include the cumulative PDF, TeX, extracted P40 span, audit ledgers, and source witnesses.
+- Scope: targeted Paper 40 regression repair after WebR273. It restores source word `Abbildung` on printed p.517, restores overlined operator notation and the source-shaped `(2a),(2a*)` display on p.518, and restores plain `R-Rechtsmodul` on p.519. The package says the post-patch extracted Paper 40 span is byte-identical to the prior complete LocalCodex Paper 40 closure.
+- Caveat: actual TeX patch/current-control support, but not a fresh full re-audit of every Paper 40 line. Evidence is best-available GDZ full-resolution imagery around 400ppi, below preferred native650+. Not Paper 40 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether German source-audit logbook refresh after P41-P43
 
 Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
