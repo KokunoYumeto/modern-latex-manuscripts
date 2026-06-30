@@ -7548,7 +7548,7 @@ Manifest: [20260630_noether_r273_p41_p43_tail_survival_nopatch.json](../manifest
 
 Manifest: [20260630_noether_r273_p40_fullclosure_survival_patch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p40_fullclosure_survival_patch.json)
 
-- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P40_FullClosureSurvivalPatch_20260630.zip`, 7,711,634 bytes, SHA256 `1320F73E7371C6DE1975C53E9FC09AFABFEBAC70FA98486BAB8A57B0E7A8196E`, 19 entries. This ZIP was created locally from the complete dropped folder after rebuilding it to include the cumulative PDF, TeX, extracted P40 span, audit ledgers, and source witnesses.
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P40_FullClosureSurvivalPatch_20260630.zip`, 7,713,510 bytes, SHA256 `63995302725D359F67558F4291F4D56E64F7F0B6D8103E3A325A5E1516FE59C2`, 13 entries. This ZIP contains the cumulative PDF, TeX, extracted P40 span, audit ledgers, and source witnesses from the complete dropped folder.
 - Scope: targeted Paper 40 regression repair after WebR273. It restores source word `Abbildung` on printed p.517, restores overlined operator notation and the source-shaped `(2a),(2a*)` display on p.518, and restores plain `R-Rechtsmodul` on p.519. The package says the post-patch extracted Paper 40 span is byte-identical to the prior complete LocalCodex Paper 40 closure.
 - Caveat: actual TeX patch/current-control support, but not a fresh full re-audit of every Paper 40 line. Evidence is best-available GDZ full-resolution imagery around 400ppi, below preferred native650+. Not Paper 40 certification, Noether closure, multilingual synchronization, or critical-edition material.
 
