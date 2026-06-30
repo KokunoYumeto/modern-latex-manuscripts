@@ -20,6 +20,7 @@ As of 2026-06-30, the `noether-slavic-handoff/20260629/` subtree from `origin/co
 
 - `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629_db7ffc6c.zip`: compact package of the committed PC multilingual/linguistics branch handoff.
 - `interlanguage_logs_simple_webdrop_20260630.zip`: quick local Web handoff of interlanguage/logbook-style files only; not a curated public reader release unless deliberately repackaged.
+- `interlanguage_logs_quick_webdrop_20260630_033913.zip`: current quick Web/Pro context handoff assembled from the Slavic linguistics branch handoff, PC multilingual linguistics handoff, earlier web handoff, a small Russian-summary disposition packet, and a text/log-only slice of the bulky Slavic endmatter source-fidelity update. This supersedes the earlier `031411` quick-drop for immediate Web upload, but remains rough working context, not a curated public reader release.
 - `interlanguage_logs_quick_webdrop_20260630_031411.zip`: larger quick Web/Pro review bundle containing prior interlanguage handoff ZIPs plus unpacked Slavic/Interslavic/constructed-language logs and branch handoff material; working context only, not a curated public reader release.
 - `interlanguage_logs_web_handoff_20260630.zip`: earlier, smaller Web handoff of the same interlanguage/logbook/methodology lane; useful for quick review, but covered by the later simple Web-drop and the imported GitHub subtree.
 - `Noether_Slavic_Linguistics_Branch_Text_Handoff_20260629_c0448847.zip`: compact text-only Slavic/Interslavic branch handoff.
