@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 43 p21 xi-power source-order patch
+
+Manifest: [20260630_noether_r273_p43_p21_xipower_sourceorder_patch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p43_p21_xipower_sourceorder_patch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P43_p21_XiPowerOrder_SourcePatch_20260630.zip`, 9,183,113 bytes, SHA256 `9BF0885D43CD154DEC84847E37C1CBD1B1791487EA61E56E1003240A2F48FE4E`. ZIP listing test passed with 14 entries.
+- Scope/result: tiny source-order patch. Paper 43 source article page 21 / printed p.21 visibly reads `\xi^{\varrho t}`; the current cumulative had the mathematically equivalent but source-order-different `\xi^{t\varrho}`. The staged cumulative patches to `\xi^{\varrho t}` and compiles.
+- Evidence: patched cumulative TeX/PDF, prepatch PDF, two XeLaTeX logs, 650dpi source-page witness, high-zoom crop, confirmed-fix/page-disposition/source-quality ledgers, and SHA256 manifest.
+- Caveat: one-locus source-faithfulness/order patch only. Not Paper 43 certification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance. Do not upload loose above reader PDFs/current TeX while the Noether record remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether WebR270 P24/P20/P19 source-audit lineage
 
 Manifest: [20260630_noether_webr270_p24_p20_p19_source_audit_lineage.json](../manifests/pending-zenodo-uploads/20260630_noether_webr270_p24_p20_p19_source_audit_lineage.json)
