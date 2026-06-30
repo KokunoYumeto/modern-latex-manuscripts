@@ -65,6 +65,27 @@ The directory contains 66 tracked files at the latest observed commit.
 - Term approvals: 0.
 - Accepted corrections: 0.
 
+## 2026-06-30 Follow-Up Check
+
+A fresh fetch on 2026-06-30 found no newer laptop/PC branch beyond
+`origin/codex/noether-pc-20260629` at `db7ffc6c`. The current
+archive-maintenance branch already carries the useful
+`noether-slavic-handoff/20260629/` subtree directly: 66 files, about 2.6 MB.
+
+The practical interpretation is:
+
+- GitHub now preserves the laptop/PC method, terminology, source-evidence,
+  page-inspection, and review-scaffolding files for ordinary inspection.
+- The branch has not delivered a new front-facing Noether reader PDF/TeX set
+  through GitHub.
+- The large payloads named by the branch remain pointer-only unless transferred
+  separately: the approximately 771 MB Slavic cumulative package and the
+  approximately 765-807 MB Arabic/language-planning checkpoint packages were
+  not committed to GitHub and were not reverified on this PC during this check.
+- The strongest completed work remains Slavic/Interslavic package validation
+  and multilingual methodology infrastructure; term approval, native/external
+  review acceptance, and canonical reader release status remain open.
+
 ## Important Boundaries
 
 - This is not a reader-facing TeX/PDF package.
