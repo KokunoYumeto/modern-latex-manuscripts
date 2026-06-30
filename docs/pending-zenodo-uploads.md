@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R310 Paper 30 p.43 weak-prime element-notation repair
+
+Manifest: [20260630_noether_r310_p30p43_weakprime_element_notation_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r310_p30p43_weakprime_element_notation_fix.json)
+
+- Artifact: `Noether_R310_LocalCodex_R309_P30p43_WeakPrimeElementNotation_20260630.zip`, 33,638,718 bytes, SHA256 `A5A0A7015C343D2DBFF4E32B7AF58E1C9D8B30739AEF9255B695FF94419B4A7D`, 38 entries.
+- Scope/result: narrow Paper 30 printed-p.43 source-notation repair on top of R309. It restores source-visible element notation `a`, `b`, and `ab` in the weak-prime definition, while intentionally leaving the following strong-prime clause in ideal-level notation.
+- Evidence: updated cumulative German TeX/PDF, exact R309-to-R310 diff, confirmed-fix/no-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 286, and P30 p43 source witnesses/crops.
+- Caveat: targeted current-control/source-style support only. Source images are best-available native400-ish witnesses with enlarged readability renders; not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
+- Supersession note: R310 is now the current narrow local chain head; R309 remains provenance immediately before R310.
+
 ## 2026-06-30: Noether R309 Paper 30 p.34 Dedekindsche Folgerung II omitted-clause repair
 
 Manifest: [20260630_noether_r309_p30p34_dedekind_clause_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r309_p30p34_dedekind_clause_fix.json)
