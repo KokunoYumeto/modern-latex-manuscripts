@@ -1,10 +1,20 @@
+## 2026-06-30: Noether after R318 Paper 32 p.226 Brauer polynomial no-patch evidence
+
+Manifest: [20260630_noether_after_r318_p32p226_brauer_polynomial_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_after_r318_p32p226_brauer_polynomial_nopatch.json)
+
+- Artifact: `Noether_LocalCodex_after_R318_P32p226_BrauerPolynomial_NoPatchEvidence_20260630.zip`, 10,026,204 bytes, SHA256 `56E795E0F1E5D1A6D1403E61134FC6259DDC69AAC80D4C9154A980D8B19310E3`, 13 entries.
+- Scope/result: evidence-only recheck of Noether/Brauer Paper 32 printed/source p.226, specifically the Brauer postscript polynomial currently carried as `f(\Xi)=\Xi^{2n}+a^2p^2\Xi^2+b^2p^2\beta^2=0`.
+- Result: no TeX patch. The glyph after `b^2p^2` remains suspicious/cramped in the available IA JP2-derived witness, but it is not source-certain enough to alter the cumulative. Keep this on the open microglyph queue until a clearer source image or secondary publication witness resolves it.
+- Evidence: current R318 reference TeX/PDF, IA raw-page witness for printed p.226, two context crops, prior R272 open-question ledgers, a fresh no-patch ledger, source-quality note, and post-check logbook snapshot.
+- Caveat: open-question support only. This does not supersede R318, does not correct Paper 32, does not certify Paper 32 p.226, does not close Noether, does not synchronize translations, and is not critical-edition material.
+
 ## 2026-06-30: Noether R318 Paper 31 section 7/8 source-notation restoration
 
 Manifest: [20260630_noether_r318_p31_section7_8_source_notation_restore.json](../manifests/pending-zenodo-uploads/20260630_noether_r318_p31_section7_8_source_notation_restore.json)
 
-- Artifact: `Noether_R318_LocalCodex_R317_P31_Section7_8_SourceNotationRestore_20260630.zip`, 14,370,454 bytes, SHA256 `56F4142C19D4AAB2585A48614E8E15166318153526559FD6641FFB577C83649D`, 36 entries.
+- Artifact: `Noether_R318_LocalCodex_R317_P31_Section7_8_SourceNotationRestore_20260630.zip`, 14,990,030 bytes, SHA256 `538E046F9E4EB1537DD201AA1C19B373A94E93011644A79D061E5722F72CEEB6`, 33 entries.
 - Scope/result: R318 carries forward R314-R317 and restores Paper 31 printed pp.99-104 section 7/8 source notation. The earlier TeX normalized source `\mathfrak H`, quotient field `\mathfrak R'`, extension field `\mathfrak L`, and main order `\mathfrak S` to `\mathfrak o`, `\Omega`, `K`, and `\mathfrak O`; R318 restores the source notation over the section 7/8 tail only.
-- Evidence: updated cumulative German TeX/PDF, exact R312-to-R318 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output checks for cumulative PDF pp.309-314, P31 pp.99-104 source witnesses, and targeted p99/p100 source-notation crops.
+- Evidence: updated cumulative German TeX/PDF, exact R312-to-R318 diff, confirmed-fix/source-quality/build/checksum CSVs, XeLaTeX logs, rendered output checks for cumulative PDF pp.309-314, P31 pp.99-104 source witnesses, targeted p99/p100 source-notation crops, and the R318 source-audit logbook/checksum material included in the final package.
 - Caveat: targeted Paper 31 support only. The complete P31 witnesses used here are 600 dpi renders, below the preferred 650 dpi floor; 1000-equivalent crops are readability enlargements from those 600 dpi source renders, not native 1000 dpi authority. This is not Paper 31 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
 - Supersession note: R318 supersedes R317, R316, R315, and R314 as the current narrow local chain head. R314-R317 remain immediate provenance layers; R313 was a no-fix visual audit; R312 remains the preceding TeX-changing branch base.
 
