@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R365 Paper 17 GDZ600 audit survival no-patch support
+
+Manifest: [20260630_noether_r365_p17_gdz600_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r365_p17_gdz600_audit_survival_nopatch.json)
+
+- Artifact: `Noether_R365_LocalCodex_R347_P17_GDZ600_AuditSurvival_NoPatch_20260630.zip`, 5,343,412 bytes, SHA256 `155BE3E3CA2C5852941503EDF162C1107E23585DD539868882496AA1FF76B4E2`, 30 entries.
+- Scope/result: no-patch current-base survival support for Paper 17, which is embedded without a top-level section anchor. The older P17 audit package is internally identical between its current R273 span and audited final span.
+- Evidence: README, current-base span check CSV, R272-reference vs R347-current diff, R273/final audited span equality and survival-disposition CSVs, no-patch/regression-trap CSV, source-quality CSV, prior P17 band ledgers, targeted p010 crop, span extracts, and SHA256 ledger.
+- Caveat: R347 differs from the older audited extraction, but the saved diff classifies this as wrapper/boundary shape: R347 includes a P17 footnote/tag wrapper at the top, while the older audited reference carries the opening of Paper 18 at the bottom. Treat as survival/anti-regression support only, not Paper 17 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R363-R364 Papers 15-16 source-fix/audit survival no-patch support
 
 Manifest: [20260630_noether_r363_r364_p15_p16_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r363_r364_p15_p16_survival_nopatch.json)
