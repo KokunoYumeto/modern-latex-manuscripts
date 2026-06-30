@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R341 Paper 24 p232 source-left equation-tag layout fix
+
+Manifest: [20260630_noether_r341_p24p232_source_left_equation_tags.json](../manifests/pending-zenodo-uploads/20260630_noether_r341_p24p232_source_left_equation_tags.json)
+
+- Artifact: `Noether_R341_LocalCodex_R340_P24p232_SourceLeftEquationTags_20260630.zip`, 8,901,914 bytes, SHA256 `802D55184673C41A9F7BEEDA733D5DEA88C7F9BD2BD306367A1E9EAD9EB20AA4`, 16 entries.
+- Scope/result: one source-style German cumulative TeX patch in Paper 24 printed p.232. It changes the transformation displays labelled `(1)` and `(1')` from right-tagged `align` displays with comma/quad separators to source-left `\srcnumdisplay` displays with compact semicolon-separated transformation clauses.
+- Evidence: R341 cumulative German TeX/PDF, R340 input reference PDF, exact R340-to-R341 diff, confirmed-fix CSV, source-quality/scope CSV, XeLaTeX logs and pass outputs, SHA256 ledger, GDZ Math. Ann. 90 p232 full-page JPG, targeted transformation-display crop, and source-audit logbook snapshot.
+- Caveat: one-locus Paper 24 source-layout/source-style fix only. It is not Paper 24 certification, Noether closure, multilingual synchronization, strict native650/1000 source closure, or critical-edition material. The source authority is the best staged GDZ p232 image, about native400; the crop is an enlarged readability aid.
+
 ## 2026-06-30: Noether R340 Paper 32 p226 Brauer beta-exponent source fix
 
 Manifest: [20260630_noether_r340_p32p226_brauer_beta_exponent_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r340_p32p226_brauer_beta_exponent_fix.json)
