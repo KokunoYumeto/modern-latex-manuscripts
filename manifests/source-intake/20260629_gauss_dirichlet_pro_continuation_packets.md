@@ -35,6 +35,12 @@ Recommendation: feed the control ZIP first, then the numbered data ZIPs. Treat
 the packets as continuation scaffolding and source witnesses. Promote reader
 PDFs/TeX only after a fresh source-comparison pass.
 
+Checksum caveat: the actual local control ZIP hash is the value in the table
+above. If a web/pro session inspects a checksum CSV inside the control ZIP and
+finds an older self-hash for the control ZIP, prefer the table above and the
+root upload-folder checksum file. The data ZIP hashes match the current local
+files.
+
 ## Dirichlet
 
 Local folder:
@@ -57,6 +63,12 @@ Upload order:
 Recommendation: feed the control ZIP first, then the three data ZIPs. The
 public Dirichlet record already has useful reader PDFs and TeX/source packages;
 this v3 packet is for continuation and backfill, not a new completion claim.
+
+Checksum caveat: the actual local control ZIP hash is the value in the table
+above. If a web/pro session inspects a checksum CSV inside the control ZIP and
+finds an older self-hash for the control ZIP, prefer the table above and the
+root upload-folder checksum file. The data ZIP hashes match the current local
+files.
 
 ## Public Framing
 
