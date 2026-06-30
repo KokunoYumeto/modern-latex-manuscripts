@@ -16,6 +16,8 @@ It should not be buried only inside Noether. Noether is the first large testbed,
 
 As of 2026-06-30, the `noether-slavic-handoff/20260629/` subtree from `origin/codex/noether-pc-20260629` has been imported directly into the main archive-maintenance branch. That import preserves the methodology/logbook/source-evidence files in GitHub for ordinary inspection, without taking the destructive repo-wide branch diff from the side branch. The compact ZIP handoffs remain useful for Web and Zenodo packaging, but GitHub now carries the underlying 20260629 tree itself.
 
+The older `noether-slavic-handoff/20260628/latest/` pointers describe a much larger Slavic cumulative payload, especially `packages/Noether_Slavic_Post44_Papers01_45PlusBibliography_Update_20260628T203324Z.zip` (reported 771,690,649 bytes, 5,382 ZIP entries, SHA256 `4F9A629F42C8292BF4CC5FB43E58EBB951EC2A383E01D0812A20E6644E0999C9`). As of the 2026-06-30 desktop sweep, that exact large payload was not found on this PC by filename search. Treat GitHub's pointer metadata as evidence that the laptop/session produced and validated a large local package, not as proof that the archive-maintenance desktop currently has the payload ready for Zenodo upload.
+
 ## Seed Artifacts
 
 - `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629_db7ffc6c.zip`: compact package of the committed PC multilingual/linguistics branch handoff.
