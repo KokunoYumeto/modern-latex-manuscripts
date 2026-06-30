@@ -7378,3 +7378,19 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 620,826 bytes, SHA256 `CE2391EA870C8AFA8F95BF9C3DB65016F161C4279BA8904D01FBE5F5BC582282`, modified locally 2026-06-30T02:08:42.
 - Scope: live German source-audit logbook now including the P29 native400 source-fix survival entry.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
+## 2026-06-30: Noether post-R273 P30 best-available400 survival
+
+Manifest: [20260630_noether_r273_p30_bestavailable400_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p30_bestavailable400_survival_nopatch.json)
+
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P30_BestAvailable400_SourceAuditSurvival_NoPatch_20260630.zip`, 3,280,315 bytes, SHA256 `291725622435EF6281D2D8737847E1F06A637C6AA04738E638A522F1ED1D866D`, 34 entries.
+- Scope: Paper 30 current-base survival after WebR273. Current R273 P30 is exact-identical to the prior complete R272 source-audited section, preserving prior source-confirmed fixes and no-fix traps.
+- Caveat: no TeX patch. The complete staged P30 witness is approximately 400ppi IA/GDZ-derived page imagery, below the preferred native650+ threshold. This is best-available source-audit survival/current-control support only, not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-30: Noether German source-audit logbook refresh after P30
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 622,229 bytes, SHA256 `43EF49D74DCEB323F42EDF07C11626F070DB0546BEE56799E9426811F6AB4004`, modified locally 2026-06-30T02:14:54.
+- Scope: live German source-audit logbook now including the P30 best-available400 source-audit survival entry.
+- Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
