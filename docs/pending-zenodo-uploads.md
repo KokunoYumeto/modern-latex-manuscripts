@@ -7362,3 +7362,19 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 619,867 bytes, SHA256 `423F78499B13EBCAF69BBDF5C94BC881FCB475786F197CCAB249BBCE12BD1F56`, modified locally 2026-06-30T02:07:11.
 - Scope: live German source-audit logbook now including the P01/P02/P23/P25/P26-P28 follow-up entries after the earlier P03-P05/P07-P22 WebR273 wave.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
+## 2026-06-30: Noether post-R273 P29 native400 source-fix survival
+
+Manifest: [20260630_noether_r273_p29_native400_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p29_native400_sourcefix_survival_nopatch.json)
+
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P29_Native400_SourceFixSurvival_NoPatch_20260630.zip`, 18,181,480 bytes, SHA256 `A144ABEC262891EED28EA3B5635E8AA044A5181A3199519787A1D37DF97D117D`, 22 entries.
+- Scope: Paper 29 current-base source-fix survival after WebR273 and the P26-P28/P27-dash patch. It confirms survival of three prior source-certain p.35 overline-P corrections.
+- Caveat: no new TeX patch. Evidence is GDZ native400 plus enlarged labelled crops for the corrected p.35 loci, below the preferred native650+ threshold. This is source-fix survival/current-control support only, not Paper 29 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-30: Noether German source-audit logbook refresh after P29
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 620,826 bytes, SHA256 `CE2391EA870C8AFA8F95BF9C3DB65016F161C4279BA8904D01FBE5F5BC582282`, modified locally 2026-06-30T02:08:42.
+- Scope: live German source-audit logbook now including the P29 native400 source-fix survival entry.
+- Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
