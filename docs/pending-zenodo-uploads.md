@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R304/R305 Paper 15 source-style follow-ups
+
+Manifest: [20260630_noether_r304_r305_p15_source_style_followups.json](../manifests/pending-zenodo-uploads/20260630_noether_r304_r305_p15_source_style_followups.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: `Noether_R304_LocalCodex_R303_P15p142_SourceFootnotePunctuationFix_20260630.zip`, 38,024,806 bytes, SHA256 `33921D3AACB7DF2FBEF896D7FEE6AF17C5E53AAFA27C04C6858C63DDC84E9819`, 54 entries; and `Noether_R305_LocalCodex_R304_P15_SourceStyleVarrhoFix_20260630.zip`, 65,659,817 bytes, SHA256 `DB04E2948DE7BCCDCFD34EB12CC796F227DE4033658BB5FA8243594D5852C20D`, 83 entries.
+- Scope/result: R304 applies two targeted P15 printed-p.142 source-layout repairs on top of R303: source punctuation in Satz IV's basis list and source-visible footnote marker placement inside formula (3). R305 then applies a Paper 15-only source-style `\varrho` repair on top of R304, replacing 49 straight `\rho` tokens in representative source-confirmed Paper 15 loci with `\varrho`.
+- Evidence: updated cumulative German TeX/PDF, exact R303-to-R304 and R304-to-R305 diffs, checksum CSVs, XeLaTeX logs, rendered output check pages, P15 p142/p145/p146/p147/p152/p155 source renders, and formula/symbol crops.
+- Caveat: targeted current-control/source-style support only. The staged source pages are 650dpi renders from GDZ material whose native quality is about 400ppi; enlarged crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R303 Paper 15 p.140 inline congruence and footnote-marker fix
 
 Manifest: [20260630_noether_r303_p15p140_inline_congruence_footnote_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r303_p15p140_inline_congruence_footnote_fix.json)
