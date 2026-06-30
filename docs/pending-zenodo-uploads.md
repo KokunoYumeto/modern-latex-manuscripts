@@ -1,3 +1,15 @@
+## 2026-06-30: Noether R290-R301 source-fix and survival batch
+
+Manifest: [20260630_noether_r290_r301_sourcefix_and_survival_batch.json](../manifests/pending-zenodo-uploads/20260630_noether_r290_r301_sourcefix_and_survival_batch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 22 ZIPs, 456,497,657 bytes total. ZIP listing and SHA256 metadata were inspected.
+- Scope/result: post-WebR273 current-control chain. R290 applies a P20 p32 `U_i` source fix; R291 is the preferred Paper 24 span-restore rollup and absorbs the P24 p234/p236-p239 component packets; R292 is an intermediate P06/P40/P43 package later corrected by R293, which reverts the bad P06 p195 change while keeping P40/P43 repairs; R294-R301 then add source-regression fixes for P15 p149, P15 p155, P14 p200, P10 p543, P08 pp.97-100, P21 p71, P27 p101, and P31 p93.
+- Audit-only pieces: R301 also includes no-patch/survival material for P14, P16/P17/P18/P19/P20, P10/P11 dense traps, P08 p100, P22, and P42. The P42 packet is explicitly source-limited, with embedded source images around 360ppi.
+- Supersession: the earlier manually registered p234 follow-up remains provenance only. The fuller `Noether_LocalCodex_after_WebR273_P24_p234_Formula4_SourceStylePatch_20260630.zip` supersedes it as the component packet, and R291 supersedes/absorbs the P24 component chain for current-control purposes.
+- Caveat: current-control/source-audit/provenance material only. This does not certify any whole paper, the Noether corpus, downstream translations, or a critical edition. Some repairs use best-available 400/600ppi witnesses or enlarged crops rather than strict native650/1000ppi sources.
+- Publication policy: fold into a compact Noether German current-control/source-audit/provenance rebalance; do not upload these 22 files loose above reader PDFs/current TeX while the Noether record remains at the file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 24 p.234 formula (4) source-style follow-up
 
 Manifest: [20260630_noether_r273_p24_p234_formula4_source_style_followup.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p24_p234_formula4_source_style_followup.json)
@@ -6,7 +18,7 @@ Manifest: [20260630_noether_r273_p24_p234_formula4_source_style_followup.json](.
 - Artifact: `Noether_LocalCodex_after_WebR273_P24_p234_Formula4_SourceStyleFollowup_on_P24p233Base_20260630.zip`, 4,936,634 bytes, SHA256 `4CAB7F782AD964AB9A9213A4355D0443B26C67B37B09AAC91B1A16780A5C9C25`. Sidecar SHA was written; ZIP listing check passed with 11 entries.
 - Scope/result: targeted Paper 24 printed p.234 formula (4) source-style follow-up on top of the registered P24 p233 formula (2) base. It changes four congruence relations from carried `\pmod{...}` notation to source-visible parenthetical congruence notation `( \frakg_i )` and `( \frakm )`.
 - Evidence: updated cumulative German TeX/PDF, XeLaTeX compile logs, diff from the registered p233 ZIP base, GDZ native400 p234 full-page source witness, enlarged formula (4) crop, confirmed-fix CSV, checksum CSV, and README.
-- Caveat: targeted one-locus support only. The witness is native400, below the preferred native650/1000 rule; the crop is an inspection enlargement, not a new higher-native source. This is not Paper 24 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Caveat: targeted one-locus support only. The witness is native400, below the preferred native650/1000 rule; the crop is an inspection enlargement, not a new higher-native source. This is not Paper 24 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material. Supersession note: the fuller P24 p234 component package and R291 rollup above are now the preferred current-control references for this locus; keep this manually built follow-up as provenance.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance beside the p233 formula (2) packet; do not front above reader PDFs/current TeX.
 
 ## 2026-06-30: Noether Paper 22 GDZVol88 source-witness upgrade
