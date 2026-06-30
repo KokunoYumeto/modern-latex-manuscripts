@@ -1,3 +1,20 @@
+## 2026-06-30: Noether R355 Papers 21-30 current-base no-patch survival support
+
+Manifest: [20260630_noether_r355_p21_p30_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r355_p21_p30_survival_nopatch.json)
+
+- Artifact: `Noether_R355_LocalCodex_R347_P21_P30_CurrentBaseSurvival_NoPatch_20260630.zip`, 3,988,467 bytes, SHA256 `719DC6FA3FDD014016B8740EFC613E873ACB73359119498E85E454404329984A`, 41 entries.
+- Scope/result: no-patch current-base survival check for Papers 21-30 on the R347 base. All Paper 21-30 normalized spans are accounted for against accepted comparators; Paper 24 is compared to R341 rather than older R339 because R341 deliberately patched the Paper 24 p232 left equation tags.
+- Evidence: README, R355 survival checks CSV, source-quality/reopen-rules CSV, input regression-trap/source-anchor ledgers, current and comparator span extracts, source-audit logbook snapshots, and SHA256 ledger.
+- Caveat: survival/anti-regression support only. It is not fresh global line-by-line source certification, not Noether closure, not multilingual synchronization, not strict native650/1000 source closure, and not critical-edition material.
+
+## 2026-06-30: Interlanguage logs handoff 210338
+
+Manifest: [20260630_interlanguage_logs_handoff_210338.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_logs_handoff_210338.json)
+
+- Artifact: `interlanguage_logs_handoff_20260630_210338.zip`, 248,346 bytes, SHA256 `AC7BF5F7CCB23CADFEA2F92ADB955A073AED59C70069EF87C177072CD86FFE40`, 68 entries.
+- Scope/result: compact Web/Pro handoff assembled from `origin/codex/noether-pc-20260629:noether-slavic-handoff/20260629/` plus the older Slavic language-planning checkpoint. It preserves current interlanguage/multilingual Noether methodology, terminology, reviewer-prep, source-evidence, page-inspection, and scripts context without raw-merging the laptop branch.
+- Caveat: working methodology/review context only. It is not a reader release, native-speaker approval, accepted glossary, mathematical source certification, multilingual synchronization proof, or critical edition.
+
 ## 2026-06-30: Noether R353-R354 current-base no-patch survival support
 
 Manifest: [20260630_noether_r353_r354_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r353_r354_survival_nopatch.json)
