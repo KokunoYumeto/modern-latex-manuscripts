@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 post-P40 current-base survival guards
+
+Manifest: [20260630_noether_r273_post_p40_p06_p24_p35_p39_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_post_p40_p06_p24_p35_p39_survival_nopatch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifacts: 3 ZIPs, 106,056 bytes total. ZIP integrity tests passed.
+- Scope/result: no TeX patch. These packages check the current WebR273 plus LocalCodex Paper 40 full-closure survivalfix base and confirm survival of earlier source-audit/current-control work for P06, P24, P35, P36, P37, P38, and P39.
+- Individual results: P06-only span is byte-identical to the latest P06 current-base closure after excluding following Paper 7 material from the old overlong extract; P24 is byte-identical to the prior complete R272 Paper 24 source-audit closure; P35/P36 are byte-identical to the R272 Cyrillic/Russian-resume clarification and one-page notice checks; P37/P38 are byte-identical to prior R272 GDZ600 closures; P39 has no textual diff from its prior ICM600 no-patch audit extract.
+- Caveat: current-control/survival support only. This carries forward earlier source-quality limits: P06/P24 rely on best-staged 400ppi-era evidence plus crops, P37/P38 on GDZ600, P39 on ICM600, and P35 is not freshly fully recertified beyond the source-real Russian resume tail before Paper 36. Not paper certification, native650/1000dpi recertification, Noether closure, multilingual synchronization, whole-corpus certification, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance. Do not upload these ZIPs loose above reader PDFs/current TeX while the Noether record remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 Paper 3 source-gap closed no-patch guard
 
 Manifest: [20260630_noether_r273_p03_currentbase_survival_sourcegapclosed_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p03_currentbase_survival_sourcegapclosed_nopatch.json)
