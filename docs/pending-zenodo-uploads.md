@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R333 Paper 10 pp536-545 full source audit no-patch support
+
+Manifest: [20260630_noether_r333_p10p536_545_full_source_audit_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r333_p10p536_545_full_source_audit_nopatch.json)
+
+- Artifact: `Noether_R333_LocalCodex_R332_P10p536_545_FullSourceAudit_NoPatch_20260630.zip`, 18,896,126 bytes, SHA256 `F65850634EFA552D0647FD26F73791FA9CC1718BB931C64042E728637E9449FB`, 29 entries.
+- Scope/result: no-patch full-page source-audit/current-control packet for Paper 10 printed pp.536-545 on the R332 line. It carries the R332 cumulative German TeX/PDF forward unchanged after checking each page against staged GDZ IIIF maximum full-page JPG witnesses.
+- Evidence: R333 current cumulative TeX/PDF, empty R332-to-R333 diff, per-page visual-disposition CSV for pp.536-545, source-quality CSV, SHA256 ledger, source-audit logbook snapshot, and GDZ IIIF full-page JPG witnesses with info JSON.
+- Caveat: Paper 10 support only. It is not Noether closure, multilingual synchronization, strict native650+ source closure, or critical-edition material. Best local P10 witnesses are about 400ppi-equivalent, not native650+.
+
 ## 2026-06-30: Noether R332 Paper 15 R303-R307 survival bridge no-patch support
 
 Manifest: [20260630_noether_r332_p15_r303_r307_survival_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r332_p15_r303_r307_survival_bridge_nopatch.json)
