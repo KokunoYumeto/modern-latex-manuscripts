@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R273 Paper 35 full-650dpi source-audit patch
+
+Manifest: [20260630_noether_r273_p35_full650_source_audit_patch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p35_full650_source_audit_patch.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_LocalCodex_after_WebR273_P35_Full650_SourceAuditPatch_20260630.zip`, 23,629,189 bytes, SHA256 `6BE378C653CD436B659113339C0F49009CFD922C8AD2918191F62BECD57FFFE6`. ZIP integrity/listing test passed with 27 entries.
+- Scope/result: targeted German Paper 35 source-audit patch. Paper 35 was checked against eight staged 650dpi source-page renders for printed pp.65-72. The package applies five confirmed source-visible fixes: `H(u_i^p)`, plain residue-field `P`, source spelling `sodass`, indexed `H(u_i)-pF(u_i)`, and lambda indexing `G^*_\lambda` / `u_{t+\lambda}`.
+- Build/provenance: includes updated German cumulative TeX/PDF, extracted Paper 35 TeX, XeLaTeX logs, fix ledger, page-disposition ledger, file checksum CSV, and the eight 650dpi source witnesses. The patched cumulative compiled to 471 pages.
+- Caveat: paper-level current-control/source-audit support only. Stronger witness quality than the older GDZ400/GDZ600 packages, but still not whole-Noether certification, not multilingual synchronization, not whole-corpus closure, and not critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit rebalance. Do not upload loose above reader PDFs/current TeX while the Noether record remains at the Zenodo file ceiling.
+
 ## 2026-06-30: Noether R273 post-P40 current-base survival guards
 
 Manifest: [20260630_noether_r273_post_p40_p06_p24_p35_p39_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_post_p40_p06_p24_p35_p39_survival_nopatch.json)
