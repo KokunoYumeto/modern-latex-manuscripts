@@ -1,3 +1,14 @@
+## 2026-06-30: Noether R307 Paper 15 pp.149-150 lambda repetition repair
+
+Manifest: [20260630_noether_r307_p15p149_lambda_repetition_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r307_p15p149_lambda_repetition_fix.json)
+
+- Record: Emmy Noether, concept DOI `10.5281/zenodo.20412587`.
+- Artifact: `Noether_R307_LocalCodex_R306_P15p149_LambdaRepetitionFix_20260630.zip`, 85,358,250 bytes, SHA256 `00B2B9C68C7ECCBCAFCA07DC6EB0885A8E5A5FA5D75113327ECDC840CFB86CFB`, 113 entries.
+- Scope/result: narrow Paper 15 printed-pp.149-150 repair on top of R306. It changes the repeated lowering step from carried `F_0(\xi_{ik})\equiv\xi_{34}^2F_2(\xi_{ik})\pmod p` to source-visible `F_0(\xi_{ik})\equiv\xi_{34}^{\lambda}F_{\lambda}(\xi_{ik})\pmod p`, and changes the continuation sentence from `F_2` to `F_{\lambda}`.
+- Evidence: updated cumulative German TeX/PDF, exact R306-to-R307 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX log, rendered output check page, P15 pp.149-150 650dpi source renders, and 1000-equivalent crops.
+- Caveat: targeted current-control/source-style support only. The staged page images are 650dpi renders from source whose native quality is lower than 650dpi; the 1000-equivalent crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
+- Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
+
 ## 2026-06-30: Noether R306 Paper 15 p.148 `x` exponent repair
 
 Manifest: [20260630_noether_r306_p15p148_x_exponent_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r306_p15p148_x_exponent_fix.json)
@@ -7,7 +18,7 @@ Manifest: [20260630_noether_r306_p15p148_x_exponent_fix.json](../manifests/pendi
 - Scope/result: narrow Paper 15 printed-p.148 repair on top of R305. It changes the two-row-case homogeneity exponent from carried `\nu` to source-visible `x` in both `F=c\,\xi_{12}^x` and `c\,(12)^x\equiv0\pmod p`.
 - Evidence: updated cumulative German TeX/PDF, exact R305-to-R306 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output check page, P15 p148 650dpi render from GDZ400 material, and 1000-equivalent crops.
 - Caveat: targeted two-token current-control/source-style support only. The staged page image is a 650dpi render from source whose native quality is about 400ppi; the 1000-equivalent crops are readability aids, not independent higher-native witnesses. This is not Paper 15 certification, Noether closure, multilingual synchronization, whole-corpus source closure, or critical-edition material.
-- Not promoted: a later loose R307 folder was observed locally with an R306-to-R307 diff, but it lacks R307 build/PDF/logbook closure and a ZIP package at this sweep point.
+- Supersession note: R307 is now packaged and registered separately as the current next patch in this narrow chain. R306 remains provenance immediately before R307.
 - Publication policy: fold into the next compact Noether German current-control/source-audit/provenance rebalance; do not front above reader PDFs/current TeX.
 
 ## 2026-06-30: ClassicalAudit Lean sidecars for Noether, Steinitz, Weber, and Jordan
