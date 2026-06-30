@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R366 Paper 18 GDZ600 full-page audit survival no-patch support
+
+Manifest: [20260630_noether_r366_p18_gdz600_fullpage_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r366_p18_gdz600_fullpage_survival_nopatch.json)
+
+- Artifact: `Noether_R366_LocalCodex_R347_P18_GDZ600_FullPageAuditSurvival_NoPatch_20260630.zip`, 7,874,331 bytes, SHA256 `EE66C51A90E1C06C30551AB344AC8EC2FFB59D4E27453447695369D612BACFDF`, 21 entries.
+- Scope/result: no-patch current-base survival support for the one-page Paper 18 Hentzelt/Eliminationstheorie contribution. R366 confirms the current R347 Paper 18 normalized span is identical to the prior GDZ600 full raw-page max-probe/full-page-audited promoted-base span.
+- Evidence: README, current-base span check CSV, no-patch/regression-trap CSV, source-quality CSV, prior P18 evidence ledgers, GDZ/JDMV30 p101 raw 600ppi JPG/PDF source witnesses, span extracts, and SHA256 ledger.
+- Caveat: no TeX patch. This is survival support against a prior one-page full-page audit, not global certification. The best staged source is GDZ/JDMV30 600ppi, below preferred native650; older 1000-style aids are readability derivatives, not independent native1000 evidence.
+
 ## 2026-06-30: Noether R365 Paper 17 GDZ600 audit survival no-patch support
 
 Manifest: [20260630_noether_r365_p17_gdz600_audit_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r365_p17_gdz600_audit_survival_nopatch.json)
