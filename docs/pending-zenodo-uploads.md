@@ -7426,3 +7426,19 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 625,819 bytes, SHA256 `1B31A368867D031FEB89CD8BF399A46EFEB97E5A6161CFE17B70BC12262EC2E2`, modified locally 2026-06-30T02:20:45.
 - Scope: live German source-audit logbook now including the P34 current-base closure survival entry.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
+## 2026-06-30: Noether post-R273 P41/P42/P43 tail survival
+
+Manifest: [20260630_noether_r273_p41_p43_tail_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p41_p43_tail_survival_nopatch.json)
+
+- Noether support ZIP: `Noether_LocalCodex_after_WebR273_P41P42P43_TailSourceAuditSurvival_NoPatch_20260630.zip`, 3,280,137 bytes, SHA256 `C43E4038096717AAD44C86F5489B6429753A8B7E2CC0C87F93A86DCE56A29E29`, 23 entries. This ZIP was created locally from the complete dropped folder so it can be tracked as one coherent artifact.
+- Scope: P41, P42, and the bounded P43 article body through `Eingegangen 25. Oktober 1949.` are byte-identical to their accepted prior source-audit/reference spans. P41 preserves `Anologon`; P42 preserves `K=\Gg\ast k`; P43 preserves source footnote 11 and the received-date boundary.
+- Caveat: no TeX patch. P41 is GDZ around 400ppi, P42 around 360ppi, and P43 has localized GDZ600 evidence but no global native650/1000dpi recertification. Compare P43 only through the received-date article boundary, not to end-of-file bibliography/endmatter. This is current-control/survival support only, not certification or critical-edition material.
+
+## 2026-06-30: Noether German source-audit logbook refresh after P41-P43
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 627,336 bytes, SHA256 `B4D800C8A1AEF8451F7AC6B6A566DF8ADF82920C0D8270ACB6B4A4551F1AEE1E`, modified locally 2026-06-30T02:23:45.
+- Scope: live German source-audit logbook now including the P41/P42/P43 tail source-audit survival entry.
+- Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
