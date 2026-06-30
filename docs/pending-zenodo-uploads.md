@@ -2,9 +2,9 @@
 
 Manifest: [20260630_noether_r309_p30p34_dedekind_clause_fix.json](../manifests/pending-zenodo-uploads/20260630_noether_r309_p30p34_dedekind_clause_fix.json)
 
-- Artifact: `Noether_R309_LocalCodex_R308_P30p34_DedekindII_OmittedClause_20260630.zip`, 32,993,130 bytes, SHA256 `6377CA4DAD4C855F15E60A09FE0D104BE5213A45E69FF0F67C49A14918C50F9E`, 22 entries.
+- Artifact: `Noether_R309_LocalCodex_R308_P30p34_DedekindII_OmittedClause_20260630.zip`, 34,676,435 bytes, SHA256 `1F25086D76E9F99A0979DCA5B2067957D594B60F3E419E01B6C11512FCA0F24E`, 32 entries.
 - Scope/result: narrow Paper 30 printed-p.34 source repair on top of R308. It restores the omitted source-visible clause `wegen \sigma\ge1 sind das ganze Groessen der Reihe` in Dedekindsche Folgerung II after `m=c\beta^\sigma`, `n=c\beta^{\sigma-1}`, and keeps the assignments in source-style inline flow.
-- Evidence: updated cumulative German TeX/PDF, exact R308-to-R309 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 281, and P30 p34-p35 source witnesses/crops.
+- Evidence: updated cumulative German TeX/PDF, exact R308-to-R309 diff, confirmed-fix/source-quality/build CSVs, XeLaTeX logs, rendered output page 281, and P30 p34-p35 source witnesses/crops, plus a p35 no-fix trap for source-visible `+b_i\xi_i`.
 - Caveat: targeted current-control/source-style support only. Source images are best-available native400-ish GDZ/IA-derived witnesses with enlarged readability renders; not Paper 30 certification, strict high-resolution certification, Noether closure, multilingual synchronization, or critical-edition material.
 - Supersession note: R309 is now the current narrow local chain head; R308 remains provenance immediately before R309.
 
