@@ -1,3 +1,21 @@
+## 2026-06-30: Noether R337 Papers 01-06 source-fix survival guard no-patch support
+
+Manifest: [20260630_noether_r337_p01_p06_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r337_p01_p06_sourcefix_survival_nopatch.json)
+
+- Artifact: `Noether_R337_LocalCodex_R336_P01_P06_SourceFixSurvival_NoPatch_20260630.zip`, 3,627,726 bytes, SHA256 `B648F132A1C2F614B247E12E375F8685F167CD31D14EE8D2BEBB4DE00E302484`, 21 entries.
+- Scope/result: no-patch survival/current-control guard for Papers 01-06 on the R335/R336 line. It checks that current spans preserve the latest accepted source-vetted front-block fixes and traps; P01/P02/P05 raw span differences are boundary scaffolding only, with source cores matching after boundary stripping.
+- Evidence: R337 current cumulative German TeX/PDF, current and reference P01-P06 span extracts, boundary-strip note, span survival comparison CSV, surviving source-anchor CSV, no-fix/regression-trap CSV, SHA256 ledger, and source-audit logbook snapshot.
+- Caveat: compact Papers 01-06 anti-regression guard only. It is not fresh native650/1000 glyph-by-glyph recertification, paper certification, Noether closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-30: Noether R336 Papers 07-09 source-fix survival guard no-patch support
+
+Manifest: [20260630_noether_r336_p07_p09_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r336_p07_p09_sourcefix_survival_nopatch.json)
+
+- Artifact: `Noether_R336_LocalCodex_R335_P07_P09_SourceFixSurvival_NoPatch_20260630.zip`, 3,491,265 bytes, SHA256 `36EC3D703237D34A3407895968255B7C21CD60B57A08F92D0D5D5DB47814F46F`, 14 entries.
+- Scope/result: no-patch survival/current-control guard for Papers 07-09 on the R335 line. It checks that current P07/P08/P09 spans remain normalized-identical to their reference source-vetted states and preserve known regression traps.
+- Evidence: R336 current cumulative German TeX/PDF, current and reference P07/P08/P09 span extracts, span survival comparison CSV, surviving source-anchor CSV, no-fix/regression-trap CSV, SHA256 ledger, and source-audit logbook snapshot.
+- Caveat: compact Papers 07-09 anti-regression guard only. It is not fresh native650/1000 glyph-by-glyph recertification, paper certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R335 Paper 15 source-fix survival bridge no-patch support
 
 Manifest: [20260630_noether_r335_p15_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r335_p15_sourcefix_survival_nopatch.json)
