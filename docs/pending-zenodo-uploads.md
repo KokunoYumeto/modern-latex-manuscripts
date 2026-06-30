@@ -1,3 +1,12 @@
+## 2026-06-30: Noether R351 Paper 32 beta-fix source-survival no-patch support
+
+Manifest: [20260630_noether_r351_p32_sourcefix_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r351_p32_sourcefix_survival_nopatch.json)
+
+- Artifact: `Noether_R351_LocalCodex_R347_P32_SourceFixSurvival_NoPatch_20260630.zip`, 10,176,475 bytes, SHA256 `3EEEDBE178E586AB34571846A53FE91FBD4630487E1FCBA15B2198878A557F58`, 15 entries.
+- Scope/result: no-patch survival check showing Paper 32 in R347 normalizes exactly equal to the R340 Paper 32 beta-fix span. The current R347 span preserves `+b^2p^2\beta=0` and does not contain the prior erroneous `+b^2p^2\beta^2=0` reading.
+- Evidence: README, survival CSV, source-quality/scope CSV, R340/R347 Paper 32 span extracts, IA leaf0387 source witness, enlarged crops, source-audit logbook snapshots, and SHA256 ledger.
+- Caveat: one-locus survival proof only, not global Paper 32 certification. The accepted witness is IA JP2-derived leaf0387; enlarged crops are readability aids. The alternative philosophisch-historische p226 item remains rejected as a page-label false positive because it is unrelated to the Brauer-Noether mathematics.
+
 ## 2026-06-30: Noether R349-R350 tail source-survival no-patch support
 
 Manifest: [20260630_noether_r349_r350_tail_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r349_r350_tail_survival_nopatch.json)
