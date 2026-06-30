@@ -1,3 +1,13 @@
+## 2026-06-30: Noether R320 Paper 08 pp.93-94 opening closure no-patch support
+
+Manifest: [20260630_noether_r320_p08p93_094_opening_closure_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r320_p08p93_094_opening_closure_nopatch.json)
+
+- Artifact: `Noether_R320_LocalCodex_R319_P08p93_094_OpeningClosure_NoPatch_20260630.zip`, 7,012,850 bytes, SHA256 `841BC93405BE0C4100C8208854BEBD076BAD1242FD25F295F3CEF4F54D538BE2`, 12 entries.
+- Scope/result: bounded no-new-patch closure/support packet for Paper 08 printed pp.93-94 on the R319 base. It confirms the R319 Deruyts citation fix survives and records no-patch dispositions for the remaining P08 opening band.
+- Checked p94 anchors: section I opening; `A_1,A_2,\ldots,A_N`; `A_k^{(1)},A_k^{(2)},\ldots,A_k^{(n)}`; `P_{hk}`; compact formula (1) `\theta=\sum PZ`; and the Fischer footnote.
+- Evidence: current R319 TeX/PDF copied as the R320 current reference, P08 p93/p94 source witnesses, p94 formula and Fischer-footnote crops, visual-disposition CSV, no-new-patch trap CSV, input provenance, logbook snapshot, and checksums.
+- Caveat: no-new-patch support only. Source witnesses are native-400 ppi GDZ/IIIF pages with enlarged readability crops. This is not global P08 certification, Noether closure, multilingual synchronization, or critical-edition material.
+
 ## 2026-06-30: Noether R319 Paper 08 p.93 Deruyts citation source fix
 
 Manifest: [20260630_noether_r319_p08p93_deruyts_citation_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r319_p08p93_deruyts_citation_sourcefix.json)
