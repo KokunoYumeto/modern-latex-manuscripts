@@ -7394,3 +7394,19 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 622,229 bytes, SHA256 `43EF49D74DCEB323F42EDF07C11626F070DB0546BEE56799E9426811F6AB4004`, modified locally 2026-06-30T02:14:54.
 - Scope: live German source-audit logbook now including the P30 best-available400 source-audit survival entry.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
+## 2026-06-30: Noether post-R273 P31-P33 survival guards
+
+Manifest: [20260630_noether_r273_p31_p33_survival_nopatch.json](../manifests/pending-zenodo-uploads/20260630_noether_r273_p31_p33_survival_nopatch.json)
+
+- Noether support ZIPs: `Noether_LocalCodex_after_WebR273_P31P32_SourceAuditSurvival_NoPatch_20260630.zip`, 3,259,793 bytes, SHA256 `9F15B03B7FC78E7CA220A454BED8507BA1BC67BD83A932978891A7144F1C2077`, 21 entries; `Noether_LocalCodex_after_WebR273_P33_Bologna_NoFixSourceAuditSurvival_20260630.zip`, 3,199,936 bytes, SHA256 `50F62AD48D6053BB18F0D17B349E99E8865CBA0BD58040C22D9AA22992097104`, 13 entries.
+- Scope: P31 and P32 active R273 sections are byte-identical to their prior R272 source-audited sections; P33 active R273 section is byte-identical to its prior R272 no-fix source-audited section.
+- Caveat: no TeX patches. These are survival/current-control support packages, not new native650+ recertifications, paper certifications, Noether closure, multilingual synchronization, or critical-edition material.
+
+## 2026-06-30: Noether German source-audit logbook refresh after P33
+
+Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json](../manifests/pending-zenodo-uploads/20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.json)
+
+- Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 624,633 bytes, SHA256 `546585A0054D424DAEC4D439015D81796ACD1906E37CB11E2014629FFA869679`, modified locally 2026-06-30T02:18:51.
+- Scope: live German source-audit logbook now including the P31/P32 and P33 source-audit survival entries.
+- Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
