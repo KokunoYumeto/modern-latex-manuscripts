@@ -1,3 +1,12 @@
+## 2026-07-01: Noether R456 Web-integrated current-base bridge
+
+Manifest: [20260701_noether_r456_web_integrated_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260701_noether_r456_web_integrated_bridge_nopatch.json)
+
+- Artifact: `Noether_R456_LocalCodex_R281_WebIntegratedBridge_NoPatch_20260701.zip`, 3,224,044 bytes, SHA256 `1617FDA75414D927739844F3652112EC4EF87F215B6200D4DE88A027604A7D8A`, 17 entries.
+- Scope/result: compact no-patch bridge adopting Web R281 as the current shared German cumulative base after R281 integrated the local R448-R455 source-backed chain: P14 printed pp.192-201, P15 printed p.140, and the P39 pp.189-194 no-patch guard. XeLaTeX pass1/pass2 succeeded; the bridge PDF is 471 pages.
+- Base evidence: Web R281 package `Noether_R281_Complete_P14P15_P39_Audit_20260701.zip`, 73,900,963 bytes, SHA256 `82B2168C7525CDC1171086758C96F537EA976690FCEDFF1E72444AD016E753C0`.
+- Caveat: current-base/bookkeeping bridge only. R456 applies no new local TeX patch and is not Noether closure, page-by-page certification, multilingual synchronization, or critical-edition material. Because the Noether record is at the file ceiling, fold this into a compact curated Noether refresh rather than uploading every intermediate micro-ZIP loose.
+
 ## 2026-07-01: Noether R455 current source-fix candidate after R372-R455 wave
 
 Manifest: [20260701_noether_r455_current_sourcefix_candidate.json](../manifests/pending-zenodo-uploads/20260701_noether_r455_current_sourcefix_candidate.json)
