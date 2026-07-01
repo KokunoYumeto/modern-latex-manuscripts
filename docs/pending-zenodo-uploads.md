@@ -1,3 +1,12 @@
+## 2026-07-01: Noether R457 Paper 15 p141 source display/punctuation fix
+
+Manifest: [20260701_noether_r457_p15p141_source_display_punctuation_fix.json](../manifests/pending-zenodo-uploads/20260701_noether_r457_p15p141_source_display_punctuation_fix.json)
+
+- Artifact: `Noether_R457_LocalCodex_R456_P15p141_SourceDisplayPunctuationFix_20260701.zip`, 6,554,988 bytes, SHA256 `FBFBA632AD8AC49147F3CC585701DF9DB3045528C803FFECF402AD498389379A`, 17 entries.
+- Scope/result: narrow Paper 15 printed p.141 source-layout and punctuation repair on the R456 base. R457 restores source semicolon punctuation in two symmetric-function/range-condition displays, combines one general symmetric-function expression with its range condition into one display block, and restores `G(F)/a` to inline-prose layout. XeLaTeX passes twice; the German cumulative bridge PDF remains 471 pages.
+- Source caveat: the staged witness is GDZ 400ppi, so R457 promotes only visually clear layout/punctuation repairs and no ambiguous dense-symbol reinterpretation.
+- Caveat: localized Paper 15 p.141 support only. Not Paper 15 certification, not Noether closure, not multilingual synchronization, and not critical-edition material. Because the Noether record is at the file ceiling, fold R457 into the next compact curated Noether refresh/current-control rollup rather than uploading every intermediate micro-ZIP loose.
+
 ## 2026-07-01: Noether R456 Web-integrated current-base bridge
 
 Manifest: [20260701_noether_r456_web_integrated_bridge_nopatch.json](../manifests/pending-zenodo-uploads/20260701_noether_r456_web_integrated_bridge_nopatch.json)
