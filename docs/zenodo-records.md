@@ -2,6 +2,18 @@
 
 The public project is intentionally split across a small number of logical Zenodo records rather than one unstructured dump.
 
+Use the README's "Open First" table as the reader-facing quality order. That order is by completion and source confidence, not by DOI age, file count, upload size, or ambition. This page is a DOI registry and operational map; if a lower-confidence lane appears near a stronger lane here, that is not a quality equivalence.
+
+Current quality grouping in brief:
+
+1. Infrastructure: main raw landing, workflow packet, and the pending interlanguage/reflection lane.
+2. Strongest current reader surfaces: Noether, Weber, Frobenius, Kneser, Sylvester, and al-Battani.
+3. Serious but caveat-heavy source-aware work: SGA, Deligne, Bianchi, Gordan, Steinitz, Gibbs, Maxwell, Ukrainian applied mathematics, and non-European/Chinese/Indian/Islamic records.
+4. Partial or non-continuous author workstreams and mixed shelves: Dedekind, Dirichlet, Gauss, Riemann, Poincare, classical-algebra/arithmetic, and the additional-author cluster.
+5. Source-intake/OCR/support/unsafe draft lanes: Galois source staging, EGA, and Cayley.
+
+SGA and EGA must not be read as peer records: SGA has substantial active repair/workpass evidence but is incomplete and caveat-heavy; EGA is lower-confidence original/OCR/support plus partial draft material. Cayley is deliberately de-promoted until exact ranges are re-audited from source.
+
 | Record | Role |
 |---|---|
 | <https://doi.org/10.5281/zenodo.20393488> | Main project landing page and current bulk archive. |
