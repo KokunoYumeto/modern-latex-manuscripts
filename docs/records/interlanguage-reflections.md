@@ -20,6 +20,7 @@ The older `noether-slavic-handoff/20260628/latest/` pointers describe a much lar
 
 ## Seed Artifacts
 
+- `Noether_interlanguage_logs_quick_20260701.zip`: 284,078-byte quick Web/Pro handoff assembled from the laptop branch text trees `noether-slavic-handoff/20260628/` and `noether-slavic-handoff/20260629/`; SHA256 `4C2F1D21EEDDB20999427BB62AC3CB11DEFBE62AAF7A6FA8E4162F1BEAD02A81`; 90 entries. This is the current light packet for letting a web session inspect the interlanguage/logbook/reviewer-method context without the 770-807 MB local payloads.
 - `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629_db7ffc6c.zip`: compact package of the committed PC multilingual/linguistics branch handoff.
 - `interlanguage_logs_handoff_20260630_210338.zip`: compact Web/Pro handoff assembled from `origin/codex/noether-pc-20260629:noether-slavic-handoff/20260629/` plus the older Slavic language-planning checkpoint. It is working methodology/review context only and does not include the large laptop payload ZIP referenced inside the notes.
 - `interlanguage_logs_quick_webdrop_20260630_065604.zip`: newest small Web/Pro context handoff for the interlanguage/logbook lane; 119 entries, no large payloads. Use this when a web session needs the current methodology/logbook context without the larger provenance bundles.
