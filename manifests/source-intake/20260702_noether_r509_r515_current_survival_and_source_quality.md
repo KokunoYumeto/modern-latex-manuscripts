@@ -18,9 +18,9 @@ They are not reader releases, not a new public Noether edition, not a whole-corp
 
 ## Current Local Meaning
 
-R507 remains the current local TeX-changing German source-control candidate from the previous R502-R507 register. R509-R514 add current-survival/closure evidence on top of that candidate; R515 adds source-quality/witness evidence for P24/P30 but no TeX patch.
+R507 was the local TeX-changing German source-control candidate at this support-packet stage and is now superseded by the R516-R525 source-control chain. R509-R514 add current-survival/closure evidence on top of that then-current candidate; R515 adds source-quality/witness evidence for P24/P30 but no TeX patch.
 
-The refreshed `Noether_SecondWebProject_Intake_20260701` now fronts the R507 source-control candidate, includes the R515 P24/P30 raw JP2 witness packet as `15_SOURCE_P24_P30_RAW_IA_JP2_20260701.zip`, and keeps selected no-patch closure evidence in status/logbook form rather than uploading every micro-ZIP.
+At this support-packet stage the refreshed `Noether_SecondWebProject_Intake_20260701` fronted the R507 source-control candidate, included the R515 P24/P30 raw JP2 witness packet as `15_SOURCE_P24_P30_RAW_IA_JP2_20260701.zip`, and kept selected no-patch closure evidence in status/logbook form rather than uploading every micro-ZIP. Later R516-R525 updates supersede this fronted head while preserving these packets as support/provenance.
 
 ## Public Caveats
 

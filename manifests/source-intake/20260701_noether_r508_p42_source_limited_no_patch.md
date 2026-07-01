@@ -20,8 +20,9 @@ to justify lower-case normalization.
 
 Source-quality caveat: the best staged P42 source remains about 360ppi native.
 The 650dpi renders/enlarged crops are readability aids only. R508 is
-source-control/support material only. R507 remains the current TeX-changing
-local source-control candidate. R508 is not a reader release, not strict
+source-control/support material only. R507 was the TeX-changing local
+source-control candidate at this support-packet stage and is now superseded by
+the R516-R525 source-control chain. R508 is not a reader release, not strict
 native650/1000dpi final certification, not Noether closure, not whole-corpus
 source certification, not multilingual synchronization, and not critical-edition
 material.
