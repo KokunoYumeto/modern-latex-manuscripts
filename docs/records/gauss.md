@@ -16,6 +16,10 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
+## Local Source-Intake Note
+
+2026-07-01 local sweep registered `Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3` as a nine-ZIP web/pro continuation upload set, 2,783,070,272 bytes total. It includes control manifests plus Gauss start/biquadratic pp001-076, Anzeigen/Nachlass pp149-211, congruences/pure equations pp212-268, `de nexu`/`summatio`, r19-r24, r25-r30, r31-r34, and r35-r38 late closure/geometric ternary forms. This is source-witness/continuation handoff material for future repair work, not a new reader release, not source-complete certification, and not critical-edition material. See `manifests/source-intake/20260701_gauss_pro_continuation_packet_v3.md`.
+
 ## Reader And Reference PDFs
 
 | Size MB | File |

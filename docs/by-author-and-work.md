@@ -78,6 +78,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 | Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
+| Galois | Local source-start packet only: 1897 printed `Oeuvres` JP2 image master, University of Michigan manuscript TIFF image master, derivative PDFs, OCR locator text, and manifests. No promoted transcription, translation, reader release, DOI claim, or critical-edition claim yet. |
 | Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. |
 | Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
