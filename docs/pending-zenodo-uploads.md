@@ -1,3 +1,12 @@
+## 2026-07-01: Noether R483 Papers 10, 13, 14, and 15 source-regression restores
+
+Manifest: [20260701_noether_r483_p10_p15_source_regression_restores.json](../manifests/pending-zenodo-uploads/20260701_noether_r483_p10_p15_source_regression_restores.json)
+
+- Artifact: `Noether_R483_LocalCodex_R482_P10_P15_SourceRegressionRestores_20260701.zip`, 68,291,207 bytes, SHA256 `CF625D1D5B8B58063E1CD0F8B2D35D201F106C2040A45A71C9F369186857D18E`, 95 entries.
+- Scope/result: current local German source-regression repair checkpoint on the R482/R481 lineage. R483 restores seven confirmed source-backed micro-readings in Papers 10, 13, 14, and 15: P10 p543 dot leaders, P13 p256 `Divergenzrelationen` punctuation, P14 p183 ordinal style, P14 p193 `g/g_2` source cluster, P15 p140 run-in congruence, P15 p140 `A f_\nu` footnote marker, and P15 p155 second substitution direction. XeLaTeX passes twice; the German cumulative PDF is 305 pages.
+- Lineage: R479 integrated Web R283 Paper 30 citation-spacing fixes, R480/R481 restored P08/P06 source-regression loci, R482 ran the P10-P20 survival audit, and R483 patches the remaining confirmed P10/P13/P14/P15 source-regression loci found by that chain.
+- Caveat: focused German source-regression repair only. R483 relies on prior clean local audits and their source witnesses for the named loci. It is not a whole-paper rewind, not whole-corpus page-by-page certification, not Noether closure, not multilingual synchronization, and not critical-edition material. Because the Noether record is at the file ceiling, fold R483 into the next compact curated Noether refresh/current-control rollup rather than uploading every intermediate R479-R482 ZIP loose.
+
 ## 2026-07-01: Noether R457 Paper 15 p141 source display/punctuation fix
 
 Manifest: [20260701_noether_r457_p15p141_source_display_punctuation_fix.json](../manifests/pending-zenodo-uploads/20260701_noether_r457_p15p141_source_display_punctuation_fix.json)
