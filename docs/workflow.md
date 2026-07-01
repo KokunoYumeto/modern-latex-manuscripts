@@ -187,6 +187,16 @@ When generating OCR, preserve the generation chain. A reproducible OCR witness s
 
 The current best practice is conservative: use OCR/math-OCR to localize formulas, tables, diagram regions, and possible prose omissions; keep crops and candidate TeX as witnesses; promote only after visual comparison with the source scan and successful TeX compilation. For dense historical mathematics, a reliable package should include page/region IDs, witness crops, candidate TeX, accepted/rejected/uncertain status, and a short audit note. Candidate TeX should not be pasted silently into public editions.
 
+## Zoom-First Source Adjudication
+
+The 2026-07-01 SGA5 p234 workpass checkpoint sharpened a general rule: before changing a mathematical symbol, subscript, diagram edge, label, or suspicious word, inspect the exact source glyph at enough zoom to decide the discrepancy class. The main classes are editor/transcription error, copied source typo, faithful source oddity, false flag, and layout/cosmetic issue.
+
+This matters because the right action differs. A source-faithfulness deviation should be fixed even if it is mathematically harmless. A copied source typo may need a note or a mathematically forced correction. A faithful oddity should remain. A false flag should be recorded so the same agent or future queue does not "fix" it later. OCR and model findings are finders, not judges.
+
+The public-archive consequence is also important: a clean TeX build or compiled PDF is not source certification, and a local audit log with valuable fixes is not automatically a promoted reader. Status notes should distinguish page-local workpass evidence, source-audit/provenance, reader quality, and critical-edition claims.
+
+Standalone addendum queued for the workflow record: `workflow/workflow_addendum_20260701_sga5_zoom_first_source_adjudication.md`.
+
 ## Lean Library Candidate Notes
 
 A Lean/Lake toolchain is useful as a selective library-growth lane, not as a bulk transcription verifier and not as certification of a scanned edition. The motivation is simple: Lean needs useful mathematical statements, examples, identities, and lemmas. The practical path is to create small Lean packets for stable theorem statements, definitions, examples, algebraic identities, or calculation lemmas that are useful in their own right and may later become Lean/mathlib-adjacent additions.
