@@ -14,7 +14,7 @@ This index is ordered by current public usefulness. Substantial source-aware rea
 | Best current reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Coherent reader surfaces and source/audit packages exist for a named scope. Still not certified critical editions. |
 | Serious source-aware work, but caveat-heavy | Bianchi, Gordan, Steinitz, Gibbs, Maxwell, SGA, Deligne, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader or translation work exists, but source closure, continuity, diagram/table fidelity, or work-level completion varies. SGA belongs here rather than in a generic stub tier because SGA5 has real page-local repair work, while SGA6/SGA7 and parts of SGA5 still carry explicit source-faithfulness caveats. |
 | Partial author records and workstreams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, Classical algebra/arithmetic mixed shelf, Additional author cluster | Useful working material exists, but read package-by-package rather than as seamless author-complete editions. |
-| Support/OCR/provenance/stub lanes | EGA, Cayley | Useful for preservation, repair, or future work. EGA is partial/OCR-and-draft support; Cayley is currently salvage/repair material, and no range is presently promoted as source-faithful unless a future page-by-page source audit explicitly re-promotes that exact range. |
+| Support/OCR/provenance/stub/source-intake lanes | EGA, Cayley, Galois source staging | Useful for preservation, repair, or future work. EGA is partial/OCR-and-draft support; Cayley is currently salvage/repair material; Galois currently has source masters and locator witnesses only. None of these are promoted source-faithful reader editions unless a future page-by-page source audit explicitly re-promotes an exact range or package. |
 
 ## Algebraic Geometry
 
@@ -78,11 +78,18 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 | Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
-| Galois | Local source-start packet only: 1897 printed `Oeuvres` JP2 image master, University of Michigan manuscript TIFF image master, derivative PDFs, OCR locator text, and manifests. No promoted transcription, translation, reader release, DOI claim, or critical-edition claim yet. |
 | Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. |
 | Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
 | Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `Complete`, `source_checked`, and `critical` filenames as obsolete quality labels; no Cayley range is presently promoted as source-faithful until a later page-by-page glyph/source audit re-promotes that exact range. |
+
+## Source-Intake Only Starts
+
+These have useful source packets for future work, but they are not reader releases or promoted transcription/translation lanes yet.
+
+| Author | Current Surface |
+|---|---|
+| Galois | Local source-start packet only: 1897 printed `Oeuvres` JP2 image master, University of Michigan manuscript TIFF image master, derivative PDFs, OCR locator text, and manifests. No promoted transcription, translation, reader release, DOI claim, or critical-edition claim yet. |
 
 ## Author Records
 
