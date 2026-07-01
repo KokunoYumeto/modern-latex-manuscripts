@@ -14,7 +14,7 @@ Size: 157,133,762 bytes.
 
 ZIP entries inspected: 145.
 
-Classification: current clean packaged local TeX-changing Noether source-control candidate after R523.
+Classification: formerly current clean packaged local TeX-changing Noether source-control candidate after R523; superseded by R525.
 
 ## Scope
 
