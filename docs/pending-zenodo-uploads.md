@@ -1,3 +1,12 @@
+## 2026-07-01: Noether R455 current source-fix candidate after R372-R455 wave
+
+Manifest: [20260701_noether_r455_current_sourcefix_candidate.json](../manifests/pending-zenodo-uploads/20260701_noether_r455_current_sourcefix_candidate.json)
+
+- Artifact: `Noether_R455_LocalCodex_R454_P15p140_SourceInlineFormulaFix_20260701.zip`, 53,589,469 bytes, SHA256 `CF0ED3C8B19984A4DED998FA1D23D3CE2A1AB26B4832EB2764B6891A280ACCC7`, 97 entries.
+- Scope/result: current local Noether German cumulative candidate after a large R372-R455 source-fix/source-audit wave. R455 applies one Paper 15 printed p.140 source-style inline-formula layout repair on top of R454.
+- Wave intake: [20260701_noether_r372_r455_source_fix_wave.md](../manifests/source-intake/20260701_noether_r372_r455_source_fix_wave.md) inventories 86 local ZIPs totaling 2,757,241,222 bytes. Web R280 Paper 14 pp.182-191 was checked and is subsumed by local R454/R455 rather than replacing the current local branch.
+- Caveat: working source-fix/support candidate only. Do not present the R372-R455 wave as a critical edition, Noether closure, multilingual synchronization, or complete page-by-page certification. Do not upload every intermediate R372-R454 ZIP loose to the reader-facing Zenodo page; compact rollups/current candidates are preferred.
+
 ## 2026-06-30: Noether R371 Paper 30 p33 beta-module-chain source fix
 
 Manifest: [20260630_noether_r371_p30p33_beta_module_chain_sourcefix.json](../manifests/pending-zenodo-uploads/20260630_noether_r371_p30p33_beta_module_chain_sourcefix.json)
