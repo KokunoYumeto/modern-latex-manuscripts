@@ -37,6 +37,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Henri Poincare | 20 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
 | Classical Algebra and Arithmetic | 25 | 21 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
 | Additional Author Cluster | 100 | 10 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
-| **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |  |
+| **Source-intake-only, OCR/support/provenance, or currently unsafe draft lanes** |  |  |  |  |  |  |
+| Evariste Galois source staging | source intake only | 2 derivative PDFs | 3 source/packet ZIPs | 69.5 | [galois.md](galois.md) | pending |
 | EGA (French originals + OCR/support + partial translation draft) | 16 | 10 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |
