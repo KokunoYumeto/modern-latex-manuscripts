@@ -2,7 +2,7 @@
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R537. This registers R538, R539, and R540 as the Paper 40 p518-p520 source-repair chain at that step. It is now superseded for present current-head status by the later R545/R546/R547/R548 chain, with R548 registered in `20260702_noether_r548_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R537. This registers R538, R539, and R540 as the Paper 40 p518-p520 source-repair chain at that step. It is now superseded for present current-head status by the later R545/R546/R547/R548/R549 chain, with R549 registered in `20260702_noether_r549_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current TeX-Changing Head
 
@@ -74,7 +74,7 @@ The intake remains a source/state handoff folder for concurrent Pro/Web work, no
 
 ## Later Status
 
-R544 superseded R540 at that step; current-head status later moved through R545/R546/R547 to R548, which now fronts `40_R548_P40P527_RANGRELATION_SECTION5_SOURCEFIX.zip` in the refreshed second-web intake.
+R544 superseded R540 at that step; current-head status later moved through R545/R546/R547/R548 to R549, and now R549 fronts `41_R549_P40P528_529_AUTOMORPHISM_VERTAUSCHUNG_GALOIS_SOURCEFIX.zip` in the refreshed second-web intake.
 
 ## R541/R543 Caution
 
