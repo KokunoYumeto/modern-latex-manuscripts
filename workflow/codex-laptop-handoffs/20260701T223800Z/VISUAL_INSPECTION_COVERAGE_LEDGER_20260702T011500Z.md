@@ -1,6 +1,6 @@
 # Visual Inspection Coverage Ledger
 
-- Generated UTC: `2026-07-02T00:58:14Z`
+- Generated UTC: `2026-07-02T02:07:53Z`
 - Completion claim: `False`
 - Render PDFs scanned: `2115`
 - Visual-inspection files found: `339`

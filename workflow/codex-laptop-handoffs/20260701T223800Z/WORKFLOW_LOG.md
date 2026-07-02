@@ -7255,3 +7255,38 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
 - Final package for this redo cycle: `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T010851Z.zip`; bytes `1622932459`; SHA256 `660AEDD341D57AB97C6200CCDFBE0A169708416D60232C54686A6F733C835822`.
 - Builder validation and independent validation both passed for `20260702T010851Z`; SHA sidecar matches and zip integrity is clean.
 - Added post-package sidecar `logs/POST_REDO_FINAL_HANDOFF_20260702T011800Z.json` and `.md`; this sidecar intentionally sits outside the final zip to avoid infinite self-reference.
+
+## 2026-07-02T01:40:00Z Controlled Arabic algebra source refresh
+
+- Added `tmp/build_controlled_arabic_algebra_source_refresh_20260702.py`.
+- Generated source shelf `sources/non_slavic_reference_corpus/20260702T013000Z_controlled_arabic_algebra_source_refresh/`.
+- Generated `logs/CONTROLLED_ARABIC_ALGEBRA_SOURCE_REFRESH_20260702T013000Z.json` and `.md`.
+- New Arabic source refresh result: candidates `10`; downloaded `6`; text extracted `6`; official/direct algebra-register witnesses `4`; direct ring/rings-fields witnesses `2`; strong direct Arabic invariant-theory witnesses `0`.
+- Accepted algebra-register IDs: `AR-MUST-RING-THEORY-2019`, `AR-MAJMAAH-RINGS-FIELDS-2017`, `AR-MAJMAAH-RINGS-FIELDS-PROGRAM-SPEC`, `AR-UQU-MATH-PLAN-2023`.
+- Added `tmp/build_arabic_persianate_lane_status_manifest_20260702.py`.
+- Generated `logs/ARABIC_PERSIANATE_LANE_STATUS_MANIFEST_20260702T014000Z.json` and `.md`, carrying the July 2 Arabic algebra refresh while preserving the no-translation/no-term-promotion/no-final-edition boundary.
+- Boundary retained: Arabic algebra/ring-field evidence is stronger; Arabic invariant-theory, covariant, binary-form, and ring-of-invariants specialist gates remain open.
+
+### 2026-07-02T02:22:10Z - Full redo after mode reset
+
+- Repaired and verified the local dependency lane after Windows/OpenAI reset behavior:
+  - MiKTeX binary root: `C:/Users/memo_/AppData/Local/Programs/MiKTeX/miktex/bin/x64`.
+  - Portable Perl paths prepended for `latexmk`: `C:/Users/memo_/Documents/Codex/2026-06-09/could-you-look-online-for-me/work/noether-slavic-canonical/tools/strawberry-perl/strawberry-perl-5.42.2.1-64bit-portable/perl/bin` and `C:/Users/memo_/Documents/Codex/2026-06-09/could-you-look-online-for-me/work/noether-slavic-canonical/tools/strawberry-perl/strawberry-perl-5.42.2.1-64bit-portable/c/bin`.
+  - XeLaTeX smoke PDF: `tmp/dependency_smoke_out_20260702/dependency_smoke_test_20260701.pdf`.
+- Reran the previous-day local builders through the reproducibility audit:
+  - Replay audit: `logs/LAST_DAY_REDO_REPRODUCIBILITY_AUDIT_20260702T015853Z.json`.
+  - Commands run/failed: `17` / `0`.
+- Rechecked Zenodo live after the redo:
+  - Check: `logs/ZENODO_NOETHER_LATEST_LIVE_CHECK_20260702T020816Z.json`.
+  - Record DOI `10.5281/zenodo.20836874`, revision `4`, modified `2026-07-02T01:47:56.572365+00:00`.
+  - Action: `NO_SOURCE_REPLACEMENT_REQUIRED`; source replacement required: `False`.
+- Reran the July 2 Arabic/Persianate algebra-register refresh:
+  - Refresh log: `logs/CONTROLLED_ARABIC_ALGEBRA_SOURCE_REFRESH_20260702T013000Z.json`.
+  - Downloaded/text-extracted: `6` / `6`.
+  - Strong direct invariant-theory witnesses remain `0`.
+- Patched the package builder/validator to include the July 2 Arabic algebra source shelf, rebuilt the checkpoint archive, and independently validated it:
+  - ZIP: `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`.
+  - Bytes: `1625291981`.
+  - SHA256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`.
+  - Builder/independent validation: `True` / `True`.
+- Boundary: this is a reproducibility/source-evidence/package checkpoint, not a native-review closure, term-promotion closure, or completion of the active multilingual goal.
