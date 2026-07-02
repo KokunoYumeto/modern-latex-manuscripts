@@ -37,7 +37,7 @@ The refreshed second-web intake now fronts `41_R549_P40P528_529_AUTOMORPHISM_VER
 
 ## Public Claim Boundaries
 
-- R549 is the current local source-control candidate only.
+- R549 is the historical local source-control candidate now superseded by R550/R551 only.
 - It is not a reader release.
 - It is not Paper 40 closure.
 - It is not Noether closure.

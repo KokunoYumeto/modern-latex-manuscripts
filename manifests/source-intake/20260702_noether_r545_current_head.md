@@ -2,7 +2,7 @@
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R544. This formerly registered R545 as the current coherent packaged Paper 40 p525 source-control step; it is now historical under R546/R547/R548/R549. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R544. This formerly registered R545 as the current coherent packaged Paper 40 p525 source-control step; it is now historical under R546/R547/R548/R549/R550/R551. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current Head
 
