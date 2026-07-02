@@ -39,4 +39,4 @@ This is source-control/support material only. It is not a reader release, Noethe
 
 ## Superseded Status
 
-As of the later 2026-07-02 sweep, R559 is no longer the current Noether source-control head. It is the coherent predecessor beneath R560. Keep this file as provenance for the Paper 40 pp.540-541 repair, but front R560 in public current-status wording.
+As of the later 2026-07-02 sweeps, R559 is no longer the current Noether source-control head. It is the coherent predecessor beneath R560, and R560 is now the coherent predecessor beneath R561. Keep this file as provenance for the Paper 40 pp.540-541 repair, but front R561 in public current-status wording.

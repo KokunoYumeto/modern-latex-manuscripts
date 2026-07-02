@@ -2,7 +2,7 @@
 
 ## Public Disposition
 
-Register R560 as the current coherent local TeX-changing German source-control head for Noether. It is a local package folder rather than a loose ZIP. Queue it for a curated Noether rollup because the Noether Zenodo record is at the 100-file ceiling; do not upload it loose unless the record is deliberately pruned/rebalanced.
+Register R560 as a coherent local TeX-changing German source-control predecessor for Noether, now superseded for current-head purposes by R561. It is a local package folder rather than a loose ZIP. Queue it for a curated Noether rollup because the Noether Zenodo record is at the 100-file ceiling; do not upload it loose unless the record is deliberately pruned/rebalanced.
 
 ## Package
 
