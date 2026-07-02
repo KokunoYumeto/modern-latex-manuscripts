@@ -2,7 +2,7 @@
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R537. This registers R538, R539, and R540 as the Paper 40 p518-p520 source-repair chain at that step. It is now superseded for present current-head status by R542, registered in `20260702_noether_r542_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R537. This registers R538, R539, and R540 as the Paper 40 p518-p520 source-repair chain at that step. It is now superseded for present current-head status by R544, registered in `20260702_noether_r543_r544_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current TeX-Changing Head
 
@@ -25,7 +25,7 @@ It carries forward R531 tail/Kapferer survival repairs, R532/R533 no-patch suppo
 - `Noether_R540_LocalCodex_R539_P40p520_Linearformenmodul_SourceFix_20260702.zip`
   - bytes: `57572975`
   - SHA256: `8E0A75DB6165C9BC0412EE09DC25C376E28D310FC133B73A740216854E0F7E2F`
-  - role: then-current TeX-changing head; source-backed Paper 40 printed p520 Linearformenmodul and order-sensitive automorphism calculation repair; superseded by R542 for present current-head purposes.
+  - role: then-current TeX-changing head; source-backed Paper 40 printed p520 Linearformenmodul and order-sensitive automorphism calculation repair; superseded by R544 for present current-head purposes.
 
 ## R540 Internal Hashes
 
@@ -74,7 +74,7 @@ The intake remains a source/state handoff folder for concurrent Pro/Web work, no
 
 ## Later Status
 
-R542 now supersedes R540 for current-head purposes and fronts `40_R542_P40P522_UEBERGANG_FOLGERUNG_SOURCEFIX.zip` in the refreshed second-web intake.
+R544 now supersedes R540 for current-head purposes and fronts `40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip` in the refreshed second-web intake.
 
 ## R541/R543 Caution
 
