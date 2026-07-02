@@ -2,11 +2,11 @@
 
 Date registered: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R531. This registers R532, R533, R286 evidence, and R534 as the then-current local TeX-changing candidate at this step. It is now superseded for present current-head status by R537, registered in `20260702_noether_r535_r537_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R531. This registers R532, R533, R286 evidence, and R534 as the then-current local TeX-changing candidate at this step. It is now superseded for present current-head status by R542, registered in `20260702_noether_r538_r540_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Then-Current Head
 
-R534 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current status has since moved to R537.
+R534 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current status has since moved to R540.
 
 It applies one source-backed punctuation repair on top of R533:
 
@@ -44,4 +44,4 @@ The witness is a GDZ full-resolution page image for Math. Z. 37 (1933), printed 
 
 ## Second-Web Intake State
 
-The refreshed intake folder fronted `40_R534_P40P515_COMMA_SOURCEFIX.zip` at this step and contained 41 top-level files, 36 ZIP payloads, and 4,229,278,390 ZIP bytes. The later R537 intake now fronts `40_R537_P40P517_THETAOPERATOR_SOURCEFIX.zip`. This R534-era folder remains source/state handoff provenance for concurrent Pro/Web work, not a reader release by itself.
+The refreshed intake folder fronted `40_R534_P40P515_COMMA_SOURCEFIX.zip` at this step and contained 41 top-level files, 36 ZIP payloads, and 4,229,278,390 ZIP bytes. The later R542 intake now fronts `40_R542_P40P522_UEBERGANG_FOLGERUNG_SOURCEFIX.zip`. This R534-era folder remains source/state handoff provenance for concurrent Pro/Web work, not a reader release by itself.
