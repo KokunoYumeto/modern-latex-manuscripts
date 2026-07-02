@@ -74,6 +74,8 @@ LOCAL_TO_REMOTE = {
     "logs/FULL_REDO_AFTER_MODE_RESET_PUBLISH_VERIFICATION_20260702T025500Z.md": f"{DEST_ROOT}/FULL_REDO_AFTER_MODE_RESET_PUBLISH_VERIFICATION_20260702T025500Z.md",
     "logs/FULL_REDO_AFTER_MODE_RESET_PUBLISH_VERIFICATION_20260702T025500Z.json": f"{DEST_ROOT}/FULL_REDO_AFTER_MODE_RESET_PUBLISH_VERIFICATION_20260702T025500Z.json",
     "tmp/build_full_redo_publish_verification_20260702.py": f"{DEST_ROOT}/build_full_redo_publish_verification_20260702.py",
+    "logs/LOCAL_DISK_CLEANUP_SUPERSEDED_PACKAGES_20260702T030000Z.md": f"{DEST_ROOT}/LOCAL_DISK_CLEANUP_SUPERSEDED_PACKAGES_20260702T030000Z.md",
+    "logs/LOCAL_DISK_CLEANUP_SUPERSEDED_PACKAGES_20260702T030000Z.json": f"{DEST_ROOT}/LOCAL_DISK_CLEANUP_SUPERSEDED_PACKAGES_20260702T030000Z.json",
     "tmp/package_language_planning_checkpoint_20260628.py": f"{DEST_ROOT}/package_language_planning_checkpoint_20260628.py",
     "tmp/validate_language_planning_checkpoint_20260630.py": f"{DEST_ROOT}/validate_language_planning_checkpoint_20260630.py",
     "tmp/publish_post_checkpoint_github_handoff_20260701.py": f"{DEST_ROOT}/publish_post_checkpoint_github_handoff_20260701.py",
