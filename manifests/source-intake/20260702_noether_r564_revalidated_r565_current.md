@@ -6,7 +6,7 @@ This receipt supersedes the earlier `20260702_noether_r564_hold_rejected.*` inta
 
 ## Corrected Decision
 
-R564 is **validated as a source-matching local German source-control predecessor**, not held/rejected. R565 is the current local TeX-changing German source-control head above R564.
+R564 is **validated as a source-matching local German source-control predecessor**, not held/rejected. R565 was the current local TeX-changing German source-control head above R564 at that step; it is now superseded by R568.
 
 ## Source Basis
 
@@ -33,3 +33,6 @@ R565/R564 are source-control/support material queued for a curated Noether rollu
 ## Workflow Lesson
 
 Source witnesses govern both promotion and rejection. A clean compile, newest-on-disk timestamp, or first-pass status note is not enough. When a later source reread contradicts an archive caveat, update the public status explicitly rather than burying the reversal.
+
+
+Supersession note, 2026-07-02: R568 is now the current packaged local TeX-changing German source-control head. R565 remains a coherent predecessor, not the current head.
