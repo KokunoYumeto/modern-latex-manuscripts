@@ -7290,3 +7290,12 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
   - SHA256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`.
   - Builder/independent validation: `True` / `True`.
 - Boundary: this is a reproducibility/source-evidence/package checkpoint, not a native-review closure, term-promotion closure, or completion of the active multilingual goal.
+
+### 2026-07-02T02:53:53Z - Full redo GitHub publish verification
+
+- Published branch metadata to `https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/codex/laptop-noether-language-planning-20260701/workflow/codex-laptop-handoffs/20260701T223800Z`.
+- Uploaded draft release asset `https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/untagged-7730990f04c532fa93a2/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`.
+- Local SHA-256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`.
+- GitHub asset digest: `sha256:f3295275c75445cc18b34fcc3d8de72f682b8ae089ce639105f667d9e8384bd9`.
+- Digest match: `True`.
+- Boundary: release remains draft and this verifies package handoff only; no native-review or term-promotion closure is implied.
