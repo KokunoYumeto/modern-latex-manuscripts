@@ -6,7 +6,7 @@ Scope: local Noether German/source-control continuation after the R538-R540 Pape
 
 ## Current Head
 
-R542 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current status has since moved to R544.
+R542 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current status has since moved to R545.
 
 It carries forward the R531 tail/Kapferer repairs, R532/R533 support and Web R286 evidence integration, R534-R540 Paper 40 pp.515-520 repairs, and the inherited local R541 base step, then applies a source-backed Paper 40 printed p522 typography/layout repair.
 
@@ -39,11 +39,11 @@ The Paper 40 p522 witness is `source_witnesses/P40_p522_GDZ400_fullres.jpg`, des
 
 ## Later Status
 
-R543 and R544 are now coherent packaged source-control steps registered in `20260702_noether_r543_r544_current_head.md/json`. R542 remains historical source-control provenance beneath R544.
+R543 and R544 are now coherent packaged source-control steps registered in `20260702_noether_r543_r544_current_head.md/json`. R542 remains historical source-control provenance beneath R545.
 
 ## Public Handling
 
-- R542 is historical local source-control after R544.
+- R542 is historical local source-control after R545.
 - Do not describe it as a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or a critical edition.
 - R543/R544 are promoted separately by `20260702_noether_r543_r544_current_head.md/json`.
 - Do not upload every micro-ZIP loose to Noether while the record is at the Zenodo file ceiling; fold the current head and relevant support into a curated rollup.

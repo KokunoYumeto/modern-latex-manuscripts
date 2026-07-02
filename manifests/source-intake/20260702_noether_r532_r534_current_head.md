@@ -2,7 +2,7 @@
 
 Date registered: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R531. This registers R532, R533, R286 evidence, and R534 as the then-current local TeX-changing candidate at this step. It is now superseded for present current-head status by R544, registered in `20260702_noether_r543_r544_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R531. This registers R532, R533, R286 evidence, and R534 as the then-current local TeX-changing candidate at this step. It is now superseded for present current-head status by R545, registered in `20260702_noether_r545_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Then-Current Head
 
@@ -44,4 +44,4 @@ The witness is a GDZ full-resolution page image for Math. Z. 37 (1933), printed 
 
 ## Second-Web Intake State
 
-The refreshed intake folder fronted `40_R534_P40P515_COMMA_SOURCEFIX.zip` at this step and contained 41 top-level files, 36 ZIP payloads, and 4,229,278,390 ZIP bytes. The later R544 intake now fronts `40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`. This R534-era folder remains source/state handoff provenance for concurrent Pro/Web work, not a reader release by itself.
+The refreshed intake folder fronted `40_R534_P40P515_COMMA_SOURCEFIX.zip` at this step and contained 41 top-level files, 36 ZIP payloads, and 4,229,278,390 ZIP bytes. The later R544 intake now fronts `40_R545_P40P525_ERWEITERUNGSSATZ_SOURCEFIX.zip`. This R534-era folder remains source/state handoff provenance for concurrent Pro/Web work, not a reader release by itself.

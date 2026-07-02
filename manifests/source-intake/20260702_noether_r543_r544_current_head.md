@@ -1,12 +1,12 @@
-# Noether R543-R544 Current Local Source-Control Head
+# Noether R543-R544 Historical Local Source-Control Head
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R542. This registers R543 and R544 as the current coherent packaged Paper 40 p523-p524 source-control chain, with R544 as the newest clean packaged local TeX-changing German source-control candidate. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R542. This registers R543 and R544 as the historical coherent packaged Paper 40 p523-p524 source-control chain, now superseded by R545. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current Head
 
-R544 is the newest coherent packaged local TeX-changing German source-control candidate found in the refreshed second-web intake.
+R544 was the newest coherent packaged local TeX-changing German source-control candidate at that step; current-head status has since moved to R545 found in the refreshed second-web intake.
 
 It carries forward R531 tail/Kapferer repairs, R532/R533 support and Web R286 evidence integration, R534-R540 Paper 40 pp.515-520 repairs, R541/R542 p521-p522 carry-forward/source-control work, R543 p523 repairs, and then applies source-backed Paper 40 printed p524 Erweiterungsmodul/invariant-module repairs.
 
@@ -16,7 +16,7 @@ It carries forward R531 tail/Kapferer repairs, R532/R533 support and Web R286 ev
   - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R543_LocalCodex_R542_P40p523_BemerkungContinuation_SourceFix_20260702.zip`
   - bytes: 69,250,940
   - SHA256: `70414E8A73EDE45D9DFDE85876F78FC4BC37D8E654EEC5A4592FE9A60E9530F5`
-  - role: source-backed Paper 40 printed p523 source-control repair on top of R542; historical after R544.
+  - role: source-backed Paper 40 printed p523 source-control repair on top of R542; historical after R545.
 
 - `40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`
   - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`
@@ -67,13 +67,13 @@ The Paper 40 p523 and p524 witnesses are best staged GDZ full-page images for Ma
 
 ## Second-Web Intake
 
-The refreshed intake folder now fronts `40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`.
+The refreshed intake folder now fronts `40_R545_P40P525_ERWEITERUNGSSATZ_SOURCEFIX.zip`; `40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip` is historical beneath R545.
 
 The intake remains a source/state handoff folder for concurrent Pro/Web work, not a reader release by itself.
 
 ## Public Handling
 
 - R544 is a local source-control candidate only.
-- R543 is historical source-control after R544, not unpromoted.
+- R543 is historical source-control after R545, not unpromoted.
 - Do not describe this chain as a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or a critical edition.
 - Do not upload every micro-ZIP loose to Noether while the record is at the Zenodo file ceiling; fold the current head and relevant support into a curated rollup.
