@@ -7228,3 +7228,30 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
 - Added `logs/SIMPLIFIED_CHINESE_VISUAL_QUEUE_TRIAGE_20260702T014500Z.json` and `.md` after visual inspection of the contact sheet.
 - Triage result: all ten queued Simplified Chinese working/font-test PDFs render on first page without gross blank-page or obvious page-walkoff failure; Paper22/Paper24 working pages are readable and stay inside the visible page frame on page 1.
 - Boundary retained: this is first-page triage only; these working/font-test PDFs remain non-promotion artifacts unless front/middle/back plus dense-page inspection is later performed.
+
+## 2026-07-02T02:00:00Z Visual triage integration status
+
+- Added `tmp/build_visual_triage_integration_status_20260702.py`.
+- Generated `logs/VISUAL_TRIAGE_INTEGRATION_STATUS_20260702T020000Z.json` and `.md`.
+- Reconciled the Simplified Chinese queue from `logs/VISUAL_INSPECTION_COVERAGE_LEDGER_20260702T011500Z.json` with the first-page triage ledger `logs/SIMPLIFIED_CHINESE_VISUAL_QUEUE_TRIAGE_20260702T014500Z.json`.
+- Integrated result: original queued PDFs `10`; first-page triaged `10`; gross blank-page/page-walkoff failures `0`; promotion-cleared from this integration `0`; full inspection still required if any are promoted `10`.
+- Boundary retained: this status updates queue state only, does not supersede the visual coverage ledger, does not claim full visual clearance, and does not trigger a large package rebuild by itself.
+
+## 2026-07-02T01:10:00Z Last-day redo checkpoint after model/mode concern
+
+- Added `tmp/redo_last_day_reproducibility_audit_20260702.py` and reran the local last-day builders from source inputs.
+- Initial replay exposed an idempotency bug in the Simplified Chinese visual queue replay: once the contact-sheet evidence exists, the coverage ledger correctly reports `0` queued Simplified Chinese PDFs, and the old contact-sheet/integration builders expected the pre-contact-sheet queue of `10`.
+- Patched `tmp/build_simplified_chinese_visual_queue_contact_sheet_20260702.py` and `tmp/build_visual_triage_integration_status_20260702.py` so replays preserve/reconcile existing first-page triage evidence instead of failing or implying promotion clearance.
+- Clean replay artifact: `logs/LAST_DAY_REDO_REPRODUCIBILITY_AUDIT_20260702T005153Z.json` and `.md`; commands run `17`, failures `0`.
+- Fresh Zenodo check: `logs/ZENODO_NOETHER_LATEST_LIVE_CHECK_20260702T005824Z.json` and `.md`; DOI `10.5281/zenodo.20836874`, revision `3`, file count `100`, action `NO_SOURCE_REPLACEMENT_REQUIRED`.
+- Rebuilt package: `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T005841Z.zip`; bytes `1622927201`; SHA256 `7DDCC89D5F5F9289C6B24F0F355C3FAD8934EB5C1BC61D654A1AEA63FF72CC09`.
+- Builder validation and independent validation both passed; no required files missing, no credential scan hits, zip integrity clean, SHA sidecar matches.
+- Added redo checkpoint summary `logs/LAST_DAY_REDO_CHECKPOINT_20260702T011000Z.json` and `.md`.
+- Boundary retained: this validates and refreshes the handoff/package layer; it does not convert local cumulative baselines into public/native-reviewed final editions and does not close external review gates.
+
+## 2026-07-02T01:18:00Z Post-redo final package sidecar
+
+- Rebuilt the package once more after the redo checkpoint/log artifacts existed so the archive contains the redo audit/checkpoint material.
+- Final package for this redo cycle: `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T010851Z.zip`; bytes `1622932459`; SHA256 `660AEDD341D57AB97C6200CCDFBE0A169708416D60232C54686A6F733C835822`.
+- Builder validation and independent validation both passed for `20260702T010851Z`; SHA sidecar matches and zip integrity is clean.
+- Added post-package sidecar `logs/POST_REDO_FINAL_HANDOFF_20260702T011800Z.json` and `.md`; this sidecar intentionally sits outside the final zip to avoid infinite self-reference.
