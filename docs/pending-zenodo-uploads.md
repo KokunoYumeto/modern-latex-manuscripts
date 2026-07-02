@@ -7423,7 +7423,20 @@ Manifest: [20260626_weber_b139_phase2_v1ge_sec141_162_status.json](../manifests/
 - Held block after this package: section 69, section 138 numbering/layout, p466, sections 148-156, section 158, section 163, section 165, sections 167-170, and sections 173-188.
 - Caveat: source-audit/status artifact only. Not an English-synchronized reader, not whole-Volume-I certification, and not a critical edition.
 
-Next action: continue Phase 2 coherent retranscription of held rewrite/reconstruction blocks, especially sections 148-156, 158, 163, 165, 167-170, and 173-188.
+Next action: superseded by the 2026-07-02 Weber Phase 2 workpass status below; keep this June 26 package as provenance only. The later local status removes sections 158, 163, and 165 from the active held block.
+
+## 2026-07-02: Weber Phase 2 German Vol. I section 158/163/165 workpass status
+
+Manifest: [20260702_weber_phase2_sec158_165_local_workpass.json](../manifests/source-intake/20260702_weber_phase2_sec158_165_local_workpass.json)
+
+- Local workpass status only; no compact public ZIP has been minted yet.
+- Scope: current local German Volume I workpass TeX/PDF/logs plus updated certification/method logs after Phase 2 accepted coherent retranscriptions for §§141, 158, 162, 163, and 165.
+- Status additions since the prior §141/§162 package: §163 is fully re-transcribed, §158 is fully re-transcribed over printed pp.516-521, and §165 is fully re-transcribed over printed pp.546-551.
+- Current local German workpass: `weber_v1_ge.pdf`, 377 pages, SHA256 `8CE2C56F6572C72839A10D25862F074A597C20C18B05C17700C281328A241AD0`; controlling TeX SHA256 `0CDA1A0A46765A14D60C7C2A3C5C0AACD456999CD75DB32B47AC58897F1CE23D`.
+- Held block after this status: section 69, section 138 numbering/layout, p466, sections 148-156, sections 167-170, and sections 173-188.
+- Caveat: source-audit/workpass status only. Not a public Weber reader release yet, not English synchronization, not whole-Volume-I certification, and not a critical edition.
+
+Next action: fold this into a deliberate compact Weber author-record refresh rather than uploading loose.
 
 ## 2026-06-26: Noether R128 Tail/Kapferer backmatter pp770-777 source-audit fix
 
