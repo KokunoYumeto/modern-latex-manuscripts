@@ -12,7 +12,7 @@ Size: 75,223,687 bytes. ZIP entries inspected: 19.
 
 ## Scope
 
-R528 is a no-patch visual/source-audit support package on top of R527. It does not create a new TeX-changing head. R527 remains the current clean packaged local TeX-changing Noether German source-control candidate.
+R528 is a no-patch visual/source-audit support package on top of R527. It does not create a new TeX-changing head. At the time of this package, R527 was the clean packaged local TeX-changing Noether German source-control candidate; current-head status has since moved to R531.
 
 The inspected scope is Paper 24 printed pp.250-261, covering the tail from the Satz VI/VII transition through the Satz XVII close/date. The package records per-page dispositions in `03_audit/visual_dispositions_R528_p24p250_261.csv`.
 

@@ -14,7 +14,7 @@ Current quality grouping in brief:
 
 SGA and EGA must not be read as peer records: SGA has substantial active repair/workpass evidence but is incomplete and caveat-heavy; EGA is lower-confidence original/OCR/support plus partial draft material. Cayley is deliberately de-promoted until exact ranges are re-audited from source.
 
-Current Noether control split, 2026-07-02: R527 is the latest clean packaged local TeX-changing German source-control candidate. R528 and R529 are newer support layers, not TeX heads: R528 records no-patch visual/source-audit support for Paper 24 printed pp.250-261, and R529 records no-patch current-base survival support for Papers 25-30. The current second-web intake fronts `39_R529_P25_P30_CURRENT_SURVIVAL_NOPATCH.zip`. This is source-control/support material only, not a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or critical edition.
+Current Noether control split, 2026-07-02: R531 is the latest clean packaged local TeX-changing German source-control candidate. R530 promotes source-checked Paper 24 Hilfssatz V p245-p246 repairs on top of R529; R531 restores source-backed R497 tail/Kapferer repairs onto R530. R528 and R529 remain support layers, not TeX heads. The current second-web intake fronts `39_R531_TAIL_KAPFERER_SURVIVALFIX.zip`. This is source-control/support material only, not a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or critical edition.
 
 | Record | Role |
 |---|---|
