@@ -550,7 +550,7 @@ Manifest: [20260630_noether_r307_p15p149_lambda_repetition_fix.json](../manifest
 
 Manifest: [20260630_interlanguage_logs_noether_pc_branch_snapshot.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_logs_noether_pc_branch_snapshot.json)
 
-- Candidate record: Interlanguage and constructed-language mathematical translation notes, pending dedicated DOI; also relevant to the Noether multilingual support lane.
+- Dedicated record now minted: Interlanguage Mathematical Translation Methodology, concept DOI `10.5281/zenodo.21124403` / latest `10.5281/zenodo.21124458`; also relevant to the Noether multilingual support lane.
 - Artifact: `interlanguage_logs_noether_pc_branch_20260630.zip`, 284,078 bytes, SHA256 `CEF9B72D5CE516197932CC5720C730810575A97517A6BB65C4A00C73233C1426`, 93 entries.
 - Scope/result: quick Web/Pro handoff ZIP made from `origin/codex/noether-pc-20260629` without merging the older branch. It preserves review-gap matrices, external-review handoff pointers, terminology governance, draft reviewer glossary indexes, source-evidence reinforcement notes, page-inspection queue/batches, term-ID registry seeds, and small validation/extraction scripts.
 - Caveat: working methodology/review infrastructure only. Not a reader release, native-speaker approval, accepted glossary, source certification, Noether closure, multilingual synchronization proof, or critical edition. Do not raw-merge the branch into the public archive branch.
@@ -623,7 +623,7 @@ Manifest: [20260630_noether_r302_p24p233_equals_zero_sourcefix.json](../manifest
 
 Manifest: [20260630_interlanguage_logs_quick_webdrop_065604.json](../manifests/pending-zenodo-uploads/20260630_interlanguage_logs_quick_webdrop_065604.json)
 
-- Candidate record: Interlanguage and constructed-language mathematical translation notes, pending dedicated DOI.
+- Dedicated record now minted: Interlanguage Mathematical Translation Methodology, concept DOI `10.5281/zenodo.21124403` / latest `10.5281/zenodo.21124458`.
 - Artifact: `interlanguage_logs_quick_webdrop_20260630_065604.zip`, 1,406,739 bytes, SHA256 `A8EBA2EEE3E1668DD689E4C4AB21D1D51CA5E83DE7A0BBF4BF74334C8AF015E1`, 119 entries.
 - Scope/result: small Web/Pro context handoff for the interlanguage / Slavic / Interslavic / constructed-language / multilingual Noether methodology lane. It keeps the branch/logbook/reviewer-authority/source-evidence notes available without uploading the larger payloads.
 - Caveat: working context only. Not a mathematical reader release, not source certification, not native-speaker approval, not term approval, and not a critical edition. The larger 03:39 quick-drop remains provenance; this 06:56 ZIP is the convenient small live handoff.
@@ -800,7 +800,7 @@ Manifest: [20260630_interlanguage_logs_quick_webdrop_033913.json](../manifests/p
 - Artifact: `interlanguage_logs_quick_webdrop_20260630_033913.zip`, 11,667,862 bytes, SHA256 `629F66A8C9913FB1B502FE5791843E83EA83EC31A2B3A87D4A179AFFDA3DD5DF`. ZIP integrity test passed; 2,062 files / 2,781 entries including directories.
 - Scope/result: quick Web/Pro context bundle for the interlanguage, Slavic, Interslavic, constructed-language, and multilingual Noether methodology lane. It includes the small branch handoffs whole and a text/log-only slice of the bulky Slavic endmatter update.
 - Caveat: rough working handoff only. Not a curated public reader release, not mathematical source certification, not native-speaker approval, not term approval, and not a critical edition.
-- Publication policy: use as support/context under the pending interlanguage methodology DOI candidate or as Web upload context. Do not front as a reader artifact.
+- Publication policy: use as support/context under the dedicated interlanguage methodology DOI (10.5281/zenodo.21124403) or as Web upload context. Do not front as a reader artifact.
 
 ## 2026-06-30: Noether R273 Paper 43 p21 xi-power source-order patch
 
@@ -7436,7 +7436,7 @@ Manifest: [20260702_weber_phase2_sec158_165_local_workpass.json](../manifests/so
 - Held block after this status: section 69, section 138 numbering/layout, p466, sections 148-156, sections 167-170, and sections 173-188.
 - Caveat: source-audit/workpass status only. Not a public Weber reader release yet, not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
-Next action: superseded for current status by the 2026-07-02 section 156 / sections 167-170 workpass below; keep this as provenance only.
+Next action: superseded for current status by the 2026-07-02 section 156 / sections 167-170 workpass and then by the section 173-174 / 400-page workpass in `manifests/source-intake/20260702_weber_phase2_sec174_local_workpass.md/json`; keep this as provenance only.
 
 ## 2026-07-02: Weber Phase 2 German Vol. I section 156 and sections 167-170 workpass status
 
@@ -7445,12 +7445,12 @@ Manifest: [20260702_weber_phase2_sec156_170_local_workpass.json](../manifests/so
 - Local workpass status only; no compact public ZIP has been minted yet.
 - Scope: current local German Volume I workpass TeX/PDF/logs plus updated certification/method logs after Phase 2 accepted coherent retranscriptions for §§141, 156, 158, 162, 163, 165, and §§167-170.
 - Status additions since the prior §158/§163/§165 status: §156 is fully re-transcribed and closes the earlier §§148-156 held block; §§167-170 are fully re-transcribed and close the earlier Kreistheilung/psi held block.
-- Current local German workpass: `weber_v1_ge.pdf`, 397 pages, SHA256 `45F60D90A0D270FD560DABC91F8228EB7953794285EDE3D7ACFB4C7DF665DB5F`; controlling TeX SHA256 `24DF762F55C58480F75FCB6CEF7BEC96B1A6A8EA1E046FDB11BD96E9E9FCA9BF`.
+- Historical local German workpass at this checkpoint: `weber_v1_ge.pdf`, 397 pages, SHA256 `45F60D90A0D270FD560DABC91F8228EB7953794285EDE3D7ACFB4C7DF665DB5F`; controlling TeX SHA256 `24DF762F55C58480F75FCB6CEF7BEC96B1A6A8EA1E046FDB11BD96E9E9FCA9BF`. Current status is superseded by the section 173-174 / 400-page workpass manifest.
 - Held block after this status: section 69, section 138 numbering/layout, p466, and sections 173-188.
 - Workflow note: this tranche is important because §167 had missing/misrepresented equation structure, §168 contained a fabricated worked example, and §§169-170 required equation-number, footnote, and omitted-tail restoration. Treat "all clean" or fast passes on these regions as suspicious until source pages are inspected.
 - Caveat: source-audit/workpass status only. Not a public Weber reader release yet, not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
-Next action: fold this into a deliberate compact Weber author-record refresh rather than uploading loose.
+Next action: superseded for current status by `manifests/source-intake/20260702_weber_phase2_sec174_local_workpass.md/json`, which advances the local German workpass through §§173-174 and 400 compiled pages. Fold the latest section 174 status into a deliberate compact Weber author-record refresh rather than uploading loose.
 
 ## 2026-06-26: Noether R128 Tail/Kapferer backmatter pp770-777 source-audit fix
 

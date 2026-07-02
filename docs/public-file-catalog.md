@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1108
+Total files indexed: 1111
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -155,6 +155,18 @@ Lean note: older workflow filenames that say `Formal Checking` are legacy/local 
 | manifest/status | 0.0059 | [workflow_addendum_20260624_page_unit_audit_harness.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260624_page_unit_audit_harness.md) |
 | manifest/status | 0.0062 | [workflow_addendum_20260624_source_witness_public_surface.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260624_source_witness_public_surface.md) |
 | artifact/source ZIP | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20836364/files/Workflow_Lessons_20260611.zip) |
+
+## Interlanguage Mathematical Translation Methodology
+
+Record: <https://doi.org/10.5281/zenodo.21124403>
+
+This is a methodology and linguistics lane, not a mathematical reader release, native-speaker approval, term approval, source certification, language synchronization proof, or critical edition.
+
+| Role | Size MB | File |
+|---|---:|---|
+| reader/reference PDF | 0.0032 | [00 Overview - Interlanguage Methodology 20260702.pdf](https://zenodo.org/records/21124458/files/00%20Overview%20-%20Interlanguage%20Methodology%2020260702.pdf) |
+| artifact/source ZIP | 0.2709 | [Noether_interlanguage_logs_quick_20260701.zip](https://zenodo.org/records/21124458/files/Noether_interlanguage_logs_quick_20260701.zip) |
+| artifact/source ZIP | 0.1094 | [Noether_Interlanguage_Logs_QuickFeed_20260701.zip](https://zenodo.org/records/21124458/files/Noether_Interlanguage_Logs_QuickFeed_20260701.zip) |
 
 ## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
 
