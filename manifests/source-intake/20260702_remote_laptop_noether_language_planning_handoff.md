@@ -6,9 +6,9 @@ Remote branch inspected:
 
 `origin/codex/laptop-noether-language-planning-20260701`
 
-Top commit:
+Current remote head after the 2026-07-02 sweep:
 
-`79df1ba6 Codex laptop handoff: update workflow/codex-laptop-handoffs/20260701T223800Z/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260701T222757Z.zip.sha256`
+`6b983a15cf40b58815e754e3d48dc75bbc049376`
 
 Classification: remote handoff/evidence branch for Noether language planning and interlanguage methodology. Do not merge wholesale.
 
@@ -35,6 +35,15 @@ The handoff manifest describes a full checkpoint package:
 - builder validation: pass
 - independent validation: pass
 - credential scan hits: none
+
+The later publish-verification sidecar on the same branch records an additional GitHub release-asset handoff:
+
+- package: `Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`
+- release asset URL: `https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/untagged-7730990f04c532fa93a2/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`
+- SHA256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`
+- release draft: `True`
+
+This is release-asset handoff evidence only. It is not a Zenodo payload replacement and not a language-edition completion claim.
 
 ## Content summary
 

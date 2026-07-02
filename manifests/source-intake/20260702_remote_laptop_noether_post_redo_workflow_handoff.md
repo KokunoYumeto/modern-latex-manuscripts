@@ -8,7 +8,7 @@ Imported Git subtree:
 
 `workflow/codex-laptop-handoffs/20260701T223800Z`
 
-Remote head inspected: `91fd1b08`
+Remote head inspected after the 2026-07-02 sweep: `6b983a15cf40b58815e754e3d48dc75bbc049376`
 
 ## What this records
 
@@ -30,6 +30,16 @@ The previous checkpoint sidecar remains useful provenance:
 - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260701T222757Z.zip`
 - Bytes: `1622848036`
 - SHA256: `47FFE24AEA718B1F88930FED4EBB5009198F25B39317FEF2BACAD6791C8C95FA`
+
+The latest publish-verification sidecar records a GitHub release-asset handoff:
+
+- `Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`
+- Release asset URL: `https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/untagged-7730990f04c532fa93a2/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`
+- SHA256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`
+- Publish verification passed: `True`
+- Release draft: `True`
+
+This is GitHub handoff/provenance evidence, not a Zenodo source-evidence ZIP upload.
 
 ## Zenodo live-check result
 
