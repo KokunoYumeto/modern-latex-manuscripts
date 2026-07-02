@@ -7309,3 +7309,13 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
   - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T010851Z.zip` (`1.511` GB).
 - Total local space reclaimed: `4.534` GB.
 - Kept all sidecars, logs, source shelves, TeX, manifests, validations, and the current validated package `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`.
+
+### 2026-07-02T03:15:00Z - French missing-unit matrix after P40 S09
+
+- Added `tmp/build_french_missing_unit_matrix_20260702.py`.
+- Generated `logs/FRENCH_MISSING_UNIT_MATRIX_20260702T031500Z.json` and `.md`.
+- Current French baseline remains `cum_fr_P40_s09`; no translation, TeX integration, render, or term promotion was made by this matrix.
+- Retired stale “Paper 40 section 10” wording for the current source state: `logs/FRENCH_P40_S09_COMPLETION_TRANSLATION_20260630.json` marks `paper40_completion: true`, `next_french_lane_start: paper40_complete_no_next_p40_unit`, and the controlling Paper 40 source headings reach §9.
+- Actual missing French queue is now explicit and source-backed: `paper41`, `paper42`, `paper43`, `post44`, `post45`, `postbibliography`.
+- Source inventory validation is clean for numbered papers 01--43; endmatter inventory validation is clean for post44/post45/postbibliography.
+- Next French translation unit should be Paper 41, followed by Papers 42--43 and terminal post-numbered material before any French full-volume completion claim.
