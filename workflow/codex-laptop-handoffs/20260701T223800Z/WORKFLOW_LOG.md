@@ -7299,3 +7299,13 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
 - GitHub asset digest: `sha256:f3295275c75445cc18b34fcc3d8de72f682b8ae089ce639105f667d9e8384bd9`.
 - Digest match: `True`.
 - Boundary: release remains draft and this verifies package handoff only; no native-review or term-promotion closure is implied.
+
+### 2026-07-02T03:00:00Z - Local disk cleanup of superseded package ZIPs
+
+- Removed superseded local checkpoint ZIP binaries after the current `20260702T020954Z` package was rebuilt, validated, uploaded, and digest-verified.
+- Removed:
+  - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260701T222757Z.zip` (`1.511` GB).
+  - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T005841Z.zip` (`1.511` GB).
+  - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T010851Z.zip` (`1.511` GB).
+- Total local space reclaimed: `4.534` GB.
+- Kept all sidecars, logs, source shelves, TeX, manifests, validations, and the current validated package `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`.
