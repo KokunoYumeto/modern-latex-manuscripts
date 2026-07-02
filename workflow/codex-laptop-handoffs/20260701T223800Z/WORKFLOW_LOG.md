@@ -7187,3 +7187,20 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
 - Generated `logs/POST_CHECKPOINT_GITHUB_HANDOFF_20260701T223800Z.json` and `.md`.
 - Sidecar records the current validated package `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260701T222757Z.zip`, SHA256 `47FFE24AEA718B1F88930FED4EBB5009198F25B39317FEF2BACAD6791C8C95FA`, builder/independent validation pass, latest Zenodo no-replacement result, and next-work queue for Slavic maintenance, French/Spanish, Chinese/Japanese, Arabic/Persianate, research/publication, and GitHub/Drive/Zenodo handoff.
 - Boundary retained: this is a post-checkpoint coordination sidecar and avoids an infinite self-referential package rebuild loop.
+
+## 2026-07-01T23:46:06Z GitHub branch and draft-release handoff upload
+
+- Added `tmp/publish_post_checkpoint_github_handoff_20260701.py`.
+- Published text/metadata handoff files to repository `KokunoYumeto/modern-latex-manuscripts` on branch `codex/laptop-noether-language-planning-20260701`, under `workflow/codex-laptop-handoffs/20260701T223800Z/`.
+- Uploaded handoff Markdown/JSON, latest workflow log, latest Zenodo check Markdown/JSON, checkpoint SHA256 sidecar, builder validation JSON, independent validation JSON, and the post-checkpoint handoff builder script.
+- Created draft/prerelease tag `codex-laptop-noether-language-planning-20260701T222757Z` targeted at the laptop branch and uploaded the full package `Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260701T222757Z.zip` as a release asset.
+- GitHub asset digest reported `sha256:47ffe24aea718b1f88930fed4ebb5009198f25b39317fef2bacad6791c8c95fa`, matching the local package SHA256 `47FFE24AEA718B1F88930FED4EBB5009198F25B39317FEF2BACAD6791C8C95FA`.
+- Boundary retained: draft release is an archive handoff/checkpoint, not a public final-edition claim.
+
+## 2026-07-02T00:35:00Z Cross-lane promotion readiness audit
+
+- Added `tmp/build_cross_lane_promotion_readiness_audit_20260702.py`.
+- Generated `logs/CROSS_LANE_PROMOTION_READINESS_AUDIT_20260702T003500Z.json` and `.md`.
+- Audit consolidates Slavic, Spanish, French, Simplified Chinese, Japanese, Arabic/Persianate, and research/publication lane statuses into a single promotion gate table.
+- Decision summary: Slavic remains maintenance/watch mode; French, Spanish, Chinese, and Japanese have local cumulative baselines/proofs but still need source-native/public-edition promotion gates; Arabic/Persianate remains evidence-split and corpus-first with Arabic specialist invariant evidence still weak; research/publication remains an evidence map and methods spine, not a finished article.
+- Boundary retained: this is post-checkpoint branch metadata and should not trigger a large package rebuild by itself.
