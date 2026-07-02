@@ -7436,7 +7436,7 @@ Manifest: [20260702_weber_phase2_sec158_165_local_workpass.json](../manifests/so
 - Held block after this status: section 69, section 138 numbering/layout, p466, sections 148-156, sections 167-170, and sections 173-188.
 - Caveat: source-audit/workpass status only. Not a public Weber reader release yet, not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
-Next action: superseded for current status by the 2026-07-02 section 179 / 403-page workpass in `manifests/source-intake/20260702_weber_phase2_sec179_local_workpass.md/json`; keep the older section 173-174 / 400-page workpass as provenance only.
+Next action: superseded for current status by the later 2026-07-02 section 183 / 410-page workpass status recorded in the public Weber record and workflow/status pages; keep the older section 173-174 / 400-page and section 179 / 403-page workpasses as provenance only.
 
 ## 2026-07-02: Weber Phase 2 German Vol. I section 156 and sections 167-170 workpass status
 
@@ -7445,12 +7445,12 @@ Manifest: [20260702_weber_phase2_sec156_170_local_workpass.json](../manifests/so
 - Local workpass status only; no compact public ZIP has been minted yet.
 - Scope: current local German Volume I workpass TeX/PDF/logs plus updated certification/method logs after Phase 2 accepted coherent retranscriptions for §§141, 156, 158, 162, 163, 165, and §§167-170.
 - Status additions since the prior §158/§163/§165 status: §156 is fully re-transcribed and closes the earlier §§148-156 held block; §§167-170 are fully re-transcribed and close the earlier Kreistheilung/psi held block.
-- Historical local German workpass at this checkpoint: `weber_v1_ge.pdf`, 397 pages, SHA256 `45F60D90A0D270FD560DABC91F8228EB7953794285EDE3D7ACFB4C7DF665DB5F`; controlling TeX SHA256 `24DF762F55C58480F75FCB6CEF7BEC96B1A6A8EA1E046FDB11BD96E9E9FCA9BF`. Current status is superseded by the section 179 / 403-page workpass manifest.
+- Historical local German workpass at this checkpoint: `weber_v1_ge.pdf`, 397 pages, SHA256 `45F60D90A0D270FD560DABC91F8228EB7953794285EDE3D7ACFB4C7DF665DB5F`; controlling TeX SHA256 `24DF762F55C58480F75FCB6CEF7BEC96B1A6A8EA1E046FDB11BD96E9E9FCA9BF`. Current status is superseded by the later section 183 / 410-page workpass status recorded in the public Weber record and workflow/status pages.
 - Held block after this status: section 69, section 138 numbering/layout, p466, and sections 173-188.
 - Workflow note: this tranche is important because §167 had missing/misrepresented equation structure, §168 contained a fabricated worked example, and §§169-170 required equation-number, footnote, and omitted-tail restoration. Treat "all clean" or fast passes on these regions as suspicious until source pages are inspected.
 - Caveat: source-audit/workpass status only. Not a public Weber reader release yet, not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
-Next action: superseded for current status by `manifests/source-intake/20260702_weber_phase2_sec179_local_workpass.md/json`, which advances the local German workpass through §179 and 403 compiled pages. Fold the latest section 177 status into a deliberate compact Weber author-record refresh rather than uploading loose.
+Next action: superseded for current status by the later section 183 / 410-page public-status refresh recorded in `docs/records/weber.md`, `docs/workflow.md`, and `manifests/current-status.md`. Keep the section 179 / 403-page manifest as provenance only, and fold the latest Phase 2 workpass into a deliberate compact Weber author-record refresh rather than uploading loose.
 
 ## 2026-06-26: Noether R128 Tail/Kapferer backmatter pp770-777 source-audit fix
 
