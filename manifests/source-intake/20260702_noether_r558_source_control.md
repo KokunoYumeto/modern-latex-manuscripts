@@ -1,8 +1,8 @@
 # Noether R558 Source-Control Disposition
 
-Scope: local Noether German/source-control continuation after R557. This registers R558 as the current coherent zipped local TeX-changing German source-control head as of this sweep.
+Scope: local Noether German/source-control continuation after R557. This registered R558 as the coherent zipped local TeX-changing German source-control head at that sweep step; R558 is now superseded by R559.
 
-Current coherent local head:
+Former coherent local head, now superseded by R559:
 
 - `Noether_R558_LocalCodex_R557_P40p539_ZerfaellungskoerperReduction_SourceMathFix_20260702.zip`
   - Local path: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R558_LocalCodex_R557_P40p539_ZerfaellungskoerperReduction_SourceMathFix_20260702.zip`
@@ -33,12 +33,12 @@ Source authority:
 
 Supersession:
 
-R558 supersedes R557 as the current local coherent source-control head. R557/R556/R555/R553/R552/R551/R550 remain coherent or historical predecessors for curated Noether rollup planning. R554 is an intermediate base folded into the later chain.
+R558 superseded R557 at this sweep step and is now superseded by R559. R557/R556/R555/R553/R552/R551/R550 remain coherent or historical predecessors for curated Noether rollup planning. R554 is an intermediate base folded into the later chain.
 
-Observed but not promoted:
+Superseded by R559:
 
-A local folder named `Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702` was observed. It contains working material, including a `cum_de_R559_P40p540_541_tail_sourcemath.tex` file, but no top-level R559 ZIP, no SHA256, no `README_R559`, no R559-specific audit ledgers, and no logbook closure were present at this sweep. It is therefore not promoted as the current public/source-control head.
+A later sweep found `Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702.zip` with ZIP, SHA256, README, audit ledgers, source witnesses, render checks, and build closure. R559 is therefore the current coherent local source-control head; see `20260702_noether_r559_source_control.md/json`.
 
 Publication rule:
 
-This is source-control/support material only: not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Because the Noether Zenodo record is at the file ceiling, fold R558/R557/R556 and predecessors into a curated rollup or deliberate replacement rather than uploading loose micro-ZIPs.
+This is source-control/support material only: not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Because the Noether Zenodo record is at the file ceiling, fold R559/R558/R557/R556 and predecessors into a curated rollup or deliberate replacement rather than uploading loose micro-ZIPs.
