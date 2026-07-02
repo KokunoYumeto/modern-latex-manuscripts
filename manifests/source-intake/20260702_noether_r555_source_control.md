@@ -24,5 +24,5 @@ R554 is treated as an intermediate base folded into R555. It is still not promot
 
 ## Quality Status
 
-R556 observed after this package remains unpromoted for missing R556-specific witnesses/ledgers/diff/build evidence. R555 is a source-control/support package only. It is not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Paper 40 witnesses are best-staged GDZ images at about 400 ppi, visually decisive for the listed loci but below the preferred final-certification source threshold.
+R556 observed after this package remains unpromoted: witnesses, diff, build, and render evidence are now present, but R556-specific ledgers and ZIP/hash are still missing. R555 is a source-control/support package only. It is not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Paper 40 witnesses are best-staged GDZ images at about 400 ppi, visually decisive for the listed loci but below the preferred final-certification source threshold.
 
