@@ -24,7 +24,7 @@ This sweep registers the next coherent Noether German/source-control packages af
   - Build: two XeLaTeX passes, 469-page cumulative German PDF.
   - Confirmed fixes: 7.
 
-At this sweep step, R553 was the current coherent zipped local TeX-changing German source-control head; it is now historical beneath R555.
+At this sweep step, R553 was the current coherent zipped local TeX-changing German source-control head; it is now historical beneath the later R557/R556/R555 chain.
 
 ## R554 Observed But Not Promoted
 
