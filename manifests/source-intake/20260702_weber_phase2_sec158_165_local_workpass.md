@@ -4,6 +4,8 @@ Date: 2026-07-02
 
 Status: local source-audit/workpass evidence only.
 
+Superseded for current status by `20260702_weber_phase2_sec156_170_local_workpass.md/json`. Keep this file as provenance for the earlier 377-page section 158/163/165 checkpoint.
+
 ## Scope
 
 Fresh local Weber audit logs show the Volume I German Phase 2 retranscription pass has advanced beyond the previously registered section 141/162 package. The current local `weber_v1_ge` workpass now records:
@@ -39,4 +41,3 @@ The current German workpass compiles to 377 pages with no fatal LaTeX error acco
 This is not a new public Weber reader release yet and not a certified Volume I edition. It is a local workpass/status advance that should be folded into the next deliberate compact Weber author-record refresh. It is not English synchronization, not whole-Volume-I certification, and not a critical edition.
 
 Remaining held ranges after this local status are still substantial: section 69, section 138 numbering/layout, p466, sections 148-156, sections 167-170, and sections 173-188.
-
