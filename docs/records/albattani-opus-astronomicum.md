@@ -16,6 +16,8 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 Work-level al-Battani record. The 251-page trilingual text reader, catalogue data, geography gazetteer, chronology layer, source witnesses, and workflow notes are useful working materials. Legacy filenames such as `Complete Critical Edition` for the fixed-star catalogue are not maintainer-certified critical-edition claims; read them as inherited data/workflow labels. The text and tables should continue to be checked against Nallino and the source witnesses for citation-critical use.
 
+Current status overlay: the text reader and catalogue/gazetteer layers are useful working materials, not a final critical edition. The fixed-star catalogue is structurally represented at the current working-data level; the chronology layer remains partial; and zodiac/terms/houses auxiliary tables are not fabricated when Nallino does not give a clean tabulation in the Latin volume.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
