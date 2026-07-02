@@ -1,12 +1,14 @@
 # 2026-07-02 Noether R550/R551 Source-Control Refresh
 
+Supersession note: this R550/R551 intake is now historical beneath the coherent R552/R553 zipped local head. It is retained as provenance for the Paper 40 p530 source-style repair and should not be read as the current Noether head.
+
 Scope: local Emmy Noether German/source-control lane.
 
 ## Classification
 
 This is source-control and curated-rollup staging, not a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or a critical edition.
 
-R551 is the current local TeX-changing German source-control head. It is a focused Paper 40 printed p530 source-style/layout repair on top of R550. R550 remains the newest zipped package with complete summary metadata and integrates nine source-backed WebB R546 fixes.
+At this intake step, R551 was the local TeX-changing German source-control head. It is a focused Paper 40 printed p530 source-style/layout repair on top of R550. R550 remained the newest zipped package with complete summary metadata and integrated nine source-backed WebB R546 fixes. Later R552/R553 packages supersede this status for current-head purposes.
 
 ## R551 Evidence
 
