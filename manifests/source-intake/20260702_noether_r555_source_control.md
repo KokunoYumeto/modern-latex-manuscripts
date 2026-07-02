@@ -2,7 +2,7 @@
 
 Date: 2026-07-02
 
-This sweep registered the next coherent Noether German/source-control package after R554/R553. It is now historical beneath the later R557/R556 disposition in `20260702_noether_r556_r557_source_control.md/json`.
+This sweep registered the next coherent Noether German/source-control package after R554/R553. It is now historical beneath the later R558/R557/R556 disposition in `20260702_noether_r556_r557_source_control.md/json`.
 
 ## Promoted As Coherent Local Source-Control Package
 
@@ -16,7 +16,7 @@ This sweep registered the next coherent Noether German/source-control package af
   - Rendered output pages: 383-385.
   - Confirmed fixes: 12.
 
-R555 was the current coherent zipped local TeX-changing German source-control head at this sweep step. It is now a coherent predecessor beneath R557/R556.
+R555 was the current coherent zipped local TeX-changing German source-control head at this sweep step. It is now a coherent predecessor beneath R558/R557/R556.
 
 ## R554 Status
 
@@ -24,5 +24,4 @@ R554 is treated as an intermediate base folded into R555. It is still not promot
 
 ## Quality Status
 
-The earlier R556 blocker recorded at this sweep step was superseded by the later R556/R557 sweep: R556 now has coherent ledgers, ZIP/hash, and build evidence, and R557 is the current local source-control head. R555 remains a source-control/support predecessor only. It is not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Paper 40 witnesses are best-staged GDZ images at about 400 ppi, visually decisive for the listed loci but below the preferred final-certification source threshold.
-
+The earlier R556 blocker recorded at this sweep step was superseded by the later R556/R557 sweep: R556 now has coherent ledgers, ZIP/hash, and build evidence, and R557 became the current local source-control head at that sweep step and is now superseded by R558. R555 remains a source-control/support predecessor only. It is not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition. Paper 40 witnesses are best-staged GDZ images at about 400 ppi, visually decisive for the listed loci but below the preferred final-certification source threshold.

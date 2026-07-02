@@ -2,7 +2,7 @@
 
 Date: 2026-07-02
 
-This sweep corrects and supersedes the earlier `20260702_noether_r556_observed_not_promoted` note. A later local sweep found that R556 now has a coherent ZIP/hash and R556-specific ledgers, and R557 has since become the newest coherent local Noether German source-control head.
+This sweep corrects and supersedes the earlier `20260702_noether_r556_observed_not_promoted` note. A later local sweep found that R556 now has a coherent ZIP/hash and R556-specific ledgers, and R557 became the newest coherent local Noether German source-control head at that sweep step; it is now superseded by R558.
 
 ## Current Coherent Local Head
 
@@ -36,4 +36,4 @@ R556 is therefore no longer classified as an unpromoted attempt. It is a coheren
 
 ## Quality Status
 
-R557 is the newest coherent zipped local TeX-changing German source-control head by this sweep. R556/R555/R553/R552/R551/R550 are coherent or historical predecessors for curated rollup planning. These are source-control/support packages only: not reader releases, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not critical editions. Paper 40 witnesses remain best-staged GDZ images at about 400 ppi, visually decisive for the listed loci but below the preferred final-certification source threshold.
+R557 was the newest coherent zipped local TeX-changing German source-control head at that sweep; it is now historical beneath R558. R556/R555/R553/R552/R551/R550 are coherent or historical predecessors for curated rollup planning. These are source-control/support packages only: not reader releases, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not critical editions. Paper 40 witnesses remain best-staged GDZ images at about 400 ppi, visually decisive for the listed loci but below the preferred final-certification source threshold.
