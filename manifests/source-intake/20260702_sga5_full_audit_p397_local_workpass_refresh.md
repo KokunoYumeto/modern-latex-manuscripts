@@ -33,3 +33,7 @@ Current ledger cursor:
 Public-facing caveat:
 
 Treat this as live local French workpass/source-audit provenance only. It is not a promoted reader package, not SGA5 completion, not English synchronization, not global source-faithfulness certification, and not critical-edition material. Local words such as clean/certified/complete/strict/source-checked are page-local workpass terms only.
+
+## Superseded Status
+
+As of the later 2026-07-02 sweep, p397 is no longer the highest forward SGA5 live-ledger cursor. Keep this file as provenance for the p392-p397 window, but front p406 in public current-status wording.
