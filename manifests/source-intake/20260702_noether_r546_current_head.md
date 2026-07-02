@@ -2,7 +2,7 @@
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R545. This formerly registered R546 as the current coherent packaged local TeX-changing German source-control candidate; it is now superseded by R547/R548. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R545. This formerly registered R546 as the current coherent packaged local TeX-changing German source-control candidate; it is now superseded by R547/R548/R549. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current Head
 

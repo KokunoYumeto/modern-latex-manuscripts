@@ -43,11 +43,11 @@ The Paper 40 p527 witness is the best staged GDZ full-page image at about native
 
 ## Intake Hygiene
 
-The refreshed second-web intake now fronts `40_R548_P40P527_RANGRELATION_SECTION5_SOURCEFIX.zip` and contains 41 top-level files, 35 readable ZIP payloads, and 4,295,747,952 ZIP bytes. A corrupt duplicate `40_R548...zip` with no readable central directory was moved under `_quarantine_corrupt_incomplete` and is not counted as a payload.
+At the time of this package, the refreshed second-web intake fronted `40_R548_P40P527_RANGRELATION_SECTION5_SOURCEFIX.zip` and contained 41 top-level files, 35 readable ZIP payloads, and 4,295,747,952 ZIP bytes. Current-head status later moved to R549, whose intake alias is `41_R549_P40P528_529_AUTOMORPHISM_VERTAUSCHUNG_GALOIS_SOURCEFIX.zip`. A corrupt duplicate `40_R548...zip` with no readable central directory was moved under `_quarantine_corrupt_incomplete` and is not counted as a payload.
 
 ## Public Handling
 
-- R548 is the current local source-control candidate only.
+- R548 is now historical beneath R549; it remains the Paper 40 p527 source-control candidate only.
 - R547 remains the historical Paper 40 p526 Darstellungsklassen/Rangrelation source-style repair below it.
 - R546 remains the historical Kapferer/Noether p562 formula (3) repair below R547/R548.
 - R532/R533/R528/R529/R286 remain support/provenance or no-patch evidence layers.

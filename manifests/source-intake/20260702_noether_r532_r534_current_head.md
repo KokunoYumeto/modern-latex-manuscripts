@@ -2,7 +2,7 @@
 
 Date registered: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R531. This registers R532, R533, R286 evidence, and R534 as the then-current local TeX-changing candidate at this step. It is now superseded for present current-head status by the later R545/R546/R547/R548 chain, with R548 registered in `20260702_noether_r548_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R531. This registers R532, R533, R286 evidence, and R534 as the then-current local TeX-changing candidate at this step. It is now superseded for present current-head status by the later R545/R546/R547/R548/R549 chain, with R549 registered in `20260702_noether_r549_current_head.md/json`. It remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Then-Current Head
 

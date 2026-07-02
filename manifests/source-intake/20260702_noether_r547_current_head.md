@@ -44,7 +44,7 @@ The Paper 40 p526 witness is the best staged GDZ full-page image at about native
 
 ## Public Handling
 
-- R547 is now historical beneath R548; R548 is the current local source-control candidate.
+- R547 is now historical beneath R548/R549; R549 is the current local source-control candidate.
 - R546 remains the historical Kapferer/Noether p562 formula (3) repair below it.
 - R545 remains historical p525 Erweiterungssatz/source-heading repair below R546.
 - R532/R533/R528/R529/R286 remain support/provenance or no-patch evidence layers.

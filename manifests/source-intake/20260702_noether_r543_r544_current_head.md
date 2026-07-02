@@ -6,7 +6,7 @@ Scope: local Noether German/source-control continuation after R542. This registe
 
 ## Current Head
 
-R544 was the newest coherent packaged local TeX-changing German source-control candidate at that step; current-head status has since moved through R545/R546/R547 to R548 in the refreshed second-web intake.
+R544 was the newest coherent packaged local TeX-changing German source-control candidate at that step; current-head status has since moved through R545/R546/R547/R548 to R549 in the refreshed second-web intake.
 
 It carries forward R531 tail/Kapferer repairs, R532/R533 support and Web R286 evidence integration, R534-R540 Paper 40 pp.515-520 repairs, R541/R542 p521-p522 carry-forward/source-control work, R543 p523 repairs, and then applies source-backed Paper 40 printed p524 Erweiterungsmodul/invariant-module repairs.
 
