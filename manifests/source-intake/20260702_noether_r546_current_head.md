@@ -1,8 +1,8 @@
-# Noether R546 Current Local Source-Control Head
+# Noether R546 Historical Local Source-Control Step
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R545. This registers R546 as the current coherent packaged local TeX-changing German source-control candidate. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R545. This formerly registered R546 as the current coherent packaged local TeX-changing German source-control candidate; it is now superseded by R547. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current Head
 
@@ -42,7 +42,7 @@ The related WebB R534 p567 congruence correction was already present in R545, so
 
 ## Public Handling
 
-- R546 is the current local source-control candidate only.
+- R546 is now historical source-control beneath R547.
 - R545 remains the historical p525 Erweiterungssatz/source-heading repair below it.
 - R544 and R543 remain historical Paper 40 source-control beneath R545.
 - R532/R533/R528/R529/R286 remain support/provenance or no-patch evidence layers.
