@@ -1,12 +1,12 @@
-# Noether R535-R537 Current Local Source-Control Head
+# Noether R535-R537 Historical Local Source-Control Head
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R534. This registers R535, R536, and R537 as the newest Paper 40 p515-p517 source-repair chain. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R534. This registers R535, R536, and R537 as the Paper 40 p515-p517 source-repair chain at that step. It has since been superseded for current-head purposes by `20260702_noether_r538_r540_current_head.md/json`, but remains source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current TeX-Changing Head
 
-R537 is the newest clean packaged local TeX-changing German source-control candidate.
+R537 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current-head status has since moved to R542.
 
 It carries forward R531 tail/Kapferer survival repairs, R532/R533 no-patch support and Web R286 evidence integration, R534 p515 comma repair, R535 p515 double-comma punctuation repair, R536 p516 footnote-anchor punctuation repairs, and then rebuilds the Paper 40 printed p.517 theta/operator block.
 
