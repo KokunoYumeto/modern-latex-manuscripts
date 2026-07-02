@@ -1,12 +1,12 @@
-# Noether R542 Current Local Source-Control Head
+# Noether R542 Historical Local Source-Control Head
 
 Date: 2026-07-02
 
-Scope: local Noether German/source-control continuation after the R538-R540 Paper 40 pp.518-520 chain. This registers the coherent packaged R542 intake ZIP as the current clean packaged local TeX-changing German source-control candidate. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after the R538-R540 Paper 40 pp.518-520 chain. This registers the coherent packaged R542 intake ZIP as the Paper 40 p522 source-control step. It is now superseded for present current-head status by R543/R544, registered in `20260702_noether_r543_r544_current_head.md/json`. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current Head
 
-R542 is the newest clean packaged local TeX-changing German source-control candidate found in the refreshed second-web intake.
+R542 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current status has since moved to R544.
 
 It carries forward the R531 tail/Kapferer repairs, R532/R533 support and Web R286 evidence integration, R534-R540 Paper 40 pp.515-520 repairs, and the inherited local R541 base step, then applies a source-backed Paper 40 printed p522 typography/layout repair.
 
@@ -37,13 +37,13 @@ The R542 README notes that rendered output pages also contain continuation mater
 
 The Paper 40 p522 witness is `source_witnesses/P40_p522_GDZ400_fullres.jpg`, described by the package as the best staged GDZ full-page image, approximately native 400 ppi class. Digitally enlarged crops are reading aids only. This remains below the preferred 650+ ppi source-certification floor, so R542 is a best-available source-control candidate rather than final high-resolution certification.
 
-## R543 Caution
+## Later Status
 
-A local folder named `Noether_R543_LocalCodex_R542_P40p523_BemerkungContinuation_SourceFix_20260702` exists and contains compiled `cum_de_R543_p40p523_bemerkung_continuation_fix.tex/pdf` plus output renders, but at inspection time it lacked R543-specific README, summary, confirmed-fix, visual-disposition, and source-quality ledgers. Treat R543 as unpromoted working material until its metadata, audit ledgers, and package are made coherent.
+R543 and R544 are now coherent packaged source-control steps registered in `20260702_noether_r543_r544_current_head.md/json`. R542 remains historical source-control provenance beneath R544.
 
 ## Public Handling
 
-- R542 is a local source-control candidate only.
+- R542 is historical local source-control after R544.
 - Do not describe it as a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or a critical edition.
-- R543 is not promoted by this manifest.
+- R543/R544 are promoted separately by `20260702_noether_r543_r544_current_head.md/json`.
 - Do not upload every micro-ZIP loose to Noether while the record is at the Zenodo file ceiling; fold the current head and relevant support into a curated rollup.

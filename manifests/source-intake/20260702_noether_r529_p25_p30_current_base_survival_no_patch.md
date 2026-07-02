@@ -12,7 +12,7 @@ Size: 3,239,860 bytes. ZIP entries inspected: 17.
 
 ## Scope
 
-R529 is a no-patch current-base survival check for Papers 25-30 after the R528 no-patch audit support layer. It does not create a new TeX-changing head. At the time of this package, R527 was the clean packaged local TeX-changing Noether German source-control candidate; current-head status has since moved to R542.
+R529 is a no-patch current-base survival check for Papers 25-30 after the R528 no-patch audit support layer. It does not create a new TeX-changing head. At the time of this package, R527 was the clean packaged local TeX-changing Noether German source-control candidate; current-head status has since moved to R544.
 
 The package README states that no new TeX patch was promoted. It records that Papers 25-30 in the current base still match prior source-vetted/audited spans:
 
