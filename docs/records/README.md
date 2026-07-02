@@ -7,7 +7,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage / Constructed-Language Notes | pending | pending | pending | pending | [interlanguage-reflections.md](interlanguage-reflections.md) | pending dedicated DOI |
+| Interlanguage / Constructed-Language Notes | 3 | 1 | 2 | 0.4 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |
 | Emmy Noether | 100 | 50 | 37 | 2113.8 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 54 | 8 | 38 | 1486.9 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |

@@ -1,12 +1,14 @@
 # Interlanguage And Constructed-Language Mathematical Translation Notes
 
-Zenodo record: pending dedicated DOI.
+Zenodo record: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403). Latest record version: [10.5281/zenodo.21124458](https://doi.org/10.5281/zenodo.21124458).
 
-Public title candidate: Interlanguage and Constructed-Language Mathematical Translation Notes
+Public title: Interlanguage Mathematical Translation Methodology: Slavic, Interslavic, Constructed-Language, and Terminology-Governance Notes
 
 **Quality warning:** This is a methodology, linguistics, and translation-practice lane. It is not a reader release for a mathematical corpus, not a source-certified mathematical edition, not native-speaker approval, and not term approval. It should be maintained as a companion to the workflow and Noether records.
 
-## What This Record Should Contain
+## What This Record Contains And Should Continue To Contain
+
+The startup public payload fronts `00 Overview - Interlanguage Methodology 20260702.pdf` and includes two compact log/method ZIPs: `Noether_interlanguage_logs_quick_20260701.zip` and `Noether_Interlanguage_Logs_QuickFeed_20260701.zip`. Larger Slavic/Interslavic reader/source payloads remain pointer/provenance material until deliberately curated.
 
 This lane collects the interlanguage side of the multilingual mathematics work: Ukrainian/Russian/Interslavic translation apparatus, constructed-language reflection notes, reviewer-authority frameworks, bibliography and authority matrices, terminology and term-ID scaffolds, source-evidence shelves, Slavic-triangulation notes, deterministic Interslavic Cyrillic transliteration apparatus, and AI/machine-translation methodology notes.
 
@@ -24,8 +26,8 @@ The older `noether-slavic-handoff/20260628/latest/` pointers describe a much lar
 
 ## Seed Artifacts
 
-- `interlanguage_linguistics_notes_20260702.zip`: 32,936-byte local Web/Pro handoff from `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Interlanguage methodology`; SHA256 `AB73DAE2EA0BF979AEDCDD1DFFB2DD64EE81242DAE32606FA5E065206769952E`. It contains `README_INTERLANGUAGE_HANDOFF_20260702.md`, `AI Linguistics Scenario Bot Setup.md`, and three zonal-linguistics bot-configuration notes. Treat this as a local source-handoff/review seed, not as an automatically public-facing DOI payload without curation; the README itself flags it as methodology/source notes rather than manuscript output.
-- `Noether_interlanguage_logs_quick_20260701.zip`: 284,078-byte quick Web/Pro handoff assembled from the laptop branch text trees `noether-slavic-handoff/20260628/` and `noether-slavic-handoff/20260629/`; SHA256 `4C2F1D21EEDDB20999427BB62AC3CB11DEFBE62AAF7A6FA8E4162F1BEAD02A81`; 90 entries. This is the current light packet for letting a web session inspect the interlanguage/logbook/reviewer-method context without the 770-807 MB local payloads.
+- `interlanguage_linguistics_notes_20260702.zip`: 32,936-byte local Web/Pro handoff, deliberately excluded from the startup public seed because it includes scenario/bot setup material requiring curation from `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Interlanguage methodology`; SHA256 `AB73DAE2EA0BF979AEDCDD1DFFB2DD64EE81242DAE32606FA5E065206769952E`. It contains `README_INTERLANGUAGE_HANDOFF_20260702.md`, `AI Linguistics Scenario Bot Setup.md`, and three zonal-linguistics bot-configuration notes. Treat this as a local source-handoff/review seed, not as an automatically public-facing DOI payload without curation; the README itself flags it as methodology/source notes rather than manuscript output.
+- `Noether_interlanguage_logs_quick_20260701.zip`: 284,078-byte quick Web/Pro handoff assembled from the laptop branch text trees `noether-slavic-handoff/20260628/` and `noether-slavic-handoff/20260629/`; SHA256 `4C2F1D21EEDDB20999427BB62AC3CB11DEFBE62AAF7A6FA8E4162F1BEAD02A81`; 90 entries. This is part of the startup public seed and is the current light packet for letting a web session inspect the interlanguage/logbook/reviewer-method context without the 770-807 MB local payloads.
 - `Noether_PC_Multilingual_Linguistics_Branch_Handoff_20260629_db7ffc6c.zip`: compact package of the committed PC multilingual/linguistics branch handoff.
 - `interlanguage_logs_handoff_20260630_210338.zip`: compact Web/Pro handoff assembled from `origin/codex/noether-pc-20260629:noether-slavic-handoff/20260629/` plus the older Slavic language-planning checkpoint. It is working methodology/review context only and does not include the large laptop payload ZIP referenced inside the notes.
 - `interlanguage_logs_quick_webdrop_20260630_065604.zip`: newest small Web/Pro context handoff for the interlanguage/logbook lane; 119 entries, no large payloads. Use this when a web session needs the current methodology/logbook context without the larger provenance bundles.
