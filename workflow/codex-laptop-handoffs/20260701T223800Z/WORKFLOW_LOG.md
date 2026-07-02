@@ -7204,3 +7204,11 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
 - Audit consolidates Slavic, Spanish, French, Simplified Chinese, Japanese, Arabic/Persianate, and research/publication lane statuses into a single promotion gate table.
 - Decision summary: Slavic remains maintenance/watch mode; French, Spanish, Chinese, and Japanese have local cumulative baselines/proofs but still need source-native/public-edition promotion gates; Arabic/Persianate remains evidence-split and corpus-first with Arabic specialist invariant evidence still weak; research/publication remains an evidence map and methods spine, not a finished article.
 - Boundary retained: this is post-checkpoint branch metadata and should not trigger a large package rebuild by itself.
+
+## 2026-07-02T00:55:00Z Review and correction intake ledger
+
+- Added `tmp/build_review_correction_intake_ledger_20260702.py`.
+- Generated `logs/REVIEW_CORRECTION_INTAKE_LEDGER_20260702T005500Z.json` and `.md`.
+- Ledger scanned `external_review_returns`, review bundles, logs, and glossary correction/rationale files, then separated local correction evidence from external accepted-review ingestion.
+- Current decision: `external_review_returns` has `0` files; Slavic expected review forms remain `184`, return files `0`, schema-valid returns `0`, accepted pairs `0`, blocking issues `0`, complete-for-all-units `False`; no accepted external review decision was ingested and no rebuild is required from review returns.
+- Boundary retained: local correction/rationale logs remain editorial evidence unless externally reviewed; reviewer-facing templates must not be copied into accepted ledgers.
