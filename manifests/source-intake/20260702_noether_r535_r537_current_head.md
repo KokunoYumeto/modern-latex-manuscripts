@@ -6,7 +6,7 @@ Scope: local Noether German/source-control continuation after R534. This registe
 
 ## Current TeX-Changing Head
 
-R537 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current-head status has since moved to R544.
+R537 was the newest clean packaged local TeX-changing German source-control candidate at this step. Current-head status has since moved to R545.
 
 It carries forward R531 tail/Kapferer survival repairs, R532/R533 no-patch support and Web R286 evidence integration, R534 p515 comma repair, R535 p515 double-comma punctuation repair, R536 p516 footnote-anchor punctuation repairs, and then rebuilds the Paper 40 printed p.517 theta/operator block.
 
