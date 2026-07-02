@@ -1,6 +1,6 @@
 # Arabic / Persianate Lane Status Manifest
 
-Generated UTC: `2026-07-02T01:49:13Z`
+Generated UTC: `2026-07-02T02:08:46Z`
 
 ## Status
 
