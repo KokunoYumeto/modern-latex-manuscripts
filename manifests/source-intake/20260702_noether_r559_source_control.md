@@ -36,3 +36,7 @@ XeLaTeX passed twice. The cumulative German PDF has 468 pages. Changed output pa
 ## Non-Claims
 
 This is source-control/support material only. It is not a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or a critical edition.
+
+## Superseded Status
+
+As of the later 2026-07-02 sweep, R559 is no longer the current Noether source-control head. It is the coherent predecessor beneath R560. Keep this file as provenance for the Paper 40 pp.540-541 repair, but front R560 in public current-status wording.
