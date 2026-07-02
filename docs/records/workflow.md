@@ -22,6 +22,8 @@ A 2026-06-28 workflow addendum is staged locally for the next workflow DOI refre
 
 The same staged 2026-06-28 workflow addendum now includes a pending-queue caveat-audit rule: pending Zenodo manifests should be parseable, deduplicated by artifact name, tied to a target DOI/record, and explicit about whether an artifact is a reader, source bundle, OCR locator, or support/control packet before it is used for public action.
 
+The 2026-07-02 laptop handoff through `origin/codex/laptop-noether-language-planning-20260701` commit `6b983a15` is useful as a workflow/source-evidence handoff, not as a branch to merge wholesale. Its repo-wide diff is destructive against the current public docs tree, so only the `workflow/codex-laptop-handoffs/20260701T223800Z/` control artifacts are imported. New method evidence includes GitHub release-asset hash verification, Zenodo Noether live checks, review/correction intake ledgers, visual-inspection coverage ledgers, Simplified Chinese first-page triage, a French missing-unit matrix, and controlled Arabic/Persianate source-register shelves. These are not a critical edition, not publication-grade visual inspection, and not language completion. The French matrix reports `cum_fr_P40_s09` as the current baseline and leaves Papers 41-43 plus post44/post45/postbibliography open. The Arabic/Persianate refresh strengthens algebra/ring/field terminology evidence but explicitly does not promote invariant-theory terms or establish a cumulative Arabic reader.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs

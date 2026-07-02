@@ -7290,3 +7290,32 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
   - SHA256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`.
   - Builder/independent validation: `True` / `True`.
 - Boundary: this is a reproducibility/source-evidence/package checkpoint, not a native-review closure, term-promotion closure, or completion of the active multilingual goal.
+
+### 2026-07-02T02:53:53Z - Full redo GitHub publish verification
+
+- Published branch metadata to `https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/codex/laptop-noether-language-planning-20260701/workflow/codex-laptop-handoffs/20260701T223800Z`.
+- Uploaded draft release asset `https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/untagged-7730990f04c532fa93a2/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`.
+- Local SHA-256: `F3295275C75445CC18B34FCC3D8DE72F682B8AE089CE639105F667D9E8384BD9`.
+- GitHub asset digest: `sha256:f3295275c75445cc18b34fcc3d8de72f682b8ae089ce639105f667d9e8384bd9`.
+- Digest match: `True`.
+- Boundary: release remains draft and this verifies package handoff only; no native-review or term-promotion closure is implied.
+
+### 2026-07-02T03:00:00Z - Local disk cleanup of superseded package ZIPs
+
+- Removed superseded local checkpoint ZIP binaries after the current `20260702T020954Z` package was rebuilt, validated, uploaded, and digest-verified.
+- Removed:
+  - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260701T222757Z.zip` (`1.511` GB).
+  - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T005841Z.zip` (`1.511` GB).
+  - `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T010851Z.zip` (`1.511` GB).
+- Total local space reclaimed: `4.534` GB.
+- Kept all sidecars, logs, source shelves, TeX, manifests, validations, and the current validated package `packages/Noether_LanguagePlanning_SourceEvidence_Checkpoint_20260702T020954Z.zip`.
+
+### 2026-07-02T03:15:00Z - French missing-unit matrix after P40 S09
+
+- Added `tmp/build_french_missing_unit_matrix_20260702.py`.
+- Generated `logs/FRENCH_MISSING_UNIT_MATRIX_20260702T031500Z.json` and `.md`.
+- Current French baseline remains `cum_fr_P40_s09`; no translation, TeX integration, render, or term promotion was made by this matrix.
+- Retired stale “Paper 40 section 10” wording for the current source state: `logs/FRENCH_P40_S09_COMPLETION_TRANSLATION_20260630.json` marks `paper40_completion: true`, `next_french_lane_start: paper40_complete_no_next_p40_unit`, and the controlling Paper 40 source headings reach §9.
+- Actual missing French queue is now explicit and source-backed: `paper41`, `paper42`, `paper43`, `post44`, `post45`, `postbibliography`.
+- Source inventory validation is clean for numbered papers 01--43; endmatter inventory validation is clean for post44/post45/postbibliography.
+- Next French translation unit should be Paper 41, followed by Papers 42--43 and terminal post-numbered material before any French full-volume completion claim.
