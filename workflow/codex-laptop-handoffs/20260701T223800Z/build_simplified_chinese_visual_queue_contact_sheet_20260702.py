@@ -33,6 +33,8 @@ def render_first_page(pdf_path: Path, out_path: Path, zoom: float = 1.5) -> dict
 
 
 def make_contact_sheet(items: list[dict], out_path: Path) -> None:
+    if not items:
+        raise ValueError("No rendered items supplied for contact sheet")
     thumb_w = 420
     label_h = 78
     margin = 18
@@ -72,6 +74,38 @@ def main() -> None:
         rec for rec in ledger["priority_visual_inspection_queue"]
         if rec["lane"] == "simplified_chinese"
     ]
+    if not queued and OUT_JSON.exists():
+        existing = json.loads(OUT_JSON.read_text(encoding="utf-8-sig"))
+        existing["generated_utc"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        existing["source_ledger"] = rel(QUEUE_LEDGER)
+        existing["replay_status"] = {
+            "current_queue_count": 0,
+            "action": "preserved_existing_contact_sheet",
+            "reason": (
+                "The coverage ledger now references the prior contact-sheet evidence, so the "
+                "Simplified Chinese priority queue is empty on replay."
+            ),
+        }
+        OUT_JSON.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        lines = [
+            "# Simplified Chinese Visual Queue Contact Sheet",
+            "",
+            f"- Generated UTC: `{existing['generated_utc']}`",
+            "- Replay status: `preserved_existing_contact_sheet`",
+            "- Current queue count: `0`",
+            f"- Existing contact sheet: `{existing['contact_sheet']}`",
+            f"- Previously rendered items: `{len(existing.get('rendered_items', []))}`",
+            "",
+            "## Boundary",
+            "",
+        ]
+        for note in existing["boundary"]:
+            lines.append(f"- {note}")
+        lines.append("- Replay note: the queue is empty because the contact-sheet evidence now exists; this is not a promotion-grade clearance.")
+        OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print(json.dumps({"json": rel(OUT_JSON), "markdown": rel(OUT_MD), "contact_sheet": existing["contact_sheet"], "replay_status": "preserved_existing_contact_sheet"}, ensure_ascii=True, indent=2))
+        return
+
     rendered = []
     for idx, rec in enumerate(queued, start=1):
         pdf_path = ROOT / rec["path"]
