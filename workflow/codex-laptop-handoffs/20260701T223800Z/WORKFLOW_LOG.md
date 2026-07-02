@@ -7212,3 +7212,11 @@ Page counts: `{"ukrainian": {"standalone": 6, "cumulative": 514}, "russian": {"s
 - Ledger scanned `external_review_returns`, review bundles, logs, and glossary correction/rationale files, then separated local correction evidence from external accepted-review ingestion.
 - Current decision: `external_review_returns` has `0` files; Slavic expected review forms remain `184`, return files `0`, schema-valid returns `0`, accepted pairs `0`, blocking issues `0`, complete-for-all-units `False`; no accepted external review decision was ingested and no rebuild is required from review returns.
 - Boundary retained: local correction/rationale logs remain editorial evidence unless externally reviewed; reviewer-facing templates must not be copied into accepted ledgers.
+
+## 2026-07-02T01:15:00Z Visual inspection coverage ledger
+
+- Added `tmp/build_visual_inspection_coverage_ledger_20260702.py`.
+- Generated `logs/VISUAL_INSPECTION_COVERAGE_LEDGER_20260702T011500Z.json` and `.md`.
+- Ledger scanned `2115` rendered PDFs and `328` visual-inspection files; it inventories visual/render-log references and page counts but does not claim new page inspection.
+- Lane summary: French `216/216`, Spanish `50/50`, Japanese `4/4`, Ukrainian `430/430`, Russian `429/429`, Interslavic Latin `429/429`, and Interslavic Cyrillic `429/429` rendered PDFs have visual/render references; Simplified Chinese has `102/112` with references and `10` working/font-test PDFs queued for inspection before promotion.
+- Boundary retained: successful compile or render-log continuity is not a substitute for explicit visual inspection before public promotion.
