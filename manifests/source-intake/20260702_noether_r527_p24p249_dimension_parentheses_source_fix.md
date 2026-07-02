@@ -12,7 +12,7 @@ Size: 81,795,816 bytes. ZIP entries inspected: 45.
 
 ## Scope
 
-R527 was the clean packaged local TeX-changing Noether source-control candidate after R526 and is now superseded for current-head purposes by R547 through the later R530/R531, R534-R540, R542-R545, R546, and R547 chain. It keeps the R526 fraktur-R correction, fixes the TeX escaping/repack problem noted after restart, and adds one source-backed Paper 24 repair from printed p.249.
+R527 was the clean packaged local TeX-changing Noether source-control candidate after R526 and is now superseded for current-head purposes by R548 through the later R530/R531, R534-R540, R542-R545, R546, R547, and R548 chain. It keeps the R526 fraktur-R correction, fixes the TeX escaping/repack problem noted after restart, and adds one source-backed Paper 24 repair from printed p.249.
 
 Confirmed TeX-changing repair:
 
