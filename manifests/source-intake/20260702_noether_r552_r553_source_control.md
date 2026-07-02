@@ -1,5 +1,7 @@
 # Noether R552/R553 Source-Control Disposition
 
+Supersession note: this R552/R553 intake is now historical beneath R555. It remains provenance for the p531-p532 repair chain but should not be read as the current Noether head.
+
 Date: 2026-07-02
 
 This sweep registers the next coherent Noether German/source-control packages after R551.
@@ -22,7 +24,7 @@ This sweep registers the next coherent Noether German/source-control packages af
   - Build: two XeLaTeX passes, 469-page cumulative German PDF.
   - Confirmed fixes: 7.
 
-R553 is the current coherent zipped local TeX-changing German source-control head by this sweep.
+At this sweep step, R553 was the current coherent zipped local TeX-changing German source-control head; it is now historical beneath R555.
 
 ## R554 Observed But Not Promoted
 
