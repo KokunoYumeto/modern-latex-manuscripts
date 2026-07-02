@@ -3,6 +3,9 @@
 Local ZIP:
 `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Lean formalization sidecars\ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip`
 
+Public Zenodo record:
+`https://doi.org/10.5281/zenodo.21129946`
+
 ZIP metrics:
 
 | Field | Value |
@@ -46,9 +49,8 @@ definitions and theorem statements where a clean Mathlib analogue exists. It
 cannot certify prose, historical exposition, page completeness, table layout,
 formula typography, or source-image fidelity.
 
-Suggested public handling:
+Public handling:
 
-Keep as a Lean/formalization support or workflow-sidecar candidate. If published
-to Zenodo, front it as a small support packet and cross-link Noether/Steinitz/
-Weber/workflow records, but do not present it as mathematical certification of
-the editions.
+Published as a small dedicated Lean/formalization sidecar DOI and cross-linked
+from Noether/Weber/workflow context. Do not present it as mathematical
+certification of the editions.
