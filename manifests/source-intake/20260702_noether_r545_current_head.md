@@ -1,12 +1,12 @@
-# Noether R545 Current Local Source-Control Head
+# Noether R545 Historical Local Source-Control Step
 
 Date registered locally: 2026-07-02
 
-Scope: local Noether German/source-control continuation after R544. This registers R545 as the current coherent packaged Paper 40 p525 source-control step, with R545 as the newest clean packaged local TeX-changing German source-control candidate. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
+Scope: local Noether German/source-control continuation after R544. This formerly registered R545 as the current coherent packaged Paper 40 p525 source-control step; it is now historical under R546/R547. It is source-control/provenance material only, not a reader release, not Noether closure, not whole-corpus certification, not multilingual synchronization, and not a critical edition.
 
 ## Current Head
 
-R545 is the newest coherent packaged local TeX-changing German source-control candidate found in the refreshed second-web intake.
+R545 was the newest coherent packaged local TeX-changing German source-control candidate at that step in the refreshed second-web intake; it is now historical beneath R546 and R547.
 
 It carries forward R531 tail/Kapferer repairs, R532/R533 support and Web R286 evidence integration, R534-R540 Paper 40 pp.515-520 repairs, R541/R542 p521-p522 carry-forward/source-control work, R543 p523 repairs, R544 p524 repairs, and then applies source-backed Paper 40 printed p525 Erweiterungssatz/source-heading repairs.
 
@@ -42,13 +42,13 @@ The Paper 40 p525 witness is best staged GDZ material for Math. Z. 37, locally d
 
 ## Second-Web Intake
 
-The refreshed intake folder now fronts `40_R545_P40P525_ERWEITERUNGSSATZ_SOURCEFIX.zip`.
+The refreshed intake later moved on to R546 and then R547; R545 remains the p525 historical source-control step.
 
 The intake remains a source/state handoff folder for concurrent Pro/Web work, not a reader release by itself.
 
 ## Public Handling
 
-- R545 is a local source-control candidate only.
+- R545 is now historical source-control beneath R546/R547.
 - R544 and R543 are historical source-control after R545, not unpromoted.
 - Do not describe this chain as a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or a critical edition.
 - Do not upload every micro-ZIP loose to Noether while the record is at the Zenodo file ceiling; fold the current head and relevant support into a curated rollup.
