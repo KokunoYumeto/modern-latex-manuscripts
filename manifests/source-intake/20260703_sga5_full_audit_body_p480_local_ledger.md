@@ -21,8 +21,8 @@ Local source root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates a
 
 The p480 tail states:
 
-- 52 TeX fixes.
-- About 160 source-documented items.
+- Older local-tail fix-count summary is superseded on the same date by the recert spot-check receipt reporting about 60 numbered TeX-fix events (TALLY 59 / max fix #60).
+- Older local-tail source-item summary is superseded on the same date by the recert spot-check receipt reporting ERRATA 115 plus D001-D193 and additional spot-check defects.
 - D001-D193 diagrams verified/tracked.
 - Compile gate reported as 306pp/0err.
 - Index terminologique remains editorial/post-grind.
