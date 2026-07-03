@@ -2,6 +2,8 @@
 
 Generated UTC: 2026-07-03T123550Z
 
+Correction note: selected_excerpt appears in metadata/template filenames, but this does not indicate source-text or excerpt files. Package gates remain zero for source-text/excerpt files, copied source text, copied examples, exact spans, excerpts, surfaces, translations, and readiness.
+
 ## Branch
 
 Repository: KokunoYumeto/modern-latex-manuscripts
@@ -18,7 +20,8 @@ Package 142 present at generation: False
 Queued items: 603
 Queued bytes: 2558696053
 Bandwidth policy: upload_substantive_artifacts_when_checkout_available_no_mobile_plan_deferral
-Source-text/excerpt filename hits: 0
+Selected-excerpt metadata/template filename hits: 28
+Source-text/excerpt file gate from package artifacts: 0
 Raw-token filename hits: 0
 
 ## Package 141
