@@ -26,6 +26,6 @@ Local source root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates a
 
 ## Public classification
 
-R685/R686 are source-support/no-patch audit layers, not reader releases. This receipt is superseded for R687 by `20260703_noether_r687_p40_sourcefix_promoted.md/json`, which records a narrow P40 TeX-changing source-control repair. R685/R686/R687 should be folded into a curated rollup because the Noether Zenodo record is at the 100-file ceiling.
+R685/R686 are source-support/no-patch audit layers, not reader releases. This receipt is superseded for R687 by `20260703_noether_r687_p40_sourcefix_promoted.md/json`, which records a narrow P40 TeX-changing source-control repair, and then by `20260703_noether_r688_p24_norm_separator_sourcefix.md/json`, which records a narrow P24 norm-separator repair. R685/R686/R687/R688 should be folded into a curated rollup because the Noether Zenodo record is at the 100-file ceiling.
 
 Do not claim: reader release, Noether closure, whole-corpus certification, 650+ source certification, multilingual synchronization, or critical edition.
