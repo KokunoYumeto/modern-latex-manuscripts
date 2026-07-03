@@ -20,12 +20,12 @@ Local source root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates a
 ## In-progress material
 
 - `Noether_R687_P40_DirectArticleSourceAudit_work`
-  - Status: in-progress local source evidence only.
-  - Contains P40 GDZ article PDF, P40 current TeX extract, and 650dpi source renders.
-  - No package, README, audit closure, or TeX patch was found during this sweep.
+  - Status at this receipt time: in-progress local source evidence only.
+  - Supersession: later 2026-07-03 sweep found `Noether_R687_LocalCodex_P40_DirectArticleSourceAudit_SourceFix_20260703` with README/audit closure and one promoted P40 p537 source fix. See `20260703_noether_r687_p40_sourcefix_promoted.md/json`.
+  - Historical note: the "no package, README, audit closure, or TeX patch" statement below was true for this earlier sweep moment but is no longer current.
 
 ## Public classification
 
-R685/R686 are the newest inspected local Noether additions, but they are **source-support/no-patch audit layers**, not reader releases and not new TeX-changing heads. They should be folded into a curated rollup because the Noether Zenodo record is at the 100-file ceiling.
+R685/R686 are source-support/no-patch audit layers, not reader releases. This receipt is superseded for R687 by `20260703_noether_r687_p40_sourcefix_promoted.md/json`, which records a narrow P40 TeX-changing source-control repair. R685/R686/R687 should be folded into a curated rollup because the Noether Zenodo record is at the 100-file ceiling.
 
 Do not claim: reader release, Noether closure, whole-corpus certification, 650+ source certification, multilingual synchronization, or critical edition.
