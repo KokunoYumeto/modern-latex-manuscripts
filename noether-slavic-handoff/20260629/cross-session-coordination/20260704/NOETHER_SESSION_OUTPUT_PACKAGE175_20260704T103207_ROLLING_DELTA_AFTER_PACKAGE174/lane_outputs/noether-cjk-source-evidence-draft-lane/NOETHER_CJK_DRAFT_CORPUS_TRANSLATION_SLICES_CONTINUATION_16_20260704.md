@@ -1,0 +1,238 @@
+# Noether CJK Draft Corpus Translation Slices: Continuation 16
+
+Generated UTC: `2026-07-04T08:30:39.854848+00:00`
+
+Status: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+Draft/non-canonical sidecar only. Not native reviewed. Not approved. Not gate-promoted.
+
+Baseline: `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\tmp\zenodo_20836874_inspect\localcodex\Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624\tex\cum_de_R124plus_localcodex_current_candidate_20260624.tex`
+
+Baseline SHA256: `C0ACCB2D4EB98F54B41BC3977DFA0CB57A349C74B7B35E06453343D15ACAB4ED`
+
+## Review Boundaries
+
+- `native_review_status`: `not_native_reviewed`
+- `canonical_approval_status`: `not_approved`
+- `gate_promotion_status`: `not_gate_promoted`
+- `reviewer_packet_population_performed`: `False`
+- `git_push_performed`: `False`
+- `korean_corpus_prose_added`: `False`
+
+## Retained Blockers
+
+- tensor product: no German Tensorprodukt anchor; Paper 43 §5 direct product/direct sum material is non-anchor evidence
+- localization: Quotientenring candidates remain 16223-16225, 18467, 20105, 20228, 20240, and 20284, but no direct Lokalisierung label
+- Harish-Chandra: no German corpus anchor
+- abstract algebra: no new abstract-algebra anchor in Paper 43 §5
+- modern algebra: Moderne Algebra remains bibliographic only; no modern-algebra anchor in Paper 43 §5
+
+## cjk-continuation-16-001-galois-extension-ring-underlying-rings
+
+Anchor: German baseline lines `20633-20657`; §5.1 underlying rings.
+
+Source summary: Defines the Galois extension ring K_Gamma of K, records direct products with conjugate fields, and states extension-contraction facts for ideals and difference ideals.
+
+Japanese title: Galois 拡大環と基礎となる環
+
+§5 では、\(P\) 上 \(n\) 次の分離拡大体 \(K\) と、それに属する Galois 体 \(\Gamma\) を用いる。\(\Gamma\) は \(K\) の \(n\) 個の共役体 \(K^{(i)}\) を含み、その積として考えられる。
+
+\(\mathfrak K\) を、\(P\) に関して \(K\) と同型で同値な拡大とする。独立な有限 \(P\)-加群基底があるので、直接積 \(\mathfrak K_\Gamma\)、\(\mathfrak K_K\)、\(\mathfrak K_{K^{(i)}}\) が存在し、\(\mathfrak K_\Gamma\) は \(\mathfrak K\) の Galois 拡大環と呼ばれる。
+
+各イデアルは拡大してから縮小すると元に戻る。差分イデアル \(\mathfrak B_K=\{\ldots,x-\xi,\ldots\}\) と差分商 \(\mathfrak A_K=(0):\mathfrak B_K\) についても、\(\mathfrak K_\Gamma\) への拡大と縮小の対応が成り立つ。
+
+Simplified Chinese title: Galois 扩张环及其基础环
+
+§5 取 \(P\) 上 \(n\) 次可分扩域 \(K\)，以及与之相关的 Galois 域 \(\Gamma\)。\(\Gamma\) 含有 \(K\) 的 \(n\) 个共轭域 \(K^{(i)}\)，并被看作这些共轭域的积。
+
+令 \(\mathfrak K\) 为相对于 \(P\) 与 \(K\) 同构且等价的扩张。由于有独立有限 \(P\)-模基，直接积 \(\mathfrak K_\Gamma\)、\(\mathfrak K_K\)、\(\mathfrak K_{K^{(i)}}\) 存在，而 \(\mathfrak K_\Gamma\) 称为 \(\mathfrak K\) 的 Galois 扩张环。
+
+每个理想扩张后再收缩会回到自身。差分理想 \(\mathfrak B_K=\{\ldots,x-\xi,\ldots\}\) 和差分商 \(\mathfrak A_K=(0):\mathfrak B_K\) 也满足与 \(\mathfrak K_\Gamma\) 的扩张、收缩对应。
+
+Script/codepoint and TeX/PDF notes:
+
+- Galoisscher Erweiterungsring is Galois 拡大環 / Galois 扩张环.
+- Direct product remains 直接積 / 直接积 and non-tensor.
+- Keep \(\mathfrak K_\Gamma\), \(\mathfrak B_K\), and \(\mathfrak A_K\) in TeX.
+
+Unresolved flags:
+
+- Galois extension-ring terminology needs native/domain review.
+- No retained blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-16-002-structure-theorem-direct-sum-null-ideal
+
+Anchor: German baseline lines `20658-20681`; §5.2 structure theorem, first part.
+
+Source summary: States and begins proving the invariant structure theorem: the zero ideal is the intersection of conjugate difference ideals and K_Gamma is the direct sum of conjugate difference quotients.
+
+Japanese title: Galois 拡大環の直和構造定理
+
+差分イデアルと差分商の関係は、Galois 拡大環の構造として表される。構造定理は、\(\mathfrak K_\Gamma\) の零イデアルが \(n\) 個の共役な差分イデアルの拡大の交わりであり、\(\mathfrak K_\Gamma\) 自身がその共役な差分商の拡大の直和になる、と述べる。
+
+各 \(\mathfrak B_\Gamma^{(i)}\) による剰余環は、\(\Gamma\) に関して階数一になる。分離性によりこれらのイデアルは互いに異なり、二つずつ互いに素になる。
+
+そのため、交わり \([\mathfrak B_\Gamma^{(1)},\ldots,\mathfrak B_\Gamma^{(n)}]\) は零イデアルになり、同時に \(\mathfrak K_\Gamma=\Gamma e^{(1)}+\cdots+\Gamma e^{(n)}\) という一意な直和分解が得られる。
+
+Simplified Chinese title: Galois 扩张环的直和结构定理
+
+差分理想与差分商的关系可表述为 Galois 扩张环的结构。结构定理说，\(\mathfrak K_\Gamma\) 的零理想是 \(n\) 个共轭差分理想扩张的交，而 \(\mathfrak K_\Gamma\) 本身是这些共轭差分商扩张的直和。
+
+每个 \(\mathfrak B_\Gamma^{(i)}\) 的商环相对于 \(\Gamma\) 秩为一。由于可分性，这些理想彼此不同，并且两两互素。
+
+因此，交 \([\mathfrak B_\Gamma^{(1)},\ldots,\mathfrak B_\Gamma^{(n)}]\) 成为零理想，同时得到唯一的直和分解 \(\mathfrak K_\Gamma=\Gamma e^{(1)}+\cdots+\Gamma e^{(n)}\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Struktursatz is 構造定理 / 结构定理.
+- Direct sum is 直和 / 直和, not tensor product.
+- Keep \(e^{(i)}\) and intersection brackets in TeX.
+
+Unresolved flags:
+
+- Structure-theorem wording remains draft-only.
+- No retained blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-16-003-identifying-c-and-a-quotients
+
+Anchor: German baseline lines `20682-20716`; §5.2 structure theorem completion.
+
+Source summary: Shows that C_K equals A_K, extends this equality to Gamma, and concludes the full invariant direct-sum/decomposition theorem.
+
+Japanese title: 差分商の同定と不変構造
+
+証明の残りでは、\(\mathfrak C_K\) と \(\mathfrak A_K\) が一致することを示す。まず \(\mathfrak K_K=\mathfrak K_K e^{(1)}+\mathfrak K_K(e-e^{(1)})\) という分解を得て、\(\mathfrak K_K e^{(1)}=Ke^{(1)}=\mathfrak C_K\)、\(\mathfrak K_K(e-e^{(1)})=\mathfrak B_K\) を確認する。
+
+\(e^{(1)}(e-e^{(1)})=0\) から \(\mathfrak C_K\mathfrak B_K=0\) が従い、逆に \(b\mathfrak B_K=0\) なら \(b=be^{(1)}\) となる。したがって \(\mathfrak C_K=(0):\mathfrak B_K=\mathfrak A_K\) である。
+
+拡大によって \(\mathfrak C_\Gamma=\mathfrak A_\Gamma\) となり、構造定理の全体が得られる。ここで使われる \(\mathfrak K_K\)、\(\mathfrak K_\Gamma\)、\(\mathfrak B_K\)、\(\mathfrak A_K\) はすべて基底に依存しないため、この定理は完全に不変的である。
+
+Simplified Chinese title: 差分商的识别与不变结构
+
+证明的余下部分说明 \(\mathfrak C_K\) 与 \(\mathfrak A_K\) 相等。先得到分解 \(\mathfrak K_K=\mathfrak K_K e^{(1)}+\mathfrak K_K(e-e^{(1)})\)，并确认 \(\mathfrak K_K e^{(1)}=Ke^{(1)}=\mathfrak C_K\)、\(\mathfrak K_K(e-e^{(1)})=\mathfrak B_K\)。
+
+由 \(e^{(1)}(e-e^{(1)})=0\) 得 \(\mathfrak C_K\mathfrak B_K=0\)；反过来，若 \(b\mathfrak B_K=0\)，则 \(b=be^{(1)}\)。所以 \(\mathfrak C_K=(0):\mathfrak B_K=\mathfrak A_K\)。
+
+扩张后得到 \(\mathfrak C_\Gamma=\mathfrak A_\Gamma\)，从而完成整个结构定理。这里出现的 \(\mathfrak K_K\)、\(\mathfrak K_\Gamma\)、\(\mathfrak B_K\)、\(\mathfrak A_K\) 都不依赖于基，因此该定理是完全不变的。
+
+Script/codepoint and TeX/PDF notes:
+
+- Basis-free/invariant is 基底に依存しない・不変的 / 不依赖于基・不变.
+- Ideal quotient remains ideal quotient, not localization.
+- Keep \((0):\mathfrak B_K\) in TeX.
+
+Unresolved flags:
+
+- No retained blocker changes.
+- Ideal-quotient terminology remains draft-only.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-16-004-component-representation-by-conjugates
+
+Anchor: German baseline lines `20718-20740`; §5.3 component representation by conjugate elements.
+
+Source summary: Represents elements of K by conjugate components using the idempotents e^(i), and derives a corollary for absolute modules from the component representation.
+
+Japanese title: 共役成分による表示
+
+共役な差分イデアルと差分商に対応して、\(\mathfrak K\) の元は共役成分によって表示される。すなわち \(x=\xi^{(1)}e^{(1)}+\cdots+\xi^{(n)}e^{(n)}\) と書けるとき、\(\xi^{(1)},\ldots,\xi^{(n)}\) は互いに共役である。
+
+これらは、\(\mathfrak K\) から \(K^{(1)},\ldots,K^{(n)}\) への同型によって \(x\) に対応する \(n\) 個の共役値である。成分 \(e^{(i)}\) 自身も、Galois 自己同型によって互いに共役に移る。
+
+帰結として、\(\mathfrak B\) が \(\mathfrak K\) の絶対加群なら、\(\mathfrak K_\Gamma\) における成分 \(\mathfrak B^{(1)},\ldots,\mathfrak B^{(n)}\) を用いて、\(\mathfrak B=[\mathfrak K,\mathfrak B^{(1)}+\cdots+\mathfrak B^{(n)}]\) と回復できる。
+
+Simplified Chinese title: 由共轭分量给出的表示
+
+对应于共轭差分理想和差分商，\(\mathfrak K\) 的元素可由共轭分量表示。也就是说，若 \(x=\xi^{(1)}e^{(1)}+\cdots+\xi^{(n)}e^{(n)}\)，则 \(\xi^{(1)},\ldots,\xi^{(n)}\) 互为共轭。
+
+这些数正是通过 \(\mathfrak K\) 到 \(K^{(1)},\ldots,K^{(n)}\) 的同构与 \(x\) 对应的 \(n\) 个共轭值。分量 \(e^{(i)}\) 本身也在 Galois 自同构下互相变换。
+
+推论是：若 \(\mathfrak B\) 是 \(\mathfrak K\) 中的绝对模，则可由它在 \(\mathfrak K_\Gamma\) 中的分量 \(\mathfrak B^{(1)},\ldots,\mathfrak B^{(n)}\) 恢复，即 \(\mathfrak B=[\mathfrak K,\mathfrak B^{(1)}+\cdots+\mathfrak B^{(n)}]\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Absolute module is 絶対加群 / 绝对模, provisional.
+- Conjugate values are 共役値 / 共轭值.
+- Keep \(x=\xi^{(1)}e^{(1)}+\cdots+\xi^{(n)}e^{(n)}\) in TeX.
+
+Unresolved flags:
+
+- Absolute-module wording needs review.
+- No retained blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-16-005-complementary-bases-and-components-of-unity
+
+Anchor: German baseline lines `20741-20795`; §5.4 complementary bases and components of unity.
+
+Source summary: Uses components of unity to pair every P-basis with a complementary basis, proves reciprocal matrix relations, and records the contragredient transformation law.
+
+Japanese title: 単位成分と補基
+
+不変構造から基底表示へ移ると、基底は補基の組にまとめられる。任意の \(P\)-基底 \(t_1,\ldots,t_n\) には、\(\mathfrak K\) の補基 \(T_1,\ldots,T_n\) が対応し、さらにその補基を取ると元の \(t\)-基底に戻る。
+
+補基は、単位成分 \(e^{(i)}\) を \(t\)-基底で表した係数 \(A_1^{(i)},\ldots,A_n^{(i)}\) によって定義される。\(t_i\) に対応する共役基 \(\alpha_i^{(j)}\) と \(A\) の行列は互いに逆行列になる。
+
+基底が \((s)=(t)P\) によって移るとき、補基は \((S)=P^{-1}(T)\) という反変的な関係で移る。これにより、単位成分による対応がすべての基底を補基の対へ分けることが示される。
+
+Simplified Chinese title: 单位分量与补基
+
+从不变结构转到基表示时，基被组织成互补的成对基。任一 \(P\)-基 \(t_1,\ldots,t_n\) 都对应一个 \(\mathfrak K\) 中的补基 \(T_1,\ldots,T_n\)，而这个补基的补基又回到原来的 \(t\)-基。
+
+补基由把单位分量 \(e^{(i)}\) 写成 \(t\)-基表示时的系数 \(A_1^{(i)},\ldots,A_n^{(i)}\) 定义。与 \(t_i\) 对应的共轭基 \(\alpha_i^{(j)}\) 的矩阵，与 \(A\)-矩阵互为逆矩阵。
+
+当基按 \((s)=(t)P\) 变换时，补基按 \((S)=P^{-1}(T)\) 的反变关系变换。因此，由单位分量给出的对应把所有基分成互补基对。
+
+Script/codepoint and TeX/PDF notes:
+
+- Komplementäre Basen follows C11/C13/C14: 補基 / 补基.
+- kontragredient is 反変的 / 反变, provisional.
+- Keep matrix displays and \((S)=P^{-1}(T)\) in TeX.
+
+Unresolved flags:
+
+- Complementary-basis and contragredient wording needs review.
+- No retained blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-16-006-trace-relations-and-empty-interpolation-note
+
+Anchor: German baseline lines `20796-20816`; §5.4 remark and §5.5 editorial note.
+
+Source summary: Expresses coefficients in complementary bases via traces of products and notes that the Lagrange interpolation subsection was left unfilled in the manuscript.
+
+Japanese title: 跡公式と未記入の補注
+
+補基に関する注意として、元 \(c\in\mathfrak K\) を基底 \(t\) と補基 \(T\) で二通りに表すと、係数は跡によって \(C_\lambda=\operatorname{Sp}(cT_\lambda)\)、\(c_\lambda=\operatorname{Sp}(ct_\lambda)\) と与えられる。
+
+ここで \(\operatorname{Sp}(x)\) は、通常通り \(x\) の共役値の和である。これは、\(c\) を単位成分 \(e^{(i)}\) に沿って展開し、係数比較を行うことで得られる。
+
+最後に、定義方程式と Lagrange 補間公式を扱う予定だった §5 の第五項は、編集注により、原稿では未記入のまま残されたと記録されている。
+
+Simplified Chinese title: 迹公式与未填写的编辑说明
+
+关于补基的备注说，若元素 \(c\in\mathfrak K\) 分别用基 \(t\) 和补基 \(T\) 表示，则系数由迹给出：\(C_\lambda=\operatorname{Sp}(cT_\lambda)\)、\(c_\lambda=\operatorname{Sp}(ct_\lambda)\)。
+
+这里 \(\operatorname{Sp}(x)\) 按通常意义是 \(x\) 的共轭值之和。该公式由沿单位分量 \(e^{(i)}\) 展开 \(c\)，并比较系数得到。
+
+最后，原本要讨论定义方程与 Lagrange 插值公式的 §5 第五项，按编辑说明，在手稿中仍未填写。
+
+Script/codepoint and TeX/PDF notes:
+
+- Trace is 跡 / 迹, with source macro \operatorname{Sp}.
+- Lagrange interpolation is Lagrange 補間公式 / Lagrange 插值公式.
+- Do not invent missing manuscript content for §5.5.
+
+Unresolved flags:
+
+- Trace notation and editorial-note handling need review.
+- No retained blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
