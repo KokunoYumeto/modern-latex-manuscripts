@@ -1,0 +1,246 @@
+# Noether CJK Draft Corpus Translation Slices: Continuation 22
+
+Generated UTC: `2026-07-04T09:05:52.711763+00:00`
+
+Status: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+Draft/non-canonical sidecar only. Not native reviewed. Not approved. Not gate-promoted.
+
+Baseline: `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\tmp\zenodo_20836874_inspect\localcodex\Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624\tex\cum_de_R124plus_localcodex_current_candidate_20260624.tex`
+
+Baseline SHA256: `C0ACCB2D4EB98F54B41BC3977DFA0CB57A349C74B7B35E06453343D15ACAB4ED`
+
+## Review Boundaries
+
+- `native_review_status`: `not_native_reviewed`
+- `canonical_approval_status`: `not_approved`
+- `gate_promotion_status`: `not_gate_promoted`
+- `reviewer_packet_population_performed`: `False`
+- `git_push_performed`: `False`
+- `korean_corpus_prose_added`: `False`
+
+## Retained Blockers
+
+- tensor product: no German Tensorprodukt anchor in 21770-21999; noisy otimes glyphs at 21847 and 21904 occur in automorphism/representation contexts and are non-anchor evidence only
+- localization: Quotientenring candidates remain 16223-16225, 18467, 20105, 20228, 20240, 20284, 20949, 20953, and 21009, plus Quotientenkörper at 20822; no direct Lokalisierung label in 21770-21999
+- Harish-Chandra: no German corpus anchor
+- abstract algebra: no direct abstract-algebra anchor in Chapter IV lines 21770-21999
+- modern algebra: Moderne Algebra remains bibliographic only; no modern-algebra anchor in this continuation
+- group algebra: no new group-algebra evidence; Chapter IV shifts to two-sided simple systems and representation modules
+
+## cjk-continuation-22-001-invariant-fields-inner-automorphisms-and-module-extension-setup
+
+Anchor: German baseline lines `21770-21791`; Kapitel IV §18 invariant fields, inner automorphisms, and extended modules.
+
+Source summary: Begins Chapter IV on two-sided simple rings, defines the invariant field of an automorphism group of K, identifies the invariant field of all inner automorphisms with the center, and sets up a P-module M and its K-extension M_K.
+
+Japanese title: 不変体、内的自己同型、拡大加群の設定
+
+第 IV 章は両側単純環を扱い、§18 では補題の準備として、体 \(K\) とその自己同型群 \(S\) を考える。\(S\) に属するすべての自己同型で変わらない \(K\)-元全体は部分体 \(P\) であり、これを \(S\) の不変体と呼ぶ。
+
+\(\tau\neq0\) に対して \(\alpha\mapsto\tau^{-1}\alpha\tau\) で得られる自己同型は、群論の用語にならって内的自己同型と呼ばれる。\(K\) のすべての内的自己同型からなる群の不変体は、ちょうど \(K\) の中心である。
+
+つぎに、\(K\) の自己同型群 \(\mathfrak G\) とその不変体 \(P\) のもとで、\(P\)-加群 \(\mathfrak M=x_1P+\cdots+x_nP\) を取り、\(\gamma x_i=x_i\) と定める。この作用により拡大加群 \(\mathfrak M_K=x_1K+\cdots+x_nK\) に自己同型群が作用し、その不変領域は \(\mathfrak M\) になる。
+
+Simplified Chinese title: 不变域、内自同构与扩张模设置
+
+第 IV 章讨论双侧单环；§18 为补题作准备，先考虑除环 \(K\) 及其自同构群 \(S\)。在 \(S\) 中所有自同构下保持不变的 \(K\)-元素组成一个子域 \(P\)，称为 \(S\) 的不变域。
+
+对 \(\tau\neq0\)，映射 \(\alpha\mapsto\tau^{-1}\alpha\tau\) 给出 \(K\) 的一个自同构；按照群论中的相应说法，文本称它为内自同构。由 \(K\) 的所有内自同构组成的群，其不变域正是 \(K\) 的中心。
+
+接着，在 \(K\) 的自同构群 \(\mathfrak G\) 及其不变域 \(P\) 下，取 \(P\)-模 \(\mathfrak M=x_1P+\cdots+x_nP\)，并规定 \(\gamma x_i=x_i\)。这种作用把 \(\mathfrak G\) 变成扩张模 \(\mathfrak M_K=x_1K+\cdots+x_nK\) 上的自同构群，而其不变范围就是 \(\mathfrak M\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Zweiseitig einfache Ringe is drafted as 両側単純環 / 双侧单环, following the previous CJK sidecar convention.
+- Invariantenkörper is 不変体 / 不变域; Invariantenbereich for a module is kept as 不変領域 / 不变范围 to avoid claiming a field.
+- Preserve \(\tau^{-1}\alpha\tau\), \(\mathfrak M=x_1P+\cdots+x_nP\), and \(\mathfrak M_K=x_1K+\cdots+x_nK\).
+- German line 21778 prints an ampersand/noisy group symbol; draft normalizes contextually to \mathfrak G in notes only.
+
+Unresolved flags:
+
+- Japanese 内的自己同型 versus 内部自己同型 and Chinese 不变域 versus 固定域 need native/domain review.
+- The historical German Körper may be noncommutative here; zh-Hans uses 除环 for K where noncommutativity is structurally relevant.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-22-002-invariant-submodule-descent-intersection-basis-proof
+
+Anchor: German baseline lines `21793-21820`; §18 invariant submodule descent and intersection proof.
+
+Source summary: States the lemma: a K-submodule C of M_K invariant under the automorphism group is the K-extension of a submodule c of M. The first proof step identifies c with C intersected with M using basis representations over P and K.
+
+Japanese title: 不変部分加群の降下と交わりによる証明
+
+補題は、\(\mathfrak M_K\) の部分加群 \(\mathfrak C=z_1K+\cdots+z_rK\) が \(\mathfrak G\) の各元で自分自身へ移されるなら、\(\mathfrak C\) は \(\mathfrak M\) のある部分加群 \(\mathfrak c\) から \(K\) へ拡大したもの、すなわち \(\mathfrak C=\mathfrak c_K\) である、という内容である。
+
+証明の第一段階では、\(\mathfrak c=\mathfrak C\cap\mathfrak M\) でなければならないことを示す。一般に \(\mathfrak c=\mathfrak c_K\cap\mathfrak M\) が成り立つため、一方の包含は明らかである。
+
+逆包含は基底表示で示される。\(\mathfrak c=y_1P+\cdots+y_rP\) とし、\(\mathfrak M\) の基底まで \(y_{r+1},\ldots,y_n\) で補う。ある元 \(c\) を \(\mathfrak c_K\) の元としても \(\mathfrak M\) の元としても基底表示すると、\(\mathfrak M_K\) での表示の一意性から係数が \(P\) に属し、したがって \(c\in\mathfrak c\) となる。
+
+Simplified Chinese title: 不变子模的下降与交的证明
+
+该补题断言：若 \(\mathfrak M_K\) 的子模 \(\mathfrak C=z_1K+\cdots+z_rK\) 在 \(\mathfrak G\) 的每个元素作用下都被送到自身，则 \(\mathfrak C\) 是 \(\mathfrak M\) 的某个子模 \(\mathfrak c\) 对 \(K\) 的扩张，即 \(\mathfrak C=\mathfrak c_K\)。
+
+证明的第一步说明必须有 \(\mathfrak c=\mathfrak C\cap\mathfrak M\)。一般地，\(\mathfrak c=\mathfrak c_K\cap\mathfrak M\)；一个包含关系显然成立。
+
+反向包含用基表示来证明。设 \(\mathfrak c=y_1P+\cdots+y_rP\)，再用 \(y_{r+1},\ldots,y_n\) 补成 \(\mathfrak M\) 的基。若元素 \(c\) 既按 \(\mathfrak c_K\) 的基表示，又按 \(\mathfrak M\) 的基表示，则在 \(\mathfrak M_K\) 中表示唯一，系数因而落在 \(P\) 中，所以 \(c\in\mathfrak c\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(\mathfrak C=z_1K+\cdots+z_rK\), \(\mathfrak C=\mathfrak c_K\), and \(\mathfrak c=\mathfrak C\cap\mathfrak M\).
+- Line 21796 appears to print \mathfrak G where the theorem context requires \mathfrak C; the draft records the source anomaly rather than treating it as a new symbol.
+- Use 部分加群 / 子模 consistently for Teilmodul; avoid category-level claims beyond the local module statement.
+
+Unresolved flags:
+
+- Potential OCR/symbol substitution at lines 21796-21798 needs source-image review.
+- The term Erweiterungsmodul is drafted as 拡大加群 / 扩张模 pending reviewer preference.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-22-003-invariant-basis-construction-and-otimes-noise
+
+Anchor: German baseline lines `21822-21878`; §18 construction of an invariant basis; noisy otimes line.
+
+Source summary: Completes the lemma by constructing a basis z_1,...,z_r of C with elements in M, comparing coefficients after applying gamma, and concluding that the z_i lie in the invariant range. Line 21847 contains a noisy otimes glyph that does not name tensor product.
+
+Japanese title: 不変基底の構成と 21847 行の非アンカー処理
+
+証明の第二段階では、\(\mathfrak C\) の基底 \(z_1,\ldots,z_r\) を、各 \(z_i\) が \(\mathfrak M\) に属するように構成する。任意の基底を取り、\(\mathfrak M\) の基底 \(x_1,\ldots,x_n\) のうち \(x_{r+1},\ldots,x_n\) を用いて \(\mathfrak M_K=\mathfrak C+x_{r+1}K+\cdots+x_nK\) と補う。
+
+そこから、\(x_i=z_i-\sum_{j=r+1}^{n}x_j\varkappa_j^{(i)}\) という形の式が得られ、\(z_1,\ldots,z_r\) は \(\mathfrak C\) の基底になる。つぎに \(\gamma z_i\) を \(z_\mu\) の線形結合として表し、同じ式を \(x_\mu\) と \(x_j\) の基底に展開して係数を比較する。
+
+比較により \(\sigma_j^{(i)}\) は Kronecker 型、すなわち \(i=j\) で \(1\)、それ以外で \(0\) になる。したがって \(\gamma z_i=z_i\) であり、各 \(z_i\) は \(\mathfrak G\) の不変領域、つまり \(\mathfrak M\) に属する。
+
+Simplified Chinese title: 不变基的构造与 21847 行非锚点处理
+
+证明的第二步构造 \(\mathfrak C\) 的一个基 \(z_1,\ldots,z_r\)，使每个 \(z_i\) 都属于 \(\mathfrak M\)。先任取 \(\mathfrak C\) 的基，再用 \(\mathfrak M\) 的基 \(x_1,\ldots,x_n\) 中的 \(x_{r+1},\ldots,x_n\) 补成 \(\mathfrak M_K=\mathfrak C+x_{r+1}K+\cdots+x_nK\)。
+
+于是得到形如 \(x_i=z_i-\sum_{j=r+1}^{n}x_j\varkappa_j^{(i)}\) 的等式，且 \(z_1,\ldots,z_r\) 成为 \(\mathfrak C\) 的基。随后把 \(\gamma z_i\) 写成 \(z_\mu\) 的线性组合，并再改写到 \(x_\mu\) 与 \(x_j\) 的基下比较系数。
+
+比较结果给出 Kronecker 型的 \(\sigma_j^{(i)}\)：当 \(i=j\) 时为 \(1\)，否则为 \(0\)。所以 \(\gamma z_i=z_i\)，各 \(z_i\) 属于 \(\mathfrak G\) 的不变范围，也就是属于 \(\mathfrak M\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(\mathfrak M_K=\mathfrak C+x_{r+1}K+\cdots+x_nK\), \(x_i=z_i-\sum x_j\varkappa_j^{(i)}\), and the Kronecker case formula for \(\sigma_j^{(i)}\).
+- Line 21847 reads `\(\gamma\) sei ein \(\otimes\) -Element`; this is recorded as OCR/noisy-symbol evidence only and is not a Tensorprodukt/tensor-product source anchor.
+- TeX/PDF readability note: the literal \otimes glyph should remain visible in evidence notes if quoted, but the target prose should not translate it as tensor product.
+
+Unresolved flags:
+
+- Line 21847 requires source-image review to identify the intended group symbol.
+- Tensor product remains blocked; no German Tensorprodukt appears in this slice.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-22-004-two-sided-simplicity-after-coefficient-extension
+
+Anchor: German baseline lines `21880-21903`; §19 two-sided simple systems over noncommutative extension fields.
+
+Source summary: Starts §19 on representations of two-sided simple hypercomplex systems in noncommutative extension fields. If S is two-sided simple and K has center P, then S_K is two-sided simple; the proof descends any two-sided S_K-ideal by the previous lemma.
+
+Japanese title: 係数拡大後の両側単純性
+
+§19 は、両側単純な超複素系を、その係数体の非可換拡大体の中で表現する問題に入る。ここで \(\mathfrak S=x_1P+\cdots+x_nP\) は両側単純、したがって完全可約な超複素系であり、\(K\) は中心を \(P\) とする体である。
+
+第一の定理は、係数を \(K\) へ拡大した \(\mathfrak S_K\) も両側単純である、というもの。証明では、任意の両側 \(\mathfrak S_K\)-イデアル \(\mathfrak a\) が、\(K\) の内的自己同型群に対して不変であることをまず示す。
+
+前節の補題により、この \(\mathfrak a\) は \(\mathfrak S\) のある部分加群 \(\mathfrak A\) の拡大イデアル \(\mathfrak A_K\) である。さらに \(\mathfrak A=\mathfrak S\cap\mathfrak a\) から \(\mathfrak A\) は \(\mathfrak S\) の両側イデアルである。ところが \(\mathfrak S\) は \(0\) と \(\mathfrak S\) 以外の両側イデアルを持たないので、\(\mathfrak S_K\) も \(0\) と \(\mathfrak S_K\) しか両側イデアルを持たない。
+
+Simplified Chinese title: 系数扩张后的双侧单性
+
+§19 转入把双侧单超复系统表示在其系数域的非交换扩域中的问题。这里 \(\mathfrak S=x_1P+\cdots+x_nP\) 是双侧单、因而完全可约的超复系统，\(K\) 是以 \(P\) 为中心的除环。
+
+第一个定理说，把系数扩张到 \(K\) 后得到的 \(\mathfrak S_K\) 仍是双侧单。证明先指出，任意双侧 \(\mathfrak S_K\)-理想 \(\mathfrak a\) 都在 \(K\) 的内自同构群下不变。
+
+由上一节补题，\(\mathfrak a\) 是 \(\mathfrak S\) 某个子模 \(\mathfrak A\) 的扩张理想 \(\mathfrak A_K\)。又由 \(\mathfrak A=\mathfrak S\cap\mathfrak a\) 可知 \(\mathfrak A\) 是 \(\mathfrak S\) 的双侧理想。但 \(\mathfrak S\) 只有 \(0\) 和 \(\mathfrak S\) 两个双侧理想，所以 \(\mathfrak S_K\) 也只有 \(0\) 与 \(\mathfrak S_K\) 两个双侧理想。
+
+Script/codepoint and TeX/PDF notes:
+
+- Nichtkommutativen Erweiterungskörpern is drafted as 非可換拡大体 / 非交换扩域, with zh-Hans notes using 除环 when K's noncommutative role matters.
+- Preserve \(\mathfrak S=x_1P+\cdots+x_nP\), \(\varkappa^{-1}\mathfrak a\varkappa=\bar{\mathfrak a}\), and \(\mathfrak a=\mathfrak A_K\).
+- This is two-sided-simple/coefficient-extension evidence; it does not affect the retained tensor-product or localization blockers.
+
+Unresolved flags:
+
+- Chinese 双侧单环/双边单环 convention needs reviewer choice.
+- The treatment of historical Körper as field versus division ring needs domain review.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-22-005-reciprocal-representation-modules-as-sk-modules
+
+Anchor: German baseline lines `21904-21978`; §19 reciprocal representation modules and S_K-left modules.
+
+Source summary: Sets up reciprocal representations of S in K and proves that a reciprocal representation module is an S_K-left module, with a converse. Line 21904 contains another noisy otimes glyph; line 21955 contains severe OCR garbage.
+
+Japanese title: 反表現加群を \(\mathfrak S_K\)-左加群として見る
+
+つぎに、\(K\) における \(\mathfrak S\) の既約表現を考えるため、形式上扱いやすい反表現を用いる。反表現加群 \(\mathfrak M\) は、有限階数の \(\mathfrak S\)-左かつ \(K\)-左加群で、\(\mathfrak M=Ky_1+\cdots+Ky_r\) と書かれ、交換関係 \(s(\varkappa m)=\varkappa(sm)\) を満たす。
+
+この \(\mathfrak M\) は \(\mathfrak S_K\)-左加群としても見られる。まず \(s\in\mathfrak S\)、\(m\in\mathfrak M\) に対して \(s\varkappa\cdot m=s\cdot(\varkappa\cdot m)\) と定め、一般の \(\sum s_i\varkappa_i\) について線形に拡張する。
+
+定義が表示の仕方によらないことは、\(\sum s_i\varkappa_i=0\) から \(\sum s_i(\varkappa_i m)=0\) が従うこととして証明される。独立な \(s_1,\ldots,s_q\) を取り、残りを \(P\)-係数で表すと、係数関係と加群性により必要な和が消える。
+
+最後に分配法則と結合法則を確認する。結合法則は \(s\varkappa\cdot(s'\varkappa' m)\) と \(s\varkappa s'\varkappa'\cdot m\) を比較し、交換関係により一致させる。逆に、任意の有限 \(\mathfrak S_K\)-左加群は、同じ交換条件を満たすので、\(K\) における \(\mathfrak S\) の反表現加群である。
+
+Simplified Chinese title: 把反表示模视作 \(\mathfrak S_K\)-左模
+
+接下来，为研究 \(\mathfrak S\) 在 \(K\) 中的不可约表示，文本采用形式上更方便的反表示。反表示模 \(\mathfrak M\) 是有限秩的 \(\mathfrak S\)-左模兼 \(K\)-左模，可写为 \(\mathfrak M=Ky_1+\cdots+Ky_r\)，并满足交换关系 \(s(\varkappa m)=\varkappa(sm)\)。
+
+这个 \(\mathfrak M\) 也可看成 \(\mathfrak S_K\)-左模。先对 \(s\in\mathfrak S\)、\(m\in\mathfrak M\) 定义 \(s\varkappa\cdot m=s\cdot(\varkappa\cdot m)\)，再对一般元素 \(\sum s_i\varkappa_i\) 线性延拓。
+
+定义与元素表示方式无关，证明目标是从 \(\sum s_i\varkappa_i=0\) 推出 \(\sum s_i(\varkappa_i m)=0\)。取线性无关的 \(s_1,\ldots,s_q\)，把其余 \(s_j\) 用它们以 \(P\)-系数表示，再由系数关系和模性质推出所需和为零。
+
+最后检查分配律和结合律。结合律通过比较 \(s\varkappa\cdot(s'\varkappa' m)\) 与 \(s\varkappa s'\varkappa'\cdot m\)，再用交换关系使二者相等。反过来，每个有限 \(\mathfrak S_K\)-左模都满足同一交换条件，因而也是 \(\mathfrak S\) 在 \(K\) 中的反表示模。
+
+Script/codepoint and TeX/PDF notes:
+
+- Line 21904 reads irreducible representations of `\(\otimes\)` in K; context points to \(\mathfrak S\), but the noisy glyph is not translated as tensor product and does not close the tensor-product blocker.
+- Preserve \(\mathfrak M=Ky_1+\cdots+Ky_r\), \(s(\varkappa m)=\varkappa(sm)\), \(s\varkappa\cdot m=s\cdot(\varkappa\cdot m)\), and \(\sum s_i\varkappa_i=0\).
+- Line 21955 contains severe OCR garbage in English-like repetition; the draft omits no mathematical consequence beyond flagging source-image review.
+- Reziproke Darstellung is drafted as 反表現 / 反表示; this is provisional.
+
+Unresolved flags:
+
+- Line 21904 noisy \otimes symbol needs source-image review.
+- Line 21955 has severe OCR corruption and needs source-image review before canonical prose.
+- 反表現 / 反表示 terminology needs native/domain review.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-22-006-unique-irreducible-class-and-commutative-center-case
+
+Anchor: German baseline lines `21980-21999`; §19 unique irreducible reciprocal class and commutative field case.
+
+Source summary: Uses simple left ideals of S_K to state uniqueness of the irreducible reciprocal representation class, notes degree divisibility, and specializes to the case where S is a commutative field, whose extension has S as center.
+
+Japanese title: 唯一の既約反表現類と可換体の場合
+
+M.Z. §18 により、有限な \(\mathfrak S_K\)-加群は単純加群の和であり、それらは \(\mathfrak S_K\) の単純左イデアルと作用素同型である。したがって定理 2 として、\(K\) における唯一の既約反表現類は、\(\mathfrak S_K\) の単純左イデアルから生成されるものだと述べられる。
+
+この既約表現の次数を \(r\) とすれば、任意の表現の次数は \(r\) の倍数である。主表現は \(\mathfrak S\) 自身を表現加群として得られるので、その次数 \(n\) は \(n=rt\) と書ける。
+
+最後に \(\mathfrak S\) が可換体である場合に特化する。定理 3 は、このとき \(\mathfrak S\) が \(\mathfrak S_K\) の中心である、という主張である。可換環では反同型と直接同型の差がないため、反表現は直接表現としても見られ、その直接表現加群は \(\mathfrak S_K\) の単純右イデアルから与えられる。
+
+Simplified Chinese title: 唯一不可约反表示类与交换域情形
+
+由 M.Z. §18，有限 \(\mathfrak S_K\)-模是单模之和，而这些单模与 \(\mathfrak S_K\) 的单左理想算子同构。因此定理 2 断言，在 \(K\) 中唯一的不可约反表示类，是由 \(\mathfrak S_K\) 的一个单左理想生成的。
+
+若该不可约表示的次数为 \(r\)，则任一表示的次数都是 \(r\) 的倍数。主表示由把 \(\mathfrak S\) 自身作为表示模而得到，所以它的次数 \(n\) 满足 \(n=rt\)。
+
+最后专门考察 \(\mathfrak S\) 为交换域的情形。定理 3 说，此时 \(\mathfrak S\) 是 \(\mathfrak S_K\) 的中心。对于交换环，反同构与直接同构没有区别，所以反表示也可看成直接表示；相应的直接表示模由 \(\mathfrak S_K\) 的单右理想给出。
+
+Script/codepoint and TeX/PDF notes:
+
+- Simple left/right ideals are 単純左/右イデアル and 单左/右理想 in this draft; reviewer may prefer 単左 ideals in Japanese notation.
+- Preserve \(n=rt\), \(\mathfrak S_K\), and the direct-sum statement for simple modules.
+- German lines 21982, 21986, 21991, 21995-21999 contain OCR substitutions such as ©, ¢, #2, and Gx/Sx; draft follows the surrounding \\mathfrak S_K context and flags source quality.
+
+Unresolved flags:
+
+- OCR substitutions in the theorem statements need source-image review.
+- Hauptdarstellung is drafted as 主表現 / 主表示 pending native/domain review.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
