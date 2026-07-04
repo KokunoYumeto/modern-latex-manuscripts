@@ -19,6 +19,7 @@ They are intended as source-language/register baselines for interlanguage and mu
 | `Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip` | 1,253 | 1,384,193 | `8978D3D969823FADB262246C170C7033223837CEDC8260FE42D50791045EE383` | Persian/Farsi, XePersian, RTL/Arabic-script TeX and render-review support |
 | `Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip` | 196 | 2,853,626 | `22B8BE98F7B75EF5C28719646B680C2B2307438FCD0992ABFB4D1B4ED6D44613` | Chinese/CJK mathematical LaTeX and CJK support sources |
 | `Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip` | 1,194 | 6,406,302 | `1A7416747F1AD814734FE9EE1A096D2D0A43EEA94D64E2B6E6106854FE1EA73B` | Czech/Interslavic source archives plus generated Noether Slavic support TeX |
+| `Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip` | 54 | 14,439,157 | `613880CF5327B60657E2352BA7856D693A3E04F934EDC187E924E03AC54346F5` | Slavic/interlanguage computational-linguistics arXiv source addendum; methodology source-body evidence, not per-language native math attestation |
 
 ## Local Paths
 
@@ -26,11 +27,13 @@ They are intended as source-language/register baselines for interlanguage and mu
 - `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip`
 - `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip`
 - `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip`
+- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip`
 
 ## Handling Caveats
 
 - The Romance, Persian/RTL, and CJK bundles contain external/source-register LaTeX corpora and support files that are useful as register/style/typeface/math-expression baselines.
 - The Slavic/Interslavic bundle mixes external Czech/Interslavic source archives with generated Noether Russian/Ukrainian/Interslavic support TeX. The generated Noether files are useful for internal consistency checks, but they are not native-source attestation.
+- The 2026-07-05 Slavic arXiv addendum contains extracted TeX/Bib/style files from Slavic/interlanguage computational-linguistics arXiv source tarballs. It is useful methodology/source-body evidence, but not native mathematical terminology attestation for individual target languages.
 - These bundles are source-reference feeds, not completed translations, source-fidelity certification, term approval, native-speaker approval, or critical editions.
 - Each ZIP contains its own `README.md` and `MANIFEST.csv` with per-file provenance and SHA256.
 
