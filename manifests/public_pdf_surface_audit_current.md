@@ -39,13 +39,13 @@ Current public Zenodo records:
 Reader PDF health flags:
 
 - `reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: first_page_blankish
-- `reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`: first_page_blankish
-- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
-- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
+- `reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Suspect Draft Reader (Not Source-Faithful).pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV - Suspect Draft Slice Reader (Not Source-Faithful).pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI - Suspect Draft Slice Reader (Not Source-Faithful).pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
-- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition through Page 525.pdf`: first_page_blankish
+- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice through Page 525.pdf`: first_page_blankish
 - `reader-pdfs/sga/25 SGA 6 - Source Scan Slice for Expose III Pages 253-280.pdf`: first_page_blankish
 - `reader-pdfs/sga/28 SGA 6 - Source Scan Slice for Expose IV Pages 281-303.pdf`: first_page_blankish
 - `reader-pdfs/sga/31 SGA 6 - Source Scan Slice for Expose V Pages 304-330.pdf`: first_page_blankish

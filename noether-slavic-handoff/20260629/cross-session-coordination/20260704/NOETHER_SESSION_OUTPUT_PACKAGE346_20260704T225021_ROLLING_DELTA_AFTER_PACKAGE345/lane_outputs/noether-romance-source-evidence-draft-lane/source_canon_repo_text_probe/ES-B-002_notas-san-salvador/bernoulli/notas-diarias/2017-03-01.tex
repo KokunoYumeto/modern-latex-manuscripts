@@ -1,0 +1,366 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+\usepackage{diagbox}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Valores especiales de la función zeta}
+\date{1 de Marzo de 2017}
+
+\usepackage{xcolor}
+\newcommand{\highlight}[1]{\colorbox{shadecolor}{$\displaystyle #1$}}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+\section*{La función zeta de Riemann}
+
+\begin{definicion*}
+La \term{función zeta de Riemann} está definida por la serie infinita
+$$\zeta (s) \dfn \sum_{n \ge 1} \frac{1}{n^s} = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \cdots$$
+\end{definicion*}
+
+\begin{observacion*}
+La serie de arriba es absolutamente convergente para todo $s \in \CC$ tal que $\Re s > 1$.
+
+\begin{proof}
+Si $s = a + i\,b$, tenemos
+$$\left|\frac{1}{n^s}\right| = \frac{1}{n^a}.$$
+Podemos usar el \term{criterio integral de convergencia}: $\sum_{n \ge 1} \frac{1}{n^a}$ es convergente si y solamente si
+$$\int_1^\infty \frac{1}{x^a}\,dx < \infty.$$
+En efecto, tenemos
+$$\int_1^\infty \frac{1}{x^a}\,dx = \lim_{n \to \infty} \left[\frac{x^{1-a}}{1-a}\right]^n_1 = \lim_{n \to \infty} \left(\frac{n^{1-a}}{1-a} - \frac{1}{1-a}\right).$$
+Este límite existe precisamente cuando $a > 1$.
+\end{proof}
+\end{observacion*}
+
+Note que para $s = 1$ se obtiene la \term{serie armónica}
+$$\zeta (1) = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots$$
+que es divergente.
+
+\begin{proof}[Demostración (Nicolás Oresme, siglo XIV)]
+En la serie
+$$1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \frac{1}{9} + \frac{1}{10} + \frac{1}{11} + \frac{1}{12} + \frac{1}{13} + \frac{1}{14} + \frac{1}{15} + \frac{1}{16} + \cdots$$
+reemplacemos cada término $\frac{1}{n}$ por el número máximo $\frac{1}{2^k} \le \frac{1}{n}$. Se obtiene una serie
+$$1 + \frac{1}{2} + \underbrace{\left(\frac{1}{4} + \frac{1}{4}\right)}_{= \frac{1}{2}} + \underbrace{\left(\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}\right)}_{= \frac{1}{2}} + \underbrace{\left(\frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16}\right)}_{= \frac{1}{2}} + \cdots$$
+que es obviamente divergente. Por tanto la serie armónica es también divergente.
+\end{proof}
+
+\begin{shaded}
+\noindent\small En PARI/GP:
+
+\begin{verbatim}
+? zeta (2)
+% = 1.6449340668482264364724151666460251892
+\end{verbatim}
+\end{shaded}
+
+Para $s > 1$ la función $\zeta (s)$ es monótonamente decreciente, y se tiene $\lim_{s\to \infty} \zeta (s) = 1$:
+
+\begin{center}
+\includegraphics{../pic/zeta-pos.mps}
+\end{center}
+
+\begin{teorema*}[Fórmula del producto de Euler]
+$$\sum_{n \ge 1} \frac{1}{n^s} = \prod_{p\text{ primo}} \frac{1}{1 - p^{-s}}.$$
+\end{teorema*}
+
+La fórmula de arriba tiene una gran importancia en la teoría de números y fue descubierta por Euler. He aquí la demostración original, reproducida de su artículo \href{http://eulerarchive.maa.org/pages/E072.html}{``Variae observationes circa series infinitas''}:
+
+\begin{quote}
+Si
+
+\begin{equation}
+\label{euler-1}
+x = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \cdots,
+\end{equation}
+
+\noindent entonces
+
+\begin{equation}
+\label{euler-2}
+\frac{1}{2^s}\,x = \frac{1}{2^s} + \frac{1}{4^s} + \frac{1}{6^s} + \frac{1}{8^s} + \frac{1}{10^s} + \frac{1}{12^s} + \cdots,
+\end{equation}
+
+\noindent y subtraendo $\text{\eqnref{euler-1}}-\text{\eqnref{euler-2}}$ se obtiene
+
+\begin{equation}
+\label{euler-3}
+\frac{2^s - 1}{2^s}\,x = 1 + \frac{1}{3^s} + \frac{1}{5^s} + \frac{1}{7^s} + \frac{1}{9^s} + \frac{1}{11^s} + \cdots
+\end{equation}
+
+Luego,
+
+\begin{equation}
+\label{euler-4}
+\left(\frac{2^s - 1}{2^s}\right)\,\frac{1}{3^s}\,x = \frac{1}{3^s} + \frac{1}{9^s} + \frac{1}{15^s} + \frac{1}{21^s} + \frac{1}{27^s} + \cdots
+\end{equation}
+
+\noindent y $\text{\eqnref{euler-3}} - \text{\eqnref{euler-4}}$ nos da
+
+\[ \left(\frac{2^s - 1}{2^s}\right)\,\left(\frac{3^s - 1}{3^s}\right)\,x = 1 + \frac{1}{5^s} + \frac{1}{7^s} + \frac{1}{11^s} + \cdots \]
+
+Después de aplicar operaciones similares para todos los números primos, todos los términos excepto el primero se eliminan:
+$$1 = \left(\frac{2^s - 1}{2^s}\right)\,\left(\frac{3^s - 1}{3^s}\right)\,\left(\frac{5^s - 1}{5^s}\right)\,\left(\frac{7^s - 1}{7^s}\right)\,\left(\frac{11^s - 1}{11^s}\right)\cdots x,$$
+de donde se encuentra la serie $x$:
+$$\left(\frac{2^s}{2^s - 1}\right)\,\left(\frac{3^s}{3^s - 1}\right)\,\left(\frac{5^s}{5^s - 1}\right)\,\left(\frac{7^s}{7^s - 1}\right)\,\left(\frac{11^s}{11^s - 1}\right)\cdots = x = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \cdots$$
+Q.E.D.
+\end{quote}
+
+Dejo al lector pensar por qué esta demostración es esencialmente correcta.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Los valores $\zeta (2k)$}
+
+El siguiente resultado fue descubierto por Euler:
+
+\begin{teorema*}
+Para todo $k\ge 1$
+$$\zeta (2k) \dfn 1 + \frac{1}{2^{2k}} + \frac{1}{3^{2k}} + \frac{1}{4^{2k}} + \cdots = (-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k}.$$
+\end{teorema*}
+
+Es algo sorprendente: ¡los números de Bernoulli surgen del estudio de las sumas de potencias $\sum_{1 \le i \le n} i^k$, y ahora los mismos números aparecen en sumas de potencias infinitas! Los primeros valores de $\zeta (2k)$ son entonces
+
+\begin{align*}
+\zeta (2) & = \frac{\pi^2}{6} \approx 1.644934\ldots, \\
+\zeta (4) & = \frac{\pi^4}{90} \approx 1.082323\ldots, \\
+\zeta (6) & = \frac{\pi^6}{945}  \approx 1.017343\ldots, \\
+\zeta (8) & = \frac{\pi^8}{9450} \approx 1.004077\ldots, \\
+\zeta (10) & = \frac{\pi^{10}}{93\,555} \approx 1.000994\ldots, \\
+\zeta (12) & = \frac{691\,\pi^{12}}{638\,512\,875} \approx 1.000246\ldots
+\end{align*}
+
+En particular, el cálculo de $\zeta (2) = 1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \cdots$ se conoce como el \term{problema de Basilea} que fue formulado por el matemático italiano \personality{Pietro Mengoli} (1626--1686) en 1644. La primera solución fue encontrada por Euler en 1735.
+
+\begin{ejercicio*}
+Calcule las sumas parciales $\sum_{1 \le n \le N} \frac{1}{n^2}$ en PARI/GP. Note que su convergencia a $\zeta (2)$ es bastante lenta. Esto explica un siglo de sufrimiento de los matemáticos que trataban de obtener un valor aproximado de $\zeta (2)$\dots hasta la llegada de Euler.
+\end{ejercicio*}
+
+\begin{corolario*}
+$(-1)^{k+1}\,B_{2k} > 0$ para todo $k \ge 1$. Es decir, $B_{2k} \ne 0$ y los signos de los números de Bernoulli pares se alternan.
+
+\begin{proof}
+$$(-1)^{k+1}\, B_{2k} = \frac{(2k)! \, \zeta (2k)}{2^{2k-1}\,\pi^{2k}}.$$
+\end{proof}
+\end{corolario*}
+
+También se ve que $|B_{2k}| \xrightarrow{k \to \infty} \infty$, y que $|B_{2k}|$ crece muy rápido con $k$:
+
+\begin{align*}
+B_2 & \approx +0.166667,\\
+B_4 & \approx -0.033333,\\
+B_6 & \approx +0.023810,\\
+B_8 & \approx -0.033333,\\
+B_{10} & \approx +0.075758,\\
+B_{12} & \approx -0.253114,\\
+B_{14} & \approx +1.166667,\\
+B_{16} & \approx -7.092157,\\
+B_{18} & \approx +54.971178,\\
+B_{20} & \approx -529.124242.
+\end{align*}
+
+\begin{proof}[Primera demostración de la fórmula para $\zeta (2k)$]
+Hemos visto en la lección de ayer la serie
+
+\begin{equation}
+\label{eqn:serie-para-t-cot-t}
+t\,\cot (t) = 1 + \sum_{k \ge 1} (-1)^k \, 2^{2k}\,\frac{B_{2k}}{(2k)!}\,t^{2k}.
+\end{equation}
+
+En el análisis complejo se deduce otra serie [Ahlfors, ``Complex analysis'', Chapter 5, \S 2]
+$$\cot (t) = \sum_{n\in \ZZ} \frac{1}{t - \pi n},$$
+que corresponde a la ``descomposición en fracciones simples'' de una función meromorfa: $\cot (t)$ tiene polos simples en $t = \pi n$ para todo $n \in \ZZ$ con residuo
+
+$$\lim_{t \to \pi n} (t - \pi n)\,\cot (t) = \lim_{t \to 0} \cos (t+\pi n) \, \frac{t}{\sen (t + \pi n)} = \lim_{t \to 0} (-1)^n\,\cos (t) \, \frac{t}{(-1)^n\,\sen (t)} = 1.$$
+Por ``$\sum_{n\in \ZZ} \frac{1}{t - \pi n}$'' se entiende $\lim_{N\to \infty} \sum_{-N \le n \le N} \frac{1}{t - \pi n}$.
+Luego,
+
+\begin{align*}
+t\,\cot (t) & = t\,\left(\frac{1}{t} + \sum_{n \ge 1} \left(\frac{1}{t - \pi n} + \frac{1}{t + \pi n}\right)\right) = 1 - 2\,\sum_{n \ge 1} \left(\frac{t^2}{(\pi n)^2 - t^2}\right) = 1 - 2\,\sum_{n \ge 1} \frac{t^2}{(\pi n)^2} \, \frac{1}{1-\left(\frac{t}{\pi n}\right)^2} \\
+ & = 1 - 2\,\sum_{n \ge 1} \frac{t^2}{(\pi n)^2} \, \sum_{k \ge 0} \left(\frac{t}{\pi n}\right)^{2k} = 1 - 2\,\sum_{n \ge 1} \, \sum_{k \ge 1} \left(\frac{t}{\pi n}\right)^{2k} \quad \text{(la serie geométrica)}\\
+ & = 1 - 2\,\sum_{k \ge 1} \left(\sum_{n\ge 1} \frac{1}{n^{2k}}\right)\,\frac{t^{2k}}{\pi^{2k}} = 1 - 2\,\sum_{k\ge 1} \frac{\zeta (2k)\,t^{2k}}{\pi^{2k}}. \quad \text{(cambiando el orden de sumación)}
+\end{align*}
+
+Comparando coeficientes con \eqnref{eqn:serie-para-t-cot-t}, tenemos
+$$(-1)^k \, 2^{2k}\,\frac{B_{2k}}{(2k)!} = -2\,\frac{\zeta (2k)}{\pi^{2k}}.$$
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Series de Fourier para $B_k (x)$}
+
+Vamos a necesitar el siguiente resultado del análisis armónico, que es un caso especial de las \term{series de Fourier}:
+
+\begin{hecho*}
+Sea $f\colon \RR \to \RR$ una función continua por trozos y periódica:
+$$f (x+1) = f (x).$$
+Entonces para todo $x_0\in \RR$ donde $f$ es continua y la derivada izquierda y derecha de $f$ existen (pero no necesariamente coinciden) se tiene
+$$f (x_0) = \sum_{n\in\ZZ} \widehat{f} (n) \, e^{2\pi i n x_0}, \quad \text{donde }\widehat{f} (n) \dfn \int_0^1 e^{-2\pi i n x} \, f(x) \, dx.$$
+\end{hecho*}
+
+\vspace{1em}
+
+En nuestro caso, nos interesan las funciones
+$$f (x) \dfn B_k (x - \lfloor x\rfloor),$$
+donde $B_k (x)$ es el $k$-ésimo polinomio de Bernoulli. Para $k > 1$ la función $B_k (x - \lfloor x\rfloor)$ es continua y para $k = 1$ es discontinua en los puntos $x = n \in \ZZ$. También $B_k (x - \lfloor x\rfloor)$ es lisa para $k > 2$, pero $B_2 (x)$ no es lisa en los puntos $x = n \in \ZZ$, donde existen la derivada izquierda y derecha, pero son diferentes.
+
+\begin{center}
+\includegraphics{../pic/bernpol-per.mps}
+\end{center}
+
+Los coeficientes de la serie de Fourier para $f (x)$ se calculan fácilmente. Para $n = 0$ tenemos
+$$\widehat{f} (0) = \int_0^1 B_k (x)\,dx = 0.$$
+Luego, para $n \ne 0$ y $k = 1$ podemos usar integración por partes ($\int_a^b f'(x)\,g(x)\,dx = \left[f(x)\,g(x)\right]_a^b - \int_a^b f(x) \, g'(x)\,dx$):
+
+\begin{align*}
+\int_0^1 e^{-2\pi i n x}\,\left(x - \frac{1}{2}\right)\,dx & = -\frac{1}{2\pi i n} \int_0^1 \left(e^{-2\pi i n x}\right)' \, \left(x - \frac{1}{2}\right)\,dx \\
+ & = -\frac{1}{2\pi i n} \, \left( \left[e^{-2\pi i n x}\,\left(x - \frac{1}{2}\right)\right]^1_0 - \underbrace{\int_0^1 e^{-2\pi i n x}\,dx}_{=0} \right) = -\frac{1}{2\pi i n}.
+\end{align*}
+
+Para $k > 1$ integración por partes y la relación $B_k' (x) = k\,B_{k-1} (x)$ nos dan
+
+\begin{align*}
+\widehat{f} (n) = \int_0^1 e^{-2\pi i n x} \, B_k (x)\,dx & = -\frac{1}{2\pi i n}\,\int_0^1 (e^{-2\pi i n x})' \, B_k (x)\,dx \\
+ & = -\frac{1}{2\pi i n}\,\left(\left[e^{-2\pi i n x}\,B_k (x)\right]_0^1 - k\,\int_0^1 e^{-2\pi i n x} \, B_{k-1} (x)\,dx\right) \\
+ & = \frac{k}{2\pi i n} \, \int_0^1 e^{-2\pi i n x}\,B_{k-1} (x)\,dx \\
+ & = \frac{k\,(k-1)}{(2\pi i n)^2} \int_0^1 e^{-2\pi i n x}\,B_{k-2} (x)\,dx \\
+ & = \cdots \\
+ & = \frac{k!}{(2\pi i n)^{k-1}} \int_0^1 e^{-2\pi i n x}\,\left(x - \frac{1}{2}\right)\,dx \\
+ & = \frac{k!}{(2\pi i n)^{k-1}} \cdot \left(-\frac{1}{2\pi i n}\right) = -\frac{k!}{(2\pi i n)^k}.
+\end{align*}
+
+Entonces, la serie de Fourier es
+
+\begin{equation}
+\label{serie-de-forier-para-Bk}
+B_k (x - \lfloor x\rfloor) = -\frac{k!}{(2\pi i)^k}\sum_{\substack{n\in \ZZ \\ n \ne 0}} \frac{e^{2\pi i n x}}{n^k}.
+\end{equation}
+
+Como un caso especial, se obtiene la fórmula para $\zeta (2k)$:
+
+\begin{proof}[Segunda demostración de la fórmula para $\zeta (2k)$]
+Para $x = 0$ la identidad \eqnref{serie-de-forier-para-Bk} nos da
+$$B_{2k} = B_{2k} (0) = -\frac{(2k)!}{(-1)^k\,(2\pi)^{2k}} \, 2\,\sum_{n \ge 1} \frac{1}{n^{2k}} = (-1)^{k+1}\frac{(2k)!}{2^{2k-1}\,\pi^{2k}}\,\zeta (2k).$$
+\end{proof}
+
+Note que los valores en los enteros impares $\zeta (2k+1)$ no se obtienen con este método.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Los valores $\zeta (2k+1)$}
+
+Los valores en los enteros positivos impares
+$$\zeta (3), ~ \zeta (5), ~ \zeta (7), ~ \zeta (9), ~ \zeta (11), ~ \ldots$$
+son más misteriosos. \emph{Al parecer}, son números trascendentes.
+
+\begin{shaded}
+Recordemos que un número $z\in \CC$ es \term{irracional} si $z \notin \QQ$.
+
+Por otro lado, un número $z$ es \term{algebraico} si $z$ es una raíz de algún polinomio con coeficientes en $\ZZ$. Por ejemplo, $\sqrt{2}$ es un número algebraico irracional.
+
+Si $z$ no es algebraico, se dice que es \term{trascendente}. Puede demostrarse que los números algebraicos forman un conjunto numerable, y entonces ¡casi todos los números son trascendentes! Lamentablemente, es muy difícil demostrar que un número específico es trascendente. Por ejemplo, $\pi$ y $e$ son trascendentes---es un corolario del célebre \term{teorema de Lindemann--Weierstrass}.
+\end{shaded}
+
+Por supuesto, los números
+$$\zeta (2k) = (-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k}$$
+son también transcendentes, ya que $\pi$ es trascendente (¡de hecho, es uno de los pocos números específicos cuya trascendencia se puede demostrar!). Los valores $\zeta (2k+1)$ deberían de ser trascendentes por alguna razón más sofisticada, y se supone que entre $\zeta (2k+1)$ distintos no hay ninguna relación algebraica.
+
+Sin embargo, todavía no hay demostraciones ni siquiera de que los $\zeta (2k+1)$ sean irracionales. En 1977 el matemático francés \personality{Roger Apéry} demostró que el número
+$$\zeta (3) \approx 1.20205690315959428539973816\ldots$$
+es irracional. La tumba de Apéry en París lleva la inscripción
+
+\begin{center}
+\noindent\textsc{Roger APÉRY}
+
+\noindent\textsc{1916--1994}
+
+\vspace{0.7em}
+
+\noindent\rule{1cm}{0.4mm}
+
+\vspace{1em}
+
+\noindent$1 + \frac{1}{8} + \frac{1}{27} + \frac{1}{64} + \cdots \ne \frac{p}{q}$
+\end{center}
+
+Los métodos de Apéry no se generalizan para demostrar que $\zeta (5)$ es irracional; hay pocos resultados en esta dirección. El matemático francés \personality{Tanguy Rivoal} demostró en 2000 que entre los números $\zeta (3), \zeta (7), \zeta (9), \ldots$ hay una infinidad de irracionales, mientras que el matemático ruso \personality{Wadim Zudilin} demostró en 2001 que por lo menos un número entre $\zeta(5)$, $\zeta(7)$, $\zeta(9)$ y $\zeta(11)$ es irracional.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Valores $\zeta (-1), \zeta (-2), \zeta (-3), \ldots$}
+
+La función zeta puede ser definida en todo plano complejo (véase [Ahlfors, ``Complex analysis'', Chapter 5, \S 4] o cualquier libro de la teoría de números):
+
+\begin{hecho*}
+La función $\zeta (s)$ puede prolongarse analíticamente al plano complejo como una función meromorfa con un polo simple de residuo $1$ en $s = 1$. Esta prolongación, que también se denota por $\zeta (s)$, satisface la siguiente \term{ecuación funcional}:
+
+\begin{equation}
+\label{ecuacion-funcional}
+\zeta (s) = 2^s \, \pi^{s-1} \, \sen \left(\frac{\pi s}{2}\right)\,\Gamma (1-s)\,\zeta (1-s).
+\end{equation}
+\end{hecho*}
+
+Aquí $\Gamma (z) \dfn \int_0^\infty x^{z-1}\,e^{-x}\,dx$ denota la \term{función Gamma}. En particular, $\Gamma (n) = (n-1)!$ para $n = 1,2,3,4,\ldots$
+
+\vspace{1em}
+
+Gracias a la ecuación funcional y la fórmula de Euler
+$$\zeta (2k) = (-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k},$$
+podemos obtener los valores de la función en los enteros negativos. En efecto, para los enteros negativos pares $s = -2k$ tenemos
+$$\zeta (-2k) = 2^{-2k} \, \pi^{-2k-1} \, \underbrace{\sen \left(-\frac{\pi k}{2}\right)}_{= 0}\,\Gamma (2k+1)\,\zeta (2k+1) = 0.$$
+Y para los $s = -(2k+1)$ impares,
+
+\begin{align*}
+\zeta (-(2k+1)) & = 2^{-(2k+1)} \, \pi^{-(2k+2)} \, \sen \left(-\frac{\pi\,(2k+1)}{2}\right)\,(2k+1)!\,\zeta (2k+2) \\
+ & = \cancel{2^{-(2k+1)}} \, \cancel{\pi^{-(2k+2)}}\,(-1)^{k+1}\,(2k+1)!\,(-1)^k \, B_{2k+2}\,\frac{\cancel{2^{2k+1}}}{(2k+2)!}\,\cancel{\pi^{2k+2}} \\
+ & = -\frac{B_{2k+2}}{2k+2}.
+\end{align*}
+
+Ya que $B_n = 0$ para $n$ impar, en ambos casos se tiene
+$$\zeta (-n) = -\frac{B_{n+1}}{n+1}.$$
+Además, para $n = 0$ la prolongación analítica nos da $\zeta (0) = -\frac{1}{2} = -B_1$, así que esta fórmula es válida también para $n = 0$.
+
+\[ \begin{array}{rcccccccccccc}
+n\colon & 0 & -1 & -2 & -3 & -4 & -5 & -6 & -7 & -8 & -9 & -10 & \cdots \\
+\hline
+\zeta(n)\colon & -\frac{1}{2} & -\frac{1}{12} & 0 & \frac{1}{120} & 0 & -\frac{1}{252} & 0 & \frac{1}{240} & 0 & -\frac{1}{132} & 0 & \cdots
+\end{array} \]
+
+\begin{center}
+\noindent\includegraphics{../pic/zeta.mps}
+\end{center}
+
+\noindent (Después $\zeta (s)$ es decreciente hasta su polo en $s = 1$.)
+
+\pagebreak
+
+Terminamos por el cálculo de $\zeta (-1) = -\frac{1}{12}$ encontrado por Euler:
+
+\begin{quote}
+Para la serie geométrica
+$$1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + x^7 + x^8 + \cdots = \frac{1}{1-x}$$
+la derivada formal nos da
+$$1 + 2\,x + 3\,x^2 + 4\,x^3 + 5\,x^4 + 6\,x^5 + 7\,x^6 + 8\,x^7 + \cdots = \frac{1}{(1-x)^2},$$
+de donde para $x = -1$ (¡sic!)
+$$1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + \cdots = \frac{1}{4}.$$
+
+Luego,
+
+\begin{align*}
+-3\,\zeta (-1) & = \zeta (-1) - 4\,\zeta (-1) \\
+ & = (1 + 2 + 3 + 4 + \cdots) - (4 + 8 + 12 + 16 + \cdots) \\
+  & = 1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + \cdots = \frac{1}{4},
+\end{align*}
+
+\noindent lo que implica $\zeta (-1) = -\frac{1}{12}$, Q.E.D.
+\end{quote}
+
+El lector no debería tomar en serio el argumento de arriba ni usar métodos similares en sus demostraciones.
+
+\end{document}

@@ -2,12 +2,14 @@
 
 Updated: 2026-06-02.
 
+**Current caveat added 2026-06-23:** this is an older working-manifest title and filename layer. The phrase "Complete Source-Checked" here records structural coverage through the available SGA 6 scan and the then-current local validation pass; it is not a certified critical edition claim and does not override later SGA repair/audit notes. Subsequent repair packets found and continue to track diagram, notation, synchronization, and source-comparison issues, especially across French/source and English branches. Use the current SGA public summary and pending repair manifests for present status.
+
 This manifest records the promotion of the complete strict bilingual SGA 6 working edition through the end of the original source scan.
 
 ## Front-Facing Readers
 
-- `reader-pdfs/sga/20 SGA 6 - Complete Strict Source-Checked Edition - English Translation.pdf`
-- `reader-pdfs/sga/21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf`
+- `reader-pdfs/sga/20 SGA 6 - Working English Translation (Compression Caveats).pdf`
+- `reader-pdfs/sga/21 SGA 6 - Working French Reconstruction (Compression Caveats).pdf`
 
 ## Source Packet
 

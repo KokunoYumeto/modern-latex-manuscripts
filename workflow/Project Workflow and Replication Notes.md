@@ -27,6 +27,8 @@ The preferred public shape is:
 
 This is a work-in-progress AI-run research and preservation workflow, not a benchmark. Human judgment is still used for source selection, public naming, audit decisions, legal/provenance boundaries, and publication, but much of the transcription, translation, repair, packaging, and indexing work is model-orchestrated. The exact model mix changes as rate limits and availability change.
 
+For the current source-audited edition direction, see `workflow_addendum_20260629_source_audited_edition_pipeline.md`. The practical shift is to make the project more reviewable: status tiers by paper/page, disagreement queues, separated reader/apparatus/witness layers, IIIF-style source metadata where possible, and small benchmark/review packets instead of relying only on large preservation ZIPs.
+
 ## Observed Cost and Throughput Notes
 
 These figures are informal project notes, not controlled measurements.
@@ -105,7 +107,7 @@ Public names should describe the work, not the internal batch that produced it. 
 
 - `Emmy Noether - Paper 11 - Equations with Prescribed Group - English Translation.pdf`
 - `SGA 5 - High-Fidelity Working Translation through Expose VII.pdf`
-- `Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf`
+- `Cayley - Collected Mathematical Papers, Volume X - Suspect Draft Slice Reader (Not Source-Faithful).pdf`
 
 Avoid naming public files after temporary model drops, repair passes, chat sessions, or internal batch numbers. Put that detail in manifests and artifact ZIPs when provenance is needed.
 
