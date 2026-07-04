@@ -1,3 +1,18 @@
+## 2026-07-05: Romance live arXiv candidate source-body packet
+
+Manifest: [20260705_romance_live_arxiv_candidates_source_bodies.json](../manifests/pending-zenodo-uploads/20260705_romance_live_arxiv_candidates_source_bodies.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Romance_LiveArxivCandidates_20260705.zip`, 251,149 bytes, SHA256 `700A6D7C40FF2994E7B5ABFD985F65343EDED6407A3EE9298858427AE842EF3C`.
+- Scope/result: follow-up to Noether-PC/interlanguage package 360. Downloads five live arXiv e-print source packages again and includes the actual raw sources plus 10 extracted/decompressed TeX-family files for French/Spanish Romance register work.
+- Caveat: candidate source-body/register evidence only. The upstream package-360 verification reported blank arXiv API license fields, so this records access/source availability and hashes, not license clearance. Not native review, term approval, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
+## 2026-07-05: Noether-PC/interlanguage packages 357-360 source-canon coordination
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Scope/result: selective import from `origin/codex/noether-pc-20260629` through remote head `60c11a38`, covering packages 357-360. Packages 357-359 are Arabic RTL/direct-gated authority/log/checksum refreshes. Package 360 verifies five live arXiv e-print source-package candidates for French/Spanish Romance source-canon work but omits the raw source bodies from the package branch.
+- Caveat: package directories are methodology/source-canon coordination only. The source bodies omitted by package 360 are represented separately by the Romance live arXiv candidate source-body packet above. No translation completion, approval, source-fidelity certification, publication readiness, reader output, or critical-edition claim.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 353-356 source-canon coordination
 
 Manifest: [20260705_remote_noether_pc_branch_packages353_356.json](../manifests/pending-zenodo-uploads/20260705_remote_noether_pc_branch_packages353_356.json)

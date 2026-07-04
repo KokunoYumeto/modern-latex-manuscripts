@@ -1,0 +1,977 @@
+% packages
+\usepackage[alphabetic,lite]{amsrefs}                                          % for bibliography
+\usepackage{amssymb}                                                           % for math symbols
+\usepackage{amsthm}                                                            % for math theorems
+\usepackage{appendix}                                                          % for appendices
+\usepackage{array}                                                             % for tabulation
+\usepackage{bm}                                                                % for bold letters in math
+\usepackage{colonequals}                                                       % for better ":="
+\usepackage{color}                                                             % for colorful text
+%\usepackage{dynkin-diagrams}                                                   % for Dynkin diagrams
+\usepackage{enumitem}                                                          % for enumerating
+\usepackage{fullpage}                                                          % for setting margins
+\usepackage{graphicx}       \usepackage{tikz-cd}                                                % for inserting pictures
+\usepackage{indentfirst}                                                       % for first line indent
+\usepackage{mathrsfs}                                                          % for "mathscr"
+\usepackage{mathtools}                                                         % for better "amsmath"
+%\usepackage{microtype}                                                         % for spacing characters (avoid some bad boxes)
+\usepackage{moreenum}                                                          % for enumerating by Greek letters
+\usepackage{stmaryrd}                                                          % for (at least) maps from
+\usepackage{verbatim}                                                          % for "verbatim"
+\usepackage[all,cmtip]{xy}                                                     % for commutative diagrams
+
+% hyper reference
+\definecolor{tianred}{rgb}{0.57, 0.36, 0.51}                                   % nice red %0.79, 0.17, 0.57
+\definecolor{tianblue}{rgb}{0.0, 0.22, 0.66}                                   % nice blue
+\definecolor{tianpink}{rgb}{0.88, 0.56, 0.59}                                  % nice pink
+\definecolor{tiangreen}{rgb}{0.24, 0.82, 0.44}                                 % nice green
+
+\usepackage[colorlinks,
+            linkcolor=tianred,
+            anchorcolor=tiangreen,
+            citecolor=tianblue,
+            urlcolor=tianpink]{hyperref}                                       % reference
+\usepackage{cleveref}                                                          % reference
+
+% Cyrillic letters
+\usepackage[OT2,T1]{fontenc}
+\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+\DeclareMathSymbol{\RBe}{\mathalpha}{cyrletters}{"42}                          % Russian B (cyrillic letter)
+\DeclareMathSymbol{\Che}{\mathalpha}{cyrletters}{"51}                          % Russian Y (cyrillic letter)
+\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}                          % Russian É½ (cyrillic letter)
+\newcommand{\B}{\RBe}
+
+% wide check
+\makeatletter
+\DeclareRobustCommand\widecheck[1]{{\mathpalette\@widecheck{#1}}}
+\def\@widecheck#1#2{%
+    \setbox\z@\hbox{\m@th$#1#2$}%
+    \setbox\tw@\hbox{\m@th$#1%
+       \widehat{%
+          \vrule\@width\z@\@height\ht\z@
+          \vrule\@height\z@\@width\wd\z@}$}%
+    \dp\tw@-\ht\z@
+    \@tempdima\ht\z@ \advance\@tempdima2\ht\tw@ \divide\@tempdima\thr@@
+    \setbox\tw@\hbox{%
+       \raise\@tempdima\hbox{\scalebox{1}[-1]{\lower\@tempdima\box
+\tw@}}}%
+    {\ooalign{\box\tw@ \cr \box\z@}}}
+\makeatother
+
+%Ë÷Òý
+%\usepackage{makeidx}
+%\makeindex
+
+%% Cyrillic B
+%\input cyracc.def
+%\font\tencyr=wncyr10
+%\def\cyr{\tencyr\cyracc}
+%\newcommand{\B}{\mbox{\cyr B}}
+
+%¶¨Òå¡¢¶¨Àí
+\theoremstyle{plain}      \newtheorem{thm}{Theorem}[section]                   % ¶¨Àí-Ó¢
+\theoremstyle{plain}      \newtheorem{thme}[thm]{Th{\'e}or{\`e}me}             % ¶¨Àí-·¨
+\theoremstyle{plain}      \newtheorem{lem}[thm]{Lemma}                         % ÒýÀí-Ó¢
+\theoremstyle{plain}      \newtheorem{lemme}[thm]{Lemme}                       % ÒýÀí-·¨
+\theoremstyle{plain}      \newtheorem{cor}[thm]{Corollary}                     % ÍÆÂÛ-Ó¢
+\theoremstyle{plain}      \newtheorem{core}[thm]{Corollaire}                   % ÍÆÂÛ-·¨
+\theoremstyle{plain}      \newtheorem{prop}[thm]{Proposition}                  % ÃüÌâ-Ó¢=·¨
+\theoremstyle{plain}      \newtheorem{conjecture}[thm]{Conjecture}             % ²ÂÏë-Ó¢=·¨
+\theoremstyle{definition} \newtheorem{rmk}[thm]{Remark}                        % ×¢ÊÍ-Ó¢
+\theoremstyle{definition} \newtheorem{rmke}[thm]{Remarque}                     % ×¢ÊÍ-·¨
+\theoremstyle{definition} \newtheorem{df}[thm]{Definition}                     % ¶¨Òå-Ó¢
+\theoremstyle{definition} \newtheorem{dfe}[thm]{D\'efinition}                  % ¶¨Òå-·¨
+\theoremstyle{definition} \newtheorem{eg}[thm]{Example}                        % Àý×Ó-Ó¢
+\theoremstyle{definition} \newtheorem{ege}[thm]{Exemple}                       % Àý×Ó-·¨
+\theoremstyle{definition} \newtheorem{axiom}[thm]{Axiom}                       % ¹«Àí-Ó¢
+\theoremstyle{definition} \newtheorem{axiome}[thm]{Axiome}                     % ¹«Àí-·¨
+\theoremstyle{definition} \newtheorem{hypo}[thm]{Hypothesis}                   % ¼ÙÉè-Ó¢
+\theoremstyle{definition} \newtheorem{hypoe}[thm]{Hypoth\`ese}                 % ¼ÙÉè-·¨
+\theoremstyle{definition} \newtheorem{ex}[thm]{Exercise}                       % Ï°Ìâ-Ó¢
+\theoremstyle{definition} \newtheorem{exe}[thm]{Exercice}                      % Ï°Ìâ-·¨
+\theoremstyle{definition} \newtheorem{summary}[thm]{Summary}                   % Ð¡½á-Ó¢
+\theoremstyle{definition} \newtheorem{notation}[thm]{Notation}                 % ·ûºÅ-Ó¢=·¨
+\theoremstyle{definition} \newtheorem{construction}[thm]{Construction}         % ¹¹Ôì-Ó¢=·¨
+\theoremstyle{definition} \newtheorem{convention}[thm]{Convention}             % Ô¼¶¨-Ó¢=·¨
+\theoremstyle{definition} \newtheorem{question}[thm]{Question}                 % ÎÊÌâ-Ó¢=·¨
+\theoremstyle{definition} \newtheorem{prop-df}[thm]{Proposition-Definition}    % ÃüÌâ-¶¨Òå
+
+\theoremstyle{definition}
+\newtheorem*{construction*}{Construction}                                      % ¹¹Ôì-²»±êºÅ
+\newtheorem*{conjecture*}{Conjecture}                                          % ²ÂÏë-²»±êºÅ
+\newtheorem*{hypothesis*}{Hypothesis}                                          % ¼ÙÉè-²»±êºÅ
+\newtheorem*{convention*}{Convention}                                          % Ô¼¶¨-²»±êºÅ
+\newtheorem*{notation*}{Notation}                                              % ·ûºÅ-²»±êºÅ
+\newtheorem*{prop*}{Proposition}                                               % ÃüÌâ-²»±êºÅ
+\newtheorem*{summary*}{Summary}                                                % Ð¡½á-²»±êºÅ
+\newtheorem*{qt*}{Question}                                                    % ÎÊÌâ-²»±êºÅ
+\newtheorem*{rmk*}{Remark}                                                     % ×¢ÊÍ-²»±êºÅ
+\newtheorem*{fact*}{Fact}                                                      % ÊÂÊµ-²»±êºÅ
+\newtheorem*{lizi*}{Example}                                                   % Àý×Ó-²»±êºÅ
+\newtheorem*{df*}{Definition}                                                  % ¶¨Òå-²»±êºÅ
+\theoremstyle{plain}
+\newtheorem*{thm*}{Theorem}                                                    % ¶¨Àí-²»±êºÅ
+
+\crefname{thm}{Theorem}{Theorems}                                              %
+\crefname{thme}{Th\'eo\`eme}{Th\'eo\`emes}
+\crefname{lem}{Lemma}{Lemmas}
+\crefname{lemme}{Lemme}{Lemmes}
+\crefname{eg}{Example}{Examples}
+\crefname{ege}{Exemple}{Exemples}
+\crefname{rmk}{Remark}{Remarks}
+\crefname{rmke}{Remarque}{Remarques}
+\crefname{cor}{Corollary}{Corollaries}
+\crefname{core}{Corollaire}{Corollaires}
+\crefname{df}{Definition}{Definitions}
+\crefname{dfe}{D\'efinition}{D\'efinitions}
+\crefname{question}{Question}{Questions}
+\crefname{prop}{Proposition}{Propositions}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{construction}{Construction}{Constructions}
+
+%\numberwithin{equation}{section}
+
+\newcommand{\bconst}{\begin{construction}}                                     % construction
+\newcommand{\econst}{\end{construction}}                                       % construction
+\newcommand{\benum}{\begin{enumerate}[label={{\upshape(\alph*)}}]}             % (a),(b),(c),etc
+\newcommand{\benuma}{\begin{enumerate}[label={{\upshape(\arabic*)}}]}          % (1),(2),(3),etc
+\newcommand{\benumr}{\begin{enumerate}[label={{\upshape(\roman*)}}]}           % (i),(ii),(iii),etc
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\bconj}{\begin{conjecture}}
+\newcommand{\econj}{\end{conjecture}}
+\newcommand{\bconjnn}{\begin{conjecture*}}
+\newcommand{\econjnn}{\end{conjecture*}}
+\newcommand{\begs}{\begin{eg}\hfill\benuma}                                    % examples
+\newcommand{\eegs}{\eenum\end{eg}}                                             % examples
+\newcommand{\brmks}{\begin{rmk}\hfill\benuma}                                  % remarks
+\newcommand{\ermks}{\eenum\end{rmk}}                                           % remarks
+\newcommand{\bdfs}{\begin{df}\hfill\benuma}                                    % definitions
+\newcommand{\edfs}{\eenum\end{df}}                                             % definitions
+\newcommand{\bitem}{\begin{itemize}}                                           % itemize
+\newcommand{\eitem}{\end{itemize}}                                             % itemize
+\newcommand{\be}{\begin{equation}}                                             % equation
+\newcommand{\ee}{\end{equation}}                                               % equation
+\newcommand{\benn}{\begin{equation*}}                                          % non-numbering
+\newcommand{\eenn}{\end{equation*}}                                            % non-numbering
+\newcommand{\bqt}{\begin{qt*}\rm}                                              % question
+\newcommand{\eqt}{\end{qt*}}                                                   % question
+\newcommand{\bqtr}{\begin{qt*}\rm\coLR}                                        % question in red color
+\newcommand{\eqtr}{\end{qt*}}                                                  % question in red color
+\newcommand{\beac}{\begin{equation}\begin{array}{c}}                           % diagram central numbering
+\newcommand{\eeac}{\end{array}\end{equation}}                                  % diagram central numbering
+\newcommand{\beqn}{\begin{eqnarray*}}
+\newcommand{\eeqn}{\end{eqnarray*}}
+\newcommand{\bpfh}{\proof\hfill\benuma}                                        % proof plus hfill
+\newcommand{\epf}{\qed\eenum}                                                  % qed plus eenum
+\newcommand{\bdf}{\begin{df}}
+\newcommand{\bdfhf}{\begin{df}\hfill}
+\newcommand{\edf}{\end{df}}
+\newcommand{\brmk}{\begin{rmk}}
+\newcommand{\brmkhf}{\begin{rmk}\hfill}
+\newcommand{\ermk}{\end{rmk}}
+
+%×ÖÌå
+\newcommand{\bb}{\mathbb}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\f}{\mathfrak}
+\newcommand{\s}{\mathscr}
+\newcommand{\mrm}{\mathrm}
+
+%Math-bold Ð¡Ð´
+\newcommand{\Ba}{\mathbf{a}}   \newcommand{\Bb}{\mathbf{b}}
+\newcommand{\Bc}{\mathbf{c}}   \newcommand{\Bd}{\mathbf{d}}
+\newcommand{\Be}{\mathbf{e}}   \newcommand{\Bf}{\mathbf{f}}
+\newcommand{\Bg}{\mathbf{g}}   \newcommand{\Bh}{\mathbf{h}}
+\newcommand{\Bi}{\mathbf{i}}   \newcommand{\Bj}{\mathbf{j}}
+\newcommand{\Bk}{\mathbf{k}}   \newcommand{\Bl}{\mathbf{l}}
+\newcommand{\Bm}{\mathbf{m}}   \newcommand{\Bn}{\mathbf{n}}
+\newcommand{\Bo}{\mathbf{o}}   \newcommand{\Bp}{\mathbf{p}}
+\newcommand{\Bq}{\mathbf{q}}   \newcommand{\Br}{\mathbf{r}}
+\newcommand{\Bs}{\mathbf{s}}   \newcommand{\Bt}{\mathbf{t}}
+\newcommand{\Bu}{\mathbf{u}}   \newcommand{\Bv}{\mathbf{v}}
+\newcommand{\Bw}{\mathbf{w}}   \newcommand{\Bx}{\mathbf{x}}
+\newcommand{\By}{\mathbf{y}}   \newcommand{\Bz}{\mathbf{z}}
+
+%Math-bold ´óÐ´
+\newcommand{\BA}{\mathbf{A}}   \newcommand{\BB}{\mathbf{B}}
+\newcommand{\BC}{\mathbf{C}}   \newcommand{\BD}{\mathbf{D}}
+\newcommand{\BE}{\mathbf{E}}   \newcommand{\BF}{\mathbf{F}}
+\newcommand{\BG}{\mathbf{G}}   \newcommand{\BH}{\mathbf{H}}
+\newcommand{\BI}{\mathbf{I}}   \newcommand{\BJ}{\mathbf{J}}
+\newcommand{\BK}{\mathbf{K}}   \newcommand{\BL}{\mathbf{L}}
+\newcommand{\BM}{\mathbf{M}}   \newcommand{\BN}{\mathbf{N}}
+\newcommand{\BO}{\mathbf{O}}   \newcommand{\BP}{\mathbf{P}}
+\newcommand{\BQ}{\mathbf{Q}}   \newcommand{\BR}{\mathbf{R}}
+\newcommand{\BS}{\mathbf{S}}   \newcommand{\BT}{\mathbf{T}}
+\newcommand{\BU}{\mathbf{U}}   \newcommand{\BV}{\mathbf{V}}
+\newcommand{\BW}{\mathbf{W}}   \newcommand{\BX}{\mathbf{X}}
+\newcommand{\BY}{\mathbf{Y}}   \newcommand{\BZ}{\mathbf{Z}}
+
+%Math-cal ´óÐ´
+\newcommand{\CA}{\mathcal{A}}  \newcommand{\CB}{\mathcal{B}}
+\newcommand{\CC}{\mathcal{C}}  \newcommand{\CD}{\mathcal{D}}
+\newcommand{\CE}{\mathcal{E}}  \newcommand{\CF}{\mathcal{F}}
+\newcommand{\CG}{\mathcal{G}}  \newcommand{\CH}{\mathcal{H}}
+\newcommand{\CI}{\mathcal{I}}  \newcommand{\CJ}{\mathcal{J}}
+\newcommand{\CK}{\mathcal{K}}  \newcommand{\CL}{\mathcal{L}}
+\newcommand{\CM}{\mathcal{M}}  \newcommand{\CN}{\mathcal{N}}
+\newcommand{\CO}{\mathcal{O}}  \newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}  \newcommand{\CR}{\mathcal{R}}
+\newcommand{\CS}{\mathcal{S}}  \newcommand{\CT}{\mathcal{T}}
+\newcommand{\CU}{\mathcal{U}}  \newcommand{\CV}{\mathcal{V}}
+\newcommand{\CW}{\mathcal{W}}  \newcommand{\CX}{\mathcal{X}}
+\newcommand{\CY}{\mathcal{Y}}  \newcommand{\CZ}{\mathcal{Z}}
+
+%Math-frak Ð¡Ð´
+\newcommand{\fa}{\mathfrak{a}} \newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fc}{\mathfrak{c}} \newcommand{\fd}{\mathfrak{d}}\newcommand{\fm}{\mathfrak{m}} 
+\newcommand{\fn}{\mathfrak{n}} \newcommand{\fo}{\mathfrak{o}} \newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}} \newcommand{\fr}{\mathfrak{r}}
+\newcommand{\fs}{\mathfrak{s}} \newcommand{\ft}{\mathfrak{t}}
+
+%Math-frak ´óÐ´
+\newcommand{\FA}{\mathfrak{A}} \newcommand{\FB}{\mathfrak{B}}
+\newcommand{\FC}{\mathfrak{C}} \newcommand{\FD}{\mathfrak{D}}
+\newcommand{\FE}{\mathfrak{E}} \newcommand{\FF}{\mathfrak{F}}
+\newcommand{\FG}{\mathfrak{G}} \newcommand{\FH}{\mathfrak{H}}
+\newcommand{\FI}{\mathfrak{I}} \newcommand{\FJ}{\mathfrak{J}}
+\newcommand{\FK}{\mathfrak{K}} \newcommand{\FL}{\mathfrak{L}}
+\newcommand{\FM}{\mathfrak{M}} \newcommand{\FN}{\mathfrak{N}}
+\newcommand{\FO}{\mathfrak{O}} \newcommand{\FP}{\mathfrak{P}}
+\newcommand{\FQ}{\mathfrak{Q}} \newcommand{\FR}{\mathfrak{R}}
+\newcommand{\FS}{\mathfrak{S}} \newcommand{\FT}{\mathfrak{T}}
+\newcommand{\FU}{\mathfrak{U}} \newcommand{\FV}{\mathfrak{V}}
+\newcommand{\FW}{\mathfrak{W}} \newcommand{\FX}{\mathfrak{X}}
+\newcommand{\FY}{\mathfrak{Y}} \newcommand{\FZ}{\mathfrak{Z}}
+
+%Math-bb ´óÐ´
+\newcommand{\BBA}{\mathbb{A}}  \newcommand{\BBB}{\mathbb{B}}
+\newcommand{\BBC}{\mathbb{C}}  \newcommand{\BBD}{\mathbb{D}}
+\newcommand{\BBE}{\mathbb{E}}  \newcommand{\BBF}{\mathbb{F}}
+\newcommand{\BBG}{\mathbb{G}}  \newcommand{\BBH}{\mathbb{H}}
+\newcommand{\BBI}{\mathbb{I}}  \newcommand{\BBJ}{\mathbb{J}}
+\newcommand{\BBK}{\mathbb{K}}  \newcommand{\BBL}{\mathbb{L}}
+\newcommand{\BBM}{\mathbb{M}}  \newcommand{\BBN}{\mathbb{N}}
+\newcommand{\BBO}{\mathbb{O}}  \newcommand{\BBP}{\mathbb{P}}
+\newcommand{\BBQ}{\mathbb{Q}}  \newcommand{\BBR}{\mathbb{R}}
+\newcommand{\BBS}{\mathbb{S}}  \newcommand{\BBT}{\mathbb{T}}
+\newcommand{\BBU}{\mathbb{U}}  \newcommand{\BBV}{\mathbb{V}}
+\newcommand{\BBW}{\mathbb{W}}  \newcommand{\BBX}{\mathbb{X}}
+\newcommand{\BBY}{\mathbb{Y}}  \newcommand{\BBZ}{\mathbb{Z}}
+
+%Script ´óÐ´
+\newcommand{\sA}{\mathscr{A}}  \newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}  \newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}  \newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}  \newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}  \newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}  \newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}  \newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}  \newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}  \newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}  \newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}  \newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}  \newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}  \newcommand{\sZ}{\mathscr{Z}}
+
+%ÕýÌå
+\newcommand{\rma}{\mathrm{a}}
+\newcommand{\rmb}{\mathrm{b}}
+\newcommand{\rmc}{\mathrm{c}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\rme}{\mathrm{e}}
+\newcommand{\rmA}{\mathrm{A}}  \newcommand{\rmB}{\mathrm{B}}
+\newcommand{\rmC}{\mathrm{C}}  \newcommand{\rmD}{\mathrm{D}}
+\newcommand{\rmE}{\mathrm{E}}  \newcommand{\rmF}{\mathrm{F}}
+\newcommand{\rmG}{\mathrm{G}}  \newcommand{\rmH}{\mathrm{H}}
+\newcommand{\rmI}{\mathrm{I}}  \newcommand{\rmJ}{\mathrm{J}}
+\newcommand{\rmK}{\mathrm{K}}  \newcommand{\rmL}{\mathrm{L}}
+\newcommand{\rmM}{\mathrm{M}}  \newcommand{\rmN}{\mathrm{N}}
+\newcommand{\rmO}{\mathrm{O}}  \newcommand{\rmP}{\mathrm{P}}
+\newcommand{\rmQ}{\mathrm{Q}}  \newcommand{\rmR}{\mathrm{R}}
+\newcommand{\rmS}{\mathrm{S}}  \newcommand{\rmT}{\mathrm{T}}
+\newcommand{\rmU}{\mathrm{U}}  \newcommand{\rmV}{\mathrm{V}}
+\newcommand{\rmW}{\mathrm{W}}  \newcommand{\rmX}{\mathrm{X}}
+\newcommand{\rmY}{\mathrm{Y}}  \newcommand{\rmZ}{\mathrm{Z}}
+
+%ÉÏ»®Ïß¡¢ÏÂ»®Ïß
+\newcommand{\ola}{\overline{a}}
+\newcommand{\olb}{\overline{b}}
+\newcommand{\olc}{\overline{c}}
+\newcommand{\olf}{\overline{f}}
+\newcommand{\olg}{\overline{g}}
+\newcommand{\olB}{\overline{B}}
+\newcommand{\olC}{\overline{C}}
+\newcommand{\olG}{\overline{G}}
+\newcommand{\olh}{\overline{h}}
+\newcommand{\olk}{\overline{k}}
+\newcommand{\olH}{\overline{H}}
+\newcommand{\olK}{\overline{K}}
+\newcommand{\olL}{\overline{L}}
+\newcommand{\olT}{\overline{T}}
+\newcommand{\olu}{\overline{u}}
+\newcommand{\olU}{\overline{U}}
+\newcommand{\olv}{\overline{v}}
+\newcommand{\olw}{\overline{w}}
+\newcommand{\olx}{\overline{x}}
+\newcommand{\olX}{\overline{X}}
+\newcommand{\oly}{\overline{y}}
+\newcommand{\olY}{\overline{Y}}
+\newcommand{\olz}{\overline{z}}
+\newcommand{\olZ}{\overline{Z}}
+
+\newcommand{\olQ}{\overline{\Q}}
+\newcommand{\olAK}{\overline{\A}_K}
+\newcommand{\ule}{\underline{\mathbf{e}}}
+\newcommand{\ulH}{\underline{H}}
+\newcommand{\ulZ}{\underline{\Z}}
+
+%³£ÓÃ\mathbb×ÖÌå¼ò»¯
+\newcommand{\A}{\mathbb{A}}                                                    % affine schemes
+\newcommand{\C}{\mathbb{C}}                                                    % complex numbers
+\newcommand{\D}{\mathbb{D}}                                                    % derived category? D^i in Milne?
+\newcommand{\K}{\mathbb{K}}                                                    % homotopic category?
+\newcommand{\G}{\mathbb{G}}                                                    % the group G_a, G_m
+\newcommand{\N}{\mathbb{N}}                                                    % natural numbers
+\renewcommand{\P}{\mathbb{P}}                                                  % projecftive spaces
+\newcommand{\Q}{\mathbb{Q}}                                                    % rational numbers
+\newcommand{\R}{\mathbb{R}}                                                    % real numbers
+\newcommand{\V}{\mathbb{V}}                                                    % vector bundle
+\newcommand{\W}{\mathrm{W}}                                                    % Weyl group
+\newcommand{\Z}{\mathbb{Z}}                                                    % integral numbers
+\newcommand{\QZ}{\mathbb{Q}/\mathbb{Z}}                                        % rational numbers modulo integers
+\newcommand{\Qp}{\mathbb{Q}_{p}}                                               % p-adic numbers
+\newcommand{\Zp}{\mathbb{Z}_{p}}                                               % p-adic integers
+\newcommand{\Fp}{\mathbb{F}_{p}}                                               % p-elements finite fields
+\newcommand{\olFp}{\overline{\mathbb{F}}_{p}}                                  % alg closure of p-ele finite fields
+\newcommand{\Fq}{\mathbb{F}_{q}}                                               % q-element finite fields
+\newcommand{\olFq}{\overline{\mathbb{F}}_{q}}                                  % alg closure of q-ele finite fields
+\newcommand{\QZp}{\Qp/\Zp}                                                     % p-adic numbers modulo integers
+\newcommand{\Ql}{\mathbb{Q}_{\ell}}                                            % l-adic numbers
+\newcommand{\Zl}{\mathbb{Z}_{\ell}}                                            % l-adic integers
+\newcommand{\Fl}{\mathbb{F}_{\ell}}                                            % l-elements finite fields
+\newcommand{\QZl}{\Ql/\Zl}                                                     % l-adic numbers modulo integers
+\newcommand{\Qbar}{\ol{\Q}}                                                    %
+\newcommand{\Qpbar}{\ol{\Q}_p}                                                 %
+\newcommand{\Qlbar}{\ol{\Q}_{\ell}}                                            %
+
+%Ï£À°
+\newcommand{\al}{\alpha}                                                       % alpha
+\newcommand{\ep}{\varepsilon}                                                  % var-epsilon
+\newcommand{\vp}{\varphi}                                                      % var-phi
+\newcommand{\sg}{\sigma}                                                       % sigma
+\newcommand{\SG}{\Sigma}                                                       % Sigma
+%\newcommand{\og}{\omega}                                                       % omega
+\newcommand{\OG}{\Omega}                                                       % Omega
+\newcommand{\lb}{\lambda}                                                      % lambda
+\newcommand{\LB}{\Lambda}                                                      % Lambda
+
+%¼ýÍ·
+\newcommand{\la}{\leftarrow}                                                   % left arrow
+\newcommand{\La}{\Leftarrow}                                                   % Left arrow
+\newcommand{\ra}{\rightarrow}                                                  % right arrow
+\newcommand{\Ra}{\Rightarrow}                                                  % Right arrow
+\newcommand{\hla}{\hookleftarrow}                                              % hook left arrow
+\newcommand{\hra}{\hookrightarrow}                                             % hook right arrow
+\newcommand{\longla}{\longleftarrow}                                           % long left arrow
+\newcommand{\longra}{\longrightarrow}                                          % long right arrow
+\newcommand{\isode}{\xla{\sim}}                                                % iso de droite a gauche
+\newcommand{\isoto}{\xra{\sim}}                                                % iso from left to right
+\newcommand{\xla}{\xleftarrow}                                                 % text over left arrow
+\newcommand{\xra}{\xrightarrow}                                                % text over right arrow
+\newcommand{\st}{\stackrel}                                                    % text over anything
+\newcommand{\stra}[1]{\stackrel{#1}{\ra}}
+\newcommand{\stla}[1]{\stackrel{#1}{\la}}
+\newcommand{\stlra}[1]{\stackrel{#1}{\longrightarrow}}
+\newcommand{\stlla}[1]{\stackrel{#1}{\longleftarrow}}
+
+\newcommand{\lra}{\leftrightarrow}                                             % 1-1 correspondence
+\newcommand{\Lra}{\Leftrightarrow}                                             % equivalence
+\newcommand{\dra}{\dashrightarrow}                                             % rational maps Dash Right Arrow
+\newcommand{\rra}{\rightrightarrows}                                           % double right arrow
+
+\newcommand{\mono}{\hookrightarrow}                                            % injection
+\newcommand{\epi}{\twoheadrightarrow}                                          % surjection
+\newcommand{\mt}{\mapsto}                                                      % mapsto
+\newcommand{\mf}{\mapsfrom}                                                    % mapsfrom
+
+%ÑÕÉ«
+\newcommand{\coR}{\textcolor[rgb]{0.57, 0.36, 0.51}}                           %ºì
+\newcommand{\coG}{\textcolor[rgb]{0.00,1.00,0.00}}                             %ÂÌ
+\newcommand{\coB}{\textcolor[rgb]{0.00,0.07,1.00}}                             %À¶
+\newcommand{\coP}{\textcolor[rgb]{0.42,0.35,0.80}}                             %×Ï
+\newcommand{\coLR}{\textcolor[rgb]{1.00,0,0}}                                  %ÁÁºì
+\newcommand{\coRB}[1]{\coR{\textbf{#1}}}
+
+%over
+\newcommand{\ol}{\overline}                                                    % overline
+\newcommand{\ul}{\underline}                                                   % underline
+\newcommand{\wt}{\widetilde}                                                   % over wide tilde
+\newcommand{\wh}{\widehat}                                                     % over widehat
+\newcommand{\wc}{\widecheck}                                                   % over widecheck
+\newcommand{\ov}{\overrightarrow}                                              % over vector
+
+%³£ÓÃ·ûºÅ
+\newcommand{\ce}{\colonequals}                                                 % colon + equal
+\newcommand{\prpr}{^{\prime\prime}}                                            % double prime
+\newcommand{\es}{\varnothing}                                                  % emptyset
+\newcommand{\uu}{^{\times}}                                                    % upper units
+\newcommand{\uutt}{^{\times2}}                                                 % upper crois times two
+\newcommand{\ui}{^{-1}}                                                        % upper inverse
+\newcommand{\uun}{^{(1)}}                                                      % upper un
+\newcommand{\ud}{^{\dag}}                                                      % upper dag
+\newcommand{\uw}{^{\wedge}}                                                    % upper wedge
+\newcommand{\lw}{_{\wedge}}                                                    % lower wedge
+\newcommand{\uv}{^{\vee}}                                                      % upper vee
+\newcommand{\lv}{_{\vee}}                                                      % lower vee
+\newcommand{\lif}{_{\infty}}                                                   % lower infinity
+\newcommand{\uif}{^{\infty}}                                                   % upper infinity
+\newcommand{\ls}{_{!}}                                                         % lower shrink
+\newcommand{\us}{^{!}}                                                         % upper shrink
+\newcommand{\ucirc}{^{\circ}}                                                  % upper circle
+\newcommand{\lal}{_{\al}}                                                      % lower alpha
+\newcommand{\lbeta}{_{\beta}}                                                  % lower beta
+\newcommand{\llb}{_{\lb}}                                                      % lower lambda
+\newcommand{\lsg}{_{\sg}}                                                      % lower sigma
+\newcommand{\lfp}{_{\fp}}                                                      % lower frak p
+\newcommand{\lfq}{_{\fq}}                                                      % lower frak q
+\newcommand{\lfm}{_{\fm}}                                                      % lower frak m
+\newcommand{\lquot}{\setminus}                                                 % left quotient
+\newcommand{\lip}{\langle}                                                     % left inner product
+\newcommand{\rip}{\rangle}                                                     % right inner product
+\newcommand{\apair}[1]{\langle {#1} \rangle}                                   % pairing with angle bracket
+\newcommand{\rpair}[1]{\left( {#1} \right)}                                    % pairing with round bracket
+\newcommand{\cpair}[1]{\left\{ {#1} \right\}}                                  % pairing with curly bracket
+\newcommand{\rfrac}[2]{\left( \frac {#1}{#2}\right)}                           % Hilbert symbol
+\newcommand{\norm}[1]{\| {#1} \|}                                              % norm (double vertical line)
+\newcommand{\abs}[1]{| {#1} |}                                                 % absolute value
+\newcommand{\Abs}[1]{\left| {#1} \right|}                                      % absolute value variant
+\newcommand{\prn}[2]{{#1}[{#2}_1,\dots,{#2}_n]}                                % polynomial ring n variable
+\newcommand{\prm}[2]{{#1}[{#2}_1,\dots,{#2}_m]}                                % polynomial ring m variable
+\newcommand{\prr}[3]{{#1}[{#2}_1,\dots,{#2}_{#3}]}                             % polynomial ring any variables
+\newcommand{\seq}[2]{{#1}_1,\dots,{#1}_{{#2}}}
+\newcommand{\linsum}[2]{{#1}_1+\cdots+{#1}_{#2}}
+\newcommand{\seqsum}[3]{{#1}_{#3}{#2}^{#3}+\cdots+{#1}_{1}{#2}+{#1}_0}
+\newcommand{\legendre}[2]{\genfrac{(}{)}{}{}{#1}{#2}}                          % Legendre symbol
+\newcommand{\trl}[1]{\tau^{\le {#1}}}
+\newcommand{\trg}[1]{\tau^{\ge {#1}}}
+\newcommand{\ttrl}[1]{\tilde{\tau}^{\le {#1}}}
+\newcommand{\ttrg}[1]{\tilde{\tau}^{\ge {#1}}}
+\newcommand{\strl}[1]{\sg^{\le {#1}}}
+\newcommand{\strg}[1]{\sg^{\ge {#1}}}
+\newcommand{\xm}{\xymatrix}
+\newcommand{\mxx}[4]{\begin{pmatrix}{#1} & {#2} \\ {#3} & {#4}\end{pmatrix}}   % 2*2 matrixes
+\newcommand{\mto}[2]{\begin{pmatrix}{#1} \\ {#2} \end{pmatrix}}                % 2*1 matrixes
+\newcommand{\mot}[2]{\begin{pmatrix}{#1} & {#2} \end{pmatrix}}                 % 1*2 matrixes
+\newcommand{\M}[3]{\Mat_{{#1}\times{#2}}({#3})}                                % matrix ring
+\newcommand{\twoind}[2]{\genfrac{}{}{0pt}{2}{#1}{#2}}
+\newcommand{\tablesplit}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}          % split lines in tabular
+
+%¼«ÏÞ
+\newcommand{\drl}{\varinjlim}                                                  % direct limit
+\newcommand{\prl}{\varprojlim}                                                 % inverse limit
+\newcommand{\drllim}{\varinjlim\limits}                                        % direct limit
+\newcommand{\prllim}{\varprojlim\limits}                                       % inverse limit
+\DeclareMathOperator{\colim}{colim}											   % colimit
+\newcommand{\dprl}[1]{\underset{#1}{\prl\nolimits^1}}                          % derived inverse limit
+\newcommand{\rprod}[1]{\underset{#1}{\prod\nolimits'}}                         % restricted top prod
+
+%Ë«º¯×Ó
+\DeclareMathOperator{\Map}{Map}                                                % Map(-,-) maps between sets
+\DeclareMathOperator{\Fct}{Fct}                                                % Functor categories
+\DeclareMathOperator{\Nat}{Nat}                                                % Nat(-,-) natural transformations
+\DeclareMathOperator{\Mor}{Mor}                                                % Morphisms in categories
+\DeclareMathOperator{\Isom}{Isom}                                              % Isom(-,-)
+\DeclareMathOperator{\Hom}{Hom}                                                % Hom(-,-)
+\renewcommand{\hom}{\Hom}                                                      % Hom(-,-) again
+\DeclareMathOperator{\aut}{Aut}                                                % Automorphisms
+\DeclareMathOperator{\Aut}{Aut}                                                % Automorphisms
+\DeclareMathOperator{\BAut}{\mathbf{Aut}}                                      % Automorphisms
+\DeclareMathOperator{\SAut}{SAut}                                              % Automorphisms
+\DeclareMathOperator{\edm}{End}                                                % Endomorphisms
+\DeclareMathOperator{\Rhom}{\mathbf{R}\Hom}                                    % Derived Hom
+\DeclareMathOperator{\ext}{Ext}                                                % Ext group
+\DeclareMathOperator{\Ext}{\mathbf{Ext}}                                       % Hyper-tor
+\DeclareMathOperator{\yext}{Yext}                                              % Yoneda ext group
+\DeclareMathOperator{\tor}{Tor}                                                % Tor group
+\DeclareMathOperator{\Tor}{\mathbf{Tor}}                                       % Hyper-tor
+\newcommand{\CEnd}{\CE\! nd}                                                   % curly End group
+\newcommand{\CExt}{\CE\! xt}                                                   % curly Ext group
+\newcommand{\CTor}{\CT\! or}                                                   % curly Tor group
+\newcommand{\tstsumlim}{\tst\sum\limits}                                       % text style sum limited
+\newcommand{\tstsl}{\tstsumlim}
+\newcommand{\tstprodlim}{\tst\prod\limits}                                     % text style product limited
+\newcommand{\tstpl}{\tstprodlim}
+\newcommand{\tstotslim}{\tst\bigotimes\limits}                                 % text style otimes limited
+\newcommand{\tstopslim}{\tst\bigoplus\limits}                                  % text style oplus limited
+\newcommand{\tstcuplim}{\tst\bigcup\limits}                                    % text style bigcup limited
+\newcommand{\tstcaplim}{\tst\bigcap\limits}                                    % text style bigcap limited
+\newcommand{\tstsqcuplim}{\tst\bigsqcup\limits}                                % text style bigsqcup limited
+
+%ÏÂ»®Ïßº¯×Ó
+\DeclareMathOperator{\ulisom}{\ul{\Isom}}                                      % underlined Isom(-,-)
+\DeclareMathOperator{\ulhom}{\ul{\hom}}                                        % underlined Hom(-,-)
+\DeclareMathOperator{\ulmor}{\ul{\Mor}}                                        % underlined Mor(-,-)
+\DeclareMathOperator{\ulext}{\ul{\ext}}                                        % underlined Ext(-,-)
+\DeclareMathOperator{\uledm}{\ul{\edm}}                                        % underlined End(-)
+\DeclareMathOperator{\ulaut}{\ul{\aut}}                                        % underlined Aut(-)
+\DeclareMathOperator{\ulpic}{\ul{\pic}}                                        % underlined Pic
+
+%Groups
+\renewcommand{\div}{\mathrm{div}}                                              % Divisor
+\DeclareMathOperator{\Div}{Div}                                                % Divisor group
+\DeclareMathOperator{\cl}{cl}                                                  % Class group
+\DeclareMathOperator{\Cl}{Cl}                                                  % Class group
+\DeclareMathOperator{\trdeg}{tr.deg}	                         			   % transcendence degree
+\DeclareMathOperator{\ann}{Ann}                                                % Annilihator
+\DeclareMathOperator{\ass}{Ass}		                                           % Associated primes
+\DeclareMathOperator{\inn}{inn}                                                % Inner forms
+\DeclareMathOperator{\Inn}{Inn}                                                % Inner forms
+\DeclareMathOperator{\innt}{int}                                               % Inner forms
+\DeclareMathOperator{\Int}{Int}                                                % Inner forms
+\DeclareMathOperator{\out}{out}                                                % Outer forms
+\DeclareMathOperator{\Out}{Out}                                                % Outer forms
+\DeclareMathOperator{\SOut}{SOut}                                              % Outer forms
+\DeclareMathOperator{\der}{der}                                                % Derivations
+\DeclareMathOperator{\Der}{Der}                                                % Derivations
+\DeclareMathOperator{\pder}{pder}                                              % Principal derivations
+\DeclareMathOperator{\PDer}{PDer}                                              % Principal derivations
+\DeclareMathOperator{\Mat}{Mat}                                                % Matricies
+\newcommand{\fz}[2]{\Mat_{{#1}\times{#1}}({#2})}                               % Matricies
+\DeclareMathOperator{\Jac}{Jac}		                                           % Jacobian
+\DeclareMathOperator{\pic}{Pic}                                                % Picard group
+\DeclareMathOperator{\Pic}{Pic}                                                % Picard group
+\DeclareMathOperator{\gal}{Gal}                                                % Galois group
+\newcommand{\galab}[1]{\gal({#1}_{\sep}|{#1})}                                 % Abosolute Galois group
+\newcommand{\galalg}[1]{\gal(\ol{{#1}}|{#1})}                                  % Abosolute Galois group
+\newcommand{\galabel}[1]{\gal({#1}^{\ab}|{#1})}                                % Maximal abelian extension
+\newcommand{\pitop}{\pi^{\mrm{top}}_1}                                         % fund group: top
+\newcommand{\pialg}[1]{\pi^{\alg}_1({\ol{#1}})}                                % fund group: alg
+\newcommand{\piCT}[1]{\pi^{\mrm{CT}}_1({\ol{#1}})}                             % fund group: CT
+\newcommand{\piBor}[1]{\pi^{\mrm{Bor}}_1({\ol{#1}})}                           % fund group: Bor
+\DeclareMathOperator{\NS}{NS}                                                  % Neron--Severi group
+\DeclareMathOperator{\Sel}{Sel}                                                % Selmer group
+\DeclareMathOperator{\br}{Br}                                                  % Brauer group
+\newcommand{\bra}[1]{\br_{\mathrm{a}}(#1)}                                     % arithmetric Brauer group
+\DeclareMathOperator{\braz}{\br_{\mathrm{Az}}}                                 % Brauer group by Azumaya algebra
+\DeclareMathOperator{\jac}{Jac}                                                % Jacobian
+\DeclareMathOperator{\Lie}{Lie}                                                % Lie algebra
+\DeclareMathOperator{\ver}{Ver}                                                % Transfer map
+\DeclareMathOperator{\TF}{TF}                                                  % twisted form
+
+%kernel, image, cokernel, coimage
+\DeclareMathOperator{\im}{im}                                                  % image
+\DeclareMathOperator{\Image}{Im}                                               % Image
+\renewcommand{\Im}{\Image}                                                     % Image, imaginary part
+\DeclareMathOperator{\Realpart}{\mathrm{Re}}                                   % real part
+\renewcommand{\Re}{\Realpart}                                                  % real part
+\DeclareMathOperator{\Ker}{Ker}                                                % Kernel
+\renewcommand{\ker}{\Ker}                                                      % Kernel
+\DeclareMathOperator{\cok}{Coker}                                              % Cokernel
+\DeclareMathOperator{\coker}{coker}		                                       % cokernel
+\DeclareMathOperator{\Coker}{Coker}		                                       % Cokernel
+\DeclareMathOperator{\coim}{coim}                                              % ooimage
+\DeclareMathOperator{\Coim}{Coim}                                              % Coimage
+
+%Operators
+\DeclareMathOperator{\id}{id}                                                  % identity
+\DeclareMathOperator{\Id}{Id}                                                  % Identity
+\DeclareMathOperator{\ff}{Frac}                                                % Fraction field
+\DeclareMathOperator{\ord}{ord}                                                % Order
+\DeclareMathOperator{\vol}{vol}                                                % Volume
+\DeclareMathOperator{\Vol}{Vol}                                                % Volume
+\DeclareMathOperator{\ev}{ev}                                                  % Evaluation
+\DeclareMathOperator{\val}{val}                                                % Valuation
+\DeclareMathOperator{\Val}{Val}                                                % Valuation
+\DeclareMathOperator{\Tr}{Tr}                                                  % Trace
+\DeclareMathOperator{\tr}{tr}                                                  % trace
+\DeclareMathOperator{\Trace}{Trace}											   % Trace
+\DeclareMathOperator{\Trd}{Trd}                                                % Reduced Trace
+\DeclareMathOperator{\Norm}{Norm}	                                    	   % Norm
+\DeclareMathOperator{\Nrd}{Nrd}                                                % Reduced Norm
+\DeclareMathOperator{\nrd}{nrd}                                                % Reduced norm
+\DeclareMathOperator{\Disc}{Disc}                                              % Discriminat
+\DeclareMathOperator{\disc}{disc}                                              % discriminat
+\DeclareMathOperator{\dist}{dist}                                              % distance
+\DeclareMathOperator{\dd}{\,\mathrm{d}}                                        % differential - mathrm d
+\DeclareMathOperator{\dif}{\partial}                                           % differential - partial
+
+%´úÊý¼¸ºÎ
+\DeclareMathOperator{\e}{Spec}                                                 % Spectrum
+\DeclareMathOperator{\Spec}{Spec}                                              % Spectrum
+\DeclareMathOperator{\BSpec}{\mathbf{\Spec}}                                   % Bold Spec
+\DeclareMathOperator{\Spf}{Spf}		                                           % Formal spectrum
+\DeclareMathOperator{\Spa}{Spa}		                                           % Adic spectrum
+\DeclareMathOperator{\Proj}{Proj}                                              % Projective scheme
+\DeclareMathOperator{\BProj}{\mathbf{\Proj}}                                   % Bold Proj
+\DeclareMathOperator{\supp}{supp}                                              % support
+\DeclareMathOperator{\Supp}{Supp}                                              % Support
+\DeclareMathOperator{\codim}{codim}                                            % Codimension
+\DeclareMathOperator{\bl}{Bl}                                                  % Blow-up
+
+%½Ç±ê
+\DeclareMathOperator{\ab}{ab}                                                  % Abelianization
+\newcommand{\alg}{\mathrm{alg}}                                                % Algebraic part
+\newcommand{\tors}{\mathrm{tors}}                                              % Torsion part
+\newcommand{\cts}{\mathrm{cont}}                                               % Continuous
+\newcommand{\fini}{\mathrm{fini}}                                              % Finite
+\newcommand{\forg}{\mathrm{for}}                                               % Forgetful functor
+\newcommand{\insep}{\mathrm{ins}}                                              % Inseparable
+\newcommand{\sep}{\mathrm{sep}}                                                % Separable
+\newcommand{\ksep}{k_{\mathrm{sep}}}                                           % Separable
+\newcommand{\Ksep}{K_{\mathrm{sep}}}                                           % Separable
+\newcommand{\Lsep}{L_{\mathrm{sep}}}                                           % Separable
+\newcommand{\Gsep}{G_{\mathrm{sep}}}                                           % Separable
+\newcommand{\ob}{\mathrm{ob}}                                                  % objects
+\newcommand{\Ob}{\mathrm{Ob}}                                                  % objects
+\newcommand{\op}{\mathrm{op}}                                                  % Opposite category
+\newcommand{\AV}{\mathrm{AV}}                                                  % Artin--Verdier pairing
+\newcommand{\rmBM}{\mathrm{BM}}                                                % Brauer--Manin obstruction
+
+%%´úÊý¼¸ºÎ
+\newcommand{\red}{\mathrm{red}}                                                % reduced
+\newcommand{\Red}{\mathrm{Red}}                                                % Reduced
+\newcommand{\reg}{\mathrm{reg}}		                                           % regular locus
+\newcommand{\Reg}{\mathrm{Reg}}		                                           % Regular locus
+\newcommand{\Sing}{\mathrm{Sing}}                                              % singular locus
+\newcommand{\sing}{\mathrm{sing}}                                              % Singular locus
+\newcommand{\sm}{\mathrm{sm}}                                                  % smooth locus
+\newcommand{\smooth}{\mathrm{smooth}}                                          % Smooth locus
+\newcommand{\irr}{\mathrm{irr}}		                                           % irreducible components
+\newcommand{\Irr}{\mathrm{Irr}}		                                           % Irreducible components
+
+%%´úÊýÈº
+\newcommand{\ad}{\mathrm{ad}}                                                  % Adjiont map
+\newcommand{\aff}{\mathrm{aff}}                                                % Affine
+\renewcommand{\ss}{{\mathrm{ss}}}                                              % semi-simple
+\newcommand{\ssu}{{\mathrm{ssu}}}                                              % extension of G^ss by \radu(G)
+\newcommand{\sconn}{\mathrm{sc}}                                               % simply connected
+\newcommand{\mult}{\mathrm{mult}}                                              % multiplicaitve type
+\newcommand{\torus}{\mathrm{tor}}                                              % maximal toric quotient
+\newcommand{\so}{{\mathrm{so}}}                                                % Strongly identity component
+
+%%ÉÏÍ¬µ÷
+\newcommand{\nr}{{\mathrm{nr}}}                                                % non-ramifee cohomology
+\newcommand{\h}{\mathrm{h}}                                                    % henselization
+\newcommand{\sh}{\mathrm{sh}}                                                  % D^1_{sh}/ strict henselization
+\newcommand{\rel}{\mathrm{rel}}                                                % relative
+\newcommand{\dR}{\mathrm{dR}}		                                           % lower de Rham
+\newcommand{\Zar}{\mathrm{Zar}}                                                % lower Zariski
+\newcommand{\et}{\mathrm{\acute{e}t}}                                          % lower etale
+\newcommand{\Et}{\mathrm{\acute{E}t}}                                          % lower Etale
+\newcommand{\fl}{\mathrm{fl}}                                                  % lower flat
+\newcommand{\fppf}{\mathrm{fppf}}                                              % lower fppf
+\newcommand{\fpqf}{\mathrm{fpqf}}                                              % lower fpqf
+\newcommand{\fpqc}{\mathrm{fpqf}}                                              % lower fpqc
+\newcommand{\lnr}{_{\nr}}                                                      % lower nr
+\newcommand{\KM}{K^M}                                                          % Milnor K-theory
+
+%·¶³ë
+\newcommand{\Ab}{\mathfrak{Ab}}                                                % Category of ab. grps
+\newcommand{\AB}{\mathrm{AB}}                                                  % Grothendieck's axioms
+\newcommand{\Grp}{\mathfrak{Gr}}                                               % Category of groups
+\newcommand{\Set}{\mathfrak{Set}}                                              % Category of sets
+\newcommand{\Ring}{\mathfrak{Ring}}                                            % Category of rings
+\newcommand{\Alg}{\mathfrak{Alg}}                                              % Category of algebras
+\newcommand{\Mod}{\mathfrak{Mod}}                                              % Category of modules
+\newcommand{\Sch}{\mathfrak{Sch}}                                              % Category of schemes
+\newcommand{\Sh}{\mathfrak{Sh}}                                                % Category of sheaves
+\newcommand{\Psh}{\mathfrak{Sh}^{\mathrm{pre}}}                                % Category of pre-sheaves
+\newcommand{\Vect}{\mathfrak{Vect}}                                            % Category of vector spaces
+\newcommand{\Top}{\mathfrak{Top}}                                              % Category of topological spaces
+\newcommand{\Rep}{\mathfrak{Rep}}                                              % Category of all representations
+
+%Í¬µ÷´úÊý
+\DeclareMathOperator{\tot}{Tot}                                                % Total complex
+\newcommand{\ttc}[1]{\tot({#1}_{**})}                                          % Total chain complex
+\newcommand{\ttcc}[1]{\tot({#1}^{**})}                                         % Total cochain complex
+\DeclareMathOperator{\comp}{Cplx}                                              % Complex
+\DeclareMathOperator{\cone}{cone}                                              % Mapping cone
+\DeclareMathOperator{\Cone}{Cone}                                              % Mapping cone
+\DeclareMathOperator{\cyl}{cyl}                                                % Mapping cylinder
+\DeclareMathOperator{\ops}{\oplus}                                             % Direct sum
+\DeclareMathOperator{\bops}{\tst\ops}                                          % Direct sum
+\DeclareMathOperator{\ots}{\otimes}                                            % Tensor product
+\DeclareMathOperator{\whots}{\wh{\otimes}}                                     % Tensor product
+\DeclareMathOperator{\otsZ}{\otimes_{\Z}}                                      % Tensor product over Z
+\DeclareMathOperator{\otsQ}{\otimes_{\Q}}                                      % Tensor product over Q
+\DeclareMathOperator{\deots}{\otimes^{\BL}}                                    % Derived
+\DeclareMathOperator{\inv}{inv}                                                % Invariant
+\DeclareMathOperator{\Inv}{Inv}                                                % Invariant
+\DeclareMathOperator{\triv}{Triv}                                              % Trivial action
+\DeclareMathOperator{\Ht}{Ht}                                                  % Homotopies
+\DeclareMathOperator{\Fib}{Fib}                                                % Fibres
+\DeclareMathOperator{\dtp}{\otimes^{\BL}}                                      % Derived tensor product
+\DeclareMathOperator{\HS}{HS}                                                  % Hocshchild--Serre spectral sequence
+\DeclareMathOperator{\loc}{loc}                                                % Locally
+
+%ÆäËû
+\DeclareMathOperator{\sign}{sign}                                              % Sign
+\DeclareMathOperator{\card}{Card}                                              % Cardinality
+\DeclareMathOperator{\Card}{Card}                                              % Cardinality
+\DeclareMathOperator{\rank}{rank}                                              % Rank
+\DeclareMathOperator{\corank}{corank}		                                   % corank
+\DeclareMathOperator{\tz}{char}                                                % Characteristic
+\DeclareMathOperator{\pt}{pt}                                                  % Point
+\DeclareMathOperator{\Nil}{Nil}                                                % Nilpotent
+\DeclareMathOperator{\sym}{Sym}                                                % Symetric
+\DeclareMathOperator{\Skew}{Skew}                                              % Skew
+\DeclareMathOperator{\stab}{stab}                                              % Stabilizer
+\DeclareMathOperator{\Stab}{Stab}                                              % Stabilizer
+\DeclareMathOperator{\act}{Act}                                                % Action
+\DeclareMathOperator{\inc}{inc}                                                % Inclusion
+\DeclareMathOperator{\frob}{Frob}                                              % Frobenius
+\DeclareMathOperator{\Frob}{Frob}                                              % Frobenius
+\DeclareMathOperator{\cd}{cd}                                                  % Cohomological dimension
+\DeclareMathOperator{\scd}{scd}                                                % strict cohomological dimension
+\DeclareMathOperator{\pd}{pd}			                                       % projective dimension
+\DeclareMathOperator{\Ad}{Ad}                                                  % Adjoint map
+\DeclareMathOperator{\diag}{diag}                                              % Diagonal
+\DeclareMathOperator{\gr}{gr}                                                  % Graded
+\DeclareMathOperator{\Gr}{Gr}                                                  % Grassmanian
+\DeclareMathOperator{\pr}{pr}                                                  % projection
+\DeclareMathOperator{\Op}{Op}                                                  % Open subsets
+\DeclareMathOperator{\Bun}{Bun}                                                % Bun functor
+\DeclareMathOperator{\CHOW}{CH}                                                % Chow group
+\DeclareMathOperator{\Chow}{Chow}                                              % Chow motive
+\DeclareMathOperator{\SK}{SK}                                                  % reduced Whitehead group
+\DeclareMathOperator{\CSA}{CSA}                                                % central simple algebra
+\DeclareMathOperator{\WA}{WA}                                                  % weak approximation
+\DeclareMathOperator{\OBS}{OBS}                                                % OBStruction
+\DeclareMathOperator{\obs}{obs}                                                % obstruction
+
+%´úÊýÈº
+\newcommand{\gm}{\BBG_m}                                                       % multiplicative group
+\newcommand{\ga}{\BBG_a}                                                       % additive group
+\DeclareMathOperator{\rad}{rad}                                                % Radical
+\DeclareMathOperator{\radu}{\rad^u}                                            % Unipotent Radical
+\DeclareMathOperator{\GL}{\mathbf{GL}}                                         % general linear group
+\DeclareMathOperator{\rmGL}{\mathrm{GL}}                                       % general linear group
+\DeclareMathOperator{\SL}{\mathbf{SL}}                                         % special linear group
+\DeclareMathOperator{\rmSL}{\mathrm{SL}}                                       % special linear group
+\DeclareMathOperator{\PGL}{\mathbf{PGL}}                                       % PGL
+\DeclareMathOperator{\rmPGL}{\mathrm{PGL}}                                     % PGL
+\DeclareMathOperator{\PSL}{\mathbf{PSL}}                                       % PSL
+\DeclareMathOperator{\rmPSL}{\mathrm{PSL}}                                     % PSL
+\DeclareMathOperator{\SU}{\mathbf{SU}}                                         % Special unitary
+\DeclareMathOperator{\rmSU}{\mathrm{SU}}                                       % Special unitary
+\DeclareMathOperator{\SO}{\mathbf{SO}}                                         % Special orthogonal
+\DeclareMathOperator{\rmSO}{\mathrm{SO}}                                       % Special orthogonal
+\DeclareMathOperator{\Sp}{\mathbf{Sp}}                                         % Sympletic group
+\DeclareMathOperator{\rmSp}{\mathrm{Sp}}                                       % Sympletic group
+\DeclareMathOperator{\Spin}{\mathbf{Spin}}                                     % Spinor group
+\DeclareMathOperator{\rmSpin}{\mathrm{Spin}}                                   % Spinor group
+\DeclareMathOperator{\GSpin}{\mathbf{GSpin}}                                   % Spinor group
+\DeclareMathOperator{\rmGSpin}{\mathrm{GSpin}}                                 % Spinor group
+\DeclareMathOperator{\Sym}{Sym}                                                % Symmetries
+\DeclareMathOperator{\rgss}{rgss}                                              % semi-simple rank
+\DeclareMathOperator{\rgred}{rgred}                                            % reductive rank
+\newcommand{\Gcirc}{G^{\circ}}                                                 % connected component of identity
+\newcommand{\Gred}{G^{\mathrm{red}}}                                           % reducitve quotient of G
+\newcommand{\Hred}{H^{\mathrm{red}}}                                           % reducitve quotient of H
+\newcommand{\Gss}{G^{\mathrm{ss}}}                                             % semi-simple subgroup of G
+\newcommand{\Hss}{H^{\mathrm{ss}}}                                             % semi-simple subgroup of H
+\newcommand{\Bss}{B^{\mathrm{ss}}}                                             % Borel subgroup of G^ss
+\newcommand{\Gssu}{G^{\mathrm{ssu}}}                                           % extension of G^ss by \radu(G)
+\newcommand{\Hssu}{H^{\mathrm{ssu}}}                                           % extension of H^ss by \radu(H)
+\newcommand{\Gsc}{G^{\mathrm{sc}}}                                             % simply connected covering of G^ss
+\newcommand{\Gad}{G^{\mathrm{ad}}}                                             % the adjoint group of G
+\newcommand{\Hsc}{H^{\mathrm{sc}}}                                             % simply connected covering of H^ss
+\newcommand{\Bsc}{B^{\mathrm{sc}}}                                             % Borel subgroup of G^sc
+\newcommand{\Tss}{T^{\mathrm{ss}}}                                             % maximal torus of G^ss
+\newcommand{\Tsc}{T^{\mathrm{sc}}}                                             % maximal torus of G^sc
+\newcommand{\Zsc}{Z^{\mathrm{sc}}}                                             % centre of G^sc
+\newcommand{\Gmult}{G^{\mathrm{mult}}}                                         % multiplicaitve type for G
+\newcommand{\Hmult}{H^{\mathrm{mult}}}                                         % multiplicaitve type for H
+\newcommand{\Gtor}{G^{\mathrm{tor}}}                                           % maximal toric quotient of G
+\newcommand{\Htor}{H^{\mathrm{tor}}}                                           % maximal toric quotient of H
+\newcommand{\Gso}{G^{\mathrm{so}}}                                             % strongly identity component of G
+\newcommand{\Hso}{H^{\mathrm{so}}}                                             % strongly identity component of H
+\newcommand{\Gadj}{G^{\mathrm{adj}}}                                           % adjoint quotient of G
+\newcommand{\whT}{\wh{T}}                                                      %
+\newcommand{\wcT}{\wc{T}}                                                      %
+\newcommand{\Sn}{\mathrm{Sn}}                                                  % spinor norm
+
+%ÈºµÄÉÏÍ¬µ÷
+\DeclareMathOperator{\res}{res}                                                % restriction
+\DeclareMathOperator{\Res}{Res}                                                % restriction
+\DeclareMathOperator{\infl}{inf}                                               % inflation
+\DeclareMathOperator{\Inf}{Inf}                                                % inflation
+\DeclareMathOperator{\cores}{cores}                                            % co-restrction
+\DeclareMathOperator{\Cores}{Cores}                                            % co-restrction
+\DeclareMathOperator{\coinf}{coinf}                                            % co-inflation
+\DeclareMathOperator{\Coinf}{Coinf}                                            % co-inflation
+\DeclareMathOperator{\ind}{ind}                                                % induced
+\DeclareMathOperator{\Ind}{Ind}                                                % induced
+\DeclareMathOperator{\coind}{coind}                                            % co-induced
+\DeclareMathOperator{\Coind}{Coind}                                            % co-induced
+
+%²ãµÄÉÏÍ¬µ÷
+\DeclareMathOperator{\cat}{cat}                                                % category
+\DeclareMathOperator{\Cat}{Cat}                                                % category
+\DeclareMathOperator{\cov}{cov}                                                % covering
+\DeclareMathOperator{\Cov}{Cov}                                                % Covering
+\DeclareMathOperator{\BCov}{\mathbf{Cov}}                                      % Covering
+\DeclareMathOperator{\PHS}{\mathbf{PHS}}                                       % Principal homogeneous spaces
+\DeclareMathOperator{\LFT}{\mathbf{LFT}}                                       % Locally of finite type
+\DeclareMathOperator{\FEt}{\mathbf{FEt}}                                       % Finite etale morphisms
+\DeclareMathOperator{\Etbold}{\mathbf{Et}}                                     % Cat of etale schemes
+
+%ÌØÊâÉÏÍ¬µ÷
+\newcommand{\hz}{H_{\Zar}}                                                     % cohomology on Zariski topology
+\newcommand{\he}{H_{\et}}                                                      % cohomology on etale topology
+\newcommand{\hfl}{H_{\fl}}                                                     % cohomology on flat topology
+\newcommand{\hfp}{H_{\fppf}}                                                   % cohomology on fppf topology
+\newcommand{\hnr}{H_{\nr}}                                                     % unramified cohomology
+\newcommand{\hdr}{H_{\mrm{dR}}}                                                % de Rham cohomology
+\newcommand{\hc}[1]{\wc{H}{^{#1}}}                                             % Cech cohomology
+\newcommand{\ulhc}[1]{\ul{\wc{H}}{^{#1}}}                                      % Cech cohomology
+\newcommand{\hT}{\wh{H}}                                                       % Tate cohomology
+\newcommand{\munots}[1]{\mu_n^{\ots{#1}}}                                      % mu_n^{\otsi}
+\newcommand{\mumots}[1]{\mu_m^{\ots{#1}}}                                      % mu_m^{\otsi}
+
+%accented words
+\newcommand{\adele}{ad\`{e}le~}
+\newcommand{\adelic}{ad\`{e}lic~}
+\newcommand{\Adele}{Ad\`{e}le~}
+\newcommand{\adeles}{ad\`{e}les~}
+\newcommand{\Adeles}{Ad\`{e}les~}
+\newcommand{\idele}{id\`{e}le~}
+\newcommand{\Idele}{Id\`{e}le~}
+\newcommand{\ideles}{id\`{e}les~}
+\newcommand{\Ideles}{Id\`{e}les~}
+\newcommand{\etale}{\'{e}tale~}
+\newcommand{\Etale}{\'{E}tale~}
+\newcommand{\Neron}{N\'{e}ron~}
+\newcommand{\Poincare}{Poincar\'{e}~}
+\newcommand{\mn}{\text{-}}
+
+%´Ê×é1
+\newcommand{\canproj}{canonical projection}
+\newcommand{\canprojs}{canonical projections}
+\newcommand{\fgen}{finitely generated}
+
+%´Ê×é2
+\newcommand{\ccc}{cocycle~}
+\newcommand{\cccs}{cocycles~}
+\newcommand{\cmdm}{commutative diagram~}
+\newcommand{\cmdms}{commutative diagrams~}
+\newcommand{\cohobs}{cohomological obstruction~}
+\newcommand{\consh}{constructible sheaf~}
+\newcommand{\conshs}{constructible sheaves~}
+\newcommand{\distri}{distinguished triangle~}
+\newcommand{\distris}{distinguished triangles~}
+\newcommand{\fflat}{faithfully flat~}
+\newcommand{\fflatbk}{fatithfully flat}
+\newcommand{\flasres}{flasque resolution~}
+\newcommand{\flasresbk}{flasque resolution}
+\newcommand{\finigen}{finitely generated~}
+\newcommand{\finiexp}{finite exponent~}
+\newcommand{\htequiv}{homotopy equivalence~}
+\newcommand{\htequivbk}{homotopy equivalence}
+\newcommand{\htequivs}{homotopy equivalences~}
+\newcommand{\htequivsbk}{homotopy equivalences}
+\newcommand{\hlg}{homology~}
+\newcommand{\hlgs}{homologies~}
+\newcommand{\hhlg}{hyperhomology~}
+\newcommand{\chlg}{cohomology~}
+\newcommand{\chlgs}{cohomologies~}
+\newcommand{\hchlg}{hypercohomology~}
+\newcommand{\hchlgs}{hypercohomologies~}
+\newcommand{\hchlgbk}{hypercohomology}
+\newcommand{\ingen}{In general,~}
+\newcommand{\inpart}{In particular,~}
+\newcommand{\loccon}{locally constant~}
+\newcommand{\neos}{non-empty open subset~}
+\newcommand{\neosbk}{non-empty open subset}
+\newcommand{\topsp}{topological space~}
+\newcommand{\ttiff}{if and only if~}
+\newcommand{\tths}{homogeneous space~}
+\newcommand{\tthss}{homogeneous spaces~}
+\newcommand{\ttphs}{principal homogeneous space~}
+\newcommand{\ttphss}{principal homogeneous spaces~}
+\newcommand{\ttes}{exact sequence~}
+\newcommand{\ttess}{exact sequences~}
+\newcommand{\ttesbk}{exact sequence}
+\newcommand{\ses}{short exact sequence~}
+\newcommand{\sess}{short exact sequences~}
+\newcommand{\sesbk}{short exact sequence}
+\newcommand{\les}{long exact sequence~}
+\newcommand{\less}{long exact sequences~}
+\newcommand{\lesbk}{long exact sequence}
+\newcommand{\nbd}{neighbourhood~}
+\newcommand{\nbds}{neighbourhoods~}
+\newcommand{\wa}{weak approximation~}
+\newcommand{\wabk}{weak approximation}
+\newcommand{\sa}{strong approximation~}
+\newcommand{\sabk}{strong approximation}
+\newcommand{\qis}{quasi-isomorphism~}
+\newcommand{\qisbk}{quasi-isomorphism}
+\newcommand{\qiss}{quasi-isomorphisms~}
+\newcommand{\qissbk}{quasi-isomorphisms}
+\newcommand{\rescores}{restriction-corestriction~}
+\newcommand{\wrt}{with respect to~}
+\newcommand{\ttwlog}{without loss of generality~}
+\newcommand{\ttwlogbk}{without loss of generality}
+\newcommand{\ttgeo}{geometrically~}
+\newcommand{\ttgeoint}{geometrically integral~}
+\newcommand{\ttgeocon}{geometrically connected~}
+\newcommand{\TFAE}{The following are equivalent:~}
+\newcommand{\ppair}{perfect pairing~}
+\newcommand{\ppairbk}{perfect pairing}
+\newcommand{\hzx}{functoriality~}
+\newcommand{\hzxbk}{functoriality}
+\newcommand{\ttai}{homomorphism~}
+\newcommand{\ttais}{homomorphisms~}
+\newcommand{\sepclos}{separable closure~}
+\newcommand{\algclos}{algebraic closure~}
+
+%´úÊýÈº
+\newcommand{\alggr}{algebraic group~}
+\newcommand{\alggrs}{algebraic groups~}
+\newcommand{\connsm}{connected smooth~}
+\newcommand{\connsmnorsol}{connected smooth normal solvable~}
+\newcommand{\connsmnoruni}{connected smooth normal unipotent~}
+\newcommand{\maxtorus}{maximal torus~}
+\newcommand{\ttgssc}{geometrically simple simply connected~}
+\newcommand{\ttsssc}{semi-simple simply connected~}
+\newcommand{\ttqsred}{quasi-split reductive~}
+
+%Names
+\newcommand{\BrMa}{Brauer--Manin~}
+\newcommand{\JLCT}{Colliot-Th\'el\`ene~}
+\newcommand{\JLCTbk}{Colliot-Th\'el\`ene}
+\newcommand{\SirSD}{Swinnerton-Dyer~}
+\newcommand{\SirSDbk}{Swinnerton-Dyer}
+\newcommand{\EulerP}{Euler--Poincar\'{e}~}
+\newcommand{\Hen}{Henselization~}
+\newcommand{\Hqvd}{Hilbert's theorem $90$~}
+\newcommand{\Hqvdbk}{Hilbert's theorem $90$}
+\newcommand{\HSerre}{Hochschild--Serre~}
+\newcommand{\Kumseq}{Kummer sequence~}
+\newcommand{\Kumseqs}{Kummer sequences~}
+\newcommand{\Grok}{Grothendieck~}
+\newcommand{\GSerre}{Grothendieck--Serre~}
+\newcommand{\Noe}{Noetherian~}
+\newcommand{\ASk}{Skorobogatov~}                                               % Alexei Skorobogatov
+\newcommand{\ASkbk}{Skorobogatov}                                              % Alexei Skorobogatov
+\newcommand{\ArtVer}{Artin--Verdier~}                                          % Artin--Verdier duality
+\newcommand{\TateSha}{Tate--Shafarevich~}                                      % Tate--Shafarevich group
+
+%ÖÐÎÄ¡¢ÔÓÏî
+\newcommand{\bkg}{\noindent}
+\newcommand{\qand}{\quad\ \textup{and}\quad\ }                                 % q=quatre, 4 en francais
+\newcommand{\uand}{\ \textup{and}\ }                                           % u=un, 1 en francais
+\newcommand{\tminus}{\text{-}}                                                 % text minus in math mode
+\newcommand{\tm}{\text{-}}
+\newcommand{\itm}{\item}
+\newcommand{\tst}{\textstyle}
+\newcommand{\tct}{\times\cdots\times}
+\newcommand{\pf}{\limitproof}
+\newcommand{\pff}{\proof\hfill}
+\newcommand{\vem}{\vspace{1em}}
+\newcommand{\zm}{\proof}
+
+%ÕýÌå
+\newcommand{\rmprime}{\mathrm{prime}}
+\newcommand{\rmnorm}{\mathrm{norm}} 

@@ -1,0 +1,975 @@
+%!TEX encoding =  UTF-8 Unicode
+\documentclass[12pt,twoside,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[bookmarksopen=false,breaklinks=true,%
+      backref=page,pagebackref=true,plainpages=false,%
+      hyperindex=true,pdfstartview=FitH,colorlinks=true,%
+      pdfpagelabels=true,linkcolor=blue,%
+      citecolor=red,urlcolor=red,hypertexnames=false%
+      ]%
+   {hyperref}
+
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage{makeidx}
+\usepackage{natbib}
+\bibpunct{(}{)}{,}{a}{}{,}
+\usepackage[french]{babel}
+\usepackage{tocbibind}
+%\usepackage{bm}
+\usepackage{xspace}
+\usepackage{tikz}
+\usepackage{fancyhdr} 
+\usepackage{datetime} %% \currentime (\today standard LaTeX2e)
+
+
+\usepackage{etoolbox}
+\makeatletter\def\th@plain{\slshape}
+\patchcmd{\th@remark}{\itshape}{\slshape}{}{}\makeatother
+
+\def\frenchproofname{\textsl{Démonstration}}
+
+\newcounter{bidon}
+\newcommand{\rdb}{\refstepcounter{bidon}}
+
+\newcommand{\di}{\,\vert\,}
+\newcommand{\ndi}{\nmid}%{{\not\vert}\;}
+
+\newcommand \nzr {\neq 0}
+\newcommand \Vr {\mathrm{Vr}}
+\newcommand \Rn {\mathrm{Rn}}
+\newcommand \Nvr {\mathrm{Nvr}}
+\newcommand \Nrn {\mathrm{Nrn}}
+\newcommand \U {\mathrm{Un}}
+
+\newcommand{\Gati}{\Gat\cup\so\infty }
+
+%: g\'en\'erateurs
+\newcommand \Rzero {R_{=0}}
+\newcommand \Rnz {R_{\nzr}}
+\newcommand \Rvr {R_{\Vr}}
+\newcommand \Ru {R_{\U}}
+\newcommand \Rrn {R_{\Rn}}
+\newcommand \Rnrn {R_{\Nrn}}
+\newcommand \Rnvr {R_{\Nvr}}
+
+%: ensembles engendr\'es
+\newcommand \zg {{\ZZ[G]}}
+\newcommand \Izero {{\cI}_{=0}}
+\newcommand \Mnz {{\cM}_{\nzr}}
+\newcommand \Mpos {{\cM}_{\Pos}}
+\newcommand \Cnng {{\cC}_{\Nng}}
+\newcommand \Irn {{\cI}_{\Rn}}
+\newcommand \Vvr {{\cV}_{\Vr}}
+\newcommand \Mu {{\cM}_{\U}}
+\newcommand \abg {{\rm Ab}(G)}
+\newcommand \Hzero {{\cH}_{=0}}
+
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+
+
+
+%----- ceci retrecit les marges format  A4---------
+\marginparwidth 0pt
+\oddsidemargin  0cm
+\evensidemargin  0cm
+\marginparsep 0pt
+\topmargin -1.5cm
+\textwidth 16cm
+\textheight 25.5cm
+\sloppy
+%-----------------------------------
+
+\patchcmd{\sectionmark}{\MakeUppercase}{}{}{}
+%:DEBUT
+\begin{document}
+\input{FrenchTheoremsClspadic.tex}
+\input{FrenchMacrosClspadic.tex}
+\input{MathMacrosClspadic.tex}
+
+
+\newcommand \DK{\mathscr{D}_{\rm K}} 
+\newcommand \DN{\mathscr{D}_{\rm N}}
+\newcommand \DD{\mathscr{D}_{\rm D}}
+\newcommand \vepstar{\varepsilon^\star}
+\newcommand \TrBA{\Tr\nolimits_{\gB/\gA}}
+\newcommand \trace{\text{\rm trace}}
+\renewcommand \norm{\text{\rm N}}
+\renewcommand \disc{\text{\rm D}}
+\newcommand \normBA{\norm_{\gB/\gA}}
+\newcommand \DiscBA{\Disc(\gB/\gA)}
+\newcommand \OmegaBA{\Omega_{\gB/\gA}}
+\newcommand \swap{\mathrm {swap}}
+\renewcommand \Lin{\mathrm {L}}
+\newcommand \BoB{\gB\otimes_\gA\gB}
+\newcommand \cercle[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep = 0.4pt] (char){#1};}}
+\newcommand \Bez {\mathscr{B}} %% bezoutien bi-homogène
+
+
+%\renewcommand{\proofname}{Démonstration}
+\title{Identités algébriques permettant  de démontrer  qu'une algèbre libre finie nette est traciquement étale}
+\author{Claude Quitté, Henri Lombardi}
+\maketitle
+
+L'article suivant est essentiellement dû à Claude Quitté, le deuxième auteur ne s'est occupé que de la mise en forme du texte.
+
+
+\tableofcontents
+
+\section {Introduction}
+
+L'objectif central de cet article est de donner une démonstration \elr du \thref{NetteImpliesTracicEtale} suivant, dont nous ne connaissons pas de trace dans la littérature existante. Comme  indiqué dans le titre, notre démonstration est basée sur des \idas. Cela confirme l'adage implicite selon lequel une grande partie de l'\alg commutative la plus abstraite se concentre dans des \idas concernant les matrices de \pols sur un anneau commutatif arbitraire. 
+
+
+\begin {theorem} [une algèbre libre de rang fini qui est nette est traciquement étale]
+\label{NetteImpliesTracicEtale}
+
+Soit $\gB/\gA$ une algèbre (commutative) libre de rang fini.  Notons
+$\OmegaBA$ le $\gB$-module des différentielles de~$\gB/\gA$,
+$\normBA : \gB \to \gA$ la norme de $\gB/\gA$ et $\DiscBA$ le
+discriminant d'une base de $\gB/\gA$ (défini au carré d'un
+inversible près).
+
+\begin {enumerate}
+\item
+Le $\gB$-module $\OmegaBA$ est de présentation finie et son idéal de
+Fitting $\cF_0\big(\OmegaBA\big)$ (idéal de $\gB$), possède la
+propriété suivante
+$$
+\fbox{$b \in \cF_0\big(\OmegaBA\big)  \implies
+\DiscBA \ \mid\ \normBA(b)$\,.}
+$$
+\item
+Supposons $\OmegaBA = 0$.  Alors $\DiscBA$ est inversible.
+\end {enumerate}
+\end {theorem}
+
+\Note La référence de base pour les \diles de Kähler est le livre \cite{Kunz}. 
+Dans les ouvrages \cite{CACM} et \cite{ACMC}, le point \textsl{2.} du \thref{NetteImpliesTracicEtale} est démontré uniquement pour le cas où $\gA$ est un \cdi. Cet ouvrage décrit de manière complètement \cov de nombreuses bases de l'\alg commutative et donne en particulier les détails \ncrs pour la compréhension des \idfs et celle du module des \diles de Kähler et son traitement au moyen des matrices bezoutiennes. 
+Les notions des syzygies triviales et de relateurs triviaux sont abordées dans la section IV-2. 
+\eoe  
+
+
+\medskip Il est clair que le second point du \thref{NetteImpliesTracicEtale} est une conséquence directe du premier car
+dans ce cas, $\cF_0\big(\OmegaBA\big) = \gB$ et, en appliquant
+la propriété du point \textsl{1.} à $b=1$, on obtient l'inversibilité de
+$\DiscBA$.
+
+\smallskip Un corollaire facile du \tho consiste à le généraliser en affaiblissant l'hypothèse.
+
+%c
+%:     Corollary{corNetteImpliesTracicEtale}
+\begin{corollary} \label{corNetteImpliesTracicEtale}
+Considérons une \Alg $\gB$ qui est un \Amo \ptf.  
+Alors les conclusions du \thref{corNetteImpliesTracicEtale} sont valables pour $\gB/\gA$.
+%Si elle est nette ($\OmegaBA = 0$), alors elle est traciquement étale et à fortiori étale. 
+ \end{corollary}
+%--------- fin corollary ------------------------------- 
+%
+\begin{proof}
+En effet après \lon en des \eco $\sn$ de $\gA$, l'\alg $\gB$ devient libre de rang fini, et les conclusions, parce qu'elles sont satisfaites dans chacune des $\gA_{s_i}$-\alg $\gB_i=\gA_{s_i}\otimes_\gA\gB$, sont satisfaites dans $\gB$.
+
+\end{proof}
+%
+
+\smallskip On fera découler le point \textsl{1.} (du
+\thref{NetteImpliesTracicEtale}) de l'inclusion $\cF_0(\OmegaBA) \subseteq \mu(\Ann(J))$ donnée dans le lemme~\ref{KahlerSubsetNoether}, qui suppose seulement que $\gB$ est une \Alg \pf,
+et de l'identité matricielle donnée dans le point \textsl{2.} du
+\thref{AnnJ-TracicIdentity} spécifique au cas où $\gB/\gA$ est
+libre. 
+  
+
+%%%
+\section{Jacobien versus bezoutien}\label{secJacBez}
+
+
+En ce qui concerne la démonstration du premier point du \thref{NetteImpliesTracicEtale}, on commence par étudier le cadre plus général
+d'une algèbre $\gB/\gA$ de présentation finie pour laquelle on adopte
+les notations suivantes. On fixe une présentation finie de $\gB/\gA$
+en $n$ indéterminées $\uX = (X_1, \dots, X_n)$:
+$$
+\gB = \gA[\ux] = \gA[x_1, \dots, x_n] \simeq \gA[\uX] / I(\uX)
+\quad \text{où $I(\uX)$ est un idéal de type fini de $\gA[\uX]$}
+$$
+On s'alloue deux autres jeux de $n$ indéterminées $\uY=(Y_1, \cdots, Y_n)$ et
+$\uZ=(Z_1, \cdots, Z_n)$ de manière à \og relever \fg{}
+les déterminants jacobiens en $\uX$ en des
+déterminants bezoutiens en $(\uY,\uZ)$, cf. ci-après.
+
+\smallskip
+
+De manière plus structurelle, on présente la $\gA$-algèbre
+$\BoB$ de la manière suivante:
+$$
+\BoB = \gA[\uy,\uz] = \gA[y_1,\dots,y_n, z_1,\dots,z_n]
+\simeq \dfrac {\gA[\uY,\uZ]}{I(\uY) + I(\uZ)}
+$$
+la correspondance étant la suivante:
+$$
+f(\ux) \otimes g(\ux)  \enspace\longleftrightarrow\enspace f(\uy)g(\uz)
+$$
+Le morphisme surjectif $\mu \colon \BoB \twoheadrightarrow \gB$ défini par la multiplication n'est autre que l'évaluation $(\uY,\uZ) := \uX$
+$$
+\left\{\begin {array} {rcl}
+\gA[\uY,\uZ] &\longrightarrow &\gA[\uX]\\[2mm]
+f(\uY,\uZ)    &\longmapsto     &f(\uX,\uX)
+\end {array}\right. 
+\qquad\qquad
+\mu :
+\left\{\begin {array} {rcl}
+\gA[\uy,\uz] &\longrightarrow &\gA[\ux]\\[2mm]
+f(\uy,\uz)    &\longmapsto     &f(\ux,\ux)
+\end {array}\right. 
+$$
+Notons $J = \ker\mu$. C'est l'idéal de $\BoB$ engendré par les
+$b\otimes 1 - 1\otimes b$ pour $b \in \gB$. C'est aussi un
+sous-\Bmo pour la structure de \Bmo à gauche $\BoB$.
+Même chose à droite.
+
+Comme $\gB = \gA[x_1, \dots, x_n]$, cet idéal $J$ est de type fini,
+engendré par les $x_i\otimes 1 - 1\otimes x_i$.  Dans le modèle
+$\gA[\uy,\uz]$, il est $n$-engendré:
+$$
+J \eqdef   \Ker\mu = \langle y_1-z_1, \dots, y_n-z_n\rangle
+$$
+
+
+
+%%%%
+%\subsubsection*{Jacobien versus bezoutien}
+
+
+Soit $f \in \gA[\uX]$. Il y a $n$ polynômes $(U_{j})_{1 \le j \le n}$ de $\gA[\uY,\uZ]$ tels que
+$$
+f(\uY) - f(\uZ) = \som_{j=1}^n (Y_j-Z_j) U_j(\uY,\uZ)
+$$
+Il y a un choix quasi-canonique pour les $U_j$. Pour $n=2$:
+$$
+\begin {array}{ccccc}
+f(Y_1,Y_2) - f(Z_1,Z_2) &=& f(Y_1,Y_2) - f(Z_1,Y_2) &+& f(Z_1,Y_2) - f(Z_1,Z_2)
+\\[2mm]
+&=& (Y_1-Z_1) \frac{f(Y_1,Y_2) - f(Z_1,Y_2)}{Y_1-Z_1} &+&
+(Y_2 - Z_2) \frac{f(Z_1,Y_2) - f(Z_1,Z_2)}{Y_2-Z_2}
+\end {array}
+$$
+Et pour $n$ quelconque:
+$$
+U_j =
+\dfrac{f(Z_1,\dots, Z_{j-1}, \cercle{$Y_j$}, Y_{j+1},\dots,Y_n) -
+f(Z_1,\dots,Z_{j-1},\cercle{$Z_j$},Y_{j+1},\dots,Y_n)}
+{Y_j - Z_j}
+$$
+Cela étant, soit $(\uF) = (F_1, \dots, F_n)$ un système de $n$ polynômes de $\gA[\uX]$.
+On lui associe le \textsl{déterminant bezoutien} $\delta_\uF \in \BoB$ 
+en écrivant:
+$$
+F_i(\uY) - F_i(\uZ) = \som_{j=1}^n (Y_j-Z_j) U_{ij}(\uY,\uZ)
+$$
+et en évaluant le déterminant bezoutien correspondant en $(\uy,\uz)$:
+$$
+\delta_\uF := \det (\Bez_{\uY,\uZ}(\uF))(\uy,\uz)
+\qquad \text{où} \qquad
+\Bez_{\uY,\uZ}(\uF) = (U_{ij})_{1\le i,j \le n} \in \MM_n(\gA[\uY,\uZ])
+$$
+Alors $\mu(\delta_\uF)$ est le déterminant jacobien de $\uF$ vu dans $\gB$:
+$$
+\mu(\delta_\uF) := \det (\Jac_\uX(\uF))(\ux)
+\qquad \text{où} \qquad
+\Jac_\uX(\uF) = (\partial F_i/\partial X_j)_{1\le i,j \le n} \in \MM_n(\gA[\uX])
+$$
+
+On verra dans la section \ref{DifferentesSection} que les deux
+idéaux de~$\gB$ qui interviennent dans cette inclusion,
+$\cF_0(\OmegaBA)$ d'une part, $\mu\big(\Ann(J)\big)$ sont
+des \textsl{différentes} de~$\gB/\gA$. Le premier est la différente
+$\DK(\gB/\gA)$ de Kälher, le second la différente $\DN(\gB/\gA)$
+de Noether. On y prouvera que l'idéal~$J$ de $\BoB$ est un
+$\BoB$-module de présentation finie, et que son
+$0$-Fitting~$\cF_0(J)$, (un idéal de $\BoB$), a la propriété suivante
+$$
+\mu(\cF_0(J)) = \cF_0(\OmegaBA).
+$$
+Puisque $\cF_0(M) \subseteq \Ann(M)$ pour tout module $M$ de
+présentation finie, en particulier $\cF_0(J) \subseteq \Ann(J)$, cela
+fournira une \textsl{autre} démonstration du lemme \ref{KahlerSubsetNoether}.
+
+\smallskip Mais ici nul besoin de cette section \ref{DifferentesSection} car la
+démonstration donnée ci-dessous est élémentaire: elle utilise simplement que
+$\widetilde U\, U = \det(U)\Id_n$ pour une matrice carrée
+\hbox{$U \in \MM_n$}.
+
+
+%%%
+\begin {lemma}
+\label{KahlerSubsetNoether}
+
+Dans l'anneau $\BoB$, considérons  l'annulateur $\Ann(J)$ de l'idéal $J$.
+Il est caractérisé par:
+$$
+\Ann(J) = \big\{\,\beta \in \BoB \mid
+(b\otimes 1)\beta = (1\otimes b)\beta \enspace \forall\ b \in \gB \,\big\}.
+$$
+Dans le modèle $\BoB = \gA[\uy,\uz]$ on a 
+$$
+\Ann(J) = \big\{\,f(\uy,\uz)  \mid f(\uY,\uZ) \in \gA[\uY,\uZ] \;\mathrm{ et }\;
+f(\uy,\uz)\times (y_i-z_i) = 0 \enspace \forall\ i=1, \dots, n\,\big\}.
+$$
+On a alors l'inclusion suivante d'idéaux de $\gB$:
+$$
+\cF_0(\OmegaBA) \enspace\subseteq\enspace \mu\big(\Ann(J)\big).
+$$
+\end {lemma}
+
+
+%%%%%
+\begin {proof} 
+
+L'idéal $\cF_0(\OmegaBA)$ est engendré par les évaluations en $\ux$
+des déterminants jacobiens $\det(\Jac_\uX(\uF))$ lorsque $(\uF) =
+(F_1, \dots, F_n)$ parcourt les $n$-systèmes de polynômes de $I(\uX)$.
+Il suffit donc de démontrer qu'un tel générateur est dans
+$\mu\big(\Ann(J)\big)$.
+
+Avec la notation précédente $U = \Bez_{\uY,\uZ}(\uF)$, écrivons:
+$$
+\begin {bmatrix} F_1(\uY)-F_1(\uZ)\\\vdots\\ F_n(\uY)-F_n(\uZ) \end {bmatrix}
+= U
+\begin {bmatrix} Y_1-Z_1\\\vdots\\ Y_n-Z_n \end {bmatrix}
+\qquad \text{d'où} \qquad
+\det(U) \begin {bmatrix} Y_1-Z_1\\\vdots\\ Y_n-Z_n \end {bmatrix} =
+\widetilde {U}
+\begin {bmatrix} F_1(\uY)-F_1(\uZ)\\\vdots\\ F_n(\uY)-F_n(\uZ) \end {bmatrix}
+$$
+En conséquence $\det(U)(Y_i-Z_i) \in I(\uY) + I(\uZ)$. En évaluant
+en $(\uy,\uz)$, on obtient dans $\BoB$:
+$$
+\delta_\uF \times (y_i-z_i) = 0  \qquad \forall\ i=1, \dots, n.
+$$
+Ainsi $\delta_\uF \in \Ann(J)$, ce qui montre que $\det(\Jac_\uX(\uF))(\ux)$, égal à
+$\mu(\delta_\uF)$, appartient à $\mu(\Ann(J))$.
+\end {proof}
+
+
+\section{Une identité tracique lorsque $\gB/\gA$ est libre finie}
+%%%%%%%
+
+\subsection{Le \tho principal}
+On note $\mu$ le morphisme  
+\[
+\mu \colon \BoB \to \gB,\,x\otimes y\mt xy
+\]
+ et $J=\ker\mu$. 
+
+\begin {theorem} [une identité tracique attachée à $\mu(\Ann(J))$ lorsque $\gB/\gA$ est libre]
+\label{AnnJ-TracicIdentity}~\\
+On suppose $\gB/\gA$ libre de rang $n$. On considère un \elt arbitraire $\delta\in \Ann(J)$. Nous notons
+\begin{itemize}
+%
+\item $b=\mu(\delta)$,
+%
+\item $\uvep =(\vep_1, \dots, \vep_n)$ une base de $\gB/\gA$,
+%
+\item $T_\uvep\eqdef\big(\TrBA(\vep_i\vep_j)\big)_{1\le i,j \le n}$ la matrice tracique de cette base,
+%
+\item $\Disc(\uvep) = \det(T_\uvep)$  (c'est le discriminant de $\gB/\gA$ défini à une unité multiplicative près), 
+%
+\item  $M_b$ la matrice de multiplication par $b$ dans la base $\uvep$. 
+\end{itemize}
+
+%Désignons par $\uvep =(\vep_1, \dots, \vep_n)$ une base de $\gB/\gA$, par~$T_\uvep$ sa
+%matrice tracique $\big(\TrBA(\vep_i\vep_j)\big)_{1\le i,j \le n}$, par
+%$\Disc(\uvep) = \det(T_\uvep)$ et, pour $b \in \gB$, par $M_b$ la
+%matrice de multiplication par $b$ dans la base $\uvep$.
+
+\smallskip \noindent 
+On écrit $\delta \in \Ann(J) \subseteq \BoB$  de la manière suivante:
+$$
+\delta = u_1\otimes\vep_1 + \cdots + u_n\otimes\vep_n
+\qquad
+u_j \in \gB
+$$
+Notons $P_\uu  = (u_{ij}) \in \MM_n(\gA) $ la matrice dont la
+\textsl{ligne} $i$ est celle des coordonnées de $u_i$ dans la base $\uvep$:
+$$
+u_i = \som_j u_{ij}\vep_j
+$$
+%
+\begin {enumerate}
+\item
+Avec $b = \mu(\delta)$, on a les deux égalités matricielles
+dans $\MM_n(\gA)$:
+$$
+M_b = \big(\TrBA(u_i\vep_j)\big)_{1\le i,j \le n} = P_\uu \,T_\uvep
+$$
+\item
+En prenant les déterminants, on obtient
+$\normBA(b) = \det(P_\uu )\Disc(\uvep)$.
+\end {enumerate}
+
+\noindent En conséquence, $\DiscBA$ divise $\normBA(b)$ pour tout
+$b \in \mu(\Ann(J))$.
+\end {theorem}
+
+
+
+
+
+%%%%
+\subsection {Des rappels d'ordre général}
+
+On rappelle des résultats bien connus. 
+
+\smallskip Tout d'abord $\BoB$ est muni de
+deux structures de $\gB$-modules, une à gauche, l'autre à droite:
+pour $b \in \gB$, $\beta \in \BoB$
+$$
+b.\beta = (b\otimes 1)\beta,
+\qquad\qquad
+\beta.b = \beta(1\otimes b)
+$$
+
+%%%%
+\begin {fact} ~%\leavevmode
+
+\begin {enumerate}
+\item
+Sur $\Ann(J)$, les deux structures (à gauche et à doite) de $\gB$-module de $\BoB$
+coïncident.
+De plus pour $\delta \in \Ann(J)$ et $\beta\in\BoB$ on a
+$$
+\mu(\beta)\,\delta = \delta\,\mu(\beta) = \beta\delta.
+$$
+
+\item
+L'idéal $J$ de $\BoB$ et le \Bmo $\Ann(J)$ sont stables
+par l'involution $\swap : \BoB \to \BoB$ qui réalise $x\otimes y \mapsto
+y\otimes x$.
+\end {enumerate}
+\end {fact}
+
+
+%%%
+\begin {proof} %\leavevmode
+
+\textsl{1.}
+Pour $b\in \gB$, il faut vérifier que $(b\otimes 1)\delta = (1\otimes b)\delta$,
+ce qui est immédiat car $b\otimes 1 - 1\otimes b \in J$.
+
+\noindent L'égalité $\mu(\beta)\,\delta = \beta\delta$ résulte du fait que
+$\mu(\beta)\otimes 1 - \beta \in \Ker(\mu) \eqdef   J$.
+
+\smallskip \noindent 
+\textsl{2.} La stabilité de $J$ résulte de  $J = \ker\mu$ et de $\mu \circ \swap = \mu$.
+Elle implique la stabilité de $\Ann(J)$.
+\end {proof}
+
+
+
+
+
+%%%%%%
+\subsection {Identités traciques lorsque $\gB/\gA$ est libre de rang $n$}
+
+On suppose dans la suite que $\gB/\gA$ est libre de rang $n$ de base $\uvep = (\uvep_1, \dots, \uvep_n)$.
+
+%%%
+\begin {lemma}~ %\leavevmode
+\label{AnnJtrace}
+
+\begin {enumerate}
+\item
+On munit $\BoB$ de la structure de \Blg à gauche.\\
+Alors pour $\beta = \som_i x_i\otimes y_i \in  \BoB$ on obtient
+$$
+\Tr\nolimits_{(\BoB)/\gB}(\beta) = \som_i x_i\TrBA(y_i).
+$$
+
+\item
+Lorsque $\delta = \som_i x_i\otimes y_i$ appartient à $\Ann(J)$, on obtient
+$$
+\mu(\delta) =   \som_i x_iy_i =
+\som_i x_i\TrBA(y_i) = \som_i y_i\TrBA(x_i).
+$$
+\end {enumerate}
+\end {lemma}
+
+
+%%%
+\begin {proof} %\leavevmode
+
+\textsl{1.} Il suffit de le vérifier pour $\beta = x\otimes y$. Pour
+la structure de $\gB$-module à gauche de $\BoB$, 
+$1\otimes \uvep$ est une $\gB$-base. La matrice de la multiplication
+par $x\otimes y$ dans cette base $1\otimes\uvep$ est
+$xM_y \in \MM_n(\gB)$ où $M_y \in \MM_n(\gA)$ est la
+matrice de multiplication par~$y$ dans la base $\uvep$.
+D'où:
+$$
+\Tr\nolimits_{(\BoB)/\gB}(x\otimes y) = \trace(xM_y) =
+x\, \trace(M_y) = x\TrBA(y)
+$$
+
+\smallskip \noindent 
+\textsl{2.}
+Soit un $\gB$-module libre $E$, $x \in E$ et $\alpha\in E^\star$.
+L'endomorphisme $v$ de $E$ de rang $\le 1$ associé à $(x,\alpha)$ est
+celui défini par $y \mapsto \alpha(y)x$; sa trace est $\trace(v)
+= \alpha(x)$.
+
+\noindent Regardons la multiplication par $\delta$ sur $\BoB$ comme un
+endomorphisme du $\gB$-module à gauche $\BoB$.  Comme $\delta\beta
+= \mu(\beta)\delta$ pour $\beta \in \BoB$, on peut appliquer la
+remarque précédente à $E = \BoB$, $x = \delta$, $\alpha = \mu$,
+l'endomorphisme $v$ étant la multiplication par~$\delta$.  Donc:
+$$
+\Tr\nolimits_{(\BoB)/\gB}(\delta) = \mu(\delta)
+$$
+En utilisant le point \textsl{1.}, on obtient ainsi la première égalité du point \textsl{2.}
+La seconde égalité s'obtient en appliquant la première à
+$\swap(\delta)=\som_i y_i \otimes x_i$ qui appartient également à $\Ann(J)$.
+\end {proof}
+
+
+%%%
+\begin {lemma} [un critère d'appartenance à $\Ann(J)$] %\leavevmode
+\label {inAnnJ}
+
+Soit $t \in \BoB$ que l'on écrit sur la $\gB$-base $1\otimes \uvep$
+du $\gB$-module $\BoB$ à gauche:
+$$
+t = u_1\otimes \vep_1 + \cdots + u_n\otimes\vep_n, \qquad u_i \in \gB.
+$$
+Notons $c^{(k)}_{ij} \in \gA$ les constantes de structure définies
+par $\vep_i\vep_j = \sum_k c^{(k)}_{ij} \vep_k$.
+
+\smallskip \noindent Alors $t \in \Ann(J)$ si et seulement si
+$$
+u_i\vep_j = \som_k c^{(i)}_{kj} u_k \qquad \forall\ i,j.
+$$
+\end {lemma}
+
+%%%
+\begin {proof} %\leavevmode
+
+On va utiliser, d'une part, pour $x_1, \cdots, x_n \in \gB$ 
+$$
+\som_i x_i \otimes \vep_i = 0   \iff   x_1 = \cdots = x_n = 0,
+$$
+et d'autre part, $t \in \Ann(J)$ si et seulement si $\vep_j.t = t.\vep_j$ pour tout $j$.
+
+\noindent Montrons, pour $j$ fixé, que
+$$
+\som_i \Bigl( u_i\vep_j - \som_k c^{(i)}_{kj}u_k\Bigr) \otimes \vep_i =
+\vep_j.t - t.\vep_j.
+$$
+Il en résultera l'équivalence annoncée.
+
+\noindent Il est clair que $\som_i u_i\vep_j \otimes\vep_i = \vep_j.t$. Pour l'autre
+somme, utilisons $c^{(i)}_{kj}u_k\otimes \vep_i = u_k\otimes c^{(i)}_{kj}\vep_i$ On obtient
+\begin{displaymath}
+\som_i \Bigr(\som_k c^{(i)}_{kj}u_k\Bigr) \otimes \vep_i =
+\som_k u_k  \otimes \som_i c^{(i)}_{kj} \vep_i =
+\som_k u_k  \otimes \vep_k\vep_j = t.\vep_j.
+\qedhere
+\end{displaymath}
+\end {proof}
+
+
+%%%
+\begin{proof}[\textsl{Démonstration du théorème \ref{AnnJ-TracicIdentity}}]~ 
+
+%
+
+\noindent \textsl{1.} D'après le lemme \ref{AnnJtrace} on a
+$b \eqdef   \mu(\delta) =\som_k \TrBA(u_k)\vep_k$.
+Donc
+\[
+\begin{array}{rcl}
+b\vep_j &=& \som_k \TrBA(u_k)\vep_k\vep_j = \som_{k,i} \TrBA(u_k) c^{(i)}_{kj}\vep_i
+\\[2mm]
+&=&
+\som_i \TrBA\bigl(\som_k c^{(i)}_{kj}u_k\bigr)\vep_i.
+\end {array}
+\]
+Or $\sum_k c^{(i)}_{kj}u_k = u_i\vep_j$ d'après le
+lemme \ref{inAnnJ}.  Il vient $b\vep_j
+= \sum_i \TrBA(u_i\vep_j) \vep_i$, d'où l'égalité matricielle $M_b
+= \big(\TrBA(u_i\vep_j\big)_{1\le i,j \le n}$. C'est la première égalité
+à démontrer dans le  \thref{AnnJ-TracicIdentity}.
+
+\smallskip \noindent La seconde égalité résulte de
+\begin{displaymath}
+(P_\uu  T_\vep)_{ij} = \som_k u_{ik} \TrBA(\vep_k\vep_j) =
+\TrBA\Bigl( \som_k u_{ik} \vep_k\vep_j \Bigr) =
+\TrBA(u_i\vep_j).
+\qedhere
+\end{displaymath}
+\end {proof}
+
+\begin{proof}[\textsl{Démonstration du théorème \ref{NetteImpliesTracicEtale}}]~
+Il suffit de démontrer le point \textsl{1}.
+C'est une conséquence directe de l'inclusion $\cF_0(\OmegaBA) \subseteq \mu(\Ann(J))$ donnée dans le lemme~\ref{KahlerSubsetNoether} et de l'identité matricielle donnée dans le point \textsl{2.} du
+\thref{AnnJ-TracicIdentity}.
+\end {proof}
+
+
+
+
+\section {Différentes: $\DK(\gB/\gA)$ de Kähler et $\DN(\gB/\gA)$ de Noether}
+\label{DifferentesSection}
+
+\subsection{Présentation finie}
+%%%%
+\begin {theorem} %\leavevmode
+\label{PresentationFinieJ}
+
+Soit $\gB/\gA$ une algèbre de présentation finie, on note $\mu$ l'\Ali de multiplication
+\[\mu : \BoB \to \gB,\;x\otimes y \mt xy\]  
+et $J=\ker \mu$.
+%l'idéal noyau de la multiplication:
+%$$
+%J = \ker\big(\mu : \BoB \to \gB \big).
+%$$
+Alors $J$ est un $\BoB$-module de présentation finie.
+\end {theorem}
+
+
+%%%%
+\begin {proof} %\leavevmode
+
+Adoptons les notations de la section \ref{secJacBez} pour présenter
+$\gB/\gA$ sous la forme $\gA[\uX]/I(\uX)$. 
+Si $\gB=\aqo\AuX{\lfs}$, alors $I(\uX)=\gen{f_1(\uX),\dots,f_s(\uX)}$.
+Ceci fournit une
+présentation de $(\BoB)/\gA$ sous la forme $\gA[\uY,\uZ]/\big(I(\uY) +
+I(\uZ)\big)$ dans laquelle $J = \langle y_1-z_1, \dots,
+y_n-z_n\rangle$.
+
+Il s'agit de montrer que le noyau de
+la forme linéaire $\pi$:
+$$
+\pi :
+\xymatrix @C=2.5cm{\gA[\uy,\uz]^n \ar[r]^{[y_1-z_1, \dots, y_n-z_n]} & \gA[\uy,\uz]}
+$$
+est un sous-module de type fini de $\gA[\uy,\uz]^n$.
+
+\medskip
+
+Pour $f \in \gA[\uX]$, définissons $U^f_j \in \gA[\uY,\uZ]$ par
+$$
+U^f_j(\uY,\uZ) =
+\dfrac{f(Z_1,\dots, Z_{j-1}, \cercle{$Y_j$}, Y_{j+1},\dots,Y_n) -
+f(Z_1,\dots,Z_{j-1},\cercle{$Z_j$},Y_{j+1},\dots,Y_n)}
+{Y_j - Z_j}
+$$
+de sorte que:
+$$
+f(\uY) - f(\uZ) = \som_j (Y_j-Z_j) U^f_j(\uY,\uZ).
+$$
+Posons
+$$
+u_j^f = U^f_j(\uy,\uz) \in \gA[\uy,\uz],
+\qquad
+u^f = (u^f_1, \dots, u^f_n) \in \gA[\uy,\uz]^n.
+$$
+Pour $f \in I(\uX)$, le vecteur $u^f$ est dans $\ker\pi$.
+
+Notons $(e_1, \dots, e_n)$ la base canonique de $\gA[\uy,\uz]^n$.
+Nous allons obtenir un système générateur fini de $\ker\pi$ formé tout d'abord par les relateurs triviaux entre les $y_j-z_j$
+$$
+(y_i-z_i)e_j - (y_j-z_j)e_i, \qquad
+1 \le i < j \le n
+$$
+et ensuite par les  $u^f$ lorsque $f$ décrit un système générateur (fini) de l'idéal
+$I(\uX)$. 
+
+\smallskip Soit une relation dans $\gA[\uy,\uz]$ avec $v_j = V_j(\uy,\uz)$  où
+$V_j(\uY,\uZ) \in \gA[\uY,\uZ]$:
+$$
+\som_j (y_j-z_j)v_j = 0
+$$
+Dans $\gA[\uY,\uZ]$, ceci signifie
+$$
+\som_j (Y_j-Z_j)V_j(\uY,\uZ) = f(\uY) - g(\uZ) \quad
+\text{avec $f(\uY) \in I(\uY)$ et $g(\uZ) \in I(\uZ)$}.
+$$
+En spécialisant $(\uY,\uZ) := \uX$, on obtient $f(\uX) = g(\uX)$, qui appartient
+à $I(\uX)$. D'où
+$$
+\som_j (Y_j-Z_j)V_j(\uY,\uZ) = f(\uY) - f(\uZ) =
+\som_j (Y_j-Z_j) U^f_j(\uY,\uZ).
+$$
+En notant $W_j(\uY,\uZ) = V_j(\uY,\uZ) - U^f_j(\uY,\uZ)$:
+$$
+\som_j (Y_j-Z_j)W_j(\uY,\uZ) = 0.
+$$
+Comme la suite $(Y_1-Z_1, \dots, Y_n-Z_n)$ est 1-sécante\footnote{Une suite est dite 1-sécante, si le module des \syzys pour (l'\id engendré par) cette suite est engendré par les \syzys triviales.} dans
+$\gA[\uY,\uZ]$, on obtient que le vecteur $(W_1, \dots, W_n)$
+de $\gA[\uY,\uZ]^n$ est combinaison linéaire des relateurs triviaux
+entre les $Y_j-Z_j$. Et par suite que le vecteur $(v_1, \dots, v_n)$
+est combinaison linéaire de $u^f$ et des relateurs triviaux
+entre les $y_j-z_j$.
+
+En conséquence, la réunion de l'ensemble des relateurs triviaux et de l'ensemble de tous les $u^f$ lorsque~$f$ décrit $I(\uX)$ est un système générateur de $\ker\pi$.
+On conclut en remarquant que $f \mapsto u^f$ est $\gA$-linéaire en~$f$, donc on peut limiter les $f$ à un système générateur fini de $I(\uX)$.
+\end {proof}
+
+\subsection{Deux idéaux \gui{différentes}}
+
+
+
+\begin {definition} [les (idéaux) différentes de Kälher et de Noether]
+
+Soit $\gB/\gA$ une algèbre de présentation finie. On note $\mu$ la multiplication (en tant qu'\Ali)
+\[
+\mu : \BoB \to \gB,\;x\otimes y\mapsto xy
+\] 
+et $J=\ker\mu$.
+%$J$ l'idéal de $\BoB$ noyau de la multiplication:
+%$$
+%J = \ker\big(\mu : \BoB \to \gB \big).
+%$$
+On définit deux idéaux de $\gB$, chacun étant nommé \textsl{idéal différente de
+$\gB/\gA$}. Le premier de Kähler, le second de Noether:
+$$
+\DK(\gB/\gA) = \cF_0(\OmegaBA),
+\qquad
+\DN(\gB/\gA) = \mu(\Ann(J)).
+$$
+D'après le lemme \ref{KahlerSubsetNoether}, on a l'inclusion $\DK(\gB/\gA) \subseteq  \DN(\gB/\gA)$.
+\end {definition}
+
+\Note Voir \cite{Kunz}. La différente de Kähler est définie dans la section~10. L'annexe~G définit les différentes au sens de Noether et de Dedekind\footnote{La différente de Dedekind $\DD(\gB/\gA)$ est définie lorsque $\gB$ est est un \mptf sur $\gA$. C'est l'idéal engendré par  $f'(x)$, où $f(T)$ est le \polcar de (la multiplication par)~$x$ dans le \Amo \ptf $\gB$. Voir à ce sujet dans \cite{CACM} ou \cite{ACMC}, la proposition III-5.10 et le point 5 de la \dfn VI-3.1.}. Dans la proposition~10.17, Kunz démontre que les trois notions d'idéal différente coïncident dans le contexte suivant: l'anneau $\gA$ est \noe, $\gB/\gA$ est finie et localement intersection complète, et $\Frac(\gB)/\Frac(\gA)$ est étale. \eoe
+
+%%%
+\begin {lemma} %\leavevmode
+
+Dans le contexte de la définition précédente, l'idéal $J$ est un $\BoB$-module de présentation
+finie, cf. le théorème \ref{PresentationFinieJ}.
+On peut donc considérer son idéal de Fitting $\cF_0(J)$ qui est un idéal de $\BoB$.
+Alors:
+$$
+\DK(\gB/\gA) = \mu(\cF_0(J)).
+$$
+Comme on a toujours $\cF_0(J) \subseteq \Ann(J)$, on retrouve l'inclusion
+$\DK(\gB/\gA)\subseteq \DN(\gB/\gA)$.
+\end {lemma}
+
+%%
+\begin {proof} %\leavevmode
+
+Soit $\fa$ un idéal d'un anneau commutatif $\gC$ et $\pi : \gC \twoheadrightarrow \gC/\fa$
+la surjection canonique. Si $E$ est un $\gC$-module de présentation finie,
+alors $E/\fa E$ est un $(\gC/\fa)$-module de présentation finie et:
+$$
+\cF_0(E/\fa E) = \pi(\cF_0(E))
+$$
+On applique cette remarque à $\gC = \BoB$, $\fa=J$ de sorte que
+$\gC/\fa \simeq \gB$ via $\mu$ i.e. $\pi = \mu$.
+On prend comme module $E = J$. On a alors $E/\fa E = J/J^2$, si
+bien que:
+$$
+\pi(\cF_0(J)) = \cF_0(J/J^2).
+$$
+Pour conclure, on utilise le fait que $J/J^2$ est un modèle pour
+$\OmegaBA$.
+\end {proof}
+
+
+%%%
+\begin {theorem} %\leavevmode
+
+Soit $\gB/\gA$ une algèbre de présentation finie. Le $\gB$-module
+$\OmegaBA$ est alors de présentation finie. Supposons qu'il soit
+$m$-engendré (si $\gB/\gA$ est $n$-engendré, on peut prendre $m=n$).
+
+\smallskip\noindent  On a les inclusions suivantes d'idéaux de $\gB$:
+$$
+\big(\DN(\gB/\gA)\big)^m  \enspace\subseteq\enspace
+\big(\Ann(\OmegaBA)\big)^m   \enspace\subseteq\enspace
+\DK(\gB/\gA)  \enspace\subseteq\enspace
+\DN(\gB/\gA)  \enspace\subseteq\enspace
+\Ann(\OmegaBA).
+$$
+En particulier si $m=1$ (c'est le cas lorsque $\gB/\gA$ est monogène),
+tous les idéaux ci-dessus sont égaux.
+\end {theorem}
+
+
+%%
+\begin {proof} ~%\leavevmode
+
+\noindent 
+$\blacktriangleright$
+Montrons l'inclusion $\DN(\gB/\gA) \subseteq \Ann(\OmegaBA)$ i.e. 
+$\mu\big(\Ann(J)\big) \subseteq
+\Ann(J/J^2)$. Pour $\delta \in \Ann(J) \subseteq \BoB$,
+il suffit de voir que $\mu(\delta).J \subseteq J^2$.  Soit
+$\beta \in J$. Alors
+$$
+\mu(\delta).\beta \eqdef   (\mu(\delta)\otimes 1)\beta
+= (\mu(\delta)\otimes 1 - \delta)\beta
+$$
+Or $\mu(\delta)\otimes 1 - \delta \in J$ donc $\mu(\delta).\beta \in J^2$.
+
+\medskip\noindent 
+$\blacktriangleright$
+L'inclusion $\big(\Ann(\OmegaBA)\big)^m \subseteq
+\DK(\gB/\gA)$ i.e. $\big(\Ann(\OmegaBA)\big)^m \subseteq \cF_0(\OmegaBA)$ résulte,
+pour tout module de présentation finie $M$ engendré par $m$ générateurs,
+de l'inclusion $\big(\Ann(M)\big)^m \subseteq \cF_0(M)$
+\end {proof}
+
+\subsection{Un exemple: l'algèbre $\gB = \gA[x,y,z]$ définie par les relations
+$x^2=y^2=z^2$, $xy=xz=yz=0$}
+%%%%%%%%
+
+%\subsection{L'exemple de }
+
+Cet exemple est dû aux auteurs  \cite{ScSt74} cf. page 102.
+Il est reproduit dans l'exemple 5.4, de l'article \cite{IyTa}. 
+
+Il s'agit d'un exemple avec une inclusion stricte $\DK(\gB/\gA) \subsetneq \DN(\gB/\gA)$ lorsque
+$\gA$ est un corps de caractéristique $\ne 5$. Peu d'explications sont fournies chez les auteurs
+mentionnés.
+
+Les polynômes qui définissent $\gB/\gA$ sont les 5 polynômes suivants:
+$$
+\uF :\quad X^2 - Y^2,\quad X^2 - Z^2,\quad  XY,\quad XZ,\quad YZ
+$$
+On a $x^3 = x^2x = y^2x = 0$ et plus généralement $\langle x,y,z\rangle^3 = 0$ i.e. 
+$\langle X,Y,Z\rangle^3 \subset \langle\uF\rangle$.
+L'algèbre $\gB/\gA$ est libre de base $(1,x,y,z,x^2)$.
+La jacobienne de $\uF$ est donnée par:
+$$
+\Jac(\uF) = 
+\bordercmatrix[\lbrack\rbrack] {
+     &\partial_X &\partial_Y &\partial_Z \cr
+     &2X        &-2Y      &0         \cr      
+     &2X        &0        &-2Z       \cr 
+     &Y         &X        &0         \cr 
+     &Z         &0        &X         \cr 
+     &0         &Z        &Y         \cr           
+}
+$$
+Ses mineurs d'ordre 3 sont des polynômes homogènes de degré 3 donc nuls modulo
+$\uF$. En conséquence:
+$$
+\DK(\gB/\gA) = 0
+$$
+On va montrer que $5x^2 \in \DN(\gB/\gA)$.
+
+\medskip Pour travailler avec $\Ann(J) \subseteq \BoB$, on commence par renommer $x,y,z$ en $x_1,x_2,x_3$.
+Alors
+$$
+\BoB = \gA[y_1,y_2,y_3, z_1,z_2,z_3],\qquad
+J = \langle y_1-z_1, y_2-z_2, y_3-z_3\rangle
+$$
+avec
+$$
+y_1^2=y_2^2=y_3^2,\enspace y_1y_2 = y_1y_3= y_2y_3 = 0, \qquad
+z_1^2=z_2^2=z_3^2,\enspace z_1z_2 = z_1z_3= z_2z_3 = 0
+$$
+Il nous faut trouver des $t\in \BoB$ tels que $t.(y_i-z_i) = 0$ pour $i=1,2,3$.
+Puisque l'on veut $\mu(t) \ne 0$, on cherche $t$ homogène de degré 2 en les $y_i,z_i$.
+Voici un candidat
+$$
+t = y_1^2+z_1^2+s = y_2^2+z_2^2+s = y_3^2+z_3^2+s
+\qquad\text{avec}\qquad
+s = y_1z_1 + y_2z_2 + y_3z_3
+$$
+Vérifions que $t.(y_i-z_i) = 0$. Pour $i=1$ par exemple, on écrit $t =
+(y_1^2 + y_1z_1 + z_1^2) + (y_2z_2 + y_3z_3)$:
+$$
+(y_1^2 + y_1z_1 + z_1^2)(y_1 - z_1) = y_1^3 - z_1^3 = 0-0 = 0
+;\;
+(y_2z_2 + y_3z_3)(y_1 - z_1) = 0
+\; \text{car} \;
+\begin {array}{c} y_2y_1 = y_3y_1=0\\[2mm] z_2z_1 = z_3z_1=0\end{array}
+$$
+Ainsi $t \in \Ann(J)$ et $\mu(t) = 5x_1^2$. En revenant aux notations $x,y,z$, on a bien montré $5x^2 \in \DN(\gB/\gA)$.
+
+\medskip 
+De la même manière, soit $\gB = \gA[x_1, \dots, x_n]$ l'algèbre
+définie par les relations $x_1^2 = \dots = x_n^2$ et $x_ix_j = 0$ pour
+$i < j$. Alors $\gB/\gA$ est libre de rang $n+2$, de base $(1,
+x_1, \dots, x_n, x_1^2)$. Et on a $(n+2)x_1^2 \in \DN(\gB/\gA)$ via
+un argument analogue au cas $n=3$.  Soit
+$t \in \BoB = \gA[y_1, \dots, y_n, z_1, \dots, z_n]$
+défini par:
+$$
+t = y_i^2 + z_i^2 + \som_{j=1}^n y_jz_j
+$$
+On a $t \in \Ann(J)$ et $\mu(t) = (n+2)x_1^2$.
+Pour $n \ge 3$, on a $\DK(\gB/\gA) = 0$ puisque les $n$-mineurs
+de la jacobienne sont des polynômes homogènes de degré $n$
+et que la composante homogène de degré $d$ de $\gB$ est
+nulle pour~$d \ge 3$.
+ 
+\bibliographystyle{plainnat-fr}
+%\bibliography{KhalerNoetDiff.bib}
+\begin{thebibliography}{5}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname fonteauteurs\endcsname\relax
+\def\fonteauteurs{\scshape}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}%
+    \message{You should include the url package}\fi
+
+\bibitem[Iyengar et Takahashi(2021)]{IyTa}
+Srikanth~B. \bgroup\fonteauteurs\bgroup Iyengar\egroup\egroup{} et Ryo
+  \bgroup\fonteauteurs\bgroup Takahashi\egroup\egroup{} :
+\newblock The {J}acobian ideal of a commutative ring and annihilators of
+  cohomology.
+\newblock {\em J. Algebra}, 571\string:\penalty500\relax 280--296, 2021.
+
+\bibitem[Kunz(1986)]{Kunz}
+Ernst \bgroup\fonteauteurs\bgroup Kunz\egroup\egroup{} :
+\newblock {\em K\"ahler differentials}.
+\newblock Advanced Lectures in Mathematics. Friedr. Vieweg \& Sohn,
+  Braunschweig, 1986.
+
+\bibitem[Lombardi et Quitté(2015)]{CACM}
+Henri \bgroup\fonteauteurs\bgroup Lombardi\egroup\egroup{} et Claude
+  \bgroup\fonteauteurs\bgroup Quitté\egroup\egroup{} :
+\newblock {\em Commutative algebra: constructive methods. Finite projective
+  modules}.
+\newblock Algebra and applications, 20. Springer, Dordrecht, 2015.
+\newblock URL \url{https://arxiv.org/abs/1605.04832}.
+\newblock Traduit du français (Calvage \& Mounet, Paris, 2011, revu et étendu
+  par les auteurs) par Tania K.~Roblot.
+
+\bibitem[{Lombardi} et {Quitté}(2021)]{ACMC}
+Henri \bgroup\fonteauteurs\bgroup {Lombardi}\egroup\egroup{} et Claude
+  \bgroup\fonteauteurs\bgroup {Quitté}\egroup\egroup{} :
+\newblock {\em {Algèbre commutative. Méthodes constructives. Modules
+  projectifs de type fini. Cours et exercices.}}
+\newblock Paris: Calvage \& Mounet, 2021.
+\newblock Deuxième édition, revue et étendue, du livre paru en 2011.
+
+\bibitem[Scheja et Storch(1974)]{ScSt74}
+Günther \bgroup\fonteauteurs\bgroup Scheja\egroup\egroup{} et Uwe
+  \bgroup\fonteauteurs\bgroup Storch\egroup\egroup{} :
+\newblock {\em Lokale {V}erzweigungstheorie}, volume No. 5 de {\em
+  Schriftenreihe des Mathematischen Institutes der Universit\"at Freiburg}.
+\newblock Universit\'e{} de Fribourg, Institut des Math\'ematiques, Fribourg,
+  1974.
+\newblock Vorlesungen \"uber Kommutative Algebra (Wintersemester 1973/74).
+
+\end{thebibliography}
+
+
+\end{document}
+
