@@ -1,0 +1,2408 @@
+\documentclass[12pt]{article}                   % Začátek dokumentu
+\usepackage{../../MFFStyle}                     % Import stylu
+
+\begin{document}
+
+% 3. 3. 2021
+\section{Úvod}
+    \begin{poznamka}[Informační zdroje]
+        Stránky, diskuze na google docs, Moodle.
+    \end{poznamka}
+
+    \begin{poznamka}[Proč algebra]
+        Diofanctické rovnice (Fermatovy věty, Gaussova celá čísla), kořeny polynomů (Grupy polynomů), geometrie (nekonstruovatelnost), studium abstraktních struktur běžných objektů.
+    \end{poznamka}
+
+\section{Obory}
+    \begin{definice}[Okruh]
+            Okruh $R$ je pětice $(R, +, ·, -, 0)$, kde $+, ·: R \times R \rightarrow R$, $-: R \rightarrow R$, $0 \in R$ tak, že $\(\forall a, b, c \in R\)$:
+        $$ a + (b + c) = (a + b) + c, $$ 
+        $$ a + b = b + a, a + 0 = a, a + (-a) = 0, $$
+        $$ a·(b·c) = (a·b)·c, a·(b+c) = a·b + a·c, (b+c)·a = b·a + c·b. $$ 
+    \end{definice}
+
+    \begin{definice}[Komutativní okruh]
+        Komutativní okruh je okruh, pro který platí $a · b = b · a$.
+    \end{definice}
+
+    \begin{definice}[Okruh s jednotkou]
+        Okruh s jednotkou je okruh, který má prvek $1 \in R: a·1 = a$.
+    \end{definice}
+
+    \begin{definice}[Obor (integrity)]
+        Obor (integrity) je komutativní okruh s jednotkou tak, že $0 ≠ 1 \land (a≠0 \land b≠0 \implies a·b ≠ 0)$.
+    \end{definice}
+
+    \begin{definice}[Těleso]
+        Těleso je komutativní okruh s 1, že $0 ≠ 1$ a $\forall 0≠a \in R\ \exists b \in R: a · b = 1$.
+    \end{definice}
+
+    \begin{definice}[Podokruh]
+        Podokruh $S$ okruhu $R$ je $(S, +|_S, ·|_S, -|_S, 0)$, kde $0 \in S$ a $\forall a, b \in S: a+b \in S \land a·b \in S \land -a \in S$. Značíme $R ≤ S$.
+    \end{definice}
+
+% 5. 3. 2021
+
+    \begin{definice}[Podobor]
+        $S$ je podobor oboru $R$ tehdy, když $S ≤ R$ a $S$ je obor.
+    \end{definice}
+
+    \begin{definice}[Podtěleso]
+        $S$ je podtěleso tělesa $R$ tehdy, když $S ≤ R$ a $S$ je těleso.
+    \end{definice}
+
+    \begin{definice}[Gaussova čísla]
+        $®Z[i] = \{a+bi | a, b \in ®Z\}$ jsou tzv. Gaussova celá čísla.
+    
+        $®Q[i] = \{a+bi | a, b \in ®Q\}$ jsou tzv. Gaussova racionální čísla..
+    \end{definice}
+
+    \subsection{Základní vlastnosti}
+        \begin{tvrzeni}
+            Mějme množinu $X$ s asociativní (tj. $(a*b)*c = a*(b*c)$) operací $*:X \times X \rightarrow X$. Pak hodnota výrazu $a_1*a_2*a_3*…*a_n$ nezávisí na uzávorkování.
+
+            \begin{dukazin}
+                Indukcí.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Základní vlastnosti oborů]
+            Buď $R$ okruh a $a, b, c \in R$.
+            $$ 1) a + c = b + c \implies a = b, $$
+            $$ 2) a·0 = 0, $$
+            $$ 3) -(-a) = a,\ -(a + b) = -a + (-b), $$
+            $$ 4) -(a·b) = (-a)·b = a·(-b),\  (-a)·(-b) = a·b, $$ 
+            $$ 5) \text{Je-li $R$ obor, pak } a·c = b·c \land c≠0 \implies a=b. $$ 
+
+            \begin{dukazin}
+                $$ 1) (a+c) + (-c) = (b + c) + (-c) \implies a+0 = b+0 \implies a = b, $$
+                $$ 2) 0 + a·0 = a·0 = a·(0 + 0) = a·0 + a·0 \implies 0 = a·0. $$
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Každé těleso je obor]
+            Z existence $a^{-1}$ vyplývá $a≠0, b≠0 \implies ab ≠ 0$.
+
+            \begin{dukazin}[Sporem]
+                $a ≠ 0, b ≠ 0, ab=0 \implies b = (a^{-1}·a)·b = a^{-1}·(ab) = a^{-1}·0$ a podle předchozího tvrzení (část 2) $b = 0$ \lightning.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            Každý konečný obor je těleso.
+            
+            \begin{dukazin}
+                Viz skripta.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{definice}
+            Nechť $R$ je okruh s jednotkou 1. Charakteristika $R$ je nejmenší přirozené číslo $n$ tak, že $ \underbrace{1+1+…+1}_{n\text{-krát}}$, pokud takové $n$ neexistuje, říkáme, že charakteritika je 0 (případně $∞$).
+
+            Prvek $\underbrace{1+1+…+1}_{n\text{-krát}}$ značíme $n$, obdobně $\underbrace{-1-1-…-1}_{n\text{-krát}}$ značíme $-n$.
+        \end{definice}
+
+        \begin{tvrzeni}
+            Každý obor má charakteristiku 0 nebo $p$.
+
+            \begin{dukazin}
+                Pro 1 je to cvičení. V případě, že charakteristika je $n = k·l$, $k, l≠1$, pak $0 = k·l$. Jsme v oboru, tedy $k = 0$ nebo $l=0$. Spor s minimalitou $n$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Izomorfismus}
+        \begin{definice}[Homomorfismus]
+            Nechť $R, S$ jsou okruhy. Zobrazení $\phi: R \rightarrow S$ je homomorfismus okruhů, pokud $\forall a, b \in R:$
+            $$ \phi(a + b) = \phi(a) + \phi(b) \land \phi(a·b) = \phi(a) · \phi(b). $$
+
+            Je-li homeomorfismus $\phi$ bijekce, nazývá se izomorfismus.
+        \end{definice}
+
+        \begin{poznamka}
+            Inverzní zobrazení k izomorfismu je izomorfismus.
+        \end{poznamka}
+
+        \begin{definice}
+            Okruhy $R, S$ jsou izomorfní, pokud existuje izomorfismus $\phi: R \rightarrow S$. Značíme $R \simeq S$.
+        \end{definice}
+
+        \begin{priklady}
+            Tzv. prvookruh (tj. všechny prvky tvaru $1+1+…+1$ nějakého okruhu s jedničkou) je izomorfní $®Z_n$ resp. (v tomto případě musíme zahrnout i $-1-1-…-1$) $®Z$.
+        \end{priklady}
+
+    \subsection{Podílové těleso}
+        \begin{definice}[Multiplikativní množina]
+            Nechť $R$ je obor. Pak $M \subseteq R$ je multiplikativní množina, pokud $0 \notin M, 1 \in M$ a $a, b \in M \implies a·b \in M$.
+
+            \begin{prikladyin}
+                Nejdůležitější MM je $M = R \setminus \{0\}$.
+            \end{prikladyin}
+        \end{definice}
+
+        \begin{definice}[Podílové těleso]
+            Nechť $R$ je obor a $M$ multiplikativní množina. Definujeme relaci $\sim$ na $R \times M$:
+            $$ (a, b) \sim (c, d) ≡ ad = bc. $$
+
+            Blok $[(a, b)]_{\sim}$ nazýváme zlomek a značíme $\frac{a}{b}$.
+
+            Na $Q = \{\frac{a}{b} | a \in R, b \in M\}$ definujeme operace
+            $$ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd},\ \frac{a}{b}\frac{c}{d} = \frac{ac}{bd},\ -\frac{a}{b} = \frac{-a}{b},\ 0 = \frac{0}{1}, 1 = \frac{1}{1}. $$ 
+            Tedy $Q$ je okruh s jednotkou. $(Q, +, -, ·, 0, 1)$ se nazývá lokalizace oboru $R$ v MM $M$. Pokud $M = R \setminus \{0\}$, pak se nazývá podílové těleso.
+        \end{definice}
+
+% 10. 3. 2021
+        
+        \begin{tvrzeni}
+            Máme $R$, $N$, $Q$ z předchozí definice. 1) $Q$ je obor. 2) $\{\frac{a}{1} | a \in R\}$ je podobor $Q$, který je izomorfní s $R$. 3) Je-li $M = R \setminus \{0\}$, pak $Q$ je těleso.
+
+            \begin{dukazin}
+                1) Ověříme axiomy. Triviální. Důležitý je hlavně součin ne0 prvků.
+
+                2) Ověříme uzavřenost a obsah jedničky. Ověříme, že zjevné zobrazení je izomorfizmus.
+
+                3) Ověříme axiomy. Na tři řádky.
+            \end{dukazin}
+        \end{tvrzeni}
+
+\section{Polynomy}
+    \subsection{Obory polynomů}
+        \begin{poznamka}[Značení]
+            V celé sekci Polynomů je $R$ komutativní okruh s jednotkou.
+        \end{poznamka}
+
+        \begin{definice}[Polynom]
+            Polynom v proměnné $x$ nad okruhem $R$ je výraz tvaru
+            $$ a_0 + a_1·x + a_2·x^2 + a_n·x^n, $$ 
+            kde $n ≥ 0$, $a_1, …, a_n \in R$ a $a_n ≠ 0$ vyjma $n = 0$. $a_1, …, a_n$ jsou koeficienty, $x$ proměnná. Navíc se dodefinovává $a_m = 0\ \forall m > n$.
+
+            Číslo $n = \deg f$ je stupeň polynomu $f$. $\deg 0 = -1$. $a_n$ se nazývá vedoucí koeficient a $a_0$ absolutní člen.
+
+            $f$ je monický, pokud $a_n = 1$. Množinu všech polynomů značíme $R[x]$.
+        \end{definice}
+
+        \begin{definice}[Operace na $R\[x\]$]
+                $$ \sum_{i=0}^m a_ix^i + \sum_{i=0}^n b_ix^i = \sum_{i=0}^{max(m, n)} (a_i + b_i)x^i;\qquad -\sum_{i=0}^m a_ix^i = \sum_{i=0}^m -a_ix^i; $$
+                $$ \(\sum_{i=0}^m a_ix^i\)\(\sum_{i=0}^n b_ix^i\) = \sum_{i=0}^{m+n} \sum_{j+k = i, j, j ≥ 0} (a_j·b_k)x^i $$ 
+        \end{definice}
+
+        \begin{tvrzeni}
+            $R[x]$ je komutativní okruh s jednotkou. Navíc je-li $R$ obor, pak i $R[x]$ je obor $\land \deg(fg) = \deg f + \deg g$ $\forall f, g \in R[x], f≠0≠g$.
+
+            \begin{dukazin}
+                Jednoduché, ve skriptech. Druhá část přes vedoucí koeficienty (jsou nenulové).
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{definice}[Polynom více proměnných]
+            Induktivní definicí: Polynom v proměnných $x_1, x_2, …, x_m$ nad okruhem $R$ je polynom v proměnné $x_m$ nad okruhem $R[x_1, …, x_{m-1}]$.
+
+            Značíme $R[x_1, …, x_m] = (R[x_1, …, x_{m-1}])[x_m]$.
+
+            Každý $f \in R[x_1, …, x_m]$ jde jednoznačně napsat v distribuovaném tvaru (je potřeba dokázat, ale tím pádem nezáleží na pořadí proměnných):
+            $$ \sum_{k_1, …, k_m}^n a_{k_1, …, k_m}x_1^{k_1}·…·x_m^{k_m}. $$ 
+        \end{definice}
+
+    \subsection{Hodnota polynomu}
+        \begin{definice}
+            $R ≤ S$ obory. $f = a_0 + a_1·x + … + a_n·x^n \in R[x], u \in S$. Hodnota polynomu $f$ po dosazení $u$ je definována:
+            $$ f(u):= a_0 + a_1·u + … + a_n·u^n \in S. $$
+            (Operace jsou v oboru $S$.)
+
+            Zobrazení $S \rightarrow S$, $u \mapsto f(u)$ nazýváme polynomiální zobrazení dané polynomem $f$.
+        \end{definice}
+
+    \subsection{Dělení polynomu se zbytkem}
+        \begin{definice}
+            $f, g \in R[x]$. $g$ dělí $f$, zapisujeme $g | f$, $≡$ $\exists h \in R[x]$ tak, že $f = gh$.
+
+            Je-li $R$ obor a $g | f ≠ 0$ $\implies \deg g ≤ \deg f$ z tvrzení výše.
+        \end{definice}
+
+        \begin{tvrzeni}[Dělení polynomů se zbytkem]
+            Nechť $R$ je obor, $Q$ podílové těleso. $f, g \in R[x], g≠0$. Pak existuje právě jedna dvojice $q, r \in Q[x]$:
+            $$ f = gq + r \land \deg r < \deg g. $$
+
+            Je-li navíc $g$ monický, pak $q, r \in R$.
+
+            $f div g := q$ a $f mod g := r$.
+
+            \begin{dukazin}
+                    $q_0 = 0, r_0 = f$. Induktivně ($l(f) := $ vedoucí koeficient polynomu $f$):
+                $$ q_{i+1} = q_i + \frac{l(r_i)}{l(g)} x^{\deg r_i - \deg g},\ r_{i+1} = r_i - \frac{l(r_i)}{l(g)}x^{\deg r_i - \deg g}·g. $$
+                Vidíme, že stupeň $r_i$ se snižuje, a když $\deg r_i < \deg g$, tak skončíme a $r = r_i, q = q_i$.
+
+                Jednoznačnost:
+                $$ f = gq + r = g\tilde{q} + \tilde{r} \implies g(q - \tilde{q}) = \tilde{r} - r \implies g | \tilde{r} - r \implies \tilde{r} - r = 0. $$ 
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Kořeny a dělitelnost}
+        \begin{definice}
+            Ať $R ≤ S$ jsou obory, $f \in R[x]$, $a \in S$. Pak $a$ je kořen $f$ $≡$ $f(a) = 0$.
+        \end{definice}
+
+        \begin{tvrzeni}
+            Buď $R$ obor, $f \in R[x]$, $a \in R$. $a$ je kořen $f$ $\Leftrightarrow x-a | f$.
+
+            \begin{dukazin}
+                $\impliedby :$ $f = (x-a)·g$ pro nějaké $g \in R[x]$ $\implies f(a) = (a - a)·g(a) = 0$.
+            
+                $\implies:$ Buď $q, r \in R[x]$ podíl a zbytek při dělení $f$ monickým polynomem $x - a$. $f = (x - a)·q + r$, $\deg r < \deg (x - a) = 1$ $\implies r$ je konstantní polynom. Dosadíme $a$:
+                $$ 0 = f(a) = (a-a)q(a) + r(a) = r(a). $$ 
+                $r$ je konstantní $\implies r = 0$. $f = (x - a)·q + 0 \implies x - a | f$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{pozorovani}
+            $$ f \mod\ x-a = f(a) $$ 
+        \end{pozorovani}
+
+        \begin{veta}[Počet kořenů]
+            $R$ obor, $0 ≠ f \in R[x]$.  Pak $f$ má nejvýše $\deg f$ kořenů v $R$.
+
+            \begin{dukazin}
+                Indukcí dělením $x - \text{kořen}$.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{definice}[Vícenásobný kořen]
+            Ať $f \in R[x], a \in R$. Pak $a$ je $n$-násobný kořen $f$ $≡$ $(x - a)^n | f$ a $(x - a)^{n + 1} \nmid f$.
+        \end{definice}
+
+\section{Číselné obory}
+    \subsection{Okruhová a tělesová rozšíření}
+        \begin{definice}
+            Nechť $R ≤ S$ jsou komutativní okruhy, $a_1, …, a_n \in S$. Definujeme $R[a_1, …, a_n]$ jako nejmenší podokruh okruhu $S$, který obsahuje $R$ a $a_1, …, a_n$. Ten nazveme okruhové rozšíření $R$ o prvky $a_1, …, a_n$.
+
+            Nechť $R ≤ S$ jsou tělesa, $a_1, …, a_n \in S$. Definujeme $R(a_1, …, a_n)$ jako nejmenší podtěleso tělesa $S$, které obsahuje $R$ a $a_1, …, a_n$. To nazveme tělesové rozšíření $R$ o prvky $a_1, …, a_n$.
+        \end{definice}
+
+        \begin{tvrzeni}
+            Mějme $R ≤ S$ komutativní okruhy s 1, $a \in S$. Pak $R[a] = \{f(a) | f \in R[x]\}$. Jsou-li $R, S$ navíc tělesa, pak $R(a) = \{\frac{f(a)}{g(a)} | f, g \in q[R], g(a) ≠ 0\}$.
+
+            \begin{dukazin}
+                Dokážeme, že je to podokruh, že obsahuje $R$ i $a$ a že je nejmenší takový.
+            \end{dukazin}
+        \end{tvrzeni}
+
+% 12. 3. 2021
+
+        \begin{pozorovani}
+            Ať $T ≤ S$ jsou tělesa, potom $T[a] \subseteq T(a)$.
+
+            Ale např. $®Q[i] = ®Q(i)$.
+        \end{pozorovani}
+
+        \begin{tvrzeni}
+            Nechť $T ≤ S$ jsou tělesa, $a$ není kořenem žádného nenulového polynomu z $T[x]$. Pak $T[a] ≠ T(a)$.
+
+            \begin{dukazin}
+                Podle předchozího tvrzení $T[a] = \{f(a) | f \in T[x]\}$. Kdyby $T[a] = T(a)$, pak $T[a]$ je těleso, tedy $a^{-1} \in T[a] \implies a^{-1} = f(a)$ pro nějaký $f \in T[x]$, tedy $a·f(a) - 1 = 0$. Tedy $a$ je kořenem $x·f - 1$. \lightning.
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Algebraická a transcendentní čísla}
+        \begin{definice}
+            $a \in ®C$ je algebraické, pokud je kořenem nějakého nenulového polynomu $f \in ®Z[x]$.
+
+            Jinak $a$ je transcendentní.
+        \end{definice}
+
+        \begin{poznamka}[První důkaz transcendentního čísla]
+            Luvil? $\sum_{i=1}^∞ 10^{-i!}$.
+
+            Další čísla (19. stol): $\pi, e$.
+
+            Cantor: náhodné reálné číslo je transcendentní (tj. algebraická čísla jsou spočetná / mají míru 0).
+        \end{poznamka}
+
+        \begin{tvrzeni}
+            Množina algebraických čísel je spočetná.
+
+            \begin{dukazin}
+                Indexem polynomu $f = a_0 + a_1x + … + a_nx^n \in ®Z[x], f ≠ 0$ nazvěme číslo $|a_0| + |a_1| + … + |a_n| + n \in ®N$. Indexů existuje jen konečně mnoho daného indexu (díky započítání stupně do indexu). Všechny polynomy seřadím podle rostoucího indexu. Nyní už je zřejmě $®Z[x]$ spočetná. Navíc každý polynom má konečně kořenů, tedy, tedy i kořenů je spočetně mnoho.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            Množina reálných čísel je nespočetná.
+        \end{tvrzeni}
+
+\section{Elementární teorie čísel}
+    \subsection{Dělitelnost a základní věta aritmetiky}
+        \begin{definice}[Dělitelnost v celých číslech]
+            Ať $a, b \in ®Z$, $b$ dělí $a$, značíme $b|a$, pokud $\exists c \in ®Z: a = bc$.
+
+            $±1$ a $±a$ se nazývají nevlastní dělitelé, ostatní jsou vlastní.
+        \end{definice}
+
+        \begin{tvrzeni}
+            Mějme $a, b \in ®Z$, $b≠0$. Pak $\exists! q, r \in ®Z: a = qb+r, 0≤r<|b|$. Značíme $a \div b = q$ a $a \mod b = r$. Navíc $b|a \Leftrightarrow a \mod b = 0$
+        \end{tvrzeni}
+
+        \begin{definice}[Prvočíslo a složené číslo]
+            Prvočíslo je $p \in ®Z, p > 1$, které má pouze nevlastní dělitele. Ostatní přirozená čísla $>1$ jsou složená.
+        \end{definice}
+
+        \begin{veta}[Základní věta aritmetiky]
+            $\forall a \in ®Z, a > 1$ existují po dvou různá prvočísla $p_1, …, p_n$ a $k_1, …, k_n \in ®N$ tak, že $a = p_1^{k_1}·…·p_n^{k_n}$. Tento rozklad je až na pořadí jednoznačný.
+
+            \begin{dukazin}
+                Později.
+            \end{dukazin}
+        \end{veta}
+
+    \subsection{NSD}
+        \begin{definice}[NSD, NSN]
+            Největší společný dělitel $a, b \in ®Z$ je největší $c \in ®N$ takové, že $c | a, c|b$. Značíme ho $\NSD(a, b)$ (neexistuje pro $a=b=0$).
+
+            Nejmenší společný násobek $a,b \in ®Z\setminus \{0\}$ je nejmenší $c \in ®N$ tak, že $a | c$ a $b | c$. Značíme ho $\NSN(a, b)$.
+        \end{definice}
+
+        \begin{poznamka}
+            Základní věta aritmetiky $\implies$ $a·b = \NSD(a, b)·\NSN(a, b)$.
+
+            Rychlý algoritmus na hledání NSN je Euklidův algoritmus.
+        \end{poznamka}
+
+        \begin{tvrzeni}[Bézoutova rovnost]
+            $\forall a, b \in ®Z$, $a ≠ 0$ nebo $b ≠ 0$, $\exists u, v \in ®Z$ (Bézoutovy koeficienty) tak, že $a·u + b·v = \NSD(a, b)$.
+
+            \begin{dukazin}
+                Rozšířený Euklidův algoritmus.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{lemma}
+            Ať $p$ je prvočíslo, $a, b \in ®Z$. Pak $p|a·b \implies p|a \lor p|b$.
+
+            \begin{poznamkain}
+                V obecném oboru neplatí. Např. v $®Z[\sqrt{5}]$ $2|(\sqrt{5} + 1)(\sqrt{5} - 1) = 4$, ale $2\nmid\sqrt{5} ± 1$
+            \end{poznamkain}
+
+            \begin{dukazin}
+                BÚNO $p \nmid a$, tedy chceme, aby $p|b$. $p$ je prvočíslo, tudíž nemá vlastní dělitele $\implies$ $\NSD(p, a) = $ buď $p$ (to by ale $p|a$), nebo $1$. Dle tvrzení o Bézoutově rovnosti $\exists u, v \in ®Z: pu+av = 1$. Vynásobíme $b$: $pbu + abv = b$. Ale $p | ab$, takže $p | pbu + abv = b$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{lemma}
+            $p$ prvočíslo, $a_1, …, a_n \in ®Z$. $p|a_1 · … · a_n \implies \exists i: p | a_i$.
+
+            \begin{dukazin}
+                Indukcí z předchozího tvrzení.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{dukaz}[Základní věta aritmetiky]
+            Existence: pro spor ať $a$ je nejmenší přirozené číslo, které nemá rozklad na součin. Buď je $a$ prvočíslo, ale pak má rozklad $a = a^1$. Nebo je $a$ složené, tedy $a=b·c, 1 < b, c, < a$, ale $a$ bylo nejmenší číslo, které nemá rozklad, tedy $b$ i $c$ mají rozklad. Ale pak součin těchto rozkladů je $a$.
+
+            Jednoznačnost: $a$ nejmenší přirozené číslo, které má 2 rozklady: $a = p_1^{k_1} · … · p_m^{k_m} = q_1^{l_1}·…·q_n^{l_n}$. Pak $p_1 | q_1^{l_1}·…·q_n^{l_n}$. Podle předchozího lemmatu $\exists i: p_1 | q_i$. Jsou to prvočísla, tedy $p_1 = q_i$. Potom $p_1^{k_1-1} · … · p_m^{k_m} = q_1^{l_1}·…·q_i^{k_i - 1}…·q_n^{l_n}$ jsou dva rozklady čísla $< a$. \lightning.
+        \end{dukaz}
+
+    \subsection{Kongruence}
+        \begin{poznamka}[Historie]
+            Symbol $≡$ zavedl v roce 1801 Gauss.
+        \end{poznamka}
+
+        \begin{definice}
+            $a, b, m \in ®Z, m≠0$. $a$ je kongruentní s $b$ modulo $m$ ($a ≡ b \pmod{m}$), pokud $m|a-b$. (Ekvivalentně $a, b$ dávají stejný zbytek po dělení $m$.)
+        \end{definice}
+
+        \begin{pozorovani}
+            Být kongruentní $\bmod\ m$ je ekvivalence.
+        \end{pozorovani}
+
+        \begin{tvrzeni}[Vlastnosti kongruence]
+            $a, b, c, d, m \in ®Z, m≠0$. $a ≡ b \mod m, c ≡ d \mod m$.
+            $$ a+c ≡ b+d \pmod m, \qquad a-c ≡ b-d \pmod m, \qquad a·c ≡ b·d \pmod m, $$
+            $$ a^k≡b^k \pmod m, k \in ®N, \qquad c≠0 \implies a≡b \mod m \Leftrightarrow ac≡bc \pmod{mc}, $$
+            $$ \NSD(c, m) = 1 \implies a≡b \pmod m \Leftrightarrow ac≡bc \pmod m. $$
+            \begin{dukazin}
+                Z definice rozepsáním.
+                $$ a≡b \pmod m \Leftrightarrow \exists q: a-b = mq \Leftrightarrow ac - bc = mcq \Leftrightarrow ac ≡ bc \pmod{mc}. $$
+                $$ cu + mv = 1, cu = 1 - mv \implies $$
+                $$ \implies (ac ≡ bc \pmod m \Leftrightarrow a≡a(1-mv)≡auc≡buc≡b(1-mv)≡b \pmod m). $$ 
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Eulerova věta a RSA}
+        \begin{definice}[Eulerova funkce]
+                Eulerova funkce $\phi(n)$ značí (pro $n \in ®N$) počet $k \in \{1, 2, …, n\}$ nesoudělných s $n$, čili $\NSD(k, n)=1$.
+        \end{definice}
+
+        \begin{tvrzeni}
+            $n = p_1^{k_1}·…·p_m^{k_m}$ prvočíselný rozklad, $n > 1$. Pak $\phi(n) = p_1^{k_1-1}(p_1-1)·…·p_m^{k_m - 1}(p_m - 1)$.
+            
+            \begin{dukazin}
+                Příště.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{veta}[Eulerova]
+            Pokud $a, m$ jsou nesoudělná přirozená čísla, pak $a^{\phi(m)} ≡ 1 \mod m$.
+
+            Speciálním případem je Malá Fermatova věta: $p$ prvočíslo, $p\nmid a \implies a^{p-1}≡1(\mod p)$.
+
+            \begin{dukazin}
+                $\Phi_m$ nechť značí množinu $\{k \in [m]|\NSD(k, m) = 1\}$. $\phi(m) = |\Phi_m|$.
+
+                Lemma: $a, m$ nesoudělná přirozená čísla, $m≠1$. Definujeme zobrazení $f_a: \Phi_m \rightarrow \Phi_m$, $k \mapsto ka \mod m$. Pak $f_a$ je dobře definované $\land$ je to bijekce.
+
+                Důkaz $k, a$ nesoudělná s $m \implies k·a$ nesoudělné s $m \implies k·a \mod m$ nesoudělné s $m \implies k·a \mod m \in \Phi_m$. $f_a(k) = f_a(l) \implies k·a ≡ l·a \mod m \implies k≡l \mod m$ ($a$ je nesoudělné s $m$, tedy můžeme použít tvrzeni výše) $\implies k=l$. $f_a$ je prosté a na konečné množině, tedy je bijekce.
+
+                $$ \prod_{b \in \Phi_m}b = \prod_{b \in \Phi_m} f_a(b) = \prod_{b \in \Phi_m} (ab \mod m) ≡ a^{\phi(m)} \prod_{b \in \Phi_m} b $$
+                $c = \prod_{b \in \Phi_m} b$, $c ≡ a^{\phi(m)}c \mod m$ a $c$ je nesoudělné s $m$, tedy dle tvrzení výše je $1 ≡ a^{\phi(n)} \mod m$.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{poznamka}
+            Lemma z posledního důkazu nám říká, že každý prvek z $\Phi_m$ má inverzi v okruhu $®Z_m$.
+
+            Ten můžeme najít buď přes Eulerovu větu, nebo přes Bézoutovu větu. (Druhý způsob je zpravidla rychlejší.)
+        \end{poznamka}
+
+% 17. 3. 2021
+
+        \begin{poznamka}[RSA (Rivest Shamir Adleman)]
+            Šifrovací algoritmus založený na Eulerově větě.
+        \end{poznamka}
+
+    \subsection{Čínská zbytková věta}
+        \begin{poznamka}
+            Špatně: Uvedená v knize umění války (počítání vojáků).
+
+            Správně: vymyslel ji čínský matematik, který se jmenoval stejně jako legendární generál, autor knihy výše.
+        \end{poznamka}
+
+        \begin{veta}[Čínská zbytková]
+            Nechť $m_1, …, m_n \in ®N$ po dvou nesoudělná čísla. Označíme $M = m_1·…·m_N$. Ať $u_1, …, u_n \in ®Z$. Pak\footnote{$$ [M-1]_0 = \{0, 1, …, M-1\} $$ } $\exists! x \in [M-1]_0$ tak, že $x ≡ u_1 \mod m_1, …, x ≡ u_n \mod m_n$.
+
+            \begin{dukazin}
+                Jednoznačnost: Ať $x, y \in [M-1]_0$, pro které platí všechny kongruence. Potom $\forall i: m_i | x - y$, tedy $M | x - y$. Ale $|x - y| < M$, tudíž $x - y = 0$.
+
+                Existence: $f: [M-1]0 \rightarrow [m_1-1]_0 \times … \times [m_n - 1]_0$, $x \mapsto (x \mod m_1, …, x \mod m_n)$. Korektní definice zobrazení (mimochodem je to dokonce isomorfismus okruhů). $f$ je prosté (díky jednoznačnosti). Množiny jsou stejně velké, tedy je to dokonce bijekce, a proto existuje inverze, tudíž prvek $(u_1, …, u_n)$ musí mít obraz při zobrazení $f^{-1}$, který z definice splňuje vlastnosti hledaného prvku..
+            \end{dukazin}
+        \end{veta}
+
+        \begin{dukaz}[Vzorec pro eulerovu formuli]
+            1) $\phi(p^k) = p^{k-1}(p-1)$. 2) $a, b$ nesoudělná $\implies \phi(ab) = \phi(a)·\phi(b)$. Následně se vzorec dokáže aplikováním hodněkrát 2 na rozklad a jedničky nakonec.
+
+            1) Počet čísel soudělných s $p^k$ z množiny $[p^k]$ je $p^{k-1}$, tedy počet nesoudělných je $p^k - p^{k-1}$.
+
+            2) Funkce z důkazu čínské zbytkové věty je bijekce. Uvažujme zúžení $f$ na $\Phi_{a·b}$. Chceme: obraz zúžení je $\Phi_a \times \Phi_b$, tedy $\phi(ab) = |\Phi_{ab}| = |\Phi_a \times \Phi_b| = \phi(a)·\phi(b)$. Důkaz:
+
+            $\implies$: $f$ zobrazí $\Phi$ do $\Phi_a \times \Phi_b$, čili, že $\NSD(x, a·b) = 1$ implikuje $\NSD(x \mod a, a) = 1, \NSD(x \mod b, b) = 1$.
+
+            $\impliedby$: $f$ zobrazí $\Phi_{a, b}$ na $\Phi_a \times \Phi_b$, čili pokud $\NSD(u, a) = 1$, $\NSD(v, b) = 1$, pak to jediné $x$, které se zobrazí na $(u, v)$, leží v $\Phi_{a, b}$.
+
+            $$ \NSD(x, ab) = 1 \Leftrightarrow \NSD(x, a) = 1 \land \NSD(x, b) = 1 \Leftrightarrow $$
+            $$ \Leftrightarrow \NSD(x \bmod a, a) = 1 \land \NSD(x \bmod b, b) = 1. $$ 
+        \end{dukaz}
+
+\section{Abstraktní dělitelnost}
+    \subsection{Dělitelnost a asociovanost}
+        \begin{definice}[Dělitelnost, asociovanost, inverz]
+            $R$ obor, $a, b \in R$. $b$ dělí $a$ v $R$, značíme $b|a$, pokud existuje $c \in R$ tak, že $a = b·c$.
+
+            $a, b$ jsou asociované v $R$, pokud $a|b$, $b|a$. Značíme $a||b$.
+
+            $a \in R$ je invertibilní, pokud existuje $b \in R$ tak, že $a·b = 1$ (značíme $b = a^{-1}$).
+        \end{definice}
+
+        \begin{pozorovani}
+            $a$ je invertibilní $\Leftrightarrow$ $a || 1$.
+
+            Relace $|$ je reflexivní $\land$ tranzitivní.
+        \end{pozorovani}
+
+        \begin{tvrzeni}
+            $R$ obor, $a, b \in R$. Pak $a||b$ $\Leftrightarrow$ $\exists$~invertibilní prvek $q \in R$ tak, že $a = bq$.
+
+            \begin{dukazin}
+                $\impliedby$: ($a = bq \implies b | a) \land (b = aq^{-1} \implies a | b)$.
+
+                $\implies$: $a = 0 \implies b = 0$. Ať $a ≠ 0$, $(b|a \implies a = bu) \land (a|b \implies b=av) \implies a = bu = auv$. Můžeme vykrátit $a ≠ 0$, tj. $1 = uv$, a $u, v$ jsou tedy invertibilní.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{definice}[Kongruence]
+            $a, b, m \in R: a≡b \bmod m$, pokud $m | a - b$.
+        \end{definice}
+
+        \begin{pozorovani}
+            Je to ekvivalence, zachovává se přičtením a odečtením, ale nemusí platit krácení.
+        \end{pozorovani}
+
+    \subsection{Kvadratická rozšíření ®Z}
+        \begin{definice}[Kvadratické rozšíření ®Z]
+            Kvadratické rozšíření ®Z je $®Z[\sqrt{s}] = \{a + b\sqrt{s}|a, b \in ®Z\}$, kde $s \in ®Z$, $s$ není druhá mocnina celého čísla.
+            \begin{dukazin}[Tvar $®Z\[\sqrt{s}\]$]
+                Dokáže se uzavřenost.
+            \end{dukazin}
+        \end{definice}
+
+        \begin{definice}
+            Norma na oboru $®Z[\sqrt{s}]$ je zobrazení $\nu : ®Z[\sqrt{s}] \rightarrow ®N \cup \{0\}, a+b\sqrt{s} \mapsto |a^2 - b^2s|$.
+        \end{definice}
+
+        \begin{tvrzeni}
+            $\forall u, v \in ®Z[\sqrt{s}]$ platí:
+            
+            \begin{enumerate}
+                \item $\nu(u·v) = \nu(u)·\nu(v)$,
+                \item $\nu(u) = 1 \Leftrightarrow u$ je invertovatelné.
+                \item Pokud $u|v$ a $v \nmid u$, pak $\nu(u)|\nu(v)$ (víme z 1)) a $\nu(u)≠\nu(v)$.
+            \end{enumerate}
+
+            \begin{dukazin}
+                1) vezmu a ověřím. Nebo využiji, že $\nu(u) = |u·u'|$, kde $u' = a - b\sqrt{s}$, $u = a + b\sqrt{s}$. Zjistíme, že $(u·v)' = u'·v'$. Potom $|u·v·(u·v)'| = |u·u'|·|v·v'|$.
+
+                2) $\impliedby$: $u·u^{-1} = 1 \implies \nu(u·u^{-1}) = \nu(1) = 1$. Následně už z 1) dostaneme $\nu(u) = 1$. $\implies$: $\nu(u) = 1 \implies u·u' = 1 \implies u'$ je hledaná inverze.
+
+                3) $u = 0 \implies v = 0 \implies v|u$. Ať tedy $v = uc$ pro $c \in ®Z[\sqrt{s}]$. Ať $\nu(u) = \nu(v) = \nu(u·c) = \nu(u)·\nu(c) \implies \nu(c) = 1 \implies c$ je invert $\implies v||u$, čili $v|u$ spor.
+            \end{dukazin}
+        \end{tvrzeni}
+
+% 19. 3. 2021
+
+        \begin{upozorneni}
+            Norma nesplňuje trojúhelníkovou nerovnost!
+        \end{upozorneni}
+
+        \begin{tvrzeni}[Dělení Gaussových čísel se zbytkem]
+            $$ \forall \alpha, \beta \in ®Z[i], \beta ≠ 0\ \exists \gamma, \delta \in ®Z[i]: \alpha = \beta·\gamma + \delta \land \nu(\delta)<\nu(\beta). $$
+
+            \begin{dukazin}
+                $®Z[i] \subseteq ®C$, tudíž berme $\frac{\alpha}{\beta} \in ®C$. Zvolme $\gamma \in ®Z[i]$ jako nejbližší hodnotu k $\frac{\alpha}{\beta}$. Položme $\delta = \alpha - \beta·\gamma$. $\frac{\delta}{\beta} = \frac{\alpha}{\beta} - \gamma$, tj. $|\frac{\delta}{\beta}| ≤ \frac{\sqrt{2}}{2}$, tj. $\nu(\delta) ≤ \(\frac{\sqrt{2}}{2}\)^2|\beta|^2 < 1·\nu(\beta)$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{poznamka}
+            Takováto definice dělení se zbytkem funguje ještě pro $®Z[\sqrt{-2}]$ a $®Z[\sqrt{2}]$, ale pro ostatní $®Z[\sqrt{s}]$ už nefunguje.
+        \end{poznamka}
+
+    \subsection{Největší společný dělitel}
+        \begin{definice}[Největší společný dělitel a největší společný násobek]
+            Pro $a, b \in R$, $R$ obor řekneme, že $c \in R$ je největší společný dělitel $a, b$, značíme $c = \NSD(a, b)$, pokud 1) $c|a \land c|b$ a 2) $\forall d|a, d|b: d|c$.
+
+            Obdobně definujeme $\NSN(a, b) = c ≡ a|c \land b|c \land \forall d, a|d, b|d: c|d$.
+        \end{definice}
+
+        \begin{definice}[Nesoudělnost]
+            $a, b$ jsou nesoudělné, pokud $\NSD(a, b) = 1$.
+        \end{definice}
+
+        \begin{poznamka}
+            $\NSD$ nemusí existovat. Zároveň není jednoznačně určený. Ale je jednoznačně určený až na asociovanost.
+        \end{poznamka}
+
+    \subsection{Ireducibilní prvky a rozklady}
+        \begin{definice}[Vlastní dělitel a ireducibilní prvek]
+            $R$ obor. $a \in R \setminus \{0\}$. $b \in R$ je vlastní dělitel $a$, pokud $b|a$ a $b \nparallel 1$ a $b \nparallel a$.
+
+            $a≠0$ je ireducibilní, pokud $a \nparallel 1$ a nemá žádné vlastní dělitele.
+        \end{definice}
+
+        \begin{definice}[Ireducibilní rozklad]
+            Ireducibilní rozklad prvku $a$ je zápis $a || p_1^{k_1}p_2^{k_2}…p_n^{k_n}$, kde $p_1, …, p_n$ jsou ireducibilní prvky a $p_i \nparallel p_j$, pro $i≠j$, a kde $k_1, …, k_n \in ®N$.
+
+            Řekneme, že $a$ má jednoznačný ireducibilní rozklad, pokud má právě 1 rozklad až na pořadí a asociovanost.
+        \end{definice}
+
+    \subsection{Prvočinitelé}
+        \begin{definice}[Prvočinitel]
+            $R$ obor, pak $p \in R, p \nparallel 1$ je prvočinitel, pokud $\forall a, b \in R: p|a·b \implies p|a \lor p|b$.
+        \end{definice}
+
+        \begin{pozorovani}
+            $p$ je prvočinitel $\implies$ $p$ je ireducibilní.
+
+            \begin{dukazin}
+                Ať $p = ab$. Pak $p|a·b$ $\overset{\text{prvočinitel}}{\implies} p|a \lor p|b$. Zároveň zřejmě $a|p$ a $b|p$, tedy $p||a \implies b||1$ nebo $p||b \implies a||1$. Tedy $a, b$ jsou nevlastní dělitelé.
+            \end{dukazin}
+        \end{pozorovani}
+
+\section{Existence a jednoznačnost ireducibilního rozkladu}
+    \subsection{Gaussovské obory}
+        \begin{definice}[Gaussovský obor]
+            Obor $R$ je gaussovský, pokud $\forall a \in R, a≠0, a \nparallel 1$, má jednoznačný ireducibilní rozklad.
+        \end{definice}
+
+        \begin{priklad}[Otevřený problém]
+            $®Z[\sqrt{s}]$ je gaussovský pro $∞$ mnoho $s$. (Čeká se, že ano.)
+        \end{priklad}
+
+        \begin{poznamka}[Rozšíření definice ireducibilního rozkladu]
+            $a||1$, pak řekneme, že ireducibilní rozklad $a$ je $a||1 = …^0$.
+        \end{poznamka}
+
+        \begin{tvrzeni}[Vlastnosti gaussovských oborů]
+            $R$ je gaussovský obor a $a, b \in R$, $a, b ≠ 0$. Ať navíc je $a || p_1^{k_1}·…·p_n^{k_n}$ je ireducibilní rozklad. Pak $b|a \Leftrightarrow b || p_1^{l_1}·…·p_n^{l_n}$ (nemusí být rozklad, protože $l_i$ smí být 0), kde $\forall i: 0≤l_i≤k_i$.
+
+            \begin{dukazin}
+                $\Rightarrow$: Ať $b = rp_1^{l_1}·…·p_n^{l_n}$ a $a = q·p_1^{k_1}·…·p_n^{k_n}$, kde $r || 1 || q$. Chci: $b|a$, čili $\exists c: a=b·c$. $c = q·r^{-1}·p_1^{k_1-l_1}·…·p_n^{k_n - l_n}$.
+
+                $\implies$: $b|a \implies \exists c: a = b·c$. Ať $b||q_1^{s_1}·…·q_u^{s_u}$, $c || r_1^{t_1}·…·r_v^{t_v}$ jsou ireducibilní rozklady. Zkombinujeme na rozklad $b·c: B·C||q_1^{s'_1}·…·q_u^{s'_u}·r_{i_1}^{t_{i_1}}·…·r_{i_w}^{t_{i_w}}$ (vyfiltrujeme z rozkladu $c$ ty $r_i$, který jsou asociovány s nějakým $q_j$). Máme 2 rozklady $b·c = a$. Z jednoznačnosti rozkladů $q_i = p_{\pi(i)} \land s'_i = k_{\pi(i)} ≥ s_i$. Tudíž $b || p_{\pi(1)}^{s_1}·…·p_{\pi(n)}^{s_n}$, kde $s_i ≤ k_{\pi(i)}$ (a doplníme chybějící $p_j^0$).
+            \end{dukazin}
+        \end{tvrzeni}
+
+% 24. 3. 2021
+
+        \begin{dusledek}[Dělitelnost v gaussovských oborech]
+            $R$ gaussovský obor. Pak $\forall a, b \in R$, $a≠0 \lor 0≠b$ $\implies$ existuje $\NSD(a, b)$. Každý ireducibilní prvek je prvočinitel. Neexistuje posloupnost $a_1, a_2, a_3, … \in R: a_{i+1}|a_i \land a_i \nparallel a_{i+1}$.
+
+            \begin{dukazin}
+                Mějme rozklady $a || p_1^{k_1}·…·p_n^{k_n}$ a $b || p_1^{l_1}·…·p_n^{l_n}$ (doplněné tak, aby měli shodné ireducibilní prvky, ale $k_i ≠ 0 \lor l_i ≠ 0$).
+
+                Ať $a, b ≠ 0$, potom existuje jednoznačný rozklad na ireducibilní. Potom každé (a jenom ty) $c || p_1^{m_1}·…·p_n^{m_n}$, kde $0 ≤ m_i ≤ \min(k_i, l_i)$ dělí $a$ i $b$, tedy $c$ s největšími $m_i$ a to už je zřejmě $\NSD(a, b)$.
+
+                Nechť $p | a·b$ a zároveň je ireducibilní, tj. $p = p_i$ pro nějaké $i$. Toto $p_i$ musí být v nenulové mocnině v $a$ nebo v $b$, tedy $p$ dělí jedno z nich.
+
+                Definujeme normu $\nu(a) = k_1 + … + k_n$. Jelikož máme jednoznačný ireducibilní rozklad, tak $\ni$ je dobře definovaná. Pokud $b|a$, pak $\nu(b) ≤ \nu(a)$, pokud navíc $b \nparallel a$, pak $\nu(b) < \nu(a)$. Posloupnost $\nu(a_i)$ je pak nekonečná klesající posloupnost v ®N. \lightning. 
+            \end{dukazin}
+        \end{dusledek}
+
+    \subsection{Zobecněná základní věta aritmetiky}
+        \begin{veta}[Zobecněná základní věta aritmetiky]
+            $R$ je gaussovský $\Leftrightarrow$ existuje $\NSD$ všech dvojic prvků (krom 0, 0) $\land$ neexistuje nekonečná posloupnost vlastních dělitelů $a_1, a_2, a_3, … \in R: a_{i+1}|a_i \land a_i \nparallel a_{i+1}$.
+
+            \begin{dukazin}[$\implies$]
+                Je dokázáno.
+            \end{dukazin}
+
+            \begin{dukazin}[Existence rozkladů]
+                Sporem s druhou částí: Ať $a_1 = a$, $a_1 \nparallel1$ a $a$ nemá ireducibilní rozklad. Mějme $a_i \nparallel 1$ a nemá ireducibilní rozklad. Tedy není ireducibilní (jinak by bylo samo sobě rozkladem) $\implies a_i = b·c$ pro nějaké $b, c \nparallel1$. Kdyby $b, c$ měly ireducibilní rozklad, pak by i. rozklad mělo i $a_i$. Takže aspoň jeden z nich nemá IR. Označíme ho $a_{i+1}$. Tudíž $a_{i+1}|a_i \land a_{i+1}\nparallel1 \land a_{i+1}$ nemá IR. Indukcí tedy vyrobíme nekonečnou posloupnost, kterou mi podmínky zakazují. \lightning.
+            \end{dukazin}
+
+            \begin{lemmain}
+                $R$ obor, $a, b \in R$, $c \in R$, $c ≠ 0$. Předpokládejme, že existuje $\NSD(a, b)$, $\NSD(ca, cb)$. Pak $\NSD(ca, cb) = c·\NSD(a, b)$.
+
+                \begin{dukazin}
+                    Ve skriptech. Triviální.
+                \end{dukazin}
+            \end{lemmain}
+
+            \begin{lemmain}
+                Buď $R$ obor, ve kterém existuje $\NSD$ všech dvojic prvků. Pak je každý ireducibilní prvek prvočinitel.
+
+                \begin{dukazin}
+                    Buď $p$ ireducibilní a ať $p|a·b$. Ať $p \nmid a$. $\NSD(p, a)$ existuje, tedy $\NSD(p, a) = 1$, neboť $p$ je ireducibilní. Podle předchozího lemmatu $\NSD(pb, ab) = b·\NSD(p, a) = b$. Zároveň $p | pb$ a $p|ab$, $b$ je $\NSD \implies p|b$.
+                \end{dukazin}
+            \end{lemmain}
+
+            \begin{dukazin}[Jednoznačnost rozkladu]
+                Sporem: Mezi všemi prvky s nejednoznačnými rozklady vyberme ten, který má nejkratší ireducibilní rozklad, čili má minimální $k_1+…+k_n$. Nechť tedy $a || p_1^{k_1}·…·p_n^{k_n} || q_1^{l_1}·…·q_m^{l_m}$. $p_1$ je ireducibilní a dělí $a$, tedy (podle předchozího lemmatu) dělí $q_i$ pro nějaké $i$. To ale znamená, že $p_1^{k_1 - 1}·…·p_n^{k_n} || …$. To jsou ale zase dva různé ireducibilní rozklady, ale to je spor s minimalitou.
+            \end{dukazin}
+        \end{veta}
+
+\section{Eukleidův algoritmus a Bézoutova rovnost}
+    \subsection{Eukleidovské obory}
+        \begin{definice}[Eukleidovský obor]
+            $R$ je obor. $R$ je eukleidovský, pokud na něm existuje tzv. eukleidovská norma, čili zobrazení $\nu: R \rightarrow ®N_0$ tak, že $\nu(0) = 0$, $a|b \land b ≠ 0 \implies \nu(a) ≤ \nu(b)$, $\forall a, b \in R, b ≠ 0\ \exists q, r \in R: a = bq + r \land \nu(r) < \nu(b)$.
+        \end{definice}
+        
+        \begin{pozorovani}
+            $a = 0 \Leftrightarrow \nu(a) = 0$. (Z ostré nerovnosti v třetí podmínce.)
+        \end{pozorovani}
+
+        \begin{pozorovani}
+            Tělesa jsou eukleidovská ($\ni(0) = 0$, $\ni(a≠0) = 1$). ®Z je eukleidovské $\ni(a) = |a|$. $®Z[i]$ je eukleidovské. ®T těleso, $R = T[x]$ je eukleidovský obor ($\ni(f) = 1 + \deg f$).
+
+            $®Z[x]$ není eukleidovské (ale je gaussovské). ($\NSD(x + 1, x - 1) ≠ f(x)·(x + 1) + g(x)·(x-1)$. Tj. neplatí Bézoutova rovnost.)
+        \end{pozorovani}
+
+        \begin{poznamka}
+            Eukleidův algoritmus funguje normálně, jen dělení se zbytekm je určené podle definice Eukleidovských oborů.
+        \end{poznamka}
+
+        \begin{veta}[Správnost eukleidova algoritmu]
+            V eukleidovském oboru $R$ najde rozšířený Eukleidův algoritmus pro jakýkoliv vstup $a, b \in R$ hodnotu $\NSD(a, b)$ a Bézoutovy koeficienty $u, v$ splňující $\NSD(a, b) = u·a + v·b$.
+
+            \begin{dukazin}
+                EA skončí, neboť norma se zmenšuje a je nezáporná. Stačí ukázat, že $\NSD(a_{i-1}, a_i) = \NSD(a_{i+1}, a_i)$ a $a_i = u_i·a + v_i·b$. Obojí plyne z $a_{i-1} = a_{i}q+a_{i+1}$
+            \end{dukazin}
+        \end{veta}
+
+% 26. 3. 2021
+
+        \begin{poznamka}[Oprava]
+            $\NSD(0, 0) = 0$, tento případ tedy nemusel být v tvrzení výše vynecháván…
+        \end{poznamka}
+
+        \begin{lemma}
+            $R$ eukleidovský obor, $a, b \in R \setminus \{0\}$. Pokud $a|b$ a $a \nparallel b$, pak $\nu(a) < \nu(b)$.
+
+            \begin{dukazin}
+                Ať $b = a·u$ pro nějaké $u \in R$. Víme, že $\exists q, r \in R$, $a = bq + r$, $\nu(r) < \nu(b)$. $a\nparallel b$ $\implies$ $b \nmid a \implies r≠0$. $r = a-bq = a(1-uq) \implies a|r$. Z definice dělení se zbytkem je $\nu(a) ≤ \nu(r) < \nu(b)$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{veta}
+            Eukleidovské obory jsou gaussovské.
+
+            \begin{dukazin}
+                $R$ eukleidovský. Podle jedné z předchozích vět: gaussovský $\Leftrightarrow$ $\exists \NSD$ a $\nexists$ řetězec vlastních dělitelů. $\NSD$ v eukleidovském existuje. Podle lemmatu výše se norma vlastních dělitelů zmenšuje, tedy opravdu takový řetězec neexistuje.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{dusledek}
+            $®Z[i]$ je gaussovský. $®T[x]$ je gaussovský.
+        \end{dusledek}
+
+    \subsection{Diofantické rovnice, rozklad v $®Z\[i\]$}
+       Viz přednáška, nebude u zkoušky.
+
+    \subsection{Obory hlavních ideálů}
+        \begin{definice}
+            $R$ je komutativní okruh. Ideál v $R$ je neprázdná podmnožina $I \subseteq R$ tak, že $a, b \in I \implies a+b \in I, -a \in I$, $a \in I, r \in R \implies r·a \in I$.
+        \end{definice}
+
+        \begin{priklady}
+            $R = ®Z$, $I = n®Z$ pro libovolné $n \in ®Z$. (Dále dokážeme, že jiný v ®Z neexistuje.)
+        \end{priklady}
+
+        \begin{tvrzeni}[Definice hlavních ideálů]
+            $R$ komutativní okruh, $a \in R$. Pak $a·R = \{a·r|r \in R\} = \{u \in R\,|\,a|u\}$ je ideál v $R$. Navíc je to nejmenší (vůči inkluzi) ideál v $R$, který obsahuje $a$. Takovému ideálu se říká hlavní.
+
+            \begin{dukazin}
+                $ar, as \in aR \implies ar + as = a(r + s) \in aR, -ar = a·(-r) \in aR$, $ar \in aR, t \in R \implies art \in aR$. Tedy $R$ je ideál.
+
+                Buď $I$ ideál v $R$, $a \in I$. Z uzavřenosti plyne, že $ar \in I\ \forall r \in R \implies aR \subseteq I$. Tedy $aR$ je nejmenší.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{poznamka}
+            Hlavní, protože je tam ten hlavní prvek $a$, který ho vytváří.
+        \end{poznamka}
+
+        \begin{definice}
+            Hlavním ideálům $0R = \{0\}$ a $1R = R$ se říká nevlastní, ostatním se říká vlastní.
+        \end{definice}
+
+        \begin{pozorovani}
+            $$ a|b \Leftrightarrow aR \supseteq bR. $$
+
+            \begin{dukazin}
+                Triviální, viz přednáška.
+            \end{dukazin}
+
+            \begin{dusledekin}
+                $$ a||b \Leftrightarrow aR = bR. $$
+            \end{dusledekin}
+        \end{pozorovani}
+
+        \begin{veta}
+            V eukleidovském oboru je každý ideál hlavní.
+
+            \begin{dukazin}
+                $R$ eukleidovský obor, $I$ ideál. Pokud $I = \{0\} \implies I = 0R$. Ať $I \supset \{0\}$. Buď $0 ≠ a \in I$ (libovolný) prvek s nejmenší možnou normou $\ni(a)$. Dokážeme, že $I = aR$. Zřejmě $aR \subseteq I$, protože $a \in I$. Pro spor ať existuje $b \in I \setminus aR$. Vydělíme se zbytkem: $b = aq + r, \ni(r)<\ni(a)$. Ale máme $r = b-aq$, přičemž $b, a, aq \in I$, tudíž $r = b-aq \in I$, ale z minimality normy $a$ je $r = 0$, tudíž $a | b$. \lightning.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{definice}[Obor hlavních ideálů (OHI)]
+            Pokud $R$ je obor tak, že každý ideál je hlavní, pak se $R$ nazývá obor hlavních ideálů (OHI).
+        \end{definice}
+
+        \begin{priklady}
+            $®Z[x]$ není OHI. $®Z\[\frac{1 + \sqrt{-19}}{2}\]$ je OHI, ale není euklidovský (těžké dokázat).
+        \end{priklady}
+
+        \begin{tvrzeni}
+            $R$ komutativní okruh s 1. $R$ je těleso $\Leftrightarrow$ $R$ má pouze nevlastní ideály.
+
+            \begin{dukazin}
+                $\implies$: Ať $I ≠ \{0\}$. Buď $0 ≠ a \in I$. $R$ těleso $\implies a^{-1} \in R$. Z uzavřenosti na násobení $1 = a·a^{-1} \in I$, tudíž $R = 1·R \in I$, tj. $I = R = 1R$.
+
+                $\Rightarrow$: $aR = R = 1R$, $(a ≠ 0)$, čili $a$ je invertibilní.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            $R$ komutativní okruh.
+
+            1) $I, J$ ideály v $R$ $\implies$ $I \cap J$ je ideál v $R$.
+
+            2) $I, J$ ideály v $R$. Pak $I + J = \{a + b | a \in I, b \in J\}$ je ideál. Navíc je to nejmenší ideál, který obsahuje $I, J$.
+
+            3) Mějme ideály $I_j$ v $R$ pro $j \in ®N$ tak, že $I_1 \subseteq I_2 \subseteq I_3 \subseteq …$. Pak $\bigcup_{j=®N}I_j$ je ideál v R.
+
+            \begin{dukazin}
+                1) $a, b \in I \cap J, r \in R \implies a, b \in I, a, b \in J$. $I$ ideál $\implies a + b, -a, ra \in I$. $J$ ideál $\implies a + b, -a, ra \in J$. Tedy $a + b, -a, ra \in I \cap J$.
+
+                2) Ať $a + b \in I + J, c + d \in I + J, r \in R$, kde $a, c \in I$, $b, d \in J$. Pak $(a+b) + (c+d) = (a + c) + (b + d) \in I + J$. $· \land -$ obdobně. $I + J$ ideál.
+
+                Zřejmě $I \subseteq I + J$, neboť je $a + 0 \in I + J$. Stejně tak pro $J$, tj. $I \cup J \subseteq I + J$. Druhý 'směr' plyne z uzavřenosti na součet.
+
+                3) Uzavřenost na $+$: Ať $a, b \in \bigcup I_j$. Tudíž $a \in I_j, b \in I_k$ pro nějaká $j, k$, BÚNO $j ≤ k$. Máme $I_j \subseteq I_k$, tedy $a \in I_k$. $I_k$ je ideál, tedy je uzavřený na součet. Uzavřenost na $· \land -$ snadná (stačí vzít 1 ideál).
+            \end{dukazin}
+        \end{tvrzeni}
+
+% 31. 3. 2021
+
+        \begin{veta}
+            Buď $R$ OHI. Pak $R$ je gaussovský a platí v něm Bézoutova rovnost.
+
+            \begin{dukazin}
+                $R$ OHI. Chceme 1) existuje NSD 2) neexistují řetězce vlastních dělitelů (zobecněná věta algebry):
+
+                1) $a, b \in R$. Buď $I = aR + bR$, (protože OHI) existuje $c \in R, cR = I$. $aR, bR \subseteq cR \implies c|a, b$. Buď $d |a, b$ $\implies aR, bR \subseteq dR \implies aR+bR = cR \subseteq dR \implies d|c$. Tedy $c = \NSD(a, b)$. Navíc $c \in aR + bR = \{ar+bs\}$, tj. $c=ar+bs$ pro nějaké $r, s \in R$.
+
+                2) Pro spor uvažujme takovou posloupnost dělitelů $…|a_2|a_1$, tj. $a_1R \subset a_2R \subset …$. $I = \bigcup_{i=1}^∞ a_iR$ je ideál, tj. (protože OHI) $I = bR$, pro nějaké $b \in I$. Ale tím pádem $\exists i: b \in a_iR$. Pak $bR \subseteq a_iR \subset a_{i+1}R \subset … \subseteq I = bR$. \lightning.
+            \end{dukazin}
+        \end{veta}
+
+\section{Polynomy nad gaussovskými obory (bez důkazů)}
+    \begin{definice}[Primitivní polynom]
+        $R$ obor, $f \in R[x]$ je primitivní, pokud jsou jeho koeficienty nesoudělné (čili $\forall c \in R:$ pokud $c$ dělí všechny koeficienty, pak $c||1$).
+    \end{definice}
+
+    \begin{veta}[Gaussovo lemma]
+        $R$ gaussovský obor, $f, g$ primitivní polynomy v $R[x]$ $\implies f·g$ primitivní v $R[x]$.
+    \end{veta}
+
+    \begin{tvrzeni}
+        $R$ je gaussovský, $Q$ podílové těleso $R$. $f, g$ primitivní polynomy v $R[x]$. Pak $f|g$ v $R[x]$ $\Leftrightarrow$ $f|g$ v $Q[x]$.
+    \end{tvrzeni}
+
+    \begin{definice}[Značení]
+        $f = \sum_{i=0}^n a_ix^i \in R[x], a_n ≠ 0$ ($R$ gaussovský). $c(f) = \NSD(a_0, a_1, …, a_n)$ je obsah (content) polynomu.
+
+        $PP(f) = \frac{1}{c(f)}·f$ je primitivní část (primitive part) $f$.
+    \end{definice}
+
+    \begin{veta}
+        $R$ gaussovský, $Q$ podílové těleso, $f, g \in R[x]$. Pak:
+        $$ \exists \NSD_{R[x]} (f, g) = c·h, c = \NSD_R(c(f), c(g)), h \in R[x] $$
+        je primitivní tak, že $h = \NSD_{Q[x]}(f, g)$.
+        $f$ je ireducibilní v $R[x]$ $\Leftrightarrow$ $\deg f = 0$ a $f$ je ireducibilní v $R$, nebo $\deg f > 0$, $f$ je primitivní a $f$ je ireducibilní v $Q[x]$.
+    \end{veta}
+
+    \begin{veta}[Gaussova]
+        $R$ gaussovský obor $\implies$ $R[x]$ gaussovský obor.
+    \end{veta}
+
+    \begin{dusledek}
+        $R$ gaussovský $\implies$ $R[x_1, …, x_n]$ gaussovský $\implies$ $R[x_1, x_2, x_3, …]$ gaussovský.
+    \end{dusledek}
+
+    \subsection{Ireducibilita polynomů (i s důkazy)}
+        \begin{tvrzeni}[Existence racionálního kořene]
+            Nechť $R$ je gaussovský, $Q$ je podílové těleso. Má-li $f = \sum_{i=1}^n a_ix^i \in R[x]$, $a_n ≠ 0$ kořen $\frac{r}{s} \in Q$ (pro $\NSD(r, s) = 1$), pak $r | a_0, s | a_n$.
+
+            \begin{dukazin}
+                $0 = f\(\frac{r}{s}\) = \sum a_i \(\frac{r}{s}\)^i$ přenásobíme $s^n$: $0 = a_0s^n + a_1rs^{n-1} + … + a_nr^n \implies r|a_0s^n$. Ale $\NSD(r, s) = 1$, tedy z gaussovskosti $r|a_0$. Stejně tak $s|a_nr^n \implies s|a_n$.
+            \end{dukazin}    
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Eisensteinovo kritérium]
+            $R$ obor, $f = \sum_{i=0}^n a_ix^i \in R[x]$ primitivní, $a_n ≠ 0$. Pokud existuje prvočinitel $p \in R$ tak, že $p|a_0, a_1, …, a_{n-1}, p^2\nmid a_0$, pak $f$ je ireducibilní.
+
+            \begin{dukazin}
+                Pro spor $f = g · h$, $g = \sum_{i=0}^k b_ix^i$, $h = \sum_{i=0}^l c_ix^i \in R[x]$, l, k > 0.
+                $$ a_0 + a_1x + a_2x^2 + … = (b_0 + b_1x + …)(c_0 + c_1x + …) = b_0c_0 + (b_0v_1 + b_1c_0)x + … \implies a_0 = b_0c_0. $$
+                Tudíž $p|a_0 = b_0c_0 \implies $ BÚNO $p|b_0$, pak $p\nmid c_0$, neboť $p^2\nmid a_0$. $p|a_1 = b_0c_1 + b_1c_0 \implies p|b_1$, …, $p|b_i$ $\forall i ≤ n-1$. $p$ dělí všechny koeficienty $b_i$ pro $i ≤ k ≤ n-1$, ale jelikož $h$ má stupeň alespoň 1, tak $p$ dělí všechny koeficienty $b_i$, tj. $p | g | f$. \lightning.
+            \end{dukazin}
+        \end{tvrzeni}
+
+\section{Čínská zbytková věta a interpolace}
+    \begin{veta}[ČZV pro polynomy]
+        ®T těleso. Ať $m_1, m_2, …, m_n \in ®T[x]$ jsou po 2 nesoudělné polynomy, $d = \sum \deg m_i$. Ať $u_1, …, u_n \in ®T[x]$. Pak $\exists! f \in ®T[x]$ stupně $<d$ tak, že $f ≡ u_1 \pmod{m_1}, …, f ≡ u_n \pmod{m_n}$.
+
+        \begin{dukazin}
+            Jednoznačnost: Ať $f, g$ jsou řešení, $\deg f, \deg g < d$, čili $f≡g≡u_i \bmod m_i \forall i$. Tedy $m_i | f-g \forall i$. $m_i$ jsou po dvou nesoudělné a $®T[x]$ je gaussovské, tj. $m_1·…·m_n |f - g$, tj. $\deg(f-g) > d$ (\lightning) nebo $f-g = 0$.
+
+            Existence: $P_k = \{f \in T[x]|\deg f < k\}$ je vektorový prostor nad ®T dimenze $k$ ($x^i$ je báze). $d_i = \deg m_i$. $\phi: P_d \rightarrow P_{d_1}\times … \times P_{d_n}$, $f \mapsto (f \mod m_1, …, f \mod m_n)$. Zřejmě $P_{d_i}$ má dimenzi $d_i$ a $\phi$ je dobře definované a navíc homomorfismus vektorových zobrazení. Navíc z jednoznačnosti (1. bodu důkazu) je prosté, tj. z porovnání dimenzí je $\phi$ bijekce. Tedy hledaný polynom je $\phi^{-1}(u_1 \mod m_1, …, u_n \mod m_n)$.
+        \end{dukazin}
+    \end{veta}
+
+% 7. 4. 2021
+
+    \begin{dusledek}[Věta o interpolaci]
+        ®T těleso. Mějme po 2 různé body $a_1, …, a_n \in ®T$ a libovolné hodnoty $u_1, …, u_n \in ®T$. $\exists! f \in ®T[x], \deg f < n$ tak, že $\forall i: f(a_i) = u_i$.
+
+        \begin{dukazin}
+            $f ≡ f(a)\pmod{x - a}$ (už jsme ukázali), tedy $f ≡ u_i \pmod{x - a_i}$ a použijeme čínskou zbytkovou větu.
+        \end{dukazin}
+    \end{dusledek}
+
+    \begin{dusledek}[Zobrazení na konečných tělesech jsou polynomiální]
+        ®T je konečné těleso. Pro $\forall \phi: ®T \rightarrow ®T$ zobrazení $\exists! f \in ®T[x]$, $\deg f < |®T|$ tak, že $\phi(a) = f(a)$.
+    \end{dusledek}
+
+\section{Faktorokruh modulo polynom}
+    \begin{definice}[Faktorokruh]
+        ®T těleso. Buď $m \in ®T[\alpha]$ polynom stupně $n ≥ 1$. Faktorokruh $®T[\alpha] / (m)$ je množina všech polynomů z $T[\alpha]$ stupně $< n$ se standardním $+$ a $-$ a s operací násobení modulo $m$, čili $f \odot g = f·g \bmod m$.
+
+        Čili $®T[\alpha]/(m) = \(\{f \in ®T[\alpha] | \deg f < n\}, +, -, \odot, 0, 1\)$.
+    \end{definice}
+
+    \begin{pozorovani}
+        Jde o komutativní okruh s 1. (Ověříme axiomy.)
+    \end{pozorovani}
+
+    \begin{tvrzeni}[Faktor podle ireducibilního polynomu]
+        ®T těleso, $m \in ®T[\alpha], \deg m ≥ 1$. Pak následující je ekvivalentní: 1) $T[\alpha]/(m)$ je těleso, 2) $T[\alpha]/(m)$ je obor, 3) $m$ je ireducibilní prvek v $®T[\alpha]$.
+
+        \begin{dukazin}
+            $1 \implies 2$ zřejmé (jedno z prvních tvrzení), $2 \implies 3$: Ať $m = fg$ pro $f, g \in ®T[\alpha]$, $\deg f, \deg g ≥ 1$. Pak v $®T[\alpha] / (m)$ platí $f\odot g = fg \bmod m = m \bmod m = 0$, čili $®T[\alpha] / (m)$ není obor.
+
+            $3 \implies 1$: Buď $f ≠ 0$ polynom, $\deg f < \deg m$. $m$ ireducibilní, $f$ má menší stupeň než $m \implies m, f$ jsou nesoudělné. Bézout: $1 = \NSD(f, m) = uf + vm$ pro nějaké $u, v \in T[\alpha]$. Buď $\tilde{u} = u \bmod m$. Pak v $®T[\alpha] / (m)$ platí: $\tilde{u} \odot f = \tilde{u}f \bmod m ≡ uf ≡ 1 \pmod m$. Tedy $\tilde{u}\odot f = 1$ v $®T[\alpha] / (m)$. Tedy $\tilde{u}$ je inverz.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{poznamka}
+        Dál budeme $\odot$ značit jako $·$.
+    \end{poznamka}
+
+    \subsection{Kořenová, rozkladová nadtělesa}
+        \begin{tvrzeni}
+            ®T těleso, $f \in ®T[x]$, $\deg f ≥ 1$. Pak existuje $S ≥ T$, ve kterém ma $f$ kořen.
+
+            \begin{dukazin}
+                Buď $m = \sum_{i=0}^n a_ix^i \in ®T[x]$ nějaký ireducibilní dělitel $f$. $S = T[\alpha] / (m(\alpha))$. Z předchozího tvrzení je $S$ tělesso a $S ≥ ®T$ (neboť ®T jsou tam konstantní polynomy). Chceme $m(\alpha)$ má v $S$ kořen (pak má triviálně i $f$ kořen v $S$). Dosazujeme $\alpha \in ®T[\alpha]/m(\alpha)$.
+
+                $$ m(\alpha) = \sum a_i \odot (\alpha \odot … \odot \alpha) = \sum(a_i \alpha^i \mod m) = $$
+                $$ = a_0 \bmod m + a_1\alpha \bmod m + … + a_n \alpha^n \bmod m = $$
+                $$ = a_0 + a_1\alpha  + … + a_{n-1} \alpha^{n-1} + (- a_0 - a_1 \alpha - … - a_{n-1}\alpha^{n-1}) = 0. $$ 
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{veta}
+            ®T těleso, $f \in ®T[x]$, $\deg f ≥ 1$. Pak existuje těleso $S ≥ T$, kde se $f$ rozkládá na součin polynomů stupně 1.
+
+            \begin{dukazin}
+                Indukcí podle $f$. $\deg f = 1 \implies f = ax + b$ a má kořen $-a^{-1}b \in ®T$.
+
+                $\deg f > 1$. Podle předchozího tvrzení buď $U ≥ T$ tak, že $f(u) = 0$ pro nějaké $u \in U$. Pak $f = (x - u)·g$ pro nějaké $g \in U[x]$, $\deg g = \deg f - 1$. Následně použijeme indukční předpoklad pro $g$.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{definice}
+            ®T těleso, $f \in ®T[x]$, $\deg f ≥ 1$. Kořenové nadtěleso je (libovolné) těleso $®S ≥ ®T$, ve kterém existuje $a \in ®S$ tak, že $®S = ®T(a)$ a $f(a) = 0$.
+
+            Rozkladové nadtěleso $f$ je (libovolné) těleso $®S ≥ ®T$, že existují $a_1, …, a_n \in ®S: ®S = ®T(a_1, …, a_n)$ a $f||(x - a_1)·…·(x - a_n)$.
+        \end{definice}
+
+        \begin{dusledek}[Existence kořenového a rozkladového nadtělesa]
+            ®T těleso, $f \in ®Ť[x]$, $\deg ≥ 1$. Pak existuje kořenové i rozkladové nadtěleso $f$ nad ®T.
+
+            \begin{dukazin}
+                $\exists ®S ≥ ®T$ tak, že $f(a) = 0$ pro $a \in ®S_0$. Kořenové nadtěleso pak je $®S = ®T(a) ≤ ®S_0$. Obdobně rozkladové.
+            \end{dukazin}
+        \end{dusledek}
+
+% 9. 4. 2021
+
+\section{Konečná tělesa}
+    \begin{pozorovani}[Konečná tělesa]
+        Nechť $®T = ®Z_p[\alpha]/(m)$, kde $p$ je prvočíslo, $m$ ireducibilní polynom v $®Z_p[\alpha]$, $\deg m = k$. Potom ®T je těleso s $p^k$ prvky. Značíme ho $®F_{p^k}$ (podle dalšího pozorování je jediné této mohutnosti).
+    \end{pozorovani}
+
+    \begin{pozorovani}[Vlastnosti konečných těles]
+        \ 
+        \begin{itemize}
+            \item $\forall k\ \forall p$ prvočíslo $\exists$ ireducibilní polynom stupně $k$ v $®Z_p[\alpha]$ $\implies \exists$ konečné těleso velikosti $p^n$.
+            \item Každé konečné těleso lze takto zkonstruovat.
+            \item Na volbě $m$ (daného stupně) nezáleží.
+        \end{itemize}
+
+        \begin{dukazin}
+            Bez důkazu.
+        \end{dukazin}
+    \end{pozorovani}
+
+    \begin{poznamka}
+        Díky pozorování, že nad konečným tělesem je každá funkce polynomiální a že posloupnost jedniček je vlastně $®F_{2^k}$, stačí v kryptografii zkoumat jen polynomy.
+
+        Navíc násobení na tomto tělese používá symetrická šifra AES (advanced encryption standard), která počítá s maticemi $4 \times 4$ nad $®F_{256}$.
+    \end{poznamka}
+
+    \begin{poznamka}
+        Další využití je v konečné geometrii, např. eliptické křivky jsou Diofantické rovnice tvaru $y^2 = x^3 + ax + b$ nad $®F_{p^k}$ (řešení tvoří grupu a dělá se s tím něco jako v RSA).
+    \end{poznamka}
+
+    \subsection{Sdílení tajemství}
+        \begin{definice}
+            $(k, n)$-schéma sdílení tajemství je situace, kdy se $n$ lidí dělí o tajemství a k odhalení je potřeba alespoň (libovolných) $k$ z nich.
+        \end{definice}
+
+        \begin{definice}[Tajemství]
+            Za tajemství budeme uvažovat posloupnost $0$ a $1$, na kterou se budeme dívat v $®Z_2^m$ nebo $®F_{2^m}$.
+        \end{definice}
+
+        \begin{poznamka}
+            Pro $k = n$ se $(k, n)$-schéma nazývá maskování hodnot: Pro každého člověka vyberu hodnotu $a_i \in T$ a zveřejním hodnotu $c = t + \sum_{i=1}^n a_i$. ($t$ je tajemství.)
+        \end{poznamka}
+
+        \begin{definice}[Shamirův protokol]
+                Vlastník zvolí polynom $f \in ®T[x]$, $\deg f < k$ tak, že $f(0) = t$. Vyberu $n$ po dvou různých prvků $0 ≠ a_1, …, a_n \in ®T$, které se zveřejní, a jednotlivým účastníkům se dá $f(a_1), …, f(a_n)$.
+
+            Když se potká $k$ lidí, tak mají $k$ hodnot polynomu, tedy mohou polynom interpolovat a zjistit konstantní člen, tj. $f(0) = t$.
+        \end{definice}
+
+\section{Symetrické polynomy}
+    \begin{definice}
+        $R$ komutativní okruh. Polynom $f \in R[x_1, …, x_n]$ je symetrický, pokud po libovolném permutování proměnných se $f$ nezmění. (formálně: $f(x_1, …, x_n) = f(x_{\pi(1)}, …, x_{\pi(n)})$ pro každou permutaci $\pi \in S_n$.)
+    \end{definice}
+
+    \begin{tvrzeni}[Viétovy vztahy]
+        $®T$ těleso, $f = \sum a_i x^i \in ®T[x]$, $\deg f = n ≥ 1$. Ať $f = a_n(x - u_1)·…·(x - u_n)$ v nějakém nadtělese $®S ≥ ®T$. Pak
+        $$ \frac{a_{n-i}}{a_n} = (-1)^i s_i(u_1, …, u_n) = (-1)^i \sum_{j_1 < j_2 < … < j_i}x_{j_1}·…·x_{j_i}. $$
+
+        \begin{dukazin}
+            Berme $g = a^{-1}_n f$. Z rovnosti
+            $$ (y - x_1)·…·(y - x_n) = y^n - s_1y^{n-1} + … + (-1)^ns_n $$
+            dostaneme
+            $$ g = \sum \frac{a_i}{a_n}x^i = (x - u_1)·…·(x - u_n) = x^n + \sum_{i=1}^n (-1)^i s_i(u_1, …, u_n)x^{n-i}. $$
+            Porovnáním koeficientů dostaneme chtěnou rovnost.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{veta}[Základní věta o symetrických polynomech]
+        Buď $R$ obor, $f \in R[x_1, …, x_n]$ symetrický polynom. Pak $\exists! g \in R[z_1, …, z_n]$ tak, že $f = g(s_1, …, s_n)$.
+
+        \begin{dukazin}
+            Později.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{definice}[Term]
+        Term v proměnných $x_1, …, x_n$ je výraz $x_1^{k_1}x_2^{k_2}…x_n^{k_n}, k_i \in ®N_0$.
+    \end{definice}
+
+    \begin{definice}[Uspořádání termů]
+        Relaci $<$ na termech definujeme jako $x_1^{k_1}…x_n^{k_n} < x_1^{l_1}…x_n^{l_n}$, pokud $\exists i ≥ 0$ tak, že $k_1 = l_1, k_2=l_2, …, k_i = l_i, k_{i + 1} < l_{i+1}$.
+
+        Definujeme $t ≤ s$, pokud $t = s \lor t < s$.
+    \end{definice}
+
+    \begin{lemma}
+        Relace $≤$ má vlastnosti: 1) Je to lineární uspořádání. 2) Pro libovolné termy $t_1 > t_2$, $s_1 > s_2$ platí $t_1s_1 > t_2s_2$. 3) Neexistuje $∞$ klesající řetězec termů $t_1 > t_2 > …$
+
+        \begin{dukazin}
+            Domácí cvičení.
+        \end{dukazin}
+    \end{lemma}
+
+    \begin{definice}[Vedoucí člen polynomu]
+        $R$ obor, $f \in R[x_1, …, x_n]$. Vedoucí člen $f$ je ten člen, který má největší term. Značí se $l(f)$.
+    \end{definice}
+
+    \begin{lemma}
+        $R$ obor, $f, g \in R[x_1, …, x_n]$. Pak 1) $l(fg) = l(f)·l(g)$. 2) Je-li $f$ symetrický a $l(f) = a·x_1^{k_1}…x_n^{k_n}$, potom $k_1 ≥ k_2 ≥ … ≥ k_n$.
+        \begin{dukazin}
+            1) $l(f)$, $l(g)$ jsou největší členy v $f$, $g$. Podle předchozího lemmatu víme, že $>$ se zachovává násobením $\implies l(f)·l(g)$ je největší ze všech členů v $fg$. Navíc $R$ je obor $\implies$ koeficient v $l(f)·l(g)$ není nulový.
+
+            2) Kdyby $k_i < k_j$ pro $i < j$, mohli bychom prohodit proměnné $x_i, x_j$. Ze symetrie $f$ je $a·x_1^{k_1}…x_i^{k_j}…x_j^{k_i}…x_n^{k_n}$ je taktéž v $f$, ale je větší než $l(f)$, což je spor.
+        \end{dukazin}
+    \end{lemma}
+
+% 14. 4. 2021    
+
+    \begin{lemma}
+        $k_1≥k_2≥…≥k_n$ nezáporná celá. Pak $\exists!$ ($l_1, …, l_n$) nezáporné celé tak, že $l(s_1^{l_1}…s_n^{l_n}) = x_1^{k_1}·…·x_n^{k_n}$.
+
+        \begin{dukazin}
+            $$ l(s_1^{l_1}·…·s_n^{l_n}) = l(s_1)^{l_1}·…·l(s_n)^{l_n} = x_1^{l_1}·(x_1x_2)^{l_2}·…·(x_1x_2…x_n)^{l_n} = x_1^{l_1 + l_2 + … + l_n}·…·x_n^{l_n}. $$ 
+            Tedy řeším systém $l_1 + … l_n = k_1$, $l_2+…+l_n = k_2$, …, $l_n=k_n$, tj. $l+n = k_n ≥ 0$, $l_i = k_i - k_{i+1} ≥ 0$.
+        \end{dukazin}
+    \end{lemma}
+
+    \begin{definice}[Gaussův algoritmus]
+        $R$ obor, vstup $f \in R[x_1, …, x_n]$ symetrický, výstup $g \in R[z_1, …, z_n]$ tak, že $g(s_1, …, s_n) = f$.
+        
+        $f_1 = f$, $g_1 = 0$.
+
+        $i=1, 2, 3, …$: dělej: Najdi $l_1, …, l_n$ tak, že $l(f_i) = c·l(s_1^{l_1}·…·s_n^{l_n})$ pro nějaké $c \in R$ podle předchozího lemmatu. $f_{i+1} = f_i - c·s_1^{l_1}·…·s_n^{l_n}, g_{i+1} = g_i + c·z_1^{l_1}·…·z_n^{l_n}$. Pokud je $f_{i+1}$ konstantní, zastavím se a vrátím $g_{i+1} + f_{i+1}$.
+
+        \begin{dukazin}
+            Ověříme, že $f_i$ je symetrický polynom -- zřejmé z definice $f_i$. $g_i \in R[z_1, …, z_n]$ -- jasné z definice $g_i$. $f_i + g_i(s_1, …, s_n) = f$ -- vidíme, nebo ověříme indukcí. A skončí, jelikož zmenšujeme vedoucí člen a neexistuje nekonečná klesající posloupnost.
+        \end{dukazin}
+    \end{definice}
+
+    \begin{dukazin}[Základní věta o symetrických polynomech]
+        Existenci dokazuje Gaussův algoritmus. Jednoznačnost: Ať $f = g_1 (s_1, …, s_n) = g_2(s_1, …, s_n)$, $g_1 ≠ g_2$. $g = g_1 - g_2 = \sum a_it_i$, kde $t_i$ jsou po dvou různé jednotlivé termy (v proměnných $z_i$), $a_i≠0$. $t_i(s_1, …, s_n)$ mají různé vedoucí členy podle lemmatu výše. Vezměme lexikograficky největší z vedoucích členů $t_i(s_1, …, s_n)$. Ten je tedy striktně větší než ostatní, tedy $\sum a_it_i(s_1, …, s_n) ≠ 0$, tudíž $0 = g(s_1, …, s_n) - g_2(s_1, …, s_n)$.
+    \end{dukazin}
+
+    \begin{dusledek}[Hodnota symetrického polynomu na kořenech]
+        ®T těleso, $f \in ®T[x]$, $\deg f ≥ 1$. Buď $®U ≥ ®T$ nadtěleso, kde $f || (x - u_1)·…·(x-u_n)$. $\forall$ symetrický polynom $s \in ®T[x_1, …, x_n]$ platí: $s(u_1, …, u_n) \in ®T$.
+
+        \begin{dukazin}
+            $f = \sum a_ix^i$. Viétovy vztahy $s_i(u_1, …, u_n) = (-1)^i\frac{a_{n-i}}{a_n} \in ®T$. Z předchozí věty $\exists g \in ®T[z_1, …, z_n]$ tak, že
+            $$ s = g(s_1, …, s_n) \implies s(u_1, …, u_n) = g(s_1(u_1, …, u_n), …, s_n(u_1, …, u_n)) \in ®T. $$
+        \end{dukazin}
+    \end{dusledek}
+
+\section{Základní věta algebry}
+    \begin{veta}[Základní věta algebry]
+        Každý komplexní polynom stupně $≥1$ má kořen.
+
+        \begin{dusledekin}
+            $$ \forall f \in ®C[x], \deg f ≥ 1: f||(x-u_1)·…·(x-u_n). $$
+        \end{dusledekin}
+
+        \begin{dusledekin}
+            Každé polynomiální zobrazení $®C \rightarrow ®C$ je na.
+        \end{dusledekin}
+
+        \begin{dukazin}[Jeden z mnoha, nejvíce algebraický]
+            Lemma: předpokládejme, že každý reálný polynom stupně $≥1$ má (komplexní) kořen. Pak má každý komplexní polynom stupně $≥1$ nějaký kořen.
+
+            Důkaz: $f \in ®C[x], \deg f ≥ 1, f = \sum a_ix^i.$ $\overline{f} = \sum\overline{a_i}x^i$. Uvažujme $g = f·\overline{f} = \sum_k\(\sum_{i+j = k} a_i\overline{a_j}\)x^k$. Ten má pro $i=j$ reálný koeficient a pro $i≠j$ má koeficienty $a_i\overline{a_j} + \overline{a_i}a_j \in ®R$. Buď $z \in ®C$ kořen $g$. Potom $f(z) = 0$ (OK) nebo $\overline{f}(z) = 0$ (tj. $f(\overline{z})=0$, OK).
+
+            Lemma: Komplexní polynom stupně 2 má komplexní kořen. Důkaz $\frac{-b ± \sqrt{b^2 - 4a·c}}{2} \in ®C$. (Jediný zádrhel je odmocnina, ale existenci odmocniny z komplexního čísla ukážeme přes exponenciální tvar.)
+
+            Lemma: Reálný polynom lichého stupně má kořen. Důkaz: Vynechán (věta o střední hodnotě a spojitost polynomů).
+
+            Díky 1. lemmatu stačí, že $\forall f \in ®R[x], \deg f ≥ 1$, má kořen v ®C. $\deg f = n = 2^{k}m, m$ liché. Indukcí podle $k$: $k=0 \implies f$ má lichý stupeň, tedy tvrzení je splněno díky přdchozímu lemmatu.
+
+            Ať $k ≥ 1$. Ať $S ≥ ®C$ je nadtěleso, ve kterém $f||(x-u_1)·…·(x-u_n)$ (díky větě z dřívějška). Chceme $\exists i: u_i \in ®C$. Trik. Vezmeme $a \in ®Z$ a definujeme $h_a = \prod_{i < j}(x - (u_i + v_j + a·u_i·u_j)) \in S[x]$. Chceme $h_a \in ®R[x]$. $\tilde h_a = \prod_{i<j}(x - (y_i + y_j + a·y_i·y_j)) \in (®Z[x])[y_1, …, y_n]$ je symetrický polynom v proměnných $y_1, …, y_n$ (s koeficienty ze $®Z[x]$). 
+
+            Z věty výše $\exists g_a \in (®Z[x])[z_1, …, z_n]$ tak, že $\tilde h_a = g_a(s_1, …, s_n)$. Dosadíme $y_i = u_i$: $h_a = \tilde h_a(u_1, …, u_n) = g_a(s_1(u_1, …, u_n), …)$. Z viétových vztahů
+            $$ s_1(u_1, …, u_n), …, s_n(u_1, …, u_n) \in ®R. $$
+            Tedy $h_a$ je polynom v $®R[x]$. $\deg h_a = \binom{n}{2} = 2^{k-1}·(m·(2^k·m - 1))$, takže má menší mocninu dvojky ve stupni, tedy aplikujeme IP. Proto má $h_a$ kořen v ®C, tudíž $\forall a \in ®Z\ \exists i < j: u_i + u_j + au_iu_j$, tedy nějaká dvojice $i, j$ se vyskytne nekonečněkrát ($a$ je nekonečně, dvojic je konečně). Stačí, že $\exists a≠b: u_i + u_j + au_iu_j \in ®C$ a $u_i + u_j + bu_iu_j \in ®C$, tudíž $(a-b)v_i·u_j \in ®C$ a $c=u_i + u_j \in ®C$. Tedy $u_i, u_j$ jsou kořeny $x^2 - cx + (u_iu_j)\in ®C[x]$, tedy podle 3. lemmatu existuje kořen $x \in ®C$, tj. $u_i \in ®C$ nebo $u_j \in ®C$.
+        \end{dukazin}
+    \end{veta}
+
+\section{Grupy}
+    \begin{definice}[Grupa, abelovská grupa]
+        Grupa je čtveřice $(G, *, ', e)$, kde $G$ je množina (tzv. nosná), $*$ je binární operace na $G$, $'$ je unární operace ($a'$ je tzv. inverzní prvek k $a$) a $e \in G$ (tzv. jednotka) tak, že $\forall a, b, c \in G$:
+        $$ a*(b*c) = (a*b)*c, \qquad a*e = e*a = a, \qquad a*a' = a'*a = e. $$
+
+        Jestliže $\forall a, b \in G: a*b = b*a$, pak je grupa abelovská (čili komutativní).
+    \end{definice}
+
+    \begin{poznamka}
+        Existují 2 zápisy: aditivní $(G, +, -, 0)$ (typicky abelovská) a multiplikativní $(G, ·, ^{-1}, 1)$.
+    \end{poznamka}
+
+    \begin{definice}[Podgrupa]
+        Ať $(G,  *, ', e)$ je grupa, $H \subseteq G$ podmnožina. Pokud je $H$ uzavřené na operace, čili $e \in H, \forall a, b \in H: a*b \in H, a' \in H$, pak $H$ je podgrupa $G$. Značíme $H ≤ G$.
+
+        $G, \{e\}$ jsou nevlastní podgrupy, ostatní jsou vlastní.
+    \end{definice}
+
+    \begin{priklady}[Symetrická grupa]
+        $X$ neprázdná množina, ($S_X := \{\text{permutace na } X\}$, operace $\circ$ skládání, $^{-1}$ inverzní, $\id_X$) je symetrická grupa. Pokud je $X = \{1, 2, …, n\}$, pak značíme $S_n := S_X$.
+    \end{priklady}
+
+    \subsection{Vlastnosti permutací}
+        \begin{definice}[Cyklus]
+            Cyklus je posloupnost $a_1, …, a_k \in X$ navzájem různých prvků přičemž $\pi(a_1) = a_2, \pi(a_2) = a_3, …, \pi(a_k) = a_1$. Cyklus značíme $(a_1 a_2 … a_k)$.
+        \end{definice}
+
+        \begin{definice}[Rozklad na cykly]
+            Rozklad na cykly je zápis $(a_{11} a_{12} … a_{1k_1})(a_{21} … a_{2k_2})…(a_{m1} … a_{mk_m})$, kde $a_{ij}$ jsou po dvou různé prvky. Cykly délky 1 typicky nepíšeme.
+
+            Každá permutace na konečné množině jde (jednoznačně) rozložit na cykly.
+        \end{definice}
+
+        \begin{definice}[Transpozice]
+            Transpozice je cyklus délky 2.
+
+            Každá permutace ($X$ konečná, stejně jako kdekoliv dále) jde napsat jako složení transpozic.
+        \end{definice}
+
+        \begin{definice}[Sudá a lichá permutace, znaménko]
+            Sudá permutace je ta permutace, kterou lze rozložit na sudý počet transpozic. Jinak je permutace lichá.
+
+            Znaménko permutace $\sgn \pi = 1$ pokud je daná permutace sudá, jinak $\sgn \pi = -1$. $\sgn(\pi^{-1}) = \sgn \pi$. $\sgn \pi = (-1)^{n-m} = (-1)^{m_0}$, kde $m$ je počet cyklů a $m_0$ je počet sudých cyklů ($n$ počet prvků v množině).
+        \end{definice}
+
+        \begin{definice}[Konjugované]
+            $\pi, \sigma \in S_n$ jsou konjugované, pokud $\exists \rho \in S_n: \sigma = \rho\circ\pi\circ\rho^{-1}$.
+        \end{definice}
+
+        \begin{tvrzeni}
+            $\pi, \sigma$ jsou konjugované, právě když mají stejný počet cyklů každé délky.
+            
+            \begin{dukazin}
+                Viz skripta.
+            \end{dukazin}
+        \end{tvrzeni}
+        
+        \begin{priklady}[Permutační grupy]
+            Permutační grupy = podgrupy $S_n$: Alternující grupa $A_n ≤ S_n$ jsou všechny sudé permutace $n≥2$. Digedrální grupa $D_{2n} ≤ S_n$ jsou všechny symetrie pravidelného $n$-úhelníku.
+
+            $|S_n| = n!$, $|A_n| = \frac{n!}{2}$, $|D_{2n}| = 2n$.
+        \end{priklady}
+
+        \begin{priklady}[Geometrické grupy]
+            $D_{2n}$, $E_n$ (euklidovská grupa -- symetrie $®R^n$), symetrie projektivního prostoru.
+        \end{priklady}
+
+        \begin{priklady}[Maticové grupy]
+            $GL_n(®T)$ je grupa regulárních matic $n \times n$ nad ®T, $SL_n(®T)$ je grupa podgrupa regulárních matic s $\det = 1$, $O_n(®T)$ je grupa ortogonálních matic, čili $A·A^T = I_n$.
+        \end{priklady}
+
+        \begin{priklady}[Okruhové grupy]
+            $R$ okruh. $(R, +, -, 0)$ je aditivní grupa okruhu $R$ (je ablovská), pokud je navíc $R$ (komutativní) okruh s 1 a $R^*$ množina všech invertibilních prvků, pak $(R^*, ·, ^{-1}, 1)$ je multiplikativní grupa okruhu $R$.
+        \end{priklady}
+
+        \begin{priklady}[Komplexní jednotky]
+            $\(\{z \in ®C\ |\ |z| = 1\}, ·, ^{-1}, 1\)$ a její podgrupy tzv. cyklotomické grupy
+            $$ ®C_n = \{\text{kořeny } x^n - 1\} = \{\zeta_n^j | j \in [n]\}, \qquad \zeta_n = e^{2\pi i/n}. $$
+
+            Priferova $p$-grupa $®C_{p^∞} = \bigcup_{k=1}^∞ ®C_{p^k}$.
+        \end{priklady}
+
+        \begin{definice}[Direktní součin grup]
+            Direktní součin grup $(G_i, *_i, '_i, e_i)$, $i \in [n]$, je $\prod G_i = G_1\times … \times G_n = \{(a_1, …, a_n) | a_i \in G_i\}$, grupa, kde operace $*, ', e$ jsou definovány „po složkách“:
+            $$ (a_1, …, a_n)*(b_1, …, b_n) = (a_1*_1b_1, …, a_n*_nb_n), \qquad (a_1, …, a_n)' = (a_1', …), $$
+            $$ e = (e_1, …, e_n). $$ 
+
+            Pro $G_1 = … = G_n = G$ jde o direktní mocniny $G^n$.
+        \end{definice}
+
+        \begin{tvrzeni}[Základní vlastnosti grup]
+            $(G, *, ', e)$, $a, b, c \in G$:
+            $$ a*c = b*c \implies a = b, $$
+            $$ a*c = a \implies c = e, $$ 
+            $$ (a')' = a, \qquad (a*b)' = b'*a'. $$
+        \end{tvrzeni}
+
+    \subsection{Mocniny a řád prvku}
+        \begin{definice}[Mocnina prvku]
+            $G$ grupa, $a \in G$, $n \in ®Z$.
+            $$ a^n = \begin{cases} 1 & n = 0 \\ \underbrace{a·a·…·a}_{n\times} & n > 0 \\ \underbrace{a^{-1}·a^{-1}·…·a^{-1}}_{n\times} & n < 0 \end{cases}. $$ 
+        \end{definice}
+
+        \begin{tvrzeni}
+            $G$ grupa, $a, b \in G$, $k, l \in ®Z$. Pak $a^{k+l} = a^k·a^l$, $a^{k·l} = (a^k)^l = (a^l)^k$. Pokud je navíc $G$ abelovská, potom $(ab)^k = a^kb^k$.
+
+            \begin{dukazin}
+                Pro $k, l > 0$ je to jasné: $a^{k+l} = \underbrace{a·a·…·a}_{k+l} = \underbrace{a·a·…·a}_{k}·\underbrace{a·a·…·a}_{l} = a^k·a^l$. Když $k = 0$ nebo $l = 0$, pak je to ještě jasnější. $k > 0, l < 0, k+l>0$ a podobně rozebereme každé zvlášť.
+
+                Zbytek analogicky.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{definice}[Řád grupy]
+            Řád grupy $G$ je počet prvků nosné množiny $G$ (tj. $|G|$), resp. $∞$.
+
+            Řád prvku $a \in G$ je nejmenší $n \in ®N$ tak, že $a^n = 1$ (pokud neexistuje, pak $∞$). Značíme $\ord(a)$.
+        \end{definice}
+
+        \begin{tvrzeni}[Řád permutace]
+            Řád permutace $\pi \in S_n$ je nejmenší společný násobek délek cyklů $\pi$.
+
+            \begin{dukazin}
+                Cyklus délky $k$ má zřejmě řád $k$. Pro disjunktní cykly $C_1, …, C_m$ máme $\pi = (C_1 \circ … \circ C_m)^k$. Protože jsou disjunktní, tak je to to samé jako $C_1^k \circ … \circ C_m^k$. Tedy $\pi^k = \id \Leftrightarrow C_1^k = \id, …, C_m^k = \id$ $\Leftrightarrow k$ je násobek délek všech cyklů. Tedy $\ord \pi = \min k = \NSN(…)$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+\section{Podgrupy}
+    \begin{lemma}
+        Průnik podgrup je podgrupa.
+
+        \begin{dukazin}
+            $G$ grupa, $H_i ≤ G$ pro $i \in I$. $H = \bigcap_{i \in I} H_i \subseteq G$. $H$ je uzavřené na operace: jednoduché ověřit.
+        \end{dukazin}
+    \end{lemma}
+
+    \begin{definice}
+        Buď $X \subseteq G$ podmnožina $G$. Podgrupa generovaná množinou $X$ je nejmenší (vzhledem k inkluzi) podgrupa $G$, která obsahuje $X$. Značíme $\<X\>_G$.
+
+        \begin{dukazin}
+            $\<X\>_G = \bigcap \{H ≤ G | X \subseteq H\}$.
+        \end{dukazin}
+    \end{definice}
+
+% 21. 4. 2021 Písemka
+
+% 23. 4. 2021
+
+    \begin{tvrzeni}
+        $G$ grupa, $\O ≠ X \subseteq G$. Pak
+        $$ \<X\>_G = [a_1^{k_1}·…·a_n^{k_n} | n \in ®N_0, a_1, …, a_n \in X, k_1, …, k_n \in ®Z]. $$ 
+    
+        \begin{upozorneni}
+            $a_i$ nemusí být různé.
+
+            Vyjádření typicky není jednoznačné.
+        \end{upozorneni}
+
+        \begin{dukazin}
+            $M = $ množina napravo. Chceme $M$ je podgrupa, $M \supseteq X$, $M$ je nejmenší podgrupa.
+
+            1. $(a_1^{k_1}·…·a_n^{k_n})·(b_1^{l_1}·…·b_m^{k_m}) \in M$. $(a_1^{k_1}·…·a_n^{k_n})^{-1} = a_n^{-k_n}·…·a_1^{-k_1} \in M$. $1 \in M$ (pro $n = 1$ nebo $k_i = 0$).
+
+            2. $a \in X \implies a^1 \in M$. 3. Buď $H ≤ G$, $H \supseteq X$. $\forall a \in X: a \in H \implies \forall k \in ®Z: a^k \in H$. $a_1, …, a_n \in X \implies a_1^{k_1}, … \in H \implies a_1^{k_1}·… \in H \implies M \subseteq H$.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{poznamka}[Značení]
+        $$ \<\{b_1, …, b_m\}\>_G ≡ \<b_1, …, b_m\>_G. $$
+    \end{poznamka}
+
+    \begin{dusledek}
+        $G$ grupa $a \in G$. $\<a\>_G = \{a^k | k \in ®Z\}$.
+    \end{dusledek}
+
+    \begin{dusledek}
+        $G$ abelovská grupa, $a_1, …, u_n \in G$. $\<u_1, …, u_n\>_G = \{u_1^{k_1}·…·u_n^{k_n} | k_i \in ®Z\}$.
+    \end{dusledek}
+
+    \begin{tvrzeni}[Generátory permutačních grup]
+        1. Grupa $S_n$ je generovaná množinou všech transpozic (viz Lingebra).
+
+        2. Grupa $A_n$ je generována množinou všech trojcyklů. 
+    \end{tvrzeni}
+
+    \begin{tvrzeni}[Řád prvku a řád podgrupy]
+        $G$ je grupa, $a \in G$. Pak $\ord a = |\<a\>_G|$.
+
+        \begin{dukazin}
+            Z minulého tvrzení $\<a\>_G = \{a^k | k \in ®Z\}$. $a^i = a^j \Leftrightarrow a^{i-j} = 1 \Leftrightarrow \ord a | i - j$ nebo $i-j = 0$ pro $\ord a = ∞$. Pro $\ord a = ∞$ je tvrzení jasné, pro $\ord a = n < ∞$ víme, že $a^i = a^j \Leftrightarrow n|i-j \Leftrightarrow i ≡ j \mod n$. Pak $\<a\>_G = \{a^0, a^1, …, a^{n-1}\}$, tj. $|\<a\>_G| = n = \ord a$.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \subsection{Lagrangeova věta}
+        \begin{veta}
+            $G$ grupa, $H ≤ G$. Pak $|H|$ dělí $|G|$.
+        \end{veta}
+
+        \begin{definice}[Rozkladové třídy, transverzála, index podgrupy]
+            $H ≤ G$. Množiny $aH = \{a·b | b \in H\}$ pro $a \in G$ nazýváme rozkladové třídy podgrupy $H$.
+
+            Podmnožina $T \subseteq G$ s vlastností $|T \cap aH| = 1$ pro $\forall a \in G$ se nazývá transverzála rozkladu $G$ podle $H$.
+
+            Počet různých rozkladových tříd se nazývá index podgrupy $H$ v grupě $G$ a značí se $[G:H] = |\{aH | a \in G\}|$.
+        \end{definice}
+
+        \begin{poznamka}
+            Někdy se těmto definicím říká levá transverzála a levá rozkladová třída. Pravé by se definovaly symetricky. Index je shodný (viz dále).
+        \end{poznamka}
+
+        \begin{lemma}[Disjunktnost rozkladových tříd]
+            $H ≤ G$. $\forall a, b \in G: aH = bH$ nebo $aH \cap bH = \O$.
+
+            \begin{dukazin}
+                Ať $aH \cap bH ≠ \O$. Buď $c \in aH \cap bH$. Tedy $c = ah_1 = bh_2$ pro nějaké $h_1, h_2 \in H$. Vezmeme $ah \in aH$ a máme $ah = ch_1^{-1}h = bh_2h_1^{-1}h \in bH$. Symetricky $bh \in aH$, tedy $aH = bH$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{dusledek}
+            Mohutnost transverzály se rovná mohutnosti množiny rozkladových tříd.
+        \end{dusledek}
+
+        \begin{lemma}[Velikost rozkladových tříd]
+            $H ≤ G$. Pro $\forall a \in G: |aH| = |H|$.
+
+            \begin{dukazin}
+                Zobrazení $f: G \rightarrow G$, $x \mapsto ax$ je prosté: $ax = ay \implies x = y$. $f(H) = aH$, tedy $f|_H$ je bijekce mezi $H$ a $aH$. Tedy $|H| = |aH|$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{veta}[Lagrangeova věta podruhé]
+            $H ≤ G$. Pak $|G| = |H|·[G:H]$.
+
+            \begin{dukazin}
+                Buď $T$ nějaká transverzála. Pak $G = \bigcup_{a \in T} aH$ je disjunktní sjednocení podle lemmatu výše. Tedy
+                $$ |G| = \sum_{a \in T} |aH| = \sum_{a \in T} |H| = |H|·|T| = |H|·[G:H]. $$ 
+            \end{dukazin}
+        \end{veta}
+
+        \begin{dusledek}
+            $G$ grupa, $a \in G$. Pak $\ord a | |G|$.
+        \end{dusledek}
+        
+        \begin{poznamka}
+            Z Lagrangeovy věty plyne Eulerova věta.
+        \end{poznamka}
+
+        \begin{tvrzeni}[Rovnost rozkladových tříd]
+            $H ≤ G$. $\forall a, b \in G$ platí $aH = bH \Leftrightarrow a^{-1}b \in H$. $Ha = Hb \Leftrightarrow ab^{-1} \in H$.
+
+            \begin{dukazin}
+                $\implies$: $aH = bH \ni b = b·1$, čili $b \in aH$, tedy $b = ah$ pro nějaké $h \in H$. Pak $a^{-1}b = h \in H$.
+
+                $\impliedby$: $a^{-1}b = h$ pro nějaké $h \in H$ $\implies$ $b·1 = a·h \in aH \cap bH \implies aH = bH$.
+
+                Analogicky pro pravé.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{dusledek}
+            Levých a pravých rozkladových tříd je stejně, neboť zobrazení $aH \rightarrow Ha^{-1}$ je bijekce.
+        \end{dusledek}
+
+    \subsection{Loydova patnácka (nebude se zkoušet)}
+        Místo prázdného políčka uvažujme 16. Každý stav hry lze popsat permutací $\pi \in S_{16}$. Tah je přechod z $\pi$ do $\pi\circ(ij)$, kde $\pi(i) = 16$.
+
+        \begin{pozorovani}
+            Každý tah změní znaménko permutace.
+        \end{pozorovani}
+
+        \begin{definice}[Invariant pro L. 15]
+            $I(\pi) = \sgn(\pi)·(-1)^{d(\pi)}$, kde $d(pi)$ je Newyorská vzdálenost prázdného pole od pravého dolního rohu.
+
+            \begin{dukazin}[Invariant]
+                Tah změní $\sgn \pi$ i $d(\pi)$.
+            \end{dukazin}
+        \end{definice}
+
+        \begin{veta}
+            Loydova 15 je řešitelná $\Leftrightarrow$ $I(\pi) = 1$.
+
+            \begin{dukazin}
+                $\implies$: Zřejmé (z toho, že je $I(\pi)$ invariant a na konci má být $I = 1$). $\implies$: BÚNO $\pi(16) = 16$. Dívejme se tedy na $\pi \in A_{15}$. Potom pomocí $\pi \circ (5, 6, 7, 8, 11, 10, 9)$ (dolní obdélníček $2 \times 4$), $\pi \circ (1, 2, 3, 4, 7, 6, 5)$ (prostřední obdélníček), $\pi \circ (9, 10, 11, 12, 15, 14, 13)$ (dolní obdélníček). Toto už generuje $A_{15}$ (cvičení).
+            \end{dukazin}
+        \end{veta}
+
+% 28. 4. 2021
+
+\section{Grupové homomorfismy}         
+    \subsection{Základní vlastnosti}
+        \begin{definice}
+            $G = (G, ·, ^{-1}, 1), H = (H, *, ', e)$  jsou grupy. Zobrazení $\phi: G \rightarrow H$ je homomorfismus grup, pokud $\forall a, b \in G: \phi(a·b) = \phi(a)*\phi(b)$, $\phi(a^{-1}) = \phi(a)'$, $\phi(1) = e$.
+        \end{definice}
+        
+        \begin{lemma}
+            $G, H$ jsou grupy jako výše, $\phi: G \rightarrow H$ zobrazení. Pak $\phi$ je homomorfismus $\Leftrightarrow$ $\phi(a·b) = \phi(a)*\phi(b)$.
+            
+            \begin{dukazin}
+                $\impliedby$: $\phi(1) \stackrel{?}{=} e$: $e*\phi(1) = \phi(1) = \phi(1·1) = \phi(1)*\phi(1)$. Zkrátíme $\phi(1)$ na obou stranách $\implies$ $e = \phi(1)$.
+                
+                $\phi(a)*\phi(a)' = e = \phi(1)' = \phi(a·a^{-1}) = \phi(a)*\phi(a^{-1})$. Zkrátíme $\phi(a)$ a dostáváme $\phi(a^{-1}) = \phi(a)'$.
+                
+                $\implies$: triviální
+            \end{dukazin}
+        \end{lemma}
+        
+        \begin{definice}[Obraz a jádro homomorfismu]
+            $\phi: G \rightarrow H$ homomorfismus. Obraz $\phi$ je jeho obor hodnot, čili množina:
+            $$ \im(\phi) = \{\phi(a) | a \in G\} \subseteq H. $$
+            
+            Jádro $\phi$ je množina
+            $$ \Ker(\phi) = \{a \in G | \phi(a) = e\}\subseteq G. $$
+        \end{definice}
+        
+        \begin{tvrzeni}[Jádro a obraz jsou podgrupy]
+            $\phi: G \rightarrow H$ homomorfismus grup. Pak $\im(\phi) ≤ H$ a $\Ker(\phi) ≤ G$.
+            
+            \begin{dukazin}
+                $e = \phi(1) \implies e \in \im(\phi)$. Pokud $\phi(a), \phi(b) \in \im(\phi)$, pak $\phi(a)'=\phi(a^{-1})' \in im(\phi)$ a $\phi(a)*\phi(b) = \phi(a·b) \in \im(\phi)$.
+                
+                $\phi(1) = e \implies 1 \in \Ker(\phi)$. Pokud $a, b \in \Ker \phi$, pak $\phi(a^{-1}) = \phi(a)' = e' = e \implies a^{-1} \in \Ker(\phi)$. $a·b$ podobně.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            $\phi: G \rightarrow H$ homomorfismus grup. Pak $\phi$ je prosté $\Leftrightarrow$ $\Ker(\phi) = \{1\}$.
+            
+            \begin{dukazin}
+                $\implies$: Pro $a≠0$, prostota $\implies$ $\phi(a) ≠ \phi(1) = e$ $\implies$ $a \notin \Ker(\phi)$.
+                
+                $\impliedby$: $\phi(a)=\phi(b) \Leftrightarrow \phi(a·b^{-1}) = e \Leftrightarrow a·b^{-1} \in \Ker(\phi)$. Ale $\Ker(\phi) = \{1\}$, tedy $a·b^{-1} = 1 \implies a=b$. Tedy $\phi$ je prosté.
+            \end{dukazin}
+        \end{tvrzeni}
+        
+        \begin{pozorovani}[Bez důkazu]
+            Homomorfismus je určený svými hodnotami na generátorech. Na rozdíl od LA však nelze volit libovolně.
+        \end{pozorovani}
+        
+        \begin{tvrzeni}[Řád prvku a jeho obrazu]
+            $\phi: G \rightarrow H$ homomorfismus. Pro $a \in G$ platí: $\ord_H(\phi(a)) | \ord_G(a)$. ($\forall x: x|∞$). Je-li $\phi$ prosté, pak $\ord(\phi(a)) = \ord(a)$.
+            
+            \begin{dukazin}
+                $\ord(a) = ∞$ zřejmé. Ať $\ord(a) = n \in ®N$. Pak $\phi(a)^n = \phi(a^n) = \phi(1) = e$. Tedy $\ord(\phi(a)) | n$ (neboť vydělím $n$ číslem $\ord(\phi(a))$ se zbytkem a dostanu, že zbytek $= 0$).
+                
+                Prostota: cvičení. 
+            \end{dukazin}
+        \end{tvrzeni}
+        
+        \begin{tvrzeni}
+            Mějme grupy $G, H, K$ a homomorfismy $\phi: G \rightarrow H, \psi: H \rightarrow K$. Pak $\psi \circ \phi$ je homomorfismus $G \rightarrow K$. Je-li $\phi$ bijekce, pak $\phi^{-1}: H \rightarrow G$ je homomorfismus.
+            
+            \begin{dukazin}
+                Viz skripta.
+            \end{dukazin} 
+        \end{tvrzeni}
+        
+    \subsection{Izomorfismus}
+        \begin{definice}[Izomorfismus]
+            Bijektivní homomorfismus $\phi: G \rightarrow H$ je izomorfismus.
+        \end{definice}
+        
+        \begin{dusledek}
+            Inverze k izomorfismu je izomorfismus.
+        \end{dusledek}
+        
+        \begin{definice}
+            Grupy $G, H$ jsou izomorfní, pokud existuje izomorfismus $\phi: G \rightarrow H$. Značíme $G \simeq H$.
+        \end{definice}
+        
+        \begin{pozorovani}
+            Relace „být izomorfní“ je ekvivalence na třídě všech grup.
+            
+            \begin{dukazin}
+                Reflexivní (identita je izomorfismus), tranzitivní (tvrzení výše o homomorfismu a skládání bijekcí), reflexivní (dusledek výše).
+            \end{dukazin}
+        \end{pozorovani}
+        
+        \begin{tvrzeni}[Algebraická verze ČZV]
+            Mějme $m_1, …, m_n$ po dvou nesoudělná přirozená čísla, $M = m_1·…·m_n$. Zobrazení $\phi: ®Z_M \rightarrow Z_{m_1} \times … \times ®Z_{m_n}$, $a \mapsto (a \mod m_1, …, a \mod m_n)$ je izomorfismus okruhů. Restrikce $\phi|®Z_M^*$ je izomorfismus multiplikativních grup $®Z_M^* \rightarrow ®Z_{m_1}^* \times … \times ®Z_{m_n}^*$.
+            
+            \begin{dukazin}
+                $\phi: ®Z_M \rightarrow ®Z_{m_1} \times … \times ®Z_{m_n}$ je bijekce, viz ČZV. Snadno se ověří, že je to homomorfismus pro operace $+$ i $·$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Neizomorfismus}
+        \begin{tvrzeni}
+            Buď $\phi: G \rightarrow H$ surjektivní homomorfismus. Pokud $G = \<X\>$, pak $H = \<\phi(X)\>$, kde $\phi(X) = \{\phi(a) | a \in X\}$.
+
+            \begin{dukazin}
+                Cvičení / skripta.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{upozorneni}
+            Na rozdíl od VP generující množiny mohou být různě velké, např. $®Z = \<1\> = \<3\>$.
+        \end{upozorneni}
+
+% 30. 4. 2021
+
+\section{Cyklické grupy}
+    \subsection{Základy}
+        \begin{definice}
+            Grupa $G$ je cyklická, pokud je generovaná 1 prvkem, čili $G = \<a\>_G$ pro nějaké $a \in G$.
+        \end{definice}
+
+        \begin{dusledek}[Různých předchozích tvrzení]
+            $\<a\> = \{a^k | k \in ®Z\} \implies \<a\>$ je abelovská (násobení je akorát sčítání mocnin).
+            
+            $\ord a = |\<a\>|$.
+        \end{dusledek}
+
+        \begin{veta}[Klasifikace cyklických grup]
+            $G$ cyklická grupa. 1) Je-li $G$ nekonečná, pak je izomorfní $(Z, +, -, 0)$. 2) Je-li $G$ konečná řádu $n$, pak je izomorfní $(Z_n, +, -, 0)$.
+
+            \begin{dukazin}
+                1) $|G| = ∞$. Pak $G = \{…, a^{-1}, a^0, a^1, a^2, …\}$ (po dvou různé mocniny). Definujeme izomorfismus $\phi: G \rightarrow Z$, $a^k \mapsto k$. Už víme, že je bijekce. Homomorfismus je to, protože $k + l = \phi(a^k) + \phi(a^l) = \phi(a^k·a^l) = \phi(a^{k+l}) = k+l$.
+
+                2) $|G| = n$. $\phi:G = \{1, a, …, a^{n-1}\} \rightarrow Z_n$, $a^k \mapsto k$. To že je $\phi$ bijekce už víme, homomorfismus: $k + l \mod n = \phi(a^k) + \phi(a^l) \mod n = \phi(a^k·a^l) = \phi(a^{k+l \mod n}) = k+l \mod n$.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{tvrzeni}
+            Každá podgrupa cyklické grupy je cyklická.
+
+            \begin{dukazin}
+                $H ≤ G = \<a\>$. 1) $H = \{1\}$, pak je generována 1. 2) $H$ obsahuje prvek $a^l$ pro $l≠0$. Tedy $a^{l'} \in H$ pro $l' > 0$. Buď $k > 0$ nejmenší tak, že $a^k \in H$. Pak $H = \<a^k\>$. Buď $a^n \in H$, vydělíme se zbytkem: $n = ki + j$, $0 ≤ j < k$. Pak ale $a^k > a^j = a^{ki + j}·a^{k(-i)} \in H$. Tudíž $a^k | a^n$ (když $a^j = 1$) nebo \lightning. Tedy $H \subseteq \<a^k\>$. A triviálně $\<a^k\> \subseteq H$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Generátory podgrup]
+            $G = \<a\>$. 1) $\<a^k, a^l\> = \<a^{\NSD(k, l)}\>$. 2) Je-li $|G| = n \in ®N$, pak $\<a^k\> = \<a^{\NSD(k, n)}\>$.
+
+            \begin{dukazin}
+                1) $\subseteq$: jasný, neboť $\NSD(k, l)|k,l$. $\supseteq$: použijeme Bézoutovu rovnost, $\NSD(k, l) = kx + ly$. Tedy $a^{\NSD(k, l)} = \(a^k\)^x·\(a^l\)^y \in \<a^k, a^l\>$.
+
+                2) Volíme v 1) $l = n$. Víme, že $a^n = 1$, tedy
+                $$ \<a^{\NSD(k, n)}\> = \<a^k, a^n\> = \<a^k, 1\> = \<a^k\>. $$ 
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Generátory cyklických grup]
+            $G = \<a\>$. 1) $|G| = ∞$, pak generátory jsou právě $a^1, a^{-1}$. 2) $|G| = n$, pak generátory jsou právě $a^k$, kde $k \in \{1, …, n\}$ a $\NSD(k, n) = 1$.
+
+            \begin{dukazin}
+                1) jasné (viz skripta). 2) Z tvrzení výše $\<a^k\> = \<a^{\NSD(k, n)}\> = H$, $H = G \Leftrightarrow \NSD(k, n) = 1$. $\implies$: Kdyby $d = \NSD(k, n) > 1$, pak $H = \<c^d\> = \{1, a^d, …, a^{d(\frac{n}{d} - 1)}\} ≠ G$. $\impliedby$: triviální.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Řády prvků]
+            Cyklická grupa konečného řádu $n$ obsahuje právě $\phi(d)$ prvků řádu $d|n$. (A 0 řádu $d\nmid n$.)
+
+            \begin{dukazin}
+                    $G$ cyklická, $|G| = n$. Každý prvek řádu $d|n$ je generátor cyklické podgrupy řádu $d$. Víme, že taková podgrupa existuje v $G$ právě 1, neboť podle tvrzení výše jsou všechny podgrupy tvaru $\<a^k\>$ pro $k|n$ a taková podgrupa má řád $n/k$. Tedy $b$ je generátor $\<a^{n/d}\>$. Ta má podle předchozího tvrzení právě $\phi(d)$ generátorů.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            Pro $n \in ®N: \sum_{d|n} \phi(d) = n$.
+
+            \begin{dukazin}
+                Spočteme $|®Z_N|$ dvěma způsoby: 1) $|®Z_n| = n$. 2) $®Z_n = \bigcup_{d|n}\{b \in ®Z_n | \ord b = d\}$. Tj. $|®Z_n| = \sum_{d|n}\phi(d)$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Multiplikativní grupy konečných těles}
+        \begin{lemma}
+            $G$ konečná grupa taková, že $\forall k$ grupa $G$ obsahuje nejvýše $k$ prvků $a$: $a^k = 1$. Pak $G$ je cyklická.
+
+            \begin{dukazin}
+                $n = |G|$. $U_k =$ počet prvků řádu $k$ v $G$. Lagrange $\implies$ $U_k = 0$ pro $k \nmid n$. Spočtu prvky $G$ podle řádů (jako v předchozím tvrzení): $n = \sum_{k|n} U_k$. Buď $a$ prvek řádu $k$. $\<a\>$ je cyklická řádu $k$ a všechny prvky $b \in \<a\>$ splňují $b^k = 1$. $\<a\>$ obsahuje $k$ takových prvků.
+
+                Předpoklad: $G$ obsahuje nejvýše $k$ prvků $c$ tak, že $c^k = 1$. Tedy $c \in \<a\>$. Speciálně každý prvek řádu $k$ leží v $\<a\>$ a je generátor $\<a\>$. Z tvrzení výše $\<a\>$ má $\phi(k)$ generátorů $\implies U_k = \phi(k)$. Tedy pro $k|n$ máme $U_k = 0$ nebo $\phi(k)$.
+
+                $\sum_{k|n} \phi(k) = n ≤ \sum_{k|n} U_k ≤ \sum_{k|n} \phi(k)$. Tedy platí rovnost, tedy $U_k = \phi(k) \forall k | n$. Speciálně $U_N = \phi(n) > 1$ a existuje prvek řádu $n$ a ten generuje $G$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{veta}
+            Buď ®T těleso a $G$ konečná podgrupa multiplikativní grupy $®T^*$. Pak $G$ je cyklická.
+
+            \begin{dukazin}
+                Pro předchozí lemma chci $G$ obsahuje nejvýše $k$ prvků tak, že $a^k = 1$. Ale každé takové $a$ je kořen polynomu $x^k - 1$. Nad tělesem ®T má $x^k - 1$ nejvýše $\deg(x^k - 1) = k$ kořenů.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{dusledek}
+            Speciálně $|®T| < ∞$, pak $®T^*$ je cyklické. Její generátory se nazývají primitivní prvky.
+
+            $®T = ®Z_p \implies ®Z_p^* = \{1, 2, …, p-1\}$ je cyklická, čili existuje $g$ tak, že
+            $$ ®Z_p^* = \{g^0, g^1, …, g^{p-2}\}. $$
+        \end{dusledek}
+
+    \subsection{Diskrétní logaritmus a kryptografie}
+        \begin{definice}[Diskrétní logaritmus a exponenciála]
+            $|G| = n$, zobrazení $G = \<a\> = \{a_0, a_1, …, a^{n-1}\} \overset{\simeq}{\rightarrow} ®Z_n, a^k \mapsto k$ je tzv. diskrétní logaritmus. Diskrétní exponenciála je pak $®Z_n \overset{\simeq}{\rightarrow} G, k \mapsto a^k$.
+        \end{definice}
+
+        \begin{poznamka}
+            Počítání diskrétní exponenciály je rychlé (rozdělení na mocniny 2), ale diskrétního logaritmu pomalé.
+        \end{poznamka}
+
+% 5. 5. 2021
+
+\section{Působení grupy na množině}
+    \subsection{Abstraktní grupa jako grupa permutací}
+        \begin{definice}[Působení grupy na množině]
+            Působení grupy $G$ na množině $X$ je libovolný homomorfismus $\pi: G \rightarrow S_X$. Hodnotu permutace $\pi(g)$ na prvku $x \in X$ často značíme $g(x)$.
+
+            \begin{dusledekin}
+                $\pi(1) = \id$, $\pi(g^{-1}) = \pi(g)^{-1}$, $(g·h)(x) = g(h(x))$.
+            \end{dusledekin}
+        \end{definice}
+
+        \begin{veta}[Cayleyova representace]
+            Každou grupu jde vnořit do nějaké symetrické grupy. (Čili existuje homomorfismus $\phi: G \rightarrow S_x$).
+
+            \begin{dukazin}
+                Dokonce vezmeme $X = G$. (Tedy pokud je $G$ konečná, pak vnořujeme do $S_{|G|}$). Pro $a \in G$ uvažujeme levou translaci $L_a: G \rightarrow G, x \mapsto a·x$. $L_a$ je zřejmě permutace na $G$, neboť můžeme zinvertovat $a$. Zobrazení $G \rightarrow S_G$, $a \mapsto L_a$ je homomorfismus (čili také $G$ působí na $X = G$), což snadno ověříme.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{definice}
+            Relace tranzitivity $\sim$ na $X$: $x \sim y$ pokud $\exists g \in G: g(x) = y$.
+        \end{definice}
+
+        \begin{lemma}
+            $\sim$ je ekvivalence na $X$.
+
+            \begin{dukazin}
+                Cvičení / skripta.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{definice}[Orbita]
+            Třídy ekvivalence $\sim$ se nazývají orbity.
+
+            Orbitu obsahující $x \in X$ značíme $[x] = \{y \in X | y \sim x\} = \{g(x) | g \in G\}$.
+        \end{definice}
+
+        \begin{definice}[Pevný bod, stabilizátor]
+            Bod $x \in X$ je pevný bod prvku $g \in G$, pokud $g(x) = x$.
+
+            Množinu všech pevných bodů $g \in G$ značíme $X_g = \{x \in X | g(x) = x\}$.
+
+            Stabilizátor prvku $x \in X$ je množina $G_x = \{g \in G | g(x) = x\}$.
+        \end{definice}
+
+        \begin{lemma}
+            Stabilizátor $G_x$ je podgrupa $G$.
+
+            \begin{dukazin}
+                $1 \in G_x$, neboť $1(x) = x$. $g, h \in G_x$, čili $g(x) = x, h(x) = x$, pak $(g·h)x = g(h(x)) = g(x) = x \implies g·h \in G_x$, $g^{-1}(x) = x \implies g^{-1} \in G_x$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{tvrzeni}[Velikost orbity vs. index stabilizátoru]
+            $$ \forall x \in X: |[x]| = [G : G_x]. $$
+
+            \begin{dukazin}
+                Najdeme bijekci mezi $[x]$ a množinou $\{gG_x | g \in G\}$. Uvažujme $\phi: \{gG_x | g \in G\} \rightarrow [x]$, $gG_x \mapsto g(x)$. $g(x) \in [x]$. Je $\phi$ vůbec dobře definovaná? $gG_x = hG_x \implies g(x) = h(x)$, neboť podle dřívějšího tvrzení $gG_x = hG_x \Leftrightarrow h^{-1}g \in G_x \Leftrightarrow h^{-1}g(x) = x \Leftrightarrow g(x) = h(x)$. Zároveň je $\phi$ prosté (díky zpětným implikacím v předchozím) a je na, neboť pro $g(x) \in [x]$ mám $g(x) = \phi(gG_x)$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{dusledek}[Spolu s lagrangeovou větou]
+            $$ |G| = |G_x|·[G : G_x] = |G_x|·|[x]|. $$
+        \end{dusledek}
+
+
+    \subsection{Burnside}
+        \begin{veta}[Burnsideova]
+            Ať konečná grupa $G$ působí na konečné množině $X$. Pak:
+            $$ |X/\sim| = \frac{1}{|G|}·\sum_{g \in G} |X_g|. $$
+
+            \begin{dukazin}
+                Nechť $M = \{(g, x) \in G \times X | g(x) = x\}$. Spočtu velikost $M$ dvěma způsoby:
+                $$ |M| = \sum_{g \in G}|X_g| = \sum_{x \in X}|G_x|. $$
+                $$ \frac{1}{|G|}·\sum_g |X_g| = \frac{1}{|G|}·\sum_x |G_x| = \sum_{x \in X}\frac{1}{|[x]|} = \sum_{o \in X/\sim} \sum_{x \in o} \frac{1}{|o|} = \sum_{o \in X/\sim} 1 = |X/\sim|. $$ 
+            \end{dukazin}
+        \end{veta}
+
+% 7. 5. 2021
+
+        \begin{definice}[Tranzitivní]
+            Buď $G$ permutační grupa, čili $G ≤ S_X$. $G$ je tranzitivní, pokud má jenom 1 orbitu ve svém působení na $X$.
+        \end{definice}
+
+        \begin{veta}[Jordanova]
+            Každé konečná tranzitivní grupa $G$, $|G|≥2$, obsahuje aspoň 1 permutaci bez pevného bodu.
+
+            \begin{dukazin}
+                Burnside: počet orbit (= 1 z tranzitivity) = průměrný počet pevných bodů. $\id \in G$ má $n ≥ 2$ pevných bodů, tedy nadprůměrný počet. To znamená, že $\exists g \in G$, které má podprůměrný počet pevných bodů, tedy 0.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{veta}[Cauchyova]
+            Buď $G$ konečná grupa a $p$ prvočíslo tak, že $p\ |\ |G|$. Pak v $G$ existuje prvek řádu $p$.
+
+            \begin{dukazin}
+                $X = \{(a_1, a_2, …, a_p) \in G^{p} | a_1a_2…a_p = 1\}$. Mohutnost $X$ spočítáme tak, že víme, že $a_1, …, a_{p-1}$ můžeme zvolit libovolně a následně dopočítáme $a_p = a_{p-1}^{-1}…a_1^{-1}$, tedy $|X| = |G|^{p-1}$. $Z_p$ působí na $X$ rotací složek (0 je identita, 1 rotace o 1, …). $|[x]|\ |\ |Z_p| = p$, tudíž každá orbita má velikost $1$ nebo $p$. Existuje orbita velikosti $1$ a sice $(1, 1, …, 1)$. Zároveň $X$ je disjunktní sjednocení orbit, $p$ dělí $|X| = |G|^p$. Tedy počet $1$-prvkových orbit je $kp$ pro nějaké $k ≥ 1$, tudíž existuje alespoň $p-1$ $1$-prvkových orbit různých od $1, 1, …, 1$.
+
+                Buď $(a_1, …, a_p)$ tato jiná orbita. Pak $a_1 = a_2$, $a_2 = a_3$, …, tedy je tvaru $(a, a, …, a) \in X$. Ale z definice $X$ je $a^p = 1$, zároveň není $a = 1$, tedy $\ord a = p$.
+            \end{dukazin}
+        \end{veta}
+
+\section{Faktorgrupy}
+    \subsection{Normální podgrupy}
+        \begin{tvrzeni}
+            $G$ je grupa, $H ≤ G$. NTJE:
+            1) $aH = Ha$ $\forall a \in G$,
+            2) $aha^{-1} \in H$ pro každé $h \in H$, $a \in G$.
+        \end{tvrzeni}
+
+        \begin{definicein}[Normální podgrupa]
+            Podgrupa $H$ je normální v grupě $G$, pokud splňuje tyto podmínky. Značíme $H \trianglelefteq G$.
+        \end{definicein}
+
+        \begin{dukazin}
+            $\implies$: Buď $h \in H$, $a \in G$. Víme: $ah \in aH = Ha \implies$ existuje $h' \in H$ tak, že $ah = h'a \implies aha^{-1} = h' \in H$.
+
+            $\impliedby$: Dokážeme $aH \subseteq Ha$ (a analogicky $Ha \subseteq aH$). Buď $ah \in aH$. Pak $h' = aha^{-1} \in H$, a tedy $ah = h'a \in Ha$.
+        \end{dukazin}
+
+        \begin{priklady}
+            $\{1\} \trianglelefteq G$ a $G \trianglelefteq G$. V abelovských grupách jsou všechny podgrupy normální. $SL_n(T) \trianglelefteq GL_n(T)$. Naopak $\{\id, (1\ 2)\} \ntrianglelefteq S_3$. Ale $A_n \trianglelefteq S_n$.
+        \end{priklady}
+
+        \begin{tvrzeni}
+            Jádro homomorfismu je normální podgrupa.
+
+            \begin{dukazin}
+                Hom. $\phi: G \rightarrow H$. $\Ker \phi = \{g \in G | \phi(g) = 1_H\} ≤ G$. Buď $a \in G$, $k \in \Ker \phi$. $aka^{-1} \in \Ker \phi$, protože
+                $$ \phi(aka^{-1}) = \phi(a)\phi(k)\phi(a)^{-1} = \phi(a)\phi(a)^{-1} = 1. $$
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Konstrukce faktorgrupy}
+        \begin{definice}
+            $G$ grupa, $N \trianglelefteq G$. Definujeme relaci na $G$: $a \sim b \Leftrightarrow ab^{-1} \in N$. $ab^{-1} \in N \Leftrightarrow Na = Nb \Leftrightarrow aN = bN$ (z normality). Třídy ekvivalence $[a] = aN = Na$.
+
+            Faktorgrupa $G$ podle podgrupy $N$ = množina těchto bloků = $\{aN | a \in G\}$ (neboli $G/\sim = \{[a] | a \in G\}$), kde operace jsou $[a]·[b] = [ab]$, $[a]^{-1} = [a^{-1}]$ a neutrální prvek je $[1]$.
+
+            \begin{dukazin}[Operace jsou dobře definované a $G/\sim$ je fakt grupa]
+                Ať $[a] = [c]$, $[b] = [d]$. Potom $[ab] = [cd]$, protože $a \sim c$ a $b \sim d$, tedy $ac^{-1} \in N$ a $bd^{-1} \in N$, tudíž $ab(cd)^{-1} = abd^{-1}c^{-1} = (ac^{-1})·(c(bd^{-1})c^{-1}) \in N$. Obdobně pro $^{-1}$.
+
+                Ověříme axiomy grupy…
+            \end{dukazin}
+        \end{definice}
+
+        \begin{veta}
+            $\phi: G \rightarrow H$ homomorfismus grup.
+
+            1) (věta o homomorfismu) Je-li $N \subseteq \Ker \phi$ a $N \trianglelefteq G$, pak zobrazení $\psi: G/N \rightarrow H$, $[a] \mapsto \phi(a)$ je dobře definované a je to grupový homomorfismus.
+
+            \begin{dukazin}
+                Dobře definované: $[a] = [b] \implies ab^{-1} \in N \implies ab^{-1} \in \Ker \phi \implies \phi(ab^{-1}) = 1$. Tedy $\phi(a) = \phi(b)$.
+
+                Homomorfismus: $\psi([a]) · \psi([b]) = \phi(a)·\phi(b) = \phi(ab) = \psi([ab]) = \psi([a]·[b])$.
+            \end{dukazin}
+
+% 14. 5. 2021
+
+            2) (1. věta o isomorfismu) $G/\Ker \phi \simeq \im \phi$.
+
+            \begin{dukazin}
+                Použiji 1) pro $N = \Ker \phi$. $\psi: G/\Ker \rightarrow H$. $\psi$ je prosté: $[a] = [b] \Leftrightarrow ab^{-1} \in \Ker \phi \Leftrightarrow \phi(ab^{-1}) = 1 \Leftrightarrow \phi(a) = \phi(b) \Leftrightarrow \psi([a])=\psi([b])$. Když se na $\psi$ dívám jenom jako na zobrazení $G/\Ker \phi \rightarrow \im \phi ≤ H$, tak je na.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{tvrzeni}[2. věta o isomorfismu]
+            $N \trianglelefteq G$. 1) $N \trianglelefteq H \trianglelefteq G$, pak $H/N$ je normální podgrupa $G/N$.
+
+            2) Je-li $K \trianglelefteq G/N$, pak existuje $H \trianglelefteq G$ tak, že $K = H/N$.
+
+            3) $N \trianglelefteq H \trianglelefteq G$, pak $(G/N)/(H/N) \simeq G/H$.
+
+            (Tvrzení 1) i 3) platí i pro podgrupy, které nejsou normální.)
+
+            \begin{dukazin}
+                1) se ověří.
+
+                2) $K \trianglelefteq G/N \implies K = H/N$ pro nějaké $H$, a sice $H = \{a \in G | [a] = aN \in K\}$. Ověří se, že $K = H/N$.
+
+                3) 1. věta o isomorfismu: Uvažujme homomorfismus $\phi: G/N \rightarrow G/H$, $aN \mapsto aH$. Ověříme, že je dobře definován: $aN = bN \Leftrightarrow ab^{-1} \in N \implies ab^{-1} \in H \Leftrightarrow aH = bH$ a že je to homomorfismus: $\phi(aN·bN) = \phi(abN) = (ab)H \overset{?}{=} \phi(aN)·\phi(bN) = aH·bH = (ab)H$. $\im \phi = G/H$ zřejmě, $\Ker \phi = \{aN | \phi(aN) = aH = 1·H\}$, ale $aH = 1·H \Leftrightarrow a·1^{-1} = a \in H$. Tedy $\Ker \phi = H/N$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[3. věta o isomorfismu]
+            $N \trianglelefteq G$, $H ≤ G$. Pak $HN$ je podgrupa $G$. $H \cap N \trianglelefteq H \land HN/N \simeq H/(H \cap N)$.
+
+            \begin{dukazin}
+                Bez důkazu (jednoduchý).
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Řešitelné grupy}
+        \begin{definice}[Řešitelná grupa, stupeň řešitelnosti]
+            Grupa $G$ je řešitelná, pokud $\exists k \in ®N$ a normální podgrupy $N_0, N_1, …, N_k \trianglelefteq G$ tak, že $\{1\} = N_0 ≤ N_1 ≤ … ≤ N_k = G$ a každá faktorgrupa $N_i / N_{i-1}$, pro $i \in [k]$, je abelovská.
+
+            Nejmenší $k$, pro které tento řetězec v $G$ existuje, se nazývá stupeň řešitelnosti $G$.
+        \end{definice}
+
+        \begin{definice}[Metaabelovská grupa]
+            Grupa stupně řešitelnosti 2 se nazývá metaabelovská.
+        \end{definice}
+
+        \begin{veta}[Feit-Thompson]
+            Každá grupa lichého řádu je řešitelná.
+
+            Jednodušší varianta: Každá grupa řádu $p^k$ ($p$ prvočíslo) je řešitelná.
+
+            \begin{dukazin}
+                Extrémně těžký.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{definice}[Derivovaná podgrupa]
+            $G$ grupa. Její derivovaná podgrupa je $G' = \<aba^{-1}b^{-1} | a, b \in G\>$.
+        \end{definice}
+
+        \begin{lemma}
+            $N \trianglelefteq G$. 1) $N' \trianglelefteq G$. 2) $G/N$ je abelovská $\Leftrightarrow$ $G' ≤ N$.
+
+            \begin{dukazin}
+                1) ověří se (viz skripta). 2) $G/N$ abelovská $\Leftrightarrow$ $[a][b] = [b][a]$ $\Leftrightarrow$ $[aba^{-1}b^{-1}] = [1]$ $\Leftrightarrow$ $aba^{-1}b^{-1} \in N$ $\Leftrightarrow$ $G' \subseteq N$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{tvrzeni}[Řešitelnost podgrup a faktogrup]
+            $G$ grupa. 1) $G$ řešitelná a $H ≤ G \implies H$ řešitelná.
+
+            2) $G$ řešitelná, $K \trianglelefteq G$ $\implies$ $G/K$ řešitelná.
+
+            3) Pokud $\exists N \trianglelefteq G$ tak, že $N$ je řešitelná a $G / N$ je řešitelná, pak je $G$ řešitelná.
+
+            \begin{dukazin}
+                1) $N_i \trianglelefteq G$, $\{1\} = N_0 ≤ N_1 ≤ … ≤ N_k = G$, $N_i / N_{i-1}$ abelovská. Uvažujme $\{1\} = N_0 \cap H ≤ N_1 \cap H ≤ … ≤ N_k \cap H = H$, dokážeme, že tato posloupnost prokazuje řešitelnost $H$. Triviálně $N_i \cap H \trianglelefteq H$. $(N_i\cap H)/(N_{i-1} \cap H) = (N_i \cap H)/((N_i \cap H) \cap N_{i-1})$. Podle 3. věty o isomorfismu je to isomorfní s $N_{i-1}(N_i \cap H) / N_{i-1} ≤ N_i / N_{i-1}$, která je abelovská, tedy i její podgrupa je abelovská, tedy $(N_i \cap H)/(N_{i-1} \cap H)$ je abelovská.
+
+                2) analogicky (2. a 3. věta o isomorfismu). 3. podobně (nezkouší se, viz skripta).
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{dusledek}
+            $G$ grupa s normálními podgrupami $N_0, …, N_k$ tak, že $\{1\} = N_0 ≤ N_1 ≤ … ≤ N_k = G$ a $N_i/N_{i-1}$ jsou řešitelné. Pak $G$ je řešitelná.
+
+            \begin{dukazin}
+                Indukcí podle $k$ a použitím třetího bodu předchozího tvrzení.
+            \end{dukazin}
+        \end{dusledek}
+
+\section{Číselná tělesa a kořeny polynomů}
+    \subsection{Okruhové homeomorfismy a faktorokruhy}
+        \begin{tvrzeni}[Obraz a jádro]
+            $R, S$ okruhy, $\phi: R \rightarrow S$ homomorfismus okruhů. 1) $\im \phi$ je podokruh $S$. 2) $\Ker \phi$ je ideál v $R$.
+
+            \begin{dukazin}
+                1) $\phi(a) + \phi(b) = \phi(a+b) \in \im \phi$. $\phi(a)·\phi(b) = \phi(a·b) \in \im \phi$.
+
+                2) $\Ker \phi$ je uzavřené na $+$ (ověří se). Také je uzavřené na násobení $R$: $a \in \Ker \phi, r \in R \implies \phi(ra) = \phi(r)·\phi(a) = \phi(r) = 0$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            $\phi: R \rightarrow S$ je prostý homomorfismus okruhů $\Leftrightarrow$ $\Ker \phi = \{0\}$.
+        \end{tvrzeni}
+
+        \begin{tvrzeni}
+            $\phi: R \rightarrow S, \psi: S \rightarrow T$ homomorfismy okruhů. Pak 1) $\psi \circ \phi: R \rightarrow T$ je homomorfismus okruhů.
+
+            2) Je-li $\phi$ bijekce (čili $\phi$ je isomorfismus), pak $\phi^{-1}: S \rightarrow R$ je homomorfismus okruhů (a tedy isomorfismus).
+        \end{tvrzeni}
+
+% 19. 5. 2021
+
+    \subsection{Faktorokruh podle ideálu}
+        \begin{definice}
+            $R$ okruh, $I$ ideál v $R$. Definujeme ekvivalenci na $R$ $a \sim b \Leftrightarrow a-b \in I$.
+
+            Uvažujme jenom grupu $(R, +, -, 0)$. Potom $\sim$ je ta stejná ekvivalence podle podgrupy $I$.
+
+            $a \sim b \Leftrightarrow a + I = b + I$ … třídy ekvivalence jsou rozkladové třídy podle podgrupy. $[a] = a + I$.
+
+            Na blocích definujeme $[a] + [b] = [a+b]$, $-[a] = [-a]$, $[0]$ je neutrální prvek, $[a]·[b] = [a·b]$.
+
+            Množina bloků $[a]$ s těmito operacemi je faktorokruh podle ideálu $I$:
+            $$ R/I = \(\{[a] | a \in R\}, +, -, [0], ·\). $$
+
+            \begin{dukazin}[Dobrá definovanost]
+                1) Operace na blocích jsou dobře definované: $+, -$ víme z grup. Buď nyní $[a] = [c]$, $[b] = [d]$, chceme $[ab] = [cd]$. Z definice bloků víme, že $a - c \in I$ a $b - d \in I$, tudíž $ab - cd = a(b - d) + (a - c)d \in I$.
+
+                2) $R/I$ je okruh: Ověří se axiomy okruhu pro $R/I$ z axiomů pro $R$. (Pozor, axiomy oboru se nezachovávají.)
+            \end{dukazin}
+        \end{definice}
+
+        \begin{veta}
+            $\phi: R \rightarrow S$ homomorfismus okruhů.
+
+            1) (věta o homomorfismu) $I \subseteq \Ker \phi$ ideál v $R$. Pak $\phi: R/I \rightarrow S$, $[a] \mapsto \phi(a)$ je dobře definovaný okruhový homomorfismus.
+
+            2) (1. věta o isomorfismu) $R / \Ker \phi \simeq \im \phi$, $[a] \mapsto \phi(a)$.
+
+            \begin{dukazin}
+                Použije se věta pro grupy a člověk si rozmyslí, že tato zobrazení jsou homomorfismy i vůči násobení.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{poznamka}
+            Platí i 2. a 3. věta o isomorfismu. (Viz skripta.)
+        \end{poznamka}
+
+    \subsection{Kdy je faktorokruh obor / těleso?}
+        \begin{definice}[prvoideál, maximální ideál]
+            Ideál $I$ v okruhu $R$ je prvoideál, pokud $\forall a, b \in R: ab \in I \implies a \in I$ nebo $b \in I$. A je maximální, pokud je $I$ maximální vlastní ideál v $R$, čili neexistuje ideál $j$ tak, že $I \subset J \subset R$.
+        \end{definice}
+
+        \begin{veta}
+            $R$ komutativní okruh s $1$, $I$ ideál. 1) Pak $R/I$ je obor $\Leftrightarrow$ $I$ prvoideál. 2) Potom $R/I$ je těleso $\Leftrightarrow$ $I$ je maximální.
+
+            \begin{dukazin}
+                1) $R/I$ obor $\Leftrightarrow$ $([a]·[b] = 0 \implies [a] = 0 \lor [b] = 0)$ $\Leftrightarrow$ $(a·b \in I \implies a \in I \lor b \in I)$ $\Leftrightarrow$ $I$ je prvoideál.
+
+                2) Z tvrzení 7.6: $R/I$ těleso $\Leftrightarrow$ nemá žádné vlastní ideály. Z druhé věty o isomorfismu: Ideály v $R/I$ jsou právě $J/I$ pro $J \supseteq I$. Tedy $R/I$ je těles $\Leftrightarrow$ $I$ je maximální ideál.
+            \end{dukazin}
+        \end{veta}
+
+\section{Tělesové rozšíření jako vektorový prostor}
+    \begin{definice}[Rozšíření těles]
+        Rozšíření těles jsou tělesa $®T$, $®S$ tak, že $®T ≤ ®S$. (Čili $®T$ je podtěleso $®S$ a $®S$ je rozšíření $®T$).
+    \end{definice}
+
+    \begin{definice}[Stupeň rozšíření]
+        Dimenze vektorového prostoru $®S_{®T}$ (vektorový prostor nad ®T odpovídající ®S) je stupeň rozšíření $®S≥®T$. Neboli $[®S:®T] = \dim ®S_{®T}$.
+    \end{definice}
+
+% 21. 5. 2021
+
+    \begin{definice}[Prvotěleso]
+        Nejmenší podtěleso v jiném tělesu se nazývá prvotěleso.
+    \end{definice}
+
+    \begin{tvrzeni}
+        Počet prvků konečného tělesa je mocnina prvočísla.
+
+        \begin{dukazin}
+            ®T konečnétěleso, ®P prvotěleso, tj. $®P \simeq ®Z_p$. Tedy VP $®T_p$ je izomorfní VP $(®Z_p)^k$, kde $k = [®T:®P] < ∞$. Ale $|®Z_p^k| = p^k = |®T|$.
+        \end{dukazin}
+    \end{tvrzeni}
+
+\section{Algebraické prvky, rozšíření konečného stupně}
+    \subsection{Minimální polynom}
+        \begin{definice}[Algebraické a transcendentní číslo]
+            $®T ≤ ®S$ rozšíření těles, $\alpha \in ®S$. $\alpha$ je algebraické nad ®T, pokud $\exists 0 ≠ f \in ®T[x]: f(\alpha) = 0$. Jinak je $\alpha$ transcendentní nad ®T.
+        \end{definice}
+
+        \begin{definice}[Minimální polynom]
+            $®T ≤ ®S$ rozšíření těles, $\alpha \in ®S$ algebraické nad ®T. Minimální polynom prvku $\alpha$ nad tělesem ®T je ireducibilní monický polynom $m_{\alpha, ®T} \in ®T[x]$, který má kořen $\alpha$.
+        \end{definice}
+
+        \begin{tvrzeni}[Vlastnosti minimálního polynomu]
+            $m_{\alpha, ®T}$ existuje a je jednoznačný. $\alpha$ je kořen $f \in ®T[x]$ $\Leftrightarrow$ $m_{\alpha, ®T} | f$.
+
+            \begin{dukazin}
+                $I = \{f \in ®T[x] | f(\alpha) = 0\}$ je ideál v $®T[x]$. $®T[x]$ je OHI $\implies$ $I$ je hlavní. Buď $m \in ®T[x]$ monický tak, že $I = m®T[x]$. Tedy $f(\alpha) = 0 \Leftrightarrow f \in I = m®T[x] \Leftrightarrow m|f$.
+
+                $m \overset{?}{=} m_{\alpha, ®T}$: monický je, $m(\alpha) = 0$, tedy zbývá ireducibilita: Kdyby $m = f·g$, pak $f(\alpha)·g(\alpha) = 0$, tj. $f(\alpha) = 0$ nebo $g(\alpha) = 0$ $\implies m | f$ nebo $m|g$, \lightning. Tedy je ireducibilní.
+
+                Jednoznačnost: $\tilde{m} \in ®T[x]$ ireducibilní, monický, $\tilde{m}(\alpha)$. $m | \tilde{m}$. Ale $\tilde{m}$ je ireducibilní, tedy $m||\tilde{m}$, čili $m = c\tilde{m}$, $c \in ®T^*$. Ale $m, \tilde{m}$ jsou monické $\implies$ $c = 1$, $m = \tilde{m}$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Struktura jednoduchých rozšíření]
+            Buď $®T ≤ ®S$ rozšíření těles, $\alpha \in S$. Pak $®T(\alpha) = ®T[\alpha] \Leftrightarrow$ $\alpha$ je algebraické nad ®T.
+
+            \begin{dukazin}
+                $®T[\alpha] = \{f(\alpha) | f \in ®T[x]\}$.
+
+                $\impliedby$: Uvažujme homomorfismus okruhů $\phi: ®T[x] \rightarrow ®T[\alpha]$, $f \mapsto f(\alpha)$. $\im \phi = ®T[\alpha]$. $\Ker \phi = \{f | f(\alpha) = 0\} = m_{\alpha, ®T}®T[x]$. Víme, že $m = m_{\alpha, ®T}$ je ireducibilní, tedy $m®T[x]$ je maximální. Podle 1. věty o izomorfismu $®T[\alpha] \simeq ®T[x] / m®T[x]$, což je faktor podle maximálního ideálu $\implies$ $®T[\alpha]$ je těleso. A protože $®T[\alpha]$ je těleso $\implies$ nejmenší těleso obsahující $\alpha$ $\implies$ $®T[\alpha] = T(\alpha)$.
+
+                $\implies$ $\alpha$ transcendentní. Pro spor ať $®T[\alpha] = ®T(\alpha)$. Tedy $\exists f(\alpha \in ®T[\alpha])$ tak, že $f(\alpha) = \alpha^{-1}$. Pak ale $\alpha$ je kořen polynomu $x·f - 1$, \lightning.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{tvrzeni}[Stupeň jednoduchého rozšíření]
+            $®T ≤ ®S$ rozšíření, $\alpha \in ®S$ algebraické nad ®T. $[®T(\alpha):®T] = \deg m_{\alpha, ®T}$.
+
+            \begin{dukazin}
+                $n = \deg m_{\alpha, ®T}$. Dokážeme, že $1, \alpha, \alpha^2, …, \alpha^{n-1}$ tvoří bázi VP $®T(\alpha)_{®T}$. Lineární nezávislost: Kdyby $\sum_{i=0}^{n-1}t_i\alpha^i = 0$ pro nějaké $t_i \in ®T$, pak $f = \sum_{t_i}x^i$ má $\alpha$ za kořen, $m_{\alpha, ®T} | f$ $\implies$ $f = 0$ (jelikož $m_{\alpha, ®T}$ má větší stupeň), tedy máme triviální lineární kombinaci.
+
+                Generování: $f(\alpha) \in ®T[\alpha] = ®T(\alpha)$, kde $f \in ®T[x]$. Ať $f = m_{\alpha, ®T} · q + r$, $q, r \in ®T[x]$, $\deg r < deg m_{\alpha, ®T} = n$, tj. $r = \sum_{i = 0}^{n-1} r_i\alpha^i$ $\implies$ $f(\alpha) = m_{\alpha, ®T}(\alpha)·q(\alpha) + r(\alpha) = 0 + r(\alpha)$. Tím jsme $f(\alpha)$ vyjádřili v $1, \alpha, …, \alpha^{n-1}$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{dusledek}
+            $®T ≤ ®S$, $\alpha \in ®S$, $\alpha$ je algebraické nad ®T $\Leftrightarrow$ $[®T(\alpha):®T] < ∞$.
+
+            \begin{dukazin}
+                $\alpha$ je transcendentní $\implies$ $1, \alpha, \alpha^2, …$ je lineární nezávislá množina $\implies$ $[®T(\alpha):®T]$ není konečný.
+
+                $\alpha$ algebraické $\implies$ $[®T(\alpha):®T] = \deg m_{\alpha, ®T} < ∞$ podle předchozího tvrzení.
+            \end{dukazin}
+        \end{dusledek}
+
+    \subsection{Vícenásobné rozšíření}
+        \begin{tvrzeni}[Stupeň vícenásobného rozšíření]
+            Buď $®T ≤ ®S ≤ ®U$ rozšíření těles, pak $[®U:®T] = [®U:®S]·[®S:®T]$.
+
+            \begin{dukazin}
+                $A$ je báze VP $®S_{®T}$ a $B$ je báze VP $®U_{®S}$. Dokážeme, že $C = \{a·b | a \in A, b \in B\}$ je báze $®U_{®T}$. Generování: $C \subseteq ®U$, tedy $C$ generuje podprostor $®U_{®T}$. $u \in ®U$. $B$ báze $®S_{®S}$ $\implies$ $u = \sum_j s_jb_j$, $s_j \in ®S$, $b_j \in B$. $A$ báze $®S_{®T}$ $\implies$ $s_j = \sum_i t_{ij}a_i$, $t_{ij}\in ®T$, $a_i \in A$. Tudíž $u = \sum_j\sum_i t_{ij}(a_ib_i)$ $\implies$ $u$ jsme vyjádřili v $C$ s koeficienty z ®T.
+
+                LN viz skripta. Pak $[®U:®T] = |C| = |A|·|B| = [®S:®T]·[®U:®S]$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{dusledek}
+            $$ [®T(\alpha_1, \alpha_2):®T] = \deg m_{\alpha_2, ®T(\alpha_1)} · \deg m_{\alpha_1, ®T} ≤ \deg m_{\alpha_2, ®T} · \deg m_{\alpha_1, ®T}. $$
+        \end{dusledek}
+
+        \begin{dusledek}
+                $®T ≤ ®S$, $\alpha_1, …, \alpha_n \in ®S$ algebraické nad ®T. Pak $®T(\alpha_1, …, \alpha_n)$ je rozšíření konečného stupně nad ®T.
+
+            \begin{dukazin}
+                Indukcí.
+            \end{dukazin}
+        \end{dusledek}
+
+        \begin{definice}
+            $®T ≤ ®S$ rozšíření těles je algebraické, pokud $\forall \alpha \in ®S$ je algebraický prvek nad ®T.
+        \end{definice}
+
+        \begin{tvrzeni}
+            Každé rozšíření konečného stupně je algebraické.
+
+            \begin{dukazin}
+                $u = [®S:®T]$. Buď $\alpha \in ®S$. $\alpha$ je algebraické $\Leftrightarrow$ $[®T(\alpha):®T] < ∞$. Tedy $[®T(\alpha) : ®T] ≤ n \implies \alpha$ algebraické nad ®T.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{poznamka}
+            Opačná implikace neplatí! Existuje algebraické rozšíření nekonečného stupně (např. algebraický uzávěr ®Q).
+        \end{poznamka}
+
+        \begin{veta}
+            $®T ≤ ®S$. Prvky ®S, jež jsou algebraické nad ®T, tvoří podtěleso ®S.
+
+            \begin{dukazin}
+                $\alpha, \beta \in ®S$ algebraické nad ®T. Chceme $\alpha + \beta, -\alpha, \alpha·\beta, \alpha^{-1}$ jsou algebraická nad ®T.
+                $$ ®T ≤ ®T(\alpha + \beta) ≤ ®T(\alpha, \beta). $$
+                Víme, že $[®T(\alpha, \beta) : ®T] < ∞$ $\implies$ $[®T(\alpha + \beta) : ®T] < ∞$ $\implies$ $\alpha + \beta$ je algebraické. Úplně stejně pro $-\alpha$, $\alpha·\beta$, $\alpha^{-1}$.
+            \end{dukazin}
+        \end{veta}
+
+% 26. 5. 2021
+
+\section{Geometrické úlohy}
+    \begin{poznamka}[Staré řecké úlohy]
+        Zdvojení krychle. Trisekce úhlu. Kvadratura kruhu. Konstrukce pravidelných $n$-úhelníků pro dané $n$ (17-úhelník -- Gauss).
+
+        Použijeme metodu Piere Wantzel 1837: $M_0$ je počáteční množina bodů v rovině (to, co máme zadáno). $M_i \supseteq M_{i-1}$ vytvoříme tak, že zkonstruujeme nový bod jako průsečík 2 nerovnoběžných přímek (vedoucích skrz body v $M_{i-1}$) nebo průsečík přímky a kružnice (přímka vedoucí skrz body v $M_{i-1}$ a kružnice se středem v $M_{i-1}$ a poloměrem vzdáleností dvou bodů z $M_{i-1}$) nebo průsečík dvou kružnic (se středy v $M_{i - 1}$ a poloměry „tamtéž“).
+
+        Tedy zavedeme systém souřadnic v rovině, čili ztotožníme rovinu s $®R^2$. Definujeme $®T_i =$ nejmenší těleso, které obsahuje všechny $x$-ové a $y$-ové souřadnice bodů z $M_i ≤ ®R$. Dostaneme tak tělesové rozšíření $Q(x_B, y_B | B \in M_i)$. Přidáním bodu $X$ do $M_i$ je totéž, co $®T_{i+1} = ®T_i(x_X, y_X)$.
+    \end{poznamka}
+
+    \begin{lemma}
+        Pro každou konstrukci pravítkem a kružítkem máme $[®T_{i+1} : ®T_i] = 1, 2$, $\forall i$.
+
+        \begin{dukazin}
+            1) Průsečík 2 přímek. $ax + by = c$, $dx + ey = f$ jsou obecné rovnice 2 přímek. $a, b, c, d, e, f \in ®T_i$. $ax + by = c$ je přímka procházející body $A = (k, l)$ a $B = (m, n) \in M_i$ $\implies$ $(l-n)x + (m-k)y = l·m - k·n$. Tedy $a = l-n, … \in ®T_i$, protože $k, l, m, n \in ®T_i$. Řešení je bod $(u, v)$, kde $u, v \in ®T_i$. A tedy $T_{i+1} = ®T_i(u, v) = ®T_i$ a máme $[®T_{i+1}:®T_i] = 1$.
+
+            2) Přímka a kružnice: $ax + by = c$, $(x - d)^2 + (y - e)^2 = (k-l)^2 + (l - n)^2$, pro $a, b, c, d, e, k, l, m, n \in ®T_i$. Pokud $b ≠ 0$, pak vyjádříme $y$ z rovnice přímky $y = \frac{c - ax}{b}$ a dosadíme to do rovnice kružnice. Dostaneme, že $x$ je kořenem kvadratické rovnice s koeficienty z $®T_i$, kde buď $f$ je ireducibilní, tedy $[®T_{i+1}:®T_i] = 2$, nebo $f$ není ireducibilní, potom minimáľní polynom pro $x$ má stupeň 1, tedy $[®T_{i+1}, ®T_i] = 1$. Případ $b = 0$ se vyjádří obdobně.
+
+            3) viz skripta.
+        \end{dukazin}
+    \end{lemma}
+
+    \begin{tvrzeni}[Stupeň rozšírení pro konstrukce pravítkem a kružítkem]
+        Pro každou konstrukci pravítkem a kružítkem je $[®T_n : ®T_0] = 2^k$ pro nějaké $0 ≤ k ≤ n$.
+
+        \begin{dukazin}
+            Indukcí z předchozího tvrzení.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{priklad}[Zdvojení krychle]
+        Volíme $®T_0 = ®Q$, protože na začátku máme úsečku délky BÚNO 1. Chceme sestrojit $\sqrt[3]{2}$. Ale z předchozího tvrzení $[®T_n : ®Q] = 2^k$. $®Q ≤ ®Q(\sqrt[3]{2}) ≤ ®T_n$, tedy $[®T_n : ®Q] = [®T_n : ®Q(\sqrt[3]{2})]·[®Q(\sqrt[3]{2}) : ®Q]$. A víme, že $x^3 - 2 = m_{\sqrt[3]{2}, ®Q}$, tedy $[®Q(\sqrt[3]{2} :®Q)] = 3$. Tj. $3 | [®T_n : ®Q] = 2^k]$, \lightning.
+    \end{priklad}
+
+    \begin{priklad}[Retifikace kružnice nebo kvadratura kruhu]
+        Podobně jako v minulé úloze bychom měli, že $\pi \in K_n$. Ale mi víme, že $\pi$ (těžké dokázat), takže nemůže ležet v rozšíření konečného stupně $K_n ≥ ®Q$ (resp. se dá dokázat, že ani $K_n ≥ ®Q(\sqrt{2})$).
+    \end{priklad}
+
+    \begin{priklad}[Trisekce úhlu]
+        Dokonce nejde zkonstruovat úhel $20\degree$, protože $\cos 20\degree$ má minimální polynom stupně 3.
+    \end{priklad}
+
+\section{Izomorfismy tělesových rozšíření}
+    \subsection{Galoisova věta}
+        \begin{definice}[T-izomorfismus]
+            ®T, ®S, ®U tělesa tak, že $®T ≤ ®S, ®T ≤ ®U$. $\phi: ®S \rightarrow ®U$ okruhový izomorfismus tak, že $\phi(t) = t$ pro $\forall t \in ®T$ se nazývá T-izomorfismus.
+        \end{definice}
+
+        \begin{definice}
+            $®T ≤ ®S$, T-izomorfismy $®S \rightarrow ®S$ jsou T-automorfismy.
+        \end{definice}
+
+        \begin{definice}
+            Grupa všech T-automorfismů $®S \rightarrow ®S$, $®T ≤ ®S$, se nazývá Galoisova grupa rozšíření $®T ≤ ®S$ a značí se $\Gal(®S / ®T)$.
+
+            \begin{dukazin}
+                Grupa je to triviálně, jelikož T-automorfismy jsou uzavřené na skládání a tedy tvoří podgrupu symetrické grupy na množině ®S.
+            \end{dukazin}
+        \end{definice}
+
+        \begin{pozorovani}
+            $\phi \in \Gal(®S / ®T)$ je jednoznačně určené (pokud existují) hodnotami $\phi(a_1), …, \phi(a_n)$, kde $®T(a_1, …, a_n) = ®S$ a $a_1, …, a_n$ jsou algebraická nad ®T.
+
+            \begin{dukazin}
+                $®S = ®T(a_1, …, a_n) = ®T[a_1, …, a_n]$ (z algebraičnosti). Každý prvek $s \in ®S$ jde vyjádřit jako $s = \sum c_{i_1…i_n}a_1^{i_1} … a_n^{i_n}$ pro $c_{i_1, …, i_n} \in ®T$. Teď $\phi(s) = \sum\phi(c_{i_1…i_n}) \phi(a_1)^{i_n}…\phi(a_n)^{i_n}$, ale obraz $c_{…}$ je ono samo, tedy stačí mít obrazy $a_1, …, a_n$.
+            \end{dukazin}
+        \end{pozorovani}
+
+        \begin{upozorneni}
+            Ne každá volba $\phi(a_1), …$ funguje.
+        \end{upozorneni}
+
+        \begin{tvrzeni}[Galoisova grupa a kořeny polynomů]
+            $®T ≤ ®S$, $f \in ®T[x]$, $A \subseteq ®S$ je množina všech kořenů polynomu $f$ v $®S \setminus ®T$. Pro každé $\phi \in \Gal(®S/®T)$ je $\phi|_A$ permutace množiny $A$ $\land$ zobrazení $\Gal(®S / ®T) \rightarrow S_A$, $\phi \mapsto \phi|_A$ je grupový homomorfismus.
+
+% 30. 5. 2021
+
+            \begin{dukazin}
+                $f = \sum c_ix^i$, $\alpha \in S$ kořen. 
+                $$ 0 \overset{?}{=} f(\phi(\alpha)) = \sum c_i \phi(\alpha)^i = \sum \phi(c_i)\phi(\alpha)^i = \phi(\sum c_i \alpha^i) = \phi(f(\alpha)) = \phi(0) = 0. $$
+            Tedy $\phi(\alpha)$ je také kořen. Ale pokud $\alpha \in ®T$, pak $\phi(\alpha) = \alpha \in ®T$. $\phi$ je prosté $\implies$ žádný jiný kořen $\alpha'$ se mi na $\alpha$ nezobrazí. Tedy $\phi | A$ je prosté zobrazení na $A$. $A$ je konečná množina, tedy jelikož $\phi|_A$ je bijekce, tak je i permutace.
+
+                Grupový homomorfismus se snadno ověří.
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Jednoznačnost kořenových a rozkladových nadtěles (bez důkazů)}
+        \begin{veta}[Jednoznačnost koř. a roz. nadtěles]
+            ®T těleso, $f \in ®T[x]$, $\deg f ≥ 1$. Je-li $f$ ireducibilní, pak každé dvě kořenová nadtělesa $f$ nad ®T jsou T-izomorfní. 2) Každá dvě rozkladová nadtělesa $f$ nad ®T jsou T-izomorfní.
+
+            \begin{dukazin}[Nástřel]
+                Kořenová nadtělesa $®T(a)$, $T(b)$. $a, b$ algebraické nad ®T $\implies$ $®T(a) = ®Ť[a] = \{g(a) | g \in ®T[x]\}$. Definujeme $®T(a) \rightarrow ®T(b)$, $g(a) \mapsto g(b)$. Toto zobrazení je hledaný T-izomorfismus (musí se dokázat dobrá definovanost).
+            \end{dukazin}
+        \end{veta}
+
+    \subsection{Galoisova grupa polynomů}
+        \begin{definice}
+            $f \in ®T[x], \deg f ≥ 1$. Galoisova grupa polynomu $f$ nad ®T je $\Gal(f/®T) := \Gal(®S/®T)$ pro libovolné rozkladové nadtěleso ®S polynomu $f$ nad ®T.
+        \end{definice}
+
+        \begin{tvrzeni}[Základní vlastnosti Galoisovy grupy]
+            ®T těleso, $f \in ®T[x]$, $\deg f ≥ 1$, ®S rozkladové nadtěleso $f$ nad ®T.
+
+            1) $\Gal(®S / ®T)$ je izomorfní podgrupě symetrické grupy $S_m$, kde $m$ je počet různých kořenů v $®S \setminus ®T$.
+
+            2) $f$ ireducibilní $\implies$ $\forall$ kořeny $a, b \in ®S\ \exists \phi \in \Gal(®S \setminus ®T): \phi(a) = b$.
+
+            3) $®T ≤ ®S ≤ ®U$, kde ®U je rozkladové nadtěleso nějakého polynomu nad ®T. Pak $\Gal(®U/®S) \trianglelefteq \Gal(®U / ®T)$ a $\Gal(®U/®T)/\Gal(®U/®S) \simeq \Gal(®S/®T)$.
+
+            \begin{dukazin}[Zkouší se jen 1]
+                1) Ať $A = \{a_1, …, a_m\}$ jsou kořeny $f$ v $®S \setminus ®T$. Z tvrzení výše pak je pak $\forall \phi \in \Gal(®S / ®T) : \phi|_A$ je permutace $A$ a $\psi: \Gal(®S/®T) \rightarrow S_A$, $\phi \mapsto \phi|_A$ je homomorfismus.
+
+                Důkaz, že $\psi$ je prosté: ®S rozkladové nadtěleso $\implies ®S = ®T(a_1, …, a_m)$, čili $\forall \phi$ je jednoznačně určené hodnotami $\phi(a_1), …, \phi(a_m)$, čili $\phi|_A$ jednoznačně určuje $\phi \implies \psi$ je prosté. Tedy podle 1. věty o izomorfismu $\Gal(®S/®T) \simeq \im \psi ≤ S_A \simeq S_m$.
+
+                2) plyne z důkazu jednoznačnosti rozkladových nadtěles.
+
+                3) Použijeme 1. větu o izomorfismu: $\Phi: \Gal(®U/®T) \rightarrow \Gal(®S/®T)$, $\phi \mapsto \phi|_{®S}$. Ověříme, že to funguje. Pak si všimneme $\im \Phi = \Gal(®S/®T)$ (s využitím jednoznačnosti rozkladových nadtěles). $\Ker \Phi \ni \phi \Leftrightarrow \phi|_S = \id \Leftrightarrow \phi(s) = s\ \forall s \in ®S \Leftrightarrow \phi \in \Gal(®U/®S)$. $\Ker \Phi = \Gal(®U/®S) \trianglelefteq \Gal(®U/®T)$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{lemma}
+            $0 ≠ a \in ®Q$. Rozkladové nadtěleso polynomu $f = x^4 - a$ nad ®Q je $®Q(\zeta_n, b)$, kde $b$ je libovolný komplexní kořen $f$.
+
+            \begin{dukazin}
+                Komplexní kořeny $x^n - a$ jsou právě $b·\zeta_n^k$, $k = 0, …, n-1$. Tedy máme $n$ kořenů polynomu stupně $n$, tudíž máme všechny. Rozkladové nadtěleso $= ®S = ®Q(b, b\zeta_n, …, b\zeta_n^{n-1}) \overset{?}{=}®Q(b, \zeta_n) = ®S'$. $\supseteq:$ $b \in ®S$, $\zeta_n = b^{-1}·(b\zeta_n) \in ®S$. $\subseteq$ $b\zeta_n^k \in ®S'$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{tvrzeni}[Galoisovy grupy pro odmocniny]
+            $®Q ≤ ®T ≤ ®C$ těleso, $n \in ®N$, $a \in ®T$. Pak 1) $\Gal(x^n - 1 / ®T)$ je abelovská, 2) $\Gal(x^n - a / ®T(\zeta_n))$ je abelovská, 3) $\Gal(x^n - a / ®T)$ je řešitelná grupa stupně $≤ 2$.
+
+            \begin{dukazin}
+                $®S = ®T(\zeta_n)$, $®U = ®T(\zeta_n, b)$, kde $b \in ®C$ je nějaký kořen $x^n - a$.
+
+                1) Důkaz, že je izomorfní podgrupě $®Z_n^*$: ®S = rozkladové nadtěleso $x^n - 1$ (neboť kořeny jsou $1 = \zeta_n^0, …, \zeta_n^{n-1}$). $\forall \phi \in \Gal(®S/®T)$ permutuje kořeny $x^n-1$, čili $\phi(\zeta_n) = \zeta_n^k$. Co můžeme říct o $k$? $\phi$ je automorfismus tělesa ®S $\implies$ $\phi$ je také automorfismus grupy $®S^*$ $\implies$ $\phi$ zachovává řády prvků v $S^*$. Tj. $\ord(\zeta_n) = n \implies \ord(\zeta_n^k) = 1$ $\Leftrightarrow$ $\NSD(k, n) = 1$.
+
+                Tedy máme zobrazení $\Phi: \Gal(®S/®T) \rightarrow ®Z_n^*$, $\phi(\zeta_n) = \zeta_n^k \mapsto k$. Toto zobrazení je prosté, neboť $\phi(\zeta_n)$ jednoznačně určuje $\phi$ na $®S = ®T(\zeta_n)$. Navíc je $\Phi$ grupový homomorfismus (jednoduše se rozepíše). Podle 1. věty o izomorfismu je tedy $\Gal(®S/®T) \simeq \Im \Phi ≤ ®Z_n^*$.
+
+                2) (náznak, nezkouší se): $\Gal(x^n - a/®S) = \Gal(®U / ®S) \ni \phi$. Dokáže se, že $\Gal(®U/®S)$ je izomorfní podgrupě $®Z_n$: Kořeny $x^n - a$ jsou $b·\zeta_n^k$ $\implies$ $\phi(b) = b\zeta_n^k$. A to nám dává homomorfismus $\Gal(®U/®S) \rightarrow ®Z_n$, $\phi(b) = b\zeta_n^k \mapsto k$. Ověříme, že je vše OK a máme to.
+
+                3) $\Gal(x^n - a/®T) = \Gal(®U/®T)$. $®U = ®T(\zeta_n, b)$ je rozkladové nadtěleso pro $x^n - a$. $®S = ®T(\zeta_n)$. Rozšíření $®T ≤ ®S ≤ ®U$. Z tvrzení 24.5(3) máme $\Gal(®U/®S) \trianglelefteq \Gal(®U/®T)$. K řešitelnosti potřebujeme řetězec podgrup TODO. Máme triviálně takový řetězec délky nejvýše 2 (může být dokonce i 1, když jsou 2 totožné).
+            \end{dukazin}
+        \end{tvrzeni}
+
+% 2. 6. 2021
+
+\section{(Ne)řešitelnost polynomů v radikálech (=odmocninách)}
+    \begin{definice}[Vyjádřitelnost v radikálech]
+        Buď $®T≤®U$ tělesové rozšíření a $a \in U$. Potom $a$ je vyjádřitelný v radikálech na ®T, pokud existuje řada rozšíření $®T = ®T_0 ≤ … ≤ ®T_k ≤ U$ tak, že $a \in ®T_k$ a $\forall i: ®T_i$ je rozkladové nadtěleso nějakého polynomu $x^{n_i}-a_i \in ®T_{i-1}[x]$.
+    \end{definice}
+
+    \begin{definice}
+        Ať ®T je těleso, $f \in ®T[x]$. $f$ je řešitelný v radikálech nad ®T, pokud existuje $®T = ®T_0 ≤ … ≤ ®T_k$ tak, že $\forall i$, $®T_i$ je rozkladové nadtěleso nějakého polynomu $x^{n_i}-a_i \in ®T_{i-1}[x]$. $f$ se rozkládá v $®T_k$ na lineární činitele, čili rozkladové nadtěleso $f$ je obsažené v $®T_k$.
+    \end{definice}
+
+    \begin{veta}[Galoisova věta]
+        ®T těleso charakteristiky $0$, $f \in ®T[x]$, $\deg f ≥ 1$. Polynom $f$ je řešitelný v radikálech nad ®T $\Leftrightarrow$ $\Gal(f/®T)$ je řešitelná grupa.
+    \end{veta}
+
+    \begin{dusledek}
+        $\forall$ polynom stupně $≤4$ je řešitelný v radikálech.
+
+        Naopak jsme viděli, že $S_n$, $n≥5$ nejsou řešitelné, tedy pokud najdeme $f$, $\deg f = 5$ tak, že $\Gal(f/®Q) \simeq S_5$, pak je tento polynom neřešitelný.
+    \end{dusledek}
+
+    \begin{tvrzeni}
+        $p$ prvočíslo, $f \in ®Q[x]$ ireducibilní polynom, $\deg f=p$ tak, že $f$ má $p-2$ reálných a 2 komplexní nereálné kořeny. Pak $\Gal(f/®Q) \simeq S_5$.
+
+        \begin{dukazin}
+            Buď ®U rozkladové nadtěleso $f$ nad ®Q, z tvrzení výše je pak $\Gal(®U/®Q) \simeq H ≤ S_p$. Chceme $H$ obsahuje transpozici a $p$-cyklus, jelikož pak $H=S_p$.
+
+            $f$ má $p-2$ reálných a 2 imaginární kořeny, $®Q≤®U≤®C$. Na ®C máme ®Q-automorfismus = komplexní konjugaci. Uvažujme její zúžení na ®U, což je ®Q-automorfismus ®U. Fixuje reálné kořeny a prohazuje imaginární, tedy jako permutace na kořenech je to transpozice.
+
+            $H$ působí na množině kořenů $f$. Dle tvrzení výše je její působení tranzitivní (neboli má jen 1 orbitu) ta má velikost $p$ (=počet kořenů $f$). Velikost orbity dělí řád $H$, tedy $H$ obsahuje prvek řádu $p$, což je právě hledaný $p$-cyklus.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{priklady}
+        $x^5-4x+2$ je ireducibilní díky Eisensteinovi pro 2. Počet reálných kořenů spočítáme z MA (najdeme extrémy a spočítáme, zda jsou kladné/záporné), má jich 3. 2 jsou tedy imaginární.
+    \end{priklady}
+
+    \begin{dusledek}[Abelova-Ruffiniho věta]
+        Existují racionální polynomy stupně $≥5$, které nejsou řešitelné v radikálech nad ®Q.
+    \end{dusledek}
+
+    \begin{dukaz}[Galoisova věta, pouze 1 implikace (druhá nás nezajímá)]
+        Myšlenka: Pokud je $f$ Řešitelná, tak posloupnost z definice nám dává indukovanou posloupnost Galoisových grup, jejichž faktogrupy jsou řešitelné.
+
+        \begin{lemmain}
+            ®S je rozkladové nadtěleso nějakého polynomu $f$ nad tělesem ®T. $g \in ®T[x]$ ireducibilní polynom. Pokud $g$ má v $S$ nějaký kořen, pak se tam rozkládá na lineární činitele.
+
+            \begin{dukazin}[Nezkouší se, jen myšlenka]
+                Když ®U je rozkladové nadtěleso $fg$ a $a$ kořen $g$ v ®S, $b$ kořen $g$ v ®U, pak z jednoznačnosti rozkladového nadtělesa plyne, že $\exists \phi \in \Gal(®U/®T)$ tak, že $\phi(a)=b$. $\phi$ permutuje kořeny polynomu $f$ v $(®U)$, ty generují $®S$, tedy $\phi(®S)\subseteq ®S$. Pak $b = \phi(a)\in ®S$.
+            \end{dukazin}
+        \end{lemmain}
+
+        \begin{lemmain}
+            ®T těleso charakteristiky 0, $®T≤®S≤®U$ tělesová rozšíření, kde ®S je rozkladové nadtěleso nějakého polynomu nad ®T a ®U je rozkladové nadtěleso $x^n-a \in ®S[x]$ nad ®S. Pak $\exists$ rozšíření $®U ≤ ®V$ tak, že $®V$ je rozkladově nadtěleso nějakého polynomu nad ®T a $\Gal(®V/®S)$ je řešitelná grupa.
+
+            \begin{dukazin}
+                BÚNO $®U ≤ ®C$. $g = m_{a;®T}(x^n) \in ®T[x]$. $®C≥®V$ je rozkladové nadtěleso $fg$ nad ®T. $®U ≤ ®V$ neboť $x-a|m_{a;®T}$ v $®S[x]$, tedy $x^n - a|m_{a;®T}(x^n)=g$, tedy navíc se $x^n-a$ v ®V rozkládá na lineární činitele.
+
+                $m_{a;®T}$ je ireducibilní a má kořen v ®S. Tedy $m_{a;®T}$ se v ®S rozkládá na lineární činitele, tedy $g=(x^n-a_1)(x^n-a_2)… \in ®S[x]$. Chceme, že $\Gal(®V/®S)$ je řešitelné, tedy máme $®S=®S_0≤…≤®S_m=®V$. $®S_i$ je rozkladové nadtěleso $x^n-a_i$ nad $®S_{i-1}$. Všechny $®S_i$ jsou rozklad nad ®S, tedy můžeme použít tvrzení výše a máme $\Gal(®V/®S)$ je řešitelná.
+            \end{dukazin}
+        \end{lemmain}
+
+        Chceme $f$ řešitelný $\implies$ $\Gal(f/®T)$ řešitelná. Máme z definice $®T = ®T_0≤…≤®T_k$ a $®W ≤ ®T_k$, kde $®W$ je rozkladové nadtěleso $f$ nad ®T. Chceme $\Gal(f/®T)=\Gal(®W/®T)$ je řešitelná.
+
+        Vyrobíme $®T=®U_0=®V_0 ≤ ®U_1 ≤ ®V_1 ≤ … ≤ ®U_k ≤ ®V_k$ tak, že $®U_i$ je rozkladové nadtěleso $x^{n_i}-a_i$ nad tělesem $®V_{i-1}$ a $®V_i$ je těleso ®V z lemmatu výše aplikovaného na $®T ≤ ®V_{i-1}≤®U$. Čili $®V_i$ je rozkladové nadtěleso nějakého polynomu nad ®T a $\Gal(®V_i/®V_{i-1})$ je řešitelná. Tedy $\Gal(®V_k/®T)$ je řešitelná a nakonec $\Gal(®W/®T)$ také.
+    \end{dukaz}
+
+% 4. 6. 2021
+
+\section{Konečná tělesa}
+    \subsection{Derivace}
+        \begin{definice}[Derivace polynomu]
+            Pro $f=\sum_{i=0}^n a_ix^i \in R[x]$ definujeme derivaci polynomu $f$ jako $f'=\sum_{i=1}^n i a_i x^{i-1}$.
+        \end{definice}
+
+        \begin{lemma}[Cvičení]
+            $(f+g)'=f'+g'$ a $(fg)'=f'g+fg'$.
+        \end{lemma}
+
+        \begin{dusledek}[O derivaci a vícenásobných kořenech]
+            Je-li $R$ obor, $0≠f \in R[x]$. Pak pokud $\NSD(f,f')=1$, pak $f$ nemá žádný vícenásobný kořen v $R$.
+
+            \begin{dukazin}
+                $a$ je $n$-násobný kořen, $n≥2$, $f=(x-a)^2g$.
+                $$ f'=[(x-a)^2 g]' = 2(x-a)g + (x-a)^2g' \implies x-a | f' \implies x-a|NSD(f,f'). $$ 
+            \end{dukazin}
+        \end{dusledek}
+
+        \begin{tvrzeni}[Frobeniův endomorfismus]
+            $R$ je komutativní okruh s 1 a prvočíselnou charakteristikou $p$. Uvažujme zobrazení (tzv. Frobeniův endomorfismus) $\phi_p: R \rightarrow R$, $a \mapsto a^p$.
+            
+            \begin{enumerate}
+                \item $\phi_p$ je homomorfismus okruhů,
+                \item $R$ obor $\implies$ $\phi_p$ prosté,
+                \item $R$ konečné těleso $\implies$ $\phi_p$ automorfismus (tj. tzv. Frobeniův automorfismus).
+            \end{enumerate}
+
+            \begin{dukazin}
+                Jednoduchý (násobení triviálně, sčítání podle binomické věty, 2 z toho, že je jádro prosté, 3 z toho, že je to prosté zobrazení na konečné množině).
+            \end{dukazin}
+        \end{tvrzeni}
+
+    \subsection{Klasifikace konečných těles}
+        \begin{lemma}
+            Rozkladové nadtěleso polynomu $x^{p^k}-x$ nad tělesem $®Z_p$ má přesně $p^k$ prvků.
+
+            \begin{dukazin}
+                Kořeny $f$ v ®T tvoří podtěleso: Frobeniův endomorfismus $\phi: ®T \rightarrow ®T, a\mapsto a^p$ je homomorfimus. $\phi^k$ je tedy také homomorfismus. Jsou-li $a,b \in ®T$ kořeny $f$, pak také součet, opačná hodnota a inverzní prvek jsou kořeny. Tedy kořeny jsou těleso.
+
+                $f$ se v ®T rozkládá na kořenové činitele. Pokud $f$ nemá vícenásobné kořeny, pak $|T|=p^k$. A vícenásobné kořeny nemá, protože $f'=p^kx^{p^k - 1} - 1 = -1$, tj. $\NSD(f, f')=1$.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{lemma}
+            ®T konečné těleso, $|®T|=p^k=q$. Pak ®T je rozkladové nadtěleso polynomu $x^q - x$ nad $®Z_p$ a v $®T[x]$ platí
+            $$ x^q - x = \prod_{a \in ®T}(x-a). $$
+
+            \begin{dukazin}
+                $\forall a \in ®T$ je kořen $f$. Pro $a=0$ platí, pro $a≠0$ máme $a \in ®T^*$ a můžeme použít Lagrangeovu větu, tj. $a^{q-1}=1$, tj. $a^q=a$ a $f(a) = 0$.
+
+                $\prod_{a \in ®T}(x-a)|f$, ale tyhle polynomy mají oba stupeň $q$, oba jsou monické, takže se rovnají.
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{veta}[Klasifikace konečných těles]
+            Konečné těleso velkosti $n$ existuje $\Leftrightarrow$ $n=p^k$ pro nějaké prvočíslo $p$ a $k \in ®N$.
+
+            Konečná tělesa stejné velikosti jsou izomorfní.
+
+            \begin{dukazin}
+                1. $\implies$ tvrzení kdesi dříve, $\impliedby$ rozkladové nadtělesa existují a předposlední lemma.
+
+                2. Konečné těleso velikosti $q=p^k$ je rozkladové nadtěleso $x^q-x$ nad $®Z_p$. Ale rozkladová nadtělesa jsou jednoznačná až na izomorfismus.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{veta}[Reprezentace konečných těles]
+            Pro každé prvočíslo $p$ a $k \in ®N$ existuje ireducibilní polynom $m \in ®Z_p[\alpha]$ stupně $k$ a $®F_{p^k} \simeq ®Z_p[\alpha]/m$.
+
+            \begin{dukazin}
+                Podle předchozí věty $\exists ®T ≥ ®Z_p$, $|®T|=p^k$. $®T^*$ je konečná multiplikativní grupa v tělese, tedy $®T^*$ je cyklické, čili generované BÚNO $a$. Pak $®T=\{0,1=a^0,…\}=®Z_p(a)$. Búď $m = m_{a®Z_p}=[®Z_p(a):®Z_p]=[®T:®Z_p]=k$. Tedy $m$ je ireducibilní a má stupeň $k$.
+                $$ ®Z_p(a) \simeq ®Z_p[\alpha]/(m(\alpha)). $$
+            \end{dukazin}
+        \end{veta}
+
+\end{document}

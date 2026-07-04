@@ -1,0 +1,213 @@
+\documentclass[a4paper,oneside,12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{arev}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{color}
+\usepackage{url}
+\usepackage{graphicx}
+\graphicspath{ {./Slike/} }
+\usepackage[usenames]{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage[bookmarks, colorlinks=true, %
+linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,%
+menucolor=black, runcolor=black, urlcolor=black%
+]{hyperref}
+\usepackage[
+    paper=a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+%    textheight=24cm,
+    textwidth=15cm,
+    ]{geometry}
+
+\usepackage{import}
+\usepackage{icomma}
+\usepackage{pgffor}
+%za enote
+\usepackage{units}
+\usepackage{siunitx}
+%da so lahko enote samostojno
+\sisetup{free-standing-units}
+
+%\usepackage{tgbonum}
+
+%\fontfamily{\familydefault}
+%\renewcommand{\familydefault}{\familydefault} %drugace font
+\usefont{T1}{cmr}{b}{n}
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+
+
+%funkcija za tab
+\usepackage{ifthen,xcolor}
+\newlength{\tabcont}
+
+\newcommand{\tab}[1]{%
+\settowidth{\tabcont}{#1}%
+\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}%
+{\makebox[.25\linewidth][l]{#1}\ignorespaces}%
+{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}%
+}%
+
+\usepackage[makeroom]{cancel} % za crtanje texta
+\usepackage{tikz}
+\usepackage{pgfplots} %grafi
+\pgfplotsset{
+    standard/.style={
+        every axis x label/.style={at={(current axis.right of origin)},anchor=north west}, %za dajanje labelov na x osi (yticklabels = {0, $v_0$})
+        every axis y label/.style={at={(current axis.above origin)},anchor=north east} %za dajanje labelov na y osi
+    }
+}
+\usepgfplotslibrary{fillbetween} %risanje po grafu
+\usepackage{empheq} % za okvirjanje enačb
+\usepackage{gensymb} %za stopinj celzije
+
+\title{Fizika snov}
+\author{Rok Kos}
+\date{ \today}
+
+%----------------------------------------------------------------------------------------
+%	Naslovnica
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+
+{\noindent\Huge\bfseries Fizika snov}\\[2\baselineskip] % Title
+{\large \textit{Rok Kos}}\\[4\baselineskip] % Tagline or further description
+%{\Large \textsc{\today}} % Author name
+
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+{\noindent Gimnazija Vič, Tržaška cesta 72}\\[\baselineskip] % Publisher and logo
+}}
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%	Ostevilcevanje
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+ 
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\lfoot{Rok Kos 4.c \textregistered \copyright }
+\lhead{Gimnazija Vič}
+\rhead{2015-2016}
+
+%spreminjanje naslovov in podnaslov
+\usepackage{titlesec}
+\titleformat*{\section}{\LARGE}%\bfseries}
+\titleformat*{\subsection}{\Large}%\bfseries}
+\titleformat*{\subsubsection}{\large}%\bfseries}
+
+%barve iz strani http://latexcolor.com/
+\definecolor{indiagreen}{rgb}{0.07, 0.53, 0.03}
+\definecolor{internationalorange}{rgb}{1.0, 0.31, 0.0}
+\definecolor{alizarin}{rgb}{0.82, 0.1, 0.26}
+\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
+
+%komanda za spreminjanje stevilk v rimske stevilke
+\newcommand*{\RomanNumber}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+\begin{document}
+	%\pagestyle{empty} % Removes page numbers
+	\titleGM
+	\tableofcontents
+	\newpage
+
+
+	{\color{internationalorange}\section{FIZIKALNE KOLIČINE IN ENOTE}}
+	\textbf{Fizikalna količina} je produkt merskega števila in merske enote. \\
+	\\
+	s = 5 m $\rightarrow$ \quad {\color{bostonuniversityred}{merska enota}}\\
+	\hphantom{s =} $\downarrow$\\
+	{\color{bostonuniversityred}{mersko št.}} 
+
+	\foreach \n in {1,...,5}{
+		\subimport{1.Fizikalne_kolicine_in_enote/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{PREMO IN KRIVO GIBANJE}}
+	\foreach \n in {1,...,10}{
+		\subimport{2.Premo_in_krivo_gibanje/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{SILA IN NAVOR}}
+	\foreach \n in {1,...,10}{
+		\subimport{3.Sila_in_navor/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{NEWTNOVI ZAKONI IN GRAVITACIJA}}
+	\foreach \n in {1,...,2}{
+		\subimport{4.Newtnovi_zakoni_in_gravitacija/}{\n.tex}
+	}
+	{\color{internationalorange}\section{IZREK O GIBALNI KOLIČINI}}
+	%\foreach \n in {1,...,2}{
+		\subimport{5.Izrek_o_gibalni_kolicini/}{1.tex}
+	%}
+
+	{\color{internationalorange}\section{DELO IN ENERGIJA}}
+	\foreach \n in {1,...,8}{
+		\subimport{6.Delo_in_energija/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{TEKOČINA}}
+	\foreach \n in {1,...,2}{
+		\subimport{7.Tekocine/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{TEMPERATURA}}
+	\foreach \n in {1,...,5}{
+		\subimport{8.Temperatura/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{NOTRANJA ENERGIJA IN TOPLOTA}}
+	\foreach \n in {1,...,7}{
+		\subimport{9.Notranja_energija_in_toplota/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{ELEKTRIČNI NABOJ IN ELEKTRIČNO POLJE}}
+	\foreach \n in {1,...,9}{
+		\subimport{10.El_naboj_in_el_polje/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{ELEKTRIČNI TOK}}
+	\foreach \n in {1,...,6}{
+		\subimport{11.Elektricni_tok/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{MAGNETNO POLJE}}
+	\foreach \n in {1,...,5}{
+		\subimport{12.Magnetno_polje/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{INDUKCIJA}}
+	\foreach \n in {1,...,9}{
+		\subimport{13.Indukcija/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{NIHANJE}}
+	\foreach \n in {1,...,5}{
+		\subimport{14.Nihanje/}{\n.tex}
+	}
+
+	{\color{internationalorange}\section{VALOVANJE}}
+	\foreach \n in {1,...,5}{
+		\subimport{15.Valovanje/}{\n.tex}
+	}
+
+	%TODO: -popravi pisavo(se cisto malo)
+	%	-komanda za rdec kvadrat
+	%	-komanda za rdece oznacevanje teksta
+	%	-popravit naslove in podnaslove
+	%	-popravit enote z packagom units
+\end{document}

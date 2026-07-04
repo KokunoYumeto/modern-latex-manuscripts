@@ -1,0 +1,89 @@
+\section{Razširitve}
+Prednost uporabe algebrajskih teorij kot modelov računanja je razširljivost;
+naš jezik lahko zelo preprosto razširimo in dokaz polnosti za razširitev bo ponavadi zgolj metoda, kako razširitev prevesti na osnovni model.
+
+Za primer si poglejmo prejšnji razdelek, kjer lahko dodeljevanje novih kubitov smatramo kot razširitev.
+Dokaz res poteka, kot je opisano: vsak morfizem faktoriziramo na \(*\)-homomorfizem in nek morfizem posebne oblike, ki ga lahko obravnavamo posebej.
+
+Brez dokazov navedimo še nekaj razširitev:
+
+\subsection{Nedefiniranost in rekurzija}
+Uvedemo lahko konstanto \(\op{undef} : \arity{0}{-}\), ki predstavlja nekakšno neizračunljivo stanje (npr. \(1/0\) ali neskončna zanka).
+
+Opisati moramo, kako nova operacija komutira z ostalimi, kar nam da nove aksiome, na primer \(\sequent{-}{a}{\tdiscard{a}{\op{undef}}} = \op{undef}\) in podobno za ostale operacije (z meritvijo komutira le, če je \(\op{undef}\) na obeh vejah meritve).
+
+Operacijo interpretiramo z ničelno preslikavo \(\M[0] → \M[1]\), kjer je \(\M[0]\) množica \(0×0\) matrik, torej množica z enim elementom.
+Podobno kot za \(\op{measure}\) in \(\op{new}\) jo razširimo, tako da lahko veže poljubno mnogo kubitov (recimo v \(\tapply{U}{a}{\op{undef}} = \op{undef}\)).
+
+Ta preslikava je popolnoma pozitivna, ampak ne ohranja enote (ker vse slika v \(0\)), pripada pa razredu preslikav, za katere je \(1 - f(1)\) pozitivno.
+Recimo kategoriji \(C^*\)-algeber in popolnoma pozitivnih preslikav, za katere je \(1-f(1)\) pozitivno, \(\cstarcat_{\textrm{CPSU}}\) (angl. \foreignlanguage{english}{Completely Positive Sub-Unital maps}).
+
+\begin{definition}
+    Model \(X\) je v kategoriji \emph{univerzalno poln}, če v vseh kontekstih \(Γ \mid Δ ≔ x₁:m₁,…,xₖ:mₖ \mid a₁,…,aₚ\) velja:
+    \begin{itemize}
+        \item za vsak morfizem \(f : \abssemmap{p}{m₁,…,mₖ}\) obstaja izraz \(\absseq{t}\), tako da je \(\sem{t} = f\) in
+        \item za vse izraze teorije \(\absseq{t,u}\), za katere velja \(\sem{t} = \sem{u}\) lahko izpeljemo \(\absseq{t=u}\).
+    \end{itemize}
+\end{definition}
+\begin{remark}
+    Izreka o polnosti iz prejšnjega razdelka se tako glasita \airquotes{Model \(ℂ ∈ \mc{C}\) je univerzalno poln}, za primerni kategoriji.
+\end{remark}
+
+\begin{proposition}
+    V kategoriji \(C^*\)-algeber in popolnoma pozitivnih preslikav, za katere je \(1-f(1)\) pozitivno,
+    tvorijo kompleksna števila univerzalno poln model kvantnega računalništva, razširjenega z \(\op{undef}\).
+\end{proposition}
+
+Dokaz sloni na dejstvu, da so te preslikave oblike \(X → Y\) natanko določene s popolnoma pozitivnimi preslikavami oblike \(X⊕ℂ → Y\), ki ohranjajo enoto.
+
+Isto teorijo je mogoče uporabiti tudi za modeliranje rekurzije~\cite{selinger-qpl}.
+
+\subsection{Nedeterminizem}
+Algebrajski teoriji dodajmo operacijo \(⦶ : \arity{0}{0,0}\), za katero veljajo enačbe
+\[(x⦶y)⦶z = x⦶(y⦶z) \qquad x⦶y = y⦶x \qquad \op{undef}⦶x = x.\]
+
+Naj komutira še z ostalimi operacijami (\(\op{new}\), \(\op{apply}\), in \(\op{measure}\)).
+
+Operacija \(⦶\) je zelo podobna nedeterminizmu, le da ne zahteva idempotence \(x⦶x = x\).
+Izkaže se, da ne obstaja nobena komutativna algebrajska teorija, ki kvantnemu računalništvu doda nedeterminizem.~\cite[razdelek 6.1]{algeff-lin-qpl}
+
+Interpretacijski morfizem \(⦶ : \semmap{0}{0,0}\) naj bo \(⦶(α,β) = α + β\) (posplošen kot ponavadi).
+Ta morfizem je popolnoma pozitiven, ampak ne ohranja enote.
+
+\begin{proposition}
+    V kategoriji \(C^*\)-algeber in popolnoma pozitivnih preslikav tvorijo kompleksna števila univerzalno poln model kvantnega računalništva, razširjenega z \(\op{undef}\) in \(⦶\).
+\end{proposition}
+
+\begin{proof}[Skica dokaza.]
+    Definiramo operacijo enostranske meritve \(\op{m}₀(a;x) : \arity{1}{0}\) s predpisom \(\op{m}₀(a;x) ≔ \tmeasure{a}{x}{\op{undef}}\).
+    Potem je \[ \tmeasure{a}{x}{y} = \op{m}₀(a;x)⦶\tapply{X}{a}{\op{m}₀(a;y)} \]
+    in bo interpretacijski morfizem vsota pozitivnih operatorjev, tako da bo tudi sam pozitiven.
+\end{proof}
+
+\subsection{Klasično računalništvo}
+Naša definicija vrat se ne zanaša preveč na njihovo strukturo, torej jih lahko zamenjamo s kakšno drugo skupino matrik.
+Če vzamemo za matrike zgolj unitarne matrike z vrednostmi v \(\{0,1\}\) in dodamo nov aksiom \(x(a) = \tmeasure{a}{\snew⁰{a.\,x(a)}}{\snew¹{a.\,x(a)}}\) (kolaps),
+dobimo model klasičnega računalništva:
+
+\begin{proposition}
+    Množica \(\{0,1\} ∈ \cat{Set}^{\textrm{op}}\) tvori univerzalno poln model klasičnega računalništva.
+\end{proposition}
+
+Omenimo še, da je ta aksiom nekonsistenten s kvantnim računalništvom:
+\begin{align*}
+    x &= \new{a}{\measure{a}{x}{y}}\\
+      &= \new{a}{\apply{\had}{a}{\apply{\had}{a}{\measure{a}{x}{y}}}}\\
+      &= \new{a}{\apply{\had}{a}{\measurebr{a}{
+            \new{a}{\apply{\had}{a}{             \measure{a}{x}{y}}}}{
+            \new{a}{\apply{\had}{a}{\apply{X}{A}{\measure{a}{x}{y}}}}
+        }}}\\
+      &= \new{a}{\apply{\had}{a}{\measurebr{a}{
+            \new{a}{\apply{\had}{a}{             \measure{a}{y}{x}}}}{
+            \new{a}{\apply{\had}{a}{\apply{X}{A}{\measure{a}{y}{x}}}}
+        }}}\\
+      &= \new{a}{\measure{a}{y}{x}}\\
+      &= y
+\end{align*}
+\begin{remark}
+    Zgornji rezultat pokaže, da je ta aksiom nekonsistenten z \emph{vsemi} modeli kvantnega računalništva (razen s trivialnim modelom, kjer so vsi izrazi enaki), ne le z našim, saj protislovje sledi neposredno iz aksiomov.
+\end{remark}

@@ -1,0 +1,206 @@
+\section{OpenGL aplikacijsko sučelje}
+
+OpenGL razvio se kao nasljednik IrisGL-a \footnote{engl. Integrated Raster Imaging System Graphics Library}. Njegov glavni nedostatak bio je što su mogućnosti samog sučelja ovisile o mogućnostima sklopovlja, te se nije mogao primijeniti na različitim uređajima. Zbog potrebe za izradom standarda, početkom 1990-ih godina tvrtka Silicon Graphics Inc. (SCI) započela je sa izradom OpenGL specifikacije kako bi formalno definirala aplikacijsko programsko sučelje (API) prema grafičkim karticama. Godine 1992., prva verzija OpenGl-a je objavljena. Od 2016.g. ne-profitna grupa Khronos zadužena je za razvoj OpenGL-a \cite{opengl-wiki-hostory}.
+
+Primarni zadatak ovog API-a je prikaz 2D i 3D vektorske grafike. On omogućuje komunikaciju sa grafičkim procesorom (GPU) s ciljem sklopovskog ubrzanja grafičkog prikaza, neovisno o programskom jeziku i operativnom sustavu.
+
+Zbog svoje proširenosti i upotrebe, postao je industrijski standard. Podržan je na velikom broju uređaja, od računala do pametnih telefona. Ima široku primjenu u industriji (CAD \footnote{engl. Computer-Aided Design}, GIS \footnote{engl. Geographic Information System}, simulacijama i vizualizacijama) te u izradi računalnih igara.
+
+\subsection{OpenGL grafički cjevovod}
+\label{sec:opengl-pipeline}
+
+U svojim početcima, prilikom rada s računalnom grafikom nije bilo puno mjesta za manipulaciju sa slikom. Grafičko sklopovlje nije omogućavalo puno manipulacije sa bojom i pozicijom objekata na ekranu. Računalo je \emph{slalo} opise vektore i teksturu koju oni stvaraju, dok su grafičke kartice bila zadužene za stvaranje slike iz ta dva dobivena podatka.
+
+Takav način rada podrazumijevao je da se sva potreban kalkulacija (tranformacija koordinata - pomak) i sjenčanje prethodno odrade na samom računalu, prije nego što se pošalju grafičkoj kartici za prikaz. Glavni nedostatak tog pristupa je što svu kalkulaciju morala obrađivati centralna procesorska jedinica (CPU) koja osim što nije bila dizajnirana za takve operacije, je morala obrađivati i niz drugih podataka istovremeno.
+
+Iz tog razloga, pojavila se potreba za programabilnim \emph{grafičkim cjevovodom} \footnote{engl. Graphival pipline} koji bi omogućio manipulaciju podacima na grafičkoj kartici. OpenGL cjevovod sastoji se od 7. komponenti\cite{opengl-wiki-pipeline}, prikazanih na slici \ref{fig:pipeline}.
+
+\begin{figure}[H]
+\centering\fbox{\includegraphics[scale=0.4]{pipeline.jpg}}
+\caption{Dijagram toka OpenGL cjevovoda}
+\label{fig:pipeline}
+\end{figure}
+
+\begin{enumerate}
+\item \textbf{Vertex specifikacija:} U ovom koraku aplikacija prenosi podatke grafičkoj kartici - opise vertex-a \footnote{Točka u trodimenzionalnom prostoru. Osim pozicije, vertex može sadržavati i druge informacije, poput boje}. Način na koji će se vertex tumačiti/iscrtavati se kasnije obrađuje.
+
+\item \textbf{Vertex shader:} Izvršavanje vertex shader korisničkog programa. Cilj ovog koraka je transformirati ulaznu poziciju vektora u njegov krajnji oblik. Ovdje se najčešće vrše transformacije s ciljem postizanja pogleda iz perspektive, rotacije i uvećanja. U ovoj fazi pokreće se i geometrijski shader, koji radi kao i vertex shader, samo na razini ploha.
+
+\item \textbf{Vertx post-procesiranje:} Rezultati prošlog koraka spremaju se za na to predviđene memorijske lokacije.
+
+\item \textbf{Sklapanje ploha:} U ovome koraku, grafički procesor sklapa ploha od unaprijed obrađenih vertexa.
+
+\item \textbf{Rasterizacija:} Sklopljene plohe razdvajaju se na fragment koji se prosljeđuju dalje kako bi im se odredila boja, odnosno tekstura.
+
+\item \textbf{Fragment shader:} Svaki fragment se prosljeđuje korisničkom programu fragment shaderu) čiji izlaz predstavlja boju danog fragmenta.
+
+\item \textbf{Procesiranje po uzorku:} Ovaj korak služi za izvršavanje raznih testova koji mogu utjecati na krajnji rezultat, primjerice test dubine (ukoliko se fragment nalazi iza nekog drugog, vjerojatno neće biti prikazan). Također ovdje se vrše operacije i odbacivanja fragmenata koji nisu na vidljivom djelu ekrana, stapanje boja i sl.
+
+\end{enumerate}
+
+Kod ovoga koraka bitno je napomenuti kako su procesi optimizirani na način da se što više operacija može izvršavati paralelno. Današnje grafičke kartice imaju i po nekoliko stotina jezgri koje mogu paralelno raditi, što omogućava paralelno izvršavanje nekoliko shadera istovremeno, što u konačnici rezultira velikom brzinom obrade podataka, nešto što nije moguće na centralnoj procesorskoj jedinici,
+
+\subsection{Shaderi i GLSL}
+
+Kao što je opisano u prethodnom poglavlju, shaderi su najbitnije komponente progamabilnog grafičkog cjevovoda. Oni su zapravo male korisničke aplikacije koje se izvode paralelno, i obrađuju manji set informacija od jednom.
+
+Korisničke aplikacije za vertex i fragment shader (opcinoalno i geometrijski) se dostavljaju grafičkoj kartici, i zatim komapjliraju u jedan \emph{program} koji se izvodi u sklopu cjevovoda. Bitno je napomenuti da je moguće prirediti više od jednog programa, te ih mijenjati tokom izvođenja.
+
+Shaderi se pišu programskom jeziku koji je posebno dizajniran za ovu primjenu - GLSL \footnote{engl. OpenGL Shading Language}. GLSL programski jezik baziran je na C programskom jezu, i dio je OpenGL specifikacije. Razlikuje se od C-a u nekoliko ključnih stvari: nadograđen je da podržava matrične operacije i tipove podataka. Za razliku od C-a, ne podržava preopterećenje funkcija na osnovu ulaznih parametara niti rekurzivne funkcije.
+
+Svaki shader rasolaže s nekoliko ulaznih varijabli:
+
+\begin{itemize}
+
+\item \textbf{Ulazne varijable:} Svaki shader imaju svoju glavnu ulaznu varijablu. Za vertex shader to je \emph{position}, vektor s četiri vrijednosti koji opisuje početnu poziciju objekta u 3D prostoru. Četvrta vrijednost (w) označava orijentaciju. U slučaju fragment shadera, stvar je malo složenija, jer se samom fragmentu ne mora nužno dodijeliti samo boja, već se može dodjeliti i komad teksture. Naziv samih varijabli ovisi o načinu učitavanja modela, odnosno ime se proizvoljno dodjeljuje kod učitavanja modela.
+
+\item \textbf{Uniform varijable:} Ovo su varijable koje su dostupne svim shaderima. Njihovu vrijednost postavlja glavni program prije početka rendering procesa, te ona ostaje ista tokom cijelog izvođenja. Ove varijable se najčešće koriste za prijenos MVP\footnote{engl. Model View Projection} matrica, koje su obrađene u sljedećem poglavlju.
+
+\item \textbf{Varying varijable:} Ovo su varijable koje su dostupne svim shaderima, no njihovu vrijednost postavlja jedan shader, kako bi određenu informaciju mogao proslijediti dalje niz cjevovod. Primjerice, normala vertexa ulazni je parametar vertex shadera. No ta vrijednost često je potrebna fragmen shaderu kako bi pravilno odredio sjenčanje objekta. Iz toga razloga, često se definira \emph{varying} varijabla, čija se vrijednost postavlja unutar vertex shadera za daljnje korištenje.
+\end{itemize}
+
+Izlaz iz vertex shader-a je varijabla \emph{gl\_Position} \footnote{Interna OpenGL varijabla koja opisuje položaj trenutnog vertexa u 3D prostoru}, dok je izlaz fragment shader-a varijabla \emph{gl\_FragColor} \footnote{Interna OpenGL varijabla koja opisuje boju treutnog fragmenta}. Iako su ovi izlazi nužni za rad, pojedini shaderi su često zaduženi za kalkulaciju i niz drugih \emph{varying} varijabli koje će se koristiti dalje u grafičkom cjevovodu.
+
+\subsection{Transformacije objekta}
+
+Kako je ranije spomenuto, ideja programabilnog grafičkog cjevovoda je pomaknuti grafičke kalkulacije sa centralnog procesora na grafički procesor. To prvenstveno znači rekalkulaciju pozicije i oblika objekta uslijed pomaka samog objekta ili kamere. To se najčešće vrši množenjem kordinata pojedine točke objekta sa takozvanom MVP \footnote{engl. Model View Projection} matricom. MVP matrica se sastoji iz tri dijela \cite{opengl-es-mvp}:
+
+\begin{enumerate}
+\item \textbf{Matrica modela:} Matrica koja opisuje osnovne transformacije modela: translaciju (\ref{eq:model-translate}), rotaciju (\ref{eq:model-rotate-x})-(\ref{eq:model-rotate-z}) i skaliranje (\ref{eq:model-scale}). Dobiva se množenjem istoimenih matrica.
+
+\begin{equation}
+\label{eq:model-translate}
+	T = 
+	\begin{bmatrix}
+		1 & 0 & 0 & T_x\\
+		0 & 1 & 0 & T_y\\
+		0 & 0 & 1 & T_z\\
+		0 & 0 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\label{eq:model-rotate-x}
+	R_x = 
+	\begin{bmatrix}
+		1 & 0 & 0 & 0\\
+		0 & cos(\alpha) & -sin(\alpha) & 0\\
+		0 & sin(\alpha) & \cos(\alpha) & 0\\
+		0 & 0 & 0 & 1
+	\end{bmatrix},\\
+\end{equation}
+\begin{equation}
+\label{eq:model-rotate-y}
+	R_y = 
+	\begin{bmatrix}
+		cos(\alpha) & 0 & sin(\alpha) & 0\\
+		0 & 1 & 0 & 0\\
+		-sin(\alpha) & 0 & \cos(\alpha) & 0\\
+		0 & 0 & 0 & 1
+	\end{bmatrix},
+\end{equation}
+\begin{equation}
+\label{eq:model-rotate-z}
+	R_z = 
+	\begin{bmatrix}
+		cos(\alpha) & -sin(\alpha) & 0 & 0\\
+		sin(\alpha) & \cos(\alpha) & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\label{eq:model-scale}
+	S = 
+	\begin{bmatrix}
+		S_x & 0 & 0 & 0\\
+		0 & S_y & 0 & 0\\
+		0 & 0 & S_z & 0\\
+		0 & 0 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+
+\item \textbf{Matrica scene (view):} Budući da se u računalnoj grafici kamera ne pomiče, već se pomiče svijet oko nje - ova matrica služi kako bi ispravno pozicionirala objekt u odnosu na kameru.
+
+\item \textbf{Projekcijska matrica:} Služi za definiranje transformacije s ciljem postizanja željene projekcije. To je najčešće perspektivna projekcija (prikazana na slici \ref{fig:projection-perspective} te opisana u \ref{eq:perspective-matrix}), no može biti ortogonalna (prikazana na slici \ref{fig:projection-ortho} te opisana u \ref{eq:ortographic-matrix}) prikazana na slici i bilo kako drugo proizvoljno definirana.
+
+\begin{figure}[H]
+\centering\fbox{\includegraphics[scale=0.4]{projection_perspective.png}}
+\caption{Perspektivna projekcija\cite{blender-projection}}
+\label{fig:projection-perspective}
+\end{figure}
+
+\begin{equation}
+\label{eq:perspective-matrix}
+	P_p = 
+	\begin{bmatrix}
+		\dfrac{2 * blizu}{desno - ljevo} & 0 & \dfrac{desno + ljevo}{desno - ljevo} & 0\\
+		0 & \dfrac{2 * blizu}{gore - dolje} & \dfrac{gore + dolje}{gore - dolje} & 0\\
+		0 & 0 & -\dfrac{daleko + blizu}{daleko - blizu} & -\dfrac{2 * daleko * blizu}{daleko - blizu}\\
+		0 & 0 & -1 & 0
+	\end{bmatrix}
+\end{equation}
+
+\begin{figure}[H]
+\centering\fbox{\includegraphics[scale=0.4]{projection_ortho.png}}
+\caption{Ortogonalna projekcija\cite{blender-projection}}
+\label{fig:projection-ortho}
+\end{figure}
+
+\begin{equation}
+\label{eq:ortographic-matrix}
+	P_o = 
+	\begin{bmatrix}
+		\dfrac{2}{desno - ljevo} & 0 & 0 & -\dfrac{desno + ljevo}{desno - ljevo}\\
+		0 & \dfrac{2}{gore - dolje} & 0 & -\dfrac{gore + dolje}{gore - dolje}\\
+		0 & 0 & -\dfrac{2}{daleko - blizu} & -\dfrac{daleko + blizu}{daleko - blizu}\\
+		0 & 0 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+
+\end{enumerate}
+
+Sam izračun MVP matrice, obično se vršri na centralnoj procesorskoj jedinici i kao takav se dostavlja grafičkoj kartici. Ona je zatim zadužena da svaki pojedini vertex pozicionira na pravo mjesto, uzimajući MVP matricu u obzir - pomnoži koordinate vertxa sa MVP matricom da dobije konačnu poziciju u prostoru.
+
+Na ovaj način, smanjuje se količina posla koju obavlja centralna procesorska jedinica. Ona samo računa način tranformacije, dok se stvarni pomak modela odvija na samoj grafičkoj kartici, koja je u mogućnosti to obaviti neusporedivo brže, za svaki vertex posebno.
+
+\subsection{WebGL}
+
+WebGL \footnote{engl. Web Graphics Library} je JavaScript grafički API koji je nastao na temelju OpenGL ES 2.0 standarda, te služi za hardwersko ubrzanje prilikom prikazivanja 3D grafike na internet preglednicima. Razvoj standarda vrši Khronos WebGL grupa, a sam standard podržan je od strane svi vodećih internet preglednika koji podržavaju HTML 5 canvas element.
+
+Iako se zapravo ne radi o istom standardu kao i OpenGL, WebGL zadržava što je moguće više sličnosti sa OpenGL-om radi lakog prijenosa aplikacija s jednog API-a na drugi.
+
+Kao i OpenGL, WebGL također ima programabilan grafički cjevovod, uz ograničenje da ne podržava geometrijski shader. Ostatak funkcionalnosti je isti, i ponaša se na identičan način.
+
+\subsection{Modeli u Three.js JSON formatu}
+
+Kao i OpenGL, WebGL propisuje funkcije za pristupanje grafičkom sučelju na vrlo niskoj razini, što za korisnika znači da mora sam voditi računa o alokaciji memorije i prijenosu podataka. Iz tog razloga, postoji mnogo frameworka koji se zaduženi za olakšavanje rada s nekim osnovnim stvarima.
+
+Za potrebe ovoga rada, korišten je three.js \footnote{http://threejs.org/ verzija 73}, WebGL framework koji olakšava poslove poput prijenosa modela u memoriju grafičke kartice, kao i postupak kompajliranja korisničkih sahadera.
+
+Kao format spremanja 3D modela, korišten je three.js JSON format, budući da je s JSON formatom najlakše raditi u \emph{JavaScript}-u. Unutar datoteke, model je opisan kroz nekoliko ključnih elemenata \cite{threejs-json}:
+
+\begin{itemize}
+\item \textbf{vertices:} Popis vertex, pri čemu je svaki opisan sa tri koordinate: x,y i z. Ovo polje more biti proizvoljne duljina, ali je bitno da je višekratnik broja 3.
+
+\item \textbf{normals:} Kao i vertex-i, normale su opisane sa tri koordinate. Njihov broj pak ovisi o vrsti ravnina koju vertex-i opsiuju: trokuti, četverokuti, ...
+
+\item \textbf{faces:} Ovo polje opisuje koji vertexi i normale (proizvoljno i teksture i boje) čine jednu plohu. Prvi broj u nizu definira masku pod kojom se učitavaju ostali podaci. Evo nekoliko primjera:
+
+\begin{itemize}
+
+\item \textbf{0, 0,1,2} : Vodeća 0 označava da slijede tri vertexa koji međusobno tvore trokut. To su vertexi 0,1 i 2, odnosno prvih 9 koordinata koje su prosljeđene u polju \emph{vertices}.
+
+\item \textbf{1, 0,1,2,3} : Vodeći 1 označava da slijede četiri vertexa koji međusobno tvore četverokut. To su vertexi 0,1,2 i 3.
+\end{itemize}
+
+\item \textbf{metadata:} Ovo polje sadrži opisne podatke poput verzije samog formata, broj vertexa, normala i ploha, informacije o programu s kojim je model kreiran i sl.
+
+\item \textbf{scale:} Pomoću ovog parametra omogućeno je jednostavno skaliranje modela.
+
+\item \textbf{name:} Ovo polje sadrži ime modela.
+
+\end{itemize}
+
+Učitavanje modela vrši se preko \emph{JSONLoader} objekta koji je sastavni dio \emph{three.js} frameworka. Njemu se izravno pruža \emph{JSON} polje u tekstualnom obliku. Sam objekt zadužen je za alociranje memorije i prijenos na grafičku karticu, uključujući i potrebno skaliranje, ako je tako određeno u samome modelu.

@@ -1,0 +1,97 @@
+\begin{naloga}{Janoš Vidali}{Kolokvij OR 23.4.2018}
+\begin{vprasanje}
+Imamo zaporedje $n$ polj,
+pri čemer je na $i$-tem polju zapisano število $a_i$.
+Na voljo imamo še $\lfloor n/2 \rfloor$ domin,
+z vsako od katerih lahko pokrijemo dve sosednji polji.
+Vsaka domina je sestavljena iz dveh delov:
+na enem je znak $+$, na drugem pa znak $-$.
+Posamezno polje lahko pokrijemo z le eno domino;
+če sta pokriti dve sosednji polji, morata biti pokriti z različnima znakoma
+(bodisi z iste, bodisi z druge domine).
+Iščemo tako postavitev domin,
+ki maksimizira vsoto pokritih števil,
+pomnoženih z znakom na delu domine, ki pokriva število.
+Pri tem ni potrebno, da uporabimo vse domine.
+Primer je podan na sliki~\fig.
+
+\begin{enumerate}[(a)]
+\item Zapiši rekurzivne enačbe za reševanje danega problema.
+Razloži, kaj pred\-stav\-lja\-jo spremenljivke,
+v kakšnem vrstnem redu jih računamo,
+ter kako dobimo optimalno rešitev.
+\namig{posebej obravnavaj dva primera glede na postavitev zadnje domine.}
+
+\item Oceni časovno zahtevnost algoritma, ki sledi iz zgoraj zapisanih enačb.
+
+\item S svojim algoritmom poišči optimalno pokritje
+za primer s slike~\fig.
+\end{enumerate}
+
+\begin{slika}
+\pgfslika
+\caption{Primer dopustnega (ne nujno optimalnega) pokritja
+za nalogo~\nal.
+Vsota tega pokritja je $3 - (-4) - 5 + 9 - 1 + 2 = 12$.
+Če bi eno od zadnjih dveh domin obrnili (zamenjala bi se znaka),
+dobljeno pokritje ne bi bilo dopustno,
+saj bi dve zaporedni polji bili pokriti z enakima znakoma.}
+\end{slika}
+\end{vprasanje}
+
+\begin{odgovor}
+\begin{enumerate}[(a)]
+\item Naj bosta $p_i$ in $q_i$ največji vsoti
+za ustrezne postavitve domin do $i$-tega polja,
+pri čemer na $i$-tem polju dovolimo le del domine z znakom $+$ oziroma $-$
+(tj., prepovemo $-$ oziroma $+$, dovolimo pa, da $i$-to polje ni pokrito).
+Določimo začetne pogoje in rekurzivne enačbe.
+\begin{align*}
+p_0 = p_1 &= 0, &
+p_i &= \max\{p_{i-1}, q_{i-1}, p_{i-2} - a_{i-1} + a_i\} && (2 \le i \le n) \\
+q_0 = q_1 &= 0, &
+q_i &= \max\{p_{i-1}, q_{i-1}, q_{i-2} + a_{i-1} - a_i\} && (2 \le i \le n)
+\end{align*}
+Vrednosti $p_i$ in $q_i$ ($0 \le i \le n$)
+računamo naraščajoče po indeksu $i$.
+Največjo vsoto dobimo kot $p^* = \max\{p_n, q_n\}$.
+
+\item Za izračun vrednosti $p_i$ in $q_i$ pri vsakem $i$
+potrebujemo konstantno časa.
+Ker naredimo $n$ takih korakov, je časovna zahtevnost algoritma $O(n)$.
+
+\item Izračunajmo vrednosti $p_i$ in $q_i$ ($2 \le i \le 9$).
+\begin{alignat*}{4}
+p_2 &= \max\{\underline{0}, 0, 0-6+3\}      &&= 0 &\qquad
+q_2 &= \max\{0, 0, \underline{0+6-3}\}      &&= 3 \\
+p_3 &= \max\{0, \underline{3}, 0-3+(-4)\}   &&= 3 &\qquad
+q_3 &= \max\{0, 3, \underline{0+3+(-4)}\}   &&= 7 \\
+p_4 &= \max\{3, \underline{7}, 0-(-4)+2\}   &&= 7 &\qquad
+q_4 &= \max\{3, \underline{7}, 3+(-4)-2\}   &&= 7 \\
+p_5 &= \max\{\underline{7}, 7, 3-2+(-3)\}   &&= 7 &\qquad
+q_5 &= \max\{7, 7, \underline{7+2-(-3)}\}   &&= 12 \\
+p_6 &= \max\{7, 12, \underline{7-(-3)+5}\}  &&= 15 &\qquad
+q_6 &= \max\{7, \underline{12}, 7+(-3)-5\}  &&= 12 \\
+p_7 &= \max\{\underline{15}, 12, 7-5+9\}    &&= 15 &\qquad
+q_7 &= \max\{\underline{15}, 12, 7+5-9\}    &&= 15 \\
+p_8 &= \max\{\underline{15}, 15, 15-9+1\}   &&= 15 &\qquad
+q_8 &= \max\{15, 15, \underline{15+9-1}\}   &&= 23 \\
+p_9 &= \max\{15, \underline{23}, 15-1+2\}   &&= 23 &\qquad
+q_9 &= \max\{15, \underline{23}, 15+1-2\}   &&= 23 \\
+\end{alignat*}
+Optimalno pokritje ima torej vsoto $p^* = \max\{p_9, q_9\} = 23$.
+Poglejmo, kam moramo postaviti domine.
+\begin{align*}
+p^* = p_9 &= q_8 = q_6 + a_7 - a_8 && \text{$[+ \ -]$ na $(7, 8)$} \\
+      q_6 &= q_5 = q_3 + a_4 - a_5 && \text{$[+ \ -]$ na $(4, 5)$} \\
+      q_3 &= q_1 + a_2 - a_3       && \text{$[+ \ -]$ na $(2, 3)$}
+\end{align*}
+Postavitev je prikazana na sliki~\fig[domine-resitev].
+\end{enumerate}
+
+\begin{slika}
+\pgfslika[domine-resitev]
+\podnaslov[\res{}(c)]{Optimalno pokritje}
+\end{slika}
+\end{odgovor}
+\end{naloga}
