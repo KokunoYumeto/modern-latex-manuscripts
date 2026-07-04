@@ -1,0 +1,523 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={Semantic Cobordism Sidecar},
+  pdfauthor={Generated research sidecar},
+  pdfsubject={Computational interlinguistics, intrinsic dimension, cobordism, anomalies},
+  pdfkeywords={interlingua, intrinsic dimension, semantic topology, cobordism, anomaly inflow, spin manifolds, multilingual LLMs}
+}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{assumption}[definition]{Assumption}
+\newtheorem{problem}[definition]{Problem}
+\newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+
+\newcommand{\Lang}{\mathcal L}
+\newcommand{\Concept}{\mathcal C}
+\newcommand{\Rep}{\mathcal R}
+\newcommand{\Hub}{\mathcal H}
+\newcommand{\VR}{\operatorname{VR}}
+\newcommand{\ID}{\operatorname{ID}}
+\newcommand{\PHD}{\operatorname{PHD}}
+\newcommand{\ILO}{\operatorname{ILO}}
+\newcommand{\FF}{\operatorname{FF}}
+\newcommand{\Dist}{\operatorname{Dist}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Cech}{\check C}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bd}{\partial}
+\newcommand{\dbar}{\overline{d}}
+\newcommand{\acts}{\curvearrowright}
+
+\title{\textbf{Semantic Cobordism Sidecar}\\[0.4em]
+  Intrinsic-Dimensional Interlingua, Descent Obstructions, and Typed Physics Analogies}
+\author{Research scaffold extracted from the Amsterdam interlinguistics notes}
+\date{Version 0.1}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This sidecar formalizes a heuristic research programme connecting zonal auxiliary languages, multilingual neural representations, intrinsic dimensionality of text, topological data analysis, cobordism, and anomaly-inflow language.  The guiding claim is deliberately modest: a multilingual language model does not reveal a literal physical bulk, but it supplies empirically measurable representation spaces whose local-neighborhood structure, intrinsic dimension, and gluing failures can be studied with the same mathematical grammar used for manifolds, cobordisms, bundles, descent, and anomalies.  The resulting model treats human bridge-language design as a constrained gluing problem over related linguistic boundary systems.  ``Cobordism'' enters as a typed discrete bridge between semantic complexes; ``anomaly'' enters as a descent obstruction to globally consistent interlingual alignment; ``spin'' enters only after a smooth oriented latent manifold with a Dirac-type operator has been specified.  The physics side is therefore not used as authority.  It is used as a dictionary of rigorously typed structures.
+\end{abstract}
+
+\tableofcontents
+
+\section{Purpose and demotion discipline}
+
+The fable-stage heuristic contains several phrases that are useful only after being demoted into typed mathematical objects.  The following table fixes the demotion map used throughout this note.
+
+\begin{center}
+\begin{tabular}{p{0.25\linewidth}p{0.32\linewidth}p{0.32\linewidth}}
+\toprule
+Heuristic phrase & Typed replacement & Operational test \\
+\midrule
+``AI interlingua'' & shared or partially shared interlingual representation subspace & local-neighborhood overlap, representational similarity, transfer performance \\
+``meaning is topology'' & semantic information has a neighborhood, graph, and filtered-complex component & persistent homology, local intrinsic dimension, kNN overlap, Gromov--Wasserstein distortion \\
+``language as gravity'' & potential or energy landscape over representations and alignments & attractor basins, gradient flows, optimization trajectories \\
+``anomaly inflow'' & obstruction to consistent local-to-global alignment, trivialized by a higher-level hub or bridge object & failure of cocycle conditions; reduction after adding a hub/latent layer \\
+``cobordism'' & filtered complex whose boundary subcomplexes are source-language semantic complexes & existence and distortion of a bridge complex \\
+``spin manifold'' & optional smooth refinement requiring orientation and vanishing $w_2$ obstruction & only meaningful after manifold reconstruction and Dirac-type operator choice \\
+``pancake stack'' & stratified stack of semantic slices indexed by layer, scale, language, genre, and intrinsic dimension & descent data across slices and stability of maps \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This demotion discipline is the first mathematical guardrail.  Without it, the programme degenerates into metaphor inflation.  With it, the same intuition becomes an empirical theory of gluing, compression, and obstruction.
+
+\section{Empirical starting points from the NLP side}
+
+Let $M$ be a multilingual language model, $\ell$ a layer, $L$ a language, and $D_L$ a corpus in that language.  For a token occurrence $t$ in context $s$, write
+\[
+  h_{M,\ell}(t,s)\in\R^d
+\]
+for its hidden representation.  For a concept $c\in\Concept$, let $S_L(c)$ be a set of contexts in $L$ judged to express $c$.  We define a concept representation by
+\[
+  v_{M,\ell,L}(c)=\operatorname{Agg}\{h_{M,\ell}(t,s): (t,s)\in S_L(c)\},
+\]
+where $\operatorname{Agg}$ may be a mean, medoid, mixture model, or sense-cluster representative.
+
+Recent multilingual-model work supplies the empirical justification for studying such objects.  The semantic-hub hypothesis reports that semantically equivalent inputs across languages and modalities become close in intermediate layers of language models, while also noting a dominant-pretraining-language scaffold in some cases \cite{WuSemanticHub2024}.  High-dimensional interlingual-representation work introduces Interlingual Local Overlap as a neighborhood-based way to quantify cross-lingual alignment, and reports that multilingual LLMs exhibit a shared interlingual semantic subspace together with fragmented language-specific components \cite{WilieInterlingual2025}.  These results already imply that the mathematical object is not a single universal language but a family of partially aligned local geometries.
+
+\begin{definition}[Concept metric space]
+Fix $M,\ell,L$ and a finite concept set $\Concept$.  The associated concept metric space is
+\[
+  X_{M,\ell,L}:=(\Concept,d_{M,\ell,L}),\qquad
+  d_{M,\ell,L}(c,c')=\|v_{M,\ell,L}(c)-v_{M,\ell,L}(c')\|.
+\]
+If the representation is polysemous, replace $\Concept$ by a sense-refined set $\widetilde{\Concept}$.
+\end{definition}
+
+\begin{definition}[Interlingual local overlap]
+For $k\in\N$, let $N^k_{M,\ell,L}(c)$ denote the $k$ nearest neighbors of $c$ in $X_{M,\ell,L}$.  For two languages $L_i,L_j$ on a shared concept set, define
+\[
+  \ILO_{k,\ell}(L_i,L_j)
+  =\frac1{|\Concept|}\sum_{c\in\Concept}
+  \frac{|N^k_{M,\ell,L_i}(c)\cap N^k_{M,\ell,L_j}(c)|}
+       {|N^k_{M,\ell,L_i}(c)\cup N^k_{M,\ell,L_j}(c)|}.
+\]
+\end{definition}
+
+The exact implementation may be varied, but the mathematical role is invariant: $\ILO$ measures local semantic-neighborhood preservation rather than coordinate equality.  This is the correct level for bridge-language design, because mutual intelligibility is primarily local and relational: speakers infer meanings by nearby forms, cognates, constructions, collocations, and pragmatic neighborhoods.
+
+\section{Intrinsic dimension as a semantic-complexity observable}
+
+Intrinsic dimension is the most direct bridge between the fable heuristic and a usable geometric model.  The relevant claim is not that a model ``speaks ID''.  The relevant claim is that ID is an observable of representational degrees of freedom.  Aghajanyan, Gupta, and Zettlemoyer use intrinsic dimension to explain why fine-tuning can succeed in very low-dimensional parameter subspaces, connecting pretraining to compressed downstream task descriptions \cite{Aghajanyan2021}.  Local intrinsic-dimension work studies shifts of contextual embedding geometry during training and fine-tuning \cite{Ruppik2025}.  The text-level intrinsic-dimension study reports that ID is largely complementary to entropy after length control, that scientific prose occupies lower-ID regions than fiction and opinion, and that SAE steering identifies features that causally alter ID \cite{Pedashenko2025}.
+
+\begin{definition}[Persistent-homology dimension, schematic]
+Let $X_n=\{x_1,\dots,x_n\}\subset\R^d$ be a point cloud sampled from a set with effective dimension $q$.  If $L_n$ denotes the total length of the minimum spanning tree and
+\[
+  L_n\asymp n^{(q-1)/q},
+\]
+then the persistent-homology dimension estimator is schematically
+\[
+  \PHD(X)=\lim_{n\to\infty}\frac{1}{1-\frac{\log L_n}{\log n}},
+\]
+when the limit exists or is replaced by a finite-sample estimator.
+\end{definition}
+
+\begin{proposition}[ID is not entropy]
+Let $H\subset\R^m$ be a hidden-state point cloud and $U\in\R^{m\times V}$ an unembedding matrix.  The intrinsic dimension of $H$ is a property of the metric geometry of $H$, whereas predictive entropy
+\[
+  \mathcal E(h)=-\sum_{i=1}^V p_i(h)\log p_i(h),\qquad p(h)=\operatorname{softmax}(U^\top h)
+\]
+depends on the alignment of $h$ with $U$.  Therefore there is no general functional dependence $\mathcal E=F(\ID)$.
+\end{proposition}
+
+\begin{proof}
+Let $T_\alpha(h)=\alpha h$ for $\alpha>0$.  Local dimension is invariant under non-singular affine rescaling, so $\ID(T_\alpha H)=\ID(H)$.  But
+\[
+  p(T_\alpha h)=\operatorname{softmax}(\alpha U^\top h),
+\]
+which approaches the uniform distribution as $\alpha\to0$ and a one-hot distribution as $\alpha\to\infty$ whenever a unique logit dominates.  Entropy can therefore vary from near $\log V$ to near $0$ while intrinsic dimension remains fixed.  This is the scale-invariance version of the argument used in the intrinsic-dimension text study \cite{Pedashenko2025}.
+\end{proof}
+
+\begin{definition}[Dimensional pancake stack]
+The semantic pancake stack of a model-corpus pair is the indexed family
+\[
+  \mathfrak P(M,D)=\{X_{M,\ell,L,g,\tau,\eps}\}_{(\ell,L,g,\tau,\eps)\in B},
+\]
+where $\ell$ is model layer, $L$ is language, $g$ is genre or discourse regime, $\tau$ is generation or sampling/control regime, and $\eps$ is a filtration scale.  Each slice is a metric space or filtered complex; morphisms are alignment maps, coarse-graining maps, and intervention maps.
+\end{definition}
+
+This is the rigorous version of the ``pancake stack''.  It is a stack-like object because its scientific content lies in descent: can local alignments among slices be glued into a global semantic object, or do the overlaps carry obstruction terms?
+
+\section{Topological semantics: from point clouds to filtered complexes}
+
+\begin{definition}[Semantic Vietoris--Rips filtration]
+Given a concept metric space $X=(\Concept,d)$ and scale $\eps\ge0$, the Vietoris--Rips complex $\VR_\eps(X)$ is the abstract simplicial complex with vertex set $\Concept$ and simplex $\{c_0,\dots,c_r\}$ whenever
+\[
+  d(c_a,c_b)\le \eps\quad\text{for all }0\le a,b\le r.
+\]
+The family $\{\VR_\eps(X)\}_{\eps\ge0}$ is a filtration.
+\end{definition}
+
+\begin{definition}[Topological semantic profile]
+For $X_{M,\ell,L}$ define
+\[
+  \operatorname{Topo}(X_{M,\ell,L})=
+  \left(\operatorname{PH}_0,\operatorname{PH}_1,\dots,\ID,\operatorname{LID},\operatorname{kNN}\right),
+\]
+where $\operatorname{PH}_r$ is the persistent homology barcode in degree $r$, $\ID$ is a global intrinsic-dimension estimate, $\operatorname{LID}$ is a local intrinsic-dimension field, and $\operatorname{kNN}$ is the nearest-neighbor graph.
+\end{definition}
+
+The phrase ``meaning is topology'' should be read as the following limited assertion: a component of lexical-conceptual meaning is encoded in the topology and metric geometry of the concept's neighborhood.  This excludes stronger claims.  Topology alone does not encode reference, pragmatics, embodiment, truth conditions, social indexicality, or compositional syntax.
+
+\section{Semantic cobordism}
+
+\begin{definition}[Classical cobordism]
+Let $M_0,M_1$ be closed smooth $(d-1)$-manifolds.  A smooth cobordism from $M_0$ to $M_1$ is a compact smooth $d$-manifold $W$ such that
+\[
+  \bd W\cong M_0\sqcup (-M_1),
+\]
+where $-M_1$ denotes $M_1$ with reversed orientation.
+\end{definition}
+
+Empirical semantic spaces are not smooth manifolds.  They are finite point clouds, graphs, and filtered simplicial complexes.  Hence the immediate object is a discrete or filtered analogue.
+
+\begin{definition}[Filtered semantic cobordism]
+Let $K^0_\bullet$ and $K^1_\bullet$ be filtered simplicial complexes over a common scale parameter $\eps$.  A filtered semantic cobordism from $K^0_\bullet$ to $K^1_\bullet$ is a filtered simplicial complex $W_\bullet$ together with filtered inclusions
+\[
+  i_0:K^0_\bullet\hookrightarrow W_\bullet,
+  \qquad
+  i_1:K^1_\bullet\hookrightarrow W_\bullet,
+\]
+and a declared boundary subcomplex
+\[
+  \bd W_\bullet=i_0(K^0_\bullet)\cup i_1(K^1_\bullet)
+\]
+up to filtered homotopy, together with a distortion functional
+\[
+  \Dist(W;K^0,K^1)
+  :=
+  \int_0^\infty d_{\operatorname{B}}\big(\operatorname{PH}(W_\eps),\operatorname{Glue}_\eps(K^0,K^1)\big)\,d\mu(\eps),
+\]
+where $d_{\operatorname{B}}$ may be bottleneck or Wasserstein distance between persistence diagrams.
+\end{definition}
+
+\begin{definition}[Multilingual semantic bridge]
+For languages $L_1,\dots,L_n$, a multilingual semantic bridge is a filtered complex $W_\bullet$ with boundary components $K^i_\bullet=\VR_\bullet(X_{M,\ell,L_i})$ and maps
+\[
+  i_i:K^i_\bullet\to W_\bullet.
+\]
+A bridge language $B$ is represented by an internal slice $K^B_\bullet\subset W_\bullet$ minimizing
+\[
+  E(B)=\sum_i \alpha_i\Dist(K^B,K^i)^2
+       +\beta\operatorname{TopoLoss}(K^B;K^1,\dots,K^n)
+       +\gamma\FF(B)
+       +\eta\operatorname{HumanCost}(B).
+\]
+\end{definition}
+
+\begin{proposition}[Existence is trivial; low-distortion is not]
+For any finite complexes $K^0,K^1$ there exists a finite complex $W$ with $K^0$ and $K^1$ as distinguished boundary subcomplexes.  Therefore the mathematical substance of semantic cobordism is not mere existence, but controlled distortion, stable filtrations, and predictive value for human intelligibility.
+\end{proposition}
+
+\begin{proof}
+Take the disjoint union $K^0\sqcup K^1$.  For each shared concept label $c$ add an edge $[c_0,c_1]$ joining the copy of $c$ in $K^0$ to the copy in $K^1$, and then close under faces.  This produces a finite bridge complex.  However, it ignores metric scale, topology, false friends, phonology, morphology, and human comprehension.  Hence the existence construction is vacuous unless accompanied by an energy or distortion functional.
+\end{proof}
+
+\section{False friends as gluing defects}
+
+Let $\operatorname{FormSim}(x,y)\in[0,1]$ be a phonological/orthographic similarity score and let $\operatorname{SemDist}(c,c')$ be a semantic distance.  For a bridge candidate $b(c)$ define
+\[
+  \FF(b(c))
+  =\sum_{i=1}^{n}\sum_{c'\ne c}w_i
+  \operatorname{FormSim}\bigl(b(c),x_i(c')\bigr)
+  \operatorname{SemDist}(c,c').
+\]
+The expression means: high form similarity to the wrong source-language concept is a semantic gluing hazard.  In the cobordism picture, a false friend is not an anomaly in the quantum-field-theoretic sense.  It is a boundary-identification error: the form boundary and semantic boundary glue to different components.
+
+\section{Descent obstruction and the anomaly-inflow dictionary}
+
+The anomaly language becomes rigorous if it is tied to local-to-global failure.
+
+\begin{definition}[Local alignment atlas]
+Let $\{U_a\}_{a\in A}$ be a cover of the concept set or semantic complex by local neighborhoods.  A local interlingual alignment atlas consists of maps
+\[
+  g^{ij}_a: U_a^{(i)}\to U_a^{(j)}
+\]
+for each language pair $(L_i,L_j)$ and neighborhood $U_a$, preserving semantic neighborhoods up to a fixed tolerance.
+\end{definition}
+
+\begin{definition}[Alignment anomaly]
+Assume the local transition maps take values, after linearization or graph automorphism reduction, in a structure group $G$.  On triple overlaps define
+\[
+  a_{abc}=g_{ab}g_{bc}g_{ca}\in G.
+\]
+If the $a_{abc}$ fail to be the identity, or define a nontrivial class in an obstruction group such as $\check H^2(\{U_a\};Z(G))$, then the atlas has an alignment anomaly.  Equivalently, pairwise local alignments do not descend to a globally coherent interlingual object.
+\end{definition}
+
+\begin{proposition}[Hub trivialization]
+Suppose there exists a hub space $H$ and maps $s_i:X_i\to H$ such that for every overlap $U_a$ the pairwise transition $g^{ij}_a$ is induced, up to tolerance, by
+\[
+  g^{ij}_a\simeq s_j^{-1}\circ s_i.
+\]
+Then all triple-overlap obstruction terms are trivial up to that tolerance.
+\end{proposition}
+
+\begin{proof}
+On a triple overlap,
+\[
+  g^{ij}_a g^{jk}_a g^{ki}_a
+  \simeq (s_j^{-1}s_i)(s_k^{-1}s_j)(s_i^{-1}s_k)
+  \simeq \operatorname{id},
+\]
+provided the local inverses are chosen consistently on the image of the hub.  Thus the obstruction cocycle is a coboundary or vanishes within the empirical tolerance.
+\end{proof}
+
+This is the precise analogue of inflow: the higher or more central object $H$ cancels the apparent boundary mismatch among pairwise alignments.  The analogy to Freed's modern account of anomalies as invertible field theories is structural: a boundary theory can be non-absolute until supplied with a one-higher-dimensional invertible theory \cite{FreedAnomalies2014}.  The analogy to Freed--Hopkins--Teleman is likewise structural: boundary representation-theoretic data and bulk twisted $K$-theoretic data are matched in a precise topological correspondence \cite{FreedFHT2002,FreedHopkinsTelemanII}.  In the NLP setting, the ``bulk'' is not physical spacetime; it is a hub or bridge object that trivializes descent failure.
+
+\section{Spin manifolds and Dirac refinements}
+
+Spin language should not be used unless the hypotheses are present.
+
+\begin{definition}[Spin semantic refinement]
+Let $W$ be a reconstructed smooth oriented manifold approximating a semantic bridge complex.  A spin semantic refinement consists of:
+\begin{enumerate}[label=(\roman*)]
+  \item a spin structure on $W$, equivalently a lift of the oriented frame bundle from $SO(m)$ to $\operatorname{Spin}(m)$;
+  \item a Clifford module bundle $S\to W$;
+  \item a Dirac-type operator $D_W:\Gamma(S)\to\Gamma(S)$ or a graph/simplicial Dirac surrogate converging to one.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Spin obstruction]
+A smooth oriented manifold $W$ admits a spin structure if and only if its second Stiefel--Whitney class vanishes:
+\[
+  w_2(W)=0.
+\]
+For a cobordism with boundary, compatible spin structures must restrict to the prescribed spin structures on the boundary components.
+\end{lemma}
+
+\begin{remark}
+This lemma is a typing rule.  It says that the spin-manifold bridge is available only after one has reconstructed or assumed a smooth oriented semantic manifold with appropriate tangent data.  For ordinary point-cloud NLP analysis, graph Laplacians, Hodge Laplacians, sheaf Laplacians, and Dirac-like graph operators are safer than literal spin geometry.
+\end{remark}
+
+\section{Attractor states and energy landscapes}
+
+Let $X$ be a representation space and let $\Phi:X\to\R$ be an energy or cost functional.  A semantic attractor basin for concept $c$ is a region $B_c\subset X$ such that the dynamics
+\[
+  \dot x=-\nabla\Phi(x)
+\]
+flows points in $B_c$ toward a stable set $A_c\subset B_c$.  In a discrete model one replaces gradient flow by an update operator $T:X\to X$ and asks for stable or metastable fixed sets.
+
+For bridge-language design, the energy may be chosen as
+\[
+  \Phi_B(c,x)=
+  \lambda_1\operatorname{HumanSurprisal}(x,c)
+  +\lambda_2\FF(x,c)
+  +\lambda_3\operatorname{MorphCost}(x)
+  +\lambda_4\operatorname{PivotBias}(x)
+  -\lambda_5\operatorname{PhyloCentrality}(x,c).
+\]
+A candidate form is good when it lies in a basin that many source-language speakers can enter with low energy and few false-friend collisions.
+
+\section{Global harmonization heuristic}
+
+The ``global harmonization'' claim can be stated as a threshold model.  Let $q(t)$ be a local or global intrinsic-dimension observable of a generated text trajectory, let $A(t)$ be an alignment obstruction score, and let $C(t)$ be a coherence score.  A generation regime has local stability if $A(t)$ remains low on small windows; it has global harmonization if $A(t)$ remains low over large discourse windows while $q(t)$ stabilizes within a non-degenerate band.
+
+\begin{definition}[Harmonization threshold]
+Let $\theta$ be a control parameter, such as temperature, context length, retrieval support, reasoning budget, or constraint strength.  A harmonization threshold is a value $\theta_c$ such that for $\theta<\theta_c$ the process has low local diversity or repetitive collapse, for $\theta\approx\theta_c$ it has high variance and unstable obstruction, and for an interval $\theta_c<\theta<\theta_d$ it has stable global coherence with bounded obstruction.
+\end{definition}
+
+This is the mathematically usable remnant of the psychedelic analogy.  It does not require claims about drug neurochemistry.  It only requires measurable regimes of representation geometry and coherence.  The intrinsic-dimension text paper already supplies a warning relevant here: extremely low ID can indicate repetitive or looped text, whereas extremely high ID can indicate disconnected fragments or incoherent mixtures \cite{Pedashenko2025}.
+
+\section{HPC and scalable computation}
+
+The HPC heuristic becomes concrete when the semantic stack is too large to compute monolithically.  The graph/complex is partitioned into subdomains, each process computes local neighborhoods, local ID, and local topological summaries, and interface processes exchange boundary data.  This mirrors domain decomposition for PDEs, but the object being solved may be a graph embedding, sheaf Laplacian, Gromov--Wasserstein alignment, or constrained hub-fitting problem rather than a physical field equation.
+
+\begin{problem}[Scalable semantic bridge fitting]
+Given languages $L_1,
+\dots,L_n$, corpora $D_i$, a multilingual model $M$, and concept inventory $\Concept$, compute a bridge object $W$ minimizing
+\[
+  E(W)=
+  \sum_i \alpha_i\Dist(W,K^i)^2
+  +\beta\|\delta g\|^2
+  +\gamma\sum_c \FF(b(c))
+  +\eta\operatorname{HumanCost}(B),
+\]
+where $\|\delta g\|^2$ measures descent obstruction for local alignments.
+\end{problem}
+
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=*]
+  \item Extract contextual representations and concept aggregates in parallel.
+  \item Build local kNN graphs and local Vietoris--Rips filtrations.
+  \item Estimate local and global intrinsic dimensions.
+  \item Fit pairwise alignments on overlapping semantic neighborhoods.
+  \item Compute obstruction terms $a_{abc}=g_{ab}g_{bc}g_{ca}$.
+  \item If obstruction is small, accept the bridge; if not, add a hub coordinate, increase rank, refine the cover, or split the semantic region.
+  \item Validate with human comprehension, false-friend, and retention experiments.
+\end{enumerate}
+
+This is the computational analogue of a partial-lift loop.  The uploaded HPC notes propose a stronger physical-language version using aggregator PDEs, anomaly checks, and flux integrality.  For the first-pass linguistic theory, the safe translation is: use the same solve--check--lift control structure, but replace physical flux integrality by explicit gluing and intelligibility constraints.
+
+\section{Bridge-language objective}
+
+Let $B$ be a candidate zonal auxiliary language for a family $\Lang=\{L_1,\dots,L_n\}$.  For each concept $c$, the candidate lexical realization $b(c)$ is selected from a set of possible forms $\mathcal X(c)$.  Define
+\begin{align*}
+  \operatorname{Score}(b(c))
+  =&\;\alpha\operatorname{Commonality}(b(c))
+  +\beta\operatorname{PhyloCentrality}(b(c))
+  +\chi\operatorname{LatentAlignment}(b(c))\\
+  &-\lambda\FF(b(c))
+  -\mu\operatorname{MorphCost}(b(c))
+  -\nu\operatorname{PivotBias}(b(c)).
+\end{align*}
+The optimized form is
+\[
+  b^*(c)=\arg\max_{x\in\mathcal X(c)}\operatorname{Score}(x).
+\]
+
+For grammar, replace candidate lexical forms by candidate grammatical features $g$:
+\[
+  \operatorname{Score}(g)=
+  \alpha\operatorname{Coverage}(g)
+  +\beta\operatorname{FunctionalLoad}(g)
+  +\gamma\operatorname{Recognizability}(g)
+  -\lambda\operatorname{LearningCost}(g)
+  -\mu\operatorname{AmbiguityCost}(g).
+\]
+
+\section{Research hypotheses}
+
+\begin{description}[leftmargin=*]
+\item[H1: Local-neighborhood hypothesis.] Human intelligibility of a bridge form is predicted by preservation of local semantic neighborhoods across source languages.
+\item[H2: False-friend gluing hypothesis.] False friends are high-form-similarity, high-semantic-distance boundary-gluing defects.
+\item[H3: Intrinsic-dimension stratification hypothesis.] Scientific, technical, and highly conventional discourse will occupy lower-ID slices than narrative, affective, and highly personalized discourse; bridge-language texts should be easier to align in lower-ID slices but must be tested in high-ID slices.
+\item[H4: Descent obstruction hypothesis.] If local pairwise interlingual alignments fail cocycle consistency, human comprehension will show increased error, latency, or ambiguity.
+\item[H5: Hub-trivialization hypothesis.] Adding an explicit semantic hub, bridge lexicon, or scaffolded representation reduces alignment obstruction and improves comprehension.
+\item[H6: Harmonization-threshold hypothesis.] Coherent long-form synthesis occurs in a bounded control regime where ID is neither collapsed nor explosively fragmented and where alignment obstruction remains low over large windows.
+\end{description}
+
+\section{What must not be claimed}
+
+\begin{enumerate}[leftmargin=*]
+  \item Do not claim that an LLM has a literal physical bulk spacetime.
+  \item Do not claim that cobordism is proved by cosine similarity; define the filtered complexes and bridge maps.
+  \item Do not claim spin geometry unless the model supplies a smooth oriented manifold and a vanishing $w_2$ obstruction.
+  \item Do not equate entropy, cross-entropy, free energy, and intrinsic dimension.  They are distinct observables.
+  \item Do not claim anomaly inflow unless there is a specified obstruction class and a specified trivializing extension.
+  \item Do not use ``universal interlingua'' where the evidence supports only partial, layer-dependent, model-dependent, and language-dependent alignment.
+\end{enumerate}
+
+\section{Minimal dissertation-shaped programme}
+
+\begin{enumerate}[leftmargin=*]
+  \item Build Slavic and Romance concept-aligned corpora with cognate, false-friend, register, and morphology annotations.
+  \item Extract multilingual representations from several models and layers.
+  \item Compute $\ILO$, local ID, persistent homology, representational similarity, and false-friend risk.
+  \item Construct filtered semantic cobordisms and measure distortion.
+  \item Estimate descent-obstruction scores from local alignment cycles.
+  \item Compare existing Interslavic and Neolatino choices against optimized candidates.
+  \item Run human comprehension, reaction-time, and retention experiments.
+  \item Test whether topological and ID features add predictive power beyond form similarity, cognacy, and frequency.
+\end{enumerate}
+
+\section{Conclusion}
+
+The rigorous core is this: multilingual language representations define a family of finite metric spaces and filtered complexes.  Bridge-language design is a constrained problem of constructing a low-distortion internal slice between those complexes.  Intrinsic dimension measures representational degrees of freedom; it is not entropy, but complements entropy.  Cobordism is a useful finite-complex bridge formalism.  Anomaly inflow is a useful descent-obstruction formalism.  Spin geometry is an optional refinement requiring additional hypotheses.  The resulting programme is empirical, falsifiable, and compatible with both interlinguistics and modern representation analysis.
+
+\begin{thebibliography}{99}
+
+\bibitem{Aghajanyan2021}
+Armen Aghajanyan, Sonal Gupta, and Luke Zettlemoyer.
+\newblock Intrinsic dimensionality explains the effectiveness of language model fine-tuning.
+\newblock In \emph{Proceedings of ACL-IJCNLP 2021}, pages 7319--7328, 2021.
+
+\bibitem{Pedashenko2025}
+Vladislav Pedashenko, Laida Kushnareva, Yana Khassan Nibal, Eduard Tulchinskii, Kristian Kuznetsov, Vladislav Zharchinskii, Yury Maximov, and Irina Piontkovskaya.
+\newblock Unveiling intrinsic dimension of texts: from academic abstract to creative story.
+\newblock arXiv:2511.15210, 2025.
+
+\bibitem{Ruppik2025}
+Benjamin Matthias Ruppik, Julius von Rohrscheidt, Carel van Niekerk, Michael Heck, Renato Vukovic, Shutong Feng, Hsien-chin Lin, Nurul Lubis, Bastian Rieck, Marcus Zibrowius, and Milica Ga\v{s}i\'{c}.
+\newblock Less is more: local intrinsic dimensions of contextual language models.
+\newblock arXiv:2506.01034, 2025.
+
+\bibitem{WilieInterlingual2025}
+Bryan Wilie, Samuel Cahyawijaya, Junxian He, and Pascale Fung.
+\newblock High-dimensional interlingual representations of large language models.
+\newblock In \emph{Proceedings of the 7th Workshop on Research in Computational Linguistic Typology and Multilingual NLP}, 2025.
+
+\bibitem{WuSemanticHub2024}
+Zhaofeng Wu, Xinyan Velocity Yu, Dani Yogatama, Jiasen Lu, and Yoon Kim.
+\newblock The semantic hub hypothesis: language models share semantic representations across languages and modalities.
+\newblock arXiv:2411.04986, 2024.
+
+\bibitem{FreedFHT2002}
+Daniel S. Freed.
+\newblock Twisted K-theory and loop groups.
+\newblock arXiv:math/0206237, 2002.
+
+\bibitem{FreedHopkinsTelemanII}
+Daniel S. Freed, Michael J. Hopkins, and Constantin Teleman.
+\newblock Loop groups and twisted K-theory II.
+\newblock arXiv:math/0511232, 2005.
+
+\bibitem{FreedAnomalies2014}
+Daniel S. Freed.
+\newblock Anomalies and invertible field theories.
+\newblock arXiv:1404.7224, 2014.
+
+\bibitem{FreedHopkins2016}
+Daniel S. Freed and Michael J. Hopkins.
+\newblock Reflection positivity and invertible topological phases.
+\newblock \emph{Geometry \& Topology}, 25:1165--1330, 2021.
+
+\bibitem{APS1975}
+Michael F. Atiyah, Vijay K. Patodi, and Isadore M. Singer.
+\newblock Spectral asymmetry and Riemannian geometry I.
+\newblock \emph{Mathematical Proceedings of the Cambridge Philosophical Society}, 77(1):43--69, 1975.
+
+\bibitem{CallanHarvey1985}
+Curtis G. Callan and Jeffrey A. Harvey.
+\newblock Anomalies and fermion zero modes on strings and domain walls.
+\newblock \emph{Nuclear Physics B}, 250:427--436, 1985.
+
+\bibitem{Carlsson2009}
+Gunnar Carlsson.
+\newblock Topology and data.
+\newblock \emph{Bulletin of the American Mathematical Society}, 46(2):255--308, 2009.
+
+\bibitem{EdelsbrunnerHarer2010}
+Herbert Edelsbrunner and John Harer.
+\newblock \emph{Computational Topology: An Introduction}.
+\newblock American Mathematical Society, 2010.
+
+\bibitem{Facco2017}
+Elena Facco, Maria d'Errico, Alex Rodriguez, and Alessandro Laio.
+\newblock Estimating the intrinsic dimension of datasets by a minimal neighborhood information.
+\newblock \emph{Scientific Reports}, 7:12140, 2017.
+
+\bibitem{TishbyZaslavsky2015}
+Naftali Tishby and Noga Zaslavsky.
+\newblock Deep learning and the information bottleneck principle.
+\newblock In \emph{IEEE Information Theory Workshop}, 2015.
+
+\end{thebibliography}
+
+\end{document}
