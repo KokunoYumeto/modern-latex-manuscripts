@@ -1,0 +1,661 @@
+\chapter{Боты в Викиданных}
+\label{ch:bots}
+
+%\renewcommand{\lstlistingname}{Листинг} % Запрос -> Листинг
+\makeatletter
+\long\def\@makecaption#1#2{%
+    \renewcommand{\lstlistingname}{Листинг}
+\centering%
+#1. #2\par%
+\vspace{5pt}%
+}%
+\makeatother
+
+
+
+В этой главе рассматривается автоматизация процессов в Викиданных. 
+Часто нужно исправить повторяющиеся ошибки или ввести большие объёмы данных 
+вместо того, чтобы изменять свойства по~одному. 
+Для ввода данных в нашем распоряжении есть несколько инструментов, облегчающих работу, 
+таких как OpenRefine\sidenote[][-58pt]{%
+%
+\index{Обработка данных!OpenRefine}
+OpenRefine~--- программа для обработки табличных данных. 
+С 2021 года доступна редакторам Википедии в виде онлайн-сервиса (\url{https://openrefine.org}).%
+} %
+ или QuickStatements\sidenote[][-16pt]{%
+%
+\index{Обработка данных!QuickStatements}
+QuickStatements~--- сервис пакетной обработки Викиданных\\
+(\url{https://quickstatements.toolforge.org}).%
+%
+}, но регулярно повторяющиеся добавления и~вставки должны выполняться с помощью бота.
+
+
+\section{Требования}
+\label{sec:requirements}
+
+\index{Библиотека!Pywikibot}
+Ботов программируют на разных языках, мы для упрощения задачи воспользуемся библиотекой Pywikibot, 
+написанной на языке Python и предназначенной для облегчения доступа 
+к информации в~проектах Викимедиа. Есть три варианта запуска наших программ:
+\begin{enumerate}[1)]
+%  \setlength{\itemindent}{2em}
+  \item использовать веб-оболочку наподобие PAWS\sidenote[][-48pt]{PAWS (a web shell)~--- веб-оболочка и сервис, включает блокноты Jupyter для~использования всеми участниками Викимедиа.}; 
+  \index{Программирование!Среда разработки!Toolforge}
+  \item установить облачную инфраструктуру наподобие Toolforge\sidenote[][-24pt]{%
+%
+          Toolforge~--- платформа энтузиастов-программистов, 
+          разрабатывающих сервисы и программы для обработки данных 
+          проектов Викимедиа (\url{https://wikitech.wikimedia.org/wiki/Portal:Toolforge}).%
+%          
+          };
+  \item запустить на своём собственном компьютере.
+\end{enumerate}
+
+Благодаря наличию документации\sidenote[]{%
+%
+    См. руководство по установке Pywikibot: 
+    \url{https://www.mediawiki.org/wiki/Manual:Pywikibot/Installation/ru}.%
+%
+} можно воспользоваться любым из этих трёх способов. 
+Для~работы с ботами со своего компьютера нужно предварительно установить среду и язык программирования Python. 
+После установки мы можем проверить, 
+корректно ли она установлена, набрав
+
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                  ]
+python --version
+\end{lstlisting}
+в командной строке Windows или в консоли Linux (в дальнейшем всё делаем в консоли), 
+и тогда в~консоли мы увидим версию Python, с которой будем работать. 
+Затем устанавливаем и~настраиваем Pywikibot. 
+
+
+
+\newpage
+Эта настройка Pywikibot включает несколько этапов:
+\begin{itemize}
+%  \setlength{\itemindent}{2em}
+%\DrawEnumitemLabel
+  \item Создайте файл конфигурации: \lstinline|py pwb.py generate_user_files|.
+  \item Выполните команду входа в систему: \lstinline|py pwb.py login|.
+  \item Просмотрите файлы \lstinline|user-config.py| и \lstinline|user-password.py|, где мы можем указать имена пользователей, которые будут вносить изменения.
+\end{itemize}
+
+Для просмотра информации или выполнения небольших тестов 
+мы можем воспользоваться нашим именем пользователя\sidenote{%
+    Имя пользователя (логин)~--- это то имя, под которым мы зарегистрировались в~проектах Викимедиа. 
+    В этих проектах (Википедия, Викиданные, Викиверситет~и~др.) 
+    используется единая пара логин/пароль.}, 
+%
+но в случае внесения большого количества изменений в Викиданные 
+рекомендуется создать учетную запись бота и запросить разрешение на его запуск. 
+Чтобы получить этот флаг, обычно требуются некоторые знания о редактировании в~проектах Викимедиа, 
+подтверждающие, что мы не сделаем серьёзных ошибок и~у~нас есть поддержка других пользователей.
+
+Обычно для получения этого флага нас просят выполнить определённое количество тестовых правок, 
+чтобы убедиться, что такие правки полезны, а ошибок практически нет. 
+Мы также можем продолжать выполнять задачи через нашу учётную запись, но с небольшой частотой правок.
+
+
+\section{Наши первые скрипты}
+
+\label{sec:firstScript}
+\index{Библиотека!Pywikibot}
+После того как мы правильно настроили Pywikibot, мы можем запустить 
+нашу первую программу~(листинг~\ref{lst:page-get}). 
+Перейдём в папку, где находится программный код Pywikibot, 
+и создадим новый файл с именем \lstinline|test.py|.
+
+Мы можем вносить изменения в файл при помощи любых текстовых редакторов 
+или редакторов кода, таких как 
+Visual Studio Code, Notepad++, или обычного редактора Notepad. 
+Открыв файл, добавим в него следующий код~(листинг~\ref{lst:page-get}).
+
+
+\begin{lstlisting}[ language=Python,
+                    caption={Получение содержимого страницы Викиданных о реке Обнице в Польше},
+                    label=lst:page-get,
+                    xleftmargin=18pt, 
+                    numbers=left,
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583338")     # river in Poland
+print(page.get())
+\end{lstlisting}
+
+Сохраним и запустим этот файл, набрав следующую инструкцию: \lstinline|py pwb.py test.py|.
+
+Отметим, что в Викиданных есть две реки с одинаковым названием Обница~--- 
+одна в Польше, другая в Сербии. Одноимённые объекты легко различимы в Викиданных
+по номерам: \wdqName{Obnitsa}{16583338} и~\wdqName{Obnitsa}{959190}.
+
+\index{Библиотека!Pywikibot}
+Если всё работает корректно, мы увидим в консоли весь текст, 
+написанный на странице реки \wdqName{Обница}{16583338} в Викиданных. 
+В первой строке программы~\ref{lst:page-get} мы импортировали библиотеку \lstinline|Pywikibot|. 
+Во второй строке указали название проекта Викимедиа, над которым хотим работать, 
+и~языковую версию проекта Викимедиа или особо~--- Викисклад\sidenote[][0pt]{%
+%
+    Например, Русская Википедия (код~ru) и Английская Википедия (код~en)~--- 
+    это языковые версии Википедии. А~у~Викисклада (его также называют Commons) нет языковых версий и есть только один код: commons.%
+    }. 
+%
+В~третьей строке указываем искомый объект и, наконец, указываем, что хотим получить весь контент.
+
+
+Page (страница)~--- это модуль, включающий множество полезных методов\sidenote[][12pt]{%
+%
+    См. дополнительную информацию о модуле Page: 
+    \url{https://doc.wikimedia.org/pywikibot/master/api_ref/pywikibot.html\#pywikibot.Page}.%
+%
+}.\,  В~дополнение к~методу \lstinline|get()| в~нашем распоряжении есть возможность 
+узнать заголовок элемента с~помощью метода \lstinline|title()| (листинг~\ref{lst:page-title}).
+
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Получение заголовка объекта с номером Q16583338},
+                    label=lst:page-title
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583338")     # river in Poland
+print(page.title())
+\end{lstlisting}
+
+С помощью метода \lstinline|isRedirectPage()| 
+мы можем узнать, является ли этот объект страницей-перенаправлением. 
+Для этого в~листинге~\ref{lst:is-redirected} 
+укажем объект, соответствующий странице-перена\-пра\-вле\-нию 
+(\href{https://www.wikidata.org/w/index.php?title=Q16583333&redirect=no}
+      {Q16583333 $\rightarrow$ Q2149254})\sidenote[][12pt]{%
+%
+    См. как выглядит страница-перенаправление: 
+    \url{https://www.wikidata.org/w/index.php?title=Q16583333&redirect=no}.%
+%    
+}. 
+
+
+
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ 
+    language=Python,
+    numbers=none,
+    caption={Получение ответа на вопрос, является ли элемент страницей-перенаправлением\\
+                             (истина или ложь)},
+                    label=lst:is-redirected
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583333")
+print(page.title())
+print(page.isRedirectPage())
+\end{lstlisting}
+
+Обратите внимание, что до сих пор упражнения были очень простыми, но по мере усложнения мы должны быть осторожны с отступами, которые позволяют указать в языке Python, какая информация входит в структуры управления.
+
+Предыдущее упражнение~(листинг~\ref{lst:is-redirected}) возвращает только истину или ложь. 
+Такой запрос нужен, чтобы узнать, является ли заданная страница перенаправлением, 
+и если <<да>>, 
+то~предупредить об~этом пользователя~(листинг~\ref{lst:attention}).
+
+
+
+\newpage
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Предупреждение пользователя о том, что объект является страницей-перенаправлением},
+                    label=lst:attention
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583333")    # redirect page
+if (page.isRedirectPage()):
+  print("Обратите внимание, это перенаправление, а не объект")
+\end{lstlisting}
+
+Но что произойдёт, если мы проанализируем несколько объектов и встретим несуществующий? 
+Возможно, что программа вернёт ошибки, потому что не сможет проанализировать содержимое объекта. 
+Мы можем это предусмотреть и отловить ошибки в Python, то есть проверить, существует~ли объект (листинг~\ref{lst:page-exists}).
+
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Проверка существования объекта},
+                    label=lst:page-exists
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q107043778")    # non-existent object
+if not page.exists():
+  print("К сожалению, этот объект не существует!")
+\end{lstlisting}
+\marginnote[-2.0cm]{
+    \MarginQuestion
+    Измените программу~\ref{lst:page-exists} так, 
+    чтобы отлавливать возможные ошибки с~помощью исключений (конструкция try~--- except).
+}
+
+%Анализируем объект дальше. 
+%С помощью метода \lstinline|properties()| посмотрим, какие свойства он содержит 
+%(листинг~\ref{lst:page-properties}).
+
+Посмотрим с помощью метода \lstinline|properties()| 
+в~листинге~\ref{lst:page-properties}, 
+какие свойства содержит наш объект.
+
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Получение списка свойств объекта},
+                    label=lst:page-properties
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583338")     # river in Poland
+print(page.properties())
+\end{lstlisting}
+
+При выполнении программы~\ref{lst:page-properties} мы видим, что метод \lstinline|properties| 
+возвращает словарь Python, то есть набор свойств и соответствующих им значений в этом объекте. 
+Например, свойство \lstinline|page_image_free| возвращает изображение, видимое на странице объекта, 
+свойство \lstinline|wb_claims|~--- количество утверждений (свойств), 
+а свойство \lstinline|wb_sitelinks|~--- количество ссылок, связывающих этот объект с проектами Викимедиа.
+
+Метод \lstinline|contributors()| также возвращает словарь, содержащий пользователей, 
+редактировавших этот объект Викиданных. 
+Он покажет нам имена (ники) этих редакторов, 
+а~также число правок каждого из них. 
+Ещё один метод \lstinline|revision_count()| возвращает общее количество правок в объекте. Оба этих метода задействованы в~листинге~\ref{lst:contributors-revision}.
+
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Перечисление редакторов объекта Викиданных и числа правок},
+                    label=lst:contributors-revision
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583338")     # river in Poland
+print(page.contributors())
+print(page.revision_count())
+\end{lstlisting}
+
+Существуют и другие методы, которые возвращают более сложную информацию, 
+чем словарь данных. Например, при обращении к методу \lstinline|linkedPages| (связанные страницы) 
+мы получим объект. 
+Если мы просто обратимся к этому методу, как в листингe~\ref{lst:for-loop}, 
+и выведем результат на~печать с~помощью функции \lstinline|print()|, то получим строчку: 
+\lstinline|<pywikibot.data.api.PageGenerator object at 0x000002C6C7DB2FD0>|. 
+Эта строка сообщает, что получен объект типа \lstinline|PageGenerator|. 
+Прочитать данные этого объекта мы можем в цикле \lstinline|for| (листинг~\ref{lst:for-loop}).
+
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Чтение объекта типа \lstinline|PageGenerator|},
+                    label=lst:for-loop
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q16583338")     # river in Poland
+for linked in page.linkedPages():
+  print(linked)
+\end{lstlisting}
+
+Итак, с помощью метода \lstinline|page.linkedPages()| мы получаем список тех ссылок, 
+которые перечислены на исследуемой странице \lstinline|page|. 
+Сначала будут показаны объекты, а затем свойства (включая информацию, содержащуюся в ссылках).
+
+Чтобы узнать количество объектов, ссылающихся на заданный объект, 
+воспользуемся методом \lstinline|backlinks()|, возвращающим массив объектов. 
+Так же как в предыдущем случае (листинг~\ref{lst:for-loop}), 
+обойдём этот список страниц-объектов 
+и напечатаем их (листинг~\ref{lst:back-links}). 
+Существуют страницы-сироты\sidenote[][0.0cm]{%
+%
+        О~статьях-сиротах см.~руководство на~странице 
+        \href{https://ru.wikipedia.org/?curid=350049}{Википедия:Статьи-сироты}.  
+        С~этими статьями связан внутренний проект Википедии по~повышению связности: \url{https://w.wiki/4cMm}.
+%
+},\, 
+на~которые никто не~ссылается. 
+Для таких объектов метод \lstinline|backlinks()| вернёт пустой список. 
+Подберём такой объект в Викиданных (например, \wdqName{Pisueña}{6980876}), 
+на который есть ссылки, чтобы было что выводить на печать в программе~\ref{lst:back-links}.
+
+
+\newpage
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Использование метода \lstinline|backlinks()| для получения объектов,\\
+                             ссылающихся на~заданный объект},
+                    label=lst:back-links
+                  ]
+import pywikibot
+site=pywikibot.Site('wikidata', "wikidata")
+page=pywikibot.Page(site, u"Q6980876")     # river in Spain
+for links in page.backlinks():
+  print(links)
+\end{lstlisting}
+
+Итак, мы выбрали испанскую реку \wdqName{Pisueña}{6980876}, на которую ссылаются 
+два других объекта Викиданных: это \wdqName{река Пас}{14360} и безымянная \wdqName{страница-перенаправле\-ние}{23993869}. 
+И мы знаем число ссылок на~реку Pisueña. 
+
+\marginnote[-1\baselineskip]{
+    \MarginQuestion
+    Напишите свою программу, 
+    творчески объединив листинги~\ref{lst:page-get}--\ref{lst:back-links} 
+    для~получения данных о каком-либо выбранном вами объекте Викиданных.%
+}
+
+\index{Библиотека!Pywikibot}
+Кроме модуля \lstinline|Page|, 
+библиотека Pywikibot даёт нам множество других инструментов. 
+Отметим, что работа только с одним объектом малополезна. 
+Обычно в одном скрипте анализируют и меняют сразу несколько объектов. 
+Для этого нам пригодятся все те запросы, которые мы написали в этой главе.
+
+
+
+
+
+\section{SPARQL-запросы внутри программы на Python}
+\label{sec:running-queries}
+
+Сначала откроем страницу сервиса \href{https://query.wikidata.org/}{WDQS}\footnote[][0pt]{%
+%    
+    См. пояснения о службе WDQS на c.~\pageref{sect:WDQS}.%
+%    
+}  и~напишем свой запрос на языке SPARQL. 
+Викиданные заполняются в основном вручную, поэтому неизбежны ошибки. 
+Попробуем найти с помощью SPARQL-запроса такую ошибку. 
+Например, часто у людей (соответствующих им объектов на Викиданных) 
+вместо свойства \wdProperty{27}{гражданство} 
+ошибочно указывают свойство \wdProperty{17}{страна}. 
+Запрос для поиска такой ошибки может выглядеть так~(листинг~\ref{lst:bug-finding}):
+
+\begin{lstlisting}[ language=SPARQL,
+        numbers=none,
+        caption={\href{https://w.wiki/https://w.wiki/4cBg}
+                      {Запрос для получения персон с ошибочным отнесением к стране\\
+                       вместо указания гражданства}\protect\footnotemark},
+        label=lst:bug-finding
+                  ]
+SELECT ?item ?itemLabel WHERE 
+{
+  ?item wdt:P31 wd:Q5;  # instance of human
+        wdt:P17 wd:Q36. # has country Poland
+  SERVICE wikibase:label {bd:serviceParam wikibase:language "ru,en"}
+}
+\end{lstlisting}
+\footnotetext{Получено: 3 профессии в 2021 году. Ссылка на SPARQL-запрос: \href{https://w.wiki/4cBg}{https://w.wiki/4cBg}.}
+
+
+\newpage
+Мы должны проверить, возвращает ли запрос~\ref{lst:bug-finding} какое-либо значение, 
+поскольку может оказаться, что ошибок нет. 
+В этом случае мы можем изменить страну. 
+Например, можем указать следующую непроверенную страну Литву (Q37) 
+вместо проверенной Польши (Q36), 
+поскольку наверняка будут другие страны с такой же ошибкой.
+
+После того как мы построили SPARQL-запрос~\ref{lst:bug-finding} для получения объектов-людей с~ошибками, 
+мы можем добавить запрос в наш листинг~\ref{lst:identify-bugs} на языке Python.
+
+% caption=[Идентификация персон с ошибкой страна-гражданство]{Включение SPARQL-запроса по идентификации персон с ошибкой страна-гражданство на примере Польши (Q36) в программу на языке Python, с выводом имён всех таких людей},
+%\begin{fullwidth}
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+    numbers=none,
+    caption={Идентификация персон с ошибкой страна~--- гражданство на примере Польши (Q36) (включение SPARQL-запроса в программу Python)},
+    label=lst:identify-bugs
+    ]
+import pywikibot
+from pywikibot import pagegenerators
+site=pywikibot.Site('wikidata', "wikidata")
+query = """
+  SELECT DISTINCT ?item WHERE {
+    SERVICE wikibase:label {bd:serviceParam wikibase:language "ru,en"}
+    ?item wdt:P31 wd:Q5.
+    ?item wdt:P17 wd:Q36.
+  } """
+
+pages = pagegenerators.WikidataSPARQLPageGenerator(query,site=site)
+for item in pages:
+  print(item.title())
+\end{lstlisting}    
+%\end{fullwidth}
+
+Из предыдущих упражнений мы взяли только модуль \lstinline|pagegenerators|, 
+который позволяет нам получить список объектов с помощью фильтра в виде SPARQL-запроса 
+(листинг~\ref{lst:bug-finding}). 
+Мы сохранили текст запроса в переменной \lstinline|query| (листинг~\ref{lst:identify-bugs}), 
+а затем передали её в метод генераторов страниц \lstinline|WikidataSPARQLPageGenerator()|. 
+Данные, возвращаемые этим методом, были обработаны с помощью цикла \lstinline|for|, 
+и мы напечатали названия объектов.
+Таким образом, эта программа~(листинг~\ref{lst:identify-bugs}) печатает список имён людей, у которых в свойстве <<страна>> указана Польша.
+
+Мы уже научились получать несколько элементов сразу. Займёмся этим. 
+Вместо того чтобы отображать заголовок страницы, отобразим некоторые её части. 
+Например, ссылки на проекты Викимедиа, синонимы, метки или утверждения~(листинг~\ref{lst:display-linkslabels}).
+
+
+
+\newpage
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    numbers=none,
+                    caption={Отображение ссылок, синонимов, меток и утверждений для~персон из~Польши},
+                    label=lst:display-linkslabels
+                  ]
+import pywikibot
+from pywikibot import pagegenerators
+site=pywikibot.Site('wikidata', "wikidata")
+query = """
+  SELECT DISTINCT ?item WHERE {
+    SERVICE wikibase:label {bd:serviceParam wikibase:language "ru,en"}
+    ?item wdt:P31 wd:Q5.
+    ?item wdt:P17 wd:Q36.
+  } """
+
+pages = pagegenerators.WikidataSPARQLPageGenerator(query, site=site)
+for item in pages:
+  item.get()
+  print(item.sitelinks)
+  print(item.aliases)
+  print(item.labels)
+  print(item.claims)
+\end{lstlisting} 
+
+\marginnote[-2\baselineskip]{
+        \MarginQuestion
+        Наберите и запустите в консоли на своём компьютере 
+        предложенные в~этой главе листинги программ. 
+        Текст, который будут отображать эти программы в~консоли, 
+        поможет вам понять, как они работают.%
+}
+
+У нас получилось извлечь информацию из объектов Викиданных, теперь попробуем изменить её. 
+
+
+
+
+\section{Изменение значений, введённых в Викиданные}
+\label{sec:modifying the values entered in Wikidata}
+
+Поиск повторяющихся с течением времени ошибок~--- одна из задач программ-ботов. 
+Ботов регулярно запускают, они ищут и исправляют ошибки. 
+Разработчики ботов стараются улучшать поиск ошибок и делать работу ботов более надёжной. 
+Рассмотрим следующий запрос, который возвращает все профессии, 
+отсортированные по количеству их использования в Викиданных~(листинг~\ref{lst:occupation-list}).
+
+
+
+\newpage
+\begin{lstlisting}[ language=SPARQL,
+                    numbers=none,
+                    caption={\href{https://w.wiki/4bLo}{Cписок профессий, отсортированных по количеству их использования в~Викиданных}\protect\footnotemark},
+                    label=lst:occupation-list
+                  ]
+SELECT ?instanceLabel ?value WHERE {
+  {
+    SELECT ?instance (COUNT(DISTINCT ?item) AS ?value) 
+    WHERE { ?item wdt:P106 ?instance. } # P106 - occupation
+    GROUP BY ?instance
+    ORDER BY DESC (?value)
+  }
+  SERVICE wikibase:label {bd:serviceParam wikibase:language "ru,en"}
+}
+ORDER BY DESC (?value)
+\end{lstlisting} 
+\footnotetext{Получено: \num{16979} профессий в 2021 году. Ссылка на SPARQL-запрос: \href{https://w.wiki/4bLo}{https://w.wiki/4bLo}.}
+
+Запрос~\ref{lst:occupation-list} позволяет найти ошибки 
+(случайные или намеренные) в~значении свойства \wdProperty{106}{профессия}. 
+В полученном списке у некоторых объектов в свойстве <<профессия>> 
+указана неверная или бессмысленная информация, 
+например 
+\wdqName{Salinas de Ibargoiti}{7404672}, 
+\wdqName{Order of Saint Basil the Great}{7319129}, 
+\wdqName{Promoted to Glory}{7249866}, 
+\wdqName{Princes}{7244433} и 
+\wdqName{Point Loma Nazarene Uni\-versity}{7208069}. 
+Мы можем составить список этих ошибок (массив \lstinline|delete_occupation|)
+и найти объекты тех персон, 
+у~которых в~поле <<профессия>> есть ошибки~(листинг~\ref{lst:occupation-mistakeslist}).
+
+
+
+
+\newpage
+\index{Библиотека!Pywikibot}
+\begin{lstlisting}[ language=Python,
+                    caption={Отображение персон с ошибками в поле <<профессия>>},
+                    label=lst:occupation-mistakeslist,
+                    xleftmargin=18pt, 
+                    numbers=left,
+                  ]
+import pywikibot
+from pywikibot import pagegenerators
+site=pywikibot.Site('wikidata', "wikidata")
+delete_occupation={"Q7404672", "Q7319129", "Q7249866", "Q7244433", 
+"Q7208069"}
+for occupation in delete_occupation:
+  query = """
+    SELECT DISTINCT ?item WHERE {
+      SERVICE wikibase:label {bd:serviceParam wikibase:language "ru,en".}
+      ?item wdt:P31 wd:Q5.     # is human
+      ?item wdt:P106 wd:""" + occupation + """.
+    } """
+
+  pages=pagegenerators.WikidataSPARQLPageGenerator(query, site=site)
+  for item in pages:
+    print("Люди, чья профессия {occupation}: {title}".format(occupation=occupation, title=item.title()))
+\end{lstlisting} 
+\marginnote[-2.0cm]{
+        \MarginNB
+        Обратите внимание, 
+        что до сих пор мы обращались к функции \mbox{\lstinline|print()|} 
+        для печати значений переменных, 
+        но в~листинге~\ref{lst:occupation-mistakeslist} 
+        для~большей наглядности использована функция \mbox{\lstinline|format()|}.%
+}
+
+Итак, список <<ошибочных>> профессий (объектов Викиданных), подлежащих удалению, 
+сохранён в~массиве \lstinline|delete_occupation|. 
+Мы обходим этот список с помощью цикла \lstinline|for|, 
+чтобы с помощью SPARQL-запроса получить список людей для каждой <<подозрительной>> профессии. 
+В~отличие от~листинга~\ref{lst:occupation-list}, 
+в~листинге~\ref{lst:occupation-mistakeslist} есть переменная \lstinline|occupation|, 
+которая берёт значение из массива \lstinline|delete_occupation| и подставляет его в SPARQL-запрос.
+
+Теперь, если мы уверены, что информация о профессии неверна, 
+и~хотим её удалить, то~достаточно указать свойство, которое нужно удалить.
+
+Есть ещё одна трудность. 
+Дело в том, что персона может иметь несколько профессий, а удалить мы хотим только одну. 
+Для удаления этой одной профессии нам нужно знать её значение. 
+Пример такого удаления профессии по~известному значению 
+показан в~листинге~\ref{lst:delete-occupation}. 
+
+
+
+\newpage
+\index{Библиотека!Pywikibot}
+%\begin{fullwidth}
+\begin{lstlisting}[ language=Python,
+                    caption={Корректное удаление значения в поле «профессия>>},
+                    label=lst:delete-occupation, 
+                    numbers=none
+                  ]
+import pywikibot
+from pywikibot import pagegenerators
+site=pywikibot.Site('wikidata', "wikidata")
+delete_occupation={"Q7404672", "Q7319129", "Q7249866", "Q7244433", 
+"Q7208069"}
+for occupation in delete_occupation:
+  query = """
+    SELECT DISTINCT ?item WHERE {
+      SERVICE wikibase:label {bd:serviceParam wikibase:language "ru,en"}
+      ?item wdt:P31 wd:Q5.
+      ?item wdt:P106 wd:""" + occupation + """.
+    } """
+
+  pages = pagegenerators.WikidataSPARQLPageGenerator(query, site=site)
+  for item in pages:
+    print("Люди, чья профессия {occupation}: {title}".format(occupation=occupation, title=item.title()))
+    item.get()
+
+    for valor in item.claims['P106']:
+      if (str(valor.getTarget())=='[[wikidata:' + occupation + ']]'):
+        print("<<<<< Удалить {occupation} от {title} >>>>>" . format(occupation=occupation, title=item.title()))
+        item.removeClaims(valor, summary=u'Удаление ошибочных знач. в P106')
+\end{lstlisting} 
+%\end{fullwidth}
+
+\marginnote[-2.0cm]{
+        \MarginQuestion
+        Добавьте больше ошибочных и неправильных профессий 
+        в переменную \lstinline|delete_occupation| 
+        и запустите бота для удаления этих свойств.%
+}
+
+В листинге~\ref{lst:delete-occupation} 
+мы сохранили код листинга~\ref{lst:occupation-mistakeslist}, 
+но добавили последние строки, 
+в~которых просматриваем значения, содержащиеся в свойстве \wdProperty{106}{}, 
+с помощью свойства \mbox{\lstinline|claims|.} 
+Если это совпадает с искомой профессией, мы удаляем его методом \mbox{\lstinline|removeClaims|.} 
+При~вызове этого метода нужно указать удаляемое значение и комментарий к редакторской правке\sidenote[]{%
+        Комментарии к правкам (или~summary) позволяют другим редакторам быстро понять, 
+        какие изменения были внесены на~страницу или в~объект Викиданных.%
+%
+}, сохраняемый в истории правок вики-страницы.
+
+
+Обратите внимание, 
+что такие изменения могут вызвать множество проблем с Викиданными 
+и~администраторы могут заблокировать вашу учётную запись. 
+Вначале внесите несколько изменений и~всегда проверяйте историю изменений, 
+чтобы узнать, какая информация была изменена.
+
+
+
+
+
+
+%\renewcommand{\lstlistingname}{Запрос}  % Листинг -> Запрос
+\makeatletter
+\long\def\@makecaption#1#2{%
+    \renewcommand{\lstlistingname}{Запрос}
+\centering%
+#1. #2\par%
+\vspace{5pt}%
+}%
+\makeatother

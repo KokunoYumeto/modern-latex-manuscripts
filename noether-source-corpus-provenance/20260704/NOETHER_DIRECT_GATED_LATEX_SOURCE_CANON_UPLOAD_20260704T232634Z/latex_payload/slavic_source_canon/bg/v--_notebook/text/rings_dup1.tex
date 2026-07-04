@@ -1,0 +1,1251 @@
+\section{Rings}\label{sec:rings}
+
+\paragraph{Rings}
+
+\begin{definition}\label{def:ring}\mcite[def. 2.1]{Jacobson1985BasicAlgebraI}
+  A \term[bg=пръстен (\cite[def. V.1]{ГеновМиховскиМоллов1991Алгебра}), ru=кольцо (\cite[def. 1.3.1]{Винберг2014КурсАлгебры})]{ring} is a \hyperref[def:semiring]{semiring} with additive \hyperref[def:monoid_inverse]{inverses}. In a ring, the \hyperref[def:semiring/monoids]{additive monoid} is a \hyperref[def:group]{group}.
+
+  As shown in \cref{thm:def:ring/zero_absorbing}, the absorption conditions from \cref{def:semigroup_absorbing_element} are redundant in rings.
+
+  Similarly to general semirings, rings can also be nonunital, with \hyperref[def:semiring_ideal]{ring ideals} being the canonical example.
+
+  Rings have the following metamathematical properties:
+  \begin{thmenum}
+    \thmitem{def:ring/theory}\mimprovised We can extend our first-order \hyperref[def:semiring/theory]{theory of semirings} with the additive inverse axioms \eqref{eq:def:additive_semigroup/theory/inverse/left} and \eqref{eq:def:additive_semigroup/theory/inverse/right} for a new \hyperref[def:additive_semigroup/signature/minus]{minus symbol}.
+
+    The absorption formulas \eqref{eq:def:semigroup_absorbing_element/left} and \eqref{eq:def:semigroup_absorbing_element/right} become unnecessary as axioms because they can be derived from the rest.
+
+    \thmitem{def:ring/morphism}\mimprovised We say that the function \( \varphi: R \to S \) between rings is a \term[bg=хомоморфизм (на пръстени) (\cite[122]{ГеновМиховскиМоллов1991Алгебра}), ru=гомоморфизм (колец) (\cite[156]{Кострикин2020АлгебраЧасть1}), en=homomorphism (of rings) (\cite[def. 2.3]{Jacobson1985BasicAlgebraI})]{ring homomorphism} if it preserves addition, multiplication and multiplicative units, i.e. if it is a \hyperref[def:group/morphism]{group homomorphism} for the additive groups and a \hyperref[def:monoid/morphism]{monoid homomorphism} for the multiplicative monoids.
+
+    \Cref{thm:group_homomorphism_single_condition} implies that \( 0_R \) and additive inverses are preserved automatically. This has two important metamathematical consequences:
+    \begin{itemize}
+      \item Ring homomorphism is in particular \hyperref[def:semiring/morphism]{semiring homomorphisms}.
+      \item The ring homomorphism are precisely the \hyperref[def:fol_homomorphism]{first-order homomorphisms}, which makes the concepts from \fullref{sec:first_order_structures} applicable.
+    \end{itemize}
+
+    As with general semiring homomorphisms, if \( \varphi \) does not preserve multiplicative units, we say that it is \term{nonunital}.
+
+    \thmitem{def:ring/category}\mimprovised As with semirings, for a fixed \hyperref[def:grothendieck_universe]{Grothendieck universe} \( \mscrU \), the first-order theories of rings give rise to several \hyperref[def:fol_theory_model_functor/obj]{categories of \( \mscrU \)-small models}.
+
+    We denote the category of unital rings and unital morphisms by \( \ucat{Ring} \), and the category of nonunital rings by \( \ucat{Rng} \) (\enquote{ring} without \emph{i}dentity).
+
+    We list several properties:
+    \begin{itemize}
+      \item The latter category \( \ucat{Rng} \) has a \hyperref[def:universal_objects/zero]{zero object} --- the zero ring \( \set{ 0 } \) --- which allows us to consider \hyperref[def:categorical_kernels/kernel]{kernels} and \hyperref[def:categorical_quotient_object]{quotients} of nonunital rings. \Cref{thm:category_of_rings_properties} implies that \( \ucat{Ring} \) has no zero object, but, since \( \ucat{Ring} \) is \hyperref[def:concrete_category]{concrete} over \( \ucat{Rng} \), we can consider kernels and quotients with respect to \( \ucat{Rng} \).
+
+      \item The various theories of ring are equational and thus have \hyperref[def:fol_free_term_model]{free term models}; \Fullref{thm:fol_free_term_model_universal_property} provides \hyperref[def:category_adjunction]{left adjoints} to the \hyperref[def:fol_theory_forgetful_functor/set]{forgetful functors} from rings to their underlying sets.
+
+      In particular, \cref{thm:concrete_category_function_invertibility/injective} implies that a ring homomorphism is a \hyperref[def:morphism_invertibility/left_cancellative]{monomorphism} if and only if it is \hyperref[def:function_invertibility/injective]{injective}.
+
+      \item \hyperref[def:categorical_quotient_object]{Quotient objects} can be described via \hyperref[def:ring/ideal]{ideals} --- see \cref{thm:ring_ideals_and_congruences} .
+    \end{itemize}
+
+    \thmitem{def:ring/subobject}\mimprovised A \term[bg=подпръстен (\cite[def. V.3]{ГеновМиховскиМоллов1991Алгебра}), ru=подкольцо (\cite[def. 1.3.3]{Винберг2014КурсАлгебры}), en=subring (\cite[87]{Jacobson1985BasicAlgebraI})]{subring} of \( R \) is a subset that is closed under all operations, i.e. it is a \hyperref[def:semiring/subobject]{sub-semiring} closed under additive inverses.
+
+    As with semirings, a subring can be \term{nonunital} if it does not contain the multiplicative unit.
+
+    It follows from \cref{thm:fol_equational_theory_models/substructure} that the subrings of \( R \) are precisely its \hyperref[def:fol_substructure/submodel]{first-order submodels}, and from \cref{thm:fol_categorical_subobjects} that they are its \hyperref[def:categorical_subobject]{categorical subobjects}.
+
+    Furthermore, as a consequence of \cref{thm:fol_equational_theory_models/image}, the image of a ring homomorphism is a subring of its codomain.
+
+    \thmitem{def:ring/ideal}\mcite[101]{Jacobson1985BasicAlgebraI} Left, right and two-sided ideals can be defined as for general semirings in \cref{def:semiring_ideal}.
+
+    \thmitem{def:ring/trivial}\mcite[101]{Bourbaki1998Algebra1to3} We call the semiring \( \set{ 0 } \) with only one element the \term{zero ring}.
+
+    As shown in \cref{thm:equational_theory_zero_morphisms/trivial}, it is a zero object in \( \ucat{Rng} \), and hence a trivial object in the sense of \cref{def:trivial_object}.
+
+    \thmitem{def:ring/opposite}\mcite[113; 114]{Jacobson1985BasicAlgebraI} The \hyperref[def:semiring/opposite]{opposite semiring} \( R^{\oppos} \) of a ring \( R \) is again a ring since addition is left unaltered.
+
+    For this reason, we will call it the \term{opposite ring}.
+
+    \thmitem{def:ring/commutative}\mcite[108]{Jacobson1985BasicAlgebraI} If multiplication is commutative, we say that the semiring itself is \term[ru=коммутативное (полукольцо)]{commutative}. Unless multiplication corresponds to function composition, as in \hyperref[def:endomorphism_ring]{endomorphism rings}, most rings we will encounter will be commutative.
+
+    We denote the category of commutative rings by \( \cat{CRing} \).
+
+    \thmitem{def:ring/kernel}\mcite[106]{Jacobson1985BasicAlgebraI} We define the \term[bg=ядро (\cite[123]{ГеновМиховскиМоллов1991Алгебра}), ru=ядро (\cite[156]{Кострикин2020АлгебраЧасть1})]{kernel} of a ring homomorphism \( \varphi: R \to S \) as the set
+    \begin{equation}\label{eq:def:ring/kernel}
+      \ker \varphi \coloneqq \varphi^{-1}(0_S) = \set{ x \in R \given \varphi(x) = 0_R }.
+    \end{equation}
+
+    \Cref{thm:kernel_is_ring_ideal} implies that it is a two-sided ideal, i.e. a subobject in the category \( \ucat{Rng} \) of nonunital rings. \Cref{thm:equational_theory_zero_morphisms/kernel} implies that this this ideal acts as the \hyperref[def:categorical_kernels/kernel]{categorical kernel} of \( \varphi \).
+
+    We mostly use kernels for unital rings, although these are are no longer categorical kernels.
+
+    \thmitem{def:ring/simple}\mcite[280]{Rotman2015AdvancedModernAlgebraPart1} We say that a \emph{nonzero} ring is \term{simple} if its only two-sided ideals are the ring itself and its zero subring.
+
+    Because of the correspondence of congruences and two-sided ideals given in \cref{thm:ring_ideals_and_congruences}, we conclude that simple groups are categorical simple objects in the sense of \cref{def:simple_object}.
+
+    \thmitem{def:ring/quotient}\mimprovised Similarly to the case of groups, \hyperref[def:fol_congruence]{first-order congruences} in the theory of nonunital rings are well-behaved. \Cref{thm:ring_ideals_and_congruences} shows that congruences correspond exactly to \hyperref[def:semiring_ideal]{two-sided ideals}.
+
+    For this reason, a \term[bg=фактор-пръстен (\cite[121]{ГеновМиховскиМоллов1991Алгебра}), ru=фактор-кольцо (\cite[337]{Тыртышников2017ОсновыАлгебры}) / факторкольцо (\cite[387]{Винберг2014КурсАлгебры}), en=quotient ring (\cite[101]{Jacobson1985BasicAlgebraI})]{quotient ring} \( R / I \) is more conveniently defined with respect to a two-sided ideal \( I \) rather than with respect to the corresponding congruence.
+
+    \Cref{thm:fol_categorical_quotient_objects} implies that the quotient groups are precisely the \hyperref[def:categorical_quotient_object]{categorical quotient objects}.
+  \end{thmenum}
+\end{definition}
+
+\begin{proposition}\label{thm:def:ring}
+  \hyperref[def:ring]{Rings} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:ring/minus_one} For any \( x \) we have \( (-1) \cdot x = -x \).
+
+    \thmitem{thm:def:ring/multiplication_even_sign} For any ring elements \( x \) and \( y \) we have
+    \begin{equation}\label{eq:thm:def:ring/multiplication_even_sign}
+      (-x) \cdot (-y) = x \cdot y.
+    \end{equation}
+
+    \thmitem{thm:def:ring/multiplication_odd_sign} For any ring elements \( x \) and \( y \) we have
+    \begin{equation}\label{eq:thm:def:ring/multiplication_odd_sign}
+      (-x) \cdot y = x \cdot (-y) = -(x \cdot y).
+    \end{equation}
+
+    \thmitem{thm:def:ring/zero_absorbing} The zero element of a ring is absorbing, that is, it satisfies the absorption conditions from \cref{def:semigroup_absorbing_element}.
+
+    \thmitem{thm:def:ring/quotient_equality_via_difference} Given an \hyperref[def:semiring_ideal]{ideal} \( I \) in a \hyperref[def:ring]{ring} \( R \), we have \( x + I = y + I \) if and only if \( x - y \in I \).
+
+    \thmitem{thm:def:ring/cancellable_iff_not_zero_divisor} An element of a \hyperref[def:ring]{ring} is left (resp. right) \hyperref[def:binary_operation/cancellative]{cancellable} if and only if it is not a left (resp. right) \hyperref[def:semiring_divisibility/zero]{proper zero divisor}. In other words, \( xy = xz \) implies \( y = z \) if and only if \( xa = 0 \) implies \( a = 0 \).
+
+    \thmitem{thm:def:ring/ring_entire_iff_cancellative} In an \hyperref[def:entire_semiring]{entire} \hyperref[def:ring]{ring} \( R \), the set \( R \setminus \set{ 0_R } \) is a \hyperref[def:binary_operation/cancellative]{cancellative} \hyperref[def:monoid]{monoid} with respect to multiplication.
+
+    \thmitem{thm:def:ring/simple_ring_homomorphism_is_injective} If \( R \) is a \hyperref[def:ring/simple]{simple ring}, every \hyperref[def:ring/morphism]{unital ring homomorphism} \( \varphi: R \to T \) is an injective function.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:ring/minus_one} Distributivity implies
+  \begin{equation*}
+    0
+    \reloset {\eqref{eq:def:semigroup_absorbing_element/left}} =
+    0 \cdot x
+    =
+    (1 - 1) \cdot x
+    \reloset {\eqref{eq:def:semiring/theory/axioms/distributivity/left}} =
+    x + (-1) \cdot x.
+  \end{equation*}
+
+  Thus, both \( -x \) and \( (-1) \cdot x \) are additive inverses of \( x \), and so they coincide.
+
+  \SubProofOf{thm:def:ring/multiplication_even_sign} First note that \( (-1) \cdot (-1) = 1 \) because
+  \begin{equation*}
+    (-1) \cdot (-1) - 1
+    \reloset {\eqref{eq:def:semiring/theory/axioms/distributivity/left}} =
+    (-1) \cdot (-1 + 1)
+    =
+    (-1) \cdot 0
+    \reloset {\eqref{eq:def:semigroup_absorbing_element/right}} =
+    0.
+  \end{equation*}
+
+  Thus,
+  \begin{equation*}
+    (-x) \cdot (-y)
+    \reloset {\ref{thm:def:ring/minus_one}} =
+    (-1) \cdot x \cdot (-1) \cdot y
+    =
+    [(-1) \cdot (-1)] \cdot [x \cdot y].
+    =
+    x \cdot y.
+  \end{equation*}
+
+  \SubProofOf{thm:def:ring/multiplication_odd_sign} We have
+  \begin{equation*}
+    -(x \cdot y)
+    \reloset {\ref{thm:def:ring/minus_one}} =
+    (-1) \cdot (x \cdot y)
+    =
+    (-1 \cdot x) \cdot y
+    \reloset {\ref{thm:def:ring/minus_one}} =
+    (-x) \cdot y
+    \reloset {\ref{thm:def:group/involution}} =
+    (-x) \cdot [-(-y)]
+    \reloset {\ref{thm:def:ring/multiplication_even_sign}} =
+    x \cdot (-y).
+  \end{equation*}
+
+  \SubProofOf{thm:def:ring/zero_absorbing} We have
+  \begin{equation*}
+    x \cdot 0
+    =
+    x \cdot (1 - 1)
+    \reloset {\eqref{eq:def:semiring/theory/axioms/distributivity/left}} =
+    x + (-1) \cdot x
+    \reloset {\ref{thm:def:ring/minus_one}} =
+    x - x
+    =
+    0.
+  \end{equation*}
+
+  \SubProofOf{thm:def:ring/quotient_equality_via_difference} Trivial.
+
+  \SubProofOf{thm:def:ring/cancellable_iff_not_zero_divisor}
+
+  \SufficiencySubProof* Suppose that \( xy = xz \) implies \( y = z \). Suppose also that \( xa = 0 \). Then \( xa = 0 = x0 \), implying that \( a = 0 \). Hence, \( x \) is not a proper left zero divisor.
+
+  \NecessitySubProof* Suppose that \( x \) is not a proper zero divisor. Thus, \( xa = 0 \) implies \( a = 0 \). Suppose also that \( xy = xz \). Then \( x(y - z) = 0 \), implying that \( y = z \).
+
+  \SubProofOf{thm:def:ring/ring_entire_iff_cancellative} Follows from \cref{thm:def:ring/cancellable_iff_not_zero_divisor}.
+
+  \SubProofOf{thm:def:ring/simple_ring_homomorphism_is_injective} Suppose that \( R \) is simple and let \( \varphi: R \to T \) be a unital ring homomorphism. Its kernel is an ideal of \( R \), and the only ideals are the zero ring or \( R \) itself. Since \( \varphi(1_R) = 1_T \), the kernel cannot be \( R \), so it can only be the zero ring. \Cref{thm:group_homomorphism_trivial_kernel} then implies that \( \varphi \) is injective.
+\end{proof}
+
+\paragraph{Idempotent elements}
+
+\begin{definition}\label{def:semiring_idempotent}\mcite[11]{Golan1999Semirings}
+  We say that an element \( x \) of a \hyperref[def:semiring]{(semi)ring} is \term{additively idempotent} if \( x + x = x \) and \term{multiplicatively idempotent} if \( x \cdot x = x \).
+
+  We introduce similar terminology for the semiring itself --- we call it additively (resp. multiplicatively) idempotent if every element is additively (resp. multiplicatively) idempotent.
+\end{definition}
+
+\begin{proposition}\label{thm:idempotent_division}
+  Except for the two units, every \hyperref[def:semiring_idempotent]{multiplicatively idempotent} element of a ring is a \hyperref[def:semiring_divisibility/zero]{proper zero divisor}.
+\end{proposition}
+\begin{proof}
+  Suppose that \( x \) is neither \( 0_R \) nor \( 1_R \). If \( x^2 = x \), then \( x^2 - x = x(1_R - x) = 0_R \), hence \( x \) is a proper zero divisor because both \( x \) and \( 1_R - x \) are nonzero by assumption.
+\end{proof}
+
+\paragraph{Integers modulo \( n \)}
+
+\begin{definition}\label{def:ring_of_integers_modulo}
+  For each positive integers \( n \), we define the \term[ru=кольцо вычетов по модулю (\cite[30]{Винберг2014КурсАлгебры}), en=ring of integers modulo \( n \) (\cite[112]{Bourbaki1998Algebra1to3})]{ring of integers modulo} \( n \) as the group \hyperref[def:group_of_integers_modulo]{\( \BbbZ_n \)} of integers modulo \( n \) with multiplication defined in any of the following equivalent ways:
+
+  \begin{thmenum}
+    \thmitem{def:ring_of_integers_modulo/quotient}\mcite[112]{Bourbaki1998Algebra1to3} We can define \( \BbbZ_n \) as the \hyperref[def:ring/quotient]{quotient} \( \BbbZ / n \BbbZ \) by the ideal \( n \BbbZ \) of multiples of \( n \).
+
+    \thmitem{def:ring_of_integers_modulo/direct}\mimprovised We can endow the group \( \BbbZ_n \) with the operation
+    \begin{equation*}
+      x \odot y \coloneqq \rem(xy, n).
+    \end{equation*}
+  \end{thmenum}
+\end{definition}
+\begin{defproof}
+  We must show that \( \BbbZ_n \) is really a ring. First, note that
+  \begin{balign*}
+    &\phantom{{}\cong{}} \rem(x, n) \cdot \rem(y, n)
+    \cong_n \\ &\cong_n
+    (x - n \cdot \quot(x, n)) (y - n \cdot \quot(y, n))
+    \cong_n \\ &\cong_n
+    xy - n \cdot \quot(x, n) - n \cdot \quot(y, n) + n^2 \quot(x, n) \quot(y, n)
+    \cong_n \\ &\cong_n
+    xy.
+  \end{balign*}
+
+  The proof that multiplication in \( \BbbZ_n \) is associative, unital and commutative becomes trivial.
+
+  We will prove that multiplication distributes over addition. For any \( x \), \( y \) and \( z \) in \( \BbbZ_n \), we have
+  \begin{balign*}
+    (x \oplus y) \odot z
+     & =
+    \rem((x \oplus y) \cdot z, n)
+    =    \\ &=
+    \rem(\rem(x + y, n) \cdot z, n)
+    =    \\ &=
+    \rem((x + y - n \cdot \quot(x + y, n)) \cdot z, n)
+    =    \\ &=
+    \rem((x + y) \cdot z, n).
+  \end{balign*}
+  and
+  \begin{balign*}
+    (x \odot z) \oplus (y \odot z)
+     & =
+    \rem([(x \odot z) + (y \odot z)], n)
+    =    \\ &=
+    \rem([xz - n \cdot \quot(xz, n) + yz - n \cdot \quot(yz, n)], n)
+    =    \\ &=
+    \rem(xz + yz, n)
+    =    \\ &=
+    \rem((x + y) \cdot z, n).
+  \end{balign*}
+
+  Hence,
+  \begin{equation*}
+    (x \oplus y) \odot z = (x \odot z) \oplus (y \odot z).
+  \end{equation*}
+\end{defproof}
+
+\paragraph{Ring quotients}
+
+\begin{proposition}\label{thm:kernel_is_ring_ideal}
+  The \hyperref[def:ring/kernel]{kernel} of a \hyperref[def:ring/morphism]{ring homomorphism} is a \hyperref[def:semiring_ideal]{two-sided ideal} of its domain.
+\end{proposition}
+\begin{proof}
+  Follows from \cref{thm:kernel_is_normal_subgroup} and absorption.
+\end{proof}
+
+\begin{proposition}\label{thm:ring_ideals_and_congruences}
+  In a \hyperref[def:ring]{unital ring} \( R \), \hyperref[def:fol_congruence]{first order congruences} and \hyperref[def:semiring_ideal]{ideals} are related as follows:
+  \begin{thmenum}
+    \thmitem{thm:ring_ideals_and_congruences/cong_to_ideal} For every congruence in \( R \), the coset \( [0_R] \) of the zero element is a two-sided ideal of \( R \).
+
+    \thmitem{thm:ring_ideals_and_congruences/ideal_to_cong} Conversely, for every two-sided ideal \( I \),
+    \begin{equation}\label{eq:thm:ideal_and_congruences/ideal_to_cong}
+      x \cong y \T{if and only if} x - y \in N,
+    \end{equation}
+    is a congruence.
+
+    \thmitem{thm:ring_ideals_and_congruences/inverse} The procedures for obtaining a congruence from a two-sided ideal and vice versa are inverses.
+  \end{thmenum}
+\end{proposition}
+\begin{comments}
+  \item This allows us to consider the quotient \( R / I \) with respect to an ideal rather than \( R / {\cong} \) with respect to a congruence.
+
+  \item This is based on a similar statement for groups --- see \cref{thm:normal_subgroups_and_congruences}. Another similar statement holds for submodules --- see \cref{thm:submodules_and_congruences} --- and for algebras over rings --- see \cref{thm:algebra_ideals_and_congruences}.
+
+  \item It is important that this proof does not use associativity of multiplication because that allows us to reuse the proposition in \cref{thm:algebra_ideals_and_congruences}.
+\end{comments}
+\begin{proof}
+  \SubProofOf{thm:ring_ideals_and_congruences/cong_to_ideal} Since ring congruences are also congruences of the additive group, \cref{thm:normal_subgroups_and_congruences/cong_to_subgroup} implies that \( [0_R] \) is a \hyperref[def:normal_subgroup]{normal subgroup} of the additive group of \( R \).
+
+  If \( x \cong 0_R \), for any \( y \) we have \( x \cdot y \cong 0_R \cdot y \), so, due to absorption, \( x \cdot y \cong 0_R \). Thus, \( [0_R] \) is closed under right products with elements of \( R \), i.e. it is a right ideal. We can similarly show that it is a left ideal.
+
+  Therefore, \( [0_R] \) is a two-sided ideal of \( R \).
+
+  \SubProofOf{thm:ring_ideals_and_congruences/ideal_to_cong} Similarly, since every ideal is a normal subgroup of the additive group, \cref{thm:normal_subgroups_and_congruences/subgroup_to_cong} is us a congruence relation, \( x \cong y \), that holds if and only if \( x - y \) is in \( I \).
+
+  To show that this is a ring congruence, we must show that \( a \cong b \) and \( x \cong y \) implies \( ax \cong by \). This holds because of distributivity:
+  \begin{equation*}
+    ax - by
+    =
+    (ax - ay) + (ay - by)
+    =
+    a(\underbrace{x - y}_{I}) + (\underbrace{a - b}_{I})y.
+  \end{equation*}
+
+  Since \( I \) is closed under multiplication with \( R \) and under addition with \( I \), we conclude that \( ax - by \in I \) and hence \( ax \cong by \).
+
+  \SubProofOf{thm:ring_ideals_and_congruences/inverse} This is a special case of \cref{thm:normal_subgroups_and_congruences/inverse}.
+\end{proof}
+
+\begin{theorem}[Lattice theorem for ideals]\label{thm:lattice_theorem_for_ring_ideals}
+  Given a \hyperref[def:semiring_ideal]{two-sided ideal} \( I \) of the \hyperref[def:ring]{ring} \( R \), the function \( J \mapsto J / I \) is an \hyperref[def:lattice/homomorphism]{isomorphism of complete lattices} between the \hyperref[def:lattice_ideal/principal]{principal filter} of ideals of \( R \) containing \( I \) and the \hyperref[thm:semiring_of_ideals/lattice]{lattice of ideals} of the \hyperref[def:ring/quotient]{quotient} \( R / I \).
+
+  Furthermore, \hyperref[def:semiring_ideal/prime]{prime}, \hyperref[def:semiring_ideal/maximal]{maximal} and \hyperref[def:radical_ideal]{radical} ideals of \( R \) containing \( I \) correspond to the same kind of ideals in \( R / I \).
+\end{theorem}
+\begin{comments}
+  \item See \fullref{thm:lattice_theorem_for_substructures} for a more verbose formulation of this theorem in a general setting.
+  \item This is based on a similar statement for \hyperref[def:group/subobject]{subgroups} --- see \fullref{thm:lattice_theorem_for_subgroups}. Another similar statement holds for \hyperref[def:module/subobject]{submodules} --- see \fullref{thm:lattice_theorem_for_submodules} --- and for \hyperref[def:algebra_over_ring/ideal]{algebra ideals} --- see \fullref{thm:lattice_theorem_for_algebra_ideals}.
+\end{comments}
+\begin{proof}
+  Fix an ideal \( I \) in \( R \) and let \( x \cong y \) if \( x - y \) is in \( I \).
+
+  \SubProof{Proof of lattice isomorphism} Note that every ideal of \( R \) is a subgroup of (the additive group of) \( R \) and that \( {\cong} \) is also a congruence on the additive group of \( R \). \Fullref{thm:lattice_theorem_for_subgroups} allows us to conclude that the ideal \( J \) of \( R \) contains \( I \) if and only if it is compatible with \( {\cong} \).
+
+  The lattice isomorphism then follows from \fullref{thm:lattice_theorem_for_substructures}.
+
+  \SubProof{Proof that prime ideals correspond to prime ideals}
+
+  \SufficiencySubProof* Let \( P \) be a prime ideal of \( R \) compatible with \( {\cong} \), that is, containing \( I \).
+
+  Fix members \( x \) and \( y \) of \( P \) such that \( [xy] = [x][y] \) is in \( P / {\cong} \). Then \( P \) contains \( xy \), hence \( x \) or \( y \) (or both) is in \( P \). Then \( [x] \) or \( [y] \) is in \( P / {\cong} \).
+
+  It follows that the quotient \( P / {\cong} \) is prime.
+
+  \NecessitySubProof* Let \( Q \) be a prime ideal of \( R / {\cong} \).
+
+  If \( xy \in \bigcup Q \), then \( [x][y] = [xy] \in Q \). But \( Q \) is prime, hence \( [x] \) or \( [y] \) is in \( Q \). Then \( x \) or \( y \) is in \( \bigcup Q \).
+
+  It follows that the union \( \bigcup Q \) is prime.
+
+  \SubProof{Proof that maximal ideals correspond to maximal ideals} Straightforward corollary of the isomorphism of lattices.
+
+  \SubProof{Proof that radical ideals correspond to radical ideals}
+
+  \SufficiencySubProof* Let \( J \) be a radical ideal of \( R \) compatible with \( {\cong} \).
+
+  Suppose that, for some positive integer \( n \), the element \( [x]^n \) is in \( J / I \). Then, since \( [x]^n = [x^n] \), it follows that \( x^n \) is in \( J \), and since \( J \) is radical, it follows that \( x \) is in \( J \). Thus, \( [x] \) is in \( J / I \).
+
+  It follows that the quotient \( J / {\cong} \) is radical.
+
+  \NecessitySubProof* Let \( H \) be a radical ideal of \( R / {\cong} \).
+
+  Then, if \( x^n \) is in \( \bigcup H \), it follows that \( [x^n] = [x]^n \) is in \( H \) and, since \( H \) is radical, that \( [x] \) is in \( H \). Thus, \( x \) is in \( \bigcup H \).
+
+  It follows that the union \( \bigcup H \) is radical.
+\end{proof}
+
+\begin{corollary}\label{thm:quotient_by_maximal_ideal}
+  The two-sided ideal \( I \) of the \hyperref[def:ring]{ring} \( R \) is \hyperref[def:semiring_ideal/maximal]{maximal} if and only if the \hyperref[def:ring/quotient]{quotient} \( R / M \) is a \hyperref[def:ring/simple]{simple ring}.
+\end{corollary}
+\begin{comments}
+  \item In particular, if \( R \) is commutative, \( R / M \) is a \hyperref[def:field]{field}.
+\end{comments}
+\begin{comments}
+  \item See \cref{thm:quotient_by_prime_ideal} for the corresponding statement for \hyperref[def:semiring_ideal/prime]{prime ideals} in commutative rings.
+\end{comments}
+\begin{proof}
+  Since \( M \) is maximal, only \( M \) and \( R \) are ideals of \( R \) containing \( M \). Therefore, by \fullref{thm:lattice_theorem_for_ring_ideals}, \( R / M \) has only two ideals. The converse also follows from the lattice theorem.
+\end{proof}
+
+\begin{theorem}[Homomorphism theorem for rings]\label{thm:homomorphism_theorem_for_rings}
+  Every unital or nonunital \hyperref[def:ring/morphism]{ring homomorphism} \( {\varphi: R \to S} \) induces an isomorphism
+  \begin{equation*}
+    \begin{aligned}
+      &\Phi: R / \ker \varphi \to \img \varphi, \\
+      &\Phi([x]) \coloneqq \varphi(x)
+    \end{aligned}
+  \end{equation*}
+  between the \hyperref[def:ring/quotient]{quotient ring} \( R / \ker \varphi \) and the \hyperref[def:set_valued_map/image]{set-theoretic image} \( \img \varphi = \varphi[R] \) of \( \varphi \).
+\end{theorem}
+\begin{comments}
+  \item This is a restatement of \fullref{thm:fol_homomorphism_factorization} that uses ideals rather than congruences.
+
+  It is based on a similar statement for \hyperref[def:group]{groups} --- see \fullref{thm:homomorphism_theorem_for_rings}. Another similar statement holds for \hyperref[def:module]{modules} --- see \fullref{thm:homomorphism_theorem_for_modules} --- and for \hyperref[def:algebra_over_ring]{algebras over rings} --- see \fullref{thm:homomorphism_theorem_for_algebras}.
+
+  \item This theorem holds even for unital rings even though ring factorization happens in the category of nonunital rings.
+\end{comments}
+\begin{proof}
+  First, note that the domain and codomain of \( \varphi \) are indeed rings --- the quotient \( R / \ker \varphi \) is a ring by definition, while the image \( \img \varphi \) is a ring as a consequence of \cref{thm:fol_equational_theory_models/image}.
+
+  \Cref{thm:ring_ideals_and_congruences/cong_to_ideal} implies that the relation
+  \begin{equation*}
+    x \cong y \T{if and only if} x - y \in \ker \varphi
+  \end{equation*}
+  is a congruence of nonunital rings (since \( \ker \varphi \) is a two-sided ideal by \cref{thm:kernel_is_ring_ideal}). This is the same congruence used in \fullref{thm:homomorphism_theorem_for_groups} to show that \( \Phi \) is an isomorphism of additive groups. In particular, the product of cosets \( [x][y] \) is \emph{defined} in \( R / \ker \varphi \) as the coset \( [xy] \), so \( \Phi \) preserves multiplication.
+
+  Therefore, \( \Phi \) is a homomorphism of rings. Since it is bijective, it is in fact an isomorphism.
+
+  Furthermore, if \( \varphi \) is a unital ring homomorphism, then so is \( \Phi \) because
+  \begin{equation*}
+    \Phi([1_R]) = \varphi(1_R) = 1_S.
+  \end{equation*}
+\end{proof}
+
+\paragraph{Ring characteristic}
+
+\begin{proposition}\label{thm:ring_characteristic_homomorphism}
+  In any \hyperref[def:ring]{unital ring} \( R \), multiplication extends iterated addition/subtraction of \( 1_R \)\fnote{We discuss iterated addition in additive monoids in \cref{thm:monoid_distributivity}.}.
+
+  More precisely, the following map is the unique (unital) homomorphism from \( \BbbZ \) to \( R \).
+  \begin{equation}\label{eq:thm:ring_characteristic_homomorphism}
+    \begin{aligned}
+      &\iota: \BbbZ \to R \\
+      &\iota(n) \coloneqq \begin{cases}
+        0_R                &n = 0, \\
+        \iota(n - 1) + 1_R &n > 0, \\
+        \iota(n - 1) - 1_R &n < 0.
+      \end{cases}
+    \end{aligned}
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  Follows from \cref{thm:semiring_characteristic_homomorphism} by noting that \( (-n)x = -nx \).
+\end{proof}
+
+\begin{proposition}\label{thm:category_of_rings_properties}
+  The \hyperref[def:ring/category]{category of unital rings} has the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:category_of_rings_properties/initial} The \hyperref[def:integers]{ring of integers} \( \BbbZ \) is an \hyperref[def:universal_objects/initial]{initial object}.
+
+    \thmitem{thm:category_of_rings_properties/terminal} The \hyperref[def:ring/trivial]{zero ring} \( \set{ 0 } \) is a \hyperref[def:universal_objects/terminal]{terminal object}.
+  \end{thmenum}
+\end{proposition}
+\begin{comments}
+  \item \Cref{thm:category_of_semirings_properties} is an analogous proposition for \hyperref[def:semiring]{semirings}.
+\end{comments}
+\begin{proof}
+  \SubProofOf{thm:category_of_rings_properties/initial} Follows from \cref{thm:ring_characteristic_homomorphism}.
+  \SubProofOf{thm:category_of_rings_properties/terminal} For every ring, there is only one possible map into \( \set{ 0 } \).
+\end{proof}
+
+\begin{definition}\label{def:ring_characteristic}
+  We define the \term[bg=характеристика (\cite[396]{Обрешков1962ВисшаАлгебра}), ru=характеристика (\cite[32]{Винберг2014КурсАлгебры}), en=characteristic (\cite[148]{Knapp2016BasicAlgebra})]{characteristic} \( \op{char}(R) \) of a ring \( R \) via the following equivalent definitions:
+  \begin{thmenum}
+    \thmitem{def:ring_characteristic/embedding}\mimprovised \( \op{char}(R) \) is the unique nonnegative integer \( n \) for which the kernel of the characteristic morphism \( \iota \) from \eqref{eq:thm:semiring_characteristic_homomorphism} is \( n\BbbZ \).
+
+    We use here that \( 0\BbbZ \) is the \hyperref[def:ring/trivial]{zero ring} and \( 1\BbbZ = \BbbZ \).
+
+    \thmitem{def:ring_characteristic/direct}\mcite[90]{Lang2002Algebra} \( \op{char}(R) \) is the \hyperref[def:group_order]{order} of \( 1_R \) in the additive group of \( R \) and \( 0 \) if the order is infinite.
+
+    Explicitly, \( \op{char}(R) \) is the smallest positive integer \( n \) such that \( n \cdot 1_R = 0_R \) and \( \op{char}(R) = 0 \) if such an integer does not exist.
+  \end{thmenum}
+\end{definition}
+\begin{defproof}
+  \EquivalenceSubProof{def:ring_characteristic/embedding}{def:ring_characteristic/direct} Let \( n \) be such that
+  \begin{equation*}
+    n \BbbZ = \ker\iota.
+  \end{equation*}
+
+  In particular, \( \iota(0) = \iota(n) \).
+
+  If \( n = 0 \), \( \ker\iota \) is a trivial group and \cref{thm:group_homomorphism_trivial_kernel} implies that \( \iota \) is an embedding. Then there cannot exist a positive integer \( n \) such that
+  \begin{equation*}
+    n \cdot 1_R = 0_R.
+  \end{equation*}
+
+  Otherwise, \( n \) is the smallest positive integer such that
+  \begin{equation*}
+    n \cdot 1_R = 0 \cdot 1_R = 0_R.
+  \end{equation*}
+\end{defproof}
+
+\begin{proposition}\label{thm:def:ring_characteristic}
+  \hyperref[def:ring_characteristic]{Ring characteristics} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:ring_characteristic/zero} If the characteristic of a ring is \( 0 \), the ring is infinite.
+
+    \thmitem{thm:def:ring_characteristic/trivial} A ring has characteristic \( 1 \) if and only if it is trivial.
+
+    \thmitem{thm:def:ring_characteristic/entire} The characteristic of an \hyperref[def:entire_semiring]{entire} ring is either \( 0 \) a \hyperref[def:prime_number]{prime number}.
+
+    We have not yet discussed prime elements in integral domains, however, since we have defined prime numbers explicitly, there is no circularity.
+
+    \thmitem{thm:def:ring_characteristic/embedding} If \( \varphi: R \to S \) is a \hyperref[def:ring/morphism]{ring embedding}, then \( S \) inherits its characteristics from \( R \).
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:ring_characteristic/zero} Let \( R \) be a ring of characteristic \( 0 \).
+
+  The characteristic morphism \( n \mapsto \iota(n) \) thus has a trivial kernel, and \cref{thm:group_homomorphism_trivial_kernel} implies that it is injective. Then \( R \) is infinite since it contains an embedding of every integer.
+
+  \SubProofOf{thm:def:ring_characteristic/trivial} The characteristic of \( R \) is \( 1 \) if \( \iota(1) = 0 \), which is equivalent to the ring being trivial.
+
+  \SubProofOf{thm:def:ring_characteristic/entire} Fix an entire ring \( R \) and let \( n \) be its characteristic.
+
+  We will use \cref{def:ring_characteristic/direct}, according to which \( n \) is the additive order of \( 1_R \) if it is finite and \( 0 \) if the order is infinite.
+
+  Let \( n = mk \) for nonnegative integers \( m \) and \( k \). Then
+  \begin{equation*}
+    0 = \iota(n) = \iota(mk) = \iota(m) \cdot \iota(k).
+  \end{equation*}
+
+  Since \( R \) has no proper zero divisors, either \( \iota(m) \) or \( \iota(k) \) must be zero. Thus, either \( m \) or \( k \) is a multiple of the characteristic \( n \) of \( R \). Since both are integers, either \( m \) or \( k \) must equal \( n \).
+
+  Then \( n \) is either \( 0 \) or a prime number.
+
+  \SubProofOf{thm:def:ring_characteristic/embedding} Fix an embedding \( \varphi: R \to S \).
+
+  First suppose that \( R \) has positive characteristic \( n \). Then \( \iota(n) = 0_R \), which implies \( \iota(n) \cdot \varphi(1) = \varphi(0) \), hence \( \op{char}(T) \leq n \). But \( \varphi \) is an embedding, hence if \( \iota(k) \neq 0_R \), then
+  \begin{equation*}
+    \varphi(\iota(k)) \neq \varphi(0_R).
+  \end{equation*}
+
+  This implies that \( \op{char}(S) \geq \op{char}(R) \), which in turn shows that \( \op{char}(S) = \op{char}(R) \).
+
+  If \( R \) has characteristic zero, then \( \iota: \BbbN \to R \) is an embedding and thus \( \varphi \bincirc \iota: \BbbN \to S \) is also an embedding. It is unique as shown in \cref{thm:ring_characteristic_homomorphism}. Therefore, \( S \) also has characteristic zero.
+\end{proof}
+
+\begin{example}\label{ex:def:ring_characteristic}
+  The following are examples of \hyperref[def:ring_characteristic]{ring characteristics}:
+  \begin{thmenum}
+    \thmitem{ex:def:ring_characteristic/natural_numbers} The \hyperref[def:integers]{integers} \( \BbbZ \) have characteristic \( \op{char}(\BbbZ) = 0 \) because \( \iota \) is an isomorphism. Consequently, by \cref{thm:def:ring_characteristic/embedding}, any superring of \( \BbbZ \) has characteristic zero, most notably the fields \( \BbbQ \), \( \BbbR \) and \( \BbbC \).
+
+    \thmitem{ex:def:ring_characteristic/integers_modulo} The ring \hyperref[def:ring_of_integers_modulo]{\( \BbbZ_n \)} of integers modulo \( n \) has characteristic \( \op{char}(\BbbZ_n) = n \) because \( \iota \) is again an isomorphism.
+
+    \thmitem{ex:def:ring_characteristic/polynomial_ring} An \hyperref[def:algebra_over_ring]{algebra} \( M \) over a commutative unital ring \( R \) has the same characteristic as \( R \) because of the canonical embedding of \( R \) in \( M \). In particular, the \hyperref[def:polynomial_algebra]{polynomial algebra} \( R[X] \) has the same characteristic as its ring.
+
+    \thmitem{ex:def:ring_characteristic/boolean_ring} \Cref{thm:boolean_ring_characteristic} implies that the characteristic of a \hyperref[def:boolean_ring]{Boolean ring} is \( 2 \).
+  \end{thmenum}
+\end{example}
+
+\paragraph{Algebraic equations}
+
+\begin{algorithm}[Logical term to integer polynomial]\label{alg:logical_term_to_integer_polynomial}
+  Fix a \hyperref[def:fol_term]{logical term} \( \tau \) from the first-order theory of unital rings described in \cref{def:ring/theory}.
+
+  Fix a \hyperref[def:fol_variable_assignment]{variable assignment} \( v \) into some ring \( R \). We will build a \hyperref[def:polynomial_algebra/polynomials]{polynomial} \( f_\tau \) over \( R \), whose indeterminates are the variables of \( \tau \), and such that the parameterized denotation \( \Bracks{ \tau }_R^v \), as defined in \cref{def:fol_parameterized_term_denotation}, coincides with the evaluation \( \Phi_v(f_\tau) \) given by \fullref{thm:polynomial_algebra_universal_property}.
+
+  The construction itself is quite straightforward:
+  \begin{equation}\label{eq:alg:logical_term_to_integer_polynomial}
+    f_\tau \coloneqq \begin{cases}
+      \tau,                &\tau \in \op*{Var},          \\
+      0,                   &\tau = \syn0,                \\
+      1,                   &\tau = \syn1,                \\
+      -f_\sigma,           &\tau = \synminus \sigma,     \\
+      f_\tau + f_\rho,     &\tau = \sigma \synplus \rho, \\
+      f_\tau \cdot f_\rho, &\tau = \sigma \synmult \rho.
+    \end{cases}
+  \end{equation}
+\end{algorithm}
+\begin{comments}
+  \item For the theory of semirings, we instead obtain polynomials over the \hyperref[def:natural_numbers]{semiring of natural numbers}.
+  \item This algorithm is implemented in \cite{notebook:code} as
+  \begin{CodeRefDisplay}
+    \GetCodeRef{alg:logical_term_to_integer_polynomial}
+  \end{CodeRefDisplay}
+\end{comments}
+\begin{defproof}
+  That \( \Phi_v(f_\tau) \) equals \( \Bracks{ \tau }_R^v \) becomes obvious once we note that \( \Phi_v \) preserves sums and products.
+\end{defproof}
+
+\begin{algorithm}[Integer polynomial to logical term]\label{alg:integer_polynomial_to_logical_term}
+  Let \( \mscrX \) be the set of first-order individual variables. Conversely to \fullref{alg:logical_term_to_integer_polynomial}, for every polynomial \( f(\mscrX) \) over the \hyperref[def:integers]{ring of integers} \( \BbbZ \), we can build a \hyperref[def:fol_term]{logical term} \( \tau_f \) in the \hyperref[def:ring/theory]{first-order theory of rings} such that, for any assignment \( v \), the denotation \( \Bracks{ \tau_f }_R^v \) equals the evaluation \( \Phi_v(f) \).
+
+  \begin{thmenum}
+    \thmitem{alg:integer_polynomial_to_logical_term/number} First, we convert a nonnegative integer \( k \) to a term as follows:
+    \begin{equation}\label{eq:alg:logical_term_to_integer_polynomial/number}
+      \tau_k \coloneqq \begin{cases}
+        \syn0,                     &k = 0, \\
+        \syn1,                     &k = 1, \\
+        \syn1 \synplus \tau_{k-1}, &k > 1, \\
+        \synminus \tau_{-k},       &k < 0.
+      \end{cases}
+    \end{equation}
+
+    \thmitem{alg:integer_polynomial_to_logical_term/monomial} For a monomial \( \mscrX^\nu = X_1^{\nu_1} \cdots X_n^{\nu_n} \), we proceed as follows:
+    \begin{equation}\label{eq:alg:logical_term_to_integer_polynomial/monomial}
+      \tau_{\mscrX^\nu} \coloneqq \begin{cases}
+        \syn1,                                                                     &\nu_1 = \cdots = \nu_n = 0, \\
+        X_k,                                                                       &\nu_k = 1 \T{and} \nu_i = 0 \T{for all} i \neq k, \\
+        X_k \synmult \tau_{X_1^{\nu_1} \cdots X_k^{\nu_k - 1} \cdots X_n^{\nu_n}}, &\T{otherwise if} \nu_k > 0 \T{and} \nu_i = 0 \T{for all} i < k.
+      \end{cases}
+    \end{equation}
+
+    \thmitem{alg:integer_polynomial_to_logical_term/polynomial} Finally, for \( f(\mscrX) \) itself, we define the term \( \tau_f \) as follows:
+    \begin{equation}\label{eq:alg:logical_term_to_integer_polynomial/polynomial}
+      \tau_f \coloneqq \begin{cases}
+        \tau_a,                              &f(\mscrX) = a \in \BbbZ, \\
+        \tau_{\mscrX^\nu},                   &f(\mscrX) = a \mscrX^\nu \T{and} a = 1, \\
+        \tau_a \synmult \tau_{\mscrX^\nu},   &f(\mscrX) = a \mscrX^\nu \T{and} a \neq 1, \\
+        \tau_{a \mscrX^\nu} \synplus \tau_g, &f(\mscrX) = a \mscrX^\nu + g(\mscrX).
+      \end{cases}
+    \end{equation}
+  \end{thmenum}
+\end{algorithm}
+\begin{comments}
+  \item If the polynomials with nonnegative coefficients produce terms over the \hyperref[def:semiring/theory]{theory of semirings}.
+  \item This algorithm is implemented in \cite{notebook:code} as
+  \begin{CodeRefDisplay}
+    \GetCodeRef{alg:integer_polynomial_to_logical_term}
+  \end{CodeRefDisplay}
+\end{comments}
+\begin{defproof}
+  In all cases, correctness can be proved straightforwardly via induction.
+\end{defproof}
+
+\begin{proposition}\label{thm:integer_polynomials_and_logical_terms}
+  As an \hyperref[def:fol_equational_theory]{equational theory}, the \hyperref[def:fol_theory]{first-order theory} \( T \) \hyperref[def:ring/theory]{of unital rings} has a \hyperref[def:fol_free_term_model]{free term model} \( \mscrT(\mscrX) \) for any specific set of indeterminates \( \mscrX \).
+
+  We claim that, adapted to syntax trees instead of terms, \fullref{alg:logical_term_to_integer_polynomial} provides an isomorphism from \( \mscrT(\mscrX) \) into the \hyperref[def:polynomial_algebra]{polynomial algebra} \( \BbbZ[\mscrX] \).
+\end{proposition}
+\begin{comments}
+  \item If we take \( \mscrX \) to be the set of first-order variables, then, as per \cref{rem:fol_free_term_model_with_terms}, we can regard \( \mscrT(\mscrX) \) as the set of all first-order terms in the theory of rings.
+\end{comments}
+\begin{proof}
+  We will denote the coset of a syntax tree \( S \) in \( \mscrT(\mscrX) \) by \( [S] \). We will show that the following map is a well-defined isomorphism:
+  \begin{equation*}
+    \begin{aligned}
+      &\Phi: \mscrT(\mscrX) \to \BbbZ[\mscrX], \\
+      &\Phi([S]) \coloneqq f_S.
+    \end{aligned}
+  \end{equation*}
+
+  \SubProof{Proof that \( \Phi \) is well-defined} By the correctness of \fullref{alg:logical_term_to_integer_polynomial}, the evaluation \( \Bracks{ S }_{\BbbZ}^v \)
+
+  First, we must show that, if \( S \cong S' \), then the polynomials \( f_S \) and \( f_{S'} \) coincide. We use \fullref{thm:induction_on_recursively_defined_relations}:
+  \begin{itemize}
+    \item If \( S \cong S' \) due to \ref{inf:def:fol_free_term_model/congruence/functions} for a function symbol \( s \), we have four sub-cases:
+    \begin{itemize}
+      \item If \( s = \syn0 \), then \( S = S' = \syn0 \) and there is nothing to prove.
+      \item If \( s = \syn1 \), then \( S = S' = \syn1 \).
+      \item If \( s = {\synplus} \), then \( S = A \synplus B \) and \( S' = A' \synplus B' \), where \( A \cong A' \) and \( B \cong B' \).
+
+      By the inductive hypothesis, \( f_A = f_{A'} \) and \( f_B = f_{B'} \), so their sums \( f_S = f_A + f_B \) and \( f_{S'} = f_{A'} + f_{B'} \) also coincide.
+
+      \item If \( s = {\synmult} \), we proceed similarly to prove that \( f_S = f_{S'} \).
+    \end{itemize}
+
+    \item If \( S \cong S' \) due to \ref{inf:def:fol_free_term_model/congruence/axioms} for some axiom of ring theory, then \( f_S = f_{S'} \) by virtue of the fact that \( \BbbZ[\BbbX] \) is a ring.
+  \end{itemize}
+
+  \SubProof{Proof that \( \Phi \) is a ring homomorphism} By construction.
+
+  \SubProof{Proof that \( \Phi \) is injective} We must show that \( \Phi(S) = \Phi(S') \) implies \( S \cong S' \). This can be done similarly to the above, but by induction on the cases in \eqref{eq:alg:logical_term_to_integer_polynomial} instead of on \( {\cong} \).
+
+  \SubProof{Proof that \( \Phi \) is surjective} Given a polynomial \( f \) in \( \BbbZ[\BbbX] \), we can use \fullref{alg:integer_polynomial_to_logical_term} (adapted to syntax trees instead of terms) to produce a tree \( S_f \). It is then straightforward to verify that \( \Phi(S_f) = f \).
+\end{proof}
+
+\begin{definition}\label{def:polynomial_equation}\mimprovised
+  As shown in \cref{thm:integer_polynomials_and_logical_terms}, \hyperref[def:fol_term]{logical terms} in the \hyperref[def:ring/theory]{theory of rings} correspond naturally to polynomials over integers. \Fullref{alg:logical_term_to_integer_polynomial} allows transforming the \hyperref[def:fol_equation]{first-order equation} \( \tau \syneq \sigma \) in the object logic to
+  \begin{equation}\label{eq:def:polynomial_equation/general}
+    f_\tau(X_1, \ldots, X_n) = f_\sigma(X_1, \ldots, X_n),
+  \end{equation}
+  where the free variables of \( \tau \) and \( \sigma \) are among \( X_1, \ldots, X_n \).
+
+  By subtracting these polynomials, we obtain an equation in canonical form
+  \begin{equation}\label{eq:def:polynomial_equation/canonical}
+    f(X_1, \ldots, X_n) = 0.
+  \end{equation}
+
+  For a fixed polynomial \( f \), possibly over a general \hyperref[def:semiring]{semiring}, we call \eqref{eq:def:polynomial_equation/canonical} a \term{polynomial equation} or \term[bg=алгебрично уравнение (\cite[2]{Обрешков1962ВисшаАлгебра}), en=algebraic equation (\cite[15]{Kleene1971Metamathematics})]{algebraic equation}.
+
+  This aligns with \cref{con:free_construction}, where we discussed the role of polynomials as abstract syntax for (semi)rings.
+
+  We reuse the terms for small polynomial degrees described in \cref{tab:def:polynomial_degree}, e.g. we call \eqref{eq:def:polynomial_equation/canonical} a \enquote{quadratic equation} if \( f(X_1, \ldots, X_n) \) is a quadratic polynomial.
+
+  \begin{thmenum}
+    \thmitem{def:polynomial_equation/solution} If the coefficients of \eqref{eq:def:polynomial_equation/canonical} belong to the semiring \( R \), we can \hyperref[con:free_construction/evaluation]{evaluate} \( f \) with values from any extension \( T \) of \( R \).
+
+    If \( f(x_1, \ldots, x_n) = 0 \) for some tuple \( (x_1, \ldots, x_n) \) from \( T^n \), we call this tuple a \term{\hyperref[con:equation_solution]{solution}} to \eqref{eq:def:polynomial_equation/canonical}.
+
+    \thmitem{def:polynomial_equation/diophantine} When not only the coefficients but also the solutions are intended to be integers, we call the equation \term[ru=Диофантово уравнение (\cite[\S 1.9]{ШеньВерещагин2017ВычислимыеФункции}), en=Diophantine equation (\cite[5]{Apostol1976AnalyticNumberTheory})]{Diophantine}.
+  \end{thmenum}
+\end{definition}
+
+\paragraph{Ordered rings}
+
+\begin{proposition}\label{thm:xn_minus_yn_factorization}
+  In any \hyperref[def:ring]{ring}, the following holds:
+  \begin{equation}\label{eq:thm:xn_minus_yn_factorization}
+    x^{n + 1} - y^{n + 1} = (x - y) \cdot \sum_{k=0}^n x^k y^{n-k}.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  \begin{align*}
+    (x - y) \cdot \sum_{k=0}^n x^k y^{n-k}
+    &=
+    \sum_{k=0}^n x^{k+1} y^{n-k} - \sum_{k=0}^n x^k y^{n-k+1}
+    = \\ &=
+    \sum_{k=1}^{n+1} x^k y^{(n+1)-k} - \sum_{k=0}^n x^k y^{(n+1)-k}
+    =
+    x^{n+1} - y^{n+1}.
+  \end{align*}
+\end{proof}
+
+\begin{proposition}\label{thm:ordered_ring}
+  \hyperref[def:ordered_semiring]{Partially ordered} \hyperref[def:ring]{rings} have the following properties:
+  \begin{thmenum}
+    \thmitem{thm:ordered_ring/additive_inversion} We have \( x < y \) if and only if \( -y < -x \).
+
+    \thmitem{thm:ordered_ring/zero_one} It is not possible that \( 0_R > 1_R \).
+
+    In particular, in a nonzero \hyperref[def:totally_ordered_set]{totally ordered} ring, \( 0_R < 1_R \).
+
+    \thmitem{thm:ordered_ring/strict_prod} If the ring is \hyperref[def:entire_semiring]{entire}, then \( x < y \) and \( z > 0_R \) imply \( xz < xy \) and \( zx < zy \).
+
+    \thmitem{thm:ordered_ring/negative_prod} If \( x < y \) and \( z < 0_R \), then \( xz > xy \) and \( zx > zy \). The inequalities are strict if the ring is entire.
+
+    \thmitem{thm:ordered_ring/reciprocal_inversion} If \( 0_R < x < y \), then \( 0_R \leq y^{-1} \leq x^{-1} \), with a strict inequality in entire semirings.
+
+    \thmitem{thm:ordered_ring/nonnegative_power} If \( 0_R < x \), for any nonnegative integer \( n \) we have then \( 0_R \leq x^n \), with a strict inequality in entire semirings.
+
+    \thmitem{thm:ordered_ring/power_preserves_inequality} If \( 0_R < x < y \), for any positive integer \( n \) we have then \( 0_R \leq x^n \leq y^n \). Again, the inequalities are strict if the ring is entire.
+  \end{thmenum}
+\end{proposition}
+\begin{comments}
+  \item Also note the properties in \cref{thm:def:ordered_semiring} of ordered semirings.
+
+  \item Results regarding \hyperref[def:ordered_semigroup]{ordered semigroups} also hold for the additive and multiplicative semigroup --- see \cref{thm:def:ordered_semigroup}.
+
+  \item Similarly, results regarding \hyperref[def:ordered_semigroup]{ordered} \hyperref[def:group]{groups} also hold --- see \cref{thm:ordered_group}.
+\end{comments}
+\begin{proof}
+  \SubProofOf{thm:ordered_ring/additive_inversion} Follows from \cref{thm:ordered_group/inversion}.
+
+  \SubProofOf{thm:ordered_ring/zero_one} In a nonzero ring, if \( 1_R < 0_R \), then
+  \begin{equation*}
+    0_R = -1_R + 1_R \leq -1_R + 0_R = -1_R,
+  \end{equation*}
+  hence
+  \begin{equation*}
+    0_R = 0_R \cdot (-1_R) \leq (-1_R) \cdot (-1_R) = 1_R,
+  \end{equation*}
+  which is a contradiction.
+
+  If the order is total, it follows that \( 1_R \geq 0_R \), and, since the ring is nonzero, \( 1_R > 0_R \).
+
+  \SubProofOf{thm:ordered_ring/strict_prod} Fix \( x < y \) and \( z > 0_R \).
+
+  Since the semiring is ordered, both \( zx \leq zy \) and \( xz \leq yz \) are required to hold.
+
+  \begin{itemize}
+    \item If \( x = 0_R \), then \( 0_R < y \). Since the semiring is entire, we have \( xz = 0_R \neq yz \) and \( zx = 0_R \neq zy \).
+
+    \item If \( y = 0_R \), then \( x < 0_R \), and similarly \( xz \neq yz = 0_R \) and \( zx \neq zy = 0_R \).
+
+    \item If both \( x \) and \( y \) are nonzero, \cref{thm:def:ring/ring_entire_iff_cancellative} implies that we can cancel \( z \) in either \( xz = yz \) or \( zx = zy \) to obtain \( x = y \), which is a contradiction.
+  \end{itemize}
+
+  In all three cases, we concluded that the inequalities \( zx \leq zy \) and \( zx \leq yz \) must be strict.
+
+  \SubProofOf{thm:ordered_ring/negative_prod} If \( z < 0_R \), \cref{thm:ordered_ring/additive_inversion} implies that \( -z > 0_R \). Then \( x < y \) implies that \( x(-z) \leq y(-z) \), and we can again use \cref{thm:ordered_ring/additive_inversion} to conclude that \( xz \geq yz \). We can analogously prove that \( zx \geq zy \).
+
+  If the ring is entire, strict inequalities follow from \cref{thm:ordered_ring/strict_prod}.
+
+  \SubProofOf{thm:ordered_ring/reciprocal_inversion} Multiplying \( 0_R < x < y \) by \( x^{-1} \cdot y^{-1} \), we obtain
+  \begin{equation*}
+    0_R \leq y^{-1} \leq x^{-1}.
+  \end{equation*}
+
+  \Cref{thm:ordered_ring/strict_prod} implies that, if the ring is entire, then \( y^{-1} < x^{-1} \).
+
+  \SubProofOf{thm:ordered_ring/nonnegative_power} Let \( 0_R < x \). We will use induction on the nonnegative integer \( n \) to show that \( 0_R < x^n \). The base case \( n = 0_R \) is clear. If \( 0_R < x^n \), then \( x \cdot 0_R \leq x \cdot x^n = x^{n+1} \).
+
+  \Cref{thm:ordered_ring/strict_prod} implies that, if the ring is entire, the inequality is strict.
+
+  \SubProofOf{thm:ordered_ring/power_preserves_inequality} Let \( 0_R < x < y \). We will use induction on \( n > 0 \) to show that \( 0_R < x^n < y^n \).
+
+  The base case \( n = 1_R \) is trivial. Suppose that \( 0_R < x^n < y^n \). Then
+  \begin{equation*}
+    x^{n+1} \leq x \cdot y^n.
+  \end{equation*}
+
+  Since \( 0_R < x < y \), we also have
+  \begin{equation*}
+    x \cdot y^n \leq y^{n+1}.
+  \end{equation*}
+
+  Thus, by transitivity, \( x^{n+1} \leq y^{n+1} \).
+
+  Now suppose that the ring is entire. We must show that \( 0_R < x^{n+1} < y^{n+1} \). Aiming at a contradiction, suppose that \( x^{n+1} = y^{n+1} \). \Cref{thm:xn_minus_yn_factorization} implies that
+  \begin{equation*}
+    0_R
+    =
+    y^{n+1} - x^{n+1}
+    =
+    (y - x) \sum_{k=0_R}^n x^k y^{n-k}.
+  \end{equation*}
+
+  \Cref{thm:ordered_ring/nonnegative_power} implies that both \( x^k > 0_R \) and \( y^{n-k} > 0_R \) for every \( k = 0_R, \ldots, n \). \Cref{thm:ordered_ring/strict_prod} implies that \( x^k y^{n-k} > 0_R \cdot y^{n-k} = 0_R \), and \cref{thm:def:ordered_semiring/strict_sum} implies that
+  \begin{equation*}
+    \sum_{k=0_R}^n x^k y^{n-k} > 0_R.
+  \end{equation*}
+
+  It follows that \( y = x \), which contradicts our initial assumption that \( x < y \). Therefore,
+  \begin{equation*}
+    x^{n+1} < y^{n+1}.
+  \end{equation*}
+\end{proof}
+
+\begin{proposition}\label{thm:def:signum}
+  \hyperref[def:signum]{The signum function} on the totally ordered \emph{\hyperref[def:entire_semiring]{entire}} ring \( R \) is a \hyperref[def:group/morphism]{group homomorphism} from the multiplicative group of \( R \) to the multiplicative integer subgroup \( \set{ -1, 0, 1 } \).
+
+  Explicitly, for any \( x \) and \( y \) we have \( \sgn(x \cdot y) = \sgn(x) \cdot \sgn(y) \).
+\end{proposition}
+\begin{proof}
+  \hfill
+  \begin{itemize}
+    \item If both \( x \) and \( y \) are positive, the proposition follows from \cref{thm:def:ordered_semiring_positivity/positive_prod}.
+    \item If \( x \) and \( y \) have different signs, the proposition follows from \cref{thm:def:ordered_semiring_positivity/alternating_prod}.
+    \item If \( x \) and \( y \) are both negative, then \( -x \) is positive, and the previous case implies that \( (-x)y \) is negative. \Cref{thm:ordered_ring/additive_inversion} then implies that \( xy \) is positive.
+  \end{itemize}
+\end{proof}
+
+\begin{corollary}\label{thm:ordered_ring_power}
+  In a totally ordered entire ring, for a nonzero element \( x \), \( x^n \) is positive if \( n \) is even, and otherwise it matches the sign of \( x \).
+\end{corollary}
+\begin{proof}
+  Follows from \cref{thm:def:signum} by induction on \( n \).
+\end{proof}
+
+\paragraph{Ring of differences}
+
+\begin{definition}\label{def:ring_of_differences}\mimprovised
+  Fix a unital (resp. nonunital) \hyperref[def:semiring]{semiring} \( R \). On the \hyperref[def:group_of_differences]{group of differences} of its additive monoid, define the multiplication operation
+  \begin{equation*}
+    [(a, b)] \odot [(c, d)] \coloneqq [(ac + bd, ad + bc)].
+  \end{equation*}
+
+  The result is a unital (resp. nonunital) \hyperref[def:ring]{ring}, which we denote by \( \oline R \) and call the \term{ring of differences} of \( R \).
+\end{definition}
+\begin{comments}
+  \item This definition is motivated in our proof of \fullref{thm:ring_of_differences_universal_property}.
+\end{comments}
+\begin{defproof}
+  Multiplication on \( R \) does not depend on the representative of the equivalence class. Indeed, let \( (a, b) \sim (a', b') \) and \( (c, d) \sim (c', d') \). Then there exist \( u \) and \( v \) such that
+  \begin{align*}
+    a + b' + u &= a' + b + u, \\
+    c + d' + v &= c' + d + v.
+  \end{align*}
+
+  To conclude that
+  \begin{equation*}
+    [(a, b)] \odot [(c, d)] = [(a', b')] \odot [(c', d')],
+  \end{equation*}
+  we must show that, for some \( w \) in \( R \), we have
+  \begin{equation*}
+    (ac + bd) + (a'd' + b'c') + w = (a'c' + b'd') + (ad + bc) + w
+  \end{equation*}
+
+  We have
+  \begin{align*}
+    &\phantom{{}={}}
+    (a + b' + u)c + (a' + b + u)d + a'(c + d' + v) + b'(c' + d + v)
+    = \\ &=
+    \underline{ac} + b'c + uc + a'd + \underline{bd} + ud + a'c + \underline{a'd'} + a'v + \underline{b'c'} + b'd + b'v,
+  \end{align*}
+  which equals
+  \begin{align*}
+    &\phantom{{}={}}
+    (a' + b + u)c + (a + b' + u)d + a'(c' + d + v) + b'(c + d' + v)
+    = \\ &=
+    a'c + \underline{bc} + uc + \underline{ad} + b'd + ud + \underline{a'c'} + a'd + a'v + b'c + \underline{b'd'} + b'v.
+  \end{align*}
+
+  Therefore, we can take
+  \begin{equation*}
+    w = b'c + uc + a'd + ud + a'c + a'v + b'd + b'v.
+  \end{equation*}
+
+  Associativity and distributivity in \( \oline R \) are inherited from \( R \).
+\end{defproof}
+
+\begin{theorem}[Ring of differences universal property]\label{thm:ring_of_differences_universal_property}
+  The \hyperref[def:ring_of_differences]{ring of differences} \( \oline R \) of a unital semiring \( R \) satisfies the following \hyperref[rem:universal_mapping_property]{universal mapping property}:
+  \begin{displayquote}
+    For every unital ring \( T \) and every unital semiring homomorphism \( \varphi: R \to T \), there exists a unique unital ring homomorphism \( \widetilde{\varphi}: \oline R \to T \) such that the following diagram commutes:
+    \begin{equation}\label{eq:thm:ring_of_differences_universal_property/diagram}
+      \begin{aligned}
+        \includegraphics[page=1]{output/thm__ring_of_differences_universal_property}
+      \end{aligned}
+    \end{equation}
+  \end{displayquote}
+
+  This property also holds for nonunital (semi)rings and nonunital homomorphisms.
+\end{theorem}
+\begin{comments}
+  \item Via \cref{rem:universal_mapping_property}, \( \oline{\anon} \) becomes \hyperref[def:category_adjunction]{left adjoint} to the \hyperref[def:concrete_category]{forgetful functor} sending rings to semirings.
+\end{comments}
+\begin{proof}
+  \Fullref{thm:group_of_differences_universal_property} suggests the definition
+  \begin{equation*}
+    \oline{\varphi}([(a, b)]) \coloneqq \varphi(a) - \varphi(b).
+  \end{equation*}
+
+  We must only show that \( \oline{\varphi} \) is a ring homomorphism. Clearly
+  \begin{equation*}
+    \oline{\varphi}([(1, 0)]) = \varphi(1) - \varphi(0),
+  \end{equation*}
+  which implies that \( \varphi \) preserves multiplicative identities. Also,
+  \begin{balign*}
+    \oline{\varphi}\parens[\big]{ [(a, b)] \odot [(c, d)] }
+    &=
+    \oline{\varphi}\parens[\big]{ [(a \cdot b + c \cdot d, a \cdot d + b \cdot c)] }
+    = \\ &=
+    \varphi(a \cdot b + c \cdot d) - \varphi(a \cdot d + b \cdot c)
+    = \\ &=
+    \varphi(c) \parens[\big]{ \varphi(d) - \varphi(b) } - \varphi(a) \parens[\big]{ \varphi(d) - \varphi(b) }
+    = \\ &=
+    \parens[\big]{ \varphi(c) - \varphi(a) } \parens[\big]{ \varphi(d) - \varphi(b) }
+    = \\ &=
+    \oline{\varphi}\parens[\big]{ [(a, c)] } \cdot \oline{\varphi}\parens[\big]{ [(b, d)] }.
+  \end{balign*}
+\end{proof}
+
+\begin{proposition}\label{thm:def:ring_of_differences}
+  The \hyperref[def:ring_of_differences]{ring of differences} \( \oline R \) of a semiring \( R \) satisfies the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:ring_of_differences/commutative} If \( R \) is commutative, so is \( \oline R \).
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:ring_of_differences/commutative} This is clear from the definition of multiplication.
+\end{proof}
+
+\paragraph{Ring abelianization}
+
+\begin{definition}\label{def:ring_commutator}\mimprovised
+  Let \( R \) be an arbitrary ring. We define the \term[en=additive commutator (\cite[145]{Kaplansky1974CommutativeRings})]{additive commutator} of the elements \( x \) and \( y \) as
+  \begin{equation*}
+    [x, y] \coloneqq xy - yx.
+  \end{equation*}
+
+  We call the ideal \hyperref[def:semiring_ideal/generated]{generated} by all the commutators in \( R \) the \term[en=commutator ideal (in Banach algebra) (\cite[222]{Conway1997FunctionalAnalysis})]{commutator ideal} and denote it by \( [R, R] \).
+\end{definition}
+\begin{comments}
+  \item We generalized the definition given for \hyperref[def:banach_algebra]{Banach algebras} in \cite[222]{Conway1997FunctionalAnalysis}.
+
+  \item Compare this to group commutators from \cref{def:group_commutator}.
+\end{comments}
+
+\begin{proposition}\label{thm:quotient_is_abelian_iff_ideal_contains_commutator}
+  The \hyperref[def:ring/quotient]{quotient} \( R / I \) of a \hyperref[def:ring]{ring} is \hyperref[def:abelian_group]{abelian} if and only if \( I \) contains the \hyperref[def:ring_commutator]{commutator ideal} \( [R, R] \) of \( R \).
+\end{proposition}
+\begin{comments}
+  \item Compare this to \cref{thm:quotient_is_abelian_iff_subgroup_contains_commutator} for group commutators.
+\end{comments}
+\begin{proof}
+  Note that the cosets \( [x] \) and \( [y] \) commute if and only if
+  \begin{equation*}
+    [x] [y] - [y] [x] = [xy - yx] = I,
+  \end{equation*}
+  which holds if and only if the commutator \( xy - yx \) belongs to \( I \).
+\end{proof}
+
+\begin{definition}\label{def:ring_abelianization}\mimprovised
+   We define the \term{abelianization} of a group \( G \) as its \hyperref[def:group/quotient]{quotient} \( G / [G, G] \) by its \hyperref[def:group_commutator]{commutator group} \( [G, G] \).
+\end{definition}
+\begin{comments}
+  \item \Cref{thm:quotient_is_abelian_iff_ideal_contains_commutator} implies that \( R / [R, R] \) is abelian, which justifies the name.
+  \item Compare this to group abelianization from \cref{def:group_abelianization}.
+\end{comments}
+\begin{defproof}
+  \Cref{thm:commutator_subgroup_is_normal} implies that \( [G, G] \) is normal, hence we are allowed to take quotients.
+\end{defproof}
+
+\begin{theorem}[Ring abelianization universal property]\label{thm:ring_abelianization_universal_property}
+  The \hyperref[def:ring_abelianization]{abelianization} \( R / [R, R] \) of a ring \( R \) satisfies the following \hyperref[rem:universal_mapping_property]{universal mapping property}:
+  \begin{displayquote}
+    For every \emph{commutative} ring \( S \) and every ring homomorphism \( \varphi: R \to S \), \( \varphi \) \hyperref[def:factors_through]{uniquely factors through} \( R / [R, R] \). More precisely, there exists a unique ring homomorphism \( \widetilde{\varphi}: R / [R, R] \to S \) such that the following diagram commutes:
+    \begin{equation}\label{eq:thm:ring_abelianization_universal_property/diagram}
+      \begin{aligned}
+        \includegraphics[page=1]{output/thm__ring_abelianization_universal_property}
+      \end{aligned}
+    \end{equation}
+  \end{displayquote}
+\end{theorem}
+\begin{comments}
+  \item Via \cref{rem:universal_mapping_property}, the abelianization functor becomes \hyperref[def:category_adjunction]{left adjoint} to the \hyperref[def:concrete_category]{forgetful functor}
+  \begin{equation*}
+    U: \cat{CRing} \to \cat{Ring}.
+  \end{equation*}
+
+  \item Compare this result to \fullref{thm:group_abelianization_universal_property} for group abelianization.
+\end{comments}
+\begin{proof}
+  Let \( T \) be a commutative ring and let \( \varphi: R \to S \) be a ring homomorphism.
+
+  We want \( \oline{\varphi}: R / [R, R] \to S \) to satisfy
+  \begin{equation}\label{eq:thm:ring_abelianization_universal_property/homomorphism}
+    \oline{\varphi}(\pi_R(x)) = \varphi(x).
+  \end{equation}
+
+  We will use \eqref{eq:thm:ring_abelianization_universal_property/homomorphism} as a definition, but we must verify that \( \oline{\varphi} \) is well-defined.
+
+  Suppose that \( x \cong y \pmod {[R, R]} \). \Cref{thm:def:ring/quotient_equality_via_difference} implies that \( x - y \in [R, R] \), hence there exist some \( a \) and \( b \) in \( R \) such that
+  \begin{equation*}
+    x - y = ab - ba.
+  \end{equation*}
+
+  Then, because of commutativity in \( T \), we have
+  \begin{equation*}
+    \varphi(x - y)
+    =
+    \varphi(ab - ba)
+    =
+    \varphi(a) \cdot \varphi(b) - \underbrace{\varphi(b) \cdot \varphi(a)}_{\varphi(a) \cdot \varphi(b)}
+    =
+    0_T.
+  \end{equation*}
+
+  Therefore, \( \varphi(x) = \varphi(y) \), and thus the value of \( \oline{\varphi} \) in \eqref{eq:thm:ring_abelianization_universal_property/homomorphism} does not depend on the representative from \( \pi_R(x) \).
+\end{proof}
+
+\paragraph{Ring localization}
+
+\begin{definition}\label{def:multiplicatively_closed_ring_subset}\mcite[59]{Eisenbud1995CommutativeAlgebra}
+  We call a subset of a \hyperref[def:ring]{ring} \term[bg=мултипликативно затворено множество (\cite[23]{КоцевСидеров2016КомутативнаАлгебра})]{multiplicatively closed} if it is a submonoid of its multiplicative monoid, i.e. if it contains the multiplicative unit and is closed under multiplication.
+\end{definition}
+
+\begin{proposition}\label{thm:complement_of_prime_ideal}
+  The \hyperref[def:semiring_ideal]{ideal} \( P \) in the \hyperref[def:ring/commutative]{commutative ring} \( R \) is \hyperref[def:semiring_ideal/prime]{prime} if and only if \( R \setminus P \) is a \hyperref[def:multiplicatively_closed_ring_subset]{multiplicative subset}.
+\end{proposition}
+\begin{comments}
+  \item Not all multiplicative subsets are obtained as complements of prime ideals --- see \cref{ex:def:ring_localization/powers_of_two}.
+\end{comments}
+\begin{proof}
+  \Cref{thm:def:semiring_ideal/ideal_containing_unit} implies that \( P \) is a proper ideal if and only if \( 1_R \) belongs to \( R \setminus P \).
+
+  \Cref{thm:def:semiring_ideal/prime_pointwise} implies that \( P \) is prime if and only if \( x, y \in R \setminus P \) implies \( xy \in R \setminus P \), that is, if \( R \setminus P \) is closed under multiplication.
+\end{proof}
+
+\begin{definition}\label{def:ring_localization}\mcite[60]{Тыртышников2017ОсновыАлгебры}
+  Let \( R \) be a \hyperref[def:ring/commutative]{commutative ring} and let \( S \subseteq R \) be a \hyperref[def:multiplicatively_closed_ring_subset]{multiplicative subset}.
+
+  Define the equivalence relation \( (r, s) \sim (r', s') \) on \( R \times S \) to hold if and only if there exists some \( u \) in \( S \) such that \( u r s' = u r' s \).
+
+  Consider the set
+  \begin{equation*}
+    S^{-1} R \coloneqq R \times S / {\sim},
+  \end{equation*}
+  whose cosets we will denote by \( r / s \) rather than \( [(r, s)] \). We will call \( r / s \) a \term[en=fraction (\cite[39]{Bourbaki1998Algebra1to3})]{fraction} with \term[en=numerator (\cite[39]{Bourbaki1998Algebra1to3})]{numerator} \( r \) and \term[en=denominator (\cite[39]{Bourbaki1998Algebra1to3})]{denominator} of \( s \).
+
+  Define on \( S^{-1} R \) the operations
+  \begin{align*}
+    \frac a b + \frac c d     &\coloneqq \frac {a d + b c} {b d}, \\
+    \frac a b \cdot \frac c d &\coloneqq \frac {a c} {b d},
+  \end{align*}
+  and the canonical inclusion
+  \begin{equation*}
+    \begin{aligned}
+      &\iota: R \to S^{-1} R \\
+      &\iota(r) \coloneqq \frac r {1_R}.
+    \end{aligned}
+  \end{equation*}
+
+  This ring is called the \term[bg=локализация (\cite[23]{КоцевСидеров2016КомутативнаАлгебра}), ru=локализация (\cite[348]{Тыртышников2017ОсновыАлгебры})]{localization} of \( R \) with respect to \( A \); we denote it by \( S^{-1} R \). In case \( S \) is the \hyperref[thm:boolean_algebra_of_subsets/complement]{complement} of a \hyperref[def:semiring_ideal/prime]{prime ideal}, we may denote the localization by \( R_P \) (or \( R_p \) if \( P = \braket{ p } \)).
+\end{definition}
+\begin{comments}
+  \item This construction is similar to \hyperref[def:group_of_differences]{groups of differences}, although with notable differences --- the set \( S \) may be a strict subset of \( R \), and addition in the ring of differences is defined similarly to multiplication in the localization, while addition in the completion has no analogy.
+
+  \item The image under \( \iota \) of every element \( s \) of \( S \) is invertible in \( S^{-1} R \)..
+\end{comments}
+\begin{defproof}
+  The proof that \( {\sim} \) is an equivalence relation is the same as in \cref{def:group_of_differences}. The result is then a ring if the operations are well-defined.
+
+  We will show that both operations are well-defined. Let \( u ab' = u a'b \), meaning that \( (a, b) \sim (a', b') \) and hence \( a / b = {a'} / {b'} \), and let \( v cd' = v c'd \).
+
+  For addition, we have
+  \begin{align*}
+    u v (ad + bc) b' d'
+    &=
+    v dd' (u ab') + u bb' (v cd')
+    = \\ &=
+    v dd' (u a'b) + u bb' (v c'd)
+    = \\ &=
+    u v (a'd' + b'c') b d,
+  \end{align*}
+  hence \( (ad + bc, bd) \sim (a'd' + b'c', b'd') \).
+
+  The proof for correctness of multiplication is the same as our proof of correctness of addition in \cref{def:group_of_differences}.
+\end{defproof}
+
+\begin{theorem}[Ring localization universal property]\label{thm:ring_localization_universal_property}\mcite[60]{Eisenbud1995CommutativeAlgebra}
+  The \hyperref[def:ring_localization]{localization} of \( R \) by \( S \) satisfies the following \hyperref[rem:universal_mapping_property]{universal mapping property}:
+  \begin{displayquote}
+    For every commutative ring \( T \) and every ring homomorphism \( \varphi: R \to T \) such that \( \varphi(s) \) is invertible in \( T \) for every \( s \in S \), \( \varphi \) \hyperref[def:factors_through]{uniquely factors through} \( S^{-1} R \). More precisely, there exists a unique ring homomorphism \( \widetilde{\varphi}: S^{-1} R \to T \) such that the following diagram commutes:
+    \begin{equation}\label{eq:thm:ring_localization_universal_property/diagram}
+      \begin{aligned}
+        \includegraphics[page=1]{output/thm__ring_localization_universal_property}
+      \end{aligned}
+    \end{equation}
+  \end{displayquote}
+\end{theorem}
+\begin{proof}
+  The condition suggests the definition
+  \begin{equation*}
+    \widetilde{\varphi}\parens*{ \frac r s } \coloneqq \varphi(r) \cdot \varphi(s)^{-1}.
+  \end{equation*}
+\end{proof}
+
+\begin{example}\label{ex:def:ring_localization}
+  We list several examples of \hyperref[def:ring/commutative]{commutative ring} \hyperref[def:ring_localization]{localization}.
+
+  \begin{thmenum}
+    \thmitem{ex:def:ring_localization/zero} If \( S \) contains \( 0_R \), then \( S^{-1} R \) is the zero ring.
+
+    \thmitem{ex:def:ring_localization/powers_of_two} The localization \( S^{-1} \BbbZ \) by the set \( S \coloneqq \set{ 2^n \given n \geq 0 } \) is (a ring isomorphic to) the rational numbers with denominators that are powers of two. This is an example of a multiplicative subset that is not the complement of a prime ideal.
+
+    This ring is isomorphic to the ring \( \BbbZ[1 / 2] \) obtained by \hyperref[def:semiring_adjunction]{adjoining} the rational number \( 1 / 2 \) to \( \BbbZ \).
+
+    \thmitem{ex:def:ring_localization/prime_number} Let \( p \) be a \hyperref[def:prime_number]{prime number}. The localization \( S^{-1} \BbbZ \) by \( S \coloneqq \BbbZ \setminus \braket{ p } \) is (a ring isomorphic to) the rational numbers with denominators coprime to \( p \).
+
+    For \( p = 2 \), this localization consists of rational numbers whose denominator is an odd number.
+  \end{thmenum}
+\end{example}
+
+\begin{proposition}\label{thm:def:ring_localization}
+  \hyperref[def:ring_localization]{Ring localizations} have the following basic properties:
+
+  \begin{thmenum}
+    \thmitem{thm:def:ring_localization/inverse} The inclusion \( x / 1_R \) of any element \( x \) from \( S \) is invertible in \( S^{-1} R \) with reciprocal \( 1_R / x \).
+
+    \thmitem{thm:def:ring_localization/divisibility} If \( x = yz \) for some \( y \) in \( S \), then, in the localization \( S^{-1} R \), we have
+    \begin{equation*}
+      \frac x y = \frac z {1_R}.
+    \end{equation*}
+
+    This motivates the notation \( x / y \) for \hyperref[def:domain_quotient]{quotients} in \hyperref[def:integral_domain]{integral domains}.
+
+    \thmitem{thm:def:ring_localization/image_of_ideal}\mcite[432]{Knapp2016BasicAlgebra} Localization preserves \hyperref[def:semiring_ideal]{ideals}. More precisely, given a commutative ring \( R \), a multiplicative subset \( S \) and an ideal \( I \), the set
+    \begin{equation*}
+      S^{-1} I \coloneqq \set*{ \frac r s \given* r \in I \T{and} s \in S }
+    \end{equation*}
+    is an ideal of the localization \( S^{-1} R \).
+
+    \thmitem{thm:def:ring_localization/prime_ideals}\mcite[exerc. 4.3]{КоцевСидеров2016КомутативнаАлгебра} The map \( I \mapsto S^{-1} I \) is a \hyperref[def:preordered_set/homomorphism]{strict order isomorphism} between the set of \hyperref[def:ring/subobject]{prime ideals} of \( R \) not intersecting \( S \) and the set of all prime ideals of \( S^{-1} R \).
+
+    \thmitem{thm:def:ring_localization/by_prime_ideal}\mcite[exerc. 4.2a)]{КоцевСидеров2016КомутативнаАлгебра} The localization \( R_P \) by a \hyperref[def:semiring_ideal/prime]{prime ideal} \( P \) has a unique maximal ideal \( S^{-1} P \) (here \( S \coloneqq R \setminus P \)).
+
+    \thmitem{thm:def:ring_localization/injective_inclusion} The canonical inclusion \( \iota: R \to S^{-1} R \) is injective if and only if \( S \) contains no proper zero divisors.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:ring_localization/inverse} Trivial.
+
+  \SubProofOf{thm:def:ring_localization/divisibility} If \( x = yz \) and \( y \in S \), then, in the notation of \cref{def:ring_localization}, \( (x, y) \sim (z, 1_R) \).
+
+  \SubProofOf{thm:def:ring_localization/image_of_ideal} Trivial since \( S \) is closed under multiplication.
+
+  \SubProofOf{thm:def:ring_localization/prime_ideals} Let \( P \) be a prime ideal in \( R \) disjoint from \( S \). By \cref{thm:def:ring_localization/image_of_ideal}, \( S^{-1} P \) is an ideal of \( S^{-1} R \). If the product \( {ac} / {bd} \) belong to \( S^{-1} P \), then \( ac \in P \) and \( bd \in S \). Since \( P \) is prime, \( a \in P \) or \( c \in P \). If \( a \in P \), then \( ba \in P \) and \( a / d = {ba} / {bd} \in S^{-1} P \); if \( c \in P \), we proceed analogously. Thus, \( S^{-1} P \) is a prime ideal, i.e. the image under \( I \mapsto S^{-1} I \) of a prime ideal is a prime ideal.
+
+  \SubProofOf*[def:function_invertibility/injective/equality]{injectivity} Let \( S^{-1} P = S^{-1} Q \) for prime ideals \( P \) and \( Q \) disjoint from \( S \). Suppose that \( P \setminus Q \) contains at least one element, say \( p \). Then \( \iota(p) = p / {1_R} \) belongs to both \( S^{-1} P \) and \( S^{-1} Q \); hence, \( Q \) contains an element \( q \) such that, for some \( s \in S \) and \( u \in S \),
+  \begin{equation*}
+    p \cdot s \cdot u = 1_R \cdot q \cdot u.
+  \end{equation*}
+
+  Since \( Q \) is an ideal, \( qu \in Q \), and hence \( psu \in Q \). But neither \( p \), \( s \) nor \( u \) belong to \( Q \), which contradicts the assumption that \( Q \) is prime. Therefore, \( P \setminus Q \) is empty. Generalizing, we obtain that \( I \mapsto S^{-1} I \) is injective on prime ideals.
+
+  \SubProofOf*[def:function_invertibility/surjective/existence]{surjectivity} Fix a prime ideal \( T \) in \( S^{-1} R \) and let \( P \) be the set of numerators in \( T \), i.e. if \( p / s \in T \), then \( p \in P \). We will show that \( P \) is a prime ideal; clearly \( T = S^{-1} P \).
+
+  Clearly \( 0_R \in P \). Let \( a, c \in P \). Then there exist \( b, d \in S \) such that \( a / b \) and \( c / d \) belong to \( T \). But \( T \) is closed under multiplication with members of \( R \), hence \( a / 1_R = b (a / b) \) and \( c / 1_R = d (c / d) \) also belong to \( T \). Then their sum \( (a + c) / 1 \) belongs to \( T \), and hence also to \( P \). Thus, \( P \) is closed under addition. We analogously obtain that it is closed under multiplication.
+
+  We have shown that \( P \) is an ideal in \( R \). We must show that it is a prime ideal. Let \( ac \in P \). Then
+  \begin{equation*}
+    \frac a b \cdot \frac c d \in T
+  \end{equation*}
+  for some \( b, d \in S \). Hence, \( a / b \) or \( c / d \) belongs to \( T \), implying that \( a \in P \) or \( c \in P \).
+
+  \SubProofOf*[def:order_function]{monotonicity} Follows from \cref{thm:def:order_function/injective_implies_strict}.
+
+  \SubProofOf{thm:def:ring_localization/by_prime_ideal} In the localization \( R_P \) be a prime ideal, all members of \( P \) become invertible. Hence, a maximal ideal cannot contain members of \( P \). By \cref{thm:def:ring_localization/image_of_ideal}, \( S^{-1} P \) is an ideal, therefore it must be the largest proper ideal.
+
+  \SubProofOf{thm:def:ring_localization/injective_inclusion} Suppose that \( sr = 0_R \) for some \( s \) in \( S \). Then \( \iota(s) = s / 1_R \) is invertible in \( S^{-1} R \) and hence
+  \begin{equation*}
+    \frac {0_R} {1_R}
+    =
+    \frac {sr} {1_R}
+    =
+    \frac {1_R} s \cdot \frac {sr} {1_R}
+    =
+    \frac r {1_R}.
+  \end{equation*}
+
+  Thus, \( \iota(r) = \iota(0_R) \). It follows that \( \iota \) is injective if and only if \( S \) contains no proper zero divisors.
+\end{proof}
+
+\paragraph{Fields}
+
+\begin{definition}\label{def:division_ring}\mcite[91]{Jacobson1985BasicAlgebraI}
+  If every nonzero element of a \hyperref[def:ring/trivial]{nonzero} \hyperref[def:ring]{ring} is \hyperref[def:semiring_divisibility/invertible]{invertible}, we call it a \term[bg=тяло (\cite[394]{Обрешков1962ВисшаАлгебра}), ru=тело (\cite[def. XI.6.6]{Винберг2014КурсАлгебры})]{division ring}.
+\end{definition}
+
+\begin{proposition}\label{thm:division_ring_is_simple}
+  Every \hyperref[def:division_ring]{division ring} is \hyperref[def:ring/simple]{simple}.
+\end{proposition}
+\begin{comments}
+  \item The converse does not hold --- as a consequence of \cref{thm:matrix_algebra_ideals}, a \hyperref[thm:matrix_algebra]{matrix algebra} over a \hyperref[def:field]{field} is a \hyperref[def:ring/simple]{simple ring}, but in general not a division ring.
+\end{comments}
+\begin{proof}
+  Follows from \cref{thm:def:semiring_ideal/ideal_containing_unit}.
+\end{proof}
+
+\begin{proposition}\label{thm:division_ring_is_entire}
+  Every \hyperref[def:division_ring]{division ring} is \hyperref[def:entire_semiring]{entire}.
+\end{proposition}
+\begin{proof}
+  Let \( xy = 0 \). If \( x \) is nonzero, multiplying both sides by \( x^{-1} \), we obtain \( y = 0 \). Analogously, \( y \neq 0 \) implies that \( x = 0 \). In all cases, either \( x \) or \( y \) is necessarily zero.
+
+  Therefore, the ring has no proper zero divisors.
+\end{proof}
+
+\begin{definition}\label{def:field}
+  We will call the \hyperref[def:ring/trivial]{nonzero} \hyperref[def:ring]{ring} \( \BbbK \) a \term[bg=поле (\cite[394]{Обрешков1962ВисшаАлгебра}), ru=поле (\cite[113]{Тыртышников2017ОсновыАлгебры}), en=field (\cite[91]{Jacobson1985BasicAlgebraI})]{field} if any of the following equivalent conditions hold:
+  \begin{thmenum}
+    \thmitem{def:field/division_ring}\mcite[91]{Jacobson1985BasicAlgebraI} \( \BbbK \) is a \hyperref[def:ring/commutative]{commutative} \hyperref[def:division_ring]{division ring}.
+
+    \thmitem{def:field/simple}\mimprovised \( \BbbK \) is \hyperref[def:ring/commutative]{commutative} and \hyperref[def:ring/simple]{simple}.
+  \end{thmenum}
+
+  Fields have the following metamathematical properties:
+  \begin{thmenum}
+    \thmitem{def:field/theory}\mcite[14]{TentZiegler2012ModelTheory} For fields, we can extend the \hyperref[def:ring/theory]{first-order theory of rings} with the following axioms:
+    \begin{align}
+      &\synneg (\syn0 \syneq \syn1), \label{eq:def:field/theory/nonzero} \\
+      &\qforall \synx (\synneg (\synx \syneq 0) \synimplies \qexists \syny (\synx \synmult \syny \syneq \syn1)). \label{eq:def:field/theory/invertibility}
+    \end{align}
+
+    Neither axiom is an \hyperref[def:fol_equation]{equation}, so the results from \fullref{sec:equational_theories} no longer apply.
+
+    \thmitem{def:field/morphism}\mcite[453]{Knapp2016BasicAlgebra} We say that the function \( \varphi: \BbbK \to \BbbL \) between fields is a \term{field homomorphism} if it is a \hyperref[def:ring/morphism]{unital ring homomorphism}.
+
+    The ring homomorphism are precisely the \hyperref[def:fol_homomorphism]{first-order homomorphisms}, which makes the concepts from \fullref{sec:first_order_structures} applicable.
+
+    \thmitem{def:field/category}\mimprovised For a fixed \hyperref[def:grothendieck_universe]{Grothendieck universe} \( \mscrU \), the first-order theory of fields gives rise to a \hyperref[def:fol_theory_model_functor/obj]{categories of \( \mscrU \)-small models}. We denote this category by \( \ucat{Field} \).
+
+    Since the theory is not equational and \cref{thm:fol_equational_theory_models} doesn't apply, this category is not as well-behaved as those of groups, rings or modules.
+
+    \thmitem{def:field/subobject}\mcite[231]{Jacobson1985BasicAlgebraI} A \term[bg=подполе (\cite[192]{ГеновМиховскиМоллов1991Алгебра}), ru=подполе (\cite[153]{Тыртышников2017ОсновыАлгебры})]{subfield} of a field is a \hyperref[def:ring/subobject]{unital subring} that is also a field.
+
+    If \( \Bbbk \) is a subfield of \( \BbbK \), we call \( \BbbK \) an \term[bg=разширение на поле (\cite[194]{ГеновМиховскиМоллов1991Алгебра}), ru=расширение поля (\cite[160]{Кострикин2020АлгебраЧасть1})]{extension field}. These will be discussed in \fullref{sec:field_extensions}.
+  \end{thmenum}
+\end{definition}
+\begin{defproof}
+  The equivalence of definitions follows from \cref{thm:def:semiring_ideal/invertible}.
+\end{defproof}

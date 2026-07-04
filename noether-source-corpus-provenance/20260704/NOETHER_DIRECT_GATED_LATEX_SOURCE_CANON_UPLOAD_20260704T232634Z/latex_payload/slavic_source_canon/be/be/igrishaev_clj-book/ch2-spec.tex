@@ -1,0 +1,4925 @@
+\chapter{Clojure.spec}
+
+\label{chapter-spec}
+
+\index{spec}
+
+\begin{teaser}
+В этой главе мы рассмотрим clojure.spec~--- библиотеку для проверки данных в
+Clojure. Это особенная библиотека: на ней пишут валидаторы и парсеры, с её
+помощью генерируют данные для тестов. Spec фундаментальна по своей природе,
+поэтому уделим ей пристальное внимание.
+\end{teaser}
+
+Название spec происходит от specification (с англ.~--- <<спецификация, описание>>). Это
+набор функций и макросов, чтобы схематично описать данные. Например, из каких
+ключей состоит словарь и типы его значений. Запись называют спецификацией данных или
+сокращённо спекой. Далее мы будем использовать короткий термин.
+
+Специальные функции проверяют, подходят ли данные спеке. Если нет, получим
+отчёт, в каком месте произошла ошибка и почему.
+
+\index{модули!clojure.spec.alpha}
+
+Spec входит в поставку Clojure начиная с версии 1.9. Полностью модуль называется
+\texttt{clojure.\-spec.\-alpha}. Не волнуйтесь о частичке alpha на конце
+имени: она осталась по историческим причинам.
+
+\index{валидация}
+\index{парсинг}
+
+Spec стала важной вехой в развитии Clojure. Ключевая особенность Spec в том, что
+она фундаментальна. Валидация данных~--- лишь малая часть её возможностей. Spec
+не только проверяет данные, но и преобразует их. На Spec легко писать парсеры.
+
+Формально Spec~--- обычная библиотека. Но её абстракции настолько мощны, что
+Clojure переиспользует их. С версии 1.10 компилятор Clojure анализирует основные
+макросы с помощью Spec. Так проекты дополняют друг друга.
+
+Прежде чем браться за техническую часть, разберёмся с теорией. Вспомним, как
+связаны между собой классы, типы и валидация.
+
+\section{Типы и классы}
+
+\label{type-and-pred}
+
+\index{типизация!статическая}
+\index{типизация!динамическая}
+
+Считается, что код на языке со статической типизацией безопаснее, чем с
+динамической. Компилятор не позволит сложить число и~строку ещё до того, как
+мы запустим программу. Однако тип переменной~--- это лишь одно из многих
+ограничений. Редко случается так, что тип задаёт все допустимые
+значения. Чаще всего вместе с типом учитывают границы, длину, попадание в
+интервалы и перечисления. Иногда значения верны по отдельности, но не могут
+стоять в паре друг с другом.
+
+\index{порт}
+
+Рассмотрим, как выразить в коде сетевой порт. В операционной системе это число
+от 0 до $2^{16}-1$. Целые типы обычно описаны степенями двойки, поэтому найдётся
+условный \verb|unsigned int|, который охватит именно этот диапазон. У нулевого
+порта особая семантика, и в~прикладных программах его не используют.
+Вероятность, что в~языке предусмотрен тип от~1 до~$2^{16}-1$, крайне мала.
+
+Ещё легче увидеть проблему на диапазоне дат. Единичная дата может быть сколь
+угодно разумной, но диапазон накладывает ограничение: начало строго меньше
+конца. Бизнес дополняет: разница не больше недели, обе даты в рамках текущего
+месяца.
+
+\index{валидация}
+
+В ООП знают об этой проблеме и решают её классами \verb|UnixPort|
+и~\verb|DateRange|. Условный \verb|UnixPort|~--- это класс с конструктором. Он
+принимает целое число и выполняет проверку на диапазон. Если число выходит за
+рамки 1~\dots~$2^{16}-1$, конструктор бросит исключение. Программист уверен, что
+создал новый тип. Это неверно~--- классы и типы не тождественны.
+
+Конструктор представляет собой обычный валидатор. Он неявно сработает в
+выражении \spverb|new UnixPort(8080)|. Из-за неявности возникает иллюзия, что мы
+создали тип. На самом деле это валидация и синтаксический сахар.
+
+\index{синтаксический сахар}
+
+В промышленных языках нельзя описать класс так, чтобы выражение
+\verb|new UnixPort(-42)| привело к ошибке компиляции. Найти её могут
+только сторонние утилиты и плагины для IDE.
+
+Конструктор нельзя использовать повторно. Представим классы \code{UnixPort} и
+\code{NetPort} из разных библиотек. Первый класс проверяет порт на~диапазон
+и~бросает исключение. Выгодно пользоваться этим классом, поскольку он совмещён
+с~валидацией. Однако сторонняя библиотека принимает \verb|NetPort|. Возникает
+проблема конвертации: нужно извлечь <<сырой>> порт из \verb|UnixPort| и~передать
+в~\verb|NetPort|. Это лишний код и путаница с~классами.
+
+\index{классы}
+
+Признаки удобной валидации~--- это независимость и компоновка. Независимость
+означает, что данные не привязаны к валидации. Нет ничего зазорного в том, что
+порт~--- целое число. Пусть библиотека принимает \verb|integer|, а разработчик
+сам решит, как его проверить. Появится выбор, насколько строгой должна быть
+проверка.
+
+\index{функции!композиция}
+
+Компоновка означает, что полезно иметь несколько простых проверок, чтобы
+составить из них сложные. Пусть заданы проверки <<это>> и~<<то>> и теперь нужны
+комбинации <<это \emph{и}~то>>, <<это \emph{или}~то>>. В идеале компоновка
+занимает пару строк и считается тривиальной задачей.
+
+\index{функции}
+
+Оба тезиса ложатся на функцию. На неё действует одна операция~--- вызов, что
+упрощает схему. Функция принимает значение и возвращает истину или ложь. Это
+ответ на вопрос, было ли значение правильным или нет. Функция~--- объект высшего
+порядка, поэтому другие функции строят из них комбинации.
+
+\section{Основы spec}
+
+С багажом рассуждений мы подходим к Spec. Подключим модуль в~текущее
+пространство:
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.spec.alpha :as s])
+  \end{clojure}
+\end{english}
+
+Синоним \verb|s| нужен, чтобы избежать конфликтов имён с модулем
+\code{clo\-ju\-re.\-co\-re}. Spec несёт макросы \verb|s/and|, \verb|s/or| и другие, у
+которых ничего общего с обычными \verb|and| и \verb|or|. Считается дурным тоном,
+когда имена одного модуля затеняют другие, поэтому обращаемся к Spec через
+синоним.
+
+\index{spec!def}
+
+Главная операция в Spec~--- создать новую \emph{спеку}:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::string string?)
+  \end{clojure}
+\end{english}
+
+\index{clojure.core!string?}
+
+Макрос \verb|s/def| принимает ключ и предикат. Он строит объект спеки из
+функции \verb|string?| и помещает его в глобальный реестр с~ключом
+\verb|::string|.
+
+Важно понимать, что \verb|::string|~--- не спека, а псевдоним. Макросы Spec
+работают не с объектами спеки, а с ключами. На нижнем уровне они сами найдут
+спеку в реестре. Это удобно, потому что ключи глобальны: в любом месте можно
+написать \verb|:my.project/string| без лишних импортов.
+
+\index{spec!get-spec}
+
+Вторым аргументом идёт предикат \verb|string?|. Предикатом называют функцию,
+которая возвращает истину или ложь. Функция~--- это не спека, а строительный
+материал для неё. Спека оборачивает функцию в объект, который реализует
+внутренний протокол спеки. Технически на объект можно сослаться: функция
+\verb|s/get-spec| вернёт его по~ключу спеки. На практике объект спеки не нужен,
+потому что везде указывают ключи.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/get-spec ::string)
+;;#object[clojure.spec.alpha$reify 0x...]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/get-spec ::string)
+;; #object[clojure.spec.alpha$reify 0x3e9dde1d]
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{spec!регистр}
+
+Спеки хранятся в глобальном реестре под своими ключами. Макрос \verb|s/def| не
+проверяет, была ли уже такая спека, перед тем как поместить её в
+реестр. Если была, мы потеряем её старую версию.
+
+\index{конфликты ключей}
+
+Spec не работает с ключами без пространства, например \verb|:name| или
+\verb|:email|. С ними легко случайно затереть одну спеку другой. Чтобы назначить
+ключу текущее пространство, поставьте два двоеточия: \verb|::name|,
+\verb|::email|. При запуске такая запись станет \verb|:my.module/name| и
+\code{:my.module/\-email}.
+
+\index{пространства имён!текущее}
+
+Самое простое, что можно сделать со спекой,~--- проверить, подходит ли ей
+значение. Функция \verb|s/valid?| принимает ключ спеки, значение и~возвращает
+\verb|true| или \verb|false|.
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::string 1)      ;; false
+(s/valid? ::string "test") ;; true
+  \end{clojure}
+\end{english}
+
+Пустая строка пройдёт валидацию, но чаще всего в этом нет смысла. Пустые имя или
+заголовок означают ошибку. Объявим спеку, которая дополнительно проверит, что
+строка не пустая. Наивный способ это сделать~--- усложнить предикат:
+
+\index{spec!::ne-string}
+
+\begin{english}
+  \begin{clojure}
+(s/def ::ne-string
+  (fn [val]
+    (and (string? val)
+         (not (empty? val)))))
+  \end{clojure}
+\end{english}
+
+\noindent
+Быстрая проверка:
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::ne-string "test") ;; true
+(s/valid? ::ne-string "")     ;; false
+  \end{clojure}
+\end{english}
+
+\label{ne-string}
+
+Ключ \verb|::ne-string| происходит от <<\textbf{n}on-\textbf{e}mpty
+string>>. Спека встречается часто, поэтому логично сэкономить на её имени.
+
+Более изящный способ задать эту же спеку~--- объединить предикаты через
+\verb|every-pred|. Функция принимает предикаты и возвращает супер-предикат. Он
+вернёт истину только если истинны все предикаты.
+
+\begin{english}
+  \begin{clojure}
+(s/def ::ne-string
+  (every-pred string? not-empty))
+  \end{clojure}
+\end{english}
+
+\index{spec!and}
+\index{clojure.core!every-pred}
+\index{предикаты}
+
+Мы собрали новую сущность из базовых, что короче и следует функциональному
+стилю. Но ещё лучше комбинировать не предикаты, а спеки. Макрос \verb|s/and|
+объединяет несколько предикатов и спек в новую спеку:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::ne-string
+  (s/and string? not-empty))
+  \end{clojure}
+\end{english}
+
+Так в Clojure строят сложные спеки: объявляют примитивы и~наращивают их
+комбинации.
+
+\section{Исключения}
+
+\index{исключения}
+
+Во время проверки Spec не перехватывает исключения~--- о них заботится
+программист. Рассмотрим спеку для проверки URL. Проще всего это сделать
+регулярным выражением:
+
+\pagebreaklarge
+
+\index{clojure.core!re-matches}
+\index{регулярные выражения}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::url
+  (partial
+    re-matches #"(?i)^http(s?)://.*"))
+
+(s/valid? ::url "test") ;;false
+(s/valid? ::url "http://test.com") ;;true
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::url
+  (partial re-matches #"(?i)^http(s?)://.*"))
+
+(s/valid? ::url "test")            ;; false
+(s/valid? ::url "http://test.com") ;; true
+  \end{clojure}
+\end{english}
+
+\fi
+
+Что-то отличное от строки вызовет ошибку:
+
+\index{исключения}
+\index{классы!NullPointerException}
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::url nil)
+;; Execution error (NullPointerException)
+;; at java.util.regex.Matcher...
+  \end{clojure}
+\end{english}
+
+\index{NPE}
+
+Примечание: класс \verb|NullPointerException|~--- частый гость в мире Java. Для
+краткости его называют \verb|NPE|.
+
+Причина в том, что \verb|nil| попал в функцию \verb|re-matches|. Функция
+трактует аргумент как строку, что приводит к \verb|NPE|. Перепишите спеку так,
+чтобы она не бросала исключения. В примере с \verb|::url| сначала убедимся,
+что это строка, и только потом проверим регулярным выражением.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::url
+  (s/and ::ne-string
+         (partial re-matches
+           #"(?i)^http(s?)://.*")))
+
+(s/valid? ::url nil) ;; false
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::url
+  (s/and ::ne-string
+         (partial re-matches #"(?i)^http(s?)://.*")))
+
+(s/valid? ::url nil) ;; false
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{spec!::ne-string}
+
+Макрос \verb|s/and| устроен так, что на первой неудаче цепь оборвётся. Всё, что
+после звена \verb|::ne-string|, не сработает, и исключения не будет.
+
+По аналогии проверим возраст пользователя. Это предикаты на~число и~диапазон.
+
+\begin{english}
+  \begin{clojure}
+(s/def ::age
+  (s/and int? #(<= 0 % 150)))
+
+(s/valid? ::age nil) ;; false
+(s/valid? ::age -1)  ;; false
+(s/valid? ::age 42)  ;; true
+  \end{clojure}
+\end{english}
+
+\section{Спеки-коллекции}
+
+\index{коллекции}
+\index{скаляры}
+
+Выше мы проверяли примитивные типы, или \emph{скаляры}. Это удобно для примеров,
+но редко встречается на практике. В~основном проверяют не скаляры,
+а~коллекции. Spec предлагает макросы, чтобы задать спеки-коллекции из
+примитивов.
+
+\index{spec!coll-of}
+
+Макрос \verb|s/coll-of| принимает предикат или ключ и возвращает
+спеку-коллекцию. Она проверяет, что каждый элемент проходит валидацию. Вот так
+мы определим список URL:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::url-list (s/coll-of ::url))
+  \end{clojure}
+\end{english}
+
+\noindent
+Быстрая проверка:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::url-list
+  ["http://test.com" "http://ya.ru"])
+;; true
+
+(s/valid? ::url-list
+  ["http://test.com" "dunno.com"])
+;; false
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::url-list ["http://test.com" "http://ya.ru"])
+;; true
+
+(s/valid? ::url-list ["http://test.com" "dunno.com"])
+;; false
+  \end{clojure}
+\end{english}
+
+\fi
+
+В спеке \code{s/coll-of} ключи \verb|:count|, \verb|:min-count| и
+\verb|:max-count| проверяют число элементов в списке: точное, минимальное и
+максимальное количество. Наиболее частый сценарий~--- убедиться, что список не
+пустой, потому что иначе нет смысла его обрабатывать. Если задать
+\verb|:min-count| единицу, мы отсечём пустоту:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::ne-url-list
+  (s/coll-of ::url :min-count 1))
+
+(s/valid? ::ne-url-list [])
+;; false
+  \end{clojure}
+\end{english}
+
+\index{spec!map-of}
+\index{HTTP!параметры}
+
+Макрос \verb|s/map-of| описывает словарь. Вспомним поле \verb|:params| из
+главы про веб-разработку \page{ring-params}. Его ключи~--- кейворды, а значения~---
+строки. На языке спеки параметры выглядят так:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::params
+  (s/map-of keyword? string?))
+
+(s/valid? ::params
+  {:foo "test"})  ;; true
+(s/valid? ::params
+  {"foo" "test"}) ;; false
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::params
+  (s/map-of keyword? string?))
+
+(s/valid? ::params {:foo "test"})  ;; true
+(s/valid? ::params {"foo" "test"}) ;; false
+  \end{clojure}
+\end{english}
+
+\fi
+
+В целом проверка \verb|s/map-of| довольно слабая, чтобы покрыть все
+варианты. Факт того, что значения~--- строки не даёт полезной информации. Важнее
+убедиться, что в словаре именно те ключи, что мы ожидаем. К тому же редко бывает
+так, что тип значений одинаковый. Наоборот, словарь несёт разные сведения о
+сущности: имя, возраст, дату.
+
+\index{spec!keys}
+
+В таких случаях используют макрос \verb|s/keys|, в котором перечислены
+спеки. Имена спек совпадают с ключами словаря. Значения ключей проверяются
+одноимёнными спеками.
+
+Представим веб-страницу с адресом и описанием. Объявим спеки этих полей по
+отдельности:
+
+\begin{english}
+  \begin{clojure}
+(s/def :page/address ::url)
+(s/def :page/description ::ne-string)
+  \end{clojure}
+\end{english}
+
+\index{пространства имён}
+
+Обратите внимание на пространство ключей. Адрес и описание относятся к странице,
+поэтому им задают своё пространство. У статьи или книги тоже могут быть адрес и
+описание. Пространство обещает, что спеки \verb|:page/address| и
+\verb|:book/address| не заменят друг друга.
+
+Составим спеку страницы:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::page
+  (s/keys :req-un [:page/address
+                   :page/description]))
+  \end{clojure}
+\end{english}
+
+\index{spec!:req-un}
+
+В параметре \verb|:req-un| указан вектор спек. Для каждой из них спека ищет в
+словаре ключ с таким же именем и проверяет значение. Но сначала рассмотрим, что
+означает \verb|:req-un| и какие ещё параметры принимает \verb|s/keys|.
+
+Имя \verb|:req-un| состоит из частей req и un. Это признаки наличия
+ключа и его типа. Req (англ.~required) означает, что ключи обязательно должны
+быть в словаре. Если хотя бы одного ключа нет, получим ошибку. Противоположный
+по смыслу параметр называется opt (англ.~optional). В нём указаны ключи,
+которых может не быть. Их валидация происходит, только если они были в словаре.
+
+\index{spec!:un}
+
+Частичка un означает unqualified, неполный ключ. При проверке un-ключей
+спека отбрасывает их пространство. Например, если указать \verb|:page/address|
+в списке \verb|:req-un|, то в словаре ищется ключ \verb|:address|, а не
+\verb|:page/address|.
+
+Неполные ключи встречаются часто. Данные приходят из чужих API и баз данных,
+которые не знают о пространствах имён. Исключения возможны, когда весь стек
+фирмы построен на Clojure. В этом случае клиент и сервер обмениваются данными с
+полными ключами.
+
+Различают следующие комбинации \verb|req|, \verb|opt| и \verb|un|:
+
+\begin{itemize}
+
+\item
+  \verb|:req|~--- необходимые полные ключи,
+
+\item
+  \verb|:req-un|~--- необходимые краткие ключи,
+
+\index{spec!:opt}
+
+\item
+  \verb|:opt|~--- опциональные полные ключи,
+
+\index{spec!:opt-un}
+
+\item
+  \verb|:opt-un|~--- опциональные краткие ключи.
+
+\end{itemize}
+
+У спеки \verb|::page| ключи обязательны и не учитывают пространство. Ниже
+примеры данных \emph{с ошибками}. Это может быть неправильный адрес, пустое
+описание, пропавший ключ. Если каждый из словарей подставить в выражение
+\spverb|(s/valid? ::page <data>)|, результат будет ложью.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+{:address "clojure.org" ;; not a URL
+ :description "Clojure Language"}
+
+;; an empty string
+{:address "https://clojure.org/"
+ :description ""}
+
+;; no description
+{:address "https://clojure.org/"}
+
+ ;; full keys
+{:page/address "https://clojure.org/"
+ :page/description "Clojure Language"}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+{:address "clojure.org" ;; not a URL
+ :description "Clojure Language"}
+
+{:address "https://clojure.org/"
+ :description ""} ;; an empty string
+
+{:address "https://clojure.org/"} ;; no description
+
+{:page/address "https://clojure.org/" ;; full keys
+ :page/description "Clojure Language"}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Обратите внимание на последний случай. Значения верны, но у ключей пространство
+\verb|:page|. Валидация не сработает, потому что спека ищет \verb|:address|,
+а не \verb|:page/address|. Чтобы исправить последний пример, замените тип
+ключей \verb|:req-un| на \verb|:req| (необходимые полные).
+
+\index{spec!valid?}
+
+\pagebreaklarge
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::page-fq
+  (s/keys :req [:page/address
+                :page/description]))
+
+(s/valid? ::page-fq
+  {:page/address "https://clojure.org/"
+   :page/description "Clojure Language"})
+;; true
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::page-fq
+  (s/keys :req [:page/address
+                :page/description]))
+
+(s/valid? ::page-fq
+          {:page/address "https://clojure.org/"
+           :page/description "Clojure Language"})
+;; true
+  \end{clojure}
+\end{english}
+
+\fi
+
+Усложним пример: добавим странице статус, который мы получили при
+последнем обращении к ней. Поле опционально, потому что если к странице ещё не
+обращались, в него нечего записать. Новая спека:
+
+\begin{english}
+  \begin{clojure}
+(s/def :page/status int?)
+
+(s/def ::page-status
+  (s/keys :req-un [:page/address
+                   :page/description]
+          :opt-un [:page/status]))
+  \end{clojure}
+\end{english}
+
+Словари с правильным статусом и без него пройдут валидацию:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::page-status
+  {:address "https://clojure.org/"
+   :description "Clojure Language"})
+
+(s/valid? ::page-status
+  {:address "https://clojure.org/"
+   :description "Clojure Language"
+   :status 200})
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::page-status
+          {:address "https://clojure.org/"
+           :description "Clojure Language"})
+
+(s/valid? ::page-status
+          {:address "https://clojure.org/"
+           :description "Clojure Language"
+           :status 200})
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{nil}
+
+Заметим, что \verb|s/keys| различает \verb|nil| и наличие ключа. Если статус
+\verb|nil|, он \emph{состоит} в словаре. Сработает проверка \verb|nil| на
+\verb|int?|, что приведёт к негативному результату. Это тот случай, когда пустое
+значение не равно его отсутствию.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::page-status
+  {:address "https://clojure.org/"
+   :description "Clojure Language"
+   :status nil})
+;; false
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::page-status
+          {:address "https://clojure.org/"
+           :description "Clojure Language"
+           :status nil})
+;; false
+  \end{clojure}
+\end{english}
+
+\fi
+
+\section{Вывод значений}
+
+\label{spec-conform}
+
+\index{вывод!значений}
+
+До сих пор мы проверяли данные с помощью \verb|s/valid?|. Функция вернёт истину
+или ложь, что значит~--- данные верны или нет. Иногда одной проверки
+недостаточно: значения корректны, но требуется привести их к~нужному типу.
+
+Предположим, на вход поступило число в виде строки. Мы убедились, что строка
+состоит из цифр и не превышает допустимой длины. Однако после валидации значение
+по-прежнему строка, и нужно парсить его вручную. Хотелось бы, чтобы типы вывел
+за нас какой-то механизм.
+
+\index{spec!conform}
+
+Spec предлагает такие возможности. Это две функции \texttt{s/con\-for\-mer}
+и~\code{s/\-con\-form} (англ.~con\-form~--- <<подчиняться>>).
+
+\label{spec-invalid}
+
+\index{spec!conformer}
+
+\index{spec!::invalid}
+
+Сначала пишут функцию вывода. Она принимает исходное значение и возвращает либо
+новое, либо ключ \verb|::s/invalid|, что означает ошибку. Затем функцию
+оборачивают в \verb|s/conformer|, чтобы получить спеку. Далее вызывают
+\verb|(s/conform)| с ключом спеки и данными, которые нужно преобразовать. Если
+вывод прошёл без ошибок, получим новое значение, а иначе~--- ключ
+\verb|::s/invalid|.
+
+Рассмотрим вывод числа из строки. Чтобы отличить вывод данных от валидации, к
+имени добавляют стрелку, что означает приведение типа.
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->int
+  (s/conformer
+   (fn [value]
+     (try
+       (Integer/parseInt value)
+       (catch Exception e
+         ::s/invalid)))))
+  \end{clojure}
+\end{english}
+
+\noindent
+Эту спеку передают в \verb|s/conform| с данными:
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::->int "42") ;; 42
+
+(s/conform ::->int "dunno")
+:clojure.spec.alpha/invalid
+  \end{clojure}
+\end{english}
+
+\index{исключения}
+
+\verb|S/conform| не ловит исключения при работе, а вывод типов богат на
+них. Будет правильно перехватить исключение и вернуть \verb|::s/invalid|, как
+в примере выше.
+
+Обе спеки~--- валидатор и конформер~--- можно объединить через \verb|s/and|,
+чтобы проверить тип перед выводом. В нашем случае убедимся, что значение~---
+строка. Так мы не допустим, чтобы в \verb|parseInt| попал \verb|nil| или
+что-то другое:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->int
+  (s/and ::ne-string ::->int))
+
+(s/conform ::->int nil)
+:clojure.spec.alpha/invalid
+  \end{clojure}
+\end{english}
+
+\index{веб-разработка!даты}
+
+Рассмотрим, как восстановить из строки более сложный тип~--- дату. Это старая
+проблема веб-разработки: JSON не поддерживает даты, поэтому их передают строкой
+ISO или числом секунд. Возникает вопрос, как привести их к~объекту на сервере.
+
+\index{модули!clojure.instant}
+\index{функции!read-instant-date}
+
+Понадобятся парсер строки и небольшая обвязка, чтобы подружить его со
+спекой. Функция \verb|read-instant-date| из модуля \verb|clojure.instant| читает
+дату из строки. Она лояльна к формату и учитывает неполную запись. Например,
+датой может быть только год.
+
+\index{даты}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.instant
+           :refer [read-instant-date]])
+
+(read-instant-date "2019")
+#inst "2019-01-01T00:00:00.000-00:00"
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.instant :refer [read-instant-date]])
+
+(read-instant-date "2019")
+#inst "2019-01-01T00:00:00.000-00:00"
+  \end{clojure}
+\end{english}
+
+\fi
+
+Обернём функцию в спеку:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->date
+  (s/and
+   ::ne-string
+   (s/conformer
+    (fn [value]
+      (try
+        (read-instant-date value)
+        (catch Exception e
+          ::s/invalid))))))
+  \end{clojure}
+\end{english}
+
+Перед разбором мы делаем минимальные проверки. Убеждаемся, что это не пустая
+строка, чтобы отсечь \verb|nil| и прочий мусор. Вывод даты:
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::->date "2019-12-31")
+#inst "2019-12-31T00:00:00.000-00:00"
+  \end{clojure}
+\end{english}
+
+\noindent
+Дата и время:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::->date
+           "2019-12-31T23:59:59")
+#inst "2019-12-31T23:59:59.000-00:00"
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::->date "2019-12-31T23:59:59")
+#inst "2019-12-31T23:59:59.000-00:00"
+  \end{clojure}
+\end{english}
+
+\fi
+
+По аналогии напишите спеку \verb|::ts->date|, которая выводит дату из эпохи
+Unix. Добейтесь следующего результата:
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::ts->date 1609230152)
+;; #inst "2020-12-29T08:22:32.000-00:00"
+  \end{clojure}
+\end{english}
+
+\section{Спеки-перечисления}
+
+\index{spec!перечисления}
+
+Иногда известно заранее, какие значения принимает поле. Представим, что при
+вызове API клиент передаёт архитектуру системы~--- 32 или 64 бита. Ради двух
+значений нет смысла парсить число: подойдёт \verb|case| или словарь.
+
+Ниже вариант с макросом \verb|case|. Если не нашли допустимых значений, сигналим
+об ошибке ключом \verb|::s/invalid|. Заметим, что \verb|case| не означает
+линейный перебор. Он строит индексы веток и сразу переходит на нужную.
+
+\index{clojure.core!case}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->bits
+  (s/conformer
+   (fn [value]
+     (case value
+       "32" 32 "64" 64
+       ::s/invalid))))
+
+(s/conform ::->bits "32") ;; 32
+
+(s/conform ::->bits "42")
+:clojure.spec.alpha/invalid
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->bits
+  (s/conformer
+   (fn [value]
+     (case value
+       "32" 32 "64" 64
+       ::s/invalid))))
+
+(s/conform ::->bits "32") ;; 32
+(s/conform ::->bits "42") :clojure.spec.alpha/invalid
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{конфигурация}
+
+Второй вариант основан на словаре для перевода значения. Удобно, когда словарь
+живёт в отдельной переменной. Его легко дополнить или вынести в~конфигурацию,
+при этом логика валидации не изменится.
+
+\begin{english}
+  \begin{clojure}
+(def bits-map {"32" 32 "64" 64})
+
+(s/def ::->bits
+  (s/conformer
+   #(get bits-map % ::s/invalid)))
+  \end{clojure}
+\end{english}
+
+Похожим образом читают логические значения из строк. Нет единого соглашения о
+том, как передать истину и ложь в тексте. Это могут быть \verb|True|,
+\verb|TRUE|, \verb|1|, \verb|yes| для истины и противоположности \verb|FALSE|,
+\verb|no| и~другие. При разборе значений их приводят к одному
+регистру. В~Clojure \verb|FALSE| и \verb|false|~--- разные строки, даже если
+отправитель имел в виду одно и то же. Сценарий выглядит так:
+
+\begin{itemize}
+
+\item
+  убедиться, что значение~--- строка;
+
+\item
+  привести её к нижнему регистру;
+
+\item
+  найти значение по словарю или \verb|case|.
+
+\end{itemize}
+
+\noindent
+Код вывода:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->bool
+  (s/and
+   ::ne-string
+   (s/conformer
+     clojure.string/lower-case)
+   (s/conformer
+    (fn [value]
+      (case value
+        ("true" "1" "on" "yes")
+        true
+
+        ("false" "0" "off" "no")
+        false
+
+        ::s/invalid)))))
+
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->bool
+  (s/and
+   ::ne-string
+   (s/conformer clojure.string/lower-case)
+   (s/conformer
+    (fn [value]
+      (case value
+        ("true" "1" "on" "yes") true
+        ("false" "0" "off" "no") false
+        ::s/invalid)))))
+
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+Вывод в действии:
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::->bool "True")  ;; true
+(s/conform ::->bool "yes")   ;; true
+(s/conform ::->bool "0")     ;; false
+(s/conform ::->bool "FALSE") ;; false
+  \end{clojure}
+\end{english}
+
+\section{Продвинутые техники}
+
+\index{паттерны}
+
+Мы написали достаточно кода, чтобы увидеть одинаковые участки~--- паттерны. В
+этом разделе мы вынесем их в функции и~макросы, которые ускорят вашу работу.
+
+\subsection{Множества}
+
+\index{множества}
+
+Когда значения известны, на роль спеки подходит множество. Оно ведёт себя как
+функция: если аргумент найден во множестве, получим его же. Если нет, результат
+будет \verb|nil|. Представим, что статус задачи может быть строкой \verb|todo|,
+\verb|in_progress| и \verb|done|. Опишем спеку множеством этих значений:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::status
+  #{"todo" "in_progres" "done"})
+(s/valid? ::status "todo") ;; true
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::status #{"todo" "in_progres" "done"})
+(s/valid? ::status "todo") ;; true
+  \end{clojure}
+\end{english}
+
+\fi
+
+Множества подходят и для точного равенства. Если спека принимает строго одно
+значение, её по-прежнему можно задать множеством одного
+элемента. Предположим, параметр \verb|notify| определяет, как часто уведомлять
+пользователя. Пока что мы поддерживаем только тип \verb|daily|, поэтому
+запишем спеку так:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::notification #{"daily"})
+  \end{clojure}
+\end{english}
+
+\noindent
+Это же выражение можно переписать на \verb|partial| от равенства:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::notification
+  (partial = "daily"))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::notification (partial = "daily"))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Плюс множества в том, что его легче расширить, вынести в~файл или
+конфигурацию. Если появятся пользователи, которых нужно уведомлять только раз в
+неделю или месяц, мы просто добавим элементы \verb|:weekly| и \verb|:monthly|. В
+случае с равенством придётся менять код.
+
+\subsection{Перечисления}
+
+\index{clojure.core!contains?}
+
+Множество не подходит в случаях, когда \verb|false| и \verb|nil| считают верными
+значениями. \verb|S/valid?| трактует их как неудачу. Если \verb|nil| или
+\verb|false| допустимы, такие случаи проверяют функцией \verb|contains?|:
+
+\begin{english}
+  \begin{clojure}
+(contains? #{1 :a nil} nil) ;; true
+  \end{clojure}
+\end{english}
+
+Чтобы не повторяться, напишем функцию \verb|enum|. Она принимает значения и
+возвращает предикат. В свою очередь, предикат принимает аргумент и проверяет,
+есть ли такой среди исходных значений.
+
+\begin{english}
+  \begin{clojure}
+(defn enum [& args]
+  (let [arg-set (set args)]
+    (fn [value]
+      (contains? arg-set value))))
+  \end{clojure}
+\end{english}
+
+Функция внутри замкнута на переменной \verb|arg-set|. Это множество, которое
+получили из списка аргументов. Мы создали его один раз, чтобы не делать это
+постоянно при вызове предиката. Новое перечисление выглядит коротко и ясно:
+
+\ifafive
+
+\begin{english}
+  \begin{clojure}
+(s/def ::status
+  (enum "todo" "in_progres" "done"))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::status
+  (enum "todo"
+        "in_progres"
+        "done"))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\subsection{With-conformer}
+
+\index{макросы!with-conformer}
+\index{исключения!try}
+\index{исключения!catch}
+
+Конформеры требуют особого внимания. В них легко допустить ошибку: не
+перехватить исключение или забыть о том, что функцию нужно обернуть в
+\verb|s/conformer|. Чтобы снизить риск ошибки, вынесем рутину в~макрос
+\verb|with-conformer|.
+
+Макрос принимает символ переменной и произвольное тело. Он порождает функцию
+одного аргумента, которая выполнит тело в блоке \verb|try/catch|. Функция
+обёрнута в \verb|s/conformer|. Если исключения не было, получим последнее
+выражение тела. В~противном случае вернётся \verb|::s/invalid|. Мы специально
+поместили символ переменой в квадратные скобки, чтобы синтаксис напоминал
+функцию (\verb|defn|).
+
+\begin{english}
+  \begin{clojure}
+(defmacro with-conformer
+  [[bind] & body]
+  `(s/conformer
+    (fn [~bind]
+      (try
+        ~@body
+        (catch Exception e#
+          ::s/invalid)))))
+  \end{clojure}
+\end{english}
+
+Вывод числа:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->int
+  (s/and
+    ::ne-string
+    (with-conformer [val]
+      (Integer/parseInt val))))
+
+(s/conform ::->int "123")
+;; 123
+  \end{clojure}
+\end{english}
+
+\noindent
+и булева типа:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->bool
+  (s/and
+   ->lower
+   (with-conformer [val]
+     (case val
+       ("true"  "1" "on"  "yes")
+       true
+
+       ("false" "0" "off" "no" )
+       false))))
+
+(s/conform ::->bool "no")
+;; false
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->bool
+  (s/and
+   ->lower
+   (with-conformer [val]
+     (case val
+       ("true"  "1" "on"  "yes") true
+       ("false" "0" "off" "no" ) false))))
+
+(s/conform ::->bool "no")
+;; false
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+В последнем примере переменная \verb|->lower|~--- обёртка для приведения к
+нижнему регистру:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(def ->lower
+  (s/and
+    string?
+    (s/conformer
+      clojure.string/lower-case)))
+  \end{clojure}
+\end{english}
+\else
+
+\begin{english}
+  \begin{clojure}
+(def ->lower
+  (s/and
+    string?
+    (s/conformer clojure.string/lower-case)))
+  \end{clojure}
+\end{english}
+
+\fi
+
+В \verb|case| необязательно указывать \verb|::s/invalid| на конце
+макроса. Если \verb|case| не нашёл ветку и не задан вариант по умолчанию,
+он~бросит исключение. \verb|With-conformer| перехватит его и вернёт
+\verb|::s/invalid|.
+
+\section{Логические пути}
+
+\index{spec!логические пути}
+
+Функция \verb|s/conform| не всегда возвращает то, что мы ожидаем. Некоторые
+спеки оборачивают результат в вектор, где первый элемент~--- логический путь. Он
+появляется там, где проверка ветвится из-за условий.
+
+Знакомый нам \verb|s/and| обходит дочерние спеки по порядку и проверяет
+данные. Это линейный подход, и порой его недостаточно: проверка
+ветвится. Например, если значение~--- число, то оставить его как есть, а~если
+строка, то привести к~числу. Спеки с развилками называют условными
+\eng{conditional}.
+
+Макрос \verb|s/or| принимает теги и дочерние спеки. Он применяет их к значению
+до первого совпадения. Результат будет парой, где первый элемент~--- тег, а
+второй~--- результат \verb|s/conform| для спеки.
+
+Тег становится частью пути, по которому шла проверка. Логический путь помогает
+расследовать, в каком месте произошла ошибка. В простых спеках ошибка видна
+сразу, но на практике условная спека вложена в другую условную, та тоже и так
+далее. Найти причину без логического пути будет трудно.
+
+\index{spec!explain}
+
+Если валидация не прошла, логический путь получают из отладочной информации. Её
+возвращают функции семейства \verb|s/explain*|, которые мы рассмотрим ниже.
+
+Напишем спеку сетевого порта, которая принимает число или строку. Во втором
+случае спека выводит число. Это полезно, если значение приходит из переменной
+среды или INI-файла.
+
+\begin{english}
+  \begin{clojure}
+(s/def ::smart-port
+  (s/or :string ::->int :num int?))
+  \end{clojure}
+\end{english}
+
+\noindent
+Теперь \verb|s/conform| вернёт не просто значение, а пару с тегом:
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::smart-port 8080)
+[:num 8080]
+
+(s/conform ::smart-port "8080")
+[:string 8080]
+  \end{clojure}
+\end{english}
+
+\index{скаляры}
+\index{spec!развилки}
+
+Если в спеке была развилка (\verb|s/or|, \verb|s/alt|), то структура
+\code{s/con\-form} отличается от входных данных: на месте скаляра появится
+вектор. Покажем это на вложенных данных. Пусть порт~--- одно из полей
+подключения к базе:
+
+\ifafive
+
+\begin{english}
+  \begin{clojure}
+(s/def :conn/port ::smart-port)
+(s/def ::conn
+  (s/keys :req-un [:conn/port]))
+  \end{clojure}
+\end{english}
+
+\pagebreak
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::conn {:port "9090"})
+{:port [:string 9090]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def :conn/port ::smart-port)
+(s/def ::conn
+  (s/keys :req-un [:conn/port]))
+
+(s/conform ::conn {:port "9090"})
+{:port [:string 9090]}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Топология результата изменилась, и это нужно учесть. Если передать поле
+\verb|:port| в функцию подключения, получим ошибку типов.
+
+\section{Обратное действие}
+
+\index{spec!unform}
+
+У функции \verb|s/unform| противоположный смысл: по спеке и результату она
+вернёт исходное значение. Выше мы получили словарь, где поле \verb|:port|~---
+вектор. Чтобы вернуться к исходным данным, выполните:
+
+\begin{english}
+  \begin{clojure}
+(s/unform ::conn {:port [:num 9090]})
+{:port 9090}
+  \end{clojure}
+\end{english}
+
+\noindent
+Но если передать пару со строкой, получим ошибку:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/unform ::conn {:port [:string 9090]})
+;;Execution error (IllegalStateException)
+;;no unform fn for conformer
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/unform ::conn {:port [:string 9090]})
+;; Execution error (IllegalStateException)
+;; no unform fn for conformer
+  \end{clojure}
+\end{english}
+
+\fi
+
+Дело в том, что тегу \verb|:num| мы задали предикат \verb|int?|. Спека,
+полученная из предиката, не меняет данные, а только проверяет их. Поскольку для
+\verb|:int| не было преобразований, функция \verb|s/unform| просто отбросит тег
+и вернёт значение. С тегом \verb|:string| сложнее: он указывает на спеку типа
+\verb|conformer|, которая \emph{меняет} значение. Чтобы выполнить \verb|unform|,
+нужно сказать ей, как это делается.
+
+\index{spec!conformer}
+
+Напомним, первый аргумент \verb|s/conformer|~--- функция вывода типа. К ней
+обращается \texttt{s/con\-form}, когда его вызывают. Второй необязательный
+аргумент, который мы до сих пор игнорировали,~--- функция обратного действия: по
+результату \verb|s/conform| она вернёт прежнее значение. Функция сработает в
+момент вызова \verb|s/unform|.
+
+Изменим \verb|::->int| так, чтобы он поддерживал \verb|unform|. Вторая функция
+переведёт число обратно в строку:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->int
+  (s/and
+   ::ne-string
+   (s/conformer
+    (fn [string] ;; conform func
+      (Integer/parseInt string))
+    (fn [integer] ;; unform func
+      (str integer)))))
+  \end{clojure}
+\end{english}
+
+\noindent
+Теперь порт со строкой не вызовет ошибки:
+
+\begin{english}
+  \begin{clojure}
+(s/unform ::conn {:port [:string 9090]})
+{:port "9090"}
+  \end{clojure}
+\end{english}
+
+\verb|Unform| полезен, если вы утратили исходные данные, но сохранили их
+\verb|conform|-вариант.
+
+Читатель заметит, что нашей целью было вывести порт из строки, однако из-за
+условной спеки \verb|s/or| всё пошло не так. \verb|Conform| вывел тип, но
+добавил в результат теги, из-за чего изменилась структура. \verb|Unform| убрал
+теги, но вернул строку на место числа. В чём смысл?
+
+Если коротко, \verb|conform| и теги незаменимы для парсинга данных и их
+обхода. Далее мы покажем, как с помощью \verb|conform| получить синтаксическое
+дерево, без которого не обходится ни один компилятор. Что касается
+\verb|unform|, его поведение можно исправить хитростью.
+
+В спеке \verb|::->int| в её \verb|unform|-части мы переводим число в обратно
+строку. Если вернуть число без изменений, оно встанет на место \verb|:port| в
+итоговом словаре:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::->int
+  (s/and
+   ::ne-string
+   (s/conformer
+    (fn [string]
+      (Integer/parseInt string))
+    (fn [integer]
+      integer))))
+
+(s/unform ::conn {:port [:string 9090]})
+{:port 9090}
+  \end{clojure}
+\end{english}
+
+\index{clojure.core!identity}
+
+Для краткости вторым аргументом указывают \verb|identity|~--- функцию, которая
+возвращает переданный аргумент. С таким подходом \verb|unform| всегда вернёт то,
+что получили на этапе \verb|conform|. Полный цикл этих функций:
+
+\begin{english}
+  \begin{clojure}
+(->> {:port "9090"}
+     (s/conform ::conn)
+     (s/unform ::conn))
+{:port 9090}
+  \end{clojure}
+\end{english}
+
+Чтобы не забыть \verb|unform| в спеке, сделайте его частью макроса
+\verb|with-conformer| (последняя строка):
+
+\begin{english}
+  \begin{clojure}
+(defmacro with-conformer
+  [[bind] & body]
+  `(s/conformer
+    (fn [~bind]
+      (try
+        ~@body
+        (catch Exception e#
+          ::s/invalid)))
+    identity))
+  \end{clojure}
+\end{english}
+
+\section{Анализ ошибок}
+
+\index{ошибки!spec}
+
+\label{spec-explain}
+
+Когда данные неверны, \verb|s/valid?| и \verb|s/conform| возвращают \verb|false|
+и~\code{::s/\-in\-va\-lid}. Этого недостаточно, чтобы понять причину
+ошибки. Представьте, что у вас спека пользователя. В ней несколько адресов,
+в~каждом адресе несколько строк, и проверка вернула \verb|false|. Ручной поиск
+ошибки займёт час.
+
+Функции семейства \verb|s/explain| принимают спеку и данные. Если проверка не
+удалась, получим более подробную информацию~--- отчёт об ошибке. Это словарь,
+где указаны проблемные значения, спеки, пути к ним и другие данные. Разница
+между функциями в том, как они поступают с отчётом:
+
+\begin{itemize}
+
+\index{spec!explain}
+\index{spec!explain-str}
+\index{spec!explain-data}
+\index{spec!отчёт}
+\index{отчёт!spec}
+
+\item
+  \verb|s/explain| печатает его в стандартный поток (на экран);
+
+\item
+  \verb|s/explain-str| возвращает отчёт в виде строки;
+
+\item
+  \verb|s/explain-data| возвращает словарь. Это самый полный отчёт об ошибке.
+
+\end{itemize}
+
+Попробуем функции в действии. Подготовим для них простую спеку:
+
+\begin{english}
+  \begin{clojure}
+(s/def :sample/username ::ne-string)
+
+(s/def ::sample
+  (s/keys :req-un [:sample/username]))
+  \end{clojure}
+\end{english}
+
+\noindent
+На корректных данных функции не проявляют себя:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain ::sample
+  {:username "some user"})
+Success!
+nil
+
+(s/explain-data ::sample
+  {:username "some user"})
+nil
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain ::sample {:username "some user"})
+Success!
+nil
+
+(s/explain-data ::sample {:username "some user"})
+nil
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+Попробуем число вместо имени:
+
+\begin{english}
+  \begin{clojure}
+(s/explain ::sample {:username 42})
+;; 42 - failed: string? in: [:username]
+;; at: [:username] spec: ::string
+  \end{clojure}
+\end{english}
+
+Вывод читается так: значение \verb|42| не прошло проверку предикатом
+\verb|string?|. Путь к значению внутри словаря~--- \verb|[:username]|. Ключ
+спеки, где случилась ошибка,~--- \verb|::string|.
+
+Отчёт показывает наиболее вложенные спеки и предикаты. Вспомним, что
+\verb|::ne-string|~--- это комбинация \verb|::string| и функции
+\verb|not-empty|. Ошибка случилась на этапе \verb|::string|, о чём и было
+сказано.
+
+Для пустой строки вывод будет другим, потому что на этот раз причиной станет
+\verb|not-empty|. Проверим это:
+
+\begin{english}
+  \begin{clojure}
+(s/explain ::sample {:username ""})
+;; "" - failed: not-empty in: [:username]
+;; at: [:username] spec: ::ne-string
+  \end{clojure}
+\end{english}
+
+\verb|Explain|~--- это быстрый способ сообщить о проблеме в конфигурации или
+JSON-файле. Со временем вы научитесь читать его. Но чем сложнее данные, тем
+меньше понятен \verb|explain|. Когда в коллекции больше трёх уровней,
+отчёт заливает экран. Трудно даже разбить его на части, не говоря уж о
+понимании. Чтобы подружиться с \verb|explain|, нужно промежуточное звено, о
+котором речь в следующем разделе.
+
+\section{Понятные ошибки}
+
+\index{сообщения}
+\index{spec!ошибки}
+
+\label{spec-messages}
+
+Когда проверяют данные, важен не только факт ошибки. Ещё важнее объяснить
+клиенту, где именно он ошибся. Под клиентом не обязательно имеют в виду
+человека. Даже если это другая программа, в~ответ добавляют понятный текст. Он
+попадёт в журнал, который читают сотрудники.
+
+Часто мы видим сообщения вроде <<Ошибка: DATAERROR>> без каких-либо деталей. Или
+красную надпись <<проверьте данные>> над формой в два экрана. Этих глупостей
+можно было бы избежать, умей программисты переводить язык машины на человеческий.
+
+\index{интерфейс}
+\index{пользователь}
+
+Фраза \texttt{``'' - failed: not-empty in: [:user\-name]} не только ничего не скажет
+пользователю, но и отпугнёт его машинной природой. Кажется, что в интерфейсе
+возникла брешь и пользователь видит то, что не должен. Это резко снижает
+доверие к системе.
+
+Чтобы составить сообщение, вернёмся к функции \texttt{s/explain\-/data}. Она
+возвращает словарь с полной информацией о неудаче. Пример такого отчёта:
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample {:username ""})
+
+#:clojure.spec.alpha
+{:problems
+ ({:path [:username]
+   :pred clojure.core/not-empty
+   :val ""
+   :via [::sample ::ne-string]
+   :in [:username]})
+ :spec ::sample
+ :value {:username ""}}
+  \end{clojure}
+\end{english}
+
+\index{языки!Python}
+\index{языки!JavaScript}
+
+На первый взгляд непонятно, что с ним делать. Некоторые программисты сдаются и
+говорят, что Spec не подходит для показа ошибок. Это не так: в отчёте все
+необходимые данные, нужно только правильно их обработать.
+
+Новички спрашивают: почему бы не сделать понятные сообщения на уровне
+библиотеки? Например, назначить спеке поле с текстом <<введите правильный
+адрес>>? Почему не взять пример с библиотек для Python или JavaScript?
+
+\index{фундаментальность}
+
+Ответ на этот вопрос не устраивает новичков. Вспомним тезис из начала главы:
+Spec~--- это \emph{фундаментальная библиотека}. То, что мы проверяем ей поля
+формы,~--- всего лишь частный случай. У~спеки разные области применения, поэтому
+структура ошибки тоже фундаментальна.
+
+Трудно создать систему ошибок, которая устроит всех. В каждом проекте свои
+правила о том, как показывать ошибки. Иногда это фиксированное сообщение, а в
+других случаях~--- шаблон. Где-то учитывают язык пользователя. Всё вместе это
+даёт сложные сценарии.
+
+Если бы разработчики Spec занялись ошибками, их фокус был бы смещён с главной
+цели. Вместо Spec мы получили бы валидаторы по типу тех, что пишут десятками для
+Python и JavaScript. Они скучны, не гибки и без концепции.
+
+Словарь \verb|explain-data| содержит ключи \verb|:spec|, \verb|:value| и
+\texttt{:prob\-lems} с пространством \texttt{clojure.\-spec.\-alpha}. Первые два
+означают спеку и значение, которые приняли участие в проверке. Нас интересует
+поле \verb|:problems|. Это список словарей, где каждый описывает ошибку
+валидации. Перечислим их поля и семантику:
+
+\index{spec!развилки}
+
+\begin{itemize}
+
+\item
+  \verb|:path|~--- логический путь валидации. Вектор ключей, где спеки
+  чередуются с тегами-развилками. Условные спеки вроде \verb|s/or| и
+  \verb|s/alt| пишут сюда свои метки;
+
+\item
+  \verb|:pred|~--- символ предиката с пространством, например
+  \texttt{clo\-ju\-re.\-core/\-string?};
+
+\item
+  \verb|:val|~--- значение, для которого предикат вернул ложь (число,
+  \verb|nil|, коллекция);
+
+\item
+  \verb|:via|~--- вектор спек, по которым прошло значение от верхнего уровня к
+  нижнему;
+
+\item
+  \verb|:in|~--- физический путь к значению. Вектор ключей и индексов, который
+  передают в функцию \verb|get-in|. Если выполнить \spverb|(get-in <данные> <:in>)|,
+  получим значение, которое вызвало ошибку.
+
+\end{itemize}
+
+В отчёте всё, что нам нужно для сообщения. Построим его: из \verb|:val| возьмём
+проблемное значение. Спека, на которой остановилась валидация~--- последний
+элемент вектора \verb|:via|.
+
+Составим словарь, где ключ~--- спека, а значение~--- понятный текст или
+шаблон. Зная спеку, которая вызвала ошибку, получим из словаря текст. В нашем
+случае последний элемент \verb|:via|~--- это \verb|::ne-string|. Назначим ей
+сообщение <<Строка не должна быть пустой>> или что-то похожее.
+
+\label{spec-errors}
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {::ne-string
+   "Строка не должна быть пустой"})
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {::ne-string "Строка не должна быть пустой"})
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+Напишем функцию, которая принимает словарь ошибки (один из элементов
+\verb|::s/problems|) и возвращает сообщение:
+
+\index{функции!get-message}
+
+\pagebreakafive
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(defn get-message [problem]
+  (let [{:keys [via]} problem
+        spec (peek via)]
+    (get spec-errors spec)))
+
+(get-message {:via [::sample
+                    ::ne-string]})
+"Строка не должна быть пустой"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(defn get-message [problem]
+  (let [{:keys [via]} problem
+        spec (peek via)]
+    (get spec-errors spec)))
+
+(get-message {:via [::sample ::ne-string]})
+"Строка не должна быть пустой"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+Функция \verb|peek| похожа на \verb|last| (получить последний
+элемент). Разница в том, что \verb|last| бежит от начала коллекции, что
+неэффективно. \verb|Peek|~--- это версия \verb|last| для вектора, которая сразу
+прыгает в конец.
+
+Проверим способ на других полях. Добавим в спеку \verb|::sample| адрес почты:
+
+\index{регулярные выражения}
+\index{clojure.core!re-matches}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::email
+  (s/and
+    ::ne-string
+    (partial re-matches
+      #"(.+?)@(.+?)\.(.+?)")))
+
+(s/def :sample/email ::email)
+
+(s/def ::sample
+  (s/keys :req-un [:sample/username
+                   :sample/email]))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::email
+  (s/and
+   ::ne-string
+   (partial re-matches #"(.+?)@(.+?)\.(.+?)")))
+
+(s/def :sample/email ::email)
+
+(s/def ::sample
+  (s/keys :req-un [:sample/username
+                   :sample/email]))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Спека \verb|::email| проверяет, что строка не пустая и совпадает с~шаблоном
+адреса. Шаблон требует, чтобы в строке были символ~\verb|@| и~точка, а~между
+ними произвольные символы.
+
+Если передать в \verb|email| пустую строку, последним элементом \verb|via|
+будет \verb|::ne-string|. Для экономии места сократим вывод
+\verb|explain-data|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample
+  {:username "test" :email ""})
+
+{:path [:email]
+ :pred clojure.core/not-empty
+ :val ""
+ :via [::sample ::email ::ne-string]
+ :in [:email]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\ifafive
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample
+   {:username "test" :email ""})
+  \end{clojure}
+\end{english}
+
+\pagebreakafive
+
+\begin{english}
+  \begin{clojure}
+{:path [:email]
+ :pred clojure.core/not-empty
+ :val ""
+ :via [::sample ::email ::ne-string]
+ :in [:email]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample
+   {:username "test" :email ""})
+
+{:path [:email]
+ :pred clojure.core/not-empty
+ :val ""
+ :via [::sample ::email ::ne-string]
+ :in [:email]}
+  \end{clojure}
+\end{english}
+
+\fi
+
+\fi
+
+Вызов \verb|get-message| с этой ошибкой вернёт сообщение о пустой
+строке. Попробуем почту, которая не совпала с шаблоном. Последним элементом
+\verb|:via| станет \verb|:sample/email|. Словарь ошибки выглядит так:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample
+  {:username "test" :email "test"})
+
+{:path [:email]
+ :pred
+ (clojure.core/partial
+  clojure.core/re-matches
+  #"(.+?)@(.+?)\.(.+?)")
+ :val "test"
+ :via [::sample ::email]
+ :in [:email]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample {:username "test" :email "test"})
+
+{:path [:email]
+ :pred
+ (clojure.core/partial
+  clojure.core/re-matches
+  #"(.+?)@(.+?)\.(.+?)")
+ :val "test"
+ :via [::sample ::email]
+ :in [:email]}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Чтобы \verb|get-message| вернул новое сообщение для почты, добавим в словарь
+ключ \verb|::email|. В будущем наполним его другими спеками и сообщениями, пока
+не покроем все варианты.
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {::ne-string
+   "Строка не должна быть пустой"
+   ::email
+   "Введите правильный почтовый адрес"})
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {::ne-string "Строка не должна быть пустой"
+   ::email "Введите правильный почтовый адрес"})
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\index{перевод}
+\index{языки!ClojureScript}
+
+Система переводов, которую мы построили, довольно проста. Её легко тестировать и
+менять под нужды конкретного проекта. Доработанные версии этой системы работают
+в бою. В одной из них формы проверяют на клиенте до отправки на
+сервер. Сообщение для виджетов получают тем же способом. Это возможно, поскольку
+мощь Spec в полной мере доступна в ClojureScript.
+
+Далее рассмотрим, как улучшить систему переводов.
+
+\subsubsection*{Сообщение по умолчанию}
+
+Что случится, если перевода нет в словаре? В этом случае вернём нейтральное
+<<исправьте ошибку в данных>>. Заодно запишем в лог событие с именем спеки. Лог
+устроен так, что сообщения из модуля переводов оседают в отдельном файле. Позже
+локализаторы прочтут его и~добавят перевод.
+
+%% \begin{english}
+  \begin{clojure}
+(def default-message
+  "Исправьте ошибку в данных")
+  \end{clojure}
+%% \end{english}
+
+\pagebreaklarge
+
+Теперь мы не просто берём значение по словарю. Поиск текста перешёл в функцию
+\texttt{get-\-better-\-message}, через которую проходят все случаи перевода.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn get-better-message [problem]
+  (let [{:keys [via]} problem
+        spec (peek via)]
+    (or (get spec-errors spec)
+        (do
+          (log/warnf
+            "Missing message for spec %s"
+            spec)
+          default-message))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn get-better-message [problem]
+  (let [{:keys [via]} problem
+        spec (peek via)]
+    (or (get spec-errors spec)
+        (do (log/warnf "Missing message for spec %s" spec)
+            default-message))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Для любой незнакомой спеки получим нейтральное сообщение. В~комментарии показан
+лог, который возникнет в консоли при вызове:
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(get-better-message
+    {:via [::unknown :unknown/field]})
+;; WARN book.spec - Missing message for
+;; spec :unknown/field
+"Исправьте ошибку в данных"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(get-better-message {:via [::unknown :unknown/field]})
+;; WARN book.spec - Missing message for spec :unknown/field
+"Исправьте ошибку в данных"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\subsubsection*{Восходящий поиск}
+
+До сих пор мы работали с последним элементом вектора \verb|:via|. Давайте
+рассмотрим вектор в целом. Для этого спровоцируем \verb|s/explain-data| с~пустой
+почтой. В поле \verb|:via| окажется цепочка:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample
+  {:username "test" :email ""})
+
+;; :via field
+[::sample ::email ::ne-string]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::sample {:username "test" :email ""})
+[::sample ::email ::ne-string] ;; :via field
+  \end{clojure}
+\end{english}
+
+\fi
+
+Её читают так: ошибка в образце из-за почты \arr{} ошибка в почте из-за
+пустой строки. Очевидно, спеки убывают по старшинству: на первом месте
+глобальный объект, на последнем~--- локальная проблема. Из убывания можно
+извлечь пользу: искать перевод не строго последней спеки, а по нарастанию
+важности. Сперва проверить \verb|::ne-string|, затем \verb|::email| и, если
+ничего не нашли, \verb|::sample|. Назовём метод восходящим поиском.
+
+\index{clojure.core!keep}
+
+В отличие от прошлых решений, мы ищем перевод для каждого элемента в обратном
+порядке. Функции \verb|reverse| и \verb|keep| порождают ленивые коллекции,
+поэтому вычислений не происходит, пока мы не обратимся к ним. В качестве
+результата вернём первый не пустой элемент.
+
+\begin{english}
+  \begin{clojure/lines}
+(defn get-message
+  [problem]
+  (let [{:keys [via]} problem]
+    (->> via
+         reverse
+         (keep spec-errors)
+         first)))
+  \end{clojure/lines}
+\end{english}
+
+Переменная \verb|spec-errors| в четвёртой строке указывает на словарь сообщений,
+который определили выше \page{spec-errors}. Словарь ведёт себя как функция,
+поэтому передаём его в \verb|keep|.
+
+Преимущество метода в том, что он позволяет настроить нужную детализацию
+сообщений. Например, \verb|::email| может состоять из нескольких мелких спек,
+однако из-за их низкого уровня сообщение будет непонятным. Для более ясного
+перевода удалим из-словаря \verb|::ne-string| и оставим \verb|::email|.
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {::email
+   "Введите правильный почтовый адрес"})
+
+(get-message
+  {:via [::sample ::email ::ne-string]})
+"Введите правильный почтовый адрес"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {::email "Введите правильный почтовый адрес"})
+
+(get-message {:via [::sample ::email ::ne-string]})
+"Введите правильный почтовый адрес"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+Если в спеке \verb|::sample| появится поле, для которого забыли перевод, поиск
+разрешится в ключ \verb|::sample|. Назначим ему общий перевод вроде <<образец
+заполнен неверно>>, чтобы локализовать проблему. Это полезно, если
+\verb|::sample| станет элементом другой спеки, та~--- ещё одной и так далее.
+
+\subsubsection*{Сходимость}
+
+Чтобы объяснить, что такое сходимость и как ей управлять, проведём
+эксперимент. Объявим спеки книги и фильма с одним полем~--- описанием:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def :book/description ::ne-string)
+(s/def ::book
+  (s/keys :req-un [:book/description]))
+
+(s/def :movie/description ::ne-string)
+(s/def ::movie
+  (s/keys :req-un [:movie/description]))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def :book/description ::ne-string)
+(s/def ::book (s/keys :req-un [:book/description]))
+
+(s/def :movie/description ::ne-string)
+(s/def ::movie (s/keys :req-un [:movie/description]))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Если проверить книгу с пустым описанием, в векторе \verb|:via| будет следующее:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::book
+  {:description ""})
+[::book ::ne-string]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::book {:description ""})
+[::book ::ne-string]
+  \end{clojure}
+\end{english}
+
+\fi
+
+Заметим, что в векторе нет спеки \texttt{:book/de\-scription}, хотя мы её
+ожидали. Это значит, не получится составить сообщение специально для этого поля,
+например <<неверное описание книги>>. Аналогично ведёт себя \verb|::movie|: если
+передать фильм с пустой строкой, на конце \verb|:via| будет спека
+\verb|::ne-string|. Почему так происходит?
+
+Дело в том, что выражение \texttt{(s/def :book/de\-scrip\-tion ::ne\-string)}
+работает как ссылка. Когда одна спека ссылается на другую, Spec укорачивает
+цепь, чтобы сразу достичь \verb|::ne-string|. Говорят, что спеки
+\verb|:book/description| и \texttt{:movie/\-de\-scrip\-tion} \emph{сходятся} в
+\verb|::ne-string|. У сходимости свои преимущества: можно задать перевод для
+ключа \verb|::ne-string| и ссылаться на неё во всех полях с текстом. В случаях,
+когда важен путь \verb|:via|, спеку реорганизуют.
+
+Один из способов это сделать~--- заменить ссылку на предикат. Перепишите
+\verb|:book/description|, как в примере ниже:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(def ne-string
+  (every-pred string? not-empty))
+(s/def :book/description ne-string)
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(def ne-string (every-pred string? not-empty))
+(s/def :book/description ne-string)
+  \end{clojure}
+\end{english}
+
+\fi
+
+Теперь описание ссылается не на \verb|::ne-string|, а на предикат с тем же
+именем. Если \verb|ne-string| вернёт ложь, \verb|:book/description| станет
+последним элементом \verb|:via|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::book
+  {:description ""})
+{:via [::book :book/description]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::book {:description ""})
+{:via [::book :book/description]}
+  \end{clojure}
+\end{english}
+
+\fi
+
+То же самое с фильмом: укажите в спеке \verb|:movie/description| предикат
+\verb|ne-string|, и нужный ключ появится в \verb|:via| при ошибке. Добавьте
+спекам отдельные переводы и выполните поиск, как мы делали выше.
+
+\pagebreaklarge
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {:book/description
+   "Введите описание книги"
+   :movie/description
+   "Введите описание фильма"})
+
+(get-message
+  {:via [::book :book/description]})
+"Введите описание книги"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {:book/description "Введите описание книги"
+   :movie/description "Введите описание фильма"})
+
+(get-message {:via [::book :book/description]})
+"Введите описание книги"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+Другой способ повлиять на сходимость~--- обернуть ключ спеки в~функцию
+\verb|s/spec|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def :book/description
+  (s/spec ::ne-string))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def :book/description (s/spec ::ne-string))
+  \end{clojure}
+\end{english}
+
+\fi
+
+При такой записи спека \verb|:book/description| заменит ключ \verb|::ne-string|
+в~векторе \verb|:via|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::book
+  {:description ""})
+[:book.spec/book :book/description]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::book {:description ""})
+[:book.spec/book :book/description]
+  \end{clojure}
+\end{english}
+
+\fi
+
+Преимущество \verb|s/spec| в том, что нужно только обернуть ссылки, а~предикаты
+и~остальной код останутся без изменений.
+
+\subsubsection*{Гибкий поиск}
+
+Решим обратную задачу. Предположим, в проекте много сущностей с~описанием:
+книги, фильмы, игры и так далее. Хотелось бы, чтобы поля
+\verb|:movie/description|, \texttt{:book/descrip\-tion} и другие сходились к
+переводу <<неверное описание>>. Как это сделать, не добавляя каждую спеку в
+перевод?
+
+Чтобы не засорять словарь, пойдём на хитрость. Пусть функция ищет перевод по
+полному ключу, а если его нет, то по имени. Тогда хватит ключа
+\verb|:description|, чтобы все спеки сошлись в этот перевод. Если для
+конкретного \verb|:book/description| нужна особая фраза, добавим полную
+версию:
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {:description
+   "Неверное описание"
+   :book/description
+   "Введите описание книги"})
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {:description "Неверное описание"
+   :book/description "Введите описание книги"})
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+Перепишем поиск с учётом неполного ключа и фразы по умолчанию:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn get-message
+  [problem]
+  (let [{:keys [via]} problem
+        spec (peek via)]
+    (or (get spec-errors spec)
+        (get spec-errors
+          (-> spec name keyword))
+        default-message)))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn get-message
+  [problem]
+  (let [{:keys [via]} problem
+        spec (peek via)]
+    (or (get spec-errors spec)
+        (get spec-errors (-> spec name keyword))
+        default-message)))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+В действии:
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(get-message
+  {:via [::movie :movie/description]})
+"Неверное описание"
+
+(get-message
+  {:via [::movie :book/description]})
+"Введите описание книги"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(get-message {:via [::movie :movie/description]})
+"Неверное описание"
+
+(get-message {:via [::movie :book/description]})
+"Введите описание книги"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\subsubsection*{Мультиметод}
+
+Возможно, система переводов понравится вашим коллегам, и они захотят её
+использовать. Разумно вынести код в библиотеку и подключить в зависимости. Тогда
+проекты будут одинаковы в плане сообщений.
+
+Минус словаря в том, что его трудно расширить со стороны. Чтобы добавить
+перевод, нужно выпустить новую версию библиотеки и обновить зависимости, что в
+целом долго. Предоставим клиентам только механизм перевода, а содержимое они
+наполнят сами.
+
+Для этого заменим словарь на мультиметод. Его диспетчер принимает словарь ошибки
+и находит виновную спеку. Далее расширим мультиметод спеками. С таким подходом
+каждый потребитель добавит свои переводы или заменит чужие, если они не подошли.
+
+Объявим мультиметод и реализацию для \texttt{::ne\-/string}:
+
+\index{мультиметоды!problem\arr{}text}
+
+%% \begin{english}
+  \begin{clojure}
+(defmulti problem->text
+  (fn [{:keys [via]}]
+    (peek via)))
+
+(defmethod problem->text ::ne-string [_]
+  "Строка не должна быть пустой")
+  \end{clojure}
+%% \end{english}
+
+\noindent
+Пример его работы:
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(problem->text
+  {:val "" :via [::email ::ne-string]})
+"Строка не должна быть пустой"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(problem->text {:val "" :via [::email ::ne-string]})
+"Строка не должна быть пустой"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+Ключ \verb|:default| отвечает за действие по умолчанию. Если перевод не
+найден, вернём стандартную фразу:
+
+\begin{english}
+  \begin{clojure}
+(defmethod problem->text :default [_]
+  default-message)
+  \end{clojure}
+\end{english}
+
+\index{наследование}
+
+Вспомним проблему поля description для многих сущностей. Хотелось бы, чтобы
+спеки \verb|:book/description| и \texttt{:movie/\-descrip\-tion} сходились в общий
+перевод \verb|::description|, но так, чтобы в любой момент можно было задать им
+частный перевод. Это возможно с помощью иерархии ключей. Если в мультиметоде нет
+ключа, но ключ наследует родителя, мультиметод выполнит поиск для родителя.
+
+Для этого унаследуем ключ \code{:book/de\-scrip\-ti\-on} от
+\code{::descri\-ption}. Если ошибка случится в спеке \verb|:book/description|,
+получим общий перевод для любого описания.
+
+\index{clojure.core!derive}
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(defmethod problem->text
+  ::description [_] "Введите описание")
+
+(derive :book/description ::description)
+
+(problem->text
+  {:val "" :via [:book/description]})
+"Введите описание"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(defmethod problem->text ::description [_]
+  "Введите описание")
+
+(derive :book/description ::description)
+
+(problem->text {:val "" :via [:book/description]})
+"Введите описание"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\noindent
+Если нужен особый перевод, расширим мультиметод:
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(defmethod problem->text
+  :book/description [_]
+  "Введите описание книги")
+
+(problem->text
+  {:val "" :via [:book/description]})
+"Введите описание книги"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(defmethod problem->text :book/description [_]
+  "Введите описание книги")
+
+(problem->text {:val "" :via [:book/description]})
+"Введите описание книги"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\index{синтаксис!\textbf{\_} (затенение)}
+
+Заметим, что каждый метод принимает словарь ошибки. Мы затенили его символом
+\verb|_|, потому что не обращаемся к нему и не хотим порождать лишнюю
+переменную. В особых случаях можно построить фразу в зависимости от полей
+ошибки. Например, добавить текущее значение:
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(defmethod problem->text
+  :book/description
+  [{:keys [val]}]
+  (format "Ошибка в описании книги: %s"
+    val))
+
+(problem->text
+  {:val "abc" :via [:book/description]})
+"Ошибка в описании книги: abc"
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(defmethod problem->text :book/description
+  [{:keys [val]}]
+  (format "Ошибка в описании книги: %s" val))
+
+(problem->text {:val "abc" :via [:book/description]})
+"Ошибка в описании книги: abc"
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\emph{Замечание:} функция \verb|derive| с двумя аргументами порождает глобальное
+наследование ключей. Это может повлиять на другие части программы, где логика
+зависит от наследования. Будет хорошим тоном использовать локальную иерархию
+ключей. Изучите, что представляет собой третий аргумент \verb|derive| и как он
+работает в паре с мультиметодом.
+
+\subsubsection*{Шаблон}
+
+\index{шаблоны}
+
+Если варианты выше показались вам сложными, попробуйте сообщение по~шаблону. Оно
+складывается из имени поля и значения, например: <<в~поле email неверное
+значение test>>. Сообщение легко получить функцией \verb|format|. В нём
+слышится машинная природа, зато способ быстрый и дешёвый.
+
+Имя поля получим как последний кейворд поля \verb|:in|. Почему бы не взять
+просто последний элемент? Вспомним, что \verb|:in|~--- это физический путь к данным,
+который передают в функции \verb|get-in|, \verb|assoc-in| и~другие. Его
+элементами могут быть не только кейворды для вложенных словарей, но и индексы
+для векторов.
+
+Приведём пример, когда \verb|:in| заканчивается на число. Пусть задана
+спека \verb|::post| для публикации в блоге. Кроме заголовка у записи могут
+быть теги, набор не пустых строк:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def :post/title ::ne-string)
+(s/def :post/tags
+  (s/coll-of ::ne-string))
+
+(s/def ::post
+  (s/keys :req-un [:post/title]
+          :opt-un [:post/tags]))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def :post/title ::ne-string)
+(s/def :post/tags (s/coll-of ::ne-string))
+
+(s/def ::post (s/keys :req-un [:post/title]
+                      :opt-un [:post/tags]))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Предположим, один из тегов оказался пустой строкой, что не имеет
+смысла. Привёдем сокращённый отчёт \verb|s/explain-data|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::post
+  {:title "On Clojure"
+   :tags ["clojure" ""]})
+
+{:path [:tags]
+ :pred clojure.core/not-empty
+ :val ""
+ :via [:book.spec/post
+       :post/tags
+       :book.spec/ne-string
+       :book.spec/not-empty]
+ :in [:tags 1]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/explain-data ::post {:title "On Clojure"
+                        :tags ["clojure" ""]})
+
+{:path [:tags]
+ :pred clojure.core/not-empty
+ :val ""
+ :via [:book.spec/post
+       :post/tags
+       :book.spec/ne-string
+       :book.spec/not-empty]
+ :in [:tags 1]}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Последний элемент 1 указывает на второй проблемный тег, что верно (нумерация от
+нуля). Чтобы узнать имя поля, которое привело к ошибке, поднимемся на уровень
+выше и получим \verb|:tags|. Значение, которое не прошло валидацию, находится в
+поле \verb|:val|. Этого достаточно, чтобы построить фразу:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn last-kw [coll]
+  (->> coll
+       reverse
+       (filter keyword?)
+       first))
+
+(defn get-common-message
+  [problem]
+  (let [{:keys [in val]} problem
+        field (last-kw in)]
+    (format
+      "The field '%s' has
+                an incorrect value '%s'."
+      (name field) val)))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn last-kw [coll]
+  (->> coll
+       reverse
+       (filter keyword?)
+       first))
+
+(defn get-common-message
+  [problem]
+  (let [{:keys [in val]} problem
+        field (last-kw in)]
+    (format "The field '%s' has an incorrect value '%s'."
+            (name field) val)))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Поле и значение заключим в кавычки, чтобы выделить из общего текста. Проверим,
+что вернёт функция:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(get-common-message
+  {:val "" :in [:tags 1]})
+
+"The field 'tags' has
+          an incorrect value ''."
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(get-common-message {:val "" :in [:tags 1]})
+
+"The field 'tags' has an incorrect value ''."
+  \end{clojure}
+\end{english}
+
+\fi
+
+Если поле множественное, одного имени недостаточно. Сообщение станет лучше, если
+добавить индекс значения с~ошибкой, например \verb|'tags[1]'|. Другой подход~---
+вписать номер поля естественным образом, например <<the second tags
+field...>>. Подумайте, как ещё улучшить текст и доработайте алгоритм.
+
+\subsection{Открытые вопросы}
+
+За рамками остались несколько вопросов. Они слишком общие, чтобы претендовать на
+конкретное решение. В этом разделе мы не будем писать код, а только
+порассуждаем.
+
+Что делать, если требуется локализация, то есть текст на русском или английском
+в зависимости от настроек? Для этого переделаем словарь ошибок. В нём станет два
+уровня: на первом~--- код локали (\verb|ru|, \verb|en|), а на втором~---
+переводы спек.
+
+\ifafive\vspace{10mm}\pagebreak[4]\fi
+
+\ifnarrow
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+ {:ru
+  {::ne-string
+   "Строка не должна быть пустой"
+
+   ::email
+   "Введите правильный почтовый адрес"}
+
+  :en
+  {::ne-string
+   "The field must not be blank"
+
+   ::email
+   "The email address is invalid"}})
+  \end{clojure}
+%% \end{english}
+
+\else
+
+%% \begin{english}
+  \begin{clojure}
+(def spec-errors
+  {:ru {::ne-string "Строка не должна быть пустой"
+        ::email "Введите правильный почтовый адрес"}
+   :en {::ne-string "The field must not be blank"
+        ::email "The email address is invalid"}})
+  \end{clojure}
+%% \end{english}
+
+\fi
+
+\index{локаль}
+\index{перевод}
+
+Для локали мы получим словарь переводов, затем переводим сообщение, как делали
+выше. С кодом локали можно схитрить, чтобы облегчить поиск. Для отдельных фраз
+выделяют более точные локали, например американский и британский диалекты
+с~кодами \verb|en_US| и~\verb|en_GB|. Изменим поиск так, что сперва он ищет по
+младшей локали (\verb|en_US|), а затем по старшей (\verb|en|). Если британского
+текста не оказалось, получим общий английский. Так работает перевод сообщений
+в~широком смысле, не только ошибок.
+
+Вопрос, откуда читать локаль, остаётся на ваше усмотрение. Можно хранить её в
+сессии, параметрах запроса, базе данных, словом~--- как это удобно в проекте. Мы
+ещё вернёмся к теме перевода строк в главе про изменяемость \page{translate}.
+
+Второй вопрос~--- как связать ошибки с интерфейсом. В классическом подходе
+\footurl{Model\-/View\-/Controller}{https://en.wikipedia.org/wiki/Model-view-controller}[MVC]
+модель отделяют от представления, и формы следуют этому правилу. Удобно, когда
+форма выражена структурой данных. Операции над ней~--- чистые функции,
+которые легко поддерживать. Каждая функция возвращает форму в новом состоянии.
+
+Представим форму в виде дерева. Ключи~--- это поля, а значения~---
+виджеты. Виджет содержит тип поля, текущее значение и текст ошибки. На каждый
+виджет подписан React-компонент. При изменении виджета он рисует поле ввода с
+текущим значением. Если ошибка не \verb|nil|, как во втором поле, над ним
+появится красное сообщение.
+
+\begin{english}
+  \begin{clojure}
+(def form
+  {:name {:title "Your name"
+          :widget :textfield
+          :value "Ivan"
+          :error nil}
+
+   :email {:title "Email address"
+           :widget :textfield
+           :value "test@"
+           :error "Email is incorrect"}})
+  \end{clojure}
+\end{english}
+
+Валидация принимает форму и строит дерево значений. У него такая же топология, но
+на месте виджетов значения полей ввода:
+
+\begin{english}
+  \begin{clojure}
+(def values
+  {:name "Ivan"
+   :email "test@"})
+  \end{clojure}
+\end{english}
+
+С~помощью спеки мы проверяем значения и выводим типы из строк. В~случае ошибки
+получим отчёт \verb|explain|. Для каждого элемента из поля \verb|problems|
+находим путь, спеку и сообщение об ошибке. Это сообщение добавляем виджету в
+поле \verb|:error|. Компонент, который подписан на виджет, заново отрисует его с
+ошибкой над полем.
+
+\index{интерфейс}
+\index{фреймворки!React}
+
+Мы упомянули формы, React и проблемы интерфейса. Всё вместе это называется
+\emph{фронтенд}. Мы не будем на нём останавливаться, потому что фронтенд~---
+сложная тема, достойная отдельной книги. Отметим только, что если код на Clojure
+не содержит побочных эффектов и не обращается к Java-библиотекам, его легко
+запустить на клиенте с помощью ClojureScript. Таким образом, все подходы и
+техники, описанные выше, справедливы и для фронтенда.
+
+\section{Парсинг}
+
+Мы научились проверять данные и выводить типы. Перейдём к более сложной
+операции~--- парсингу. Под термином понимают разбор данных на части, поиск
+структуры там, где прежде её не было.
+
+Возможно, вам приходилось писать регулярные выражения. Это шаблоны на особом
+языке, которые описывают структуру текста. Специальные функции принимают строку
+и регулярное выражение. Они возвращают фрагменты текста, которые совпали с
+шаблоном.
+
+Пример регулярного выражения~--- IP-адрес. Он состоит из четырёх групп с
+точками. Каждая группа~--- число от 0 до 255.
+
+\index{парсинг}
+\index{регулярные выражения}
+
+\begin{english}
+  \begin{text}
+\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+  \end{text}
+\end{english}
+
+В шаблоне мы ставим косую черту перед точкой, потому что без слеша точка
+означает любой символ. Чтобы сослаться именно на символ точки, её экранируют.
+
+В регулярных выражениях применяют операторы \verb|+|, \verb|?|, \verb|*| и
+другие. Они указывают, сколько раз встречается шаблон перед ними: один и~более
+раз, ни одного или один, произвольное число. В зависимости от оператора шаблон
+захватывает разные части текста.
+
+Представьте, что регулярные выражения откусывают строку по частям. Та часть, что
+легла на шаблон, уходит в результат. Остаток переходит к следующему шаблону, и
+так далее.
+
+Регулярные выражения подводят нас к \verb|regex|-спекам. Это особые спеки для
+разбора данных по шаблону. Разница в том, что входные данные~--- это коллекции, а не
+текст.
+
+\index{spec!regex}
+
+\subsection{Простой разбор}
+
+Предположим, нужно разобрать массив пользователей. Каждый из них~--- это кортеж
+вида \tuple{номер, почта, статус}. Все значения~--- строки:
+
+\begin{english}
+  \begin{text}
+1,test@test.com,active
+2,ivan@test.com,pending
+3,user@test.com,active
+  \end{text}
+\end{english}
+
+Для каждого пользователя требуется:
+
+\begin{itemize}
+
+\item
+  убедиться, что в кортеже именно три элемента;
+
+\item
+  привести номер к числу;
+
+\item
+  проверить почту на минимальные критерии;
+
+\item
+  привести статус к перечислению (одному из кейвордов);
+
+\item
+  получить словарь с верными значениями.
+
+\end{itemize}
+
+Мы уже знакомы с \verb|s/conformer| и выводом типов. Можно написать функцию,
+которая примет кортеж целиком и выполнит действия выше. Это несложно, но функция
+будет монолитом со слишком большим \emph{скоупом}. Рассмотрим другой способ.
+
+\index{spec!cat}
+
+Спека \verb|s/cat| служит для разбора коллекций. Она принимает набор тегов и
+других спек. На вход подают коллекцию, и \verb|s/cat| накладывает её элементы на
+спеки. Если они совпали, получим словарь. Ключи словаря~--- теги, а значения~---
+вызов дочерней спеки с элементом.
+
+Составим спеку для разбора кортежа. Начнём со статуса: спека ниже приводит
+строки \verb|active| и \verb|pending| к особым кейвордам. Другие значения
+спровоцируют ошибку.
+
+\begin{english}
+  \begin{clojure}
+(s/def :user/status
+  (s/and ->lower
+         (with-conformer [val]
+           (case val
+             "active"  :USER_ACTIVE
+             "pending" :USER_PENDING))))
+  \end{clojure}
+\end{english}
+
+Спеки вывода числа \verb|::->int| и проверки почты \verb|::email| мы описали
+ранее, поэтому используем их повторно. Готовая спека пользователя:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::user
+  (s/cat :id ::->int
+         :email ::email
+         :status :user/status))
+  \end{clojure}
+\end{english}
+
+\noindent
+Положительный случай даёт на выходе словарь:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::user
+  ["1" "test@test.com" "active"])
+{:id 1
+ :email "test@test.com"
+ :status :USER_ACTIVE}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::user ["1" "test@test.com" "active"])
+{:id 1
+ :email "test@test.com"
+ :status :USER_ACTIVE}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Варианты с плохим номером, почтой или статусом не пройдут разбор. Примеры ниже
+вернут \verb|::s/invalid|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::user
+  ["" "test@test.com" "active"])
+(s/conform ::user
+  ["1" "@test.com" "active"])
+(s/conform ::user
+  ["1" "test@test.com" "unknown"])
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::user ["" "test@test.com" "active"])
+(s/conform ::user ["1" "@test.com" "active"])
+(s/conform ::user ["1" "test@test.com" "unknown"])
+  \end{clojure}
+\end{english}
+
+\fi
+
+Скорее всего, для неудачных записей вы должны вывести сообщение об
+ошибке. Проверьте отчёт \verb|explain| для случаев выше и сформируйте текст.
+
+\subsection{Условный разбор}
+
+Представим, что работаем с устаревшим форматом данных. В нём условие: если
+перед номером стоит метка blocked, пользователь заблокирован. Например:
+
+\begin{english}
+  \begin{text}
+blocked;1;test@test.com;active
+  \end{text}
+\end{english}
+
+Это усложняет задачу, ведь теперь кортеж состоит из трёх \emph{или} четырёх
+элементов. Сдвигается семантика полей: первый элемент уже не только номер, но и
+флаг блокировки. В старых данных, особенно финансовых, бывают и более странные
+условия.
+
+В императивных языках они порождают каскад \verb|if/else|. В Clojure проблему
+решают декларативно. Объявим спеку блокировки, которая выводит флаг из строки:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::blocked
+  (s/and
+   ->lower
+   (s/conformer (partial = "blocked"))))
+  \end{clojure}
+\end{english}
+
+\index{spec!?}
+
+Добавим её в итоговую \verb|s/cat|, но укажем, что она встречается ни разу или
+только один раз. Для этого \verb|::blocked| оборачивают в спеку \verb|s/?|.  В
+регулярных выражениях знак вопроса делает то же самое для шаблона. Дополним
+спеку новым полем:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::user
+  (s/cat :blocked (s/? ::blocked)
+         :id ::->int
+         :email ::email
+         :status :user/status))
+  \end{clojure}
+\end{english}
+
+Теперь оба кортежа совпадают со спекой \verb|::user|. Если метки нет, получим
+словарь, как в начале. Если пользователь заблокирован, в~словаре будет поле
+\verb|:blocked|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::user
+  ["1" "test@test.com" "active"])
+{:id 1
+ :email "test@test.com"
+ :status :USER_ACTIVE}
+
+(s/conform ::user
+  ["BLOCKED" "1"
+   "test@test.com" "active"])
+{:blocked true
+ :id 1
+ :email "test@test.com"
+ :status ...}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::user ["1" "test@test.com" "active"])
+{:id 1 :email "test@test.com" :status :USER_ACTIVE}
+
+(s/conform ::user ["BLOCKED" "1" "test@test.com" "active"])
+{:blocked true :id 1 :email "test@test.com" :status ...}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Представим, что на входе коллекция кортежей. Чтобы не утруждать себя итерацией,
+объявим спеку-коллекцию:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::users (s/coll-of ::user))
+
+(def user-data
+  [["1" "test@test.com" "active"]
+   ["Blocked" "2" "joe@doe.com"
+    "pending"]])
+
+(s/conform ::users user-data)
+[{:id 1
+  :email "test@test.com"
+  :status :USER_ACTIVE}
+ {:blocked true
+  :id 2
+  :email "joe@doe.com"
+  :status ...}]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::users (s/coll-of ::user))
+
+(def user-data
+  [["1" "test@test.com" "active"]
+   ["Blocked" "2" "joe@doe.com" "pending"]])
+
+(s/conform ::users user-data)
+[{:id 1 :email "test@test.com" :status :USER_ACTIVE}
+ {:blocked true :id 2 :email "joe@doe.com" :status ...}]
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{clojure.core!filter}
+\index{clojure.core!complement}
+
+Отсеем заблокированных пользователей с помощью \verb|filter| и предиката
+\texttt{(complement :blo\-cked)}.
+
+\subsection{Практика}
+
+\index{библиотеки!Etaoin}
+\index{Selenium}
+
+\label{selenium-ide}
+
+Рассмотрим задачу, которую автор решал в работе над библиотекой Etaoin. Один из
+её модулей выполняет команды \footurl{Selenium IDE}{https://www.selenium.dev/selenium-ide}[Selenium\\*IDE].
+Это расширение для браузера, которое записывает действия пользователя в файл
+JSON. Получается сценарий, который можно запустить вручную или с помощью
+утилиты.
+
+Как правило, сценарий проверяют конкретную часть приложения: авторизацию, сброс
+пароля, заказ товара. Скрипт, записанный локально, запускают на тестовых
+машинах. Представим, что наша задача~--- написать интерпретатор этих сценариев
+на Clojure.
+
+Внутри JSON-файла нас ожидает поле \texttt{com\-mands} с массивом команд. Каждая
+команда~--- словарь с ключами \verb|id|, \verb|command|, \verb|value| и
+другими. Наиболее важно для нас поле \verb|command|, в котором находится имя
+команды: open, click, assert и другие. Приведём отрывок из файла:
+
+\begin{english}
+  \begin{json}
+"commands": [{
+  "id": "af046c62-...-53a16251705f",
+  "command": "open",
+  "target": "/"
+}, {
+  "id": "ecc21655-...-91da3f4abba7",
+  "command": "setWindowSize",
+  "target": "1680x960"
+}]
+  \end{json}
+\end{english}
+
+\index{мультиметоды}
+
+На первый взгляд всё просто: обойдём команды в цикле и вызовем для каждой
+мультиметод \verb|do-cmd|.
+
+\begin{english}
+  \begin{clojure}
+(doseq [command commands]
+  (do-cmd command))
+  \end{clojure}
+\end{english}
+
+Мультиметод находит реализацию по полю \verb|:command|. Останется наполнить его
+командами, и задача готова. Ниже~--- реализация команды \verb|open|, которая
+открывает веб-страницу.
+
+\iflarge\vspace{15mm}\pagebreak[4]\fi
+
+\begin{english}
+  \begin{clojure}
+(defmulti do-cmd
+  (fn [command]
+    (-> command :command keyword)))
+
+(defmethod do-cmd :open
+  [{:keys [target]}]
+  (webdriber/open-url *driver* target))
+  \end{clojure}
+\end{english}
+
+Ситуация меняется из-за так называемых
+\footurl{flow-команд}{https://www.selenium.dev/selenium-ide/docs/en/introduction/control-flow}[Control\\*flow],
+к которым относятся \verb|if|, \verb|for|, \verb|repeat| и аналоги. В отличии от
+обычных действий, они включают себя дочерние команды. Их нельзя выполнить в лоб:
+при обработке \verb|if| мы сперва проверяем условие, а потом переходим на нужную
+ветку. В случае с \verb|for| или \verb|repeat| внутренний блок нужно выполнить
+определённое число раз.
+
+\index{control flow}
+
+Ниже показан минимальный пример с командой \texttt{if}. С точки зрения Clojure
+эти команды~--- плоский вектор словарей, но мы добавили отступы для
+читаемости. Чтобы код не вышел громоздким, оставим в каждом словаре минимальный
+набор полей.
+
+\begin{english}
+  \begin{clojure}
+(def data-if
+  [{:command "if" :condition ...}
+     {:command "print" :text "True"}
+   {:command "else"}
+     {:command "print" :text "False"}
+   {:command "end"}])
+  \end{clojure}
+\end{english}
+
+Как и в настоящем языке программирования, команды Selenium IDE могут быть
+неограниченно вложены друг в друга. Например, если верно условие, открыть цикл:
+
+\begin{english}
+  \begin{clojure}
+[{:command "if" :condition ...}
+   {:command "for"}
+     ...
+   {:command "end"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+\noindent
+или условие в цикле внутри цикла:
+
+\begin{english}
+  \begin{clojure}
+[{:command "for"}
+   {:command "for"}
+     {:command "if" :condition ...}
+        ...
+     {:command "else"}
+        ...
+     {:command "end"}
+   {:command "end"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+Ожидается, что наш код принимает JSON-файл, некоторые параметры и выполняет
+команды с учетом условий и повторов. На страницах книги мы не будем решать
+задачу досконально, но разберём её основную часть~--- группировку команд с
+учётом flow-операторов. В этом нам поможет спека, а именно её
+regex-функциональность.
+
+\index{парсинг}
+
+Очевидно, условные операторы наделяют код структурой, и мы должны отразить это в
+программе. Для этого приведем плоский список к более сложному виду. Это
+будет список пар, где первый элемент~--- тег, а второй~--- команда или её
+сгруппированный вариант. Например, для обычного \texttt{print} получим пару:
+
+\begin{english}
+  \begin{clojure}
+[:cmd {:command "print" :text "hello"}]
+  \end{clojure}
+\end{english}
+
+\noindent
+, а для \texttt{if}~--- нечто следующее (элемент \verb|{...}| означает словарь
+команды):
+
+\begin{english}
+  \begin{clojure}
+[:if {:tag {...}
+      :condition {...}
+      :branch-true [{...} {...}]
+      :branch-else [{...} {...}]
+      :end {...}}]
+  \end{clojure}
+\end{english}
+
+В первом случае мы просто выполним \verb|print|. У варианта с \verb|if| второй
+элемент структурирован. Теперь это не плоский список, а словарь с входным тегом,
+положительной и негативной ветками. В новом виде обработать его гораздо
+легче. Сначала проверим условие из ключа \verb|:condition|. Если оно истинно,
+выполним \verb|:branch-true|, а иначе \verb|:branch-else|.
+
+Начнём код с простой функции \texttt{parse-flow}, которая принимает вектор
+команд и возвращает вектор пар:
+
+\begin{english}
+  \begin{clojure}
+(defn parse-flow [commands]
+  (s/conform ::flow commands))
+  \end{clojure}
+\end{english}
+
+Чтобы перейти к новой структуре, определим спеку \texttt{::flow}. Это один и
+более элементов, каждый из которых либо \texttt{:if}, либо обычная команда
+\texttt{:cmd} (для краткости пока что опустим \texttt{for}). Спека не допустит
+пустого списка команд, потому что обычно в этом нет смысла.
+
+\begin{english}
+  \begin{clojure}
+(s/def ::flow
+  (s/+ (s/alt :if ::flow-if
+              :cmd ::command)))
+  \end{clojure}
+\end{english}
+
+Подумаем, какой смысл мы вкладываем в термин <<обычная команда>> с ключом
+\verb|:cmd|. Если коротко, это действие, которое не зависит от других команд, то
+если не \texttt{if}, \texttt{else}, \texttt{for} или \texttt{end}. В
+классических языках мы бы сказали, что это не служебное слово. Чтобы отличить
+обычные команды от служебных, заведем множество flow-тегов:
+
+\label{flow-tags}
+
+\begin{english}
+  \begin{clojure}
+(def flow-tags #{"if" "else" "end" "for"})
+  \end{clojure}
+\end{english}
+
+Объявим спеку \texttt{::command}. Она проверяет, что поле \texttt{:command}
+словаря заполнено, но не входит в особые теги:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::command
+  (fn [obj]
+    (when-let [command (get obj :command)]
+      (not (contains?
+              flow-tags command)))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::command
+  (fn [obj]
+    (when-let [command (get obj :command)]
+      (not (contains? flow-tags command)))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Введём вспомогательную функцию \texttt{tag=}. Она принимает тег и возвращает
+функцию, которая принимает команду и проверяет, что у неё такой же тег.
+
+\begin{english}
+  \begin{clojure}
+(defn tag= [tag]
+  (fn [obj]
+    (= (get obj :command) tag)))
+  \end{clojure}
+\end{english}
+
+\noindent
+Функция пригодится, чтобы быстро задать предикат:
+
+\begin{english}
+  \begin{clojure}
+(def tag-print? (tag= "print"))
+
+(tag-print? {:command "print"})
+;; true
+  \end{clojure}
+\end{english}
+
+Самое интересное кроется в спеке \texttt{::flow-if}. Приведём её описание:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure/lines}
+(s/def ::flow-if
+  (s/cat
+    :this (tag= "if")
+    :flow ::flow
+    :else (s/? (s/cat
+                 :this (tag= "else")
+                 :flow ::flow))
+    :end (tag= "end")))
+  \end{clojure/lines}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure/lines}
+(s/def ::flow-if
+  (s/cat :this (tag= "if")
+         :flow ::flow
+         :else (s/? (s/cat :this (tag= "else")
+                           :flow ::flow))
+         :end (tag= "end")))
+  \end{clojure/lines}
+\end{english}
+
+\fi
+
+Спека читается так. Сперва идёт открывающий элемент с тегом \texttt{if}
+\coderef{\ifnarrow{3}\else{2}\fi}. Поместим его в словарь с ключом
+\texttt{:this}. Затем~--- положительная ветка, одна и более других команд,
+включая вложенные \texttt{if}.  Здесь мы просто ссылаемся на спеку
+\texttt{:flow}, которую объявили выше. В поле \texttt{:else}
+\coderef{\ifnarrow{5}\else{4}\fi} попадёт негативная ветка, однако лишь в том
+случае, если для неё было совпадение (обёртка \verb|s/?| означает ни разу или
+один раз). Ветка обнаружится, если встретится тег \verb|else| с последующими
+командами. Спека завершается элементом \verb|end|.
+
+Уже на этом этапе можно проверить парсинг. Подберём минимальный пример с печатью
+и условием:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+[{:command "if" :condition ...}
+   {:command "print" :text "True"}
+ {:command "else"}
+   {:command "print" :text "False"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+[{:command "if" :condition ...}
+   {:command "print" :text "True"}
+ {:command "else"}
+   {:command "print" :text "False"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+\fi
+
+Если передать эти данные в \texttt{parse-flow}, получим результат:
+
+
+\begin{english}
+  \begin{clojure}
+[[:if
+  {:this {:command "if" :condition "..."}
+   :flow [[:cmd {:command "print"
+                 :text "True"}]]
+   :else
+   {:this {:command "else"}
+    :flow [[:cmd {:command "print"
+                  :text "False"}]]}
+   :end {:command "end"}}]]
+  \end{clojure}
+\end{english}
+
+Более сложный вариант со вложенным \texttt{if}:
+
+\begin{english}
+  \begin{clojure}
+[{:command "if" :condition "..."}
+   {:command "if" :condition "..."}
+     {:command "print" :text "hello"}
+   {:command "end"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+Видим, что структура кода сохраняется:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+[[:if
+  {:this {:command "if"
+          :condition "..."}
+   :flow
+   [[:if
+     {:this {:command "if"
+             :condition "..."}
+      :flow [[:cmd {:command "print"
+                    :text "hello"}]]
+      :end {:command "end"}}]]
+   :end {:command "end"}}]]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+[[:if
+  {:this {:command "if" :condition "..."}
+   :flow
+   [[:if
+     {:this {:command "if" :condition "..."}
+      :flow [[:cmd {:command "print" :text "hello"}]]
+      :end {:command "end"}}]]
+   :end {:command "end"}}]]
+  \end{clojure}
+\end{english}
+
+\fi
+
+Важно, что ошибки в структуре не пройдут валидацию спекой. Например, незакрытый
+тег \texttt{end} породит сбой в \texttt{::flow-if}, потому что он обязателен на
+конце. Двойной \texttt{end} или \texttt{else} тоже нарушат спеку, ровно как и
+пустая ветка без команд. Все варианты ниже вернут \texttt{::s/invalid}.
+
+\begin{english}
+  \begin{clojure}
+(def data-broken1 ;; missing end
+  [{:command "if" :condition "..."}
+   {:command "print" :text "hello"}])
+
+(def data-broken2 ;; double end
+  [{:command "if" :condition "..."}
+   {:command "print" :text "hello"}
+   {:command "end"}
+   {:command "end"}])
+
+(def data-broken3 ;; empty block
+  [{:command "if" :condition "..."}
+   {:command "end"}])
+  \end{clojure}
+\end{english}
+
+\pagebreakafive
+
+Исследуйте отчёт \verb|s/explain| для этих команд и подумайте, как составить
+текст ошибки.
+
+\subsubsection*{Другие операторы}
+
+Парсинг легко дополнить новым оператором ветвления. До сих пор мы игнорировали
+тег \verb|for| для цикла, и теперь добавим его в три шага.
+
+Во-первых, убедимся, что он входит в множество \texttt{flow-tags}, чтобы
+\verb|for| не считался обычной командой \page{flow-tags}.
+
+Во-вторых, расширим главную спеку \texttt{::flow}. Теперь её элемент либо
+\texttt{if}, либо \texttt{for}, либо обычная команда:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::flow
+  (s/+
+   (s/alt :if ::flow-if
+          :for ::flow-for
+          :cmd ::command)))
+  \end{clojure}
+\end{english}
+
+В-третьих, напишем спеку \texttt{::flow-for} для разбора одноимённой
+команды. Она проще \texttt{if}, потому что включает в себя только один блок
+команд.
+
+\begin{english}
+  \begin{clojure}
+(s/def ::flow-for
+  (s/cat :this (tag= "for")
+         :flow ::flow
+         :end (tag= "end")))
+  \end{clojure}
+\end{english}
+
+Данные с циклом, в теле которого условие:
+
+\begin{english}
+  \begin{clojure}
+[{:command "for"}
+   {:command "if" :condition "..."}
+     {:command "print" :text "hello"}
+   {:command "end"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+Результат разбора:
+
+\pagebreakafive
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+[[:for
+  {:this {:command "for"}
+   :flow
+   [[:if
+     {:this {:command "if" ...}
+      :flow [[:cmd {:command "print" ...}]]
+      :end {:command "end"}}]]
+   :end {:command "end"}}]]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+[[:for
+  {:this {:command "for"}
+   :flow
+   [[:if
+     {:this {:command "if" :condition "..."}
+      :flow [[:cmd {:command "print" :text "hello"}]]
+      :end {:command "end"}}]]
+   :end {:command "end"}}]]
+  \end{clojure}
+\end{english}
+
+\fi
+
+По аналогии легко добавить операторы \texttt{repeat} или \verb|when|, которые
+выполняют блок кода несколько раз или по условию.
+
+Подумайте, как составить спеку для оператора \texttt{switch}. Он принимает один
+и более блоков \verb|case|; внутри каждого блока~--- произвольные команды,
+которые выполняются, если управление переходит на эту ветку.
+
+\begin{english}
+  \begin{clojure}
+[{:command "switch" :value "..."}
+   {:command "case" :value 1}
+     {:command "print" :text "one"}
+   {:command "end"}
+     {:command "case" :value 2}
+   {:command "print" :text "two"}
+     {:command "end"}
+ {:command "end"}]
+  \end{clojure}
+\end{english}
+
+Пока что не отвлекайтесь на значения полей \verb|:value|. Сначала добейтесь,
+чтобы список выше обрёл форму, удобную для будущей обработки.
+
+Мы проделали большую работу~--- из плоского списка команд получили структуру с
+учётом вложенности. Интересно, для этого понадобился только один модуль из
+поставки Clojure и менее ста строк кода. Система проста и может быть легко
+расширена новыми тегами.
+
+Интерпретация кода~--- крайне интересная тема. Она открывает неожиданные
+решения, например языки сценариев, описание бизнес процессов и многое
+другое. Сейчас мы не будем рассматривать, как выполнить полученную
+структуру. Это сложный вопрос, который уведёт нас от текущего
+обсуждения. Заинтересованному читателю советуем исследовать код модуля
+\verb|flow.clj| из библиотеки Etaoin.
+
+\section{Разбор Clojure-кода (теория)}
+
+\index{парсинг}
+\index{макросы}
+
+В завершение темы поговорим о том, как парсить код. Мы уже видели, что Spec
+подходит для разбора коллекций. Код на Clojure состоит из списков. Это приводит
+к необычному подходу: код можно проверить спекой и вернуть ошибку до того, как
+он запущен.
+
+Проверять код удобно в макросах. Это особые функции, которые работают на этапе
+компиляции. Макрос принимает код в виде списка символов. В коде могут быть
+ошибки, но макрос об этом ничего не знает: для него это просто символы.
+
+Задача макроса в том, чтобы перестроить список в другой, понятный
+Clojure. Компилятор заменит вызов макроса на то, что он вернул, и запустит
+код. Макросы~--- это отдельная веха в изучении Clojure, и сейчас мы не будем
+разбирать их с азов. Пока что рассмотрим, как проверить макрос спекой.
+
+Каждый макрос~--- это мини-язык с соглашением о том, что подавать на вход. В
+простых случаях его тело парсят функциями \verb|first|, \verb|rest| и
+условиями. Сложные макросы разбирают грамматиками, как мы делали это с командами
+Selenium IDE. Если код нарушает правила, мы должны объяснить, в чём ошибка.
+
+Иногда один и тот же макрос допускает разные записи. Хорошим примером служит
+\verb|defn|~--- определение функции. Кроме обязательных параметров он принимает
+дополнительные: строку документации, пре- и постпроверки. У функции может быть
+несколько тел\ifafive\lis{fig:fn-poly}\fi.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn my-inc
+  [x]
+  (+ x 1))
+  \end{clojure}
+
+\splitter
+
+  \begin{clojure}
+(defn my-inc
+  "Increase a number."
+  [x]
+  {:pre [(int? x)]
+   :post [(int? %)]}
+  (+ x 1))
+  \end{clojure}
+
+\splitter
+
+  \begin{clojure}
+(defn my-inc
+  ([x]
+   (my-inc x 1))
+  ([x delta]
+   (+ x delta)))
+  \end{clojure}
+\end{english}
+
+\else
+
+\ifafive
+\begin{listing}[ht!]
+\fi
+
+\begin{english}
+
+\noindent
+\iflarge
+\begin{tabular}{ @{}p{2.9cm} @{}p{4.8cm} @{}p{3cm} }
+\else
+\begin{tabular}{ @{}p{2.7cm} @{}p{4.5cm} @{}p{3cm} }
+\fi
+
+  \begin{clojure}
+(defn my-inc
+  [x]
+  (+ x 1))
+  \end{clojure}
+
+&
+
+  \begin{clojure}
+(defn my-inc
+  "Increase a number."
+  [x]
+  {:pre [(int? x)]
+   :post [(int? %)]}
+  (+ x 1))
+  \end{clojure}
+
+&
+
+  \begin{clojure}
+(defn my-inc
+  ([x]
+   (my-inc x 1))
+  ([x delta]
+   (+ x delta)))
+  \end{clojure}
+
+\end{tabular}
+
+\end{english}
+
+\ifafive
+\caption{Варианты синтаксиса \code{defn}}
+\label{fig:fn-poly}
+\end{listing}
+\fi
+
+\fi
+
+Это одна и та же функция, записанная по-разному. Очевидно, разобрать все
+варианты вручную тяжело. До версии Clojure 1.10 каждый макрос парсил код на свой
+манер. Это было ситуативно и неорганизованно. С выходом Spec основные макросы
+перешли на спеку. Появился общий подход, которым легко управлять.
+
+\index{spec!cat}
+
+Разберём устно, как бы мы построили спеку для разбора \verb|defn|. Это список,
+поэтому на верхнем уровне поместим \verb|s/cat|. Первый его элемент~--- символ
+\verb|defn|, второй~--- символ с именем функции. После имени следует строка
+документации (её может и не быть). Далее~--- тело или список тел. Набросаем
+черновик:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::defn
+  (s/cat :tag #{'defn}
+         :name symbol?
+         :doc (s/? string?)
+         :body ...))
+  \end{clojure}
+\end{english}
+
+Что скрывается за ключом \verb|:body|, пока неизвестно. Проблема в том, что
+\verb|defn| принимает либо одно тело, либо их список. Сравните первый и третий
+столбики в примере с \verb|my-inc| выше.
+
+Для начала напишем спеку обычного тела. Считаем, что тело начинается с вектора
+параметров. После него идёт опциональный словарь пре- и постпроверок. Затем
+произвольные формы, из которых состоит тело функции.
+
+\begin{english}
+  \begin{clojure}
+(s/def :defn/body
+  (s/cat :args vector?
+         :prepost (s/? map?)
+         :code (s/* any?)))
+  \end{clojure}
+\end{english}
+
+На базе \verb|:defn/body| построим такую спеку, которая учитывает оба случая:
+одно тело и несколько. Обозначим её звёздочкой: \verb|:defn/body*|. Вот её
+реализация:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def :defn/body*
+  (s/alt :single :defn/body
+         :multi (s/+
+                  (s/spec :defn/body))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def :defn/body*
+  (s/alt :single :defn/body
+         :multi (s/+ (s/spec :defn/body))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{синтаксис!\textquotesingle{ }(заморозка)}
+
+Теперь подготовим данные для спеки. Это список, который повторяет выражение
+\verb|defn|. Он состоит из примитивов~--- символов, чисел, строк~--- и вложенных
+коллекций. Список можно составить комбинацией \verb|list| и~экранированных
+символов. Выражение \verb|'something| не вычисляет символ за апострофом,
+а~только возвращает его. Эту запись называют квотированием \eng{quote} или
+заморозкой. На жаргоне программистов говорят <<заквотить символ>>.
+
+\begin{english}
+  \begin{clojure}
+(def defn-expr
+  (list 'defn 'my-inc
+        "Increase a number"
+        ['x]
+        {:pre [(list 'int? 'x)]} ...))
+  \end{clojure}
+\end{english}
+
+Если выполнить \verb|defn-expr| в REPL, увидим код в том виде, в каком он
+выглядел бы в редакторе. Однако из-за частых \verb|list| и апострофов код
+получился шумный, и в нём легко допустить ошибку. Для краткости заморозим не
+отдельные символы, а выражение \verb|defn| целиком. Так мы сохраним оригинальный
+синтаксис:
+
+\begin{english}
+  \begin{clojure/lines}
+(def defn-expr
+  '(defn my-inc
+     "Increase a number"
+     [x]
+     {:pre [(int? x)]
+      :post [(int? %)]}
+     (+ x 1)))
+  \end{clojure/lines}
+\end{english}
+
+Обратите внимание на апостроф во второй строке: именно он удерживает \verb|defn|
+от выполнения. В результате мы не объявим функцию, а только получим её код.
+
+Заметим, что во внутреннем \verb|defn| могут быть какие угодно ошибки, но мы
+о~них не узнаем. С точки зрения Clojure это список символов без всякой
+семантики. Для этого мы и пишем спеку~--- убедиться, что у~списка правильная
+структура. Распарсим его:
+
+\begin{english}
+  \begin{clojure}
+(s/conform ::defn defn-expr)
+  \end{clojure}
+\end{english}
+
+\noindent
+Результат:
+
+\iflarge\vspace{15mm}\pagebreak[4]\fi
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+{:tag defn
+ :name my-inc
+ :doc "Increase a number"
+ :body
+ [:single
+  {:args [x]
+   :prepost {:pre [(int? x)]
+             :post [(int? %)]}
+   :code [(+ x 1)]}]}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+{:tag defn
+ :name my-inc
+ :doc "Increase a number"
+ :body
+ [:single
+  {:args [x]
+   :prepost {:pre [(int? x)] :post [(int? %)]}
+   :code [(+ x 1)]}]}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Обратите внимание на поле \verb|:body|. Это вектор из метки и результата. Для
+одного тела получим метку \verb|:single| и словарь. Для нескольких тел метка
+будет \verb|:multi|, а значение~--- вектор словарей:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+[:multi [{:args [x]
+          :code [(println 1)]}
+         {:args [x y]
+          :code [(println 2)]}]]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+[:multi [{:args [x] :code [(println 1)]}
+         {:args [x y] :code [(println 2)]}]]
+  \end{clojure}
+\end{english}
+
+\fi
+
+Чтобы проверить метку (одно тело или несколько), пригодится оператор
+\verb|case|. Ниже в переменой \verb|result| записан результат парсинга. Функция
+\verb|process-body| обрабатывает словарь тела в зависимости от единичного и
+множественного случаев:
+
+\begin{english}
+  \begin{clojure}
+(let [{:keys [body]} result
+      [tag body] body]
+  (case tag
+    :single
+    (process-body body)
+    :multi
+    (doseq [body body]
+      (process-body body))))
+  \end{clojure}
+\end{english}
+
+\subsection{Самостоятельная работа}
+
+\index{сообщения}
+
+Каждый уровень спеки расширяется вглубь. Доработаем аргументы функции: разделим
+их на обязательные и остаточные. Например, чтобы параметры \verb|[x y & other]|
+предстали в виде словаря:
+
+\begin{english}
+  \begin{clojure}
+{:req [x y] :opt other}
+  \end{clojure}
+\end{english}
+
+\noindent
+По аналогии разберите словари пре- и постпроверок.
+
+Передайте в спеку данные с ошибками. Что делать в таком случае? Как составить
+понятное сообщение о том, где именно ошибка и чего вы ожидали? Подойдёт ли
+словарь переводов? Получится ли у вас сделать ошибки лучше, чем в промышленных
+языках?
+
+Данные, которые вернула спека-парсер, называются абстрактным синтаксическим деревом
+(англ.~abstract syntax tree, \footurl{AST}{https://en.wikipedia.org/wiki/Abstract\_syntax\_tree}[AST]).
+Это вложенная структура, которую получают из текста. AST~--- важный этап в~исполнении
+программы. Только построив дерево, можно выполнить логику, которая за ним стоит.
+
+\index{интерпретатор}
+
+Spec работает в том числе как парсер грамматик: можно разобрать данные и
+построить дерево. Вы в шаге от того, чтобы написать простой интерпретатор
+Clojure~--- программу, которая читает список и выполняет его. Реализация языка
+на самом языке станет хорошей темой для курсовой работы или даже диплома.
+
+\section{Спецификация функций}
+
+\index{spec!функции}
+
+Проблема валидации касается и функций. Они получают данные от посредников, и
+всегда есть шанс, что в них ошибка. Вспомним функцию с диапазоном дат. Если
+поменять их местами (начало больше конца), проверка на интервал вернёт
+ложь. Здесь и пригодится спека.
+
+Опишем параметры функции. Это \verb|s/cat|, которая принимает список аргументов
+и возвращает словарь. Назначим аргументам функции метки \verb|:start| и
+\verb|:end|:
+
+\pagebreakafive
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/def ::date-range-args
+  (s/and
+    ;; parse args
+    (s/cat :start inst? :end inst?)
+    ;; compare args
+    (fn [{:keys [start end]}]
+      (<= (compare start end) 0))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/def ::date-range-args
+  (s/and
+   (s/cat :start inst? :end inst?) ;; parse args
+   (fn [{:keys [start end]}]       ;; compare args
+     (<= (compare start end) 0))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{clojure.core!compare}
+
+Вторая функция в \verb|s/and| принимает словарь и сравнивает даты. Для сравнения
+дат используют функцию \verb|compare|, которая вернёт \mbox{-1}, 0 и 1 для
+случаев <<меньше>>, <<равно>> и <<больше>>. Быстрая проверка:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::date-range-args
+          [#inst "2019" #inst "2020"])
+;; true
+
+(s/valid? ::date-range-args
+          [#inst "2020" #inst "2019"])
+;; false
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(s/valid? ::date-range-args
+          [#inst "2019" #inst "2020"]) ;; true
+
+(s/valid? ::date-range-args
+          [#inst "2020" #inst "2019"]) ;; false
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{декораторы}
+
+Напрашивается декоратор, который принимает функцию и спеку. Перед тем как
+запустить функцию, он проверяет аргументы и в случае ошибки бросит исключение.
+Если задана спека результата, проверим его тоже перед тем как вернуть из
+декоратора.
+
+\index{модули!clojure.spec.test.alpha}
+\index{функции!instrument}
+
+Писать декоратор не нужно, потому что его включили в Spec. Это функция
+\verb|instrument| из модуля \verb|clojure.spec.test.alpha|
+(англ.~instru\-ment~--- <<оснастить, оборудовать>>). Обратите внимание на
+пространство: в него закралась частичка test. Оснащение функций вынесли в
+отдельный модуль.
+
+\index{monkey patch}
+
+\verb|Instrument| принимает символ функции, которую <<заряжают>>. С тем же
+символом определяют спеку этой функции. \verb|Instrument| подменяет функцию на
+такую же, но с проверками. Происходит своего рода \footurl{monkey
+  patch}{https://en.wikipedia.org/wiki/Monkey\_patch}[Monkey patch], когда
+один модуль изменяет другой.
+
+Чтобы задать спеку функции, используют макрос \verb|s/fdef|. Ему передают символ
+функции и спеки входящих параметров, результата и их композиции.
+
+\index{даты}
+\index{классы!Date}
+
+Напишем функцию и спеку к ней. Пусть функция считает разницу между датами в
+секундах. Если первая дата больше второй, результат отрицательный.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(import 'java.util.Date)
+
+(defn date-range-sec
+  "Return the difference
+           between two dates in seconds."
+  [^Date date1 ^Date date2]
+  (quot (- (.getTime date2)
+           (.getTime date1))
+        1000))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(import 'java.util.Date)
+
+(defn date-range-sec
+  "Return the difference between two dates in seconds."
+  [^Date date1 ^Date date2]
+  (quot (- (.getTime date2)
+           (.getTime date1))
+        1000))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Теги \verb|^Date| нужны, чтобы компилятор знал тип объектов \verb|date1| и
+\verb|date2|. Если тега нет, Clojure ищет тип во время исполнения с помощью
+рефлексии, что медленней. Посчитаем разницу в секундах между двумя сутками:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(date-range-sec #inst "2019-01-01"
+                #inst "2019-01-02")
+86400
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(date-range-sec #inst "2019-01-01" #inst "2019-01-02")
+86400
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+Если поменять даты местами, получим то же число с минусом.
+
+Опишем функциональную спеку с символом \verb|date-range-sec|. В~ключе
+\verb|:args| указывают спеку входящих параметров. Это список, поэтому пригодится
+\verb|s/cat|. Он разбивает список на словарь, чтобы спеки ниже работали с
+ключами.
+
+Ключ \verb|:ret| означает спеку результата. Чаще всего это проверка на число или
+строку: \verb|int?|, \verb|string?| или их \verb|nilable|-версии, которые
+допускают \verb|nil|: \verb|(s/nilable int?)| и так далее.
+
+\index{spec!fdef}
+
+\begin{english}
+  \begin{clojure}
+(s/fdef date-range-sec
+  :args (s/cat :start inst? :end inst?)
+  :ret int?)
+  \end{clojure}
+\end{english}
+
+В ключи \verb|:args| и \verb|:ret| можно передать готовые спеки, что полезно
+для повторного использования. У вас может быть несколько спек для диапазона дат.
+
+При создании функциональная спека не меняет функцию. Она только объявляет
+проверки, но не запускает их. Чтобы подменить функцию на её оснащенную версию,
+вызывают \verb|instrument|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.spec.test.alpha
+           :refer [instrument]])
+(instrument `date-range-sec)
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.spec.test.alpha :refer [instrument]])
+(instrument `date-range-sec)
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{синтаксис!\textasciigrave{ }(заморозка)}
+
+Символ функции должен быть полным (с пространством). Чтобы подставить в символ
+текущее пространство, перед ним ставят обратную кавычку \verb|`| по аналогии с
+\verb|::| для кейворда.
+
+Теперь \verb|date-range-sec| проверит аргументы и результат. Что случится,
+если передать в <<заряженную>> функцию не тот аргумент? Получим исключение
+\verb|ExceptionInfo|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(date-range-sec nil #inst "2019")
+;; Execution error - invalid arguments
+;; to date-range-sec
+;; nil - failed: inst? at: [:start]
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(date-range-sec nil #inst "2019")
+;; Execution error - invalid arguments to date-range-sec
+;; nil - failed: inst? at: [:start]
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{spec!explain}
+\index{отчёт!explain}
+
+Сообщение и тело нам знакомы. В поле \verb|message| находится текст из функции
+\texttt{s/ex\-plain-\-str}, а в \verb|data|~--- отчёт из \texttt{s/ex\-plain-\-da\-ta}.
+Чтобы добраться до него, передайте исключение в функцию \verb|(ex-data e)|. Всё,
+что мы обсудили в разделе сообщений об ошибках, справедливо и в этом случае.
+
+\subsection{Документация}
+
+\index{документация}
+\index{модули!clojure.repl}
+
+Функциональная спека улучшает документацию. Функция \verb|doc| из модуля
+\verb|clojure.repl| выводит справку о запрошенной функции. С появлением Spec её
+поведение изменилось: кроме документации она печатает одноимённую спеку, если её
+задали. Вот как выглядит справка для \verb|date-range-sec| после того, как
+объявили спеку:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(clojure.repl/doc date-range-sec)
+-------------------------
+([date1 date2])
+  Return the difference
+            between two dates in seconds.
+Spec
+  args: (cat :start inst? :end inst?)
+  ret: int?
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(clojure.repl/doc date-range-sec)
+-------------------------
+([date1 date2])
+  Return the difference between two dates in seconds.
+Spec
+  args: (cat :start inst? :end inst?)
+  ret: int?
+  \end{clojure}
+\end{english}
+
+\fi
+
+На функцию \verb|doc| полагаются IDE и редакторы, чтобы подсказывать аргументы в
+коде. Утилиты для сборки документации добавляют спеки в HTML-файлы.
+
+\subsection{Производительность}
+
+\index{производительность}
+
+\verb|Instrument| помогает в тестировании. На время тестов функции <<заряжают>>,
+чтобы выявить ошибки. Это делают с помощью модуля, который выполняет серию
+\verb|(instrument ...)| при загрузке. Проект устроен так, что модуль загружается
+только на время тестов. Если функция получила не те аргументы, что мы ожидали,
+это станет заметно.
+
+\index{бенчмарк}
+
+\verb|Instrument| не подходит для боевого режима, потому что замедляет
+код. Напишем простой замер, который вызывает функцию много раз:
+
+\index{clojure.core!time}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(time
+ (dotimes [n 10000]
+   (date-range-sec #inst "2019"
+                   #inst "2020")))
+;; Elapsed time: 1.783962 msecs
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(time
+ (dotimes [n 10000]
+   (date-range-sec #inst "2019" #inst "2020")))
+;; Elapsed time: 1.783962 msecs
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+То же самое после оснащения:
+
+\pagebreaklarge
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(time
+ (dotimes [n 10000]
+   (date-range-sec #inst "2019"
+                   #inst "2020")))
+;; Elapsed time: 116.984496 msecs
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(time
+ (dotimes [n 10000]
+   (date-range-sec #inst "2019" #inst "2020")))
+;; Elapsed time: 116.984496 msecs
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{тесты}
+
+Разница во времени в сто раз! Проверка существенно замедляет приложение. Вот почему
+\verb|instrument| не претендует на запуск в бою: это слишком дорогая
+цена. Однако в тестах нас не волнует скорость. На время прогона код покрывают
+как можно б\'{о}льшим числом проверок, чтобы поймать все ошибки.
+
+\section{Повторное использование спек}
+
+\index{повторное использование}
+\index{библиотеки!JDBC}
+
+В Clojure принято снабжать библиотеки спеками, чтобы помочь другим
+разработчикам. Если библиотека активно работает с какой-то структурой данных,
+опишите её спекой. Хорошим примером служит
+\footurl{JDBC}{https://github.com/clojure/java.jdbc}[JDBC],
+обёртка для реляционных баз данных.
+
+Подключение к базе задают словарём с ключами \verb|:host|, \verb|:port|,
+\verb|:user| и другими. Обычно словарь читают из конфигурации. Перед
+подключением его нужно проверить, чтобы не получить \verb|NPE| и другие
+странности.
+
+\index{NPE}
+
+Предположим, конфигурация описана в ресурсе EDN. Поле \verb|:db| задаёт
+подключение к базе.
+
+\index{форматы!EDN}
+
+\begin{english}
+  \begin{clojure}
+{:db {:dbtype "mysql"
+      :host "127.0.0.1"
+      :port 3306
+      :dbname "project"
+      :user "user"}}
+  \end{clojure}
+\end{english}
+
+Ключи \verb|:dbtype|, \verb|:host| и другие уже описаны в библиотеке. Один из её
+модулей несёт спеки подключения и основных функций. Используем их повторно:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require
+  '[clojure.java.jdbc.spec :as jdbc])
+
+(s/def ::db ::jdbc/db-spec)
+(s/def ::config (s/keys :req-un [::db]))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.java.jdbc.spec :as jdbc])
+
+(s/def ::db ::jdbc/db-spec)
+(s/def ::config (s/keys :req-un [::db]))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+Прочитаем конфигурацию из файла и проверим спекой:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(def config
+  (read-string (slurp "config.edn")))
+(s/valid? ::config config)
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(def config (read-string (slurp "config.edn")))
+(s/valid? ::config config)
+  \end{clojure}
+\end{english}
+
+\fi
+
+\label{jdbc-conform-warning}
+
+\index{spec!or}
+
+Будьте внимательны с \verb|::jdbc/db-spec|: это сложная спека с макросами
+\verb|s/or|, которые порождают развилки. Если передать её в
+\verb|s/conform|, получим поля с тегами (строки 3, 4, 6):
+
+\begin{english}
+  \begin{clojure/lines}
+(s/conform ::config config)
+{:db
+ [:friendly
+  {:dbtype   [:name "mysql"]
+   :host     "127.0.0.1"
+   :port     [:port 3306]
+   :dbname   "project"
+   :user     "user"
+   :password "********"}]}
+  \end{clojure/lines}
+\end{english}
+
+Такой результат не работает с \verb|query| и другими функциями JDBC, которые
+ожидают первым параметром словарь подключения. Мы ограничились \verb|s/valid?|,
+чтобы оставить структуру прежней.
+
+Иногда спеки выносят в отдельную библиотеку. Так поступили разработчики
+\footurl{Alia}{https://github.com/mpenet/alia}[Alia]~--- клиента для БД
+Cassandra. Проект \verb|qbits.alia| содержит основные функции для работы с
+базой. Спеки идут в пакете \verb|cc.qbits/alia-spec|, который подключают
+отдельно.
+
+\section{Дополнения}
+
+Spec входит в поставку Clojure и поэтому меняется не так часто, как хотелось бы
+разработчикам. Дополнения к Spec выпускают в виде библиотек. Среди прочих
+заслуживают внимания Expound, Spec-tools и Spec-dict. Коротко опишем возможности каждой.
+
+\subsection{Expound}
+
+\label{expound}
+\index{библиотеки!Expound}
+
+Библиотека \footurl{Expound}{https://github.com/bhb/expound}[Expound] улучшает сообщения об
+ошибках. Сигнатура функции \verb|expound| аналогична \verb|s/explain|: она
+тоже принимает спеку и~данные. Новое сообщение об ошибке выглядит так:
+
+\index{spec!ошибки}
+\index{сообщения}
+
+\begin{english}
+  \begin{clojure}
+(expound/expound string? 1)
+-- Spec failed --------------------
+  1
+should satisfy
+  string?
+-------------------------
+Detected 1 error
+  \end{clojure}
+\end{english}
+
+\index{spec!explain}
+
+Это всё ещё машинный текст, который нельзя показывать пользователю. Всё же он
+лучше, чем сырой \verb|s/explain|: его прочтут инженеры, которые не знают
+Clojure. Expound подойдёт для проверки конфигурации на старте
+приложения. Конфигурацию обновляют часто, поэтому внятный отчёт об ошибке
+полезен.
+
+\index{организации!Metosin}
+\index{библиотеки!Spec.tools}
+\index{веб-разработка!Swagger}
+\index{веб-разработка!REST}
+
+\subsection{Spec-tools}
+
+Разработчики Metosin собрали улучшения для Spec в проекте
+\footurl{Spec-tools}{https://github.com/metosin/spec-tools}[Spec-tools]. Его
+основная задача~--- обеспечить интеграцию спеки с REST API, а именно
+предоставить клиентам JSON-схемы и описание API по стандарту Swagger. По
+умолчанию Clojure ничего не знает о JSON-схемах, а современный веб~--- о
+спеке. Если вы проверяете параметры API спекой, то чтобы показать её клиенту в
+виде схемы, понадобится конвертер.
+
+Spec-tools закрывает эту проблему. Добавьте библиотеку в проект:
+
+\begin{english}
+  \begin{clojure}
+[metosin/spec-tools "0.10.4"]
+  \end{clojure}
+\end{english}
+
+Объявим простую спеку пользователя:
+
+\iflarge\vspace{15mm}\pagebreak[4]\fi
+
+\begin{english}
+  \begin{clojure}
+(s/def :user/name ::ne-string)
+(s/def :user/age pos-int?)
+
+(s/def :user/user
+  (s/keys :req-un [:user/name :user/age]))
+  \end{clojure}
+\end{english}
+
+Чтобы получить из спеки JSON-схему, передайте её в функцию \code{transform}:
+
+\begin{english}
+  \begin{clojure}
+(require '[spec-tools.json-schema
+           :as json-schema])
+
+(json-schema/transform :user/user)
+  \end{clojure}
+\end{english}
+
+В результате получим словарь:
+
+\ifafive\vspace{15mm}\pagebreak[4]\fi
+
+\begin{english}
+  \begin{clojure/lines}
+{:type "object"
+ :properties
+ {"name" {:type "string"}
+  "age" {:type "integer"
+         :format "int64"
+         :minimum 1}}
+ :required ["name" "age"]
+ :title "user/user"}
+  \end{clojure/lines}
+\end{english}
+
+Обратите внимание, что предикату \verb|pos-int?| соответствует минимальное
+значение~--- единица \coderef{6}. Spec-tools учитывает все встроенные предикаты
+(\verb|string?|, \verb|int?|, \verb|boolean?|) и коллекции (\verb|s/coll-of|,
+\verb|s/keys|). Функция \verb|transform| принимает ряд опций, чтобы повлиять на
+генерацию схемы. Для особых случаев расширьте протокол \verb|Transformer|,
+который отвечает за отображение спеки в форматы JSON и EDN.
+
+Будет полезно изучить и другие возможности Spec-tools. Ищите их описание в
+разделе Wiki на странице проекта.
+
+\subsection{Spec-dict}
+
+Наверняка читатель заметил, что описание словарей на языке спеки слегка
+избыточно. Например, чтобы задать пользователя с именем и возрастом, нужно
+сперва определить имя и возраст (спеки \verb|:user/name| и \verb|:user/age|), а
+затем сослаться на них в \verb|s/keys|. Причина кроется в том, как устроен
+макрос \verb|s/keys|~--- он принимает только ключи спек, но не предикаты. Это
+значит, не получится описать спеку как в примере ниже:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::user
+  {:name string?
+   :age pos-int?})
+  \end{clojure}
+\end{english}
+
+Библиотека \footurl{Spec-dict}{https://github.com/igrishaev/spec-dict}[Spec-dict]
+разрешает такую запись. Функция \verb|dict| принимает словарь, где значения~--- предикаты
+или другие спеки. Её результат~--- спека, которая проверяет ключи и значения
+по заданным предикатам. Спеки-словари могут быть вложенными. Вот как задать
+спеку записи в блог, где автор~--- вложенное поле:
+
+\begin{english}
+  \begin{clojure}
+[spec-dict "0.2.1"] ;; project.clj
+
+(require '[spec-dict :refer [dict dict*]])
+
+(s/def ::post
+ (dict {:title string?
+        :author (dict {:name string?
+                       :email string?})}))
+  \end{clojure}
+\end{english}
+
+Новый синтаксис значительно сокращает описание словарей. Перечислим другие
+особенности библиотеки.
+
+\begin{itemize}
+
+\item
+  Ключи словаря могут быть любого типа, например строкой, числом или датой:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::data (dict {"name" string?}))
+
+(s/valid? ::data {"name" "Test"})
+;; true
+  \end{clojure}
+\end{english}
+
+\item
+  В \verb|dict| можно передать несколько словарей, и они сольются в один. Если
+  предварить словарь синтаксисом \verb|^:opt|, его ключи станут необязательными:
+
+\begin{english}
+  \begin{clojure}
+(dict {:name string?} ^:opt {:age int?})
+  \end{clojure}
+\end{english}
+
+\item
+  Спека, полученная из функции \verb|dict|, поддерживает \verb|conform| и \verb|unform|,
+  генерацию данных, отчёт \verb|explain|.
+
+\item
+  Функция \verb|dict*| со звёздочкой дополнительно проверяет, что в словаре нет
+  лишних ключей. По умолчанию \verb|s/keys| не предлагает такой проверки, хотя
+  порой это критически важно. В примере ниже данные не пройдут валидацию из-за
+  ключа \verb|:extra|, который не предусмотрен спекой:
+
+\begin{english}
+  \begin{clojure}
+(s/def ::user-strict
+  (dict* {:name string? :age pos-int?}))
+
+(s/valid? ::user-strict
+  {:name "test" :age 30 :extra 1})
+;; false
+  \end{clojure}
+\end{english}
+
+\end{itemize}
+
+\subsection{Spec~2}
+
+На сегодняшний день пакет Spec всё ещё не избавился от частички alpha в
+названии. Трудно сказать, когда спеку официально признают стабильной, и
+произойдёт ли это вообще. В любом случае, статус альфы не должен останавливать
+вас от использования спеки. Полагаем, в этой главе мы сказали достаточно, чтобы
+убедить вас в её преимуществах.
+
+\index{люди!Рич Хикки}
+\index{видео!Maybe Not}
+
+В докладе \footurl{Maybe Not}{https://youtube.com/watch?v=YR5WdGrpoug}[Maybe\\*Not]
+от 2018 года Рич Хикки анонсировал вторую версию Spec. В ней упростят работу со
+словарями (спека \verb|select|) и множественными типами (когда значение~---
+строка или число). Обсуждение второй спеки выходит за рамки главы. Предлагаем
+читателю исследовать Spec~2 самостоятельно.
+
+\section{Заключение}
+
+Spec~--- это библиотека Clojure, которая идёт в поставке с языком. Spec
+предлагает набор функций и макросов. Ими описывают правила, которым подчиняются
+данные. Правила~--- это функции, которые возвращают истину или ложь. По-другому
+такие функции называют предикатами.
+
+Предикаты гибче и мощнее типов. Если известно, что значение верного типа, это не
+гарантирует корректности. Классы вроде \verb|UnixPort| или \verb|DateRange| на
+самом деле не типы, а валидация в рантайме. Она привязана к вызову класса с
+помощью синтаксиса: оператор \verb|new| неявно вызывает конструктор. Внутри
+конструктора параметры проходят проверку, и если что-то не так, получим
+исключение.
+
+В отличие от классов, предикаты компонуются друг с другом. Легко составить
+предикат с логикой <<каждый из>>, <<любой из>> и другие комбинации.
+
+Библиотека служит в том числе для преобразования данных. Функция
+\verb|s/conform| оборачивает другую функцию, которая принимает текущее значение
+и возвращает новое. Этим пользуются для вывода чисел и дат из строк.
+
+Spec предлагает regex-спеки, похожие на регулярные выражения. От обычных спек
+они отличаются тем, что захватывают часть коллекции. На regex-спеках пишут
+парсеры данных, в том числе для самой Clojure. Основные макросы модуля
+\verb|clojure.core| проверяют своё тело с помощью Spec.
+
+Библиотека полезна в тестах. Функция \texttt{in\-stru\-ment} изменяет другую
+функцию так, что её аргументы проверяются спекой. Это замедляет вызов, но делает
+тесты надёжней. Функциональная спека становится частью документации.
+
+Spec не предлагает решения для сообщений об ошибках. Как их~строить и показывать
+клиенту, зависит от проекта. Один из подходов основан на словаре, где ключи~---
+спеки, а значения~--- текст ошибки или тег перевода. Если заменить словарь на
+мультиметод, потребителям будет проще расширить его.
+
+Мы рассмотрели основные возможности библиотеки. В обсуждение не попали
+генераторы, мультиспеки и другие интересные вещи. Всё это читатель найдёт в
+\footurl{официальной документации}{https://clojure.org/about/spec}[About Spec].
+Мы не прощаемся со спекой~--- нам ещё доведётся поработать с ней в будущих главах.

@@ -1,0 +1,540 @@
+\chapter{Czysta Architektura: Interfejsy i Warstwa Domeny (Wykład 12)}
+
+W poprzednim rozdziale nauczyliśmy się korzystać z biblioteki Hilt do automatycznego wstrzykiwania zależności. Zastosowaliśmy tam jednak pewne uproszczenie: nasze ViewModele zależały bezpośrednio od konkretnych klas Repozytoriów (np. \texttt{NewsRepository}).
+
+W tym rozdziale podniesiemy jakość naszej architektury, wprowadzając dwa kluczowe ulepszenia:
+\begin{enumerate}
+    \item \textbf{Interfejsy w Warstwie Danych:} Aby uniezależnić kod od konkretnej implementacji (zgodnie z zasadą Dependency Inversion).
+    \item \textbf{Warstwę Domeny (Use Cases):} Aby wyprowadzić logikę biznesową z ViewModeli.
+\end{enumerate}
+
+\section{Ulepszanie Warstwy Danych: Dlaczego potrzebujemy Interfejsów?}
+
+Spójrzmy na kod ViewModelu, którym zakończyliśmy poprzedni wykład:
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+@HiltViewModel
+class NewsViewModel @Inject constructor(
+    // BŁĄD ARCHITEKTONICZNY: Zależność od konkretnej klasy
+    private val repository: NewsRepository 
+) : ViewModel() { ... }
+\end{minted}
+
+To podejście, choć działa, posiada poważne wady z punktu widzenia inżynierii oprogramowania (SOLID):
+\begin{itemize}
+    \item \textbf{Trudne testowanie:} Aby przetestować \texttt{NewsViewModel}, musimy dostarczyć mu prawdziwą instancję \texttt{NewsRepository}, która może łączyć się z internetem. W testach jednostkowych chcielibyśmy użyć \textit{zaślepki} (\texttt{FakeRepository}), która zwraca \textit{dummy data}.
+    \item \textbf{Silne sprzężenie (Tight Coupling):} Jeśli w przyszłości będziemy chcieli zmienić źródło danych z Retrofit na Firebase lub GraphQL, będziemy musieli przebudować kod wewnątrz wszystkich ViewModeli.
+\end{itemize}
+
+Zamiast wstrzykiwać klasę, powinniśmy wstrzykiwać obiekt o typie interfejsu. Definiuje on \textit{kontrakt} - mówi \textit{co} repozytorium potrafi robić, ale nie \textit{jak} to robi.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// 1. Definiujemy Interfejs (w warstwie Domeny lub Danych)
+interface NewsRepository {
+    suspend fun getTopHeadlines(): List<Article>
+}
+
+// 2. Implementujemy Interfejs (w warstwie Danych)
+class NewsRepositoryImpl @Inject constructor(
+    private val api: NewsApiService
+) : NewsRepository {
+    override suspend fun getTopHeadlines() = api.getTopHeadlines().articles
+}
+
+// 3. ViewModel zależy teraz od Interfejsu (Dependency Inversion)
+class NewsViewModel @Inject constructor(
+    private val repository: NewsRepository // <--- ZMIANA
+) : ViewModel() { ... }
+\end{minted}
+
+Dzięki tej zmianie, ViewModel nie wie, czy dane pochodzą z sieci, z bazy danych, czy z pliku testowego. Interesuje go tylko, że obiekt spełnia kontrakt \texttt{NewsRepository}.
+
+\section{Konfiguracja Hilt dla Interfejsów (@Binds)}
+
+Po wprowadzeniu interfejsu napotkamy na problem z biblioteką Hilt.
+
+Gdy Hilt próbuje stworzyć \texttt{NewsViewModel}, widzi, że potrzebuje on \texttt{NewsRepository}. Hilt przeszukuje swoje \textit{przepisy} (graf zależności), ale nie znajduje instrukcji, jak stworzyć \textbf{Interfejs}. Hilt wie tylko, jak stworzyć klasę \texttt{NewsRepositoryImpl} (bo ma ona adnotację \texttt{@Inject constructor}).
+
+Musimy połączyć te dwa fakty. Musimy powiedzieć Hiltowi: \textit{Jeśli ktoś poprosi Cię o NewsRepository, daj mu instancję NewsRepositoryImpl}.
+
+Do wiązania interfejsów z implementacjami używamy adnotacji \texttt{@Binds}. Wymaga ona stworzenia modułu abstrakcyjnego.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// Plik: di/RepositoryModule.kt
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class RepositoryModule {
+
+    // Adnotacja @Binds działa podobnie do @Provides, ale jest wydajniejsza.
+    // Metoda musi być abstrakcyjna.
+    // Parametr metody to konkretna implementacja, którą Hilt już zna (ma @Inject).
+    // Typ zwracany to obiekt o typie interfejsu, który chcemy wstrzykiwać.
+    
+    @Binds
+    @Singleton // Jeśli chcemy, by repozytorium było singletonem
+    abstract fun bindNewsRepository(
+        impl: NewsRepositoryImpl
+    ): NewsRepository
+}
+\end{minted}
+
+Moglibyśmy osiągnąć ten sam efekt używając znanej nam adnotacji \texttt{@Provides}:
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// Podejście z @Provides (mniej optymalne dla interfejsów):
+@Provides
+fun provideRepository(impl: NewsRepositoryImpl): NewsRepository {
+    return impl
+}
+\end{minted}
+
+Zaleca się jednak stosowanie \texttt{@Binds}, ponieważ:
+\begin{enumerate}
+    \item \textbf{Wydajność:} \texttt{@Binds} nie generuje kodu nowej metody fabrykującej. Hilt po prostu rzutuje typ w wygenerowanym kodzie Javy, co zmniejsza rozmiar aplikacji i przyspiesza kompilację.
+    \item \textbf{Czytelność:} Jawnie wskazuje, że wiążemy interfejs, a nie tworzymy nowy obiekt z zewnętrznej biblioteki.
+\end{enumerate}
+
+Moduł zawierający metody \texttt{@Binds} musi być klasą abstrakcyjną lub interfejsem. Nie można w nim mieszać zwykłych metod \texttt{@Provides}, chyba że są one statyczne (w Kotlinie w bloku \texttt{companion object}). Dlatego dobrą praktyką jest trzymanie konfiguracji Retrofita/Room w osobnym module (np. \texttt{NetworkModule}), a wiązań repozytoriów w osobnym (np. \texttt{RepositoryModule}).
+
+\section{Wstęp do Czystej Architektury (Clean Architecture)}
+
+Wraz ze wzrostem skomplikowania aplikacji, standardowy wzorzec MVVM (Model-View-ViewModel) zaczyna ujawniać swoje ograniczenia. W architekturze, którą stosowaliśmy do tej pory, ViewModel często przejmuje zbyt wiele odpowiedzialności:
+\begin{itemize}
+    \item Zarządza stanem UI (poprawnie).
+    \item Obsługuje błędy sieciowe (poprawnie).
+    \item Wykonuje skomplikowane obliczenia matematyczne (np. podatki, rabaty).
+    \item Waliduje dane wejściowe (np. poprawność adresu email).
+    \item Łączy dane z kilku repozytoriów (np. profil użytkownika + historia zamówień).
+\end{itemize}
+
+Takie przeładowane klasy są trudne do czytania, utrzymania i testowania. Rozwiązaniem jest wprowadzenie nowej, środkowej warstwy - \textbf{Warstwy Domeny}. Znajduje się ona pomiędzy warstwą Prezentacji (UI + ViewModel) a warstwą Danych (Repository).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig/pum2-w12-usecasescheme.png}
+    \caption{Architektura Clean MVVM: Przepływ danych odbywa się od UI do Danych, a zależności (dzięki DI) skierowane są do wewnątrz.}
+    \label{fig:Figura usecasescheme}
+\end{figure}
+
+Główne zasady Warstwy Domeny:
+\begin{enumerate}
+    \item \textbf{Czysty Kotlin:} Kod w tej warstwie nie powinien zależeć od frameworka Android. Nie znajdziemy tu klas \texttt{Context}, \texttt{Activity}, \texttt{R.string} ani bibliotek typu Retrofit czy Room.
+    \item \textbf{Niezależność:} Domena definiuje logikę biznesową aplikacji (np. \textit{jak obliczyć cenę koszyka}), która pozostaje niezmienna niezależnie od tego, czy wyświetlamy dane na ekranie telefonu, czy na zegarku.
+    \item \textbf{Stabilność:} Jest to najmniej zmienna część aplikacji. Zmiana wyglądu przycisku (UI) lub zmiana bazy danych (Data) nie powinna wpływać na logikę obliczania podatku (Domain).
+\end{enumerate}
+
+\section{Warstwa Domeny: UseCase (Przypadek Użycia)}
+
+Podstawowym elementem budulcowym warstwy domeny jest \textbf{Use Case} (często nazywany też Interaktorem). Jest to klasa, która realizuje \textbf{pojedynczą akcję biznesową}. Zgodnie z zasadą Single Responsibility Principle (SRP), powinna mieć tylko jeden powód do zmiany.
+
+Przykłady nazw UseCaseów (Zasada: Czasownik + Rzeczownik + UseCase):
+\begin{itemize}
+    \item \texttt{LoginUserUseCase}
+    \item \texttt{GetArticlesUseCase}
+    \item \texttt{CalculateVatPriceUseCase}
+    \item \texttt{ValidateCouponUseCase}
+\end{itemize}
+
+Dzięki takiemu nazewnictwu, patrząc na strukturę plików w projekcie, od razu wiemy, co aplikacja \textit{robi}, a nie tylko z jakich komponentów się składa. Nazywamy to \textbf{Screaming Architecture}.
+
+W języku Kotlin implementacja UseCaseów jest bardzo prosta dzięki możliwości przeciążania operatorów. Używamy operatora \texttt{invoke}, co pozwala traktować instancję klasy tak, jakby była funkcją. Stwórzmy przykładowy UseCase do obliczania ceny z podatkiem VAT:
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// Plik: domain/CalculateVatPriceUseCase.kt
+
+// UseCase to zwykła klasa, którą wstrzykujemy przez konstruktor
+class CalculateVatPriceUseCase @Inject constructor() {
+
+    // Logika biznesowa: Stała stawka VAT
+    private val vatRate = 0.23 
+
+    // Operator invoke pozwala na wywołanie: useCase(price)
+    operator fun invoke(basePrice: Double): Double {
+        if (basePrice < 0) throw IllegalArgumentException("Cena nie może być ujemna")
+        return basePrice * (1 + vatRate)
+    }
+}
+\end{minted}
+
+Bardziej zaawansowane przypadki użycia muszą pobierać dane. Wstrzykujemy do nich repozytoria (zdefiniowane w punkcie 12.1).
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// Plik: domain/GetProductDetailsUseCase.kt
+
+class GetProductDetailsUseCase @Inject constructor(
+    private val productRepository: ProductRepository // Zależność od Interfejsu
+) {
+    // Funkcje suspend są naturalnie wspierane
+    suspend operator fun invoke(productId: String): Product {
+        // Tu mogłaby być dodatkowa logika, np. łączenie danych z różnych źródeł
+        return productRepository.getProductById(productId)
+    }
+}
+\end{minted}
+
+Korzyści z takiego podejścia:
+\begin{enumerate}
+    \item \textbf{Reużywalność:} Tego samego \texttt{CalculateVatPriceUseCase} możemy użyć w \path{CartViewModel}, \texttt{ProductDetailsViewModel} i \texttt{CheckoutViewModel}. Nie musimy kopiować wzoru na VAT w trzech miejscach.
+    \item \textbf{Testowalność:} Testowanie UseCasea jest trywialne - to czysta funkcja, która przyjmuje dane wejściowe i zwraca wynik. Nie potrzebujemy emulatora ani bibliotek do testowania UI.
+    \item \textbf{Odchudzenie ViewModelu:} ViewModel staje się prostym koordynatorem, który tylko przekazuje dane do odpowiednich UseCaseów.
+\end{enumerate}
+
+\section{Implementacja Warstwy Domeny w Hilt}
+
+Zobaczmy, jak połączyć go z resztą aplikacji przy użyciu Hilt. Stworzymy kompletny łańcuch zależności dla scenariusza \textit{Obliczanie Ceny Końcowej}.
+
+Przypadki użycia to idealne miejsce na łączenie danych z różnych źródeł (Repozytoriów) oraz konfiguracji. Hilt radzi sobie z nimi bez żadnych dodatkowych modułów - wystarczy adnotacja \texttt{@Inject constructor}.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// domain/CalculateFinalPriceUseCase.kt
+
+class CalculateFinalPriceUseCase @Inject constructor(
+    // Hilt automatycznie znajdzie implementację 
+    // tego interfejsu (dzięki @Binds)
+    private val repository: ProductRepository,
+    
+    // Możemy wstrzykiwać też inne klasy pomocnicze
+    private val taxCalculator: TaxCalculator
+) {
+    suspend operator fun invoke(productId: String): Double {
+        // 1. Pobieramy dane (Warstwa Danych)
+        val basePrice = repository.getProductPrice(productId)
+        
+        // 2. Przetwarzamy dane (Logika Biznesowa)
+        return taxCalculator.addVat(basePrice)
+    }
+}
+\end{minted}
+
+Nasz ViewModel przestaje być świadomy istnienia Repozytorium czy Bazy Danych. Jego jedynym oknem na świat staje się Warstwa Domeny.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// ui/CartViewModel.kt
+
+@HiltViewModel
+class CartViewModel @Inject constructor(
+    // ZMIANA: Zamiast 'ProductRepository', wstrzykujemy konkretną akcję biznesową
+    private val calculateFinalPriceUseCase: CalculateFinalPriceUseCase
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow(CartUiState())
+    val uiState = _uiState.asStateFlow()
+
+    fun loadPrice(productId: String) {
+        viewModelScope.launch {
+            try {
+                // Wywołanie UseCase wygląda jak zwykła funkcja
+                val price = calculateFinalPriceUseCase(productId)
+                _uiState.update { it.copy(totalPrice = price) }
+            } catch (e: Exception) {
+                // Obsługa błędów UI
+            }
+        }
+    }
+}
+\end{minted}
+
+Porównajmy konstruktor ViewModelu przed i po zmianach:
+
+Przed wyczyszczeniem:
+\begin{minted}{kotlin}
+class CartViewModel(
+    val repo: ProductRepository, // Dostęp do wszystkiego (pobierz, usuń, edytuj)
+    val userRepo: UserRepository,
+    val promoRepo: PromoRepository
+)
+\end{minted}
+ViewModel miał dostęp do metod, których nie potrzebował (np. \texttt{repo.deleteAllProducts()}).
+
+Po wyczyszczeniu:
+\begin{minted}{kotlin}
+class CartViewModel(
+    val calculatePrice: CalculateFinalPriceUseCase // Dostęp TYLKO do tego, co potrzebne
+)
+\end{minted}
+ViewModel otrzymuje wąskie, precyzyjne narzędzie do wykonania konkretnego zadania.
+
+\section{Struktura Pakietów (Packaging Strategies)}
+
+Wprowadzenie Czystej Architektury wiąże się ze wzrostem liczby plików. Zamiast jednej klasy \texttt{NewsViewModel}, mamy teraz \texttt{NewsViewModel}, \texttt{GetNewsUseCase}, \texttt{NewsRepository} (interface), \texttt{NewsRepositoryImpl} itd.
+
+Jeśli wrzucimy wszystkie te pliki do jednego worka, projekt stanie się nieczytelny. Istnieją dwie główne strategie organizacji kodu.
+
+\subsection{Strategia 1: Package by Layer (Pakietowanie Warstwami)}
+
+To klasyczne podejście, gdzie pliki grupowane są według ich technicznej roli w systemie.
+
+\begin{minted}[frame=single,framesep=10pt]{text}
+com.example.shop
+  +-- data            (Wszystkie repozytoria i źródła danych)
+  |     +-- CartRepositoryImpl.kt
+  |     +-- ProductRepositoryImpl.kt
+  +-- domain          (Wszystkie UseCases i Modele)
+  |     +-- Cart.kt
+  |     +-- CalculatePriceUseCase.kt
+  +-- ui              (Wszystkie ekrany i ViewModele)
+        +-- CartViewModel.kt
+        +-- ProductListViewModel.kt
+\end{minted}
+
+\textbf{Zalety:} Łatwe do zrozumienia dla początkujących.
+
+\textbf{Wady:} Słaba skalowalność. Aby zmodyfikować funkcję \textit{Koszyka}, musisz skakać między trzema katalogami (\texttt{data}, \texttt{domain}, \texttt{ui}). W dużych projektach te katalogi stają się przepełnione.
+
+\subsection{Strategia 2: Package by Feature (Pakietowanie Funkcjami)}
+
+W nowoczesnym Androidzie (i podejściu Clean Architecture) preferuje się grupowanie plików według \textbf{funkcjonalności biznesowej}.
+
+\begin{minted}[frame=single,framesep=10pt]{text}
+com.example.shop
+  +-- cart            (Wszystko związane z koszykiem)
+  |     +-- CartRepository.kt
+  |     +-- CartViewModel.kt
+  |     +-- CalculatePriceUseCase.kt
+  +-- product         (Wszystko związane z produktami)
+  |     +-- ProductRepository.kt
+  |     +-- ProductListScreen.kt
+  +-- checkout        (Wszystko związane z płatnością)
+\end{minted}
+
+\textbf{Zalety:}
+\begin{itemize}
+    \item \textbf{Wysoka spójność (High Cohesion):} Wszystko, co dotyczy koszyka, jest w jednym miejscu.
+    \item \textbf{Modularność:} Jeśli chcemy usunąć funkcję koszyka, po prostu usuwamy folder \texttt{cart}.
+    \item \textbf{Czytelność:} Patrząc na strukturę plików, od razu wiemy, co robi aplikacja (Screaming Architecture).
+\end{itemize}
+
+
+\subsection{Podejście Hybrydowe}
+
+W praktyce najlepiej sprawdza się połączenie obu podejść. Na najwyższym poziomie dzielimy aplikację na funkcje (Features), a wewnątrz funkcji zachowujemy podział na warstwy (Layers), jeśli funkcja jest skomplikowana. Dodatkowo wydzielamy elementy wspólne (\texttt{core}, \texttt{di}).
+
+\begin{minted}[frame=single,framesep=10pt]{text}
+com.example.shop
+  +-- core            (Elementy wspólne dla całej aplikacji)
+  |     +-- ui        (Theme, wspólne komponenty Compose)
+  |     +-- util      (Rozszerzenia, helpery)
+  +-- di              (Globalne moduły Hilt - NetworkModule, DatabaseModule)
+  +-- features
+        +-- cart
+        |     +-- domain  (UseCases specyficzne dla koszyka)
+        |     +-- data    (Implementacja repozytorium koszyka)
+        |     +-- ui      (CartScreen, CartViewModel)
+        +-- product_list
+              +-- ...
+\end{minted}
+
+Taka struktura jest odporna na rozrost projektu i ułatwia pracę w zespołach (jeden programista pracuje nad folderem \texttt{cart}, drugi nad \texttt{profile}, nie wchodząc sobie w drogę).
+
+\section{Przykład Praktyczny: Aplikacja Sklepowa (Shopping Cart)}
+
+Poniżej znajduje się kompletna implementacja funkcjonalności \textit{Koszyk} z wykorzystaniem Czystej Architektury i Hilt. Kod został podzielony na pakiety.
+
+Scenariusz biznesowy:
+\begin{itemize}
+    \item Pobieramy cenę produktu (Warstwa Danych).
+    \item Użytkownik wpisuje kod rabatowy.
+    \item Aplikacja oblicza VAT i uwzględnia rabat (Warstwa Domeny).
+    \item Wynik wyświetlany jest na ekranie (Warstwa Prezentacji).
+\end{itemize}
+
+\subsection{Struktura Projektu}
+
+Najpierw utwórz odpowiednie pakiety w folderze \texttt{com.example.shop}:
+
+\begin{minted}[frame=single,framesep=10pt]{text}
+com.example.shop
+  +-- di              (Moduły Hilt)
+  +-- data            (Repozytoria - implementacje)
+  +-- domain          (UseCases i Interfejsy)
+  +-- ui              (ViewModel i Compose Screen)
+  +-- NewsApplication.kt
+  +-- MainActivity.kt
+\end{minted}
+
+\subsection{Warstwa Domeny (Domain Layer)}
+
+Tu definiujemy logikę biznesową. Zauważ, że te klasy nie wiedzą nic o Androidzie ani o bazie danych.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// domain/ProductRepository.kt
+package com.example.shop.domain
+
+// Interfejs (Kontrakt)
+interface ProductRepository {
+    suspend fun getBasePrice(): Double
+}
+
+// domain/CalculateFinalPriceUseCase.kt
+package com.example.shop.domain
+
+class CalculateFinalPriceUseCase @Inject constructor(
+    private val repository: ProductRepository
+) {
+    private val vatRate = 0.23 // 23% VAT
+
+    // Funkcja wywoływana operatorem: useCase(coupon)
+    suspend operator fun invoke(couponCode: String): Double {
+        val basePrice = repository.getBasePrice()
+        val priceWithVat = basePrice * (1 + vatRate)
+
+        // Prosta logika biznesowa rabatów
+        return if (couponCode == "STUDENT") {
+            priceWithVat * 0.5 // 50% zniżki
+        } else {
+            priceWithVat
+        }
+    }
+}
+\end{minted}
+
+\subsection{Warstwa Danych (Data Layer)}
+
+Tu implementujemy interfejs i konfigurujemy Hilt, aby wiedział jak go połączyć.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// data/ProductRepositoryImpl.kt
+package com.example.shop.data
+
+class ProductRepositoryImpl @Inject constructor() : ProductRepository {
+    override suspend fun getBasePrice(): Double {
+        delay(500) // Symulacja opóźnienia sieciowego
+        return 100.0 // Cena bazowa produktu
+    }
+}
+
+// di/AppModule.kt
+package com.example.shop.di
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class AppModule {
+
+    @Binds
+    @Singleton
+    abstract fun bindProductRepository(
+        impl: ProductRepositoryImpl
+    ): ProductRepository
+}
+\end{minted}
+
+\subsection{Warstwa Prezentacji (UI Layer)}
+
+ViewModel nie robi obliczeń - on tylko zleca zadanie do UseCasea i aktualizuje stan.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// ui/CartViewModel.kt
+package com.example.shop.ui
+
+data class CartUiState(
+    val finalPrice: String = "---",
+    val isLoading: Boolean = false
+)
+
+@HiltViewModel
+class CartViewModel @Inject constructor(
+    // Wstrzykujemy UseCase, a nie Repozytorium!
+    private val calculateFinalPrice: CalculateFinalPriceUseCase
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow(CartUiState())
+    val uiState = _uiState.asStateFlow()
+
+    fun calculatePrice(coupon: String) {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            
+            // Wywołanie logiki biznesowej
+            val result = calculateFinalPrice(coupon)
+            
+            _uiState.update { 
+                it.copy(
+                    isLoading = false,
+                    finalPrice = String.format("%.2f PLN", result)
+                ) 
+            }
+        }
+    }
+}
+\end{minted}
+
+\subsection{Widok (Compose)}
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// ui/CartScreen.kt
+package com.example.shop.ui
+
+@Composable
+fun CartScreen(
+    viewModel: CartViewModel = hiltViewModel()
+) {
+    val state by viewModel.uiState.collectAsState()
+    var couponText by remember { mutableStateOf("") }
+
+    Column(
+        modifier = Modifier.fillMaxSize().padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text("Koszyk sklepowy")
+        
+        Spacer(Modifier.height(32.dp))
+
+        OutlinedTextField(
+            value = couponText,
+            onValueChange = { couponText = it },
+            label = { Text("Kod rabatowy (np. STUDENT)") }
+        )
+        
+        Spacer(Modifier.height(16.dp))
+
+        Button(
+            onClick = { viewModel.calculatePrice(couponText) },
+            enabled = !state.isLoading
+        ) {
+            Text("Oblicz cenę")
+        }
+
+        Spacer(Modifier.height(32.dp))
+
+        if (state.isLoading) {
+            CircularProgressIndicator()
+        } else {
+            Text(
+                text = "Do zapłaty: ${state.finalPrice}"
+            )
+        }
+    }
+}
+\end{minted}
+
+\subsection{Konfiguracja Aplikacji}
+
+Aby całość zadziałała, potrzebujemy jeszcze punktów startowych dla systemu Android i Hilta.
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// ShopApplication.kt
+package com.example.shop
+
+@HiltAndroidApp
+class ShopApplication : Application()
+\end{minted}
+
+\begin{minted}[frame=single,framesep=10pt]{kotlin}
+// MainActivity.kt
+package com.example.shop
+
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            CartScreen()
+        }
+    }
+}
+\end{minted}
+
+W pliku \texttt{AndroidManifest.xml} musisz zarejestrować klasę aplikacji w atrybucie \texttt{android:name}:
+\texttt{<application android:name=".ShopApplication" ... >}
