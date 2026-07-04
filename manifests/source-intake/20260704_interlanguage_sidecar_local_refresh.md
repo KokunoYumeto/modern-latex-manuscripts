@@ -21,4 +21,5 @@ It is useful workflow, linguistic-methodology, source-register, and proposal mat
 
 ## Public Handling
 
-Use as a new version/update for the existing interlanguage methodology DOI, not as a duplicate DOI. Keep the four separate LaTeX source-body bundles as the primary Web/Pro source-reference feeds; this sidecar refresh is broader context and workflow material.
+Use as a new version/update for the existing interlanguage methodology DOI, not as a duplicate DOI. Keep the five separate LaTeX source-body bundles as the primary Web/Pro source-reference feeds; this sidecar refresh is broader context and workflow material. The fifth bundle is the 2026-07-05 Slavic/interlanguage computational-linguistics arXiv source addendum and does not replace the still-needed native mathematical TeX corpora for individual Slavic target languages.
+
