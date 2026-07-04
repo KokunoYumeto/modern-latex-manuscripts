@@ -1,0 +1,223 @@
+﻿\subsection{VB.NET}
+
+Visual Basic NET jest nową odsłoną znanego i popularnego języka Visual Basic. W nowej wersji
+język został znacznie unowocześniony i dostosowany do możliwości platformy .NET. Kompilator
+VB.NET jest częścią frameworka i uruchamiany jest poleceniem {\bf vbc.exe}.
+
+Program w VB.NET oprócz klas może również składać się z tzw. {\em modułów}, które
+są po prostu zbiornikami kodu nie przywiązanego do żadnej klasy. Funkcje publiczne z modułów są
+dostępne z każdego miejsca w kodzie, podobnie jak funkcje statyczne w klasach. Metoda {\bf Main}
+może znajdować się w jakimś module, zamiast w klasie. 
+
+VB.NET, w przeciwieństwie do C\#, nie rozróżnia dużych i małych liter w kodzie. 
+Ma również znacznie liberalniejszy system typów. W VB.NET można na przykład:
+\begin{itemize}
+\item używać niezainicjowanych w kodzie zmiennych
+\item dokonywać niejawnych konwersji między wartościami różnych typów
+\end{itemize}
+
+Możliwości wyrazowe VB.NET odpowiadają możliwościom C\#, jednak "basicopodobna" składnia jest
+miejscami trochę zbyt przegadana. Na przykład ograniczniki strukturalne zawsze są parami wyrażeń:
+
+\begin{scriptsize}
+\begin{verbatim}
+Public Sub Metoda
+  ...
+End Sub
+
+Public Function Funkcja( i As Integer, j As String ) As String
+  ...
+End Function
+\end{verbatim}
+\end{scriptsize}
+
+Z powodów historycznych zachowano m.in. 
+\begin{itemize}
+\item klasyczną basicową pętlę {\bf For}, która jest zdecydowanie słabsza
+od {\bf for} z C\#
+\item słowo kluczowe {\bf Me}, będące odpowiednikiem {\bf this}
+\item słowo kluczowe {\bf Nothing}, będące odpowiednikiem {\bf null}
+\item konieczność używania symbolu {\bf \_} do oznaczenia przeniesienia długiej linii kodu
+do kolejnej linii (bez tego znaku koniec linii oznacza koniec instrukcji)
+\end{itemize}
+
+W porównaniu z wersją 6.0 Visual Basica, w VB.NET znacznie poprawiono model obiektowy, pozwalając
+na projektowanie interfejsów i dziedziczenie takie jak w C\#. Zmienne mogą być deklarowane w dowolnym
+miejscu kodu, podobnie jak w C\#.
+
+\subsubsection{Przykładowa aplikacja w VB.NET}
+
+Pierwszy przykładowy program to basicowa wersja programu ze strony \pageref{kodZegarek}.
+Oprócz oczywistych różnic w składni, warto zwrócić uwagę na zupełnie inny sposób dodawania 
+funkcji obsługi zdarzeń niż w C\#.
+
+\begin{scriptsize}
+\begin{verbatim}
+Imports System
+Imports System.Drawing
+Imports System.Windows.Forms
+
+Module MainModule
+
+  Sub Main
+    Dim f As New CMainForm
+    f.ShowDialog()
+  End Sub
+	
+  Public Class CMainForm
+    Inherits System.Windows.Forms.Form
+
+    Dim timer As Timer
+
+    Public Sub New
+      MyBase.New()
+
+      timer          = new Timer
+      timer.Interval = 50 
+      AddHandler timer.Tick, AddressOf Timer_Tick 
+
+      timer.Start
+
+      SetStyle(ControlStyles.UserPaint, True)
+      SetStyle(ControlStyles.AllPaintingInWmPaint, True)
+      SetStyle(ControlStyles.DoubleBuffer, True)
+    End Sub
+
+    Sub Timer_Tick( sender As Object, e As EventArgs )
+      Me.Invalidate
+    End Sub
+
+    Protected Overrides Sub OnPaint( e As PaintEventArgs )
+      Dim g as Graphics = e.Graphics
+      Dim f as Font     = new Font( "LED", 48 )
+
+      Dim sf as StringFormat = new StringFormat()
+
+      sf.Alignment     = StringAlignment.Center
+      sf.LineAlignment = StringAlignment.Center
+
+      g.Clear( SystemColors.Control )
+      g.DrawString( DateTime.Now.ToLongTimeString(), f, Brushes.Black, _
+          Me.Width / 2, Me.Height / 2, sf )
+
+
+     End Sub
+		
+  End Class
+	
+End Module 
+\end{verbatim}
+\end{scriptsize}
+
+\subsubsection{Dynamiczne wiązanie}
+
+Ogromna przepaść dzieli VB.NET od jego poprzednika, VB 6.0. Mimo to mało elegancka składnia sprawia, że
+mając do wyboru VB.NET i C\#, zdecydowanie bardziej warto wybrać C\#. 
+
+Okazuje się jednak, że istnieją zastosowania, w których VB.NET sprawdza się o wiele lepiej niż
+C\#. Chodzi o współpracę z bibliotekami systemowymi w starym modelu COM. Program w VB.NET może
+zażądać utworzenia obiektu COM i wołać jego metody, mimo że ich prototypy {\em nie są znane} w
+trakcie kompilacji! Jest to możliwe, ponieważ VB.NET używa {\em poźnego} wiązania wywoływanych
+metod z odpowiadającym im kodem. W C\#, z powodu silnego otypowania kodu, taka konstrukcja nie
+jest możliwa i dlatego korzystanie z obiektów COM jest trudniejsze.
+
+Jeżeli więc aplikacja .NETowa powinna komunikować się z obiektami COM, to odpowiedni kod
+najwygodniej jest napisać w VB.NET, zaś całą resztę - w jakimś innym języku.
+
+Zobaczmy prosty przykład tzw. {\em automatyzacji} obiektów Microsoft Office. Przykładowa aplikacja
+utworzy instancję obiektu Microsoft Word i otworzy w niej nowy dokument.
+
+\begin{scriptsize}
+\begin{verbatim}
+Imports System
+Imports System.Drawing
+Imports System.Windows.Forms
+
+Imports Microsoft.VisualBasic
+
+Module MainModule
+
+  Sub Main
+    Dim f As New CMainForm
+    f.ShowDialog()
+  End Sub
+	
+  Public Class CMainForm
+    Inherits System.Windows.Forms.Form
+
+    Dim b As Button
+
+    Public Sub New
+      MyBase.New()
+
+      b      = new Button
+      b.Text = "Utwórz obiekt MS Word"
+      b.Size = new Size( 150, 25 )
+      AddHandler b.Click, AddressOf b_Click
+
+      Controls.Add( b )
+    End Sub
+
+    Sub b_Click( sender As Object, e As EventArgs )
+    Dim o as Object
+
+      ' twórz obiekt COM
+      o = CreateObject( "Word.Application" )
+      o.Visible = True
+      o.Documents.Add
+      o = Nothing
+
+    End Sub
+    		
+  End Class
+	
+End Module
+\end{verbatim}
+\end{scriptsize}
+
+Analogiczna operacja w C\# jest nieco bardziej skomplikowana i wymaga silnego wsparcia
+ze strony mechanizmu refleksji.
+
+\begin{scriptsize}
+\begin{verbatim}
+...
+try
+{
+  Type   t = Type.GetTypeFromProgID( "Word.Application" );
+  object w = Activator.CreateInstance( t );
+
+  // w.Visible = true
+  t.InvokeMember( "Visible", BindingFlags.SetProperty, 
+                  null, w, new Object[] { true } );
+
+  // w.Documents...
+  object docs = t.InvokeMember( "Documents", BindingFlags.GetProperty, 
+                                null, w, null );
+  // ...Add
+  t.InvokeMember( "Add", BindingFlags.InvokeMethod, 
+                  null, docs, null );
+									
+  w = null;
+}
+catch( TypeLoadException ex )
+{
+  ...
+}		
+\end{verbatim}
+\end{scriptsize}
+
+Jak to się więc dzieje, że VB.NET potrafi wykonać kod, w którym występują odwołania do nieznanych
+w czasie kompilacji metod i propercji? Dlaczego kompilator przyjmuje kod
+
+\begin{scriptsize}
+\begin{verbatim}
+o = CreateObject( "Word.Application" )
+o.Visible = True
+o.Documents.Add
+\end{verbatim}
+\end{scriptsize}
+
+skoro {\tt o} jest typu {\tt object}? Odpowiedź na to pytanie tkwi w kodzie ILowym powyższego 
+modułu VB.NET. Proponuję samodzielnie zdekompilować ten moduł przy pomocy {\bf ildasm.exe} i przekonać się
+jakich mechanizmów używa VB.NET do obsługi dynamicznego wiązania konkretnych metod obiektu z odwołaniami
+do nich w kodzie aplikacji.

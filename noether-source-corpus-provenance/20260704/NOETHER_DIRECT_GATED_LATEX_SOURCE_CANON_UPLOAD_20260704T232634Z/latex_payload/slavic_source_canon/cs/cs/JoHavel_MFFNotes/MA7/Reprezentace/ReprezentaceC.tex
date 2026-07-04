@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}					% Začátek dokumentu
+\usepackage{../../MFFStyle}					    % Import stylu
+
+
+
+\begin{document}
+
+% 04. 10. 2022
+\section{Monoidové okruhy}
+\begin{definice}[Monoid]
+	Množina $M$ s binární asociativní operací $·$ a neutrálním prvkem $1$ se nazývá monoid. Značíme $M(·, 1) := (M, ·, 1)$.
+\end{definice}
+
+\begin{priklady}
+	$R$ okruh $(R, +, -, 0, ·, 1)$ $\implies$ $(R, ·, 1)$ monoid. $(®N_0, +, 0)$ komutativní monoid.
+\end{priklady}
+
+\begin{poznamka}[Řád]
+	Podobně jako pro grupy definujeme pro monoid $M$ a $a \in M$ řád prvku $a$ jako $\ord_M(a) = |\<a\>|$, kde $\<a\>$ je nejmenší podmonoid obsahující $a$.
+
+	Pokud existuje $n \in ®N$, že $a^n = 1$, pak nejmenší takové $n$ je rovno $\ord_M(a)$. (Pozor, opačně to neplatí, viz $®Z \mod 2$, kde $\ord(0) = 2$ nebo $®Z \mod 8$, kde $\ord(4) = 3$).
+\end{poznamka}
+
+\begin{definice}[RM]
+	Nechť $R$ okruh, $M$ monoid. Definujme $RM = R[M] := R^{(M)} := \{f: M \rightarrow R | f(m) = 0 \text{ pro skoro všechna, tj. až na konečně mnoho, }, m \in M\}$.
+
+	Operace na $R[M]$:
+
+	\begin{itemize}
+		\item $0_{R[M]} =$ nulové zobrazení;
+		\item $1_{R[M]} = f$ takové, že $f(1) = 1$ a $f(m) = 0$ pro všechna $m \in M \setminus \{1\}$;
+		\item $(f ± g)(m) = f(m) ± g(m)$ ($\forall m \in M$);
+		\item $(f·g)(m) = \sum_{k, l \in M, k·l=m} f(k)·g(l)$.
+	\end{itemize}
+
+	Pak $R[M]$ je okruh.
+
+	\begin{poznamkain}
+		Prvek $f \in R[M]$ se často zapisují jako formální suma $\sum_{m \in M} f_m·m$, kde $f_m := f(m)$.
+	\end{poznamkain}
+\end{definice}
+
+\begin{tvrzeni}
+	Pokud existuje $a \in M$ a $n \in ®N$ takové, že $a^n = 1$, ale $a ≠ 1$, pak $R[M]$ není obor, tj. existují v $R[M]$ netriviální dělitelé 0.
+
+	\begin{dukazin}
+		$$ (a - 1)·(a^{n-1} + a^{n - 2} + … + a + 1) = a^n - 1^n = a^n - 1 = 0. $$
+		Ale jen tak to není definované, jelikož $a$ je z $M$ ale sčítání ne. Tedy počítáme nad $R[M]$, kde $a = f$ takové, že $f(a) = a$ a $f(b) = 1$ pro všechna $b \in M \setminus \{a\}$.
+	\end{dukazin}
+\end{tvrzeni}
+
+\begin{definice}[Kanonické vnoření do RM]
+	Kanonická vnoření $R$ a $M$ do $R[M]$ definujeme jako:
+	$$ α: R \rightarrow R[M], r \mapsto f_r, \qquad f_r(1) = r, f_r(k) = 0\ \forall k \in M \setminus \{1\}, $$
+	$$ β: M \rightarrow R[M], m \mapsto f_m, \qquad f_m(m) = 1, f_r(k) = 0\ \forall k \in M \setminus \{m\}, $$
+	kde $f_r$ značíme často jen $r$ a $f_m$ často jen $m$. $α$ je okruhový monomorfismus (tj. injektivní okruhový honomorfismus) a $β$ je injektivní homomorfismus monoidů.
+\end{definice}
+
+\begin{poznamka}[Pozorování]
+	$(\forall r \in R)(\forall m \in M) α(r)·β(m) = β(m)·α(r)$.
+\end{poznamka}
+
+% 11. 10. 2023
+
+TODO?
+
+\begin{tvrzeni}
+	Existuje vzájemně jednoznačná korespondence mezi strukturami pravých $R$-modulů na $M$ a okruhovými homomorfismy $ψ: R \rightarrow End_Z(M)$.
+
+	\begin{dukazin}
+		„$\rightarrow$“: definujeme $ψ: R \rightarrow End_Z(M)$ jako $r \mapsto (m \mapsto m·r)$. $(m + n)·r = mr + nr$, tedy vhodně definované zobrazení.
+		$$ ψ(1_R) = \id_M = 1_{End_Z(M)}. $$
+		$$ ψ(r + s) = ψ(r) + ψ(s), \qquad m(r + s) = m·r + m·s. $$
+		$$ ψ(r·s) \overset{?} = ψ(r)·ψ(s) $$
+		$$ (m)(ψ(r·s)) = m·(r·s) = (m·r)·s = ((m)ψ(r))ψ(s) = (m)(ψ(r) ∘ ψ(s)) $$
+
+		„$\leftarrow$“: $ψ$ fixovaný, pro $m \in M$, $r \in R$ definujeme $m·r := (m)(ψ(r))$.
+	\end{dukazin}
+\end{tvrzeni}
+
+% 18. 10. 2023
+
+TODO!!!
+
+% 25. 10. 2023
+
+\begin{priklad}[Pravé a levé ideály v $M_n(T)$]
+	$T$ komutativní těleso, $n > 1$. Mějme $V$ vektorový podprostor v $®T^n$. Potom definujeme $I_V = \{A \in M_n(T) | \text{ každý sloupec z $A$ náleží do $V$}\}$. Pak $I_V$ je pravý ideál.
+
+	Naopak ať $I$ je pravý ideál v $M_n(T)$. Položme $V = \{a_0 \in T^n | a_n \text{ je sloupec v nějakém } A \in I\}$. Ověříme, že $V$ je vektorový podprostor v $T$ a že $I_V = I$.
+\end{priklad}
+
+\begin{definice}[(Von–neumannovsky) regulární okruh, booleaovský okruh]
+	$R$ okruh nazveme regulární, pokud $(\forall r \in R)(\exists s \in R) r·s·r = r$.
+
+	$R$ nazveme booleovský, pokud $(\forall r \in R) r·r = r$.
+
+	\begin{priklad}
+		Booleovský $\implies$ komutativní: $a + b = (a + b)^2 = aa + ab + ba + bb = a + ab + ba + b$, tj. $ab = -(ba) = (-1)·ba = (-1)^2·ba = ba$.
+	\end{priklad}
+\end{definice}
+
+TODO?
+
+% ?
+
+TODO!!!
+
+% ?
+
+TODO!!!
+
+% ?
+
+TODO!!!
+
+% 22. 11. 2023
+
+TODO?
+
+\end{document}

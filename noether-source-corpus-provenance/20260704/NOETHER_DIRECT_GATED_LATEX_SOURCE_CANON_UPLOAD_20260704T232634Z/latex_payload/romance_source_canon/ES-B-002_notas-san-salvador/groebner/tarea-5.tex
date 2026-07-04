@@ -1,0 +1,461 @@
+\documentclass{article}
+
+\def\exercisespersection{}
+\input{../definitions.tex}
+
+\usepackage{fullpage}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+\newenvironment{solucion}{\begin{proof}[Solución]}{\end{proof}}
+
+\begin{document}
+
+\mybanner{Álgebra computacional. Tarea 5. Fecha límite: 13/06/2019}{Universidad de El Salvador, ciclo impar 2019}
+
+Se puede usar Macaulay2 para \emph{comprobar} algunos cálculos, pero hay que
+justificar todas las respuestas.
+
+\subsection*{Serie y polinomio de Hilbert}
+
+\begin{ejerc}
+  Para $d \in \NN$ consideremos los polinomios
+  $${x \choose d} \dfn \frac{x\,(x-1)\cdots (x-d+1)}{d!} \in \QQ [x].$$
+
+  \begin{enumerate}
+  \item[a)] Demuestre que
+    \[ {x \choose 0} = 1, ~
+       {x \choose 1}, ~
+       {x \choose 2}, ~
+       \ldots, ~
+       {x\choose d} \]
+    forman una base del $\QQ$-espacio vectorial formado por los polinomios
+    racionales de grado $\le d$.
+
+  \item[b)] Demuestre que todo polinomio $f \in \QQ [x]$ tal que $f (n) \in \ZZ$
+    para todo $n\in \ZZ$ puede ser escrito como
+    \[ f = a_0 \, {x \choose 0} + a_1 \, {x \choose 1} + \cdots +
+             a_d\,{x \choose d}, \]
+    donde $a_0, a_1,\ldots,a_d \in \ZZ$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    La parte a) se sigue inmediatamente del hecho de que los polinomios en
+    cuestión tienen grado $0,1,2,\ldots,d$. En la parte b), primero escribamos
+    \[ f = a_0 \, {x \choose 0} + a_1 \, {x \choose 1} + \cdots +
+             a_d\,{x \choose d}, \]
+    donde $a_0, a_1,\ldots,a_d \in \QQ$. Ahora
+    \[ f (d) = a_0 \, {d \choose 0} + a_1 \, {d \choose 1} + \cdots +
+                 a_d \in \ZZ, \]
+    de donde por inducción $a_d \in \ZZ$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $I \subseteq J$, entonces $H_I (t) = H_J (t)$ implica que
+  $I = J$.
+
+  \ifdefined\solutions\begin{solucion}
+    Denotemos
+    $$A \dfn k [x_1,\ldots,x_n]/I, \quad B \dfn k [x_1,\ldots,x_n]/J.$$
+    Tenemos
+    \[ A_{\le d} \dfn \{ \overline{f} \in A \mid
+                         f \in k [x_1,\ldots,x_n], \, \deg f \le d \}, \quad
+       B_{\le d} \dfn \{ \overline{f} \in B \mid
+                         f \in k [x_1,\ldots,x_n], \, \deg f \le d \}. \]
+
+    Pongamos
+    \[ I_{\le d} \dfn \{ f \in I \mid \deg f \le d \}, \quad
+       J_{\le d} \dfn \{ f \in I \mid \deg f \le d \}. \]
+    Ahora
+    \[ A_{\le d} \isom k [x_1,\ldots,x_n]_{\le d}/I_{\le d}, \quad
+      B_{\le d} \isom k [x_1,\ldots,x_n]_{\le d}/J_{\le d}. \]
+    Ahora la hipótesis $H_I (t) = H_J (t)$ implica que
+    $\widetilde{H}_I (t) = \widetilde{H}_J (t)$, y luego para todo $d$ se cumple
+    \[ \dim_k (A_{\le d}) = \dim_k (B_{\le d}) \iff
+       \dim_k (I_{\le d}) = \dim_k (J_{\le d}). \]
+    Por otra parte, $I \subseteq J$ significa que
+    $I_{\le d} \subseteq J_{\le d}$ para todo $d$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que el número de monomios $x_1^{\alpha_1}\cdots x_n^{\alpha_n}$ con
+  $\alpha_1+\cdots+\alpha_n = d$ es igual a ${n+d-1 \choose d}$.
+
+  \ifdefined\solutions\begin{solucion}
+    Denotemos el número de estos monomios por $M_{n,d}$. Está claro que si
+    $n = 1$, entonces $M_{n,d} = 1$. Ahora por inducción, asumamos que
+    $M_{n,d} = {n+d-1 \choose d} = {n+d-1 \choose n-1}$ y sea $x_{n+1}$ una
+    variable extra. Cada monomio $x_1^{\alpha_1}\cdots x_n^{\alpha_n} x_{n+1}^i$
+    con $\alpha_1+\cdots+\alpha_n+i = d$ se obtiene de un monomio
+    $x_1^{\alpha_1}\cdots x_n^{\alpha_n}$ con
+    $\alpha_1+\cdots+\alpha_n = d-i$. Entonces,
+    \[ M_{n+1,d} = \sum_{0 \le i \le d} M_{n,d-i} =
+       \sum_{0 \le i \le d} {n+i-1 \choose n-1} =
+       \sum_{n-1 \le i \le n+d-1} {i \choose n-1} =
+       {n + d \choose n} = {(n+1) + d-1 \choose d}. \]
+    Aquí hemos usado la identidad
+    \[ \sum_{n \le i \le m} {i \choose n} =
+       {m+1 \choose n+1} \quad\text{para }m > n. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  \label{ejerc:series-de-Hilbert-ideales-monomiales}
+  Calcule las series de Hilbert de los siguientes ideales monomiales en
+  $k [x,y,z]$:
+  $$(x^2, \, y^2, \, z^2), \quad (xy, \, xz^3), \quad (xy, \, xz, \, yz)$$
+  de manera directa, contando los monomios.
+
+  \ifdefined\solutions\begin{solucion}
+    Recordemos que
+    $$\widetilde{h}_I (d) = \dim_k \{ f\in k[x,y,z]/I \mid \deg f \le d \}.$$
+    Los ideales en cuestión son monomiales, así que
+    $$h_I (d) = \dim_k k \left< x^ay^bz^c\notin I \mid \deg f = d \right>.$$
+    En el caso de $I = (x^2, \, y^2, \, z^2)$, tenemos entonces las bases de
+    monomios
+    \begin{align*}
+      d=0\colon & 1,\\
+      d=1\colon & x, \, y, \, z,\\
+      d=2\colon & xy, \, xz, \, yz,\\
+      d=3\colon & xyz,\\
+      d > 3\colon & \text{no hay}.
+    \end{align*}
+    Entonces,
+    $$H_{(x^2, y^2, z^2)} (t) = 1 + 3\,t + 3\,t^2 + t^3.$$
+    En el caso de $I = (xy, \, xz^3)$ se obtiene
+    \begin{align*}
+      d=0\colon & 1,\\
+      d=1\colon & x, \, y, \, z,\\
+      d=2\colon & x^2, \, xz, \, y^2, \, yz, \, z^2,\\
+      d=3\colon & x^3, \, x^2z, \, xz^2, \, y^3, \, y^2z, \, yz^2, \, z^3,\\
+      d=4\colon & x^4, \, x^3z, \, x^2z^2, \, y^4, \, y^3\,z, \, y^2z^2, \, yz^3, \, z^4,\\
+                & \cdots
+    \end{align*}
+    En general, para $d \ge 3$ tendremos los siguientes $d+4$ monomios:
+    $$x^d, \, x^{d-1}z, \, x^{d-2}\,z^2, \, y^{d-i}z^i ~ (0 \le i \le d).$$
+    Esto nos da
+    \[ H_{(xy, xz^3)} (t) =
+       1 + 3t + 5t^2 + \sum_{d\ge 3} (d+4)\,t^d =
+       1 + 3t + 5t^2 + t^3\,\left(\frac{6}{1-t} + \frac{1}{(1-t)^2}\right) =
+       \frac{-t^4+t+1}{(1-t)^2}. \]
+    En fin, para el ideal $(xy, \, xz, \, yz)$ se tiene
+    \begin{align*}
+      d=0\colon & 1,\\
+      d\ge 1\colon & x^d, \, y^d, \, z^d,
+    \end{align*}
+    de donde
+    \[ H_{(xy, xz, yz)} (t) =
+       1 + 3t\,\sum_{d\ge 0} t^d =
+       1 + \frac{3t}{1-t} =
+       \frac{2t+1}{1-t}. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Encuentre un ideal particular $I \subset k [x_1,\ldots,x_n]$ y orden monomial
+  $\preceq$ que no respeta el grado tales que $H_I (t) \ne H_{LT (I)} (t)$.
+
+  \ifdefined\solutions\begin{solucion}
+    Consideremos el ideal $I \dfn (x^2-y) \subset k [x,y]$. Respecto al orden
+    graduado lexicográfico se tiene $LT (I) = (x^2)$, así que
+    $$H_I (t) = \frac{1 - t^2}{(1-t)^2}.$$
+    Ahora respecto al orden lexicográfico con $y \succ x$, tenemos
+    $LT (I) = (y)$, y luego
+    \[ H_{(y)} (t) = \frac{1-t}{(1-t)^2}. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que para un polinomio no nulo $f \in k [x_1,\ldots,x_n]$, el ideal
+  principal correspondiente $I = (f) \subseteq k [x_1,\ldots,x_n]$ tiene la
+  serie de Hilbert
+  $$H_I (t) = \frac{1 - t^{\deg f}}{(1-t)^n}.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Respecto a cualquier orden monomial, $G = \{ f \}$ será una base de Gröbner
+    de $f$. Ahora si el orden monomial respeta el grado, entonces
+    \[ H_{(f)} (t) = H_{(LT (f))} (t) =
+       \frac{1 - t^{\deg LT (f)}}{(1-t)^n} =
+       \frac{1 - t^{\deg f}}{(1-t)^n}. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Se dice que un ideal $I \subseteq k [x_1,\ldots,x_n]$ es \term{homogéneo} si
+  $I$ está generado por \term{polinomios homogéneos}
+  $$f = c_{\alpha (1)}\,x^{\alpha (1)} + \cdots + c_{\alpha (s)}\,x^{\alpha (s)},$$
+  donde
+  $$\deg x^{\alpha (1)} = \cdots = \deg x^{\alpha (s)}.$$
+  Por ejemplo, $(x^3 - xz^2 - y^2z, \, x+y)$ es un ideal homogéneo.
+
+  Demuestre que si $I, J \subseteq k [x_1,\ldots,x_n]$ son homogéneos, entonces
+  $$H_{I+J} (t) = H_I (t) + H_J (t) - H_{I\cap J} (t).$$
+  Encuentre un contraejemplo para el caso no-homogéneo.
+
+  \ifdefined\solutions\begin{solucion}
+    Primero, tenemos el siguiente contraejemplo no-homogéneo tonto: en el anillo
+    $k [x]$ consideremos los ideales $I = (x)$ y $J = (x+1)$. Luego,
+    $I + J = 1$, así que
+    $$H_{I+J} (t) = 0.$$
+    Por otra parte, $I\cap J = (x^2+x)$, y luego
+    $$H_I (t) + H_J (t) - H_{I\cap J} (t) = 1 + 1 - \frac{1-t^2}{1-t} = 1-t,$$
+    lo que ni siquiera representa una serie de Hilbert legítima.
+
+    \vspace{1em}
+
+    Ahora para ideales homogéneos $I = (f_1,\ldots,f_r)$ y
+    $J = (f_{r+1},\ldots,f_s)$ el ideal $I + J = (f_1,\ldots,f_s)$ es también
+    homogéneo. Tenemos la sucesión exacta corta de espacios $k$-vectoriales
+    $$0 \to (I \cap J)_{\le d} \to I_{\le d} \to (I+J)_{\le d}/J_{\le d} \to 0$$
+    Aquí la sobreyectividad de la segunda aplicación puede ser vista de la
+    siguiente manera: todo elemento de $I+J$ tiene forma
+    \[ f = \underbrace{g_1 f_1 + \cdots + g_r f_r}_{\in I} +
+           \underbrace{g_{r+1} f_{r+1} + \cdots + g_s f_s}_{\in J} \]
+    para algunos $g_1,\ldots,g_s \in k [x_1,\ldots,x_n]$. Ahora si
+    $\deg f \le d$, entonces podemos quitar de cada $g_i$ la parte homogénea de
+    grado $> d - \deg f_i$, y la identidad de arriba se preserva.
+
+    La sucesión exacta de arriba nos da
+    \[ \dim_k (I_{\le d}) =
+       \dim_k ((I\cap J)_{\le d}) + \dim_k ((I+J)_{\le d}/J_{\le d}) =
+       \dim_k ((I\cap J)_{\le d}) + \dim_k ((I+J)_{\le d}) - \dim_k (J_{\le d}). \]
+    De aquí se sigue que
+    \[ \dim_k \left(\frac{k[x_1,\ldots,x_n]_{\le d}}{(I+J)_{\le d}}\right) =
+       \dim_k \left(\frac{k[x_1,\ldots,x_n]_{\le d}}{I_{\le d}}\right) +
+       \dim_k \left(\frac{k[x_1,\ldots,x_n]_{\le d}}{J_{\le d}}\right) -
+       \dim_k \left(\frac{k[x_1,\ldots,x_n]_{\le d}}{(I\cap J)_{\le d}}\right), \]
+    lo que implica
+    \[ \widetilde{H}_{I+J} (t) =
+         \widetilde{H}_I (t) +
+         \widetilde{H}_J (t) -
+         \widetilde{H}_{I\cap J} (t). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Comprueba sus cálculos del ejercicio
+  \ref{ejerc:series-de-Hilbert-ideales-monomiales} usando el algoritmo
+  recursivo.
+
+  \ifdefined\solutions\begin{solucion}
+    Para el ideal $(x^2, \, y^2, \, z^2)$ tenemos
+    \begin{multline*}
+      H_{(x^2, \, y^2, \, z^2)} (t) =
+      H_{(x^2, \, y^2)} (t) + H_{(z^2)} (t) - H_{(x^2 z^2, \, y^2 z^2)} (t) \\
+      = H_{(x^2)} (t) + H_{(y^2)} (t) -  H_{(x^2 y^2)} (t) + H_{(z^2)} (t) -
+        \Bigl(H_{(x^2 z^2)} (t) + H_{(y^2 z^2)} (t) - H_{(x^2 y^2 z^2)} (t) \Bigr) \\
+      = \frac{(1-t^2)+(1-t^2)-(1-t^4)+(1-t^2)-(1-t^4)-(1-t^4)+(1-t^6)}{(1-t)^3} =
+        \frac{-t^6 + 3t^4 - 3t^2 + 1}{(1-t)^3} = \frac{t^3 + 3t^2 + 3t + 1}{1}.
+    \end{multline*}
+    De la misma manera, para $(xy, \, xz^3)$ calculamos
+    \[ H_{(xy, \, xz^3)} (t) =
+       H_{(xy)} (t) + H_{(xz^3)} (t) - H_{(xyz^3)} (t) =
+       \frac{(1-t^2) + (1-t^4) - (1-t^5)}{(1-t)^3} =
+       \frac{t^5 - t^4 - t^2 + 1}{(1-t)^3} =
+       \frac{-t^4 + t + 1}{(1-t)^2}. \]
+    Y en fin, para $(xy, \, xz, \, yz)$ se tiene
+    \begin{multline*}
+      H_{(xy, \, xz, \, yz)} (t) =
+      H_{(xy, \, xz)} (t) + H_{(yz)} (t) - H_{(xyz)} (t) =
+      H_{(xy)} (t) + H_{(xy)} (t) - H_{(xyz)} (t) + H_{(yz)} (t) - H_{(xyz)} (t) \\
+    = \frac{(1-t^2) + (1-t^2) - (1-t^3) + (1-t^2) - (1-t^3)}{(1-t)^3} =
+      \frac{2\,t^3 - 3\,t^2 + 1}{(1-t)^3} =
+      \frac{2t + 1}{1-t}. \qedhere
+    \end{multline*}
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Calcule los polinomios de Hilbert $p_I (x)$ para los ideales del ejercicio
+  \ref{ejerc:series-de-Hilbert-ideales-monomiales}. ¿Para cuáles valores de $d$
+  se cumple $p_I (d) = h_I (d)$?
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    $$H_{(x^2, \, y^2, \, z^2)} (t) = \frac{t^3 + 3 t^2 + 3 t + 1}{1},$$
+    así que
+    $$p_{(x^2, \, y^2, \, z^2)} (x) = 0.$$
+    En este caso se tiene $h_I (d) = p_I (d)$ para $d \ge 4$.
+
+    Ahora
+    \begin{multline*}
+      H_{(xy, \, xz^3)} (t) =
+      \frac{-t^4 + t + 1}{(1-t)^2} =
+      (-t^4 + t + 1)\,\sum_{d\ge 0} (d+1)\,t^d \\
+    = \sum_{d\ge 0} (d+1)\,t^d + \sum_{d\ge 1} d\,t^d - \sum_{d\ge 4} (d-3)\,t^d =
+      1 + 3t + 5\,t^2 + \sum_{d\ge 3} (d+4)\,t^d.
+    \end{multline*}
+    De aquí se tiene
+    $$p_{(xy, \, xz^3)} (x) = x+4,$$
+    y $h_I (d) = p_I (d)$ para $d \ge 3$.
+
+    En fin,
+    \[ H_{(xy, \, xz, \, yz)} (t) =
+       \frac{2t + 1}{1-t} =
+       1 + \frac{3t}{1-t} =
+       1 + 3t + 3t^2 + 3t^3 + \cdots \]
+    de donde
+    $$p_{(xy, \, xz, \, yz)} (x) = 3.$$
+    Se cumple $h_I (d) = p_I (d)$ para $d \ge 1$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Calcule la serie de Hilbert del ideal $I \dfn (xy + z, xy^3) \subset k[x,y,z]$
+  mediante una base de Gröbner y el algoritmo recursivo.
+
+  \ifdefined\solutions\begin{solucion}
+    La base de Gröbner respecto al orden graduado lexicográfico viene dada por
+    $$G = \{ xy+z, \, z^3, \, yz^2, \, y^2z \}.$$
+    Luego,
+    $$H_I (t) = H_{LT (I)} (t) = H_{(xy, z^3, yz^2, y^2z)} (t).$$
+    Calculemos la última serie:
+    \begin{multline*}
+      H_{(xy, z^3, yz^2, y^2z)} (t) =
+      H_{(xy, z^3, yz^2)} (t) + H_{(y^2z)} (t) - H_{(xy^2z, y^2 z^2)} (t) \\
+      = H_{(xy, z^3)} (t) + H_{(yz^2)} (t) - H_{(xyz^2, yz^3)} (t) + H_{(y^2z)} (t) - \Bigl(H_{(xy^2z)} (t) + H_{(y^2 z^2)} (t) - H_{(x y^2 z^2)} (t)\Bigr) \\
+      = H_{(xy)} (t) + H_{(z^3)} (t) - H_{(xyz^3)} (t) + H_{(yz^2)} (t) - \Bigl(H_{(xyz^2)} (t) + H_{(yz^3)} (t) - H_{(xyz^3)} (t)\Bigr) + H_{(y^2z)} (t) \\
+      - \Bigl(H_{(xy^2z)} (t) + H_{(y^2 z^2)} (t) - H_{(x y^2 z^2)} (t)\Bigr) \\
+      = \frac{(1-t^2) + (1-t^3) - (1-t^5) + (1-t^3) - (1-t^4) - (1-t^4) + (1-t^5) + (1-t^3) - (1-t^4) - (1-t^4) + (1-t^5)}{(1-t)^3} \\
+      = \frac{-t^5 + 4\,t^4 - 3\,t^3 - t^2 + 1}{(1-t)^3} =
+      \frac{-t^3 + 2t^2 + 2t + 1}{1-t} =
+      1 + 3\,t + 5\,t^2 + 4\,t^3 + 4\,t^4 + 4\,t^6 + \cdots
+    \end{multline*}
+    (El polinomio de Hilbert correspondiente es igual a $4$ y
+    $h_I (d) = p_I (d)$ para $d \ge 3$.)
+  \end{solucion}\fi
+\end{ejerc}
+
+\subsection*{Normalización de Noether}
+
+\begin{ejerc}
+  Calcule la subálgebra
+  $$k [\overline{x},\overline{y}] \subset k[x,y,z]/(x^2+y^2-z^2, \, x+y+z).$$
+
+  \ifdefined\solutions\begin{solucion} Consideremos el homomorfismo
+    \begin{align*}
+      \phi\colon k [t,u] & \to k[x,y,z]/(x^2+y^2-z^2, \, x+y+z),\\
+      t & \mapsto \overline{x},\\
+      u & \mapsto \overline{y}.
+    \end{align*}
+    Ahora
+    $$\ker \phi = (x^2+y^2-z^2, \, x+y+z, \, x-t, \, y-u) \cap k [t,u].$$
+    La base de Gröbner del ideal
+    $(x^2+y^2-z^2, \, x+y+z, \, x-t, \, y-u) \subset k [x,y,z,t,u]$ respecto al
+    orden lexicográfico con $x \succ y \succ z \succ t \succ u$ viene dada por
+    $$G = \{ z+t+u, \, y-u, \, x-t, \, tu \}.$$
+    Entonces,
+    $$\ker \phi = (tu).$$
+    Podemos concluir que
+    \[ k [\overline{x},\overline{y}] \isom k [t,u]/(tu). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos las $k$-álgebras
+  $$A \dfn k [x,y]/(x^2\,(x+1)-y^2), \quad B \dfn k[x,y,z]/(x-z^2+1, y-z^3+z).$$
+  Demuestre que se tiene un homomorfismo inyectivo natural
+  $A \hookrightarrow B$, y $B$ es integral sobre $A$.
+
+  \ifdefined\solutions\begin{solucion}
+    Consideremos el homomorfismo
+
+    \begin{align*}
+      \phi\colon k [t,u] & \to k[x,y,z]/(x-z^2+1, y-z^3+z),\\
+      t & \mapsto x,\\
+      u & \mapsto y.
+    \end{align*}
+    Ahora
+    $$\ker \phi = (x-z^2+1, \, y-z^3+z, \, t-x, \, u-y) \cap k [t,u].$$
+    Una base de Gröbner del ideal $(x-z^2+1, \, y-z^3+z, \, t-x, \, u-y)$
+    respecto al orden lexicográfico con $x \succ y \succ z \succ t \succ u$
+    viene dada por
+    $$G = \{ t^3+t^2-u^2, \, zu-t^2-t, \, zt-u, \, z^2-t-1, \, y-u, \, x-t \},$$
+    lo que nos permite concluir que
+    $$\ker \phi = (t^3+t^2-u^2).$$
+    Ahora $\overline{z}$ es integral sobre $A = k [\overline{x},\overline{y}]$
+    gracias a la relación $\overline{z}^3 - \overline{z} - \overline{y} = 0$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos la $k$-álgebra
+  $A \dfn k [x_1,x_2] / (x_1 x_2^2 + x_1^2 x_2 + 1)$. Encuentre
+
+  \begin{enumerate}
+  \item[a)] una normalización de Noether para $k = \FF_2$
+    (recuerde que esta no puede ser lineal),
+  \item[b)] una normalización de Noether para $k = \QQ$ de la forma
+    $a = c_1 x_1 + c_2 x_2$ para $c_1, c_2 \in \QQ$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos $\dim A = 1$, así que estamos buscando un elemento $a \in A$ tal que
+    la extensión $k [a] \subset A$ es integral. Consideremos el polinomio
+    $f = x_1 x_2^2 + x_1^2 x_2 + 1$. Tenemos $\deg f = 3$, así que podemos poner
+    $\delta = 4$. Hagamos la sustitución $y_2 = x_2 - x_1^4$. Luego
+    \[ f (x_1,x_2) =
+       f (x_1, \, y_2 + x_1^4) =
+       x_1\,(y_2 + x_1^4)^2 + x_1^2\,(y_2 + x_1^4) + 1 =
+       x_1^9 + x_1^6 + 2 y_2\cdot x_1^5 + y_2\cdot x_1^2 + y_2^2\cdot x_1 + 1. \]
+    Esto nos da una dependencia integral de $\overline{x_1}$ sobre
+    $k [\overline{y_2}]$. Entonces, podemos tomar
+    $a = \overline{x_2} - \overline{x_1}^4$.
+
+    Para la sustitución lineal en el caso de $k = \QQ$, escribamos
+    $y_1 = x_1 - cx_2$. Luego,
+    \[ f (x_1,x_2) =
+       f (y_1 + cx_2, \, x_2) =
+       (y_1 + cx_2)\,x_2^2 + (y_1 + cx_2)^2\,x_2 + 1 =
+       c\,(c+1)\cdot x_2^3 + (2c + 1)\,y_1\cdot x_2^2 + y_1^2\cdot x_2 + 1. \]
+    Entonces, basta tomar cualquier $c \ne 0, -1$ para obtener una dependencia
+    integral de $\overline{x_2}$ sobre $k [\overline{y_1}]$. Por ejemplo,
+    funcionaría $c = +1$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Encuentre una normalización de Noether en la forma lineal para la $k$-álgebra
+  $$A \dfn k [x_1,x_2,x_3] / (x_1^2 x_2^2, \, x_1^2 x_3^2).$$
+
+  \ifdefined\solutions\begin{solucion}
+    Primero notamos que el ideal $I = (x_1^2 x_2^2, \, x_1^2 x_3^2)$ es
+    monomial, y por ende se ve fácilmente que $I \cap k[x_2,x_3] = 0$, así que
+    $\dim A = 2$. Entonces, la normalización de Noether debe consistir en dos
+    elementos $a_1,a_2 \in A$ tales que la extensión $k [a_1,a_2] \subset A$ es
+    integral.
+
+    Hagamos sustituciones
+    $$y_1 = x_1 - c_1 x_3, \quad y_2 = x_2 - c_2 x_3.$$
+    Consideremos el polinomio $f = x_1^2 x_2^2$. Tenemos
+    \[ f (x_1,x_2,x_3) =
+       f (y_1 + c_1 x_3, \, y_2 + c_2 x_3, \, x_3) =
+       (y_1 + c_1 x_3)^2\,(y_2 + c_2 x_3)^2. \]
+    Podemos poner $c_1 = c_2 = 1$, y luego la fórmula de arriba nos dirá que
+    $x_3$ es integral sobre la subálgebra
+    \[ k [\overline{y_1},\overline{y_2}] =
+       k [\overline{x_1 + x_3},\overline{x_2 + x_3}]. \]
+    Esta subálgebra es isomorfa a $k [t,u]$. Para comprobarlo, podemos
+    considerar el homomorfismo
+    \begin{align*}
+      \phi\colon k[t,u] & \to k [x_1,x_2,x_3] / (x_1^2 x_2^2, \, x_1^2 x_3^2),\\
+      t & \mapsto \overline{x_1 + x_3},\\
+      u & \mapsto \overline{x_2 + x_3}.
+    \end{align*}
+    Ahora
+    \[ \ker \phi =
+       (x_1^2x_2^2,\, x_1^2x_3^2,\, t-x_1-x_3,\, u-x_2-x_3) \cap k [t,u]. \]
+    La base de Gröbner correspondiente respecto al orden lexicográfico con
+    $x_1 \succ x_2 \succ x_3 \succ t \succ u$ es
+    \[ G = \{ x_3^2 u^3 - 2 x_3 tu^3 + t^2u^3, \,
+              2x_3^3u-4x_3^2tu -x_3^2u^2+2x_3t^2u+2x_3tu^2-t^2u^2, \,
+              x_3^4-2x_3^3t+x_3^2t^2, \,
+              x_2+x_3-u, \,
+              x_1+x_3-t \}, \]
+    así que $\ker \phi = 0$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\end{document}

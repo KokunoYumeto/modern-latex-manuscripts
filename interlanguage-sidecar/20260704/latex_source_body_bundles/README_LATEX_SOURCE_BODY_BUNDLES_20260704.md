@@ -9,6 +9,7 @@ They contain actual LaTeX-like file bodies, not only URLs, ledgers, or checksums
 - `Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip`: Chinese/Japanese/CJK source-body feed, 196 entries, 168 source-like entries.
 - `Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip`: Slavic/Interslavic support source-body feed, 1,194 entries, 1,187 source-like entries.
 - `Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip`: expanded arXiv source tarballs for Slavic/interlanguage computational-linguistics baseline papers, 54 entries, 49 TeX/Bib/Style-like entries.
+- `Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip`: direct gated source-canon upload from the Noether-PC/source-canon branch, 524 TeX-family source bodies, including Spanish mathematical TeX and Slavic-hint source trees.
 
 See `LATEX_SOURCE_BODY_BUNDLES_MANIFEST_20260704.csv` for byte counts, SHA256 hashes, entry counts, and source-like counts.
 
@@ -19,3 +20,5 @@ Classification: these are source-reference and language-register feeds. They are
 Current Slavic caveat: as of the 2026-07-05 content audit, the Slavic source-body ZIP does not contain a strong native TeX corpus for Czech, Polish, Slovak, Slovene, Croatian, Serbian, Bulgarian, Macedonian, Belarusian, or Sorbian. Those languages are represented elsewhere in the sidecar mostly by PDF/HTML witnesses and source-anchor manifests, not by hundreds of actual `.tex` source bodies. Treat non-Russian/non-Ukrainian Slavic native TeX source collection as still open.
 
 The 2026-07-05 Slavic linguistics arXiv bundle is useful for interlanguage/Slavic methodology and source-body style evidence. It should not be used as native mathematical terminology attestation for individual Slavic target languages unless a file is separately inspected and classified as such.
+
+The 2026-07-05 direct gated Slavic/Romance bundle is a stronger feed than the earlier package-350/352 ledgers because it contains actual file bodies. It is still a mixed source-corpus/provenance feed: useful for Pro/Web register extraction and source-style comparison, but not native review, translation completion, accepted terminology, or publication readiness.

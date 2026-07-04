@@ -1,0 +1,150 @@
+\section{Metody rozwiązywania}
+\label{sec:metoda}
+
+\subsection{Reprezentacja stanu gry}
+
+Stan gry Breakthrough w naszej implementacji jest reprezentowany przez parę
+bitboardów $u_{64}$: jeden dla pionków białych, jeden dla czarnych. Bit $i$
+odpowiada polu $i = r \cdot c + k$, gdzie $r$ to numer rzędu (0-indeksowany
+od dołu), $k$ to numer kolumny, a $c$ to liczba kolumn planszy. Dla planszy
+8$\times$8 wszystkie 64 pola zajmują dokładnie całą szerokość \texttt{u64}.
+
+\paragraph{Walidacja krzyżowa.}
+Dla pewności poprawności silnika, równolegle z implementacją w Ruście została
+napisana referencyjna implementacja w Pythonie.
+Test \texttt{test\_rust\_vs\_python.py} gra 1000 losowych partii i porównuje
+po każdym ruchu zbiory legalnych ruchów, stan terminalny, zwycięzcę i
+reprezentację tekstową.
+
+\subsection{Bazowy UCT}
+
+Bazowy 4-fazowy algorytm MCTS z regułą selekcji UCB1 opisaliśmy
+w sekcji~\ref{sec:literatura}; tutaj odnotowujemy szczegóły implementacyjne.
+Statystyki $\text{wins}(c)$ liczymy z perspektywy gracza, który wykonał ruch
+$c$ -- konwencja ta czyni selekcję UCB1 minimax-spójną. Symulacja jest losowa
+(uniform) do stanu terminalnego. Pula węzłów to płaska \texttt{Vec<UctNode>}
+indeksowana \texttt{usize}; węzły nie przechowują pełnego \texttt{GameState},
+lecz stan jest rekonstruowany przy schodzeniu od korzenia (koszt
+$O(\text{depth})$ tanich klonowań na iterację). Eksponowany do Pythona przez
+PyO3 jako \texttt{UctAgent(iterations, c, seed)}.
+
+\subsection{UCT + RAVE}
+
+Mechanizm RAVE/AMAF i formułę mieszającą oceny UCT z AMAF omówiliśmy
+w sekcji~\ref{sec:literatura}. Implementacyjnie każdy węzeł $s$ przechowuje
+dodatkowe statystyki AMAF w mapie kluczowanej kodem ruchu (\texttt{from*64 + to}).
+W backpropagation aktualizujemy je dla ruchów zagranych zarówno w fazie
+symulacji, jak i \emph{in-tree} poniżej węzła -- włączenie ruchów in-tree
+okazało się kluczowe; ich pominięcie w pierwszej wersji prowadziło do
+drastycznej porażki RAVE (patrz~sekcja~\ref{sec:llm}). Wagę $\beta$ wyznacza
+formuła Silvera z hiperparametrem $b^2$; klasyczna wartość $b^2 = 10^{-4}$
+okazała się nieoptymalna (zbyt silna dominacja Q-RAVE), więc po zamiataniu
+$b^2 \in \{10^{-6}, \ldots, 10^{-1}\}$ wybraliśmy $b^2 = 10^{-2}$. Eksponowany
+jako \texttt{RaveAgent(iterations, c, rave\_k, seed)}, gdzie \texttt{rave\_k}
+jest interpretowane jako $b^2$.
+
+\subsection{UCT + Progressive Bias}
+
+Formułę selekcji z malejącym członem biasu opisaliśmy w sekcji~\ref{sec:literatura}.
+Wartość heurystyczną ruchu wyznaczamy z tej samej funkcji porządkowania ruchów
+$\pi(m)$, której używa gracz alpha-beta, znormalizowanej do $[0,1]$:
+$H(m) = \mathrm{clip}_{[0,1]}(\pi(m)/1000)$. Dzięki wspólnemu $\pi$ ta sama wiedza
+domenowa zasila zarówno Progressive Bias, jak i porządkowanie ruchów w alpha-beta.
+Wagę biasu ustaliliśmy na $w_{\text{bias}} = 1{,}0$. Eksponowany jako
+\texttt{ProgressiveBiasAgent(iterations, c, bias\_weight, seed)}.
+
+\subsection{Heurystyczny gracz alpha-beta}
+
+\paragraph{Funkcja ewaluacj.}
+$f: \text{State} \times \text{Player} \to \mathbb{R}$, dodatnia gdy korzystna
+dla \emph{Player}. Ocena dla każdej strony sumuje wkład pojedynczych pionków
+oraz czynniki globalne; dla strony białej $v_W = \sum_p a_p \cdot (1 + 0{,}3\,d_p)
+\cdot k_p \cdot f_p \cdot g_p$, gdzie dla pionka $p$ w rzędzie $r$, kolumnie $c$:
+\begin{itemize}[nosep]
+    \item $a_p$ -- waga zaawansowania, \emph{wykładnicza} względem rzędu:
+          $[1, 1, 2, 4, 8, 16, 32, 64]$ (pionek bliżej linii awansu jest
+          wielokrotnie cenniejszy),
+    \item $d_p \in \{0,1,2\}$ -- liczba własnych obrońców na przekątnych za pionkiem,
+    \item $k_p$ -- bonus centralności ($1{,}15$ dla kolumn $\{3,4\}$, $1{,}05$ dla $\{2,5\}$, inaczej $1{,}0$),
+    \item $f_p$ -- $1{,}5$ przy swobodnej ścieżce awansu (brak pionka przeciwnika
+          w rozszerzającym się trójkącie przed pionkiem), inaczej $1{,}0$,
+    \item $g_p$ -- $0{,}8$ przy izolacji (brak własnych sąsiadów), inaczej $1{,}0$.
+\end{itemize}
+Dodatkowo grożba natychmiastowego przebicia (pionek w przedostatnim rzędzie
+z legalnym ruchem na rząd awansu) dodaje $+200$. Czynniki globalne:
+$f = (v_W - v_B) + 0{,}3 \cdot \Delta_{\text{mobilność}} + 2{,}0 \cdot \Delta_{\text{materiał}}$,
+gdzie $\Delta_{\text{mobilność}}$ to różnica liczby legalnych ruchów obu stron,
+a $\Delta_{\text{materiał}}$ -- różnica liczby pionków. Dla stanu terminalnego
+zwracamy $\pm\infty$.
+
+\subsection{Architektura implementacji}
+
+\paragraph{Stos technologiczny.}
+Rdzeń obliczeniowy (silnik gry, wszystkie agenci, ewaluacja) zaimplementowany
+w języku Rust. Orchestracja eksperymentów, GUI i analiza wyników w Pythonie 3.12.
+Wiązanie Rust $\leftrightarrow$ Python przez PyO3 0.22 z budowaniem przez maturin.
+
+\paragraph{Struktura repozytorium.}
+\begin{verbatim}
+breakthrough-mcts/
+  src/                              # Rust
+    game.rs                         # Bitboard GameState
+    mcts/{uct,rave,progressive_bias}.rs
+    heuristic.rs                    # alpha-beta
+  python/breakthrough/
+    reference_game.py               # Walidacja krzyżowa
+    gui.py                          # Pygame GUI
+    experiments/                    # run_h{1..6}.py
+  tests/test_rust_vs_python.py      # Walidacja silnika
+  notebooks/                        # Skrypty analityczne
+  report/                           # Niniejszy dokument
+\end{verbatim}
+
+\paragraph{Reprodukowalność.}
+Generator: Xoshiro256++ \cite{vigna2017}. Master seed wyprowadza
+deterministycznie seedy partii (SHA-256). Każda partia ma jawnie zapisany seed
+w logu JSONL.
+
+\paragraph{Decyzja o zrównolegleniu.}
+\textbf{MCTS jest sekwencyjny}, zrównoleglenie odbywa się wyłącznie na poziomie
+batchowania eksperymentów (\texttt{ProcessPoolExecutor}).
+
+\subsection{Interfejs graficzny (człowiek vs AI)}
+\label{sec:gui}
+
+Do jakościowej oceny agentów i zbierania partii z ludźmi zaimplementowaliśmy
+graficzny interfejs w bibliotece Pygame (\texttt{python -m breakthrough.gui}).
+
+Ekran startowy (rys.~\ref{fig:gui_setup}) pozwala wybrać algorytm przeciwnika
+(UCT, RAVE, Progressive Bias, heurystyka, gracz losowy), kolor gracza (białe,
+czarne lub losowo) oraz parametry agenta: budżet iteracji z presetów
+(10k--1M), stałą eksploracji $c$, a dla poszczególnych wariantów dodatkowo
+$b^2$, wagę biasu lub głębokość przeszukiwania.
+
+Podczas rozgrywki (rys.~\ref{fig:gui_play}) plansza 8$\times$8 jest renderowana
+z perspektywy gracza; kliknięcie pionka podświetla jego legalne ruchy (kropka --
+ruch, pierścień -- bicie), a ostatni ruch jest zaznaczony. Panel boczny
+prezentuje konfigurację przeciwnika oraz statystyki partii na żywo: numer ruchu,
+czas gry i łączny czas namysłu obu stron. Ruch AI liczony jest w osobnym procesie
+(\texttt{ProcessPoolExecutor}), dzięki czemu interfejs pozostaje responsywny
+nawet przy dużych budżetach iteracji.
+
+Po zakończonej partii gracz wystawia ocenę trudności (skala 1--10), a całość --
+log ruchów z czasami namysłu oraz wiersz podsumowania (przeciwnik, wynik, kolor,
+ocena trudności) -- zapisywana jest do \texttt{results/human\_games/}. Analiza
+zebranych partii znajduje się w sekcji~\ref{sec:wyniki-human}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.68\textwidth]{figures/gui_1}
+    \caption{Ekran konfiguracji partii: wybór algorytmu przeciwnika, koloru
+    gracza i parametrów.}
+    \label{fig:gui_setup}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{figures/gui_2}
+    \caption{Widok rozgrywki: plansza 8$\times$8 oraz panel boczny z konfiguracją przeciwnika i statystykami partii na żywo.}
+    \label{fig:gui_play}
+\end{figure}

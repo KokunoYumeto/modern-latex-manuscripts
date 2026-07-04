@@ -1,0 +1,104 @@
+\documentclass[titlepage]{article}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{chemformula}
+\usepackage{amsfonts}
+
+\title{
+	\Large{Modelowanie Matematyczne (zadanie)}
+	\\
+	\normalsize{Wojskowa Akademia Techniczna im. Jarosława Dąbrowskiego}
+	\\
+	\normalsize{prowadzący: mgr inż. Michał Kapałka}
+	}
+
+\author{Artur M. Wolff (grupa nr H7X2S1)}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Treść problemu}
+Warmińsko-mazurska kopalnia paliw kopalnianych \textit{Albrecht} wydobywa 3 rodzaje węgla.
+Węgiel typu I jest najbardziej opłacalny do wydobycia, ale najmniej ekologiczny.
+Węgiel typu II jest mniej opłacalny do wydobycia, ale bardziej ekologiczny.
+Węgiel typu III jest najmniej opłacalny do wydobycia, ale najbardziej ekologiczny.
+Dyrektywy Unii Europejskiej mówią o tym, że w pełni działająca kopalnia powinna wydobywać co najwyżej 25Mt węgla typu I, co najmniej 50Mt węgla typu II i co najmniej 25Mt węgla typu III miesięcznie.
+Wydajność kopalni \textit{Albrecht} to średnio 133Mt miesięcznie.
+Za każdy 1\% nadprodukcji węgla typu II kopalnia otrzyma \textit{dopłatę klimatyczną} w wysokości 5\% przychodu i 10\% przychodu w przypadku węgla typu III.
+Jednak, w wyniku nieprzewidzianych okoliczności, może zdarzyć się tak, że podczas kopania węgla wykopany zostanie naturalnie występujący radioaktywny metal, izotop polonu \ch{^{210}Po}.
+W takim wypadku, Polska Agencja Atomistyki zamyka kopalnię na miesiąc, a wykopany dotychczas węgiel zostaje przewieziony na wysypisko materiałów promieniotwórczych.
+Wymienione powyżej zdarzenie to proces stochastyczny i nie da się go przewidzieć, ale jest możliwość zasymulowania go używając generatora liczb pseudolosowych (wartości boolowskich).
+Poza tym, koszty związane z sezonowaniem (składowaniem i przechowywaniem) nadwyżek produkcji ponosi kopalnia.
+Jakie powinny być proporcje wydobycia każdego z typów węgla w miesiącu, biorąc pod uwagę zmienny popyt na węgiel, tak aby zysk zakładu był jak największy?
+Czy da się znaleźć rozwiązanie optymalne bez wprowadzania pojęcia ryzyka?
+
+\section{Lista danych}
+$x_1$ -- koszt wydobycia 1 tony węgla typu I, $x_1 \in \mathbb{N_+}$ \\
+$x_2$ -- koszt wydobycia 1 tony węgla typu II, $x_2 \in \mathbb{N_+}$ \\
+$x_3$ -- koszt wydobycia 1 tony węgla typu III, $x_3 \in \mathbb{N_+}$ \\
+$c_1$ -- cena sprzedaży węgla typu I (1 tony), $c_1 \in \mathbb{N_+}$ \\
+$c_2$ -- cena sprzedaży węgla typu II (1 tony), $c_2 \in \mathbb{N_+}$ \\
+$c_3$ -- cena sprzedaży węgla typu III (1 tony), $c_3 \in \mathbb{N_+}$ \\
+$u_1$ -- maksymalny udział węgla typu I w ogóle wydobycia, $u_1 \in \mathbb{N_+}$ \\
+$u_2$ -- minimalny udział węgla typu II w ogóle wydobycia, $u_2 \in \mathbb{N_+}$ \\
+$u_3$ -- minimalny udział węgla typu III w ogóle wydobycia, $u_3 \in \mathbb{N_+}$ \\
+$k_2$ -- dopłata klimatyczna za nadprodukcję 1\% węgla typu II, $k_2 \in \mathbb{N_+}$ \\
+$k_3$ -- dopłata klimatyczna za nadprodukcję 1\% węgla typu III, $k_3 \in \mathbb{N_+}$ \\
+$p_1$ -- popyt na węgiel typu I, $p_1 \in \mathbb{N}$ \\
+$p_2$ -- popyt na węgiel typu II, $p_2 \in \mathbb{N}$ \\
+$p_3$ -- popyt na węgiel typu III, $p_3 \in \mathbb{N}$ \\
+$s$ -- koszt sezonowania węgla, $s \in \mathbb{N_+}$ \\
+$w$ -- wydajność kopalni, $w \in \mathbb{N_+}$ \\
+$b$ -- wynik generatora liczb pseudolosowych (PRNG)*, $b \in \{ 0, 1 \}$
+
+\subsection{*Generator liczb pseudolosowych}
+PRNG dla zadania zdefiniowany jest w następujący sposób:
+$$x_{n + 1} = (x_n)^2 \ mod \ M$$
+gdzie $x_n$ to kolejne stany generatora, a $M$ to iloczyn dwóch dużych liczb pierwszych $p$ i $q$ dających w dzieleniu przez 4 resztę 3 (dzięki czemu każda reszta kwadratowa modulo $p$ ma jeden pierwiastek kwadratowy,
+który także jest resztą kwadratową), i mających możliwie mały $\operatorname{NWD}(\phi(p - 1), \phi(q - 1))$, a $\phi$ jest funkcją Eulera (co zapewnia długi cykl). Wynikiem generatora jest ostatni bit $x_n$.
+
+\section{Lista zmiennych decyzyjnych}
+$l_1$ -- liczba wyprodukowanych ton węgla typu I, $l_1 \in \mathbb{N}$ \\
+$l_2$ -- liczba wyprodukowanych ton węgla typu II, $l_2 \in \mathbb{N_+}$ \\
+$l_3$ -- liczba wyprodukowanych ton węgla typu III, $l_3 \in \mathbb{N_+}$
+
+\section{Lista wskaźników}
+$z$ -- zysk kopalni, $z \in \mathbb{Z}$
+
+\section{Model optymalizacyjny}
+\begin{equation}
+	a = \left< x_1, x_2, x_3, c_1, c_2, c_3, u_1, u_2, u_3, k_1, k_2, p_1, p_2, p_3, s, w, b \right>
+\end{equation}
+
+\begin{equation}
+	\mathbb{A} = \{ a \in \mathbb{N_+}^{13} \times \mathbb{N}^3 \times \{ 0, 1 \} \}
+\end{equation}
+
+\begin{equation}
+	x = \left< l_1, l_2, l_3 \right>
+\end{equation}
+
+\begin{equation}
+	\Omega(a) = \{ x \in \mathbb{N} \times \mathbb{N_+}^2 : l_1 + l_2 + l_2 \leq w \land l_1 \leq u_1 \land l_2 \geq u_2 \land l_3 \geq u_3 \}
+\end{equation}
+
+\begin{equation}
+	k = \left< z \right>
+\end{equation}
+
+\begin{equation}
+	\begin{aligned}
+		\operatorname{K}(a, x) ={} & \{ k \in \mathbb{Z} : k = f(x) = b \cdot \sum_{i = 1}^3 c_i \cdot \min{(p_i, l_i)} \ -         \\
+		                           & + \sum_{i = 1}^3 x_i \cdot l_i - s \cdot \sum_{i = 1}^3 \max{(0, l_i - p_i)} \ +               \\
+		                           & + k_2 \cdot (\frac{100 \cdot l_2}{u_2} - 100) + k_3 \cdot (\frac{100 \cdot l_3}{u_3} - 100) \} 
+	\end{aligned}
+\end{equation}
+
+\section{Zadanie optymalizacyjne}
+Dla danych $a \in \mathbb{A}$, wyznaczyć $x^* \in \Omega(a)$, takie, że $f(x^*) = \max_{x \in \Omega(a)}{f(x)}$.
+
+\end{document}

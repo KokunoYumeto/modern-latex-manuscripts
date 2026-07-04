@@ -1,0 +1,114 @@
+\begin{naloga}{Janoš Vidali}{Kolokvij OR 22.4.2024}
+\begin{vprasanje}
+Dana je šahovnica velikosti $n \times n$
+in množica (tipov) šahovskih figur $\mathcal{F}$.
+Polja šahovnice indeksiramo s pari $(i, j)$ ($1 \le i, j \le n$),
+kjer je $i$ številka (navpične) {\em linije}\footnote{%
+Linije običajno sicer označujemo s črkami $a - h$.
+},
+$j$ pa številka (vodoravne) {\em vrste}.
+Za vsako figuro $f \in \mathcal{F}$ je dana vrednost $c_f$,
+poleg tega pa za vsako polje $(i, j)$ in figuro $f \in \mathcal{F}$
+poznamo še množico $N_{fij}$,
+ki vsebuje tista polja na šahovnici, ki jih napada figura $f$,
+če jo postavimo na polje $(i, j)$.
+
+Na šahovnico želimo postaviti figure tako,
+da je njihova skupna vrednost čim večja
+in da se med seboj ne napadajo --
+če je na polju $(i, j)$ figura $f$,
+mora torej vsako polje $(h, k) \in N_{fij}$ biti prazno.
+Na posamezno polje lahko seveda postavimo največ eno figuro,
+posameznih figur pa je lahko na šahovnici več.
+
+Na sliki~\fig je podan primer dopustne postavitve figur
+(pri običajnih šahovskih pravilih),
+kjer kralj stoji na polju $(5, 1)$.
+Z zeleno so označena prazna polja, ki jih ne napada nobena figura.
+Vsako od ostalih praznih polj napada vsaj ena od figur na šahovnici.
+
+\begin{enumerate}[(a)]
+\item Zapiši celoštevilski linearni program, ki modelira zgornji problem.
+\item Denimo, da velja $\mathcal{F} = \{K, Q, B, N, R, P\}$,
+kjer oznake zaporedoma predstavljajo
+kralja, kraljico, lovca, skakača, topa in kmeta\footnote{%
+Standardne oznake izhajajo iz angleških imen za figure: {\em king}, {\em queen},
+{\em bishop}, {\em k\underline{n}ight}, {\em rook}, {\em pawn}.
+}.
+K svojemu celoštevilskemu linearnemu programu dodaj pogoje,
+ki modelirajo sledeče omejitve.
+\begin{itemize}
+\item Na šahovnici je natanko en kralj.
+\item Na šahovnici je največ $n$ kmetov.
+\item Noben kmet ni v prvi ali zadnji vrsti
+(tj., na poljih $(i, j)$ z $j = 1$ ali $j = n$).
+\item Če sta na šahovnici vsaj dva lovca,
+potem ne smejo vsi zasedati polj iste barve
+(tj., obstajati morata lovca na poljih $(i, j)$ in $(h, k)$,
+kjer je eden od $i+j$ in $h+k$ lih, drugi pa sod).
+\end{itemize}
+\end{enumerate}
+
+\begin{slika}
+\setboardfontencoding{LSBC3}
+\setchessboard{
+showmover=false,
+setpieces={Ke1,Pa2,Pa3,Pa5,Pc2,Pf3,Qd4,Bb5,Rg6,Rh7,Na8,Nb8,Nc8},
+labelbottomformat=\arabic{filelabel}
+}
+\chessboard[
+margintopwidth=0pt,
+coloremph,
+fieldmaskcolor=green,
+emphareas={b1-c1,f5-f5,f8-f8}]
+\podnaslov{Primer dopustne postavitve figur (pri običajnih šahovskih pravilih)}
+\end{slika}
+\end{vprasanje}
+
+\begin{odgovor}
+\begin{enumerate}[(a)]
+\item Za figuro $f \in \mathcal{F}$ in polje $(i, j)$ ($1 \le i, j \le n$)
+bomo uvedli spremenljivko $x_{fij}$,
+katere vrednost interpretiramo kot
+$$
+x_{fij} = \begin{cases}
+1 & \text{na polju $(i, j)$ je figura $f$, in} \\
+0 & \text{sicer.}
+\end{cases}
+$$
+
+Zapišimo celoštevilski linearni program.
+\needspace{2\baselineskip}
+\begin{alignat*}{3}
+\min &\ & \sum_{f \in \mathcal{F}} \sum_{i=1}^n \sum_{j=1}^n c_f x_{fij}
+&\quad \text{p.p.} \\
+\forall f \in \mathcal{F} \ \forall i, j \in \{1, \dots, n\}: &\ &
+0 \le x_{fij} \le 1, &\quad x_{fij} \in \Z
+\opis{Na vsakem polju je največ ena figura}
+\forall i, j \in \{1, \dots, n\}: &\ &
+\sum_{f \in \mathcal{F}} x_{fij} &\le 1
+\opis{Napadena polja so prazna}
+\forall f \in \mathcal{F} \ \forall i, j \in \{1, \dots, n\}: &\ &
+n^2 x_{fij} + \sum_{g \in \mathcal{F}} \sum_{(h, k) \in N_{fij}} x_{ghk}
+&\le n^2
+\end{alignat*}
+
+\item Zapišimo še dodatne omejitve.
+\odstraniprostor
+\begin{align*}
+\opis{Na šahovnici je natanko en kralj}
+\sum_{i=1}^n \sum_{j=1}^n x_{Kij} &= 1
+\opis{Na šahovnici je največ $n$ kmetov}
+\sum_{i=1}^n \sum_{j=1}^n x_{Pij} &\le n
+\opis{Noben kmet ni v prvi ali zadnji vrsti}
+\sum_{i=1}^n (x_{Pi1} + x_{Pin}) &= 0
+\opis{Če imamo vsaj dva lovca, morajo zasedati tako bela kot črna polja}
+\sum_{i=1}^n \sum_{\substack{j=1 \\ \text{$i+j$ sod}}}^n x_{Bij} -
+n^2 \sum_{i=1}^n \sum_{\substack{j=1 \\ \text{$i+j$ lih}}}^n x_{Bij} &\le 1 \\
+\sum_{i=1}^n \sum_{\substack{j=1 \\ \text{$i+j$ lih}}}^n x_{Bij} -
+n^2 \sum_{i=1}^n \sum_{\substack{j=1 \\ \text{$i+j$ sod}}}^n x_{Bij} &\le 1
+\end{align*}
+\end{enumerate}
+\end{odgovor}
+\end{naloga}
+

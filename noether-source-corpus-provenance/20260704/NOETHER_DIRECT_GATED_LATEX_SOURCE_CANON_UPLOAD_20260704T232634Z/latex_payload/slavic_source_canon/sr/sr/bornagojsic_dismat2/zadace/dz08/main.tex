@@ -1,0 +1,968 @@
+\documentclass{exam}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz}
+\makeatletter
+\newcommand\mathcircled[1]{%
+  \mathpalette\@mathcircled{#1}%
+}
+\newcommand\@mathcircled[2]{%
+  \tikz[baseline=(math.base)] \node[draw,circle,inner sep=1pt] (math) {$\m@th#1#2$};%
+}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[makeroom]{cancel}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+
+\renewcommand{\thepartno}{\thequestion.\alph{partno}}
+\renewcommand{\partlabel}{\alph{partno})}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\def \brojZadace {8}
+
+\lhead{DISMAT 2 - Zadaća \brojZadace\\}
+\rhead{Borna Gojšić\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup
+\centering
+\LARGE Diskretna matematika 2\\
+\Large Zadaća \brojZadace\\
+\large \today\\
+\large Borna Gojšić\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Rj:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+\question Na skupu $\mathbb{R}$ definirana je binarna operacija $*$ na sljedeći na
+
+\[
+  x * y = \sqrt[3]{x^3 + y^3}
+\]
+
+Dokažite da je $(\mathbb{R}, *)$ Abelova grupa.
+
+\begin{solution}
+  \begin{enumerate}
+    \item \textbf{Zatvorenost:} Neka su $x, y \in \mathbb{R}$. Tada je $x * y = \sqrt[3]{x^3 + y^3} \in \mathbb{R}$ jer je treći korijen realan broj.
+    \item \textbf{Asocijativnost:} Neka su $x, y, z \in \mathbb{R}$. Tada je
+      \begin{align*}
+        x * (y * z) &= x * \sqrt[3]{y^3 + z^3} = \sqrt[3]{x^3 + \left( \sqrt[3]{y^3 + z^3} \right)^3} = \sqrt[3]{x^3 + y^3 + z^3} \\
+        (x * y) * z &= \sqrt[3]{x^3 + y^3} * z = \sqrt[3]{\left( \sqrt[3]{x^3 + y^3} \right)^3 + z^3} = \sqrt[3]{x^3 + y^3 + z^3}
+      \end{align*}
+      Dakle, $x * (y * z) = (x * y) * z$.
+    \item \textbf{Neutralni element:} Neka je $e = 0$. Tada je $x * e = \sqrt[3]{x^3 + 0^3} = \sqrt[3]{x^3} = x$ i $e * x = \sqrt[3]{0^3 + x^3} = \sqrt[3]{x^3} = x$. Dakle, $e = 0$ je neutralni element.
+    \item \textbf{Inverz:} Neka je $x \in \mathbb{R}$. Tada je $x * (-x) = \sqrt[3]{x^3 + (-x)^3} = \sqrt[3]{x^3 - x^3} = \sqrt[3]{0} = 0$ i $(-x) * x = \sqrt[3]{(-x)^3 + x^3} = \sqrt[3]{-x^3 + x^3} = \sqrt[3]{0} = 0$. Dakle, $-x$ je inverz za $x$.
+    \item \textbf{Komutativnost:} Neka su $x, y \in \mathbb{R}$. Tada je
+      \[
+        x * y = \sqrt[3]{x^3 + y^3} = \sqrt[3]{y^3 + x^3} = y * x
+      \]
+      Dakle, $x * y = y * x$.
+  \end{enumerate}
+  Dakle, $(\mathbb{R}, *)$ je Abelova grupa.
+\end{solution}
+
+\question Na skupu $S = \{(a, b) \in \mathbb{R}^2; a \neq 0\}$ definirana je binarna operacija $*$ na sljedeći način:
+
+\[
+  (a, b) * (c, d) = (ac, ad + b)
+\]
+
+Dokažite da je $(S, *)$ grupa. Je li to Abelova grupa? Obrazložite!
+
+\pagebreak
+
+\begin{solution}
+  \begin{enumerate}
+    \item \textbf{Zatvorenost:} Neka su $(a, b), (c, d) \in S$. Tada je $(a, b) * (c, d) = (ac, ad + b) \in S$ jer je $ac \neq 0$.
+    \item \textbf{Asocijativnost:} Neka su $(a, b), (c, d), (e, f) \in S$. Tada je
+      \begin{align*}
+        (a, b) * ((c, d) * (e, f)) &= (a, b) * (ce, cf + d) = (ace, acf + ad + b) \\
+        ((a, b) * (c, d)) * (e, f) &= (ac, ad + b) * (e, f) = (ace, acf + ad + b)
+      \end{align*}
+      Dakle, $(a, b) * ((c, d) * (e, f)) = ((a, b) * (c, d)) * (e, f)$.
+    \item \textbf{Neutralni element:} Neka je $e = (1, 0)$. Tada je $(a, b) * e = (a, b) * (1, 0) = (a \cdot 1, a \cdot 0 + b) = (a, b)$ i $e * (a, b) = (1, 0) * (a, b) = (1 \cdot a, 1 \cdot b + 0) = (a, b)$. Dakle, $e = (1, 0)$ je neutralni element.
+    \item \textbf{Inverz:} Neka je $(a, b) \in S$. Tada je
+      \begin{align*}
+        (a, b) * \left(\frac{1}{a}, \frac{-b}{a}\right) = \left(a \cdot \frac{1}{a}, a \cdot \frac{-b}{a} + b\right) = (1, 0) = e \\
+        \left(\frac{1}{a}, \frac{-b}{a}\right) * (a, b) = \left(\frac{1}{a} \cdot a, \frac{1}{a} \cdot b + \frac{-b}{a}\right) = (1, 0) = e
+      \end{align*}
+  \end{enumerate}
+  Dakle, $(S, *)$ je grupa. Da bi bila Abelova grupa, mora vrijediti i komutativnost. Neka su $(a, b), (c, d) \in S$. Tada je
+  \begin{align*}
+    (a, b) * (c, d) = (ac, ad + b) \neq (ca, cb + d) = (c, d) * (a, b)
+  \end{align*}
+  Dakle, $(S, *)$ nije Abelova grupa.
+\end{solution}
+
+\question Na skupu $\mathbb{Z} \times \mathbb{Q}$ definirana je binarna operacija $*$ na sljedeći način:
+
+\[
+  (x, y) * (u, v) = (x + u, 2^uy + v)
+\]
+
+Dokažite da je $(\mathbb{Z} \times \mathbb{Q}, *)$ grupa. Je li to Abelova grupa? Obrazložite!
+
+\begin{solution}
+  \begin{enumerate}
+    \item \textbf{Zatvorenost:} Neka su $(x, y), (u, v) \in \mathbb{Z} \times \mathbb{Q}$. Tada je $(x, y) * (u, v) = (x + u, 2^uy + v) \in \mathbb{Z} \times \mathbb{Q}$ jer je $x + u \in \mathbb{Z}$ i $2^uy + v \in \mathbb{Q}$.
+
+    \item \textbf{Asocijativnost:} Neka su $(x, y), (u, v), (w, z) \in \mathbb{Z} \times \mathbb{Q}$. Tada je
+      \begin{align*}
+        (x, y) * ((u, v) * (w, z)) &= (x, y) * (u + w, 2^w v + z) = (x + u + w,2^{u + w}y + 2^w v + z) \\
+        ((x, y) * (u, v)) * (w, z) &= (x + u, 2^uy + v) * (w, z) = (x + u + w, 2^{w}(2^uy + v) + z)
+      \end{align*}
+      Dakle, $(x, y) * ((u, v) * (w, z)) = ((x, y) * (u, v)) * (w, z)$.
+
+    \item \textbf{Neutralni element:} Neka je $e = (0, 0)$. Tada je
+      \begin{align*}
+        (x, y) * e = (x, y) * (0, 0) = (x + 0, 2^0 \cdot y + 0) &= (x, y)\\
+        e * (x, y) = (0, 0) * (x, y) = (0 + x, 2^x \cdot 0 + y) &= (x, y)
+      \end{align*}
+      Dakle, $e = (0, 0)$ je neutralni element.
+
+    \item \textbf{Inverz:} Neka je $(x, y) \in \mathbb{Z} \times \mathbb{Q}$. Tada je
+      \begin{align*}
+        (x, y) * (-x, -2^{-x}y) = (x + (-x), 2^{-x}y + (-2^{-x}y)) = (0, 0) &= e \\
+        (-x, -2^{-x}y) * (x, y) = (-x + x, 2^x(-2^{-x}y) + y) = (0, 0) &= e
+      \end{align*}
+  \end{enumerate}
+  Dakle, $(\mathbb{Z} \times \mathbb{Q}, *)$ je grupa. Da bi bila Abelova grupa, mora vrijediti i komutativnost. Neka su $(x, y), (u, v) \in \mathbb{Z} \times \mathbb{Q}$. Tada je
+  \begin{align*}
+    (x, y) * (u, v) = (x + u, 2^uy + v) \neq (u + x, 2^xv + y) = (u, v) * (x, y)
+  \end{align*}
+  Dakle, $(\mathbb{Z} \times \mathbb{Q}, *)$ nije Abelova grupa.
+\end{solution}
+
+\question Na skupu $G = \{x \in \mathbb{R}; x > 0, x \neq 1\}$ definirana je binarna operacija $*$ na sljedeći način: $x * y = x^{\log_5 y}$.
+\begin{parts}
+  \part Dokažite da je $(G, *)$ Abelova grupa.
+  \part Je li $\mathbb{R}^+ = \{x \in \mathbb{R}; x > 0\}$ s operacijom $*$ grupa? Obrazložite!
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part
+    \begin{enumerate}
+      \item \textbf{Zatvorenost:} Neka su $x, y \in G$. Tada je $x * y = x^{\log_5 y} > 0$ jer je $x > 0$ i $y > 0$.
+      \item \textbf{Asocijativnost:} Neka su $x, y, z \in G$. Tada je
+        \begin{align*}
+          x * (y * z) = x * y^{\log_5 z} = x^{\log_5 y^{\log_5 z}} = x^{\log_5 y \cdot \log_5 z} &= 5^{log_5 x \cdot \log_5 y \cdot \log_5 z}\\
+          (x * y) * z = x^{\log_5 y} * z = (x^{\log_5 y})^{\log_5 z} = x^{\log_5 y \cdot \log_5 z} &= 5^{log_5 x \cdot \log_5 y \cdot \log_5 z}
+        \end{align*}
+        Dakle, $x * (y * z) = (x * y) * z$.
+
+      \item \textbf{Neutralni element:} Neka je $e = 5$. Tada je
+        \begin{align*}
+          x * e = x * 5 = x^{\log_5 5} = x^1 = x \\
+          e * x = 5 * x = 5^{\log_5 x} = x
+        \end{align*}
+        Dakle, $e = 5$ je neutralni element.
+
+      \item \textbf{Inverz:} Neka je $x \in G$. Tada je
+        \begin{align*}
+          x * 5^{\frac{1}{\log_5 x}} = x^{log_5 \left(5^{\frac{1}{\log_5 x}}\right)} = x^{\frac{1}{\log_5 x}} = 5^{log_5 x \cdot \frac{1}{\log_5 x}} = 5 &= e\\
+          5^{\frac{1}{\log_5 x}} * x = \left(5^{\frac{1}{\log_5 x}}\right)^{\log_5 x} = 5^{\frac{1}{\log_5 x} \cdot \log_5 x} = 5 &= e
+        \end{align*}
+
+      \item \textbf{Komutativnost:} Neka su $x, y \in G$. Tada je
+        \begin{align*}
+          x * y = x^{\log_5 y} = 5^{\log_5 x \cdot \log_5 y} = 5^{\log_5 y \cdot \log_5 x} = y^{\log_5 x} = y * x
+        \end{align*}
+    \end{enumerate}
+    Dakle, $(G, *)$ je Abelova grupa.
+
+    \part Neka je $x = 1$. Tada je $x * y = 1 = y * x$ za sve $y \in \mathbb{R}^+$. Ali, onda nemamo jedinstveni inverz za element $1 \in \mathbb{R}^+$ pa $(\mathbb{R}^+, *)$ nije grupa.
+  \end{parts}
+\end{solution}
+
+\question Na skupu $G = \{x \in \mathbb{Q}; x \neq -1\}$ definirana je binarna operacija $*$ na sljedeći način: $x * y = x + y + xy$.
+\begin{parts}
+  \part Dokažite da je $(G, *)$ Abelova grupa.
+  \part Je li $(\mathbb{Q}, *)$ grupa? Obrazložite!
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part
+    \begin{enumerate}
+      \item \textbf{Zatvorenost:} Neka su $x, y \in G$. Tada je $x * y = x + y + xy \in \mathbb{Q}$ jer je zbroj i umnožak racionalnih brojeva također racionalan broj.
+      \item \textbf{Asocijativnost:} Neka su $x, y, z \in G$. Tada je
+        \begin{align*}
+          x * (y * z) &= x * (y + z + yz) = x + y + z + yz + x(y + z + yz)\\
+          (x * y) * z &= (x + y + xy) * z = x + y + xy + z + (x + y + xy)z
+        \end{align*}
+        Dakle, $x * (y * z) = (x * y) * z$.
+
+      \item \textbf{Neutralni element:} Neka je $e = 0$. Tada je
+        \begin{align*}
+          x * e &= x * 0 = x + 0 + x \cdot 0 = x\\
+          e * x &= 0 * x = 0 + x + 0 \cdot x = x
+        \end{align*}
+        Dakle, $e = 0$ je neutralni element.
+
+      \item \textbf{Inverz:} Neka je $x \in G$. Tada je
+        \begin{align*}
+          x * \frac{-x}{1+x} = x + \frac{-x}{1+x} + x \cdot \frac{-x}{1+x} = \frac{x(1+x) - x - x^2}{1+x} = 0 = e\\
+          \frac{-x}{1+x} * x = \frac{-x}{1+x} + x + \frac{-x}{1+x} \cdot x = \frac{-x + x(1+x) - x^2}{1 + x} = 0 = e
+        \end{align*}
+
+      \item \textbf{Komutativnost:} Neka su $x, y \in G$. Tada je
+        \begin{align*}
+          x * y = x + y + xy = y + x + yx = y * x
+        \end{align*}
+    \end{enumerate}
+    Dakle, $(G, *)$ je Abelova grupa.
+
+    \part Neka je $x = -1$. Tada je $x * y = -1 + y - y = -1 = y * x$ za sve $y \in \mathbb{Q}$. Ali, onda nemamo jedinstveni inverz za element $-1 \in \mathbb{Q}$ pa $(\mathbb{Q}, *)$ nije grupa.
+  \end{parts}
+\end{solution}
+
+\pagebreak
+
+\question Dokažite da skup svih matrica oblika $\displaystyle
+\begin{bmatrix}
+  x & x\\
+  0 & 0
+\end{bmatrix}, x \in \mathbb{R}^* = \mathbb{R} \setminus \{0\}$ čini grupu s obzirom na matrično množenje.
+
+\begin{solution}
+  \begin{enumerate}
+    \item \textbf{Zatvorenost:} Neka su $\displaystyle
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+      \end{bmatrix}, x \in \mathbb{R}^*$ i $\displaystyle
+      \begin{bmatrix}
+        y & y\\
+        0 & 0
+      \end{bmatrix}, y \in \mathbb{R}^*$. Tada je
+      \begin{align*}
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          y & y\\
+          0 & 0
+        \end{bmatrix} &=
+        \begin{bmatrix}
+          xy & xy\\
+          0 & 0
+        \end{bmatrix}
+      \end{align*}
+      pa je dobivena matrica traženog oblika.
+
+    \item \textbf{Asocijativnost:} Neka su $\displaystyle
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+      \end{bmatrix}, x \in \mathbb{R}^*$, $\displaystyle
+      \begin{bmatrix}
+        y & y\\
+        0 & 0
+      \end{bmatrix}, y \in \mathbb{R}^*$ i $\displaystyle
+      \begin{bmatrix}
+        z & z\\
+        0 & 0
+      \end{bmatrix}, z \in \mathbb{R}^*$. Tada je
+      \begin{align*}
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \left(
+          \begin{bmatrix}
+            y & y\\
+            0 & 0
+          \end{bmatrix} \cdot
+          \begin{bmatrix}
+            z & z\\
+            0 & 0
+          \end{bmatrix}
+        \right) &=
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          yz & yz\\
+          0 & 0
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+          xyz & xyz\\
+          0 & 0
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+          xy & xy\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          z & z\\
+          0 & 0
+        \end{bmatrix}
+        =
+        \left(
+          \begin{bmatrix}
+            x & x\\
+            0 & 0
+          \end{bmatrix} \cdot
+          \begin{bmatrix}
+            y & y\\
+            0 & 0
+          \end{bmatrix}
+        \right) \cdot
+        \begin{bmatrix}
+          z & z\\
+          0 & 0
+        \end{bmatrix}
+      \end{align*}
+      Dakle, $\displaystyle
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+      \end{bmatrix} \cdot
+      \left(
+        \begin{bmatrix}
+          y & y\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          z & z\\
+          0 & 0
+        \end{bmatrix}
+      \right) = \left(
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          y & y\\
+          0 & 0
+        \end{bmatrix}
+      \right) \cdot
+      \begin{bmatrix}
+        z & z\\
+        0 & 0
+      \end{bmatrix}$.
+
+    \item \textbf{Neutralni element:} Neka je $\displaystyle e =
+      \begin{bmatrix}
+        1 & 1\\
+        0 & 0
+      \end{bmatrix}$. Tada je
+      \begin{align*}
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          1 & 1\\
+          0 & 0
+        \end{bmatrix} &=
+        \begin{bmatrix}
+          x \cdot 1 + x \cdot 0 & x \cdot 1 + x \cdot 0\\
+          0 \cdot 1 + 0 \cdot 0 & 0 \cdot 1 + 0 \cdot 0
+        \end{bmatrix} =
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix}\\
+        \begin{bmatrix}
+          1 & 1\\
+          0 & 0
+        \end{bmatrix} \cdot
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix} &=
+        \begin{bmatrix}
+          1 \cdot x + 1 \cdot 0 & 1 \cdot x + 1 \cdot 0\\
+          0 \cdot x + 0 \cdot 0 & 0 \cdot x + 0 \cdot 0
+        \end{bmatrix} =
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+        \end{bmatrix}
+      \end{align*}
+      Dakle, $\displaystyle e =
+      \begin{bmatrix}
+        1 & 1\\
+        0 & 0
+      \end{bmatrix}$ je neutralni element.
+
+    \item \textbf{Inverz:} Neka je $\displaystyle X =
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+      \end{bmatrix}$, $x \in \mathbb{R}^*$. Tada je
+      \begin{align*}
+        X \cdot
+        \begin{bmatrix}
+          \frac{1}{x} & \frac{1}{x}\\
+          0 & 0
+        \end{bmatrix} &=
+        \begin{bmatrix}
+          x \cdot \frac{1}{x} + x \cdot 0 & x \cdot \frac{1}{x} + x \cdot 0\\
+          0 \cdot \frac{1}{x} + 0 \cdot 0 & 0 \cdot \frac{1}{x} + 0 \cdot 0
+        \end{bmatrix} =
+        \begin{bmatrix}
+          1 & 1\\
+          0 & 0
+        \end{bmatrix} = e\\
+        \begin{bmatrix}
+          \frac{1}{x} & \frac{1}{x}\\
+          0 & 0
+        \end{bmatrix} \cdot X &=
+        \begin{bmatrix}
+          \frac{1}{x} \cdot x + \frac{1}{x} \cdot 0 & \frac{1}{x} \cdot x + \frac{1}{x} \cdot 0\\
+          0 \cdot x + 0 \cdot 0 & 0 \cdot x + 0 \cdot 0
+        \end{bmatrix} =
+        \begin{bmatrix}
+          1 & 1\\
+          0 & 0
+        \end{bmatrix} = e
+      \end{align*}
+  \end{enumerate}
+  Dakle, skup svih matrica oblika $\displaystyle
+  \begin{bmatrix}
+    x & x\\
+    0 & 0
+  \end{bmatrix}, x \in \mathbb{R}^*$ čini grupu s obzirom na matrično množenje.
+\end{solution}
+
+\question Zadani su skupovi
+\begin{align*}
+  S &= \{z \in \mathbb{C}; |z| = 1\}\\
+  K_n &= \{z \in \mathbb{C}; z^n = 1\}\\
+  K &= \bigcup_{n=1}^{\infty} K_n
+\end{align*}
+
+\begin{parts}
+  \part Dokažite da je $S$ grupa s obzirom na množenje kompleksnih brojeva.
+  \part Dokažite da je $K_n$ podgrupa od $S$ za svaki $n \in \mathbb{N}$.
+  \part Je li $K$ podgrupa od $S$? Sve svoje tvrdnje dokažite!
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part
+    \begin{enumerate}
+      \item \textbf{Zatvorenost:} Neka su $z, w \in S$. Tada je $|z| = 1$ i $|w| = 1$. Dakle, $|zw| = |z| \cdot |w| = 1 \cdot 1 = 1$ pa je $zw \in S$.
+      \item \textbf{Asocijativnost:} Neka su $z, w, u \in S$. Tada je $(zw)u = z(wu)$ jer je množenje kompleksnih brojeva asocijativno.
+      \item \textbf{Neutralni element:} Neka je $e = 1$. Tada je $ze = z \cdot 1 = 1 \cdot z = ez = z$ za svaki $z \in S$.
+      \item \textbf{Inverz:} Neka je $z \in S$. Tada je $z \cdot \frac{1}{z} = \frac{1}{z} \cdot z = 1$ pa je $\frac{1}{z}$ inverz za $z$ i $\frac{1}{z} \in S$ jer je $\left| \frac{1}{z} \right| = \frac{1}{|z|} = 1$.
+    \end{enumerate}
+    Dakle, $S$ je grupa s obzirom na množenje kompleksnih brojeva.
+
+    \part
+    \begin{enumerate}
+      \item \textbf{Zatvorenost:} Neka su $z, w \in K_n$. Tada je $z^n = 1$ i $w^n = 1$. Dakle, $(zw)^n = z^nw^n = 1 \cdot 1 = 1$ pa je $zw \in K_n$.
+      \item \textbf{Asocijativnost:} Neka su $z, w, u \in K_n$. Tada je $(zw)u = z(wu)$ jer je množenje kompleksnih brojeva asocijativno.
+      \item \textbf{Neutralni element:} Neka je $e = 1$. Tada je $ze = z \cdot 1 = 1 \cdot z = ez = z$ za svaki $z \in K_n$. Dakle, $e = 1$ je neutralni element.
+      \item \textbf{Inverz:} Neka je $z \in K_n$. Tada je $z \cdot z^{n-1} = z^{n-1} \cdot z = z^n = 1$ pa je $z^{n-1}$ inverz za $z$ i $z^{n-1} \in K_n$.
+    \end{enumerate}
+    Dakle, $K_n$ je grupa za sve $n \in \mathbb{N}$. Očito je $K_n \subseteq S$ za sve $n \in \mathbb{N}$. Dakle, $K_n$ je podgrupa od $S$ za svaki $n \in \mathbb{N}$.
+
+    \part Očito je $K \subseteq S$. Neka je $z \in K_n$ i $w \in K_m$. Tada su $z, w \in K$ i imamo
+    \[
+      (z \cdot w^{-1})^{mn} = (z^n)^m \cdot (w^{m})^{-n} = 1 \implies z \cdot w^{-1} \in K_{mn} \implies z \cdot w^{-1} \in K
+    \]
+    Dakle, $K$ je podgrupa od $S$.
+  \end{parts}
+\end{solution}
+
+\pagebreak
+
+\question Neka je $X$ skup svih funkcija $f: S \rightarrow G$ sa skupa $S$ u grupu $(G, \circ)$. Na $X$ je definirana binarna operacija $*$ na sljedeći način:
+
+\begin{align*}
+  (f * g)(s) = f(s) \circ g(s), \quad f,g \in X, s \in S
+\end{align*}
+
+Dokažite da je $(X, *)$ grupa.
+
+\begin{solution}
+  \begin{enumerate}
+    \item \textbf{Zatvorenost:} Neka su $f, g \in X$ i $s \in S$. Tada je $(f * g)(s) = f(s) \circ g(s) \in G$ jer je $f(s), g(s) \in G$ pa je $f * g \in X$.
+    \item \textbf{Asocijativnost:} Neka su $f, g, h \in X$ i $s \in S$. Tada je
+      \begin{align*}
+        ((f * g) * h)(s) &= (f * g)(s) \circ h(s) = (f(s) \circ g(s)) \circ h(s) = f(s) \circ g(s) \circ h(s)\\
+        (f * (g * h))(s) &= f(s) \circ (g * h)(s) = f(s) \circ (g(s) \circ h(s)) = f(s) \circ g(s) \circ h(s)
+      \end{align*}
+      Dakle, $((f * g) * h)(s) = (f * (g * h))(s)$.
+    \item \textbf{Neutralni element:} Neka je $e(s) = e \in G$ za svaki $s \in S$. Tada je
+      \begin{align*}
+        (f * e)(s) &= f(s) \circ e = f(s)\\
+        (e * f)(s) &= e \circ f(s) = f(s)
+      \end{align*}
+      Dakle, $e \in X$ je neutralni element.
+    \item \textbf{Inverz:} Neka je $f \in X$. Neka je $g(s) = f(s)^{-1}$ za svaki $s \in S$. Tada je
+      \begin{align*}
+        (f * g)(s) &= f(s) \circ g(s) = f(s) \circ f(s)^{-1} = e = e(s)\\
+        (g * f)(s) &= g(s) \circ f(s) = f(s)^{-1} \circ f(s) = e = e(s)
+      \end{align*}
+      Dakle, $g \in X$ je inverz za $f$.
+  \end{enumerate}
+  Dakle, $(X, *)$ je grupa.
+\end{solution}
+
+\pagebreak
+
+\question Neka su $a, b, c$ realni brojevi te neka je $\otimes$ binarna operacija definirana sa
+\[
+  x \otimes y = ax + by + c, \quad x, y \in \mathbb{R}
+\]
+\begin{parts}
+  \part Za koje vrijednosti parametara $a, b, c$ je $(\mathbb{R}, \otimes)$ polugrupa?
+  \part Za koje vrijednosti parametara $a, b, c$ je $(\mathbb{R}, \otimes)$ grupa?
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part
+    \begin{enumerate}
+      \item \textbf{Zatvorenost:} Neka su $x, y \in \mathbb{R}$. Tada je očito $x \otimes y = ax + by + c \in \mathbb{R}$.
+      \item \textbf{Asocijativnost:} Neka su $x, y, z \in \mathbb{R}$. Tada je
+        \begin{align*}
+          (x \otimes y) \otimes z &= (ax + by + c) \otimes z = a(ax + by + c) + bz + c\\ &= a^2x + aby + bz + ac + c\\
+          x \otimes (y \otimes z) &= x \otimes (ay + bz + c) = a x + b(ay + bz + c) + c = ax + aby + b^2z + bc + c
+        \end{align*}
+        Budući da $(x \otimes y) \otimes z = x \otimes (y \otimes z)$ mora vrijediti za sve $x, y, z \in \mathbb{R}$, imamo sustav:
+        \begin{align*}
+          a^2 &= a\\
+          ab &= ab\\
+          b &= b^2\\
+          ac + c &= bc + c\\
+        \end{align*}
+        Dakle, imamo $b = a$, $a \in \{0, 1\}$ i $c \in \mathbb{R}$ ili $b \neq a$, $a, b \in \{0, 1\}$ i $c = 0$.
+    \end{enumerate}
+
+    \part Imamo dva slučaja:
+    \begin{enumerate}
+      \item Ako je $b = a$, $a \in \{0, 1\}$ i $c \in \mathbb{R}$ onda imamo $x \otimes y = a(x + y) + c$
+        \begin{enumerate}
+          \item \textbf{Neutralni element:}
+            \begin{align*}
+              x \otimes e &= a(x + e) + c = x \implies e = -\frac{c}{a}\\
+              e \otimes x &= a\left(-\frac{c}{a} + x\right) + c = x \quad \checkmark
+            \end{align*}
+          \item \textbf{Inverz:}
+            \begin{align*}
+              x \otimes x^{-1} &= a(x + x^{-1}) + c = e = -\frac{c}{a}\\
+              x^{-1} &= -\frac{\frac{c}{a} + c}{a} - x = -\frac{ac + c}{a^2} - x
+            \end{align*}
+            \begin{align*}
+              x^{-1} \otimes x &= a\left(-\frac{ac + c}{a^2} - x + x\right) + c = -c -\frac{c}{a} + c = -\frac{c}{a} = e \quad \checkmark
+            \end{align*}
+        \end{enumerate}
+        Dakle, u ovom slučaju imamo $a = b = 1$ i $c \in \mathbb{R}$.
+
+      \item Ako je $b \neq a$, $a, b \in \{0, 1\}$ i $c = 0$ imamo $x \otimes y = x$ ili $x \otimes y = y$. Ni u jednom slučaju nemamo jedinstveni inverz pa u ovom slučaju $(\mathbb{R}, \otimes)$ nije grupa.
+    \end{enumerate}
+    Dakle, $(\mathbb{R}, \otimes)$ je grupa ako je $a = b = 1$ i $c \in \mathbb{R}$.
+  \end{parts}
+\end{solution}
+
+\question Odredite red
+\begin{parts}
+  \part elementa $\frac{1+i}{\sqrt{2}}$ u grupi $(\mathbb{C}^*, \cdot)$.
+  \part elementa 10 u grupi $(\mathbb{Z}_{15}, +_{15})$.
+  \part elementa 10 u grupi $(\mathbb{Z}_{17}, +_{17})$.
+  \part elementa 10 u grupi $(\mathbb{Z}_{13}^*, \cdot_{13})$.
+  \part elementa 10 u grupi $(\mathbb{Z}_{17}^*, \cdot_{17})$.
+\end{parts}
+
+\begin{solution}
+  Red elementa $a$ u grupi $(G, \circ)$ je najmanji pozitivni cijeli broj $r$ takav da je $a^r = e_G$.
+  \begin{parts}
+    \part Znamo da je $e = 1 = e^{2 \pi i}$ neutralni element u grupi $(\mathbb{C}^*, \cdot)$ i da je $\frac{1+i}{\sqrt{2}} = e^{\frac{\pi}{4}i}$. Dakle, red elementa $\frac{1+i}{\sqrt{2}}$ je 8.
+    \part Red elementa 10 u grupi $(\mathbb{Z}_{15}, +_{15})$ je najmanji prirodni broj $r$ takav da je $10r \equiv 0 \Mod{15}$, tj. $2r \equiv 0 \Mod{3}$. Dakle, red elementa 10 u grupi $(\mathbb{Z}_{15}, +_{15})$ je 3.
+    \part $10r \equiv 0 \Mod{17}$, tj. $r \equiv 0 \Mod{17}$. Dakle, red elementa 10 u grupi $(\mathbb{Z}_{17}, +_{17})$ je 17.
+    \part
+    \begin{align*}
+      10^2 &= 100 \equiv 9, \quad 10^4 \equiv 81 \equiv 3, \quad 10^6 \equiv 9 \cdot 3 \equiv 1 \Mod{13}\\
+    \end{align*}
+    Dakle, red elementa 10 u grupi $(\mathbb{Z}_{13}^*, \cdot_{13})$ je 6.
+    \part
+    \begin{align*}
+      10^2 &\equiv 100 \equiv 15, \quad 10^4 \equiv 225 \equiv 4, \quad 10^8 \equiv 16 \equiv -1, \quad 10^{16} \equiv 1 \Mod{17}
+    \end{align*}
+    Dakle, red elementa 10 u grupi $(\mathbb{Z}_{17}^*, \cdot_{17})$ je 16, tj. 10 je primitivni korijen modulo 17.
+  \end{parts}
+\end{solution}
+
+\question
+\begin{parts}
+  \part Odredite sve elemente reda 12 u grupi $\mathbb{Z}_{12}$.
+  \part Odredite sve elemente reda 12 u grupi $\mathbb{Z}_{3} \times \mathbb{Z}_{4}$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Ovo je ekvivalnetno nalaženju $x$ za koje je $12x \equiv 0 \Mod{12}$, ali $mx \neq 0 \Mod{12}$ za svaki $m < 12$. Dakle, znamo da $x$ mora biti relativno prost s 12, tj. $x \in \{1, 5, 7, 11\}$. Pretpostavimo da za neki od ovih $x$ postoji $m < 12$ takav da je $mx \equiv 0 \Mod{12}$. To znači da je $mx = 12k$, dakle moramo imati $x \mid \frac{12}{\text{nzd}(12, m)}$, ali budući da svi ovi $x$ relativno prosti sa svakim djeliteljem od 12 to nije moguće. Dakle, svi elementi reda 12 u grupi $\mathbb{Z}_{12}$ su $1, 5, 7, 11$.
+
+    \part Ako je $x = (a, b)$ element reda 12 u grupi $\mathbb{Z}_{3} \times \mathbb{Z}_{4}$, onda moramo imati to da je $a$ element reda 3 u grupi $\mathbb{Z}_{3}$ i $b$ element reda 4 u grupi $\mathbb{Z}_{4}$. Dakle, svi elementi reda 12 u grupi $\mathbb{Z}_{3} \times \mathbb{Z}_{4}$ su $(1, 1), (1, 3), (2, 1), (2, 3)$.
+  \end{parts}
+\end{solution}
+
+\pagebreak
+
+\question
+\begin{parts}
+  \part Odredite podgrupu od $(\mathbb{R}^*, \cdot)$ generiranu elementom $-1$.
+  \part Odredite podgrupu od $(\mathbb{Z}_{7}, +_{7})$ generiranu elementom 4.
+  \part Odredite podgrupu od $(\mathbb{Z}_{8}, +_{8})$ generiranu elementom 6.
+  \part Odredite podgrupu od $(\mathbb{Z}_{17}^{*}, \cdot_{17})$ generiranu elementom 13.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part
+    \begin{align*}
+      \langle -1 \rangle &= \{(-1)^n; n \in \mathbb{Z}\} = \{1, -1\}
+    \end{align*}
+
+    \part
+    \begin{align*}
+      \langle 4 \rangle &= \{4n; n \in \mathbb{Z}\} = \{0, 4, 1, 5, 2, 6, 3\} = \mathbb{Z}_{7}
+    \end{align*}
+
+    \part
+    \begin{align*}
+      \langle 6 \rangle &= \{6n; n \in \mathbb{Z}\} = \{0, 6, 4, 2\}
+    \end{align*}
+
+    \part
+    \begin{align*}
+      \langle 13 \rangle &= \{13^n; n \in \mathbb{Z}\} = \{1, 13, 16, 4, 1\}
+    \end{align*}
+  \end{parts}
+\end{solution}
+
+\question
+\begin{parts}
+  \part Napišite sve elemente simetrične grupe $S_3$ stupnja 3.
+  \part Neka je $\displaystyle H = \left\{
+    \begin{pmatrix}
+      1 & 2 & 3\\
+      1 & 2 & 3
+    \end{pmatrix},
+    \begin{pmatrix}
+      1 & 2 & 3\\
+      2 & 1 & 3
+  \end{pmatrix} \right\}$. Dokažite da je $H$ podgrupa od $S_3$, ali nije normalna podgrupa od $S_3$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Svi elementi simetrične grupe $S_3$ stupnja 3 su:
+    \begin{align*}
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        1 & 2 & 3
+      \end{pmatrix}\quad
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        1 & 3 & 2
+      \end{pmatrix}\quad
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        2 & 1 & 3
+      \end{pmatrix}\quad
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        2 & 3 & 1
+      \end{pmatrix}\quad
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        3 & 1 & 2
+      \end{pmatrix}\quad
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        3 & 2 & 1
+      \end{pmatrix}
+    \end{align*}
+    \part $H$ je očito posdkup od $S_3$ i oba elementa su sami svoji inverzi. Dakle, za svaki par $A, B \in H$, imamo $A \circ B^{-1} \in H$ pa je $H \leq S_3$. Neka je $C =
+    \begin{pmatrix}
+      1 & 2 & 3\\
+      1 & 3 & 2
+    \end{pmatrix}$ koja je sama sebi inverz. Tada je
+    \begin{align*}
+      C \circ
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        2 & 1 & 3
+      \end{pmatrix} \circ C^{-1} &=
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        1 & 3 & 2
+      \end{pmatrix} \circ
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        2 & 1 & 3
+      \end{pmatrix} \circ
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        1 & 3 & 2
+      \end{pmatrix}\\
+      &=
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        3 & 1 & 2
+      \end{pmatrix} \circ
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        1 & 3 & 2
+      \end{pmatrix} =
+      \begin{pmatrix}
+        1 & 2 & 3\\
+        3 & 2 & 1
+      \end{pmatrix} \notin H
+    \end{align*}
+    Dakle, $H$ nije normalna podgrupa od $S_3$.
+  \end{parts}
+\end{solution}
+
+\pagebreak
+
+\question Odredite podgrupu od $S_7$ generiranu
+\begin{parts}
+  \part ciklusom $c = (1234)$. Koliki je red ciklusa $c$?
+  \part permutacijom $p = (123)(57)$. Koliki je red permutacije $p$?
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part
+    \begin{align*}
+      \langle c \rangle &= \{(1234)^n; n \in \mathbb{Z}\} = \{e, (1234), (13)(24), (1432)\}
+    \end{align*}
+    Dakle, red ciklusa $c$ je 4.
+    \part
+    \begin{align*}
+      \langle p \rangle &= \{\left((123)(57)\right)^n; n \in \mathbb{Z}\} = \{e, (123)(57), (132), (57), (123), (132)(57)\}
+    \end{align*}
+    Dakle, red permutacije $p$ je 6.
+  \end{parts}
+\end{solution}
+
+\question Neka su $H$ i $K$ podgrupe grupe $G$. Dokažite da je $HK = \{hk; h \in H, k \in K\}$ podgrupa od $G$ ako i samo ako je $HK = KH$.
+
+\begin{solution}
+  Ako su $H$ i $K$ podgrupe grupe $G$, tada je su $H$ i $K$ podskupovi od $G$. Dakle, $HK$ je podskup od $G$. Ako je $HK = KH$, onda za svaki $a = hk \in HK$ postoji $a^{-1} = k^{-1}h^{-1} \in KH = HK$, tj. postoji inverz u $HK$. Neka je $a = hk \in HK$ i $b = k'h' \in HK$ vrijedi:
+  \begin{align*}
+    ab^{-1} &= hk \cdot (h'k')^{-1} = hk \cdot k'^{-1}h'^{-1} = hkk'^{-1}h'^{-1} \in HKH = HHK = HK
+  \end{align*}
+  bududći da je $K^2 = K$ jer jer $K$ podgrupa. Dakle, $HK$ je podgrupa od $G$.
+  Ako pak $HK \neq KH$, onda postoji $a = hk \in HK$ za koji ne postoji $a^{-1} = k^{-1}h^{-1} \in HK$ jer je $k^{-1}h^{-1} \in KH$ i $HK \triangle KH \neq \emptyset$. Dakle, $HK$ nije podgrupa od $G$.
+\end{solution}
+
+\question Neka je $H \trianglelefteq G$ te neka su $a, b \in G$. Dokžite da vrijedi:
+
+\[
+  ab \in H \iff ba \in H
+\]
+
+\begin{solution}
+  Neka je $H \trianglelefteq G$. Neka je i $ab = h \in H$. Dakle, $a = hb^{-1}$. Budući da je $b \in G$, imamo i $b^{-1} \in G$ pa je $a = hb^{-1} \in HG \subseteq H$ jer je $H \trianglelefteq G$. Analogno, $b = a^{-1}h \in HG \subseteq H$ pa je $a^{-1} \in H$, Budući da su $a^{-1}, b^{-1} \in H$ i $H$ je podgrupa, imamo $a, b \in H$. Dakle imamo i $ba \in H$.
+\end{solution}
+
+\question Neka je $G$ grupa te neka je $Z(G) = \{g \in G; gh = hg, \forall h \in G\}$ centar grupe $G$. Mora li $Z(G)$ biti normalna podgrupa od $G$?
+
+\begin{solution}
+  Neka su je $a \in Z(G)$. Tada je i $a^{-1} \in Z(G)$ jer je $a a^{-1} = a^{-1}a$. $Z(G)$ je očito posdkup od $G$. Neka su $a, b \in Z(G)$. Tada je također $a b^{-1} \in Z(G)$ pa je $Z(G) \leq G$. Neka je $g \in G$ i neka je $z \in Z(G)$. Budući da je $gz = zg$, imamo i $g z g^{-1} = z$, tj. $g Z(G) g^{-1} \subseteq Z(G) \quad \forall g \in G$. Dakle, $Z(G)$ je normalna podgrupa od $G$.
+\end{solution}
+
+\question Neka je $(\mathbb{Q}^*, \cdot)$ multiplikativna grupa racionalnih brojeva različitih od nule, te neka je $\varphi: \mathbb{Q}^* \rightarrow \mathbb{Q}^*$ preslikavanje zadano sa $\varphi(x) = x^2$. Dokažite da je $\varphi$ homomorfizam grupa te mu odredite jezgru i sliku.
+
+\begin{solution}
+  Neka su $x, y \in \mathbb{Q}^*$. Tada je
+  $\varphi(x \cdot y) = (x \cdot y)^2 = x^2 \cdot y^2 = \varphi(x) \cdot \varphi(y)$ pa je $\varphi$ homomorfizam grupa. Jezgra od $\varphi$ je
+  \[
+    \text{Ker}\ \varphi = \{x \in \mathbb{Q}^*; \varphi(x) = 1\} = \{x \in \mathbb{Q}^*; x^2 = 1\} = \{-1, 1\},
+  \]
+  a slika od $\varphi$ je
+  \[
+    \text{Im}\ \varphi = \{y \in \mathbb{Q}^*; y = \varphi(x), x \in \mathbb{Q}^*\} = \{y \in \mathbb{Q}^*; y = x^2, x \in \mathbb{Q}^*\} = \left\{ \frac{a^2}{b^2}; a \in \mathbb{N}_0, b \in \mathbb{N} \right\}.
+  \]
+\end{solution}
+
+\question Je li grupa iz 6. zadatka izomorfna multiplikativnoj grupi realnih brojeva $\mathbb{R}^*$? Ukoliko jest, konstruirajte odgovarajući izomorfizam. Sve svoje tvrdnje dokažite!
+
+\begin{solution}
+  Definirajmo funkciju $\displaystyle \varphi: \left(\left\{
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+  \end{bmatrix}; x \in \mathbb{R}^*\right\}, \cdot\right) \rightarrow (\mathbb{R}^*, \cdot)$ sa:
+  \[
+    \varphi\left(
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+    \end{bmatrix}\right) = x
+  \]
+  Prvo ćemo dokazati da je ovo homomorfizam:
+  \begin{align*}
+    \varphi\left(
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+      \end{bmatrix} \cdot
+      \begin{bmatrix}
+        y & y\\
+        0 & 0
+    \end{bmatrix}\right) &= \varphi\left(
+      \begin{bmatrix}
+        xy & xy\\
+        0 & 0
+    \end{bmatrix}\right) = xy = x \cdot y = \varphi\left(
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+    \end{bmatrix}\right) \cdot \varphi\left(
+      \begin{bmatrix}
+        y & y\\
+        0 & 0
+    \end{bmatrix}\right)
+  \end{align*}
+  Dakle, $\varphi$ je homomorfizam. Sada ćemo izraćunati jezgru od $\varphi$:
+  \begin{align*}
+    \text{Ker}\ \varphi &= \left\{
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+      \end{bmatrix}; x \in \mathbb{R}^*, \varphi\left(
+        \begin{bmatrix}
+          x & x\\
+          0 & 0
+    \end{bmatrix}\right) = 1\right\}\\
+    &= \left\{
+      \begin{bmatrix}
+        x & x\\
+        0 & 0
+    \end{bmatrix}; x \in \mathbb{R}^*, x = 1\right\} = \left\{
+      \begin{bmatrix}
+        1 & 1\\
+        0 & 0
+    \end{bmatrix}\right\} = \{e\}
+  \end{align*}
+  Dakle, $\varphi$ je injekcija. Sada ćemo dokazati da je $\varphi$ surjekcija. Neka je $y \in \mathbb{R}^*$. Tada je $\varphi\left(
+    \begin{bmatrix}
+      y & y\\
+      0 & 0
+  \end{bmatrix}\right) = y$. Dakle, $\varphi$ je injekcija i surjekcija pa je $\varphi$ bijekcija, tj. izomorfizam grupa pa su one izomorfne.
+\end{solution}
+
+\pagebreak
+
+\question Jesu li grupe $(\mathbb{Z}, +)$ i $(2\mathbb{Z}, +)$ izomorfne? Sve svoje tvrdnje dokažite!
+
+\begin{solution}
+  Definirajmo funkciju $\varphi: (\mathbb{Z}, +) \rightarrow (2\mathbb{Z}, +)$ sa $\varphi(x) = 2x$. Sada ćemo dokazati da je $\varphi$ homomorfizam:
+  \begin{align*}
+    \varphi(x + y) &= 2(x + y) = 2x + 2y = \varphi(x) + \varphi(y)
+  \end{align*}
+  Dakle, $\varphi$ je homomorfizam. Sada ćemo izračunati jezgru od $\varphi$:
+  \begin{align*}
+    \text{Ker}\ \varphi &= \{x \in \mathbb{Z}; \varphi(x) = 0\} = \{x \in \mathbb{Z}; 2x = 0\} = \{0\} = \{e\}
+  \end{align*}
+  Dakle, $\varphi$ je injekcija. Sada ćemo dokazati da je $\varphi$ surjekcija. Neka je $y \in 2\mathbb{Z}$. Tada je $y = 2x$ za neki $x \in \mathbb{Z}$. Dakle, $\varphi(x) = y$. Dakle, $\varphi$ je injekcija i surjekcija pa je $\varphi$ bijekcija, tj. izomorfizam grupa pa su grupe $(\mathbb{Z}, +)$ i $(2\mathbb{Z}, +)$ izomorfne.
+\end{solution}
+
+\question
+\begin{parts}
+  \part Dokažite da grupe $(\mathbb{Q}, +)$ i $(\mathbb{Z}, +)$ nisu izomorfne.
+  \part Dokažite da grupe $(\mathbb{R}^*, \cdot)$ i $(\mathbb{C}^*, \cdot)$ nisu izomorfne.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Pretpostavimo da postoji izmorfizam $\varphi: (\mathbb{Q}, +) \rightarrow (\mathbb{Z}, +)$. Neka je $\varphi(1) = a \in \mathbb{Z}$. Uzmimo $b \in \mathbb{Z}$ takav da je $\text{nzd}(a, b) = 1$. Tada vrijedi:
+    \begin{align*}
+      f(1) &= f\left(\underbrace{\frac{1}{b} + \cdots + \frac{1}{b}}_{b \text{ puta}}\right) = \underbrace{f\left(\frac{1}{b}\right) + \cdots + f\left(\frac{1}{b}\right)}_{b \text{ puta}} = b \cdot f\left(\frac{1}{b}\right) = a\\
+      f\left(\frac{1}{b}\right) &= \frac{a}{b}
+    \end{align*}
+    Budući da je $\text{nzd}(a, b) = 1$, znamo da $\frac{a}{b} \notin \mathbb{Z}$ pa $\varphi$ nije izomorfizam. Dakle, grupe $(\mathbb{Q}, +)$ i $(\mathbb{Z}, +)$ nisu izomorfne.
+
+    \pagebreak
+
+    \part Pretpostavimo da postoji izomorfizam $\varphi: (\mathbb{R}^*, \cdot) \rightarrow (\mathbb{C}^*, \cdot)$. Znamo da se neutralni element preslikava u neutralni element u izomorfizmu pa je $\varphi(1) = 1$. Neka je $\varphi(-1) = a + bi$ za neke $a, b \in \mathbb{R}$. Tada imamo:
+    \begin{align*}
+      \varphi(1) &= \varphi(-1 \cdot (-1)) = \varphi(-1) \cdot \varphi(-1) = (a + bi)^2 = a^2 - b^2 + 2abi = 1
+    \end{align*}
+    \begin{align*}
+      a^2 - b^2 &= 1\\
+      2ab &= 0
+    \end{align*}
+    Budući da je $\varphi$ izomorfizam, onda je $a = -1$ i $b = 0$. Budući da je $\varphi$ izomorfizam, postoji $x \in \mathbb{R}^*$ takav da je $\varphi(x) = i$. Tada imamo:
+    \begin{align*}
+      \varphi(x^4) &= (\varphi\left(x\right))^4 = i^4 = 1 = \varphi(1) \implies x^4 = 1
+    \end{align*}
+    Dakle, imamo $x^4 = 1$ pa je $x \in {-1, 1}$, ali to je nemoguće jer je $\varphi$ funkcija. Dakle, grupe $(\mathbb{R}^*, \cdot)$ i $(\mathbb{C}^*, \cdot)$ nisu izomorfne.
+  \end{parts}
+\end{solution}
+
+\question
+\begin{parts}
+  \part Jesu li grupe $\mathbb{Z}_{12}$ i $\mathbb{Z}_{2} \times \mathbb{Z}_{6}$ izomorfne?
+  \part Jesu li grupe $\mathbb{Z}_{8}$ i $\mathbb{Z}_{2} \times \mathbb{Z}_{2} \times \mathbb{Z}_{2}$ izomorfne?
+\end{parts}
+
+\begin{solution}
+  Neka su $G$ i $H$ izomorfne grupe. Tada je $k = k(G) = k(H)$. Neka je $\varphi: G \rightarrow H$ izomorfizam. Neka je red elementa $g \in G$ jednak $k$. Tada je red elementa $\varphi(g) \in H$ također jednak $k$. To možemo iz činjenice da je $\langle g \rangle = G$ pa je $\langle \varphi(g) \rangle = \varphi(\langle g \rangle) = \varphi(G) = H$.
+  Ako u $G$ imamo $m$ elemenata reda $k(G)$, a u $H$ imamo $n$ elemenata reda $k(H)$ te ako je $m \neq n$ onda $G$ i $H$ nisu izomorfne. To je jer se red elemenata invarijanta nad izomorfizmom.
+  \begin{parts}
+    \part Svi elementi reda 12 u $\mathbb{Z}_{12}$ su $1, 5, 7, 11$. Svi elementi reda 12 u $\mathbb{Z}_{2} \times \mathbb{Z}_{6}$ su $(1, 1)$ i $(1, 5)$ jer da bi $(a, b)$ bio reda 12 u $\mathbb{Z}_{2} \times \mathbb{Z}_{6}$ mora vrijediti $\text{nzd}(a, 2) = 1$ i $\text{nzd}(b, 6) = 1$. Dakle svi elementi reda 12 u $\mathbb{Z}_{2} \times \mathbb{Z}_{6}$ su $(1, 1)$ i $(1, 5)$ pa ove dvije grupe nisu izomorfne.
+    \part Svi elementi reda 8 u $\mathbb{Z}_8$ su $x \in \mathbb{Z}_8$ takvi da je $\text{nzd}(x, 8) = 1$. To su $1, 3, 5, 7$. Da bi $(a, b, c) \in \mathbb{Z}_{2} \times \mathbb{Z}_{2} \times \mathbb{Z}_{2}$ bio reda 8, mora vrijediti $\text{nzd}(a, 2) = 1$, $\text{nzd}(b, 2) = 1$ i $\text{nzd}(c, 2) = 1$. Dakle, jedini element reda 8 u $\mathbb{Z}_{2} \times \mathbb{Z}_{2} \times \mathbb{Z}_{2}$ je $(1, 1, 1)$. Dakle, ove dvije grupe nisu izomorfne.
+  \end{parts}
+\end{solution}
+
+\question Neka je $(G, *)$ konačna grupa i $f: (G, *) \rightarrow (\mathbb{C}^*, \cdot)$ homomorfizam grupa sa svojstvom da postoji $x_0 \in G$ takav da je $f(x_0) \neq 1$.
+\begin{parts}
+  \part Dokažite da je funkcija $g: G \rightarrow G$ definirana sa $g(x) = x_0 * x$ bijekcija.
+\part Služeći se tvrdnjom iz a) dijela zadatka, izračunajte
+\[
+  \sum_{x \in G} f(x) \text{ i } \sum_{x \in G \setminus \{e\}} f(x)
+\]
+pri čemu je $e$ neutralni element u grupi $G$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+  \part Neka su $x_1, x_2 \in G$ i neka je $g(x_1) = g(x_2)$. Tada je
+  \begin{align*}
+    x_0 * x_1 &= x_0 * x_2\\
+    x_1 &= x_2
+  \end{align*}
+  Dakle, $g$ je injekcija. Neka je $y \in G$. Pretpostavimo da postoji $x_y \in G$ takav da je $g(x_y) = y$. Tada je
+  \begin{align*}
+    g(x_y) &= y \implies x_0 * x_y = y \implies x_y = x_0^{-1} * y
+  \end{align*}
+  Dakle, $g$ je i surjekcija pa je bijekcija.
+
+  \part Budući da je $g$ bijekcija i $f$ homomorfizam, imamo
+  \begin{align*}
+    \sum_{x \in G} f(x) &= \sum_{x \in g(G)} f(x) = \sum_{x \in G} f(g(x)) = \sum_{x \in G} f(x_0 * x) = \sum_{x \in G} f(x_0) \cdot f(x)\\ \sum_{x \in G} f(x) &= f(x_0) \cdot \sum_{x \in G} f(x) \implies (f(x_0) - 1) \cdot \sum_{x \in G} f(x) = 0 \implies \sum_{x \in G} f(x) = 0\\
+  \end{align*}
+  Sada imamo i
+  \begin{align*}
+    \sum_{x \in G \setminus \{e\}} f(x) &= \sum_{x \in G} f(x) - f(e) = 0 - f(e) = -1
+  \end{align*}
+\end{parts}
+\end{solution}
+
+\end{questions}
+
+\end{document}
