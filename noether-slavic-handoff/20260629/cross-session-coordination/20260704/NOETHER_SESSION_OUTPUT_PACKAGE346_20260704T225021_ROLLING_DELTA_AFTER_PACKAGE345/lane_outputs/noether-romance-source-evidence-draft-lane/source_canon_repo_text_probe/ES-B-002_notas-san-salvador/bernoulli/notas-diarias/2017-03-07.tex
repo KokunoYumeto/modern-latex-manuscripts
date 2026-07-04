@@ -1,0 +1,315 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+\usepackage{diagbox}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Teorema de Clausen--von Staudt. Congruencias de Kummer. Primos irregulares}
+\date{7 de Marzo de 2017}
+
+\usepackage{xcolor}
+\newcommand{\highlight}[1]{\colorbox{shadecolor}{$\displaystyle #1$}}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+\section*{Denominadores de $B_k$ (el teorema de Clausen--von Staudt)}
+
+\begin{teorema*}
+Para todo $k \ge 2$ par se tiene
+$$B_k = -\sum_{\substack{p\text{ primo} \\ p-1 \, \mid \, k}} \frac{1}{p} + C_k,$$
+donde $C_k \in \ZZ$ y la suma es sobre todos los $p$ tales que $p-1$ divide a $k$.
+\end{teorema*}
+
+Este resultado fue descubierto de manera independiente por el astrónomo y matemático danés \personality{Thomas Clausen} (1801--1885) y el matemático alemán \personality{Karl Georg Christian von Staudt} (1798--1867).
+
+\begin{ejemplo*}
+\begin{align*}
+B_2 & = \frac{1}{6} = - \left(\frac{1}{2} + \frac{1}{3}\right) + 1,\\
+B_4 & = -\frac{1}{30} = - \left(\frac{1}{2} + \frac{1}{3} + \frac{1}{5}\right) + 1,\\
+B_6 & = \frac{1}{42} = - \left(\frac{1}{2} + \frac{1}{3} + \frac{1}{7}\right) + 1,\\
+ & \cdots \\
+B_{14} & = \frac{7}{6} = - \left(\frac{1}{2} + \frac{1}{3}\right) + 2,\\
+ & \cdots
+\end{align*}
+\end{ejemplo*}
+
+En particular, el denominador de $B_k$ es precisamente el producto de todos los primos $p$ tales que $p-1 \mid k$. Esto explica por qué los denominadores de $B_k$ son libres de cuadrados y divisibles por $6$. No tenemos mucho control sobre el número $C_k$; solo podemos notar que el valor de $C_k$ va a estar cerca de $B_k$, así que $|C_{2k}| \xrightarrow{k \to \infty} \infty$.
+
+\begin{proof}
+Gracias a la fórmula
+$$B_k = (-1)^k \, \sum_{0 \le \ell \le k} \frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1},$$
+sabemos que en el denominador aparecen solamente los primos que dividen a $\ell + 1$; los primos $p > k+1$ no aparecen en el denominador. Vamos a analizar las contribuciones del término $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ para diferentes $\ell$.
+
+\begin{itemize}
+\item[(1)] Supongamos que $\ell+1$ es compuesto, es decir $\ell+1 = ab$ para algunos $1 < a,b < \ell$.
+
+\begin{itemize}
+\item[(1.1)] Si $a\ne b$, entonces $ab \mid \ell!$, y el término $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+
+\item[(1.2.1)] Si $a = b$ y $2a \le \ell$, entonces $a \mid \ell!$ y $2a \mid \ell!$, entonces $a^2 = \ell + 1$ divide a $\ell!$ y el término $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+
+\item[(1.2.2)] Si $a = b$ y $2a > \ell$, entonces $\ell+1 = a^2 \ge 2a \ge \ell + 1$, y por lo tanto $a^2 = 2a$ y $a = 2$, $\ell = 3$. Usando la fórmula
+
+\begin{equation}
+\label{eqn:stirling-via-binomial}
+\Stirling{k}{\ell} = \frac{(-1)^\ell}{\ell!}\,\sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, i^k,
+\end{equation}
+
+\noindent podemos escribir
+$$\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1} = \frac{1}{4}\,\sum_{0 \le i \le 3} (-1)^i {3\choose i} i^k = \frac{1}{4} \left(0 - 3 + 3\cdot 2^k - 3^k\right).$$
+Este término es nulo para $\ell > k$, así que $k > 3$, y es un número par según la hipótesis del teorema. Tenemos
+$$- 3 + \cancel{3\cdot 2^k} - 3^k \equiv 1 - (-3)^k \equiv 1 - 1^k \equiv 0 \pmod{4}.$$
+Esto demuestra que el término $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+\end{itemize}
+
+Hemos demostrado que si $\ell+1$ es compuesto, el término $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+
+\item[(2)] Supongamos que $\ell+1 = p$ es primo. Tenemos por \eqnref{eqn:stirling-via-binomial}
+$$\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1} = \frac{(-1)^{p-1} \, (p-1)! \, \Stirling{k}{p-1}}{p} = \frac{1}{p}\,\sum_{0 \le i \le p-1} (-1)^i \, {p-1 \choose i} \, i^k.$$
+Tenemos ${p - 1 \choose i} \equiv (-1)^i \pmod{p}$, entonces
+$$\sum_{0 \le i \le p-1} (-1)^i \, {p-1 \choose i} \, i^k \equiv \sum_{0 \le i \le p-1} i^k \equiv \begin{cases}
+p-1 \equiv -1, & p-1 \mid k,\\
+0, & p-1 \nmid k.
+\end{cases} \pmod{p}$$
+Para ver la última congruencia, notamos que si $p-1\mid k$, entonces $i^{p-1} \equiv 1 \pmod{p}$ por el \term{pequeño teorema de Fermat} ($p\nmid i$).  Si $p-1 \nmid k$, podemos escribir la suma $\sum_{0 \le i \le p-1} i^k$ como
+$$\sum_{1 \le i \le p-1} x^{ik} = \frac{1-x^{pk}}{1-x^k} - 1 \equiv 0 \pmod{p},$$
+donde $x$ es una raíz primitiva de la unidad módulo $p$. Aquí $x^{pk} \equiv x^k \not\equiv 1 \pmod{p}$ por el pequeño teorema de Fermat.
+
+Entonces, ci $\ell+1 = p$ es primo, el término $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ va a contribuir $-\frac{1}{p}$ en el denominador si $p-1 \mid k$, y va a ser entero si $p-1 \nmid k$.
+\end{itemize}
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Congruencias de Kummer}
+
+Para un primo $p$ denotemos por $\ZZ_{(p)}$ el anillo de los números racionales donde $p$ no aparece en el denominador:
+$$\ZZ_{(p)} \dfn \{ \frac{a}{b} \in \QQ \mid p\nmid b \}.$$
+(Es un caso particular de \term{localización} de un anillo afuera de un ideal primo.) Los elementos invertibles en $\ZZ_{(p)}$ son las fracciones no nulas donde $p$ no aparece ni en el numerador ni en el denominador:
+$$\ZZ_{(p)}^\times = \{ \frac{a}{b} \in \QQ \mid p\nmid a, ~ p\nmid b \}.$$
+
+El siguiente resultado es un caso particular de las \term{congruencias de Kummer} (véase [Tsuneo Arakawa, Tomoyoshi Ibukiyama, Masanobu Kaneko, \emph{Bernoulli numbers and zeta functions}, \S 11.3]):
+
+\begin{teorema*}[Kummer, 1851]
+Sea $p$ un número primo y $k$ un entero positivo tal que $p-1 \nmid k$.
+
+\begin{enumerate}
+\item[1)] $p$ no aparece en el denominador del número $B_k/k$:
+$$\frac{B_k}{k} \in \ZZ_{(p)}.$$
+
+\item[2)] Para todo $k'$ tal que $k' \equiv k \pmod{p-1}$ se cumple
+$$\frac{B_{k'}}{k'} \equiv \frac{B_k}{k} \pmod{p}.$$
+\end{enumerate}
+\end{teorema*}
+
+Aquí la última relación puede ser interpretada como $B_{k'}\cdot k \equiv B_k\cdot k' \pmod{p}$. También podemos interpretar una fracción $\frac{B_k}{k}$ como un residuo módulo $p$ dado por $B_k\cdot k^{-1}$, donde $k^{-1}$ es el residuo inverso a $k$ módulo $p$, que existe porque en este caso $p \nmid k$.
+
+\begin{ejemplo*}
+Sea $p = 7$, $k = 10$, $k' = 4$. En este caso $(p-1) \nmid k, k'$ y $k \equiv k' \pmod{p-1}$. Luego,
+$$\frac{B_4}{4} = -\frac{1}{30}\,\frac{1}{4} = -\frac{1}{120} \equiv -1 \equiv 6 \pmod{7} \quad\text{y}\quad \frac{B_{10}}{10} = \frac{5}{66}\,\frac{1}{10} = \frac{1}{132} \equiv \frac{1}{6} \equiv 6 \pmod{7}.$$
+\end{ejemplo*}
+
+Para demostrar el teorema, nos va a servir el siguiente
+
+\begin{lema*}
+Sea $p$ un primo impar y sea $f (t) \in \ZZ_{(p)} [\![t]\!]$ una serie formal de potencias con coeficientes en $\ZZ_{(p)}$. Entonces para los coeficientes de Taylor de la serie
+$$f (e^t - 1) = \sum_{k \ge 0} a_k \, \frac{t^k}{k!}$$
+se cumple
+$$a_k \in \ZZ_{(p)} \quad \text{y}\quad a_{k + (p-1)} \equiv a_k \pmod{p}.$$
+
+\begin{proof}
+Si $f (t) = \sum_{\ell \ge 0} b_\ell\,t^\ell$, tenemos
+
+\begin{align*}
+f (e^t - 1) & = \sum_{\ell \ge 0} b_\ell \, (e^t - 1)^\ell \\
+ & = \sum_{\ell \ge 0} b_\ell \, \sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, e^{t \, (\ell-i)}.
+\end{align*}
+
+Los coeficientes de la serie de Taylor son
+$$a_k = \frac{d^k}{dt^k} \left(f (e^t - 1)\right)_{t = 0} = \sum_{\ell \ge 0} b_\ell \, \sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, (\ell-i)^k.$$
+Notemos que en $(e^t - 1)^\ell$ no hay términos de grado $k < \ell$, así que la suma de arriba es finita: en efecto es sobre $0 \le \ell \le k$. Ya que $b_\ell \in \ZZ_{(p)}$, de esta fórmula se deduce que $a_k \in \ZZ_{(p)}$. Luego,
+
+$$a_{k + (p-1)} - a_k = \sum_{\ell \ge 0} b_\ell \, \sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, (\ell-i)^k\,\left((\ell-i)^{p-1} - 1\right).$$
+Ahora si $\ell - i$ es divisible por $p$, la fórmula demuestra que $a_{k + (p-1)} - a_k$ es también divisible por $p$. Si $\ell - i$ no es divisible por $p$, entonces por el pequeño teorema de Fermat $(\ell-i)^{p-1} - 1 \equiv 0 \pmod{p}$, y $a_{k + (p-1)} - a_k$ es también divisible por $p$.
+\end{proof}
+\end{lema*}
+
+\begin{proof}[Demostración del teorema]
+Sea $c \ne 1$ algún número natural tal que $p \nmid c$. Consideramos la serie de potencias
+$$f (t) \dfn \frac{1}{t} - \frac{c}{(1+t)^c - 1}.$$
+Ya que $p \nmid c$, el polinomio $\frac{(1+t)^c - 1}{c}$ tiene coeficientes en $\ZZ_{(p)}$ y es invertible en $\ZZ_{(p)} (\!(t)\!)$:
+$$\frac{c}{(1+t)^c - 1} = \frac{1}{t} - \frac{c-1}{2} + \frac{c^2 - 1}{12}\,t + \cdots$$
+Se sigue que
+$$f (t) = \frac{1}{t} - \frac{c}{(1+t)^c - 1} = \frac{c-1}{2} - \frac{c^2 - 1}{12}\,t + \cdots$$
+tiene coeficientes en $\ZZ_{(p)}$. Podemos aplicar el lema de arriba a la serie
+
+\begin{align*}
+f (e^t - 1) & = \frac{1}{e^t-1} - \frac{c}{e^{ct} - 1} = \frac{1}{t}\left(\frac{t}{e^t-1} - \frac{ct}{e^{ct} - 1}\right) \\
+ & = -\frac{1-c}{2} + \sum_{k \ge 2} \left( (1-c^k)\,\frac{B_k}{k} \, \frac{t^{k-1}}{(k-1)!}\right).
+\end{align*}
+
+Aquí hemos usado la función generatriz $\frac{t}{e^t - 1} = \frac{t\,e^t}{e^t-1} - t = 1 - \frac{t}{2} \sum_{k \ge 0} B_k \, \frac{t^k}{k!}$. El lema precedente implica que $(1 - c^k)\,\frac{B_k}{k} \in \ZZ_{(p)}$ y que para todo $k' \equiv k \pmod{p-1}$ se tiene
+$$(1-c^k)\,\frac{B_k}{k} \equiv (1-c^{k'})\,\frac{B_{k'}}{k'} \pmod{p}.$$
+Sea $c$ una raíz primitiva módulo $p$ (un generador del grupo $(\ZZ/p\ZZ)^\times$). Si $p-1 \nmid k$, como en la hipótesis del teorema, entonces $p-1 \nmid k'$, y se tiene $(1-c^k), (1-c^{k'}) \in (\ZZ/p\ZZ)^\times$. Esto implica que $\frac{B_k}{k} \in \ZZ_{(p)}$ y $\frac{B_k}{k} \equiv \frac{B_{k'}}{k'} \pmod{p}$.
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Numeradores de $B_k$ (primos irregulares)}
+
+Los primos regulares e irregulares fueron descubiertos por el matemático alemán \personality{Ernst Kummer} (1810--1893) mientras trabajaba en el \term{último teorema de Fermat}: \emph{para $n > 2$ la ecuación $x^n + y^n = z^n$ no tiene soluciones para $x,y,z$ enteros positivos}. Kummer logró demostrar este teorema para ciertos números primos $n = p$ que él llamó regulares. Como definición, podemos usar la siguiente caracterización:
+
+\begin{hecho*}[Kummer, 1850]
+$p$ es irregular si $p$ divide al numerador de algún número de Bernoulli $B_{2k}$ para $2k \le p-3$.
+\end{hecho*}
+
+\begin{shaded}
+\noindent Podemos compilar una lista de los primos irregulares en PARI/GP:
+
+\begin{verbatim}
+irregular_primes (n) = {
+  local (p);
+  for(i=1,n,
+      p = prime (i);
+      for (k=1, (p-3)/2,
+          if (numerator(bernfrac(2*k))%p == 0, printf ("p = %d, B_%d\n", p,2*k))
+      )
+  )
+}
+\end{verbatim}
+\end{shaded}
+
+He aquí los primeros primos irregulares con los números de Bernoulli correspondientes. Note que $157$ aparece en el numerador de $B_{62}$ y $B_{110}$:
+
+\begin{center}
+\begin{tabular}{ll}
+$p = 37$: & $\displaystyle B_{32} = -\frac{\highlight{37}\cdot 683\cdot 305065927}{2\cdot 3 \cdot 5\cdot 17}$; \\
+\\
+$p = 59$: & $\displaystyle B_{44} = -\frac{11\cdot \highlight{59}\cdot 8089\cdot 2947939\cdot 1798482437}{2\cdot 3\cdot 5\cdot 23}$; \\
+\\
+$p = 67$: & $\displaystyle B_{58} = \frac{29\cdot \highlight{67}\cdot 186707\cdot 6235242049\cdot 37349583369104129}{2\cdot 3\cdot 59}$; \\
+\\
+$p = 101$: & $\displaystyle B_{68} = -\frac{17\cdot 37\cdot \highlight{101}\cdot 123143\cdot 1822329343\cdot 5525473366510930028227481}{2\cdot 3\cdot 5}$; \\
+\\
+$p = 103$: & $\displaystyle B_{24} = -\frac{\highlight{103}\cdot 2294797}{2\cdot 3\cdot 5\cdot 7\cdot 13}$; \\
+\\
+$p = 131$: & $\displaystyle B_{22} = \frac{11\cdot \highlight{131}\cdot 593}{2\cdot 3\cdot 23}$; \\
+\\
+$p = 149$: & $\displaystyle B_{130} = \frac{5\cdot 13\cdot \highlight{149}\cdot 463\cdot 2264267\cdot 3581984682522167 \cdots}{2\cdot 3\cdot 11\cdot 131}$; \\
+\\
+$p = 157$: & $\displaystyle B_{62} = \frac{31\cdot \highlight{157}\cdot 266689\cdot 329447317\cdot 28765594733083851481}{6}$, \\
+\\
+& $\displaystyle B_{110} = \frac{5\cdot \highlight{157}\cdot 76493\cdot 150235116317549231\cdot 36944818874116823428357691\cdots}{2\cdot 3\cdot 11\cdot 23}$. \\
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\begin{center}
+{\footnotesize
+\begin{tabular}{x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}}
+$2$ & $\highlight{233}$ & $\highlight{547}$ & $\highlight{877}$ & $\highlight{1229}$ & $\highlight{1597}$ & $\highlight{1993}$ & $\highlight{2371}$ & $2749$ & $3187$ \tabularnewline
+$3$ & $239$ & $\highlight{557}$ & $\highlight{881}$ & $1231$ & $1601$ & $\highlight{1997}$ & $\highlight{2377}$ & $\highlight{2753}$ & $3191$ \tabularnewline
+$5$ & $241$ & $563$ & $883$ & $\highlight{1237}$ & $1607$ & $1999$ & $\highlight{2381}$ & $\highlight{2767}$ & $\highlight{3203}$ \tabularnewline
+$7$ & $251$ & $569$ & $\highlight{887}$ & $1249$ & $\highlight{1609}$ & $\highlight{2003}$ & $\highlight{2383}$ & $\highlight{2777}$ & $3209$ \tabularnewline
+$11$ & $\highlight{257}$ & $571$ & $907$ & $1259$ & $\highlight{1613}$ & $2011$ & $\highlight{2389}$ & $\highlight{2789}$ & $3217$ \tabularnewline
+$13$ & $\highlight{263}$ & $\highlight{577}$ & $911$ & $1277$ & $\highlight{1619}$ & $\highlight{2017}$ & $2393$ & $\highlight{2791}$ & $\highlight{3221}$ \tabularnewline
+$17$ & $269$ & $\highlight{587}$ & $919$ & $\highlight{1279}$ & $\highlight{1621}$ & $2027$ & $2399$ & $2797$ & $\highlight{3229}$ \tabularnewline
+$19$ & $\highlight{271}$ & $\highlight{593}$ & $\highlight{929}$ & $\highlight{1283}$ & $1627$ & $2029$ & $\highlight{2411}$ & $2801$ & $3251$ \tabularnewline
+$23$ & $277$ & $599$ & $937$ & $1289$ & $\highlight{1637}$ & $\highlight{2039}$ & $2417$ & $2803$ & $3253$ \tabularnewline
+$29$ & $281$ & $601$ & $941$ & $\highlight{1291}$ & $1657$ & $\highlight{2053}$ & $\highlight{2423}$ & $2819$ & $\highlight{3257}$ \tabularnewline
+$31$ & $\highlight{283}$ & $\highlight{607}$ & $947$ & $\highlight{1297}$ & $\highlight{1663}$ & $2063$ & $2437$ & $\highlight{2833}$ & $3259$ \tabularnewline
+$\highlight{37}$ & $\highlight{293}$ & $\highlight{613}$ & $\highlight{953}$ & $\highlight{1301}$ & $1667$ & $2069$ & $\highlight{2441}$ & $2837$ & $3271$ \tabularnewline
+$41$ & $\highlight{307}$ & $\highlight{617}$ & $967$ & $1303$ & $\highlight{1669}$ & $2081$ & $2447$ & $2843$ & $3299$ \tabularnewline
+$43$ & $\highlight{311}$ & $\highlight{619}$ & $\highlight{971}$ & $\highlight{1307}$ & $1693$ & $2083$ & $2459$ & $2851$ & $3301$ \tabularnewline
+$47$ & $313$ & $\highlight{631}$ & $977$ & $\highlight{1319}$ & $1697$ & $\highlight{2087}$ & $2467$ & $\highlight{2857}$ & $3307$ \tabularnewline
+$53$ & $317$ & $641$ & $983$ & $1321$ & $1699$ & $2089$ & $2473$ & $\highlight{2861}$ & $\highlight{3313}$ \tabularnewline
+$\highlight{59}$ & $331$ & $643$ & 	$991$ & $\highlight{1327}$ & $1709$ & $\highlight{2099}$ & $2477$ & $2879$ & $3319$ \tabularnewline
+$61$ & $337$ & $\highlight{647}$ & $997$ & $1361$ & $\highlight{1721}$ & $\highlight{2111}$ & $\highlight{2503}$ & $2887$ & $\highlight{3323}$ \tabularnewline
+$\highlight{67}$ & $\highlight{347}$ & $\highlight{653}$ & $1009$ & $\highlight{1367}$ & $1723$ & $2113$ & $2521$ & $2897$ & $\highlight{3329}$ \tabularnewline
+$71$ & $349$ & $\highlight{659}$ & $1013$ & $1373$ & $\highlight{1733}$ & $2129$ & $2531$ & $2903$ & $3331$ \tabularnewline
+$73$ & $\highlight{353}$ & $661$ & $1019$ & $\highlight{1381}$ & $1741$ & $2131$ & $2539$ & $\highlight{2909}$ & $3343$ \tabularnewline
+$79$ & $359$ & $\highlight{673}$ & $1021$ & $1399$ & $1747$ & $\highlight{2137}$ & $\highlight{2543}$ & $2917$ & $3347$ \tabularnewline
+$83$ & $367$ & $\highlight{677}$ & $1031$ & $\highlight{1409}$ & $\highlight{1753}$ & $2141$ & $2549$ & $\highlight{2927}$ & $3359$ \tabularnewline
+$89$ & $373$ & $\highlight{683}$ & $1033$ & $1423$ & $\highlight{1759}$ & $\highlight{2143}$ & $2551$ & $\highlight{2939}$ & $3361$ \tabularnewline
+$97$ & $\highlight{379}$ & $\highlight{691}$ & $1039$ & $1427$ & $\highlight{1777}$ & $\highlight{2153}$ & $\highlight{2557}$ & $2953$ & $3371$ \tabularnewline
+$\highlight{101}$ & $383$ & $701$ & $1049$ & $\highlight{1429}$ & $1783$ & $2161$ & $\highlight{2579}$ & $\highlight{2957}$ & $3373$ \tabularnewline
+$\highlight{103}$ & $\highlight{389}$ & $709$ & $1051$ & $1433$ & $\highlight{1787}$ & $2179$ & $\highlight{2591}$ & $2963$ & $3389$ \tabularnewline
+$107$ & $397$ & $719$ & $\highlight{1061}$ & $\highlight{1439}$ & $\highlight{1789}$ & $2203$ & $2593$ & $2969$ & $\highlight{3391}$ \tabularnewline
+$109$ & $\highlight{401}$ & $\highlight{727}$ & $1063$ & $1447$ & $1801$ & $2207$ & $2609$ & $2971$ & $\highlight{3407}$ \tabularnewline
+$113$ & $\highlight{409}$ & $733$ & $1069$ & $1451$ & $\highlight{1811}$ & $\highlight{2213}$ & $2617$ & $\highlight{2999}$ & $3413$ \tabularnewline
+$127$ & $419$ & $739$ & $1087$ & $1453$ & $1823$ & $2221$ & $\highlight{2621}$ & $3001$ & $\highlight{3433}$ \tabularnewline
+$\highlight{131}$ & $\highlight{421}$ & $743$ & $\highlight{1091}$ & $1459$ & $\highlight{1831}$ & $2237$ & $\highlight{2633}$ & $\highlight{3011}$ & $3449$ \tabularnewline
+$137$ & $431$ & $\highlight{751}$ & $1093$ & $1471$ & $\highlight{1847}$ & $\highlight{2239}$ & $\highlight{2647}$ & $3019$ & $3457$ \tabularnewline
+$139$ & $\highlight{433}$ & $\highlight{757}$ & $1097$ & $1481$ & $1861$ & $2243$ & $\highlight{2657}$ & $\highlight{3023}$ & $3461$ \tabularnewline
+$\highlight{149}$ & $439$ & $\highlight{761}$ & $1103$ & $\highlight{1483}$ & $1867$ & $2251$ & $2659$ & $3037$ & $3463$ \tabularnewline
+$151$ & $443$ & $769$ & $1109$ & $1487$ & $\highlight{1871}$ & $\highlight{2267}$ & $\highlight{2663}$ & $3041$ & $3467$ \tabularnewline
+$\highlight{157}$ & $449$ & $\highlight{773}$ & $\highlight{1117}$ & $1489$ & $1873$ & $2269$ & $\highlight{2671}$ & $\highlight{3049}$ & $\highlight{3469}$ \tabularnewline
+$163$ & $457$ & $787$ & $1123$ & $1493$ & $\highlight{1877}$ & $\highlight{2273}$ & $2677$ & $\highlight{3061}$ & $\highlight{3491}$ \tabularnewline
+$167$ & $\highlight{461}$ & $\highlight{797}$ & $\highlight{1129}$ & $\highlight{1499}$ & $\highlight{1879}$ & $2281$ & $2683$ & $3067$ & $3499$ \tabularnewline
+$173$ & $\highlight{463}$ & $\highlight{809}$ & $\highlight{1151}$ & $1511$ & $\highlight{1889}$ & $2287$ & $2687$ & $3079$ & $\highlight{3511}$ \tabularnewline
+$179$ & $\highlight{467}$ & $\highlight{811}$ & $\highlight{1153}$ & $\highlight{1523}$ & $\highlight{1901}$ & $\highlight{2293}$ & $\highlight{2689}$ & $\highlight{3083}$ & $\highlight{3517}$ \tabularnewline
+$181$ & $479$ & $\highlight{821}$ & $1163$ & $1531$ & $1907$ & $2297$ & $2693$ & $\highlight{3089}$ & $3527$ \tabularnewline
+$191$ & $487$ & $823$ & $1171$ & $1543$ & $1913$ & $\highlight{2309}$ & $2699$ & $3109$ & $\highlight{3529}$ \tabularnewline
+$193$ & $\highlight{491}$ & $\highlight{827}$ & $1181$ & $1549$ & $1931$ & $2311$ & $2707$ & $\highlight{3119}$ & $\highlight{3533}$ \tabularnewline
+$197$ & $499$ & $829$ & $1187$ & $1553$ & $\highlight{1933}$ & $2333$ & $2711$ & $3121$ & $\highlight{3539}$ \tabularnewline
+$199$ & $503$ & $\highlight{839}$ & $\highlight{1193}$ & $\highlight{1559}$ & $1949$ & $2339$ & $2713$ & $3137$ & $3541$ \tabularnewline
+$211$ & $509$ & $853$ & $\highlight{1201}$ & $1567$ & $\highlight{1951}$ & $2341$ & $2719$ & $3163$ & $3547$ \tabularnewline
+$223$ & $521$ & $857$ & $1213$ & $1571$ & $1973$ & $2347$ & $2729$ & $3167$ & $3557$ \tabularnewline
+$227$ & $\highlight{523}$ & $859$ & $\highlight{1217}$ & $1579$ & $\highlight{1979}$ & $2351$ & $2731$ & $3169$ & $\highlight{3559}$ \tabularnewline
+$229$ & $\highlight{541}$ & $863$ & $1223$ & $1583$ & $\highlight{1987}$ & $\highlight{2357}$ & $2741$ & $\highlight{3181}$ & $3571$ \tabularnewline
+\end{tabular}}
+
+\vspace{1em}
+
+Los primeros primos irregulares
+\end{center}
+
+\pagebreak
+
+Desafortunadamente, hay un número infinito de primos irregulares. Esto fue demostrado por el matemático danés \personality{K. L. Jensen} en 1915. En efecto, su resultado era más fuerte: hay un número infinito de primos irregulares de la forma $4k + 3$. Nosotros no contentaremos con el siguiente
+
+\begin{teorema*}
+Hay un número infinito de primos irregulares; es decir, $p$ que dividen el numerador de algún número de Bernoulli entre $B_2, B_4, \ldots, B_{p-3}$.
+\end{teorema*}
+
+\begin{proof}
+El argumento es un poco similar a la demostración clásica del teorema de Euclides sobre la infinitud de los números primos: podemos suponer que $p_1,\ldots,p_r$ son todos los primos irregulares. Nuestro objetivo es encontrar otro primo irregular.
+
+Sea
+$$k \dfn N\cdot (p_1 - 1)\cdots (p_r - 1),$$
+donde $N$ es algún número tal que $|B_k/k| > 1$. Tal $N$ existe porque para $k = 2n$ par,
+$$|B_{2n}/2n| = \frac{(2n-1)!}{2^{2n-1}\,\pi^{2n}}\,\zeta (2n) \xrightarrow{n \to \infty} \infty.$$
+Entonces existe algún primo $p$ tal que $p$ divide el numerador de $B_k/k$. Por el teorema de Clausen--von Staudt, los $p_1, \ldots, p_r$ están en el denominador de $B_k$, de donde $p \notin \{ p_1, \ldots, p_r \}$. También tenemos $p-1 \nmid k$, porque en el caso $p-1 \mid k$ el primo $p$ estaría en el denominador.
+
+Sea $0 < k' < p-1$ el número tal que $k' \equiv k \pmod{p-1}$. Por las congruencias de Kummer
+$$\frac{B_{k'}}{k'} \equiv \frac{B_k}{k} \pmod{p},$$
+y entonces $p \mid B_{k'}$ y $p$ es irregular.
+\end{proof}
+
+Todavía no se sabe si el número de primos regulares es también infinito, pero conjeturalmente, solo $1 - e^{-1/2} \approx 39\%$ de los primos son irregulares.
+
+\begin{ejercicio*}
+Calcule en PARI/GP el porcentaje de los primos irregulares entre los primeros $N$ primos para algún $N$ razonable (por ejemplo, $N = 300$).
+%count_irregular_primes (n) = {
+%  local (p, irreg);
+%  irreg = 0;
+%  for(i=1,n,
+%      p = prime (i);
+%      for (k=1, (p-3)/2,
+%          if (numerator(bernfrac(2*k))%p == 0, irreg++; break)
+%      )
+%  );
+%  irreg
+%}
+\end{ejercicio*}
+
+Para más información sobre el último teorema de Fermat para los primos regulares, véase el libro [Paulo Ribenboim, \emph{13 lectures on Fermat’s last theorem}] (escrito mucho antes de la demostración definitiva del teorema por \personality{Andrew Wiles} en 1995, pero con buenas explicaciones de los resultados de Kummer).
+
+\end{document}
