@@ -1,0 +1,125 @@
+# Noether Agent Instructions: Source Canon First
+
+This repository is part of the Noether interlanguage/source-corpus workflow.
+Every agent, model, lane, or automation that works here must organize itself
+around the same research program before doing lane-local work.
+
+## Controlling Goal
+
+Source canon comes before translation.
+
+For every target language or language cluster, first find the existing
+mathematical source corpus that people in that language actually use for the
+topics being translated. Prioritize source-level TeX/LaTeX, arXiv source
+packages, e-print source archives, GitHub source repositories, CTAN-style
+source packages, and other open source mathematical source files. When TeX
+source is unavailable, record PDF, DOCX, HTML, text, bibliography, or catalog
+provenance with URLs, hashes, license/access signals, language evidence, topic
+tags, and clear reuse boundaries.
+
+Do not treat generated translations, draft glossaries, OCR guesses, bridge
+terms, or model output as source canon.
+
+## When Translation Is Allowed
+
+Translation or term promotion may start only after the lane has source-canon
+support for the relevant language and topic:
+
+- source-level TeX/LaTeX or source archive evidence where available;
+- otherwise strong provenance rows for official, academic, or community source
+  witnesses;
+- explicit language/topic coverage and gaps;
+- license/access status recorded;
+- no raw source body or credential leak risk;
+- no claim of native review, canonical approval, accepted terminology,
+  translation completion, gate promotion, or blanket license clearance unless
+  a separate qualified review record actually supports it.
+
+If a lane cannot find target-language source witnesses, the correct output is a
+gap/provenance record and a source-acquisition task, not a translation.
+
+## Required Shared Checks
+
+Before each work turn, every Noether session should check:
+
+1. This file and `.github/copilot-instructions.md`.
+2. The current parent ledger:
+   `C:/Users/memo_/Documents/Codex/2026-07-04/noether-non-slavic-core-lane/outputs/NOETHER_INTERLANGUAGE_TRANSLATION_CONSOLIDATION_LEDGER_20260704.md`
+3. The source-canon steering record:
+   `C:/Users/memo_/Documents/Codex/2026-07-04/noether-non-slavic-core-lane/outputs/NOETHER_SOURCE_CANON_FIRST_STEERING_RECORD_20260704.md`
+4. The package/source-canon steward log:
+   `C:/Users/memo_/Documents/Codex/2026-07-04/noether-github-pr-branch-steward/outputs/NOETHER_SESSION_B_COORDINATOR_RUN_LOG_20260704.md`
+5. The current source-canon artifacts under:
+   `noether-slavic-source-canon/20260704/`
+6. The relevant lane output directories under:
+   `C:/Users/memo_/Documents/Codex/2026-07-04/noether-*/outputs/`
+7. The current Git branch, PR head, package frontier, and any untracked or
+   partially generated source-canon artifact before staging or pushing.
+
+Every lane should also compare its own source-canon rows against other lanes so
+that shared evidence, blockers, and gaps are not rediscovered in isolation.
+
+## GitHub And Source Acquisition Duties
+
+GitHub is a source-corpus acquisition surface, not just a publication target.
+Agents should search for target-language mathematical source repositories and
+download only material that passes source and license gates.
+
+For each candidate, record:
+
+- language and language evidence;
+- mathematical topic tags;
+- repository or publication URL;
+- source path or archive path;
+- license signal and access status;
+- hash, byte count, and fetch time where available;
+- whether the item is uploaded as payload, manifest-only, or blocked;
+- reason for blocking when not uploaded.
+
+Use payload zips only for dedicated gated source-canon artifacts. Rolling
+packages should omit zip primaries, raw lane `sources/`, OCR/temp/cache/runtime
+paths, `.traineddata`, credentials, and unverified raw source bodies.
+
+## Cross-Session Organization
+
+Every Noether lane must carry a broad description of the whole research program
+inside its local goal or run log:
+
+- source-canon acquisition first;
+- exact provenance and license/access records;
+- shared GitHub/source instructions;
+- cross-lane evidence checks;
+- no isolated translation work without source witnesses;
+- package/publication through B3 only.
+
+Language lanes do not push. The B3/package steward stages, commits, pushes,
+updates the durable run log, verifies PR head alignment, and packages new drift.
+
+## Current Known Source-Canon Shelves
+
+Use these as starting points, not as completion claims:
+
+- `NOETHER_SLAVIC_SOURCE_CANON_ARXIV_20260704T184700Z`
+- `NOETHER_SLAVIC_SOURCE_CANON_FOCUSED_ALGEBRA_20260704T203400Z`
+- `NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T192100Z`
+- `NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T211000Z`
+- `NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T212500Z`
+- `NOETHER_SLAVIC_SOURCE_CANON_WEB_PROVENANCE_20260704T194207Z`
+- `WEAK_LANGUAGE_SUPPLEMENT_README_20260704.md`
+
+These artifacts are source-canon/provenance support only. They do not assert
+that every language has hundreds of open TeX papers, nor that the translations
+are approved or complete.
+
+## Non-Negotiable Boundaries
+
+- Do not fabricate source corpus.
+- Do not translate first and source later.
+- Do not treat Russian or Ukrainian evidence as sufficient for other Slavic
+  target languages.
+- Do not silently reuse public PDFs as open payloads without redistribution
+  evidence.
+- Do not hide missing languages; create explicit gap rows.
+- Do not claim native review, canonical approval, accepted terminology,
+  license clearance, gate promotion, or translation completion without a real
+  review/source record.
