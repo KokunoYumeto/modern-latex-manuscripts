@@ -1,0 +1,442 @@
+% Tokrat bomo uporabili amsart, format za clanke American Mathematical Society
+\documentclass{amsart}
+
+% Kodranje in podpora slovenščini
+\usepackage[T1]{fontenc}        % kodiranje znakov v .pdf
+\usepackage[utf8]{inputenc}     % kodiranje znakov v .tex
+\usepackage[slovene]{babel}     % nastavimo slovenščino
+
+\usepackage{concrete}           % pisave po okusu Donalda Knutha
+
+% Ta paket potrebujemo, ker amsart spreminja male črke v velike v naslovu,
+% in tega ne zna pravilno delati s šumniki. Paket textcase ta problem odpravi.
+% Glej: https://tex.stackexchange.com/questions/211305/problem-with-greek-title
+\usepackage{textcase}
+
+% Paketi za matematiko
+
+\usepackage{amsmath}  % razna okolja za poravnane enačbe ipd.
+\usepackage{amsthm}   % definicije okolij za izreke, definicije, ...
+\usepackage{amssymb}  % dodatni matematični simboli
+\usepackage{xypic}    % paket za diagrame
+
+% Definicija okolij izrek, posledica
+{\theoremstyle{plain}
+\newtheorem{izrek}{Izrek}[section]
+\newtheorem{posledica}[izrek]{Posledica}
+}
+
+% Definicija okoli za definicije in vaje
+{\theoremstyle{definition}
+\newtheorem{definicija}[izrek]{Definicija}
+\newtheorem{vaja}[izrek]{Vaja}
+}
+
+% \title[kratek naslov]{poln naslov}
+\title[Matematika v {\LaTeX}u]{Kako v {\LaTeX}u pišemo matematične simbole, enačbe in diagrame}
+
+% Podatki o avtorjih
+\author{Andrej Bauer}
+\address{Andrej Bauer\\
+Fakulteta za matematiko in fiziko\\
+Jadranska 19\\
+1000 Ljubljana\\
+Slovenija}
+\email{Andrej.Bauer@andrej.com}
+\thanks{Avtor se zahvaljuje Republiki Sloveniji za vsakdanji kruh.}
+
+\author{Batman}
+\address{Batman\\
+Batman cave\\
+Under Wayne Manor\\
+Gotham City\\
+USA}
+\email{batman@gotham.com}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  V članku predstavimo, kako v {\LaTeX}u z uporabo paketov AMS stavimo matematiko.
+\end{abstract}
+
+\section{Osnovna matematika}
+
+% Matematični izrazi v vrstičnem načinu se pišejo med znaka \(...\) ali $...$.
+% Pravila za pisanje izrazov v vrstičnem načinu:
+% 1. Stavka ne začnemo z izrazom.
+% 2. Vsak matematični izraz mora biti v matematičnem načinu, če tudi je samo en znak.
+% 3. Celoten izraz mora biti v enem \(...\) ali $...$.
+Pravilno: za vsak realen pozitiven $x$ obstaja $k \in \mathbb{N}$, da je $0 < 1/k < x$.
+
+Narobe: za vsak realen pozitiven x obstaja $k \in \mathbb{N}$, da je $0$ < $1/k$ < $x$.
+
+% Matematični izrazi v prikaznem načinu se pišejo med znaka \[...\] ali $$...$$,
+% še raje pa uporabimo kakšno od okolij AMS, glej spodaj.
+% Pravila za pisanje izrazov v prikaznem načinu:
+% 1. Ne delamo praznih vrstic pred in za izrazom, razen se s formulo konča stavek.
+% 2. Izraz mora biti del stavka, ne sme stati kar prepuščen sam sebi.
+% 3. Če se z izrazom konča stavek ali odvisni stavek, zapišemo tudi ločilo.
+
+Pravilno: za nenegativna števila $x_1, \ldots, x_n$ velja
+%
+\[
+  \frac{x_1 + \cdots + x_n}{n} \leq
+  \sqrt{\frac{x_1^2 + \cdots + x_n^2}{n}},
+\]
+%
+kjer enakost velja natanko tedaj, ko $x_1 = x_2 = \cdots = x_n$.
+
+Narobe: za nenegativna števila $x_1$, \dots, $x_n$ velja
+\[
+  \frac{x_1 + \cdots + x_n}{n} \leq
+  \sqrt{\frac{x_1^2 + \cdots + x_n^2}{n}}
+\]
+kjer enakost velja natanko tedaj, ko $x_1 = x_2 = \cdots = x_n$.
+
+Za spiske raznih operatorjev in simbolov, ki jih lahko stavimo, glejte dokumentacijo na
+spletu.
+
+Če želimo vstaviti v formulo besedilo, to naredimo s \verb|\text{...}|:
+%
+\begin{equation*}
+  \mathcal{P} = \{ n \in \mathbb{N} \mid \text{$n$ je praštevilo} \}.
+\end{equation*}
+%
+Omenimo še okolje \texttt{cases}, s katerim obravnavamo primere:
+%
+\[
+  f(x) =
+  \begin{cases}
+    -1 & \text{če $x < 1$,} \\
+     x & \text{če $-1 \leq x \leq 1$,} \\
+     1 & \text{če $1 < x$.}
+  \end{cases}
+\]
+%
+
+
+\section{Makroji}
+\label{sec:makroji}
+
+V {\LaTeX}u lahko definiramo svoje ukaze, ki jim pravimo tudi \emph{makroji}. Tu
+predstavimo osnovno uporabo. Ukaz definiramo z
+%
+\begin{quote}
+  \verb|\newcommand{\|\emph{imeUkaza}\verb|}[|\emph{n}\verb|]{|\dots\verb|}|
+\end{quote}
+%
+pri čemer je \emph{n} število argumentov, ki jih sprejme ukaz. Na argumente se sklicujemo
+z \verb|#1|, \verb|#2|, \dots, \verb|#|\emph{n}. Ukaz brez argumentov definiramo z
+%
+\begin{quote}
+  \verb|\newcommand{\|\emph{imeUkaza}\verb|}{|\dots\verb|}|
+\end{quote}
+%
+
+% Nekaj primerov makrojev
+
+% Makro lahko uporabljamo kot okrajšavo
+\newcommand{\RR}{\mathbb{R}} % realna števila, \mathbb{..} je iz amssymb
+\newcommand{\NN}{\mathbb{N}} % naravna števila
+
+Ali je res, da za vsak $n \in \NN$ in $a \in \RR$ obstaja natanko en $b \in \RR$, da je $b^n = a$?
+
+% Ukaz \par že obstaja, zato ne moremo definirati makroja \par
+\newcommand{\pair}[1]{\langle #1 \rangle}
+
+Ali se urejeni pari pišejo $(x, y)$ ali $\pair{x, y}$? Kdo bi vedel. Je pa tako, da se
+splača uporabiti makro, ker lahko kasneje še spreminjamo njegovo definicijo.
+
+\newcommand{\zap}[2]{#1_1, \ldots, #1_{#2}}
+
+Ne počnimo neumnosti z makoroji: če seštejemo zaporedji $\zap{a}{n}$ in $\zap{b}{n}$,
+dobimo zaporedje $\zap{a + b}{n}$.
+
+% Pozor, indekse je treba pisati v {...}, sicer se zgodijo čudne stvari.
+% V definiciji \zap pobrišite {...} okoli #2 in poskusite:
+Kaj pa dobimo, če napišemo $\zap{x}{n + m}$?
+
+\section{Oklepaji}
+\label{sec:oklepaji}
+
+Poznamo več vrst oklepajev: $($ in $)$, $[$ in $]$, $\{$ in $\}$, $\langle$ in $\rangle$.
+
+Še posebej opozorimo na $\langle$ in $\rangle$. Prav se piše $\langle x, y\rangle$ in ne
+$<x, y>$, ker {\LaTeX} obravnava simbola \texttt{<} in \texttt{>} kot relaciji `večje' in
+`manjše'.
+
+Včasih so oklepaji premahjni, denimo
+%
+\[
+  (\frac{a}{b})^n = \frac{a^n}{b^n}.
+\]
+%
+V takih primerih pred uklepaj napišemo \verb|\left| in pred zaklepaj \verb|\right|:
+%
+\[
+  \left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}.
+\]
+%
+Velikost oklepajev lahko nadzorujemo tudi ročno z ukazi \verb|\big|, \verb|\Big|,
+\verb|\bigg|, \verb|\Bigg|:
+%
+\[
+  \Bigg( \bigg( \Big( \big( ( ) \big) \Big) \bigg) \Bigg)
+\]
+
+
+\section{Poravnane in večvrstične enačbe}
+\label{sec:enacbe}
+
+Paket \texttt{amsmath} vsebuje okolja za prikaz raznih enačb. Če uporabimo okolje brez
+zvezdice, na primer \texttt{equation}, dobimo oštevilčeno enačbo, okolje z zvezdico, na
+primer \texttt{equation*}, pa nam da neoštevilčeno enačbo. Vedno oštevilčimo samo tiste
+enačbe, na katere se tudi sklicujemo.
+
+\subsection{Okolje \texttt{equation}}
+
+Običajne enačbe naredimo z okoljem \texttt{equation},
+%
+\begin{equation*}
+  x^2 + y^2 = 1
+\end{equation*}
+%
+ali
+%
+\begin{equation}
+  \label{eq:1}
+  x^2 + y^2 = 1
+\end{equation}
+
+\subsection{Okolje \texttt{gather}}
+
+Z okoljem \texttt{gather} stavimo izraze enega pod drugega:
+%
+\begin{gather*}
+  \log 2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots, \\
+  \frac{2}{\frac{1}{x} + \frac{1}{y}} \leq \sqrt{x y} \leq \frac{x + y}{2}, \\
+  \sum_{k = 1}^\infty \frac{1}{k^2} = \frac{\pi^2}{6}.
+\end{gather*}
+%
+Narobe je
+%
+\[
+  \log 2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots
+\]
+%
+\[
+  \frac{2}{\frac{1}{x} + \frac{1}{y}} \leq \sqrt{x y} \leq \frac{x + y}{2}
+\]
+%
+\[
+  \sum_{k = 1}^\infty \frac{1}{k^2} = \frac{\pi^2}{6}.
+\]
+
+
+\subsection{Okolje \texttt{multline}}
+
+Z okoljem \texttt{multtline} zapišemo daljšo izpeljavo čez več vrstic. Prva vrstica je
+poravnana levo, zadnja desno in vsem vmesne sredinsko:
+%
+\begin{multline*}
+  \sum_{i=1}^n x_i^2 \cdot \sum_{i=1}^n y_i^2
+  - \left( \sum_{i=1}^n x_i y_i \right)^2 = \\
+  \frac{1}{2} \cdot \sum_{i=1}^n x_i^2 \cdot \sum_{i=1}^n y_i^2
+  +
+  \frac{1}{2} \cdot \sum_{i=1}^n x_i^2 \cdot \sum_{i=1}^n y_i^2
+  -
+  \sum_{i=1}^n x_i y_i \cdot \sum_{j=1}^n x_j y_j = \\
+  \frac{1}{2} \cdot \sum_{i,j=1}^2 x_i^2 y_j^2
+  +
+  \frac{1}{2} \cdot \sum_{i,j=1}^n x_j^2 y_i^2
+  -
+  \sum_{i,j=1}^n x_i y_j x_j y_i = \\
+  \sum_{i,j=1}^n \frac{1}{2}\,
+  \left(
+    x_i^2 y_j^2 + x_j^2 x_i^2 - 2 x_i y_j x_j y_i
+  \right)
+  =
+  \sum_{i,j=1}^n \frac{1}{2}\,
+  \left(
+    x_i y_j - x_j y_i
+  \right)^2
+  \geq 0.
+\end{multline*}
+
+
+\subsection{Okolje \texttt{align}}
+
+Z okoljem \texttt{align} lahko poravnamo vrstice na določen znaku. Mesto, kjer morajo biti
+vrstice poravnane, označimo z znakom \texttt{\&}, prehod v novo vrsto označimo z \verb|\\|:
+%
+\begin{align*}
+  (x + y)^2 - (x - y)^2
+  &= (x^2 + 2 x y + y^2) - (x^2 - 2 x y + y^2) \\
+  &= x^2 + 2 x y + y^2 - x^2 + 2 x y - y^2 \\
+  &= 2 x y + 2 x y \\
+  &= 4 x y.
+\end{align*}
+%
+Pozor: začetniki ga pogosto napačno postavijo tudi v zadnjo vrsto in potem dobijo dodatno
+prazno vrsto:
+%
+\begin{align*}
+  (x + y)^2 - (x - y)^2
+  &= (x^2 + 2 x y + y^2) - (x^2 - 2 x y + y^2) \\
+  &= x^2 + 2 x y + y^2 - x^2 + 2 x y - y^2 \\
+  &= 2 x y + 2 x y \\
+  &= 4 x y. \\
+\end{align*}
+%
+Ali vidite, da je nekaj narobe? Z ukazom \verb|\intertext| vstavimo vrstico besedila v
+izpeljavo, ne da bi pokvarili poravnavno:
+%
+\begin{align*}
+  (x + y)^2 - (x - y)^2
+  &= (x^2 + 2 x y + y^2) - (x^2 - 2 x y + y^2) \\
+\intertext{in zato}
+  &= x^2 + 2 x y + y^2 - x^2 + 2 x y - y^2 \\
+  &= 2 x y + 2 x y \\
+  &= 4 x y.
+\end{align*}
+%
+Narobe je
+%
+\begin{align*}
+  (x + y)^2 - (x - y)^2
+  &= (x^2 + 2 x y + y^2) - (x^2 - 2 x y + y^2)
+\end{align*}
+%
+in zato
+%
+\begin{align*}
+  &= x^2 + 2 x y + y^2 - x^2 + 2 x y - y^2 \\
+  &= 2 x y + 2 x y \\
+  &= 4 x y,
+\end{align*}
+%
+saj smo izgubili poravnavo med obema deloma izpeljave.
+
+Z okoljem \texttt{align} lahko poravnamo več stolpcev, ki jih ločimo z znakom \texttt{\&}:
+%
+\begin{align*}
+  3 + 5 &= 8
+  &
+  2 + 2 &= 4
+  &
+  1 + 1 &= 2
+  \\
+  3 + 7 &= 10
+  &
+  4 + 1 &= 5
+  &
+  2 + 3 &= 5
+\end{align*}
+
+\subsection{Matrike}
+
+Matriko naredimo z okoljem \texttt{matrix}:\footnote{Tu imamo izjemo, ko je pisanje ločila
+  na koneč izraza nesmiselno.}
+%
+\begin{equation*}
+  \left[
+  \begin{matrix}
+    x_{1,1} & x_{1,2} & \cdots & x_{1,n} \\
+    x_{2,1} & x_{2,2} & \cdots & x_{2,n} \\
+    \vdots  & \vdots  & \ddots & \vdots  \\
+    x_{n,1} & x_{n,2} & \cdots & x_{n,n}
+  \end{matrix}
+  \right]
+\end{equation*}
+%
+Oklepaje postavimo okoli matrike z \verb|\left| in \verb|\right|, da so pravilne
+velikosti.
+
+\section{Izreki in dokazi}
+\label{sec:izreki-dokazi}
+
+\begin{izrek}
+  \label{izrek:max-zvezna}
+  Vsaka zvezna funkcija na zaprtem intervalu doseže maksimum.
+\end{izrek}
+
+\begin{proof}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet arcu sit
+  amet augue consequat efficitur. Nam non diam congue, porttitor nisl nec, faucibus ex.
+  Fusce arcu ligula, molestie sit amet ligula sed, finibus sagittis felis. Nulla facilisi.
+  Suspendisse potenti
+  %
+  \[
+    f(x) = \int_0^x f'(t) \, d t,
+  \]
+  %
+  donec ultrices malesuada bibendum. Quisque ac rutrum orci. Aliquam
+  laoreet euismod nulla fermentum fringilla. Fusce bibendum dui enim, sed luctus diam
+  lacinia sit amet. Fusce suscipit sodales vulputate. Suspendisse euismod ante est, ut
+  fermentum mi consequat vitae. Sed vehicula, odio quis aliquam tincidunt, massa dolor
+  tristique ligula, tempus egestas libero sem ac leo.
+\end{proof}
+
+\begin{posledica}
+  Parbola ima maksimum na zaprtem intervalu.
+\end{posledica}
+
+% Tu oprabimo \qedhere, da se znak kar v formlo.
+\begin{proof}
+  To sledi iz računa
+  %
+  \begin{align*}
+    (x + y)^2 - (x - y)^2
+    &= (x^2 + 2 x y + y^2) - (x^2 - 2 x y + y^2) \\
+    &= x^2 + 2 x y + y^2 - x^2 + 2 x y - y^2 \\
+    &= 2 x y + 2 x y \\
+    &= 4 x y. \qedhere
+  \end{align*}
+\end{proof}
+
+% V definiciji moramo vedno poudariti pojem, ki ga definiramo. To naredimo z \emph{...}.
+\begin{definicija}
+  \emph{Praštevilo} je tako naravno število $n$, večje od $1$, ki ni deljivo z nobenim
+  naravnih šetvilom.
+\end{definicija}
+
+\begin{vaja}
+  Na pamet izračunajte $23 \times 117$.
+\end{vaja}
+
+\section{Diagrami}
+\label{sec:diagrami}
+
+O diagramih ne bomo povedali več kot to, da uporabimo paket \texttt{xypic}. Primer diagrama:
+%
+\begin{equation*}
+  \xymatrix{
+    {A}
+    \ar[r]^{f}
+    \ar[d]_{g}
+    &
+    {B}
+    \ar[d]
+    \\
+    {C}
+    \ar[r]_{h}
+    \ar@{.>>}[ru]
+    &
+    {D}
+    \ar@/_1em/[u]
+  }
+\end{equation*}
+
+\section{Citati in reference}
+\label{sec:citati}
+
+Z ukazom \verb|label{|\emph{oznaka}\verb|}| naredimo oznako razdelka, izreka ali enačbe. Na tako oznako se lahko sklicujemo z ukazi \verb|ref|, \verb|pageref| in \verb|eqref|.
+
+V razdelku~\ref{sec:makroji} na strani \pageref{sec:makroji} smo spoznali makroje.
+Izrek~\ref{izrek:max-zvezna} ni preveč zanimiv, a ga profesorji radi sprašujejo na
+magistrskem izpitu, enačba~\eqref{eq:1} pa sploh nepomembna.
+
+
+\end{document}

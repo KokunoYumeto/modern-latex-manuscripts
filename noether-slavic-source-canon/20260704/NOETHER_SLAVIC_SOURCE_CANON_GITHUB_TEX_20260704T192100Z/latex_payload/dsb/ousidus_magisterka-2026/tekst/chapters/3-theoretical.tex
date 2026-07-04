@@ -1,0 +1,260 @@
+\section{Architektura Visual Transformers}
+\subsection{Podstawy architektury Transformer}
+Architektura Transformer, pierwotnie zaprojektowana do zadań NLP \cite{vaswani2017attention}, opiera się na kilku kluczowych elementach:
+\begin{itemize}
+    \item Mechanizm self-attention
+    \item Multi-head attention
+    \item Feed-forward networks
+    \item Layer normalization
+    \item Residual connections
+\end{itemize}
+
+\subsection{Adaptacja do przetwarzania obrazów}
+Visual Transformers (ViT) \cite{dosovitskiy2020image} wprowadzają modyfikacje umożliwiające pracę z obrazami:
+\begin{itemize}
+    \item Podział obrazu na patches (typowo 16x16 pikseli)
+    \item Liniowa projekcja patches na embeddingi
+    \item Dodanie tokena klasyfikacyjnego [CLS]
+    \item Dodanie pozycyjnych embeddingów
+\end{itemize}
+
+\subsection{Mechanizm self-attention}
+\subsubsection{Matematyczne podstawy}
+Mechanizm self-attention można opisać następującymi równaniami \cite{vaswani2017attention}:
+\begin{equation}
+    Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V
+\end{equation}
+gdzie:
+\begin{itemize}
+    \item Q - macierz zapytań (queries)
+    \item K - macierz kluczy (keys)
+    \item V - macierz wartości (values)
+    \item $d_k$ - wymiar kluczy
+\end{itemize}
+
+\section{Porównanie z innymi metodami}
+\subsection{CNN vs Visual Transformers}
+Główne różnice między CNN a ViT \cite{khan2021transformers}:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\textbf{CNN} & \textbf{Visual Transformers} \\
+\hline
+Lokalne przetwarzanie informacji & Globalne przetwarzanie informacji \\
+\hline
+Hierarchiczna struktura & Płaska struktura \\
+\hline
+Wbudowana inwariantność translacyjna & Uczenie relacji przestrzennych \\
+\hline
+Stała złożoność obliczeniowa & Kwadratowa złożoność obliczeniowa \\
+\hline
+\end{tabular}
+\caption{Porównanie CNN i Visual Transformers}
+\label{tab:cnn_vs_vit}
+\end{table}
+
+\subsection{Hybrydowe architektury}
+Współczesne rozwiązania często łączą zalety obu podejść \cite{chen2021transunet}:
+\begin{itemize}
+    \item Wykorzystanie CNN do wstępnego przetwarzania
+    \item Transformery do modelowania globalnych zależności
+    \item Połączenie lokalnych i globalnych cech
+    \item Adaptacyjne mechanizmy uwagi
+\end{itemize}
+
+\section{Zastosowania w segmentacji medycznej}
+\subsection{Architektura TransUNet}
+TransUNet \cite{chen2021transunet} łączy architekturę U-Net z Transformerami:
+\begin{itemize}
+    \item Encoder oparty na CNN i Transformerach
+    \item Decoder wykorzystujący skip connections
+    \item Mechanizm uwagi do precyzyjnej segmentacji
+\end{itemize}
+
+\subsection{Modyfikacje dla obrazów medycznych}
+Specjalne adaptacje dla obrazowania medycznego \cite{hatamizadeh2022swin}:
+\begin{itemize}
+    \item Hierarchiczne przetwarzanie patches
+    \item Wielopoziomowe mapy cech
+    \item Adaptacyjne mechanizmy uwagi
+    \item Specjalizowane strategie treningu
+\end{itemize}
+
+\section{Optymalizacja i wydajność}
+\subsection{Strategie treningu}
+Kluczowe aspekty treningu Visual Transformers \cite{touvron2021training}:
+\begin{itemize}
+    \item Techniki regularyzacji
+    \item Strategie augmentacji danych
+    \item Harmonogramy uczenia
+    \item Techniki optymalizacji
+\end{itemize}
+
+\subsection{Efektywność obliczeniowa}
+Metody poprawy wydajności \cite{liu2021swin}:
+\begin{itemize}
+    \item Lokalne okna uwagi
+    \item Przesuwne okna
+    \item Hierarchiczne przetwarzanie
+    \item Optymalizacja pamięci
+\end{itemize}
+
+\section{Przykłady zastosowań}
+\subsection{Rozpoznawanie obiektów}
+\subsection{Segmentacja obrazów}
+% Content about applications 
+
+\subsection{Architektura proponowanego rozwiązania}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=2cm,
+    box/.style={rectangle,draw,rounded corners,minimum width=2.5cm,minimum height=1cm},
+    arrow/.style={->,thick}
+]
+    % Input
+    \node[box] (input) {Obraz MRI};
+    
+    % Preprocessing
+    \node[box, below of=input] (preprocess) {Preprocessing};
+    
+    % Patch Embedding
+    \node[box, below of=preprocess] (patches) {Patch Embedding};
+    
+    % Transformer Blocks
+    \node[box, below of=patches] (transformer) {Transformer Blocks};
+    
+    % MLP Head
+    \node[box, below of=transformer] (mlp) {MLP Head};
+    
+    % Output
+    \node[box, below of=mlp] (output) {Segmentacja guza};
+    
+    % Arrows
+    \draw[arrow] (input) -- (preprocess);
+    \draw[arrow] (preprocess) -- (patches);
+    \draw[arrow] (patches) -- (transformer);
+    \draw[arrow] (transformer) -- (mlp);
+    \draw[arrow] (mlp) -- (output);
+    
+    % Labels
+    \node[right of=preprocess, xshift=2cm] (prep_desc) {
+        \begin{minipage}{5cm}
+        \small
+        - Normalizacja\\
+        - Standaryzacja rozmiaru\\
+        - Korekcja niejednorodności
+        \end{minipage}
+    };
+    
+    \node[right of=patches, xshift=2cm] (patch_desc) {
+        \begin{minipage}{5cm}
+        \small
+        - Podział na patches 16x16\\
+        - Projekcja liniowa\\
+        - Dodanie pozycyjnych embeddingów
+        \end{minipage}
+    };
+    
+    \node[right of=transformer, xshift=2cm] (trans_desc) {
+        \begin{minipage}{5cm}
+        \small
+        - Multi-head attention\\
+        - Feed-forward networks\\
+        - Layer normalization
+        \end{minipage}
+    };
+\end{tikzpicture}
+\caption{Architektura proponowanego modelu Visual Transformer}
+\label{fig:architecture}
+\end{figure}
+
+\subsection{Pipeline przetwarzania danych}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={rectangle,draw,rounded corners,minimum width=2.5cm,minimum height=0.8cm},
+    data/.style={cylinder,draw,shape border rotate=90,aspect=0.25,minimum width=1cm},
+    arrow/.style={->,thick}
+]
+    % Data sources
+    \node[data] (raw_data) {Dane surowe};
+    
+    % Preprocessing pipeline
+    \node[box, right of=raw_data, xshift=3cm] (preprocess) {Preprocessing};
+    \node[box, right of=preprocess, xshift=3cm] (augment) {Augmentacja};
+    
+    % Training pipeline
+    \node[box, below of=augment] (train) {Trening modelu};
+    \node[box, left of=train, xshift=-3cm] (validate) {Walidacja};
+    \node[box, left of=validate, xshift=-3cm] (test) {Testowanie};
+    
+    % Deployment pipeline
+    \node[box, below of=train] (deploy) {Wdrożenie};
+    \node[box, right of=deploy, xshift=2cm] (monitor) {Monitoring};
+    
+    % Arrows
+    \draw[arrow] (raw_data) -- (preprocess);
+    \draw[arrow] (preprocess) -- (augment);
+    \draw[arrow] (augment) -- (train);
+    \draw[arrow] (train) -- (validate);
+    \draw[arrow] (validate) -- (test);
+    \draw[arrow] (test) -- (deploy);
+    \draw[arrow] (deploy) -- (monitor);
+    
+    % Feedback loops
+    \draw[arrow] (validate) to[bend left] (train);
+    \draw[arrow] (monitor) to[bend left] (train);
+\end{tikzpicture}
+\caption{Pipeline przetwarzania i wdrażania modelu}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Mechanizm Multi-Head Attention}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=2cm,
+    box/.style={rectangle,draw,rounded corners,minimum width=2cm,minimum height=0.8cm},
+    arrow/.style={->,thick}
+]
+    % Input
+    \node[box] (input) {Input};
+    
+    % Query, Key, Value transformations
+    \node[box, above right of=input] (Q) {Q};
+    \node[box, right of=input] (K) {K};
+    \node[box, below right of=input] (V) {V};
+    
+    % Attention heads
+    \node[box, right of=Q, xshift=2cm] (head1) {Head 1};
+    \node[box, right of=K, xshift=2cm] (head2) {Head 2};
+    \node[box, right of=V, xshift=2cm] (head3) {Head 3};
+    
+    % Concat
+    \node[box, right of=head2, xshift=2cm] (concat) {Concat};
+    
+    % Output
+    \node[box, right of=concat, xshift=2cm] (output) {Output};
+    
+    % Arrows
+    \draw[arrow] (input) -- (Q);
+    \draw[arrow] (input) -- (K);
+    \draw[arrow] (input) -- (V);
+    
+    \draw[arrow] (Q) -- (head1);
+    \draw[arrow] (K) -- (head2);
+    \draw[arrow] (V) -- (head3);
+    
+    \draw[arrow] (head1) -- (concat);
+    \draw[arrow] (head2) -- (concat);
+    \draw[arrow] (head3) -- (concat);
+    
+    \draw[arrow] (concat) -- (output);
+\end{tikzpicture}
+\caption{Mechanizm Multi-Head Attention w Visual Transformers}
+\label{fig:attention}
+\end{figure} 

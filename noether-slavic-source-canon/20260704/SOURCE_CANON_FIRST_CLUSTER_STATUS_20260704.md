@@ -27,11 +27,22 @@ Excluded from this source-canon target: Russian and Ukrainian.
   - 0 uploaded TeX bodies because every hit in this wave lacked recognized open-source license metadata.
   - Includes blocked/not-uploaded manifests rather than raw unverified source dumps.
 
+- `NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T192100Z`
+  - GitHub TeX code-search sweep using two native math terms per cluster language after fixing license-key parsing.
+  - 341 target-language TeX candidate rows.
+  - 163 repository license rows.
+  - 94 open-license TeX payload files in `payload_zips/NOETHER_SLAVIC_GITHUB_TEX_OPEN_LICENSE_PAYLOAD_20260704T192100Z.zip`.
+  - Payload SHA-256: `14BE80F52F67E74A7F3CC791621E4C27432DCC3AFDC394B50CA161FECA4105BF`.
+  - Payload QA: 94 zip entries, explicit TeX-family source extensions only, zero zero-byte entries.
+  - Payload coverage by language: Polish 5, Czech 8, Slovak 9, Slovene 8, Serbian 9, Croatian 9, Bosnian 6, Montenegrin 6, Bulgarian 5, Macedonian 1, Belarusian 11, Upper Sorbian 3, Lower Sorbian 14.
+  - 248 candidates remain blocked/not uploaded because license/provenance evidence was not sufficient for redistribution or because they were not admissible source-extension payloads.
+
 ## Current Hard Status
 
-The usable uploaded source-corpus payload is still incomplete. The current artifacts make
-the gap visible and searchable, but they do not yet provide the requested hundreds of
-open-source source-level TeX witnesses per language.
+The first usable uploaded source-corpus payload now exists, but the corpus is still
+incomplete. The current artifacts make the gap visible and searchable, but they do
+not yet provide the requested hundreds of open-source source-level TeX witnesses per
+language.
 
 All downstream translation lanes should treat source-canon acquisition as priority one.
 Generated Noether translations must remain separate from source-canon evidence.
