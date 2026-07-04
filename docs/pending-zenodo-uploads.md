@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage packages 353-356 source-canon coordination
+
+Manifest: [20260705_remote_noether_pc_branch_packages353_356.json](../manifests/pending-zenodo-uploads/20260705_remote_noether_pc_branch_packages353_356.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages353_356/Noether_PC_Interlanguage_Packages353_356_SourceCanonCoordination_20260705.zip`, 1,024,206 bytes, SHA256 `B37B15E9D479E7D0306759578DDF7972C56FA10A80DA42C6EC698F99CE269536`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629` through remote head `8fd22e61`, covering packages 353-356. These packages continue source-canon and methodology coordination across Arabic RTL, Persianate/Tajik, CJK, Slavic/Romance, Pan-Turkic, and relation-function support lanes; package 356 also records the direct-gated LaTeX upload authority-boundary audit.
+- Caveat: support/coordination evidence only. Package 354 explicitly omits two Persianate/Farsi algebra-guide raw source bodies, and package 356 reiterates that direct-gated source-body rows still need URL/license/source-owner support for stronger row-level source-canon claims. Not translation completion, approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Direct gated LaTeX source-canon upload
 
 Manifest: [20260705_direct_gated_latex_source_canon_upload.json](../manifests/pending-zenodo-uploads/20260705_direct_gated_latex_source_canon_upload.json)
