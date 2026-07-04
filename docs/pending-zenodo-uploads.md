@@ -1,3 +1,21 @@
+## 2026-07-05: Interlanguage Claude v7 handoff/context-review refresh
+
+Manifest: [20260705_interlanguage_claude_v7_handoff_refresh.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_claude_v7_handoff_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403), latest public record currently tracked as `10.5281/zenodo.21124458`.
+- Artifact: `interlanguage-sidecar/20260704/claude_interlingua_program_20260704_v7.zip`, 25,560,868 bytes, SHA256 `1319F217323F48653B1773A9D4E24E07D837D28223EA54B4E9FE08C5CEA0ADD5`, 252 entries.
+- Scope/result: latest local Claude interlanguage methodology/source-register snapshot. Relative to v6, it adds `CHATGPT_HANDOFF_BUNDLE_20260705.zip`, `CONTEXT_REVIEW_BATCH3_LOG_20260705.json`, updated `STATUS.md`, updated corpus-insertion coverage, and the current proof-prose lexicon v2.
+- Caveat: methodology/source-register/context-review/handoff evidence only. Not native-speaker approval, not term approval, not language completion, not source-fidelity certification, not publication readiness, not mathematical reader output, and not critical-edition material.
+
+## 2026-07-05: SGA6 source-rescribe workpass evidence through idx152
+
+Manifest: [20260705_sga6_source_rescribe_idx152_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx152_refresh.json)
+
+- Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
+- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx152_refresh/SGA6_Claude_Workpass_SourceRescribe_idx152_20260705.zip`, 7,068,511 bytes, SHA256 `CDD346C63EA87EC549EE869584F3DEE82C411D8442238193E32E3B0561195604`, 40 entries.
+- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through `CERT_LOG.md` entry #149, idx152 / volume p139 / Exposé I p62. Next cursor is idx153 / volume p140 / Exposé I p63. The copied workpass compiles with 0 LaTeX errors to a 391-page PDF; page count is compile evidence only.
+- Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-04: Noether R794 P15/P30 source-control integration
 
 - Artifact: `Noether_R794_LocalCodex_WebR780_P15P30_Integration_20260704.zip`, 63,395,468 bytes, SHA256 `FFCCE7F4CD2606AFE02B2054B099424D68B7AE27E04466B7D471BADDB78BFF32`.
