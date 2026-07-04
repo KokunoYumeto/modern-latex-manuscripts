@@ -4,7 +4,7 @@ This folder is a compact GitHub mirror of the local SGA6 French source-rescribe/
 
 `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
 
-Current inspected local cursor: idx149 / volume p136 / Exposé I p59. The next cursor is idx150 / volume p137 / Exposé I p60.
+Current inspected local cursor: ledger entry #148, idx151 / volume p138 / Exposé I p61. The next cursor is idx152 / volume p139 / Exposé I p62.
 
 Latest observed compile gate: 0 LaTeX errors, 392-page workpass PDF. The page count is not a completion signal because restored source material can change pagination.
 
