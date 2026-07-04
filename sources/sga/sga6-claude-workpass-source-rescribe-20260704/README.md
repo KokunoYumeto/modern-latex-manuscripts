@@ -2,7 +2,7 @@
 
 This folder is a compact GitHub-visible mirror of the local Claude/Codex SGA6 source-rescribe workpass. It is preserved so public metadata, web sessions, and later local agents can see the actual evidence files instead of relying on chat summaries.
 
-Current inspected local cursor: ledger entry #149, idx152 / volume p139 / Exposé I p62. The next cursor is idx153 / volume p140 / Exposé I p63.
+Current inspected local cursor: ledger entry #151, idx154 / volume p141 / Exposé I p64. The next cursor is idx155 / volume p142 / Exposé I p65.
 
 The copied workpass compiles locally with 0 LaTeX errors to a 391-page PDF. Page count is compile evidence only and is not a completion claim.
 

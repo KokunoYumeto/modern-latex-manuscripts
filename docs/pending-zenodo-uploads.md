@@ -7,13 +7,13 @@ Manifest: [20260705_interlanguage_claude_v7_handoff_refresh.json](../manifests/p
 - Scope/result: latest local Claude interlanguage methodology/source-register snapshot. Relative to v6, it adds `CHATGPT_HANDOFF_BUNDLE_20260705.zip`, `CONTEXT_REVIEW_BATCH3_LOG_20260705.json`, updated `STATUS.md`, updated corpus-insertion coverage, and the current proof-prose lexicon v2.
 - Caveat: methodology/source-register/context-review/handoff evidence only. Not native-speaker approval, not term approval, not language completion, not source-fidelity certification, not publication readiness, not mathematical reader output, and not critical-edition material.
 
-## 2026-07-05: SGA6 source-rescribe workpass evidence through idx152
+## 2026-07-05: SGA6 source-rescribe workpass evidence through idx154
 
-Manifest: [20260705_sga6_source_rescribe_idx152_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx152_refresh.json)
+Manifest: [20260705_sga6_source_rescribe_idx154_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx154_refresh.json)
 
 - Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
-- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx152_refresh/SGA6_Claude_Workpass_SourceRescribe_idx152_20260705.zip`, 7,068,511 bytes, SHA256 `CDD346C63EA87EC549EE869584F3DEE82C411D8442238193E32E3B0561195604`, 40 entries.
-- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through `CERT_LOG.md` entry #149, idx152 / volume p139 / Exposé I p62. Next cursor is idx153 / volume p140 / Exposé I p63. The copied workpass compiles with 0 LaTeX errors to a 391-page PDF; page count is compile evidence only.
+- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx154_refresh/SGA6_Claude_Workpass_SourceRescribe_idx154_20260705.zip`, 7,088,449 bytes, SHA256 `B16A599D27AE3AAF218A24648EBAA20C2530D835715555268DA0E41AFCB80217`, 44 entries.
+- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through `CERT_LOG.md` entry #151, idx154 / volume p141 / Exposé I p64. Next cursor is idx155 / volume p142 / Exposé I p65. The copied workpass compiles with 0 LaTeX errors to a 391-page PDF; page count is compile evidence only.
 - Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
 ## 2026-07-04: Noether R794 P15/P30 source-control integration
@@ -2110,7 +2110,7 @@ Next action: fold into the next deliberate Noether Zenodo refresh/rebalance if u
 
 Manifest: [20260626_noether_r128_p04_postbatch39_survival_nopatch.json](../manifests/source-intake/20260626_noether_r128_p04_postbatch39_survival_nopatch.json)
 
-- Current pending ZIP: `Noether_R128_LocalCodex_P04_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,495,453 bytes, SHA256 `270DAE6B4456AC09D34C42EE2B13458CDD835F06C5A60D1F833D468D8F4800A2`, 40 entries.
+- Current pending ZIP: `Noether_R128_LocalCodex_P04_PostBatch39Survival_NoPatch_WebDrop_20260626.zip`, 4,495,453 bytes, SHA256 `270DAE6B4456AC09D34C42EE2B13458CDD835F06C5A60D1F833D468D8F4800A2`, 44 entries.
 - Result: no German TeX patch. Paper 04's accepted R128 GDZ600-rebase body survives as a raw byte-exact substring of the current Batch39 German cumulative: current body lines 3562-4500, 939 lines total, current/reference hash `362096288dbf05475342a53245eea48141948aeedf08c8525d31cb6cafa9b4fd`.
 - Guardrail: do not patch or reopen Paper 04 from this package; keep the current Batch39 body. The older P04 pp.140-145 queue item remains closed by the GDZ600 source-upgrade no-patch result.
 - Caveat: current-branch survival/reconciliation only. Not a new visual source pass, not Paper 04 certification, not Noether corpus closure, not multilingual synchronization, and not a critical edition. P04 GDZ600 source-upgrade remains below the strict 650+ native full-page certification preference.
@@ -8390,3 +8390,4 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Noether support/provenance file: `NOETHER_GERMAN_SOURCE_AUDIT_LOGBOOK_20260613.md`, 642,739 bytes, SHA256 `2EE8C33D392EFF8298BDF8ED0CA0A53EB968501B506B63C67425655478B9FD68`, modified locally 2026-06-30T03:56:59.
 - Scope: live German source-audit logbook now including the P11 pp.223-224 targeted audit on the P06-p195 patched base.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
+
