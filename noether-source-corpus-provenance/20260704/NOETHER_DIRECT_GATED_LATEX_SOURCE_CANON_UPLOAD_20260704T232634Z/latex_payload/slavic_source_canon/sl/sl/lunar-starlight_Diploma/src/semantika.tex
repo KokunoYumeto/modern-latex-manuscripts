@@ -1,0 +1,586 @@
+\section{Semantika}
+Lotimo se zdaj modeliranja kvantnega računalništva. Najprej definirajmo matematične objekte, s katerimi bomo sploh interpretirali naše programe.
+
+\subsection{\texorpdfstring{\(C^*\)-algebre}{C*-algebre}}
+Kvantno računalništvo je mogoče standardno modelirati z operatorskimi algebrami.
+V našem primeru ga bomo modelirali s \(C^*\)-algebrami.
+Standardne definicije in izreke povzamemo po~\cite{cstar-vidav,cstar-by-example,paulsen_2003,pa-fillmore}.
+
+\begin{definition}
+    Za polje \(k\) je množica \(A\) \emph{\(k\)-algebra}, če je
+    \begin{enumerate}
+        \item \(k\)-vektorski prostor,
+        \item kolobar za seštevanje in množenje,
+        \item velja \(\for{a,b ∈ A, λ ∈ k}{(λa)b = λ(ab) = a(λb)}\).
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \(k\)-algebra \(A\) je \emph{normirana}, če ima normo in za poljubna \(a,b ∈ A\) velja \(\|ab\| ≤ \|a\|\|b\|\).
+\end{definition}
+\begin{definition}
+    Involucija je operacija \(x ↦ x^*\) na elementih algebre, za katero velja:
+    \begin{enumerate}
+        \item \(\for{a,b ∈ A}{(a+b)^* = a^* + b^*}\),
+        \item \(\for{λ ∈ ℂ, a ∈ A}{(λa)^* = \bar{λ}a^*}\),
+        \item \(\for{a,b ∈ A}{(ab)^* = b^*a^*}\),
+        \item \(\for{a ∈ A}{a^{**} = a}\).
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    Normirana \(k\)-algebra je \emph{Banachova}, če je polna kot metrični prostor z metriko porojeno iz norme.
+\end{definition}
+
+\begin{definition}
+    Množica \(A\) je \emph{\(C^*\)-algebra}, če:
+    \begin{enumerate}[(a)]
+        \item je Banachova \(ℂ\)-algebra z enoto,
+        \item ima involucijo \((-)^*\),
+        \item za vsak \(a ∈ A\) velja \(\|a\|² = \|a^*a\|\).
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    \(C^*\) se prebere kot \airquotes{c zvezdica}.
+\end{remark}
+\begin{remark}
+    V fiziki se iz zgodovinskih razlogov involucija pogosto označuje z \((-)^†\).
+\end{remark}
+\begin{remark}
+    Velja \(\|a^*\| = \|a\|\), saj je \(\|a\|² = \|a^*a\| = \|a^*\|²\) in \(\|a^*a\| ≤ \|a^*\|\|a\|\).
+\end{remark}
+
+\begin{definition}
+    Za \(C^*\)-algebri \(A\) in \(B\) je preslikava \(f : A → B\) \emph{\(*\)-homomorfizem}, če je linearna in ohranja množenje, enoto, ter involucijo.
+\end{definition}
+\begin{remark}
+    \(*\)-homorfizem se prebere kot \airquotes{zvezdica homomorfizem}.
+\end{remark}
+
+\begin{example}
+    Množica kompleksnih \(n×n\) matrik \( \M[n] ≔ Mₙ(ℂ) \), kjer za normo vzamemo spektralno normo in za involucijo hermitsko transponiranje, je \(C^*\)-algebra.
+    Spektralna norma je definirana kot največja singularna vrednost \(σ₁{\p A}\),
+    in je enaka korenu največje lastne vrednosti matrike \(A^{H}A\), \(σ₁{\p A} = \sqrt{λ₁{\p{A^{H}A}}}\).
+    Od prej že vemo, da lastnosti (a) in (b) veljata, torej moramo preveriti zgolj lastnost (c):
+    % Res, lastnosti (a) in (b) držita (to vemo od prej), lastnost (c) je pa preprosto preveriti:
+    \[σ₁{\p{A^{H}A}} = \sqrt{λ₁{\p{A^{H}AA^{H}A}}} = \sqrt{λ₁{\p{A^{H}A}}²} = λ₁{\p{A^{H}A}} = σ₁{\p A}².\qedhere\]
+\end{example}
+
+\begin{definition}
+    \emph{Direktna vsota \(C^*\)-algeber} \(X\) in \(Y\) je kartezični produkt množic z operacijami definiranimi po komponentah, za normo pa vzamemo \(\|\p{x,y}\| = \max{\p{\|x\|, \|y\|}}\). Označimo jo z \(X⊕Y\).
+\end{definition}
+
+\begin{example}
+    Za vsako \(C^*\)-algebro \(X\) je tudi množica \(n×n\) matrik nad \(X\) \(C^*\)-algebra.
+    Operacije definiramo kot navadne matrične, norma pa je spektralna norma.
+    Označimo jo z \(Mₙ(X)\).
+    Za vsako preslikavo \(f : X → Y\) lahko definiramo tudi preslikavo \(Mₙ(f) : Mₙ(X) → Mₙ(Y)\), ki deluje z \(f\) na elementih matrike.
+\end{example}
+
+\begin{proposition}
+    Velja \(Mₙ(\M[k]) ≅ \M[nk]\). Posebej je \(M_{2ᵐ}{\p{\M[2ⁿ]}} = \M[2ᵐ⁺ⁿ]\).
+\end{proposition}
+
+\begin{proposition}
+    \(C^*\)-algebre skupaj z \(*\)-homomorfizmi tvorijo kategorijo \(\cstarcat\).
+\end{proposition}
+
+\subsection{Interpretacija programskega jezika}
+Za objekt interpretacije našega modela kvantnega računalništva bomo vzeli kompleksna števila, operacijo \(n•X\) pa definiramo kot \(M_{2ⁿ}(X)\).
+Operacijo s členostjo \(\arity{p}{m₁,…,mₖ}\) torej interpretiramo z morfizmom iz \(\semmap{p}{m₁,…,mₖ}\).
+Za naš jezik to pomeni, da za \(\op{new}\), \(\op{apply}\), in \(\op{measure}\) želimo morfizme iz \(\semmap{0}{1}\), \(\semmap{p}{p}\), in \(\semmap{1}{0,0}\).
+
+Spomnimo se zdaj transformacij opazljivk, ki jih omenimo v razdelku~\ref{sec:observables}.
+Dodelitev kubita in uporabo vrat že znamo izraziti z operacijami na opazljivkah, meritve kubita pa še ne.
+%TODO: matija: No, načeloma znamo, saj si to povedala, ampak seveda če pozabimo informacijo. In to informacijo lahko upoštevamo z razvejitvijo univerz :P
+% a sem?
+Oglejmo si še enkrat (prirejen) primer~\ref{ex:proj-z}:
+\[ \Qcircuit @C=1em @R=.7em {
+    & \mbox{A} && \hspace{-2em}\mbox{B} & \mbox{C}\\
+    &\lstick{a} & \meter & \cctrl{1}\\
+    &\lstick{\ket{\mb0}} & \qw & \gate{\g X} & \rstick{b} \qw
+}
+\]
+Predstavljamo si lahko, da se po meritvi vesolje razveja in smo v vesolju, kjer izmerimo \(1\), vrata \(X\) uporabili, v vesolju, kjer izmerimo \(0\), pa ne.
+To tudi pomeni, da imamo glede na rezultat meritve dve različni opazljivki (v tem primeru \(B₀ ≔ C\) in \(B₁ ≔ X^*CX\)), ki ju moramo združiti, da se lahko premaknemo iz \(B\) levo v \(A\).
+Izkaže se, da je \(A\) enak \(\pmat{B₀&0\\0&B₁}\).
+
+Natančno torej definiramo interpretacije takole:
+\begin{itemize}
+    \item \(\sem{\sequent{Γ}{Δ}{\tnew{a}{t}}}{\p{\mat{A₁₁&A₁₂\\A₂₁&A₂₂}}} = \snew{}{\mat{A₁₁&A₁₂\\A₂₁&A₂₂}} ≔  A₁₁\),
+    \item \(\sem{\sequent{Γ}{Δ,\oldvec a}{\tapply{U}{\oldvec a}{t}}}{(A)} = \sapply{U}{A} ≔  U^*AU\),
+    \item \(\sem{\sequent{Γ}{Δ,a}{\tmeasure{a}{u}{v}}}{\p{A₁,A₂}} = \smeasure{}{A₁}{A₂} ≔ \pmat{A₁ & 0 \\ 0 & A₂}\),
+\end{itemize}
+pri čemer so \(\sequent{Γ}{Δ,\oldvec a}{t}\) (dovoljujemo \(|\oldvec a| = 1\)) in \(\sequent{Γ}{Δ}{u,v}\).
+
+Če želimo interpretirati operacije, ki delujejo na poljubnih kubitih, kubite lahko najprej permutiramo na konec, tam izvedemo operacijo s pomočjo konstrukcije \(Mₚ(f)\) in nato spravimo kubite v prvotni vrstni red.
+% TODO: matija: Kaj je M_p(f). A ni to meritev na p-tem kubitu?
+% je. ampak se mi zdi da hočem tako definirat, se pogovorim
+Pri meritvi na \(j\)-tem je to permutacija \((p,…,j)\) pred operacijo in identiteta po njej,
+pri uporabi vrat pa kubite, na katerih želimo uporabiti vrata, premaknemo na konec (v želenem vrstnem redu), uporabimo vrata \(I⊗U\) na vseh kubitih, in jih nato ponovno permutiramo nazaj,
+dodelitev \(j\)-tega kubita pa je videti kot dodelitev kubita na zadnje mesto in nato permutacija oblike \((j,…,p+1)\).
+% Če želimo interpretirati operacije, ki delujejo na poljubnih kubitih, lahko najprej kubite permutiramo na začetek, tam izvedemo operacijo, in nato spravimo kubite v prvotni vrstni red.
+% Pri meritvi na \(j\)-tem je to permutacija \((1,…,j)\) pred operacijo in identiteta po njej,
+% pri uporabi vrat pa kubite, na katerih želimo uporabiti vrata, premaknemo na začetek (v želenem vrstnem redu), uporabimo vrata \(U⊗I\) na vseh kubitih, in jih nato ponovno permutiramo nazaj,
+% dodelitev \(j\)-tega kubita pa je videti kot dodelitev kubita na prvo mesto in nato permutacija oblike \((j,…,1)\).
+
+Označimo z \(\mor{measure}ⱼ\) meritev na \(j\)-tem mestu in z \(\mor{new}ⱼ\) dodelitev \(j\)-tega kubita.
+
+\begin{proposition}
+    Preslikavi \(\mor{measure}\) in \(\mor{apply}\) sta \(*\)-homomorfizma.
+\end{proposition}
+
+\begin{proof}
+    Obe preslikavi sta linearni. Preverimo še ostale lastnosti.\\
+    \((\mor{measure})\):
+    \nopagebreak
+    \begin{itemize}
+        \item \(\smeasure{}{A}{B}\smeasure{}{C}{D} = \pmat{AC&0\\0&BD} = \smeasure{}{AC}{BD}\),
+        \item \(\smeasure{}{Iₖ}{Iₖ} = \pmat{Iₖ&0\\0&Iₖ} = I₂ₖ\),
+        \item \(\smeasure{}{A}{B}^* = \pmat{A^*&0\\0&B^*} = \smeasure{}{A^*}{B^*}\).
+    \end{itemize}
+    \((\mor{apply})\):
+    \begin{itemize}
+        \item \(\sapply{U}{A}\sapply{U}{B} = U^*AUU^*BU = U^*ABU = \sapply{U}{AB}\),
+        \item \(\sapply{U}{Iₖ} = U^*IₖU = U^*U = Iₖ\),
+        \item \(\sapply{U}{A}^* = \p{U^*AU}^* = U^*A^*U = \sapply{U}{A^*}\).\qedhere
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}
+    Preslikava \(\mor{new}\) ni \(*\)-homomorfizem.
+\end{proposition}
+
+\begin{proof}
+    Denimo, da je \(\mor{new}\) \(*\)-homomorfizem. Potem je 
+    \[0 = \snew{}{\mat{0&1\\0&0}}\snew{}{\mat{0&0\\1&0}}
+        = \snew{}{\bmat{0&1\\0&0}⋅\bmat{0&0\\1&0}}
+        = \snew{}{\mat{1&0\\0&0}}
+        = 1 \contradiction\qedhere
+    \]
+\end{proof}
+
+\begin{remark}
+    Omeniti velja, da je standardni pristop k modeliranju kvantnega računalništva dejansko s preslikavami na gostotnih matrikah, ki pa delujejo v nasprotni smeri (oziroma kategoriji) od naše~\cite{selinger-qpl}.
+    Standardni pristop tokrat zaobidemo, saj obliko morfizmov \(\semmap{p}{m₁,…,mₖ}\) nujno potrebujemo za dokaz polnosti, ki sledi kasneje.
+    To pa žal pomeni, da se bodo matrike komponirale v obratni smeri, kot se izvajajo operacije, saj opazljivke preslikavamo od konca programa proti začetku.
+\end{remark}
+
+\subsubsection{Primeri interpretacij}
+Oglejmo si zdaj interpretacije nekaj od naših \(6\)-ih primerov:
+\begin{enumerate}
+    \item \(\sem{\op{new}¹(a.\,x(a))}(A) = \snew₁{X^*AX} = a₂₂\),
+    \item \(\sem{\op{rand}(x,y)}(A₁,A₂) = \snew₁{\had^*\bmat{A₁&0\\0&A₂}\had}
+    % = \snew₁{\frac{1}{2}\mat{A₁+A₂&A₁-A₂\\A₁-A₂&A₁+A₂}}
+    = \frac{1}{2}A₁ + \frac{1}{2}A₂\).
+    \item \(\sem{\op{bell}(a,b.\,x(a,b))}(A) = \snew₁{\had^*\snew₂{\ctl{X}^*A\ctl{X}}\had} = \frac{a₁₁ + a₁₄ + a₄₁ + a₄₄}{2}\),
+    \item \(\sem{\tdiscard{a}{x}}(A) = I₂⊗A\),%TODO: is this ok or is it the other way (two flips since)
+    \item \(\sem{\op{proj}(a;a.\,x(a))}(A) = \pmat{\snew₁{A}&0\\0&\snew₁{X^*AX}} = \pmat{a₁₁&0\\0&a₂₂}\),
+    % \item \(\sem{\op{c-rot}(a;a.\,t)}(A) = \snew₂{(I⊗\had)^*\p{\smeasure₂{A}{Z^*AZ}}(I⊗\had)}\\
+    \item \(\sem{\op{c-rot}(a;a.\,x(a))}(A) = \frac{1}{2}A + \frac{1}{2}Z^*AZ = \pmat{a₁₁&0\\0&a₂₂}\).
+\end{enumerate}
+
+Prej smo z aksiomi pokazali, da sta zadnja dva primera enaka, zdaj pa lahko opazimo, da sta tudi nuni interpretaciji enaki.
+Kasneje bomo dokazali, da je to dejansko zadosten pogoj za enakost programov.
+
+\subsection{Polnost za meritev}
+Ker dodeljevanja kubitov ne moremo interpretirati zgolj z \(*\)-homomorfizmi, bomo najprej dokazali izrek le za meritev in uporabo vrat, nato pa bomo ta izrek uporabili v dokazu splošnega izreka.
+
+\begin{proposition}
+    Kompleksna števila \(ℂ ∈ \cstarcat\) tvorijo model fragmenta kvantnega računalništva, ki vključuje operaciji \(\op{measure}\) in \(\op{apply}\) (ampak ne \(\op{new}\)) in vse relevantne aksiome ((\ref{ax:A}) – (\ref{ax:B}), (\ref{ax:F}) – (\ref{ax:J})).
+\end{proposition}
+
+\begin{proof}
+    Definirajmo \(n•ℂ ≔ \M[2ⁿ]\) in operaciji \(\op{measure}\) in \(\op{apply}\) interpretirajmo kot zgoraj.
+    To je že struktura, torej moramo preveriti le še interpretacije aksiomov.
+    \begin{enumerate}[(A)]
+        \item \( \sequent{x:0,y:0}{a}{\apply{X}{a}{\measure{a}{x}{y}} = \measure{a}{y}{x}} \)
+        \item \( \sequent{x:1,y:1}{a,b}{
+                    \applyd{U, V}{a,b}{\measure{a}{x(b)}{y(b)}}
+                    = \measure{a}{\apply{U}{b}{x(b)}}{\apply{V}{b}{y(b)}}} \)
+        % \item \( \sequent{Γ}{a}{\apply{U}{a}{\tdiscard{a}{t}} = \tdiscard{a}{t}} \)
+        \addtocounter{enumi}{3}
+        \item \( \sequent{x:2}{a,b}{\apply{\swap}{a,b}{x{\p{a,b}}} = x{\p{b,a}}} \)
+        \item \( \sequent{x:1}{a}{\apply{I}{a}{x{\p a}} = x{\p a}} \)
+        \item \( \sequent{x:1}{a}{\apply{UV}{a}{x{\p a}} = \apply{V}{a}{\apply{U}{a}{x{\p a}}}} \)
+        \item \( \sequent{x:2}{a,b}{
+                      \apply{U⊗V}{a,b}{x{\p{a,b}}}
+                    = \apply{U}{a}{\apply{V}{b}{x{\p{a,b}}}}} \)
+        \item \( \sequent{x:0,y:0,u:0,v:0}{a,b}{
+                      \measurebr{a}{\measure{b}{u}{v}}{\measure{b}{x}{y}}
+                    = \measurebr{b}{\measure{a}{u}{x}}{\measure{a}{v}{y}}} \)
+    \end{enumerate}
+    %TODO: matija: tri/dva?
+    % mja idk prve tri k so zgorej našteti
+    Enakost bomo izpeljali zgolj za prve tri aksiome zgoraj, saj so aksiomi (\ref{ax:F}) – (\ref{ax:J}) enostavne posledice definicij uporabe matrik.
+    Le pri aksiomu (\ref{ax:I}) omenimo, da \(a,b\) v zapisu spet interpretiramo kot kvantni vektor, kjer \(a\) naslavlja prvi kubit, \(b\) pa drugega.
+    Intuitivno si lahko predstavljamo \(a,b\) kot \(a⊗b\), omeniti pa velja, da sta \(a\) in \(b\) tu lahko prepletena, torej vektorja, ki ga \(a,b\) predstavlja ne moremo nujno zapisati kot tenzorski produkt kubitov.
+
+    Interpretirajmo aksiom (\ref{ax:A}). Naj bosta \(A₁,A₂ ∈ \M[1] = ℂ\).
+    \begin{align*}
+        &\hspace{-3em}\sem{\apply{X}{a}{\measure{a}{x}{y}}}(A₁,A₂)
+         = X^*\pmat{A₁&0\\0&A₂}X\\
+        &= \pmat{A₂&0\\0&A₁}
+         = \sem{\measure{a}{y}{x}}(A₁,A₂)
+    \end{align*}
+
+    Interpretirajmo še aksiom (\ref{ax:B}). Naj bosta \(A₁,A₂ ∈ \M[2]\).
+    \begin{align*}
+        &\hspace{-3em}\sem{\applyd{U, V}{a,b}{\measure{a}{x(b)}{y(b)}}}(A₁,A₂)\\
+        &= \pmat{U^*&0\\0&V^*}\pmat{A₁&0\\0&A₂}\pmat{U&0\\0&V}
+         = \pmat{U^*A₁U&0\\0&V^*A₂V}\\
+        &\hspace{3em}= \sem{\measure{a}{\apply{U}{b}{x(b)}}{\apply{V}{b}{y(b)}}}(A₁,A₂)
+    \end{align*}
+
+    Podrobno si oglejmo še interpretacijo aksioma (\ref{ax:F}). Naj bo \(A ∈ \M[4]\).
+    \begin{align*}
+        &\hspace{-3em}\sem{\apply{swap}{a,b}{x{\p{a,b}}}}(A)
+         = \swap^*⋅A⋅\swap\\
+        &= \pmat{1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1}\pmat{a₁₁&a₁₂&a₁₃&a₁₄\\a₂₁&a₂₂&a₂₃&a₂₄\\a₃₁&a₃₂&a₃₃&a₃₄\\a₄₁&a₄₂&a₄₃&a₄₄}\pmat{1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1}\\
+        &= \pmat{a₁₁&a₁₃&a₁₂&a₁₄\\a₃₁&a₃₃&a₃₂&a₃₄\\a₂₁&a₂₃&a₂₂&a₂₄\\a₄₁&a₄₃&a₄₂&a₄₄}
+         = \sem{x{\p{b,a}}}(A)
+    \end{align*}
+    
+    Ostale aksiome lahko preverimo podobno.
+    %TODO: then do it?
+\end{proof}
+
+\begin{theorem}[Polnost za meritev]\label{th:partial}
+    Model \(ℂ ∈ \cstarcat\) je univerzalno poln:
+    \begin{enumerate}
+        \item Za vsak \(*\)-homomorfizem \(f : \semmap{p}{m₁,…,mₖ}\) obstaja izraz v algebrajski teoriji, ki ne vsebuje \(\op{new}\), tako da je \(t : \arity{p}{m₁,…,mₖ}\) in \(\sem{t} = f\).
+        \item Če \(\absseq{t, u}\) ne vsebujeta \(\op{new}\) in \(\sem{t} = \sem{u}\) lahko izpeljemo \(\absseq{t = u}\).
+    \end{enumerate}
+\end{theorem}
+
+% \begin{proposition}
+%     Neničelni \(*\)-homomorfizmi \(\M[k] → \M[n]\) obstajajo le, če je \(n ≥ k\).
+% \end{proposition}
+
+Navedimo najprej nekaj pomožnih izrekov in definicij, ki se uporabijo v dokazu.
+\begin{proposition}
+    Naj bo \(n ≥ k\) in \(f : \M[k] → \M[n]\) \(*\)-homomorfizem, ki ne (nujno) ohranja enote. Potem obstaja~\cite{pa-fillmore} unitarna preslikava \(U ∈ \M[n]\), tako da je \(f\) oblike \(A ↦ UD{(A,…,A,0)}U^*\), kjer se \(A\) na diagonali pojavi \(m\)-krat, \(0\) je \(r×r\) ničelna matrika, in velja \(n = m⋅k + r\). Številu \(m\) pravimo \emph{kratnost} \(*\)-homomorfizma.
+    Če \(f\) ohranja enoto je \(r = 0\) in \(n = m⋅k\).
+\end{proposition}
+
+Dokaz v bistveno drugačnem jeziku najdemo v~\cite[izrek I.10.8]{cstar-by-example}.
+
+Označimo \(\cat{C} ≔ \semmap{p}{m₁,…,mₖ}\).
+
+\begin{definition}
+    % Za preslikavo \(f : A → B\), kjer je \(A = \M[k₁]⊕⋯⊕\M[kᵣ]\) in \(B = \M[n₁]⊕⋯⊕\M[nₛ]\) je Brattelijev diagram multigraf z dvema vrsticama vozlišč označenih s \(kᵢ\) in \(nⱼ\), skupaj z \(mᵢⱼ\) povezavami med \(kᵢ\) in \(nⱼ\), kjer je \(mᵢⱼ\) kratnost preslikave \(πⱼ∘f∘ιᵢ\).
+    Za \(m₁,…,mₖ,p ∈ ℕ₊\) so elementi množice \emph{Brattelijevih diagramov} \(\cat{B} ≔ \brat{2ᵖ}{2^{m₁},…,2^{mₖ}}\) \(k\)-terice naravnih števil \(\p{s₁,…,sₖ}\), tako da je \(∑ᵢsᵢ2^{mᵢ} = 2ᵖ\).
+    Funkcijo \(μ : \cat{B} → \cat{C}\) definiramo s predpisom
+    \[μ{\p{s₁,…,sₖ}}{\p{A₁,…,Aₖ}} = D{\p{A₁,…,A₁,A₂,…,Aₖ}},\] kjer se \(Aᵢ\) na diagonali pojavi \(sᵢ\)-krat. 
+\end{definition}
+
+\begin{lemma}
+    Obstaja \(ρ : \cat{C} → \cat{B}\), da je \(ρ∘μ = \id\). Še več, za \(f,g ∈ \cat{C}\) sta \(ρ{\p f}\) in \(ρ{\p g}\) enaka natanko tedaj, ko obstaja \(2ᵖ×2ᵖ\) unitarna matrika \(U\), tako da je \(f = U^*(g(-))U\).
+\end{lemma}
+
+Dokaz najdete v~\cite[razdelek 1.3]{pa-fillmore}\cite{ola-bratteli}.
+
+% \begin{proof}
+%     Pokažimo lemo zgolj v obratni smeri. Celoten dokaz lahko bralec najde v~\cite{pa-fillmore,ola-bratteli}.
+
+%     Naj bosta \(f,g : \semmap{p}{m₁,…,mₖ}\) taka \(*\)-homomorfizma, da velja \(f = U^*g{(-)}U\).
+
+%     Definirajmo \(fᵢ ≔ f∘ιᵢ, gᵢ ≔ g∘ιᵢ : \M[2^{mᵢ}] → \M[2ᵖ]\), kjer je \(ιᵢ(A) = (0,…,A,…,0)\) (z \(A\)-jem na \(i\)-tem mestu).
+%     Preslikavo \(ρ\) definiramo tako, da \(f\) slika v \(k\)-terico kratnosti preslikav \(fᵢ\). Označimo \(ρ(f) = \p{t₁,…,tₖ}\).
+
+%     Zaradi tranzitivnosti lahko za \(g\) vzamemo kar \(μ(ρ(g)) = μ(s₁,…,sₖ)\).
+
+%     % \((⇐)\)
+%     % Naj bo \(f = U^*g{(-)}U\).
+%     Enakost komponiramo z \(ιᵢ\) in dobimo enakosti \(fᵢ = U^*gᵢ{(-)}U\).
+%     Po zgornji trditvi za vsak \(A\) velja \(fᵢ{(A)} = Vᵢ^*(D(A,…,A))Vᵢ ≕ Vᵢ^*D_{tᵢ}Vᵢ\), \(gᵢ{(A)}\) je pa enak \(D(0,A,…,A,0) ≕ D_{sᵢ}\), kjer se pri vsakem \(D\)-ju \(A\) na diagonali pojavi \(tᵢ\) in \(sᵢ\)-krat.
+%     Vstavimo te dve enačbi v predpostavko in nesemo unitarne matrike na eno stran, da dobimo \(D_{tᵢ} = (VᵢU)^*D_{sᵢ}(VᵢU)\).
+
+%     Naj bo sedaj \(A\) neka matrika ranga \(1\).
+%     Ker unitarne matrike ne vplivajo na rang, je \(tᵢ = \rang{D_{tᵢ}} = \rang{D_{sᵢ}} = sᵢ\).
+%     Ker je bil \(i\) poljuben, sta torej Brattelijeva diagrama, ki pripadata \(f\) in \(g\), enaka.
+% \end{proof}
+
+\begin{proof}[Skica dokaza izreka \ref{th:partial}.]
+    Povzamemo dokaz opisan v~\cite[trditev 9]{algeff-lin-qpl}.
+
+    Najprej pokažemo direktno ekvivalenco med določenimi izrazi, zgrajenimi le iz meritev, in Brattelijevimi diagrami.
+    Natančneje, izraz \(t\) interpretiramo z Brattelijevim diagramom \(\brsem{t}\), tako da velja \(μ\brsem{t} = \sem{f}\).
+    V obratni smeri pa definiramo \(\mor{Measure}{\p s}\) tako, da je \(\mor{Measure}{\brsem t} = t\) in \(\brsem{\mor{Measure}{\p s}} = s\) z rekurzijo.
+
+    Potem pa naj bo \(f : \semmap{p}{m₁,…,mₖ}\) poljuben \(*\)-homomorfizem in \(s ≔ ρ(f)\).
+    Po zgornji lemi je \(f\) oblike \(U^*(μ(s))U\), torej je \(f = \sem{\tapply{U}{a}{\mor{Measure}{\p s}}}\).
+
+    Tako dokažemo prvi del izreka, drugi del pa se dokaže v dveh korakih:
+    \begin{enumerate}
+        \item definicija preslikave \(f ↦ \tapply{U}{a}{\mor{Measure}{\p{ρ{\p f}}}}\) ni odvisna od \(U\) in
+        \item preslikava je surjektivna.
+    \end{enumerate}
+
+    Dokaz prvega koraka je za to delo prezahteven, drugi korak pa dokažemo takole:
+    najprej uporabimo aksiom (\ref{ax:B}), da prestavimo vse meritve znotraj operacij \(\op{apply}\).
+    Argumente meritvam uredimo kot zahteva ekvivalenca z začetka dokaza z aksiomi (\ref{ax:A}), (\ref{ax:B}), (\ref{ax:F}), in (\ref{ax:J}),
+    zaporedje operacij \(\op{apply}\) pa združimo v enega z aksiomi (\ref{ax:G}) – (\ref{ax:I}).
+    Tako je vsak izraz ekvivalenten izrazu oblike \(\tapply{U}{a}{\mor{Measure}{\p{ρ{\p f}}}}\), tako da je preslikava res surjektivna.
+\end{proof}
+
+\subsection{Polnost v splošnem}
+Za dokaz v splošnem bomo potrebovali bolj splošne morfizme.
+Definirajmo najprej še nekaj pojmov glede pozitivnosti in navedimo nekaj standardnih rezultatov. Povzeto po~\cite{paulsen_2003}.
+
+\begin{definition}
+    Element \(x\) \(C^*\)-algebre je \emph{pozitiven}, če obstaja kak element \(y\), da je \(x = y^*y\).
+\end{definition}
+
+\begin{definition}
+    Preslikava \(f\) je \emph{popolnoma pozitivna}, če za vsak \(k ∈ ℕ₊\) preslikava \(Mₖ{\p f}\) ohranja pozitivnost elementov.
+\end{definition}
+
+\begin{proposition}
+    Za \(f : X → Y\), kjer množenje v enem od \(X\) in \(Y\) komutira, so naslednje trditve ekvivalentne:
+    \begin{enumerate}
+        \item \(f\) ohranja pozitivnost elementov,
+        \item za vsak \(k ∈ ℕ₊\) preslikava \(Mₖ{\p f}\) ohranja pozitivnost elementov,
+        \item \(f\) je popolnoma pozitivna.
+    \end{enumerate}
+\end{proposition}
+
+Dokaz lahko najdete v~\cite[izreka 3.9 in 3.11]{paulsen_2003}.
+
+% \begin{proof}
+%     Trditvi \((2)\) in \((3)\) sta ekvivalentni po definiciji in očitno \((2) ⇒ (1)\).
+%     Dokazati moramo torej zgolj \((1) ⇒ (2)\).
+% \end{proof}
+
+% \begin{definition}
+%     Preslikava \(f\) je eniška, če slika enoto v enoto.
+% \end{definition}
+
+\begin{proposition}
+    \(C^*\)-algebre skupaj s popolnoma pozitivnimi preslikavami, ki ohranjajo enoto, tvorijo kategorijo \(\cstarcpucat\) (angl. \foreignlanguage{english}{Completely Positive Unital maps}).
+\end{proposition}
+
+\begin{proposition}
+    Preslikava \(\mor{new}\) je popolnoma pozitivna in ohranja enoto.
+\end{proposition}
+
+\begin{proof}
+    Preverimo obe lastnosti:
+    \begin{itemize}
+        \item \(\snew₁{\mat{1&0\\0&1}} = 1\),
+        \item naj bo \(x\) pozitiven element. Potem je \(x = y^*y\), za nek \(y ∈ \M[2]\).
+        Če zapišemo \(y = \pmat{a&b\\c&d}\), je potem \(\snew₁{x} = a\bar a + c\bar c\).
+        Število \(a\bar a + c\bar c\) je realno in nenegativno, torej lahko vzamemo \(z = \sqrt{a\bar a + c\bar c}\) in je \(\snew₁{x} = z^*z\).\qedhere
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}
+    Kompleksna števila \(ℂ ∈ \cstarcpucat\) tvorijo model kvantnega računalništva.
+\end{proposition}
+
+\begin{proof}
+    Ker so \(*\)-homomorfizmi tudi popolnoma pozitivni in ohranjajo enoto, moramo pokazati zgolj enakost interpretacij preostalih aksiomov ((\ref{ax:D}), (\ref{ax:E}), (\ref{ax:K}), (\ref{ax:L})).
+    \begin{enumerate}[(A)]
+        \addtocounter{enumi}{3}
+        \item \( \sequent{x:0,y:0}{-}{\new{a}{\measure{a}{x}{y}} = x} \),
+        \item \( \sequent{x:2}{b}{
+                    \new{a}{\applyd{U,V}{a,b}{x{\p{a,b}}}}
+                    = \apply{U}{b}{\new{a}{x{\p{a,b}}}}} \),
+        \addtocounter{enumi}{5}
+        \item \( \sequent{x:2}{-}{\new{a}{\new{b}{x{\p{a,b}}}} = \new{b}{\new{a}{x{\p{a,b}}}}} \),
+        \item \( \sequent{x:1,y:1}{b}{
+                    \new{a}{\measure{b}{x{\p a}}{y{\p a}}}
+                    = \measurebr{b}{\new{a}{x{\p a}}}{\new{a}{y{\p a}}}} \).
+    \end{enumerate}
+
+    Preverimo kar vse štiri aksiome po vrsti.
+    Naj bosta \(A₁,A₂ ∈ \M[1]\).
+    \begin{align*}
+        \sem{\new{a}{\measure{a}{x}{y}}}(A₁,A₂)
+         = \snew₁{\mat{A₁&0\\0&A₂}} = A₁ = \sem{x}(A₁,A₂).
+    \end{align*}
+
+    Naj bo \(A ∈ \M[4]\).
+    \begin{align*}
+        &\hspace{-3em}\sem{\new{a}{\applyd{U,V}{a,b}{x{\p{a,b}}}}}(A)
+        %  = \snew₁{\sem{\applyd{U,V}{a,b}{x{\p{a,b}}}}(A)}\\
+         = \snew₁{\bmat{U^*&0\\0&V^*}\bmat{A₁₁&A₁₂\\A₂₁&A₂₂}\bmat{U&0\\0&V}}\\
+        &= \snew₁{\mat{U^*A₁₁U&U^*A₁₂V\\V^*A₂₁U&V^*A₂₂V}}
+         = U^*A₁₁U\\
+        &= U^*\p{\snew₁{A}}U
+         = \sem{\apply{U}{b}{\new{a}{x{\p{a,b}}}}}(A).
+    \end{align*}
+    \begin{align*}
+        &\hspace{-3em}\sem{\new{a}{\new{b}{x{\p{a,b}}}}}(A)
+         = \snew₁{\snew₂{A}}
+         = a₁₁\\
+        &= \snew₂{\snew₁{A}}
+         = \sem{\new{b}{\new{a}{x{\p{a,b}}}}}(A).
+    \end{align*}
+
+    Naj bosta \(A,B ∈ \M[2]\).
+    \begin{align*}
+        &\hspace{-3em}\sem{\new{a}{\measure{b}{x{\p a}}{y{\p a}}}}(A,B)
+         = \snew₁{\smeasure₂{A}{B}}\\
+        &= \pmat{a₁₁&0\\0&b₁₁}
+         = \smeasure₁{\snew₁{A}}{\snew₁{B}}\\
+        &= \sem{\measurebr{b}{\new{a}{x{\p a}}}{\new{a}{y{\p a}}}}(A,B).\qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Polnost v splošnem]
+    Model \(ℂ ∈ \cstarcpucat\) je univerzalno poln:
+    \begin{enumerate}
+        \item Za vsako popolnoma pozitivno preslikavo \(f : \semmap{p}{m₁,…,mₖ}\), ki ohranja enoto, obstaja izraz v algebrajski teoriji, tako da je \(t : \arity{p}{m₁,…,mₖ}\) in \(\sem{t} = f\).
+        \item Če \(\absseq{t, u}\) in \(\sem{t} = \sem{u}\) lahko izpeljemo \(\absseq{t = u}\).
+    \end{enumerate}
+\end{theorem}
+
+Navedimo najprej ključni izrek, ki ga uporabimo v dokazu.
+
+\begin{theorem}[Stinespringov izrek o dilaciji]
+    Naj bo \(\mc A\) \(C^*\)-algebra in \(f : \mc A → \M[p]\) popolnoma pozitivna preslikava, ki ohranja enoto. Potem obstaja \(q ≥ p\) in \(*\)-homomorfizem \(g : \mc A → \M[q]\), tako da je \(f(A) = g(A)|ₚ\).
+    \[\begin{tikzcd}
+        \mc{A} \\
+        {\M[q]} & {\M[p]}
+        \arrow[     from=2-1, to=2-2]
+        \arrow["g", from=1-1, to=2-1]
+        \arrow["f", from=1-1, to=2-2]
+    \end{tikzcd}\]
+\end{theorem}
+
+\begin{theorem}[o minimalnosti dilacije]
+    Naj bodo \(\mc A\), \(f\), \(p\), \(g\), in \(q\) kot v prejšnjem izreku.
+    Potem lahko izberemo minimalno dilacijo: če je \(r ≥ p\) in \( h : \mc A → \M[r] \) \(*\)-homomorfizem tak, da je \( h(-)|ₚ = f(-) \) je \(r ≥ q\) in \(g(-) = Uh(-)U^*|_q\) za neko \(r×r\) unitarno matriko.
+    % https://q.uiver.app/?q=WzAsNSxbMywwLCJBIl0sWzMsMSwiXFxNW3FdIl0sWzQsMSwiXFxNW3BdIl0sWzIsMSwiXFxNW3JdIl0sWzAsMSwiXFxNW3JdIl0sWzEsMl0sWzAsMSwiZyJdLFswLDIsImYiXSxbMywxXSxbNCwzLCJVKC0pVSoiLDFdLFswLDQsImgiLDJdLFs0LDIsIiIsMix7ImN1cnZlIjozfV1d
+    \[\begin{tikzcd}
+        &&& \mc{A} \\
+        {\M[r]} && {\M[r]} & {\M[q]} & {\M[p]}
+        \arrow[                          from=2-4, to=2-5]
+        \arrow["g",                      from=1-4, to=2-4]
+        \arrow["f",                      from=1-4, to=2-5]
+        \arrow[                          from=2-3, to=2-4]
+        \arrow["{U(-)U^*}"{description}, from=2-1, to=2-3]
+        \arrow["h"',                     from=1-4, to=2-1]
+        \arrow[curve={height=20pt},      from=2-1, to=2-5]
+    \end{tikzcd}\]
+\end{theorem}
+
+Dokaza teh izrekov izpustimo, saj sta zunaj obsega tega dela, najdete pa ju v~\cite[poglavje 4]{paulsen_2003}.
+
+\begin{proof}[Dokaz izreka o polnosti.]
+    Predstavimo dokaz iz~\cite[trditev 11]{algeff-lin-qpl}.
+
+    Naj bo \(f : \semmap{p}{m₁,…,mₖ}\) kot v izreku. Potem lahko uporabimo Stinespringov izrek o dilaciji, skupaj z minimalnostjo, da \(f\) razcepimo na \(g : \mc A → \M[q]\), za nek \(q ≥ 2ᵖ\), kjer je \(\mc A = \M[2^{m₁}]⊗⋯⊗\M[2^{mₖ}]\).
+    Če je \(q\) potenca \(2\), je izrek tako rekoč dokazan; \(g\) lahko definiramo po izreku \ref{th:partial}, skrčitev pa z zaporednimi \(\mor{new}\) in premešavanjem koordinat.
+    % Drugi del sledi iz minimalnosti dilacije. % source?
+    Vendar v splošnem \(q\) ni potenca \(2\). Kljub temu, pa lahko tudi \(g\) ustrezno faktoriziramo:
+    % https://q.uiver.app/?q=WzAsNSxbMCwwLCJBIl0sWzMsMCwiMl57beG1on1cXGNkb3QgXFxNW3Fd4oqVKDJecS1xKVxcY2RvdFxcTVsyXntt4bWifV0iXSxbNCwwLCJcXE1bMl57beG1oitxfV0iXSxbNCwxLCJcXE1bcV0iXSxbNCwyLCJcXE1bMl5wXSJdLFswLDQsImYiLDJdLFswLDMsImciLDJdLFswLDEsIigyXntt4bWifVxcY2RvdCBnLCgyXmwtcSlcXGNkb3Qgz4DhtaIpIl0sWzEsMl0sWzIsM10sWzMsNF0sWzEsMywiz4DigoEiXV0=
+    \[\begin{tikzcd}
+        \mc{A} &&& {2^{mᵢ}\cdot \M[q]⊕(2^q-q)\cdot\M[2^{mᵢ}]} & {\M[2^{mᵢ+q}]} \\
+        &&&& {\M[q]} \\
+        &&&& {\M[2^p]},
+        \arrow["f"',                                from=1-1, to=3-5]
+        \arrow["g"',                                from=1-1, to=2-5]
+        \arrow["{(2^{mᵢ}\cdot g,(2^q-q)\cdot πᵢ)}", from=1-1, to=1-4]
+        \arrow["h",                                 from=1-4, to=1-5]
+        \arrow[                                     from=1-5, to=2-5]
+        \arrow[                                     from=2-5, to=3-5]
+        \arrow["{π₁}",                              from=1-4, to=2-5]
+    \end{tikzcd}\]
+    kjer zapis \(n⋅\M[l]\) predstavlja \(n\)-kratno direktno vsoto \(C^*\)-algeber \(\M[l]\).
+
+    Navpične preslikave so zožitve, vodoravne pa \(*\)-homomorfizmi, torej lahko tako kot prej definiramo izraz \(t\), da je \(\sem{t} = f\).
+    Ostane nam še drugi del izreka, naj bosta \(t\) in \(u\) taka, da je \(\sem{t} = \sem{u}\).
+    Po aksiomih o komutativnosti lahko zapišemo \(t\) kot \(\tnew{a₁,…,aₗ}{t'}\) (in podobno za \(u\)). Iz aksioma \ref{ax:D} sledi \(\tnew{a}{\tdiscard{a}{x}} = x\), torej je BŠS število \(\mor{new}\) na začetku \(t\) in \(u\) enako.
+    Po izreku \ref{th:partial} imamo \(*\)-homomorfizma \(\sem{t'}, \sem{u'}: \mc A → \M[2ˡ]\), tako da velja \(\sem{t} = \mc A \xrightarrow{\sem{t'}} \M[2ˡ] → \M[2ᵖ]\) in \(\sem{u} = \mc A \xrightarrow{\sem{u'}} \M[2ˡ] → \M[2ᵖ]\).
+    Po Stinespringovem izreku in minimalnosti spet sledi, da lahko \(\sem{t} = \sem{u}\) faktoriziramo skozi nek \(\M[q]\). Po minimalnosti (kjer za \(h\) vzamemo \(\sem{t'}\) in \(\sem{u'}\) ter \(r = 2ˡ\)) tudi obstajata \(2ˡ×2ˡ\) unitarni matriki \(U\) in \(V\), da spodnji diagram komutira.
+    % https://q.uiver.app/?q=WzAsNyxbMCwyLCJBIl0sWzMsMCwiXFxNWzLLoV0iXSxbNCwxLCJcXE1bMsuhXSJdLFs1LDIsIlxcTVsyXnFdIl0sWzMsNCwiXFxNWzLLoV0iXSxbNCwzLCJcXE1bMsuhXSJdLFs3LDIsIlxcTVsy4bWWXSJdLFswLDEsIlxcc2Vte3QnfSJdLFsxLDIsIlUoLSlVXioiLDJdLFsyLDNdLFswLDQsIlxcc2Vte3UnfSJdLFs0LDUsIlYoLSlWXioiXSxbNSwzXSxbNCw2LCIiLDEseyJjdXJ2ZSI6M31dLFsxLDYsIiIsMSx7ImN1cnZlIjotM31dLFszLDZdXQ==
+    \[\begin{tikzcd}
+        &&& {\M[2ˡ]} \\
+        &&&& {\M[2ˡ]} \\
+        \mc{A} &&&&& {\M[2^q]} && {\M[2ᵖ]} \\
+        &&&& {\M[2ˡ]} \\
+        &&& {\M[2ˡ]}
+        \arrow["{\sem{t'}}",         from=3-1, to=1-4]
+        \arrow["{U(-)U^*}"',         from=1-4, to=2-5]
+        \arrow[                      from=2-5, to=3-6]
+        \arrow["{\sem{u'}}",         from=3-1, to=5-4]
+        \arrow["{V(-)V^*}",          from=5-4, to=4-5]
+        \arrow[                      from=4-5, to=3-6]
+        \arrow[curve={height=18pt},  from=5-4, to=3-8]
+        \arrow[curve={height=-18pt}, from=1-4, to=3-8]
+        \arrow[                      from=3-6, to=3-8]
+    \end{tikzcd}\]
+    Kompozituma preslikav na notranjem diamantu sta \(*\)-homomorfizma.
+    Ker desna trikotnika komutirata, matriki \(U\) in \(V\) ne spreminjata prvih \(p\) kubitov
+    in lahko po spodnji lemi BŠS vzamemo \(U = V = I\).
+
+    \begin{lemma}\label{lemma:fix}
+        Naj bo \(m < n\) in \(U\) vrata reda \(n\), ki fiksirajo prvih \(m\) kubitov.
+        Potem lahko izpeljemo
+        \[ \sequent{x:n}{a₁,…,aₘ}{\tnew{a_{m+1},…,aₙ}{\tapply{U}{a}{x(a)}}
+                                  = \tnew{a_{m+1},…,aₙ}{x(a)}}.\]
+    \end{lemma}
+    
+    \begin{proof}[Dokaz leme]
+        Ker je \(U = D{\p{I, U'}}\) za neka vrata \(U'\) reda \(n-m\), je po aksiomu \ref{ax:E} leva stran enaka \(\tapply{I}{a₁,…,aₘ}{\tnew{a_{m+1},…,aₙ}{x(a)}}\), kar pa je enako desni strani po aksiomu \ref{ax:G}.
+    \end{proof}
+
+    Zgornji diagram lahko torej poenostavimo na
+    % https://q.uiver.app/?q=WzAsNCxbMCwxLCJBIl0sWzEsMCwiXFxNWzLLoV0iXSxbMiwxLCJcXE1bMl5xXSJdLFsxLDIsIlxcTVsyy6FdIl0sWzAsMSwiXFxzZW17dCd9Il0sWzAsMywiXFxzZW17dSd9IiwyXSxbMywyXSxbMSwyXV0=
+    \[\begin{tikzcd}
+        & {\M[2ˡ]} \\
+        \mc{A} && {\M[2^q]} \\
+        & {\M[2ˡ]}
+        \arrow["{\sem{t'}}",  from=2-1, to=1-2]
+        \arrow["{\sem{u'}}"', from=2-1, to=3-2]
+        \arrow[               from=3-2, to=2-3]
+        \arrow[               from=1-2, to=2-3]
+    \end{tikzcd}\]
+    in uporabimo naslednjo lemo:
+
+    \begin{lemma}
+        Če sta \(f\) in \(g\) taka \(*\)-homomorfizma, da spodnji diagram komutira
+        \[\begin{tikzcd}
+            {\mc{A}} \\
+            {\M[p+q]} & {\M[p]},
+            \arrow[      from=2-1, to=2-2]
+            \arrow["f"', from=1-1, to=2-1]
+            \arrow["g",  from=1-1, to=2-2]
+        \end{tikzcd}\]
+        pri čemer je vodoravna preslikava zožitev, lahko preslikavo \(f\) faktoriziramo skozi bločno-diagonalno preslikavo \(\M[p]⊕\M[q] → \M[p+q]\).
+    \end{lemma}
+
+    Iz te leme dobimo preslikave \(f\), \(f'\), \(g\), \(h\) in z njimi lahko razširimo naš diagram.
+    % https://q.uiver.app/?q=WzAsNixbMCwxLCJBIl0sWzMsMCwiXFxNWzLLoV0iXSxbNCwxLCJcXE1bMl5xXSJdLFszLDIsIlxcTVsyy6FdIl0sWzEsMCwiXFxNW3Fd4oqVXFxNWzLLoS1xXSJdLFsxLDIsIlxcTVtxXeKKlVxcTVsyy6EtcV0iXSxbMCwxLCJcXHNlbXt0J30iLDIseyJsYWJlbF9wb3NpdGlvbiI6ODB9XSxbMCwzLCJcXHNlbXt1J30iLDAseyJsYWJlbF9wb3NpdGlvbiI6ODB9XSxbMywyXSxbMSwyXSxbMCw1LCIoZicsIGgpIiwyXSxbMCw0LCIoZiwgZykiXSxbNSwzXSxbNCwxXV0=
+    \[\begin{tikzcd}
+        & {\M[q]⊕\M[2ˡ-q]} && {\M[2ˡ]} \\
+        \mc{A} &&&& {\M[2^q]} \\
+        & {\M[q]⊕\M[2ˡ-q]} && {\M[2ˡ]}
+        \arrow["{\sem{t'}}"'{pos=0.6}, from=2-1, to=1-4]
+        \arrow["{\sem{u'}}"{pos=0.6},  from=2-1, to=3-4]
+        \arrow[                        from=3-4, to=2-5]
+        \arrow[                        from=1-4, to=2-5]
+        \arrow["{(f', h)}"',           from=2-1, to=3-2]
+        \arrow["{(f, g)}",             from=2-1, to=1-2]
+        \arrow[                        from=3-2, to=3-4]
+        \arrow[                        from=1-2, to=1-4]
+    \end{tikzcd}\]
+    Ker diagram komutira, takoj vidimo, da je \(f = f'\).
+
+    Vemo, da je \(t = \tnew{a}{\tnew{b}{\tmeasure{b}{t'}{u'}}}\) in po lemi \ref{lemma:fix}
+    je to enako tudi \(\tnew{a}{\tnew{b}{\tapply{U}{a,b}{\tmeasure{b}{t'}{u'}}}}\),
+    kjer je \(U\) unitarna matrika, ki zamenja pojavitvi \((2ˡ-q)\) v \(\M[q + (2ˡ-q) + q + (2ˡ-q)] = \M[2ˡ]⊗\M[2]\). Matrika je res prave dimenzije (saj je \(a\) vektor \(l\)-tih kubitov, ki mu priključimo še en kubit \(b\)) in fiksira prvih \(q > 2ᵖ\) vrstic, torej prvih \(p\) kubitov.
+
+    Sledi, da je \(t = u\), če je \(\tapply{U}{a,b}{\tmeasure{b}{t'}{u'}} = \tmeasure{b}{u'}{t'}\).
+    Po izreku \ref{th:partial} lahko enakost izpeljemo natanko tedaj, ko sta pripadajoča \(*\)-homo\-morfizma enaka. Če ju izračunamo res vidimo, da sta enaka:
+    \begin{align*}
+        &\hspace{-3em}\sem{\tapply{U}{a,b}{\tmeasure{b}{t'}{u'}}}(x)
+         = U^*\pmat{\sem{t'}(x)&0\\0&\sem{u'}(x)}U\\
+        &= U^*\pmat{f(x)&0&0&0\\0&g(x)&0&0\\0&0&f(x)&0\\0&0&0&h(x)}U
+         = \pmat{f(x)&0&0&0\\0&h(x)&0&0\\0&0&f(x)&0\\0&0&0&g(x)}\\
+        &= \pmat{\sem{u'}(x)&0\\0&\sem{t'}(x)}
+         = \sem{\tmeasure{b}{u'}{t'}},
+    \end{align*}
+    torej je dokaz končan.
+\end{proof}

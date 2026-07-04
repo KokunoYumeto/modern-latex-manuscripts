@@ -1,0 +1,1045 @@
+\documentclass{article}
+
+\input{../definitions.tex}
+
+\numberwithin{equation}{section}
+
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{El teorema de los cuatro cuadrados\\
+y el teorema de Minkowski}
+\date{Universidad de El Salvador. Marzo de 2018}
+
+\usepackage{multicol}
+
+\setlength{\columnseprule}{0.4pt}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+Uno de los primeros teóricos de números europeos fue el matemático francés
+\personality{Claude Gaspard Bachet de Méziriac} (1581--1638). En 1621 Bachet
+publicó la traducción en latín de la \emph{Arithmetica} de Diofanto. En sus
+notas Bachet mencionó la siguiente conjetura.
+
+\vspace{1em}
+
+\emph{Cada entero $n\ge 0$ puede expresarse como la suma de cuatro cuadrados:
+$$n = a^2 + b^2 + c^2 + d^2, \quad a,b,c,d\in\ZZ.$$}
+
+Por ejemplo,
+
+\begin{align*}
+  7 & = 2^2 + 1^2 + 1^2 + 1^2, \\
+  15 & = 3^2 + 2^2 + 1^2 + 1^2, \\
+  28 & = 3^2 + 3^2 + 3^2 + 1^2.
+\end{align*}
+
+La primera demostración de esta conjetura fue obtenida por Lagrange en 1770. En
+esta nota voy a presentar una demostración basada en el teorema de Minkowski
+sobre los conjuntos convexos simétricos. Es un resultado más reciente, probado
+por \personality{Hermann Minkowski} en 1889, pero es de mucha importancia en
+aritmética y vale la pena revisarlo.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Cuaterniones y la identidad de los cuatro cuadrados de Euler}
+
+Los \term{cuaterniones} fueron introducidos en 1843 por el matemático irlandés
+\personality{William Rowan Hamilton} (1805--1865). Hamilton estaba muy orgulloso
+de su descubrimiento y hasta escribió un libro de más de 800 páginas sobre el
+tema, que fue publicado póstumamente. Por falta de tiempo y entusiasmo, voy a
+revisar solamente un par de resultados necesarios. A cuatro números reales
+$a,b,c,d\in \RR$ podemos asociar la matriz compleja de $2\times 2$
+\[ \begin{pmatrix}
+    a+bi & c+di\\
+    -c + d i & a - bi
+  \end{pmatrix}. \]
+Esencialmente, este es un cuaternión. Un cálculo tedioso nos da la expresión
+para el producto de dos cuaterniones. Es de la misma forma:
+
+\begin{multline*}
+  \begin{pmatrix}
+    a+bi & c+di\\
+    -c + d i & a - bi
+  \end{pmatrix}\cdot \begin{pmatrix}
+    x+yi & z+wi\\
+    -z + wi & x - yi
+  \end{pmatrix} \\
+  = \begin{pmatrix}
+    +(a x - b y - c z - d w) + (a y + b x + c w - d z)\,i & +(a z - b w + c x + d y) + (a w + b z - c y + d x)\,i \\
+    - (a z - b w + c x + d y) + (a w + b z - c y + d x)\,i & + (a x - b y - c z - d w) - (a y + b x + c w - d z)\,i
+  \end{pmatrix}.
+\end{multline*}
+
+La \term{norma} de un cuaternión es el determinante de la matriz
+correspondiente:
+\[ \det \begin{pmatrix}
+    a+bi & c+di\\
+    -c + d i & a - bi
+  \end{pmatrix} = (a+bi)\,(a - bi) - (c+di)\,(-c+di) = a^2 + b^2 + c^2 + d^2. \]
+
+El determinante de matrices es multiplicativo: tenemos
+$\det (AB) = \det (A)\cdot \det (B)$. En nuestro caso, comparando las últimas
+dos expresiones, se obtiene
+
+\begin{multline*}
+  (a^2 + b^2 + c^2 + d^2)\cdot (x^2 + y^2 + z^2 + w^2) \\
+  = (a x - b y - c z - d w)^2 +
+    (a y + b x + c w - d z)^2 +
+    (a z - b w + c x + d y)^2 +
+    (a w + b z - c y + d x)^2.
+\end{multline*}
+
+Esta fórmula se conoce como la \term{identidad de los cuatro cuadrados de Euler}
+y apareció por primera vez en una carta de Euler a Goldbach de 1749. De hecho,
+la identidad de Euler no tiene nada que ver con los cuaterniones (que todavía no
+habían sido descubiertos) y se cumple en cualquier anillo conmutativo, como se
+puede comprobar desarrollando las expresiones. Sin embargo, tal prueba explica
+aún menos que nuestra prueba con cuaterniones.
+
+Euler necesitaba su identidad para el siguiente resultado.
+
+\begin{lema*}
+  Si dos enteros $m, n\ge 0$ son sumas de cuatro cuadrados, entonces $mn$ es
+  también una suma de cuatro cuadrados.
+\end{lema*}
+
+Esto significa en particular que para demostrar el teorema de los cuatro
+cuadrados, sería suficiente demostrarlo para todos los números primos. Por
+ejemplo, tenemos
+\begin{align*}
+2 & = 1^2 + 1^2, \\
+3 & = 1^2 + 1^2 + 1^2, \\
+5 & = 2^2 + 1^2,
+\end{align*}
+y con ayuda de la identidad de Euler se puede obtener la expresión
+$$30 = 4^2 + 3^2 + 2^2 + 1^2.$$
+Entonces, a partir de ahora, podemos enfocarnos en búsqueda de las expresiones
+$$p = a^2 + b^2 + c^2 + d^2$$
+para $p$ primo y $a,b,c,d\in \ZZ$. Esta reducción al caso primo es el principio
+de muchas demostraciones del teorema de los cuatro cuadrados.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{El teorema de Minkowski}
+
+Primero necesitamos un par de definiciones. Un \term{retículo} en el espacio
+vectorial $\RR^n$ es un subconjunto
+$$\Lambda = \{ a_1\underline{\omega_1} + \cdots + a_n\,\underline{\omega_n} \mid a_i \in \ZZ \}$$
+donde $\underline{\omega_1}, \ldots, \underline{\omega_n} \in \RR^n$ son algunos
+vectores que forman una base de $\RR^n$. El \term{paralelepípedo fundamental}
+asociado a $\underline{\omega_1}, \ldots, \underline{\omega_n}$ es el conjunto
+$$\Pi \dfn \{ \lambda_1\underline{\omega_1} + \cdots + \lambda_n\,\underline{\omega_n} \mid 0 \le \lambda_i < 1 \}.$$
+Notemos que todo $\RR^n$ es la unión \emph{disjunta} de las traslaciones de
+$\Pi$ por los vectores de $\Lambda$:
+$$\RR^n = \bigsqcup_{\underline{u}\in \Lambda} (\Pi + \underline{u}).$$
+
+El volumen del paralelepípedo fundamental es el determinante de la matriz
+formada por los vectores $\underline{\omega_1},\ldots,\underline{\omega_n}$
+$$\vol \Pi = |\det A|, \quad A = \begin{pmatrix}
+\underline{\omega_1} \\
+\vdots \\
+\underline{\omega_n}
+\end{pmatrix}$$
+(esto es el significado geométrico del determinante).
+
+\vspace{1em}
+
+Un típico ejemplo de retículo es
+$$\ZZ^n = \{ (a_1,\ldots,a_n) \mid a_i \in \ZZ \} \subset \RR^n.$$
+Por ejemplo, para $n = 2$ tenemos el siguiente dibujo:
+
+\begin{center}
+\begin{tikzpicture}[x=0.75cm,y=0.75cm]
+\fill[cyan!30] (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+
+\foreach \i in {-3, ..., 3}
+  \foreach \j in {-3, ..., 3}
+    \draw (\i,\j) node[circle,fill,inner sep=1pt] {};
+
+\draw (0,0) node[below left] {$\underline{0}$};
+
+\draw (1,0) node[circle,fill,inner sep=1pt] (w1) {};
+\draw (0,1) node[circle,fill,inner sep=1pt] (w2) {};
+
+\draw[->] (0,0) -- (w1.west);
+\draw (w1) node[right] {$\underline{\omega_1}$};
+\draw[->] (0,0) -- (w2.south);
+\draw (w2) node[above] {$\underline{\omega_2}$};
+\end{tikzpicture}
+\end{center}
+
+La definición de retículo de arriba no es muy conveniente porque esta depende de
+una elección de una base particular
+$\underline{\omega_1},\ldots,\underline{\omega_n}$. El mismo subconjunto
+$\Lambda \subset \RR^n$ puede ser generado por diferentes vectores. Por ejemplo,
+en el caso de arriba podríamos tomar como otra base
+
+\begin{center}
+\begin{tikzpicture}[x=0.75cm,y=0.75cm]
+\fill[cyan!30] (0,0) -- (1,1) -- (1,2) -- (0,1) -- cycle;
+
+\foreach \i in {-3, ..., 3}
+  \foreach \j in {-3, ..., 3}
+    \draw (\i,\j) node[circle,fill,inner sep=1pt] {};
+
+\draw (0,0) node[below left] {$\underline{0}$};
+
+\draw (1,1) node[circle,fill,inner sep=1pt] (w1) {};
+\draw (0,1) node[circle,fill,inner sep=1pt] (w2) {};
+
+\draw[->] (0,0) -- (w1.south west);
+\draw (w1) node[right] {$\underline{\omega_1}$};
+\draw[->] (0,0) -- (w2.south);
+\draw (w2) node[above] {$\underline{\omega_2}$};
+\end{tikzpicture}
+\end{center}
+
+Sin embargo, si $(\underline{\omega_1},\ldots,\underline{\omega_n})$ y
+$(\underline{\omega_1'},\ldots,\underline{\omega_n'})$ son dos bases
+$\ZZ$-lineales de $\Lambda$, entonces el cambio de base necesariamente se
+realiza por una matriz invertible $T$ con elementos enteros:
+$$T \in M_n (\ZZ)^\times \rdfn \GL_n (\ZZ) \iff \det T \in \ZZ^\times = \{ \pm 1 \}.$$
+Entonces,
+\[ \det \begin{pmatrix}
+    \underline{\omega_1} \\
+    \vdots \\
+    \underline{\omega_n}
+  \end{pmatrix} = \pm \det \begin{pmatrix}
+    \underline{\omega_1'} \\
+    \vdots \\
+    \underline{\omega_n'}
+  \end{pmatrix}. \]
+Esto demuestra que los paralelepípedos fundamentales que corresponden a
+diferentes bases tienen el mismo volumen. Este es un invariante del conjunto
+$\Lambda$ y podemos denotarlo por $\det \Lambda$.
+
+Recordemos que se dice que un subconjunto $X\subseteq \RR^n$ es \term{convexo}
+si para todo $\underline{x}, \underline{y} \in X$ el segmento de la recta entre
+$\underline{x}$ e $\underline{y}$ también pertenece a $X$:
+$$(1-\lambda)\,\underline{x} + \lambda\,\underline{y} \in X \quad \text{para todo } \lambda \in [0,1].$$
+Además, se dice que $X$ es \term{simétrico} (respecto al origen), si para todo
+$\underline{x}\in X$ también $-\underline{x}\in X$.
+
+El teorema de Minkowski nos dice algo intuitivamente claro: si $X$ es un
+conjunto convexo simétrico suficientemente grande, entonces $X$ debe contener
+puntos no nulos del retículo.
+
+\begin{teorema*}[Minkowski]
+  Sea $\Lambda \subset \RR^n$ un retículo y sea $X \subseteq \RR^n$ un conjunto
+  convexo simétrico tal que
+  $$\vol X > 2^n\,\det \Lambda.$$
+  Entonces, $X$ contiene un punto no nulo de $\Lambda$.
+\end{teorema*}
+
+\begin{center}
+\begin{tikzpicture}[x=0.75cm,y=0.75cm]
+\fill[cyan!30] (0,0) circle (1.6);
+
+\foreach \i in {-3, ..., 3}
+  \foreach \j in {-3, ..., 3}
+    \draw (\i,\j) node[circle,fill,inner sep=1pt] {};
+
+\draw (0,0) node[below] {$\underline{0}$};
+\end{tikzpicture}
+\end{center}
+
+Para entender el significado del múltiplo $2^n$ en la cota del teorema, podemos
+considerar el hipercubo abierto con $2^n$ vértices en
+$(\pm 1, \pm 1, \ldots, \pm 1)$. Consideremos el retículo
+$\Lambda \dfn \ZZ^n \subset \RR^n$. El volumen del cubo es $2^n = \det \Lambda$,
+pero el cubo no contiene ningún punto de $\Lambda$ salvo $\underline{0}$.
+
+\begin{center}
+\begin{tikzpicture}[x=0.75cm,y=0.75cm]
+\fill[cyan!30] (-1,-1) -- (1,-1) -- (1,1) -- (-1,1) -- cycle;
+\draw[dashed] (-1,-1) -- (1,-1) -- (1,1) -- (-1,1) -- cycle;
+
+\foreach \i in {-3, ..., 3}
+  \foreach \j in {-3, ..., 3}
+    \draw (\i,\j) node[circle,fill,inner sep=1pt] {};
+
+\draw (0,0) node[below] {$\underline{0}$};
+\end{tikzpicture}
+\end{center}
+
+Para demostrar el teorema, necesitamos el siguiente resultado auxiliar.
+
+\begin{lema*}[Blichfeldt]
+  Sea $X\subset \RR^n$ un conjunto
+  medible\footnote{En particular, todo conjunto convexo es medible.}.
+  Si $\vol X > \det \Lambda$, entonces existe un par de puntos diferentes
+  $\underline{x},\underline{x'}\in X$ tales que
+  $\underline{x}-\underline{x'}\in \Lambda$.
+
+  \begin{proof}
+    Puesto que
+    $$\RR^n = \bigsqcup_{\underline{u}\in \Lambda} (\Pi + \underline{u}),$$
+    tenemos
+    $$X = \bigsqcup_{\underline{u}\in \Lambda} X \cap (\Pi + \underline{u}),$$
+    Así que
+    $$\vol X = \sum_{\underline{u}\in \Lambda} \vol (X \cap (\Pi + \underline{u})) = \sum_{\underline{u}\in \Lambda} \vol ((X-\underline{u}) \cap \Pi).$$
+    Por nuestra hipótesis, $\vol X > \vol \Pi$, de donde los conjuntos
+    $$(X-\underline{u}) \cap \Pi \subseteq \Pi \quad (\underline{u}\in\Lambda)$$
+    no pueden ser disjuntos, luego existen
+    $\underline{u}, \underline{u'}\in \Lambda$ tales que
+    $$(X-\underline{u}) \cap (X-\underline{u'}) \ne \emptyset.$$
+    Tomando
+    $$\underline{v} \in (X-\underline{u}) \cap (X-\underline{u'}),$$
+    tenemos
+    \[ \underline{x} = \underline{v} + \underline{u}, \quad \underline{x'} =
+      \underline{v} + \underline{u'} \in X, \quad \underline{x}-\underline{x'} =
+      \underline{u}-\underline{u'} \in \Lambda. \qedhere \]
+  \end{proof}
+\end{lema*}
+
+Ahora estamos listos para demostrar el teorema de Minkowski. Consideremos el
+conjunto
+$$\frac{1}{2}\,X \dfn \Bigl\{ \frac{1}{2}\,\underline{x} \Bigm| \underline{x} \in X \Bigr\}.$$
+Tenemos
+$$\vol \left(\frac{1}{2}\,X\right) = \frac{1}{2^n} \vol X > \det \Lambda,$$
+así que por el lema de Blichfeldt existen dos puntos distintos
+$\underline{x},\underline{x'} \in \frac{1}{2}\,X$ tales que
+$\underline{x}-\underline{x'} \in \Lambda$. Para terminar la demostración, sería
+suficiente ver que este punto pertenece a $X$. Por la hipótesis que $X$ es
+simétrico, $-\underline{x'}\in \frac{1}{2}\,X$ y luego
+$$\underline{x} = \frac{1}{2}\,\underline{y}, \quad -\underline{x'} = \frac{1}{2}\,\underline{y'} \quad\text{para algunos }\underline{y},\underline{y'}\in X.$$
+El punto
+$$\underline{x} - \underline{x'} = \frac{1}{2}\,\underline{y} + \frac{1}{2}\,\underline{y'},$$
+pertenece a $X$, siendo una combinación convexa de dos puntos
+$\underline{y},\underline{y'}\in X$. \qed
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Ejemplo: el teorema de Fermat sobre dos cuadrados}
+
+Para entender mejor el uso del teorema de Minkowski, empecemos por un resultado
+más sencillo, descubierto en 1640 por Fermat.
+
+\vspace{1em}
+
+\emph{Un primo impar $p$ es una suma de dos cuadrados si y solamente si
+  $p\equiv 1 \pmod{4}$.}
+
+\vspace{1em}
+
+Por ejemplo,
+$$5 = 1^2 + 2^2, \quad 13 = 2^2 + 3^2, \quad 17 = 1^2 + 4^2, \quad 29 = 2^2 + 5^2, \quad 37 = 1^2 + 6^2.$$
+(De hecho, la representación $p = a^2 + b^2$ es única salvo una permutación de
+$a$ y $b$ y sus signos, pero nos contentaremos con una demostración de
+existencia de estas representaciones.)
+
+\begin{observacion}
+  La condición $p \equiv 1 \pmod{4}$ es necesaria para que $p$ sea una suma de
+  dos cuadrados.
+
+  \begin{proof}
+    Los cuadrados módulo $4$ son $0 = 0^2 \equiv 2^2$ y
+    $1 = 1^2 \equiv 3^2$. Luego, $a^2$ y $b^2$ no pueden dar el mismo resto
+    módulo $4$: en este caso su suma sería par.
+  \end{proof}
+\end{observacion}
+
+Recordemos el siguiente resultado.
+
+\begin{lema}
+  $-1$ es un residuo cuadrático módulo $p$ si y solamente si
+  $p \not\equiv 3\pmod{4}$.
+
+  \begin{proof}
+    Necesitamos ver que en el cuerpo finito $\FF_p$ se cumple $-1 = x^2$ para
+    algún $x\in \FF_p$ si y solamente si $p \not\equiv 3\pmod{4}$.
+
+    Si $p = 2$, entonces $-1 = 1 = 1^2$. Podemos suponer que $p > 2$.
+
+    Para $p > 2$ la identidad $-1 = x^2$ en $\FF_p$ implica que $x$ es una raíz
+    cuarta primitiva de la unidad:
+    $$x \ne 1, \quad x^2 = -1 \ne 1, \quad x^3 = -x \ne 1, \quad x^4 = 1.$$
+    Viceversa, supongamos que existe $x\in \FF_p$ tal que
+    $$x \ne 1, \quad x^2 \ne 1, \quad x^3 \ne 1, \quad x^4 = 1.$$
+    En particular, $x^2 \ne 1$ implica que también $x \ne -1$. Luego, de la
+    ecuación
+    $$0 = x^4 - 1 = (x - 1)\,(x + 1)\,(x^2 + 1),$$
+    podemos deducir que $x^2 = -1$.
+
+    Esto demuestra que $-1$ es un residuo cuadrático en $\FF_p$ si y solamente
+    si $\FF_p$ contiene una raíz cuarta primitiva de la unidad. Esto se reduce a
+    la existencia de un elemento de orden $4$ en el grupo $\FF_p^\times$. El
+    último es cíclico de orden $p-1$ y por lo tanto contiene un elemento de
+    orden $4$ si y solamente si
+    \[ 4 \mid (p-1) \iff p-1 = 4k
+       \text{ para algún }k \iff p\equiv 1\pmod{4}. \qedhere \]
+  \end{proof}
+\end{lema}
+
+Ahora si $p \equiv 1 \pmod{4}$, por el lema de arriba existe $m\in\ZZ$ tal que
+$$1 + m^2 \equiv 0 \pmod{p}.$$
+
+Consideremos los vectores
+$$\underline{\omega_1} \dfn (1,m), \quad \underline{\omega_2} \dfn (0,p).$$
+Estos definen un retículo
+$$\Lambda \dfn \{ a_1\,\underline{\omega_1} + a_2\,\underline{\omega_2} \mid a_1, a_2 \in \ZZ \} = \{ (a_1, a_1 m + a_2 p) \mid a_1, a_2 \in \ZZ \} \subset \RR^2.$$
+Tenemos
+$$\det \Lambda = \det \begin{pmatrix}
+1 & m \\
+0 & p
+\end{pmatrix} = p.$$
+
+\begin{observacion}
+  Para todo $\underline{u} \in \Lambda$ el número $\|\underline{u}\|^2$ es
+  entero y es divisible por $p$.
+
+  \begin{proof}
+    Si
+    $$\underline{u} = a_1\,\underline{\omega_1} + a_2\,\underline{\omega_2} = (a_1, a_1 m + a_2 p),$$
+    entonces
+    \[ \|\underline{u}\|^2 = a_1^2 + (a_1 m + a_2 p)^2 = a_1^2 \, (1 + m^2) +
+      2\,a_1 a_2 m p + a_2^2 p ^2 \equiv a_1^2 \, (1 + m^2)
+      \equiv 0 \pmod{p}. \qedhere \]
+  \end{proof}
+\end{observacion}
+
+Ahora sea $X \subset \RR^2$ el disco abierto de radio $r = \sqrt{2p}$ centrado
+en el origen:
+$$X \dfn \{ \underline{x} \in \RR^2 \mid \|\underline{x}\|^2 < 2p \}.$$
+Es un conjunto convexo simétrico de área
+$$\pi r^2 = 2\pi p > 2^2\,\det \Lambda = 4 p.$$
+Entonces, por el teorema de Minkowski, existe un punto
+$\underline{u} \in \Lambda \setminus \{ \underline{0} \}$ tal que
+$\underline{u} \in X$. Luego,
+$$0 < \|\underline{u}\|^2 < 2p, \quad p \mid \|\underline{u}\|^2.$$
+Esto implica que
+$$p = \|\underline{u}\|^2 = a_1^2 + (a_1 m + a_2 p)^2.$$
+Es una representación de $p$ como una suma de dos cuadrados. Esto termina
+nuestra demostración del resultado de Fermat. \qed
+
+\vspace{1em}
+
+Para ver algún ejemplo específico, sea $p = 5$. Tenemos
+$2^2 + 1 \equiv 0 \pmod{5}$, así que podemos tomar $m = 2$. Luego,
+\[ \Lambda = \{ a_1\,(1,2) + a_2\,(0,5) \mid a_1, a_2 \in \ZZ \} =
+   \{ (a_1, a_1\cdot 2 + a_2 \cdot 5) \mid a_1, a_2 \in \ZZ \} =
+   \{ (a_1, a_1\cdot 2 + a_2 \cdot 5) \mid a_1, a_2 \in \ZZ \}. \]
+Consideremos el siguiente dibujo con $\Lambda$ y el disco de radio
+$\sqrt{2p} = \sqrt{10} = 3.16\ldots$
+
+\begin{center}
+\begin{tikzpicture}[x=0.75cm,y=0.75cm]
+\fill[cyan!30] (0,0) circle (3.162277);
+
+\draw[dashed] (0,0) circle (3.162277);
+
+\foreach \i in {-5, ..., 5}
+  \foreach \j in {-5, ..., 5}
+    \draw (\i,\j) node[circle,fill,black!50,inner sep=0.5pt] {};
+
+\draw (0,0) node[circle,fill,inner sep=1pt] (O) {};
+\draw (O.south) node[below] {$(0,0)$};
+
+\draw (1,2) node[circle,fill,inner sep=1pt] (w1) {};
+\draw (w1.north) node[above] {$(1,2)$};
+\draw (0,5) node[circle,fill,inner sep=1pt] (w2) {};
+\draw (w2.north) node[above] {$(0,5)$};
+
+\draw[->] (O) -- (w1.south west);
+\draw[->] (O) -- (w2.south);
+
+\draw (-5,-5) node[circle,fill,inner sep=1pt] {};
+\draw (-5,0) node[circle,fill,inner sep=1pt] {};
+\draw (-5,5) node[circle,fill,inner sep=1pt] {};
+\draw (-4,-3) node[circle,fill,inner sep=1pt] {};
+\draw (-4,2) node[circle,fill,inner sep=1pt] {};
+\draw (-3,-1) node[circle,fill,inner sep=1pt] {};
+\draw (-3,4) node[circle,fill,inner sep=1pt] {};
+\draw (-2,-4) node[circle,fill,inner sep=1pt] {};
+\draw (-2,1) node[circle,fill,inner sep=1pt] {};
+\draw (-1,-2) node[circle,fill,inner sep=1pt] {};
+\draw (-1,3) node[circle,fill,inner sep=1pt] {};
+\draw (0,-5) node[circle,fill,inner sep=1pt] {};
+\draw (1,-3) node[circle,fill,inner sep=1pt] {};
+\draw (2,-1) node[circle,fill,inner sep=1pt] {};
+\draw (2,4) node[circle,fill,inner sep=1pt] {};
+\draw (3,-4) node[circle,fill,inner sep=1pt] {};
+\draw (3,1) node[circle,fill,inner sep=1pt] {};
+\draw (4,-2) node[circle,fill,inner sep=1pt] {};
+\draw (4,3) node[circle,fill,inner sep=1pt] {};
+\draw (5,-5) node[circle,fill,inner sep=1pt] {};
+\draw (5,0) node[circle,fill,inner sep=1pt] {};
+\draw (5,5) node[circle,fill,inner sep=1pt] {};
+\end{tikzpicture}
+\end{center}
+
+Tenemos cuatro puntos no nulos del retículo $\Lambda$ en el disco:
+$(\pm 1, \pm 2)$. Estos nos dan
+$$5 = 1^2 + 2^2.$$
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Demostración del teorema de los cuatro cuadrados}
+
+Gracias a la identidad de Euler, sería suficiente representar cualquier número
+primo $p$ como una suma de cuadrados
+$$p = a^2 + b^2 + c^2 + d^2.$$
+De nuevo, vamos a construir un retículo $\Lambda$ y un conjunto convexo
+simétrico $X$ tal que la existencia de un punto no nulo
+$\underline{x}\in \Lambda$ en $X$ nos da una suma de cuadrados como arriba.
+
+\begin{lema}
+  Para todo primo $p$ existen $m,n\in\ZZ$ tales que
+  $$m^2 + n^2 + 1 \equiv 0 \pmod{p}.$$
+
+  \begin{proof}
+    Si $p = 2$, podemos tomar $m = 1$, $n = 0$.
+
+    Ahora supongamos que $p > 2$. El grupo $\FF_p^\times$ es cíclico de orden
+    $p-1$ y por lo tanto precisamente la mitad de los elementos de
+    $\FF_p^\times$ son cuadrados (son las potencias pares de un generador de
+    $\FF_p^\times$):
+    $$\# \{ x^2 \mid x \in \FF_p^\times \} = \frac{p-1}{2}.$$
+    Luego,
+    $$\# \{ x^2 \mid x \in \FF_p \} = \frac{p-1}{2} + 1 = \frac{p+1}{2}.$$
+    Además, tenemos
+    $$\# \{ -1 - y^2 \mid y \in \FF_p \} = \frac{p+1}{2}.$$
+    Se sigue que
+    $$\{ x^2 \mid x \in \FF_p \} \cap \{ -1 - y^2 \mid y \in \FF_p \} \ne \emptyset;$$
+    es decir,
+    $$x^2 + y^2 + 1 = 0$$
+    para algunos $x, y\in \FF_p$.
+  \end{proof}
+\end{lema}
+
+Fijemos dos números enteros $m$ y $n$ tales que
+$$m^2 + n^2 + 1 \equiv 0 \pmod{p}.$$
+Consideremos los siguientes vectores en $\RR^4$:
+\[ \underline{\omega_1} = (1,0,m,n), \quad
+\underline{\omega_2} = (0,1,n,-m), \quad
+\underline{\omega_3} = (0,0,p,0), \quad
+\underline{\omega_4} = (0,0,0,p). \]
+Son linealmente independientes. De hecho, podemos calcular el determinante de la
+matriz formada por ellos:
+$$\det \begin{pmatrix}
+1 & 0 & m & n\\
+0 & 1 & n & -m\\
+0 & 0 & p & 0\\
+0 & 0 & 0 & p
+\end{pmatrix} = p^2$$
+(es una matriz triangular). Esto quiere decir que
+$$\Lambda \dfn \{ a_1\,\underline{\omega_1} + a_2\,\underline{\omega_2} + a_3\,\underline{\omega_3} + a_4\,\underline{\omega_4} \mid a_1,a_2,a_3,a_4 \in \ZZ \} \subset \RR^4$$
+es un retículo y
+$$\det \Lambda = p^2.$$
+
+\begin{observacion}
+  Para todo $\underline{u}\in \Lambda$ el número $\|\underline{u}\|^2$ es entero
+  y es divisible por $p$.
+
+  \begin{proof}
+    Si
+    $$\underline{u} = a_1\,\underline{\omega_1} + a_2\,\underline{\omega_2} + a_3\,\underline{\omega_3} + a_4\,\underline{\omega_4} = (a_1, ~ a_2, ~ a_1\,m+a_2\,n + a_3\,p, ~ a_1\,n-a_2\,m + a_4\,p),$$
+    entonces
+
+    \begin{multline*}
+      \|\underline{u}\|^2 = a_1^2 + a_2^2 + (a_1\,m+a_2\,n + a_3\,p)^2 + (a_1\,n-a_2\,m + a_4\,p)^2 \\
+      \equiv a_1^2 + a_2^2 + (a_1\,m+a_2\,n)^2 + (a_1\,n-a_2\,m)^2 \pmod{p}.
+    \end{multline*}
+
+    Luego,
+    $$a_1^2 + a_2^2 + (a_1\,m+a_2\,n)^2 + (a_1\,n-a_2\,m)^2 = (a_1^2 + a_2^2)\,(m^2 + n^2 + 1)$$
+    y $m^2 + n^2 + 1 \equiv 0 \pmod{p}$ por nuestra elección de $m$ y $n$.
+  \end{proof}
+\end{observacion}
+
+Sea $X$ la bola abierta en $\RR^4$ de radio $r = \sqrt{2p}$ centrada en el
+origen:
+$$X \dfn \{ \underline{x} \in \RR^4 \mid \|\underline{x}\|^2 < 2p \}.$$
+Recordemos que en general la bola $n$-dimensional de radio $r$ tiene volumen
+$$\frac{\pi^{n/2}}{\Gamma \left(\frac{n}{2}+1\right)}\,r^n.$$
+En este caso $n = 4$ y
+$\Gamma \left(\frac{n}{2}+1\right) = \Gamma (3) = 2! = 2$. Tenemos
+$$\vol X = \frac{\pi^2 r^4}{2} = 2 \pi^2 p^2 > 2^4\,\det \Lambda = 16\,p^2$$
+(de hecho, $2 \pi^2 = 19.73\ldots > 16$). Entonces, según el teorema de
+Minkowski, existe un punto
+$\underline{u}\in \Lambda \setminus \{ \underline{0} \}$ tal que
+$\underline{u} \in X$. De las desigualdades
+$$0 < \|\underline{u}\|^2 < 2p, \quad p \mid \|\underline{u}\|^2.$$
+podemos concluir que
+$$\|\underline{u}\|^2 = p.$$
+Esto nos da una representación de $p$ como una suma de cuatro cuadrados. \qed
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\newpage
+
+\section*{Apéndice. Algunas sumas de cuatro cuadrados}
+
+\small
+
+\begin{multicols}{3}
+\noindent
+\begin{align*}
+1  & = 1^2\\
+\\
+2  & = 1^2 + 1^2\\
+\\
+3  & = 1^2 + 1^2 + 1^2\\
+\\
+4  & = 1^2 + 1^2 + 1^2 + 1^2\\
+   & = 2^2\\
+\\
+5  & = 2^2 + 1^2\\
+\\
+6  & = 2^2 + 1^2 + 1^2\\
+\\
+7  & = 2^2 + 1^2 + 1^2 + 1^2\\
+\\
+8  & = 2^2 + 2^2\\
+\\
+9  & = 2^2 + 2^2 + 1^2\\
+   & = 3^2\\
+\\
+10 & = 2^2 + 2^2 + 1^2 + 1^2\\
+   & = 3^2 + 1^2\\
+\\
+11 & = 3^2 + 1^2 + 1^2\\
+\\
+12 & = 2^2 + 2^2 + 2^2\\
+   & = 3^2 + 1^2 + 1^2 + 1^2\\
+\\
+13 & = 2^2 + 2^2 + 2^2 + 1^2\\
+   & = 3^2 + 2^2\\
+\\
+14 & = 3^2 + 2^2 + 1^2\\
+\\
+15 & = 3^2 + 2^2 + 1^2 + 1^2\\
+\end{align*}
+\vspace{\fill}
+\columnbreak
+\begin{align*}
+16 & = 2^2 + 2^2 + 2^2 + 2^2\\
+   & = 4^2\\
+\\
+17 & = 3^2 + 2^2 + 2^2\\
+   & = 4^2 + 1^2\\
+\\
+18 & = 3^2 + 2^2 + 2^2 + 1^2\\
+   & = 3^2 + 3^2\\
+   & = 4^2 + 1^2 + 1^2\\
+\\
+19 & = 3^2 + 3^2 + 1^2\\
+   & = 4^2 + 1^2 + 1^2 + 1^2\\
+\\
+20 & = 3^2 + 3^2 + 1^2 + 1^2\\
+   & = 4^2 + 2^2\\
+\\
+21 & = 3^2 + 2^2 + 2^2 + 2^2\\
+   & = 4^2 + 2^2 + 1^2\\
+\\
+22 & = 3^2 + 3^2 + 2^2\\
+   & = 4^2 + 2^2 + 1^2 + 1^2\\
+\\
+23 & = 3^2 + 3^2 + 2^2 + 1^2\\
+\\
+24 & = 4^2 + 2^2 + 2^2\\
+\\
+25 & = 4^2 + 2^2 + 2^2 + 1^2\\
+   & = 4^2 + 3^2\\
+   & = 5^2\\
+\\
+26 & = 3^2 + 3^2 + 2^2 + 2^2\\
+   & = 4^2 + 3^2 + 1^2\\
+   & = 5^2 + 1^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\begin{align*}
+27 & = 3^2 + 3^2 + 3^2\\
+   & = 4^2 + 3^2 + 1^2 + 1^2\\
+   & = 5^2 + 1^2 + 1^2\\
+\\
+28 & = 3^2 + 3^2 + 3^2 + 1^2\\
+   & = 4^2 + 2^2 + 2^2 + 2^2\\
+   & = 5^2 + 1^2 + 1^2 + 1^2\\
+\\
+29 & = 4^2 + 3^2 + 2^2\\
+   & = 5^2 + 2^2\\
+\\
+30 & = 4^2 + 3^2 + 2^2 + 1^2\\
+   & = 5^2 + 2^2 + 1^2\\
+\\
+31 & = 3^2 + 3^2 + 3^2 + 2^2\\
+   & = 5^2 + 2^2 + 1^2 + 1^2\\
+\\
+32 & = 4^2 + 4^2\\
+\\
+33 & = 4^2 + 3^2 + 2^2 + 2^2\\
+   & = 4^2 + 4^2 + 1^2\\
+   & = 5^2 + 2^2 + 2^2\\
+\\
+34 & = 4^2 + 3^2 + 3^2\\
+   & = 4^2 + 4^2 + 1^2 + 1^2\\
+   & = 5^2 + 2^2 + 2^2 + 1^2\\
+   & = 5^2 + 3^2\\
+\\
+35 & = 4^2 + 3^2 + 3^2 + 1^2\\
+   & = 5^2 + 3^2 + 1^2\\
+\\
+36 & = 3^2 + 3^2 + 3^2 + 3^2\\
+   & = 4^2 + 4^2 + 2^2\\
+   & = 5^2 + 3^2 + 1^2 + 1^2\\
+   & = 6^2\\
+\end{align*}
+\end{multicols}
+
+\pagebreak
+
+\begin{multicols}{3}
+\noindent
+\begin{align*}
+37 & = 4^2 + 4^2 + 2^2 + 1^2\\
+   & = 5^2 + 2^2 + 2^2 + 2^2\\
+   & = 6^2 + 1^2\\
+\\
+38 & = 4^2 + 3^2 + 3^2 + 2^2\\
+   & = 5^2 + 3^2 + 2^2\\
+   & = 6^2 + 1^2 + 1^2\\
+\\
+39 & = 5^2 + 3^2 + 2^2 + 1^2\\
+   & = 6^2 + 1^2 + 1^2 + 1^2\\
+\\
+40 & = 4^2 + 4^2 + 2^2 + 2^2\\
+   & = 6^2 + 2^2\\
+\\
+41 & = 4^2 + 4^2 + 3^2\\
+   & = 5^2 + 4^2\\
+   & = 6^2 + 2^2 + 1^2\\
+\\
+42 & = 4^2 + 4^2 + 3^2 + 1^2\\
+   & = 5^2 + 3^2 + 2^2 + 2^2\\
+   & = 5^2 + 4^2 + 1^2\\
+   & = 6^2 + 2^2 + 1^2 + 1^2\\
+\\
+43 & = 4^2 + 3^2 + 3^2 + 3^2\\
+   & = 5^2 + 3^2 + 3^2\\
+   & = 5^2 + 4^2 + 1^2 + 1^2\\
+\\
+44 & = 5^2 + 3^2 + 3^2 + 1^2\\
+   & = 6^2 + 2^2 + 2^2\\
+\\
+45 & = 4^2 + 4^2 + 3^2 + 2^2\\
+   & = 5^2 + 4^2 + 2^2\\
+   & = 6^2 + 2^2 + 2^2 + 1^2\\
+   & = 6^2 + 3^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\begin{align*}
+46 & = 5^2 + 4^2 + 2^2 + 1^2\\
+   & = 6^2 + 3^2 + 1^2\\
+\\
+47 & = 5^2 + 3^2 + 3^2 + 2^2\\
+   & = 6^2 + 3^2 + 1^2 + 1^2\\
+\\
+48 & = 4^2 + 4^2 + 4^2\\
+   & = 6^2 + 2^2 + 2^2 + 2^2\\
+\\
+49 & = 4^2 + 4^2 + 4^2 + 1^2\\
+   & = 5^2 + 4^2 + 2^2 + 2^2\\
+   & = 6^2 + 3^2 + 2^2\\
+   & = 7^2\\
+\\
+50 & = 4^2 + 4^2 + 3^2 + 3^2\\
+   & = 5^2 + 4^2 + 3^2\\
+   & = 5^2 + 5^2\\
+   & = 6^2 + 3^2 + 2^2 + 1^2\\
+   & = 7^2 + 1^2\\
+\\
+51 & = 5^2 + 4^2 + 3^2 + 1^2\\
+   & = 5^2 + 5^2 + 1^2\\
+   & = 7^2 + 1^2 + 1^2\\
+\\
+52 & = 4^2 + 4^2 + 4^2 + 2^2\\
+   & = 5^2 + 3^2 + 3^2 + 3^2\\
+   & = 5^2 + 5^2 + 1^2 + 1^2\\
+   & = 6^2 + 4^2\\
+   & = 7^2 + 1^2 + 1^2 + 1^2\\
+\\
+53 & = 6^2 + 3^2 + 2^2 + 2^2\\
+   & = 6^2 + 4^2 + 1^2\\
+   & = 7^2 + 2^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\begin{align*}
+54 & = 5^2 + 4^2 + 3^2 + 2^2\\
+   & = 5^2 + 5^2 + 2^2\\
+   & = 6^2 + 3^2 + 3^2\\
+   & = 6^2 + 4^2 + 1^2 + 1^2\\
+   & = 7^2 + 2^2 + 1^2\\
+\\
+55 & = 5^2 + 5^2 + 2^2 + 1^2\\
+   & = 6^2 + 3^2 + 3^2 + 1^2\\
+   & = 7^2 + 2^2 + 1^2 + 1^2\\
+\\
+56 & = 6^2 + 4^2 + 2^2\\
+\\
+57 & = 4^2 + 4^2 + 4^2 + 3^2\\
+   & = 5^2 + 4^2 + 4^2\\
+   & = 6^2 + 4^2 + 2^2 + 1^2\\
+   & = 7^2 + 2^2 + 2^2\\
+\\
+58 & = 5^2 + 4^2 + 4^2 + 1^2\\
+   & = 5^2 + 5^2 + 2^2 + 2^2\\
+   & = 6^2 + 3^2 + 3^2 + 2^2\\
+   & = 7^2 + 2^2 + 2^2 + 1^2\\
+   & = 7^2 + 3^2\\
+\\
+59 & = 5^2 + 4^2 + 3^2 + 3^2\\
+   & = 5^2 + 5^2 + 3^2\\
+   & = 7^2 + 3^2 + 1^2\\
+\\
+60 & = 5^2 + 5^2 + 3^2 + 1^2\\
+   & = 6^2 + 4^2 + 2^2 + 2^2\\
+   & = 7^2 + 3^2 + 1^2 + 1^2\\
+\\
+61 & = 5^2 + 4^2 + 4^2 + 2^2\\
+   & = 6^2 + 4^2 + 3^2\\
+   & = 6^2 + 5^2\\
+   & = 7^2 + 2^2 + 2^2 + 2^2\\
+\end{align*}
+\end{multicols}
+
+\pagebreak
+
+\begin{multicols}{3}
+\noindent
+\begin{align*}
+62 & = 6^2 + 4^2 + 3^2 + 1^2\\
+   & = 6^2 + 5^2 + 1^2\\
+   & = 7^2 + 3^2 + 2^2\\
+\\
+63 & = 5^2 + 5^2 + 3^2 + 2^2\\
+   & = 6^2 + 3^2 + 3^2 + 3^2\\
+   & = 6^2 + 5^2 + 1^2 + 1^2\\
+   & = 7^2 + 3^2 + 2^2 + 1^2\\
+\\
+64 & = 4^2 + 4^2 + 4^2 + 4^2\\
+   & = 8^2\\
+\\
+65 & = 6^2 + 4^2 + 3^2 + 2^2\\
+   & = 6^2 + 5^2 + 2^2\\
+   & = 7^2 + 4^2\\
+   & = 8^2 + 1^2\\
+\\
+66 & = 5^2 + 4^2 + 4^2 + 3^2\\
+   & = 5^2 + 5^2 + 4^2\\
+   & = 6^2 + 5^2 + 2^2 + 1^2\\
+   & = 7^2 + 3^2 + 2^2 + 2^2\\
+   & = 7^2 + 4^2 + 1^2\\
+   & = 8^2 + 1^2 + 1^2\\
+\\
+67 & = 5^2 + 5^2 + 4^2 + 1^2\\
+   & = 7^2 + 3^2 + 3^2\\
+   & = 7^2 + 4^2 + 1^2 + 1^2\\
+   & = 8^2 + 1^2 + 1^2 + 1^2\\
+\\
+68 & = 5^2 + 5^2 + 3^2 + 3^2\\
+   & = 6^2 + 4^2 + 4^2\\
+   & = 7^2 + 3^2 + 3^2 + 1^2\\
+   & = 8^2 + 2^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\begin{align*}
+69 & = 6^2 + 4^2 + 4^2 + 1^2\\
+   & = 6^2 + 5^2 + 2^2 + 2^2\\
+   & = 7^2 + 4^2 + 2^2\\
+   & = 8^2 + 2^2 + 1^2\\
+\\
+70 & = 5^2 + 5^2 + 4^2 + 2^2\\
+   & = 6^2 + 4^2 + 3^2 + 3^2\\
+   & = 6^2 + 5^2 + 3^2\\
+   & = 7^2 + 4^2 + 2^2 + 1^2\\
+   & = 8^2 + 2^2 + 1^2 + 1^2\\
+\\
+71 & = 6^2 + 5^2 + 3^2 + 1^2\\
+   & = 7^2 + 3^2 + 3^2 + 2^2\\
+\\
+72 & = 6^2 + 4^2 + 4^2 + 2^2\\
+   & = 6^2 + 6^2\\
+   & = 8^2 + 2^2 + 2^2\\
+\\
+73 & = 5^2 + 4^2 + 4^2 + 4^2\\
+   & = 6^2 + 6^2 + 1^2\\
+   & = 7^2 + 4^2 + 2^2 + 2^2\\
+   & = 8^2 + 2^2 + 2^2 + 1^2\\
+   & = 8^2 + 3^2\\
+\\
+74 & = 6^2 + 5^2 + 3^2 + 2^2\\
+   & = 6^2 + 6^2 + 1^2 + 1^2\\
+   & = 7^2 + 4^2 + 3^2\\
+   & = 7^2 + 5^2\\
+   & = 8^2 + 3^2 + 1^2\\
+\\
+75 & = 5^2 + 5^2 + 4^2 + 3^2\\
+   & = 5^2 + 5^2 + 5^2\\
+   & = 7^2 + 4^2 + 3^2 + 1^2\\
+   & = 7^2 + 5^2 + 1^2\\
+   & = 8^2 + 3^2 + 1^2 + 1^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\begin{align*}
+76 & = 5^2 + 5^2 + 5^2 + 1^2\\
+   & = 6^2 + 6^2 + 2^2\\
+   & = 7^2 + 3^2 + 3^2 + 3^2\\
+   & = 7^2 + 5^2 + 1^2 + 1^2\\
+   & = 8^2 + 2^2 + 2^2 + 2^2\\
+\\
+77 & = 6^2 + 4^2 + 4^2 + 3^2\\
+   & = 6^2 + 5^2 + 4^2\\
+   & = 6^2 + 6^2 + 2^2 + 1^2\\
+   & = 8^2 + 3^2 + 2^2\\
+\\
+78 & = 6^2 + 5^2 + 4^2 + 1^2\\
+   & = 7^2 + 4^2 + 3^2 + 2^2\\
+   & = 7^2 + 5^2 + 2^2\\
+   & = 8^2 + 3^2 + 2^2 + 1^2\\
+\\
+79 & = 5^2 + 5^2 + 5^2 + 2^2\\
+   & = 6^2 + 5^2 + 3^2 + 3^2\\
+   & = 7^2 + 5^2 + 2^2 + 1^2\\
+\\
+80 & = 6^2 + 6^2 + 2^2 + 2^2\\
+   & = 8^2 + 4^2\\
+\\
+81 & = 6^2 + 5^2 + 4^2 + 2^2\\
+   & = 6^2 + 6^2 + 3^2\\
+   & = 7^2 + 4^2 + 4^2\\
+   & = 8^2 + 3^2 + 2^2 + 2^2\\
+   & = 8^2 + 4^2 + 1^2\\
+   & = 9^2\\
+\\
+82 & = 5^2 + 5^2 + 4^2 + 4^2\\
+   & = 6^2 + 6^2 + 3^2 + 1^2\\
+   & = 7^2 + 4^2 + 4^2 + 1^2\\
+   & = 7^2 + 5^2 + 2^2 + 2^2\\
+   & = 8^2 + 3^2 + 3^2\\
+   & = 8^2 + 4^2 + 1^2 + 1^2\\
+   & = 9^2 + 1^2\\
+\end{align*}
+\end{multicols}
+
+\pagebreak
+
+\begin{multicols}{3}
+\noindent
+\begin{align*}
+83 & = 7^2 + 4^2 + 3^2 + 3^2\\
+   & = 7^2 + 5^2 + 3^2\\
+   & = 8^2 + 3^2 + 3^2 + 1^2\\
+   & = 9^2 + 1^2 + 1^2\\
+\\
+84 & = 5^2 + 5^2 + 5^2 + 3^2\\
+   & = 6^2 + 4^2 + 4^2 + 4^2\\
+   & = 7^2 + 5^2 + 3^2 + 1^2\\
+   & = 8^2 + 4^2 + 2^2\\
+   & = 9^2 + 1^2 + 1^2 + 1^2\\
+\\
+85 & = 6^2 + 6^2 + 3^2 + 2^2\\
+   & = 7^2 + 4^2 + 4^2 + 2^2\\
+   & = 7^2 + 6^2\\
+   & = 8^2 + 4^2 + 2^2 + 1^2\\
+   & = 9^2 + 2^2\\
+\\
+86 & = 6^2 + 5^2 + 4^2 + 3^2\\
+   & = 6^2 + 5^2 + 5^2\\
+   & = 7^2 + 6^2 + 1^2\\
+   & = 8^2 + 3^2 + 3^2 + 2^2\\
+   & = 9^2 + 2^2 + 1^2\\
+\\
+87 & = 6^2 + 5^2 + 5^2 + 1^2\\
+   & = 7^2 + 5^2 + 3^2 + 2^2\\
+   & = 7^2 + 6^2 + 1^2 + 1^2\\
+   & = 9^2 + 2^2 + 1^2 + 1^2\\
+\\
+88 & = 6^2 + 6^2 + 4^2\\
+   & = 8^2 + 4^2 + 2^2 + 2^2\\
+\\
+89 & = 6^2 + 6^2 + 4^2 + 1^2\\
+   & = 7^2 + 6^2 + 2^2\\
+   & = 8^2 + 4^2 + 3^2\\
+   & = 8^2 + 5^2\\
+   & = 9^2 + 2^2 + 2^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\begin{align*}
+90 & = 6^2 + 5^2 + 5^2 + 2^2\\
+   & = 6^2 + 6^2 + 3^2 + 3^2\\
+   & = 7^2 + 4^2 + 4^2 + 3^2\\
+   & = 7^2 + 5^2 + 4^2\\
+   & = 7^2 + 6^2 + 2^2 + 1^2\\
+   & = 8^2 + 4^2 + 3^2 + 1^2\\
+   & = 8^2 + 5^2 + 1^2\\
+   & = 9^2 + 2^2 + 2^2 + 1^2\\
+   & = 9^2 + 3^2\\
+\\
+91 & = 5^2 + 5^2 + 5^2 + 4^2\\
+   & = 7^2 + 5^2 + 4^2 + 1^2\\
+   & = 8^2 + 3^2 + 3^2 + 3^2\\
+   & = 8^2 + 5^2 + 1^2 + 1^2\\
+   & = 9^2 + 3^2 + 1^2\\
+\\
+92 & = 6^2 + 6^2 + 4^2 + 2^2\\
+   & = 7^2 + 5^2 + 3^2 + 3^2\\
+   & = 9^2 + 3^2 + 1^2 + 1^2\\
+\\
+93 & = 6^2 + 5^2 + 4^2 + 4^2\\
+   & = 7^2 + 6^2 + 2^2 + 2^2\\
+   & = 8^2 + 4^2 + 3^2 + 2^2\\
+   & = 8^2 + 5^2 + 2^2\\
+   & = 9^2 + 2^2 + 2^2 + 2^2\\
+\\
+94 & = 7^2 + 5^2 + 4^2 + 2^2\\
+   & = 7^2 + 6^2 + 3^2\\
+   & = 8^2 + 5^2 + 2^2 + 1^2\\
+   & = 9^2 + 3^2 + 2^2\\
+\\
+95 & = 6^2 + 5^2 + 5^2 + 3^2\\
+   & = 7^2 + 6^2 + 3^2 + 1^2\\
+   & = 9^2 + 3^2 + 2^2 + 1^2\\
+\end{align*}
+\vspace{\fill}\columnbreak
+\noindent
+\begin{align*}
+96 & = 8^2 + 4^2 + 4^2\\
+\\
+97 & = 6^2 + 6^2 + 4^2 + 3^2\\
+   & = 6^2 + 6^2 + 5^2\\
+   & = 7^2 + 4^2 + 4^2 + 4^2\\
+   & = 8^2 + 4^2 + 4^2 + 1^2\\
+   & = 8^2 + 5^2 + 2^2 + 2^2\\
+   & = 9^2 + 4^2\\
+\\
+98 & = 6^2 + 6^2 + 5^2 + 1^2\\
+   & = 7^2 + 6^2 + 3^2 + 2^2\\
+   & = 7^2 + 7^2\\
+   & = 8^2 + 4^2 + 3^2 + 3^2\\
+   & = 8^2 + 5^2 + 3^2\\
+   & = 9^2 + 3^2 + 2^2 + 2^2\\
+   & = 9^2 + 4^2 + 1^2\\
+\\
+99 & = 7^2 + 5^2 + 4^2 + 3^2\\
+   & = 7^2 + 5^2 + 5^2\\
+   & = 7^2 + 7^2 + 1^2\\
+   & = 8^2 + 5^2 + 3^2 + 1^2\\
+   & = 9^2 + 3^2 + 3^2\\
+   & = 9^2 + 4^2 + 1^2 + 1^2\\
+\\
+100 & = 5^2 + 5^2 + 5^2 + 5^2\\
+    & = 7^2 + 5^2 + 5^2 + 1^2\\
+    & = 7^2 + 7^2 + 1^2 + 1^2\\
+    & = 8^2 + 4^2 + 4^2 + 2^2\\
+    & = 8^2 + 6^2\\
+    & = 9^2 + 3^2 + 3^2 + 1^2\\
+    & = 10^2
+\end{align*}
+\end{multicols}
+
+\end{document}

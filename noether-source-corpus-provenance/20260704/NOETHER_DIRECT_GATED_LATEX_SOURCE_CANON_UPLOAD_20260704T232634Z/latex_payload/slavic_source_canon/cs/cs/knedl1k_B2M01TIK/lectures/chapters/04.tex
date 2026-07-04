@@ -1,0 +1,131 @@
+\section{Počítání modulo polynom}
+\subsection{Polynomy nad \texorpdfstring{$\Z_p$}{Zp}}
+\ii{Polynom nad $\Z_p$} v proměnné $x$ je výraz tvaru
+\begin{equation}
+	a(x) = a_k x^k + a_{k-1}x^{k-1} + \dots + a_1x + a_0,
+\end{equation}
+kde koeficienty $a_0, a_1, \dots, a_k$ jsou ze $\Z_p$.
+
+Množinu všech polynomu nad $\Z_p$ v proměnné $x$ značíme $\Z_p[x]$.
+
+\ii{Stupeň polynomu} $a(x)$ je největší $k$ takové, že $a_k \not = 0$, značí se $\st(a(x))$. Pro nulový polynom klademe $\st(0) = -1$.
+
+Polynomů stupně nejvýše $k$ je $p^{k+1}$.
+
+\subsection{Rovnost polynomů}
+\ii{Rovnost polynomů} $a(x) = b(x)$ nad $\Z_p$ nastane, pokud oba polynomy mají stejný stupeň a stejné koeficienty u odpovídajících mocnin.
+
+Různé polynomy nad $\Z_p$ mohou určovat stejné funkce ze $\Z_p$ do $\Z_p$. Polynomů nad $\Z_p$ je spočetně mnoho, funkcí ze $\Z_p$ do $\Z_p$ je $p^p$.
+
+Například polynomy $x+1$ a $x^2 + 1$ určují stejné funkce ze $Z_2$ do $Z_2$. Aneb funkce je určena svými výsledky.
+
+\subsection{Operace sčítání a násobení}
+Na množině polynomů nad $\Z_p$ jsou definovány \ii{operace sčítání} a \ii{násobení} analogicky jako pro reálné polynomy, pouze s koeficienty počítáme v $\Z_p$.
+
+Trojice $(\Z_p[x], +, \cdot)$ tvoří komutativní okruh s jednotkou. Nulovým prvkem je číslo 0, jednotkovým prvkem číslo 1, invertibilními prvky jsou nenulové konstanty $a \in \Z_p$.
+
+\subsection{Tvrzení o stupních polynomů}
+Pro stupně polynomů platí:
+\vspace{-1em}
+\begin{itemize}
+	\item $\st(a(x) + b(x)) \leq \max(\st(a(x)), \st(b(x)))$;
+	\item $\st(a(x) \cdot b(x)) = \st(a(x)) + \st(b(x))$, jsou-li oba polynomy nenulové.
+\end{itemize}
+Pro polynomy nad $\Z_n$, kde $n \not= p$, vztah pro stupeň součinu neplatí. Například v $\Z_6[x]$ je $\st(2x \cdot 3x) = \st(0) = -1$.
+
+Důvodem je, že okruh $\Z_n$ má dělitele nuly (tj. nenulové prvky, jejichž součin je nula). Těleso dělitele nuly nikdy nemá.
+
+\subsection{Věta o dělení se zbytkem}
+Pro libovolné polynomy $a(x), b(x) \in \Z_p[x]$, kde $b(x) \not= 0$, existují jednoznačně určené polynomy $q(x), z(x) \in \Z_p[x]$ tak, že
+\begin{equation}
+	a(x) = q(x) b(x) + z(x) \quad \text{a} \quad \st(z(x)) < \st(b(x)).
+\end{equation}
+\dukaz Polynomy $q(x)$ a $z(x)$ najdeme algoritmem pro dělení polynomů, který funguje analogicky jako u reálných polynomů, pouze místo dělení vedoucím koeficientem používáme násobení k němu inverzním prvkem. A vedoucí koeficient polynomu $b(x)$ je nenulový, má tedy v $\Z_p$ inverzní prvek.
+\hspace{\fill}\qed
+
+Algoritmus dělení polynomů funguje pro polynomy nad libovolným tělesem $T$, aneb pro polynomy nad tělesem platí věta o dělení polynomů se zbytkem.
+
+Algoritmus dělení polynomů ale nefunguje pro polynomy nad okruhem (který není těleso). V $\Z_n[x]$, kde $n$ není prvočíslo, nelze dělit těmi polynomy $b(x)$, jejichž vedoucí koeficient není invertibilní v $\Z_n$.
+
+Celou následující teorii opřenou o dělení se zbytkem proto lze vystavět na polynomech nad libovolným tělesem, nikoli však nad okruhem (který není těleso).
+
+\subsection{Relace dělitelnosti a relace asociovanosti}
+Polynom $a(x)$ \ii{dělí} polynom $b(x)$ v $Z_p[x]$, jestliže pro nějaký $r(x) \in \Z_p[x]$ platí
+\begin{equation}
+	b(x) = r(x) a(x).
+\end{equation}
+Značíme $a(x) \mid b(x)$.
+
+Nenulová konstanta $c$ ze $\Z_p$ dělí každý polynom $b(x)$, neboť $b(x) = c \cdot (c^{-1}b(x))$.
+
+Polynomy, které se liši o nenulový konstantní násobek, se dělí navzájem. Relace dělitelnosti není uspořádáním na $\Z_p[x]$.
+
+Pokud $a(x) \mid b(x)$ a $b(x) \mid a(x)$, pak mluvíme o \ii{asociovaných polynomech} a značíme je $a(x) \mid \mid b(x)$. Toto nastane, pokud $b(x) = c \cdot a(x)$, kde $c \in \Z_p^*$. 
+
+\subsection{Ireducibilní polynomy}
+Polynom $q(x)$ stupně $k\geq 1$ se nazývá \ii{ireducibilní nad $\Z_p$}, jestliže se v okruhu $\Z_p[x]$ nedá napsat jako součin dvou polynomů stupně menšího než $k$.
+
+Ireducibilní polynom $q(x)$ ke dělitelný pouze konstantami a polynomy asociovanými s $q(x)$.
+
+\subsection{Test ireducibility}
+Polynom $q(x)$ je ireducibilní nad $\Z_p$, pokud není dělitelný žádným ireducibilním polynomem nad $\Z_p$ stupně
+\[
+	k \leq \frac{\st(q(x))}{2}.
+\]
+
+\subsection{Kořeny polynomu}
+Prvek $c \in \Z_p$ je \ii{kořen} polynomu $q(x) \in \Z_p[x]$, jestliže platí $q(c) = 0$ v $\Z_p$.
+
+Prvek $c \in \Z_p$ je kořenem polynomu $q(x) \in \Z_p[x]$ právě, když polynom $(x-c)$ dělí polynom $q(x)$.
+
+Vylepšení testu ireducibility: Místo dělení polynomu $q(x)$ lineárním polynomem $(x-c)$ můžeme zkoušet, zda $c$ není kořenem polynomu $q(x)$.\\
+Speciálně: Polynom $q(x)$ stupně $\st(q) \leq 3$ je ireducibilní nad $\Z_p$ právě, když $q(x)$ nemá kořen v $\Z_p$.
+
+\subsection{Příklad testování ireducibility}
+\begin{itemize}
+	\item $x^3 + x^2 + 1$ je ireducibilní v $\Z_5[x]$, neboť nemá kořen v $\Z_5$.
+	\item $x^3 + x^2 + 1$ není ireducibilní v $\Z_3[x]$, neboť má kořen 1 v $\Z_3$. Jeho rozklad je $x^3 + x^2 + 1 = (x+2)(x^2 + 2x + 2)$.
+	\item $x^4 + x^2 + 1$ nemá kořen v $\Z_2$, ale není ireducibilní, neboť $x^4 + x^2 + 1 = (x^2 + x + 1)^2$ v $\Z_2[x]$
+\end{itemize}
+
+\subsection{Existence ireducibilních polynomů}
+Nad $\Z_p$ existují ireducibilní polynomy libovolného stupně $k \geq 1$.
+
+Uvědomme si, že situace je nad $\Z_p$ naprosto jiná než nad $\R$. Mezi reálnými polynomy jsou ireducibilní pouze lineární polynomy a kvadratické polynomy s komplexně sdruženými kořeny.
+
+\subsection{Rozklad na ireducibilní polynomy}
+Tvrzení: Pokud ireducibilní polynom $q(x)$ dělí součin $a(x) \cdot b(x)$, pak $q(x)$ dělí $a(x)$ nebo $q(x)$ dělí $b(x)$.
+
+Věta: Každý polynom $m(x)$ nad $\Z_p$ lze jednoznačně (až na pořadí) rozložit na součin konstanty a monických ireducibilních polynomů
+\begin{equation}
+	m(x) = c\cdot q_1(x) \cdots \dots \cdot q_n(x)
+\end{equation}
+(monické polynomy mají vedoucí koeficient roven 1).
+
+Jednoznačnost rozkladů platí pro polynomy nad libovolným tělesem, nemusí však platit pro polynomy nad okruhem.
+
+% TODO: zde vynechaný slajd "počet kořenů polynomu"
+
+\subsection{Největší společný dělitel}
+\ii{Největší společný dělitel} dvou polynomů $a(x), b(x) \in \Z_p[x]$ je takový polynom $d(x) \in \Z_p[x]$, že
+\vspace{-1em}
+\begin{enumerate}[a)]
+	\item $d(x)$ dělí oba polynomy $a(x)$ i $b(x)$,
+	\item $d(x)$ je dělitelný všemi společnými děliteli obou polynomů,
+	\item $d(x)$ je monický polynom.
+\end{enumerate}
+\vspace{-1em}
+Značíme $d(x) = \gcd(a(x), b(x))$.
+
+Bez požadavku, aby vedoucí koeficient $\gcd(a(x), b(x))$ byl roven 1, bychom měli třídu navzájem asociovaných největších společných dělitelů polynomů $a(x)$ a $b(x)$. Někdy se připouští i tento pohled.
+
+
+\subsection{Eukleidův algoritmus}
+Polynomy $a(x), b(x)$ jsou \ii{nesoudělné}, pokud $\gcd(a(x), b(x)) = 1$ (nebo nenulová konstanta, nebudeme-li požadovat monický největší společný dělitel).
+
+Pro hledání největšího společného dělitele polynomů můžeme použít \ii{Eukleidův algoritmus}. Eukleidův algoritmus se opírá pouze o dělení se zbytkem a v okruhu polynomů nad $\Z_p$ dělit se zbytkem umíme.
+
+Příklad. $\gcd(x^3 + x^2 + 1, \, 2x^2 + 2)$ v $\Z_3[x]$.
+\begin{align}
+	x^3 + x^2 + 1 &= (2x+2)a(x) + 2x \\
+\end{align}

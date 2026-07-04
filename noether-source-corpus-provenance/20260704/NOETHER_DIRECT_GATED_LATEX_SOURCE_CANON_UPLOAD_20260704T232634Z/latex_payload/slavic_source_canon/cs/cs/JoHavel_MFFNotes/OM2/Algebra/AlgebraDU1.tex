@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}                   % Začátek dokumentu
+\usepackage{../../MFFStyle}                     % Import stylu
+
+\let\oldmod=\mod
+\def\mod{\!\!\!\!\oldmod}
+
+\begin{document}
+    \begin{priklad}[1.1]
+        Nalezněte všechna celá čísla $x$ splňující $x^2 + 5x ≡ 0 (\mod 19)$.
+
+        \begin{reseni}
+            Upravíme levou stranu: $x(x + 5) ≡ 0 (\mod 19)$. Víme, že počítat modulo $19$ znamená počítat v $®Z_{19}$ a že $®Z_{19}$ je těleso (tj. i obor), tedy součin dvou čísel je 0, pokud je jedno z nich nulové. Tedy buď $x ≡ 0 (\mod 19)$ nebo $x + 5 ≡ 0 (\mod 19)$ (to lze ještě upravit na $x ≡ -5 (\mod 19)$). Tudíž z definice modulárního počítání je výsledek:
+            $$ x \in \{19k | k \in ®Z\} \cup \{19k - 5 \in ®Z\}. $$
+        \end{reseni}
+    \end{priklad}
+
+    \begin{priklad}[1.2]
+        Pomocí rozšířeného Euklidova algoritmu určete $\NSD(325, 123)$ a příslušné Bézoutovy koeficienty.
+
+        \begin{reseni}
+            Prostě budeme postupovat podle algoritmu:
+            $$ \begin{pmatrix}
+                325 & 123 & 79 & 44 & 35 & 9 & 8 & 1 & 0 \\
+                1 & 0 & 1 & -1 & 2 & -3 & 11 & -14 & -\\
+                0 & 1 & -2 & 3 & -5 & 8 & -29 & 37 & -
+            \end{pmatrix} $$
+            Čísle přečteme z posledního sloupce, kde není nula v prvním řádku: 
+            $$ \NSD(325, 123) = 1 = 325·37 - 14·123. $$
+        \end{reseni}
+    \end{priklad}
+
+\pagebreak
+
+    \begin{priklad}[1.3]
+        Označme $\phi=\frac{1}{2}(\sqrt{5} + 1)$. Dokažte, že množina $R_1 = {a+b\phi | a, b \in ®Z}$ tvoří podobor tělesa reálných čísel.
+
+        \begin{dukazin}
+            Stačí ukázat, že $R_1$ obsahuje jednotku, nulu a je uzavřená na sčítání, opačný prvek a násobení, protože jejich vlastnosti pak plynou z toho, že ®R je těleso\footnote{Ještě je samozřejmě potřeba dokázat, že $R_2 \subseteq ®R$, ale to je možná příliš jasné i na poznámku pod čarou.}. Jednotka a nula v reálných číslech jsou zřejmě $1$ a $0$, které jsou tvaru $1+0\phi \in R_2$ a $0 + 0\phi \in R_2$.
+
+            Uzavřená na opačný prvek rozhodně je, protože pokud $a, b \in ®Z$, tak zřejmě $-a, -b \in ®Z$ a $-(a+b\phi) = -a - b\phi \in R_2$. Stejně tak součet (z asociativity $+$ na ®R): $a, b, c, d \in ®Z \implies a+c, b+d \in ®Z$ a $(a+b\phi) + (c+d\phi) = (a+c) + (b+d)\phi \in R_2$. Největší problém je asi násobení, tedy $\forall a, b, c, d \in ®Z$:
+            $$ \(a + b\frac{1}{2}(\sqrt{5} + 1)\)·\(c + d\frac{1}{2}(\sqrt{5} + 1)\) = ac + (ad + bc)·\frac{1}{2}(\sqrt{5} + 1) + bd\frac{1}{4}(5 + 2\sqrt{1} + 1) = $$
+            $$ = (ac + bd) + (ad + bc + bd)·\frac{1}{2}(\sqrt{5} + 1) \in R_2, $$
+            jelikož $ac + bd, ad + bc + bd \in ®Z$.
+        \end{dukazin}
+    \end{priklad}
+
+\pagebreak
+
+    \begin{priklad}[1.4]
+        Dokažte, že $R_1$ z předchozího bodu není isomorfní podoboru $R_2=\{a+b\sqrt{2}|a, b \in Z\} ≤ ®R$.
+
+        \begin{dukazin}[Sporem]
+            Nechť tedy existuje isomorfismus $h: R_1 \rightarrow R_2$. Odhadneme (z následujícího výpočtu a z toho, jak se neisomorfismus standardně dokazuje), že nás zajímá ku příkladu obraz $(1-2\phi)^2 \in R_1$. Podle výpočtu v předchozím příkladu je
+            $$ (1-2\phi)^2 = (a·a + b·b) + (a·b + b·a + b·b)\phi = (1^2 + (-2)^2) + (1·(-2) + (-2)·1 + (-2)^2)\phi = 5. $$
+            Izomorfismus součtu je součet isomorfismů, tedy levou stranu zobrazíme jako (zřejmě $R_1 \ni 1 = 1 \in R_2$, tedy $h(1) = 1$):
+            $$ h(5) = h(1+1+1+1+1) = h(1)+h(1)+h(1)+h(1)+h(1) = 1+1+1+1+1 = 5. $$
+            Stejně tak, protože isomorfismus součinu je součin isomorfismů, můžeme zobrazit pravou stranu ($c, d \in ®Z$):
+            $$ h\((1-2\phi)^2\) = h\(1-2\phi\)·h\(1-2\phi\) = \(c+d\sqrt{2}\)^2. $$ 
+            
+            A jelikož $h$ je isomorfismus, tedy bijekce, tak si obrazy musí být rovny:
+            $$ \(c+d\sqrt{2}\)^2 = c^2 + 2cd\sqrt{2} + 2d^2 = 5. $$
+            Teď $c = 0$, ale pak $5 = \(d\sqrt{2}\)^2 = 2d^2$, tj. $®Q \setminus ®Z \ni \frac{5}{2} = d^2 \in ®Z$, což je spor, nebo $d = 0$, ale pak $5 = c^2$, tj. $®Z \ni c = \sqrt{5} \in ®R \setminus ®Q$, což je taktéž spor\footnote{Že je $\sqrt{5}$ (resp. $\sqrt{2}$ dále) iracionální dokážeme např. sporem: vyjádřením ve tvaru zlomku v základním tvaru, umocněním na druhou a pak ukázáním, že 5 (resp. 2) musí dělit čitatel i jmenovatel, což je ve sporu se základním tvarem.}. Poslední možnost je tedy $c ≠ 0 ≠ d$:
+            $$ ®R \setminus ®Q \ni \sqrt{2} = \frac{5 - c^2 -2d^2}{2cd} \in ®Q. \text{ \lightning} $$ 
+        \end{dukazin}
+    \end{priklad}
+
+\end{document}

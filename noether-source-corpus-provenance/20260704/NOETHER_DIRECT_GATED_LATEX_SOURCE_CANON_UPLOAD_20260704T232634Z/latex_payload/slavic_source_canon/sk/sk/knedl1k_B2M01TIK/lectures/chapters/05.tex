@@ -1,0 +1,121 @@
+\section{Cyklické kódy}
+
+\subsection{Cyklický kód}
+\ii{Cyklický kód} $K$ délky $n$ nad $\Z_p$ je lineární kód, který je uzavřen na cyklický posun písmen. Pro každé $\ol{v} \in \Z_p^n$ platí:
+\begin{equation}
+	\text{Je-li } \ol{v} = (v_1 \, v_2 \, \dots \, v_n) \in K, \text{ pak } c(\ol{v}) = (v_2 \, \dots \, v_n \, v_1) \in K,
+\end{equation}
+kde $c(\ol{v})$ je cyklický kód.
+
+Příklady cyklických kódů:
+\vspace{-1em}
+\begin{itemize}
+	\item Opakovací kód délky $n$ nad $\Z_p$ je cyklický.
+	\item Binární kód kontroly parity délky $n$ je cyklický (protože obsahuje právě všechna slova délky $n$ o sudém počtu jedniček).
+	\item Koktavý kód $K = \bc{\ol{v} = (aabbcc), \, a,b,c\in \Z_p}$ není cyklický,ale je ekvivalentní cyklickému kódu $K^\prime = \bc{\ol{v} = (abcabc), \, a,b,c\in \Z_p}$.
+\end{itemize}
+\vspace{-1em}
+Cyklický kód $K$ délky $n$ je uzavřen na cyklické posuny o libovolný $i$ míst doleva, pro $1 \leq i \leq n$. $\ol{v} \in K$ implikuje $c(\ol{v}) \in K$, implikuje $c^2 (\ol{v}) = c(c(\ol{v})) \in K$ atd. $c^i(\ol{v}) \in K$.
+
+Cyklický kód je uzavřen na cyklické posuny písmen doleva i doprava, neboť posun o $i$ míst doleva je posunem o $n-i$ míst doprava, pro $1 \leq i \leq n$.
+
+\subsection{Kódové polynomy}
+\ii{Nový pohled na věc.} U cyklických kódů se vyplatí chápat kódová slova délky $n$ jako polynomy stupně nejvýše $(n-1)$:
+\begin{equation}
+	\ol{v} = (v_1 \, v_2 \, \dots \, v_n) \quad \leftrightarrow \quad v(z)= v_1 z^{n-1} + v_2 z^{n-2} + \dots + v_n^{n-(n-1)}
+\end{equation}
+Cyklický posun je pak realizován vynásobením proměnnou $z$ podle pravidla $z^n = 1$:
+\begin{align}
+\begin{split}
+		c(\ol{v}) = (v_2 \, \dots \, v_n \, v_1) \leftrightarrow z \cdot v(z) &= v_1 z^n + v_2z^{n-1} + \dots + v_nz \\
+		&= v_2 z^{n-1} + \dots + v_nz + v_1
+\end{split}
+\end{align}
+Množina $\Z_p^n$ všech slov nad $\Z_p$ délky $n$ tvoří lineární prostor nad $\Z_p$.
+
+Množina všech polynomů nad $\Z_p$ stupně nejvýše $(n-1)$ také tvoří lineární prostor nad $\Z_p$.\\
+Přitom sčítání a násobení konstantou ze $\Z_p$ je v obou případech realizováno stejně, oba lineární prostory jsou izomorfní.
+
+Množinu všech polynomů nad $\Z_p$ stupně nejvýše $(n-1)$ budeme značit $\Z_p^{(n)}$.
+\begin{equation}
+	\Z_p^{(n)} = \frac{\Z_p[x]}{x^n - 1}
+\end{equation}
+
+Tímto pohledem získáme:
+\vspace{-1em}
+\begin{itemize}
+	\item Na množině všech polynomů nad $\Z_p$ stupně nejvýše $(n-1)$ máme však navíc operaci násobení:\\
+	Umíme vynásobit dva polynomy nad $\Z_p$ a použitím přepisovacího pravidla $z^n = 1 (z^{n+1} = z, \, z^{n+2}=z^2 \text{ atd.})$ získáme opět polynom stupně nejvýše $(n-1)$.
+	\item Takto definované násobení odpovídá násobení ve faktorovém okruhu $\Z_p[x] \setminus (x^n - 1)$, aneb $\Z_p^{(n)}$ tvoří komutativní okruh s jednotkou.
+\end{itemize}
+\vspace{-1em}
+\subsubsection*{Shrnutí}
+Množina $\Z_p^{(n)}$ všech polynomů nad $\Z_p$ v proměnné $z$ stupně nejvýše $(n-1)$ tvoří
+\vspace{-1em}
+\begin{itemize}
+	\item lineární prostor nad $\Z_p$;
+	\item komutativní okruh, v němž násobíme dle pravidla $z^n = 1$.
+\end{itemize}
+Cyklický kód $K$ délky $n$ nad $\Z_p$ je
+\vspace{-1em}
+\begin{itemize}
+	\item podprostor v lineárním prostoru $\Z_p^{(n)}$;
+	\item uzavřený na násobení proměnnou $z$.	
+\end{itemize}
+
+\subsection{Ideál okruhu}
+Nechť $(R, +, \cdot)$ je komutativní okruh. Podmnožina $I \subset R$ se nazývá \ii{ideál} okruhu $R$, jestliže
+\vspace{-1em}
+\begin{enumerate}
+	\item $(I, +)$ je podgrupa grupy $(R, +)$,
+	\item pro všechny $r \in R$ a všechny $i \in I$ je $r \cdot i \in I$.
+\end{enumerate}
+
+\subsection{Tvrzení o cyklickém kódu a ideálu}
+Cyklický kód $K$ délky $n$ nad $\Z_p$ je ideál okruhu $\Z_p^{(n)}$.
+
+Cyklický kód je odolný vůči násobení všemi polynomy z $\Z_p^{(n)}$, protože:
+\begin{equation}
+	z \cdot v(z) \in K \rightarrow z^2 \cdot v(z)\in K \rightarrow \dots \rightarrow z^i \cdot v(z) \in K
+\end{equation}
+a
+\begin{equation}
+	a(z) \cdot v(z) = \left(\sum_{i=0}^{n-1} a_i z_i \right) v(z) \in K,
+\end{equation}
+neboť $K$ je podprostor uzavřený na lineární kombinace.
+
+\subsection{Tvrzení o cyklickém kódu a existenci kódového polynomu}
+Nechť $K$ je cyklický kód délky $n$ nad $\Z_p$. Pak existuje kódový polynom $g(z) \in K$ tak, že platí
+\begin{equation}
+	v(z) \in K \iff v(z) = a(z) \cdot g(z) \quad \text{pro nějaký } a(z) \in \Z_p^{(n)}.
+\end{equation}
+
+\subsection{Generující polynom}
+Výše uvedený polynom $g(z)$ se nazývá \ii{generující polynom} cyklického kódu $K$.
+
+Generujícím polynomem je jakýkoliv nenulový kódový polynom nejmenšího stupně.\\
+Takových polynomů je $(p-1)$ a jsou navzájem asociované, obvykle se generující polynom volí monický.
+
+Pro každý $v(z) \in K$ existuje jediný $a(z)$ stupně nejvýše $(k-1)$, kde $k = n-\st(g)$, pro nějž $v(z) = a(z) \cdot g(z)$.
+
+Máme zde vzájemně jednoznačné zobrazení mezi kódovými polynomy $v(z) \in K$ a polynomy $a(z) \in \Z_p^{(k)}$.
+\dukaz % TODO: dodělat
+
+\subsection{Kódování}
+Nechť $K$ je cyklický $(n,k)$-kód s generujícím polynomem $g(z)$, tedy $\st(g) = n-k$.\\
+Kódování informace délky $k$ pomocí $g(z)$ probíhá takto:
+\begin{equation}
+	\ol{a} \leftrightarrow a(z) \quad \overset{\varphi}{\rightarrow} \quad v(z) = a(z) \cdot g(z) \leftrightarrow \ol{v} 
+\end{equation}
+
+\subsection{Generující matice}
+Buď $g(z)$ generující polynom cyklického $(n,k)$-kódu $K$ nad $\Z_p$.
+
+Množina $\bc{g(z), \, zg(z), \, z^2g(z), \, \dots, \, z^{k-1}g(z)}$ tvoří bázi podprostoru $K$ lineárního prostoru $\Z_p^{(n)}$.
+
+Aneb bázi v podprostoru $K$ lineárního prostoru slov $\Z_p^{n}$ získáme cyklickým otáčením slova $\ol{g} \leftrightarrow g(z)$.
+
+Generující matice $\mathbb{G} = \begin{pmatrix} c^{k-1}(\ol{g}) \\ \vdots \\ c(\ol{g}) \\ \ol{g}\end{pmatrix}$ určuje stejné kódování jako generující polynom $g(z)$.
+
+\dukaz % TODO: dodělat 
+

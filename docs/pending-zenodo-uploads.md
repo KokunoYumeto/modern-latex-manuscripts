@@ -1,3 +1,12 @@
+## 2026-07-05: Direct gated LaTeX source-canon upload
+
+Manifest: [20260705_direct_gated_latex_source_canon_upload.json](../manifests/pending-zenodo-uploads/20260705_direct_gated_latex_source_canon_upload.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip`, 5,815,800 bytes, SHA256 `BFC4CEE167D6A0BCEE39DB603CBEEE5845A9F63852CAC382C5D9CED3707FE968`.
+- Scope/result: 524 actual TeX-family source-body files imported from `origin/codex/noether-pc-20260629` commit `d8df61cd`, with Spanish mathematical TeX and broad Slavic-hint source trees. The imported upstream tree is preserved at `noether-source-corpus-provenance/20260704/NOETHER_DIRECT_GATED_LATEX_SOURCE_CANON_UPLOAD_20260704T232634Z/`.
+- Caveat: mixed/path-classified source-corpus material. Six credential-hit files were blocked and logged separately. This is source-corpus/provenance support and a Web/Pro feed bundle only: not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Interlanguage Claude v7 handoff/context-review refresh
 
 Manifest: [20260705_interlanguage_claude_v7_handoff_refresh.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_claude_v7_handoff_refresh.json)

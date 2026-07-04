@@ -1,0 +1,2640 @@
+\documentclass{article}
+
+\input{../definitions.tex}
+\usepackage{diagbox}
+
+\usepackage[numbers]{natbib}
+
+\numberwithin{equation}{section}
+
+\usepackage{tocloft}
+
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cfttoctitlefont{\sffamily\large\bfseries}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\def\mystrut(#1,#2){\vrule height #1 depth #2 width 0pt}
+
+\newcolumntype{f}[1]{%
+>{\mystrut(3ex,2ex)\centering}%
+p{#1}%
+<{}}
+
+\usepackage{fancyhdr}
+
+\usepackage[
+  top=2cm,
+  bottom=2cm,
+  left=3cm,
+  right=2cm,
+  headheight=17pt,
+  includehead,includefoot,
+  heightrounded,
+]{geometry}
+
+\fancyfoot{}
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[LO]{\nouppercase\leftmark}
+\fancyhead[RE]{\nouppercase\rightmark}
+
+\pagestyle{fancy}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Números de Bernoulli}
+\date{Febrero de 2017}
+
+\usepackage{xcolor}
+\newcommand{\highlight}[1]{\colorbox{shadecolor}{$\displaystyle #1$}}
+
+\theoremstyle{definition}
+\newtheorem{ejercicio}{Ejercicio}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+Los números de Bernoulli son ciertos números racionales
+$$B_0 = 1, ~
+B_1 = \frac{1}{2}, ~
+B_2 = \frac{1}{6}, ~
+B_3 = 0, ~
+B_4 = -\frac{1}{30}, ~
+B_5 = 0, ~
+B_6 = \frac{1}{42}, ~
+B_7 = 0, ~
+B_8 = -\frac{1}{30}, ~
+\ldots$$
+que aparecen en varios contextos de la teoría de números, combinatoria y
+análisis. En estos apuntes vamos a revisar sus diferentes definiciones:
+una que surge del estudio de sumas de potencias $1^k + 2^k + \cdots + n^k$,
+y otra definición por una función generatriz:
+$$\frac{t\,e^t}{e^t - 1} = \sum_{k\ge 0} \frac{B_k}{k!}\,t^k.$$
+Luego vamos a ver la demostración de la famosa fórmula de Euler para los valores
+especiales de la función zeta:
+$$\zeta (2k) \dfn 1 + \frac{1}{2^{2k}} + \frac{1}{3^{2k}} + \frac{1}{4^{2k}} + \cdots =
+(-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k}.$$
+Finalmente, vamos a demostrar el \term{teorema de Clausen--von Staudt} sobre los
+denominadores de $B_k$ y las \term{congruencias de Kummer}.
+
+\vspace{1em}
+
+Un aspecto atractivo de este tema es que todos los resultados se tratan de
+números concretos y el lector puede experimentar y hacer cálculos por sí
+mismo. Afortunadamente, ya no estamos en los tiempos de Euler y Bernoulli y
+podemos usar la computadora. Mi programa preferido para la teoría de números es
+PARI/GP, y voy a ilustrar todo con su código. El lector puede descargar PARI/GP
+de la página
+
+\begin{center}
+  \noindent\url{http://pari.math.u-bordeaux.fr/}
+\end{center}
+
+\vspace{1em}
+
+Para preparar estos apuntes, he usado principalmente los primeros capítulos
+del libro \cite{Arakawa-Ibukiyama-Kaneko-2014}, y el lector interesado puede
+consultarlo para más información sobre los números de Bernoulli y las funciones
+zeta.
+
+\vspace{1em}
+
+Le doy gracias a \personality{Gabriel Chicas Reyes} de la Universidad de
+El Salvador por su ayuda con la redacción de estos apuntes.
+
+\pagebreak
+\tableofcontents
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\pagebreak
+\section{Sumas de potencias de números naturales}
+\label{sumas-de-potencias}
+
+La suma de $n$ números naturales consecutivos puede ser calculada mediante la
+fórmula
+$$1+2+\cdots+n = \frac{(n+1)\,n}{2} = \frac{1}{2}\,n^2 + \frac{1}{2}\,n.$$
+
+Probablemente el lector también conoce la fórmula para las sumas de cuadrados:
+$$1^2 + 2^2 + \cdots + n^2 = \frac{n\,(n+1)\,(2n + 1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}.$$
+---es fácil demostrarla por inducción. Muchos matemáticos trataron de encontrar
+la fórmula similar para las sumas de cubos y otras potencias superiores.
+Es un problema muy natural, y la solución fue descubierta al principio del siglo
+XVIII por el matemático suizo \personality{Jacob Bernoulli} (1654--1705) y
+independientemente por el matemático japonés \personality{Seki Takakazu}
+(1642--1708). Denotemos por $S_k (n)$ la suma de las $k$-ésimas potencias de los
+números naturales hasta $n$:
+$$S_k (n) \dfn \sum_{1 \le i \le n} i^k = 1^k + 2^k + \cdots + n^k.$$
+En particular,
+\[ S_0 (n) = n, \quad
+  S_1 (n) = \frac{1}{2}\,n^2 + \frac{1}{2}\,n, \quad
+  S_2 (n) = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}. \]
+Para obtener las fórmulas para $S_3 (n), S_4 (n), S_5 (n)$, etcétera, recordemos
+primero el \term{teorema del binomio}:
+$$(x+y)^k = \sum_{0 \le i \le k} {k \choose i} x^{k-i}\,y^i,$$
+donde
+$${k \choose i} = \frac{k!}{(k-i)!\,i!}$$
+denota un \term{coeficiente binomial}, definido como el número de posibilidades
+de escoger $i$ objetos entre un total de $k$ objetos.
+
+\begin{shaded}
+  \small\noindent En PARI/GP, \verb|binomial(k,i)| $= {k\choose i}$.
+
+\begin{verbatim}
+/* vector (n,i,expr) devuelve un vector con la expresión
+   expr evaluada con i=1, i=2, ..., i=n: */
+? vector (7,i,binomial (6,i-1))
+% = [1, 6, 15, 20, 15, 6, 1]
+\end{verbatim}
+\end{shaded}
+
+En particular, tenemos
+$$(m+1)^{k+1} - m^{k+1} = \sum_{0 \le i \le k} {k+1 \choose i}\,m^i.$$
+La suma de estas identidades para $m = 1, 2, \ldots, n$ nos da
+$$(n+1)^{k+1} - 1 = \sum_{0 \le i \le k} {k+1 \choose i}\,S_i (n),$$
+de donde tenemos una expresión de $S_k (n)$ en términos de
+$S_0 (n), S_1 (n), \ldots, S_{k-1} (n)$:
+
+\begin{equation}
+  \label{formula-para-Skn}
+  S_k (n) = \frac{1}{k+1} \, \left((n+1)^{k+1} - 1 - \sum_{0 \le i \le k-1} {k+1\choose i} \, S_i (n)\right).
+\end{equation}
+
+Por inducción se ve que $S_k (n)$ es un polinomio en $n$ de grado $k+1$,
+con coeficiente principal $\frac{1}{k+1}$. Para evitar una posible confusión,
+denotemos la variable por $x$. El polinomio $S_k (x) \in \QQ [x]$ está
+determinado por sus valores en $x = n \in \NN$ (¿por qué?). Por la definición
+de $S_k (n)$, tenemos $S_k (n+1) - S_k (n) = (n+1)^k$ para $n = 1,2,3,\ldots$
+Para los polinomios, esto nos da la relación
+
+\begin{equation}
+  \label{eqn:Skn+1-y-Skn}
+  S_k (x+1) - S_k (x) = (x+1)^k.
+\end{equation}
+
+En particular, $S_k (1) - S_k (0) = 1$, y ya que $S_k (1) = 1$, esto significa
+que $S_k (0) = 0$; es decir, el término constante del polinomio $S_k (x)$ es
+nulo (también podemos verlo por inducción de la fórmula
+\eqnref{formula-para-Skn}). Usando \eqnref{formula-para-Skn}, podemos calcular
+algunos $S_k (x)$.
+
+\begin{shaded}
+  \small
+
+  \noindent Implementemos nuestra fórmula para $S_k$ en PARI/GP:
+
+\begin{verbatim}
+S(k) = if (k == 0, x, 1/(k+1)*((x+1)^(k+1) - 1 - sum (i=0, k-1, binomial(k+1,i) * S(i))));
+
+? S(3)
+% = 1/4*x^4 + 1/2*x^3 + 1/4*x^2
+\end{verbatim}
+
+  \noindent El lector que conoce un poco de programación puede notar que
+  el código de arriba es muy ineficaz; por ejemplo, para calcular \verb|S(20)|
+  ya se necesita mucho tiempo. He aquí otra versión mucho más rápida:
+
+\begin{verbatim}
+/* La tabla de S (k): */
+s_table = [];
+
+S (k) = {
+  if (k == 0, return (x));
+
+  /* Extender la tabla de valores, de ser necesario: */
+  if (length(s_table) < k, s_table = concat(s_table, vector(k-length(s_table))));
+
+  /* Devolver el valor, si está en la tabla;
+     sino, calcularlo y poner en la tabla: */	
+  if (s_table[k], s_table[k],
+      s_table[k] = 1/(k+1)*((x+1)^(k+1) - 1 - sum (i=0, k-1, binomial(k+1,i) * S(i))))
+}
+\end{verbatim}
+
+  \noindent (Trate de calcular, por ejemplo, \verb|S(20)| usando ambas
+  versiones.)
+\end{shaded}
+
+\begin{align*}
+  S_0 (x) & = x,\\
+  S_1 (x) & = \frac{1}{2}\,x^2\,+\highlight{\frac{1}{2}}\,x,\\
+  S_2 (x) & = \frac{1}{3}\,x^3+\frac{1}{2}\,x^2+\highlight{\frac{1}{6}}\,x,\\
+  S_3 (x) & = \frac{1}{4}\,x^4+\frac{1}{2}\,x^3+\frac{1}{4}\,x^2,\\
+  S_4 (x) & = \frac{1}{5}\,x^5+\frac{1}{2}\,x^4+\frac{1}{3}\,x^3\highlight{-\frac{1}{30}}\,x,\\
+  S_5 (x) & = \frac{1}{6}\,x^6+\frac{1}{2}\,x^5+\frac{5}{12}\,x^4-\frac{1}{12}\,x^2,\\
+  S_6 (x) & = \frac{1}{7}\,x^7+\frac{1}{2}\,x^6+\frac{1}{2}\,x^5-\frac{1}{6}\,x^3+\highlight{\frac{1}{42}}\,x,\\
+  S_7 (x) & = \frac{1}{8}\,x^8+\frac{1}{2}\,x^7+\frac{7}{12}\,x^6-\frac{7}{24}\,x^4+\frac{1}{12}\,x^2,\\
+  S_8 (x) & = \frac{1}{9}\,x^9+\frac{1}{2}\,x^8+\frac{2}{3}\,x^7-\frac{7}{15}\,x^5+\frac{2}{9}\,x^3\highlight{-\frac{1}{30}}\,x,\\
+  S_9 (x) & = \frac{1}{10}\,x^{10}+\frac{1}{2}\,x^9+\frac{3}{4}\,x^8-\frac{7}{10}\,x^6+\frac{1}{2}\,x^4-\frac{3}{20}\,x^2,\\
+  S_{10} (x) & = \frac{1}{11}\,x^{11}+\frac{1}{2}\,x^{10}+\frac{5}{6}\,x^9-x^7+x^5-\frac{1}{2}\,x^3+\highlight{\frac{5}{66}}\,x.
+\end{align*}
+
+Las expresiones de arriba, también hasta $S_{10} (n)$, aparecen en la página 97
+del libro de Bernoulli \cite{Bernoulli-1713}, publicado póstumamente en
+1713. Luego Bernoulli escribe que, usando sus fórmulas, calculó en un
+«semi-cuarto de hora» la suma
+$$1^{10} + 2^{10} + \cdots + 1000^{10} =
+S_{10} (1000) =
+91\,409\,924\,241\,424\,243\,424\,241\,924\,242\,500.$$
+Con ayuda de una computadora, se puede verificar que ¡el resultado es correcto!
+
+\begin{shaded}
+  \small
+\begin{verbatim}
+? { local(x); x = 1000; eval (S(10)) }
+% = 91409924241424243424241924242500
+
+? sum (i=1,1000,i^10)
+% = 91409924241424243424241924242500
+\end{verbatim}
+\end{shaded}
+
+\begin{definicion}
+  El \term{$k$-ésimo número de Bernoulli $B_k$} es el coeficiente de $x$ en
+  el polinomio $S_k (x)$. En otras palabras,
+  $$B_k \dfn S_k' (0).$$
+\end{definicion}
+
+Euler leyó «Ars Conjectandi» y estudió los números $B_k$, llamándolos los
+«números de Bernoulli», en el capítulo II.5 de su libro \cite{E212}.
+Varias identidades para $B_k$ que aparecen en nuestro curso fueron descubiertas
+por Euler. Por ejemplo, la derivada de \eqnref{formula-para-Skn} nos da
+$$S_k' (x) = \frac{1}{k+1} \, \left((k+1)\,(x+1)^k - \sum_{0 \le i \le k-1} {k+1\choose i} \, S_i' (x)\right),$$
+y para $x = 0$ tenemos
+$$B_k = S_k' (0) = 1 - \frac{1}{k+1} \, \sum_{0 \le i \le k-1} {k+1\choose i} \, B_i.$$
+
+\begin{proposicion}
+  \label{definicion-recursiva-de-Bk}
+  Para todo $k \ge 0$ se tiene
+  $$\sum_{0 \le i \le k} {k+1 \choose i}\,B_i = k+1.$$
+\end{proposicion}
+
+Esto nos da una definición recursiva de los $B_k$:
+
+\begin{align*}
+  B_0 & = 1,\\
+  B_0 + 2\,B_1 & = 2,\\
+  B_0 + 3\,B_1 + 3\,B_2 & = 3,\\
+  B_0 + 4\,B_1 + 6\,B_2 + 4\,B_3 & = 4,\\
+      & ~~ \vdots
+\end{align*}
+
+A partir de estas identidades se pueden calcular sucesivamente
+$B_1, B_2, B_3, B_4, \ldots$
+
+\begin{shaded}
+  \small
+\begin{verbatim}
+/* La tabla de B (k): */
+b_table = [];
+
+B (k) = {
+  if (k == 0, return (1));
+
+  if (length(b_table) < k, b_table = concat(b_table, vector(k-length(b_table))));
+  if (b_table[k], b_table[k],
+      b_table[k] = 1 - 1/(k+1)*sum (i=0, k-1, binomial(k+1,i)*B (i)))
+}
+
+? polcoeff (S(10),1,n)
+% = 5/66
+? B(10)
+% = 5/66
+\end{verbatim}
+\end{shaded}
+
+Luego los primeros números de Bernoulli son
+
+{\def\arraystretch{1.25}
+  \[ \begin{array}{rx{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}}
+       k\colon & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $\cdots$ \tabularnewline
+       \hline
+       B_k\colon & $1$ & $\frac{1}{2}$ & $\frac{1}{6}$ & $0$ & $-\frac{1}{30}$ & $0$ & $\frac{1}{42}$ & $0$ & $-\frac{1}{30}$ & $0$ & $\frac{5}{66}$ & $\cdots$
+     \end{array} \]}
+
+\noindent (Bernoulli y Euler no usaban la notación $B_k$, sino que escribían
+$A = \frac{1}{6}$, $B = -\frac{1}{30}$, $C = \frac{1}{42}$, $D = -\frac{1}{30}$,
+etcétera.)
+
+La derivada de \eqnref{eqn:Skn+1-y-Skn} es
+$$S_k' (x+1) - S_k' (x) = k\,(x+1)^{k-1},$$
+y la suma de estas identidades para $x = 0,1,2,\ldots,n-1$ nos da
+$$S_k' (n) - S_k' (0) = k\,S_{k-1} (n).$$
+Entonces, los polinomios $S_k (x)$ satisfacen la identidad
+$$S_k' (x) = k\,S_{k-1} (x) + B_k.$$
+Esto, junto con $S_1 (x) = x$, define completamente a todos los $S_k (x)$
+(el término constante es nulo).
+
+\begin{ejercicio}[La fórmula de Faulhaber]
+  \label{ejercicio:suma-de-potencias-y-Bk}
+  Demuestre la identidad
+  $$S_k (n) = \frac{1}{k+1}\,\sum_{0 \le i \le k} {k+1\choose i}\,B_i\,n^{k+1-i}.$$
+  \noindent Indicación: si $p (x) \in \QQ [x]$ es un polinomio de grado $d$,
+  entonces
+  $$p (x) = \sum_{0 \le i \le d} \frac{p^{(i)} (0)}{i!}\,x^i,$$
+  donde $p^{(i)} (x)$ es la $i$-ésima derivada iterada de $p (x)$:
+  $$p^{(0)} (x) \dfn p (x), ~
+  p^{(1)} (x) \dfn p' (x), ~
+  p^{(2)} (x) \dfn p'' (x), ~
+  p^{(3)} (x) \dfn p''' (x), ~
+  \ldots$$
+\end{ejercicio}
+
+Revisemos nuestra tabla de los primeros números de Bernoulli. Se observan dos patrones:
+
+\begin{itemize}
+\item $B_k = 0$ para $k \ge 3$ impar. Esto va a ser evidente en
+  \S\ref{section:funcion-generatriz-para-Bk} a partir de otra representación de
+  $B_k$ mediante una función generatriz par.
+
+\item $B_k \ne 0$ para $k$ par, y los signos se alternan. Esto puede ser probado
+  directamente de modo combinatorio (véase ejerciciosb
+  \ref{ejercicio:identidad-de-Euler} y
+  \ref{ejercicio:identidad-de-Euler-corolario}) o a partir de la fórmula
+  $$(-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k} =
+  \zeta (2k) \dfn \sum_{n \ge 1} \frac{1}{n^{2k}} > 0$$
+  que será explicada en \S\ref{section:valores-de-zeta2k}.
+\end{itemize}
+
+En cuanto a los valores de $B_k$, no se nota ningún patrón evidente.
+Por ejemplo, en $B_{12} = -\frac{691}{2730}$ el numerador $691$ es un número
+primo que aparentemente no tiene nada que ver con $12$. Sin embargo, si
+factorizamos los \emph{denominadores} de $B_k$, se revelan números primos
+relacionados con $k$ de alguna manera:
+
+{\def\arraystretch{1.25}
+\[ \begin{array}{rccccccccccccccc}
+k\colon & 0 & 1 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 16 & 18 & 20 & \cdots \\
+\hline
+B_k\colon & 1 & \frac{1}{2} & \frac{1}{2\cdot 3} & -\frac{1}{2\cdot 3\cdot 5} & \frac{1}{2\cdot 3\cdot 7} & -\frac{1}{2\cdot 3\cdot 5} & \frac{5}{2\cdot 3\cdot 11} & -\frac{691}{2\cdot 3\cdot 5\cdot 7\cdot 13} & \frac{7}{2\cdot 3} & -\frac{3617}{2\cdot 3\cdot 5\cdot 17} & \frac{43867}{2\cdot 3\cdot 7\cdot 19} & -\frac{174611}{2\cdot 3\cdot 5\cdot 11} & \cdots
+\end{array} \]
+}
+
+El lector puede formular su propia conjetura sobre los denominadores; más
+adelante vamos a ver la respuesta en el \term{teorema de Clausen--von Staudt}
+(\S\ref{section:teorema-de-von-Staudt}).
+
+\begin{shaded}
+  \small\noindent Por supuesto, PARI/GP ya sabe calcular los números de
+  Bernoulli. La función \verb|bernfrac(k)| devuelve $B_k$:
+
+\begin{verbatim}
+? bernfrac(1)
+% = -1/2
+? bernfrac(10)
+% = 5/66
+\end{verbatim}
+
+  \noindent Atención: PARI/GP (y también muchos libros de texto) usa otra
+  definición de $B_k$ según la cual $B_1 = -\frac{1}{2}$
+  (note el signo «$-$»). Para $k > 1$, los $B_k$ de PARI/GP son los mismos que
+  los nuestros. La función \verb|bernreal(k)| calcula el valor aproximado de
+  $B_k$:
+
+\begin{verbatim}
+? bernreal(4)   
+% = -0.033333333333333333333333333333333333333
+\end{verbatim}
+\end{shaded}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Series formales de potencias}
+
+Toda sucesión de números $a_k$ puede ser vista como los coeficientes de una
+serie de potencias $\sum_k a_k\,t^k$. A veces esta serie surge como
+la \term{serie de Taylor} de una función real o compleja $f$:
+$$\sum_{k\ge 0} \frac{f^{(k)} (t_0)}{k!} \, (t-t_0)^k$$
+(cuando las derivadas de $f$ en $t_0$ existen). Las funciones que pueden ser
+representadas de tal manera se llaman \term{analíticas}. He aquí algunos
+ejemplos de series de Taylor:
+
+\begin{gather*}
+  \text{\term{la serie geométrica} }\frac{1}{1-t} = \sum_{k \ge 0} t^k\quad\text{para }|t| < 1,\\
+  e^t = \sum_{k\ge 0} \frac{t^k}{k!}, \quad\quad
+  \ln (1+t) = \sum_{k \ge 1} (-1)^{k+1}\,\frac{t^k}{k}\quad\text{para }|t| < 1,\\
+  \sen t = \sum_{k \ge 0} \frac{(-1)^k}{(2k+1)!}\,t^{2k+1}, \quad\quad
+  \cos t = \sum_{k \ge 0} \frac{(-1)^k}{(2k)!}\,t^{2k}.
+\end{gather*}
+
+En general, la serie $\sum_k a_k\,t^k$ que corresponde a una sucesión arbitraria
+$(a_k)$ no tiene por qué ser convergente, aunque sería útil manipular con
+expresiones como «$\sum_k a_k\,t^k$» de manera puramente formal, como en
+efecto hacían los matemáticos de la época de Euler, cuando todavía no había
+una base rigurosa de análisis.
+
+\begin{definicion}
+  Sea $R$ un anillo conmutativo. Una \term{serie formal de potencias} en
+  variable $t$ con coeficientes en $R$ es una expresión
+  $$f (t) = \sum_{k \ge 0} a_k\,t^k = a_0 + a_1\,t + a_2\,t^2 + a_3\,t^3 + \cdots$$
+  donde $a_k \in R$.
+\end{definicion}
+
+Las series formales se pueden manipular de la misma manera que los polinomios.
+A saber, la suma de dos series se calcula término por término:
+
+\begin{equation}
+  \label{adicion-de-series-formales}
+  \left(\sum_k a_k\,t^k\right) + \left(\sum_k b_k\,t^k\right) \dfn \sum_k (a_k+b_k)\,t^k.
+\end{equation}
+
+El producto de dos series se calcula mediante la distributividad formal:
+
+\begin{align*}
+  (a_0 + a_1\,t + a_2\,t^2 + a_3\,t^3 + \cdots)\cdot
+  (b_0 + b_1\,t + b_2\,t^2 + b_3\,t^3 + \cdots) & = a_0\,b_0 + ~\\
+                                                & \quad (a_0\,b_1 + a_1\,b_0)\,t + ~ \\
+                                                & \quad (a_0\,b_2 + a_1\,b_1 + a_2\,b_0)\,t^2 + ~ \\
+                                                & \quad (a_0\,b_3 + a_1\,b_2 + a_2\,b_1 + a_3\,b_0)\,t^3 + \cdots
+\end{align*}
+Es decir,
+\begin{equation}
+  \label{multiplicacion-de-series-formales}
+  \left(\sum_k a_k\,t^k\right) \cdot \left(\sum_k b_k\,t^k\right) \dfn
+  \sum_k \left(\sum_{i+j=k} a_i\,b_j\right)\,t^k.
+\end{equation}
+
+Se ve que las series formales respecto las operaciones de arriba forman un
+anillo conmutativo, que vamos a denotar por $R [\![t]\!]$. Los polinomios
+$R [t]$ forman un subanillo de $R [\![t]\!]$. En efecto, la adición y
+multiplicación de polinomios están definidos mediante las mismas fórmulas
+\eqnref{adicion-de-series-formales} y
+\eqnref{multiplicacion-de-series-formales}, y todo polinomio
+$a_n\,t^n + a_{n-1}\,t^{n-1} + \cdots a_1\,t + a_0$ puede ser visto como una
+serie formal de potencias
+$$a_0 + a_1\,t + \cdots + a_{n-1}\,t^{n-1} + a_n\,t^n + 0\,t^{n+1} + 0\,t^{n+2} + \cdots$$
+En otras palabras, un polinomio es una serie formal donde casi todos los
+coeficientes son nulos.
+
+Un ejemplo muy importante de las series formales de potencias que nos va a
+servir mucho es el siguiente.
+
+\begin{definicion}
+  Si $\QQ \subset R$, entonces la \term{función exponencial formal} es la serie
+  en $R [\![t]\!]$ definida como
+  $$e^t \dfn \sum_{k \ge 0} \frac{t^k}{k!}.$$
+\end{definicion}
+
+\vspace{1em}
+
+\begin{observacion}
+  Si $R$ es un dominio de integridad ($a\cdot b \ne 0$ para $a,b\ne 0$),
+  entonces $R [\![t]\!]$ es también un dominio de integridad
+  ($f (t) \cdot g (t) \ne 0$ para $f (t), g(t) \ne 0$).
+
+  \begin{proof}
+    Sean $f (t) = \sum_{k \ge 0} a_k\,t^k$ y $g (t) = \sum_{k \ge 0} b_k\,t^k$
+    dos series de potencias no nulas. Sea $a_i$ el primer coeficiente no nulo de
+    $f (t)$ y sea $b_j$ el primer coeficiente no nulo en $g (t)$. El coeficiente
+    de $t^{i+j}$ en $f (t) \cdot g (t)$ es
+    $$a_0\,b_{i+j} + a_1\,b_{i+j-1} + \cdots + a_i\,b_j + a_{i+1}\,b_{j-1} + \cdots + a_{i+j}\,b_0,$$
+    donde por nuestra elección de $a_i$ y $b_j$ todos los términos son nulos
+    excepto $a_i\,b_j$, que no es nulo porque $a_i \ne 0$, $b_j \ne 0$.
+  \end{proof}
+\end{observacion}
+
+A partir de ahora vamos a suponer que $R$ es un dominio de integridad.
+
+\begin{observacion}
+  \label{obs:series-formales-invertibles}
+  Una serie $f (t) = \sum_{k \ge 0} a_k\,t^k \in R [\![t]\!]$ es invertible
+  si y solamente si $a_0 = \text{«}f (0)\text{»} \ne 0$ es invertible.
+\end{observacion}
+
+\noindent Note que, en general, sumas infinitas en $R$ no están definidas,
+así que no se puede evaluar $f (t)$ en un elemento de $R$; es posible solo
+en análisis, donde hay nociones de convergencia. Sin embargo, $f (0)$ sí tiene
+sentido, y es el término constante de $f (t)$.
+
+\begin{proof}
+  Estamos buscando otra serie $g (t) = \sum_{k \ge 0} b_k\,t^k \in R [\![t]\!]$
+  tal que $f (t) \cdot g (t) = 1$, es decir,
+  \begin{align*}
+    a_0\,b_0 & = 1,\\
+    a_0\,b_1 + a_1\,b_0 & = 0,\\
+    a_0\,b_2 + a_1\,b_1 + a_2\,b_0 & = 0,\\
+             & ~~\vdots \\
+    \sum_{0 \le i \le k} a_i\,b_{k-i} & = 0 \quad (k \ge 1)
+  \end{align*}
+
+  De la primera ecuación se ve que $a_0$ tiene que ser invertible. En este caso,
+  podemos calcular $b_k$ sucesivamente:
+  \begin{align*}
+    b_0 & = a_0^{-1},\\
+    b_1 & = -a_0^{-1}\,(a_1\,b_0),\\
+    b_2 & = -a_0^{-1}\,(a_1\,b_1 + a_2\,b_0),\\
+        & ~~\vdots \\
+    b_k & = -a_0^{-1}\,\sum_{1 \le i \le k} a_i\,b_{k-i}. \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{ejemplo}
+  Tenemos
+  \begin{align*}
+    (1-t)\cdot (1 + t + t^2 + t^3 + t^4 + \cdots) & =
+                                                    (1 + t + t^2 + t^3 + t^4 + \cdots) -
+                                                    (t + t^2 + t^3 + t^4 + t^5 + \cdots) = 1,\\
+    (1+t)\cdot (1 - t + t^2 - t^3 + t^4 - \cdots) & =
+                                                    (1 - t + t^2 - t^3 + t^4 - \cdots) +
+                                                    (t - t^2 + t^3 - t^4 + t^5 - \cdots) = 1.
+  \end{align*}
+
+  Este es un análogo de la serie geométrica
+  $\frac{1}{1-t} = \sum_{k \ge 0} t^k$, que en análisis tiene sentido para
+  $|t| < 1$. En nuestro caso, $t$ es una variable formal.
+\end{ejemplo}
+
+Si $R = k$ es un cuerpo, una serie
+$$f (t) = a_0 + a_1\,t + a_2\,t^2 + a_3\,t^3 + \cdots$$
+tal que $a_0 = 0$ no es invertible en $k [\![t]\!]$. Para resolver este
+problema, podemos introducir potencias negativas de $t$ y escribir
+$$f (t) = t^{-n} \, (a_n + a_{n+1}\,t + a_{n+2}\,t^2 + a_{n+3}\,t^3 + \cdots),$$
+donde $a_n$ es el primer coeficiente no nulo en $f (t)$. Aquí la serie entre
+paréntesis es invertible en $k [\![t]\!]$. Para que tenga sentido el término
+«$t^{-n}$», podemos introducir la siguiente generalización.
+
+\begin{definicion}
+  Una \term{serie formal de Laurent}\footnote{\href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Laurent_Pierre.html}{\personality{Pierre Alphonse Laurent}} (1813--1854), un matemático y oficial militar francés.}
+  es una serie formal con un número finito de potencias negativas:
+  $$f(t) = \sum_{k \ge -N} a_k\,t^k\quad \text{para algún }N\in \NN.$$
+\end{definicion}
+
+Para las series de Laurent también tienen sentido adición y multiplicación,
+definidas mediante las mismas fórmulas \eqnref{adicion-de-series-formales}
+y \eqnref{multiplicacion-de-series-formales}, y toda serie puede ser vista como
+una serie de Laurent con coeficientes negativos nulos. El anillo de las series
+de Laurent se denota por $R (\!(t)\!)$.
+
+\vspace{1em}
+
+Tenemos las siguientes generalizaciones de los resultados de arriba:
+
+\begin{enumerate}
+\item[1)] Si $R$ es un dominio de integridad, entonces $R (\!(t)\!)$ es también
+  un dominio de integridad (la demostración es la misma).
+
+\item[2)] Una serie de Laurent $f (t) \in R (\!(t)\!)$ es invertible si y
+  solamente si su primer coeficiente no nulo es invertible en $R$. En
+  particular, si $R = k$ es un cuerpo, todas las series de Laurent no nulas son
+  invertibles, y se ve que $k (\!(t)\!)$ es el cuerpo de fracciones de
+  $k [\![t]\!]$.
+\end{enumerate}
+
+\begin{ejemplo}
+  La serie $t + t^2 + t^3 + \cdots$ es invertible como serie de Laurent:
+  \[ (t^{-1} - 1)\,(t + t^2 + t^3 + \cdots) =
+    (1 + t + t^2 + \cdots) - (t + t^2 + t^3 + \cdots) = 1. \qedhere \]
+\end{ejemplo}
+
+\begin{shaded}
+  \small\noindent PARI/GP puede trabajar con series de potencias. Para indicar
+  que los términos de grado $\ge n$ están omitidos, se escribe
+  «\verb|+ O(t^n)|»:
+
+\begin{verbatim}
+? 1/(1-t + O(t^10))
+% = 1 + t + t^2 + t^3 + t^4 + t^5 + t^6 + t^7 + t^8 + t^9 + O(t^10)
+
+? (t + 2*t^2 + 3*t^3 + 4*t^4 + 5*t^5 + O (t^6))^2
+% = t^2 + 4*t^3 + 10*t^4 + 20*t^5 + 35*t^6 + O(t^7)
+\end{verbatim}
+
+  \noindent Series de Laurent:
+
+\begin{verbatim}
+? 1/(t + t^2 + t^3 + t^4 + t^5 + t^6 + O (t^7))
+% = t^-1 - 1 + O(t^5)
+\end{verbatim}
+
+  \noindent PARI/GP conoce la exponencial formal:
+
+\begin{verbatim}
+? exp (t)
+% = 1 + t + 1/2*t^2 + 1/6*t^3 + 1/24*t^4 + 1/120*t^5 + 1/720*t^6 +
+     1/5040*t^7 + 1/40320*t^8 + 1/362880*t^9 + 1/3628800*t^10 +
+     1/39916800*t^11 + 1/479001600*t^12 + 1/6227020800*t^13 +
+     1/87178291200*t^14 + 1/1307674368000*t^15 + 1/20922789888000*t^16 +
+     O(t^17)
+\end{verbatim}
+
+  \noindent El número de términos se puede cambiar con el parámetro \verb|seriesprecision|:
+
+\begin{verbatim}
+? default (seriesprecision, 6)
+? exp (t)
+% = 1 + t + 1/2*t^2 + 1/6*t^3 + 1/24*t^4 + 1/120*t^5 + 1/720*t^6 + O(t^7)
+\end{verbatim}
+
+  % \noindent Los números enteros $p$-ádicos $\ZZ_p$ pueden ser vistos como las
+  % series formales $\sum_{k \ge 0} a_k\,p^k$ con
+  % $a_k \in \{ 0, \ldots, p-1 \}$. He aquí un par de ejemplos:
+  % 
+%\begin{verbatim}
+%? -1 + O(3^10)
+%% = 2 + 2*3 + 2*3^2 + 2*3^3 + 2*3^4 + 2*3^5 + 2*3^6 + 2*3^7 + 2*3^8 + 2*3^9 + O(3^10)
+%
+%? (2 + O (3^10))^-1
+%% = 2 + 3 + 3^2 + 3^3 + 3^4 + 3^5 + 3^6 + 3^7 + 3^8 + 3^9 + O(3^10)
+%
+%? sqrt (2+O(7^10))
+%% = 3 + 7 + 2*7^2 + 6*7^3 + 7^4 + 2*7^5 + 7^6 + 2*7^7 + 4*7^8 + 6*7^9 + O(7^10)
+%? %^2
+%% = 2 + O(7^10)
+%\end{verbatim}
+%
+% \noindent El primer ejemplo nos da la expresión canónica para $-1$ en el
+% anillo $\ZZ_3$; en el segundo ejemplo PARI/GP calcula el número inverso a $2$
+% en $\ZZ_3$. El último ejemplo calcula la raíz cuadrada $7$-ádica de $2$.
+\end{shaded}
+
+\begin{definicion}
+  Dadas dos series de potencias $f (t) = \sum_{k \ge 0} a_k \, t^k$ y
+  $g (t) = \sum_{k \ge 0} b_k \, t^k$, si $g (0) = b_0 = 0$, entonces
+  la \term{composición $(f \circ g) (t)$} (\term{sustitución de $g$ en $f$}) es
+  la serie
+  $$(f \circ g) (t) \dfn f (g (t)) \dfn \sum_{k \ge 0} a_k \, g (t)^k.$$
+  Ya que $b_0 = 0$, toda potencia $g (t)^k$ no tiene términos de grado $< k$,
+  así que la suma infinita tiene sentido.
+\end{definicion}
+
+\begin{ejemplo}
+  \label{serie-geometrica-formal}
+  Si $f (t)$ es una serie formal tal que $f (0) = 0$, entonces
+
+  \begin{align*}
+    \frac{1}{1 - f (t)} & = 1 + f(t) + f (t)^2 + f(t)^3 + f (t)^4 + \cdots,\\
+    \frac{1}{1 + f (t)} & = 1 - f(t) + f (t)^2 - f(t)^3 + f (t)^4 - \cdots
+  \end{align*}
+  ---es una generalización de la serie geométrica.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Podemos «evaluar» $e^t$ en $-t$. El resultado de la sustitución es la serie formal
+  $$e^{-t} = \sum_{k \ge 0} (-1)^k\,\frac{t^k}{k!}.$$
+
+  En general, podemos componer $e^t$ con toda $f (t)$ tal que $f (0) =
+  0$. Tenemos la identidad habitual
+  $$e^{f(t) + g(t)} = e^{f(t)}\cdot e^{g(t)}.$$
+  En efecto,
+  \begin{align*}
+    e^{f(t)} \cdot e^{g(t)} & = \left(\sum_{i \ge 0} \frac{f(t)^i}{i!}\right) \cdot \left(\sum_{j \ge 0} \frac{g(t)^j}{j!}\right)\\
+                            & = \sum_{k \ge 0} \sum_{i+j = k} \frac{k!}{k!} \frac{f(t)^i}{i!} \frac{g(t)^j}{j!} \\
+                            & = \sum_{k \ge 0} \frac{1}{k!} \sum_{i \ge 0} {k \choose i} \, f(t)^i \, g(t)^{k-i} \\
+                            & = \sum_{k \ge 0} \frac{(f(t)+g(t))^k}{k!} = e^{f(t)+g(t)}.
+                              \qedhere
+  \end{align*}
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Derivadas formales}
+
+\begin{definicion}
+  La \term{derivada formal} de una serie formal de potencias
+  $f (t) = \sum_{k \ge 0} a_k\,t^k \in R [\![t]\!]$ está definida por
+  $$f' (t) \dfn \sum_{k \ge 1} k\,a_k\,t^{k-1}.$$
+\end{definicion}
+
+\begin{ejemplo}
+  \[ (e^t)' = \left(\sum_{k \ge 0} \frac{t^k}{k!}\right)' =
+    \sum_{k \ge 1} k\,\frac{t^{k-1}}{k!} =
+    \sum_{k \ge 1} \frac{t^{k-1}}{(k-1)!} = e^t. \qedhere \]
+\end{ejemplo}
+
+\begin{observacion}[Serie de Taylor formal]
+  \label{serie-de-Taylor-formal}
+  Para las derivadas iteradas de
+  $f (t) = \sum_{k \ge 0} a_k \, t^k \in R [\![t]\!]$ se tiene
+  $f^{(k)} (0) = k! \, a_k$, lo que nos da
+  $$f (t) = \sum_{k \ge 0} \frac{f^{(k)} (0)}{k!}\,t^k,$$
+  cuando $\QQ \subset R$.
+
+  \begin{proof}
+    Se ve inmediatamente de las definiciones.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Para $f (t), g (t) \in R [\![t]\!]$ se tiene
+  $$(f (t) + g (t))' = f' (t) + g' (t).$$
+
+  \begin{proof}
+    Evidente de la definición.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}[Regla de Leibniz]
+  Para $f (t), g (t) \in R [\![t]\!]$ se tiene
+  $$(f (t)\cdot g (t))' = f' (t)\cdot g (t) + f (t)\cdot g' (t).$$
+
+  \begin{proof}
+    Para $f (t) = \sum_{k \ge 0} a_k\,t^k$ y $g (t) = \sum_{k \ge 0} b_k\,t^k$
+
+    \begin{align*}
+      \left( \left(\sum_{k\ge 0} a_k\,t^k\right)\cdot
+      \left(\sum_{k\ge 0} b_k\,t^k\right) \right)' & = \left(\sum_{k\ge 0} \left(\sum_{0 \le i \le k} a_i\,b_{k-i}\right)\,t^k\right)' \\
+                                                   & = \sum_{k\ge 1} k\,\left(\sum_{0 \le i \le k} a_i\,b_{k-i}\right)\,t^{k-1} \\
+                                                   & = \sum_{k\ge 1} \left(\sum_{0 \le i \le k} i \, a_i\,b_{k-i} + \sum_{0 \le i \le k} (k-i) \, a_i\,b_{k-i}\right)\,t^{k-1} \\
+                                                   & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k} i \, a_i\,b_{k-i}\right)\,t^{k-1} + \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} a_i\,(k-i)\,b_{k-i}\right)\,t^{k-1} \\
+                                                   & = f' (t)\cdot g (t) + f (t)\cdot g' (t).
+                                                     \qedhere
+    \end{align*}
+  \end{proof}
+\end{observacion}
+
+\begin{ejercicio}
+  Demuestre que para $f(t), g(t) \in R (\!(t)\!)$ se tiene
+  $$\left(\frac{f(t)}{g(t)}\right)' = \frac{f' (t) \cdot g(t) - f (t)\cdot g' (t)}{g (t)^2}.$$
+\end{ejercicio}
+
+\begin{corolario}
+  Para $f (t) \in R [\![t]\!]$ se tiene
+  $$(f (t)^k)' = k\,f(t)'\,f(t)^{k-1}.$$
+
+  \begin{proof}
+    Por inducción, usando la regla de Leibniz.
+  \end{proof}
+\end{corolario}
+
+\begin{observacion}[Regla de la cadena]
+  \label{regla-de-la-cadena-formal}
+  Sean $f (t), g (t) \in R [\![t]\!]$ dos series de potencias formales tales que
+  $g (0) = 0$. Entonces para la composición se tiene
+  $$(f (g (t)))' = f' (g (t)) \cdot g' (t).$$
+
+  \begin{proof}
+    Si $f (t) = \sum_{k\ge 0} a_k\,t^k$, entonces
+    \[ (f (g (t)))' =
+      \sum_{k\ge 1} k\,a_k\,g' (t)\, (g (t))^{k-1} =
+      \left( \sum_{k \ge 1} k\,a_k\,(g (t))^{k-1} \right) \, g' (t) =
+      f' (g (t))\cdot g' (t). \qedhere \]
+  \end{proof}
+\end{observacion}
+
+\begin{shaded}
+  \noindent\small En PARI/GP:
+
+\begin{verbatim}
+? default (seriesprecision, 6)
+
+? deriv (t*exp(t), t)         
+% = 1 + 2*t + 3/2*t^2 + 2/3*t^3 + 5/24*t^4 + 1/20*t^5 + 7/720*t^6 + O(t^7)
+\end{verbatim}
+\end{shaded}
+
+Para resumir, las derivadas formales se comportan como las derivadas habituales:
+son lineales, cumplen la regla de Leibniz y la regla de la cadena.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Logaritmo formal}
+
+\begin{definicion}
+  Si $\QQ \subset R$, el \term{logaritmo formal} es la serie en $R [\![t]\!]$
+  definida por
+  $$\ln (1 + t) \dfn \sum_{k\ge 1} (-1)^{k+1}\,\frac{t^k}{k}.$$
+\end{definicion}
+
+Observamos que la derivada formal de $\ln (1+t)$ es precisamente lo que se
+espera del logaritmo:
+$$(\ln (1+t))' = \frac{1}{1+t} = 1 - t + t^2 - t^3 + t^4 - t^5 + \cdots.$$
+
+\begin{shaded}
+  \noindent\small En PARI/GP:
+
+\begin{verbatim}
+? log (1+t)
+% = t - 1/2*t^2 + 1/3*t^3 - 1/4*t^4 + 1/5*t^5 + O(t^6)
+\end{verbatim}
+\end{shaded}
+
+\begin{teorema}
+  \label{thm:exp-y-log-son-inversos}
+  Tenemos
+  $$\ln (1 + (e^t - 1)) = t, \quad e^{\ln (1 + t)} = 1 + t,$$
+  en el sentido de sustitución de una serie formal en otra.
+\end{teorema}
+
+% \begin{ejercicio}
+%   Calcule los primeros términos de las series $\ln (e^t)$ y $e^{\ln (1 + t)}$
+%   con ayuda de PARI/GP.
+% \end{ejercicio}
+
+Las identidades de \ref{thm:exp-y-log-son-inversos} nos dan un ejemplo de series
+inversas respecto a la composición:
+
+\begin{proposicion}
+  \label{prop:inversos-respecto-la-composicion}
+  Para una serie de potencias formal $f (t) = \sum_{k \ge 0} a_k \, t^k$ existe
+  otra serie $g (t)$ tal que $g (0) = 0$ y $f (g (t)) = t$ si y solamente si
+  $a_0 = 0$ y $a_1$ es invertible. En este caso la serie $g (t)$ es única, y
+  además se tiene $g (f (t)) = t$. Es decir, $f$ y $g$ son mutuamente inversas
+  respecto a la composición.
+
+  \begin{proof}
+    La condición sobre $a_0$ y $a_1$ es necesaria: si existe
+    $g (t) = \sum_{k\ge 0} b_k\,t^k$ con $b_0 = 0$ tal que
+    $f (g (t)) = \sum_{k\ge 0} a_k\,g(t)^k = t$, entonces $a_0 = 0$ y
+    $a_1\,b_1 = 1$.
+
+    Ahora sea $f (t)$ una serie con $a_0 = 0$ y $a_1$ invertible. Tenemos que
+    encontrar una serie $g (t) = \sum_{k \ge 0} b_k\,t^k$ con $b_0 = 0$ tal que
+    $f (g (t)) = t$. La última identidad implica que necesitamos poner
+    $b_1 \dfn a_1^{-1}$. Luego, para $k \ge 2$, el coeficiente de $t^k$ en
+    $f (g (t))$ es igual al coeficiente de $t^k$ en la suma
+    $$a_1 \, g (t) + a_2 \, g (t)^2 + \cdots + a_k \, g(t)^k$$
+    (ya que $g (0) = 0$, en las potencias $g (t)^{k+1}, g (t)^{k+2}, \ldots$ ya
+    no hay términos de grado $k$). Pero este coeficiente tiene que ser nulo, lo
+    que nos da las ecuaciones
+    $$a_1\,b_k + (\text{algún polinomio en }a_2, a_3, \ldots, a_k, b_1, b_2, \ldots, b_{k-1}) = 0.$$
+    Puesto que $a_1 \ne 0$, estas ecuaciones por inducción definen
+    \emph{de modo único} todos los coeficientes $b_2, b_3, b_4, \ldots$ Esto
+    demuestra que $g (t)$ existe y es único.
+
+    Para ver que también se tiene $g (f (t)) = t$, notamos que en $g (t)$
+    también $b_0 = 0$ y $b_1$ es invertible, entonces existe $h (t)$ tal que
+    $g (h (t)) = t$. Luego,
+    \begin{gather*}
+      t = f (g (t)),\\
+      h (t) = f (g (h (t))) = f (t),\\
+      g (h (t)) = g (f (t)) = t. \qedhere
+    \end{gather*}
+  \end{proof}
+\end{proposicion}
+
+\begin{shaded}
+  \noindent\small En PARI/GP, la serie inversa respecto a la composición puede
+  ser calculada por la función \verb|serreverse|:
+
+\begin{verbatim}
+? serreverse (exp (t) - 1)
+% = t - 1/2*t^2 + 1/3*t^3 - 1/4*t^4 + 1/5*t^5 - 1/6*t^6 + O(t^7)
+\end{verbatim}
+\end{shaded}
+
+\begin{proof}[Demostración de \ref{thm:exp-y-log-son-inversos}]
+  La primera tentación es calcular directamente los coeficientes de las series
+  $$\ln (1 + (e^t - 1)) \quad\text{y}\quad e^{\ln (1 + t)},$$
+  pero esto no es tan fácil. Por ejemplo, las potencias de la serie $e^t - 1$
+  tienen como coeficientes los números de Stirling:
+  $$\frac{(e^t - 1)^\ell}{\ell!} = \sum_{k \ge \ell} \Stirling{k}{\ell}\,\frac{t^k}{k!};$$
+  los vamos a necesitar de todas maneras más adelante y
+  \S\ref{section:numeros-de-stirling} está dedicado a las definiciones y
+  las propiedades básicas de $\Stirling{k}{\ell}$. Para el logaritmo también hay
+  una fórmula parecida con otros números de Stirling:
+  \[ \frac{\ln (1+t)^\ell}{\ell!} =
+    (-1)^\ell \, \sum_{k \ge \ell} (-1)^k\,\stirling{k}{\ell}\,\frac{t^k}{k!}. \]
+  Vamos a establecer estas identidades en \ref{exp-stirling} y
+  \ref{log-stirling}. Afortunadamente, por el momento se puede evitar esta
+  pesadilla combinatoria. Primero notemos que gracias a
+  \ref{prop:inversos-respecto-la-composicion}, será suficiente demostrar que por
+  ejemplo,
+  $$e^{\ln (1+t)} = 1+t,$$
+  y $\ln (1 + (e^t - 1)) = t$ se sigue automáticamente. Gracias a la serie de
+  Taylor \ref{serie-de-Taylor-formal}, podemos simplemente verificar que
+  \begin{align*}
+    e^{\ln (1+0)} & = 1,\\
+    (e^{\ln (1+t)})' (0) & = 1,\\
+    (e^{\ln (1+t)})'' (0) & = 0,\\
+    (e^{\ln (1+t)})''' (0) & = 0,\\
+                  & \cdots
+  \end{align*}
+
+  En efecto, $\ln (1 + 0) = 0$ y $e^0 = 1$. Luego, por la regla de la cadena
+  \ref{regla-de-la-cadena-formal},
+  $$(e^{\ln (1+t)})' = e^{\ln (1+t)} \, \frac{1}{1+t},$$
+  y así $(e^{\ln (1+t)})' (0) = 1$. La segunda derivada nos da
+  \begin{align*}
+    (e^{\ln (1+t)})'' & = \left(e^{\ln (1+t)} \, \frac{1}{1+t}\right)' \\
+                      & = (e^{\ln (1+t)})'\,\frac{1}{1+t} - e^{\ln (1+t)}\,\frac{1}{(1+t)^2} \\
+                      & = e^{\ln (1+t)} \, \frac{1}{1+t}\, \frac{1}{1+t} - e^{\ln (1+t)}\,\frac{1}{(1+t)^2} = 0.
+                        \qedhere
+  \end{align*}
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{La función generatriz para $B_k$}
+\label{section:funcion-generatriz-para-Bk}
+
+\begin{teorema}
+  Los números de Bernoulli pueden ser definidos por
+  $$\frac{t\,e^t}{e^t - 1} = \sum_{k \ge 0} B_k \, \frac{t^k}{k!}.$$
+\end{teorema}
+
+Aunque se puede pensar en esta identidad como en la serie de Taylor para
+$\frac{t\,e^t}{e^t - 1}$ en un entorno de $0$, para nosotros esto significa nada
+más que el cociente de series formales $\frac{t\,e^t}{e^t - 1}$ en
+$\QQ (\!(t)\!)$ es igual a la serie formal
+$\sum_{k \ge 0} B_k \, \frac{t^k}{k!}$.
+
+\begin{proof}
+  Tenemos que ver que la identidad
+  $$\left(\sum_{k \ge 0} B_k \, \frac{t^k}{k!}\right)\,(e^t-1) = t\,e^t.$$
+  define los números de Bernoulli. Calculemos el producto al lado izquierdo:
+
+  \begin{align*}
+    \left(\sum_{k \ge 0} B_k \, \frac{t^k}{k!}\right)\,(e^t-1) & = 
+                                                                 \left(\sum_{k \ge 0} B_k \, \frac{t^k}{k!}\right)\,\left(\sum_{k\ge 1} \frac{t^k}{k!}\right) \\
+                                                               & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} \frac{B_i}{i!}\,\frac{1}{(k-i)!}\right)\,t^k \\
+                                                               & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} \frac{B_i}{i!}\,\frac{k!}{(k-i)!}\right)\,\frac{t^k}{k!} \\
+                                                               & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} {k \choose i} B_i\right)\,\frac{t^k}{k!} \\
+                                                               & \stackrel{???}{=} \sum_{k\ge 1} \frac{t^k}{(k-1)!} = t\,e^t.
+  \end{align*}
+
+  La última igualdad se cumple si y solamente si
+  $$\sum_{0 \le i \le k-1} {k \choose i} B_i = k.$$
+  Como hemos visto en \ref{definicion-recursiva-de-Bk}, esta identidad define
+  los números de Bernoulli.
+\end{proof}
+
+\begin{ejemplo}
+  \label{calculo-masoquista}
+  Calculemos algunos términos de la serie formal
+  $\frac{t\,e^t}{e^t - 1}$. Tenemos
+  $$e^t - 1 = t + \frac{t^2}{2} + \frac{t^3}{6} + \frac{t^4}{24} + \frac{t^5}{120} + \cdots =
+  t\,\left(1 + \frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right).$$
+  Luego,
+  $$\frac{t}{e^t - 1} = \cfrac{1}{1 + \cfrac{t}{2!} + \cfrac{t^2}{3!} + \cfrac{t^3}{4!} + \cfrac{t^4}{5!} + \cdots}$$
+  Podemos calcular la última serie usando nuestra observación en
+  \ref{serie-geometrica-formal}. Tenemos
+
+  \begin{multline*}
+    1 -
+    \left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right) +
+    \left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right)^2\\
+    - \left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right)^3 +
+    \left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right)^4 - \cdots\\
+    = 1 -
+    \left(\frac{t}{2} + \frac{t^2}{6} + \frac{t^3}{24} + \frac{t^4}{120} + \cdots\right) +
+    \left(\frac{t^2}{4} + \frac{t^3}{6} + \frac{5\,t^4}{72} + \cdots\right) - \left(\frac{t^3}{8} + \frac{t^4}{8} + \cdots\right) + \left(\frac{t^4}{16} + \cdots\right) - \cdots \\
+    = 1 - \frac{t}{2} + \frac{t^2}{12} + 0\cdot t^3 - \frac{t^4}{720} + \cdots
+  \end{multline*}
+
+  Multiplicando las seres, se obtiene
+  $$\frac{t\,e^t}{e^t - 1} =
+  \left(1 + t + \frac{t^2}{2!} + \frac{t^3}{3!} + \frac{t^4}{4!} + \cdots\right) \cdot \left(1 - \frac{t}{2} + \frac{t^2}{12} + 0\cdot t^3 - \frac{t^4}{720} + \cdots\right) =
+  1 + \frac{t}{2} + \frac{t^2}{12} - \frac{t^4}{720} + \cdots$$
+  y entonces
+  \[ B_0 = 1, \quad
+    B_1 = \frac{1}{2}, \quad
+    B_2 = 2! \cdot \frac{1}{12} = \frac{1}{6}, \quad
+    B_3 = 0, \quad
+    B_4 = -4!\cdot\frac{1}{720} = -\frac{1}{30}. \qedhere \]
+\end{ejemplo}
+
+\begin{shaded}
+  \small\noindent Por supuesto, el último ejemplo es un poco masoquista: todo
+  esto se puede hacer en PARI/GP.
+
+\begin{verbatim}
+? ser = (t*exp(t))/(exp(t)-1)
+% = 1 + 1/2*t + 1/12*t^2 - 1/720*t^4 + 1/30240*t^6 - 1/1209600*t^8 + 1/47900160*t^10
+- 691/1307674368000*t^12 + 1/74724249600*t^14 + O(t^16)
+
+? vector (11,k, polcoeff(ser,(k-1),t)*(k-1)!)
+% = [1, 1/2, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66]
+\end{verbatim}
+\end{shaded}
+
+En muchos libros (y también en PARI/GP) se usa otra convención para los números
+de Bernoulli según la cual $B_1 = -\frac{1}{2}$. En este caso la función
+generatriz es $\frac{t\,e^t}{e^t - 1} - t = \frac{t}{e^t - 1}$.
+
+\begin{ejemplo}
+  La fórmula $\frac{t\,e^t}{e^t - 1} = \sum_{k \ge 0} \frac{B_k}{k!}\,t^k$ nos
+  permite demostrar que $B_k = 0$ para $k \ge 3$ impar. En efecto, para ignorar
+  el caso excepcional $B_1 = \frac{1}{2}$, examinemos la función
+  $$f (t) \dfn \frac{t\,e^t}{e^t - 1} - \frac{t}{2} =
+  B_0 + \frac{B_2}{2!}\,t^2 + \frac{B_3}{3!}\,t^3 + \frac{B_4}{4!}\,t^4 + \frac{B_5}{5!}\,t^5 + \cdots$$
+  Tenemos
+  $$f (t) = \frac{t\,e^t}{e^t - 1} - \frac{t}{2} =
+  \frac{t\,(e^t - 1 + 1)}{e^t - 1} - \frac{t}{2} =
+  \frac{t}{e^t - 1} + \frac{t}{2}.$$
+  Luego,
+  $$f (-t) = \frac{(-t)\,e^{-t}}{e^{-t}-1} - \frac{(-t)}{2} =
+  \frac{t}{e^t - 1} + \frac{t}{2}.$$
+  Entonces, $f (t) = f (-t)$, lo que implica que los coeficientes impares de
+  $f (t)$ son nulos.
+\end{ejemplo}
+
+Los números de Bernoulli también surgen en otras series. Por ejemplo, tenemos la
+siguiente
+
+\begin{proposicion}
+  \label{serie-para-t-cot-t}
+  $$t\,\cot (t) = 1 + \sum_{k \ge 1} (-1)^k \, 2^{2k}\,\frac{B_{2k}}{(2k)!}\,t^{2k}.$$
+\end{proposicion}
+
+\noindent Esto ya tiene que ser interpretado analíticamente. Las series con
+números de Bernoulli para varias funciones como $\tan (t)$, $\cot (t)$,
+$\tanh (t)$, $\coth (t)$ fueron descubiertas por Euler.
+
+\begin{proof}
+  Se tiene
+  $$\cos (t) = \frac{e^{it} + e^{-it}}{2}, \quad
+  \sen (t) = \frac{e^{it} - e^{-it}}{2i}.$$
+  Luego,
+  \begin{align*}
+    t\,\cot (t) & = t\,\frac{\cos (t)}{\sen (t)} =
+                  it\,\frac{e^{it} + e^{-it}}{e^{it} - e^{-it}} =
+                  it\,\frac{e^{2it} + 1}{e^{2it} - 1} =
+                  -it + \frac{2it \, e^{2it}}{e^{2it} - 1}\\
+                & = -it + \sum_{k \ge 0} \frac{B_k\cdot (2it)^k}{k!} =
+                  1 + \sum_{k \ge 1} (-1)^k \, 2^{2k} \, \frac{B_{2k}}{(2k)!}\,t^{2k}.
+                  \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{ejercicio}[Euler]
+  \label{ejercicio:identidad-de-Euler}
+  % "Bernoulli Numbers and Zeta Functions", 1.15
+  Demuestre la identidad
+  $$(2k + 1)\,B_{2k} = -\sum_{1 \le \ell \le k-1} {2k \choose 2\ell}\,B_{2\ell}\,B_{2\,(k-\ell)} \quad \text{para }k\ge 2.$$
+  Por ejemplo, para $k = 3$ tenemos
+  $$-7\,\underbrace{B_6}_{= \frac{1}{42}} =
+  \underbrace{{6 \choose 2}\,B_2\,B_4}_{= 15\cdot \frac{1}{6}\cdot\left(-\frac{1}{30}\right)} + \underbrace{{6 \choose 4}\,B_4\,B_2}_{= 15\cdot\left(-\frac{1}{30}\right)\cdot \frac{1}{6}}.$$
+
+  \vspace{1em}
+
+  \noindent Indicación: considere la función generatriz para los números pares
+  $f (t) \dfn \frac{t\,e^t}{e^t - 1} - \frac{t}{2} = \sum_{k \ge 0}
+  \frac{B_{2k}}{(2k)!}\,t^{2k}$. Demuestre la identidad con la derivada formal
+  $f (t) - t\,f(t)' = f(t)^2 - \frac{t^2}{4}$; sustituya $f (t)$ por
+  $\sum_{k \ge 0} \frac{B_{2k}}{(2k)!}\,t^{2k}$ y compare los coeficientes de
+  $t^{2k}$.
+\end{ejercicio}
+
+\begin{ejercicio}
+  \label{ejercicio:identidad-de-Euler-corolario}
+  % "Bernoulli Numbers and Zeta Functions", 1.16
+  Demuestre por inducción que $(-1)^{k+1}\,B_{2k} > 0$ para todo
+  $k \ge 1$. Véase \S\ref{section:valores-de-zeta2k} para la explicación.
+
+  \noindent Indicación: use el ejercicio anterior.
+\end{ejercicio}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Polinomios de Bernoulli}
+
+Hay varios modos de definir los polinomios de Bernoulli; el más común es por una
+función generatriz. Vamos a necesitar las series de potencias formales en dos
+variables:
+$$\sum_{k, \ell \ge 0} a_{k,\ell} \, t^k \, x^\ell,$$
+respecto a la suma término por término y multiplicación que extiende
+la multiplicación de polinomios en dos variables. Tenemos la serie formal
+$\frac{t}{e^t - 1} \in \QQ [\![t]\!] \subset \QQ [\![t,x]\!]$ y podemos
+multiplicarla por la serie
+$$e^{tx} \dfn \sum_{k \ge 0} \frac{t^k\,x^k}{k!} \in \QQ [\![t,x]\!].$$
+Un momento de reflexión demuestra que el resultado es de la forma
+
+\begin{equation}
+  \label{polinomios-de-Bernoulli-por-una-funcion-generatriz}
+  \frac{t\,e^{tx}}{e^t-1} \dfn \sum_{k \ge 0} B_k (x)\,\frac{t^k}{k!},
+\end{equation}
+
+\noindent donde $B_k (x)$ son algunos \emph{polinomios} en $x$.
+
+\begin{definicion}
+  El \term{polinomio de Bernoulli} $B_k (x)$ es el polinomio definido por
+  \eqnref{polinomios-de-Bernoulli-por-una-funcion-generatriz}.
+\end{definicion}
+
+\begin{ejemplo}
+  Vamos a ver un poco más adelante cómo calcular los polinomios $B_k (x)$; por
+  el momento podemos obtener algunos de los primeros. Como hemos calculado en
+  \ref{calculo-masoquista},
+  $$\frac{t}{e^t - 1} = 1 - \frac{t}{2} + \frac{t^2}{12} - \frac{t^4}{720} + \cdots$$
+  Luego,
+  $$\frac{t}{e^t - 1} \, e^{tx} =
+  \left(1 - \frac{t}{2} + \frac{t^2}{12} - \cdots\right) \, \left(1 + t\,x + \frac{t^2\,x^2}{2} + \cdots\right) =
+  1 + \left(x - \frac{1}{2}\right)\,t + \left(\frac{x^2}{2} - \frac{x}{2} + \frac{1}{12}\right)\,t^2 + \cdots$$
+  de donde
+  \[ B_0 (x) = 1, \quad
+    B_1 (x) = x - \frac{1}{2}, \quad
+    B_2 (x) = x^2 - x + \frac{1}{6}. \qedhere \]
+\end{ejemplo}
+
+\begin{observacion}
+  Para todo $k\ge 0$,
+  $$B_k (1) = B_k$$
+  es el $k$-ésimo número de Bernoulli.
+
+  \begin{proof}
+    Comparando \eqnref{polinomios-de-Bernoulli-por-una-funcion-generatriz} con la
+    función generatriz
+    $\frac{t\,e^t}{e^t-1} = \sum_{k \ge 0} B_k\,\frac{t^k}{k!}$.
+  \end{proof}
+\end{observacion}
+
+Resulta que el término constante de $B_k (x)$ es también igual a $B_k$:
+
+\begin{observacion}
+  Para todo $k \ge 0$
+
+  \begin{equation}
+    \label{Bk(x+1)-y-Bk(x)}
+    B_k (x+1) - B_k (x) = k\,x^{k-1}.
+  \end{equation}
+
+  En particular, para $x = 0$ y $k \ne 1$ tenemos
+  $$B_k (1) = B_k (0) = B_k.$$
+
+  \begin{proof}
+    Tenemos la identidad
+    $$\frac{t\,e^{(x+1)\,t}}{e^t-1} - \frac{t\,e^{t\,x}}{e^t-1} = t\,e^{t\,x},$$
+    de donde
+    $$\sum_{k\ge 0} (B_k (x+1) - B_k (x))\,\frac{t^k}{k!} =
+    \sum_{k \ge 0} \frac{x^k}{k!}\,t^{k+1}.$$
+    Comparando los coeficientes de $t^k$, se obtiene \eqnref{Bk(x+1)-y-Bk(x)}.
+  \end{proof}
+\end{observacion}
+
+Note que para $k = 1$ tenemos $B_1 (0) = -\frac{1}{2}$ y
+$B_1 (1) = +\frac{1}{2}$.
+
+\begin{observacion}
+  Para todo $k \ge 0$
+  $$B_k (1-x) = (-1)^k\,B_k (x).$$
+\end{observacion}
+
+\noindent (En particular, para $x = 0$ tenemos $B_k = (-1)^k\,B_k$ para
+$k \ge 3$, lo que implica que $B_k = 0$ para $k \ge 3$ impar, como ya hemos
+visto.)
+
+\begin{proof}
+  Usando funciones generatrices,
+  \[ \sum_{k\ge 0} B_k (1-x)\,\frac{t^k}{k!} =
+    \frac{t\,e^{(1-x)\,t}}{e^t - 1} =
+    \frac{(-t)\,e^{x\,(-t)}}{e^{-t} - 1} =
+    \sum_{k\ge 0} (-1)^k\,B_k (x)\,\frac{t^k}{k!}. \qedhere \]
+\end{proof}
+
+Los polinomios de Bernoulli pueden ser expresados en términos de los números de
+Bernoulli:
+
+\begin{proposicion}
+  \label{proposicion:expresion-para-los-polinomios-de-Bernoulli}
+  $$B_k (x) = \sum_{0 \le i \le k} (-1)^i \, {k \choose i}\,B_i\,x^{k-i}.$$
+
+  \begin{proof}
+    Calculemos el producto de series de potencias
+    $$\frac{t}{e^t-1}\cdot e^{tx}.$$
+    Tenemos
+    $$\frac{t}{e^t-1} = \frac{(-t)\,e^{-t}}{e^{-t} - 1} =
+    \sum_{k \ge 0} (-1)^k \, B_k \, \frac{t^k}{k!}, \quad
+    e^{tx} = \sum_{k \ge 0} \frac{(tx)^k}{k!}.$$
+    Luego,
+    \begin{align*}
+      \left(\sum_{k \ge 0} (-1)^k \, B_k \, \frac{t^k}{k!}\right) \cdot \left(\sum_{k \ge 0} \frac{(tx)^k}{k!}\right) & = \sum_{k \ge 0} \left(\sum_{0 \le i \le k} (-1)^i \, \frac{1}{i! \, (k-i)!} \, B_i\,x^{k-i}\right)\,t^k \\
+                                                                                                                      & = \sum_{k \ge 0} \left(\sum_{0 \le i \le k} (-1)^i \, {k \choose i} \, B_i\,x^{k-i}\right)\,\frac{t^k}{k!}.
+                                                                                                                        \qedhere
+    \end{align*}
+  \end{proof}
+\end{proposicion}
+
+\begin{proposicion}
+  Para todo $k \ge 1$ se tiene
+  $$B_k' (x) = k\,B_{k-1} (x), \quad \int_0^1 B_k (x)\,dx = 0.$$
+
+  \begin{proof}
+    Hay varios modos de verificar esto. Se puede usar la expresión de
+    \ref{proposicion:expresion-para-los-polinomios-de-Bernoulli}. También
+    podemos tomar las derivadas formales de la identidad
+    $$\frac{t\,e^{tx}}{e^t - 1} = \sum_{k \ge 0} B_k (x) \, \frac{t^k}{k!}.$$
+    Se obtiene
+    $$\frac{\partial}{\partial x} \left(\frac{t\,e^{tx}}{e^t - 1}\right) =
+    \frac{t\cdot t\,e^{tx}}{e^t - 1} =
+    t\,\sum_{k \ge 0} B_k (x) \, \frac{t^k}{k!} =
+    \sum_{k \ge 1} B_{k-1} (x) \, \frac{t^k}{(k-1)!} =
+    \sum_{k \ge 0} B_k' (x) \, \frac{t^k}{k!}.$$
+
+    Luego, para ver que $\int_0^1 B_k (x)\,dx = 0$, es suficiente observar que
+    $\int B_k (x)\,dx = \frac{1}{k+1}\,B_{k+1} (x) + C$, donde
+    $B_{k+1} (0) = B_{k+1} (1)$.
+  \end{proof}
+\end{proposicion}
+
+Esto nos da otra definición de los polinomios de Bernoulli:
+
+\begin{definicion-alternativa}
+  Los polinomios $B_k (x)$ están definidos por
+  $$B_0 (x) \dfn 1$$
+  y
+  $$B_k' (x) = k\,B_{k-1} (x), \quad
+  \int_0^1 B_k (x) \, dx = 0 \quad
+  \text{para }k \ge 1.$$
+\end{definicion-alternativa}
+
+\noindent (En efecto, la identidad $B_k' (x) = k\,B_{k-1} (x)$ define $B_k (x)$
+salvo el término constante, pero el último se recupera de la condición
+$\int_0^1 B_k (x) \, dx = 0$.) Recordemos que los polinomios $S_k (x)$ que hemos
+estudiado en \S\ref{sumas-de-potencias} satisfacen la identidad
+$$S_k' (x) = k\,S_{k-1} (x) + B_k.$$
+Esto significa que las derivadas $S_k' (x)$ satisfacen la misma identidad que
+$B_k (x)$:
+$$S_k'' (x) = k\,S_{k-1}' (x).$$
+Además, para $k\ne 1$ tenemos $B_k (0) = S_k' (0) \rdfn B_k$, y se ve que los
+polinomios de Bernoulli son simplemente las derivadas de los polinomios
+$S_k (x)$:
+$$B_k (x) = S_k' (x), \quad \text{para }k\ne 1.$$
+(El caso $k = 1$ es excepcional: $S_1 (x) = \frac{1}{2}\,x^2\,+\frac{1}{2}\,x$,
+$B_1 (x) = x - \frac{1}{2}$.)
+
+Ahora podemos compilar fácilmente una lista de los primeros polinomios de
+Bernoulli:
+
+\begin{align*}
+  B_0 (x) & = \highlight{1}, \\
+  B_1 (x) & = x - \frac{1}{2}, \\
+  B_2 (x) & = x^2 - x + \highlight{\frac{1}{6}}, \\
+  B_3 (x) & = x^3 - \frac{3}{2}\,x^2 + \frac{1}{2}\,x,\\
+  B_4 (x) & = x^4 - 2\,x^3 + x^2 \highlight{- \frac{1}{30}}, \\
+  B_5 (x) & = x^5 - \frac{5}{2}\,x^4 + \frac{5}{3}\,x^3 - \frac{1}{6}\,x, \\
+  B_6 (x) & = x^6 - 3\,x^5 + \frac{5}{2}\,x^4 - \frac{1}{2}\,x^2 + \highlight{\frac{1}{42}},\\
+  B_7 (x) & = x^7 - \frac{7}{2}\,x^6 + \frac{7}{2}\,x^5 - \frac{7}{6}\,x^3 + \frac{1}{6}\,x, \\
+  B_8 (x) & = x^8 - 4\,x^7 + \frac{14}{3}\,x^6 - \frac{7}{3}\,x^4 + \frac{2}{3}\,x^2 \highlight{- \frac{1}{30}},\\
+  B_9 (x) & = x^9 - \frac{9}{2}\,x^8 + 6\,x^7 - \frac{21}{5}\,x^5 + 2\,x^3 - \frac{3}{10}\,x, \\
+  B_{10} (x) & = x^{10} - 5\,x^9 + \frac{15}{2}\,x^8 - 7\,x^6 + 5\,x^4 - \frac{3}{2}\,x^2 \highlight{+ \frac{5}{66}}.
+\end{align*}
+
+\vspace{\fill}
+
+Podemos dibujar algunas gráficas para visualizar la relación
+$B_k (1-x) = (-1)^k \, B_k (x)$:
+
+\begin{center}
+  \includegraphics{pic/bernpol.mps}
+\end{center}
+
+\pagebreak
+
+\begin{shaded}
+\small
+
+\begin{verbatim}
+? Bpoly (k) = sum (i=0,k, (-1)^i * binomial(k,i) * B(i) * x^(k-i));
+
+? vector (10,k,Bpoly(k))  
+% = [x - 1/2,
+     x^2 - x + 1/6,
+     x^3 - 3/2*x^2 + 1/2*x,
+     x^4 - 2*x^3 + x^2 - 1/30,
+     x^5 - 5/2*x^4 + 5/3*x^3 - 1/6*x,
+     x^6 - 3*x^5 + 5/2*x^4 - 1/2*x^2 + 1/42,
+     x^7 - 7/2*x^6 + 7/2*x^5 - 7/6*x^3 + 1/6*x,
+     x^8 - 4*x^7 + 14/3*x^6 - 7/3*x^4 + 2/3*x^2 - 1/30,
+     x^9 - 9/2*x^8 + 6*x^7 - 21/5*x^5 + 2*x^3 - 3/10*x,
+     x^10 - 5*x^9 + 15/2*x^8 - 7*x^6 + 5*x^4 - 3/2*x^2 + 5/66]
+\end{verbatim}
+
+\begin{verbatim}
+? deriv (Bpoly(10),x)
+% = 10*x^9 - 45*x^8 + 60*x^7 - 42*x^5 + 20*x^3 - 3*x
+? 10 * Bpoly(9)
+% = 10*x^9 - 45*x^8 + 60*x^7 - 42*x^5 + 20*x^3 - 3*x
+\end{verbatim}
+
+\noindent Para comprobar los resultados, podemos directamente calcular la serie
+$\frac{t\,e^{tx}}{e^t - 1}$:
+
+\begin{verbatim}
+? ser = t*exp (t*x) / (exp (t) - 1);
+? polcoeff(ser,10,t)*10!
+% = x^10 - 5*x^9 + 15/2*x^8 - 7*x^6 + 5*x^4 - 3/2*x^2 + 5/66
+\end{verbatim}
+
+\noindent También podemos calcular las derivadas de $S_k (x)$:
+
+\begin{verbatim}
+? deriv (S(10),x)
+% = x^10 + 5*x^9 + 15/2*x^8 - 7*x^6 + 5*x^4 - 3/2*x^2 + 5/66
+\end{verbatim}
+
+\noindent En PARI/GP, la función predefinida \verb|bernpol(k)| devuelve el
+polinomio de Bernoulli $B_k (x)$:
+
+\begin{verbatim}
+? bernpol(1)
+% = x - 1/2
+? bernpol(2)
+% = x^2 - x + 1/6
+? bernpol(3)
+% = x^3 - 3/2*x^2 + 1/2*x
+\end{verbatim}
+\end{shaded}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\pagebreak
+\section{La función zeta de Riemann}
+
+\begin{definicion}
+  La \term{función zeta de Riemann} está definida por la serie infinita
+  $$\zeta (s) \dfn \sum_{n \ge 1} \frac{1}{n^s} =
+  1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \cdots$$
+\end{definicion}
+
+\begin{observacion}
+  La serie de arriba es absolutamente convergente para todo $s \in \CC$ tal que
+  $\Re s > 1$.
+
+  \begin{proof}
+    Si $s = a + i\,b$, tenemos
+    $$\left|\frac{1}{n^s}\right| = \frac{1}{n^a}.$$
+    Podemos usar el \term{criterio integral de convergencia}:
+    $\sum_{n \ge 1} \frac{1}{n^a}$ es convergente si y solamente si
+    $$\int_1^\infty \frac{1}{x^a}\,dx < \infty.$$
+    En efecto, tenemos
+    $$\int_1^\infty \frac{1}{x^a}\,dx =
+    \lim_{n \to \infty} \left[\frac{x^{1-a}}{1-a}\right]^n_1 =
+    \lim_{n \to \infty} \left(\frac{n^{1-a}}{1-a} - \frac{1}{1-a}\right).$$
+    Este límite existe precisamente cuando $a > 1$.
+  \end{proof}
+\end{observacion}
+
+Note que para $s = 1$ se obtiene la \term{serie armónica}
+$$\zeta (1) = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots$$
+que es divergente.
+
+\begin{proof}[Demostración (Nicolás Oresme, siglo XIV)]
+  En la serie
+  $$1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} +
+  \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} +
+  \frac{1}{9} + \frac{1}{10} + \frac{1}{11} + \frac{1}{12} +
+  \frac{1}{13} + \frac{1}{14} + \frac{1}{15} + \frac{1}{16} + \cdots$$
+  reemplacemos cada término $\frac{1}{n}$ por el número máximo
+  $\frac{1}{2^k} \le \frac{1}{n}$. Se obtiene una serie
+  $$1 + \frac{1}{2} + \underbrace{\left(\frac{1}{4} + \frac{1}{4}\right)}_{= \frac{1}{2}} +
+  \underbrace{\left(\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}\right)}_{= \frac{1}{2}} +
+  \underbrace{\left(\frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16}\right)}_{= \frac{1}{2}} + \cdots$$
+  que es obviamente divergente. Por tanto la serie armónica es también
+  divergente.
+\end{proof}
+
+\pagebreak
+
+Para $s > 1$ la función $\zeta (s)$ es monótonamente decreciente, y se tiene
+$\lim_{s\to \infty} \zeta (s) = 1$:
+
+\begin{center}
+  \includegraphics{pic/zeta-pos.mps}
+\end{center}
+
+\begin{teorema}[Fórmula del producto de Euler]
+  $$\sum_{n \ge 1} \frac{1}{n^s} = \prod_{p\text{ primo}} \frac{1}{1 - p^{-s}}.$$
+\end{teorema}
+
+La fórmula de arriba tiene una gran importancia en la teoría de números y fue
+descubierta por Euler. He aquí la demostración original, reproducida de su
+artículo \cite{E72}:
+
+\begin{quote}
+  Si
+
+  \begin{equation}
+    \label{euler-1}
+    x = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \cdots,
+  \end{equation}
+  entonces
+  \begin{equation}
+    \label{euler-2}
+    \frac{1}{2^s}\,x = \frac{1}{2^s} + \frac{1}{4^s} + \frac{1}{6^s} + \frac{1}{8^s} + \frac{1}{10^s} + \frac{1}{12^s} + \cdots,
+  \end{equation}
+  y subtraendo $\text{\eqnref{euler-1}}-\text{\eqnref{euler-2}}$ se obtiene
+  \begin{equation}
+    \label{euler-3}
+    \frac{2^s - 1}{2^s}\,x = 1 + \frac{1}{3^s} + \frac{1}{5^s} + \frac{1}{7^s} + \frac{1}{9^s} + \frac{1}{11^s} + \cdots
+  \end{equation}
+  Luego,
+  \begin{equation}
+    \label{euler-4}
+    \left(\frac{2^s - 1}{2^s}\right)\,\frac{1}{3^s}\,x = \frac{1}{3^s} + \frac{1}{9^s} + \frac{1}{15^s} + \frac{1}{21^s} + \frac{1}{27^s} + \cdots
+  \end{equation}
+  y $\text{\eqnref{euler-3}} - \text{\eqnref{euler-4}}$ nos da
+  \[ \left(\frac{2^s - 1}{2^s}\right)\,\left(\frac{3^s - 1}{3^s}\right)\,x = 1 + \frac{1}{5^s} + \frac{1}{7^s} + \frac{1}{11^s} + \cdots \]
+
+  Después de aplicar operaciones similares para todos los números primos, todos
+  los términos excepto el primero se eliminan:
+  $$1 = \left(\frac{2^s - 1}{2^s}\right)\,\left(\frac{3^s - 1}{3^s}\right)\,\left(\frac{5^s - 1}{5^s}\right)\,\left(\frac{7^s - 1}{7^s}\right)\,\left(\frac{11^s - 1}{11^s}\right)\cdots x,$$
+  de donde se encuentra la serie $x$:
+  $$\left(\frac{2^s}{2^s - 1}\right)\,\left(\frac{3^s}{3^s - 1}\right)\,\left(\frac{5^s}{5^s - 1}\right)\,\left(\frac{7^s}{7^s - 1}\right)\,\left(\frac{11^s}{11^s - 1}\right)\cdots = x = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \frac{1}{5^s} + \frac{1}{6^s} + \cdots$$
+  Q.E.D.
+\end{quote}
+
+Dejo al lector pensar por qué esta demostración es esencialmente correcta.
+
+El siguiente resultado necesita más análisis de lo que conocía Euler y no
+lo vamos a demostrar (véase \cite[Chapter 5, \S 4]{Ahlfors-1978} o cualquier
+libro de la teoría de números).
+
+\begin{hecho}
+  La función $\zeta (s)$ tiene prolongación analítica al plano complejo como una
+  función meromorfa que tiene un polo simple en $s = 1$ de residuo $1$. Esta
+  prolongación analítica, que también se denota por $\zeta (s)$, satisface
+  la \term{ecuación funcional}
+
+  \begin{equation}
+    \label{ecuacion-funcional}
+    \zeta (s) = 2^s \, \pi^{s-1} \, \sen \left(\frac{\pi s}{2}\right)\,\Gamma (1-s)\,\zeta (1-s).
+  \end{equation}
+\end{hecho}
+
+Aquí $\Gamma (z) \dfn \int_0^\infty x^{z-1}\,e^{-x}\,dx$ denota la
+\term{función gamma}. En particular, $\Gamma (n) = (n-1)!$ para
+$n = 1,2,3,4,\ldots$
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Los valores $\zeta (2k)$}
+\label{section:valores-de-zeta2k}
+
+El siguiente resultado fue descubierto por Euler y aparece en sus artículos
+\cite{E41}, \cite{E352}, etc.:
+
+\begin{teorema}
+  \label{thm:valores-de-zeta-2k}
+  Para todo $k\ge 1$
+  $$\zeta (2k) \dfn 1 + \frac{1}{2^{2k}} + \frac{1}{3^{2k}} + \frac{1}{4^{2k}} + \cdots =
+  (-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k}.$$
+\end{teorema}
+
+Es algo sorprendente: ¡los números de Bernoulli surgen del estudio de las sumas
+de potencias $\sum_{1 \le i \le n} i^k$, y ahora los mismos números aparecen en
+sumas de potencias infinitas! Los primeros valores de $\zeta (2k)$ son entonces
+
+\begin{align*}
+  \zeta (2) & = \frac{\pi^2}{6} \approx 1.644934\ldots, \\
+  \zeta (4) & = \frac{\pi^4}{90} \approx 1.082323\ldots, \\
+  \zeta (6) & = \frac{\pi^6}{945}  \approx 1.017343\ldots, \\
+  \zeta (8) & = \frac{\pi^8}{9450} \approx 1.004077\ldots, \\
+  \zeta (10) & = \frac{\pi^{10}}{93\,555} \approx 1.000994\ldots, \\
+  \zeta (12) & = \frac{691\,\pi^{12}}{638\,512\,875} \approx 1.000246\ldots
+\end{align*}
+
+En particular, el cálculo de
+$\zeta (2) = 1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \cdots$ se conoce
+como el \term{problema de Basilea} que fue formulado por el matemático italiano
+\personality{Pietro Mengoli} (1626--1686) en 1644. La primera solución fue
+encontrada por Euler en 1735.
+
+\begin{ejercicio}
+  Calcule las sumas parciales $\sum_{1 \le n \le N} \frac{1}{n^2}$ en
+  PARI/GP. Note que su convergencia a $\zeta (2)$ es bastante lenta. Esto
+  explica un siglo de sufrimiento de los matemáticos que trataban de obtener un
+  valor aproximado de $\zeta (2)$... hasta la llegada de Euler.
+\end{ejercicio}
+
+\begin{corolario}
+  $(-1)^{k+1}\,B_{2k} > 0$ para todo $k \ge 1$. Es decir, $B_{2k} \ne 0$ y los
+  signos de los números de Bernoulli pares se alternan.
+
+\begin{proof}
+  \[ (-1)^{k+1}\, B_{2k} = \frac{(2k)! \, \zeta (2k)}{2^{2k-1}\,\pi^{2k}}. \qedhere \]
+\end{proof}
+\end{corolario}
+
+También se ve que $|B_{2k}| \xrightarrow{k \to \infty} \infty$, y que $|B_{2k}|$
+crece muy rápido con $k$:
+
+\begin{align*}
+  B_2 & \approx +0.166667,\\
+  B_4 & \approx -0.033333,\\
+  B_6 & \approx +0.023810,\\
+  B_8 & \approx -0.033333,\\
+  B_{10} & \approx +0.075758,\\
+  B_{12} & \approx -0.253114,\\
+  B_{14} & \approx +1.166667,\\
+  B_{16} & \approx -7.092157,\\
+  B_{18} & \approx +54.971178,\\
+  B_{20} & \approx -529.124242.
+\end{align*}
+
+Hay muchas demostraciones del teorema \ref{thm:valores-de-zeta-2k}; se puede
+encontrar una colección en la página
+
+\begin{center}
+  \noindent\url{http://empslocal.ex.ac.uk/people/staff/rjchapma/etc/zeta2.pdf}
+\end{center}
+
+\begin{proof}[Primera demostración de \ref{thm:valores-de-zeta-2k}]
+  Hemos visto en \ref{serie-para-t-cot-t} la serie
+  \begin{equation}
+    \label{eqn:serie-para-t-cot-t}
+    t\,\cot (t) = 1 + \sum_{k \ge 1} (-1)^k \, 2^{2k}\,\frac{B_{2k}}{(2k)!}\,t^{2k}.
+  \end{equation}
+
+  En el análisis complejo se deduce otra serie
+  \cite[Chapter 5, \S 2]{Ahlfors-1978}
+  $$\cot (t) = \sum_{n\in \ZZ} \frac{1}{t - \pi n},$$
+  que corresponde a la «descomposición en fracciones simples» de una función
+  meromorfa: $\cot (t)$ tiene polos simples en $t = \pi n$ para todo $n \in \ZZ$
+  con residuo
+  $$\lim_{t \to \pi n} (t - \pi n)\,\cot (t) =
+  \lim_{t \to 0} \cos (t+\pi n) \, \frac{t}{\sen (t + \pi n)} =
+  \lim_{t \to 0} (-1)^n\,\cos (t) \, \frac{t}{(-1)^n\,\sen (t)} = 1.$$
+  Por «$\sum_{n\in \ZZ} \frac{1}{t - \pi n}$» se entiende
+  $\lim_{N\to \infty} \sum_{-N \le n \le N} \frac{1}{t - \pi n}$.
+  Luego,
+  \begin{align*}
+    t\,\cot (t) & = t\,\left(\frac{1}{t} + \sum_{n \ge 1} \left(\frac{1}{t - \pi n} + \frac{1}{t + \pi n}\right)\right) = 1 - 2\,\sum_{n \ge 1} \left(\frac{t^2}{(\pi n)^2 - t^2}\right) = 1 - 2\,\sum_{n \ge 1} \frac{t^2}{(\pi n)^2} \, \frac{1}{1-\left(\frac{t}{\pi n}\right)^2} \\
+                & = 1 - 2\,\sum_{n \ge 1} \frac{t^2}{(\pi n)^2} \, \sum_{k \ge 0} \left(\frac{t}{\pi n}\right)^{2k} = 1 - 2\,\sum_{n \ge 1} \, \sum_{k \ge 1} \left(\frac{t}{\pi n}\right)^{2k} \quad \text{(la serie geométrica)}\\
+                & = 1 - 2\,\sum_{k \ge 1} \left(\sum_{n\ge 1} \frac{1}{n^{2k}}\right)\,\frac{t^{2k}}{\pi^{2k}} = 1 - 2\,\sum_{k\ge 1} \frac{\zeta (2k)\,t^{2k}}{\pi^{2k}}. \quad \text{(cambiando el orden de sumación)}
+  \end{align*}
+  Comparando coeficientes con \eqnref{eqn:serie-para-t-cot-t}, tenemos
+  \[ (-1)^k \, 2^{2k}\,\frac{B_{2k}}{(2k)!} = -2\,\frac{\zeta (2k)}{\pi^{2k}}. \qedhere \]
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Series de Fourier para $B_k (x)$}
+
+Vamos a necesitar el siguiente resultado del análisis armónico:
+
+\begin{hecho}
+  Sea $f\colon \RR \to \RR$ una función continua por trozos y periódica:
+  $$f (x+1) = f (x).$$
+  Entonces para todo $x_0\in \RR$ donde $f$ es continua y la derivada izquierda
+  y derecha de $f$ existen (pero no necesariamente coinciden) se tiene
+  \[ f (x_0) = \sum_{n\in\ZZ} \widehat{f} (n) \, e^{2\pi i n x_0}, \quad
+    \text{donde }\widehat{f} (n) \dfn \int_0^1 e^{-2\pi i n x} \, f(x) \, dx. \]
+\end{hecho}
+
+Es un caso especial de las \term{series de Fourier} que va a ser suficiente para
+nosotros; para la teoría general véase por ejemplo \cite{Katznelson-2004}.
+
+\vspace{1em}
+
+En nuestro caso, nos interesan las funciones
+$$f (x) \dfn B_k (x - \lfloor x\rfloor),$$
+donde $B_k (x)$ es el $k$-ésimo polinomio de Bernoulli. Para $k > 1$ la función
+$B_k (x - \lfloor x\rfloor)$ es continua y para $k = 1$ es discontinua en
+los puntos $x = n \in \ZZ$. También $B_k (x - \lfloor x\rfloor)$ es lisa para
+$k > 2$, pero $B_2 (x)$ no es lisa en los puntos $x = n \in \ZZ$, donde existen
+la derivada izquierda y derecha, pero son diferentes.
+
+\begin{center}
+  \includegraphics{pic/bernpol-per.mps}
+\end{center}
+
+Los coeficientes de la serie de Fourier para $f (x)$ se calculan
+fácilmente. Para $n = 0$ tenemos
+$$\widehat{f} (0) = \int_0^1 B_k (x)\,dx = 0.$$
+Luego, para $n \ne 0$ y $k = 1$ podemos usar integración por partes
+($\int_a^b f'(x)\,g(x)\,dx = \left[f(x)\,g(x)\right]_a^b - \int_a^b f(x) \, g'(x)\,dx$):
+
+\begin{align*}
+  \int_0^1 e^{-2\pi i n x}\,\left(x - \frac{1}{2}\right)\,dx & = -\frac{1}{2\pi i n} \int_0^1 \left(e^{-2\pi i n x}\right)' \, \left(x - \frac{1}{2}\right)\,dx \\
+                                                             & = -\frac{1}{2\pi i n} \, \left( \left[e^{-2\pi i n x}\,\left(x - \frac{1}{2}\right)\right]^1_0 - \underbrace{\int_0^1 e^{-2\pi i n x}\,dx}_{=0} \right) = -\frac{1}{2\pi i n}.
+\end{align*}
+
+Para $k > 1$ integración por partes y la relación $B_k' (x) = k\,B_{k-1} (x)$
+nos dan
+
+\begin{align*}
+  \widehat{f} (n) = \int_0^1 e^{-2\pi i n x} \, B_k (x)\,dx & = -\frac{1}{2\pi i n}\,\int_0^1 (e^{-2\pi i n x})' \, B_k (x)\,dx \\
+                                                            & = -\frac{1}{2\pi i n}\,\left(\left[e^{-2\pi i n x}\,B_k (x)\right]_0^1 - k\,\int_0^1 e^{-2\pi i n x} \, B_{k-1} (x)\,dx\right) \\
+                                                            & = \frac{k}{2\pi i n} \, \int_0^1 e^{-2\pi i n x}\,B_{k-1} (x)\,dx \\
+                                                            & = \frac{k\,(k-1)}{(2\pi i n)^2} \int_0^1 e^{-2\pi i n x}\,B_{k-2} (x)\,dx \\
+                                                            & = \cdots \\
+                                                            & = \frac{k!}{(2\pi i n)^{k-1}} \int_0^1 e^{-2\pi i n x}\,\left(x - \frac{1}{2}\right)\,dx \\
+                                                            & = \frac{k!}{(2\pi i n)^{k-1}} \cdot \left(-\frac{1}{2\pi i n}\right)
+                                                              = -\frac{k!}{(2\pi i n)^k}.
+\end{align*}
+
+Entonces, la serie de Fourier es
+
+\begin{equation}
+  \label{serie-de-forier-para-Bk}
+  B_k (x - \lfloor x\rfloor) = -\frac{k!}{(2\pi i)^k}\sum_{\substack{n\in \ZZ \\ n \ne 0}} \frac{e^{2\pi i n x}}{n^k}.
+\end{equation}
+
+Como un caso especial, se obtiene la fórmula para $\zeta (2k)$:
+
+\begin{proof}[Segunda demostración de \ref{thm:valores-de-zeta-2k}]
+  Para $x = 0$ la identidad \eqnref{serie-de-forier-para-Bk} nos da
+  \[ B_{2k} = B_{2k} (0) =
+    -\frac{(2k)!}{(-1)^k\,(2\pi)^{2k}} \, 2\,\sum_{n \ge 1} \frac{1}{n^{2k}} =
+    (-1)^{k+1}\frac{(2k)!}{2^{2k-1}\,\pi^{2k}}\,\zeta (2k). \qedhere \]
+\end{proof}
+
+Note que los valores en los enteros impares $\zeta (2k+1)$ no se obtienen con este método.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Los valores de $\zeta (-1)$, $\zeta (-2)$, $\zeta (-3)$, $\ldots$}
+
+Gracias a la ecuación funcional
+$$\zeta (s) = 2^s \, \pi^{s-1} \, \sen \left(\frac{\pi s}{2}\right)\,\Gamma (1-s)\,\zeta (1-s)$$
+y la fórmula de Euler
+$$\zeta (2k) = (-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k},$$
+podemos obtener los valores en los enteros negativos. En efecto, para los
+enteros negativos pares $s = -2k$ tenemos
+$$\zeta (-2k) = 2^{-2k} \, \pi^{-2k-1} \, \underbrace{\sen \left(-\frac{\pi k}{2}\right)}_{= 0}\,\Gamma (2k+1)\,\zeta (2k+1) = 0.$$
+Y para $s = -(2k+1)$ impares,
+
+\begin{align*}
+  \zeta (-(2k+1)) & = 2^{-(2k+1)} \, \pi^{-(2k+2)} \, \sen \left(-\frac{\pi\,(2k+1)}{2}\right)\,(2k+1)!\,\zeta (2k+2) \\
+                  & = 2^{-(2k+1)} \, \pi^{-(2k+2)}\,(-1)^{k+1}\,(2k+1)!\,(-1)^k \, B_{2k+2}\,\frac{2^{2k+1}}{(2k+2)!}\,\pi^{2k+2} \\
+                  & = -\frac{B_{2k+2}}{2k+2}.
+\end{align*}
+
+Ya que $B_n = 0$ para $n$ impar, en ambos casos se tiene
+$$\zeta (-n) = -\frac{B_{n+1}}{n+1}.$$
+Además, para $n = 0$ la prolongación analítica nos da
+$\zeta (0) = -\frac{1}{2} = -B_1$, así que esta fórmula es valida también para
+$n = 0$.
+
+\[ \begin{array}{rcccccccccccc}
+     n\colon & 0 & -1 & -2 & -3 & -4 & -5 & -6 & -7 & -8 & -9 & -10 & \cdots \\
+     \hline
+     \zeta(n)\colon & -\frac{1}{2} & -\frac{1}{12} & 0 & \frac{1}{120} & 0 & -\frac{1}{252} & 0 & \frac{1}{240} & 0 & -\frac{1}{132} & 0 & \cdots
+   \end{array} \]
+
+\begin{center}
+  \noindent\includegraphics{pic/zeta.mps}
+\end{center}
+
+\noindent (Después $\zeta (s)$ es decreciente hasta su polo en $s = 1$.)
+
+\vspace{1em}
+
+Terminamos por el cálculo de $\zeta (-1) = -\frac{1}{12}$ encontrado por Euler
+en su artículo \cite{E247}:
+
+\begin{quote}
+  Para la serie geométrica
+  $$1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + x^7 + x^8 + \cdots = \frac{1}{1-x}$$
+  la derivada formal nos da
+  $$1 + 2\,x + 3\,x^2 + 4\,x^3 + 5\,x^4 + 6\,x^5 + 7\,x^6 + 8\,x^7 + \cdots = \frac{1}{(1-x)^2},$$
+  de donde para $x = -1$ (¡sic!)
+  $$1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + \cdots = \frac{1}{4}.$$
+  Luego,
+  \begin{align*}
+    -3\,\zeta (-1) & = \zeta (-1) - 4\,\zeta (-1) \\
+                   & = (1 + 2 + 3 + 4 + \cdots) - (4 + 8 + 12 + 16 + \cdots) \\
+                   & = 1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + \cdots = \frac{1}{4},
+  \end{align*}
+  lo que implica $\zeta (-1) = -\frac{1}{12}$, Q.E.D.
+\end{quote}
+
+El lector no debería tomar en serio el argumento de arriba y usar métodos
+similares en sus demostraciones.
+
+\begin{shaded}
+  \small\noindent En PARI/GP, la función \verb|zeta(s)| calcula $\zeta (s)$:
+
+\begin{verbatim}
+? zeta (0.0)
+% = -0.50000000000000000000000000000000000000
+
+? zeta (-1)
+% = -0.083333333333333333333333333333333333333
+? -bernreal(2)/2
+% = -0.083333333333333333333333333333333333333
+
+? zeta (-2)
+% = 0
+
+? zeta (-3)
+% = 0.0083333333333333333333333333333333333334
+? -bernreal(4)/4
+% = 0.0083333333333333333333333333333333333334
+\end{verbatim}
+\end{shaded}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{* Conjetura de Lichtenbaum}
+
+El matemático estadounidense \personality{Stephen Lichtenbaum} formuló en 1973
+la hipótesis que los valores $\zeta (-n)$ están relacionados con ciertos grupos
+abelianos $K_i (\ZZ)$ asociados al anillo $\ZZ$ (los \term{grupos K}, definidos
+por el matemático estadounidense \personality{Daniel Quillen} (1940--2011)):
+$$\zeta (-n) = \pm 2^? \, \frac{\# K_{2n} (\ZZ)}{\# K_{2n+1} (\ZZ)_{tors}},$$
+donde $K_{2n} (\ZZ)$ son grupos abelianos finitos, y $\# K_{2n+1} (\ZZ)_{tors}$
+denota la parte de torsión de grupos $K_{2n+1} (\ZZ)$ que tienen rango $1$.
+El factor $2^?$ denota alguna potencia de $2$.
+
+La definición de los $K_i (\ZZ)$ requiere otro curso de nivel de posgrado, así
+que no voy a entrar en detalles... Estos grupos son muy difíciles de calcular,
+y solo hasta en los años 2000 fueron determinados en gran parte. Como sugiere
+la conjetura de Lichtenbaum, estos en efecto están relacionados con los números
+de Bernoulli. Por ejemplo, $K_{22} (\ZZ) \isom \ZZ/691 \ZZ$ y
+$K_{23} (\ZZ) \isom \ZZ / 65\,520 \ZZ$,
+\[ \zeta (-11) = -\frac{B_{12}}{12} = \frac{691}{12\cdot 2730}, \quad
+  \frac{\# K_{22} (\ZZ)}{\# K_{23} (\ZZ)} = \frac{691}{2\cdot 12\cdot 2730} \]
+---los valores coinciden salvo una potencia de $2$.
+
+\pagebreak
+
+He aquí la tabla de algunos de los grupos $K_i (\ZZ)$:
+
+\begin{center}
+  \begin{tabular}{rx{1.8cm}x{1.8cm}x{1.8cm}x{1.8cm}}
+    \hline
+      $i\colon$ & 2 & 3 & 4 & 5 \tabularnewline
+      \rule{0pt}{1.1em}$K_i (\ZZ)\colon$ & $\ZZ/2\ZZ$ & $\ZZ/48\ZZ$ & $0$ & $\ZZ$ \tabularnewline
+      \hline
+      $i\colon$ & 6 & 7 & 8 & 9 \tabularnewline
+      \rule{0pt}{1.1em}$K_i (\ZZ)\colon$ & $0$ & $\ZZ/240\ZZ$ & $(0?)$ & $\ZZ\oplus\ZZ/2\ZZ$ \tabularnewline
+      \hline
+      $i\colon$ & 10 & 11 & 12 & 13 \tabularnewline
+      \rule{0pt}{1.1em}$K_i (\ZZ)\colon$ & $\ZZ/2\ZZ$ & $\ZZ/1008\ZZ$ & $(0?)$ & $\ZZ$ \tabularnewline
+      \hline
+      $i\colon$ & 14 & 15 & 16 & 17 \tabularnewline
+      \rule{0pt}{1.1em}$K_i (\ZZ)\colon$ & $0$ & $\ZZ/480\ZZ$ & $(0?)$ & $\ZZ\oplus\ZZ/2\ZZ$ \tabularnewline
+      \hline
+      $i\colon$ & 18 & 19 & 20 & 21 \tabularnewline
+      \rule{0pt}{1.1em}$K_i (\ZZ)\colon$ & $\ZZ/2\ZZ$ & $\ZZ/528\ZZ$ & $(0?)$ & $\ZZ$ \tabularnewline
+      \hline
+      $i\colon$ & 22 & 23 & 24 & 25 \tabularnewline
+      \rule{0pt}{1.1em}$K_i (\ZZ)\colon$ & $\ZZ/691\ZZ$ & $\ZZ/65\,520\ZZ$ & $(0?)$ & $\ZZ\oplus\ZZ/2\ZZ$ \tabularnewline
+      \hline\tabularnewline
+  \end{tabular}
+\end{center}
+
+Los grupos $K_{4i} (\ZZ)$ son \emph{conjeturalmente} nulos, pero este hecho
+es equivalente a la \term{conjetura de Vandiver} de la teoría de números,
+que tampoco ha sido resuelta. La rama de matemáticas que estudia los grupos
+$K_i (\ZZ)$ se llama la \term{teoría K algebraica}. Estos grupos están
+relacionados con otros objetos, más adecuados para el estudio de los valores
+
+de las funciones zeta: los grupos de \term{cohomología motívica}. Para más
+información, véase \cite{Kahn-2005} y \cite{Weibel-2005}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{* Los valores $\zeta (2k+1)$}
+
+Hemos visto que los valores de la función zeta en los enteros positivos pares
+$\zeta (2k)$ y los enteros negativos $\zeta (-n)$ se expresan por los números
+de Bernoulli. Los valores en los enteros positivos impares
+$$\zeta (3), ~ \zeta (5), ~ \zeta (7), ~ \zeta (9), ~ \zeta (11), ~ \ldots$$
+son más misteriosos. Note que la ecuación funcional \eqnref{ecuacion-funcional}
+no dice nada sobre ellos. \emph{Al parecer}, son números trascendentes. Por
+supuesto, los números
+$$\zeta (2k) = (-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k}$$
+son también transcendentes, ya que $\pi$ es trascendente (¡de hecho, uno de los
+pocos números específicos cuya trascendencia se puede demostrar!). Los valores
+$\zeta (2k+1)$ deberían de ser trascendentes por alguna razón más sofisticada,
+y se supone que entre $\zeta (2k+1)$ distintos no hay ninguna relación
+algebraica.
+
+Sin embargo, todavía no hay demostraciones ni siquiera de que los $\zeta (2k+1)$
+sean irracionales. En 1977 el matemático francés \personality{Roger Apéry}
+demostró que el número
+$$\zeta (3) \approx 1.20205690315959428539973816\ldots$$
+es irracional. La tumba de Apéry en París lleva la inscripción
+
+\begin{center}
+\noindent\textsc{Roger APÉRY}
+
+\noindent\textsc{1916--1994}
+
+\vspace{0.7em}
+
+\noindent\rule{1cm}{0.4mm}
+
+\vspace{1em}
+
+\noindent$1 + \frac{1}{8} + \frac{1}{27} + \frac{1}{64} + \cdots \ne \frac{p}{q}$
+\end{center}
+
+\noindent Para más información sobre el teorema de Apéry, véase el artículo
+\cite{van-der-Poorten-1978}.
+
+Los métodos de Apéry no se generalizan para demostrar que $\zeta (5)$ es
+irracional. Hay pocos resultados en esta dirección. El matemático francés
+\personality{Tanguy Rivoal} demostró en 2000 que entre los números
+$\zeta (3), \zeta (7), \zeta (9), \ldots$ hay una infinidad de irracionales,
+mientras que el matemático ruso \personality{Wadim Zudilin} demostró en 2001 que
+por lo menos un número entre $\zeta(5)$, $\zeta(7)$, $\zeta(9)$ y $\zeta(11)$ es
+irracional \cite{Zudilin-2004}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Digresión combinatoria: los números de Stirling}
+\label{section:numeros-de-stirling}
+
+Nuestro próximo objetivo es obtener algunas expresiones para los números de
+Bernoulli que permitan estudiar sus propiedades aritméticas, específicamente sus
+numeradores y denominadores. En el camino surgen ciertos números combinatorios,
+conocidos como los \term{números de Stirling}.
+
+\begin{definicion}
+  \label{def:numeros-de-stirling-N}
+  Sean $k$ y $\ell$ dos números naturales positivos.
+
+  El \term{número de Stirling de primera clase} $\stirling{k}{\ell}$ es el número
+  de permutaciones en el grupo simétrico $S_k$ que consisten en $\ell$ ciclos
+  disjuntos.
+
+  El \term{número de Stirling de segunda clase} $\Stirling{k}{\ell}$ es
+  el número de posibilidades de escribir un conjunto de $k$ elementos como una
+  unión disjunta de $\ell$ conjuntos no vacíos.
+\end{definicion}
+
+\begin{ejemplo}
+  $\stirling{4}{2} = 11$. Las permutaciones correspondientes en $S_4$ son
+  \begin{gather*}
+    (1)\,(2~3~4), ~ (1)\,(2~4~3), ~ (2)\,(1~3~4), ~ (2)\,(1~4~3),\\
+    (3)\,(1~2~4), ~ (3)\,(1~4~2), ~ (4)\,(1~2~3), ~ (4)\,(1~3~2),\\
+    (1~2)\,(3~4), ~ (1~3)\,(2~4), ~ (1~4)\,(2~3). \qedhere
+  \end{gather*}
+\end{ejemplo}
+
+\begin{ejemplo}
+  $\Stirling{4}{2} = 7$. Las descomposiciones de conjuntos correspondientes son
+  \begin{align*}
+    \{ 1,2,3,4 \} & = \{ 1 \} \cup \{ 2,3,4 \} = \{ 2 \} \cup \{ 1,3,4 \} = \{ 3 \} \cup \{ 1,2,4 \} = \{ 4 \} \cup \{ 1,2,3 \} \\
+                  & = \{ 1,2 \} \cup \{ 3,4 \} = \{ 1,3 \} \cup \{ 2,4 \} = \{ 1,4 \} \cup \{ 2,3 \}. \qedhere
+  \end{align*}
+\end{ejemplo}
+
+De la definición se siguen las identidades
+
+\begin{align}
+  \label{eqn:stirling-I-0} \stirling{k}{\ell} & = 0 \quad\text{para }\ell > k,\\
+  \label{eqn:stirling-I-1} \stirling{k}{k} & = 1,\\
+  \label{eqn:stirling-I-2} \stirling{k}{1} & = (k-1)!,\\
+  \label{eqn:stirling-I-3} \sum_{1 \le \ell \le k} \stirling{k}{\ell} & = k!,\\
+  \label{eqn:stirling-I-recur} \stirling{k+1}{\ell} & = \stirling{k}{\ell-1} + k\,\stirling{k}{\ell},
+\end{align}
+
+\begin{align}
+  \label{eqn:stirling-II-0} \Stirling{k}{\ell} & = 0 \quad\text{para }\ell > k,\\
+  \label{eqn:stirling-II-1} \Stirling{k}{k} & = 1,\\
+  \label{eqn:stirling-II-2} \Stirling{k}{1} & = 1,\\
+  \label{eqn:stirling-II-3} \sum_{1 \le \ell \le k} \Stirling{k}{\ell} & = b (k),\\
+  \label{eqn:stirling-II-recur} \Stirling{k+1}{\ell} & = \Stirling{k}{\ell-1} + \ell\,\Stirling{k}{\ell}.
+\end{align}
+
+\eqnref{eqn:stirling-I-1} significa que la única permutación en $S_k$ que
+se descompone en el producto de $k$ ciclos disjuntos es la permutación
+identidad. \eqnref{eqn:stirling-I-2} significa que en $S_k$ hay $(k-1)!$
+diferentes $k$-ciclos (¿por qué?).
+
+\eqnref{eqn:stirling-I-3} es el hecho de que el tipo cíclico es una relación
+de equivalencia sobre los elementos de $S_k$ (en efecto, los tipos cíclicos
+corresponden a las clases de conjugación). \eqnref{eqn:stirling-II-3} es
+el análogo de esta identidad: el número total de particiones se conoce como
+el \term{número de Bell} $b (k)$. Los primeros números de Bell son $b (1) = 1$,
+$b (2) = 2$, $b (3) = 5$, $b (4) = 15$, $b (5) = 52$, $b (6) = 203$, $\ldots$;
+véase \url{http://oeis.org/A000110} En este curso, no vamos estudiar estos
+números (también porque la notación parece mucho a los números de Bernoulli :-)
+
+Las recurrencias \eqnref{eqn:stirling-I-recur} y \eqnref{eqn:stirling-II-recur}
+se siguen de la definición combinatoria.
+Por ejemplo, en \eqnref{eqn:stirling-I-recur}, consideremos las permutaciones
+de elementos $\{ 1, \ldots, k, k+1 \}$. Sea $\sigma \in S_{k+1}$ una permutación
+que se descompone en el producto de $\ell$ ciclos disjuntos. Si
+$\sigma (k+1) = k+1$, entonces $(k+1)$ forma un ciclo sí mismo, y para el resto
+de los elementos hay $\stirling{k}{\ell-1}$ posibles descomposiciones.
+Si $\sigma (k+1) \ne k+1$, entonces $k+1$ pertenece a algún ciclo. Para enumerar
+todas las posibilidades, podemos primero considerar $\stirling{k}{\ell}$
+descomposiciones de las permutaciones de $\{ 1,\ldots,k \}$ en $\ell$ ciclos
+disjuntos, y luego para cada descomposición hay $k$ posibilidades de poner $k+1$
+en uno de los ciclos. La fórmula \eqnref{eqn:stirling-II-recur} se explica de
+la misma manera: si tenemos un conjunto $X$ de $k+1$ elemento, podemos
+considerar un elemento $x\in X$. Para las descomposiciones de $X$ en la unión
+de $\ell$ subconjuntos hay dos casos: o bien $\{ x \}$ forma un conjunto en
+la descomposición, y quedan $\Stirling{k}{\ell-1}$ posibilidades para
+descomponer $X\setminus \{ x \}$; o bien $x$ pertenece a algún conjunto.
+En el segundo caso, hay $\Stirling{k}{\ell}$ posibilidades de descomponer
+$X\setminus \{ x \}$ en $\ell$ subconjuntos, y luego en cada caso hay $\ell$
+posibilidades de poner $x$ en uno de los conjuntos.
+
+También será útil definir $\stirling{k}{\ell}$ y $\Stirling{k}{\ell}$ para
+$k,\ell = 0$:
+
+\begin{definicion}
+  \label{numeros-de-stirling-para-0}
+  \begin{gather*}
+    \stirling{0}{0} = 1, \quad \stirling{k}{0} = \stirling{0}{\ell} = 0 \text{ para }k,\ell\ne 0,\\
+    \Stirling{0}{0} = 1, \quad \Stirling{k}{0} = \Stirling{0}{\ell} = 0 \text{ para }k,\ell\ne 0.
+  \end{gather*}
+\end{definicion}
+
+Podemos definir $\stirling{k}{\ell}$ y $\Stirling{k}{\ell}$ por los valores
+iniciales \ref{numeros-de-stirling-para-0} y las relaciones de recurrencia
+\eqnref{eqn:stirling-I-recur} y \eqnref{eqn:stirling-II-recur}. Esta definición
+está compatible con \ref{def:numeros-de-stirling-N}. Por ejemplo, en el caso de
+$\stirling{k}{\ell}$, podemos ver que las identidades
+$$\stirling{0}{0} = 1, \quad \stirling{k}{0} = \stirling{0}{\ell} = 0 \text{ para }k,\ell\ne 0$$
+implican
+$$\stirling{k}{1} = (k-1)! \text{ para }k \ge 1, \quad \stirling{1}{\ell} = 0 \text{ para }\ell \ge 1.$$
+En efecto,
+\begin{align*}
+  \stirling{k}{1} & = \underbrace{\stirling{k}{0}}_0 + (k-1)\,\stirling{k-1}{1}
+                    = (k-1)\,(k-2)\,\stirling{k-2}{1} = \cdots \\
+                  & = (k-1)\,(k-2)\cdots 2\cdot 1 \, \Bigg(\underbrace{\stirling{0}{0}}_1 + \underbrace{\stirling{0}{1}}_0 \Bigg)
+                    = (k-1)!
+\end{align*}
+y para $\ell > 1$
+$$\stirling{1}{\ell} = \stirling{0}{\ell-1} + 0\cdot \stirling{0}{\ell} = 0.$$
+
+\begin{shaded}
+  \small\noindent En PARI/GP, \verb|stirling(k,l,2)| $= \Stirling{k}{\ell}$
+  (el parametro «$2$» significa «de segunda clase»):
+
+\begin{verbatim}
+? stirling (4,2,2)
+% = 7
+\end{verbatim}
+
+  \noindent PARI/GP usa otra definición de los números de Stirling de primera
+  clase. La única diferencia es el signo: \verb|stirling(k,l)|
+  $= (-1)^{k-\ell} \stirling{k}{\ell}$:
+
+\begin{verbatim}
+? stirling (4,2)
+% = 11
+? stirling(4,3) 
+% = -6
+\end{verbatim}
+\end{shaded}
+
+\begin{ejercicio}
+  Demuestre que $\stirling{k}{k-1} = {k \choose 2}$.
+\end{ejercicio}
+
+\begin{ejercicio}
+  Note que las recurrencias de arriba con los valores iniciales para
+  $k, \ell = 0$ nos permiten definir $\stirling{k}{\ell}$ y $\Stirling{k}{\ell}$
+  para todo $k,\ell \in \ZZ$. Demuestre que
+  $$\stirling{k}{\ell} = \Stirling{-\ell}{-k}.$$
+  Esto significa que los números de Stirling de primera y de segunda clase son
+  esencialmente el mismo objeto.
+\end{ejercicio}
+
+\begin{ejercicio}
+  Demuestre que $\Stirling{k}{\ell} = 0$ para $k\ell < 0$.
+\end{ejercicio}
+
+\noindent (Los últimos dos ejercicios sirven solo para acostumbrarse a las
+recurrencias con $\stirling{k}{\ell}$ y $\Stirling{k}{\ell}$; no vamos a usar
+los números de Stirling para $k$ y $\ell$ negativos.)
+
+\pagebreak
+
+\begin{center}
+{\small
+\noindent\begin{tabular}{|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|}
+\hline
+\backslashbox{$k$}{$\ell$} & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \tabularnewline\hline
+$0$ & $1$ &  &  &  &  &  &  &  &  & \tabularnewline\hline
+$1$ & $0$ & $1$ &  &  &  &  &  &  &  & \tabularnewline\hline
+$2$ & $0$ & $1$ & $1$ &  &  &  &  &  &  & \tabularnewline\hline
+$3$ & $0$ & $2$ & $3$ & $1$ &  &  &  &  &  & \tabularnewline\hline
+$4$ & $0$ & $6$ & $11$ & $6$ & $1$ &  &  &  &  & \tabularnewline\hline
+$5$ & $0$ & $24$ & $50$ & $35$ & $10$ & $1$ &  &  &  & \tabularnewline\hline
+$6$ & $0$ & $120$ & $274$ & $225$ & $85$ & $15$ & $1$ &  &  & \tabularnewline\hline
+$7$ & $0$ & $720$ & $1764$ & $1624$ & $735$ & $175$ & $21$ & $1$ &  & \tabularnewline\hline
+$8$ & $0$ & $5040$ & $13068$ & $13132$ & $6769$ & $1960$ & $322$ & $28$ & $1$ & \tabularnewline\hline
+$9$ & $0$ & $40320$ & $109584$ & $118124$ & $67284$ & $22449$ & $4536$ & $546$ & $36$ & $1$ \tabularnewline\hline
+\end{tabular}}
+
+\vspace{1em}
+
+\noindent Valores de $\stirling{k}{\ell}$
+
+\vspace{\fill}
+
+{\small
+\noindent\begin{tabular}{|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|f{0.9cm}|}
+\hline
+\backslashbox{$k$}{$\ell$} & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \tabularnewline\hline
+$0$ & $1$ &  &  &  &  &  &  &  &  & \tabularnewline\hline
+$1$ & $0$ & $1$ &  &  &  &  &  &  &  & \tabularnewline\hline
+$2$ & $0$ & $1$ & $1$ &  &  &  &  &  &  & \tabularnewline\hline
+$3$ & $0$ & $1$ & $3$ & $1$ &  &  &  &  &  & \tabularnewline\hline
+$4$ & $0$ & $1$ & $7$ & $6$ & $1$ &  &  &  &  & \tabularnewline\hline
+$5$ & $0$ & $1$ & $15$ & $25$ & $10$ & $1$ &  &  &  & \tabularnewline\hline
+$6$ & $0$ & $1$ & $31$ & $90$ & $65$ & $15$ & $1$ &  &  & \tabularnewline\hline
+$7$ & $0$ & $1$ & $63$ & $301$ & $350$ & $140$ & $21$ & $1$ &  & \tabularnewline\hline
+$8$ & $0$ & $1$ & $127$ & $966$ & $1701$ & $1050$ & $266$ & $28$ & $1$ & \tabularnewline\hline
+$9$ & $0$ & $1$ & $255$ & $3025$ & $7770$ & $6951$ & $2646$ & $462$ & $36$ & $1$ \tabularnewline\hline
+\end{tabular}}
+
+\vspace{1em}
+
+\noindent Valores de $\Stirling{k}{\ell}$
+\end{center}
+
+\pagebreak
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Relación entre $B_k$ y los números de Stirling}
+
+\begin{lema}
+  \label{exp-stirling}
+  Para todo $\ell \ge 0$
+  $$\frac{(e^t - 1)^\ell}{\ell!} = \sum_{k \ge \ell} \Stirling{k}{\ell}\,\frac{t^k}{k!}.$$
+
+  \begin{proof}
+    Tenemos que ver que
+    $$\frac{d^k}{dt^k} \left(\frac{(e^t - 1)^\ell}{\ell!}\right) (0) = \Stirling{k}{\ell}.$$
+    Los valores iniciales coinciden, y va a ser suficiente demostrar que la
+    recurrencia
+    $$\Stirling{k+1}{\ell} = \Stirling{k}{\ell-1} + \ell \, \Stirling{k}{\ell}$$
+    se cumple en nuestro caso:
+    \[ \frac{d^{k+1}}{dt^{k+1}} \left(\frac{(e^t - 1)^\ell}{\ell!}\right) (0) =
+      \frac{d^k}{dt^k} \left(\frac{(e^t - 1)^{\ell-1}}{(\ell-1)!}\right) (0) +
+      \ell\,\frac{d^k}{dt^k} \left(\frac{(e^t - 1)^\ell}{\ell!}\right) (0). \]
+    En efecto,
+    \begin{align*}
+      \frac{d^{k+1}}{dt^{k+1}} \left(\frac{(e^t - 1)^\ell}{\ell!}\right) & =
+                                                                           \frac{d^k}{dt^k} \left(\frac{(e^t - 1)^{\ell-1}}{(\ell-1)!}\,e^t\right) =
+                                                                           \frac{d^k}{dt^k} \left(\frac{(e^t - 1)^{\ell-1} \, (1 + e^t - 1)}{(\ell - 1)!}\right) \\
+                                                                         & =
+                                                                           \frac{d^k}{dt^k} \left(\frac{(e^t - 1)^{\ell-1}}{(\ell-1)!} +
+                                                                           \frac{(e^t-1)^\ell}{(\ell-1)!}\right) \\
+                                                                         & =
+                                                                           \frac{d^k}{dt^k} \left(\frac{(e^t - 1)^{\ell-1}}{(\ell-1)!}\right) +
+                                                                           \ell\,\frac{d^k}{dt^k} \left(\frac{(e^t-1)^\ell}{\ell!}\right).
+                                                                           \qedhere
+    \end{align*}
+  \end{proof}
+\end{lema}
+
+\begin{ejercicio}
+  \label{log-stirling}
+  Demuestre la identidad
+  $$\frac{(-\ln (1-t))^\ell}{\ell!} = \sum_{k \ge \ell} \stirling{k}{\ell}\,\frac{t^k}{k!}.$$
+  (De nuevo, es suficiente considerar las derivadas formales y verificar que se
+  cumple la misma recurrencia que define los números de Stirling
+  correspondientes:
+  $\stirling{k+1}{\ell} = \stirling{k}{\ell-1} + k\,\stirling{k}{\ell}$.)
+\end{ejercicio}
+
+Lo que acabamos de ver en \ref{exp-stirling} y \ref{log-stirling} son las
+funciones generatrices para los números de Stirling, pero no soy tan sádico para
+dar esto como la definición de $\Stirling{k}{\ell}$ y $\stirling{k}{\ell}$.
+
+\begin{lema}
+  \label{stirling-via-binomial}
+  Para $k,\ell\ge 0$
+  $$\Stirling{k}{\ell} = \frac{(-1)^\ell}{\ell!}\,\sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, i^k.$$
+
+  \begin{proof}
+    De nuevo, podemos verificar que los valores iniciales coinciden y la suma
+    satisface la misma recurrencia que $\Stirling{k}{\ell}$:
+    $$\Stirling{k+1}{\ell} = \Stirling{k}{\ell-1} + \ell \, \Stirling{k}{\ell}.$$
+    Para los valores iniciales, si $k = \ell = 0$, la suma nos da
+    $\Stirling{0}{0} = 1$ (como siempre en el contexto algebraico/combinatorio,
+    $0^0 = 1$); si $k > 0$, $\ell = 0$, la suma nos da $0$; si $k = 0$,
+    $\ell > 0$, la suma también nos da
+    $\sum_{0 \le i \le \ell} (-1)^i \, {\ell\choose i} = 0$. Para la
+    recurrencia,
+    \begin{align*}
+      \frac{(-1)^\ell}{\ell!}\,\sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, i^{k+1} & = \frac{(-1)^\ell}{(\ell-1)!}\,\sum_{0 \le i \le \ell} (-1)^i \, \frac{i}{\ell}\, {\ell \choose i} \, i^k \\
+                                                                                             & = \frac{(-1)^\ell}{(\ell-1)!}\,\sum_{0 \le i \le \ell} (-1)^i \, \left({\ell \choose i} - {\ell - 1\choose i}\right) \, i^k \\
+                                                                                             & = \frac{(-1)^{\ell-1}}{(\ell-1)!}\,\sum_{0 \le i \le \ell-1} (-1)^i \, {\ell - 1 \choose i} \, i^k + \ell\,\frac{(-1)^\ell}{\ell!}\,\sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, i^k.
+    \end{align*}
+    Aquí hemos usado la identidad
+    \[ {\ell \choose i} - {\ell - 1 \choose i} = \frac{i}{\ell}\,{\ell \choose i}. \qedhere \]
+  \end{proof}
+\end{lema}
+
+\begin{teorema}
+  \[ B_k = (-1)^k \, \sum_{0 \le \ell \le k} \frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1} =
+    (-1)^k \, \sum_{0 \le \ell \le k} \frac{1}{\ell+1}\,\sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, i^k. \]
+\end{teorema}
+
+La segunda igualdad viene de la expresión \ref{stirling-via-binomial}
+y (¡por fin!) nos da una expresión para $B_k$ sin recurrencias.
+
+\begin{proof}
+  La función generatriz para $B_k$ es $\frac{t\,e^t}{e^t - 1}$. Gracias a
+  \ref{thm:exp-y-log-son-inversos}, podemos escribir
+  $$\frac{t\,e^t}{e^t - 1} = \frac{t}{1 - e^{-t}} = \frac{-\ln (1 - (1-e^{-t}))}{1 - e^{-t}}.$$
+  Luego,
+  \begin{align*}
+    \frac{-\ln (1 - (1-e^{-t}))}{1 - e^{-t}} & = \frac{1}{1 - e^{-t}}\,\sum_{\ell \ge 1} \frac{(1 - e^{-t})^\ell}{\ell} \\
+                                             & = \sum_{\ell \ge 1} \frac{(1 - e^{-t})^{\ell-1}}{\ell} \\
+                                             & = \sum_{\ell \ge 0} \frac{(-1)^\ell\,\ell!}{\ell+1} \sum_{k \ge \ell} \Stirling{k}{\ell}\,\frac{(-t)^k}{k!} \quad\text{por \ref{exp-stirling}} \\
+                                             & = \sum_{k \ge 0} (-1)^k \left(\sum_{0\le \ell \le k} \frac{(-1)^\ell\,\ell! \, \Stirling{k}{\ell}}{\ell+1}\right)\,\frac{t^k}{k!}.
+                                               \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{shaded}
+\small
+\begin{verbatim}
+? bernbin (k) = (-1)^k * sum (l=0,k, 1/(l+1)*sum(i=0,l, (-1)^i*binomial(l,i)*i^k));
+? vector (10,k,bernbin(k))                                                         
+% = [1/2, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66]
+\end{verbatim}
+\end{shaded}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Denominadores de $B_k$ (el teorema de Clausen--von Staudt)}
+\label{section:teorema-de-von-Staudt}
+
+\begin{teorema}
+  Para todo $k \ge 2$ par se tiene
+  $$B_k = -\sum_{\substack{p\text{ primo} \\ p-1 \, \mid \, k}} \frac{1}{p} + C_k,$$
+  donde $C_k \in \ZZ$ y la suma es sobre todos los $p$ tales que $p-1$ divide a
+  $k$.
+\end{teorema}
+
+Este resultado fue descubierto de manera independiente por el astrónomo y
+matemático danés \personality{Thomas Clausen} (1801--1885) y el matemático
+alemán \personality{Karl Georg Christian von Staudt} (1798--1867).
+
+\begin{ejemplo}
+  \begin{align*}
+    B_2 & = \frac{1}{6} = - \left(\frac{1}{2} + \frac{1}{3}\right) + 1,\\
+    B_4 & = -\frac{1}{30} = - \left(\frac{1}{2} + \frac{1}{3} + \frac{1}{5}\right) + 1,\\
+    B_6 & = \frac{1}{42} = - \left(\frac{1}{2} + \frac{1}{3} + \frac{1}{7}\right) + 1,\\
+        & \cdots \\
+    B_{14} & = \frac{7}{6} = - \left(\frac{1}{2} + \frac{1}{3}\right) + 2,\\
+        & \cdots \qedhere
+  \end{align*}
+\end{ejemplo}
+
+En particular, el denominador de $B_k$ es precisamente el producto de todos
+los primos $p$ tales que $p-1 \mid k$. Esto explica por qué los denominadores
+de $B_k$ son libres de cuadrados y divisibles por $6$. No tenemos mucho control
+sobre el número $C_k$ (véase \S\ref{sec:primos-irregulares}); solo podemos notar
+que el valor de $C_k$ va a estar cerca de $B_k$, así que
+$|C_{2k}| \xrightarrow{k \to \infty} \infty$.
+
+\begin{proof}
+  Gracias a la fórmula
+  $$B_k = (-1)^k \, \sum_{0 \le \ell \le k} \frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1},$$
+  sabemos que en el denominador aparecen solamente los primos que dividen
+  a $\ell + 1$; los primos $p > k+1$ no aparecen en el denominador. Vamos
+  a analizar las contribuciones del término
+  $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ para diferentes
+  $\ell$.
+
+  \begin{itemize}
+  \item[(1)] Supongamos que $\ell+1$ es compuesto, es decir $\ell+1 = ab$ para
+    algunos $1 < a,b < \ell$.
+
+    \begin{itemize}
+    \item[(1.1)] Si $a\ne b$, entonces $ab \mid \ell!$, y el término
+      $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+
+    \item[(1.2.1)] Si $a = b$ y $2a \le \ell$, entonces $a \mid \ell!$ y
+      $2a \mid \ell!$, entonces $a^2 = \ell + 1$ divide a $\ell!$ y el término
+      $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+
+    \item[(1.2.2)] Si $a = b$ y $2a > \ell$, entonces
+      $\ell+1 = a^2 \ge 2a \ge \ell + 1$, y por lo tanto $a^2 = 2a$ y $a = 2$,
+      $\ell = 3$. Usando \ref{stirling-via-binomial}, podemos escribir
+      \[ \frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1} =
+        \frac{1}{4}\,\sum_{0 \le i \le 3} (-1)^i {3\choose i} i^k =
+        \frac{1}{4} \left(0 - 3 + 3\cdot 2^k - 3^k\right). \]
+      Este término es nulo para $\ell > k$, así que $k > 3$, y es un número par
+      según la hipótesis del teorema. Tenemos
+      $$- 3 + \cancel{3\cdot 2^k} - 3^k \equiv 1 - (-3)^k \equiv 1 - 1^k \equiv 0 \pmod{4}.$$
+      Esto demuestra que el término
+      $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+    \end{itemize}
+
+    Hemos demostrado que si $\ell+1$ es compuesto, el término
+    $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ es entero.
+
+  \item[(2)] Supongamos que $\ell+1 = p$ es primo. Tenemos por
+    \ref{stirling-via-binomial}
+    $$\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1} =
+    \frac{(-1)^{p-1} \, (p-1)! \, \Stirling{k}{p-1}}{p} =
+    \frac{1}{p}\,\sum_{0 \le i \le p-1} (-1)^i \, {p-1 \choose i} \, i^k.$$
+    Tenemos ${p - 1 \choose i} \equiv (-1)^i \pmod{p}$, entonces
+    \[ \sum_{0 \le i \le p-1} (-1)^i \, {p-1 \choose i} \, i^k \equiv \sum_{0 \le i \le p-1} i^k \equiv \begin{cases}
+        p-1 \equiv -1, & p-1 \mid k,\\
+        0, & p-1 \nmid k.
+      \end{cases} \pmod{p} \]
+    Para ver la última congruencia, notamos que si $p-1\mid k$, entonces
+    $i^{p-1} \equiv 1 \pmod{p}$ por el \term{pequeño teorema de Fermat}
+    ($p\nmid i$). Si $p-1 \nmid k$, podemos escribir la suma
+    $\sum_{0 \le i \le p-1} i^k$ como
+    $$\sum_{1 \le i \le p-1} x^{ik} = \frac{1-x^{pk}}{1-x^k} - 1 \equiv 0 \pmod{p},$$
+    donde $x$ es una raíz primitiva de la unidad módulo $p$. Aquí
+    $x^{pk} \equiv x^k \not\equiv 1 \pmod{p}$ por el pequeño teorema de Fermat.
+
+    Entonces, ci $\ell+1 = p$ es primo, el término
+    $\frac{(-1)^\ell \, \ell! \, \Stirling{k}{\ell}}{\ell+1}$ va a contribuir
+    $-\frac{1}{p}$ en el denominador si $p-1 \mid k$, y va a ser entero si
+    $p-1 \nmid k$. \qedhere
+  \end{itemize}
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Congruencias de Kummer}
+
+Para un primo $p$ denotemos por $\ZZ_{(p)}$ el anillo de los números racionales
+donde $p$ no aparece en el denominador:
+$$\ZZ_{(p)} \dfn \Bigl\{ \frac{a}{b} \in \QQ \Bigm| p\nmid b \Bigr\}.$$
+(Es un caso particular de \term{localización} de un anillo afuera de un ideal
+primo.) Los elementos invertibles en $\ZZ_{(p)}$ son las fracciones no nulas
+donde $p$ no aparece ni en el numerador ni en el denominador:
+$$\ZZ_{(p)}^\times = \Bigl\{ \frac{a}{b} \in \QQ \Bigm| p\nmid a, ~ p\nmid b \Bigr\}.$$
+
+El siguiente resultado es un caso particular de las
+\term{congruencias de Kummer}
+(véase \cite[\S 11.3]{Arakawa-Ibukiyama-Kaneko-2014}):
+
+\begin{teorema}[Kummer, 1851]
+  \label{thm:congruencias-de-kummer}
+  Sea $p$ un número primo y $k$ un entero positivo tal que $p-1 \nmid k$.
+
+  \begin{enumerate}
+  \item[1)] $p$ no aparece en el denominador del número $B_k/k$:
+    $$\frac{B_k}{k} \in \ZZ_{(p)}.$$
+
+  \item[2)] Para todo $k'$ tal que $k' \equiv k \pmod{p-1}$ se cumple
+    $$\frac{B_{k'}}{k'} \equiv \frac{B_k}{k} \pmod{p}.$$
+  \end{enumerate}
+\end{teorema}
+
+Aquí la última relación puede ser interpretada como
+$B_{k'}\cdot k \equiv B_k\cdot k' \pmod{p}$. También podemos interpretar una
+fracción $\frac{B_k}{k}$ como un residuo módulo $p$ dado por $B_k\cdot k^{-1}$,
+donde $k^{-1}$ es el residuo inverso a $k$ módulo $p$, que existe porque en este
+caso $p \nmid k$.
+
+\begin{ejemplo}
+  Sea $p = 7$, $k = 10$, $k' = 4$. En este caso $(p-1) \nmid k, k'$ y
+  $k \equiv k' \pmod{p-1}$. Luego,
+  \[ \frac{B_4}{4} = -\frac{1}{30}\,\frac{1}{4} = -\frac{1}{120} \equiv -1 \equiv 6 \pmod{7}
+    \quad\text{y}\quad
+    \frac{B_{10}}{10} = \frac{5}{66}\,\frac{1}{10} = \frac{1}{132} \equiv \frac{1}{6} \equiv 6 \pmod{7}.
+  \qedhere \]
+\end{ejemplo}
+
+Para demostrar el teorema, nos va a servir el siguiente
+
+\begin{lema}
+  Sea $p$ un primo impar y sea $f (t) \in \ZZ_{(p)} [\![t]\!]$ una serie formal
+  de potencias con coeficientes en $\ZZ_{(p)}$. Entonces para los coeficientes
+  de Taylor de la serie
+  $$f (e^t - 1) = \sum_{k \ge 0} a_k \, \frac{t^k}{k!}$$
+  se cumple
+  $$a_k \in \ZZ_{(p)} \quad \text{y}\quad a_{k + (p-1)} \equiv a_k \pmod{p}.$$
+
+  \begin{proof}
+    Si $f (t) = \sum_{\ell \ge 0} b_\ell\,t^\ell$, tenemos
+    \begin{align*}
+      f (e^t - 1) & = \sum_{\ell \ge 0} b_\ell \, (e^t - 1)^\ell \\
+                  & = \sum_{\ell \ge 0} b_\ell \, \sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, e^{t \, (\ell-i)}.
+    \end{align*}
+
+    Los coeficientes de la serie de Taylor son
+    \[ a_k = \frac{d^k}{dt^k} \left(f (e^t - 1)\right)_{t = 0} =
+      \sum_{\ell \ge 0} b_\ell \, \sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, (\ell-i)^k. \]
+    Notemos que en $(e^t - 1)^\ell$ no hay términos de grado $k < \ell$, así que
+    la suma de arriba es finita: en efecto es sobre $0 \le \ell \le k$. Ya que
+    $b_\ell \in \ZZ_{(p)}$, de esta fórmula se deduce que $a_k \in
+    \ZZ_{(p)}$. Luego,
+
+    $$a_{k + (p-1)} - a_k =
+    \sum_{\ell \ge 0} b_\ell \, \sum_{0 \le i \le \ell} (-1)^i \, {\ell \choose i} \, (\ell-i)^k\,\left((\ell-i)^{p-1} - 1\right).$$
+    Ahora si $\ell - i$ es divisible por $p$, la fórmula demuestra que
+    $a_{k + (p-1)} - a_k$ es también divisible por $p$. Si $\ell - i$ no es
+    divisible por $p$, entonces por el pequeño teorema de Fermat
+    $(\ell-i)^{p-1} - 1 \equiv 0 \pmod{p}$, y $a_{k + (p-1)} - a_k$ es también
+    divisible por $p$.
+  \end{proof}
+\end{lema}
+
+\begin{proof}[Demostración del teorema \ref{thm:congruencias-de-kummer}]
+  Sea $c \ne 1$ algún número natural tal que $p \nmid c$. Consideramos la serie
+  de potencias
+  $$f (t) \dfn \frac{1}{t} - \frac{c}{(1+t)^c - 1}.$$
+  Ya que $p \nmid c$, el polinomio $\frac{(1+t)^c - 1}{c}$ tiene coeficientes en
+  $\ZZ_{(p)}$ y es invertible en $\ZZ_{(p)} (\!(t)\!)$:
+  $$\frac{c}{(1+t)^c - 1} = \frac{1}{t} - \frac{c-1}{2} + \frac{c^2 - 1}{12}\,t + \cdots$$
+  Se sigue que
+  $$f (t) = \frac{1}{t} - \frac{c}{(1+t)^c - 1} = \frac{c-1}{2} - \frac{c^2 - 1}{12}\,t + \cdots$$
+  tiene coeficientes en $\ZZ_{(p)}$. Podemos aplicar el lema de arriba a la
+  serie
+  \begin{align*}
+    f (e^t - 1) & = \frac{1}{e^t-1} - \frac{c}{e^{ct} - 1}
+                  = \frac{1}{t}\left(\frac{t}{e^t-1} - \frac{ct}{e^{ct} - 1}\right) \\
+                & = -\frac{1-c}{2} + \sum_{k \ge 2} \left( (1-c^k)\,\frac{B_k}{k} \, \frac{t^{k-1}}{(k-1)!}\right).
+  \end{align*}
+
+  Aquí hemos usado la función generatriz
+  $\frac{t}{e^t - 1} = \frac{t\,e^t}{e^t-1} - t = 1 - \frac{t}{2} \sum_{k \ge 0} B_k \, \frac{t^k}{k!}$.
+  El lema precedente implica que $(1 - c^k)\,\frac{B_k}{k} \in \ZZ_{(p)}$ y que
+  para todo $k' \equiv k \pmod{p-1}$ se tiene
+  $$(1-c^k)\,\frac{B_k}{k} \equiv (1-c^{k'})\,\frac{B_{k'}}{k'} \pmod{p}.$$
+  Sea $c$ una raíz primitiva módulo $p$ (un generador del grupo
+  $(\ZZ/p\ZZ)^\times$). Si $p-1 \nmid k$, como en la hipótesis del teorema,
+  entonces $p-1 \nmid k'$, y se tiene
+  $(1-c^k), (1-c^{k'}) \in (\ZZ/p\ZZ)^\times$. Esto implica que
+  $\frac{B_k}{k} \in \ZZ_{(p)}$ y
+  $\frac{B_k}{k} \equiv \frac{B_{k'}}{k'} \pmod{p}$.
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{* Numeradores de $B_k$ (primos irregulares)}
+\label{sec:primos-irregulares}
+
+Sea $p$ un número primo. Una \term{raíz $p$-ésima de la unidad} es un número
+complejo $\zeta$ tal que $\zeta^p = 1$. Las raíces $p$-ésimas de la unidad son
+precisamente
+$$1, ~ \zeta_p \dfn e^{2\pi i /p}, ~ \zeta_p^2 = e^{2\pi i \, 2/p}, ~ \ldots, ~ \zeta_p^{p-1} = e^{2\pi i \, (p-1)/p}.$$
+Estas son las raíces del \term{polinomio ciclotómico}
+$$\Phi_p (x) = 1 + x + x^2 + \cdots + x^{p-1}$$
+(en efecto, $\sum_{0 \le k \le p} e^{2\pi i k/p} = 1$). Si añadimos al cuerpo
+$\QQ$ las raíces $p$-ésimas de la unidad, se obtiene el cuerpo $\QQ (\zeta_p)$
+que recibe el nombre de \term{cuerpo ciclotómico}. Este cuerpo contiene el
+anillo
+$$\O_{\QQ (\zeta_p)} = \ZZ [\zeta_p] \dfn \{ a_0 + a_1\,\zeta_p + a_2\,\zeta_p^2 + \cdots + a_{p-2}\,\zeta_p^{p-2} \},$$
+llamado el \term{anillo de enteros} de $\QQ (\zeta_p)$; es precisamente
+el anillo formado por todos los elementos $\alpha \in \QQ (\zeta_p)$ tales que
+$f (\alpha) = 0$ para algún polinomio \term{mónico} $f (x) \in \ZZ [x]$ (es
+decir, el coeficiente mayor de $f (x)$ es $1$).
+
+A semejanza de $\ZZ$, muchos anillos son \term{dominios de factorización única}:
+todo elemento $x\ne 0$ puede ser escrito como un producto de primos
+$$x = p_1\cdot p_2\cdots p_n,$$
+y esta expresión es única, en el sentido de que si existe otra factorización
+$x = q_1\cdot q_2\cdots q_m$, entonces $n = m$ y, salvo alguna permutación de
+los factores, $q_i = u_i\,p_i$, donde $u_i$ es invertible ($u_i = \pm 1$ en el
+caso de $\ZZ$).
+
+No voy a entrar en detalles, pero resulta que el anillo $\ZZ [\zeta_p]$ es
+un dominio de factorización única para $p < 23$ y a partir de $p = 23$
+la factorización única no se cumple. Este fenómeno se estudia en
+la \term{teoría algebraica de números}. A saber, a $\QQ (\zeta_p)$ se asocia un
+grupo abeliano $\Cl (\QQ (\zeta_p))$, llamado el \term{grupo de clases} de
+$\QQ (\zeta_p)$. Es un grupo finito, y su orden se llama el
+\term{número de clase}:
+$$h_{\QQ (\zeta_p)} \dfn \# \Cl (\QQ (\zeta_p)).$$
+Resulta que $\ZZ [\zeta_p]$ es un dominio de factorización única si y solamente
+si $h_{\QQ (\zeta_p)} = 1$ (es decir, si el grupo de clases
+$\Cl (\QQ (\zeta_p))$ es trivial). La definición de $\Cl (\QQ (\zeta_p))$ y
+la demostración de su finitud formaría parte de un curso de la teoría de números
+algebraica (véase por ejemplo \cite{Neukirch-1999} y \cite{Marcus-1977}), pero
+intuitivamente, $\Cl (\QQ (\zeta_p))$ mide qué tan lejos $\ZZ [\zeta_p]$ está
+de ser un dominio de factorización única.
+
+He aquí una tabla de los grupos de clases de algunos cuerpos ciclotómicos
+$\QQ (\zeta_p)$, calculados con ayuda de PARI/GP:
+
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{align*}
+    \Cl (\QQ (\zeta_2)) & = 0,\\
+    \Cl (\QQ (\zeta_3)) & = 0,\\
+    \Cl (\QQ (\zeta_5)) & = 0,\\
+    \Cl (\QQ (\zeta_7)) & = 0,\\
+    \Cl (\QQ (\zeta_{11})) & = 0,\\
+    \Cl (\QQ (\zeta_{13})) & = 0,\\
+    \Cl (\QQ (\zeta_{17})) & = 0,\\
+    \Cl (\QQ (\zeta_{19})) & = 0,
+  \end{align*}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{align*}
+    \Cl (\QQ (\zeta_{23})) & \isom \ZZ/3\ZZ, \\
+    \Cl (\QQ (\zeta_{29})) & \isom \ZZ/2\ZZ \oplus \ZZ/2\ZZ \oplus \ZZ/2\ZZ, \\
+    \Cl (\QQ (\zeta_{31})) & \isom \ZZ/9\ZZ, \\
+    \Cl (\QQ (\zeta_{37})) & \isom \ZZ/37\ZZ, \\
+    \Cl (\QQ (\zeta_{41})) & \isom \ZZ/11\ZZ \oplus \ZZ/11\ZZ, \\
+    \Cl (\QQ (\zeta_{43})) & \isom \ZZ/211\ZZ, \\
+    \Cl (\QQ (\zeta_{47})) & \isom \ZZ/695\ZZ, \\
+    \Cl (\QQ (\zeta_{53})) & \isom \ZZ/4889\ZZ.
+  \end{align*}
+\end{minipage}
+
+\vspace{1em}
+
+Todo esto está relacionado con una historia embarazosa que pasó al famoso
+matemático francés \personality{Gabriel Lamé} (1795--1870). En 1847 Lamé
+presentó a la Academia de Ciencias de Francia una supuesta demostración
+del \term{último teorema de Fermat} \cite{Lame-1847}:
+
+\begin{quote}
+  \noindent Para $n > 2$ la ecuación $x^n + y^n = z^n$ no tiene soluciones para
+  $x,y,z$ enteros positivos.
+\end{quote}
+
+\noindent \personality{Joseph Liouville} (1809--1882) observó que su
+demostración usaba la hipótesis sospechosa de que $\ZZ [\zeta_p]$ era un dominio
+de factorización única. En efecto, el matemático alemán
+\personality{Ernst Kummer} (1810--1893) había demostrado tres años antes en 1844
+que para $\ZZ [\zeta_{23}]$ esto era falso, pero su resultado fue publicado en
+una revista poco conocida. Kummer comunicó su ejemplo a Liouville, y este en fin
+fue publicado en la revista de la Academia de Ciencias. Kummer logró demostrar
+el último teorema de Fermat para ciertos números primos $n = p$ que él llamó
+regulares:
+
+\begin{definicion}
+  Un primo $p$ es \term{irregular} si $p$ divide al número de clase
+  $h_{\QQ (\zeta_p)}$ del cuerpo ciclotómico $\QQ (\zeta_p)$.
+\end{definicion}
+
+Por ejemplo, los primeros primos irregulares son $p = 37, 59, 67$, porque los
+números de clases correspondientes son
+\[ h_{\QQ (\zeta_{37})} = 37, \quad
+  h_{\QQ (\zeta_{59})} = 3\cdot 59\cdot 233, \quad
+  h_{\QQ (\zeta_{67})} = 67\cdot 12739. \]
+
+Otro criterio, más fácil para nosotros, es el siguiente
+
+\begin{hecho}[Kummer, 1850]
+  $p$ es irregular si y solamente si $p$ divide al numerador de algún número de
+  Bernoulli $B_{2k}$ para $2k \le p-3$.
+\end{hecho}
+
+\noindent Para la demostración, véase por ejemplo
+\cite[Chapter 5]{Washington-1997}.
+
+\begin{shaded}
+  \small\noindent No es tan fácil calcular $h_{\QQ (\zeta_p)}$. Por ejemplo,
+  en PARI/GP tenemos
+
+\begin{verbatim}
+? bnfinit(polcyclo(37)).clgp.no
+% = 37
+\end{verbatim}
+
+  \noindent Para compilar una lista de los primos irregulares, tenemos que usar
+  el criterio con los números de Bernoulli:
+
+\begin{verbatim}
+irregular_primes (n) = {
+  local (p);
+  for(i=1,n,
+      p = prime (i);
+      for (k=1, (p-3)/2,
+          if (numerator(bernfrac(2*k))%p == 0, printf ("p = %d, B_%d\n", p,2*k))))
+}
+\end{verbatim}
+\end{shaded}
+
+\pagebreak
+
+He aquí los primeros primos irregulares con los números de Bernoulli
+correspondientes. Note que $157$ aparece en el numerador de $B_{62}$
+y $B_{110}$:
+
+\begin{center}
+  \begin{tabular}{ll}
+    $p = 37$: & $\displaystyle B_{32} = -\frac{\highlight{37}\cdot 683\cdot 305065927}{2\cdot 3 \cdot 5\cdot 17}$; \\
+    \\
+    $p = 59$: & $\displaystyle B_{44} = -\frac{11\cdot \highlight{59}\cdot 8089\cdot 2947939\cdot 1798482437}{2\cdot 3\cdot 5\cdot 23}$; \\
+    \\
+    $p = 67$: & $\displaystyle B_{58} = \frac{29\cdot \highlight{67}\cdot 186707\cdot 6235242049\cdot 37349583369104129}{2\cdot 3\cdot 59}$; \\
+    \\
+    $p = 101$: & $\displaystyle B_{68} = -\frac{17\cdot 37\cdot \highlight{101}\cdot 123143\cdot 1822329343\cdot 5525473366510930028227481}{2\cdot 3\cdot 5}$; \\
+    \\
+    $p = 103$: & $\displaystyle B_{24} = -\frac{\highlight{103}\cdot 2294797}{2\cdot 3\cdot 5\cdot 7\cdot 13}$; \\
+    \\
+    $p = 131$: & $\displaystyle B_{22} = \frac{11\cdot \highlight{131}\cdot 593}{2\cdot 3\cdot 23}$; \\
+    \\
+    $p = 149$: & $\displaystyle B_{130} = \frac{5\cdot 13\cdot \highlight{149}\cdot 463\cdot 2264267\cdot 3581984682522167 \cdots}{2\cdot 3\cdot 11\cdot 131}$; \\
+    \\
+    $p = 157$: & $\displaystyle B_{62} = \frac{31\cdot \highlight{157}\cdot 266689\cdot 329447317\cdot 28765594733083851481}{6}$, \\
+    \\
+              & $\displaystyle B_{110} = \frac{5\cdot \highlight{157}\cdot 76493\cdot 150235116317549231\cdot 36944818874116823428357691\cdots}{2\cdot 3\cdot 11\cdot 23}$. \\
+  \end{tabular}
+\end{center}
+
+\vspace{1em}
+
+Otro ejemplo curioso: $2017$ divide el numerador de $B_{1204}$ y es un primo
+irregular.
+
+\pagebreak
+
+\begin{center}
+  {\footnotesize
+    \begin{tabular}{x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}x{1cm}}
+      $2$ & $\highlight{233}$ & $\highlight{547}$ & $\highlight{877}$ & $\highlight{1229}$ & $\highlight{1597}$ & $\highlight{1993}$ & $\highlight{2371}$ & $2749$ & $3187$ \tabularnewline
+      $3$ & $239$ & $\highlight{557}$ & $\highlight{881}$ & $1231$ & $1601$ & $\highlight{1997}$ & $\highlight{2377}$ & $\highlight{2753}$ & $3191$ \tabularnewline
+      $5$ & $241$ & $563$ & $883$ & $\highlight{1237}$ & $1607$ & $1999$ & $\highlight{2381}$ & $\highlight{2767}$ & $\highlight{3203}$ \tabularnewline
+$7$ & $251$ & $569$ & $\highlight{887}$ & $1249$ & $\highlight{1609}$ & $\highlight{2003}$ & $\highlight{2383}$ & $\highlight{2777}$ & $3209$ \tabularnewline
+      $11$ & $\highlight{257}$ & $571$ & $907$ & $1259$ & $\highlight{1613}$ & $2011$ & $\highlight{2389}$ & $\highlight{2789}$ & $3217$ \tabularnewline
+      $13$ & $\highlight{263}$ & $\highlight{577}$ & $911$ & $1277$ & $\highlight{1619}$ & $\highlight{2017}$ & $2393$ & $\highlight{2791}$ & $\highlight{3221}$ \tabularnewline
+      $17$ & $269$ & $\highlight{587}$ & $919$ & $\highlight{1279}$ & $\highlight{1621}$ & $2027$ & $2399$ & $2797$ & $\highlight{3229}$ \tabularnewline
+      $19$ & $\highlight{271}$ & $\highlight{593}$ & $\highlight{929}$ & $\highlight{1283}$ & $1627$ & $2029$ & $\highlight{2411}$ & $2801$ & $3251$ \tabularnewline
+      $23$ & $277$ & $599$ & $937$ & $1289$ & $\highlight{1637}$ & $\highlight{2039}$ & $2417$ & $2803$ & $3253$ \tabularnewline
+$29$ & $281$ & $601$ & $941$ & $\highlight{1291}$ & $1657$ & $\highlight{2053}$ & $\highlight{2423}$ & $2819$ & $\highlight{3257}$ \tabularnewline
+      $31$ & $\highlight{283}$ & $\highlight{607}$ & $947$ & $\highlight{1297}$ & $\highlight{1663}$ & $2063$ & $2437$ & $\highlight{2833}$ & $3259$ \tabularnewline
+      $\highlight{37}$ & $\highlight{293}$ & $\highlight{613}$ & $\highlight{953}$ & $\highlight{1301}$ & $1667$ & $2069$ & $\highlight{2441}$ & $2837$ & $3271$ \tabularnewline
+      $41$ & $\highlight{307}$ & $\highlight{617}$ & $967$ & $1303$ & $\highlight{1669}$ & $2081$ & $2447$ & $2843$ & $3299$ \tabularnewline
+      $43$ & $\highlight{311}$ & $\highlight{619}$ & $\highlight{971}$ & $\highlight{1307}$ & $1693$ & $2083$ & $2459$ & $2851$ & $3301$ \tabularnewline
+      $47$ & $313$ & $\highlight{631}$ & $977$ & $\highlight{1319}$ & $1697$ & $\highlight{2087}$ & $2467$ & $\highlight{2857}$ & $3307$ \tabularnewline
+      $53$ & $317$ & $641$ & $983$ & $1321$ & $1699$ & $2089$ & $2473$ & $\highlight{2861}$ & $\highlight{3313}$ \tabularnewline
+      $\highlight{59}$ & $331$ & $643$ & $991$ & $\highlight{1327}$ & $1709$ & $\highlight{2099}$ & $2477$ & $2879$ & $3319$ \tabularnewline
+      $61$ & $337$ & $\highlight{647}$ & $997$ & $1361$ & $\highlight{1721}$ & $\highlight{2111}$ & $\highlight{2503}$ & $2887$ & $\highlight{3323}$ \tabularnewline
+      $\highlight{67}$ & $\highlight{347}$ & $\highlight{653}$ & $1009$ & $\highlight{1367}$ & $1723$ & $2113$ & $2521$ & $2897$ & $\highlight{3329}$ \tabularnewline
+      $71$ & $349$ & $\highlight{659}$ & $1013$ & $1373$ & $\highlight{1733}$ & $2129$ & $2531$ & $2903$ & $3331$ \tabularnewline
+      $73$ & $\highlight{353}$ & $661$ & $1019$ & $\highlight{1381}$ & $1741$ & $2131$ & $2539$ & $\highlight{2909}$ & $3343$ \tabularnewline
+      $79$ & $359$ & $\highlight{673}$ & $1021$ & $1399$ & $1747$ & $\highlight{2137}$ & $\highlight{2543}$ & $2917$ & $3347$ \tabularnewline
+      $83$ & $367$ & $\highlight{677}$ & $1031$ & $\highlight{1409}$ & $\highlight{1753}$ & $2141$ & $2549$ & $\highlight{2927}$ & $3359$ \tabularnewline
+      $89$ & $373$ & $\highlight{683}$ & $1033$ & $1423$ & $\highlight{1759}$ & $\highlight{2143}$ & $2551$ & $\highlight{2939}$ & $3361$ \tabularnewline
+      $97$ & $\highlight{379}$ & $\highlight{691}$ & $1039$ & $1427$ & $\highlight{1777}$ & $\highlight{2153}$ & $\highlight{2557}$ & $2953$ & $3371$ \tabularnewline
+      $\highlight{101}$ & $383$ & $701$ & $1049$ & $\highlight{1429}$ & $1783$ & $2161$ & $\highlight{2579}$ & $\highlight{2957}$ & $3373$ \tabularnewline
+      $\highlight{103}$ & $\highlight{389}$ & $709$ & $1051$ & $1433$ & $\highlight{1787}$ & $2179$ & $\highlight{2591}$ & $2963$ & $3389$ \tabularnewline
+      $107$ & $397$ & $719$ & $\highlight{1061}$ & $\highlight{1439}$ & $\highlight{1789}$ & $2203$ & $2593$ & $2969$ & $\highlight{3391}$ \tabularnewline
+      $109$ & $\highlight{401}$ & $\highlight{727}$ & $1063$ & $1447$ & $1801$ & $2207$ & $2609$ & $2971$ & $\highlight{3407}$ \tabularnewline
+      $113$ & $\highlight{409}$ & $733$ & $1069$ & $1451$ & $\highlight{1811}$ & $\highlight{2213}$ & $2617$ & $\highlight{2999}$ & $3413$ \tabularnewline
+      $127$ & $419$ & $739$ & $1087$ & $1453$ & $1823$ & $2221$ & $\highlight{2621}$ & $3001$ & $\highlight{3433}$ \tabularnewline
+      $\highlight{131}$ & $\highlight{421}$ & $743$ & $\highlight{1091}$ & $1459$ & $\highlight{1831}$ & $2237$ & $\highlight{2633}$ & $\highlight{3011}$ & $3449$ \tabularnewline
+      $137$ & $431$ & $\highlight{751}$ & $1093$ & $1471$ & $\highlight{1847}$ & $\highlight{2239}$ & $\highlight{2647}$ & $3019$ & $3457$ \tabularnewline
+      $139$ & $\highlight{433}$ & $\highlight{757}$ & $1097$ & $1481$ & $1861$ & $2243$ & $\highlight{2657}$ & $\highlight{3023}$ & $3461$ \tabularnewline
+      $\highlight{149}$ & $439$ & $\highlight{761}$ & $1103$ & $\highlight{1483}$ & $1867$ & $2251$ & $2659$ & $3037$ & $3463$ \tabularnewline
+      $151$ & $443$ & $769$ & $1109$ & $1487$ & $\highlight{1871}$ & $\highlight{2267}$ & $\highlight{2663}$ & $3041$ & $3467$ \tabularnewline
+      $\highlight{157}$ & $449$ & $\highlight{773}$ & $\highlight{1117}$ & $1489$ & $1873$ & $2269$ & $\highlight{2671}$ & $\highlight{3049}$ & $\highlight{3469}$ \tabularnewline
+      $163$ & $457$ & $787$ & $1123$ & $1493$ & $\highlight{1877}$ & $\highlight{2273}$ & $2677$ & $\highlight{3061}$ & $\highlight{3491}$ \tabularnewline
+      $167$ & $\highlight{461}$ & $\highlight{797}$ & $\highlight{1129}$ & $\highlight{1499}$ & $\highlight{1879}$ & $2281$ & $2683$ & $3067$ & $3499$ \tabularnewline
+      $173$ & $\highlight{463}$ & $\highlight{809}$ & $\highlight{1151}$ & $1511$ & $\highlight{1889}$ & $2287$ & $2687$ & $3079$ & $\highlight{3511}$ \tabularnewline
+      $179$ & $\highlight{467}$ & $\highlight{811}$ & $\highlight{1153}$ & $\highlight{1523}$ & $\highlight{1901}$ & $\highlight{2293}$ & $\highlight{2689}$ & $\highlight{3083}$ & $\highlight{3517}$ \tabularnewline
+      $181$ & $479$ & $\highlight{821}$ & $1163$ & $1531$ & $1907$ & $2297$ & $2693$ & $\highlight{3089}$ & $3527$ \tabularnewline
+      $191$ & $487$ & $823$ & $1171$ & $1543$ & $1913$ & $\highlight{2309}$ & $2699$ & $3109$ & $\highlight{3529}$ \tabularnewline
+      $193$ & $\highlight{491}$ & $\highlight{827}$ & $1181$ & $1549$ & $1931$ & $2311$ & $2707$ & $\highlight{3119}$ & $\highlight{3533}$ \tabularnewline
+      $197$ & $499$ & $829$ & $1187$ & $1553$ & $\highlight{1933}$ & $2333$ & $2711$ & $3121$ & $\highlight{3539}$ \tabularnewline
+      $199$ & $503$ & $\highlight{839}$ & $\highlight{1193}$ & $\highlight{1559}$ & $1949$ & $2339$ & $2713$ & $3137$ & $3541$ \tabularnewline
+      $211$ & $509$ & $853$ & $\highlight{1201}$ & $1567$ & $\highlight{1951}$ & $2341$ & $2719$ & $3163$ & $3547$ \tabularnewline
+      $223$ & $521$ & $857$ & $1213$ & $1571$ & $1973$ & $2347$ & $2729$ & $3167$ & $3557$ \tabularnewline
+      $227$ & $\highlight{523}$ & $859$ & $\highlight{1217}$ & $1579$ & $\highlight{1979}$ & $2351$ & $2731$ & $3169$ & $\highlight{3559}$ \tabularnewline
+      $229$ & $\highlight{541}$ & $863$ & $1223$ & $1583$ & $\highlight{1987}$ & $\highlight{2357}$ & $2741$ & $\highlight{3181}$ & $3571$ \tabularnewline
+    \end{tabular}}
+
+  \vspace{1em}
+
+  Los primeros primos irregulares
+\end{center}
+
+\pagebreak
+
+Desafortunadamente, hay un número infinito de primos irregulares. Esto fue
+demostrado por el matemático danés \personality{K. L. Jensen} en 1915.
+En efecto, su resultado era más fuerte: hay un número infinito de primos
+irregulares de la forma $4k + 3$. Nosotros nos contentaremos con el siguiente
+
+\begin{teorema}
+  \label{infinitos-irregulares}
+  Hay un número infinito de primos irregulares; es decir, $p$ que dividen
+  el numerador de algún número de Bernoulli entre $B_2, B_4, \ldots, B_{p-3}$.
+\end{teorema}
+
+\begin{proof}
+  El argumento es un poco similar a la demostración clásica del teorema de
+  Euclides sobre la infinitud de los números primos: podemos suponer que
+  $p_1,\ldots,p_r$ son todos los primos irregulares. Nuestro objetivo es
+  encontrar otro primo irregular.
+
+  Sea
+  $$k \dfn N\cdot (p_1 - 1)\cdots (p_r - 1),$$
+  donde $N$ es algún número tal que $|B_k/k| > 1$. Tal $N$ existe porque para
+  $k = 2n$ par,
+  $$|B_{2n}/2n| = \frac{(2n-1)!}{2^{2n-1}\,\pi^{2n}}\,\zeta (2n) \xrightarrow{n \to \infty} \infty.$$
+  Entonces existe algún primo $p$ tal que $p$ divide el numerador de
+  $B_k/k$. Por el teorema de Clausen--von Staudt, los $p_1, \ldots, p_r$ están
+  en el denominador de $B_k$, de donde
+  $p \notin \{ p_1, \ldots, p_r \}$. También tenemos $p-1 \nmid k$, porque en
+  el caso $p-1 \mid k$ el primo $p$ estaría en el denominador.
+
+  Sea $0 < k' < p-1$ el número tal que $k' \equiv k \pmod{p-1}$. Por las
+  congruencias de Kummer
+  $$\frac{B_{k'}}{k'} \equiv \frac{B_k}{k} \pmod{p},$$
+  y entonces $p \mid B_{k'}$ y $p$ es irregular.
+\end{proof}
+
+Todavía no se sabe si el número de primos regulares es también infinito, pero
+conjeturalmente, solo $1 - e^{-1/2} \approx 39\%$ de los primos son irregulares.
+
+\begin{ejercicio}
+  Calcule en PARI/GP el porcentaje de los primos irregulares entre los primeros
+  $N$ primos para algún $N$ razonable (por ejemplo, $N = 300$).
+
+% count_irregular_primes (n) = {
+%  local (p, irreg);
+%  irreg = 0;
+%  for(i=1,n,
+%      p = prime (i);
+%      for (k=1, (p-3)/2,
+%          if (numerator(bernfrac(2*k))%p == 0, irreg++; break)
+%      )
+%  );
+%  irreg
+%}
+\end{ejercicio}
+
+Para más información sobre el último teorema de Fermat para los primos
+regulares, véase el libro \cite{Ribenboim-1979} (escrito mucho antes de
+la demostración definitiva del teorema por \personality{Andrew Wiles} en 1995,
+pero con buenas explicaciones de los resultados de Kummer).
+
+\pagebreak
+
+\bibliographystyle{../amsalpha-cust}
+{\small\bibliography{bernoulli}}
+
+\end{document}
