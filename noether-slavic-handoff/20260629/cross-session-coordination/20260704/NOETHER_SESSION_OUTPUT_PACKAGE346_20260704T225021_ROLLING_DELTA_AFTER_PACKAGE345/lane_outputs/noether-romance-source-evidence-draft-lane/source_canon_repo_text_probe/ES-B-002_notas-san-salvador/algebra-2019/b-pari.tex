@@ -1,0 +1,1058 @@
+\chapter{Programa \gp}
+
+\ifdefined\separatechapter\bookbanner\fi
+
+% \emph{Nota: este texto será expandido durante el curso.}
+
+\vspace{1em}
+
+En nuestro curso aparecen varios ejemplos que, como una gran parte de las
+matemáticas interesantes en general, provienen de la teoría de números. Uno de
+los mejores programas para la teoría de números computacional es \gp{} que se
+está desarrollando en la universidad de Burdeos (Francia). Invito al lector a
+descargar el programa de su página oficial
+\begin{center}
+  \url{http://pari.math.u-bordeaux.fr/}
+\end{center}
+antes de leer este apéndice.
+% Para probar \gp{} desde el navegador web, se puede usar la página
+% \begin{center}
+% \url{http://pari.math.u-bordeaux.fr/gp.html}
+% \end{center}
+
+\gp{} es un programa muy poderoso y entre otras cosas cuenta con su propio
+lenguaje de programación. Para más detalles, consulte la documentación.
+El lector interesado en los algoritmos empleados por \gp{} puede empezar por
+el libro de texto \cite{Cohen-GTM-138}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Sesión interactiva}
+
+Para abrir la calculadora \gp, hay que ejecutar en el terminal el comando
+\texttt{gp}. El símbolo \texttt{?} al inicio de la línea significa que
+el programa nos invita a digitar un comando o expresión para evaluar y presionar
+la tecla \boxed{\text{Enter}}. Luego \gp{} hace los cálculos necesarios e
+imprime el resultado. Las salidas se etiquetan por \texttt{\%1}, \texttt{\%2},
+\texttt{\%3}, etc. con el propósito de usar los resultados de cálculos más
+adelante. Para usar el último resultado, se puede escribir simplemente
+\texttt{\%}.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? 10!
+%1 = 3628800
+? 1/2 + 1/3 + 1/4
+%2 = 13/12
+? binomial(5,2)
+%3 = 10
+? %^2
+%4 = 100
+? %1/(5*6*7*8*9*10)
+%5 = 24
+\end{verbatim}
+\end{framed}
+
+Las teclas $\boxed{\uparrow}$ y $\boxed{\downarrow}$ pueden ser usadas para ver
+los comandos digitados previamente, y la tecla \boxed{\text{Tab}} completa los
+comandos. Por ejemplo, podemos digitar \texttt{sqr} y presionar
+\boxed{\text{Tab}} para ver todos los comandos cuyo nombre empieza por
+``\texttt{sqr}''.
+
+Para asignar el valor $c$ a una variable $x$, hay que escribir
+\texttt{$x$ = $c$}. Para olvidar la variable, hay que ejecutar el comando
+\texttt{kill\,($x$)}. Cuando no nos interesa ver la salida, se puede terminar
+la expresión por el punto y coma ``\texttt{;}''. En este caso el valor de
+la expresión no aparecerá.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? x = 1;
+? x^2 + x + 1
+% = 3
+? kill (x)
+? x^2 + x + 1
+% = x^2 + x + 1
+\end{verbatim}
+\end{framed}
+
+A veces algo va mal en los cálculos: la expresión contiene un error de
+digitación o la entrada es incorrecta. Por ejemplo, tratemos de calcular la raíz
+cuadrada de $-1$ módulo $11$:
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? sqrt (Mod (-1,11))
+  ***   at top-level: sqrt(Mod(-1,11))
+  ***                 ^----------------
+  *** sqrt: not an n-th power residue in gsqrt: Mod(10, 11).
+  ***   Break loop: type 'break' to go back to GP prompt
+break> 
+\end{verbatim}
+\end{framed}
+
+\gp{} nos señala que hay un error: el número $-1$ no es un cuadrado módulo
+$11$. El programa entró en un ciclo de interrupción (\emph{break loop}) que
+sirve principalmente para corregir errores en código del usuario. Para volver
+al modo normal, hay que ejecutar el comando \texttt{break} o simplemente
+presionar \boxed{\text{Ctrl}}+\boxed{\text{D}}.
+
+Para salir del programa, use el comando \texttt{\textbackslash q}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Ayuda}
+
+Un comando muy útil es ``\texttt{?}''. Al ejecutarlo, \gp{} muestra una lista de
+temas.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? ?
+Help topics: for a list of relevant subtopics, type ?n for n in
+   0: user-defined functions (aliases, installed and user functions)
+   1: PROGRAMMING under GP
+   2: Standard monadic or dyadic OPERATORS
+   3: CONVERSIONS and similar elementary functions
+   4: functions related to COMBINATORICS
+   5: NUMBER THEORETICAL functions
+   . . . . .
+\end{verbatim}
+\end{framed}
+
+Esto quiere decir que, por ejemplo, si queremos consultar las funciones
+relacionadas con la teoría de números, podemos escribir \texttt{?5}. Al hacerlo
+sale un larga lista de funciones. Allí aparecen por ejemplo \texttt{divisors} y
+\texttt{numdiv}. Si queremos saber a qué sirven estas funciones, hay que digitar
+\texttt{?divisors} y \texttt{?numdiv} respectivamente.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? ?divisors
+divisors(x,{flag=0}): gives a vector formed by the divisors of x in increasing order.
+If flag = 1, return pairs [d, factor(d)].
+
+? ?numdiv
+numdiv(x): number of divisors of x.
+\end{verbatim}
+\end{framed}
+
+Entonces, el programa nos dice que \texttt{divisors\,($x$)} calcula la lista de
+divisores de $x$ y \texttt{numdiv\,($x$)} calcula el número de divisores de $x$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? divisors (20)
+% = [1, 2, 4, 5, 10, 20]
+? numdiv (20)
+% = 6
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Números enteros y racionales}
+
+Para los números enteros están definidas las operaciones aritméticas habituales,
+como \texttt{$m$+$n$}, \texttt{$m$-$n$}, \texttt{$m$*$n$}, \texttt{$m$\^{}$n$}
+(el número $m^n$), \texttt{$n$!} (el factorial). El número racional
+$\frac{a}{b}$ se denota por \texttt{$a$/$b$}. He aquí algunas funciones útiles.
+
+\begin{itemize}
+\item \texttt{binomial\,($m$,$n$)} devuelve el coeficiente binomial
+  ${m\choose n}$. Por ejemplo, \texttt{binomial(6,2)} devuelve \texttt{15}.
+
+\item \texttt{isprime\,($n$)} verifica si $n$ es primo. Por ejemplo,
+  \texttt{isprime\,(2\^{}521-1)} devuelve \texttt{1} porque el número
+  $2^{521}-1$ es primo, mientras que \texttt{isprime\,(2\^{}{520}-1)} devuelve
+  \texttt{0}: el número $2^{520}-1$ no es primo: este es divisible por $3$:
+  $$2^{520}-1 \equiv (-1)^{520} + 2 \equiv 0 \pmod{3}.$$
+
+\item \texttt{primes($n$)} devuelve la lista de los primeros $n$ primos. Por
+  ejemplo, \texttt{primes(10)} devuelve
+  \begin{center}
+    \texttt{[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]}
+  \end{center}
+
+\item \texttt{divisors($n$)} devuelve la lista de los divisores de $n$. Por
+  ejemplo, \texttt{divisors(40)} devuelve
+  \begin{center}
+    \texttt{[1,\,2,\,4,\,5,\,8,\,10,\,20,\,40]}
+  \end{center}
+
+\item \texttt{factor($n$)} devuelve los factores primos de $n$. Por ejemplo,
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? factor (-180)
+% = 
+[-1 1]
+
+[ 2 2]
+
+[ 3 2]
+
+[ 5 1]
+\end{verbatim}
+\end{framed}
+
+La salida es una matriz de $s\times 2$ donde en cada fila está un factor
+irreducible y el exponente correspondiente. En la primera fila también puede
+estar un factor invertible (en el caso de los números enteros, esto significa
+que allí estará $-1$ si el número es negativo).
+
+\begin{itemize}
+\item \texttt{valuation\,($n$,$p$)} devuelve la valuación $p$-ádica de $n$.
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? valuation (180,2)
+% = 2
+? valuation (180,3)
+% = 2
+? valuation (18/25,2)
+% = 1
+? valuation (18/25,3)
+% = 2
+? valuation (18/25,5)
+% = -2
+\end{verbatim}
+\end{framed}
+
+\begin{itemize}
+\item \texttt{eulerphi($n$)} calcula la función de Euler $\phi (n)$. Por
+  ejemplo,
+\end{itemize}
+\begin{framed}\footnotesize
+\begin{verbatim}
+? eulerphi(4)
+% = 2
+? eulerphi(25)
+% = 20
+? eulerphi(100)
+% = 40
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Números reales y complejos}
+
+Para trabajar con aproximaciones a los números reales, se usan los números con
+punto flotante. Para los números complejos, se usa el símbolo \texttt{I} que
+denota la unidad imaginaria. Note que esta es la \texttt{I} mayúscula.
+
+Están predefinidas varias funciones como \texttt{sqrt\,($z$)} (raíz cuadrada),
+\texttt{sin\,($z$)} (seno), \texttt{cos\,($z$)} (coseno), \texttt{exp\,($z$)}
+(exponencial), \texttt{log\,($z$)} (logaritmo natural), etc. La constante
+\texttt{Pi} (con la P mayúscula) corresponde al valor aproximado del número
+$\pi$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? Pi
+% = 3.1415926535897932384626433832795028842
+
+? sqrt (-2)
+% = 1.4142135623730950488016887242096980786*I
+
+? cos (2.3)^2 + sin (2.3)^2
+% = 1.0000000000000000000000000000000000000
+
+? exp (2*Pi*I/3) + exp (4*Pi*I/3)
+% = -1.0000000000000000000000000000000000000 + 5.877471754111437540 E-39*I
+\end{verbatim}
+\end{framed}
+
+No vamos a enumerar todas las posibles funciones relacionadas con los números
+reales y complejos; el lector puede revisar la documentación de \gp{}
+(en particular la sección ``Transcendental functions'').
+
+Para cambiar la precisión, se puede usar el comando \texttt{\textbackslash p}.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? \p 10
+   realprecision = 19 significant digits (10 digits displayed)
+? Pi
+% = 3.141592654
+? sin (1)
+% = 0.8414709848
+? \p 50
+   realprecision = 57 significant digits (50 digits displayed)
+? Pi
+% = 3.1415926535897932384626433832795028841971693993751
+? sin (1)
+% = 0.84147098480789650665250232163029899962256306079837
+\end{verbatim}
+\end{framed}
+
+Para convertir un número racional $x$ en un número con punto flotante, podemos
+escribir \texttt{$x$*1.0}. Por ejemplo,
+\begin{framed}\footnotesize
+\begin{verbatim}
+? x = 2/3
+% = 2/3
+? x*1.0
+% = 0.66666666666666666666666666666666666667
+? 2.0/3
+% = 0.66666666666666666666666666666666666667
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Anillos $\ZZ/n\ZZ$}
+
+El resto de $a$ módulo $n$ se denota por \texttt{Mod\,($a$,$n$)}. Para estos
+restos están definidas las operaciones aritméticas habituales.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? Mod (4,10) + Mod (6,10)
+% = Mod(0, 10)
+? Mod (6,10)^2
+% = Mod(6, 10)
+? Mod (3,10)^-1
+% = Mod(7, 10)
+\end{verbatim}
+\end{framed}
+
+\begin{itemize}
+\item \texttt{issquare\,(Mod($a$,$n$))} verifica si $a$ es un cuadrado módulo
+  $n$.
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? issquare (Mod (-1,11))
+% = 0
+? issquare (Mod (-1,13))
+% = 1
+? sqrt (Mod (-1,13))
+% = Mod(5, 13)
+\end{verbatim}
+\end{framed}
+
+\begin{itemize}
+\item \texttt{kronecker\,($a$,$p$)} calcula el símbolo de Legendre
+  \[ \legendre{a}{p} = \begin{cases}
+    +1, & p\nmid a\text{ y }a\text{ es un cuadrado módulo }p,\\
+    -1, & p\nmid a\text{ y }a\text{ no es un cuadrado módulo }p,\\
+    0, & p\mid a.
+  \end{cases} \]
+(De hecho, como sugiere su nombre, esta función calcula el símbolo de Kronecker
+que es una generalización del símbolo de Legendre, donde $p$ no es
+necesariamente primo.)
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? kronecker (3,5)
+% = -1
+? kronecker (5,3)
+% = -1
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Enteros de Gauss $\ZZ [i]$}
+
+Funcionan todas las operaciones aritméticas con los enteros de Gauss que son
+los números de la forma \texttt{$a$ + $b$*I}, donde $a$ y $b$ son enteros.
+Al dividir dos enteros de Gauss, se devuelve una expresión de la forma
+\texttt{$x$ + $y$*I}, donde $x,y\in\QQ$. Por ejemplo,
+\begin{framed}\footnotesize
+\begin{verbatim}
+? (2+3*I)/(3+2*I)
+% = 12/13 + 5/13*I
+? (5-5*I)/(1+I)
+% = -5*I
+\end{verbatim}
+\end{framed}
+
+Para factorizar un entero de Gauss $\alpha \in \ZZ [i]$, hay que escribir
+\texttt{factor($\alpha$,I)}. Por ejemplo,
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? factor (180,I)
+% = 
+[      I 1]
+
+[      3 2]
+
+[  1 + I 4]
+
+[  2 + I 1]
+
+[1 + 2*I 1]
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Polinomios}
+
+Un polinomio $a_n\,x^n + a_{n-1}\,x^{n-1} + \cdots + a_2\,x^2 + a_1\,x + a_0$ se
+escribe como
+\begin{center}
+  \texttt{$a_n$*$x$\^{}$n$ + $a_{n-1}$*$x$\^{}$(n-1)$ + $\cdots$ + $a_2$*$x$\^{}$2$ + $a_1$*$x$ + $a_0$}
+\end{center}
+Los coeficientes $a_i$ pueden ser números enteros, racionales, reales,
+complejos, números módulo $n$, etc. En lugar de $x$ puede estar cualquier otra
+letra sin valor asignado\footnote{Recordemos que para olvidar el valor asignado
+  a $x$, hay que escribir \texttt{kill\,($x$)}.} como $a,t$ etc. o de hecho
+cualquier palabra. Es nada más una cuestión de estilo, pero \gp{} usa las letras
+minúsculas para denotar las variables. Por esto vamos a romper con nuestra
+tradición de usar la $X$ mayúscula para la variable de un polinomio.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? (x+1)^4
+% = x^4 + 4*x^3 + 6*x^2 + 4*x + 1
+? (x+y)^4
+% = y^4 + 4*x*y^3 + 6*x^2*y^2 + 4*x^3*y + x^4
+\end{verbatim}
+\end{framed}
+
+Notamos que \gp{} no está dirigido a cálculos con polinomios en diversas
+variables. Para este propósito hay otros programas especializados, como por
+ejemplo Macaulay2 (\url{http://macaulay2.com/}).
+
+\gp{} también trabaja con el cuerpo de fracciones
+$$k(x) \dfn \Frac k[x] \dfn \Bigl\{ \frac{f}{g} \Bigm| f,g\in k[x], \, g\ne 0 \Bigr\}.$$
+Las fracciones de polinomios se simplifican según lo esperado:
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? (1-x^2)/(1-x)^2
+% = (-x - 1)/(x - 1)
+\end{verbatim}
+\end{framed}
+
+La función \texttt{polcyclo\,($n$)} devuelve el polinomio ciclotómico $\Phi_n$
+en la variable \texttt{x}. He aquí un par de ejemplos.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? polcyclo(105)
+% = x^48 + x^47 + x^46 - x^43 - x^42 - 2*x^41 - x^40 - x^39 + x^36 + x^35
++ x^34 + x^33 + x^32 + x^31 - x^28 - x^26 - x^24 - x^22 - x^20 + x^17
++ x^16 + x^15 + x^14 + x^13 + x^12 - x^9 - x^8 - 2*x^7 - x^6 - x^5
++ x^2 + x + 1
+
+? polcyclo(1)*polcyclo(2)*polcyclo(5)*polcyclo(10)
+% = x^10 - 1
+\end{verbatim}
+\end{framed}
+
+Si queremos evaluar un polinomio en variable $x$ en $x=c$, podemos escribir
+\begin{center}
+\texttt{subst\,($f$,$x$,$c$)}
+\end{center}
+Por ejemplo, si queremos calcular los coeficientes del polinomio $\Phi_9 (x+1)$,
+podemos hacer lo siguiente.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? subst (polcyclo(9),x,x+1)
+% = x^6 + 6*x^5 + 15*x^4 + 21*x^3 + 18*x^2 + 9*x + 3
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Series formales}
+
+Si queremos indicar que no se trata de un polinomio, sino de una serie formal o
+serie de Laurent con términos hasta $a_{n-1}\,x^{n-1}$, hay que añadir a
+la expresión ``\texttt{+ O ($x$\^{}$n$)}''. Por ejemplo, \texttt{1/(1-x)}
+corresponde a la fracción $\frac{1}{1-x}$, mientras que
+\texttt{1/(1-x) + O (x\^{}10)} nos dará los primeros $10$ coeficientes
+(es decir, $a_0,a_1,\ldots,a_9$) de la serie inversa a $1-x$. He aquí algunos
+cálculos de este tipo.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? 1/(1-x) + O (x^10)
+% = 1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + x^7 + x^8 + x^9 + O(x^10)
+
+? 1/(1-x)^2 + O (x^10)
+% = 1 + 2*x + 3*x^2 + 4*x^3 + 5*x^4 + 6*x^5 + 7*x^6 + 8*x^7 + 9*x^8 + 10*x^9 + O(x^10)
+
+? 1/(x^4-2*x^3+x^2) + O (x^10)
+% = x^-2 + 2*x^-1 + 3 + 4*x + 5*x^2 + 6*x^3 + 7*x^4 + 8*x^5 + 9*x^6 + 10*x^7
++ 11*x^8 + 12*x^9 + O(x^10)
+\end{verbatim}
+\end{framed}
+
+Las series formales como \texttt{sin(x)}, \texttt{cos(x)}, \texttt{tan(x)},
+\texttt{cotan(x)}, \texttt{exp(x)}, \texttt{log(1+x)}, etc. están
+predefinidas. Para cambiar la precisión a $n$ términos, hay que escribir
+\begin{center}
+  \texttt{default\,(seriesprecision,$n$)}
+\end{center}
+He aquí un ejemplo.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? log (1+x)
+% = x - 1/2*x^2 + 1/3*x^3 - 1/4*x^4 + 1/5*x^5 - 1/6*x^6 + 1/7*x^7 - 1/8*x^8 + 1/9*x^9
+- 1/10*x^10 + 1/11*x^11 - 1/12*x^12 + 1/13*x^13 - 1/14*x^14 + 1/15*x^15 + O(x^16)
+? default(seriesprecision,10)
+? log (1+x)
+% = x - 1/2*x^2 + 1/3*x^3 - 1/4*x^4 + 1/5*x^5 - 1/6*x^6 + 1/7*x^7 - 1/8*x^8
++ 1/9*x^9 + O(x^10)
+? cos (x)
+% = 1 - 1/2*x^2 + 1/24*x^4 - 1/720*x^6 + 1/40320*x^8 - 1/3628800*x^10 + O(x^12)
+? sin (x)
+% = x - 1/6*x^3 + 1/120*x^5 - 1/5040*x^7 + 1/362880*x^9 + O(x^11)
+? cos (x)^2 + sin (x)^2
+% = 1 + O(x^12)
+\end{verbatim}
+\end{framed}
+
+La función \texttt{deriv\,($f$,$x$)} devuelve la derivada formal de $f$ respecto
+a la variable $x$. Aquí $f$ debe ser un polinomio o una serie formal. El segundo
+argumento se puede omitir si en $f$ aparece una sola variable. De manera
+similar, \texttt{intformal\,($f$,$x$)} calcula la integral formal
+$\int_0^x f (x)\,dx$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? default(seriesprecision,8)
+? log (1+x)
+% = x - 1/2*x^2 + 1/3*x^3 - 1/4*x^4 + 1/5*x^5 - 1/6*x^6 + 1/7*x^7 + O(x^8)
+? deriv (log (1+x),x)
+% = 1 - x + x^2 - x^3 + x^4 - x^5 + x^6 + O(x^7)
+? % - 1/(1+x)
+% = O(x^7)
+? intformal (log(1+x))
+% = 1/2*x^2 - 1/6*x^3 + 1/12*x^4 - 1/20*x^5 + 1/30*x^6 - 1/42*x^7 + 1/56*x^8 + O(x^9)
+? % - ((1+x)*log(1+x) - x)
+% = O(x^8)
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Factorización de polinomios}
+
+La función \texttt{factor($f$)} factoriza el polinomio $f$ en polinomios
+irreducibles. Aquí $f$ puede tener coeficientes en $\ZZ$, $\QQ$ o $\FF_p$.
+Si queremos considerar un polinomio $f$ con coeficientes enteros como un
+polinomio módulo $p$, hay que escribir \texttt{$f$*Mod(1,$p$)}. Por ejemplo,
+factoricemos el octavo polinomio ciclotómico $\Phi_8 = x^4+1$ en $\FF_p [x]$
+para $p = 2,3$:
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? factor (polcyclo(8)*Mod(1,2))
+% = 
+[Mod(1, 2)*x + Mod(1, 2) 4]
+
+? factor (polcyclo(8)*Mod(1,3))
+% = 
+[Mod(1, 3)*x^2 + Mod(1, 3)*x + Mod(2, 3) 1]
+
+[Mod(1, 3)*x^2 + Mod(2, 3)*x + Mod(2, 3) 1]
+
+\end{verbatim}
+\end{framed}
+
+Para dar otro ejemplo, factoricemos el polinomio $x^8-x$ en $\FF_2 [x]$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? factor ((x^8-x)*Mod(1,2))
+% = 
+[                              Mod(1, 2)*x 1]
+
+[                  Mod(1, 2)*x + Mod(1, 2) 1]
+
+[  Mod(1, 2)*x^3 + Mod(1, 2)*x + Mod(1, 2) 1]
+
+[Mod(1, 2)*x^3 + Mod(1, 2)*x^2 + Mod(1, 2) 1]
+\end{verbatim}
+\end{framed}
+
+La función \texttt{polisirreducible($f$)} verifica si $f$ es un polinomio
+irreducible.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? f = x^4+x^3+x^2+x+1;
+? polisirreducible (f)
+% = 1
+? polisirreducible (f*Mod(1,2))
+% = 1
+? polisirreducible (f*Mod(1,11))
+% = 0
+? factor (f*Mod(1,11))
+% = 
+[Mod(1, 11)*x + Mod(2, 11) 1]
+
+[Mod(1, 11)*x + Mod(6, 11) 1]
+
+[Mod(1, 11)*x + Mod(7, 11) 1]
+
+[Mod(1, 11)*x + Mod(8, 11) 1]
+\end{verbatim}
+\end{framed}
+
+El contenido de un polinomio $f \in \QQ [x]$ puede ser calculado mediante
+\texttt{content\,($f$)}. Por ejemplo, \texttt{content\,(3*x\^{}2 + 9/2*x + 3/4)}
+devuelve \texttt{3/4}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{División con resto, MCD y MCM}
+
+\begin{itemize}
+\item \texttt{divrem\,($a$,$b$)} devuelve \texttt{[$q$,$r$]}, donde $q$ es
+  el cociente y $r$ es el resto de división. Esto funciona de la misma manera
+  para números enteros $a,b\in \ZZ$ y para polinomios $f,g \in k [x]$
+  (recordemos que $\ZZ$ y $k [x]$ son dominios euclidianios).
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? divrem (13, 4)
+% = [3, 1]~
+
+? divrem (x^2+x, x-1)
+% = [x + 2, 2]~
+\end{verbatim}
+\end{framed}
+
+\begin{itemize}
+\item \texttt{gcd\,($a$,$b$)} y \texttt{lcm\,($a$,$b$)} calculan el mcd y mcm
+  respectivamente. De nuevo, $a$ y $b$ pueden ser números enteros o polinomios.
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? gcd (12,18)
+% = 6
+? lcm (12,18)
+% = 36
+
+? gcd (x^3-1, x^5-1)
+% = x - 1
+? lcm (x^3-1, x^5-1)
+% = x^7 + x^6 + x^5 - x^2 - x - 1
+\end{verbatim}
+\end{framed}
+
+\begin{itemize}
+\item \texttt{gcdext\,($a$,$b$)} calcula la identidad de Bézout: la salida es
+  [$u$,$v$,$d$], donde $d = \mcm (a,b)$ y $u,v$ son elementos tales que
+  $ua + vb = d$.
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? gcdext (13, 17)
+% = [4, -3, 1]
+
+? gcdext (x^3-1, x^5-1)
+% = [x^3 + 1, -x, x - 1]
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Anillos cociente $k [x]/(f)$}
+
+Un caso muy importante de los anillos cociente son $k [x]/(f)$, donde $k$ es
+un cuerpo y $f \in k [x]$ es un polinomio. Si $f$ es irreducible, entonces
+el cociente $k [x]/(f)$ es un cuerpo. En todo caso diferentes elementos
+del cociente se representan por los polinomios de grado $<n$:
+$$a_{n-1}\,x^{n-1} + \cdots + a_1\,x + a_0, \quad a_i \in k, ~ n = \deg f.$$
+Un polinomio $g$ módulo $f$ se denota en \gp{} por \texttt{Mod($g$,$f$)}.
+
+Por ejemplo, si queremos calcular diferentes potencias $(1+\sqrt{2})^n$ en
+el cuerpo
+\begin{align*}
+  \QQ (\sqrt{2}) & \xrightarrow{\isom} \QQ [x]/(x^2-2),\\
+  a + b\sqrt{2} & \mapsto bx + a,
+\end{align*}
+podemos hacer lo siguiente:
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? a = Mod (1+x, x^2 - 2);
+? a^2
+% = Mod(2*x + 3, x^2 - 2)
+? a^3
+% = Mod(5*x + 7, x^2 - 2)
+? a^4
+% = Mod(12*x + 17, x^2 - 2)
+\end{verbatim}
+\end{framed}
+
+Esto significa que
+\[ (1+\sqrt{2})^2 = 3 + 2\sqrt{2}, \quad
+(1+\sqrt{2})^3 = 7 + 5\sqrt{2}, \quad
+(1+\sqrt{2})^4 = 17 + 12\sqrt{2}. \]
+
+Para dar otro ejemplo, el polinomio $x^3 + x + 1$ es irreducible en $\FF_2 [x]$
+y el cociente $\FF_2 [x]/(x^3 + x + 1)$ es un cuerpo de $8$
+elementos. Calculemos cuál es el inverso de $x+1$ en este cuerpo:
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? Mod (x+1, (x^3+x+1)*Mod(1,2))^-1
+% = Mod(Mod(1, 2)*x^2 + Mod(1, 2)*x, Mod(1, 2)*x^3 + Mod(1, 2)*x + Mod(1, 2))
+\end{verbatim}
+\end{framed}
+
+Si queremos pasar de \texttt{Mod($g$,$f$)} al polinomio $g$, podemos usar
+la función \texttt{liftpol}. Si además $g$ es un polinomio con coeficientes en
+$\FF_p$ y nos gustaría pasar al polinomio correspondiente con coeficientes
+enteros que representa a $g$ en $\FF_p [x] \isom \ZZ [x]/(p)$, podemos usar
+\texttt{liftall}.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? f = Mod (x, (x^3+x+1)*Mod(1,2))^-1
+% = Mod(Mod(1, 2)*x^2 + Mod(1, 2), Mod(1, 2)*x^3 + Mod(1, 2)*x + Mod(1, 2))
+? liftpol(f)
+% = Mod(1, 2)*x^2 + Mod(1, 2)
+? liftall(f)
+% = x^2 + 1
+\end{verbatim}
+\end{framed}
+
+La función \texttt{liftall} hace los resultados más legibles. Calculemos por
+ejemplo las potencias de $x$ en el cuerpo cociente $\FF_2 [x]/(x^3+x+1)$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? f = Mod(x, (x^3+x+1)*Mod(1,2));
+? liftall (vector (7,i,f^i))
+% = [x, x^2, x + 1, x^2 + x, x^2 + x + 1, x^2 + 1, 1]
+\end{verbatim}
+\end{framed}
+
+Aquí la función \texttt{vector\,($n$,$i$,$x_i$)} construye el vector
+$[x_1,\ldots,x_n]$.
+
+\vspace{1em}
+
+En general, para cualquier primo $p$ y $n = 1,2,3,\ldots$ en el cuerpo
+$\FF_p [x]$ existe un polinomio mónico irreducible de grado $n$. La función
+\texttt{ffinit\,($p$,$n$)} devuelve uno de estos polinomios $f$. Esto sirve para
+construir un cuerpo finito de $p^n$ elementos como el cociente $\FF_p [x]/(f)$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? ffinit (2,2)
+% = Mod(1, 2)*x^2 + Mod(1, 2)*x + Mod(1, 2)
+? ffinit (2,3)
+% = Mod(1, 2)*x^3 + Mod(1, 2)*x^2 + Mod(1, 2)
+? ffinit (3,2)
+% = Mod(1, 3)*x^2 + Mod(1, 3)*x + Mod(2, 3)
+? ffinit (3,3)
+% = Mod(1, 3)*x^3 + Mod(1, 3)*x^2 + Mod(1, 3)*x + Mod(2, 3)
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Matrices}
+
+La matriz
+\[ \begin{pmatrix}
+    a_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1} & \cdots & a_{mn} \\
+  \end{pmatrix} \]
+se denota por
+\begin{center}
+  \texttt{[$a_{11}$,$\ldots$,$a_{1n}$; $\ldots$; $a_{m1}$,$\ldots$,$a_{mn}$]}
+\end{center}
+Es decir, las entradas de la misma fila se separan por la coma ``\texttt{,}'' y
+las diferentes filas se separan por el punto y coma ``\texttt{;}''. Las entradas
+de matrices pueden ser números enteros, racionales, números módulo $n$,
+polinomios, etc.
+
+\begin{itemize}
+\item La suma y producto de matrices $a$ y $b$ se calculan mediante
+  \texttt{$a$+$b$} y \texttt{$a$*$b$}. La matriz $a^n$ se calcula mediante
+  \texttt{$a$\^{}$n$}, y en particular la matriz inversa se calcula mediante
+  \texttt{$a$\^{}-1}. He aquí un pequeño ejemplo:
+\end{itemize}
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? a = [0,1,1; 0,0,1; 0,0,0];
+% = 
+[0 1 1]
+
+[0 0 1]
+
+[0 0 0]
+
+? a^2
+% = 
+[0 0 1]
+
+[0 0 0]
+
+[0 0 0]
+
+? a^3
+% = 
+[0 0 0]
+
+[0 0 0]
+
+[0 0 0]
+
+? [1,1,1; 0,1,1; 0,0,1]^-1
+% = 
+[1 -1  0]
+
+[0  1 -1]
+
+[0  0  1]
+\end{verbatim}
+\end{framed}
+
+\begin{itemize}
+\item \texttt{matdet\,($a$)} calcula el determinante de $a$.
+
+\item \texttt{trace\,($a$)} calcula la traza de $a$.
+
+\item \texttt{matsize\,($a$)} devuelve $[m,n]$ si $a$ es una matriz de
+  $m\times n$.
+
+\item \texttt{$a$[$i$,$j$]} devuelve el elemento $a_{ij}$ de la matriz
+  (las filas y columnas se numeran a partir de $1$).
+\end{itemize}
+
+Hay muchas más funciones relacionadas con matrices; la mayoría tienen nombre que
+empieza por ``\texttt{mat}''. El lector interesado puede consultar
+la documentación de \gp{} (sección ``Vectors, matrices, linear algebra and
+sets'').
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Sumas y productos}
+
+Para calcular sumas y productos, pueden servir las siguientes funciones.
+
+\begin{itemize}
+\item \texttt{sum\,($i$=$m$,$n$,$a_i$)} calcula la suma
+  $\sum\limits_{m \le i \le n} a_i$, donde $a_i$ es una expresión que depende de
+  $i$.
+
+\item \texttt{sumdiv\,($n$,$d$,$a_d$)} calcula la suma
+  $\sum\limits_{d \mid n} a_d$ indexada por los divisores $d \mid n$, donde
+  $a_d$ es una expresión que depende de $d$.
+
+\item \texttt{prod\,($i$=$m$,$n$,$a_i$)} calcula el producto
+  $\prod\limits_{m \le i \le n} a_i$, donde $a_i$ es una expresión que depende
+  de $i$.
+\end{itemize}
+
+He aquí algunos ejemplos.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? sum (i=1,4,i^2)
+% = 30
+? sum (i=1,16, kronecker(i,17))
+% = 0
+? sumdiv (100,d, eulerphi(d))
+% = 100
+? prod (i=1,10,i)
+% = 3628800
+\end{verbatim}
+\end{framed}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Ciclos y expresiones condicionales}
+
+Para escribir pequeños programas, pueden ser útiles ciclos y expresiones
+condicionales. He aquí algunas de las funciones relevantes.
+
+\begin{itemize}
+\item \texttt{for\,($i$=$m$,$n$, $expr_1$; $expr_2$; $\ldots$)} ejecuta
+  las expresiones $expr_1, expr_2, \ldots$ para $m \le i \le n$. Las diferentes
+  expresiones que tienen que ejecutarse se separan por el punto y coma
+  ``\texttt{;}''.
+
+  Cuando el ciclo toma demasiado tiempo y perdimos la paciencia, podemos
+  interrumpir la ejecución presionando \boxed{\text{Ctrl}}+\boxed{\text{D}}.
+
+\item \texttt{forprime\,($p$=$m$,$n$, $expr_1$; $expr_2$; $\ldots$)} hace
+  lo mismo, pero para los números primos $m \le p\le n$.
+
+\item \texttt{if\,(condición, $expr$, $expr'$)} ejecuta la expresión $expr$ si
+  la condición es verdadera y $expr'$ en el caso contrario. El argumento $expr'$
+  puede ser omitido.
+
+  Las condiciones lógicas normalmente se construyen usando los operadores
+  \texttt{!} (negación), \texttt{\&\&} (conjunción), \texttt{||} (disyunción) y
+  las comparaciones \texttt{==} (igual\footnote{No confunda \texttt{$x$==$y$}
+    (verifica si $x$ es igual a $y$) con \texttt{$x$=$y$} (asigna a $x$ el valor
+    de $y$).}), \texttt{!=} (no igual), \texttt{<}, \texttt{<=}, \texttt{>},
+  \texttt{>=}.
+
+\item En fin, la función \texttt{print\,($x$)} sirve para imprimir el valor de
+  $x$. Véase también la documentación sobre la función \texttt{printf}.
+\end{itemize}
+
+\subsection*{Ejemplo elaborado}
+
+Para dar un ejemplo interesante de experimentos numéricos en \gp{}, analicemos
+cómo el polinomio
+$$f \dfn x^3 + x^2 + 1$$
+puede factorizarse en $\FF_p [x]$. Primero escribamos un programa para encontrar
+los números primos $p \le 100$ tales que $f$ es irreducible en $\FF_p [x]$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? f = x^3 + x^2 + 1;
+? forprime (p=2,100, if (polisirreducible(f*Mod(1,p)), print (p)));
+2
+5
+7
+19
+41
+59
+71
+97
+\end{verbatim}
+\end{framed}
+
+He aquí otro programa que calcula la proporción de los primos $p$ tales que $f$
+es irreducible en $\FF_p [x]$. En este caso podemos considerar
+$2 \le p \le 10^6$. De hecho, hay $78\,498$ primos $\le 10^6$, lo que será
+suficiente para nuestros propósitos.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? n=0; m=0;
+? forprime (p=2,10^6, n++; if (polisirreducible(f*Mod(1,p)), m++));
+? m/n*1.0
+% = 0.33352442100435679889933501490483833983
+\end{verbatim}
+\end{framed}
+
+Entonces, aproximadamente $\frac{1}{3}$ de los primos tienen esta propiedad.
+
+Siendo un polinomio cúbico, si $f$ se vuelve reducible módulo $p$, este tiene
+por lo menos una raíz. ¿Cuándo hay raíces múltiples? Notamos que si
+$\alpha \in \FF_p$ es una raíz múltiple, entonces $f' (\alpha) = 0$. Pero
+$f' = 3\,x^2 + 2x$ tiene raíces $0$ y $-\frac{2}{3}$ para $p \ne 3$. Ahora $0$
+no es una raíz de $f$, mientras que
+\[ \left(-\frac{2}{3}\right)^3 + \left(-\frac{2}{3}\right)^2 + 1
+  = \frac{31}{3^3} \equiv 0 \pmod{p}
+  \quad\text{si y solamente si }p = 31. \]
+Entonces, con la única excepción de $p = 31$, las raíces de $f$ son distintas, y
+si $f$ es reducible, este puede factorizarse de dos maneras:
+\[ f = (x-\alpha_1)\,(x-\alpha_2)\,(x-\alpha_3)
+  \quad\text{o}\quad
+  f = (x-\alpha)\,g
+  \quad\text{en }\FF_p [x], ~ p\ne 31, \]
+donde $g$ es un polinomio cuadrático irreducible. El caso cuando $f$ es un
+producto de tres distintos polinomios lineales ocurre raramente: los primeros
+primos con esta propiedad son $47$ y $67$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? forprime (p=2,10^2, if (matsize (factor (f*Mod(1,p)))[1] == 3, print(p)));
+47
+67
+\end{verbatim}
+\end{framed}
+
+Contemos cuál es la proporción de los primos con esta propiedad.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? n = 0; m = 0;
+? forprime (p=2,10^6, n++; if (matsize (factor (f*Mod(1,p)))[1] == 3, m++));
+? m/n*1.0
+% = 0.16564753242120818364799103161863996535
+\end{verbatim}
+\end{framed}
+
+Entonces, $f$ es un producto de tres polinomios lineales en $\FF_p [x]$ para
+aproximadamente $\frac{1}{6}$ de los primos $p$. Nos quedan
+$1 - \frac{1}{3} - \frac{1}{6} = \frac{1}{2}$ de los primos, y estos darán
+factorizaciones de la forma $(x-\alpha)\,g$, donde $g$ es cuadrático
+irreducible. Podemos concluir nuestras investigaciones de la siguiente manera.
+
+\begin{center}
+  \begin{tabular}{f{6cm}f{5cm}}
+    \hline
+    \textbf{tipo de factorización de $f$ mód $p$} & \textbf{proporción de primos $p$} \tabularnewline
+    \hline
+    $(x-\alpha_1)\,(x-\alpha_2)\,(x-\alpha_3)$ & $\frac{1}{6}$ \tabularnewline
+    \hline
+    $(x-\alpha)\,g$, donde $\deg g = 2$ & $\frac{1}{2}$ \tabularnewline
+    \hline
+    $f$ (irreducible) & $\frac{1}{3}$ \tabularnewline
+    \hline
+    $(x-\alpha_1)\,(x-\alpha_2)^2$ & solo $p = 31$ (excepcional) \tabularnewline
+    \hline
+  \end{tabular}
+\end{center}
+
+La aparición de los números $\frac{1}{3}$, $\frac{1}{6}$, $\frac{1}{2}$ se
+explica\footnote{La explicación que podremos entender mucho más adelante: el
+  grupo de Galois del polinomio $x^3 + x^2 + 1 \in \QQ [x]$ es el grupo
+  simétrico $S_3$ que tiene $3! = 6$ elementos que se descomponen en tres clases
+  de conjungación:
+  $$\{ \idid \} \sqcup \{ (1~2), \, (1~3), \, (2~3) \} \sqcup \{ (1~2~3), \, (1~3~2) \}.$$
+  De aquí salen los números $\frac{1}{6}$, $\frac{3}{6}$, $\frac{2}{6}$.} por el
+\term{teorema de Frobenius} y el \term{teorema de densidad de Chebotarëv}. Un
+buen artículo sobre el tema es \cite{Lenstra-Stevenhagen-1996}.
+
+\iffalse
+% FOR LATER: algdep, norm, trace, etc.
+
+Una función curiosa es \texttt{algdep($z$,$n$)}. Para un número complejo $z$
+esta devuelve un polinomio de grado $\le n$ con coeficientes enteros tal que una
+de sus raíces está cerca de $z$. Por ejemplo, el comando
+\texttt{algdep\,(sqrt(2)+sqrt(3),\,4)} devuelve el polinomio
+$x^4 - 10\,x^2 + 1$, y de hecho sus cuatro raíces son precisamente
+$\pm (\sqrt{2}+\sqrt{3}), \pm (\sqrt{2}-\sqrt{3})$. De la misma manera,
+\texttt{algdep\,(exp(2*Pi*I/10),\,4)} devuelve, como uno puede esperar,
+el décimo polinomio ciclotómico $x^4 - x^3 + x^2 - x + 1$.
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? algdep (sqrt(2)+sqrt(3),4)
+% = x^4 - 10*x^2 + 1
+? algdep (exp(2*Pi*I/10),4)
+% = x^4 - x^3 + x^2 - x + 1
+\end{verbatim}
+\end{framed}
+
+Sin embargo, tenemos lo siguiente:
+
+\begin{framed}\footnotesize
+\begin{verbatim}
+? algdep (sqrt(2)+sqrt(3),3)
+% = 10948540*x^3 - 44677367*x^2 + 12077522*x + 63271103
+? algdep (Pi,3)
+% = 2130241*x^3 - 22294338*x^2 + 51516201*x - 7857464
+\end{verbatim}
+\end{framed}
+
+Esto sucede porque $\sqrt{2} + \sqrt{3}$ no es una raíz de ningún polinomio
+cúbico, y el resultado de \gp{} es una aproximación. El número $\pi$ es
+\term{trascendente}; es decir, no es una raíz de ningún polinomio
+$f \in \QQ [x]$. La función \texttt{algdep} es útil para detectar los
+\term{números algebraicos}; es decir los números complejos que son raíces de
+algún polinomio $f \in \QQ [x]$.  \fi
