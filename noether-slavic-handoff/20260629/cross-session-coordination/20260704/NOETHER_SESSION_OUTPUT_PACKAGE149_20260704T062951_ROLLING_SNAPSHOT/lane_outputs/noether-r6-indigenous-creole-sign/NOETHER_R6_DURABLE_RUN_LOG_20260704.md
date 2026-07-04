@@ -1,0 +1,131 @@
+# Noether R6 Durable Run Log
+
+Generated: 2026-07-04
+
+Active goal: finish the whole R6 Indigenous/Creole/Sign access corpus-support lane: produce responsible draft/non-canonical access/corpus-support slices only where evidence and ethics permit, keep exact source/reviewer/authority blocker ledgers where they do not, and continue until every R6 route is covered by draft support or explicit blockers.
+
+Status: durable state log for week-scale continuation. No Git push. No community-consent claim. No source-authority, term, sign, crosswalk, excerpt, media reuse, translation, constructed surface, or pilot is promoted here.
+
+## Standing Rules
+
+1. R6 is its own authority-sensitive source/access lane, not a generalized interlanguage lane.
+2. Indigenous American rows stay language/family/standard specific.
+3. Creole/contact rows stay named-language/register specific.
+4. Signed-language rows are visual/temporal; written labels and API rows are metadata only.
+5. A source route or local capture is not community consent.
+6. Source authority and reuse/media clearance are separate gates.
+7. Non-canonical corpus-support slices may exist only where evidence supports reviewer/source-owner questions.
+8. Blocked rows must stay as exact-source/reviewer/ethics/authority blockers.
+9. Truly novel or cross-family construction goes to Session D.
+10. Session B packages/pushes; this lane does not push Git.
+
+## Evidence Sources Consulted
+
+| Source family | Artifact or root | Use in this run |
+|---|---|---|
+| Recovery report | `C:\Users\memo_\Documents\Codex\2026-07-04\i-want-information-on-the-any-2\outputs\NOETHER_TRANSLATION_INTERLANGUAGE_RECOVERY_REPORT_20260704.md` | Established R6 boundary: source-start/access only; no term spine, no visual inventory, no pilot. |
+| Canonical R6 source folder | `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\sources\non_slavic_reference_corpus\20260628T230952Z_r6_indigenous_creole_sign_access` | Confirmed split policy and no-pilot state. |
+| Canonical R6 logs | `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\logs` | Read split policy, source locator shelf, Indigenous status, creole/contact status, sign-language status. |
+| Prompt-D R6 logs | `C:\Users\memo_\Documents\Codex\2026-06-28\see-attached-you-do-prompt-d\outputs\logs` | Main row-level evidence for Kreyol, Peru EIB, ASL, LSQ, DGS, International Sign, creole pass 2, Indigenous pass 3, return queue, current retry. |
+| Prompt-D R6 source shelves | `C:\Users\memo_\Documents\Codex\2026-06-28\see-attached-you-do-prompt-d\outputs\sources\non_slavic_reference_corpus` | Local source/capture roots, without copying source content into outputs. |
+
+## Motivation Log
+
+| Step | Motivation | Result |
+|---|---|---|
+| Start from recovery report | Avoid SGA/general interlanguage drift and preserve R6 as access/source lane. | R6 scoped to Indigenous, creole/contact, signed-language source/reviewer/authority work. |
+| Read canonical split policy | Confirm whether R6 can be treated as one interlanguage. | It cannot: no single Indigenous Americas interlanguage, no pan-creole interlanguage, no text-only sign lane. |
+| Read Prompt-D front door and retry logs | Determine current state beyond the short recovery paragraph. | All eight R6 packet rows started; every promotion gate remains zero. |
+| Build authority map | Make source/reviewer/ethics boundaries durable. | `NOETHER_R6_ACCESS_AUTHORITY_MAP_20260704.md`. |
+| Build corpus-support notes | Allow non-canonical support where evidence exists without creating translation output. | `NOETHER_R6_CORPUS_ACCESS_SUPPORT_NOTES_20260704.md`. |
+| Build evidence-backed support slices | Move beyond checkpoint summary into concrete access slices. | `NOETHER_R6_CORPUS_SUPPORT_SLICE_01_EVIDENCE_ROWS_20260704.md`. |
+| Build blocked-row slice | Keep weak rows from contaminating support notes. | `NOETHER_R6_BLOCKED_ROW_SOURCE_GATE_SLICE_02_20260704.md`. |
+| Build durable log and coverage ledger | Make continuation durable for a week without state loss. | This log plus route coverage artifacts. |
+
+## Ethics And Authority Choices
+
+| Choice | Reason | Effect |
+|---|---|---|
+| Local standards before macrostandard | Indigenous-language technical access can be harmed by umbrellaing. | Quechua Central, Quechua Chanka, Aymara, Bolivia Quechua, Guarani, Uspanteko, Nahuatl/Hnahnu/Maya/Nanahuatzin remain separate. |
+| Named creole/contact rows before shared register | Creoles/contact languages are living access languages, not broken lexifiers. | Kreyol evidence does not authorize Bislama, Tok Pisin, Nigerian Pidgin, Krio, Papiamento/Papiamentu, or other rows. |
+| Video-first signed-language rule | Signs are not written labels. | ASL, LSQ, DGS require video/source-route authority and media clearance; International Sign remains comparator/support. |
+| Link/context support before excerpts | Reuse and source authority are unclosed. | No source prose, media, screenshots, tables, or exercises copied. |
+| Candidate exact source is not accepted authority | Exact capture does not imply local approval or scope. | Bolivia Quechua and Mauritius MIE candidate rows stay request/blocker rows. |
+| OER control rows stay source-pointer only | External OER may be useful but cannot bypass local language authority. | OLP/OpenIntro remain control candidates, not adaptation starts. |
+
+## Draft / Access Slices Created
+
+| Slice | Artifact | Coverage |
+|---|---|---|
+| Source/reviewer/ethics map | `NOETHER_R6_ACCESS_AUTHORITY_MAP_20260704.md` | Whole-lane authority scaffold. |
+| Structured ethics matrix | `NOETHER_R6_SOURCE_REVIEWER_ETHICS_MATRIX_20260704.csv` | 10 route families. |
+| Corpus-access support notes | `NOETHER_R6_CORPUS_ACCESS_SUPPORT_NOTES_20260704.md` | Evidence-permitted support text and do-not-use notes. |
+| Gate state | `NOETHER_R6_GATE_STATE_20260704.json` | Zero-promotion machine-readable state. |
+| Slice 01 evidence rows | `NOETHER_R6_CORPUS_SUPPORT_SLICE_01_EVIDENCE_ROWS_20260704.md` | Kreyol, Peru EIB, Bolivia candidate, ASL, LSQ, DGS, International Sign guardrail. |
+| Slice 02 blocked rows | `NOETHER_R6_BLOCKED_ROW_SOURCE_GATE_SLICE_02_20260704.md` | Blocked Indigenous/creole/sign exact-source and authority rows. |
+| Slice queue | `NOETHER_R6_ACCESS_SOURCE_SLICE_QUEUE_20260704.csv` | Created slices plus next reviewer-route preparation slice. |
+
+## Reviewer / Community Route Log
+
+No reviewer, source-owner, or community approval has been obtained or claimed. The following routes are request-profile routes only.
+
+| Route family | Request profile | Current state |
+|---|---|---|
+| Kreyol MIT-Ayiti | Source owner, MIT-Ayiti-affiliated maintainer, Kreyol math educator, or qualified Kreyol STEM reviewer. | 4 open request rows; 0 filled returns. |
+| Peru Quechua/Aymara EIB | Peru EIB source-context reviewer, Quechua/Aymara educator, language-standard reviewer, or qualified Andean math-education reviewer. | 3 open request rows; 0 filled returns. |
+| Bolivia Quechua | Bolivia Quechua/EIB reviewer or source owner. | Candidate request not yet opened; longitudes resolver remains open. |
+| ASL | Source owner, ASL STEM lexicon maintainer, Deaf/ASL STEM educator, or qualified ASL reviewer. | 3 open request rows; 0 filled returns; 0 media clearance. |
+| LSQ | LSQ source owner, LSQ school/STEM reviewer, media/license contact, or qualified LSQ access reviewer. | 6 request rows open; 0 filled returns. |
+| DGS | Sign2MINT/source owner, DGS STEM reviewer, media/license contact, Goettingen route owner where relevant. | 6 request rows open; 0 filled returns. |
+| International Sign | International Sign interpreter/reviewer, WASLI/EUD/WFD-informed reviewer, or qualified signed-language access planner. | Guardrail questions only; no operational lexicon request. |
+| Other Indigenous Americas | Language-specific official/source owner, local educator, or qualified language-standard reviewer. | Exact source resolution required before request rows. |
+| Other creole/contact rows | Named-language educator, source owner, local-language reviewer, or qualified contact-language STEM reviewer. | Exact named-language source resolution required before request rows. |
+
+## Blocker Log
+
+| Blocker | Covered in | Required gate |
+|---|---|---|
+| Paraguay Guarani route failure | Slice 02 | Resolve exact MEC/PRODEPA source and classify scope. |
+| Bolivia Quechua longitudes unresolved | Slice 02 | Capture exact PDF or official mirror, then review. |
+| Ecuador EIB exact language PDFs unresolved | Slice 02 | Resolve official pages and split by language/level. |
+| Guatemala Uspanteko route failure | Slice 02 | Capture exact math PDF/download. |
+| Mexico CONALITEG 332-byte payloads | Slice 02 | Resolve real viewer/PDF path; do not use payloads. |
+| Bislama Matematiks/Saens failed fetch | Slice 02 | Capture exact official PDFs and review. |
+| Aruba Papiamento/Papiamentu route inconsistency | Slice 02 | Resolve current catalog path and orthography/register scope. |
+| Mauritius MIE candidate PDFs | Slice 02 | Source-owner/reviewer classification and reuse terms. |
+| Nigerian Pidgin/Krio/Tok Pisin missing exact named-language evidence | Slice 02 | Find exact source or reviewer route. |
+| ASL/LSQ/DGS sign movement | Slice 02 | Qualified reviewer returns plus media/reuse clearances. |
+| International Sign technical lexicon | Slice 02 | Explicit cross-border use case plus qualified review; otherwise comparator only. |
+
+## Gate Ledger
+
+| Gate | Count |
+|---|---:|
+| Filled reviewer/source-owner returns | 0 |
+| Accepted source-authority rows | 0 |
+| License/media reuse clearances | 0 |
+| Accepted terms | 0 |
+| Accepted signs or visual lexical items | 0 |
+| Accepted crosswalk rows | 0 |
+| Selected excerpts | 0 |
+| Copied source content or media | 0 |
+| Translation starts | 0 |
+| Constructed or semi-constructed surfaces | 0 |
+| Pilots | 0 |
+
+## Continuation Protocol
+
+If this lane resumes after hours or days:
+
+1. Read this run log first.
+2. Read `NOETHER_R6_WHOLE_ROUTE_COVERAGE_LEDGER_20260704.md`.
+3. Use `NOETHER_R6_ACCESS_SOURCE_SLICE_QUEUE_20260704.csv` for next slice order.
+4. Do not create translation output unless a later artifact records source authority, reviewer/source-owner return, and reuse clearance.
+5. If a source lands, add it first to a blocker-to-support transition note, not directly to a term spine.
+6. If a reviewer return lands, create a dated return ledger and keep rejection/variant notes.
+7. If media reuse lands, record exact use mode separately from sign authority.
+8. Keep all gate counts explicit.
+
+## Current Next Slice
+
+Next future slice is `R6-SLICE-04`: blocker-to-support transition. It should only run when new exact source captures, dated reviewer/source-owner returns, or reuse/media decisions arrive. It must first record the transition from blocker to support; it must not jump directly to terms, signs, excerpts, translations, constructed surfaces, or pilots.
