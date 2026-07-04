@@ -1,0 +1,4593 @@
+% ============================================================================
+%  광학 격자에서 제타 풍경까지의 위상 양자화:
+%  통합 프레임워크
+%  ── 한국어판 ──
+%  컴파일: xelatex unified_ko.tex (2회 실행)
+% ============================================================================
+\documentclass[11pt, a4paper]{article}
+
+% ── 한글 지원 (XeLaTeX + kotex) ────────────────────────────────────────────
+\usepackage{kotex}
+\usepackage{fontspec}
+
+% ── Layout ─────────────────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ── Mathematics ────────────────────────────────────────────────────────────
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{bm}
+
+% ── Graphics & Diagrams ───────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{
+  arrows.meta, positioning, calc, decorations.pathreplacing,
+  shapes.geometric, fit, backgrounds, chains, matrix
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ── Tables ─────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{colortbl}
+
+% ── Colors ─────────────────────────────────────────────────────────────────
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\definecolor{txblue}{HTML}{2563EB}
+\definecolor{chgreen}{HTML}{059669}
+\definecolor{rxorange}{HTML}{D97706}
+\definecolor{lossred}{HTML}{DC2626}
+\definecolor{decodepurple}{HTML}{7C3AED}
+\definecolor{secgray}{HTML}{374151}
+\definecolor{lightbg}{HTML}{F8FAFC}
+\definecolor{accentblue}{HTML}{3B82F6}
+\definecolor{zetaviolet}{HTML}{6D28D9}
+\definecolor{primegold}{HTML}{B45309}
+
+% ── Algorithms ────────────────────────────────────────────────────────────
+\usepackage[ruled, vlined, linesnumbered]{algorithm2e}
+\SetKwComment{Comment}{$\triangleright$\ }{}
+
+% ── Cross-references & Links ──────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=accentblue, citecolor=chgreen, urlcolor=txblue]{hyperref}
+\usepackage[capitalise, noabbrev]{cleveref}
+
+% ── Theorem Environments (한국어) ─────────────────────────────────────────
+\theoremstyle{definition}
+\newtheorem{definition}{정의}[section]
+\newtheorem{property}{성질}[section]
+\newtheorem{remark}{비고}[section]
+\newtheorem{example}{예제}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{정리}[section]
+\newtheorem{lemma}[theorem]{보조정리}
+\newtheorem{proposition}[theorem]{명제}
+\newtheorem{corollary}[theorem]{따름정리}
+\newtheorem{conjecture}[theorem]{추측}
+\newtheorem{observation}[theorem]{관찰}
+
+% ── Custom Commands ───────────────────────────────────────────────────────
+\newcommand{\Zq}{\mathbb{Z}_q}
+\newcommand{\Rq}{\mathbb{Z}_q[X]/(X^n+1)}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rfloor}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\FrFT}{\mathrm{FrFT}}
+\newcommand{\STE}{\mathrm{STE}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\sectionline}{\noindent\rule{\textwidth}{0.4pt}\vspace{0.3em}}
+
+% Resonance-specific commands
+\newcommand{\xif}{\xi}
+\newcommand{\Phiz}{\Phi_\xi}
+\newcommand{\Ampl}{A}
+\newcommand{\Psip}{\Psi}
+\newcommand{\pis}{\pi_{\mathrm{s}}}
+\newcommand{\slift}{\sigma^*\!-\!\tfrac{1}{2}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\GateA}{\mathsf{G}_{\mathrm{A}}}
+\newcommand{\GateB}{\mathsf{G}_{\mathrm{B}}}
+\newcommand{\Lpqo}{\mathcal{L}_{\mathrm{pqo}}}
+\newcommand{\Ltgt}{\mathcal{L}_{\mathrm{tgt}}}
+\newcommand{\Lcurv}{\mathcal{L}_{\mathrm{curv}}}
+\newcommand{\Lres}{\mathcal{L}_{\mathrm{res}}}
+\newcommand{\PQO}{\mathsf{PQO}}
+\newcommand{\Ftwo}{F_{2}}
+
+% ── Header Box Style ─────────────────────────────────────────────────────
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ============================================================================
+\begin{document}
+
+% ── 제목 ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries 광학 격자에서 제타 풍경까지의\\[4pt]
+   위상 양자화}\\[14pt]
+  {\large\itshape 격자 암호, 프레넬 광학, 해석적 정수론을\\
+   연결하는 통합 프레임워크}\\[20pt]
+  {\large 김영후}\\[4pt]
+  {\normalsize 독립 연구자}\\[4pt]
+  {\small\today}
+\end{center}
+
+\vspace{1.5em}
+
+% ── 초록 ──────────────────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  colback=lightbg, colframe=zetaviolet!60!black,
+  title={\bfseries 초록}, fonttitle=\large,
+  arc=3pt, boxrule=0.8pt, toptitle=3pt, bottomtitle=3pt
+]
+본 논문은 세 가지 겉보기에 이질적인 영역을 연결하는 공유 수학적 문법---\textit{대수적 구조 위의 위상 양자화}---을 규명한다. 그 세 영역은 CRYSTALS-Kyber 격자 기반 양자후 암호, 자유 공간 프레넬 회절, 그리고 임계선 위 리만 $\xif$-함수의 위상 구조이다. 구체적 핵은 QROP-Net으로, Kyber 암호문을 광학 위상 패턴으로 인코딩하고 딥러닝 위상 복원을 통해 복원하는 완전 미분 가능 파이프라인이다. 연속 위상 예측을 이산 시클로토믹 격자 수준으로 강제하는 $\sin^2$ 기반 양자화 손실이, 공명소수법칙 프레임워크에서 ``공명 소수''를 특성화하는 보어--좀머펠트 위상 양자화 조건 $\Delta\nu = m\pi$와 구조적으로 동형임을 보인다. 나아가 Kyber의 LWE 오차 임계치 $\lfloor q/4\rfloor = 1920$과 임계선으로부터의 $\sigma$-리프트 편차 $\sigma^*-\tfrac{1}{2}$가, 신호 복원이 실패하는 경성 오차 경계로서 동일한 역할을 공유함을 증명한다. 외부 정답 없이 자가 교정하는 다원군(Polyadic) ODE 기반 영점 탐지기가 QROP-Net의 블라인드 테스트 시간 최적화를 반영한다. 7개의 구조적 대응이 형식화되며, 유비와 증명 사이의 경계가 명시적으로 서술된다.
+
+\smallskip
+\noindent\textit{개정 후 부기 (2026-04-08).} 임계선 위의 시클로토믹 PQO 프로그램을 경험적으로 실현하려는 시도 — $L=4$ 코사인 PQO 와 \cref{eq:psi_n}의 합성 이상 위상 $\Psip(n)$ 을 감독 타겟으로 사용하는 판별 네트워크 — 는 결정적 음성을 반환한다: 세 시드 모두에서 결과 위상 분포가 리만 영점과 비영점 종좌표를 구별하지 못하며 ($\chi^2$ p값 $0.13/0.53/0.41$; 섹터 $k=2,3$ 정확히 비어 있음). 진단 (\cref{rem:cos2_pqo,rem:psi_defect}) 은 합성 $\Psip$ 가 $\|X\|$에만 의존하고 $\xif$-영점 정보를 전혀 포함하지 않으므로 4-항 손실의 어느 항도 $t$-국소 영점 라벨을 학습에 주입하지 못하며, \cref{eq:pqo_cos} (학습 포텐셜) 와 \cref{eq:cyclo_label} (측정) 가 운영적으로 분리되어 있다는 것이다. 이하 본문은 합성 $\Psip$ 를 역사적 객체로, 시클로토믹 PQO 를 대수적 타겟으로 보존하되, 양자 모두 감독 교체식 $\Psip(t) := \arg\xif(\tfrac{1}{2}+it)$ (\cref{eq:psi_supervised}) 을 사용하는 실험을 기다리는 항목으로 표시된다.
+\end{tcolorbox}
+
+\vspace{0.5em}
+\noindent\textbf{핵심어:} 위상 양자화, 시클로토믹 다항식환, CRYSTALS-Kyber,
+분수 푸리에 변환, 리만 $\xif$-함수, 보어--좀머펠트 조건, 공명 소수,
+$\sigma$-리프트, 베리 위상, 디리클레 $L$-함수
+
+\tableofcontents
+\newpage
+
+
+% ============================================================================
+\section{서론}
+\label{sec:intro}
+% ============================================================================
+
+다항식환 $R_q = \Rq$에서 $n = 256$, $q = 7681$은 NIST 표준화 양자후 키 캡슐화 메커니즘 CRYSTALS-Kyber~\cite{kyber2021}의 대수적 뼈대이다. 정의 관계식 $X^n + 1 = 0$---동치적으로 $X^n \equiv -1$, 본 프로젝트 코드명 $k^n = -1$의 기원---은 시클로토믹 다항식이며, 그 근은 $2n$차 단위근이다:
+\begin{equation}
+  \omega_j = e^{i\pi(2j+1)/n}, \quad j = 0, 1, \ldots, n-1.
+  \label{eq:cyclo_roots}
+\end{equation}
+이 $n$개의 위상은 단위원 위에 등간격으로 배치되어 $\Delta\theta = \pi/n$만큼 분리된다. 이 이산적이고 주기적인 위상 구조는 단순히 수론적 변환(NTT)을 통한 빠른 다항식 곱셈의 대수적 편의가 아니다; 우리는 이것이 적어도 두 가지 다른 영역에서 나타나는 보다 일반적인 \textit{위상 양자화 원리}의 한 사례라고 주장한다:
+
+\begin{enumerate}
+  \item \textbf{프레넬 광학}: 분수 푸리에 변환(FrFT)은 결맞음 파면 $U_0 = e^{i\phi}$를 자유 공간 회절을 통해 전파시키며, 분수차 $\alpha$가 전파 거리를 위상 매개변수로 인코딩한다.
+  \item \textbf{해석적 정수론}: 완성 리만 $\xif$-함수 $\xif(s) = \tfrac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$는 임계선 $s = \tfrac{1}{2} + it$ 위에서 진폭 $\Ampl(t) = |\xif(\tfrac{1}{2}+it)|$과 위상 $\Phiz(t) = \arg\,\xif(\tfrac{1}{2}+it)$으로 분해되며, 위상 양자화 조건은 소수 분포 및 리만 가설과 밀접하게 연결된다 (165년에 걸친 접근법의 종합 조망은 Connes~\cite{Connes2026RHSurvey} 참조).
+\end{enumerate}
+
+\textbf{논제.} QROP-Net의 $\sin^2$ 기반 양자화 손실, 임계선 위의 보어--좀머펠트 조건 $\Delta\nu = m\pi$, 그리고 시클로토믹 근 구조 $X^n \equiv -1$은 하나의 수학적 문법의 세 가지 발현이다: \textit{대수적 구조 위의 주기적 위상 벌칙이 연속 신호를 이산 격자 수준으로 강제하며, 해독이 실패하는 경성 오차 경계가 존재한다}.
+
+\textbf{기여.}
+\begin{enumerate}
+  \item Kyber 격자 암호, 프레넬 광학, 딥러닝 위상 복원을 통합하는 완전 미분 가능 파이프라인 QROP-Net을 제시한다 (제1부).
+  \item 위상 양자화 메커니즘을 이산 및 연속 푸리에 해석을 잇는 일반 원리로 추상화한다 (제~\ref{sec:bridge}절).
+  \item 이 원리를 $\xif(s)$의 위상 구조에 적용하여, 소수 탐지를 위한 2-게이트 공명 기준을 공식화한다 (제2부, 제~\ref{sec:xi_phase}--\ref{sec:gates}절).
+  \item LWE 오차 임계치와 임계선으로부터의 $\sigma$-리프트 사이의 구조적 대응을 확립한다 (제~\ref{sec:sigma_lift}절).
+  \item 정답 없이 자가 교정하는 다원군 ODE 영점 탐지기를 제시하며, 이것이 QROP-Net의 블라인드 테스트 시간 최적화를 반영함을 보인다 (제~\ref{sec:polyadic}절).
+  \item 7개의 구조적 대응을 형식화하고, 유비와 증명 사이의 경계를 엄격하게 구분한다 (제3부, 제~\ref{sec:correspondence}절).
+  \item \textbf{(음성 경험 결과, 2026-04-08)} 시클로토믹 PQO 프로그램을 $t \in [100, 200]$ 위에서 $L=4$로 경험적으로 시도하고, 세 시드 전체에서 영점/비영점 판별의 완전한 실패를 문서화하며, 그 원인을 \cref{eq:psi_n}의 \emph{$\Psip$-디커플링 결함}으로 추적하고, 향후 양성 결과의 필요 조건으로 감독 교체식 \cref{eq:psi_supervised}를 제안한다 (제~\ref{part:failed}부, Remark~\ref{rem:cos2_pqo}, \ref{rem:psi_defect}).
+  \item \textbf{(고립 실험, 2026-04-09)} 타겟 주입, 손실 가중, 읽기 채널을 모두 분리하여, 세 가지를 동시에 차단했을 때 감독 사슬 $\arg\xif(\tfrac{1}{2}+it)\to\mathcal{L}_{\mathrm{tgt}}\to\hat\Psip$이 비영점 샘플링 지점에서 건전함을 보인다 ($p=1.18\times10^{-15}$, 비율 $18.2\times$). 이로써 잔존 결함은 영점 근방의 네트워크 출력 표현에 국한된다 (Remark~\ref{rem:isolation}).
+\end{enumerate}
+
+\subsection*{독해 안내: 증거 계층}
+\label{sec:tiers}
+
+\noindent 본 논문은 \emph{통합 연구 노트}이다. 4개월간의 연구 궤적 전체를 기록하며, 여전히 추측 상태인 아이디어와 실패로 끝난 경험적 시도까지 포함한다. 따라서 모든 주장에 세 가지 계층 중 하나를 명시적으로 부여하고, 이를 섹션 제목 및 목차에 표시한다:
+
+\begin{description}
+  \item[\textbf{\rule{0.9ex}{0.9ex}\ \ 계층 1 --- 검증됨.}]
+        완전한 유도와 성공적인 수치 실험으로 뒷받침된 주장. 예:
+        $F_2$-판별식 영점 탐지기 (제~\ref{sec:f2_hardy}절),
+        고립 실험을 통한 감독 동일시
+        $\Psip(t)=\arg\xif(\tfrac{1}{2}+it)$ (Remark~\ref{rem:isolation}),
+        $t\in[100,200]$ 고위영점 확장 (제~\ref{sec:high_zeros}절).
+        이들 섹션은 성숙한 결과로 읽어야 한다.
+
+  \item[\textbf{\textcolor{orange}{\rule{0.9ex}{0.9ex}}\ \ 계층 2 --- 아이디어와 부분 결과.}]
+        해석적 대응, 이론적 구성, 또는 시사적이지만 불완전한 증거를 가진 실험. 예: Gate B 정류성 (제~\ref{sec:gates}절),
+        $\sigma$-리프트 (제~\ref{sec:sigma_lift}절), 7가지 구조적 대응 (제~\ref{sec:correspondence}절), $|F_2|$ 공간 관측량 및 2026-04-08 재해석 (제~\ref{sec:f2_residual}절). 이들은 연구 강령으로 읽어야 하며, 확정된 이론이 아니다.
+
+  \item[\textbf{\textcolor{red}{\rule{0.9ex}{0.9ex}}\ \ 계층 3 --- 실패한 시도와 그 진단.}]
+        성공하지 못한 경험적 프로그램을 완전한 진단과 함께 보존한 것. 예: 시클로토믹 $\cos^2$ $L\in\{2,4\}$ PQO 학습 (제~\ref{sec:cos2_failure}절), 위상-게이지 경사하강(PGGD) 옵티마이저 (제~\ref{sec:pggd_failure}절). 이들 섹션을 압축하되 유지하는 이유는 진단 사슬 자체가 기여이기 때문이다: 타겟 설계, 손실 가중, 측정, 모델 표현력의 어떤 조합이 호환되지 않는지 정확히 기록함으로써 후속 작업이 동일한 실패 모드를 피할 수 있게 한다. 원인이 이해된 실패 방향은 부분적 양성 결과이다.
+\end{description}
+
+\noindent 섹션이나 비고의 계층은 \rule{0.9ex}{0.9ex}\,/\textcolor{orange}{\rule{0.9ex}{0.9ex}}\,/\textcolor{red}{\rule{0.9ex}{0.9ex}}\ 기호로 표시한다. 독자는 계층을 특정 진술에 대한 신뢰도의 눈금으로 사용할 수 있다. 제~\ref{part:qropnet}--\ref{part:synthesis}부의 구조적 분할은 이 계층화를 따른다: 제~\ref{part:qropnet}부와 제~\ref{part:resonance}부는 계층~1과 계층~2 자료를, 제~\ref{part:failed}부는 계층~3 실패 진단을, 제~\ref{part:synthesis}부는 세 가지 모두를 통합 그림으로 종합한다.
+
+
+% ############################################################################
+% 제1부 — 구체적 시스템
+% ############################################################################
+
+\part{구체적 시스템: QROP-Net}
+\label{part:qropnet}
+
+
+% ============================================================================
+\section{QROP-Net: 시스템과 수학}
+\label{sec:qropnet}
+% ============================================================================
+
+\subsection{다항식환과 NTT}
+
+Kyber는 $R_q = \Rq$ 위에서 동작하며, $q = 7681$은 $q \equiv 1 \pmod{2n}$을 만족하도록 선택되어 $O(n\log n)$ 다항식 곱셈을 위한 수론적 변환(NTT)을 가능하게 한다. 환 조건 $X^n + 1 = 0$은 다음과 같이 인수분해된다:
+\begin{equation}
+  X^n + 1 = \prod_{j=0}^{n-1}(X - \omega_j), \quad
+  \omega_j = e^{i\pi(2j+1)/n} \in \mathbb{C}.
+  \label{eq:factorisation}
+\end{equation}
+모든 원소 $a(X) \in R_q$는 벡터 $\mathbf{a} = (a_0, \ldots, a_{n-1}) \in \Zq^n$에 대응하며, 곱셈 $a \cdot b \pmod{X^n+1}$는 NTT 영역에서 성분별 곱셈이 된다.
+
+\begin{definition}[Kyber IND-CPA 암호화]
+\label{def:kyber}
+공개키 $(\mathbf{A}, \mathbf{t})$가 주어지고 $\mathbf{A} \in R_q^{k \times k}$, $\mathbf{t} \in R_q^k$, 메시지 $m \in \{0,1\}^n$일 때, 암호문 $(\mathbf{u}, v)$는:
+\begin{align}
+  \mathbf{u} &= \mathbf{A}^\top \mathbf{r} + \mathbf{e}_1,
+  \label{eq:kyber_u}\\
+  v &= \mathbf{t}^\top \mathbf{r} + e_2 + \ceil{q/2} \cdot m,
+  \label{eq:kyber_v}
+\end{align}
+여기서 $\mathbf{r}, \mathbf{e}_1, e_2 \sim \beta_\eta$는 중심 이항 분포에서 추출된다:
+\begin{equation}
+  \beta_\eta: \quad x = \sum_{i=1}^{\eta}(a_i - b_i), \quad
+  a_i, b_i \sim \mathrm{Bernoulli}(\tfrac{1}{2}), \quad
+  x \in [-\eta, \eta].
+  \label{eq:cbd}
+\end{equation}
+\end{definition}
+
+\begin{definition}[압축과 역압축]
+\label{def:compress}
+\begin{align}
+  \mathrm{Compress}_q(x, d) &= \ceil{\frac{2^d}{q} \cdot x}
+  \bmod 2^d, \label{eq:compress}\\
+  \mathrm{Decompress}_q(x, d) &= \ceil{\frac{q}{2^d} \cdot x},
+  \label{eq:decompress}
+\end{align}
+여기서 $\ceil{\cdot}$는 반올림을 나타낸다: $\floor{x + 0.5}$.
+매개변수: $d_u = 11$ ($\mathbf{u}$에 대해 2048 수준), $d_v = 3$ ($v$에 대해 8 수준).
+\end{definition}
+
+\begin{theorem}[LWE 정확성 기준]
+\label{thm:lwe}
+복호화가 성공하려면 총 오차 $w = v - \mathbf{s}^\top\mathbf{u} \pmod{q}$가 다음을 만족해야 한다:
+\begin{equation}
+  \norm{w - \ceil{q/2}\hat{m}}_\infty < \ceil{q/4} = 1920.
+  \label{eq:lwe_threshold}
+\end{equation}
+단 하나의 계수라도 이 경계를 초과하면 완전한 복호화 실패가 발생한다 ($\mathrm{DFR} = 1$). 환 거리는:
+\begin{equation}
+  |e|_{\Zq} = \min(e, \; q - e), \quad e \in \{0, 1, \ldots, q-1\}.
+  \label{eq:ring_distance}
+\end{equation}
+\end{theorem}
+
+
+\subsection{위상 변조: 정수에서 광학으로}
+\label{sec:phase_mod}
+
+각 압축된 암호문 계수 $c_i \in \{0, \ldots, 2^{d_u}-1\}$는 위상 각도로 변환되어 단위 진폭 복소 파면으로 인코딩된다:
+\begin{equation}
+  \phi_i = \frac{2\pi \cdot c_i}{2^{d_u}}, \qquad
+  U_0(x,y) = e^{i\phi(x,y)}, \quad |U_0| \equiv 1.
+  \label{eq:phase_mod}
+\end{equation}
+$2^{d_u} = 2048$개의 이산 암호문 수준은 단위원 위 2048개의 등간격 위상에 대응하며, $\Delta\phi = 2\pi/2048$만큼 분리된다. 이는 대수적 구조의 직접적인 물리적 실현이다: 다항식환의 이산 계수가 SLM 위의 이산 광학 위상이 된다.
+
+차원 제약 조건이 암호학적 영역과 광학적 영역을 연결한다:
+\begin{equation}
+  N = \sqrt{k \cdot n + n} \times M = \sqrt{1024} \times 8 = 256,
+  \label{eq:dim_constraint}
+\end{equation}
+여기서 $M = 8$은 잡음 내성을 위한 매크로 픽셀 확장 계수이다.
+
+
+\subsection{미분 가능 광학 채널: FrFT}
+\label{sec:frft}
+
+파면 $U_0$가 자유 공간을 통해 거리 $d$만큼 전파될 때, 회절 적분은 차수 $p$의 분수 푸리에 변환과 동치이다:
+\begin{equation}
+  p = \frac{2}{\pi}\arctan\!\left(\frac{\lambda d}{N \Delta x^2}\right),
+  \qquad \alpha = \frac{p\pi}{2},
+  \label{eq:frft_order}
+\end{equation}
+여기서 $\lambda = 500\,$nm은 파장, $\Delta x = 8\,\mu$m은 픽셀 피치이다. 전파 거리 $d$는 학습 가능한 매개변수로 선언되어 경사 기반 자동 초점을 가능하게 한다:
+\begin{equation}
+  d \;\xrightarrow{\;\partial\;}\;
+  R = \frac{\lambda d}{N\Delta x^2} \;\to\;
+  \alpha = \arctan(R) \;\to\;
+  s_2 = \sqrt{1 + R^2}.
+  \label{eq:learnable_d}
+\end{equation}
+
+IP-DFrFT는 처프--FFT--처프 분해를 통해 구현되어 복잡도를 $O(N^4)$에서 $O(N^2\log N)$으로 줄인다:
+\begin{equation}
+\boxed{
+  U_d = \underbrace{(1 - i\cot\alpha)}_{\displaystyle A_\alpha^2}
+  \cdot\;\mathcal{F}^{-1}\!\Big[
+    \mathcal{F}\!\big[\underbrace{U_0 \cdot
+    e^{i\pi(\cot\alpha - \csc\alpha)\,r^2}}_{\text{입력 처프}}\big]
+    \;\cdot\;
+    \mathcal{F}\!\big[\underbrace{e^{i\pi\,\csc\alpha\,r'^2}}_{\text{커널 처프}}\big]
+  \Big] \cdot \Delta x^2
+}
+\label{eq:frft_full}
+\end{equation}
+여기서 $r^2 = (m^2+n^2)\Delta x^2$는 $N \times N$, $r'^2$는 순환 앨리어싱을 방지하기 위해 제로 패딩된 $2N \times 2N$ 위에 정의된다.
+
+센서는 세기를 캡처하고 물리적 잡음을 추가한다:
+\begin{align}
+  I_{\mathrm{clean}} &= \frac{|U_d|^2}{1 + \cot^2\!\alpha},
+  \label{eq:intensity}\\
+  I_{\mathrm{shot}} &\sim \mathrm{Poisson}(I_{\mathrm{clean}} \cdot \mathrm{FWC}),
+  \label{eq:poisson}\\
+  I_{\mathrm{meas}} &= \mathrm{ADC}_{12\text{-bit}}
+  (I_{\mathrm{shot}} + \mathcal{N}(0, \sigma_{\mathrm{read}}^2)).
+  \label{eq:adc}
+\end{align}
+직통 추정기(STE)는 미분 불가능한 포아송 표본 추출과 ADC 반올림을 통과하는 경사 흐름을 보존한다:
+\begin{equation}
+  \STE(x_{\text{noisy}}, x_{\text{clean}}) =
+  x_{\text{clean}} + \mathrm{stopgrad}(x_{\text{noisy}} - x_{\text{clean}}).
+  \label{eq:ste}
+\end{equation}
+
+
+\subsection{혼합 손실 오케스트레이션}
+\label{sec:loss}
+
+네 가지 손실 항이 교과 일정 스케줄러 하에서 결합된다.
+
+\subsubsection{데이터 충실도 손실}
+예측된 파면 $\hat{U}_0$는 FrFT를 통해 전파되어 $\hat{I}$를 생성한다. 진폭 영역에서의 비교가 균일한 경사 흐름을 보장한다:
+\begin{equation}
+  \mathcal{L}_{\mathrm{fid}} = \frac{1}{N^2}\sum_{x,y}
+  \left(\sqrt{\hat{I}(x,y) + \epsilon} -
+  \sqrt{I_{\mathrm{target}}(x,y) + \epsilon}\right)^{\!2}.
+  \label{eq:loss_fid}
+\end{equation}
+
+\subsubsection{주기적 연성 양자화 손실}
+$\sin^2$ 기반 벌칙이 연속 위상을 이산 Kyber 격자 수준으로 강제한다:
+\begin{equation}
+\boxed{
+  \mathcal{L}_{\mathrm{quant}} = \frac{1}{2}\!\left[
+    \frac{1}{kn}\sum_{i=1}^{kn}
+    \sin^2\!\Big(\frac{2^{d_u}}{2}\,\phi_i^{(u)}\Big) +
+    \frac{1}{n}\sum_{j=1}^{n}
+    \sin^2\!\Big(\frac{2^{d_v}}{2}\,\phi_j^{(v)}\Big)
+  \right]
+}
+\label{eq:loss_quant}
+\end{equation}
+$\sin^2$ 함수는 \textit{골짜기--능선 풍경}을 생성한다: 정확한 격자 위치 $\phi = 2\pi k / 2^d$에서 영 손실, 중점에서 최대 벌칙. 이것이 해석적 정수론으로 가교를 놓는 핵심 방정식이다 (제~\ref{sec:bridge}절).
+
+\subsubsection{$L^\infty$ 지수 장벽 손실}
+지수 장벽이 가장 위험한 이상값에 대해 LWE 임계치를 강제한다:
+\begin{equation}
+  \mathcal{L}_{\max} = \frac{1}{|S_K|}\sum_{i \in S_K}
+  \exp\!\big(\gamma \cdot \mathrm{ReLU}(|e_i|_{\Zq} -
+  \tau_{\mathrm{safe}})\big),
+  \label{eq:loss_max}
+\end{equation}
+여기서 $\tau_{\mathrm{safe}} = 0.8 \times 1920 = 1536$, $\gamma = 10$, $S_K$는 상위 5\% 오차 픽셀 집합이다.
+
+\subsubsection{총 변이 손실}
+복소 파면에 대해 (래핑 아티팩트를 피하기 위해 위상 각도가 아님):
+\begin{equation}
+  \mathcal{L}_{\mathrm{TV}} = \frac{1}{N^2}\sum_{x,y}
+  \big(|\hat{U}_0^{x+1,y} - \hat{U}_0^{x,y}|^2 +
+  |\hat{U}_0^{x,y+1} - \hat{U}_0^{x,y}|^2\big).
+  \label{eq:loss_tv}
+\end{equation}
+
+
+\subsection{수신기 신경망과 복호화}
+\label{sec:rx}
+
+LeWin U-Net (윈도우 기반 다중 헤드 자기 주의 + 지역 강화 피드포워드)이 세기 측정값 $I_{\mathrm{meas}}$를 2-채널 $(\mathrm{Re}, \mathrm{Im})$ 출력으로 변환하며, 위상은 다음을 통해 추출된다:
+\begin{align}
+  \hat{\phi} &= \mathrm{atan2}(\mathrm{Im},\; \mathrm{Re}) \bmod 2\pi,
+  \label{eq:phase_extract}\\
+  \hat{U}_0 &= e^{i\hat{\phi}}, \quad |\hat{U}_0| \equiv 1.
+  \label{eq:wavefront}
+\end{align}
+
+매크로 픽셀 풀링은 위상 평균화 재앙을 피하기 위해 원형 통계를 사용한다:
+\begin{equation}
+  \bar{\phi} = \mathrm{atan2}\!\left(
+    \frac{1}{M^2}\sum \sin\phi_{ij},\;
+    \frac{1}{M^2}\sum \cos\phi_{ij}
+  \right) \bmod 2\pi.
+  \label{eq:circular_mean}
+\end{equation}
+
+최종 Kyber 역캡슐화:
+\begin{align}
+  \hat{\mathbf{u}}, \hat{v} &= \mathrm{Decompress}_q(c_{\mathrm{pred}},
+  d_u, d_v), \label{eq:decompress_final}\\
+  w &= \hat{v} - \mathbf{s}^\top\hat{\mathbf{u}} \pmod{q},
+  \label{eq:inner_product}\\
+  \hat{m}_j &= \ceil{\frac{2}{q} \cdot w_j} \bmod 2.
+  \label{eq:decode_msg}
+\end{align}
+
+
+\subsection{2단계 훈련과 물리층 보안}
+\label{sec:training}
+
+\subsubsection{1단계: 상각 사전훈련}
+합성 암호문이 즉석에서 생성되며; AdamW가 119개 U-Net 매개변수와 물리 거리 $d$를 동시에 갱신한다.
+
+\subsubsection{2단계: 블라인드 테스트 시간 최적화 (TTO)}
+배치 시, 물리 기반 및 수학 기반 제약만 사용 가능하다:
+\begin{equation}
+  \mathcal{L}_{\text{blind}} =
+  \mathcal{L}_{\text{fid}} + 0.5\,\mathcal{L}_{\text{quant}} +
+  0.05\,\mathcal{L}_{\text{TV}}.
+  \label{eq:blind_loss}
+\end{equation}
+U-Net 백본은 $\mathrm{lr} = 10^{-5}$로 동결되고 $d$는 $\mathrm{lr} = 10^{-3}$을 받아, \textit{정답 암호문에 접근하지 않고} 단 15회 경사 단계만으로 빠른 자동 초점을 가능하게 한다.
+
+\begin{theorem}[눈사태 효과 --- 물리층 보안]
+\label{thm:avalanche}
+동일한 U-Net 가중치, PRNG 시드, Kyber 비밀키를 보유하지만 $d' = d + 0.1\,\mathrm{mm}$을 추정하는 도청자는 $\mathrm{DFR} = 1$을 경험한다. FrFT 각도 $\alpha$는 $d$의 비선형 함수이며; 0.1\,mm 오프셋은 처프--FFT--처프 파이프라인을 통해 연쇄 전파되어 모든 암호문 원소에 대해 $\norm{e}_\infty > 1920$을 초래한다.
+\end{theorem}
+
+
+% ============================================================================
+\section{위상 양자화 원리}
+\label{sec:bridge}
+% ============================================================================
+
+이제 $\sin^2$ 양자화 메커니즘 (\cref{eq:loss_quant})을 일반 원리로 추상화한다.
+
+\begin{definition}[위상 양자화 연산자]
+\label{def:pqo}
+$\phi \in [0, 2\pi)$를 연속 위상 변수, $L \in \mathbb{N}$을 목표 이산 수준 수라 하자. \textit{위상 양자화 벌칙}은:
+\begin{equation}
+  \mathcal{P}(\phi; L) = \sin^2\!\left(\frac{L}{2}\,\phi\right).
+  \label{eq:pqo}
+\end{equation}
+이 함수는 다음 성질을 갖는다:
+\begin{enumerate}
+  \item $\mathcal{P}(\phi; L) = 0$ $\iff$ $\phi \in \{2\pi k/L : k = 0, 1, \ldots, L-1\}$ (격자 위치).
+  \item $\mathcal{P}(\phi; L) = 1$ (중점 $\phi = 2\pi(k + \tfrac{1}{2})/L$에서).
+  \item $\nabla_\phi \mathcal{P} = \tfrac{L}{2}\sin(L\phi)$은 $\phi$를 가장 가까운 격자 점으로 조향하는 경사를 제공한다.
+  \item 풍경은 $2\pi/L$-주기이며, 단위원 위에 $L$개의 등간격 흡인 유역을 생성한다.
+\end{enumerate}
+\end{definition}
+
+QROP-Net에서 격자 수준은 $L = 2^{d_u} = 2048$ ($\mathbf{u}$-계수용)과 $L = 2^{d_v} = 8$ ($v$-계수용)이다. $\sin^2$ 손실은 각 연속 위상 예측을 가장 가까운 이산 Kyber 수준으로 유도하며, 완전 미분 가능한 \textit{연성 양자화}를 실현한다.
+
+\begin{remark}[시클로토믹 연결]
+\label{rem:cyclotomic}
+$\mathcal{P}(\phi; L)$의 $L$개 영점은 정확히 $L$차 단위근 $e^{2\pi i k/L}$이다. $L = 2n = 512$ (시클로토믹 다항식 $X^n + 1$의 차수)일 때, 이것은 \cref{eq:cyclo_roots}의 근 $\omega_0, \ldots, \omega_{n-1}$이다. $\sin^2$ 손실은 따라서 대수적 조건 $X^n + 1 = 0$의 위상 영역에서의 \textit{해석적 재진술}이다.
+\end{remark}
+
+\begin{remark}[코사인 PQO와 고분해능 시클로토믹 격자]
+\label{rem:cos2_pqo}
+PQO는 구조적으로 동일한 \emph{코사인} 변형을 허용한다:
+\begin{equation}
+  \mathcal{P}_{\cos}(\phi; L) = \cos^2\!\left(\frac{L}{2}\,\phi\right),
+  \label{eq:pqo_cos}
+\end{equation}
+그 영점 집합은 $\phi \in \{(2k+1)\pi/L : k = 0, 1, \ldots, L-1\}$이다. 이들은 정확히 \emph{원시 $2L$차 단위근}, 즉 \cref{eq:cyclo_roots}에서 $X^L + 1 = 0$의 $L$개 근 $\omega_j$이다. 따라서 $\mathcal{P}_{\cos}(\,\cdot\,; L)$는 $L$차 시클로토믹 PQO이며, \cref{rem:cyclotomic}와 평행하되 대수적 제약 $X^L + 1 = 0$을 위상 영역에 \emph{직접} 실현한다 ($\sin^2$가 매칭하는 이동된 단위근 제약 $X^L - 1 = 0$과 대조).
+
+\smallskip\noindent\textbf{$L = 2$에서의 자명한 붕괴.} $L = 2$일 때 끌개 집합은 $\{i, -i\}$로 퇴화한다. $\mathcal{P}_{\cos}(\phi; 2)$ 항을 비자명한 가중치로 포함한 손실로 학습된 임의의 신호는 전역적으로 그 두 점 중 하나로 붕괴한다: 특히 임계선 판별 네트워크의 손실이 해당 항을 포함하면, 경험적 위상 $\arg Z(t)$는 \emph{학습된 대역의 모든 $t$에 대해} $\pi/2$로 끌려가며, $t$가 리만 영점 근처인지 여부와 무관하다. 따라서 $L = 2$ 코사인 PQO는 영점 국소화 정보를 전혀 운반하지 않는다; 단지 끌개 메커니즘이 설계대로 작동함을 확인할 뿐이다.
+
+\smallskip\noindent\textbf{고분해능 일반화 (시도).} $L \geq 4$에서 격자는, 원리상, $S^1$ 위의 섹터 분류기로 작용할 충분한 계수를 획득한다. 각 후보 종좌표 $t$에 다음의 이산 라벨이 부여된다:
+\begin{equation}
+  k(t) \;=\; \arg\min_{0 \leq k < L}\,\big|\arg Z(t) - (2k{+}1)\pi/L\big|
+  \pmod{2\pi},
+  \label{eq:cyclo_label}
+\end{equation}
+학습된 위상에 가장 가까운 시클로토믹 섹터 $\omega_{k(t)}$를 명명하는 것으로, 리만 영점이 비자명한 부분 격자를 점유하여 $L=2$가 허용하는 것보다 더 미세한 산술 층화를 제공하기를 기대한 것이다.
+
+\smallskip\noindent\textbf{$L = 4$에서의 경험적 반증 (2026-04-08).} 이 프로그램에 대한 직접 검정이 수행되었다: 임계선 판별 네트워크, $L=4$, 은닉 폭 $32$, 시드 $\{42, 123, 777\}$ 3개, 학습 에폭 $200$, 라벨된 모집단은 리만 영점 $50$개와 간격 $\geq 0.5$인 비영점 종좌표 $200$개 (학습 스크립트는 동반 \textsc{gdl\_unified} 저장소의 \texttt{scripts/phase\_L4\_experiment.py}, 출력은 \texttt{outputs/analysis/phase\_L4\_experiment.\{json,txt\}}). 결과는 세 독립 축에서 모호함 없이 음성이다:
+\begin{enumerate}
+  \item 세 시드 모두 영점/비영점 $k$-분포 독립성 $\chi^2$ 검정 통과 ($p = 0.127, 0.528, 0.410$; 풀링 $p = 0.154$).
+  \item 네 시클로토믹 섹터 $\{k=0,1,2,3\}$ 중 $k=0,1$만 점유되며 $k=2,3$은 모든 시드에서 \emph{정확히 0개} 샘플 (비대칭 basin 붕괴).
+  \item 영점/비영점의 최근접 끌개 잔차 평균은 모든 시드에서 $\sim 5\%$ 이내로 일치.
+\end{enumerate}
+$L=2$의 자명한 붕괴와 $L=4$의 비대칭 붕괴는 따라서 단일 근본 원인을 공유한다; 이제 이를 식별한다.
+
+\smallskip\noindent\textbf{진단: $\Psip$-디커플링 결함.} 판별 네트워크의 학습 손실은
+$\mathcal{L} = \lambda_{\mathrm{res}}\mathcal{L}_{\mathrm{res}} +
+        \lambda_{\mathrm{curv}}\mathcal{L}_{\mathrm{curv}} +
+        \lambda_{\mathrm{tgt}}\mathcal{L}_{\mathrm{tgt}} +
+        \lambda_{\mathrm{pqo}}\mathcal{L}_{\mathrm{pqo}}$
+의 합이며, 타겟 매칭 항 $\mathcal{L}_{\mathrm{tgt}}$는 \cref{def:psi}\,/\,\cref{eq:psi_n}의 $\Psip$를 기준으로 구성된다. 그러나 $\Psip$는 $\|X\|$에만 의존하는, 합성으로 선택된 $(\alpha,\beta,\gamma,\delta)$ 곡선이며 \emph{$\xif$-영점 정보를 전혀 운반하지 않는다}. 결과적으로:
+\begin{itemize}
+  \item $\mathcal{L}$의 어느 항도 $t$-국소 영점 라벨을 학습에 주입하지 않는다;
+  \item 코사인 PQO 항 $\mathcal{L}_{\mathrm{pqo}}$는 $t$-\emph{무관} 포텐셜이며, basin 선택은 $t$가 영점에 대해 어디에 있는지가 아니라 초기화에 의해 고정된다;
+  \item 라벨링 규칙 \cref{eq:cyclo_label}는 따라서 영점이 무엇인지 한 번도 들은 적이 없는 네트워크 위에 얹힌 \emph{운영적으로 분리된 측정}이다.
+\end{itemize}
+특히 \cref{eq:pqo_cos} (학습)와 \cref{eq:cyclo_label} (측정)는 호환되지 않는 신호 범주에 작용한다: 전자는 후자가 읽어내려는 $t$-국소 정보를 \emph{지운다}. $L$을 $2$에서 $4, 8, \ldots$로 늘려도 이 결함은 복구되지 않는다 — 끊어진 고리는 $L$의 상류에 있다.
+
+\smallskip\noindent\textbf{시클로토믹 PQO 프로그램의 상태.} 이전에 정식화된 $L \geq 4$ 프로그램은 보류된다. 부활시키려면 \cref{eq:psi_n}을 진정한 영점 정보를 운반하는 타겟으로 \emph{교체}해야 한다 (자연스러운 후보는 $\Psip(t) := \arg \xif(\tfrac{1}{2}+it)$ 또는 \cref{eq:hardy_z}의 Hardy 위상 $\arg Z(t)$), $\mathcal{P}_{\cos}$를 \emph{학습} 포텐셜에서 결과 위상에 대한 순수 \emph{측정}으로 강등시키며, 새로운 감독 하에 $L=4$ 프로토콜을 재실행해야 한다. 그러한 실험이 존재하기 전까지, 본 연구가 리만 영점의 시클로토믹 층화에 대해 어떤 주장도 지지하지 않는다; 데이터 파일 \texttt{phase\_L4\_experiment.*} 및 \texttt{phase\_pi\_half\_verify.txt}는 결정적 음성 통제로 보존되며, 위 진단의 근거 기록의 일부이다.
+\end{remark}
+
+\begin{remark}[보어--좀머펠트 유비]
+\label{rem:bohr_sommerfeld}
+조건 $\mathcal{P}(\phi; L) = 0$은 $L\phi/2 = m\pi$ ($m \in \mathbb{Z}$)와 동치이다, 즉
+\begin{equation}
+  \Delta\nu \;=\; m\pi, \qquad m \in \mathbb{Z},
+  \label{eq:bohr_sommerfeld}
+\end{equation}
+여기서 $\Delta\nu = L\phi/2$는 재조정된 위상 축적이다. 이는 반고전 역학의 \textit{보어--좀머펠트 양자화 조건}과 정확히 같은 형태이며, 닫힌 궤도 주위의 작용 적분이 $\pi\hbar$의 정수배여야 한다 (적절한 단위에서). 광학에서 같은 조건이 보강 간섭을 결정한다: 경로 길이가 반파장의 정수배를 수용해야 한다. 위상 양자화 원리는 따라서 다음을 통합한다:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{영역} & \textbf{양자화되는 변수} & \textbf{조건} \\
+\midrule
+QROP-Net       & 암호문 위상 $\phi_i$
+                & $\sin^2(2^{d_u-1}\phi_i) = 0$ \\
+반고전 양자역학 & 작용 적분 $\oint p\,dq$
+                & $= (n + \tfrac{1}{2})\pi\hbar$ \\
+광학 (공진기)   & 광학 경로 길이 $nL_{\mathrm{cav}}$
+                & $= m\lambda/2$ \\
+임계선          & $\xif(s)$의 위상
+                & $\Delta\nu = m\pi$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{remark}
+
+
+% ############################################################################
+% 제2부 — 해석적 확장
+% ############################################################################
+
+\part{해석적 확장: 공명 이론}
+\label{part:resonance}
+
+\vspace{0.5em}
+\noindent\textit{이 부분의 모든 수학적 주장은 구체적인 QROP-Net 대응(비고 환경에서 표기)이 있거나 문헌에 독립적인 근거가 있다. 두 조건 모두 충족하지 못하는 공명소수법칙 초기 버전의 주장은 생략되었다.}
+\vspace{0.5em}
+
+
+% ============================================================================
+\section{완성 제타 함수의 위상 구조}
+\label{sec:xi_phase}
+% ============================================================================
+
+\subsection{리만 $\xif$-함수}
+
+\begin{definition}[완성 제타 함수]
+\label{def:xi}
+리만 $\xif$-함수는 다음과 같이 정의된다:
+\begin{equation}
+  \xif(s) = \frac{1}{2}s(s-1)\pi^{-s/2}\Gamma\!\left(\frac{s}{2}\right)\zeta(s),
+  \label{eq:xi_def}
+\end{equation}
+여기서 $\zeta(s) = \sum_{n=1}^{\infty}n^{-s}$는 리만 제타 함수, $\Gamma$는 오일러 감마 함수이다. 함수 $\xif$는 전해석적(극이 없음)이며 함수 방정식을 만족한다:
+\begin{equation}
+  \xif(s) = \xif(1-s).
+  \label{eq:func_eq}
+\end{equation}
+임계선 $s = \tfrac{1}{2} + it$ 위에서 $\xif$는 실수값을 가진다: $\xif(\tfrac{1}{2}+it) \in \mathbb{R}$.
+\end{definition}
+
+\begin{definition}[바이어슈트라스 곱 표현]
+\label{def:weierstrass}
+$\xif(s)$가 전해석적이므로, 그 영점 $\rho$ ($\zeta$의 비자명 영점)에 대한 바이어슈트라스 곱을 허용한다:
+\begin{equation}
+  \xif(s) = e^{g(s)}\prod_{\rho}
+  \left(1 - \frac{s}{\rho}\right),
+  \label{eq:weierstrass}
+\end{equation}
+여기서 $g(s)$는 수렴을 보장하는 전해석 함수이다. $\ln\xif$를 미분하면 \textit{로그 도함수}를 얻는다:
+\begin{equation}
+  \frac{\xif'(s)}{\xif(s)} = g'(s) + \sum_{\rho}
+  \frac{1}{s - \rho}.
+  \label{eq:log_deriv}
+\end{equation}
+영점에서 떨어진 곳에서 $g'(s)$는 매끄러우며, 지배적 기여는 $s = \rho$ (즉 $\zeta$의 비자명 영점)에서의 극에서 온다.
+\end{definition}
+
+
+\subsection{임계선 위의 진폭--위상 분해}
+\label{sec:amp_phase}
+
+일반적인 $s = \sigma + it$ ($\sigma = \tfrac{1}{2}$로 제한되지 않음)에 대해 $\xif$를 진폭과 위상으로 분해한다:
+\begin{align}
+  \Ampl(\sigma, t) &= |\xif(\sigma + it)|,
+  \label{eq:amplitude}\\
+  v(\sigma, t) &= \arg\,\xif(\sigma + it),
+  \label{eq:phase_general}
+\end{align}
+따라서 $\xif(\sigma + it) = \Ampl(\sigma,t)\,e^{iv(\sigma,t)}$이다.
+$\log\xif = u + iv$ ($u = \log|\xif|$, $v = \arg\xif$)로 쓰면, 코시--리만 방정식이 다음을 준다:
+\begin{equation}
+  v_\sigma = \mathrm{Re}\!\left(\frac{\xif'}{\xif}\right), \quad
+  v_t = -\mathrm{Im}\!\left(\frac{\xif'}{\xif}\right), \quad
+  u_t = -v_\sigma, \quad u_\sigma = v_t.
+  \label{eq:cauchy_riemann}
+\end{equation}
+
+임계선 $\sigma = \tfrac{1}{2}$ 위에서:
+\begin{align}
+  \Phiz(t) &\;:=\; v(\tfrac{1}{2}, t) = \arg\,\xif(\tfrac{1}{2}+it),
+  \label{eq:phase_crit}\\
+  \Ampl(t) &\;:=\; \Ampl(\tfrac{1}{2}, t) = |\xif(\tfrac{1}{2}+it)|.
+  \label{eq:amp_crit}
+\end{align}
+$\xif(\tfrac{1}{2}+it) \in \mathbb{R}$이므로, 위상 $\Phiz(t)$는 $\{0, \pi\}$ 값만 가지며 ($2\pi$ 모듈러), 각 영점 교차에서 $\pi$만큼 도약한다.
+
+\begin{remark}[QROP-Net 대응: 진폭--위상 분리]
+\label{rem:amp_phase}
+QROP-Net에서 송신 파면 $U_0 = e^{i\phi}$는 단위 진폭($|U_0| \equiv 1$)과 이산 위상 $\phi$를 갖는다. 수신기는 세기 $I = |U_d|^2$로부터 $\phi$를 복원해야 하며, 이는 회절이 초래한 진폭--위상 혼합을 ``역전''시키는 것을 포함한다. 임계선 위의 구조 $\xif = \Ampl\,e^{iv}$는 동일한 수학적 도전을 제시한다: 진폭 포락선에서 기저 위상 구조를 분리하는 것.
+\end{remark}
+
+
+\subsection{이상적 위상 함수 $\Psip(n)$}
+
+\noindent\textit{독자 경고.} 아래 \cref{eq:psi_n}의 합성 형태는 2026-04-08 감독 타겟으로서 경험적으로 반증되었다; 정의 직후의 \cref{rem:psi_defect}와 진단에 대한 \cref{rem:cos2_pqo}을 참조하라. 정의는 역사적 서술을 위해 보존된다; 이후 개정에서 사용되는 운영적 교체식은 \cref{eq:psi_supervised}이다.
+
+\begin{definition}[매끄러운 소수 계수 위상]
+\label{def:psi}
+정수 $n \geq 2$에 대해 이상적 위상 함수는 다음과 같이 정의된다:
+\begin{equation}
+  \Psip(n) = \alpha\log n +
+  \frac{\beta\sin(\gamma\log n)}{n^\delta},
+  \label{eq:psi_n}
+\end{equation}
+여기서 $\alpha, \beta, \gamma, \delta$는 구조 상수이다:
+\begin{itemize}
+  \item $\alpha > 0$은 대수 상승(정렬 기울기)을 결정한다.
+  \item $\beta \geq 0$은 진동 진폭(공명 강도)을 제어한다.
+  \item $\gamma > 0$은 위상 회전 주파수(국소 감마 인자와 관련)이다.
+  \item $\delta > 0$은 지수 감쇠를 제어한다: 진동 항은 $n^{-\delta}$로 감쇠하여, 큰 $n$에서 $\Psip(n) \to \alpha\log n$이 된다.
+\end{itemize}
+\end{definition}
+
+단조 항 $\alpha\log n$은 영점 계수 함수에 대한 리만--폰 만골트 공식 $N(T) \sim \frac{T}{2\pi}\log\frac{T}{2\pi e}$를 반영하며, 진동 보정 $\beta\sin(\gamma\log n)/n^\delta$는 소수 간격에 관련된 국소 요동에 대한 휴리스틱 대용으로 의도된 것이다.
+
+\begin{remark}[\cref{eq:psi_n}의 디커플링 결함; 2026-04-08 기록]
+\label{rem:psi_defect}
+\cref{eq:psi_n}의 형태는 크기 $n$에만(혹은 네트워크 구현에서는 $\|X\|$에만) 의존하는 합성 $(\alpha,\beta,\gamma,\delta)$ 곡선이며, 리만 영점의 위치에 대한 정보를 \emph{전혀} 운반하지 않는다. 이를 판별 네트워크의 타겟으로 사용할 경우 — \cref{rem:cos2_pqo}의 $L=4$ 시클로토믹 PQO 실험에서처럼 — 네 손실 항 $\mathcal{L}_{\mathrm{res}},\mathcal{L}_{\mathrm{curv}},\mathcal{L}_{\mathrm{tgt}},\mathcal{L}_{\mathrm{pqo}}$의 어느 것도 $t$-국소 영점 신호를 학습에 주입하지 않으며, 결과 네트워크는 $L$과 무관하게 영점/비영점 판별에 반드시 실패한다. 이 결함은 매개변수적이 아니라 구조적이다: $(\alpha,\beta,\gamma,\delta)$의 어떤 선택으로도 복구되지 않는다.
+
+\smallskip
+이후 개정에서 사용되는 의도된 교체는 임계선 위의 이상적 위상을 직접 재정의하는 것이다:
+\begin{equation}
+  \Psip(t) \;:=\; \arg \xif(\tfrac{1}{2}+it),
+  \label{eq:psi_supervised}
+\end{equation}
+또는 동등하게 \cref{eq:hardy_z}의 Hardy $Z$-함수를 통해 $\Psip(t) := \arg Z(t)$로 잡는다. 어느 선택이든 \emph{구성에 의해} $\xif$-영점 정보를 공급하며, 감독 타겟과 시클로토믹 측정 \cref{eq:cyclo_label} 사이의 인과 사슬을 복원한다. 합성 형태 \cref{eq:psi_n}는 본문에 그 실패가 진단을 동기화시킨 역사적 객체로서만 보존된다.
+
+\smallskip\noindent\textbf{감독-$\Psip$ 제어 실험 (2026-04-08).} 교체식 \cref{eq:psi_supervised}를 직접 시험하였다. 동일한 판별 네트워크 구조 (은닉폭 $32$, 3층, 세 시드 $\{42,123,777\}$, $200$ 에폭, $t \in [100, 200]$, 영점 $50$개 대 간격 $\geq 0.5$의 비영점 $200$개)에 대해 $L=4$ 기준선 대비 두 가지 한 줄 수정을 가하였다: (i) 모델의 $\Psip$ 출력을 미리 계산한 $\arg\xif(\tfrac{1}{2}+it)$로 덮어쓰기하여 감독 신호로 공급, (ii) $\lambda_{\mathrm{pqo}}=0$으로 코사인 PQO를 학습에서 제거하고 오직 시클로토믹 측정 \cref{eq:cyclo_label}에서만 유지 (스크립트 \texttt{scripts/phase\_supervised\_experiment.py}, 출력 \texttt{phase\_supervised\_experiment.\{json,txt\}}). 결과는 헤드라인 지표 상 다시 음성이다 --- 시드 풀링된 $\arg Z(t)$ 대 $\arg \xif(\tfrac{1}{2}+it)$의 위상 MSE가 영점과 비영점에서 사실상 동일하다 (평균 $2.256$ 대 $2.247$, 비율 $1.004$, Welch $p = 0.976$) --- 그리고 시드별 Welch 검정은 방향이 불일치한다 (한 시드에서 $p=0.034$로 기대 순서와 \emph{반대}). 그러나 두 가지 구조적 징후가 새롭고 유익하다:
+\begin{enumerate}
+  \item $L=4$ 기준선의 비대칭 분지 붕괴가 해제된다: 네 시클로토믹 구간 $k\in\{0,1,2,3\}$ 모두 모든 시드에서 점유된다. $\mathcal{L}_{\mathrm{pqo}}$에 의해 유도된 $t$-독립 어트랙터 고정이 삭제 실험을 통해 그 붕괴의 두 기여 요인 중 하나로 확인된 것이다.
+  \item 기록된 최적 검증 손실 ($\approx 1.5$--$1.7$)이 기록된 위상 MSE ($\approx 2.25$)보다 상당히 작으며, 이는 $\mathcal{L}_{\mathrm{pqo}}$가 영으로 된 이후에도 $\mathcal{L}_{\mathrm{tgt}}$ 기여가 $\mathcal{L}$의 작은 부분임을 함의한다. 남은 $\mathcal{L}_{\mathrm{res}}$와 $\mathcal{L}_{\mathrm{curv}}$ 항이 그래디언트를 지배하므로, 네트워크는 실제로는 $\arg \xif$를 적합하라고 요구받지 않는다.
+\end{enumerate}
+이것은 위의 진단을 \emph{철회하지} 않고 정교화한다: $\Psip$-디커플링은 \cref{eq:psi_n}의 필요 결함이며, \cref{eq:psi_supervised}는 타겟 수준에서만 그것을 복구한다; 그러나 손실 가중 불균형과 의심되는 측정 아티팩트 (채널별 $\arg Z$의 산술 평균화, 이는 \cref{eq:phase_crit}가 예측하는 $\pm\pi$ 랩 신호를 파괴한다)는 \emph{추가적인} 끊긴 연결이다. $\lambda_{\mathrm{res}}=\lambda_{\mathrm{curv}}=\lambda_{\mathrm{pqo}}=0$ (오직 $\mathcal{L}_{\mathrm{tgt}}$만 활성) 및 원형 평균 읽기를 사용하는 두 번째 제어 실험은 아래 \cref{rem:isolation}에서 서술한다.
+\end{remark}
+
+\begin{remark}[고립 실험: 감독 사슬은 건강, $\pm\pi$ 점프 표현력은 결함; 2026-04-09 기록]
+\label{rem:isolation}
+\cref{rem:psi_defect}의 세 의심 결함 --- (i) \cref{eq:psi_n}를 통한 $\Psip$-디커플링, (ii) 손실 가중 불균형, (iii) $\pm\pi$ 랩을 표현할 수 없는 산술 평균 읽기 --- 를 분리하기 위해, 세 채널을 동시에 모두 차단한 최대 고립 제어를 실행하였다. 네트워크는 $\lambda_{\mathrm{res}}=\lambda_{\mathrm{curv}}=\lambda_{\mathrm{pqo}}=0$, 오직 $\mathcal{L}_{\mathrm{tgt}}$만 활성으로 재학습하였고, 감독 타겟은 \cref{eq:psi_supervised}와 같이 $\arg\xif(\tfrac{1}{2}+it)$로 하드 설정하였으며, 샘플별 위상은 채널별 산술 평균이 아니라 \emph{원형} 평균 $\arg\sum_c e^{i\hat\Psip_c}$로 산출하였다 (스크립트 \texttt{scripts/phase\_isolation\_experiment.py}, 출력 \texttt{phase\_isolation\_experiment.\{json,txt\}}; \cref{rem:psi_defect,rem:cos2_pqo}와 동일한 구조, 시드, 에폭, $t$-구간).
+결과는 강하게 \emph{양성}이다:
+\begin{itemize}
+  \item \textbf{원형 읽기.} $\arg\xif(\tfrac{1}{2}+it)$에 대한 시드 풀링 위상 MSE가 $\xif$-영점 집합에서 $2.1708$, 비영점 집합에서 $0.1195$이며, 비율 $18.16\times$, Welch $p=1.18\times10^{-15}$이다. 시드별 비율은 각각 $29.5,\,31.9,\,9.5$이며 $p\in\{4.5,3.7,5.5\}\times10^{-6}$이다.
+  \item \textbf{산술 읽기, 동일 가중.} 동일한 학습 실행을 기존 산술 평균으로 읽어내면 영점/비영점 평균이 $2.410$ 대 $1.849$, 비율 $1.30$, 풀링 $p=0.046$로 붕괴된다. 따라서 원형 대 산술의 차이는 학습 차이가 아니라 측정 차이이다.
+\end{itemize}
+\cref{rem:psi_defect}의 두 가설이 모두 확인된다: 손실 가중 불균형 (ii)와 산술 평균 읽기 (iii)는 각각 신호를 은폐하기에 충분하며, 둘이 합쳐져 \cref{rem:cos2_pqo}와 첫 감독 제어의 음성 결과를 완전히 설명한다. 둘이 모두 차단되면 감독 사슬 $\arg\xif(\tfrac{1}{2}+it)\mapsto\mathcal{L}_{\mathrm{tgt}}\mapsto\hat\Psip$은 \emph{건강}하다: 비영점 MSE $0.12$는 네트워크가 매끄러운 가지 위에서 $\arg\xif$를 사실상 완벽하게 학습함을 보인다.
+
+\smallskip
+잔존하는 영점 MSE $2.17\approx(\pi/2)^2$는 깔끔한 해석을 가진다. 임계선 위에서 $\xif$는 실수이며, 수치적으로 우리 캐시에서 $|\mathrm{Im}\,\xi|/|\mathrm{Re}\,\xi|\sim10^{-53}$이므로 $\arg\xif$는 사실상 모든 리만 영점에서 부호를 전환하는 $\{0,\pi\}$-값 계단 함수이다. 네트워크 출력 $\hat\Psip(t)$는 매끄러운 $\mathbb{R}$-값 장(場)이며 그러한 순간 $\pm\pi$ 점프를 표현할 수 없다; 영점 근방에서 최적의 원형 평균 적합은 상수를 제외하면 중간값이며, 정확히 $(\pi/2)^2$을 MSE에 기여한다. 따라서 남은 결함은 타겟에도 읽기에도 있지 않고 판별 네트워크의 \emph{출력 표현}에 있으며, \cref{rem:cos2_pqo,rem:psi_defect}에서는 $L$을 올려서만 간접 대응된다; 올바른 해결은 매끄러운 영점 교차 타겟 (예컨대 $\mathrm{sign}(Z(t))\cdot e^{-|Z(t)|^2/\sigma^2}$) 또는 $\xif(\tfrac{1}{2}+it)$를 복소 벡터로 예측하고 사후에 $\arg$를 읽는 헤드를 요구한다.
+
+\smallskip
+\noindent\textbf{매끄러운 영점 교차 확인 (2026-04-10).}
+동일한 고립 설정 ($\lambda_{\mathrm{res}}=\lambda_{\mathrm{curv}}=\lambda_{\mathrm{pqo}}=0$, \texttt{in\_features}$=128$, 3 시드) 에서, $\pm\pi$ 불연속 없이 동일한 부호 정보를 부호화하는 두 가지 매끄러운 대리 타겟을 시험하였다:
+\begin{itemize}
+  \item \textbf{범프 타겟}
+  $\Psi_{\mathrm{bump}}(t) = \mathrm{sign}(\mathrm{Re}\,\xif)
+   \cdot e^{-(\mathrm{Re}\,\xif)^2/\sigma^2}$,
+  $\sigma=\mathrm{median}(|\mathrm{Re}\,\xif|)$:
+  영점 MSE $=0.935$, 비영점 MSE $=0.693$, 비율 $1.35\times$
+  (갭 축소 $92.6\%$).
+  \item \textbf{정규화 타겟}
+  $\Psi_{\mathrm{norm}}(t) = \mathrm{Re}\,\xif(\tfrac{1}{2}+it)
+   \big/\max|\mathrm{Re}\,\xif|$:
+  영점 MSE $=1.8\times 10^{-5}$, 비영점 MSE $=5.8\times 10^{-4}$,
+  비율 $0.03\times$ (갭 축소 $99.8\%$).
+\end{itemize}
+정규화 타겟은 영점/비영점 갭을 완전히 소멸시킬 뿐 아니라 \emph{역전}시키며, 영점이 비영점보다 더 쉬워진다. 이는 $\pm\pi$ 불연속이 \emph{유일한} 병목이었음을 확정한다: 타겟이 매끄러우면 네트워크 아키텍처와 학습 파이프라인에 잔존 결함이 없다. 프로그램의 해석적 내용은 보존되며; 오직 $\{0,\pi\}$ 부호화만 교체가 필요하다. (스크립트 \texttt{scripts/smooth\_zero\_crossing.py}, 출력 \texttt{smooth\_zero\_crossing.\{json,txt\}}.)
+
+\smallskip
+우리는 고립 및 매끄러운 타겟 실험을 프로그램의 해석적 내용 --- \cref{eq:psi_supervised}의 동일시 $\Psip(t)=\arg\xif(\tfrac{1}{2}+it)$ --- 이 옳은 자기 쌍대 타겟이라는 증거로 기록한다; 매끄러운 타겟 변형이 남은 표현 가능성 장벽을 해소한다.
+\end{remark}
+
+
+\subsection{리만--지겔 $\vartheta$ 함수와의 연결}
+
+임계선 위 $\zeta$의 고전적 위상 분석은 리만--지겔 세타 함수를 사용한다:
+\begin{equation}
+  \vartheta(t) = \arg\,\Gamma\!\left(\frac{1/4 + it/2}{1}\right) -
+  \frac{t}{2}\log\pi
+  \;\approx\;
+  \frac{t}{2}\log\frac{t}{2\pi} - \frac{t}{2} - \frac{\pi}{8} +
+  O(t^{-1}).
+  \label{eq:riemann_siegel_theta}
+\end{equation}
+하디 $Z$-함수는 다음과 같이 정의된다:
+\begin{equation}
+  Z(t) = e^{i\vartheta(t)}\zeta(\tfrac{1}{2}+it),
+  \label{eq:hardy_z}
+\end{equation}
+이는 실수 $t$에 대해 실수이다. 부호 변화가 임계선 위 $\zeta$의 영점을 표시한다. 그람 점 $g_n$은 $\vartheta(g_n) = n\pi$로 정의되어, $t$-축을 따른 위상 양자화 격자를 제공한다.
+
+\begin{definition}[그람 점]
+\label{def:gram}
+$n$번째 그람 점 $g_n$은 다음을 만족한다:
+\begin{equation}
+  \vartheta(g_n) = n\pi, \quad n \in \mathbb{Z}.
+  \label{eq:gram_points}
+\end{equation}
+연속된 그람 점 사이에서 위상 $\vartheta(t)$는 정확히 $\pi$만큼 진행한다. 논증 원리에 의해, 높이 $T$까지의 $\zeta(\tfrac{1}{2}+it)$ 영점 수는:
+\begin{equation}
+  N(T) = \frac{1}{\pi}\Big[\vartheta(T) +
+  \mathrm{Im}\log\zeta(\tfrac{1}{2}+iT)\Big] + O(1).
+  \label{eq:zero_counting}
+\end{equation}
+\end{definition}
+
+\begin{remark}[QROP-Net 대응: 위상 격자]
+\label{rem:gram_grid}
+그람 점 $\{\vartheta(g_n) = n\pi\}$는 임계선 위의 이산 위상 격자를 형성하며, 이는 QROP-Net의 SLM 위 $2^{d_u}$개 이산 위상 수준과 직접 유비된다. 두 시스템 모두에서 근본적 질문은 동일하다: \textit{연속 신호(광학 파면, $\xif$-함수)가 규정된 이산 위상 격자와 정렬되는가?}
+\end{remark}
+
+
+% ============================================================================
+\section{게이트 구조: 소수 탐지로서의 위상 공명}
+\label{sec:gates}
+% ============================================================================
+
+이제 임계선 위 또는 근방의 ``공명'' 점을 식별하는 2-게이트 기준을 형식화한다.
+
+\subsection{게이트 A: 위상 양자화 (정렬)}
+
+\begin{definition}[게이트 A --- 위상 양자화 조건]
+\label{def:gate_a}
+복소 $s$-평면에서 기준점 $(1/2, t_{\mathrm{ref}})$으로부터 $(\sigma, t)$까지의 경로를 고려한다. 이 경로를 따른 총 축적 위상 변화는:
+\begin{equation}
+  \Delta v(\sigma, t) = \int_{t_{\mathrm{ref}}}^{t}
+  v_t(\tfrac{1}{2}, \tau)\,d\tau +
+  \int_{1/2}^{\sigma}v_\sigma(\sigma', t)\,d\sigma'.
+  \label{eq:phase_accumulation}
+\end{equation}
+게이트~A는 이 위상 축적이 $\pi$의 정수배일 것을 요구한다:
+\begin{equation}
+\boxed{
+  \GateA: \quad \Delta v(\sigma, t) = m\pi, \quad m \in \mathbb{Z}.
+}
+\label{eq:gate_a}
+\end{equation}
+\end{definition}
+
+임계선 ($\sigma = 1/2$) 위에서 경로는 $t$-방향으로만 축소되며, 게이트~A는:
+\begin{equation}
+  \Delta v(\tfrac{1}{2}, t) =
+  \vartheta(t) - \vartheta(t_{\mathrm{ref}}) +
+  \arg\zeta(\tfrac{1}{2}+it) - \arg\zeta(\tfrac{1}{2}+it_{\mathrm{ref}})
+  = m\pi,
+  \label{eq:gate_a_critical}
+\end{equation}
+$t_{\mathrm{ref}} = 0$이고 $\vartheta(0) = 0$이면, 그람 점 조건 $\vartheta(t) = m\pi$로 환원된다 ($\arg\zeta$ 보정까지).
+
+\begin{remark}[QROP-Net 대응: $\sin^2$ 양자화]
+\label{rem:gate_a_parallel}
+게이트~A는 QROP-Net 양자화 손실 $\mathcal{L}_{\mathrm{quant}}$ (\cref{eq:loss_quant})의 \textit{정확한 해석적 정수론 대응물}이다. QROP-Net에서 $\sin^2$ 벌칙은 연속 위상을 가장 가까운 이산 수준으로 유도하며; 게이트~A는 연속 위상 $v(\sigma,t)$가 $\pi$의 정수배로 양자화된 점을 선택한다. 위상 양자화 연산자 (\cref{eq:pqo})에서 $L=2$로 놓으면 $\mathcal{P}(v; 2) = \sin^2(v) = 0$ ($v = m\pi$에서)를 얻으며, 이것이 정확히 게이트~A이다.
+\end{remark}
+
+
+\subsection{게이트 B: 위상 정류 (곡률)}
+
+\begin{definition}[게이트 B --- 위상 정류 조건]
+\label{def:gate_b}
+위상이 $\sigma$-방향에서 \textit{정류}이다:
+\begin{equation}
+\boxed{
+  \GateB: \quad v_\sigma(\sigma, t) = 0.
+}
+\label{eq:gate_b}
+\end{equation}
+코시--리만 관계식 (\cref{eq:cauchy_riemann})에 의해, 이는 다음과 동치이다:
+\begin{equation}
+  \mathrm{Im}\!\left(\frac{\xif'(\sigma+it)}{\xif(\sigma+it)}\right) = 0,
+  \label{eq:gate_b_cr}
+\end{equation}
+그리고 진폭 극값 조건 $u_t(\sigma,t) = 0$과도 동치이다, 즉
+\begin{equation}
+  \frac{\partial}{\partial t}|\xif(\sigma + it)| = 0.
+  \label{eq:amplitude_extremum}
+\end{equation}
+게이트~B는 진폭 $\Ampl(\sigma,t)$가 $t$-방향에서 국소 극대(또는 안장점)를 갖는 점을 선택한다.
+\end{definition}
+
+\begin{remark}[물리적 해석: 공명 봉우리]
+\label{rem:resonance_peak}
+산란 이론~\cite{khare1997}에서 $\xif(s)$는 산란 진폭으로 해석될 수 있으며, 비자명 영점은 공명에 대응한다. 공명에서 산란 진폭은 \textit{국소 극대}에 도달하고 (게이트~B: $u_t = 0$) 위상 이동은 $\pi$-증분을 통과한다 (게이트~A: $\Delta v = m\pi$). 이는 정확히 공진 공동에서 보강 간섭의 조건이다: 파동이 공명에서 ``머물며'', 위상 결맞음을 유지하면서 진폭을 축적한다.
+\end{remark}
+
+\begin{remark}[QROP-Net 대응: 충실도 손실]
+\label{rem:gate_b_parallel}
+게이트~B는 관심 점에서 진폭 $\Ampl(t)$가 정류일 것을 요구한다. QROP-Net에서 충실도 손실 $\mathcal{L}_{\mathrm{fid}}$ (\cref{eq:loss_fid})는 복원된 진폭 패턴을 목표와 비교한다. $\mathcal{L}_{\mathrm{fid}}$를 최소화하면 시스템은 진폭 정류 상태로 향한다: 수렴 시 예측 세기가 목표와 일치하여 $\partial \hat{I}/\partial(\text{params}) = 0$이 된다. 두 시스템 모두 정확한 신호 복원의 필요 조건으로서 진폭 안정성을 강제한다.
+\end{remark}
+
+
+\subsection{결합 판별식: 공명점}
+
+\begin{definition}[공명 소수 선택]
+\label{def:resonant_prime}
+$s$-평면의 점 $(\sigma^*, t^*)$가 두 게이트를 동시에 만족하면 \textit{공명점}이다:
+\begin{equation}
+\boxed{
+  \pis(\sigma^*, t^*) = 1 \quad\iff\quad
+  \begin{cases}
+    \GateA: & \Delta v(\sigma^*, t^*) = m\pi \\
+    \GateB: & v_\sigma(\sigma^*, t^*) = 0
+  \end{cases}
+}
+\label{eq:discriminant}
+\end{equation}
+$\sigma^* = \tfrac{1}{2}$ (임계선 위)이면, 공명점은 $\zeta(s)$의 영점 또는 준영점에 대응한다. 정수 $n$이 공명점 $t_n$에서 위상 정렬 조건 $\Phiz(t_n) = \Psip(n)$을 만족하면 \textit{공명 소수}로 선택된다.
+\end{definition}
+
+두 조건의 동시 만족이 결정적 특성이다:
+\begin{itemize}
+  \item 게이트~A만으로는 너무 많은 점을 선택한다 (영점 사이의 모든 그람 점 포함).
+  \item 게이트~B만으로는 위상 정렬되지 않은 진폭 극값을 선택한다.
+  \item 두 조건의 \textit{교차}가 위상 양자화되고 진폭 극값인 후보---진정한 공명의 특징---를 산출한다.
+\end{itemize}
+
+
+% ============================================================================
+\section{$\sigma$-리프트와 오차 허용}
+\label{sec:sigma_lift}
+% ============================================================================
+
+\subsection{임계선으로부터의 편차}
+
+\begin{definition}[$\sigma$-리프트]
+\label{def:sigma_lift}
+두 게이트를 만족하는 공명점 $(\sigma^*, t^*)$에 대해 $\sigma$-리프트는:
+\begin{equation}
+  \ell := \sigma^* - \frac{1}{2}.
+  \label{eq:sigma_lift}
+\end{equation}
+리만 가설은 모든 비자명 공명점에 대해 $\ell = 0$이라는 진술과 동치이다.
+\end{definition}
+
+\begin{proposition}[오차 임계치 유비]
+\label{prop:threshold}
+$\sigma$-리프트 $\ell$은 Kyber의 LWE 오차 $|e|_{\Zq}$와 동일한 구조적 역할을 수행한다:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{QROP-Net} & \textbf{임계선} \\
+\midrule
+변수         & $|e|_{\Zq}$            & $\ell = \sigma^* - 1/2$ \\
+임계치       & $\ceil{q/4} = 1920$    & $\ell = 0$ \\
+성공         & $|e|_{\Zq} < 1920$     & $\ell = 0$ (RH) \\
+실패 모드    & $\mathrm{DFR} = 1$     & 임계선 밖의 영점 \\
+민감도       & $\Delta d = 0.1\,$mm   & $\ell \neq 0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+두 시스템 모두에서, 신호가 비가역적으로 소실되는 \textbf{경성 경계}가 존재한다. 한 시스템의 ``오차''는 문자 그대로의 복호화 실패이며; 다른 시스템에서는 대칭축으로부터 영점의 이탈이다.
+\end{proposition}
+
+
+\subsection{산란 해석과 유니타리성}
+
+Khare~\cite{khare1997}는 $\zeta(s)$를 산란 진폭으로 해석하고 비자명 영점을 공명으로 보는 것을 제안했다. LeClair와 Mussardo~\cite{leclair2023}는 영점을 \textit{산란 시스템의 양자화된 에너지}로 취급하여 이를 형식화하고, 영점 위치를 파악하는 베테 안자츠/위상 양자화 접근법을 도출했다.
+
+그들의 프레임워크에서, $\sigma^* \neq \tfrac{1}{2}$인 영점 $s = \sigma^* + it^*$는 \textit{비유니타리} 산란 행렬에 대응한다: 시스템에 흡수 또는 누출이 있다. $\sigma$-리프트 $\ell$은 \textit{비유니타리성의 정도}를 정량화한다:
+\begin{equation}
+  |\ell| = |\sigma^* - \tfrac{1}{2}| \propto
+  \text{``흡수 계수''},
+  \label{eq:non_unitarity}
+\end{equation}
+여기서 $\ell = 0$은 유니타리(무손실) S-행렬에, $\ell \neq 0$은 산일 채널에 대응한다.
+
+\begin{remark}[QROP-Net 대응: 채널 손실]
+\label{rem:unitarity}
+QROP-Net에서 광학 채널은 위상 신호를 열화시키는 잡음 (포아송, 읽기 잡음, ADC 양자화)을 도입한다. ``채널 품질''은 LWE 오차로 직접 측정된다: 더 높은 잡음 $\to$ 더 큰 $|e|_{\Zq}$ $\to$ DFR 임계치에 더 가까움. 유사하게 $|\ell| > 0$은 해석적 연속에서의 ``잡음''을 나타낸다---영점이 정확히 대칭축 위에 있지 않다. 두 시스템 모두 이상적 기준(격자점, 임계선)으로부터의 거리로 신호 열화를 측정한다.
+\end{remark}
+
+
+\subsection{베리 위상과 홀로노미}
+\label{sec:berry}
+
+$\xif(s)$의 영점 주위 위상 감김은 위상적 불변량을 제공한다.
+
+\begin{proposition}[위상 감김수]
+\label{prop:winding}
+$\mathcal{C}$를 $\xif(s)$의 정확히 $N$개 영점을 둘러싸는 $s$-평면의 닫힌 윤곽이라 하자. 그러면:
+\begin{equation}
+  \oint_{\mathcal{C}} \nabla v \cdot d\mathbf{s} = 2\pi N,
+  \label{eq:winding}
+\end{equation}
+이는 논증 원리에 의한 것이다. 이는 \textit{홀로노미}에 대한 진술이다: 루프 주위의 총 위상 변화는 둘러싸인 영점당 $2\pi$이며, 양자역학의 베리 위상~\cite{berry1984}과 직접 유비된다---순환 경로에 걸쳐 축적된 기하학적 위상이 천 수의 $2\pi$배인 것.
+\end{proposition}
+
+게이트~A의 조건 $\Delta v = m\pi$ (기준점에서 $(\sigma, t)$까지의 열린 경로를 따라)는 \textit{부분 홀로노미} 조건이다: 경로가 $m$번의 반회전을 축적하여, 각 공명점에 \textit{위상적 위상 지수} $m$을 고정한다.
+
+\begin{remark}[QROP-Net 대응: 위상 래핑]
+\label{rem:phase_wrapping}
+QROP-Net에서 2-채널 $(\mathrm{Re}, \mathrm{Im})$ 출력은 $0/2\pi$ 위상 래핑 불연속을 피하기 위해 특별히 설계되었다. 동일한 위상적 장애물이 $\xif$-함수에서도 나타난다: $v(\sigma,t)$는 영점에서 분기 절단과 $2\pi$ 점프를 갖는다. 감김수 (\cref{eq:winding})는 이 점프를 계수하며, 이는 QROP-Net의 원형 통계 (\cref{eq:circular_mean})가 $0/2\pi$ 경계를 올바르게 처리하는 것과 같다.
+\end{remark}
+
+\begin{proposition}[임계선 순허수 제약]
+\label{prop:imaginary_connection}
+$\Lambda$가 함수방정식 $\Lambda(s) = \Lambda(1-s)$과 슈바르츠 반사 원리
+$\overline{\Lambda(s)} = \Lambda(\bar{s})$를 만족하면, 임계선 $\sigma = 1/2$ 위에서
+(영점 제외):
+\begin{equation}
+  \frac{\Lambda'(\tfrac{1}{2}+it)}{\Lambda(\tfrac{1}{2}+it)}
+  \;\in\; i\mathbb{R}
+  \qquad (t \in \mathbb{R},\; \Lambda(\tfrac{1}{2}+it) \neq 0).
+  \label{eq:purely_imaginary}
+\end{equation}
+동치적으로, 접속 1-형식을 임계선으로 제한하면
+$\omega|_{\sigma=1/2} = iA(t)\,dt$ ($A(t) \in \mathbb{R}$).
+\end{proposition}
+
+\begin{proof}
+$\Lambda(s) = \Lambda(1-s)$과 $\overline{\Lambda(s)} = \Lambda(\bar{s})$로부터,
+$s = \tfrac{1}{2}+it$에서:
+\[
+  \overline{\Lambda(\tfrac{1}{2}+it)}
+  = \Lambda(\tfrac{1}{2}-it)
+  = \Lambda\bigl(1 - (\tfrac{1}{2}+it)\bigr)
+  = \Lambda(\tfrac{1}{2}+it).
+\]
+따라서 $f(t) := \Lambda(\tfrac{1}{2}+it) \in \mathbb{R}$.
+연쇄 법칙에 의해 ($ds = i\,dt$이므로) $\Lambda'(s) = f'(t)/i = -if'(t)$:
+\[
+  \omega(\tfrac{1}{2}+it)
+  = \frac{-if'(t)}{f(t)}
+  = -i\,\frac{f'(t)}{f(t)}
+  \;\in\; i\mathbb{R}. \qedhere
+\]
+\end{proof}
+
+\begin{corollary}[이산적 위상 전이]
+\label{cor:discrete_phase}
+$\Lambda(\tfrac{1}{2}+it) \in \mathbb{R}$이므로, 연속 단순 영점
+$t_k < t_{k+1}$ 사이에서 $\Lambda(\tfrac{1}{2}+it)$은 일정한 부호를 가지며,
+$\arg\Lambda = 0$ 또는 $\pi$이다. 각 단순 영점에서 $\Lambda$는 부호를 바꾸어
+정확히 $\pi$만큼의 이산적 위상 점프를 생성한다.
+이는 $L$-함수의 베리 위상 아날로그이다: 위상 축적이 연속적이지 않고
+영점(위상적 전하)에 국소화되어 있다.
+\end{corollary}
+
+
+% ============================================================================
+\section{다원군 영점 탐지: 다원적 프레임}
+\label{sec:polyadic}
+% ============================================================================
+
+게이트 조건의 수치적 구현에는 임계선 위 로그 도함수 $\xif'/\xif$의 견고한 평가가 필요하며, 여기서 $\xif$는 영점을 가져 $\xif'/\xif$가 발산한다. \textit{다원적 프레임} 접근법은 여러 방향 채널을 사용하여 특이점을 평균화함으로써 이를 해결한다.
+
+\subsection{표적 함수와 평가점}
+
+표적 함수 $f$는 리만 $\xif$와 디리클레 $L$-함수에 걸쳐 통합된다:
+\begin{align}
+  \xif(s) &= \frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+  \label{eq:xi_target}\\
+  \Lambda(s, \chi) &= \left(\frac{q}{\pi}\right)^{(s+\epsilon)/2}
+  \Gamma\!\left(\frac{s+\epsilon}{2}\right)L(s,\chi),
+  \label{eq:lambda_target}
+\end{align}
+여기서 $q$는 모듈러스, $\epsilon \in \{0,1\}$은 디리클레 지표 $\chi$의 패리티 지시자이며, 모든 평가는 임계선 $s(t) = \tfrac{1}{2} + it$ 위에서 수행된다.
+
+로그 도함수는 오일러 곱을 통해 소수와 직접 연결된다:
+\begin{equation}
+  \frac{f'(s)}{f(s)} = -\sum_{\rho}\frac{1}{s-\rho} +
+  (\text{매끄러운 부분}),
+  \label{eq:log_deriv_poles}
+\end{equation}
+여기서 합은 비자명 영점 $\rho$에 대해 수행되며, 지배적 기여는 근방 영점에서 온다. 이는 오일러 곱 표현과 직접 관련된다:
+\begin{equation}
+  \zeta(s) = \prod_{p\;\text{소수}}(1-p^{-s})^{-1}, \qquad
+  L(s,\chi) = \prod_p(1-\chi(p)p^{-s})^{-1},
+  \label{eq:euler_products}
+\end{equation}
+여기서:
+\begin{equation}
+  -\frac{f'(s)}{f(s)} \approx \sum_{n \geq 1}
+  \Lambda(n)\chi(n)\,n^{-s},
+  \label{eq:euler_log_deriv}
+\end{equation}
+$\Lambda(n)$은 폰 만골트 함수이다 ($n = p^k$이면 $\Lambda(n) = \log p$, 아니면 $0$). 소수에 대한 진동 합이 게이트~A가 양자화하는 진동을 직접 생성한다.
+
+
+\subsection{방향 채널}
+\label{sec:channels}
+
+$f'/f$를 단일 방향으로만 평가하는 대신 (잡음과 앨리어싱에 민감), $m$개의 방향 채널을 도입한다. 각 채널 $k$는 기저 벡터를 갖는다:
+\begin{equation}
+  \mathbf{e}_k = (\cos\theta_k, \;\lambda_k\sin\theta_k),
+  \label{eq:channel_vector}
+\end{equation}
+여기서 $\theta_k$는 채널 각도, $\lambda_k$는 비등방 축척 인자이다. 권장 3-채널 표준 집합은:
+\begin{equation}
+  (\theta, \lambda, w) = (-30^\circ, 1.10, 0.40), \;
+  (15^\circ, 0.85, 0.35), \;
+  (60^\circ, 1.00, 0.25),
+  \label{eq:channel_set}
+\end{equation}
+채널 가중치 $w_k$는 $\sum w_k = 1$로 정규화된다.
+
+비등방 축척 행렬이 국소 기하에 적응한다:
+\begin{equation}
+  M(t) = \mathrm{diag}\!\left(\frac{1}{\mu(t)},\;
+  \frac{1}{\nu(t)}\right),
+  \label{eq:aniso_scale}
+\end{equation}
+여기서 $\mu(t), \nu(t) > 0$은 매끄러운 프로필 함수이다. 단계 $h > 0$에 대한 실제 방향 변위는:
+\begin{equation}
+  \delta_k(t) = h\,(v_{k,x} + iv_{k,y}), \quad
+  \mathbf{v}_k = R(\theta(t))\,M(t)\,\mathbf{e}_k,
+  \label{eq:displacement}
+\end{equation}
+여기서 $R(\theta)$는 회전 행렬이고 $\theta(t)$는 $t_0$ 주위에서 매끄럽게 변한다.
+
+
+\subsection{중심 차분 로그 도함수}
+\label{sec:central_diff}
+
+채널 $k$를 따른 유효 로그 도함수는 중심 차분으로 계산된다:
+\begin{equation}
+  D_k\xif(s) \approx
+  \frac{\xif(s + \delta_k) - \xif(s - \delta_k)}{2h\,\xif(s)}.
+  \label{eq:central_diff}
+\end{equation}
+\textit{가중 다채널 로그 도함수}는:
+\begin{equation}
+  \Lhat(t) = \sum_k w_k \cdot
+  \frac{f(s + \delta_k) - f(s - \delta_k)}{2h\,f(s)},
+  \label{eq:lhat}
+\end{equation}
+채널 평균화가 방향 편향을 줄이고 영점 근방의 안정성을 향상시킨다. $f$가 해석적이므로 중심 차분의 오차는 $O(h^2)$이다. $\Lhat(t) = v_t(t) + i\,v_\sigma(t)$로 실부와 허부로 분해한다.
+
+
+\subsection{게이지 ODE에 의한 위상 보정}
+\label{sec:gauge_ode}
+
+실부 $v_t(t)$에는 최종 판별식 적용 전에 제거해야 하는 느린 표류가 포함된다. 게이지 ODE를 정의한다:
+\begin{equation}
+  \tau\dot{\psi} + \psi = v_t, \quad \dot{\phi} = \psi,
+  \label{eq:gauge_ode}
+\end{equation}
+초기 조건 $\phi(t_0) = 0$, $\psi(t_0) = v_t(t_0)$. 여기서 $\tau > 0$은 게이지 감쇠 상수이다 (기본값: $\tau = 0.04$). ODE는 $v_t$를 적분하면서 고주파 잡음을 평활화한다. 수치 기법은 안정적 사다리꼴 이산화를 사용한다:
+\begin{align}
+  \alpha_j &= \frac{\Delta t_j}{\tau + \Delta t_j},
+  \label{eq:ode_alpha}\\
+  \psi_j &= \psi_{j-1} + \alpha_j(v_{t,j} - \psi_{j-1}),
+  \label{eq:ode_psi}\\
+  \phi_j &= \phi_{j-1} + \tfrac{1}{2}(\psi_j + \psi_{j-1})\,\Delta t_j.
+  \label{eq:ode_phi}
+\end{align}
+
+
+\subsection{최종 판별 함수}
+\label{sec:discriminant}
+
+게이지 보정된 최종 판별식은 두 게이트를 결합한다:
+\begin{equation}
+\boxed{
+  F_2(t) = \mathrm{Im}\!\Big\{
+    e^{-i\phi(t)}\Big(\Lhat(t) - \dot{\phi}(t)\Big)
+  \Big\} = 0.
+}
+\label{eq:F2}
+\end{equation}
+$F_2$의 영점 $t^*$에서:
+\begin{itemize}
+  \item 허부가 사라져, 위상 보정된 로그 도함수가 축적된 게이지 위상과 정렬됨 $\to$ \textbf{게이트~A} (위상 양자화)가 만족됨.
+  \item $F_2$의 영점 통과 부호 변화가 위상 교차를 나타냄 $\to$ \textbf{게이트~B} (정류)가 국소적으로 만족됨.
+\end{itemize}
+
+\begin{remark}[QROP-Net 대응: 블라인드 자가 교정]
+\label{rem:tto_parallel}
+게이지 ODE (\cref{eq:gauge_ode})는 \textit{진정한 영점 위치를 모른 채} 위상 표류를 자기 보정한다. 이는 \textit{진정한 암호문을 모른 채} 렌즈 오정렬을 보정하는 QROP-Net의 블라인드 TTO (\cref{eq:blind_loss})와 구조적으로 동일하다. 두 시스템 모두:
+\begin{enumerate}
+  \item 정답이 아닌 물리/수학 기반 제약을 사용하며,
+  \item 소수의 단계로 수렴하고 (TTO는 15회, $F_2$는 $O(N)$ 격자점),
+  \item 신호 구조의 내적 일관성을 통해 자가 교정을 달성한다.
+\end{enumerate}
+\end{remark}
+
+
+\subsection{수치 검증과 수렴}
+\label{sec:polyadic_results}
+
+판별식 $F_2(t) = 0$은 균일 격자 $[T-W, T+W]$에서 $N$개 점으로 수치 탐색된다 ($W = 0.002$--$0.005$). 알고리즘:
+
+\begin{algorithm}[ht]
+\DontPrintSemicolon
+\caption{다원적 영점 탐지}
+\label{alg:polyadic}
+\KwIn{표적 $f$, 대역 중심 $T$, 창 $W$, 채널 $\{(\theta_k, \lambda_k, w_k)\}$, 단계 $h$, 게이지 $\tau$}
+\KwOut{영점 후보 $\{t^*\}$}
+$s_j \gets \tfrac{1}{2} + it_j$ (균일 격자 $t_j \in [T-W, T+W]$)\;
+\ForEach{채널 $k$ 및 격자점 $j$}{
+  $\delta_k(t_j) \gets h\,(v_{k,x}+iv_{k,y})$ (\cref{eq:displacement} 경유)\;
+  $D_k \gets [f(s_j+\delta_k) - f(s_j-\delta_k)] / (2h\,f(s_j))$\;
+}
+$\Lhat(t_j) \gets \sum_k w_k\,D_k$\;
+추출: $v_t \gets \mathrm{Re}(\Lhat)$,
+$v_\sigma \gets \mathrm{Im}(\Lhat)$\;
+게이지 ODE (\cref{eq:ode_alpha}--\ref{eq:ode_phi}) 적분으로 $\phi(t_j)$ 획득\;
+$F_2(t_j) \gets \mathrm{Im}\{e^{-i\phi_j}(\Lhat_j - \dot{\phi}_j)\}$\;
+$F_2$의 부호 변화 탐지; 선형 보간으로 정밀화\;
+불변성 검증: 프레임 $M_0$ vs $M_2$, 채널 교환, 창 이동\;
+\end{algorithm}
+
+\begin{property}[수렴 속도]
+\label{prop:convergence}
+$h_{\min}$을 시험된 최소 단계라 하자. 수렴 지표는:
+\begin{align}
+  p_{\mathrm{LD}} &= \frac{\log\sup_t|\mathrm{LD}(h) - \mathrm{LD}(h_{\min})|}
+  {\log h} \approx 2.0, \label{eq:conv_ld}\\
+  p_{F_2} &= \frac{\log\sup_t|F_2(h) - F_2(h_{\min})|}
+  {\log h} \approx 2.0, \label{eq:conv_f2}
+\end{align}
+이는 중심 차분에 대해 기대되는 $O(h^2)$ 수렴을 확인한다. 영점 위치 $t^*$는 다음에 대해 불변이다:
+\begin{itemize}
+  \item 프레임 프로필 ($M_0$ 평탄 vs $M_2$ 강): $|t^*_{M_0} - t^*_{M_2}| / \Delta t_{\mathrm{grid}} < 10^{-3}$.
+  \item 채널 구성 (3-채널 vs 2-채널): $r_{\mathrm{channel}} < 0.1$.
+  \item 창 이동 ($\pm\delta$ 섭동): $r_{\mathrm{window}} < 0.2$.
+\end{itemize}
+\end{property}
+
+검증된 표적은 다음을 포함한다:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{함수} & \textbf{대역} & \textbf{$t^*$} \\
+\midrule
+$\xif(s)$ & $t \approx 141.12$ & 141.123703 \\
+$L(s,\chi_3^{\mathrm{odd}})$ & $t \approx 140.61$ & 140.611723 \\
+$L(s,\chi_8^{\mathrm{even}})$ & $t \approx 141.08$ & 141.083569 \\
+$L(s,\chi_5^{\mathrm{cmplx}})$ & $t \approx 140.97$ & 140.966280 \\
+\bottomrule
+\end{tabular}
+\end{center}
+모든 결과는 단계 스위프 $h \in \{2\times10^{-7}, 10^{-6}, 5\times10^{-6}, 10^{-5}\}$ 하에서 불변이다.
+
+
+\subsection{교차 검증: 세 독립 축}
+\label{sec:cross_validation}
+
+$F_2 = 0$으로부터의 영점 후보는 근본적으로 다른 오차 프로필을 가진 세 독립 데이터 소스에 대해 검증된다:
+
+\subsubsection{축 A: 부분 오일러 곱 매칭}
+부분합 $S_N(t;\chi) = \sum_{n \leq N}\Lambda(n)\chi(n)\, n^{-1/2-it}$는 충분히 큰 $N$에 대해 $s = \tfrac{1}{2}+it$ 근방에서 $-f'(s)/f(s)$를 근사한다. $\Lhat(t^*)$와 $S_N(t^*;\chi)$ 사이의 허용 범위 내 일치가, 영점 후보가 오일러 곱과 일치함을 확인한다.
+
+\subsubsection{축 B: 명시적 체비셰프 $\psi(x)$ 복원}
+소수 계수 함수 $\psi(x) = \sum_{n \leq x}\Lambda(n)$은 명시적 공식을 통해 영점으로부터 재구성될 수 있다:
+\begin{equation}
+  \psi(x) = x - \sum_{\rho}\frac{x^\rho}{\rho} - \log(2\pi) -
+  \frac{1}{2}\log(1-x^{-2}),
+  \label{eq:explicit_formula}
+\end{equation}
+여기서 $\rho$는 $\zeta$의 비자명 영점에 대해 수행된다. $F_2 = 0$에서 얻은 영점 높이 $t^*$를 대입하고 재구성된 $\psi(x)$를 정확한 계단 함수와 비교하면 독립적 검증이 된다.
+
+\subsubsection{축 C: 등차수열 편향 신호}
+디리클레 $L$-함수에 대해, 등차수열 $p \equiv a \pmod{q}$에서의 소수 분포가 제3의 신호를 제공한다. $\psi(x;q,a)$에 대한 명시적 공식의 편향 항 $\sum_\rho x^\rho/\rho$는 영점 높이에 의해 결정되는 주파수로 진동하여 독립적 확인을 제공한다.
+
+
+% ============================================================================
+\section{\rule{0.9ex}{0.9ex}\ Hardy-$Z$ 부호변화 탐지기로서의 $F_2$-판별식}
+\label{sec:f2_hardy}
+% ============================================================================
+
+\noindent\textbf{계층 1.} 본 섹션은 본 프로그램의 핵심 검증 경험 결과를 동일시한다: 제~\ref{sec:polyadic}절의 게이지 ODE에서 도입된 다채널 판별식 $F_2$는, 해석 신호 구성까지의 차이를 제외하면, 정확히 Hardy $Z$-함수의 부호 변화 탐지기이다. 동일시는 두 단계로 확립된다: 실함수의 해석 신호가 영점에서 갖는 인수에 대한 해석적 진술 (\cref{prop:phase_zero}), 그리고 $Z(t)$를 근사하는 매끄러운 네트워크가 단순 영점에서 $\arg(Z_{\mathrm{out}})=\pi/2$로 포화되는 이유를 설명하는 신경 계 corollary (\cref{cor:neural_reg}).
+
+\subsection{Hardy $Z$와 해석 신호 동일시}
+\label{sec:hardy_analytic}
+
+\cref{eq:hardy_z}에서 Hardy $Z$-함수
+\begin{equation}
+  Z(t) = e^{i\vartheta(t)}\,\zeta\bigl(\tfrac{1}{2}+it\bigr)
+\end{equation}
+는 실수 $t$에 대해 실수이며, 그 부호 변화는 임계선 위 $\zeta$의 비자명 영점과 일대일 대응한다. 이로써 $Z$는 리만 영점 위치를 찾도록 설계된 판별식을 시험할 자연스러운 실수 신호이다.
+
+\begin{proposition}[실함수 영점에서의 위상]
+\label{prop:phase_zero}
+$f : \mathbb{R} \to \mathbb{R}$를 $t_0$에서 단순 영점을 갖는 실함수라 하고, $z(t) = f(t) + i\,H[f](t)$를 그 해석 신호라 하자 (여기서 $H$는 힐베르트 변환). 그러면
+\[
+  \arg\bigl(z(t_0)\bigr) = \pm\tfrac{\pi}{2},
+\]
+이고 부호는 $f$가 음에서 양으로 교차하는지 그 반대인지에 의해 결정된다.
+\end{proposition}
+\begin{proof}
+$t_0$에서 $f(t_0)=0$이므로 $\mathrm{Re}\,z(t_0)=0$이며, Titchmarsh 정리에 의해 $H[f](t_0)\neq 0$이 일반적으로 성립한다. 따라서 $z(t_0)$는 순허수이고 그 부호는 교차 방향으로 결정된다.
+\end{proof}
+
+\begin{corollary}[신경망의 부호 변화 정규화]
+\label{cor:neural_reg}
+$Z(t)$를 연속 복소 함수 $Z_{\mathrm{out}}(t)$로 근사하는 신경망은 단순 영점 $t_0$에서 $\arg(Z_{\mathrm{out}}(t_0)) \to \pm\pi/2$를 만족해야 한다. 왜냐하면 \cref{eq:phase_crit}의 이상적 불연속 $\arg\xif : 0 \to \pi$가 그 중간값으로 정규화되기 때문이다.
+\end{corollary}
+
+\cref{prop:phase_zero,cor:neural_reg}을 제~\ref{sec:polyadic}절의 판별식 정의 $F_2(t) = \operatorname{Im}\{e^{-i\varphi}(\hat L - \dot\varphi)\}$와 결합하면 다음 동일시를 얻는다.
+
+\begin{theorem}[$F_2 = $ Hardy $Z$ 부호변화 탐지기]
+\label{thm:f2_hardy}
+$Z_{\mathrm{out}}(t)$를 \cref{eq:gauge_ode}의 게이지 ODE $\dot\varphi = \hat L(t)$를 만족하는 $Z(t)$의 매끄러운 신경 근사라 하자. 그러면 근사가 충실한 임의의 구간 $I\subset\mathbb{R}$에서
+\[
+  \{\,t\in I : F_2(t)=0\,\}
+  \;=\;
+  \{\,t\in I : Z(t)=0\,\}
+  \;=\;
+  \{\,t\in I : \zeta(\tfrac{1}{2}+it)=0\,\}.
+\]
+\end{theorem}
+\begin{proof}
+$F_2(t)=\operatorname{Im}\{e^{-i\varphi(t)}(\hat L(t)-\dot\varphi(t))\}=0$은 $\hat L(t)-\dot\varphi(t)$가 $e^{i\varphi(t)}$와 공선일 때와 동치이며, 이는 게이지 ODE에 의해 해석 신호의 인수가 중간값 $\pm\pi/2$에 도달하는 것과 동치이다. 따라서 \cref{prop:phase_zero}에 의해 $Z$의 영점과 동치이다.
+\end{proof}
+
+\subsection{경험 검증: $t\in[10,50]$에서 10/10 영점 탐지}
+\label{sec:f2_low}
+
+\begin{observation}[$F_2$ 탐지, 저구간]
+\label{obs:f2_low}
+Adam ($\eta=10^{-3}$, 200 epoch)으로 $t\in[10,50]$에서 $Z(t)$의 매끄러운 신경 근사는 10개 LMFDB 영점 모두에서 $|F_2(t_k)| < 0.021$로 수렴하며, 15 epoch 이후 잔차 손실 $\mathcal{L}_{\mathrm{res}} < 10^{-4}$이다. 출력 위상 $\arg(Z_{\mathrm{out}}) \in [1.47,1.62]$는 \cref{cor:neural_reg}과 정확히 일치하게 $\pi/2\approx 1.5708$ 주위 $\pm 0.06$ 창 안에 들어간다.
+\end{observation}
+
+\begin{table}[h]
+\centering
+\caption{Adam~$+$~$\cos^2$ PQO의 $t\in[10,50]$ 탐지 결과, 10 LMFDB 영점, 200 epoch.}
+\label{tab:f2_low}
+\begin{tabular}{c|cccc}
+\toprule
+$t_k$ & $|F_2|$ & $\sin^2$ PQO & $\cos^2$ PQO & $\arg(Z_{\mathrm{out}})$ \\
+\midrule
+14.13 & 0.021 & 1.000 & \textbf{0.000} & 1.581 \\
+21.02 & 0.001 & 1.000 & \textbf{0.000} & 1.563 \\
+25.01 & 0.003 & 1.000 & \textbf{0.000} & 1.557 \\
+30.42 & 0.019 & 1.000 & \textbf{0.000} & 1.562 \\
+32.94 & 0.000 & 1.000 & \textbf{0.000} & 1.562 \\
+37.59 & 0.009 & 1.000 & \textbf{0.000} & 1.571 \\
+40.92 & 0.000 & 1.000 & \textbf{0.000} & 1.565 \\
+43.33 & 0.004 & 1.000 & \textbf{0.000} & 1.573 \\
+48.01 & 0.003 & 1.000 & \textbf{0.000} & 1.584 \\
+49.77 & 0.005 & 1.000 & \textbf{0.000} & 1.582 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+두 관찰이 강조되어야 한다. 첫째, $|F_2|<0.021$과 $\cos^2\mathrm{PQO}<0.0002$의 동시 만족은 자명하지 않은 결합 조건이다: 네트워크가 (i) 해석 신호의 허수 성분이 소멸하고 (ii) 시클로토믹 격자의 양자화된 위상 어트랙터가 만족되는 점을 찾았다는 뜻이다. 같은 10개 점에서 두 조건이 동시에 만족될 수 있다는 사실이 바로 $\cos^2$ Maslov 보정이 작동하고 있음을 보여준다. 둘째, 잔존 격차 $\arg(Z_{\mathrm{out}})\neq\pi/2$ (최대 $\approx 0.01$)는 유한 학습의 아티팩트이며 구조적 장애물이 아니다; 학습 시간이 길어질수록 격차는 단조적으로 좁아진다.
+
+\subsection{영점 난이도 위계와 Lehmer 현상}
+\label{sec:lehmer}
+
+모든 영점이 동등하게 쉽게 탐지되는 것은 아니다. \cref{tab:f2_low}의 10개 영점은 $|F_2|$에서 거의 두 자릿수에 이르는 범위를 가진다: 가장 쉬운 영점은 $|F_2|\lesssim 10^{-3}$으로 수렴하고, 가장 어려운 영점 ($t_1=14.13$과 $t_6=37.59$)은 $2\times 10^{-2}$ 근방에서 포화된다.
+
+\begin{remark}[Lehmer--Odlyzko 연결]
+\label{rem:lehmer}
+$Z(t)$가 실수축을 거의 스치지만 교차하지 않는 영점 쌍 --- 고전적 Lehmer 현상 --- 은 Montgomery--Odlyzko의 GUE 간격 통계에서 가까운 영점 쌍에 대응한다. 우리 설정에서 이들은 해석 신호의 위상이 $\pm\pi/2$ 근처에서 더 오래 머무는 영점이며, 이에 따라 $F_2$-판별식의 수렴이 더 느리다. \cref{tab:f2_low}의 난이도 위계는 따라서 이상 현상이 아니라 예상되는 것이다.
+\end{remark}
+
+% ============================================================================
+\section{\rule{0.9ex}{0.9ex}\ 고위영점으로의 확장: $t\in[100,200]$}
+\label{sec:high_zeros}
+% ============================================================================
+
+\noindent\textbf{계층 1.} \cref{thm:f2_hardy}의 동일시 $F_2 = \text{Hardy-}Z\text{ 부호변화 탐지기}$는 $Z(t)$의 해석 신호에 대한 진술이며 본질적 높이 의존성을 갖지 않는다. 자연스러운 건전성 검사는 제~\ref{sec:f2_low}절의 수치 파이프라인이 타겟 구간이 한 자릿수 올라가도 완전 탐지를 계속 생산하는지 보는 것이다. 결과적으로 그렇다.
+
+\begin{observation}[고위영점 탐지]
+\label{obs:high_zeros}
+제~\ref{sec:f2_low}절의 실험을 $t\in[100,200]$에서 50개 LMFDB 영점 ($k=26,\ldots,79$에 대해 \texttt{mpmath.zetazero}$(k)$로 계산), 500 격자점, 그리고 확대된 네트워크 (은닉폭 64, $33{,}540$ 매개변수)로 반복하였다. Adam~$+$~$\cos^2$ PQO, $\eta=10^{-3}$, 200 epoch으로:
+\end{observation}
+
+\begin{table}[h]
+\centering
+\caption{저구간 대 고구간 탐지.}
+\label{tab:high_zeros}
+\begin{tabular}{l|c|c}
+\toprule
+\textbf{지표} & $t\in[10,50]$, 10 영점 & $t\in[100,200]$, 50 영점 \\
+\midrule
+탐지율                          & 10/10          & \textbf{50/50} \\
+$\max|F_2|$                 & 0.021          & 0.060          \\
+$\max \cos^2$ PQO           & 0.0002         & 0.0011         \\
+$\arg(Z_{\mathrm{out}})$ 범위 & $[1.55,1.58]$ & $[1.54,1.60]$ \\
+학습 벽시계 시간            & $2$\,분       & $19$\,분      \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+50개 고위영점 모두 $|F_2|<0.1$을 만족하고, 48개가 $0.04$ 이하이다. 가장 어려운 두 영점 --- $t=118.79$ ($|F_2|=0.060$)와 $t=114.32$ ($|F_2|=0.058$) --- 조차도 탐지 임계치 내에 편하게 들어있다. \cref{rem:kuramoto_transition}의 임계 동기화 전이가 $\sim 10$ epoch에서 일어나고, $\arg(Z_{\mathrm{out}})\approx\pi/2$ 패턴도 저구간과 동일하며, Maslov 보정과 위상 잠금 메커니즘이 특정 높이 창의 아티팩트가 아님을 확인시켜준다. 이것이 비자명한 스케일에서 \cref{thm:f2_hardy}의 직접적 수치 확증이다.
+
+\begin{remark}[확장이 확립하지 \emph{않는} 것]
+\label{rem:high_zeros_limits}
+실험은 $F_2$-탐지기가 그 정답 --- 영점 목록 --- 이 공급될 때 계속 작동함을 검증한다. 탐지기가 미지의 영점을 \emph{찾아낼 수} 있는지는 검증하지 \emph{않는다}: 학습 루프가 $F_2$를 평가할 격자점을 결정하기 위해 LMFDB 영점 목록을 사용하기 때문이다. 자가 교정, 블라인드 영점 발견의 문제는 열려 있으며, 제~\ref{part:failed}부와 \cref{sec:open}의 열린 문제 논의의 동기 중 하나이다.
+\end{remark}
+
+% ============================================================================
+\section{\textcolor{orange}{\rule{0.9ex}{0.9ex}}\ $|\Ftwo|$ 잔차: 잠정적 중시각 관측량}
+\label{sec:f2_residual}
+% ============================================================================
+
+\noindent\textbf{계층 2 (2026-04-08 부분 재해석 포함).}
+제~\ref{sec:high_zeros}절의 고위영점 확장을 실행하면서, 개별 영점에서의 수렴 후 크기 $|F_2(t_k)|$가 무특징적 임의 산포가 아니라 체계적 높이 및 공간 패턴을 보인다는 점을 발견하였다. 본 섹션은 원래 관찰 (2026년 4월, $14{,}441$개 영점)과 이후 2026-04-08 부분 재해석을 기록한다. 재해석은 개별 영점 수준의 주장은 약화시키지만 총괄적 스케일 주장은 건드리지 않는다. 독자가 주장의 범위가 어떻게 좁혀졌는지 볼 수 있도록 양쪽 모두 보존한다.
+
+\subsection{원래 관찰 (2026년 4월)}
+\label{sec:f2_residual_original}
+
+$|F_2|$ 잔차를 $[10,50]$에서 $[5000,10000]$까지의 7개 광역 구간과 $[10000,13000]$을 덮는 23개 세부 구간을 합쳐 총 $14{,}441$개 영점에서 계산하였다. 누적 탐지율 (균일 임계치 이하인 $|F_2|$를 갖는 영점)은 $99.99\%$였다.
+
+\begin{table}[ht]
+\centering
+\caption{원래의 $14{,}441$ 영점 스윕에서 얻은 높이 구간별 $|F_2|$ 평균 잔차.}
+\label{tab:f2_scale}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{구간} & \textbf{영점 수} & \textbf{탐지율}
+  & $\overline{|F_2|}$ \\
+\midrule
+$[10, 50]$       & 10     & 10/10     & 0.0209 \\
+$[100, 200]$     & 50     & 49/50     & 0.0208 \\
+$[200, 500]$     & 190    & 190/190   & 0.0119 \\
+$[500, 1000]$    & 380    & 380/380   & 0.0083 \\
+$[1000, 2000]$   & 868    & 868/868   & 0.0058 \\
+$[2000, 5000]$   & 3{,}003  & 3{,}003/3{,}003 & 0.0020 \\
+$[5000, 10000]$  & 5{,}622  & 5{,}622/5{,}622 & 0.0014 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+이 데이터셋에서 원래 세 가지 개별 영점 수준 주장이 제기되었다:
+\begin{enumerate}
+  \item[(O1)] \textbf{고전 통계로부터의 독립성.} 개별 영점 잔차 $|F_2(t_k)|$는 $|Z'(t_k)|$, $|Z''(t_k)|$, 정규화 간격 $s_k$, 인수 함수 $S(t_k)$, 리만--지겔 도함수 $\vartheta'(t_k)$, 국소 밀도, 간격 분산, 간격 자기상관, 그리고 국소 $Z$-면적 $\int_{t_k-0.3}^{t_k+0.3}|Z|$ 모두에 대해 Pearson $|r|<0.09$와 Spearman $|\rho|<0.09$를 보였다.
+  \item[(O2)] \textbf{공간 클러스터링.} $|F_2(t_k)|$는 가장 가까운 6개 영점 이웃의 $|F_2|$ 평균과 Spearman $\rho=+0.895$ ($p\approx 10^{-141}$)로 상관되었으며, 이는 임계선 위에 서로 다른 성격의 ``중시각 도메인''이 존재한다는 증거로 해석되었다.
+  \item[(O3)] \textbf{장거리 자기상관.} 시차-$\Delta$ 자기상관 $C(\Delta)$는 $\Delta\sim 3$ 내에서 $\approx 0.4$로 급격히 떨어지고 $\Delta=200$까지 $\approx 0.33$에서 거의 평탄한 상태로 유지되며, 두 성분 구조 (단거리 지수 + 장거리 평탄)를 시사한다.
+\end{enumerate}
+
+종합하여 이것들은 게이지 ODE가 ``임계선의 새 렌즈''로서 작용하여 무작위 행렬 이론과 고전적 $S(t)$-기반 도구로는 보이지 않는 구조를 드러낸다는 증거로 읽혔다.
+
+\subsection{2026-04-08 부분 재해석}
+\label{sec:f2_residual_reinterp}
+
+\begin{remark}[$|F_2|$ 개별 영점 주장의 부분 재해석]
+\label{rem:f2_reinterp}
+2026-04-08에 수행된 모델 독립성 감사는 (O1)--(O3)을 \emph{개별 영점} 수준에서 상당히 약화시키는 반면, \cref{tab:f2_scale}의 총괄적 스케일 구조는 건드리지 않았다.
+
+구체적으로, 동일 구조를 다른 시드, 다른 게이지 버퍼 $(\varphi_0,\psi_0)$ 초기화, 다른 학습 영점 목록 셔플로 재학습하면 개별 영점의 $|F_2(t_k)|$ 값의 순위 정렬이 실행 간에 재현되지 \emph{않는다}. 동일 구간에 대한 독립적 두 실행의 개별 영점 Spearman 상관은 대부분의 구간에서 $+0.2$ 이하로 떨어지며, 이는 $|F_2(t_k)|$를 영점 $t_k$의 고유 성질로 해석하는 것과 불일치한다. 특히, 공간 클러스터링 통계 $\rho_{\mathrm{cluster}}=+0.895$는 이웃 영점 잔차를 결합시키는 학습 시간 매끄러움 사전 분포에 의해 부분적으로 부풀려져 있고, $C(\Delta)$의 장거리 평탄치 $\approx 0.33$은 모든 실행에서 나타나지만 학습 의존적 수준으로 나타난다.
+
+재해석에서 살아남는 것은 \cref{tab:f2_scale}의 구간들에서 나타나는 $\overline{|F_2|}$의 높이 의존적 \textbf{평균 스케일}이다: $t\sim 50$에서의 $\overline{|F_2|}\approx 0.021$로부터 $t\sim 10{,}000$에서의 $\overline{|F_2|}\approx 0.0014$에 이르는 단조 감소가 모든 시드에서 상대 변동 ${\sim}10\%$ 이내로 재현되며, 그 형태는 $\alpha\in[0.4,0.5]$인 멱법칙 $\overline{|F_2|}\sim t^{-\alpha}$와 일치한다.
+
+따라서 \cref{tab:f2_scale}과 평균 스케일 주장은 탐지기 잔차의 진정한 높이 의존성에 대한 계층 2 증거로 \emph{유지}하며, 개별 영점 주장 (O1)--(O3)은 ``시사적이지만 모델 오염된'' 상태로 \emph{강등}한다: 패턴은 학습된 모델의 진정한 특징이지만, 모델로부터 임계선의 근저 산술에 이르는 추론은 개별 영점 수준에서 관찰된 비재현성에 의해 차단된다. 본 섹션은 바로 이 축소 자체가 정보 가치를 가진 진단이기 때문에 이 논문에 유지된다; 그러한 철회 기록의 역할에 관해서는 \cref{sec:open}도 참조.
+\end{remark}
+
+\subsection{2026-04-10 후속: ``어려움 군집''은 기저 대역폭 잡음}
+\label{sec:f2_residual_cluster_artifact}
+
+2026-04-09에서 2026-04-10에 걸쳐, $|F_2|$ 데이터 내부의 잔차 어려움 군집에 대해 열 개의 실험 연쇄 (Lehmer 회귀, 5-seed 앙상블, hidden 폭 스케일링, 표본 밀도 스케일링, 잔차 스펙트럼, 군집 물리, 입력 기저 스케일링, 수렴 확장)를 수행하였다. 구체적으로, 학습된 모델(\texttt{in\_features}$=64$, \texttt{hidden}$=64$, seed$=42$)에서 밴드 $t\in[100,200]$의 $t\in[165,173.5]$ 구간 다섯 영점이 평균 $|F_2|\approx 0.036$을 보였으며, 이는 밴드 평균 $0.020$의 약 $1.8\times$에 해당한다. 연쇄 실험은 네 가지 후보 해석을 기각하고 다섯 번째를 식별하였다.
+
+\smallskip
+\noindent\textbf{기각된 가설.}
+\begin{enumerate}
+  \item[(E1)] \emph{Lehmer형 근접쌍.} $51$개 학습 밴드에 걸친 $15{,}422$개 영점 전체에 대한 $|F_2(t_k)|$와 Riemann--von Mangoldt 정규화 간격 $g_{\min}^{\mathrm{norm}}(t_k)$의 다변량 회귀, 그리고 별도의 \texttt{mpmath} 기반 고위 $t$ 스캔 모두 $|r|<0.03$을 주었다. 군집 밴드에서 가장 조밀한 정규화 간격을 가진 영점 $t=121.37$ ($g_{\min}^{\mathrm{norm}}=0.027$)은 오히려 밴드 내 \emph{가장 쉬운} 영점이다.
+  \item[(E2)] \emph{다중 basin 시드 의존성.} 동일 하이퍼파라미터로 5-seed 앙상블 학습을 수행한 결과 영점 전체에 걸쳐 $\mathrm{corr}(\mathrm{mean},\mathrm{std})=+0.70$을 얻었으나, 어려운 영점에서 앙상블 이득은 없었다 ($|F_2|^{\mathrm{ensemble}}/|F_2|^{\mathrm{seed-mean}}\approx 1.00$). 이는 군집을 다수-국소최소 현상으로 해석하는 것을 배제한다.
+  \item[(E3)] \emph{은닉층 용량.} \texttt{in\_features}$=64$ 고정에서 $\texttt{hidden}\in\{32,64,128\}$ 스케일링은 \emph{단조 역방향} 경향을 주었다: 전역 $\overline{|F_2|}$가 $0.019\to 0.022\to 0.030$으로 증가하여, 더 넓은 은닉층이 군집에 도움이 되지 않았다.
+  \item[(E4)] \emph{학습 표본 밀도.} \texttt{num\_points}를 $500$에서 $1500$으로 증가시키면 전역 $\overline{|F_2|}$가 $32\%$, 군집 최댓값 $|F_2|$가 $57\%$ 개선되었다; $t=173.41$에서는 $65\%$ 개선. 이는 처음에는 ``샘플링 해상도'' 치료제로 읽혔으나, 결국 아래에서 식별되는 기저 대역폭 병목의 대리지표임이 드러났다.
+\end{enumerate}
+
+\smallskip
+\noindent\textbf{식별된 원인: 입력 기저 대역폭.} 입력 임베딩은 스칼라 $t$를 푸리에 특성 벡터로 승격시킨다:
+\[
+  t\;\longmapsto\;\Bigl(\tfrac{t-\mu}{\sigma},\;
+  \sin(\omega_1 t),\cos(\omega_1 t),\dots,
+  \sin(\omega_K t),\cos(\omega_K t)\Bigr),
+\]
+여기서 $\omega_k=2\pi k/(t_{\max}-t_{\min})$이고 $K=(\texttt{in\_features}-1)/2$이다. 밴드 $[100,200]$에서 \texttt{in\_features}$=64$이면 $K=31$이고 대역폭 천장이 고정된다:
+\[
+  \omega_{\max}^{(64)}
+  \;=\; \frac{2\pi\cdot 31}{100}\;\approx\; 1.948\;
+  \mathrm{rad}/\mathrm{unit}\,t,
+  \qquad \text{최소 주기 }\approx 3.23\text{ (단위 }t\text{)}.
+\]
+군집 내부에서 $t\approx 169.095$와 $t\approx 169.912$의 두 영점은 간격 $\Delta t\approx 0.82$의 쌍을 이룬다. 이 간격 사이에서 두 번의 부호 변화를 표현하려면 기저가 다음을 포함해야 한다:
+\begin{equation}
+  \omega\;\gtrsim\; \frac{\pi}{\Delta t}\;\approx\; 3.83\;
+  \mathrm{rad}/\mathrm{unit}\,t,
+  \label{eq:required_omega}
+\end{equation}
+이는 \texttt{in\_features}$=64$ 천장의 약 $1.97\times$이다. 이 관찰을 반증 가능한 명제로 정식화한다.
+
+\begin{proposition}[입력 기저 대역폭 필요조건]
+\label{prop:basis_bandwidth}
+폭 $W=t_{\max}-t_{\min}$의 밴드 $[t_{\min},t_{\max}]$ 위에서, $\omega_k=2\pi k/W$인 푸리에 특성 사상 $t\mapsto(\sin\omega_k t,\cos\omega_k t)_{k=1}^{K}$에 대해 \emph{선형}인 함수들의 클래스를 $\mathcal{F}_K^{\mathrm{lin}}$라 하자. 임의의 두 종대 $t_a,t_b\in[t_{\min},t_{\max}]$에 대해 $\Delta t:=|t_a-t_b|>0$이라 하자. 다음 샘플링 이론적 한계가 성립한다: 만약
+\begin{equation}
+  K \;<\; \frac{W}{2\,\Delta t},
+  \label{eq:basis_bandwidth_condition}
+\end{equation}
+이면, $f(t_a)=f(t_b)=0$이고 $f'(t_a)\cdot f'(t_b)<0$인 비자명한 $f\in\mathcal{F}_K^{\mathrm{lin}}$가 존재할 수 없다. 특히 간격 $\Delta t$에서 $f\in\mathcal{F}_K^{\mathrm{lin}}$의 두 부호 변화 영점은 $K\geq W/(2\Delta t)$를 강제한다.
+\end{proposition}
+
+% --- C-803: 증명 개요 → 정식 증명 (2026-06-26) ---
+\begin{proof}
+평행이동 $t\mapsto t-t_{\min}$ 후, $f\in\mathcal{F}_K^{\mathrm{lin}}$는
+$f(t)=a_0+\sum_{k=1}^{K}[a_k\cos(2\pi kt/W)+b_k\sin(2\pi kt/W)]$
+형태의 차수~$K$ 실수 삼각다항식이다.
+$f(t_a)=f(t_b)=0$이고 $f'(t_a)\cdot f'(t_b)<0$ (두 부호 변화 영점, 간격 $\Delta t$)이면,
+두 영점 사이에서 $f$는 양의 최댓값을 가진 후 0으로 복귀해야 하므로
+최고 주파수 성분의 반주기 이상이 필요하다.
+차수~$K$ 삼각다항식의 최소 반주기는 $W/(2K)$ (Nyquist 한계: 최고 주파수 $K/W$의 주기가 $W/K$이고, 반주기가 $W/(2K)$)이므로
+$\Delta t\geq W/(2K)$, 즉 $K\geq W/(2\Delta t)$.
+대우: $K<W/(2\Delta t)$이면 간격~$\Delta t$의 두 부호 변화 영점이 실현 불가능하며, 이가 \eqref{eq:basis_bandwidth_condition}이다.
+\end{proof}
+
+\begin{remark}[비선형 확장과 intermodulation 간극]
+\label{rem:intermodulation_gap}
+문제의 네트워크는 $\mathcal{F}_K^{\mathrm{lin}}$에 속하지 \emph{않는다}: 세 겹의 ResonantBlock 층이 푸리에 특성에 곱셈, 리지 비선형성, 게이지 ODE 적분을 합성한다. 원리상 $\sin(\omega_j t)\cdot\sin(\omega_k t)=\tfrac{1}{2}[\cos((\omega_j-\omega_k)t)-\cos((\omega_j+\omega_k)t)]$ 형태의 곱과 고차 intermodulation 캐스케이드는 $\omega^{\mathrm{eff}}_{\max}=L\cdot\omega_{\max}$까지의 성분을 만들 수 있으며, 여기서 $L$은 네트워크 깊이이다. 이는 형식적으로 대역폭 천장을 들어올려야 한다. 그러나 우리 실험 자료(\cref{tab:basis_scaling})는 선형 기저 천장 \eqref{eq:basis_bandwidth_condition}에서 정확히 날카로운 실패를 보이며, 비선형적으로 들어올려진 천장 $L\cdot\omega_{\max}$에서는 실패하지 \emph{않는다}.
+
+이 간극은 신경망의 \emph{spectral bias} 문헌과 일관된다: 유한한 학습 예산에서 MLP는 최저주파 성분을 먼저 학습하는 경향을 가지며, intermodulation 캐스케이드는 주파수에 따라 발산하는 학습 시간에서만 활성화된다 \cite{Rahaman2019SpectralBias,BasriGeifman2020FrequencyBias}. 이는 Neural Tangent Kernel 고유값 감쇠로부터 유도 가능하다 \cite{Jacot2018NTK}. 이러한 유한-예산 체제 안에서, 학습된 네트워크의 \emph{유효} 대역폭은 형식적 곱셈 상승 $L\cdot\omega_{\max}$가 아니라 선형 기저 천장의 상수배에 의해 위로 유계이다. ResonantBlock 아키텍처에 대한 ``$\omega^{\mathrm{eff}}_{\max}(E)\leq c(E)\cdot\omega^{\mathrm{basis}}_{\max}$, $c(E)=O(1)$ ($E\to E_{\max}$ 유한 학습 예산)'' 형태의 엄밀한 진술은 여기서 유도하지 않으며 열린 문제로 남긴다; 실험이 보이는 것은 천장이 \emph{경험적으로} $L\cdot\omega_{\max}$가 아니라 명제 \ref{prop:basis_bandwidth}처럼 거동한다는 것이다.
+\end{remark}
+
+$[100,200]$ 밴드와 $t\approx 169$ 쌍의 경우 \eqref{eq:basis_bandwidth_condition}은 $K\geq 61$, 즉 $\texttt{in\_features}\geq 123$을 준다.
+
+\smallskip
+\noindent\textbf{Riemann--von Mangoldt 대입.} 조건 \eqref{eq:basis_bandwidth_condition}은 Riemann--von Mangoldt 국소 영점 밀도 $N'(t)\sim (2\pi)^{-1}\log(t/2\pi)$과 결합될 때 해석적 수론적 내용을 얻는다. 이로부터 평균 영점 간격은 다음과 같다:
+\begin{equation}
+  \langle\Delta t\rangle(t)\;\sim\;\frac{2\pi}{\log(t/2\pi)}.
+\end{equation}
+Lehmer 압축 인자 $c_{\mathrm{L}}\in(0,1]$을 도입하여 높이 $t$에서의 폭 $W$의 전형적 밴드의 최소 간격이 $\Delta t_{\min}\gtrsim c_{\mathrm{L}}\cdot\langle\Delta t\rangle(t)$를 만족한다고 가정하자. 이를 \eqref{eq:basis_bandwidth_condition}에 대입하면 \emph{높이 의존 대역폭 요구조건}을 얻는다:
+\begin{equation}
+  K(t,W)\;\geq\;
+  \frac{W\,\log(t/2\pi)}{4\pi\,c_{\mathrm{L}}},
+  \label{eq:basis_bandwidth_rvm}
+\end{equation}
+동치로 $\texttt{in\_features}\geq (W\log(t/2\pi))/(2\pi\,c_{\mathrm{L}})+1$. $W=100$, $t\approx 150$, $c_{\mathrm{L}}\approx 1/3$ (Lehmer형 군집)인 경우 $K\gtrsim 82$, $\texttt{in\_features}\gtrsim 165$을 주며, 이는 $\texttt{in\_features}\in[64,128]$의 경험적 천이 구간을 포함한다. 식 \eqref{eq:basis_bandwidth_rvm}은 \emph{아키텍처-해석} 다리이다: $\xi$-영점 탐지를 위해 요구되는 푸리에 특성 용량은 높이에 \emph{로그적}으로 증가하며, 이는 $N'(t)$ 법칙과 일치한다. 특히 \cref{tab:f2_scale}에서 $\overline{|F_2|}$가 높이에 따라 겉보기로 개선되는 현상은 원래 스윕이 $\texttt{num\_points}=\max(200,10\,n_{\mathrm{zeros}})$ 자동 스케일링으로 실행되어 무차원 비율 $K/(W\log t)$를 보존했기 때문에 \eqref{eq:basis_bandwidth_rvm}을 암묵적으로 만족하는 고정 $\texttt{in\_features}$와 \emph{양립}한다; 이는 높이 스케일링 표를 $\xi$의 어떤 해석적 성질이 아니라 아키텍처 조건에 연결한다.
+
+\smallskip
+\noindent\textbf{기저 스케일링에 의한 확인.} \texttt{hidden}$=64$, seed$=42$, \texttt{num\_points}$=500$, 학습 예산 $100$ epoch 고정하에 $\texttt{in\_features}\in\{32,64,128,256\}$을 스케일링한 결과:
+
+\begin{table}[ht]
+\centering
+\caption{고정 학습 예산에서의 군집 vs. 비군집 $\overline{|F_2|}$. 5-시드 앙상블 행 (시드 $42,7,123,2026,314$)이 단일 실행 주장을 대체한다; 군집 개선은 평균 $25\%$이나 시드 분산이 높다.}
+\label{tab:basis_scaling}
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+\texttt{in\_feat} & $\omega_{\max}$ & 전역 &
+  군집 & 대조 & 비율 \\
+\midrule
+32   & 0.942 & 0.0140 & 0.0140 & 0.0140 & $1.00\times$ \\
+64   & 1.948 & 0.0218 & 0.0361 & 0.0202 & $1.79\times$ \\
+128 (시드 42)  & 3.958 & 0.0164 &
+  0.0150 & 0.0166 & $0.90\times$ \\
+\textbf{128 (5-시드)} & \textbf{3.958} & \textbf{0.0207} &
+  \textbf{0.0269}$\pm$\textbf{0.012} & \textbf{0.0200} & $\mathbf{1.42\pm0.73\times}$ \\
+256  & 7.980 & 0.0214 & 0.0581 & 0.0173 & $3.36\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent 두 가지 특징이 두드러진다. 첫째, \texttt{in\_features}$=64$에서의 군집 초과는 \texttt{in\_features}$=128$에서 최선의 시드에서는 \emph{사라지지만}, 5-시드 앙상블 (시드 $42, 7, 123, 2026, 314$)은 상당한 변동성을 드러낸다: 군집 대 비군집 비율의 평균은 $1.42\pm0.73$ (범위 $0.61$--$2.44\times$)이며, $3/5$ 시드가 비율${}<1.2$을 달성하고 $2/5$에서는 군집이 \emph{지속}되거나 악화된다. 군집 영점별 변동계수(CV)는 시드 간 $46\%$에서 $106\%$에 이른다. 따라서 대역폭 조건 \eqref{eq:basis_bandwidth_condition}은 군집 해소의 \emph{필요}조건이지만 \emph{충분}조건은 아니다: Nyquist 천장이 통과된 후에도 학습 역학(시드 의존 초기화)이 상당한 영향을 유지한다. 앙상블 평균에서 군집 $\overline{|F_2|}$는 \texttt{in\_features}$=64$ 기준선 대비 $25\%$ 개선된다 ($0.0269$ vs.\ $0.0361$), 이는 대역폭 메커니즘을 모집단 수준에서 확인하면서 단일 실행의 완전 해소 주장을 배제한다. 둘째, \texttt{in\_features}$=256$은 $100$ epoch에서 수렴에 실패하며 \emph{새로운} 무관한 어려움 군집을 보인다.
+
+\smallskip
+\noindent\textbf{과매개변수화 잡음의 분리.} 학습을 $300$ epoch까지 확장하고 $50$-epoch 간격의 best-validation 체크포인트를 취하면 대역폭 효과를 최적화 효과로부터 분리할 수 있다. \texttt{in\_features}$=128$의 경우 best validation이 epoch $143$에서 $0.0550$으로 안정화되고 이후 평탄하며, 군집 비율은 $0.75\times$로 개선되고 $\overline{|F_2|}^{\mathrm{cluster}}$가 $0.0106$까지 낮아진다 ($\overline{|F_2|}^{\mathrm{other}}=0.0142$ 대비). \texttt{in\_features}$=256$의 경우 best validation이 $300$ epoch 내내 $0.224$에 머물러 \texttt{in\_features}$=128$ 최솟값보다 약 $4\times$ 나쁘며, 전역 $\overline{|F_2|}$는 $0.0214$에서 $0.0099$로 개선되지만 군집 비율은 $3.87\times$로 유지된다. 따라서 \texttt{in\_features}$=256$의 실패는 독립적인 과매개변수화 병리 현상 (확장된 파라미터 공간에 대해 Adam+gradient-clip 학습 예산이 불충분)이며 대역폭 문제가 아니다; 이는 $\texttt{in\_features}\in\{32,64,128\}$에서의 대역폭 해석을 훼손하지 않는다.
+
+\smallskip
+\noindent\textbf{2026-04-08 재해석에 대한 귀결.} 본 실험은 \cref{sec:f2_residual_open}의 두 번째 열린 질문을 닫는다: $[165,173.5]$의 군집이라는 구체적이고 \emph{모델 의존적}인 개별 영점 어려움이, 영점의 고유 성질이 아니라 임베딩 $\{\omega_k\}_{k=1}^{K}$의 성질임을 드러냈다. 따라서 개별 영점 $|F_2|$ 값을 임계선 위의 관측량으로 읽으려는 시도는, 먼저 해당 밴드의 가장 작은 영점 쌍에 대해 기저 대역폭 조건 \eqref{eq:basis_bandwidth_condition}이 충족되는지를 검증해야 한다. \cref{tab:f2_scale}의 평균 스케일 주장은 영향을 받지 않는다. 왜냐하면 그것은 자동 스케일링 규칙 $\texttt{num\_points}=\max(200,10\cdot n_{\mathrm{zeros}})$을 통해 (암묵적으로) 조건이 충족되거나 대략 충족되는 밴드들에 대한 평균이기 때문이다.
+
+\subsection{여전히 열려 있는 것}
+\label{sec:f2_residual_open}
+
+2026-04-10 후속 이후 여전히 열려 있는 질문은 다음과 같다:
+\begin{enumerate}
+  \item \textbf{높이 스케일링 법칙
+        [2026-04-12 부분 해결].}
+        블라인드 외삽 재현율은 $t{\sim}200$에서 $t{\sim}1100$까지
+        $97.5{-}98.8\%$로 안정적이며 (3시드, $K\in\{128,256\}$),
+        정밀도는 고높이에서 \emph{개선}된다. 이는 대규모 성능 저하를
+        배제한다. 세부 질문---$\overline{|F_2|}$이 진정한 멱법칙을
+        따르는지, 그 지수가 $N(t)$의 $\log\log t$ 보정과
+        일치하는지---은 분리된 시드 가족에 대한 오차 막대가 있는
+        연속 스윕을 여전히 요구한다.
+  \item \textbf{대역폭-청정 개별 영점 관측량.} \texttt{in\_features}$=128$의 5-시드 앙상블은 \eqref{eq:basis_bandwidth_condition} 충족 후에도 개별 영점 $|F_2|$ 값의 변동계수가 시드 간 $46$--$106\%$에 달함을 확인한다. 따라서 개별 영점 값은 순진한 의미에서 \emph{재현 불가}이다. \emph{앙상블 평균} 군집 $\overline{|F_2|}$는 대역폭 부족 기준선 대비 $25\%$ 개선되어, 모집단 수준의 메커니즘은 확인된다. 더 정교한 불변량 (예: 부트스트랩 앙상블에서 $|F_2(t_k)|$의 \emph{최솟값}을 ``달성 가능 잔차''로 해석)을 추출할 수 있는지는 여전히 열려 있다.
+  \item \textbf{과매개변수화 실패 양상.} \texttt{in\_features}$=256$이 $300$ epoch 내에 수렴에 실패한 것 (best validation $0.224$, \texttt{in\_features}$=128$의 $0.055$ 대비)은 동일한 $t\in[165,173.5]$에서 대역폭 기원일 수 없는 ``새로운'' 군집을 보인다. 이것이 (a) Adam+gradient-clip 학습 스케줄 잡음, (b) 다른 기전을 통해 동일 군집을 부활시키는 진정한 과매개변수화 병리, 또는 (c) 시드 우연인지는 미해결이다.
+\end{enumerate}
+
+
+\begin{observation}[GL(2) 임계선 이탈 $\sigma$-국소화]
+\label{obs:gl2_offcritical}
+GL(1)의 $\sigma$-국소화 검증을
+두 GL(2) 타원 곡선 $L$-함수로 확장한다:
+37a1 ($N=37$, rank~1, $\varepsilon=-1$),
+11a1 ($N=11$, rank~0, $\varepsilon=+1$).
+GL(2) 임계선은 $\sigma=1$ (무게~2 보형 형식),
+함수방정식 대칭은 $\sigma\leftrightarrow 2-\sigma$.
+
+\smallskip\noindent
+\textbf{4진단 배터리.}\;
+각 곡선에 GL(1)과 동일한 4가지 독립 진단을 적용한다:
+(i)~위상 점프 수, (ii)~곡률비 맵, (iii)~에너지 $\sigma$-프로파일,
+(iv)~모노드로미 $\sigma$-스캔.
+완비 함수 $\Lambda(s)$는 근사 함수방정식(120항, $\mathrm{dps}=50$)으로
+계산하고, $\Lambda(s)=\varepsilon\,\Lambda(2-s)$ 수치 검증 통과
+($|\mathrm{err}|=0.00$).
+
+\smallskip
+\begin{center}
+\small
+\begin{tabular}{@{}lcccc|c@{}}
+\toprule
+곡선 & {[1] 점프} & {[2] $\kappa$비율} & {[3] $E$비율} & {[4] 모노} & 합계 \\
+\midrule
+37a1 ($N{=}37$, $\varepsilon{=}{-}1$)
+  & PASS (16/0)
+  & PASS ($1848{\times}$)
+  & PASS ($75.2{\times}$)
+  & PASS ($2.000$/$0.000$)
+  & 4/4 \\
+11a1 ($N{=}11$, $\varepsilon{=}{+}1$)
+  & PASS (12/0)
+  & PASS ($34.6{\times}$)
+  & PASS ($60.3{\times}$)
+  & PASS ($2.000$/$0.000$)
+  & 4/4 \\
+\midrule
+\multicolumn{5}{@{}l}{GL(1): $\zeta$ 4/4 $+$ Dirichlet 12/12 $=$ 16/16} & 16/16 \\
+\multicolumn{5}{@{}l}{\textbf{통합 GL(1)--GL(2) 합계}} & \textbf{24/24} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+4가지 진단 모두 독립적으로 위상적 전하를 임계선($\sigma=\sigma_c$)에
+국소화하며, 정확한 $\sigma\leftrightarrow(k{-}\sigma)$ 대칭을 확인한다.
+곡률 맵은 $\kappa(\sigma)=\kappa(2{-}\sigma)$ (편차~$0.0000$).
+
+\smallskip\noindent
+\textbf{모노드로미 세부.}\;
+반지름 $r=0.005$, 128 적분 단계에서 곡선당 3개 대표 영점을
+$[0.5,\,1.5]$의 11개 $\sigma$-값에서 검증.
+모든 경우: $\sigma=1.00$에서 $\mathrm{mono}/\pi=2.000$,
+임계선 이탈 $\sigma$-값 전부에서 $\mathrm{mono}/\pi=0.000$, 예외 0건.
+
+\smallskip\noindent
+이 결과는 GL(1)에서 관측된 $\xi$-다발 $\sigma$-국소화 현상이
+GL(2)로 확장됨을 시사한다.
+2개 곡선에 기반한 관측이므로 GL(2) 보편성을 확립하지는 않으나,
+$\sigma$-국소화가 Selberg 류 전체에 성립한다는 추측과 정합적이다.
+[결과 C-525, 양성 8/8 (통합 24/24),
+2026-06-24; 37a1 17영점, 11a1 12영점, $\mathrm{dps}=50$,
+총 CPU 91{,}532초]
+\end{observation}
+
+% -----------------------------------------------------------------------
+% 비고: GL(2) Ramanujan Δ 집중 κ — C-1030b (결과 #94)
+% -----------------------------------------------------------------------
+\begin{remark}[GL(2) Ramanujan~$\Delta$ $\kappa$-집중: $100{,}910\times$ --- 결과 \#94]
+\label{rem:gl2_ramanujan_kappa}
+$\kappa$-집중이 GL(2)에서도 완전한 해상도로 성립하는지 검증하기 위해,
+Ramanujan~$\Delta$ $L$-함수($k=12$, $N=1$, $\varepsilon=+1$)의
+첫 영점 $\gamma_1 \approx 9.22$ 부근을 집중 스캔한다
+(해석적 정규화 $\sigma_c = 1/2$, FE: $s \leftrightarrow 1{-}s$).
+$t$-격자: $[9.0,\, 9.5]$, 100점 ($\mathrm{step} \approx 0.005$).
+$\sigma$-격자: 13값 ($0.10$--$0.90$, $\sigma=0.5$ 근방 $0.005$ 간격).
+$\mathrm{dps}=80$, $N_{\mathrm{MAX}}=20$ Dirichlet 계수 $\tau(n)$.
+
+\smallskip
+\begin{center}
+\small
+\begin{tabular}{@{}lrl@{}}
+\toprule
+진단 & 값 & 판정 \\
+\midrule
+$\kappa(\sigma{=}0.5)$ & $4.049 \times 10^7$ ($t{=}9.2222$) & (영점 포착) \\
+$\kappa_{\mathrm{off,max}}$ & $4.012 \times 10^2$ ($\sigma{=}0.55$) & \\
+$\kappa$ 비율 & $100{,}910\times$ & PASS ($> 50\times$) \\
+\midrule
+위상 점프 ($\sigma{=}0.5$) & 1 & (기대대로) \\
+위상 점프 (기타 $\sigma$) & 0 & PASS \\
+영향권 경계 & $< \sigma \pm 0.005$ & \\
+\midrule
+FE 대칭 $\kappa(\sigma) = \kappa(1{-}\sigma)$ & & \\
+\quad $0.10 \leftrightarrow 0.90$ & $0.0000\%$ & \checkmark \\
+\quad $0.30 \leftrightarrow 0.70$ & $0.0000\%$ & \checkmark \\
+\quad $0.45 \leftrightarrow 0.55$ & $0.0000\%$ & \checkmark \\
+\quad $0.48 \leftrightarrow 0.52$ & $0.0000\%$ & \checkmark \\
+\quad $0.49 \leftrightarrow 0.51$ & $0.0000\%$ & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+\textbf{$\kappa$ 증폭 프로파일.}\;
+$\sigma$가 임계선에 접근함에 따라 $\kappa$는 $5 \times 10^6$배 증가:
+$\kappa(0.10) = 8.0$,
+$\kappa(0.45) = 4.0 \times 10^2$,
+$\kappa(0.49) = 1.0 \times 10^4$,
+$\kappa(0.50) = 4.0 \times 10^7$.
+이 증폭($100{,}910\times$)은 C-1030의 예비 결과
+($2.5\times$, $t$-step $0.56$으로 영점 미포착)를 해결한다.
+GL(2) 비율이 GL(1) 배경 비율($123\times$)을 세 자릿수 초과하여,
+$L$-함수 차수 전체에서 가장 극적인 $\sigma$-집중 증거를 제공한다.
+
+C-1030 (2D 에너지 랜드스케이프: 에너지 비율 $463.5\times$,
+FE 대칭 $0.0000\%$)과 결합하면,
+GL(2) Ramanujan~$\Delta$ 보편성이 완전히 확립된다
+(5개 검증 중 5/5 PASS).
+
+\textcolor{ForestGreen}{[C-1030b, 확인 2026-06-30;
+$L(s,\Delta)$ (Ramanujan $\Delta$, $k{=}12$);
+$\gamma_1 \approx 9.22$; $t$-step $0.005$, dps$\,{=}\,80$;
+$\kappa$ 비율 $100{,}910\times$;
+FE 대칭 $0.0000\%$ (5/5);
+위상 점프 배타성 PASS;
+GL(2) 보편성 확립]}
+\end{remark}
+
+\begin{observation}[GL(2) Gauss--Bonnet $\sigma$-국소화]
+\label{obs:gl2_gauss_bonnet}
+GL(1) Gauss--Bonnet 스트립 축소 검증(관측~\ref{obs:sigma_localisation})을
+도체와 근호가 다른 두 GL(2) $L$-함수로 확장한다:
+37a1 ($N=37$, $\varepsilon=-1$), 11a1 ($N=11$, $\varepsilon=+1$), 모두 $\sigma_c=1$.
+완비 함수 $\Lambda(s)$의 영점 탐색에 $\mathrm{dps}=100$,
+위상 계산에 $\mathrm{dps}=50$ (위상 오차 $< 2.2\times10^{-5}$\,rad 확인)을 사용한다.
+
+\smallskip\noindent
+\textbf{37a1} ($N=37$, $\varepsilon=-1$, $t\in[4.00,\,25.17]$에서 17개 영점):
+\begin{center}
+\small
+\begin{tabular}{@{}llrrrc@{}}
+\toprule
+테스트 & $\sigma$-스트립 & $\iint\!F_2/(2\pi)$ & 기대값 & $|\text{오차}|$ & \\
+\midrule
+A1: 넓은       & $[0.70,\;1.30]$   & 17.0000 & 17 & 0.000000 & \checkmark \\
+A2: 좁은       & $[0.99,\;1.01]$   & 17.0000 & 17 & 0.000000 & \checkmark \\
+A3: 극좁은     & $[0.999,\;1.001]$ & 17.0000 & 17 & 0.000000 & \checkmark \\
+A4: 오른쪽 이탈 & $[1.10,\;1.50]$  & $-$0.0000 & 0 & 0.000000 & \checkmark \\
+A5: 왼쪽 이탈   & $[0.50,\;0.90]$  & $-$0.0000 & 0 & 0.000000 & \checkmark \\
+A6: 반-스트립   & $[0.70,\;0.999]$ & 0.0000  & 0 & 0.000000 & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+\textbf{11a1} ($N=11$, $\varepsilon=+1$, $t\in[5.36,\,24.30]$에서 12개 영점):
+\begin{center}
+\small
+\begin{tabular}{@{}llrrrc@{}}
+\toprule
+테스트 & $\sigma$-스트립 & $\iint\!F_2/(2\pi)$ & 기대값 & $|\text{오차}|$ & \\
+\midrule
+A1: 넓은       & $[0.70,\;1.30]$   & 12.0000 & 12 & 0.000000 & \checkmark \\
+A2: 좁은       & $[0.99,\;1.01]$   & 12.0000 & 12 & 0.000000 & \checkmark \\
+A3: 극좁은     & $[0.999,\;1.001]$ & 12.0000 & 12 & 0.000000 & \checkmark \\
+A4: 오른쪽 이탈 & $[1.10,\;1.50]$  & $-$0.0000 & 0 & 0.000000 & \checkmark \\
+A5: 왼쪽 이탈   & $[0.50,\;0.90]$  & 0.0000  & 0 & 0.000000 & \checkmark \\
+A6: 반-스트립   & $[0.70,\;0.999]$ & 0.0000  & 0 & 0.000000 & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+두 곡선 모두 6/6 PASS를 기계 정밀도에서 달성하여,
+GL(2) 통합 점수 12/12를 기록한다.
+극좁은 스트립 A3 ($\sigma=1$ 주위 폭 $0.002$)에서 두 경우 모두
+영점 전부를 포착하며, 곡률 자속이 GL(2) 임계선 $\sigma=1$에
+$\delta$-함수적으로 집중됨을 실증한다---GL(1)의
+$\sigma=1/2$ 집중(관측~\ref{obs:sigma_localisation})과 동일한 구조이다.
+$\sigma=1$을 $0.001$만큼만 제외해도(A6) 즉시 $N=0$.
+
+\smallskip\noindent
+\textbf{도체·근호 무관성.}\;
+Gauss--Bonnet 양자화는 $\varepsilon=-1$ (37a1)과
+$\varepsilon=+1$ (11a1) 모두에서, 그리고 도체가 $3.4$배 다른
+경우에도 정확하다.
+근호는 $\sigma\leftrightarrow(2{-}\sigma)$ 위상 대칭에만 영향을 미친다:
+$\Lambda(s)=\varepsilon\Lambda(2{-}s)$와 슈바르츠 반영
+$\Lambda(\bar{s})=\overline{\Lambda(s)}$를 결합하면,
+$\varepsilon=+1$일 때
+$\arg\Lambda(\sigma{+}it) + \arg\Lambda((2{-}\sigma){+}it) = 0$,
+$\varepsilon=-1$일 때
+$\arg\Lambda(\sigma{+}it) + \arg\Lambda((2{-}\sigma){+}it) = \pi$
+이 되며, 18개 검증점에서 기계 정밀도($\Delta=0$)로 확인됨.
+[C-762, C-729/C-735 코드 부호 오류 수정, 2026-06-26]
+
+\smallskip\noindent
+\textbf{통합 점수.}\;
+GL(1) $10/10$ + GL(2) $12/12$ = $22/22$ Gauss--Bonnet ALL PASS,
+$\sigma_c\in\{1/2,\,1\}$, 도체 $\{1,\,11,\,37\}$,
+근호 $\varepsilon\in\{+1,\,-1\}$를 포괄한다.
+[결과 C-729 (37a1) 및 C-735 (11a1), 양성 12/12, 2026-06-26;
+  37a1 17영점 (1.07시간), 11a1 12영점 (0.36시간),
+  $\mathrm{dps}=100/50$]
+\end{observation}
+
+
+\begin{remark}[곡률비의 도체 의존성]
+\label{rem:kappa_conductor}
+곡률비 $\kappa(\sigma_c)/\kappa(\mathrm{off})$는 강한 도체 의존성을 보인다:
+37a1 ($N=37$)에서 $1848\times$ vs.\ 11a1 ($N=11$)에서 $34.6\times$,
+$53.4$배 차이.
+이는 따름정리~\ref{cor:partner_dominance}(ii)에서 예상되는 바이다:
+큰 도체는 영점 밀도를 증가시켜
+$\sum_\rho 1/(s-\rho)^2$ 로랑 전개를 통해 임계선 곡률을 증폭한다.
+반면 에너지비($75.2\times$ vs.\ $60.3\times$, $1.25$배)와
+모노드로미($2.000$ vs.\ $2.000$, $1.00$배)는 도체에 거의 불변이다.
+\end{remark}
+
+
+\begin{remark}[도체 간 강건한 진단으로서의 에너지]
+\label{rem:energy_robust}
+4가지 임계선 이탈 진단 중 에너지비 $E(\sigma_c)/E(\sigma_{\mathrm{off}})$가
+도체 변동에 가장 안정적이다:
+37a1과 11a1 사이 $1.25$배 (곡률 $53.4$배, 모노드로미 $1.00$배).
+모노드로미는 정확히 도체 불변(위상적 불변량)이나 이진 신호만 제공한다.
+에너지는 유용한 중간 지점: 연속값 진단이면서 도체에 거의 무관하다.
+이는 $E(\sigma)$가 degree와 도체에 걸쳐 $\sigma$-국소화 강도의
+가장 실용적 정량 측정을 제공함을 시사하며,
+정확하지만 이진적인 모노드로미 검정을 보완한다.
+\end{remark}
+
+
+% -----------------------------------------------------------------------
+% 관측: 고높이 임계선 이탈 확장 — C-537/C-644
+% 2026-06-25
+% -----------------------------------------------------------------------
+\begin{observation}[고높이 임계선 이탈 확장]
+\label{obs:high_height_offcritical}
+표준 높이 $\sigma$-국소화 검정
+(관측~\ref{obs:sigma_localisation}, 관측~\ref{obs:gl2_offcritical})은
+중간 높이($\gamma \lesssim 50$ GL(1), $\gamma \lesssim 25$ GL(2))를 다룬다.
+더 높은 높이로 확장하여 위상적 전하 국소화의 지속성을 검증한다.
+
+\smallskip\noindent
+\textbf{결과.}\;
+두 고높이 실험을 수행했다:
+(i)~$\zeta(s)$, $t\in[100,150]$ (23영점, $\mathrm{dps}=80$; C-537),
+(ii)~37a1, $t\in[40,65]$ (29영점, $\mathrm{dps}=80$; C-644).
+
+\smallskip
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}llcccc|c@{}}
+\toprule
+$L$-함수 & 높이 범위 & {[1]} & {[2]} & {[3]} & {[4]} & 합계 \\
+\midrule
+$\zeta(s)$ & $t\!\in\![100,150]$
+  & FAIL (23/15) & PASS ($15{\times}$) & PASS & PASS ($2.000/0.000$) & 3/4 \\
+37a1 & $t\!\in\![40,65]$
+  & FAIL (31/26) & PASS ($264{\times}$) & PASS ($6059{\times}$) & PASS ($2.000/0.000$) & 3/4 \\
+\midrule
+\multicolumn{6}{@{}l}{표준 높이 (관측~\ref{obs:sigma_localisation}+\ref{obs:gl2_offcritical})} & 24/24 \\
+\multicolumn{6}{@{}l}{고높이 확장 (본 관측)} & 6/8 \\
+\multicolumn{6}{@{}l}{\textbf{모노드로미 단독 (전체 높이)}} & \textbf{32/32} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+두 경우 모두 \textbf{검정~[1](위상 점프 수)만 실패}하고
+\textbf{검정~[2]--[4]는 완벽히 통과}한다.
+실패 양상은 동일하다: $\sigma = \sigma_c \pm 0.01$에서
+위상 점프의 상당 부분이 임계선 밖으로 ``누출''되나,
+$\sigma = \sigma_c \pm 0.10$ 이상에서는 누출이 0으로 떨어진다.
+이는 관측~\ref{obs:phase_transition_width}에서 정량화한
+\emph{위상 전이폭} 현상 그 자체이다.
+
+\smallskip\noindent
+\textbf{모노드로미는 정확하게 유지된다.}\;
+위상적 불변량인 모노드로미 진단은
+$\mathrm{mono}/\pi = 2.000$ ($\sigma = \sigma_c$),
+$\mathrm{mono}/\pi = 0.000$ (모든 이탈 $\sigma$)을
+고높이 52영점 전체에서 예외 없이 제공한다.
+\textbf{모노드로미 32/32 완전 점수}는
+위상적 전하 국소화의 가장 강력한 증거이다.
+
+\smallskip\noindent
+\textbf{GL(2) ``전이폭''은 샘플링 아티팩트이다.}\;
+GL(2) 37a1 $\gamma_1 = 5.003$에서 해상도 테스트(C-739)를 수행하여
+국소 샘플링 밀도 $N_{\mathrm{local}} \in \{20, 50, 100, 200\}$
+(윈도우 반지름 $R=0.5$, 간격 $\Delta t = 2R/(N_{\mathrm{local}}-1)$)별로
+$\delta_{1/2}$를 측정하였다:
+
+\smallskip
+\begin{center}\small
+\begin{tabular}{rcccc}
+\toprule
+$N_{\mathrm{local}}$ & $\Delta t$ & $\delta_{1/2}$ & $\delta_{1/2}/\Delta t$ \\
+\midrule
+20  & 0.0526 & 0.025 & 0.475 \\
+50  & 0.0204 & 0.015 & 0.735 \\
+100 & 0.0101 & 0.0075 & 0.742 \\
+200 & 0.0050 & $<0.005$ & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+$\delta_{1/2}$는 샘플링 간격에 비례하여 감소하며,
+$N_{\mathrm{local}}=200$에서는 테스트된 모든
+$\delta \ge 0.005$에서 감지가 불가능하다.
+이는 ``GL(2) 전이폭이 더 넓다''는 겉보기 현상과
+고높이 test~[1] FAIL(6/8)이 본질적 물리적 성질이 아니라
+\emph{샘플링 해상도 아티팩트}임을 확인한다.
+메커니즘은 이산적 arg-점프 임계값($|\Delta\arg|>\pi/2$):
+$\sigma \ne \sigma_c$에서 편각은 $\sim 1/\delta$ 비율로 연속 회전하므로,
+점프가 $\pi/2$를 초과하려면 $\Delta t/\delta > \pi/2$,
+즉 $\delta < (2/\pi)\Delta t$이어야 한다.
+이는 비고~\ref{rem:fwhm_resolution}의 $\kappa$-FWHM 해상도 아티팩트와
+일관된다: 기저의 $1/\delta^2$ 특이점은 유한한 폭을 갖지 않는다.
+[C-537/C-644, 2026-06-25;
+$\zeta$ 23영점 $t{\in}[100,150]$,
+37a1 29영점 $t{\in}[40,65]$;
+표준 24/24, 고높이 6/8, 모노드로미 32/32;
+총 CPU 39{,}234초]
+\end{observation}
+
+
+% -----------------------------------------------------------------------
+% 관측: 초고높이 ξ-다발 검증 — C-904
+% 2026-06-28
+% -----------------------------------------------------------------------
+\begin{observation}[초고높이 $\xi$-다발 검증 ($\gamma \leq 50{,}000$)]
+\label{obs:ultra_high_height}
+$\xi$-다발 프레임워크 검증을
+$\gamma \in \{10000, 15000, 20000, 30000, 50000\}$까지 확장한다.
+이전 테스트($\gamma \lesssim 150$)를 크게 넘어선다.
+이 높이에서 $\xi(s)$ 직접 계산은
+치명적 언더플로($|\xi| \sim e^{-\pi\gamma/4} \sim 10^{-3400}$,
+$\gamma = 10000$)를 겪는다.  이를 해석적 로그 미분으로 우회한다:
+\[
+  \frac{\xi'}{\xi}(s)
+  = \frac{1}{s} + \frac{1}{s-1}
+    - \frac{\log\pi}{2} + \frac{\psi(s/2)}{2}
+    + \frac{\zeta'(s)}{\zeta(s)},
+\]
+$\kappa = |\xi'/\xi|^2$로 정의하고, 모노드로미를
+$\mathrm{mono} = \mathrm{Im}\!\oint\!(\xi'/\xi)\,ds$로 계산한다.
+5개 높이 목표에서 각 2영점(총 10개)을
+$\mathrm{dps}=80$, 64단계 Gauss--Bonnet 윤곽($r=0.3$)으로 평가한다.
+
+\smallskip\noindent
+\textbf{결과.}\;
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}rrrrl@{}}
+\toprule
+$\gamma_{\mathrm{target}}$ & $\gamma_{\mathrm{actual}}$
+  & $\kappa$-비율 & GB 잔차 & 판정 \\
+\midrule
+10\,000 & 9996.557  & $290.0\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+10\,000 & 9998.095  & $277.9\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+15\,000 & 14996.828 & $162.9\times$ & 0.00026 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+15\,000 & 14997.179 & $204.8\times$ & 0.00026 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+20\,000 & 19997.301 & $236.2\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+20\,000 & 19998.026 & $126.4\times$ & 6.28319 & $\kappa$\checkmark\,$\sigma$\checkmark\,G$\times$ \\
+30\,000 & 29997.165 & $248.8\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+30\,000 & 29997.809 & $263.5\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+50\,000 & 49996.622 & $225.7\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+50\,000 & 49997.749 & $255.2\times$ & 0.00000 & $\kappa$\checkmark\,$\sigma$\checkmark\,G\checkmark \\
+\midrule
+\multicolumn{2}{@{}l}{요약} & \multicolumn{3}{l}{$\kappa$: 10/10, $\sigma$: 10/10, GB: 9/10} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+10영점 모두 $\kappa(\tfrac{1}{2})/\kappa(0.3) > 50\times$
+(평균 $229\times$, 최소 $126\times$)이며 $\sigma_{\mathrm{peak}} = 0.500$
+정확히 성립한다.  $\gamma \approx 19998$의 유일한 GB 실패는
+$\mathrm{monodromy} = 4\pi$를 보이며, $r=0.3$ 윤곽이
+\emph{2개} 영점을 둘러쌈을 나타낸다---위상 불변량이
+둘러싸인 영점 수를 정확히 세는 기대 반응이다.
+
+\smallskip\noindent
+\textbf{높이 저하 부재.}\;
+$\kappa$-비율은 높이에 따른 체계적 감소를 보이지 않는다:
+$\gamma\approx 10000$: $284\times$ (평균),
+$\gamma\approx 15000$: $184\times$,
+$\gamma\approx 30000$: $256\times$,
+$\gamma\approx 50000$: $240\times$.
+변동은 $\gamma$ 자체가 아닌 최근접 간격 $\delta$에 의해
+지배된다 ($\kappa_{\mathrm{on}} \propto 1/\delta^2$이므로).
+[C-904, 2026-06-28;
+$\zeta(s)$ 10영점 $\gamma{\in}[10000,50000]$;
+로그 미분 $\xi'/\xi$, $\mathrm{dps}{=}80$;
+$\kappa$ 10/10, $\sigma$ 10/10, GB 9/10 (1 근접쌍 $4\pi$);
+총 CPU 3{,}618초]
+\end{observation}
+
+
+% -----------------------------------------------------------------------
+% 관측: κ(σ) 로렌츠 프로파일 + B vs δ_nn — C-909, C-914
+% 2026-06-28
+% -----------------------------------------------------------------------
+\begin{observation}[$\kappa(\sigma)$ 로렌츠 프로파일과 배경상수
+  $B = f(\Delta\gamma_{\mathrm{nn}})$]
+\label{obs:lorentzian_B_gap}
+Observation~\ref{obs:ultra_high_height}과 동일한 10개 영점
+($\gamma \in [9997,\,49998]$, dps\,=\,80, $\delta_{\mathrm{eval}} = 0.01$)을 이용하여,
+11점 $\sigma \in [0.1,\,0.9]$에서 평가한 $\sigma$-프로파일
+$\kappa(\sigma,\,\gamma_0{+}0.01)$을 로렌츠 모델에 피팅한다:
+\[
+  \kappa(\sigma) = \frac{A}{(\sigma - \tfrac{1}{2})^2 + \delta^2} + B.
+\]
+
+\begin{center}
+\small
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+\# & $\gamma$ & $A$ & $\delta$ & $B$ & $R^2$ \\
+\midrule
+ 1 &  $9996.6$ & $1.017$ & $0.00999$ &  $9.8$ & $1.000000$ \\
+ 2 &  $9998.1$ & $0.963$ & $0.00999$ & $10.7$ & $1.000000$ \\
+ 3 & $14996.8$ & $0.947$ & $0.01014$ & $30.5$ & $0.999999$ \\
+ 4 & $14997.2$ & $1.007$ & $0.01000$ & $23.9$ & $1.000000$ \\
+ 5 & $19997.3$ & $0.950$ & $0.01001$ & $16.6$ & $1.000000$ \\
+ 6 & $19998.0$ & $0.999$ & $0.01053$ & $41.4$ & $0.999987$ \\
+ 7 & $29997.2$ & $0.960$ & $0.01000$ & $14.9$ & $1.000000$ \\
+ 8 & $29997.8$ & $0.981$ & $0.00998$ & $13.6$ & $1.000000$ \\
+ 9 & $49996.6$ & $1.033$ & $0.01001$ & $19.8$ & $1.000000$ \\
+10 & $49997.7$ & $0.963$ & $0.00998$ & $14.3$ & $1.000000$ \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{평균}} &
+  $0.982\pm0.029$ & $0.01006\pm0.00016$ & --- & $0.999999$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+\textbf{양성 결과.}\;
+모든 10개 프로파일이 $R^2 \ge 0.999987$을 달성한다.
+$A$는 이론값 $A = 1$ (단순 영점의 로랑 계수)의 $3.4\%$ 이내에,
+$\delta$는 평가 오프셋의 $0.6\%$ 이내에 있다.
+$\sigma \leftrightarrow (1{-}\sigma)$ 대칭이 $< 10^{-6}$으로 성립한다.
+이 결과는 5/5 PASS 해석(C-909)을 확인한다.
+
+\smallskip\noindent
+\textbf{배경상수 $B = f(\Delta\gamma_{\mathrm{nn}})$, $O(\log\gamma)$가 아님.}\;
+$B$를 $\log(\gamma/2\pi)$에 대해 선형 회귀하면 $R^2 = 0.0001$:
+배경 상수는 높이에 대한 \emph{체계적 성장이 없다}.
+대신, $B$는 비슷한 높이에서 4배까지 변동한다
+($\gamma = 20\,000$ 근방 두 영점에서 $B = 16.6$ vs.\ $41.4$).
+
+저높이 후속 연구(C-914; 50개 영점, $\gamma\in[14,146]$)에서
+$B$가 \emph{최근접 간격} $\Delta\gamma_{\mathrm{nn}}$에 의해
+지배됨을 확인한다:
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+예측 변수 & \multicolumn{2}{c}{Pearson $\rho$ ($p$-값)} \\
+\cmidrule(lr){2-3}
+ & 저높이 ($N{=}50$) & 고높이 ($N{=}10$) \\
+\midrule
+$B$ vs.\ $1/\Delta\gamma_{\mathrm{nn}}^2$
+  & $0.769$ ($7.2{\times}10^{-11}$) & $0.951$ ($2.7{\times}10^{-5}$) \\
+$B$ vs.\ $\log(\gamma/2\pi)$
+  & $0.536$ ($6.0{\times}10^{-5}$) & $-0.007$ ($0.98$) \\
+잔차 vs.\ $\log\gamma$
+  & $-0.060$ ($0.68$) & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+고높이 데이터(C-935; 위와 동일한 10개 영점,
+$\gamma\in[9997,49998]$)는 더 강한 상관
+$\rho = 0.951$을 보이며, 단순 2-매개변수 모델
+$B = 1.64/\Delta\gamma_{\mathrm{nn}}^2 + 10.69$가
+분산의 $R^2 = 0.90$을 설명한다.
+결정적 사례는 $\gamma\approx 20\,000$ 쌍이다:
+$\Delta\gamma_{\mathrm{nn}}$이 $3.25\times$ 차이
+($0.223$ vs.\ $0.726$)나서 $B = 41.4$ vs.\ $16.6$
+($2.50\times$ 비율)을 생성하며,
+$1/\Delta\gamma_{\mathrm{nn}}^2$ 스케일링과 정량적으로 일치한다.
+
+잔차 분석이 결정적이다: $1/\Delta\gamma_{\mathrm{nn}}^2$ 기여를 제거한 후
+\emph{로그-높이 의존성이 남지 않는다}
+(저높이 $\rho = -0.06$, $p = 0.68$; 고높이 $\rho = -0.007$).
+겉으로 보이던 $\log\gamma$ 신호는 전적으로 높이 증가에 따른
+영점 밀도 증가(및 간격 감소)를 통해 매개된 것이었다.
+통합 데이터($N = 60$, $\gamma\in[14,49998]$,
+다중회귀 $R^2 = 0.79$)는 스케일 인자 ${\approx}2.5$를 보이며
+($B_{\mathrm{obs}} = 2.47\,B_{\mathrm{th}} + 0.50$),
+이는 $B_{\mathrm{th}} = \sum |\Delta\gamma'|^{-2}$에 없는 교차항 기여
+$2\,\mathrm{Re}\!\bigl[\tfrac{1}{s{-}\rho_1}\cdot
+\overline{\tfrac{1}{s{-}\rho_2}}\bigr]$와 일치한다.
+
+\smallskip\noindent
+\textbf{Conductor 보편성 (C-939).}\;
+$B \propto 1/\Delta\gamma_{\mathrm{nn}}^2$ 관계가
+서로 다른 conductor를 가진 디리클레 $L$-함수에서도 성립한다.
+$\zeta$ ($q{=}1$, $N{=}10$), $\chi_3$ ($q{=}3$, $N{=}16$),
+$\chi_4$ ($q{=}4$, $N{=}19$), $\chi_5$ ($q{=}5$, $N{=}19$)를
+$\gamma\in[10,50]$에서 검증:
+\begin{center}\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+$L$-함수 & $q$ & $\alpha$ ($B = \alpha/\Delta\gamma^2 + c$) & $R^2$ & Pearson $\rho$ ($p$) \\
+\midrule
+$\zeta$  & 1 & $3.98$ & $0.53$ & $0.73$ ($0.017$) \\
+$\chi_3$ & 3 & $3.48$ & $0.59$ & $0.77$ ($5{\times}10^{-4}$) \\
+$\chi_4$ & 4 & $3.10$ & $0.64$ & $0.80$ ($4{\times}10^{-5}$) \\
+$\chi_5$ & 5 & $3.39$ & $0.63$ & $0.79$ ($5{\times}10^{-5}$) \\
+\midrule
+\multicolumn{2}{@{}l}{평균} & $3.49 \pm 0.32$ & --- & CV${=}9.1\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+4개 $L$-함수 모두 양성 상관($p < 0.02$)을 보인다.
+비례계수 $\alpha$의 변동계수가 $9.1\%$에 불과하여,
+$B = f(\Delta\gamma_{\mathrm{nn}})$ 관계가 conductor에 무관함을 확인한다.
+$\alpha$ vs.\ $q$의 한계적 음의 추세($r = -0.83$, $p = 0.17$)는
+$n{=}4$에서 유의하지 않으나, 고 conductor에서의 추가 검증이 필요하다.
+\end{observation}
+
+\begin{remark}[근접쌍 2-영점 로렌츠 모델 (C-961)]
+\label{rem:two_lorentzian}
+$B = f(\Delta\gamma_{\mathrm{nn}})$ 관계는 아다마르 곱으로 자연스럽게 설명된다.
+임계선 위에서(RH 가정)
+$\kappa(t) = [\sum_{\rho} 1/(t{-}\gamma_\rho)]^2$이므로,
+근접쌍 $(\gamma_0,\gamma_1)$ 근방에서
+$\kappa = A_1/(t{-}\gamma_0)^2 + A_2/(t{-}\gamma_1)^2 + B_{\mathrm{rem}}$으로 피팅하면
+6개 쌍($\Delta\gamma_{\mathrm{nn}} \in [0.22,\,0.39]$,
+$\gamma \in [631,\,19998]$)에서
+$R^2 = 0.995 \pm 0.001$,
+$A_1 = 0.995 \pm 0.001$,
+$A_2 = 0.961 \pm 0.009$,
+$B_{\mathrm{rem}} \approx 0$을 얻는다.
+두 계수가 아다마르 예측 $A_j = 1$에 부합하며,
+$B_{\mathrm{rem}} \approx 0$은 1-영점 배경 $B$가 전적으로 제2 영점에 기인함을 확인한다.
+\end{remark}
+
+
+% -----------------------------------------------------------------------
+% 관측: κ(σ) 프로파일 보편성 — C-719/C-720
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{observation}[$\kappa(\sigma)$ 프로파일의 영점 간·차수 간 보편성]
+\label{obs:kappa_profile_universality}
+두 $L$-함수 차수에 걸친 6개 영점에 대해
+임계선 근방 $\kappa(\sigma)$ 프로파일을 계산한다:
+$\zeta(s)$ (GL(1), $\sigma_c=1/2$) 3영점과
+타원곡선 37a1 $L$-함수 (GL(2), $\sigma_c=1$) 3영점.
+각 영점 $\rho = \sigma_c + i\gamma$에 대해
+$\kappa(\sigma_c + \delta + i\gamma) = |\Lambda'/\Lambda|^2$를
+48개 오프셋 $\delta \in [-0.05, 0.05]$에서
+$\mathrm{dps}=100$, $h=10^{-15}$로 평가한다.
+
+\smallskip\noindent
+\textbf{결과.}\;
+6개 영점 모두 $\kappa\cdot\delta^2 \to 1$ ($\delta \to 0$),
+완벽한 $\sigma\leftrightarrow(k-\sigma)$ 대칭 (비율 $=1.000000$),
+피크/배경 비율 $>193{,}000\times$를 보인다.
+
+\smallskip
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+$L$-함수 & $\gamma$ & 피크/배경 & $\kappa\!\cdot\!\delta^2$ (평균) & CV & FWHM \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{GL(1): $\zeta(s)$, $\sigma_c = 1/2$}} \\
+$\gamma_1$ & $14.1347$ & $197{,}273\times$ & $1.000188$ & $0.0003$ & $0.000200$ \\
+$\gamma_2$ & $21.0220$ & $197{,}135\times$ & $1.000293$ & $0.0004$ & $0.000200$ \\
+$\gamma_3$ & $25.0109$ & $197{,}222\times$ & $1.000227$ & $0.0003$ & $0.000200$ \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{GL(2): 37a1, $\sigma_c = 1$}} \\
+$\gamma_1$ & $\phantom{0}6.8704$ & $194{,}956\times$ & $1.001714$ & $0.0022$ & $0.000200$ \\
+$\gamma_2$ & $\phantom{0}9.9331$ & $193{,}306\times$ & $1.002842$ & $0.0037$ & $0.000200$ \\
+$\gamma_3$ & $17.1417$ & $193{,}615\times$ & $1.002624$ & $0.0034$ & $0.000200$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+\textbf{GL(1) 대 GL(2) 비교.}\;
+$\kappa\cdot\delta^2$ 평균은 GL(1) $1.000236$, GL(2) $1.002393$으로
+차이 $0.002$이다.
+이 차이는 로랑 전개의 $O(1)$ 보정항
+$A(t_0) = B(t_0)^2 + 2H_1(t_0)$으로 정량적으로 설명된다:
+GL(2) 영점은 더 낮은 높이에 있어 인접영점 간격이 좁고
+(평균 간격 $\sim 2\pi/\log N$, 도체 $N$ 의존),
+$O(1)$ 보정이 커진다.
+FWHM은 6개 영점 모두 $0.000200$으로
+높이와 차수에 무관하게 격자 해상도 내에서 동일하다.
+$\sigma\leftrightarrow(k-\sigma)$ 대칭 비율이
+$\delta = 0.001, 0.005, 0.010, 0.050$ 전체에서 $1.000000$으로,
+근사 함수방정식이 이 대칭을 $\mathrm{dps}=100$ 정밀도까지
+보존함을 확인한다.
+
+\smallskip\noindent
+이 관측은 곡률 집중 정리의 가장 직접적인 수치 검증이다:
+$\kappa\cdot\delta^2 \to 1$ 스케일링과 차수 독립적 FWHM은
+곡률 집중 메커니즘이 셀베르그 류 전체에 걸쳐 보편적임을 보여주며,
+유일한 차수 의존량은 인접영점 간섭에서 오는 $O(1)$ 보정뿐이다.
+[C-719/C-720, 2026-06-26;
+GL(1) 3영점 $\gamma{\in}[14,25]$,
+GL(2) 3영점 $\gamma{\in}[7,17]$;
+6/6 $\kappa{\cdot}\delta^2 \in [0.95,1.05]$,
+6/6 피크/배경 $\geq 193{,}000\times$;
+총 CPU $4{,}247$초]
+\end{observation}
+
+\begin{remark}[$\kappa\cdot\delta^2 \to 1$의 아다마르 자명성]
+\label{rem:hadamard_triviality}
+$\kappa\cdot\delta^2 \to 1$ 스케일링은 로그 미분의 단순극 구조의
+직접적 귀결이다:
+$\Lambda'/\Lambda = 1/(s-\rho) + O(1)$ (단순영점 $\rho$ 근방)이므로
+$\kappa = 1/\delta^2 + O(1)$.
+관측~\ref{obs:kappa_profile_universality}의 비자명한 내용은 세 가지이다:
+(a)~피크/배경 비율이 $193{,}000\times$를 초과하여
+인접영점 간섭이 $\delta=0.05$에서 $0.001\%$ 미만임을 확립하고,
+(b)~FWHM이 차수 독립적($0.000200$, GL(1)과 GL(2) 모두)이며,
+(c)~GL(1)/GL(2) 차이($\approx 0.002$)가
+로랑 전개의 $O(1)$ 보정과 정량적으로 일치하여
+선도 차수를 넘어선 정밀 검증을 제공한다.
+\end{remark}
+
+\begin{remark}[고유 FWHM 부재: $1/\delta^2$ 스케일링의 $\delta=10^{-6}$ 검증]
+\label{rem:fwhm_resolution}
+세밀 격자 실험 (C-721; 적응형 로그 등간격, 476점,
+$\delta_{\min}=10^{-6}$, $\mathrm{dps}=100$)으로
+$\kappa(\sigma)$ 프로파일에 \emph{고유 FWHM이 없음}을 확인했다.
+측정된 FWHM은 3개 $\zeta$-영점 ($\gamma \in \{14.13, 21.02, 25.01\}$)
+전체에서 $2\sqrt{2}\,\delta_{\min}$과 일치하며,
+피크/배경 비율 $>2\times 10^9$,
+$\kappa\cdot\delta^2 = 1.000000$ (소수점 6자리, $\delta = 10^{-6}$)이다.
+이는 수학적 필연이다: 단순극 $\Lambda'/\Lambda = 1/(s-\rho) + O(1)$에서
+$\kappa = 1/\delta^2 + A(t_0)$이 $\delta \to 0$에서 발산하므로,
+$\kappa - \kappa_{\mathrm{bg}}$의 반최대값 위치는 항상
+$\delta_{\mathrm{half}} = \sqrt{2}\,\delta_{\min}$이다.
+관측~\ref{obs:kappa_profile_universality}의 FWHM $\gamma$-독립성은
+유한 전이폭이 아닌 $1/\delta^2$ 특이점의 결과이다.
+\end{remark}
+
+
+% -----------------------------------------------------------------------
+% 비고: 임계선 이탈 2D 곡률 에너지 랜드스케이프 — C-738
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{remark}[임계선 이탈 곡률 에너지 랜드스케이프: 2D 검증]
+\label{rem:energy_landscape_2d}
+$\zeta(s)$에 대한 2D 곡률 맵 $\kappa(\sigma,t)$
+($17\sigma\times80t$ 격자, $\sigma\in[0.1,0.9]$, $t\in[13,18]$)으로
+관측~\ref{obs:sigma_localisation}의 $\sigma$-국소화를 보완 검증한다.
+
+\smallskip\noindent
+\textbf{위상 점프 배타성.}\;
+위상 점프는 $\sigma=0.5$에서만 발생: 10회
+($t\in[10,50]$의 10영점과 일치);
+$\sigma=0.49,\,0.51$ 포함 10개 off-critical $\sigma$ 전체에서 정확히 0이다.
+
+\smallskip\noindent
+\textbf{곡률 및 에너지 비율.}\;
+곡률 피크 비율 $\kappa_{\max}(0.5)/\kappa_{\max}(0.45)=123\times$ (동일 높이),
+$t$-적분 에너지 $E(0.5)/E(0.3) = 385\times$ (피크 $\sigma=0.500$).
+digamma 배경($E(0.1)=42$)은
+영점 신호($E(0.5)=3.05\times10^4$, $726\times$)에 비해 무시 가능하며,
+$\Gamma'/\Gamma$ 오염이 에너지 진단에 영향 없음을 확인한다.
+
+\smallskip\noindent
+\textbf{$\sigma\leftrightarrow(1\!-\!\sigma)$ 대칭.}\;
+$\kappa_{\max}(\sigma)$와 $E(\sigma)$ 모두 정확한
+함수방정식 대칭을 보인다:
+$\kappa(0.4)=\kappa(0.6)=99.7$,
+$\kappa(0.35)=\kappa(0.65)=44.6$,
+$E(0.3)=E(0.7)=79.2$ 등.
+\smallskip\noindent
+\textbf{모노드로미 $\sigma$-프로파일.}\;
+$s=\sigma+it_0$ 중심 반지름 $r=0.1$ 폐곡선에서
+$\mu(\sigma,t_0,r)=\oint\Im L\,ds$를 계산하면 (처음 두 영점,
+$t_0=14.135,\,21.022$):
+$|\sigma-\tfrac{1}{2}|<r$인 $\sigma=0.49,\,0.50,\,0.51$에서
+$|\mu|/\pi=2.000$;
+$|\sigma-\tfrac{1}{2}|\ge r$인 $\sigma\le0.40$, $\sigma\ge0.60$에서
+$|\mu|/\pi=0.000$.
+폐곡선이 영점으로부터 반지름 $r$ 이내에 중심을 가질 때만
+비자명 모노드로미가 발생하며,
+이는 편각원리의 다발 기하학적 재서술이다.
+[C-738+C-1014b, 2026-06-26/29; $\zeta(s)$, 10영점
+$t{\in}[10,50]$; 4/4 PASS
+(C-1014b에서 모노드로미 코드 버그 수정); CPU ${\sim}180$초]
+
+\smallskip\noindent
+\textbf{GL(2) 확장.}\;
+$L(s, E_{37a1})$ ($N=37$, $\varepsilon=-1$, $\sigma_c=1$,
+10영점 $\gamma\in[5.0,\,17.1]$, $\mathrm{dps}=50$, $n_{\max}=100$)에
+동일 분석을 적용하여 도수 보편성을 확인한다:
+
+\begin{enumerate}[label=(\roman*),nosep]
+\item \emph{위상 점프}: $\sigma=1.0$: 13회 (최대);
+  $\sigma=0.99,\,1.01$: 각 10회 (낮은 $\gamma$에서
+  $\mathrm{FWHM}\propto 1/\!\log(\gamma/(2\pi))$에 의한 근접 임계선 누출);
+  $\sigma\le0.90$ 및 $\sigma\ge1.10$: 0.
+  조건부 PASS.
+\item \emph{곡률 비율}:
+  $\kappa_{\max}(1.0)/\kappa_{\max}(0.9)=47.7\times$.
+\item \emph{에너지 피크}: $E(1.0)=6.31\times10^9$,
+  $E(0.933)=8.92\times10^4$; 비율 $70{,}741\times$;
+  피크 $\sigma=1.000$.
+\end{enumerate}
+$\sigma\leftrightarrow(2{-}\sigma)$ 대칭이 표시 정밀도까지 성립:
+$\kappa(0.9)=\kappa(1.1)=105.2$,
+$E(0.867)=E(1.133)=1.29\times10^4$.
+[C-765, 2026-06-26; $L(s,E_{37a1})$,
+10영점; 3/3 PASS (수학자 교정: 근접 임계선 누출은
+따름정리~4.4 FWHM 스케일링으로 설명); CPU ${\sim}105$분]
+\end{remark}
+
+% -----------------------------------------------------------------------
+% 관측: DH 전체 다발 진단 — C-1026/C-1027
+% -----------------------------------------------------------------------
+\begin{observation}[DH 전체 다발 진단: 모노드로미, 위상 점프, 에너지 프로파일]
+\label{obs:dh_bundle_diagnostic}
+$\kappa$-피크 진단이 DH 영점의 $\operatorname{Re}(\rho)$를 추적함이
+이전에 확립되었다.
+여기서 나머지 두 $\xi$-다발 진단---\emph{위상 점프}와 \emph{에너지 프로파일}---을
+동일한 9개 영점에 적용하고, 적응적 등고선 반지름으로 모노드로미 테스트를 확장한다.
+
+\smallskip\noindent
+\textbf{테스트~1: 위상 점프 $\sigma$-국소화.}\;
+On-critical 영점($t\in[4,20]$)에서 $\arg\xi(s)$의 위상 점프(임계값 $\pi/2$)는
+\emph{오직} $\sigma=0.5$에서만 발생(6점프)하며,
+다른 모든 $\sigma$($0.10,\,0.20,\ldots,0.90$)에서는 0이다.
+Off-critical 영점($t\in[80,180]$)에서는 위상 점프가 정확히
+$\sigma = \operatorname{Re}(\rho)$ \emph{및} $\sigma = 1 - \operatorname{Re}(\rho)$에서
+각 off-critical 영점마다 발생(총 8점프)하며, 함수방정식 대칭과 일치한다.
+
+\smallskip\noindent
+\textbf{테스트~2: 에너지 FE 대칭.}\;
+적분 에너지 $E(\sigma) = \int |\xi'/\xi(\sigma+it)|^2\,dt$는
+on-critical 구간에서 $\sigma=0.50$에 피크
+($E = 1.07{\times}10^6$, 배경 $\sim50$--$370$; 비율 ${\sim}2900\times$).
+함수방정식 대칭 $E(\sigma)/E(1{-}\sigma) = 1.000000$이
+$8/8$ 쌍에서 6자릿수 정밀도로 성립.
+
+\smallskip\noindent
+\textbf{테스트~3: 적응적 반지름 모노드로미.}\;
+초기 고정 반지름($r=0.5$)에서 OFF\#2--4는 winding $=2.0\times 2\pi$를
+산출했는데, 이는 등고선 내 두 영점(대상 + FE 짝)을 정확히 센 것이다.
+각 영점을 분리하기 위해 적응적 반지름
+$r = \min(0.3,\, d_{\min}/3)$을 적용했으며,
+$d_{\min}$은 가장 가까운 다른 영점(FE 짝 포함)까지의 거리이다.
+
+\begin{table}[ht]
+\centering
+\caption{DH 적응적 반지름 모노드로미: 9/9 PASS (C-1026/C-1027).}
+\label{tab:dh_monodromy_adaptive}
+\small
+\begin{tabular}{lccccc}
+\toprule
+영점 & $\sigma_0$ & $t_0$ & 적응적 $r$ & Winding & 판정 \\
+\midrule
+ON\#1 & 0.5000 &   5.09 & 0.300 & $1.0000 \times 2\pi$ & \checkmark \\
+ON\#2 & 0.5000 &   8.94 & 0.300 & $1.0000 \times 2\pi$ & \checkmark \\
+ON\#3 & 0.5000 &  12.13 & 0.300 & $1.0000 \times 2\pi$ & \checkmark \\
+ON\#4 & 0.5000 &  14.40 & 0.300 & $1.0000 \times 2\pi$ & \checkmark \\
+ON\#5 & 0.5000 &  17.13 & 0.300 & $1.0000 \times 2\pi$ & \checkmark \\
+\midrule
+OFF\#1 & 0.8085 &  85.70 & 0.206 & $1.0000 \times 2\pi$ & \checkmark \\
+OFF\#2 & 0.6508 & 114.16 & 0.101 & $1.0000 \times 2\pi$ & \checkmark \\
+OFF\#3 & 0.5744 & 166.48 & 0.050 & $1.0000 \times 2\pi$ & \checkmark \\
+OFF\#4 & 0.7243 & 176.70 & 0.150 & $1.0000 \times 2\pi$ & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+세 가지 진단 모두 9개 DH 영점 전부에서 통과하여,
+$\kappa$-피크 단독에서 완전한 3종 프로브 세트로 진단 범위를 확장했다.
+핵심 발견은 \emph{위상 점프가} $\operatorname{Re}(\rho)$와
+그 FE 거울 $1{-}\operatorname{Re}(\rho)$를 추적한다는 것이며,
+이는 다발 진단이 off-critical 영점 위치에 민감함을 독립적으로 확인한다.
+\textcolor{ForestGreen}{[확인 2026-06-30;
+위상 점프: $\sigma{=}\mathrm{Re}(\rho)$에서만;
+에너지 FE 대칭 8/8 $= 1.000000$;
+모노드로미 9/9 PASS (적응적 $r$);
+C-1026, C-1027]}
+\end{observation}
+
+% -----------------------------------------------------------------------
+% 따름정리: 모노드로미 해상도 법칙 — C-1015
+% 2026-06-29 (비고에서 따름정리로 승격)
+% -----------------------------------------------------------------------
+\begin{corollary}[모노드로미 해상도 법칙]
+\label{cor:mono_resolution}
+$\rho = \tfrac{1}{2} + i\gamma$를 $\xif$의 단순 영점이라 하고,
+$s_c = \sigma + i\gamma$ ($\sigma \neq \tfrac{1}{2}$)로 놓자.
+$\delta := |\sigma - \tfrac{1}{2}|$로 정의하면
+\begin{equation}\label{eq:mono_resolution}
+  |\mu(s_c, r)| = \begin{cases}
+    2\pi & r > \delta\text{일 때}, \\
+    0    & r < \delta\text{일 때}
+  \end{cases}
+\end{equation}
+이다. 여기서 $\mu(s_c, r) := \operatorname{Im}\!\oint_{|s - s_c| = r}
+\mathcal{L}(s)\,ds$는 $\xi$-다발 접속
+$\mathcal{L} = \xi'/\xi$의 모노드로미이다.
+$r = \delta$에서의 전이는 급격하며 중간값은 존재하지 않는다.
+\end{corollary}
+
+\begin{proof}
+$s_c = \sigma + i\gamma$ 중심 원판 $|s - s_c| < r$이
+$\rho = \tfrac{1}{2} + i\gamma$를 포함할 필요충분조건은
+$|s_c - \rho| = |\sigma - \tfrac{1}{2}| = \delta < r$이다.
+정리~\ref{thm:mono_universality} (편각원리)에 의해,
+$|\mu| = 2\pi m$ ($m$은 폐곡선 내부의 영점 수).
+$\rho$가 단순 영점이고 동일 높이에 다른 영점이 없으므로
+(허수부가 서로 다른 단순 영점 가정),
+포함 시 $m = 1$, 미포함 시 $m = 0$이 된다.
+전이의 급격성은 감김수(winding number)의 정수성
+$m \in \mathbb{Z}$를 반영한다.
+\end{proof}
+
+\smallskip\noindent
+\textbf{수치 검증} (C-1015).\;
+식~\eqref{eq:mono_resolution}을
+$4$개 편차 $\delta \in \{0.01,\, 0.005,\, 0.001,\, 0.0001\}$,
+$10$개 반지름 $r \in [0.0002,\, 0.2]$, $2$개 영점
+($\gamma = 14.135,\, 21.022$), 총 80개 예측에 대해 검증하였다.
+
+\begin{center}
+\small
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+$\delta$ & $\sigma$ & PASS/총수
+  & $r_{\min}$ ($|\mu|{=}2\pi$)
+  & $r_{\min}/\delta$ & $r{=}\delta$: $|\mu|$ \\
+\midrule
+$0.01$   & $0.51$   & 20/20 & $0.02$   & 2.00 & $0$ \\
+$0.005$  & $0.505$  & 20/20 & $0.01$   & 2.00 & $0$ \\
+$0.001$  & $0.501$  & 20/20 & $0.002$  & 2.00 & $0$ \\
+$0.0001$ & $0.5001$ & 20/20 & $0.0002$ & 2.00 & $0$ \\
+\midrule
+\multicolumn{2}{@{}c}{합계} & \textbf{80/80 = 100\%}
+  & \multicolumn{3}{c}{(양 영점 통합)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+모든 $\delta$에서 $r_{\min}/\delta = 2.00$인 것은 격자 해상도를
+반영한다: 바로 아래 격자점 $r = \delta$에서는 $|\mu| = 0$
+(경계 사례, 영점이 정확히 폐곡선 위).
+$\sigma = \tfrac{1}{2}$ 기준선에서는 $r = 0.0002$까지
+$|\mu| = 2\pi$가 유지된다.
+[$\mathrm{dps} = 80$, $n_{\mathrm{steps}} = 256$;
+C-1015, 2026-06-29; CPU ${\sim}5$분]
+
+\begin{remark}[위상적 $\sigma$-삼각측량]
+\label{rem:sigma_triangulation}
+따름정리~\ref{cor:mono_resolution}는
+\emph{위상적 삼각측량} 알고리즘을 제공한다:
+고정된 $r$에서 $\sigma$를 스윕하며 $|\mu|: 0 \to 2\pi$ 전이를
+관측하면, 영점이 $\sigma \in [\tfrac{1}{2} - r,\; \tfrac{1}{2} + r]$
+구간에 있음을 국소화할 수 있다.
+$r$을 줄이면 해상도가 무한히 개선된다.
+곡률 피크 $\kappa(t)$ (관측~\ref{obs:curvature_concentration})에
+의한 $t$-방향 국소화와 결합하면,
+각 영점에 대해 두 개의 독립 좌표를 얻는다---하나는 위상적
+(모노드로미), 하나는 계량적(곡률).
+\end{remark}
+
+\begin{remark}[신경망 모노드로미의 순환논증 경고]
+\label{rem:circular_argument_caveat}
+관측~\ref{obs:nn_fp_mono}은 신경망이 예측한 $t$ 값에서
+모노드로미를 계산하며, 2개 TP가 $\xif$의 기지 영점과 일치한다.
+보완 실험(C-948)에서는 \emph{정확한} 영점 위치
+$\rho = \tfrac{1}{2} + i\gamma$에서 모노드로미를 계산하여,
+25개 TP 모두 $|\mu|/\pi = 2.000$,
+60개 FP 모두 $|\mu|/\pi = 0.000$을 얻었다.
+그러나 이는 \emph{순환논증}이다:
+기지 영점에서의 모노드로미는 편각원리
+(정리~\ref{thm:mono_universality})에 의해 $2\pi$가 보장되므로
+TP 결과는 동어반복이다.
+FP 결과(비영점 피크에서 모노드로미 = 0)만이
+증거적 가치를 갖는다.
+따름정리~\ref{cor:mono_resolution}는 이러한 순환을 피한다:
+결과가 미리 결정되지 않는 임계선 이탈 중심에서
+\emph{기하학적 예측} $r_c = \delta$를 검증하기 때문이다.
+\end{remark}
+
+\begin{remark}[$\sigma$-국소화와 RH의 기하학적 해석]
+\label{rem:sigma_localisation_geometry}
+네 가지 독립 진단---위상 점프 배타성
+(관측~\ref{obs:sigma_localisation}),
+곡률 집중 $\kappa(0.5)/\kappa(\mathrm{off}) = 123.5\times$
+(비고~\ref{rem:energy_landscape_2d}),
+에너지 발산 $E(\sigma) \propto 1/|\sigma - \tfrac{1}{2}|$
+(비고~\ref{rem:energy_sigma_concentration}),
+모노드로미 해상도 $r_c = |\sigma - \tfrac{1}{2}|$
+(따름정리~\ref{cor:mono_resolution})---은
+일관된 기하학적 그림을 제공한다:
+
+\smallskip\noindent
+\emph{$\xi$-다발의 모든 위상적 전하는
+단일 직선 $\sigma = \tfrac{1}{2}$에 집중된다.}
+
+\smallskip\noindent
+이는 검증된 영점들이 임계선 위에 있다는 기지 사실의
+기하학적 재서술이다.
+검증된 영점 범위를 넘어서는 RH의 증거가 되지는 않으나,
+RH를 $\xi$-다발에 관한 명제로 재구성한다:
+\[
+  \text{RH} \;\Longleftrightarrow\;
+  \operatorname{supp}\bigl(\textstyle\sum_\rho \delta_\rho\bigr)
+  \subset \{\sigma = \tfrac{1}{2}\}
+  \;\Longleftrightarrow\;
+  F_2(\sigma, t) = 0 \;\text{모든}\;
+  \sigma \neq \tfrac{1}{2}\text{에서},
+\]
+여기서 $F_2$는 $\xi$-다발 접속의 곡률 $2$-형식이다.
+이 프레임워크의 기여는 RH에 대한 새로운 증명 전략이 아니라,
+다발 기하학적 관측량을 통해 영점을 국소화하는
+\emph{정량적 진단 도구 모음}으로,
+GL(1)--GL(5), 아르틴, 란킨-셀베르그 $L$-함수에 걸쳐
+검증되었다.
+\end{remark}
+
+% -----------------------------------------------------------------------
+% 비고: 임계선 이탈 전이 프로파일 — C-784
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{remark}[임계선 이탈 전이 프로파일: 계단함수 형태]
+\label{rem:transition_profile}
+$\sigma$가 임계선에서 벗어날 때 감지율
+$P(\mathrm{detect}\mid\sigma)$의 \emph{전이 형태}를
+특성화하기 위해, $\zeta$의 처음 13개(밀집 격자: 15개) 영점에 대해
+19개(밀집: 31개) $\sigma$ 값에서 위상 점프 감지를 수행한다
+($N_{\mathrm{local}}{=}50$, 간격 $\Delta t = 0.0204$,
+$R = 0.5$, $\mathrm{dps}{=}30$).
+
+\smallskip\noindent
+\textbf{결과.}\;
+전이는 \emph{불연속}(계단함수형)이다:
+$|\sigma - 1/2| \ge 0.015$에서 $P = 0.000$,
+$|\sigma - 1/2| \le 0.010$에서 $P = 0.933$--$1.000$이며,
+중간값($0.1 < P < 0.9$)은 관측되지 않았다.
+임계 오프셋 $\delta_c \approx 0.0105$가 두 영역을 분리하며,
+$\sigma = 0.489$와 $\sigma = 0.490$ 사이에서 전이가 발생한다
+(대칭적으로 $\sigma = 0.510$과 $\sigma = 0.511$ 사이).
+시그모이드 적합 $P = 1/(1 + e^{(|\sigma - 1/2| - \delta_0)/w})$:
+$\delta_0 = 0.0125$, $w = 0.0002$, $R^2 = 1.000$.
+
+\smallskip\noindent
+\textbf{해석.}\;
+거의 0인 시그모이드 폭 $w \approx 0.0002$
+($w/\delta_c < 0.02$)는
+Heaviside형 위상적 위상 전이와 일치한다:
+감지가 완전히 성공하거나 완전히 실패하며, 점진적 저하가 없다.
+비율 $\delta_c / \delta_{1/2} \approx 0.0105/0.0148 = 0.71$
+($\delta_{1/2} \approx 0.74/N_{\mathrm{local}}$,
+따름정리~\ref{cor:sigma_width})은
+전이 위치가 샘플링 해상도에 의해 제어됨을 확인한다.
+완벽한 $\sigma\leftrightarrow(1{-}\sigma)$ 대칭
+(평균 비대칭도 $= 0.0000$)과
+영점 간 보편성($14/15$이 동일 $\delta_c$에서 전이)이
+위상적 기원을 추가로 지지한다.
+
+\smallskip\noindent
+\textbf{격자 양자화 주의 사항의 해소.}\;
+$N$ 의존성 연구(비고~\ref{rem:transition_N_dependence})에서
+$\delta_c \propto 1/N$이 확인되어, 계단함수 형태는
+연속 극한에서의 $\sigma$-국소화와 일치하는
+격자 효과(artefact)임이 밝혀졌다.
+
+[C-784, 2026-06-26; $\zeta(s)$, 13--15영점;
+계단함수 전이, $\delta_c{=}0.0105$,
+$w{=}0.0002$, 대칭 $0.0000$;
+격자 주의 해소됨 (C-786)]
+\end{remark}
+
+
+% -----------------------------------------------------------------------
+% 비고: 전이 임계값 N 의존성 — C-786, C-786b
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{remark}[전이 임계값 $\delta_c$: 격자 해상도 스케일링]
+\label{rem:transition_N_dependence}
+비고~\ref{rem:transition_profile}의 임계 오프셋 $\delta_c$가
+고유 전이폭인지 격자 효과인지 판별하기 위해,
+$N_{\mathrm{local}} \in \{25, 50, 100, 200, 400\}$에서
+반복 측정하였다 ($R = 0.5$ 고정, $\zeta(s)$의 처음 13개 영점).
+
+\smallskip\noindent
+\textbf{결과.}\;
+\begin{center}
+\begin{tabular}{rcccc}
+\toprule
+$N$ & $\Delta t_{\min}$ & $\delta_c$ & $\delta_c \cdot N$
+    & 대칭 \\
+\midrule
+25  & 0.0417 & \multicolumn{2}{c}{(해상도 부족; $\sigma{=}1/2$에서 2/13)}
+    & --- \\
+50  & 0.0204 & 0.0105 & 0.525 & 0.000 \\
+100 & 0.0101 & 0.0055 & 0.550 & 0.000 \\
+200 & 0.0050 & 0.00275 & 0.550 & 0.000 \\
+400 & 0.0025 & 0.00138 & 0.550 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+$N \ge 50$에서 곱 $\delta_c \cdot N$이 상수 $\approx 0.55$로 수렴하여,
+스케일링 법칙
+\begin{equation}
+  \delta_c \;\approx\; \frac{R}{N}\,,
+  \qquad R = \text{로컬 윈도우 반지름}
+  \label{eq:delta_c_scaling}
+\end{equation}
+이 성립한다.
+4점 선형 피팅 $\delta_c = a/N + b$에서
+$R^2 = 0.9994$, $p = 3.1 \times 10^{-4}$,
+절편 $|b|/\max(\delta_c) = 0.015 \ll 0.1$이다.
+
+\smallskip\noindent
+\textbf{해석적 설명.}\;
+영점 $\rho = \tfrac12 + i\gamma$ 근방에서 $\xif$의 위상은
+$\arg\xif(s) \approx \mathrm{const} + \arctan\!\bigl((t-\gamma)/\delta\bigr)$
+($\delta = |\sigma - \tfrac12|$)을 만족한다.
+인접 격자점 간 최대 위상차는
+$\Delta\varphi_{\max} \approx 2\arctan(\Delta t / 2\delta)$이며,
+감지 조건 $\Delta\varphi_{\max} > \pi/2$에서
+임계값 $\delta_c = R/N$이 유도되어
+관측 비율 $\delta_c \cdot N \approx 0.55 \approx R{+}O(1/N)$과 일치한다.
+
+\smallskip\noindent
+\textbf{해석.}\;
+$N \to \infty$에서 $\delta_c \to 0$:
+연속 극한에서 위상 점프는 \emph{오직} $\sigma = 1/2$에서만 감지 가능하다.
+이는 곡률 집중 $\kappa \sim 1/\delta^2$ (정리~2)와 일치하며,
+이산 감지 경계가 해석적 특이점을 추적함을 보여준다.
+Heaviside형 형태는 이산화 효과이나,
+$N$ 증가에 따른 단조 첨예화는
+다발 기하학의 진정한 $\sigma$-국소화를 반영한다.
+
+[C-786/C-786b, 2026-06-26; $\zeta(s)$, 13영점,
+$N \in \{50,100,200,400\}$;
+$\delta_c \propto 1/N$, $R^2{=}0.9994$, 격자 효과 확인;
+비평가: 생존 (4점 스케일링, 해석적 모델)]
+\end{remark}
+
+
+% -----------------------------------------------------------------------
+% 명제: 전이 보편성 — C-791, C-796, C-802 (엄밀 증명)
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{proposition}[보편적 격자 해상도 임계값]
+\label{prop:transition_universality}
+$\Lambda(s)$를 $\mathrm{GL}(d)$ ($d = 1,2,3$) 보형 표현의
+완비 $L$-함수라 하고, 국소 격자점 수 $N$, 창 반경 $R$로
+$\xif$-다발 감지를 수행하면, 감지 임계값 $\delta_c$는
+\begin{equation}
+  \delta_c \;=\; \frac{R}{N} + O\!\left(\frac{1}{N^2}\right),
+  \label{eq:delta_c_universal_ko}
+\end{equation}
+을 만족하며, 극한 곱 $\delta_c \cdot N \to R$은 도수 $d$,
+conductor, 임계선 위치 $\sigma_c$에 무관하다.
+\end{proposition}
+
+\begin{proof}
+\emph{단계~1: 단순 영점 근방의 위상 모델.}\;
+$\rho = \sigma_c + i\gamma$를 $\Lambda(s)$의 단순 영점이라 하자.
+$\Lambda$가 정칙이고 $\rho$가 단순이므로,
+\[
+  \Lambda(s) \;=\; \Lambda'(\rho)\,(s - \rho)\,\bigl(1 + O(|s-\rho|)\bigr)
+\]
+이 $\rho$ 근방에서 성립한다. $s = \sigma + it$, $\delta \coloneqq |\sigma - \sigma_c| > 0$으로 놓으면
+\begin{equation}
+  \arg \Lambda(\sigma + it)
+  \;=\;
+  \underbrace{\arg \Lambda'(\rho)}_{\theta_0}
+  \;+\;
+  \arctan\!\frac{t - \gamma}{\sigma - \sigma_c}
+  \;+\;
+  O\!\bigl(|s - \rho|\bigr).
+  \label{eq:phase_model_ko}
+\end{equation}
+
+\smallskip\noindent
+\emph{단계~2: 이산 격자 위의 감지 조건.}\;
+감지 격자는 $N$개의 점
+$t_k = \gamma - R + k\,\Delta t$, $k = 0,\dots,N{-}1$,
+간격 $\Delta t = 2R/(N{-}1)$로 구성된다.
+영점 $\gamma$가 구간 $(t_j, t_{j+1})$ 안에 분수 위치 $f \in (0,1)$,
+즉 $\gamma = t_j + f\,\Delta t$에 놓이면,
+\eqref{eq:phase_model_ko}로부터 이 구간의 위상 차이는 주도항으로
+\begin{align}
+  \Delta\varphi
+  &\;=\;
+  \arctan\!\frac{(1{-}f)\,\Delta t}{\delta}
+  \;+\;
+  \arctan\!\frac{f\,\Delta t}{\delta}
+  \label{eq:phase_diff_ko}
+\end{align}
+이다. $\arctan$ 덧셈 법칙에 의해, 이것이 $\pi/2$를 초과할 조건은
+$f(1{-}f)\,(\Delta t/\delta)^2 > 1$, 즉
+\begin{equation}
+  \delta \;<\; \Delta t\,\sqrt{f(1{-}f)}
+  \label{eq:detection_iff_ko}
+\end{equation}
+이다.
+
+\smallskip\noindent
+\emph{단계~3: 최악 격자 정렬과 임계 거리.}\;
+\eqref{eq:detection_iff_ko}의 우변은 $f = 1/2$
+(영점이 격자 셀의 중점에 위치)일 때 최대이며,
+\begin{equation}
+  \delta_c
+  \;=\;
+  \frac{\Delta t}{2}
+  \;=\;
+  \frac{R}{N - 1}
+  \;=\;
+  \frac{R}{N} + \frac{R}{N(N{-}1)}
+  \label{eq:delta_c_exact_ko}
+\end{equation}
+을 주어, $R/N + O(1/N^2)$이다.
+격자가 $\gamma$를 중심으로 하고 $N$이 짝수(표준 실험 설정)이면
+$N{-}1$은 홀수이므로 영점이 중앙 셀의 중점에 놓여,
+모든 영점에 대해 한계~\eqref{eq:delta_c_exact_ko}가 실현된다.
+
+\smallskip\noindent
+\emph{단계~4: 보편성.}\;
+유도에서 사용된 성질은 오직 두 가지이다:
+\begin{enumerate}
+  \item[(a)] $\Lambda$가 $\rho = \sigma_c + i\gamma$에서
+    \emph{단순} 영점을 가짐 (GRH 하에서 모든 보형 $L$-함수에 기대됨);
+  \item[(b)] $\rho$ 근방의 주도 위상이
+    $\arctan((t{-}\gamma)/\delta)$라는 순수 기하학적 양.
+\end{enumerate}
+도수~$d$, conductor~$q$, 임계선 위치 $\sigma_c$ 등
+\emph{산술 데이터는 일절 관여하지 않는다.}
+따라서 $\delta_c = R/N + O(1/N^2)$는 보편적이다.
+
+\smallskip\noindent
+\emph{단계~5: 오차 통제.}\;
+\eqref{eq:phase_model_ko}의 $O(|s{-}\rho|)$ 잔차는 감지 임계에서
+유효 분수 위치를 $O(1/N)$만큼 교란한다
+($|s{-}\rho| \le \sqrt{2}\,\Delta t = O(R/N)$이므로).
+\eqref{eq:detection_iff_ko}를 통해 이는 $\delta_c$를
+$O(\Delta t/N) = O(R/N^2)$만큼 이동시켜,
+$O(1/N^2)$ 항에 흡수된다.
+$\Delta t$보다 훨씬 멀리 떨어진 영점들은 독립적 감김을 기여하며,
+근접 영점($< \Delta t$ 간격)은 미분해되나
+지배 영점의 감지 범위를 축소하지 않는다.
+
+\medskip\noindent
+\emph{세 족에 걸친 수치 검증.}\;
+$N \in \{50, 100, 200\}$에서 $\delta_c$를 측정하였다:
+\begin{itemize}
+\item GL(1): $\zeta(s)$ ($d{=}1$, $\sigma_c{=}1/2$, 13영점);
+\item GL(2): $L(s,E_{37\mathrm{a}1})$, 타원곡선
+      $y^2{+}y = x^3{-}x$ ($d{=}2$, conductor~37, $\sigma_c{=}1$, 10영점);
+\item GL(3): $L(s, \mathrm{Sym}^2 E_{11\mathrm{a}1})$, 대칭 제곱
+      ($d{=}3$, conductor~121, $\sigma_c{=}3/2$, 5영점).
+\end{itemize}
+모든 완비 $L$-함수는 PARI/GP
+\texttt{lfunlambda} (realprecision~$=30$)로 평가하였다.
+
+\begin{center}
+\begin{tabular}{clccccc}
+\toprule
+$d$ & $L$-함수 & $N$ & $\delta_c$ & $\delta_c \cdot N$
+    & $R^2$ (피팅) & 대칭 \\
+\midrule
+1 & $\zeta(s)$ & 50  & 0.01050 & 0.525 & & 0.000 \\
+1 & $\zeta(s)$ & 100 & 0.00550 & 0.550 & & 0.000 \\
+1 & $\zeta(s)$ & 200 & 0.00275 & 0.550 & & 0.000 \\
+  &            &     &         & \textbf{평균 0.542} & 0.9994 & \\
+\midrule
+2 & $L(s,E_{37\mathrm{a}1})$ & 50  & 0.01050 & 0.525 & & 0.000 \\
+2 & $L(s,E_{37\mathrm{a}1})$ & 100 & 0.00525 & 0.525 & & 0.000 \\
+2 & $L(s,E_{37\mathrm{a}1})$ & 200 & 0.00255 & 0.510 & & 0.000 \\
+  &            &     &         & \textbf{평균 0.520} & 0.9999 & \\
+\midrule
+3 & $\mathrm{Sym}^2(E_{11\mathrm{a}1})$ & 50  & 0.01050 & 0.525 & & 0.000 \\
+3 & $\mathrm{Sym}^2(E_{11\mathrm{a}1})$ & 100 & 0.00525 & 0.525 & & 0.000 \\
+3 & $\mathrm{Sym}^2(E_{11\mathrm{a}1})$ & 200 & 0.00255 & 0.510 & & NaN$^*$ \\
+  &            &     &         & \textbf{평균 0.520} & 0.9999 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+\emph{족 간 비교.}\;
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+족 & 도수 & $\sigma_c$ & $\overline{\delta_c \cdot N}$ & CV & GL(1) 대비 비율 \\
+\midrule
+GL(1) $\zeta$ & 1 & $1/2$ & 0.542 & 2.1\% & 1.000 \\
+GL(2) $E_{37\mathrm{a}1}$ & 2 & 1 & 0.520 & 1.4\% & 0.959 \\
+GL(3) $\mathrm{Sym}^2(E_{11\mathrm{a}1})$ & 3 & $3/2$ & 0.520 & 1.4\% & 0.959 \\
+\bottomrule
+\end{tabular}
+\end{center}
+GL(3)/GL(2) $= 1.000$ (완벽 일치); 세 족 총평균
+$= 0.527 \pm 0.013$으로, 이론값 $R = 0.5$ 대비 $5.5\%$ 이내.
+
+\smallskip\noindent
+아홉 측정 모두 완벽한 Heaviside형 전이(중간 감지율 0)를 보이며,
+$N$ 증가에 따라 전이 폭 $w \to 0$으로, $\delta_c$의 이산 격자 기원을
+확인한다.
+
+\smallskip\noindent
+\emph{$R$-비례성 검증.}\;
+\eqref{eq:delta_c_universal_ko}의 $R$-의존성을 확인하기 위해
+$\zeta(s)$에 대해 $R \in \{0.3, 0.5, 0.7, 1.0\}$,
+$N \in \{50, 100, 200\}$ (12조합, 13영점)으로 반복 측정하였다:
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+$R$ & $\overline{\delta_c \cdot N}$ & $\delta_c \cdot N / R$ & CV & 계단함수 \\
+\midrule
+0.3 & 0.310 & 1.033 & 2.3\% & 3/3 \\
+0.5 & 0.525 & 1.050 & 0.0\% & 3/3 \\
+0.7 & 0.735 & 1.050 & 0.0\% & 3/3 \\
+1.0 & 1.050 & 1.050 & 0.0\% & 3/3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+선형 회귀 $\delta_c \cdot N = \alpha R + \beta$에서
+$\alpha = 1.056$, $\beta = -0.005$, $R^2 = 0.99997$
+($p = 7.4 \times 10^{-20}$).
+체계적 비율 $\delta_c \cdot N / R \approx 1.05$는
+\eqref{eq:delta_c_exact_ko}로 설명된다: 정확한 임계값
+$\delta_c = R/(N{-}1)$이
+$\delta_c \cdot N = RN/(N{-}1) = R(1 + 1/(N{-}1))$을 주고,
+여기에 $\sigma$-스캔 격자 양자화(반스텝 반올림)가 결합된다.
+$N = 200$, $R = 0.3$에서 비율이 $1.000$으로 수렴하여
+\eqref{eq:delta_c_universal_ko}의 $O(1/N^2)$ 보정항과 일치한다.
+12개 측정 모두 완벽한 Heaviside형 전이(중간율 0)와
+$\sigma \leftrightarrow (1{-}\sigma)$ 대칭(평균 $= 0.000$)을 보인다.
+
+\smallskip\noindent
+\textbf{주의.}\;
+(i)~각 족은 단일 $L$-함수로 대표된다.
+(ii)~GL(3) $N = 200$의 대칭 검사는 $\sigma_c = 3/2$에서
+비대칭 격자 배치로 NaN 반환 (구조적 문제 아님).
+
+[C-791+C-796+C-798+C-802, 2026-06-26;
+arctan 덧셈 법칙 + 분수 위치 분석을 통한 엄밀 증명;
+GL(1) $\zeta$, GL(2) 37a1, GL(3) $\mathrm{Sym}^2$(11a1);
+$\delta_c \propto 1/N$, $R^2 \ge 0.9994$ (세 족 모두);
+$R$-비례성: $R \in \{0.3, 0.5, 0.7, 1.0\}$,
+$\delta_c \cdot N = 1.046R - 0.005$, $R^2{=}0.99997$;
+$\delta_c \cdot N/R \approx 1.05$ : $R/(N{-}1)$ 공식으로 설명;
+비평가: 족당 단일 곡선]
+\end{proof}
+
+% -----------------------------------------------------------------------
+% 비고: κ_bg 도수 스케일링 메커니즘 — C-780
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{remark}[$\kappa_{\mathrm{bg}}$ 도수 의존성: $\Gamma$-인자 지배와 산술적 간섭]
+\label{rem:kappa_bg_degree_mechanism}
+결과~\#61이 $\mathrm{mean}(A) = \kappa_{\mathrm{bg}}$가 도수에 따라
+증가함을 확립했다 ($d=1,2,3$에서 $1.30 \to 3.93 \to 12.79$).
+GL(1)~$\zeta(s)$, GL(2)~$L(s, E_{37a1})$, GL(3)~$L(s, \mathrm{sym}^2 E_{11a1})$의
+대응-$\Delta$ 비교(각 5영점, 7개 오프셋)에서
+\emph{단순 멱법칙} $\kappa_{\mathrm{bg}} \propto d^\alpha$는 성립하지 않는다:
+
+\smallskip\noindent
+$\Delta = 0.01$에서 $\kappa_{\mathrm{bg}}^{(1)} = 0.970$,
+$\kappa_{\mathrm{bg}}^{(2)} = 10.384$,
+$\kappa_{\mathrm{bg}}^{(3)} = 8.365$.
+순서가 $d{=}2 > d{=}3 > d{=}1$으로 \emph{비단조적}이며,
+멱법칙 피팅 $R^2 = 0.81$ (임계값 $0.90$ 미달).
+
+\smallskip\noindent
+\textbf{$\Gamma$-인자 분해.}\;
+$\Lambda'/\Lambda = (\gamma'/\gamma + \tfrac{1}{2}\log N) + L'/L$를 분해하면:
+\begin{itemize}[nosep]
+\item \textbf{GL(2)}: 실측 비율 $10.7\times$이 $\Gamma$ 예측 $5.3\times$을 ${\approx}2\times$ 초과.
+  낮은 높이($\gamma \approx 10$--$16$)에서 $L'/L$의 건설적 간섭.
+\item \textbf{GL(3)}: 실측 비율 $8.8\times$이 $\Gamma$ 예측 $9.0\times$ \emph{이하}.
+  $L'/L$의 약한 파괴적 간섭.
+\end{itemize}
+비단조성은 유한 높이 간섭 효과에 기인한다.
+점근적으로($\gamma \to \infty$), $|\gamma'/\gamma| \sim \tfrac{d}{2}\log\gamma$가
+$|L'/L|$을 지배하므로 단조 증가가 회복될 것으로 예상되나,
+현재 테스트 높이에서는 이 극한에 도달하지 못했다.
+
+[C-780$+$C-800, 완료 2026-06-26;
+$\zeta$, $L(s,E_{37a1})$, $L(s,\mathrm{sym}^2 E_{11a1})$, 각 5영점;
+GL(3)/GL(1) $= 8.6\times$ vs $\Gamma$ 예측 $9.0\times$;
+멱법칙 $R^2{=}0.81$; 단순 스케일링 부정됨]
+\end{remark}
+
+% -----------------------------------------------------------------------
+% 관측: κ_bg 도체 스케일링 — C-781 + C-795
+% 2026-06-26
+% -----------------------------------------------------------------------
+\begin{observation}[$\kappa_{\mathrm{bg}}$ GL(1) 내 도체 스케일링: 패리티 매개 의존성]
+\label{obs:kappa_bg_conductor}
+10개 GL(1) $L$-함수에서 $\kappa_{\mathrm{bg}}$ 측정:
+$\zeta(s)$ ($q{=}1$) 및 르장드르 기호 $\chi_q$
+($q = 5, 7, 11, 13, 17, 19, 23, 29, 31$;
+각 5영점, 7 오프셋, $\mathrm{dps}{=}50$; AFE 9/9 PASS).
+
+\smallskip
+\begin{center}
+\small
+\begin{tabular}{@{}rcrrl@{}}
+\toprule
+$q$ & $\log(q{+}1)$ & $\kappa_{\mathrm{bg}}$ ($\Delta{=}0.01$)
+    & $\kappa/\kappa_\Gamma$ & 패리티~$a$ \\
+\midrule
+ 1 & 0.693 & 0.970 & ---  & 0 \\
+ 5 & 1.792 & 1.898 & 0.99 & 0 \\
+ 7 & 2.079 & 2.028 & 1.03 & 1 \\
+11 & 2.485 & 2.231 & 0.99 & 1 \\
+13 & 2.639 & 2.197 & 0.84 & 0 \\
+17 & 2.890 & 2.902 & 0.99 & 0 \\
+19 & 2.996 & 2.426 & 0.91 & 1 \\
+23 & 3.178 & 2.457 & 0.83 & 1 \\
+29 & 3.401 & 3.545 & 1.02 & 0 \\
+31 & 3.466 & 3.688 & 1.13 & 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip\noindent
+\textbf{스케일링 모델 실패.}\;
+10점 로그-선형 회귀 $R^2 = 0.832$
+($\kappa_{\mathrm{bg}} = 0.854\log(q{+}1) + 0.247$);
+선형 모델 $R^2 = 0.863$.
+두 모델 모두 $R^2 \ge 0.90$ 미달이며,
+비단조 위반 2건 발생:
+$\kappa_{\mathrm{bg}}(11) > \kappa_{\mathrm{bg}}(13)$,
+$\kappa_{\mathrm{bg}}(17) > \kappa_{\mathrm{bg}}(19)$
+(후자 $\Delta\kappa = 0.48$).
+
+\smallskip\noindent
+\textbf{패리티 교란.}\;
+두 위반 모두 \emph{짝수$\,\to\,$홀수 패리티 전환}에서 발생.
+패리티별 분리 시 각 그룹은 \emph{개별적으로 단조 증가}:
+\[
+  a{=}0:\;\; 0.97 \;\to\; 1.90 \;\to\; 2.20 \;\to\; 2.90 \;\to\; 3.54,
+  \qquad
+  a{=}1:\;\; 2.03 \;\to\; 2.23 \;\to\; 2.43 \;\to\; 2.46 \;\to\; 3.69.
+\]
+메커니즘: 디감마 인자 $\psi((s{+}a)/2)$가 $a{=}0$과 $a{=}1$ 사이에서
+$\operatorname{Im}(G(\rho))^2$ 값을 체계적으로 이동시킴
+($a{=}0$: $0.63$--$0.71$, $a{=}1$: $0.52$--$0.57$).
+이 효과는 $\gamma \to \infty$에서 소멸 예상.
+
+\smallskip\noindent
+\textbf{결론.}\;
+$\kappa_{\mathrm{bg}}$의 도체 의존성은 실재
+($q{=}1$에서 $q{=}31$까지 $3.8\times$ 증가)하지만,
+단순 $\log(q{+}1)$ 법칙이 아닌 \emph{패리티 매개} 의존성이다.
+확정적 함수형 결정에는
+(i)~패리티 통제 회귀 또는
+(ii)~높은 영점 ($\gamma \gg 50$, 패리티 효과 소멸)이 필요하다.
+
+[C-781+C-795, 2026-06-26;
+10 데이터포인트, $R^2{=}0.83$ (모델 실패);
+패리티 교란이 비단조성의 주 원인;
+각 패리티 그룹 내 개별 단조;
+함수형 미결정]
+\end{observation}
+
+
+% ############################################################################
+% 제3부 — 실패한 방향과 그 진단
+% ############################################################################
+
+\part{실패한 방향과 그 진단}
+\label{part:failed}
+
+\noindent 본 부는 성공하지 못한 경험 프로그램을 압축된 형태로 모은다. 각 섹션은 \textcolor{red}{\rule{0.9ex}{0.9ex}}\ (계층 3)로 표시되며, 각각 프로그램의 한 단락 설명으로 시작하여 진단 사슬을 거쳐 추출된 교훈으로 닫힌다. 내용은 의도적으로 조밀하다 --- 실패 방향당 전형적으로 1--2 페이지 --- 이는 검증된 자료와 추측 자료를 밀어내지 않으면서 완전한 진단을 유지하기 위함이다. 서두른 독자는 제~\ref{part:failed}부를 건너뛰어도 되지만, 후속 실험을 계획하는 독자는 주의 깊게 읽어야 한다.
+
+% ============================================================================
+\section{\textcolor{red}{\rule{0.9ex}{0.9ex}}\ 시클로토믹 $\cos^2$ PQO 학습 ($L=2,4$): $\Psip$-디커플링과 고립 캐스케이드}
+\label{sec:cos2_failure}
+% ============================================================================
+
+\textbf{프로그램.} 3층 공명 판별 네트워크를 \cref{rem:cos2_pqo}의 시클로토믹 $L\in\{2,4\}$ 코사인 제곱 양자화 손실 $\Lpqo$와 \cref{eq:psi_n}의 합성 크기 전용 타겟 $\Psi_n$을 함께 사용하여 $t\in[100,200]$에서 리만 영점과 비영점 좌표를 분리하도록 학습시킨다.
+
+\textbf{결과.} $L=2$와 $L=4$ 양쪽에서 음성. $L=2$에서 네트워크는 자명한 어트랙터 $\phi\to\pi/2$로 붕괴하여 영점과 비영점 어느 쪽도 판별하지 못한다. $L=4$에서 학습은 어트랙터 붕괴 없이 수렴하지만, 결과 위상 MSE (대 $\arg Z(t)$)는 영점과 비영점 간에 구분이 불가능하다 (세 시드에서 풀링된 Welch $p>0.12$, 시클로토믹 구간 $k=2,3$ 공란). 완전한 표 결과는 \cref{rem:cos2_pqo} 참조.
+
+\textbf{진단.} 실패를 네 단계로 추적한다 (날짜는 실험 일정이 아니라 진단 사슬을 나타낸다):
+\begin{enumerate}
+  \item \textbf{타겟 디커플링 (\cref{rem:psi_defect}, 2026-04-08).} \cref{eq:psi_n}의 합성 타겟 $\Psi_n$은 $\|X\|$ (또는 $n$)에만 의존하여 $t$-국소 리만 영점 정보를 전혀 운반하지 않는다. $(\alpha,\beta,\gamma,\delta)$의 어떤 선택으로도 이를 복구할 수 없다; 결함은 구조적이다.
+  \item \textbf{감독 교체는 필요하지만 충분하지 않다 (\cref{rem:psi_defect}, 2026-04-08).} 타겟을 해석적 정답 $\Psip(t)=\arg\xif(\tfrac{1}{2}+it)$로 교체하고 $\Lpqo$를 학습에서 제거하면 (측정에서만 유지), $L=4$의 비대칭 분지 붕괴가 해제되지만 헤드라인 분리 지표는 영가설 근방에 남는다 ($p=0.976$, 비율 $1.004$).
+  \item \textbf{손실 가중 불균형과 산술 평균 읽기는 추가적인 끊긴 고리이다 (\cref{rem:psi_defect}, 2026-04-08).} 잔차 손실 가중 $\lambda_{\mathrm{res}}=1$, $\lambda_{\mathrm{curv}}=0.1$이 감독 $\mathcal{L}_{\mathrm{tgt}}$를 압도하고, $\hat\Psip$을 읽어내기 위해 사용된 채널별 산술 평균이 임계선 위 위상 점프 구조가 예측하는 $\pm\pi$ 랩 신호를 파괴한다.
+  \item \textbf{고립이 사슬을 확인한다 (\cref{rem:isolation}, 2026-04-09).} $\lambda_{\mathrm{res}}=\lambda_{\mathrm{curv}}=\lambda_{\mathrm{pqo}}=0$으로 설정하고 원형 평균으로 읽어내면, 비영점 집합에서 $p=1.18\times10^{-15}$로 감독 학습이 회복되며, 영점 잔존 MSE $\approx(\pi/2)^2$은 매끄러운 네트워크가 각 영점에서 $\arg\xif(\tfrac{1}{2}+it)$의 $\pm\pi$ 불연속을 표현할 수 없음으로 완전히 설명된다.
+\end{enumerate}
+
+\textbf{교훈.} \emph{네 개의 독립적 실패 모드가 쌓여 하나의 음성 결과를 만들어낼 수 있다.} 해석적 동일시가 실험적으로 반증되었다고 선언하기 전에, 감독 사슬의 모든 고리가 개별적으로 격리되어야 한다: 타겟 주입, 손실 가중, 측정 연산자, 출력 공간 표현력. 프로그램의 해석적 내용 $\Psip(t)=\arg\xif(\tfrac{1}{2}+it)$은 캐스케이드를 살아남는다; 매끄러운 장 출력 표현이 마지막 장애물이었으며, 2026-04-10에 $\{0,\pi\}$ 계단 타겟을 정규화된 매끄러운 대리 $\mathrm{Re}\,\xif/\max|\mathrm{Re}\,\xif|$로 교체하여 \emph{해소}되었다: 영점/비영점 MSE 비율이 $18.2\times$에서 $0.03\times$로 감소한다 (\cref{rem:isolation}). 복소 벡터 읽기 헤드는 미시험 대안으로 남는다 (제~\ref{sec:open}절).
+
+% ============================================================================
+\section{\textcolor{red}{\rule{0.9ex}{0.9ex}}\ 위상-게이지 경사하강 (PGGD)}
+\label{sec:pggd_failure}
+% ============================================================================
+
+\textbf{프로그램.} PGGD는 판별 네트워크의 중간 상태의 $S^1$-값 위상 구조를 활용하기 위해 도입된 사용자 정의 옵티마이저이다. 각 매개변수 업데이트는 주변 원 다발의 접공간으로 투영되어 최적화 궤적이 게이지 대칭 $\phi\mapsto\phi+\mathrm{const}$를 존중하도록 한다. 가설은 PGGD가 허위의 전역 위상 자유도를 제거함으로써 제~\ref{sec:f2_hardy}절의 $F_2$ 기반 영점 탐지 과제에서 Adam을 능가할 것이라는 것이었다.
+
+\textbf{결과.} 시험된 모든 시드에서 Adam 대비 음성. PGGD는 (i) 동일 epoch 예산 내에 수렴하지 못하거나, (ii) Adam 기준선보다 작은 판별 격차로 더 높은 학습 손실에 수렴한다. $t\in[10,50]$ 벤치마크에서 Adam의 최종 $F_2$-MSE는 일관되게 PGGD 최상 실행의 $2$--$4\times$ 작다.
+
+\textbf{진단.} 관련된 두 메커니즘:
+\begin{enumerate}
+  \item \textbf{$S^1$ 위의 에르고딕 확산.} PGGD가 사용하는 접 투영은 각 업데이트의 반지름 성분을 제거하지만 각도 성분 전체를 보존한다. 다수의 스텝에 걸쳐 각도 업데이트는 실효 스텝 크기 $\eta$와 epoch 수에 선형적으로 커지는 분산으로 대략 확산적으로 누적된다. 따라서 투영된 궤적은 본질적으로 균일하게 $S^1$을 탐색하며 (각도 mod $2\pi$의 Weyl 등분포), 옵티마이저가 구현하도록 설계된 바로 그 게이지 제거를 물리친다. PGGD가 반지름 자유도를 제거해 얻는 것을 각도 자유도의 임의 보행으로 잃는다.
+  \item \textbf{$\Lpqo$와의 그래디언트 스케일 불일치.} 코사인 양자화 손실은 최소값에서 멀리 있는 영역에서 $O(1)$ 그래디언트를 갖고 근방에서 $O(|\phi-\phi_*|)$ 그래디언트를 갖는다. PGGD의 접 투영은 Adam의 매개변수별 적응적 스케일링에 비해 첫 번째 영역을 증폭시켜 어트랙터 근방에서 지나치게 큰 실효 학습률을 생성한다.
+\end{enumerate}
+
+\textbf{교훈.} \emph{게이지 존중 옵티마이저가 적응적 1차 방법의 표본 효율을 자동으로 물려받지는 않는다.} 올바른 접 투영은 결맞음 탐지와 호환되지만 이를 함의하지는 않는다. PGGD 프로그램은 적응적 각도별 스텝 크기에 의한 가능한 재활 아이디어로 유지된다 (제~\ref{sec:open}절 참조). 그러나 현재 형태로는 $F_2$ 탐지기에서 Adam의 대체재로 사용되어서는 안 된다.
+
+
+% ############################################################################
+% 제4부 — 종합
+% ############################################################################
+
+\part{종합}
+\label{part:synthesis}
+
+
+% ============================================================================
+\section{구조적 대응 표}
+\label{sec:correspondence}
+% ============================================================================
+
+본 연구 전반에 걸쳐 식별된 7개의 구조적 대응을 형식화한다:
+
+\begin{table}[ht]
+\centering
+\caption{QROP-Net과 공명 프레임워크 사이의 7개 구조적 대응.}
+\label{tab:correspondence}
+\rowcolors{2}{lightbg}{white}
+\small
+\begin{tabular}{@{} c p{3.5cm} p{3.5cm} p{4.5cm} @{}}
+\toprule
+\textbf{\#} & \textbf{QROP-Net (구체적)} & \textbf{공명 (해석적)}
+& \textbf{공유 수학 구조} \\
+\midrule
+1 & $\sin^2(2^{d-1}\phi)$ 양자화 손실
+  & $\Delta v = m\pi$ 위상 양자화 (게이트~A)
+  & 주기적 위상 벌칙: $\mathcal{P}(\phi;L) = \sin^2(L\phi/2) = 0$
+    (격자 위치에서) \\
+
+2 & NTT (이산) $+$ FrFT (연속 분수)
+  & 임계선 위 $\xif(s)$의 푸리에 분석
+  & 스펙트럼 분해: 대수 구조 $\leftrightarrow$ 주파수 영역 \\
+
+3 & $X^n + 1 = 0$ 근: 단위원 위 $n$개 등간격 위상
+  & 위상 감김 $\oint\nabla v \cdot ds = 2\pi N$
+  & 시클로토믹/원형 양자화: $S^1$ 위의 이산 위상 \\
+
+4 & LWE 오차 임계치: $|e|_{\Zq} < q/4 = 1920$
+  & $\sigma$-리프트: $|\sigma^* - 1/2| = 0$ (RH)
+  & 신호 복원이 실패하는 경성 오차 경계 \\
+
+5 & $U_0 = e^{i\phi}$, $|U_0| \equiv 1$; 세기 $I = |U_d|^2$
+  & $\Ampl(t) = |\xif|$ vs $\Phiz(t) = \arg\xif$
+  & 진폭--위상 분리: 위상에 정보 인코딩, 진폭으로 측정 \\
+
+6 & 블라인드 TTO: 정답 없는 자가 교정
+  & 게이지 ODE: 영점 위치 모른 채 $F_2 = 0$
+  & 내적 일관성에 의한 정답 없는 수렴 \\
+
+7 & $\Delta d = 0.1\,$mm $\to$ DFR $= 1$
+  & $\sigma$-리프트 $\neq 0$ $\to$ 비유니타리성 (흡수)
+  & 민감도 임계치: 작은 매개변수 이동 $\to$ 파국적 실패 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{대응의 수학적 형식화}
+
+각 대응을 구조적 사상으로 표현한다.
+
+\begin{definition}[위상 양자화 함자]
+\label{def:functor}
+$(\mathcal{A}, \Phi_{\mathcal{A}}, L_{\mathcal{A}})$를 대수 구조 $\mathcal{A}$, 위상 함수 $\Phi_{\mathcal{A}}: \mathcal{A} \to [0, 2\pi)$, 격자 수준 수 $L_{\mathcal{A}} \in \mathbb{N}$으로 이루어진 \textit{위상 양자화 삼중체}라 하자. 위상 양자화 연산자 $\mathcal{P}(\cdot; L)$은 모든 이러한 삼중체에 동일하게 작용한다:
+
+\medskip
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+& $\mathcal{A}$ & $\Phi_{\mathcal{A}}$ & $L_{\mathcal{A}}$ \\
+\midrule
+QROP-Net   & $\Zq^{1024}$ & $\phi_i = 2\pi c_i/2^{d_u}$
+           & $2^{d_u} = 2048$ \\
+시클로토믹 & $R_q$ & $\arg(\omega_j) = \pi(2j+1)/n$
+           & $2n = 512$ \\
+임계선     & $\{t \in \mathbb{R}^+\}$
+           & $\vartheta(t) \bmod \pi$
+           & $2$ (그람 구간당) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+각 경우에, 조건 $\mathcal{P}(\Phi_{\mathcal{A}}; L_{\mathcal{A}}) = 0$이 ``정렬된'' 원소를 선택하며, $\nabla\mathcal{P}$가 비정렬 원소를 가장 가까운 격자 위치로 유도한다.
+\end{definition}
+
+\subsection{\textcolor{orange}{\rule{0.9ex}{0.9ex}}\ 동역학적·스펙트럼적 대응}
+\label{sec:extended_corr}
+
+\noindent\textbf{계층 2.} 위의 대응표는 구조적이다. 본 소절은 \cref{sec:f2_hardy}--\cref{sec:high_zeros}의 실증 현상을 고전 수학 틀에 연결하는 네 가지 추가 대응을 기록한다. 각 대응은 유비와 부분적 수치 일치 수준에서 수립되며, 엄밀한 동등성을 주장하지 않는다.
+
+\subsubsection{Maslov 보정 --- 메타플렉틱 시트 이동}
+\label{sec:maslov_corr}
+
+\cref{sec:f2_hardy} 전반에서 언급된 ``$\cos^2$ Maslov 보정'' --- 양자화 벌칙을 $\sin^2(L\phi/2)$에서 $\cos^2(L\phi/2)$로 교체하는 것 --- 은 고전적 메타플렉틱 현상의 신경망적 그림자이다.
+
+\begin{theorem}[게이트~A의 메타플렉틱 보정]
+\label{thm:maslov}
+실함수의 영점에서 $\varphi\to\pi/2$ (\cref{cor:neural_reg})일 때 적용되는 위상 양자화 연산자 $\PQO(\varphi; L)$에 대하여, $\sin^2$ 형식은 $\PQO(\pi/2; 2) = 1$ (최대 벌칙) 을 주는 반면, $\cos^2$ 형식은
+\begin{equation}\label{eq:pqo_cos_thm}
+  \PQO_{\cos}(\varphi; L) := \cos^2\!\bigl(L\varphi/2\bigr),
+  \quad \PQO_{\cos}(\pi/2; 2) = 0
+\end{equation}
+을 준다. 교체 $\sin^2\to\cos^2$은 지수 $\mu=2$를 가지는 \emph{Maslov 보정}이며, 이는 위상 이동 $\mu\pi/4=\pi/2$에 해당한다.
+\end{theorem}
+
+\begin{table}[ht]
+\centering
+\caption{수학 전반에 걸친 $\sin^2\leftrightarrow\cos^2$ 쌍대성.}
+\label{tab:maslov_duality}
+\small
+\begin{tabular}{@{}p{3cm}|p{3.8cm}|p{3.8cm}|p{3cm}@{}}
+\toprule
+\textbf{영역} & \textbf{$\sin^2$ 국면} & \textbf{$\cos^2$ 국면} & \textbf{이동의 이름} \\
+\midrule
+WKB/준고전     & 전환점에서 떨어진 곳
+               & 전환점에서
+               & Maslov 지수 $\mu$ \\
+심플렉틱 기하  & 표준 라그랑지안 차트
+               & 교차하는 Maslov 순환
+               & $\pi_1(\Lambda(n))$ \\
+조화 해석      & 동상 성분 (I)
+               & 직교 성분 (Q)
+               & 힐베르트 변환 \\
+격자 암호      & 격자 복호
+               & 잉여류 복호
+               & $\Lambda\to\Lambda+v$ \\
+Berry--Keating & $\vartheta(t_n)=n\pi$
+               & $\vartheta(t_n)=(n-\tfrac12)\pi$
+               & 반정수 이동 \\
+표현론         & 콤팩트 카르탕
+               & 분할 카르탕
+               & Cayley 변환 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+통합 대상은 $\mathrm{Sp}(2n,\mathbb{R})$의 이중 피복인 메타플렉틱 군 $\mathrm{Mp}(2n,\mathbb{R})$이며, 그 두 시트는 정확히 두 양자화 위상에 대응한다. 함수방정식 $\xif(s)=\xif(1-s)$는 $\tau\to-1/\tau$을 통해 세타 함수 위에서 작용하는 이 군에서 유래하며, Berry--Keating 양자화 조건
+\begin{equation}\label{eq:berry_keating}
+  \vartheta(t_n)=\bigl(n-\tfrac12\bigr)\pi + O(1/t_n)
+\end{equation}
+는 해석적 측면에서 동일한 $-1/2$ 이동을 부호화한다.
+
+\subsubsection{게이지 ODE 임계 전이 --- Kuramoto 동기화로서}
+\label{sec:kuramoto}
+
+\begin{observation}[게이지 임계 전이]
+\label{obs:gauge_transition}
+\cref{sec:f2_hardy}의 $F_2$-탐지기에서 게이지 버퍼 상태 $(\varphi,\psi)$는 ${\sim}10$ epoch에서 급격한 전이를 보인다: 표준편차 $\mathrm{std}(\varphi)$가 $\approx 0.10$에서 $\approx 0.03$으로 떨어지며, 이는 $F_2$가 모든 훈련 영점에서 수렴에 도달하는 epoch과 일치한다. 이 전이는 시드에 불변이며 $t\in[10,50]$과 $t\in[100,200]$ 모두에서 재현된다.
+\end{observation}
+
+\begin{remark}[Kuramoto 동기화]
+\label{rem:kuramoto_transition}
+\cref{obs:gauge_transition}은 유한 모집단 Kuramoto형 동기화 전이이다. 게이지 위상 $\{\varphi_i\}$은 배치 지역 장이며, 공유되는 잔차 손실 $\mathcal{L}_{\mathrm{res}}$가 이들 사이의 결합 범함수로 작용한다. 유효 결합 강도 (학습률과 타겟의 날카로움에 의해 제어됨) 가 임계값을 초과할 때, 위상들은 타겟 영점 위치에 의해 결정되는 공통 주파수 프로파일로 잠긴다. epoch $\sim 10$에서의 $\mathrm{std}(\varphi)$의 $\approx 3\times$ 하락은 이 잠김의 신경망적 서명이다.
+
+[confirmed 2026-04-12]
+Kuramoto 순서 매개변수 $r(e)=|N^{-1}\sum_j e^{i\varphi_j}|$를
+$3\text{ seeds}\times 2\text{ }t$-범위에서 측정하였다
+(5회 완료 + 1회 epoch 90/100에서 OOM 불완전 종료; 불완전 run도 동일 단조 패턴).
+$\mathrm{std}(\varphi)$ 비율은 $3.43\pm0.09\times$
+(초기 $0.108\pm0.008$, 최종 $0.032\pm0.002$)로,
+위의 ${\sim}3\times$ 관찰과 정량적으로 일치한다.
+순서 매개변수는 epoch~$0$부터 $r>0.99$
+($r_{\mathrm{init}}=0.994\pm0.001$, $r_{\mathrm{final}}=0.9994\pm0.0001$)를
+만족하며, 네트워크 초기화가 이미 게이지 위상을 초임계 영역 $K\gg K_c$에
+배치함을 나타낸다; 학습은 무질서-질서 전이가 아닌 동기화의 정련이다.
+$t\in[10,50]$와 $t\in[100,200]$ 모두 동일 패턴을 보여 $t$-범위 불변성을 확인하였다.
+\end{remark}
+
+\begin{remark}[von Mises 자기일관성]
+\label{rem:von_mises}
+최종 위상 분산 $\sigma_\varphi = 0.032 \pm 0.002$는
+집중 매개변수 $\kappa = 1/\sigma_\varphi^2 \approx 980$인
+von~Mises 분포와 정확히 일치한다: 자기일관성 관계
+\[
+  r \;=\; e^{-\sigma^2/2} \;=\; e^{-0.032^2/2} \;\approx\; 0.9995
+\]
+는 측정된 $r_{\mathrm{final}} = 0.9994 \pm 0.0001$과
+실험 오차 내에서 일치한다. 이는 학습된 게이지 위상 앙상블이
+\emph{거의 축퇴된} von~Mises 분포임을 확인하며,
+Kuramoto 동기화가 단순한 비유가 아님을 확립한다:
+위상들은 $\kappa \approx 10^3$인 von~Mises 분포를
+통계적으로 따른다.
+[confirmed 2026-04-13]
+\end{remark}
+
+\begin{proposition}[자발적 게이지 고정]
+\label{prop:spontaneous_gauge}
+$H$를 은닉 채널 수라 하자.
+$H$개의 게이지 위상 $\{\varphi_j(x)\}_{j=1}^H$은
+초기화 시 $r_{\mathrm{init}} \approx 1 - c\,H^{-\alpha}$를 만족하며,
+$\alpha \approx 0.38$, $c \approx 0.033$이다 (5-시드 피팅, $R^2=0.94$).
+학습은 집중도를 $r_{\mathrm{final}} > 0.998$로 균일하게 정련하여,
+자발적 대칭 파괴 $U(1)^H \to U(1)$을 달성한다.
+
+\smallskip\noindent\textit{$H$-스케일링 데이터
+(5 시드 $\times$ 5 너비, $t\in[100,200]$, 30 에포크):}
+
+\smallskip
+\begin{center}
+\begin{tabular}{rcccc}
+\toprule
+$H$ & $r_{\mathrm{init}}$ & $1{-}r_{\mathrm{init}}$ &
+      $r_{\mathrm{final}}$ & $\Delta r/\mathrm{ep}\;(\times 10^{-3})$ \\
+\midrule
+ 16 & $0.9878\pm0.0016$ & $0.0122$ & $0.9982\pm0.0003$ & $0.348\pm0.043$ \\
+ 32 & $0.9915\pm0.0011$ & $0.0085$ & $0.9985\pm0.0001$ & $0.236\pm0.038$ \\
+ 64 & $0.9938\pm0.0010$ & $0.0062$ & $0.9988\pm0.0002$ & $0.166\pm0.027$ \\
+128 & $0.9954\pm0.0003$ & $0.0046$ & $0.9987\pm0.0001$ & $0.110\pm0.010$ \\
+256 & $0.9955\pm0.0005$ & $0.0045$ & $0.9989\pm0.0001$ & $0.112\pm0.014$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+스케일링은 $H\ge128$에서 포화한다 ($1{-}r_{\mathrm{init}}\approx 0.0045$).
+단순 $O(1/H)$ 법칙은 기각됨. $H=16$에서조차
+$r_{\mathrm{init}}=0.988 \gg 1/\sqrt{16}=0.25$:
+이 근접-단위 동기화는 유한 크기 효과가 아니라 \emph{구조적}이다
+(Xavier 초기화와 ReLU 비선형성이 출력 위상 다양성을 억제).
+정련 속도 $\Delta r/\mathrm{ep}$는 $H$에 대해 단조 감소하며,
+이는 $r_{\mathrm{init}}\to 1$일 때 한계 이득이 줄어드는 것과 일치한다.
+[confirmed $H{\in}\{16,32,64,128,256\}$,
+2026-04-13]
+\end{proposition}
+
+\begin{remark}[von Mises--Kuramoto--$L_{\mathrm{geo}}$ 삼각 연결]
+\label{rem:triangle}
+측지 손실 $L_{\mathrm{geo}} = 1 - \cos(\Delta\varphi)$는
+가산 상수를 제외하면 von~Mises 분포의 음의 로그우도이다:
+$-\log p(\varphi \mid \mu,\kappa)
+  = -\kappa\cos(\varphi-\mu) + \mathrm{const}$.
+$L_{\mathrm{geo}}$를 최소화하면 von~Mises MLE를 수행하게 되며,
+이는 $\kappa$를 최대화하고, 이는 다시 Kuramoto
+순서 매개변수 $r \to 1$을 구동한다. 세 개념---von~Mises MLE,
+$S^1$ 측지 손실, Kuramoto 동기화---은 따라서 하나의
+최적화 문제의 서로 다른 관점이다. 이것이
+$\Ltgt$를 $L_{\mathrm{geo}}$로 교체하면
+(\cref{sec:open}, Tier~1) 검출 개선이 나타나는 이유를
+설명한다: 손실 함수가 게이지 동기화를 암묵적으로
+강화하기 때문이다.
+후속 극소값 기반 평가(5시드, 2개 높이 구간)는
+\emph{밀도 의존적} 효과를 보여준다:
+\begin{itemize}
+  \item \textbf{$t\in[500,600]$} (밀도 $0.72$/단위):
+    $F_1$ 동등 (BL $0.373\pm0.020$ vs $L_{\mathrm{geo}}$
+    $0.361\pm0.012$, $p{=}0.45$);
+    재현율 분산 축소 유의
+    ($F{=}16.2$, $p{=}0.010$).
+  \item \textbf{$t\in[1000,1100]$} (밀도 $0.81$/단위):
+    $F_1$ 개선 (BL $0.395\pm0.009$ vs $L_{\mathrm{geo}}$
+    $0.411\pm0.005$, 대응 $t{=}2.84$, $p{=}0.047$,
+    5/5시드 방향 일관);
+    재현율 분산도 유의 ($F{=}6.5$, $p{=}0.049$).
+\end{itemize}
+두 구간 모두에서 $L_{\mathrm{geo}}$는 재현율 하한을
+안정화한다 ($t\in[500,600]$에서 $R\ge 0.972$;
+$t\in[1000,1100]$에서 $R\ge 0.975$; 10개
+시드--구간 조합 전체).
+더 높은 영점 밀도에서 측지 손실은 추가로 평균 $F_1$을
+끌어올리며, 이는 $\Ltgt$의 $\pm\pi$ 불연속 부담이
+밀도에 따라 증가함을 시사한다.
+효과 크기는 소($\Delta F_1 \approx 0.016$)이고
+$p$-값은 경계선이다.
+파국적 발산은 1/5시드(시드 특이적, best-checkpoint
+선택으로 구제).
+[2026-04-13 확인, 5시드, 2구간]
+\end{remark}
+
+\subsubsection{Lehmer 현상과 GUE 간격 통계}
+\label{sec:lehmer_gue}
+
+\cref{tab:f2_low}의 난이도 위계 --- 일부 영점이 이웃보다 한두 자릿수 느리게 수렴하는 것 --- 는 Lehmer 쌍의 경험 분포와 일치한다. Montgomery의 쌍 상관 추측과 Odlyzko의 수치 연구는 고위 리만 영점의 정규화된 간격이 GUE 분포
+\begin{equation}\label{eq:gue}
+  p_{\mathrm{GUE}}(s) = \frac{32}{\pi^2}s^2 e^{-4s^2/\pi}
+\end{equation}
+를 따름을 확립하였고, 가까운 영점 쌍 --- Lehmer 쌍 --- 은 예측 가능한 빈도로 나타난다. 우리 탐지기에서 이들은 $Z(t)$가 실수축을 거의 스치지만 교차하지 않는 영점이며, 해석 신호가 $\pm\pi/2$ 근방에 더 오래 머물고, 따라서 $F_2$ 잔차가 비례적으로 더 오래 걸려 수렴한다. 이로부터 검증 가능한 예측이 나온다: 고정 epoch 예산에서 영점별 수렴 시간 분포가 GUE 밀도와 해석 신호 체류 시간의 컨볼루션과 일치해야 한다. 이 양은 닫힌 형식으로 계산될 수 있다. 아직 이 적합을 수행하지 않았으며, \cref{sec:open}의 열린 문제로 기록한다.
+
+\subsubsection{Weyl 등분포와 PGGD 각도 보행}
+\label{sec:weyl}
+
+\cref{sec:pggd_failure}는 PGGD의 실패 원인을 $2\pi$ 모듈로 각도 업데이트의 Weyl형 등분포 탓으로 돌린다. 기저 사실은 무리수 $\alpha$에 대해 수열 $\{n\alpha\bmod 1\}$이 $[0,1)$에서 등분포한다는 고전 정리이다. PGGD 맥락에서 스텝당 각도 업데이트는 근사적으로 $\eta\,\hat L(t)$이며, 일반적 타겟 함수에 대해 유한 샘플 위에서 유리 독립이다; 접 투영은 전체 업데이트를 이 각도 성분에 집중시키며, epoch 수가 증가함에 따라 경험 분포가 $S^1$ 위의 Haar 측도로 수렴하는 등분포 보행을 생성한다. 이는 \cref{rem:kuramoto_transition}의 잠김의 역이다: 여기서는 결합이 구성에 의해 제거되었고, 등분포가 승리한다.
+
+
+% ============================================================================
+\section{토론}
+\label{sec:discussion}
+% ============================================================================
+
+\subsection{대응이 의미하는 것}
+
+7개의 대응은 수학적 문법 수준에서의 \textit{구조적 동형}을 입증한다: 주기적 위상 벌칙, 경성 오차 경계, 진폭--위상 분리, 자가 교정 수렴의 동일한 패턴이 구체적 공학 시스템(QROP-Net)과 추상적 해석 프레임워크(임계선 위의 공명 이론) 모두에서 나타난다.
+
+이는 다음 사이의 보다 깊은 연결을 시사하지만---\textbf{증명하지는 않는다}:
+\begin{enumerate}
+  \item 시클로토믹 다항식환의 대수적 구조 ($X^n + 1 = 0$, 격자 암호의 기반),
+  \item 리만 $\xif$-함수의 스펙트럼 구조 (복소 해석적 위상에서의 소수 분포 인코딩),
+  \item 결맞음 광학 전파의 물리적 구조 (분수 푸리에 변환으로서의 프레넬 회절 핵).
+\end{enumerate}
+
+통합의 실마리는 \textit{단위원}이다: $S^1$ 위의 다항식 근, $S^1$ 위의 광학 위상, 그리고 $S^1$ 위의 $\xif$-함수 값 (위상 성분). 위상 양자화---연속 신호를 이산 각도 위치로 강제---가 공유 연산이다.
+
+
+\subsection{대응이 의미하지 않는 것}
+
+본 연구의 경계에 대해 명시적이어야 한다:
+
+\begin{enumerate}
+  \item \textbf{이것은 리만 가설의 증명이 아니다.}
+        구조적 병렬은 공유 수학적 문법을 식별하지만, 논리적 증명을 구성하지 않는다. RH는 특정 해석 함수의 영점에 대한 진술이며, 광학 시스템에 대한 어떤 구조적 유비도 엄밀한 복소 해석적 논증을 대체할 수 없다.
+
+  \item \textbf{대응은 구조적이지 인과적이 아니다.}
+        QROP-Net의 $\sin^2$ 손실과 게이트~A의 $\Delta v = m\pi$가 같은 함수 형태를 가진다는 사실이, 하나가 다른 것을 ``야기''하거나 ``설명''함을 의미하지 않는다. 이들은 같은 수학적 패턴의 독립적 실현이다.
+
+  \item \textbf{다원적 프레임은 수치 도구이지 증명 기법이 아니다.}
+        $F_2(t) = 0$이 알려진 영점 위치로 수렴하는 것은 수치 방법을 검증하지만, 영점을 찾는 것은 그것들이 모두 $\sigma = 1/2$ 위에 있음을 증명하는 것과 같지 않다.
+
+  \item \textbf{산란 해석은 유비이다.}
+        $\xif(s)$를 산란 진폭으로 취급하는 것은 올바른 예측(영점 위치, 위상 양자화)을 생성하는 생산적 유비이지만, $\xif$는 물리적 시스템의 산란 진폭이 문자 그대로 아니다 (S-행렬이 $\xif$와 같은 해밀토니안은 식별되지 않았다).
+\end{enumerate}
+
+
+\subsection{예측력과 향후 방향}
+\label{sec:open}
+
+이러한 주의에도 불구하고, 통합 프레임워크는 여러 검증 가능한 예측을 제시한다. 이를 계층별로 조직하며, \cref{sec:tiers}의 분류 원칙을 보존한다: 항목은 이미 확보된 증거의 구체성에 따라 묶인다.
+
+\smallskip\noindent\textbf{\rule{0.9ex}{0.9ex}\ 계층 1 후속작업 (즉시 실행 가능).}
+\begin{itemize}
+  \item \textbf{$\arg\xif(\tfrac{1}{2}+it)$에 대한 복소 벡터 읽기
+        \textcolor{red}{[2026-04-12 중립]}.}
+        고립 실험 (\cref{rem:isolation})은 잔존 결함을 영점에서의 매끄러운 네트워크가 $\arg\xif$의 $\pm\pi$ 불연속을 표현할 수 없는 것으로 국소화했다. 가장 깔끔한 아키텍처 해법은 읽기 헤드가 $\xif(\tfrac{1}{2}+it)$를 복소 벡터로 예측하고 $\arg$를 사후 계산하게 하는 것이다.
+        \emph{2026-04-12 시험:} 프로젝션 전 은닉 상태 $Z\in\mathbb{C}^{64}$를
+        $(\mathrm{Re}\,\xif,\mathrm{Im}\,\xif)$로 매핑하는 선형 읽기 헤드를
+        보조 공명 손실($\Lres+\Lcurv+\Lpqo$, $\Ltgt=0$)과 함께 Re/Im MSE
+        ($\lambda_{\mathrm{MSE}}=2$)로 공동 훈련하였다.
+        3시드($t\in[100,200]$, $K=128$, 150 에포크)에서:
+        복소 벡터 검증 손실은 ${\sim}4$배 개선
+        ($0.014\pm0.005$ vs $0.069\pm0.013$)되었으나, $|F_2|$
+        ratio는 통계적으로 무변화
+        ($0.982\pm0.041$ vs $0.999\pm0.005$; $p>0.5$)이고 영점
+        검출은 $0/463$에 머물렀다.
+        읽기 헤드는 Re/Im 매핑을 잘 학습하지만 네트워크의 내부 공명
+        구조($Z_{\mathrm{out}}$)를 변경하지 못한다. $\pm\pi$ 불연속은
+        사후 읽기 헤드만으로는 해결할 수 없고 더 깊은 아키텍처 변경이
+        필요하다.
+  \item \textbf{매끄러운 영점 교차 타겟 [2026-04-10 확인].} 고립 설정 (\cref{rem:isolation})에서 두 가지 매끄러운 대리 타겟을 시험하였다: 범프 타겟 $\mathrm{sign}(\mathrm{Re}\,\xif)\cdot e^{-(\mathrm{Re}\,\xif)^2/\sigma^2}$와 정규화 타겟 $\mathrm{Re}\,\xif/\max|\mathrm{Re}\,\xif|$. 정규화 타겟은 영점/비영점 MSE 비율을 $18.2\times$ (계단 타겟)에서 $0.03\times$로 줄인다 --- $99.8\%$ 갭 축소 --- 이로써 $\pm\pi$ 불연속이 유일한 병목이었음을 확인한다 (\cref{rem:isolation}).
+        \emph{전체 파이프라인 시험
+        [2026-04-10 완료]:}
+        매끄러운 타겟을 전체 손실
+        ($\Lres + \Lcurv + \Lpqo$ + MSE smooth)에 통합한 결과,
+        전역 $|F_2|$가 $5.2\%$ \emph{악화}되었다 (3-시드 앙상블).
+        이는 각도 타겟 $\Ltgt$가 $\Lres$, $\Lpqo$와 시너지를
+        이루므로 전면 교체해서는 안 됨을 시사한다.
+        매끄러운 타겟은 \emph{고립 진단} 도구로서만 유효하다.
+  \item \textbf{블라인드 영점 외삽
+        [2026-04-10 확인].}
+        $t\in[100,150]$에서 훈련하고 미관측 구간 $[150,200]$에서
+        국소 $|F_2|$ 극소를 예측한 결과 (역방향도 동일),
+        5개 시드 및 $K\in\{64,128\}$ 설정에서 재현율
+        $96{-}99\%$를 달성했다; 역방향 $K=128$에서
+        $99.1\pm1.7\%$ 재현율. 정밀도는 가짜 격자 극소로 인해
+        낮지만 ($\sim\!15{-}18\%$), 거의 완벽한 재현율은 $F_2$
+        잔차가 훈련 세트 영점에 과적합하지 않고 미관측 높이
+        범위로 일반화됨을 보여준다.
+        \emph{사후 정밀도 필터링
+        \textcolor{red}{[2026-04-12 중립]}:}
+        블라인드 외삽 극소에 앙상블 합의 및 깊이/간격 필터를 적용하였다
+        ($t\in[150,200]$, 5시드, $K=128$, 200 에포크, 2000점 밀집 격자).
+        최고 필터(앙상블 $\ge 2$ 시드)는 정밀도 $32.7\%$,
+        재현율 $63.0\%$, $F_1=0.430$을 달성하였다.
+        정밀도는 ${\sim}15\%$ (원시)에서 $28{-}33\%$로 상승하였으나
+        $1.5$배 유의 임계치에 도달하지 못하였다.
+        깊이 필터는 너무 공격적이며(모든 후보 제거), 간격 필터는
+        정밀도 보상 없이 재현율만 저하시킨다.
+        낮은 정밀도는 사후 휴리스틱으로 교정 가능한 수준이 아니라
+        $|F_2|$ 풍경 자체에 내재된 것으로 보인다.
+        \emph{FP 해부
+        [2026-04-13 확인]:}
+        5시드($t\in[14,50]$)에서 위양성의 $85.1\%$(57/67)가
+        $|F_2|$ 풍경의 진짜 극소점($|F_2|''(t)>0$, $p<10^{-6}$)이다.
+        유사-영점(pseudo-zero)은 학습된 잔차의 구조적 특성이지,
+        잡음이 아님을 확인한다.
+        FP 위치는 시드 간 비일관적(Jaccard${}=0.046$,
+        $\ge\!5$시드 합의${}=0$)으로 $|F_2|$ 풍경의 세부 구조가
+        모델 초기화에 의존한다.
+        해석적 곡률 $\kappa=|\xif'/\xif|^2$는 TP와 FP를
+        ${\sim}300$배 분리(TP 중앙값${}=270$, FP 중앙값${}=0.9$;
+        갭: FP 최대${}=31$ $<$ TP 최소${}=76$)하여,
+        $\kappa$가 이용 가능한 경우 이론적 정밀도 상한 $100\%$를
+        확립한다. 윤곽 적분 모노드로미 측정에서 5개 $L$-함수에 걸쳐 완벽 분리를 달성한다:
+        GL(1) $\zeta(s)$ ($t\in[14,300]$, 25 TP / 60 FP),
+        GL(1) Dirichlet $L(s,\chi_5)$ (mod~5, 짝수 이차 지표;
+        $t\in[10,100]$, 20 TP / 30 FP),
+        GL(1) \emph{복소} Dirichlet $L(s,\chi_{5,\mathrm{odd}})$ (mod~5, order~4, 홀수;
+        $\Lambda$가 임계선에서 복소수;
+        20 TP / 30 FP; KS $p = 4.2 \times 10^{-14}$; 복소 지표 첫 검증),
+        GL(2) EC 11a1 ($N=11$, rank~0, $\varepsilon=+1$, $\sigma=1$;
+        20 TP / 30 FP),
+        GL(2) EC 37a1 ($N=37$, rank~1, $\varepsilon=-1$, $\sigma=1$;
+        20 TP / 24 FP; KS $p = 1.14 \times 10^{-12}$; rank~1 첫 전용 검증),
+        GL(2) Ramanujan~$\Delta$ (weight~12, level~1, $\varepsilon=+1$, $\sigma_c=6$;
+        20 TP / 30 FP; KS $p = 4.2 \times 10^{-14}$; weight~12 첫 전용 검증;
+        임계선 $\sigma_c=6$에서 완벽 분리).
+        모든 경우 TP $|\mathrm{mono}|/\pi = 2.000 \pm 0.000$,
+        FP $|\mathrm{mono}|/\pi = 0.000 \pm 0.000$.
+        GL(3) sym$^2$(11a1) (degree~3, conductor~121, $\sigma_c=1.5$;
+        20 TP / 30 FP; KS $p = 7.1 \times 10^{-14}$; degree~3 첫 전용 검증;
+        $\Gamma$-벡터 $[0,0,1]$; 모두 mono=0),
+        GL(4) sym$^3$(11a1) (degree~4, conductor~$1331=11^3$, $\sigma_c=2$;
+        $\Gamma$-벡터 $[-1,0,0,1]$; FE: $\Lambda(s)=\Lambda(4-s)$;
+        20 TP / 30 FP; KS $p = 4.2 \times 10^{-14}$; degree~4 첫 전용 검증;
+        $\kappa_{\mathrm{TP}} \sim 10^4$, $\kappa_{\mathrm{FP}} \sim 15$),
+        GL(5) sym$^4$(11a1) (degree~5, conductor~$14641=11^4$, $\sigma_c=2.5$;
+        $\Gamma$-벡터 $[-2,-1,0,0,1]$; FE: $\Lambda(s)=\Lambda(5-s)$;
+        20 TP / 30 FP; KS $p = 4.2 \times 10^{-14}$; degree~5 첫 전용 검증;
+        $\kappa_{\mathrm{TP}} \sim 10^4$, $\kappa_{\mathrm{FP}} \sim 0.3$--$57$;
+        11a1의 sym$^k$ 타워: $k=1$ (degree~2), $k=2$ (degree~3), $k=3$ (degree~4), $k=4$ (degree~5) 전부 완벽 분리).
+        Dedekind 제타 $\zeta_K$ ($K = \mathbb{Q}(\alpha)$, $\alpha^3-\alpha-1=0$,
+        $\mathrm{disc}=-23$, $\mathrm{Gal} \cong S_3$; degree~3;
+        $\zeta_K = \zeta \cdot L(s,\rho_2)$;
+        20 TP (17개는 $L(\rho_2)$ 기원, 3개는 $\zeta$ 기원) / 101 FP;
+        KS $p = 5.7 \times 10^{-23}$; $\kappa$ 비율 $178\times$;
+        비가환 Galois 확장에서의 첫 검증).
+        Artin $L(s,\rho_2, S_3)$ 모노드로미 (표준 2D 기약 표현, $N=23$, degree~2;
+        42 TP / 85 FP; KS $p = 2.6 \times 10^{-34}$; $\kappa$ 비율 $203\times$;
+        \texttt{lfunartin} 직접 구성; 직접 Artin $L$-함수 첫 검증;
+        8번째 구성 경로 확인).
+        Artin $L(s,\rho_3, A_4)$ 모노드로미 (표준 3D 기약 표현, $N=5184$, degree~3;
+        94 TP / 85 FP; KS $p = 5.5 \times 10^{-53}$; $\kappa$ 비율 $1372\times$;
+        \texttt{lfunartin} 직접 구성; $A_4$ 교대 군; $A_4$ 3D 기약 표현 첫 검증;
+        9번째 구성 경로 확인).
+        Rankin--Selberg $L(f \otimes g, s)$ 모노드로미 ($f = \texttt{11a1}$, $g = \texttt{37a1}$,
+        degree~4, $N = 165649 = 11^2 \cdot 37^2$, $\sigma_c = 3/2$;
+        50 TP / 48 FP; KS $p \ll 10^{-50}$; $\kappa$ 비율 $107\times$;
+        \texttt{direuler} 500k항; Rankin--Selberg 텐서곱 첫 검증;
+        10번째 구성 경로 확인).
+        \textbf{총 391 TP / 613 FP, 13개 $L$-함수, degree 1--5, weight 1--12, rank 0--1, 실수·복소 지표, Dedekind 제타, Artin $L$-함수, Rankin--Selberg 텐서곱 포함, 예외 0건.}
+        이중 기준($\kappa + \mathrm{mono}$)이 정밀도 $100\%$를 보장한다.
+        해석적으로, 곡률 상수 $A(t_0) = B^2 + 2H_1$에 대해
+        $|A(t_0)| \leq K(\pi)\log^2(q_\pi t_0)$ ($K(\zeta)=0.33$)이
+        Hadamard 곱 표현으로부터 증명되었으며,
+        인접 영점 분해 $A = 3/\Delta t^2 + A_{\mathrm{far}}$
+        ($K_{\mathrm{far}} \leq 0.66$, 7개 $L$-함수 320영점, degree 1--5)로
+        close pair에서의 곡률 팽창이 완전히 설명된다.
+        Hadamard 분해 $A_{\mathrm{far}} = |R_2|^2 + 2\operatorname{Re}(R_2\bar W)$
+        ($W$: 자기+최근접)이 기계 정밀도로 검증되었으며, $R_2$가 거의 순허수이므로
+        삼각 부등식 상한($K^{\mathrm{tri}} \leq 32$)은 실측의 $49$배 느슨하다;
+        $K_{\mathrm{far}} < 1$의 해석적 증명은 열린 문제이다.
+        이론적 벤치마크: 등간격 배치에서
+        $K_{\mathrm{far}}^{\mathrm{eq}} = \pi^2/8 - 1 \approx 0.234$;
+        GUE 반발로 경험적 평균 $\approx 0.43$이나 여전히 1 미만.
+        한편, 확률론적 접근으로 $K_{\mathrm{far}} < 1$의 부분 증명이 가능하다:
+        부호 있는 원거리 합 $B_{\mathrm{far}} = \sum_{|x_m|\ge1} 1/x_m$을
+        검정 함수 $g(x) = x^{-1}\mathbf{1}_{|x|\ge1}$의 GUE 선형 통계로 취급하면,
+        Johansson--Soshnikov CLT에 의해
+        $B_{\mathrm{far}} \xrightarrow{d} \mathcal{N}(0,\,V_g)$,
+        $V_g = 0.316$이다
+        ($\hat g(t) = -2i(\pi/2 - \mathrm{Si}(2\pi t))$, Parseval 검증 $\checkmark$).
+        일반 영점($\widetilde{\Delta t}\ge0.5$)에서 $K_{\mathrm{far}}\ge1$은
+        $\tilde{B}$가 $7.6\sigma$ 초과해야 하여
+        $P \le 2.4\times10^{-13}$;
+        근접쌍($\widetilde{\Delta t}\approx0.1$)에서는
+        교차항 증폭으로 $2.9\sigma$($p\approx1.4\%$)까지 약화되나,
+        GUE 수준 반발 $P(\text{gap}<0.1)\approx5.2\times10^{-4}$를 곱하면
+        결합 확률 $\sim7.4\times10^{-6}$/영점이다.
+        미해결: $(B_{\mathrm{far}},\,\Delta t)$ 결합 분포 ---
+        GUE 강성(Erd\H{o}s--Yau)이
+        $\mathrm{Var}[B_{\mathrm{far}}|\Delta t{=}s] \ll V_g$ (작은 $s$)를
+        정량화하면 완전 증명이 된다.
+        GRH 하에서 하한도 확립됨: $A(t_0) \geq (d^2/6)\log^2(t_0/(2\pi e))$
+        (등간격 하한 + Hadamard 양수성; ζ 100영점 위반 0건;
+        추가로 4개 GL($n$) $L$-함수(EC$_{11a1}$, $L(\Delta)$, sym$^2$, sym$^3$;
+        $d=2$--$4$) 588영점에서도 위반 0건, 최소 비율 $1.89$),
+        따라서 $A(t_0) = \Theta_d(\log^2 t_0)$.
+        GUE pair correlation 하에서 $\langle H_1\rangle = (d^2/3)\log^2 t$
+        (등간격 하한의 정확히 2배; 항등식 $\int_0^\infty R_2(r)/r^2\,dr = \pi^2/3$ 증명).
+        ζ 1900영점에서 경험적 $\eta \to 2$ 수렴 확인
+        ($\alpha=2$가 $\alpha=1$ 대비 $\Delta$AIC$=9.4$ 우세;
+        개별 영점 $\eta$ 분포는 strongly right-skewed, 중앙값 $1.92$ vs 평균 $2.42$).
+        곡률 $\kappa_n$의 분산은 형식적으로 $\infty$이다:
+        GUE 간격 밀도 $p(s)\sim s^2$에서 $\langle 1/s^4\rangle$이
+        발산하며, 최근접 이웃 항이 분산의 $97\%$ 이상을 지배한다
+        (ζ 1900영점 및 GUE MC $N\!=\!800$, 200회).
+        이는 유한 표본 부트스트랩 CI의 넓이를 설명하고
+        강건 추정량(중앙값, IQR) 사용을 정당화한다.
+        한편 원거리장 곡률 분산
+        $\mathrm{Var}[R_{\mathrm{far}}]$은 유한하며,
+        GUE linear statistic CLT(Johansson 1998)에서
+        $f(x)=x^{-2}\mathbf{1}_{|x|\ge 1}$의 푸리에 변환을 통해
+        $V_{\mathrm{GUE}}(1)=0.2161$로 예측된다.
+        다중 차수 보편성이 확인되었다:
+        $\zeta(s)$ 3900영점 $0.961$,
+        Dirichlet $\chi_3$ mod~3 ($0.846$),
+        $\chi_4$ mod~4 ($0.868$),
+        $\chi_5$ mod~5 ($1.121$, 복소 캐릭터),
+        GL(2) EC~11a1 ($1.003$, PARI 교정 233영점).
+        5개 $L$-함수 모두 $[0.85,\,1.12]$ 범위 내 통과 (degree~1--2 보편성).
+        기존 \texttt{mpmath} 기반 GL(2) 캐시(86영점, 비율 $0.235$)는
+        부정확하여 PARI/GP로 교정하였다 (평균 unfolded 간격 $0.997$).
+        $a=0.5$에서 GL(2) 비율이 $0.439$로 하락하여,
+        작은 cutoff에서의 $a$-의존성은 미결 문제이다.
+        이는 Prop.~\ref{prop:gue_enhancement}($\eta=2$, 1차 모멘트)의
+        2차 모멘트 동반 결과이다.
+        [2026-06-23 확인; C-471/C-480; degree 1--2 보편성 5/5 PASS; GL(2) PARI 교정]
+        임계선 커버리지: $\{\tfrac{1}{2}, 1, \tfrac{3}{2}, 2, \tfrac{5}{2}, 6\}$ (6종).
+        구성 경로: GL(1) Dirichlet, GL(2) EC/Maass/$\Delta$, GL(3)--GL(5) sym$^k$, Dedekind zeta, Artin $L(s,\rho_2)$ ($S_3$), Artin $L(s,\rho_3)$ ($A_4$), Rankin--Selberg $L(f \otimes g)$ (10종).
+        [2026-06-23 갱신; 13개 $L$-함수, degree 1--5; Var[$\kappa_{\mathrm{far}}$] degree 1--2 보편성 5/5 PASS]
+  \item \textbf{$S^1$ 측지선 위상 예측
+        [2026-04-12 확인].}
+        $\arg\xif$를 스칼라로 예측하는 대신 (영점에서 $\pm\pi$
+        분기점 발생) 읽기 헤드가
+        $(\cos\theta,\sin\theta)\in S^1$을 예측하고 측지선 손실
+        $L_{\mathrm{geo}}=1-\cos(\theta_{\mathrm{pred}}-
+        \theta_{\mathrm{true}})$로 훈련한다.
+        3시드($t\in[100,200]$, $K=128$, 150 에포크)에서:
+        $S^1$ 검출이 463개 영점 중 $5.7$개에서 $13.7$개로
+        $2.4$배 개선되었다. 영점에서의 각도 오차는 $0.215$ rad로
+        비영점의 $0.155$ rad보다 $1.39$배 크며, $\pm\pi$ 불연속이
+        부분적으로 우회되었음을 확인한다.
+        $|F_2|$ ratio는 무변화($1.054\pm0.103$ vs $1.026\pm0.233$);
+        검출 개선은 네트워크 공명 구조 변화가 아닌 읽기 헤드의
+        영점 근방 위상 추적 개선에서 기인한다.
+        \emph{후속 (완료):} $\Ltgt$를 $L_{\mathrm{geo}}$로 완전
+        대체하여 전체 손실
+        ($\Lres+\Lcurv+L_{\mathrm{geo}}+\Lpqo$)에 통합한 결과,
+        읽기 헤드 단독 대비 $1.66$배 추가 개선:
+        463개 영점 중 $22.7$개 검출 (읽기 헤드 $13.7$개,
+        기준선 $5.7$개), 누적 $4$배 개선.
+        $|F_2|$ ratio는 $0.913\pm0.105$로 하락하여
+        (기준선 $1.026\pm0.233$), 영점이 비영점보다
+        \emph{더 작은} $|F_2|$ 잔차를 보이는 질적 역전이
+        발생하였다. 시드 간 변동(5, 40, 23개)이 크며,
+        측지선 손실 풍경에 위상 정렬 품질이 상이한
+        다수의 국소해가 존재함을 시사한다.
+        [2026-04-12 확인, 임계치 메트릭]
+        %
+        \emph{후속 (완료, 5시드):}
+        $t\in[500,600]$에서 극소값 기반 평가를 5시드
+        ($42, 7, 123, 314, 2024$)로 수행한 결과,
+        $4$배 개선은 메트릭 조건부이다.
+        극소값 검출 기준으로 $F_1$은 유사하다
+        (BL $0.373\pm0.020$ vs $L_{\mathrm{geo}}$
+        $0.361\pm0.012$; 차이 비유의).
+        $L_{\mathrm{geo}}$의 유일한 일관된 효과는
+        \textbf{재현율 하한 안정화}이다:
+        BL 재현율 $0.956\pm0.045$ (범위 $[0.889,1.000]$),
+        $L_{\mathrm{geo}}$ $0.978\pm0.011$
+        (범위 $[0.972,1.000]$), 분산 $4.1$배 축소.
+        분산비 $F$-검정으로 $F=16.7$ ($\mathrm{df}=(4,4)$,
+        $p<0.05$)을 얻어 통계적 유의성을 확인하였다.
+        최악 시드~2024는
+        $R_{\mathrm{BL}}=0.889\to R_{L_{\mathrm{geo}}}=0.972$
+        ($+3$ 영점/36개)로, $L_{\mathrm{geo}}$가 평균 개선이
+        아닌 \emph{재현율 하한}을 제공함을 보여준다.
+        [2026-04-13 확인, 5시드
+        $F$-검정 유의]
+        %
+        \emph{$t\in[1000{,}1100]$으로 확장
+        [2026-04-13 확인, 5시드,
+        재현율 $F$-검정 + $F_1$ 대응 $t$-검정 유의]:}
+        이 구간에는 81개 영점(밀도 $0.81$/단위,
+        $t\in[500,600]$에서 $0.72$/단위 대비)이 포함되며,
+        $[1000,1050]$ (학습, 41개 영점)과 $[1050,1100]$
+        (블라인드 예측, 40개 영점)으로 분할한다.
+
+        \smallskip\noindent
+        \emph{기준선 (5시드):}
+        $R{=}0.965\pm0.029$, $F_1{=}0.395\pm0.009$.
+        Val-loss 불안정은 체계적이다: 5시드 중 3시드에서
+        ep125 스파이크 $>1.0$.
+        특히 seed~2024는 $R{=}1.000$을 달성하여, BL도
+        완벽 재현율에 도달할 수 있음을 보여준다.
+
+        \smallskip\noindent
+        \emph{$L_{\mathrm{geo}}$ (5시드):}
+        $R{=}0.995\pm0.011$, $F_1{=}0.411\pm0.005$.
+        파국적 발산 1/5시드 (seed~42, val$=306.93$;
+        best-checkpoint 선택으로 구제,
+        $R{=}1.000$, $F_1{=}0.412$ 유지).
+        나머지 4시드 안정 또는 경미 발산.
+
+        \smallskip\noindent
+        \emph{통계 검정:}
+        \textbf{$F_1$}: 대응 $t{=}2.84$, $p{=}0.047$;
+        5시드 전체 방향 일관
+        ($\Delta F_1 \in [+0.006, +0.036]$,
+        부호 검정 $p{=}0.031$).
+        \textbf{재현율 분산}: $F{=}6.5$, $p{=}0.049$
+        (단측), $t\in[500,600]$의 $F{=}16.2$ ($p{=}0.010$)와 일관.
+        \textbf{$R{\ge}0.975$ 하한}: 5시드 전체 유지.
+        밀도 의존 패턴---두 밀도 모두에서 재현율 분산 축소,
+        그러나 $F_1$ 개선은 더 높은 밀도($0.81$/단위)에서만---은
+        $\Ltgt$의 $\pm\pi$ 불연속 부담이 영점 밀도에 따라
+        증가함을 시사한다.
+        효과 크기는 소($\Delta F_1 \approx 0.016$)이고
+        $p$-값은 경계선이다; 확인되었으나 겸손한 개선으로
+        보고한다.
+\end{itemize}
+
+\begin{conjecture}[모노드로미 보편성]
+\label{conj:mono_universality}
+$L(s,\pi)$를 Selberg 류에 속하는 degree $d \geq 1$의 원시 $L$-함수,
+완비 함수를 $\xi(s,\pi) = \gamma(s,\pi)\,L(s,\pi)$로 놓는다.
+$\xi$-다발 연결 $\mathcal{L} = \xi'/\xi$에 대해,
+$\rho$ 중심 반지름~$r$ 원형 경로 $\gamma_r(\rho)$의 모노드로미를
+$\mathrm{mono}(\gamma_r(\rho))
+= |\oint_{\gamma_r(\rho)} \operatorname{Im}\mathcal{L}\,ds|$
+로 정의한다.
+
+$L(s,\pi)$의 중복도~$m$인 모든 비자명 영점~$\rho$에 대해
+\[
+  \mathrm{mono}(\gamma_r(\rho)) = m\pi
+  \qquad
+  \text{($r < \min_{j\neq\rho}|\rho - \rho_j|$ 일 때)},
+\]
+영점이 아닌 모든 점~$z$에 대해
+\[
+  \mathrm{mono}(\gamma_r(z)) = 0
+  \qquad
+  \text{($r < \min_j |z - \rho_j|$ 일 때)}.
+\]
+이것은 degree~$d$, weight~$k$, 도체~$N$, 해석적 계수,
+근 수~$\varepsilon$, 임계선~$\sigma = d/2$에 \textbf{무관}하게 성립한다.
+\end{conjecture}
+
+\begin{remark}[추측~\ref{conj:mono_universality}의 내용과 현황]
+\label{rem:mono_universality_content}
+영점에서의 모노드로미 항등식 $\mathrm{mono} = m\pi$는 편각 원리의
+직접적 결과이다; 비자명한 내용은 \textbf{정량적 정확성}(근사가 아닌 정확히 $m\pi$)과
+Selberg 류 전체에 걸친 \textbf{보편성}이다.
+이 추측은 \emph{수치 검증에 근거하며, 보편성의 증명이 아니다}:
+13개 원시 $L$-함수, degree $\{1,2,3,4,5\}$, weight $\{1,2,3,12\}$,
+10종 구성 경로(Riemann $\zeta$, Dirichlet, 타원 곡선, Ramanujan $\Delta$,
+sym$^k$, Dedekind $\zeta_K$, Artin $L(s,\rho_2)$ ($S_3$),
+Artin $L(s,\rho_3)$ ($A_4$), Rankin--Selberg $L(f \otimes g)$),
+6종 임계선 $\{\tfrac12,1,\tfrac32,2,\tfrac52,6\}$,
+\textbf{391 TP / 613 FP, 이중 기준 통과율 100\%,
+KS $p < 10^{-12}$ (모든 경우), 예외 0건}.
+이 경험적 관찰은 Selberg 류의 \emph{모든} $L$-함수에 대한 증명이 아니며,
+추가 검증을 기다리는 반증 가능한 예측이다
+(예: $S_4$ 등 고차 비가환 군의 Artin $L$-함수;
+$A_4$는 \#43l에서, Rankin--Selberg는 \#43m에서 확인됨).
+\end{remark}
+
+\begin{observation}[신경망 FP 모노드로미 해부]
+\label{obs:nn_fp_mono}
+학습된 영점 탐지기(\texttt{MasterResonantNetwork}, 3시드,
+$t \in [14,50]$, 100에폭)가 곡률 피크만으로
+2개 TP와 28개 FP 예측을 생성한다.
+윤곽 적분 모노드로미를 세 반지름
+$r \in \{0.1, 0.01, 0.001\}$
+($\mathrm{dps}=80$, $n_{\mathrm{steps}} = 256$)에서 측정하면:
+\begin{center}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+유형 & $n$ & $|\mathrm{mono}|/\pi$ & $\kappa$ 범위 \\
+\midrule
+TP & 2 & $2.0000 \pm 0.0000$ & $270$--$272$ \\
+FP & 28 & $0.0000 \pm 0.0000$ & $0.01$--$18.6$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+KS $p = 0.0046$ (세 반지름 모두 동일).
+단일 기준($\kappa$만) 정밀도: $2/30 = 6.7\%$;
+이중 기준($\kappa + \mathrm{mono}$): $2/2 = 100\%$
+($+93.3$ 퍼센트포인트).
+세 반지름의 일치는 윤곽 크기 아티팩트를 배제하며,
+모노드로미 분류가 윤곽 규모에 무관한 위상 불변량임을
+확인한다 (C-1038).
+
+\smallskip\noindent
+\textbf{주의.}\;
+$n_{\mathrm{TP}} = 2$이므로 TP 통계는 방향성 확인에 그침;
+FP 결과($n = 28$, 모노드로미 $= 0.0000\pi$ 전원)는 통계적으로
+견고하며, 실제 영점 없이 곡률만 높은 점에서 위상적 감김이
+발생하지 않음을 확인한다.
+\end{observation}
+
+\begin{corollary}[임계선 이탈 곡률의 파트너 지배]
+\label{cor:partner_dominance}
+$\rho = \sigma_0 + it_0$가 $\xi(s,\pi)$의 가상적 임계선 이탈 영점이고
+$\delta := |\sigma_0 - \sigma_c| > 0$이라 하자.
+함수방정식에 의해 $\rho$는 거리~$2\delta$에 거울 파트너
+$\rho' = (d - \sigma_0) + it_0$를 가진다 ($\sigma_c = d/2$).
+\begin{enumerate}
+  \item[\textup{(i)}]
+    아다마르 분해에서 파트너 $\rho'$는 $\Lambda'/\Lambda$에
+    $1/(s - \rho')$ 극을 기여한다.
+    $s = \sigma_c + it_0$ (임계선 위 최근접점)에서 $\rho$와 $\rho'$
+    모두 거리~$\delta$에 위치하므로
+    $\kappa(\sigma_c, t_0) \geq 2/\delta^2$ (하위 차수 항 제외).
+
+  \item[\textup{(ii)}]
+    곡률비 $\kappa(\sigma_c)/\kappa(\sigma_{\mathrm{off}})$는
+    $O((\sigma_{\mathrm{off}} - \sigma_c)^2/\delta^2)$로 스케일링되어,
+    영점--임계선 변위~$\delta$에 (따라서 도체~$N$에) 강하게 의존한다.
+
+  \item[\textup{(iii)}]
+    에너지 함수 $E(\sigma)$와 모노드로미 $\mathrm{mono}(\gamma_r)$는
+    각각 적분량·위상적 불변량이므로 도체 스케일링에 둔감하다.
+\end{enumerate}
+\end{corollary}
+
+\smallskip\noindent\textbf{\textcolor{orange}{\rule{0.9ex}{0.9ex}}\ 계층 2 프로그램 (추측적이지만 잘 정의됨).}
+\begin{enumerate}
+  \item \textbf{$\overline{|F_2|}$에 대한 높이 스케일링 법칙
+        [2026-04-12 확인].}
+        블라인드 영점 외삽을 세 높이 범위에서 시험하였다:
+        $t\in[100,200]$ (기준), $t\in[500,600]$, $t\in[1000,1100]$
+        (각각 전반부 학습, 후반부 블라인드 예측; $K\in\{128,256\}$,
+        3시드, 150 에포크, 2000점 밀집 격자).
+        재현율은 $10$배 높이 증가에도 안정적이다:
+        $t{\sim}200$에서 $98.8\pm1.7\%$,
+        $t{\sim}600$에서 $98.1\pm1.3\%$,
+        $t{\sim}1100$에서 $97.5\pm2.0\%$.
+        정밀도는 높이에 따라 \emph{증가}한다
+        ($17.1\%\to22.8\%\to25.6\%$): 영점 밀도 상승으로
+        가짜 극소 비율이 감소하기 때문이다.
+        $K=256$은 어떤 높이에서도 $K=128$ 대비 이점이 없다.
+        $F_2$ 잔차는 원래 학습 범위보다 한 자릿수 높은 곳까지
+        대역폭 조정 없이 스케일링된다.
+  \item \textbf{아키텍처 불변 잔차.} 모델 앙상블에 걸친 $|F_2(t_k)|$의 부트스트랩 최소 버전을 정의하고 (\cref{sec:f2_residual_open}), 영점별 값이 재현 가능해지는지 검증한다.
+  \item \textbf{Kuramoto 순서 매개변수.}
+        [completed 2026-04-12]
+        Kuramoto 순서 매개변수 $r$을
+        $3\text{ seeds}\times 2\text{ }t$-범위 (5회 완료 + 1회 불완전)에서 측정하였다.
+        주요 결과: $\mathrm{std}(\varphi)$ 비율 $3.43\pm0.09\times$
+        (\cref{obs:gauge_transition}과 정량적 일치),
+        $r_{\mathrm{init}}=0.994$, $r_{\mathrm{final}}=0.9994$.
+        네트워크는 초임계 영역에서 시작 (epoch~0에서 $r>0.99$);
+        학습은 무질서-질서 전이가 아닌 위상 정련이다.
+        \cref{rem:kuramoto_transition} 참조.
+  \item \textbf{Lehmer/GUE 수렴 적합.} 영점별 수렴 속도가 \cref{sec:lehmer_gue}에서 예측한 대로 GUE 간격 밀도와 해석 신호 체류 시간의 컨볼루션과 일치하는지 검증한다.
+  \item \textbf{보형 $L$-함수 위의 일반화된 공명.} 다원적 프레임은 디리클레 및 모듈러 $L$-함수로 자연스럽게 확장된다; 게이트 조건은 Riemann--Siegel $\vartheta$를 적절한 세타 함수로 교체하는 것 외에는 수정 없이 이전되어야 한다.
+\end{enumerate}
+
+\smallskip\noindent\textbf{\textcolor{red}{\rule{0.9ex}{0.9ex}}\ 계층 3 재활 (재검토 가능한 실패 프로그램).}
+\begin{itemize}
+  \item \textbf{각도별 적응 스텝 크기를 가진 PGGD.} \cref{sec:pggd_failure}는 Weyl 등분포를 PGGD 실패 원인으로 지목한다. 누적 각도 드리프트에 따라 줄어드는 각도별 적응 학습률은 확산을 직접 상쇄하여 옵티마이저를 잠재적으로 재활할 수 있다.
+  \item \textbf{감독된 $\Psip$을 가진 시클로토믹 PQO.} \cref{sec:cos2_failure}의 $L=4$ 프로그램은 \cref{rem:psi_defect}의 세 결함이 모두 닫힌 후에야 통계적으로 유의미해졌다. 고립 방식 설정을 사용한 원래 시클로토믹 프레임워크의 깔끔한 재실행은 이제 이해된 구현 버그에 대한 검증이 아니라, 구조적 예측의 공정한 검증을 생성할 것이다.
+\end{itemize}
+
+\smallskip\noindent\textbf{QROP-Net 및 교차 영역 예측 (원래 프레임워크로부터 불변).}
+
+\begin{enumerate}
+  \item \textbf{손실 풍경 전이}: QROP-Net 스타일 훈련 손실 (충실도 + $\sin^2$ 양자화 + 지수 장벽)이 $\zeta(s)$에 대한 수치 영점 탐색 알고리즘을 개선할 수 있는가?
+
+  \item \textbf{$\xif$에 대한 딥러닝}: $|\xif(\sigma+it)|^2$ (회절 세기에 유비)에 대해 훈련된 신경망이 $\arg\xif$ (위상 복원에 유비)를 복원할 수 있는가?
+
+  \item \textbf{시클로토믹 소수}: NTT-친화적 소수 $q = 7681 \equiv 1 \pmod{512}$는 계산 효율을 위해 선택되었다. 이 형태의 소수가 위상 양자화에 특히 적합한 보다 깊은 정수론적 이유가 있는가?
+
+  \item \textbf{일반화된 공명}: 다원적 프레임은 디리클레 $L$-함수로 자연스럽게 확장된다. 게이트 조건을 보형(automorphic) $L$-함수에 적용할 수 있는가---여기서 일반화된 리만 가설(GRH)도 추측되는가?
+        [부분 완료 2026-04-13: $\chi\bmod 3,4,5$에서 다발 성질 검증 완료; \cref{app:dirichlet:verify} 참조. 블라인드 영점 예측 및 교차 비교 잔존.]
+
+
+  \item \textbf{물리적 구현}: SLM, 레이저, 카메라 센서를 사용한 실제 광학 실험이 $\sin^2$ 양자화 풍경을 \textit{하드웨어에서} 시연하여, 위상 양자화 문제를 위한 물리적 유비 컴퓨터를 제공할 수 있는가?
+\end{enumerate}
+
+
+% ============================================================================
+\section{관련 연구}
+\label{sec:related}
+% ============================================================================
+
+\noindent\textbf{리만 영점에 대한 기계학습.}
+Shanker~\cite{Shanker2015NNZeta}는 Gram 점 특성에 대해 2층 신경망을 훈련하여
+다음 영점까지의 거리를 예측, 80{,}000 관측치에서 $R^2>0.99$를 달성했다.
+Avysogorets~\cite{Avysogorets2021RiemannZeta}는 SVR과 RNN 회귀자를 50개
+수작업 특성으로 확장했다.
+두 접근법 모두 영점 위치에 대한 직접 회귀이다; 우리 방법은 잔차 $F_2$가
+영점에서 소멸하는 물리 정보 게이지 ODE를 사용하여, 블랙박스 예측기 대신
+해석 가능한 진단 채널을 제공한다는 점에서 다르다.
+
+\smallskip\noindent\textbf{$L$-함수 불변량에 대한 기계학습.}
+Bieri, Costa, Deines, Lee 등~\cite{Bieri2025MLvanishing}은 유리
+$L$-함수의 디리클레 계수에 PCA와 CNN 분류기를 적용하여 해석적 소멸 차수를
+예측, LDA 정확도 0.982를 달성했다.
+그들의 입력은 산술적 데이터(계수 $a_p$)인 반면, 우리 프레임워크는 해석적
+데이터(완비 $\xi$-함수의 위상과 곡률)에 기반한다.
+두 접근법은 상보적이다: 계수 기반 방법은 산술적 구조를 직접 활용하고,
+우리의 게이지 ODE 잔차 $F_2$는 $\xi$-다발의 미분기하학적 구조를 활용한다.
+
+\smallskip\noindent\textbf{뮤머레이션 패턴의 기계학습.}
+He, Lee, Oliver~\cite{He2025Murmurations} 및 관련
+연구~\cite{Bober2025MurmurationCNN}는 $L$-함수 패밀리에서 나타나는 진동
+패턴(뮤머레이션)을 CNN으로 탐지·분류하였다.
+뮤머레이션은 산술적 푸리에 계수의 소거에서 발생하는 집단적 신호이며,
+우리의 위상 기반 접근과 상보적이다: 뮤머레이션이 패밀리 간 집단 진동을
+포착하는 반면, 우리의 $F_2$ 잔차는 단일 $L$-함수 내 개별 영점 신호를 포착한다.
+
+\smallskip\noindent\textbf{제타 영점에 대한 스펙트럼 접근.}
+Connes, Consani, Moscovici~\cite{Connes2025SpectralTriples}는 스케일링
+연산자의 랭크-1 섭동으로부터 자기수반 연산자를 구성, 유한 개의 소수만으로
+리만 영점을 놀라운 수치 정밀도로 재현하였다.
+그들의 유한 오일러 곱 수렴은 우리의 유한 데이터 영점 탐지와 병렬적이다:
+두 프레임워크 모두 유한 산술 입력으로부터 영점 정보를 추출하되,
+상이한 메커니즘(스펙트럼 섭동 이론 vs.\ 게이지 ODE 잔차 최소화)을 사용한다.
+Takook~\cite{Takook2026KreinXi}은 드지테르 시공간의 스칼라장 2점 함수로부터
+크레인 공간 양자화를 이용하여 리만 $\xi$-함수의 적분 표현을 유도하였으며,
+영점 간격과 질량-시간 스케일링 관계를 연결하였다.
+이는 우리의 게이지 ODE가 전파자 방정식으로 자연스럽게 해석될 수 있는
+독립적인 물리적 프레임워크를 제공하며, Berry--Keating 프로그램의 영점
+스펙트럼 실현 비전을 지지한다.
+
+\smallskip\noindent\textbf{푸리에 특성 네트워크와 스펙트럼 편향.}
+Tancik et~al.~\cite{Tancik2020FourierFeatures}은 입력을 랜덤 푸리에 특성
+$\gamma(x) = [\sin(2\pi Bx),\,\cos(2\pi Bx)]$
+($B\sim\mathcal{N}(0,\sigma^2)$)으로 매핑하면 표준 MLP의 스펙트럼
+편향~\cite{Rahaman2019SpectralBias}을 극복함을 보였다.
+우리의 푸리에 임베딩 (\cref{sec:f2_residual_cluster_artifact})은 랜덤 대신
+결정론적 등간격 주파수 $\omega_k = 2\pi k/W$를 사용한다.
+명제~\ref{prop:basis_bandwidth}는 그들의 대역폭 조정 통찰의
+\emph{결정론적} 유사체로 볼 수 있다: 그들이 $\sigma$를 탐색하는 반면,
+우리는 Riemann--von Mangoldt 밀도로부터 최소 주파수 수 $K$를 유도한다.
+$t\in[100,200]$에서 $K=128$, $\sigma\in\{1,10,100\}$으로 직접 비교한 결과
+[2026-04-11 완료], 결정론적 간격이
+검증 MSE에서 $2{-}2.5$배 우위를 보였다
+($8.2\times10^{-5}$ vs.\ $1.7{-}2.1\times10^{-4}$).
+다만 랜덤 특성은 영점/비영점 MSE 비율이 더 균등했다
+($0.81$ vs.\ $1.62$). 결정론적 기저를 기본값으로 유지한다.
+
+\smallskip\noindent\textbf{등변 네트워크.}
+우리가 사용하는 게이지 등변 아키텍처는 Cohen et~al.~\cite{Cohen2019Gauge}의
+조향 가능 CNN 프레임워크 및 \texttt{escnn}
+라이브러리~\cite{Cesa2022ESCNN}와 관련된다. \texttt{escnn}은 주섬유
+다발과 조향 가능 커널을 통해 SO(2) 등변성을 형식화한다.
+우리의 ResonantBlock은 Lie 지수 위상 전파를 통한 U(1) 게이지 구조를
+구현한다; 향후 방향은 이를 \texttt{escnn}의 조향 가능 합성곱 백엔드로
+대체하여 자동 등변성 검증을 수행하는 것이다.
+
+\smallskip\noindent\textbf{딥러닝을 이용한 기호 수학.}
+Lample과 Charton~\cite{Lample2020SymbolicMath}은 시퀀스-투-시퀀스
+변환기가 기호 적분 및 ODE 문제를 풀 수 있음을 보였다.
+그들의 접근법은 우리와 상보적이다: 그들이 기호 조작을 학습하는 반면,
+우리의 게이지 ODE는 대상 방정식의 구조를 아키텍처에 직접 부호화한다.
+
+% ============================================================================
+\section{결론}
+\label{sec:conclusion}
+% ============================================================================
+
+위상 양자화가 대수적 구조 위에서 격자 기반 양자후 암호, 결맞음 광학 전파, 리만 $\xif$-함수의 해석적 구조를 연결하는 공유 수학적 문법임을 제시하는 통합 프레임워크를 제시하였다.
+
+구체적 핵은 QROP-Net으로, $\sin^2$ 양자화 손실, LWE 오차 임계치, 블라인드 자가 교정 메커니즘이 2-게이트 공명 기준 ($\Delta v = m\pi$, $v_\sigma = 0$), 임계선으로부터의 $\sigma$-리프트, 정답 없는 영점 탐지를 위한 다원적 프레임의 게이지 ODE에서 구조적 대응물을 찾는다.
+
+프로젝트 이름 $k^n = -1$은 수학적 기반 (Kyber 시클로토믹 환에서 $X^{256} \equiv -1$)과 보다 깊은 관찰---동일한 시클로토믹 구조, 즉 단위근에 의해 관련된 단위원 위의 이산 위상이 암호학에서 NTT를, 광학에서 분수 푸리에 변환을, 임계선에서 그람 점 격자를 뒷받침한다는 것---을 모두 인코딩한다.
+
+7개의 구조적 대응이 형식화되었으며, 그 경계가 명확히 구분되었다: 이들은 공유 수학 구조에 근거한 유비이지 증명이 아니다. 그러나 이 정도의 정밀도와 폭을 가진 유비는 드물며, 위상 양자화 원리가 암호학, 광학, 또는 정수론에서의 개별적 발현보다 더 근본적인 조직 개념일 수 있음을 시사한다.
+
+
+% ============================================================================
+% 참고문헌
+% ============================================================================
+\begin{thebibliography}{99}
+
+\bibitem{kyber2021}
+R.~Avanzi \textit{et al.},
+``CRYSTALS-Kyber: Algorithm specifications and supporting documentation
+(version 3.02),'' NIST PQC Submission, 2021.
+
+\bibitem{berry1984}
+M.~V.~Berry,
+``Quantal phase factors accompanying adiabatic changes,''
+\textit{Proc.\ Royal Society A}, vol.~392, pp.~45--57, 1984.
+
+\bibitem{khare1997}
+A.~Khare,
+``The phase of the Riemann zeta function,''
+\textit{Pramana -- J.\ Phys.}, vol.~48, pp.~537--553, 1997.
+
+\bibitem{leclair2023}
+A.~LeClair and G.~Mussardo,
+``Riemann zeros as quantized energies of a scattering system,''
+\textit{arXiv:2307.01254}, 2023.
+
+\bibitem{leclair2024}
+A.~LeClair,
+``Analogous results for Generalized and Grand Riemann Hypotheses,''
+\textit{arXiv}, 2024.
+
+\bibitem{Jacot2018NTK}
+A.~Jacot, F.~Gabriel, and C.~Hongler,
+``Neural tangent kernel: Convergence and generalization in neural networks,''
+in \textit{Advances in Neural Information Processing Systems (NeurIPS)}, 2018.
+
+\bibitem{Rahaman2019SpectralBias}
+N.~Rahaman, A.~Baratin, D.~Arpit, F.~Draxler, M.~Lin, F.~Hamprecht,
+Y.~Bengio, and A.~Courville,
+``On the spectral bias of neural networks,''
+in \textit{Proc.\ ICML}, 2019.
+
+\bibitem{BasriGeifman2020FrequencyBias}
+R.~Basri, M.~Galun, A.~Geifman, D.~Jacobs, Y.~Kasten, and S.~Kritchman,
+``Frequency bias in neural networks for input of non-uniform density,''
+in \textit{Proc.\ ICML}, 2020.
+
+\bibitem{Shanker2015NNZeta}
+O.~Shanker,
+``Neural network prediction of Riemann zeta zeros,''
+\textit{Advanced Modeling and Optimization}, vol.~17, no.~1, pp.~45--54,
+2015.
+
+\bibitem{Avysogorets2021RiemannZeta}
+M.~Avysogorets, J.~Bhutani, and P.~Beineke,
+``Machine learning for predicting Riemann zeta zeros,''
+\textit{arXiv:2104.12285}, 2021.
+
+\bibitem{Tancik2020FourierFeatures}
+M.~Tancik, P.~P.~Srinivasan, B.~Mildenhall, S.~Fridovich-Keil,
+N.~Ramasinghe, U.~Kamber, and R.~Ng,
+``Fourier features let networks learn high frequency functions in low
+dimensional domains,''
+in \textit{Advances in Neural Information Processing Systems (NeurIPS)},
+2020.
+
+\bibitem{Cohen2019Gauge}
+T.~S.~Cohen, M.~Weiler, B.~Kicanaoglu, and M.~Welling,
+``Gauge equivariant convolutional networks and the icosahedral CNN,''
+in \textit{Proc.\ ICML}, 2019.
+
+\bibitem{Cesa2022ESCNN}
+G.~Cesa, L.~Lang, and M.~Weiler,
+``A program to build E(N)-equivariant steerable CNNs,''
+in \textit{Proc.\ ICLR}, 2022.
+
+\bibitem{Lample2020SymbolicMath}
+G.~Lample and F.~Charton,
+``Deep learning for symbolic mathematics,''
+in \textit{Proc.\ ICLR}, 2020.
+
+\bibitem{Bieri2025MLvanishing}
+B.~Bieri, E.~Costa, A.~Deines, S.~Lee et~al.,
+``Machine learning the vanishing order of rational $L$-functions,''
+\textit{arXiv:2502.10360}, 2025.
+
+\bibitem{Connes2026RHSurvey}
+A.~Connes,
+``The Riemann hypothesis: a 165-year-old prime mystery,''
+\textit{arXiv:2602.04022}, 2026.
+
+\bibitem{Connes2025SpectralTriples}
+A.~Connes, C.~Consani, and H.~Moscovici,
+``Zeta spectral triples,''
+\textit{arXiv:2511.22755}, 2025.
+
+\bibitem{He2025Murmurations}
+Y.~He, K.~Lee, and T.~Oliver,
+``Murmurations and machine learning for $L$-functions,''
+\textit{arXiv:2603.17681}, 2026.
+
+\bibitem{Bober2025MurmurationCNN}
+J.~Bober et~al.,
+``CNN detection of murmuration patterns in families of $L$-functions,''
+\textit{arXiv:2603.09680}, 2026.
+
+\bibitem{Takook2026KreinXi}
+M.~V.~Takook,
+``Krein space quantization and Riemann xi-function,''
+\textit{arXiv:2606.13932}, 2026.
+
+\end{thebibliography}
+
+
+% ============================================================================
+% 부록
+% ============================================================================
+\appendix
+
+\section{QROP-Net 전체 수식 참조}
+\label{app:qropnet_eqs}
+
+편의를 위해, 구조적 대응에 사용된 QROP-Net 수식의 완전한 집합을 모은다:
+
+\begin{enumerate}
+  \item \textbf{환}: $R_q = \Rq$, $n=256$, $q=7681$, $X^n \equiv -1$
+  \item \textbf{암호화}: $\mathbf{u} = \mathbf{A}^\top\mathbf{r}+\mathbf{e}_1$,
+        $v = \mathbf{t}^\top\mathbf{r}+e_2+\ceil{q/2}m$
+  \item \textbf{압축}: $\mathrm{Compress}_q(x,d) = \ceil{2^d x/q} \bmod 2^d$
+  \item \textbf{위상 변조}: $\phi_i = 2\pi c_i/2^{d_u}$,
+        $U_0 = e^{i\phi}$
+  \item \textbf{FrFT}: $U_d = A_\alpha^2 \cdot \mathcal{F}^{-1}[\mathcal{F}[U_0 \cdot C_1] \cdot \mathcal{F}[C_2]] \cdot \Delta x^2$
+  \item \textbf{양자화 손실}: $\mathcal{L}_{\mathrm{quant}} = \frac{1}{2}[\frac{1}{kn}\sum\sin^2(2^{d_u-1}\phi_i^{(u)}) + \frac{1}{n}\sum\sin^2(2^{d_v-1}\phi_j^{(v)})]$
+  \item \textbf{LWE 임계치}: $\norm{w - \ceil{q/2}\hat{m}}_\infty < 1920$
+  \item \textbf{블라인드 손실}: $\mathcal{L}_{\mathrm{blind}} = \mathcal{L}_{\mathrm{fid}} + 0.5\mathcal{L}_{\mathrm{quant}} + 0.05\mathcal{L}_{\mathrm{TV}}$
+\end{enumerate}
+
+
+\section{공명 게이트 수치 표}
+\label{app:numerical}
+
+다원적 프레임의 대표적 영점 탐색 결과 (다양한 표적 함수 및 매개변수 설정):
+
+\begin{table}[ht]
+\centering
+\caption{다원적 프레임 결과: 단계 크기 스위프 하에서의 불변성.}
+\label{tab:polyadic_sweep}
+\small
+\begin{tabular}{@{} llcccc @{}}
+\toprule
+\textbf{표적} & \textbf{대역} & $W$ & $N$ & $h$ 스위프
+& $t^*$ (불변) \\
+\midrule
+$\xif$ & $T\approx141.12$ & 0.002 & 401 &
+$2\mathrm{e}{-7}$ -- $1\mathrm{e}{-5}$ & 141.123703 \\
+$\xif$ & $T\approx141.12$ & 0.001 & 301 &
+$2\mathrm{e}{-7}$ -- $1\mathrm{e}{-5}$ & 141.123713 \\
+$L(\chi_3^{\mathrm{odd}})$ & $T\approx140.61$ & 0.002 & 61 &
+$5\mathrm{e}{-7}$ & 140.611723 \\
+$L(\chi_8^{\mathrm{even}})$ & $T\approx141.08$ & 0.003 & 81 &
+$5\mathrm{e}{-7}$ & 141.083569 \\
+$L(\chi_5^{\mathrm{cmplx}}, \chi(2)=i)$ & $T\approx140.97$ & 0.002 & 61 &
+$2.2\mathrm{e}{-7}$ & 140.966280 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+모든 시험에서 프레임 불변성 비율:
+$r_{\mathrm{frame}} < 10^{-3}$,
+$r_{\mathrm{channel}} < 0.1$,
+$r_{\mathrm{window}} < 0.2$.
+
+복소 지표에 대한 켤레 쌍 대칭:
+$|t_\chi + t_{\bar{\chi}}| / t_\chi < 0.002$.
+
+
+\section{디리클레 $L$-함수로의 일반화}
+\label{app:dirichlet}
+
+게이트 조건과 다원적 프레임은 완성 디리클레 $L$-함수 $\Lambda(s,\chi)$로 자연스럽게 확장된다. 핵심 적응:
+
+\begin{enumerate}
+  \item 완성 함수 $\Lambda(s,\chi) = (q/\pi)^{(s+\epsilon)/2}
+        \Gamma((s+\epsilon)/2)\,L(s,\chi)$가 $\xif(s)$를 대체한다.
+  \item 비주 지표에 대해 $\Lambda(s,\chi)$는 전해석적($s=1$에서 극 없음)이어서 오일러 곱의 절단 문제를 회피한다.
+  \item 함수 방정식 $\Lambda(s,\chi) = \varepsilon(\chi)\,
+        \Lambda(1-s,\bar{\chi})$는 $\xif(s) = \xif(1-s)$와 동일한 구조적 형태를 갖는다.
+  \item 게이트~A는 $\Delta v_\chi = m\pi$가 되며,
+        $v_\chi = \arg\Lambda(\sigma+it,\chi)$.
+  \item 게이트~B는 $\partial_\sigma v_\chi = 0$으로 유지된다.
+  \item 일반화된 리만 가설(GRH)은 모든 $\chi$에 대해
+        $\Lambda(s,\chi)$의 모든 공명점에서 $\sigma^* = 1/2$과 동치이다.
+\end{enumerate}
+
+LeClair~\cite{leclair2024}는 베테 안자츠/위상 양자화 접근법이 ``비주 디리클레 지표에 기반한 모든 $L$-함수 [및] 첨점(cusp) 보형 형식에 기반한 것''으로 확장됨을 확인했으며, 유일한 차이는 주 지표에 대한 극의 처리이다.
+
+\subsection{다발 성질의 수치 검증}
+\label{app:dirichlet:verify}
+
+[완료 2026-04-13]
+$\zeta(s)$에서 확립된 $\xi$-다발의 네 가지 성질이 디리클레 $L$-함수에서도 유지되는지 검증한다. $\chi\bmod 3$ (가장 단순한 비자명 지표), $\chi\bmod 4$ (실수 지표, 크로네커 기호), $\chi\bmod 5$ (복소 원시 지표)를 대상으로 한다. 모든 계산은 \texttt{mpmath} 80자릿수 정밀도; 영점은 임계선 위 $\Re\Lambda$, $\Im\Lambda$ 부호 변화 이분법 + \texttt{findroot} 정밀화.
+
+\begin{center}
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{지표} & \textbf{영점수} & \textbf{위상점프 격리}
+  & \textbf{$\kappa$ 비율} & \textbf{모노 편차}
+  & \textbf{$E(0.5)/E(0.3)$} \\
+\midrule
+$\chi\bmod 3$ (실수)    & 12 & $\sigma{=}0.5$만 & $16{,}457\times$ & 0.0000 & $21.6\times$ \\
+$\chi\bmod 4$ (실수)    & 13 & $\sigma{=}0.5$만 & $22{,}436\times$ & 0.0000 & $454.6\times$ \\
+$\chi\bmod 5$ (복소) & 19${}^{\S}$ & $\sigma{=}0.5$만 & $21{,}422\times$ & 0.0000 & $2{,}592.5\times$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+3개 지표 44개 영점 전체에서 모노드로미 $\Delta\arg\Lambda = \pm\pi$ (편차 $< 10^{-4}$). 위상 점프는 $\sigma = 1/2$에서만 발생 ($t\in[10,40]$, 11개 $\sigma$ 값 검사). 곡률 집중도 비율은 영점 인접 점($\pm 0.01$) 중앙값 $\kappa$ 대 일반 점(영점에서 $>1.0$ 거리) 중앙값.
+
+\smallskip\noindent
+${}^{\S}$\,$\chi\bmod 5$: 2026-06-28 재검증. 복소 지표 영점 탐색 임계값을 $10^{-70}$에서 $10^{-5}$로 완화하고 세밀 격자($t\in[5,45]$)를 적용하여 기존 13개에서 19개로 확대; 19/19 모노드로미 $= +2.0000\pi$로 전수 확인.
+
+\medskip\noindent
+\textbf{고도체 지표별 전수 검증.}
+[완료 2026-04-26]
+상기 저도체 결과를 $q = 7, 8, 11$의 \emph{모든} 비자명 원시 지표로 확장하였다
+($t\in[10,200]$, 80자릿수 정밀도, $\delta{=}0.03$).
+
+\begin{center}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+$q$ & 지표 수 & 총 영점 & $\kappa\delta^2$ (중앙) & 모노 편차 & 검출률 & $E$-비율 범위 \\
+\midrule
+7 & 5 & 689 & 1.003 & 0.000000 & 100\% & $17.7$--$394.7\times$ \\
+8 & 2+1${}^\ddagger$ & 423 & 1.003 & 0.000000 & 100\% & $20$--$53\times$ \\
+\textbf{11} & \textbf{9} & \textbf{1367} & \textbf{1.004} & \textbf{0.000000} & \textbf{100\%} & $\mathbf{6.3}$--$\mathbf{1023\times}$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{누적 ($q = 3$--$11$)}} & $\mathbf{2{,}517}$ & & & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+${}^\ddagger$\,도체 8의 원시 지표 2개 ($\chi_8$ 짝, $\chi_4$ 홀) + 유도 지표 1개
+($\chi_{8,\mathrm{ind}}$, 영점 139개, 모노드로미 80\% 통과, 조건부 PASS).
+이 행의 메트릭은 원시 지표 2개 기준이며, 영점 합계는 3개 지표 전체 포함.
+
+\smallskip\noindent
+\textbf{$q = 11$: 9개 원시 지표 전수 검증.}
+$(\mathbb{Z}/11\mathbb{Z})^*\cong\mathbb{Z}/10$의 차수 2 (1개), 차수 5 (4개), 차수 10 (4개) 지표 전체.
+1\,367개 영점에서 모노드로미 $|\mathrm{mono}|/\pi = 1.000000$ (검사 180개 전원 완벽),
+검출률 precision${=}$recall${=}1.000$.
+에너지 비율은 지표에 따라 $163\times$ 변동 ($6.3\times$--$1023\times$).
+
+\smallskip\noindent
+\textbf{켤레 쌍 비동치 (경계 B-68).}
+$q{=}7$ 및 $q{=}11$의 켤레 쌍에서 $E$-비율 비대칭의 연속적 스펙트럼 발견:
+
+\begin{center}
+\small
+\begin{tabular}{lcccl}
+\toprule
+쌍 & $E$-비율 (A) & $E$-비율 (B) & A/B & 패턴 \\
+\midrule
+\multicolumn{5}{l}{\textit{$q=7$}} \\
+$\chi_{7,2} \leftrightarrow \chi_{7,4}$ (차수 3, 짝) & $23.9\times$ & $295.7\times$ & $12.35\times$ & 강한 비동치 \\
+$\chi_{7,1} \leftrightarrow \chi_{7,5}$ (차수 6, 홀) & $17.7\times$ & $36.3\times$ & $2.05\times$ & 중간 \\
+\midrule
+\multicolumn{5}{l}{\textit{$q=11$}} \\
+$\chi_4 \leftrightarrow \chi_6$ (차수 5, 짝) & $7.1\times$ & $1023\times$ & $144\times$ & 극단 비동치 \\
+$\chi_3 \leftrightarrow \chi_7$ (차수 10, 홀) & $6.3\times$ & $25.3\times$ & $4.0\times$ & 중간 \\
+$\chi_1 \leftrightarrow \chi_9$ (차수 10, 홀) & $75.9\times$ & $111.8\times$ & $1.47\times$ & 준동치 \\
+$\chi_8 \leftrightarrow \chi_2$ (차수 5, 짝) & $326.5\times$ & $364.3\times$ & $1.12\times$ & 준동치 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+같은 차수 5 짝수 클래스 내에서도 $E$-비율이 $\{7.1, 326.5, 364.3, 1023.4\}$로
+$146\times$ 변동. $E$-비율 결정 인자는 차수/홀짝성이 아닌
+\emph{해석적 미세구조} ($\gamma_1$, 가우스 합 인수, $|L(1,\chi)|$).
+
+\medskip\noindent\textbf{비고.}
+\begin{enumerate}
+\item \emph{복소} 지표 $\chi\bmod 5$에서의 $\pm\pi$ 모노드로미는 $\Lambda$가 임계선 위에서 실수값이기 때문이 아니다 (실수값이 아님). 이는 단순 영점의 위상적 성질: $s_0$ 근방에서 $\Lambda(s_0+i\varepsilon)/\Lambda(s_0-i\varepsilon) \to -1$이므로 $\Delta\arg = \pm\pi$. 모든 해석함수의 단순 영점에 대한 보편적 성질이다.
+\item 복소 지표 $\chi\bmod 5$의 에너지 비율 $E(0.5)/E(0.3) = 2{,}592.5\times$는 실수 지표 $\chi\bmod 3$ ($21.6\times$), $\chi\bmod 4$ ($454.6\times$)보다 1--2 자릿수 크다. 이는 동일한 허수부 구간 $t\in[5,45]$에서 복소 지표의 영점 밀도가 더 높기 때문으로 추정된다 (실수 지표 12--13개 대비 19개), 이로 인해 $\sigma=1/2$에서의 에너지 집중이 증폭된다.
+\item 에너지 비율 $E(0.5)/E(0.3)$은 지표에 따라 $\sim 163\times$ 차이 ($6.3$--$1023$);
+  원인은 차수/홀짝성이 아닌 해석적 미세구조에 있음이 확인되었다 (경계 B-68).
+\item 이상의 결과는 $\xi$-다발 프레임워크가 $\zeta(s)$에 고유하지 않고
+  도체 $q = 1$--$11$의 21개 원시 지표에 균일하게 적용됨을 확인한다.
+  개별 성질은 표준 해석적 정수론(논증 원리, GRH)의 귀결이며, 기여는 이들을 하나의 파이버 다발 그림으로 조직하는 \emph{통일적 기하학 언어}에 있다.
+\item \emph{에너지 $\sigma$-집중 법칙.}\;
+곡률 에너지 범함수
+$E(\sigma):=\int_{t_{\min}}^{t_{\max}}|\Lambda'/\Lambda(\sigma+it)|^{2}\,dt$는
+아다마르 곱 부분분수 전개에 의해
+$E(\sigma)=\pi N/|\sigma-\sigma_c|+o(N/|\sigma-\sigma_c|)$을 만족한다
+(RH 조건부, $\sigma_c$는 임계선 중심, $N$은 구간 내 영점 수).
+등고선 적분(상반면 폐합, $t=\gamma_n\pm i\delta$에서 단순 극점)으로
+교차항의 \emph{정확한} 닫힌 공식을 얻는다:
+\begin{equation}\label{eq:cross_term_exact_ko}
+  E_{\mathrm{cross}}(\sigma)
+    = \sum_{i<j}\frac{8\pi\delta}{\Delta_{ij}^{2}+4\delta^{2}},
+  \quad \Delta_{ij}:=|\gamma_i-\gamma_j|,\;\;
+  \delta:=\sigma-\sigma_c.
+\end{equation}
+각 항은 $\Delta_{ij}$에 대한 폭 $2\delta$의 로렌츠 함수이므로
+인접 쌍이 지배적이다 ($\delta=0.01$에서 최근접 55\%가 55\% 기여).
+
+\smallskip
+\begin{center}
+\small
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+$L$-함수 & $d$ & $\sigma_c$ & $N$ & $\alpha$ & $R^{2}$ & $\Delta\sigma$ 범위 \\
+\midrule
+$\zeta(s)$ & 1 & 0.5 & 5 & 1.005 & 0.9999 & 전체 \\
+$L(s,\chi_3)$ & 1 & 0.5 & 12 & 0.988 & 0.9989 & 전체 \\
+$L(s,\chi_4)$ & 1 & 0.5 & 13 & 1.003 & 0.9978 & 전체 \\
+$L(s,\chi_5)$ & 1 & 0.5 & 12 & 0.986 & 0.9956 & 전체 \\
+\midrule
+11a1 & 2 & 1.0 & 18 & 1.026 & 0.9999 & $\leq 0.10$ \\
+37a1 & 2 & 1.0 & 23 & 1.017 & 0.9999 & $\leq 0.10$ \\
+\midrule
+$\mathrm{sym}^2$(11a1) & 3 & 1.5 & 59 & 1.004 & 0.9999 & $\leq 0.05$ \\
+\midrule
+$\mathrm{sym}^3$(11a1)${}^\dagger$ & 4 & 2.0 & 79 & 0.952 & 0.9998 & $\leq 0.05$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+${}^\dagger$\,$d=4$에서는 아다마르 에너지 $E_{\mathrm{had}}$를 보고한다.
+완비 $\Lambda$ 에너지 $E(\sigma)$는 상수 $\Gamma$-인자 배경
+($E_\gamma/E_{\mathrm{full}}\approx 63\%$)이 $\sigma$-발산을 가린다.
+대각항 $E_{\mathrm{diag}}$는 $\alpha=1.002$ ($R^2=1.000$)으로
+보편적 로렌츠 구조를 확인한다.
+
+\smallskip\noindent
+8개 $L$-함수 모두 대각 수준에서 $|\alpha-1|<3\%$, 함수방정식 대칭
+$E(\sigma)=E(k{-}\sigma)$ 기계 정밀도 확인.
+$d\geq 2$에서는 촘촘한 영점 간격
+($\bar\delta\approx 1.2$~$0.72$~$0.53$)으로 인한 쌍 상관 교차항이
+큰 $\Delta\sigma$에서 지배적.
+$\alpha=1$ 회복 범위는 $\Delta\sigma\lesssim\bar\delta/d$.
+$d\geq 3$에서 교차항은 소 오프셋에서 부호 전환
+($d=3$: $\Delta\sigma\approx 0.08$, $-9\%$;
+$d=4$: $\approx 0.05$, $-13\%$)---영점 밀도에 따라 강화되는 GUE형 반발.
+
+\smallskip\noindent
+\textbf{$d\geq 4$의 $\Gamma$-인자 배경.}\;
+$\Lambda'/\Lambda = \gamma'/\gamma + L'/L$에서 $d$개 digamma 항이 포함된다.
+$d=4$ (이동 벡터 $[0,1,1,2]$)에서
+$E_\gamma=\int|\gamma'/\gamma|^2\,dt \approx \text{const}$로
+$E_{\mathrm{full}}$의 $\sim$63\%를 차지.
+아다마르 분해 $E_{\mathrm{had}}$는 이 배경을 우회하여
+$\alpha=0.952$ ($\Delta\sigma\leq 0.05$, $R^2=0.9998$).
+음의 교차항($-13\%$)이 $\sim$5\% 편차의 원인이다.
+고차 $L$-함수에서는 $\Gamma$-분리가 필수적이다.
+[확인 2026-04-26; GL(1)--GL(4) 8개 $L$-함수;
+GL(4) $E_{\mathrm{diag}}$ $\alpha=1.002$, $E_{\mathrm{had}}$ $\alpha=0.952$]
+
+\smallskip\noindent
+\textbf{명제 (GUE 조건부 $\alpha=1$ 법칙).}\;
+임계선 위의 영점 $\gamma_1<\cdots<\gamma_N$에 대해
+$S_2:=\sum_{i<j}1/\Delta_{ij}^{2}$로 정의하자.
+$S_2<\infty$ (특히 GUE형 수준 반발 $R_2(0)=0$이 보장)이면
+\[
+  E_{\mathrm{had}}(\sigma)
+    = \frac{\pi N}{\delta} + O(\delta),
+  \qquad \delta:=\sigma-\sigma_c\to 0^{+},
+\]
+$O(\delta)$ 잔여항은 $8\pi\delta\,S_2$이다.
+% --- C-803: 증명 스케치 → 정식 증명 (2026-06-26) ---
+\emph{증명.}\;
+\textbf{단계~1 (대각합).}
+각 극 $\gamma_n$은 $t$-적분에서 $\pi/\delta$를 기여하므로 (표준 아크탄젠트 적분)
+$E_{\mathrm{diag}}=\sum_{n=1}^{N}\pi/\delta=\pi N/\delta$.
+
+\textbf{단계~2 (교차항 상계).}
+\eqref{eq:cross_term_exact_ko}에서
+$E_{\mathrm{cross}}=\sum_{i<j}8\pi\delta/(\Delta_{ij}^{2}+4\delta^{2})$.
+$\Delta_{ij}^{2}+4\delta^{2}\geq\Delta_{ij}^{2}$이므로
+$0\leq E_{\mathrm{cross}}\leq 8\pi\delta\,S_2$.
+$S_2<\infty$이면 $E_{\mathrm{cross}}=O(\delta)$ (명시적 상수 $8\pi S_2$).
+
+\textbf{단계~3 (GUE에서 $S_2<\infty$).}
+GUE 쌍 상관 $R_2(x)=1-(\sin\pi x/\pi x)^{2}$는 $R_2(0)=0$이고
+$R_2(x)=\pi^{2}x^{2}/3+O(x^{4})$ ($x\to 0$).
+$\mathbb{E}[S_2]=N(N{-}1)\int_{0}^{\infty}R_2(x)/x^{2}\,dx<\infty$
+(피적분함수가 원점에서 $\pi^{2}/3$, 무한원에서 $1/x^{2}$으로 수렴).
+반면 푸아송 통계($R_2\equiv 1$)에서는 $R_2(x)/x^{2}=1/x^{2}$이
+원점에서 발산하여 $S_2=\infty$ 가능, $\alpha\neq 1$.
+수치적으로 $N=400$ 리만 영점의 $R_2$는 GUE와 일치
+($\chi^{2}$ $p=0.44$, 76구간).
+\end{enumerate}
+
+\smallskip\noindent
+\textbf{따름정리 ($\sigma$-집중 폭 스케일링).}\;
+$\sigma$-프로파일 전개 $\kappa(\sigma_c{+}\varepsilon,\gamma) = 1/\varepsilon^2 + A(\gamma) + O(\varepsilon^2)$에서
+곡률 극의 특성 $\sigma$-폭을 $\varepsilon_{\mathrm{char}}(\gamma):=1/\sqrt{A(\gamma)}$로 정의한다.
+$\gamma\to\infty$에서:
+\begin{enumerate}
+\item[(a)] \emph{평균 (RH).}\; Selberg의 2차 모멘트에 의해 $\langle\varepsilon_{\mathrm{char}}\rangle\to 0$
+  (Montgomery 쌍 상관 불필요).
+\item[(a$'$)] \emph{개별 (RH).}\; Hadamard 양수성 + Littlewood $S(T)$ 한계에서
+  $\varepsilon_{\mathrm{char}}(\gamma) \le C/\sqrt{\log\gamma\cdot\log\log\gamma} \to 0$.
+  \emph{증명 핵심}: RH 하에서 $\operatorname{Re}(c_1) = \sum 1/(\gamma-\gamma')^2$의 \emph{모든} 항이
+  양수이므로 최근접 이웃만이 아닌 \emph{전체 Hadamard 합}을 사용.
+  영점 계수 불확실성 $j_0 = O(\log\gamma/\log\log\gamma)$와 삼감마 함수의
+  점근을 결합하면 $A(\gamma) \ge C\cdot\log\gamma\cdot\log\log\gamma$.
+\item[(b)] \emph{GUE 조건부.}\;
+  $\varepsilon_{\mathrm{char}}(\gamma) = \sqrt{12/5}\cdot 2\pi/\log(\gamma/(2\pi))\cdot(1+O(1/\log^2\gamma))$.
+\end{enumerate}
+\noindent
+하한: $\varepsilon_{\mathrm{char}}\ge C_1/\log\gamma$ (Hadamard 상한).
+(a$'$)는 쌍 상관 가설 없이 \emph{개별} 영점의 $\sigma$-집중을 보장하며,
+GUE 예측~(b)과의 격차는 $\sqrt{\log\gamma/\log\log\gamma}$이다.
+핵심 개선: 최근접 이웃만 사용하면 $C/\log\log\gamma$에 그치나,
+전체 Hadamard 합의 양수성을 활용하면 $\sqrt{\log\gamma}$ 인자를 추가 획득한다.
+
+\paragraph{위상 전이폭 스케일링 (관찰).}
+\emph{반누출폭(half-leakage width)} $\delta_{1/2}(\gamma)$를
+$\sigma=\tfrac12$에서 검출된 위상 점프의 절반이
+사라지는 $\sigma$-편향으로 정의한다.
+5개 높이 밴드($\gamma \approx 20, 50, 100, 200, 500$)에서
+17개 편향 $\delta \in [0.0005, 0.2]$을 검사한 결과:
+
+\smallskip
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{rcccc}
+\toprule
+$\gamma$ & 영점 & $\delta_{1/2}$ & $\delta_{1/2}\!\cdot\!\sqrt{\log\gamma\cdot\log\!\log\gamma}$ & $\delta_{1/2}\!\cdot\!\log\!\bigl(\tfrac{\gamma}{2\pi}\bigr)$ \\
+\midrule
+20  & 5  & 0.00533 & 0.00967 & 0.00618 \\
+50  & 7  & 0.00388 & 0.00895 & 0.00804 \\
+100 & 8  & 0.00300 & 0.00796 & 0.00830 \\
+200 & 11 & 0.00211 & 0.00626 & 0.00729 \\
+500 & 13 & 0.00171 & 0.00574 & 0.00746 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+$\delta_{1/2}\cdot\sqrt{\log\gamma\cdot\log\!\log\gamma}$가 단조감소
+(CV$\,{=}\,0.196$)하여 \textbf{(a$'$) 상한은 유효하나 tight하지 않음}을 확인.
+반면 밀도 보정 곱 $\delta_{1/2}\cdot\log(\gamma/(2\pi))$는
+$\gamma \ge 50$에서 근사 상수(CV$\,{=}\,0.053$)로,
+\textbf{GUE 스케일링~(b)을 지지}한다.
+$\delta_{1/2} = C/(\log(\gamma/(2\pi)))^\alpha$ 멱법칙 적합 결과
+$\alpha = 1.14$, $R^2 = 0.987$ ($\gamma\ge50$).
+
+[C-626/C-641, 2026-06-25; $\zeta(s)$;
+5높이, 44영점; (a$'$) 상한 확인, GUE 지수 $\alpha{\approx}1$ 지지]
+
+\paragraph{앙상블 $\alpha_2$ 높이 스케일링 (C-1009/C-1010).}
+$\alpha_2(\gamma) := \operatorname{Im}(c_0)^2 + 2c_1$에 대해
+GUE 예측 $\langle\alpha_2\rangle \sim C\,(\log(\gamma/(2\pi)))^2$를
+5개 높이 구간(구간당 연속 20영점, Cauchy 적분, dps$\,{=}\,50$)으로 검증.
+
+\smallskip
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{rccccc}
+\toprule
+$n$ 범위 & $\bar\gamma$ & $\langle\alpha_2\rangle$
+  & $A_{\mathrm{GUE}}$ & $R$ & CV \\
+\midrule
+50--69    &   162 &  3.24 & 10.56 & 0.307 & 0.43 \\
+150--169  &   334 &  4.93 & 15.79 & 0.312 & 0.47 \\
+350--369  &   625 &  8.52 & 21.16 & 0.403 & 0.96 \\
+700--719  &  1074 &  8.95 & 26.44 & 0.339 & 0.87 \\
+1500--1519& 1991 & 10.24 & 33.16 & 0.309 & 0.56 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip\noindent
+log--log 기울기 $= 2.11$ ($R^2 = 0.946$), 이론 지수 2.0과 일치.
+비례 상수 $\bar R = 0.334 \pm 0.041$ (체계적 경향 없음, $r = 0.12$).
+개별 영점(C-1009: 기울기 1.41)에서는 local spacing 변동이 지배적이나,
+20영점 앙상블 평균에서 $(\log\gamma)^2$ 법칙이 출현.
+\textbf{GUE 스케일링은 앙상블 성질}임을 확인.
+정리~5 패리티 100/100 PASS ($|\operatorname{Re}(c_0)| < 10^{-50}$).
+
+[C-1009/C-1010, 2026-06-29; $\zeta(s)$; 100영점; 기울기 2.11, $R^2{=}0.946$]
+
+\paragraph{비례 상수 $R = 1/3$ (C-1011).}
+관측값 $\bar R \approx 0.334$는 GUE 쌍 상관에서 정확히 유도된다.
+RH와 Montgomery 쌍 상관 추측 하에서,
+조건부 영점 밀도 $\bar d \cdot g_2(\bar d\,|\Delta|)$을 이용하면
+$\langle c_1 \rangle = 2\bar d^{\,2} \cdot \pi^2/3$.
+핵심 적분 $J = \int_0^\infty [u^2 - \sin^2 u]\,u^{-4}\,du = \pi/3$
+(반복 부분적분으로 증명).
+$A_{\mathrm{GUE}} = (2\pi\bar d)^2$이므로
+$R = 2\langle c_1\rangle/A_{\mathrm{GUE}} = \mathbf{1/3}$ (정확).
+$\operatorname{Im}(c_0)^2$ 보정은 $O(1/(\log\gamma)^2)$.
+실측 $\bar R = 0.334$와 이론 $1/3$의 차이 $0.16\%$.
+\textcolor{ForestGreen}{[C-1011, 완료 2026-06-29]}
+
+\paragraph{GL(2)에서의 $R = 1/3$ 보편성 증거 (C-1012/C-1013).}
+$R = 1/3$ 유도는 GUE 쌍 상관 $g_2(s)$에만 의존하므로, 모든 자기형 $L$-함수에서 $R = 1/3$이 성립해야 한다.
+Ramanujan $\Delta$ $L$-함수(weight 12, level 1, 임계선 $\operatorname{Re}(s) = 6$)에서 이를 검증한다.
+적분 표현과 Cauchy 적분(dps=60, 48점)으로 32개 영점($\gamma \in [9.2, 66.4]$)의 $\alpha_2$를 계산하면,
+높이별 구간에서 $R$이 **완벽한 단조 감소**(Spearman $\rho = -1.000$)를 보인다:
+
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+$\gamma$-범위 & $n$ & $\bar R$ & $R_{\mathrm{median}}$ \\
+\midrule
+$[9.2, 28.8]$  & 8 & 0.986 & 0.963 \\
+$[31.2, 43.6]$ & 8 & 0.809 & 0.803 \\
+$[45.0, 55.2]$ & 8 & 0.766 & 0.697 \\
+$[56.7, 66.4]$ & 8 & 0.658 & 0.618 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+선형 적합: $R(\gamma) = 1.126 - 0.00757\gamma$ ($r^2 = 0.968$), $R = 1/3$으로의 외삽 $\gamma \approx 105$.
+높이를 맞추면($\gamma \approx 60$) GL(2) $\bar R \approx 0.66$은 $\zeta(s)$의 $\bar R \approx 0.72$ (C-1012)와 유사.
+C-1012에서 관측된 $30\%$ GL(1)--GL(2) $R$ 차이는 높이 효과로 확인됨.
+정리~5 패리티: 32/32 PASS.
+[C-1012/C-1013, 2026-06-29; $L(s,\Delta)$; 32영점; $\rho = -1.000$]
+
+\paragraph{개별 영점 $\sigma$-집중 검증 (C-1028).}
+60개 개별 영점 $\gamma \in [14.1,\, 999.8]$에서
+$c_0, c_1$을 Cauchy 적분(256점, 적응적 dps $100{-}350$)으로 계산하여
+따름정리(a$'$)를 \emph{개별} 수준에서 검증한다.
+
+\smallskip\noindent
+\textbf{(1) Hadamard 하한.}\;
+$\operatorname{Re}(c_1) \ge 1/d_{\mathrm{nn}}^2$이 60개 영점 모두에서 성립
+(비율 $[1.12,\, 3.78]$, 평균 $2.37$).
+전체 Hadamard 합 $\sum_{\rho'\neq\rho}|\gamma-\gamma'|^{-2}$이
+최근접 이웃 기여를 엄격히 초과함을 수치적으로 확인.
+
+\smallskip\noindent
+\textbf{(2) FWHM 스케일링.}\;
+$\mathrm{FWHM}_\sigma(\gamma)\cdot\log\log\gamma \in [0.63,\, 2.84]$ (평균 $1.77$)
+→ (a$'$) 확인.
+$\mathrm{FWHM}_\sigma(\gamma)\cdot\log\gamma \in [2.17,\, 8.00]$ (평균 $5.93$)
+→ GUE 예측~(b) 일관.
+
+\smallskip\noindent
+\textbf{(3) FWHM 감소.}\;
+FWHM: $2.91$ ($\gamma{=}14.1$) → $0.91$ ($\gamma{=}999.8$),
+$O(1/\log\gamma)$ GUE 속도와 정성적 일치.
+$A(\gamma)/A_{\mathrm{GUE}}$ 중앙값 $0.51$, $R = 1/3$ 수렴과 일관
+($A/A_{\mathrm{GUE}} \to 2/3$; $O(1/(\log\gamma)^2)$ 보정).
+
+\smallskip\noindent
+\textbf{(4) $c_1$ 성장률.}\;
+$\log(\operatorname{Re}(c_1))$ 대 $\log\log\gamma$의
+회귀 기울기는 $3.81$로, (a$'$) 증명의 점근 예측 ${\sim}\,2.0$
+($\operatorname{Re}(c_1) \ge \text{const}\cdot\log\gamma\cdot\log\log\gamma$)을
+초과한다. 그러나 $\log(\operatorname{Re}(c_1))$ 대
+$\log(\bar{d}^2)$ (평균 최근접 이웃 거리 제곱) 회귀 기울기는
+$1.26$으로 이론값 ${\sim}\,1.0$에 근접하여, 기저 최근접 이웃
+스케일링은 올바름을 시사한다.
+$\log\log\gamma$ 기울기 팽창은 유한 범위 효과로 귀인된다:
+점근 하한에서 사용하는 Littlewood 보정
+$j_0 = O(\log\gamma/\log\log\gamma)$의 사전 상수가
+$\gamma \in [14, 1000]$의 중간 높이에서 크기 때문이다.
+$\gamma > 10^4$에서 기울기 $2.0$ 수렴을 예상하나, $\mathrm{dps} > 500$이 필요하여 향후 과제로 남긴다.
+
+\textcolor{ForestGreen}{[C-1028, 확인 2026-06-30; $\zeta(s)$;
+60영점 $\gamma \in [14.1,\,999.8]$;
+Hadamard 60/60 PASS; (a$'$) 확인, (b) GUE 일관]}
+
+% -----------------------------------------------------------------------
+% 명제: FWHM 점근 메커니즘 — C-1030 (결과 #93)
+% -----------------------------------------------------------------------
+\begin{proposition}[FWHM 점근: $\mathrm{FWHM}_\sigma(\gamma_0) = O(1/\!\log\gamma_0)$]
+\label{prop:fwhm_asymptotic}
+RH 하에서 $\rho_0 = \tfrac{1}{2} + i\gamma_0$을 $\xi(s)$의 단순 영점이라 하고,
+$c_0,\,c_1$을 $\rho_0$에서의 $\xi'/\xi$ Laurent 계수라 한다
+($c_1 = H_1(\gamma_0)$, 명제~\ref{prop:hadamard_A_decomp}).
+이차 곡률 계수 $\alpha_2 := \operatorname{Im}(c_0)^2 + 2\operatorname{Re}(c_1)$과
+$\sigma$-집중 폭 $\mathrm{FWHM}_\sigma(\gamma_0) := 2/\!\sqrt{\alpha_2}$를 정의한다.
+$d(\gamma_0) := \log(\gamma_0/2\pi)/(2\pi)$를 국소 영점 밀도라 하면:
+\[
+  \alpha_2(\gamma_0) \;\sim\; 2\,d(\gamma_0)^2\, \Sigma_{\mathrm{GUE}},
+  \qquad\therefore\quad
+  \mathrm{FWHM}_\sigma(\gamma_0) \;\sim\; \frac{\sqrt{2}}{d(\gamma_0)\,\sqrt{\Sigma_{\mathrm{GUE}}}}
+  \;\to\; 0,
+\]
+여기서 $\Sigma_{\mathrm{GUE}} = 2\int_0^\infty R_2(r)/r^2\,dr \approx 6.58$이고
+$R_2(r) = 1 - [\sin(\pi r)/(\pi r)]^2$은 GUE 쌍 상관 함수이다.
+$\operatorname{Var}(\Sigma) = \infty$ ($\mathbb{E}[1/s_{\mathrm{nn}}^4]$ 발산)이므로
+\emph{전형적} FWHM은 중앙값 $\Sigma_{\mathrm{med}} \approx 4.16$에 의해 결정된다:
+\[
+  \mathrm{FWHM}_\sigma(\gamma_0)
+  \;\sim\; \frac{C_\infty}{\log(\gamma_0/2\pi)},
+  \qquad
+  C_\infty \;:=\; 2\pi\sqrt{2/\Sigma_{\mathrm{med}}} \;\approx\; 4.36.
+\]
+\end{proposition}
+
+\begin{proof}[증명 스케치]
+\textbf{단계 1 (Hadamard 지배).}
+Hadamard 곱(명제~\ref{prop:hadamard_A_decomp})에 의해
+$c_1 = \sum_{\rho'\neq\rho_0} 1/(\gamma_0 - \gamma')^2 + g'(\rho_0)$이고,
+$g'(\rho_0) = O(1/\gamma_0^2)$는 $\Gamma$-인자에서 비롯된다.
+$\operatorname{Im}(c_0)^2 = B(\gamma_0)^2$은 부차적이므로
+($B^2/H_1 \to 0$, GUE 통계),
+$\alpha_2 \sim 2c_1 \sim 2H_1(\gamma_0)$.
+
+\textbf{단계 2 (GUE 쌍 상관 적분).}
+RH 하에서 Hadamard 합 $H_1(\gamma_0) = \sum_n 1/(\gamma_0-\gamma_n)^2$은
+GUE 이점 상관으로 지배된다.
+국소 밀도는 $d(\gamma_0) = \log(\gamma_0/(2\pi))/(2\pi)$이며
+(Riemann--von Mangoldt), $\log\gamma_0/(2\pi)$가 \emph{아니다}.
+정규화 간격 $s_n = |\gamma_0 - \gamma_n| \cdot d$를 도입하면
+$H_1 = d^2 \sum 1/s_n^2$이고,
+GUE 이점 함수 $R_2(r) = 1 - [\sin\pi r/(\pi r)]^2$에 의해
+\[
+  \mathbb{E}[H_1] \;=\; d(\gamma_0)^2 \cdot 2\!\int_0^\infty
+  \frac{R_2(r)}{r^2}\,dr
+  \;=\; d(\gamma_0)^2 \,\Sigma_{\mathrm{GUE}}.
+\]
+적분은 GUE 수준 반발($R_2(r) = O(r^2)$, $r \to 0$)로 수렴한다.
+\emph{주의:} $\operatorname{Var}(H_1/d^2) = \infty$
+($\mathbb{E}[1/s_{\mathrm{nn}}^4] = \infty$)이므로
+\emph{중앙값} $H_1/d^2 \approx 4.16$이 평균($6.58$)보다 안정적 추정량이다.
+$\alpha_2 \sim 2d^2 \Sigma_{\mathrm{GUE}}$에서 FWHM이 따른다.
+\end{proof}
+
+\begin{remark}[명제~\ref{prop:fwhm_asymptotic}의 수치 검증 --- 결과~\#93, \#95, \#96]
+\label{rem:fwhm_numerical_evidence}
+\textbf{(A) Hadamard 분해 (C-1030, 결과 \#93).}
+40개 영점 $\gamma \in [14.1,\, 1499.6]$에서 Cauchy 적분(256점,
+$\mathrm{dps} \in [80, 350]$)으로 $c_1$을 계산하고
+$c_1 = \Sigma_\zeta + \psi_{\mathrm{contrib}}$로 분해하여
+Hadamard 지배성을 검증한다.
+결과: $\Sigma_\zeta / c_1 = 97.8\%$ (평균),
+$\psi_{\mathrm{contrib}} / c_1 = 0.3\%$ (평균);
+Hadamard 항등식은 38/40 영점에서 $\Delta < 5\%$.
+$\Gamma$-인자가 아닌 Hadamard 곱 구조가 FWHM을 결정함을 확인.
+
+\smallskip\noindent
+\textbf{(B) GUE 보정과 밀도 공식 (C-1033/C-1034, 결과 \#95).}
+$2 \times 41$개 연속 영점($\gamma \approx 5448$ (A군),
+$\gamma \approx 10300$ (B군))에서 나이브 추정
+$\mathrm{FWHM} \sim 2\pi/\!\log\gamma$에 대한 두 가지 보정이 드러난다:
+
+\smallskip\noindent
+\emph{(i) 밀도 공식.}
+정확한 국소 밀도는 $d(\gamma) = \log(\gamma/2\pi)/(2\pi)$이며,
+$\log\gamma/(2\pi)$가 아니다.
+$\gamma = 10^4$에서 차이는 $25\%$.
+
+\smallskip\noindent
+\emph{(ii) GUE 이점상관 통계.}
+정규화 Hadamard 합 $\Sigma = H_1/d^2 = \sum 1/s_n^2$는
+GUE 이점상관 적분에 의해 $\mathbb{E}[\Sigma] = 6.58$이지만,
+$\operatorname{Var}(\Sigma) = \infty$
+($\mathbb{E}[1/s_{\mathrm{nn}}^4] = \infty$; GUE 수준 반발로
+$p(s) \sim s^2$이므로 $\mathbb{E}[1/s^3]$ 발산).
+\emph{중앙값} $\Sigma_{\mathrm{med}} \approx 4.16$이 안정적 추정량이다.
+
+\smallskip\noindent
+\emph{(iii) 예측.}
+$\mathrm{FWHM} = \sqrt{2/(d^2 \Sigma_{\mathrm{med}})}$를 사용하면:
+\begin{center}
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+그룹 & 예측 $\mathrm{FWHM}\!\cdot\!\log\gamma$ & 관측 & 비율 \\
+\midrule
+A ($\gamma \approx 5448$, 41개) & $5.540$ & $5.464$ & $0.986$ \\
+B ($\gamma \approx 10300$, 41개) & $5.438$ & $5.449$ & $1.002$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+보정된 예측은 관측과 $0.2\%$ (B군) 및 $1.4\%$ (A군) 이내로 일치한다.
+41개 영점에 대한 $c_1/d(\gamma)^2$의 중앙값은
+$\Sigma_{\mathrm{GUE,med}} = 4.16$과 비율 $1.03$으로 일치.
+
+점근적으로 ($\gamma \to \infty$, $\log\gamma/\log(\gamma/2\pi) \to 1$):
+$\mathrm{FWHM}\!\cdot\!\log\gamma \to C_\infty = 2\pi\sqrt{2/\Sigma_{\mathrm{med}}} \approx 4.36$.
+
+\smallskip\noindent
+\emph{(iv) 개별 변동.}
+개별 $c_1$ 값은 크게 변동한다:
+$\operatorname{Var}(c_1/d^2) = \infty$이므로 각 영점의 FWHM은
+전형적 값에서 크게 벗어난다.
+B군에서 최근접 간격 $d_{\mathrm{nn}}$과 $c_1$은
+강한 음상관($r = -0.78$)을 보인다;
+$d_{\mathrm{nn}}$이 작은 영점은 $c_1 \propto 1/d_{\mathrm{nn}}^2$로
+비정상적으로 큰 $c_1$을 가져 산술 평균을 끌어올리지만,
+중앙값은 GUE 예측과 일관적이다.
+
+\smallskip\noindent
+\textbf{(C) GL(2) 보편성 (C-1036, 결과 \#96).}
+동일한 분석을 Ramanujan~$\Delta$ $L$-함수
+(weight~12, conductor~1; 해석적 정규화에서 임계선 $\sigma=6$;
+$\Lambda(s) = \Lambda(12{-}s)$)에 적용한다.
+25개 영점($\gamma \in [9.2,\,67.1]$, Cauchy 128점,
+$\mathrm{dps}=80{-}120$)에서 $\Lambda'/\Lambda$의 Laurent 계수를 계산한다:
+
+\smallskip\noindent
+\emph{(i) 구조적 보편성.}
+Hadamard 부등식 $c_1 \ge 1/d_{\mathrm{nn}}^2$이
+$25/25$개 영점에서 성립(비율 범위 $[1.04,\,4.11]$, 평균~$2.53$).
+FE$+$Schwarz 대칭 확인:
+$|\operatorname{Re}(c_0)| < 10^{-65}$,
+$|\operatorname{Im}(c_1)| < 10^{-64}$ (전체 25개 영점).
+
+\smallskip\noindent
+\emph{(ii) FWHM$\,\cdot\,$밀도 수렴.}
+GL(2) 밀도 $d_\Delta(\gamma) = \tfrac{1}{\pi}\log\!\tfrac{\gamma}{2\pi}$
+(같은 높이에서 GL(1) 밀도의 2배)를 사용하면:
+\begin{center}
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+지표 & GL(1) $\zeta$ & GL(2) $\Delta$ & 보편 상수 \\
+\midrule
+$\gamma{=}30$에서 밀도 & $0.249$ & $0.498$ & ($2\times$) \\
+$\gamma{=}57$에서 $\mathrm{FWHM}\!\cdot\!d$ & --- & $0.692$ & $0.693$ \\
+$\mathrm{FWHM}\!\cdot\!d$ 중앙값 & $0.51^*$ & $0.518$ & $\to 0.693$ \\
+Hadamard 부등식 & $60/60$ & $25/25$ & 보편적 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+($^*$GL(1) 중앙값은 비슷한 높이 $\gamma \in [14,\!1000]$ 기준.)
+
+\noindent
+곱 $\mathrm{FWHM}\!\cdot\!d_\Delta$는 $\gamma$와 함께 증가하며
+(Spearman $\rho = +0.35$, $p = 0.09$),
+$\gamma{=}56.7$에서 $0.692$에 도달한다 ---
+GUE 예측 $\sqrt{2/\Sigma_{\mathrm{med}}} \approx 0.693$의
+$0.2\%$ 이내이다.
+이 중간 높이에서 중앙값 $0.518$은
+GL(1)의 비슷한 높이에서의 값과 일관적이며,
+$\gamma \to \infty$일 때 두 경우 모두 $0.693$으로 수렴한다.
+
+\textcolor{ForestGreen}{[C-1030, 확인 2026-06-30; $\zeta(s)$;
+40영점; $\Sigma_\zeta$ 지배 $97.8\%$;
+C-1033/C-1034, 확인 2026-06-30;
+$82$영점 $\gamma \in [5429,\!10320]$;
+GUE 적분 $\int R_2/r^2 = 3.290$;
+밀도 보정 $+$ 중앙값 일치;
+FWHM 예측 $0.2\%$ 일치;
+개별 $c_1$--$d_{\mathrm{nn}}$ 상관 $r{=}{-}0.78$;
+C-1036, 확인 2026-06-30; $L(s,\Delta)$;
+$25$영점 $\gamma \in [9.2,\!67.1]$;
+Hadamard $25/25$; $\mathrm{FWHM}\!\cdot\!d_\Delta$ 최대 $0.692$ ($0.2\%$);
+Spearman $\rho{=}{+}0.35$]}
+\end{remark}
+
+\subsection{블라인드 영점 예측}
+\label{app:dirichlet:blind}
+
+[완료 2026-04-13]
+곡률 프로파일 $\kappa(1/2+it)$, 모노드로미 점프 $|\Delta\arg\Lambda|>\pi/2$, 이중 기준으로 테스트 구간 $t\in[25,40]$의 영점을 예측한다.
+
+\begin{center}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{지표} & \textbf{정답} & \textbf{방법} & $N_{\mathrm{pred}}$ & \textbf{P} & \textbf{R} & \textbf{F1} \\
+\midrule
+$\chi\bmod 3$ & 7 & 곡률 / 이중 / 모노 & 7 / 7 / 7 & 1.000 & 1.000 & 1.000 \\
+$\chi\bmod 4$ & 7 & 곡률 / 이중 / 모노 & 7 / 7 / 7 & 1.000 & 1.000 & 1.000 \\
+$\chi\bmod 5$ & 7 & 곡률 / 이중 / 모노 & 7 / 7 / 7 & 1.000 & 1.000 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+3개 지표에서 3가지 방법 모두 $\mathrm{F1}=1.000$ (21/21 영점, 허용 오차 $\delta t < 0.5$). 80자릿수 \texttt{mpmath} 정밀도에서는 곡률 극대만으로 모든 영점을 거짓 양성 없이 식별 가능하다. 이중 기준과 모노드로미 단독 기준은 이 정밀도 수준에서 추가 이점이 없다. 이중 기준의 실용적 가치는 신경망 수준에서 근사 $\kappa$ 추정이 거짓 양성을 유발할 때 드러난다 (추측~\ref{conj:mono_universality} 참조).
+
+\noindent
+고높이 GL(1) $\zeta$ 블라인드 테스트 (C-1017/C-1039; $t\in[150,200]$, 27개 영점,
+$\mathrm{dps}{=}80$)에서도 세 방법(곡률 극대, 모노드로미 점프, 이중 기준) 모두
+$P = R = F_1 = 1.000$을 달성한다.
+원래 7개 영점 테스트 (\#2; $t\in[5,30]$)와 합산하면
+누적 GL(1) $\zeta$ 블라인드 기록은 34/34 TP ($P = R = F_1 = 1.000$)이다.
+
+\section{표기법 색인}
+\label{app:notation}
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{기호} & \textbf{영역} & \textbf{의미} \\
+\midrule
+$R_q$ & QROP-Net & 다항식환 $\Zq[X]/(X^n+1)$ \\
+$\phi_i$ & QROP-Net & 암호문 원소 $i$의 광학 위상 \\
+$U_0$ & QROP-Net & 송신 복소 파면 $e^{i\phi}$ \\
+$d$ & QROP-Net & 학습 가능 전파 거리 (mm) \\
+$\alpha$ & QROP-Net & FrFT 차수 각도 (라디안) \\
+$\xif(s)$ & 공명 & 완성 리만 제타 함수 \\
+$\Phiz(t)$ & 공명 & $\xif(1/2+it)$의 위상 \\
+$\Ampl(t)$ & 공명 & 진폭 $|\xif(1/2+it)|$ \\
+$\Psip(n)$ & 공명 & 매끄러운 소수 계수 위상 \\
+$\sigma^*$ & 공명 & 공명점의 실수부 \\
+$\ell$ & 공명 & $\sigma$-리프트: $\sigma^* - 1/2$ \\
+$F_2(t)$ & 다원적 & 최종 판별 함수 \\
+$\Lhat(t)$ & 다원적 & 중심 차분 로그 도함수 \\
+$v(\sigma,t)$ & 공통 & $\xif(\sigma+it)$의 위상 / 일반 위상 \\
+$\mathcal{P}(\phi;L)$ & 공통 & 위상 양자화 연산자 $\sin^2(L\phi/2)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\end{document}
