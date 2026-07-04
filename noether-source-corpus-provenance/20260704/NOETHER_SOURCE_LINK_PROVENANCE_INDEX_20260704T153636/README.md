@@ -15,6 +15,8 @@ Key files:
 - `manifests/SOURCE_CORPUS_PROVENANCE_LINKS.csv` - extracted URL/arXiv/DOI evidence with credential-like query values redacted.
 - `manifests/SOURCE_CORPUS_LATEX_PAYLOAD_MANIFEST.csv` - file-level manifest for LaTeX payload members.
 - `manifests/SOURCE_CORPUS_LATEX_PAYLOAD_ZIPS.csv` - hashes and sizes for the split LaTeX payload zips.
+- `manifests/CURRENT_20260704_NOETHER_LANE_OUTPUT_INDEX.csv` - current output-file index across the active Noether lane folders.
+- `SOURCE_CORPUS_COMPLETION_AUDIT_20260704.md` - requirement-by-requirement completion audit and next publication gaps.
 - `payload_zips/` - source-level TeX/LaTeX payload archives.
 
 Three-step publication plan:
