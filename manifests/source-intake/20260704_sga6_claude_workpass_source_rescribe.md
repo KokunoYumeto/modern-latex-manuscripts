@@ -15,6 +15,7 @@ This receipt records the compact GitHub mirror of the July 2026 SGA6 local sourc
 - `sga6_fr_workpass.tex`
 - `sga6_fr_workpass.pdf`
 - `sga6_fr_workpass.log`
+- `pass2.log`
 - `compile2.log`
 - `_work/` scratch/source-proof material
 - `SHA256SUMS.txt`
@@ -23,7 +24,7 @@ This receipt records the compact GitHub mirror of the July 2026 SGA6 local sourc
 
 The local audit found that the earlier `repair033` SGA6 French TeX is not a globally faithful transcription. It is a readable scaffold with paraphrased or condensed regions. The work therefore pivoted from ordinary audit to source-rescribing against the better 360dpi Internet Archive scan item `theoriedesinters0225bert`.
 
-The copied `CERT_LOG.md` records a baseline compile gate and then a source-rescribe pass through the RRR appendix p19 checkpoint, with the next cursor around RRR appendix p21. The workpass PDF compiles locally, but this is compile evidence only.
+The refreshed copied `CERT_LOG.md` records a baseline compile gate and then a source-rescribe pass through the RRR appendix p19 / idx52 / volume p39 checkpoint. The next cursor is RRR appendix p20 / idx53, covering the continuation after the Chow moving lemma/pullback/pushforward material and the beginning of the Chern-class formulas. The workpass PDF compiles locally to 393 pages, but this is compile evidence only.
 
 ## Public Interpretation
 
