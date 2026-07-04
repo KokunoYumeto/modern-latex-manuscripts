@@ -1,0 +1,207 @@
+%==================================================================
+% Konfigurasi utama untuk dokumen LaTeX
+%==================================================================
+
+%% DILARANG EDIT BAGIAN INI
+
+% Mengatur bahasa dokumen ke Bahasa Indonesia dan encoding karakter
+\usepackage[indonesian]{babel}
+\usepackage[utf8]{inputenc}
+
+% Pengaturan jarak antar baris dan penyesuaian kotak teks agar rata kiri
+\usepackage{setspace}
+\usepackage[raggedrightboxes]{ragged2e}
+
+% Paket untuk memasukkan gambar dalam dokumen
+\usepackage{graphicx}
+\graphicspath{{gambar/}} % Menentukan folder default untuk gambar
+\usepackage{float}       % Mengatur posisi gambar dalam teks
+
+% Mengatur indentasi paragraf
+\usepackage{indentfirst}  % Memastikan paragraf pertama di setiap section memiliki indentasi
+\setlength\parindent{1cm} % Mengatur jarak indentasi paragraf menjadi 1 cm
+
+% Mengatur font utama dokumen menjadi Times New Roman
+\usepackage{pslatex}
+
+% Mengatur format penomoran section dan subsection
+\renewcommand{\thesection}{\Alph{section}.\hspace{0.18cm}} % Section: A, B, C, ...
+\renewcommand{\thesubsection}{\arabic{subsection}.}         % Subsection: 1, 2, 3, ...
+
+% Pengaturan daftar isi, daftar gambar, dan daftar tabel
+\usepackage{tocloft}
+\cftsetpnumwidth{1.5em}
+\cftsetrmarg{2em}
+\setlength{\cftsecnumwidth}{1.5em}
+\setlength{\cftsubsecnumwidth}{1.5em}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\setlength{\cftbeforechapskip}{3pt}
+
+% Penyesuaian judul bab dalam daftar isi agar ditampilkan sebagai "BAB"
+\renewcommand\cftchappresnum{BAB }
+\renewcommand\cftchapaftersnum{}
+\newlength\mylen
+\settowidth\mylen{\bfseries BAB 1 :\ } % Menyesuaikan lebar penomoran bab
+\cftsetindents{chap}{0pt}{\mylen}
+
+% Pengaturan format dan penomoran judul bab
+\usepackage{titlesec}
+\titleformat{\chapter}{\doublespacing\fontsize{14pt}{16pt}\bfseries}{\MakeUppercase{\chaptertitlename\ \Roman{chapter}}\filcenter}{0.15cm}{\centering\uppercase}
+\titleformat{\section}{\fontsize{12}{14}\bfseries}{\thesection}{0.4cm}{}
+\titleformat{\subsection}{\fontsize{12}{14}\bfseries}{\thesubsection}{0.675cm}{}
+
+% Mengatur jarak dan format spacing untuk chapter, section dan subsection
+\titlespacing*{\chapter}{0pt}{-1cm}{20pt}
+\titlespacing*{\section}{0pt}{10pt}{0cm}
+\titlespacing*{\subsection}{0pt}{10pt}{0cm}
+
+% Pengaturan untuk caption gambar dan tabel
+\usepackage[font=small, format=plain, labelfont=bf, up, textfont=up]{caption}
+\usepackage{subcaption}
+
+% Menghapus tanda titik dua pada caption
+\captionsetup[figure]{labelsep=space}
+\captionsetup[table]{labelsep=space}
+
+% Mengatur nomor caption gambar dan tabel sesuai bab
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+
+% Mengatur hyphenation (pemisahan kata) agar lebih rapi
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Pengaturan tabel, multirow, dan ukuran kolom otomatis
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% Pengaturan margin halaman
+\usepackage{geometry}
+\geometry{
+    left=4cm,          % Margin kiri
+    top=3cm,           % Margin atas
+    right=3cm,         % Margin kanan
+    bottom=3cm,        % Margin bawah
+}
+
+% Paket untuk notasi matematika
+\usepackage{amsmath}
+
+% Pengaturan nomor pada persamaan matematika sesuai bab
+%\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\makeatletter
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\renewcommand{\@eqnnum}{\theequation}
+\def\tagform@#1{\maketag@@@{#1}} % This line removes the parentheses
+\makeatother
+
+% Untuk halaman berorientasi landscape
+\usepackage{rotating}
+
+% Pengaturan untuk list (daftar item dan angka)
+\usepackage{enumitem}
+\setlist{nosep} % Menghilangkan jarak antar item dalam list
+\newenvironment{packed_enum}{ % Membuat lingkungan untuk daftar bernomor
+    \begin{enumerate}[leftmargin=1.5\parindent]
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        }{\end{enumerate}}
+
+\newenvironment{packed_item}{ % Membuat lingkungan untuk daftar berpoin
+    \begin{itemize}[leftmargin=1.375\parindent]
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        }{\end{itemize}}
+
+% Paket untuk bibliografi menggunakan BibTeX
+\usepackage[sort]{natbib}
+\bibliographystyle{apalike} % Ganti dengan apalike jika menggunakan Overleaf
+
+% Paket untuk tabel yang panjang dan melampaui satu halaman
+\usepackage{longtable}
+
+% Paket untuk menampilkan kode program - HARUS DIMUAT SEBELUM HYPERREF
+\usepackage{xcolor}
+\usepackage{listings}
+
+% Paket untuk memasukkan hyperlink dalam dokumen - HARUS DIMUAT SETELAH LISTINGS
+\usepackage{hyperref}
+
+%\AtBeginDocument{\renewcommand{\lstlistingname}{Kode}} 
+%\AtBeginDocument{\renewcommand{\thelstlisting}{\thechapter.\arabic{lstlisting}}}
+%\AtBeginDocument{\renewcommand{\thelstlisting}{\arabic{chapter}.\arabic{lstlisting}.}}
+\AtBeginDocument{\renewcommand{\lstlistingname}{Kode}}
+\AtBeginDocument{\renewcommand{\thelstlisting}{\arabic{chapter}.\arabic{lstlisting}}}
+
+\captionsetup[lstlisting]{
+  format=plain,
+  labelfont=bf,
+  justification=centering,
+  singlelinecheck=false,
+  labelsep=space
+}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    columns=fullflexible,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    lineskip=-1pt
+}
+\lstset{style=mystyle}
+
+%paket untuk gambar dengan tikz
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows, positioning, calc, shapes}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+%untuk if-then
+\usepackage{ifthen}
+
+% PRACTICAL SOLUTION FOR CLEVEREF LABEL ISSUE
+% Due to a complex bug interaction between packages, we'll use a different approach
+% Remove cleveref temporarily and use standard referencing with custom formatting
+
+% For now, comment out cleveref and use standard LaTeX references
+% Users can uncomment the line below if they want to try cleveref again
+% \usepackage[nameinlink,capitalise]{cleveref}
+
+% Custom reference commands that provide similar functionality to cleveref
+\newcommand{\figref}[1]{gambar~\ref{#1}}
+\newcommand{\Figref}[1]{Gambar~\ref{#1}}
+\newcommand{\tabref}[1]{tabel~\ref{#1}}
+\newcommand{\Tabref}[1]{Tabel~\ref{#1}}
+\newcommand{\equref}[1]{persamaan~(\ref{#1})}
+\newcommand{\Equref}[1]{Persamaan~(\ref{#1})}
+\newcommand{\lstref}[1]{kode~\ref{#1}}
+\newcommand{\Lstref}[1]{Kode~\ref{#1}}
+
+% If cleveref is needed, users should replace \cref{fig:xxx} with \figref{fig:xxx} etc.
+
+%% DILARANG EDIT BAGIAN INI
