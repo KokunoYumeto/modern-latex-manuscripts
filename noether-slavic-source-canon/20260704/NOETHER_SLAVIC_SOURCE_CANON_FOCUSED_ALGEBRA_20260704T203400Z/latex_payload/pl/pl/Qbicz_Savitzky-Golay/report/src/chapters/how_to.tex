@@ -1,0 +1,73 @@
+\section{Instrukcje} \label{sec:how_to}
+
+%Dodatek: jak zainstalować, jak uruchomić, jak testować
+
+Dodatek ten opisuje sposoby kompilacji i uruchomienia przygotowanej aplikacji.
+
+\subsection{Uruchomienie prototypu}
+
+Uruchomienie prototypu wymaga zainstalowania środowiska Python 3.5 oraz modułu SciPy.
+Popularną dystrybucją zawierającą niezbędne moduły, posiadającą wsparcie dla systemów Windows i Linux jest pakiet Anaconda 3.
+
+\noindent Uruchomienie prototypu z linii komend systemu Linux:
+\begin{verbatim}
+  prototype$ python3 ./savitzky_design.py
+\end{verbatim}
+
+\noindent Uruchomienie pod systemem Windows w konsoli PowerShell:
+\begin{verbatim}
+  prototype$ python ./savitzky_design.py
+\end{verbatim}
+
+
+\subsection{Kompilacja aplikacji}
+
+Do budowania aplikacji wykorzystano kompilator \textbf{gcc} w wersji 5.4.0.\\
+Flagi kompilacji: \textit{-Ofast -Wall -std=c++11}.
+W celu ułatwienia budowy aplikacji w projekcie wykorzystano framework \textbf{cmake}. Instrukcję pobrania instalacji można znaleźć
+na stronie twórców narzędzia: https://cmake.org/ .\\
+\noindent Procedura kompilacji z użyciem cmake:
+\begin{verbatim}
+  implem/build$ cmake ../
+  implem/build$ make
+\end{verbatim}
+
+
+Alternatywą do systemu budowania cmake może być zwykły system oparty o pliki Makefile lub nawet bezpośrednie użycie kompilatora wraz ze wspomnianymi flagami kompilacji.\\
+
+\subsection{Uruchomienie aplikacji}
+
+\noindent Uruchomienie aplikacji odbywa się za pośrednictwem linii poleceń:
+\begin{verbatim}
+  implem/build$ ./SavGol.o
+\end{verbatim}
+
+
+\noindent Po uruchomieniu programu bez żadnych argumentów otrzymamy wiadomość zwrotną wraz z poprawnym użyciem programu i opisem poszczególnych parametrów:
+\begin{verbatim}
+  implem/build$ ./SavGol.o
+  Usage:
+  ./SavGol.o -i file -o file [-n N] [-m M] [plot]
+  Options:
+   --input, -i file  : name of the input file
+   --output, -o file : name of the output file
+   --plot, -p        : plot filtered signal at the end; default: disabled
+   -n N              : half of the filtering range; default: 2
+   -m M              : half of the filtering range; default: 5
+\end{verbatim}
+
+
+
+\noindent W ramach projektu przygotowano skrypt, który zbuduje i uruchomi aplikację:
+\begin{verbatim}
+  implem$ ./runSavitzkyGolay
+\end{verbatim}
+
+W celu zmiany parametrów uruchomienia najłatwiej poddać skrypt modyfikacji i uruchomić go ponownie.\\
+
+Do poprawnego wyświetlania wykresów niezbędne jest środowisko \textbf{gnuplot}. Środowisko to jest z założenia międzyplatformowe, więc powinno działać na większości systemów operacyjnych. Instrukcja jego instalacji znajduje sie pod adresem http://www.gnuplot.info/ .\\
+
+
+
+
+Aktualny kod projektu dostępny w repozytorium https://github.com/Qbicz/Savitzky-Golay

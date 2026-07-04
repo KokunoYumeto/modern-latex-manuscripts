@@ -1,0 +1,3192 @@
+\chapter{Веб-разработка}
+
+\begin{teaser}
+В первой главе мы рассмотрим, как писать веб-приложения на Clojure. Поговорим о
+передаче данных по протоколу HTTP. Какие абстракции над ним возводят и что
+предлагает Clojure. Чем хорош функциональный подход и почему разработка на~нём
+удобнее.
+\end{teaser}
+
+\index{организации!Cognitect}
+\index{организации!StackOverflow}
+
+Каждый год компания Cognitect
+\footurl{опрашива\-ет}{https://cognitect.com/blog/2017/1/31/clojure-2018-results}[Cognitect 2018]
+разработчиков на~Clojure. Один из вопросов уточняет, в какой области вы
+работаете. В~2010 году под веб писала половина опрошенных. К~2018 году эта цифра
+выросла до 80\%, что уже четыре человека из пяти. Похожую динамику показывают опросы
+\footurl{StackOverflow}{https://insights.stackoverflow.com/survey/2018}[Stack\-Overflow 2018].
+Согласно им, всё больше инженеров переходят в веб из смежных областей.
+
+Если вы найдёте работу на Clojure, скорее всего это будет веб-при\-ло\-же\-ние. Мы
+специально не говорим <<сайт>>, потому что термин уходит в прошлое. Сегодня
+веб-приложение~--- это не только текст с~картинками. В широком плане это сложный
+обмен данными по HTTP.
+
+Протокол служит для передачи разметки HTML, но со временем подошёл и для
+данных. Его дизайн оказался настолько гибким, что не пришлось менять
+стандарт. Прежде чем перейти к Clojure, освежим в~памяти устройство протокола:
+из каких частей он состоит и как с ним работает сервер. Это важно, потому что
+языки и фреймворки меняются, а протокол нет.
+
+\section{Основы HTTP}
+
+\index{HTTP}
+
+Протокол HTTP работает поверх стека TCP/IP. В широком смысле протоколы~--- это
+соглашения о том, как обмениваться данными. Они записаны в официальных
+документах. Документ HTTP называется \footurl{RFC~2616}{https://tools.ietf.org/html/rfc2616}[RFC~2616].
+С~ним сверяются разработчики фреймворков и браузеров, чтобы код работал
+на разных языках и платформах.
+
+HTTP удобен тем, что это текст. Не нужно парсить байты, чтобы понять, что
+происходит. Протокол работает и с бинарными данными, но~главные его части
+остаются текстом. В HTTP различают запрос и~ответ. Оба состоят из трёх частей:
+первая строка, заголовки и тело.
+
+Первая (стартовая) строка несёт самую важную информацию. Её формат отличается
+для запроса и ответа. Для запроса это метод, путь и версия, для ответа~---
+статус, сообщение и версия.
+
+\index{HTTP!заголовки}
+
+Заголовки~--- это пары ключей и значений. В коде их описывают словарём. Заголовки
+несут дополнительные сведения о~запросе или ответе. Например,
+\verb|Content-Type| сообщает, как читать тело. Был ли это XML- или
+JSON-документ? Программа сверяет заголовок и~читает тело должным образом.
+
+После заголовков следует тело. Им может быть что угодно~--- текст, пары полей и
+значений, JSON, картинка. Стандарт допускает смешанный тип,
+\verb|multipart-encoding|. Тело такого запроса состоит из ячеек, в каждой из
+которых своё содержимое: текст, картинка, снова текст, архив.
+
+Рассмотрим примеры трафика HTTP. Именно в таком виде его передают по сети. Ниже
+запрос к главной странице Google по слову clojure:
+
+\begin{english}
+  \begin{http}
+GET /search?q=clojure HTTP/1.1
+Host: google.com
+Accept-Language: en-us
+User-Agent: Mozilla/4.0 (compatible; MSIE)
+  \end{http}
+\end{english}
+
+А это POST-запрос с JSON:
+
+\pagebreaklarge
+
+\begin{english}
+  \begin{http}
+POST /api/users/ HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{"username": "John", "city": "NY"}
+  \end{http}
+\end{english}
+
+Обратите внимание на пустую строку выше: она отделяет тело от заголовков. Ответ
+на этот запрос:
+
+\begin{english}
+  \begin{http}
+HTTP/1.1 200 OK
+Date: Tue, 19 Mar 2019 15:57:11 GMT
+Server: Nginx
+Connection: close
+Content-Type: application/json
+
+{
+  "code": "CREATED",
+  "message": "User has been created."
+}
+  \end{http}
+\end{english}
+
+Видно, как изящно устроен протокол: данные идут по убыванию важности. Прочитав
+только первую строку, клиент и~сервер готовы принять решение о~том, что делать
+дальше.
+
+\index{HTTP!404}
+
+Рассмотрим случай, когда метод и путь запроса равны \texttt{GET /about}, но
+такой страницы не существует. Сервер проверит путь по таблице маршрутов. Если
+его нет, получим ответ со статусом 404. Статус идёт раньше тела, что открывает
+путь для оптимизации. Логика клиента может быть такова, что, получив негативный
+статус, он пропустит ответ и потому справится быстрее. Подход выгоден и серверу,
+потому что ему не придётся пересылать тело.
+
+Чтение и разбор всего содержимого занимает много времени. Современные фреймворки не
+делают этого зря. По заголовку \verb|Content-Type| они определяют, стоит ли
+читать тело. Если приложение работает только с~JSON, то для \verb|text/xml|
+получим ошибку. Аналогично поступают с~заголовком \verb|Content-Length|, где
+указана длина тела в байтах. Если значение больше лимита, сервер отклонит запрос
+до чтения.
+
+Главные части запроса~--- это \emph{метод} и \emph{путь}. Путь указывает
+на~определённый ресурс на сервере. Иногда он означает файл относительно заданной
+папки. Например, \verb|/images/map.jpg| вернёт одноимённый файл из
+\verb|/var/www/static|. Раздача файлов~--- это частный случай пути, и у него много других
+сценариев. В пути может быть номер сущности: \verb|/users/9677/profile|. Сервер
+можно настроить так, что запросы с~префиксом \verb|/internal| и \verb|/public|
+уходят на разные машины.
+
+Метод запроса означает действие, которое мы намерены выполнить над
+ресурсом. Основные методы~--- это \verb|GET|, \verb|POST|, \verb|PUT| и
+\verb|DELETE|, что значит прочитать, создать, обновить и удалить ресурс. Запрос
+\verb|POST /users/| означает создать пользователя, а \verb|GET /users/|~---
+получить список пользователей.
+
+Главный параметр ответа~--- это статус, целое положительное число. Статусы
+группируют по старшей цифре. Значения с 200 до 299 считают положительными. Они
+означают, что сервер обработал запрос без ошибки. Для краткости интервал
+обозначают \verb|2хх|.
+
+Значения из группы \verb|3хх| связаны с направлением на другую страницу. В
+заголовке \verb|Location| указан адрес, куда нужно отправить новый
+запрос. Современные браузеры и клиенты делают это автоматически. По адресу
+\verb|http://yandex.ru| получим пустой документ с заголовком
+\texttt{Location: https://yandex.ru}. Разница в схеме протокола: сервер обязывает
+перейти на безопасное соединение. Мы даже не заметим этого, потому что браузер
+сделает это сам.
+
+Статусы \verb|4хх| означают ошибку на стороне клиента. Чаще других встречается
+404~--- страница не найдена. Если прислать ошибочные данные, сервер ответит: 400
+Bad request. Когда нет прав доступа, получим код 403.
+
+Значения из группы \verb|5хх| говорят о проблеме на стороне сервера. В основном
+это ошибки в коде: отказ базы данных, нехватка места на~диске. Если сервер на
+техобслуживании, он вернёт код 503. В редких случаях сервер выключен и не
+отвечает на запросы.
+
+Принято считать, что ответ со статусом, отличным от \verb|2хх| означает
+ошибку. Многие HTTP-клиенты бросают исключение на ответ с негативным статусом.
+Это верно только на прикладном уровне, когда мы пишем код. С точки зрения
+протокола ответ 404 такой же правильный, как и 200.
+
+\index{HTTP!HEAD}
+
+Когда действий с ресурсом много, применяют другие, более редкие
+методы. Например, HEAD~--- получить краткие сведения о сущности. Сервис
+Amazon~S3 в ответ на HEAD вернёт только статус и заголовки с пустым телом. В них
+указаны тип файла и его размер, контрольная сумма, дата изменения. HEAD-запрос
+предпочтительней GET. Обычно метаданные хранят отдельно от файла, поэтому доступ
+к ним быстрее, чем к диску.
+
+\index{веб-разработка!REST}
+\index{веб-разработка!CRUD}
+
+
+Подход <<метод и ресурс>> вырос в то, что сегодня называется
+\footurl{REST}{https://restapitutorial.com}[REST]. Сторонники REST выделяют сущности и
+CRUD-операции над ними (\textbf{C}reate, \textbf{R}ead, \textbf{U}pdate,
+\textbf{D}elete). Считается верным подход, когда сущность задают через путь,
+например \verb|/users/1|, а операцию~--- методом. Если это запрос на
+изменение, данные читают из тела с JSON.
+
+REST~--- не идеальный и не единственный подход к веб-разработке. Он конкурирует
+с JSON-RPC, gRPC и другими аналогами. В этой книге мы не будем задерживаться на
+конкретной парадигме. Протокол не заставляет следовать REST и другим
+правилам. Работайте с HTTP так, как это удобно проекту. Идеальная архитектура не
+обещает успех, и~наоборот: успех не значит, что в коде всё идеально.
+
+\subsection{Фреймворк}
+
+\index{фреймворки}
+
+Фреймворк~--- это абстракция над HTTP. Разработчик не читает запрос по байтам
+вручную~--- задачу берёт на себя чужой код. Взамен нам дают классы, чтобы
+описать логику приложения. Типичный проект на~Python или Java состоит из
+следующих классов.
+
+\verb|Application|~--- это главная сущность проекта: она группирует классы рангом
+ниже. \verb|Router| определяет, на какой обработчик подать входящий запрос~---
+\verb|Request|. Обработчик~--- это класс \verb|Handler| с методами
+\verb|.onGet|, \verb|.onPost| и другими. Они вернут экземпляр класса
+\verb|Response|. Так устроены промышленные фреймворки вроде Django и
+Rails. Имена и состав классов отличаются, но смысл прежний: приложение, роутер,
+обработчик, запрос и ответ.
+
+\index{фреймворки!Django}
+
+Большие проекты делят на слои. Слой транспорта отвечает за обмен данными, слой
+логики исполняет код, ничего не зная об источнике данных. С таким подходом
+логика не зависит от транспорта, и последний можно сменить в любой
+момент. Например, направить долгий запрос в очередь задач или ввести данные
+через CLI-интерфейс. На практике это работает не всегда: по разным причинам, в
+том числе из-за спешки, слои перемешиваются.
+
+Проекты на Clojure опираются на фреймворки. Принципы, о которых мы говорили
+выше, справедливы и для этого языка.
+
+\section{HTTP в Clojure}
+
+\index{люди!Джеймс Ривз}
+\index{сайты!www.booleanknot.com}
+
+Разработчик \footurl{Джеймс Ривз}{https://www.booleanknot.com}[James\\*Reeves] (James Reeves)
+известен вкладом в экосистему Clojure. Нет проекта, который бы не использовал
+его библиотеки. Джеймс ввёл стандарт веб-разработки для Clojure на заре
+языка. Стандарт опирается на несколько простых идей.
+
+Приложения бывают сколь угодно сложными: они полагаются на сторонние сервисы,
+машинное обучение, учитывают сотню фактов о~клиенте. Но даже самое сложное
+приложение принимает запрос и~возвращает ответ, и поэтому это функция. Скептики
+заметят, что мысль не нова. В Django обработчик тоже бывает не классом,
+а~функцией. Разница в том, что обработчик~--- это ещё не приложение. Ему не
+хватает роутера, middleware и других абстракций. Функция-обработчик в~других
+языках~--- всего лишь приятная возможность.
+
+\label{http-all-function}
+
+В Clojure приложение остаётся функцией \emph{на всех} уровнях. Маршрут~--- это
+функция, которая принимает запрос, ищет обработчик и передаёт ему
+управление. Middleware~--- тоже функция, которая дополняет приложение
+логикой. Каждую тяжёлую абстракцию (классы \verb|Application|, \verb|Router|,
+\verb|Handler|) в Clojure заменяют функцией. Это удобно, потому что в отличие от
+классов функции компонуются между собой.
+
+Другая идея в том, чтобы зафиксировать структуру запроса и ответа. Должны быть
+документы (не код, а именно документы), где описаны поля и их семантика. Это
+напоминает протокол HTTP: спецификация упрощает код и делает его
+переносимым. Удобно, когда разные проекты на Clojure работают с одними
+структурами. Если фреймворк соблюдает стандарт, к нему легче привлечь
+сообщество. Следовать ему в интересах разработчика.
+
+\subsection{Ring}
+
+\index{библиотеки!Ring}
+\label{ring-jetty}
+
+Идеи воплотились в проекте \footurl{Ring}{https://github.com/ring-clojure/ring}[Ring].
+Сегодня это стандарт разработки на~Clojure под веб. Репозиторий содержит описание
+запроса и ответа и базовый код для работы с ними. Прилагаются основные middleware,
+обёртка для сервера Jetty и документация.
+
+\index{Ring!совместимость}
+
+Со временем появился термин <<Ring-совмести\-мость>>. Ему следуют все фреймворки
+на Clojure. Ring-приложение работает на платформах Jetty, Immutant и других без
+изменений в коде.
+
+Библиотека Ring разбита на отдельные части, чтобы можно было установить только
+нужные. Перечислим компоненты, которые понадобятся по ходу главы:
+
+\begin{itemize}
+
+\item
+  \verb|ring-core|~--- базовый набор: параметры, куки, сессии;
+
+\item
+  \verb|ring-jetty-adapter|~--- запуск сервера из функции;
+
+\item
+  \verb|ring/ring-json|~--- поддержка JSON.
+
+\end{itemize}
+
+Первое приложение мы напишем даже без библиотеки. Вот оно:
+
+\index{Ring!приложение}
+
+\label{first-handler}
+
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn app [request]
+ (let [{:keys [uri request-method]}
+       request]
+  {:status 200
+   :headers {"Content-Type" "text/plain"}
+   :body (format "You requested %s %s"
+           (-> request-method
+               name
+               .toUpperCase)
+           uri)}))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn app [request]
+  (let [{:keys [uri request-method]} request]
+    {:status 200
+     :headers {"Content-Type" "text/plain"}
+     :body (format "You requested %s %s"
+                   (-> request-method name .toUpperCase)
+                   uri)}))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Приложение читает путь и метод запроса и строит ответ. Его статус
+положительный~--- 200. Мы выставили заголовок с типом <<простой текст>>. Поле
+\verb|:body| содержит строку, которую получим функцией \verb|format|. Поскольку
+\verb|app|~--- функция, вызовем её с разными запросами:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(app {:request-method :get
+      :uri "/index.html"})
+
+{:status 200
+ :headers {"Content-Type" "text/plain"}
+ :body "You requested GET /index.html"}
+
+(app {:request-method :post
+      :uri "/users"})
+
+{:status 200
+ :headers {"Content-Type" "text/plain"}
+ :body "You requested POST /users"}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(app {:request-method :get :uri "/index.html"})
+
+{:status 200
+ :headers {"Content-Type" "text/plain"}
+ :body "You requested GET /index.html"}
+  \end{clojure}
+\end{english}
+
+\begin{english}
+  \begin{clojure}
+(app {:request-method :post :uri "/users"})
+
+{:status 200
+ :headers {"Content-Type" "text/plain"}
+ :body "You requested POST /users"}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Кругом словари, и не ясно, что будет в браузере. Запустим приложение в виде
+сервера. Он принимает приложение, параметры и~включает сложный процесс. Сервер
+слушает указанный порт и читает байты. Из бинарных данных он строит словарь
+запроса. В~отдельном потоке сервер вызывает функцию приложения с этим
+словарём. Получим словарь ответа. Сервер переводит ответ в байты и~пишет в
+удаленный порт клиента. Цикл повторяется для каждого запроса.
+
+\index{Ring!Jetty}
+\index{библиотеки!Jetty}
+
+Добавим в проект зависимости:
+
+\begin{english}
+  \begin{clojure}
+[ring/ring-core "1.7.1"]
+[ring/ring-jetty-adapter "1.7.1"]
+  \end{clojure}
+\end{english}
+
+Запустим сервер:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.adapter.jetty
+           :refer [run-jetty]])
+(run-jetty app {:port 8080 :join? true})
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.adapter.jetty :refer [run-jetty]])
+(run-jetty app {:port 8080 :join? true})
+  \end{clojure}
+\end{english}
+
+\fi
+
+Происходит следующее. Мы добавили в текущий модуль функцию \verb|run-jetty|. Она
+принимает приложение и словарь опций. Ключ \verb|join?| определяет, будет ли
+заблокирован текущий поток до конца работы сервера. Если передать \verb|false|,
+сервер запустится в~фоне. Чтобы остановить его, нужно поместить результат
+\verb|run-jetty| в~переменную и~позже вызвать у неё метод \verb|.stop|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(def server
+  (run-jetty app {:port 8080
+                  :join? false}))
+
+;; after a while
+(.stop server)
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(def server
+  (run-jetty app {:port 8080 :join? false}))
+
+;; after a while
+(.stop server)
+  \end{clojure}
+\end{english}
+
+\fi
+
+Если флаг~--- истина (как в первом случае), главный поток будет ждать до тех
+пор, пока сервер не выключат. Чтобы это сделать, нажмите \verb|Ctrl+C|. Пока
+сервер работает, откройте браузер по адресу \verb|http://localhost:8080|. Вы
+увидите строку <<You requested GET />>. Теперь измените путь на \verb|/hello|
+или \verb|/some/file.txt|~--- сообщение изменится.
+
+\section{Запросы и ответы}
+
+Мы написали приложение, которое на все запросы печатает метод и путь. Кроме этих
+полей, запрос содержит порт и адрес сервера, строку параметров, тип протокола,
+заголовки и тело. Всё вместе~--- это неизменяемый словарь с ключами типа
+\verb|keyword|. Полное описание запроса и~ответа смотрите в репозитории на
+\footurl{GitHub}{https://github.com/ring-clojure/ring/blob/master/SPEC}[Ring spec].
+
+Здесь и далее будем писать слово \verb|keyword| по-русски:
+<<кейворд>>. В~других языках тип называют токеном или тегом.
+
+\index{HTTP!заголовки}
+
+Обратим внимание на поля запросов \verb|:headers| и \verb|:body|. Заголовки~---
+это неизменяемый словарь, но его ключи~--- не кейворды, а строки. Такой словарь не
+работает с разбиением по \verb|:keys|. Ниже переменная \verb|host| окажется
+равна \verb|nil|:
+
+\index{синтаксис!:keys (разбиение)}
+
+\begin{english}
+  \begin{clojure}
+(defn some-handler
+  [request]
+  (let [{:keys [headers]} request
+        {:keys [host]} headers]
+    ...))
+  \end{clojure}
+\end{english}
+
+\index{синтаксис!:strs (разбиение)}
+
+Чтобы извлечь заголовки правильно, используйте \verb|:strs|:
+
+\ifafive\vspace{15mm}\pagebreak[4]\fi
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn some-handler
+  [{:keys [headers]}]
+  (let [{:strs [host
+                user-agent]} headers]
+    ...))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn some-handler
+  [{:keys [headers]}]
+  (let [{:strs [host user-agent]} headers]
+    ...))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+или функцию \verb|get| со строкой:
+
+\begin{english}
+  \begin{clojure}
+(get headers "host") ;; "127.0.0.1"
+  \end{clojure}
+\end{english}
+
+\index{заголовки!Content-Type}
+
+Имя заголовка всегда в нижнем регистре. В протоколе HTTP варианты
+\verb|Content-Type| и \verb|content-type| одинаковы, но в Java (и поэтому в
+Clojure) регистр имеет значение. Ring приводит заголовки к нижнему регистру,
+чтобы избежать недоразумений.
+
+Значения заголовков~--- тоже строки. Стандарт задаёт типы некоторых заголовков,
+но Ring не выводит их. Например, \verb|Content-Length| передаёт длину тела в
+байтах. Современные фреймворки приводят его к числу и помещают в отдельное
+поле. По умолчанию Ring не делает ничего подобного, но это легко исправить. Ниже
+мы рассмотрим как именно.
+
+Новички забывают, что ключи заголовков~--- это строки. Так появляется ошибка, когда
+вместо правильного значения приходит \verb|nil|:
+
+\begin{english}
+  \begin{clojure}
+(get headers :host) ;; nil
+  \end{clojure}
+\end{english}
+
+Можно обработать заголовки, сменив тип ключей. Для одного случая это нормально,
+но если это делает каждый обработчик, получается лишняя работа. Приложение
+меняют так, чтобы в функцию приходили уже исправленные заголовки. Техника
+называется middleware, и мы рассмотрим её по ходу главы \page{wrap-headers-kw}.
+
+\index{классы!InputStream}
+
+Поле запроса \verb|:body| опционально. Согласно HTTP, тела может не
+быть. Обратите внимание на его тип: это не строка, а входящий поток~---
+\verb|java.io.InputStream|. Поток~--- это источник данных, который читают только
+раз. По умолчанию Ring не читает поток. Делать это или нет, остаётся на ваше
+усмотрение.
+
+\index{заголовки!Content-Length}
+
+Чтение и разбор тела~--- это сложная операция. По заголовкам определяют тип
+документа, его длину и читают нужное число байт. Из них восстанавливают данные
+(JSON, XML). Технически возможно послать JSON-документ, но указать тип
+\verb|text/xml|. Чтение такого запроса обернётся ошибкой. Сервер должен быть
+готов к подобным сценариям.
+
+Легче всего прочитать тело в строку функцией \verb|slurp|:
+
+\begin{english}
+  \begin{clojure}
+(defn handler [request]
+ (let [content (-> request :body slurp)]
+  {:status 200
+   :headers {"content-type" "text/plain"}
+   :body (format "Content: %s" content)}))
+  \end{clojure}
+\end{english}
+
+В современном вебе всё меньше работают с текстом: на его место приходят данные в
+виде JSON. Позже мы рассмотрим, как подружить Ring с этим форматом.
+
+\index{Ring!тело запроса}
+
+Ответ Ring~--- это словарь с полями \verb|:status|, \verb|:headers| и
+\verb|:body|:
+
+\begin{itemize}
+
+\item
+  \verb|:status|~--- целое число, признак успеха или неудачи. Мы рассмотрели
+  семантику статуса в начале главы;
+
+\item
+  \verb|:headers|~--- заголовки ответа с клю\-ча\-ми-стр\-ок\-ами, например:
+
+\index{заголовки!Location}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+{:status 302
+ :headers
+   {"content-length" 0
+    "location" "/new/page.html"}}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+{:status 302
+ :headers {"content-length" 0
+           "location" "/new/page.html"}}
+  \end{clojure}
+\end{english}
+
+\fi
+
+\item
+  \verb|:body|~--- тело ответа. Как и в запросе, тела может не быть. Обычно
+  это строка, но может быть и файл, ресурс или поток.
+
+\end{itemize}
+
+\section{Маршруты}
+
+\index{Ring!маршруты}
+
+Мы запустили приложение и проверили в браузере. На любой запрос оно выдаёт текст
+с небольшими отличиями. На практике приложение строят из обработчиков, каждый из
+которых решает узкую задачу. Входящие запросы распределяют по ним согласно
+правилам. Процесс называют маршрутизацией или роутингом.
+
+В Clojure и Ring нет класса роутера. Его роль играет функция, которая принимает
+обработчики и возвращает приложение, тоже функцию. Приложение принимает запрос и
+по методу и пути подбирает нужный обработчик. Затем вызывает его с запросом и
+возвращает ответ.
+
+\index{HTTP!404}
+
+Вообразим, что по адресу \verb|/| мы бы хотели видеть название сайта, а
+по~\verb|/hello|~--- приветствие. Другие адреса вернут
+\spverb|404 Page not found|. Напишем обработчики:
+
+\begin{english}
+  \begin{clojure}
+(defn page-index [request]
+  {:status 200
+   :headers {"content-type" "text/plain"}
+   :body "Learning Clojure"})
+
+(defn page-hello [request]
+  {:status 200
+   :headers {"content-type" "text/plain"}
+   :body "Hi there! Keep trying!"})
+
+(defn page-404 [request]
+  {:status 404
+   :headers {"content-type" "text/plain"}
+   :body "Page not found."})
+  \end{clojure}
+\end{english}
+
+Каждый обработчик можно запустить в виде сервера и открыть в~браузере. Осталось
+связать их в единое целое.
+
+\subsection{Наивный подход}
+
+Сделаем самое простое, что приходит в голову. Напишем обработчик, который
+находит маршрут вручную. Для этого проверим путь оператором \verb|case|:
+
+\begin{english}
+  \begin{clojure}
+(defn app [request]
+  (let [{:keys [uri]} request]
+    (case uri
+      "/"      (page-index request)
+      "/hello" (page-hello request)
+      (page-404 request))))
+  \end{clojure}
+\end{english}
+
+Ответ функции зависит от поля запроса \verb|:uri|. Запустите приложение в
+браузере и проверьте разные адреса. Это наивный подход, но он работает.
+
+Недостатки функции очевидны. Мы не учитываем метод запроса:
+\verb|GET /users| и \verb|POST /users| отличаются по смыслу. Мы сравниваем пути
+в лоб без учёта параметров. В правильных маршрутах пути \verb|/users/1| и
+\verb|/users/99| сходятся в один обработчик с разным параметром \verb|id|. Код
+получился шумный. Хотелось бы задать маршруты правилами, декларативно.
+
+Эти и другие проблемы решают библиотеки. Мы рассмотрим Compojure и Bidi. Обе
+строят маршруты, но их подходы ортогональны.
+
+\subsection{Compojure}
+
+\label{compojure}
+
+\index{библиотеки!Compojure}
+
+Библиотека \footurl{Compojure}{https://github.com/weavejester/compojure}[Compo-\\*jure]
+предлагает макросы для описания маршрутов. Макросы похожи на таблицу правил.
+Добавим зависимость в проект:
+
+\begin{english}
+  \begin{clojure}
+[compojure "1.6.1"]
+  \end{clojure}
+\end{english}
+
+Так выглядит приложение на Compojure. Оно чище и короче того, что мы написали
+вначале.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[compojure.core
+           :refer [GET defroutes]])
+
+(defroutes app
+  (GET "/" request
+    (page-index request))
+  (GET "/hello" request
+    (page-hello request))
+  page-404)
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[compojure.core :refer [GET defroutes]])
+
+(defroutes app
+  (GET "/"      request (page-index request))
+  (GET "/hello" request (page-hello request))
+  page-404)
+  \end{clojure}
+\end{english}
+
+\fi
+
+Разберёмся, что получилось на выходе. Переменная \verb|app|~--- функция, которая
+принимает запрос. Мы задали её не через \verb|def| или \verb|defn|, а~макросом
+\verb|defroutes|. Он строит функцию-роутер и связывает её с~переменной
+\verb|app|. С макросом получается меньше кода.
+
+После имени следуют правила. Правило~--- это форма \tuple{метод, путь,
+  переменная, выражение}. Её читают так: если метод и путь подходят текущему
+запросу, связать его с переменной и выполнить выражение. Compojure строит из
+правила функцию с той же логикой. Согласно первому правилу, для метода и пути
+\verb|GET /| получим ответ \verb|(page-index request)|. Результат станет ответом
+сервера.
+
+\index{макросы!defroutes}
+
+Макрос \verb|defroutes| оборачивает несколько правил в перебор. На каждом шаге
+он берёт очередное правило и применяет к нему запрос. Первое значение, отличное
+от \verb|nil|, станет ответом к текущему запросу.
+
+Что будет, если не подошло ни одно правило? Результат \verb|nil| вызовет ошибку
+сервера. Чтобы избежать \verb|nil|, к правилам добавляют ещё одно, которое
+сработает всегда. Это функция \verb|page-404|: её результат не зависит от
+запроса. Так мы гарантируем, что даже если запрос не подошёл двум первым
+правилам, получим ответ 404, а не ошибку типов.
+
+Так устроен роутинг на Compojure. Приложение состоит из отдельных
+обработчиков. С помощью макросов \verb|GET| и \verb|POST| их оборачивают в
+правила. Правило строит функцию, которая проверяет, что метод и~путь
+подходят. Если да, получим вызов обработчика с запросом.
+
+\subsection{Продвинутые возможности}
+
+Выше мы обозначили проблему: правила \texttt{GET /users/1} и \texttt{GET /users/99}~---
+это один обработчик с параметром. Его записывают так:
+
+\index{макросы!GET}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(GET "/users/:id" [id :as request]
+    (page-user request))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(GET "/users/:id" [id :as request] (page-user request))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Обратите внимание на двоеточие перед \verb|id| и квадратные скобки в середине.
+Часть пути с двоеточием означает параметр. На время запроса Compojure поместит
+его в словарь \verb|params|.
+
+Предположим, страница \verb|page-user| выводит имя и фамилию пользователя по
+номеру из пути. Условная функция \texttt{get\-/user\-/by\-/id} читает пользователя из
+базы и возвращает словарь. Находим в словаре имя и фамилию и составляем строку.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn page-user [request]
+   (let [user (-> request
+                  :params
+                  :id
+                  get-user-by-id)
+         {:keys [fname lname]} user]
+     {:status 200
+      :body (format "User is %s %s"
+                    fname lname)}))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn page-user [request]
+  (let [user (-> request :params :id get-user-by-id)
+        {:keys [fname lname]} user]
+    {:status 200
+     :body (format "User is %s %s" fname lname)}))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Compojure решает проблему вложенных адресов. Рассмотрим приложение для учёта
+товаров. По пути \verb|/content/order/1/view| открывается карточка
+товара. Страница \texttt{/content/order/\-1/edit} показывает форму
+редактирования этого товара. Чтобы его обновить, нужно отправить форму по тому
+же адресу, но методом POST.
+
+Очевидно, правила пересекаются. Чтобы избежать повторов, используем макрос
+\texttt{con\-text}:
+
+\index{макросы!context}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(context "/content/order/:id" [order-id]
+  (GET  "/view" request
+        (order-view request))
+  (context "/edit" []
+    (GET  "/" request
+          (order-form request))
+    (POST "/" request
+          (order-save request))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(context "/content/order/:id" [order-id]
+  (GET  "/view" request (order-view request))
+  (context "/edit" []
+    (GET  "/" request (order-form request))
+    (POST "/" request (order-save request))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Правила в \verb|context| наследуют параметры из уровня выше. Это значит,
+обработчики \texttt{order\-/view}, \texttt{order\-/form} и \texttt{order\-/save}
+получат параметр \verb|:order-id|.
+
+\subsubsection*{Статичные ответы}
+
+До сих пор в качестве ответа в правилах мы писали что-то вроде
+\verb|(some-handler request)|. Иногда ответ знают заранее, поэтому нет смысла
+выносить его в функцию. Рассмотрим подход на примере
+\verb|healthcheck|-обработчика.
+
+Современные приложения запускают в контейнерах и облачных сервисах. Чтобы
+узнать, работает приложение или нет, специальная служба опрашивает его. Простой
+способ сделать это~--- послать приложению \verb|GET|-запрос по адресу
+\verb|/health| и проверить статус. Тело и~заголовки ответа не играют роли.
+
+Чтобы не создавать лишний обработчик \texttt{page\-/health} с постоянным ответом,
+поместим ответ в правило:
+
+\index{макросы!ANY}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(ANY "/health" _
+     {:status 200 :body "ok"})
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(ANY "/health" _ {:status 200 :body "ok"})
+  \end{clojure}
+\end{english}
+
+\fi
+
+Можно сделать проще: в Compojure предусмотрен случай, когда выражение~---
+строка. Она становится телом положительного ответа:
+
+\begin{english}
+  \begin{clojure}
+(ANY "/health" _ "ok")
+  \end{clojure}
+\end{english}
+
+\subsection{Роутинг с Bidi}
+
+\index{организации!JUXT}
+\index{библиотеки!Bidi}
+
+Библиотека \footurl{Bidi}{https://github.com/juxt/bidi}[Bidi] строит маршруты
+по-другому. Она опирается на данные~--- списки и словари. Метод состоит из
+нескольких шагов.
+
+На первом этапе объявляют дерево маршрутов. Это комбинация векторов и словарей
+по особым правилам. В листьях дерева помещают теги~--- уникальные
+метки. Специальная функция принимает дерево и запрос. Она ищет ветку, которой
+подходят метод и путь запроса. Если ветка нашлась, результатом будут её тег и
+параметры пути, например:
+
+\begin{english}
+  \begin{clojure}
+{:route :show-user :route-params: {:id 1}}
+  \end{clojure}
+\end{english}
+
+\index{middleware}
+
+На втором этапе пишут middleware~--- промежуточный обработчик запроса. Он
+принимает запрос, добавляет в него тег и передаёт дальше по цепочке.
+
+На третьем этапе добавляют обработчик запроса. Это уже не функция, а
+мультиметод. Его функция-диспетчер ищет в запросе тег. Метод с тегом
+\verb|:default| вернёт ответ \verb|404|, \verb|:show-user|~--- страницу
+пользователя и так далее.
+
+На первый взгляд схема кажется сложной. Но однажды настроив, её легко
+масштабировать. Чтобы сервер подхватил новый путь, в дерево добавляют ветку и
+расширяют мультиметод.
+
+\index{библиотеки!Bidi}
+
+Перепишем на Bidi пример из начала главы. Добавьте зависимость:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+;; project.clj
+[bidi "2.1.5"]
+
+;; namespace
+(:require [bidi.bidi :as bidi])
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+[bidi "2.1.5"]                  ;; project.clj
+(:require [bidi.bidi :as bidi]) ;; namespace
+  \end{clojure}
+\end{english}
+
+\fi
+
+Начнём с дерева маршрутов. Вариант со страницами \texttt{page\-/index},
+\texttt{page\-/hello} и~\texttt{page\-/404} выглядит так:
+
+\begin{english}
+  \begin{clojure}
+(def routes
+  ["/" {""      :page-index
+        "hello" :page-hello
+        true    :not-found}])
+  \end{clojure}
+\end{english}
+
+\index{функции!match-route}
+
+Проверим поиск пути по этому дереву. Функция \verb|match-route| принимает
+маршруты, путь и возвращает словарь с тегом:
+
+\begin{english}
+  \begin{clojure}
+(bidi/match-route routes "/hello")
+{:handler :page-hello}
+
+(bidi/match-route routes "/test")
+{:handler :not-found}
+  \end{clojure}
+\end{english}
+
+\index{функции!match-route}
+
+Чтобы объединить тег с запросом, используем функцию \texttt{match\-/route*} (со
+звёздочкой). Это альтернативная версия \texttt{match\-/route}, которая принимает
+словарь-накопитель. В качестве накопителя укажем запрос. Вызов
+\verb|match-route*| с запросом добавит в него поле \verb|:handler|.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(let [request {:request-method :get
+               :uri "/test"}]
+  (bidi/match-route*
+    routes (:uri request) request))
+
+{:request-method :get
+ :uri "/test"
+ :handler :not-found}
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(let [request {:request-method :get
+               :uri "/test"}]
+  (bidi/match-route* routes (:uri request) request))
+
+{:request-method :get
+ :uri "/test"
+ :handler :not-found}
+  \end{clojure}
+\end{english}
+
+\fi
+
+Теперь обернём код в middleware. Получив запрос, новый обработчик снабдит его
+тегом и вызовет исходный обработчик.
+
+\label{wrap-handler}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-handler [handler]
+  (fn [req]
+    (let [{:keys [uri]} req
+           req* (bidi/match-route*
+                  routes uri req)]
+      (handler req*))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-handler [handler]
+  (fn [request]
+    (let [{:keys [uri]} request
+          request* (bidi/match-route* routes uri request)]
+      (handler request*))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Мы ещё не касались техники middleware, но вынуждены применить её сейчас. Ниже мы
+рассмотрим в деталях, как она работает и почему так важна.
+
+Проверим \verb|wrap-handler| на скорую руку. Для удобства обернём функцию
+\verb|identity|, которая вернёт переданный в неё аргумент:
+
+\begin{english}
+  \begin{clojure}
+(def wrapped (wrap-handler identity))
+
+(wrapped {:request-method :get
+          :uri "/hello?foo=42"})
+
+{:request-method :get
+ :uri "/hello?foo=42"
+ :handler :page-hello}
+  \end{clojure}
+\end{english}
+
+\index{мультиметоды!multi-handler}
+
+Новый обработчик запроса будет мультиметодом. Его функ\-ция-дис\-пет\-чер~---
+просто ключ \verb|:handler|.
+
+\begin{english}
+  \begin{clojure}
+(defmulti multi-handler
+  :handler)
+
+(defmethod multi-handler :page-index
+  [request]
+  {:status 200
+   :headers {"content-type" "text/plain"}
+   :body "Learning Clojure"})
+
+(defmethod multi-handler :not-found
+  [request]
+  {:status 404
+   :headers {"content-type" "text/plain"}
+   :body "Page not found."})
+  \end{clojure}
+\end{english}
+
+Обернув \verb|multi-handler| с помощью \texttt{wrap\-/handler}, получим
+финальное приложение. Запустите сервер и проверьте результат в браузере.
+
+\begin{english}
+  \begin{clojure}
+(def app (wrap-handler multi-handler))
+  \end{clojure}
+\end{english}
+
+Это был простой роутинг на Bidi. Теперь рассмотрим товары, их
+просмотр и изменение. Новое дерево выглядит так:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(def routes
+  [["/content/order/" :id]
+   {"/view" {:get  :page-view}
+    "/edit" {:get  :page-form
+             :post :page-save}}])
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(def routes
+  [["/content/order/" :id] {"/view" {:get  :page-view}
+                            "/edit" {:get  :page-form
+                                     :post :page-save}}])
+  \end{clojure}
+\end{english}
+
+\fi
+
+В этой версии листья~--- уже не теги, а словари. Ключ каждого
+словаря~--- это метод, а значение~--- тег. Запрос \texttt{GET /content/\-order/1/\-edit}
+разрешается в тег \verb|:page-form|, а POST с таким же адресом~--- в
+\verb|:page-save|. Обратите внимание на параметр \verb|:id| в левой части. По
+аналогии с Compojure, это сигнал о том, что в пути находится параметр. Если был
+хотя бы один параметр, вместе с \texttt{:handler} запрос получит поле
+\texttt{:route-params}. В нашем случае это словарь \verb|{:id "1"}|.
+
+\index{языки!HTML}
+
+Расширим мультиметод страницами. \verb|Page-view| находит товар по
+номеру и верстает его HTML-страницу. Если товара нет, вернём ответ 404 <<не
+найдено>>. Для краткости опустим проверку параметра.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defmethod multi-handler :page-view
+  [request]
+  (if-let [order (some->
+                   request
+                   :route-params
+                   :id
+                   Integer/parseInt
+                   get-order-by-id)]
+    {:status 200
+     :headers {"content-type"
+               "text/html"}
+     :body (render-order-page
+             {:order order})}
+    page-404))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defmethod multi-handler :page-view
+  [request]
+  (if-let [order (some-> request
+                         :route-params
+                         :id
+                         Integer/parseInt
+                         get-order-by-id)]
+    {:status 200
+     :headers {"content-type" "text/html"}
+     :body (render-order-page {:order order})}
+    page-404))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Страница \verb|:page-form| строит форму редактирования. От просмотра она
+отличается шаблоном HTML: главное место на странице занимает тег \verb|<form>| с
+полями ввода и кнопкой \verb|<submit>|. Обновление товара сложнее: нужно выбрать
+из запроса данные и записать их в базу. По аналогии с примером выше опустим
+валидацию полей:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defmethod multi-handler :page-save
+  [req]
+  (let [{:keys [params route-params]} req
+        {order-id :id} route-params
+        params (select-keys params
+                 [:title :description
+                  :price])
+        location (str "/content/order/"
+                   order-id "/view")]
+    (jdbc/update! *db* :orders
+      params ["id = ?" order-id])
+    {:status 302
+     :headers {"Location" location}}))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defmethod multi-handler :page-save
+  [request]
+  (let [{:keys [params route-params]} request
+        {order-id :id} route-params
+        fields [:title :description :price]
+        params (select-keys params fields)
+        location (str "/content/order/" order-id "/view")]
+    (jdbc/update! *db* :orders params ["id = ?" order-id])
+    {:status 302
+     :headers {"Location" location}}))
+  \end{clojure}
+\end{english}
+
+\fi
+
+
+\index{HTTP!перенаправление}
+
+Обратите внимание: на изменение данных мы отвечаем не страницей, а
+перенаправлением (редиректом) на неё. Если страница пришла в ответ
+на~POST-запрос, то при её обновлении браузер снова отправит форму. Это чревато
+странным поведением на сервере. Вариант с редиректом решает проблему: браузер
+загрузит страницу через GET, и побочных эффектов при обновлении не будет.
+
+\subsection{Выбор между Compojure и Bidi}
+
+Новичку в Clojure будет легче начать с Compojure. У библиотеки достойная
+документация с примерами. Compojure и Ring написал один автор, поэтому проекты
+близки и дополняют друг друга.
+
+Маршруты Bidi сложны для понимания: они многословны и не интуитивны. В них легко
+перепутать вектор и словарь. С другой стороны, у мультиметодов свои
+преимущества. Код становится линейным, приложение легче расширять.
+
+Если проект небольшой, выбирайте Compojure. Когда проект сложный и маршрутов всё
+больше, рассмотрите переезд на Bidi.
+
+\section{Middleware}
+
+\index{middleware}
+
+Выше мы упоминали middleware и даже кинули пробный шар~--- написали
+\verb|wrap-handler| \page{wrap-handler}. Теперь изучим их внимательней. Это
+самый важный раздел в главе.
+
+В переводе с английского термин middleware означает <<промежуточный слой,
+середина>>. В программировании так называют код в роли посредника. Он выполняет
+предварительные шаги перед основным: приводит типы, проверяет права доступа,
+пишет логи.
+
+\label{decorator}
+
+\index{декораторы}
+
+Паттерн <<декоратор>>~--- частный случай middleware. Декоратор~--- это функция
+\verb|А|, которая принимает функцию \verb|B| и возвращает
+функцию~\verb|C|. Говорят, что \verb|A| декорирует \verb|B|. В ходе работы
+\verb|C| вызывает \verb|B|, но с~изменениями. Например, дополняет входные
+или выходные данные~\verb|B|.
+
+Рассмотрим простые декораторы. \verb|Wrap-echo| добавляет к функции побочный
+эффект: печатает аргументы и результат.
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-echo [func]
+  (fn [& args]
+    (apply println "The args are" args)
+    (let [result (apply func args)]
+      (println "The result is" result)
+      result)))
+  \end{clojure}
+\end{english}
+
+Вот как им пользоваться:
+
+\begin{english}
+  \begin{clojure}
+(def +echo (wrap-echo +))
+(+echo 1 2 3)
+;; The args are 1 2 3
+;; The result is 6
+6
+  \end{clojure}
+\end{english}
+
+\index{исключения!try}
+\index{исключения!catch}
+\index{макросы!wrap-catch}
+
+\verb|Wrap-catch| оборачивает функцию в \verb|try| и \verb|catch|. Если
+произошло исключение, результатом будет его объект.
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-catch [func]
+  (fn [& args]
+    (try
+      (apply func args)
+      (catch Throwable e
+        e))))
+
+(def div-safe (wrap-catch /))
+
+(type (div-safe 0 0))
+;; java.lang.ArithmeticException
+  \end{clojure}
+\end{english}
+
+\index{языки!Python}
+\index{фреймворки!Django}
+
+Мы уже видели примеры, как устроен запрос в Ring. Возможно, читатель заметил,
+что у него нет полей, которые встречаются в других языках. Например, класс
+\verb|HttpRequest| в~Django содержит свойство \verb|.params|. Это словарь
+параметров из адресной строки или тела запроса.
+
+В Ring запрос несёт только базовую информацию. Почему в нём нет столь важных
+вещей? Потому что не каждое приложение в~них нуждается. Представим, что на
+каждый запрос Ring парсит адресную строку и тело. Это удобно разработчику, но
+замедляет код. Возможно, что параметры не нужны в запросе, но сервер потратит на
+них время.
+
+То же самое с разбором тела: это дорогая операция. Представим, что пришёл запрос
+с большим JSON-документом. Мы считали его, но затем оказалось, что у
+пользователя нет прав на запись. Время и ресурсы потрачены зря: нужно было
+проверить доступ до чтения.
+
+Нужен механизм, чтобы задать предварительные шаги и их порядок. Он называется
+middleware и широко используется в вебе. В Ring эта техника играет особую
+роль. Параметры запроса, сессии, куки, права доступа~--- всё это функция,
+которая возвращает функцию. Вам не придётся писать все middleware с нуля: Ring
+содержит наиболее важные, нужно только подключить их. Рассмотрим основные
+middleware и принципы их работы.
+
+\subsection{Параметры запроса}
+
+\label{ring-params}
+
+\index{HTTP!параметры}
+
+HTTP предусматривает данные в адресной строке. Это пары вида
+\code{name\-=John\&\-city\-=NY} после знака вопроса. В коде они становятся
+словарём вида \verb|{:name "John" :city "NY"}|.
+
+В POST-запросах параметры помещают в тело. Так поступают из-за ограничения на
+длину адреса и безопасности. Длина адреса не превышает 2048 байт, а на тело
+запроса ограничений нет. Логины и~пароли нельзя пересылать в адресе, потому что
+они остаются в логах и~истории браузера.
+
+\index{модули!ring.middleware.params}
+\index{HTTP!параметры}
+
+Функция \verb|wrap-params| из модуля \texttt{ring.middle\-ware.params} меняет
+обработчик следующим образом. Переданный в него запрос обретает поля:
+
+\begin{itemize}
+
+\item
+  \verb|:query-params|~--- словарь параметров из адреса;
+
+\item
+  \verb|:form-params|~--- словарь данных из тела запроса;
+
+\item
+  \verb|:params|~--- их комбинированная версия.
+
+\end{itemize}
+
+Пусть \verb|app|~--- ваше веб-приложение. Чтобы получить обёрнутую версию,
+передайте его в \verb|wrap-params|. Результат функции и будет финальным
+приложением. На жаргоне разработчиков это называется <<врапнуть>>
+(англ.~wrap~--- <<обернуть>>).
+
+\index{middleware!wrap-params}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.params
+           :refer [wrap-params]])
+(def final-app (wrap-params app))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.params :refer [wrap-params]])
+(def final-app (wrap-params app))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Чтобы не запутаться в именах, придерживайтесь правил: исходное приложение
+называйте \verb|app-naked| или \verb|app-raw| (голое, сырое), а~финальное~---
+просто \verb|app|.
+
+\begin{english}
+  \begin{clojure}
+(def app (wrap-params app-naked))
+  \end{clojure}
+\end{english}
+
+Доработайте приложение так, чтобы оно учитывало параметры. Например, пусть
+параметр \verb|who| задаёт имя, кого приветствовать:
+\texttt{/hello?\-who=\-John}. Добраться до параметра можно так:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn page-hello [req]
+  (let [who (get-in req [:params "who"])]
+    ...))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn page-hello [request]
+  (let [who (get-in request [:params "who"])]
+    ...))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{классы!Keyword}
+
+Обратите внимание, что в ключах \verb|:params| находятся строки. Адрес~--- это
+строка, и разбор параметров режет её на части. Однако Clojure поощряет нас
+использовать в словарях кейворды. Исправим это: в поставке Ring идёт middleware,
+которое приводит \verb|:params| к удобному виду. С ним ключи примут тип
+\verb|Keyword|.
+
+\index{middleware!wrap-keyword-params}
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.keyword-params
+           :refer [wrap-keyword-params]])
+
+(def app (wrap-keyword-params
+           (wrap-params app-naked)))
+  \end{clojure}
+\end{english}
+
+\index{макросы!\arr}
+
+Поскольку кейворд~--- это функция, до параметра можно добраться стрелочным
+оператором как в первой строке. Некоторым этот способ нравится больше, чем
+\verb|get-in|.
+
+\begin{english}
+  \begin{clojure}
+(-> request :params :who)
+;; or
+(get-in request [:params :who])
+  \end{clojure}
+\end{english}
+
+\subsection{Стек middleware}
+
+Типичный проект на Clojure включает около десяти middleware. Как только мы
+начнём нанизывать их на приложение, появится лесенка:
+
+\begin{english}
+  \begin{clojure}
+(def app
+  (wrap-something-else
+    (wrap-current-user
+      (wrap-session
+        (wrap-keyword-params
+          (wrap-params app-naked))))))
+  \end{clojure}
+\end{english}
+
+\index{вложенность}
+
+Если добавить звено посередине, оно каскадом сдвинет элементы ниже. Чтобы
+победить вложенность, сделаем структуру линейной. Поможет стрелочный оператор:
+
+\index{clojure.core!\arr (стрелочный оператор)}
+
+\begin{english}
+  \begin{clojure/lines}
+(def app
+  (-> app-naked
+      wrap-params
+      wrap-keyword-params
+      wrap-session
+      wrap-current-user
+      wrap-something-else))
+  \end{clojure/lines}
+\end{english}
+
+\index{middleware!стек}
+
+При компиляции запись превратится в первый вариант, поэтому логика программы не
+меняется. Однако мы сделали код удобнее: получился список, который легко читать
+и поддерживать. Назовём его \emph{стеком} middleware.
+
+Запись в стрелочном виде имеет особенность. Не заглядывая дальше, догадайтесь, в
+каком порядке выполняются middleware. Правильный ответ: снизу вверх для запроса
+и сверху вниз для ответа. Это станет ясно при мысленном разборе и аналогии.
+
+\index{middleware!порядок}
+
+Обёртка функциями напоминает упаковку настоящих предметов. Подобно тому, как мы
+накладываем на приложение middleware, товар покрывают плёнкой, затем заводской
+коробкой и гофрокартоном для перевозки. Чтобы добраться до изделия, мы снимаем
+упаковку в обратном порядке: картон, коробка, плёнка. Если представить, что
+изделие посылает сигналы во внешний мир, сигнал проходит обёртки в прямом
+порядке: плёнка, коробка, картон. В коде выше \verb|wrap-something-else|
+применили в последнюю очередь, поэтому оно играет роль картона~--- внешней
+обёртки.
+
+Сперва запрос попадёт в \texttt{wrap\-/something\-/else}. Код внутри него
+вызовет обработчик, который получен из \verb|wrap-current-user|. Обработчик
+внутри него~--- результат \verb|wrap-session| и так далее. Вершиной подъёма
+станет \verb|app-naked|. В нём сработает основная логика приложения.
+
+Теперь ответ спускается в обратном порядке. Сначала он пройдёт через
+\verb|wrap-params| и \verb|wrap-keyword-params|. Эти два middleware не меняют
+ответ и просто вернут его. \verb|Wrap-session| и \verb|wrap-current-user|,
+возможно, дополнят его заголовки. \texttt{Wrap\-/something\-/else} сработает
+последним. Цикл пройден.
+
+\index{языки!Python}
+
+Представьте стек middleware как восхождение в гору и спуск с неё. Похоже
+устроены middleware в Django~--- промышленном фреймворке на Python. Их роль
+играют классы, а не функции, но схема обхода такая же.
+
+Порядок middleware порой критичен. Некоторые из них опираются на данные из
+предыдущих middleware. Рассмотрим уже знакомые \verb|wrap-params| и
+\verb|wrap-keyword-params|. Последнее ищет в запросе поле \verb|params| и меняет
+тип ключей. Происходит разделение труда: одно middleware готовит данные, второе
+улучшает их. Поэтому \verb|wrap-keyword-params| ставят строго после
+\verb|wrap-params|.
+
+\index{middleware!порядок}
+
+Теперь посмотрим на форму \spverb|(def app ...)| выше. В неё
+закралась \textbf{ошибка}. Запрос движется снизу вверх, поэтому
+\texttt{wrap\-/keyword\-/params} сработает раньше \coderef{4}. Он попытается найти
+\verb|:params| в запросе, но безуспешно. Далее сработает \verb|wrap-params|
+\coderef{3}. Он заполнит поле словарём из~адресной строки. В~результате у
+\verb|:params| ключи будут строками. Чтобы исправить ошибку, поменяйте
+\verb|wrap-params| и \verb|wrap-keyword-params| местами.
+
+Неверный порядок middleware стоит часов отладки. Но есть трюк: если два и более
+middleware зависят друг от друга, их можно <<схлопнуть>> в одно целое. Функция
+\verb|comp| принимает функции и возвращает суперфункцию, которая применяет их
+к аргументу. Напишем умный враппер параметров:
+
+\index{clojure.core!comp}
+\index{функции!композиция}
+
+\begin{english}
+  \begin{clojure}
+(def wrap-params+
+  (comp wrap-params wrap-keyword-params))
+  \end{clojure}
+\end{english}
+
+Разберёмся, почему аргументы \verb|comp| идут в таком порядке. Обозначим
+их \verb|foo| и \verb|bar| и перепишем выражение несколько раз. В каждом
+столбике одинаковая функция, записанная по-разному.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(comp foo bar)
+  \end{clojure}
+
+\splitter
+
+  \begin{clojure}
+(fn [x]
+  (foo (bar x)))
+  \end{clojure}
+
+\splitter
+
+  \begin{clojure}
+(fn [x]
+  (-> x bar foo))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+
+\noindent
+\iflarge
+\begin{tabular}{ @{}p{3.4cm} @{}p{3.7cm} @{}p{3.5cm} }
+\else
+\begin{tabular}{ @{}p{3.2cm} @{}p{3.5cm} @{}p{3.5cm} }
+\fi
+
+  \begin{clojure}
+(comp foo bar)
+  \end{clojure}
+
+&
+
+  \begin{clojure}
+(fn [x]
+  (foo (bar x)))
+  \end{clojure}
+
+&
+
+  \begin{clojure}
+(fn [x]
+  (-> x bar foo))
+  \end{clojure}
+
+\end{tabular}
+
+\end{english}
+
+\fi
+
+Если \verb|x| в третьем столбике~--- приложение, а~ \verb|foo| и \verb|bar|~---
+middleware, то всё станет ясно. Во время запроса они работают в обратном
+порядке, поэтому \verb|foo| запустится раньше \verb|bar|. Значит, на месте
+\verb|foo| должно быть \verb|wrap-params|, а вместо \verb|bar|~---
+\verb|wrap-keyword-params|. Если подставить их в~первый столбик, получим то, что
+записали вначале.
+
+Плюс на конце означает, что это улучшенная версия \texttt{wrap\-/params}. Заменим
+в стеке \texttt{wrap\-/params} и \verb|wrap-keyword-params| на~версию с~
+плюсом. Цепочка станет короче, а логика параметров поселилась в~отдельном месте.
+Далее мы рассмотрим другие полезные middleware: куки, сессии и JSON.
+
+\subsection{Cookie}
+
+\index{HTTP!куки}
+
+В HTTP куки~--- это маленькие кусочки информации. Между сервером и~браузером
+соглашение о том, как хранить и передавать их. Если сервер выставил куки,
+браузер запомнит их для этого сайта. В~следующий раз браузер отправит их на
+сервер автоматически. Так продолжается до тех пор, пока не истечёт их срок
+жизни или кто-то не удалит их. Удалить куки может как сервер с помощью
+заголовка, так и пользователь в~настройках браузера.
+
+Простейший случай, когда нужны куки,~--- определить, был ли уже пользователь на
+сайте. В первый раз приложение ищет в запросе куки с именем
+\verb|seen|. Если их нет, сервер выставит заголовок:
+
+\begin{english}
+  \begin{http}
+Set-Cookie: seen=true;
+  \end{http}
+\end{english}
+
+Получив куки, браузер добавит их ко всем запросам к серверу. Исходящий заголовок
+выглядит так же, но без частички \verb|Set-| в имени. Приложение проверяет: если
+поле \verb|seen| истинно, клиент уже был на сайте. Это влияет на показ рекламы,
+всплывающие окна и так далее.
+
+Технически куки~--- это длинный заголовок, где поля и значения разделены точками с
+запятой. Middleware \verb|wrap-cookie| упрощает работу с~этим заголовком. В
+запросе мы получим словарь \verb|:cookies|, в котором два уровня с именами и
+атрибутами. Чтобы выслать клиенту новые куки, добавьте изменённую копию словаря
+в ответ. Ring построит из него заголовок \verb|Set-Cookie|.
+
+Ниже страница \verb|page-seen| проверяет, видим ли мы её в первый раз.
+
+\index{модули!ring.middleware.cookies}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure/lines}
+(require '[ring.middleware.cookies
+           :refer [wrap-cookies]])
+
+(defn page-seen [request]
+  (let [{:keys [cookies]} request
+        seen-path ["seen" :value]
+        seen? (get-in cookies
+                      seen-path)
+        cookies* (assoc-in cookies
+                   seen-path true)]
+    {:status 200
+     :cookies cookies*
+     :body
+     (if seen?
+      "Already seen."
+      "The first time you see it!")}))
+
+(def app (-> page-seen
+             wrap-cookies))
+  \end{clojure/lines}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure/lines}
+(require '[ring.middleware.cookies
+           :refer [wrap-cookies]])
+
+(defn page-seen [request]
+  (let [{:keys [cookies]} request
+        seen-path ["seen" :value]
+        seen? (get-in cookies seen-path)
+        cookies* (assoc-in cookies seen-path true)]
+    {:status 200
+     :cookies cookies*
+     :body (if seen?
+             "Already seen."
+             "The first time you see it!")}))
+
+(def app (-> page-seen
+             wrap-cookies))
+  \end{clojure/lines}
+\end{english}
+
+\fi
+
+Замечание: переменная со звёздочкой на конце означает новую версию исходной
+переменной \ifnarrow\coderef{9}\else\coderef{8}\fi. Например, такой
+же словарь, но с новым ключом. Вместо звёздочки иногда ставят штрих. Имя
+\verb|cookies*| читается как <<новые куки на базе старых>>.
+
+\index{middleware!wrap-keyword-cookie}
+
+По аналогии с \verb|:params| ключи куки~--- это строки. Если поменять
+\verb|"seen"| на \verb|:seen| \coderef{6}, вы промахнётесь и получите
+\verb|nil|. В Ring нет аналога \verb|wrap-keyword-cookie|, но такую обёртку
+легко написать самому. Ниже мы покажем способ для заголовков.
+
+Запустите приложение в браузере. После обновления страницы надпись изменится на
+Already seen. Она останется даже после перезагрузки сервера, потому что флаг
+\verb|seen| хранит браузер. Только очистив куки, вы увидите: The first time you
+see it. Для полноты эксперимента откройте приватную вкладку или другой браузер.
+
+\index{безопасность!HTTP}
+\index{HTTP!безопасность}
+
+Куки тесно связаны с безопасностью. Убедитесь, что они подписаны ключом,
+защищены от кражи и не раскрывают секретные данные (пароли, ключи доступа).
+
+Атрибуты \verb|:http-only| и \verb|:secure| существенно снижают риск
+кражи. Первый означает, что к куки нельзя обратиться из JavaScript. Этим вы
+защититесь от вредоносных скриптов, которые читают куки и отправляют на чужой
+сервер. Откройте консоль разработчика в браузере и~выполните выражение:
+
+\begin{english}
+  \begin{js}
+> document.cookie
+// ring-session=...; seen=true
+  \end{js}
+\end{english}
+
+\noindent
+Измените переменную \verb|cookies*| так, чтобы у~\verb|seen| был атрибут:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(let [cookies*
+      (assoc cookies "seen"
+        {:value true
+         :http-only true})]
+  ...)
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(let [cookies* (assoc cookies "seen"
+                      {:value true :http-only true})]
+  ...)
+  \end{clojure}
+\end{english}
+
+\fi
+
+Теперь JavaScript не увидит значение \verb|seen|:
+
+\begin{english}
+  \begin{js}
+> document.cookie
+// ring-session=...
+  \end{js}
+\end{english}
+
+Атрибут \verb|:secure| означает, что куки передаются только в безопасном
+соединении по SSL. На время разработки им можно пренебречь, но в боевом запуске
+\verb|:secure| всегда истина. Приложения без SSL небезопасны, и браузеры
+указывают на это пользователям.
+
+Мы не будем задерживаться на веб-без\-оп\-ас\-нос\-ти: тема слишком обширна и
+заслуживает отдельной книги.
+
+\subsection{Сессии}
+
+\index{HTTP!сессии}
+
+HTTP не предполагает связи между двумя запросами. Серверу неважно, откуда они
+пришли~--- с соседних машин или разных континентов. Запросы нельзя связать по
+времени: кто-то читает страницу час, а другие обновляют каждую минуту.
+
+Разработчики пошли на уловку. Даже если клиенты сидят за одним столом,
+приложение выдаст им куки с длинной случайной строкой. Поле с этой строкой
+называют идентификатором. Браузер добавляет его к исходящим запросам, а сервер
+группирует запросы по идентификатору. Технику назвали \emph{сессией}, или
+\emph{сеансом}.
+
+Под сессией понимают значения, связанные с текущим пользователем. Например,
+выбранный язык, состояние виджетов, просмотренные товары. Важно, что
+пользователь не обязательно авторизован. Это может быть аноним, но сервер
+отличит его запросы от других анонимов.
+
+\index{middleware!wrap-session}
+
+Обёртка \verb|wrap-session| выражает процесс в терминах Clojure. Это сложное
+middleware, которое дополняет запрос словарём \verb|:session|. Его ключи~---
+поля сессии. Чтобы обновить сессию, её новую версию пишут в ответ по аналогии с
+куки. Middleware различает \verb|nil| и отсутствие сессии в ответе. Если поле
+\verb|nil|, вся сессия удаляется. Если ключа нет, ничего не происходит.
+
+\index{базы данных!Redis}
+\index{базы данных!Memcached}
+
+Различают \emph{бэкенды} сессии, способы хранить её физически. Это может быть
+память, диск, база данных, системы Memcached и Redis или даже куки. При выборе
+бэкенда учитывайте, может ли он работать на~нескольких машинах одновременно. Что
+получится, если каждый запрос случайно уходит на одну из десяти машин? Когда
+сессию хранят в памяти, на каждой машине будет её разная копия. Это чревато
+странным поведением и отладкой. Аналогично с файлами~--- машины не делят их
+между собой. Наоборот, база данных или Redis предлагают централизованный доступ
+к данным. Они гарантируют целостность сессии для всех клиентов.
+
+Интересно, что сессия в куки тоже работает на многих машинах. В~этом случае её
+хранит браузер. Клиент и сервер обмениваются полной сессией в заголовках. У
+решения есть минусы: если пользователь очистит куки или запустит другой браузер,
+сессия будет утеряна. Кроме того, слишком большая сессия засоряет HTTP-запрос и
+увеличивает трафик.
+
+Из коробки Ring предлагает два бекенда сессии: память и куки. Тип хранилища
+задают настройками \verb|wrap-session|. Если ничего не указывать, Ring
+использует память. Чтобы подружить сессию с Redis или другой системой, расширьте
+протокол \verb|SessionStore|. Работа с протоколами выходит за рамки этой главы,
+поэтому ограничимся ссылкой на
+\footurl{документацию Ring}{https://github.com/ring-clojure/ring/wiki/Sessions}[Ring\\*Sessions]
+с примером.
+
+Рассмотрим пример со счётчиком посещений. Будем считать, сколько раз
+пользователь зашёл на сайт. Сессию храним в~памяти.
+
+\index{модули!ring.middleware.session}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.session
+           :refer [wrap-session]])
+
+(defn page-counter [request]
+  (let [{:keys [session]} request
+        session* (update session
+                   :counter (fnil inc 0))
+        counter (:counter session*)]
+    {:status 200
+     :session session*
+     :body (format "Seen %s time(s)"
+                   counter)}))
+
+(def app (-> page-counter
+             wrap-session))
+  \end{clojure}
+\end{english}
+
+\else
+
+\ifafive
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.session
+           :refer [wrap-session]])
+
+(defn page-counter [request]
+  (let [{:keys [session]} request
+        session* (update session :counter (fnil inc 0))
+        counter (:counter session*)]
+  \end{clojure}
+\end{english}
+
+\pagebreak
+
+\begin{english}
+  \begin{clojure}
+    {:status 200
+     :session session*
+     :body (format "Seen %s time(s)" counter)}))
+
+(def app (-> page-counter
+             wrap-session))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.session
+           :refer [wrap-session]])
+
+(defn page-counter [request]
+  (let [{:keys [session]} request
+        session* (update session :counter (fnil inc 0))
+        counter (:counter session*)]
+    {:status 200
+     :session session*
+     :body (format "Seen %s time(s)" counter)}))
+
+(def app (-> page-counter
+             wrap-session))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\fi
+
+Запустите приложение и откройте браузер. Обновите страницу, и~счётчик в
+сообщении увеличится с каждым просмотром. Проделайте то же самое в другом
+браузере. Это будет вторая сессия, которая не зависит от первой. Убедитесь, что
+просмотр в первом браузере не влияет на второй. Данные лежат в памяти, поэтому
+они потеряются при новом запуске сервера.
+
+\emph{Упражнение 1.} Выше мы считаем просмотры для всего сайта. Сделайте так,
+чтобы счётчик работал в разрезе страниц. Например, главную страницу \verb|/|
+смотрели пять раз, а справку \verb|/help|~--- три раза. Параметры запроса не
+влияют на подсчёт.
+
+\emph{Упражнение 2.} Поскольку сессия хранится в памяти, она потеряется при
+перезапуске сервера. Изучите документацию Ring и сделайте так, чтобы сессия
+хранилась в куках. Убедитесь, что перезапуск не влечёт потерю данных.
+
+\subsection{JSON}
+
+\index{форматы!JSON}
+
+Формат JSON служит для передачи данных. Он различает базовые типы: числа,
+строки, логический тип и коллекции любой вложенности. Это значимый плюс по
+сравнению с INI или XML, где все значения~--- строки. JSON совместим с JavaScript:
+если передать строку в функцию \verb|eval|, она вернёт комбинацию массивов
+и объектов. Эти и~другие причины сделали формат популярным. Сегодня JSON~---
+главный способ передать данные в вебе.
+
+Ring предлагает несколько middleware для JSON. Для удобства их~поместили
+в~отдельную библиотеку. Добавьте зависимость:
+
+\begin{english}
+  \begin{clojure}
+[ring/ring-json "0.4.0"]
+  \end{clojure}
+\end{english}
+
+\index{middleware!wrap-json-response}
+\index{HTTP!JSON}
+
+Middleware \verb|wrap-json-response| упрощает возврат JSON-дан\-ных из
+обработчика. Оно проверяет поле ответа \verb|:body|: если это коллекция, её
+меняют на кодированную строку и добавляют заголовок \verb|Content-Type| с типом
+\verb|application/json|.
+
+Рассмотрим API для чтения пользователя. Если нашли его по номеру, вернём
+словарь полей. Если нет, в ответе структура ошибки.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn page-data [request]
+  (let [user-id (-> request :params :id)
+        user (get-user-by-id user-id)]
+    (if user
+      {:status 200 :body user}
+      {:status 404
+       :body
+       {:error_code "MISSING_USER"
+        :error_msg "No such user"}})))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn page-data [request]
+  (let [user-id (-> request :params :id)]
+    (if-let [user (get-user-by-id user-id)]
+      {:status 200 :body user}
+      {:status 404
+       :body {:error_code "MISSING_USER"
+              :error_message "No such user"}})))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\noindent
+В обоих случаях не нужно кодировать данные вручную~--- это делает
+\verb|wrap-json-response|.
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.json
+           :refer [wrap-json-response]])
+  \end{clojure}
+\end{english}
+
+\begin{english}
+  \begin{clojure}
+(def app (-> page-data
+             wrap-params+
+             wrap-json-response))
+  \end{clojure}
+\end{english}
+
+Запустите \verb|app| и переключитесь в браузер. Откройте вкладку Network в
+панели разработчика. Изучите запрос к серверу, в особенности заголовки ответа и
+его тело. Если это был JSON, браузер распарсит данные и покажет в виде дерева.
+
+Для входящего JSON служат два middleware: \verb|wrap-json-body|
+и~\verb|wrap-json-params|. Оба проверяют, что заголовок \verb|Content-Type|
+равен \code{appli\-ca\-tion/json}. Если заголовок верный, они парсят тело с учётом
+возможных исключений. При ошибке разбора получим статус 400~и текст <<JSON body
+malformed>>.
+
+Разница между middleware в том, куда они складывают
+данные. \verb|Wrap-json-body| заменяет поле \verb|:body| запроса на
+структуру данных. Ниже обработчик \verb|page-body| извлекает имя и город из
+\verb|:body|. Тело запроса~--- уже не входящий поток, а словарь. Обратите
+внимание: middleware принимает дополнительные параметры. Флаг \verb|:keywords? true|
+означает, что ключи словаря станут кейвордами.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.json
+           :refer [wrap-json-body]])
+
+(defn page-body [request]
+  (let [{:keys [body]} request
+        {:keys [username city]} body]
+    (create-user username city)
+    {:status 200
+     :body {:code "CREATED"
+            :message "User created"}}))
+
+(def app
+  (->
+    page-body
+    (wrap-json-body {:keywords? true})))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.json
+           :refer [wrap-json-body]])
+
+(defn page-body [request]
+  (let [{:keys [body]} request
+        {:keys [username city]} body]
+    (create-user username city)
+    {:status 200
+     :body {:code "CREATED"
+            :message "User created"}}))
+
+(def app (-> page-body
+             (wrap-json-body {:keywords? true})))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{утилиты!cURL}
+\index{HTTP!POST}
+
+Чтобы отправить JSON серверу, нужна специальная программа. Подойдёт консольная
+утилита \verb|cURL| или графическое приложение
+\footurl{Postman}{https://www.postman.com}[Post\-man]. Пример с
+\verb|cURL| (для чистоты отбросим обратные слеши в переносах строк):
+
+\ifnarrow
+
+\begin{english}
+  \begin{bash}
+curl --request POST
+     --header "Content-Type:
+                 application/json"
+     --data '{"username":"John",
+                      "city":"NY"}'
+     http://localhost:8080/
+  \end{bash}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{bash}
+curl --request POST
+     --header "Content-Type: application/json"
+     --data '{"username":"John", "city":"NY"}'
+     http://localhost:8080/
+  \end{bash}
+\end{english}
+
+\fi
+
+\verb|Wrap-json-params| работает с небольшим отличием~--- оно пишет
+данные в поле \verb|:json-params|. Далее, если в теле был словарь, он дополняет
+\verb|:params|. Объясним, в чём смысл этой логики.
+
+Поле \verb|:params|~--- это общий аккумулятор параметров. Его наполняют и другие
+обёртки, например \verb|wrap-params|. Некоторые API не зависят от метода и
+принимают запросы одновременно через GET или POST. Соответственно, данные
+находятся в адресной строке или теле запроса.
+
+У гибридного способа преимущество: запросы на чтение выполняют через GET, чтобы
+применить кэширование на уровне HTTP. Запросы на изменение выполняют через POST,
+который никогда не кэшируется. Однако в обработчике нас не интересует, какой был
+метод: мы просто работаем с \verb|:params|.
+
+В других API важно, чтобы параметры не смешивались и не заменяли друг
+друга. Предположим, наш сервис работает строго по методу POST. Чтобы прочесть
+только те данные, что пришли в JSON, обратимся к полю \verb|:json-params| или
+\verb|:body|. Каким враппером пользоваться~--- \verb|wrap-json-body| или
+\verb|wrap-json-params|, зависит от конкретного случая.
+
+\index{middleware!wrap-json-params}
+
+Заметим, что \verb|:params|~--- это словарь с клю\-ча\-ми-стро\-ка\-ми. Чтобы слияние
+прошло правильно, \verb|| тоже оставляет ключи
+строками. Исправьте ключи с помощью \texttt{wrap-keyword-params} уже после
+слияния.
+
+Middleware не случайно выделяет поле \texttt{:json\-/params}. Дело в том, что данные
+в~JSON не всегда словарь: это может быть массив, который нельзя объединить с
+\verb|:params|. На этот случай данные хранят в~отдельном поле.
+
+\subsection{Свои middleware}
+
+\index{middleware!пользовательские}
+
+До сих пор мы использовали наработки из Ring и смежных библиотек. Рано или
+поздно вам потребуются свои middleware. Рассмотрим примеры из реальных проектов.
+
+\subsubsection*{Ключи заголовков}
+
+\label{wrap-headers-kw}
+\index{HTTP!заголовки}
+
+Наш первый враппер обновляет заголовки запроса~--- меняет тип ключей со строк на
+кейворды. Заголовкам меняют тип, когда приложение часто к ним обращается. В этом
+случае удобней переключиться на кейворды, чтобы сохранить синтаксис \verb|:keys|
+и не ошибиться с типом ключа.
+
+\index{модули!clojure.walk}
+\index{функции!keywordize-keys}
+
+В ответе ключи заголовков тоже должны быть строками. Если указать кейворд, Jetty
+бросит исключение~--- его код ожидает строки. Добавим обратное действие: изменим
+ключи с кейвордов на строки. Обе задачи решают функции \verb|keywordize-keys| и
+\verb|stringify-keys| из модуля \verb|clojure.walk|. Они рекурсивно обходят
+коллекцию и меняют тип ключей.
+
+\index{функции!stringify-keys}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require
+ '[clojure.walk :refer [keywordize-keys
+                        stringify-keys]])
+
+(defn wrap-headers-kw [handler]
+  (fn [request]
+    (-> request
+        (update :headers keywordize-keys)
+        handler
+        (update :headers
+                stringify-keys))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.walk :refer
+           [keywordize-keys stringify-keys]])
+
+(defn wrap-headers-kw [handler]
+  (fn [request]
+    (-> request
+        (update :headers keywordize-keys)
+        handler
+        (update :headers stringify-keys))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Внутри \verb|handler| приложение работает с заголовками как с кейвордами. В
+примере мы находим заголовок \verb|host| с помощью \verb|:keys|, что не
+сработало бы для строк. В заголовках ответа тоже кейворд. Браузер покажет
+сообщение жирным шрифтом, потому что тип содержимого HTML, а не плоский текст.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn app* [request]
+  (let [{:keys [headers]} request
+        {:keys [host]} headers]
+    {:status 200
+     :headers {:content-type "text/html"}
+     :body (str "<h1>Host header:" host
+                "</h1>")}))
+
+(def app (wrap-headers-kw app*))
+  \end{clojure}
+\end{english}
+
+\else
+
+\iflarge
+
+\begin{english}
+  \begin{clojure}
+(defn app* [request]
+  (let [{:keys [headers]} request
+        {:keys [host]} headers]
+  \end{clojure}
+\end{english}
+
+\pagebreaklarge
+
+\begin{english}
+  \begin{clojure}
+    {:status 200
+     :headers {:content-type "text/html"}
+     :body (format "<h1>Host header: %s</h1>" host)}))
+
+(def app (wrap-headers-kw app*))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn app* [request]
+  (let [{:keys [headers]} request
+        {:keys [host]} headers]
+    {:status 200
+     :headers {:content-type "text/html"}
+     :body (format "<h1>Host header: %s</h1>" host)}))
+
+(def app (wrap-headers-kw app*))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\fi
+
+По аналогии можно сменить тип ключей для словаря куки или сессии.
+
+\subsubsection*{Идентификатор запроса}
+
+\index{классы!UUID}
+\index{идентификатор!HTTP}
+\index{идентификатор!UUID}
+\index{HTTP!идентификатор}
+\index{заголовки!X-Request-Id}
+
+По умолчанию запрос и ответ не связаны друг с другом. Порой трудно понять, к
+какому запросу относится данный ответ и наоборот. Предположим, мы увидели в
+логах ответ с кодом 500, но какой именно запрос вызвал ошибку? Важно, чтобы
+система могла их сопоставить.
+
+Проблему решает заголовок \verb|X-Request-Id|. Чаще всего это случайный
+идентификатор (или UUID), строка из 36 символов. Для краткости его называют
+<<айди>> (англ.~id). Если клиент не передал id в запросе, ему назначат
+случайный. Тот же id вернётся в ответе. Идентификатор пишут в лог, чтобы по
+запросу построить цепочку событий.
+
+\index{middleware!wrap-request-id}
+
+Напишем обёртку для id. Считаем, что заголовки~--- это кейворды, потому что выше
+по стеку находится наш \verb|wrap-headers-kw|.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(import 'java.util.UUID)
+
+(defn wrap-request-id [handler]
+  (fn [request]
+    (let [path [:headers :x-request-id]
+          uuid (or
+                (get-in request path)
+                (str
+                  (UUID/randomUUID)))]
+      (-> request
+          (assoc-in path uuid)
+          (assoc :request-id uuid)
+          handler
+          (assoc :request-id uuid)
+          (assoc-in path uuid)))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(import 'java.util.UUID)
+
+(defn wrap-request-id [handler]
+  (fn [request]
+    (let [path [:headers :x-request-id]
+          uuid (or (get-in request path)
+                   (str (UUID/randomUUID)))]
+      (-> request
+          (assoc-in path uuid)
+          (assoc :request-id uuid)
+          handler
+          (assoc :request-id uuid)
+          (assoc-in path uuid)))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{clojure.core!get-in}
+\index{clojure.core!assoc}
+\index{clojure.core!dissoc}
+
+Обратите внимание: id не только хранят в заголовках, но дублируют в запросе и
+ответе в поле \verb|:request-id|. К нему часто обращаются в логах, поэтому
+удобно вынести его в переменную в начале функции:
+
+\index{логирование!HTTP}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn some-handler [req]
+  (let [{:keys [params request-id]} req]
+    (log/info "Request id: %s"
+              request-id)))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn some-handler [request]
+  (let [{:keys [params request-id]} request]
+    (log/info "Request id: %s" request-id)))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\subsubsection*{Текущий пользователь}
+
+\index{HTTP!пользователь}
+\index{пользователь}
+
+Этот враппер добавляет в запрос текущего пользователя. В данном случае мы ищем
+его номер в сессии, но возможны варианты с куки или параметром запроса. Если
+номер найден, читаем пользователя из базы и добавляем к запросу. Функция
+\verb|get-user-by-id| вернёт словарь или \verb|nil|. Её оборачивают в
+\verb|(when user-id...)|, чтобы не обращаться в базу с пустым номером.
+
+\index{middleware!wrap-current-user}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-current-user [handler]
+  (fn [request]
+    (let [user-id (-> request
+                      :session
+                      :user-id)
+          user (when user-id
+                 (get-user-by-id
+                   user-id))]
+      (-> request
+          (assoc :user user)
+          handler))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-current-user [handler]
+  (fn [request]
+    (let [user-id (-> request :session :user-id)
+          user (when user-id
+                 (get-user-by-id user-id))]
+      (-> request
+          (assoc :user user)
+          handler))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{безопасность!сессия}
+\index{HTTP!безопасность}
+
+Middleware ниже по стеку и обработчик читают пользователя из поля \verb|:user|
+запроса. В следующем разделе мы рассмотрим подходящий пример.
+
+К вопросу о безопасности: номер пользователя \emph{можно} хранить в~сессии. Она
+подписана секретным ключом, поэтому только сервер знает, как её изменить. Номер
+пользователя не раскрывает приватные данные. Но не храните в сессии пароли и
+ключи доступа.
+
+\subsection{Прерывание стека}
+
+\index{middleware!прерывание}
+
+До сих пор мы работали с цепочкой middleware, где каждое звено передаёт
+управление следующему. Цепь не всегда линейна: иногда её нужно
+прервать. Предположим, в одном из middleware мы поняли, что у пользователя нет
+прав. Продолжать не имеет смысла~--- наоборот, как можно скорее оборвём стек.
+
+\index{HTTP!400}
+
+Middleware часто содержат условия. Например, \texttt{wrap\-/json\-/params} читает
+тело только если заголовок \verb|Content-Type| верного типа. Когда в нём что-то
+другое, враппер ничего не делает. Разбор JSON бросит исключение, если документ
+повреждён из-за сбоя в сети. В этом случае \verb|wrap-json-params| не продолжит
+цепочку. Оно вернёт ответ 400 JSON body malformed, и ни одно middleware ниже по
+стеку не сработает.
+
+Пусть приложение доступно только по авторизации. С~помощью
+\verb|wrap-current-user| получим текущего пользователя. Это middleware только
+находит пользователя, но не ограничивает доступ. Добавим ещё одно:
+
+\index{middleware!wrap-current-user}
+\index{middleware!wrap-auth-user-only}
+\index{HTTP!авторизация}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-auth-user-only [handler]
+  (fn [request]
+    (if (:user request)
+      (handler request)
+      {:status 403
+       :headers
+       {"content-type" "text/plain"}
+       :body "Sign in to get access."})))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-auth-user-only [handler]
+  (fn [request]
+    (if (:user request)
+      (handler request)
+      {:status 403
+       :headers {"content-type" "text/plain"}
+       :body "Please sign in to access this page."})))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Переход к следующему middleware находится под условием. Если пользователь не
+авторизован, звенья ниже \texttt{wrap\-/auth\-/user\-/only} будут отброшены.
+
+Мы уже говорили, что цепочка middleware~--- это подъём в гору и~спуск с
+неё. Если звено терпит неудачу, мы как будто срезаем верхушку: добрались до
+середины, столкнулись с проблемой и повернули обратно. \emph{Общее правило:} чем
+раньше мы обнаружим проблему, тем меньше потратим ресурсов. Поэтому более общие
+проверки ставят выше по стеку (или ниже в операторе \arr).
+
+\index{ошибки!HTTP}
+
+Ещё один вариант развилки~--- перехват ошибок. Это важный обработчик, но его нет
+в поставке Ring, потому что реакция на ошибки зависит от многих факторов. Как
+правило, враппер копируют из проекта в проект с~небольшими изменениями.
+
+Что случится, если при обработке запроса возникнет исключение? На этот счёт
+нет чётких правил: каждый фреймворк ведёт себя по-разному. Один покажет
+стек-трейс в браузере, другой вернёт HTML с~информацией для
+отладки. Разработчики третьего посчитали, что показывать эти данные
+небезопасно. Исключение пишут в~лог, а клиенту вернут нейтральную фразу об
+ошибке.
+
+Полезно, когда мы сами определяем, что делать с исключением. Ниже middleware,
+которое ловит ошибку, пишет её в лог и возвращает ответ-заглушку:
+
+\index{middleware!wrap-exception}
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-exception [handler]
+  (fn [{:keys [uri request-method]
+        :as request}]
+    (try
+      (handler request)
+      (catch Throwable e
+        (log/errorf e
+          "Error, method %s, path %s"
+          request-method uri)
+          {:status 500
+           :headers
+           {"content-type" "text/plain"}
+           :body "Sorry, try later."}))))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn wrap-exception [handler]
+  (fn [request]
+    (try
+      (handler request)
+      (catch Throwable e
+        (let [{:keys [uri request-method]} request]
+          (log/errorf e "Error, method %s, path %s"
+                      request-method uri)
+          {:status 500
+           :headers {"content-type" "text/plain"}
+           :body "Sorry, please try later."})))))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{логирование!HTTP}
+
+Выражение \verb|log/errorf|~--- это макрос для записи ошибки. Он принимает
+исключение, шаблон сообщения и параметры подстановки. Важно знать, какие были
+метод и путь запроса, поэтому запишем их тоже. Это облегчит анализ логов в
+будущем.
+
+Чем выше \verb|wrap-exception| в стеке, тем меньше у исключения шансов дойти
+до пользователя. В идеале оно стоит на вершине цепочки, чтобы ловить все
+исключения.
+
+Иногда используют двойной перехват, потому что ошибки в разных частях системы
+заслуживают разного подхода. Об ошибках в бизнес-логике важно знать всё. Если
+пользователь не смог купить товар, запишем весь контекст, который был на момент
+покупки. Но если пришёл повреждённый JSON, это техническая проблема, не
+связанная с бизнесом. Исключение здесь~--- это норма, потому его не пишут в лог.
+
+Чтобы разделить бизнес- и технические проблемы, на границах стека расставляют
+разные \verb|wrap-exception|. Самое нижнее оборачивает \texttt{app\-/naked}:
+оно ловит исключения в бизнес-логике. Такую ошибку пишут в журнал максимально
+подробно. На вершине стека другая, облегчённая версия \verb|wrap-exception|.
+Оно подавляет технические проблемы на ранних этапах запроса. Его задача~---
+вернуть адекватный ответ и не засорять журнал.
+
+\subsection{Middleware вне стека}
+
+\index{middleware!вне стека}
+
+Интересен сценарий, когда middleware влияет на запросы по определённому пути. В
+чём недостаток \code{wrap\-/auth\-/user\-/only}? Если добавить его в стек, анонимный
+пользователь не увидит ничего: каждый запрос завершится с кодом 403. Главная
+страница, контактные данные, форма входа~--- всё будет недоступно. Кому
+нужно такое приложение?
+
+Очевидно, проверка должна касаться только части запросов. Например, тех, что
+начинаются с префикса \verb|/account|, а именно \verb|/account/cart|,
+\verb|/account/orders| и других. Место \texttt{wrap\-/auth\-/user\-/only} не в общем
+стеке, а ниже~--- на уровне маршрута.
+
+Реализация зависит от того, как мы строим маршруты. Compojure предлагает
+middleware под названием \verb|wrap-routes|. Оно принимает правило и
+\emph{другое} middleware. Последнее сработает только в том случае, если правило
+подходит запросу. Столь сложная логика нужна, чтобы не вызвать middleware, пока
+запрос не совпадет с правилом.
+
+Построим отдельные маршруты с личной информацией:
+
+\begin{english}
+  \begin{clojure}
+(defroutes app-account
+  (GET "/cart"    _ "cart")
+  (GET "/orders"  _ "orders")
+  (GET "/profile" _ "profile"))
+  \end{clojure}
+\end{english}
+
+Смонтируем их на префикс \verb|/account| и обернём проверкой доступа.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defroutes app
+  (GET "/"     _ "index")
+  (GET "/help" _ "help")
+  (context "/account" []
+    (wrap-routes app-account
+                 wrap-auth-user-only)))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defroutes app
+  (GET "/"     _ "index")
+  (GET "/help" _ "help")
+  (context "/account" []
+    (wrap-routes app-account wrap-auth-user-only)))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{функции!wrap-routes}
+
+Теперь \verb|wrap-auth-user-only| сработает только для путей, которые
+начинаются с \verb|/account|. На главной и справочной страницах проверки
+доступа не будет.
+
+Middleware, которое принимает middleware,~--- довольно крутая абстракция. Если вы
+поняли, как оно работает, примите поздравления: это серьёзный рубеж.
+
+\section{Файлы и ресурсы}
+
+\label{http-files}
+
+До сих пор мы возвращали в ответе строки и коллекции. Рассмотрим случай, когда
+данные находятся в файле. Предположим, мобильное приложение запрашивает адреса
+банкоматов и отделений. Банк хранит эти данные во внутренней сети, и у
+веб-приложения нет к ним доступа. Кроме того, новые отделения и банкоматы
+появляются редко, поэтому обращаться в базу на каждый запрос расточительно. Раз
+в~неделю скрипт выгружает данные в файл и копирует на сервер, где работает
+веб-приложение.
+
+\index{файлы!выгрузка}
+\index{clojure.core!slurp}
+
+Наивное решение в том, чтобы прочитать файл функцией \verb|slurp| и~вернуть
+его содержимое:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn page-terminals [request]
+  {:status 200
+   :headers
+   {"content-type" "application/json"}
+   :body (slurp "terminals.json")})
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn page-terminals [request]
+  {:status 200
+   :headers {"content-type" "application/json"}
+   :body (slurp "terminals.json")})
+  \end{clojure}
+\end{english}
+
+\fi
+
+Недостаток в том, что мы читаем файл в память целиком. Из этого следует, что чем
+больше файл, тем больше ресурсов мы потребляем. Клиенты с плохой связью могут
+читать ответ медленно, но всё это время файл будет висеть в памяти. Кроме того,
+\verb|slurp| читает из файла строку, что не подходит для двоичных файлов
+(картинок, PDF). В примере ниже браузер получит повреждённое содержимое.
+
+\begin{english}
+  \begin{clojure}
+(defn app [request]
+  {:status 200
+   :headers {"content-type" "image/png"}
+   :body (slurp "/path/to/image.png")})
+  \end{clojure}
+\end{english}
+
+\index{форматы!PDF}
+\index{модули!clojure.java.io}
+
+Ring допускает, чтобы телом ответа был файл, экземпляр класса
+\verb|java.io.File|. Чтобы получить объект файла, путь к нему передают
+в~конструктор класса или функцию \verb|file| из модуля \verb|clojure.java.io|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.java.io :as io])
+
+(defn page-terminals
+  [request]
+  {:status 200
+   :headers
+   {"content-type" "application/json"}
+   :body (io/file "terminals.json")})
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[clojure.java.io :as io])
+
+(defn page-terminals
+  [request]
+  {:status 200
+   :headers {"content-type" "application/json"}
+   :body (io/file "terminals.json")})
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{заголовки!Content-Length}
+
+Если тело~--- файл, сервер отдаёт содержимое малыми порциями по мере того, как
+клиент его читает. Сервер автоматически добавит заголовок
+\verb|Content-Length| с размером файла.
+
+Когда файлов несколько, плодить правила на каждый из них утомительно:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defroutes app
+  (GET "/terminals.json"
+       req (page-terminals req))
+  (GET "/departments.json"
+       req (page-departments req)))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defroutes app
+  (GET "/terminals.json"   req (page-terminals req))
+  (GET "/departments.json" req (page-departments req)))
+  \end{clojure}
+\end{english}
+
+\fi
+
+\index{middleware!wrap-file}
+
+Очевидно, можно сопоставить путь к файлу и директорию, где он находится. Для
+этого служит middleware \verb|wrap-file|. Оно устроено так, что если запрос не
+подошёл основному приложению, middleware ищет файл в указанной папке.
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.file
+           :refer [wrap-file]])
+
+(def app
+  (-> app-naked
+      (wrap-file "/var/www/public")))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.file :refer [wrap-file]])
+
+(def app (-> app-naked
+             (wrap-file "/var/www/public")))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Запрос \verb|/terminals.json| пройдёт мимо \verb|app|, но разрешится в
+одноимённый файл по пути \verb|/var/www/public/terminals.json|. Позже в эту
+папку можно добавить другие файлы и ставить на них ссылки по именам:
+\verb|/manual.pdf|, \verb|/price_2020.xlsx|.
+
+Ссылки на статичные ресурсы отделяют префиксом \verb|/static|. Кроме того,
+близкие по типу файлы группируют в дочерних директориях: \verb|/static/img| для
+картинок, \verb|/static/js| для скриптов и так далее. Согласно правилу,
+физический путь к картинке будет \texttt{/var/\-www/\-public/\-static/\-img/\-logo.png}.
+
+Кроме файлов, Ring работает с ресурсами JVM. Они похожи на файлы, но после
+сборки приложения становятся частью uberjar. В~этом случае приложение читает
+ресурсы из самого себя, а не с диска.
+
+Преимущество ресурсов в том, что приложение не зависит от сторонних файлов. Это
+делает его автономным и упрощает деплой~--- не придётся копировать статичные
+файлы на сервер. С другой стороны, ресурсы нельзя обновить по требованию. Если
+нужно исправить логотип или стиль CSS, которые входят в ресурсы, вы должны
+собрать проект заново. Для ресурсов служит похожее middleware
+\verb|wrap-resource|:
+
+\index{middleware!wrap-resource}
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.resource
+           :refer [wrap-resource]])
+
+(def app (-> app-naked
+             (wrap-resource "public")))
+  \end{clojure}
+\end{english}
+
+По аналогии с \verb|wrap-files| оно принимает путь, относительно которого нужно
+искать ресурсы. Всё, что мы говорили о префиксах, справедливо и для
+ресурсов. Чтобы ссылка \texttt{/static/\-img/\-logo.png} вела на ресурс, он должен
+быть по пути \texttt{resources/\-pub\-lic/\-static/\-img/logo.png}. Мы подробно рассмотрим
+ресурсы в будущих главах \page{resources}.
+
+Если открыть браузер и ввести путь со статичным файлом, откроется окно с
+предложением сохранить файл на диск. Это не всегда то, что мы
+ожидаем. Современные браузеры умеют показывать почти все известные форматы:
+картинки, музыку, PDF, JSON, XML и другие. Хотелось бы увидеть файл сразу в
+браузере.
+
+Окно сохранения возникает потому, что для файлов и ресурсов заголовок
+\verb|Content-Type| по умолчанию равен \texttt{application/octet\-/stream}, то есть
+бинарный поток. Чтобы определить тип по расширению файла, добавьте ещё одно
+middleware \verb|wrap-content-type|:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.content-type
+           :refer [wrap-content-type]])
+
+(def mime-types
+      {"json" "application/json"
+       "png" "image/png"
+       "xls" "application/vnd.ms-excel"})
+
+(def app
+  (-> app-naked
+      (wrap-content-type
+        {:mime-types mime-types})))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[ring.middleware.content-type
+           :refer [wrap-content-type]])
+
+(def app
+  (-> app-naked
+      (wrap-content-type
+       {:mime-types
+         {"json" "application/json"
+          "png" "image/png"
+          "xls" "application/vnd.ms-excel"}})))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Параметр \verb|:mime-types| принимает словарь MIME-типов и
+\footurl{расширений}{https://en.wikipedia.org/wiki/MIME}[MIME types]. Добавьте
+нужные типы и проверьте, что браузер показывает файлы правильно.
+
+\index{HTTP!стриминг}
+
+\section{Стриминг и проксирование}
+
+Телом ответа может быть в том числе входящий поток, экземпляр класса
+\verb|InputStream|. Особенность потока в том, что его читают один раз. Потоки
+широко используются в Java, и некоторые библиотеки возвращают их
+напрямую. Например, при создании PDF мы получим поток с бинарным содержимым
+документа. Чтобы не писать поток во~временный файл, направим его в ответ
+HTTP. Потребитель считает поток по мере загрузки в браузере.
+
+Отдача клиенту потока называется стримингом (англ.~stream~--- <<поток>>). Поток
+может быть огромных размеров, в том числе бесконечным. Например, поток
+изображения с камеры потенциально не закончится никогда.
+
+Ещё лучше потоки подходят для проксирования. Под этим словом имеют в виду
+передачу данных через посредника. Предположим, внутренний сервер компании выдаёт
+по запросу важные данные. Мы должны предоставить их клиентам. Однако нельзя
+открывать им прямой доступ к ресурсу. Вместо этого мы пишем промежуточный слой,
+который проверяет права доступа. Если всё в порядке, мы посылаем HTTP-запрос во
+внутренний сервис и получаем поток. Он становится телом нашего ответа
+клиенту. Мы не вмешиваемся в~содержимое, а только соединяем поток с нужным
+потребителем.
+
+Напишем прокси-приложение, которое вернёт главную страницу Яндекса. В запросе мы
+обращаемся к ней по протоколу GET. В опциях передаём флаг \verb|stream?|, что
+означает <<не читать ответ>>. В этом случае тело будет потоком, а не строкой
+HTML. Поля \verb|status| и \verb|body| ответа Яндекса переходят в наш ответ. Это
+касается и заголовков, но мы возвращаем их не все, а подмножество (в нашем
+случае только \verb|Content-Type|).
+
+\iflarge\vspace{15mm}\pagebreak[4]\fi
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(require '[clj-http.client :as client])
+
+(defn app-proxy [req]
+  (let [resp (client/get "https://ya.ru"
+                         {:stream? true})
+        {status :status
+         headers :headers
+         body :body} resp]
+    {:status status
+     :headers (select-keys
+                headers ["Content-Type"])
+     :body body}))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(require '[clj-http.client :as client])
+
+(defn app-proxy [request]
+  (let [opt {:stream? true}
+        response (client/get "https://ya.ru" opt)
+        {:keys [status headers body]} response
+        headers* (select-keys headers ["Content-Type"])]
+    {:status status
+     :headers headers*
+     :body body}))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Запустите \verb|app-proxy| в браузере. Вы увидите главную страницу Яндекса,
+хотя адрес по-прежнему \verb|localhost|. Код \verb|app-proxy| можно выразить
+короче с помощью стрелочного оператора:
+
+\ifnarrow
+
+\begin{english}
+  \begin{clojure}
+(defn app-proxy [request]
+  (-> "https://ya.ru"
+      (client/get {:stream? true})
+      (select-keys [:status
+                    :body :headers])
+      (update :headers
+        select-keys ["Content-Type"])))
+  \end{clojure}
+\end{english}
+
+\else
+
+\begin{english}
+  \begin{clojure}
+(defn app-proxy [request]
+  (-> "https://ya.ru"
+      (client/get {:stream? true})
+      (select-keys [:status :body :headers])
+      (update :headers select-keys ["Content-Type"])))
+  \end{clojure}
+\end{english}
+
+\fi
+
+Доработайте прокси, чтобы он работал с другими сайтами. Добавьте поддержку форм
+методом POST, опробуйте загрузку файлов. Какие ещё заголовки понадобятся
+вдобавок к \texttt{Content\-/Type}?
+
+\emph{Задача для настоящих хакеров.} Вы пишете программу для мобильного
+оператора. Если клиент обратился к HTML-странице по незащищённому соединению, вы
+должны добавить после тега \verb|<head>| рекламный скрипт. Как это сделать
+в~полёте, не читая страницу целиком в~память или на диск?
+
+\section{Другие библиотеки}
+
+Для веб-разработки на Clojure написано много фреймворков и библиотек. Если
+возможностей Ring не хватает, обратитесь к проектам ниже.
+
+\pagebreaklarge
+
+\begin{itemize}
+
+\index{библиотеки!Compojure API}
+\index{организации!Metosin}
+\index{веб-разработка!Swagger}
+
+\item
+  \footurl{Compojure API}{https://github.com/metosin/compojure-api}[Compo-\\*jure API]~---
+  убернадстройка над обычным Compojure. Набор макросов, чтобы декларативно описать REST
+  API. Библиотека тесно связана с JSON-схемой и Swagger.
+
+\index{библиотеки!Luminus}
+\index{сайты!luminusweb.com}
+
+\item
+  \footurl{Luminus}{https://luminusweb.com}[Luminus]~--- шаблон
+  веб-приложения. Включает \texttt{Compojure API} для маршрутов, модуль базы
+  данных, миграции и многое другое из коробки. У проекта достойная документация
+  и сообщество, куда можно обратиться за помощью.
+
+\index{библиотеки!Pedestal}
+\index{организации!Cognitect}
+
+\item
+  \footurl{Pedestal}{https://github.com/pedestal/pedestal}[Pedestal]~---
+  фреймворк компании Cognitect. Отличается гибкой системой перехватчиков
+  \eng{interceptors}, с помощью которых вложенную логику описывают линейно.
+
+\pagebreakafive
+
+\index{библиотеки!Vase}
+\index{организации!Cognitect}
+\index{базы данных!Datomic}
+\index{форматы!EDN}
+
+\item
+  \footurl{Vase}{https://github.com/cognitect-labs/vase}[Vase]~---
+  экспериментальная обёртка над Pedestal. Хранит логику приложения в файле
+  EDN. Тесно связана с Datomic, базой данных Cognitect.
+
+\index{библиотеки!Duct}
+
+\item
+  \footurl{Duct}{https://github.com/duct-framework/duct}[Duct]~--- новый
+  фреймворк от создателя Ring. Проект на ранней стадии, и документации ещё
+  мало. Делает упор на модульность и~систему компонентов \page{chapter-systems}.
+
+\index{библиотеки!Liberator}
+\index{языки!Erlang}
+\index{мультиметоды}
+
+\item
+  \footurl{Liberator}{https://clojure-liberator.github.io/liberator}[Liberator]~---
+  аналог проекта Webmachine для Erlang. Запрос и~ответ проходят стадии, на
+  каждую из которых можно задать реакцию. Предлагает систему правил на базе
+  мультиметодов.
+
+\end{itemize}
+
+\section{Заключение}
+
+Современный веб работает по HTTP. Это текстовый протокол на базе стека TCP/IP. Обмен
+по HTTP проходит в две фазы: запрос и~ответ. Оба состоят из первой строки,
+заголовков и тела, которого может не быть.
+
+Для запроса важны его метод и путь, а для ответа~--- статус. С~развитием веба
+появились соглашения о том, как строить HTTP API. Самое популярное называется
+REST. Согласно ему, путь определяет сущность, а метод~--- действие над ней. Данные
+передают в~формате JSON.
+
+Чтобы писать веб на Clojure, установите Ring. Это набор библиотек, в которых
+самое нужное: базовые абстракции, middleware и веб-сервер. Обработчик запроса~---
+функция, которая принимает запрос и возвращает ответ. Обе сущности~--- словари.
+
+В поставке Ring нет маршрутов, для них нужны сторонние библиотеки. Compojure
+предлагает макросы, чтобы задать маршруты правилами. Bidi строит дерево тегов,
+которое работает в паре с~мультиметодом.
+
+Middleware~--- это функция, которая оборачивает другую функцию. Их цепочка
+называется стеком. Для удобства стек описывают стрелочным оператором: это
+экономит скобки и делает запись наглядней. Middleware нужны для предварительной
+обработки запроса: прочитать JSON из тела или проверить права доступа. Отдельные
+middleware прерывают стек, если возникло исключение или запрос нельзя
+обработать.
+
+Кроме Ring, для Clojure написаны другие фреймворки. Они задают структуру
+проекта, вводят правила и соглашения. Некоторые из них повторяют аналоги в
+других языках. Каждый фреймворк в чём-то лучше других, поэтому выбирайте,
+отталкиваясь от задачи.

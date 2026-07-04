@@ -1,0 +1,299 @@
+\chapter{PHP}
+
+% Refresh PHP – Parameter-Handling (Formulare) und InputValidation, Cookies, Session Handling, DB-Connectivity.
+% Dokumente: 02a.PHP_Advanced.pdf, abgegebene Beispiele und Projekt anschauen.
+
+\section{Formulare}
+
+Früher konnte man von einem Formular direkt Variablen im PHP-Code überschreiben. Dadurch entstanden grosse Sicherheitslücken. Das führte dazu dass die \textbf{superglobalen} Variablen ausgeschaltet wurden (in php.ini \verb|register_globals=off|). Werte von Formularen werden nun sicher über spezielle Arrays übertragen:
+
+\begin{description}
+	\item[POST-Methode:] \verb|$_POST[]| oder \verb|$HTTP_POST_VARS[]|
+	\item[GET-Methode:] \verb|$_GET[]| oder \verb|$HTTP_GET_VARS[]|
+	\item[Generelle Anfrage:] \verb|$_REQUEST[]| oder \verb|$HTTP_REQUEST_VARS[]|
+	\item[Cookie:] \verb|$_COOKIE[]| oder \verb|$HTTP_COOKIE_VARS[]|
+\end{description}
+
+Externe Dateien können entweder über \verb|include()| oder \verb|require()| eingebunden werden. \verb|require()| sollte bevorzugt werden, weil die Ausführung des Skriptes gestoppt und ein fatal error geworfen wird. Tritt im Falle von \verb|include()| ein Fehler auf, dann wird das einbindende Skript weiterausgeführt.
+
+\section{Session}
+
+Das HTTP-Protokoll ist zustandslos. Jeder Request ist atomar, d.h. der Server weiss nicht, ob ein Request wieder vom selben Website-Besucher kommt. Trotzdem wäre es gut, wenn man Variabeln über mehrere Seiten hinweg verwenden könnte (z.B. Warenkorb in einem Webshop). Mittels Cookies kann das einigermassen gehandelt werden. Was passiert aber, wenn der Website-Besucher Cookies deaktiviert hat? Dann ist er ein paranoider Freak der keinerlei Benutzerfreundlichkeit verdient hat.
+
+Das Problem wird gelöst indem jedem Website-Besucher ein zufälliger Schlüssel (die Session-ID) zugeordnet wird (Grösse kann variieren!). Bei jedem Zugriff wird nun dieser Schlüssel mitgeliefert dadurch sind Mehrfachzugriffe nun einfach zuzuordnen. Ist eine Session registriert, so wird bei jedem Aufruf die vorherige Arbeits- bzw. Variabelnumgebung wiederhergestellt! Variabeln die in einem Script definiert sind stehen somit auch in nachfolgenden zur Verfügung. Verlässt ein Website-Besucher die Seite, wird auch die Arbeitsumgebung gelöscht. Listing \ref{lst:session} zeigt die Verwendung von Sessions.
+
+\begin{lstlisting}[caption=Session, label=lst:session]
+<?php
+	// Session das erste mal erzeugen und Werte speichern
+	session_start();
+	$_SESSION['$nummer'] = "404";
+	$_SESSION['$name'] = "Benutzer";
+	echo "<a href=\"zeigen.php\">Weiter</a>";
+
+	// Session wiederherstellen und Werte abrufen
+	session_start();
+	echo "Hallo".$_SESSION['$name']."! Ihre Nummer ist".$_SESSION['$nummer'];
+	session_destroy(); // Session  beenden
+?>
+\end{lstlisting}
+
+\section{Objektorientierung}
+
+PHP bietet ein klassenbasiertes Objektmodell an, das an das von C\# oder Java angelehnt ist. Listing \ref{lst:klasse} zeigt ein Beispiel für eine Klasse in PHP.
+
+\begin{lstlisting}[caption=Session, label=lst:klasse]
+<?php
+class MyClass {
+	private $prop1 = "I'm a class property!";
+	
+	public function __construct() {
+		echo 'The class "', __CLASS__, '" was initiated!<br />';
+	}
+	
+	public function __destruct() {
+		echo 'The class "', __CLASS__, '" was destroyed.<br />';
+	}
+	
+	public function setProperty($newval) {
+		$this->prop1 = $newval;
+	}
+
+	public function getProperty() {
+		return $this->prop1 . "<br />";
+	}
+}
+
+$obj = new MyClass;
+
+echo $obj->getProperty(); // Get the property value
+$obj->setProperty("I'm a new property value!"); // Set a new one
+echo $obj->getProperty(); // Read it out again to show the change
+?>
+\end{lstlisting}
+\noindent
+Es gibt folgende Geltungsbereiche für Attribute und Methoden:
+\begin{description}
+	\item[public] Das Element kann allgemein genutzt werden
+	\item[protected] Das Element kann nur von Objekten der eigenen Klasse oder davon vererbten Klassen verändert werden
+	\item[private] Das Element kann nur von Objekten der eigenen Klasse verändert werden
+\end{description}
+Zudem gibt es noch sogenannte \textit{magic methods}. Das sind vordefinierte, optionale Methoden die man bei Bedarf implementieren kann. Die bekanntesten beiden \textit{magic methods} sind \verb|__construct()| und \verb|__destruct()|. Weitere Methoden sind: \verb|__call()|, \verb|__callStatic()|, \verb|__get()|, \verb|__set()|, \verb|__isset()|, \verb|__unset()|, \verb|__sleep()|, \verb|__wakeup()|, \verb|__toString()|, \verb|__invoke()|, \verb|__set_state()|, \verb|__clone()| und \verb|__debugInfo()|.
+Es wird empfohlen, keine eigenen Funktionen zu
+deklarieren welche mit \verb|__| beginnen!
+
+Auf mit \verb|static| deklarierte Properties oder Methoden kann ohne vorherige Instanzierung zugegriffen werden. Klassen können ihre Properties und Methoden vererben (\verb|extends|). Es können neue Methoden und Properties hinzugefügt oder aber auch bestehende modifiziert werden (überschrieben). \verb|final| Klassen und Methoden dienen dem Überschreibschutz durch abgeleitete Klassen. Es gibt auch \verb|abstract| welches gleich ist wie in Java. \verb|self::| und \verb|parent::| sind statische Eigenschaften, wobei \verb|self::| die selbe Klasse und \verb|parent::| die Klasse von der geerbt wird beschreibt. Mit \verb|$this->| wird das selbe Objekt referenziert, heisst das mit \verb|$this->| das aktuelle Objekt und mit \verb|self::| die aktuelle Klasse angesprochen wird.
+
+\section{Datenbank}
+
+In der Regel wird folgender Ablauf durchgeführt um mit einer Datenbank zu kommunizieren:
+\begin{enumerate}
+	\item Connect (Verbindung mit DB-Server aufnehmen)
+	\item Select DB (Datenbank wählen)
+	\item Query (Abfrage ausführen)
+	\item Fetch row (Resultatzeile auslesen)
+	\item Fetch field (Resultatfeld auslesen)
+	\item Close (Verbindung zu DB-Server abbauen)
+\end{enumerate}
+In PHP gibt es eine alte Funktionssammlung um auf MySQL-Datenbanken zuzugreifen. Diese wurde später von MySQLi abgelöst. Mit mysqli wurde eine aufgeräumte ganz neue Funktionssammlung entwickelt. Das neue mysqli lehnt sich zwar an die bekannten Funktionen an, arbeitet aber nur mit MySQL-Versionen ab 4.1 (Uuuh\dots), deren neue Fähigkeiten, wie etwa das Transaktionshandling direkt unterstützt werden. Der grösste Fortschritt ist allerdings, dass man die neue MySQL-Bibliothek auch objektorientiert verwenden kann. Listing \ref{lst:datenbank-abfragen} zeigt wie eine Datenbankabfrage durchgeführt wird. MySQLi kann sowohl objektorieniert als auch prozedural verwendet werden. Bei der prozudurallen Schreibweise muss immer die Referenzvariable zu Datenbank mitgegeben werden.
+
+\begin{lstlisting}[caption=Datenbank abfragen, label=lst:datenbank-abfragen]
+// Verbindungsdaten werden Konstruktor übergeben
+$mysqli = new mysqli('host', 'user', 'passwort', 'datenbank');
+
+// Infos zum DBMS anzeigen
+echo $mysqli->server_info;
+
+// Andere DB auswählen
+$mysqli -> select_db('new_db');
+
+// DB abfragen
+if ($result = $mysqli -> query('SELECT blabla FROM FooBar')) 
+{
+	while ($row = $result -> fetch_assoc()) {...}
+}
+
+// Räumt Speicher frei
+$result -> free();
+
+// DB schliessen
+$mysqli -> close();
+\end{lstlisting}
+
+\subsection{Transaktionen}
+
+Um eine Transaktion zu starten muss man die \textit{autocommit}-Funktion ausschalten \\ (\verb|$mysqli->autocommit(FALSE);|). Nach der Transaktion sollte man die \textit{autocommit}-Funktion wieder einschalten (\verb|$mysqli->autocommit(TRUE);|), weil sonst alle Änderungen nach einem Commit zurückgerollt werden können. Alternativ kann man eine Transaktion auch mit \verb|$mysqli->query('BEGIN');| oder \verb|$mysqli->query('START TRANSACTION');| starten. Der Vorteil dieser Methode ist, dass anschliessend der Autocommit-Modus wieder aktiv ist. Listing \ref{lst:transaktion} zeigt wie eine Transaktion durchgeführt wird. 
+
+\begin{lstlisting}[caption=Transaktion, label=lst:transaktion]
+$mysqli = new mysqli('host', 'user', 'pw', 'db');
+$mysqli->query('START TRANSACTION');
+$bla = $mysqli -> query('INSERT INTO bla ...)');
+$blubb = $mysqli -> query('INSERT INTO blubb ...)');
+if ($bla && $blubb) {
+	$mysqli -> commit();
+} else {
+	$mysqli -> rollback();
+}
+\end{lstlisting}
+
+\subsection{Prepared Statement}
+
+Wie der Name schon sagt, werden hier SQL-Anfragen vorbereitet. Darin befinden sich Platzhalter, die später Variablen zu gewiesen werden. Einfach gesagt, definiert man eine Abfrage und kann dann beliebig viele Operationen damit ausführen. Bei einem Prepared Statement muss man die Anfrage vorbereiten, die Parameter verbinden, die Anfrage ausführen und die Daten holen. Listing \ref{lst:prepared-statement} zeigt den Ablauf.
+
+\begin{lstlisting}[caption=Prepared Statement, label=lst:prepared-statement]
+$mysqli = new mysqli('host', 'user', 'pw', 'db');
+
+// Anfrage vorbereiten
+$stmt = $mysqli -> prepare ('INSERT INTO bla (blubb, blubber) VALUES (?, ?)');
+
+// Parameter binden. is sagt aus dass die Parameter einen Integer oder ein String 
+// sein können
+$stmt -> bind_param('is', $blubb, $blubber);
+
+// Anfrage ausführen
+$stmt -> execute();
+
+// Daten holen
+$result = $stmt -> get_result();
+while ($row = $result -> fetch_assoc()) {...}
+\end{lstlisting}
+
+\section{Sicherheit}
+
+Security ist eine Messgrösse, keine Charakteristik. Sie ist auch ein wachsendes Problem welches eine sich kontinuierlich anpassende Lösung erfordert. Ein guter Massstab für sichere Anwendungen ist die Fähigkeit zur Vorhersage und Verhütung künftiger Sicherheitsprobleme, bevor jemand einen Exploit erfindet. Bezüglich Anwendungs-Design bedeutet es, dass Sicherheit in jeder Phase beachtet werden muss: bei der Spezifikation, Implementation, Test und sogar im Betrieb. PHP bewegt sich weiter und wächst weiter in Richtung Business und Markt. Folglich verarbeiten PHP Anwendungen mehr und mehr sensitive Daten. Unauthorisierter Zugriff auf diese Daten ist nicht akzeptierbar. Um Probleme zu verhindern ist bereits ein sicheres Design notwendig.
+
+\subsection{Input Validation}
+
+Die wichtigste Regel ist niemals Benutzereingaben zu vertrauen, sondern diese immer zu validieren. Nachfolgend werden alle Möglichkeiten aufgelistet, wie Benutzereingaben in ein Programm gelangen können:
+\begin{description}
+	\item[\$\_GET] Daten vom Get Requests
+	\item[\$\_POST] Post Request Daten
+	\item[\$\_COOKIE] Cookie Information
+	\item[\$\_FILES] Uploaded File Daten
+	\item[\$\_SERVER] Server Daten
+	\item[\$\_ENV] Environment Variabeln
+	\item[\$\_REQUEST] Kombination von GET/POST/COOKIE
+\end{description}
+Grundsätzlich sollten register globals deaktiviert werden. Ist aber nicht mehr relevant weil es standardmässig überall deaktiviert ist. Das super-globale \verb|$_REQUEST|-Array ist anfällig für Wertekollision (siehe Listing \ref{lst:wertekollision}).
+
+\begin{lstlisting}[caption=\$\_REQUEST Wertekollison, label=lst:wertekollision]
+echo $_GET['id']; // 1
+echo $_COOKIE['id']; // 2
+
+echo $_REQUEST['id']; // 2
+\end{lstlisting}
+
+Auch das super-gloable \verb|$_SERVER|-Array kann gefälschte Werte beinhalten. So kann z.B. über den Host-Namen ein Skript eingeschleust werden.
+Alle Werte welche an PHP (GET/POST/COOKIE) übergeben werden kommen dort als Strings an. Möchte man Zahlen haben kann man sich die Validierung schenken und einfach einen Cast machen (z.B. \verb|(int)|). PHP verfügt über \verb|ctype| Erweiterungen welche ein schnelle Überprüfung von Strings anbietet (z.B. \verb|ctype_alnum()| für alphanumerischer String).
+Soll ein Benutzer eine Datei auswählen sollte man den Dateinamen komplett vor dem Benutzer verstecken und mit einer white-list von gültigen Werten arbeiten (siehe Listing \ref{lst:datei-whitelist}).  
+
+\begin{lstlisting}[caption=Datei Whitelist, label=lst:datei-whitelist]
+$tmpl = array();
+
+foreach(glob("templates/*.tmpl") as $v) {
+	$tmpl[md5($v)] = $v;
+}
+
+if (isset($tmpl[$_GET['path']]))
+	$fp = fopen($tmpl[$_GET['path']], "r");
+	
+http://example.com/script.php?path=57fb06d7...
+\end{lstlisting}
+
+\subsection{XSS}
+
+Cross Site Scripting (XSS) ist eine Situation, bei welcher durch den Benutzer Code injiziert wird, der anschliessend ohne weitere Prüfung angezeigt wird. Das resultiert in Session take-over, Password Diebstahl oder User Tracking durch Dritte. XSS kann einfach verhindert werden durch Eingabefilter mit folgenden Möglichkeiten:
+\begin{description}
+	\item[htmlspecialchars()]  Encodes ', ", <, >, \&
+	\item[htmlentities()] Konvertiert alles, wofür es eine HTML Entity gibt
+	\item[strip\_tags()] Stript alles, das einem HTML Tag ähnelt
+\end{description}
+Listing \ref{lst:xss-verhindern} verhindert relativ zuverlässig XSS-Angriffe.
+\begin{lstlisting}[caption=Verhindern von XSS, label=lst:xss-verhindern]
+$str = strip_tags($_POST['message']);
+
+// encode any foreign & special chars
+$str = htmlentities($str, ENT_QUOTES, "UTF-8");
+
+// maintain new lines, by converting them to <br />
+echo nl2br($str);
+\end{lstlisting}
+
+\subsection{SQL Injection}
+
+SQL Injection ist vergleichbar mit XSS, auch hier werden Eingabedaten nicht validiert. Das Schlimme daran ist, dass diese Daten bis zur Datenbank weitergegeben werden. Dabei kann es zu unkontrollierte Ausführung von Abfragen kommen (z.B. löschen von Daten, modifizieren bestehender Daten, Denial of Service, einfügen beliebiger Daten).
+Diese Angriffe können mit SQL Escaping (z.B. \verb|mysql_real_escape_string()|) teilweise verhindert werden. Allerdings sollten Prepared Statements verwendet werden. Dadurch erhält man eine bessere Performance und die Daten werden nie als Anfrage ausgewertet.
+
+\subsection{Error Reporting}
+
+Standardmässig gibt PHP alle Errors aus. Das kann von Verwirrung des Benutzern bis zur Offenlegung von sensitiven Informationen (z.B. Pfade, nicht-initialisierte Variabeln) führen. Gleichzeitig erschwert das Deaktivieren des Error-Reportings die Fehlersuche. Listing \ref{lst:fehler}  zeigt wie dieses Problem umgangen werden kann.
+
+\begin{lstlisting}[caption=Fehler loggen, label=lst:fehler]
+// Erroranzeige ausschalten
+ini_set("display_errors", FALSE);
+
+// Logging in File aktivieren
+ini_set("log_errors", TRUE);
+ini_set("error_log", "/var/log/php.log");
+
+// oder Logging in zentrales System
+ini_set("error_log", "syslog");
+\end{lstlisting}
+
+\subsection{File Security}
+
+Man sollte Files \textit{niemals} im Web Root Directory speichern ausser sie müssen dort sein. Durch .htaccess kann Zugriff beschränkt werden. Konfigurations-Files und Scripts enthalten üblicherweise sensitive Daten welche unter Verschluss gehalten werden sollten. Auch wenn sie vom Web aus nicht zugreifbar sind können sie trotzdem durch Benutzer des Systems eingesehen werden. Deshalb sollten diese Einstellungen am besten über Umgebungsvariablen vorgenommen werden.
+
+\begin{lstlisting}[caption=Konfigurationen]
+Lösung 1: Konfiguration via ini-Direktive im httpd.con laden.
+File: mysql.cnf
+mysql.default_host=localhost
+mysql.default_user=forum
+mysql.default_password=secret
+
+File: httpd.conf
+<VirtualHost 1.2.3.4>
+Include "/site_12/mysql.cnf"
+</VirtualHost>
+
+Lösung 2: Für alle anderen Einstellungen Apache Enviornment Variabeln verwenden.
+File: misc_config.cnf
+SetEnv NNTP_LOGIN "login"
+SetEnv NNTP_PASS "passwd"
+SetEnv NNTP_SERVER "1.2.3.4"
+
+File: httpd.conf
+<VirtualHost 1.2.3.4>
+Include "misc_config.cnf"
+</VirtualHost>
+\end{lstlisting}
+
+
+\subsection{Session Security}
+
+Während des Besuches der Site ist die Session die effektive Identität des Besuchers. Falls auf eine solche Session ein Dritter Zugriff erlangen kann, so ist es ihm möglich in dessen Identität zu schlüpfen. Um so ein Session Diebstahl zu verhindern kann für jeden Request eine neue Session erzeugt werden, dann kann aber z.B. der Back-Button nicht mehr verwendet werden. Eine andere Session Sicherungstechnik ist, die Browser Signatur zu vergleichen. Allerdings kann auch diese gefälscht werden. Es gibt CSRF-Tokens als mögliche Abwehr, aber diese Technik ist zu \textit{adnvanced} für dieses Modul. Listing \ref{lst:session} zeigt die beiden Möglichkeiten eine Session abzusichern.
+
+\begin{lstlisting}[caption=Session absichern, label=lst:session]
+// Session bei jedem Request neu erstellen
+session_start();
+if (!empty($_SESSION)) { // not a new session
+	session_regenerate_id(TRUE); // make new session id
+}
+
+// Browser Signatur vergleichen
+session_start();
+$chk = @md5(
+	$_SERVER['HTTP_ACCEPT_CHARSET'] .
+	$_SERVER['HTTP_ACCEPT_ENCODING'] .
+	$_SERVER['HTTP_ACCEPT_LANGUAGE'] .
+	$_SERVER['HTTP_USER_AGENT']);
+
+if (!empty($_SESSION))
+	$_SESSION['key'] = $chk;
+elseif ($_SESSION['key'] != $chk)
+	session_destroy();
+\end{lstlisting}
+
+Standardmässig werden PHP Sessions als Files im Directory \verb|/tmp| abgelegt. Das beutet aber auch dass jeder Benutzer des Systems diese aktiven Sessions einsehen und ggf. übernehmen oder modifizieren kann. Deshalb sollte der Speicherpfad von Sessions auf ein sicheres Verzeichnis umgestellt werden.
+
+\subsection{Security Through Obscurity}
+Gebe möglichst wenig über dich Preis. Das ist nicht wirklich ein Security Ansatz, aber macht es für die Angreifer ein bisschen schwerer. Beispielsweise mittels \verb|expose_php=off| und \verb|ServerSignature=off|.

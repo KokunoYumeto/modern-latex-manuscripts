@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}                   % Začátek dokumentu
+\usepackage{../../MFFStyle}                     % Import stylu
+
+\begin{document}
+
+\begin{priklad}[4.1]
+    Nechť $\triangle_{ABC}$ je sférický trojúhelník, označme úhly u vrcholů $A$, $B$, $C$ postupně $\alpha$, $\beta$, $\gamma$. Ukažte, že plošný obsah trojúhelníku $\triangle_{ABC}$ nezávisí na délkách stran trojúhelníku a vypočte se pomocí vzorce
+    $$ S(\triangle_{ABC}) = \alpha + \beta + \gamma - \pi. $$ 
+
+    \begin{dukazin}
+        Řezy rovinami $OAB$, $OAC$, $OBC$ rozdělí sféru na trojúhelníky $\triangle_{ABC} \cong \triangle_{A'B'C'}$, $\triangle_{A'BC} \cong \triangle_{AB'C'}$, $\triangle_{AB'C} \cong \triangle_{A'BC'}$, $\triangle_{ABC'} \cong \triangle_{A'B'C}$ (shodnosti vyplývají ze středové souměrnosti), kde $A' = -A$, $B' = -B$ a $C' = -C$.
+
+        Dále si všimneme, že $\triangle_{ABC}$ a $\triangle_{A'BC}$ dohromady tvoří plochu mezi „poledníky“ $ABA'$ a $ACA'$, která má obsah $\frac{\alpha}{2\pi}$ obsahu sféry, jelikož sféra vznikne rotace polokružnice o $2\pi$, kdežto tato plocha vznikne rotací jen o $\gamma$, protože rotace kolem $AA'$ o $\gamma$ zobrazí tečnu $AB$ na tečnu $AC$, tedy zobrazí $ABA'$ na $ACA'$. Symetricky $S(\triangle_{ABC}) + S(\triangle_{AB'C}) = \beta$ a $S(\triangle_{ABC}) + S(\triangle_{ABC'}) = \gamma$. A symetricky i prohozené „čárkované“ a „nečárkované“ vrcholy.
+
+        Takto jsme dostali 6 ploch mezi „poledníky“, které nám dohromady pokryjí sféru, v trojúhelnících s 1 nebo 2 čárkovanými jenom jednou, v trojúhelnících $\triangle_{ABC}$ a $\triangle_{A'B'C'}$ dokonce trojnásobně. Tedy když sečteme obsahy všech těchto ploch a odečteme obsah sféry, dostaneme 2 krát součet obsahů těchto trojúhelníků, tedy $4S(\triangle_{ABC})$. Tedy už stačí jen vydělit 4:
+        $$ S(\triangle_{ABC}) = \frac{S·\frac{\alpha}{2\pi} + S·\frac{\beta}{2\pi} + S·\frac{\gamma}{2\pi} + S·\frac{\alpha}{2\pi} + S·\frac{\beta}{2\pi} + S·\frac{\gamma}{2\pi} - S}{4} = $$
+        $$ \frac{S}{4·2\pi}·(2(\alpha + \beta + \gamma) - 2\pi) = \frac{S}{4\pi}·(\alpha + \beta + \gamma - \pi). $$
+        Např. z Archimédovy věty pak víme, že $S = 4\pi$, tedy zlomek je 1 a dostáváme přesně chtěný výraz.
+    \end{dukazin}
+\end{priklad}
+
+\pagebreak
+
+\begin{priklad}[4.2]
+    Ukažte, že pro libovolné vektory $¦x, ¦y, ¦u, ¦v \in ®R^3$ platí rovnost
+    $$ (¦x \times ¦y)·(¦u \times ¦v) = \det \begin{pmatrix} ¦x·¦u & ¦x·v \\ ¦y·¦u & ¦y·¦v \end{pmatrix}. $$
+
+    \begin{dukazin}
+        Determinant je lineární v každém sloupci / řádku matice a skalární součin je bilineární zobrazení, tedy tento je lineární vůči $¦x, ¦y$ (řádky) a $¦u, ¦v$ (sloupce). Stejně tak skalární i vektorový součin jsou bilineární, tedy levá strana rovnice je také lineární vůči všem vektorům, tedy nám tvrzení stačí ověřit pro kanonickou bázi $®R^3$: $¦e_1, ¦e_2, ¦e_3$.
+
+        Pokud $¦x = ¦y$, resp. $¦u = ¦v$, tak vektorový součin $¦x \times ¦y$, resp. $¦u \times ¦v$, je nulový a matice vpravo má shodné řádky, resp. sloupce, tedy je singulární, tj. má determinant 0.
+
+        Pokud vlevo budou vektorové součiny různých dvojic vektorů, pak jejich výsledek budou jiné $±1$ krát bázové vektory, tedy jejich skalární součin bude 0. Stejně tak vpravo, BÚNO $¦x ≠ ¦u$, $¦x ≠ ¦v$, bude mít matice první řádek nulový, tj. bude singulární a determinant bude 1.
+
+        Jestliže prohodíme ¦x a ¦y (resp. ¦u a ¦v), tak se vlevo změní znaménko příslušného vektorového součinu, tedy i celého skalárního součinu a vpravo se prohodí řádky (resp. sloupce), tedy determinant také změní znaménko. Proto nám zbývá dokázat, že věta platí pro $¦x = ¦u = ¦e_i$, $¦y = ¦v = ¦e_j$, $i ≠ j$. Vlevo potom dostáváme skalární součin $(±¦e_k)·(±¦e_k) = 1$ a vpravo je jednotková matice, která má determinant také 1.
+    \end{dukazin}
+\end{priklad}
+
+\pagebreak
+
+\begin{priklad}[4.3]
+    Ukažte, že ve sférické geometrii platí pro sférický trojúhelník vztah
+    $$ \cos c = \cos a \cos b + \sin a \sin b \cos \gamma, $$
+    kde $a, b, c$ jsou délky stran trojúhelníka a $\gamma$ je úhel v trojúhelníku proti straně $c$.
+
+    Jaký tvar má Pythagorova věta ve sférickém trojúhelníku?
+
+    \begin{dukazin}
+        Označme $A$, $B$, $C$ vektory $OA$, $OB$, $OC$ a $N_1$, $N_2$, $N_3$ jednotkové normály k rovinám $OBC$, $OAC$, $OAB$ směřující ven z tělesa $OABC$. Nejprve ukážeme, že $C \times B = N_1 · \sin a$. Zřejmě $a$ je úhel svíraný vektory $B$ a $C$ (tak je mimo jiné definován radián) a $N_1$ má směr $C \times B$, tedy vztah platí (pokud nevíme, že vektorový součin je velikosti sinu úhlu sevřeného danými vektory krát jejich velikost, tak si můžeme BÚNO rotovat $C$, $B$ tak, aby měli souřadnice $(1, 0, 0)$ a $(\cos a, \sin a, 0)$ a vynásobit na $(0, 0, \sin a)$). Symetricky $A \times C = N_2·\sin b$.
+
+        Následně si můžeme všimnout, že úhel svíraný normálami (ležícími v jedné rovině) rovin je $\frac{\pi}{2}\ -$ „protější“ (ležící v opačných polorovinách) úhel svíraný těmito rovinami, což je například dobře vidět na řezu rovinou danou těmito normálami. Tedy normály $N_1$ a $N_2$ svírají $\frac{\pi}{2}\ -$ úhel mezi $OBC$ a $OAC$, který je roven $\gamma$, jelikož tečny k $a$ a $b$ leží v těchto rovinách a zároveň leží obě v rovině kolmé na $OAC$ a $OBC$, tedy úhel mezi tečnami je roven úhlu mezi rovinami.
+
+        To nám dává $N_1·N_2 = \cos\(\frac{\pi}{2} - \gamma\) = - \cos \gamma$, jelikož skalární součin je zase velikost vektorů krát kosinus mezi nimi (zase víme, nebo odvodíme z rotace). Ze stejného důvodu je $C·C = 1$, $B·A = \cos c$, $A·C = \cos b$ a $B·C = \cos a$. Použijeme předchozí příklad (rozepíšeme determinant):
+        $$ (C \times B)·(A \times C) = (A·C)(B·C) - (C·C)(B·A), $$ 
+        $$ (N_1·\sin a)·(N_2·\sin b) = (\cos b)(\cos a) - 1(\cos c), $$ 
+        $$ \cos a \cos b = - (N_1·N_2)\sin a · \sin b + \cos c, $$
+        $$ \cos a \cos b = \cos \gamma \sin a · \sin b + \cos c. $$
+
+        Pythagorova věta (dosadíme $\gamma = \pi/2$) pak je
+        $$ \cos a \cos b = \cos c. $$ 
+    \end{dukazin}
+\end{priklad}
+
+\end{document}

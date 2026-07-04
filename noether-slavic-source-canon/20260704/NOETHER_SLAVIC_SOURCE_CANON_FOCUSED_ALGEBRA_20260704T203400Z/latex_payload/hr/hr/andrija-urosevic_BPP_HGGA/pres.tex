@@ -1,0 +1,393 @@
+%-----------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%-----------------------------------------------------------------------------
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimplePlus}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[serbian]{babel}
+\usepackage{pgfplots}
+
+
+%-----------------------------------------------------------------------------
+%	TITLE PAGE
+%-----------------------------------------------------------------------------
+
+\title[short title]{Genetski algoritam za minimalno pakovanje}
+\subtitle{Hibridni genetski algoritam grupa za problem jednodimenzionog minimalno pokovanje}
+
+\author[andrija] {Andrija Urošević}
+
+\institute[matf]
+{%
+    Univerzitet u Beogradu\\
+    Matematički fakultet
+}
+\date{Septembar, 2022.}
+
+
+%-----------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%-----------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+    \titlepage%
+\end{frame}
+
+\begin{frame}{Pregled}
+    \tableofcontents
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\section{Uvod --- Problem minimalnog pakovanja}
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Problem minimalnog pakovanja}
+    \begin{block}{Definicija}
+        Neka je dat konačan skup elemenata $I$, neka svaki element $i \in I$ 
+        ima veličinu $s(i)$, i neka je dat kapacitet 
+        kontejnera $B$. Treba naći particiju $\{I_1, I_2, \ldots, I_k\}$ skupa 
+        elemenata $I$, tako da je $\sum_{i \in I_k} s(i) \leq B$ i broj 
+        kontejnera $k$ najmanji moguć.
+    \end{block}
+    \begin{exampleblock}{NP-težak}
+        Problem minimalnog pakovanja je NP-težak.
+    \end{exampleblock}
+    \begin{block}{Problem odlučivanja}
+        Da li za broj kontejnera $k$ postoji particija 
+        $\{I_1, I_2, \ldots, I_k\}$ skupa elemenata $I$, 
+        tako da $\sum_{i \in I_k} s(i) \leq B$?
+    \end{block}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}[t]{Jednodimenzioni problem minimalnog pakovanja}
+    \begin{block}{Ograničenja jednodimenzione varijante problema}
+        Veličine elemenata $s(i) \in \mathbb{Z}^{+}$ i
+        kapacitet kontejnera $B \in \mathbb{Z}^{+}$.
+    \end{block}
+    \begin{block}{$OPT(I)$}
+        Optimalan vrednost broj kontejnera $k$ za dati skup elemenata $I$, 
+        obeležavamo i sa $OPT(I)$.
+    \end{block}
+    \begin{exampleblock}{Najbolje polinomijalne aproksimacije}
+        \begin{enumerate}
+            \item [FFD:] $\frac{3}{2} OPT(I)$
+            \item [MFFD:] $\frac{71}{60} OPT(I)$ (1995)
+            \item [KK:] $OPT(I) + O(\log^2 (OPT(I)))$ (1982)
+            \item [HB:] $OPT(I) + O(\log(OPT(I))\log\log(OPT(I)))$ (2013)
+            \item [HB:] $OPT(I) + O(\log(OPT(I)))$ (2017)
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Pregled}
+    \tableofcontents
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\section{Genetski algoritam za minimalno pakovanje}
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Naivni pristup}
+    \begin{block}{Naivni hromozom}
+        Hromozom kod naivnog pristupa podrazumeva listu dužine $\|I\|$, 
+        gde je $i$-ti element u listi kontejner u koji pakujemo 
+        element $i \in I$.
+    \end{block}
+    \begin{exampleblock}{Primer i dedudandnost}
+        \[
+            \begin{aligned}
+                ABCCAC \\
+                CBAACA
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Permutacije}
+    \begin{block}{Hromozom kao permutacija}
+        Hromozom predstavlja permutaciju elemenata tako da se pakovenje 
+        dobija dekodiranjem te permutacije. Mehanizam dekodiranja predstavlja 
+        dodavanje elemenata u kontejner sve dok je to moguće, ukoliko nije 
+        otvara se novi kontejner.
+    \end{block}
+    \begin{exampleblock}{Primer i redudandnost}
+        \[
+            \begin{aligned}
+                0123|45678|9 \\
+                3210|45678|9
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Grupe}
+    \begin{block}{Hromozom: lista grupa}
+        Reprezentacija hromozoma predstavlja listu grupa elemenata, 
+        tj.\ listu kontejnera nekog dopustivog pakovanja.
+    \end{block}
+    \begin{exampleblock}{Primer}
+        \[
+            \begin{aligned}
+                A=\{0, 4\}\ B=\{1\}\ C=\{2, 3, 5\} \\
+                \{0, 4\}\ \{1\}\ \{2, 3, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator ukrštanja}
+    \begin{exampleblock}{Primer roditelja}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ \{1\}\ \{2, 3, 5\} \\
+                \{1\}\ \{3\}\ \{2\}\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator ukrštanja}
+    \begin{exampleblock}{Primer roditelja}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ \{1\}\ \{2, 3, 5\} \\
+                \{1\}\ \{3\}\ \{2\}\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza I:\ Segmentacija}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ |\ \{1\}\ |\ \{2, 3, 5\} \\
+                \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator ukrštanja}
+    \begin{exampleblock}{Primer roditelja}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ \{1\}\ \{2, 3, 5\} \\
+                \{1\}\ \{3\}\ \{2\}\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza I:\ Segmentacija}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ |\ \{1\}\ |\ \{2, 3, 5\} \\
+                \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza II:\ Umetanje}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{2, 3, 5\} \\
+                \{1\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator ukrštanja}
+    \begin{exampleblock}{Faza I:\ Segmentacija}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ |\ \{1\}\ |\ \{2, 3, 5\} \\
+                \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza II:\ Umetanje}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{2, 3, 5\} \\
+                \{1\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza III:\ Brisanje duplikata}
+        \[
+            \begin{aligned}
+                \text{izbačeni}= \{ 5\};\ \{0, 4\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\  \\
+                \text{izbačeni}= \{\};\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}  
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator ukrštanja}
+    \begin{exampleblock}{Faza II:\ Umetanje}
+        \[
+            \begin{aligned}
+                \{0, 4\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{2, 3, 5\} \\
+                \{1\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza III:\ Brisanje duplikata}
+        \[
+            \begin{aligned}
+                \text{izbačeni}= \{ 5\};\ \{0, 4\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\  \\
+                \text{izbačeni}= \{\};\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}  
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza IV:\ Heuristika ubacivanja}
+        \[
+            \begin{aligned}
+                \{0, 4, 5\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\  \\
+                |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}  
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator ukrštanja}
+    \begin{exampleblock}{Faza III:\ Brisanje duplikata}
+        \[
+            \begin{aligned}
+                \text{izbačeni}= \{ 5\};\ \{0, 4\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\  \\
+                \text{izbačeni}= \{\};\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}  
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza IV:\ Heuristika ubacivanja}
+        \[
+            \begin{aligned}
+                \{0, 4, 5\}\ |\ \{1\}\ |\ \{3\}\ \{2\}\ |\  \\
+                |\ \{1\}\ |\ \{3\}\ \{2\}\ |\ \{0, 4, 5\}  
+            \end{aligned}
+        \]
+    \end{exampleblock}
+    \begin{exampleblock}{Faza V:\ Naslednici}
+        \[
+            \begin{aligned}
+                \{0, 4, 5\}\ \{1\}\ \{3\}\ \{2\}  \\
+                \{1\}\ \{3\}\ \{2\}\ \{0, 4, 5\}  
+            \end{aligned}
+        \]
+    \end{exampleblock}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Operator mutacije}
+    \begin{block}{Definicija}
+        \begin{enumerate}
+            \item Uništi neke od grupa.
+            \item Primeni fazu IV:\ Heuristika ubacivanja.
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Funkcija prilagođenosti}
+    \begin{block}{Funkcija prilagođenosti}
+        \begin{equation}
+            \text{fitness} = \frac{\sum_{j = 1}^N {(F_j/B)}^k}{N},
+        \end{equation}
+        gde je $N$ broj grupa u hromozomu, $B$ je kapacitet kontejnera, $F_j$
+        je napunjenost kontejnera $j$, i $k > 1$ je predefinisani koeficijent 
+        koji pojačava odnose dobre upakovanosti
+    \end{block}
+    \begin{block}{Napunjenost kontejnera $j$}
+        \begin{equation}
+            F_j = \sum_{i \in I_j} s(i),
+        \end{equation}
+        gde je je $I_j$ skup elemenata iz grupe $j$, a $s(i)$ veličina 
+        elementa $i$.
+    \end{block}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Ostali parametri genetskog algoritma}
+    \begin{itemize}
+        \item verovatnoća mutacije: 0.66
+        \item verovatnoča ukrštanja: 1.00
+        \item broj jedinki ukrštanja: 2
+        \item broj naslednika: 2
+        \item tip zamene: roditelje menjaju naslednici
+        \item veličina populacije: 100
+        \item sortirana populacija: da
+        \item kriterijum sortiranja: maksimizacija funkcije prilagođenosti
+        \item broj selekcija: $2 \times 50$
+        \item tip selekcije: turnirksa
+        \item broj turnira: 5
+        \item broj iteracija: 50
+        \item kriterijum zaustavljanja: broj iteracija
+    \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Pregled}
+    \tableofcontents
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\section{Rezultati i Zaključajk}
+%-----------------------------------------------------------------------------
+
+\begin{frame}
+    \Huge{\centerline{\textbf{Rezultati}}}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}{Zaključak i dalji rad}
+    \begin{block}{Zaključak}
+        \begin{itemize}
+            \item Vremenski efikasno rešava čak i teške instance.
+            \item Na nekim instancama rešenje je daleko od optimuma.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Dalji rad}
+        \begin{itemize}
+            \item Probati razne heuristike u fazi IV.\
+            \item Probati razne parametre genetskog algoritma.
+        \end{itemize}
+        
+    \end{block}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\begin{frame}
+    \Huge{\centerline{\textbf{Pitanja?}}}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+
+\end{document}
