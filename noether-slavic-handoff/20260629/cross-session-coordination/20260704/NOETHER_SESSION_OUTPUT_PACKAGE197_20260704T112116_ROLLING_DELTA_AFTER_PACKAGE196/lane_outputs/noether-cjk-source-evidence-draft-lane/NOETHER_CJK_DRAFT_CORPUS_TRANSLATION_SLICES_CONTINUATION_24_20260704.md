@@ -1,0 +1,173 @@
+# Noether CJK Draft Corpus Translation Slices: Continuation 24
+
+Generated UTC: `2026-07-04T09:21:05.353106+00:00`
+
+Status: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+Draft/non-canonical sidecar only. Not native reviewed. Not approved. Not gate-promoted.
+
+Baseline: `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\tmp\zenodo_20836874_inspect\localcodex\Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624\tex\cum_de_R124plus_localcodex_current_candidate_20260624.tex`
+
+Baseline SHA256: `C0ACCB2D4EB98F54B41BC3977DFA0CB57A349C74B7B35E06453343D15ACAB4ED`
+
+## Review Boundaries
+
+- `native_review_status`: `not_native_reviewed`
+- `canonical_approval_status`: `not_approved`
+- `gate_promotion_status`: `not_gate_promoted`
+- `reviewer_packet_population_performed`: `False`
+- `git_push_performed`: `False`
+- `korean_corpus_prose_added`: `False`
+
+## Retained Blockers
+
+- tensor product: no German Tensorprodukt anchor in 22159-22283; no otimes hit in this continuation
+- localization: Quotientenring candidates remain 16223-16225, 18467, 20105, 20228, 20240, 20284, 20949, 20953, and 21009, plus Quotientenkörper at 20822; no direct Lokalisierung label in 22159-22283
+- Harish-Chandra: no German corpus anchor
+- abstract algebra: no direct abstract-algebra anchor in §21 lines 22159-22283
+- modern algebra: Moderne Algebra remains bibliographic only; no modern-algebra anchor in this continuation
+- group algebra: no new group-algebra evidence; §21 concerns Galois theory of noncommutative fields
+
+## cjk-continuation-24-001-main-theorem-closed-subgroups-invariant-correspondence
+
+Anchor: German baseline lines `22159-22215`; §21 Galois theory of noncommutative fields: main theorem setup.
+
+Source summary: Defines the Galois group of the noncommutative field relative to its center as isomorphic to R*/P*, defines closed subgroups, states the main theorem pairing closed subgroups with intermediate fields by invariant group and invariant field, and reduces the proof to the second sub-claim.
+
+Japanese title: 非可換体の Galois 理論と閉部分群
+
+§21 は、中心 \(P\) に関する非可換体 \(\mathfrak R\) の Galois 理論を始める。定理 8 により、Galois 群 \(G\) は \(\mathfrak R^*/P^*\) と同型であり、この同型を固定して考える。
+
+\(G\) の部分群 \(H\) は、同型を通じて対応する \(\mathfrak R^*\) の部分群に \(0\) を付け加えたものが再び体になるとき、閉部分群と呼ばれる。
+
+主定理は、\(G\) の閉部分群 \(H\) と、\(P\) と \(\mathfrak R\) の間にある体 \(\mathfrak S\) とが一対一に対応する、というものである。対応する場合、\(H\) は \(\mathfrak S\) の不変群であり、\(\mathfrak S\) は \(H\) の不変体である。
+
+証明は三つの部分命題へ分けられる。第一に、ある体の不変群は閉じている。第二に、体 \(\mathfrak S\) が不変群 \(H\) を持つなら、\(\mathfrak S\) は \(H\) の不変体である。第三に、\(H\) が不変体 \(\mathfrak S\) を持つなら、\(H\) は \(\mathfrak S\) の不変群である。第三命題は第二命題へ帰着され、残る核心は第二命題の証明になる。
+
+Simplified Chinese title: 非交换除环的 Galois 理论与闭子群
+
+§21 开始建立以中心 \(P\) 为基准的非交换除环 \(\mathfrak R\) 的 Galois 理论。由定理 8，Galois 群 \(G\) 与 \(\mathfrak R^*/P^*\) 同构，并在下文固定这个同构。
+
+若 \(G\) 的子群 \(H\) 经该同构对应到 \(\mathfrak R^*\) 的某个子群，而给这个子群添上 \(0\) 后又成为一个除环，则称 \(H\) 为闭子群。
+
+主定理断言，\(G\) 的闭子群 \(H\) 与介于 \(P\) 和 \(\mathfrak R\) 之间的除环 \(\mathfrak S\) 一一对应。对应时，\(H\) 是 \(\mathfrak S\) 的不变群，\(\mathfrak S\) 是 \(H\) 的不变域。
+
+证明被分成三个部分命题。第一，某个除环的不变群是闭的。第二，若除环 \(\mathfrak S\) 有不变群 \(H\)，则 \(\mathfrak S\) 是 \(H\) 的不变域。第三，若 \(H\) 有不变域 \(\mathfrak S\)，则 \(H\) 是 \(\mathfrak S\) 的不变群。第三命题被归结为第二命题，因此剩下的核心是证明第二命题。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(G\simeq\mathfrak R^*/P^*\), closed subgroup, invariant group, and invariant field terminology.
+- Abgeschlossen is 閉部分群 / 闭子群 in this draft; do not read it as topological closure.
+- Lines 22161-22215 contain OCR substitutions for ring letters (`$`, `©`, `9`, `§`); draft prose normalizes to \\mathfrak R, \\mathfrak S, and related theorem symbols only as contextual reconstruction.
+
+Unresolved flags:
+
+- Closed-subgroup terminology needs native/domain review.
+- Symbol reconstruction in lines 22161-22215 needs source-image verification before canonical use.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-24-002-reciprocal-field-extension-lemma-setup
+
+Anchor: German baseline lines `22217-22245`; §21 reciprocal field and extension lemma setup.
+
+Source summary: After noting that the proof follows the commutative case with small changes, constructs a reciprocal-isomorphic field K and states an extension lemma: reciprocal isomorphisms of S into K extend to reciprocal isomorphisms of T in at least as many ways as [T:S]. The K-extension S_K decomposes into simple left ideals.
+
+Japanese title: 反同型体と拡張補題の準備
+
+第二命題の証明は、可換の場合とほぼ同じ方針で進む。まず \(\mathfrak R\) と反同型な体 \(K\) を作り、その中心を \(P\) と同一視する。すると、\(\mathfrak R\) の自己同型のかわりに、中間体から \(K\) への反同型写像を考えればよい。
+
+ここで \(P\subseteq\mathfrak S\subseteq\mathfrak T\subseteq\mathfrak R\) とする。主張する補題は、\(\mathfrak S\) から \(K\) の部分体への任意の反同型、つまり \(K\) における \(\mathfrak S\) の一次の反表現が、\(\mathfrak T\) へ少なくとも \([\mathfrak T:\mathfrak S]=s\) 通りに拡張できる、というものである。
+
+\(P,\mathfrak S,\mathfrak T,\mathfrak R\) を \(K\) で拡大する。各拡大環は両側単純かつ完全可約であり、\(\mathfrak S_K\) は、互いに作用素同型な単純左イデアルの和として \(\mathfrak S_K=KE_1+\cdots+KE_p\) と分解される。これらの左イデアルは、\(K\) における唯一の既約表現類の表現加群であり、ここでは次数 \(1\) を持つ。
+
+Simplified Chinese title: 反同构域与延拓补题的准备
+
+第二命题的证明与交换情形几乎相同。先构造一个与 \(\mathfrak R\) 反同构的除环 \(K\)，并把它的中心同 \(P\) 识别起来。这样，代替 \(\mathfrak R\) 的自同构，可以考察从中间除环到 \(K\) 的反同构。
+
+设 \(P\subseteq\mathfrak S\subseteq\mathfrak T\subseteq\mathfrak R\)。要证明的补题说，\(\mathfrak S\) 到 \(K\) 的一个子除环的任意反同构，也就是 \(\mathfrak S\) 在 \(K\) 中的一次反表示，至少可以用 \([\mathfrak T:\mathfrak S]=s\) 种方式延拓为 \(\mathfrak T\) 的反同构。
+
+把 \(P,\mathfrak S,\mathfrak T,\mathfrak R\) 都用 \(K\) 扩张。每个扩张环都是双侧单且完全可约的，而 \(\mathfrak S_K\) 分解为彼此算子同构的单左理想之和：\(\mathfrak S_K=KE_1+\cdots+KE_p\)。这些左理想是 \(K\) 中唯一不可约表示类的表示模，在这里次数为 \(1\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(P\subseteq\mathfrak S\subseteq\mathfrak T\subseteq\mathfrak R\), \(\mathfrak S_K=KE_1+\cdots+KE_p\), and \(KE_\nu=\mathfrak S_KE_\nu\).
+- Fortsetzungssatz is 拡張定理 / 延拓定理 in this draft.
+- Lines 22231-22243 show OCR substitutions (`©`, `7`, `Gx`, `Sin K`, `Kin K`); draft normalizes only the mathematical roles and flags the source.
+
+Unresolved flags:
+
+- Reziproker Isomorphismus terminology needs native/domain review.
+- The line 22233 containment formula prints \mathfrak X where context indicates \mathfrak T; requires source-image review.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-24-003-decomposition-of-tk-and-extension-count
+
+Anchor: German baseline lines `22247-22271`; §21 T_K decomposition and extension representations.
+
+Source summary: Decomposes T_K through the idempotent summands E_nu, uses rank equations to show each T_K E_nu splits into s simple ideals, and proves that the representations supplied by K e_i^(nu) extend the representation supplied by K E_nu.
+
+Japanese title: \(\mathfrak T_K\) の分解と拡張表現の数
+
+つぎに \(\mathfrak T_K\) を、\(\mathfrak S_K\) の分解に対応させて調べる。式は \(\mathfrak T_K=\mathfrak T\cdot K=\mathfrak T\cdot\mathfrak S_K\) から始まり、\(\mathfrak T_KE_1+\cdots+\mathfrak T_KE_p\) という和へ展開される。
+
+各イデアル \(\mathfrak T_KE_\nu\) は単純イデアルへ分解する。ランク比較により \([\mathfrak T_KE_\nu:K]\le[\mathfrak T_K:\mathfrak S_K]=[\mathfrak T:\mathfrak S]=s\) であり、全体のランク和が \(sp\) になるため、実際に \([\mathfrak T_KE_\nu:K]=s\) が得られる。
+
+したがって \(\mathfrak T_KE_\nu\) は \(s\) 個の単純成分 \(Ke_i^{(\nu)}\) に分かれる。各 \(Ke_i^{(\nu)}\) から得られる \(\mathfrak T\) の表現は、\(KE_\nu\) から得られる \(\mathfrak S\) の表現を拡張している。実際、\(\alpha\in\mathfrak S\) について \(\alpha E_\nu=\sigma E_\nu\) なら、対応する各成分で \(\alpha e_i^{(\nu)}=\sigma e_i^{(\nu)}\) が成り立つ。
+
+Simplified Chinese title: \(\mathfrak T_K\) 的分解与延拓表示数
+
+接下来按照 \(\mathfrak S_K\) 的分解来考察 \(\mathfrak T_K\)。等式从 \(\mathfrak T_K=\mathfrak T\cdot K=\mathfrak T\cdot\mathfrak S_K\) 开始，并展开成 \(\mathfrak T_KE_1+\cdots+\mathfrak T_KE_p\) 的和。
+
+每个理想 \(\mathfrak T_KE_\nu\) 都分解为单理想。由秩比较，有 \([\mathfrak T_KE_\nu:K]\le[\mathfrak T_K:\mathfrak S_K]=[\mathfrak T:\mathfrak S]=s\)，而总秩和为 \(sp\)，所以事实上 \([\mathfrak T_KE_\nu:K]=s\)。
+
+因此 \(\mathfrak T_KE_\nu\) 分成 \(s\) 个单分量 \(Ke_i^{(\nu)}\)。由每个 \(Ke_i^{(\nu)}\) 给出的 \(\mathfrak T\) 的表示，都是由 \(KE_\nu\) 给出的 \(\mathfrak S\) 的表示的延拓。确实，若 \(\alpha\in\mathfrak S\) 且 \(\alpha E_\nu=\sigma E_\nu\)，则在每个相应分量上有 \(\alpha e_i^{(\nu)}=\sigma e_i^{(\nu)}\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(\mathfrak T_K=\mathfrak T\cdot K=\mathfrak T\cdot\mathfrak S_K\), \([\mathfrak T_KE_\nu:K]=s\), and \(\alpha e_i^{(\nu)}=\sigma e_i^{(\nu)}\).
+- Line 22263 appears to repeat \(e_s^{(\nu)}\); draft treats it as the intended list of \(s\) simple components and flags the OCR issue.
+- All formulas remain TeX-bearing; no attempt is made to canonicalize the damaged index typography.
+
+Unresolved flags:
+
+- Line 22263 simple-component notation needs source-image review.
+- Rank-comparison prose remains draft pending domain review.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-24-004-distinct-extensions-and-proof-of-invariant-field-claim
+
+Anchor: German baseline lines `22273-22283`; §21 distinct extension representations and conclusion.
+
+Source summary: Shows that the representations supplied by the K e_i^(nu) are distinct by evaluating idempotents as 1 or 0 in different representation modules, then concludes the proof: if H is the invariant group of S and T the invariant field of H, the extension lemma gives at least s distinct extensions, forcing s=1 and T=S.
+
+Japanese title: 拡張の相異性と不変体命題の結論
+
+最後に、\(Ke_i^{(\nu)}\) から得られる表現がすべて相異なることを示す。可換の場合には表現類が違うため明らかだったが、ここでは同じ表現類に属するので、表現そのものを調べる必要がある。
+
+全体 \(\mathfrak T_K\) の \(K\)-準同型像は、基底元がどう表されるかで決まる。そこで冪等元 \(e_i^{(\nu)}\) を、ある表現加群で見ると \(e_i^{(\nu)2}=e_i^{(\nu)}\) により表す元は \(1\) になり、別の成分で見ると積が \(0\) になるため表す元は \(0\) になる。従って二つの表現は実際に異なる。
+
+これで補題が証明される。\(H\) を \(\mathfrak S\) の不変群、\(\mathfrak T\) を \(H\) の不変体とすると、\(H\) の元は \(\mathfrak S\) 上の恒等自己同型を \(\mathfrak R\) 全体へ延長したものに当たる。補題により \(\mathfrak T\) に対して少なくとも \(s\) 個の異なる延長が存在するので、\(s=1\)、従って \(\mathfrak T=\mathfrak S\) でなければならない。
+
+Simplified Chinese title: 延拓的相异性与不变域命题的结论
+
+最后需要证明，由 \(Ke_i^{(\nu)}\) 给出的表示彼此不同。在交换情形中，由于它们属于不同表示类，这一点显然；这里它们反而都属于同一个表示类，所以必须直接考察表示本身。
+
+整个 \(\mathfrak T_K\) 的 \(K\)-同态像由基元素怎样表示所决定。于是考察幂等元 \(e_i^{(\nu)}\)：在一个表示模中，由 \(e_i^{(\nu)2}=e_i^{(\nu)}\) 得到表示元素为 \(1\)；而在另一个分量中，相应乘积为 \(0\)，表示元素为 \(0\)。因此两个表示确实不同。
+
+这就证明了补题。令 \(H\) 为 \(\mathfrak S\) 的不变群，\(\mathfrak T\) 为 \(H\) 的不变域，则 \(H\) 的元素都是把 \(\mathfrak S\) 上恒等自同构延拓到整个 \(\mathfrak R\) 的自同构。由刚证的补题，对 \(\mathfrak T\) 至少有 \(s\) 个不同延拓；所以只能有 \(s=1\)，从而 \(\mathfrak T=\mathfrak S\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(e_i^{(\nu)2}=e_i^{(\nu)}\), the zero-product comparison, and \(s=1,\mathfrak T=\mathfrak S\).
+- Line 22279 prints \(e_i^{(v)}e_i^{(v)}=0\), likely an OCR/index issue; draft records it as a component-separation argument.
+- This completes §21 before Chapter V begins at line 22285.
+
+Unresolved flags:
+
+- Idempotent comparison indices at 22273-22281 need source-image review.
+- Invariant-field conclusion should receive domain review before any reviewer packet.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
