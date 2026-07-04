@@ -1,0 +1,241 @@
+# Noether CJK Draft Corpus Translation Slices: Continuation 19
+
+Generated UTC: `2026-07-04T08:46:51.687438+00:00`
+
+Status: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+Draft/non-canonical sidecar only. Not native reviewed. Not approved. Not gate-promoted.
+
+Baseline: `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\tmp\zenodo_20836874_inspect\localcodex\Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624\tex\cum_de_R124plus_localcodex_current_candidate_20260624.tex`
+
+Baseline SHA256: `C0ACCB2D4EB98F54B41BC3977DFA0CB57A349C74B7B35E06453343D15ACAB4ED`
+
+## Review Boundaries
+
+- `native_review_status`: `not_native_reviewed`
+- `canonical_approval_status`: `not_approved`
+- `gate_promotion_status`: `not_gate_promoted`
+- `reviewer_packet_population_performed`: `False`
+- `git_push_performed`: `False`
+- `korean_corpus_prose_added`: `False`
+
+## Retained Blockers
+
+- tensor product: no German Tensorprodukt anchor; direct/reciprocal representation material is non-anchor evidence
+- localization: Quotientenring candidates remain 16223-16225, 18467, 20105, 20228, 20240, 20284, 20949, 20953, and 21009, plus Quotientenkörper at 20822; no direct Lokalisierung label in 21032-21276
+- Harish-Chandra: no German corpus anchor
+- abstract algebra: no direct abstract-algebra anchor in the Deuring lecture opening or Chapter I §§1-4
+- modern algebra: Moderne Algebra remains bibliographic only; no modern-algebra anchor in this continuation
+
+## cjk-continuation-19-001-deuring-lecture-title-toc-and-introduction
+
+Anchor: German baseline lines `21032-21104`; Algebra der hyperkomplexen Größen, title, contents, and introduction.
+
+Source summary: Introduces the 1929/30 Noether lecture worked out by Deuring, its table of contents, and the motivation for ring representation theory via group rings, hypercomplex systems, and arbitrary rings.
+
+Japanese title: 超複素量の代数：導入
+
+この単元は、Deuring が整理した Noether の 1929/30 年冬学期講義『超複素量の代数』として始まる。目次は、表現、可換体の Galois 理論、Abel 群、両側単純環、因子系、交差積の理論へ進む構成を示している。
+
+導入では、有限群の表現論と、超複素数体系の代数的・算術的理論から、環の一般表現論が生じたと説明される。Frobenius や Schur の従来の扱いに比べ、群そのものではなく群環、さらに超複素系や任意の環を対象にする点が利点とされる。
+
+この観点では、環論とイデアル論を使うことで計算を整理し、群と部分群の関係などへ理論を広げることができる。さらに、一般表現論から Galois 理論の別証明、および非可換体の Galois 理論が得られると述べられる。
+
+基礎概念と一般定理については Noether の M.Z. 論文と 1927/28 年講義録を補助資料とし、本講義では表現と表現加群、とくに形式的には新しい反表現加群を短く説明するとされる。
+
+Simplified Chinese title: 超复数量代数：导论
+
+这一单元以 Deuring 整理的 Noether 1929/30 年冬季学期讲义《超复数量代数》开篇。目录显示，它将依次进入表示、交换域的 Galois 理论、Abel 群、双侧单环、因子系统以及交叉积理论。
+
+导论说明，环的一般表示论来自两个方向：有限群表示论，以及超复数系统的代数和算术理论。与 Frobenius 和 Schur 的旧处理相比，这里的优点在于考察的不是群本身，而是群环，进而是超复系统或任意环。
+
+从这一角度，可以使用环论和理想论来整理计算，并把理论推进到群与子群关系等问题。文本还说，一般表示论可给出 Galois 理论的另一种证明，并可建立非交换除环的 Galois 理论。
+
+基本概念和一般定理以 Noether 的 M.Z. 论文以及 1927/28 年讲义为补充；本讲义只简要说明表示和表示模，尤其是形式上带来新内容的反表示模。
+
+Script/codepoint and TeX/PDF notes:
+
+- Lecture title uses 超複素量 / 超复数量, while body keeps prior lane convention 超複素系 / 超复系统 for hypercomplex systems.
+- Group ring remains 群環 / 群环; no group-algebra row closure is inferred.
+- No modern-algebra or abstract-algebra blocker is closed by this lecture title.
+
+Unresolved flags:
+
+- Historical lecture-title rendering needs native/domain review.
+- Group ring/group algebra separation remains active.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-19-002-direct-and-reciprocal-representation-definitions
+
+Anchor: German baseline lines `21106-21135`; Kapitel I §1 direct and reciprocal representation definitions.
+
+Source summary: Defines direct representation as a ring-homomorphic image in a matrix ring, defines reciprocal representation via reversed multiplication, gives the reflected-matrix example, and constructs the reciprocal ring T*.
+
+Japanese title: 直接表現と反表現の定義
+
+第 I 章は、表される環を \(\mathfrak o\)、表現が入る環を \(\mathsf T\) として始まる。直接表現とは、\(\mathfrak o\) が \(\mathsf T\) 上の \(n\) 次行列環の部分環へ環準同型的に写される場合である。
+
+反表現では、\(\mathfrak v\) が \(\mathsf T^*\) 上の \(n\) 次行列環の部分環へ反準同型的に写される。ここで反準同型とは、積の順序を反転させる対応である。可換体上の \(n\) 次行列を転置行列へ送る対応が例として挙げられる。
+
+一般に環 \(T\) から反対同型な環 \(T^*\) を作るには、各 \(T\)-元 \(c\) に記号 \(c^*\) を対応させ、加法を \(c^*+d^*=(c+d)^*\)、乗法を \(c^*d^*=(dc)^*\) と定める。
+
+Simplified Chinese title: 直接表示与反表示的定义
+
+第 I 章先设被表示的环为 \(\mathfrak o\)，表示所在的环为 \(\mathsf T\)。直接表示是指把 \(\mathfrak o\) 环同态地映到 \(\mathsf T\) 上 \(n\) 阶矩阵环的某个子环中。
+
+反表示则把 \(\mathfrak v\) 反同态地映到 \(\mathsf T^*\) 上 \(n\) 阶矩阵环的某个子环中。这里反同态指乘法顺序反转的对应。文本举的例子是，把交换域上的 \(n\) 阶矩阵对应到其转置矩阵。
+
+一般地，可由环 \(T\) 构造与其反同构的环 \(T^*\)：给每个 \(T\)-元素 \(c\) 配一个符号 \(c^*\)，定义加法 \(c^*+d^*=(c+d)^*\)，并定义乘法 \(c^*d^*=(dc)^*\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Reuses 反表現 / 反表示 and 反準同型 / 反同态 from Continuation 09.
+- Preserve \(\mathsf T^*\), \(\mathsf T_n^*\), \(c^*d^*=(dc)^*\), and matrix-ring notation in TeX.
+- The German baseline around line 21119 has duplicated/OCR-damaged wording in the reciprocal-homomorphism sentence; the draft translates the mathematical intent without silently promoting the corrupted phrasing.
+
+Unresolved flags:
+
+- Reciprocal representation and reciprocal homomorphism remain provisional CJK renderings.
+- OCR-damaged line 21119 needs source-image or native/domain review.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-19-003-representation-classes-by-regular-matrix-transform
+
+Anchor: German baseline lines `21136-21146`; §2 representation classes.
+
+Source summary: Defines equivalence of direct and reciprocal representations by transformation with a regular matrix and collects equivalent representations into representation classes.
+
+Japanese title: 正則行列変換による表現類
+
+直接表現 \(\mathbb O\) は、正則行列 \(P\) によって各元を \(P^{-1}CP\) へ移すことで、同型な表現へ変換できる。
+
+このように互いに変換できる二つの表現を同値と呼び、ある表現と同値なすべての表現が一つの表現類をなす。ドイツ語原文では d.D.K. と略されている。
+
+反表現についても同じ定義を用いる。すなわち、一方が他方から正則行列による変換で得られるとき、二つの反表現は同値であり、一つの反表現類を作る。
+
+Simplified Chinese title: 由正则矩阵变换得到的表示类
+
+直接表示 \(\mathbb O\) 可通过正则矩阵 \(P\) 作逐元变换，把每个矩阵 \(C\) 换成 \(P^{-1}CP\)，从而得到同构表示。
+
+能以这种方式相互变换的两个表示称为等价表示；与一个固定表示等价的所有表示组成一个表示类。德文原文把它缩写为 d.D.K.
+
+反表示也用同一定义：若一个反表示可由另一个通过正则矩阵变换得到，则二者等价，并构成一个反表示类。
+
+Script/codepoint and TeX/PDF notes:
+
+- Darstellungsklasse is 表現類 / 表示类.
+- Keep \(P^{-1}CP\), \(\mathbb O\), and abbreviation d.D.K. visible.
+- No tensor-product or localization evidence occurs in this representation-class passage.
+
+Unresolved flags:
+
+- Representation-class abbreviations d.D.K. and r.D.K. require reviewer handling if a canonical glossary is later opened.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-19-004-direct-and-reciprocal-representation-modules
+
+Anchor: German baseline lines `21148-21162`; §3 representation modules.
+
+Source summary: Defines direct representation modules as bimodules with left o- and right T-actions decomposing into finitely many cyclic T-modules, and reciprocal representation modules with a left T* convention and commutation law.
+
+Japanese title: 直接表現加群と反表現加群
+
+直接表現加群 d.D.M. は、\(\mathfrak o\) に関して左加群、\(\mathsf T\) に関して右加群である双加群 \(\mathfrak M\) として定義される。加法的には Abel 群であり、通し結合法則 \((cm)\tau=c(m\tau)\) を満たす。
+
+さらに \(\mathfrak M\) は、有限個の一元生成 \(\mathsf T\)-加群の直和として \(\mathfrak M=x_1\mathsf T+\cdots+x_n\mathsf T\) と書ける。ここでは \(x_i\tau=0\) から \(\tau=0\) が従うという条件も記されている。
+
+反表現加群 r.D.M. では、\(\mathfrak o\) と \(\mathsf T^*\) の双方が左から作用する形を取り、\(c(\tau^*m^*)=\tau^*(cm)\) という交換条件を満たす。さらに、有限個の単純 \(\mathsf T^*\)-加群の直和として書ける。
+
+Simplified Chinese title: 直接表示模与反表示模
+
+直接表示模 d.D.M. 定义为双模 \(\mathfrak M\)：它关于 \(\mathfrak o\) 是左模，关于 \(\mathsf T\) 是右模；作为加法群是 Abel 群，并满足贯通结合律 \((cm)\tau=c(m\tau)\)。
+
+此外，\(\mathfrak M\) 可写成有限多个一元生成 \(\mathsf T\)-模的直和，即 \(\mathfrak M=x_1\mathsf T+\cdots+x_n\mathsf T\)。文本还要求由 \(x_i\tau=0\) 可推出 \(\tau=0\)。
+
+反表示模 r.D.M. 则采用 \(\mathfrak o\) 和 \(\mathsf T^*\) 都从左作用的形式，并满足交换条件 \(c(\tau^*m^*)=\tau^*(cm)\)。它还可写成有限多个单 \(\mathsf T^*\)-模的直和。
+
+Script/codepoint and TeX/PDF notes:
+
+- Darstellungsmodul follows existing 表現加群 / 表示模 register; direct/reciprocal modifiers follow 直接表現/直接表示 and 反表現/反表示.
+- Preserve d.D.M., r.D.M., \((cm)\tau=c(m\tau)\), and \(c(\tau^*m^*)=\tau^*(cm)\).
+- The line 21160 phrase 'einfache T*-Moduln' is rendered as 単純 / 单 modules but remains draft.
+
+Unresolved flags:
+
+- Left-left reciprocal-module convention needs domain review.
+- No simple-module glossary approval is claimed.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-19-005-module-to-representation-class-correspondence
+
+Anchor: German baseline lines `21164-21235`; §4 representation modules generate representation classes.
+
+Source summary: Shows that each representation module yields a unique representation class by representing multiplication by ring elements as T-linear transformations and then as matrices relative to a basis.
+
+Japanese title: 表現加群から表現類へ
+
+各表現加群は、一意的に一つの表現類を与える。直接表現加群 \(\mathfrak M\) では、\(\mathfrak o\)-元 \(c\) による乗法が \(\mathfrak M\) の自己準同型になり、結合法則のため \(\mathsf T\)-元を作用素として許す線形変換になる。
+
+二つの線形変換の和と積を通常通り定めると、\(\mathfrak o\)-元が作る線形変換全体は、\(\mathfrak o\) の環準同型像 \(\overline{\mathfrak D}\) になる。基底 \(x_1,\ldots,x_n\) を選ぶと、\(cx_j=\sum x_i\gamma_{ij}\) によって行列 \(C=(\gamma_{ij})\) が決まり、これが \(n\) 次表現を与える。
+
+基底を替えると行列は \(P^{-1}CP\) に変わるだけである。したがって、\(\mathfrak M\) のすべての基底を用いて実現すると、一つの表現類に属する全表現が得られる。
+
+Simplified Chinese title: 从表示模到表示类
+
+每个表示模都唯一给出一个表示类。对于直接表示模 \(\mathfrak M\)，\(\mathfrak o\)-元素 \(c\) 的乘法给出 \(\mathfrak M\) 的自同态；由于结合律，它是允许 \(\mathsf T\)-元素作为算子的线性变换。
+
+按通常方式定义两个线性变换的和与积后，由 \(\mathfrak o\)-元素生成的全部线性变换形成 \(\mathfrak o\) 的一个环同态像 \(\overline{\mathfrak D}\)。选择基 \(x_1,\ldots,x_n\) 时，由 \(cx_j=\sum x_i\gamma_{ij}\) 决定矩阵 \(C=(\gamma_{ij})\)，从而得到一个 \(n\) 阶表示。
+
+若更换基，矩阵只变为 \(P^{-1}CP\)。因此，把 \(\mathfrak M\) 的所有基都用于实现这些线性变换，就得到同一表示类中的全部表示。
+
+Script/codepoint and TeX/PDF notes:
+
+- Uses 線形変換 / 线性变换 and 環準同型像 / 环同态像 in the existing lane style.
+- Preserve \(cx_j=\sum x_i\gamma_{ij}\), \(c(x_1,\ldots,x_n)=(x_1,\ldots,x_n)C\), and \(P^{-1}CP\) in TeX.
+- Line 21228 has an OCR/source slip `((x, ..., x_n) C)`; the note keeps it as source-quality issue rather than translating the typo literally.
+
+Unresolved flags:
+
+- OCR/source slips around line 21228 need source-image verification.
+- No reviewer approval claimed for representation-class phrasing.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-19-006-representation-class-to-module-and-reciprocal-close
+
+Anchor: German baseline lines `21236-21276`; §4 converse construction and reciprocal case.
+
+Source summary: Constructs a representation module from a given representation class by formal generators and matrix action, then states that the reciprocal case works analogously using column-vector matrices.
+
+Japanese title: 表現類から表現加群へ
+
+逆に、任意の表現類も表現加群によって生じる。具体的な表現 \(c\mapsto C\) が与えられたら、形式的な未定元 \(x_1,\ldots,x_n\) で \(\mathsf T\)-右加群 \(\mathfrak M=x_1\mathsf T+\cdots+x_n\mathsf T\) を作る。
+
+表現の行列 \(C\) を用いて左からの \(\mathfrak o\)-作用を定めると、準同型関係 \(c+d\mapsto C+D\) と \(cd\mapsto CD\) により左加群性が従い、右作用との通し結合法則も成り立つ。したがって \(\mathfrak M\) は表現加群であり、基底 \(x_1,\ldots,x_n\) によって元の表現を再現する。
+
+基底を変えれば同じ表現類の他の表現が得られる。反表現と反表現加群についても同様であり、最後に列ベクトル \((x_1,\ldots,x_n)^T\) による対応式が記されて、この章の最初の対応が閉じられる。
+
+Simplified Chinese title: 从表示类到表示模
+
+反过来，任意表示类也由某个表示模产生。给定一个具体表示 \(c\mapsto C\) 后，用形式未定元 \(x_1,\ldots,x_n\) 构造 \(\mathsf T\)-右模 \(\mathfrak M=x_1\mathsf T+\cdots+x_n\mathsf T\)。
+
+用表示矩阵 \(C\) 定义左侧的 \(\mathfrak o\)-作用后，由同态关系 \(c+d\mapsto C+D\) 和 \(cd\mapsto CD\) 可得左模性质，并且与右作用满足贯通结合律。因此 \(\mathfrak M\) 是表示模，并由基 \(x_1,\ldots,x_n\) 再现原表示。
+
+换用其他基则得到同一表示类中的其他表示。反表示和反表示模的情形完全类似；文本最后用列向量 \((x_1,\ldots,x_n)^T\) 的对应公式结束这一最初的对应关系。
+
+Script/codepoint and TeX/PDF notes:
+
+- Preserve \(c\mapsto C\), \(c+d\mapsto C+D\), \(cd\mapsto CD\), and column-vector notation.
+- The source has OCR substitutions around © / o / v and T*; the draft normalizes only at the level needed for mathematical readability and flags the source issue.
+- Korean remains source-discovery/crosswalk only; no Korean corpus prose is added.
+
+Unresolved flags:
+
+- Formal-generator construction wording needs native/domain review.
+- OCR substitutions in lines 21270-21274 need source-image verification.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
