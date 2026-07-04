@@ -5,6 +5,7 @@ This lane collects interlanguage, Interslavic, Slavic-baseline, and constructed-
 Contents added here:
 
 - `claude_interlingua_program_20260704_full.zip`: Claude local interlingua programme folder from `_claude_aid`, including scripts, data, status, concordance, defect reports, and methodology notes.
+- `claude_interlingua_program_20260704_current_2225.zip`: later same-day full snapshot of the Claude interlingua programme folder after additional corpus-insertion, Cyrillic sync, Sorbian/Macedonian source-anchor, marker-table, ring-review, and ChatGPT-handoff outputs. Treat as generated workflow/research material, not native source certification.
 - `web_noether_pc_interlanguage_interslavic_outputs_20260704.zip`: GitHub archive of the other Codex/Web Noether-PC branch handoff area for interlanguage, Interslavic, Slavic, source-evidence, and language-lane coordination material.
 - `Interlanguage_All_Downloaded_Source_Anchors_20260704.zip`: actual downloaded source/control anchors for the Slavic/interlanguage work, including broad non-Russian/non-Ukrainian Slavic PDF sources and underrepresented Belarusian/Macedonian/Sorbian anchors.
 - `Slavic_Source_Canon_Web_PDF_Witnesses_20260704T194207Z.zip`: upload-sized ZIP of the Slavic source-canon web/PDF witness bodies below.
