@@ -11,4 +11,8 @@ They contain actual LaTeX-like file bodies, not only URLs, ledgers, or checksums
 
 See `LATEX_SOURCE_BODY_BUNDLES_MANIFEST_20260704.csv` for byte counts, SHA256 hashes, entry counts, and source-like counts.
 
-Classification: these are source-reference and language-register feeds. They are not translation completion, native-speaker approval, term approval, source-fidelity certification, or critical-edition material. The Slavic/Interslavic support bundle mixes external Czech/Interslavic source files with generated Noether Russian/Ukrainian/Interslavic support TeX; generated Noether files are internal-consistency aids only, not native-source attestation.
+See `LATEX_SOURCE_BODY_BUNDLES_CONTENT_AUDIT_20260705.csv` for a coarse language/lane audit of source-like entries inside the ZIPs. That audit is intentionally conservative and path/name based; it is meant to prevent overclaiming, not to certify native authority.
+
+Classification: these are source-reference and language-register feeds. They are not translation completion, native-speaker approval, term approval, source-fidelity certification, or critical-edition material. The Slavic/Interslavic support bundle contains substantial generated Noether Russian/Ukrainian/Interslavic support TeX. Those generated Noether files are internal-consistency aids only, not native-source attestation.
+
+Current Slavic caveat: as of the 2026-07-05 content audit, the Slavic source-body ZIP does not contain a strong native TeX corpus for Czech, Polish, Slovak, Slovene, Croatian, Serbian, Bulgarian, Macedonian, Belarusian, or Sorbian. Those languages are represented elsewhere in the sidecar mostly by PDF/HTML witnesses and source-anchor manifests, not by hundreds of actual `.tex` source bodies. Treat non-Russian/non-Ukrainian Slavic native TeX source collection as still open.
