@@ -10,6 +10,7 @@ They contain actual LaTeX-like file bodies, not only URLs, ledgers, or checksums
 - `Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip`: Slavic/Interslavic support source-body feed, 1,194 entries, 1,187 source-like entries.
 - `Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip`: expanded arXiv source tarballs for Slavic/interlanguage computational-linguistics baseline papers, 54 entries, 49 TeX/Bib/Style-like entries.
 - `Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip`: direct gated source-canon upload from the Noether-PC/source-canon branch, 524 TeX-family source bodies, including Spanish mathematical TeX and Slavic-hint source trees.
+- `Interlanguage_LaTeX_SourceBodies_Romance_LiveArxivCandidates_20260705.zip`: five French/Spanish arXiv e-print source packages from the package-360 live verification pass, 22 entries, 10 extracted TeX/Bib/Style-like entries.
 
 See `LATEX_SOURCE_BODY_BUNDLES_MANIFEST_20260704.csv` for byte counts, SHA256 hashes, entry counts, and source-like counts.
 
@@ -22,3 +23,5 @@ Current Slavic caveat: as of the 2026-07-05 content audit, the Slavic source-bod
 The 2026-07-05 Slavic linguistics arXiv bundle is useful for interlanguage/Slavic methodology and source-body style evidence. It should not be used as native mathematical terminology attestation for individual Slavic target languages unless a file is separately inspected and classified as such.
 
 The 2026-07-05 direct gated Slavic/Romance bundle is a stronger feed than the earlier package-350/352 ledgers because it contains actual file bodies. It is still a mixed source-corpus/provenance feed: useful for Pro/Web register extraction and source-style comparison, but not native review, translation completion, accepted terminology, or publication readiness.
+
+The 2026-07-05 Romance live-arXiv candidate bundle closes the immediate package-360 omission gap for five verified French/Spanish e-print source packages. It remains candidate source-body/register evidence only: useful for Web/Pro language-register extraction, but not target-language approval, term promotion, source-license clearance, publication readiness, or a reader surface.
