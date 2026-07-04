@@ -59,6 +59,27 @@ Before each work turn, every Noether session should check:
 Every lane should also compare its own source-canon rows against other lanes so
 that shared evidence, blockers, and gaps are not rediscovered in isolation.
 
+## GitHub Instruction Bus
+
+GitHub is the coordination surface for open machines. Instructions intended for
+other machines, agents, lanes, or future sessions must be committed as
+GitHub-tracked artifacts, such as this file, `.github/copilot-instructions.md`,
+or timestamped records under
+`noether-slavic-handoff/20260629/cross-session-coordination/20260704/`.
+
+Local machine-to-machine conversation directives, desktop heartbeat messages,
+private thread prompts, and local-only control notes are non-authoritative for
+the global Noether research program unless they are also recorded in a
+GitHub-tracked artifact. Do not ask open machines to coordinate by private
+local conversations. Route cross-lane requests, task ordering, blocker returns,
+and involvement requests through GitHub-visible instruction packets, manifests,
+or package records.
+
+Within this repository, newer GitHub-tracked instruction packets and manifests
+supersede older local side-channel coordination notes for Noether operations.
+Keep direct user, safety, credential, source-license, and clean-checkout
+requirements intact.
+
 ## GitHub And Source Acquisition Duties
 
 GitHub is a source-corpus acquisition surface, not just a publication target.
@@ -87,7 +108,7 @@ inside its local goal or run log:
 
 - source-canon acquisition first;
 - exact provenance and license/access records;
-- shared GitHub/source instructions;
+- shared GitHub/source instructions as the open-machine coordination channel;
 - cross-lane evidence checks;
 - no isolated translation work without source witnesses;
 - package/publication through B3 only.

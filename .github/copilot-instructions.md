@@ -25,10 +25,24 @@ if not uploaded.
 ## Shared Context To Read
 
 - `AGENTS.md`
+- `noether-slavic-handoff/20260629/cross-session-coordination/20260704/`
 - `noether-slavic-source-canon/20260704/`
 - `noether-slavic-source-canon/20260704/WEAK_LANGUAGE_SUPPLEMENT_README_20260704.md`
 - the current parent ledger and B3 steward log in the local Noether workspace
   when available.
+
+## Open-Machine Coordination
+
+Use GitHub-tracked instructions as the coordination bus. If an instruction,
+blocker, route order, or cross-lane request is meant for another open machine,
+write it to a committed repo artifact or PR-visible record. Local-only
+machine-to-machine conversations, desktop heartbeats, and private thread notes
+are not authoritative for this repository unless they are also committed or
+otherwise made GitHub-visible.
+
+Do not depend on local machine conversations to order other agents or involve
+other lanes. Publish the task, owner, source-canon prerequisite, safety gate,
+and next action in a GitHub-tracked coordination file or package manifest.
 
 ## Output Discipline
 
