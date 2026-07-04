@@ -42,4 +42,4 @@ Pix2Text produced useful LaTeX from real mathematical pages, including aligned e
 - Promote source-checked TeX/PDF, not screenshots.
 - Keep source scans, crop witnesses, accepted/rejected OCR candidates, and render checks in the source packet.
 - Do not re-run expensive OCR blindly over ranges already known to fail; change the source quality, crop strategy, or tool.
-
+- For page-unit audit harnesses, begin from the best cumulative TeX and source scan, then use OCR as a locator layer only. Record printed-page/PDF-page offsets, drift warnings, source DPI, and superseded OCR branches. A chunk renderer should create high-detail crops on demand, not a giant screenshot dump.

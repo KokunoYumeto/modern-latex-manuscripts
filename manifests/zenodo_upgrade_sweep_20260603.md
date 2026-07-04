@@ -75,8 +75,8 @@ Public Zenodo is behind local/GitHub.
 
 Local GitHub state:
 
-- `reader-pdfs/sga/20 SGA 6 - Complete Strict Source-Checked Edition - English Translation.pdf`
-- `reader-pdfs/sga/21 SGA 6 - Complete Strict Source-Checked Edition - French Reconstruction.pdf`
+- `reader-pdfs/sga/20 SGA 6 - Working English Translation (Compression Caveats).pdf`
+- `reader-pdfs/sga/21 SGA 6 - Working French Reconstruction (Compression Caveats).pdf`
 - `reader-pdfs/sga/39ZB` through `39ZD` final index segment and source-scan witness.
 - `sources/sga/sga6-complete-source-checked-through-page-702-2026-06-02/`
 - `reader-pdfs/sga/53 SGA 7-I - Source-Checked Working Edition through Source Page 236 - English Translation.pdf`

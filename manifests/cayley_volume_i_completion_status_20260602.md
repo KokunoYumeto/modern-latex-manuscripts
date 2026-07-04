@@ -1,18 +1,18 @@
-# Cayley Volume I Completion Status
+# Cayley Volume I Legacy Completion / De-Promotion Status
 
 Generated: 2026-06-02
 
 ## Scope
 
-Arthur Cayley, *Collected Mathematical Papers*, Volume I now has a complete source-checked reader surface in this repository.
+**2026-06-25 accuracy caveat:** this file records the 2026-06-02 assembly state, but later source comparison found substantial symbol/text mismatches in current Cayley Volume I material. The broad Volume I reader should therefore be treated as a legacy assembled draft/provenance surface, not as a maintained complete source-checked edition or critical edition. No Cayley range is currently promoted as source-faithful until a new page-by-page glyph/source audit re-promotes it.
 
 Public reader:
 
-`reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Complete Source-Checked Modern LaTeX Reader.pdf`
+`reader-pdfs/classical/Arthur Cayley - Collected Mathematical Papers, Volume I - Suspect Draft Reader (Not Source-Faithful).pdf`
 
 Source/control packet:
 
-`sources/classical/cayley-volume-i-complete-source-checked-reader-2026-06-02/`
+`sources/classical/cayley-volume-i-suspect-draft-reader-2026-06-02/`
 
 ## What Changed
 
@@ -25,7 +25,7 @@ The previous public Volume I slice reader omitted six known ranges:
 - 438-450
 - 501-525
 
-The 2026-06-02 repair pass supplied source-checked TeX/PDF gap fills for all six ranges. The public Volume I reader was rebuilt by concatenating the older validated Volume I slice PDFs with these six repaired slices.
+The 2026-06-02 repair pass supplied TeX/PDF gap fills for all six ranges. Later audit supersedes the then-current source-checked language: these slices must be re-compared against the source before being cited as faithful transcription.
 
 ## Current Counts
 
@@ -37,13 +37,12 @@ The 2026-06-02 repair pass supplied source-checked TeX/PDF gap fills for all six
 
 ## Quality Policy
 
-This reader promotes source-checked TeX/PDF slices only.
+This historical note described the intended promotion policy for the 2026-06-02 assembly. Later audit supersedes the broad claim: readers must verify mathematical details against the source witnesses, and no Cayley tranche should be treated as source-inspected or source-faithful until it is explicitly re-promoted by a new page-by-page glyph/source audit.
 
 No screenshots, facsimile placeholders, or scan-image substitutes are promoted as repaired mathematical text. Source scans and page images remain provenance/checking material.
 
 ## Caveats
 
-This status applies to Volume I only. The broader Cayley corpus still has mixed states by volume: some volume-level readers are strong repaired-slice surfaces, while broad cumulative drafts and older Claude-generated masters remain continuation/provenance material rather than certified final editions.
+This legacy status applies to the 2026-06-02 Volume I assembly only and is superseded by later Cayley public-record warnings. The broader Cayley corpus still has mixed states by volume: volume-level readers may be useful repair surfaces, while broad cumulative drafts and older generated masters remain continuation/provenance material rather than certified final editions.
 
 The next Cayley work should repeat this pattern volume by volume: inventory known gaps, fill them with source-checked TeX, rebuild the reader from verified slices, and only then update the public-facing claim.
-

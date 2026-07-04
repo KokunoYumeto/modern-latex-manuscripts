@@ -1,0 +1,4084 @@
+\documentclass{article}
+
+\input{../definitions.tex}
+
+\numberwithin{equation}{section}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\usepackage{tocloft}
+
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cfttoctitlefont{\sffamily\large\bfseries}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\hypersetup{
+  pdftitle = {Introducción al lenguaje funtorial},
+  pdfauthor = {Alexey Beshenov (cadadr@gmail.com)},
+  pdfdisplaydoctitle = true
+}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Introducción al lenguaje funtorial}
+\date{Universidad de El Salvador. Ciclo impar 2018}
+
+\usepackage{multicol}
+
+\setlength{\columnseprule}{0.4pt}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+
+\newif\ifsolutions
+\solutionstrue
+% \solutionsfalse
+
+\usepackage{multirow}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+\epigraph{...mathematics will perish before the end of this century if the
+  present trend for senseless abstraction---I call it: theory of the empty
+  set---cannot be blocked up.}{Carta de Siegel a Mordell sobre el libro de Lang
+  ``Diophantine Geometry'' (1964)}
+
+En los presentes apuntes no vamos a estudiar la teoría de categorías como tal,
+sino que veremos algunas definiciones básicas e indispensables para cursos de
+álgebra y geometría.
+
+La literatura adicional recomendada son los libros de texto
+\cite{Leinster-Basic} y \cite{Riehl-Context}, el libro clásico \cite{MacLane}
+(escrito por uno de los fundadores de la teoría) y el manual en tres volúmenes
+\cite{Borceux-1,Borceux-2,Borceux-3}. El lector interesado en la perspectiva
+histórico-filosófica, puede consultar \cite{Marquis-geometrical-POV} y
+\cite{Kromer-Tool-and-Object}.
+
+\tableofcontents
+
+\pagebreak
+
+\section{Definición de categoría}
+
+%\marginpar{\footnotesize lección\\31.05.18}
+
+\begin{definicion}
+  Una \term{categoría} $\vcateg{C}$ está definida por los siguientes datos.
+
+  \begin{enumerate}
+  \item[1)] Una clase de \term{objetos} $\Ob (\vcateg{C})$ que vamos a denotar
+    por las letras $X, Y, Z, \ldots$
+
+  \item[2)] Conjuntos $\Hom_\vcateg{C} (X,Y)$ de \term{morfismos}
+    $f\colon X\to Y$ para cada par de objetos fijos $X, Y\in \Ob (\vcateg{C})$.
+
+  \item[3)] Una ley de composición de morfismos
+    \begin{align*}
+      \circ\colon \Hom_\vcateg{C} (X,Y) \times \Hom_\vcateg{C} (Y,Z) & \to \Hom_\vcateg{C} (X,Z),\\
+      (f, g) & \mapsto g\circ f.
+    \end{align*}
+  \end{enumerate}
+
+  Estos datos tienen que satisfacer los siguientes axiomas.
+
+  \begin{enumerate}
+  \item[i)] Para cada objeto $X$ existe el morfismo identidad
+    $\id{X}\colon X\to X$ que se comporta como la identidad respecto a la
+    composición:
+    \begin{align*}
+      (X\xrightarrow{f} Y)\circ (X\xrightarrow{\id{X}} X) & = (X\xrightarrow{f} Y),\\
+      (Y\xrightarrow{\id{Y}} Y) \circ (X\xrightarrow{f} Y) & = (X\xrightarrow{f} Y).
+    \end{align*}
+
+  \item[ii)] La composición es asociativa: para cualesquiera
+    $X,Y,Z,W\in\Ob (\vcateg{C})$ y $f\colon X\to Y$, $g\colon Y\to Z$,
+    $h\colon Z\to W$ se cumple
+    $$h\circ (g\circ f) = (h\circ g)\circ f.$$
+  \end{enumerate}
+\end{definicion}
+
+\begin{comentario}
+  \label{comentario:clases-y-categorias-pequenas}
+  Hemos dicho que tenemos una \emph{clase} de objetos porque normalmente los
+  objetos no forman un conjunto sino un ``conjunto grande''. El ejemplo más
+  básico es la categoría donde los objetos son conjuntos y los morfismos
+  $X\to Y$ son aplicaciones entre conjuntos. Todos los conjuntos no forman un
+  conjunto. Por esto en una categoría se trata de una \emph{clase} de
+  objetos. Cuando los objetos forman un conjunto, se dice que $\vcateg{C}$ es
+  una categoría \term{pequeña}. La mayoría de las categoría interesantes que
+  aparecen en la naturaleza no son pequeñas.
+\end{comentario}
+
+\begin{definicion}
+  Se dice que una categoría $\vcateg{C}$ es una \term{subcategoría} de
+  $\vcateg{D}$ si
+
+  \begin{enumerate}
+  \item[1)] los objetos de $\vcateg{C}$ forman una subclase de los objetos de
+    $\vcateg{D}$: para todo $X\in \Ob{C}$ se tiene $X\in \Ob{D}$;
+
+  \item[2)] los morfismos en $\vcateg{C}$ son también morfismos en $\vcateg{D}$:
+    se tiene $\Hom_\vcateg{C} (X,Y) \subseteq \Hom_\vcateg{D} (X,Y)$ para
+    cualesquiera $X,Y \in \Ob(\vcateg{C})$;
+
+  \item[3)] la composición de morfismos en $\vcateg{C}$ es la misma que en
+    $\vcateg{D}$.
+  \end{enumerate}
+
+  Si además $\Hom_\vcateg{C} (X,Y) = \Hom_\vcateg{D} (X,Y)$ para cualesquiera
+  $X,Y \in \Ob(\vcateg{C})$, entonces se dice que $\vcateg{C}$ es una
+  \term{subcategoría plena} de $\vcateg{D}$.
+\end{definicion}
+
+\begin{ejemplo}
+  He aquí algunos ejemplos básicos de categorías que ya conocemos bien.
+
+  \begin{center}
+    \begin{tabular}{ccc}
+      categoría & objetos & morfismos \\
+      \hline
+      $\categ{Set}$ & conjuntos & aplicaciones entre conjuntos \\
+      $\categ{Top}$ & espacios topológicos & aplicaciones continuas \\
+      $\categ{Haus}$ & espacios topológicos Hausdorff & aplicaciones continuas \\
+      $\categ{Grp}$ & grupos & homomorfismos de grupos \\
+      $\categ{Ab}$ & grupos abelianos & homomorfismos de grupos \\
+      $\categ{Ring}$ & anillos & homomorfismos de anillos \\
+      $\categ{CRing}$ & anillos conmutativos & homomorfismos de anillos \\
+      $k\categ{-Vect}$ & espacios vectoriales sobre un cuerpo $k$ & aplicaciones $k$-lineales \\
+      $k\categ{-vect}$ & espacios vectoriales de dimensión finita sobre $k$ & aplicaciones $k$-lineales \\
+      $\cdots$ & $\cdots$ & $\cdots$ \\
+    \end{tabular}
+  \end{center}
+
+  Todas las categorías de arriba pueden ser interpretadas como subcategorías de
+  $\categ{Set}$: sus objetos son conjuntos con cierta estructura especial y los
+  morfismos son aplicaciones que preservan las estructuras. La categoría
+  $\categ{Ab}$ es una subcategoría plena de $\categ{Grp}$, la categoría de
+  anillos conmutativos $\categ{CRing}$ es una subcategoría plena de la categoría
+  de todos los anillos $\categ{Ring}$. La categoría $\categ{Haus}$ es una
+  subcategoría plena de $\categ{Top}$.
+
+  Los espacios vectoriales de dimensión finita forman una subcategoría plena
+  $k\categ{-vect}\subset k\categ{-Vect}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  \label{ejemplo:preorden-como-categoria}
+  Un \term{conjunto preordenado} es un conjunto $X$ dotado de una relación
+  $\preceq$ que satisface los siguientes axiomas.
+
+  \begin{enumerate}
+  \item[P1)] La relación es \term{simétrica}: se tiene $x\preceq x$ para todo
+    $x\in X$.
+
+  \item[P2)] La relación es \term{transitiva}: si $x\preceq y$ e $y\preceq z$,
+    entonces $x\preceq z$.
+  \end{enumerate}
+
+  En este caso se puede definir una categoría donde los objetos son los
+  elementos de $X$ y los morfismos son
+  \[ \Hom (x,y) \dfn \begin{cases}
+      \{ x\to y \}, & \text{ si }x\preceq y,\\
+      \emptyset, & \text{ en caso contrario.}
+    \end{cases} \]
+  El axioma P1) nos da los morfismos identidad, mientras que el
+  axioma P2) nos permite componer los morfismos.
+\end{ejemplo}
+
+\begin{ejemplo}
+  \label{ejemplo:categoria-de-abiertos}
+  Si $X$ es un espacio topológico, se puede definir la categoría
+  $\categ{Abiertos} (X)$ donde los objetos son los subconjuntos abiertos
+  $U\subseteq X$ y los morfismos son
+  \[ \Hom (U,V) \dfn \begin{cases}
+      \{ U\to V \}, & \text{ si }U\subseteq V,\\
+      \emptyset, & \text{ en caso contrario.}
+    \end{cases}. \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Los espacios métricos forman una categoría $\categ{Met}$. Un objeto de esta
+  categoría es un conjunto $X$ dotado de una distancia
+  $d_X\colon X\times X\to \RR$ que satisface los axiomas habituales. Los
+  morfismos $f\colon X\to Y$ son las aplicaciones que preservan la métrica en el
+  sentido de que
+  $$d_Y (f (x), f (y)) \le d_X (x,y)$$
+  para cualesquiera $x,y\in X$. A veces se considera la categoría más grande
+  $\categ{Lipsch}$ donde los morfismos son las
+  \term{aplicaciones Lipschitz}. Una aplicación $f\colon X\to Y$ es Lipschitz si
+  existe una constante $C > 0$ tal que
+  $$d_Y (f (x), f (y)) \le C\,d_X (x,y)$$
+  para cualesquiera $x,y\in X$. Note que $\categ{Met}$ es una subcategoría de
+  $\categ{Lipsch}$. Puesto que toda aplicación Lipschitz es continua, la
+  categoría $\categ{Lipsch}$ puede ser vista como una subcategoría de
+  $\categ{Top}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Sea $G$ un grupo fijo y $X$ un conjunto. Se dice que $G$ \term{actúa} sobre
+  $X$ por la izquierda, o que $X$ es un \term{$G$-conjunto} si está definida una
+  aplicación
+  \begin{align*}
+    G\times X & \to X,\\
+    (g,x) & \mapsto g\cdot x
+  \end{align*}
+  que satiface
+  \begin{enumerate}
+  \item[1)] $1\cdot x = x$ para todo $x\in X$,
+  \item[2)] $g\cdot (h\cdot x) = (gh)\cdot x$ para cualesquiera $g,h\in G$ y
+    $x\in X$.
+  \end{enumerate}
+
+  Un morfismo de $G$-conjuntos es una aplicación $f\colon X\to Y$ que es
+  compatible con la acción de $G$: se cumple $f (g\cdot x) = g\cdot f (x)$ para
+  cualesauiera $g\in G$ y $x\in X$. En otras palabras, se pide que el diagrama
+  \[ \begin{tikzcd}
+      G\times X\ar{r}{\idid\times f}\ar{d} & G\times Y\ar{d} \\
+      X\ar{r}[swap]{f} & Y \\
+    \end{tikzcd} \]
+  sea conmutativo. Esto nos da una categoría $G\categ{-Set}$.
+\end{ejemplo}
+
+La aceptación del lenguaje categórico se debe a que casi todas las estructuras
+en álgebra y geometría dan lugar a categorías, y muchas propiedades básicas son
+consecuencias formales de la teoría de categorías.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Isomorfismos, monomorfismos y epimorfismos}
+
+\begin{definicion}
+  \label{definicion:iso-mono-epi}
+  Sea $f\colon X\to Y$ un morfismo en cualquier categoría.
+
+  \begin{enumerate}
+  \item[1)] $f$ es un \term{isomorfismo} si existe otro morfismo
+    $f^{-1}\colon Y\to X$ tal que $f^{-1}\circ f = \id{X}$ y
+    $f\circ f^{-1} = \id{Y}$. (Ejercicio: si existe, este $f^{-1}$ es únicamente
+    definido por $f$.) En este caso escribimos $X\isom Y$.
+
+  \item[2)] $f$ es un \term{monomorfismo} si para todo par de morfismos
+    $g,g'\colon Z \to X$ tenemos
+    $$f\circ g = f\circ g' \Rightarrow g = g';$$
+    en otras palabras, si para todo $Z\in \Ob(\vcateg{C})$ la aplicación
+    \begin{align*}
+      f_*\colon \Hom_\vcateg{C} (Z,X) & \to \Hom_\vcateg{C} (Z,Y),\\
+      g & \mapsto f\circ g
+    \end{align*}
+    es inyectiva.
+
+  \item[3)] $f$ es un \term{epimorfismo} si para todo par de morfismos
+    $g,g'\colon Y\to Z$ tenemos
+    $$g\circ f = g'\circ f \Rightarrow g = g';$$
+    en otras palabras, si para todo $Z\in \Ob(\vcateg{C})$ la aplicación
+    \begin{align*}
+      f^*\colon \Hom_\vcateg{C} (Y,Z) & \to \Hom_\vcateg{C} (X,Z),\\
+      g & \mapsto g\circ f
+    \end{align*}
+    es inyectiva.
+  \end{enumerate}
+
+  Un monomorfismo se denota por $\mono$ y un epimorfismo se denota por $\epi$.
+\end{definicion}
+
+\begin{ejemplo}
+  \label{ejemplo:grupos-como-categorias}
+  A todo grupo $G$ se puede asociar una categoría $\categ{BG}$ donde hay un solo
+  objeto $\ast$, hay un morfismo $g\colon \ast\to\ast$ por cada elemento
+  $g\in G$ y la composición $g\circ f$ corresponde al producto $gf\in G$. En la
+  categoría $\categ{BG}$ todos los morfismos son isomorfismos. Recíprocamente,
+  una categoría donde hay solo un objeto y todos los morfismos son invertibles
+  corresponde a un grupo.
+
+  Si no asumimos la existencia de morfismos inversos, una categoría con un
+  objeto corresponde a un \term{monoide}. Una categoría donde todas las flechas
+  son invertibles, pero puede haber más de un objeto, corresponde a un
+  \term{grupoide}. Los grupoides tienen papel fundamental en la topología
+  algebraica: en lugar del \term{grupo fundamental} $\pi_1 (X,x_0)$ (construido
+  a partir de un punto fijo $x_0\in X$) es más natural considerar el
+  \term{grupoide fundamental} $\Pi_1 (X)$ (sin fijar $x_0\in X$).
+\end{ejemplo}
+
+\begin{observacion}
+  Las composiciones de iso-, mono-, epimorfismos satisfacen las siguientes
+  propiedades.
+
+  \begin{enumerate}
+  \item[1)] Si $f\colon X\to Y$ e $g\colon Y\to Z$ son isomorfismos, entonces
+    $g\circ f\colon X\to Z$ es un isomorfismo.
+
+  \item[2)] Si $m\colon X\mono Y$ y $m'\colon Y\mono Z$ son monomorfismos,
+    entonces $m'\circ m\colon X\to Z$ es un monomorfismo.
+
+  \item[3)] Si $e\colon X\epi Y$ y $e'\colon Y\epi Z$ son epimorfismos, entonces
+    $e'\circ e\colon X\to Z$ es un epimorfismo.
+
+  \item[4)] Si para $m\colon X\to Y$, $f\colon Y\to Z$ la composición $f\circ m$
+    es un monomorfismo, entonces $m$ es un monomorfismo.
+
+  \item[5)] Si para $f\colon X\to Y$, $e\colon Y\to Z$ la composición $e\circ f$
+    es un epimorfismo, entonces $e$ es un epimorfismo.
+  \end{enumerate}
+
+  \begin{proof}
+    Ejercicio para el lector.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Todo isomorfismo es automáticamente mono y epi.
+
+  \begin{proof}
+    Ejercicio para el lector.
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  En la categoría $\categ{Set}$ los isomorfismos, monomorfismos, epimorfismos
+  son las aplicaciones biyectivas, inyectivas, sobreyectivas respectivamente.
+\end{ejemplo}
+
+En cualquier categoría donde los objetos son conjuntos con estructura adicional,
+y los morfismos son aplicaciones que preservan esta estructura, un morfismo
+$f\colon X\to Y$ que es inyectivo en los conjuntos subyacentes es un
+monomorfismo, y un morfismo $f\colon X\to Y$ que es sobreyectivo en los
+conjuntos subyacentes es un epimorfismo. El recíproco no siempre se cumple:
+puede haber monomorfismos no inyectivos y epimorfismos no sobreyectivos.
+
+\begin{ejemplo}
+  En la categoría de anillos $\categ{Ring}$ (resp. anillos conmutativos
+  $\categ{CRing}$) los isomorfismos son precisamente los homomorfismos
+  biyectivos. En efecto, si tenemos un homomorfismo de anillos $f\colon R\to S$
+  que es biyectivo, entonces la aplicación inversa $f^{-1}\colon S\to R$ es
+  automáticamente un homomorfismo de anillos.
+
+  Los monomorfismos de anillos (resp. anillos conmutativos) son precisamente los
+  homomorfismos inyectivos. Por ejemplo, sea $f\colon R\to S$ un homomorfismo de
+  anillos que \emph{no es} inyectivo. Esto quiere decir que $f (x) = f (x')$
+  para diferentes $x,x'\in R$. Definamos dos homomorfismos
+  $$g\colon \ZZ [X] \to R, \quad X\mapsto x$$
+  y
+  $$g'\colon \ZZ [X] \to R, \quad X\mapsto x'$$
+  (el anillo de polinomios $\ZZ [X]$ tiene la siguiente propiedad particular:
+  para cualquier anillo $R$ un homomorfismo $\ZZ [X] \to R$ se define de manera
+  única por la imagen de $X$ y esta puede ser cualquier elemento de $R$). Luego
+  tenemos $f\circ g = f\circ g'$, aun cuando $g\ne g'$. Esto demuestra que $f$
+  no es un monomorfismo.
+
+  Sin embargo, no todo epimorfismo de anillos (resp. anillos conmuativos) es
+  necesariamente sobreyectivo. Consideremos por ejemplo la inclusión
+  $f\colon \ZZ \to \QQ$. Supongamos que $g\circ f = g'\circ f$ para algunos
+  homomorfismos de anillos $g,g'\colon \QQ \to R$. Luego, para todo
+  $\frac{a}{b} \in \QQ$ se tiene
+  \begin{multline*}
+    g \left(\frac{a}{b}\right) =
+    g (a)\cdot g \left(\frac{1}{b}\right) =
+    g' (a)\cdot g \left(\frac{1}{b}\right) =
+    g' \left(\frac{a}{b}\cdot b\right)\cdot g \left(\frac{1}{b}\right) =
+    g' \left(\frac{a}{b}\right)\cdot g' (b)\cdot g \left(\frac{1}{b}\right) \\
+  = g' \left(\frac{a}{b}\right)\cdot g (b)\cdot g \left(\frac{1}{b}\right) =
+    g' \left(\frac{a}{b}\right)\cdot g \left(b\cdot \frac{1}{b}\right) =
+    g' \left(\frac{a}{b}\right)\cdot g (1) =
+    g' \left(\frac{a}{b}\right).
+  \end{multline*}
+  Entonces, $g = g'$. Esto nos da un ejemplo de un morfismo que es epi y mono
+  pero no es iso.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Sería interesante ver algún ejemplo de un monomorfismo que no es inyectivo.
+  Recordemos que grupo $A$ es \term{divisible} si para todo $x\in A$ y para todo
+  $n = 1,2,3,\ldots$ existe $y\in A$ tal que
+  $$n\,y \dfn \underbrace{y + \cdots + y}_n = x.$$
+  Por ejemplo, el grupo aditivo $\QQ$ es divisible. Por otro lado, para todo
+  homomorfismo de grupos abelianos $f\colon A\to B$ donde $A$ es divisible, se
+  cumple que la imagen $\im f$ es también un grupo divisible. Esto implica que
+  si $A$ es divisible, todo cociente $A/B$ es divisible. Por ejemplo, el grupo
+  $\QQ/\ZZ$ es divisible.
+
+  Esto nos da la categoría $\categ{AbDiv}$ de grupos abelianos divisibles, que
+  es una subcategoría plena de la categoría $\categ{Ab}$. Dentro de esta
+  categoría podemos considerar el homomorfismo canónico
+  $f\colon \QQ\to \QQ/\ZZ$. Sea $A$ otro grupo divisible y sean
+  $g,g'\colon A\to \QQ$ dos homomorfismos tales que $f\circ g = f\circ
+  g'$. Afirmamos que $g = g'$. En efecto, supongamos que $g \ne g'$, es decir
+  $h\dfn g - g' \ne 0$, mientras que $f\circ h = 0$. Entonces, existe algún
+  $x\in A$ tal que $h (x) \ne 0$. Sin pérdida de generalidad,
+  $h (x) \in \ZZ\setminus \{ 0 \}$ es un entero positivo (en el caso contrario
+  podemos reemplazar $x$ por $-x$ o multiplicarlo por un entero). Gracias a la
+  divisibilidad de $A$, existe algún $y\in A$ tal que
+  $$2\cdot h (x)\cdot y = x.$$
+  Aplicando $h$ a la igualdad anterior, se obtiene la siguiente igualdad en
+  $\QQ$:
+  $$2\cdot h (x)\cdot h (y) = h (x).$$
+  De aquí se sigue que $h (y) = 1/2$. Por tanto $f (h (y)) \ne 0$ en $\QQ/\ZZ$,
+  lo que contradice el hecho de que $f\circ h = 0$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  En la categoría de grupos $\categ{Grp}$ (resp. grupos abelianos $\categ{Ab}$)
+  los isomorfismos son precisamente los homomorfismos biyectivos. Si
+  $f\colon G\to H$ es un homomorfismo biyectivo de grupos, entonces la
+  aplicación inversa $f^{-1}\colon H\to G$ es automáticamente un homomorfismo.
+
+  Los monomorfismos de grupos (resp. grupos abelianos) son los homomorfismos
+  inyectivos. En efecto, si $f\colon G\to H$ no es inyectivo, entonces
+  $f (x) = f (x')$ para diferentes $x,x'\in G$. Podemos considerar los
+  homomorfismos
+  $$g\colon \ZZ \to G, \quad 1\mapsto x$$
+  y
+  $$g'\colon \ZZ \to G, \quad 1\mapsto x'$$
+  (todo homomorfismo de grupos $\ZZ\to G$ está definido de modo único por la
+  imagen de $1$ que puede ser cualquier elemento de $G$). Ahora,
+  $f\circ g = f\circ g'$, aunque $g\ne g'$, así que $f$ no es un monomorfismo.
+
+  Los epimorfismos de grupos (resp. grupos abelianos) son precisamente los
+  homomorfismos sobreyectivos; esto no es tan fácil y no lo voy a
+  probar\footnote{Véase por ejemplo \emph{Linderholm, C.E. A group epimorphism
+      is surjective. Amer. Math. Monthly 77, pp. 176–177.}}. En la categoría de
+  grupos abelianos $\categ{Ab}$ funciona el siguiente truco. Sea
+  $f\colon A\to B$ un homomorfismo de grupos abelianos que no es
+  sobreyectivo. Lo último significa que $\im f \ne B$ y $B/\im f \ne 0$. Podemos
+  considerar el homomorfismo $p\colon B\to B/\im f$ (la proyección sobre el
+  grupo cociente) y el homomorfismo nulo $0\colon B\to B/\im f$ que aplica todo
+  en $0$. Luego, $p\circ f = 0\circ f$, aunque $p\ne 0$, así que $f$ no es un
+  epimorfismo. Para los grupos no abelianos, este argumento falla: para un
+  homomorfismo $f\colon G\to H$ la imagen $\im f$ no tiene por qué ser un
+  subgrupo normal de $G$ si $G$ no es abeliano.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Los isomorfismos en la categoría $\categ{Top}$ de espacios topológicos tienen
+  nombre especial: son los \term{homeomorfismos}. Note que no son simplemente
+  morfismos biyectivos: una aplicación continua $f\colon X\to Y$ puede tener una
+  aplicación inversa $f^{-1}\colon Y\to X$ que no es continua.
+
+  Los monomorfismos de espacios topológicos son precisamente las aplicaciones
+  continuas inyectivas. En efecto, dada una aplicación continua $f\colon X\to Y$
+  tal que $f (x) = f (x')$ para algunos $x\ne x'$, podemos considerar el espacio
+  unipuntual $\{ \ast \}$ y dos aplicaciones $g,g '\colon \{ \ast \}\to X$ dadas
+  por
+  $$g\colon \ast \mapsto x, \quad g'\colon \ast \mapsto x'.$$
+  Tenemos $g\circ f = g'\circ f$, mientras que $g\ne g'$.
+
+  Los epimorfismos de espacios topológicos son las aplicaciones continuas
+  sobreyectivas. Para verlo, consideremos una aplicación continua
+  $f\colon X\to Y$ tal que $\im f\ne Y$. Sea $\{ 0,1 \}$ el espacio topológico
+  de dos puntos dotado de la topología trivial (indiscreta). Sea
+  $g\colon Y\to \{ 0, 1 \}$ la aplicación que envía todo en $1$ y sea
+  $g'\colon Y\to \{ 0, 1 \}$ la aplicación definida por
+  \[ g' (y) \dfn \begin{cases}
+      1, & y\in \im f,\\
+      0, & y\notin \im f.
+    \end{cases} \]
+  Ambas aplicaciones $g$ y $g'$ son continuas, puesto que la topología sobre
+  $\{ 0, 1 \}$ es trivial. Ahora $g\circ f = g'\circ f$, pero $g\ne g'$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Consideremos ahora la categoría $\categ{Haus}$ de espacios Hausdorff. El mismo
+  argumento de arriba demuestra que los monomorfismos son precisamente las
+  aplicaciones continuas inyectivas. Sin embargo, el argumento sobre los
+  epimorfismos no funciona: el espacio $\{ 0, 1 \}$ con la topología indiscreta
+  no es Hausdorff.
+
+  En realidad, los epimorfismos en $\categ{Haus}$ son las aplicaciones continuas
+  $f\colon X\to Y$ con imagen densa
+  (es decir, $\overline{\im f} = Y$). Efectivamente, si $f\colon X\to Y$ es una
+  aplicación continua con esta propiedad, entonces si dos aplicaciones
+  $g,g'\colon Y\to Z$ satisfacen $g\circ f = g'\circ f$, estas coinciden sobre
+  $\im f$, y por ende $g = g'$. Aquí estamos usando la siguiente propiedad:
+  cuando $g,g'\colon Y\to Z$ son dos aplicaciones continuas, $Y$ es Hausdorff y
+  $g$ y $g'$ coinciden sobre un subconjunto denso de $Y$, entonces $g = g'$.
+
+  En la otra dirección, dado un epimorfismo $f\colon X\to Y$ entre dos espacios
+  de Hausdorff, se puede comprobar que $\overline{\im f} = Y$, pero el argumento
+  es un poco más sutíl\footnote{Véase
+    \url{http://math.stackexchange.com/questions/214045/}} y prefiero omitirlo.
+\end{ejemplo}
+
+\begin{ejemplo}
+  En la categoría $k\categ{-Vect}$ de espacios vectoriales sobre $k$, los
+  isomorfismos, monomorfismos, epimorfismos son las aplicaciones $k$-lineales
+  biyectivas, inyectivas, sobreyectivas respectivamente.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Funtores entre categorías}
+
+\epigraph{Les mathématiciens n'étudient pas des objets, mais des relations entre
+  les objets}{Poincaré}
+
+% \epigraph{Comme tu sais, mon honorable collègue Mac Lane soutient que toute
+% notion de structure comporte necessairement une notion d'homomorphisme,
+% consistant à indiquer, pour chacune des données constituant la structure,
+% celles qui se comportent de manière covariante et celles qui se comportent de
+% manière contravariante... Que penses-tu qu'il y ait à tirer de ce genre de
+% considerations?}{Carta de Weil a Chevalley, el 15 de octubre de 1950}
+
+Para relacionar diferentes categorías, sirve la noción de funtor.
+
+\begin{definicion}
+  Sean $\vcateg{C}$ y $\vcateg{D}$ dos categorías. Un \term{funtor (covariante)}
+  $F\colon \vcateg{C} \to \vcateg{D}$ es una regla que
+
+  \begin{enumerate}
+  \item[1)] a cada objeto $X$ de $\vcateg{C}$ asigna un objeto $F (X)$ de
+    $\vcateg{D}$,
+
+  \item[2)] a cada morfismo $f\colon X\to Y$ en $\vcateg{C}$ asigna un morfismo
+    $F (f) \rdfn f_*\colon F (X) \to F (Y)$ en $\vcateg{D}$;
+  \end{enumerate}
+  de modo que se cumplen los siguientes axiomas:
+  \begin{enumerate}
+  \item[a)] $F$ preserva los morfismos identidad: $(\idid_{X})_* = \id{F (X)}$
+    para cada $X$;
+  \item[b)] $F$ preserva la composición de morfismos: $(g\circ f)_* = g_*\circ f_*$.
+  \end{enumerate}
+\end{definicion}
+
+\begin{observacion}
+  Si $f$ es un isomorfismo en $\vcateg{C}$ y $F$ es un funtor
+  $\vcateg{C}\to \vcateg{D}$, entonces $F (f)$ es un isomorfismo en
+  $\vcateg{D}$.
+
+  \begin{proof}
+    Ejercicio para el lector.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Si $F\colon \vcateg{C}\to\vcateg{D}$ y $G\colon \vcateg{D}\to\vcateg{E}$ son
+  dos funtores, entonces la composición
+  $G\circ F\colon \vcateg{C} \to \vcateg{E}$ (definida como la aplicación de $F$
+  seguida por la aplicación de $G$) es también un funtor. Esta composición es
+  asociativa. También para cada categoría tenemos el funtor identidad
+  $\Id_\vcateg{C}\colon \vcateg{C} \to \vcateg{C}$ (que aplica un objeto $X$ en
+  el mismo objeto $X$ y un morfismo $f$ en el mismo morfismo $f$). Esto es la
+  identidad respecto a la composición de funtores.
+\end{observacion}
+
+\begin{comentario}
+  Intuitivamente, todo esto significa que las categorías forman una categoría
+  donde los objetos son categorías y los morfismos son funtores entre ellas. Sin
+  embargo, hay un pequeño detalle fastidioso: según nuestra definición, para dos
+  objetos fijos $X$ e $Y$ los morfismos $X\to Y$ forman un conjunto. Sin
+  embargo, los objetos de una categoría no necesariamente forman un conjunto y
+  por esto para dos categorías $\vcateg{C}$ y $\vcateg{D}$ los funtores
+  $\vcateg{C}\to\vcateg{D}$ no necesariamente forman un conjunto.
+
+  Sin embargo, las categorías pequeñas (véase
+  \ref{comentario:clases-y-categorias-pequenas}) forman una categoría. Esta se
+  denota por $\categ{Cat}$.
+\end{comentario}
+
+\begin{ejemplo}
+  \label{ejemplo:hom-covariante}
+  Sea $\vcateg{C}$ una categoría y $X$ un objeto fijo. Para cada objeto $Y$
+  podemos considerar el conjunto de morfismos $X\to Y$:
+  $$Y \quad\rightsquigarrow\quad \Hom_\vcateg{C} (X,Y).$$
+  Cada morfismo $f\colon Y\to Y'$ induce una aplicación $f_*$ definida por la
+  composición con $f$:
+  $$(Y\xrightarrow{f} Y') \quad\rightsquigarrow\quad (\Hom_\vcateg{C} (X,Y) \xrightarrow{f_*} \Hom_\vcateg{C} (X,Y')).$$
+
+  \[ \begin{tikzcd}
+      X\ar{r}{g}\ar[dashed]{d}[swap]{f\circ g} & Y\ar{dl}{f} \\
+      Y'
+    \end{tikzcd} \]
+
+  Todo esto define un funtor
+  $$\Hom_\vcateg{C} (X,-)\colon \vcateg{C} \to \categ{Set}$$
+  ---el morfismo identidad $\idid\colon Y\to Y$ obviamente induce el morfismo
+  identidad
+  $$\idid_*\colon \Hom_\vcateg{C} (X,Y) \to \Hom_\vcateg{C} (X,Y)$$
+  y para la composición de morfismos $Y \xrightarrow{f} Y' \xrightarrow{f'} Y''$
+  tenemos $(f'\circ f)_* = f'_* \circ f_*$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Para los espacios vectoriales sobre $k$, las aplicaciones $k$-lineales
+  $U\to V$ también forman un espacio vectorial sobre $k$, y en este caso se
+  tiene un funtor
+  $$\iHom_k (U, -)\colon k\categ{-Vect} \to k\categ{-Vect}.$$
+  ---escribimos ``$\iHom_k$'' en lugar de ``$\Hom_{k\categ{-Vect}}$'' para
+  subrayar que los valores no están en $\categ{Set}$, sino en $k\categ{-Vect}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Hay una serie de funtores tontos pero muy importantes: los
+  \term{funtores olvidadizos}. Estos funtores olvidan una parte de la
+  estructura. Por ejemplo, todo espacio topológico, grupo, anillo, espacio
+  vectorial, $G$-conjunto, etc. es un conjunto. Esto nos da funtores como
+  \[ \categ{Top} \to \categ{Set}, \quad
+     \categ{Grp} \to \categ{Set}, \quad
+     \categ{Ring} \to \categ{Set}, \quad
+     k\categ{-Vect} \to \categ{Set}, \quad
+     G\categ{-Set}\to \categ{Set}, \quad
+     \text{etc.} \]
+  que asignan a cada objeto el conjunto subyacente y a cada morfismo la
+  aplicación entre conjuntos correspondiente.
+
+  También se puede olvidar solo una parte de la estructura: por ejemplo, olvidar
+  que un espacio es Hausdorff, que un grupo es abeliano, que un anillo es
+  conmutativo, que en un espacio vectorial hay una multiplicación por escalares:
+  \[ \categ{Haus} \to \categ{Top}, \quad
+     \categ{Ab} \to \categ{Grp}, \quad
+     \categ{CRing} \to \categ{Ring}, \quad
+     k\categ{-Vect} \to \categ{Ab}, \quad
+     \text{etc.} \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Sea $k$ un cuerpo. A partir de un conjunto $X$ se puede considerar el espacio
+  vectorial $k \langle X\rangle$ generado por los elementos de $X$. Esto define
+  un funtor
+  $$\categ{Set} \to k\categ{-Vect}.$$
+  En efecto, cada aplicación entre conjuntos $X\to Y$ induce
+  \emph{de modo funtorial} la aplicación $k$-lineal correspondiente
+  $k \langle X\rangle \to k \langle Y\rangle$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Para un anillo $R$ consideremos el grupo de unidades (elementos invertibles)
+  $R^\times$. Es fácil comprobar que para todo homomorfismo de anillos
+  $f\colon R\to S$ se cumple $f (R^\times) \subseteq S^\times$, así que tenemos
+  un funtor
+  \[ (-)^\times\colon \categ{Ring} \to \categ{Grp}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Si consideramos grupos como categorías (véase
+  \ref{ejemplo:grupos-como-categorias}), funtores corresponden a homomorfismos.
+\end{ejemplo}
+
+\begin{ejemplo}
+  En topología algebraica, a cada espacio $X$ se puede asociar el conjunto
+  $\pi_0 (X)$ formado por las componentes conexas (por caminos). Esto es un
+  funtor $\pi_0\colon \categ{Top} \to \categ{Set}$: una aplicación continua
+  $X\to Y$ necesariamente envia los puntos de la misma componente conexa de $X$
+  a la misma componente conexa de $Y$.
+
+  El grupo fundamental $\pi_1 (X,x_0)$ es un funtor
+  $\categ{Top}_\ast \to \categ{Grp}$. Aquí $\categ{Top}_\ast$ es la categoría
+  cuyos objetos son los \term{espacios topológicos con un punto marcado}; es
+  decir, pares $(X,x_0)$ donde $X$ es un espacio topológico y $x_0\in X$. Los
+  morfismos $f\colon (X,x_0) \to (Y,y_0)$ en esta categoría son las aplicaciones
+  continuas $f\colon X\to Y$ tales que $f (x_0) = y_0$. Resulta que el grupo
+  fundamental es un invariante \term{homotópico} de $(X,x_0)$. Esto puede ser
+  expresado diciendo que $\pi_1$ es un funtor definido sobre la categoría
+  $\categ{HoTop}_\ast$ donde los objetos son los mismos, pero los morfismos son
+  las clases de equivalencia homotópica de aplicaciones continuas
+  $(X,x_0)\to (Y,y_0)$.
+
+  Si queremos deshacernos de la elección del punto marcado, hay que considerar
+  el funtor del grupoide fundamental $\Pi_1$ que a cada espacio asocia un
+  grupoide.
+
+  También se pueden definir los \term{grupos de homotopía superiores}
+  $\pi_n (X,x_0)$ para cualquier $n = 2,3,4,5,\ldots$ En este caso son todos
+  grupos abelianos, y se trata de una serie de funtores
+  $\pi_n\colon \categ{Top}_\ast \to \categ{Ab}$ o
+  ${\categ{HoTop}_* \to \categ{Ab}}$. Sin embargo, el cálculo de estos grupos es
+  extremadamente difícil incluso para espacios sencillos como las esferas: la
+  estructura de los grupos $\pi_n (S^k, \ast)$ es un problema muy profundo de
+  matemáticas, sin respuesta sencilla y completa.
+
+  Los grupos de \term{homología} $H_n (X)$ y \term{cohomología} $H_n (X;A)$
+  (donde $A$ es el \term{grupo de coeficientes}) son invariantes homotópicos más
+  manejables y son también funtores $\categ{Top}_\ast \to \categ{Ab}$ o
+  $\categ{HoTop}_* \to \categ{Ab}$.
+\end{ejemplo}
+
+Muy a menudo es útil considerar funtores que cambian la dirección de los
+morfismos.
+
+\begin{definicion}
+  Sean $\vcateg{C}$ y $\vcateg{D}$ dos categorías. Un \term{funtor
+    contravariante} $F\colon \vcateg{C} \to \vcateg{D}$ es una regla que a cada
+  objeto $X$ de $\vcateg{C}$ asigna un objeto $F (X)$ de $\vcateg{D}$, y a cada
+  morfismo $f\colon X\to Y$ en $\vcateg{C}$ asigna un morfismo
+  $F (f) \rdfn f^* \colon F (Y) \to F (X)$ en $\vcateg{D}$, de modo que
+  $$\id{X}^* = \id{F (X)}, \quad (g\circ f)^* = f^*\circ g^*.$$
+\end{definicion}
+
+Para tratar los funtores covariantes y contravariantes de la misma manera, es
+útil introducir la noción de categoría opuesta.
+
+\begin{definicion}
+  Sea $\vcateg{C}$ una categoría. Entonces su \term{categoría opuesta}
+  $\vcateg{C}^\mathrm{op}$ es la categoría donde los objetos son los mismos,
+  pero un morfismo $f^\mathrm{op}\colon X\to Y$ en $\vcateg{C}^\mathrm{op}$ es
+  un morfismo $f\colon Y\to X$ en $\vcateg{C}$ y la composición está definida
+  por
+  $$g^\mathrm{op} \circ f^\mathrm{op} \dfn (f\circ g)^\mathrm{op}.$$
+
+  \[ \begin{tikzcd}
+      \vcateg{C}^\mathrm{op}\colon & X\ar{r}[swap]{f^\mathrm{op}}\ar[bend left]{rr}{g^\mathrm{op}\circ f^\mathrm{op}} & Y\ar{r}[swap]{g^\mathrm{op}} & Z \\
+      \vcateg{C}\colon & X & Y\ar{l}[swap]{f} & Z\ar{l}[swap]{g}\ar[bend left]{ll}{f\circ g}
+    \end{tikzcd} \]
+\end{definicion}
+
+\begin{observacion}
+  Un funtor contravariante $F\colon \vcateg{C} \to \vcateg{D}$ puede ser visto
+  como un funtor covariante $F\colon \vcateg{C}^\mathrm{op} \to \vcateg{D}$ o
+  $F\colon \vcateg{C} \to \vcateg{D}^\mathrm{op}$.
+\end{observacion}
+
+\begin{comentario}
+  Muy a menudo se dice que un funtor $F$ es contravariante y se escribe
+  $F\colon \vcateg{C}^\mathrm{op} \to \vcateg{D}$ para subrayar que es
+  contravariante. En realidad, como funtor definido sobre
+  $\vcateg{C}^\mathrm{op}$, es covariante.
+\end{comentario}
+
+\begin{ejemplo}
+  \label{ejemplo:hom-contravariante}
+  Sea $\vcateg{C}$ una categoría e $Y$ un objeto fijo. Para cada objeto $X$
+  podemos considerar el conjunto de morfismos $X\to Y$:
+  $$Y \quad\rightsquigarrow\quad \Hom_\vcateg{C} (X,Y).$$
+  Cada morfismo $f\colon X\to X'$ induce una aplicación $f^*$ por la composición
+  con $f$. Notemos que el único modo sensato de definirla es de tomar un
+  morfismo $g\colon X' \to Y$ y componerlo con $f\colon X \to X'$:
+  \[ (X\xrightarrow{f} X') \quad\rightsquigarrow\quad
+     (\Hom_\vcateg{C} (X',Y) \xrightarrow{f^*} \Hom_\vcateg{C} (X,Y)). \]
+
+  \[ \begin{tikzcd}
+      Y & X\ar{dl}{f}\ar[dashed]{l}[swap]{g\circ f} \\
+      X'\ar{u}{g}
+    \end{tikzcd} \]
+
+  Vemos que esto define un funtor
+  \[ \Hom_\vcateg{C} (-,Y)\colon \vcateg{C}^\mathrm{op} \to
+     \categ{Set}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Para dos conjuntos preordenados $X$ y $Y$ considerados como categorías (véase
+  \ref{ejemplo:preorden-como-categoria}) un funtor es una aplicación
+  $f\colon X\to Y$ que preserva la relación $\preceq$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  En \ref{ejemplo:categoria-de-abiertos} asociamos a todo espacio topológico $X$
+  la categoría $\categ{Abiertos} (X)$. Si tenemos una aplicación continua
+  $f\colon X\to Y$, entonces por la definición, $f^{-1} (U)$ es abierto en $X$
+  para todo abierto $U\subseteq Y$. Esto define un funtor
+  $f^{-1}\colon \categ{Abiertos} (Y)\to \categ{Abiertos} (X)$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Para los espacios vectoriales sobre $k$, tenemos un funtor
+  $$\iHom_k (-, V)\colon k\categ{-Vect}^\mathrm{op} \to k\categ{-Vect}.$$
+  En particular, el espacio vectorial dual define un funtor
+  \[ (-)^* \dfn \iHom_k (-, k)\colon k\categ{-Vect}^\mathrm{op} \to
+     k\categ{-Vect}. \qedhere \]
+\end{ejemplo}
+
+\begin{observacion}
+  La composición de dos funtores contravariantes es un funtor covariante.
+
+  \begin{proof}
+    La dirección de los morfismos cambia a la opuesta dos veces.
+
+    A saber, si tenemos dos funtores contravariantes
+    $F\colon \vcateg{C}\to\vcateg{D}$ y $G\colon \vcateg{D}\to\vcateg{E}$, estos
+    pueden ser vistos como funtores
+    $F\colon \vcateg{C}\to\vcateg{D}^\mathrm{op}$ y
+    $G\colon \vcateg{D}^\mathrm{op}\to\vcateg{E}$. Al componerlos, nos queda un
+    funtor $\vcateg{C}\to\vcateg{E}$.
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  El funtor del espacio doble dual
+  $$(-)^{**} \dfn (-)^*\circ (-)^* \colon k\categ{-Vect} \to k\categ{-Vect}$$
+  es covariante.
+\end{ejemplo}
+
+\begin{definicion}
+  Sea $F\colon \vcateg{C}\to\vcateg{D}$ un funtor. Para cualesquera
+  $X,Y\in\Ob(\vcateg{C})$ podemos considerar la aplicación de conjuntos
+  \begin{align*}
+    \Hom_\vcateg{C} (X,Y) & \to \Hom_\vcateg{C} (F (X), F (Y)),\\
+    f & \mapsto F (f).
+  \end{align*}
+
+  \begin{enumerate}
+  \item[1)] Si la aplicación de arriba es inyectiva para cualesquiera
+    $X,Y\in\Ob(\vcateg{C})$, se dice que $F$ es \term{fiel}.
+
+  \item[2)] Si es sobreyectiva para cualesquiera $X,Y\in\Ob(\vcateg{C})$, se
+    dice que $F$ es \term{pleno}.
+
+  \item[3)] Si es biyectiva para cualesquiera $X,Y\in\Ob(\vcateg{C})$, se dice
+    que $F$ es \term{fielmente pleno} o bien \term{fiel y
+      pleno}\footnote{``Fully faithful'' o ``full and faithful'' en inglés.}.
+  \end{enumerate}
+\end{definicion}
+
+\begin{ejemplo}
+  El funtor olvidadizo $k\categ{-Vect} \to \categ{Set}$ es fiel: diferentes
+  morfismos entre espacios vectoriales corresponden a diferentes aplicaciones
+  entre conjuntos.
+
+  El funtor olvidadizo $\categ{Ab} \to \categ{Grp}$ es fiel y pleno: un
+  homomorfismo de grupos abelianos es un homomorfismo de grupos.
+
+  Si consideramos grupos como categorías (véase
+  \ref{ejemplo:grupos-como-categorias}), funtores fieles, plenos y fielmente
+  plenos corresponden a monomorfismos, epimorfismos e isomorfismos.
+\end{ejemplo}
+
+Hay miles de ejemplos interesantes de funtores. Toda construcción buena y
+canónica corresponde a un funtor.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Transformaciones naturales entre funtores}
+
+%\marginpar{\footnotesize lección\\1.06.18}
+
+\epigraph{If topology were publicly defined as the study of families of sets
+  closed under finite intersection and infinite unions a serious disservice
+  would be perpetrated on embryonic students of topology. The mathematical
+  correctness of such a definition reveals nothing about topology except that
+  its basic axioms can be made quite simple. And with the category theory we are
+  confronted with the same pedagogical problem. The basic axioms <...> are much
+  too simple.
+
+  A better (albeit not perfect) description of topology is that it is the study
+  of continuous maps; and category theory is likewise better described as the
+  theory of functors. <...> It is not too misleading, at least historically, to
+  say that categories are what one must define in order to define functors, and
+  that functors are what one must define in order to define natural
+  transformations.}{Peter Freyd, introducción al libro\\``Abelian categories''
+  (1964)}
+
+Resumamos nuestra situación. En las matemáticas clásicas normalmente se
+estudiaban conjuntos dotados de cierta estructura. Por ejemplo, un espacio
+vectorial sobre $k$ es un conjunto con estructura de grupo abeliano y
+multiplicación por los elementos de $k$ que satisfacen ciertos axiomas, etc. El
+punto de vista categórico supone que, en vez de estudiar elementos de cada
+objeto, hay que estudiar las aplicaciones entre objetos. La definición de
+categorías no menciona elementos que ``pertenecen'' a objetos y en realidad no
+habla de aplicaciones: se trata solo de algunas flechas $X\to Y$ que se pueden
+componer formalmente. Otro nivel de razonamiento es de dar más importancia no a
+las categorías particulares, sino a los funtores entre categorías. Pero en
+realidad, la noción más importante no es la de categoría ni la de funtor, sino
+la de morfismo entre funtores; estas son las transformaciones naturales.
+
+\begin{definicion}
+  Sean $\vcateg{C}$ y $\vcateg{D}$ dos categorías y sean
+  $F,G\colon \vcateg{C} \to \vcateg{D}$ dos funtores entre ellas. Una
+  \term{transformación natural} $\alpha\colon F\Rightarrow G$ entre $F$ y $G$ es
+  una colección de morfismos $\alpha_X\colon F(X) \to G(X)$ en $\vcateg{D}$ para
+  cada objeto $X$ de $\vcateg{C}$, tal que para cada morfismo $X\to Y$ en
+  $\vcateg{C}$ el siguiente diagrama en $\vcateg{D}$ es conmutativo:
+
+  \[ \begin{tikzcd}
+      F (X)\ar{r}{\alpha_X}\ar{d}[swap]{F (f)} & G (X)\ar{d}{G (f)} \\
+      F (Y)\ar{r}[swap]{\alpha_Y} & G (Y)
+    \end{tikzcd} \]
+\end{definicion}
+
+Si $F$ y $G$ son dos funtores $\vcateg{C} \to \vcateg{D}$, vamos a usar la
+notación
+$$\Nat (F,G) \dfn \{ \text{transformaciones naturales }F\Rightarrow G \}.$$
+En general $\Nat (F,G)$ no es un conjunto porque a priori los objetos de
+$\vcateg{C}$ y $\vcateg{D}$ no forman conjuntos.
+
+\begin{observacion}
+  Si $F,G,H$ son tres funtores $\vcateg{C} \to \vcateg{D}$ y
+  $\alpha\colon F\Rightarrow G$ y $\beta\colon G\Rightarrow H$ son
+  transformaciones naturales, entonces la composición
+  $\beta\circ\alpha\colon F\Rightarrow H$ definida como
+  $$(\beta\circ\alpha)_X \dfn \beta_X \circ \alpha_X$$
+  es también una transformación natural:
+
+  \[ \begin{tikzcd}
+      F (X)\ar{r}{\alpha_X}\ar{d}{F (f)} & G (X)\ar{d}{G (f)}\ar{r}{\beta_X} & H (X)\ar{d}{H (f)} \\
+      F (Y)\ar{r}{\alpha_Y} & G (Y)\ar{r}{\beta_Y} & H (Y)
+    \end{tikzcd} \]
+
+  Además, para cada funtor $F$ existe la transformación natural identidad
+  $\Id_F\colon F\Rightarrow F$ definida por
+  $(\Id_F)_X \dfn F (\id{X}) = \id{F (X)}$ para todo $X$. Es la identidad
+  respecto a la composición de transformaciones naturales.
+\end{observacion}
+
+Todo esto nos permite decir cuándo dos funtores son isomorfos.
+
+\begin{definicion}
+  Se dice que dos funtores $F,G\colon \vcateg{C} \to \vcateg{D}$ son
+  \term{isomorfos} si existen transformaciones naturales
+  $\alpha\colon F\Rightarrow G$ y $\alpha^{-1}\colon G\Rightarrow F$ tales que
+  $\alpha^{-1}\circ\alpha = \Id_F$ y $\alpha\circ\alpha^{-1} = \Id_G$.
+\end{definicion}
+
+La situación de arriba es equivalente a tener una transformación natural
+$\alpha\colon F\Rightarrow G$ donde cada $\alpha_X\colon F (X)\to G (X)$ es un
+isomorfismo.
+
+\begin{ejemplo}
+  Para un espacio vectorial $U$ tenemos la aplicación de evaluación que va de
+  $U$ a su doble dual:
+  \begin{align*}
+    ev_U\colon U & \to U^{**},\\
+    u & \mapsto (\phi \mapsto \phi (u)).
+  \end{align*}
+  Esta aplicación es natural en el sentido de que define una transformación
+  natural entre el funtor identidad sobre $k\categ{-Vect}$ y el funtor
+  $(-)^{**}\colon k\categ{-Vect}\to k\categ{-Vect}$. En efecto, dado una
+  aplicación lineal $f\colon U\to V$, esta induce primero la aplicación
+  \begin{align*}
+    f^*\colon V^* & \to U^*,\\
+    (\phi\colon V\to k) & \mapsto (\phi\circ f\colon U\to k).
+  \end{align*}
+
+  Luego, pasando otra vez a espacios duales, se obtiene
+  \begin{align*}
+    f^{**}\colon U^{**} & \to V^{**},\\
+    (\phi\colon U^* \to k) & \mapsto (\phi\circ f^*\colon V^*\to k).
+  \end{align*}
+
+  Tenemos que comprobar que el siguiente cuadrado conmuta:
+
+  \[ \begin{tikzcd}
+      U\ar{d}[swap]{f}\ar{r}{ev_U} & U^{**}\ar{d}{f^{**}} \\
+      V\ar{r}[swap]{ev_V} & V^{**}
+    \end{tikzcd} \]
+
+  De hecho, ambas aplicaciones $ev_V\circ f$ y $f^{**}\circ ev_U$ asocian a un
+  vector $u\in U$ el mismo elemento de $V^{**}$ dado por
+  \[ \phi \mapsto \phi (f (u)). \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Sea $R$ un anillo conmutativo y sea $\GL_n (R)$ el grupo de las matrices
+  invertibles de $n\times n$ con coeficientes en $R$. Un homomorfismo de anillos
+  $f\colon R\to S$ induce de modo funtorial un homomorfismo de grupos
+  $$\GL_n (f)\colon \GL_n (R)\to \GL_n (S).$$
+  En otras palabras, se aplica $f$ a cada entrada de una matriz. Entonces,
+  tenemos un funtor
+  $$\GL_n\colon \categ{CRing} \to \categ{Grp}.$$
+  Una matriz es invertible si y solamente si su determinante es invertible, y el
+  determinante es un homomorfismo de grupos
+  $$\det\colon \GL_n (R) \to R^\times.$$
+  Además, el determinante es natural en el sentido de que cada homomorfismo de
+  anillos $f\colon R\to S$ induce un cuadrado conmutativo
+
+  \[ \begin{tikzcd}
+      \GL_n (R)\ar{d}[swap]{\GL_n (f)}\ar{r}{\det_R} & R^\times\ar{d}{f} \\
+      \GL_n (S)\ar{r}[swap]{\det_S} & S^\times
+    \end{tikzcd} \]
+
+  En conclusión, el determinante define una transformación natural entre los
+  funtores
+  \[ \GL_n, (-)^\times\colon \categ{CRing} \to \categ{Grp}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Tenemos funtores $\Hom_\vcateg{C} (X,-)\colon \vcateg{C} \to \categ{Set}$ y
+  $\Hom_\vcateg{C} (-,Y)\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$. Cada
+  morfismo
+  $$X \to X' \quad\text{y}\quad Y \to Y'$$
+  induce transformaciones naturales
+  \[ \Hom_\vcateg{C} (X',-) \Rightarrow \Hom_\vcateg{C} (X,-) \quad\text{y}\quad
+     \Hom_\vcateg{C} (-, Y) \Rightarrow \Hom_\vcateg{C} (-, Y'). \]
+
+  Por ejemplo, en el primer caso, tenemos diagramas conmutativos
+
+  \[ \begin{tikzcd}
+      \Hom_\vcateg{C} (X',Y)\ar{r}{\alpha_Y}\ar{d} & \Hom_\vcateg{C} (X,Y)\ar{d} & (X'\to Y) \ar[|->]{r}\ar[|->]{d} & (X \to X' \to Y) \ar[|->]{d} \\
+      \Hom_\vcateg{C} (X',Y')\ar{r}{\alpha_{Y'}} & \Hom_\vcateg{C} (X,Y') & (X'\to Y\to Y') \ar[|->]{r} & (X\to X' \to Y \to Y') \\
+    \end{tikzcd} \]
+  y el segundo caso corresponde a los mismos diagramas, salvo que la
+  transformación natural corresponde a las flechas verticales. Todo esto
+  significa que $\Hom_\vcateg{C} (-,-)$ es un \term{bifuntor}, es decir es un
+  funtor en dos argumentos, y su comportamiento en un argumento es compatible
+  con su comportamiento en el otro.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Sea $\{ \ast \}$ un conjunto unipuntual. El funtor
+  $\Hom_\categ{Set} (\{ \ast \}, -)\colon \categ{Set} \to \categ{Set}$ es
+  isomorfo a $\Id\colon \categ{Set} \to \categ{Set}$. En efecto, se ve que la
+  biyección em
+  \begin{align*}
+    \Hom_\categ{Set} (\{ \ast \}, X) & \xrightarrow{\isom} X,\\
+    f & \mapsto f (\ast)
+  \end{align*}
+  es natural en $X$.
+
+  De la misma manera, para espacios vectoriales, el funtor $\iHom_k (k, -)$ es
+  isomorfo a $\Id\colon k\categ{-Vect} \to k\categ{-Vect}$, gracias al
+  isomorfismo natural $\iHom_k (k, V) \isom V$ definido por $f \mapsto f (1)$.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Producto de Godement}
+\label{sec:producto-de-godement}
+
+%\marginpar{\footnotesize lo añadí\\
+%para\\
+%explicar las\\
+%identidades\\
+%triangulares}
+
+\begin{definicion}
+  ~
+
+  \begin{itemize}
+  \item Sean $\vcateg{C}, \vcateg{D}, \vcateg{E}$ tres categorías;
+
+  \item sean $F_1, G_1$ dos funtores entre $\vcateg{C}$ y $\vcateg{D}$;
+
+  \item sean $F_2, G_2$ dos funtores entre $\vcateg{D}$ y $\vcateg{E}$;
+
+  \item sean $\alpha\colon F_1\Rightarrow G_1$ y
+    $\beta\colon F_2\Rightarrow G_2$ dos transformaciones naturales.
+  \end{itemize}
+
+  Todo esto puede ser expresado mediante el diagrama
+
+  \[ \begin{tikzpicture}
+      \matrix[matrix of math nodes,column sep=2cm] (m)
+      {
+        \vcateg{C} & \vcateg{D} & \vcateg{E} \\
+      };
+      \draw[->] (m-1-1) to[bend left=50] node[label=above:$F_1$] (F1) {} (m-1-2);
+      \draw[->] (m-1-1) to[bend right=50] node[label=below:$G_1$] (G1) {} (m-1-2);
+      \draw[->] (m-1-2) to[bend left=50] node[label=above:$F_2$] (F2) {} (m-1-3);
+      \draw[->] (m-1-2) to[bend right=50] node[label=below:$G_2$] (G2) {} (m-1-3);
+
+      \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+      (F1) -- node[label=right:$\alpha$] {} (G1);
+      \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+      (F2) -- node[label=right:$\beta$] {} (G2);
+    \end{tikzpicture} \]
+
+  Entonces, el \term{producto de Godement}\footnote{\personality{Roger Godement}
+    (1921--2016), matemático francés, miembro del grupo Bourbaki, conocido por
+    sus contribuciones en análisis funcional y libros expositivos, por ejemplo
+    ``Topologie Algébrique et Théorie des Faisceaux'' (1958).} de $\alpha$ y
+  $\beta$ es la transformación natural
+  $$\beta\ast\alpha\colon F_2\circ F_1\Rightarrow G_2\circ G_1$$
+  definida como
+  \[ (\beta\ast\alpha)_X \dfn \beta_{G_1 (X)} \circ F_2 (\alpha_X) =
+     G_2 (\alpha_X)\circ \beta_{F_1(X)}. \]
+
+  \[ \begin{tikzcd}[row sep=4em, column sep=4em]
+      F_2 (F_1(X)) \ar{r}{F_2 (\alpha_X)}\ar{d}[swap]{\beta_{F_1(X)}}\ar{dr}{(\beta\ast\alpha)_X} & F_2 (G_1(X)) \ar{d}{\beta_{G_1(X)}} \\
+      G_2 (F_1(X)) \ar{r}[swap]{G_2 (\alpha_X)} & G_2 (G_1 (X))
+    \end{tikzcd} \]
+  (Este diagrama conmuta gracias a la naturalidad de $\beta$.)
+
+  \[ \begin{tikzpicture}
+      \matrix[matrix of math nodes,column sep=3cm] (m)
+      {
+        \vcateg{C} & \vcateg{E} \\
+      };
+      \draw[->] (m-1-1) to[bend left=50] node[label=above:$F_2\circ F_1$] (F) {} (m-1-2);
+      \draw[->] (m-1-1) to[bend right=50] node[label=below:$G_2\circ G_1$] (G) {} (m-1-2);
+
+      \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+      (F) -- node[label=right:$\beta\ast\alpha$] {} (G);
+    \end{tikzpicture} \]
+\end{definicion}
+
+\begin{observacion}
+  $\beta\ast\alpha\colon F_2\circ F_1\Rightarrow G_2\circ G_1$ es una
+  transformación natural: para todo morfismo $f\colon X\to X'$ en $\vcateg{C}$
+  el diagrama
+  \[ \begin{tikzcd}
+      F_2 (F_1 (X)) \ar{r}{(\beta\ast\alpha)_X}\ar{d}[swap]{F_2 (F_1 (f))} & G_2 (G_1 (X))\ar{d}{G_2 (G_1 (f))} \\
+      F_2 (F_1 (X')) \ar{r}[swap]{(\beta\ast\alpha)_{X'}} & G_2 (G_1 (X')) \\
+    \end{tikzcd} \]
+  conmuta.
+
+  \begin{proof}
+    Consideremos el siguiente cubo:
+    \[ \begin{tikzcd}[row sep=4em, column sep=4em]
+        && F_2 (F_1(X)) \ar{rrr}{F_2 (\alpha_X)}\ar[dashed,shift left=0.4em]{ddrrr}[near end]{(\beta\ast\alpha)_X}\ar[]{dd}[near end]{\beta_{F_1(X)}}\ar{dll}[swap]{F_2 (F_1 (f))} &&& F_2 (G_1(X))\ar{dd}{\beta_{G_1(X)}}\ar{dll}[swap]{F_2 (G_1 (f))} \\
+        F_2 (F_1(X')) \ar[dashed,shift right=0.35em]{ddrrr}[near end]{(\beta\ast\alpha)_{X'}} \ar[crossing over]{rrr}[near end]{F_2 (\alpha_{X'})}\ar{dd}[swap]{\beta_{F_1(X')}} &&& F_2 (G_1(X')) \\
+        && G_2 (F_1(X)) \ar{rrr}[near start]{G_2 (\alpha_X)}\ar{dll}[swap]{G_2 (F_1 (f))} &&& G_2 (G_1 (X))\ar{dll}{G_2 (G_1 (f))} \\
+        G_2 (F_1(X')) \ar{rrr}[swap]{G_2 (\alpha_{X'})} &&& G_2 (G_1 (X'))\ar[leftarrow, crossing over]{uu}[near start,swap]{\beta_{G_1(X')}}
+      \end{tikzcd} \]
+
+    Las caras izquierda y derecha, posterior y delantera conmutan por la
+    naturalidad de $\beta$. La cara de arriba y de abajo conmutan por la
+    naturalidad de $\alpha$ (estas corresponden a los funtores $F_2$ y $G_2$
+    aplicados al cuadrado de naturalidad). Podemos concluir que la sección
+    diagonal del cubo también conmuta.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  El producto de Godement es asociativo: para un diagrama
+  \[ \begin{tikzpicture}
+      \matrix[matrix of math nodes,column sep=2cm] (m)
+      {
+        \vcateg{A} & \vcateg{B} & \vcateg{C} & \vcateg{D} \\
+      };
+      \draw[->] (m-1-1) to[bend left=50] node[label=above:$F_1$] (F1) {} (m-1-2);
+      \draw[->] (m-1-1) to[bend right=50] node[label=below:$G_1$] (G1) {} (m-1-2);
+      \draw[->] (m-1-2) to[bend left=50] node[label=above:$F_2$] (F2) {} (m-1-3);
+      \draw[->] (m-1-2) to[bend right=50] node[label=below:$G_2$] (G2) {} (m-1-3);
+      \draw[->] (m-1-3) to[bend left=50] node[label=above:$F_3$] (F3) {} (m-1-4);
+      \draw[->] (m-1-3) to[bend right=50] node[label=below:$G_3$] (G3) {} (m-1-4);
+
+      \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+      (F1) -- node[label=right:$\alpha$] {} (G1);
+      \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+      (F2) -- node[label=right:$\beta$] {} (G2);
+      \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+      (F3) -- node[label=right:$\gamma$] {} (G3);
+    \end{tikzpicture} \]
+  se cumple
+  $$(\gamma\ast\beta)\ast\alpha = \gamma\ast(\beta\ast\alpha).$$
+
+  \begin{proof}
+    Ejercicio para el lector.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Sean $\vcateg{C},\vcateg{D},\vcateg{E}$ tres categorías. Sean $F,G,H$ funtores
+  $\vcateg{C} \to \vcateg{D}$ y sean $I,J,K$ tres funtores
+  $\vcateg{D}\to \vcateg{E}$. Consideremos transformaciones naturales
+  \[ \alpha\colon F\Rightarrow G, \quad
+     \beta\colon G\Rightarrow H, \quad
+     \sigma\colon I\Rightarrow J, \quad
+     \tau\colon J\Rightarrow K. \]
+
+   \[ \begin{tikzpicture}
+       \matrix[matrix of math nodes,column sep=3cm,row sep=5em] (m)
+       {
+         \vcateg{C} & \vcateg{D} & \vcateg{E} \\
+       };
+       \draw[->] (m-1-1) to[bend left=50] node[label=above:$F$] (F) {} (m-1-2);
+       \draw[] (m-1-1) to node (G) {} (m-1-2);
+       \draw[->] (m-1-1) to node[label=above:$G$,near end] {} (m-1-2);
+       \draw[->] (m-1-1) to[bend right=50] node[label=below:$H$] (H) {} (m-1-2);
+       \draw[->] (m-1-2) to[bend left=50] node[label=above:$I$] (I) {} (m-1-3);
+       \draw[->] (m-1-2) to node[label=above:$J$,near end] {} (m-1-3);
+       \draw[] (m-1-2) to node (J) {} (m-1-3);
+       \draw[->] (m-1-2) to[bend right=50] node[label=below:$K$] (K) {} (m-1-3);
+
+       \draw[double,double equal sign distance,-implies] (F) -- node[label=left:$\alpha$] {} (G);
+       \draw[double,double equal sign distance,-implies] (G) -- node[label=left:$\beta$] {} (H);
+       \draw[double,double equal sign distance,-implies] (I) -- node[label=left:$\sigma$] {} (J);
+       \draw[double,double equal sign distance,-implies] (J) -- node[label=left:$\tau$] {} (K);
+
+     \end{tikzpicture} \]
+
+   Entonces,
+   \[ (\tau\circ \sigma)\ast (\beta\circ \alpha) =
+      (\tau\ast\beta)\circ (\sigma\ast\alpha). \]
+
+   \begin{proof}
+     Ejercicio para el lector.
+   \end{proof}
+\end{observacion}
+
+Un caso muy especial es cuando una de las transformaciones naturales en cuestión
+es la identidad:
+\[ \begin{tikzpicture}
+    \matrix[matrix of math nodes,column sep=2cm] (m)
+    {
+      \vcateg{C} & \vcateg{D} & \vcateg{E} \\
+    };
+    \draw[->] (m-1-1) to[bend left=50] node[label=above:$F$] (F1) {} (m-1-2);
+    \draw[->] (m-1-1) to[bend right=50] node[label=below:$F$] (F2) {} (m-1-2);
+    \draw[->] (m-1-2) to[bend left=50] node[label=above:$G$] (G) {} (m-1-3);
+    \draw[->] (m-1-2) to[bend right=50] node[label=below:$H$] (H) {} (m-1-3);
+    
+    \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+    (F1) -- node[label=right:$\Id$] {} (F2);
+    \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+    (G) -- node[label=right:$\beta$] {} (H);
+  \end{tikzpicture} \]
+en este caso se escribe simplemente
+$$\beta\circ F\colon G\circ F\Rightarrow F\circ H.$$
+Es la transformación natural definida por
+$$(\beta\circ F)_X \dfn \beta_{F (X)}.$$
+
+De la misma manera, si $\beta = \Id$
+\[ \begin{tikzpicture}
+    \matrix[matrix of math nodes,column sep=2cm] (m)
+    {
+      \vcateg{C} & \vcateg{D} & \vcateg{E} \\
+    };
+    \draw[->] (m-1-1) to[bend left=50] node[label=above:$F$] (F) {} (m-1-2);
+    \draw[->] (m-1-1) to[bend right=50] node[label=below:$G$] (G) {} (m-1-2);
+    \draw[->] (m-1-2) to[bend left=50] node[label=above:$H$] (H1) {} (m-1-3);
+    \draw[->] (m-1-2) to[bend right=50] node[label=below:$H$] (H2) {} (m-1-3);
+
+    \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+    (F) -- node[label=right:$\alpha$] {} (G);
+    \draw[double,double equal sign distance,-implies,shorten >=10pt,shorten <=10pt] 
+    (H1) -- node[label=right:$\Id$] {} (H2);
+  \end{tikzpicture} \]
+entonces se trata de una transformación natural
+$$H\circ\alpha\colon H\circ F\Rightarrow H\circ G$$
+definida por
+$$(H\circ\alpha)_X\dfn H (\alpha_X).$$
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Funtores representables y el lema de Yoneda}
+
+Por fin estamos listos para demostrar el hecho más importante de la teoría de
+categorías básica.
+
+\begin{proposicion}[{Lema de Yoneda\footnote{\personality{Nobuo Yoneda}
+      (1930--1996) fue un matemático japonés, conocido principalmente por el
+      lema que lleva su nombre. La leyenda dice que Yoneda y Saunders Mac Lane,
+      uno de los fundadores de la teoría de categorías, se encontraron en un
+      café de la estación de París Norte y su conversación continuó en el tren
+      de Yoneda justo antes de que este partiera. Fue en esta ocasión que Yoneda
+      explicó a Mac Lane su famoso lema. Gracias a esta coincidencia, Mac Lane
+      formuló el lema como lo conocimos hoy en día y lo popularizó. Después de
+      su regreso a Japón, Yoneda trabajó en informática, en particular en el
+      lenguaje de programación Algol.}}]
+  \label{lema-de-yoneda}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Para cada $X\in \Ob(\vcateg{C})$ y cada funtor covariante
+    $F\colon \vcateg{C} \to \categ{Set}$ tenemos una biyección natural
+    $$\Nat (\Hom_\vcateg{C} (X,-), F) \xrightarrow{\isom} F (X).$$
+    Aquí la naturalidad quiere decir que para cada morfismo $f\colon X\to X'$ y
+    cada transformación natural $\alpha\colon F\Rightarrow G$ los siguientes
+    diagramas son conmutativos:
+
+    \[ \begin{tikzcd}
+        \Nat (\Hom_\vcateg{C} (X, -), F)\ar{d}[swap]{f^*}\ar{r}{\isom} & F (X)\ar{d}{F (f)} & \Nat (\Hom_\vcateg{C} (X, -), F)\ar{d}[swap]{\alpha\circ -}\ar{r}{\isom} & F (X)\ar{d}{\alpha_X} \\
+        \Nat (\Hom_\vcateg{C} (X', -), F) \ar{r}{\isom} & F (X') & \Nat (\Hom_\vcateg{C} (X, -), G) \ar{r}{\isom} & G (X)
+      \end{tikzcd} \]
+
+    ($f\colon X\to X'$ induce una transformación natural
+    $f^*\colon \Hom_\vcateg{C} (X', -) \Rightarrow \Hom_\vcateg{C} (X, -)$, y a
+    su vez una aplicación entre conjuntos
+    $f^*\colon \Nat (\Hom_\vcateg{C} (X, -), F) \to \Nat (\Hom_\vcateg{C} (X', -), F)$
+    por la precomposición; la transformación natural
+    $\alpha\colon F\Rightarrow G$ induce un morfismo entre conjuntos
+    $\Nat (\Hom_\vcateg{C} (X,-), F) \Rightarrow \Nat (\Hom_\vcateg{C} (X,-),
+    G)$ por la poscomposición con $\alpha$.)
+
+  \item[2)] Para cada $Y\in \Ob(\vcateg{C})$ y cada funtor contravariante
+    $F\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$ tenemos una biyección
+    natural
+    $$\Nat (\Hom_\vcateg{C} (-,Y), F) \xrightarrow{\isom} F (Y).$$
+    Aquí la naturalidad quiere decir que para cada morfismo $f\colon Y\to Y'$ y
+    cada transformación natural $\alpha\colon F\Rightarrow G$ los siguientes
+    diagramas son conmutativos:
+
+    \[ \begin{tikzcd}
+        \Nat (\Hom_\vcateg{C} (-,Y), F)\ar{r}{\isom} & F (Y) & \Nat (\Hom_\vcateg{C} (-, Y), F)\ar{d}[swap]{\alpha\circ -}\ar{r}{\isom} & F (Y)\ar{d}{\alpha_Y} \\
+        \Nat (\Hom_\vcateg{C} (-,Y'), F) \ar{r}{\isom} \ar{u}{f^*} & F (Y')\ar{u}[swap]{F (f)} & \Nat (\Hom_\vcateg{C} (-,Y), G) \ar{r}{\isom} & G (Y)
+      \end{tikzcd} \]
+  \end{enumerate}
+
+  \begin{proof}
+    Veamos, por ejemplo, el caso contravariante. Dejo el caso covariante como un
+    ejercicio al lector. Tenemos que definir una biyección
+    $$\Nat (\Hom_\vcateg{C} (-,Y), F) \isom F (Y).$$
+
+    A partir de una transformación natural
+    $\alpha\colon \Hom_\vcateg{C} (-,Y) \Rightarrow F$ debemos producir un
+    elemento de $F (Y)$. De hecho, hay solo una posibilidad obvia: tenemos la
+    aplicación $\alpha_Y\colon \Hom_\vcateg{C} (Y,Y) \to F (Y)$ y el único
+    elemento que seguramente contiene el conjunto $\Hom_\vcateg{C} (Y,Y)$ es el
+    morfismo identidad $\id{Y}$. Entonces, podemos considerar
+    $$\alpha_Y (\id{Y}) \in F (Y).$$
+
+    Ahora bien, a partir de un elemento $y\in F (Y)$ tenemos que definir una
+    transformación natural
+    $$\alpha^y\colon \Hom_\vcateg{C} (-,Y) \Rightarrow F,$$
+    es decir, una familia de morfismos
+    $$\alpha^y_X\colon \Hom_\vcateg{C} (X,Y) \to F (X).$$
+    Si tenemos un elemento $f\in \Hom_\vcateg{C} (X,Y)$, entonces $F$ nos da una
+    aplicación entre conjuntos $F (f)\colon F (Y) \to F (X)$. Podemos aplicar
+    $F (f)$ a $y \in F (Y)$ para obtener un elemento de $F (X)$:
+    $$\alpha^y_X (f) \dfn F (f) (y).$$
+
+    Hay que verificar varios detalles.
+
+    \begin{enumerate}
+    \item[1)] \textbf{$\alpha^y_X$ define una transformación natural
+        $\alpha^y\colon \Hom_\vcateg{C} (-,Y) \Rightarrow F$.} En efecto, para
+      cada $f\colon X\to X'$ tenemos un diagrama conmutativo
+
+      \[ \begin{tikzcd}
+          \Hom_\vcateg{C} (X,Y) \ar{r}{\alpha_X^y} & F (X) & h\circ f\ar[|->]{r} & F (h\circ f) (y) = F (f) \circ F (h) (y) \\
+          \Hom_\vcateg{C} (X',Y) \ar{r}[swap]{\alpha_{X'}^y}\ar{u}{-\circ f} & F (X')\ar{u}[swap]{F (f)} & h\ar[|->]{u}\ar[|->]{r} & F (h) (y) \ar[|->]{u}
+        \end{tikzcd} \]
+
+    \item[2)] \textbf{Las correspondencias que hemos definido dan una biyección
+        entre los conjuntos $\Nat (\Hom_\vcateg{C} (-,Y), F)$ y $F (Y)$.}
+
+      Si tenemos una transformación natural
+      $\alpha\colon \Hom_\vcateg{C} (-,Y) \Rightarrow F$, entonces el elemento
+      correspondiente de $F (Y)$ es $\alpha_Y (\id{Y})$. Luego, a partir de
+      $\alpha_Y (\id{Y})$ se construye la transformación natural
+      \begin{align*}
+  \Hom_\vcateg{C} (X,Y) & \to F (X),\\
+        f & \mapsto F (f) \circ \alpha_Y (\id{Y}).
+      \end{align*}
+      Pero $\alpha$ es natural, de donde
+      $$F (f) \circ \alpha_Y (\id{Y}) = \alpha_X\circ f^* (\id{Y}) = \alpha_X (f).$$
+
+      \[ \begin{tikzcd}
+          \Hom_\vcateg{C} (Y,Y) \ar{r}{\alpha_Y}\ar{d}[swap]{f^*} & F (Y)\ar{d}{F (f)} \\
+          \Hom_\vcateg{C} (X,Y) \ar{r}[swap]{\alpha_X} & F (X) \\
+\end{tikzcd} \]
+
+A partir de $y\in F (Y)$ se construye una transformación natural
+$\alpha^y_X\colon \Hom_\vcateg{C} (X,Y) \to F (X)$ definida por
+$\alpha^y_X (f) = F (f) (y)$. Luego, se recupera el elemento
+$\alpha^y_Y (\id{Y}) = F (\id{Y}) (y) = \id{F (y)} (y) = y$.
+
+\item[3)] \textbf{La biyección es natural.} Primero, hay que ver que el
+  siguiente diagrama conmuta:
+
+  \[ \begin{tikzcd}
+      \Nat (\Hom_\vcateg{C} (-,Y), F)\ar{r}{\isom} & F (Y) \\
+      \Nat (\Hom_\vcateg{C} (-,Y'), F) \ar{r}{\isom} \ar{u}{f^*} & F (Y')\ar{u}[swap]{F (f)}
+    \end{tikzcd} \]
+
+  En efecto, para una transformación natural
+  $\alpha\colon \Hom_\vcateg{C} (-,Y') \Rightarrow F$ tenemos
+
+  \[ \begin{tikzcd}
+      \alpha (f\circ -) \ar[|->]{r} & \alpha_Y (f\circ \id{Y}) = \alpha_Y \circ f^* = F (f) \circ \alpha_{Y'} (\id{Y'}) \\
+      \alpha\ar[|->]{u}\ar[|->]{r} & \alpha_{Y'} (\id{Y'})\ar[|->]{u}
+    \end{tikzcd} \]
+  Aquí una vez más usamos la naturalidad de $\alpha$:
+  \[ \begin{tikzcd}
+      \Hom_\vcateg{C} (Y',Y)\ar{r}{\alpha_Y} & F (Y) \\
+      \Hom_\vcateg{C} (Y',Y')\ar{u}{f^*}\ar{r}[swap]{\alpha_{Y'}} & F (Y') \ar{u}[swap]{F (f)}
+    \end{tikzcd} \]
+
+  Comprobemos ahora la conmutatividad del diagrama
+
+  \[ \begin{tikzcd}
+      \Nat (\Hom_\vcateg{C} (-,Y), F)\ar{d}[swap]{\alpha\circ -}\ar{r}{\isom} & F (Y)\ar{d}{\alpha_Y} \\
+      \Nat (\Hom_\vcateg{C} (-,Y), G) \ar{r}{\isom} & G (Y)
+    \end{tikzcd} \]
+
+  En efecto, para una transformación natural
+  $\beta\colon \Hom_\vcateg{C} (-,Y) \Rightarrow F$ tenemos
+
+  \[ \begin{tikzcd}
+      \beta\ar[|->]{d}\ar[|->]{r} & \beta_X (\id{X})\ar[|->]{d} \\
+      \alpha\circ\beta \ar{r} & (\alpha\circ\beta)_X (\id{X}) = \alpha_X (\beta_X (\id{X}))
+    \end{tikzcd} \]
+\end{enumerate}
+\end{proof}
+\end{proposicion}
+
+El siguiente es un caso particular del lema de Yoneda cuando $F$ es el funtor
+covariante $\Hom_\vcateg{C} (X,-)$ o el funtor contravariante
+$\Hom_\vcateg{C} (-,Y)$.
+
+\begin{corolario}[Encajamiento de Yoneda]
+  \label{encajamiento-de-yoneda}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Para cualesquiera $X, X' \in \Ob(\vcateg{C})$ tenemos una biyección
+    natural
+    $$\Nat (\Hom_\vcateg{C} (X,-), \Hom_\vcateg{C} (X',-)) \isom \Hom_\vcateg{C} (X',X).$$
+
+  \item[2)] Para cualesquiera $Y, Y' \in \Ob(\vcateg{C})$ tenemos una biyección
+    natural
+    $$\Nat (\Hom_\vcateg{C} (-,Y), \Hom_\vcateg{C} (-,Y')) \isom \Hom_\vcateg{C} (Y,Y').$$
+  \end{enumerate}
+\end{corolario}
+
+El último resultado puede ser interpretado de la manera siguiente. Si
+$\vcateg{C}$ es una categoría pequeña, entonces para dos funtores
+$F,G\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$ las transformaciones
+naturales $\Nat (F,G)$ forman un conjunto. Por lo tanto podemos considerar la
+categoría
+$$\widehat{\vcateg{C}} \dfn \categ{Fun} (\vcateg{C}^\mathrm{op}, \categ{Set}),$$
+llamada la \term{categoría de prehaces sobre $\vcateg{C}$}, cuyos objetos son
+los funtores $F\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$ y cuyos morfismos
+son las transformaciones naturales $F\Rightarrow G$. El lema de Yoneda nos dice
+que tenemos un funtor
+
+\begin{align*}
+  \mathcal{Y}\colon \vcateg{C} & \to \widehat{\vcateg{C}},\\
+  X & \mapsto \Hom_\vcateg{C} (-,X),
+\end{align*}
+que es fiel y pleno, lo cual quiere decir que para cada par de objetos $X, X'$
+tenemos una biyección
+\begin{align*}
+  \Hom_\vcateg{C} (X, X') & \isom \Hom_{\widehat{\vcateg{C}}} (\mathcal{Y} (X), \mathcal{Y} (X')),\\
+  f & \mapsto \mathcal{Y} (f).
+\end{align*}
+
+En consecuencia la categoría $\vcateg{C}$ puede ser vista como una subcategoría
+plena de la categoría más grande $\widehat{\vcateg{C}}$. El funtor $\mathcal{Y}$
+recibe el nombre de \term{encajamiento de Yoneda} y tiene un rol fundamental en
+álgebra y geometría. De modo similar, tenemos la versión contravariante
+
+\begin{align*}
+  \mathcal{Y}\colon \vcateg{C}^\mathrm{op} & \to \categ{Fun} (\vcateg{C}, \categ{Set}),\\
+  X & \mapsto \Hom_\vcateg{C} (X,-).
+\end{align*}
+
+\begin{corolario}
+  \label{funtores-representados-objeto-unico-salvo-iso}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Si $F \isom \Hom_\vcateg{C} (X,-)\colon \vcateg{C} \to \categ{Set}$
+    para algún objeto $X$, entonces $X$ está definido de manera única salvo
+    isomorfismo único.
+
+  \item[2)] Si
+    $F \isom \Hom_\vcateg{C} (-,Y)\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$
+    para algún objeto $Y$, entonces $Y$ está definido de manera única salvo
+    isomorfismo único.
+  \end{enumerate}
+
+  \begin{proof}
+    Por ejemplo, supongamos que
+    $$\Hom_\vcateg{C} (X,-) \isom F \isom \Hom_\vcateg{C} (X',-).$$
+    Este isomorfismo de funtores corresponde a un par de transformaciones naturales
+    \[ \alpha\colon \Hom_\vcateg{C} (X,-) \Rightarrow \Hom_\vcateg{C} (X',-), \quad
+      \beta\colon \Hom_\vcateg{C} (X',-) \Rightarrow \Hom_\vcateg{C} (X,-) \]
+    tales que
+    \[ \beta\circ\alpha = \Id_{\Hom_\vcateg{C} (X,-)}, \quad
+      \alpha\circ\beta = \Id_{\Hom_\vcateg{C} (X',-)}. \]
+    Por el encajamiento de Yoneda, $\alpha$ y $\beta$ corresponden a morfismos
+    $f\colon X'\to X$ y $g\colon X \to X'$ tales que $g\circ f = \id{X'}$ y
+    $f\circ g = \id{X}$.
+
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=3em, column sep=2em, text height=1.5ex, text depth=0.25ex]
+        {\Hom_\vcateg{C} (X,-) & \Hom_\vcateg{C} (X',-)\\
+          X & X'\\};
+
+        \draw[->] (m-1-1) edge[double,loop left] node[left,font=\scriptsize] {$\Id$} (m-1-1);
+        \draw[->] (m-1-2) edge[double,loop right] node[right,font=\scriptsize] {$\Id$} (m-1-2);
+
+        \draw[double,->] ([yshift=0.5em]m-1-1.east) -- node[above,font=\scriptsize] {$\alpha$} ([yshift=0.5em]m-1-2.west);
+        \draw[double,->] ([yshift=-0.5em]m-1-2.west) -- node[below,font=\scriptsize] {$\beta$} ([yshift=-0.5em]m-1-1.east);
+
+        \draw[double,->] (m-2-1) edge[loop left] node[left,font=\scriptsize] {$\idid$} (m-2-1);
+        \draw[double,->] (m-2-2) edge[loop right] node[right,font=\scriptsize] {$\idid$} (m-2-2);
+
+        \draw[<-] ([yshift=0.5em]m-2-1.east) -- node[above,font=\scriptsize] {$f$} ([yshift=0.5em]m-2-2.west);
+        \draw[<-] ([yshift=-0.5em]m-2-2.west) -- node[below,font=\scriptsize] {$g$} ([yshift=-0.5em]m-2-1.east);
+      \end{tikzpicture} \qedhere \]
+  \end{proof}
+\end{corolario}
+
+\begin{definicion}
+  Si para un funtor $F\colon \vcateg{C} \to \categ{Set}$ (resp.
+  $F\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$) tenemos un isomorfismo
+  $F \isom \Hom_\vcateg{C} (X,-)$ (resp. $F \isom \Hom_\vcateg{C} (-,X)$) para
+  algún objeto $X \in \Ob(\vcateg{C})$, se dice que $F$ es un funtor
+  \term{representable}\footnote{En el caso contravariante
+    $F \isom \Hom_\vcateg{C} (-,X)\colon \vcateg{C}^\mathrm{op} \to \categ{Set}$
+    algunos autores dicen que $F$ es \term{correpresentado} por $X$, pero yo no
+    voy a usar esta terminología.}, y que $F$ es \term{representado} por
+  $X$. (Por el lema de Yoneda, este $X$ es único salvo isomorfismo.)
+\end{definicion}
+
+Los funtores representables son un pilar de las matemáticas modernas porque
+muchas construcciones universales pueden ser formuladas en términos de
+representabilidad. El lema de Yoneda tiene el privilegio de ser uno de los
+resultados más tautológicos y profundos al mismo tiempo.
+
+Ejemplos interesantes de funtores representables van a surgir más adelante.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Funtores adjuntos}
+
+%\marginpar{\footnotesize lección\\4.06.2018}
+
+Sea $V$ un espacio vectorial dotado de un producto escalar
+$\langle \cdot,\cdot \rangle$. Recordemos que dos operadores $A\colon V\to V$ y
+$A^*\colon V\to V$ son \emph{adjuntos} si para cualesquiera $v_1,v_2 \in V$ se
+cumple
+$$\langle A v_1, v_2\rangle = \langle v_1, A^* v_2\rangle.$$
+Algo parecido existe en la teoría de categorías: es la nocion de funtores adjuntos.
+
+\begin{definicion}
+  Sean $F\colon \vcateg{C} \to \vcateg{D}$ y $G\colon \vcateg{D} \to \vcateg{C}$
+  dos funtores. Se dice que $F$ es \term{adjunto por la izquierda} a $G$ y que
+  $G$ es \term{adjunto por la derecha} a $F$ si para cualesquiera
+  $X \in \Ob (\vcateg{C})$ e $Y \in \Ob (\vcateg{D})$ tenemos una biyección
+  natural
+  $$\Phi_{XY}\colon \Hom_\vcateg{D} (F (X), Y) \xrightarrow{\isom} \Hom_\vcateg{C} (X, G (Y)).$$
+  La naturalidad quiere decir que para $X$ fijo la biyección
+  $$\Phi_{X,-}\colon \Hom_\vcateg{D} (F (X), -) \xrightarrow{\isom} \Hom_\vcateg{C} (X, G (-))$$
+  es un isomorfismo de funtores $\vcateg{D} \to \categ{Set}$, y para $Y$ fijo la
+  biyección
+  $$\Phi_{-,Y}\colon \Hom_\vcateg{D} (F (-), Y) \xrightarrow{\isom} \Hom_\vcateg{C} (-, G (Y))$$
+  es también un isomorfismo de funtores
+  $\vcateg{C}^\mathrm{op} \to \categ{Set}$.
+\end{definicion}
+
+\begin{ejemplo}
+  Los funtores adjuntos aparecen en varios contextos en álgebra y
+  geometría. Lamentablemente, no tenemos bastante tiempo para ver muchos
+  ejemplos; aquí sugiero algunos y dejo los detalles como ejercicios al lector.
+
+  \begin{enumerate}
+  \item[1)] Tenemos el funtor olvidadizo $k\categ{-Vect} \to \categ{Set}$ que
+    para cada espacio vectorial $V$ ``olvida'' su estructura y le asocia el
+    conjunto subyacente. A cada conjunto $X$ se puede asociar el espacio
+    vectorial $k\langle X\rangle$ generado por $X$; es decir, el espacio cuya
+    base corresponde a los elementos de $X$. En este caso toda aplicación lineal
+    $f\colon k \langle X\rangle\to V$ se define de manera única por los imágenes
+    de los elementos de la base.
+
+    \[ \begin{tikzcd}
+        X \ar[hookrightarrow]{r}\ar{d}[swap]{f} & k\langle X\rangle \\
+        V\ar[dashed]{ur}[swap]{\exists !}
+      \end{tikzcd} \]
+
+    Esto nos da una biyección natural
+    $$\Hom_{k\categ{-Vect}} (k \langle X\rangle, V) \isom \Hom_\categ{Set} (X,V).$$
+    Luego, el funtor $k \langle -\rangle$ es adjunto por la izquierda al funtor
+    olvidadizo $k\categ{-Vect} \to \categ{Set}$.
+
+  \item[2)] El funtor olvidadizo $G\categ{-Set}\to \categ{Set}$ tiene un funtor
+    adjunto por la izquierda $\categ{Set}\to G\categ{-Set}$ que a cada conjunto
+    $X$ asocia el conjunto $G\times X$ con la acción de $G$ mediante
+    $g\cdot (h,x) \dfn (gh, x)$. Hay una biyección natural
+    $$\Hom_{G\categ{-Set}} (G\times X, Y) \isom \Hom_\categ{Set} (X, Y).$$
+
+  \item[3)] Para cada conjunto fijo $X$ tenemos el funtor
+  $$-\times X\colon \categ{Set} \to \categ{Set}$$
+  que asocia a un conjunto $Y$ el producto $Y\times X$ y a una aplicación entre
+  conjuntos $f\colon Y_1\to Y_2$ la aplicación
+  $f\times\idid\colon Y_1\times X\to Y_2\times X$. Este funtor es adjunto por la
+  izquierda al funtor
+  $$(-)^X \dfn \Hom_\categ{Set} (X,-)\colon \categ{Set} \to \categ{Set}.$$
+  En otras palabras, tenemos una biyección natural
+  $$\Hom_\categ{Set} (Y\times X, Z) \isom \Hom_\categ{Set} (Y, Z^X).$$
+  En efecto, a una aplicación $f\colon Y\times X\to Z$ se puede asociar una aplicación $Y\to Z^X$ definida por
+  $$y \mapsto (x \mapsto f (y,x)).$$
+  Viceversa, toda aplicación $g\colon Y\to Z^X$ nos da una aplicación $Y\times X\mapsto Z$ definida por
+  $$(y,x) \mapsto (g (y)) (x).$$
+
+\item[4)] Si $X$ es un espacio topológico, podemos olvidar su topología y
+  considerar a $X$ como un conjunto. Esto define el funtor olvidadizo
+  $$Olv\colon \categ{Top} \to \categ{Set}.$$
+  Un funtor adjunto a $Olv$ debe ir en la otra dirección: para un conjunto $X$
+  definir alguna topología sobre el mismo. De hecho, hay dos modos canónicos de
+  hacerlo: definir sobre $X$ la \term{topología discreta}, donde cada
+  subconjunto $U\subseteq X$ es abierto, o la \term{topología indiscreta}, donde
+  los únicos subconjuntos abiertos son $\emptyset$ y $X$. Esto define dos
+  funtores diferentes
+  $$Discr, Indiscr\colon \categ{Set} \to \categ{Top}.$$
+  Resulta que $Olv$ es adjunto por la izquierda a $Indiscr$ y por la derecha a $Discr$:
+  \begin{align*}
+    \Hom_\categ{Set} (Olv (X), Y) & \isom \Hom_\categ{Top} (X, Indiscr (Y)),\\
+    \Hom_\categ{Top} (Discr (X), Y) & \isom \Hom_\categ{Set} (X, Olv (Y)).
+  \end{align*}
+  Esto es otro modo de decir que si $Y$ lleva la topología indiscreta, entonces
+  cualquier aplicación $X\to Y$ es continua. Si $X$ lleva la topología discreta,
+  entonces cualquier aplicación $X\to Y$ es continua.
+
+\item[5)] Tenemos el funtor de inclusión de la categoría de grupos abelianos en
+  la categoría de grupos:
+  $$i\colon \categ{Ab} \to \categ{Grp}.$$
+  Un funtor adjunto a $i$ debe construir un grupo abeliano a partir de un grupo
+  $G$ de manera canónica. Como sabemos, tenemos que considerar la
+  \term{abelianización}:
+  $$G^\mathrm{ab} \dfn G/[G,G].$$
+  Aquí $[G,G]$ es el \term{subgrupo conmutador}: el subgrupo generado por todos
+  los conmutadores:
+  $$[G,G] \dfn \langle [x,y] \dfn xyx^{-1}y^{-1} \mid x,y\in G \rangle.$$
+  Es un subgrupo normal, y por ende se puede pasar al grupo cociente $G/[G,G]$
+  que será abeliano. La abelianización tiene la siguiente propiedad universal:
+  todo homomorfismo $f\colon G\to A$ donde $A$ es un grupo abeliano se factoriza
+  de modo único por $G^{ab}$:
+  \[ \begin{tikzcd}
+      G \ar[twoheadrightarrow]{d}\ar{r}{f} & A \\
+      G^{ab}\ar[dashed]{ur}[swap]{\exists !}
+    \end{tikzcd} \]
+  (ya que $A$ es abeliano, todos los conmutadores están en el núcleo de $f$).
+
+  La abelianización es un funtor $\categ{Grp} \to \categ{Ab}$ que es adjunto por
+  la izquierda a $i$:
+  $$\Hom_\categ{Ab} (G^\mathrm{ab}, A) \isom \Hom_\categ{Grp} (G, i (A)).$$
+
+\item[6)] Si $R$ es un anillo, entonces sus \term{unidades} (elementos
+  invertibles) forman un grupo $R^\times$. Esto nos da un funtor
+  $$(-)^\times\colon \categ{Ring} \to \categ{Grp}.$$
+  Un funtor adjunto debe construir cierto anillo a partir de un grupo $G$ de
+  manera canónica. Es la construcción del anillo $\ZZ [G]$ que consiste de las
+  sumas finitas formales $\sum_{g\in G} n_g \, g$, donde la multiplicación está
+  definida por la distributividad y la multiplicación en $G$. Esto es un funtor
+  $$\ZZ [-]\colon \categ{Grp} \to \categ{Ring},$$
+  que es adjunto por la izquierda a $(-)^\times$:
+  \[ \Hom_\categ{Ring} (\ZZ [G], R) \isom
+     \Hom_\categ{Grp} (G, R^\times). \qedhere \]
+  \end{enumerate}
+\end{ejemplo}
+
+Los funtores adjuntos están relacionados con los funtores representables de la
+siguiente manera.
+
+\begin{proposicion}
+  \label{representabilidad-y-adjunciones}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Para un funtor $F\colon \vcateg{C} \to \vcateg{D}$ existe un adjunto
+    por la derecha si y solamente si para todo $Y \in \Ob (\vcateg{D})$ el
+    funtor
+    \begin{align*}
+  \Hom_\vcateg{D} (F (-), Y)\colon \vcateg{C}^\mathrm{op} & \to \categ{Set},\\
+      X & \mapsto \Hom_\vcateg{D} (F (X), Y)
+    \end{align*}
+    es representable, es decir isomorfo a $\Hom_\vcateg{C} (-, X')$ para algún
+    $X'\in \Ob (\vcateg{C})$.
+
+  \item[2)] Para un funtor $G\colon \vcateg{D} \to \vcateg{C}$ existe un adjunto
+    por la izquierda si y solamente si para todo $X \in \Ob (\vcateg{C})$ el
+    funtor
+    \begin{align*}
+      \Hom_\vcateg{C} (X, G (-))\colon \vcateg{D} & \to \categ{Set},\\
+      Y & \mapsto \Hom_\vcateg{C} (X, G (Y))
+    \end{align*}
+    es representable, es decir isomorfo a $\Hom_\vcateg{D} (Y', -)$ para algún
+    $Y'\in \Ob (\vcateg{D})$.
+  \end{enumerate}
+
+  \begin{proof}
+    Por ejemplo, veamos la primera parte. Si $F$ es adjunto por la izquierda a
+    $G$, entonces para todo $Y\in \Ob (\vcateg{D})$ tenemos un isomorfismo
+    natural
+    $$\Phi_{-,Y}\colon \Hom_\vcateg{D} (F (-), Y) \isom \Hom_\vcateg{C} (-, G(Y))$$
+    y $X' \dfn G (Y)$ representa el funtor
+    $\Hom_\vcateg{D} (F (-), Y)$. Recíprocamente, supongamos que para todo
+    objeto $Y \in \Ob (\vcateg{D})$ tenemos isomorfismos de funtores
+    $$\Phi_{-,Y}\colon \Hom_\vcateg{D} (F (-), Y) \isom \Hom_\vcateg{C} (-, X').$$
+    Sea $G (Y) \dfn X'$. Un morfismo $f\colon Y_1 \to Y_2$ en $\vcateg{D}$
+    induce una transformación natural entre funtores
+    \[ \Hom_\vcateg{C} (-, X'_1) \isom \Hom_\vcateg{D} (F (-), Y_1) \xRightarrow{f\circ -}
+      \Hom_\vcateg{D} (F (-), Y_2) \isom \Hom_\vcateg{C} (-, X'_2), \]
+    que por el encajamiento de Yoneda (\ref{encajamiento-de-yoneda}) corresponde
+    a un único morfismo $X'_1 \to X'_2$. Esto define un morfismo
+    $G (f)\colon G (X_1) \to G (X_2)$, y se ve que definido de esta manera, $G$
+    es un funtor $\vcateg{D} \to \vcateg{C}$.
+  \end{proof}
+\end{proposicion}
+
+\begin{proposicion}[Uno de los adjuntos define al otro, salvo isomorfismo]
+  ~
+
+  \begin{enumerate}
+  \item[1)] Si $F\colon \vcateg{C} \to \vcateg{D}$ es adjunto por la izquierda a
+    dos funtores $G, G'\colon \vcateg{D} \to \vcateg{C}$, entonces $G \isom G'$.
+
+  \item[2)] Si $G\colon \vcateg{D} \to \vcateg{C}$ es adjunto por la derecha a
+    dos funtores $F, F'\colon \vcateg{C} \to \vcateg{D}$, entonces $F \isom F'$.
+  \end{enumerate}
+
+  \begin{proof}
+    Demostremos la primera parte; la segunda es idéntica. Si tenemos biyecciones
+    naturales
+    \[ \Phi_{XY}\colon \Hom_\vcateg{D} (F (X), Y) \xrightarrow{\isom} \Hom_\vcateg{C} (X, G (Y)), \quad
+       \Phi'_{XY}\colon \Hom_\vcateg{D} (F (X), Y) \xrightarrow{\isom} \Hom_\vcateg{C} (X, G' (Y)), \]
+    entonces los isomorfismos de funtores
+    $$\Phi'_{-,Y}\circ\Phi_{-,Y}^{-1}\colon \Hom_\vcateg{C} (-, G (Y))\Rightarrow \Hom_\vcateg{C} (-, G' (Y))$$
+    bajo el lema de Yoneda
+    (\ref{funtores-representados-objeto-unico-salvo-iso}) corresponden a
+    isomorfismos $\alpha_Y\colon G (Y) \xrightarrow{\isom} G' (Y)$ para cada
+    $Y$. Notamos que los diagramas
+    \begin{equation}
+      \label{eqn:alpha-conmuta-con-biyecciones}
+      \begin{tikzcd}
+        & \Hom_\vcateg{D} (F(X), Y) \ar{dl}[swap]{\Phi_{XY}}{\isom}\ar{dr}{\Phi'_{XY}}[swap]{\isom} \\
+        \Hom_\vcateg{C} (X,G (Y)) \ar{rr}[swap]{\alpha_{Y*}} & & \Hom_\vcateg{C} (X,G' (Y))
+      \end{tikzcd}
+    \end{equation}
+    conmutan.
+
+    Para obtener un isomorfismo de funtores $G \isom G'$, falta verificar que
+    los $\alpha_Y$ definen una transformación natural, es decir que para cada
+    morfismo $f\colon Y\to Y'$ el siguiente diagrama es conmutativo:
+
+    \[ \begin{tikzcd}
+        G (Y) \ar{r}{\alpha_Y}\ar{d}[swap]{G (f)} & G' (Y)\ar{d}{G' (f)} \\
+        G (Y') \ar{r}[swap]{\alpha_{Y'}} & G' (Y') \\
+      \end{tikzcd} \]
+
+    Pero, también gracias a Yoneda, este diagrama es conmutativo si y solamente si
+    para todo $X$ el diagrama
+
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{C} (X,G (Y)) \ar{r}{\alpha_{Y*}}\ar{d}[swap]{G (f)_*} & \Hom_\vcateg{C} (X,G' (Y))\ar{d}{G' (f)_*} \\
+        \Hom_\vcateg{C} (X,G (Y')) \ar{r}[swap]{\alpha_{Y' *}} & \Hom_\vcateg{C} (X,G' (Y')) \\
+      \end{tikzcd} \]
+    es conmutativo. Gracias a la naturalidad de las biyecciones $\Phi_{X,-}$ y
+    $\Phi'_{X,-}$, en el siguiente cubo
+    \[ \begin{tikzcd}
+        & \Hom_\vcateg{D} (F(X), Y) \ar{rr}{\idid}\ar[]{dd}[near end]{f_*}\ar{dl}{\Phi_{XY}}[swap]{\isom} && \Hom_\vcateg{D} (F (X), Y)\ar{dd}{f_*}\ar{dl}{\Phi'_{XY}}[swap]{\isom} \\
+        \Hom_\vcateg{C} (X,G (Y)) \ar[crossing over]{rr}[near end]{\alpha_{Y*}}\ar{dd}[swap]{G (f)_*} && \Hom_\vcateg{C} (X,G' (Y)) \\
+        & \Hom_\vcateg{D} (F (X), Y') \ar{rr}[near start]{\idid}\ar{dl}{\Phi_{XY'}}[swap]{\isom} && \Hom_\vcateg{D} (F (X), Y')\ar{dl}{\Phi'_{XY'}}[swap]{\isom} \\
+        \Hom_\vcateg{C} (X,G (Y')) \ar{rr}[swap]{\alpha_{Y' *}} && \Hom_\vcateg{C} (X,G' (Y'))\ar[leftarrow, crossing over]{uu}[near start,swap]{G' (f)_*} \\
+      \end{tikzcd} \]
+    la cara izquierda y derecha conmutan; las caras de arriba y de abajo
+    conmutan por \eqnref{eqn:alpha-conmuta-con-biyecciones}, y la cara posterior
+    conmuta trivialmente. Entonces, se puede concluir que la cara delantera
+    conmuta.
+  \end{proof}
+\end{proposicion}
+
+Los funtores adjuntos tienen muchas propiedades útiles. Una de estas es
+preservación de mono- y epimorfismos.
+
+\begin{proposicion}
+  Sea $F\colon \vcateg{C} \to \vcateg{D}$ un funtor adjunto por la izquierda a
+  $G\colon \vcateg{D}\to \vcateg{C}$. Entonces,
+
+  \begin{enumerate}
+  \item[1)] $F$ \term{preserva epimorfismos}: para todo epimorfismo
+    $f\colon X\epi X'$ en $\vcateg{C}$ el morfismo $F (f)\colon F(X) \to F(X')$
+    es un epimorfismo en $\vcateg{D}$;
+
+  \item[2)] $G$ \term{preserva monomorfismos}: para todo monomorfismo
+    $g\colon Y\mono Y'$ en $\vcateg{D}$ el morfismo $G (g)\colon G(Y) \to G(Y')$
+    es un monomorfismo en $\vcateg{C}$.
+  \end{enumerate}
+
+  \begin{proof}
+    Por ejemplo, en 1), para un objeto $Z \in \Ob (\mathcal{D})$, consideremos
+    el diagrama conmutativo
+    $$\begin{tikzcd}
+      \Hom_\vcateg{C} (X', G (Z)) \ar{r}{f^*}\ar{d}[swap]{\isom} & \Hom_\vcateg{C} (X, G (Z))\ar{d}{\isom} \\
+      \Hom_\vcateg{D} (F (X'), Z) \ar{r}{F (f)^*} & \Hom_\vcateg{D} (F (X), Z)
+    \end{tikzcd}$$
+    Si $f$ es un epimorfismo, entonces la flecha $f^*$ es inyectiva, y luego
+    $F (f)^*$ es también inyectiva. La inyectividad de $F (f)^*$ para cualquier
+    $Z$ precisamente significa que $F (f)$ es un epimorfismo. La parte 2) se
+    deja como un ejercicio.
+  \end{proof}
+\end{proposicion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Unidad y counidad de una adjunción}
+
+A veces es útil otra descripción de adjunción de funtores.
+
+\begin{proposicion}
+  \label{unidad-y-counidad}
+  Consideremos una adjunción
+  $$\Hom_\vcateg{D} (F (X), Y) \isom \Hom_\vcateg{C} (X, G (Y)).$$
+  En particular, tenemos
+  \begin{align*}
+    \Hom_\vcateg{D} (F (X), F(X)) & \isom \Hom_\vcateg{C} (X, GF (X)),\\
+    \Hom_\vcateg{D} (FG (Y), Y) & \isom \Hom_\vcateg{C} (G (Y), G (Y)).
+  \end{align*}
+
+  \begin{enumerate}
+  \item[1)] Sea $\eta_X\colon X\to GF (X)$ el morfismo que corresponde al
+    morfismo identidad $\idid\colon F(X) \to F(X)$ bajo la primera biyección.
+
+  \item[2)] Sea $\epsilon_Y\colon FG (Y) \to Y$ el morfismo que corresponde al
+    morfismo identidad $\idid\colon G (Y) \to G (Y)$ bajo la segunda biyección.
+  \end{enumerate}
+
+  Entonces los $\eta_X$ definen una transformación natural
+  $\Id_\vcateg{C} \Rightarrow G\circ F$ (la \term{unidad de la adjunción}) y los
+  $\epsilon_Y$ definen una transformación natural
+  $F\circ G\Rightarrow \Id_\vcateg{D}$ (la \term{counidad de la adjunción}), y
+  la adjunción puede ser escrita como
+  \begin{align*}
+    \Hom_\vcateg{D} (F (X), Y) & \isom \Hom_\vcateg{C} (X, G (Y)),\\
+    (F (X) \xrightarrow{f} Y) & \mapsto (X\xrightarrow{\eta_X} GF (X) \xrightarrow{G (f)} G (Y)),\\
+    (F (X)\xrightarrow{F (g)} FG (Y) \xrightarrow{\epsilon_Y} Y) & \mapsfrom (X\xrightarrow{g} G (Y)).
+  \end{align*}
+
+  \begin{proof}
+    Por ejemplo, para ver que $\eta_X\colon X\to GF (X)$ define una
+    transformación natural, tenemos que ver que los siguientes diagramas son
+    conmutativos para cada morfismo $g\colon X\to X'$:
+    \[ \begin{tikzcd}
+        X\ar{r}{\eta_X}\ar{d}[swap]{g} & GF (X)\ar{d}{GF (g)} \\
+        X'\ar{r}[swap]{\eta_{X'}} & GF (X') \\
+      \end{tikzcd} \]
+
+    De hecho, por la definición de $\eta_X$ y la naturalidad de adjunción,
+    tenemos el diagrama conmutativo
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{D} (F (X), F (X))\ar{r}{\isom}\ar{d}[swap]{F (g)\circ -} & \Hom_\vcateg{C} (X, GF (X))\ar{d}{GF (g)\circ -} & \id{F(X)}\ar[|->]{d}\ar[|->]{r} & \eta_X\ar[|->]{d} \\
+        \Hom_\vcateg{D} (F (X), F (X'))\ar{r}{\isom} & \Hom_\vcateg{C} (X, GF (X')) & F (g) \ar[|->]{r} & GF (g) \circ \eta_X = \eta_{X'}\circ g \\
+        \Hom_\vcateg{D} (F (X'), F (X'))\ar{r}{\isom}\ar{u}{-\circ F (g)} & \Hom_\vcateg{C} (X', GF (X'))\ar{u}[swap]{-\circ g} & \id{F(X')}\ar[|->]{r}\ar[|->]{u} & \eta_{X'} \ar[|->]{u} \\
+      \end{tikzcd} \]
+
+    De modo similar, todo $f\colon F (X)\to Y$ nos da el diagrama conmutativo
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{D} (F (X), F (X))\ar{r}{\isom}\ar{d}[swap]{f\circ -} & \Hom_\vcateg{C} (X, GF (X))\ar{d}{G (f)\circ -} & \id{F(X)}\ar[|->]{d}\ar[|->]{r} & \eta_X\ar[|->]{d} \\
+        \Hom_\vcateg{D} (F (X), Y)\ar{r}{\isom} & \Hom_\vcateg{C} (X, G (Y)) & f \ar[|->]{r} & G (f) \circ \eta_X
+      \end{tikzcd} \]
+
+    Luego, $f$ corresponde a $G (f) \circ \eta_X$. La verificación de que
+    $\epsilon$ es una transformación natural
+    $F\circ G\Rightarrow \Id_\vcateg{D}$ y que $g\colon X \to G (Y)$ corresponde
+    a $\epsilon_Y\circ F (g)$ es similar.
+  \end{proof}
+\end{proposicion}
+
+%\marginpar{\footnotesize lección\\5.06.2018}
+
+\begin{proposicion}
+  Sea $F\colon \vcateg{C} \to \vcateg{D}$ un funtor adjunto por la izquierda a
+  $G\colon \vcateg{D} \to \vcateg{C}$. Entonces
+
+  \begin{enumerate}
+  \item[1)] la unidad de la adjunción $\eta_X\colon X\to GF (X)$ es un
+    monomorfismo para todo $X\in \Ob (\vcateg{C})$ si y solamente si $F$ es
+    fiel;
+
+  \item[2)] la counidad de la adjunción $\epsilon_Y\colon FG (Y)\to Y$ es un
+    epimorfismo para todo $Y\in \Ob (\vcateg{D})$ si y solamente si $G$ es fiel.
+  \end{enumerate}
+
+  \begin{proof}
+    Para todo morfismo $f\colon X'\to X$, bajo la adjunción a $F (f)$
+    corresponde el morfismo $\eta_X\circ f$:
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{D} (F (X), F (X))\ar{r}{\isom}\ar{d}[swap]{-\circ F (f)} & \Hom_\vcateg{C} (X, GF (X))\ar{d}{-\circ f} & \id{F(X)}\ar[|->]{d}\ar[|->]{r} & \eta_X\ar[|->]{d} \\
+        \Hom_\vcateg{D} (F (X'), F (X))\ar{r}[swap]{\isom} & \Hom_\vcateg{C} (X', GF (X)) & F (f) \ar[|->]{r} & \eta_X\circ f
+      \end{tikzcd} \]
+
+    De la misma manera, para todo $g\colon Y\to Y'$, a $G (g)$ corresponde el
+    morfismo $g\circ \epsilon_Y$:
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{D} (FG (Y), Y)\ar{r}{\isom}\ar{d}[swap]{g\circ -} & \Hom_\vcateg{C} (G(Y), G (Y))\ar{d}{G (g)\circ -} & \epsilon_Y\ar[|->]{d}\ar[|->]{r} & \id{G (Y)}\ar[|->]{d} \\
+        \Hom_\vcateg{D} (FG (Y), Y')\ar{r}[swap]{\isom} & \Hom_\vcateg{C} (G (Y), G (Y')) & g\circ \epsilon_Y \ar[|->]{r} & G (g)
+      \end{tikzcd} \]
+
+    Tenemos aplicaciones entre conjuntos
+    \[ \begin{tikzcd}[row sep=0.1em]
+        \Hom_\vcateg{C} (X', X) \ar{r}{\eta_{X*}} & \Hom_\vcateg{C} (X', GF (X)) \ar{r}{\isom} & \Hom_\vcateg{D} (F (X'), F (X)) \\
+        f \ar[|->]{r} & \eta_X\circ f \ar[|->]{r} & F (f) \\
+        ~ & ~ & ~ \\
+        \Hom_\vcateg{D} (Y, Y') \ar{r}{\epsilon_Y^*} & \Hom_\vcateg{D} (FG (Y), Y') \ar{r}{\isom} & \Hom_\vcateg{C} (G (Y), G (Y')) \\
+        g \ar[|->]{r} & g\circ \epsilon_Y \ar[|->]{r} & G (g)
+      \end{tikzcd} \]
+    $\eta_X$ es mono para todo $X\in \Ob (\vcateg{C})$ si y solamente si la
+    aplicación $\eta_{X*}$ de arriba es inyectiva para todo
+    $X,X'\in \Ob (\vcateg{C})$, si y solamente si $F$ es fiel. Asimismo,
+    $\epsilon_Y$ es epi para todo $Y\in \Ob (\vcateg{D})$ si y solamente si la
+    aplicación $\epsilon_Y^*$ es inyectiva para todo $Y,Y'\in \Ob (\vcateg{D})$,
+    si y solamente si $G$ es fiel.
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Consideremos la adjunción entre la consrucción de $k$-espacios vectoriales
+  generados por un conjunto y el funtor olvidadizo
+  $k\categ{-Vect} \to \categ{Set}$. El funtor
+  $X \rightsquigarrow k \langle X\rangle$ es obviamente fiel: diferentes
+  aplicaciónes entre conjuntos $X\to Y$ inducen diferentes aplicaciones lineales
+  $k\langle X\rangle \to k\langle Y\rangle$. Esto implica que la unidad de la
+  adjunción $\eta_X\colon X\to k\langle X\rangle$ es inyectiva para todo $X$.
+  En efecto, $\eta_X$ es simplemente la inclusión de los generadores en
+  $k\langle X\rangle$.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Caracterización de adjunciones por las identidades triangulares}
+
+\begin{proposicion}[Identidades triangulares]
+  Sean $F\colon \vcateg{C}\to\vcateg{D}$ y $G\colon \vcateg{D}\to\vcateg{C}$ dos
+  funtores adjuntos y sean $\eta\colon \Id_\vcateg{C} \Rightarrow G\circ F$ y
+  $\epsilon\colon F\circ G\Rightarrow \Id_\vcateg{D}$ la unidad y counidad
+  correspondiente. Entonces, se cumplen las identidades
+
+  \begin{equation}
+    \label{eqn:identidades-triangulares}
+    (\epsilon\circ F)\circ (F\circ \eta) = \Id_F, \quad
+    (G\circ \epsilon)\circ (\eta\circ G) = \Id_G.
+  \end{equation}
+
+  \begin{equation}
+    \label{eqn:identidades-triangulares-diag}
+    \begin{tikzcd}
+      F \ar[double,->]{r}{F\circ\eta}\ar[double,->]{dr}[swap]{\Id} & FGF\ar[double,->]{d}{\epsilon\circ F} & & G \ar[double,->]{r}{\eta\circ G}\ar[double,->]{dr}[swap]{\Id} & GFG\ar[double,->]{d}{G\circ \epsilon} \\
+      & F && & G
+    \end{tikzcd}
+  \end{equation}
+
+  Aquí $(\epsilon\circ F)_X \dfn \epsilon_{F (X)}$,
+  $(F\circ \eta)_X \dfn F (\eta_X)$, $(\eta\circ G)_Y \dfn \eta_{G (Y)}$,
+  $(G\circ\epsilon)_Y \dfn G (\epsilon_Y)$ (véase
+  \S\ref{sec:producto-de-godement}).
+\end{proposicion}
+
+Las fórmulas \eqnref{eqn:identidades-triangulares} se conocen como las
+\term{identidades triangulares}.
+
+\begin{proof}
+  Según \ref{unidad-y-counidad}, la biyección de adjunción viene dada por
+  \begin{align*}
+    \Phi_{XY}\colon\Hom_\vcateg{D} (F (X), Y) & \isom \Hom_\vcateg{C} (X, G (Y)),\\
+    (F (X) \xrightarrow{f} Y) & \mapsto (X\xrightarrow{\eta_X} GF (X) \xrightarrow{G (f)} G (Y)),\\
+    (F (X)\xrightarrow{F (g)} FG (Y) \xrightarrow{\epsilon_Y} Y) & \mapsfrom (X\xrightarrow{g} G (Y)).
+  \end{align*}
+
+  Los diagramas \eqnref{eqn:identidades-triangulares-diag} significan que para
+  todo objeto $X\in \Ob (\vcateg{C})$ y todo objeto $Y\in \Ob (\vcateg{D})$ se
+  tiene
+
+  \[ \begin{tikzcd}
+      F (X) \ar{r}{F (\eta_X)}\ar{dr}[swap]{\idid} & FGF (X)\ar{d}{\epsilon_{F (X)}} & & G (Y) \ar{r}{\eta_{G (Y)}}\ar{dr}[swap]{\idid} & GFG (Y)\ar{d}{G (\epsilon_Y)} \\
+      & F (X) && & G (Y)
+    \end{tikzcd} \]
+
+  Efectivamente, para el morfismo $\id{F (X)}\colon F (X)\to F (X)$ se cumple
+  \begin{multline*}
+    \id{F (X)} =
+    \Phi_{X,F(X)}^{-1}\circ\Phi_{X,F(X)} (\id{F (X)}) =
+    \Phi_{X,F(X)}^{-1} (G (\id{F (X)}) \circ \eta_{F (X)}) =
+    \Phi_{X,F(X)}^{-1} (\id{GF (X)} \circ \eta_{F (X)}) \\
+  = \Phi_{X,F(X)}^{-1} (\eta_{F (X)}) = \eta_{F (X)}\circ F (\eta_X),
+  \end{multline*}
+  y para $\id{G (Y)}\colon G (Y)\to G (Y)$ se cumple
+  \begin{multline*}
+    \id{G (Y)} =
+    \Phi_{G(Y),Y}\circ\Phi_{G(Y),Y}^{-1} (\id{G (Y)}) =
+    \Phi_{G(Y),Y} (\epsilon_Y\circ F (\id{G (Y)})) =
+    \Phi_{G(Y),Y} (\epsilon_Y\circ \id{FG (X)}) \\
+  = \Phi_{G(Y),Y} (\epsilon_Y) = G (\epsilon_Y)\circ \eta_{G (Y)}.
+  \end{multline*}
+\end{proof}
+
+Las unidades triangulares nos dan una caracterización de adjunciones que puede
+ser usada como una definición alternativa.
+
+\begin{proposicion}
+  Sean $F\colon \vcateg{C}\to\vcateg{D}$ y $G\colon \vcateg{D}\to\vcateg{C}$ dos
+  funtores y sean $\eta\colon \Id_\vcateg{C} \Rightarrow G\circ F$ y
+  $\epsilon\colon F\circ G\Rightarrow \Id_\vcateg{D}$ dos transformaciones
+  naturales que cumplen las identidades triangulares
+  \[ (\epsilon\circ F)\circ (F\circ \eta) = \Id_F, \quad
+     (G\circ \epsilon)\circ (\eta\circ G) = \Id_G; \]
+  es decir,
+  \[ \epsilon_{F (X)}\circ F (\eta_X) = \id{X}, \quad
+     G (\epsilon_Y)\circ \eta_{G (Y)} = \id{Y} \]
+  para cualesquiera $X\in \Ob (\vcateg{C})$, $Y\in \Ob (\vcateg{D})$.
+  Entonces, $F$ es adjunto por la izquierda a $G$.
+
+\begin{proof}
+  Necesitamos definir una biyección natural
+  $$\Phi_{XY}\colon\Hom_\vcateg{D} (F (X), Y) \isom \Hom_\vcateg{C} (X, G (Y)).$$
+  Las consideraciones de arriba sugieren que hay que poner
+  $$\Phi_{XY} (f) \dfn G (f)\circ \eta_X, \quad \Phi_{XY}^{-1} (g) \dfn \epsilon_Y\circ F (g).$$
+  Estas aplicaciones son mutualmente inversas:
+  \[ \Phi_{XY}^{-1} (\Phi_{XY} (f)) =
+     \Phi_{XY}^{-1} (G (f)\circ \eta_X) =
+     \epsilon_Y\circ F (G (f)\circ \eta_X) =
+     \epsilon_Y\circ FG (f) \circ F (\eta_X) =
+     f\circ \epsilon_{F (X)} \circ F (\eta_X) = f. \]
+  Aquí hemos usado la naturalidad de $\epsilon$:
+  \[ \begin{tikzcd}
+      FGF (X)\ar{r}{\epsilon_{F (X)}}\ar{d}[swap]{FG (f)} & F (X)\ar{d}{f}\\
+      FG (Y)\ar{r}[swap]{\epsilon_Y} & Y
+    \end{tikzcd} \]
+  De modo similar,
+  \[ \Phi_{XY} (\Phi_{XY}^{-1} (g)) =
+     \Phi_{XY} (\epsilon_Y\circ F (g)) =
+     G (\epsilon_Y\circ F (g))\circ\eta_X =
+     G (\epsilon_Y)\circ GF (g)\circ\eta_X =
+     G (\epsilon_Y)\circ \eta_{G (Y)}\circ g = g, \]
+  usando la naturalidad de $\eta$:
+  \[ \begin{tikzcd}
+      X\ar{d}[swap]{g}\ar{r}{\eta_X} & GF (X)\ar{d}{GF (g)}\\
+      G (Y)\ar{r}[swap]{\eta_{G (Y)}} & GFG (Y)
+    \end{tikzcd} \]
+  Falta ver que la biyección $\Phi_{XY}$ definida de esta manera es natural. La
+  naturalidad en $X$ quiere decir que para todo morfismo $h\colon X'\to X$ el
+  diagrama
+  \[ \begin{tikzcd}
+      \Hom_\vcateg{D} (F (X), Y)\ar{r}{\Phi_{XY}}\ar{d}[swap]{F (h)^*} & \Hom_\vcateg{C} (X, G (Y))\ar{d}{h^*} \\
+      \Hom_\vcateg{D} (F (X'), Y)\ar{r}[swap]{\Phi_{X'Y}} & \Hom_\vcateg{C} (X', G (Y))
+    \end{tikzcd} \]
+  conmuta. En efecto,
+  $$h^* \circ \Phi_{XY} (h) = h^* (G (f)\circ \eta_X) = G (f)\circ \eta_X\circ h$$
+  y
+  \[ \Phi_{X'Y}\circ F (h)^* (f) =
+     \Phi_{X'Y} (f\circ F (h)) =
+     G (f\circ F (h))\circ \eta_{X'} =
+     G (f)\circ GF (h) \circ \eta_{X'}. \]
+   Tenemos $\eta_X\circ h = GF (h) \circ \eta_{X'}$ gracias a la naturalidad de
+   $\eta$:
+   \[ \begin{tikzcd}
+       X' \ar{r}{\eta_{X'}}\ar{d}[swap]{h} & GF (X')\ar{d}{GF (h)} \\
+       X \ar{r}[swap]{\eta_X} & GF (X) \\
+     \end{tikzcd} \]
+
+   Para comprobar la naturalidad en $Y$, será mejor usar la aplicación inversa
+   $\Phi_{XY}^{-1}$ y comprobar que para todo $h\colon Y\to Y'$ el diagrama
+   \[ \begin{tikzcd}
+       \Hom_\vcateg{C} (X, G (Y))\ar{d}[swap]{G (h)_*}\ar{r}{\Phi_{XY}^{-1}} & \Hom_\vcateg{D} (F (X), Y)\ar{d}{h_*}  \\
+       \Hom_\vcateg{C} (X, G (Y'))\ar{r}[swap]{\Phi_{XY'}^{-1}} & \Hom_\vcateg{D} (F (X), Y')
+     \end{tikzcd} \]
+   conmuta. Tenemos
+   $$h_*\circ \Phi_{XY}^{-1} (g) = h_* (\epsilon_Y\circ F (g)) = h\circ \epsilon_Y\circ F (g)$$
+   y
+   \[ \Phi_{XY'}^{-1}\circ G (h)_* (g) =
+      \Phi_{XY'}^{-1} (G (h) \circ g) =
+      \epsilon_{Y'}\circ F (G (h) \circ g) =
+      \epsilon_{Y'}\circ FG (h) \circ F (g), \]
+   y nos queda notar que $h\circ \epsilon_Y = \epsilon_{Y'}\circ FG (h)$:
+   \[ \begin{tikzcd}
+       FG (Y)\ar{r}{\epsilon_Y}\ar{d}[swap]{FG (h)} & Y\ar{d}{h} \\
+       FG (Y')\ar{r}[swap]{\epsilon_{Y'}} & Y' \\
+     \end{tikzcd} \]
+ \end{proof}
+\end{proposicion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Caracterización de funtores adjuntos en términos de propiedades universales}
+
+\begin{observacion}[Propiedad universal de la unidad y counidad]
+  Sean $F\colon \vcateg{C}\to\vcateg{D}$ y $G\colon \vcateg{D}\to\vcateg{C}$ dos
+  funtores adjuntos y sean $\eta\colon \Id_\vcateg{C} \Rightarrow G\circ F$ y
+  $\epsilon\colon F\circ G\Rightarrow \Id_\vcateg{D}$ la unidad y counidad
+  correspondientes.
+
+\begin{enumerate}
+\item[1)] Para todo morfismo $f\colon F (X) \to Y$ existe un morfismo único
+  $\widetilde{f}\colon X\to G (Y)$ tal que
+  $\epsilon_Y \circ F (\widetilde{f}) = f$:
+
+  \[ \begin{tikzcd}
+      F (X)\ar{rr}{f}\ar{dr}[swap]{F (\widetilde{f})} & & Y \\
+      & FG (Y)\ar{ur}[swap]{\epsilon_Y}
+    \end{tikzcd} \]
+
+\item[2)] Para todo morfismo $g\colon X\to G (Y)$ existe un morfismo único
+  $\widehat{g}\colon F (X) \to Y$ tal que $G (\widehat{g})\circ \eta_X = g$:
+
+  \[ \begin{tikzcd}
+      X\ar{rr}{g}\ar{dr}[swap]{\eta_X} & & G (Y) \\
+      & GF (Y)\ar{ur}[swap]{G (\widehat{g})}
+    \end{tikzcd} \]
+\end{enumerate}
+
+\begin{proof}
+  Sigue del hecho de que la biyección de adjunción viene dada por
+  \begin{align*}
+    \Hom_\vcateg{D} (F (X), Y) & \isom \Hom_\vcateg{C} (X, G (Y)),\\
+    f & \mapsto \widetilde{f} \dfn G (f)\circ \eta_X,\\
+    \widehat{g} \dfn \epsilon_Y\circ F (g) & \mapsfrom g
+  \end{align*}
+  ---véase \ref{unidad-y-counidad}.
+\end{proof}
+\end{observacion}
+
+Resulta que cada una de las propiedades universales de arriba caracteriza una
+adjunción.
+
+\begin{proposicion}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Sea $F\colon \vcateg{C}\to\vcateg{D}$ un funtor. Supongamos que para
+    todo $Y\in\Ob (\vcateg{D})$ existe un objeto $G (Y)$ y un morfismo
+    $\epsilon_Y\colon F (G (Y)) \to Y$ que satisfacen la siguiente propiedad
+    universal: para todo morfismo $f\colon F (X) \to Y$ existe un morfismo único
+    $\widetilde{f}\colon X\to G (Y)$ tal que el diagrama de abajo conmuta:
+    \[ \begin{tikzcd}
+        F (X) \ar{rr}{f}\ar[dashed]{dr}[swap]{F (\widetilde{f})} && Y \\
+        & F (G (Y))\ar{ur}[swap]{\epsilon_Y}
+      \end{tikzcd} \]
+    Entonces, $G\colon Y\rightsquigarrow G (Y)$ define un funtor adjunto por la
+    derecha a $F$ y $\epsilon$ es la counidad de la adjunción.
+
+  \item[2)] Sea $G\colon \vcateg{D}\to\vcateg{C}$ un funtor tal que para todo
+    $X\in \Ob (\vcateg{C})$ existe un objeto $F (X)\in \Ob (\vcateg{D})$ y un
+    morfismo $\eta_X\colon X\to G (F (X))$ que satisfacen la siguiente propiedad
+    universal: para todo morfismo $g\colon X \to G (Y)$ existe un morfismo único
+    $\widehat{g}\colon F (X) \to Y$ tal que el diagrama de abajo conmuta:
+    \[ \begin{tikzcd}
+        X \ar{rr}{g}\ar{dr}[swap]{\eta_X} && G (Y) \\
+        & G (F (X))\ar[dashed]{ur}[swap]{G (\widehat{g})}
+      \end{tikzcd} \]
+    Entonces, $F\colon X\rightsquigarrow F (X)$ define un funtor adjunto por la
+    izquierda a $G$ y $\eta$ es la unidad de la adjunción.
+  \end{enumerate}
+
+  \begin{proof}
+    Por ejemplo, analicemos el segundo caso.
+
+    Primero, hay que ver que $F$ es un funtor. Para definir $F$ sobre las
+    flechas, para un morfismo $\phi\colon X\to X'$ consideremos la composición
+    $\eta_{X'}\circ \phi\colon X\to GF (X')$. Entonces, existe un morfismo único
+    $$F (\phi) \dfn \widehat{\eta_{X'}\circ \phi}\colon F(X) \to F (X')$$
+    tal que
+    $$G (F (\phi))\circ \eta_X = \eta_{X'}\circ \phi.$$
+    Esto será nuestra definición de $F (\phi)$.
+    \[ \begin{tikzcd}
+        X \ar{rr}{\eta_{X'}\circ \phi}\ar{dr}[swap]{\eta_X} && G (F (X')) \\
+        & G (F (X))\ar[dashed]{ur}[swap]{G (F (\phi))}
+      \end{tikzcd} \]
+    En particular, si $X = X'$ y $\phi = \id{X}$, entonces
+    $$F (\id{X}) = \id{F (X)}$$
+    por la unicidad. Ahora para $\phi\colon X\to X'$ y $\psi\colon X'\to X''$ el
+    morfismo $F (\psi)\colon F (X') \to F (X'')$ es el único morfismo
+    caracterizado por
+    $$G (F (\psi))\circ \eta_{X'} = \eta_{X''}\circ \psi$$
+    y $F (\psi\circ\phi)\colon F(X) \to F (X'')$ es el único morfismo
+    caracterizado por
+    $$G (F (\psi\circ\phi))\circ \eta_{X} = \eta_{X''}\circ \psi\circ\phi.$$
+    Pero las fórmulas de arriba y la funtorialidad de $G$ nos dan
+    \[ \eta_{X''}\circ \psi\circ\phi =
+       G (F (\psi))\circ \eta_{X'}\circ \phi =
+       G (F (\psi))\circ G (F (\phi))\circ \eta_X =
+       G (F (\psi)\circ F (\phi))\circ \eta_X, \]
+    así que
+    $$F (\psi\circ\phi) = F (\psi)\circ F (\phi).$$
+
+    Para ver que $\eta_X\colon X\to GF (X)$, hay que comprobar que para todo
+    morfismo $\phi\colon X\to X'$ el cuadrado
+    \[ \begin{tikzcd}
+        X \ar{r}{\eta_X}\ar{d}[swap]{\phi} & GF (X)\ar{d}{GF (\phi)} \\
+        X' \ar{r}[swap]{\eta_{X'}} & GF (X') \\
+      \end{tikzcd} \]
+    conmuta. Pero esto se cumple por nuestra \emph{definición} de $F (\phi)$.
+
+    Por fin, hay que verificar que
+    \begin{align*}
+      \Hom_\vcateg{C} (X, G (Y)) & \to \Hom_\vcateg{C} (F (X), Y),\\
+      g & \mapsto \widehat{g}
+    \end{align*}
+    es una biyección natural.
+
+    Si tenemos $\widehat{g_1} = \widehat{g_2}$, entonces
+    $G (\widehat{g_1}) = G (\widehat{g_2})$ y por lo tanto $g_1 = g_2$:
+    \[ \begin{tikzcd}
+        X \ar[shift left=0.25em]{rr}{g_1}\ar[shift right=0.25em]{rr}[swap]{g_2}\ar{dr}[swap]{\eta_X} && G (Y) \\
+        & G (F (X))\ar[dashed]{ur}[swap]{G (\widehat{g_1}) = G (\widehat{g_2})}
+      \end{tikzcd} \]
+    Esto prueba que la aplicación $g\mapsto \widehat{g}$ es inyectiva. Para ver
+    que es sobreyectiva, notamos que para $f\colon F (X)\to Y$ se cumple
+    $\widehat{G(f)\circ \eta_X} = f$:
+    \[ \begin{tikzcd}
+        X \ar{rr}{G(f)\circ \eta_X}\ar{dr}[swap]{\eta_X} && G (Y) \\
+        & G (F (X))\ar[dashed]{ur}[swap]{G (f) = G (\widehat{G(f)\circ \eta_X})}
+      \end{tikzcd} \]
+    La naturalidad de la biyección en $X$ significa que para todo
+    $\phi\colon X\to X'$ hay diagramas conmutativos
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{C} (X', G (Y))\ar{r}{\isom}\ar{d}[swap]{\phi^*} & \Hom_\vcateg{C} (F (X'), Y)\ar{d}{F (\phi)^*} \\
+        \Hom_\vcateg{C} (X, G (Y))\ar{r}[swap]{\isom} & \Hom_\vcateg{C} (F (X), Y) \\
+      \end{tikzcd} \]
+    Es decir, para todo $g\colon X'\to G (Y)$ debe cumplirse
+    $$\widehat{g\circ\phi} = \widehat{g}\circ F (\phi).$$
+    En efecto, $\widehat{g\circ\phi}$ es el único morfismo tal que
+    $$G (\widehat{g\circ\phi})\circ \eta_X = g\circ\phi.$$
+    y $\widehat{g}$ es el único morfismo tal que
+    $$G (\widehat{g})\circ \eta_{X'} = g.$$
+    La segunda fórmula y la naturalidad de $\eta$ nos da
+    \[ g\circ \phi =
+       G (\widehat{g})\circ \eta_{X'}\circ \phi =
+       G (\widehat{g})\circ GF (\phi)\circ \eta_X =
+       G (\widehat{g}\circ F (\phi))\circ \eta_X. \]
+     Ahora para $\psi\colon Y\to Y'$ hay que comprobar que
+     \[ \begin{tikzcd}
+         \Hom_\vcateg{C} (X, G (Y))\ar{r}{\isom}\ar{d}[swap]{G (\psi)_*} & \Hom_\vcateg{C} (F (X), Y)\ar{d}{\psi_*} \\
+         \Hom_\vcateg{C} (X, G (Y'))\ar{r}[swap]{\isom} & \Hom_\vcateg{C} (F (X), Y') \\
+       \end{tikzcd} \]
+     Es decir, que para todo $g\colon X\to G (Y)$ se cumple
+     $$\widehat{G (\psi)\circ g} = \psi\circ \widehat{g}.$$
+     La flecha $\widehat{G (\psi)\circ g}$ se caracteriza por
+     $$G (\widehat{G (\psi)\circ g})\circ \eta_X = G (\psi)\circ g,$$
+     mientras que
+     $$G (\widehat{g})\circ \eta_X = g.$$
+     Luego
+     \[ G (\psi)\circ g =
+        G (\psi)\circ G (\widehat{g})\circ \eta_X =
+        G (\psi\circ \widehat{g})\circ \eta_X. \qedhere \]
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Sea $i\colon \categ{Ab} \to \categ{Grp}$ la inclusión de grupos abelianos en
+  grupos. Para todo grupo $G$ tenemos su abelianización $G^{ab} \dfn G/[G,G]$
+  junto con el homomorfismo canónico $\eta_G\colon G\to i (G^{ab})$. Luego, para
+  todo grupo abeliano $A$ y todo homomorfismo $f\colon G \to A$ existe un
+  homomorfismo único $f^{ab}\colon G^{ab} \to A$ que hace conmutar el diagrama
+  \[ \begin{tikzcd}
+    G \ar{rr}{f}\ar{dr}[swap]{\eta_G} && i (A) \\
+    & i (G^{ab})\ar[dashed]{ur}[swap]{i (f^{ab})}
+  \end{tikzcd} \]
+  El resultado precedente nos dice que esto es suficiente para deducir que
+  $G \rightsquigarrow G^{ab}$ es un funtor, es adjunto por la izquierda a
+  $i\colon \categ{Ab} \to \categ{Grp}$, y la unidad de la adjunción es
+  $\eta_G\colon G\to i (G^{ab})$.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Objetos terminales e iniciales}
+
+\begin{definicion}
+  Sea $\vcateg{C}$ una categoría.
+
+  Se dice que un objeto $T\in \Ob (\vcateg{C})$ es \term{terminal} si para todo
+  $X \in \Ob (\vcateg{C})$ existe morfismo único $X\to T$.
+
+  Se dice que un objeto $I\in \Ob (\vcateg{C})$ es \term{inicial} si para todo
+  $X \in \Ob (\vcateg{C})$ existe morfismo único $I\to X$.
+\end{definicion}
+
+En otras palabras, la definción quiere decir que para todo
+$X \in \Ob (\vcateg{C})$ se tiene $|\Hom_\vcateg{C} (X, T)| = 1$ y
+$|\Hom_\vcateg{C} (I, X)| = 1$. En particular, se sigue que
+$\Hom_\vcateg{C} (T,T) = \{ \id{T} \}$ y $\Hom_\vcateg{C} (I,I) = \{ \id{I} \}$.
+
+\begin{ejemplo}
+  En la categoría de conjuntos $\categ{Set}$ un conjunto $\{ \ast \}$ que consta
+  de un solo elemento es un objeto terminal (para todo $X$ hay exactamente una
+  aplicación $X\to \{ \ast \}$) y el conjunto vacío $\emptyset$ es un objeto
+  inicial (para todo $X$ hay exactamente una aplicación
+  $\emptyset \to X$\footnote{En particular, hay exactamente una aplicación
+    $\emptyset\to\emptyset$, entonces $0^0 = 1$.}).
+
+  En la categoría de espacios topológicos $\categ{Top}$ los objetos terminales e
+  iniciales son los mismos que en $\categ{Set}$.
+\end{ejemplo}
+
+Los objetos terminales e iniciales no siempre existen: por ejemplo, los
+conjuntos no vacíos forman una categoría que no tiene objeto inicial.
+
+\begin{ejemplo}
+  En la categoría de anillos $\categ{Ring}$ el anillo nulo $0$ es un objeto
+  terminal y el anillo $\ZZ$ es un objeto inicial (como anillo, $\ZZ$ está
+  generado por $1\in \ZZ$, y para todo anillo $R$ un homomorfismo
+  $f\colon \ZZ \to R$ debe preservar la identidad).
+\end{ejemplo}
+
+\begin{ejemplo}
+  En la categoría de grupos $\categ{Grp}$ un grupo trivial $\{ e \}$ es un
+  objeto terminal e inicial al mismo tiempo. En la categoría de grupos abelianos
+  $\categ{Ab}$ un grupo nulo $\{ 0 \}$ es un objeto terminal e inicial al mismo
+  tiempo.
+\end{ejemplo}
+
+\begin{observacion}
+  Si un objeto terminal (resp. inicial) existe, es único salvo isomorfismo
+  único.
+
+  \begin{proof}
+    Si existen dos objetos terminales $T, T' \in \Ob (\vcateg{C})$, entonces
+    existen morfismos únicos $f\colon T \to T'$ y $g\colon T'\to T$, y las
+    composiciones $g\circ f$ y $f\circ g$ necesariamente coinciden con $\id{T}$ y
+    $\id{T'}$ respectivamente.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Todo funtor adjunto por la izquierda (resp. derecha) preserva objetos
+  iniciales (resp. terminales).
+
+  \begin{proof}
+    Si $F\colon \vcateg{C}\to \vcateg{D}$ es adjunto por la izquierda a
+    $G\colon \vcateg{D}\to \vcateg{C}$ y $I$ es un objeto inicial en
+    $\vcateg{C}$, entonces para todo $X\in \Ob (\vcateg{D})$ se tiene una
+    biyección
+    $$\Hom_\vcateg{D} (F (I), X) \cong \Hom_\vcateg{C} (I, G (X))$$
+    y en particular
+    $$|\Hom_\vcateg{D} (F (I), X)| = |\Hom_\vcateg{C} (I, G (X))| = 1.$$
+    Si $T$ es un objeto terminal en $\vcateg{D}$, entonces para todo
+    $X\in \Ob (\vcateg{C})$ se tiene una biyección
+    $$\Hom_\vcateg{C} (X, G (T)) \isom \Hom_\vcateg{D} (F (X), T)$$
+    y en particular
+    \[ |\Hom_\vcateg{C} (X, G (T))| = |\Hom_\vcateg{D} (F (X), T)| = 1. \qedhere \]
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  Para todo conjunto fijo $X$ el funtor
+  $-\times X\colon \categ{Set}\to \categ{Set}$ es adjunto por la izquierda a
+  $(-)^X\colon \categ{Set}\to \categ{Set}$. Tenemos
+  $\emptyset \times X = \emptyset$ y $\{ \ast \}^X \isom \{ \ast \}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  El funtor del grupo de unidades $(-)^\times\colon \categ{Ring}\to \categ{Grp}$
+  es adjunto por la izquierda al funtor
+  ${\ZZ [-]\colon \categ{Grp} \to \categ{Ring}}$. Para un anillo trivial $0$ el
+  grupo de unidades es trivial. Para un grupo trivial $G = \{ e \}$ el anillo
+  correspondiente $\ZZ [G]$ es isomorfo a $\ZZ$.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Productos y coproductos}
+
+\begin{definicion}
+  Para dos objetos $X_1, X_2\in \Ob (\vcateg{C})$ su \term{producto} es un
+  objeto $X_1\times X_2\in \Ob (\vcateg{C})$ dotado de dos morfismos
+  $p_1\colon X_1\times X_2\to X_1$ y $p_2\colon X_1\times X_2 \to X_2$ que
+  satisfacen la siguiente propiedad universal: si tenemos otro objeto
+  $Z \in \Ob (\vcateg{C})$ junto con morfismos $f_1 \colon Z\to X_1$ y
+  $f_2\colon Z\to X_2$, entonces existe un único morfismo
+  $\tcol{f_1}{f_2}\colon Z\to X_1\times X_2$ tal que
+  $$p_1\circ \tcol{f_1}{f_2} = f_1 \quad\text{y}\quad p_2\circ \tcol{f_1}{f_2} = f_2.$$
+  De modo similar, un \term{coproducto} es un objeto
+  $X_1\sqcup X_2\in \Ob (\vcateg{C})$ dotado de dos morfismos
+  $i_1\colon X_1\to X_1\sqcup X_2$ y $i_2\colon X_2\to X_1\sqcup X_2$ que
+  satisfacen la propiedad universal: si tenemos otro objeto
+  $Z \in \Ob (\vcateg{C})$ junto con morfismos $f_1\colon X_1\to Z$ y
+  $f_2\colon X_2\to Z$, entonces existe un único morfismo
+  $(f_1,f_2)\colon Z\to X_1\times X_2$ tal que
+  $$(f_1,f_2)\circ i_1 = f_1 \quad\text{y}\quad (f_1,f_2)\circ i_2 = f_2.$$
+
+  \[ \begin{tikzcd}
+      & Z\ar[dashed]{d}{\tcol{f_1}{f_2}}[swap]{\exists !}\ar{dl}[swap]{f_1}\ar{dr}{f_2} \\
+      X_1 & X_1\times X_2\ar{l}[swap]{p_1}\ar{r}{p_2} & X_2
+    \end{tikzcd} \quad\quad
+    \begin{tikzcd}
+      X_1\ar{r}{i_1}\ar{dr}[swap]{f_1} & X_1\sqcup X_2\ar[dashed]{d}[swap]{\exists !}{(f_1,f_2)} & X_2\ar{l}[swap]{i_2}\ar{dl}{f_2} \\
+      & Z
+    \end{tikzcd} \]
+\end{definicion}
+
+De modo similar, se pueden definir productos y coproductos infinitos.
+
+\begin{definicion}
+  Sea $\{ X_k \}_{k \in I}$ una familia de objetos indexada por un conjunto $I$.
+
+  \begin{enumerate}
+  \item[1)] Un \term{producto} $\prod_k X_k$ es un objeto junto con morfismos
+    $p_k\colon \prod_k X_k \to X_k$ tal que para cualquier otro objeto $Z$ junto
+    con morfismos $\{ f_k\colon Z\to X_k \}_{k\in I}$ existe un único morfismo
+    $f\colon Z \to \prod_k X_k$ que satisface $p_k\circ f = f_k$ para cada
+    $k\in I$.
+
+  \item[2)] Un \term{coproducto} $\coprod_k X_k$ es un objeto junto con
+    morfismos $i_k\colon X_k\to \coprod_k X_k$ tal que para cualquier otro
+    objeto $Z$ junto con morfismos $\{ f_k\colon X_k\to Z \}_{k\in I}$ existe un
+    único morfismo $f\colon \coprod_k X_k \to Z$ que satisface
+    $f\circ i_k = f_k$ para cada $k\in I$.
+  \end{enumerate}
+
+  \[ \begin{tikzcd}
+      Z \ar{dr}{f_k}\ar[dashed]{d}[swap]{\exists !}{f} \\
+      \prod_k X_k\ar{r}[swap]{p_k} & X_k
+    \end{tikzcd} \quad\quad \begin{tikzcd}
+      X_k\ar{r}{i_k}\ar{dr}[swap]{f_k} & \coprod_k X_k\ar[dashed]{d}[swap]{\exists !}{f} \\
+      & Z
+    \end{tikzcd} \]
+\end{definicion}
+
+\begin{ejemplo}
+  En la categoría de conjuntos $\categ{Set}$ el producto $\prod_k X_k$ es (salvo
+  isomorfismo) el producto cartesiano y el coproducto $\coprod_k X_k$ es
+  la unión disjunta.
+
+  En categoría $\categ{Top}$ el producto de espacios topológicos $\prod_k X_k$
+  es el producto de conjuntos subyacentes dotado de la topología producto.
+  El coproducto $\coprod_k X_k$ es la unión disjunta donde cada componente viene
+  con su topología original.
+\end{ejemplo}
+
+\begin{ejemplo}
+  En la categoría de anillos con identidad $\categ{Ring}$ el producto
+  $\prod_k R_k$ es el producto cartesiano con las operaciones definidas por
+  \[ (r_k)_k + (r'_k)_k \dfn (r_k+r'_k)_k, \quad
+     (r_k)_k \cdot (r'_k)_k \dfn (r_k\cdot r'_k)_k. \]
+  El elemento nulo es $(0_{R_k})_k$ y la identidad es $(1_{R_k})_k$. Las
+  proyecciones $p_k\colon (r_k)_k \mapsto r_k$ son visiblemente homomorfismos de
+  anillos.
+
+  El coproducto en la categoría de anillos con identidad es algo diferente: note
+  que las inclusiones $r \mapsto (0,\ldots,0,r,0,\ldots,0)$ no preservan
+  la identidad. En la categoría de anillos conmutativos $\categ{CRing}$
+  el coproducto es el producto tensorial.
+\end{ejemplo}
+
+\begin{ejemplo}
+  No todas categorías tienen productos y coproductos. Notemos que en
+  la categoría de cuerpos, $\Hom (L,K) = \emptyset$ si $L$ y $K$ son cuerpos
+  de característica diferente. Si $\fchar L_1 \ne \fchar L_2$, su producto
+  $L_1\times L_2$ (resp. coproducto $L_1\sqcup L_2$) no existe, ya que no pueden
+  existir ambos morfismos canónicos $L_1\times L_2\to L_1$ y
+  $L_1\times L_2\to L_2$ (resp. $L_1\to L_1\sqcup L_2$ y
+  $L_2\to L_1\sqcup L_2$).
+\end{ejemplo}
+
+\begin{ejemplo}
+  En la categoría de grupos $\categ{Grp}$ el producto $\prod_k G_k$ es
+  el producto de conjuntos dotado de la multiplicación término por término
+  $$(g_k)_k\cdot (h_k)_k \dfn (g_k\cdot h_k)_k.$$
+  El coproducto de grupos es algo muy diferente: es el producto libre $\bigast_k G_k$.
+
+  En la categoría de grupos abelianos $\categ{Ab}$ el producto es el mismo,
+  mientras que el coproducto es la suma directa (compuesta de sumas formales
+  finitas de elementos).
+  \[ \bigoplus_k A_k \dfn
+       \Bigl\{ \sum_k a_k \Bigm| a_k\in A_k, ~
+         a_k = 0, \text{ salvo un número finito de }k \Bigr\}. \qedhere \]
+\end{ejemplo}
+
+He aquí otro modo de definir productos y coproductos en términos de funtores
+representables.
+
+\begin{observacion}
+  \label{hom-y-productos-y-coproductos}
+  Sea $Z\in \Ob (\vcateg{C})$ un objeto fijo. El funtor covariante
+  $\Hom_\vcateg{C} (Z,-)$ preserva productos y el funtor contravariante
+  $\Hom_\vcateg{C} (-,Z)$ convierte coproductos en productos. Es decir, si
+  existe el producto $\prod_{k\in I} X_k$, entonces hay una biyección natural
+  entre conjuntos
+  \begin{align}
+    \label{eqn:hom-preserva-productos} \Hom_\vcateg{C} (Z, \prod_{k\in I} X_k) & \isom \prod_{k\in I} \Hom_\vcateg{C} (Z, X_k),\\
+    f & \mapsto (p_k\circ f)_{k\in I},\notag
+  \end{align}
+
+  Si existe el coproducto $\coprod_{k\in I} X_k$, entonces hay una biyección natural entre conjuntos
+  \begin{align}
+    \label{eqn:hom-convierte-coproductos-en-productos} \Hom_\vcateg{C} (\coprod_{k\in I} X_k, Z) & \isom \prod_{k\in I} \Hom_\vcateg{C} (X_k, Z),\\
+    f & \mapsto (f\circ i_k)_{k\in I}.\notag
+  \end{align}
+
+  En otras palabras, $\prod_{k\in I} X_k$ es un objeto que representa al funtor
+  \begin{align*}
+    \prod_{k\in I} \Hom_\vcateg{C} (-,X_k)\colon \vcateg{C}^\mathrm{op} & \to \categ{Set},\\
+    Z & \mapsto \prod_{k\in I} \Hom_\vcateg{C} (Z,X_k).
+  \end{align*}
+  y $X\sqcup Y$ es un objeto que representa al funtor
+  \begin{align*}
+    \prod_{k\in I} \Hom_\vcateg{C} (X_k,-)\colon \vcateg{C} & \to \categ{Set},\\
+    Z & \mapsto \prod_{k\in I} \Hom_\vcateg{C} (X_k,Z).
+  \end{align*}
+
+  \begin{proof}
+    Las biyecciones \eqnref{eqn:hom-preserva-productos} y
+    \eqnref{eqn:hom-convierte-coproductos-en-productos} son otro modo de
+    formular la definición de producto y coproducto. La aplicación inversa viene
+    dada por la propiedad universal. La naturalidad en $Z$ es también evidente:
+    para todo morfismo $h\colon Z \to Z'$ se tienen diagramas conmuativos
+    \[ \begin{tikzcd}
+        \Hom_\vcateg{C} (Z, \prod_k X_k) \ar{r}{\isom} & \prod_k \Hom_\vcateg{C} (Z, X_k) & \Hom_\vcateg{C} (\coprod_k X_k, Z) \ar{r}{\isom}\ar{d} & \prod_k \Hom_\vcateg{C} (X_k, Z)\ar{d} \\
+        \Hom_\vcateg{C} (Z', \prod_k X_k) \ar{r}{\isom}\ar{u} & \prod_k \Hom_\vcateg{C} (Z', X_k)\ar{u} & \Hom_\vcateg{C} (\coprod_k X_k, Z') \ar{r}{\isom} & \prod_k \Hom_\vcateg{C} (X_k, Z') \\
+        f\circ h\ar[|->]{r} & (p_k\circ f\circ h)_k & f\ar[|->]{d}\ar[|->]{r} & (f\circ i_k)_k\ar[|->]{d} \\
+        f \ar[|->]{r}\ar[|->]{u} & (p_k\circ f)_k \ar[|->]{u} & h\circ f \ar[|->]{r} & (h\circ f\circ i_k)_k
+      \end{tikzcd} \]
+  \end{proof}
+\end{observacion}
+
+Entonces, los productos y coproductos pueden ser \emph{definidos} como objetos
+que representan a los funtores $\prod_k \Hom_\vcateg{C} (-,X_k)$ y
+$\prod_k \Hom_\vcateg{C} (X_k,-)$.
+
+\begin{observacion}
+  Si un producto $\prod_k X_k$ (resp. coproducto $\coprod_k X_k$) existe, es
+  único salvo isomorfismo único.
+
+  \begin{proof}
+    Es una propiedad general de funtores representables que hemos probado en
+    \ref{funtores-representados-objeto-unico-salvo-iso}. El lector también puede
+    deducirla directamente de la definición de producto y coproducto.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Los productos y coproductos satisfacen las siguientes propiedades.
+
+  \begin{enumerate}
+  \item[1)] Los productos y coproductos son conmutativos (cuando existen):
+    $$X_1\times X_2\isom X_2\times X_1 \quad\text{y}\quad X_1\sqcup X_2\isom X_2\sqcup X_1.$$
+
+  \item[2)] Los productos y coproductos son asociativos (cuando existen):
+  $$(X_1\times X_2)\times X_3\isom X_1\times (X_2\times X_3) \isom X_1\times X_2\times X_3$$
+  y
+  $$(X_1\sqcup X_2)\sqcup X_3\isom X_1\sqcup (X_2\sqcup X_3) \isom X_1\sqcup X_2\sqcup X_3.$$
+\end{enumerate}
+
+\begin{proof}
+  Sigue de la propiedad universal del producto y coproducto (ejercicio para el lector), o de isomorfismos de funtores
+  \begin{gather*}
+    \Hom_\vcateg{C} (-,X_1)\times \Hom_\vcateg{C} (-,X_2) \isom \Hom_\vcateg{C} (-,X_2)\times \Hom_\vcateg{C} (-,X_1),\\
+    \Hom_\vcateg{C} (X_1,-)\times \Hom_\vcateg{C} (X_2,-) \isom \Hom_\vcateg{C} (X_2,-)\times \Hom_\vcateg{C} (X_1,-),
+  \end{gather*}
+  etcétera.
+\end{proof}
+\end{observacion}
+
+Terminamos esta sección con una propiedad importante de los funtores adjuntos.
+
+\begin{observacion}
+  \label{adjunto-a-la-izquierda-preserva-coproductos}
+  Sea $F\colon \vcateg{C} \to \vcateg{D}$ un funtor adjunto por la izquierda a
+  $G\colon \vcateg{D} \to \vcateg{C}$. Entonces $F$ preserva coproductos y $G$
+  preserva productos, es decir para cualesquiera $X_k \in \Ob (\vcateg{C})$ e
+  $Y_k \in \Ob (\vcateg{D})$
+  \begin{align*}
+    F (\coprod_k X_k) & \isom \coprod_k F (X_k),\\
+    G (\prod_k Y_k) & \isom \prod_k G (Y_k)
+  \end{align*}
+  (siempre y cuando estos productos y coproductos existan).
+
+  \begin{proof}
+    Como hemos observado en \ref{hom-y-productos-y-coproductos}, para cualquier
+    objeto $Z$ tenemos isomorfismos de funtores
+    \begin{align*}
+      \Hom (\coprod_k X_k, -) & \isom \prod_k \Hom (X_k, -),\\
+      \Hom (-, \prod_k Y_k) & \isom \prod_k \Hom (-, Y_k).
+    \end{align*}
+    Ahora tenemos
+    \begin{multline*}
+      \Hom_\vcateg{D} (F (\coprod_k X_k), -) \isom \Hom_\vcateg{C} (\coprod_k X_k, G (-)) \isom \prod_k \Hom_\vcateg{C} (X_k, G (-)) \isom \prod_k \Hom_\vcateg{D} (F(X_k), -) \\
+      \isom \Hom_\vcateg{D} (\coprod_k F(X_k), -)
+    \end{multline*}
+    y el lema de Yoneda implica que $F (\coprod_k X_k) \isom \coprod_k
+    F(X_k)$. De modo similar se demuestra el isomorfismo
+    $G (\prod_k Y_k) \isom \prod_k G (Y_k)$.
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  Hay biyecciones canónicas de conjuntos
+  \[ \left( \coprod_k Y_k \right)\times X \isom \coprod_k (Y_k \times X), \quad
+     \left(\prod_k Z_k\right)^X \isom \prod_k (Z_k)^X. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  El grupo de unidades de un producto de anillos es el producto de grupos de unidades:
+  \[ \left(\prod_k R_k\right)^\times \isom \prod_k R_k^\times. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  La abelianización del producto libre de grupos es la suma directa de las
+  abelianizaciones correspondientes:
+  $$\left(\bigast_k G_k\right)^{ab} \isom \bigoplus_k (G_k)^{ab}.$$
+  El producto en la categoría de grupos abealianos $\categ{Ab}$ coincide con el
+  producto en la categoría de grupos $\categ{Grp}$ porque la inclusión
+  $\categ{Ab} \hookrightarrow \categ{Grp}$ es un funtor adjunto por la derecha.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+%\marginpar{\footnotesize lección\\6.06.2018}
+
+\section{Productos y coproductos fibrados}
+
+En álgebra y geometría (y sobre todo en geometría algebraica) tiene mucha
+importancia el punto de vista \term{relativo}. En cualquier categoría
+$\vcateg{C}$ podemos fijar un objeto $Z$ y considerar los
+\term{objetos sobre $Z$}, es decir, objetos $X$ junto con un morfismo
+especificado $X \to Z$, y los \term{morfismos sobre $Z$} que son diagramas
+conmutativos
+$$\begin{tikzcd}
+X\ar{rr}\ar{dr} & & Y\ar{dl} \\
+& Z
+\end{tikzcd}$$
+De la misma manera, los \term{objetos bajo $Z$} vienen con morfismos $Z \to X$ y
+los \term{morfismos bajo $Z$} son diagramas conmutativos
+$$\begin{tikzcd}
+ & Z\ar{dl}\ar{dr} \\
+X\ar{rr} & & Y
+\end{tikzcd}$$
+Para objetos sobre $Z$ o bajo $Z$ existen construcciones universales denominadas
+\term{producto fibrado} y \term{coproducto fibrado}, respectivamente.
+
+\begin{definicion}
+  Si tenemos morfismos $X\to Z$ y $Y\to Z$, entonces el \term{producto fibrado
+    de $X$ e $Y$ sobre $Z$} es un objeto $X\times_Z Y$ con morfismos
+  $X\times_Z Y \to X$ y $X\times_Z Y\to Y$ que forman parte del diagrama
+  conmutativo
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        X\times_Z Y & Y \\
+        X & Z \\};
+      \path[->] (m-1-1) edge (m-1-2);
+      \path[->] (m-2-1) edge (m-2-2);
+      \path[->] (m-1-1) edge (m-2-1);
+      \path[->] (m-1-2) edge (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+
+  Además se pide la siguiente propiedad universal: si $V$ es otro objeto junto
+  con morfismos $V\to X$ y $V\to Y$ que conmutan con los morfismos $X\to Z$ y
+  $Y\to Z$, entonces existe un único morfismo $V \to X\times_Z Y$ tal que el
+  siguiente diagrama es conmutativo:
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        V \\
+        & X\times_Z Y & Y \\
+        & X & Z \\};
+      \path[->] (m-2-2) edge (m-2-3);
+      \path[->] (m-3-2) edge (m-3-3);
+      \path[->] (m-2-2) edge (m-3-2);
+      \path[->] (m-2-3) edge (m-3-3);
+      \path[->,dashed,font=\scriptsize] (m-1-1) edge node[above] {$\exists!$} (m-2-2);
+      \path[->,bend left] (m-1-1) edge (m-2-3);
+      \path[->,bend right] (m-1-1) edge (m-3-2);
+
+      \begin{scope}[shift=($(m-2-2)!.4!(m-3-3)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+\end{definicion}
+
+\begin{comentario}
+  En inglés el producto fibrado también se llama ``pullback''. El símbolo
+  ``$\begin{tikzpicture}\draw +(-.2,0) -- +(0,0) -- +(0,.2);\end{tikzpicture}$''
+  en el cuadrado de arriba significa que es el cuadrado del producto fibrado, es
+  decir que no es simplemente un cuadrado conmutativo, sino también
+  universal. También se dice que es un \term{cuadrado cartesiano}, pero no vamos
+  a usar esta terminología.
+
+  La notación $X\times_Z Y$ es un poco ambigua: este objeto depende no solamente
+  de $X,Y,Z$, sino de morfismos específicos $X\to Z$ e $Y\to Z$. Además, este
+  objeto está bien definido solo salvo isomorfismo.
+\end{comentario}
+
+\begin{ejemplo}
+  En la categoría de conjuntos, el producto fibrado de $f\colon X\to Z$ y
+  $g\colon Y\to Z$ es el conjunto
+  $$X\times_Z Y = \{ (x,y) \in X\times Y \mid f (x) = g (y) \}$$
+  y los morfismos $X\times_Z Y \to X$ y $X\times_Z Y \to Y$ están inducidos por
+  las proyecciones.
+
+  En particular, si $X$ e $Y$ son subconjuntos de $Z$, entonces $X\times_Z Y$
+  puede ser identificado con $X\cap Y \subseteq Z$:
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        X\cap Y & Y \\
+        X & Z \\};
+      \path[right hook->] (m-1-1) edge (m-1-2);
+      \path[right hook->] (m-2-1) edge (m-2-2);
+      \path[right hook->] (m-1-1) edge (m-2-1);
+      \path[right hook->] (m-1-2) edge (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+
+  En las categorías de conjuntos con estructura adicional los productos fibrados
+  tienen una descripción parecida.
+\end{ejemplo}
+
+A partir de la propiedad universal, se deduce que
+
+\begin{enumerate}
+\item[1)] si el producto fibrado $X\times_Z Y$ existe, es único salvo
+  isomorfismo;
+
+\item[2)] el producto fibrado es conmutativo: $X\times_Z Y \isom Y\times_Z X$;
+
+\item[3)] el producto fibrado es asociativo:
+  $(X_1 \times_Z X_2) \times_Z X_3 \isom X_1 \times_Z (X_2 \times_Z X_3)$.
+
+\item[4)] los productos fibrados preservan isomorfismos: si la flecha $Y\to Z$
+  es un isomorfismo, entonces $X\times_Z Y\to X$ es también un isomorfismo:
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        X\times_Z Y & Y \\
+        X & Z \\};
+      \path[->] (m-1-1) edge (m-1-2);
+      \path[->] (m-2-1) edge (m-2-2);
+      \path[->,font=\scriptsize] (m-1-1) edge node[left] {$\isom$} (m-2-1);
+      \path[->,font=\scriptsize] (m-1-2) edge node[right] {$\isom$} (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+\end{enumerate}
+
+Cada concepto en la teoría de categorías tiene su dual: basta cambiar
+las direcciones de las flechas en la definición. Así tenemos monomorfismos
+y epimorfismos, productos y coproductos, etc. De la misma manera, la noción dual
+a los productos fibrados son los coproductos fibrados.
+
+\begin{definicion}
+  Si tenemos morfismos $Z\to X$ y $Z\to Y$, entonces el
+  \term{coproducto fibrado de $X$ e $Y$ bajo $Z$} es un objeto $X\sqcup_Z Y$
+  junto con morfismos $X\to X\sqcup_Z Y$ y $Y\to X\sqcup_Z Y$ que forman parte
+  del diagrama conmutativo
+
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        Z & Y \\
+        X & X\sqcup_Z Y \\};
+      \path[->] (m-1-1) edge (m-1-2);
+      \path[->] (m-2-1) edge (m-2-2);
+      \path[->] (m-1-1) edge (m-2-1);
+      \path[->] (m-1-2) edge (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.7!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+
+  Además se pide la siguiente propiedad universal: si $V$ es otro objeto junto
+  con morfismos $X\to V$ y $Y\to V$ que conmutan con los morfismos $Z\to X$ y
+  $Z\to Y$, entonces existe un único morfismo $X\sqcup_Z Y \to V$ tal que el
+  diagrama siguiente es conmutativo:
+
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        Z & Y \\
+        X & X\sqcup_Z Y \\
+        & & V\\};
+      \path[->] (m-1-1) edge (m-1-2);
+      \path[->] (m-2-1) edge (m-2-2);
+      \path[->] (m-1-1) edge (m-2-1);
+      \path[->] (m-1-2) edge (m-2-2);
+      \path[dashed,->,font=\scriptsize] (m-2-2) edge node[above] {$\exists!$} (m-3-3);
+      \path[->,bend left] (m-1-2) edge (m-3-3);
+      \path[->,bend right] (m-2-1) edge (m-3-3);
+
+      \begin{scope}[shift=($(m-1-1)!.7!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+\end{definicion}
+
+\begin{comentario}
+  En inglés el coproducto fibrado también se llama ``pushout''. El símbolo
+  ``$\begin{tikzpicture}\draw +(-.2,0) -- +(0,0) -- +(0,.2);\end{tikzpicture}$''
+  en el cuadrado significa que es universal en el sentido de arriba. También se
+  dice que es un \term{cuadrado cocartesiano}. Otro término posible es
+  \term{suma amalgamada} (!).
+\end{comentario}
+
+\begin{ejemplo}
+  En la categoría de conjuntos, el coproducto fibrado de $f\colon Z\to X$ y
+  $g\colon Z\to Y$ es el conjunto
+  $$X\sqcup_Z Y = (X\sqcup Y)/\!\sim,$$
+  donde $\sim$ es la relación de equivalencia generada\footnote{Es decir, se
+    considera la relación de equivalencia más pequeña que satisface
+    $i_1\circ f (z) \sim i_2 \circ g (z)$.} por
+  $$i_1\circ f (z) \sim i_2 \circ g (z).$$
+  En particular, si $X$ e $Y$ son subconjuntos de otro conjunto $W$ y $Z$ es su
+  intersección, entonces $X\sqcup_Z Y$ puede ser identificado con $X\cup Y$:
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        X\cap Y & Y \\
+        X & X\cup Y \\};
+      \path[right hook->] (m-1-1) edge (m-1-2);
+      \path[right hook->] (m-2-1) edge (m-2-2);
+      \path[right hook->] (m-1-1) edge (m-2-1);
+      \path[right hook->] (m-1-2) edge (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.7!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+\end{tikzpicture} \]
+
+  En categorías de conjuntos con estructura adicional los coproductos fibrados
+  tienen descripción parecida.
+\end{ejemplo}
+
+A partir de la propiedad universal, se deduce que
+
+\begin{enumerate}
+\item[1)] si el coproducto fibrado $X\sqcup_Z Y$ existe, es único salvo isomorfismo;
+
+\item[2)] el coproducto fibrado es conmutativo: $X\sqcup_Z Y \isom Y\sqcup_Z X$;
+
+\item[3)] el coproducto fibrado es asociativo:
+  $(X_1 \sqcup_Z X_2) \sqcup_Z X_3 \isom X_1 \sqcup_Z (X_2 \sqcup_Z X_3)$.
+
+\item[4)] los coproductos fibrados preservan isomorfismos: si la flecha $Z\to X$
+  es un isomorfismo, entonces $Y\to X\sqcup_Z Y$ es también un isomorfismo:
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        Z & Y \\
+        X & X\sqcup_Z Y \\};
+      \path[->] (m-1-1) edge (m-1-2);
+      \path[->] (m-2-1) edge (m-2-2);
+      \path[->,font=\scriptsize] (m-1-1) edge node[left] {$\isom$} (m-2-1);
+      \path[->,font=\scriptsize] (m-1-2) edge node[right] {$\isom$} (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.7!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+\end{enumerate}
+
+\begin{observacion}
+  \label{productos-como-productos-fibrados-sobre-el-objeto-terminal}
+  Si $T$ es un objeto terminal (resp. $I$ es un objeto inicial), entonces
+  $X\times_T Y \isom X\times Y$ (resp. $X\sqcup_I Y \isom X\sqcup Y$).
+
+  \begin{proof}
+    Por ejemplo, en el caso de productos fibrados, para todo $X\in \vcateg{C}$
+    automáticamente tenemos un único morfismo $X\to T$, y la propiedad universal
+    de $X\times_T Y$ corresponde a la propiedad universal de $X\times Y$.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Los productos fibrados preservan monomorfismos y los coproductos fibrados
+  preservan epimorfismos:
+
+  \begin{enumerate}
+  \item[1)] si $m\colon X\to Y$ es un monomorfismo, entonces
+    $\overline{m}\colon X\times_Y Z\to Z$ es también un monomorfismo;
+
+  \item[2)] si $e\colon X\to Y$ es un epimorfismo, entonces
+    $\overline{e}\colon Z\to Z\sqcup_X Y$ es también un epimorfismo.
+  \end{enumerate}
+
+  \[ \begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+      text height=1.5ex, text depth=0.25ex]{
+        X\times_Y Z & Z && X & Y \\
+        X & Y && Z & Z\sqcup_X Y \\};
+      \path[>->,font=\scriptsize] (m-1-1) edge node[above] {$\overline{m}$} (m-1-2);
+      \path[>->,font=\scriptsize] (m-2-1) edge node[below] {$m$} (m-2-2);
+      \path[->,font=\scriptsize] (m-1-1) edge node[left] {$\overline{f}$} (m-2-1);
+      \path[->,font=\scriptsize] (m-1-2) edge node[right] {$f$} (m-2-2);
+
+      \path[->>,font=\scriptsize] (m-1-4) edge node[above] {$e$} (m-1-5);
+      \path[->>,font=\scriptsize] (m-2-4) edge node[below] {$\overline{e}$} (m-2-5);
+      \path[->,font=\scriptsize] (m-1-4) edge node[left] {$f$} (m-2-4);
+      \path[->,font=\scriptsize] (m-1-5) edge node[right] {$\overline{f}$} (m-2-5);
+
+      \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+      \begin{scope}[shift=($(m-1-4)!.7!(m-2-5)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture} \]
+
+  \begin{proof}
+    Para ver 1), si tenemos dos morfismos $g,h\colon V \to X\times_Y Z$ tales
+    que $\overline{m}\circ g = \overline{m}\circ h$, entonces por la
+    conmutatividad del cuadrado $m\circ \overline{f}\circ g = m\circ f\circ h$,
+    pero $m$ es mono, así que $\overline{f}\circ g = \overline{f}\circ h$. Ahora
+    podemos aplicar la propiedad universal de productos fibrados:
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+        text height=1.5ex, text depth=0.25ex]{
+          V \\
+          & X\times_Y Z & Z \\
+          & X & Y \\};
+        \path[>->,font=\scriptsize] (m-2-2) edge node[above] {$\overline{m}$} (m-2-3);
+        \path[>->,font=\scriptsize] (m-3-2) edge node[below] {$m$} (m-3-3);
+        \path[->,font=\scriptsize] (m-2-2) edge node[left] {$\overline{f}$} (m-3-2);
+        \path[->,font=\scriptsize] (m-2-3) edge node[right] {$f$} (m-3-3);
+        \path[->,dashed,font=\scriptsize] (m-1-1) edge node[above] {$\exists!$} (m-2-2);
+        \path[->,font=\scriptsize,bend left] (m-1-1) edge node[above] {$\overline{m}\circ g = \overline{m}\circ h$} (m-2-3);
+        \path[->,font=\scriptsize,bend right] (m-1-1) edge node[left] {$\overline{f}\circ g = \overline{f}\circ h$} (m-3-2);
+
+        \begin{scope}[shift=($(m-2-2)!.4!(m-3-3)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+      \end{tikzpicture} \]
+
+    Aquí la flecha punteada es única, de donde $g = h$. Para 2) el argumento es
+    idéntico, solo hay que cambiar la dirección de todas las flechas.
+  \end{proof}
+\end{observacion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Ecualizadores y coecualizadores}
+
+\begin{definicion}
+  Sean $f$ y $g$ un par de morfismos $X\to Y$.
+
+  Un \term{ecualizador} de $f$ y $g$ es un objeto $\eq (f,g)$ junto con un
+  morfismo $i\colon \eq (f,g) \to X$ tal que $f\circ i = g\circ i$ (de aquí el
+  nombre ``ecualizador'') y además $i$ es universal entre todos los morfismos
+  que ecualizan a $f$ y $g$: a saber, si $j\colon Z \to X$ es otro morfismo tal
+  que $f\circ j = g\circ j$, entonces existe un único morfismo $Z\to \eq (f,g)$
+  que hace parte del siguiente diagrama conmutativo:
+  \[ \begin{tikzcd}
+      \eq (f,g)\ar{r}{i} & X\ar[shift left=0.25em]{r}{f}\ar[shift right=0.25em]{r}[swap]{g} & Y \\
+      Z\ar{ur}[swap]{j}\ar[dashed]{u}{\exists !}
+    \end{tikzcd} \]
+
+  Un \term{coecualizador} de $f$ y $g$ es un objeto $\coeq (f,g)$ junto con un
+  morfismo $p\colon Y\to \coeq (f,g)$ tal que $p\circ f = p\circ g$ y que
+  satisface la propiedad universal
+  \[ \begin{tikzcd}
+      X\ar[shift left=0.25em]{r}{f}\ar[shift right=0.25em]{r}[swap]{g} & Y\ar{r}{p}\ar{dr}[swap]{q} & \coeq (f,g)\ar[dashed]{d}{\exists !} \\
+      & & Z
+    \end{tikzcd} \]
+\end{definicion}
+
+\begin{observacion}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Si $\eq (f,g)$ existe, entonces el morfismo
+    $i\colon \eq (f,g) \to X$ es mono y el objeto $\eq (f,g)$ es único salvo
+    isomorfismo.
+
+  \item[2)] Si $\coeq (f,g)$ existe, entonces el morfismo
+    $p\colon Y\to \coeq (f,g)$ es epi y el objeto $\coeq (f,g)$ es único salvo
+    isomorfismo.
+  \end{enumerate}
+
+  \begin{proof}
+    Vamos a demostrar la parte sobre $\eq (f,g)$ y dejo la parte sobre
+    $\coeq (f,g)$ como un ejercicio (invirtiendo las flechas).
+
+    Sean $h,h'\colon Z \to \eq (f,g)$ dos flechas tales que
+    $i\circ h = i\circ h'$. Tenemos $f\circ i\circ h = g\circ i\circ h$ y
+    $f\circ i\circ h' = g\circ i\circ h'$, y por la propiedad universal del
+    ecualizador, existen únicos morfismos $\ell, \ell'\colon Z \to \eq (f,g)$
+    tales que $i\circ h = i\circ \ell$ y $i\circ h' = i\circ \ell'$. Entonces
+    $\ell = \ell' = h = h'$.
+
+    \[ \begin{tikzcd}
+        Z\ar[shift left=0.25em]{r}{h}\ar[shift right=0.25em]{r}[swap]{h'} & \eq (f,g)\ar{r}{i} & X\ar[shift left=0.25em]{r}{f}\ar[shift right=0.25em]{r}[swap]{g} & Y
+      \end{tikzcd} \]
+
+    Ahora sean $E$ y $E'$ dos objetos con morfismos $i\colon E \to X$ y
+    $i'\colon E' \to M$ que satisfacen la propiedad universal del
+    ecualizador. Entonces existen morfismos únicos $k\colon E'\to E$ y
+    $\ell\colon E \to E'$ tales que $i\circ k = i'$ y $i'\circ \ell =
+    i$. Tenemos $i\circ k\circ \ell = i\circ \id{E}$, pero $i$ es un
+    monomorfismo, y por lo tanto $k\circ \ell = \id{E}$. De modo similar,
+    $i'\circ \ell\circ k = i'\circ \id{E'}$ y $\ell\circ k = \id{E'}$. Las
+    flechas $k$ y $\ell$ definen un isomorfismo $E\isom E'$.
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  Para $f = g\colon X\to Y$
+
+  \begin{enumerate}
+  \item[1)] el morfismo $\eq (f,f)\to X$ debe ser (salvo isomorfismo) el
+    morfismo identidad $\id{X}$;
+
+  \item[2)] el morfismo $Y\to \coeq (f,f)$ debe ser (salvo isomorfismo) el
+    morfismo identidad $\id{Y}$. \qedhere
+  \end{enumerate}
+\end{ejemplo}
+
+\begin{ejemplo}
+  En $\categ{Set}$ para un par de aplicaciones $f,g\colon X\to Y$ el conjunto
+  $$\eq (f,g) = \{ x\in X \mid f(x) = g(x) \}$$
+  con la inclusión $i\colon \eq (f,g) \hookrightarrow X$ satisface la propiedad
+  universal del ecualizador. Luego sea $\sim$ la relación de equivalencia sobre
+  $Y$ generada por
+  $$f (x) \sim g (x) \text{ para cada }x\in X.$$
+  Entonces el conjunto
+  $$\coeq (f,g) = Y/\sim$$
+  con el morfismo de proyección $p\colon Y \twoheadrightarrow \coeq (f,g)$
+  satisface la propiedad universal del coecualizador.
+\end{ejemplo}
+
+\begin{observacion}
+  \label{ecualizadores-como-productos-fibrados}
+  Todo ecualizador (resp. coecualizador) puede ser expresado como un producto
+  (resp. coproducto) fibrado.
+
+  \begin{proof}
+    Por ejemplo, en el caso de ecualizadores, para morfismos $f,g\colon X\to Y$
+    podemos considerar uno de los siguientes productos fibrados.
+
+    Primera construcción:
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]{
+          E & X \\
+          X & X\times Y\\};
+        \path[->,font=\scriptsize] (m-1-1) edge node[above] {$e'$} (m-1-2);
+        \path[->,font=\scriptsize] (m-2-1) edge node[below] {$\tcol{\idid}{f}$} (m-2-2);
+        \path[->,font=\scriptsize] (m-1-1) edge node[left] {$e$} (m-2-1);
+        \path[->,font=\scriptsize] (m-1-2) edge node[right] {$\tcol{\idid}{g}$} (m-2-2);
+
+        \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+      \end{tikzpicture} \]
+    La conmutatividad de este cuadrado
+    ($\tcol{\idid}{f} \circ e = \tcol{\idid}{g} \circ e'$) equivale a $e = e'$ y
+    $f\circ e = g\circ e$.
+
+    Segunda construcción:
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]{
+          E & X \\
+          X & Y\times Y\\};
+        \path[->,font=\scriptsize] (m-1-1) edge node[above] {$e$} (m-1-2);
+        \path[->,font=\scriptsize] (m-2-1) edge node[below] {$\tcol{\idid}{\idid}$} (m-2-2);
+        \path[->,font=\scriptsize] (m-1-1) edge node[left] {$e'$} (m-2-1);
+        \path[->,font=\scriptsize] (m-1-2) edge node[right] {$\tcol{f}{g}$} (m-2-2);
+
+        \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+      \end{tikzpicture} \]
+
+    La conmutatividad de este cuadrado equivale a $f\circ e = g\circ e = e'$.
+
+    En ambos casos, la propiedad universal del producto fibrado equivale a la
+    propiedad universal del ecualizador $e\colon E\to X$.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  \label{productos-fibrados-como-ecualizadores}
+  Todo producto (resp. coproducto) fibrado puede ser expresado como un
+  ecualizador (resp. coecualizador).
+
+  \begin{proof}
+    Necesitamos construir un producto (resp. coproducto) fibrado
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+        text height=1.5ex, text depth=0.25ex]{
+          X\times_Z Y & Y && Z & Y \\
+          X & Z && X & X\sqcup_Z Y \\};
+        \path[->,font=\scriptsize] (m-1-1) edge node[above] {$\overline{f}$} (m-1-2);
+        \path[->,font=\scriptsize] (m-2-1) edge node[below] {$f$} (m-2-2);
+        \path[->,font=\scriptsize] (m-1-1) edge node[left] {$\overline{g}$} (m-2-1);
+        \path[->,font=\scriptsize] (m-1-2) edge node[right] {$g$} (m-2-2);
+
+        \path[->,font=\scriptsize] (m-1-4) edge node[above] {$g$} (m-1-5);
+        \path[->,font=\scriptsize] (m-2-4) edge node[below] {$\overline{g}$} (m-2-5);
+        \path[->,font=\scriptsize] (m-1-4) edge node[left] {$f$} (m-2-4);
+        \path[->,font=\scriptsize] (m-1-5) edge node[right] {$\overline{f}$} (m-2-5);
+
+        \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+        \begin{scope}[shift=($(m-1-4)!.7!(m-2-5)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+      \end{tikzpicture} \]
+
+    Lo más obvio que podemos hacer es tomar el producto y coproducto
+    \[ X \xleftarrow{p_X} X\times Y \xrightarrow{p_Y} Y \quad\quad
+       X \xrightarrow{i_X} X\sqcup Y \xleftarrow{i_Y} Y \]
+    y considerar los cuadrados
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+        text height=1.5ex, text depth=0.25ex]{
+          X\times Y & Y && Z & Y \\
+          X & Z && X & X\sqcup Y \\};
+        \path[->,font=\scriptsize] (m-1-1) edge node[above] {$p_Y$} (m-1-2);
+        \path[->,font=\scriptsize] (m-2-1) edge node[below] {$f$} (m-2-2);
+        \path[->,font=\scriptsize] (m-1-1) edge node[left] {$p_X$} (m-2-1);
+        \path[->,font=\scriptsize] (m-1-2) edge node[right] {$g$} (m-2-2);
+
+        \path[->,font=\scriptsize] (m-1-4) edge node[above] {$g$} (m-1-5);
+        \path[->,font=\scriptsize] (m-2-4) edge node[below] {$i_X$} (m-2-5);
+        \path[->,font=\scriptsize] (m-1-4) edge node[left] {$f$} (m-2-4);
+        \path[->,font=\scriptsize] (m-1-5) edge node[right] {$i_Y$} (m-2-5);
+
+        \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+        \begin{scope}[shift=($(m-1-4)!.7!(m-2-5)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+      \end{tikzpicture} \]
+    pero estos no tienen por qué ser conmutativos. Entonces, podemos tomar el
+    ecualizador (resp. coecualizador) correspondiente:
+    \[ \begin{tikzcd}
+        X\times_Z Y \ar{r}{\tcol{\overline{f}}{\overline{g}}} & X\times Y \ar[shift left=0.25em]{r}{f\circ p_X}\ar[shift right=0.25em]{r}[swap]{g\circ p_Y} & Z && Z \ar[shift left=0.25em]{r}{i_X\circ f}\ar[shift right=0.25em]{r}[swap]{i_Y\circ g} & X\sqcup Y \ar{r}{(\overline{f}, \overline{g})} & X \sqcup_Z Y
+      \end{tikzcd} \]
+    El lector puede comprobar que en este caso la propiedad universal de
+    (co)equializadores corresponde a la propiedad universal de (co)productos
+    fibrados.
+  \end{proof}
+\end{observacion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Límites y colímites en general}
+
+%\marginpar{\footnotesize lección\\7.06.2018}
+
+\begin{definicion}
+  Sea $\vcateg{I}$ una categoría pequeña y sea
+  $F\colon \vcateg{I} \to \vcateg{C}$ un funtor. Un \term{límite} de $F$ es un
+  objeto $\lim_\vcateg{I} F \in \Ob (\vcateg{C})$ con un conjunto de morfismos
+  $\{ \lim_\vcateg{I} F \to F (i) \}_{i\in \Ob (\vcateg{I})}$ tales que cada
+  morfismo $i\to j$ en $\vcateg{I}$ induce un diagrama conmutativo
+  $$\begin{tikzcd}
+    & \lim_\vcateg{I} F\ar{dl}\ar{dr}\\
+    F (i)\ar{rr} & & F (j) \\
+  \end{tikzcd}$$
+  Además, pedimos la siguiente propiedad universal: si para cualquier otro
+  objeto $X\in \Ob (\vcateg{C})$ con un conjunto de morfismos
+  $\{ X \to F (i) \}_{i\in \Ob (\vcateg{I})}$ que conmuta con los morfismos de
+  $\vcateg{I}$ en el sentido de arriba existe un único morfismo
+  $X \to \lim_\vcateg{I} F$ que da diagramas conmutativos
+  $$\begin{tikzcd}
+    & \lim_\vcateg{I} F\ar{ddl}\ar{ddr} \\
+    & X\ar{dl}\ar{dr}\ar[dashed]{u}[swap]{\exists !} \\
+    F (i)\ar{rr} & & F (j) \\
+  \end{tikzcd}$$
+
+  Un \term{colímite} de $F$ es un objeto
+  $\colim_\vcateg{I} F \in \Ob (\vcateg{C})$ con un conjunto de morfismos
+  $\{ F(i) \to \colim_\vcateg{I} F \}_{i\in \vcateg{I}}$ tales que para cada
+  morfismo $i\to j$ en $\vcateg{I}$ hay un diagrama conmutativo
+  $$\begin{tikzcd}
+    F (i)\ar{rr}\ar{dr} & & F (j)\ar{dl} \\
+    & \colim_\vcateg{I} F
+  \end{tikzcd}$$
+  Y se pide que $\colim_\vcateg{I} F$ satisfaga la propiedad universal
+  $$\begin{tikzcd}
+    F (i)\ar{rr}\ar{dr}\ar{ddr} & & F (j)\ar{dl}\ar{ddl} \\
+    & \colim_\vcateg{I} F\ar[dashed]{d}{\exists !}\\
+    & X
+  \end{tikzcd}$$
+\end{definicion}
+
+\begin{observacion}
+  Si un límite o colímite existe, es único salvo isomorfismo único.
+\end{observacion}
+
+\begin{ejemplo}
+  Ya conocemos algunos ejemplos básicos de límites y colímites.
+
+  \begin{enumerate}
+  \item[1)] La \term{categoría vacía} $\emptyset$ es la categoría que no tiene
+    ningún objeto. Trivialmente, para cualquier categoría $\vcateg{C}$ hay un
+    funtor único $\emptyset\to\vcateg{C}$. El límite de este funtor es un objeto
+    terminal y el colímite es un objeto inicial.
+
+  \item[2)] Sea $\vcateg{I}$ una categoría que tiene solo dos objetos $1$ y $2$
+    y ningún morfismo salvo $\id{1}$ y $\id{2}$:
+
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]
+        {1 & 2\\};
+
+        \draw[->] (m-1-1) edge[loop above] node[above,font=\scriptsize] {$\idid$} (m-1-1);
+        \draw[->] (m-1-2) edge[loop above] node[above,font=\scriptsize] {$\idid$} (m-1-2);
+      \end{tikzpicture} \]
+
+    Un funtor $F\colon \vcateg{I}\to \vcateg{C}$ corresponde a una elección de
+    objetos $X_1 = F (1), X_2 = F (2)\in \Ob (\vcateg{C})$. El límite de $F$ es
+    el producto $X_1\times X_2$ y el colímite es el coproducto $X_1\sqcup X_2$.
+
+    De la misma manera, todo conjunto $I$ puede ser interpretado como una
+    categoría pequeña $\vcateg{I}$ cuyos objetos corresponden a los elementos de
+    $I$ y cuyos morfismos son $\id{i}$ para todo $i\in I$. Un funtor
+    $F\colon \vcateg{I}\to\vcateg{C}$ corresponde a una elección de una familia
+    de objetos $X_i$. El límite de este funtor es el producto $\prod_i X_i$ y el
+    colímite es el coproducto $\coprod_i X_i$.
+
+  \item[3)] Sea $I$ la categoría
+    $$\begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]
+      { & 2\\
+        1 & 3\\};
+
+      \draw[->] (m-2-1) edge (m-2-2);
+      \draw[->] (m-1-2) edge (m-2-2);
+
+      \draw[->] (m-2-2) edge[loop right] node[right,font=\scriptsize] {$\idid$} (m-2-2);
+      \draw[->] (m-2-1) edge[loop above] node[above,font=\scriptsize] {$\idid$} (m-2-1);
+      \draw[->] (m-1-2) edge[loop right] node[right,font=\scriptsize] {$\idid$} (m-1-2);
+    \end{tikzpicture}$$
+    Un funtor $F\colon \vcateg{I}\to \vcateg{C}$ corresponde a un diagrama
+    $$\begin{tikzcd}
+      & Y\ar{d} \\
+      X\ar{r} & Z
+    \end{tikzcd}$$
+    El límite de $F$ es el producto fibrado de $X$ e $Y$ sobre $Z$
+    $$\begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]{
+        X\times_Z Y & Y \\
+        X & Z \\};
+      \path[->] (m-1-1) edge (m-1-2);
+      \path[->] (m-2-1) edge (m-2-2);
+      \path[->] (m-1-1) edge (m-2-1);
+      \path[->] (m-1-2) edge (m-2-2);
+
+      \begin{scope}[shift=($(m-1-1)!.4!(m-2-2)$)]
+        \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+      \end{scope}
+    \end{tikzpicture}$$
+
+    De la misma manera, si $I$ es la categoría
+    $$\begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]
+      {3 & 2\\
+        1\\};
+
+      \draw[->] (m-1-1) edge (m-1-2);
+      \draw[->] (m-1-1) edge (m-2-1);
+
+      \draw[->] (m-1-1) edge[loop left] node[left,font=\scriptsize] {$\idid$} (m-2-2);
+      \draw[->] (m-1-2) edge[loop right] node[right,font=\scriptsize] {$\idid$} (m-2-1);
+      \draw[->] (m-2-1) edge[loop left] node[left,font=\scriptsize] {$\idid$} (m-1-2);
+    \end{tikzpicture}$$
+    entonces un funtor $F\colon \vcateg{I}\to\vcateg{C}$ corresponde a un diagrama
+    $$\begin{tikzcd}
+      Z\ar{r}\ar{d} & Y \\
+      X
+    \end{tikzcd}$$
+    y el colímite de $F$ es el coproducto fibrado de $X$ e $Y$ bajo $Z$
+    \[ \begin{tikzpicture}
+        \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em,
+        text height=1.5ex, text depth=0.25ex]{
+          Z & Y \\
+          X & X\sqcup_Z Y \\};
+        \path[->] (m-1-1) edge (m-1-2);
+        \path[->] (m-2-1) edge (m-2-2);
+        \path[->] (m-1-1) edge (m-2-1);
+        \path[->] (m-1-2) edge (m-2-2);
+
+        \begin{scope}[shift=($(m-1-1)!.7!(m-2-2)$)]
+          \draw +(-.2,0) -- +(0,0)  -- +(0,.2);
+        \end{scope}
+      \end{tikzpicture} \]
+
+  \item[4)] Sea $\vcateg{I}$ la categoría
+    $$\begin{tikzpicture}
+      \matrix(m)[matrix of math nodes, row sep=2em, column sep=2em, text height=1.5ex, text depth=0.25ex]
+      {1 & 2\\};
+
+      \draw[->,transform canvas={yshift=0.3em}] (m-1-1) edge (m-1-2);
+      \draw[->,transform canvas={yshift=-0.3em}] (m-1-1) edge (m-1-2);
+
+      \draw[->] (m-1-1) edge[loop above] node[above,font=\scriptsize] {$\idid$} (m-1-1);
+      \draw[->] (m-1-2) edge[loop above] node[above,font=\scriptsize] {$\idid$} (m-1-2);
+    \end{tikzpicture}$$
+    Un funtor $F\colon\vcateg{I}\to\vcateg{C}$ corresponde a un diagrama
+    $$\begin{tikzcd}
+      X\ar[shift left=0.3em]{r}{f}\ar[shift right=0.3em]{r}[swap]{g} & Y
+    \end{tikzcd}$$
+    El límite de $F$ es el ecualizador de $f$ y $g$ y el colímite es el coecualizador. \qedhere
+  \end{enumerate}
+\end{ejemplo}
+
+Muchas categorías importantes son \term{completas y cocompletas}, es decir
+tienen límites y colímites para cualquier categoría pequeña
+$\vcateg{I}$. Entre ellas, la categoría de conjuntos
+$\categ{Set}$ y muchas categorías de conjuntos con estructura adicional:
+espacios topológicos $\categ{Top}$, grupos
+$\categ{Grp}$, anillos $\categ{Ring}$, espacios vectoriales
+$k\categ{-Vect}$, etc. En estos casos los límites y colímites tienen una
+descripción explícita:
+\begin{align*}
+  \lim_\vcateg{I} F & = \{ (x_i) \in \prod_{i\in \Ob (\vcateg{I})} F(i) \mid F (f) (x_i) = x_j \text{ para cada } f\colon i\to j \}.\\
+  \colim_\vcateg{I} F & = \left.\coprod_{i\in \Ob (\vcateg{I})} F (i) \right/\!\sim,
+\end{align*}
+donde la relación de equivalencia $\sim$ es generada por
+$$F (i) \ni x_i \sim F(f) (x_i) \in F (j) \text{ para todo } f\colon i\to j.$$
+El lector puede hacer los ajustes (obvios) para el caso de conjuntos con
+estructura adicional. Por ejemplo, para espacios topológicos por
+$\left.\coprod_{i\in \Ob (\vcateg{I}} F (i)
+\right/\!\sim$ se entiende el espacio con la topología cociente.
+
+\begin{ejemplo}
+  Consideremos los números naturales $\NN$ con la relación $\ge$. Esto
+  corresponde a una categoría
+  $$\begin{tikzcd}
+    \cdots\ar{r} & 2\ar{r} & 1\ar{r} & 0
+  \end{tikzcd}$$
+  Consideremos el funtor $F\colon \NN\to \categ{CRing}$ que a cada $i$ asocia el
+  anillo conmutativo $\ZZ/p^{i+1}\ZZ$ y a cada morfismo $j\to i$ donde $j \ge i$
+  asocia el homomorfismo de anillos $\ZZ/p^{j+1}\ZZ \to \ZZ/p^{i+1}\ZZ$ que toma
+  el resto módulo $p^{i+1}$. El límite de este funtor es el anillo de enteros
+  $p$-ádicos:
+  $$\ZZ_p = \lim_{i\ge 0} \ZZ/p^{i+1}\ZZ.$$
+  En efecto, la construcción general nos dice que
+  \[ \lim_{i\ge 0} \ZZ/p^{i+1}\ZZ =
+     \{ (x_i) \in \prod_{i\ge 0} \ZZ/p^{i+1}\ZZ \mid
+            x_j \equiv x_i \pmod{p^{i+1}} \text{ para cada }j\ge i \}. \]
+  Entonces, los elementos del límite son sucesiones
+  $(x_0,x_1,x_2,x_3,\ldots)$ de restos módulo $p^{i+1}$ que satisfacen
+  \begin{align*}
+    x_1 & \equiv x_0 \pmod{p},\\
+    x_2 & \equiv x_1 \pmod{p^2},\\
+    x_3 & \equiv x_2 \pmod{p^3},\\
+        & \cdots
+  \end{align*}
+  Esto significa que existen números únicos $0\le a_i\le p-1$ tales que
+  \begin{align*}
+    x_0 & = a_0,\\
+    x_1 & = a_0 + a_1\,p,\\
+    x_2 & = a_0 + a_1\,p + a_2\,p^2,\\
+    x_3 & = a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3,\\
+        & \cdots
+  \end{align*}
+  De esta manera obtenemos las expansiones $p$-ádicas
+  \[ (x_0,x_1,x_2,x_3,\ldots) \leftrightarrow
+     a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3 + \cdots. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Consideremos los números enteros positivos $\ZZ_+$ ordenados por la relación
+  de divisibilidad $n \succeq m \iff m \mid n$. Esto da lugar a una categoría
+  \[ \begin{tikzcd}\cdots & 6\ar[bend right]{rrr}\ar[bend right]{rrrrr} & 5\ar[bend left]{rrrr} & 4\ar[bend left]{rr}\ar[bend left]{rrr} & 3\ar[bend right]{rr} & 2\ar{r} & 1 \end{tikzcd} \]
+
+  Cuando $m\mid n$, está bien definido el homomorfismo $\ZZ/n\ZZ\to \ZZ/m\ZZ$
+  que a cada resto módulo $n$ asocia el resto módulo $m$ correspondiente. Esto
+  define un funtor $n \rightsquigarrow \ZZ/n\ZZ$ y su límite es
+  $$\widehat{\ZZ} = \lim_{n\ge 1} \ZZ/n\ZZ$$
+  llamado el \term{anillo de enteros profinitos}. Por el teorema chino del resto, hay isomorfismos naturales
+  \[ \ZZ/n\ZZ \isom \ZZ/p_1^{k_1}\ZZ\times\cdots\times  \ZZ/p_s^{k_s}\ZZ, \quad
+     \text{donde }n = p_1^{k_1}\cdots p_s^{k_s}. \]
+  Luego,
+  \[ \lim_{n\ge 1} \ZZ/n\ZZ \isom
+     \prod_{p\text{ primo}} \lim_i \ZZ/p^i\ZZ \isom
+     \prod_p \ZZ_p. \qedhere \]
+\end{ejemplo}
+  
+\begin{ejemplo}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Consideremos el funtor que a cada entero positivo $n$ asocia el
+    grupo simétrico $S_n$ y a $m\le n$ asocia el monomorfismo $S_m \mono S_n$
+    que extiende toda permutación $\sigma$ de $\{ 1,2,\ldots,m \}$ a una
+    permutación de $\{ 1,2,\ldots,n \}$ poniendo $\sigma (i) = i$ si $i > m$. El
+    colímite correspondiente es el grupo simétrico infinito
+    $$S_\infty = \colim_{n\ge 1} S_n.$$
+    Los elementos de $S_\infty$ son permutaciones de números naturales $\NN$ que
+    tienen un número finito de puntos no fijos.
+
+  \item[2)] De la misma manera, a cada $m \le n$ se puede asociar un
+    monomorfismo de grupos de matrices invertibles $\GL_m (R) \to \GL_n (R)$
+    poniendo $1$ en la diagonal:
+    $$A \mapsto \begin{pmatrix}
+      A \\
+      & 1 \\
+      && \ddots \\
+      &&& 1
+    \end{pmatrix}.$$
+    El colímite es el grupo
+    $$\GL_\infty (R) = \colim_{n\ge 1} \GL_n (R).$$
+    Sus elementos son las transformaciones lineales invertibles
+    $R^\NN \to R^\NN$ donde cada una afecta solamente un número finito de
+    vectores de la base.
+
+  \item[3)] Los grupos de las raíces de la unidad
+    $$\mu_n (\CC) \dfn \{ z\in \CC \mid z^n = 1 \} \isom \ZZ/n\ZZ$$
+    vienen con inclusiones naturales $\mu_m (\CC) \subset \mu_n (\CC)$ para
+    $m\mid n$. El colímite correspondiente es el grupo de todas las raíces de la
+    unidad
+    $$\mu_\infty (\CC) = \colim_{n\ge 1} \mu_n (\CC) = \bigcup_{n\ge 1} \mu_n (\CC).$$
+    Este grupo es isomorfo al grupo cociente $\QQ/\ZZ$: el homomorfismo
+    \begin{align*}
+      \QQ & \to \mu_\infty (\CC),\\
+      m/n & \to e^{2\pi i\,m/n}
+    \end{align*}
+    es sobreyectivo y tiene $\ZZ$ como su núcleo. Tenemos
+    \[ \QQ/\ZZ = \colim_{n\ge 1} \ZZ/n\ZZ. \qedhere \]
+  \end{enumerate}
+\end{ejemplo}
+
+%\begin{observacion}
+%\label{limites-y-colimites-como-funtores-representables}
+%Sea $\vcateg{I}$ una categoría pequeña. Consideremos el funtor
+%\begin{align*}
+%\Delta\colon \vcateg{C} & \to \Fun (\vcateg{I}, \vcateg{C}),\\
+%X & \rightsquigarrow \Delta_X
+%\end{align*}
+%que a cada objeto $X\in \Ob (\vcateg{C})$ asocia el funtor constante $\Delta_X \colon \vcateg{I} \to \vcateg{C}$ (tal que $\Delta_X (i) = X$ para cada $i\in \Ob (\vcateg{I})$).
+%
+%Para todo funtor $F\colon \vcateg{I} \to \vcateg{C}$ tenemos biyecciones naturales
+%\begin{align*}
+%\Nat (\Delta_X, F) & \isom \Hom_\vcateg{C} (X, \lim_\vcateg{I} F),\\
+%\Nat (F, \Delta_X) & \isom \Hom_\vcateg{C} (\colim_\vcateg{I} F, X).
+%\end{align*}
+%
+%En otras palabras, el límite $\lim_\vcateg{I} F$ es un objeto que representa al funtor contravariante
+%\begin{align*}
+%\vcateg{C}^\circ & \to \categ{Set},\\
+%X & \mapsto \Nat (\Delta_X, F),\\
+%\end{align*}
+%y el colímite $\colim_\vcateg{I} F$ es un objeto que representa al funtor covariante
+%\begin{align*}
+%\vcateg{C} & \to \categ{Set},\\
+%X & \mapsto \Nat (F, \Delta_X).
+%\end{align*}
+%
+%\begin{proof}
+%Notamos que una colección de diagramas conmutativos
+%$$\begin{tikzcd}
+% & \lim_\vcateg{I} F\ar{dl}\ar{dr}\\
+%F (i)\ar{rr} & & F (j) \\
+%\end{tikzcd}$$
+%es precisamente una transformación natural $\Delta_X \Rightarrow F$ y una colección de diagramas conmutativos
+%$$\begin{tikzcd}
+%F (i)\ar{rr}\ar{dr} & & F (j)\ar{dl} \\
+% & \colim_\vcateg{I} F
+%\end{tikzcd}$$
+%es una transformación natural $F\Rightarrow \Delta_X$. Las propiedades universales del límite y colímite corresponden a las biyecciónes $\Nat (\Delta_X, F) \isom \Hom_\vcateg{C} (X, \lim_\vcateg{I} F)$ y $\Nat (F, \Delta_X) \isom \Hom_\vcateg{C} (\colim_\vcateg{I} F, X)$.
+%\end{proof}
+%\end{observacion}
+
+\begin{observacion}
+  \label{obs:lim-colim-y-hom}
+  El $\Hom_\vcateg{C} (X,-)$ covariante preserva límites: hay una biyección
+  natural
+  \[ \Hom_\vcateg{C} (X, \lim_{i\in \Ob (\vcateg{I})} F (i)) \isom
+     \lim_{i\in \Ob (\vcateg{I})} \Hom_\vcateg{C} (X,F (i)). \]
+   El $\Hom_\vcateg{C} (-, X)$ contravariante convierte colímites en límites:
+   hay una biyección natural
+   \[ \Hom_\vcateg{C} (\colim_{i\in \Ob (\vcateg{I})} F (i), X) \isom
+      \lim_{i\in \Ob (\vcateg{I})} \Hom_\vcateg{C} (F (i), X). \]
+
+    En otras palabras, $\lim_\vcateg{I} F$ es el objeto que representa al funtor
+    contravariante $\lim_{i\in \Ob (\vcateg{I})} \Hom_\vcateg{C} (-,F (i))$ y
+    $\colim_\vcateg{I} F$ es el objeto que representa al funtor covariante
+    $\lim_{i\in \Ob (\vcateg{I})} \Hom_\vcateg{C} (F (i), -)$.
+
+    \begin{proof}
+      Se verifica directamente a partir de las definiciones.
+    \end{proof}
+\end{observacion}
+
+En particular, si $\lim_\vcateg{I} F$ (resp. $\colim_\vcateg{I} F$) existe, es
+único salvo isomorfismo por las propiedades generales de funtores adjuntos.
+
+\begin{observacion}
+  \label{adjuntos-preservan-co-limites}
+  Todo funtor adjunto por la izquierda preserva colímites, y todo funtor adjunto
+  por la derecha preserva límites. A saber, sea
+  $L\colon \vcateg{C} \to \vcateg{D}$ adjunto por la izquierda a
+  $R\colon \vcateg{D}\to \vcateg{C}$:
+  $$\Hom_\vcateg{D} (L (X), Y) \isom \Hom_\vcateg{C} (X, R (Y)).$$
+  Sea $F\colon \vcateg{I} \to \vcateg{C}$ algún funtor y sea
+  $\colim_\vcateg{I} F \in \Ob (\vcateg{C})$ su colímite. Entonces, hay un
+  isomorfismo natural
+  $$L (\colim_\vcateg{I} F) \isom \colim_\vcateg{I} (L\circ F).$$
+  De modo similar, para un funtor $F\colon \vcateg{I} \to \vcateg{D}$ hay un
+  isomorfismo natural
+  $$R (\lim_\vcateg{I} F) \isom \lim_\vcateg{I} (R\circ F).$$
+\end{observacion}
+
+En particular, un funtor adjunto por la izquierda preserva coproductos,
+coproductos fibrados, coecualizadores, etc., y un funtor adjunto por la derecha
+preserva productos, productos fibrados, ecualizadores, etc. Es una
+generalización de \ref{adjunto-a-la-izquierda-preserva-coproductos},
+y la demostración es idéntica.
+
+\begin{proof}
+  Por ejemplo, en el caso de límites, tenemos para cada $X \in \Ob (\vcateg{C})$
+  isomorfismos naturales
+  \begin{align*}
+    \Hom_\vcateg{C} (X, R (\lim_\vcateg{I} F)) & \isom \Hom_\vcateg{D} (L (X), \lim_\vcateg{I} F) \quad \text{por la adjunción entre }L\text{ y }R \\
+                                               & \isom \lim_{i\in\Ob (\vcateg{I})} \Hom_\vcateg{D} (L (X), F (i)) \quad \text{por \ref{obs:lim-colim-y-hom}} \\
+                                               & \isom \lim_{i\in\Ob (\vcateg{I})} \Hom_\vcateg{D} (X, R (F (i))) \quad \text{por la adjunción} \\
+                                               & \isom \Hom_\vcateg{D} (X, \lim_\vcateg{I} (R \circ F)) \quad \text{por \ref{obs:lim-colim-y-hom}}.
+  \end{align*}
+
+  Entonces el lema de Yoneda implica
+  \[ R (\lim_\vcateg{I} F) \isom \lim_\vcateg{I} (R\circ F). \qedhere \]
+\end{proof}
+
+\begin{proposicion}
+  Todo límite (resp. límite finito) puede ser expresado por productos y
+  ecualizadores (resp. productos finitos y ecualizadores). Todo colímite
+  (resp. colímite finito) puede ser expresado por coproductos y coecualizadores
+  (resp. coproductos finitos y coecualizadores).
+\end{proposicion}
+
+Aquí el producto (resp. coproducto) vacío se considera como un objeto terminal
+(resp. inicial).
+
+\begin{proof}
+  Sea $\vcateg{I}$ una categoría pequeña y sea $F\colon \vcateg{I}\to\vcateg{C}$
+  un funtor. Sea $\Hom (\vcateg{I})$ el conjunto de morfismos de
+  $\vcateg{I}$. Para todo morfismo $f\colon i\to j$ denotemos
+  $$\cod (f) \dfn j.$$
+  Consideremos los siguientes productos sobre todos los objetos en $\vcateg{I}$
+  y todos los morfismos en $\vcateg{I}$:
+  \begin{align*}
+    \Pi & \dfn \prod_{i\in \Ob(\vcateg{I})} F(i),\\
+    \vec{\Pi} & \dfn \prod_{f\in \Hom (\vcateg{I})} F (\cod (f))
+  \end{align*}
+  Estos productos vienen con las proyecciones
+  $$p_i\colon \Pi \to F(i), \quad \vec{p}_f\colon \vec{\Pi} \to F (\cod (f)).$$
+  Por la propiedad universal de $\vec{\Pi}$ existes morfismos únicos
+  $\alpha,\beta\colon \Pi \to \vec{\Pi}$ tales que para todo $f\colon i\to j$ en
+  $\Hom (\vcateg{I})$ se cumple
+  \begin{align*}
+    \vec{p}_f\circ\alpha & = p_j,\\
+    \vec{p}_f\circ \beta & = F(f)\circ p_i.
+  \end{align*}
+
+  \[ \begin{tikzcd}
+      \Pi\ar[dashed]{d}[swap]{\alpha}{\exists !}\ar{dr}{p_j} & & \Pi\ar[dashed]{d}[swap]{\beta}{\exists !} \ar{r}{p_i} & F (i)\ar{d}{F (f)} \\
+      \vec{\Pi} \ar{r}[swap]{\vec{p}_f} & F (j) & \vec{\Pi} \ar{r}[swap]{\vec{p}_f} & F (j)
+    \end{tikzcd} \]
+
+  Consideremos el ecualizador
+  \[ \begin{tikzcd}
+      E\ar{r}{e} & \Pi\ar[shift left=0.3em]{r}{\alpha}\ar[shift right=0.3em]{r}[swap]{\beta} & \vec{\Pi}
+    \end{tikzcd} \]
+
+  Vamos a probar que $E$ junto con morfismos $p_i\circ e\colon E\to F (i)$ es el límite de $F$. Primero, notamos que los diagramas
+  $$\begin{tikzcd}
+    & E\ar{dl}[swap]{p_i\circ e}\ar{dr}{p_j\circ e} \\
+    F (i)\ar{rr}[swap]{F (f)} & & F (j)
+  \end{tikzcd}$$
+  conmutan para todo $f\colon i\to j$. En efecto,
+  $$F(f)\circ p_i\circ e = \vec{p}_f\circ\beta\circ e = \vec{p}_f\circ\alpha\circ e = p_j\circ e.$$
+
+  Ahora sea $X$ otro objeto con morfismos $q_i\colon X\to F (i)$ que hacen conmutar los diagramas
+  $$\xymatrix{
+    & X\ar[dl]_{q_i}\ar[dr]^{q_j} \\
+    F(i)\ar[rr]_{F(f)} & & F(j)
+  }$$
+  Por la propiedad universal de $\Pi$, existe un morfismo único $
+  \gamma\colon X \to \Pi$ tal que
+  $$q_i = p_i\circ\gamma$$
+  para todo $i\in\Ob(\vcateg{I})$.
+
+  \[ \begin{tikzcd}
+      X\ar[dashed]{d}[swap]{\gamma}{\exists !}\ar{dr}{q_i} \\
+      \Pi \ar{r}[swap]{p_i} & F (i)
+    \end{tikzcd} \]
+
+  Ahora para todo $f\colon i\to j$ tenemos
+  \[ \vec{p}_f\circ \alpha\circ \gamma =
+     p_j\circ \gamma =
+     q_j =
+     F(f)\circ q_i =
+     F(f)\circ p_i\circ\gamma =
+     \vec{p}_f\circ\beta\circ\gamma. \]
+
+  Esto significa que $\alpha\circ\gamma = \beta\circ\gamma$, y la propiedad
+  universal del ecualizador $E$ implica que existe un morfismo único
+  $\delta\colon X\to E$ tal que $e\circ \delta = \gamma$.
+
+  \[ \begin{tikzcd}
+      E\ar{r}{e} & \Pi\ar[shift left=0.25em]{r}{\alpha}\ar[shift right=0.25em]{r}[swap]{\beta} & \vec{\Pi} \\
+      X\ar{ur}[swap]{\delta}\ar[dashed]{u}{\exists !}
+    \end{tikzcd} \]
+
+  Luego, $q_i = p_i\circ\gamma = p_i\circ e\circ\delta$, así que los diagramas
+  \[ \begin{tikzcd}[row sep=4em, column sep=4em]
+      & X \ar{ddl}[swap]{q_i}\ar{ddr}{q_j}\ar{d}{\delta} \\
+      & E\ar{dl}{p_i\circ e}\ar{dr}[swap]{p_j\circ e} \\
+      F (i)\ar{rr}[swap]{F (f)} & & F (j)
+    \end{tikzcd} \]
+  conmutan. Falta solo ver que el morfismo $\delta$ es único.
+  Sea $\delta'\colon X\to E$ otro morfismo tal que
+  $q_i = p_i\circ e \circ \delta'$ para todo $i\in \Ob(\vcateg{I})$.
+  Entonces,
+  $$p_i\circ e\circ\delta = p_i\circ\gamma = q_i = p_i\circ e\circ\delta',$$
+  lo que implica que $e\circ\delta = e\circ\delta^\prime$. El morfismo $e$ es
+  mono, siendo un ecualizador, y por lo tanto $\delta = \delta'$.
+\end{proof}
+
+\begin{corolario}
+  Todo límite finito (resp. colímite finito) puede ser expresado por productos
+  fibrados y objetos terminales (resp. coproductos fibrados y objetos
+  iniciales).
+
+  \begin{proof}
+    Como hemos notado en
+    \ref{productos-como-productos-fibrados-sobre-el-objeto-terminal},
+    los productos (resp. coproductos) son productos (resp. coproductos) fibrados
+    sobre un objeto terminal (resp. inicial).
+    En \ref{ecualizadores-como-productos-fibrados} hemos visto que
+    los ecualizadores (resp. coecualizadores) pueden ser expresados como
+    productos (resp. coproductos) fibrados.
+  \end{proof}
+\end{corolario}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Equivalencias de categorías}
+
+%\marginpar{\footnotesize lección\\8.06.2018}
+
+Dos categorías comparten las mismas propiedades cuando son equivalentes.
+
+\begin{definicion}
+  Se dice que un funtor $F\colon \vcateg{C}\to \vcateg{D}$ es una
+  \term{equivalencia de categorías} si existe otro funtor
+  $G\colon \vcateg{D}\to \vcateg{C}$ tal que
+  $$\Id_\vcateg{C} \isom G\circ F \quad\text{y}\quad F\circ G \isom \Id_\vcateg{D}.$$
+  Esto significa que para todo $X\in \Ob (\vcateg{C})$ tenemos isomorfismos
+  $\eta_X\colon X\to G F (X)$ y para todo $A\in \Ob (\vcateg{D})$ tenemos
+  isomorfismos $\epsilon_A\colon FG (A) \to A$, de tal modo que para todo
+  morfismo $f\colon X\to Y$ en $\vcateg{C}$ y todo morfismo $h\colon A\to B$ en
+  $\vcateg{D}$ los siguientes cuadrados conmutan:
+
+  \[ \begin{tikzcd}
+      X \ar{r}{\eta_X}[swap]{\isom}\ar{d}[swap]{f} & G F (X) \ar{d}{GF (f)} & & F G (A)\ar{r}{\epsilon_A}[swap]{\isom}\ar{d}[swap]{FG (h)} & A\ar{d}{h} \\
+      Y \ar{r}{\eta_Y}[swap]{\isom} & G F (Y) & & F G (B) \ar{r}{\epsilon_B}[swap]{\isom} & B
+    \end{tikzcd} \]
+\end{definicion}
+
+Aquí se pide que las composiciones $G\circ F$ y $F\circ G$ sean \emph{isomorfas}
+a funtores identidad. Cuando tenemos \emph{igualdades}
+$G\circ F = \Id_\vcateg{C}$ y $F\circ G = \Id_\vcateg{D}$, se dice que las
+categorías $\vcateg{C}$ y $\vcateg{D}$ son \term{isomorfas}. Aunque el
+isomorfismo de categorías parece algo más natural, en practica es inútil ya que
+exige una biyección entre objetos de $\vcateg{C}$ y $\vcateg{D}$ que preserva
+los morfismos, es decir que $\vcateg{C}$ y $\vcateg{D}$ son en esencia
+idénticas. La equivalencia de categorías es algo mucho más interesante y quiere
+decir que existe una biyección entre \emph{clases de isomorfismo} de objetos de
+$\vcateg{C}$ y $\vcateg{D}$ y biyecciones entre morfismos.
+
+\begin{ejemplo}
+  Consideremos la categoría de espacios vectoriales sobre $k$ de dimensión
+  finita $k\categ{-vect}$. Como sabemos del álgebra lineal, dos espacios
+  vectoriales $U$ y $V$ son isomorfos si y solamente si
+  $\dim_k U = \dim_k V$. Así, escogiendo una base, para cada espacio vectorial
+  $V$ podemos escoger un isomorfismo $V \isom k^d$. Esto define una equivalencia
+  entre la categoría $k\categ{-vect}$ y la categoría cuyos objetos son $k^n$
+  para $n\in \NN$ y los morfismos son las aplicaciones lineales $k^n\to k^m$;
+  es decir matrices de $m\times n$. La categoría $k\categ{-vect}$ no es pequeña
+  porque para cada espacio vectorial el conjunto subyacente puede ser cualquier
+  cosa, entonces todos los espacios vectoriales (aún de dimensión finita) no
+  forman un conjunto. Sin embargo, los espacios vectoriales $k^d$ forman
+  un conjunto, entonces una categoría pequeña. Los cursos básicos del álgebra
+  lineal tratan precisamente de esta equivalencia de categorías.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Para la categoría $k\categ{-vect}$ de espacios vectoriales de dimensión finita
+  el funtor del espacio vectorial dual nos da un isomorfismo natural
+  $$\ev_V\colon V \isom (V^*)^*.$$
+  Aquí uno de los ``$*$'' denota el funtor
+  $k\categ{-vect} \to k\categ{-vect}^\mathrm{op}$ y otro ``$*$'' denota el
+  funtor $k\categ{-vect}^\mathrm{op} \to k\categ{-vect}$. El isomorfismo de
+  arriba corresponde a los isomorfismos de funtores
+  \[ \eta\colon \Id_{k\categ{-vect}} \Rightarrow *\circ *, \quad
+     \epsilon\colon *\circ* \Rightarrow \Id_{k\categ{-vect}^\mathrm{op}}. \]
+  Entonces tenemos una equivalencia de categorías
+  $$k\categ{-vect} \cequiv k\categ{-vect}^\mathrm{op}.$$
+  No existe ningún isomorfismo \emph{natural} $V \isom V^*$, porque $V$ y $V^*$
+  son objetos de diferentes categorías. De hecho, el isomorfismo $V \isom V^*$
+  que normalmente se estudia en cursos del álgebra lineal depende de una base
+  fija de $V$, o de otros datos suplementarios (por ejemplo, una forma bilineal
+  no degenerada fija $\langle\cdot,\cdot\rangle\colon V\times V \to k$).
+\end{ejemplo}
+
+He aquí una caracterización útil de las equivalencias.
+
+\begin{proposicion}
+  \label{equivalencia-fielmente-pleno-y-esencialmente-sobreyectivo}
+  Un funtor $F\colon \vcateg{C} \to \vcateg{D}$ define una equivalencia de
+  categorías si y solamente si
+
+  \begin{enumerate}
+  \item[1)] $F$ es fielmente pleno;
+
+  \item[2)] $F$ es \term{esencialmente sobreyectivo}: para cada objeto
+    $Y \in \Ob (\vcateg{D})$ existe algún objeto $X \in \Ob (\vcateg{C})$ tal
+    que $F (X) \isom Y$.
+  \end{enumerate}
+
+\begin{proof}
+  Si $F$ es una equivalencia de categorías, es fácil comprobar que $F$ cumple
+  las condiciones 1) y 2). De hecho, por la definición de equivalencia, tenemos
+  otro funtor $G\colon \vcateg{D} \to \vcateg{C}$ junto con un isomorfismos de
+  funtores $\Id_\vcateg{C} \isom G\circ F$ y $F\circ G \isom \Id_\vcateg{D}$, es
+  decir, familias de isomorfismos naturales
+  $\eta_X\colon X\xrightarrow{\isom} G F (X)$ y
+  $\epsilon_Y\colon FG (Y) \xrightarrow{\isom} Y$.
+
+  El hecho de que cada equivalencia de categorías sea esencialmente sobreyectiva
+  es inmediato: para todo $Y\in \Ob (\vcateg{D})$ tenemos isomorfismo
+  $F G (Y) \isom Y$.
+
+  Para ver que la aplicación $f \mapsto F (f)$ es inyectiva, notemos que
+  $F (f) = F (f')$ implica en particular $GF (f) = GF (f')$, y luego se ve que
+  $f = f'$ desde el cuadrado conmutativo de abajo:
+
+  \[ \begin{tikzcd}
+      X\ar{r}{\eta_X}[swap]{\isom}\ar[shift left=0.25em]{d}{f}\ar[shift right=0.25em]{d}[swap]{f'} & G F (X)\ar{d}{GF (f) = GF (f')} \\
+      X'\ar{r}{\eta_{X'}}[swap]{\isom} & G F (X') \\
+    \end{tikzcd} \]
+
+  \[ f = \eta_{X'}^{-1} \circ GF (f) \circ \eta_X =
+     \eta_{X'}^{-1} \circ GF (f') \circ \eta_X = f'. \]
+
+   Para ver que la aplicación $f \mapsto F (f)$ es sobreyectiva, será suficiente
+   notar que para todo morfismo $g\colon F(X)\to F(X')$ en $\vcateg{D}$ existe
+   un morfismo $f$ en $\vcateg{C}$ tal que $GF (f) = G (g)$, porque, como
+   acabamos de ver, la aplicación $g \mapsto G (g)$ es inyectiva (por el mismo
+   argumento aplicado a $G$). Se ve que podemos considerar
+   $f \dfn \eta_{X'}^{-1} \circ G (g) \circ \eta_X$.
+
+   \[ \begin{tikzcd}
+       X\ar{r}{\eta_X}[swap]{\isom}\ar{d}[swap]{f} & G F (X)\ar{d}{G (g) = GF (f)} \\
+       X'\ar{r}{\eta_{X'}}[swap]{\isom} & G F (X') \\
+     \end{tikzcd} \]
+
+   \[ GF (f) =
+      \eta_{X'}\circ f\circ \eta_X^{-1} =
+      \cancel{\eta_{X'}\circ \eta_{X'}^{-1}} \circ G (g) \circ \cancel{\eta_X\circ \eta_X^{-1}} =
+      G (g). \]
+
+    \vspace{1em}
+
+    Ahora tenemos que ver que las condiciones 1) y 2) nos permiten construir un
+    funtor $G\colon \vcateg{D} \to \vcateg{C}$ tal que
+    $G\circ F\isom \Id_\vcateg{C}$ y $F\circ G \isom \Id_\vcateg{D}$.
+
+    Si $F$ es fielmente pleno y esencialmente sobreyectivo, para cada
+    $Y\in \Ob (\vcateg{D})$ tenemos una biyección natural
+    \[ \Hom_\vcateg{D} (F (-), Y) \isom
+       \Hom_\vcateg{D} (F (-), F (X)) \isom
+       \Hom_\vcateg{C} (-, X). \]
+    Entonces el funtor $\Hom_\vcateg{D} (F (-), Y)$ está representado por algún
+    $X \in \Ob (\vcateg{C})$, y por lo tanto existe un funtor $G$ que es adjunto
+    por la derecha a $F$ (véase \ref{representabilidad-y-adjunciones}): existe
+    una biyección natural
+    $$\Hom_\vcateg{D} (F (X), Y) \isom \Hom_\vcateg{C} (X, G(Y)).$$
+    Tenemos las transformaciones naturales correspondientes (véase
+    \ref{unidad-y-counidad})
+    \[ \eta\colon \Id_\vcateg{C} \Rightarrow G\circ F, \quad
+       \epsilon\colon F\circ G \Rightarrow \Id_\vcateg{D}. \]
+    De hecho $\eta$ y $\epsilon$ son isomorfismos de funtores. Por ejemplo,
+    veamos que $\eta_X\colon X \to GF (X)$ es un isomorfismo. Para
+    $X'\in \Ob (\vcateg{C})$ apliquemos el funtor $\Hom_\vcateg{C}
+    (X',-)$. Tenemos un morfismo
+    $$\eta_X^*\colon \Hom_\vcateg{C} (X',X) \to \Hom_\vcateg{C} (X', GF (X)).$$
+    Pero este no es otra cosa que la composición de las biyecciones naturales
+    \[ \Hom_\vcateg{C} (X',X) \isom
+       \Hom_\vcateg{D} (F (X'), F (X)) \isom
+       \Hom_\vcateg{C} (X', GF (X)) \]
+    (la primera porque $F$ es fielmente pleno, la segunda por la
+    adjunción). Entonces $\eta_X^*$ es un isomorfismo natural para cada
+    $X' \in \Ob (\vcateg{C})$, y el lema de Yoneda implica que $\eta_X$ es un
+    isomorfismo. De modo similar, para ver que $\epsilon_Y\colon FG (Y) \to Y$
+    es un isomorfismo, apliquemos el funtor $\Hom_\vcateg{D} (F (X), -)$:
+    $$\epsilon_Y^*\colon \Hom_\vcateg{D} (F (X), FG (Y)) \to \Hom_\vcateg{D} (F (X),Y).$$
+    Este es la composición de las biyecciones naturales
+    \[ \Hom_\vcateg{D} (F (X), FG (Y)) \isom
+       \Hom_\vcateg{C} (X, G (Y)) \isom
+       \Hom_\vcateg{D} (F (X), Y). \qedhere \]
+  \end{proof}
+\end{proposicion}
+
+\begin{observacion}
+  \label{obs:equivalencia-adjunta-por-ambos-lados}
+  Sean $F\colon \vcateg{C} \to \vcateg{D}$ y $G\colon \vcateg{D} \to \vcateg{C}$
+  dos funtores que definen una equivalencia de categorías, junto con
+  transformaciones naturales $\eta\colon \Id_\vcateg{C} \Rightarrow G\circ F$ y
+  $\epsilon\colon F\circ G \Rightarrow \Id_\vcateg{D}$. Entonces
+
+  \begin{enumerate}
+  \item[1)] $F$ es adjunto por la izquierda a $G$, la unidad de la adjunción
+    siendo $\eta_X$,
+
+  \item[2)] $G$ es adjunto por la izquierda a $F$, la counidad de la adjunción
+    siendo $\eta^{-1}_X$.
+  \end{enumerate}
+
+  \begin{proof}
+    Por ejemplo, en el caso 1) tenemos que compobar que la aplicación
+    \begin{align*}
+      \Hom_\vcateg{D} (F (X), Y) & \to \Hom_\vcateg{C} (X, G (Y)),\\
+      f & \mapsto G (f) \circ \eta_X
+    \end{align*}
+    es una biyección natural. En efecto, $G (-)$ es una biyección porque $G$ es
+    fielmente pleno, y $-\circ \eta_X$ es una biyección porque $\eta_X$ es
+    un isomorfismo. La naturalidad en $X$ e $Y$ es un ejercicio para el lector
+    (use la funtorialidad de $G$ y naturalidad de $\eta_X$).
+  \end{proof}
+\end{observacion}
+
+\begin{corolario}
+  Una equivalencia de categorías $F\colon \vcateg{C} \to \vcateg{D}$ preserva
+  todos los límites y colímites.
+\end{corolario}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{El teorema de los ceros como una equivalencia de categorías}
+
+En esta sección me gustaría presentar un ejemplo detallado y no trivial de
+equivalencia de categorías. Recordemos un poco de la geometría algebraica
+elemental. Sea $k$ un cuerpo.
+
+\begin{enumerate}
+\item[1)] Para un ideal $\mathfrak{a} \subset k [X_1,\ldots,X_n]$
+  el \term{conjunto algebraico afín} correspondiente es dado por los ceros
+  comunes de los polinomios en $\mathfrak{a}$:
+  $$V (\mathfrak{a}) \dfn \{ \underline{x} \in \AA^n (k) \mid f (\underline{x}) = 0 \text{ para todo } f\in \mathfrak{a} \} \subseteq \AA^n (k).$$
+
+\item[2)] Para un subconjunto $X \subset \AA^n (k)$, se puede considerar el
+  ideal de los polinomios que se anulan sobre $X$:
+  $$I (X) \dfn \{ f\in k[X_1,\ldots,X_n] \mid f (\underline{x}) = 0 \text{ para todo }\underline{x}\in X \}.$$
+
+\item[3)] El \term{teorema de los ceros de Hilbert} dice que cuando $k$ es un
+  cuerpo algebraicamente cerrado, se cumple
+  $$I (V (\mathfrak{a})) = \sqrt{\mathfrak{a}} \dfn \{ f\in k[X_1,\ldots,X_n] \mid f^n \in \mathfrak{a}\text{ para algún }n = 1,2,3,\ldots \}.$$
+\end{enumerate}
+
+A priori, un conjunto algebraico afín es nada más un subconjunto
+$V\subset \AA^n (k)$. Para tener una estructura más interesante, podemos definir
+qué es un morfismo entre conjuntos algebraicos afines. Primero, para un conjunto
+algebraico afín $V\subset \AA^n (k)$ se puede considerar las
+\term{funciones polinomiales} sobre $V$. Son los polinomios restringidos a
+$V$. En este caso nos gustaría decir que $f = g$ si la diferencia $f-g$ es nula
+sobre $V$. Esto explica la siguiente definición.
+
+\begin{definicion}
+  Para un conjunto algebraico afín $V \subseteq \AA^n (k)$ su \term{álgebra de
+    funciones polinomiales} es dada por
+  $$k [V] \dfn k [X_1,\ldots,X_n]/I (V).$$
+\end{definicion}
+
+Recordemos que un ideal $\mathfrak{a} \subseteq A$ es \term{radical} si
+$\sqrt{\mathfrak{a}} = A$. Esto es equivalente a decir que el anillo cociente
+$A/\mathfrak{a}$ es \term{reducido} (no tiene nilpotentes no nulos). El ideal
+$I (V)$ es siempre radical, así que $k [V]$ es un anillo reducido.
+
+\begin{definicion}
+  Una \term{$k$-álgebra afín} $A$ es un anillo reducido de la forma
+  $A = k [X_1,\ldots,X_n] / I$ para algún ideal $I \subset k [X_1,\ldots,X_n]$.
+\end{definicion}
+
+Ahora podemos considerar las aplicaciones entre conjuntos algebraicos afines
+definidos por las funciones polinomiales.
+
+\begin{definicion}
+  Sean $V\subset \AA^n (k)$ y $W\subset \AA^m (k)$ dos conjuntos algebraicos
+  afines. Una \term{aplicación polinomial} $\phi\colon V\to W$ es una aplicación
+  que tiene coordenadas polinomiales; es decir,
+  $$\phi (\underline{x}) = (\phi_1 (\underline{x}), \ldots, \phi_m (\underline{x})), \quad \text{donde }\phi_i\in k[V].$$
+\end{definicion}
+
+Una aplicación polinomial entre dos conjuntos algebraicos afines
+$\phi\colon V\colon\to W$ donde $V \subset \AA^n (k)$ y $W \subset \AA^m (k)$
+induce un homomorfismo de álgebras $k [W]\to k [V]$ que va
+\emph{en la dirección opuesta}:
+$$\phi\colon V\to W\quad\rightsquigarrow\quad\phi^*\colon k [W]\to k [V].$$
+A saber, un elemento $f\in k[W]$ es un polinomio en $m$ variables
+$f (Y_1,\ldots,Y_m)$ considerado módulo $I(W)$. Luego, la aplicación $\phi$ es
+dada por $m$ polinomios
+$$\phi_1 (X_1,\ldots,X_n), \ldots, \phi_m (X_1,\ldots,X_n) \in k[X_1,\ldots,X_n]/I(V).$$
+Así que $f$ puede ser evaluado en $Y_i = \phi_i$. Esto nos da una aplicación
+bien definida
+\begin{align*}
+  \phi^*\colon k[Y_1,\ldots,Y_m]/I(W) & \to k[X_1,\ldots,X_n]/I(V),\\
+  f (Y_1,\ldots,Y_m) & \mapsto f (\phi_1 (X_1,\ldots,X_n), \ldots, \phi_m (X_1,\ldots,X_n)).
+\end{align*}
+
+\begin{observacion}
+  Los conjuntos algebraicos afines y aplicaciones polinomiales forman una
+  categoría $k\categ{-ConjAf}$. Las $k$-álgebras afines forman una categoría
+  $k\categ{-ÁlgAf}$, que es una subcategoría plena de la categoría
+  $k\categ{-Álg}$ de todas las $k$-álgebras. La formación del álgebra de
+  funciones polinomiales es un funtor contravariante
+  $$k\categ{-ConjAf}^\mathrm{op} \to k\categ{-ÁlgAf}.$$
+  Este funtor es fielmente pleno.
+
+  \begin{proof}
+    Ejercicio para el lector.
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  Para un conjunto algebraico afín $V \subset \AA^n (k)$ especificar un punto
+  $x_0\in V$ es lo mismo que especificar una aplicación
+  $i\colon \AA^0 (k) \hookrightarrow V$ entre un punto $\AA^0 (k) = \{ \ast \}$
+  y $V$ tal que $i (\ast) = x_0$. Estos morfismos son obviamente polinomiales y
+  corresponden de modo biyectivo a homomorfismos de $k$-álgebras
+  $k [V]\to k$. El núcleo de este homomorfismo es un ideal maximal
+  $\mathfrak{m}\subset k[V]$.
+
+  Si $k$ es algebraicamente cerrado (!), una de las versiones del teorema de los
+  ceros nos dice que todos los ideales maximales de $k[V]$ surgen de esta
+  manera, mas esto es falso si $k \ne \overline{k}$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Consideremos el conjunto algebraico afín $V (Y - X^2) \subset \AA^2 (k)$.
+  Esta es una parábola. La proyección al eje $x$ definida por
+  $\phi\colon (x,y)\mapsto x$ es una aplicación polinomial $V\to \AA^1 (k)$.
+  Se ve que esta posee una aplicación inversa $x\mapsto (x,x^2)$ que es también
+  polinomial. Entonces, la parábola y la recta son isomorfas en la categoría de
+  conjuntos algebraicos afines.
+
+  \begin{center}
+    \begin{tikzpicture}[x=0.5cm, y=0.5cm]
+      \foreach \i [count=\j from 1] in {-5, ..., 100}
+      \draw ({-2.5 + 0.05*\i}, {(-2.5 + 0.05*\i)^2}) -- ({-2.5 + 0.05*\j)}, {(-2.5 + 0.05*\j)^2});
+
+      \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+      \draw[->] (0,-0.5) -- (0,8) node[above] {$y$};
+
+      \foreach \i in {0, ..., 3}
+      \draw[->] ({-2.5 + 0.5*\i}, {(-2.5 + 0.5*\i)^2}) -- ({-2.5 + 0.5*\i)}, 0);
+      \foreach \i in {7, ..., 10}
+      \draw[->] ({-2.5 + 0.5*\i}, {(-2.5 + 0.5*\i)^2}) -- ({-2.5 + 0.5*\i)}, 0);
+    \end{tikzpicture}
+  \end{center}
+
+  Esto se traduce al isomorfismo de anillos
+  $$k [X,Y] / (Y- X^2) \isom k [T].$$
+  En efecto, la aplicación $t \mapsto (t,t^2)$ entre $\AA^1 (k)$ y $V$ induce un
+  isomorfismo
+  \begin{align*}
+    k [X,Y] / (Y- X^2) & \to k [T],\\
+    X & \mapsto T,\\
+    Y & \mapsto T^2.
+  \end{align*}
+\end{ejemplo}
+
+\begin{ejemplo}
+  Consideremos el conjunto algebraico afín $V = V (Y^2 - X^3)$ en
+  $\AA^2 (k)$. Es una curva cúbica con una cúspide en el punto $(0,0)$:
+
+  \begin{center}
+    \begin{tikzpicture}[x=0.75cm, y=0.75cm]
+      \foreach \i [count=\j from 1] in {0, ..., 50}
+      \draw ({0.05*\i}, {sqrt ((0.05*\i)^3)}) -- ({0.05*\j}, {sqrt ((0.05*\j)^3)});
+      \foreach \i [count=\j from 1] in {0, ..., 50}
+      \draw ({0.05*\i}, {-sqrt ((0.05*\i)^3)}) -- ({0.05*\j}, {-sqrt ((0.05*\j)^3)});
+
+      \draw[->] (-1,0) -- (3,0) node[right] {$x$};
+      \draw[->] (0,-5) -- (0,5) node[above] {$y$};
+    \end{tikzpicture}
+  \end{center}
+
+  Podemos considerar una aplicación polinomial $\phi\colon \AA^1 (k) \to V$ por
+  $t \mapsto (t^2,t^3)$. Esta induce un homomorfismo de $k$-álgebras
+  correspondientes
+
+  \begin{align*}
+    \phi^*\colon k[X,Y] / (Y^2-X^3) & \to k [T],\\
+    X & \mapsto T^2,\\
+    Y & \mapsto T^3.
+  \end{align*}
+
+  Note que $\phi$ es una \emph{biyección de conjuntos}, pero no es un
+  isomorfismo. Por ejemplo, se puede notar que la aplicación $\phi^*$ es
+  inyectiva pero no es sobreyectiva: su imagen es el álgebra $k [T^2,T^3]$
+  formada por los polinomios en $T^2$ y $T^3$.
+
+  De hecho, las álgebras $k[X,Y] / (Y^2-X^2) \isom k [T^2,T^3]$ y $k [T]$ no son
+  isomorfas y por lo tanto $V$ y $\AA^1 (k)$ no son isomorfos en la categoría
+  de conjuntos algebraicos afines. Primero, notemos que gracias a la magnifica
+  identidad
+  $$T^3\cdot\frac{1}{T^2} = T$$
+  ambas álgebras $k [T^2,T^3]$ y $k [T]$ tienen el mismo cuerpo de fracciones
+  $k (T)$: el cuerpo de funciones racionales en una variable $T$.
+
+  Recordemos que un dominio de integridad $A$ es \term{integralmente cerrado} si
+  en su cuerpo de fracciones $K \dfn \Frac A$, si un elemento $x\in K$ satisface
+  una ecuación polinomial mónica
+  $$x^n + a_{n-1}\,x^{n-1} + \cdots + a_1\,x + a_0 = 0$$
+  con $a_0,\ldots,a_{n-1} \in A$, entonces $x\in A$.
+
+  El anillo $k [T]$ es integralmente cerrado, pero $k [T^2,T^3]$ no lo es:
+  por ejemplo, $T^3/T^2$ es un elemento en su cuerpo de fracciones que satisface
+  una ecuación mónica con coeficientes en $k[T^2,T^3]$:
+  \[ (T^3/T^2)^2 - T^2 = 0. \qedhere \]
+\end{ejemplo}
+
+\begin{proposicion}
+  Si $k$ un cuerpo algebraicamente cerrado, entonces el funtor
+  $V \rightsquigarrow k[V]$ es esencialmente sobreyectivo.
+
+\begin{proof}
+  Sea $A$ una $k$-álgebra afín; es decir, $A = k [X_1,\ldots,X_n]/\mathfrak{a}$
+  para algún ideal $\mathfrak{a}$. Puesto que $A$ es un anillo reducido,
+  se tiene $\mathfrak{a} = \sqrt{\mathfrak{a}}$. Podemos considerar
+  $V \dfn V (\mathfrak{a})$, y luego el teorema de los ceros nos dice que
+  \[ k [V] \dfn k[X_1,\ldots,X_n]/I (V (\mathfrak{a})) =
+     k[X_1,\ldots,X_n]/\sqrt{\mathfrak{a}} =
+     k[X_1,\ldots,X_n]/\mathfrak{a} \isom A. \qedhere \]
+ \end{proof}
+\end{proposicion}
+
+\begin{corolario}
+  Si $k$ es un cuerpo algebraicamente cerrado, existe una equivalencia de
+  categorías
+  $$k\categ{-ConjAf}^\mathrm{op} \cequiv k\categ{-ÁlgAf}.$$
+\end{corolario}
+
+\subsection*{El punto de vista moderno}
+
+Como acabamos de ver, un análisis de las soluciones de ecuaciones polinomiales
+sobre un cuerpo algebraicamente cerrado $k$ nos lleva naturalmente a las
+$k$-álgebras afines. Esta algebraización es un buen logro, y usando este punto
+de vista, se puede desarrollar mucha teoría.
+
+Sin embargo, a veces nos interesan cuerpos $k$ que no son algebraicamente
+cerrados, o casos en los que $k$ se reemplaza por un anillo conmutativo
+arbitrario. También en muchos problemas es útil variar $k$. No existe ningún
+cuerpo que puede ser encajado en todos los cuerpos, así que, por ejemplo, un
+conjunto algebraico sobre $\CC$ y un conjunto algebraico sobre
+$\overline{\FF_p}$ viven en dos mundos diferentes. Es algo lamentable: a veces
+la misma ecuación, por ejemplo
+$$Y^2 = X^3 - X + 1$$
+puede ser considerada sobre cualquier cuerpo.
+
+Una solución extrema de todos de estos problemas es reemplazar las $k$-álgebras
+afines con $k$ fijo por los anillos conmutativos arbitrarios (posiblemente con
+nilpotentes). Esta idea fue sistemáticamente desarrollada por el matemático
+francés \personality{Alexander Grothendieck} (1928--2014) con ayuda de su
+colaborador \personality{Jean Dieudonné} (1906--1992) en el tratado
+``Éléments de géométrie algébrique'' (1960--1967).
+
+Las ideas de Grothendieck fueron revolucionarias en los años 50, pero ahora
+están universalmente reconocidas.
+
+Como hemos visto, los conjuntos algebraicos afines sobre $k = \overline{k}$ son
+duales a las $k$-álgebras afines. Los objetos duales a los anillos conmutativos
+se llaman \term{esquemas afines}.
+
+\[ \begin{tikzcd}[row sep=0.1em, column sep=0.1em]
+    \text{geometría} & & \text{álgebra} \\
+    \\
+    {\left\{\begin{array}{c}\text{conjuntos algebraicos afines sobre}\\\text{un cuerpo algebraicamente cerrado }k\end{array}\right\}} & \cequiv & \{k\text{-álgebras afines}\}^\circ\\
+    \cap & & \cap \\
+    \{\text{esquemas afines}\} & \cequiv & \{\text{anillos conmutativos}\}^\circ
+  \end{tikzcd} \]
+
+En este sentido, se puede pensar en un esquema afín nada más como en un anillo
+conmutativo y morfismos entre esquemas afines como en homomorfismos de anillos
+en la dirección opuesta. Obviamente, la verdadera definición de esquemas afines
+es un poco más sofisticada. En general, un \term{esquema} es el resultado
+de pegamiento de esquemas afines.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\pagebreak
+
+\appendix
+\section{Algunos ejercicios}
+
+\input{ejercicios.tex}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\pagebreak
+\bibliographystyle{../amsalpha-cust}
+{\small\bibliography{../salvador}}
+
+\end{document}

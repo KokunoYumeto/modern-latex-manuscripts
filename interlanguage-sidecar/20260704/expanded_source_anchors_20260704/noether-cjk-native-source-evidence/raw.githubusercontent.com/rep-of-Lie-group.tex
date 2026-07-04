@@ -1,0 +1,186 @@
+\chapter{Lie群の表現論}
+\begin{defn}[随伴表現]
+	Lie群\(G\)に対して\(GL(V)\)への準同型写像をLie群の表現という．
+\end{defn}
+\chapter{Lie代数の表現論}
+\begin{defn}[Lie代数の表現]
+	Lie代数\(\mathfrak{g}\)のLie環としての表現をLie代数\(\mathfrak{g}\)の表現という．
+\end{defn}
+\section{随伴表現}
+\begin{prop}[随伴表現]
+	Lie代数\(\mathfrak{g}\)の元\(X,Y\)に対し，
+	\begin{align}
+		\mathrm{ad}(X):\mathfrak{g}\ni{}Y\mapsto{}[X,Y]\in\mathfrak{g}
+	\end{align}
+	は線型写像になり，
+	\begin{align}
+		\mathrm{ad}:\mathfrak{g}\ni{}X\mapsto{}\mathrm{ad}(X)\in{}GL(\mathfrak{g})
+	\end{align}
+	は\(\mathfrak{g}\)のLie代数の表現となる．
+\end{prop}
+\begin{proof}
+	線型写像であることを示す．
+	\begin{align}
+		\mathrm{ad}(X)(aY+bZ)=[X,aY+bZ]=a[X,Y]+b[X,Z]=a\mathrm{ad}(X)(Y)+b\mathrm{ad}(X)(Z).
+	\end{align}
+	よって\(\mathrm{ad}(X)\in{}GL(\mathfrak{g})\)．また，
+	\begin{align}
+		\mathrm{ad}([X,Y])(Z) & =[[X,Y],Z]=-[Z,[X,Y]]=[X,[Y,Z]]+[Y,[Z,X]]=[X,[Y,Z]]-[Y,[X,Z]]                                        \\
+		                      & =\mathrm{ad}(X)\mathrm{ad}(Y)(Z)-\mathrm{ad}(Y)\mathrm{ad}(X)(Z)=[\mathrm{ad}(X),\mathrm{ad}(Y)](Z).
+	\end{align}
+	従って，
+	\begin{align}
+		\mathrm{ad}([X,Y])=[\mathrm{ad}(X),\mathrm{ad}(Y)]
+	\end{align}
+	よって\(\mathrm{ad}\)はLie代数の表現となっている．
+\end{proof}
+\begin{defn}[Lie代数の随伴表現]
+	\(\mathrm{ad}\)をLie代数の随伴表現という．
+\end{defn}
+\section{構造定数とkilling形式}
+\begin{defn}[構造定数; structure constant]
+	Lie代数\(\mathfrak{g}\)の基底を\(\{X_{\lambda}\}_{\lambda\in\Lambda}\)とすると，
+	\begin{align}
+		[X_{k},X_{l}]=\sum_{m\in{}\Lambda}f_{kl}^{\ \ m}X_{m}
+	\end{align}
+	と表せる．この\(f_{kl}^{\ \ m}\)を\textbf{構造定数}という．
+\end{defn}
+\begin{eg}
+	可換Lie代数\(\mathfrak{g}\)の構造定数は\([X_{k},X_{l}]=0\)だから
+	\begin{align}
+		f_{kl}^{\ \ m}=0
+	\end{align}
+	となる．
+\end{eg}
+\begin{prop}[Lie代数の直和]
+	2つの部分代数\(K\)，\(L\)に対し\(K\)，\(L\)のベクトル空間の意味での直和
+	\begin{align}
+		W=K\oplus{}L
+	\end{align}
+	が作れるとき，\(W\)のLie bracketを
+	\begin{align}
+		[(X+Y),(X'+Y')]=[X,X']+[Y,Y']
+	\end{align}
+	で定義すれば\(W\)はLie代数となる．これをLie代数\(K\)，\(L\)の直和という.
+\end{prop}
+\begin{proof}
+	明らか．
+\end{proof}
+\subsection{構造定数}
+\begin{cor}[構造定数の性質]
+	構造定数\(f_{kl}^{\ \ m}\)は次を満たす．
+	\begin{align}
+		f_{kl}^{\ \ m}=-f_{lk}^{\ \ m}
+	\end{align}
+	\begin{align}
+		f_{jk}^{\ \ m}f_{lm}^{\ \ n}+f_{lj}^{\ \ m}f_{km}^{\ \ n}+f_{lj}^{\ \ m}f_{km}^{\ \ n}=0
+	\end{align}
+\end{cor}
+\begin{proof}
+	構造定数の定義より，
+	\begin{align}
+		[X_{l},X_{k}]=f_{lk}^{m}X_{m}
+	\end{align}
+	\begin{align}
+		=-[X_{k},X_{l}]=-f_{kl}^{m}X_{m}
+	\end{align}
+	\(\{X_{i}\}\)は基底だから，\(f_{lk}^{m}=-f_{kl}^{m}\)．
+	また，ヤコビの恒等式から，
+	\begin{align}
+		[X_{j},[X_{k},X_{l}]]+[X_{k},[X_{l},X_{j}]]+[X_{l},[X_{j},X_{k}]]=0.
+	\end{align}
+	従って，
+	\begin{align}
+		\sum_{m,n\in{}\Lambda}(f_{jk}^{\ \ m}f_{lm}^{\ \ n}+f_{lj}^{\ \ m}f_{km}^{\ \ n}+f_{lj}^{\ \ m}f_{km}^{\ \ n})X_{n}=0.
+	\end{align}
+	\(\{X_{i}\}\)は基底だから，
+	\begin{align}
+		f_{jk}^{\ \ m}f_{lm}^{\ \ n}+f_{lj}^{\ \ m}f_{km}^{\ \ n}+f_{lj}^{\ \ m}f_{km}^{\ \ n}=0.
+	\end{align}
+\end{proof}
+\begin{defn}[カルタン計量; Cartan metric]
+	構造定数を\(f_{jk}^{\ \ l}\)とする．このときカルタン計量\(g_{jk}\)を次で定義する．
+	\begin{align}
+		g_{jk}\coloneqq{}f_{jn}^{\ \ m}f_{km}^{\ \ n}.
+	\end{align}
+\end{defn}
+\begin{eg}
+	可換Lie代数\(\mathfrak{g}\)のカルタン計量は\(g_{jk}=0\)．
+	\begin{proof}
+		\(f_{jk}^{\ \ m}=0\)より明らか．
+	\end{proof}
+\end{eg}
+\begin{defn}[添字の降ろし方]
+	\begin{align}
+		f_{jkl}\coloneqq{}g_{lm}f_{jk}^{\ \ m}.
+	\end{align}
+\end{defn}
+\begin{defn}[キリング形式; Killing form]
+	Lie代数の元\(A=a^{i}X_{i}\)，\(B=b^{i}X_{i}\)についてキリング形式を
+	\begin{align}
+		(A,B)\coloneqq{}g_{jk}a^{j}b^{k}
+	\end{align}
+	で定義する．
+\end{defn}
+\begin{fact}
+	\begin{align}
+		\det{}g\neq{}0\iff{}\mathfrak{g}:\mbox{semi-simple}
+	\end{align}
+\end{fact}
+\begin{proof}
+	(\(\implies\))対偶，\(\neg(\mathfrak{g}:\mbox{semi-simple})\implies{}\det{}g=0\)
+	を示す．\(\mathfrak{g}\)が半単純でない，すなわち，ある\(\mathfrak{g}\)の部分Lie代数\(K\)が存在し，
+	可換なイデアルになるとする．\(K\)の基底を\(X_{1},\ldots,X_{r}\)，\(r\geq{}1\)，\(\mathfrak{g}\)
+	の基底を\(X_{1},\ldots,X_{d}\)，\(r\leq{}d\)とする．\(k=1,\ldots,r\)に対して，
+	\begin{align}
+		[X_{k},X_{l}]=
+		\begin{dcases}
+			0                                 & (l=1,\ldots{}r)    \\
+			\sum_{m=1}^{r}f_{kl}^{\ \ m}X^{m} & (l=r+1,\ldots{},d)
+		\end{dcases}
+	\end{align}
+	であるので，
+	\begin{align}
+		f_{kl}^{\ \ m}=
+		\begin{dcases}
+			0 & (l=1,\ldots{}r)    \\
+			0 & (m=r+1.\ldots{},d)
+		\end{dcases}.
+	\end{align}
+	が成り立つ．従ってカルタン計量は
+	\begin{align}
+		g_{jk}=f_{jn}^{\ \ m}f_{km}^{\ \ n}=0 \ (j=1,2,\ldots,r).
+	\end{align}
+	従って\(\det{}g=0\)．\\
+	(\(\impliedby\)) \(\mathfrak{g}:\text{semi-simple}\)とする．すると
+\end{proof}
+\begin{cor}
+	\begin{align}
+		(A,[B,C])=(B,[C,A])=(C,[A,B])=f_{jkl}a^{j}b^{k}c^{l}.
+	\end{align}
+\end{cor}
+\begin{fact}[Cartan分解]
+	実半単純Lie代数は単純Lie代数の直和.
+\end{fact}
+\begin{proof}
+
+\end{proof}
+\begin{lem}
+	Lie代数\(\mathfrak{g}\)の基底\(X_{i}\)に対し，
+	準同型写像を\(\{\rho(X_{i})\}^{k}_{\ j}=f_{ij}^{\ \ k}\)で与えるとこれは
+	Lie代数の表現となる．
+\end{lem}
+\begin{defn}[Lie代数の随伴表現; adjoint representation]
+	Lie代数\(\mathfrak{g}\)の基底\(X_{i}\)に対し，準同型写像
+	\begin{align}
+		\mathrm{ad}(X_{i})=f_{ij}^{\ \ k}
+	\end{align}
+	をLie代数の随伴表現という．
+\end{defn}
+\begin{cor}[随伴表現を用いたカルタン計量とキリング形式]
+	\begin{align}
+		g_{ij} & =\mathrm{Tr}[\mathrm{ad}(X_{i})\mathrm{ad}(X_{j})], \\
+		(A,B)  & =\mathrm{Tr}[\mathrm{ad}(A)\mathrm{ad}(B)].
+	\end{align}
+\end{cor}
+\section{}

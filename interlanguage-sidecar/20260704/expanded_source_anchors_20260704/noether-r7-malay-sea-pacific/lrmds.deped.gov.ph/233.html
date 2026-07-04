@@ -1,0 +1,916 @@
+<!DOCTYPE html >
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>DepEd Learning Portal</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="LR Portal" />
+        <meta property="og:image" content="http://lrmds.deped.gov.ph/images/lr-banner.jpg" />
+        <meta property="og:description" content="Your quick access to learning resources" />
+        <meta property="og:url" content="http://lrmds.deped.gov.ph" />
+        <meta property="fb:app_id" content="1685541128409513" />
+        <meta property="og:site_name" content="Deped LR Portal" />
+
+                     
+
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/css/jquery.loadmask.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href="/portal/stylesheets/styles.css" rel="stylesheet" />
+    <link href="/css/ca9f5db.css" rel="stylesheet" />
+        
+        <script src="/js/modernizr-2.6.1.min.js"></script>
+        <script src="/js/jquery-1.8.0.min.js"></script>
+        <script src="/js/Placeholders.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/lr/js/bootstrap-dialog.min.js"></script>
+
+            <!--[if lt IE 9]>
+                <script src="/js/respond.min.js"></script>
+            <![endif]-->
+        <script>
+            var _gaq = [
+                ['_setAccount', 'UA-43140647-4'],
+                ['_setDomainName', document.location.host],
+                ['_setAllowLinker', true],
+                ['_trackPageview']
+            ];
+            (function(d, t) {
+                var g = d.createElement(t),
+                    s = d.getElementsByTagName(t)[0];
+                g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g, s)
+            }(document, 'script'));
+        </script>
+            </head>
+
+    <body ng-app="fbHttpControl">
+        <!--[if lt IE 8]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+        <div id="wrap">
+                <link href="/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link href="/css/bootstrap-tour.min.css" rel="stylesheet"/>
+    <script src="/js/bootstrap-tour.min.js"></script>
+    <script src="/js/tour.js"></script>
+
+            <script>
+            $(document).ready(function() {
+                $('#wrapper').addClass('toggled toggled-2 register');
+            });
+        </script>
+    
+    <div class="fluid top_nav navbar-fixed-top qt0" >
+        <img src="/images/logo-01.svg" alt="LRMDS" class="logo"/>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-menu nav-position" role="navigation" id="mynav">
+        <div class="container-fluid" >
+            <div class="navbar-header menu-link">
+                <button type="button" class="navbar-toggle collapsed pull-left menu_icon" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    Menu
+                </button>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse" >
+
+
+                <ul class="nav navbar-nav navbar-pad" >
+                    <li  >
+                        <a href="/">Home
+                        </a>
+                    </li>
+                    <li class=" qt1">
+                        <a href="#" type="button" class="dropdown-toggle " data-toggle="dropdown">
+                            <span>Resources</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="nav navbar-pad dropdown-menu" role="menu" >
+                            <li >
+                                <a href="/k_to_12" >K to 12 Resources</a>
+                            </li>
+                            <li>
+                                <a href="/als/0">Alternative Learning System</a>
+                            </li>
+                            <li>
+                                <a href="/prof_dev">Professional Development</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li  id="qt2">
+                        <a href="/create/">Media Gallery</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--Search-->
+            <form class="search-nav" action="/search" method="GET">
+                <div class="input-group search-outline">
+                    <div class="input-group-btn search-panel qt4">
+                        <button type="button" class="search-button btn btn-success dropdown-toggle search-filter" data-toggle="dropdown">
+                            <span id="search_concept" class="filter-show">Filter resources by</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li >
+                                <a href="#" data-val="title">Title</a>
+                                <a href="#" data-val="keyword">Keyword</a>
+                                <a href="#" data-val="competency">Competency</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="filter" id="filterBy" >
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    <input type="text" class="form-control search-input qt3" placeholder="Enter title or keywords" id="query" name="query" value="">
+                    <div class="input-group-btn ">
+                        <button type="submit" class="btn btn-success search-icon">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!--Search-->
+
+                            <div id="navbar" class="container-fluid reg-text qt5">
+                    <ul class="nav navbar-nav navbar-pad" >
+                        <li>
+                            <a href="#" type="button" class="dropdown-toggle " data-toggle="dropdown">
+                                <span>Help</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="nav navbar-pad dropdown-menu" role="menu" >
+                                <li><a href="/faq">FAQs</a></li>
+                                <li><a href="/contact">Contact us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="list-inline search_nav pull-right" id="account">
+                        <li id="hide_register">
+                            <a href="/register/ " id="no_border" class="registers">Register</a>
+                        </li>
+                        <li id="hide_register">
+                            <a href="/login" class="registers">Login</a>
+                        </li>
+                    </ul>
+                </div>
+
+                    </div>
+    </nav>
+
+    <div id="wrapper" class="hasrole">
+        <div class="container-fluid">
+            <!-- Sidebar -->
+                        <!-- /#sidebar-wrapper -->
+
+                    <div id="page-content-wrapper">
+            <div id="static">
+                <div class="col-lg-12">
+                                    </div>
+            </div>
+            <br />
+                        
+    <div class="col-lg-12">
+        <div class="row-fluid">
+            <div id="static">
+
+                <!--Sidebar-->
+                <div class="col-sm-3 k12-panel pull-right">
+                    <!--sidebar left -->
+                    <div class="panel panel-sidebar k12-sidebar">
+                        <div class="panel-heading panel-heading-home">
+                            <h3 class="panel-title panel-title-faq">
+                                                                    K to 12 Grade Levels
+                                                            </h3>
+                        </div>
+                        <div class="">
+
+                                                                                                                                                                                                                <a href="/kinder"  class="sidebar-items-k12">Kindergarten <span class="badge pull-right"> 1,143</span></a>
+                                                                                                                                                                                    <a href="/grade/1"  class="sidebar-items-k12">Grade 1 <span class="badge pull-right"> 3,057</span></a>
+                                                                                                                                                                                    <a href="/grade/2"  class="sidebar-items-k12">Grade 2 <span class="badge pull-right"> 2,272</span></a>
+                                                                                                                                                                                    <a href="/grade/3"  class="sidebar-items-k12">Grade 3 <span class="badge pull-right"> 2,794</span></a>
+                                                                                                                                                                                    <a href="/grade/4"  class="sidebar-items-k12">Grade 4 <span class="badge pull-right"> 2,035</span></a>
+                                                                                                                                                                                    <a href="/grade/5"  class="sidebar-items-k12">Grade 5 <span class="badge pull-right"> 2,083</span></a>
+                                                                                                                                                                                    <a href="/grade/6"  class="sidebar-items-k12">Grade 6 <span class="badge pull-right"> 2,537</span></a>
+                                                                                                                                                                                    <a href="/grade/7"  class="sidebar-items-k12">Grade 7 <span class="badge pull-right"> 2,053</span></a>
+                                                                                                                                                                                    <a href="/grade/8"  class="sidebar-items-k12">Grade 8 <span class="badge pull-right"> 1,339</span></a>
+                                                                                                                                                                                    <a href="/grade/9"  class="sidebar-items-k12">Grade 9 <span class="badge pull-right"> 1,166</span></a>
+                                                                                                                                                                                    <a href="/grade/10"  class="sidebar-items-k12">Grade 10 <span class="badge pull-right"> 1,009</span></a>
+                                                                                                                                                                                    <a href="/grade/11"  class="sidebar-items-k12">Grade 11 <span class="badge pull-right"> 483</span></a>
+                                                                                                                                                                                    <a href="/grade/12"  class="sidebar-items-k12">Grade 12 <span class="badge pull-right"> 215</span></a>
+                                                                                    </div>
+                    </div>
+                </div>
+
+                <!--End of sidebar-->
+
+                <!--start of dropdown for small devices-->
+                <a class="panel-title panel-title-faq k12-collapse" data-toggle="collapse" data-parent="#tab1" href="#tab2">
+                    <div class="panel panel-sidebar k12-ladder" id="tab1">
+                        <div class="panel-heading panel-heading-home k12-panel-heading">
+                            Select Grade Level<span class="glyphicon glyphicon-plus pull-right"></span>
+                        </div>
+                    </div>
+                </a>
+                <div id="tab2" class="panel-collapse collapse ">
+                                                                                                                        <a href="/kinder"  class="sidebar-items-k12">Kindergarten <span class="badge pull-right"> 1,143</span></a>
+                                                                                                                        <a href="/grade/1"  class="sidebar-items-k12">Grade 1 <span class="badge pull-right"> 3,057</span></a>
+                                                                                                                        <a href="/grade/2"  class="sidebar-items-k12">Grade 2 <span class="badge pull-right"> 2,272</span></a>
+                                                                                                                        <a href="/grade/3"  class="sidebar-items-k12">Grade 3 <span class="badge pull-right"> 2,794</span></a>
+                                                                                                                        <a href="/grade/4"  class="sidebar-items-k12">Grade 4 <span class="badge pull-right"> 2,035</span></a>
+                                                                                                                        <a href="/grade/5"  class="sidebar-items-k12">Grade 5 <span class="badge pull-right"> 2,083</span></a>
+                                                                                                                        <a href="/grade/6"  class="sidebar-items-k12">Grade 6 <span class="badge pull-right"> 2,537</span></a>
+                                                                                                                        <a href="/grade/7"  class="sidebar-items-k12">Grade 7 <span class="badge pull-right"> 2,053</span></a>
+                                                                                                                        <a href="/grade/8"  class="sidebar-items-k12">Grade 8 <span class="badge pull-right"> 1,339</span></a>
+                                                                                                                        <a href="/grade/9"  class="sidebar-items-k12">Grade 9 <span class="badge pull-right"> 1,166</span></a>
+                                                                                                                        <a href="/grade/10"  class="sidebar-items-k12">Grade 10 <span class="badge pull-right"> 1,009</span></a>
+                                                                                                                        <a href="/grade/11"  class="sidebar-items-k12">Grade 11 <span class="badge pull-right"> 483</span></a>
+                                                                                                                        <a href="/grade/12"  class="sidebar-items-k12">Grade 12 <span class="badge pull-right"> 215</span></a>
+                                    </div>
+
+                <!--End of sidebar-->
+
+                <div class="col-sm-9">
+                    <ol class="breadcrumb">
+                        <li>
+                                                                                        
+                            <a href="/grade/1">Grade 1</a>
+                        </li>
+
+
+
+                                                    <li> Mathematics &mdash; Numbers and Number Sense </li>
+                        
+                    </ol>
+
+                                        
+                                                                    <div class="btn-group-sm btn-group pull-right">
+                            <a href="/list/kto12/subject/233" class="btn btn-default active">All</a>
+
+                            
+                                                                
+                                
+                                                                                                <a href="/list/kto12/subject/233?special_curricular_program=1" class="btn btn-default ">SPED</a>
+                            
+                                                                
+                                
+                                                                                                <a href="/list/kto12/subject/233?special_curricular_program=2" class="btn btn-default ">Madrasah</a>
+                            
+                                                                
+                                
+                                                                                                <a href="/list/kto12/subject/233?special_curricular_program=3" class="btn btn-default ">IP Education</a>
+                                                    </div>
+                    
+                    <h2 class="pages-titles">
+                        195 Matched Resources 
+                    </h2>
+
+                                            <table class="table table-striped table-condensed table-responsive">
+                            <tr>
+                                <th width="8%">ID</th>
+                                <th width="35%">Title</th>
+                                <th width="15%">Language</th>
+                                <th width="15%">Resource Type</th>
+
+                                
+                                <th width="25%">Actions</th>
+                            </tr>
+                                                            <tr>
+                                    <td>19387 </td>
+                                    <td>Visualizing and Adding Numbers Using Appropriate Techniques </td>
+                                    <td>Minangali - Tanudan, Kalinga </td>
+                                    <td>Modules</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/19387" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>22459 </td>
+                                    <td>Putting Together or Combining Sets </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/22459" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>22460 </td>
+                                    <td>Addition of Numbers </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/22460" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>7357 </td>
+                                    <td>Proded Math. I-B: Putting Sets in Order </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/7357" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>22461 </td>
+                                    <td>Problem Solving Involving Addition Using Appropriate Strategies </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/22461" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>7359 </td>
+                                    <td>Proded Math. I-C: Putting Sets in Order </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/7359" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>19393 </td>
+                                    <td>Subtracting One to Two-Digit Numbers with Minuends Up to 99 Without Regrouping </td>
+                                    <td>Ilocano </td>
+                                    <td>Modules</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/19393" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>1987 </td>
+                                    <td>Mathematics for Grade 1 Teachers </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/1987" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>18886 </td>
+                                    <td>Hota Ongan Mabaga </td>
+                                    <td>Kalanguya </td>
+                                    <td>Storybooks</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/18886" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>21190 </td>
+                                    <td>MATH 1 QUARTER 1 WEEK 1 LEARNER&#039;S ACTIVITY SHEETS </td>
+                                    <td>Hiligaynon </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/21190" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>1991 </td>
+                                    <td>Instructional Materials- Use in Addition, Subtraction, Multiplication &amp; Division  </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/1991" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>7368 </td>
+                                    <td>Proded Math. 17-A: Subtraction with regrouping </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/7368" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>23241 </td>
+                                    <td>Subtraction as Taking Away </td>
+                                    <td>English </td>
+                                    <td>Modules</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/23241" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>23242 </td>
+                                    <td>Visualizing and Solving Problems Involving Addition </td>
+                                    <td>Minallango (Kalinga) </td>
+                                    <td>Modules</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/23242" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                            <tr>
+                                    <td>7373 </td>
+                                    <td>Proded Math. II-A: Subtraction without regrouping </td>
+                                    <td>English </td>
+                                    <td>Learning Material</td>
+
+                                    
+                                    <td style="width: 15%;">
+                                        <a href="/detail/7373" type="button" class="btn btn-success btn-xs">View Details</a>
+                                                                                                                                                                </td>
+                                </tr>
+                                                    </table>
+
+                        <div class="navigation">
+                            
+    <ul class="pagination">
+
+            <li>
+            <a rel="prev" href="/list/kto12/subject/233?page=9">&laquo;&nbsp;Previous</a>
+        </li>
+    
+            <li>
+            <a href="/list/kto12/subject/233?page=1">1</a>
+        </li>
+                <li class="disabled">
+            <span>&hellip;</span>
+        </li>
+            
+                        <li>
+                <a href="/list/kto12/subject/233?page=8">8</a>
+            </li>
+        
+                        <li>
+                <a href="/list/kto12/subject/233?page=9">9</a>
+            </li>
+        
+                        <li class="active">
+                <span>10</span>
+            </li>
+        
+                        <li>
+                <a href="/list/kto12/subject/233?page=11">11</a>
+            </li>
+        
+                        <li>
+                <a href="/list/kto12/subject/233?page=12">12</a>
+            </li>
+        
+    
+                    <li>
+            <a href="/list/kto12/subject/233?page=13">13</a>
+        </li>
+    
+            <li>
+            <a rel="next" href="/list/kto12/subject/233?page=11">Next&nbsp;&raquo;</a>
+        </li>
+        </ul>
+
+                        </div>
+
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#filter-submit').on('click', function(e){
+            e.preventDefault();
+            $('#filter').submit();
+        });
+    </script>
+        </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <!-- /#wrapper -->
+
+    <script src="/js/jquery.timeago.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $("#menu-toggle-2").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $(document).ready(function() {
+
+            $('.catalogue-li').addClass('hidden');
+            $('.catalogue-li-mr').addClass('hidden');
+
+            $('.mylr-li').addClass('hidden');
+            $('.mymr-li').addClass('hidden');
+
+            $('.kinder-li').addClass('hidden');
+            $('.jhs-li').addClass('hidden');
+            $('.shs-li').addClass('hidden');
+            $('.als-li').addClass('hidden');
+            $('.prof-dev-li').addClass('hidden');
+
+            $('.metadata-li').addClass('hidden');
+
+            $('.site-admin-li').addClass('hidden');
+
+            var admin_res = 0;
+            $('.admin-res-count').each(function() {
+                admin_res += $(this).data('val');
+                $('.admin-res-label').html(admin_res);
+            });
+
+            var my_res = 0;
+            $('.my-res-count').each(function() {
+                my_res += $(this).data('val');
+                $('.my-res-label').html(my_res);
+            });
+
+            var admin_res_mr = 0;
+            $('.admin-res-count-mr').each(function() {
+                admin_res_mr += $(this).data('val');
+                $('.admin-res-label-mr').html(admin_res_mr);
+            });
+
+            var my_res_mr = 0;
+            $('.my-res-count-mr').each(function() {
+                my_res_mr += $(this).data('val');
+                $('.my-res-label-mr').html(my_res_mr);
+            });
+
+            
+            $(document).on('click', '.notification_detail', function() {
+
+                var feedback_status = -1;
+                var comment_status  = "0";
+
+                jQuery.ajax({
+                    url: "/notifications/set",
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        'notification_id': this.id
+                    },
+                    success: function(json) {
+
+                        if (true == json.is_status_changed && (feedback_status != json.status_id && comment_status != json.status_id ))
+                        {
+                            BootstrapDialog.alert({
+                                title: 'Notification',
+                                message: 'Oops! The notification is no longer valid. The learning resource might have been already changed by other user.',
+                                closable: true,
+                                buttonLabel: 'Click here to view Learning Resource',
+                                callback: function(result) {
+                                    if (result)
+                                    {
+                                        if ('MR' == json.resource_type)
+                                        {
+                                            window.location.href = mr_url + 'metadata/' + json.resource_id;
+                                        }
+                                        window.location.href = lr_url + '' + json.resource_id + '/show';
+                                    }
+                                }
+                            });
+                        }
+                        else
+                        {
+                            if ('MR' == json.resource_type)
+                            {
+                                window.location.href = mr_url + 'metadata/' + json.resource_id;
+                            }
+                            else
+                            {
+                                if (feedback_status == json.status_id)
+                                {
+                                    window.location.href = lr_url + 'comments/' + json.resource_id;
+                                }
+                                else if (comment_status == json.status_id)
+                                {
+                                    window.location.href = "" + '/detail/' +json.resource_id;
+                                }
+                                else
+                                {
+                                    window.location.href = lr_url + '' + json.resource_id + '/show';
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+            $("[data-toggle=popover]").popover({
+                html: true,
+                content: function() {
+                    return $('#popover-content').html();
+                }
+            });
+
+            var lr_url = "/learning-resources/";
+            var mr_url = "/media_resources/"
+
+            // NAV CLICK
+            $(document).on('click', '.dashboard-nav', function() {
+                dashboardSelected();
+            });
+
+            $(document).on('click', '.mylr-nav', function() {
+                myLrsSelected();
+            });
+            $(document).on('click', '.catalogue-nav', function() {
+                adminLrsSelected();
+            });
+            $(document).on('click', '.catalogue-nav-mr', function() {
+                adminMrsSelected();
+            });
+            $(document).on('click', '.mymr-nav', function() {
+                myMrsSelected();
+            });
+
+            $(document).on('click', '.curriculum-nav', function() {
+                curriculumSelected();
+            });
+            $(document).on('click', '.kinder-nav', function() {
+                kinderSelected();
+            });
+            $(document).on('click', '.jhs-nav', function() {
+                jhsSelected();
+            });
+            $(document).on('click', '.shs-nav', function() {
+                shsSelected();
+            });
+            $(document).on('click', '.als-nav', function() {
+                alsSelected();
+            });
+            $(document).on('click', '.prof-dev-nav', function() {
+                profDevSelected();
+            });
+
+            $(document).on('click', '.metadata-nav', function() {
+                console.log('test');
+
+                metadataSelected();
+            });
+
+            $(document).on('click', '.site-admin-nav', function() {
+                siteAdminSelected();
+            });
+
+
+            // UPON LOAD
+
+            // Dashboard
+            
+            // Learning Resources
+            
+            // Media Resources
+            
+            // Curriculum Entries
+            
+            
+            
+            
+            
+            
+            // Metadata Descriptors
+            
+            // Site Administration
+            
+
+            $('.search-panel .dropdown-menu').find('a').click(function(e) {
+                e.preventDefault();
+                var param = $(this).attr("href").replace("#", "");
+                var concept = $(this).text();
+                $('.search-panel span#search_concept').text(concept);
+                $('.input-group #search_param').val(param);
+
+                $("#filterBy").val($(this).data('val'));
+
+            });
+
+            $('body').on('click', function(e) {
+                //did not click a popover toggle, or icon in popover toggle, or popover
+                if ($(e.target).data('toggle') !== 'popover' && $(e.target).parents('[data-toggle="popover"]').length === 0 && $(e.target).parents('.popover.in').length === 0) {
+                    $('[data-toggle="popover"]').popover('hide');
+                }
+            });
+        });
+
+
+        function dashboardSelected()
+        {
+            hideAllNavs();
+            $('.dashboard-nav-nav').css('color', '#505050');
+        }
+
+        function myLrsSelected()
+        {
+            hideAllNavs();
+            $('.mylr-li').toggleClass('hidden');
+            $('.mylr-nav').css('color', '#505050');
+        }
+
+        function adminLrsSelected()
+        {
+            hideAllNavs();
+            $('.catalogue-li').toggleClass('hidden');
+            $('.catalogue-nav').css('color', '#505050');
+        }
+
+        function myMrsSelected()
+        {
+            hideAllNavs();
+            $('.mymr-li').toggleClass('hidden');
+            $('.mymr-nav').css('color', '#505050');
+        }
+
+        function adminMrsSelected()
+        {
+            hideAllNavs();
+            $('.catalogue-li-mr').toggleClass('hidden');
+            $('.catalogue-nav-mr').css('color', '#505050');
+        }
+
+        function curriculumSelected()
+        {
+            hideAllNavs();
+            $('.curriculum-nav').css('color', '#505050');
+        }
+
+        function jhsSelected()
+        {
+            hideAllNavs();
+            $('.jhs-li').toggleClass('hidden');
+            $('.jhs-nav').css('color', '#505050');
+        }
+
+        function shsSelected()
+        {
+            hideAllNavs();
+            $('.shs-li').toggleClass('hidden');
+            $('.shs-nav').css('color', '#505050');
+        }
+
+        function kinderSelected()
+        {
+            hideAllNavs();
+            $('.kinder-li').toggleClass('hidden');
+            $('.kinder-nav').css('color', '#505050');
+        }
+
+        function alsSelected()
+        {
+            hideAllNavs();
+            $('.als-li').toggleClass('hidden');
+            $('.als-nav').css('color', '#505050');
+        }
+
+        function profDevSelected()
+        {
+            hideAllNavs();
+            $('.prof-dev-li').toggleClass('hidden');
+            $('.prof-dev-nav').css('color', '#505050');
+        }
+
+        function metadataSelected()
+        {
+            hideAllNavs();
+            $('.metadata-nav').css('color', '#505050');
+        }
+
+        function siteAdminSelected()
+        {
+            hideAllNavs();
+            $('.site-admin-li').toggleClass('hidden');
+            $('.site-admin-nav').css('color', '#505050');
+        }
+
+        function hideAllNavs()
+        {
+            hideDashboardNavLi();
+
+            hideCatalogueNavLi();
+            hideCatalogueNavLiMr();
+
+            hideMyLrNavLi();
+            hideMyMrNavLi();
+
+            hideKinderNavLi();
+            hideJhsNavLi();
+            hideShsNavLi();
+            hideAlsNavLi();
+            hideProfDevNavLi();
+
+            hideMetadataNavLi();
+            hideSiteAdminNavLi();
+        }
+
+        function hideDashboardNavLi() {
+            $('.dashboard-nav').css('color', '#999999');
+        }
+        function hideMetadataNavLi() {
+            $('.metadata-nav').css('color', '#999999');
+            $('.metadata-li').addClass('hidden');
+        }
+        function hideShsNavLi() {
+            $('.shs-nav').css('color', '#999999');
+            $('.shs-li').addClass('hidden');
+        }
+        function hideJhsNavLi() {
+            $('.jhs-nav').css('color', '#999999');
+            $('.jhs-li').addClass('hidden');
+        }
+        function hideKinderNavLi() {
+            $('.kinder-nav').css('color', '#999999');
+            $('.kinder-li').addClass('hidden');
+        }
+        function hideAlsNavLi() {
+            $('.als-nav').css('color', '#999999');
+            $('.als-li').addClass('hidden');
+        }
+        function hideProfDevNavLi() {
+            $('.prof-dev-nav').css('color', '#999999');
+            $('.prof-dev-li').addClass('hidden');
+        }
+        function hideSiteAdminNavLi() {
+            $('.site-admin-nav').css('color', '#999999');
+            $('.site-admin-li').addClass('hidden');
+        }
+        function hideCatalogueNavLi() {
+            $('.catalogue-nav').css('color', '#999999');
+            $('.catalogue-li').addClass('hidden');
+        }
+        function hideMyLrNavLi() {
+            $('.mylr-nav').css('color', '#999999');
+            $('.mylr-li').addClass('hidden');
+        }
+        function hideMyMrNavLi() {
+            $('.mymr-nav').css('color', '#999999');
+            $('.mymr-li').addClass('hidden');
+        }
+        function hideCatalogueNavLiMr() {
+            $('.catalogue-nav-mr').css('color', '#999999');
+            $('.catalogue-li-mr').addClass('hidden');
+        }
+    </script>
+    <script src="/js/sidebar_menu.js"></script>
+            <div id="main" class="reg">
+                            </div>
+        </div>
+
+        <div id="footer2">
+                
+    <footer class="my_footer ">
+    <div class="container my_links container-fluid">
+        <ul class="footer-links text-muted" id="foot">
+            <li><a href="/">Home</a></li>
+            <li class="muted">l</li>
+            <li><a href="/about">About Us</a></li>
+            <li class="muted">l</li>
+            <li><a href="/guidelines">Guidelines</a></li>
+            <li class="muted">l</li>
+            <!--<li><a href="/contributors">Contributors and Partners</a></li>
+            <li class="muted">l</li>-->
+            <li><a href="/terms">Terms of Use</a></li>
+            <li class="deped-pull">Department of Education, Republic of the Philippines 2026</li>
+        </ul>
+    </div>
+</footer>
+        </div>
+    </body>
+
+    
+</html>

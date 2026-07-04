@@ -1,0 +1,466 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+\usepackage{diagbox}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Series formales de potencias}
+\date{27 de Febrero de 2017}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+Toda sucesión de números $a_k$ puede ser vista como los coeficientes de una serie de potencias $\sum_k a_k\,t^k$. A veces esta serie surge como la \term{serie de Taylor} de una función real o compleja $f$:
+$$\sum_{k\ge 0} \frac{f^{(k)} (t_0)}{k!} \, (t-t_0)^k$$
+(cuando las derivadas de $f$ en $t_0$ existen). Las funciones que pueden ser representadas de tal manera se llaman \term{analíticas}. He aquí algunos ejemplos de series de Taylor:
+
+\begin{gather*}
+\text{\term{la serie geométrica} }\frac{1}{1-t} = \sum_{k \ge 0} t^k\quad\text{para }|t| < 1,\\
+e^t = \sum_{k\ge 0} \frac{t^k}{k!}, \quad\quad \ln (1+t) = \sum_{k \ge 1} (-1)^{k+1}\,\frac{t^k}{k}\quad\text{para }|t| < 1,\\
+\sen t = \sum_{k \ge 0} \frac{(-1)^k}{(2k+1)!}\,t^{2k+1}, \quad\quad \cos t = \sum_{k \ge 0} \frac{(-1)^k}{(2k)!}\,t^{2k}.
+\end{gather*}
+
+En general, la serie $\sum_k a_k\,t^k$ que corresponde a una sucesión arbitraria $(a_k)$ no tiene por qué ser convergente, aunque sería útil manipular con expresiones como ``$\sum_k a_k\,t^k$'' de manera puramente formal, como en efecto hacían los matemáticos de la época de Euler, cuando todavía no había una base rigurosa de análisis.
+
+\begin{definicion*}
+Una \term{serie formal de potencias} en variable $t$ con coeficientes racionales es una expresión
+$$f (t) = \sum_{k \ge 0} a_k\,t^k = a_0 + a_1\,t + a_2\,t^2 + a_3\,t^3 + \cdots$$
+donde $a_k \in \QQ$.
+\end{definicion*}
+
+Vamos a denotar el conjunto de tales series formales por $\QQ [\![t]\!]$. Las series formales se pueden manipular de la misma manera que los polinomios. A saber, la suma de dos series se calcula término por término:
+
+\begin{equation}
+\label{adicion-de-series-formales}
+\left(\sum_k a_k\,t^k\right) + \left(\sum_k b_k\,t^k\right) \dfn \sum_k (a_k+b_k)\,t^k.
+\end{equation}
+
+\pagebreak
+
+El producto de dos series se calcula mediante la distributividad formal:
+
+\begin{align*}
+(a_0 + a_1\,t + a_2\,t^2 + a_3\,t^3 + \cdots)\cdot (b_0 + b_1\,t + b_2\,t^2 + b_3\,t^3 + \cdots) & = a_0\,b_0 + ~\\
+ & \quad (a_0\,b_1 + a_1\,b_0)\,t + ~ \\
+ & \quad (a_0\,b_2 + a_1\,b_1 + a_2\,b_0)\,t^2 + ~ \\
+ & \quad (a_0\,b_3 + a_1\,b_2 + a_2\,b_1 + a_3\,b_0)\,t^3 + \cdots
+\end{align*}
+
+\noindent Es decir,
+
+\begin{equation}
+\label{multiplicacion-de-series-formales}
+\left(\sum_k a_k\,t^k\right) \cdot \left(\sum_k b_k\,t^k\right) \dfn \sum_k \left(\sum_{i+j=k} a_i\,b_j\right)\,t^k.
+\end{equation}
+
+Note que la adición y multiplicación de polinomios están definidos mediante las mismas fórmulas \eqnref{adicion-de-series-formales} y \eqnref{multiplicacion-de-series-formales}, y todo polinomio $a_n\,t^n + a_{n-1}\,t^{n-1} + \cdots a_1\,t + a_0$ puede ser visto como una serie formal de potencias
+$$a_0 + a_1\,t + \cdots + a_{n-1}\,t^{n-1} + a_n\,t^n + 0\,t^{n+1} + 0\,t^{n+2} + \cdots$$
+En otras palabras, un polinomio es una serie formal donde casi todos los coeficientes son nulos.
+
+La adición y multiplicación de series satisfacen las propiedades habituales:
+
+\begin{enumerate}
+\item[1)] La suma es asociativa: $f(t)+(g(t)+h(t)) = (f(t)+g(t))+h(t)$ para todo $f(t),g(t),h(t)\in \QQ[\![t]\!]$.
+
+\item[2)] La suma es conmutativa: $f(t)+g(t) = g(t)+f(t)$ para todo $f(t),g(t)\in \QQ[\![t]\!]$.
+
+\item[3)] La \term{serie nula}
+$$0 \dfn 0 + 0\,t + 0\,t^2 + 0\,t^3 + \cdots$$
+es el cero respecto a la adición: $f (t) + 0 = f (t)$ para todo $f (t) \in \QQ [\![t]\!]$.
+
+\item[4)] Para toda serie $f(t)\in \QQ[\![t]\!]$ tenemos la serie opuesta $-f(t)\in R$ tal que $f(t) + (-f(t)) = 0$.
+
+(Si $f (t) = \sum_{k\ge 0} a_k\,t^k$, entonces $-f (t) = \sum_{k \ge 0} (-a_k)\,t^k$.)
+
+Para $f (t) + (-g(t))$ normalmente se escribe $f(t)-g(t)$.
+
+\item[5)] El producto es asociativo: $f(t)\cdot (g(t)\cdot h(t)) = (f(t)\cdot g(t))\cdot h(t)$ para todo $f(t),g(t),h(t)\in \QQ[\![t]\!]$.
+
+\item[6)] El producto es conmutativo: $f(t)\cdot g(t) = g(t)\cdot f(t)$ para todo $f(t),g(t)\in \QQ[\![t]\!]$.
+
+\item[7)] La \term{serie identidad}
+$$1 \dfn 1 + 0\,t + 0\,t^2 + 0\,t^3 + \cdots$$
+es la identidad respecto a la multiplicación: $f (t) \cdot 1 = f (t)$ para todo $f (t) \in \QQ [\![t]\!]$.
+
+\item[8)] La multiplicación es distributiva respecto a la adición:
+$$f(t)\cdot (g(t)+h(t)) = f(t)\cdot g(t) + f(t)\cdot h(t)$$
+para todo $f(t), g(t), h(t) \in \QQ [\![t]\!]$. Ya que el producto es conmutativo, también tenemos
+$$(f(t)+g(t))\cdot h(t) = f(t)\cdot h(t) + g(t)\cdot h(t).$$
+\end{enumerate}
+
+\pagebreak
+
+Un ejemplo muy importante de las series formales de potencias que nos va a servir mucho es el siguiente.
+
+\begin{definicion*}
+La \term{función exponencial formal} es la serie en $\QQ [\![t]\!]$ definida como
+$$e^t \dfn \sum_{k \ge 0} \frac{t^k}{k!}.$$
+\end{definicion*}
+
+\vspace{1em}
+
+\begin{observacion*}
+Si $f (t) \ne 0$ y $g (t) \ne 0$, entonces $f (t) \cdot g (t) \ne 0$.
+
+\begin{proof}
+Sean $f (t) = \sum_{k \ge 0} a_k\,t^k$ y $g (t) = \sum_{k \ge 0} b_k\,t^k$ dos series de potencias no nulas. Sea $a_i$ el primer coeficiente no nulo de $f (t)$ y sea $b_j$ el primer coeficiente no nulo en $g (t)$. El coeficiente de $t^{i+j}$ en $f (t) \cdot g (t)$ es
+$$a_0\,b_{i+j} + a_1\,b_{i+j-1} + \cdots + a_i\,b_j + a_{i+1}\,b_{j-1} + \cdots + a_{i+j}\,b_0,$$
+donde por nuestra elección de $a_i$ y $b_j$ todos los términos son nulos excepto $a_i\,b_j$, que no es nulo porque $a_i \ne 0$, $b_j \ne 0$.
+\end{proof}
+\end{observacion*}
+
+\begin{definicion*}
+Se dice que una serie de potencias $f (t) \in \QQ [\![t]\!]$ es \term{invertible} si existe otra serie $g (t) \in \QQ [\![t]\!]$ que es inversa a $f (t)$ respecto a la multiplicación; es decir, $f (t) \cdot g (t) = 1$. En este caso escribimos $g (t) = \frac{1}{f (t)}$. El producto $h (t) \cdot \frac{1}{f (t)}$ de una serie $h (t)$ con la serie inversa para $f (t)$ se escribe como una fracción $\frac{h (t)}{f (t)}$.
+\end{definicion*}
+
+Notemos que si $g (t)$ existe, es necesariamente única. En efecto, si hay dos series $g_1 (t)$ y $g_2 (t)$ tales que $f (t)\cdot g_1 (t) = f (t)\cdot g_2 (t) = 1$, entonces
+$$g_2 (t) = \underbrace{f (t)\cdot g_1 (t)}_{= 1}\cdot g_2 (t) = \underbrace{f (t)\cdot g_2 (t)}_{=1}\cdot g_1 (t) = g_1 (t).$$
+
+\begin{observacion*}
+\label{obs:series-formales-invertibles}
+Una serie $f (t) = \sum_{k \ge 0} a_k\,t^k \in \QQ [\![t]\!]$ es invertible si y solamente si $a_0 = \text{``}f (0)\text{''}$ no es nulo.
+\end{observacion*}
+
+\noindent Note que, en general, sumas infinitas de números racionales no están definidas, así que no se puede evaluar $f (t)$ en un número racional; es posible solo en análisis, donde hay nociones de convergencia. Sin embargo, $f (0)$ sí tiene sentido, y es el término constante de $f (t)$.
+
+\begin{proof}
+Estamos buscando otra serie $g (t) = \sum_{k \ge 0} b_k\,t^k \in \QQ [\![t]\!]$ tal que $f (t) \cdot g (t) = 1$, es decir,
+
+\begin{align*}
+a_0\,b_0 & = 1,\\
+a_0\,b_1 + a_1\,b_0 & = 0,\\
+a_0\,b_2 + a_1\,b_1 + a_2\,b_0 & = 0,\\
+ & ~~\vdots \\
+\sum_{0 \le i \le k} a_i\,b_{k-i} & = 0 \quad (k \ge 1)
+\end{align*}
+
+\pagebreak
+
+De la primera ecuación se ve que $a_0$ tiene que ser no nulo. En este caso, podemos calcular $b_k$ sucesivamente:
+
+\begin{align*}
+b_0 & = a_0^{-1},\\
+b_1 & = -a_0^{-1}\,(a_1\,b_0),\\
+b_2 & = -a_0^{-1}\,(a_1\,b_1 + a_2\,b_0),\\
+ & ~~\vdots \\
+b_k & = -a_0^{-1}\,\sum_{1 \le i \le k} a_i\,b_{k-i}.
+\end{align*}
+\end{proof}
+
+\begin{ejemplo*}
+\label{serie-geometrica-formal}
+Tenemos
+
+\begin{align*}
+(1-t)\cdot (1 + t + t^2 + t^3 + t^4 + \cdots) & = (1 + t + t^2 + t^3 + t^4 + \cdots) - (t + t^2 + t^3 + t^4 + t^5 + \cdots) = 1,\\
+(1+t)\cdot (1 - t + t^2 - t^3 + t^4 - \cdots) & = (1 - t + t^2 - t^3 + t^4 - \cdots) + (t - t^2 + t^3 - t^4 + t^5 - \cdots) = 1.
+\end{align*}
+
+Es un análogo de la serie geométrica $\frac{1}{1-t} = \sum_{k \ge 0} t^k$, que en análisis tiene sentido para $|t| < 1$. En nuestro caso, $t$ es una variable formal.
+\end{ejemplo*}
+
+Como hemos visto, si tenemos una serie
+$$f (t) = a_0 + a_1\,t + a_2\,t^2 + a_3\,t^3 + \cdots$$
+tal que $a_0 = 0$, entonces $f (t)$ no es invertible en $\QQ [\![t]\!]$. Para resolver este problema, podemos introducir potencias negativas de $t$ y escribir
+$$f (t) = t^{-n} \, (a_n + a_{n+1}\,t + a_{n+2}\,t^2 + a_{n+3}\,t^3 + \cdots),$$
+donde $a_n$ es el primer coeficiente no nulo en $f (t)$. Aquí la serie entre paréntesis es invertible en $\QQ [\![t]\!]$. Para que tenga sentido el término ``$t^{-n}$'', podemos introducir la siguiente generalización.
+
+\begin{definicion*}
+Una \term{serie formal de Laurent}\footnote{\href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Laurent_Pierre.html}{\personality{Pierre Alphonse Laurent}} (1813--1854), un matemático y oficial militar francés.} es una serie formal con un número finito de potencias negativas:
+$$f(t) = \sum_{k \ge -N} a_k\,t^k\quad \text{para algún }N\in \NN.$$
+\end{definicion*}
+
+Para las series de Laurent también tienen sentido adición y multiplicación, definidas mediante las mismas fórmulas \eqnref{adicion-de-series-formales} y \eqnref{multiplicacion-de-series-formales}, y toda serie puede ser vista como una serie de Laurent con coeficientes negativos nulos. El conjunto de las series de Laurent se denota por $\QQ (\!(t)\!)$.
+
+\vspace{1em}
+
+Tenemos las siguientes generalizaciones de los resultados de arriba:
+
+\begin{enumerate}
+\item[1)] Si $f (t) \ne 0$ y $g (t) \ne 0$ son dos series de Laurent no nulas, entonces $f (t) \cdot g (t) \ne 0$ (la demostración es la misma).
+
+\item[2)] Todas las series de Laurent no nulas son invertibles. En particular, toda serie no nula $f (t) \in \QQ [\![t]\!]$ es invertible en $\QQ (\!(t)\!)$.
+\end{enumerate}
+
+\begin{ejemplo*}
+La serie $t + t^2 + t^3 + \cdots$ es invertible como serie de Laurent:
+$$(t^{-1} - 1)\,(t + t^2 + t^3 + \cdots) = (1 + t + t^2 + \cdots) - (t + t^2 + t^3 + \cdots) = 1.$$
+\end{ejemplo*}
+
+\begin{shaded}
+\small\noindent PARI/GP puede trabajar con series de potencias. Para indicar que los términos de grado $\ge n$ están omitidos, se escribe ``\verb|+ O(t^n)|'':
+
+\begin{verbatim}
+? 1/(1-t + O(t^10))
+% = 1 + t + t^2 + t^3 + t^4 + t^5 + t^6 + t^7 + t^8 + t^9 + O(t^10)
+
+? (t + 2*t^2 + 3*t^3 + 4*t^4 + 5*t^5 + O (t^6))^2
+% = t^2 + 4*t^3 + 10*t^4 + 20*t^5 + 35*t^6 + O(t^7)
+\end{verbatim}
+
+\noindent Series de Laurent:
+
+\begin{verbatim}
+? 1/(t + t^2 + t^3 + t^4 + t^5 + t^6 + O (t^7))
+% = t^-1 - 1 + O(t^5)
+\end{verbatim}
+
+\noindent PARI/GP conoce la exponencial formal:
+
+\begin{verbatim}
+? exp (t)
+% = 1 + t + 1/2*t^2 + 1/6*t^3 + 1/24*t^4 + 1/120*t^5 + 1/720*t^6 +
+     1/5040*t^7 + 1/40320*t^8 + 1/362880*t^9 + 1/3628800*t^10 +
+     1/39916800*t^11 + 1/479001600*t^12 + 1/6227020800*t^13 +
+     1/87178291200*t^14 + 1/1307674368000*t^15 + 1/20922789888000*t^16 +
+     O(t^17)
+\end{verbatim}
+
+\noindent El número de términos se puede cambiar con el parámetro \verb|seriesprecision|:
+
+\begin{verbatim}
+? default (seriesprecision, 6)
+? exp (t)
+% = 1 + t + 1/2*t^2 + 1/6*t^3 + 1/24*t^4 + 1/120*t^5 + 1/720*t^6 + O(t^7)
+\end{verbatim}
+
+%\noindent Los números enteros $p$-ádicos $\ZZ_p$ pueden ser vistos como las series formales $\sum_{k \ge 0} a_k\,p^k$ con $a_k \in \{ 0, \ldots, p-1 \}$. He aquí un par de ejemplos:
+%
+%\begin{verbatim}
+%? -1 + O(3^10)
+%% = 2 + 2*3 + 2*3^2 + 2*3^3 + 2*3^4 + 2*3^5 + 2*3^6 + 2*3^7 + 2*3^8 + 2*3^9 + O(3^10)
+%
+%? (2 + O (3^10))^-1
+%% = 2 + 3 + 3^2 + 3^3 + 3^4 + 3^5 + 3^6 + 3^7 + 3^8 + 3^9 + O(3^10)
+%
+%? sqrt (2+O(7^10))
+%% = 3 + 7 + 2*7^2 + 6*7^3 + 7^4 + 2*7^5 + 7^6 + 2*7^7 + 4*7^8 + 6*7^9 + O(7^10)
+%? %^2
+%% = 2 + O(7^10)
+%\end{verbatim}
+%
+%\noindent El primer ejemplo nos da la expresión canónica para $-1$ en el anillo $\ZZ_3$; en el segundo ejemplo PARI/GP calcula el número inverso a $2$ en $\ZZ_3$. El último ejemplo calcula la raíz cuadrada $7$-ádica de $2$.
+\end{shaded}
+
+\begin{definicion*}
+Dadas dos series de potencias $f (t) = \sum_{k \ge 0} a_k \, t^k$ y $g (t) = \sum_{k \ge 0} b_k \, t^k$, si $g (0) = b_0 = 0$, entonces la \term{composición $(f \circ g) (t)$} (\term{sustitución de $g$ en $f$}) es la serie
+$$(f \circ g) (t) \dfn f (g (t)) \dfn \sum_{k \ge 0} a_k \, g (t)^k.$$
+Ya que $b_0 = 0$, toda potencia $g (t)^k$ no tiene términos de grado $< k$, así que la suma infinita tiene sentido.
+\end{definicion*}
+
+\begin{ejemplo*}
+Si $f (t)$ es una serie formal tal que $f (0) = 0$, entonces
+
+\begin{align*}
+\frac{1}{1 - f (t)} & = 1 + f(t) + f (t)^2 + f(t)^3 + f (t)^4 + \cdots,\\
+\frac{1}{1 + f (t)} & = 1 - f(t) + f (t)^2 - f(t)^3 + f (t)^4 - \cdots
+\end{align*}
+
+\noindent ---es una generalización de la serie geométrica.
+\end{ejemplo*}
+
+\begin{ejemplo*}
+Podemos ``evaluar'' $e^t$ en $-t$. El resultado de la sustitución es la serie formal
+$$e^{-t} = \sum_{k \ge 0} (-1)^k\,\frac{t^k}{k!}.$$
+
+En general, podemos componer $e^t$ con toda $f (t)$ tal que $f (0) = 0$. Tenemos la identidad habitual
+$$e^{f(t) + g(t)} = e^{f(t)}\cdot e^{g(t)}.$$
+En efecto,
+
+\begin{align*}
+e^{f(t)} \cdot e^{g(t)} & = \left(\sum_{i \ge 0} \frac{f(t)^i}{i!}\right) \cdot \left(\sum_{j \ge 0} \frac{g(t)^j}{j!}\right)\\
+ & = \sum_{k \ge 0} \sum_{i+j = k} \frac{k!}{k!} \frac{f(t)^i}{i!} \frac{g(t)^j}{j!} \\
+ & = \sum_{k \ge 0} \frac{1}{k!} \sum_{i \ge 0} {k \choose i} \, f(t)^i \, g(t)^{k-i} \\
+ & = \sum_{k \ge 0} \frac{(f(t)+g(t))^k}{k!} = e^{f(t)+g(t)}.
+\end{align*}
+\end{ejemplo*}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Derivadas formales}
+
+\begin{definicion*}
+La \term{derivada formal} de una serie formal de potencias $f (t) = \sum_{k \ge 0} a_k\,t^k \in \QQ [\![t]\!]$ está definida por
+$$f' (t) \dfn \sum_{k \ge 1} k\,a_k\,t^{k-1}.$$
+\end{definicion*}
+
+\begin{ejemplo*}
+$$(e^t)' = \left(\sum_{k \ge 0} \frac{t^k}{k!}\right)' = \sum_{k \ge 1} k\,\frac{t^{k-1}}{k!} = \sum_{k \ge 1} \frac{t^{k-1}}{(k-1)!} = e^t.$$
+\end{ejemplo*}
+
+\begin{observacion*}[Serie de Taylor formal]
+\label{serie-de-Taylor-formal}
+Para las derivadas iteradas de $f (t) = \sum_{k \ge 0} a_k \, t^k \in \QQ [\![t]\!]$ se tiene $f^{(k)} (0) = k! \, a_k$, lo que nos da
+$$f (t) = \sum_{k \ge 0} \frac{f^{(k)} (0)}{k!}\,t^k.$$
+
+\begin{proof}
+Se ve inmediatamente de las definiciones.
+\end{proof}
+\end{observacion*}
+
+\begin{observacion*}
+Para $f (t), g (t) \in \QQ [\![t]\!]$ se tiene
+$$(f (t) + g (t))' = f' (t) + g' (t).$$
+
+\begin{proof}
+Evidente de la definición.
+\end{proof}
+\end{observacion*}
+
+\begin{observacion*}[Regla de Leibniz]
+Para $f (t), g (t) \in \QQ [\![t]\!]$ se tiene
+$$(f (t)\cdot g (t))' = f' (t)\cdot g (t) + f (t)\cdot g' (t).$$
+
+\pagebreak
+
+\begin{proof}
+Para $f (t) = \sum_{k \ge 0} a_k\,t^k$ y $g (t) = \sum_{k \ge 0} b_k\,t^k$
+
+\begin{align*}
+\left( \left(\sum_{k\ge 0} a_k\,t^k\right)\cdot \left(\sum_{k\ge 0} b_k\,t^k\right) \right)' & = \left(\sum_{k\ge 0} \left(\sum_{0 \le i \le k} a_i\,b_{k-i}\right)\,t^k\right)' \\
+ & = \sum_{k\ge 1} k\,\left(\sum_{0 \le i \le k} a_i\,b_{k-i}\right)\,t^{k-1} \\
+ & = \sum_{k\ge 1} \left(\sum_{0 \le i \le k} i \, a_i\,b_{k-i} + \sum_{0 \le i \le k} (k-i) \, a_i\,b_{k-i}\right)\,t^{k-1} \\
+ & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k} i \, a_i\,b_{k-i}\right)\,t^{k-1} + \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} a_i\,(k-i)\,b_{k-i}\right)\,t^{k-1} \\
+ & = f' (t)\cdot g (t) + f (t)\cdot g' (t).
+ \end{align*}
+\end{proof}
+\end{observacion*}
+
+\begin{ejercicio*}
+Demuestre que para $f(t), g(t) \in \QQ (\!(t)\!)$ se tiene
+$$\left(\frac{f(t)}{g(t)}\right)' = \frac{f' (t) \cdot g(t) - f (t)\cdot g' (t)}{g (t)^2}.$$
+\end{ejercicio*}
+
+\begin{corolario*}
+Para $f (t) \in \QQ [\![t]\!]$ se tiene
+$$(f (t)^k)' = k\,f(t)'\,f(t)^{k-1}.$$
+
+\begin{proof}
+Por inducción, usando la regla de Leibniz.
+\end{proof}
+\end{corolario*}
+
+\begin{observacion*}[Regla de la cadena]
+\label{regla-de-la-cadena-formal}
+Sean $f (t), g (t) \in \QQ [\![t]\!]$ dos series de potencias formales tales que $g (0) = 0$. Entonces para la composición se tiene
+$$(f (g (t)))' = f' (g (t)) \cdot g' (t).$$
+
+\begin{proof}
+Si $f (t) = \sum_{k\ge 0} a_k\,t^k$, entonces
+$$(f (g (t)))' = \sum_{k\ge 1} k\,a_k\,g' (t)\, (g (t))^{k-1} = \left( \sum_{k \ge 1} k\,a_k\,(g (t))^{k-1} \right) \, g' (t) = f' (g (t))\cdot g' (t).$$
+\end{proof}
+\end{observacion*}
+
+\begin{shaded}
+\noindent\small En PARI/GP:
+
+\begin{verbatim}
+? default (seriesprecision, 6)
+
+? deriv (t*exp(t), t)         
+% = 1 + 2*t + 3/2*t^2 + 2/3*t^3 + 5/24*t^4 + 1/20*t^5 + 7/720*t^6 + O(t^7)
+\end{verbatim}
+\end{shaded}
+
+Para resumir, las derivadas formales se comportan como las derivadas habituales: son lineales, cumplen la regla de Leibniz y la regla de la cadena.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Logaritmo formal}
+
+\begin{definicion*}
+El \term{logaritmo formal} es la serie en $\QQ [\![t]\!]$ definida por
+$$\ln (1 + t) \dfn \sum_{k\ge 1} (-1)^{k+1}\,\frac{t^k}{k}.$$
+\end{definicion*}
+
+Observamos que la derivada formal de $\ln (1+t)$ es precisamente lo que se espera del logaritmo:
+$$(\ln (1+t))' = \frac{1}{1+t} = 1 - t + t^2 - t^3 + t^4 - t^5 + \cdots.$$
+
+\begin{shaded}
+\noindent\small En PARI/GP:
+
+\begin{verbatim}
+? log (1+t)
+% = t - 1/2*t^2 + 1/3*t^3 - 1/4*t^4 + 1/5*t^5 + O(t^6)
+\end{verbatim}
+\end{shaded}
+
+\begin{teorema*}
+Tenemos
+$$\ln (1 + (e^t - 1)) = t, \quad e^{\ln (1 + t)} = 1 + t,$$
+en el sentido de sustitución de una serie formal en otra.
+\end{teorema*}
+
+%\begin{ejercicio}
+%Calcule los primeros términos de las series $\ln (e^t)$ y $e^{\ln (1 + t)}$ con ayuda de PARI/GP.
+%\end{ejercicio}
+
+Las identidades del teorema nos dan un ejemplo de series inversas respecto a la composición:
+
+\begin{proposicion*}
+Para una serie de potencias formal $f (t) = \sum_{k \ge 0} a_k \, t^k$ existe otra serie $g (t)$ tal que $g (0) = 0$ y $f (g (t)) = t$ si y solamente si $a_0 = 0$ y $a_1 \ne 0$. En este caso la serie $g (t)$ es única, y además se tiene $g (f (t)) = t$. Es decir, $f$ y $g$ son mutuamente inversas respecto a la composición.
+
+\begin{proof}
+La condición sobre $a_0$ y $a_1$ es necesaria: si existe $g (t) = \sum_{k\ge 0} b_k\,t^k$ con $b_0 = 0$ tal que $f (g (t)) = \sum_{k\ge 0} a_k\,g(t)^k = t$, entonces $a_0 = 0$ y $a_1\,b_1 = 1$.
+
+Ahora sea $f (t)$ una serie con $a_0 = 0$ y $a_1 \ne 0$. Tenemos que encontrar una serie $g (t) = \sum_{k \ge 0} b_k\,t^k$ con $b_0 = 0$ tal que $f (g (t)) = t$. La última identidad implica que necesitamos poner $b_1 \dfn a_1^{-1}$. Luego, para $k \ge 2$, el coeficiente de $t^k$ en $f (g (t))$ es igual al coeficiente de $t^k$ en la suma
+$$a_1 \, g (t) + a_2 \, g (t)^2 + \cdots + a_k \, g(t)^k$$
+(ya que $g (0) = 0$, en las potencias $g (t)^{k+1}, g (t)^{k+2}, \ldots$ ya no hay términos de grado $k$). Pero este coeficiente tiene que ser nulo, lo que nos da las ecuaciones
+$$a_1\,b_k + (\text{algún polinomio en }a_2, a_3, \ldots, a_k, b_1, b_2, \ldots, b_{k-1}) = 0.$$
+Puesto que $a_1 \ne 0$, estas ecuaciones por inducción definen \emph{de modo único} todos los coeficientes $b_2, b_3, b_4, \ldots$ Esto demuestra que $g (t)$ existe y es único.
+
+Para ver que también se tiene $g (f (t)) = t$, notamos que en $g (t)$ también $b_0 = 0$ y $b_1 \ne 0$, entonces existe $h (t)$ tal que $g (h (t)) = t$. Luego,
+
+\begin{gather*}
+t = f (g (t)),\\
+h (t) = f (g (h (t))) = f (t),\\
+g (h (t)) = g (f (t)) = t.
+\end{gather*}
+\end{proof}
+\end{proposicion*}
+
+\begin{shaded}
+\noindent\small En PARI/GP, la serie inversa respecto a la composición puede ser calculada por la función \verb|serreverse|:
+
+\begin{verbatim}
+? serreverse (exp (t) - 1)
+% = t - 1/2*t^2 + 1/3*t^3 - 1/4*t^4 + 1/5*t^5 - 1/6*t^6 + O(t^7)
+\end{verbatim}
+\end{shaded}
+
+\begin{proof}[Demostración del teorema]
+La primera tentación es calcular directamente los coeficientes de las series
+$$\ln (1 + (e^t - 1)) \quad\text{y}\quad e^{\ln (1 + t)},$$
+pero esto no es tan fácil. Por ejemplo, las potencias de la serie $e^t - 1$ tienen como coeficientes los números de Stirling:
+$$\frac{(e^t - 1)^\ell}{\ell!} = \sum_{k \ge \ell} \Stirling{k}{\ell}\,\frac{t^k}{k!}.$$
+Lo vamos a necesitar de todas maneras más adelante y ver las definiciones y las propiedades básicas de $\Stirling{k}{\ell}$ en otra lección. Para el logaritmo también hay una fórmula parecida con otros números de Stirling:
+$$\frac{\ln (1+t)^\ell}{\ell!} = (-1)^\ell \, \sum_{k \ge \ell} (-1)^k\,\stirling{k}{\ell}\,\frac{t^k}{k!}.$$
+Afortunadamente, por el momento se puede evitar esta pesadilla combinatoria. Primero notemos que gracias a la proposición de arriba, será suficiente demostrar que por ejemplo,
+$$e^{\ln (1+t)} = 1+t,$$
+y $\ln (1 + (e^t - 1)) = t$ se sigue automáticamente. Gracias a la serie de Taylor $f (t) = \sum_{k\ge 0} \frac{f^{(k)} (0)}{k!}\,t^k$, podemos simplemente verificar que
+
+\begin{align*}
+e^{\ln (1+0)} & = 1,\\
+(e^{\ln (1+t)})' (0) & = 1,\\
+(e^{\ln (1+t)})'' (0) & = 0,\\
+(e^{\ln (1+t)})''' (0) & = 0,\\
+& \cdots
+\end{align*}
+
+En efecto, $\ln (1 + 0) = 0$ y $e^0 = 1$. Luego, por la regla de la cadena,
+$$(e^{\ln (1+t)})' = e^{\ln (1+t)} \, \frac{1}{1+t},$$
+y así $(e^{\ln (1+t)})' (0) = 1$. La segunda derivada nos da
+
+\begin{align*}
+(e^{\ln (1+t)})'' & = \left(e^{\ln (1+t)} \, \frac{1}{1+t}\right)' \\
+ & = (e^{\ln (1+t)})'\,\frac{1}{1+t} - e^{\ln (1+t)}\,\frac{1}{(1+t)^2} \\
+  & = e^{\ln (1+t)} \, \frac{1}{1+t}\, \frac{1}{1+t} - e^{\ln (1+t)}\,\frac{1}{(1+t)^2} = 0.
+\end{align*}
+\end{proof}
+
+\end{document}
