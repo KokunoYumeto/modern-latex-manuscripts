@@ -1,11 +1,21 @@
+## 2026-07-05: Interlanguage flat Pro-feed LaTeX source anchors
+
+Manifest: [20260705_interlanguage_flat_pro_feed_source_anchors.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_flat_pro_feed_source_anchors.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_flat_pro_feed_source_anchors/Interlanguage_Canon_LaTeX_SourceAnchors_PRO_FEED_FLAT_20260705.zip`, 80,864,713 bytes, SHA256 `9090ADC76E9BB09CE67CA774CD2D4FD689B6E6393496F15EB52FC8C5BC7BC71B`.
+- Scope/result: flattened Web/Pro-facing version of the current complete interlanguage LaTeX source-anchor bundle. It unpacks 13 nested source payload ZIPs and exposes 8,658 TeX-family files directly under payload folders, with per-payload provenance copied where available.
+- Caveat: source-anchor/style-baseline material only; not generated Noether output, not native-speaker approval, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not reader output, and not a critical edition.
+
 ## 2026-07-05: Claude interlingua final handoff
 
 Manifest: [20260705_claude_interlingua_program_final_handoff.json](../manifests/pending-zenodo-uploads/20260705_claude_interlingua_program_final_handoff.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: $relZip, 329632 bytes, SHA256 18B162D869722913D55491F0EF31668606862CBB0FC6D7E06A9F6B09C912B55C.
+- Artifact: `publish_staging/interlanguage-methodology/20260705_claude_interlingua_program_final_handoff/Claude_Interlingua_Program_Final_Handoff_20260705.zip`, 329632 bytes, SHA256 18B162D869722913D55491F0EF31668606862CBB0FC6D7E06A9F6B09C912B55C.
 - Scope/result: Compact final handoff from the local Claude interlingua-program lane, including CHATGPT_HANDOFF_BUNDLE_20260705.zip, V4 defect report, proof-prose lexicon v2.7b, marker table v3.2, normalization decisions, register-doublet branch evidence, context-review queue/logs, and corpus-insertion coverage metrics.
 - Caveat: Methodology/generated-internal lexicon-register/context-review evidence only; not native-language approval, not accepted terminology, not source-fidelity certification, not translation completion, not a mathematical reader release, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx200
 
 Manifest: [20260705_sga6_source_rescribe_idx200_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx200_workpass_refresh.json)
