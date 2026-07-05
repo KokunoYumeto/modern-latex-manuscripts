@@ -1,0 +1,537 @@
+\documentclass[12pt,a4paper,onecolumn,notitlepage]{book}
+
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage[pdfauthor={يوسف رفه},pdftitle={كتاب LaTeX باللغة العربية}]{hyperref}
+	\hypersetup{
+		bookmarks=true,
+		unicode=true,
+	    colorlinks=true,
+	    citecolor=black,
+	    filecolor=black,
+	    linkcolor=slategray2Dark,
+	    urlcolor=slategray2Dark
+	}
+\usepackage[depthadjust]{marginnote}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+\usepackage{fourier-orns}
+\usepackage[showframe=false,includeheadfoot]{geometry}
+	\geometry{verbose,top=5mm,headheight=20mm,headsep=10mm,hmargin=18mm,bottom=15mm,footskip=18mm,marginparsep=5mm,marginparwidth=28mm,left=1.5in,right=1.5in,textwidth=300pt}
+\usepackage{polyglossia}
+\usepackage{color}
+\usepackage{pifont} % for \ding{#}
+\usepackage{titlesec}
+	\titleformat{\chapter}[frame]
+	  {\normalfont\sffamily\medium\bfseries\color{slategray2}}
+	  {\chaptertitlename \thechapter}{1.1em}{}
+	\titleformat{\section}
+	  {\normalfont\sffamily\small\bfseries\color{slategray2}}
+	  {\thesection}{0.75em}{}
+  	\titleformat{\subsection}
+  	  {\normalfont\sffamily\tiny\bfseries\color{slategray2}}
+  	  {\thesubsection}{0.55em}{}
+\usepackage{framed}
+\usepackage{layout}
+\usepackage{tocloft} % to customize Table of Contents and add dots between chapters and page numbers
+\usepackage{setspace} % to add \doublespacing
+\usepackage[Q=yes]{examplep} % for verbatim description lists and titles \Q and \PVerb
+
+
+\setcounter{tocdepth}{3}
+
+% Font styles and settings
+\setmainfont[Ligatures=TeX]{Amiri}
+\setsansfont[Ligatures=TeX,Script=Arabic,Scale=1.5]{Amiri}
+\setmonofont{Courier New}
+\newfontfamily\arabicfont[Script=Arabic,Ligatures=TeX]{Amiri}
+
+% set numerals=maghrib so page numbers are displayed in Arabic instead of
+% eastern Arabic numerals. Otherwise, remove it for eastern Arabic numerals.
+\setmainlanguage[numerals=maghrib]{arabic}
+\setotherlanguage{english}
+
+% Page styles and margins
+% \pagestyle{headings}
+\pagestyle{fancy}
+% with this we ensure that the chapter and section
+% headings are in lowercase.
+\renewcommand{\sectionmark}[1]{%
+        \markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{%
+        \markright{\thesection #1}}
+\fancyhf{}  % delete current header and footer
+% \fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[L]{\bfseries\footnotesize\rightmark}
+\fancyhead[R]{\bfseries\footnotesize\leftmark}
+\fancyfoot[L]{\bfseries\footnotesize\leafleft\href{http://www.HZ1YR.com}{HZ1YR.com}\leafright}
+\fancyfoot[C]{\bfseries \thepage}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % space for the rule
+\fancypagestyle{plain}{%
+	\fancyhf{} % clear all header and footer fields
+	\fancyhead{} % get rid of headers on plain pages
+	\fancyfoot[C]{\bfseries\footnotesize\thepage} % except the center
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}}
+
+
+% Setting newcommands
+%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\renewcommand*{\marginfont}{\color{slategray2}\sffamily}
+
+% Title and Author data
+% 
+\providecommand{\HUGE}{\Huge}% if not using memoir
+\newlength{\drop}% for my convenience
+\thispagestyle{plain}
+\newcommand*{\titleLL}{\begingroup% Lost Languages
+\drop=0.1\textheight
+\fboxsep 0.5\baselineskip
+\sffamily
+\vspace*{\drop}
+\centering
+{\textcolor{SkyBlue}{\HUGE كتاب \textenglish{\LaTeX} باللغة العربية}}\par
+\vspace{0.5\drop}
+\colorbox{Dark}{\textcolor{white}{\normalfont\itshape\Large
+تأليف: يُوسُف عَدنَان رَفـَّــه}}\par
+\vspace{\drop}
+{\Large {\href{http://www.HZ1YR.com}{\textenglish{HZ1YR}}}}
+\vfill
+{\footnotesize{10 مارس 2013م}}\par
+\vspace*{\drop}
+\endgroup}
+% end of title page customization.
+
+% Setting newenvironment for dedication section
+\newenvironment{dedication}
+{
+\cleardoublepage
+\vspace*{\stretch{1}}
+\hfill\begin{minipage}[t]{0.66\textwidth}
+\raggedleft
+}%
+{
+\end{minipage}
+\vspace*{\stretch{3}}
+\begin{center}
+\color{slategray2}
+{\Huge\decoone}
+\end{center}
+% \clearpage	
+}
+
+% New colored framed box environment
+\newenvironment{cframed}[1][white]
+  {\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{#1}{Dark}}%
+    \MakeFramed {\advance\hsize-\width \FrameRestore}}
+  {\endMakeFramed}
+  
+% Include dots between chapter name and page number
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+
+% COLORS
+\definecolor{darkgreen}{rgb}{0.4, 0.01, 0.24}
+\definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
+\definecolor{brown}{rgb}{0.4, 0.01, 0.24}
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+\definecolor{unitednationsblue}{rgb}{0.36, 0.57, 0.9}
+\definecolor{blue(rgb)}{rgb}{0.01, 0.28, 1.0}
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\definecolor{screamingreen}{rgb}{0.46, 1.0, 0.44}
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{islamicgreen}{rgb}{0.0, 0.56, 0.0}
+\definecolor{upforestgreen}{rgb}{0.0, 0.27, 0.13}
+\definecolor{icterine}{rgb}{0.99, 0.97, 0.37}
+\definecolor{orange(colorwheel)}{rgb}{1.0, 0.5, 0.0}
+\definecolor{orange-red}{rgb}{1.0, 0.27, 0.0}
+\definecolor{oucrimsonred}{rgb}{0.6, 0.0, 0.0}
+\definecolor{cottoncandy}{rgb}{1.0, 0.74, 0.85}
+\definecolor{orchid}{rgb}{0.85, 0.44, 0.84}
+\definecolor{vividcerise}{rgb}{0.85, 0.11, 0.51}
+\definecolor{patriarch}{rgb}{0.5, 0.0, 0.5}
+\definecolor{lightbrown}{HTML}{BF6830}
+\definecolor{gray}{HTML}{616D7E}
+\definecolor{slategray2}{HTML}{B4CFEC}
+\definecolor{slategray2Dark}{HTML}{3B6999}
+\definecolor{slategray2Light}{HTML}{CADFF6}
+\definecolor{slategray2VeryLight}{HTML}{D5E5F6}
+\definecolor{slategray2Gray}{HTML}{92A1B1}
+%% Some shades
+\definecolor{Dark}{gray}{0.2}
+\definecolor{MedDark}{gray}{0.4}
+\definecolor{Medium}{gray}{0.6}
+\definecolor{Light}{gray}{0.8}
+
+% Set double spacing for the text
+\doublespacing
+
+\begin{document}
+% Enable the below section to display the current document layout
+% \begin{center}
+% 	\layout{}
+% \end{center}
+% End of layout
+
+% Title page
+\pagenumbering{alph}
+\titleLL
+\begin{center}
+	\color{slategray2VeryLight}
+	{\Huge\decoone}
+\end{center}
+% \clearpage
+
+% Adding thanks and dedication section
+\begin{dedication}
+	{\Huge\color{slategray2Gray}{\ding{118}{\color{slategray2} شُكْرٌ وإِهْداءْ}\par}}
+	\vspace{14pt}
+		شكرا لكل من ساعدني.
+	% {\fontsize{60}{60}\selectfont\aldineright}
+\end{dedication}
+
+% Table of Contents
+\addcontentsline{toc}{section}{شكر وإهداء}
+\tableofcontents
+\pagenumbering{arabic}
+	
+	
+% Beginning of content.
+% Beginning of Chapters and Sections
+\pagestyle{fancy}
+\chapter*{المقدمة}
+\paragraph{مقدمة الكتاب:} % (fold)
+\label{par:مقدمة}
+يكاد يكون كل من استخدم جهاز كمبيوتر قد استخدم أحد برامج حزمة مايكروسوفت المكتبية والتي تُسمى مايكروسوفت أوفيس \textenglish{Microsoft Office} وخصوصا برنامج محرر النصوص الشهير \emph{وورد} والذي يستخدمه غالبية الناس في كتابة المستندات والمؤلفات وكذلك الكتب! وبالطبع لم تخلوا تلك التجارب من المشاكل والأخطاء واللحظات العصيبة والتي قد لا يوجد لها أي تفسير منطقي في مشاكل ذلك البرنامج أو أسباب عدم استجابته للأوامر التي تقوم بطلبها كمستخدم.
+
+اليوم هو أول أيام التّحرر من قيود الوورد ومعالجات النصوص والإبحار في عالم الكتابة والتأليف، عالم السهولة والمتعة. عالم التركيز على الإبداع في المحتوى وتقديم أفضل المؤلفات وترك كل الأمور التقنية وما يتعلق بتنسيق المستند وتقسيمه إلى \emph{نظام تهيئة الوثائق} ليهتم بكل التفاصيل الدقيقة هذه إذ أن وقتك كمؤلف أثمن من أن يضيع في تعديل أرقام صفحات الفهرس مثلا!
+% paragraph مقدمة (end)
+
+\chapter{مدخل إلى \textenglish{\LaTeX}}
+نظام عالي الجودة لصف الحروف صُمم خصيصا لإنشاء المستندات العلمية والتقنية.
+\section{ما هو \textenglish{\LaTeX}؟} % (fold)
+\label{sec:ما_هو_latex_}
+\textenglish{\LaTeX} عبارة عن حزمة أو نظام لتهيئة الوثائق والمستندات يُستخدَم لكتابة الوثائق العلمية والبحوث والدراسات وكذلك التقارير والمواضيع المختلفة بالإضافة إلى الكتب. وهي إضافة قام بتطويرها ليزلي لامبورت \textenglish{Leslie Lamport} مبنية على نظام صف الحروف الأساسي \TeX والذي قام بتطويره في الأساس دونالد نوث \textenglish{Donald E. Knuth}
+
+تُنطَق لايْتِك على أنها كلمتين (لاي---تِكْ) أو لاهتِك (لاه---تِك) وسأستخدم التسمية الرسمية \textenglish{\LaTeX} في هذا الكتاب وانطلاقا من هذا الفصل.
+% section ما_هو_latex_ (end)
+\section{\textenglish{\LaTeX} ومعالجات النصوص} % (fold)
+\label{sec:latex_ومعالجات_النصوص}
+يختلف \textenglish{\LaTeX} عن أي معالج نصوص آخر سواء كان برنامج مايكروسوفت وورد أو غيره من محررات النصوص الأخرى والتي تسمى \textenglish{WYSIWYG}\footnote{WYSIWYG عبارة عن اختصار للكلمة \textenglish{What You See Is What You Get} وتعني أنك ترى ما الذي ستحصل عليه.} بأنه يجعل المؤلف يَصُب تركيزه على المحتوى بينما يهتم النظام بالتنسيق العام للمستند. بمعنى آخر دع التصميم للمصمم وركز في المحتوى الذي تتخصص فيه كمؤلف.
+
+\noindent من مزايا معالجات النصوص مثل برنامج الوورد هي أنك ترى كيف سيكون شكل المحتوى مباشرة أثناء كتابته سواء كان نصا أو صورا أو معادلات رياضية أو غيره. كما أن معظم المستخدمين يجيدون استخدامه ولو بشكل بسيط، أي أن منحنى التعليم \textenglish{learning curve} يكاد يكون معدوم أو صغير جدا خصوصا بسبب سعة إنتشاره.
+
+\noindent في المقابل نظام \textenglish{\LaTeX} للنشر يحتاج إلى تغيير في طريقة التفكير أو الـ \textenglish{mindset} للمؤلف بحيث ينصب تركيزك على المحتوى ككتابة التقرير أو الكتاب مثلا. لست مضطرا لمعرفة كيفية تنسيق المستند أو كيف سأقوم بتقسيم الأبواب والفصول وإضافة فهرس للمحتويات أو فهرس لقائمة الصور والرسومات مثلا، إذ أن ذلك من مهام مصممي المستندات (والذي قام به أشخاص من قبلك) فلا داعي لك بأن تُجهِد نفسك وتستنفِذ وقتك الثمين فيه. إلا أنك بحاجة إلى تعلم بعض الأوامر البسيطة للتحكم في المحتوى حيث ستقوم بكتابها مع المحتوى في أي محرر نصوص \textenglish{text editor} تختاره. الفرق هنا أنك ستقوم الآن بفصل المحتوى عن التصميم تماما كما يفعل مصممي ومبرمجي صفحات الإنترنت ولكن بشكل أسهل وأبسط بكثير، لا تخف فلن تتعلم كيف ستقوم بتصميم صفحة إنترنت! المقصود من ذلك هو إظهار كيفية فصل المحتوى فقط حيث سيقوم البرنامج بوضع الصور وترقيم الصفحات والمسافات المطلوبة بين الفقرات والفصول والأبواب والعديد من التفاصيل الدقيقة الأخرى ليظهر المستند بشكل جدا احترافي حتى من قِبَل مستخدم جديد لنظام \textenglish{\LaTeX}.
+
+\noindent كثير من مستخدمي برنامج الوورد على سبيل المثال يقومون بكتابة فهرس المحتويات بشكل يدوي عند قرب إكتمال المستند! وهذا يسبب عائق كبير في متابعة أي تعديل على المستند إذ قد تتغير أرقام الصفحات عند إضافة جزء معين أو حذف جزء آخر، وبالتالي يجب على المؤلف إعادة كتابة أو تعديل فهرس المحتويات من جديد. كما أن بعض مستخدمي الوورد ي
+% section \latex_ومعالجات_النصوص (end)
+
+\section{تثبيت البرنامج}
+أسهل طريقة لتثبيت نظام \textenglish{\LaTeX} هي من خلال حزمة \href{http://www.tug.org/texlive/}{\textenglish{\TeX Live}} والتي توفر البرامج الأساسية لتشغيل نظام \textenglish{\LaTeX} بالإضافة إلى جميع الخطوط والبرمجيات المساعدة للحصول على نظام  متكامل من \textenglish{\LaTeX}.
+
+بعد تثبيت نظام \textenglish{\LaTeX} يجب عليك اختيار محرر نصوص يدعم تنسيقات اللغة \textenglish{syntax highlighting} الخاصة بـ \textenglish{\LaTeX} للتعامل مع المستندات من خلاله كما أنه بإمكانك استخدام محرر النصوص الذي يكون متوفرا مع النظام مثل \textenglish{notepad} في الويندوز أو \textenglish{TextEdit} للماك أو \textenglish{GEdit} إن كنت تستخدم بيئة \textenglish{GNOME} في اللينكس أو \textenglish{Emacs} أو \textenglish{Vim}. علما أن استخدام محرر نصوص يدعم تنسيقات لغة \textenglish{\LaTeX} أفضل وأسهل بكثير في التعامل وخصوصا في ما يتعلق باختصارات لوحة المفاتيح وتكملة النصوص البرمجية فيها مما يختصر عليك الكثير من الوقت. أضف إلى أنها تساعدك كثيرا في اكتشاف أي أخطاء قد تقع فيها مثل عدم إضافة قوس لإغلاق أمر معين وما إلى ذلك.
+
+\subsection{على الويندوز}
+هناك حزمة جاهزة لتثبيت نظام \textenglish{\LaTeX} على الويندوز بسهولة جدا وهي برنامج \href{http://tug.org/protext/}{\textenglish{pro\TeX t} } وهي مبنية على نظام  \href{http://miktex.org/download}{\textenglish{MiKe\TeX}}.
+
+\subsection{على الـ \textenglish{Mac}}
+تثبيت \textenglish{\TeX Live} على نظام الماك سهل جدا من خلال تثبيت حزمة \href{http://www.tug.org/mactex/}{\textenglish{Mac\TeX}}.
+
+\subsection{على لينكس}
+لتثبيت حزمة \textenglish{\LaTeX} على لينكس عليك البحث في توزيعتك عن \textenglish{texlive} و يمكنك تحميلها لتوزيعات لينكس والتي تعتمد على نظام \textenglish{Debian} أو \textenglish{Ubuntu} من خلال:
+
+\begin{english}
+	\begin{minipage}[b][5em][c]{0.55\textwidth}
+		\begin{cframed}
+		{\color{white}
+			\begin{verbatim}
+				# apt-get install texlive
+			\end{verbatim}	
+		}
+		\end{cframed}
+	\end{minipage}
+\end{english}
+
+
+وفي حال كنت تستخدم توزيعات مبنية على نظام حزم الـ \textenglish{RPM} مثل ريدهات \textenglish{RedHat} أو فيدورا \textenglish{Fedora} أو سينتوس \textenglish{CentOS} أو أي توزيعة تستخدم نظام \textenglish{Yum} لتثبيت البرامج فيمكنك تثبيتها من خلال:
+
+\begin{english}
+	\begin{minipage}[b][5em][c]{0.55\textwidth}
+		\begin{cframed}
+			{\color{white}
+				\begin{verbatim}
+					# yum install texlive
+				\end{verbatim}
+			}
+		\end{cframed}
+	\end{minipage}
+\end{english}
+
+\section{مرحبا بالعالم مع \textenglish{\LaTeX}} % (fold)
+\label{sec:مرحبا_بالعالم_مع_latex}
+ بعد تثبيتك لنظام \textenglish{\LaTeX} على جهازك يمكنك الآن كتابة السطور التالية في محرر النصوص والذي يدعم تنسيقات \textenglish{\LaTeX} وكتابة السطور التالية لإنشاء أول وثيقة احترافية لك. اكتب السطور التالية في محرر النصوص:
+
+\begin{english}
+	\begin{minipage}[t][20em][c]{0.65\textwidth}
+		\begin{cframed}
+		{\color{white}
+			\begin{verbatim}
+				\documentclass{article}
+				\title{My First \LaTeX Document}
+				\author{Yousef Raffah}
+				\date{March 2013}
+				\begin{document}
+					\maketitle
+					Hello World!
+				\end{document}
+			\end{verbatim}	
+		}
+		\end{cframed}
+	\end{minipage}
+\end{english}
+\label{مستند بسيط جدًا}
+
+لا تفزع الآن لأننا بصدد شرح هذه الرموز والأوامر:
+
+\begin{description}
+	\item[\textenglish{\PVerb{\documentclass{article}}}] هذا الأمر يخبر نظام \textenglish{\LaTeX} بأنك تريد إنشاء مستند عبارة عن مقال باستخدام جميع خصائص المقال الإفتراضية في النظام.
+	\item[\textenglish{\PVerb{\title{My First \LaTeX Document}}}] هذا الأمر يقوم بتحديد عنوان المستند. كما أن الأمر \PVerb{\LaTeX} يقوم بطباعة كلمة \textenglish{\LaTeX} بالشكل الرسمي كما ترونه الآن في هذه الجملة.
+	\item[\textenglish{\PVerb{\author{Yousef Raffah}}}] يقوم هذا الأمر بتحديد اسم المؤلف.
+	\item[\textenglish{\PVerb{\date{March 2013}}}] يقوم هذا الأمر بتحديد تاريخ إنشاء المستند حسب التاريخ الذي تمت كتابته. فإن أردت تغيير التاريخ ليكون تاريخ اليوم يمكنك استبدال التاريخ المكتوب بالأمر \textenglish{\PVerb{\today}}.
+	\item[\textenglish{\PVerb{\begin{document}}}] بداية النص أو موضوع المستند.
+	\item[\textenglish{\PVerb{\maketitle}}] سيقوم نظام \textenglish{\LaTeX} بطباعة عنوان المستند واسم المؤلف والتاريخ في هذا المكان، أي في بداية المستند.
+	\item[\textenglish{\PVerb{Hello World!}}] هذا نص المستند.
+	\item[\textenglish{\PVerb{\end{document}}}] هنا ينتهي نص المستند أو المقال.
+\end{description}
+
+% section مرحبا_بالعالم_مع_latex (end)
+
+\section{الخلاصة} % (fold)
+\label{sec:الخلاصة للمدخل}
+في هذا الباب قمنا بالتطرق إلى عالم \textenglish{\LaTeX} وشرح مُبسّط عن أهم مميزاتها بالمقارنة مع معالجات النصوص الأخرى والاختلاف في طريقة الكتابة بين الإثنين. بعد ذلك تعلمنا ما هي أسهل طرق تثبيت النظام على كل من أجهزة الويندوز والماك واللينكس.
+% section الخلاصة (end)
+
+% \section{تثبيت حزم إضافية} % (fold)
+% 	\label{sec:تثبيت_حزم_إضافية}
+% 	
+% 	% section تثبيت_حزم_إضافية (end)
+% 	
+
+% \section{عناصر البناء الأساسية}
+
+\chapter{التنسيق والتقسيم والتخطيط}
+في هذا الفصل سنتعلم كيفية إضافة بعض التحسينات والتنسيقات للنص وتقسيم المستند إلى فصول مثلا وإضافة روابط خارجية وبعض العناصر الأساسية مثل التذييل والجداول والصور والعلامات المرجعية.
+
+\section{التخطيط الأساسي للوثائق} % (fold)
+\label{sec:التخطيط_الأساسي_للوثائق}
+إن أي وثيقة تقوم بإنشائها يجب أن تحتوى على بعض الأوامر الأساسية في \textenglish{\LaTeX} والتي قد تطرقنا لبعضها في المثال السابق \ref{مستند بسيط جدًا}.
+كما أن المستند ينقسم إلى قسمين رئيسيين وهما:
+\begin{enumerate}
+	\item \textenglish{Preamble}: وهو الجزء الأعلى من النص والذي يتم فيه تحديد نوع المستند وماهي الحِزَم المراد تحميلها فيه\footnote{المقصود بذلك البرمجيات والمعروفة باسم \textenglish{macros} وهي لإضافة خصائص وإمكانيات إضافية إلى المستند.} ويتم فيها كذلك تخصيص الأوامر.
+	\item النص أو المحتوى و هو كل ما يُكتب داخل الأمر \verb|\begin{document}| و \verb|\end{document}|.
+\end{enumerate}
+% section التخطيط_الأساسي_للوثائق (end)
+
+\section{التنسيق} % (fold)
+\label{sec:التنسيق}
+الكثير منا يود إضافة أو تعديل أجزاء معينة في النص إما لإبرازها وإلقاء الضوء عليها أو لإضافة تذييلة معينة تشرح مالذي يقصده الكاتب أو ربما تشير إلى مرجعِ ما وهي ما يعرف لدى البعض بالهوامش \textenglish{footer}\footnote{وهي هذه الهوامش الموجودة في أسفل الصفحة.}.
+
+% section التنسيق (end)
+
+\subsection{تنسيق النصوص} % (fold)
+\label{sub:تنسيق_النصوص}
+تنسيق النصوص والكلمات في \textenglish{\LaTeX} بسيط جدًا و يمكن اختصار أهم التنسيقات المتعلقة بالكلمات في الجدول التالي:
+
+\begin{centering}
+\begin{tabular}[C]{l c r}
+\multicolumn{3}{r}{\textbf{نمط النص}} \\
+\verb|\textbf{نص}|  &  \textbf{نص}  &  لإظهار النص بالخط العريض \\
+\verb|\emph{نص}|   & 	\emph{نص}  & لإبراز النص بالخط المائل	\\
+\verb|\underline{نص}| &  \underline{نص}  &  لعرض النص مع خط أسفل منه \\
+\verb|\textnormal{نص}| & \textnormal{نص} & لإعادة تنسيق النص إلى التنسيق الطبيعي \\
+\verb|\texttt{Text}| & \texttt{Text} & للكتابة بخط teletype \\
+\end{tabular}
+% \caption{أهم أوامر تنسيق النص}
+\label{ex:table}
+
+\end{centering}
+
+\begin{centering}
+\begin{tabular}[C]{l r}
+\multicolumn{2}{r}{\textbf{فراغات السطور والصفحات}} \\
+\verb|\\| & لإضافة فراغ سطر جديد \\
+\verb|\\*| & لمنع إضافة صفحة جديدة بعد فراغ سطر \\
+\verb|\pagebreak| & لإضافة صفحة جديدة \\
+\verb|\noindent| & لمنع إضافة مسافة قبل بداية فقرة جديدة \\
+\end{tabular}
+% \caption{أهم أوامر تنسيق فراغات السطور والصفحات}
+\label{ex:table_breaks}
+\end{centering}
+
+% subsection تنسيق_النصوص (end)
+\subsection{تنسيق الفقرات} % (fold)
+\label{sub:تنسيق_الفقرات}
+	\begin{centering}
+	\begin{tabular}[C]{l r}
+	\multicolumn{2}{r}{\textbf{تنسيق الفقرات والفصول والأقسام}} \\
+	\verb|\chapter{نص}|  &  لإضافة باب جديد \\
+	\verb|\section{نص}|  & لإضافة فصل جديد	\\
+	\verb|\subsection{نص}| & لإضافة فصل فرعي \\
+	\verb|\subsubsection{نص}| & لإضافة فصل فرعي للفرع \\
+	\verb|\paragraph{نص}| & لإضافة فقرة جديدة \\
+	\end{tabular}
+	% \caption{أوامر تنسيق الفقرات والفصول والأقسام}
+	\label{ex:table_chapters}
+	\end{centering}
+% subsection تنسيق_الفقرات (end)
+\subsection{تنسيق الألوان} % (fold)
+\label{sub:تنسيق_الألوان}
+لتعديل ألوان النص يمكن استخدام الأمر التالي: \\
+\verb|{\color{red}أحمر}| لتظهر كلمة {\color{red}أحمر} حمراء اللون.
+% subsection تنسيق_الألوان (end)
+\subsection{الروابط} % (fold)
+\label{sub:الروابط}
+	
+% subsection الروابط (end)
+\section{الخطوط} % (fold)
+\label{sec:الخطوط}
+	\begin{centering}
+	\begin{tabular}[C]{l c r}
+	\multicolumn{3}{r}{\textbf{حجم الخط}} \\
+	\verb|\tiny{نص}| & \tiny{نص} & حجم دقيق جدا \\
+	\verb|\scriptsize{نص}| & \scriptsize{نص} & حجم دقيق \\
+	\verb|\footnotesize{نص}| & \footnotesize{نص} & حجم التذييل \\
+	\verb|\small{نص}| & \small{نص} & حجم صغير \\
+	\verb|\normalsize{نص}| & \normalsize{نص} & حجم طبيعي \\
+	\verb|\large{نص}| & \large{نص} & حجم أكبر من الطبيعي \\
+	\verb|\Large{نص}| & \Large{نص} & حجم أكبر من الحجم السابق \\
+	\verb|\LARGE{نص}| & \LARGE{نص} & حجم أكبر من الحجم السابق \\
+	\verb|\huge{نص}| & \huge{نص} & حجم أكبر من الحجم السابق \\
+	\verb|\Huge{نص}| & \Huge{نص} & حجم أكبر من الحجم السابق \\
+	% \hline
+	% \caption{أهم أوامر تغيير حجم الخط}
+	\end{tabular}
+	\label{ex:table_fonts}
+	\end{centering}
+	
+% section الخطوط (end)
+\section{الجداول} % (fold)
+\label{sec:الجداول}
+	لإنشاء جداول بسيطة يمكنك استخدام بيئة tabular الخاصة بالجداول بالطريقة التالية
+	\begin{english}
+		\begin{verbatim}
+			\begin{tabular}{l c r}
+		\end{verbatim}
+	\end{english}
+\noindent	  والتي تحتاج إلى ملحقات أو عناصر تعريفية مساعدة \textenglish{arguments} مثل \textenglish{{l c r}} لتحديد تنسيق النص في الأعمدة. وفي المثال هذا فإن أول عمود سيكون تنسيقه لليسار \textenglish{l} والعمود الأوسط سيكون تنسيقه في المنتصف \textenglish{c} والعمود الأخير سيكون تنسيقه إلى اليمين \textenglish{r} كما هو موضح في الجدول التالي:
+
+\begin{tabular}{l r}
+l & لتنسيق النص إلى جهة اليسار \\
+c & لتنسيق النص في المنتصف \\
+r & لتنسيق النص إلى جهة اليمين \\
+\textbar & لإضافة فاصل عامودي  \\
+\textbar\textbar & لإضافة فاصلين عاموديين \\
+\& & لإضافة عمود \\
+\textbackslash\textbackslash & لإضافة صف \\
+\textbackslash hline & لإضافة خط أفقي \\
+\end{tabular}
+\label{ex:table_properties}
+
+\vspace{10pt}
+مثال بسيط يوضح طريقة إنشاء جدول:
+
+	\begin{minipage}[c][13em][c]{0.65\textwidth}
+	\begin{cframed}[white]
+	{\color{white}
+	\begin{english}
+			\begin{verbatim}
+				\begin{tabular}{lcr}
+				  1 & 2 & 3 \\
+				  4 & 5 & 6 \\
+				  7 & 8 & 9 \\
+				\end{tabular}
+			\end{verbatim}
+		\end{english}
+	}
+	\end{cframed}
+	\end{minipage}
+
+
+\begin{tabular}{ l c r }
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9 \\
+\end{tabular}
+% section الجداول (end)
+
+\section{الصور والرسومات} % (fold)
+\label{sec:الصور_والرسومات}
+	
+% section الصور_والرسومات (end)
+\section{التذييل والتذييل الجانبي} % (fold)
+\label{sec:التذييل_والتذييل_الجانبي}
+	
+% section التذييل_والتذييل_الجانبي (end)
+\section{العلامات والإشارات المرجعية} % (fold)
+\label{sec:العلامات_والإشارات_المرجعية}
+	
+% section العلامات_والإشارات_المرجعية (end)
+\chapter{تصميم الصفحات} % (fold)
+\label{cha:تصميم_الصفحات}
+\section{الهوامش \textenglish{Margins}} % (fold)
+\label{sec:الهوامش_margins}
+
+% section الهوامش_margins (end)
+\subsection{الصفحات متعددة الأعمدة} % (fold)
+\label{sub:الصفحات_متعددة_الأعمدة}
+
+% subsection الصفحات_متعددة_الأعمدة (end)
+\subsection{تغيير حجم الصفحة} % (fold)
+\label{sub:تغيير_حجم_الصفحة}
+
+% subsection تغيير_حجم_الصفحة (end)
+\subsection{تغيير نمط الصفحة} % (fold)
+\label{sub:تغيير_نمط_الصفحة}
+
+% subsection تغيير_نمط_الصفحة (end)
+\subsection{إضافة الفهرس} % (fold)
+\label{sub:إضافة_الفهرس}
+
+% subsection إضافة_الفهرس (end)
+\subsection{الفصول} % (fold)
+\label{sub:الفصول}
+
+% subsection الفصول (end)
+\subsection{الترويسة والتذييلة} % (fold)
+\label{sub:الترويسة_والتذييلة}
+
+% subsection الترويسة_والتذييلة (end)
+\section{الخلاصة} % (fold)
+\label{sec:الخلاصة لتصميم الصفحات}
+
+% section الخلاصة (end)
+% chapter تصميم_الصفحات (end)
+\chapter{القوائم} % (fold)
+\label{cha:القوائم}
+\section{القوائم النقطية} % (fold)
+\label{sec:القوائم_النقطية}
+
+% section القوائم_النقطية (end)
+\section{القوائم العددية} % (fold)
+\label{sec:القوائم_العددية}
+
+% section القوائم_العددية (end)
+\section{القوائم الوصفية} % (fold)
+\label{sec:القوائم_الوصفية}
+
+% section القوائم_الوصفية (end)
+\section{تبطين القوائم} % (fold)
+\label{sec:تبطين_القوائم}
+
+% section تبطين_القوائم (end)
+% chapter القوائم (end)
+
+\end{document}

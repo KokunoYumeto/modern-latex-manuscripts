@@ -1,0 +1,628 @@
+% \iffalse meta-comment
+% __________________________________
+% The arabic-math package for LuaTeX
+%
+% Copyright 2010--2018 Khaled Hosny <khaled.hosny@hindawi.com>
+%
+% This work is under the CC0 license.
+%
+% Unpacking:
+%    luatex arabic-math.dtx
+% Documentation:
+%    lualatex arabic-math.dtx
+%
+%<*ignore>
+\begingroup
+  \def\x{LaTeX2e}%
+\expandafter\endgroup
+\ifcase 0\ifx\install y1\fi\expandafter
+         \ifx\csname processbatchFile\endcsname\relax\else1\fi
+         \ifx\fmtname\x\else 1\fi\relax
+\else\csname fi\endcsname
+%</ignore>
+%<*install>
+\input docstrip.tex
+
+\keepsilent
+\askforoverwritefalse
+
+\let\MetaPrefix\relax
+
+\preamble
+
+See the aforementioned source file(s) for copyright and licensing information.
+
+\endpreamble
+
+\let\MetaPrefix\DoubleperCent
+
+\generate{%
+  \usedir{tex/luatex/arabic-math}%
+  \file{arabic-math.sty}{\from{arabic-math.dtx}{package}}%
+}
+
+\def\MetaPrefix{-- }
+
+\def\luapostamble{%
+  \MetaPrefix^^J%
+  \MetaPrefix\space End of File `\outFileName'.%
+}
+
+\def\currentpostamble{\luapostamble}%
+
+\generate{%
+  \usedir{tex/luatex/arabic-math}%
+  \file{arabic-math.lua}{\from{arabic-math.dtx}{luamodule}}%
+}
+
+\endbatchfile
+%</install>
+%<*ignore>
+\fi
+%</ignore>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[ltrdocument]{arabic-math}
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setmonofont[Scale=MatchUppercase]{NoName Fixed}
+\setarabicmathfont{XITS Math}
+\newfontfamily\arabicfont[Script=Arabic]{Amiri}
+\parindent=0pt
+\mathdir TLT
+
+\usepackage{etoolbox}
+\makeatletter
+\gdef\tshortstack{\@ifnextchar[\@tshortstack{\@tshortstack[c]}}
+\let\@tshortstack\@shortstack
+\patchcmd\@tshortstack\vbox\vtop{}{}
+\makeatother
+
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+% \GetFileInfo{arabic-math.dtx}
+%
+% \title{The \textsf{arabic-math} package}
+% \author{Khaled Hosny \\ \texttt{khaled.hosny@hindawi.com}}
+%
+% \maketitle
+%
+% \StopEventually{}
+%
+% \section{Documentation}
+%
+% The \textsf{arabic-math} package provides support for typesetting mathematics
+% in Arabic mathematical notation.
+%
+% \subsection{Requirements}
+%
+% The \textsf{arabic-math} package requires Lua\TeX{} engine (version
+% 0.79.\textit{x} or newer), \textsf{unicode-math} package (version
+% v0.7c or newer) and \textsf{luatexbase} package (version v0.6 or
+% newer).
+%
+% \subsection{Usage}
+%
+% The \textsf{arabic-math} package should be loaded with |\usepackage| command.
+% No text or math fonts are loaded by default, so they need to be explicitly
+% specified. For example:
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{arabic-math}
+% \setmainfont[Script=Arabic]{Amiri}
+% \setarabicmathfont{XITS Math}
+% \begin{document}
+% نص عربي \(\alef+\beh=\sqrt{\jeem}\).
+% \end{document}
+% \end{verbatim}
+%
+% \subsection{Package options}
+% \begin{enumerate}
+%   \def\ARM#1{{\arabicfont\mathdir TRT $#1$}}
+%   \item[|dotlessop|] By default operator names like |\sin| and |\cos| are
+%     dotted (\ARM{\arsin}, \ARM{\arcos}), with this option they will be
+%     dotless (\ARM{\ardotlesssin}, \ARM{\ardotlesscos}). The dotted version is
+%     always available with the |\ar| prefix, and the dotless with |\ardotless|
+%     prefix, regardless of the option used, e.g. |\arsin| and |\ardotlesssin|,
+%     respectively.
+%   \item[|arabicsum|] By default |\sum| will use a mirrored summation symbol
+%     (\ARM{\sum}), with this option it will instead use the Arabic summation
+%     symbol (\ARM{\arsum}). The Arabic summation symbol is also available as
+%     |\arsum|, regardless of the option used.
+%   \item[|farsilim|] By default |\lim| will use Arabic limit symbol
+%     (\ARM{\arlim}), but with this option Farsi limit symbol will be used
+%     (\ARM{\falim}). Both symbols are available as |\arlim| and |\falim|,
+%     respectively, regardless of the option used.
+%   \item[\smash{\tshortstack[l]{|altalef|\\\hfill |altdal|\\\hfill |altreh|\\ |altnoon|}}]
+%     The default forms of Alef, Dal, Reh and Noon are (\ARM{\alef},
+%     \ARM{\dal}, \ARM{\reh}, \ARM{\noon}), with this option the alternate
+%     forms (\ARM{\alt\alef}, \ARM{\alt\dal}, \ARM{\alt\reh}, \ARM{\alt\noon})
+%     will be used. The alternate forms are always available with
+%     |\alt{\alef}|, |\alt{\dal}|, |\alt{\reh}|, and |\alt{\noon}|,
+%     respectively.
+% \end{enumerate}
+%
+% \subsection{Commands}
+% \begin{enumerate}
+%   \item[|\string\setarabicmathfont|] Similar to |\setmathfont| from
+%     \textsf{unicode-math} package and accepts the same option, and
+%     additionally enables extra options needed for Arabic math fonts.
+% \end{enumerate}
+%
+% \subsection{List of Arabic math symbols}
+% \DeleteShortVerb{\|}
+% \MakeShortVerb{\!}
+% \subsubsection{Letters}
+% \small
+% \begin{tabular}{l c|l c|l c}
+% !\alef! & $\alef$ & !\alefi! & $\alefi$ & !\aleft! & $\aleft$ \\
+% !\beh! & $\beh$ & !\behi! & $\behi$ & !\beht! & $\beht$       \\
+% !\jeem! & $\jeem$ & !\jeemi! & $\jeemi$ & !\jeemt! & $\jeemt$ \\
+% !\dal! & $\dal$ & !\dali! & $\dali$ & !\dalt! & $\dalt$ \\
+% !\heh! & $\heh$ & !\hehi! & $\hehi$ & !\heht! & $\heht$ \\
+% !\waw! & $\waw$ & !\wawi! & $\wawi$ & !\wawt! & $\wawt$ \\
+% !\zain! & $\zain$ & !\zaini! & $\zaini$ & !\zaint! & $\zaint$ \\
+% !\hah! & $\hah$ & !\hahi! & $\hahi$ & !\haht! & $\haht$ \\
+% !\tah! & $\tah$ & !\tahi! & $\tahi$ & !\taht! & $\taht$ \\
+% !\yeh! & $\yeh$ & !\yehi! & $\yehi$ & !\yeht! & $\yeht$ \\
+% !\kaf! & $\kaf$ & !\kafi! & $\kafi$ & !\kaft! & $\kaft$ \\
+% !\lam! & $\lam$ & !\lami! & $\lami$ & !\lamt! & $\lamt$ \\
+% !\meem! & $\meem$ & !\meemi! & $\meemi$ & !\meemt! & $\meemt$ \\
+% !\noon! & $\noon$ & !\nooni! & $\nooni$ & !\noont! & $\noont$ \\
+% !\seen! & $\seen$ & !\seeni! & $\seeni$ & !\seent! & $\seent$ \\
+% !\ain! & $\ain$ & !\aini! & $\aini$ & !\aint! & $\aint$ \\
+% !\feh! & $\feh$ & !\fehi! & $\fehi$ & !\feht! & $\feht$ \\
+% !\sad! & $\sad$ & !\sadi! & $\sadi$ & !\sadt! & $\sadt$ \\
+% !\qaf! & $\qaf$ & !\qafi! & $\qafi$ & !\qaft! & $\qaft$ \\
+% !\reh! & $\reh$ & !\rehi! & $\rehi$ & !\reht! & $\reht$ \\
+% !\sheen! & $\sheen$ & !\sheeni! & $\sheeni$ & !\sheent! & $\sheent$ \\
+% !\teh! & $\teh$ & !\tehi! & $\tehi$ & !\teht! & $\teht$ \\
+% !\theh! & $\theh$ & !\thehi! & $\thehi$ & !\theht! & $\theht$ \\
+% !\khah! & $\khah$ & !\khahi! & $\khahi$ & !\khaht! & $\khaht$ \\
+% !\thal! & $\thal$ & !\thali! & $\thali$ & !\thalt! & $\thalt$ \\
+% !\dad! & $\dad$ & !\dadi! & $\dadi$ & !\dadt! & $\dadt$ \\
+% !\zah! & $\zah$ & !\zahi! & $\zahi$ & !\zaht! & $\zaht$ \\
+% !\ghain! & $\ghain$ & !\ghaini! & $\ghaini$ & !\ghaint! & $\ghaint$ \\
+% !\dotlessbeh! & $\dotlessbeh$ & !\dotlessbehi! & $\dotlessbehi$ & !\dotlessbeht! \\
+% !\dotlessnoon! & $\dotlessnoon$ & !\dotlessnooni! & $\dotlessnooni$ & !\dotlessnoont! & $\dotlessnoont$ \\
+% !\dotlessfeh! & $\dotlessfeh$ & !\dotlessfehi! & $\dotlessfehi$ & !\dotlessfeht! & $\dotlessfeht$ \\
+% !\dotlessqaf! & $\dotlessqaf$ & !\dotlessqafi! & $\dotlessqafi$ & !\dotlessqaft! & $\dotlessqaft$ \\
+% \end{tabular}
+%
+% \begin{tabular}{l c|l c|l c}
+%  !\alefl! & $\alefl$ & !\alefs! & $\alefs$ & !\alefd! & $\alefd$ \\
+%  !\behl! & $\behl$ & !\behs! & $\behs$ & !\behd! & $\behd$ \\
+%  !\jeeml! & $\jeeml$ & !\jeems! & $\jeems$ & !\jeemd! & $\jeemd$ \\
+%  !\dall! & $\dall$ & !\dals! & $\dals$ & !\dald! & $\dald$ \\
+%  !\hehl! & $\hehl$ & !\hehs! & $\hehs$ & !\hehd! & $\hehd$ \\
+%  !\wawl! & $\wawl$ & !\waws! & $\waws$ & !\wawd! & $\wawd$ \\
+%  !\zainl! & $\zainl$ & !\zains! & $\zains$ & !\zaind! & $\zaind$ \\
+%  !\hahl! & $\hahl$ & !\hahs! & $\hahs$ & !\hahd! & $\hahd$ \\
+%  !\tahl! & $\tahl$ & !\tahs! & $\tahs$ & !\tahd! & $\tahd$ \\
+%  !\yehl! & $\yehl$ & !\yehs! & $\yehs$ & !\yehd! & $\yehd$ \\
+%  !\kafl! & $\kafl$ & !\kafs! & $\kafs$ & !\kafd! & $\kafd$ \\
+%  !\laml! & $\laml$ & !\lams! & $\lams$ & !\lamd! & $\lamd$ \\
+%  !\meeml! & $\meeml$ & !\meems! & $\meems$ & !\meemd! & $\meemd$ \\
+%  !\noonl! & $\noonl$ & !\noons! & $\noons$ & !\noond! & $\noond$ \\
+%  !\seenl! & $\seenl$ & !\seens! & $\seens$ & !\seend! & $\seend$ \\
+%  !\ainl! & $\ainl$ & !\ains! & $\ains$ & !\aind! & $\aind$ \\
+%  !\fehl! & $\fehl$ & !\fehs! & $\fehs$ & !\fehd! & $\fehd$ \\
+%  !\sadl! & $\sadl$ & !\sads! & $\sads$ & !\sadd! & $\sadd$ \\
+%  !\qafl! & $\qafl$ & !\qafs! & $\qafs$ & !\qafd! & $\qafd$ \\
+%  !\rehl! & $\rehl$ & !\rehs! & $\rehs$ & !\rehd! & $\rehd$ \\
+%  !\sheenl! & $\sheenl$ & !\sheens! & $\sheens$ & !\sheend! & $\sheend$ \\
+%  !\tehl! & $\tehl$ & !\tehs! & $\tehs$ & !\tehd! & $\tehd$ \\
+%  !\thehl! & $\thehl$ & !\thehs! & $\thehs$ & !\thehd! & $\thehd$ \\
+%  !\khahl! & $\khahl$ & !\khahs! & $\khahs$ & !\khahd! & $\khahd$ \\
+%  !\thall! & $\thall$ & !\thals! & $\thals$ & !\thald! & $\thald$ \\
+%  !\dadl! & $\dadl$ & !\dads! & $\dads$ & !\dadd! & $\dadd$ \\
+%  !\zahl! & $\zahl$ & !\zahs! & $\zahs$ & !\zahd! & $\zahd$ \\
+%  !\ghainl! & $\ghainl$ & !\ghains! & $\ghains$ & !\ghaind! & $\ghaind$ \\
+%  !\dotlessbehl! & $\dotlessbehl$ & !\dotlessbehs! & $\dotlessbehs$ & !\dotlessbehd! & $\dotlessbehd$ \\
+%  !\dotlessnoonl! & $\dotlessnoonl$ & !\dotlessnoons! & $\dotlessnoons$ & !\dotlessnoond! & $\dotlessnoond$ \\
+%  !\dotlessfehl! & $\dotlessfehl$ & !\dotlessfehs! & $\dotlessfehs$ & !\dotlessfehd! & $\dotlessfehd$ \\
+%  !\dotlessqafl! & $\dotlessqafl$ & !\dotlessqafs! & $\dotlessqafs$ & !\dotlessqafd! & $\dotlessqafd$ \\
+% \end{tabular}
+% \normalsize
+%
+% \subsubsection{Alternate symbols}
+% \begin{tabular}{l c}
+% !\alt{\alef}! & $\alt\alef$ \\
+% !\alt{\dal}!  & $\alt\dal$  \\
+% !\alt{\reh}!  & $\alt\reh$  \\
+% !\alt{\noon}! & $\alt\noon$ \\
+% \end{tabular}
+%
+% \subsubsection{Numbers}
+% \begin{tabular}{c c|c c|c c|c c|c c}
+% !0! & $0$ & !1! & $1$ & !2! & $2$ & !3! & $3$ & !4! & $4$ \\
+% !5! & $5$ & !6! & $6$ & !7! & $7$ & !8! & $8$ & !9! & $9$ \\
+% !.! & $.$ & !,! & $,$ & !\%!& $\%$&     &     &     &     \\
+% \end{tabular}
+%
+% \subsubsection{Operator names}
+% \bgroup
+% \arabicfont
+% \def\ARM#1{{\arabicfont\mathdir TRT $#1$}}
+% \begin{tabular}{r l r l r l r l}
+% !\sin! & \ARM{\sin} & !\cos! & \ARM{\cos} &
+% !\tan! & \ARM{\tan} & !\cot! & \ARM{\cot} \\
+% !\sec! & \ARM{\sec} & !\csc! & \ARM{\csc} &
+% !\log! & \ARM{\log} & !\ln!  & \ARM{\ln}  \\
+% !\lim! & \ARM{\lim} & !\rad! & \ARM{\rad} &
+%        &            &        &            \\
+% \end{tabular}
+% \egroup
+%
+% \subsubsection{Big operators}
+% \begin{tabular}{r l}
+% !\sum! & $\arsum$ \\
+% !\lim! & $\falim$ \\
+% \end{tabular}
+%
+% \setmathfont[BoldFont={latinmodern-math.otf}]{latinmodern-math.otf}
+% \MakeShortVerb{\|}
+% \clearpage
+% \section{Implementation}
+%
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+% \subsection{Required packages}
+%
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{arabic-math}
+    [2018/06/06 v0.2 Arabic math support for LuaTeX]
+\RequirePackage{luatexbase}[2013/05/11]
+\RequireLuaModule{arabic-math}
+\RequirePackage{amsmath}
+\RequirePackage{unicode-math}[2015/09/24]
+\RequirePackage{luacode}
+\AtBeginDocument{\directlua{arabicmath.init()}}
+
+\directlua{tex.enableprimitives('', tex.extraprimitives())}
+\directlua{luaotfload.log.set_loglevel(-1)}
+%    \end{macrocode}
+%
+% Setup the math fonts.
+%
+%    \begin{macrocode}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand \setarabicmathfont { O{} m O{} }
+  {
+    \setmathfont {#2}
+    [
+      RightToLeftAlt,
+      StylisticSet=8,
+      #1, #3,
+    ]
+
+    \setmathfont {#2}
+    [
+      RightToLeftAlt,
+      StylisticSet=8,
+      CharacterVariant=1,
+      version=alt01
+      #1, #3,
+    ]
+  }
+\ExplSyntaxOff
+
+\newfontfeature{RightToLeftAlt}{+rtlm;+rtla}
+
+%    \end{macrocode}
+%
+% Our module does not do any processing if |\mathdir| is not |TRT| (i.e.
+% right-to-left), so set it here. TODO allow documents to switch this on and
+% off.
+%
+%    \begin{macrocode}
+\mathdir TRT
+%    \end{macrocode}
+%
+% Make sure equation numbers are on the left.
+%
+%    \begin{macrocode}
+\pagedir TRT
+\bodydir TRT
+\textdir TRT
+\pardir  TRT
+%    \end{macrocode}
+%
+% Use Arabic digits, decimal separator and comma in place of \textsc{ascii}
+% ones.
+%
+%    \begin{macrocode}
+\AtBeginDocument{
+  \Umathcode`0="7 "0 `٠
+  \Umathcode`1="7 "0 `١
+  \Umathcode`2="7 "0 `٢
+  \Umathcode`3="7 "0 `٣
+  \Umathcode`4="7 "0 `٤
+  \Umathcode`5="7 "0 `٥
+  \Umathcode`6="7 "0 `٦
+  \Umathcode`7="7 "0 `٧
+  \Umathcode`8="7 "0 `٨
+  \Umathcode`9="7 "0 `٩
+  \Umathcode`\%="7 "0 `٪
+%%\Umathcode`.="0 "0 `٫
+  \Umathcode`,="6 "0 `،
+}
+%    \end{macrocode}
+%
+% Provide an |\overleftharpoon| command. \textsc{todo} should go to
+% \textsf{unicode-math} package.
+%
+%    \begin{macrocode}
+\ExplSyntaxOn
+\AtBeginDocument{
+  \def\arsum{\arabicmaj}
+  \def\falim{\arabichad}
+  \iftoggle{arabicsum}{\let\sum\arsum}{}
+  \iftoggle{farsilim}{\let\lim\falim}{}
+  \iftoggle{altalef}{\let\old@alef=\alef \def\alef{\alt{\old@alef}}} {}
+  \iftoggle{altdal} {\let\old@dal=\dal   \def\dal{\alt{\old@dal}}}   {}
+  \iftoggle{altreh} {\let\old@reh=\reh   \def\reh{\alt{\old@reh}}}   {}
+  \iftoggle{altnoon}{\let\old@noon=\noon \def\noon{\alt{\old@noon}}} {}
+}
+\ExplSyntaxOff
+%    \end{macrocode}
+%
+% Redefine some text operators. \textsc{todo} http://tex.stackexchange.com/a/199366.
+%
+%    \begin{macrocode}
+\newcommand\DeclareArabicMathOperator[5]{
+  \DeclareMathOperator{#2}{\text{#4}}
+  \DeclareMathOperator{#3}{\text{#5}}
+  \AtBeginDocument{%
+    \iftoggle{dotlessop}{\let #1 = #3}{\let #1 = #2}
+  }%
+}
+
+\DeclareArabicMathOperator {\sin} {\arsin} {\ardotlesssin} {جا}  {حا}
+\DeclareArabicMathOperator {\cos} {\arcos} {\ardotlesscos} {جتا} {حٮا}
+\DeclareArabicMathOperator {\tan} {\artan} {\ardotlesstan} {ظا}  {طا}
+\DeclareArabicMathOperator {\cot} {\arcot} {\ardotlesscot} {ظتا} {طٮا}
+\DeclareArabicMathOperator {\sec} {\arsec} {\ardotlesssec} {قا}  {ٯا}
+\DeclareArabicMathOperator {\csc} {\arcsc} {\ardotlesscsc} {قتا} {ٯٮا}
+\DeclareArabicMathOperator {\log} {\arlog} {\ardotlesslog} {لو}  {لو}
+\DeclareArabicMathOperator {\ln}  {\arln}  {\ardotlessln}  {لط}  {لط}
+
+\DeclareMathOperator*{\arlim}{\text{نهـــــا}}
+\let\lim=\arlim
+
+\Umathchardef\arrad="7 "0 "0608
+\let\rad=\arrad
+%    \end{macrocode}
+%
+% Patch for \textsf{amsmath} to typeset equation numbers in math mode.
+%
+%    \begin{macrocode}
+\let\tagform@old=\tagform@
+\def\tagform@#1{\maketag@@@{\ensuremath{(#1)}}}
+%    \end{macrocode}
+%
+% \subsection{Alternate symbols}
+%
+%    \begin{macrocode}
+\newcommand\alt[1]{%
+  \mathchoice%
+    {\hbox{\mathversion{alt01}$\m@th\displaystyle#1$}}%
+    {\hbox{\mathversion{alt01}$\m@th\textstyle#1$}}%
+    {\hbox{\mathversion{alt01}$\m@th\scriptstyle#1$}}%
+    {\hbox{\mathversion{alt01}$\m@th\scriptscriptstyle#1$}}%
+}
+%    \end{macrocode}
+%
+% \subsection{\LaTeX{} package options}
+%
+%    \begin{macrocode}
+\DeclareOption{ltrdocument}{%
+    \bodydir TLT
+    \pagedir TLT
+    \pardir  TLT
+    \textdir TLT
+}
+\newtoggle{dotlessop}
+\newtoggle{arabicsum}
+\newtoggle{farsilim}
+\newtoggle{altalef}
+\newtoggle{altdal}
+\newtoggle{altreh}
+\newtoggle{altnoon}
+\togglefalse{dotlessop}
+\togglefalse{arabicsum}
+\togglefalse{farsilim}
+\togglefalse{altalef}
+\togglefalse{altdal}
+\togglefalse{altreh}
+\togglefalse{altnoon}
+\DeclareOption{dotlessop}{\toggletrue{dotlessop}}
+\DeclareOption{arabicsum}{\toggletrue{arabicsum}}
+\DeclareOption{farsilim}{\toggletrue{farsilim}}
+\DeclareOption{altalef}{\toggletrue{altalef}}
+\DeclareOption{altdal}{\toggletrue{altdal}}
+\DeclareOption{altreh}{\toggletrue{altreh}}
+\DeclareOption{altnoon}{\toggletrue{altnoon}}
+\ProcessOptions\relax
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+% \subsection{Lua code}
+% The following \textsc{Lua} manipulates the node list to augment Lua\TeX's
+% right-to-left math support.
+%
+%    \begin{macrocode}
+%<*luamodule>
+%    \end{macrocode}
+%
+% \subsection{Common variables}
+%
+%    \begin{macrocode}
+arabicmath        = arabicmath or { }
+
+arabicmath.module = {
+    name        = "arabic-math",
+    version     = 0.2,
+    date        = "2018/06/06",
+    description = "Arabic math support for LuaTeX",
+    author      = "Khaled Hosny",
+    copyright   = "Khaled Hosny",
+    license     = "CC0",
+}
+
+if not modules then modules = { } end modules['arabic-math'] = arabicmath.module
+
+local accentid = node.id("accent")
+local mlistid  = node.id("sub_mlist")
+
+local accentattr = luatexbase.new_attribute("accent")
+%    \end{macrocode}
+%
+% \subsection{Utility functions}
+%
+%    \begin{macrocode}
+local function new_dir_node(dir)
+    local n
+    if node.subtype("dir") then
+        n = node.new("whatsit", "dir")
+    else
+        n = node.new("dir")
+    end
+    n.dir = dir
+    return n
+end
+%    \end{macrocode}
+%
+% \subsection{Processing finished math list}
+%
+% Nodes with `accent' attributes are result from (potentially) extensible
+% accents. We flip any successive number of them as they must always be laid
+% left-to-right.
+%
+%    \begin{macrocode}
+local function process_math_accents(head)
+    if tex.mathdir == "TRT" then
+        for n in node.traverse(head) do
+            if node.has_attribute(n, accentattr) then
+                local accent = n.next
+                if accent and node.has_attribute(accent, accentattr) then
+                    head = node.insert_before(head, n, new_dir_node("+TLT"))
+                    while accent and node.has_attribute(accent, accentattr) do
+                        accent = accent.next
+                    end
+                    head = node.insert_after(head, accent, new_dir_node("-TLT"))
+                end
+            end
+            if n.head then
+                n.head = process_math_accents(n.head)
+            end
+        end
+    end
+    return head
+end
+%    \end{macrocode}
+%
+% \subsection{Preparing math list}
+%
+% Prepare the math list (full of `noads') before |mlist_to_hlist| is called.
+% This used for things where accessing the original math list is required.
+%
+%    \begin{macrocode}
+local function process_sub_mlist(n, func)
+     if n and n.id == mlistid then
+         func(n.head)
+     end
+end
+%    \end{macrocode}
+%
+% If this is an accent node, add an `accent' attribute to the accents. We use
+% this attribute after |mlist_to_hlist| is done to flip multi-glyph accents as
+% they should always be laid out left-to-right.
+%
+%    \begin{macrocode}
+function prepare_math_accents(head)
+    if tex.mathdir == "TRT" then
+        for n in node.traverse(head) do
+            process_sub_mlist(n.nucleus, prepare_math_accents)
+            process_sub_mlist(n.sup, prepare_math_accents)
+            process_sub_mlist(n.sub, prepare_math_accents)
+            process_sub_mlist(n.degree, prepare_math_accents)
+            process_sub_mlist(n.num, prepare_math_accents)
+            process_sub_mlist(n.denom, prepare_math_accents)
+            if n.id == accentid then
+                if n.accent then
+                    node.set_attribute(n.accent, accentattr, 1)
+                end
+                if n.bot_accent then
+                    node.set_attribute(n.bot_accent, accentattr, 1)
+                end
+            end
+        end
+    end
+    return head
+end
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+local function handle_math(head, ...)
+    head = prepare_math_accents(head)
+    head = node.mlist_to_hlist(head, ...)
+    head = process_math_accents(head)
+    return head
+end
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+local function registercallback()
+    luatexbase.add_to_callback("mlist_to_hlist", handle_math, "arabic-math (math)", 1)
+end
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+local letters = {
+    "alef", "beh", "jeem", "dal", "heh", "waw", "zain", "hah", "tah", "yeh",
+    "kaf", "lam", "meem", "noon", "seen", "ain", "feh", "sad", "qaf", "reh",
+    "sheen", "teh", "theh", "khah", "thal", "dad", "zah", "ghain",
+    "dotlessbeh", "dotlessnoon", "dotlessfeh", "dotlessqaf",
+}
+
+local ranges = {
+    [""] =0x1EE00, -- Isolated
+    ["i"]=0x1EE20, -- Initial
+    ["t"]=0x1EE40, -- Tailed
+    ["s"]=0x1EE60, -- Stretched
+    ["l"]=0x1EE80, -- Looped
+    ["d"]=0x1EEA0, -- Double-struck
+}
+
+local function definechars()
+    for suffix, start in next, ranges do
+        for index, name in next, letters do
+            local cmd = string.format('\\Umathchardef\\%s%s="7 "0 "%X', name, suffix, start + index - 1)
+            tex.print(cmd)
+        end
+    end
+end
+
+function arabicmath.init()
+    definechars()
+    registercallback()
+end
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</luamodule>
+%    \end{macrocode}
+%
+% \Finale
+\endinput
