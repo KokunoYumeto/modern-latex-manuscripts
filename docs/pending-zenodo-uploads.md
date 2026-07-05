@@ -1,3 +1,12 @@
+## 2026-07-05: Interlanguage LaTeX source-body inventory refresh
+
+Manifest: [20260705_interlanguage_latex_source_body_inventory_refresh.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_latex_source_body_inventory_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_source_body_inventory/Interlanguage_LaTeX_SourceBody_Inventory_20260705.zip`, 27,159 bytes, SHA256 `C04FE3763D42BB5E8B7A9A290962E565ED972F0F60CD1350803E3FDBCE5CB34D`.
+- Scope/result: small inventory/readme/script packet for the current interlanguage LaTeX source-body ZIP shelf. It counts 13 unique ZIP payloads by SHA256, one duplicate ZIP path, and 8,630 TeX-like entries after duplicate removal, with per-language-hint counts for triage.
+- Caveat: source-corpus/provenance and methodology support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: SGA6 source-rescribe workpass evidence through idx166
 
 Manifest: [20260705_sga6_source_rescribe_idx166_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx166_refresh.json)
