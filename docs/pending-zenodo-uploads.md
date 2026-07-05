@@ -8643,6 +8643,14 @@ Manifest: [20260705_noether_pc_packages422_424_interlanguage_refresh.json](../ma
 - Scope: packages 422-424 from `origin/codex/noether-pc-20260629` remote head `acc6a53a`, adding Persianate/Tajik draft-artifact manifest/checksum material and package-400/402 plus package-417 visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage packages 425-429 R6/Romance coordination
+
+Manifest: [20260705_noether_pc_packages425_429_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages425_429_interlanguage_refresh.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages425_429_RollingDeltas_20260705.zip`, 272,384 bytes, SHA256 `C2CFA4D610DC52E88E38CDC10FC36FC9DD5E478872F085C42B9432AE399ED48C`, 69 entries.
+- Scope: packages 425-429 from `origin/codex/noether-pc-20260629` remote head `6ca2cc29`, adding R6 Indigenous/Creole/Sign access/source-canon/coverage/reader-integration/checksum material, Romance source-canon/French batch-3 local TeX metadata-probe notes, and durable interlanguage run-log updates.
+- Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/access-governance coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 413-416 Pan-Turkic and Malay/SEA/Pacific coordination
 
 Manifest: [20260705_noether_pc_packages413_416_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages413_416_interlanguage_refresh.json)
