@@ -1,11 +1,18 @@
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx205
+
+Manifest: [20260705_sga6_source_rescribe_idx205_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx205_workpass_refresh.json)
+
+- SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx205_Workpass_20260705.zip, 2923983 bytes, SHA256 9C152852E6C847AA8038562BAC67984CAD49E62184D9C72B19DADE213044C5C7.
+- Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #202, idx205 / volume p192 / Expose II p33; next cursor idx206 / volume p193 / Expose II p34.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203 (superseded by idx205)
 
 Manifest: [20260705_sga6_source_rescribe_idx203_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx203_workpass_refresh.json)
 
 - SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx203_Workpass_20260705.zip, 2923767 bytes, SHA256 C6F95DE47A470DB189E7527AC07079580DD0E41A24C536E1B13B03128E36DE4F.
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #200, idx203 / volume p190 / Expose II p31; next cursor idx204 / volume p191 / Expose II p32.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx203)
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx205)
 
 Manifest: [20260705_sga6_source_rescribe_idx202_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx202_workpass_refresh.json)
 
