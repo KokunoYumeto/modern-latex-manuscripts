@@ -1,16 +1,14 @@
-# SGA6 Claude/Codex source-rescribe workpass evidence
+# SGA6 Claude/Codex source-rescribe workpass snapshot idx185
 
-This compact mirror preserves the current local SGA6 French source-rescribe workpass evidence from:
+Date: 2026-07-05
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
+This is a compact provenance/evidence snapshot for the ongoing SGA6 source-rescribe workpass. It mirrors local Claude/Codex audit output from:
 
-Current status as of 2026-07-05:
+$src
 
-- `CERT_LOG.md` reaches entry #178: scan idx181, volume p168, Expose II p9.
-- The next cursor recorded in the ledger is idx182, volume p169, Expose II p10.
-- Expose I is complete through bibliography in this source-rescribe ledger; Expose II is underway.
-- `sga6_fr_workpass.tex` is the current French workpass TeX, with matching PDF/log included.
+Current ledger frontier: CERT_LOG.md entry #182, idx185 / volume p172 / Expose II p13.
+Next source cursor: idx186 / volume p173 / Expose II p14.
 
-Classification:
+Build status: sga6_fr_workpass.log reports Output written on sga6_fr_workpass.pdf (390 pages, 2720433 bytes).
 
-This is source-rescribe provenance and continuation evidence only. It is not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition. The earlier SGA6 repair033/strict files should still be treated as useful scaffold/navigation layers where the ledger says the source-rescribe has not yet reached them.
+Conservative public status: source-rescribe provenance only. This is not completed SGA6 reader output, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition.
