@@ -38,6 +38,35 @@ support for the relevant language and topic:
 If a lane cannot find target-language source witnesses, the correct output is a
 gap/provenance record and a source-acquisition task, not a translation.
 
+## Source-Canon Sufficiency Transition
+
+Source-canon-first is not permission to defer translation forever. Once a lane
+has sufficient baseline evidence for the offered work, it must begin the
+appropriate draft translation work for that evidence scope.
+
+Sufficient baseline means the lane has:
+
+- target-language source witnesses relevant to the mathematical topic and
+  register being translated, with TeX/LaTeX/source archives preferred;
+- or, where source files are not exposed, strong official, academic, or
+  community PDF/DOCX/HTML/text provenance with explicit source-package gaps;
+- language/topic coverage, source URLs, hashes, and license/access signals
+  recorded;
+- known gaps and weak witnesses marked, not hidden;
+- no credential, raw-source-body, OCR-cache, or package-safety blocker.
+
+When those conditions are met, the lane should produce draft, non-canonical
+translation artifacts for the relevant rows: target renderings, source-context
+notes, term alternatives, formula-neighboring usage notes, and interlinear or
+semi-constructed interlanguage/linguistic scaffolds where those help compare
+registers across languages. These outputs remain review material, not accepted
+terminology or native-reviewed translation.
+
+If baseline evidence covers only part of a lane, start translating that covered
+part and keep uncovered rows in source-acquisition or gap status. Do not wait
+for every possible corpus item or every language in a cluster before working on
+rows whose source baseline is already adequate.
+
 ## Required Shared Checks
 
 Before each work turn, every Noether session should check:
@@ -111,6 +140,8 @@ inside its local goal or run log:
 - shared GitHub/source instructions as the open-machine coordination channel;
 - cross-lane evidence checks;
 - no isolated translation work without source witnesses;
+- no endless source-only loop once adequate witnesses exist for the offered
+  translation task;
 - package/publication through B3 only.
 
 Language lanes do not push. The B3/package steward stages, commits, pushes,

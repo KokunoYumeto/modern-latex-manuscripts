@@ -23,6 +23,10 @@ Global research program:
 - Source canon comes first.
 - Every lane must record provenance, URLs, hashes, language/topic evidence, and
   license/access signals before translation claims.
+- Source-canon-first is a prerequisite, not an endless holding pattern. Once a
+  lane has sufficient baseline witnesses for the offered language/topic scope,
+  it should begin draft translation and interlinear/interlanguage construction
+  for covered rows while leaving uncovered rows as source-acquisition gaps.
 - Generated translations, draft terms, OCR guesses, and bridge output do not
   count as source canon.
 - Raw source bodies, zip primaries, credentials, runtime caches, and unredacted
@@ -34,6 +38,10 @@ Coordination consequence:
   records before acting.
 - When a machine needs another lane to act, it should publish a GitHub-tracked
   task record rather than relying on a local conversation.
+- When a lane has adequate source baseline, it should publish the resulting
+  draft translation/interlinear artifacts with clear draft, non-canonical, and
+  not-native-reviewed labels instead of waiting for unrelated languages or
+  infinite corpus expansion.
 - When GitHub-tracked instructions conflict with older local side-channel
   notes, follow the newer GitHub-tracked instruction for Noether operations
   while preserving user, safety, clean-checkout, source-license, and credential

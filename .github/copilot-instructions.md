@@ -22,6 +22,14 @@ For every source witness, record language evidence, topic tags, URL, source
 path, license/access signal, hash, byte count, upload policy, and blocker reason
 if not uploaded.
 
+Once adequate source-canon support exists for the offered language/topic scope,
+do not keep source acquisition as a permanent blocker. Begin the scoped draft
+translation work: target-language renderings, source-context notes, term
+alternatives, formula-neighboring usage notes, and interlinear or
+semi-constructed interlanguage/linguistic scaffolds where useful for comparing
+registers across languages. Keep uncovered rows in source-acquisition or gap
+status, but translate covered rows as draft/non-canonical review material.
+
 ## Shared Context To Read
 
 - `AGENTS.md`
