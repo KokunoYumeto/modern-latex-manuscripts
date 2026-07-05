@@ -1,0 +1,1918 @@
+Spis treści
+1 Elementy teorii kategorii
+1.1 Kategorie, funktory, transformacje naturalne . . . . . . . . .
+1.2 Funktory reprezentowalne . . . . . . . . . . . . . . . . . . . .
+1.3 Funktory sprzężone . . . . . . . . . . . . . . . . . . . . . . . .
+1.4 Produkty i koprodukty, granice i kogranice . . . . . . . . . .
+1.5 Kategorie addytywne . . . . . . . . . . . . . . . . . . . . . . .
+1.6 Zadania . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.6.1 Funktory sprzężone . . . . . . . . . . . . . . . . . . .
+
+3
+3
+7
+8
+9
+12
+14
+15
+
+2 Rozszerzenia grup
+19
+2.1 Rozszerzenia z abelowym jądrem. . . . . . . . . . . . . . . . . 19
+2.2 Zadania . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+2.2.1 Funktorialne własności rozszerzeń . . . . . . . . . . . 24
+2.2.2 Automorﬁzmy rozszerzenia i grupa H 1 (K, H). . . . . . 24
+3 Grupy rozwiązalne
+
+29
+
+4 Teoria Galois
+31
+4.1 Ciało rozkładu wielomianu . . . . . . . . . . . . . . . . . . . . 31
+4.1.1 Istnienie i jednoznaczność ciał skończonych. . . . . . . 32
+4.2 Podstawy teorii Galois - odpowiedniość Galois . . . . . . . . . 32
+4.2.1 Odpowiedniość Galois . . . . . . . . . . . . . . . . . . 32
+4.2.2 Normalne podgrupy grupy Galois . . . . . . . . . . . . 34
+4.2.3 Skończone rozszerzenia normalne. . . . . . . . . . . . . 36
+4.3 Rozszerzenia pierwiastnikowe . . . . . . . . . . . . . . . . . . 38
+4.4 Zadania . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+5 Konstrukcje geometryczne
+
+47
+
+1
+
+Rozdział 1
+
+Elementy teorii kategorii
+1.1 Kategorie, funktory, transformacje naturalne
+Teorię kategorii zapoczątkował artykuł: Samuel Eilenberg, Saunders Mac
+Lane General Theory of Mathematical Equivalences, Trans. of Mathematics
+1945
+Deﬁnicja 1. Kategoria C to:
+• klasa obiektów ob C
+• dla każdych dwóch obiektów X, Y ∈ ob C dany jest zbiór morﬁzmów
+MorC (X, Y )
+• dla każdego obiektu X ∈ ob C wyróżniony jest morﬁzm idX ∈ MorC (X, Y )
+• dla każdych trzech obiektów X, Y, Z ∈ ob C dana jest funkcja (składanie
+morﬁzmów)
+◦ : MorC (Y, Z) × MorC (X, Y ) −→ MorC (X, Z)
+(g, f ) −→ g ◦ f
+taka, że
+(h ◦ g) ◦ f = h ◦ (g ◦ f )
+idY ◦ f = f ◦ idX = f
+Kategorie oznaczamy na ogół literami A, B, C a zbiory morﬁzmów między
+obiektami X, Y ∈ ob (C) oznaczamy C(X, Y ) lub MorC (X, Y ).
+Dla każdej kategorii C możemy skonstruować kategorię przeciwną ”odwracając” strzałki.
+Deﬁnicja 2. Dla kategorii C przez C op oznaczamy kategorię przeciwną do
+kategorii C, czyli taką, że ob C op = ob (C) a dla dowolnych A, B ∈ ob C op
+deﬁniujemy C op (A, B) := C(B, A) z oczywistą operacją składania.
+3
+
+Deﬁnicja 3. Morﬁzm f ∈ MorC (X, Y ) nazywamy izomorﬁzmem jeżeli istnieje morﬁzm g ∈ MorC (Y, X), dla którego g ◦ f = idX i f ◦ g = idY .
+Deﬁnicja 4. Kategoria C ′ jest podkategorią kategorii C, jeżeli ob C ′ ⊂ ob C
+oraz MorC ′ (X, Y ) ⊂ MorC (X, Y ) z tą samą co w C operacją składania i tymi
+samymi wyróżninymi morﬁzmami identycznociowymi. Podkategoria C ′ ⊂ C
+nazywa się pełna, jeżeli dla każdych X, Y ∈ C ′ , MorC ′ (X, Y ) = MorC (X, Y )
+.
+Deﬁnicja 5. Kategorię C nazywamy małą jeśli klasa obiektów ob (C) jest
+zbiorem.
+Przykłady:
+Set – kategoria zbiorów i ich dowolnych przekształceń,
+Set∗ – kategoria zbiorów z wyróżnionym punktem i przekształceń zachowujących te punkty,
+Gr – kategoria grup i homomorﬁzmów; Ab ⊂ Gr pełna podkategoria grup
+abelowych,
+R1 – kategoria pierścieni przemiennych z 1 i homomorﬁzmów,
+T – kategoria przestrzeni topologicznych i przekształceń ciągłych,
+BG – jeżeli G jest grupą, to przez BG oznaczać będziemy kategorię o jednym
+obiekcie, w której morﬁzmy odpowiadają elementom grupy a ich składanie
+jest wyznaczone przez działanie grupowe.
+EG – jeżeli G jest grupą, to przez EG oznaczać będziemy kategorię, w której
+obiekty odpowiadają elementom grupy G, i w której jest dokładnie jeden
+g1 → g2 wyznaczny przez element g2 g1−1 . Mamy oczywisty funktor EG →
+BG.
+C(X) – Jeżeli X jest zbiorem częściowo uporządkowanym, to możemy traktować go jako kategorię, której obiektami są elementy tego zbioru, zaś między
+obiektami x i y istnieje morﬁzm x → y jeżeli x ≤ y. Funktory między takimi
+kategoriami, to funkcje zachowujące porządek. Kategorią taką oznaczamy
+symbolem C(X).
+Deﬁnicja 6. Funktor (kowariantny) F : C → D między kategoriami C i D
+jest zadany przez przyporządkowanie obiektom kategorii C obiektów kategorii
+D:
+F : ob (C) → ob (D)
+oraz odwzorowania
+FX,Y : MorC (X, Y ) → MorD (F (X), F (Y )),
+określone dla dowolnych obiektów X, Y ∈ ob (C) i takie, że
+FX,X (ιX ) = ιF (X)
+
+FX,Z (gh) = FY,Z (g)FX,Y (h).
+
+Funktor kowariantny F : C op → D nazywa się funktorem kontrawariantnym
+na C.
+Deﬁnicja 7. Jeśli dane są dwa funktory Fi : C → D, i = 1, 2 to ich transformacją naturalną nazywamy przyporządkowanie każdemu obiektowi
+X ∈ ob (C) morﬁzmu (w D) ΦX : F1 (X) → F2 (X) tak, że dla dowolnego
+morﬁzmu f : X → Y w C następujący diagram w kategorii D jest przemienny:
+F1 (X)
+
+ΦX
+
+F1 (f )
+
+/ F2 (X)
+F2 (f )
+
+
+
+F1 (Y )
+
+ΦY
+
+
+/ F2 (Y )
+
+Transformacja naturalna Φ nazywa się naturalną równoważnością funktorów
+jeśli dla każdego obiektu X ∈ ob (C), morﬁzm ΦX jest izomorﬁzmem.
+Deﬁnicja 8. Funktor F : C −→ D jest równoważnością kategorii wtedy i
+tylko wtedy, gdy istnieje funktor G : D −→ C oraz naturalne równoważności
+funktorów F ◦ G ≃ idD i G ◦ F ≃ idC .
+Podamy znacznie wygodniejszy warunek na to, by funktor był równoważnościa kategorii - nie wymagający konstruowania funktora odwrotnego.
+Twierdzenie 1. Funktor F : C −→ D jest równoważnością kategorii wtedy
+i tylko wtedy, gdy
+1. F : MorC (A, B) −→ MorD (F (A), F (B)) jest bijekcją dla dowolnych
+A, B ∈ ob (C);
+2. każdy obiekt Y ∈ ob (D) jest izomorﬁczny z obiektem F (A) dla pewnego
+A ∈ ob (C).
+Doskonałe wyjaśnienie motywacji tych deﬁnicji, a w szczególności transformacji naturalnej znajduje się we wstępie do oryginalnego artykułu EilenbergaMacLane’a, w którym zostały wprowadzone do matematyki pojęcia teorii
+kategorii. Przytoczymy omawiany tam przykład:
+Przykład 1. Zdeﬁniujemy kategorię skończenie wymiarowych, rzeczywistych przestrzeni wektorowych VectfRin . Jej obiektami są skończenie wymiarowe rzeczywiste przestrzenie wektorowe. Dla dowolnych dwóch przestrzeni
+V, W ∈ ob (VectfRin ), morﬁzmy to odwzorowania liniowe, czyli Mor(V, W ) :=
+HomR (V, W ). Złożenie morﬁzmów to złożenie przekształceń liniowych a element neutralny to przekształcenie identycznościowe. Tak zdeﬁniowana VectfRin
+spełnia oczywiście aksjomaty kategorii Def. 1. Zauważmy przy okazji, że kategoria VectfRin jest równoważna swojej podkategorii, której obiektami są
+
+przestrzenie wektorowe N := {Rn | n = 0, 1, 2, . . . } a morﬁzmami wszystkie
+odworowania liniowe. Istotnie, włożenie N → C jest równoważnością kategorii, bo każda przestrzeń skończenie wymiarowa jest izomorﬁczna z pewną
+przestrzenią Rn .
+Na kategorii VectfRin rozpatrzymy dwa funktory, znane dobrze z Algebry
+Liniowej:
+• Funktor kontrawariantny przestrzeni sprzężonej ∗ : (VectfRin )op → VectfRin
+przypisujący przestrzeni V przestrzeń sprzężoną V ∗ oraz odwzorowaniu liniowemu f : V → W przekształcenie liniowe f ∗ : W ∗ → V ∗ .
+• Funktor drugiej przestrzeni sprzężonej, czyli złożenie funktora ∗ ze sobą. Jest to funktor kowariantny ∗∗ : VectfRin → VectfRin , który przypisuje przestrzeni wektorowej V przestrzeń V ∗∗ := (V ∗ )∗ a homorﬁzmowi
+f : V → W przekształcenie liniowe f ∗∗ : V ∗∗ → W ∗∗ .
+Dla każdej przestrzeni liniowej V istnieje izomorﬁzm V ≃ V ∗ , ale do
+zdeﬁniowania go konieczny jest pewien wybór np. bazy w V lub iloczynu
+skalarnego w V .
+Izomorﬁzm V ≃ V ∗∗ , może być zdeﬁniowany kanonicznie tzn. wyłącznie
+w terminach przestrzeni V , bez odwoływania się do dodatkowych struktur,
+jak w poprzednim przypadku. Dla dowolnej przestrzeni V zdeﬁniujmy przekształcenie liniowe ΦV : V → V ∗∗ wzorem ΦV (v)(φ) := φ(v). przekształcenie ΦV jest różnowartościowe, a więc dla skończenie wymiarowych przestrzeni wektorowych jest izomorﬁzmem, bowiem dim(V ) = dim(V ∗∗ ). Znane
+z Algebry Liniowej określenie ΦV jako kanonicznego izomorﬁzmu znajduje ścisłe sformułowanie w postaci stwierdzenia, że ΦV jest transformacją
+naturalną (równoważnością) funktora identycznościowego do funktora drugiej przestrzeni sprzężonej. Istotnie, dla dowolnego odwzorowania liniowego
+f : V → W diagram przekształceń liniowych:
+V
+
+ΦV
+
+/ V ∗∗
+f ∗∗
+
+f
+
+
+
+W
+
+ΦW
+
+
+/ W ∗∗
+
+jest przemienny.
+Zauważmy, że dla każdej z kategorii 1.–9. istnieje funktor zapominania
+F : C → Set prowadzący do kategorii zbiorów, polegający na przyporządkowaniu zbiorowi ze strukturą samego zbioru, a morﬁzmom odpowiednich
+przekształceń zbiorów. Funktor zapominania jest oczywiście różnowartościowy na zbiorach morﬁzmów, ale na ogół skleja klasy izomorﬁzmu obiektów
+
+np. F : Gr → Set przeprowadza nieizomorﬁczne grupy Z4 i Z2 ⊕ Z2 na izomorﬁczne zbiory czteroelementowe. Kategorie wyposażone w funktor zapominania do kategorii zbiorów (który można opisać aksjomatycznie) nazywają
+się kategoriami konkretnymi. Mówiąc nieformalnie, są to kategorie których
+obiektami są zbiory z wyróżnioną strukturą (np. porządkiem, działaniem lub
+topologią) a morﬁzmami przekształcenia zbiorów zachowujące tę strukturę.
+Deﬁnicja 9. Kategorię C nazywamy małą jeśli klasa obiektów ob (C) jest
+zbiorem.
+Obiekty w małych kategoriach często oznaczamy małymi literami, a więc
+c ∈ ob (C). Kategorie BG i EG są przykładami małych kategorii, kategoria
+Przykład 2. Niech (S, ≤) będzie zbiorem częściowo uporządkowanym (poset). Zdeﬁniujemy kategorię CS , w której ob (CS ) := S oraz
+{
+(s2 , s1 ) jeśli s1 ≤ s2
+Mor(s1 , s2 ) =
+.
+∅ w przeciwnym przypadku.
+Złożenie zdeﬁniowane jest w oczywisty sposób: (s3 , s2 )(s2 , s1 ) := (s3 , s1 ).
+Małe kategorie i funktory między nimi tworzą kategorię (bo funktory
+między małymi kategoriami tworzą zbiór!) oznaczaną Cat. Ostatnie przykłady oznaczają, że kategoria grup i kategoria zbiorów częściowo uporządkowanych są równoważne pewnym podkategoriom w Cat. Jedynym wspólnym
+obiektem obu odpowiednich podkategorii jest zbiór jednopunktowy.
+
+1.2 Funktory reprezentowalne
+Dowolny obiekt kategorii C wyznacza funktor kowariantny i funktor kontrawariantny do kategorii zbiorów.
+Deﬁnicja 10. Dla X ∈ ob C deﬁniujemy funktory:
+• Funktor kowariantny RX : C → Set reprezentowany przez obiekt X:
+– RX (U ) := MorC (X, U ) dla U ∈ ob (C)
+– RX (f )(g) := f ◦ g dla f : U → V i g : X → U
+• Funktor kontrawariantny RX : C → Set reprezentowany przez obiekt
+X.
+– RX (U ) := MorC (U, X) dla U ∈ ob (C)
+– RX (f )(g) := g ◦ f dla f : U → V i g : V → X
+Deﬁnicja 11. Funktor kontrawariantny F : C → Set nazywamy reprezentowalnym wtedy i tylko wtedy, gdy istnieje obiekt X ∈ C oraz naturalna
+równoważność funktorów RX → F . Analogicznie dla funktora kowariantnego.
+
+1.3 Funktory sprzężone
+Adjoint functors arise
+everywhere.
+Saunders Mac Lane
+
+Pojęcie funktorów sprzężonych (dołączonych - adjoint functors) nawiązuje do pojęcia przekształcenia sprzężonego, znanego z algebry liniowej. Jeśli (V, ⟨−, −⟩V ) oraz (W, ⟨−, −⟩W ) są skończenie wymiarowymi rzeczywistymi przestrzeniami liniowymi wyposażonymi w iloczyn skalarny, to dowolnemu przekształceniu liniowemu f : V → W można przypisać przekształcenie
+sprzężone (lub dołączone) f ! : W → V takie, że dla dowolnych elementów
+v ∈ V, w ∈ W zachodzi równość: ⟨v, f ! (w)⟩V = ⟨f (v), w⟩W . Puszczając nieco wodze matematycznej fantazji można myśleć o przyporządkowaniu parze obiektów kategorii zbioru morﬁzmów jako rodzaju ”formy dwuliniowej”,
+której wartościami są zbiory. Ten punkt widzenia prowadzi naturalnie do
+deﬁnicji funktorów sprzężonych dołączonych.
+Deﬁnicja 12. Funktory F : C → D i G : D → C nazywamy sprzężonymi
+(dołączonymi), gdy istnieje naturalna równoważność funktorów na kategorii
+C op × D o wartościach w Set
+≃
+
+Φ : MorC (· , G(· ))
+
+f
+
+/ C1 w C oraz D1
+
+ΦC1 ,D1
+
+/ MorD (F (C1 ), D1 )
+
+tzn. dla dowolnej pary morﬁzmów C2
+diagram:
+MorC (C1 , G(D1 ))
+
+/ MorD (F (· ), · )
+
+≃
+
+G(h)! f !
+
+h
+
+/ D2 w D
+
+(1.1)
+
+
+
+h! F (f )!
+
+MorC (C2 , G(D2 ))
+
+ΦC2 ,D2
+≃
+
+
+/ MorD (F (C2 ), D2 )
+
+jest przemienny. Mówimy, że funktor F jest lewo-sprzężony do funktora G,
+a G jest prawo-sprzężony do funktora F .
+Przykład 3. Zbiór morﬁzmów w kategorii zbiorów oznaczamy Map (−, −).
+Dla trzech zbiorów X, Y, Z ∈ ob (Set) istnieje naturalna równoważność funktorów
+Φ(X,Y,Z) : Map (X × Y, Z) ≃ Map (X, Map (Y, Z))
+dana wzorem Φ(X,Y,Z) (f )(x)(y) := f (x, y). Ustalając zbiór Y otrzymujemy,
+że funktor RY (Z) = Map (Y, Z) posiada funktor lewo-dołączony F (X) :=
+X ×Y.
+Bardzo ważnymi przykładami funktorów dołączonych są funktory dołączone do funktorów zapominania.
+
+1.4 Produkty i koprodukty, granice i kogranice
+Deﬁnicja 13. Produktem (kartezjańskim) obiektów X i Y w kategorii C
+nazywamy obiekt P wraz z morﬁzmami P −→ pX X i P −→ pY Y , który
+ma następującą własność uniwersalności: dla dowolnych morﬁzmów W −→
+f X i W −→ gY istnieje dokładnie jeden morﬁzm W −→ hP , dla którego
+pX ◦ h = f i pY ◦ h = g.
+W
+f
+
+
+
+Y o
+
+g
+
+/X
+O
+h
+
+(1.2)
+
+pX
+
+pY
+
+P
+
+Deﬁnicja 14. Koproduktem obiektów X i Y w kategorii C nazywamy obiekt
+S wraz z morﬁzmami X −→ iX S i Y −→ iY S, który ma następująca własność uniwersalności: dla dowolnych morﬁzmów X −→ f W i Y −→ gW istnieje dokładnie jeden morﬁzm S −→ hW , dla którego h◦iX = f i h◦iY = g.
+SO o
+
+iX
+h
+
+iY
+
+Y
+
+g
+
+(1.3)
+
+X
+f
+
+
+
+/W
+
+Uwaga. Koprodukt obiektów X i Y w kategorii C jest produktem w kategorii
+C op .
+1.4.1. Podać deﬁnicję produktu i koproduktu dowolnej rodziny obiektów
+{Xj }j∈J .
+Produkt (odpowiednio koprodukt) rodziny obiektów {Xj }j∈J oznaczamy:
+∏
+⨿
+Produkt:
+Xj
+Koprodukt :
+Xj
+j∈J
+
+j∈J
+
+Produkt rodziny obiektów nazywamy czasem produktem kartezjańskim a
+koprodukt sumą prostą.
+Zdeﬁniujemy teraz ogólniejszą konstrukcję granicy (zwanej też granicą
+odwrotną) i kogranicy (zwanej też granicą prostą) diagramu modelowanego
+na małej kategorii.
+Deﬁnicja 15. Niech I będzie małą kategorią. Diagramem w kategorii C
+modelowanym na I nazywamy dowolny funktor F : I → C. Powiemy, że
+rodzina morﬁzmów {fj : W → F (j)}j∈I jest zgodna jeżeli dla każdego αij :
+i → j morﬁzmu w I, F (αij ) ◦ fi = fj .
+
+Deﬁnicja 16. Granicą (lub granicą odwrotną) diagramu F : I → C nazywamy obiekt L w kategorii C (oznaczamy go lim I F ) wraz ze zgodną rodziną
+morﬁzmów {pj : L → F (j)}j∈ob I , który posiada następującą własność uniwersalności: dla każdego obiektu W i zgodnej rodziny {fj : W → F (j)}j∈ob I
+istnieje dokładnie jeden morﬁzm g : W → L, dla którego pj ◦ g = fj dla
+każdego j ∈ ob I.
+Jeżeli odwrócimy strzałki dostaniemy dualne pojęcie granicy prostej (zwanej
+też kogranicą) diagramu.
+Deﬁnicja 17. Kogranicą (lub granicą prostą) diagramu F : I → C nazywamy obiekt C w kategorii C (oznaczamy go colim I F ) wraz ze zgodną rodziną
+morﬁzmów {sj : F (j) → C}j∈ob I , który posiada następującą własność uniwersalności: dla każdego obiektu W i zgodnej rodziny {fj : F (j) → W }j∈ob I
+istnieje dokładnie jeden morﬁzm g : C → W , dla którego g ◦ sj = fj dla
+każdego j ∈ ob I.
+Stwierdzenie 1. Granica i kogranica diagramu, o ile istnieje, to tylko jedna
+z dokładnością do izomorﬁzmu.
+Przykład 4. Granica (odp. kogranica) diagramu modelowanego na kategorii dyskretnej (tzn. w której istnieją tylko morﬁzmy identycznościowe) jest
+izomorﬁczna z produktem (odp. koproduktem) rodziny obiektów.
+Deﬁnicja 18. Obiekt i0 ∈ ob C nazywa się początkowy, jeżeli dla każdego
+obiektu c ∈ ob C istnieje dokładnie jeden morﬁzm i0 → c. Obiekt i∞ ∈ ob C
+nazywa się końcowy jeżeli jest obiektem początkowym w C op .
+Przykład 5. Opiszemy bardzo ważne konstrukcje granicy i kogranicy diagramu zbiorów. Niech F : I → Set będzie diagramem w kategorii zbiorów.
+Granica diagramu F jest podzbiorem zdeﬁniowanym następująco:
+∏
+lim I F := {{xi } ∈
+F (i) | ∀α : i→j F (α)(xi ) = xj }
+i∈ob I
+
+Morﬁzmy pi : lim I F → F (i) to obcięcia rzutowań z iloczynu kartezjańskiego
+na czynniki.
+Kogranicę diagramu deﬁniujemy dualnie, jako zbiór ilorazowy sumy rozłącznej.
+⨿
+colim I F := (
+F (i))/ ∼
+i∈ob I
+
+gdzie ∼ jest najmniejszą relacją zawierającą utożsamienia (x′ , i) ∼ (x′′ , j)
+jeśli istnieją morﬁzmy αi : i → k oraz αj : j → k takie, że F (αi )(x′ ) =
+F (αj )(x′′ ). Morﬁzmy si : F (i) → colim I F są zdeﬁniowane przez włożenia
+w koprodukt.
+
+Stwierdzenie 2. Niech F : I → C będzie dowolnym diagramem. Obiekt
+C ∈ ob (C) z morﬁzmami strukturalnymi {C → F (i)}i∈ob (I) jest granicą odwrotną diagramu F wtedy i tylko wtedy, gdy reprezentuje funktor
+GF : C → Set dany wzorem GF (X) = lim I MorC (X, F (−)) ( gdzie lim jest
+obiektem w kategorii Set) a morﬁzmy strukturalne odpowiadają elementowi
+id ∈ GF (C).
+Deﬁnicja 19. Granicę diagramu modelowanego na kategorii 0 ⇒ 1 (czyli
+dwóch morﬁzmów między tymi samymi obiektami) nazywamy ekwalizatorem
+tych morﬁzmów (także jądrem różnicowym) i oznaczamy Eq , a kogranicę
+ich koekwalizatorem (także kojąderem różnicowym) i oznaczamy Coeq.
+Przykład 6. Niech f, g : V ⇒ W będą dwoma odwzorowaniami liniowymi.
+Wtedy Eq(f, g) = ker(f − g) a Coeq(f, g) = coker(f − g). W szczególności
+jeśli g = 0, to jądro różnicowe jest po prostu jądrem przekształcenia f , a
+kojądro róznicowe, jego kojądrem.
+Stwierdzenie 3. Jeśli w kategorii C istnieją ekwalizatory dla dowolnej pary
+morﬁzmów (odp. koekwalizatory) oraz produkty (odp. koprodukty) dowolnej
+(skończonej) rodziny obiektów , to istnieją w niej granice (odp. kogranice)
+dowolnych (skończonych) diagramów.
+Stwierdzenie 4. Niech F : I → C będzie dowolnym diagramem. Niech
+G : C → C ′ będzie funktorem.
+a) Jeżeli w kategoriach C i C ′ istnieją granice i funktor G posiada funktor
+lewo-dołączony H : C ′ → C, to istnieje naturalny izomorﬁzm
+lim I (G ◦ F ) ∼
+= G ◦ lim I F
+b) Jeżeli w kategoriach C i C ′ istnieją kogranice i funktor G posiada funktor
+prawo-dołączony H : C ′ → C, to istnieje naturalny izomorﬁzm
+colim I (G ◦ F ) ∼
+= G ◦ colim I F
+Dowód. Udowodnimy punkt a), dowód b) jest analogiczny.
+Istnieje naturalny morﬁzm w kategorii C ′ , G ◦ lim I F → lim I (G ◦ F ).
+Pokażemy, że jest on izomorﬁzmem. Dla dowolnego obiektu Y ∈ C ′ mamy
+ciąg izomorﬁzmów:
+M orC ′ (Y, G ◦ lim I F ) ∼
+=
+∼
+=
+
+M orC (H(Y ), lim I F )
+lim I M orC (H(Y ), F )
+
+∼
+= lim I M orC ′ (Y, G ◦ F )
+∼
+= M orC ′ (Y, lim I (G ◦ F )
+Z tego wynika już teza wobec natępującego lematu.
+
+Lemat 1. Jeżeli w kategorii C morﬁzm f : X → Y indukuje izomorﬁzm
+funktorów MorC (·, X) → MorC (·, Y ) (lub MorC (Y, ·) → MorC (X, ·)), to f
+jest izomorﬁzmem.
+Dowód. Dowód pozostawiamy czytelnikowi.
+
+1.5 Kategorie addytywne
+Zauważmy, że w kategorii np. grup abelowych, przestrzeni liniowych skończony produkt i skończona suma to jest to samo. W tych kategoriach możemy
+też mówić o morﬁzmach zerowych. Wspólnym językiem dla tych pojęć jest
+kategoria addytywna.
+Deﬁnicja 20. Obiektem zerowym kategorii C nazywamy obiekt, który jest
+jednocześnie początkowy i końcowy.
+Deﬁnicja 21. Kategorię C nazywamy addytywną, jeżeli :
+a) dla dowolnych obiektów X, Y ∈ obC, MorC (X, Y ) jest grupą przemienną;
+b) składanie morﬁzmów jest dwuliniowe;
+c) w kategorii C istnieje obiekt zerowy;
+d) w kategorii C istnieją skończone produkty;
+e) w kategorii C istnieją skończone koprodukty
+Pokażemy, ze dwa ostatnie warunki ( przy spełnieniu pierwszych trzech)
+są równoważne i są równoważne następującemu:
+Stwierdzenie 5. Niech C będzie kategorią spełniającą warunki a), b), c).
+Rozważmy następujący warunek:
+f): Dla dowolnych dwóch obiektów X, Y ∈ obC istnieje obiekt Z ∈ obC oraz
+morﬁzmy iX : X → Z, pX : Z → X, iY : Y → Z, pY : Z → Y , które
+spełniaja następujace warunki:
+pX iX = idX
+pY iY = idY
+
+pX iY = 0
+pY iX = 0
+
+iX pX + iY pY = idZ
+Wówczas warunki d),e),f) są równoważne oraz suma i produkt obiektów X,Y
+jest izomorﬁczna obiektowi Z. Obiekt ten będziemy oznaczać symbolem X ⊕Y
+i nazywać sumą prostą.
+
+Dowód. Pokażemy, że warunki d) i f ) są równoważne. Niech X × Y będzie
+produktem. Pokażemy, że spełnia on warunek f), tak więc obiekt o pożądanych własnościach istnieje. Morﬁzmy pX = πX i pY = πY niech będą
+rzutowaniami. Niech iX będzie zdeﬁniowany przez warunki pX iX = idX
+oraz pY iX = 0, analogicznie dla iY . Wystarczy sprawdzić, że
+iX pX + iY pY = idX×Y .
+W tym celu liczymy złożenia:
+pX ◦ (iX pX + iY pY ) = pX iX pX + pX iY pY = idX pX + 0pY = pX
+i analogicznie
+pY (iX pX + iY pY ) = pY .
+Zatem z deﬁnicji produktu wnosimy, że
+iX pX + iY pY = idX×Y .
+Niech Z spełnia warunek f). Pokażemy, że (Z, pX , pY ) spełnia warunek uniwersalny deﬁniujący produkt. Niech g : W → X i h : W → Y będą dowolnymi morﬁzmami. Deﬁniujemy morﬁzm iX g + iY h : W → Z. Spełnia on
+pX (iX g + iY h) = g oraz pY (iX g + iY h) = h. Ponadto, jeżeli k : W → Z
+spełnia pX k = g i pY k = h, to k = (iX pX + iY pY )k = iX pX k + iY pY k =
+iX g + iY h, co kończy dowód. Równoważność warunków e) i f) dowodzi się
+analogicznie, trzeba tylko odwrócić strzałki.
+Deﬁnicja 22. Niech C i D będą kategoriami addytywnymi. Funktor F : C →
+D nazywa się addytywny, jeżeli F : MorC (X, Y ) → MorD (F (X), F (Y )) jest
+homomorﬁzmem grup.
+Stwierdzenie 6. Niech C i D będą kategoriami addytywnymi. Funktor F :
+C → D jest addytywny wtedy i tylko wtedy, gdy
+f (0) = 0
+i dla dowolnych obiektów a, b ∈ obC,
+F (a ⊕ b) = F (a) ⊕ F (b).
+W deﬁnicji kategorii addytywnej nie zakładamy istnienia granic i kogranic. Natomiast jeśli istnieje granica (ekwalizator) diagramu x
+
+f
+0
+
+nazywamy ją jądrem morﬁzmu f i mamy
+ker f
+
+i
+
+/x
+
+f
+0
+
+//
+
+y.
+
+// y , to
+
+Analogicznie kogranica (koekwalizator), o ile istnieje, nazywa sie kojądrem
+morﬁzmu, jest oznaczana symbolem coker i mamy
+f
+
+//
+
+x
+0
+
+j
+
+y
+
+/ coker f .
+
+Zakładając istnienie odpowiednich jąder i kojąder mamy dalej: Koobrazem, oznaczanym symbolem coim, morﬁzmu f : x → y nazywamy kojądro ker f → x, czyli mamy x → coim f . Deﬁniujemy także im f jako jądro
+y → coker f , czyli dostajemy morﬁzm im f → y.
+Lemat 2. Niech f : x → y będzie morﬁzmem w addytywnej kategorii C, dla
+którego istnieją ker f , coker f , coim f oraz im f . Wówczas morﬁzm f może
+być jednoznacznie przedstawiony jako złożenie:
+x
+
+s
+
+/ coim f
+
+u
+
+/ im f
+
+v
+
+/y.
+
+f
+
+/Y
+v: O
+
+k
+
+/ coker f
+
+Dowód. Rozważmy diagram:
+ker f
+
+/X
+
+f˜
+
+v
+
+v
+v
+v
+u
+coim f /o /o /o / im f
+s
+
+
+
+v
+
+Istnieje dokładnie jeden morﬁzm f˜ : coim f → y, bo ker f → x → y
+jest morﬁzmem zerowym, a coim f koekwalizatorem. Rozważmy teraz homomorﬁzm f k : X → coker f . Istnieje z deﬁnicji koekwalizatora homomorﬁzm coim f → coker f i jest nim k f˜. Ale homomorﬁzm zerowy także czyni
+odpowiedni diagram przemiennym, więc k f˜ jest zerowy z jednoznaczności.
+Zatem z deﬁnicji jądra u istnieje. Wszystkie konstruowane morﬁzmy były
+jedyne, a zatem ich złożenie jest równe f .
+
+1.6 Zadania
+Transformacje naturalne, równoważność kategorii.
+1.6.1. Udowodnić twierdzenie 1
+1.6.2. Niech f0 , f1 : G → H będą dwoma homomorﬁzmami grup. Udowodnić, że istnieje bijekcja zbioru transformacji naturalnych między wyznaczonymi przez nie funktorami F0 , F1 : BG → BH a elementami h ∈ H takimi,
+że dla każdego g ∈ G, f1 (g) = hf0 (g)h−1 , czyli f1 = ch f0 gdzie ch : H → H
+jest automorﬁzmem wewnętrznym wyznaczonym przez element h ∈ H.
+
+1.6.3. Niech f0 , f1 : S → T będą dwoma morﬁzmami posetów (odwzorowaniami zachowującymi porządek). Udowodnić, że istnieje transformacja naturalna (dokładnie jedna) między deﬁniowanymi przez nie funktorami
+F0 , F1 : CS → CT wtedy i tylko wtedy gdy f0 (s) ≤ f1 (s) dla każdego s ∈ S.
+1.6.4. Mała kategoria C w której dla dowolnych dwóch obiektów
+c, c′ ∈ ob (C) istnieje co najwyżej jeden morﬁzm c → c′ jest równoważna
+(ale nie identyczna!) z kategorią deﬁniowaną przez poset (zbiór częściowo
+uporządkowany).
+1.6.5. Jeśli w małej kategorii każdy morﬁzm jest izomorﬁzmem oraz między każdymi dwoma obiektami istnieje morﬁzm, to ta kategoria jest równoważna kategorii BG deﬁniowanej przez pewną grupę G. Podaj (nietrywialne)
+przykłady takich kategorii. Wyznacz grupę G taką,że EH ∼
+= BG, dla dowolnej grupy H.
+1.6.6. Pokazać,że jeżeli grupy G i H są izomorﬁczne, to kategorie BG i
+BH są równoważne. Czy prawdziwe jest twierdzenie odwrotne?
+
+1.6.1
+
+Funktory sprzężone
+
+1.6.7. Pokazać, że funktor sprzężony do danego funktora, o ile istnieje, to
+jest wyznaczony jednoznacznie z dokładnością do naturalnej równoważności
+funktorów.
+1.6.8. Pokazać, że jeżeli funktor F : C → D jest równoważnością kategorii,
+to istnieje funktor G : D → C sprzężony do F zarówno z prawej jak i lewej
+strony.
+1.6.9. Pokazać, że istnieje funktor prawo sprzężony do funktora F : C → D,
+wtedy i tylko wtedy gdy dla każdego obiektu Y ∈ D funktor
+M orD (F (·), Y ) : C → Set jest reprezentowalny.
+1.6.10. Niech Set∗ będzie kategorią zbiorów z wyróżnionym punktem.
+∗ : Set → Set , gdzie
+Skonstruować funktor lewo-dołączony do funktora RX
+∗
+∗
+∗ (Z) := Map (X, Z) jest przekształcenie stałe
+punktem wyróżnionym w RX
+∗
+w punkt wyróżniony w Z.
+
+1.6.11. Wykazać, że funktory F : C → D i G : D → C są sprzężone wtedy i tylko wtedy gdy istnieją transformacje naturalne η : idC → F G oraz
+ϵ : GF → idD takie, że złożenia
+F −→ LηF GF −→ ϵGF
+
+oraz
+
+G −→ ηRGF G −→ GϵG
+
+są identycznościami.
+1.6.12. Skonstruuj funktory lewo-dołączone do funktorów zapominania:
+a) Set∗ → Set;
+b) Gr → Set oraz Gr → Set∗ (punkt wyróżniony w zbiorze na którym
+określona jest struktura grupowa to element neutralny);
+c) Ab ⊂ Gr, gdzie Ab podkategoria grup abelowych;
+d) Ab → Set;
+e) SetG → SetH – gdzie G jest grupą, a SetG oznacza kategorię, której
+obiektami są G–zbiory a morﬁzmami G-przekształcenia, zaś dla podgrupy H ⊂ G funktor SetG → SetH jest funktorem zapominania (obcięcia
+działania) do podgrupy H.
+1.6.13. Czy jeśli dla funktora F : C → D istnieje funktor G : D → C
+sprzężony do F zarówno z prawej jak i lewej strony, to F jest równoważnością
+kategorii?
+Granice i kogranice
+1.6.14. Zbadać istnienie colim (nazywa się go push- outem) diagramu
+•
+
+/•
+
+
+
+•
+oraz lim (nazywa się go pull - backiem) diagramu
+•
+•
+w kategoriach Set, Gr i Ab
+
+
+/•
+
+1.6.15. ♣ Udowodnić stwierdzenie 3.
+Dowód. Niech C będzie granicą diagramu
+C
+
+/
+
+∏
+
+i∈obC F (i)
+
+S
+T
+
+// ∏
+
+i→j∈M orC F (j) ,
+
+w którym S jest zdeﬁniowane przez warunek pi→j S = F (i → j)pi zaś T
+przez warunek pi→j T = pj . Łatwo sprawdzić, że C = lim I F .
+
+1.6.16. ♣ Jeśli kategoria I ma obiekt początkowy i0 ∈ ob I (odpowiednio
+końcowy i∞ ∈ ob I), to dla dowolnego diagramu F : I → C istnieje jego
+granica i jest ona równa lim I F = F (i0 ) (odpowiednio istnieje kogranica i
+jest ona równa colim I F = F (i∞ )).
+Dowód. Ponieważ istnieje dokładnie jeden morﬁzm ij : i0 → j dla dowoinego obiektu j ∈ obI, to F (ij ) : F (i0 ) → F (j) jest odwzorowaniem w
+diagram. Pokażemy, że to jest granica. Dla obiektu W i zgodnej rodziny
+{fj : W → F (j)}j∈ob I morﬁzm fi0 : W → F (i0 ) spełnia fi0 F (ij ) = fj , ze
+zgodności rodziny {fj }. Ponadto, jeżeli g : W → F (i0 ) jest innym morﬁzmem, to gF (ij ) = fj więc w szczególności dla j = i0 , gF (ii0 ) = fi0 , Ale
+F (ii0 ) = id, stąd teza. Dla kogranic dowód jest bliźniaczy.
+1.6.17. ♣ Niech C(N) będzie małą kategorią wyznaczoną przez porządek
+w zbiorze liczb naturalnych, tzn. n → m ⇐⇒ n ≤ m.
+a) Niech F : C(N) → Ab, F (n) = Z/pn Z, F (n → m) : Z/pn Z → Z/pm Z,
+F (n → m)(x) = pm−n x. Pokazać, że colim F ∼
+= { pan ∈ Q, n ∈ N}/Z.
+b) Niech F : C(N)op → Ab, F (n) = Z/pn Z, F (m → n) : Z/pm Z → Z/pn Z,
+jest naturalnym epimorﬁzmem . lim F := Zp nazywa się pierścieniem
+liczb całkowitych p − adycznych.(referacik)
+1.6.18. ♣ Niech I będzie zbiorem liczb naturalnych uporządkowanych
+przez podzielność n ≤ m ⇐⇒ n | m. Niech C(I) będzie wyznaczoną przez
+ten porządek kategorią.
+a) Niech F : C(I) → Ab, F (n) = Z/nZ, F (n → m)(x) = m
+n x. Pokazać, że
+∼
+colim F = Q/Z.
+b) Niech F : C(I)op → Ab, F (n) = Z/nZ, F (m → n) ∏
+: Z/mZ → Z/nZ, jest
+naturalnym epimorﬁzmem. Pokazać, że lim F ∼
+= p Zp , gdzie produkt
+jest wzięty po zbiorze wszystkich liczb pierwszych.
+
+1.6.19. Opisz ekwalizator i koekwalizator dowolnej pary morﬁzmów w
+kategorii Set, Set∗, Gr, Ab (zbadaj istnienie).
+Kategorie addytywne
+1.6.20. ♣ Niech C i D będą kategoriami addytywnymi, F : C → D
+funktorem, dla którego F (a ⊕ b) = F (a) ⊕ F (b) dla dowolnych obiektów
+a, b ∈ obC i F (0) = 0. Pokazać, że F jest funktorem addytywnym.
+1.6.21.
+Deﬁnicja 23. Niech V będzie przestrzenią wektorową nad ciałem k. Jej
+ﬁltracją (malejącą) nazywamy ciąg podprzestrzeni {F n (V )}n∈Z , taki że
+V ⊃ · · · ⊃ F n (V ) ⊃ F n+1 (V ) ⊃ . . . 0.
+Rozważmy kategorię VectFk w której obiektami są przestrzenie liniowe
+nad k z ﬁltracją, a morﬁzmami przekształcenia liniowe zachowujące ﬁltrację.
+Pokazać, że jest to kategoria addytywna. Czy spełnione są założenia lematu
+? Rozważmy dwie ﬁltracje przestrzeni liniowej V :
+{
+{
+V jeżeli i ≤ 0
+V
+jeżeli
+i
+<
+0
+F̃ i (V ) =
+.
+F i (V ) =
+0 jeżeli i > 0
+0 jeżeli i ≥ 0
+Pokazać, że idV : (V, F ) → (V, F̃ ) jest morﬁzmem i sprawdzić, czy jest
+izomorﬁzmem w kategorii VectFk (a tego wymagałoby stwierdzenie,że u jest
+izomorﬁzmem).
+
+Rozdział 2
+
+Rozszerzenia grup
+2.1 Rozszerzenia z abelowym jądrem.
+Będziemy rozważać sytuację, gdy grupa G jest rozszerzeniem grupy H przez
+grupę K, czyli mamy diagram:
+KEG
+
+p
+
+//H.
+
+Jeżeli dla homomorﬁzmu p : G → H istnieje homomorﬁzm nazywany przekrojem s : H → G, ps = idH , to G jest produktem półprostym K i H, przekrój s deﬁniuje działanie φ : H → Aut(K) wzorem φ(h)(k) = s(h)ks(h)−1 i
+wówczas G jest izomorﬁczna z K oφ H.
+Rozważmy teraz przypadek, w którym K jest grupą przemienną. Wówczas nawet gdy nie istnieje przekrój, to rozszerzenia zadaje działanie grupy H na grupie K. Dla g, g ′ takich, że p(g) = p(g ′ ) = h mamy: g ′ = gk
+dla pewnego k ∈ K. Z przemienności grupy K automorﬁzmy wewnętrzne
+g · g −1 , g ′ · g ′−1 : K → K są równe. Możemy więc zdeﬁniować działanie H na
+K wzorem
+φ : H → Aut(K),
+
+φ(h)(k) = gkg −1 , gdzie p(g) = h.
+
+Działanie grupowe w K będziemy zapisywać addytywnie. Jeśli zadane
+jest działanie φ : H → Aut(K) i K jest grupą przemienną, to będziemy
+mówili, że K jest H modułem i będziemy pisać xa zamiast φ(x)(a).
+Naszym zadaniem będzie sklasyﬁkowanie rozszerzeń grupy H przez przemienną grupę K odpowiadających zadanej strukturze H modułu na K. Sprecyzujemy słowo ”sklasyﬁkować”.
+Deﬁnicja 24. Niech K będzie H modułem. Powiemy, że rozszerzenia K
+iK
+
+i′
+
+/ G′
+
+p′
+
+i
+
+/ / H odpowiadających zadanej strukturze H modułu na K
+
+19
+
+/G
+
+p
+
+//H
+
+są równoważne wtedy i tylko wtedy, gdy istnieje izomorﬁzm ψ : G → G′ dla
+którego przemienny jest diagram:
+i
+
+K
+idK
+
+
+
+K
+
+p
+
+/G
+
+
+ψ
+
+//H.
+idH
+
+i′
+
+/ G′
+
+p′
+
+i
+
+/G
+
+p
+
+
+//H
+
+Niech
+K
+
+//H
+
+będzie rozszerzeniem odpowiadającym H modułowi K. Funkcję l : H → G
+będziemy nazywać podniesieniem, jeżeli pl = idH . Mówimy, że podniesienie
+jest znormalizowane jeżeli l(1) = 0 ∈ K i w dalszym ciągu rozpatrywać
+będziemy tylko znormalizowane podniesienia.
+Deﬁnicja 25. Jeżeli l : H → K jest znormalizowanym podniesieniem, to
+funkcję f : H × H → K zdeﬁniowaną wzorem
+f (x, y) = l(x)l(y)l(xy)−1
+nazywamy zbiorem ilorazowym lub znormalizowanym kocyklem.
+Tak więc funkcja f ”mierzy” odstępstwo podniesienia l od bycia homomorﬁzmem, czyli przekrojem. Jeżeli G jest produktem półprostym a l
+przekrojem, to f = 0
+Stwierdzenie 7. Niech H będzie grupą a K – H modułem. Jeżeli
+K
+
+i
+
+/G
+
+p
+
+//H
+
+jest rozszerzeniem odpowiadającym temu modułowi, l znormalizowanym podniesieniem, zaś f : H × H → K wyznaczonym przezeń kocyklem, to:
+a) dla dowolnych x, y ∈ H, f (x, 1) = f (1, y) = 0;
+b) dla dowolnych x, y, z ∈ H spełniona jest równość zwana tożsamością
+kocyklu:
+f (x, y) + f (xy, z) = xf (y, z) + f (x, yz).
+Dowód. Punkt a) jest oczywisty. Ad b): pamiętając, że oznaczne symbolem
++ działanie w K jest tak na prawdę mnożeniem w G mamy:
+f (x, y)+f (xy, z) = l(x)l(y)l(xy)−1 l(xy)l(z)l(xyz)−1 = l(x)l(y)l(z)l(xyz)−1 =
+= l(x)l(y)l(z)l(yz)l(x)−1 l(x)l(yz)l(xyz)−1 = l(x)f (y, z)l(x)−1 f (x, yz) =
+{z
+}|
+{z
+}
+|
+= xf (y, z) + f (x, yz)
+
+Stwierdzenie 8. Niech H będzie grupą a K – H modułem. Niech
+f : H × H → K spełnia warunki a) i b) poprzedniego stwierdzenia. Wówczas
+istnieje rozszerzenie
+K
+
+/G
+
+i
+
+p
+
+//H
+
+odpowiadającym H modułowi K oraz znormalizowane podniesienie tego rozszerzenia, takie że f jest odpowiadającym znormalizowanym zbiorem ilorazowym.
+Dowód. Zdeﬁniujemy strukturę grupy na zbiorze K ×H. Grupę tę będziemy
+oznaczać symbolem G(K, H, f ). Działania grupowe deﬁniujemy następująco:
+• elementem neutralnym jest (0, 1);
+• (a, x)(b, y) = (a + xb + f (x, y), xy);
+• (a, x)−1 = (−x−1 a − x−1 f (x, x−1 ), x−1 ).
+Własność a) gwarantuje, że (0, 1) jest elementem neutralnym, zaś tożsamość kocyklu sprawia, że działanie jest łączne. Tak skonstruowana grupa
+G(K, H, f )
+jest
+rozszerzeniem
+H
+przez
+K,
+bowiem
+if : K → G(K, H, f ), i(a) = (a, 1) jest włożeniem na podgrupę izomorﬁczną z K, która jest normalna. Mamy epimorﬁzm pf : G(K, H, f ) → H,
+pf (a, x) = x, którego jądrem jest K. Tak więc G(K, H, f ) jest rozszerzeniem
+H przez K. Musimy jeszcze sprawdzić, czy to rozszerzenie zadaje wyjściową
+strukturę H modułu na K. W tym celu liczymy:
+(a′ , x)(a, 1)(a′ , x)−1 = (a′ + xa + f (x, 1), x)(−x−1 a′ − x−1 f (x, x−1 ), x−1 ) =
+= ((a′ + xa, x)(−x−1 a′ − x−1 f (x, x−1 ), x−1 ) =
+= (a′ + xa + x(−x−1 a′ − x−1 f (x, x−1 ) + f (x, x−1 ), 1) =
+= (a′ + xa − a′ − f (x, x−1 ) + f (x, x−1 , 1) = (xa, 1).
+Niech teraz lf : H → G(K, H, f ) będzie podniesieniem lf (x) = (0, x). Jest
+to podniesienie znormalizowane i kocykl przez lf wyznaczony jest równy:
+l(x)l(y)l(xy)−1 = (0, x)(0, y)(0, xy)−1 = (f (x, y), xy)(−(xy)−1 f (xy, (xy)−1 ), (xy)−1 ) =
+= (f (x, y) + xy(−(xy)−1 f (xy, (xy)−1 )) + f (xy, (xy)−1 ), 1) =
+= (f (x, y) − f (xy, (xy)−1 ) + f (xy, (xy)−1 ), 1) = (f (x, y), 1).
+
+Jeżeli kocykl f pochodzi od pewnego rozszerzenia wraz ze znormalizowanym podniesieniem l, K
+
+i
+
+/Go
+
+l
+p
+
+/ H , to skonstruowana grupa G(K, H, f )
+
+jest izomorﬁczna z wyjściową grupą G. Dokładniej:
+
+p
+
+/G
+/ H jest rozszeStwierdzenie 9. Jeżeli K jest H modułem, K
+rzeniem odpowiadającym strukturze modułu, l podniesieniem a f kocyklem
+wyznaczonym przez l, to istnieje izomorﬁzm ψ : G(K, H, f ) → G, dla którego
+przemienny jest diagram:
+i
+
+K
+idK
+
+
+
+K
+
+lf
+
+/ G(K, H, f ) o
+
+if
+
+i
+
+
+
+pf
+
+ψ
+
+/G
+
+o
+
+l
+p
+
+/H
+
+
+.
+
+idH
+
+/H
+
+Dowód. Deﬁniujemy ψ(a, x) = al(x). Czytelnikowi pozostawiamy sprawdzenie, że ψ jest izomorﬁzmem spełniającym zadane warunki.
+Mamy zatem bijekcję klas izomorﬁzmów rozszerzeń ze znormalizowanym
+podniesieniem ze zbiorem znormalizowanych kocykli.
+Chcemy klasyﬁkować dla danego H modułu K rozszerzenia na podstawie kocykli przypisując kocyklowi f rozszerzenie G(K, H, f ) i pozbyć się
+niejednoznaczności związanej z wyborem podniesienia.
+Rozważmy dwa podniesienia l, l′ rozszerzenia K → G → H i wyznaczone
+przez nie kocykle f , f ′ . Niech h : H → K będzie zdeﬁniowane wzorem
+l′ (x) = h(x)l(x) (warstwy prawostronne są równe lewostronnym). Mamy:
+f ′ (x, y)f (x, y)−1 =l′ (x)l′ (y)l′ (xy)−1 l(xy)l(y)−1 l(x)−1 =
+=h(x)l(x)h(y)l(y)l(xy)−1 h(xy)−1 l(xy)l(y)−1 l(x)−1 =
+=h(x) l(x)h(y)l(x)−1 l(x)l(y)l(xy)−1 h(xy)−1 l(xy)l(y)−1 l(x)−1 =
+|
+{z
+}|
+{z
+}
+|
+{z
+} .
+−1
+−1
+−1
+=h(x) l(x)h(y)l(x) h(xy)h(xy) h(xy) =
+{z
+}
+|
+−1
+=h(x) l(x)h(y)l(x) h(xy)−1
+|
+{z
+}
+Przechodząc do addytywnego zapisy K jako H modułu mamy:
+f ′ (x, y) − f (x, y) = xh(y) − h(xy) + h(x).
+Deﬁnicja 26. Niech K będzie H modułem. Funkcję g : H × H → K nazywamy kobrzegiem wtedy i tylko wtedy, gdy istnieje funkcja h : H → K,
+dla której
+h(1) = 0
+
+oraz
+
+g(x, y) = xh(y) − h(xy) + h(x).
+
+Z powyższego rachunku wynika następujacy wniosek:
+Wniosek 1. Kocykle wyznaczone przez to samo rozszerzenie K → G → H
+różnią się o kobrzeg.
+
+Stwierdzenie 10. Niech K będzie H modułem. Jeżeli g : H × H → K jest
+kobrzegiem, to jest (znormalizowanym) kocyklem.
+Dowód. Jest to proste sprawdzenie.
+Podobnie prosty rachunek pokazuje, że :
+Stwierdzenie 11. Zbiór (znormalizowanych) kocykli jest abelową grupą, a
+zbiór kobrzegów jej podgrupą.
+Grupę znormalizowanych kocykli oznaczać będziemy symbolem Z 2 (H, K),
+zaś jej podgrupę kobrzegów symbolem B 2 (H, K).
+Deﬁnicja 27. Niech K będzie H modułem. Drugą grupą kohomologii nazywamy grupę ilorazową :
+H 2 (H, K) = Z 2 (H, K)/B 2 (H, K).
+Twierdzenie 2. Schreira Niech K będzie H modułem. Niech e(K, H)
+oznacza klasę izomorﬁzmów rozszerzeń H przez K. Wówczas
+Ψ : H 2 (H, K) → e(K, H)
+
+Ψ(f + B 2 (H, K)) = [G(K, H, f )]
+
+jest bijekcją. Ponadto Ψ(0) jest produktem półprostym.
+Dowód. Musimy pokazać, że
+a) Ψ jest dobrze określone;
+b) Ψ jest różnowartościowe;
+c) Ψ jest ”na”.
+Punkt d) został udowodniony. Dla dowodu a) załóżmy, że K
+i K
+
+i′
+
+/ G′ o
+
+l′
+p′
+
+i
+
+/Go
+
+l
+p
+
+/H
+
+/ H są rozszerzeniami odpowiadającymi kocyklom f i f ′ .
+
+(Wiemy, że G(K, H, f ) i G(K, H, f ′ ) takie są, ale piszemy G i G′ dla prostoty
+oznaczeń.) Załóżmy, że f i f ′ różnią się o kobrzeg f − f ′ = h, to znaczy
+f (x, y) − f ′ (x, y) = xh(y) − h(xy) + h(x).
+Rozważmy diagram:
+K
+idK
+
+
+
+K
+
+i
+
+i′
+
+/Go
+
+
+l
+p
+
+γ
+
+/ G′ o
+
+l′
+p′
+
+/H
+
+
+idH
+
+/H
+
+gdzie γ(al(x)) = h(x)al′ (x) Musimy sprawdzić, że γ jest homomorﬁzmem i
+izomorﬁzmem i że diagram (litych strzałek) jest przemienny, co pozostawiamy czytelnikowi. Jeśli natomiast istnieje izomorﬁzm γ, dla którego diagram
+(litych strzałek) jest przemienny, to deﬁniujemy γl : H → G′ . Ponieważ
+γ jest izomorﬁzmem to γl jest podniesieniem wyznaczającym kocykl f . Z
+wniosku 1 wynika, że f − f jest kobrzegiem.
+
+2.2 Zadania
+2.2.1 Funktorialne własności rozszerzeń
+2.2.1. Niech f : H → H ′ będzie homomorﬁzmem. Pokazać, że indukuje on przekształcenie f # : e(H ′ , K) −→ e(H, K) oraz homomorﬁzm
+f ∗ : H 2 (H ′ , K) → H 2 (H, K) dla którego przemienny jest diagram:
+H 2 (H ′ , K)
+f∗
+
+
+
+H 2 (H, K)
+
+Ψ
+
+Ψ
+
+/ e(H ′ , K) .
+f#
+
+
+
+/ e(H, K)
+
+2.2.2. Niech f : K → K ′ będzie homomorﬁzmem. Pokazać, że indukuje on przekształcenie f# : e(H, K) −→ e(H, K ′ ) oraz homomorﬁzm
+f∗ : H 2 (H, K) → H 2 (H, K ′ ) dla którego przemienny jest diagram:
+H 2 (H, K)
+f∗
+
+
+
+H 2 (H, K ′ )
+
+Ψ
+
+Ψ
+
+/ e(H, K) .
+
+
+f#
+
+/ e(H, K ′ )
+
+2.2.3. Opisać ”sumę” rozszerzeń wyznaczoną przez sume kocykli i izomorﬁzm Ψ : H 2 (H, K) → e(K, H).
+
+2.2.2 Automorﬁzmy rozszerzenia i grupa H 1 (K, H).
+Niech K będzie H modułem. Wszystkie rozpatrywane poniżej rozszerzenia
+grupy H przez abelową grupę K odpowiadają tej ustalonej strukturze H
+modułu na K.
+Deﬁnicja 28. Automorﬁzm φ : G → G nazywamy automorﬁzmem rozszerzenia K
+
+i
+
+/G
+
+p
+
+/ H wtedy i tylko wtedy, gdy przemienny jest diagram:
+
+K
+idK
+
+
+
+K
+
+i
+
+i
+
+/G
+
+
+p
+
+φ
+
+/G
+
+p
+
+/H
+
+
+idH
+
+/H
+
+.
+
+2.2.4. Sprawdzić, że dla dowolnego a ∈ K automorﬁzm wewnętrzny wyznaczony przez element a jest automorﬁzmem rozszerzenia.
+p
+
+/G
+/H.
+Niech φ : G → G będzie automorﬁzmem rozszerzenia K
+Niech l : H → G będzie podniesieniem. Deﬁniujemy funkcję d : H → K
+wzorem φ(l(x)) = d(x)l(x). Zauważmy, że taki element d(x) istnieje, bo
+φ(l(x)) i l(x) leżą w tej samej warstwie prawostronnej G/K. Zauważmy, że
+funkcja d(x) już wyznacza φ, gdyż φ(al(x)) = φ(a)φ(l(x)) = ad(x)l(x).
+i
+
+2.2.5. Pokazać, że funkcja d zdeﬁniowana powyżej nie zależy od wyboru
+podniesienia, a więc zależy tylko od automorﬁzmu φ.
+2.2.6. Udowodnić, że funkcja d : H → K zdeﬁniowana jak wyżej spełnia
+tożsamość:
+d(xy) = xd(y) + d(x).
+Pokazać, że d(1) = 0.
+Deﬁnicja 29. Niech K będzie H modułem. Funkcję d : H → K nazywamy
+różniczkowaniem jeżeli
+d(xy) = xd(y) + d(x).
+Zbiór różniczkowań oznaczamy symbolem Der(H, K). Jest on grupą abelową
+ze względu na dodawanie (d + d′ )(x) = d(x) + d′ (x).
+p
+
+/G
+/ H będzie
+2.2.7. Niech K będzie H modułem. Niech K
+odpowiadającym mu rozszerzeniem, a l podniesieniem. Niech d : H → K
+będzie różniczkowaniem. Pokazać, że przekształcenie zdeﬁniowane wzorem
+φ(al(x)) = ad(x)l(x) jest automorﬁzmem tego rozszerzenia.
+i
+
+Deﬁnicja 30. Niech K będzie H modułem. Niech K
+
+i
+
+/G
+
+p
+
+/ H bę-
+
+p
+
+/G
+/ H ) oznaczać będziemy
+dzie rozszerzeniem. Symbolem Stab( K
+grupę (ze względu na składanie) automorﬁzmów tego rozszerzenia.
+i
+
+2.2.8. Udowodnić następujące twierdzenie:
+Twierdzenie 3. Niech K będzie H modułem. Niech K
+będzie rozszerzeniem. Udowodnić, że przekształcenie
+σ : Stab( K
+
+i
+
+/G
+
+p
+
+i
+
+/G
+
+p
+
+/H
+
+/ H ) → Der(H, K)
+
+przyporządkowujące automorﬁzmowi φ różniczkowanie d, dla którego φ(l(x)) =
+d(x) dla pewnego podniesienia l jest izomorﬁzmem grup.
+
+Z powyższego twierdzenia wynika następujący, nieco zaskakujący wniosek
+p
+
+/G
+/ H ) jest przemienna i nie zależy
+Wniosek 2. Grupa Stab( K
+od rozszerzenia, a jedynie od struktury H modułu na K. Zatem będziemy ją
+oznaczać Stab(H, K).
+i
+
+2.2.9. Niech K będzie H modułem. Niech a0 ∈ K
+a) Pokazać, że funkcja d(x) = x · a0 − a0 jest różniczkowaniem.
+b) Pokazać, że odpowiadający temu różniczkowaniu automorﬁzm rozszerzenia jest automorﬁzmem wewnętrznym odpowiadającym elementowi a−1
+0 .
+Deﬁnicja 31. Różniczkowania postaci x · a − a, a ∈ K nazywamy głównymi
+i oznaczamy symbolem PDer(H, K). Jest to podgrupa grupy Der(H, K)
+Deﬁnicja 32. Pierwszą grupą kohomologii grupy H o współczynnikach w
+H module K nazywamy grupę
+H 1 (H, K) = Der(H, K)/ PDer(H, K).
+Grupę Der(H, K) nazywamy też grupą 1 – kocykli Z 1 (H, K) a grupę PDer(H, K)
+grupą 1 – kobrzegów B 1 (H, K).
+2.2.10. Udowodnić twierdzenie
+Twierdzenie 4. Niech K będzie H modułem. Wówczas
+H 1 (H, K) ∼
+= Stab(K, H)/Inn(K, H),
+gdzie Inn(H, K) jest podgrupą automorﬁzmów rozszerzenia złożoną z automorﬁzmów wewnętrznych wyznaczonych przez elementy K.
+p
+
+/G
+/ H będzie
+2.2.11. Niech K będzie H modułem i niech K
+odpowiadającym mu rozszerzeniem z przekrojem (czyli produktem półprostym).
+i
+
+a) Pokazać, że istnieje bijekcja między przekrojami tego rozszerzenia a grupą Der(H, K).
+Dowód. Jeżeli l, l′ sa przekrojami, to φ(al(x)) = al′ (x) jest automorﬁzmem rozszerzenia. Wystarczy sprawdzić, że to jest homomorﬁzm.
+φ(al(x))φ(bl(y)) = al′ (x)bl′ (y) = al′ (x)bl′ (x)−1 l′ (x)l′ (y) = a(x · b)l′ (xy).
+φ(al(x)bl(y)) = φ(al(x)bl(x)−1 l(x)l(y)) = φ(a(x·b)l(xy)) = a(x·b)l′ (xy).
+
+b) Udowodnić, że jeżeli H 1 (H, K) = 0, to każde dwa dopełnienia do K w
+G są sprzężone.
+2.2.12. Pokazać, że twierdzenie 4 można równoważnie sformułować następująco:
+Twierdzenie 5. Niech K będzie H modułem. Wówczas istnieje wolne tranzytywne działanie grupy H 1 (H, K) na zbiorze Stab(K, H)/Inn(K, H) zadane przez [d]([φ]) = [dφ].
+
+Rozdział 3
+
+Grupy rozwiązalne
+
+29
+
+Rozdział 4
+
+Teoria Galois
+4.1 Ciało rozkładu wielomianu
+Niech K będze ciałem i niech f ∈ K[X] będzie wielomianem nierozkładalnym. Ciało K[X]/(f ) jest rozszerzeniem generowanym przez warstwę X+(f )
+i element X + (f ) jest pierwiastkiem wielomianu f w K[X]/(f ).
+Deﬁnicja 33. Mówimy, że rozszerzenie K ⊂ L jest rozszerzeniem o pierwiastek wielomianu f ∈ K[X], jeżeli L = K(u) i u jest pierwiastkiem wielomianu f .
+Rozszerzenie o pierwiastek wielomianu nierozkładalnego jest wyznaczone
+jednoznacznie.
+Twierdzenie 6. Niech φ : K → L będzie izomorﬁzmem, f ∈ K[X] wielomianem nierozkładalnym. Niech φ∗ : K[X] → L[X] będzie indukowanym
+przez φ izomorﬁzmem pierścieni wielomianów. Niech K(u) będzie rozszerzeniem o pierwiastek wielomianu f a L(ũ) rozszerzeniem o pierwiastek
+φ∗ (f ) = f˜. Wówczas istnieje izomorﬁzm φ̃ : K(u) → L(ũ), dla którego
+φ̃|K = φ i φ̃(u) = ũ.
+Dowód. SZukany izomorﬁzm jest złożeniem następujących:
+K(u) o
+
+∼
+=
+
+K[X]/(f )
+
+∼
+=
+
+∼
+
+/ L[X]/(f˜) =
+
+/ L(ũ)
+
+Deﬁnicja 34. Niech K będzie ciałem i niech f ∈ K[X]. Mówimy, że rozszerzenie K ⊂ M jest ciałem rozkładu wielomianu f jeżeli:
+• wielomian f ∈ M [X] jest iloczynem wielomianów liniowych;
+• M = K(u1 , . . . , uk ), gdzie u1 , . . . , uk są wszystkimi pierwiastkami wielomianu f w M .
+31
+
+Twierdzenie 7. Dla dowolnego wielomianu f ∈ K[X] istnieje jego ciało
+rozkładu.
+Dowód. Indukcja ze względu na deg(f ). Jeżeli deg(f ) = 1, to ciałem rozkładu f jest K. Dla deg(f ) > 1, niech g będzie wielomianem nierozkładalnym,
+g | f . Niech K ⊂ K(u) będzie rozszerzeniem o pierwiastek g. W pierścieniu
+K(u)[X] mamy f = (X − u)h. Z założenia indukcyjnego istnieje ciało rozkładu K(u) ⊂ M wielomianu h ∈ K(u). Jest jasne, że K ⊂ M jest ciałem
+rozkładu f nad K.
+Jest jasne, że ciało rozkładu wielomianu f jest rozszerzeniem skończonym
+stopnia co najwyżej n!, n = deg(f ).
+Ciało rozkładu jest wyznaczone jednoznacznie w następującym sensie:
+Twierdzenie 8. Niech φ : K → L będzie izomorﬁzmem ciał. Niech
+φ∗ : K[X] → L[X]. Niech K ⊂ M będzie ciałem rozkładu wielomianu f ,
+a L ⊂ N ciałem rozkładu wielomianu φ∗ (f ). Wówczas istnieje izomorﬁzm
+φ̃ : M → N , dla którego φ̃|K = φ.
+
+4.1.1 Istnienie i jednoznaczność ciał skończonych.
+
+4.2 Podstawy teorii Galois - odpowiedniość Galois
+4.2.1 Odpowiedniość Galois
+Dla rozważań w tym paragraﬁe ustalamy rozszerzenie K ⊂ N .
+Deﬁnicja 35. Grupą Galois rozszerzenia K ⊂ N nazywamy grupę tych
+automorﬁzmów N → N , ktlore są identycznością na ciele K. Grupę tę
+będziemy oznaczać symbolem Gal(N, K).
+Teoria Galois to badanie związków między zbiorem ciał pośrednich między K a N z jednej strony a zbiorem podgrup grupy Galois z drugiej. Rozpatrzmy następujące przekształcenia:
+zbiór rozszerzeń pośrednich
+K⊂L⊂N
+
+o
+
+Ψ
+Φ
+
+/
+
+zbiór podgrup grupy
+Gal(N, K)
+
+Φ(L) = {φ ∈ Gal(N, K) : ∀x∈L φ(x) = x}
+Ψ(H) = N H
+Przekształcenia te mają następujące własności:
+(1) Φ oraz Ψ odwracają inkluzje;
+(2) L ⊂ ΨΦ(L) dla każdego ciała pośredniego L;
+
+(3) H ⩽ ΦΨ(H) dla każdej podgrupy H ⩽ Gal(N, K);
+(4) ΦΨΦ = Φ i ΨΦΨ = Ψ
+Deﬁnicja 36. Ciało ΨΦ(L) nazywamy domknięciem ciała L i oznaczamy
+symbolem L. Ciało pośrednie K ⊂ L ⊂ N nazywa się domknięte jeżeli L = L.
+Z punktu (4) powyżej wynika, że L = L.
+Deﬁnicja 37. Podgrupę ΨΦΨ(H) nazywamy domknięciem podgrupy H ⩽
+Gal(N, K) i oznaczamy H. Podgrupa H nazywa się domknięta jeżeli H = H.
+Z punktu (4) powyżej wynika, że H = H.
+Deﬁnicja 38. Rozszerzenie K ⊂ N nazywa się normalne, jeżeli K = K.
+Zauważmy, że ciało pośrednie L jest domknięte wtedy i tylko wtedy, gdy
+rozszerzenie L ⊂ N jest normalne.
+Oczywiście mamy:
+Stwierdzenie 12. Niech K ⊂ N będzie rozszerzeniem. Przekształcenia Φ
+i Ψ ustalają wzajemnie jednoznaczną odpowiedniość między domkniętymi
+ciałami pośrednimi a domkniętymi podgrupami.
+Musimy teraz ustalić, co to znaczy, że rozszerzenie jest domknięte i podgrupa jest domknięta. Zacznijmy od następującej przydatnej obserwacji:
+Uwaga 1. Niech K ⊂ L ⊂ M ⊂ N będzie ciągiem rozszerzeń, zaś
+Φ(M ) ⩽ Φ(L) ⩽ Gal(N, K) odpowiadającym mu ciągiem podgrup. Wówczas istnieje różnowartościowe przekształcenie ze zbioru warstw Φ(L)/Φ(M )
+w zbiór {φ|M : M → N | φ ∈ Gal(N, K)}.
+Dowód. Każde dwa elementy warstwy Φ(L)/Φ(M ) różnią się o identyczność
+na M , więc przekształcenie jest dobrze określone. Natomiast jeśli φ|M = φ′|M ,
+′
+to φ|M φ′−1
+|M = id|M , więc φ|M i φ|M należą do tej samej warstwy.
+
+Twierdzenie 9. Niech K ⊂ L ⊂ M ⊂ N będzie ciągiem rozszerzeń. Jeżeli
+rozszerzenie L ⊂ M skończone, to |Φ(L) : Φ(M )| ≤ |M : L|.
+Dowód. Dowód przez indukcję ze względu na |M : L|. Jeżeli |M : L| = 1,
+to teza jest oczywista. w kroku indukcyjnym rozpatrujemy wpierw przypadek, gdy istnieje ciało L0 , L $ L0 $ M . Z założenia indukcyjnego
+|Φ(L) : Φ(M )| = |Φ(L) : Φ(L0 )||Φ(L0 ) : Φ(M )| ≤ |M : L0 ||L0 : L|.
+Jeżeli ciała między L a M nie ma, to M = L(u) dla pewnego u ∈ M .
+Niech f ∈ L[X] będzie wielomianem minimalnym dla u i deg(f ) = |M : L|.
+Zgodnie z uwagą 1 każdy element warstwy wyznacza inny obraz elementu
+u. Ponieważ rozpatrywane automorﬁzmy są identycznością na L, to obraz
+u musi być także pierwiastkiem wielomianu f , a tych jest różnych jest co
+najwyżej |M : L|.
+
+Analogiczne twierdzenie jest prawdziwe po stronie podgrup grupy Galois.
+Twierdzenie 10. Jeżeli H ⩽ J ⩽ Gal(N, K) jest ciągiem podgrup i
+|J : H| < ∞, to |Ψ(H) : Ψ(J)| ≤ |J : H|.
+Dowód.
+Oba twierdzenia złożone razem prowadzą do następującego.
+Twierdzenie 11. Niech K ⊂ N będzie rozszerzeniem i Gal(N.K) jego grupą
+Galois.
+a) Niech K ⊂ L ⊂ M ⊂ N będzie ciągiem rozszerzeń. Jeżeli L jest domknięte w N , |M : L| < ∞, to M jest domknięte w N i |Φ(L) : Φ(M )| = |M :
+L|.
+b) Jeżeli H
+⩽
+J
+⩽
+Gal(N.K) jest ciągiem podgrup i
+|J : H| < ∞ i H jest domknięta w Gal(N.K), to J jest domknięta
+w Gal(N.K) i |Ψ(H) : Ψ(J)| = |J : H|.
+Dowód. ad a): Mamy
+|M : L| = |ΨΦ(M ) : ΨΦ(L)| ≤ |Φ(L) : Φ(M )| ≤ |M : L|.
+Z założenia L = L i M ⊂ M , zatem M = M .
+Analogicznie ad b) Mamy
+|J : H| = |ΦΨ(J) : ΦΨ(H)| ≤ |Ψ(H) : Ψ(J)| ≤ |J : H|.
+Z założenia H = H i J ⊂ J, zatem J = J.
+Podgrupa trywialna grupy Galois jest domknięta z deﬁnicji. Wynika z
+tego, że zawsze domknięte są wszystkie podgrupy skończone. Podobnie, jeżeli
+K ⊂ N jest rozszerzeniem normalnym, to domknięte w N są wszystkie
+skończone rozszerzenia K. Mamy więc twierdzenie Galois:
+Twierdzenie 12. Jeżeli K ⊂ N jest rozszerzeniem normalnym i skończonym, to przekształcenia Φ i Ψ zadają wzajemnie jednoznaczną odpowiedniość między podgrupami grupy Galois Gal(N, K) a ciałami pośrednimi
+K ⊂ L ⊂ N . Ponadto |L : K| = |Gal(N, K) : Φ(L)|. W szczególności
+|N : K| = |Gal(N, K)|.
+
+4.2.2 Normalne podgrupy grupy Galois
+Zacznijmy od oczywistej uwagi dotyczącej działań grup.
+Uwaga 2. Niech grupa G działa na zbiorze X. Wówczas:
+
+1. Jeżeli Y ⊂ X jest podzbiorem niezmienniczym, to podgrupa
+H = {g ∈ G : ∀y∈Y g(y) = y}
+jest normalą podgrupą grupy G;
+2. Jeżeli H E G, to zbiór punktów stałych X H jest podzbiorem niezmienniczym.
+Mamy zatem:
+Twierdzenie 13. Niech K ⊂ N będzie rozszerzeniem i Gal(N, K) jego
+grupą Galois. Wówczas:
+a) jeżeli K ⊂ L ⊂ N jest Gal(N, K) niezmienniczym ciałem pośrednim, to
+Φ(L) E Gal(N, K);
+b) jeżeli H E Gal(N, K), to Ψ(H) jest Gal(N, K) niezmienniczym ciałem
+pośrednim.
+Wniosek 3. a) Jeżeli H E Gal(N, K), to H E Gal(N, K);
+b) Jeżeli K ⊂ L ⊂ N jest Gal(N, K) niezmienniczym ciałem pośrednim, to
+L jest także jest Gal(N, K) niezmienniczym ciałem pośrednim.
+Twierdzenie 14. Niech K ⊂ N będzie rozszerzeniem i L Gal(N, K) niezmienniczym ciałem pośrednim. Wówczas rozszerzenie K ⊂ L jest normalne.
+Dowód. Niech u ∈ L \ K. Istnieje φ ∈ Gal(N, K), φ(u) ̸= u. Z niezmienniczości L, φ|L ∈ Gal(L, K).
+Czy normalność K ⊂ L, odpowiada niezmienniczości L? W tym celu
+rozpatrzmy lemat.
+Lemat 3. Niech K ⊂ N będzie rozszerzeniem normalnym i niech f ∈ K[X]
+będzie wielomianem nierozkładalnym, który ma w N pierwiastek. Wówczas
+w ciele N wielomian f jest iloczynem czynników liniowych parami różnych.
+Dowód. Niech u ∈ N i f (u) = 0. Niech u = u1 , . . . , uk , k ≤ n wszystkie, parami różne pierwiastki f w N . Niech g = (X−u1 ) . . . (X−uk ) ∈ N [X]. Każdy
+automorﬁzm N nad K zachowuje f a więc permutuje pierwiastki ui , . . . , uk ,
+czyli zachowuje wielomian g, a zatem jest stały na jego współczynnikach.
+Z normalności rozszerzenia, g ∈ K[X]. Wielomian f jest minimalny dla u
+zatem f | g, co ze względu na deg g ≤ deg f oznacza f = g.
+Twierdzenie 15. Niech K ⊂ N będzie rozszerzeniem, K ⊂ L ⊂ N ciałem pośrednim, takim że rozszerzenie K ⊂ L jest normalne i algebraiczne.
+Wówczas podciało L jest Gal(N, K) niezmiennicze.
+Dowód.
+
+4.2.3 Skończone rozszerzenia normalne.
+Twierdzenie 16. Niech f ∈ K[X] będzie wielomianem nierozkładalnym.
+Następujące warunki są równoważne:
+1. f nie ma pierwiastków wielokrotnych w pewnym ciele rozkładu f nad
+K;
+2. f nie ma pierwiastków wielokrotnych w każdym ciele rozkładu f nad
+K;
+3. f ′ ̸= 0.
+Deﬁnicja 39. Nierozkładalny wielomian f ∈ K[X] nazywa się rozdzielczy
+(separable) nad K jeżeli spełniony jest jeden z warunków powyżej.
+Deﬁnicja 40. Niech K ⊂ M będzie rozszerzeniem. Element u ∈ M nazywa
+się rozdzielczy nad K, jeżeli jest algebraiczny nad K i jego wielomian minimalny jest rozdzielczy. Rozszerzenie K ⊂ M nazywa się rozdzielcze, jeżeli
+każdy element u ∈ M jest rozdzielczy nad K.
+Zauważmy, że w ciele charakterystyki 0 każde rozszerzenie algebraiczne
+jest rozdzielcze. W ciele charakterystyki p wielomiany, które nie są rozdzielcze, to wielomiany zmiennej xp .
+Twierdzenie 17. Niech K ⊂ M będzie rozszerzeniem skończonym. Następujące warunki są równoważne:
+a) K ⊂ M jest rozszerzeniem normalnym;
+b) K ⊂ M jest rozszerzeniem rozdzielczym i M jest ciałem rozkładu;
+c) K ⊂ M jest ciałem rozkładu wielomianu, którego czynniki nierozkładalne
+są wielomianami rozdzielczymi.
+Dowód. a)⇒ b) - twierdzenie z poprzedniego wykładu o pierwiastkach wielomianu nierozkładalnego w rozszerzeniu normalnym. wziąć wielomiany minimalne dla elementów bazy M nad K i ich iloczyn. Jeszcze raz z tego samego
+twierdzenia.
+b)⇒ c) łatwo
+c)⇒ a) przypomnieć twierdzenie z którego wynika, że wystarczy pokazać,
+że rząd grupy Galois jest równy stopniu rozszerzenia. Dalej przez indukcję.
+Niech M ciało rozkładu f . Jeżeli f rozkłada sie w K na liniowe, i M = K.
+Niech g nierozkładalny czynnik f stopnia >1. Niech g(u) = 0. Niech L =
+K(u), tak jak poprzednio pokazać, że jest |G : Φ(L)| różnych obrazów u przy
+automorﬁzmach G. Z jednoznaczności z dokł do izomorﬁzmu rozszerzenia o
+pierwiastek i jednoznaczności ciała rozkładu g pokazać, że |L : K| = |G :
+Φ(L)| = deg(g). Wykonać krok indukcyjny zauważając, że M jest ciałem
+rozkładu nad L i jest rozdzielcze.
+
+Jak poznać czy rozszerzenie jest ciałem rozkładu pewnego wielomianu,
+nie wskazując wielomianu palcem?
+Twierdzenie 18. Niech K ⊂ M będzie rozszerzeniem skończonym. Wówczas następujące warunki są równoważne:
+a) K ⊂ M jest ciałem rozkładu pewnego wielomianu;
+b) dla każdego nierozkładalnego wielomianu g ∈ K[X] jeżeli g ma jeden
+pierwiastek w M , to w M jest iloczynem czynników liniowych
+Dowód. a)⇒ b) Nie wprost. Przypuśćmy, że nierozkładalny g ma pierwiastek u w M i nierozkładalny czynnik h stopnia >1. Niech v pierwiastek h.
+Rozpatrzeć K(v), M (v) K(u) i korzystając z jednoznaczności doprowadzić
+do sprzeczności.
+b) ⇒ a) łatwo. Wziąć bazę M nad L i odpowiadające im wielomiany
+minimalne f1 . . . . , Szukany wielomian to ich iloczyn.
+Co zrobić, jeżeli rozszerzenie K ⊂ L nie jest normalne? Zawsze można
+wziąć K, ale to zmienia ciało wyjściowe. Jest drugi sposób - polega na powiększeniu ciała L a zatem i powiększeniu grupy Galois, dzięki czemu K już
+będzie domknięte - można to zrobić dla rozszerzeń skończonych.
+Twierdzenie 19. Niech K ⊂ L będzie rozszerzeniem skończonym. Wówczas
+istnieje rozszerzenie K ⊂ L ⊂ M , takie że
+a) M jest ciałem rozkładu pewnego wielomianu o współczynnikach w ciele
+K;
+b) nie istnieje ciało M ′ , takie że K ⊂ L ⊂ M ′ ⊂ M i M ′ jest ciałem
+rozkładu nad ciałem K;
+c) jeżeli K ⊂ L ⊂ N spełnia warunki a) i b), to istnieje izomorﬁzm
+φ : M → N . taki że φ|L = idL ;
+d) jeżeli rozszerzenie K ⊂ L jest rozdzielcze, to rozszerzenie K ⊂ M jest
+normalne i nazywamy je normalnym domknięciem L nad K.
+Dowód.
+a) Konstrukcja M : niech v1 , . . . , vk baza L nad K i niech f1 , . . . , fk ∈ K[X]
+odpowiadające tym elementom wielomiany minimalne. Niech f = f1 f2 . . . fk
+i nniech M będzie ciałem rozkładu f .
+b) W każdym ciele rozkładu nad K zawierającym L i zawartym w M , każdy
+z wielomianów fi rozkłada się na czynniki liniowe, a więc ciało to zawiera
+M.
+
+c) Ciało N musi być ciałem rozkładu wielomianu f i teza wynika z jednoznaczności ciała rozkładu.
+d) Wynika z twierdzenia 17 punkt c)
+Ciało M z poprzedniego twierdzenia nazywa się rozkładowym domknięciem ciała L nad K.
+Sumą ciał N ∪ P nazywamy ciało zawerające P i L i generowane przez
+ich sumę mnogościową. Zauważmy, że z konstrukcji M i jednoznaczności dołączania pierwiastków wynika, że M jest generowane przez skończoną sumę
+L ∪ L1 ∪ · · · ∪ Lr ciał, z ktorych każde jest izomorﬁczne z L.
+
+4.3 Rozszerzenia pierwiastnikowe
+Jesteśmy u źródeł teorii Galois, czyli odpowiedzi na pytanie kiedy dla danego
+wielomianu istnieją wzory na jego pierwiastki, które oprócz zwykłych działań
+arytmetycznych dopuszczają pierwiastkowanie.
+Deﬁnicja 41. Rozszerzenie K ⊂ L nazywa się pierwiastnikowe wtedy i tylko
+wtedy, gdy L = K(a1 , . . . , an ) oraz aki i ∈ K(a1 , . . . , ai−1 ) dla pewnego ki ∈ N
+i każdego 1 ≤ i ≤ n.
+Zauważmy, że możemy założyć, że ki są liczbami pierwszymi ew. zwiększając liczbe generatorów. Jeżeli f ∈ K[X] jest wielomianem, to istnieją
+wzory na jego pierwiastki, które oprócz zwykłych działań arytmetycznych
+dopuszczają pierwiastkowanie wtedy i tylko wtedy, gdy ciało rozkładu tego
+wielomianu jest zawarte w rozszerzeniu pierwiastnikowym. Będziemy więc
+badać grupy Galois rozszerzeń zawartych w rozszerzeniu pierwiastnikowym.
+Zauważmy następujące własności rozszerzeń pierwiastnikowych:
+Lemat 4. Suma pierwiastnikowych rozszerzeń ciała K jest pierwiastnikowym rozszerzeniem ciała K
+Dowód. Jeżeli L = K(a1 , . . . , an ) a M = K(b1 , . . . , bm ) pierwiastnikowe, to
+L ∪ M = K(a1 , . . . , an .b1 , . . . , bm ) i oczywiście jest pierwiastnikowe.
+Lemat 5. Niech K ⊂ L będzie rozszerzeniem pierwiastnikowym, zaś K ⊂
+L ⊂ M jego rozkładowym domknięciem. Wówczas K ⊂ M jest rozszerzeniem
+pierwiastnikowym.
+Dowód. M jest sumą rozszerzeń izomorﬁcznych z L.
+Przypomnijmy, że skończona podgrupa grupy multyplikatywnej ciała jest
+cykliczna. Wynika z tego, że cykliczna jest podgrupa pierwiastków wielomianu X n − 1.
+Lemat 6. Niech p będzie liczba pierwszą, a L ciałem rozkładu X p −1 ∈ K[X].
+Wówczas grupa Gal(L, K) jest przemienna (a nawet cykliczna)
+
+Dowód. Jeżeli χ(K) = p, to X p −1 = (X −1)p i K = L. W przeciwnym przypadku X p − 1 ma p pierwiastków różnych i L = K(ϵ). Każdy automorﬁzm
+jest postaci ϵ → ϵi .
+Lemat 7. Niech wielomian X n − 1 rozkłada się w K na czynniki liniowe.
+Dla a ∈ K niech L będzie ciałem rozkładu wielomianu X n − a. Wówczas
+grupa Gal(L, K) jest przemienna (a nawet cykliczna).
+Dowód. Niech u ∈ L jakiś pierwiastek tego wielomianu - każdy inny jest
+postaci uϵi , gdzie ϵ pierwiastek pierwotny stopnia n z 1. Zatem L = K(u)
+i automorﬁzm jest postaci u → uϵi . Przekształcenie Gal(L.K) → Zn , które
+automorﬁzmowi u → uϵi przyporządkowuje i jest monomorﬁzmem w grupę
+cykliczną Zn .
+Powyższe lematy są prawdziwe dla ciał dowolnej charakterystyki. Główne
+twierdzenie udowodnimy tylko dla ciał charakterystyki 0.
+Twierdzenie 20. Niech χ(K) = 0. Niech K ⊂ L ⊂ M i niech M będzie
+rozszerzeniem pierwiastnikowym. Wówczas Gal(L, K) jest grupą rozwiązalną.
+Dowód. Zauważmy, że możemy poczynić pewne założenia, które pozwolą
+nam na posłużenie się twierdzeniem Galois.
+• możemy założyć, że K ⊂ L jest normalne, biorąc domknięcie L - grupa
+Galois nie ulega zmianie.
+• możemy założyć, że K ⊂ M jest normalne, biorąc rozkładowe domknięcie M , z lematu wiemy, że jest pierwiastnikowe.
+• wobec założenia χ(K) = 0 wymóg rozdzielczości jest spełniony i twierdzenie Galois jest prawdziwe.
+Przy powyższych założeniach Gal(L, K) jest grupą ilorazową Gal(M, K),
+więc wystarczy pokazać, że Gal(M, K) jest rozwiązalna. Niech M = K(u1 , . . . , un ).
+Dowód przez indukcję ze względu na n. Jeżeli n = 0 tzn K = M to teza
+jest jasna. Niech p będzie liczbą pierwszą dla której up1 ∈ K. Niech M0 ,
+K ⊂ M ⊂ M0 bedzie ciałem rozkładu X p − 1 nad M . Niech M1 , K ⊂ M1
+będzie ciałem rozkładu wielomianu X p − 1 nad K.
+Mamy następujący diagram rozszerzeń i wszystkie one są skończone,
+normalne i rozdzielcze, bo χ(K) = 0.
+.
+= M0 aCC
+CC
+||
+|
+CC
+|
+CC
+||
+. ||
+0P
+M aC
+= M1
+CC
+z
+z
+CC
+z
+CC
+zz
+C .  zzz
+0P
+K
+
+Wystarczy pokazać, że grupa Gal(M0 , K) jest rozwiązalna, bo Gal(M, K)
+jest jej grupą ilorazową. W tym celu rozważamy rozszerzenia K ⊂ M1 ⊂
+M0 . Grupa Gal(M0 , K) jest rozszerzeniem grupy Gal(M1 , K) przez grupę
+Gal(M0 , M1 ). Grupa Gal(M1 , K) jest przemienna, a więc rozwiązalna.
+Wykażemy, że Gal(M0 , M1 ) jest rozwiązalna. Mamy M0 = M1 (u1 , . . . , un )
+i ciąg rozszerzeń M1 ⊂ M1 (u1 ) ⊂ M1 (u1 , . . . , un ). Rozszerzenie M1 ⊂
+M1 (u1 ) jest ciałem rozkładu wielomianu X p −up1 , gdyż M1 zawiera wszystkie
+pierwiastki stopnia p z 1. Ponieważ rozszerzenie grupy rozwiązalnej przez
+rozwiązalną jest grupą rozwiązalną, to wystarczy wykazać rozwiązalność
+grupy Gal(M0 , M (u1 )), ale ona wynika z założenia indukcyjnego, bo jest to
+pierwiastnikowe rozszerzenie o n − 1 generatorach.
+Deﬁnicja 42. Niech f ∈ K[X]. Grupą Galois Gal(f ) wielomianu f nazywamy grupę Galois ciała rozkładu f nad K.
+Zauważmy, że jeżeli deg(f ) = n, to Gal(f ) ⩽ Σn .
+Twierdzenie 21. Niech f ∈ K[X]. χ(K) = 0. Niech K ⊂ L będzie rozszerzeniem pierwiastnikowym zawierającym pewien pierwiastek wielomianu f .
+Wówczas Gal(f ) jest rozwiązalna.
+Dowód. Niech K ⊂ L ⊂ N , gdzie N rozkładowe domknięcie L. Wówczas
+K ⊂ N jest pierwiastnikowe. Jeżeli M jest ciałem rozkładu f , to K ⊂ M ⊂
+N , zatem z poprzedniego twierdzenia wynika, że Gal(M, K) = Gal(f ) jest
+grupą rozwiazalną.
+Jeżeli chcemy wskazać wielomian, którego pierwiastki nie dadzą się wyrazić przez operacje arytmetyczne i pierwiastkowanie, to wystarczy znaleźć
+taki, którego grupą Galois jest Σn , n > 4. Skorzystamy z tego, że dla liczby
+pierwszej p, grupa Σp jest generowana przez dowolną transpozycję i dowolny
+cykl długości p.
+Stwierdzenie 13. Niech f ∈ Q[X] będzie nierozkładalnym wielomianem
+stopnia p, który ma dokładnie dwa pierwiastki nierzeczywiste. Wówczas
+Gal(f ) = Σp .
+Dowód. Wiemy, że Gal(f ) ⩽ Σp . Wystarczy pokazać, że transpozycja i cykl
+długości p należą do Gal(f ). Sprzężenie w C transponuje jedyne dwa pierwiastki f . Na pewno p | |Gal(f )|, bo deg(f ) = p, więc Gal(f ) zawiera
+element rzędu p. Jedynym elementem rzędu p w Σp jest cykl długości p.
+Przykład 7. Wielomian X 5 −6X +3 spełnia założenia poprzedniego stwierdzenia - jego grupa Galois jest równa Σ5 i nie ma wzorów na pierwiastki
+tego wielomianu używających działań arytmetycznych i pierwiastkowania.
+Naturalnym pytaniem jest odwrotne. Czy jeśli grupa Galois wielomianu
+jest rozwiązalna, to takie wzory istnieją? Okazuje się, że tak. By udowodnić
+
+ten fakt potrzebne nam będą dodatkowe twierdzenia. Zaczynamy od twierdzenia o niezależności automorﬁzmów, które jest ciekawe same w sobie.
+Twierdzenie 22. (Dedekinda) Każdy zbiór parami różnych automorﬁzmów ciała K jest liniowo niezależny (w przestrzeni liniowej wszystkich
+przekształceń K → K).
+Dowód. Przypuśćmy przeciwnie i załóżmy, że a1 σ1 + a2 σ2 + · · · + an σn = 0.
+ai ̸= 0 jest najkrótszą kombinacją liniową równą 0. Ponieważ σ1 ̸= σ2 , to
+dla pewnego x ∈ K, σ1 (x) ̸= σ2 (x). Mamy
+∀y ∈ K : a1 σ1 (y) + a2 σ2 (y) + · · · + an σn (y) = 0
+zatem
+∀y∈K : a1 σ1 (x)σ1 (y) + a2 σ1 (x)σ2 (y) + · · · + an σ1 (x)σn (y) = 0
+oraz
+∀y∈K : a1 σ1 (xy) + a2 σ2 (xy) + · · · + an σn (xy) =
+= a1 σ1 (x)σ1 (y) + a2 σ2 (x)σ2 (y) + · · · + an σn (x)σn (y) = 0.
+Po odjęciu stronami otrzymujemy krótszą nietrywialną kombinację liniową
+równą 0:
+∀y∈K : a2 (σ1 (x) − σ2 (x)σ2 (y) + · · · + an (σ1 (x) − σn (x))σn (y) = 0,
+co prowadzi do sprzeczności.
+Deﬁnicja 43. Niech K ⊂ L będzie skończonym rozszerzeniem normalnym
+i niech Gal(L, K) = {σ0 = id, σ1 , . . . , σn−1 }. Wówczas dla elementu a ∈ L
+jego normą nazywamy iloczyn
+N (a) = σ0 (a)σ1 (a) . . . σn (a).
+Zauważmy, że dla każdego a ∈ L, N (a) ∈ K, N (ab) = N (a)N (b) oraz
+dla a ∈ K, N (a) = an .
+Twierdzenie Hilberta charakteryzuje elementy o normie 1.
+Twierdzenie 23. (90 Hilberta) Niech K ⊂ L będzie rozszerzeniem normalnym stopnia n o cyklicznej grupie Galois Gal(L, K) = ⟨ σ ⟩. Wówczas
+dla a ∈ L, N (a) = 1 wtedy i tylko wtedy, gdy istnieje element b ∈ L, dla
+b
+którego a = σ(b)
+.
+b
+Dowód. Jeżeli a = σ(b)
+, to
+
+N (a) = aσ(a)σ 2 (a) . . . σ n−1 (a) =
+
+b σ(b)
+σ n−1 (b)
+.
+.
+.
+= 1.
+σ(b) σ 2 (b)
+b
+
+Przypuśćmy, że N (a) = 1 i rozpatrzmy ciąg elementów:
+c0 = a
+c1 = aσ(a)
+c2 = aσ(a)σ 2 (a)
+... . . .
+cn−1 = aσ(a)σ 2 (a) . . . σ n−1 (a) = 1.
+Zauważmy, że ci+1 = aσ(ci ). Automorﬁzmy id, σ, . . . , σ n−1 są liniowo niezależne, więc
+c0 id + c1 σ + · · · + n − 2σ n−2 + σ n−1 ̸= 0.
+Istnieje więc d ∈ L dla którego
+c0 d + c1 σ(d) + · · · + n − 2σ n−2 (d) + σ n−1 (d) = b ̸= 0.
+Mamy
+c0 σ(d) + · · · + n − 2σ n−1 (d) + d = σ(b).
+Mnożac tę równość przez a i korzystając z tożsamości ci+1 = aσ(ci ) i odejmując równosci stronami otrzymujemy tezę.
+Następujące twierdzenie charakteryzuje rozszerzenia o cyklicznej grupie
+Galois.
+Twierdzenie 24. Niech K ⊂ L będzie rozszerzeniem normalnym stopnia n.
+Załóżmy, że (χ(K), n) = 1 i niech K zawiera wszystkie pierwiastki stopnia n
+z 1. Jeżeli grupa Galois Gal(L, K) jest cykliczna, to L jest ciałem rozkładu
+wielomianu X n − a dla pewnego a ∈ K
+Dowód. Jeżeli (χ(K), n) = 1, to (X n − 1)′ ̸= 0 i wielomian X n − 1 ma w K n
+pierwiastków różnych, które tworzą multyplikatywną grupę cykliczną. Niech
+ϵ będzie pierwiastkiem pierwotnym stopnia n. N (ϵ) = ϵn = 1 więc z twierdzenia Hilberta istnieje b ∈ L, takie że ϵ = σ(b)
+b , gdzie Gal(L, K) = ⟨ σ ⟩.
+n
+n
+n
+Zatem σ(b) = bϵ i σ(b ) = σ(b) = b z czego wynika, ż a = bn ∈ K. Rozpatrzmy wielomian X n − a ∈ K[X]. Ponieważ, K zawiera wszystkie pierwiastki stopnia n z 1, to K ⊂ K(b) jest ciałem rozkładu X n − a, rozszerzenie
+K ⊂ K(b) jest normalne, stąd automorﬁzmy 1, σ, . . . , σ n−1 zachowują K(b).
+Zatem |K(b) : K| ≥ n. Ale K ⊂ K(b) ⊂ L, L : K| = n, stąd K(b) = L.
+Możemy teraz przystąpić do dowodu twierdzenia:
+Twierdzenie 25. Niech χ(K) = 0. Niech K ⊂ L będzie skończonym rozszerzeniem normalnym o rozwiązalnej gruppie Galois. Wówczas istnieje rozszerzenie pierwiastnikowe K ⊂ N , dla którego K ⊂ L ⊂ N .
+
+Dowód. Dowod przez indukcję ze względu na stopień n rozszerzenia. Oczywiście dla n = 1 teza jest prawdziwa.
+Niech n > 1 i niech p | n będzie taką liczbą pierwszą, dla której istnieje podgrupa H E Gal(L, K) indeksu p. Niech f ∈ K[X] będzie takim
+wielomianem, że L jest jego ciałem rozkładu. Rozważmy następujące rozszerzenia:
+• L ⊂ N , gdzie N ciało rozkładu X p − 1 nad L;
+• K ⊂ M , gdzie M ciało rozkładu X p − 1 nad K
+Ponieważ χ(K) = 0, to rozszerzenia są rozdzielcze i ciała rozkładu są rozszerzeniami normalnymi. Mamy diagram zawierań:
+.
+> N `B
+~~ BBB
+~
+BB
+~
+BB
+~~
+/ ~~
+0P
+L `@
+>M
+@@
+||
+|
+@@
+@@  ||||
+/O .|
+K
+
+Wiemy, że
+• grupa Gal(N, L) jest przemienna;
+• rozszerzenie K ⊂ N jest normalne, bo jest ciałem rozkładu wielomianu
+f (X p − 1)
+• grupa Gal(N, K) jako rozszerzenie rozwiązalnej Gal(L, K) przez przemienną Gal(N, L).
+• rozszerzenie M ⊂ N jest normalne;
+• rozszerzenie K ⊂ M jest pierwiastnikowe, bo M = K(ϵ), ϵ pierwotny
+stopnia p..
+Pokażemy, że istnieje rozszerzenie pierwiastnikowe M ⊂ N ′ , takie że M ⊂
+N ⊂ N ′ . To wystarczy, bo wówczas K ⊂ N ′ pierwiastnikowe i wobec
+L ⊂ N , mamy K ⊂ L ⊂ N ′ . Ponieważ K ⊂ L jest normalne, to L jest niezmienniczym ciałem pośrednim i mamy dobrze zdeﬁniowany homomorﬁzm
+Γ : Gal(N, M ) → Gal(L, K), który automorﬁzmowi σ przyporządkowuje
+σ|L . Homomorﬁzm ten jest monomorﬁzmem, bo jeżeli σ|L = id, to oznacza to, że σ jest identycznością na wszystkich pierwiastkach f , ale one są
+generatorami N nad M . Zatem σ = id. Rozpatrujemy dwa przypadki:
+• Γ(Gal(N, M )) ⩽ Gal(L, K) jest podgrupą właściwą.
+Wówczas z założenia indukcyjnego istnieje rozszerzenie pierwiastnikowe M ⊂ N ′ , takie że M ⊂ N ⊂ N ′
+
+• Γ(Gal(N, M )) = Gal(L, K). Utożsamiając te grupy, niech H E Gal(N, M )
+będzie wybraną podgrupa indeksu p i niech P , M ⊂ P ⊂ N będzie odpowiadającym H ciałem pośrednim. Grupa Gal(P, M ) = Gal(N.M )/H
+jest rzędu P więc jest cykliczna i z poprzedniego twierdzenia wiemy, że
+M ⊂ P jest rozszerzeniem pierwiastnikowym. Grupa Gal(N, P ) = H
+ma rząd mniejszy od n i jest rozwiązalna, więc z założenia indukcyjnego istnieje rozszerzenie pierwiastnikowe P ⊂ N ′ , takie że P ⊂ N ⊂ N ′ .
+Zatem rozszerzenie M ⊂ N ′ jest pierwiastnikowe.
+
+4.4 Zadania
+Ciało rozkładu wielomianu i jego grupa Galois.
+4.4.1. ([J.R]) Znaleźć ciało rozkładu wielomianu x4 − 10x2 + 1 ∈ Q[X] i
+jego grupę Galois.
+4.4.2. ([J.R]) Niech f ∈ K[X] będzie wielomianem nierozkładalnym stopnia n i niech N będzie jego ciałem rozkładu. Pokazać, że :
+a) n | |N : K|;
+b) jeżeli f nie ma pierwiastków wielokrotnych, to n | |Gal(N, K)|.
+
+Odpowiedniość Galois
+4.4.3. ([I.K]) Niech K ⊂ N będzie rozszerzeniem. Pokazać, że Φ(L∪M ) =
+Φ(L) ∩ Φ(M ), gdzie L i M są rozszerzeniami pośrednimi. Analogicznie
+Ψ(⟨ H ∪ J ⟩) = Ψ(H) ∩ Ψ(J). Uogólnić na dowolne sumy.
+4.4.4. ([I.K]) Niech K ⊂ L ⊂ M będą rozszerzeniami, przy czym L jest
+normalne nad K, a M normalne nad L. Zakładamy, że każdy automorﬁzm L
+nad K można rozszerzyć do automorﬁzmu M . Pokazać, że M jest normalne
+nad K. (można uważać, że jest to analogiczne do stwierdzenia ”domknięte
+w domkniętym jest domknięte”.)
+4.4.5. ([IK]) Niech K ⊂ L ⊂ M będą rozszerzeniami i niech |L : K| = n.
+Pokazać, że istnieje co najwyżej n izomorﬁzmów L z podciałem M , które są
+identycznością na K.
+
+4.4.6. ([IK]) Niech K ⊂ L ⊂ M będą rozszerzeniami i niech M będzie
+normalne nad K i niech |L : K| = n < ∞. Pokazać,ze każdy izomorﬁzm L w
+podciało M , który jest stały na K może być rozszerzony do automorﬁzmu
+M nad K.(Wskazówka: Zauważyć, że warstwy Φ(L) odpowiadają różnym
+monomorﬁzmom L → M będącym obcięciem automorﬁzmów M .)
+4.4.7. Niech K ⊂ N będzie rozszerzeniem a G jego grupa Galois. Niech
+L będzie ciałem pośrednim, a H ⩽ G podgrupą.Pokazać, że :
+a) dla g ∈ G, Φ(g(L)) = gΦ(L)g −1 ;
+b) gΨ(H) = Ψ(gHg −1 ).
+Wywnioskować, że jeżeli podciało L jest domknięte i g ∈ G, to gL też jest
+domknięte.
+4.4.8. Niech K ⊂ L ⊂ M będą rozszerzeniami i niech L będzie domknięte.
+Pokazać, że NG (Φ(L)) = {g ∈ G : gL = L}.
+Rozszerzenie K ⊂ K(X)
+
+4.4.9. Niech K będzie ciałem nieskończonym. Pokazać, że K(X) jest
+normalne nad K.
+4.4.10. Niech K ⊂ L ⊂ K(X), K ̸= L. Pokazać, że |K(X) : L| < ∞.
+4.4.11. Niech G będzie grupą Galois rozszerzenia K ⊂ K(X). Pokazać,
+że jedynie skończone podgrupy G są domknięte.
+4.4.12. Pokazać, że dla rozszerzenia K ⊂ K(X) podciało K(X 2 ) jest
+domknięte w K(X), a podciało K(X 3 ) nie jest domknięte.
+4.4.13. W rozszerzeniu K ⊂ K(X) ⊂ K(X, Y ) K(X) jest domknięte i normalne nad K, K ⊂ K(X, Y ) jest normalne, ale K(X) nie jest
+Gal(K(X, Y ), K) niezmiennicze.
+
+4.4.14. Jak dokładnie wygląda grupa Galois, i to że ciało pośrednie różne
+od K jest rozszerzeniem przestępnym można obejrzeć tutaj:
+https://math.stackexchange.com/questions/13129/automorphism-of-theﬁeld-of-rational-functions
+Zasadnicze twierdzenie algebry
+
+4.4.15. Następujące fakty są prawdziwe:
+a) Każdy wielomian f ∈ R[X] stopnia nieparzystego ma pierwiastek w R;
+b) Ciało R nie ma rozszerzeń skończonych stopnia nieparzystego.
+c) Każdy wielomian f ∈ C[X] stopnia 2 jest iloczynem czynników liniowych;
+d) C nie ma rozszerzeń stopnia 2.
+
+4.4.16. Ciało liczb zespolonych jest algebraicznie domknięte.
+a) f ∈ C[X] ma pierwiastek w C wtedy i tylko wtedy, gdy f f ∈ R[X] ma
+pierwiastek w C;
+b) Niech f ∈ R[X] nierozkładalny i niech R ⊂ N ciało rozkładu (x2 +
+1)f .Mamy C ⊂ N . Niech G = Gal(N, R), niech |G| = 2r k, k nieparzyste.
+Niech H ⩽ G, 2 podgrupa Sylowa G. Niech L = N H = Ψ(H). Pokazać,
+że L = R.
+c) Φ(C) ⩽ G jest 2 – grupą lub jest trywialna. Pokazać, że jest trywialna.
+d) Wywnioskować twierdzenie z punktu c)
+
+Rozdział 5
+
+Konstrukcje geometryczne
+Deﬁnicja 44. LIczba zespolona x+iy jest konstruowalna wtedy i ylko wtedy,
+gdy punkty płaszczyzny (x, 0) i (0, y) są konstruowalne.
+Deﬁnicja 45. Niech K ⊂ C będzie zbiorem liczb konstruowalnych.
+Lemat 8. Zbior K jest podciałem C zamkniętym ze względu na branie pierwiastków kwadratowych i sprzężenie.
+Twierdzenie 26. Liczba zespolona z jest konstruowalna wtedy i tylko wtedy,
+gdy istnieje ciąg rozszerzeń:
+Q = K0 ⊂ K1 ⊂ K2 ⊂ · · · ⊂ Kn ,
+gdzie z ∈ Kn oraz |Kj+1 : Kj | ≤ 2 dla każdego j.
+Wniosek 4. Jeżeli liczba z ∈ C jest konstruowalna, to |Q(z) : Q| = 2k .
+Twierdzenie 27. (Gaussa) Jeżeli p jest nieparzystą liczbą pierwszą, to p
+t
+–kąt foremny jest konstruowalny wtedy i tylko wtedy gdy p = 22 + 1, dla
+pewnego t ∈ N.
+Dowód poprzedzimy uwagą:
+Uwaga 3. Liczba postaci 2s + 1 jest pierwsza wtedy i tylko wtedy gdy s = 2t ,
+t ∈ N.
+Dowód. Przypuśćmy, że liczba nieparzysta k | s. p = (2m )k +1, ale wielomian
+X k + 1 jest rozkładalny nad Z.
+Dowód. Należy rozstrzygnąć konstruowalność liczby z = exp( 2πi
+p ). Wielomianem minimalnym dla z nad Q jest wielomian cyklotomiczny cp ∈ Q[X]
+i jest on stopnia p − 1.
+′′ ⇒′′ Przypuśćmy, że z jest konstruowalne. Wiemy, że wówczas p−1 = 2s ,
+
+s ∈ N. ′′ ⇐′′ Przypuśćmy, że 22 + 1 jest liczbą pierwszą. Wówczas Q(z) jest
+t
+
+47
+
+t
+
+ciałem rozkładu wielomianu cp . Mamy |Gal(Q(z); Q)| = 22 i jest 2 grupą.
+Ale 2 grupa ma ciąg normalny o ilorazach Z2 . Z twierdzenia Galois mamy
+ciąg podciał Q = K0 ⊂ K1 ⊂ K2 ⊂ · · · ⊂ Kn i |Kj+1 : Kj | = 2, a zatem z
+jest konstruowalne.
+t
+
+Liczby pierwsze postaci 22 + 1 nazywają się liczbami pierwszymi Farmata. Znane są tylko cztery liczby pierwsze Fermata - dla t = 1, 2, 3, 4 i są
+to 3, 5, 17, 257, 65537. Prawdziwe jest też twierdzenie:
+Twierdzenie 28. n – kąt foremny jest konstruowalny wtedy i tylko wtedy,
+gdy n jest iloczynem potęgi 2 i różnych liczb pierwszych Fermata.
+
+
