@@ -1,0 +1,4347 @@
+Elea: Nauč sa matiku – abstraktná algebra
+Valdemar Švábenský
+24. júna 2020
+
+Úvod
+Tento učebný text vznikol v rámci prípravy na jeden z najťažších a zároveň najzaujímavejších matematických kurzov, aký som absolvoval: MV008 Algebra I na Fakulte informatiky
+Masarykovej univerzity pod vedením doc. RNDr. Libora Poláka, CSc. v roku 2014. Text
+vznikal postupne počas piatich mesiacov ako učebný materiál na skúšku. Neskôr som sa
+ho rozhodol zverejniť v rámci projektu Nauč sa matiku. Je určený primárne pre študentov
+vysokých škôl (2. ročník a vyššie). Predpokladajú sa základné znalosti logiky a teórie
+množín a tiež schopnosti čítať matematickú notáciu a abstraktne matematicky myslieť.
+Celý dokument je rozdelený do deviatich kapitol (číslovaných 1 až 9), ktoré sú v istých
+prípadoch rozdelené do podkapitol (napríklad 1.1, 1.2, 1.3). Posledná kapitola obsahuje
+aplikácie v teórii jazykov, ktorá je dôležitá hlavne pre informatikov.
+Otázky a spätná väzba, či už poďakovanie, oprava chýb, konštruktívna kritika, návrhy
+na zlepšenie, alebo pozvanie na pivo sú vítané. Kontakt na mňa je k dispozícii na webe
+https://www.elea.sk. Držím palce všetkým, ktorí sa rozhodli venovať štúdiu tejto
+krásnej oblasti matematiky.
+Valdemar
+
+Licencia a právo na použitie
+Celý dokument je k dispozícii zdarma pod licenciou Creative Commons BY-NC-SA [1].
+Nikomu a nikdy by ste zaň preto nemali platiť. Text a jeho časti môžete ľubovoľne používať
+pre nekomerčné účely, šíriť v akejkoľvek podobe s odkazom na autora a tiež ľubovoľne
+upravovať a meniť za podmienok, že uvediete citáciu pôvodného autora, vykonané zmeny a
+výsledné dielo budete voľne zdieľať pod rovnakou licenciou. Ak máte pocit, že podmienky
+boli porušené, prosím, kontaktujte ma.
+
+1
+
+Obsah
+1 Zobrazenia, operácie, grupy
+4
+1.1 Základné pojmy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+1.2 Vlastnosti binárnych operácií . . . . . . . . . . . . . . . . . . . . . . . .
+5
+1.3 Grupové štruktúry . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+1.4 Skladanie zobrazení . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7
+1.5 Permutácie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+8
+1.6 Rád grupy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9
+1.7 Dihedrálne grupy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1.8 Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1.9 Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+2 Teória čísel
+2.1 Aritmetika a operácie na celých číslach . . . . . . . . . . . . . . . . . . .
+2.2 Deliteľnosť . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 Prvočísla . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+13
+13
+13
+17
+
+3 Kongruencie
+18
+3.1 Základné definície . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+3.2 Vlastnosti kongruencií . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+19
+3.3 Operácie na zvyškových triedach . . . . . . . . . . . . . . . . . . . . . .
+20
+3.4 Eulerova funkcia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+3.5 Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+22
+3.6 Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . .
+23
+4 Grupy ďalej
+23
+4.1 Podgrupy a generovanie . . . . . . . . . . . . . . . . . . . . . . . . . . .
+23
+4.2 Homomorfizmy grúp . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+26
+4.3 Súčiny grúp . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+27
+4.4 Cayleyho vety . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+27
+4.5 Rozklady grúp podľa podgrúp . . . . . . . . . . . . . . . . . . . . . . . .
+28
+4.5.1 Ľavé triedy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+28
+4.5.2 Lagrangeova veta . . . . . . . . . . . . . . . . . . . . . . . . . . .
+29
+4.5.3 Faktorové grupy . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+30
+4.5.4 Veta Delo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+4.6 Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+32
+4.7 Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . .
+33
+4.8 Appendix: šifrovanie . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+37
+4.9 Appendix: ďalšie vlastosti grupových štruktúr . . . . . . . . . . . . . . .
+38
+5 Okruhy
+39
+5.1 Základné pojmy a vlastnosti okruhov . . . . . . . . . . . . . . . . . . . .
+39
+5.2 Podokruhy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+40
+5.3 Homomorfizmy okruhov . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+5.4 Súčiny okruhov a podielové telesá . . . . . . . . . . . . . . . . . . . . . .
+42
+5.5 Charakteristiky okruhov . . . . . . . . . . . . . . . . . . . . . . . . . . .
+43
+https://www.elea.sk
+
+2
+
+Valdemar Švábenský
+
+5.6
+5.7
+
+Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6 Varenie čísel
+
+43
+43
+44
+
+7 Polynómy
+45
+7.1 Základné pojmy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+45
+7.2 Deliteľnosť polynómov . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+47
+7.3 Rozklad a ireducibilita polynómov . . . . . . . . . . . . . . . . . . . . . .
+48
+7.4 Korene polynómov . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+49
+7.5 Polynómy nad telesom komplexných čísel . . . . . . . . . . . . . . . . . .
+50
+7.6 Polynómy nad telesom reálnych čísel . . . . . . . . . . . . . . . . . . . . . 51
+7.7 Polynómy nad okruhmi racionálnych a celých čísel . . . . . . . . . . . . .
+52
+7.7.1 Primitívne polynómy, obsah . . . . . . . . . . . . . . . . . . . . .
+52
+7.7.2 Ireducibilita . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+52
+7.7.3 Hľadanie koreňov . . . . . . . . . . . . . . . . . . . . . . . . . . .
+53
+7.8 Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+53
+7.9 Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . .
+54
+8 Okruhy ďalej
+55
+8.1 Ideály . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+55
+8.2 Faktorové okruhy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+55
+8.3 Rozšírenia telies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+57
+8.4 Lemmy o rozšírení telies . . . . . . . . . . . . . . . . . . . . . . . . . . .
+59
+8.5 Konečné telesá . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+60
+8.6 Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+8.7 Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+9 Syntaktický monoid
+9.1 Teória jazykov . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9.2 Automaty . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9.3 Kongruencie na pologrupách . . . . . . . . . . . . . . . . . . . . . . . . .
+9.4 Syntaktické štruktúry . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9.5 Regulárne výrazy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9.6 Vlastnosti jazykov . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9.7 Cvičenia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9.8 Návody k riešeniu cvičení . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+62
+62
+63
+63
+64
+66
+66
+67
+68
+
+Poďakovanie
+• Ďakujem Matúšovi Nemcovi za pravidelné skenovanie a posielanie poznámok z cvičení.
+• Ďakujem Jurajovi Majorovi a Zuzane Rapantovej za korektúru textu.
+
+https://www.elea.sk
+
+3
+
+Valdemar Švábenský
+
+Kapitola 1: Zobrazenia, operácie, grupy
+1.1
+
+Základné pojmy
+
+Číselné množiny:
+• N = {1, 2, 3, . . .} je množina prirodzených čísel,
+• N0 = N ∪ {0} je množina nezáporných celých čísel,
+• Z = {. . . , −2, −1, 0, 1, 2, . . .} je množina celých čísel,
+• Q = {𝑎/𝑏 | 𝑎, 𝑏 ∈ Z, 𝑏 ̸= 0} je množina racionálnych čísel,
+• R je množina reálnych čísel, t. j. všetkých čísel, ktoré sú hodnotou na číselnej osi,
+• I = R ∖ Q je množina iracionálnych čísel,
+• C = {𝑎 + 𝑏𝑖 | 𝑎, 𝑏 ∈ R} je množina komplexných čísel.
+• N ⊂ Z ⊂ Q ⊂ R ⊂ C.
+• 𝑋 + je množina všetkých kladných prvkov z 𝑋 ⊆ R,
+• 𝑋 * je množina všetkých nenulových prvkov z 𝑋 ⊆ C.
+Definícia 1.1. Karteziánsky súčin množín: 𝐴 × 𝐵 = {(𝑎, 𝑏) | 𝑎 ∈ 𝐴 ∧ 𝑏 ∈ 𝐵}.
+• 𝐴𝑛 = 𝐴
+× · ·⏞· × 𝐴.
+⏟
+𝑛-krát
+
+Definícia 1.2. Relácia medzi množinami 𝐴1 , . . . , 𝐴𝑛 je podmnožinou 𝐴1 × . . . × 𝐴𝑛 .
+Definícia 1.3. Zobrazenie (funkcia) z množiny 𝐴 do množiny 𝐵 je relácia 𝑓 medzi
+množinami 𝐴, 𝐵 taká, že pre každé 𝑥 ∈ 𝐴 existuje práve jedno 𝑦 ∈ 𝐵 také, že (𝑥, 𝑦) ∈ 𝑓 .
+• Namiesto (𝑥, 𝑦) ∈ 𝑓 píšeme obvykle 𝑓 (𝑥) = 𝑦.
+• Množina 𝐴 sa nazýva definičný obor 𝐷(𝑓 ) a množina 𝐵 obor hodnôt 𝐻(𝑓 ) funkcie.
+• Zápis 𝑓 : 𝐴 → 𝐵 hovorí, že 𝑓 je funkcia s 𝐷(𝑓 ) = 𝐴 a 𝐻(𝑓 ) = 𝐵.
+Definícia 1.4. Nech 𝑛 ∈ N0 . Zobrazenie 𝑓 : 𝐴𝑛 → 𝐴 je 𝑛-árna operácia na množine 𝐴.
+• Ak 𝑛 = 0, tak 𝐴𝑛 = {∅}. Nulárne operácie sú teda výbery prvkov z množiny 𝐴.
+• Najčastejšie používame binárne operácie: +, ·, . . . Značíme ·(𝑎, 𝑏) = 𝑎 · 𝑏 = 𝑎𝑏.
+
+https://www.elea.sk
+
+4
+
+Valdemar Švábenský
+
+1.2
+
+Vlastnosti binárnych operácií
+
+Binárna operácia · na množine 𝐴 sa nazýva:
+• asociatívna, ak ∀ 𝑎, 𝑏, 𝑐 ∈ 𝐴 :
+
+(𝑎 · 𝑏) · 𝑐 = 𝑎 · (𝑏 · 𝑐),
+
+• komutatívna, ak ∀ 𝑎, 𝑏 ∈ 𝐴 :
+
+𝑎 · 𝑏 = 𝑏 · 𝑎,
+
+• idempotentná, ak ∀ 𝑎 ∈ 𝐴 :
+
+𝑎 · 𝑎 = 𝑎.
+
+Prvok 𝑒 ∈ 𝐴 nazývame:
+• ľavý neutrálny (jednotkový), ak ∀ 𝑎 ∈ 𝐴 :
+
+𝑒 · 𝑎 = 𝑎,
+
+• pravý neutrálny (jednotkový), ak ∀ 𝑎 ∈ 𝐴 :
+
+𝑎 · 𝑒 = 𝑎,
+
+• neutrálny (jednotkový), ak je ľavý neutrálny a zároveň pravý neutrálny;
+• ľavý nulový, ak ∀ 𝑎 ∈ 𝐴 :
+• pravý nulový, ak ∀ 𝑎 ∈ 𝐴 :
+
+𝑒 · 𝑎 = 𝑒,
+𝑎 · 𝑒 = 𝑒,
+
+• nulový, ak je ľavý nulový a zároveň pravý nulový;
+• idempotent, ak 𝑒 · 𝑒 = 𝑒.
+Ak 𝑒 ∈ 𝐴 je neutrálnym prvkom, tak prvok 𝑏 ∈ 𝐴 nazývame:
+• ľavá inverzia prvku 𝑎 ∈ 𝐴, ak 𝑏 · 𝑎 = 𝑒,
+• pravá inverzia prvku 𝑎 ∈ 𝐴, ak 𝑎 · 𝑏 = 𝑒,
+• inverzia prvku 𝑎 ∈ 𝐴, ak je jeho ľavou a zároveň pravou inverziou. (Hovoríme, že 𝑎
+je invertibilný.)
+
+1.3
+
+Grupové štruktúry
+
+Definícia binárnej operácie vlastne hovorí, že binárna operácia je definovaná pre ľubovoľné
+dva prvky danej množiny a zaručuje úplnosť (= uzavretosť množiny na danú operáciu).
+Definícia 1.5. Štyri základné grupové štruktúry sú:
+• Grupoid (magma) je usporiadaná dvojica (𝐴, ·).
+• Pologrupa (semigroup) je grupoid, v ktorom je operácia · asociatívna.
+• Monoid (monoid) je pologrupa s neutrálnym prvkom 𝑒.
+• Grupa (group) je monoid, v ktorom má každý prvok inverziu.
+Grupová štruktúra je komutatívna, ak je v nej daná operácia · komutatívna.
+Zadanie grupoidu: Cayleyho tabuľkou prvkov / analyticky / prezentáciou (pozri 1.56).
+Vyčítanie vlastností z tabuľky: asociativita – ťažko (𝑂(𝑛3 )), komutativita – symetria
+podľa diagonály (𝑂(𝑛2 )), idempotencia – z diagonály.
+https://www.elea.sk
+
+5
+
+Valdemar Švábenský
+
+Lemma 1.6. Nech (𝐴, ·) je grupoid, 𝑒 ∈ 𝐴 je ľavý neutrálny (jednotkový) prvok, 𝑓 ∈ 𝐴
+je pravý neutrálny (jednotkový) prvok. Potom 𝑒 = 𝑓 .
+Dôkaz. 𝑓 = 𝑒 · 𝑓 = 𝑒.
+Dôsledok 1.7. V grupoide môže byť: a) žiadny neutrálny prvok, b) 𝑘 ∈ N ľavých neutrálnych, 0 pravých neutrálnych, c) 𝑙 ∈ N pravých neutrálnych, 0 ľavých neutrálnych, d)
+jediný neutrálny prvok.
+Lemma 1.8. Nech (𝑆, ·) je pologrupa s jednotkovým prvkom 𝑒. Potom ku každému prvku
+𝑥 ∈ 𝑆 existuje najviac jedna inverzia.
+Dôkaz. Nech 𝑥 má dve rôzne inverzie 𝑦, 𝑧 ∈ 𝑆. Potom 𝑥𝑦 = 𝑦𝑥 = 𝑒 a tiež 𝑥𝑧 = 𝑧𝑥 = 𝑒.
+Ďalej (𝑦𝑥)𝑧 = 𝑒𝑧 = 𝑧 a tiež z asociativity (𝑦𝑥)𝑧 = 𝑦(𝑥𝑧) = 𝑦𝑒 = 𝑦 .
+Lemma 1.9. Nech (𝑀, ·, 𝑒) je monoid, 𝑎 ∈ 𝑀 , 𝑏 ∈ 𝑀 je ľavou inverziou k 𝑎, 𝑐 ∈ 𝑀 je
+pravou inverziou k 𝑎. Potom 𝑏 = 𝑐.
+Dôkaz. (𝑏𝑎)𝑐 = 𝑒𝑐 = 𝑐, a tiež z asociativity (𝑏𝑎)𝑐 = 𝑏(𝑎𝑐) = 𝑏𝑒 = 𝑏.
+Lemma 1.10. V ľubovoľnej grupe existuje jediný idempotentný prvok.
+Dôkaz. Nech 𝑎 ∈ 𝐺 je idempotentný prvok, t. j. 𝑎 = 𝑎 · 𝑎. Vynásobíme obe strany rovnice
+inverziou prvku 𝑎. Potom 𝑎 · 𝑎−1 = 𝑎 · 𝑎 · 𝑎−1 , teda 𝑒 = 𝑎𝑒, teda 𝑎 = 𝑒.
+Príklad 1.11. Tabuľka číselných množín a klasických binárnych operácií:
++
+
+−
+
+·
+
+÷
+
+N
+
+pologrupa
+
+(nič)
+
+monoid (nič)
+
+N0
+
+monoid
+
+(nič)
+
+monoid (nič)
+
+Z
+
+grupa
+
+grupoid
+
+monoid (nič)
+
+Q
+
+grupa
+
+grupoid
+
+monoid (nič)
+
+R
+
+grupa
+
+grupoid
+
+monoid (nič)
+
+C
+
+grupa
+
+grupoid
+
+monoid (nič)
+
+Príklad 1.12. Príklady grupových štruktúr:
+• Nekomut. grupoid, ktorý nie je pologrupou: (R3 , ×), kde × je vektorový súčin.
+• Komutatívny grupoid, ktorý nie je pologrupou: (N, ⊕), kde 𝑎 ⊕ 𝑏 = 𝑎𝑏 + 𝑎2 + 𝑏2 .
+• Nekomutatívna pologrupa, ktorá nie je monoidom: ({( 𝑎0 0𝑏 ) | 𝑎, 𝑏 ∈ R, 𝑎 ̸= 0}, ·).
+• Komutatívna pologrupa, ktorá nie je monoidom: (N, 𝑛𝑠𝑑).
+• Nekomutatívny monoid, ktorý nie je grupou: ({𝑎, 𝑏}* , ·), kde · je zreťazenie slov.
+https://www.elea.sk
+
+6
+
+Valdemar Švábenský
+
+• Komutatívny monoid, ktorý nie je grupou: ({0, 1}, ∧).
+• Nekomutatívna grupa: (S3 , ∘).
+• Komutatívna (Abelovská) grupa: triviálna grupa ({𝑒}, ·).
+Príklad 1.13. Nasledovné množiny matíc s operáciou sčítania matíc tvoria grupy pre
+𝑅 = Z, Q, R alebo C:
+• 𝑀 𝑎𝑡𝑚𝑛 (𝑅) je množina všetkých matíc typu 𝑚 × 𝑛 nad 𝑅.
+• 𝐺𝐿𝑛 (𝑅) je množina všetkých regulárnych matíc rádu 𝑛 nad 𝑅.
+• 𝑆𝐿𝑛 (𝑅) je množina všetkých matíc rádu 𝑛 nad 𝑅 a determinantom rovným 1.
+• Posledné dve tvoria grupu s násobením pre 𝑅 = Q, R alebo C.
+Príklad 1.14. (N, 𝑛𝑠𝑑) je pologrupa, (N0 , 𝑛𝑠𝑑) je monoid, (Z, 𝑛𝑠𝑑) je monoid.
+Príklad 1.15. (N, 𝑛𝑠𝑛) je monoid, (N0 , 𝑛𝑠𝑛) je monoid, (Z, 𝑛𝑠𝑛) je monoid.
+Definícia 1.16. Nech 𝑋 je množina. 𝑃 (𝑋) = 2𝑋 je množina všetkých jej podmnožín.
+Príklad 1.17. (𝑃 (𝑋), ∩) je kom. monoid, (𝑃 (𝑋), ∪) je kom. monoid, (𝑃 (𝑋), ∖) je nekom.
+grupoid, (𝑃 (𝑋),𝐶 ) neuvažujeme (doplnok nie je binárna operácia) a (𝑃 (𝑋), △) je kom.
+grupa. Špeciálnym prípadom je 𝑋 = ∅.
+Príklad 1.18. Nech 𝐴 je neprázdna množina a 𝑋1 , . . . , 𝑋𝑛 ⊆ 𝐴. Uvažujme operácie
+∩, ∪,𝐶 . Dva množinové výrazy sú ekvivalentné práve vtedy, keď pri ľubovoľnom dosadení
+𝑛
+za 𝑋1 , . . . , 𝑋𝑛 dostaneme to isté. Počet tried ekvivalencie je 22 .
+
+1.4
+
+Skladanie zobrazení
+
+Definícia 1.19. Nech 𝐴, 𝐵 sú množiny. Kladieme:
+• 𝐵 𝐴 = {𝑓 | 𝑓 : 𝐴 → 𝐵} je množina všetkých zobrazení množiny 𝐴 do množiny 𝐵.
+• 𝑇 (𝐴) = 𝐴𝐴 je množina všetkých zobrazení množiny 𝐴 do seba (tzv. transformácie).
+• 𝑆(𝐴) je množina všetkých bijekcií množiny 𝐴 do seba (tzv. permutácie).
+Definícia 1.20. Nech 𝑓 : 𝐴 → 𝐵, 𝑔 : 𝐵 → 𝐶 sú zobrazenia. Potom ich zloženie (v tomto
+poradí) je (𝑔 ∘ 𝑓 )(𝑥) = 𝑔(𝑓 (𝑥)), kde (𝑔 ∘ 𝑓 ) : 𝐴 → 𝐶.
+Lemma 1.21. Skladania zobrazení sú asociatívne.
+𝑓
+
+𝑔
+
+ℎ
+
+Dôkaz. Máme množiny 𝐴, 𝐵, 𝐶, 𝐷 a zobrazenia 𝑓, 𝑔, ℎ, pričom 𝐴 →
+− 𝐵→
+− 𝐶→
+− 𝐷. Potom
+[(ℎ ∘ 𝑔) ∘ 𝑓 ](𝑥) = (ℎ ∘ 𝑔)(𝑓 (𝑥)) = ℎ(𝑔(𝑓 (𝑥))) aj [ℎ ∘ (𝑔 ∘ 𝑓 )](𝑥) = ℎ((𝑔 ∘ 𝑓 )(𝑥)) =
+ℎ(𝑔(𝑓 (𝑥))).
+Lemma 1.22. Identita je neutrálnym prvkom pri operácii skladania zobrazení.
+Dôkaz. ∀𝑥 ∈ 𝐴 : 𝑓 (𝑓 −1 (𝑥)) = 𝑓 −1 (𝑓 (𝑥)) = 𝑥, t. j. 𝑓 ∘ 𝑓 −1 = 𝑓 −1 ∘ 𝑓 = 𝑖𝑑.
+https://www.elea.sk
+
+7
+
+Valdemar Švábenský
+
+Dôsledok 1.23. Množina všetkých binárnych relácií s operáciou skladania (𝑃 (𝐴 × 𝐴), ∘)
+je monoid. Táto štruktúra je grupou, práve keď 𝐴 ̸= ∅.
+Poznámka. Pre skladanie relácií platí:
+𝑆 ∘ 𝑅 = {(𝑎, 𝑐) | ∃𝑏 ∈ 𝐵 : (𝑎, 𝑏) ∈ 𝑅 ∧ (𝑏, 𝑐) ∈ 𝑆}, pričom 𝑆 ∘ 𝑅 ⊆ 𝐴 × 𝐶.
+Dôsledok 1.24. Množina všetkých transformácií s operáciou skladania (𝑇 (𝐴), ∘) je
+monoid. Táto štruktúra je grupou, práve keď |𝐴| ≤ 1.
+Dôsledok 1.25. Množina všetkých prostých transformácií s operáciou skladania (𝑇𝑖𝑛𝑗 (𝐴), ∘)
+je monoid. Táto štruktúra je grupou, práve keď 𝐴 je konečná.
+Definícia 1.26. Nech 𝑓 : 𝐴 → 𝐵 je funkcia. Potom 𝑓 je invertibilná, ak existuje funkcia
+𝑓 −1 : 𝐵 → 𝐴, pričom 𝑓 (𝑥) = 𝑦 ⇐⇒ 𝑓 −1 (𝑦) = 𝑥.
+• Ak je 𝑓 prostá (injektívna), potom je aj invertibilná.
+• Ak je 𝑓 invertibilná, potom 𝑓 −1 je jedinečná.
+• Ak sú 𝑓, 𝑓 −1 (totálne) funkcie, potom sú obe bijekcie.
+
+1.5
+
+Permutácie
+
+Množina permutácií je množina 𝑆(𝐴) = {𝑓 | 𝑓 : 𝐴 → 𝐴}, kde 𝑓 je bijektívne zobrazenie.
+Permutácia (teda prvok tejto množiny) je vlastne (invertibilná) funkcia.
+Dôsledok 1.27. (𝑆(𝐴), ∘) je grupa. Táto grupa je komutatívna pre |𝐴| ≤ 2.
+Definícia 1.28. Obvykle uvažujeme 𝐴 = {1, . . . , 𝑛} a píšeme 𝑆({1, . . . , 𝑛}) = 𝑆𝑛 = S𝑛 ,
+kde 𝑛 ∈ N. Grupa (𝑆𝑛 , ∘) sa nazýva symetrická grupa stupňa 𝑛.
+Veta 1.29. |𝑆𝑛 | = 𝑛!.
+Definícia 1.30. Nech 𝑘 ∈ N, 𝑘 ≥ 2. Nech 𝑖1 , . . . , 𝑖𝑘 ∈ {1, . . . , 𝑛} sú po dvoch rôzne.
+Permutácia 𝑓 ∈ 𝑆𝑛 definovaná vzťahom
+𝑓 (𝑖𝑗 ) = 𝑖𝑗+1
+𝑓 (𝑖𝑗 ) = 𝑖1
+𝑓 (𝑖) = 𝑖
+
+pre 𝑗 = 1, . . . , 𝑘 − 1;
+pre 𝑗 = 𝑘;
+pre 𝑖 ̸∈ {𝑖1 , . . . , 𝑖𝑘 };
+
+sa nazýva cyklus dĺžky 𝑘. Píšeme 𝑓 = (𝑖1 , . . . , 𝑖𝑘 ).
+• Cykly (𝑖1 , . . . , 𝑖𝑘 ) a (𝑗1 , . . . , 𝑗𝑙 ) sú nezávislé, ak {𝑖1 , . . . , 𝑖𝑘 } ∩ {𝑗1 , . . . , 𝑗𝑙 } = ∅.
+• Transpozícia je cyklus dĺžky 2.
+Veta 1.31. Nezávislé cykly komutujú.
+Veta 1.32. Ľubovoľná permutácia 𝑓 ∈ 𝑆𝑛 sa dá rozložiť na súčin nezávislých cyklov.
+Tento rozklad je daný jednoznačne (až na poradie činiteľov).
+https://www.elea.sk
+
+8
+
+Valdemar Švábenský
+
+Dôkaz. Nech 𝜋 je permutáciou na 𝑆𝑛 . Vezmime nejaké 𝑥 ∈ {1, . . . , 𝑛}. Definujme 𝜋 0 (𝑥) = 𝑥
+(identická permutácia), 𝜋 𝑘+1 (𝑥) = 𝜋(𝜋 𝑘 (𝑥)), kde 𝑘 ∈ N0 .
+Keďže {1, . . . , 𝑛} je konečná množina, aj postupnosť 𝑥, 𝜋(𝑥), 𝜋 2 (𝑥), . . . je konečná.
+Preto existuje nejaké „opakovanie“, teda ∃𝑘 < 𝑙 : 𝜋 𝑘 (𝑥) = 𝜋 𝑙 (𝑥). Z toho 𝑥 = 𝜋 𝑙−𝑘 (𝑥).
+Permutáciu 𝜋 potom môžeme zapísať ako cyklus 𝜋 = (𝑥, 𝑥1 , 𝑥2 , . . . , 𝑥𝑙−𝑘 ).
+Ak v množine {1, . . . , 𝑛} ešte existujú nejaké prvky, ktoré sme nevyužili, vezmeme
+nejaké 𝑦, ktoré sa nevyskytuje v cykle (𝑥, 𝑥1 , 𝑥2 , . . . , 𝑥𝑙−𝑘 ) a proces zopakujeme. Tým
+získame cyklus 𝜎 = (𝑦, 𝑦1 , 𝑦2 , . . . , 𝑦𝑚 ). Cykly 𝜋 a 𝜎 sú zjavne nezávislé.
+Proces opakujeme, kým nevyužijeme všetky prvky z množiny {1, . . . , 𝑛}.
+Poznámka. Súčin nula činiteľov chápeme ako identickú permutáciu 𝑖𝑑.
+Veta 1.33. Ľubovoľná permutácia 𝑓 ∈ 𝑆𝑛 sa dá rozložiť na súčin transpozícií.
+Dôkaz. (𝑖1 , . . . , 𝑖𝑘 ) = (𝑖1 , 𝑖𝑘 ) ∘ · · · ∘ (𝑖1 , 𝑖3 ) ∘ (𝑖1 , 𝑖2 ). Rozklad nie je jednoznačný.
+• Ak je počet činiteľov v takom rozklade párny, hovoríme o párnej permutácii.
+• Ak je počet činiteľov v takom rozklade nepárny, hovoríme o nepárnej permutácii.
+Definícia 1.34. Grupa párnych permutácií je tzv. alternujúca. 𝐴𝑛 = {𝑓 ∈ 𝑆𝑛 | 𝑓 je párna}.
+Veta 1.35. |𝐴𝑛 | = 𝑛!2 .
+Definícia 1.36. Inverzia permutácie 𝑓 ∈ 𝑆𝑛 je usporiadaná dvojica (𝑖, 𝑗) taká, že 𝑖, 𝑗 ∈
+{1, . . . , 𝑛} a platí: 𝑖 < 𝑗 a 𝑓 (𝑖) > 𝑓 (𝑗).
+• Párna permutácia (𝑠𝑔𝑛(𝑓 ) = 1) má párny počet inverzií.
+• Nepárna permutácia (𝑠𝑔𝑛(𝑓 ) = −1) má nepárny počet inverzií.
+Lemma 1.37. Súčin 𝑘 transpozícií je párny, práve keď 𝑘 je párne [2, I.2.8].
+Lemma 1.38. Pre 𝑓, 𝑔 ∈ 𝑆𝑛 platí: 𝑠𝑔𝑛(𝑓 ∘ 𝑔) = 𝑠𝑔𝑛(𝑓 ) · 𝑠𝑔𝑛(𝑔) [2, I.2.9].
+
+1.6
+
+Rád grupy
+
+Lemma 1.39. Nech (𝑆, ·) je pologrupa, 𝑎1 , . . . , 𝑎𝑛 ∈ 𝑆, kde 𝑛 ∈ N. Potom výsledok súčinu
+𝑎1 · . . . · 𝑎𝑛 (v tomto poradí) nezáleží na zátvorkovaní.
+Dôkaz. Báza: 𝑛 = 1, 2, 3 – triviálne (z asociativity).
+IP: nezáleží na zátvorkovaní pre výsledok súčinu 𝑎1 · . . . · 𝑎𝑘 , kde 𝑘 < 𝑛.
+IK: Ak 𝑛 ≥ 4 a 𝑘 ≥ 2, tak (𝑎1 ·. . .·𝑎𝑘 )·(𝑎𝑘+1 ·. . .·𝑎𝑛 ) = (𝑎1 ·(𝑎2 ·. . .·𝑎𝑘 ))·(𝑎𝑘+1 ·. . .·𝑎𝑛 ) =
+𝑎1 · ((𝑎2 · . . . · 𝑎𝑘 ) · (𝑎𝑘+1 · . . . · 𝑎𝑛 )).
+Dôsledok 1.40. V pologrupách nemusíme pri násobení prvkov písať zátvorky.
+Lemma 1.41. Nech (𝑆, ·) je komutatívna pologrupa, 𝑎1 , . . . , 𝑎𝑛 ∈ 𝑆, kde 𝑛 ∈ N. Potom
+výsledok súčinu 𝑎1 · . . . · 𝑎𝑛 nezáleží na poradí.
+
+https://www.elea.sk
+
+9
+
+Valdemar Švábenský
+
+Dôkaz. Báza: 𝑛 = 1, 2 – triviálne (z komutativity).
+Ak 𝑛 ≥ 3 a nezáleží na zátvorkovaní, môžeme ľubovoľnú permutáciu prvkov 𝑎1 , . . . , 𝑎𝑛
+po dvoch zátvorkovať a postupne vymieňať, kým sa všetky nedostanú na svoje miesto.
+Definícia 1.42. Nech (𝑆, ·) je pologrupa, 𝑎 ∈ 𝑆, 𝑛 ∈ N. Potom 𝑎𝑛 = ⏟𝑎 · . .⏞. · 𝑎.
+𝑛-krát
+
+Tento súčin je podľa 1.39 definovaný jednoznačne.
+Naviac, ak 𝑆 obsahuje neutrálny prvok 𝑒, tak 𝑎0 = 𝑒.
+Lemma 1.43. Nech (𝑆, ·) je pologrupa, 𝑎 ∈ 𝑆. ∀𝑚, 𝑛 ∈ N : 𝑎𝑚 · 𝑎𝑛 = 𝑎𝑚+𝑛 .
+Dôkaz. 𝑎
+⏟ · . .⏞. · 𝑎 · 𝑎
+⏟ · . .⏞. · 𝑎 = 𝑎
+⏟ · . .⏞. · 𝑎 .
+𝑚-krát
+
+𝑛-krát
+
+(𝑚 + 𝑛)-krát
+
+Lemma 1.44. Nech (𝑆, ·) je pologrupa, 𝑎 ∈ 𝑆. ∀𝑚, 𝑛 ∈ N : (𝑎𝑚 )𝑛 = 𝑎𝑚𝑛 .
+𝑛-krát
+
+⏞
+
+⏟
+
+𝑚+...+𝑚
+Dôkaz. 𝑎
+.
+⏟ · . .⏞. · 𝑎 = 𝑎
+𝑚
+
+𝑚
+
+𝑛-krát
+
+Lemma 1.45. Nech 1 ∈ 𝑆 je jednotkový prvok v pologrupe. Potom 1−1 = 1; (𝑎−1 )−1 = 𝑎;
+−1
+(𝑎1 . . . 𝑎𝑛 )−1 = 𝑎−1
+𝑛 . . . 𝑎1 ; kde 𝑎, 𝑎1 , . . . , 𝑎𝑛 sú ľubovoľné invertibilné prvky z 𝑆 [2, I.4.6].
+−1
+−1
+Lemma 1.46. Ak má prvok 𝑎 inverziu, tak ∀𝑛 ∈ N : 𝑎−𝑛 = 𝑎
+· . .⏞. · 𝑎−1 = (𝑎
+⏟
+⏟ · . .⏞. · 𝑎) .
+𝑛-krát
+
+𝑛-krát
+
+Definícia 1.47. Rád prvku 𝑎 v grupe (𝐺, ·) je najmenšie 𝑛 ∈ N také, že 𝑎𝑛 = 𝑒.
+Ak také 𝑛 neexistuje, kladieme rád 𝑎 rovný 0 (podľa [2, I.4.11] je to ∞).
+Príklad 1.48. Rád prvku 0 v grupe (Z, +) je 1, rád ďalších prvkov je 0.
+Lemma 1.49. Nech rád prvku 𝑎 v grupe (𝐺, ·) je 0. Potom ak 𝑎𝑘 = 𝑎𝑙 , tak 𝑘 = 𝑙 (𝑘, 𝑙 ∈ Z).
+Dôkaz. BUNV1 𝑘 ≤ 𝑙. Ak 𝑎𝑘 = 𝑎𝑙 , tak 1 = 𝑎𝑙−𝑘 . Ak rád 𝑎 je 0, tak 𝑙 − 𝑘 = 0, teda
+𝑙 = 𝑘.
+Lemma 1.50. Nech rád prvku 𝑎 v grupe (𝐺, ·) je 𝑛 ∈ N. Potom 1, 𝑎, 𝑎2 , . . . , 𝑎𝑛−1 sú po
+dvoch rôzne. Navyše, pre 𝑘 = 𝑞𝑛 + 𝑟, kde 𝑟 ∈ {0, . . . , 𝑛 − 1} je 𝑎𝑘 = 𝑎𝑟 (tzn. že 𝑎𝑛 = 𝑎0 ,
+𝑎𝑛+1 = 𝑎, . . . a podobne aj pre záporné exponenty).
+Dôkaz. Sú po dvoch rôzne: BUNV 0 ≤ 𝑘 ≤ 𝑙 ≤ 𝑛 − 1. Ak 𝑎𝑘 = 𝑎𝑙 , tak 1 = 𝑎𝑙−𝑘 . Ak
+𝑙 − 𝑘 ∈ {0, . . . , 𝑛 − 1}, tak 𝑙 − 𝑘 = 0 (nesmie byť 𝑛), teda 𝑙 = 𝑘.
+Navyše: 𝑎𝑘 = 𝑎𝑞𝑛+𝑟 = (𝑎𝑛 )𝑞 · 𝑎𝑟 = 1𝑞 · 𝑎𝑟 = 𝑎𝑟 .
+1
+
+Bez ujmy na všeobecnosti
+
+https://www.elea.sk
+
+10
+
+Valdemar Švábenský
+
+1.7
+
+Dihedrálne grupy
+
+Definícia 1.51. Nech 𝑀 ⊆ R𝑛 je množina bodov. Zobrazenie 𝑓 : 𝑀 → 𝑀 je symetria,
+ak je bijekciou a zachováva vzdialenosti, t. j. ak vzdialenosť bodov 𝑝, 𝑞 ∈ 𝑀 sa rovná
+vzdialenosti ich obrazov 𝑓 (𝑝), 𝑓 (𝑞) ∈ 𝑀 .
+Veta 1.52. Množina všetkých symetrií s operáciou skladania tvorí grupu.
+Dôkaz. Jedná sa o špeciálny prípad grupy permutácií (𝑆(𝐴), ∘).
+Definícia 1.53. Dihedrálna grupa (D𝑛 , ∘) stupňa 𝑛 je grupa všetkých symetrií pravidelného 𝑛-uholníka. Nemusíme uvažovať všetky body geometrického útvaru – symetria je
+určená tým, ako zamieňa jeho vrcholy.
+Príklad 1.54. Ak 𝑟 je rotácia o 2𝜋
+, 𝑑 preklopenie (zrkadlenie) podľa osi 𝑦, potom napr.
+𝑛
+2 3
+2
+3
+D4 = {𝑖𝑑, 𝑟, 𝑟 , 𝑟 , 𝑑, 𝑟𝑑, 𝑟 𝑑, 𝑟 𝑑}.
+Lemma 1.55. D𝑛 = práve {𝑖𝑑, 𝑟, 𝑟2 , . . . , 𝑟𝑛−1 , 𝑑, 𝑟𝑑, 𝑟2 𝑑, . . . , 𝑟𝑛−1 𝑑}.
+Dôkaz. Bijekcia, ktorá zachováva vzdialenosti musí posielať vrchol na vrchol. Platí: 𝑟𝑛 = 1;
+𝑑2 = 1; 𝑑𝑟 = 𝑟𝑛−1 𝑑. V grupe (D𝑛 , ∘) už nie sú žiadne ďalšie zobrazenia.
+Definícia 1.56. Prezentácia 𝐺𝑝 = ⟨𝑎, 𝑏; 𝑎𝑟 = 1, 𝑏𝑠 = 1, 𝑎𝑏 = 𝑏𝑎𝑡 ⟩, kde 𝑟, 𝑠, 𝑡 ∈ N je
+najvšeobecnejšia grupa, ktorá je zadaná svojou generujúcou množinou ({𝑎, 𝑏 ∈ 𝐺} generuje
+grupu 𝐺) a reláciami (za bodkočiarkou), ktoré na nej platia.
+Príklad 1.57. Grupa (D𝑛 , ∘) má prezentáciu 𝐺𝑝 = ⟨𝑟, 𝑑; 𝑟𝑛 = 1, 𝑑2 = 1, 𝑑𝑟 = 𝑟𝑛−1 𝑑⟩.
+
+1.8
+
+Cvičenia
+
+1. Dokážte, že množina 𝐺𝐿2 (R) s operáciou * tvorí grupu, ak * je definovaná ako
+⎛
+
+⎞
+
+⎛
+
+⎞
+
+⎛
+
+⎞ ⎛
+
+⎞
+
+𝑏 ⎟ ⎜𝑒 𝑓 ⎟ ⎜𝑎 + 𝑏 𝑎 − 𝑏⎟ ⎜𝑒 𝑓 ⎟
+⎠*⎝
+⎠=⎝
+⎠·⎝
+⎠.
+𝑐 𝑑
+𝑔 ℎ
+𝑐+𝑑 𝑐−𝑑
+𝑔 ℎ
+
+⎜𝑎
+⎝
+
+2. Ukážte, či množina R* s operáciou △ tvorí grupu, ak △ je definovaná ako
+𝑎△𝑏 =
+
+⎧
+⎨𝑎 · 𝑏
+⎩𝑎
+𝑏
+
+ak 𝑎 > 0;
+ak 𝑎 < 0.
+
+3. Dokážte, že množina Z2 × Z s operáciou @ definovanou
+([𝑎]2 , 𝑘)@([𝑏]2 , 𝑙) = ([𝑎 + 𝑏]2 , 𝑘 + (−1)𝑎 · 𝑙),
+kde 𝑎, 𝑏, 𝑘, 𝑙 ∈ Z tvorí grupu.
+4. Máme nasledovné permutácie z množiny S8 : 𝜎 = (1, 3, 6, 2, 4, 8, 7, 5) a 𝜋 = (1, 3) ∘
+(2, 4, 6, 8, 7). Určte: 𝜎 ∘ 𝜋, 𝜎 2014 , 𝜋 2014 , 𝜋 −1 , paritu permutácií.
+5. Nájdite všetky permutácie 𝑥 ∈ S8 také, že:
+a) 𝑥2 = (1, 2) ∘ (3, 4) ∘ (5, 6);
+b) 𝑥2 = (1, 2, 3) ∘ (4, 5, 6).
+6. Ukážte, ze každú permutáciu z S𝑛 môžeme získať kompozíciou (1, 2, 3, . . . , 𝑛) a
+(1, 2).
+https://www.elea.sk
+
+11
+
+Valdemar Švábenský
+
+1.9
+1.
+
+Návody k riešeniu cvičení
+• Ukážeme, že * je operácia, t. j. že výsledná matica patrí do 𝐺𝐿2 (R).
+• Ukážeme, že * je asociatívna.
+matice 𝑎 + 𝑏 = 1, 𝑎 − 𝑏 = 0, 𝑐 + 𝑑 = 0,
+• Nájdeme neutrálny prvok:
+⎛ z jednotkovej
+⎞
+1
+2
+
+1
+
+⎜
+𝑐 − 𝑑 = 1; dostávame ⎝ 2
+
+1
+2
+
+− 12
+
+⎟
+⎠.
+
+⎛
+
+⎜ 𝑐−𝑑−𝑎+𝑏
+⎝
+
+• Nájdeme inverzný prvok:
+2.
+
+⎞
+
+𝑐−𝑑+𝑎−𝑏 ⎟
+
+−𝑐 − 𝑑 + 𝑎 + 𝑏 −𝑐 − 𝑑 − 𝑎 − 𝑏
+
+⎠
+
+4(𝑏𝑐−𝑎𝑑)
+
+.
+
+• Ukážeme, že △ je operácia.
+• Operácia △ ale nie je asociatívna, takže sa nejedná o grupu.
+
+3.
+
+• Ukážeme, že @ je operácia: [𝑎 + 𝑏]2 závisí len na [𝑎]2 , [𝑏]2 . Ak [𝑎]2 = [𝑐]2 ,
+[𝑏]2 = [𝑑]2 , tak 2 | 𝑎−𝑐, 2 | 𝑏−𝑑 potom 2 | (𝑎+𝑏)−(𝑐+𝑑), teda [𝑎+𝑏]2 = [𝑐+𝑑]2 .
+Ďalej (−1)𝑎 závisí len na [𝑎]2 .
+• Ukážeme, že @ je asociatívna.
+• Nájdeme neutrálny prvok: ([0]2 , 0).
+• Nájdeme inverzný prvok: ([𝑎]2 , 𝑘)−1 = ([𝑎]2 , (−1)𝑎+1 · 𝑘).
+
+4.
+
+• 𝜎 ∘ 𝜋 = (1, 6, 7, 4, 2, 8, 5)
+• 𝜎 2014 = 𝜎 2014 mod 8 = 𝜎 6 = (𝜎 2 )−1 = (1, 7, 4, 6) ∘ (2, 3, 5, 8)
+• 𝜋 2014 = (2, 4, 6, 8, 7)4 = (2, 4, 6, 8, 7)−1 = (2, 7, 8, 6, 4)
+• 𝜋 −1 = (3, 1) ∘ (7, 8, 6, 4, 2)
+• Parita: obe sú nepárne
+
+5.
+
+a) Také 𝑥 neexistuje.
+b) 𝑥1 = (3, 2, 1) ∘ (6, 5, 4),
+𝑥2 = (1, 4, 2, 5, 3, 6),
+𝑥3 = (1, 5, 2, 6, 3, 4),
+𝑥4 = (1, 6, 2, 4, 3, 5).
+Ďalšie 4 permutácie 𝑥5 až 𝑥8 vzniknú zložením (7, 8) s každým z 𝑥1 až 𝑥4 .
+
+6.
+
+• Každú permutáciu je možné získať z (1, 𝑖), kde 𝑖 ∈ {2, . . . , 𝑛}:
+(𝑎1 , 𝑎2 , . . . , 𝑎𝑘 ) = (1, 𝑎1 ) ∘ (1, 𝑎𝑘 ) ∘ (1, 𝑎𝑘−1 ) ∘ · · · ∘ (1, 𝑎1 ).
+• Ďalej každú perm. je možné získať z (𝑖, 𝑖 + 1), kde 𝑖 ∈ {1, 2, . . . , 𝑛 − 1}:
+(1, 𝑖) = (1, 2) ∘ (2, 3) ∘ · · · ∘ (𝑖 − 1, 𝑖) ∘ (𝑖 − 1, 𝑖 − 2) ∘ · · · ∘ (1, 2).
+• Nakoniec (𝑖, 𝑖 + 1) = (1, 2, . . . , 𝑛)+𝑖−1 ∘ (1, 2) ∘ (1, 2, . . . , 𝑛)−𝑖+1 .
+– Pozn.: korekcia 𝑡 ∘ 𝑠 ∘ 𝑡−1 „premenuje“ prvky 𝑠.
+
+https://www.elea.sk
+
+12
+
+Valdemar Švábenský
+
+Kapitola 2: Teória čísel
+2.1
+
+Aritmetika a operácie na celých číslach
+
+Teória čísel sa zaoberá vlastnosťami celých čísel.
+Na množine Z uvažujeme dve základné binárne operácie: sčítanie (+) a násobenie (·).
+Platia pre ne tieto vlastnosti (∀𝑎, 𝑏, 𝑐 ∈ Z):
+• Komutativita: 𝑎 + 𝑏 = 𝑏 + 𝑎 a
+
+𝑎 · 𝑏 = 𝑏 · 𝑎,
+
+• Asociativita: (𝑎 + 𝑏) + 𝑐 = 𝑎 + (𝑏 + 𝑐) a
+
+(𝑎 · 𝑏) · 𝑐 = 𝑎 · (𝑏 · 𝑐),
+
+• Distributivita násobenia cez sčítanie: 𝑎 · (𝑏 + 𝑐) = 𝑎 · 𝑏 + 𝑎 · 𝑐.
+Neutrálne prvky pre tieto operácie sú postupne 0 a 1: 𝑎 + 0 = 𝑎 a 𝑎 · 1 = 𝑎.
+Inverzné prvky: −𝑎 pre sčítanie (tzv. opačný), pretože 𝑎 + (−𝑎) = 0. Jediný prvok
+množiny Z s multiplikatívnou inverziou je 1, pretože 1−1 = 1.
+Odčítanie je binárnou operáciou na množine Z, teda je definované pre ľubovoľné dve
+celé čísla, zatiaľ čo delenie nie je binárnou operáciou a teda je definované len pre nejaké
+celé čísla. Definície sú nasledovné:
+Definícia 2.1. 𝑎 − 𝑏 = 𝑎 + (−𝑏) pre všetky 𝑎, 𝑏 ∈ Z.
+Definícia 2.2. 𝑎/𝑏 = 𝑐 práve vtedy, keď 𝑎 = 𝑏 · 𝑐.
+Veta 2.3 (Princíp dobrého usporiadania; Zermelova veta). V ľubovoľnej neprázdnej
+množine kladných celých čísel existuje najmenší prvok.
+Veta 2.4 (Priehradkový (Dirichletov) princíp). Ak 𝑛 prvkov uložíme do 𝑘 krabičiek,
+pričom 𝑛 > 𝑘, tak aspoň jedna krabička obsahuje viac ako jeden prvok.
+Veta 2.5 (Princíp matematickej indukcie). Ak vieme, že:
+• nejaký výrok je pravdivý pre 𝑛 = 1,
+• a predpokladáme, že to, že je výrok pravdivý pre 𝑛 implikuje, že je pravdivý pre
+(𝑛 + 1),
+tak je výrok pravdivý pre všetky prirodzené čísla.
+
+2.2
+
+Deliteľnosť
+
+̸ 0. Potom 𝑎 delí 𝑏 práve vtedy, keď existuje
+Definícia 2.6. Nech 𝑎, 𝑏 sú celé čísla, 𝑎 =
+nejaké celé číslo 𝑘 tak, že 𝑏 = 𝑘𝑎.
+• Ak 𝑎 delí 𝑏, hovoríme, že 𝑎 je deliteľom 𝑏, resp. že 𝑏 je násobkom 𝑎 a píšeme 𝑎 | 𝑏.
+• Ak 𝑎 nedelí 𝑏, píšeme 𝑎 - 𝑏.
+Lemma 2.7. Každé celé číslo delí nulu, t. j. ∀𝑎 ∈ Z: 𝑎 | 0.
+https://www.elea.sk
+
+13
+
+Valdemar Švábenský
+
+Lemma 2.8. Ak 𝑎 | 𝑏, pričom 𝑏 ̸= 0, tak |𝑎| ≤ |𝑏|.
+Pre ľubovoľné celé čísla 𝑎, 𝑏, 𝑐 má relácia | nasledovné vlastnosti:
+Lemma 2.9.
+1. Ak 𝑎 | 𝑏 a 𝑏 | 𝑐, tak 𝑎 | 𝑐.
+2. Ak 𝑎 | 𝑏 a 𝑐 | 𝑑, tak 𝑎𝑐 | 𝑏𝑑.
+3. Ak 𝑎 | 𝑏 a 𝑎 | 𝑐, tak 𝑎 | 𝑏 + 𝑐.
+Dôkaz.
+1. Ak 𝑏 = 𝑚𝑎 a 𝑐 = 𝑛𝑏, tak 𝑐 = (𝑚𝑛)𝑎.
+2. Ak 𝑏 = 𝑚𝑎 a 𝑑 = 𝑛𝑐, tak 𝑏𝑑 = (𝑚𝑛)(𝑎𝑐).
+3. Ak 𝑏 = 𝑚𝑎 a 𝑐 = 𝑛𝑎, tak 𝑏 + 𝑐 = (𝑚 + 𝑛)𝑎.
+Lemma 2.10 (Deliteľnosť lineárnych kombinácií). Nech 𝑎, 𝑏, 𝑐, 𝑚, 𝑛 ∈ Z. Ak 𝑐 | 𝑎 a 𝑐 | 𝑏,
+tak 𝑐 | (𝑎𝑚 + 𝑏𝑛).
+Dôkaz. Keďže 𝑐 | 𝑎 a 𝑐 | 𝑏, tak existujú nejaké 𝑘1 , 𝑘2 také, že 𝑎 = 𝑘1 𝑐 a 𝑏 = 𝑘2 𝑐. Preto
+𝑎𝑚 + 𝑏𝑛 = 𝑘1 𝑐𝑚 + 𝑘2 𝑐𝑛 = 𝑐(𝑘1 𝑚 + 𝑘2 𝑛),
+a teda 𝑐 | (𝑚𝑎 + 𝑛𝑏).
+Veta 2.11 (O delení so zvyškom). Ak 𝑎, 𝑏 ∈ Z, pričom 𝑏 =
+̸ 0, tak existujú jedinečné
+𝑞, 𝑟 ∈ Z také, že 𝑎 = 𝑏𝑞 + 𝑟, kde 0 ≤ 𝑟 < |𝑏|.
+Číslo 𝑎 nazývame delenec, 𝑏 deliteľ, 𝑞 čiastočný podiel a 𝑟 zvyšok.
+Dôkaz existencie. Stačí uvážiť 𝑏 > 0, pretože ak by 𝑏 < 0, tak napíšeme 𝑏′ = −𝑏, 𝑞 ′ = −𝑞
+a rovnosť 𝑎 = 𝑏𝑞 + 𝑟 prepíšeme ako 𝑎 = 𝑏′ 𝑞 ′ + 𝑟, kde 0 ≤ 𝑟 < |𝑏′ |.
+Ďalej stačí uvážiť 𝑎 ≥ 0, pretože ak by 𝑎 < 0 (𝑏 > 0), tak napíšeme 𝑎′ = −𝑎, 𝑞 ′ = −𝑞−1,
+𝑟′ = 𝑏 − 𝑟 a rovnosť 𝑎 = 𝑏𝑞 + 𝑟 prepíšeme ako 𝑎′ = 𝑏𝑞 ′ + 𝑟′ , kde 0 ≤ 𝑟′ < |𝑏|.
+Nech 𝑞1 ≥ 0, 𝑟1 ≥ 0 spĺňajú 𝑎 = 𝑏𝑞1 + 𝑟1 (existujú vždy, lebo môžeme 𝑞1 = 0, 𝑟1 = 𝑎).
+Ak 𝑟1 < 𝑏, sme hotoví. Inak 𝑞2 = 𝑞1 + 1, 𝑟2 = 𝑟1 − 𝑏 spĺňajú 𝑎 = 𝑏𝑞2 + 𝑟2 a 0 ≤ 𝑟2 < 𝑟1 .
+Opakovaním dostaneme 𝑞 = 𝑞𝑘 a 𝑟 = 𝑟𝑘 také, že 𝑎 = 𝑏𝑞 + 𝑟, kde 0 ≤ 𝑟 < 𝑏.
+Dôkaz jedinečnosti podielu a zvyšku. Uvážme 𝑞, 𝑞 ′ , 𝑟, 𝑟′ , kde 0 ≤ 𝑟, 𝑟′ < |𝑏|, pričom 𝑎 =
+𝑏𝑞 + 𝑟 a zároveň 𝑎 = 𝑏𝑞 ′ + 𝑟′ .
+Vieme, že 0 ≤ 𝑟 < |𝑏| a −|𝑏| < −𝑟′ ≤ 0. Z toho −|𝑏| < 𝑟 − 𝑟′ < |𝑏|, teda |𝑟 − 𝑟′ | < |𝑏|.
+Odčítaním dvoch rovností pre 𝑎 dostaneme 𝑏(𝑞 ′ − 𝑞) = (𝑟 − 𝑟′ ). Z toho |𝑏| delí |𝑟 − 𝑟′ |.
+Ak |𝑟 −𝑟′ | =
+̸ 0, tak |𝑏| < |𝑟 −𝑟′ |, čo je spor. Preto |𝑟 −𝑟′ | = 0, teda 𝑟 = 𝑟′ , teda 𝑏(𝑞 ′ −𝑞) = 0.
+Keďže 𝑏 ̸= 0, tak 𝑞 = 𝑞 ′ .
+Definícia 2.12. Najväčší spoločný deliteľ celých čísel 𝑎, 𝑏 je čo najväčšie celé číslo 𝑑, ktoré
+delí 𝑎 a zároveň delí 𝑏. Píšeme 𝑑 = NSD(𝑎, 𝑏) = (𝑎, 𝑏). Dodatočne definujeme (0, 0) = 0.
+
+https://www.elea.sk
+
+14
+
+Valdemar Švábenský
+
+Poznámka. Niekedy sa NSD uvažuje vzhľadom k relácii deliteľnosti |, nie k relácii
+usporiadania ≤ celých čísel. Vtedy nie je 𝑑 jednoznačne definované. Napr. pre 𝑏 ̸= 0 je
+NSD(0, 𝑏) = ±𝑏.
+Iná definícia dáva tiež nejednoznačné 𝑑: Ak 𝑑|𝑎, 𝑑|𝑏 a existuje také 𝑐, že 𝑐|𝑎, 𝑐|𝑏, tak
+𝑐|𝑑. Treba pamätať na to, že každé celé číslo má kladných aj záporných deliteľov.
+Definícia 2.13. Celé čísla 𝑎, 𝑏 sú nesúdeliteľné, ak (𝑎, 𝑏) = 1.
+Lemma 2.14. Ak vydelíme dve celé čísla ich najväčším spoločným deliteľom, dostaneme
+dvojicu nesúdeliteľných čísel. Inak povedané, ak (𝑎, 𝑏) = 𝑑 tak (𝑎/𝑑, 𝑏/𝑑) = 1.
+Dôkaz. Nech 𝑘 je kladné a 𝑘 | 𝑎/𝑑, 𝑘 | 𝑏/𝑑. Potom existujú kladné 𝑚, 𝑛 také, že: 𝑎/𝑑 = 𝑘𝑚,
+𝑏/𝑑 = 𝑘𝑛. Z toho 𝑎 = 𝑘𝑚𝑑, 𝑏 = 𝑘𝑛𝑑. Preto je 𝑘𝑑 spoločným deliteľom 𝑎 aj 𝑏. Ďalej 𝑘𝑑 ≥ 𝑑,
+ale 𝑑 = (𝑎, 𝑏), teda 𝑘 = 1.
+Lemma 2.15. NSD dvoch celých čísel sa nezmení, ak pripočítame násobok jedného čísla
+k druhému. Nech 𝑎, 𝑏, 𝑐 sú celé. Potom (𝑎, 𝑏) = (𝑎 + 𝑐𝑏, 𝑏).
+Dôkaz. Nech 𝑘 je spoločným deliteľom 𝑎 aj 𝑏. Podľa Lemmy 2.10, 𝑘 | (𝑎 + 𝑐𝑏), teda 𝑘 je
+deliteľom 𝑎 + 𝑐𝑏.
+Nech 𝑙 je spoločným deliteľom 𝑎 + 𝑐𝑏 aj 𝑏. Podľa Lemmy 2.10, 𝑙 | ((𝑎 + 𝑐𝑏) − 𝑐𝑏) = 𝑎,
+teda 𝑙 je spoločným deliteľom 𝑎 aj 𝑏.
+Dôsledok 2.16. (𝑎, 𝑏) = (𝑎, 𝑏 − 𝑎).
+Dôsledok 2.17. Ak 𝑎, 𝑏, 𝑞, 𝑟 sú celé čísla, kde 𝑎 = 𝑏𝑞 + 𝑟, tak (𝑎, 𝑏) = (𝑏𝑞 + 𝑟, 𝑏) = (𝑟, 𝑏).
+Veta 2.18 (Euklidov algoritmus). Nech 𝑎, 𝑏 ∈ N.
+𝑎 = 𝑞1 · 𝑏 + 𝑟1 ,
+𝑏 = 𝑞2 · 𝑟1 + 𝑟2 ,
+𝑟1 = 𝑞3 · 𝑟2 + 𝑟3 ,
+...
+𝑟𝑛−2 = 𝑞𝑛 · 𝑟𝑛−1 + 𝑟𝑛 ,
+𝑟𝑛−1 = 𝑞𝑛+1 · 𝑟𝑛
+
+𝑟1 < 𝑏
+𝑟2 < 𝑟1
+𝑟3 < 𝑟2
+0 ̸= 𝑟𝑛 < 𝑟𝑛−1
+
+Potom 𝑟𝑛 je posledný nenulový zvyšok a 𝑟𝑛 = (𝑎, 𝑏).
+Dôkaz.
+
+Z posledného riadka:
+Z predposledného riadka:
+...
+Z 2. riadka:
+Z 1. riadka:
+
+𝑟𝑛 | 𝑟𝑛−1
+𝑟𝑛 | 𝑟𝑛−2
+𝑟𝑛 | 𝑏
+𝑟𝑛 | 𝑎
+
+Teda 𝑟𝑛 je spoločný deliteľ čísel 𝑎, 𝑏.
+Nech 𝑑 ∈ N delí 𝑎, 𝑏 (iný spoločný deliteľ 𝑎, 𝑏).
+
+https://www.elea.sk
+
+15
+
+Valdemar Švábenský
+
+Z 1. riadka:
+Z 2. riadka:
+...
+Z predposledného riadka:
+
+𝑑 | 𝑟1
+𝑑 | 𝑟2
+𝑑 | 𝑟𝑛
+
+Keďže 𝑟𝑛 ≥ 0, 𝑟𝑛 je NSD(𝑎, 𝑏).
+Dôkaz (iný). Podľa Dôsledku 2.17: (𝑎, 𝑏) = (𝑏, 𝑟1 ) = (𝑟1 , 𝑟2 ) = · · · = (𝑟𝑛 , 0) = 𝑟𝑛 .
+Veta 2.19 (Lamého). Euklidov algoritmus vyžaduje maximálne 5-násobok krokov delenia
+oproti počtu cifier menšieho z čísel 𝑎, 𝑏.
+Veta 2.20 (Bezoutova). ∀𝑎, 𝑏 ∈ Z ∃𝑚, 𝑛 ∈ Z tak, že 𝑎𝑚 + 𝑏𝑛 = (𝑎, 𝑏).
+Poznámka. NSD čísel 𝑎, 𝑏 môžeme vždy vyjadriť ako lineárnu kombináciu čísel 𝑎, 𝑏.
+Koeficienty 𝑚, 𝑛 tejto lineárnej kombinácie môžeme nájsť pomocou Euklidovho algoritmu.
+Dôkaz. Nech 𝑥 je najmenšie kladné celé číslo, ktoré vieme zapísať ako lineárnu kombináciu
+čísel 𝑎, 𝑏. Ďalej nech 𝑑 = (𝑎, 𝑏). Potom 𝑥 musí byť násobkom 𝑑, lebo 𝑎, 𝑏 sú oba násobky 𝑑.
+Tvrdíme, že 𝑥 = 𝑑.
+Ak by naopak 𝑥 > 𝑑, potom 𝑥 nie je spoločným deliteľom 𝑎, 𝑏, takže 𝑥 - 𝑎 alebo
+𝑥 - 𝑏. BUNV predpokladajme 𝑥 - 𝑎. Potom 𝑎 ÷ 𝑥 = 𝑞 R 𝑟, kde zvyšok 𝑟 je kladný. Ale
+𝑟 = 𝑎 − 𝑞𝑥, takže 𝑟 je lineárnou kombináciou 𝑎, 𝑏. Toto je spor, pretože 𝑟 musí byť menšie
+ako 𝑥.
+Dôkaz (iný). Podľa Vety 2.18: (𝑎, 𝑏) = 𝑟𝑛 = 𝑟𝑛−2 −𝑟𝑛−1 ·𝑞𝑛 = 𝑟𝑛−2 −(𝑟𝑛−3 −𝑟𝑛−2 ·𝑞𝑛−1 )·𝑞𝑛 =
+𝑟𝑛−3 · (−𝑞𝑛 ) + 𝑟𝑛−2 · (1 + 𝑞𝑛−1 · 𝑞𝑛 ) = · · · = 𝑎𝑚 + 𝑏𝑛.
+Dôsledok 2.21. Celé čísla 𝑎, 𝑏 sú nesúdeliteľné, práve keď ∃𝑚, 𝑛 ∈ Z tak, že 𝑎𝑚 + 𝑏𝑛 = 1.
+Dôsledok 2.22. Nech 𝑎, 𝑏, 𝑐 sú nenulové celé čísla. Potom 𝑐 je lineárnou kombináciou
+𝑎, 𝑏 práve vtedy, keď 𝑐 je násobkom (𝑎, 𝑏).
+Dôsledok 2.23. Nech 𝑎, 𝑏, 𝑐 sú celé čísla, (𝑎, 𝑏) = 1, 𝑎 | 𝑏𝑐. Potom 𝑎 | 𝑐.
+Dôkaz. Existujú celé čísla 𝑚, 𝑛 také, že 𝑎𝑚 + 𝑏𝑛 = 1. Vynásobme obe strany rovnice
+celým číslom 𝑐. Potom 𝑎𝑚𝑐 + 𝑏𝑛𝑐 = 𝑐. Zrejme 𝑎 | 𝑎𝑚𝑐. Z predpokladu 𝑎 | 𝑏𝑛𝑐.
+Definícia 2.24. Najmenší spoločný násobok celých čísel 𝑎, 𝑏 je čo najmenšie kladné celé
+číslo 𝑛, ktoré je násobkom 𝑎 a zároveň je násobkom 𝑏. Píšeme 𝑛 = nsn(𝑎, 𝑏) = [𝑎, 𝑏].
+Poznámka. Pre 𝑛 = [𝑎, 𝑏] platí: Ak 𝑎|𝑛, 𝑏|𝑛 a existuje také 𝑚, že 𝑎|𝑚, 𝑏|𝑚, tak 𝑛|𝑚.
+Veta 2.25. (𝑎, 𝑏) · [𝑎, 𝑏] = 𝑎𝑏.
+
+https://www.elea.sk
+
+16
+
+Valdemar Švábenský
+
+2.3
+
+Prvočísla
+
+Definícia 2.26. Číslo 𝑛 ∈ N je prvočíslo, ak je väčšie ako 1 a je deliteľné len 1 a samým
+sebou. Teda 𝑛 ≥ 2 a zároveň neexistujú 𝑘, 𝑙 ≥ 2 také, že 𝑛 = 𝑘𝑙.
+Dôsledok 2.27. Ak 𝑝, 𝑞 sú prvočísla, potom 𝑝 = 𝑞 alebo (𝑝, 𝑞) = 1.
+Lemma 2.28. Ak 𝑝 | 𝑞1 · . . . · 𝑞𝑛 , kde 𝑝, 𝑞1 , . . . , 𝑞𝑛 sú prvočísla, potom 𝑝 ∈ {𝑞1 , . . . , 𝑞𝑛 }.
+Dôkaz. Indukciou z Dôsledku 2.23.
+Definícia 2.29. Každé prirodzené číslo 𝑎 > 1, ktoré nie je prvočíslom sa nazýva zložené.
+Teda existujú nejaké 𝑏 > 1, 𝑐 > 1 také, že 𝑎 = 𝑏𝑐.
+Veta 2.30 (Základná veta aritmetiky). Každé 𝑛 ∈ N sa dá zapísať ako súčin prvočísel.
+Takýto rozklad je jednoznačný až na poradie činiteľov.
+Poznámka. 1 = súčin nula prvočísel (prázdny súčin).
+Dôkaz existencie. Ak je 𝑛 prvočíslo, dôkaz je triviálny. Predpokladajme teda, že 𝑛 je
+zložené a je to čo najmenšie číslo, ktoré sa už nedá zapísať ako súčin prvočísel. Potom
+𝑛 ≥ 2 a existujú 𝑘, 𝑙 ∈ N také, že 2 ≤ 𝑘, 𝑙 < 𝑛 a 𝑛 = 𝑘𝑙.
+Čísla 𝑘, 𝑙 sa dajú vyjadriť ako súčin prvočísel, povedzme 𝑘 = 𝑝1 𝑝2 . . . 𝑝𝑟 , 𝑙 = 𝑞1 𝑞2 . . . 𝑞𝑠 ,
+teda 𝑛 = 𝑝1 𝑝2 . . . 𝑝𝑟 𝑞1 𝑞2 . . . 𝑞𝑠 .
+Dôkaz jednoznačnosti. Nech 𝑝1 · · · 𝑝𝑚 = 𝑞1 · · · 𝑞𝑛 , kde 𝑝1 ≤ · · · ≤ 𝑝𝑚 a 𝑞1 ≤ · · · ≤ 𝑞𝑛 sú
+dva rôzne rozklady nejakého čísla na súčin prvočísel. Chceme ukázať, že 𝑚 = 𝑛 a tiež že
+𝑝𝑖 = 𝑞𝑖 pre každé 𝑖. BUNV predpokladajme, že 𝑚 ≤ 𝑛 a pokračujme indukciou podľa 𝑚.
+Báza: Ak 𝑚 = 1, tak 𝑝1 = 𝑞1 · · · 𝑞𝑛 . Keďže 𝑝1 je prvočíslo, tak 𝑛 = 1, teda 𝑝1 = 𝑞1 .
+IK: Ak 𝑚 > 1, tak z predpokladu je 𝑝𝑚 najväčší prvočíselný deliteľ čísla 𝑝1 · · · 𝑝𝑚 , a 𝑞𝑛
+je najväčší prvočíselný deliteľ čísla 𝑞1 · · · 𝑞𝑛 . Keďže 𝑝1 · · · 𝑝𝑚 = 𝑞1 · · · 𝑞𝑛 , tak 𝑝𝑚 = 𝑞𝑛 . Z toho
+dostávame 𝑝1 · · · 𝑝𝑚−1 = 𝑞1 · · · 𝑞𝑛−1 . Tento rozklad je ale z IP určený jednoznačne.
+Lemma 2.31 (Euklidova). Ak 𝑝 je prvočíslo a 𝑝 | 𝑎𝑏, tak buď 𝑝 | 𝑎 alebo 𝑝 | 𝑏.
+Dôkaz. Predpokladajme 𝑝 | 𝑎𝑏, 𝑝 - 𝑎. Dokážme 𝑝 | 𝑏. Keďže 𝑝 - 𝑎 a 𝑝 je prvočíslo, tak
+(𝑝, 𝑎) = 1. Potom existujú 𝑚, 𝑛 také, že 𝑚𝑎 + 𝑛𝑝 = 1. Po vynásobení 𝑏 dostávame
+𝑚𝑎𝑏 + 𝑛𝑝𝑏 = 𝑏. Keďže 𝑝 | 𝑚𝑎𝑏, 𝑝 | 𝑛𝑝𝑏, tak 𝑝 | 𝑏.
+Lemma 2.32. Ak 𝑝 je prvočíslo a 𝑝 | 𝑎1 · · · 𝑎𝑛 , tak 𝑝 | 𝑎𝑖 pre nejaké 𝑖.
+Dôkaz. Indukciou: Báza pre 𝑛 = 2 je Euklidova lemma. Pre 𝑛 > 2 zapíšme 𝑎1 · · · 𝑎𝑛 =
+(𝑎1 · · · 𝑎𝑛−1 )𝑎𝑛 . Z Euklidovej lemmy buď 𝑝 | 𝑎1 · · · 𝑎𝑛−1 alebo 𝑝 | 𝑎𝑛 . V prvom prípade z IP
+𝑝 | 𝑎𝑖 pre nejaké 𝑖 ≤ 𝑛 − 1. V druhom prípade 𝑖 = 𝑛.
+Veta 2.33. Číslo 𝑛 ∈ N, kde 𝑛√> 1 je prvočíslom práve vtedy, keď nie je deliteľné žiadnym
+prvočíslom 𝑝, pričom 1 < 𝑝 ≤ 𝑛.
+Dôkaz. „ =⇒ “: Zrejmé. „ ⇐= “: Obmenou implikácie√získame tvrdenie: Ak 𝑛 je zložené,
+tak je deliteľné nejakým prvočíslom 𝑝, kde 1 < 𝑝 ≤ 𝑛. Nech 𝑛 = 𝑎𝑏 pre 𝑎, 𝑏 ∈ N, kde
+𝑎, 𝑏 > 1. Podľa Základnej
+vety aritmetiky
+sa dajú 𝑎, 𝑏 rozložiť
+√
+√
+√ na
+√ súčin prvočísel. Ďalej
+musí platiť, že 𝑎 ≤ 𝑛 alebo 𝑏 ≤ 𝑛, pretože
+inak 𝑎𝑏 > 𝑛 · 𝑛 = 𝑛. Preto nájdeme
+√
+aspoň jedného deliteľa čísla 𝑛 najviac do 𝑛. V opačnom prípade je 𝑛 prvočíslom.
+https://www.elea.sk
+
+17
+
+Valdemar Švábenský
+
+Dôsledok 2.34. Každé 𝑛 ∈ N, kde 𝑛 > 1 má aspoň jedného prvočíselného deliteľa.
+Veta 2.35. Existuje nekonečne mnoho prvočísel.
+Dôkaz. Sporom. Predpokladajme, že existuje konečne mnoho prvočísel 𝑝1 , 𝑝2 , . . . , 𝑝𝑛 . Nech
+𝑄 = 𝑝1 𝑝2 ...𝑝𝑛 + 1. Toto číslo musí mať prvočíselného deliteľa, označme ho 𝑞. Ak dokážeme,
+že 𝑞 ̸∈ {𝑝1 , 𝑝2 , . . . , 𝑝𝑛 }, dôjdeme k sporu.
+Predpokladajme, že 𝑞 = 𝑝𝑖 pre 1 ≤ 𝑖 ≤ 𝑛. Potom 𝑞 | 𝑝1 𝑝2 ...𝑝𝑛 a teda 𝑞 | 𝑄 − 𝑝1 𝑝2 ...𝑝𝑛 .
+Z toho 𝑞 delí 1, ale žiadne prvočíslo nedelí 1
+. Teda 𝑞 ̸∈ {𝑝1 , 𝑝2 , . . . , 𝑝𝑛 } a 𝑄 je
+prvočíslo.
+
+Kapitola 3: Kongruencie
+3.1
+
+Základné definície
+
+Definícia 3.1. Nech 𝑛 ∈ N. Potom [𝑎]𝑛 = {𝑎 + 𝑘𝑛 | 𝑘 ∈ Z} sú zvyškové triedy mod 𝑛.
+Definícia 3.2. Nech 𝑛 ∈ N. Potom Z𝑛 = {[𝑎]𝑛 | 𝑎 ∈ Z} je množina všetkých zvyškových
+tried podľa daného modulu 𝑛.
+Veta 3.3. |Z𝑛 | = 𝑛.
+Definícia 3.4. Nech 𝑎, 𝑏 ∈ R. Operáciu modulo definujeme ako zvyšok po delení, t. j.
+𝑎 mod 𝑏 :=
+
+⎧
+⌊︂ ⌋︂
+⎪
+⎨𝑎 − 𝑏 𝑎
+
+: 𝑏 ̸= 0;
+
+⎪
+⎩𝑎
+
+: 𝑏 = 0.
+
+𝑏
+
+Definícia 3.5. Nech 𝑛 ∈ N. Dve celé čísla 𝑎, 𝑏 sú spolu kongruentné modulo 𝑛; píšeme
+𝑎 ≡ 𝑏 (mod 𝑛); ak obe dávajú rovnaký zvyšok po delení číslom 𝑛.
+Veta 3.6. Nasledujúce podmienky sú ekvivalentné:
+1. 𝑎 ≡ 𝑏 (mod 𝑛);
+2. 𝑛 | (𝑎 − 𝑏);
+3. [𝑎]𝑛 = [𝑏]𝑛 (nezáleží na výbere reprezentanta triedy).
+Dôkaz. Dokážeme postupne tri implikácie.
+„1. ⇒ 2.“: Máme 𝑎 ≡ 𝑏 (mod 𝑛), teda z definície 𝑎 mod 𝑛 = 𝑏 mod 𝑛.
+Nech 𝑛 = 0. Potom 𝑎 mod 0 = 𝑏 mod 0, teda 𝑎 = 𝑏. Z toho 𝑎 − 𝑏 = 0. Potom⌊︃ 𝑛 ⌋︃| (𝑎 − 𝑏).
+⌊︂ ⌋︂
+𝑎
+𝑏
+Nech 𝑛 ̸= 0. Potom z definície 𝑎 mod 𝑛 = 𝑎 − 𝑛
+a 𝑏 mod 𝑛 = 𝑏 − 𝑛
+. Preto
+𝑛
+𝑛
+⌊︃
+⌊︃
+⌊︃
+⌋︃
+(︃
+⌋︃)︃
+⌋︃
+⌊︂ ⌋︂
+⌊︂ ⌋︂
+⌊︂ ⌋︂
+𝑎
+𝑏
+𝑎
+𝑏
+𝑎
+𝑏
+−
+−
+𝑎−𝑛
+= 𝑏−𝑛
+, takže 𝑎 − 𝑏 = 𝑛
+. Číslo
+je celé, takže
+𝑛
+𝑛
+𝑛
+𝑛
+𝑛
+𝑛
+𝑎 − 𝑏 = 𝑘𝑛, teda z Definície 2.6 dostávame 𝑛 | (𝑎 − 𝑏).
+„2. ⇒ 3.“: Máme 𝑛 | (𝑎 − 𝑏), teda z definície delenia 𝑎 − 𝑏 = 𝑘𝑛, kde 𝑘 ∈ Z. Teda
+𝑎 = 𝑏 + 𝑘𝑛, čo je ekvivalentné s [𝑎]𝑛 = [𝑏]𝑛 .
+https://www.elea.sk
+
+18
+
+Valdemar Švábenský
+
+„3. ⇒ 1.“: Máme 𝑘 ∈ Z také, že 𝑎 = 𝑏 + 𝑘𝑛. Potom:
+⌊︃
+
+⌋︃
+
+𝑏 + 𝑘𝑛
+𝑎 mod 𝑛 = (𝑏 + 𝑘𝑛) − 𝑛
+𝑛
+⌊︃
+⌋︃
+𝑏
+= (𝑏 + 𝑘𝑛) − 𝑛
++𝑘
+𝑛
+⌊︃ ⌋︃
+𝑏
+− 𝑘𝑛
+= (𝑏 + 𝑘𝑛) − 𝑛
+𝑛
+⌊︃ ⌋︃
+𝑏
+=𝑏−𝑛
+𝑛
+= 𝑏 mod 𝑛
+Dôsledok 3.7. Z𝑛 = {[0]𝑛 , [1]𝑛 , [2]𝑛 , . . . , [𝑛 − 1]𝑛 }.
+
+3.2
+
+Vlastnosti kongruencií
+
+Veta 3.8. Nech 𝑎, 𝑏, 𝑐, 𝑑 ∈ Z. Nech 𝑚 ∈ N. Potom:
+1. Ak 𝑎 ≡ 𝑏 (mod 𝑚), tak 𝑏 ≡ 𝑎 (mod 𝑚). (Komutativita.)
+2. Ak 𝑎 ≡ 𝑏 (mod 𝑚), 𝑏 ≡ 𝑐 (mod 𝑚), tak 𝑎 ≡ 𝑐 (mod 𝑚). (Tranzitivita.)
+3. Ak 𝑎 ≡ 𝑏 (mod 𝑚), tak 𝑎 + 𝑐 ≡ 𝑏 + 𝑐 (mod 𝑚). (Pripočítanie konštanty.)
+4. Ak 𝑎 ≡ 𝑏 (mod 𝑚), tak 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚). (Vynásobenie konštantou.)
+5. Ak 𝑎 ≡ 𝑏 (mod 𝑚), tak 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚𝑐), kde 𝑐 > 0. (Vynásobenie modulu.)
+6. Ak 𝑎 ≡ 𝑏 (mod 𝑚), 𝑐 ≡ 𝑑 (mod 𝑚), tak 𝑎+𝑐 ≡ 𝑏+𝑑 (mod 𝑚). (Súčet kongruencií.)
+7. Ak 𝑎 ≡ 𝑏 (mod 𝑚), 𝑐 ≡ 𝑑 (mod 𝑚), tak 𝑎𝑐 ≡ 𝑏𝑑 (mod 𝑚). (Súčin kongruencií.)
+Dôkaz. Dokážeme postupne všetky tvrdenia:
+1. Máme 𝑚 | (𝑎 − 𝑏). Potom existuje 𝑘 také, že 𝑎 − 𝑏 = 𝑚𝑘. Z toho 𝑏 − 𝑎 = 𝑚(−𝑘) a
+teda 𝑚 | (𝑏 − 𝑎), teda 𝑏 ≡ 𝑎 (mod 𝑚).
+2. Máme 𝑚 | (𝑎 − 𝑏) a tiež 𝑚 | (𝑏 − 𝑐). Potom existujú 𝑘, 𝑙 také, že 𝑎 = 𝑏 + 𝑚𝑘 a
+𝑏 = 𝑐 + 𝑚𝑙. Preto 𝑎 = 𝑐 + 𝑚(𝑘 + 𝑙) a z toho 𝑎 ≡ 𝑐 (mod 𝑚).
+3. Máme 𝑚 | (𝑎 − 𝑏). Ak pridáme a odrátame 𝑐, dostaneme: 𝑚 | ((𝑎 + 𝑐) − (𝑏 + 𝑐)).
+Preto 𝑎 + 𝑐 ≡ 𝑏 + 𝑐 (mod 𝑚).
+4. Máme 𝑚 | (𝑎 − 𝑏). Potom existuje 𝑘 také, že 𝑎 − 𝑏 = 𝑚𝑘. Preto 𝑎𝑐 − 𝑏𝑐 = 𝑚(𝑘𝑐).
+Teda 𝑚 | (𝑎𝑐 − 𝑏𝑐), teda 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚).
+5. Máme 𝑚 | (𝑎 − 𝑏). Potom existuje 𝑘 také, že 𝑎 − 𝑏 = 𝑚𝑘. Preto 𝑎𝑐 − 𝑏𝑐 = 𝑚𝑐(𝑘).
+Teda 𝑚𝑐 | (𝑎𝑐 − 𝑏𝑐), teda 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚𝑐).
+https://www.elea.sk
+
+19
+
+Valdemar Švábenský
+
+6. Máme 𝑚 | (𝑎 − 𝑏) a tiež 𝑚 | (𝑐 − 𝑑). Potom existujú 𝑘, 𝑙 také, že 𝑎 − 𝑏 = 𝑚𝑘 a
+𝑐 − 𝑑 = 𝑚𝑙. Všimnime si, že (𝑎 − 𝑏) + (𝑐 − 𝑑) = (𝑎 + 𝑐) − (𝑏 + 𝑑) = 𝑚(𝑘 + 𝑙). Preto
+𝑚 | ((𝑎 + 𝑐) − (𝑏 + 𝑑)), teda 𝑎 + 𝑐 ≡ 𝑏 + 𝑑 (mod 𝑚).
+7. Máme 𝑎 − 𝑏 = 𝑚𝑘 a tiež 𝑐 − 𝑑 = 𝑚𝑙. Preto 𝑐𝑎 − 𝑐𝑏 = 𝑚(𝑐𝑘) a tiež 𝑏𝑐 − 𝑏𝑑 = 𝑚(𝑏𝑙).
+Všimnime si, že (𝑐𝑎 − 𝑐𝑏) + (𝑏𝑐 − 𝑏𝑑) = 𝑎𝑐 − 𝑏𝑑 = 𝑚(𝑘𝑐 − 𝑙𝑏). Preto 𝑚 | (𝑎𝑐 − 𝑏𝑑),
+teda 𝑎𝑐 ≡ 𝑏𝑑 (mod 𝑚).
+
+Veta 3.9. Delenie kongruencií nemusí zachovávať kongruenciu, teda:
+1. Nech 𝑎, 𝑏, 𝑐 ∈ Z, 𝑚 ∈ N, 𝑑 = (𝑚, 𝑐) a 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚). Potom 𝑎 ≡ 𝑏 (mod 𝑚/𝑑).
+2. Nech 𝑑 = (𝑚, 𝑐) = 1. Potom 𝑎 = 𝑏 (mod 𝑚), ak 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚).
+Dôkaz. Časť 2. dostaneme priamo z 1.: Ak 𝑎𝑐 ≡ 𝑏𝑐 (mod 𝑚), tak 𝑚 | (𝑎𝑐 − 𝑏𝑐) = 𝑐(𝑎 − 𝑏).
+Potom 𝑐(𝑎 − 𝑏) = 𝑚𝑘. Vydelením oboch strán číslom 𝑑 dostaneme (𝑐/𝑑)(𝑎 − 𝑏) = 𝑘(𝑚/𝑑).
+Preto (𝑚/𝑑, 𝑐/𝑑) = 1. Z toho 𝑚/𝑑 | (𝑎 − 𝑏).
+
+3.3
+
+Operácie na zvyškových triedach
+
+Veta 3.10. Na Z𝑛 definujeme operáciu + vzťahom [𝑎]𝑛 + [𝑏]𝑛 = [𝑎 + 𝑏]𝑛 .
+Dôkaz. Je nutné dokázať korektnosť definície tejto operácie.
+Ak rovnakú množinu [𝑎]𝑛 zadáme pomocou iného reprezentanta ako [𝑎′ ]𝑛 a podobne
+[𝑏]𝑛 ako [𝑏′ ]𝑛 , tak [𝑎 + 𝑏]𝑛 sa musí rovnať [𝑎′ + 𝑏′ ]𝑛 .
+Vieme, že 𝑛 | (𝑎 − 𝑎′ ) a tiež 𝑛 | (𝑏 − 𝑏′ ). Chceme dosiahnuť, aby 𝑛 | ((𝑎 + 𝑏) − (𝑎′ + 𝑏′ )).
+To je ale to isté, ako 𝑛 | ((𝑎 − 𝑎′ ) + (𝑏 − 𝑏′ )). Keď sčítame dve čísla deliteľné 𝑛, aj tento
+súčet bude deliteľný 𝑛.
+Veta 3.11. Na Z𝑛 definujeme operáciu · vzťahom [𝑎]𝑛 · [𝑏]𝑛 = [𝑎 · 𝑏]𝑛 .
+Dôkaz. Je nutné dokázať korektnosť definície tejto operácie.
+Ak [𝑎]𝑛 = [𝑎′ ]𝑛 a podobne [𝑏]𝑛 = [𝑏′ ]𝑛 , tak [𝑎 · 𝑏]𝑛 sa musí rovnať [𝑎′ · 𝑏′ ]𝑛 .
+Vieme, že 𝑛 | (𝑎 − 𝑎′ ) a tiež 𝑛 | (𝑏 − 𝑏′ ). Chceme dosiahnuť, aby 𝑛 | (𝑎 · 𝑏 − 𝑎′ · 𝑏′ ). To je
+ale to isté, ako 𝑛 | (𝑎 · 𝑏 − 𝑎′ · 𝑏′ + 𝑎′ · 𝑏 − 𝑎′ · 𝑏). To je to isté, ako 𝑛 | (𝑏 · (𝑎 − 𝑎′ ) + 𝑎′ · (𝑏 − 𝑏′ )).
+Keď sčítame 𝑏-násobok čísla deliteľného 𝑛 s 𝑎′ -násobkom čísla deliteľného 𝑛, aj tento súčet
+bude deliteľný 𝑛.
+Veta 3.12. (Z𝑛 , +) je komutatívna grupa pre každé 𝑛 ∈ N.
+Dôkaz. Sčítanie zvyškových tried je komutatívne a asociatívne. Jednotkový prvok je [0]𝑛
+a inverzný k [𝑎]𝑛 je [−𝑎]𝑛 .
+Veta 3.13. (Z𝑛 , ·) je komutatívny monoid pre každé 𝑛 ∈ N.
+Dôkaz. Násobenie zvyškových tried je komut. a asociatívne. Jednotkový prvok je [1]𝑛 .
+Lemma 3.14. Nech 𝑎 ∈ Z, 𝑛 ∈ N. Potom [𝑎]𝑛 ∈ (Z𝑛 , ·) má inverziu ⇐⇒ (𝑎, 𝑛) = 1.
+https://www.elea.sk
+
+20
+
+Valdemar Švábenský
+
+Dôkaz. „ =⇒ “: Nech [𝑏]𝑛 je inverzia k [𝑎]𝑛 . Potom [𝑏𝑎]𝑛 = [𝑎𝑏]𝑛 = [1]𝑛 . Preto 𝑎𝑏 ≡ 1
+(mod 𝑛), ekvivalentne 𝑎𝑏 = 𝑘𝑛 + 1, kde 𝑘 ∈ Z. Teda 𝑎𝑏 + 𝑛(−𝑘) = 1 a z 2.21 (𝑎, 𝑛) = 1.
+„ ⇐= “: Ak (𝑎, 𝑛) = 1, tak podľa Vety 2.20 ∃𝑢, 𝑣 ∈ Z : 𝑎𝑢 + 𝑛𝑣 = 1. Potom
+[𝑎]𝑛 · [𝑢]𝑛 = [𝑎𝑢]𝑛 = [1 − 𝑛𝑣]𝑛 = [1]𝑛 . Teda [𝑢]𝑛 je inverziou k [𝑎]𝑛 .
+Definícia 3.15. Nech (𝑀, ·, 𝑒) je monoid. Potom 𝑀 × je množina všetkých invertibilných
+prvkov množiny 𝑀 , t. j. 𝑀 × = {𝑎 ∈ 𝑀 | ∃𝑏 ∈ 𝑀 : 𝑎𝑏 = 𝑏𝑎 = 𝑒}.
+Lemma 3.16. 𝑀 × je uzavretá na násobenie a inverziou 𝑎𝑏 je 𝑏−1 𝑎−1 .
+Dôkaz. Máme 𝑎𝑎−1 = 𝑎−1 𝑎 = 𝑒 a tiež 𝑏𝑏−1 = 𝑏−1 𝑏 = 𝑒.
+Potom 𝑎𝑏 · 𝑏−1 𝑎−1 = 𝑎𝑒𝑎−1 = 𝑎𝑎−1 = 𝑒 a tiež 𝑏−1 𝑎−1 · 𝑎𝑏 = 𝑏−1 𝑒𝑏 = 𝑏−1 𝑏 = 𝑒.
+*
+Definícia 3.17. Nech 𝑝 je prvočíslo. Potom Z×
+𝑝 = Z𝑝 ∖ {[0]𝑝 } = Z𝑝 . (Lebo (0, 𝑛) = 𝑛.)
+
+Veta 3.18. (Z×
+𝑝 , ·) je komutatívna grupa pre každé prvočíslo 𝑝.
+Dôkaz. Nech [𝑎]𝑝 , [𝑏]𝑝 ∈ Z×
+𝑝 . Potom 𝑝 - 𝑎, 𝑝 - 𝑏 a keďže 𝑝 je prvočíslo, tak 𝑝 - 𝑎𝑏. Teda
+×
+×
+[𝑎]𝑝 · [𝑏]𝑝 = [𝑎 · 𝑏]𝑝 ∈ Z𝑝 , takže Z×
+𝑝 je grupoid. Podľa Vety 3.13 je (Z𝑝 , ·) komutatívny
+monoid. Nakoniec, keďže 𝑝 je prvočíslo, tak pre každé 𝑎 ∈ Z, 𝑝 - 𝑎 platí (𝑎, 𝑝) = 1. Každé
+také 𝑎 teda má inverziu (Lemma 3.14).
+
+3.4
+
+Eulerova funkcia
+
+Definícia 3.19 (Eulerova funkcia 𝜑). 𝜑 : N → N, kde 𝜑(𝑛) = |{𝑎 | 𝑎 ≤ 𝑛 ∧ (𝑎, 𝑛) = 1}|.
+Veta 3.20. Číslo 𝑝 je prvočíslo práve vtedy, keď 𝜑(𝑝) = 𝑝 − 1.
+Dôkaz. „ =⇒ “: Každé prirodzené číslo menšie ako 𝑝 je nesúdeliteľné s 𝑝.
+„ ⇐= “: Predpokladajme, že 𝑝 nie je prvočíslo. Potom 𝑝 = 1 alebo 𝑝 je zložené. Ak
+𝑝 = 1, tak 𝜑(𝑝) ̸= 𝑝 − 1. Ak 𝑝 je zložené, tak má kladného deliteľa, teda 𝜑(𝑝) ̸= 𝑝 − 1
+.
+Veta 3.21. Nech 𝑝 je prvočíslo a 𝑒 ∈ N. Potom 𝜑(𝑝𝑒 ) = 𝑝𝑒−1 · (𝑝 − 1) = 𝑝𝑒 (1 − 𝑝1 ).
+Dôkaz. Súdeliteľné s 𝑝𝑒 sú 𝑝, 2𝑝, 3𝑝, . . . , 𝑝𝑒−1 𝑝. Týchto čísel je 𝑝𝑒−1 .
+) = 𝑝𝑒 (1 − 𝑝1 ).
+Nesúdeliteľných s 𝑝𝑒 je potom 𝑝𝑒 − 𝑝𝑒−1 = 𝑝𝑒−1 · (𝑝 − 1) = 𝑝𝑒 ( 𝑝−1
+𝑝
+Veta 3.22. Nech prvočíselný rozklad čísla 𝑛 ∈ N je 𝑛 =
+sú po dvoch rôzne prvočísla. Potom
+(︃
+
+1
+𝜑(𝑛) = 𝑛 1 −
+𝑝1
+
+)︃ (︃
+
+)︃
+
+(︃
+
+𝑒𝑖
+𝑒1 𝑒2
+𝑒𝑚
+𝑖=1 𝑝𝑖 = 𝑝1 𝑝2 · · · 𝑝𝑚 , kde 𝑝𝑖
+
+∏︀𝑚
+
+)︃
+
+1
+1
+1−
+... 1 −
+.
+𝑝2
+𝑝𝑚
+
+Dôkaz. Indukciou. Budeme opäť hľadať najprv čísla súdeliteľné s 𝑛.
+Nech 𝑛 = 𝑝𝑒11 . Existuje 𝑝𝑛1 čísel menších ako 𝑛, ktoré sú deliteľné 𝑝1 . Počet čísel, ktoré
+toto nespĺňajú je teda 𝑛 − 𝑝𝑛1 = 𝑝𝑒11 − 𝑝𝑒11 −1 = 𝑝𝑒11 (1 − 𝑝11 ) = 𝑛(1 − 𝑝11 ).
+Nech 𝑛 = 𝑝𝑒11 𝑝𝑒22 . Existuje 𝑝𝑛1 čísel menších ako 𝑛, ktoré sú deliteľné 𝑝1 . Ďalej existuje 𝑝𝑛2
+čísel menších ako 𝑛, ktoré sú deliteľné 𝑝2 . Ak sčítame, dostaneme počet 𝑝𝑛1 + 𝑝𝑛2 , ale podľa
+https://www.elea.sk
+
+21
+
+Valdemar Švábenský
+
+PIE2 musíme odpočítať 𝑝1𝑛𝑝2 čísel, teda máme 𝑝𝑛1 + 𝑝𝑛2 − 𝑝1𝑛𝑝2 . Počet čísel, ktoré toto nespĺňajú
+2 −𝑛𝑝+ +𝑛
+2 −𝑝1 +1
+je teda 𝑛 − ( 𝑝𝑛1 + 𝑝𝑛2 − 𝑝1𝑛𝑝2 ) = 𝑛𝑝1 𝑝2 −𝑛𝑝
+= 𝑛 𝑝1 𝑝2 −𝑝
+= 𝑛(1 − 𝑝11 − 𝑝12 + 𝑝11𝑝2 ) =
+𝑝1 𝑝2
+𝑝1 𝑝2
+𝑛((1 − 𝑝11 ) − 𝑝12 (1 − 𝑝11 )) = 𝑛(1 − 𝑝11 )(1 − 𝑝12 ).
+(︂
+(︂
+
+𝑛 1−
+
+∑︀
+𝑛
+𝑛
+𝑛
+𝑚+1
+1≤𝑖≤𝑚 𝑝𝑖 −
+1≤𝑖1 <𝑖2 ≤𝑚 𝑝𝑖 𝑝𝑖 + · · · + (−1)
+𝑝1 𝑝2 ...𝑝𝑚
+1 2
+
+∑︀
+
+IK: 𝜑(𝑛) = 𝑛−
+
+∑︀
+1
+1
+1≤𝑖≤𝑚 𝑝𝑖 +
+1≤𝑖1 <𝑖2 ≤𝑚 𝑝𝑖 𝑝𝑖
+
+∑︀
+
+1
+
+2
+
+− · · · + (−1)𝑚 𝑝1 𝑝21...𝑝𝑚
+
+)︂
+
+=𝑛
+
+∏︀
+
+𝑝|𝑛
+
+(︁
+
+)︂
+
+, z toho 𝜑(𝑛) =
+)︁
+
+1 − 𝑝1 .
+
+Veta 3.23. Nech 𝑎, 𝑏 ∈ N. Ak (𝑎, 𝑏) = 1, tak 𝜑(𝑎𝑏) = 𝜑(𝑎) · 𝜑(𝑏).
+Dôkaz. Pri použití Vety 3.22 vidíme, že ak 𝑎, 𝑏 sú nesúdeliteľné, majú rôzne činitele vo
+svojich prvočíselných rozkladoch a multiplikativita Eulerovej funkcie je potom zrejmá.
+Dôkaz (iný). Pozri [2, I.3.16].
+
+3.5
+
+Cvičenia
+
+1. Spočítajte [425]−1
+793 v (Z793 , +).
+×
+2. Spočítajte [425]−1
+793 v (Z793 , ·).
+
+3. Spočítajte |Z×
+2014 |.
+4. Nájdite všetky 𝑛 ∈ N také, že |Z×
+𝑛 | = 12.
+5. Určte zvyšok po delení čísla 𝑎 číslom 𝑏:
+(a) 𝑎 = 232014 , 𝑏 = 25;
+(b) 𝑎 = 422014 , 𝑏 = 60;
+15
+
+(c) 𝑎 = 1515 , 𝑏 = 13.
+6. Určte najväčší rád prvku v grupe:
+(a) S9 ;
+(b) S10 .
+7. Určte rád prvku 𝑎 v grupe 𝐺:
+(a) 𝑎 = [2]257 , 𝐺 = (Z×
+257 , ·);
+(b) 𝑎 = [𝑘]𝑛 , 𝐺 = (Z𝑛 , +), 𝑘, 𝑛 ∈ N;
+(c) 𝐴 = ( 12 01 ), 𝐺 = (𝐺𝐿2 (R), ·);
+√
+
+1
+3
+(d) 𝐴 = ( −√
+), 𝐺 = (𝐺𝐿2 (R), ·);
+3 1
+
+(e) 𝐴 = ( 13 −1
+2 ), 𝐺 = (𝐺𝐿2 (R), ·).
+2
+
+The Principle of Inclusion-Exclusion
+
+https://www.elea.sk
+
+22
+
+Valdemar Švábenský
+
+3.6
+
+Návody k riešeniu cvičení
+
+1. [425]−1
+793 = [−425]793 = [368]793
+2. [425]−1
+793 = [−153]793 = [640]793
+3. |Z×
+2014 | = 𝜑(2014) = 𝜑(2) · 𝜑(19) · 𝜑(53) = 936
+4. Možné prvočísla: 2, 3, 5, 7, 13.
+• Ak máme v rozklade 13: 𝑛 = 13, 26
+• Ak nemáme v rozklade 13, máme 7: 𝑛 = 21, 42, 28
+• Ak nemáme v rozklade 13, 7, máme 5: neexistuje
+• Ak nemáme v rozklade 13, 7, 5, máme 2, 3: 𝑛 = 36
+5. (a) 𝜑(25) = 20, teda 232014 ≡ 2314 ≡ (−2)14 ≡ 47 ≡ 44+2+1 ≡ 9 (mod 25)
+(b) 422014 = 12 · 7 · 21 · 422012 mod 12 · 5 = 12 · (7 · 21 · 422012 mod 5);
+7 · 21 · 422012 ≡ 2 · 1 · 1 (mod 5), teda 422014 ≡ 12 · 2 (mod 60) ≡ 24 (mod 60)
+(c) 𝜑(13) = 12, 1515 ≡ 𝑥 (mod 12);
+(1515 , 12) = 3, preto 1515 = 3 · 5 · 1514 (mod 3 · 4) = 3 · (5 · 1514 mod 4);
+5 · 1514 ≡ 1 · (−1)14 ≡ 1 (mod 4), preto 1515 ≡ 3 · 1 (mod 12);
+15
+t. j. 𝑎 = 1515 ≡ 153 ≡ 8 (mod 13)
+6. (a) Vezmeme mocniny prvočísel ≤ 9 (t. j. 2, 3, 22 , 5, 7, 23 , 32 ):
+Dĺžka cyklu
+
+(2) ∘ (7) (3) ∘ (5) (4) ∘ (5) (7) ∘ (2) (8) ∘ (1) (9)
+
+Rád (nsn)
+
+14
+
+15
+
+20
+
+14
+
+8
+
+9
+
+(b) 30.
+7. (a) 28 ≡ −1 (mod 257), 216 ≡ 1 (mod 257); rád [2]257 je 16.
+𝑛
+𝑘
+| (𝑛,𝑘)
+· 𝑥 · (𝑛, 𝑘) ⇐⇒
+(b) 𝑘𝑥 ≡ 0 (mod 𝑛) ⇐⇒ 𝑛 | 𝑘𝑥 ⇐⇒ (𝑛, 𝑘) · (𝑛,𝑘)
+𝑘
+𝑛
+𝑛
+· 𝑥 ⇐⇒ (𝑛,𝑘) | 𝑥. Najmenšie také 𝑥 je (𝑛,𝑘) .
+(𝑛,𝑘)
+
+𝑛
+|
+(𝑛,𝑘)
+
+1 0 ); rád 𝑎 je ∞.
+(c) ( 12 01 )𝑛 = ( 2𝑛
+1
+0
+6
+1 0
+(d) 𝐴3 = ( −1
+0 −1 ) =⇒ 𝐴 = ( 0 1 ); rád 𝑎 je 6.
+
+(e) det 𝐴 = 5; det 𝐴𝑛 = 5𝑛 ; rád 𝑎 je ∞.
+
+Kapitola 4: Grupy ďalej
+4.1
+
+Podgrupy a generovanie
+
+Definícia 4.1. Nech (𝐺, ·) je grupa, 𝐻 neprázdna podmnožina množiny 𝐺. Potom 𝐻 je
+podgrupa grupy 𝐺; píšeme 𝐻 ≤ 𝐺; ak platí:
+
+https://www.elea.sk
+
+23
+
+Valdemar Švábenský
+
+1. 1𝐺 ∈ 𝐻;
+2. ak 𝑎, 𝑏 ∈ 𝐻, tak 𝑎𝑏 ∈ 𝐻;
+3. ak 𝑎 ∈ 𝐻, tak 𝑎−1 ∈ 𝐻.
+Dôsledok 4.2. (𝐻, ·) je grupa. Ak (𝐺, ·) je komutatívna, tak aj (𝐻, ·) je komutatívna.
+Dôsledok 4.3. ({𝑒}, ·) je tzv. triviálna podgrupa grupy (𝐺, ·) a je to najmenšia podgrupa.
+(𝐺, ·) je sama sebe podgrupou a je najväčšia. Iné podgrupy ako tieto dve nazývame vlastné.
+Dôsledok 4.4. Vlastnosť „byť podgrupou“ je tranzitívna.
+Príklad 4.5. (Z, +) ≤ (Q, +) ≤ (R, +) ≤ (C, +).
+Príklad 4.6. (Q* , ·) ≤ (R* , ·) ≤ (C* , ·).
+Veta 4.7. Nech 𝑛 ∈ N0 . Grupa 𝑛Z = {𝑛𝑘 | 𝑘 ∈ Z} je jedinou podgrupou grupy (Z, +).
+Dôkaz. Nech 𝐻 je nejaká netriviálna podgrupa grupy (Z, +). Nech 𝑛 ∈ 𝐻 je najmenší
+kladný prvok v 𝐻. (Ak by tam bolo −𝑛, kde 𝑛 ∈ N, tak je tam aj 𝑛.) Ukážeme, že
+𝑛Z = 𝐻:
+• 𝑛Z ⊆ 𝐻: Ak 𝑛 ∈ 𝐻, tak aj . . . , −3𝑛, −2𝑛, −𝑛, 0, 𝑛, 2𝑛, 3𝑛, · · · ∈ 𝐻.
+• 𝑛Z ⊇ 𝐻: Nech 𝑚 ∈ 𝐻 ∖ 𝑛Z. Potom 𝑚 =
+̸ 0 a −𝑚 ∈ 𝐻 ∖ 𝑛Z. Predpokladajme 𝑚 > 0
+(inak vezmime −𝑚). Z deliteľnosti platí 𝑚 = 𝑞𝑛 + 𝑟, kde 0 ≤ 𝑟 < 𝑛.
+Ak 𝑟 = 0, tak 𝑚 = 𝑞𝑛 ∈ 𝑛Z, preto 0 < 𝑟 < 𝑛. Z toho ale 𝑟 = 𝑚 − 𝑞𝑛 ∈ 𝐻, čo by
+znamenalo, že 𝑛 nebol najmenší kladný prvok v 𝐻. Preto 𝐻 ∖ 𝑛Z = ∅.
+Pre 𝑛 = 0 triviálne.
+Veta 4.8. Nech 𝑘, 𝑛 ∈ N. 𝑘Z𝑛 = {𝑘[𝑥]𝑛 | 𝑥 ∈ Z} je jedinou podgrupou grupy (Z𝑛 , +).
+Dôkaz. Nech 𝐻 je nejaká netriviálna podgrupa grupy (Z𝑛 , +) tvaru 𝑘Z𝑛 , kde 𝑘 ∈ N, 𝑘 | 𝑛.
+Nech 𝑘 je najmenšie kladné číslo také, že [𝑘]𝑛 je prvkom 𝐻.
+Všetko dokážeme analogicky predošlému dôkazu, stačí len overiť, že 𝑘 | 𝑛. Nech
+𝑛 = 𝑘𝑞 + 𝑟, kde 𝑞 ∈ Z, 𝑟 ∈ {0, 1, . . . , 𝑘 − 1}.
+• [𝑛]𝑛 = [0]𝑛 ∈ 𝐻.
+• [𝑛]𝑛 = [𝑘]𝑛 · 𝑞 + [𝑟]𝑛 . [𝑘]𝑛 ∈ 𝐻, [𝑘]𝑛 · 𝑞 ∈ 𝐻, preto musí aj [𝑟]𝑛 ∈ 𝐻, t. j. 𝑟 = 0.
+Dôsledok 4.9. Z Viet 4.7, 4.8:
+• 𝑘Z ⊆ 𝑙Z ⇐⇒ 𝑙 | 𝑘.
+
+• 𝑘Z ∩ 𝑙Z = 𝑛𝑠𝑛(𝑘, 𝑙) · Z.
+
+• 𝑘Z𝑛 ⊆ 𝑙Z𝑛 ⇐⇒ 𝑙 | 𝑘, kde 𝑘, 𝑙 | 𝑛.
+
+• ⟨𝑘Z ∪ 𝑙Z⟩ = 𝑁 𝑆𝐷(𝑘, 𝑙) · Z.
+
+Lemma 4.10. Prienik 𝐻 ľubovoľného systému3 (𝐻𝑖 )𝑖∈𝐼 podgrúp grupy (𝐺, ·) je znovu
+podgrupou grupy (𝐺, ·).
+3
+
+Systém je v podstate množina množín, len s iným značením: (𝐻𝑖 )𝑖∈𝐼 = {𝐻𝑖 | 𝑖 ∈ 𝐼}.
+
+https://www.elea.sk
+
+24
+
+Valdemar Švábenský
+
+Dôkaz. Ak 𝐼 = ∅, tak 𝐻 = 𝐺.
+Ak 𝐼 ̸= ∅, tak 1 ∈ 𝐻; ďalej ∀𝑖 ∈ 𝐼 : 𝑎, 𝑏 ∈ 𝐻𝑖 =⇒ 𝑎𝑏, 𝑎−1 ∈ 𝐻𝑖 ; a teda 𝑎𝑏, 𝑎−1 ∈ 𝐻.
+Lemma 4.11. Nech (𝐺, ·) je grupa, 𝑀 ⊆ 𝐺 je podmnožinou množiny 𝐺. Potom existuje
+najmenšia (vzhľadom k inklúzii) podgrupa grupy (𝐺, ·) obsahujúca množinu 𝑀 .
+Túto najmenšiu podgrupu značíme ⟨𝑀 ⟩ a čítame „podgrupa generovaná množinou
+𝑀 “.
+Dôkaz. Nech (𝐻𝑖 )𝑖∈𝐼 je systém všetkých podgrúp grupy (𝐺, ·) obsahujúcich množinu 𝑀 .
+⋂︀
+Do tohto systému patrí 𝐺 a ⟨𝑀 ⟩ = 𝑖∈𝐼 𝐻𝑖 . ⟨𝑀 ⟩ je najmenšia, lebo ∀𝑖 ∈ 𝐼 : ⟨𝑀 ⟩ ⊆ 𝐻𝑖 .
+Veta 4.12. Ľubovoľná množina generuje podgrupu. Nech (𝐺, ·) je grupa, 𝑀 ⊆ 𝐺 je
+podmnožinou množiny 𝐺. Potom ⟨𝑀 ⟩ = 𝑋 = {𝑔1𝑒1 · . . . · 𝑔𝑛𝑒𝑛 | 𝑛 ∈ N0 , 𝑔𝑖 ∈ 𝑀, 𝑒𝑖 ∈ {−1, 1}}.
+Vzorový dôkaz pre generovanie:
+1. 𝑀 ⊆ 𝑋.
+2. 𝑋 je podgrupa.
+3. Ak 𝑌 je podgrupa a 𝑀 ⊆ 𝑌 , tak 𝑋 ⊆ 𝑌 .
+Ukážka použitia dôkazu:
+1. Nech 𝑔 ∈ 𝑀 . Volíme 𝑛 = 1, 𝑔𝑛 = 𝑔, 𝑒𝑛 = 1. Potom 𝑀 ⊆ ⟨𝑀 ⟩ = 𝑋 = {𝑔}.
+2. 𝑋 je podgrupa.
+(a) Neutrálny prvok dostanem pre 𝑛 = 0 alebo vezmem 𝑔 ∈ 𝑀 a uvážim 𝑔 · 𝑔 −1 .
+𝑒𝑚
+(b) Nech 𝑎 = 𝑔1𝑒1 · . . . · 𝑔𝑚
+, 𝑏 = ℎ𝑓11 · . . . · ℎ𝑓𝑛𝑛 . Potom 𝑎𝑏 je nášho tvaru.
+𝑒𝑚
+−𝑒𝑚
+(c) Nech 𝑎 = 𝑔1𝑒1 · . . . · 𝑔𝑚
+. Potom 𝑎−1 = 𝑔𝑚
+· . . . · 𝑔1−𝑒1 je nášho tvaru.
+𝑒𝑚
+𝑒𝑚
+3. ∀𝑔1 , . . . , 𝑔𝑚 ∈ 𝑀 platí 𝑔𝑖 ∈ 𝑌 . Ďalej 𝑔1𝑒1 , . . . , 𝑔𝑚
+∈ 𝑌 . Nakoniec 𝑔1𝑒1 · . . . · 𝑔𝑚
+∈𝑌.
+
+Dôsledok 4.13. Nech 𝑀 = {𝑎}. Potom ⟨𝑀 ⟩ = ⟨{𝑎}⟩ = ⟨𝑎⟩ = {𝑎𝑛 | 𝑛 ∈ Z}.
+Definícia 4.14. Grupa (𝐺, ·) je cyklická, ak existuje 𝑎 ∈ 𝐺 také, že ⟨𝑎⟩ = 𝐺.
+Príklad 4.15. (Z, +), kde 𝑎 = 1 alebo (Z𝑛 , +), kde 𝑎 = [1]𝑛 . (Iné neexistujú, pozri 4.22.)
+Lemma 4.16. Nech (𝑆, ·) je pologrupa, 𝑀 ⊆ 𝑆. Potom ⟨𝑀 ⟩𝑆𝐸𝑀 𝐼𝐺𝑅𝑂𝑈 𝑃 𝑆 = {𝑎1 · . . . · 𝑎𝑛 |
+𝑛 ∈ N, 𝑎1 , . . . , 𝑎𝑛 ∈ 𝑀 }.
+Lemma 4.17. Nech (𝑆, ·, 𝑒) je monoid, 𝑀 ⊆ 𝑆. Potom ⟨𝑀 ⟩𝑀 𝑂𝑁 𝑂𝐼𝐷𝑆 = {. . . 𝑛 ∈ N0 . . .}
+
+https://www.elea.sk
+
+25
+
+Valdemar Švábenský
+
+4.2
+
+Homomorfizmy grúp
+
+Definícia 4.18. Zobrazenie 𝜙 : 𝐺 → 𝐻 je (homo)morfizmus grupy (𝐺, ·) do grupy (𝐻, ∘),
+ak pre všetky 𝑎, 𝑏 ∈ 𝐺 platí: 𝜙(𝑎 · 𝑏) = 𝜙(𝑎) ∘ 𝜙(𝑏).
+Lemma 4.19. Nech 𝜙 : (𝐺, ·) → (𝐻, ∘) je homomorfizmus grúp. Potom:
+1. 𝜙(1𝐺 ) = 1𝐻 ;
+2. 𝜙(𝑎−1 ) = (𝜙(𝑎))−1 .
+Dôkaz. ∀𝑎 ∈ 𝐺:
+1. 𝜙(𝑎) = 𝜙(1𝐺 · 𝑎) = 𝜙(1𝐺 ) ∘ 𝜙(𝑎). Analogicky 𝜙(𝑎 · 1𝐺 ). Teda 𝜙(1𝐺 ) je jednička v 𝐻.
+2. 𝜙(𝑎 · 𝑎−1 ) = 𝜙(1𝐺 ) = 1𝐻 . Ďalej 𝜙(𝑎 · 𝑎−1 ) = 𝜙(𝑎) ∘ 𝜙(𝑎−1 ) = 1𝐻 , teda 𝜙(𝑎−1 ) =
+(𝜙(𝑎))−1 .
+
+Definícia 4.20. Bijektívny homomorfizmus nazývame izomorfizmus. Ak existuje izomorfizmus medzi grupami 𝐺, 𝐻, nazývame ich izomorfné a píšeme 𝐺 ∼
+= 𝐻.
+Príklad 4.21. (R+ , ·) ∼
+= (R, +), pretože 𝑙𝑜𝑔(𝑎 · 𝑏) ↦→ 𝑙𝑜𝑔(𝑎) + 𝑙𝑜𝑔(𝑏).
+Poznámka. Izomorfizmus definuje reláciu ekvivalencie. Z hľadiska algebry medzi izomorfnými objektmi nerozlišujeme – zaujíma nás len štruktúra objektov.
+Veta 4.22. (Z, +) a (Z𝑛 , +) sú (až na izomorfizmus) jediné dve cyklické grupy.
+Dôkaz. Nech (𝐺, ·) je cyklická grupa s generátorom 𝑎.
+a) Nech rád 𝑎 je 0 (t. j. grupa 𝐺 je nekonečná). Vieme, že . . . , 𝑎−1 , 1, 𝑎, 𝑎2 , . . . sú po
+dvoch rôzne. Definujme preto zobrazenie 𝜙 : 𝐺 → Z vzťahom 𝑎𝑘 ↦→ 𝑘.
+– Morfizmus: 𝜙(𝑎𝑘 · 𝑎𝑙 ) = 𝜙(𝑎𝑘+𝑙 ) = 𝑘 + 𝑙 a aj 𝜙(𝑎𝑘 ) + 𝜙(𝑎𝑙 ) = 𝑘 + 𝑙.
+– Injektívny: . . . , 𝑎−1 , 1, 𝑎, 𝑎2 , . . . sú po dvoch rôzne.
+– Surjektívny: ∀𝑘 ∈ Z vrátim 𝑎𝑘 .
+b) Nech rád 𝑎 je 𝑛 ∈ N (t. j. grupa 𝐺 je konečná). Potom 𝑎𝑘 = 𝑎𝑙 práve keď 𝑘 ≡ 𝑙
+(mod 𝑛), kde 𝑘, 𝑙 ∈ Z. Definujme preto zobrazenie 𝜙 : 𝐺 → Z𝑛 vzťahom 𝑎𝑘 ↦→ [𝑘]𝑛 .
+– Morfizmus: 𝜙(𝑎𝑘 ·𝑎𝑙 ) = 𝜙(𝑎𝑘+𝑙 ) = [𝑘+𝑙]𝑛 a aj 𝜙(𝑎𝑘 )+𝜙(𝑎𝑙 ) = [𝑘]𝑛 +[𝑙]𝑛 = [𝑘+𝑙]𝑛 .
+– Injektívny: 1, 𝑎, 𝑎2 , . . . , 𝑎𝑛−1 sú po dvoch rôzne.
+– Surjektívny: ∀[𝑘]𝑛 ∈ Z𝑛 vrátim 𝑎𝑘 .
+Príklad 4.23. ({−1, 1}, ·) ∼
+= (Z2 , +), pretože 1 ↦→ 0 a −1 ↦→ 1.
+Príklad 4.24. (Z, +) ∼
+= (𝑛Z, +), pretože 𝑎 ↦→ 𝑛𝑎.
+https://www.elea.sk
+
+26
+
+Valdemar Švábenský
+
+Definícia 4.25. Počet prvkov konečnej grupy (𝐺, ·) nazývame rád grupy a značíme ho
+|𝐺|.
+Veta 4.26. Nech (𝐺, ·) je cyklická grupa s generátorom 𝑎. Rád generátora je rovný |𝐺|.
+Definícia 4.27. Endomorfizmus je homomorfizmus grupy 𝐺 na seba.
+Definícia 4.28. Automorfizmus je izomorfizmus grupy 𝐺 na seba.
+Veta 4.29. (𝐸𝑛𝑑(𝐺), ∘) je monoid.
+Veta 4.30. (𝐴𝑢𝑡(𝐺), ∘) je grupa.
+
+4.3
+
+Súčiny grúp
+
+Definícia 4.31. Nech (𝐺, ·), (𝐻, ∘) sú grupy. Na množine 𝐺 × 𝐻 definujeme operáciu ×
+vzťahom (𝑔, ℎ) × (𝑔 ′ , ℎ′ ) = (𝑔 · 𝑔 ′ , ℎ ∘ ℎ′ ).
+Dôsledok 4.32. (𝐺 × 𝐻, ×) je grupa. Súčin komutatívnych grúp je komutatívna grupa.
+Dôkaz. Operácie v 𝐺, 𝐻 sú korektné a asociatívne (a príp. komutatívne). Neutrálnym
+prvkom je (1𝐺 , 1𝐻 ) a (𝑔, ℎ)−1 = (𝑔 −1 , ℎ−1 ).
+Lemma 4.33. Zobrazenie Σ : 𝐺 × 𝐻 → 𝐺 definované (𝑔, ℎ) ↦→ 𝑔 je surjektívny homomorfizmus (𝐺, ·) × (𝐻, ∘) na (𝐺, ·).
+Definícia 4.34. Nech (𝐺1 , ·), . . . , (𝐺𝑛 , ·) sú grupy a 𝑛 ≥ 2. Na množine 𝐺1 × · · · × 𝐺𝑛
+definujeme súčin analogicky vzťahom (𝑔1 , . . . , 𝑔𝑛 ) × (𝑔1′ , . . . , 𝑔𝑛′ ) = (𝑔1 · 𝑔1′ , . . . , 𝑔𝑛 · 𝑔𝑛′ ).
+Veta 4.35 (Klasifikácia Abelovských grúp). Nech (𝐺, ·) je komutatívna grupa, |𝐺| = 𝑛.
+Potom (𝐺, ·) ∼
+= (Z𝑝𝑒11 , +) × · · · × (Z𝑝𝑒𝑚𝑚 , +), kde 𝑝1 , . . . , 𝑝𝑚 sú prvočísla (nie nutne rôzne),
+𝑒1 , . . . , 𝑒𝑚 ∈ N a 𝑛 = 𝑝𝑒11 · . . . · 𝑝𝑒𝑚𝑚 . Tento rozklad je jednoznačný (až na poradie činiteľov).
+Príklad 4.36. (Z2 , +) × (Z3 , +) ∼
+= (Z6 , +). Obe sú cykl.; generované ([1]2 , [1]3 ) resp. [1]6 .
+Príklad 4.37. (Z2 , +) × (Z2 , +) ∼
+̸= (Z4 , +). Prvá grupa nie je cyklická, druhá áno.
+Príklad 4.38. Ak 𝑛 = 8, tak existujú tri navzájom neizomorfné grupy (nepíšeme +):
+Z2 × Z2 × Z2 ; Z2 × Z4 ; Z8 .
+Príklad 4.39. Ak 𝑛 = 36, tak existujú štyri navzájom neizomorfné grupy (nepíšeme +):
+Z2 × Z2 × Z3 × Z3 ; Z4 × Z3 × Z3 ; Z2 × Z2 × Z9 ; Z4 × Z9 . Ďalej napr. Z36 ∼
+= Z4 × Z9 .
+
+4.4
+
+Cayleyho vety
+
+Lemma 4.40. Nech (𝑀, ·), (𝑁, ∘) sú monoidy. Definujme homomorfizmus 𝜙 : (𝑀, ·) →
+(𝑁, ∘). Potom 𝜙(𝑀 ) je podmonoid monoidu (𝑁, ∘).
+Poznámka. Morfizmus monoidov vyžaduje 1𝑀 ↦→ 1𝑁 , teda v tomto prípade 1𝑀 ↦→ 𝑖𝑑𝜙𝑁 .
+Veta 4.41 (Cayleyova pre monoidy). Ľubovoľný monoid (𝑀, ·) je izomorfný nejakému
+podmonoidu moniodu (𝑇 (𝐴), ∘). Za 𝐴 je možné vziať 𝑀 .
+https://www.elea.sk
+
+27
+
+Valdemar Švábenský
+
+Poznámka. Každá operácia v monoide sa dá previesť na skladanie zobrazení.
+Dôkaz. Definujme zobrazenie 𝜙 : 𝑀 → 𝑇 (𝑀 ) vzťahom 𝑎 ↦→ 𝑓𝑎 , kde 𝑓𝑎 : 𝑀 → 𝑀 je
+transformácia definovaná vzťahom 𝑥 ↦→ 𝑎𝑥.
+• 𝜙 je homomorfizmus z (𝑀, ·) do (𝑇 (𝑀 ), ∘). Pre všetky 𝑥 ∈ 𝑀 :
+– 𝜙(𝑎 · 𝑏)(𝑥) = 𝑓𝑎𝑏 (𝑥) = (𝑎𝑏)𝑥
+– (𝜙(𝑎) ∘ 𝜙(𝑏))(𝑥) = (𝑓𝑎 ∘ 𝑓𝑏 )(𝑥) = 𝑓𝑎 (𝑓𝑏 (𝑥)) = 𝑓𝑎 (𝑏𝑥) = 𝑎(𝑏𝑥) = (𝑎𝑏)𝑥
+• 𝜙 je injektívne (t. j. ak 𝑎 =
+̸ 𝑏, tak 𝜙(𝑎) ̸= 𝜙(𝑏), t. j. 𝑓𝑎 =
+̸ 𝑓𝑏 ): Nech 𝑓𝑎 = 𝑓𝑏 . Potom
+𝑓𝑎 (1) = 𝑓𝑏 (1), t. j. 𝑎 · 1 = 𝑏 · 1, t. j. 𝑎 = 𝑏.
+• 𝜙 je surjektívne (t. j. ∀𝑓𝑎 ∈ 𝑇 (𝑀 ) ∃𝑎 ∈ 𝑀 : 𝜙(𝑎) = 𝑓𝑎 ): vzorom 𝑓𝑎 je 𝑎.
+Našli sme bijektívny homomorfizmus, teda izomorfizmus.
+Veta 4.42 (Cayleyova pre pologrupy). Ľubovoľná pologrupa (𝑆, ·) je izomorfná nejakej
+podpologrupe pologrupy (𝑇 (𝐴), ∘). Za 𝐴 je možné vziať 𝑆 1 , kde 𝑆 1 = 𝑆, ak (𝑆, ·) je monoid,
+a 𝑆 1 = 𝑆 ∪ {𝑒}, kde 𝑒 je nový (dodefinovaný) neutrálny prvok, ak (𝑆, ·) je pologrupa.
+Dôkaz. Presne ako dôkaz Cayleyovej vety 4.41 pre monoidy.
+Veta 4.43 (Cayleyova pre grupy). Ľubovoľná grupa (𝐺, ·) je izomorfná nejakej podgrupe
+grupy permutácií (𝑆(𝐴), ∘) nejakej množiny 𝐴. Za 𝐴 je možné vziať 𝐺.
+Dôkaz. Definujme zobrazenie 𝜙 : 𝐺 → 𝑆(𝐺) vzťahom 𝑎 ↦→ 𝑓𝑎 , kde 𝑓𝑎 : 𝐺 → 𝐺 je transformácia definovaná vzťahom 𝑥 ↦→ 𝑎𝑥.
+Z dôkazu Vety 4.41 vieme, že 𝑓𝑎 je injektívny homomorfizmus.
+• 𝑓𝑎 je injektívne: Nech 𝑓𝑎 (𝑥) = 𝑓𝑎 (𝑦). Potom 𝑎𝑥 = 𝑎𝑦, t. j. 𝑥 = 𝑦.
+• 𝑓𝑎 je surjektívne: Nech 𝑦 ∈ 𝐺. Hľadáme 𝑥 ∈ 𝐺 také, že 𝑓𝑎 (𝑥) = 𝑦, t. j. 𝑎𝑥 = 𝑦, t. j.
+vezmem 𝑥 = 𝑎−1 𝑦.
+
+4.5
+
+Rozklady grúp podľa podgrúp
+
+4.5.1
+
+Ľavé triedy
+
+Definícia 4.44. Nech (𝐺, ·) je grupa, 𝐻 jej podgrupa, 𝑎 ∈ 𝐺. Množinu 𝑎𝐻 = {𝑎ℎ | ℎ ∈ 𝐻}
+nazývame ľavá trieda (angl. coset) grupy 𝐺 podľa podgrupy 𝐻.
+Veta 4.45. Pre grupu (𝐺, ·), jej podgrupu 𝐻 a prvky 𝑎, 𝑏 ∈ 𝐺 sú ekvivalentné vzťahy:
+1. 𝑎𝐻 = 𝑏𝐻;
+2. 𝑎 ∈ 𝑏𝐻;
+3. 𝑏−1 𝑎 ∈ 𝐻.
+https://www.elea.sk
+
+28
+
+Valdemar Švábenský
+
+Dôkaz. Dokážeme postupne tri implikácie.
+„1. ⇒ 2.“: 𝑎 = 𝑎 · 1𝐻 ∈ 𝑎𝐻 a tiež 1𝐻 ∈ 𝑏𝐻, teda 𝑎 · 1𝐻 ∈ 𝑏𝐻.
+„2. ⇒ 3.“: ∃ℎ ∈ 𝐻 : 𝑎 = 𝑏ℎ, preto po vynásobení 𝑏−1 máme 𝑏−1 𝑎 = ℎ ∈ 𝐻.
+„3. ⇒ 1.“: ∃ℎ ∈ 𝐻 : ℎ−1 𝑎ℎ ∈ 𝐻, preto 𝑎𝐻 ⊆ 𝑏𝐻. Ďalej ak 𝑏−1 𝑎 ∈ 𝐻, tak 𝑎−1 𝑏 ∈ 𝐻 a
+teda ∃ℎ ∈ 𝐻 : ℎ−1 𝑏ℎ ∈ 𝐻, preto 𝑎𝐻 ⊇ 𝑏𝐻.
+Definícia 4.46. Nech (𝐺, ·) je grupa, 𝐻 jej podgrupa, 𝑎 ∈ 𝐺. Definujme množinu všetkých
+ľavých tried 𝐺/𝐻 = {𝑎𝐻 | 𝑎 ∈ 𝐺}, kde 𝑎𝐻 = {𝑎ℎ | ℎ ∈ 𝐻}.
+Lemma 4.47. Množina 𝐺/𝐻 je rozklad na množine 𝐺. Všetky triedy tohto rozkladu sú
+rovnako mohutné.
+Dôkaz. Vyjdeme z definície rozkladu množiny:
+1. ∅ ∈
+/ 𝐺/𝐻 (triedy rozkladu sú neprázdne): 𝑎 ∈ 𝑎𝐻.
+2. Ak 𝐴, 𝐵 ∈ 𝐺/𝐻, tak 𝐴 ∩ 𝐵 = ∅ ∨ 𝐴 = 𝐵: Nech 𝑐 ∈ 𝑎𝐻 ∧ 𝑐 ∈ 𝑏𝐻. Potom 𝑎𝐻 = 𝑏𝐻.
+Máme 𝑐 = 𝑎ℎ = 𝑏ℎ′ , kde ℎ, ℎ′ ∈ 𝐻, chceme 𝑏−1 𝑎 ∈ 𝐻: 𝑎ℎ = 𝑏ℎ′ , teda 𝑏−1 𝑎ℎ = ℎ′ ,
+teda 𝑏−1 𝑎 = ℎ′ ℎ−1 ∈ 𝐻.
+3.
+
+⋃︀
+𝐴 = 𝐺 (zjednotenie všetkých rozložených podmnožín je pôvodná množina):
+⋃︀𝐴∈𝐺/𝐻
+⋃︀
+𝑎∈𝐺 𝑎𝐻 ⊇
+
+𝑎∈𝐺 {𝑎} = 𝐺.
+
+Príklad 4.48. 𝐺 = (Z, +), 𝐻 = 𝑛Z = {𝑛𝑘 | 𝑘 ∈ Z}; 𝐺/𝐻 = Z/𝑛Z = {𝑎 + 𝑛Z | 𝑎 ∈ Z}.
+4.5.2
+
+Lagrangeova veta
+
+Veta 4.49 (Lagrangeova). Nech (𝐺, ·) je konečná grupa, |𝐺| = 𝑛, 𝐻 je podgrupou 𝐺.
+1. |𝐺| = |𝐺/𝐻| · |𝐻|.
+2. Rád podgrupy delí rád grupy, t. j. |𝐻| | 𝑛.
+3. Rád prvku delí rád grupy, t. j. pre 𝑎 ∈ 𝐺 rádu 𝑚 platí 𝑚 | 𝑛.
+4. Ak je 𝑛 prvočíslo, tak (𝐺, ·) je cyklická.
+5. Pre 𝑎 ∈ 𝐺 platí 𝑎𝑛 = 1.
+Dôkaz.
+1. 𝐺 je zjednotením |𝐺/𝐻| disjunktných množín (daných rozkladom 𝐺/𝐻), z ktorých
+každá má rovnaký počet prvkov (pozri Lemma 4.47) a tento počet je |𝐻|.
+2. 𝑛 = 𝑘 · |𝐻|, kde 𝑘 = |𝐺/𝐻| (podľa 1.).
+3. Rád prvku 𝑎 je rovný rádu podgrupy ⟨𝑎⟩. Ak |⟨𝑎⟩| = 𝑚, tak z 2. 𝑚 | 𝑛.
+4. Rád prvku 𝑎 ∈ 𝐺 musí byť podľa 3. rovný 1 alebo 𝑛, takže 𝐺 = ⟨𝑎⟩ je cyklická grupa
+generovaná prvkom 𝑎. Ak má platiť 2., tak jediné možné podgrupy sú {1} a 𝐺.
+https://www.elea.sk
+
+29
+
+Valdemar Švábenský
+
+5. Z 3.: Ak 𝑚 | 𝑛, tak 𝑛 = 𝑘𝑚. Potom 𝑎𝑛 = 𝑎𝑘𝑚 = 1.
+Veta 4.50 (Malá Fermatova). Ak 𝑝 je prvočíslo, 𝑎 ∈ N, pričom 𝑝 - 𝑎, tak 𝑎𝑝−1 ≡ 1
+(mod 𝑝).
+Dôkaz. Plynie z 5. časti Vety 4.49.
+Veta 4.51 (Eulerova). Ak 𝑎, 𝑛 ∈ N, pričom (𝑎, 𝑛) = 1, tak 𝑎𝜑(𝑛) ≡ 1 (mod 𝑛).
+Dôkaz. Uvážme (Z𝑛 , ·). Potom [𝑎]𝑛 má inverziu, práve keď (𝑎, 𝑛) = 1. Ďalej Z×
+𝑛 je množina
+×
+všetkých invertibilných prvkov Z𝑛 . Potom |Z𝑛 | = 𝜑(𝑛).
+𝜑(𝑛)
+Použijeme 5. časť Vety 4.49 na (Z×
+= [1]𝑛 .
+𝑛 , ·) a dostávame: ([𝑎]𝑛 )
+Dôsledok 4.52. Ak 𝑎 je prvkom (Z𝑛 , ·), tak 𝑎−1 = 𝑎𝜑(𝑛)−1 .
+4.5.3
+
+Faktorové grupy
+
+Definícia 4.53. Podgrupa 𝐻 ⊆ (𝐺, ·) je normálna, ak ∀𝑔 ∈ 𝐺 ∀ℎ ∈ 𝐻 : 𝑔 −1 ℎ𝑔 ∈ 𝐻.
+Príklad 4.54. Nech 𝐻 = {𝑖𝑑, (1, 2)} ⊆ (S3 , ∘). Potom (1, 2, 3)−1 ∘ (1, 2) ∘ (1, 2, 3) = (1, 3),
+preto 𝐻 nie je normálna.
+Lemma 4.55. Ak (𝐺, ·) je komutatívna, tak všetky jej podgrupy sú normálne [2, I.9.3].
+Definícia 4.56. Grupa (𝐺, ·) je prostá (angl. simple), ak je konečná a jedinými jej
+normálnymi podgrupami sú {1} a 𝐺.
+Príklad 4.57. (Z𝑝 , +) alebo (A𝑛 , ∘), kde 𝑛 ≥ 5 sú prosté grupy.
+Veta 4.58. Nech 𝐻 je normálna v (𝐺, ·). Potom predpis 𝑎𝐻 · 𝑏𝐻 = (𝑎𝑏)𝐻 korektne
+definuje operáciu na množine 𝐺/𝐻 a (𝐺/𝐻, ·) bude grupou.
+Dôkaz. Korektnosť : Nech 𝑎𝐻 = 𝑐𝐻, 𝑏𝐻 = 𝑑𝐻. Chceme (𝑎𝑏)𝐻 = (𝑐𝑑)𝐻. Ak 𝑎𝐻 = 𝑐𝐻, tak
+𝑐−1 𝑎 ∈ 𝐻 (z Vety 4.45) a tiež ak 𝑏𝐻 = 𝑑𝐻, tak 𝑑−1 𝑏 ∈ 𝐻. Chceme (𝑐𝑑)−1 𝑎𝑏 ∈ 𝐻. Vezmime
+(𝑐𝑑)−1 𝑎𝑏 = 𝑑−1 𝑐−1 𝑎𝑏 = 𝑑−1 𝑏𝑏−1 𝑐−1 𝑎𝑏. Tento výraz patrí do 𝐻, lebo 𝐻 je normálna.
+Asociativita: (𝑎𝐻 ·𝑏𝐻)·𝑐𝐻 = (𝑎𝑏)𝐻 ·𝑐𝐻 = ((𝑎𝑏)𝑐)𝐻 = 𝑎𝑏𝑐𝐻 a tiež 𝑎𝐻 ·(𝑏𝐻 ·𝑐𝐻) = . . .
+Neutrálny prvok: 𝐻, lebo 𝐻 · 𝑎𝐻 = 1𝐻 · 𝑎𝐻 = 𝑎𝐻 = 𝑎𝐻 · 𝐻.
+Inverzný prvok k 𝑎𝐻 je 𝑎−1 𝐻, lebo 𝑎−1 𝐻 · 𝑎𝐻 = (𝑎−1 𝑎)𝐻 = 𝐻 a tiež 𝑎𝐻 · 𝑎−1 𝐻 =
+...
+Veta 4.59. Nech 𝐻 je normálna v (𝐺, ·). Potom 𝑝 : 𝑎 ↦→ 𝑎𝐻 je surjektívny homomorfizmus
+(𝐺, ·) na (𝐺/𝐻, ·). Zobrazenie 𝑝 nazývame projekcia.
+Dôkaz. 𝑝(𝑎𝑏) = (𝑎𝑏)𝐻 a tiež 𝑝(𝑎) · 𝑝(𝑏) = 𝑎𝐻 · 𝑏𝐻 = (𝑎𝑏)𝐻. (Surjektivita triviálna.)
+Definícia 4.60. (𝐺/𝐻, ·) je faktorgrupa grupy (𝐺, ·) podľa jej normálnej podgrupy 𝐻.
+Príklad 4.61. (Z, +)/𝑛Z =: (Z𝑛 , +), kde 𝑛 ∈ N0 .
+Príklad 4.62. (R* , ·)/{−1, 1} ∼
+= (R+ , ·), pričom (R* , ·)/{−1, 1} = {𝑎 · {−1, 1} | 𝑎 ∈
+R* } = {{|𝑎|, −|𝑎|} | 𝑎 ∈ R* }. Bijekcia do R+ je daná predpisom {|𝑎|, −|𝑎|} ↦→ |𝑎|.
+Príklad 4.63. (𝐺, ·)/{1} ∼
+= (𝐺, ·).
+Príklad 4.64. (𝐺, ·)/𝐺 ∼
+= ({1}, ·).
+Príklad 4.65. (S𝑛 , ∘)/A𝑛 ∼
+= ({−1, 1}, ·).
+https://www.elea.sk
+
+30
+
+Valdemar Švábenský
+
+4.5.4
+
+Veta Delo
+
+Definícia 4.66. Nech 𝑓 : (𝐺, ·) → (𝐻, ∘) je homomorfizmus grúp. Potom jadro homomorfizmu 𝑓 je množina 𝐾𝑒𝑟(𝑓 ) = {𝑎 ∈ 𝐺 | 𝑓 (𝑎) = 1}.
+Lemma 4.67. Homomorfizmus 𝑓 : (𝐺, ·) → (𝐻, ∘) je prostý, práve keď 𝐾𝑒𝑟(𝑓 ) = {1}.
+Dôkaz. „ =⇒ “: 1 ide vždy na 1 a ak je zobrazenie prosté, tak nič ďalšie nejde na 1.
+„ ⇐= “: Nech 𝑓 (𝑎) = 𝑓 (𝑏). Chceme 𝑎 = 𝑏. Po úprave 𝑓 (𝑎) · (𝑓 (𝑏))−1 = 1. Zároveň
+𝑓 (𝑎) · (𝑓 (𝑏))−1 = 𝑓 (𝑎𝑏−1 ), teda 𝑎𝑏−1 ∈ 𝐾𝑒𝑟(𝑓 ) + predpoklad 𝑎𝑏−1 = 1, t. j. 𝑎 = 𝑏.
+Veta 4.68 (Delo). Nech zobrazenie 𝛼 : (𝐺, ·) → (𝐻, ·) je surjektívny homomorfizmus grúp.
+Potom 𝐾𝑒𝑟(𝛼) je normálna podgrupa v (𝐺, ·).
+Ďalej 𝛽 : 𝑎𝐾𝑒𝑟(𝛼) ↦→ 𝛼(𝑎) je surjektívny homomorfizmus (𝐺, ·)/𝐾𝑒𝑟(𝛼) na (𝐻, ·).
+Poznámka (Použitie). Máme dané (𝐺, ·), 𝐾. Hľadáme (𝐺, ·)/𝐾. Uhádneme (𝐻, ·) a
+surjektívny homomorfizmus 𝛼 : (𝐺, ·) → (𝐻, ·) s jadrom 𝐾.
+Príklad 4.69. Nech 𝐺 = (𝐺𝐿𝑛 (R), ·), 𝐾 = (𝑆𝐿𝑛 (R), ·). Uhádneme (𝐻, ·) = (R* , ·) a
+surjektívny homomorfizmus 𝛼 : 𝐴 · 𝐾 ↦→ |𝐴|.
+Musíme ukázať, že 𝛼 je surjektívny homomorfizmus s jadrom 𝐾:
+Homomorfizmus: 𝛼(𝐴𝐾 · 𝐵𝐾) = 𝛼((𝐴𝐵)𝐾) = |𝐴𝐵| a aj 𝛼(𝐴𝐾) · 𝛼(𝐵𝐾) = |𝐴| · |𝐵|.
+⎛𝑟
+
+Surjektívny: pre 𝑟 ∈ R* vezmeme ⎝
+
+1
+
+0
+
+..
+
+0 .1
+
+⎞
+⎠.
+
+S jadrom 𝐾: 𝐴𝐾 ↦→ 1 ⇐⇒ |𝐴| = 1 ⇐⇒ 𝐴 ∈ 𝑆𝐿𝑛 (R).
+Dôkaz. Dôkaz Vety Delo:
+• 𝐾𝑒𝑟(𝛼) je podgrupa: Chceme 1 ∈ 𝐾𝑒𝑟(𝛼). Nech 𝑎, 𝑏 ∈ 𝐾𝑒𝑟(𝛼), t. j. 𝛼(𝑎) = 𝛼(𝑏) = 1.
+Potom 𝛼(𝑎𝑏) = 𝛼(𝑎) · 𝛼(𝑏) = 1; 𝛼(𝑎−1 ) = (𝛼(𝑎))−1 = 1−1 = 1.
+• 𝐾𝑒𝑟(𝛼) je normálna: Nech ℎ ∈ 𝐾𝑒𝑟(𝛼), t. j. 𝛼(ℎ) = 1. Nech 𝑎 ∈ 𝐺. Potom
+𝛼(𝑎−1 ℎ𝑎) = 𝛼(𝑎−1 ) · 𝛼(ℎ) · 𝛼(𝑎) = 1.
+• 𝛽 je homomorfizmus: 𝛽(𝑎𝐾𝑒𝑟(𝛼) · 𝑏𝐾𝑒𝑟(𝛼)) = 𝛽((𝑎𝑏)𝐾𝑒𝑟(𝛼)) = 𝛼(𝑎𝑏);
+a aj 𝛽(𝑎𝐾𝑒𝑟(𝛼)) · 𝛽(𝑏𝐾𝑒𝑟(𝛼)) = 𝛼(𝑎) · 𝛼(𝑏) = 𝛼(𝑎𝑏).
+• 𝛽 je surjektívne: Nech 𝑏 ∈ 𝐻. Potom ∃𝑎 ∈ 𝐺 : 𝛼(𝑎) = 𝑏 a tak 𝛽(𝑎𝐾𝑒𝑟(𝛼)) = 𝛼(𝑎) = 𝑏.
+• 𝛽 je injektívne: Nech 𝛽(𝑎𝐾𝑒𝑟(𝛼)) = 1𝐻 . Potom 𝛼(𝑎) = 1𝐻 = 𝑎, t. j. 𝑎 ∈ 𝐾𝑒𝑟(𝛼), t.
+j. (podľa 4.45) 𝑎𝐾𝑒𝑟(𝛼) = 𝐾𝑒𝑟(𝛼). Keďže 𝐾𝑒𝑟(𝛼) = {1}, použijem Lemmu 4.67.
+
+https://www.elea.sk
+
+31
+
+Valdemar Švábenský
+
+4.6
+
+Cvičenia
+
+1. Popíšte grupu symetrií rovnostranného trojuholníka (D3 = S3 ) jej prezentáciou.
+2. Popíšte všetky podgrupy grupy Z6 .
+√
+3. Dokážte, že 𝑀 = {𝑎 + 𝑏 7 | 𝑎, 𝑏 ∈ R, 𝑎 ̸= 0 ∨ 𝑏 ̸= 0} je podgrupou grupy (C* , ·).
+4. Určte podgrupu S8 generovanú permutáciami 𝜎 = (1, 2, 3, 4) ∘ (5, 6, 7, 8) a 𝜋 =
+(1, 8, 3, 6) ∘ (2, 7, 4, 5).
+5. Popíšte všetky podgrupy grupy A4 .
+6. Je dané zobrazenie korektne definovaným homomorfizmom, resp. izomorfizmom? Ak
+áno, určte jeho jadro a obraz.
+(a) 𝛼 : Z6 × Z8 → Z48 ,
+
+([𝑎]6 , [𝑏]8 ) ↦→ [4𝑎 + 6𝑏]48 , kde 𝑎, 𝑏 ∈ Z;
+
+(b) 𝛽 : (Z6 , +) × (Z8 , +) → (Z24 , +),
+
+([𝑎]6 , [𝑏]8 ) ↦→ [4𝑎 + 6𝑏]24 , kde 𝑎, 𝑏 ∈ Z;
+
+(c) 𝛾 : (Z3 , +) × (Z8 , +) → (Z24 , +),
+
+([𝑎]3 , [𝑏]8 ) ↦→ [8𝑎 + 3𝑏]24 , kde 𝑎, 𝑏 ∈ Z;
+
+(d) 𝛿 : (Z7 , +) × (Z7 , +) → (Z7 , +),
+
+([𝑎]7 , [𝑏]7 ) ↦→ [𝑎𝑏]7 , kde 𝑎, 𝑏 ∈ Z.
+
+7. Nech (𝐺, ∘) je grupa. Popíšte všetky homomorfizmy (Z, +) → (𝐺, ∘).
+8. Popíšte endomorfizmus 𝜙 : (Z, +) → (Z, +).
+9. Popíšte automorfizmus 𝜙 : (Z, +) → (Z, +).
+10. Ukážte, že grupy (Q* , ·) a (Q, +) nie sú izomorfné.
+11. Ukážte, že grupy (Z, +) a (Q, +) nie sú izomorfné.
+12. Nech 𝐺 je grupa, 𝑔 ∈ 𝐺. Homomorfizmus 𝜙 : (Z𝑛 , +) → (𝐺, ·) taký, že 𝜙([1]𝑛 ) = 𝑔
+existuje práve vtedy, keď rád 𝑔 delí 𝑛. Potom je tento homomorfizmus jediný.
+13. Pre ktoré 𝑛 ∈ N v (𝑆10 , ∘) existuje podgrupa izomorfná so (Z𝑛 , +)?
+14. Pre ktoré 𝑚, 𝑛 ∈ N je (𝑆𝑛 , ∘, 𝑖𝑑) izomorfná s podgrupou monoidu (𝑇𝑚 , ∘, 𝑖𝑑)?
+15. Nech 𝐺 = 𝐺𝐿2 (R), 𝐻 = {( 𝑎0 0𝑏 ) | 𝑎, 𝑏 ∈ R* } je podgrupa 𝐺. Popíšte ľavé a pravé
+triedy rozkladu 𝐺 podľa 𝐻.
+16. Nech 𝐺 = ({( 𝑎0 1𝑏 ) | 𝑎, 𝑏 ∈ R, 𝑎 =
+̸ 0}, ·), 𝐻 = {( 10 𝑥1 ) | 𝑥 ∈ R} je podgrupa 𝐺.
+Dokážte, že 𝐻 je normálna v 𝐺 a určte, čomu je izomorfná grupa 𝐺/𝐻.
+1 0 𝑥
+
+1 𝑎 𝑏
+
+17. Nech 𝐺 = ({( 0 1 𝑎 ) | 𝑎, 𝑏 ∈ Z}, ·), 𝐻 = {( 0 1 0 ) | 𝑥 ∈ Z} je podgrupa 𝐺. Dokážte,
+0 0 1
+0 0 1
+že 𝐻 je normálna v 𝐺 a určte, čomu je izomorfná grupa 𝐺/𝐻.
+√
+1 2𝑝 𝑞
+1 𝑎 𝑏+𝑐 2
+) | 𝑎, 𝑒 ∈ Z, 𝑏, 𝑐 ∈ Q, 𝑑 ∈ {1, −1}}, ·), 𝐻 = {( 0 1 𝑟 ) | 𝑝, 𝑟 ∈
+𝑒
+0 0 1
+0 0
+1
+
+18. Nech 𝐺 = ({( 0 𝑑
+
+Z, 𝑞 ∈ Q} je podgrupa 𝐺. Dokážte, že 𝐻 je normálna v 𝐺 a určte 𝐺/𝐻.
+19. Určte 𝐺𝐿𝑛 (R)/𝑆𝐿𝑛 (R).
+https://www.elea.sk
+
+32
+
+Valdemar Švábenský
+
+20. Určte (R, +)/(Z, +).
+21. 𝐺 = ({𝑓 : R → R | ∃𝑎 ∈ R* ∃𝑏 ∈ R : ∀𝑥 ∈ R : 𝑓 (𝑥) = 𝑎𝑥 + 𝑏}, ∘). Ktorá z podgrúp
+𝐻 = {𝑓 | ∃𝑎 ∈ R* : ∀𝑥 : 𝑓 (𝑥) = 𝑎𝑥}, 𝐾 = {𝑓 | ∃𝑏 ∈ R : ∀𝑥 : 𝑓 (𝑥) = 𝑥 + 𝑏} je norm.?
+
+4.7
+1.
+
+Návody k riešeniu cvičení
+• Generátory: 𝑎 = otočenie o 2𝜋
+, t. j. (1, 2, 3); 𝑏 = zrkadlenie podľa osi y, t. j.
+3
+(2, 3)
+– D𝑛 je podgrupou S𝑛 generovanou perm. (1, 2, . . . , 𝑛) a (1, 𝑛) ∘ (2, 𝑛 − 1) ∘ . . .
+• Pravidlá: 𝑎3 = 1; 𝑏2 = 1; 𝑎𝑏 = 𝑏𝑎𝑎
+• Pomocou nich je možné každý prvok vyjadriť ako 𝑏𝑖 𝑎𝑗 , kde 𝑖 ∈ {0, 1}, 𝑗 ∈
+{0, 1, 2}
+
+2. 0Z6 , 1Z6 , 2Z6 , 3Z6 .
+3.
+
+√
+√
+√
+• Uzavrenosť: (𝑎 + 𝑏 7) · (𝑐 + 𝑑 7) = (𝑎𝑐 + 7𝑏𝑑) + (𝑎𝑑 + 𝑏𝑐) 7 ∈ 𝑀 ;
+• Neutrálny prvok: 1 ∈ 𝑀 ⇐⇒ 𝑎 = 1, 𝑏 = 0;
+• Inverzný prvok: ∀𝑥 ∈ 𝑀 : 𝑥−1 ∈ 𝑀 .
+
+4. ⟨𝜎, 𝜋⟩ = {𝑖𝑑, 𝜎, 𝜋, 𝜎 2 , 𝜎 3 , 𝜎 ∘ 𝜋, 𝜋 ∘ 𝜎, 𝜎 2 ∘ 𝜋}.
+5. A4 = {𝑖𝑑, 𝑎 = (1, 2) ∘ (3, 4), 𝑏 = (1, 3) ∘ (2, 4), 𝑐 = (1, 4) ∘ (2, 3), 𝑑 = (1, 2, 3), 𝑒 =
+(1, 2, 4), 𝑓 = (1, 3, 4), 𝑔 = (2, 3, 4), ℎ = (1, 3, 2), 𝑖 = (1, 4, 2), 𝑗 = (1, 4, 3), 𝑘 =
+(2, 4, 3)}.
+• Rád 1: {𝑖𝑑};
+• Rád 2: {𝑎, 𝑖𝑑}, {𝑏, 𝑖𝑑}, {𝑐, 𝑖𝑑};
+• Rád 3: {𝑑, ℎ, 𝑖𝑑}, {𝑒, 𝑖, 𝑖𝑑}, {𝑓, 𝑗, 𝑖𝑑}, {𝑔, 𝑘, 𝑖𝑑};
+• Rád 4: {𝑎, 𝑏, 𝑐, 𝑖𝑑};
+• Rád 6: (nič);
+• Rád 12: A4 ;
+6. (a)
+
+(b)
+
+• Korektnosť: Ak [𝑎]6 = [𝑐]6 a [𝑏]8 = [𝑑]8 , chceme [4𝑎 + 6𝑏]48 = [4𝑐 + 6𝑑]48 .
+Vieme, že 6 | 𝑎 − 𝑐 a 8 | 𝑏 − 𝑑. Protipríklad: 𝑏 = 𝑑 = 8, 𝑎 = 7, 𝑐 = 1.
+• Záver: nie je zobrazením.
+• Korektnosť: Ak [𝑎]6 = [𝑐]6 a [𝑏]8 = [𝑑]8 , chceme [4𝑎 + 6𝑏]24 = [4𝑐 + 6𝑑]24 .
+Vieme, že 4 | 𝑎 − 𝑐 a 6 | 𝑏 − 𝑑. Potom aj 24 | 4(𝑎 − 𝑐) + 6(𝑏 − 𝑑).
+• Homomorfizmus:
+Ľ: 𝛽(([𝑎]6 , [𝑏]8 )∘([𝑐]6 , [𝑑]8 )) = 𝛽(([𝑎+𝑐]6 , [𝑏+𝑑]8 )) = [4(𝑎+𝑐)+6(𝑏+𝑑)]24 =
+[4𝑎 + 6𝑏 + 4𝑐 + 6𝑑]24
+P: 𝛽(([𝑎]6 , [𝑏]8 )) + 𝛽(([𝑐]6 , [𝑑]8 )) = [4𝑎 + 6𝑏]24 + [4𝑐 + 6𝑑]24 = [(4𝑎 + 6𝑏) +
+(4𝑐 + 6𝑑])24 = Ľ.
+
+https://www.elea.sk
+
+33
+
+Valdemar Švábenský
+
+• Jadro: Ker 𝛽 = {([𝑎]6 , [𝑏]8 ) | 𝑎, 𝑏 ∈ Z, 𝛽(([𝑎]6 , [𝑏]8 )) = [0]24 }.
+([𝑎]6 , [𝑏]8 ) ∈ Ker 𝛽 ⇐⇒ 𝛽(([𝑎]6 , [𝑏]8 )) = [0]24 ⇐⇒ [4𝑎+6𝑏]24 = [0]24 ⇐⇒
+24 | 4𝑎 + 6𝑏 ⇐⇒ 12 | 2𝑎 + 3𝑏 ⇐⇒ 3 | 𝑎, 2 | 𝑏 ⇐⇒ 𝑎 = 3𝑥, 𝑏 = 2𝑦 ⇐⇒
+12 | 6𝑥 + 6𝑦 ⇐⇒ 2 | 𝑥 + 𝑦.
+Ker 𝛽 = {([0]6 , [0]8 ), ([0]6 , [4]8 ), ([3]6 , [2]8 ), ([3]6 , [6]8 )}.
+• Obraz 𝛽 je podgrupa v Z24 , t. j. je tvaru 𝑘 · Z24 , kde 𝑘 | 24 a |𝑘 · Z24 | = 24
+.
+𝑘
+Obraz 𝛽 je v 2 · Z24 . Stačí ukázať, že generátor 2 · Z24 , t. j. [2]24 leží v
+obraze 𝛽. Potom budeme vedieť, že Im 𝛽 = 2 · Z24 .
+Teda [4𝑎 + 6𝑏]24 = [2]24 =⇒ 𝑎 = −1, 𝑏 = 1.
+• Záver: je homomorfizmus, nie je izomorfizmus.
+(c)
+
+• Korektnosť, homomorfizmus: ako v (b).
+• Jadro: Ker 𝛾 = {([0]3 , [0]8 )}, lebo 24 | 8𝑎 + 3𝑏 ⇐⇒ 8 | 𝑏, 3 | 𝑎. Hom. je
+inj.
+• Obraz: [1]24 ∈ Im 𝛾 (𝑎 = −1, 𝑏 = 3). Hom. je surjektívny.
+• Záver: je izomorfizmus. (Tiež |Z3 × Z8 | = |Z24 |.)
+
+(d)
+
+• Korektnosť: platí.
+• Homomorfizmus:
+Ľ: 𝛿(([𝑎]7 , [𝑏]7 ) + ([𝑐]7 , [𝑑]7 )) = 𝛿(([𝑎 + 𝑐]7 , [𝑏 + 𝑑]7 )) = [𝑎𝑏 + 𝑎𝑑 + 𝑏𝑐 + 𝑐𝑑]7
+P: 𝛿(([𝑎]7 , [𝑏]7 )) + 𝛿(([𝑐]7 , [𝑑]7 )) = [𝑎𝑏]7 + [𝑐𝑑]7 = [𝑎𝑏 + 𝑐𝑑]7 ̸= Ľ.
+Protipríklad: 𝑎 = 𝑏 = 1, 𝑐 = 2, 𝑑 = 3.
+• Záver: Je zobrazením, nie je homomorfizmom.
+
+7. Každý homomorfizmus stačí zadať na nejakej množine generátorov. Množinou
+generátorov Z je {1}.
+Nech 𝑔 generuje 𝐺. Definujeme zobrazenie 𝛼𝑔 : 1 ↦→ 𝑔. Potom 𝛼𝑔 (1) ∘ 𝛼𝑔 (1) ∘ 𝛼𝑔 (1) ∘
+· · · = 𝑔 ∘ 𝑔 ∘ 𝑔 ∘ . . . , teda 𝛼𝑔 (𝑛) = 𝑔 𝑛 pre 𝑛 ∈ N, kde 𝑛 = 1 + 1 + 1 + . . . .
+Ďalej 𝑔 −𝑛 = (𝑔 𝑛 )−1 = (𝑔 −1 )𝑛 , teda definujeme ∀𝑧 ∈ Z : 𝛼𝑔 (𝑧) = 𝑔 𝑧 .
+8. Zobrazenie 𝜙 : (Z, +) → (Z, +) je endomorfizmus práve vtedy, keď pre všetky 𝑧 ∈ Z
+platí: 𝜙𝑘 (𝑧) = 𝑘𝑧, kde 𝑘 ∈ Z.
+• „ =⇒ “: Nech 𝜙 je endomorfizmus, 𝜙𝑘 (1) = 𝑘. Keďže 𝑧 = 1 + · · · + 1 pre každé
+kladné 𝑧, tak 𝜙𝑘 (𝑧) = 𝜙𝑘 (1) + · · · + 𝜙𝑘 (1) = 𝑘 + · · · + 𝑘 = 𝑘𝑧 pre kladné 𝑧.
+Ďalej 𝜙𝑘 (1) = 𝜙𝑘 (1 + 0) = 𝜙𝑘 (1) + 𝜙𝑘 (0), teda 𝜙𝑘 (0) = 0 = 0𝑘. Z toho
+𝜙𝑘 (−1) = −𝑘 a nakoniec 𝜙𝑘 (−𝑛) = −𝑘𝑛.
+• „ ⇐= “: Nech 𝑘 ∈ Z je také, že pre všetky 𝑧 ∈ Z platí: 𝜙𝑘 (𝑧) = 𝑘𝑧. Potom 𝜙𝑘 (𝑧+
+𝑦) = 𝑘(𝑧 + 𝑦) = 𝑘𝑧 + 𝑘𝑦 = 𝜙𝑘 (𝑧) + 𝜙𝑘 (𝑦). Dané zobrazenie je homomorfizmus.
+Potom 𝑓 : 𝐸𝑛𝑑((Z, +)) ∼
+= (Z, ·). Platí 𝑓 (𝜙𝑘 ) = 𝑘. Ak je to izomorfizmus, musí
+𝑓 (𝜙𝑘 ∘ 𝜙𝑙 ) = 𝑓 (𝜙𝑘 (𝜙𝑙 )) = 𝑓 (𝜙𝑘𝑙 ) = 𝑘𝑙 a tiež 𝑓 (𝜙𝑘 ) · 𝑓 (𝜙𝑙 ) = 𝑘 · 𝑙.
+Prvú časť overíme: (𝜙𝑘 ∘ 𝜙𝑙 )(𝑧) = 𝜙𝑘 (𝜙𝑙 (𝑧)) = 𝜙𝑘 (𝑙𝑧) = 𝑘𝑙𝑧 a tiež (𝜙𝑘 ∘ 𝜙𝑙 )(1) =
+𝜙𝑘 (𝜙𝑙 (1)) = 𝜙𝑘 (𝑙1) = 𝑘𝑙1. Preto 𝑓 (𝜙𝑘 ∘ 𝜙𝑙 ) = (𝜙𝑘 ∘ 𝜙𝑙 )(1) = 𝑘𝑙1.
+Druhá časť: 𝑓 (𝜙𝑘 ) · 𝑓 (𝜙𝑙 ) = 𝜙𝑘 (1) · 𝜙𝑙 (1) = 𝑘 · 𝑙.
+
+https://www.elea.sk
+
+34
+
+Valdemar Švábenský
+
+9. 𝐴𝑢𝑡((Z, +)) ∼
+= ({1, −1}, ·).
+10. Každé racionálne číslo 𝑞 ide zapísať ako súčet dvoch rovnakých racionálnych čísel,
+teda 𝑞 = 𝑟 + 𝑟. Ale toto neplatí pre súčin dvoch rovnakých čísel. (Napr. 𝑞 = 2.)
+11. (Z, +) je cyklická grupa generovaná prvkom 1. Naopak (Q, +) cyklická nie je, lebo
+keby 𝑎/𝑏 bol jej generátor, tak by nebolo možné vygenerovať prvok 𝑐/𝑑 taký, že
+(𝑏, 𝑑) = 1, keďže sčítaním zlomkov s rovnakým menovateľom dostaneme opäť zlomok
+s rovnakým menovateľom, príp. násobky.
+12. „ =⇒ “: Ak 𝜙([1]𝑛 ) = 𝑔, tak ∀𝑎 ∈ Z platí 𝜙([𝑎]𝑛 ) = 𝑔 𝑎 . Keď 𝑎 = 𝑛, tak 𝜙([𝑛]𝑛 ) = 𝑔 𝑛
+a zároveň 𝜙([𝑛]𝑛 ) = 𝜙([0]𝑛 ) = 𝑔 0 = 1, teda 𝑔 𝑛 = 1. To nastáva, práve keď rád 𝑔 delí
+𝑛.
+„ ⇐= “: Ak rád 𝑔 delí 𝑛, tak 𝑔 𝑛 = 1. Ukážeme, že predpis 𝜙([𝑎]𝑛 ) = 𝑔 𝑎 korektne
+zadáva homomorfizmus. Korektnosť: 𝜙([𝑎 + 𝑘𝑛]𝑛 ) = 𝑔 𝑎+𝑘𝑛 = 𝑔 𝑎 · (𝑔 𝑛 )𝑘 = 𝑔 𝑎 · 1𝑘 = 𝑔 𝑎 .
+Homomorfizmus: . . .
+Tento homomorf. je surjektívny, práve keď 𝑔 generuje 𝐺. 𝜙(Z𝑛 ) = {𝑔 𝑎 | 𝑎 ∈ Z}.
+Tento homomorfizmus je injektívny, práve keď rád 𝑔 je rovný 𝑛.
+• „ ⇐= “: Nech 𝜙 zobrazí dva prvky na to isté, teda 𝜙([𝑎]𝑛 ) = 𝜙([𝑏]𝑛 ), t. j.
+𝑔 𝑎 = 𝑔 𝑏 , t. j. 𝑔 𝑎−𝑏 = 1, t. j. rád 𝑔 delí 𝑎 − 𝑏. Rád 𝑔 je z predpokladu 𝑛, takže ak
+𝑛 | (𝑎 − 𝑏), tak [𝑎]𝑛 = [𝑏]𝑛 .
+• „ =⇒ “: obmenou. Nech rád 𝑔 je nejaké 𝑟 ̸= 𝑛. Stačí uvažovať 𝑟 < 𝑛. Potom
+[0]𝑛 ̸= 𝜙([𝑟]𝑛 ) = 𝑔 𝑟 = 1, teda 𝜙 nie je injektívne.
+13. (Z𝑛 , +) je komutatívna cyklická grupa. V 𝑆𝑚 môžeme generovať cyklické komutatívne
+podgrupy len a práve jedným prvkom. Postup riešenia je teda zistiť všetky možné
+rády prvkov z 𝑆𝑚 (pre nás 𝑆10 ).
+Rád permutácie je nsn veľkostí jeho disjunktných cyklov.
+Riešením je 𝑛 ∈ {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 20, 21, 30}.
+14. Musí platiť, že 𝑛 ≥ 𝑚. 𝑇𝑚 má 𝑚𝑚 prvkov, ale len 𝑚! z nich má inverziu (jedná sa
+práve o bijekcie).
+Pre 𝑚 < 𝑛 má 𝑇𝑚 menej invertibilných prvkov než 𝑆𝑛 – teda nemôže existovať
+injektívny homomorfizmus z 𝑆𝑛 do 𝑇𝑚 .
+Pre 𝑚 ≥ 𝑛 má 𝑇𝑚 aspoň toľko invertibilných prvkov ako je prvkov v 𝑆𝑛 . Potom
+môže injektívny homomorfizmus fungovať takto: pošleme 𝑓 ∈ 𝑆𝑛 na 𝑔 ∈ 𝑇𝑚 tak, že
+𝑔(𝑥) = 𝑓 (𝑥) pre 𝑥 ≤ 𝑛 a 𝑔(𝑥) = 𝑥 pre 𝑥 > 𝑛 ≤ 𝑚.
+𝑑𝑒−𝑔𝑏 𝑑𝑓 −𝑏ℎ
+1
+15. Ľavé: ( 𝑎𝑐 𝑑𝑏 )·𝐻 = ( 𝑔𝑒 𝑓ℎ )·𝐻, práve keď ( 𝑎𝑐 𝑑𝑏 )−1 ·( 𝑔𝑒 𝑓ℎ ) ∈ 𝐻, t. j. keď 𝑎𝑑−𝑏𝑐
+( 𝑎𝑔−𝑐𝑒
+𝑎ℎ−𝑐𝑓 ) ∈
+𝐻, t. j. keď 𝑑𝑓 − 𝑏ℎ = 0 ∧ 𝑎𝑔 − 𝑐𝑒 = 0.
+
+Pravé: . . . 𝑏𝑒 − 𝑎𝑓 = 0 ∧ 𝑐ℎ − 𝑑𝑔 = 0.
+Podgrupa 𝐻 nie je v 𝐺 normálna, pretože ľavé triedy sa ̸= pravým.
+
+https://www.elea.sk
+
+35
+
+Valdemar Švábenský
+
+16. Normálna: ( 0𝑐 1𝑏 )−1 ( 10 𝑎1 )( 0𝑐 1𝑏 ) = ( 10 𝑎/𝑐
+) ∈ 𝐻.
+1
+Množina ľavých tried: ( 𝑎0 1𝑏 ) · 𝐻 = ( 0𝑐 𝑑1 ) · 𝐻, práve keď ( 𝑎0 1𝑏 )−1 ( 0𝑐 𝑑1 ) ∈ 𝐻, t. j. keď
+(𝑑−𝑏)/𝑎
+( 𝑐/𝑎
+) ∈ 𝐻, t. j. keď 𝑐 = 𝑎.
+0
+1
+Hypotéza: 𝐺/𝐻 ∼
+= (R* , ·), t. j. ℎ : 𝐺/𝐻 → (R* , ·), kde ℎ(( 𝑎 𝑏 ) · 𝐻) = 𝑎.
+0 1
+
+Korektnosť: ( 𝑎0 1𝑏 ) · 𝐻 = ( 0𝑐 𝑑1 ) · 𝐻; dokázané skôr.
+𝑎𝑑+𝑏
+Homomorfizmus: ℎ(( 𝑎0 1𝑏 ) · 𝐻 · ( 0𝑐 𝑑1 ) · 𝐻) = ℎ(( 𝑎𝑐
+0
+1 ) · 𝐻) = 𝑎𝑐 a to sa rovná
+𝑎
+𝑏
+𝑐
+𝑑
+ℎ(( 0 1 ) · 𝐻) · ℎ(( 0 1 ) · 𝐻) = 𝑎 · 𝑐.
+
+Surjektívny: ak dostaneme 𝑟 ∈ R* , chceme nájsť ( 𝑎0 1𝑏 ) · 𝐻 také, že ℎ(( 𝑎0 1𝑏 ) · 𝐻) = 𝑟.
+Volíme ( 0𝑟 11 ).
+Injektívny: ak ℎ(( 𝑎0 1𝑏 )·𝐻) = ℎ(( 0𝑐 𝑑1 )·𝐻), tak 𝑎 = 𝑐 a z korektnosti ( 𝑎0 1𝑏 )·𝐻 = ( 0𝑐 𝑑1 )·𝐻.
+Alternatívne z Vety Delo (4.68): 𝐻 je jadro surjektívneho homomorfizmu ℎ:
+( 𝑎0 1𝑏 ) ∈ 𝐾𝑒𝑟(ℎ), práve keď ℎ(( 𝑎0 1𝑏 )) = 1, t. j. keď 𝑎 = 1, t. j. keď ( 𝑎0 1𝑏 ) ∈ 𝐻.
+Potom 𝐻 je normálna podgrupa v 𝐺 a platí naša hypotéza.
+1 𝑐−𝑎 𝑑−𝑎𝑐+𝑎2 −𝑏
+) ∈ 𝐻, t. j. 𝑐 = 𝑎.
+1
+𝑐−𝑎
+0 0 1
+0 0 1
+0 0
+1
+1 𝑎 𝑏
+Hypotéza: 𝐺/𝐻 ∼
+= (Z, +), t. j. 𝛼 : 𝐺 → (Z, +), kde 𝛼(( 0 1 𝑎 )) = 𝑎.
+0 0 1
+1 𝑎 𝑏
+
+1 𝑐 𝑑
+
+17. Množina ľ. tried: ( 0 1 𝑎 ) · 𝐻 = ( 0 1 𝑐 ) · 𝐻, práve keď ( 0
+
+Homomorfizmus: . . .
+1 𝑧 3
+
+Surjektívny: vzorom 𝑧 ∈ Z je ( 0 1 𝑧 ).
+0 0 1
+
+1 𝑎 𝑏
+
+Injektívny: 𝐻 je jadro surjektívneho homomorfizmu 𝛼: ( 0 1 𝑎 ) ∈ 𝐾𝑒𝑟(𝛼), práve keď
+1 𝑎 𝑏
+
+1 𝑎 𝑏
+
+0 0 1
+
+0 0 1
+
+0 0 1
+
+𝛼(( 0 1 𝑎 )) = 0, t. j. keď 𝑎 = 0, t. j. keď ( 0 1 𝑎 ) ∈ 𝐻.
+Potom 𝐻 je normálna podgrupa v 𝐺 a platí naša hypotéza.
+18. Množina ľ. tried: . . . 2 | 𝑓 − 𝑎𝑖𝑑 ∧ ℎ − 𝑐 = 0 ∧ 𝑑𝑖 = 1, t. j. keď ℎ = 𝑐 ∧ 𝑖 = 𝑑 ∧ [𝑓 ]2 = [𝑎]2
+(posledná podmienka: keďže 𝑖 = 𝑑, tak z 2 | 𝑓 − 𝑎𝑖𝑑 dostávame 2 | 𝑓 − 𝑎).
+Hypotéza: 𝐺/𝐻 ∼
+= (Q, +) × ({1, −1}, ·) × (Z2 , +), t. j. 𝛼 : 𝐺 → Q × {1, −1} × Z2 ,
+√
+1 𝑎 𝑏+𝑐 2
+kde 𝛼(( 0 𝑑 𝑒 )) = (𝑐, 𝑑, [𝑎]2 ).
+0 0
+1
+
+Homomorfizmus: . . .
+
+√
+1 𝑎 𝑐 2
+0 ).
+0 0 1
+
+Surjektívny: vzorom (𝑐, 𝑑, [𝑎]2 ) je ( 0 𝑑
+Injektívny: . . .
+
+19. Odhad: (𝐺𝐿𝑛 (R), ·)/𝑆𝐿𝑛 (R) = {𝐴 · 𝑆𝐿𝑛 (R) | 𝐴 ∈ 𝐺𝐿𝑛 (R)}. V tomto popise
+výslednej množiny ale nedokážeme rozlíšiť dve rôzne matice zadávajúce rovnakú
+množinu.
+Kedy 𝐴 · 𝑆𝐿𝑛 (R) = 𝐵 · 𝑆𝐿𝑛 (R)? Práve keď 𝐴−1 𝐵 ∈ 𝑆𝐿𝑛 (R), t. j. keď |𝐴−1 𝐵| = 1,
+t. j. keď |𝐴| = |𝐵|. Preto
+⎧⎛ 𝑟
+⎫
+⎞
+⎪
+⎪
+⎨
+⎬
+1
+0
+⎜
+⎟
+*
+1
+(𝐺𝐿𝑛 (R), ·)/𝑆𝐿𝑛 (R) = ⎝
+.
+⎠ · 𝑆𝐿𝑛 (R) | 𝑟 ∈ R
+⎪
+⎪
+⎩
+⎭
+0 ...
+1
+
+https://www.elea.sk
+
+36
+
+Valdemar Švábenský
+
+⎛⎛ 𝑟
+⎜
+Táto grupa je v bijekcii 𝛼 s (R* , ·), kde 𝛼 ⎜
+⎝⎝
+
+1
+
+0
+
+⎞
+
+0
+1
+..
+
+.
+
+⎞
+
+⎟
+⎟
+⎠ · 𝑆𝐿𝑛 (R)⎠ = 𝑟.
+1
+
+Iné riešenie: keďže |𝐴 · 𝐵| = |𝐴| · |𝐵|, dá sa odhadnúť 𝐺𝐿𝑛 (R)/𝑆𝐿𝑛 (R) ∼
+= (R* , ·).
+*
+Potom 𝜙 : 𝐺𝐿𝑛 (R) → R , kde 𝜙(𝐴) = |𝐴|. Potom 𝜙 je surjektívny homomorfizmus
+(vzorom ľub. 𝑟 ∈ R* je matica vyššie). Nakoniec 𝐴 ∈ 𝐾𝑒𝑟(𝜙), práve keď 𝜙(𝐴) = 1,
+t. j. keď |𝐴| = 1, t. j. keď 𝐴 ∈ 𝑆𝐿𝑛 (R). Podľa Vety Delo. . .
+20. Nech 𝑥, 𝑦 ∈ R. Potom 𝑥 + Z = 𝑦 + Z, práve keď 𝑥 − 𝑦 ∈ Z, t. j. keď 𝑥 − ⌊𝑥⌋ = 𝑦 − ⌊𝑦⌋.
+Odhad: (R, +)/(Z, +) ∼
+= 𝐺 := ({𝑧 ∈ C | |𝑧| = 1}, ·). Definujeme 𝜙 : R → 𝐺 také, že
+𝜙(𝑥) = 𝑒𝑖2𝜋𝑥 . Potom 𝜙 je homomorfizmus. . . Tento homomorfizmus je surjektívny,
+pretože každé 𝑧 ∈ C, kde |𝑧| = 1 je tvaru 𝑧 = 𝑒𝑖2𝜋𝑥 pre nejaké 𝑥 ∈ R.
+Nakoniec určíme 𝐾𝑒𝑟(𝜙). Platí: 𝜙(𝑥) = 1, práve keď 2𝜋𝑥 ∈ 2𝜋Z, t. j. keď 𝑥 ∈ Z.
+21.
+
+a) 𝐻: Nech ℎ ∈ 𝐻, 𝑔 ∈ 𝐺; ℎ(𝑥) = 𝑎𝑥, 𝑔(𝑥) = 𝑏𝑥 + 𝑐. Pýtame sa, či 𝑔 −1 ∘ ℎ ∘ 𝑔 ∈ 𝐻:
+(𝑔 −1 ∘ ℎ ∘ 𝑔)(𝑥) = 𝑔 −1 (ℎ(𝑔(𝑥))) = 𝑔 −1 (𝑎(𝑏𝑥 + 𝑐)) = 𝑎(𝑏𝑥+𝑐)−𝑐
+= 𝑎𝑥 + 𝑐(𝑎−1)
+.
+𝑏
+𝑏
+̸∈ 𝐻 – nie je norm.
+Protipríklad: ak ℎ(𝑥) = 2𝑥 a 𝑔(𝑥) = 5𝑥 + 1, tak 2𝑥 + 1(2−1)
+5
+b) 𝐾: Analogicky. 𝑔 −1 ∘ ℎ ∘ 𝑔 ∈ 𝐾, lebo (𝑔 −1 ∘ ℎ ∘ 𝑔)(𝑥) = 𝑥 + 𝑎𝑏 – 𝐾 je norm.
+Potom 𝐺/𝐾 ∼
+= (R* , ·): 𝑔 ∘ 𝐾 = 𝑖 ∘ 𝐾, práve keď 𝑔 −1 ∘ 𝑖 ∈ 𝐾, t. j. keď 𝑏 = 𝑑.
+(Lebo 𝑔 −1 ∘ 𝑖(𝑥) = 𝑔 −1 (𝑑𝑥 + 𝑒) = 𝑑𝑥+𝑒−𝑐
+.) Potom 𝐺 → R* , 𝑔 ↦→ 𝑏.
+𝑏
+
+4.8
+
+Appendix: šifrovanie
+
+Veta 4.70 (Čínska zvyšková). Nech 𝑎, 𝑏 ∈ Z, 𝑚, 𝑛 ∈ N, (𝑚, 𝑛) = 1. Potom
+𝑎 ≡ 𝑏 (mod 𝑚),
+
+𝑎 ≡ 𝑏 (mod 𝑛) ⇐⇒ 𝑎 ≡ 𝑏 (mod 𝑚𝑛).
+
+Dôkaz. „ ⇐= “: Máme 𝑘𝑚𝑛 = 𝑎 − 𝑏, teda 𝑘𝑛 · 𝑚, 𝑘𝑚 · 𝑛 | (𝑎 − 𝑏).
+„ =⇒ “: Máme 𝑎 − 𝑏 = 𝑘𝑚 = 𝑙𝑛, kde 𝑚 | 𝑙, 𝑚𝑝 = 𝑛; teda 𝑎 − 𝑏 = 𝑙𝑚𝑛.
+Veta 4.71. Nech 𝑝, 𝑞 sú dve rôzne prvočísla, 𝑛 = 𝑝𝑞. Potom
+∀𝑎 ∈ Z ∃𝑘 ∈ Z : 𝑎𝑘𝜙(𝑛) ≡ 1
+
+(mod 𝑛).
+
+Dôkaz. Ak (𝑎, 𝑛) = 1, tak platí Eulerova veta: 𝑎𝜙(𝑛) ≡ 1 (mod 𝑛). Vezmeme 𝑘 ľubovoľné
+a dostávame (𝑎𝜙(𝑛) )𝑘 ≡ 1𝑘 (mod 𝑛), teda 𝑎𝑘𝜙(𝑛) ≡ 1 (mod 𝑛).
+Ak (𝑎, 𝑛) ̸= 1, tak 𝑎 ≡ 0 (mod 𝑝) alebo 𝑎 ≡ 0 (mod 𝑞) (alebo oboje). Na základe
+Vety 4.70 stačí ukázať, že 𝑎𝑘𝜙(𝑛) ≡ 1 modulo 𝑝 a 𝑞 zvlášť. V prvom prípade 𝑎𝑘(𝑝−1)(𝑞−1) =
+(𝑎𝑝−1 )𝑘(𝑞−1) ≡ 1𝑘(𝑞−1) ≡ 1 (mod 𝑝). Analogicky ukážeme druhý prípad modulo 𝑞.
+Veta 4.72 (RSA). Vezmime dve rôzne tajné prvočísla 𝑝, 𝑞. Spočítajme verejné 𝑛 = 𝑝𝑞.
+Spočítajme 𝜙(𝑛). Vyberme verejné 𝑒 také, že platí: 1 < 𝑒 < 𝜙(𝑛) a (𝑒, 𝜙(𝑛)) = 1. Spočítajme
+tajné 𝑑 také, že 𝑒𝑑 ≡ 1 (mod 𝜙(𝑛)).
+Šifrovanie: 𝑐 ≡ 𝑚𝑒 (mod 𝑛) (0 ≤ 𝑚 < 𝑛). Dešifrovanie: 𝑚 ≡ 𝑐𝑑 (mod 𝑛).
+https://www.elea.sk
+
+37
+
+Valdemar Švábenský
+
+4.9
+
+Appendix: ďalšie vlastosti grupových štruktúr
+
+Definícia 4.73. Regulárne, inverzné a úplné regulárne pologrupy:
+• Regulárna pologrupa („Každý jej prvok je regulárny.“):
+∀𝑎∃𝑏 : 𝑎𝑏𝑎 = 𝑎
+• Inverzná pologrupa („Každý jej prvok má jedinú inverziu.“):
+∀𝑎∃!𝑏 : 𝑎𝑏𝑎 = 𝑎, 𝑏𝑎𝑏 = 𝑏
+• Úplná regulárna pologrupa:
+∀𝑎∃𝑏 : 𝑎𝑏𝑎 = 𝑎, 𝑏𝑎𝑏 = 𝑏, 𝑎𝑏 = 𝑏𝑎
+
+Príklad 4.74. Pologrupa (𝑇 (𝐴), ∘) je regulárna; nie je inverzná ani úplne regulárna.
+Príklad 4.75. Pologrupa všetkých bijekcií (relácií) (𝐵(𝐴 × 𝐴), ∘) nie je vždy regulárna.
+Definícia 4.76 (Problém rozšírenia). Máme dané grupy (𝐺, ·), (𝐻, ·). Hľadáme všetky
+dvojice (𝐾, ·), 𝐿 také, že (𝐾, ·) je grupa, 𝐿 je jej normálna podgrupa a platí: (𝐿, ·) ∼
+= (𝐺, ·)
+a zároveň (𝐾/𝐿, ·) ∼
+= (𝐻, ·). Potom 𝐾 je rozšírením grupy 𝐺 pomocou grupy 𝐻.
+Príklad 4.77. Pre dané 𝐺, 𝐻 je príkladom rozšírenia (𝐾 = 𝐺 × 𝐻, ·), 𝐿 = 𝐺 × {1}.
+Podľa Vety 4.68: 𝛼 : 𝐺 × 𝐻 → 𝐻, kde (𝑔, ℎ) ↦→ ℎ.
+• 𝛼 je morfizmus: 𝛼((𝑔, ℎ)·(𝑔 ′ , ℎ′ )) = 𝛼((𝑔𝑔 ′ , ℎℎ′ )) = ℎℎ′ a aj 𝛼((𝑔, ℎ))·𝛼((𝑔 ′ , ℎ′ )) = ℎ·ℎ′
+• 𝛼 je injektívne: (1, ℎ) ↦→ ℎ
+• 𝛼 má jadro 𝐾: (𝑔, ℎ) ∈ 𝐾𝑒𝑟(𝛼) ⇐⇒ 𝛼((𝑔, ℎ)) = 1 ⇐⇒ 𝐾𝑒𝑟(𝛼) = 𝐺 × {1}
+Definícia 4.78. Nech (𝑆, ·) je pologrupa, 𝑎, 𝑏 ∈ 𝑆. Definujeme Greenove relácie ℒ, ℛ, 𝒥 :
+https://www.elea.sk
+
+38
+
+Valdemar Švábenský
+
+• 𝑎ℒ𝑏 ⇐⇒ ∃𝑝, 𝑞 ∈ 𝑆 1 : 𝑝𝑎 = 𝑏, 𝑞𝑏 = 𝑎;
+• 𝑎ℛ𝑏 ⇐⇒ ∃𝑢, 𝑣 ∈ 𝑆 1 : 𝑎𝑢 = 𝑏, 𝑏𝑣 = 𝑎;
+• 𝑎𝒥 𝑏 ⇐⇒ ∃𝑝, 𝑞, 𝑢, 𝑣 ∈ 𝑆 1 : 𝑝𝑎𝑢 = 𝑏, 𝑞𝑏𝑣 = 𝑎.
+Ďalej definujeme Greenove relácie ℋ, 𝒟:
+• 𝑎ℋ𝑏 ⇐⇒ 𝑎ℒ𝑏 ∧ 𝑎ℛ𝑏;
+• 𝑎𝒟𝑏 ⇐⇒ ∃𝑐 ∈ 𝑆 : 𝑎ℒ𝑐 ∧ 𝑐ℛ𝑏 ⇐⇒ ∃𝑐′ ∈ 𝑆 : 𝑎ℛ𝑐′ ∧ 𝑐′ ℒ𝑏; resp. ℒ ∘ ℛ = ℛ ∘ ℒ.
+
+Kapitola 5: Okruhy
+5.1
+
+Základné pojmy a vlastnosti okruhov
+
+Definícia 5.1. Množina 𝑅 s operáciami +, · sa nazýva (komutatívny) okruh, ak platí:
+1. (𝑅, +) je komutatívna grupa,
+2. (𝑅, ·) je (komutatívny) monoid,
+3. ∀𝑎, 𝑏, 𝑐 ∈ 𝑅 :
+
+𝑎 · (𝑏 + 𝑐) = 𝑎 · 𝑏 + 𝑎 · 𝑐,
+
+(𝑏 + 𝑐) · 𝑎 = 𝑏 · 𝑎 + 𝑐 · 𝑎
+
+(distributivita).
+
+Príklad 5.2. (𝑅, +, ·) pre 𝑅 = Z𝑛 , Z, Q, R, C je okruh.
+Príklad 5.3. (𝑀 𝑎𝑡𝑛 (𝑅), +, ·) pre 𝑅 = Z, Q, R, C je okruh.
+Poznámka. Neutrálny prvok komutatívnej grupy (𝑅, +) značíme 0 (nulový prvok, nula),
+neutrálny prvok monoidu (𝑅, ·) značíme 1 (jednotkový prvok, „jednička“).
+Definícia 5.4. Okruh ({0}, +, ·) je tzv. triviálny. Okruhy s viac ako 1 prvkom sú netriviálne.
+Definícia 5.5. Netriviálny komutatívny okruh 𝑅 je obor integrity, ak ∀𝑎, 𝑏 ∈ 𝑅 platí:
+𝑎, 𝑏 ̸= 0 =⇒ 𝑎 · 𝑏 ̸= 0. (T. j. práve keď (𝑅* , ·) je grupoid.)
+Prvky 𝑎, 𝑏 ∈ 𝑅* také, že 𝑎 · 𝑏 = 0 sa nazývajú delitelia nuly.
+Lemma 5.6. Netriviálny komutatívny okruh 𝑅 je obor integrity, práve keď pre každé
+𝑎 ∈ 𝑅* , 𝑏, 𝑐 ∈ 𝑅 platí: 𝑎𝑏 = 𝑎𝑐 =⇒ 𝑏 = 𝑐 (zákon o krátení).
+Dôkaz. „ =⇒ “: 0 = 𝑎𝑏 − 𝑎𝑐 = 𝑎(𝑏 − 𝑐). V obore integrity 𝑥𝑦 = 0 ⇐⇒ 𝑥 = 0 ∨ 𝑦 = 0.
+Keďže 𝑎 ∈ 𝑅* , musí 𝑏 − 𝑐 = 0, t. j. 𝑏 = 𝑐.
+„ ⇐= “: Nech 𝑅 je netriviálny komut. okruh, kde platí zákon o krátení. Ak by existovali
+𝑎, 𝑏 ∈ 𝑅* také, že 𝑎𝑏 = 0, tak potom 𝑎𝑏 = 0 = 𝑎 · 0, teda zo zákona o krátení 𝑏 = 0 .
+Definícia 5.7. Netriviálny komutatívny okruh 𝑅 je teleso, ak každý jeho nenulový prvok
+je invertibilný, t. j. keď ∀𝑎 ∈ 𝑅 platí: 𝑎 ̸= 0 =⇒ 𝑎−1 ∈ 𝑅. (T. j. práve keď (𝑅* , ·) je
+grupa.)
+Invertibilné prvky monoidu (𝑅, ·) sa nazývajú jednotky (angl. units) okruhu 𝑅.
+Príklad 5.8. Najmenšie teleso je ({0, 1}, +, ·) (analógia triviálneho okruhu / OI).
+https://www.elea.sk
+
+39
+
+Valdemar Švábenský
+
+Veta 5.9. Každé teleso je obor integrity.
+Dôkaz. Nech 𝑅 je teleso, 𝑎, 𝑏 ∈ 𝑅* . Potom 𝑏 = 𝑎−1 · (𝑎 · 𝑏), takže 𝑎 · 𝑏 ̸= 0.
+Veta 5.10. Každý konečný obor integrity je teleso.
+Dôkaz. Nech 𝑅 je konečný obor integrity, 𝑎 ∈ 𝑅* . Keďže (𝑅* , ·) je grupoid, predpis
+𝑟𝑎 (𝑥) = 𝑎𝑥 definuje zobrazenie 𝑟𝑎 : 𝑅* → 𝑅* . Z Lemmy 5.6 plynie, že 𝑟𝑎 je injektívne.
+Keďže 𝑅* je konečná množina, je 𝑟𝑎 aj surjektívne. Potom ∃𝑥 ∈ 𝑅* : 𝑟𝑎 (𝑥) = 1, t. j. 𝑎𝑥 = 1
+a keďže 𝑅 je komutatívny okruh, 𝑥 = 𝑎−1 .
+Poznámka. Hierarchia: telesá ⊂ obory integrity ⊂ komutatívne okruhy ⊂ okruhy.
+Q, R, C Z (nie je teleso) Z𝑛 (nie je vždy OI)
+Veta 5.11. Z𝑝 je teleso, práve keď 𝑝 je prvočíslo.
+Dôkaz. Ak je 𝑝 prvočíslo, tak Z𝑝 je teleso podľa 3.12 a 5.9. Ak 𝑛 := 𝑝 nie je prvočíslo, tak
+𝑛 = 𝑎𝑏, kde 1 < 𝑎, 𝑏 < 𝑛. Keďže [𝑎][𝑏] = [𝑎𝑏] = [0], tak [𝑎], [𝑏] sú delitelia nuly v Z𝑛 .
+
+5.2
+
+Podokruhy
+
+Definícia 5.12. Nech (𝑅, +, ·) je okruh, 𝐻 neprázdna podmnožina množiny 𝑅. Potom
+𝐻 je podokruh okruhu 𝑅; píšeme 𝐻 ≤ 𝑅; ak platí:
+1. 0𝑅 , 1𝑅 ∈ 𝐻;
+2. ak 𝑎, 𝑏 ∈ 𝐻, tak 𝑎 + 𝑏, 𝑎𝑏 ∈ 𝐻;
+3. ak 𝑎 ∈ 𝐻, tak −𝑎 ∈ 𝐻.
+Dôsledok 5.13. (𝐻, +, ·) je okruh. Ak (𝑅, +, ·) je komutatívny (resp. OI), tak aj (𝐻, +, ·)
+je komutatívny (resp. OI).
+Dôsledok 5.14. ({0}, +, ·) je tzv. triviálny podokruh okruhu 𝑅 a je to najmenší podokruh.
+𝑅 je sám sebe podokruhom a to najväčším. Iné podokruhy ako tieto dva nazývame vlastné.
+Dôsledok 5.15. Vlastnosť „byť podokruhom“ je tranzitívna.
+Príklad 5.16. (Z, +, ·) ≤ (Q, +, ·) ≤ (R, +, ·) ≤ (C, +, ·).
+√
+Príklad 5.17. Nech 𝑛 ∈ Z a 𝛼 = −𝑛. Potom Z[𝛼] = {𝑎 + 𝛼𝑏 | 𝑎, 𝑏 ∈ Z} je podokruh
+okruhu C [2, II.3.3].
+√
+Príklad 5.18. Voľbou 𝛼 = −1 = 𝑖 dostávame okruh Gaussových čísel G := Z[𝑖].
+Lemma 5.19. G je obor integrity. Existuje v ňom delenie so zvyškom. Aj keď podiel a
+zvyšok nie je určený jednoznačne, existencia postačuje na dôkaz NSD a Bezoutovej rovnosti
+pre Gaussove čísla [2, II.3.4].
+Príklad 5.20. (Z, +, ·) ≤ (G, +, ·) ≤ (C, +, ·).
+
+https://www.elea.sk
+
+40
+
+Valdemar Švábenský
+
+Príklad 5.21. Okruh kvaterniónov tvorí množina K = {[𝑎 + 𝑖𝑏 + 𝑗𝑐 + 𝑘𝑑 | 𝑎, 𝑏, 𝑐, 𝑑 ∈ R}
+s operáciami sčítania po zložkách a násobením definovaným pomocou nasledovnej tabuľky:
+
+5.3
+
+Homomorfizmy okruhov
+
+Definícia 5.22. Zobrazenie 𝜙 : 𝑅1 → 𝑅2 je (homo)morfizmus okruhu (𝑅1 , +, ·) do okruhu
+(𝑅2 , ⊕, ∘), ak pre všetky 𝑎, 𝑏 ∈ 𝑅1 platí: 𝜙(𝑎 + 𝑏) = 𝜙(𝑎) ⊕ 𝜙(𝑏) a 𝜙(𝑎 · 𝑏) = 𝜙(𝑎) ∘ 𝜙(𝑏).
+Ďalej musí platiť ešte tretie pravidlo, že 𝜙(1𝑅1 ) = 1𝑅2 .
+Poznámka. Ide vlastne o hom. grupy (𝑅1 , +) do (𝑅2 , ⊕) a hom. monoidu (𝑅1 , ·) do
+(𝑅2 , ∘).
+Definícia 5.23. Bijektívny homomorfizmus nazývame izomorfizmus. Ak existuje izomorfizmus medzi okruhmi 𝑅1 , 𝑅2 , nazývame ich izomorfné a píšeme 𝑅1 ∼
+= 𝑅2 .
+Príklad 5.24. Ak 𝐻 ≤ 𝑅, tak 𝐻 → 𝑅 je homomorfizmus okruhov. Obzvlášť 𝑅 ∼
+= 𝑅.
+Príklad 5.25. 𝜙 : Z → Z𝑛 , kde 𝑎 ↦→ [𝑎]𝑛 je homomorfizmus okruhov.
+Príklad 5.26. 𝜙 : C → C, kde 𝑎 ↦→ 𝑎 (komplexne združené číslo, 7.47) je hom. okruhov.
+Definícia 5.27. Nech 𝑓 : (𝑅1 , +, ·) → (𝑅2 , ⊕, ∘) je homomorfizmus okruhov. Potom jadro
+homomorfizmu 𝑓 je množina 𝐾𝑒𝑟(𝑓 ) = {𝑎 ∈ 𝑅1 | 𝑓 (𝑎) = 0}.
+Lemma 5.28. Homomorfizmus 𝑓 : (𝑅1 , +, ·) → (𝑅2 , ⊕, ∘) je prostý ⇐⇒ 𝐾𝑒𝑟(𝑓 ) = {0}.
+Dôkaz. Keďže sa jedná o hom. grupy (𝑅1 , +) do (𝑅2 , ⊕), tvrdenie plynie z Lemmy 4.67.
+Veta 5.29. Prostý homomorfizmus 𝜙 z okruhu 𝑅 do telesa 𝑇 existuje, len ak 𝑅 je OI.
+Dôkaz. Okruh 𝑅 musí byť netriviálny. Ak by bol 𝑅 triviálny, tak 0𝑅 ↦→ 1𝑇 (z definície),
+ale potom 𝜙(0 + 0) = 𝜙(0) = 1 a to sa nerovná 𝜙(0) + 𝜙(0) = 1 + 1 = 0.
+Ďalej, okruh 𝑅 musí byť komutatívny. Pri zobrazení do telesa musí platiť 𝜙(𝑎) · 𝜙(𝑏) =
+𝜙(𝑏) · 𝜙(𝑎), teda 𝜙(𝑎𝑏) = 𝜙(𝑏𝑎), teda v pôvodnom okruhu 𝑎𝑏 = 𝑏𝑎.
+Nakoniec, 𝑅 nesmie mať deliteľov nuly. Ak by 𝑎𝑏 = 0, tak 𝜙(𝑎) · 𝜙(𝑏) = 𝜙(0) = 0.
+𝑅 je teda netriválny, komutatívny a bez deliteľov nuly, teda je to OI.
+
+https://www.elea.sk
+
+41
+
+Valdemar Švábenský
+
+5.4
+
+Súčiny okruhov a podielové telesá
+
+Definícia 5.30. Nech (𝑅1 , ⊕, ⊙), (𝑅2 , , ) sú okruhy. Na množine 𝑅1 × 𝑅2 definujeme
+operácie +, · vzťahmi [𝑎, 𝑏] + [𝑐, 𝑑] = [𝑎 ⊕ 𝑐, 𝑏  𝑑], [𝑎, 𝑏] · [𝑐, 𝑑] = [𝑎 ⊙ 𝑐, 𝑏 𝑑] (po zložkách).
+Dôsledok 5.31. (𝑅1 × 𝑅2 , +, ·) je okruh.
+Dôkaz. (𝑅1 × 𝑅2 , +) je komutatívna grupa; nulovým prvkom je [0𝑅1 , 0𝑅2 ], opačným k
+prvku [𝑎, 𝑏] je [−𝑎, −𝑏]. (𝑅1 × 𝑅2 , +) je monoid; jednotkovým prvkom je [1𝑅1 , 1𝑅2 ].
+Lemma 5.32. Ak 𝑅1 , 𝑅2 sú netriviálne, tak (𝑅1 × 𝑅2 , +, ·) nikdy nie je obor integrity.
+Dôkaz. [1, 0] · [0, 1] = [0, 0].
+Lemma 5.33. Nech 𝑅 je OI. Definujme na množine 𝑅 × 𝑅* reláciu ≡ vzťahom [𝑎, 𝑏] ≡
+[𝑐, 𝑑] ⇐⇒ 𝑎𝑑 = 𝑏𝑐 pre všetky 𝑎, 𝑐 ∈ 𝑅, 𝑏, 𝑑 ∈ 𝑅* . Potom ≡ je relácia ekvivalencie.
+Dôkaz. Uvažujme 𝑎, 𝑐, 𝑒 ∈ 𝑅, 𝑏, 𝑑, 𝑓 ∈ 𝑅* .
+• Reflexivita: [𝑎, 𝑏] ≡ [𝑎, 𝑏], lebo 𝑎𝑏 = 𝑏𝑎.
+• Symetria: ak [𝑎, 𝑏] ≡ [𝑐, 𝑑], tak 𝑎𝑑 = 𝑏𝑐 a z kom. násobenia 𝑐𝑏 = 𝑑𝑎, teda [𝑐, 𝑑] ≡ [𝑎, 𝑏].
+• Tranzitivita: ak [𝑎, 𝑏] ≡ [𝑐, 𝑑] a [𝑐, 𝑑] ≡ [𝑒, 𝑓 ], tak 𝑎𝑑 = 𝑏𝑐 a 𝑐𝑓 = 𝑑𝑒. Po vynásobení
+𝑓 dostávame 𝑎𝑑𝑓 = 𝑏𝑐𝑓 = 𝑏𝑑𝑒. Z toho 𝑎𝑑𝑓 − 𝑏𝑑𝑒 = 0, teda 𝑑(𝑎𝑓 − 𝑏𝑒) = 0. Keďže
+𝑑 ∈ 𝑅* a 𝑅 je OI, tak 𝑎𝑓 − 𝑏𝑒 = 0, t. j. 𝑎𝑓 = 𝑏𝑒, t. j. [𝑎, 𝑏] ≡ [𝑒, 𝑓 ].
+(V dôkaze tranzitivity nesmieme násobiť inverziou 𝑑−1 – tá nemusí vôbec existovať!)
+Dôsledok 5.34. Relácia ekvivalencie ≡ určuje rozklad na množine 𝑅 × 𝑅* . Množinu
+𝑅 × 𝑅* / ≡ tried tohto rozkladu označíme 𝑄(𝑅). Triedu obsahujúcu prvok [𝑎, 𝑏] označíme
+𝑎
+. Potom platí: 𝑎𝑏 = 𝑑𝑐 ⇐⇒ 𝑎𝑑 = 𝑏𝑐 (krížové pravidlo pre zlomky).
+𝑏
+Veta 5.35. Nech 𝑅 je OI. Definujme súčet a súčin dvoch prvkov 𝑎𝑏 , 𝑑𝑐 ∈ 𝑄(𝑅) vzťahmi
+𝑎
++ 𝑑𝑐 = 𝑎𝑑+𝑏𝑐
+, 𝑎𝑏 · 𝑑𝑐 = 𝑎𝑐
+(súčet a súčin zlomkov). Potom +, · sú operácie na 𝑄(𝑅) a
+𝑏
+𝑏𝑑
+𝑏𝑑
+(𝑄(𝑅), +, ·) je teleso, tzv. podielové.
+′
+
+′
+
+Dôkaz. Korektnosť (+, · sú operácie): ak 𝑎𝑏 = 𝑎𝑏′ , 𝑑𝑐 = 𝑑𝑐′ , kde 𝑎, 𝑎′ , 𝑐, 𝑐′ ∈ 𝑅, 𝑏, 𝑏′ , 𝑑, 𝑑′ ∈ 𝑅* ,
+′
+′
+′
+′
+tak musí 𝑎𝑏 + 𝑑𝑐 = 𝑎𝑏′ + 𝑑𝑐′ , 𝑎𝑏 · 𝑑𝑐 = 𝑎𝑏′ · 𝑑𝑐′ . To platí [2, II.4.15].
+(𝑄(𝑅), +) je kom. grupa: platí kom., asoc., nulový prvok je 01 a opačný k 𝑎𝑏 je −𝑎
+.
+𝑏
+1
+(𝑄(𝑅), ·) je kom. monoid: platí kom., asoc., jednotkový prvok je 1 . Platí distributivita.
+(𝑄(𝑅), +, ·) je teda kom. okruh. Je aj netriviálny, lebo ak by 01 = 11 , tak by 0 = 1.
+(𝑄(𝑅), +, ·) je teleso: ak 𝑎𝑏 ̸= 01 , tak 𝑎 =
+̸ 0, teda 𝑎𝑏 ∈ 𝑄(𝑅). Platí 𝑎𝑏 · 𝑎𝑏 = 11 , teda
+𝑎 −1
+𝑏
+( 𝑏 ) = 𝑎 , takže každý nenulový prvok má inverziu.
+Veta 5.36. Nech 𝑅 je OI. Potom zobrazenie 𝑘 : 𝑅 → 𝑄(𝑅) definované 𝑘(𝑎) = 𝑎1 pre ľubovoľné 𝑎 ∈ 𝑅 je injektívny homomorfizmus okruhov. Ak je 𝑅 teleso, tak 𝑘 je izomorfizmus.
+Dôkaz. Nech 𝑎, 𝑏 ∈ 𝑅. Homomorfizmus: 𝑘(𝑎) + 𝑘(𝑏) = 𝑎1 + 1𝑏 = 1𝑎+1𝑏
+= 𝑎+𝑏
+= 𝑘(𝑎 + 𝑏),
+1
+1
+𝑎𝑏
+1
+ďalej 𝑘(𝑎) · 𝑘(𝑏) = 𝑎1 · 1𝑏 = 𝑎·𝑏
+=
+=
+𝑘(𝑎𝑏)
+a
+tiež
+𝑘(1)
+=
+(jednička
+ide
+na
+jedničku).
+1
+1
+1
+Injektívny: ak 𝑘(𝑎) = 𝑘(𝑏), tak 𝑎1 = 1𝑏 , t. j. 𝑎 = 𝑎 · 1 = 1 · 𝑏 = 𝑏.
+−1
+Nech 𝑅 je teleso, 𝑎 ∈ 𝑅, 𝑏 ∈ 𝑅* . Surjektívny: 𝑘(𝑎𝑏−1 ) = 𝑎𝑏1 = 𝑎𝑏 , lebo 𝑎𝑏−1 𝑏 = 1𝑎.
+Potom 𝑘 je izomorfizmus.
+Definícia 5.37. Q := 𝑄(Z).
+Veta 5.38 (O univerzalite). Nech 𝑅 je OI, 𝑇 je teleso a 𝛼 : 𝑅 → 𝑇 prostý homomorfizmus.
+Potom existuje jediný homomorfizmus 𝛽 : 𝑄(𝑅) → 𝑇 taký, že 𝛽 ∘ 𝑘 = 𝛼 [2, II.4.19].
+https://www.elea.sk
+
+42
+
+Valdemar Švábenský
+
+5.5
+
+Charakteristiky okruhov
+
+Definícia 5.39. Buď 𝑅 okruh. Najmenšie 𝑛 ∈ N také, že 𝑛1 = 0 nazývame charakteristika
+okruhu 𝑅. Ak také 𝑛 neexistuje (t. j. 𝑘1 ̸= 0 pre každé 𝑘 ∈ N), tak 𝑛 := 0.
+Poznámka. Ak char. 𝑛 okruhu 𝑅 nie je 0, tak 𝑛 je rád 1 v grupe (𝑅, +) [2, II.2.2].
+Príklad 5.40. Charakteristiky okruhov Z, Q, R, C sú 0. Charakteristika Z𝑛 je 𝑛.
+Lemma 5.41. Charakteristika oboru integrity je buď 0 alebo prvočíslo.
+Dôkaz. Ak by 𝑛 = 𝑘𝑙, kde 𝑘, 𝑙 ≥ 2, tak (1 + · · · + 1)(1 + · · · + 1) (postupne 𝑘-krát a 𝑙-krát)
+má deliteľov nuly.
+
+5.6
+
+Cvičenia
+
+1. Sú okruhy (Z, +, ·) × (Z, +, ·) a (Z[𝑖], +, ·) izomorfné?
+2. Sú okruhy (R, +, ·) × (R, +, ·) a (C, +, ·) izomorfné?
+√
+√
+3. Sú okruhy (Q[ 5], +, ·) a (Q[ 3], +, ·) izomorfné?
+4. Existuje injektívny homomorfizmus zo (Z, +, ·) do nejakého telesa?
+5. Existuje injektívny homomorfizmus zo (Z2 , +, ·) × (Z3 , +, ·) do nejakého telesa?
+6. Čo sa stane, ak definujeme ekvivalenciu z Lemmy 5.33 na okruhu 𝑅 = Z4 ?
+7. Pre okruh (𝑅, +, ·) definujeme okruh (𝑅[𝑖], +, ·) vzťahmi: 𝑅[𝑖] = 𝑅 × 𝑅, (𝑎, 𝑏) +
+(𝑐, 𝑑) = (𝑎 + 𝑐, 𝑏 + 𝑑), (𝑎, 𝑏) · (𝑐, 𝑑) = (𝑎𝑐 − 𝑏𝑑, 𝑎𝑑 + 𝑏𝑐). Prvky môžete písať v tvare
+𝑎 + 𝑏𝑖. Aký tvar majú prvky 𝑄(Z[𝑖])?
+8. Dokážte, že okruhy ((𝑄(Z)[𝑖], +, ·)) a (𝑄(Z[𝑖]), +, ·) sú izomorfné.
+
+5.7
+
+Návody k riešeniu cvičení
+
+1. Nie sú. G = (Z[𝑖], +, ·) je OI, ale (Z, +, ·) × (Z, +, ·) nie je OI. Napr. (1, 0) · (0, 1) =
+(0, 0).
+2. Nie sú. C je teleso a teda OI, ale (R, +, ·) × (R, +, ·) nie je OI. Napr. (1, 0) · (0, 1) =
+(0, 0).
+√
+√
+3. Nie, pretože 5 ̸∈ Q[ 3].
+√
+√
+√
+Nech 𝑝 je prvočíslo, 𝑝 ̸∈ Q. Ak by 𝑝 ∈ Q, potom 𝑝 = 𝑎/𝑏, kde 𝑎, 𝑏 ∈ N a
+NSD(𝑎, 𝑏) = 1 (v opačnom prípade ich môžeme krátiť). Úpravou dostaneme rovnosť
+𝑝 · 𝑏2 = 𝑎2 , teda 𝑝 | 𝑎2 .
+√
+𝑝 ̸∈ N, teda 𝑝 | 𝑎 (to je vidieť z toho, že 𝑎 má jednoznačný rozklad na prvočísla
+a 𝑎2 má ten istý rozklad, ale každý člen je umocnený na druhú) a môžeme písať
+𝑎 = 𝑝𝑥, 𝑥 ∈ N. Potom ale 𝑝 · 𝑏2 = 𝑝2 · 𝑥2 a 𝑏2 = 𝑝 · 𝑥2 , teda 𝑝 | 𝑏2 a preto tiež 𝑝 | 𝑏.
+Našli sme deliteľa 𝑎, 𝑏 rôzneho od 1, čo je spor.
+https://www.elea.sk
+
+43
+
+Valdemar Švábenský
+
+√
+√
+√
+√
+Predpokladajme, že √ 5 ∈ Q[ 3], teda 5 = 𝑎+𝑏 3, kde 𝑎, 𝑏 ∈ Q, 𝑏 ̸= 0 (to√môžeme
+predpokladať, lebo 5 ̸∈ Q). Umocníme obe strany výrazu: 5 = 𝑎2 + 2𝑎𝑏 3 + 3𝑏2 .
+√
+Predpokladajme, že 𝑎 ̸= 0, potom úpravou rovnosti
+dostaneme
+výraz
+3 = (5 −
+√
+√
+√
+√
+2
+2
+𝑎 − 3𝑏 )/2𝑎𝑏 ∈√Q – spor. Nech teda 𝑎 = 0, potom 5 = 𝑏 3, teda 5 3 = 3𝑏 ∈ Q.
+√
+Dokážeme, že 15 ̸∈ Q. Použijeme rovnaký postup ako pri dôkaze, že 𝑝 ̸∈ Q.
+4. 𝑓 : (Z, +, ·) → (R, +, ·), kde 𝑓 (𝑎) = 𝑎.
+5. Nie. V (Z2 × Z3 ) existujú delitelia nuly, napr. (0, 1) · (1, 0) = (0, 0). Táto vlastnosť sa
+zachová aj v obraze (delitelia nuly ostávajú pri ľubovoľnom rozšírení daného obrazu),
+ktorý potom nemôže byť podgrupou telesa.
+6. Potom ≡ nie je reláciou ekvivalencie. Napr. v Z4 je [2, 2] ≡ [0, 2], lebo 2 · 2 = 0 · 2
+a [0, 2] ≡ [0, 1], lebo 0 · 2 = 0 · 1, ale [2, 2] ≡ [0, 1] by dalo 2 · 1 = 0 · 2, teda
+2 = 0 . Potom ≡ nie je ekvivalencia (a teda neurčuje rozklad na množine, ako je
+požadované).
+Toto platí pre všetky Z𝑛 , kde 𝑛 je zložené, lebo potom 𝑅 nie je OI.
+7. Gaussove racionálne čísla Q[𝑖] := 𝑄(Z[𝑖]) = {𝑎 + 𝑏𝑖 | 𝑎, 𝑏 ∈ Q}.
+8. 𝑓 ([𝑎, 𝑏], [𝑐, 𝑑]) = [(𝑎𝑑 + 𝑐𝑏𝑖), (𝑏𝑑)], teda (𝑎/𝑏) + (𝑐𝑖/𝑑) = (𝑎𝑑 + 𝑐𝑏𝑖)/(𝑏𝑑).
+
+Kapitola 6: Varenie čísel
+Motivácia:
+N0 : Vieme +, ·, ≤. Nevieme odčítať.
+Z: Vieme +, ·, ≤, −. Nevieme deliť nenulovým prvkom.
+Q: Vieme +, ·, ≤, −, ÷. Neexistujú konvergentné Cauchyovské postupnosti.
+R: Vieme +, ·, ≤, −, ÷. Nevieme odmocňovať (R nie sú algebraicky uzavrené).
+C: Vieme +, ·, ≤, −, ÷,
+
+√
+
+.
+
+Definícia 6.1. Konštrukcia N0 (Z-F teória množín): 0 := ∅, 𝑛 + 1 := 𝑛 ∪ {𝑛}. Potom N0
+je najmenšia množina obsahujúca ∅ a uzavretá na operáciu ′ definovanú 𝑛′ = 𝑛 ∪ {𝑛}.
+Príklad 6.2. 1 = 0 + 1 = ∅ ∪ {∅} = {∅}, 2 = 1 + 1 = 1 ∪ {1} = {∅} ∪ {{∅}} = {∅, {∅}},
+...
+Definícia 6.3. Operácie na N0 :
+• 𝑚 < 𝑛 ⇐⇒ 𝑚 ( 𝑛;
+• 𝑚 ≤ 𝑛 ⇐⇒ 𝑚 < 𝑛 ∨ 𝑚 = 𝑛;
+• 𝑚 + 0 = 𝑚,
+
+𝑚 + 1 = 𝑚′ ,
+
+https://www.elea.sk
+
+𝑚 + 𝑛 = (𝑚 + 1) + (𝑛 − 1);
+
+44
+
+Valdemar Švábenský
+
+• 𝑚 · 0 = 0,
+
+𝑚 · 1 = 𝑚,
+
+𝑚 · 𝑛 = 𝑚 · (𝑛 − 1) + 𝑚.
+
+Definícia 6.4. Konštrukcia Z: na N0 ×N0 definujeme reláciu ∼ tak, že (𝑎, 𝑏) ∼ (𝑐, 𝑑) ⇐⇒
+𝑎 + 𝑑 = 𝑏 + 𝑐. Potom ∼ je ekvivalencia. Celé čísla definujeme ako triedy ekvivalencie
+[(𝑎, 𝑏)]∼ usporiadaných dvojíc (𝑎, 𝑏) dvoch prirodzených čísel. Namiesto [(𝑎, 𝑏)]∼ píšeme
+𝑎 − 𝑏.
+Definícia 6.5. Operácie na Z:
+• (𝑎 − 𝑏) + (𝑐 − 𝑑) = (𝑎 + 𝑐) − (𝑏 + 𝑑);
+• (𝑎 − 𝑏) · (𝑐 − 𝑑) = (𝑎𝑐 + 𝑏𝑑) − (𝑎𝑑 + 𝑏𝑐);
+• 𝑎 − 𝑏 ≤ 𝑐 − 𝑑 ⇐⇒ 𝑎 + 𝑑 ≤ 𝑏 + 𝑐.
+Definícia 6.6. Konštrukcia Q: pozri Definíciu 5.37.
+Definícia 6.7. Operácie na Q: 𝑎𝑏 ≤ 𝑑𝑐 ⇐⇒ 𝑎𝑑 ≤ 𝑏𝑐, pre 𝑎, 𝑏, 𝑐, 𝑑 > 0.
+
+Kapitola 7: Polynómy
+7.1
+
+Základné pojmy
+
+Definícia 7.1. Analytická definícia polynómu ako zobrazenia nevyhovuje v algebre.
+Polynóm tu budeme uvažovať ako postupnosť koeficientov.
+Nech 𝑅 je okruh. Polynóm nad okruhom 𝑅 je nekonečná postupnosť 𝑓 = (𝑓0 , 𝑓1 , . . . ),
+kde 𝑓𝑖 ∈ 𝑅 pre 𝑖 ∈ N0 také, že množina {𝑖 ∈ N0 | 𝑓𝑖 ̸= 0} je konečná.
+Poznámka. Prvky 𝑓0 , 𝑓1 , . . . , 𝑓𝑖 , . . . nazývame koeficienty polynómu.
+Nulový polynóm („nula“) je nekonečná postupnosť 0 = (0, 0, 0, . . . , 0, . . . ).
+Jednotkový polynóm („jednička“) je nekonečná postupnosť 1 = (1, 0, 0, . . . , 0, . . . ).
+Konštantný polynóm je nekonečná postupnosť 𝑎 = (𝑎, 0, 0, . . . , 0, . . . ), kde 𝑎 ∈ 𝑅.
+Definícia 7.2. 𝑅[𝑥] je množina všetkých polynómov nad daným okruhom 𝑅.
+Veta 7.3. Buď 𝑅 okruh. Na 𝑅[𝑥] definujeme operácie +, · vzťahmi
+(𝑓 + 𝑔)𝑖 = 𝑓𝑖 + 𝑔𝑖 ,
+
+(𝑓 · 𝑔)𝑖 =
+
+𝑖
+∑︁
+
+𝑓𝑘 · 𝑔𝑖−𝑘 .
+
+𝑘=0
+
+Potom (𝑅[𝑥], +, ·) je okruh („okruh polynómov“) nad 𝑅. Ak je 𝑅 kom., tak aj 𝑅[𝑥] je
+kom.
+Dôkaz. Korektnosť: +, · sú operácie na 𝑅[𝑥], lebo 𝑓 + 𝑔, 𝑓 𝑔 sú polynómy. Totiž ak 𝑓, 𝑔 ∈
+𝑅[𝑥], tak 𝑓 + 𝑔, 𝑓 𝑔 ∈ 𝑅[𝑥], lebo množ. {𝑖 ∈ N0 | 𝑓𝑖 + 𝑔𝑖 ̸= 0}, {𝑖 ∈ N0 |
+
+𝑖
+∑︀
+
+𝑓𝑘 𝑔𝑖−𝑘 ̸= 0} sú
+
+𝑘=0
+
+konečné.
+Keďže sčítanie polynómov je definované po zložkách, (𝑅[𝑥], +) je kom. grupa. Platí
+kom., asociativita, nulovým prvkom je nulový polynóm a opačným k 𝑓 je (−𝑓0 , −𝑓1 , . . . ).
+Ďalej (𝑅[𝑥], ·) je monoid. Jedničkou je jednotkový polynóm (asociativitu netreba na
+skúšku, dôkaz je v [2, II.5.2]). Overíme tiež distributivitu.
+Ak je 𝑅 kom., tak ∀𝑓, 𝑔 ∈ 𝑅[𝑥] : (𝑓 𝑔)𝑖 = · · · = (𝑔𝑓 )𝑖 (z definície).
+https://www.elea.sk
+
+45
+
+Valdemar Švábenský
+
+Poznámka. Hovoríme „polynóm 𝑓 nad okruhom 𝑅“ alebo značíme 𝑓 ∈ 𝑅[𝑥].
+Definícia 7.4. Nech 𝑓 je nenulový polynóm nad okruhom 𝑅. Najväčšie 𝑛 ∈ N0 také, že
+𝑓𝑛 ̸= 0 sa nazýva stupeň polynómu 𝑓 a značí sa st(𝑓 ). Stupeň nulového polynómu je −∞.
+Koeficient 𝑓𝑛 sa potom nazýva vedúci koeficient polynómu 𝑓 .
+Veta 7.5. Ak je 𝑅 OI, tak aj 𝑅[𝑥] je OI.
+Dôkaz. Ak je 𝑅 OI, tak 𝑅[𝑥] je kom. okruh podľa Vety 7.3. Ten je netriviálny, lebo
+obsahuje aspoň dva rôzne prvky: nulu a jedničku. Ak by existovali nenulové polynómy
+𝑓, 𝑔 ∈ 𝑅[𝑥] také, že 𝑓 𝑔 = 0, tak by súčin ich vedúcich koeficientov bol 0, ale 𝑅 je OI
+.
+Lemma 7.6. O generujúcich polynómoch platia nasledovné tvrdenia:
+• Konštantné polynómy sú nulové polynómy alebo polynómy stupňa 0 a sú tvaru
+𝑎 := (𝑎, 0, 0, 0, . . . , 0, . . . ), kde 𝑎 ∈ 𝑅;
+• Lineárne polynómy sú polynómy stupňa 1 a sú tvaru 𝑥 := (0, 1, 0, 0, . . . , 0, . . . );
+• Kvadratické polynómy sú polynómy stupňa 2 a sú tvaru 𝑥2 := (0, 0, 1, 0, . . . , 0, . . . );
+• Kubické polynómy sú polynómy stupňa 3 a sú tvaru 𝑥3 := (0, 0, 0, 1, 0, . . . , 0, . . . ).
+Veta 7.7. Nech 𝑅 je okruh a 𝑓 ∈ (𝑅[𝑥], +, ·) je polynóm stupňa 𝑛. Potom 𝑓 = 𝑓𝑛 · 𝑥𝑛 +
+· · · + 𝑓1 · 𝑥 + 𝑓0 . (Jednotlivé koeficienty 𝑓𝑖 chápeme ako konštantné polynómy.)
+Dôkaz. Indukciou z definície násobenia polynómov dostaneme (𝑥𝑘 )𝑘 = 1 a (𝑥𝑘 )𝑖 = 0 pre
+𝑖 ̸= 𝑘. Preto (𝑓𝑛 · 𝑥𝑛 + · · · + 𝑓1 · 𝑥 + 𝑓0 )𝑖 =
+
+𝑛
+∑︀
+
+(𝑓𝑘 · 𝑥𝑘 )𝑖 =
+
+𝑘=0
+
+𝑛
+∑︀
+
+𝑓𝑘 · (𝑥𝑘 )𝑖 = 𝑓𝑖 .
+
+𝑘=0
+
+Veta 7.8. Nech 𝑓, 𝑔 sú polynómy nad okruhom 𝑅. Potom:
+1. st(𝑓 + 𝑔) ≤ max{st(𝑓 ), st(𝑔)};
+2. st(𝑓 · 𝑔) ≤ st(𝑓 ) + st(𝑔). Ak 𝑅 je OI, tak táto nerovnosť prejde v rovnosť.
+Dôkaz. Nerovnosti plynú okamžite z definície súčtu a súčinu polynómov (7.3).
+Ak 𝑅 je OI a st(𝑓 ) = 𝑛 ≥ 0, st(𝑔) = 𝑚 ≥ 0, potom (𝑓 𝑔)𝑛+𝑚 = 𝑓𝑛 𝑔𝑚 ̸= 0, takže
+st(𝑓 𝑔) = st(𝑓 ) + st(𝑔). Ak 𝑓 = 0 (alebo 𝑔 = 0), tak 𝑓 𝑔 = 0, preto st(𝑓 𝑔) = st(𝑓 ) +
+st(𝑔) = −∞.
+Lemma 7.9. Nech 𝑅 je OI a 𝑓 ∈ 𝑅[𝑥]. Potom 𝑓 je jednotka okruhu 𝑅[𝑥], práve keď 𝑓 je
+konštantný polynóm, ktorý je jednotkou okruhu 𝑅.
+Dôkaz. „ ⇐= “: Zrejmé. „ =⇒ “: Nech 𝑅 je OI a 𝑓 jednotka v 𝑅[𝑥]. Potom 0 = st(1) =
+st(𝑓 · 𝑓 −1 ) = st(𝑓 ) + st(𝑓 −1 ), takže st(𝑓 ) = st(𝑓 −1 ) = 0. Teda 𝑓 je konštantný polynóm,
+ktorého inverzný prvok je 𝑓 −1 , teda 𝑓 je jednotkou v 𝑅.
+Dôsledok 7.10. Okruh 𝑅[𝑥] nemôže byť nikdy teleso, lebo polynóm 𝑥 nemá inverziu.
+Príklad 7.11. Ak 𝑅 nie je OI, tak môžu existovať nekonštantné jednotky v 𝑅[𝑥]. Napr.
+v Z4 [𝑥] máme 𝑓 = 𝑔 = 2𝑥 + 1 a potom 𝑓 −1 = 𝑔 a 𝑓 𝑔 = 1.
+Definícia 7.12. Nech 𝑅 je teleso. Polynómy 𝑓, 𝑔 ∈ 𝑅[𝑥] sa nazývajú asociované, ak
+existuje nenulové 𝑐 ∈ 𝑅 také, že 𝑓 = 𝑐𝑔.
+https://www.elea.sk
+
+46
+
+Valdemar Švábenský
+
+7.2
+
+Deliteľnosť polynómov
+
+Veta 7.13. Nech 𝑅 je OI, 𝑓, 𝑔 ∈ 𝑅[𝑥] a vedúci koeficient polynómu 𝑔 je jednotkou v
+𝑅. Potom existuje práve jedna dvojica polynómov 𝑞, 𝑟 ∈ 𝑅[𝑥] taká, že st(𝑟) < st(𝑔) a
+𝑓 = 𝑞𝑔 + 𝑟.
+Dôkaz. Existencia 𝑞, 𝑟: Ak st(𝑓 ) < st(𝑔), tak 𝑟 := 𝑓 a 𝑞 := 0. Nech st(𝑓 ) ≥ st(𝑔). Veďme
+indukciu k 𝑛 = st(𝑓 ):
+• Báza: Ak 𝑛 = 0, tak 𝑚 = st(𝑔) = 0. Z Lemmy 7.9 vyplýva, že 𝑔 má inverziu v 𝑅[𝑥].
+Potom 𝑟 := 0 a 𝑞 := 𝑔 −1 𝑓 .
+• IP: Ľubovoľný polynóm stupňa menšieho než 𝑛 je možné deliť so zvyškom.
+−1 𝑛−𝑚
+• IK: Nech 𝑛 ≥ 𝑚 ≥ 0. Polynóm 𝑝 = (𝑓𝑛 𝑔𝑚
+)𝑥
+𝑔 má vedúci koeficient 𝑓𝑛 a
+stupeň 𝑛. Potom polynóm ℎ = 𝑓 − 𝑝 má stupeň menší než 𝑛 a z IP plynie, že
+existuje dvojica polynómov 𝑞, 𝑟 ∈ 𝑅[𝑥] taká, že st(𝑟) < st(𝑔) a ℎ = 𝑞𝑔 + 𝑟, Teda
+−1 𝑛−𝑚
+𝑓 = 𝑝+𝑞𝑔 +𝑟 = 𝑔(𝑓𝑛 𝑔𝑚
+𝑥
++𝑞)+𝑟, takže 𝑓 je možné deliť so zvyškom polynómom
+𝑔.
+
+Jednoznačnosť 𝑞, 𝑟: Ak 𝑅 nie je OI, tak 𝑞, 𝑟 nemusia byť určené jednoznačne. Nech
+pre 𝑓, 𝑔 ∈ 𝑅[𝑥], 𝑔 ̸= 0 platí: 𝑓 = 𝑞𝑔 + 𝑟 = 𝑞 ′ 𝑔 + 𝑟′ , kde st(𝑟), st(𝑟′ ) < st(𝑔). Teda
+𝑟 − 𝑟′ = 𝑔(𝑞 ′ − 𝑞), takže z Vety 7.8 plynie, že st(𝑔) > st(𝑟 − 𝑟′ ) = st(𝑔)+ st(𝑞 ′ − 𝑞). Potom
+ale st(𝑞 ′ − 𝑞) = −∞, t. j. 𝑞 ′ − 𝑞 = 0. Potom aj 𝑟 − 𝑟′ = 0, takže 𝑞 = 𝑞 ′ a 𝑟 = 𝑟′ .
+Príklad 7.14. Podiel a zvyšok nie sú určené jednoznačne, ak vedúci koeficient polynómu
+𝑔 nie je jednotkou daného okruhu. Napr. nad okruhom Z4 platí: 2𝑥 + 1 = 1 · (2𝑥 + 1) + 0 =
+2𝑥 · (2𝑥 + 1) + 1.
+Veta 7.15. Nech 𝑅 je teleso, 𝑓, 𝑔 sú nenulové polynómy v 𝑅[𝑥]. Potom existuje NSD(𝑓, 𝑔).
+Dôkaz. Z Vety 7.13 plynie, že ∃𝑛 ∈ N0 a polynómy 𝑞1 , . . . , 𝑞𝑛+1 , 𝑟1 , . . . , 𝑟𝑛+1 ∈ 𝑅[𝑥] také,
+že st(𝑔) > st(𝑟1 ) > st(𝑟𝑛 ) ≤ 0 a platí:
+𝑓 = 𝑞1 · 𝑔 + 𝑟1 ,
+𝑔 = 𝑞2 · 𝑟1 + 𝑟2 ,
+𝑟1 = 𝑞3 · 𝑟2 + 𝑟3 ,
+...
+𝑟𝑛−2 = 𝑞𝑛 · 𝑟𝑛−1 + 𝑟𝑛 ,
+𝑟𝑛−1 = 𝑞𝑛+1 · 𝑟𝑛
+Potom 𝑟𝑛 = (𝑎, 𝑏) ako vo Vete 2.18.
+Veta 7.16 (Bezoutova rovnosť). Nech 𝑅 je teleso, 𝑓, 𝑔 sú nenulové polynómy v 𝑅[𝑥].
+Potom existujú polynómy 𝑢, 𝑣 ∈ 𝑅[𝑥] také, že 𝑓 𝑢 + 𝑔𝑣 = (𝑓, 𝑔).
+Dôkaz. Analogicky ako Veta 2.20.
+Definícia 7.17. Polynóm sa nazýva normovaný, ak je jeho vedúci koeficient rovný 1.
+Lemma 7.18. Pre ľubovoľné dva polynómy existuje ich normovaný NSD [2, II.5.22].
+https://www.elea.sk
+
+47
+
+Valdemar Švábenský
+
+7.3
+
+Rozklad a ireducibilita polynómov
+
+Definícia 7.19. Nech 𝑅 je komutatívny okruh. Prvok 𝑎 ∈ 𝑅 je ireducibilným prvkom 𝑅,
+ak je nenulový, nie je jednotka a nemá vlastných deliteľov v 𝑅.
+Poznámka. Toto odpovedá takým konštantným polynómom, ktoré sú „prvočísla“.
+Definícia 7.20. Nech 𝑅 je okruh. Polynóm 𝑓 ∈ 𝑅[𝑥] je ireducibilný nad 𝑅, ak je
+nekonštantný a nedá sa rozložiť na súčin dvoch nekonštantných polynómov.
+Veta 7.21. Nech 𝑅 je teleso. Polynóm 𝑓 ∈ 𝑅[𝑥] je ireducibilným prvkom 𝑅[𝑥], práve keď
+je nekonštantný a nedá sa rozložiť na súčin dvoch nekonštantných polynómov.
+Dôkaz. „ ⇐= “: Z definície. „ =⇒ “: Ak je 𝑓 ireducibilný, tak je nekonštantný a nemá
+vlastných deliteľov. Nech 𝑔 je vlastným deliteľom polynómu 𝑓 . Potom 𝑔 nie je konštantný
+a ani nie je asociovaný s 𝑓 a platí 𝑓 = 𝑔ℎ. Polynóm ℎ je nekonštantný, lebo inak by bol 𝑔
+asociovaný s 𝑓 . Teda polynóm, ktorý má vlastných deliteľov je možné rozložiť na súčin
+nekonštantných polynómov.
+Poznámka. Veta hovorí, že ak 𝑅 je teleso, tak polynómy ireducibilné nad 𝑅 splývajú
+s ireducibilnými prvkami okruhu 𝑅[𝑥].
+Príklad 7.22. Polynóm 2 je ireducibilným prvkom okruhu Z[𝑥]. Polynóm 2𝑥 je ireducibilný
+nad Z, ale nie je ireducibilným prvkom Z[𝑥], lebo 2 je jeho vlastný deliteľ.
+Príklad 7.23. Ak je 𝑅 OI, tak každý lineárny polynóm je ireducibilný nad 𝑅.
+Príklad 7.24. Každý kvadratický polynóm so záporným diskriminantom je ireduc. nad
+R.
+Lemma 7.25. Nech 𝑅 je teleso, ℎ, 𝑓 nesúdeliteľné polynómy nad 𝑅 a 𝑔 ∈ 𝑅[𝑥] polynóm
+taký, že ℎ | 𝑓 𝑔. Potom ℎ | 𝑔.
+Dôkaz. Keďže (ℎ, 𝑓 ) = 1, tak podľa Vety 7.16 ∃𝑢, 𝑣 ∈ 𝑅[𝑥] : ℎ𝑢+𝑓 𝑣 = 1. Teda 𝑔ℎ𝑢+𝑔𝑓 𝑣 =
+𝑔. Keďže ℎ | ℎ a ℎ | 𝑓 𝑔, tak ℎ | 𝑔.
+Veta 7.26. Nech 𝑅 je teleso, 𝑓 ∈ 𝑅[𝑥] je nenulový polynóm. Potom existujú 𝑘 ∈ N0 ,
+ireducibilné normované polynómy 𝑝1 , . . . , 𝑝𝑘 ∈ 𝑅[𝑥] a prvok 𝑎 ∈ 𝑅 tak, že 𝑓 = 𝑎𝑝1 . . . 𝑝𝑘 .
+Tento rozklad je jednoznačný (až na poradie činiteľov).
+Dôkaz. Existencia: indukciou podľa 𝑛 = st(𝑓 ). Báza: 𝑛 = 0 =⇒ rozklad na prvočísla.
+IP: každý nenulový polynóm nad 𝑅 stupňa menšieho než 𝑛 ≥ 0 má rozklad nášho tvaru.
+IK: nech 𝑓 ∈ 𝑅[𝑥] je polynóm stupňa 𝑛. Ak je 𝑓 konštantný alebo ireducibilný, potom
+tvrdenie zrejme platí. Nech je teda 𝑓 nekonštantný reducibilný v 𝑅. Potom 𝑓 = 𝑔ℎ je
+súčinom dvoch nekonštantných polynómov 𝑔, ℎ ∈ 𝑅[𝑥]. Podľa Vety 7.8 je st(𝑔), st(ℎ) <
+st(𝑓 ). Podľa IP je možné rozložiť 𝑔, ℎ na súčin ireducibilných polynómov. Teda aj 𝑓 .
+Jednoznačnosť : nech 𝑓 = 𝑎𝑝1 . . . 𝑝𝑘 = 𝑏𝑞1 . . . 𝑞𝑙 sú dva rozklady polynómu 𝑓 na súčin
+ireducibilných normovaných polynómov. Postupujeme indukciou podľa 𝑘. Báza: 𝑓 = 𝑎 = 𝑏.
+IP: rozklad je jednoznačný pre 𝑘 ≥ 0. IK: 𝑝𝑘 | 𝑏𝑞1 . . . 𝑞𝑙 . Ak by sa 𝑝𝑘 nerovnalo žiadnemu
+z 𝑞1 , . . . , 𝑞𝑙 , bolo by (𝑝𝑘 , 𝑞1 ) = · · · = (𝑝𝑘 , 𝑞𝑙 ) = 1, čo je spor s Lemmou 7.25. Teda musí
+existovať 𝑖 = 1, . . . , 𝑙 také, že 𝑝𝑘 = 𝑞𝑖 . Teda 𝑎𝑝1 . . . 𝑝𝑘−1 = 𝑏𝑞1 . . . 𝑞𝑖−1 𝑞𝑖+1 𝑞𝑙 sú rozklady
+polynómu stupňa menšieho než 𝑛 na súčin ireducibilných polynómov. Z IP je tento rozklad
+jednoznačný, takže aj rozklad 𝑓 je jednoznačný.
+https://www.elea.sk
+
+48
+
+Valdemar Švábenský
+
+7.4
+
+Korene polynómov
+
+Definícia 7.27. Nech 𝑅 je okruh, 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 ∈ 𝑅[𝑥], 𝑐 ∈ 𝑅. Potom prvok
+𝑓 (𝑐) := 𝑎𝑛 𝑐𝑛 + · · · + 𝑎1 𝑐 + 𝑎0 nazývame hodnota polynómu 𝑓 v prvku 𝑐.
+Veta 7.28. Nech 𝑅 je komutatívny okruh, 𝑓, 𝑔 ∈ 𝑅[𝑥], 𝑐 ∈ 𝑅. Potom (𝑓 + 𝑔)(𝑐) =
+𝑓 (𝑐) + 𝑔(𝑐) a tiež (𝑓 · 𝑔)(𝑐) = 𝑓 (𝑐) · 𝑔(𝑐).
+Dôkaz. + zrejmé. Ak 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 , 𝑔 = 𝑏𝑚 𝑥𝑚 + · · · + 𝑏1 𝑥 + 𝑏0 , tak (𝑓 · 𝑔)(𝑐) =
+𝑛+𝑚
+𝑖
+∑︀ ∑︀
+
+𝑎𝑘 · 𝑏𝑖−𝑘 · 𝑐𝑖 a aj 𝑓 (𝑐) · 𝑔(𝑐) =
+
+𝑖=0 𝑘=0
+
+𝑛
+∑︀
+𝑖=0
+
+𝑎𝑖 𝑐 𝑖 ·
+
+𝑚
+∑︀
+𝑗=0
+
+𝑏𝑗 𝑐 𝑗 =
+
+𝑛 ∑︀
+𝑚
+∑︀
+𝑖=0 𝑗=0
+
+𝑎𝑖 𝑐 𝑖 𝑏 𝑗 𝑐 𝑗 =
+
+𝑛 ∑︀
+𝑚
+∑︀
+
+𝑎𝑖 𝑏𝑗 𝑐𝑖+𝑗 .
+
+𝑖=0 𝑗=0
+
+Definícia 7.29. Nech 𝑅 je okruh, 𝑓 ∈ 𝑅[𝑥], 𝑐 ∈ 𝑅. Potom 𝑐 je koreň polynómu 𝑓 , ak
+𝑓 (𝑐) = 0.
+Veta 7.30. Nech 𝑅 je komutatívny okruh, 𝑓 ∈ 𝑅[𝑥], 𝑐 ∈ 𝑅. Potom 𝑐 je koreňom polynómu
+𝑓 , práve keď (𝑥 − 𝑐) | 𝑓 .
+Dôkaz. „ =⇒ “: Podľa Vety 7.13 ∃𝑞, 𝑟 ∈ 𝑅[𝑥] : 𝑓 = 𝑞(𝑥 − 𝑐) + 𝑟, kde 𝑟 je konštantný.
+Potom 𝑟 = 𝑓 − 𝑞(𝑥 − 𝑐) a 𝑟 = 𝑟(𝑐) = 𝑓 (𝑐) − 𝑞(𝑐)(𝑐 − 𝑐) = 0. Teda zvyšok je nulový a
+(𝑥 − 𝑐) | 𝑓 .
+„ ⇐= “: Ak (𝑥 − 𝑐) | 𝑓 , tak 𝑓 = 𝑞(𝑥 − 𝑐) + 0. Potom 𝑓 (𝑐) = 𝑞(𝑐)(𝑐 − 𝑐) = 0.
+Definícia 7.31. Nech 𝑅 je komutatívny okruh, 𝑓 ∈ 𝑅[𝑥], 𝑐 ∈ 𝑅 koreňom 𝑓 . Potom číslo
+𝑘 ∈ N je násobnosť koreňa 𝑐, ak (𝑥 − 𝑐)𝑘 | 𝑓 a (𝑥 − 𝑐)𝑘+1 - 𝑓 .
+Korene násobnosti 1 nazývame jednoduché. (0-násobný koreň by nebol koreňom.)
+Veta 7.32. Nech 𝑅 je OI. Potom nenulový polynóm 𝑓 ∈ 𝑅[𝑥] má najviac 𝑛 = st(𝑓 )
+koreňov, ak počítame aj násobné.
+Dôkaz. Indukciou. Báza pre 𝑛 = 0 je triviálna, pretože konštantný polynóm nemá korene.
+IP: polynóm stupňa 𝑛 má najviac 𝑛 koreňov. IK: nech 𝑓 je polynóm stupňa 𝑛 + 1. Ak
+existuje 𝑐 ∈ 𝑅, ktoré je koreňom 𝑓 , potom podľa Vety 7.30 existuje 𝑞 ∈ 𝑅[𝑥] taký, že
+𝑓 = 𝑞(𝑥 − 𝑐), pričom 𝑞 je stupňa 𝑛. Podľa IP má teda 𝑞 najviac 𝑛 koreňov. Každý koreň
+polynómu 𝑞 je aj koreňom 𝑓 a každé 𝑑 =
+̸ 𝑐, ktoré je koreňom 𝑓 je aj koreňom 𝑞. Potom 𝑓
+má najviac 𝑛 + 1 koreňov.
+Definícia 7.33. Nech 𝑅 je okruh, 𝑓 ∈ 𝑅[𝑥]. Definujme zobrazenie 𝛾(𝑓 ) : 𝑅 → 𝑅 vzťahom
+𝛾(𝑓 )(𝑐) = 𝑓 (𝑐) pre každé 𝑐 ∈ 𝑅. Zobrazenie 𝛾(𝑓 ) nazývame polynomická funkcia určená
+polynómom 𝑓 .
+Lemma 7.34. Nech 𝑅 je nekonečný OI, 𝑓, 𝑔 ∈ 𝑅[𝑥]. Potom 𝛾(𝑓 ) = 𝛾(𝑔), práve keď
+𝑓 = 𝑔.
+Dôkaz. „ ⇐= “: Zrejmé. „ =⇒ “: Ak 𝛾(𝑓 ) = 𝛾(𝑔), tak ∀𝑐 ∈ 𝑅 : (𝑓 −𝑔)(𝑐) = 𝑓 (𝑐)−𝑔(𝑐) = 0.
+Preto polynóm 𝑓 − 𝑔 má ∞ mnoho koreňov v 𝑅. Z Vety 7.32: 𝑓 − 𝑔 = 0, teda 𝑓 = 𝑔.
+Poznámka. Na polynómy nad Z, Q, R, C sa môžeme dívať ako na funkcie. Neplatí to ale
+napr. nad Z2 , kde rôzne polynómy 𝑥, 𝑥2 určujú rovnakú polynomickú funkciu.
+Definícia 7.35. Nech 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 je polynóm nad okruhom 𝑅. Polynóm
+𝑓 ′ = 𝑛𝑎𝑛 𝑥𝑛−1 + · · · + 2𝑎2 𝑥 + 𝑎1 nad okruhom 𝑅 sa nazýva derivácia polynómu 𝑓 .
+Pre 𝑘 ∈ N značíme 𝑘-tu deriváciu polynómu ako 𝑓 (𝑘) .
+https://www.elea.sk
+
+49
+
+Valdemar Švábenský
+
+Veta 7.36. Nech 𝑅 je okruh, 𝑓, 𝑔 ∈ 𝑅[𝑥]. Potom:
+(𝑓 + 𝑔)′ = 𝑓 ′ + 𝑔 ′ ;
+(𝑓 𝑔)′ = 𝑓 ′ 𝑔 + 𝑓 𝑔 ′
+
+(1)
+(2)
+
+Dôkaz. (1): ((𝑓 + 𝑔)′ )𝑖 = (𝑖 + 1) · (𝑓 + 𝑔)𝑖+1 = (𝑖 + 1) · 𝑓𝑖+1 + (𝑖 + 1) · 𝑔𝑖+1 = (𝑓 ′ )𝑖 + (𝑔 ′ )𝑖 .
+(2): Najprv v špeciálnom prípade 𝑓 = 𝑎𝑥𝑛 , 𝑔 = 𝑏𝑥𝑚 . Potom (𝑓 𝑔)′ = (𝑎𝑏𝑥𝑛+𝑚 )′ =
+(𝑛 + 𝑚)𝑎𝑏𝑥𝑛+𝑚−1 a tiež 𝑓 ′ 𝑔 + 𝑓 𝑔 ′ = 𝑛𝑎𝑥𝑛−1 𝑏𝑥𝑚 + 𝑎𝑥𝑛 𝑚𝑏𝑥𝑚−1 .
+IP: (2) platí pre polynómy 𝑓, 𝑔 aj 𝑓, ℎ. Potom (𝑓 (𝑔 +ℎ))′ = (𝑓 𝑔 +𝑓 ℎ)′ = (𝑓 𝑔)′ +(𝑓 ℎ)′ =
+′
+𝑓 𝑔 + 𝑓 𝑔 ′ + 𝑓 ′ ℎ + 𝑓 ℎ′ = 𝑓 ′ (𝑔 + ℎ) + 𝑓 (𝑔 + ℎ)′ , takže (2) platí aj pre polynómy 𝑓, 𝑔 + ℎ. Keďže
+každý polynóm je súčet polynómov tvaru 𝑎𝑥𝑛 , vzťah (2) platí pre ľubovoľné polynómy.
+Veta 7.37. Nech 𝑅 je komutatívny okruh, 𝑘 ∈ N. Ak je 𝑐 ∈ 𝑅 𝑘-násobným koreňom
+polynómu 𝑓 ∈ 𝑅[𝑥], tak je 𝑐 koreňom polynómov 𝑓 ′ , . . . , 𝑓 (𝑘−1) .
+Dôkaz. Indukciou podľa 𝑘 z 7.36 (2) dostávame: ((𝑥 − 𝑐)𝑘 )′ = 𝑘(𝑥 − 𝑐)𝑘−1 . Teda ak
+𝑓 = 𝑔(𝑥 − 𝑐)𝑘 , tak 𝑓 ′ = 𝑔 ′ (𝑥 − 𝑐)𝑘 + 𝑔𝑘(𝑥 − 𝑐)𝑘−1 = (𝑥 − 𝑐)𝑘−1 (𝑘𝑔 + 𝑔 ′ (𝑥 − 𝑐)).
+Veta 7.38. Nech 𝑅 je teleso charakteristiky 0, 𝑘 ∈ N. Potom 𝑐 ∈ 𝑅 je 𝑘-násobným
+koreňom polynómu 𝑓 ∈ 𝑅[𝑥], práve keď je 𝑐 koreňom 𝑓, 𝑓 ′ , . . . , 𝑓 (𝑘−1) a nie je koreňom
+𝑓 (𝑘) .
+S každou deriváciou sa násobnosť koreňa zníži o 1.
+Dôkaz. „ =⇒ “: Nech 𝑐 je 𝑘-násobným koreňom polynómu 𝑓 . Potom 𝑓 = 𝑔(𝑥 − 𝑐)𝑘 ,
+kde 𝑥 − 𝑐 - 𝑔. Z dôkazu Vety 7.37 vieme, že 𝑓 ′ = (𝑥 − 𝑐)𝑘−1 (𝑘𝑔 + 𝑔 ′ (𝑥 − 𝑐)). Ak by
+(𝑥 − 𝑐)𝑘 | 𝑓 ′ , tak by (𝑥 − 𝑐) | 𝑘𝑔, teda by ℎ(𝑥 − 𝑐) = 𝑘𝑔 = (𝑘1)𝑔. Pritom 𝑘1 ̸= 0, lebo 𝑅
+má charakteristiku 0. Potom by 𝑔 = ℎ(𝑥 − 𝑐)(𝑘1)−1 , takže by (𝑥 − 𝑐) | 𝑔 . Tým sme
+dokázali, že 𝑐 je (𝑘 − 1)-násobným koreňom 𝑓 ′ .
+„ ⇐= “: Nech je 𝑐 koreňom 𝑓, 𝑓 ′ , . . . , 𝑓 (𝑘−1) a nie je koreňom 𝑓 (𝑘) . Nech 𝑛 je násobnosť
+koreňa 𝑐 polynómu 𝑓 . Potom (𝑥 − 𝑐) delí 𝑓, 𝑓 ′ , . . . , 𝑓 (𝑛−1) a nedelí 𝑓 (𝑛) . Položme 𝑛 = 𝑘.
+
+7.5
+
+Polynómy nad telesom komplexných čísel
+
+Definícia 7.39. Teleso 𝑅 sa nazýva algebraicky uzavrené, ak každý nekonštantný polynóm
+z 𝑅[𝑥] má koreň v 𝑅.
+Veta 7.40 (Základná veta algebry). Teleso C je algebraicky uzavrené [2, II.7.2].
+Veta 7.41. Žiadne konečné teleso nie je algebraicky uzavrené.
+Dôkaz. Nech 𝑅 = {𝑎1 , . . . , 𝑎𝑛 } je konečné teleso (|𝑅| ≥ 2). Potom polynóm (𝑥 − 𝑎1 ) · · · · ·
+(𝑥 − 𝑎𝑛 ) + 1 nemá koreň v 𝑅.
+Veta 7.42. Teleso je algebraicky uzavrené ⇐⇒ ireduc. polynómy v ňom sú práve lineárne.
+Dôsledok 7.43. Polynóm 𝑓 ∈ C[𝑥] je ireducibilný v C, práve keď je lineárny.
+Dôkaz. „ ⇐= “: Z 7.23 . „ =⇒ “: Ak je 𝑓 ireducibilný v C, tak je nekonštantný, takže
+podľa 7.40 má koreň 𝑐 ∈ C. Potom (𝑥 − 𝑐) | 𝑓 a keďže 𝑓 je ireducibilný, musí byť
+lineárny.
+https://www.elea.sk
+
+50
+
+Valdemar Švábenský
+
+Veta 7.44 (Vzťah ireducibility a koreňov). Nad telesom 𝑅 pre polynóm 𝑓 ∈ 𝑅[𝑥] stupňa
+𝑛 platí:
+• Pre 𝑛 = 1: 𝑓 je ireducibilný =⇒ 𝑓 má koreň.
+• Pre 𝑛 = 2, 3: 𝑓 je ireducibilný ⇐⇒ 𝑓 nemá koreň.
+• Pre 𝑛 ≥ 4: 𝑓 je ireducibilný =⇒ 𝑓 nemá koreň.
+Veta 7.45 (Jednoznačnosť vyjadrenia). Nech 𝑅 je algebraicky uzavreté teleso charakteristiky 0, 𝑎 ∈ 𝑅* je jeho nenulový prvok, 𝑓 ∈ 𝑅[𝑥] je nenulový polynóm, 𝑐1 , . . . , 𝑐𝑝 sú jeho
+jednoduché korene, 𝑑1 , . . . , 𝑑𝑞 sú jeho násobné korene násobností 𝑘1 , . . . , 𝑘𝑞 ≥ 2, pričom
+všetky korene sú po dvoch rôzne. Potom každý 𝑓 je možné vyjadriť ako
+𝑓 = 𝑎(𝑥 − 𝑐1 ) . . . (𝑥 − 𝑐𝑝 )(𝑥 − 𝑑1 )𝑘1 . . . (𝑥 − 𝑑𝑞 )𝑘𝑞 ,
+kde st(𝑓 ) = 𝑝 + 𝑘1 + · · · + 𝑘𝑞 = 𝑛.
+Dôsledok 7.46. Polynóm 𝑓 /NSD(𝑓, 𝑓 ′ ) má rovnaké korene ako 𝑓 , všetky jednoduché.
+Dôkaz. 𝑓 ′ = 𝑎(𝑥 − 𝑑1 )𝑘1 −1 . . . (𝑥 − 𝑑𝑞 )𝑘𝑞 −1 (𝑥 − 𝑙1 )𝑒1 . . . (𝑥 − 𝑙𝑟 )𝑒𝑟 , kde 𝑒1 , . . . , 𝑒𝑟 ≥ 1. Ďalej
+NSD(𝑓, 𝑓 ′ ) = 𝑎(𝑥 − 𝑑1 )𝑘1 −1 . . . (𝑥 − 𝑑𝑞 )𝑘𝑞 −1 .
+
+7.6
+
+Polynómy nad telesom reálnych čísel
+
+Definícia 7.47. Nech 𝑐 = 𝑐1 + 𝑖𝑐2 je komplexné číslo, 𝑐1 , 𝑐2 ∈ R. Potom číslo komplexne
+združené k 𝑐 je 𝑐 = 𝑐1 − 𝑖𝑐2 .
+Lemma 7.48. Nech 𝑐, 𝑒 ∈ C. Potom 𝑐 + 𝑒 = 𝑐 + 𝑒 a tiež 𝑐 · 𝑒 = 𝑐 · 𝑒.
+Veta 7.49. Ak je 𝑐 ∈ C koreňom polynómu 𝑓 ∈ R[𝑥], tak aj 𝑐 je koreňom tohto polynómu.
+Dôkaz. Nech 𝑓 (𝑥) =
+𝑛
+∑︀
+
+𝑛
+∑︀
+
+𝑎𝑖 𝑥𝑖 a 𝑓 (𝑐) = 0. Potom 𝑓 (𝑐) =
+
+𝑖=0
+
+𝑛
+∑︀
+𝑖=0
+
+𝑎𝑖 𝑐 𝑖 =
+
+𝑛
+∑︀
+
+𝑎𝑖 𝑐 𝑖 =
+
+𝑖=0
+
+𝑛
+∑︀
+
+𝑎𝑖 𝑐 𝑖 =
+
+𝑖=0
+
+𝑎𝑖 𝑐𝑖 = 0 = 0.
+
+𝑖=0
+
+Veta 7.50. Ireducibilné polynómy v R[𝑥] sú práve lineárne polynómy a kvadratické polynómy so záporným diskriminantom.
+Dôkaz. „ ⇐= “: Každý lineárny polynóm je zrejme ireducibilný. Takisto kvadratický so
+záporným diskriminantom, lebo nemá reálne korene.
+„ =⇒ “: Ak je 𝑓 ireducibilný v R, tak podľa Základnej vety algebry má koreň 𝑐 ∈ C.
+Ak 𝑐 ∈ R, tak (𝑥 − 𝑐) | 𝑓 , takže 𝑓 musí byť lineárny. Ak 𝑐 ̸∈ R, tak z Vety 7.49 plynie, že
+polynóm 𝑔 = 𝑎(𝑥 − 𝑐)(𝑥 − 𝑐) ∈ R[𝑥], kde 𝑎 ∈ R* delí 𝑓 , t. j. že 𝑓 = 𝑎(𝑥 − 𝑐)(𝑥 − 𝑐)𝑔 je
+kvadratický polynóm so záporným diskriminantom. To, že skutočne 𝑔 ∈ R[𝑥] dokazuje
+vzťah: 𝑓 = ℎ𝑔, 𝑓 = 𝑓 = ℎ𝑔 = ℎ𝑔 = ℎ𝑔, teda 𝑔 = 𝑔.
+Veta 7.51 (Hornerova schéma). Nech 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 ∈ R[𝑥], kde 𝑛 ≥ 2 a 𝑎𝑛 ̸= 0.
+Nech 𝑐 je kandidát na koreň.
+Nech 𝑝 je predošlé políčko tabuľky. Potom 𝑎 = 𝑏𝑞 + 𝑟, resp.
+𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 = (𝑏𝑛−1 𝑥𝑛−1 + · · · + 𝑏1 𝑥 + 𝑏0 )(𝑥 − 𝑐) + 𝑓 (𝑐𝑝 + 𝑎0 ),
+kde 𝑏𝑛−1 = 𝑎𝑛 , 𝑏𝑛−2 = 𝑐𝑏𝑛−1 + 𝑎𝑛−1 , . . . , 𝑏0 = 𝑐𝑏1 + 𝑎1 , 𝑓 (𝑐) = 𝑐𝑏0 + 𝑎0 .
+Poznámka. Pri hľadaní koreňov Hornerovou metódou potrebujeme minimum operácií.
+https://www.elea.sk
+
+51
+
+Valdemar Švábenský
+
+𝑎𝑛
+𝑐 𝑎𝑛
+
+𝑎𝑛−1
+
+𝑎𝑛−2
+
+...
+
+𝑎𝑖
+
+...
+
+𝑐𝑎𝑛 + 𝑎𝑛−1
+
+𝑐(𝑐𝑎𝑛 + 𝑎𝑛−1 ) + 𝑎𝑛−2
+
+...
+
+𝑐𝑝 + 𝑎𝑖
+
+...
+
+7.7
+
+Polynómy nad okruhmi racionálnych a celých čísel
+
+7.7.1
+
+Primitívne polynómy, obsah
+
+Definícia 7.52. Polynóm 𝑓 ∈ Z[𝑥] je primitívny, ak NSD jeho koeficientov je 1.
+Lemma 7.53 (Gaussova). Súčin dvoch primitívnych polynómov je primitívny polynóm.
+Dôkaz. Nech 𝑔 = 𝑏𝑚 𝑥𝑚 + · · · + 𝑏0 , ℎ = 𝑐𝑛 𝑥𝑛 + · · · + 𝑐0 sú dva primitívne polynómy,
+𝑏𝑚 , 𝑐𝑛 ̸= 0, 𝑚, 𝑛 ∈ N. Pre spor predpokladajme, že 𝑔ℎ nie je primitívny. Potom existuje
+prvočíslo 𝑝, ktoré delí všetky koeficienty polynómu 𝑔ℎ. Avšak, 𝑝 nemôže deliť všetky
+koeficienty polynómov 𝑔, ℎ, lebo 𝑔, ℎ sú primitívne.
+Nech teda 𝑖, 𝑗 sú čo najmenšie celé čísla také, že koeficienty 𝑏𝑖 , 𝑐𝑗 nie sú deliteľné 𝑝.
+Potom koeficient polynómu 𝑔ℎ na indexe 𝑖 + 𝑗, teda (𝑔ℎ)𝑖+𝑗 je tvaru
+𝑏0 𝑐𝑖+𝑗 + 𝑏1 𝑐𝑖+𝑗−1 + · · · + 𝑏𝑖−1 𝑐𝑗+1 + 𝑏𝑖 𝑐𝑗 + 𝑏𝑖+1 𝑐𝑗−1 + · · · + 𝑏𝑖+𝑗−1 𝑐1 + 𝑏𝑖+𝑗 𝑐0 .
+Vieme, že 𝑝 má deliť 𝑏0 , . . . , 𝑏𝑖−1 ale nie 𝑏𝑖 ; podobne 𝑝 má deliť 𝑐0 , . . . , 𝑐𝑗−1 ale nie 𝑐𝑗 .
+Potom keďže 𝑝 - 𝑏𝑖 a zároveň 𝑝 - 𝑐𝑗 , tak 𝑝 - 𝑏𝑖 𝑐𝑗 .
+Definícia 7.54. Nech 𝑓 ∈ Z[𝑥] je polynóm. Potom jeho obsah (angl. content) 𝑐(𝑓 ) ∈ Z
+definujeme ako NSD jeho koeficientov.
+)
+Ak 𝑓 ∈ Q[𝑥], potom ∃𝑛 ∈ N : 𝑛𝑓 ∈ Z[𝑥]. Potom 𝑐(𝑓 ) := 𝑐(𝑛𝑓
+∈ Q.
+𝑛
+Poznámka. Primitívny polynóm je teda polynóm, ktorého obsah je 1.
+Veta 7.55 (Jednoznačný rozklad na súčin obsahu a primitívneho polynómu). Nech 𝑓 ∈
+Q[𝑥], 𝑓 ̸= 0. Potom existujú jednoznačné 𝑐(𝑓 ) ∈ Q, 𝑝(𝑓 ) primitívny tak, že 𝑓 = 𝑐(𝑓 )𝑝(𝑓 ).
+Daný 𝑝(𝑓 ) obvykle volíme s kladným vedúcim koeficientom, inak násobíme (−1).
+Dôkaz. Existencia: Z Definície 7.54 obsahu. (Polynóm vynásobím NSN menovateľov
+zlomkov a vyjmem NSD nových koeficientov.)
+Jednoznačnosť : Musíme ukázať, že ak primitívny polynóm 𝑝(𝑓 ) vynásobíme nejakým
+𝑝
+, kde 𝑝, 𝑞 ∈ Z sú nesúdeliteľné, tak dostaneme primitívny polynóm jedine vtedy, ak
+𝑞
+𝑝
+= ±1. Nech teda 𝑝(𝑓 ) = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎0 . Potom 𝑞 delí všetky jeho koeficienty. Keďže
+𝑞
+𝑝
+𝑝(𝑓 ) je primitívny, tak 𝑞 = ±1. Potom ±1
+· prim. = prim., teda 𝑝 = ±1.
+Príklad 7.56. −10𝑥2 + 5𝑥 + 5 = (−5) · (2𝑥2 − 𝑥 − 1).
+Príklad 7.57. 13 𝑥5 + 72 𝑥2 + 2𝑥 + 1 = 61 (2𝑥5 + 21𝑥2 + 12𝑥 + 6).
+7.7.2
+
+Ireducibilita
+
+Tvrdenie 7.58. Všetky lineárne polynómy v Z[𝑥] sú ireducibilné nad Z.
+Tvrdenie 7.59. Všetky primitívne polynómy v Z[𝑥] sú ireducibilné nad Z.
+https://www.elea.sk
+
+52
+
+Valdemar Švábenský
+
+Veta 7.60 (Gauss). 𝑓 ∈ Z[𝑥] je ireducibilný nad Z, práve keď je ireducibilný nad Q.
+Dôkaz. „ ⇐= “: Zrejmé. „ =⇒ “: 𝑓 je ireducibilný nad Z. Dá sa zapísať jedine v tvare
+𝑓 = 𝑐(𝑓 )𝑝(𝑓 ), kde 𝑐(𝑓 ) ∈ Z. Predpokladajme pre spor, že 𝑓 = 𝑔ℎ, kde 𝑔, ℎ sú nekonštantné
+nad Q. Teda 𝑓 = 𝑐(𝑔)𝑝(𝑔)𝑐(ℎ)𝑝(ℎ) = 𝑐(𝑔)𝑐(ℎ)𝑝(𝑔)𝑝(ℎ), kde 𝑐(𝑔)𝑐(ℎ) ∈ Z a 𝑝(𝑔)𝑝(ℎ) je
+primitívny polynóm.
+Veta 7.61 (Eisensteinovo kritérium). Nech 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎0 ∈ Z[𝑥] je polynóm stupňa
+𝑛 > 0. Ak existuje prvočíslo 𝑝 také, že 𝑝 | 𝑎0 , . . . , 𝑎𝑛−1 , 𝑝 - 𝑎𝑛 a 𝑝2 - 𝑎0 , tak 𝑓 je ireducibilný
+nad Z [2, II.8.8].
+Tvrdenie 7.62. Nech 𝑓 ∈ Z[𝑥]. Potom 𝑓 (𝑥) je ireducibilný, práve keď 𝑓 (𝑥 + 𝑎) je
+ireducibilný. (Posun o konštantu 𝑎 ∈ Z.)
+Tvrdenie 7.63. ∀𝑛 ∈ N : existuje polynóm 𝑓 ∈ Z𝑝 [𝑥] stupňa 𝑛 ireducibilný nad Z.
+7.7.3
+
+Hľadanie koreňov
+
+Veta 7.64 (Rational root theorem). Nech 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 ∈ Z[𝑥], kde 𝑎𝑛 ̸= 0.
+Nech 𝑟𝑠 ∈ Q je taký koreň polynómu 𝑓 , že (𝑟, 𝑠) = 1. Potom 𝑟 | 𝑎0 a 𝑠 | 𝑎𝑛 .
+(︁ )︁
+
+(︁ )︁𝑛
+
+Dôkaz. Keďže 𝑟𝑠 je koreň, 𝑓 𝑟𝑠 = 𝑎𝑛 𝑟𝑠 + · · · + 𝑎0 = 0. Vynásobením 𝑠𝑛 dostaneme:
+𝑎𝑛 𝑟𝑛 + 𝑎𝑛−1 𝑟𝑛−1 𝑠 + · · · + 𝑎0 𝑠𝑛 = 0. Modulo 𝑟 máme: 𝑎0 𝑠𝑛 ≡ 0 (mod 𝑟). Keďže (𝑟, 𝑠) = 1,
+dostávame 𝑟 | 𝑎0 . Analogicky modulo 𝑠 dostávame 𝑠 | 𝑎𝑛 .
+Dôsledok 7.65. Nech 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 ∈ Z[𝑥], kde 𝑎𝑛 ̸= 0.
+• Ak je 𝑟 ∈ Z koreňom polynómu 𝑓 , tak 𝑟 | 𝑎0 . (Dôkaz: 𝑠 = 1.)
+• Ak je 𝑓 normovaný, tak každý jeho racionálny koreň je celé číslo. (Dôkaz: 1 | 𝑎𝑛 = 1.)
+Veta 7.66. Nech 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎1 𝑥 + 𝑎0 ∈ Z[𝑥], kde 𝑎𝑛 ̸= 0. Nech 𝑟𝑠 ∈ Q je taký koreň
+polynómu 𝑓 , že (𝑟, 𝑠) = 1. Potom ∀𝑧 ∈ Z : (𝑟 − 𝑠𝑧) | 𝑓 (𝑧).
+Dôkaz. Polynóm 𝑓 , ktorý má koreň 𝑟𝑠 sa dá zapísať v tvare 𝑓 = (𝑥 − 𝑟𝑠 )𝑔. Vynásobením
+𝑠 dostaneme: 𝑠𝑓 = (𝑠𝑥 − 𝑟)𝑔. Podľa Vety 7.55: 𝑠𝑐(𝑓 )𝑝(𝑓 ) = 𝑐(𝑔)(𝑠𝑥 − 𝑟)𝑝(𝑔). Potom
+𝑠𝑐(𝑓 ) ∈ Z, 𝑝(𝑓 ) je primitívny a tiež (𝑠𝑥 − 𝑟)𝑝(𝑔) je primitívny, lebo je súčinom dvoch
+primitívnych, takže 𝑐(𝑔) ∈ Z. Teda (𝑠𝑥 − 𝑟) ∈ Z[𝑥], preto môžeme dosadiť 𝑧 za 𝑥 do
+vzťahu 𝑠𝑓 = (𝑠𝑥 − 𝑟)𝑔 vyššie. Dostaneme 𝑔𝑓 (𝑧) = (𝑠𝑧 − 𝑟)𝑔(𝑟), kde (𝑠𝑧 − 𝑟) delí 𝑓 (𝑧).
+
+7.8
+
+Cvičenia
+
+1. Určte všetky korene polynómu 𝑥9 + 2𝑥8 + 𝑥7 + 2𝑥6 + 5𝑥5 − 3𝑥3 + 2𝑥2 + 3𝑥 + 1 nad
+(Z7 , +, ·) (skrátene nepíšeme napr. [2]7 𝑥8 ).
+2. Určte všetky korene polynómu 𝑥3 − 2𝑥2 + 4𝑥 + 1 nad (Z7 , +, ·).
+3. Nájdite všetky ireducibilné polynómy nad Z2 stupňa najviac 4.
+4. Určte všetky korene polynómu 12𝑥8 −16𝑥7 −25𝑥6 +75𝑥5 −72𝑥4 −129𝑥3 +75𝑥2 +40𝑥−20
+nad (Z, +, ·) a nájdite jeho rozklad nad Z, Q, R, C.
+https://www.elea.sk
+
+53
+
+Valdemar Švábenský
+
+5. Nájdite rozklad polynómu 𝑥6 + 6𝑥5 + 15𝑥4 + 20𝑥3 + 12𝑥2 − 4 nad Z, Q, R, C.
+6. Nájdite NSD polynómov 𝑓 = 𝑥6 + 𝑥5 + 2𝑥4 − 𝑥3 − 𝑥 + 2, 𝑔 = 2𝑥4 + 𝑥3 + 4𝑥2 − 𝑥 + 2
+nad Z5 a určite koeficienty v Bezoutovej rovnosti.
+7. Nájdite NSD 𝑓 = 𝑥4 + 1, 𝑔 = 𝑥3 + 1 nad R a určite koeficienty v Bezoutovej rovnosti.
+8. Dokážte, že polynóm 𝑓 = 3𝑥4 − 12𝑥3 + 16𝑥2 − 4𝑥 + 3 je ireducibilný nad Q.
+
+7.9
+
+Návody k riešeniu cvičení
+
+1. [1]7 , [4]7 , [5]7 , [5]7 , [5]7 , [6]7 .
+2. Rozklad: (𝑥 + 3)(𝑥2 + 2𝑥 + 5), koreň [4]7 .
+3. Je ich 8: 𝑥, 𝑥 + 1, 𝑥2 + 𝑥 + 1, 𝑥3 + 𝑥 + 1, 𝑥3 + 𝑥2 + 1, 𝑥4 + 𝑥3 + 𝑥2 + 𝑥 + 1, 𝑥4 +
+𝑥3 + 1, 𝑥4 + 𝑥 + 1.
+4. −1, 2, 21 , 12 , − 23 .
+• Nad Z: (𝑥 + 1)(𝑥 − 2)(2𝑥 − 1)(2𝑥 − 1)(3𝑥 + 2)(𝑥3 + 5)
+• Nad Q: 12(𝑥 + 1)(𝑥 − 2)(𝑥 − 21 )(𝑥 − 12 )(𝑥 + 23 )(𝑥3 + 5)
+√
+√
+√
+• Nad R: 12(𝑥 + 1)(𝑥 − 2)(𝑥 − 12 )(𝑥 − 12 )(𝑥 + 23 )(𝑥 + 3 5)(𝑥2 − 𝑥 3 5 + 3 25)
+√
+√
+√
+• Nad C: 12(𝑥 + 1)(𝑥 − 2)(𝑥 − 12 )(𝑥 − 12 )(𝑥 + 23 )(𝑥 + 3 5)(𝑥 ± ( 12 + 23 𝑖) 3 5)
+5. Odstránime racionálne korene: nemá. Odstránime násobné korene: NSD(𝑓, 𝑓 ′ ) =
+2
+𝑥2 + 2𝑥 + 2 =
+√ 𝑔, 𝑥1,2 = −1 ± 𝑖 sú dvojnásobné v 𝑓 . Potom 𝑓 /(𝑔 · 𝑔) = 𝑥 + 2𝑥 − 1,
+𝑥5,6 = −1 ± 2.
+√
+√
+• Nad C: (𝑥 + 1 + 𝑖)2 (𝑥 + 1 − 𝑖)2 (𝑥 + 1 + 2)(𝑥 + 1 − 2)
+√
+√
+• Nad R: (𝑥2 + 2𝑥 + 2)2 (𝑥 + 1 + 2)(𝑥 + 1 − 2)
+• Nad Q, Z: (𝑥2 + 2𝑥 + 2)2 (𝑥2 + 2𝑥 − 1)
+6. (𝑓, 𝑔) = 𝑥2 + 𝑥 − 3 = 𝑓 (−𝑥 − 1) + 𝑔(3𝑥3 + 2𝑥2 + 2𝑥 − 3).
+2
+
+3
+
+2
+
+7. (𝑓, 𝑔) = 1 = 𝑓 𝑥 +𝑥+1
++ 𝑔 𝑥 +𝑥−2+𝑥−1 .
+2
+8. Taylorov rozvoj v 1:
+3 −12 16 −4 3
+1 3
+
+−9
+
+7
+
+3
+
+1 3
+
+−6
+
+1
+
+4
+
+1 3
+
+−3
+
+−2
+
+1 3
+
+0
+
+6
+
+1 3
+Potom 𝑓 = 3(𝑥 − 1)4 − 2(𝑥 − 1)2 + 4(𝑥 − 1) + 6 spĺňa Eisensteina pre 𝑝 = 2.
+https://www.elea.sk
+
+54
+
+Valdemar Švábenský
+
+Kapitola 8: Okruhy ďalej
+8.1
+
+Ideály
+
+Definícia 8.1. Nech 𝑅 je okruh. Neprázdna podmnožina 𝐼 ⊆ 𝑅 sa nazýva ideál v okruhu
+𝑅, ak platí:
+1. ak 𝑎, 𝑏 ∈ 𝐼, tak 𝑎 + 𝑏 ∈ 𝐼;
+2. ak 𝑎 ∈ 𝐼, 𝑟 ∈ 𝑅 tak 𝑎 · 𝑟, 𝑟 · 𝑎 ∈ 𝐼.
+Poznámka. Množiny {0}, 𝑅 sú tzv. nevlastné ideály v ľubovoľnom okruhu 𝑅. Iné ideály
+ako tieto dva nazývame vlastné.
+Lemma 8.2. Nech 𝐼 je ideál okruhu 𝑅. Potom 𝐼 je podgrupa komutatívnej grupy (𝑅, +).
+Dôkaz. Ideál je z definície uzavrený na sčítanie. Ďalej 𝐼 ̸= ∅, takže existuje 𝑎 ∈ 𝐼. Potom
+0 = 𝑎 · 0 ∈ 𝐼. Tiež −𝑎 = 𝑎 · (−1) ∈ 𝐼.
+Lemma 8.3. Nech 𝐼 je ideál okruhu 𝑅. Potom 1 ∈ 𝐼, práve keď 𝐼 = 𝑅.
+Dôkaz. Ak 1 ∈ 𝐼, tak 𝑎 = 𝑎 · 1 ∈ 𝐼 pre ľubovoľné 𝑎 ∈ 𝑅.
+Veta 8.4. Nech 𝑅 je netriviálny komutatívny okruh. Potom 𝑅 je teleso, práve keď 𝑅 má
+len nevlastné ideály.
+Dôkaz. „ =⇒ “: Nech 𝐼 je ideál telesa 𝑅. Ak 𝐼 ̸= {0}, tak existuje 0 ̸= 𝑎 ∈ 𝐼, takže
+1 = 𝑎 · 𝑎−1 ∈ 𝐼. Podľa Lemmy 8.3 𝐼 = 𝑅.
+„ ⇐= “: Nech 𝑅 je je netriviálny komutatívny okruh, ktorý nemá vlastné ideály. Nech
+0 ̸= 𝑎 ∈ 𝑅. Potom tento prvok generuje celý ideál, t. j. (𝑎) = 𝑅. Z Lemmy 8.3 plynie, že
+(𝑎) = 𝑅, práve keď 1 ∈ (𝑎), t. j. práve keď 𝑎 | 1. To ale znamená, že 𝑎 je jednotkou okruhu
+𝑅. Teda 𝑅 je teleso.
+
+8.2
+
+Faktorové okruhy
+
+Definícia 8.5. Nech 𝐼 je ideál okruhu 𝑅.
+Pripomeňme z 4.46: 𝐺/𝐻 = {𝑎𝐻 | 𝑎 ∈ 𝐺}, kde 𝑎𝐻 = {𝑎ℎ | ℎ ∈ 𝐻}.
+Definujme množinu 𝑅/𝐼 = {𝑎 + 𝐼 | 𝑎 ∈ 𝑅}, kde 𝑎 + 𝐼 = {𝑎 + 𝑖 | 𝑖 ∈ 𝐼}.
+Veta 8.6. Pripomeňme z 4.58: (𝐺/𝐻, ·) je komutatívna grupa (tzv. faktorová).
+Na základe Lemmy 8.2 vieme zostrojiť komutatívnu faktorovú grupu (𝑅/𝐼, +).
+Veta 8.7. Nech 𝐼 je ideálom okruhu (𝑅, +, ·) a prvky 𝑎 + 𝐼, 𝑏 + 𝐼 patria do 𝑅/𝐼. Potom
+predpis (𝑎 + 𝐼) · (𝑏 + 𝐼) = (𝑎𝑏) + 𝐼 korektne definuje operáciu na množine 𝑅/𝐼 a (𝑅/𝐼, +, ·)
+bude okruhom.
+Dôkaz. Korektnosť : Nech 𝑎 + 𝐼 = 𝑐 + 𝐼, 𝑏 + 𝐼 = 𝑑 + 𝐼. Chceme (𝑎𝑏) + 𝐼 = (𝑐𝑑) + 𝐼. Ak
+𝑎 + 𝐼 = 𝑐 + 𝐼, tak 𝑎 − 𝑐 ∈ 𝐼 a tiež ak 𝑏 + 𝐼 = 𝑑 + 𝐼, tak 𝑏 − 𝑑 ∈ 𝐼. Chceme 𝑎𝑏 − 𝑐𝑑 ∈ 𝐼.
+Vezmime 𝑎𝑏 − 𝑐𝑑 = 𝑎𝑏 + 𝑎𝑑 − 𝑎𝑑 − 𝑐𝑑 = 𝑎(𝑏 − 𝑑) + 𝑑(𝑎 − 𝑐) ∈ 𝐼. Potom 𝑎(𝑏 − 𝑑) ∈ 𝐼,
+𝑑(𝑎 − 𝑐) ∈ 𝐼.
+Asociativita: ((𝑎 + 𝐼) · (𝑏 + 𝐼)) · (𝑐 + 𝐼) = ((𝑎𝑏) + 𝐼) · (𝑐 + 𝐼) = ((𝑎𝑏)𝑐) + 𝐼 = 𝑎𝑏𝑐 + 𝐼 a
+tiež (𝑎 + 𝐼) · ((𝑏 + 𝐼) · (𝑐 + 𝐼)) = . . .
+Neutrálny prvok: 1 + 𝐼, lebo 𝐼 · (𝑎 + 𝐼) = (1 + 𝐼) · (𝑎 + 𝐼) = 𝑎 + 𝐼 = (𝑎 + 𝐼) · 𝐼.
+Distributivita: . . .
+https://www.elea.sk
+
+55
+
+Valdemar Švábenský
+
+Definícia 8.8. (𝑅/𝐼, +, ·) je faktorový okruh okruhu (𝑅, +, ·) podľa jeho ideálu 𝐼.
+Veta 8.9. Nech 𝐼 je ideálom okruhu (𝑅, +, ·). Potom projekcia 𝑝 : 𝑅 → 𝑅/𝐼 definovaná
+vzťahom 𝑎 ↦→ 𝑎 + 𝐼 je surjektívny homomorfizmus okruhov. (Analógia 4.59.)
+Dôkaz. Z dôkazu Vety 4.59 plynie, že 𝑝 je surjektívne zobrazenie, ktoré zachováva operáciu
++. Ďalej ∀𝑎, 𝑏 ∈ 𝑅: 𝑝(𝑎𝑏) = (𝑎𝑏) + 𝐼 a tiež 𝑝(𝑎) · 𝑝(𝑏) = (𝑎 + 𝐼) · (𝑏 + 𝐼) = (𝑎𝑏) + 𝐼, takže 𝑝
+zachováva aj operáciu ·. Nakoniec 𝑝(1) = 1 + 𝐼 je jednotkovým prvkom okruhu 𝑅/𝐼.
+Definícia 8.10. Nech 𝑅 je teleso a 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎0 ∈ 𝑅[𝑥] ireducibilný polynóm
+stupňa 𝑛. Ideál (𝑓 ) = {𝑔𝑓 | 𝑔 ∈ 𝑅[𝑥]} je tzv. hlavný ideál generovaný polynómom 𝑓 .
+Veta 8.11. V štruktúre 𝑅[𝑥]/(𝑓 ) = {𝑔 + (𝑓 ) | 𝑔 ∈ 𝑅[𝑥]} platí: 𝑔 + (𝑓 ) = ℎ + (𝑓 ), práve
+keď 𝑔 − ℎ ∈ (𝑓 ).
+Dôkaz. 𝑅[𝑥]/(𝑓 ) = {𝑔 + (𝑓 ) | 𝑔 ∈ 𝑅[𝑥]} = {𝑔 + (𝑓 ) | st 𝑔 < st 𝑓 }. Teda 𝑔 − ℎ ∈ (𝑓 ), práve
+keď 𝑓 | (𝑔 − ℎ), t. j. keď 𝑔, ℎ dávajú po delení 𝑓 rovnaký zvyšok.
+Dôsledok 8.12. V štruktúre 𝑅[𝑥]/(𝑓 ) = {𝑔 + (𝑓 ) | 𝑔 ∈ 𝑅[𝑥]} sú rôzne zapísané prvky
+rôzne. (Vo všeobecnom 𝑅/𝐼 = {𝑎 + 𝐼 | 𝑎 ∈ 𝑅} môžu rôzne 𝑎 dať rovnaké 𝑎 + 𝐼.)
+Veta 8.13. Nech množina 𝑅[𝑥]/(𝑓 ) je v „prirodzenej“ bijekcii 𝛼 s R𝑛 , kde 𝑎0 + 𝑎1 𝑥 +
+· · · + 𝑎𝑛−1 𝑥𝑛−1 ↦→ (𝑎0 , 𝑎1 , . . . , 𝑎𝑛−1 ), kde 𝑛 = st(𝑓 ). Potom (𝑅[𝑥]/(𝑓 ), +, ·) ∼
+= (R𝑛 , ⊕, ⊙).
+Dôkaz. Aby sa bijekcia stala izomorfizmom, musíme ukázať, že operácie ⊕, ⊙ sú v skutočnosti rovnaké ako +, · v okruhu 𝑅[𝑥]/(𝑓 ).
+Vezmime iný polynóm 𝑏0 + 𝑏1 𝑥 + · · · + 𝑏𝑛−1 𝑥𝑛−1 . Potom operácia ⊕ bude sčítanie po
+zložkách, t. j. (𝑎0 , 𝑎1 , . . . , 𝑎𝑛−1 ) ⊕ (𝑏0 , 𝑏1 , . . . , 𝑏𝑛−1 ) = (𝑎0 + 𝑏0 , 𝑎1 + 𝑏1 , . . . , 𝑎𝑛−1 + 𝑏𝑛−1 ).
+Operácia ⊙ bude definovaná: (𝑎0 , 𝑎1 , . . . , 𝑎𝑛−1 ) ⊙ (𝑏0 , 𝑏1 , . . . , 𝑏𝑛−1 ) = (𝑐0 , 𝑐1 , . . . , 𝑐𝑛−1 ),
+kde 𝑐0 + 𝑐1 𝑥 + · · · + 𝑐𝑛−1 𝑥𝑛−1 je zvyšok po delení polynómu (𝑎0 + 𝑎1 𝑥 + · · · + 𝑎𝑛−1 𝑥𝑛−1 ) ·
+(𝑏0 + 𝑏1 𝑥 + · · · + 𝑏𝑛−1 𝑥𝑛−1 ) polynómom 𝑥1 . (Nemôžeme len tak násobiť, lebo by sme skočili
+do príliš vysokých stupňov.)
+Dôsledok 8.14. Prvky telesa 𝑅[𝑥]/(𝑓 ) a polynómy 𝑟 ∈ 𝑅[𝑥] stupňa menšieho než 𝑛 si
+vzájomne jednoznačne odpovedajú. Potom prvky telesa 𝑇 môžeme stotožniť s odpovedajúcimi
+polynómami, t. j. položiť 𝑅[𝑥]/(𝑓 ) = {𝑟 ∈ 𝑅[𝑥] | st(𝑟) < 𝑛}.
+Príklad 8.15. Teleso (R[𝑥]/(𝑥2 +1), +, ·) je zložené z polynómov tvaru 𝑎+𝑏𝑥, kde 𝑎, 𝑏 ∈ R.
+Sčítanie je po zložkách: (𝑎 + 𝑏𝑥) + (𝑐 + 𝑑𝑥) = (𝑎 + 𝑐) + (𝑏 + 𝑑)𝑥 a násobenie je definované
+takto: (𝑎 + 𝑏𝑥) · (𝑐 + 𝑑𝑥) = 𝑎𝑐 + 𝑎𝑑𝑥 + 𝑏𝑐𝑥 + 𝑏𝑑𝑥2 = 𝑏𝑑(𝑥2 + 1) + 𝑎𝑐 − 𝑏𝑑 + (𝑎𝑑 + 𝑏𝑐)𝑥.
+Ak polynóm 𝑎 + 𝑏𝑥 považujeme za komplexné číslo 𝑎 + 𝑏𝑖, potom dostávame elegantnú
+definíciu (C, +, ·) := (R[𝑥]/(𝑥2 + 1), +, ·).
+Bijekcia 𝛼 : (R[𝑥]/(𝑥2 + 1), +, ·) ∼
+= (R2 , +, ·) je tvaru 𝑎 + 𝑏𝑥 ↦→ (𝑎, 𝑏).
+Veta 8.16. Zobrazenie 𝜄 : 𝑎 ↦→ 𝑎 + (𝑓 ) je prostý morfizmus (𝑅, +, ·) do (𝑅[𝑥]/(𝑓 ), +, ·).
+Dôkaz. 𝜄(𝑎 + 𝑏) = (𝑎 + 𝑏) + (𝑓 ) = 𝑎 + (𝑓 ) + 𝑏 + (𝑓 ) = 𝜄(𝑎) + 𝜄(𝑏) a tiež 𝜄(1) = 1 + (𝑓 ).
+Dôsledok 8.17. Nech 𝑛 = st(𝑓 ) v (𝑅[𝑥]/(𝑓 ), +, ·). Polynóm 𝑎0 + 𝑎1 𝑥 + · · · + 𝑎𝑛−1 𝑥𝑛−1 ∈
+𝑅[𝑥] je morfizmom 𝜄 zobrazený na polynóm (𝑎0 + (𝑓 )) + (𝑎1 + (𝑓 ))𝑦 + · · · + (𝑎𝑛−1 + (𝑓 ))𝑦 𝑛−1 ,
+kde 𝑦 = ((𝑓 ), 1 + (𝑓 ), (𝑓 ), . . . ). Dosadením 𝑥 + (𝑓 ) do 𝑦 dostaneme nulu, teda (𝑓 ).
+https://www.elea.sk
+
+56
+
+Valdemar Švábenský
+
+Veta 8.18. Nech (𝑅, +, ·) je teleso, 𝑓, 𝑔 ∈ 𝑅[𝑥]. Potom 𝑔 + (𝑓 ) ̸= 0 = (𝑓 ) má inverziu,
+práve keď (𝑔, 𝑓 ) = 1.
+Dôkaz. „ =⇒ “: Ak 𝑔 + (𝑓 ) má inverziu, tak ∃ℎ ∈ 𝑅[𝑥] : (𝑔 + (𝑓 )) · (ℎ + (𝑓 )) = 1 + (𝑓 ),
+teda 𝑔ℎ + (𝑓 ) = 1 + (𝑓 ), teda 𝑓 | (𝑔ℎ − 1), teda 𝑓 𝑘 = 𝑔ℎ − 1. Keby (𝑔, 𝑓 ) = 𝑒 > 1, tak by
+𝑒 | 𝑓, 𝑔, teda 𝑒 | 1 . Teda (𝑔, 𝑓 ) = 1.
+„ ⇐= “: Podľa Bezouta ∃𝑢, 𝑣 ∈ 𝑅[𝑥] : 𝑢𝑔 + 𝑣𝑓 = 1. Potom (𝑢 + (𝑓 )) · (𝑔 + (𝑓 )) =
+1 − 𝑣𝑓 + (𝑓 ), teda 𝑢𝑔 + (𝑓 ) = (𝑓 ), kde 𝑢 + (𝑓 ) je inverziou 𝑔 + (𝑓 ).
+Dôsledok 8.19. Nech (𝑅, +, ·) je teleso, 𝑓 ∈ 𝑅[𝑥] je nekonštantný polynóm. Potom
+(𝑅[𝑥]/(𝑓 ), +, ·) je teleso, práve keď 𝑓 je ireducibilný nad R.
+
+8.3
+
+Rozšírenia telies
+
+Definícia 8.20. Nech 𝑇 je teleso a 𝑅 podokruh v 𝑇 taký, že 𝑎−1 ∈ 𝑅 pre každé nenulové
+𝑎 ∈ 𝑅. Potom 𝑅 je podteleso v 𝑇 , resp. 𝑇 je rozšírením 𝑅.
+Poznámka. Ak je 𝑅 podtelesom v 𝑇 , tak 𝑅 je teleso.
+Definícia 8.21. Nech 𝑇 je rozšírením telesa 𝑅. Prvok 𝑎 ∈ 𝑇 nazývame algebraický nad
+𝑅, ak existuje nenulový polynóm 𝑓 ∈ 𝑅[𝑥] tak, že 𝑎 je jeho koreňom. V opačnom prípade
+hovoríme, že 𝑎 je transcendentný nad 𝑅.
+Poznámka. Ak explicitne neuvedieme dané telesá, pod pojmom algebraický myslíme
+prvok 𝑎 ∈ C nad Q.
+√
+√
+√
+Príklad 8.22. Je 𝑎 = 2 + 3 algebraické číslo? Áno, pretože 𝑎2 = 5 + 2 6, teda
+24 = 𝑎2 − 10𝑎 + 25, teda 𝑎 je koreňom polynómu 𝑥2 − 10𝑥 + 1 ∈ Q[𝑥].
+Veta 8.23. Nech (𝑇, +, ·) je rozšírením telesa (𝑅, +, ·), 𝑎 ∈ 𝑇 je algebraický nad 𝑅. Potom
+𝑎 je koreňom práve jedného normovaného ireducibilného polynómu 𝑓 ∈ 𝑅[𝑥]. Navyše platí,
+že 𝑎 je koreňom polynómu ℎ ∈ 𝑅[𝑥], práve keď 𝑓 | ℎ.
+Dôkaz. Nech 𝑓 je polynóm najmenšieho stupňa medzi všetkými normovanými polynómami
+z 𝑅[𝑥], ktoré majú 𝑎 za koreň. Ukážeme, že 𝑓 je ireducibilný nad 𝑅.
+Existencia 𝑓 : Zrejme 𝑓 nie je konštantný – normovaný konštantný polynóm je 1 a ten
+nemá 𝑎 za koreň. Nech 𝑓 = 𝑔ℎ, kde 𝑔, ℎ ∈ 𝑅[𝑥]. Potom 0 = 𝑓 (𝑎) = 𝑔(𝑎)ℎ(𝑎). Keďže 𝑇 je
+teleso, tak buď 𝑔(𝑎) = 0, alebo ℎ(𝑎) = 0. Teda buď st(𝑔) = st(𝑓 ), alebo st(ℎ) = st(𝑓 ), takže
+jeden z polynómov 𝑔, ℎ je konštantný. (BUNV st(𝑓 ) ≤ st(𝑔)∧ st(𝑓 ) ≥ st(𝑔) =⇒ 𝑓 = 𝑔,
+potom ℎ je konštantný.)
+𝑓 | ℎ: Nech ℎ ∈ 𝑅[𝑥], ℎ(𝑎) = 0. Potom ∃𝑞, 𝑟 ∈ 𝑅[𝑥] také, že st(𝑟) < st(𝑓 ) a ℎ = 𝑞𝑓 + 𝑟.
+Keďže 𝑟(𝑎) = ℎ(𝑎) − 𝑞(𝑎)𝑓 (𝑎) = 0 a 𝑓 má najmenší stupeň medzi nenulovými polynómami
+s koreňom 𝑎, platí 𝑟 = 0. Teda 𝑓 | ℎ.
+Jednoznačnosť 𝑓 : Nech 𝑓 ′ ∈ 𝑅[𝑥] je taký normovaný polynóm, že ∀ℎ ∈ 𝑅[𝑥] platí:
+ℎ(𝑎) = 0 ⇐⇒ 𝑓 ′ | ℎ. Potom 𝑓 ′ | 𝑓 a 𝑓 | 𝑓 ′ , takže 𝑓 = 𝑓 ′ , lebo oba sú normované.
+Definícia 8.24. Polynóm 𝑓 z predošlej Vety sa nazýva minimálny polynóm prvku 𝑎 nad
+𝑅.
+√
+2𝜋
+𝑛
+𝑛
+Príklad 8.25. Nad C: 𝜖𝑛 = cos 2𝜋
++
+𝑖·
+sin
+je
+koreňom
+polynómu
+𝑥
+−
+1
+(hľadanie
+𝑥).
+𝑛
+𝑛
+https://www.elea.sk
+
+57
+
+Valdemar Švábenský
+
+Veta 8.26 (Delo II). Pripomeňme Vetu Delo (4.68) pre grupy (multiplikatívna):
+• Nech zobrazenie 𝛼 : (𝐺, ·) → (𝐻, ·) je surjektívny homomorfizmus grúp.
+• Potom 𝐾𝑒𝑟(𝛼) = {𝑎 ∈ 𝐺 | 𝛼(𝑎) = 1} je normálna podgrupa v (𝐺, ·).
+• Ďalej 𝛽 : 𝑎𝐾𝑒𝑟(𝛼) ↦→ 𝛼(𝑎) je surjektívny morfizmus (𝐺, ·)/𝐾𝑒𝑟(𝛼) na (𝐻, ·).
+Pre okruhy je Veta Delo aditívna:
+• Nech zobrazenie 𝛼 : (𝑅, +, ·) → (𝑆, +, ·) je surjektívny homomorfizmus okruhov.
+• Potom 𝐾𝑒𝑟(𝛼) = {𝑎 ∈ 𝑅 | 𝛼(𝑎) = 0} je podokruh v (𝑅, +, ·).
+• Ďalej 𝛽 : 𝑎 + 𝐾𝑒𝑟(𝛼) ↦→ 𝛼(𝑎) je surjektívny morfizmus (𝑅, +, ·)/𝐾𝑒𝑟(𝛼) na (𝑆, +, ·).
+
+𝐺
+
+𝛼
+
+𝑎 ↦→ 𝑎𝐾𝑒𝑟(𝛼)
+
+𝐻
+
+𝑅
+
+𝑎𝐾𝑒𝑟(𝛼) ↦→ 𝛼(𝑎)
+
+𝑎 ↦→ 𝑎+𝐾𝑒𝑟(𝛼)
+
+𝐺/𝐾𝑒𝑟(𝛼)
+
+𝛼
+
+𝑆
+𝑎+𝐾𝑒𝑟(𝛼) ↦→ 𝛼(𝑎)
+
+𝑅/𝐾𝑒𝑟(𝛼)
+
+Definícia 8.27. Nech (𝑅, +, ·) je podtelesom telesa (𝑇, +, ·), 𝑎 ∈ 𝑇 . Potom:
+• 𝑅[𝑎] := najmenší podokruh telesa 𝑇 obsahujúci (= generovaný) množin(o)u 𝑅 ∪ {𝑎};
+𝑅[𝑎] = {𝑓 (𝑎) | 𝑓 ∈ 𝑅[𝑥]}.
+• 𝑅(𝑎) := najmenšie podteleso telesa 𝑇 obsahujúce (= generované) množin(o)u 𝑅∪{𝑎};
+(𝑎)
+𝑅(𝑎) = { 𝑓𝑔(𝑎)
+| 𝑓, 𝑔 ∈ 𝑅[𝑥], 𝑔 ̸= 0}.
+
+Definícia 8.28. Rozšírenie 𝑇 telesa 𝑅 sa nazýva jednoduché, ak existuje prvok 𝑎 ∈ 𝑇
+algebraický nad 𝑅 taký, že 𝑇 = 𝑅(𝑎).
+Veta 8.29. Nech 𝑅 je teleso. Potom 𝑇 je jednoduché rozšírenie 𝑅, práve keď 𝑇 ∼
+= 𝑅[𝑥]/(𝑓 ),
+kde 𝑓 ∈ 𝑅[𝑥] je ireducibilný [2, II.11.12].
+Ďalej 1, 𝑎, . . . , 𝑎𝑛−1 , kde 𝑛 ≤ st(𝑓 ) je báza 𝑇 /𝑅.
+Dôkaz. „ =⇒ “: Použijeme Vetu Delo pre okruhy (8.26). Idea:
+• Uvažujeme surjektívny homomorfizmus 𝛼 : 𝑅[𝑥] → 𝑇 = 𝑅[𝑎], kde 𝑔 ↦→ 𝑔(𝑎).
+https://www.elea.sk
+
+58
+
+Valdemar Švábenský
+
+• 𝐾𝑒𝑟(𝛼) = {𝑔 ∈ 𝑅[𝑥] | 𝛼(𝑔) = 0} = (𝑓 ), kde 𝑓 je minimálny polynóm prvku 𝑎 nad
+𝑅.
+• Ďalej 𝛽 : 𝑎 + (𝑓 ) ↦→ 𝛼(𝑎) je surjektívny morfizmus 𝑅[𝑥]/(𝑓 ) na 𝑅[𝑎]. Ukážeme, že sa
+jedná o izomorfizmus telies.
+Nech 𝑇 je jednoduché rozšírenie telesa 𝑅, ktoré vzniklo pridaním algebraického prvku
+𝑎 ∈ 𝑇 . Existuje 𝑓 = 𝑘𝑛 𝑥𝑛 + · · · + 𝑘1 𝑥 + 𝑘0 ∈ 𝑅[𝑥] tak, že 0 = 𝑓 (𝑎) = 𝑘𝑛 𝑎𝑛 + · · · + 𝑘1 𝑎 + 𝑘0 .
+Z toho 𝑘𝑛 𝑎𝑛 = −𝑘𝑛−1 𝑎𝑛−1 − . . . − 𝑘1 𝑎 − 𝑘0 , teda
+𝑎𝑛 = −
+
+𝑘1
+𝑘0
+𝑘𝑛−1 𝑛−1
+𝑎
+− ... − 𝑎 − .
+𝑘𝑛
+𝑘𝑛
+𝑘𝑛
+
+(*)
+
+Potom 𝑎𝑛 je lineárnou kombináciou báze 1, 𝑎, . . . , 𝑎𝑛−1 . Nezávislosť báze: nech 𝑎0 +
+· · · + 𝑘𝑛−1 𝑎𝑛−1 = 0, niektoré 𝑘𝑖 ̸= 0. Potom 𝑎 je koreňom polynómu stupňa ≤ 𝑛 − 1.
+„ ⇐= “: Ak je 𝑓 ∈ 𝑅[𝑥] ireducibilný nad 𝑅, tak z 8.14 vieme, že 𝑇 = 𝑅[𝑥]/(𝑓 ) je
+rozšírenie telesa 𝑅 a že platí 𝑇 = 𝑅[𝑎]. Keďže 𝑅[𝑎] ⊆ 𝑅(𝑎), tak 𝑇 = 𝑅(𝑎), takže 𝑇 je
+jednoduché rozšírenie telesa 𝑅.
+Dôsledok 8.30. Ak 𝑇 je rozšírenie telesa 𝑅 a prvok 𝑎 ∈ 𝑇 je algebraický nad 𝑅, tak
+𝑅(𝑎) = 𝑅[𝑎] ∼
+= 𝑅[𝑥]/(𝑓 ).
+Príklad 8.31. Ak 𝑇 je rozšírenie telesa 𝑅, tak (𝑇, +, ·) je vektorový priestor nad (𝑅, +, ·).
+(𝑇, +) je komutatívna grupa a násobenie vektoru skalárom je dané zobrazením · : 𝑅 × 𝑇 →
+𝑇 , (𝛼, 𝑎) ↦→ 𝛼𝑎.
+Ďalej dim 𝑇 /𝑅 < ∞, práve keď 𝑇 /𝑅 je konečné rozšírenie (to neplatí napr. pri C/Q).
+Ak 𝑇 = 𝑅[𝛼], tak 1, 𝛼, . . . , 𝛼𝑛−1 je bázou vektorového priestoru 𝑇 .
+
+8.4
+
+Lemmy o rozšírení telies
+
+Lemma 1. Ak 𝑇 je rozšírením 𝑅 a 𝑓 ∈ 𝑅[𝑥] je ireducibilný nad 𝑅, tak 𝑓 má v 𝑇 koreň.
+Lemma 2. Nech (𝑅, +, ·) je teleso, 𝑓 ∈ 𝑅[𝑥] nekonštantný. Potom existuje rozšírenie 𝑇
+telesa 𝑅 také, že 𝑓 je ako polynóm nad 𝑇 súčin lineárnych polynómov z 𝑇 [𝑥].
+Dôkaz. Indukciou k 𝑛 = st(𝑓 ). Báza: 𝑛 = 1, položíme 𝑇 = 𝑅. IP: veta platí pre ľubovoľné
+𝑅, 𝑓 , kde st(𝑓 ) < 𝑛. IK: nech 𝑓 je polynóm nad 𝑅 stupňa 𝑛. Potom sa dá rozložiť na
+súčin normovaných ireducibilných polynómov, 𝑓 = 𝑎𝑝1 . . . 𝑝𝑘 , kde 𝑎 ∈ 𝑅. Potom existuje
+rozšírenie 𝑊 := 𝑅[𝑥]/(𝑝𝑘 ) telesa 𝑇 také, že 𝑐 je koreň 𝑓𝑘 v 𝑊 . Teda ∃𝑞 ∈ 𝑊 [𝑥] : 𝑝𝑘 =
+(𝑥 − 𝑐)𝑞. Potom 𝑓 = 𝑎𝑝1 . . . 𝑝𝑘−1 (𝑥 − 𝑐)𝑞.
+Položme 𝑔 = 𝑎𝑞𝑝1 . . . 𝑝𝑘−1 . Keďže st(𝑔) = 𝑛 − 1, podľa IP existuje rozšírenie 𝑇 telesa
+𝑊 také, že 𝑔 = 𝑎(𝑥 − 𝑐1 ) . . . (𝑥 − 𝑐𝑛−1 ) je súčin lineárnych polynómov nad 𝑇 . Teda 𝑇
+je rozšírením telesa 𝑅 a 𝑓 = 𝑎(𝑥 − 𝑐)(𝑥 − 𝑐1 ) . . . (𝑥 − 𝑐𝑛−1 ) je súčin lineárnych poly. z
+𝑇 [𝑥].
+Definícia 8.32. Rozšírenie 𝑇 /𝑅 je algebraické, ak každý 𝑎 ∈ 𝑇 je algebraický nad 𝑅.
+Definícia 8.33. Dimenziu rozšírenia 𝑇 /𝑅 nazývame stupeň (dim 𝑇 /𝑅 = st 𝑇 /𝑅).
+Lemma 3. Ak je rozšírenie 𝑇 /𝑅 jednoduché, tak je konečné.
+https://www.elea.sk
+
+59
+
+Valdemar Švábenský
+
+Lemma 4. Ak je rozšírenie 𝑇 /𝑅 konečné, tak je algebraické.
+Dôkaz. Máme st 𝑇 /𝑅 = 𝑛 ∈ N. Pre 𝑎 ∈ 𝑇 sú 1, 𝑎, . . . , 𝑎𝑛 lineárne závislé. Existuje
+𝑏0 , . . . , 𝑏𝑛 ∈ 𝑅 (niektoré nenulové) tak, že 𝑏0 +𝑏1 𝑎+· · ·+𝑏𝑛 𝑎𝑛 = 0, teda 𝑎 je algebraické.
+Lemma 5. Ak sú 𝑇 /𝑆, 𝑆/𝑅 konečné, tak 𝑇 /𝑅 je konečné.
+Dôkaz. Máme st 𝑇 /𝑆 = 𝑚 ∈ N, st 𝑆/𝑅 = 𝑛 ∈ N. Nech množina {𝑏1 , . . . , 𝑏𝑚 | 𝑏𝑖 ∈ 𝑆} je
+bázou 𝑇 /𝑆 a {𝑎1 , . . . , 𝑎𝑛 | 𝑎𝑖 ∈ 𝑅} je bázou 𝑆/𝑅. Potom množina {𝑎𝑖 𝑏𝑗 | 𝑖 = 1, . . . , 𝑚, 𝑗 =
+1, . . . , 𝑛} všetkých lineárnych kombinácií bázových prvkov 𝑇 /𝑆, 𝑆/𝑅 je bázou 𝑇 /𝑅.
+Lemma 6. Ak sú 𝑇 /𝑆, 𝑆/𝑅 algebraické, tak 𝑇 /𝑅 je algebraické.
+Dôkaz. Nech 𝑎 ∈ 𝑇 je algebraický. Potom ∃0 ̸= 𝑓 ∈ 𝑆[𝑥] : 𝑓 (𝑎) = 0. Nech 𝑓 = 𝑏𝑛 𝑥𝑛 +
+· · · + 𝑏1 𝑥 + 𝑏0 , kde 𝑏𝑖 ∈ 𝑆, 𝑏𝑛 ̸= 0. Potom postupným pridávaním algebraických prvkov do
+štruktúry 𝑇 /𝑅 dostávame (. . . ((𝑅(𝑏0 ))(𝑏1 ) . . . (𝑏𝑛 )))(𝑎).
+Lemma 7. Ak 𝑎, 𝑏 ∈ 𝑇 sú algebraické nad 𝑅, tak 𝑎 + 𝑏, 𝑎 · 𝑏, 𝑎−1 (pre 𝑎 ̸= 0) sú algebraické.
+Inak povedané, sčítanie a násobenie algebraických čísel dá algebraické číslo.
+Dôkaz. 𝑅(𝑎)/𝑅 je konečné podľa Lemmy 3. Takisto (𝑅(𝑎))(𝑏)/𝑅(𝑎). Ďalej 𝑅(𝑎, 𝑏)/𝑅 je
+konečné podľa Lemmy 5. Výsledok z Lemmy 4.
+Lemma 8. Pre teleso 𝑅 existuje také jeho rozšírenie 𝑇 , kde má koreň ľubovoľný nekonštantný polynóm.
+Lemma 9. Existuje algebraicky uzavrené rozšírenie 𝑇 telesa 𝑅.
+Dôkaz. Existuje postupnosť 𝑅 = 𝑅0 ⊆ 𝑅1 ⊆ 𝑅2 ⊆ . . . , kde 𝑅𝑛+1 je také rozšírenie 𝑅, že
+⋃︀
+každý nekonštantný polynóm nad 𝑅𝑛 má koreň v 𝑅𝑛+1 . Potom 𝑇 := ∞
+𝑛=0 .
+Lemma 10. Existuje algebraicky uzavrené rozšírenie 𝑇 telesa 𝑅, ktoré je algebraické.
+Dôkaz. Nech 𝑅 je štruktúra všetkých algebraických prvkov nad 𝑅. Vezmime nejaký
+nekonštantný polynóm 𝑓 = 𝑎𝑛 𝑥𝑛 + · · · + 𝑎0 ∈ 𝑅[𝑥] a nejaký prvok 𝑎 ∈ 𝑇 . Ak bude koreňom
+nejakého 𝑓 , tak je algebraický nad 𝑅. To platí, lebo 𝑅(𝑎0 , . . . , 𝑎𝑛 , 𝑎)/𝑇 je algebraické.
+Príklad 8.34. Napr. C/R: k R sme pridali 𝑖 a všetky prvky boli zrazu algebraické (každý
+polynóm mal koreň).
+
+8.5
+
+Konečné telesá
+
+Nasledujúce vety sú z [2, II.12].
+Veta 8.35. Každé konečné teleso charakteristiky 𝑝 je jednoduchým rozšírením telesa Z𝑝 .
+Veta 8.36. Každé konečné teleso charakteristiky 𝑝 má počet prvkov mocninu prvočísla 𝑝.
+Veta 8.37. Nech 𝑝 je prvočíslo, 𝑛 ∈ N. Potom existuje teleso 𝑅 o 𝑝𝑛 prvkoch.
+Dôsledok 8.38. 𝑅 ∼
+= Z𝑝 [𝑥]/(𝑓 ), kde 𝑓 ∈ Z𝑝 [𝑥] je ireducibilné v Z𝑝 a st(𝑓 ) = 𝑛.
+Dôsledok 8.39. V Z𝑝 [𝑥] existujú ireducibilné polynómy ľubovoľného stupňa.
+Veta 8.40. Ľubovoľné dve konečné telesá o rovnakom počte prvkov sú izomorfné.
+https://www.elea.sk
+
+60
+
+Valdemar Švábenský
+
+8.6
+
+Cvičenia
+
+1. Nájdite inverziu prvku 𝑔 + (𝑓 ) v okruhu Q[𝑥]/(𝑓 ), kde 𝑔 = 𝑥3 + 1.
+1
+bez 𝛼 v menovateli.
+2. Nech 𝛼 je koreňom polynómu 𝑓 = 𝑥3 + 2𝑥2 + 2. Vyjadrite 𝛼2 +𝛼+1
+
+√
+2 + 3 2.
+√
+4. Nájdite minimálny polynóm čísla 𝜁(6) = 6 1.
+√
+5. Nájdite minimálny polynóm čísla 𝜁(𝑝) = 𝑝 1, kde 𝑝 je prvočíslo.
+3. Nájdite minimálny polynóm čísla
+
+√︁
+
+6. Určite stupeň rozšírenia C(𝑎) (= stupeň min. polynómu) nad R.
+7. Nájdite rozkladové teleso polynómu 𝑥3 − 2 nad Q a určite jeho st. rozšírenia nad Q.
+
+8.7
+
+Návody k riešeniu cvičení
+
+1. (𝑓 ) = {𝑔𝑓 | 𝑔 ∈ Q[𝑥]}. Potom 𝑔 + (𝑓 ) = ℎ + (𝑓 ), práve keď 𝑔, ℎ majú rovnaký zvyšok
+po delení 𝑓 , t. j. keď 𝑓 | 𝑔 − ℎ.
+3
+
+2
+
+𝑔ℎ + (𝑓 ) = (𝑔 + (𝑓 ))(ℎ + (𝑓 )) = 1 + (𝑓 ), teda ℎ = 𝑥 +𝑥−2+𝑥−1 + (𝑓 ).
+2. Keďže 𝑓 je ireducibilný nad Q (Eisensteinovo kritérium), tak Q[𝑥]/(𝑓 ) ∼
+= telesu
+Q(𝛼) = {𝑎𝛼2 + 𝑏𝛼 + 𝑐 | 𝑎, 𝑏, 𝑐 ∈ Q} (st(𝑓 ) − 1). Izomorfizmus je daný 𝑥 + (𝑥3 + 2𝑥2 +
+2) ↦→ 𝛼, kde (𝑥2 + 𝑥 + 1 + (𝑓 ))−1 ∈ Q[𝑥]/(𝑓 ).
+Bezout: 1 = 𝑓 ( 12 𝑥 + 34 ) + (𝑥2 + 𝑥 + 1)(− 12 𝑥2 − 54 𝑥 + 14 ).
+Potom (𝑥2 + 𝑥 + 1 + (𝑓 ))−1 = − 27 𝑥2 − 57 𝑥 + 71 + (𝑓 ) ∈ Q[𝑥]/(𝑓 ).
+1
+Teda 𝛼2 +𝛼+1
+= − 27 𝛼2 − 75 𝛼 + 17 .
+
+√︁
+√
+3. 𝑥 = 2 + 3 2, teda (𝑥2 − 2)3 = 2, teda 𝑥6 − 6𝑥4 + 12𝑥2 − 10 = 0. Tento polynóm
+má daný koreň a je ireducibilný nad Q (Eisenstein), teda je minimálny.
+√
+
+𝜋
+
+√
+
+4. 𝑥6 = 1, teda 𝑥6 − 1 = 0, nie je ireduc. Potom 𝜁6 = 𝑒 3 𝑖 = 12 + 23 𝑖; 𝜁6 = 12 − 23 𝑖;
+𝜁6 + 𝜁6 = 1. (𝑥 − 𝜁6 )(𝑥 − 𝜁6 ) = (𝑥2 − 𝑥 + 14 + 34 ) = 𝑥2 − 𝑥 + 1.
+5. 𝑥𝑝 − 1 = (𝑥 − 1)(𝑥𝑝−1 + 𝑥𝑝−2 + · · · + 𝑥 + 1). Musíme dokázať, že polynóm Φ𝑝 (𝑥) =
+𝑥𝑝 −1
+= 𝑥𝑝−1 + 𝑥𝑝−2 + · · · + 𝑥 + 1 je ireducibilný nad Q[𝑥] pre všetky prvočísla 𝑝.
+𝑥−1
+Platí, že 𝑓 (𝑥) je ireducibilný, práve keď 𝑓 (𝑥 + 𝑘) je ireducibilný (𝑘 ∈ Q).
+Φ𝑝 (𝑥 + 1) =
+=
+
+(𝑥 + 1)𝑝 − 1
+𝑥+1−1
+∑︀𝑝 (︁𝑝)︁ 𝑝−𝑘
+( 𝑘=0 𝑘 𝑥 ) − 1
+(︁ )︁
+
+=
+
+𝑝
+0
+
+𝑝
+
+𝑥 +
+
+(︁𝑥 )︁
+𝑝
+1
+
+𝑥𝑝−1 +
+
+(︁ )︁
+𝑝
+2
+
+𝑥𝑝−2 + . . . +
+𝑥 (︃
+
+(︃ )︃
+
+(︁
+
+)︁
+
+𝑝
+𝑝−2
+
+𝑥2 +
+
+(︁
+
+)︁
+
+𝑝
+𝑝−1
+
+𝑥+
+
+(︁ )︁
+𝑝
+𝑝
+
+)︃
+
+𝑝 𝑝−3
+𝑝
+= 𝑥𝑝−1 + 𝑝𝑥𝑝−2 +
+𝑥
++ ... +
+𝑥 + 𝑝.
+2
+𝑝−2
+https://www.elea.sk
+
+61
+
+Valdemar Švábenský
+
+−1
+
+Tento polynom spĺňa Eisensteinovo kritérium pre 𝑝.
+Nazýva sa cyklotomický, delí 𝑥𝑝 − 1 a jeho korene sú 𝑝-te odmocniny z 1.
+Pre ľubovoľné 𝜁𝑛 je stupeň min. polynómu 𝜙(𝑛).
+6. C má rozšírenie stupňa 2 nad R; min. polynóm 𝑖 je 𝑥2 − 1.
+teleso,
+ktoré
+vznikne pridaním
+7. Q[𝑥]/(𝑓 ) ∼
+= Q(𝛼), kde 𝛼 je koreňom 𝑓 , je rozkladové
+√
+√
+√
+3
+3
+3
+3
+všetkých koreňov polynómu 𝑓 . Korene 𝑥 − 2 sú 2, 2 · 𝜁3 , 2 · 𝜁32 .
+√
+√
+√
+√
+√
+3
+3
+3
+3
+3
+2
+Potom
+stupeň
+rozšírenia
+Q(𝑎)
+=
+Q(
+2,
+2
+·
+𝜁
+,
+2
+·
+𝜁
+)
+=
+Q(
+2,
+2 · 𝜁3 ) =
+3
+3
+√
+3
+Q( 2)(𝜁3 ).
+0
+0 −2
+√
+√
+2 1 32 34 0
+√
+√
+√
+√
+𝑥2 + 3 2𝑥 + 3 4 ∈ Q( 3 2) má koreň 3 2 · 𝜁3 .
+1
+
+√
+3
+
+𝑥3 − 1 = (𝑥 − 1)(𝑥2 + 𝑥 + 1) je min. polynóm 𝜁3 nad Q.
+
+Kapitola 9: Syntaktický monoid
+9.1
+
+Teória jazykov
+
+Definícia 9.1. Nech 𝐴 je neprázdna konečná množina (tzv. abeceda). Potom 𝐴* =
+{(𝑎1 , . . . , 𝑎𝑛 ) | 𝑛 ∈ N0 , 𝑎1 , . . . , 𝑎𝑛 ∈ 𝐴} je množina slov nad 𝐴.
+Poznámka. Píšeme stručne 𝑎1 . . . 𝑎𝑛 namiesto (𝑎1 , . . . , 𝑎𝑛 ). Slovo pre 𝑛 = 0 značíme 𝜆 a
+hovoríme mu prázdne (v automatoch 𝜀).
+Veta 9.2. Na množine 𝐴* definujeme operáciu · (zreťazenie) vzťahom 𝑎1 . . . 𝑎𝑛 · 𝑏1 . . . 𝑏𝑚 =
+𝑎1 . . . 𝑎𝑛 𝑏1 . . . 𝑏𝑚 pre 𝑎1 , . . . , 𝑎𝑛 , 𝑏1 , . . . , 𝑏𝑚 . Potom (𝐴* , ·, 𝜆) je monoid (tzv. voľný nad 𝐴).
+Dôkaz. Uzavretosť, asociativita je zrejmá; 𝜆 je neutrálny prvok.
+Definícia 9.3. Jazyk nad abecedou 𝐴 je ľubovoľná podmnožina množiny 𝐴* .
+Definícia 9.4. Súčin jazykov 𝑈, 𝑉 je 𝑈 · 𝑉 = {𝑢 · 𝑣 | 𝑢 ∈ 𝑈, 𝑣 ∈ 𝑉 }.
+Definícia 9.5. Iterácia jazyka 𝑈 je 𝑈 * = {𝑢1 . . . 𝑢𝑛 | 𝑛 ∈ N0 , 𝑢1 , . . . , 𝑢𝑛 ∈ 𝑈 }.
+Poznámka. Jazyk pre 𝑛 = 0 značíme ∅ a hovoríme mu prázdny. Platí, že ∅* = {𝜆}.
+Definícia 9.6. Jazyk 𝐿 ⊆ 𝐴* sa nazýva regulárny, ak vznikol z ∅ a prvkov množiny 𝐴
+použitím konečne mnoho aplikácií operácií * , ·, ∪ (binárne zjednotenie).
+
+https://www.elea.sk
+
+62
+
+Valdemar Švábenský
+
+9.2
+
+Automaty
+
+Definícia 9.7. Deterministický konečný automat 𝑀 je pätica (𝑄, 𝐴, ·, 𝑞0 , 𝐹 ), kde:
+• 𝑄 je neprázdna konečná množina stavov,
+• 𝐴 je neprázdna konečná množina vstupných symbolov (vstupná abeceda),
+• · : 𝑄 × 𝐴 → 𝑄 je parciálna prechodová funkcia, kde (𝑞, 𝑎) ↦→ 𝑞 · 𝑎,
+• 𝑞0 ∈ 𝑄 je počiatočný stav,
+• 𝐹 ⊆ 𝑄 je množina koncových (akceptujúcich) stavov.
+Definícia 9.8. Každé slovo 𝑢 ∈ 𝐴* definuje transformáciu [𝑢] : 𝑄 → 𝑄, kde 𝑞 ↦→ 𝑞 · 𝑢.
+• Zobrazenie [𝑎] pre 𝑎 ∈ 𝐴 je už definované,
+• 𝑞 · 𝜆 = 𝑞,
+• 𝑞 · (𝑢𝑎) = (𝑞 · 𝑢) · 𝑎 pre 𝑞 ∈ 𝑄, 𝑢 ∈ 𝐴* , 𝑎 ∈ 𝐴.
+Definícia 9.9. Monoid ({[𝑢] | 𝑢 ∈ 𝐴* }, ·), kde [𝑢] · [𝑣] = [𝑢𝑣] sa nazýva transformačný
+monoid automatu 𝑀 .
+Definícia 9.10. 𝐿(𝑀 ) = {𝑢 ∈ 𝐴* | 𝑞0 · 𝑢 ∈ 𝐹 } je jazyk prijímaný automatom 𝑀 .
+Definícia 9.11. Automat je minimálny, ak platí:
+(i) {𝑞0 · 𝑢 | 𝑢 ∈ 𝐴* } = 𝑄 (z počiatočného stavu sa viem dostať do všetkých ďalších);
+(ii) ∀𝑝, 𝑞 ∈ 𝑄 : ∀𝑢 ∈ 𝐴* : (𝑝𝑢 ∈ 𝐹 ⇐⇒ 𝑞𝑢 ∈ 𝐹 ) =⇒ 𝑝 = 𝑞 (ak sa zo stavov 𝑝, 𝑞
+dostanem do koncového, nebudem medzi nimi rozlišovať).
+
+9.3
+
+Kongruencie na pologrupách
+
+Definícia 9.12. Kongruencia pologrupy (𝑆, ·) je relácia ekvivalencie ∼ na množine 𝑆,
+ktorá spĺňa: ∀𝑎, 𝑏, 𝑐, 𝑑 ∈ 𝑆 : 𝑎 ∼ 𝑏, 𝑐 ∼ 𝑑 =⇒ 𝑎𝑐 ∼ 𝑏𝑑. (Definícia je vhodná pre dôkazy.)
+Lemma 9.13. Namiesto podmienky vyššie stačí: ∀𝑎, 𝑏, 𝑐 ∈ 𝑆 : 𝑎 ∼ 𝑏, =⇒ 𝑎𝑐 ∼ 𝑏𝑐, 𝑐𝑎 ∼ 𝑐𝑏.
+(Vhodnejšie pre výpočty – máme menej premenných.)
+Dôkaz. „ =⇒ “: Stačí 𝑑 := 𝑐 a potom 𝑎 := 𝑐, 𝑏 := 𝑐, 𝑐 := 𝑎, 𝑑 := 𝑏.
+„ ⇐= “: Z 𝑎𝑐 ∼ 𝑏𝑐, 𝑏𝑐 ∼ 𝑏𝑑 tranzitívne 𝑎𝑐 ∼ 𝑏𝑑.
+Príklad 9.14. Príklad kongruencie na grupe (Z, +): 𝑎 ≡ 𝑏 (mod 𝑛).
+Príklad 9.15. Príklad kongruencie na monoide (Z, ·): 𝑎 ≡ 𝑏 (mod 𝑛).
+Veta 9.16. Nech 𝑎∼ := {𝑏 ∈ 𝑆 | 𝑏 ∼ 𝑎} pre 𝑎 ∈ 𝑆 a nech 𝑆/∼ := {𝑎∼ | 𝑎 ∈ 𝑆} je rozklad
+na 𝑆. Na množine 𝑆/∼ definujeme operáciu · vzťahom 𝑎∼ · 𝑏∼ = (𝑎 · 𝑏)∼. Potom (𝑆, ·)/∼
+je pologrupa (tzv. faktorová).
+Dôkaz. Uzavretosť, asociativita je zrejmá.
+Ak (𝑆, ·, 𝑒) je monoid, tak 𝑒∼ je neutrálny prvok v (𝑆, ·, 𝑒)/∼.
+https://www.elea.sk
+
+63
+
+Valdemar Švábenský
+
+9.4
+
+Syntaktické štruktúry
+
+Definícia 9.17. Jazyk 𝐿 ⊆ 𝐴* definuje na množine 𝐴* reláciu ∼𝐿 vzťahom
+𝑢 ∼𝐿 𝑣, práve keď ∀𝑠, 𝑡 ∈ 𝐴* : 𝑠𝑢𝑡 ∈ 𝐿 ⇐⇒ 𝑠𝑣𝑡 ∈ 𝐿.
+Reláciu ∼𝐿 nazývame syntaktická kongruencia.
+Lemma 9.18. Syntaktická kongruencia je relácia ekvivalencie a je to kongruencia.
+Dôkaz. Reflexivita: 𝑢 ∼𝐿 𝑢. Symetria: 𝑢 ∼𝐿 𝑣 =⇒ 𝑣 ∼𝐿 𝑢. Tranzitivita: 𝑢 ∼𝐿 𝑣, 𝑣 ∼𝐿
+𝑤 =⇒ 𝑢 ∼𝐿 𝑤.
+Kongruencia: Ak 𝑢, 𝑣, 𝑤 ∈ 𝐴* , tak chceme, aby 𝑢 ∼𝐿 𝑣 dalo 𝑢𝑤 ∼𝐿 𝑣𝑤; podobne
+𝑤𝑢 ∼𝐿 𝑤𝑣. Nech 𝑠, 𝑡 ∈ 𝐴* . Potom 𝑠𝑢𝑤𝑡 ∈ 𝐿 ⇐⇒ 𝑠𝑣𝑤𝑡 ∈ 𝐿.
+Definícia 9.19. Relácia ∼𝐿 je kongruencia monoidu (𝐴* , ·). Príslušný faktorový monoid
+nazývame syntaktický monoid jazyka 𝐿 a značíme ho (𝑂(𝐿), ·) := 𝐴* /∼𝐿 .
+Poznámka. 𝑂(𝐿) znamená “ordered”.
+Definícia 9.20. Na množine 𝑂(𝐿) definujeme reláciu usporiadania ≤𝐿 vzťahom
+𝑢∼𝐿 ≤𝐿 𝑣∼𝐿 , práve keď ∀𝑠, 𝑡 ∈ 𝐴* : 𝑠𝑣𝑡 ∈ 𝐿 =⇒ 𝑠𝑢𝑡 ∈ 𝐿.
+Veta 9.21. Nech minimálny automat 𝑀 = (𝑄, 𝐴, ·, 𝑞0 , 𝐹 ) prijíma jazyk 𝐿 = 𝐿(𝑀 ).
+Syntaktický monoid jazyka 𝐿 je izomorfný s transformačným monoidom automatu 𝑀 .
+Dôkaz. Definujme zobrazenie 𝜙 medzi syntaktickým monoidom 𝑂(𝐿) a transformačným
+monoidom 𝑇 (𝑀 ) nasledovne: 𝜙 : 𝑂(𝐿) → 𝑇 (𝑀 ), kde 𝑢∼𝐿 ↦→ [𝑢]. (Pre jednoduchosť
+budeme namiesto 𝑢∼𝐿 písať len 𝑢∼.)
+• Homomorfizmus: 𝜙(𝑢∼ · 𝑣∼) = 𝜙(𝑢𝑣∼) = [𝑢𝑣], a aj 𝜙(𝑢∼) · 𝜙(𝑣∼) = [𝑢] · [𝑣].
+• Surjektivita: mám zadaný obraz [𝑢] a chcem nájsť jeho vzor – to je 𝑢∼.
+• Injektivita a korektnosť vyplynú z dôkazu tvrdenia: ∀𝑢, 𝑣 ∈ 𝐴* : 𝑢 ∼ 𝑣 ⇐⇒ [𝑢] =
+[𝑣].
+Korektnosť (v smere =⇒ ) znamená, že ak 𝑢 ∼ 𝑣, teda 𝑢∼ = 𝑣∼, teda jeden prvok
+je zapísaný dvoma spôsobmi, tak potom dostanem rovnaký obraz [𝑢] = [𝑣].
+Injektivita vyplynie v smere ⇐= .
+Dokážme teda ekvivalenciu vyššie. Ľavá strana 𝑢 ∼ 𝑣 je ekvivalentná tvrdeniu
+∀𝑝, 𝑞 ∈ 𝐴* : 𝑝𝑢𝑞 ∈ 𝐿 ⇐⇒ 𝑝𝑣𝑞 ∈ 𝐿.
+∀𝑝, 𝑞 ∈ 𝐴* : 𝑝𝑢𝑞 ∈ 𝐿 ⇐⇒ 𝑝𝑣𝑞 ∈ 𝐿,
+t. j.
+*
+∀𝑝, 𝑞 ∈ 𝐴 : 𝑞0 · 𝑝𝑢𝑞 ∈ 𝐹 ⇐⇒ 𝑞0 · 𝑝𝑣𝑞 ∈ 𝐹, t. j. podľa (ii) z Def. 9.11
+∀𝑝 ∈ 𝐴* : 𝑞0 · 𝑝𝑢 = 𝑞0 · 𝑝𝑣,
+t. j. 𝑢, 𝑣 transformujú rovnako
+*
+∀𝑝 ∈ 𝐴 : (𝑞0 𝑝)[𝑢] = (𝑞0 𝑝)[𝑝],
+t. j. podľa (i) z Def. 9.11
+∀𝑞 ∈ 𝑄 : 𝑞[𝑢] = 𝑞[𝑣],
+t. j.
+[𝑢] = [𝑣].
+https://www.elea.sk
+
+64
+
+Valdemar Švábenský
+
+Veta 9.22. Pre jazyk 𝐿 ⊆ 𝐴* je ekvivalentné:
+1. 𝐿 je regulárny;
+2. 𝐿 je prijímaný konečným automatom;
+3. 𝑂(𝐿) je konečná množina.
+Dôkaz. 2. =⇒ 3.: Daný automat je konečná množina. Minimalizujeme ho. Transformáciou
+konečnej množiny vznikne konečná množina 𝑂(𝐿).
+3. =⇒ 2.: Definujme zobrazenie 𝜎: 𝐴* → 𝑂(𝐿) tak, že 𝜎 : 𝑢 ↦→ 𝑢∼. Potom 𝜎 je
+surjektívny homomorfizmus: 𝜎(𝑢𝑣) = (𝑢𝑣)∼, 𝜎(𝑢) · 𝜎(𝑣) = 𝑢∼ · 𝑣∼.
+Zostrojíme automat 𝑀 = (𝑄, 𝐴, ·, 𝑞0 , 𝐹 ) prijímajúci jazyk 𝐿:
+• 𝑄 := 𝑂(𝐿),
+• 𝐴 := 𝐴,
+• Pre 𝑞 ∈ 𝑄, 𝑎 ∈ 𝐴 je 𝑞 · 𝑎 = 𝑞 · 𝜎(𝑎),
+• 𝑞0 := 1,
+• 𝑞 ∈ 𝐹 ⇐⇒ 𝑞 ∈ 𝜎(𝐿).
+Potom 𝑢 ∈ 𝐿(𝑀 ) ⇐⇒ 1 · 𝑢 ∈ 𝑇 , t. j. 1 · 𝜎(𝑢) ∈ 𝜎(𝐿), t. j. 𝜎(𝑢) ∈ 𝜎(𝐿), t. j. 𝑢 ∈ 𝐿.
+Ukážeme, že v rámci 𝐴* neexistuje trieda slov, kde niečo ∈ 𝐿 a niečo ̸∈ 𝐿.
+𝐿 je zjednotením ∼-tried. Potom 𝑢 ∼ 𝑣, 𝑣 ∈ 𝐿 dá 𝑢 ∈ 𝐿. Vezmi 𝑝 = 𝑞 = 1.
+Dôsledok 9.23. Pre regulárne jazyky nad množinou 𝐴 nám Veta 9.21 dáva algoritmus
+pre výpočet syntaktických monoidov. Uvažujeme postupne transformácie množiny 𝑄 dané
+slovami v poradí ich dĺžok, pričom slová rovnakej dĺžky preberáme v lexikografickom
+usporiadaní. Dostávame tak prezentáciu syntaktického monoidu.
+Príklad 9.24. Lexikografické usporiadanie pre 𝐴 = {𝑎, 𝑏} je 𝜆, 𝑎, 𝑏, 𝑎𝑎, 𝑎𝑏, 𝑏𝑎, 𝑏𝑏, 𝑎𝑎𝑎, 𝑎𝑎𝑏,
+𝑎𝑏𝑎, 𝑎𝑏𝑏, 𝑏𝑎𝑎, 𝑏𝑎𝑏, 𝑏𝑏𝑎, 𝑏𝑏𝑏, 𝑎𝑎𝑎𝑎, 𝑎𝑎𝑎𝑏, . . .
+Príklad 9.25. Transformačný monoid minimálneho automatu
+
+https://www.elea.sk
+
+65
+
+Valdemar Švábenský
+
+Postupne si vypisujem riadky vo vojenskom usporiadaní (1, 𝑎, 𝑏, 𝑎𝑎, 𝑎𝑏, . . . ) a dívam
+sa, či sa neopakujú. Napr. 𝑏 = 𝑏𝑎 = 𝑏𝑏 alebo 𝑎𝑎 = 𝑎𝑎𝑎 = 𝑎𝑎𝑏.
+Keď máme tabuľku, zistíme, že hrozné slovo ako 𝑎𝑏𝑏𝑎𝑎𝑏𝑎𝑏 transformuje rovnako ako
+𝑎𝑏.
+Ďalej syntaktický monoid jazyka prijímaného týmto automatom má prezentáciu
+𝑂(𝐿) = ⟨𝑎, 𝑏 | 𝑏𝑎 = 𝑏, 𝑏2 = 𝑏, 𝑎3 = 𝑎2 , 𝑎2 𝑏 = 𝑎2 ⟩.
+(Iné už netreba, napr. 𝑎𝑏𝑎 je zbytočné, lebo 𝑏𝑎 = 𝑏, teda 𝑎𝑏𝑎 = 𝑎𝑏 a to už mám.)
+
+9.5
+
+Regulárne výrazy
+
+Definícia 9.26. Množina 𝑅𝐸(𝐴) regulárnych výrazov nad abecedou 𝐴 je definovaná:
+1. ∅ = 0, 𝜀 = 1, 𝑎 pre každé 𝑎 ∈ 𝐴 sú (základné) regulárne výrazy nad 𝐴.
+2. Ak 𝐸, 𝐹 ∈ 𝑅𝐸(𝐴), sú aj (𝐸 · 𝐹 ), (𝐸 + 𝐹 ) a (𝐸 * ) regulárne výrazy nad 𝐴. Zátvorky
+je možné vypustiť s tým, že najväčšiu prioritu má * , potom · a potom +.
+3. Každý regulárny výraz vznikne po konečnom počte aplikácií krokov 1 a 2.
+Poznámka. Regulárny výraz je teda množina {0, 1, 𝑎 ∈ 𝐴} uzavretá na operácie *, ·, +.
+Definícia 9.27. Každý 𝐸 ∈ 𝑅𝐸(𝐴) popisuje jazyk 𝐿(𝐸) nad 𝐴 podľa pravidiel:
+• 𝐿(𝜀) = {𝜀},
+
+• 𝐿(𝐸 · 𝐹 ) = 𝐿(𝐸) · 𝐿(𝐹 ),
+
+• 𝐿(∅) = ∅,
+
+• 𝐿(𝐸 + 𝐹 ) = 𝐿(𝐸) ∪ 𝐿(𝐹 ),
+
+• 𝐿(𝑎) = {𝑎} pre každé 𝑎 ∈ 𝐴,
+
+• 𝐿(𝐸 * ) = 𝐿(𝐸)* .
+
+Definícia 9.28. Zovšeobecnený RV je množina {0, 1, 𝑎 ∈ 𝐴} uzavretá na operácie ·, +, ∩,′ .
+Túto množinu nad abecedou 𝐴 značíme 𝐺𝑅𝐸(𝐴).
+Definícia 9.29. Nech 𝐸 ∈ 𝐺𝑅𝐸(𝐴) je zovšeobecnený RE. Jazyk 𝐿(𝐸) nazývame star-free.
+Príklad 9.30. Máme abecedu 𝐴 = {𝑎, 𝑏}. Jazyk 𝐿 = (𝑎𝑏)* je star-free, pretože je možné
+ho zadať zovšeobecneným RV (bez operácie *) nasledovne:
+𝐿 = 1 + ((𝑏𝐴* )′ ∩ (𝐴* 𝑎)′ ∩ (𝐴* 𝑎𝑎𝐴* )′ ∩ (𝐴* 𝑏𝑏𝐴* )′ ),
+kde 𝐴* = 0′ . (Slovo z 𝐿 nesmie začínať 𝑏-čkom, nesmie končiť 𝑎-čkom a nesmie mať dve
+rovnaké písmená bezprostredne za sebou.)
+
+9.6
+
+Vlastnosti jazykov
+
+Definícia 9.31. Podslovo je ľubovoľná podčasť (nie nutne postupnosť) iného slova.
+Príklad 9.32. Slovo 𝑐𝑑 je podslovom slova 𝑐𝑥𝑦𝑑𝑧.
+Veta 9.33 (Higman, Conway, Nash-Williams). Ľubovoľná nekonečná množina slov nad
+konečnou abecedou 𝐴 obsahuje dve rôzne slová 𝑢, 𝑣 tak, že 𝑢 ≤ 𝑣 je podslovo.
+https://www.elea.sk
+
+66
+
+Valdemar Švábenský
+
+Dôkaz. Bonus. . .
+Definícia 9.34. Jazyk 𝐿 ⊆ 𝐴* sa nazýva „ 12 “, keď je konečným zjednotením konečných
+prienikov jazykov tvaru 𝐴* 𝑎1 𝐴* . . . 𝐴* 𝑎𝑘 𝐴* , kde 𝑘 ∈ N0 behá. Do zadaných jazykov patrí
+práve to, čo má za podslovo 𝑎1 𝑎2 . . . 𝑎𝑘 .
+Definícia 9.35. Jazyk 𝐿 ⊆ 𝐴* sa nazýva „level 1“, keď je konečným zjednotením
+konečných prienikov jazykov tvaru 𝐴* 𝑎1 𝐴* . . . 𝐴* 𝑎𝑘 𝐴* a ich komplementov, kde 𝑘 ∈ N0
+behá.
+Veta 9.36. Jazyk 𝐿 ⊆ 𝐴* je „ 12 “, práve keď je neutrálny prvok jeho syntaktického monoidu
+najväčším prvkom usporiadanej množiny (𝑂(𝐿), ≤).
+Dôkaz. „ =⇒ “: Vezmime 𝐿 = 𝐴* 𝑎1 𝐴* . . . 𝐴* 𝑎𝑘 𝐴* (pozor na to, že 𝑎1 , . . . , 𝑎𝑘 nemusia
+byť nutne po dvoch rôzne). Platí, že pre 𝑝, 𝑞, 𝑢 ∈ 𝐴* : 𝑝𝑞 ∈ 𝐿 =⇒ 𝑝𝑢𝑞 ∈ 𝐿, t. j.
+∀𝑢 ∈ 𝐴* : 𝑢∼ = 1∼. Táto podmienka platí pre naše jazyky tvaru 𝐿, ale musí aj pre ich
+konečné prieniky a zjednotenia. Ale zjednotenia jazykov nášho typu budú zjavne opäť
+jazyky nášho typu. Pre prieniky stačí prepísať jazyk s použitím zjednotení (pozri Príklad
+9.38).
+„ ⇐= “: Nech 𝑝, 𝑞, 𝑢 ∈ 𝐴* . Potom 𝑝𝑞 ∈ 𝐿 =⇒ 𝑝𝑢𝑞 ∈ 𝐿. Nech 𝑀 = {𝑢1 , . . . , 𝑢𝑘 }
+je množina všetkých min. prvkov z 𝐿 vzhľadom k usporiadaniu ≤ („byť podslovom“).
+Podľa 9.33: 𝑢𝑖 = 𝑎𝑖1 . . . 𝑎𝑖𝑙1 , kde 𝑖 = 1, . . . , 𝑘. Potom 𝐿 = 𝐴* 𝑎11 𝐴* . . . 𝑎1𝑙1 𝐴* ∪ · · · ∪
+𝐴* 𝑎𝑘1 𝐴* . . . 𝑎𝑖𝑙𝑘 𝐴* .
+Definícia 9.37. The shuffle of two words is a finite set of words obtainable from merging
+the words 𝑥 and 𝑦 from left to right, but choosing the next symbol arbitrarily from 𝑥 or 𝑦.
+Príklad 9.38. 𝐴 = {𝑎, 𝑏}, 𝐿 = 𝐴* 𝑎𝐴* 𝑎𝐴* 𝑏𝐴* ∩ 𝐴* 𝑏𝐴* 𝑎𝐴* . Ako 𝐿 vyjadriť v tvare „ 12 “?
+Vezmi z prvého 𝑥 = 𝑎𝑎𝑏 a z druhého 𝑦 = 𝑏𝑎. Shuffle je množina {𝑎𝑎𝑏𝑎, 𝑎𝑏𝑎𝑏𝑎, 𝑎𝑏𝑎𝑎𝑏, 𝑎𝑏𝑎𝑏,
+𝑏𝑎𝑎𝑏𝑎, 𝑏𝑎𝑎𝑎𝑏, 𝑏𝑎𝑎𝑏} slov, ktoré sú podslovom v prvej aj druhej časti jazyka 𝐿. Unikátne
+sú ale len 1., 4. a 7. slovo, pretože 2. a 5. implikuje 1., 3. implikuje 4. a 6. implikuje 7.
+Výsledok: 𝐿 = 𝐴* 𝑎𝐴* 𝑎𝐴* 𝑏𝐴* 𝑎𝐴* ∪ 𝐴* 𝑎𝐴* 𝑏𝐴* 𝑎𝐴* 𝑏𝐴* ∪ 𝐴* 𝑏𝐴* 𝑎𝐴* 𝑎𝐴* 𝑏𝐴* .
+Veta 9.39 (Simon). Jazyk 𝐿 ⊆ 𝐴* je „level 1“, práve keď je jeho syntaktický monoid
+𝒥 -triviálny, t. j. keď platí 𝑢𝒥 𝑣 =⇒ 𝑢 = 𝑣.
+Veta 9.40 (Schützenberger). Jazyk 𝐿 ⊆ 𝐴* je star-free, práve keď jeho syntaktický monoid
+obsahuje len triviálne podgrupy.
+
+9.7
+
+Cvičenia
+
+1. Určte syntaktický monoid jazyka prijímaného nasledujúcim automatom:
+
+https://www.elea.sk
+
+67
+
+Valdemar Švábenský
+
+2. Určte syntaktický monoid jazyka prijímaného nasledujúcim automatom:
+
+9.8
+
+Návody k riešeniu cvičení
+
+1. Príslušný regulárny výraz je 𝑎* · (𝑐 + 𝑏𝑎* 𝑐) · (𝑎 + 𝑏 + 𝑐)* .
+Transformačný monoid:
+1 2 3 4
+
+Vznikne tak 5-prvkový monoid, kde platia relácie:
+𝑎 = 𝜆, 𝑐𝑏 = 𝑐, 𝑐𝑐 = 𝑐, 𝑏𝑏𝑏 = 𝑏𝑏, 𝑏𝑏𝑐 = 𝑏𝑏.
+Zadanie syntaktického monoidu tabuľkou:
+
+𝜆 1 2 3 4
+𝑏
+
+2 3 4 4
+
+𝑐
+
+4 4 3 4
+
+𝑏𝑏 3 3 3 4
+𝑐𝑐 4 3 3 4
+
+𝜆
+
+𝑏
+
+𝑐
+
+𝑏𝑏 𝑏𝑐
+
+𝜆
+
+𝜆
+
+𝑏
+
+𝑐
+
+𝑏𝑏 𝑏𝑐
+
+𝑏
+
+𝑏
+
+𝑏𝑏 𝑏𝑐 𝑏𝑏 𝑏𝑏
+
+𝑐
+
+𝑐
+
+𝑐
+
+𝑐
+
+𝑐
+
+𝑐
+
+𝑏𝑏 𝑏𝑏 𝑏𝑏 𝑏𝑏 𝑏𝑏 𝑏𝑏
+𝑏𝑐 𝑏𝑐 𝑏𝑐 𝑏𝑐 𝑏𝑐 𝑏𝑐
+
+Green: ℒ = {{1}, {𝑏}, {𝑐, 𝑏𝑏, 𝑏𝑐}} = 𝒥 = 𝒟, ℛ = {{1}, {𝑏}, {𝑐}, {𝑏𝑏}, {𝑏𝑐}} = ℋ.
+2.
+
+https://www.elea.sk
+
+68
+
+Valdemar Švábenský
+
+1 2 3 4
+
+Vznikne tak 12-prvkový monoid, kde platia relácie:
+
+𝜀
+
+1 2 3 4
+
+𝑎
+
+3 4 4 4
+
+𝑏
+
+1 1 2 4
+
+𝑎𝑎
+
+4 4 4 4
+
+𝑎𝑏
+
+2 4 4 4
+
+𝑏𝑎
+
+3 3 4 4
+
+• 𝑏3 = 𝑏2 ,
+
+𝑏𝑏
+
+1 1 1 4
+
+• 𝑎𝑏2 𝑎 = 𝑎,
+
+𝑎3
+
+4 4 4 4
+
+• 𝑏2 𝑎𝑏2 = 𝑏2 .
+
+𝑎2 𝑏
+
+4 4 4 4
+
+𝑎𝑏𝑎
+
+4 4 4 4
+
+𝑎𝑏2
+
+1 4 4 4
+
+𝑏𝑎2
+
+4 4 4 4
+
+𝑏𝑎𝑏
+
+2 2 4 4
+
+𝜀
+
+𝑏2 𝑎
+
+3 3 3 4
+
+𝑎
+
+𝑏3
+
+1 1 1 4
+
+𝑎𝑏2 𝑎 3 4 4 4
+
+𝑏
+..
+.
+
+...
+
+...
+
+...
+
+...
+
+𝑏𝑎𝑏2
+
+1 1 4 4
+
+𝑏2 𝑎𝑏 𝑏2 𝑎𝑏
+
+𝑎2
+
+𝑏2
+
+𝑎2
+
+𝑏2 𝑎𝑏
+
+2 2 2 4
+
+𝑏2 𝑎𝑏2 1 1 1 4
+
+• 𝑎3 = 𝑎2 ,
+• 𝑎2 𝑏 = 𝑎2 ,
+• 𝑎𝑏𝑎 = 𝑎2 ,
+• 𝑏𝑎2 = 𝑎2 ,
+
+Aplikácia transformácií je sprava, napr. 𝑡𝑎𝑏 = 𝑡𝑎 ∘ 𝑡𝑏 .
+Teda napr. 𝑏2 𝑎𝑏 ∘ 𝑎 = 𝑏2 𝑎𝑏𝑎 = 𝑏2 𝑎2 = 𝑏𝑎2 = 𝑎2 .
+Zadanie monoidu tabuľkou:
+𝜀
+𝑎
+𝑏 𝑎2 𝑎𝑏
+
+𝑏𝑎
+
+𝑏𝑏
+
+...
+
+𝑏2 𝑎𝑏
+
+...
+
+...
+
+...
+
+...
+
+...
+
+𝑎2
+
+𝑏2 𝑎
+
+𝑏2
+
+...
+
+𝑏2 𝑎𝑏
+
+(Za kompletnú tabuľku je len o pár bodov viac ako
+keď vyplníš pár riadkov.)
+
+Tým, že stav 4 je peklo sa pre 𝑎𝑎 dá pridať pravidlo 𝑎2 = 0. Potom všetko, čo
+obsahuje 𝑎2 tiež skončí v pekle. Tento zápis s 0 ušetrí nejaké relácie. Počet prvkov
+monoidu sa nezmení, len namiesto 𝑎2 budeme písať 0.
+
+https://www.elea.sk
+
+69
+
+Valdemar Švábenský
+
+Literatúra
+[1] Creative Commons: Uveďte autora-Neužívejte dílo komerčně-Zachovejte licenci 4.0 Mezinárodní. Dostupné na URL: http://creativecommons.org/licenses/by-nc-sa/
+4.0/deed.cs
+[2] ROSICKÝ, Jiří. Algebra. Vyd 4., přeprac. Brno: Masarykova univerzita, 2007. 133 s.
+ISBN 978-80-210-2964-4.
+[3] Poznámky od doc. Poláka: https://is.muni.cz/auth/of/1433/MV008/podzim2013/
+algebra_OD_POLAKA.pdf + všetky prednášky.
+[4] Vzorové písomky: https://is.muni.cz/auth/el/1433/podzim2010/MB008/um/
+[5] WISSAM, Raji. An Introductory Course in Elementary Number Theory. 2013. 171 s.
+Dostupné z URL: http://www.saylor.org/site/wp-content/uploads/2013/05/
+An-Introductory-in-Elementary-Number-Theory.pdf.
+[6] CLARK, Allan. Elements of Abstract Algebra. Dover, 1970. ISBN 0-486-64725-0.
+[7] http://www.liafa.jussieu.fr/~jep/PDF/Exposes/StAndrews.pdf
+
+https://www.elea.sk
+
+70
+
+Valdemar Švábenský
+
+

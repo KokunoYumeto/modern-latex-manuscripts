@@ -1,0 +1,1873 @@
+UNIVERZITET CRNE GORE
+Prirodno-matematički fakultet Podgorica
+
+
+
+
+                                Lucija Palibrk
+
+
+         Teorija kodiranja i konačna polja
+                            SPECIJALISTIČKI RAD
+
+
+
+
+                                Podgorica, 2017.
+UNIVERZITET CRNE GORE
+Prirodno-matematički fakultet Podgorica
+
+
+
+
+         Teorija kodiranja i konačna polja
+                            SPECIJALISTIČKI RAD
+
+
+
+
+Matematika
+Mentor: Vladimir Božović
+
+
+                                                               Lucija Palibrk
+                                                 Studijski program Matematika
+
+
+                           Podgorica, Oktobar 2017.
+                                     Apstrakt
+
+   Ono što me je navelo da odaberem ovu temu za svoj specijalistički rad jeste mo-
+gućnost sagledavanja jasne koristi strogo teorijskih matematičkih dostignuća. Naime,
+u ovom radu otkrićemo zanimljivu i konkretnu primjenu onih zaključaka donijetih na
+časovima algebre, koji su se, možda, nekima na prvi pogled, činili sasvim apstraktni
+i potpuno beskorisni.
+U ovom radu, vidjećemo kako se teorija kodiranja oslanja na algebru. Osim što ćemo
+obnoviti neka saznanja iz teorije konačnih polja, upoznaćemo se sa osnovnim pojmo-
+vima teorije kodiranja i proučiti neke vrste kodova.
+U prvoj glavi dali smo osnovne informacije o teoriji kodiranja i pokušali da obja-
+snimo čime se to ona bavi. Naveli smo razliku između izvornog i kanalnog kodiranja
+i jednostavnim primjerima pokušali da zainteresujemo čitaoce ovog rada. U drugoj
+glavi dali smo osnovne definicije teorije kodiranja i dali primjer kodiranja dodavanjem
+bita parnosti. Naveli smo osnovna dva pravila dekodiranja, uveli smo pojam distance
+koda, zatim smo objasnili svojstva detekcije i korekcije greške nekog koda. U trećoj
+glavi dali smo rezime algebarkih tvrđenja iz teorije konačnih polja koja su potrebna za
+proučavanje linearnih kodova, a zatim smo u četvrtoj, govorili uopšteno o linearnim
+kodovima.
+
+
+
+
+                                          3
+                                     Abstract
+
+   The reason I chose this subject to my thesis is the possibility to observe clear be-
+nefits of strictly theoretical achievements in mathematics. Particularly, in this thesis
+we will unveil an interesting and concrete implementation of conclusions made du-
+ring algebra classes, which for some people seemed completely abstract and entirely
+useless.
+In this thesis, we will see how coding theory relies on algebra. Besides recalling some
+facts from the theory of finite fields we will also be introduced to the basic terms in
+coding theory and observe some types of codes.
+In the opening chapter we provided basic information about Coding theory and tried
+to explain what the Theory is about. We pointed out the difference between source
+and channel coding and with simple examples we attempted to keep our readers inter-
+ested. In the second chapter there are basic definitions of coding theory and example
+of coding by adding a parity bit. We listed two basic rules of decoding, introduced
+concept of code distance, then we explained detection and failure correction features
+of a code. In the third chapter we provided summary of algebraic claims from the-
+ory of final fields which are necessary for studying linear codes, and the final, fourth
+chapter, is about liner codes in general.
+
+
+
+
+                                            4
+Sadržaj
+
+
+1 Uvod      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      1
+
+2 Teorija kodiranja . . . . . . . . . . . . . . . . . . . . . . . . . . . . .            6
+   2.1   Kodiranje kanala . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      6
+   2.2   Pravila dekodiranja . . . . . . . . . . . . . . . . . . . . . . . . . . . .     9
+         2.2.1   Dekodiranje po pravilu maksimalne vjerovatnoće . . . . . . . .         10
+         2.2.2   Dekodiranje po pravilu najbližeg susjeda . . . . . . . . . . . .       10
+   2.3   Detekcija i korekcija greške . . . . . . . . . . . . . . . . . . . . . . . .   14
+
+3 Konačna polja . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           19
+   3.1   Struktura konačnih polja . . . . . . . . . . . . . . . . . . . . . . . . .     19
+   3.2   Prsten polinoma . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    25
+
+4 Linearno kodiranje . . . . . . . . . . . . . . . . . . . . . . . . . . . .            32
+   4.1   Vektorski prostori . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
+   4.2   Linearni kodovi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    36
+         4.2.1   Algoritmi za nalaženje baze koda . . . . . . . . . . . . . . . .       39
+         4.2.2   Generatorna i kontrolna matrica . . . . . . . . . . . . . . . . .      41
+         4.2.3   Dekodiranje linearnih kodova . . . . . . . . . . . . . . . . . .       47
+
+5 Zaključak . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         51
+
+
+
+                                            5
+Bibliografija . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   52
+
+
+
+
+                                          6
+Glava 1
+
+Uvod
+
+   U današnje digitalno i informacijsko doba učinkovit i pouzdan prenos informacija
+vrlo je bitan, a oslanja se na metode grane matematike poznate kao Teorija kodiranja.
+   Ova relativno mlada nauka potiče od Kloda Šenona (Claude E. Shannon), ame-
+ričkog matematičara, koji je poznat kao začetnik teorije informacija, i njegovog djela
+,,A Mathematical Theory of Communication ”. Teorija informacija i teorija kodira-
+nja su srodne teorije koje za glavni cilj imaju učinkovitu i pouzdanu komunikaciju u
+često neprijateljskom okruženju, pri čemu prenos mora zahtjevati što manju količinu
+vremena i napora.
+   Teorija kodiranja je bazirana na analizi podataka koji se prenose kroz kanale sa
+šumom i na ispravljanje eventualnih grešaka koje pri tom nastaju. Naime, fizički
+medijum preko kojeg se poruke šalju naziva se kanal. (Na primjer: telefonska linija,
+satelitska veza, bežični kanal koji se koristi za mobilne komunikacije itd.) Ti kanali
+preko kojih se poruke prenose često su nesavršeni. Različite vrste kanala sklone
+su različitim vrstama šumova odnosno smetnji pri prenosu podataka. Šum može
+biti izazvan svjetlošću, bukom, ljudskom greškom, kvarom opreme koja se koristi,
+naponom i sl. Teorija kodiranja, dakle, pokušava da prevaziđe štetne efekte šumova
+
+
+
+
+                                          1
+na kanalima. Ako posmatramo primjer čuvanja podataka i njihovog čitanja sa CD-
+a, do greške može doći zbog fizičkih oštećenja na površini CD-a. Vidjećemo da je
+osnovna ideja u kodiranju poruka dodavanje redundancije tj. određene suvišnosti u
+formi dodatog simbola na izvornu poruku prije njenog prenosa kroz kanal sa šumom.
+   Razlika izmedju kriptografije i kodiranja je u tome što je glavni zadatak kripto-
+grafije da napravi poruke koje su teške za razumijevanje bez šifre (ključa), što sa
+kodiranjem nije slučaj. Ako imamo riječ koju prenosimo a koja je u binarnom zapisu,
+kodiranjem se dodaju neki pomoćni bitovi koji pomažu pronalaženju i ispravljanju
+eventualne greške nastale pri prenosu riječi od pošiljaoca do primaoca (pomenuta
+redundancija). Najprostiji način kodiranja je pomoću bitova parnosti što će biti ob-
+jašnjeno kasnije. Posle više pokušaja, prvi kod pomoću kojeg se pronalazi i ispravlja
+nastala greška, predstavio je Ričard Heming (Richard Hamming).
+   Razlikujemo izvorno kodiranje (source coding) i kodiranje kanala (channel coding).
+Izvorno kodiranje podrazumijeva promjenu izvora poruke u odgovarajući kod koji se
+prenosi preko kanala. Preciznije, izvorno kodiranje predstavlja proces koji se koristi
+za šifrovanje informacija, uklanjajući nepotrebne podatke, tako da propusni opseg
+signala bude prilagođen efikasnom prenosu. Primjer izvornog kodiranja je ASCII kod
+koji pretvara svaki karakter u bajt od 8 bita.
+
+
+
+Primjer 1.1. Razmotrimo izvorno kodiranje četiri vrste voća (jabuka, kruška, šljiva,
+višnja) na sledeći način:
+jabuka → 00
+kruška → 01
+šljiva → 10
+višnja → 11
+Pretpostavimo da je poruka ,,jabuka ”, koja je kodirana kao 00, prenijeta kroz kanal
+
+                                          2
+sa šumom. Poruka može biti oštećena pri prenosu kroz kanal zbog šuma a zatim
+i primljena pogrešno, kao 01 na primjer. Primalac, međutim ne zna da je poruka
+oštećena i pomisliće da je izvorna poruka ,,kruška”. Ovakva komunikacija očigledno
+ne uspijeva.
+
+   Jednostavni komunikacijski model može biti predstavljen na sledeći način:
+
+
+
+
+                             Slika 1.1: Izvorno kodiranje
+
+
+Ideja o kodiranju kanala podrazumijeva ponovno kodiranje poruke nakon izvornog
+kodiranja uvođenjem neke vrste suvišnosti tj. redundancije, tako da se greške mogu
+otkriti ili čak ispraviti.
+Na prethodnom primjeru možemo prikazati kodiranje kanala uvođenjem suvišnosti
+od jednog bita na sledeći način:
+00 → 000
+01 → 011
+10 → 101
+11 → 110
+
+
+
+
+                                          3
+Pretpostavimo da je poruka ,,jabuka” (koja je kodirana sa 000 posle izvornog i kanal-
+nog kodiranja) prenijeta kroz kanal sa smetnjama i da postoji samo jedna greška na
+poruci. Tada primljena riječ mora biti jedna od sledeće tri: 100, 010, 001. U ovom
+slučaju možemo uočiti grešku jer nijedna od poruka 001,100,010, nije među našim
+kodiranim porukama.
+Moramo imati na umu da gornja šema kodiranja dozvoljava otkrivanje grešaka po
+cijeni smanjenja brzine prenosa jer moramo prenositi tri bita za poruku od dva bita.
+Gornja šema kodiranja kanala nam ne dozvoljava da ispravljamo greške. Na primjer,
+ako je primljeno 100 onda mi ne znamo da li ono potiče od poruke 000 ili 110 ili 101.
+Međutim ako se uvede više suvišnosti, tj. ukoliko vršimo kanalno kodiranje tako da
+poruku od dva bita kodiramo porukom sa četiri ili više bita, bićemo u mogućnosti da
+ispravimo greške nastale pri prenosu. Na primjer, možemo dizajnirati sledeću šemu
+kodiranja kanala:
+00 → 00000
+01 → 01111
+10 → 10110
+11 → 11001
+Pretpostavimo da je poruka ,,jabuka ” prenijeta preko kanala sa smetnjama i to tako
+da je nanijeta samo jedna greška. Tada primljena poruka mora biti jedna od sledećih:
+10000, 01000, 00100, 00010, 00001. Pretpostavimo da je primljena 10000. Tada smo
+sigurni da 10000 dolazi od 00000 jer postoje najmanje dvije greške između 10000 i
+svake druge kodirane poruke 01111, 10110, 11001.
+Još treba imati na umu da u ovom slučaju gubimo više u smislu brzine prenosa in-
+formacija.
+Da bismo lakše razumijeli kanalno kodiranje pogledajmo sliku 1.2.
+
+
+
+
+                                         4
+                             Slika 1.2: Kanalno kodiranje
+
+Cilj kodiranja kanala je da se postigne:
+
+  1. brzo kodiranje poruka
+
+  2. jednostavan prenos kodiranih poruka
+
+  3. brzo dekodiranje primljenih poruka
+
+  4. maksimalan prenos podataka po jedinici vremena
+
+  5. maksimalna sposobnost detekcije i korekcije greške
+
+Generalno 5. uopšte nije kompatibilno sa 4. Prema tome svako rešenje je nužno, kom-
+promis između svih pet ciljeva. Kodiranje kanala se još naziva algebarsko kodiranje,
+jer su algebarski alati obimno uključeni u teoriju kodiranja kanala. Tu dolazimo do
+osnovnog cilja ovog specijalističkog rada, a to je, ukazati na značaj algebre na razvoj
+teorije kodiranja.
+
+
+
+
+                                           5
+Glava 2
+
+Teorija kodiranja
+
+
+2.1     Kodiranje kanala
+
+   Počnimo sa osnovnim definicijama.
+
+Definicija 2.1. Neka su dati skupovi: A - skup svih mogućih simbola izvorne poruke i
+B - skup svih mogućih simbola koda. Kodiranje je pravilo koje svakom simbolu izvorne
+poruke pridružuje tačno jednu riječ sastavljenu od simbola koda. Drugim riječima,
+kodiranje možemo opisati kao funkciju koja elementima skupa A pridružuje jedan ili
+više elemenata skupa B. Ono što dobijemo tim preslikavanjem kodirana je poruka,
+odnosno kod koji šaljemo kroz komunikacijski kanal.
+
+   U uvodu smo napomenuli da je svrha kodiranja kanala uvođenje redundantnosti
+u informativne poruke tako da se greške koje se javljaju pri prenosu mogu otkriti ili
+čak ispraviti.
+Sledeći primjer pokazuje jednu od najjednostvnijih metoda za otkrivanje grešaka.
+
+Primjer 2.1. (Dodavanje bita parnosti) Pretpostavimo da želimo poslati poruku
+u binarnom sistemu koja se sastoji od 7 bitova. Dodavanje bita parnosti znači da na
+kraj dodamo osmi bit čiju vrijednost odaberemo tako da ukupan broj nenultih bitova
+
+                                         6
+bude paran. Na primjer 0110010 → 01100101, 1100110 → 11001100. Ukoliko dođe do
+greške tokom prenosa poruke, možemo je uočiti jer će broj nenultih bitova biti neparan.
+Nedostatak ovog načina otkrivanja greške je to što ne možemo sa sigurnošću reći koji
+bit je pogrešan, niti možemo u slučaju više grešaka, prepoznati da je do greške uopšte
+i došlo.
+
+Definicija 2.2. Neka je A = {a1 , a2 , . . . aq } skup od q elemenata koga ćemo nazivati
+alfabet i čije elemente ćemo nazivati simbolima.
+
+  1. q-arna riječ dužine n nad skupom A je niz w = w1 w2 . . . wn gdje je svaki wi ∈ A
+      za ∀i = 1, 2, . . . n. Takođe w možemo posmatrati i kao vektor (w1 , w2 , . . . wn ).
+
+  2. q-arni blok-kod dužine n nad skupom A je neprazni skup C q-arnih riječi nad A
+      koje imaju istu dužinu n.
+
+  3. Element skupa C nazivamo riječ u C.
+
+  4. Broj riječi u C, u oznaci |C|, nazivamo veličinom skupa C.
+
+  5. Kod dužine n i veličine M zovemo (n, M) kod.
+
+   Vidjećemo da se za alfabet najčešće uzima konačno polje Fq , reda q.
+Kod nad alfabetom F2 = {0, 1} nazivamo binarnim kodom. Simboli za binarni kod
+su: 0 i 1. Evo nekih primjera za binarne kodove:
+
+   1. C1 = {00, 01, 10, 11} - ovo je (2,4) kod.
+
+   2. C2 = {000, 011, 101, 110} - ovo je (3,4) kod.
+
+   3. C3 = {0011, 0101, 1010, 1100, 1001, 0110}- ovo je (4,6) kod.
+
+Kod nad alfabetom F3 = {0, 1, 2} nazivamo ternarni kod.
+
+
+                                             7
+Definicija 2.3. Komunikacijski kanal se sastoji od konačnog kodnog alfabeta A =
+{a1 , a2 , . . . aq } kao i skupa tekućih kanalnih vjerovatnoća: P (aj −primljen|ai −poslat)
+koje zadovoljavaju:
+                         q
+                         X
+                                P (aj − primljen|ai − poslat) = 1
+                          j=1
+
+za sve i = 1, . . . q. Ovde smo sa P (aj − primljen|ai − poslat) označili uslovnu vjero-
+vatnoću da je aj primljen znajući da je poslat ai .
+
+Definicija 2.4. Za komunikacijski kanal se kaže da je bez memorije ako je ishod bilo
+kog prenosa nezavisan od ishoda prethodnog prenosa.
+
+   Ako su c = c1 c2 . . . cn i x = x1 x2 . . . xn riječi dužine n, onda u kanalu bez memorije
+važi
+
+                                          n
+                                          Y
+        P (x − primljen|c − poslat) =           P (xi − primljen|ci − poslat).       (2.1.1)
+                                          i=1
+
+
+Definicija 2.5. q-arno simetrični kanal je kanal bez memorije koji ima kodni alfabet
+veličine q takav da važi :
+
+   • Svaki poslati simbol ima istu vjerovatnoću p < 1/2 da bude primljen sa greškom.
+
+   • Ako je simbol primljen sa greškom, onda je svaka od q − 1 mogućih grešaka
+       jednako vjerovatna.
+
+   Konkretno, binarno-simetrični kanal (BSC ) je kanal bez memorije koji ima kodni
+alfabet {0, 1} i kanalne vjerovatnoće:
+
+
+       P (1 − primljeno|0 − poslato) = P (0 − primljeno|1 − poslato) = p,            (2.1.2)
+
+
+   P (0 − primljeno|0 − poslato) = P (1 − primljeno|1 − poslato) = 1 − p.            (2.1.3)
+
+
+                                                8
+Dakle, vjerovatnoća greške u BSC je p. Nazivamo je prelazna (crossover ) vjerovat-
+noća.
+
+Primjer 2.2. Pretpostvimo da su riječi iz koda {000, 111} poslate preko BSC - bi-
+narnog simetričnog kanala sa prelaznom vjerovatnom p = 0.05. Pretpostavimo da je
+primljena riječ 110. Probaćemo da nađemo najvjerovatnije poslatu riječ računanjem
+tekućih kanalnih vjerovatnoća:
+
+
+
+
+                                       P (110 − primljeno|000 − poslato) =
+
+         (P (1 − primljeno|0 − poslato))2 ∗ P (0 − primljeno|0 − poslato) =
+
+                                               (0.05)2 ∗ (1 − 0.05) = 0.02375
+
+
+
+
+                                       P (110 − primljeno|111 − poslato) =
+
+         (P (1 − primljeno|1 − poslato))2 ∗ P (0 − primljeno|1 − poslato) =
+
+                                                   (0.95)2 ∗ (0.05) = 0.04512
+
+
+Kako je druga vjerovatnoća veća nego prva, možemo zaključiti da je vjerovatnije da
+je poslata riječ 111.
+
+
+
+2.2     Pravila dekodiranja
+
+   Postupak pronalaženja originalne poruke x iz primljene poruke y naziva se dekodiranje.[3]
+Pretpostavimo da je primljena riječ x. Ako je x riječ koja pripada kodu onda možemo
+zaključiti da nije bilo greške pri transmisiji. Inače znamo da su se neke greške poja-
+vile. Tada trebamo pravilo za nalaženje najvjerovatnije poslate riječi. Takvo pravilo
+
+
+                                          9
+je poznato kao pravilo dekodiranja. Mi ćemo razmatrati u nastavku dva pravila de-
+kodiranja: dekodiranje po pravilu maksimalne vjerovatnoće i dekodiranje po pravilu
+najbližeg susjeda.
+
+
+2.2.1    Dekodiranje po pravilu maksimalne vjerovatnoće
+
+   Pretpostavimo da su riječi iz koda C prenijete preko komunikacionog kanala. Ako
+je primljena riječ x, mi možemo računati tekuće kanalne vjerovatnoće:
+P (x − primljeno|c − poslato) za sve riječi c ∈ C. Po pravilu maksimalne vjerovat-
+noće, riječ x ćemo dekodirati u riječ cx ∈ C, takvu da ona maksimizira tekuće kanalne
+vjerovatnoće tj.
+
+
+      P (x − primljen|cx − poslat) = max{P (x − primljen|c − poslat)|c ∈ C}
+
+. Postoje dvije vrste ovakvog dekodiranja:
+
+  1. Potpuno pravilo Ako je riječ x primljena, treba naći najvjerovatnije poslatu
+     riječ. Ako postoji više od jedne takve riječi, izaberemo jednu od njih proizvoljno.
+
+  2. Nepotpuno pravilo Ako je x primljena, treba naći najvjerovatnije poslatu
+     riječ. Ako postoji više od jedne takve riječi, zahtjevamo retransmisiju, tj. po-
+     novno slanje poruke.
+
+
+2.2.2    Dekodiranje po pravilu najbližeg susjeda
+
+   Prije nego objasnimo ovo pravilo uvedimo pojam Hamingove udaljenosti.
+Pretpostavimo da je neka riječ iz koda C poslata preko BSC sa prelaznom vjerovat-
+noćom: p < 1/2. Ako je riječ x primljena, onda je za bilo koju riječ c ∈ C tekuća
+
+
+
+
+                                          10
+kanalna vjerovatnoća data sa:
+
+
+                      P (x − primljen | c − poslat) = pl ∗ (1 − p)n−l ,
+
+
+gdje je n dužina riječi x, a l je broj mjesta na kojima se x i c razlikuju. Kako je
+p < 1/2 to onda 1 − p > p pa je tražena vjerovatnoća veća za veće vrijednosti n − l
+tj. za manje vrijednosti veličine l. Stoga je pomenuta vjerovatnoća najveća za onu
+riječ c ∈ C za koju je l najmanje. Veličinu l nazivamo Hemingovom udaljenošću ili
+Hemingovim rastojanjem riječi x i c. Evo i precizne definicije.
+
+Definicija 2.6. Neka su x i y riječi dužine n nad alfabetom A. Hemingovo rastojanje
+od x do y, u oznaci d(x, y), se definiše kao broj mjesta na kojima se x i y razlikuju.
+Ako je x = x1 x2 . . . xn i y = y1 y2 . . . yn onda
+
+
+                      d(x, y) = d(x1 , y1 ) + d(x2 , y2 ) + · · · + d(xn , yn ),
+
+gdje su xi , yi posmatrani kao riječi dužine 1 i
+                                                   
+                                                    1, xi 6= yi
+                                                   
+                                   d(xi , yi ) =
+                                                    0, xi = yi
+                                                   
+
+
+Primjer 2.3. Neka je A = {0, 1} i x = 01010, y = 01101, z = 11101. Tada
+d(x, y) = 3, d(y, z) = 1, d(z, x) = 4.
+
+Teorema 2.1. Neka su x, y, z riječi dužine n nad alfabetom A. Tada važi:
+
+   1. 0 ≤ d(x, y) ≤ n
+
+   2. d(x, y) = 0 ⇔ x = y
+
+   3. d(x, y) = d(y, x)
+
+                                                   11
+  4. d(x, z) ≤ d(x, y) + d(y, z)
+
+Dokaz. Svojstva 1, 2 i 3 su očigledna iz definicije Hemingove udaljenosti. Zbog svoj-
+stva
+                     d(x, y) = d(x1 , y1 ) + d(x2 , y2 ) + · · · + d(xn , yn )
+
+dovoljno je dokazati nejednakost trougla tj. 4. za n = 1.
+Ako x = z onda d(x, z) = 0 pa nejednakost važi.
+Ako x 6= z onda mora biti da je x 6= y ili y 6= z jer ne mogu istovremeno biti
+d(x, y) = 0 i d(y, z) = 0 zbog svojstava 1 i 2, pa je x 6= y ili y 6= z. Dakle, 4 očigledno
+važi.
+
+   Vratimo se sada pravilu najbližeg susjeda. Pretpostavimo da je riječ iz koda C
+poslata preko komunikacionog kanala. Ako je riječ x primljena, onda po pravilu naj-
+bližeg susjeda dekodiramo je u onu riječ cx iz C za koju je d(x, cx ) minimalno tj.
+
+
+                              d(x, cx ) = min{d(x, c), c ∈ C}.                      (2.2.1)
+
+   Ovaj način dekodiranja još zovemo i dekodiranje po minimalnoj udaljenosti. Ra-
+zlikujemo potpuno i nepotpuno dekodiranje i u ovom slučaju. Ako postoje dvije ili
+više riječi cx ∈ C za primljenu riječ x, koje zadovoljavaju (2.1.1) onda potpuno pra-
+vilo podrazumijeva proizvoljno biranje neke od tih riječi cx , dok nepotpuno pravilo
+zahtjeva ponovno slanje.
+
+Teorema 2.2. Za binarno simetrični kanal sa prelaznom vjerovatnoćom p < 1/2,
+pravilo dekodiranja po maksimumu vjerovatnoće je isto kao dekodiranje po pravilu
+najbližeg susjeda.
+
+Dokaz. Neka je sa C označen kod koji se koristi i neka je x primljena riječ dužine n.
+
+
+
+                                                12
+Za bilo koju riječ c dužine n i za bilo koje 0 ≤ i ≤ n važi:
+
+
+           d(x, c) = i ⇔ P (x − primljeno | c − poslat) = pi ∗ (1 − p)(n−i) .
+
+
+Kako p < 1/2, to slijedi da je
+
+
+        p0 ∗ (1 − p)n > p1 ∗ (1 − p)n−1 > p2 ∗ (1 − p)n−2 > · · · > pn ∗ (1 − p)0
+
+
+Po definiciji, pravilo dekodiranja po maksimumu vjerovatnoće nam daje da se x de-
+kodira u c ∈ C ako je P (x − primljen|c − poslat) najveća vjerovatnoća. Ona je
+najveća za i = 0 tj. za d(x, c) najmanje. Stoga je pravilo dekodiranja po maksimumu
+vjerovatnoće, u ovom slučaju, isto kao i pravilo najbližeg susjeda.
+
+Primjer 2.4. Binarni kod C = {0000, 0011, 1000, 1100, 0001, 1001} se šalje preko bi-
+narnog simetričnog kanala. Neka je x = 0111 primljeno. Tada:
+d(x, 0000) = 3
+d(x, 0011) = 1
+d(x, 1000) = 4
+d(x, 1100) = 3
+d(x, 0001) = 2
+d(x, 1001) = 3
+Koristeći pravilo najbližeg susjeda (tj. pravilo maksimalne vjerovatnoće) mi x dekodi-
+ramo u 0011.
+
+Primjer 2.5. Neka je C = {000, 011} binarni kod. Tabela dekodiranja po nepotpu-
+nom pravilu najbližeg susjeda za C izgleda ovako:
+
+
+   Oznaka ∗ u tabeli označava zahtjevanu retransmisiju.
+
+                                           13
+                primljeno : x   d(x, 000) d(x, 011) dekodiramo :
+                    000             0         2         000
+                    100             1         3         000
+                    010             1         1          *
+                    001             1         1          *
+                    110             2         2          *
+                    101             2         2          *
+                    011             2         0         011
+                    111             3         1         011
+
+
+
+   Pored dužine i veličine koda, još jedna važna i korisna karakteristika koda je
+njegova distanca.
+
+Definicija 2.7. Neka je kod C takav da sadrži najmanje dvije riječi. Udaljenost ili
+distanca koda C, u oznaci d(C) je min{d(x, y)|x, y ∈ C, x 6= y}.
+
+   Kod dužine n, veličine M i distance d, se označava kao [n, M, d] kod. Brojevi n,
+M ,d se nazivaju parametri koda. Ispostavlja se da je distanca koda usko povezana sa
+mogućnostima uviđanja i ispravljanja grešaka.
+
+
+
+2.3     Detekcija i korekcija greške
+
+Definicija 2.8. Neka je u pozitivan cio broj. Kod C ima m-mogućnosti detektovanja
+greške ako kad god riječ iz C uključuje najmanje jednu ali najviše m grešaka, rezul-
+tujuća riječ nije riječ u C. Kod C ima tačno m-mogućnosti detektovanja greške ako
+ima m- mogućnosti uočavanja greške ali nema m + 1- tih mogućnosti.
+
+Primjer 2.6. Binarni kod C = {00000, 00111, 11111} ima jednostruku mogućnost
+spoznaje greške pošto mijenjanjem bilo koje riječi koda u jednoj poziciji ne dobijamo
+neku drugu riječ u C. Drugim rječima:
+00000 → 00111 zahtjeva promjenu tri bita,
+
+
+                                         14
+00000 → 11111 zahtjeva pet grešaka,
+00111 → 11111 zahtjeva dvije promjene,
+Tačnije kod C ima tačno jednu mogućnost uočavanja greške jer pri promjeni prve
+dvije pozicije riječi 00111 dobijamo drugu kodnu riječ 11111, pa C nema dvostruku
+mogućnost spoznaje greške.
+
+Teorema 2.3. Neka je u pozitivan cio broj. Kod C ima u- mogućnosti detektovanja
+greške ako i samo ako je d(C) ≥ u + 1, ili drugim riječima kod sa distancom d je kod
+sa tačno d − 1 mogućnosti detektovanja greške.
+
+Dokaz. Pretpostavimo da je d(C) ≥ u + 1.Dokažimo da C ima u-mogućnosti detek-
+tovanja greške. Ako c ∈ C i x je takvo da je
+
+
+                               1 ≤ d(c, x) ≤ u ≤< d(C)
+
+
+onda x 6∈ C pošto je distanca za C ili u + 1 ili više, pa kako je c proizvoljno, jasno C
+ima u-mogućnosti detektovanja.
+Obratno, ako je C posjeduje u- mogućnosti detektovanja, dokažimo da je onda d(C) ≥
+u + 1. Ako pretpostavimo suprotno, tj. da je d(C) < u + 1 tj. da d(C) ≤ u, tada
+postoje c1 , c2 iz C da je
+                               1 ≤ d(c1 , c2 ) = d(C) ≤ u
+
+. Sada ako počnemo od riječi c1 ∈ C i primjenimo d(c) grešaka, pošto je 1 ≤ d(C) ≤ u
+dobijemo riječ c2 koja je u C, međutim to nije saglasno sa pretpostavkom da C ima
+u-mogućnosti detektovanja greške.
+
+Definicija 2.9. Neka je v pozitivan cio broj. Kažemo da kod C ima v-mogućnosti
+ispravke greške ako je pri dekodiranju (po pravilu minimalne udaljenosti) moguće
+
+
+
+                                          15
+ispraviti v ili manje grešaka, pod pretpostavkom da se koristi nepotpuno pravilo de-
+kodiranja. Kod C ima strogo v-mogućnosti ispravke ako on ima v, ali nema v + 1-
+mogućnosti ispravke greške.
+
+Primjer 2.7. Posmatrajmo binarni kod C = {000, 111}. Koristeći pravilo dekodira-
+nja po minimalnoj udaljenosti, dobijamo :
+
+   • Ako je 000 poslato onda, ako postoji jedna greška u prenosu, primljena riječ
+     (100, 010, 001) će biti dekodirana u 000.
+
+   • Ako je 111 poslato i jedna greška postoji u prenosu onda će primljena riječ (110,
+     101, 011) biti dekodirana u 111.
+
+U oba slučaja, jedna greška je ispravljena. Dakle, C ima jednostruku mogućnost
+ispravke.
+Ako postoje najmanje dvije greške u prenosu, onda pravilo dekodiranja po minimalnoj
+udaljenosti daje pogrešnu riječ. Na primjer ako je 000 poslato i postoje dvije greške i
+primljeno je na primjer 011 onda će 011 biti dekodirano u 111. Dakle, C ima strogo
+jednu mogućnost ispravke.
+
+Teorema 2.4. Kod C ima v-mogućnosti korekcije greške ako i samo ako je d(C) ≥
+2v + 1 tj. kod sa distancom d ima tačno b(d − 1)/2c-mogućnosti ispravke, pri čemu
+je bxc najveći cio broj manji ili jednak od x.
+
+Dokaz. Pretpostavimo da je d(c) ≥ 2v+1. Neka je c poslata riječ i neka je x primljena
+riječ. Ukoliko postoji v ili manje grešaka u transmisiji onda d(x, c) ≤ v. Dalje, za
+bilo koju riječ y ∈ C da je y 6= c imamo
+
+
+                              d(c, y) ≤ d(c, x) + d(x, y)
+
+
+
+                                           16
+tj.
+
+
+                                d(x, y) ≥ d(c, y) − d(x, c)
+
+.
+Dakle,
+                         d(c, y) ≥ 2v + 1 − v = v + 1 > d(x, c)
+
+. Ovo važi za bilo koje y ∈ C. To bi onda x bilo korektno dekodirano u c ako se koristi
+pravilo najbližeg susjeda. Ovo pokazuje da C ima v-mogućnosti ispravke greške.
+Obratno, pretpostavimo da C ima v-mogućnosti ispravke greške. Ako d(C) < 2v + 1
+onda postoje dvije riječi c1 , c2 ∈ C takve da je
+
+
+                                d(c1 , c2 ) = d(C) < 2v + 1
+
+
+tj.
+                                  d(c1 , c2 ) = d(C) ≤ 2v
+
+.
+Zapazimo da ako je d(c1 , c2 ) < v + 1 ≤ 2v tj. d(c1 , c2 ) ≤ v onda c1 može biti poslato i
+primljeno kao c2 uključujući najviše v grešaka, a onda ove greške neće biti ispravljene
+(u suštini biće neprimjećene) pošto je c2 ∈ C. Ovo je međutim u kontradikciji sa tim
+da C ima v mogućnosti ispravljanja greške. Dakle,mora biti da je
+
+
+                                    d(c1 , c2 ) ≥ v + 1
+
+
+. Sada bez gubljenja opštosti, možemo pretpostaviti da se c1 i c2 razlikuju u tačno
+
+
+
+
+                                            17
+d = d(C) prvih pozicija, pri čemu je
+
+
+                                        v + 1 ≤ d ≤ 2v
+
+
+. Ako je riječ x = x1 x2 . . . xv xv+1 . . . xd xd+1 . . . xn takva da se u prvih v slova slaže sa
+c2 , zatim se u sledećih d − v slova slaže sa c1 i u zadnjih n − d slova se slaže i sa c1 i
+sa c2 onda imamo
+                               d(x, c2 ) = d − v ≤ v = d(x, c1 )
+
+. To imamo dva slučaja:
+Prvi: d(x, c2 ) < d(x, c1 ) kada je x dekodirano nepravilno u c2 i
+drugi: d(x, c1 ) = d(x, c2 ) u kome će biti zatražen ponovni postupak. Na ovaj način
+dolazimo do kontradikcije, pa mora biti da je d(C) ≥ 2v + 1. Dakle važi teorema.
+
+
+
+
+                                               18
+Glava 3
+
+Konačna polja
+
+
+3.1     Struktura konačnih polja
+
+   Iz prethodnog poglavlja znamo da je kodni alfabet A konačan skup. Mi ćemo
+skup A opremiti algebarskim strukturama. Ideja je da definišemo dvije operacije na
+skupu A tako da A postane polje.
+Teorija konačnih polja počinje sa eminentnim matematičarima kao što su Pjer de
+Ferma (Pierre de Fermat) i Leonard Ojler (Leonhard Euler ). Razvija se zahvaljujući
+radu Karla Fridriha Gausa (Johann Carl Friedrich Gauss) i Evarista Galoa(Évariste
+Galois) a postaje interesantna poslednjih decenija zbog svojih brojnih primjena u
+matematici, računarstvu i teoriji komunikacija. U ovom poglavlju navešćemo neke
+zaključke iz teorije konačnih polja.[2]
+
+Definicija 3.1. Polje F je neprazan skup elemenata sa dvije operacije: 00 +00 i 00 ∗00 ,
+koje nazivamo sabiranje i množenje i koje zadovoljavaju sledeće aksiome:
+Za sve a, b, c ∈ F važi:
+
+  1. F je zatvoren za operacije + i ∗, tj.
+      a+b∈F i a∗b∈F
+
+
+                                          19
+  2. Zakon komutativnosti za operacije + i ∗, tj.
+     a+b=b+a i a∗b=b∗a
+
+  3. Zakon asocijacije za operacije + i ∗, tj.
+     (a + b) + c = a + (b + c) i a ∗ (b ∗ c) = (a ∗ b) ∗ c
+
+  4. Distributivni zakon a ∗ (b + c) = a ∗ b + a ∗ c
+     Još važi da moraju postojati dva različita elementa: 0 i 1 u F koje nazivamo
+     aditivni i multiplikativni neutralni element i koji zadovoljavaju sledeće:
+
+  5. a + 0 = a za sve a ∈ F
+
+  6. s ∗ 1 = a i a ∗ 0 = 0 za sve a ∈ F
+
+  7. Za sve a ∈ F postoji aditivni inverzni element (−a) u F takav da je a+(−a) = 0
+
+  8. Za sve a 6= 0 iz F postoji multiplikativni inverzni element a−1 ∈ F takav da je
+     a ∗ a−1 = 1.
+
+   Obično umjesto a ∗ b pišemo samo ab i sa F ∗ označavamo skup F \ {0}.
+Dakle, struktura (F, +, ∗) je polje ako važi da je (F, +) Abelova grupa, (F \ {0}) je
+Abelova grupa i operacija ∗ je distributivna prema +.
+
+Primjer 3.1. Neka polja sa kojima se često susrećemo su:
+Q- polje racionalnih brojeva, polje R i polje C.
+Sve aksiome iz prethodne definicije su zadovoljene ako posmatramo standardno sabi-
+ranje i množenje. Međutim, ova polja su beskonačna.
+Označimo sa Z2 skup {0, 1}. Definišimo sabiranje i množenje preko sledećih tablica.
+
+                                  + 0 1         ∗ 0    1
+                                  0 0 1         0 0    0
+                                  1 1 0         1 0    1
+
+
+                                           20
+   Jasno se vidi da je Z2 polje sa samo dva elementa.
+
+Lema 3.1. Neka su a,b dva bilo koja elementa polja F . Tada:
+
+   • (−1)a = −a
+
+   • ab = 0 ⇒ a = 0 ∨ b = 0
+
+Dokaz. Važi: (−1)a + a = (−1)a + 1a = ((−1) + 1)a = 0a = 0
+dakle, (−1)a = −a jer je (−a) jedinstven. Dalje, za a 6= 0, ako je ab = 0 imamo
+0 = a−1 ∗ 0 = a−1 (ab) = (a−1 a)b = 1b = b pa b = 0.
+
+   Polje koje sadrži samo konačan broj elemenata nazivamo konačno polje.
+Skup F koji zadovoljava aksiome 1. − 7. se naziva komutativni prsten.
+
+Primjer 3.2. Skup svih cijelih brojeva Z = {0, ±1, ±2, . . . } formira prsten sa uo-
+bičajno definisanim sabiranjem i množenjem. Skup svih polinoma nad poljem F u
+oznaci:
+                F [x] := {a0 + a1 x + a2 x2 + . . . an xn : ai ∈ F, n ≥ 0},
+
+formira prsten sa uobičajnim sabiranjem i množenjem polinoma.
+
+Definicija 3.2. Neka su a,b i m > 1 cijeli brojevi. Kažemo da je a kongruentno sa
+b po modulu m u oznaci a ≡ b (mod m) ako m|(a − b).
+
+   Za date cijele brojeve a i m > 1, pomoću algoritma dijeljenja imamo a = mq + b,
+gdje je b jedinstveno određeno sa a i m, 0 ≤ b ≤ m − 1. Dakle, svaki cijeli broj a je
+kongruentan sa tačno jednim od brojeva 0, 1, 2, . . . m − 1 po modulu m. Cijeli broj
+b naziva se ostatak dijeljenja sa m. Ako je a ≡ b (mod m) i c ≡ d (mod m) onda
+imamo da je a + c ≡ b + d (mod m) i a − c ≡ b − d (mod m) i a ∗ c ≡ b ∗ d (mod m). Za
+cijele brojeve m > 1 sa Zm ili Z|(m) označavaćemo skup {0, 1, . . . m − 1} i definišimo
+sabiranje ”+” i množenje ”*” na Zm na sledeći način:
+
+                                            21
+a + b = ostatak pri dijeljenju a + b sa m
+a ∗ b = ostatak od a ∗ b pri dijeljenju sa m.
+Lako je pokazati da sve aksiome 1. − 7. važe tako da (Zm , +, ∗) formira prsten. Za Z2
+znamo da je polje jer važi i osma aksioma. Međutim lako se pokazuje da na primjer
+Z4 nije polje. Dakle, Zm je za neke m polje a za neke nije.
+
+Definicija 3.3. Neka je R prsten. Element a ∈ R, a 6= 0 naziva se lijevim (desnim)
+djeliocem nule ukoliko postoji b ∈ R, b 6= 0 da je ab = 0 (ba = 0).
+
+Definicija 3.4. Asocijativni, komutativni prsten R sa jedinicom, bez djelitelja nule
+naziva se integralni domen.
+
+   Zbog leme 3.1. zaključujemo da je svako polje integralni domen.
+
+Teorema 3.1. Zm je polje ako i samo ako je m prost broj.
+
+Dokaz. Pretpostavimo, prvo, da je Zm polje, to je onda ono integralni domen tj.
+nema djelitelja nule. Dokažimo da je m prost. Pretpostavimo suprotno tj. da je m
+složen, tj. m = k ∗ l, za k, l < m i k, l ∈ Zm . Znamo da je u Zm m ≡ 0 tj. m i nulu
+poistovjećujemo pa je k ∗ l = 0. To onda ili k = 0 ili l = 0 pa m|k ili m|l tj. m ≤ k
+ili m ≤ l, a ovo nije tačno, pa dolazimo do kontradikcije. Dakle, m je prost.
+Sada neka je m prost. Dokažimo da je Zm polje. Neka je a nenulti element iz Zm ,
+tj. 0 < a < m. Znamo da je a uzajamno prost sa m. To onda postoje u i v da
+0 ≤ u ≤ m − 1 i u ∗ a + v ∗ m = 1. Pošto je v ∗ m ≡ 0 (mod m) to onda u ∗ a ≡ 1
+(mod m) tj. u ∗ a = 1 u Zm . Dakle, u = a(−1) . Kako je a proizvoljno uzet to je Zm
+polje.
+
+   Za prsten R, cijeli broj n ≥ 1 i a ∈ R u oznaci na ili n ∗ a označavaćemo
+
+                              n
+                              X
+                                     a = a + a + a + . . . a.
+                               i=1
+
+
+                                             22
+Definicija 3.5. Neka je F polje. Karakteristika za F je najmanji pozitivan cio broj
+p takav da je p ∗ 1 = 0, gdje je 1 multiplikativni neutral za F . Ako p ne postoji onda
+kažemo da je karakteristika za F nula. Oznaka: charF .
+
+   Karakteristika za Q, R, C je nula. Dok je za bilo koji prost broj p karakteristika
+polja Zp jednaka p.
+
+Teorema 3.2. Karakteristika bilo kog polja je ili nula ili prost broj.
+
+Dokaz. Jasno je odmah da 1 ne može biti karakteristika polja jer 1 ∗ 1 = 1 6= 0.
+Pretpostavimo sada suprotno tj.da karakteristika p može biti složen broj. Neka
+p = m ∗ n, za pozitivne cijele brojeve 1 < n, m < p. Neka su sad a = m ∗ 1 i b = n ∗ 1
+elementi polja. Tada
+
+                                    m
+                                    X           Xn
+           a∗b=m∗1∗n∗1=(                  1) ∗ (   1) = m ∗ n ∗ 1 = p ∗ 1 = 0.
+                                    i=1          i=1
+
+
+Zaključujemo, a ∗ b = 0, pa je a = 0 ili b = 0. Dakle, m ∗ 1 = 0 ili n ∗ 1 = 0 za
+m, n < p, što bi značilo da p nije karakteristika polja. Konačno, p mora biti prost.
+
+   Neka su E i F dva polja i neka je F podskup od E. Polje F nazivamo podpolje
+polja E ako je sabiranje i množenje sa E, restrikovano na F isto kao ono definisano
+na samom polju F .
+Na primjer, polje racionalnih brojeva Q je podpolje polja realnih brojeva R, ali i
+polja kompleksnih brojeva C. Takođe, R je podpolje za C.Evo još jedne ekvivalentne
+definicije podpolja.
+
+Definicija 3.6. Neprazan skup S polja (F, +, ∗) je podpolje polja F ako je (∀a, b ∈ S)
+a − b ∈ S i (∀a, b ∈ S) ab−1 ∈ S.
+
+   Takođe, da napomenemo ako je F polje karakteristike p, gdje je p prost broj, onda
+se Zp može posmatrati kao podpolje za F .
+
+                                            23
+Teorema 3.3. Konačno polje karakteristike p (p prost broj) sadrži pn elemenata, za
+neko n ≥ 1 cijeli broj.
+
+Dokaz. Konačno polje označimo sa F . Izaberimo jedan element α1 iz F ∗ . Tvrdimo
+da su: 0 ∗ α1 , 1 ∗ α1 ,. . . ,(p − 1) ∗ α1 međusobno različiti. Ukoliko bi i ∗ α1 = j ∗ α1 ,
+za neke 0 ≥ i ≥ j ≥ p − 1 onda: (j − i) ∗ α1 = 0 i 0 ≥ j − i ≥ p − 1.
+Kako je karakteristika za F jednaka p to onda j − i = 0 tj. j = i. Ako je
+
+
+                              F = {0 ∗ α1 , 1 ∗ α1 . . . , (p − 1) ∗ α1 }
+
+
+onda |F | = p pa je tvrđenje tačno. Inače, izaberimo element α2 iz skupa F \ {0 ∗
+α1 , 1 ∗ α1 , . . . , (p − 1) ∗ α1 } i tvdrdimo da su a1 ∗ α1 + a2 ∗ α2 međusobno različiti za
+sve a1 , a2 , 0 ≤ a1 , a2 ≤ p − 1.
+U suprotnom, kada bi važilo, a1 ∗α1 +a2 ∗α2 = b1 ∗α1 +b2 ∗α2 za neke 0 ≤ a1 , a2 , b1 , b2 ≤
+p − 1 onda bismo imali da je a2 = b2 jer inače α2 = (b2 − a2 )−1 ∗ (a1 − b1 ) ∗ α1 , a ovo bi
+značilo kontradikciju sa tim da je α2 izabrano iz skupa F \{0∗α1 , 1∗α1 , . . . , (p−1)∗α1 },
+jer je Zp podpolje u F i (b2 −a2 )−1 ∗(a1 −b1 ) pripada Zp . Dakle, a2 = b2 , pa je i a1 = b1 ,
+tj. (a1 , a2 ) = (b1 , b2 ). Zaključujemo da su svi različiti. Kako je F konačan ovako
+nastavljamo i dobijemo elemente α1 , α2 , . . . αn takve da αi ∈ F \ {a1 ∗ α1 + . . . ai−1 ∗
+αi−1 : a1 , . . . ai−1 ∈ Zp } za sve 2 ≤ i ≤ n i F = {a1 ∗α1 +· · ·+an ∗αn : a1 , . . . an ∈ Zp }.
+Na isti način dokažemo da su svi a1 ∗ α1 + · · · + an ∗ αn međusobno različiti za sve
+ai ∈ Zp . To onda dobijamo |F | = pn .
+
+Lema 3.2. Za svaki element b konačnog polja F sa q elemenata važi: bq = b.
+
+Dokaz. Trivijalno je za slučaj b = 0. Ako b 6= 0 posmatrajmo sve nenulte elemente iz
+F , tj. F ∗ = {b1 , b2 , . . . bq−1 }. To onda F ∗ = {bb1 , bb2 , . . . bbq−1 }. Dalje,
+
+
+                               b1 b2 . . . bq−1 = (bb1 )(bb2 ) . . . (bbq−1 )
+
+                                                    24
+tj.
+                                 b1 b2 . . . bq−1 = bq−1 (b1 b2 . . . bq−1 )
+
+. Dakle, bq−1 = 1, tj. bq = b.
+
+
+
+3.2        Prsten polinoma
+
+      Beskonačni nizovi elemenata polja F tj. nizovi (a0 , a1 , . . . ), ai ∈ F se nazivaju
+polinomima nad poljem F ako je samo konačno mnogo koeficijenata (komponenata)
+ai ∈ F različito od nule. Pišemo: P = (a0 , a1 , . . . an ) i aj = 0 za j > n. U tom slučaju
+n nazivamo stepen polinoma P i koristimo oznaku deg(P ). Po dogovoru uzimamo
+deg(0) = −∞. Na skupu svih polinoma nad poljem F definišemo binarne operacije +
+i ∗ na sledeći način P = (a0 , a1 , . . . an ), Q = (b0 , b1 , . . . bm ), P +Q = (d0 , d1 , . . . ds ) gdje
+je dj = aj +bj i s je najveći nenegativni cio broj za koji je ds 6= 0, P ∗Q = (c0 , c1 , . . . cr )
+         Pk
+i ck =      i=0 ai bk−i i r je najveći nenegativan cio broj za koji cr 6= 0. Polinom
+
+(0, 1) nad poljem F sa jediničnim elementom 1, označimo sa x. Tada svaki polinom
+P = (a0 , a1 , . . . an ) nad poljem F možemo zapisati u obliku a0 +a1 x+a2 x2 +· · ·+an xn .
+Označimo skup svih polinoma nad poljem F sa F [x]. Lako se dokazuje da je ova
+struktura prsten.
+                               Pn            i
+Nenulti polinom f (x) =           i=0 ai x       stepena n se naziva moničnim ako je an = 1.
+
+Definicija 3.7. Za polinom f (x) pozitivnog stepena kažemo da je reducibilan nad
+F ako postoje polinomi g(x) i h(x) nad F takvi da je deg(g(x)) < deg(f (x)) i
+deg(h(x)) < deg(f (x)) i f (x) = g(x) ∗ h(x). Inače ako ovi polinomi ne postoje
+kažemo da je f (x) ireducibilan.
+
+Primjer 3.3.
+
+      1. Polinom f (x) = x4 + 2x6 ∈ Z3 [x] je stepena 6 i reducibilan je tj. svodljiv nad
+
+                                                       25
+      Z3 jer f (x) = x4 (1 + 2x2 ).
+
+  2. Polinom g(x) = 1 + x + x2 ∈ Z2 [x] je stepena 2. Nesvodljiv je. Inače bi imao
+      linearni faktor x ili x − 1 međutim g(0) = 1 i g(1) = 1.
+
+  3. Slično, polinomi 1+x+x3 i 1+x2 +x3 su nesvodljivi nad Z2 jer nemaju linearne
+      faktore.
+
+   Važi teorema o dijeljenju polinoma čiji dokaz nećemo navoditi.
+
+Teorema 3.4. Neka je f (x) ∈ F [x] polinom stepena n ≥ 1. Tada za bilo koji polinom
+g(x) ∈ F [x] postoji jedinstven par (s(x), r(x)) polinoma, da je deg(r(x)) < deg(f (x))
+ili r(x) = 0 i g(x) = s(x)f (x) + r(x). Polinom r(x) naziva se ostatak od g(x) pri
+dijeljenju sa f (x).
+
+Definicija 3.8. Neka su f (x), g(x) ∈ F [x] dva nenulta polinoma. Najveći zajednički
+djelilac za ove polinome u oznaci nzd(f (x), g(x)) je monični polinom najvećeg ste-
+pena koji je djelilac i za f (x) i za g(x). Kažemo da je f (x) uzajamno prost sa g(x)
+ako je nzd(f (x), g(x)) = 1. Najmanji zajednički sadržalac za f (x) i g(x) u oznaci
+nzs(f (x), g(x)) je monični polinom najmanjeg stepena koji sadrži i f (x) i g(x).
+
+   Neka je φ funkcija koja svakom polinomu P = (a0 , a1 , . . . an ) nad poljem F pri-
+družuje tzv. polinomsku funkciju φ(P ) koja slika polje F u polje F tako da (∀x ∈ F )
+φ(P )(x) = a0 + a1 x + . . . an xn . Ispostavlja se da je φ epimorfizam. Čak ako je F
+beskonačno ovo preslikavanje je izomorfizam, međutim to nije slučaj sa konačnim
+poljima.
+
+Primjer 3.4. Posmatrajmo F = Z3 = {0, 1, 2} i polinome p = (1, 2, 1, 1), q = (1, 0, 1)
+iz Z3 . Ove polinomme pomoću φ preslikavamo u polinomske funkcije φ(p) = 1 + 2x +
+1x2 + 1x3 i φ(q) = 1 + x2 . Pokazaćemo da u ovom slučaju φ nije injekcija. Ispostavlja
+
+
+                                          26
+se da je φ(p)(x) = φ(q)(x) za sve x ∈ Z3 . Dakle, u pitanju su iste funkcije, ali
+polinomi p i q očigledno nisu isti.
+
+   Da napomenemo vrijednost polinoma u nekoj tački je vrijednost odgovarajuće
+polinomske funkcije u toj tački. Navodimo još jedno jednostavno tvrđenje.
+
+Teorema 3.5. Polinom drugog ili trećeg stepena iz F [x] svodljiv je ako i samo ako
+ima bar jedan korijen u polju F .
+
+   Pomoću polinoma nad poljem F se konstruišu proširenja polja. Na F [x] takođe
+možemo definisati relaciju kongruencije slično kao na bilo kom prstenu. Ispostavlja se
+da je to relacija ekvivalencije i F [x] posiječen po toj relaciji sa standardno definisanim
+sabiranjem i množenjem čini komutativni asocijativni prsten sa jedinicom.
+Sledeća teorema slično se dokazuje kao teorema 3.1. i ukazuje na analogije između
+prstena cijelih brojeva Z i prstena polinoma F [x].
+
+Teorema 3.6. Neka je f (x) polinom nad poljem F stepena deg(f (x)) ≥ 1. Tada
+F [x]|(f (x)) sa sabiranjem i množenjem definisanim na standardan način formira pr-
+sten. Štaviše F [x]|(f (x)) je polje ako i samo ako je f (x) nesvodljiv tj. ireducibilan
+polinom nad F .
+
+   Ako je f (x) linearni polinom onda je polje F [x]|(f (x)) samo polje F .
+
+Primjer 3.5. Posmatrajmo prsten R[x]|(1+x2 ) = {a + bx, a, b ∈ R}. Ovo je polje jer
+je (1 + x2 ) nesvodljiv nad R. Tačnije ovo je kompleksno polje C. To je jasno jer je
+nula polinoma (1 + x2 ) imaginarna jedinica i.
+
+Teorema 3.7. Neka je F podpolje polja E takvo da |F | = q. Tada element b ∈ E
+leži u F ako i samo ako bq = b.
+
+Dokaz. Direktni smjer je očigledan zbog leme 3.2.. Obratno, neka je b ∈ E i neka bq =
+b. Posmatrajmo polinom xq −x. On ima najviše q različitih korijena u E. Svi elementi
+
+                                            27
+iz F su korijeni za ovaj polinom i |F | = q, pa je F = {svikorijenipolinomaxq −xuE}.
+Dakle za sve b ∈ E, za koje bq = b slijedi da je b ∈ F .
+
+   Za dva polja E i F kompozicija E ◦ F je najmanje polje koje sadrži i E i F .
+
+Teorema 3.8. Za bilo koji prost broj p i cio broj n ≥ 1, postoji jedinstveno konačno
+polje sa pn elemenata.
+
+Dokaz. Prvo dokažimo postojanje. Posmatrajmo polje Zp . Neka je f (x) ireducibilan
+polinom nad Zp . Tada je Zp [x]|(f (x)) polje. Slično kao u Teoremi 3.3. dokazujemo da
+ovo polje ima tačno pn elemenata. Dokažimo jedinstvenost. Posmatrajmo dva polja
+                                                                n
+E, F koja imaju po pn elemenata. Posmatrajmo polinom xp − x nad kompozicijom
+                                                    n
+E ◦ F . Biće E = {svi korijeni polinoma xp − x} = F . Dakle, jedinstvenost je
+dokazana.
+
+   Konačno polje sa q elemenata označavaćemo sa Fq . Za ireducibilni polinom f (x)
+stepena n nad poljem F neka je α neki njegov korijen. Tada polje F [x]|f (x) može biti
+predstavljeno kao F [α] = {a0 + a1 α + · · · + an−1 αn−1 : ai ∈ F }.
+
+Definicija 3.9. Element α u konačnom polju Fq naziva se primitivni element ili
+generator za Fq ako je Fq = {0, α, α2 , . . . , αq−1 }.
+
+Definicija 3.10. Red nenultog elementa a ∈ Fq , u oznaci ord(a), je najmanji poziti-
+van cio broj k takav da je ak = 1.
+
+Primjer 3.6. Pošto ne postoje nelinearni faktori polinoma 1 + x2 nad F3 to je on
+ireducibilan nad F3 . Posmatrajmo element a polja F9 = F3 [a] koji je korijen polinoma
+1 + x2 . Tada a2 = −1, a3 = a(a2 ) = −a i a4 = (−1)2 = 1, pa je ord(a) = 4.
+
+Lema 3.3. Red ord(a) dijeli q − 1 za sve a ∈ Fq∗ . Takođe za svaka dva nenulta
+elementa a, b ∈ Fq∗ ako je nzd(ord(a), ord(b)) = 1 onda ord(ab) = ord(a)ord(b).
+
+                                              28
+Dokaz. Neka je a proizvoljni nenulti element iz Fq . Neka je m pozitivan cio broj takav
+da am = 1. Neka je m = c ∗ ord(a) + d, za neke cijele brojeve c i d. Biće
+1 = am = ac∗ord(a)+d = (aord(a) )c ∗ ad = ad . Dakle, ad = 1 pa d = 0 tj.ord(a) dijeli m.
+Za a ∈ Fq∗ važi aq−1 = 1 pa na osnovu prethodnog ord(a) dijeli q − 1.
+Što se tiče drugog dijela teoreme, neka je r = ord(a)ord(b). Jasno ar = 1 = br ,
+(ab)r = 1. Dakle, ord(ab) ≤ ord(a)ord(b). Sa druge strane ako označimo t = ord(ab)
+onda 1 = (ab)t∗ord(a) = (aord(a) )t ∗ bt∗ord(a) = bt∗ord(a) . Slijedi da ord(b) dijeli t ∗ ord(a),
+a kako su ord(a) i ord(b) uzajamno prosti to ord(b) dijeli t.
+Slično tako dobijemo ord(a) dijeli t, pa i ord(a) ∗ ord(b) dijeli t. Dakle, t = ord(ab) ≥
+ord(a)ord(b) tj. t = ord(a)ord(b)
+
+Teorema 3.9. Nenulti element polja Fq je njegov primitivni element ako i samo ako
+je njegov red q − 1. Svako konačno polje ima najmanje jedan primitivni element.
+
+Dokaz. Jasno je da je a ∈ Fq∗ element reda q − 1 ako i samo ako su elementi
+a, a2 , . . . aq−1 različiti. To je ekvivalentno sa tim da je Fq = {0, a, a2 , . . . aq−1 }, tj.
+a je primitivni element polja Fq .
+Sada dokažimo da svako konačno polje Fq ima bar jedan primitivni element.
+Neka je m najmanji zajednički sadržalac za redove svih elemenata iz Fq∗ . Ako je
+m = r1k1 . . . rnkn kanonska faktorizacija za m, gdje su ri , i = 1, . . . n različiti prosti
+brojevi, onda za sve i = 1, . . . n postoji bi ∈ Fq∗ da je ord(bi ) = riki . Jer ako je rk
+prosti stepen u kanonskoj faktorizaciji od m onda rk dijeli ord(a) za neko a ∈ Fq∗ pa
+            ord(a)
+je red za a rk       je rk .
+Zaključujemo da su svih q − 1 elemenata iz Fq∗ korijenovi polinoma xm − 1, pa je
+m ≥ q − 1. Prema prethodnoj lemi postoji b ∈ Fq∗ da je ord(b) = m i m dijeli q − 1.
+Dakle, m = ord(b) = q − 1.
+
+   Ako je α korijen ireducibilnog polinoma stepena m nad poljem Fq i ako je on
+
+                                               29
+primitivni element polja Fqm = Fq [α], onda svaki element u Fqm može biti predstavljen
+kao polinom od α ili kao stepen od α jer
+
+
+                                                                              m
+          Fqm = {a0 + a1 α + . . . am−1 αm−1 , ai ∈ F q} = {0, α, α2 , . . . αq −1 }
+
+
+. Kažemo da je polje F proširenje polja K ako i samo ako je K podpolje polja F .
+
+Definicija 3.11. Za element a ∈ F kažemo da je algebarski element polja F nad
+poljem K ako je on korijen polinoma čiji su koeficijenti elementi polja K. Ako za
+a ∈ F ne postoji takav polinom, kažemo da je a transcedentan element polja F .
+
+   Neka je Fq podpolje polja Fr . Za svaki element a ∈ Fr , zanima nas nenulti polinom
+f (x) ∈ Fq [x] najmanjeg stepena da je f (a) = 0.
+
+Definicija 3.12. Minimalni polinom elementa a ∈ Fqm u odnosu na Fq je nenulti
+monični polinom f (x) najmanjeg stepena u Fq [x] da je f (a) = 0.
+
+Teorema 3.10. Minimalni polinom elementa iz Fqm u odnosu na Fq postoji i jedin-
+stven je. On je, takođe, nesvodljiv nad Fq .
+
+                                                                m
+Dokaz. Neka je a ∈ Fqm . Kako je a korijen polinoma xq − x onda je egzistencija
+minimalnog polinoma jasna. Pretpostavimo da su M1 (x), M2 (x) dva polinoma iz Fq [x]
+i da su oba minimalna za a. Prema algoritmu dijeljenja biće M1 (x) = s(x)M2 (x) +
+r(x), za neke s(x) i r(x) takve da je r(x) = 0 ili deg(r(x)) < deg(M2 (x)).Dalje je,
+0 = M1 (a) = s(a)M2 (a) + r(a) = r(a). Po definiciji minimalnog polinoma biće
+r(x) = 0, tako da M2 (x) dijeli M1 (x). Slično dobijemo da M1 (x) dijeli M2 (x), pa
+zaključujemo M1 (x) = M2 (x) jer su oba monična. Jedinstvenost je dokazana. Neka je
+M (x) minimalni polinom za a. Pretpostavimo da je svodljiv nad Fq . Tada bismo imali
+dva monična polinoma f (x), g(x) ∈ Fq [x] da je deg(f (x)) < deg(M (x)), deg(g(x)) <
+
+
+                                             30
+deg(M (x)) i M (x) = f (x)g(x). Dalje, 0 = M (a) = f (a)g(a) pa je f (a) = 0 ili
+g(a) = 0, a ovo je kontradiktorno sa tim da je M (x) minimalni polinom za a.
+
+Teorema 3.11. Ako je monični ireducibilni polinom M (x) ∈ Fq [x] takav da ima
+a ∈ Fqm kao korijen onda je on minimalni polinom za a u odnosu na Fq .
+
+Dokaz. Neka je f (x) minimalni polinom za a u odnosu na Fq . Prema algoritmu
+dijeljenja postoje h(x), e(x) ∈ Fq [x] da M (x) = h(x)f (x) + e(x) da je deg(e(x)) <
+deg(f (x)) i 0 = M (a) = e(a) pa je e(x) = 0 i f (x) = M (x), pošto je M (x) monični
+ireducibilni polinom i f (x) nije nenulta konstanta.
+
+   Neka je f (x) ∈ Fq [x] monični ireducibilni polinom stepena m. Neka je a ∈ Fqm
+korijen od f (x). Onda je minimalni polinom za a u odnosu na Fq baš polinom f (x).
+
+
+
+
+                                          31
+Glava 4
+
+Linearno kodiranje
+
+    Linearni kod dužine n nad konačnim poljem Fq je potprostor vektorskog prostora
+Fqn .
+Njihova algebarska struktura omogućava nam da ih lakše opišemo nego nelinearne
+kodove. Navešćemo neka svojstva vektorskih prostora nad konačnim poljima.
+
+
+
+4.1       Vektorski prostori
+
+Definicija 4.1. Neka je Fq konačno polje reda q. Neprazan skup V , zajedno sa
+vektorskim sabiranjem ”+” i skalarnim množenjem elementima iz Fq , ”∗”, je vektorski
+(linearni) prostor nad Fq ako zadovoljava sledeće uslove:
+za sve u, v, w ∈ V i sve λ, µ ∈ Fq :
+
+   1. u + v ∈ V
+
+   2. (u + v) + w = u + (v + w)
+
+   3. Postoji 0 ∈ V sa svojstvom 0 + v = v + 0 = v, za sve v ∈ V
+
+   4. Za svaki v ∈ V postoji element iz V u oznaci (−v) takav da je v + (−v) =
+        (−v) + v = 0
+
+                                         32
+    5. u + v = v + u
+
+    6. λ ∗ v ∈ V
+
+    7. λ ∗ (u + v) = λ ∗ u + λ ∗ v, (λ + µ) ∗ u = λ ∗ u + µ ∗ u
+
+    8. (λµ) ∗ u = λ ∗ (µ ∗ u)
+
+    9. ako je 1 multiplikativni neutral za Fq onda je 1 ∗ u = u.
+
+    Neka je Fqn skup svih vektora dužine n sa komponentama iz Fq tj. Fqn = {(v1 , v2 , . . . , vn ) :
+vi ∈ Fq }. Definišemo vektorsko sabiranje u Fqn kao sabiranje po komponentama, ko-
+risteći sabiranje definisano u polju Fq . Za u = (u1 , u2 , . . . , un ), v = (v1 , v2 , . . . , vn ) iz
+Fqn ,
+                             u + v = (u1 + v1 , u2 + v2 , . . . un + vn )
+
+. Skalarno množenje na Fqn definišemo kao množenje po komponentama. Za proi-
+zvoljno v = (v1 , v2 , . . . , vn ) ∈ Fqn i λ ∈ Fq ,
+
+
+                                λ ∗ v = (λ ∗ v1 , λ ∗ v2 , . . . , λ ∗ vn )
+
+
+.
+Označimo 0 = (0, 0, . . . , 0) ∈ Fqn .
+
+Primjer 4.1. Za q = 2, F2 = {0, 1} polje, C4 = {(0, 0, 0, 0), (1, 0, 1, 0), (0, 1, 0, 1), (1, 1, 1, 1)}
+jeste prostor nad F2 .
+
+Definicija 4.2. Neprazan podskup C vektorskog prostora V je potprostor od V ako je
+on sam za sebe vektorski prostor sa istim vektorskim sabiranjem i skalarnim množe-
+njem kao i V .
+
+    Sledeća teorema slijedi odmah iz prethodne definicije.
+
+                                                   33
+Teorema 4.1. Neprazan podskup C vektorskog prostora V nad Fq je potprostor ako
+i samo ako važi sledeće : ako x, y ∈ C i λ, µ ∈ Fq onda λ ∗ x + µ ∗ y ∈ C.
+
+Definicija 4.3. Neka je V vektorski prostor nad Fq . Linearna kombinacija vektora:
+v1 , v2 , . . . vr iz V je vektor λ1 ∗ v1 + . . . λr ∗ vr gdje su λi ∈ Fq neki skalari.
+
+Definicija 4.4. Neka je V vektorski prostor nad poljem Fq . Skup vektora {v1 , v2 , . . . vr }
+u V je linearno nezavisan ako λ1 ∗v1 +. . . λr ∗vr = 0 povlači da je λ1 = λ2 = . . . λr = 0.
+Dati skup je linearno zavisan ako nije linearno nezavisan, tj. ako postoje λ1 , λ2 , . . . λr
+iz Fq koji nisu istovremeno jednaki nuli, da λ1 ∗ v1 + . . . λr ∗ vr = 0.
+
+    Bilo koji skup koji sadrži 0 je linearno zavisan.
+
+Definicija 4.5. Neka je V vektorski prostor nad Fq i S = {v1 , v2 , . . . vk } neprazan
+podskupod V . Linearni omotač od S se definiše kao skup
+
+
+                          < S >= {λ1 ∗ v1 + . . . λk ∗ vk , λi ∈ Fq }
+
+
+.
+
+    Ako je S = ∅ definišemo < S >= 0. Jasno je da je < S > potprostor od V .
+Kažemo da je on generisan sa S. Za dati potprostor C od V i njegov podskup S
+kažemo da S generiše C ako je C =< S >. Ako je S već potprostor od V onda
+< S >= S.
+
+Definicija 4.6. Neka je V vektorski prostor nad Fq . Neprazan skup B = {v1 , v2 , . . . vk }
+u V je baza za V ako je V =< B > i B je linearno nezavisan.
+
+    Da napomenemo da ako je B = {v1 , v2 , . . . vk } baza u V onda bilo koji vektor iz
+V može biti predstavljen na jedinstven način kao linearna kombinacija vektora iz B.
+Takođe, može postojati više baza jednog istog prostora V nad Fq , ali sve one imaju isti
+
+                                                34
+broj elemenata i taj broj nazivamo dimenzija prostora V nad Fq . Koristimo oznaku
+dim(V ).
+
+Teorema 4.2. Neka je V vektorski prostor nad Fq . Ako je dim(V ) = k onda V ima
+q k elemenata i ima
+                                           k−1
+                                        1 Y k
+                                               (q − q i )
+                                        k! i=0
+
+različitih baza.
+
+Dokaz. Ako je {v1 , v2 , . . . vk } baza za V onda je
+
+
+                     V = {λ1 ∗ v1 + . . . λk ∗ vk : λi ∈ Fq , i = 1, . . . k}
+
+
+. Pošto |Fq | = q onda postoji tačno q izbora za svaki od λi pa V ima tačno q k
+elemenata. Neka je B = {v1 , v2 , . . . vk } jedna baza za V . Pošto v1 6= 0 postoji q k − 1
+izbora za v1 . Da bi B bila baza nikako ne smije važiti v2 ∈< v1 > pa postoji q k − q
+izbora za v2 . Nastavljajući u ovom maniru zaključujemo da za izbor vi imamo q k −q i−1
+mogućnosti za sve 2 ≤ i ≤ k. Za izbor (v1 , v2 , . . . vk ) ima k−1    k   i
+                                                               Q
+                                                                 i=0 (q − q ) mogućnosti.
+
+Međutim pošto poredak vektora nije bitan za bazu to je broj različitih baza za V
+jednak k!1 k−1    k   i
+          Q
+            i=0 (q − q ).
+
+
+Definicija 4.7. Neka su u = (u1 , u2 , . . . , un ), v = (v1 , v2 , . . . , vn ) iz Fqn . Skalarni
+proizvod za u i v se definiše kao u ◦ v = u1 v1 + u2 v2 + . . . un vn ∈ Fq . Koristimo i
+oznaku < u, v >.
+Za u, v kažemo da su ortogonalni ako < u, v >= 0.
+
+Definicija 4.8. Neka je S neprazan podskup za Fqn . Ortogonalni komplement S ⊥ za
+S je skup:
+                        S ⊥ = {v ∈ Fqn :< v, s >= 0 za sve s ∈ S}
+
+
+                                                 35
+. Ako je S = ∅ onda definišemo S ⊥ = Fqn .
+
+    Lako je uočiti da je S ⊥ uvijek potprostor vektorskog prostora Fqn za bilo koji skup
+S iz Fqn i važi < S >⊥ = S ⊥ .
+
+Teorema 4.3. Neka je S podskup od Fqn , tada:
+
+
+                              dim(< S >) + dim(S ⊥ ) = n
+
+
+.
+
+Dokaz. Jasno je ako je S = ∅. Ukoliko je dim(< S >) = k ≤ 1 pretpostavimo da je
+baza {v1 , v2 , . . . , vk }. Pokažimo da je dim(S ⊥ ) = n − k. Jasno x ∈ S ⊥ ako i samo
+ako < v1 , x >=< v2 , x >= · · · < vk , x >= 0, tj. Ax⊥ = 0 gdje je A matrica dimenzije
+k × n čije su vrste vektori baze. Ax⊥ = 0 je linearni sistem sa k jednačina od n
+nepoznatih. Prostor rješenja ovog sistema je dimenzije n − k.
+
+    Obnovili smo osnovno o vektorskim prostorima, vratimo se proučavanju linearnih
+kodova.
+
+
+
+4.2       Linearni kodovi
+
+Definicija 4.9. Linearni kod dužine n nad Fq je potprostor prostora Fqn .
+
+Definicija 4.10. Neka je C linearni kod u Fqn . Dualni kod za C je ortogonalni
+komplement potprostora C u Fqn . Koristimo oznaku C ⊥ . Dimenzija linearnog koda C
+je dimenzija vektorskog prostora C nad Fq .
+
+    Neka je C linearni kod dužine n nad Fq . Važi:
+
+    1. |C| = q dim(C) tj. dim(C) = logq |C|.
+
+                                               36
+    2. C ⊥ je linearni kod i važi dim(C) + dim(C ⊥ ) = n.
+
+    3. (C ⊥ )⊥ = C.
+
+Linearni kod C dužine n i dimenzije k nad Fq se obično naziva q-arni [n, k] kod ili
+[n, q, k] kod. Nekada se i distanca koda naglašava.
+
+Definicija 4.11. Neka je C linearni kod. Kažemo da je C samoortogonalan ako je
+C ⊆ C ⊥ . Kažemo da je C samodualan ako je C = C ⊥ .
+
+    Dimenzija samoortogonalnog koda dužine n mora biti manja ili jednaka od n/2 a
+dimenzija samodualnog koda dužine n je n/2.
+Hemingova udaljenost(distanca) d(x, y) riječi x i y definisana je ranije u drugom
+poglavlju. Sada ćemo definisati pojam Hemingove težine.
+
+Definicija 4.12. Neka je x riječ u Fqn . Hemingova težina riječi x u oznaci wt(x) se
+definiše kao broj nenultih koordinata u x tj. wt(x) = d(x, 0), gdje je 0-nula riječ.
+
+    Za svaki element x ∈ Fq Hemingovu težinu definišemo na sledeći način:
+
+                                               
+                                                1, x 6= 0
+                                               
+                             wt(x) = d(x, 0) =
+                                                0, x = 0
+                                               
+
+Napišmo x ∈ Fqn kao x = (x1 , x2 , . . . xn ). Hemingova težina riječi x se može ekviva-
+lentno definisati sa :
+
+
+                         wt(x) = wt(x1 ) + wt(x2 ) + · · · + wt(xn )
+
+
+.
+
+Lema 4.1. Ako su x, y ∈ Fqn onda d(x, y) = wt(x − y).
+
+
+                                             37
+Dokaz. Posmatrajmo prvo riječi dužine 1. Neka su x, y ∈ Fq tada d(x, y) = 0 ako i
+samo ako x = y ako i samo ako x − y = 0 tj. wt(x − y) = 0. Sada ako imamo riječi
+x, y ∈ Fqn prethodni postupak ponovimo za sve komponente tj. slova riječi x i y.
+
+Teorema 4.4. Neka je q parno. Ako x, y ∈ Fqn onda d(x, y) = wt(x + y).
+
+Dokaz. Ovo je jasno ako znamo da za q parno važi: za svako a ∈ Fq a = −a.
+
+   Za x = (x1 , x2 , . . . xn ) i y = (y1 , y2 , . . . yn ) iz Fqn definišimo sledeću operaciju
+
+
+                             x ∗ y = (x1 ∗ y1 , x2 ∗ y2 , . . . xn ∗ yn )
+
+
+. Lako se dokazuje da ako je x, y ∈ F2n onda wt(x + y) = wt(x) + wt(y) − 2wt(x ∗ y).
+Dakle, wt(x) + wt(y) ≥ wt(x + y) za sve x, y ∈ F2n .
+
+Definicija 4.13. Neka je C linearan kod. Minimalna (Hemingova) težina koda C je
+najmanja od svih težina nenultih riječi u C. Oznaka: wt(C).
+
+Teorema 4.5. Neka je C linearan kod nad Fq . Tada d(C) = wt(C).
+
+Dokaz. Već znamo da je d(x, y) = wt(x − y). Po definiciji postoje x0 , y 0 ∈ C da je
+d(x0 , y 0 ) = d(C) = wt(x0 − y 0 ) ≥ wt(C) jer važi da x0 − y 0 ∈ C. Suprotno, postoji
+z ∈ C \ {0} da je wt(C) = wt(z) = d(z, 0) ≥ d(C) pa wt(C) = d(C).
+
+Primjer 4.2. Posmatrajmo binarni linearni kod C = {0000, 1000, 0100, 1100}. Vi-
+dimo wt(1000) = 1, wt(0100) = 1, wt(1100) = 2. Zaključujemo d(C) = 1.
+
+   Navedimo neke prednosti linearnih kodova.
+
+  1. Linearni kod je vektorski prostor i može biti potpuno opisan pomoću baze.
+
+  2. Distanca linearnog koda je jednaka njegovoj težini.
+
+
+                                                 38
+   3. Kodiranje i dekodiranje za linearne kodove je brže i jednostavnije nego za proi-
+      zvoljne nelinearne kodove.
+
+Definicija 4.14. Neka je A matrica nad Fq . Elementarna transformacija vrsta u A
+je bilo koja od sledeće tri operacije:
+
+  1. zamijena dvije vrste,
+
+  2. množenje vrste nenultim skalarom,
+
+  3. zamijena vrste njenom sumom sa drugom vrstom pomnoženom skalarom.
+
+Definicija 4.15. Dvije matrice su ekvivalentne po vrstama ako jedna može biti dobi-
+jena od druge nizom elementarih transformacija vrsta.
+
+   Sada ćemo objasniti dva algoritma za nalaženje baze datog koda.
+
+
+4.2.1     Algoritmi za nalaženje baze koda
+
+   Algoritam 1
+Zadajemo neprazan skup S iz Fqn . Želimo pronaći bazu za linearni kod C =< S >
+generisan sa S. Metoda podrazumijeva sledeće : od matrice A čije su vrste riječi u
+S, koristeći elementarne transformacije vrsta, dođemo do trougaonog oblika matrice
+A. Nenulte vrste dobijene matrice predstavlaju vektore baze za C.
+
+Primjer 4.3. Neka je q = 3, F3 = {0, 1, 2} i neka je S = {12101, 20110, 01122, 11010}.
+Nađimo bazu za linearni kod C =< S >.
+                                                    
+                                    1       2 1 0 1 
+                                                    
+                                    2       0 1 1 0 
+                                 A=
+                                                    
+                                                     
+                                    0       1 1 2 2 
+                                                    
+                                                    
+                                     1       1 0 1 0
+
+                                             39
+Sabirajući prvu i drugu vrstu, zatim množeći prvu sa 2 i sabirajući je sa četvrtom
+vrstom dobijamo sl. matricu:
+
+                                              
+                                  1   2 1 0 1 
+                                              
+                                  0   2 2 1 1 
+                                              
+                                              
+                                  0   1 1 2 2 
+                                              
+                                              
+                                   0   2 2 1 2
+
+
+
+Stavljajući treću vrstu na drugu poziciju, zatim sabirajući je sa preostale dvije dobi-
+jamo trougaoni oblik matrice :
+
+                                                  
+                                  1   2 1 0 1 
+                                              
+                                  0   1 1 2 2 
+                                              
+                                              
+                                  0   0 0 0 1 
+                                              
+                                              
+                                   0   0 0 0 0
+
+
+
+Zaključujemo da je baza u C sledeća {12101, 01122, 00001}.
+
+   Algoritam 2
+Unosimo neprazan skup S iz Fqn . Želimo pronaći bazu za linearni kod C =< S >
+generisan sa S. Metoda podrazumijeva formiranje matrice A čije su kolone riječi iz
+S, zatim korišćenje elementarih transformacija vrsta da A dovedemo do trougaonog
+oblika. Bazu će činiti vodeće kolone matrice.
+
+Primjer 4.4. Neka je q = 2, F2 = {0, 1}, S = {11101, 10110, 01011, 11010}. Nađimo
+bazu za C =< S > po algoritmu 2. Formiramo matricu A stavljajući riječi iz S kao
+
+
+
+                                          40
+kolone u A.                                          
+                                   1       1 0 1
+                                                  
+                                                  
+                                  1       0 1   1 
+                                                  
+                                                  
+                               A=
+                                  1       1 0   0 
+                                                   
+                                                  
+                                  0       1 1   1 
+                                                  
+                                                  
+                                   1       0 1   0
+
+
+Koristeći elementarne transformacije vrsta svedemo A na trougaoni oblik:
+
+                                                
+                                      1 1 0 1
+                                                 
+                                                 
+                                   0     1 1   0 
+                                                 
+                                                 
+                                   0     0 0   1 
+                                                 
+                                                 
+                                   0     0 0   0 
+                                                 
+                                                 
+                                    0     0 0   0
+
+
+
+Vodeće kolone su prva, druga i četvrta pa one čine bazu za C: {11101, 10110, 11010}.
+Primjetimo da je u drugom algoritmu dobijena baza podskup skupa S, dok to nije
+obavezno u algoritmu 1.
+
+
+4.2.2    Generatorna i kontrolna matrica
+
+   Poznavanje baze linearnog koda omogućava nam da eksplicitno opišemo svaku
+njegovu riječ. U teoriji kodiranja baza za linearni kod se obično predstavlja u vidu
+matrice, nazvane generatorna matrica, dok se matrica koja predstavlja bazu dualnog
+koda naziva kontrolna matrica koda C.
+
+Definicija 4.16. Generatorna matrica linearnog koda C je matrica G čije su vrste
+bazni vektori za C, dok je kontrolna matrica H koda C generatorna matrica za dualni
+
+                                          41
+kod C ⊥ .
+
+
+   • Ako je C [n, k] linearni kod onda je G matrica k × n a H je (n − k) × n matrica.
+
+   • Kako baza vektorskog prostora ima više to onda i generatornih matrica za li-
+      nearni kod takođe ima više. Čak i kada je baza fiksirana, permutacije redova
+      generatorne matrice takođe daju drugačiju generatornu matricu.
+
+   • Vrste tj. redovi generatorne matrice su linearno nezavisne. Isto važi i za matricu
+      H. Da bi pokazali da je neka k × n matrica G generatorna matrica za dati [n, k]
+      linearni kod, dovoljno je pokazati da su redovi u G kodne riječi za C i da su
+      linearno nezavisni.
+
+
+Definicija 4.17. Kažemo da je generatorna matrica u standardnoj formi ako je oblika
+(Ik |X). Kažemo da je kontrolna matrica u standardnoj formi ako je oblika (Y |In−k ).
+
+Lema 4.2. Neka je C [n, k] linearni kod nad Fq , sa generatornom matricom G. Važi
+da v ∈ Fqn pripada C ⊥ ako i samo ako je v ortogonalan sa svakom vrstom iz G, tj.
+v ∈ C ⊥ ⇔ vG> = 0. Ako je data (n − k) × n matrica H onda je H kontrolna matrica
+za C ako i samo ako su vrste u H linearno nezavisne i važi HG> = 0.
+
+Dokaz. Sa ri označimo i-tu vrstu u G, ri ∈ C, ∀i ∈ {1, 2, . . . k} i svako c ∈ C može biti
+predstavljeno: c = λ1 ∗ r1 + · · · + λk ∗ rk , gdje λi ∈ Fq , ∀i ∈ {1, 2, . . . k}. Ako v ∈ C ⊥
+onda v ∗ c = 0, ∀c ∈ C, pa je v ortogonalno na svako ri , tj. vG> = 0. Suprotno, ako je
+v ∗ ri = 0, ∀i ∈ {1, 2, . . . k} onda jasno, ∀c ∈ C, c = λ1 ∗ r1 + · · · + λk ∗ rk važi v ∗ c = 0
+tj. v ∈ C ⊥ . Ako je H kontrolna matrica, onda su vrste za H linearno nezavisne po
+definiciji. Pošto su vrste za H riječi u C ⊥ to onda HG> = 0. Obratno, ako HG> = 0,
+onda vrste iz H, tj. potprostor vrsta iz H je sadržan u C ⊥ . Još važi da su vrste u H
+linearno nezavisne i dimenzija za H je n − k, pa je H kontrolna matrica.
+
+
+                                               42
+Alternativna, ekvivalentna formulacija prethodne leme je:
+Neka je C [n, k] linearni kod nad Fq sa kontrolnom matricom H. Onda v ∈ Fqn pripada
+C ako i samo ako je v ortogonalno na svaku vrstu iz H, tj. v ∈ C ⇔ vH > = 0. Za
+datu k × n matricu G znamo da je ona generatorna za C ako i samo ako su joj vrste
+linearno nezavisne i GH > = 0.
+
+Teorema 4.6. Neka je C linearni kod i H kontrolna matrica za C. Onda važi:
+
+   1. C ima distancu ≥ d ako i samo ako bilo kojih d − 1 kolona u H je linearno
+      nezavisno i
+
+   2. C ima distancu ≤ d ako i samo ako H ima d kolona koje su linearno zavisne.
+
+Dokaz. Neka je v = (v1 , v2 , . . . vn ) ∈ C riječ težine l > 0. Pretpostavimo da su nenulte
+koordinate na pozicijama i1 , i2 , . . . il pa vj = 0 za sve j izvan {i1 , i2 , . . . il }. Neka je
+sa ci označena i-ta kolona matrice H. Prema alternativnoj formulaciji prethodne
+leme imamo da C sadrži nenultu riječ v = (v1 , v2 , . . . vn ) težine l ako i samo ako je
+0 = vH > = vi1 ∗ c>
+                  i1 + · · · + vil ∗ ci>
+                                       l
+                                         , što je tačno ako i samo ako su ovih l kolona u
+H linearno nezavisne. Ako kažemo da je d(C) ≥ d to je ekvivalentno sa tim da C ne
+sadrži nijednu nenultu riječ težine ≤ d − 1, što je opet ekvivalentno tome da je bilo
+kojih d − 1 linearno nezavisno u H. Slično ako kažemo da je distanca za C manja ili
+jednaka od d to je ekvivalentno sa tim da C sadrži nenulte riječi težine ≤ d, što je
+opet ekvivalentno sa tim da H ima ≤ d koje su linearno zavisne.
+
+    Neposredna posledica ove teoreme je sledeća lema.
+
+Lema 4.3. Neka je C linearni kod i H njegova kontrolna matrica. Sledeća tvrđenja
+su ekvivalentna:
+
+   1. C ima distancu d.
+
+
+                                                43
+  2. Bilo kojih d − 1 kolona u H je linearno nezavisna i H ima d kolona koje su
+     linearno zavisne.
+
+Primjer 4.5. Neka je C binarni linearni kod sa kontrolnom matricom
+                                                   
+                                  1 0 1 0 0 
+                                            
+                               H=
+                                  1 1 0 1 0 
+                                             
+                                            
+                                   0 1 0 0 1
+
+
+
+Vidimo da H nema nultih kolona niti bilo koje dvije kolone u sumi daju 0, to su znači
+bilo koje dvije kolone u H linearno neazvisne. Međutim prva, treća i četvrta u sumi
+daju nulu tj. linearno su zavisne, pa je d = 3.
+
+Teorema 4.7. Ako je generatorna matrica G linearnog [n, k] koda data u standardnoj
+formi sa G = (Ik |X) onda je H = (−X > |In−k ).
+
+Primjer 4.6. Nađimo G i H za binarni linearni kod C =< S > gdje je S =
+{11101, 10110, 01011, 11010}. Prema prvom algoritmu:
+
+                                                   
+                                  1      1 1 0 1 
+                                                 
+                                  1      0 1 1 0 
+                               A=
+                                                 
+                                                  
+                                  0      1 0 1 1 
+                                                 
+                                                 
+                                   1      1 0 1 0
+
+
+
+
+                                          44
+A svedemo na trougaoni oblik:
+
+                                                
+                                  1     0 0 0 1 
+                                                
+                                  0     1 0 1 1 
+                                                
+                                                
+                                  0     0 1 1 1 
+                                                
+                                                
+                                   0     0 0 0 0
+
+
+
+Uočavamo generatornu matricu:
+                                                            
+                      1 0 0 0 1   1 0 0 0 1 
+                                            
+                   G=
+                      0 1 0 1 1 = 0 1 0 1 1 
+                                             
+                                            
+                       0 0 1 1 1     0 0 1 1 1
+
+
+Biće,                                               
+                                   0 1 1 1 0 
+                                H=           
+                                    1 1 1 0 1
+
+Važi GH > = 0 = HG> .
+
+   Treba napomenuti da ne mora svaki linearni kod da ima generatornu matricu u
+standardnoj formi. Međutim, nakon pogodnih permutacija koordinata riječi i do-
+zvoljenog množenja odgovarajućih koordinata sa nenultim skalarom, uvijek možemo
+dobiti novi kod koji ima generatornu matricu u standardnoj formi. Tada govorimo
+ekvivalentnim kodovima.
+
+Definicija 4.18. Dva [n, M ] koda nad Fq su ekvivalentni ako jedan može biti dobijen
+od drugog kombinacijom sledećih operacija:
+
+   • permutacija n simbola riječi,
+
+   • množenje nenultim skalarom simbola na fiksnoj poziciji.
+
+                                          45
+Primjer 4.7. Neka je q = 2 i n = 4 i C = {0000, 0101, 0010, 0111}. Birajući
+da permutujemo slova u riječi pomoću sledeće premutacije (1, 2, 3, 4) → (2, 4, 1, 3),
+dobijemo ekvivalentan kod C 0 = {0000, 1100, 0001, 1101}.
+
+Teorema 4.8. Bilo koji linearni kod C je ekvivalentan sa nekim linearnim kodom C 0
+koji ima generatornu matricu u standardnoj formi.
+
+Dokaz. Ako je G generatorna matrica koda C prevedimo je elementarnim transforma-
+cijam u dijagonalni oblik. Reorganizujmo kolone u tako dobijenoj dijagonalnoj formi
+da vodeće kolone budu prve i formiraju identičku matricu. Dobijemo G0 matricu u
+standardnoj formi koja je generatorna matrica koda koga ćemo označiti sa C 0 i važi
+da je on ekvivalentan kodu C.
+
+   Sada ćemo objasniti šta podrazumijeva kodiranje linearnim kodovima.
+Neka je C [n, k, d] linearni kod nad konačnim poljem F q. Svaka riječ iz C predsta-
+vlja neku vrstu informacije, pa C predstavlja q k različitih vrsta informacija. Ako
+je fiksirana baza u C i to {r1 , . . . rk } tada svaka riječ može biti jedinstveno odre-
+đena sa linearnom kombinacijom v = u1 ∗ r1 ∗ · · · + uk ∗ rk , gdje su u1, . . . uk ∈ Fq .
+Ekvivalentno, možemo posmatrati generatornu matricu G koda C, čija je i-ta vrsta
+ri , vektor izabrane baze. Za dati vektor u = (u1 , u2 , . . . uk ) ∈ Fqk jasno je da je
+v = uG = u1 ∗ r1 ∗ · · · + uk ∗ rk kodna riječ u C. Obratno, svaki v ∈ C može se
+zapisati kao v = uG, gdje je u ∈ Fqk . Dakle svaka riječ u ∈ Fqk može biti kodirana
+kao v = uG. Proces predstavljanja elemenata u ∈ Fqk kao riječi v = uG je takozvani
+proces kodiranja.
+
+
+
+
+                                           46
+Primjer 4.8. Neka je C binarni [5, 3] linearni kod sa generatornom matricom
+
+                                                  
+                                1 0 1 1 0 
+                                          
+                             G=
+                                0 1 0 1 1 
+                                           
+                                          
+                                 0 0 1 0 1
+
+
+Tada se poruka u = 101 kodira na sledeći način: v = uG = (101)G = 10011.
+
+   Zapazimo da je informaciona stopa jednaka 3/5, tj. samo su 3 bita od 5 korišćena
+za emitovanje poruke.
+Obratimo pažnju na neke prednosti generatorne matrice G u standardnoj formi. Prvo,
+ako je C dat sa G = (I|X) onda imamo da je H = (−X > |I), zatim ako je [n, k, d]
+linearni kod dat sa G = (I|X) onda je trivijalno naći poruku u iz date kod riječi
+v = uG, jer v = uG = u(I|X) = (u, uX), tj. prvih k cifara u riječi v daje poruku
+u. Te cifre nazivamo informaciske. Ostalih n − k cifara zovemo kontrolnim. One
+predstavljaju redundanciju koja je dodata poruci da bi se zaštitila od smetnji pri
+prenosu.
+
+
+4.2.3      Dekodiranje linearnih kodova
+
+   Najčešće koristimo dekodiranje po pravilu najbližeg susjeda za linearne kodove.
+
+
+
+Definicija 4.19. Neka je C linearni kod dužine n nad Fq i neka je u ∈ Fqn bilo koji
+vektor dužine n. Definišimo suskup (koset) koda C određen sa u na sledeći način:
+C + u = {v + u|v ∈ C} = u + C.
+
+Teorema 4.9. Neka je C neki [n, k, d] linearni kod nad konačnim poljem Fq , tada:
+
+  1. Svaki vektor iz Fqn je sadržan u nekom suskupu (kosetu) koda C.
+
+                                        47
+   2. Za sve u ∈ Fqn , |C + u| = |C| = q k .
+
+   3. Za sve u, v ∈ Fqn , u ∈ C + v → C + u = C + v.
+
+   4. Dva koseta su ili identična ili nemaju zajednički presjek.
+
+   5. Postoji q n−k različitih koseta koda C.
+
+   6. Za sve u, v ∈ Fqn , u − v ∈ C ⇔ u, v pripadaju istom kosetu koda C.
+
+Dokaz. 1. Jasno je da za v ∈ Fqn važi v ∈ C + v.
+2. Po definiciji C + u ima najviše |C| = q k elemenata. Tačnije v + u i w + u iz C + u
+su isti ako i samo ako v = w pa |C + u| = |C|.
+3. Ako u ∈ C + v onda C + u ⊆ C + v pa zbog 2. C + u = C + v.
+4. Posmatrajmo C + u i C + v. Ako x ∈ (C + u) ∩ (C + v) onda C + x = C + u i
+C + x = C + v pa C + u = C + v.
+5. Jasno imajući u vidu da je |Fqn | = q n i |C| = q k .
+6.u − v = c ∈ C → u = c + v ∈ C + v → C + u = C + v → u, v pripadaju istom
+kosetu. Obratno ako su u, v ∈ C + x → u = c + x, v = c0 + x za c, c0 ∈ C → u − v =
+c − c0 ∈ C.
+
+Definicija 4.20. Riječ sa najmanjom Hemingovom težinom u kosetu zove se vodeća
+riječ koseta.
+
+   Neka je C linearni kod. Pretpostavimo da je riječ v prenešena preko komunikacio-
+nog kanala a riječ w je primljena sa greškom: e = w − v ∈ w + C. Biće w − e = v ∈ C,
+pa je zadovoljeno da su e i w u istom kosetu. Inače e nazivamo uzorak greške. Po-
+što je najbolje da se pojavljuje uzorak greške sa najmanjom težinom, dekodiranje po
+principu najbližeg susjeda radi za linearne kodove. Nakon primanja riječi w, biramo
+riječ e ∈ w + C najmanje težine i zaključujemo da je v = w − e poslata riječ, tj.
+dekodiramo w u v = w − e.
+
+                                               48
+Primjer 4.9. Neka je q = 2 i C = {0000, 1011, 0101, 1110}.Dekodirajmo sledeću
+primljenu riječ w = 1101. Imamo sledeće kosete: C = 0000 + C, 0001 + C, 0010 +
+C, 1000 + C. Posmatrajmo w + C = 1000 + C. Riječ najmanje težine u ovo kosetu
+je 1000 pa 1101 − 1000 = 0101. Tako da zaključujemo da je najvjerovatnije poslata
+riječ upravo 0101.
+
+    U slučaju da imamo više mogućnosti za izbor uzorka greške e, zavisno od toga
+da li koristimo potpunu ili nepotpunu metodu vršimo prroizvoljno biranje ili ponovni
+prenos. Prethodna šema dekodiranja efikasna je ako je dužina linearnog koda n
+mala jer potrebna je ušteda vremena pri prepoznavanju koseta kojem primljena riječ
+pripada. Vrijeme možemo uštedjeti koristeći tzv. sindrom za prepoznavanje koseta
+kojem primljena riječ pripada.
+
+Definicija 4.21. Neka je C neki [n, k, d] linearni kod nad Fq i H njegova kontrolna
+matrica. Za proizvoljno w ∈ Fqn definišemo sindrom za w kao riječ s(w) = wH > ∈
+Fqn−k .
+
+Teorema 4.10. Neka je C neki [n, k, d] linearni kod i H odgovarajuća kontrolna
+matrica za C. ∀u, v ∈ Fqn važi:
+
+   1. s(u + v) = s(u) + s(v)
+
+   2. s(u) = 0 ⇔ u je riječ u C
+
+   3. s(u) = s(v) ⇔ u i v pripadaju istom kosetu od C.
+
+    Dokaz ove teoreme jasno slijedi iz definicije sindrom riječi i dijela 6. teoreme 4.10.
+Vidimo da dio 3. govori o tome da mi možemo prepoznati koset po njegovom sindromu
+jer sve riječi u datom kosetu imaju isti sindrom. Postoji 00 1−100 korespodencija između
+koseta i njegovog sindroma. Pošto su sindromi riječi iz Fqn−k , to ih je najviše q n−k .
+
+
+                                           49
+Znamo da koseta ima q n−k pa je i odgovarajućih sindroma q n−k . Dakle, svi vektori iz
+Fqn−k su sindromi.
+Koraci pri konstrukciji tabele koja povezuje svaku vodeću riječ koseta sa njenim sin-
+dromom, pretpostavljajući potpunu metodu dekodiranja prema najbližem susjedu su:
+Korak 1: Izlistati sve kosete za kod i izabrati iz svakog koseta riječ najmanje težine
+kao vodeću.
+Korak 2: Naći kontrolnu matricu H za kod i za svaku vodeću riječ koseta u, izračunati
+sindrome s(u) = uH > .
+Dekodiranje pomoću sindroma podrazumijeva sledeće korake:
+Korak 1: Za primljenu riječ w izračunajmo njen sindrom s(w).
+Korak 2: U tabeli nađemo vodeću riječ koseta u sa sindromom s(u) = s(w).
+Korak 3: Dekodiramo w kao v = w − u.
+Posebna vrsta linearnih kodova su Hemingovi kodovi. Tu spadaju kodovi koji omo-
+gućavaju otkrivanje jedne greške i kodovi koji omogućavaju ispravljanje jedne greške.
+Takođe u linearne kodove spadaju Golejevi kodovi (po švajcarsko-američkom matema-
+tičaru i fizičaru Marcel J. E. Golay (1902-1989)), Rid-Milerovi kodovi (po američkim
+matematičarima i inženjerima Irving S. Reed (1923-2012), David E. Muller (1924-
+2008)), ciklični linearni kodovi i mnogi drugi koje nećemo proučavati u ovom radu.[1]
+
+
+
+
+                                         50
+Glava 5
+
+Zaključak
+
+   Htjeli mi to da prihvatimo ili ne, matematika je nauka koja duboko zalazi u mnoge
+sfere života. Ona objašnjava suštinu mnogim praktičnim stvarima i pojavama.
+Ovaj rad se pozabavio, prije svega, tome da čitaoca uvede u osnove Teorije kodiranja,
+da ga zaintrigira tom veoma širokom i korisnom granom matematike koja je usko
+povezana sa Algebrom.
+Nadam se da će ovaj rad biti od koristi, bar kao početna literatura, onima koji žele
+da se detaljnije i opširnije bave linearnim kodovima.
+
+
+
+
+                                         51
+Bibliografija
+
+[1] Bojan Berleković. Neke klase linearnih kodova. Univerzitet u Novom Sadu.
+
+[2] Joseph J. Rotman. Advanced Modern Algebra. Prentice Hall.
+
+[3] Chaoping Xing San Ling. Coding Theory, A First Course. Cambridge University
+   Press, New York, 2004.
+
+
+
+
+                                       52
+
