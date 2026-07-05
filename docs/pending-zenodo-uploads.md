@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage packages 374-377 rolling deltas
+
+Manifest: [20260705_noether_pc_packages374_377_import.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages374_377_import.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages374_377/Noether_PC_Interlanguage_Packages374_377_RollingDeltas_20260705.zip`, 1,003,441 bytes, SHA256 `F8A92D4B2624D81D3FC316D44C89637AD9432AAB8755A8367C920AF0623C2FB9`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering packages 374-377. The current public branch already had packages 360-373; this pass brings the moving Noether-PC interlanguage/source-canon package shelf up through package 377 without merging the stale branch layout.
+- Caveat: methodology/source-canon/access-governance coordination only. Not a bulk source-body corpus, language completion, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Slavic GitHub TeX queue and open-license residue payload
 
 Manifest: [20260705_slavic_github_tex_queue_and_residue_payload.json](../manifests/pending-zenodo-uploads/20260705_slavic_github_tex_queue_and_residue_payload.json)
