@@ -1,3 +1,10 @@
+## 2026-07-05 Noether R781 P13/P19 whole-paper audit pending upload
+
+- Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
+- Artifact: `publish_staging/noether/20260705_r781_p13p19_wholepaper_audit/Noether_R781_P13P19_WholePaperAudit_20260705.zip`
+- SHA256: `3399486AA3CC28A41787449BBFDCB37F4AF2A4E8427D4AE8CF12B01ECF0F5965`; size: 83,446,501 bytes; entries: 164.
+- Status: upstream source-witness/support audit input for Paper 13 printed pp.235-257 and Paper 19 printed pp.24-66. Contains source-page images, output slices, TeX spans, cumulative TeX/PDF, audit CSVs, and summary. P13 found one live current-head regression; P19 promoted no new current-head patch. Not a reader release, Noether closure, page-by-page certification, native650/native1000 proof, multilingual synchronization, publication readiness, or critical-edition material.
+
 ## 2026-07-05 Noether WebR781 P13 p249 / P30 survival webdrop pending upload
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
