@@ -1,3 +1,13 @@
+## 2026-07-05: Claude/Fable interlingua-program v8 pass-34 snapshot
+
+Manifest: [20260705_interlanguage_claude_v8_pass34_snapshot.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_claude_v8_pass34_snapshot.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_claude_interlingua_program_v8_pass34_snapshot/claude_interlingua_program_20260704_v8.zip`, 139,953,205 bytes, SHA256 `E3C257A3A892C797A9608D6CE3F4DA3F88D84020BF2F1A86858DF971A86ED492`, 325 ZIP entries.
+- GitHub delta mirror: `interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/interlingua_program_20260704/`, carrying the small pass-34/current files directly because the full ZIP is too large for normal GitHub blob hygiene.
+- Scope/result: full Claude/Fable v8 methodology snapshot after pass 34. Adds Batch-0 orthography validation with Codex apply conditions, Route-B rejection/spec v2, Pan-Romance C2 ledger v3, branch-weighting/normalization/tail-routing updates, pass34 intake/audit scripts, and updated status/handoff material.
+- Caveat: generated methodology/source-register/context-review/handoff evidence only. Not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical edition.
+
 ## 2026-07-05: Noether LocalCodex WebB R781 P30 + P24 p233 integration webdrop
 
 Manifest: [20260705_noether_localcodex_webb_r781_p30_p24p233_integration.json](../manifests/pending-zenodo-uploads/20260705_noether_localcodex_webb_r781_p30_p24p233_integration.json)
