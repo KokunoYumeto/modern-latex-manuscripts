@@ -1,12 +1,12 @@
-# Interlanguage LaTeX Source-Body Inventory (20260705)
+﻿# Interlanguage LaTeX Source-Body Inventory (20260705)
 
 Machine-readable inventory of ZIP packets containing TeX-family source bodies for the interlanguage/multilingual methodology shelf.
 
 Classification: source-corpus/provenance support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
-- Unique ZIP payloads with TeX-like entries: 13
+- Unique ZIP payloads with TeX-like entries: 14
 - Duplicate ZIP paths by SHA256: 1
-- Total TeX-like entries counted, unique by ZIP SHA256: 8630
+- Total TeX-like entries counted, unique by ZIP SHA256: 11862
 - Package CSV: `20260705_interlanguage_latex_source_body_inventory_packages.csv`
 - Language-count CSV: `20260705_interlanguage_latex_source_body_inventory_language_counts.csv`
 - JSON: `20260705_interlanguage_latex_source_body_inventory.json`
@@ -15,19 +15,20 @@ Classification: source-corpus/provenance support only. Not native review, accept
 
 | language_hint | tex_like_entries | zip_count |
 |---|---:|---:|
-| fa | 2452 | 3 |
-| es | 1611 | 4 |
+| fa | 3686 | 4 |
+| es | 1925 | 5 |
 | slavic | 1219 | 3 |
+| unknown | 1171 | 2 |
 | isv | 539 | 1 |
+| ja | 491 | 3 |
+| ar | 359 | 4 |
+| zh | 304 | 4 |
 | ru | 272 | 1 |
 | uk | 272 | 1 |
-| fr | 267 | 4 |
-| ja | 249 | 2 |
-| zh | 236 | 3 |
-| de | 203 | 3 |
-| ar | 190 | 3 |
-| en | 136 | 3 |
-| sl | 136 | 4 |
+| fr | 269 | 5 |
+| de | 211 | 4 |
+| en | 160 | 4 |
+| sl | 137 | 5 |
 | be | 129 | 3 |
 | hr | 126 | 3 |
 | bs | 110 | 3 |
@@ -38,17 +39,18 @@ Classification: source-corpus/provenance support only. Not native review, accept
 | bg | 32 | 4 |
 | mk | 32 | 4 |
 | dsb | 26 | 2 |
-| unknown | 17 | 1 |
+| cjk | 14 | 1 |
 | cnr | 12 | 2 |
 | romance | 8 | 1 |
 | hsb | 4 | 2 |
-| gl | 1 | 1 |
-| ps | 1 | 1 |
+| gl | 2 | 2 |
+| ps | 2 | 2 |
 
 ## Package Totals
 
 | ZIP | TeX-like entries | Size bytes | SHA256 |
 |---|---:|---:|---|
+| `noether-source-corpus-provenance\20260704\archive-maintenance-extracted-payloads\Noether_Interlanguage_OpenSource_LaTeX_By_Language_From_GitHub_20260704.zip` | 3232 | 16453855 | `96508E9CF7245E266B5736D20ED84F2D9EADDF4F84D0DF0D88D4DC1C696AA2C5` |
 | `noether-source-corpus-provenance\20260704\NOETHER_SOURCE_LINK_PROVENANCE_INDEX_20260704T153636\payload_zips\NOETHER_SOURCE_CORPUS_LATEX_PAYLOAD_20260704T153636_part01.zip` | 2259 | 21320711 | `A4DFD7F26D487FFD666671EB677A2358A75E087FC7A15581E2119507BB5551D1` |
 | `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Romance_ES_FR_20260704.zip` | 1503 | 10440464 | `2AD0B89274D12B30BAE0D4C60AEA5120EA1F1A178F6A7BBF62CBB352A273F4D5` |
 | `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip` | 1239 | 1384193 | `8978D3D969823FADB262246C170C7033223837CEDC8260FE42D50791045EE383` |
