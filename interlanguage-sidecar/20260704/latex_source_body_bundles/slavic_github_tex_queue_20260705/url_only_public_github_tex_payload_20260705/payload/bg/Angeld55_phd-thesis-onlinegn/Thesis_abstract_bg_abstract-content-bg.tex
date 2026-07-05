@@ -1,0 +1,1941 @@
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Увод}
+
+\section*{Увод}
+
+\hspace*{2.5em} Теорията на обобщените мрежи (ОМ) предоставя мощен математически апарат за моделиране и симулация на сложни процеси, характеризиращи се с паралелизъм и логическа обвързаност. От своето създаване апаратът на ОМ се утвърждава като гъвкаво средство в области като индустриалното производство, компютърните системи и изкуствения интелект. С нарастването на сложността на моделите обаче необходимостта от достъпни и високоефективни софтуерни решения за тяхното описание и изследване става все по-осезаема.
+
+Въпреки съществуващите разработки, до момента се наблюдава липса на инструменти, които да позволяват работа в онлайн среда, автоматизирано генериране на графични представяния и лесна интеграция в научни публикации. Основната цел на настоящия труд е създаването на софтуерната система \textbf{\textit{OnlineGN}} – уеб базиран симулатор, който обединява теоретичните основи на ОМ със съвременните уеб технологии. В рамките на дисертацията се предлагат нови алгоритми за автоматична визуализация и експорт на модели, които превръщат \textbf{\textit{OnlineGN}} в комплексна среда за моделиране. Чрез поредица от симулации на класически задачи и реални производствени сценарии се доказват приложимостта и ефективността на разработения инструмент.
+
+\addtocontents{toc}{\vspace{-1.0em}}
+\mysection{Обобщени мрежи: Теоретични основи и софтуер за симулации}
+
+
+\subsection{Бележки върху теорията на обобщените мрежи}
+\subsubsection{За понятието обобщена мрежа}
+
+\hspace*{2.5em}
+Обобщените мрежи (ОМ) са представени за пръв път през 1982 г. в доклад на международна конференция, като текстът е публикуван през 1984 г. \cite{DIS-XY20}. Те се появяват като естествено продължение на усилията за моделиране на паралелни процеси, започнали с изследванията на \textit{C.~A.~Petri} от 1962 г., довели до формулирането на мрежите на Петри (МП) \cite{DIS-XY1}.
+
+В класическия си вид МП са двуделен ориентиран граф с два типа върхове: \emph{преходи} (дискретни събития) и \emph{позиции} (условия), между които се движат \emph{ядра} (\textit{tokens}). Насочването към паралелизма води до множество разширения на МП (над двайсет до 1982 г.), които добавят: (i) времеви аспекти; (ii) оцветяване на ядрата за различимост; (iii) охраняващи условия (предикати) върху групи ядра за синхронизирани преминавания; и др.
+
+На този фон ОМ предлагат по-богата рамка за спецификация на едновременност, синхронизация и условни зависимости, запазвайки интуитивната графова семантика на МП, но разширявайки изразителната мощ за моделиране на сложни паралелни процеси. Подробни разглеждания на ОМ са дадени в \cite{DIS-Z3,DIS-Z1,DIS-BAM, DIS-AtanassovSotirova2017}, а малка част от техните приложения са разгледани в \cite{DIS-Orozova2011,DIS-Georgiev1998,DIS-StefanovaPavlova2001,DIS-Aladjov2002}.
+
+\subsubsection{Неформално описание на означенията в обобщените мрежи}
+
+\hspace*{2.5em}В дисертационния труд са обобщени основните означения и правила в ОМ. Позиции и преходи се свързват с \it ребра\rm\ (стрелки), които определят възможните направления на движение. В някои позиции се намират \it ядра\rm\ (точки), аналогично на класическите мрежи на Петри~\cite{DIS-Q148}. Входящото ядро носи \textit{начални характеристики}, а при преминаване през мрежата може да получи допълнителни характеристики. Тъй като първоначалните характеристики могат да останат валидни, за ядрото се натрупва \textit{история}. От гледна точка на реализацията, това множество от характеристики може да се възприема като асоциативен списък „име~$\to$~стойност“. Позицията по избор може да има \it характеристична функция\rm, която задава нови стойности на характеристиките на ядрата, влизащи в нея.
+
+Свързването в ОМ е опростено по отношение на степените: всяка позиция е свързана с поне едно ребро и допуска най-много едно входно и едно изходно ребро. Без входно ребро позицията е \it входна\rm, а без изходно -- \it изходна\rm. Всеки преход притежава поне една входна и една изходна позиция ($m,n\ge1$); възможно е при даден преход една и съща позиция да играе и двете роли \cite{DIS-Z1}. Когато ядро достигне входна позиция на преход, то става \em потенциално активно\rm; ако са налице условията за прехвърляне към изходните позиции, преходът е \it активен\rm.
+
+Условията към преходите не се описват с единичен предикат, а чрез \it индексирана матрица\rm\ (ИМ) -- матрица от предикати, която едновременно специфицира кога е възможно движение по различните направления и определя капацитетите на съответните ребра. Така ИМ осигурява по-фин контрол спрямо стандартните мрежи на Петри \cite{DIS-Z1}.
+
+Времето в дефиницията на ОМ е \it дискретно\rm: разглеждат се последователни стъпки, номерирани с целочислена променлива, която нараства с единица. Допустимо е паралелно да се фиксира \it абсолютна времева скала\rm\ с начален момент и хоризонт на функциониране \cite{DIS-Z1}. При множество свързани процеси може да се използват отделни скали за всеки или обща за синхронизация.
+
+ОМ са достатъчно изразителни, за да опишат както разширенията на мрежите на Петри, така и модели с изчислителна мощ от класа на машината на Тюринг (в частност и крайни автомати) \cite{DIS-Z1}. Известните към момента разширения на ОМ са \it консервативни\rm: за всяко от тях съществува стандартна ОМ, която еквивалентно описва функционирането и резултата му \cite{DIS-Z1, DIS-BAM}.
+
+\subsubsection{Формална дефиниция на обобщените мрежи}
+
+\hspace*{2.5em}В този раздел на дисертационния труд се разглежда строго математическо дефиниране на компонентите на ОМ. Формалният апарат се базира на теорията на множествата и апарата на ИМ, като дефинира структурата, времевите параметри и динамиката на ядрата. Формално всеки преход се описва чрез наредената седморка
+$$ Z = \langle L', L'', t_{1}, t_{2}, r, M, \kv \rangle, $$
+където $r$ е ИМ, която задава условията на прехода, а $M$ е ИМ, която задава капацитетите на ребрата на прехода; преходът се активира в момента $t_1$, при условие че вярностната стойност на булевия израз е „истина“. ОМ се задава с наредената четворка
+$$ E = \langle \langle A, \pi_{A}, \pi_{L}, c, f, \theta_{1}, \theta_{2} \rangle,
+\langle K, \pi_{K}, \theta_{K} \rangle, \langle T, t^{0}, t^{*} \rangle,
+\langle X, \Phi, b \rangle \rangle, $$
+като се определят преходите и позициите, приоритетите, капацитетите, функциите за време и памет и характеристичните функции. Компонентите на ОМ са класифицирани според статичната структура, динамичната природа, времевата същност и паметта на ОМ, и е въведено понятието \textit{празна ОМ}.
+
+\subsubsection[Алгоритми за движение на ядрата в преход и в обобщена мрежа]{Алгоритми за движение на ядрата в преход и в обобщена мрежа}\label{tokenMove}
+
+\hspace*{2.5em}В този раздел на дисертационния труд се представя разширена версия на най-общия от познатите досега алгоритми за функциониране на преход в ОМ \cite{DIS-Z1, DIS-Z3, DIS-BAM, DIS-AtanassovSotirova2017}.
+
+\subsection{Текущ софтуер за симулация на обобщени мрежи}
+
+\subsubsection{Основни недостатъци на текущите симулатори}
+
+\hspace*{2.5em}В този раздел на дисертационния труд се разглеждат основни недостатъци на текущите симулатори, които засягат едновременно архитектурата, потребителското изживяване и поддръжката. Налице са \textbf{фрагментираност и непълна интеграция}, \textbf{проблеми с преносимост и зависимости}, както и \textbf{езиков слой и съвместимост}. Тези и други причини мотивират разработването на \textit{OnlineGN} като уеб базирана, интегрирана и платформено независима среда.
+
+\subsubsection{Анализ на съществуващите софтуерни решения}
+
+\hspace*{2.5em}Разглеждат се съществуващи софтуерни решения за моделиране и симулация на ОМ, като се описват архитектурата, компонентите и начините на взаимодействие в \textbf{\textit{GN Lite}} (вкл. \textit{GNTicker}, \textit{TickerServer/GNTP}, \textit{GN IDE}, \textit{GNVis}, \textit{XGN2SVG}, \textit{GNProfy}, \textit{GNDraw}), както и подходът на \textbf{\textit{GoGN}} за разработване на модели чрез библиотека на \textit{C\#}. Акцентът е върху използваните технологии, степента на интеграция между инструментите и практическите аспекти при работа с формата \textit{XGN}.
+
+\subsubsection{Основни недостатъци на текущите симулатори}
+
+\hspace*{2.5em}Обобщени са основни недостатъци на текущите симулатори, които засягат едновременно архитектурата, потребителското изживяване и поддръжката.
+
+\begin{itemize}
+    \item \textbf{Фрагментираност и непълна интеграция.}\\
+    Ранните версии на \textit{GNTicker} са конзолни, а интерактивността се компенсира чрез \textit{TickerServer}/\textit{GNTP} и отделни помощни инструменти извън основния цикъл моделиране--симулация.
+    \item \textbf{Проблеми с преносимост и зависимости.}\\
+    Част от инструментите са насочени към \textit{Windows/.NET} и при \textit{Unix}-подобни ОС често разчитат на \textit{Mono}, което увеличава усилията за инсталация и поддръжка.
+    \item \textbf{Езиков слой и съвместимост.}\\
+    \textit{GNTCFL} увеличава кривата на обучение; \textit{GNJS} цели да я снижи, но прототипи не осигуряват пълна съвместимост с \textit{GNTP}, което ограничава интеграцията.
+    \item \textbf{Мащабируемост и производителност.}\\
+    Алгоритмите са коректни, но не винаги оптимални за много големи или силно свързани мрежи, което води до по-дълго време за изпълнение и по-висока ресурсоемкост.
+    \item \textbf{Ограничения на инструментариума и екосистемата.}\\
+    \textit{XGN2SVG} дава статичен изход; \textit{GNVis} е отделен \textit{.NET} модул; \textit{GNProfy} е фокусиран върху диаграми на последователности и по-стари \textit{XMI} версии; \textit{GoGN} изисква програмиране и компилация вместо декларативно моделиране.
+\end{itemize}
+\subsection{Цел и задачи на дисертационния труд}
+
+\subsubsection{Формулиране на целта}
+\hspace*{2.5em}Целта на настоящия дисертационен труд е да се разработи уеб базиран онлайн симулатор за ОМ -- \textit{OnlineGN}, който предоставя интерактивна среда за създаване, визуализация, редактиране, споделяне и симулация на модели, и да се валидира приложимостта му чрез разработване, симулация и верификация на реални ОМ модели.
+
+\subsubsection{Задачи за постигане на целта}
+\hspace*{2.5em}За постигане на поставената цел са формулирани следните задачи:
+
+\vspace{-0.2cm}
+
+\begin{enumerate}[
+	label=\textbf{Задача \arabic*.}, 
+	ref=Задача \arabic*,            
+	leftmargin=2.5em,
+	labelsep=0.8em,
+	align=left
+	]
+\item Разработване и имплементация на алгоритъм за автоматично изчертаване на ОМ по тяхно описание в структуриран текстов формат.
+\label{task:auto-draw}
+
+\item Разработване и имплементация на алгоритъм за преобразуване на \textit{SVG} изображение на ОМ в \textit{TeX} формат, с цел лесно включване на визуализации в научни публикации.
+\label{task:svg-to-tex}
+
+\item Формулиране на изисквания към уеб базирано решение.
+\label{task:requirements}
+
+\item Проектиране на архитектурата на системата \textit{OnlineGN} и дефиниране на основните модули (съхранение на мрежи, визуализация, редакция, симулация, импорт/експорт, \textit{API}).
+\label{task:architecture}
+
+\item Реализация на уеб базиран графичен интерфейс за визуализация, редакция и персонализация на генерираното изображение (позиции, преходи, връзки и визуални параметри).
+\label{task:web-ui}
+
+\item Реализация на удобен интерфейс за редакция на предикати в индексираната матрица и характеристични функции на позициите.
+\label{task:predicates-ui}
+
+\item Реализация на механизъм за онлайн съхранение и споделяне на мрежи чрез уникална хипервръзка (линк), базиран на централизирано съхранение в база данни.
+\label{task:share-storage}
+
+\item Създаване и формализиране на нови ОМ модели на реални процеси, които до момента не са описвани чрез ОМ.
+\label{task:new-models}
+
+\item Симулация и верификация на разработените модели в \textit{OnlineGN} чрез сценарии и експерименти.
+\label{task:simulation}
+\end{enumerate}
+
+Реализирането на поставените задачи ще доведе до създаването на функционален уеб базиран симулатор, придружен от нови алгоритми за автоматизирано изчертаване и преобразуване към \textit{TeX}. Практическата приложимост на разработката ще бъде потвърдена чрез валидиращи примери и формализиране на нови ОМ модели на реални процеси.
+
+\vspace{0.5cm}
+
+В обобщение, дисертационният труд адресира необходимостта от автоматизация и ефективно сътрудничество при работа с апарата на ОМ. Проектът \textit{OnlineGN} предлага цялостно, гъвкаво и лесно за употреба решение, съобразено със съвременните софтуерни стандарти и нуждите на научноизследователската общност.
+
+\mysection{Нововъведени алгоритми за обобщени мрежи}
+
+
+\subsection{Алгоритъм за автоматично изчертаване на обобщени мрежи}
+\label{sec:auto-drawing}
+
+\hspace*{2.5em}Главата представя решението на \textbf{\ref{task:auto-draw}} чрез разработване на алгоритъм за автоматично изчертаване на ОМ, подробно описан в \cite{DIS-DimitrievTerziev}.
+
+\subsubsection{Въведение}
+\hspace*{2.5em}При работа с ОМ съществено затруднение е необходимостта от значителен ръчен труд при чертането им. Традиционно координатите на елементите се задават прецизно, което е времеемко и крие риск от човешка грешка. Същият проблем се наблюдава и при ОМ симулаторите, където ръчното въвеждане на координати забавя моделирането и ограничава бързото експериментиране.
+
+В отговор се предлага алгоритъм за автоматизирано чертане, който генерира ясни визуални представяния на ОМ само по тяхното абстрактно описание и елиминира нуждата от ръчно задаване на координати. Така се улеснява създаването и манипулирането на ОМ и се насочва вниманието към анализа, а не към техническите детайли по изобразяването.
+
+\subsubsection{Текущи практики при визуализирането на обобщени мрежи}
+
+\hspace*{2.5em}Визуализирането на ОМ изисква прецизно позициониране на позиции, преходи и ребра с цел яснота и структурна коректност. Традиционно това се прави интерактивно чрез ръчно задаване на координати, като се следват утвърдени конвенции за подредба и четимост.
+
+\paragraph{Насоченост на стрелките.}
+\mbox{}\\
+Обичайно стрелките са ориентирани отляво надясно, като изходите на преходите се изобразяват вдясно. При обратни връзки те се добавят така, че да не се нарушава прегледността.
+
+\paragraph{Позициониране на изходни позиции.}
+\mbox{}\\
+Изходните позиции се разполагат непосредствено вдясно на съответните преходи, което улеснява проследяването на потока и логиката на мрежата.
+
+\paragraph{Позиции с двойна роля (вход и изход).}
+\mbox{}\\
+Когато позиция е едновременно вход и изход, тя се позиционира в долната част на прехода, с цел по-подредена диаграма и минимизиране на пресичанията.
+
+\paragraph{Допълнителни практики.}
+\mbox{}\\
+За по-добра четимост се прилагат равномерни отстояния, ясни надписи, при нужда цветово разграничаване, минимизиране на пресичанията и последователна ориентация на мрежата.
+
+Въпреки че тези практики подпомагат ясната визуализация, ръчното задаване на координати остава трудоемко и податливо на грешки, което мотивира автоматизирани решения. В следващите части се представя алгоритъм за автоматично чертане на ОМ, съобразен с наложилите се конвенции, който намалява ръчния труд и риска от грешки.
+
+\subsubsection{Изчертаване на графи}
+
+\hspace*{2.5em}Визуализацията на графи цели ясно представяне на структурата чрез подходящо разполагане на върхове и ребра с минимални пресичания \cite{DIS-Kamada1989}. За тази цел често се използва \textit{Graphviz} -- инструмент за автоматично генериране на графови изображения от \textit{DOT} описание, с различни алгоритми за подреждане (напр. \textit{dot}, \textit{neato}) \cite{DIS-Ellson2004}.
+
+\subsubsection{Моделиране на обобщена мрежа като ориентиран граф}
+
+\hspace*{2.5em}За нуждите на визуализацията и структурния анализ ОМ може да се представи като ориентиран граф, при който \textbf{позициите} и \textbf{преходите} се разглеждат като \textbf{върхове}, а \textbf{ребрата} описват ориентирани връзки между тях. Чертае се ребро \(l \rightarrow Z\), когато позиция \(l\) е вход за преход \(Z\), и ребро \(Z \rightarrow l\), когато \(l\) е изход от \(Z\). Така посоката на ребрата отразява потока на ядрата в мрежата.
+
+\paragraph{Пример.}
+\mbox{}\\
+Разглежда се ОМ с позиции \(l_1, l_2, l_3, l_4, l_5\) и преходи \(Z_1, Z_2, Z_3\), като връзките са:
+\(l_1 \rightarrow Z_1\), \(Z_1 \rightarrow l_2, l_3\), \(l_2 \rightarrow Z_2\), \(Z_2 \rightarrow l_4\), \(l_3, l_4 \rightarrow Z_3\), \(Z_3 \rightarrow l_5\).
+ОМ е показана на \textbf{Фигура~\ref{DIS-fig:gen-net-z1-z3}}, а съответстващият ориентиран граф -- на \textbf{Фигура~\ref{DIS-fig:gen-network-graph}}.
+
+\vspace{0.2cm}
+
+\begin{figure}[H]
+    \centering
+    \tiny
+    \begin{center}
+    \setlength{\unitlength}{14pt}
+    \begin{picture}(18.47,7.73)
+    \linethickness{0.4pt}
+    % --- Transitions ---
+    \put(3.05,7.98){\makebox(0,0)[b]{$Z_1$}}
+    \put(3.05,6.67){\makebox(0,0)[bb]{\Large$\bigtriangledown$}}
+    \put(3.05,6.67){\line(0,-1){6.67}}
+    \put(9.27,7.98){\makebox(0,0)[b]{$Z_2$}}
+    \put(9.29,6.67){\makebox(0,0)[bb]{\Large$\bigtriangledown$}}
+    \put(9.29,6.67){\line(0,-1){3.33}}
+    \put(15.40,7.98){\makebox(0,0)[b]{$Z_3$}}
+    \put(15.42,6.67){\makebox(0,0)[bb]{\Large$\bigtriangledown$}}
+    \put(15.42,6.67){\line(0,-1){6.67}}
+    % --- Places ---
+    \put(6.19,5.36){\makebox(0,0)[cc]{$l_2$}}
+    \put(6.19,4.47){\circle{1.0}}
+    \put(6.19,2.69){\makebox(0,0)[cc]{$l_3$}}
+    \put(6.19,1.80){\circle{1.0}}
+    \put(12.40,5.36){\makebox(0,0)[cc]{$l_4$}}
+    \put(12.40,4.47){\circle{1.0}}
+    \put(18.47,2.69){\makebox(0,0)[cc]{$l_5$}}
+    \put(18.47,1.80){\circle{1.0}}
+    \put(0.00,5.36){\makebox(0,0)[cc]{$l_1$}}
+    \put(0.00,4.47){\circle{1.0}}
+    % --- Edges ---
+    % Z1 -> l2
+    \put(3.07,4.47){\vector(1,0){2.62}}
+    % Z1 -> l3
+    \put(3.07,1.80){\vector(1,0){2.62}}
+    % Z2 -> l4
+    \put(9.31,4.47){\vector(1,0){2.59}}
+    % Z3 -> l5
+    \put(15.45,1.80){\vector(1,0){2.52}}
+    % l1 -> Z1
+    \put(0.50,4.47){\vector(1,0){2.52}}
+    % l2 -> Z2
+    \put(6.69,4.47){\vector(1,0){2.58}}
+    % l3 -> Z3
+    \put(6.69,1.80){\vector(1,0){8.71}}
+    % l4 -> Z3
+    \put(12.90,4.47){\vector(1,0){2.50}}
+    \end{picture}
+    \end{center}
+    \normalsize
+    \caption*{\textbf{Фигура~\ref{DIS-fig:gen-net-z1-z3}} -- \nameref{DIS-fig:gen-net-z1-z3}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{varwidth}{\textwidth}
+		\centering
+		\begin{tikzpicture}[
+			node distance=0.4cm and 0.8cm,
+			every node/.style={draw, shape=ellipse, minimum height=0.4cm, minimum width=0.8cm},
+			->, >=Stealth
+			]
+			
+			% Nodes
+			\node (l1) {$l_1$};
+			\node[right=of l1] (Z1) {$Z_1$};
+			\node[above right=of Z1] (l2) {$l_2$};
+			\node[right=of l2] (Z2) {$Z_2$};
+			\node[right=of Z2] (l4) {$l_4$};
+			\node[below right=of Z1] (l3) {$l_3$};
+			\node[below right=of l4] (Z3) {$Z_3$};
+			\node[right=of Z3] (l5) {$l_5$};
+			
+			% Arrows
+			\draw (l1) -- (Z1);
+			\draw (Z1) -- (l2);
+			\draw (l2) -- (Z2);
+			\draw (Z2) -- (l4);
+			\draw (Z1) -- (l3);
+			\draw (l4) -- (Z3);
+			\draw (l3) -- (Z3);
+			\draw (Z3) -- (l5);
+		\end{tikzpicture}
+		\captionsetup{width=0.6\linewidth, justification=centering}
+		\caption*{\textbf{Фигура~\ref{DIS-fig:gen-network-graph}} -- \nameref{DIS-fig:gen-network-graph}.}
+
+	\end{varwidth}
+\end{figure}
+
+\subsubsection{Визуализация на обобщени мрежи с \textit{Graphviz}}
+
+\hspace*{2.5em}За коректна и четима визуализация на ОМ с \textit{Graphviz} се задават параметри и ограничения, които запазват стандартната подредба на елементите.
+
+\paragraph{Задаване на глобални параметри.}
+\mbox{}\\
+Използват се \textit{rankdir=LR} за ориентация отляво надясно и \textit{splines=ortho} за ортогонални ребра, което поддържа решетъчния вид на ОМ и улеснява проследяването на потока.
+
+\paragraph{Дефиниране на върховете за преходи.}
+\mbox{}\\
+Преходите се моделират като правоъгълни върхове (\textit{shape=rect}) с малка фиксирана ширина, а височината се задава според броя изходни позиции, за да се отрази връзката им с множество изходи.
+
+\paragraph{Групиране на изходните позиции с \textit{subgraph}.}
+\mbox{}\\
+Преходът и изходните му позиции се групират в \textit{subgraph} (напр. \textit{cluster}), като се използва \textit{rank=same} за подравняване на изходите и запазване на близостта им до прехода при автоматичното подреждане.
+
+\paragraph{Управление на входните ребра чрез „невидими“ върхове.}
+\mbox{}\\
+За да се получи единна входна точка и входовете да „влизат“ отляво, пред прехода се добавят помощни „невидими“ върхове, към които се свързват входните позиции, а след това те се свързват към самия преход, като относителното им разположение се фиксира чрез групиране.
+
+
+\subsubsection{Алгоритъм за генериране на \textit{Graphviz} низове от обобщени мрежи}
+
+\hspace*{2.5em}В този раздел се описва алгоритмичната логика за генериране на \textit{Graphviz} низ от ОМ (\textit{GN}). Алгоритъмът е създаден за автоматизиране на визуализацията на ОМ и гарантира, че полученият граф следва предварително зададените параметри на подредба. Основната функция, \textit{generateGraphvizString}, използва няколко спомагателни функции, които отговарят за картографирането на преходи и позиции, генерирането на невидими върхове и създаването на необходимите ребра между елементите в ОМ.
+
+Структурата на псевдокода, обобщаваща основните стъпки и логиката на алгоритъма, е дефинирана по следния начин:
+
+\vspace{-0.3cm}
+
+\paragraph{Генериране на невидими върхове.}
+\mbox{}\\
+Функцията \textit{genInvisNodes} генерира невидими върхове, използвани за подравняване на преходите при графичното подреждане на графа.
+
+\begin{algorithm}[H]
+\caption{genInvisNodes(result, genNet, transition)}
+\begin{algorithmic}
+\For{each inputPlace in transition}
+    \State \texttt{result $\gets$ result + "invis\_node\_"{} + transition.name + "\_"{} + indexOf(inputPlace) + "[shape = point, width = 0.01, height = 0.01]"{} + newLine}
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Свързване на невидимите върхове с преходите.}
+\mbox{}\\
+Функцията \textit{genEdgeBetweenInvisNodesAndTransition} генерира ребра от невидимите върхове към преходите, като осигурява коректно подравняване и свързване.
+
+\begin{algorithm}[H]
+\caption{genEdgeBetweenInvisNodesAndTransition(result, genNet, transition)}
+\begin{algorithmic}
+\For{each inputPlace in transition}
+    \State \texttt{result $\gets$ result + "invis\_node\_"{} + transition.name + "\_"{} + indexOf(inputPlace) + \detokenize{" -> "} +  transition.name + ":w"{} + newLine}
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Генериране на преходи.}
+\mbox{}\\
+Функцията \textit{genTransitionsString} генерира необходимата конфигурация за всеки преход в ОМ, включително невидимите върхове и връзките помежду им.
+
+\begin{algorithm}[H]
+\caption{genTransitionsString(genNet, result)}
+\begin{algorithmic}
+\For{each transition in genNet.transitions}
+    \State \texttt{result $\gets$ result + "subgraph cluster\_"{} + transition.name + "\{"}
+    \State \texttt{result $\gets$ result + "style=invis"}
+    \State \texttt{result $\gets$ result + "subgraph cluster\_"{} + transition.name + "\_0"{} + "\{"}
+    \State \texttt{result $\gets$ result + transition.name + 
+    "[shape=rect, height=max(count(outputPlaces), count(inputPlaces)), width = 0.005]"}
+    \State \texttt{call genInvisNodes(result, genNet, transition)}
+    \State \texttt{call genEdgeBetweenInvisNodesAndTransition(result, genNet, transition)}
+    \State \texttt{call genOutgoingPlacesFromTransition(result, genNet, transition)}
+    \State \texttt{call genOutgoingEdgesFromTransition(result, genNet, transition)}
+
+    \texttt{result $\gets$ result + "\}"}
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Генериране на изходни позиции и ребра.}
+\mbox{}\\
+Две отделни функции отговарят за генерирането на изходните позиции и съответните ребра. Така се гарантира, че ребрата между преходите и позициите се създават коректно.
+
+\begin{algorithm}[H]
+\caption{genOutgoingPlacesFromTransition(genNet, result, transition)}
+\begin{algorithmic}
+\State \texttt{result $\gets$ result + "\{rank = same;"}
+\For{each outputPlace in transition}
+    \State \texttt{result $\gets$ result + outputPlace.name + ";"}
+\EndFor
+\State \texttt{result $\gets$ result + "\}"}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{genOutgoingEdgesFromTransition(genNet, result, transition)}
+\begin{algorithmic}
+\For{each outputPlace in transition}
+    \State \texttt{result $\gets$ result + transition.name \detokenize{" -> "} outputPlace.name  }
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Генериране на изходни ребра от позициите.}
+\mbox{}\\
+Накрая функцията \textit{genOutputEdgesFromPlaces} генерира ребра, свързващи позициите към невидимите върхове, като така се осигурява коректното подравняване на преходите.
+
+\begin{algorithm}[H]
+\caption{genOutputEdgesFromPlaces(genNet, result)}
+\begin{algorithmic}
+\For{each place in genNet}
+    \State \texttt{invisNodeIndex $\gets$ first invisible node index for the transition}
+    \State \texttt{result $\gets$ result + place.name + \detokenize{" -> "} + "invis\_node\_"{} + "transitionName"{} + "\_"{} + invisNodeIndex + "[arrowhead=none]"}
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Главна функция за генериране на \textit{Graphviz} низ.}
+\mbox{}\\
+Главната функция \textit{genGraphvizString} обединява всички предходни функции, като се генерира пълният \textit{Graphviz} низ, представляващ ОМ.
+
+\begin{algorithm}[H]
+\caption{genGraphvizString(genNet)}
+\begin{algorithmic}
+\State \texttt{result $\gets$ "\ {digraph G} "}
+\State \texttt{result $\gets$ result + "rankdir=LR;"}
+\State \texttt{result $\gets$ result + "splines=ortho;"}
+\State \texttt{call genTransitionsString(result, genNet)}
+\State \texttt{call genOutputEdgesFromPlaces(result, genNet)}
+\State \texttt{result $\gets$ result + "\}"}
+\end{algorithmic}
+\end{algorithm}
+
+Резултатът от прилагането на описания алгоритъм за генериране на \textit{Graphviz} низ е показан на \textbf{Фигура~\ref{DIS-fig:gen-network-Graphviz}}. Визуализацията отразява автоматично генерираната структура на ОМ преди последваща графична обработка.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../../2. algos/drawing/images//genNetBeforePreprocess.png}
+    \caption*{\textbf{Фигура~\ref{DIS-fig:gen-network-Graphviz}} -- \nameref{DIS-fig:gen-network-Graphviz}.}
+\end{figure}
+
+\paragraph*{Следваща обработка на генерираното изображение.}
+\mbox{}\\
+В този параграф се описват техниките, които се прилагат към \textit{SVG} (\textit{Scalable Vector Graphics}) файла, генериран от алгоритъма. Първоначално се създава граф, където преходите са представени като много тънки правоъгълни върхове, а позициите -- като кръгови върхове. За да се адаптира това визуално представяне към формата на ОМ (\textit{GN}), при последваща обработка се извършват редица модификации.
+
+Целта е полученото изображение да съответства по-добре на формата на ОМ. По-долу са описани конкретните промени:
+
+\begin{itemize}
+    \item \textbf{Преходи:}  
+    Всеки преход, първоначално дефиниран като тесен правоъгълник, подлежи на допълнителна обработка -- в горната му част се добавя черен триъгълник, който служи за графичен идентификатор и подобрява неговата видимост в общата структура. Над триъгълника се визуализира етикет с наименованието на прехода, което гарантира неговата еднозначна идентификация в модела.
+
+    \item \textbf{Позиции:}  
+    При позициите, представени с окръжности, се добавят имената им над всяка окръжност. Това е необходимо, тъй като инструментът за генериране на първоначалния \textit{SVG} (\textit{Graphviz}) не поддържа по подразбиране този начин на надписване. Затова ръчно се вмъкват нужните надписи, за да се осигури яснота в крайното визуално представяне.
+   
+
+    \item \textbf{Визуализиране на обобщената мрежа:}  
+    След прилагането на горните промени полученият \textit{SVG} значително наподобява ОМ. Преходите са ясно маркирани и надписани, а позициите (места) имат четливо поставени наименования над своите окръжности. Този подход води до по-интуитивна и точна графична репрезентация на системата, която се моделира, улеснявайки нейното тълкуване и анализ.
+    
+    Крайният резултат след прилагане на описаните стъпки за последваща \textit{SVG} обработка е показан на \textbf{Фигура~\ref{DIS-fig:gen-network-processed}}. Полученото изображение следва визуалните конвенции на ОМ и позволява интуитивно възприемане на структурата и потока.
+    
+
+    \item \textbf{Пример за резултатно изображение:}  
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{../../2. algos/drawing/images//genNetAfterPreprocess.png}
+        \caption*{\textbf{Фигура~\ref{DIS-fig:gen-network-processed}} -- \nameref{DIS-fig:gen-network-processed}.}
+    \end{figure}
+
+    \item \textbf{Псевдокод на стъпката по обработка:}
+
+    \begin{algorithm}[H]
+    \caption{postprocessSVG(graph)}
+    \begin{algorithmic}
+    \State \texttt{svg $\gets$ loadSVG(graph)}
+
+    \For{each transition in svg}
+        \State \texttt{points $\gets$ getTransitionPoints(transition)}
+        \State \texttt{topPoint $\gets$ findTopMostPoint(points)}
+        \State \texttt{addBlackTriangle(topPoint)}
+        \State \texttt{label $\gets$ getTransitionLabel(transition)}
+        \State \texttt{placeLabelAboveTriangle(topPoint, label)}
+    \EndFor
+
+    \For{each position in svg}
+        \State \texttt{circle $\gets$ findCircle(position)}
+        \State \texttt{centerPoint $\gets$ getCenterPoint(circle)}
+        \State \texttt{label $\gets$ getPositionLabel(position)}
+        \State \texttt{placeLabelAboveCircle(centerPoint, label)}
+    \EndFor
+
+    \State \texttt{outputSVG $\gets$ saveUpdatedSVG(svg)}
+    \State \texttt{return outputSVG}
+    \end{algorithmic}
+    \end{algorithm}
+
+    \item \textbf{Псевдокод на основната функция за чертане:}
+
+    \begin{algorithm}[H]
+    \caption{drawGenNet(genNet)}
+    \begin{algorithmic}
+    \State \texttt{graphvizStr $\gets$ genGraphvizString(genNet)}
+    \State \texttt{svg $\gets$  Graphviz.render(graphvizStr)}
+    \State \texttt{postprocessSVG(svg)}
+    \end{algorithmic}
+    \end{algorithm}
+\end{itemize}
+
+\subsection{Алгоритъм за преобразуване на \textit{SVG} изображение на обобщена мрежа в \textit{TeX} формат}
+
+\hspace*{2.5em}В този раздел се представя алгоритъм за автоматично преобразуване на \textit{SVG} изображение на ОМ в \textit{TeX} код, с което се решава~\textbf{\ref{task:svg-to-tex}}.
+
+\subsubsection{Въведение и цел на алгоритъма}
+\hspace*{2.5em}\textit{SVG} е удобен векторен формат за генериране и редакция, но в научни текстове най-често се използва \textit{TeX}, където фигурите трябва да се вписват чисто и консистентно със стила на документа. Затова се въвежда метод за пренасяне на \textit{SVG} изображение на ОМ в \textit{TeX} без ръчно пречертаване.
+
+Алгоритъмът извлича позиции, преходи и връзки от входния \textit{SVG} и генерира еквивалентна схема чрез \texttt{\textbackslash put}, \texttt{\textbackslash circle}, \texttt{\textbackslash line} и \texttt{\textbackslash vector}. Полученият код се вмъква директно в документ и минимизира нуждата от ръчни корекции.
+
+\subsubsection{Описание на формата на входния \textit{SVG} файл}
+\hspace*{2.5em}Алгоритъмът работи със \textit{SVG} с предварително зададена структура. Всеки елемент има атрибут \texttt{class}, който указва дали е позиция, преход или ребро. Компонентите на ОМ са представени като групи \texttt{<g>}:
+
+\begin{itemize}
+  \item \textbf{\textit{Places} (позиции)}: \texttt{class} по шаблон \texttt{"node place \{id\}"}. Вътре има \texttt{<ellipse>} (визуализация) и \texttt{<title>}, \texttt{<text>} (идентификатор).
+
+  \item \textbf{\textit{Transitions} (преходи)}: \texttt{class} по шаблон \texttt{"node transition \{id\}"}. Групата съдържа два \texttt{<polygon>} (вертикална черта и триъгълник), маркирани с \texttt{class} \texttt{"triangle"}, както и \texttt{<title>} и \texttt{<text>} за идентификатора.
+
+  \item \textbf{\textit{Edges} (ребра)}: \texttt{class} по шаблон \texttt{"edge \{originId\}\_\_\{destinationId\}"}. Групата съдържа \texttt{<path>} (геометрия на реброто) и \texttt{<polygon>} (връх на стрелката).
+\end{itemize}
+
+\subsubsection{Извличане на координатите от входния \textit{SVG} файл}
+\hspace*{2.5em}Разчитат се само координатите, необходими за построяване в \textit{TeX}:
+
+\begin{itemize}
+  \item \textbf{\textit{Places} (позиции)}: \texttt{cx, cy} от \texttt{<ellipse>} и \texttt{x, y} на етикета от \texttt{<text>}.
+
+  \item \textbf{\textit{Transitions} (преходи)}: координати на \textbf{двата} \texttt{<polygon>} елемента и \texttt{x, y} на етикета от \texttt{<text>}.
+
+  \item \textbf{\textit{Edges} (ребра)}: от \texttt{<path>} се взима \texttt{d} и се парсва в последователност от точки \texttt{(x\_k,y\_k)} чрез командите \texttt{M} и \texttt{L}. Върхът на стрелката се разчита от \texttt{<polygon points="..."{}>} като точки \texttt{(x\_j,y\_j)}.
+\end{itemize}
+
+Накрая се извлича и \textbf{глобалната трансформация} (напр. \texttt{translate} и \texttt{scale}), която се прилага върху всички координати.
+
+\subsubsection{Глобални трансформации и нормализация на координатите}
+\hspace*{2.5em}Координатите в \textit{SVG} често са подложени на обща трансформация, която трябва да се приложи, за да се получи коректен мащаб и разположение в \textit{TeX}. Типичният формат е:
+
+\vspace{-0.3cm}
+
+\begin{center}
+	\texttt{transform="translate(tx, ty) scale(s)"}
+\end{center}
+
+\vspace{-0.2cm}
+
+Извличат се:
+\[
+\mathit{globalTranslate}_x = tx, \quad
+\mathit{globalTranslate}_y = ty, \quad
+\mathit{globalScale} = s
+\]
+
+\vspace{-0.2cm}
+
+За всяка точка \((x,y)\) се прилага:
+
+\vspace{-0.2cm}
+
+\begin{equation}
+	\widehat{X} = x \cdot s + tx, \quad
+	\widehat{Y} = y \cdot s + ty
+	\label{eq:svg-transform}
+\end{equation}
+
+След това се използва общ множител за намаляване:
+
+\begin{equation}
+	X' = \widehat{X} \cdot \underbrace{\tfrac{6}{10}}_{\text{LENGTH\_SCALE\_FACTOR}},\quad
+	Y' = \widehat{Y} \cdot \underbrace{\tfrac{6}{10}}_{\text{LENGTH\_SCALE\_FACTOR}}
+	\label{eq:svg-scale}
+\end{equation}
+
+Нормализацията към \texttt{picture} е нужна, защото в \textit{TeX} произходът е долу вляво, а в \textit{SVG} оста \(y\) расте надолу, и защото е удобно координатите да са в рамките на платното. След изчисляване на \textit{bounding box} \((X_{\min},X_{\max},Y_{\min},Y_{\max})\), всяка точка се преобразува:
+
+\vspace{-0.2cm}
+
+\begin{equation}
+x_{\textit{TeX}} = (X' - X_{\min})\cdot c,\qquad
+y_{\textit{TeX}} = (Y_{\max} - Y')\cdot c
+\label{eq:tex-normalization}
+\end{equation}
+
+Размерите на платното се задават така, че да поберат цялата фигура:
+
+\vspace{-0.2cm}
+
+\begin{equation}
+W = (X_{\max}-X_{\min})\cdot c,\qquad
+H = (Y_{\max}-Y_{\min})\cdot c
+\label{eq:picture-dimensions}
+\end{equation}
+
+\subsubsection{Нормализация на размери и етикети}
+\hspace*{2.5em}След нормализацията се уеднаквяват размерите и се коригират етикетите, тъй като мащабът и шрифтовете в \textit{SVG/Graphviz} и \textit{TeX} се различават.
+
+\paragraph{Фиксиране на радиуса на позициите.}
+\mbox{}\\
+Радиусът на позициите се фиксира чрез постоянен диаметър на окръжността:
+\begin{equation}
+\text{\texttt{\textbackslash circle\{1.0\}}} \quad \Rightarrow \quad r_{\textit{TeX}} = 0.5.
+\label{eq:fixed-place-radius}
+\end{equation}
+
+\paragraph{Корекция на етикетите на позициите.}
+\mbox{}\\
+Етикетът се измества по посоката от центъра към оригиналната си позиция:
+\begin{equation}
+L_{\textit{new}} = C + k\,(L-C),
+\label{eq:place-label-shift}
+\end{equation}
+където $k$ е \texttt{placeLabelOffsetFactor}.
+
+\paragraph{Корекция на етикетите на преходите.}
+\mbox{}\\
+Етикетът на преход се измества нагоре с константа:
+\begin{equation}
+y_{\textit{new}} = y_{\textit{old}} - \texttt{transitionLabelVerticalOffset}.
+\label{eq:transition-label-offset}
+\end{equation}
+
+\subsubsection{Изрязване на ребрата до границите на елементите}
+\hspace*{2.5em}За да не навлизат ребрата в позициите/преходите, крайните точки се изрязват до границата на съответния елемент. Реброто е \((p_0, p_1, \dots, p_{n-1})\), като се коригират само \(p_0\) (по посока към \(p_1\)) и \(p_{n-1}\) (по посока от \(p_{n-2}\)).
+
+\paragraph{Изрязване на крайни точки на ребра при позиции.}
+\mbox{}\\
+При позиция (окръжност с радиус \(r_{\textit{TeX}}\)) се използва:
+\begin{equation}
+P' = C + r \cdot \frac{(P - C)}{\lVert P - C \rVert}.
+\label{eq:clip-circle}
+\end{equation}
+
+\paragraph{Изрязване на крайните точки на реброто при преходи.}
+\mbox{}\\
+Преходът се приближава с правоъгълник \([x_{\min},x_{\max}] \times [y_{\min},y_{\max}]\). Посоката се определя от съседната точка \(Q\) чрез:
+\begin{equation}
+\Delta x = x_q - x_p,\qquad \Delta y = y_q - y_p.
+\label{eq:deltas}
+\end{equation}
+и критерий:
+\begin{equation}
+\text{хоризонтален, ако } |\Delta x| \ge |\Delta y|,\qquad
+\text{вертикален, ако } |\Delta y| > |\Delta x|.
+\label{eq:dominant-dir}
+\end{equation}
+След това точката се поставя върху съответната страна:
+\begin{equation}
+P'=
+\begin{cases}
+(x_{\max},\,y_p), & \text{ако } |\Delta x|\ge|\Delta y| \text{ и } \Delta x>0,\\
+(x_{\min},\,y_p), & \text{ако } |\Delta x|\ge|\Delta y| \text{ и } \Delta x<0,\\
+(x_p,\,y_{\max}), & \text{ако } |\Delta y|>|\Delta x| \text{ и } \Delta y>0,\\
+(x_p,\,y_{\min}), & \text{ако } |\Delta y|>|\Delta x| \text{ и } \Delta y<0.
+\end{cases}
+\label{eq:rect-clip}
+\end{equation}
+
+\paragraph{Запазване на коректния край на стрелката.}
+\mbox{}\\
+След изрязването последният сегмент се генерира като \texttt{\textbackslash vector}, така че върхът на стрелката да съвпадне с новата крайна точка.
+
+\subsubsection{Псевдокод на алгоритъма}
+
+\noindent В по-общ вид стъпките могат да се синтезират, както следва:
+\begin{verbatim}
+function svgToTeX(svgString):
+  1) DOM = parse SVG string into an XML DOM object
+  2) mainG = find <g id="graph0"> and parse 
+  	 transform="translate(tx, ty) scale(s)"
+       globalTranslate = (tx, ty)
+       globalScale = s
+  3) Define LENGTH_SCALE_FACTOR = 0.6   # (2/3) shrink
+  4) Define pxToTeX = 0.1              # 1px -> 0.1 TeX units
+
+  # 5) Identify PLACES
+  for each g with class="node place":
+    read ellipse(cx, cy)
+    apply global transform + LENGTH_SCALE_FACTOR => (x', y')
+    store nodeShapes[placeName] = circle with center=(x', y') 
+    and forced radius=5px
+
+  # 6) Identify TRANSITIONS
+  for each g with class="node transition":
+    read polygon points => bounding box => xMin, xMax, yMin, yMax
+    apply transform => store nodeShapes[transitionName] = rect
+
+  # 7) Capture LABELS for places and transitions
+  for each place:
+    read original label coords => (lx, ly)
+    apply transform => (lx', ly')
+    offset label => (lx'', ly'') = (cx', cy') 
+    				+ alpha*(lx'-cx', ly'-cy')
+  for each transition:
+    shift label upward => labelY' = labelY - someVerticalOffset
+
+  # 8) Identify EDGES
+  for each g with class="edge":
+    read origin, destination from class or <title> text
+    parse path (M x0 y0 L x1 y1 ...)
+    apply transform => rawPoints
+    # arrow polygon => transform as well
+
+  # 9) CLIP edge endpoints
+  for first and last rawPoints:
+    if shapes[origin] == circle => move boundary
+    if shapes[destination] == rect => clamp to bounding box
+    (similarly for the other end)
+
+  # 10) Compute bounding box over all x' and y'
+  xMinAll, xMaxAll, yMinAll, yMaxAll
+
+  # 11) Convert to TeX coords => (x_T, y_T)
+     x_T = (x' - xMinAll)*pxToTeX
+     y_T = (yMaxAll - y')*pxToTeX
+
+  # 12) Build a \begin{picture}(width, height) with lines for edges,
+      circles for places, etc.
+
+  return final TeX code as a string
+\end{verbatim}
+
+След изпълнението на тези стъпки се генерира \textit{TeX} фрагмент, готов за директно вмъкване в научен документ съгласно приетата конвенция за изчертаване на ОМ.
+
+\mysection{\textit{OnlineGN}: Симулатор за обобщеномрежови модели}
+
+\hspace*{2.5em}В настоящата глава се представя разработеният в рамките на дисертационния труд нов симулатор за ОМ -- \textit{OnlineGN}. Разглеждат се изискванията към системата, архитектурните решения и използвания технологичен стек. Системата е самостоятелен софтуерен компонент, като е предвидено в бъдещи етапи да се разшири съвместимостта чрез работа с файлови формати, генерирани от други симулатори. Основните функционалности са демонстрирани във видео демонстрация \cite{DIS-OnlineGN-video}. Изходният код на приложението е публикуван в \cite{phdThesisOnlineGNRepo}.
+
+\subsection{Изисквания и цели на системата}
+
+\hspace*{2.5em}Разделът дефинира функционални и нефункционални изисквания към уеб базираното решение, които служат като критерии за проектиране и оценка на \textit{OnlineGN}.
+
+\subsubsection{Функционални изисквания}
+\hspace*{2.5em}\textit{OnlineGN} визуализира ОМ в двумерно пространство (позиции, преходи и връзки) и извършва симулация чрез прилагане на алгоритъм Б (виж \textbf{\ref{tokenMove}}), като се спазва коректният ред на обработка на преходи/състояния/ядра и се поддържат промени на характеристики, разделяне и сливане на ядра. Реализирани са два режима на изпълнение: режим за проследяване (стъпка по стъпка) и непрекъснато изпълнение до крайно състояние (или критерий за спиране).
+
+Системата позволява рестарт на симулацията, интерактивна промяна на координати на елементи и връзки (вкл. точки по връзка), както и редакция на характеристики на позиции и преходи с отражение върху симулацията. Осигурява се детайлна информация за ядрата във всяка стъпка и регистър на операциите в рамките на една времева стъпка, който описва реда на обработка според приоритети и капацитети.
+
+Поддържа се зареждане/запис на мрежи в \textit{JSON} формат, съхранение и извличане от база данни, генериране на хипервръзка за достъп до съхранена мрежа, генериране на представяне в \textit{TeX} формат, добавяне на потребителски функции на \textit{JavaScript} и динамична промяна на скоростта на симулацията. Реализирано е и автоматично изтриване на мрежи, които не са били достъпвани за предварително дефиниран период.
+
+\subsubsection{Нефункционални изисквания}
+\hspace*{2.5em}Нефункционалните изисквания обхващат производителност, надеждност, сигурност, използваемост и мащабируемост. Зададени са прагове за време за отговор до 2 секунди при леко натоварване и време за възстановяване след отказ до 30 минути, като изборът е обоснован спрямо утвърдени практики и критерии за отзивчивост и наличност \cite{DIS-Nielsen1993RT}. Допълнително, системата не събира лични данни и е съобразена с изискванията на \textit{GDPR}.
+
+\subsubsection{Ограничения и предпоставки на средата}
+\hspace*{2.5em}Системата е внедрена с безплатните облачни услуги на \textbf{\textit{Render}} (за сървъра) и \textbf{\textit{Atlas}} (за базата данни), поради което се съобразява с ограничените ресурси, предоставени от тези услуги.
+
+\subsection{Архитектура на системата}
+
+\hspace*{2.5em}Разделът описва архитектурната организация на \textit{OnlineGN} и взаимодействието между основните компоненти, съответстващи на изпълнението на \textbf{\ref{task:architecture}}.
+
+\subsubsection{Обща архитектура и сценарии на взаимодействие}
+\hspace*{2.5em}\textit{OnlineGN} е реализирана като трислойна архитектура: слой за данни (БД), сървърен слой (\textit{API}/услуги) и клиентски слой (потребителско приложение), като клиентът поема основната част от бизнес логиката, а сървърът предоставя спомагателни услуги. Базата данни съхранява мрежи и състояния и отговаря за консистентността на данните; сървърът е посредник между клиента и БД и изпълнява поддържащи задачи (напр. периодично изтриване на остарели записи); клиентът реализира \textit{UI/UX}, визуализацията, симулацията и интерактивните модификации.
+
+Описани са типични сценарии: зареждане на мрежа от БД и стартиране на симулация, съхранение на мрежа с връщане на хипервръзка, както и периодично изтриване на неизползвани мрежи от страна на сървъра.
+
+\subsubsection{Физическа/\textit{Deployment} архитектура и облачна инфраструктура}
+\hspace*{2.5em}Внедряването е реализирано чрез \textbf{\textit{Render}} и \textbf{\textit{MongoDB Atlas}}. Инстанцията на сървъра се поддържа в инфраструктурата на \textit{Render} и доставя клиентското приложение към браузъра, като комуникацията клиент--сървър е по \textit{HTTPS}. Инстанцията на базата данни се поддържа в \textit{Atlas}; сървърът комуникира с БД по \textit{HTTPS} и се удостоверява с потребителско име и парола \cite{DIS-RenderWebServices,MongoDBAtlasDocs}.
+
+\subsubsection{Технологичен стек и външни зависимости}
+\hspace*{2.5em}Базата данни е \textit{MongoDB} (версия 8.0), като данните се съхраняват като документи с \textit{JSON}-подобна структура и физическо представяне \textit{BSON}.
+
+Сървърната част е реализирана с \textit{Node.js} и \textit{Express.js} за \textit{REST API}, с унифицирана маршрутизация, валидация и централизирана обработка на грешки. Използваната \textit{Node.js} версия е 22.x (\textit{LTS}), избрана заради предвидим жизнен цикъл и дългосрочни актуализации по сигурност; подходът поддържа ниска цена на миграция към следваща \textit{LTS} версия. За сървъра се използват външни библиотеки като \texttt{body-parser}, \texttt{cors}, \texttt{cron}, \texttt{express}, \texttt{is-svg} и \texttt{mongoose}, а за разработване -- \texttt{nodemon}.
+
+Клиентското приложение е разработено с \textit{Angular} (версия 16) върху \textit{TypeScript} и \textit{SCSS}, като се следват добри практики за поддръжка и бъдещо преминаване към следваща \textit{LTS} версия \cite{DIS-AngularDocs,DIS-TypeScriptHandbook}. Освен основните пакети на \textit{Angular}, са използвани \textit{Angular Material} и \textit{CDK} за \textit{UI} компоненти, \texttt{ngx-toastr} за известия, както и \texttt{d3} и \texttt{d3-graphviz} за интерактивна визуализация, анимации и рендиране на \textit{Graphviz DOT} в браузъра \cite{DIS-D3Transition}.
+
+\subsection{Дизайн и модули на приложението}
+\hspace*{2.5em}В контекста на \textbf{\ref{task:architecture}} се представя модулната организация на \textit{OnlineGN}. Описват се основните функционални компоненти (съхранение, визуализация, редакция, симулация, импорт/експорт и \textit{API}) и взаимодействието между тях. Модулният дизайн цели ясна разделимост на отговорностите (\textit{separation of concerns}), улеснена поддръжка и мащабируемост.
+
+\subsubsection{Модул за обработка на данните (\textit{GenNet Persistence})}
+\hspace*{2.5em}\textit{GenNet Persistence} реализира устойчивостта на данните за мрежите и осигурява основни операции за работа със записи. Включени са подмодули за:
+\begin{itemize}
+    \item \textbf{\textit{Loading}} -- зареждане на мрежа по уникален идентификатор, като при достъп се актуализира информацията за последно използване;
+    \item \textbf{\textit{Saving}} -- записване/обновяване на данните за мрежа, така че да бъдат налични за последващо прочитане;
+    \item \textbf{\textit{Expiration}} -- автоматично изтриване на мрежи, които не са били достъпвани в последните 90 дни.
+\end{itemize}
+
+\subsubsection{\textit{JSON} формат за описание на обобщени мрежи}
+\label{subsec:gn-json-format}
+
+\hspace*{2.5em}В дисертационния труд се описва разработен \textit{JSON} формат за унифицирано, машинночетимо представяне на ОМ, пригодено за директна интерпретация от симулатора. Форматът на данните е дефиниран от интерфейса \textit{GenNetExportModel}. Един документ описва структурата на мрежата, началната конфигурация на ядрата, параметри на изпълнение, потребителски дефинирани функции и предварително генерирана визуализация. Форматът е организиран в четири основни секции: \texttt{genNetRaw}, \texttt{settings}, \texttt{code} и \texttt{svg}.
+
+\paragraph{Коренова структура.}\mbox{}\\
+Кореновият обект съдържа:
+\begin{itemize}
+\item \texttt{\textbf{\textit{genNetRaw}}} -- декларативно описание на ОМ;
+\item \texttt{\textbf{\textit{settings}}} -- настройки на симулационната среда;
+\item \texttt{\textbf{\textit{code}}} -- потребителски \textit{JavaScript} код;
+\item \texttt{\textbf{\textit{svg}}} -- предварително генерирана визуализация на мрежата.
+\end{itemize}
+
+Така се осигурява ясно разграничение между структурни данни и поведенческа спецификация.
+
+\paragraph{Секция \texttt{genNetRaw}.}\mbox{}\\
+Секцията \texttt{genNetRaw} съдържа основните данни за мрежата и включва колекциите \texttt{places}, \texttt{transitions} и \texttt{tokens}.
+
+\begin{itemize}
+\item \texttt{\textbf{\textit{places}}} -- масив от обекти от тип \textit{Place}, чрез които се задават идентификатор, име, функция за трансформиране на характеристиките, функция за сливане, приоритет и капацитет на позицията;
+\item \texttt{\textbf{\textit{transitions}}} -- масив от обекти от тип \textit{Transition}, чрез които се задават идентификатор, име, функция за разделяне, приоритет и връзките между входните и изходните позиции чрез обекти от тип \textit{TransitionItem};
+\item \texttt{\textbf{\textit{tokens}}} -- масив от обекти от тип \textit{Token}, дефиниращ началната конфигурация на симулацията чрез идентификатор, име, текуща позиция, приоритет и начални характеристики.
+\end{itemize}
+
+В дисертационния труд са дадени примерни \textit{JSON} представяния на обекти от тип \textit{Place}, \textit{Transition} и \textit{Token}.
+
+\paragraph{Секция \textit{\texttt{settings}}.}\mbox{}\\
+Секцията \texttt{settings} съдържа параметри, влияещи на изпълнението, без да променят структурния модел. В разглежданата реализация е включен обектът \texttt{simulationSettings}, чрез който се задава продължителността на една симулационна стъпка посредством \texttt{stepDurationMS}.
+
+\paragraph{Секция \textit{\texttt{code}}.}\mbox{}\\
+Секцията \texttt{code} съдържа низ с потребителски \textit{JavaScript} код, използван при симулацията. За да бъде кодът достъпен в контекста на симулатора, на най-външно ниво се дефинира обектът \texttt{\textbf{\textit{this.globalObj}}}, който служи като пространство от имена за потребителските дефиниции.
+
+\hspace*{2.5em}В \texttt{\textbf{\textit{this.globalObj}}} се съдържат:
+\begin{itemize}
+\item \texttt{\textbf{\textit{tokens}}} -- референция към текущата колекция от ядра;
+\item \texttt{\textbf{\textit{functions}}} -- функции, извиквани чрез имената си от полетата в \texttt{\textbf{\textit{genNetRaw}}};
+\item \texttt{\textbf{\textit{globals}}} -- допълнителни стойности, използвани като спомагателен контекст при изпълнение на симулацията.
+\end{itemize}
+
+Така форматът позволява декларативно задаване на мрежата, а конкретното поведение и условията при симулацията се дефинират централизирано и се свързват чрез имената на функциите. В дисертационния труд е представен и примерен \textit{JSON} модел на ОМ с две позиции, един преход и едно ядро.
+
+\paragraph{Секция \textit{\texttt{svg}}.}\mbox{}\\
+Секцията \texttt{svg} съдържа \textit{SVG} низ за визуализация на мрежата. Ако такъв не е предоставен, програмата генерира \textit{SVG} визуализация чрез алгоритъма за автоматично изчертаване, описан в \textbf{\ref{sec:auto-drawing}}.
+
+\subsubsection{Модул за графична визуализация (\textit{SVG/Graphviz})}
+\hspace*{2.5em}Разгледан е модулът за визуализация на ОМ в клиентското приложение: зареждане на готов \textit{SVG} или генериране на \textit{SVG} от \textit{Graphviz} низ, рисуване/прерисуване на елементи, анимации при промени, обработка на потребителски събития и запазване на текущото състояние като \textit{SVG}.
+
+\subsubsection{Модул за симулация на движението на ядрата}
+\hspace*{2.5em}Описан е модулът \textit{Simulation}, който реализира изпълнението на симулацията по правилата на ОМ и синхронизира логическите промени с визуализацията: единичен ход (\textit{Single move}), пълна симулация (\textit{Full simulation}) и рестартиране (\textit{Reset}) чрез подмодул за актуализация на визуализацията (\textit{Update visualization}).
+
+\subsubsection{\textit{API} и скриптов интерфейс}\label{sec:api-script-interface}
+
+Сървърът предоставя две крайни точки за достъп от клиент.
+
+\vspace{-10pt}
+\begin{itemize}
+	\item \texttt{\textbf{\textit{GET /api/genNets/:id}}} -- извлича мрежа по идентификатор и връща \texttt{\textbf{\textit{status code 200}}} при успех или \texttt{\textbf{\textit{status code 404}}}, ако мрежата не бъде намерена
+	\item при намерена мрежа се връща обект с полета \texttt{\textbf{\textit{id}}}, \texttt{\textbf{\textit{content}}} и \texttt{\textbf{\textit{lastFetchedAt}}}
+	\item \texttt{\textbf{\textit{POST /api/genNets}}} -- записва подадена мрежа в базата от данни
+	\item в заявката се подава поле \texttt{\textbf{\textit{content}}}, а при успешно записване се връща \texttt{\textbf{\textit{status code 201}}} и \texttt{\textbf{\textit{id}}}
+	\item при неуспешно записване се връща \texttt{\textbf{\textit{status code 400}}}
+\end{itemize}
+
+Тук в дисертационния труд са дадени примерни заявки и \textit{JSON} отговори от \textit{API}.
+
+\subsubsection{Модул за импортиране и експортиране на мрежи}
+\hspace*{2.5em}Модулът за импортиране и експортиране осигурява зареждане и запазване на данните на мрежата в различни формати, съобразно интерфейса, описан в \textbf{т.~\ref{sec:api-script-interface}} Поддържа се експортиране в \textit{JSON} файл, \textit{TeX} формат и \textit{JSON} формат в база от данни, както и импортиране от файл и от съхранени \textit{JSON} данни в базата. Функционално модулът се разделя на два подмодула: \textit{Import} (зареждане) и \textit{Export} (запис).
+
+\paragraph{Подмодул \textit{Import}.}
+\mbox{}\\
+
+\vspace{-0.35cm}
+
+\textit{Import} включва:
+\vspace{-0.15cm}
+\begin{itemize}
+    \item \textbf{\textit{JSON}} -- прочитане и валидация на входни данни в \textit{JSON} формат спрямо интерфейса от \textbf{т.~\ref{sec:api-script-interface}}, като при успешна валидация се създават необходимите обекти за визуализация; използва се и при зареждане от сървър, тъй като данните пристигат в \textit{JSON};
+    \item \textbf{\textit{File}} -- обработка на файлове, предоставени от потребителя, като при валиден \textit{JSON} съдържанието се предава към \textit{JSON} подмодула.
+\end{itemize}
+
+\paragraph{Подмодул \textit{Export}.}
+\mbox{}\\
+
+\vspace{-0.35cm}
+
+\textit{Export} включва:
+\vspace{-0.15cm}
+\begin{itemize}
+    \item \textbf{\textit{TeX}} -- преобразуване на текущата визуализация на мрежата в \textit{TeX} формат за интеграция в научни документи;
+    \item \textbf{\textit{JSON}} -- генериране на \textit{JSON} представяне на текущо заредената мрежа (вкл. данни за ядра и визуализация) според формата от \textbf{т.~\ref{sec:api-script-interface}}; използва се и при съхранение в базата от данни;
+    \item \textbf{\textit{File}} -- създаване на файл за сваляне от потребителя, като данните се генерират от \textit{JSON} подмодула и се записват във файл.
+\end{itemize}
+
+\subsubsection{Модул за визуализация на динамични процеси и анимация}
+\hspace*{2.5em}За визуализация на движението на ядрата в симулатора се използва библиотеката \textit{d3}, като всяко ядро се представя чрез \textit{SVG} група (графичен символ и текст). Преместването се реализира по траектории, зададени чрез \textit{SVG path} елементи, като анимацията се изпълнява чрез интерполация: изчислява се дължината на пътя (\texttt{getTotalLength()}), дефинира се преход с \texttt{attrTween} и параметър $t\in[0,1]$, а текущата позиция се получава с \texttt{getPointAtLength(t * l)} и се прилага чрез трансформация \textit{translate}. След приключване на прехода елементът се премахва от \textit{DOM}, което освобождава ресурси и отразява преминаването на ядрото по реброто.
+
+\subsection{Алгоритми и имплементационни детайли}
+\hspace*{2.5em}Описват се основните алгоритми и ключови имплементационни решения, използвани при реализирането на \textit{OnlineGN}.
+
+\subsubsection{Разработен алгоритъм 1: автоматично изчертаване на ОМ}
+\hspace*{2.5em}Алгоритъм~1 е реализиран програмно в системата \textit{OnlineGN} като отделна имплементация, която автоматизира изчертаването на ОМ на база на структурните данни на мрежата. Реализацията генерира координати и графично представяне, което се използва директно от модула за визуализация.
+
+\subsubsection{Разработен алгоритъм 2: преобразуване на \textit{SVG} към \textit{TeX}}
+\hspace*{2.5em}Алгоритъм~2 е имплементиран в \textit{OnlineGN} за автоматично преобразуване на текущата \textit{SVG} визуализация в \textit{TeX} представяне. Реализацията трансформира основните графични примитиви и текстови елементи, като осигурява експортиране в \textit{TeX} формат за включване в научни документи.
+
+\subsection{Интерфейс и потребителско изживяване}
+
+\hspace*{2.5em}Главата представя реализацията на \textbf{\ref{task:web-ui}} и \textbf{\ref{task:predicates-ui}}, като разглежда дизайна на потребителския интерфейс и основните принципи на потребителското изживяване в \textit{OnlineGN}. Акцентът е върху навигацията, визуалните компоненти и начина, по който интерфейсът подпомага интерактивната работа със симулатора, включително визуализация, персонализация и редакция на параметри на ОМ.
+
+\subsubsection{Навигация и визуални компоненти на уеб клиента}
+
+\hspace*{2.5em}Клиентското приложение обединява основните функционалности в едно основно работно поле: визуализация на мрежата, управление на симулацията и достъп до операции за зареждане/запис и експортиране. Интерфейсът осигурява директен преглед на текущото състояние на мрежата и стъпката на симулацията, както и удобен достъп до основните действия чрез функционални бутони и диалози.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{2pt}  
+	\fbox{\includegraphics[width=0.9\linewidth]{"../../3. onlineGn/images/ui-main-screen.png"}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:ui-main-screen}} -- \nameref{DIS-fig:ui-main-screen}.}
+\end{figure}
+
+За реализацията на \textbf{\ref{task:predicates-ui}} е въведен режим за редакция на елементите на мрежата, чрез който се извършва избор на позиция/преход/ребро и промяна на координати и параметри. Това позволява интерактивна корекция на визуализацията и настройване на мрежовите обекти директно в работното поле.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{3pt}
+	\fbox{\includegraphics[width=0.85\linewidth]{"../../3. onlineGn/images/ui-edit-positions-mode.png"}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:ui-edit-positions-mode}} -- \nameref{DIS-fig:ui-edit-positions-mode}.}
+\end{figure}
+
+\vspace{-0.3cm}
+
+Предикатите и правилата за преместване се визуализират чрез специализирани компоненти за редакция и преглед на преходите, включително представяне на предикатната матрица, която отразява условията за преминаване между входни и изходни позиции на преход.
+
+\vspace{-0.3cm}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.5\linewidth]{"../../3. onlineGn/images/ui-transition-matrix.png"}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:ui-transition-matrix}} -- \nameref{DIS-fig:ui-transition-matrix}.}
+\end{figure}
+
+\subsubsection{Помощна система, документация и локализация}
+
+\hspace*{2.5em}Предвидена е помощна система, която допълва уеб клиента чрез вградена документация и контекстна помощ. Осигурени са и възможности за локализация на интерфейса, което улеснява използването на симулатора в образователен и изследователски контекст.
+
+\mysection{Приложения на обобщените мрежи и симулатора \textit{OnlineGN}}
+\hspace*{2.5em}В настоящата глава се разглеждат четири нови ОМ модела на процеси, които до този момент не са били описвани чрез апарата на ОМ. Всеки от разработените модели е симулиран и верифициран чрез програмната среда \textit{OnlineGN}. Изложението и проведените симулации в тези четири раздела представляват решението на \textbf{\ref{task:new-models}} и \textbf{\ref{task:simulation}}.
+
+\subsection{Симулация на крайни автомати чрез обобщени мрежи}
+
+\hspace*{2.5em}В дисертационния труд се разглежда как краен автомат може да бъде описан и симулиран с помощта на ОМ. Изгражда се връзката между състоянията и преходите на автомата и съответните елементи на ОМ, така че моделът да се превърне в работеща схема. Разгледан е и конкретен пример на краен автомат, за който се изгражда съответната ОМ и се реализира реална симулация с \textit{OnlineGN}. При разработването и анализа се следва подходът, предложен в \cite{DIS-DimitrievAutomata}.
+
+В \cite{DIS-Atanassov1985GNFA} е разгледан начин за представяне на автомати чрез ОМ, но основният акцент е върху теоретичното доказателство за съществуването; тук се дава конструкция, директно приложима за симулация в софтуерни среди за ОМ, с конкретни структурни ограничения и оптимизации.
+
+\subsubsection{Основни понятия за крайни автомати}
+
+\paragraph*{Крайни азбуки и езици.}
+\mbox{}\\
+Използват се стандартните понятия \emph{крайна азбука} $\Sigma$, \emph{дума} $\alpha \in \Sigma^*$ и \emph{език} $L \subseteq \Sigma^*$, като празната дума се означава с $\varepsilon$.
+
+\paragraph*{Детерминиран краен автомат (ДКА).}
+\mbox{}\\
+ДКА е петорка $\mathcal{A}=(Q,\Sigma,\delta,q_{\textit{start}},F)$ \cite{DIS-HopcroftMotwaniUllman,DIS-Kozen}, където $\delta:Q\times\Sigma\to Q$ е тотална. Думата $\alpha$ се приема тогава и само тогава, когато $\delta^*(q_{\textit{start}},\alpha)\in F$.
+
+\paragraph*{Недетерминиран краен автомат (НКА).}
+\mbox{}\\
+НКА е петорка $\mathcal{N}=(Q,\Sigma,\Delta,q_{\textit{start}},F)$ \cite{DIS-HopcroftMotwaniUllman,DIS-Papadimitriou}, където $\Delta:Q\times\Sigma\to\mathcal{P}(Q)$. Думата $\alpha$ се приема тогава и само тогава, когато $\Delta^*(\{q_{\textit{start}}\},\alpha)\cap F\neq\varnothing$.
+
+\paragraph*{Сравнение между ДКА и НКА.}
+\mbox{}\\
+ДКА следва единствена изчислителна пътека, а НКА допуска разклонени (паралелни) пътеки; двата модела разпознават един и същи клас езици (теорема на Рабин–Скот \cite{DIS-rabin-scott}, \textit{powerset construction}).
+
+\subsubsection{Представяне на недетерминирани крайни автомати чрез обобщени мрежи}
+\label{sec:simulating_automata_gn-avtoreferat}
+
+\hspace*{2.5em}ОМ предоставят гъвкава рамка за симулиране на паралелни процеси \cite{DIS-Z1,DIS-BAM}, което ги прави подходящи за моделиране на начина, по който думите се приемат от НКА. ОМ се конструира така, че да обхваща всички възможни паралелни изчислителни пътеки: всяко \emph{състояние} $q_i$ се съпоставя с преход $Z_i$, а всяко \emph{ребро} $q_i \to q_j$ се представя като \emph{позиция} (изходна за $Z_i$ и входна за $Z_j$). Въвеждат се специална начална позиция $p_{\textit{start}}$ и краен преход $Z_{\textit{final}}$, който реализира напускане на мрежата при приемане.
+
+\paragraph*{Ядра и характеристики.}
+\mbox{}\\
+Активните обекти са \emph{ядра}, като всяко ядро съответства на възможна изчислителна пътека в НКА. Като характеристика се носи остатъкът от входната дума (\texttt{word}); при преминаване през позиция първият символ се премахва (с изключение на началното преместване от $p_{\textit{start}}$). При разклоняване в НКА ядрото се дублира в няколко копия с еднакъв текущ остатък на думата.
+
+\paragraph*{Индексирани матрици и предикати.}
+\mbox{}\\
+Конструкцията се формализира чрез \emph{индексирани матрици} и предикати от вида $S(x,y)$ (за съвместимост между следващия входен символ и допустим преход в НКА), както и предикат $E$ (празна характеристична „дума“) като условие за преминаване през $Z_{\textit{final}}$.
+
+\medskip
+\noindent
+\textbf{Твърдение.} Всеки НКА може да бъде представен чрез съответна ОМ (вж. \cite{DIS-Z1,DIS-BAM}).
+
+\subsubsection{Подробен пример за недетерминиран краен автомат, представен като обобщена мрежа}
+\hspace*{2.5em}Разглежда се примерен НКА с две крайни състояния ($q_3$ и $q_5$), който е недетерминиран поради две ребра с етикет \emph{b} от едно и също състояние. На базата на този автомат се построява съответната ОМ с по един преход за всяко състояние и допълнителен краен преход $Z_{\textit{final}}$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=Latex, scale=1.75]
+    \node[draw, circle, minimum size=0.5cm, inner sep=0pt] (n1) at (0,4) {};
+    \node at (0,3.55) {$q_1$};
+
+    \node[draw, circle, minimum size=0.5cm, inner sep=0pt] (n2) at (2,4) {};
+    \node at (2,3.55) {$q_2$};
+
+    \node[draw, circle, double, minimum size=0.5cm, inner sep=0pt] (n3) at (4,4) {};
+    \node at (4,3.55) {$q_3$};
+
+    \node[draw, circle, minimum size=0.5cm, inner sep=0pt] (n4) at (4,6) {};
+    \node at (4,5.55) {$q_4$};
+
+    \node[draw, circle, double, minimum size=0.5cm, inner sep=0pt] (n5) at (6,6) {};
+    \node at (6,5.55) {$q_5$};
+
+    \draw[->] (-1,4) -- (n1);
+    \draw[->, bend left=15] (n1) to node[above] {a} (n2);
+    \draw[->] (n2) -- node[below] {b} (n3);
+    \draw[->] (n2) -- node[left] {b} (n4);
+    \draw[->, bend left=20] (n4) to node[above] {a} (n5);
+    \draw[->] (n4) to[out=120,in=60,loop] node[above] {b} (n4);
+    \draw[->, bend right=30] (n3) to node[above] {b} (n2);
+\end{tikzpicture}
+\caption*{\textbf{Фигура~\ref{DIS-fig:nka-two-finals}} -- \nameref{DIS-fig:nka-two-finals}.}
+\end{figure}
+
+\subsubsection{Симулация на множество недетерминирани крайни автомати чрез една обобщена мрежа}
+\hspace*{2.5em}Показано е, че крайно множество от НКА може да бъде представено чрез една ОМ, чрез обединяване на ОМ, съответстващи на всеки НКА от множеството, като се използва свойството $E_1 \cup E_2$ да е ОМ при ОМ $E_1$ и $E_2$ \cite{DIS-Z1}. Това позволява едновременно проверяване на входни низове през множество НКА чрез една единствена ОМ.
+
+\subsubsection{Симулация на един недетерминиран краен автомат с помощта на \textit{OnlineGN}}
+\label{subsec:simulation_steps-avtoreferat}
+
+\hspace*{2.5em}Демонстрирана е реална симулация в \textit{OnlineGN} на построената ОМ, която разпознава думата \texttt{abbba}. В симулацията се използва леко изменена нотация (тъй като долни индекси не се поддържат), напр. $q_{i-j}$ се изписва като \texttt{qi-j}. ОМ започва с едно ядро в \texttt{p-start}, носещо характеристика \texttt{abbba}; при последователните стъпки се визуализира движението на ядрата и развитието на характеристиката (прочитане на символите). При приемане ядрото достига финалната позиция, а характеристиката става празен низ.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.9\textwidth]{../../4. applications/finateStateAutomationsGenNets/images/NFA-OGN-1.PNG}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:gn_initial_setup}} -- \nameref{DIS-fig:gn_initial_setup}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.55\textwidth]{../../4. applications/finateStateAutomationsGenNets/images/NFA-OGN-2.PNG}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:gn_token_start}} -- \nameref{DIS-fig:gn_token_start}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.9\textwidth]{../../4. applications/finateStateAutomationsGenNets/images/NFA-OGN-5.PNG}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:gn_final_state}} -- \nameref{DIS-fig:gn_final_state}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.55\textwidth]{../../4. applications/finateStateAutomationsGenNets/images/NFA-OGN-6.PNG}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:gn_empty_characteristic}} -- \nameref{DIS-fig:gn_empty_characteristic}.}
+\end{figure}
+
+\subsubsection{Заключение}
+
+\hspace*{2.5em}В дисертационния труд се разглежда как ОМ могат да бъдат използвани за симулация на ДКА и НКА чрез съпоставяне на състоянията с преходи и на ребрата с позиции, като се улавят паралелните изчислителни пътища. Архитектурата, базирана на ядра и характеристики, позволява проследима симулация, като \textit{OnlineGN} се използва за демонстрация на изпълнението стъпка по стъпка и за ясно показване на приемането (финална позиция и празна характеристика).
+
+
+\subsection{Паралелизация на задачата за Ханойските кули чрез обобщени мрежи}
+\medskip
+\hspace*{2.5em}Разглежда се \emph{паралелна} версия на класическата задача за Ханойските кули, при която в една стъпка се допуска едновременно преместване на повече от един диск. Задачата е формализирана чрез апарата на ОМ, а симулационната реализация в \textit{OnlineGN} демонстрира изпълнимостта на модела и ефекта от паралелизма при експоненциални комбинаторни процеси.
+
+\subsubsection{Описание на задачата за Ханойските кули}
+\hspace*{2.5em}Класическата задача за Ханойските кули \cite{DIS-wikipediaHanoi} се състои от три пръта и \(n\) пръстена с различни размери, подредени първоначално върху първия прът; по-голям пръстен не може да се поставя върху по-малък (\textbf{Фигура~\ref{DIS-fig:fig1}}). Целта е прехвърляне на всички пръстени от първия към третия прът при спазване на правилото. При преместване на точно един пръстен на стъпка са необходими минимум \(2^{n}-1\) стъпки \cite{DIS-frame1945,CLRS_TowerOfHanoi}. Настоящата глава описва процеса чрез ОМ.
+
+\subsubsection{{Паралелизация на Ханойските кули: Концептуален преглед}\label{sec:parallel-concept}}
+\hspace*{2.5em}Класическите ограничения са: \textbf{(i)} на всяка стъпка се премества само един пръстен и \textbf{(ii)} по-голям пръстен не се поставя върху по-малък. В паралелния вариант \textbf{(i)} се разхлабва: на една \emph{паралелна стъпка} може \emph{едновременно} да се повдигне пакет от най-много \(k\) пръстена (от върховете на произволна комбинация от пръти), след което да се \emph{поставят} един по един по приоритет (първо най-големият, последен най-малкият). Цикълът повдигане–поставяне се брои за една паралелна стъпка.
+
+\subsubsection{Конфигурация на системата}
+\begin{itemize}
+	\item \textbf{Пръти.}\\
+	Три пръта \(R_1\) (източник), \(R_2\) (помощен), \(R_3\) (целеви), всеки със стек от пръстени със строго намаляващ размер отдолу нагоре.
+	\item \textbf{Пръстени.}\\
+	\(n\) пръстена, етикетирани от \(1\) (най-малък) до \(n\) (най-голям).
+	\item \textbf{Въздушен буфер.}\\
+	След повдигането избраните до \(k\) пръстена са „във въздуха“, като вътрешният ред на пръстените, идващи от един и същ прът, се запазва.
+\end{itemize}
+
+\subsubsection{Дефиниция на паралелна стъпка}\label{subsec:parallel-step}
+\hspace*{2.5em}Всяка стъпка има две фази:
+\vspace{-0.1cm}
+\begin{enumerate}
+	\item \textbf{Фаза на повдигане.} Избират се до \(k\) пръстена от върховете на прътите и се отстраняват \emph{едновременно}.
+	\item \textbf{Фаза на поставяне.} Поставяне по \emph{правило за приоритет}: (1) освобождаване в строго низходящ ред на размера; (2) поставяне върху произволен прът без нарушаване на локалния ред по размер.
+\end{enumerate}
+\hspace*{2.5em}Минималният брой паралелни стъпки се означава с \(H(n,k)\).
+
+\begin{Theorem}\label{thm:main}
+	$H(n,k) = 2^{\bigl\lceil \textstyle \frac{n}{k} \bigr\rceil} - 1$.
+\end{Theorem}
+
+Доказателството групира \(n\) пръстена в \(M=\lceil n/k\rceil\) блока с размер най-много \(k\), които се третират като „суперпръстени“, и свежда паралелния модел до класическата рекурсия върху \(M\) елемента (горна и долна граница съвпадат).
+
+\paragraph{Наблюдение (Оптималност на блоковите премествания в паралелния вариант на Ханойските кули).}
+\mbox{}\\
+Оптимална стратегия винаги прехвърля точно \(k\) последователни пръстена от един прът към един друг прът; всеки блок се държи като „супердиск“, поради което задачата се свежда до класическите Ханойски кули върху \(\lceil n/k\rceil\) супердискове.
+
+\subsubsection{Обобщеномрежови модел за паралелните Ханойски кули}
+\hspace*{2.5em}Въвежда се ОМ модел за симулация на \(k\)-паралелното правило. ОМ съдържа \(n\) \(\rho\)-ядра („пръстени“) и \(k\) \(\chi\)-ядра („ръце“). \(\chi\)-ядрата позволяват в една паралелна стъпка да се повдигнат едновременно най-много \(k\) \(\rho\)-ядра и да се поставят по приоритетното правило. Мрежата е изградена така, че да реализира оптималната блокова стратегия и да е изпълнима в \textit{OnlineGN}.
+
+\begin{figure}[H]
+	\tiny  \vspace{30mm} 
+	%%% Change unitlength and font size to scale the graphic
+	%%% Font sizes: \tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge
+	\newcommand{\mytriangle}{\Large $\bigtriangledown$}
+	\begin{center}
+		\setlength{\unitlength}{8.0pt} %10pt=4mm
+		\linethickness{0.5pt}
+		\begin{picture}(27, 64)
+			%%% Transitions
+			\put(18.5,71.5){\makebox(0,0)[cc]{$Z_{2}$}}
+			\put(20.0,70.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(20.0,70.0){\line(0,-1){25}}
+			\put(4.5,51.5){\makebox(0,0)[cc]{$Z_{1}$}}
+			\put(6.0,50.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(6.0,50.0){\line(0,-1){25}}
+			\put(18.5,31.5){\makebox(0,0)[cc]{$Z_{3}$}}
+			\put(20.0,30.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(20.0,30.0){\line(0,-1){25}}
+			%%% Input places
+			%%% Output places
+			\put(21.5,69.5){\makebox(0,0)[cc]{$l_{2,1}$}}
+			\put(20.0,68.5){\vector(1,0){1.0}}
+			\put(21.5,68.5){\circle{1.0}}
+			\put(18.5,67.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,61.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,55.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,49.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,67.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,61.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,55.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,49.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,65.5){\makebox(0,0)[cc]{$l_{2,n}$}}
+			\put(20.0,64.5){\vector(1,0){1.0}}
+			\put(21.5,64.5){\circle{1.0}}
+			\put(21.5,63.5){\makebox(0,0)[cc]{$m_{2,1}$}}
+			\put(20.0,62.5){\vector(1,0){1.0}}
+			\put(21.5,62.5){\circle{1.0}}
+			\put(21.5,59.5){\makebox(0,0)[cc]{$m_{2,k}$}}
+			\put(20.0,58.5){\vector(1,0){1.0}}
+			\put(21.5,58.5){\circle{1.0}}
+			\put(21.5,57.5){\makebox(0,0)[cc]{$m_{2,k+1}$}}
+			\put(20.0,56.5){\vector(1,0){1.0}}
+			\put(21.5,56.5){\circle{1.0}}
+			\put(21.5,53.5){\makebox(0,0)[cc]{$m_{2,2k}$}}
+			\put(20.0,52.5){\vector(1,0){1.0}}
+			\put(21.5,52.5){\circle{1.0}}
+			\put(21.8,51.5){\makebox(0,0)[cc]{$m_{2,k+1}$}}
+			\put(20.0,50.5){\vector(1,0){1.0}}
+			\put(21.5,50.5){\circle{1.0}}
+			\put(7.5,49.5){\makebox(0,0)[cc]{$l_{1,1}$}}
+			\put(6.0,48.5){\vector(1,0){1.0}}
+			\put(7.5,48.5){\circle{1.0}}
+			\put(7.5,47.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(4.5,47.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(7.5,41.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(4.5,41.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(7.5,35.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(4.5,35.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(7.5,29.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(4.5,29.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,47.5){\makebox(0,0)[cc]{$m_{2,2k}$}}
+			\put(20.0,46.5){\vector(1,0){1.0}}
+			\put(21.5,46.5){\circle{1.0}}
+			\put(7.5,45.5){\makebox(0,0)[cc]{$l_{1,n}$}}
+			\put(6.0,44.5){\vector(1,0){1.0}}
+			\put(7.5,44.5){\circle{1.0}}
+			\put(7.5,43.5){\makebox(0,0)[cc]{$m_{1,k+1}$}}
+			\put(6.0,42.5){\vector(1,0){1.0}}
+			\put(7.5,42.5){\circle{1.0}}
+			\put(7.5,39.5){\makebox(0,0)[cc]{$m_{1,2k}$}}
+			\put(6.0,38.5){\vector(1,0){1.0}}
+			\put(7.5,38.5){\circle{1.0}}
+			\put(7.5,37.5){\makebox(0,0)[cc]{$m_{1,2k+1}$}}
+			\put(6.0,36.5){\vector(1,0){1.0}}
+			\put(7.5,36.5){\circle{1.0}}
+			\put(7.5,33.5){\makebox(0,0)[cc]{$m_{1,3k}$}}
+			\put(6.0,32.5){\vector(1,0){1.0}}
+			\put(7.5,32.5){\circle{1.0}}
+			\put(7.8,31.5){\makebox(0,0)[cc]{$m_{1,1}$}}
+			\put(6.0,30.5){\vector(1,0){1.0}}
+			\put(7.5,30.5){\circle{1.0}}
+			\put(21.5,29.5){\makebox(0,0)[cc]{$l_{3,1}$}}
+			\put(20.0,28.5){\vector(1,0){1.0}}
+			\put(21.5,28.5){\circle{1.0}}
+			\put(21.5,27.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,27.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,21.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,21.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,15.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,15.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(21.5,9.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(18.5,9.2){\makebox(0,0)[cc]{$\vdots$}}
+			\put(7.5,27.5){\makebox(0,0)[cc]{$m_{1,k}$}}
+			\put(6.0,26.5){\vector(1,0){1.0}}
+			\put(7.5,26.5){\circle{1.0}}
+			\put(21.5,25.5){\makebox(0,0)[cc]{$l_{3,n}$}}
+			\put(20.0,24.5){\vector(1,0){1.0}}
+			\put(21.5,24.5){\circle{1.0}}
+			\put(21.5,23.5){\makebox(0,0)[cc]{$m_{3,k+1}$}}
+			\put(20.0,22.5){\vector(1,0){1.0}}
+			\put(21.5,22.5){\circle{1.0}}
+			\put(21.5,19.5){\makebox(0,0)[cc]{$m_{3,2k}$}}
+			\put(20.0,18.5){\vector(1,0){1.0}}
+			\put(21.5,18.5){\circle{1.0}}
+			\put(21.8,17.5){\makebox(0,0)[cc]{$m_{3,1}$}}
+			\put(20.0,16.5){\vector(1,0){1.0}}
+			\put(21.5,16.5){\circle{1.0}}
+			\put(21.5,13.5){\makebox(0,0)[cc]{$m_{3,k}$}}
+			\put(20.0,12.5){\vector(1,0){1.0}}
+			\put(21.5,12.5){\circle{1.0}}
+			\put(21.8,11.5){\makebox(0,0)[cc]{$m_{3,2k+1}$}}
+			\put(20.0,10.5){\vector(1,0){1.0}}
+			\put(21.5,10.5){\circle{1.0}}
+			\put(21.5,7.5){\makebox(0,0)[cc]{$m_{3,3k}$}}
+			\put(20.0,6.5){\vector(1,0){1.0}}
+			\put(21.5,6.5){\circle{1.0}}
+			%%% Vertical paths
+			\put(0.5,75.5){\line(0,-1){37}}
+			\put(25.5,75.5){\line(0,-1){17}}
+			\put(1.5,74.5){\line(0,-1){32}}
+			\put(24.5,74.5){\line(0,-1){12}}
+			\put(16.5,73.5){\line(0,-1){9}}
+			\put(23.5,73.5){\line(0,-1){9}}
+			\put(17.5,72.5){\line(0,-1){4}}
+			\put(22.5,72.5){\line(0,-1){4}}
+			\put(10.5,62.5){\line(0,-1){20}}
+			\put(13.5,58.5){\line(0,-1){20}}
+			\put(14.5,56.5){\line(0,-1){20}}
+			\put(26.5,56.5){\line(0,-1){22}}
+			\put(2.5,53.5){\line(0,-1){9}}
+			\put(9.5,53.5){\line(0,-1){9}}
+			\put(3.5,52.5){\line(0,-1){4}}
+			\put(8.5,52.5){\line(0,-1){4}}
+			\put(15.5,52.5){\line(0,-1){11}}
+			\put(25.5,52.5){\line(0,-1){15}}
+			\put(16.5,50.5){\line(0,-1){8}}
+			\put(23.5,50.5){\line(0,-1){8}}
+			\put(17.5,46.5){\line(0,-1){3}}
+			\put(22.5,46.5){\line(0,-1){3}}
+			\put(24.5,41.5){\line(0,-1){23}}
+			\put(15.5,37.5){\line(0,-1){19}}
+			\put(0.5,36.5){\line(0,-1){36}}
+			\put(11.5,36.5){\line(0,-1){20}}
+			\put(25.5,36.5){\line(0,-1){14}}
+			\put(14.5,34.5){\line(0,-1){12}}
+			\put(16.5,33.5){\line(0,-1){9}}
+			\put(23.5,33.5){\line(0,-1){9}}
+			\put(1.5,32.5){\line(0,-1){31}}
+			\put(10.5,32.5){\line(0,-1){20}}
+			\put(17.5,32.5){\line(0,-1){4}}
+			\put(22.5,32.5){\line(0,-1){4}}
+			\put(2.5,30.5){\line(0,-1){8}}
+			\put(9.5,30.5){\line(0,-1){8}}
+			\put(3.5,26.5){\line(0,-1){3}}
+			\put(8.5,26.5){\line(0,-1){3}}
+			\put(25.5,16.5){\line(0,-1){16}}
+			\put(24.5,12.5){\line(0,-1){11}}
+			\put(16.5,10.5){\line(0,-1){8}}
+			\put(23.5,10.5){\line(0,-1){8}}
+			\put(17.5,6.5){\line(0,-1){3}}
+			\put(22.5,6.5){\line(0,-1){3}}
+			%%% Horizontal paths
+			\put(0.5,75.5){\line(1,0){25}}
+			\put(1.5,74.5){\line(1,0){23}}
+			\put(16.5,73.5){\line(1,0){7}}
+			\put(17.5,72.5){\line(1,0){5}}
+			\put(17.5,68.5){\vector(1,0){2.5}}
+			\put(16.5,64.5){\vector(1,0){3.5}}
+			\put(10.5,62.5){\vector(1,0){9.5}}
+			\put(13.5,58.5){\vector(1,0){6.5}}
+			\put(14.5,56.5){\vector(1,0){5.5}}
+			\put(2.5,53.5){\line(1,0){7}}
+			\put(3.5,52.5){\line(1,0){5}}
+			\put(15.5,52.5){\vector(1,0){4.5}}
+			\put(16.5,50.5){\vector(1,0){3.5}}
+			\put(3.5,48.5){\vector(1,0){2.5}}
+			\put(17.5,46.5){\vector(1,0){2.5}}
+			\put(2.5,44.5){\vector(1,0){3.5}}
+			\put(17.5,43.5){\line(1,0){5}}
+			\put(1.5,42.5){\vector(1,0){4.5}}
+			\put(16.5,42.5){\line(1,0){7}}
+			\put(15.5,41.5){\line(1,0){9}}
+			\put(0.5,38.5){\vector(1,0){5.5}}
+			\put(15.5,37.5){\line(1,0){10}}
+			\put(0.5,36.5){\vector(1,0){5.5}}
+			\put(14.5,36.5){\line(1,0){11}}
+			\put(14.5,34.5){\line(1,0){12}}
+			\put(16.5,33.5){\line(1,0){7}}
+			\put(1.5,32.5){\vector(1,0){4.5}}
+			\put(17.5,32.5){\line(1,0){5}}
+			\put(2.5,30.5){\vector(1,0){3.5}}
+			\put(17.5,28.5){\vector(1,0){2.5}}
+			\put(3.5,26.5){\vector(1,0){2.5}}
+			\put(16.5,24.5){\vector(1,0){3.5}}
+			\put(3.5,23.5){\line(1,0){5}}
+			\put(2.5,22.5){\line(1,0){7}}
+			\put(14.5,22.5){\vector(1,0){5.5}}
+			\put(15.5,18.5){\vector(1,0){4.5}}
+			\put(11.5,16.5){\vector(1,0){8.5}}
+			\put(10.5,12.5){\vector(1,0){9.5}}
+			\put(16.5,10.5){\vector(1,0){3.5}}
+			\put(17.5,6.5){\vector(1,0){2.5}}
+			\put(17.5,3.5){\line(1,0){5}}
+			\put(16.5,2.5){\line(1,0){7}}
+			\put(1.5,1.5){\line(1,0){23}}
+			\put(0.5,0.5){\line(1,0){25}}
+			%%% Horizontal paths from output places
+			\put(22.0,64.5){\line(1,0){1.5}}
+			\put(22.0,62.5){\line(1,0){2.5}}
+			\put(22.0,58.5){\line(1,0){3.5}}
+			\put(22.0,56.5){\line(1,0){4.5}}
+			\put(22.0,52.5){\line(1,0){3.5}}
+			\put(22.0,50.5){\line(1,0){1.5}}
+			\put(8.0,44.5){\line(1,0){1.5}}
+			\put(8.0,42.5){\line(1,0){2.5}}
+			\put(8.0,38.5){\line(1,0){5.5}}
+			\put(8.0,36.5){\line(1,0){3.5}}
+			\put(8.0,32.5){\line(1,0){2.5}}
+			\put(8.0,30.5){\line(1,0){1.5}}
+			\put(22.0,24.5){\line(1,0){1.5}}
+			\put(22.0,22.5){\line(1,0){3.5}}
+			\put(22.0,18.5){\line(1,0){2.5}}
+			\put(22.0,16.5){\line(1,0){3.5}}
+			\put(22.0,12.5){\line(1,0){2.5}}
+			\put(22.0,10.5){\line(1,0){1.5}}
+			%%% Corners
+			\put(22.0,68.5){\line(1,0){0.5}}
+			\put(8.0,48.5){\line(1,0){0.5}}
+			\put(22.0,46.5){\line(1,0){0.5}}
+			\put(22.0,28.5){\line(1,0){0.5}}
+			\put(8.0,26.5){\line(1,0){0.5}}
+			\put(22.0,6.5){\line(1,0){0.5}}
+		\end{picture}
+	\end{center}
+	\normalsize
+	\caption*{\textbf{Фигура~\ref{DIS-fig:gn_th_rho_chi_tokens}} -- \nameref{DIS-fig:gn_th_rho_chi_tokens}.}	
+\end{figure} % Фигура 12
+
+
+\subsubsection*{Ядра и премествания.}
+\vspace{-0.1cm}
+\hspace*{2.5em}Използват се конвенциите:
+\vspace{-0.2cm}
+\begin{itemize}
+	\item \(\rho\)-ядро: пръстен; начална характеристика -- размерът.
+	\item \(\chi\)-ядро: „ръка“; характеристика -- индекс на „ръката“.
+\end{itemize}
+\hspace*{2.5em}Разграничават се \emph{ход от пъзела} и \emph{мрежов ход}. Всеки ход от пъзела се реализира с \textbf{два мрежови хода}: (i) позициониране на \(\rho\)- и \(\chi\)-ядра към изходните позиции на прехода на изходния прът; (ii) прехвърляне към входно--изходните позиции на прехода на целевия прът. Така ОМ симулира прехвърлянето на \(\rho\)-ядра между пръти чрез последователност от мрежови ходове.
+
+\subsubsection*{Преходи и позиции.}
+\vspace{-0.1cm}
+\hspace*{2.5em}ОМ съдържа \textbf{три прехода} \(Z_1\), \(Z_2\), \(Z_3\) (по един за прът). За \(\rho\)-ядрата се използват \(n\) \textbf{входно--изходни позиции} \(l_{i,j}\) (\(i\in\{1,2,3\}\), \(j=1,\dots,n\)); \(\rho\)-ядро в \(l_{i,j}\) означава „пръстен с размер \(j\) е върху прът \(i\)“. За \(\chi\)-ядрата се използват \textbf{позиции за задържане} \(m_{i,j}\) (\(j\in[1,3k]\)), които кодират текущия/следващия прът за вземане и прехвърляне, в зависимост от четността на мрежовата стъпка. Общият вид на ОМ е показан на \textbf{Фигура~\ref{DIS-fig:gn_th_rho_chi_tokens}}.
+
+\subsubsection*{Индексирани матрици.}
+\vspace{-0.1cm}
+\hspace*{2.5em}Предикатите върху индексираните матрици на ОМ са:
+\vspace{-0.2cm}
+\begin{itemize}
+	\item \(U_{x,y}\): „\(\rho\)-ядро се премества от \(x\) към \(y\) в тази стъпка на пъзела“;
+	\item \(W_{x,y,i,j}\): избор на \(\chi\)-ядро за преместване на \(\rho\)-ядро и гарантиране на коректна позиция при блоковия режим;
+	\item \(P_i\): „\(\rho\)-ядро има характеристична тежест \(i\)“ (коректно позициониране след хода);
+	\item \(S_x\): разполагане на \(\chi\)-ядрата в изходни позиции според предстоящото преместване.
+\end{itemize}
+\hspace*{2.5em}Индексираните матрици за нечетни и четни мрежови ходове са дадени на \textbf{Фигури~\ref{DIS-fig:block-matrix} и~\ref{DIS-fig:index-matrix-even-net-moves}}.
+
+\begin{figure}[H]
+	\centering
+	\small
+	% стеснява блока с по \extralength отляво и отдясно
+	\begin{adjustwidth}{\extralength}{\extralength}
+		% по-плътни колони
+		\setlength{\arraycolsep}{3pt}%
+		\renewcommand{\arraystretch}{1.05}%
+		\[
+		% гарантира, че не излиза извън текущата \linewidth
+		\resizebox{1\linewidth}{!}{$
+			\begin{array}{c|cccccccccccc}
+				& l_{a,1} & \cdots & l_{a,n} & m_{a,(a-1)*k + 1} & \cdots & m_{a,a * k} & m_{a,(b-1)*k + 1} & \cdots & m_{a,b*k} & m_{a,(c-1)*k + 1} & \cdots & m_{a,c*k} \\ \hline
+				l_{a,1} & F & \cdots & F & F & \cdots & F & W_{a,b,1, 1} & \cdots & W_{a,b,1, k} & W_{a,c,1, 1} & \cdots & W_{a,c,n, k} \\
+				\vdots &  \vdots & \ddots &  \vdots &  \vdots & \ddots &  \vdots &  \vdots & \ddots &  \vdots &  \vdots & \ddots &  \vdots \\
+				l_{a,n} & F & \cdots & F & F & \cdots & F & W_{a,b,n, 1} & \cdots & W_{a,b,n, k} & W_{a,c,n, 1} & \cdots & W_{a,c,n, k} \\
+				m_{a,(a-1)*k + 1} & F & \cdots & F & F & \cdots & F & U_{a,b} & \cdots & F & U_{a,c} & \cdots & F \\
+				\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				m_{a,a*k} & F & \cdots & F & F & \cdots & F & F & \cdots & U_{a,b} & F & \cdots & U_{a,c} \\
+				m_{b,(a-1)*k + 1} & F & \cdots & F & F & \cdots & F & U_{a,b} & \cdots & F & U_{a,c} & \cdots & F \\
+				\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				m_{b,a*k} & F & \cdots & F & F & \cdots & F & F & \cdots & U_{a,b} & F & \cdots & U_{a,c} \\
+				m_{c,(a-1)*k + 1} & F & \cdots & F & F & \cdots & F & U_{a,b} & \cdots & F & U_{a,c} & \cdots & F \\
+				\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				m_{c,a*k} & F & \cdots & F & F & \cdots & F & F & \cdots & U_{a,b} & F & \cdots & U_{a,c}
+			\end{array}
+			$}
+		\]
+	\end{adjustwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:block-matrix}} -- \nameref{DIS-fig:block-matrix}.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\small
+	% стеснява блока симетрично
+	\begin{adjustwidth}{\extralength}{\extralength}
+		\setlength{\arraycolsep}{3pt}%
+		\renewcommand{\arraystretch}{1.05}%
+		\[
+		\resizebox{1\linewidth}{!}{$
+			\begin{array}{c|cccccccccccc}
+				& l_{a,1} & \cdots & l_{a,n} & m_{a,(a-1)*k + 1} & \cdots & m_{a,a * k} & m_{a,(b-1)*k + 1} & \cdots & m_{a,b*k} & m_{a,(c-1)*k + 1} & \cdots & m_{a,c*k} \\ \hline
+				l_{a,1} & F & \cdots & F & F & \cdots & F & F & \cdots & F & F & \cdots & F \\
+				\vdots  & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				l_{a,n} & F & \cdots & F & F & \cdots & F & F & \cdots & F & F & \cdots & F \\
+				m_{a,(a-1)*k + 1} & F & \cdots & F & F & \cdots & F & F & \cdots & F & F & \cdots & F \\
+				\vdots  & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				m_{a,a*k} & F & \cdots & F & F & \cdots & F & F & \cdots & F & F & \cdots & F \\
+				m_{b,(a-1)*k + 1} & P_{1} & \cdots & P_{n} & S_{a} & \cdots & F & S_{b} & \cdots & F & S_{c} & \cdots & F \\
+				\vdots  & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				m_{b,a*k} & P_{1} & \cdots & P_{n} & F & \cdots & S_{a} & F & \cdots & S_{b} & F & \cdots & S_{c} \\
+				m_{c,(a-1)*k + 1} & P_{1} & \cdots & P_{n} & S_{a} & \cdots & F & S_{b} & \cdots & F & S_{c} & \cdots & F \\
+				\vdots  & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+				m_{c,a*k} & P_{1} & \cdots & P_{n} & F & \cdots & S_{a} & F & \cdots & S_{b} & F & \cdots & S_{c}
+			\end{array}
+			$}
+		\]
+	\end{adjustwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:index-matrix-even-net-moves}} -- \nameref{DIS-fig:index-matrix-even-net-moves}.}
+\end{figure}
+
+
+\begin{Theorem}
+	ОМ, описваща пъзела на Ханой с \(n\) \(\rho\)-ядра и \(k\) \(\chi\)-ядра, прехвърля \(\rho\)-ядрата от първия към третия прът за \(2^{\bigl\lceil \textstyle \frac{n}{k} \bigr\rceil} - 1\) хода от пъзела.
+\end{Theorem}
+
+
+Доказателството е пряко приложение на \textbf{Теорема~\ref{thm:main}} при \(N=n\), \(K=k\), чрез групиране на \(\rho\)-ядрата в блокове с размер най-много \(k\).
+
+\subsubsection{Симулации с \textit{OnlineGN}}
+\hspace*{2.5em}Разработеният ОМ модел е симулиран с \textit{OnlineGN}. Поради големината на мрежата се използват екранни снимки, които показват активните сегменти. За пример \(n=3\), \(k=2\) началната конфигурация е със \(\rho\)- и \(\chi\)-ядра при \(Z_1\) (\textbf{Фигура~\ref{DIS-fig:step1}}), след което се наблюдава междинно позициониране към \(m\)-позиции, насочени към \(Z_2\) (\textbf{Фигура~\ref{DIS-fig:step2}}), и крайна конфигурация с всички \(\rho\)-ядра в \(Z_3\) (\textbf{Фигура~\ref{DIS-fig:final_step}}). За всички тествани двойки \((n,k)\) отчетеният брой стъпки съвпада с \(2^{\lceil n/k\rceil}-1\).
+
+\vspace{0.3cm}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.7\textwidth]{../../4. applications/hanoiTowers/images/s1_1.png}}
+	\captionsetup{width=0.8\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:step1}} -- \nameref{DIS-fig:step1}.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.55\textwidth]{../../4. applications/hanoiTowers/images/s2_1.png}}
+	\captionsetup{width=0.8\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:step2}} -- \nameref{DIS-fig:step2}.}
+\end{figure}
+
+\vspace{-0.2cm}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.55\textwidth]{../../4. applications/hanoiTowers/images/s3_1.png}}
+	\captionsetup{width=0.8\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:final_step}} -- \nameref{DIS-fig:final_step}.}
+\end{figure}
+
+
+\subsubsection{Други проучвания за паралелно решаване на задачи}
+\hspace*{2.5em}В този раздел на дисертационния труд са разгледани други паралелни решения на експоненциални задачи.
+
+\subsubsection{Изводи от резултатите}
+\hspace*{2.5em}Разработената ОМ е директен, изпълним модел на $k$-паралелното правило на Ханойските кули. При изпълнение в \textbf{\textit{OnlineGN}} симулацията генерира очаквания брой ходове \(2^{\bigl\lceil \textstyle \frac{n}{k} \bigr\rceil} - 1\) за всички тествани \(n\) и \(k\), което потвърждава коректността и числовата достоверност на модела. Увеличаването на \(k\) съкращава критичния път, но печалбите намаляват поради цената на синхронизация (повдигане и поставяне при глобално ограничение за реда), т.е.\ процесът е \emph{синхронизационно ограничен}. 
+
+\subsection{Модел с обобщена мрежа на производството на газови и полимерни продукти в нефтопреработвателна рафинерия}
+
+\hspace*{2.5em}В дисертационния труд се разглежда ОМ модел на производството на газово гориво, втечнен петролен газ (ВПГ, \textit{LPG}), пропилен и полипропилен, както и неговата програмна симулация чрез \textit{OnlineGN}. Изграждането на модела и детайлите по формализацията са представени в \cite{DIS-Stratiev2023_1}.
+
+\subsubsection{Увод в производството на продукти в нефтопреработвателна рафинерия}
+
+\hspace*{2.5em}Моделирането на процесите на производство на рафинирани продукти в нефтопреработвателна рафинерия подпомага производственото планиране и анализа на ефективността. В литературата се срещат частични модели на отделни аспекти на проблема \cite{DIS-Zhou2017, Infosys2018, 40}, докато при ОМ се задават причинно--следствените зависимости чрез предикатите на преходите и характеристиките на ядрата.
+
+В предишни изследвания \cite{DIS-87,DIS-88} е показано, че производството на автомобилен бензин \cite{DIS-87} и дизелово гориво \cite{DIS-88} може да бъде моделирано чрез ОМ; настоящата глава допълва тази линия с производството на газово гориво, ВПГ, пропилен и полипропилен и верификация чрез \textit{OnlineGN}.
+
+\subsubsection{Технологична схема за производство на газово гориво, втечнен петролен газ, пропилен и полипропилен в нефтопреработвателна рафинерия}
+
+\hspace*{2.5em}Технологичната производствена верига за газово гориво, ВПГ, пропилен и полипропилен е представена на \textbf{Фигура~\ref{DIS-H}} (в дисертационния труд се използва като основа за формализацията в ОМ). % <-- ТУК Е МЯСТОТО НА ФИГУРА~\ref{H}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.48]{../../4. applications/fuelGasEtc/images/Figure1.png}
+	\caption*{\textbf{Фигура~\ref{DIS-H}} -- \nameref{DIS-H}.}
+\end{figure}
+
+Производството на петролни газови продукти зависи от произхода на суровия нефт и експлоатационните режими в процесните инсталации. В зависимост от пазарните изисквания течният пропилен може да се експортира като полимеризационен пропилен или да се използва като компонент на ВПГ; от инсталацията за полипропилен се произвеждат различни марки полипропиленови продукти.
+
+\subsubsection{Основни резултати: обобщеномрежов модел}
+
+\hspace*{2.5em}В дисертационния труд се разглежда ОМ моделът (\textbf{Фигура~\ref{DIS-fig3}}), който описва разглежданата технологична верига чрез позиции, преходи и ядра с характеристики. Моделът съдържа 17 прехода, 55 позиции и 47 типа ядра, като са включени: потоци суровини/междинни фракции ($\sigma_i$), процесни звена ($\rho_i$) и продукти ($\alpha$, $\beta$, $\gamma$, $\delta$, $\varepsilon$), съгласно \cite{DIS-Stratiev2023_1}. % <-- ТУК Е МЯСТОТО НА ФИГУРА~\ref{DIS-fig3}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10.1cm]{../../4. applications/fuelGasEtc/images/Figure3.pdf}
+	\caption*{\textbf{Фигура~\ref{DIS-fig3}} -- \nameref{DIS-fig3}.}
+\end{figure}
+
+Логиката на протичане се задава чрез индексирани матрици с предикати за всеки преход (напр. условия от типа „има заявка за продукт ...“), които определят преместването на ядрата от входните към изходните позиции и промяната на характеристиките им при симулация.
+
+\subsubsection{Бележки по резултатите и обобщеномрежов модел}
+
+\hspace*{2.5em}Производството на газово гориво, ВПГ, пропилен и полипропилен представлява сложен паралелен процес с множество технологични инсталации и ограничения, който може да бъде представен чрез ОМ. 
+\subsubsection{Симулация с \textit{OnlineGN}}
+\label{subsec:simulation-onlinegn}
+
+\hspace*{2.5em}За да проверим на практика дали предложеният ОМ модел описва коректно процеса на производство на горивен газ, ВПГ, пропилен и полипропилен в нефтопреработвателна рафинерия, го имплементирахме и симулирахме в \textit{OnlineGN}. Така получаваме не само визуализация на структурата (позиции, преходи и връзки), но и възможност да проследим как „се движат“ ядрата и как се променят техните характеристики при преминаване през отделните звена.
+
+Поради големината на модела визуалното му представяне е разделено на три части: горна, средна и долна. Тук е изложена само горната в \textbf{Фигура~\ref{DIS-fig:onlinegn-model-upper}}.
+
+% --- ТУК Е МЯСТОТО НА ФИГУРИТЕ: визуализация на ОМ модела в OnlineGN (3 части) ---
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.95\linewidth]{../../4. applications/fuelGasEtc/images/upper.png}}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:onlinegn-model-upper}} -- \nameref{DIS-fig:onlinegn-model-upper}.}
+\end{figure}
+
+Следващата важна стъпка е логиката на преходите: за всеки преход са дефинирани индексирани матрици, в които са заложени предикатите от теоретичното описание. Именно тези предикати „решават“ дали дадено ядро може да премине от входните към изходните позиции на прехода. На \textbf{Фигура~\ref{DIS-fig:onlinegn-matrix-z1}} е показан пример с индексирана матрица за преход $Z_1$, който в модела съответства на \textit{CDU-2}.
+
+% --- ТУК Е МЯСТОТО НА ФИГУРА: индексирана матрица (пример) ---
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.52\linewidth]{../../4. applications/fuelGasEtc/images/matrix_1.png}}
+	\captionsetup{width=0.8\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:onlinegn-matrix-z1}} -- \nameref{DIS-fig:onlinegn-matrix-z1}.}
+\end{figure}
+
+В този конкретен пример предикатите отразяват условия от типа „има заявка за продукт ВПГ от \textit{CDU-2}“ и „има заявка за продукт горивен газ от \textit{CDU-2}“. С други думи, преходът $Z_1$ пропуска ядра нататък само когато са налице съответните заявки/условия, описани в модела. Аналогично, за останалите преходи са въведени индексирани матрици, съответстващи на описаните предикати за конкретните процесни звена и потоци.
+
+Началните характеристики на ядрата са настроени според сценария от статията. На \textbf{Фигура~\ref{DIS-fig:onlinegn-token-l1}} е показано ядро във входната позиция $l_1$, което постъпва към $Z_1$ (\textit{CDU-2}), заедно с неговата начална характеристика. Тази характеристика съдържа необходимите атрибути за симулацията (напр. вид заявка и количества), така че по време на изпълнение да може ясно да се проследи какво „носи“ ядрото и какво се променя по веригата.
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.52\linewidth]{../../4. applications/fuelGasEtc/images/token_1.png}}
+	\captionsetup{width=0.8\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:onlinegn-token-l1}} -- \nameref{DIS-fig:onlinegn-token-l1}.}
+\end{figure}
+
+
+След успешното изпълнение на симулацията наблюдаваните изходни характеристики съвпадат с очакваните теоретични резултати. Като конкретна илюстрация, на изходната позиция $l_{53}$ (обозначена като \textit{„LPG TANKS“}) се получава ядро, чиято характеристика съдържа количеството ВПГ, което моделът предвижда. Това е показано на \textbf{Фигура~\ref{DIS-fig:onlinegn-token-l53}}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.52\linewidth]{../../4. applications/fuelGasEtc/images/token_2.png}}
+	\captionsetup{width=0.8\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:onlinegn-token-l53}} -- \nameref{DIS-fig:onlinegn-token-l53}.}
+\end{figure}
+
+Обобщено, симулационните резултати потвърждават, че зададените предикати и начални характеристики работят коректно и че ОМ моделът описва адекватно разглеждания производствен процес. Това дава основание да приемем модела за валидиран спрямо теоретичния сценарий и използваем за последващи експерименти и анализи.
+
+\subsubsection{Изводи за модела и симулацията}
+
+\hspace*{2.5em}Производството на газообразни продукти в нефтопреработвателна рафинерия (газово гориво, ВПГ и пропилен, включително като суровина за полипропилен) е сложен паралелен процес, при който коректното отразяване на причинно--следствените връзки е ключово; в ОМ това се задава естествено чрез предикатите на преходните условия. Настоящата глава представя ОМ модел и неговата програмна реализация и симулация чрез \textit{OnlineGN}. Получаването на резултати, съответстващи на очакваното поведение на процеса, потвърждава коректността на модела и демонстрира приложимостта на ОМ при моделиране и симулация на подобни производствени вериги.
+
+\subsection{Модел с обобщена мрежа на производството на тежки нефтопродукти в нефтопреработвателна рафинерия}
+
+\hspace*{2.5em}Тук се разглежда ОМ модел на производството на тежки нефтопродукти в нефтопреработвателна рафинерия и неговата симулация чрез \textit{OnlineGN}. Изграждането на модела е описано подробно в~\cite{DIS-Stratiev2023_2}.
+
+\subsubsection{Увод в обобщеномрежовите модели за нефтопродукти в нефтопреработвателна рафинерия}
+
+\hspace*{2.5em}В дисертационния труд се разглежда, че паралелно протичащите производствени процеси в нефтопреработвателна рафинерия могат да бъдат моделирани и симулирани посредством ОМ~\cite{DIS-Z1}. В настоящата глава фокусът е върху преработката на тежките остатъчни фракции и производството на тежки нефтени продукти. Тежкият нефт представлява остатъчната нефтена фракция след атмосферна дестилация~\cite{DIS-96}, с температура на кипене над 360~$^\circ$C и относителна плътност над 0.933 (\textit{API} < 20)~\cite{DIS-97}. Целта е процесът да се моделира с помощта на ОМ и моделът да бъде симулиран чрез \textit{OnlineGN}.
+
+\subsubsection{Схема на преработка за производство на различни видове тежко гориво и битум за пътни настилки в нефтопреработвателна рафинерия, моделирана чрез обобщени мрежи}
+
+\hspace*{2.5em}В дисертационния труд се разглежда производството на три вида гориво с различно съдържание на сяра (\textit{Fuel oil} 0.5\%~\textit{S}, \textit{Fuel oil} 1.0\%~\textit{S}, \textit{Fuel oil} 2.5\%~\textit{S}) и производство на пътен битум в \textit{BU}, както е показано на \textbf{Фигура~\ref{DIS-fig1}}. Спецификациите и изискванията за горивата са представени в~\cite{DIS-Stratiev2023_2}. Вакуумните фракции (\textit{VR}, \textit{SRVGO}) се получават във \textit{VDU-1}/\textit{VDU-2} от атмосферния остатък (\textit{CDU})~\cite{DIS-103}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.47]{../../4. applications/heavyOilProducts/images/Figure_1.jpg}%
+  \caption*{\textbf{Фигура~\ref{DIS-fig1}} -- \nameref{DIS-fig1}.}
+\end{figure}
+
+\subsubsection{Резултати от моделирането на производството на тежки нефтени продукти в нефтопреработвателна рафинерия с помощта на обобщени мрежи}
+
+\hspace*{2.5em}ОМ моделът (вж. \textbf{Фигура~\ref{DIS-fig2}} в дисертационния труд) съдържа 8 прехода, 35 позиции и 8 типа ядра. Моделирани са технологичните звена \textit{VDU}, \textit{FCCPT}, \textit{H-Oil}, \textit{FCCU}, \textit{BU}, както и изходите за 0.5\%~\textit{S}, 1.0\%~\textit{S} и 2.5\%~\textit{S}. В началния момент ядра $\alpha_0,\beta_0,\gamma_0,\delta_0,\epsilon_0,\zeta_0,\eta_0,\theta_0$ са разположени съответно в позиции $l_1,l_9,l_{17},l_{26},l_{29},l_{31},l_{33},l_{35}$ с характеристики, съответстващи на \textit{AR}, \textit{SRVGO}, \textit{SRVR}, \textit{FCC} суровина, битумна суровина и крайни продукти. Логиката на протичане се задава чрез индексирани матрици и предикати (напр. $W_{5,2}, W_{5,3}, W_{5,4}$ за заявки към \textit{VDU}), като при изпълнение ядрата се обединяват и разделят в зависимост от истинностните стойности на предикатите и зададените количества $q_i \in [0,Q_i]$.
+
+\begin{figure}[H]
+		\tiny
+	\newcommand{\mytriangle}{\Large $\bigtriangledown$}
+	%\begin{center}
+%		\begin{center}
+		\setlength{\unitlength}{8.5pt} %10pt=4mm
+		\linethickness{0.4pt}
+		\begin{picture}(37, 71)
+			%%% Transitions
+			\put(3.0,71.0){\makebox(0,0)[cc]{$VDU$}}
+			\put(3.0,69.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(3.0,69.0){\line(0,-1){39}}
+			\put(34.0,71){\makebox(0,0)[cc]{$BU$}}
+			\put(34.0,69.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(34.0,69.0){\line(0,-1){7}}
+			\put(20.0,65.0){\makebox(0,0)[cc]{$H-Oil$}}
+			\put(20.0,63.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(20.0,63.0){\line(0,-1){17}}
+			\put(34.0,57){\makebox(0,0)[cc]{$0.5\% S$}}
+			\put(34.0,55.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(34.0,55.0){\line(0,-1){7}}
+			\put(20.0,39.0){\makebox(0,0)[cc]{$FCCU$}}
+			\put(20.0,37.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(20.0,37.0){\line(0,-1){19}}
+			\put(34.0,39.0){\makebox(0,0)[cc]{$1.0\% S$}}
+			\put(34.0,37.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(34.0,37.0){\line(0,-1){15}}
+			\put(10.0,37.0){\makebox(0,0)[cc]{$FCCPT$}}
+			\put(10.0,35.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(10.0,35.0){\line(0,-1){11}}
+			\put(34.0,17.0){\makebox(0,0)[cc]{$2.5\% S$}}
+			\put(34.0,15.0){\makebox(0,0)[bb]{\mytriangle}}
+			\put(34.0,15.0){\line(0,-1){13}}
+			%%% Input places
+			\put(1.5,68.5){\makebox(0,0)[cc]{$l_{1}$}}
+			\put(1.5,67.5){\circle{1.0}}
+			\put(2.0,67.5){\vector(1,0){1.0}}
+			%%% Output places
+			\put(4.5,68.5){\makebox(0,0)[cc]{$l_{2}$}}
+			\put(3.0,67.5){\vector(1,0){1.0}}
+			\put(4.5,67.5){\circle{1.0}}
+			\put(35.5,68.5){\makebox(0,0)[cc]{$l_{27}$}}
+			\put(34.0,67.5){\vector(1,0){1.0}}
+			\put(35.5,67.5){\circle{1.0}}
+			\put(35.5,66.5){\makebox(0,0)[cc]{$l_{28}$}}
+			\put(34.0,65.5){\vector(1,0){1.0}}
+			\put(35.5,65.5){\circle{1.0}}
+			\put(35.5,64.5){\makebox(0,0)[cc]{$l_{29}$}}
+			\put(34.0,63.5){\vector(1,0){1.0}}
+			\put(35.5,63.5){\circle{1.0}}
+			\put(4.5,62.5){\makebox(0,0)[cc]{$l_{3}$}}
+			\put(3.0,61.5){\vector(1,0){1.0}}
+			\put(4.5,61.5){\circle{1.0}}
+			\put(21.5,62.5){\makebox(0,0)[cc]{$l_{10}$}}
+			\put(20.0,61.5){\vector(1,0){1.0}}
+			\put(21.5,61.5){\circle{1.0}}
+			\put(21.5,60.5){\makebox(0,0)[cc]{$l_{11}$}}
+			\put(20.0,59.5){\vector(1,0){1.0}}
+			\put(21.5,59.5){\circle{1.0}}
+			\put(21.5,58.5){\makebox(0,0)[cc]{$l_{12}$}}
+			\put(20.0,57.5){\vector(1,0){1.0}}
+			\put(21.5,57.5){\circle{1.0}}
+			\put(21.5,56.5){\makebox(0,0)[cc]{$l_{13}$}}
+			\put(20.0,55.5){\vector(1,0){1.0}}
+			\put(21.5,55.5){\circle{1.0}}
+			\put(21.5,54.5){\makebox(0,0)[cc]{$l_{14}$}}
+			\put(20.0,53.5){\vector(1,0){1.0}}
+			\put(21.5,53.5){\circle{1.0}}
+			\put(35.5,54.5){\makebox(0,0)[cc]{$l_{30}$}}
+			\put(34.0,53.5){\vector(1,0){1.0}}
+			\put(35.5,53.5){\circle{1.0}}
+			\put(21.5,52.5){\makebox(0,0)[cc]{$l_{15}$}}
+			\put(20.0,51.5){\vector(1,0){1.0}}
+			\put(21.5,51.5){\circle{1.0}}
+			\put(21.5,50.5){\makebox(0,0)[cc]{$l_{16}$}}
+			\put(20.0,49.5){\vector(1,0){1.0}}
+			\put(21.5,49.5){\circle{1.0}}
+			\put(35.5,50.5){\makebox(0,0)[cc]{$l_{31}$}}
+			\put(34.0,49.5){\vector(1,0){1.0}}
+			\put(35.5,49.5){\circle{1.0}}
+			\put(21.5,48.5){\makebox(0,0)[cc]{$l_{17}$}}
+			\put(20.0,47.5){\vector(1,0){1.0}}
+			\put(21.5,47.5){\circle{1.0}}
+			\put(21.5,36.5){\makebox(0,0)[cc]{$l_{18}$}}
+			\put(20.0,35.5){\vector(1,0){1.0}}
+			\put(21.5,35.5){\circle{1.0}}
+			\put(4.5,34.5){\makebox(0,0)[cc]{$l_{4}$}}
+			\put(3.0,33.5){\vector(1,0){1.0}}
+			\put(4.5,33.5){\circle{1.0}}
+			\put(11.5,34.5){\makebox(0,0)[cc]{$l_{6}$}}
+			\put(10.0,33.5){\vector(1,0){1.0}}
+			\put(11.5,33.5){\circle{1.0}}
+			\put(21.5,34.5){\makebox(0,0)[cc]{$l_{19}$}}
+			\put(20.0,33.5){\vector(1,0){1.0}}
+			\put(21.5,33.5){\circle{1.0}}
+			\put(4.5,32.5){\makebox(0,0)[cc]{$l_{5}$}}
+			\put(3.0,31.5){\vector(1,0){1.0}}
+			\put(4.5,31.5){\circle{1.0}}
+			\put(21.5,32.5){\makebox(0,0)[cc]{$l_{20}$}}
+			\put(20.0,31.5){\vector(1,0){1.0}}
+			\put(21.5,31.5){\circle{1.0}}
+			\put(35.5,32.5){\makebox(0,0)[cc]{$l_{32}$}}
+			\put(34.0,31.5){\vector(1,0){1.0}}
+			\put(35.5,31.5){\circle{1.0}}
+			\put(11.5,30.5){\makebox(0,0)[cc]{$l_{7}$}}
+			\put(10.0,29.5){\vector(1,0){1.0}}
+			\put(11.5,29.5){\circle{1.0}}
+			\put(21.5,30.5){\makebox(0,0)[cc]{$l_{21}$}}
+			\put(20.0,29.5){\vector(1,0){1.0}}
+			\put(21.5,29.5){\circle{1.0}}
+			\put(11.5,28.5){\makebox(0,0)[cc]{$l_{8}$}}
+			\put(10.0,27.5){\vector(1,0){1.0}}
+			\put(11.5,27.5){\circle{1.0}}
+			\put(21.5,28.5){\makebox(0,0)[cc]{$l_{22}$}}
+			\put(20.0,27.5){\vector(1,0){1.0}}
+			\put(21.5,27.5){\circle{1.0}}
+			\put(11.5,26.5){\makebox(0,0)[cc]{$l_{9}$}}
+			\put(10.0,25.5){\vector(1,0){1.0}}
+			\put(11.5,25.5){\circle{1.0}}
+			\put(21.5,26.5){\makebox(0,0)[cc]{$l_{23}$}}
+			\put(20.0,25.5){\vector(1,0){1.0}}
+			\put(21.5,25.5){\circle{1.0}}
+			\put(21.5,24.5){\makebox(0,0)[cc]{$l_{24}$}}
+			\put(20.0,23.5){\vector(1,0){1.0}}
+			\put(21.5,23.5){\circle{1.0}}
+			\put(35.5,24.5){\makebox(0,0)[cc]{$l_{33}$}}
+			\put(34.0,23.5){\vector(1,0){1.0}}
+			\put(35.5,23.5){\circle{1.0}}
+			\put(21.5,22.5){\makebox(0,0)[cc]{$l_{25}$}}
+			\put(20.0,21.5){\vector(1,0){1.0}}
+			\put(21.5,21.5){\circle{1.0}}
+			\put(21.5,20.5){\makebox(0,0)[cc]{$l_{26}$}}
+			\put(20.0,19.5){\vector(1,0){1.0}}
+			\put(21.5,19.5){\circle{1.0}}
+			\put(35.5,10.5){\makebox(0,0)[cc]{$l_{34}$}}
+			\put(34.0,9.5){\vector(1,0){1.0}}
+			\put(35.5,9.5){\circle{1.0}}
+			\put(35.5,4.5){\makebox(0,0)[cc]{$l_{35}$}}
+			\put(34.0,3.5){\vector(1,0){1.0}}
+			\put(35.5,3.5){\circle{1.0}}
+			%%% Vertical paths
+			\put(30.5,65.5){\line(0,-1){4}}
+			\put(31.5,63.5){\line(0,-1){3}}
+			\put(36.5,63.5){\line(0,-1){3}}
+			\put(31.5,59.5){\line(0,-1){6}}
+			\put(30.5,57.5){\line(0,-1){22}}
+			\put(29.5,55.5){\line(0,-1){22}}
+			\put(26.5,53.5){\line(0,-1){40}}
+			\put(15.5,51.5){\line(0,-1){8}}
+			\put(25.5,51.5){\line(0,-1){40}}
+			\put(28.5,51.5){\line(0,-1){10}}
+			\put(16.5,49.5){\line(0,-1){9}}
+			\put(23.5,49.5){\line(0,-1){10}}
+			\put(31.5,49.5){\line(0,-1){3}}
+			\put(36.5,49.5){\line(0,-1){3}}
+			\put(17.5,47.5){\line(0,-1){3}}
+			\put(22.5,47.5){\line(0,-1){3}}
+			\put(24.5,43.5){\line(0,-1){10}}
+			\put(12.5,41.5){\line(0,-1){8}}
+			\put(22.5,40.5){\line(0,-1){5}}
+			\put(17.5,39.5){\line(0,-1){4}}
+			\put(0.5,31.5){\line(0,-1){3}}
+			\put(5.5,31.5){\line(0,-1){3}}
+			\put(13.5,27.5){\line(0,-1){12}}
+			\put(7.5,25.5){\line(0,-1){3}}
+			\put(12.5,25.5){\line(0,-1){3}}
+			\put(24.5,25.5){\line(0,-1){16}}
+			\put(29.5,25.5){\line(0,-1){10}}
+			\put(23.5,23.5){\line(0,-1){16}}
+			\put(31.5,23.5){\line(0,-1){3}}
+			\put(36.5,23.5){\line(0,-1){3}}
+			\put(30.5,21.5){\line(0,-1){16}}
+			\put(17.5,19.5){\line(0,-1){3}}
+			\put(22.5,19.5){\line(0,-1){3}}
+			\put(31.5,3.5){\line(0,-1){3}}
+			\put(36.5,3.5){\line(0,-1){3}}
+			%%% Horizontal paths
+			\put(30.5,65.5){\vector(1,0){3.5}}
+			\put(31.5,63.5){\vector(1,0){2.5}}
+			\put(31.5,60.5){\line(1,0){5}}
+			\put(31.5,53.5){\vector(1,0){2.5}}
+			\put(15.5,51.5){\vector(1,0){4.5}}
+			\put(28.5,51.5){\vector(1,0){5.5}}
+			\put(16.5,49.5){\vector(1,0){3.5}}
+			\put(31.5,49.5){\vector(1,0){2.5}}
+			\put(17.5,47.5){\vector(1,0){2.5}}
+			\put(31.5,46.5){\line(1,0){5}}
+			\put(17.5,44.5){\line(1,0){5}}
+			\put(15.5,43.5){\line(1,0){9}}
+			\put(12.5,41.5){\line(1,0){16}}
+			\put(16.5,40.5){\line(1,0){6}}
+			\put(17.5,39.5){\line(1,0){6}}
+			\put(17.5,35.5){\vector(1,0){2.5}}
+			\put(30.5,35.5){\vector(1,0){3.5}}
+			\put(29.5,33.5){\vector(1,0){4.5}}
+			\put(0.5,31.5){\vector(1,0){2.5}}
+			\put(0.5,28.5){\line(1,0){5}}
+			\put(7.5,25.5){\vector(1,0){2.5}}
+			\put(29.5,25.5){\vector(1,0){4.5}}
+			\put(31.5,23.5){\vector(1,0){2.5}}
+			\put(7.5,22.5){\line(1,0){5}}
+			\put(31.5,20.5){\line(1,0){5}}
+			\put(17.5,19.5){\vector(1,0){2.5}}
+			\put(17.5,16.5){\line(1,0){5}}
+			\put(13.5,15.5){\line(1,0){16}}
+			\put(26.5,13.5){\vector(1,0){7.5}}
+			\put(25.5,11.5){\vector(1,0){8.5}}
+			\put(24.5,9.5){\vector(1,0){9.5}}
+			\put(23.5,7.5){\vector(1,0){10.5}}
+			\put(30.5,5.5){\vector(1,0){3.5}}
+			\put(31.5,3.5){\vector(1,0){2.5}}
+			\put(31.5,0.5){\line(1,0){5}}
+			%%% Horizontal paths from output places
+			\put(5.0,67.5){\vector(1,0){29}}
+			\put(5.0,61.5){\vector(1,0){15}}
+			\put(22.0,61.5){\line(1,0){8.5}}
+			\put(22.0,59.5){\line(1,0){9.5}}
+			\put(22.0,57.5){\line(1,0){8.5}}
+			\put(22.0,55.5){\line(1,0){7.5}}
+			\put(22.0,53.5){\line(1,0){4.5}}
+			\put(22.0,51.5){\line(1,0){3.5}}
+			\put(22.0,49.5){\line(1,0){1.5}}
+			\put(5.0,33.5){\vector(1,0){5}}
+			\put(22.0,33.5){\line(1,0){2.5}}
+			\put(22.0,31.5){\vector(1,0){12}}
+			\put(12.0,29.5){\vector(1,0){8}}
+			\put(22.0,29.5){\vector(1,0){12}}
+			\put(12.0,27.5){\line(1,0){1.5}}
+			\put(22.0,27.5){\vector(1,0){12}}
+			\put(22.0,25.5){\line(1,0){2.5}}
+			\put(22.0,23.5){\line(1,0){1.5}}
+			\put(22.0,21.5){\line(1,0){8.5}}
+			%%% Corners
+			\put(36.0,63.5){\line(1,0){0.5}}
+			\put(36.0,49.5){\line(1,0){0.5}}
+			\put(22.0,47.5){\line(1,0){0.5}}
+			\put(22.0,35.5){\line(1,0){0.5}}
+			\put(12.0,33.5){\line(1,0){0.5}}
+			\put(5.0,31.5){\line(1,0){0.5}}
+			\put(12.0,25.5){\line(1,0){0.5}}
+			\put(36.0,23.5){\line(1,0){0.5}}
+			\put(22.0,19.5){\line(1,0){0.5}}
+			\put(36.0,3.5){\line(1,0){0.5}}
+		\end{picture}
+	\caption*{\textbf{Фигура~\ref{DIS-fig2}} -- \nameref{DIS-fig2}}
+%	\end{center}
+\end{figure}
+\normalsize
+
+\subsubsection{Симулиране на модела с \textit{OnlineGN}}
+
+\hspace*{2.5em}В дисертационния труд се разглежда реализация и изпълнение на ОМ модела в \textit{OnlineGN} с цел верификация и извеждане на количествени резултати. \textbf{Фигура~\ref{DIS-fig:model}} показва схемата на ОМ, интегрирана в симулатора. За разглеждания сценарий началното ядро в позиция $l_1$ е атмосферен остатък (\textit{AR}) с характеристична стойност 442.81, а заявките към следващите звена се задават чрез характеристичните функции (\textit{code}) и индексираните матрици на преходите. Резултатите се извеждат от характеристиките на ядрата в изходните позиции (напр. $l_{32}$ за 1.0~мас.\% \textit{S} и $l_{34}$ за 2.5~мас.\% \textit{S}).
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.95\linewidth]{../../4. applications/heavyOilProducts/images/model5.png}}
+	\captionsetup{width=0.9\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:model}} -- \nameref{DIS-fig:model}.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{2pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.6\linewidth]{../../4. applications/heavyOilProducts/images/1r.png}}
+	\captionsetup{width=0.7\textwidth}
+	\caption*{\textbf{Фигура~\ref{DIS-fig:res1}} -- \nameref{DIS-fig:res1}.}
+\end{figure}
+
+\subsubsection{Резултати за модела}
+
+\hspace*{2.5em}Както се вижда на \textbf{Фигура~\ref{DIS-fig1}}, производството на трите класа тежко гориво (мазут) и класовете пътен битум представлява сложен паралелен процес, включващ \textit{VDU}, \textit{FCCPT}, \textit{FCCU}, \textit{H-Oil} и \textit{BU}, в рамките на които се получават рафинирани тежки нефтени продукти и крайни продуктови потоци. 
+
+\subsubsection{Изводи}
+
+\hspace*{2.5em}Получените резултати показват, че процесите по производство на различни класове тежки нефтени продукти в рафинерия могат да бъдат успешно моделирани чрез ОМ, като паралелният характер и причинно--следствените зависимости се представят естествено. Проведената симулация чрез \textbf{\textit{OnlineGN}} води до резултати, съответстващи на очакваното поведение на системата, което служи като верификация на коректността на модела и потвърждава приложимостта на ОМ при моделиране и симулация на производствени процеси в нефтопреработвателна рафинерия.
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Заключение}
+
+\section*{Заключение}
+
+\hspace*{2.5em}В настоящия дисертационен труд бе постигната поставената основна цел – разработване на нов симулатор за ОМ, функциониращ в онлайн среда, който съществено улеснява и ускорява работата с ОМ. Реализираното решение подпомага ключови дейности като създаване на модели, последващо редактиране (включително промени по функции и визуализация) и ефективно споделяне на мрежи. При разработката са използвани съвременни и широко утвърдени технологии, съобразени с изискванията за надеждност, разширяемост и удобство при работа през уеб среда.
+
+Наред със софтуерния резултат, в рамките на дисертацията са получени и нови приноси, свързани с теорията и приложението на ОМ. Разработени бяха нови алгоритми, насочени към подпомагане на моделирането и представянето на ОМ. Първо, предложен е алгоритъм за автоматично изчертаване на ОМ по нейното описание, който съкращава времето за получаване на коректна и прегледна визуализация и ограничава необходимостта от ръчни корекции. Второ, разработен е алгоритъм за експортиране на мрежата във формат \textit{TeX}, така че след извършени редакции и визуални настройки в симулатора, моделът да може директно да бъде включван в научни публикации и други академични материали.
+
+Допълнително бяха създадени нови модели на ОМ в различни приложни области, които демонстрират изразителната мощ на апарата и валидират възможностите на разработения симулатор. Сред тях са модели, свързани с представяне на крайни автомати, модел на математическа игра, както и модели за индустриални процеси, включително сценарии, свързани с производството на газови и нефтени продукти. Всички предложени модели са реализирани и изследвани чрез симулации с разработения в дисертацията симулатор, което осигурява практическа проверка на функционалността и приложимостта на системата.
+
+\clearpage
+\phantomsection
+\addtocontents{toc}{\vspace{-1.0em}}
+\addcontentsline{toc}{section}{Авторска справка}
+\section*{Авторска справка}
+
+\addcontentsline{toc}{subsection}{Справка за приносите в дисертационния труд}
+\subsection*{Справка за приносите в дисертационния труд}
+
+\addcontentsline{toc}{subsubsection}{Научни приноси}
+\subsubsection*{Научни приноси}
+
+В настоящия дисертационен труд са постигнати следните научни приноси:
+
+\begin{enumerate}[label=\arabic*., leftmargin=*]
+	\item \textbf{Алгоритми за автоматизация и визуализация на обобщени мрежи (ОМ):}
+	\begin{itemize}
+		\item Разработен е алгоритъм за автоматизирано изчертаване на ОМ въз основа на тяхното абстрактно описание, елиминиращ необходимостта от ръчно задаване на координати.
+		\item Създаден е алгоритъм за преобразуване на векторни изображения (\textit{SVG}) на ОМ в \textit{TeX} формат чрез идентифициране на графични примитиви и трансформация на координати.
+	\end{itemize}
+	
+	\item \textbf{Паралелно решаване на експоненциална задача (Ханойски кули):}
+	\begin{itemize}
+		\item Формализиран е нов паралелен вариант на задачата за Ханойските кули, допускащ едновременно преместване на до $k$ пръстена.
+		\item Доказана е теорема за минималния брой паралелни стъпки $H(n,k) = 2^{\bigl\lceil \textstyle \frac{n}{k} \bigr\rceil} - 1$ и е реализиран конструктивен алгоритъм за решаването на задачата.
+	\end{itemize}
+	
+	\item \textbf{Обобщеномрежово моделиране и симулация на паралелната експоненциална задача за Ханойски кули:}
+	\begin{itemize}
+		\item Създаден е оригинален ОМ модел на паралелните Ханойски кули, използващ $\rho$-ядра за обектите и $\chi$-ядра за ресурсите.
+		\item Доказана е приложимостта на формализма чрез симулации в среда \textit{OnlineGN}, демонстриращи ефективно управление на конкурентни процеси и логически ограничения.
+	\end{itemize}
+\end{enumerate}
+
+\addcontentsline{toc}{subsubsection}{Научно--приложни приноси}
+\subsubsection*{Научно--приложни приноси}
+
+В научно-приложно отношение са постигнати следните резултати:
+
+\begin{enumerate}[label=\arabic*., leftmargin=*]
+	\item \textbf{Проектиране, реализация и приложение на софтуерната система \textit{OnlineGN}:}
+	\begin{itemize}
+		\item Разработена е иновативна уеб базирана платформа за моделиране, симулация и визуализация на ОМ, предлагаща централизирана среда без необходимост от локална инсталация.
+		\item Разработен е удобен и интерактивен интерфейс за промяна на всеки компонент на ОМ в симулатора, както и за проследяване на детайли по изпълнението на мрежата.
+		\item Внедрена е функционалност за експорт от \textit{SVG} към \textit{TeX}, което оптимизира подготовката на графични материали за академични публикации.
+	\end{itemize}
+	
+	\item \textbf{Нов метод за представяне на крайни автомати чрез ОМ:}
+	\begin{itemize}
+		\item Разработена е методика за описание на детерминирани и недетерминирани крайни автомати чрез ОМ, позволяваща улавяне на паралелни изчислителни пътища.
+	\end{itemize}
+	
+	\item \textbf{Моделиране на съществуващи процеси в нефтопреработвателна рафинерия чрез ОМ:}
+	\begin{itemize}
+		\item Разработени са ОМ модели на реални технологични процеси в нефтопреработвателна рафинерия, включително производството на газови, полимерни и тежки нефтени продукти.
+	\end{itemize}
+	
+	\item \textbf{Верификация на новите ОМ модели чрез \textit{OnlineGN}:}
+	\begin{itemize}
+		\item Всички новосъздадени модели в дисертационния труд са верифицирани чрез симулации в \textit{OnlineGN}, което верифицира едновременно коректността на моделите и възможностите на системата.
+	\end{itemize}
+\end{enumerate}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Публикации по дисертационния труд}
+\section*{Публикации по дисертационния труд}
+
+\begin{enumerate}[label=\arabic*.]
+
+\item Dimitriev, A.; Terziev, G.
+\newblock \emph{Automating Creativity: Enhancing Generalized Nets with Algorithmic Drawing}.
+\newblock In: \emph{Proceedings of the 22nd International Workshop on Intuitionistic Fuzzy Sets and Generalized Nets}, Warsaw, Poland, October 18, 2024 (in press).
+
+\item Dimitriev, A.
+\newblock \emph{Representing Finite-State Automata with Generalized Nets: Simulation via OnlineGN}.
+\newblock \emph{Proceedings of the Jangjeon Mathematical Society}, vol.~29, no.~1, pp.~156--167, Jan.~2026.
+\newblock doi: \url{https://doi.org/10.17777/pjms.2026.29.1.011}.
+
+\item Dimitriev, A.; Atanassov, K.; Angelova, N.
+\newblock \emph{Parallel Towers of Hanoi via Generalized Nets: Simulated with OnlineGN}.
+\newblock \emph{Software}, vol.~4, no.~4, art.~23, 2025.
+\newblock doi: \url{https://doi.org/10.3390/software4040023}.
+
+\item Stratiev, D. D.; Dimitriev, A.; Stratiev, D.; Atanassov, K.
+\newblock \emph{Modeling the Production Process of Fuel Gas, LPG, Propylene, and Polypropylene in a Petroleum Refinery Using Generalized Nets}.
+\newblock \emph{Mathematics}, 2023, \textbf{11}, 3800.
+\newblock doi: \url{https://doi.org/10.3390/math11173800}.
+
+\item Stratiev, D. D.; Dimitriev, A.; Stratiev, D.; Atanassov, K.
+\newblock \emph{Generalized Net Model of Heavy Oil Products' Manufacturing in Petroleum Refinery}.
+\newblock \emph{Mathematics}, 2023, \textbf{11}, 4753.
+\newblock doi: \url{https://doi.org/10.3390/math11234753}.
+
+\end{enumerate}

@@ -1,0 +1,361 @@
+\section{Напредни примери}
+Ови примери претпостављају познавање основних концепата TLA+ и приказују реалистичније системе
+са вишеструким процесима, збиркама порука и нетривијалним особинама исправности.
+
+\subsection{Outbox pattern}
+Замислимо ситуацију да имамо сервис који комуницира са неким другим сервисима или спољним системима.
+Нека се та комуникација одвија преко неких порука које се могу слати на разне начине, конкретна
+технологија није битна. У тој ситуацији наш сервис поред слања поруке неком екстерном сервису, 
+такође чува податке у бази података и желимо да будемо сигурни да ако се порука послала, податци такође
+сачувани у бази. Такође желимо да порука не буде послата ако се податци нису сачувалу у бази.
+ Проблем који се јавља овде је да ако систем пошаље поруку и у међувремену пре се чувања
+у базу догоди нека грешка имамо велики проблем. Порука је послата, а сама целокупна логика сервиса није успела.
+Поруку наравно не можемо вратити \enquote{уназад}. Ситуација је описана у псеудокоду и на слици.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={draw, rounded corners=4pt, minimum width=2.6cm,
+                minimum height=0.85cm, align=center, font=\small},
+    arrow/.style={->, >=Stealth, thick},
+    redarrow/.style={->, >=Stealth, thick, red},
+    greenarrow/.style={->, >=Stealth, thick, teal},
+    lbl/.style={font=\footnotesize, align=center}
+]
+
+%% ---- БЕЗ OUTBOX ----
+\node[box, fill=blue!10]              (svc1)    {Сервис};
+\node[box, fill=yellow!25, below=of svc1]  (slanjePoruke)     {Тренутак слања поруке};
+
+\node[box, fill=red!20, draw=red, below=of slanjePoruke]  (crash)   {\textbf{Нека грешка у систему}};
+\node[box, fill=blue!10,  right=of slanjePoruke]    (drugiServis) {Други сервис};
+\node[box, fill=yellow!25, below=of crash]  (db1)     {База};
+
+
+\draw[arrow]            (svc1)  -- node[right, lbl]{трансакција}           (slanjePoruke);
+\draw[arrow]         (slanjePoruke)   -- node[right, lbl]{наставак трансакције}       (crash);
+\draw[arrow]         (slanjePoruke)   -- node[above, lbl]{порука}       (drugiServis);
+
+\draw[redarrow, dashed] (crash) -- node[right, lbl]{\textit{прекид трансакције}} (db1);
+
+\node[lbl, above=0.3cm of svc1] {\textbf{без Outbox}};
+
+
+\end{tikzpicture}
+\caption{Проблем комуникације са спољним системом и уписом у базу.}
+\end{figure}
+Једно од решења проблема је да поруку коју шаљемо спољном систему не шаљемо директно њему 
+преко неког брокера порука, него  и да саму поруку сачувамо директно у базу заједно са 
+податцима.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={draw, rounded corners=4pt, minimum width=2.6cm,
+                minimum height=0.85cm, align=center, font=\small},
+    arrow/.style={->, >=Stealth, thick},
+    redarrow/.style={->, >=Stealth, thick, red},
+    greenarrow/.style={->, >=Stealth, thick, teal},
+    lbl/.style={font=\footnotesize, align=center}
+]
+
+%% ---- Са OUTBOX ----
+\node[box, fill=blue!10]              (svc1)    {Сервис};
+\node[box, fill=yellow!25, below=of svc1]  (slanjePoruke)     {Тренутак слања поруке (чување у бази)};
+
+\node[box, fill=red!20, draw=red, below=of slanjePoruke]  (crash)   {\textbf{Могућа грешка у систему}};
+\node[box, fill=blue!8,  right=of slanjePoruke]    (drugiServis) {Неки систем који прати промене у бази};
+\node[box, fill=yellow!25, below=of crash]  (db1)     {База};
+
+
+\draw[arrow]            (svc1)  -- node[right, lbl]{трансакција}           (slanjePoruke);
+\draw[arrow]         (slanjePoruke)   -- node[right, lbl]{наставак трансакције}       (crash);
+
+\draw[redarrow, dashed] (crash) -- node[right, lbl]{\textit{могућ прекид}} (db1);
+
+\node[lbl, above=0.3cm of svc1] {\textbf{без Outbox}};
+\draw[<->, >=Stealth, thick] (db1) to[out=0, in=270] node[right, lbl]{праћење промена у бази} (drugiServis);
+
+\end{tikzpicture}
+\caption{Решење са чувањем поруке у базу заједно са податцима као део једне трансакције}
+\end{figure}
+Практично гледано оно сто се дешава написано у псеудо коду при оваквим понашању система.
+
+\begin{algorithm}
+\caption{Слање поруке спољном систему}
+\begin{algorithmic}[1]
+    \State \textit{// нека пословна логика...}
+    \State припреми податке за чување
+    \State \textbf{пошаљи поруку спољном систему(или сачувај у базу)}
+    \State \textit{// нека додатна логика...}
+    \If{дошло до грешке}
+        \State \textbf{прекини трансакцију!} \Comment{порука је већ послата, не може се повући}
+        \State \Return
+    \EndIf
+    \State \textit{// нека додатна логика...}
+    \State сачувај податке у базу
+    \State \Return
+\end{algorithmic}
+\end{algorithm}
+Ако дође до прекида трансакције порука која је сачувана у базу би била такође обрисана и на тај
+начин не бисмо довели систем у неконзистентно стање.  
+Конкретно, \texttt{outbox} табела у бази података могла би изгледати овако:
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|c|c|X|}
+\hline
+\textbf{id} & \textbf{order} & \textbf{status} & \textbf{payload (чист бинарни запис или JSON) } \\
+\hline
+0 & o1 & \texttt{PENDING}   & \texttt{\{type: "ORDER\_CREATED", orderId: "o1"\}} \\
+1 & o2 & \texttt{DELIVERED} & \texttt{\{type: "ORDER\_CREATED", orderId: "o2"\}} \\
+2 & o1 & \texttt{PENDING}   & \texttt{\{type: "ORDER\_UPDATED", orderId: "o1"\}} \\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{primer}[Outbox pattern]
+Систем моделујемо са четири променљиве:
+\begin{itemize}
+    \item \texttt{db} --- стање налога у бази (\texttt{"NEW"} или \texttt{"CREATED"}),
+    \item \texttt{outbox} --- скуп порука сачуваних у outbox табели,
+    \item \texttt{extSystem} --- скуп порука које је примио спољни систем,
+    \item \texttt{nextMsgId} --- бројач за јединствене идентификаторе порука.
+\end{itemize}
+
+
+Поруке са статусом \texttt{PENDING} чекају да их CDC (Change Data Capture)  процес прочита и пошаље спољном систему.
+Након потврде статус прелази у \texttt{DELIVERED} и порука се може обрисати.
+
+Постоје три акције. \texttt{CreateOrder} уписује промену у \texttt{db} и поруку у \texttt{outbox} у оквиру исте трансакције.
+\texttt{DeliverMessage} симулира засебан процес (нпр.\ CDC) који чита \texttt{outbox} и прослеђује поруку спољном систему.
+\texttt{CleanupOutbox} брише поруку из \texttt{outbox} тек кад је спољни систем потврди.
+
+\textbf{TLA+ модул (\texttt{OutboxPattern.tla}):}
+\begin{lstlisting}
+---- MODULE OutboxPattern ----
+EXTENDS Naturals
+
+VARIABLES db, outbox, extSystem, nextMsgId
+
+Orders == {"o1", "o2"}
+
+Init ==
+    /\ db         = [o \in Orders |-> "NEW"]
+    /\ outbox     = {}
+    /\ extSystem  = {}
+    /\ nextMsgId  = 0
+
+CreateOrder(o) ==
+    LET msg == [id |-> nextMsgId, order |-> o] IN
+    /\ db[o] = "NEW"
+    /\ db'        = [db EXCEPT ![o] = "CREATED"]
+    /\ outbox'    = outbox \cup {msg}
+    /\ nextMsgId' = nextMsgId + 1
+    /\ UNCHANGED extSystem
+
+DeliverMessage(msg) ==
+    /\ msg \in outbox
+    /\ msg \notin extSystem
+    /\ extSystem' = extSystem \cup {msg}
+    /\ UNCHANGED <<db, outbox, nextMsgId>>
+
+CleanupOutbox(msg) ==
+    /\ msg \in outbox
+    /\ msg \in extSystem
+    /\ outbox' = outbox \ {msg}
+    /\ UNCHANGED <<db, extSystem, nextMsgId>>
+
+Next ==
+    \/ \E o \in Orders      : CreateOrder(o)
+    \/ \E msg \in outbox    : DeliverMessage(msg)
+    \/ \E msg \in outbox    : CleanupOutbox(msg)
+
+Spec == Init /\ [][Next]_<<db, outbox, extSystem, nextMsgId>>
+
+TypeInvariant ==
+    /\ db \in [Orders -> {"NEW", "CREATED"}]
+    /\ \A msg \in outbox    : msg.id \in Nat
+    /\ \A msg \in extSystem : msg.id \in Nat
+
+Consistency ==
+    \A msg \in extSystem : msg \in outbox \/ msg.order \in Orders
+====
+\end{lstlisting}
+
+\textbf{TLC конфигурациони фајл (\texttt{OutboxPattern.cfg}):}
+\begin{lstlisting}
+INIT Init
+NEXT Next
+INVARIANT TypeInvariant
+INVARIANT Consistency
+CHECK_DEADLOCK FALSE
+\end{lstlisting}
+Приметимо да смо овде додали још једну линију у конфигурациони фајл \\
+\texttt{CHECK\_DEADLOCK FALSE}. Та линија је додата јер наш систем са порукама наставља да ради
+и неће завршити у неком завршном стању. TLC систем то тумачи као да је дошло 
+до бесконачне петље или неке друге врсте заглављивања, али то је у нашем случају очекивано.
+Наш систем је систем у реалном времену и не бисмо очекивали да се зауставља.
+
+
+Кључна особина коју TLC проверава је \texttt{Consistency}: свака порука коју прими спољни систем мора бити повезана са валидним налогом.
+Пошто \texttt{CreateOrder} уписује у \texttt{db} и \texttt{outbox} атомично, а порука стиже до спољног система тек преко \texttt{DeliverMessage}, ова особина увек важи.
+
+Разложимо сваки сегмент специфкације. Овај део кода дефинише променљиве \texttt{db}, \texttt{outbox}, \texttt{extSystem} и \texttt{nextMsgId}.
+Дефинише константу \texttt{Orders}. Почетно стање је дефинисано као конјукција услова где су на почетку \texttt{outbox}
+и \texttt{extSystem} празни скупови. Прва порука почиње са јединственим иденфитикатором \texttt{nextMsgId} који је 0.
+Променљива \texttt{db} је дефинисана као константна функција којој је домен из скупа константе \texttt{Orders}, а кодомен
+само стринг \texttt{"NEW"}.
+\begin{lstlisting}
+---- MODULE OutboxPattern ----
+EXTENDS Naturals
+
+VARIABLES db, outbox, extSystem, nextMsgId
+
+Orders == {"o1", "o2"}
+
+Init ==
+    /\ db         = [o \in Orders |-> "NEW"]
+    /\ outbox     = {}
+    /\ extSystem  = {}
+    /\ nextMsgId  = 0
+
+...
+====
+\end{lstlisting}
+
+Следећи блок дефинише акцију \texttt{CreateOrder(o)} која има параметар \texttt{o}, налог који се креира.
+\texttt{LET} дефинише локалну променљиву \texttt{msg} која је слог (\textit{record}), што највише одговара
+структури у C-у или речнику у Python-у. Слог има два поља: \texttt{id} (јединствени идентификатор поруке)
+и \texttt{order} (налог на који се порука односи).
+\begin{lstlisting}
+---
+CreateOrder(o) ==
+    LET msg == [id |-> nextMsgId, order |-> o] IN
+    /\ db[o] = "NEW"
+    /\ db'        = [db EXCEPT ![o] = "CREATED"]
+    /\ outbox'    = outbox \cup {msg}
+    /\ nextMsgId' = nextMsgId + 1
+    /\ UNCHANGED extSystem
+
+...
+====
+\end{lstlisting}
+Тело акције је конјункција пет услова:
+\begin{itemize}
+    \item \texttt{db[o] = "NEW"} --- предуслов: акција може да се изврши само ако налог \texttt{o} још није обрађен,
+    \item \texttt{db' = [db EXCEPT ![o] = "CREATED"]} --- у следећем стању налог \texttt{o} добија статус \texttt{"CREATED"}; остали налози остају непромењени,
+    \item \texttt{outbox' = outbox \textbackslash cup \{msg\}} --- порука \texttt{msg} се додаје у \texttt{outbox}; ово и претходна линија чине \textbf{атомичну трансакцију},
+    \item \texttt{nextMsgId' = nextMsgId + 1} --- бројач се увећава да би следећа порука добила јединствен идентификатор,
+    \item \texttt{UNCHANGED extSystem} --- спољни систем не види ову промену; порука ће бити достављена тек акцијом \texttt{DeliverMessage}.
+\end{itemize}
+
+Акција \texttt{DeliverMessage(msg)} моделује CDC процес који чита \texttt{outbox} и прослеђује поруку спољном систему.
+\begin{lstlisting}
+---
+...
+DeliverMessage(msg) ==
+    /\ msg \in outbox
+    /\ msg \notin extSystem
+    /\ extSystem' = extSystem \cup {msg}
+    /\ UNCHANGED <<db, outbox, nextMsgId>>
+
+...
+====
+\end{lstlisting}
+Тело акције је конјункција четири услова:
+\begin{itemize}
+    \item \texttt{msg \textbackslash in outbox} --- предуслов: порука мора постојати у \texttt{outbox} табели; порука која није уписана у базу не може бити достављена,
+    \item \texttt{msg \textbackslash notin extSystem} --- предуслов: порука још није достављена спољном систему; спречава дуплирано слање,
+    \item \texttt{extSystem' = extSystem \textbackslash cup \{msg\}} --- у следећем стању порука се додаје у скуп примљених порука спољног система,
+    \item \texttt{UNCHANGED <<db, outbox, nextMsgId>>} --- база, \texttt{outbox} и бројач остају непромењени; брисање из \texttt{outbox} је одговорност акције \texttt{CleanupOutbox}.
+\end{itemize}
+
+Акција \texttt{CleanupOutbox(msg)} брише поруку из \texttt{outbox} табеле тек након што је спољни систем потврди.
+\begin{lstlisting}
+---
+CleanupOutbox(msg) ==
+    /\ msg \in outbox
+    /\ msg \in extSystem
+    /\ outbox' = outbox \ {msg}
+    /\ UNCHANGED <<db, extSystem, nextMsgId>>
+
+...
+====
+\end{lstlisting}
+Тело акције је конјункција четири услова:
+\begin{itemize}
+    \item \texttt{msg \textbackslash in outbox} --- предуслов: порука мора и даље бити у \texttt{outbox} табели,
+    \item \texttt{msg \textbackslash in extSystem} --- предуслов: порука је већ достављена спољном систему; без ове провере могли бисмо обрисати поруку пре него је послата,
+    \item \texttt{outbox' = outbox \textbackslash\ \{msg\}} --- у следећем стању порука се уклања из \texttt{outbox} табеле,
+    \item \texttt{UNCHANGED <<db, extSystem, nextMsgId>>} --- база, спољни систем и бројач остају непромењени.
+\end{itemize}
+
+Акција \texttt{Next} дефинише све могуће прелазе система као дисјункцију три акције.
+Оператор \texttt{\textbackslash E} (постоји) означава да TLC бира конкретан налог \texttt{o} или поруку \texttt{msg} за коју је акција изводљива.
+\begin{lstlisting}
+---
+Next ==
+    \/ \E o \in Orders      : CreateOrder(o)
+    \/ \E msg \in outbox    : DeliverMessage(msg)
+    \/ \E msg \in outbox    : CleanupOutbox(msg)
+
+...
+====
+\end{lstlisting}
+\begin{itemize}
+    \item прва грана бира неки налог \texttt{o} из скупа \texttt{Orders} и покушава да га креира,
+    \item друга грана бира неку поруку из \texttt{outbox} и покушава да је достави,
+    \item трећа грана бира неку поруку из \texttt{outbox} и покушава да је обрише ако је већ достављена.
+\end{itemize}
+TLC ће истражити све могуће комбинације избора у свим достижним стањима.
+
+Формула \texttt{Spec} је потпуна темпорална спецификација система: \texttt{Init} описује почетно стање,
+а \texttt{[][Next]\_vars} захтева да сваки прелаз или извршава неку акцију из \texttt{Next} или оставља
+све променљиве непромењеним (\textit{stuttering step}).
+\begin{lstlisting}
+---
+Spec == Init /\ [][Next]_<<db, outbox, extSystem, nextMsgId>>
+
+...
+====
+\end{lstlisting}
+Суфикс \texttt{\_<<db, outbox, extSystem, nextMsgId>>} наводи које променљиве чине стање система.
+Ако ниједна од ових променљивих не мења вредност, то је дозвољен корак, систем може да \enquote{стоји у месту}.
+
+\texttt{TypeInvariant} је особина типске исправности која мора важити у \emph{свим} достижним стањима.
+\begin{lstlisting}
+---
+TypeInvariant ==
+    /\ db \in [Orders -> {"NEW", "CREATED"}]
+    /\ \A msg \in outbox    : msg.id \in Nat
+    /\ \A msg \in extSystem : msg.id \in Nat
+
+...
+====
+\end{lstlisting}
+Инваријанта је конјункција три услова:
+\begin{itemize}
+    \item \texttt{db \textbackslash in [Orders -> \{"NEW", "CREATED"\}]} --- \texttt{db} је функција чији је домен тачно скуп \texttt{Orders}, а свака вредност је или \texttt{"NEW"} или \texttt{"CREATED"}; TLA+ запис \texttt{[A -> B]} означава скуп свих функција из \texttt{A} у \texttt{B},
+    \item \texttt{\textbackslash A msg \textbackslash in outbox : msg.id \textbackslash in Nat} --- сваки \texttt{id} у \texttt{outbox} је природан број,
+    \item \texttt{\textbackslash A msg \textbackslash in extSystem : msg.id \textbackslash in Nat} --- исто важи за поруке које је примио спољни систем.
+\end{itemize}
+
+\texttt{Consistency} је главна safety особина система --- гарантује да спољни систем никад не прими поруку која није повезана са легитимним налогом.
+\begin{lstlisting}
+---
+Consistency ==
+    \A msg \in extSystem : msg \in outbox \/ msg.order \in Orders
+
+...
+====
+\end{lstlisting}
+Особина каже: за сваку поруку \texttt{msg} коју је примио спољни систем, мора важити барем један од два услова:
+\begin{itemize}
+    \item \texttt{msg \textbackslash in outbox} --- порука и даље постоји у \texttt{outbox} табели (још није очишћена), или
+    \item \texttt{msg.order \textbackslash in Orders} --- налог на који се порука односи постоји у скупу \texttt{Orders}.
+\end{itemize}
+Пошто акција \texttt{CreateOrder} уписује у \texttt{db} и \texttt{outbox} атомично, а \texttt{DeliverMessage} шаље
+само поруке које су у \texttt{outbox}-у, TLC ће потврдити да ова особина важи у свим достижним стањима.
+
+\end{primer}

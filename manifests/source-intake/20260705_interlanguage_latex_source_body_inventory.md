@@ -4,9 +4,9 @@ Machine-readable inventory of ZIP packets containing TeX-family source bodies fo
 
 Classification: source-corpus/provenance support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
-- Unique ZIP payloads with TeX-like entries: 14
+- Unique ZIP payloads with TeX-like entries: 15
 - Duplicate ZIP paths by SHA256: 1
-- Total TeX-like entries counted, unique by ZIP SHA256: 11862
+- Total TeX-like entries counted, unique by ZIP SHA256: 12066
 - Package CSV: `20260705_interlanguage_latex_source_body_inventory_packages.csv`
 - Language-count CSV: `20260705_interlanguage_latex_source_body_inventory_language_counts.csv`
 - JSON: `20260705_interlanguage_latex_source_body_inventory.json`
@@ -27,20 +27,20 @@ Classification: source-corpus/provenance support only. Not native review, accept
 | uk | 272 | 1 |
 | fr | 269 | 5 |
 | de | 211 | 4 |
+| sl | 162 | 6 |
 | en | 160 | 4 |
-| sl | 137 | 5 |
-| be | 129 | 3 |
-| hr | 126 | 3 |
-| bs | 110 | 3 |
+| be | 141 | 4 |
+| hr | 134 | 4 |
+| cs | 126 | 4 |
+| bs | 125 | 4 |
+| pl | 107 | 5 |
 | sr | 102 | 3 |
-| cs | 98 | 3 |
-| pl | 80 | 4 |
-| sk | 70 | 3 |
-| bg | 32 | 4 |
-| mk | 32 | 4 |
-| dsb | 26 | 2 |
+| sk | 78 | 4 |
+| bg | 68 | 5 |
+| mk | 56 | 5 |
+| dsb | 46 | 3 |
 | cjk | 14 | 1 |
-| cnr | 12 | 2 |
+| cnr | 13 | 3 |
 | romance | 8 | 1 |
 | hsb | 4 | 2 |
 | gl | 2 | 2 |
@@ -59,6 +59,7 @@ Classification: source-corpus/provenance support only. Not native review, accept
 | `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip` | 523 | 5815800 | `BFC4CEE167D6A0BCEE39DB603CBEEE5845A9F63852CAC382C5D9CED3707FE968` |
 | `noether-source-corpus-provenance\20260704\NOETHER_DIRECT_GATED_LATEX_SOURCE_CANON_UPLOAD_20260704T232634Z\payload_zips\NOETHER_DIRECT_GATED_LATEX_SOURCE_CANON_UPLOAD_20260704T232634Z.zip` duplicate of `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip` | 523 | 5815800 | `BFC4CEE167D6A0BCEE39DB603CBEEE5845A9F63852CAC382C5D9CED3707FE968` |
 | `noether-slavic-source-canon\20260704\NOETHER_SLAVIC_SOURCE_CANON_FOCUSED_ALGEBRA_20260704T203400Z\payload_zips\NOETHER_SLAVIC_FOCUSED_ALGEBRA_OPEN_LICENSE_TEX_PAYLOAD_20260704T203400Z.zip` | 378 | 4359432 | `13D541E748A9BC324F732784BDD27931DBF3010265AC0DBDFE968D48D396575A` |
+| `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Slavic_GitHub_URLOnly_PublicCandidates_20260705.zip` | 204 | 2740089 | `FE296EF42A8FDF3DAE696F9DF9B39A29A4251FB25B84041D1349D2597F3EAE08` |
 | `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip` | 168 | 2853626 | `22B8BE98F7B75EF5C28719646B680C2B2307438FCD0992ABFB4D1B4ED6D44613` |
 | `noether-slavic-source-canon\20260704\NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T192100Z\payload_zips\NOETHER_SLAVIC_GITHUB_TEX_OPEN_LICENSE_PAYLOAD_20260704T192100Z.zip` | 94 | 910169 | `14BE80F52F67E74A7F3CC791621E4C27432DCC3AFDC394B50CA161FECA4105BF` |
 | `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip` | 36 | 14439157 | `613880CF5327B60657E2352BA7856D693A3E04F934EDC187E924E03AC54346F5` |

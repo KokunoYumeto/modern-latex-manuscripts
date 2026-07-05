@@ -1,0 +1,734 @@
+\documentclass[a4paper,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+% -----------------------------------------------------------------------
+
+\title{Linearna algebra 1}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\subsection{Algebraične strukture}
+
+\begin{itemize}
+    \item \textbf{grupoid} $(M, \circ)$ urejen par z neprazno množico $M$ in zaprto opreacijo $\circ$.
+    \item \textbf{polgrupa} grupoid z asociativno operacijo $ \forall x,y,z \in M : (x\circ y)\circ z = x\circ (y\circ z)$.
+    \item \textbf{monoid} polgrupa z enoto $ \exists e \in M \ \forall x \in M : e\circ x = x\circ e = x$.
+    \item \textbf{grupa} monoid v katerem ima vsak element inverz $ \forall x \in M \ \exists x^{-1} \in M : x\circ x^{-1} = x^{-1}\circ x = e$.
+    \item \textbf{abelova grupa} grupa s komutativno operacijo $ \forall x,y \in M  : x\circ y = y\circ x$.
+\end{itemize} 
+\noindent\rule{2cm}{0.4pt}
+\begin{itemize}
+    \item \textbf{kolobar} urejena trojica $(M, +, \cdot)$ z neprazno množico $M$ in dvema operatorjema.
+    \begin{itemize}
+        \item $(M,+)$ je abelova grupa
+        \item $(M-\{0\},\cdot)$ je polgrupa
+        \item operaciji sta distributivni $\forall x,y,z \in M : x\cdot (y+z) = x\cdot y + x \cdot z$
+    \end{itemize}
+    \item \textbf{kolobar z enoto} kolobar v katerem je $(M, \cdot)$ monoid.
+    \item \textbf{komutativen kolobar} kolobar v katerem je $(M, \cdot)$ komutativna polgrupa.
+    \item \textbf{obseg} urejena trojica $(M, +, \cdot)$ z neprazno množico $M$ in dvema operatorjema.
+    \begin{itemize}
+        \item $(M,+)$ je abelova grupa
+        \item $(M-\{0\},\cdot)$ je grupa
+        \item operaciji sta distributivni $\forall x,y,z \in M : x\cdot (y+z) = x\cdot y + x \cdot z$
+    \end{itemize}
+    \item \textbf{polje} obseg kjer je $(M,\cdot)$ komutativen monoid.
+\end{itemize}
+\noindent\rule{2cm}{0.4pt}
+\begin{itemize}
+    \item \textbf{podgrupoid} $(H, \circ)$ je podgrupoid od grupoida $(G, \circ)$, če $H \subset G$ in $\forall x,y \in H : x \circ y \in H$
+\end{itemize}
+\noindent\rule{2cm}{0.4pt}
+\begin{itemize}
+    \item \textbf{homomorfizem} je funkcija $\varphi : (G_1, \circ_1) \to (G_2, \circ_2)$ tako, da velja $\forall a,b \in G_1 : \varphi (a \circ_1 b) = \varphi (a) \circ_2 \varphi(b)$
+    \item \textbf{izomorfizem} je homomorfizem $\varphi : (G_1, \circ_1) \to (G_2, \circ_2)$ za katerega obstaja taka $\Psi : (G_2, \circ_2) \to (G_1, \circ_1)$, da je $\varphi \circ \Psi = id_{G_2}$ in $\Psi \circ \varphi = id_{G_1}$
+    
+    Homomorfizem je izomorfizem $\Leftrightarrow$ ko je bijektiven.
+
+    \item \textbf{endomorfizem} je homomorfizem, ki slika sam vase.
+\end{itemize}
+\noindent\rule{2cm}{0.4pt}
+\begin{itemize}
+    \item \textbf{vektorski prostor} nad obsegom $F$ je urejena trojka $(V, +, \cdot)$ kjer je V neprazna množica.
+
+    $+$ je operacija na $V$, ki zadošča lastnostim:
+    \begin{itemize}
+        \item asociativnost $a+(b+c) = (a+b)+c$
+        \item komutativnost $a+b = b+a$
+        \item obstoj enote $\exists 0 \in V \ \forall a \in V : 0+a = a$
+        \item obstoj inverza $\forall a \in V \ \exists -a \in V : a+(-a) = 0$
+    \end{itemize}
+    $\cdot$ je preslikava $\cdot : F\times V \to V$, ki zadošča lastnostim:
+    \begin{itemize}
+        \item $\alpha (a+b) = \alpha a + \alpha b \quad \forall \alpha \in F \ \forall a,b \in V$
+        \item $(\alpha + \beta)a = \alpha a + \beta a \quad \forall \alpha, \beta \in F \ \forall a\in V$
+        \item $(\alpha \beta)a = \alpha (\beta a) \quad \forall \alpha, \beta \in F \ \forall a\in V$
+        \item $1 \cdot a = a \quad \forall a \in V$
+    \end{itemize}
+
+    Definicija vektorskega prostora nam pove, da je $(V,+)$ \emph{Abelova grupa}.
+
+    Preslikava $\varphi_\alpha(a+b) = \alpha(a+b) = \alpha a + \alpha b = \varphi_\alpha(a) + \varphi_\alpha(b)$
+    je \emph{endomorfizem} grupe $(V, +)$ ($\varphi_\alpha \in \textmd{End(V,+)}$).
+
+    \begin{quotation}
+        \textbf{Vektorski porstor} $V$ nad obsegom $F$ je \emph{Abelova grupa} $(V, +)$ skupaj s 
+        homomorfizmom kolobarjev z enico $\varphi : F \to \textmd{End}(V, +)$
+    \end{quotation}
+
+    \item \textbf{modul} nad $F$ je podoben vektorskemu porstoru le, da je $F$ kolobar.
+\end{itemize}
+
+\subsection{Baze vektorskih prostorov}
+\textbf{Linearna ogrinjača} množice $S \subset V$ predstavlja vse linearne kombinacije elementov $S$.
+\[
+    \textmd{Lin}(S) = \{\alpha_1 v_1 + ... + \alpha_n v_n \ | \ v_1, ..., v_n \in S \ \alpha_1, ..., \alpha_n \in F  \}
+\]
+Množica $S$ je \textbf{ogrodje} za $V$, če velja $\textmd{Lin}(S) = V$.
+
+Vektorski prostor $V$ je \textbf{končno razsežen} (KVRP), če ima končno ogrodje.
+
+Množica $S \subset V$ je \textbf{linearno odvisna}, če obsatjajo taki elementi $v_1, ..., v_n \in S$ in 
+$\alpha_1,...,\alpha_n \in F$,
+ki niso vsi nič, da velja $\alpha_1 v_1 + ... + \alpha_n v_n = 0$
+
+Množica, ki ni linearno odvisna je \textbf{linearno neodvisna}.
+
+Množica $S \subset V$ je \textbf{baza}, če je \emph{ogrodje} in \emph{linearno neodvisna}.
+
+Vsak vektorski prostor ima bazo.
+
+Vsak KVRP ima končno bazo.
+
+\subsection{Dimenzija vektorskega prostora}
+Naj bo $V$ KVRP in $B$ njegova baza.
+\[\textmd{dim}(V) = |B|\]
+Dimenzija KVRP je moč njegove beze.
+
+Če ima KVRP $V$ \emph{ogrodje} iz $n$ elementov, je vsaka podmnožica v $V$, ki ima več kot $n$ elementov 
+\emph{linearno odvisna}.
+
+Vse baze za $V$ imajo enako moč. Zato lahko definiramo \textbf{dimenzijo} KVRP kot moč poljubne baze.
+
+\subsection{Dopolnitev linearno neodvisne množce do baze}
+Naj bo $V$ KVRP dimenzije $n$.
+
+Linearno neodvisna podmnožica, ki ima $n$ elementov je baza za $V$.
+
+Vsako linearno neodvisno množivo, ki ima manj kot $n$ elamentov lahko dopolnimo do baze $V$.
+
+Če je $\{v_1, ..., v_m\}$ linearno neodvisna podmnožica $V$ in če $v_{m+1} \notin \{v_1, ..., v_m\}$, je tudi $\{v_1, ..., v_m, v_{m+1}\}$ linearno neodvisna podmnožica $V$.
+
+\subsection{Vektorski podprostori}
+Naj bo $V$ vektorski prostor nad poljem $F$. Podmnožica $U \subseteq V$ je \textbf{vektorski podprostor}, če velja:
+\begin{itemize}
+    \item $u_1, u_2 \in U \implies u_1 + u_2 \in U$
+    \item $u \in U \ \alpha \in F \implies \alpha u \in U$
+\end{itemize}
+
+Če je $V$ KVRP, je vsak vektorski podprostor v $V$ oblike $\textmd{Lin}\{v_1, ..., v_m\}$ za $ v_1, ..., v_m \in V$
+
+\subsection{Prehod na novo bazo}
+Naj bo $V$ KVRP, naj bosta
+\[\mathcal{B} = \{u_1, ..., u_n\}\]
+\[\mathcal{C} = \{v_1, ..., v_n\}\]
+bazi za $V$ in naj bo $v$ vektor.
+
+\[ [v]_{\mathcal{C}} = P_{\mathcal{C} \leftarrow \mathcal{B}} \cdot [v]_{\mathcal{B}} \]
+
+\[P_{\mathcal{D} \leftarrow \mathcal{B}} = P_{\mathcal{D} \leftarrow \mathcal{C}} \cdot P_{\mathcal{C} \leftarrow \mathcal{B}}\]
+\[P_{\mathcal{C} \leftarrow \mathcal{B}} = (P_{\mathcal{B} \leftarrow \mathcal{C}})^{-1}\]
+
+Če je $\mathcal{S}$ standardna baza:
+\[P_{\mathcal{S} \leftarrow \mathcal{B}} = \begin{bmatrix}
+    u_1 & \dots & u_n
+\end{bmatrix}\]
+
+\[ P_{\mathcal{C} \leftarrow \mathcal{B}} = P_{\mathcal{C} \leftarrow \mathcal{S}} \cdot P_{\mathcal{S} \leftarrow \mathcal{B}} = (P_{\mathcal{S} \leftarrow \mathcal{C}})^{-1} \cdot P_{\mathcal{S} \leftarrow \mathcal{B}}\]
+
+\subsection{Linearne preslikave}
+$V, U \dots $ vektorska prostora nad istim obsegom  $F$
+
+Preslikava $L:U \to V$ je \textbf{linearna}, če
+\begin{itemize}
+    \item je \textbf{aditivna} $L(u_1+u_2) = L(u1)+L(u2)$\\
+    \emph{aditivnost nam pove, da je $L$ homomorfizem grup $(U,+)$ in $(V,+)$.}
+    \item in \textbf{homogena} $L(\alpha u) = \alpha L(u)$\\
+    \emph{homogenost nam pove, da je $L$ spoštuje tudi množenje zato je homomorfizem vektorskih porstorov.}
+\end{itemize}
+
+\emph{Ekvivalentna definicija:} preslikava je linearna, če 
+\[L(\alpha_1 u_1 + \alpha_2 u_2) = \alpha_1 L(u_1) + \alpha_2 L(u_2) \] \[ \forall \alpha_1, \alpha_2 \in F \ \forall u_1, u_2 \in U \]
+
+Kompozitum linearnih preslikav je tudi linearna preslikava.
+
+Inverz bijektivne linearne preslikave je tudi linearna preslikava.
+
+\subsection{Matrika linearne preslikave}
+Vsako linearno preslikavo se da popisati z matriko.
+
+$U \dots $ KVRP z bazo $\mathcal{B} = \{u_1, ..., u_n\}$\\
+$V \dots $ KVRP z bazo $\mathcal{C} = \{v_1, ..., v_n\}$\\
+
+$L: U \to V \dots $ linearna preslikava
+\[[L]_{\mathcal{C} \leftarrow \mathcal{B}} = \begin{bmatrix}
+    [L(u_1)]_{\mathcal{C}} & \dots & [L(u_n)]_{\mathcal{C}}
+\end{bmatrix}\]
+
+Za kompozitum linearnih preslikav velja:
+\[ [L_2 \circ L_1]_{\mathcal{D \leftarrow B}} = [L_2]_{\mathcal{D \leftarrow C}} \cdot [L_1]_{\mathcal{C \leftarrow B}} \] 
+
+\subsection{Jedro in slika}
+Naj bosta $U$, $V$ kvrp in naj bo $L:U \to V$ linearna preslikava.
+\begin{itemize}
+    \item \textbf{Jedro} $L$ je množica $\textmd{Ker}(L) := \{u \in U | L(u) = 0\}$ \\
+    Jedro je vektorski podprostor v U.
+    \item \textbf{Slika} $L$ je množica $\textmd{Im}(L) := \{L(u) | u \in U\}$ \\
+    Slika je vektorski podprostor v V.
+\end{itemize}
+Podobno sta definirana za matrike. Naj bo $A$ $m \times n$ matrika nad $F$:
+\begin{itemize}
+    \item \textbf{Jedro} matrike $A$ je množica $\textmd{Ker}(L) := \{u \in F^n | Au = 0\}$ \\
+    Jedro je ekvivalentno ničelnemu prostoru matrike.
+    \item \textbf{Slika} matrike $A$ je množica $\textmd{Im}(L) := \{Au | u \in F^n \}$ \\
+    Slika je ekvivalentna stolpičnemu prostoru matrike.
+\end{itemize}
+
+\subsection{Rang in ničelnost}
+Naj bo $L:U \to V$ linearna preslikava.
+\begin{itemize}
+    \item \textbf{ničenost} preslikave $L$ je število $\textmd{n}(L) = \textmd{dim} \textmd{Ker} (L)$
+    \item \textbf{rang} preslikave $L$ je število $\textmd{r}(L) = \textmd{rang}(L) = \textmd{dim} \textmd{Im} (L)$
+\end{itemize}
+Če $L$ zamenjamo z $L_A : F^n \to F^n; \ L_A(x) = Ax$, dobimo definicijo za rang in ničelnost matrike $A$.
+
+\[L \textmd{ je injektivna } \Leftrightarrow \textmd{Ker}L = 0 \Leftrightarrow \textmd{n}(L) = 0\]
+\[L \textmd{ je surjektivna } \Leftrightarrow \textmd{Im}L = V \Leftrightarrow \textmd{rang}(L) = \textmd{dim}V\]
+\[\textmd{rang}(L) + \textmd{n}(L) = \textmd{dim}(U)\]
+
+\subsection{Ekvivalentnost matrik}
+Matriki $A$ in $B$ sta \textbf{ekvivalentni}, če obstajata taki obrnljivi matriki $P$ in $Q$, da velja
+\[B = PAQ\]
+Ekvivalentnost matrik je \emph{ekvivalenčna} relacija; če je A ekvivalentna B je tudi B ekvivalentna A.
+
+Vsaka matrika $A$ je ekvivalentna matriki $\begin{bmatrix}
+    I_r & 0 \\
+    0 & 0 \\
+\end{bmatrix}$ kjer je $r = r(A)$.
+
+Matriki $A$ in $B$ sta \textbf{ekvivalentni} $\Leftrightarrow$ ko sta enakih dimenzij in imata enak rang.
+
+\subsection{Podobnost matrik}
+Matirki $A, B \in M_n(F)$ sta podobni, če obstaja taka obrnljiva matrika $P \in M_n(F)$, da velja:
+\[B = PAP^{-1}\]
+
+Podobnost matrike je \emph{ekvivalenčna} relacija.
+
+Iz \emph{podobnosti} očitno sledi \emph{ekvivalenčnost} matrik, obratno pa ne drži.
+
+Podobne matirke imajo enak karakteristični polinom, determinanto, lastne vrednosti, lastne vektorje, ...
+
+\subsection{Lastni problem}
+Naj bo $A \in M_n(F)$, $\lambda \in F$ in $v \in F^n$.
+\[Av = \lambda v\]
+Skalar $\lambda$ je \textbf{lastna vrednost} matrike $A$, če obstaja tak neničeln vektor $v$, da velja zgornja enačba. 
+Takemu vektorju rečemo \textbf{lastni vektor}, ki propada lastni vrednosti $\lambda$.\\\
+
+Množica vseh lastnih vektorjev matrike $A$, ki pripadajo lastni vrednosti $\lambda$ je $\textmd{Ker}(A-\lambda I) \smallsetminus \{0\}$.
+Ta množica je vedno neskončna, ker je vsak večkratnik lastnega vektorja spet lastni vektor. \\\
+
+Če je $\lambda$ lastna vrednost matrike $A$, je $\textmd{Ker}(A-\lambda I)$ \textbf{lastni podprostor} matirke $A$ za lastno vrednost $\lambda$.
+Njegovi dimenziji pravimo \textbf{geometrijska večkratnost} lastne vrednosti.
+
+\textbf{Lastne vrednosti} matrike $A$ so ničle \textbf{karakterističnega polinoma} 
+\[p_A(x) = \textmd{det}(A-xI)\]
+Če je lastna vrednost $\lambda$ $m$-kratna ničla $p_A$, je njena \textbf{algebraična večkratonost} enaka $m$.
+
+\subsection{Diagonalizacija}
+Diagonalizacija matrike $A$ je razcep $A = PDP^{-1}$, kjer je $P$ obrnljiva, $D$ pa diagonalna matrika.
+
+Če ima $n \times n$ matrika $A$ $n$ LN lastnih vektorjev, je diagonalizacija možna. V tem primeru so diagonalni elementi matrike $D$ ravno lastne vrednosti matrike $A$, stolpci matrike $P$ pa lastni vektorji, ki se ujemajo z lastnimi vrednostmi v stolpcih.
+
+Naslednje trditve so ekvivalentne:
+\begin{itemize}
+    \item matrika $A$ ima diagonalizacijo
+    \item matrika $A$ je podobna diagonalni matriki
+    \item matrika $A$ ima $n$ linearno neodvisnih lastnih vektorjev
+    \item vsota lstnih podprostorov matrike $A$ je $\mathbb{C}^n$
+    \item za vsako lastno vrednost se ujemata \emph{geometrijska} in \emph{algebraična} večkratnost
+    \item naj bodo $\lambda_1,..., \lambda_k$ vse paroma razlčne lastne vrednosti: $(A-\lambda_1 I)\cdot ... \cdot (A-\lambda_k) = 0$
+    \item minimalni polinom $m_A$ nima nibene večkratne ničle
+\end{itemize}
+
+Če ima matrika $A$ $n$ različnih lastnih vrednosti $\implies$ ima $n$ linearno neodvisnih lastnih vektorjev $\implies$ ima diagonalizacijo.
+
+\subsection{Minimalni polinom}
+Polinom $m \in \mathbb{C}[x]$ je minimalni polinom matrike $A \in M_n(\mathbb{C})$, če velja:
+\begin{itemize}
+    \item $m(A) = 0$
+    \item $m$ ima vodilni koeficient 1
+    \item med vsemi polinomi, ki zadoščajo zgornjima pogojema, ima $m$ najnižjo stopnjo
+\end{itemize}
+
+Naj bodo $\lambda_1, ..., \lambda_k$ paorma različne lastne vrednosti matrike $A$.
+\[p_A(x)=(-1)^n(x-\lambda_1)^{n_1} \cdot ... \cdot (x-\lambda_k)^{n_k} \]
+\[m_A(x)=(x-\lambda_1)^{r_1} \cdot ... \cdot (x-\lambda_k)^{r_k} \]
+Ker $m_A$ deli $p_A$ in ker je vasaka lastna vrednost ničla $m_A$, je
+\[1 \leq r_i \leq n_i ;\quad i = 1, ..., k\]
+
+\subsection{Korenski podprostori}
+\textbf{Korenki podprostor} matrike $A$ za lastno vrednost $\lambda_i$ je množica 
+\[ \textmd{Ker}(A-\lambda_i I)^{r_i} \]
+
+\[\overbrace{\textmd{Ker}(A-\lambda_i I)}^{\textmd{lastni podprostor}} \subset \textmd{Ker}(A-\lambda_i I)^{2} \subset \dots \subset \overbrace{\textmd{Ker}(A-\lambda_i I)^{r_i}}^{\textmd{korenski podprostor}}\] 
+\[ = \textmd{Ker}(A-\lambda_i I)^{r_i + 1} = \textmd{Ker}(A-\lambda_i I)^{r_i + 2} = \dots \]
+
+\emph{Dimenzija korenkega prostora} je enaka \emph{alegebraični večkratnosti} lastene vrednosti.
+\[\textmd{dimKer}(A-\lambda_i I)^{r_i} = n_i\]
+
+Vsota vseh koronskih podprostorov je $\mathbb{C}^n$
+\[\mathbb{C}^n = \bigoplus_{i=1}^{k} \textmd{Ker}(A-\lambda_i I)^{r_1}  \]
+
+Vektorski prostor $U \subset \mathbb{C}^n$ je \textbf{invarianten} na matriko $A \in M_n(\mathbb{C})$, če
+\[\forall u \in U : Au \in U\]
+
+Lastni in korenski podprostor matrike $A$ sta invariantna na $A$.
+
+Vsak netrivialen ($\neq \{0\}$) invarianten podprostor matrike $A$ vsebuje vsaj en lastni vektor.
+
+Presek dveh korenskih podprostorov matrike je trivialen ($\{0\}$).
+
+\subsection{Jordanska končna forma}
+\textbf{Jordanska kletka} je matrika oblike:
+\[
+    \begin{bmatrix}
+        \lambda & 1 & 0  & \dots & 0 \\
+        0 & \lambda & 1  & \dots & 0 \\
+        0 & 0 & \lambda  & \dots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0  & \dots & \lambda \\
+
+    \end{bmatrix}
+    \qquad
+    \lambda \in \mathbb{C}
+\]
+
+\textbf{Jordanska matrika} je matrika oblike
+
+\[
+    \begin{bmatrix}
+        J_1 & \dots & 0 \\
+        \vdots & & \vdots \\
+        0 & \dots & J_m \\
+    \end{bmatrix}    
+    \qquad
+    J_1, ..., J_m \textmd{ so jordanske kletke}
+\]
+
+Vsaka kompleksna kvadratna matrika $A$ je podobna kaki jordanki matirki $J$. Pravimo, da je $J$ \textbf{jordanska kanonična forma} za $A$.
+\[A = PJP^{-1}\]
+$J$ je jordanska matrika, ki vsebuje jordaske kletke velikosti jordanske verige in s propadajočimi lastnimi vrednostmi $A$. \\
+$P$ je prehodna matrika, katere stolpci so povrsti zloženi elementi jordankih verig lastne vrednosti, ki je v $J$ v istoležnem stolpcu.\\
+
+Iz jodranske matrike $J$ lahko preberemo:
+\begin{itemize}
+    \item \textbf{algebraične večkratonosti} lastne vrednosti - kolikokrat se le ta pojavi na diagonali
+    \item \textbf{geometrijske večkratnosti} lastne vrednosti - število kletk lastne vrednosti
+    \item večkratnost lastne vrednosti v \textbf{min. polinomu} - največja kletka lastne vrednosti
+    \item število linearno neodvisnih \textbf{lastnih vektorjev} matrike - število kletk
+\end{itemize}
+
+\textbf{Jordanska veriga} (za lastno vrednost $\lambda$ matrike $A$) dolžine $k$ je tako zaporedje vektorjev $v_1, ..., v_k$, da velja
+\[ (A-\lambda I)v_1 = 0,\ (A-\lambda I)v_2 = v_1, ... ,\ (A-\lambda I)v_k = v_{k-1}\]
+
+\textbf{Jordanska baza} je baza, ki je unija jordanskih verig.
+
+\subsubsection{Iskanje jordanskih verig}
+Iščemo jordanske verige za lastno vrednost $\lambda$ matrike $A$.
+
+Najprej izračunamo vse podprostore od \emph{lastnega} do \emph{korenskega}. $A-\lambda I$ označimo z $N$.
+
+Nato sestavimo urejene množice $C_r, ... C_1$. $C_i$ sestavimo tako, da vzamemo vse elementi iz $C_{i-1}$ in jih pomnožimo z matriko $N$. Nato izberemo vektorje, ki te elemente in $\textmd{Ker}N^i$ dopolnijo do baze za $\textmd{Ker}N^{i-1}$.
+\begin{equation*}
+    \begin{aligned}
+        C_r &= \textmd{baza}\left( \textmd{Ker}N^{r} \smallsetminus \textmd{Ker}N^{r-1}\right) \\
+        C_{r-1} &= N\left( C_{r}\right) \cup \textmd{baza} \left( \textmd{Ker}N^{r-1} \smallsetminus \left( \textmd{Ker}N^{r-2} \cup \textmd{Lin} N C_r \right) \right) \\
+        C_{r-2} &= N\left( C_{r-1}\right) \cup \textmd{baza}\left( \textmd{Ker}N^{r-2} \smallsetminus \left( \textmd{Ker}N^{r-3} \cup \textmd{Lin}NC_{r-1} \right) \right) \\
+        & \, \ \vdots \\
+        C_{2} &= N\left( C_{3}\right) \cup \textmd{baza}\left( \textmd{Ker}N^{2} \smallsetminus \left( \textmd{Ker}N \cup \textmd{Lin}NC_{3} \right) \right) \\
+        C_{1} &= N\left( C_{2}\right) \cup \textmd{baza}\left( \textmd{Ker}N \smallsetminus \textmd{Lin} NC_{2} \right) \\
+    \end{aligned}
+\end{equation*}
+
+$i$. jordansko verigo dobimo tako, da vzamemo $i$. elemente iz $C_1, ..., C_r$.
+
+
+\subsection{Funkcije matrik}
+Če poznamo rezcep $A = PJP^{-1}$ matrike $A$ se računje potenc $A^n$ prevede na računanje potenc posameznih jordanskih kletk.
+
+\textbf{Formula za potenciranje $k \times k$ jordaske kletke}
+\[
+    \begin{bmatrix}
+        \lambda & 1   & \dots & 0 \\
+        0 & \lambda & \dots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \dots & \lambda \\
+
+    \end{bmatrix}^n
+    =
+    \begin{bmatrix}
+        \lambda^n & n\lambda^{n-1} & \binom{n}{2}\lambda^{n-2} & \dots & \binom{n}{k-1}\lambda^{n-k+1} \\
+        0 & \lambda^n & n\lambda^{n-1} & \ddots & \vdots \\
+        0 & 0 & \lambda^n  & \ddots & \binom{n}{2}\lambda^{n-2} \\
+        \vdots &  &  & \ddots & n\lambda^{n-1} \\
+        0 & \dots &  &  & \lambda^n \\
+    \end{bmatrix}
+\]
+
+\textbf{Formula za funkcijo $k \times k$ jordanske kletke}
+\[
+f(
+\begin{bmatrix}
+    \lambda & 1   & \dots & 0 \\
+    0 & \lambda & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\    
+    0 & 0 & \dots & \lambda \\
+\end{bmatrix}
+)
+=
+\begin{bmatrix}
+    f(\lambda) & f'(\lambda) & \frac{f''(\lambda)}{2} & \dots & \frac{f^{(k-1)}(\lambda)}{(k-1)!} \\
+     & \ddots & \ddots & \ddots & \vdots \\
+     &  & \ddots & \ddots & \frac{f''(\lambda)}{2} \\
+    \vdots &  &  & \ddots & f'(\lambda) \\
+    0 & \dots &  &  & f(\lambda) \\
+\end{bmatrix}
+\]
+
+\subsection{Vektorski prostori s skalarnim produktom}
+Naj bo $V$ vektorski prostor nad obsegom $\mathbb{C}$.\\
+\textbf{Skalarni produkt} je prelikava, ki paru $u,v\in V$ priredi skalar $\langle u,v\rangle $ in zadošča lastnostim:
+\begin{itemize}
+    \item pozitivna definitnost $\forall v \in V, v \neq 0 : \langle v,v \rangle \in \mathbb{R}\ \textmd{in} \ \langle v,v\rangle > 0$
+    \item konjugirana simetričnost $ \forall u,v \in V : \langle v, u \rangle = \overline{\langle u, v \rangle} $
+    \item linearnost v prvem faktorju  $ \forall u_1, u_2, v \in V, \alpha_1, \alpha_2 \in \mathbb{C} : \langle \alpha_1 u_1 + \alpha_2 u_2, v \rangle = \alpha_1 \langle u_1, v \rangle + \alpha_2 \langle u_2, v \rangle $
+\end{itemize}
+Posledice:
+\begin{itemize}
+    \item konjugirana linearnost v drugem faktorju $ \forall u, v_1, v_2 \in V, \beta_1, \beta_2 \in \mathbb{C} : \langle u, \alpha_1 v_1 + \alpha_2 v_2 \rangle = \overline{\beta_1} \langle u, v_1 \rangle + \overline{\beta_2} \langle u, v_2 \rangle $
+    \item $\forall v \in V : \langle v, 0 \rangle = \langle 0, v \rangle = 0 $
+    \item $\forall v \in V : \langle v, v \rangle \geq 0 $
+    \item $\langle 0, 0 \rangle = 0 $
+\end{itemize}
+
+\textbf{Standardni skalarni produkt}
+\[ \langle (\alpha_1, ..., \alpha_n), (\beta_1, ..., \beta_n) \rangle = \alpha_1 \overline{\beta_1} + ... + \alpha_n \overline{\beta_n} \]
+
+\subsection{Norma iz skalarnega produkta}
+\[\|v\| = \sqrt{\langle v,v \rangle }\]
+\textbf{Cauchy-Schwartzova neenakost}
+\[ |\langle v,v \rangle | \leq \|u\| \|v\|  \]
+
+\textbf{Osnovne lastnosti norme}
+\begin{itemize}
+    \item $\forall v \in V : \| v \| > 0 $
+    \item $\forall v \in V, \forall \alpha \in \mathbb{C} : \|\alpha v\| = |\alpha| \| v \|$
+    \item $\forall u,v \in V : \| u+v \| < \|u\| + \|v\| $ (trikotniška neenakost)\\\
+\end{itemize}
+
+\textbf{Zveza med slakarnim produktom in normo} (polarizacijske identitete)
+
+Če je $V$ KVRP nad $\mathbb{R}$
+\[\langle u,v \rangle = \frac{1}{4}\left(\| u+v \|^2 - \| u-v \|^2\right) \]
+Če je $V$ KVRP nad $\mathbb{C}$
+\[\langle u,v \rangle = \frac{1}{4} \sum_{k=0}^{3} i^k \|u+i^kv\|^2\]
+
+\subsection{Vektorski prostori s skalarnim produkton}
+\begin{itemize}
+    \item \textbf{Orotgonalna množica} je množica v kateri so vsi vektorji pravokotni in noben ni 0.\\
+    \[\forall u,v \in M, u \neq 0, v \neq 0 : \langle u, v \rangle = 0\]
+    Vsaka orotogonalna množica je \emph{linearno neodvisna}.
+    \item \textbf{Normirana množica} je množica v kateri so vsi vektorji dolžine 1.
+    \[ \forall u \in M: \| u \| = 1\]
+    Množico normiramo tako, da vse vektorje delimo z njihovo normo
+    \[\{v_1,...,v_n\} \rightarrow \left\{\frac{v_1}{\|v_1\|},...,\frac{v_n}{\|v_n\|} \right\} \]
+    \item \textbf{Ortonormirana množica} je \emph{orotgonalna} in \emph{normalna}.
+    \item Orotgonalna množica v $V$, ki je \emph{ogrodje} za $V$ je \textbf{ortogonalna baza} za $V$.\\
+    Vsak KVRP ima \emph{ortogonalno bazo}. Vsako ortogonalno množico lahko dopolnimo do ortogonalne baze.
+\end{itemize}
+
+\subsubsection{Furierov razvoj}
+Naj bo $V$ vektorski prostor s skalarnim produktom in $\{v_1, ..., v_n\}$ orotgonalna baza za V.
+\[\forall v \in V : v = \sum_{i=1}^{n} \underbrace{\frac{\langle v, v_i\rangle}{\langle v_i, v_i\rangle}}_{\alpha_i} v_i\]
+Če je ta baza orotnormirana, velja:
+\[\forall v \in V : v = \sum_{i=1}^{n} {\langle v, v_i\rangle} v_i\]
+
+\subsubsection{Parsevalova identiteta}
+Naj bo $V$ vektorski prostor s skalarnim produktom in $\{v_1, ..., v_n\}$ orotgonalna baza za V.
+\[\forall v \in V : \|v\|^2 = \sum_{i=1}^{n} \frac{|\langle v, v_i\rangle|^2}{\langle v_i, v_i\rangle}\]
+Če je ta baza orotnormirana, velja:
+\[\forall v \in V : \|v\|^2 = \sum_{i=1}^{n} {|\langle v, v_i\rangle|^2}\]
+
+\subsubsection{Ortogonalna projekcija}
+Naj bo $V$ vektorski prostor s skalarnim produktom in $W \subset V$ vektorski podprostor z ortogonalno bazo $\{w_1, ..., w_k\}$.
+
+Ortogonalna projekcija vektorja $v\in V$ na podprostor $W$:
+\[v' = \sum_{i=1}^{k} \frac{ \langle v, w_i \rangle}{\langle w_i, w_i \rangle}w_i \]
+
+\subsubsection{Gram-Schmidtova ortogonalizacija}
+Definirajmo projekcijo vektorja $v$ na $u$
+\[\textmd{proj}_u(v) = \frac{\langle v,u \rangle}{\langle u,u \rangle}u\]
+Če želimo \emph{orotogonalizirati} $k$ linearno neodvisnih vektorjev $v_1, ..., v_k$, uporabimo postopek:
+\begin{equation*}
+    \begin{aligned}
+    u_1 &= v_1 \\
+    u_2 &= v_2 - \textmd{proj}_{u_1}(v_2) \\
+    u_3 &= v_3 - \textmd{proj}_{u_1}(v_3) - \textmd{proj}_{u_2}(v_3) \\
+    &\; \ \vdots \\
+    u_k &= v_k - \sum_{j=1}^{k-1} \textmd{proj}_{u_j}(v_k)
+    \end{aligned}
+\end{equation*}
+
+\subsection{Orotogonalni komplement}
+Naj bo $V$ vektorski prostor s skalarnim produktom. Podmnožici $S\subseteq V$ in $T \subseteq V$ sta \textbf{pravokotni} ($S\bot T$),
+če so vis njuni elementi paroma pravokotni.
+
+Če je $S \bot T$:
+\begin{itemize}
+    \item $T \bot S$
+    \item $\forall S' \subseteq S : S' \bot T$
+    \item $\textmd{Lin}S \bot \textmd{Lin}T$
+    \item $ S \cap T \subseteq \{0\} $
+\end{itemize}
+
+\textbf{Orotogonalni komplement} monožice $S\subseteq V$ ($S^{\bot}$) je največja podmnožica v $V$, ki je pravokotna na $S$.
+\[ \forall S \subseteq V : S^{\bot} = \big\{v \in V \ |\ \{v\} \bot S \big\} \]
+\[ \forall S \subseteq V : S^{\bot} = (\textmd{Lin}S)^{\bot} \]
+
+\subsubsection{Ortogonalni razcep}
+Naj bo $V$ KVRP skalarnim produktom in  $U \subset V$ podprostor. Potem velja naslednje:
+\begin{itemize}
+    \item $\textmd{dim}U^{\bot} = \textmd{dim}V - \textmd{dim}U$
+    \item $(U^{\bot})^{\bot} = U$
+    \item $V = U \oplus U^{\bot}$ (ortogonalni razcep prostora $V$ glede na $U$)
+\end{itemize}
+
+\subsection{Linearni funkcionali}
+\textbf{Linearni funkcional} je \emph{linearna preslikava} iz vektorskega prostora $V$ na obseg (tudi vektorski prostor) $F^1$.
+\[L: V \to F\]
+Naj bo $\mathcal{B} = \{v_1,...,v_n\}$ baza za $V$ in $\mathcal{S} = \{1\}$ baza za $F$. Matrika linearnega funkcionala je potem $[L]_{\mathcal{S \leftarrow B}} = \{L(v_1), ..., L(v_n)\} $
+
+\subsubsection{Reiszov izrek o reprezentaciji linearnih funkcionalov}
+Za KVRP $V$ s skalarnim produktom in linearno preslikavo $L: V \to F$ velja:
+\[\exists w \in V\ \forall v \in V :\ L(v) = \langle v, w \rangle\]
+
+\subsection{Adjugirana linearna preslikava}
+Naj bo $L: U \to V$ linearna preslikava med dvema vektorskima prostoroma s skalarnim produktom. Linearna
+preslikava $L^*:V \to U$ je \textbf{adjugirana linearna preslikava} preslikave $L$ če velja:
+\[\langle Lu, v \rangle_V = \langle u, L^*v \rangle_U\]
+Vsaka linearna preslikava ima točno eno adjugirana preslikavo.
+
+\textbf{Lastnosti adjugirane linearne preslikave}
+\begin{itemize}
+    \item $\textmd{Ker}L^* = (\textmd{Im}L)^{\bot}$
+    \item $\textmd{Im}L = (\textmd{Ker}L^*)^{\bot}$
+    \item $\textmd{Ker}L = (\textmd{Im}L^*)^{\bot}$
+    \item $\textmd{Im}L^* = (\textmd{Ker}L)^{\bot}$
+    \item $(L^*L)^* = L^*L$ in $(LL^*)^* = LL^*$
+    \item $\textmd{Ker}L^*L = (\textmd{Ker}L)$
+\end{itemize}
+Prve 4 formule veljajo tudi za matrike, pri čemer se orotogonalni komplement nanaša na standardni skalarni produkt.
+
+\subsubsection{Matrika adjugirane linearne preslikave}
+$U \dots$ KVRP z \emph{ortonormirano} bazo $\mathcal{B}$\\
+$V \dots$ KVRP z \emph{ortonormirano} bazo $\mathcal{C}$\\
+$L: U \to V \dots$ linearna preslikava\\
+$L^*: V \to U \dots$ njena adjugirana linearna preslikava\\\
+
+Matriko $[L^*]_{\mathcal{B \leftarrow C}}$ dobimo tako, da v matriki $[L]_{\mathcal{C \leftarrow B}}$ vse
+elemente konjugiramo in doblejeno matriko transponiramo.
+
+\subsubsection{Adjugirana matrika}
+Naj bo $A$ kompleksna $m \times n$ matrika in $\overline{A}$ matrika $A$ z konjugiranimi elamenti.
+\[A^* = (\overline{A})^T\]
+
+\textbf{Lastnosti adjugiranja}
+\begin{itemize}
+    \item $ (\alpha A + \beta B)^* = \overline{\alpha}A^* + \overline{\beta} B^* $
+    \item $ (A^*)^* = A $
+    \item $ (AB)^* = B^*A^* $
+    \item $ 0^* = 0, I^* = I $
+\end{itemize}
+
+\subsubsection{Lastne vrednosti adjugirane preslikave}
+$\lambda$ je lastna vrednost $A$ $\Leftrightarrow$ $\overline{\lambda}$ lastna vrednost $A^*$
+
+\subsection{Normalne matrike}
+Kompleksna matrika $A$ je \textbf{normalna}, če velja $A^*A = AA^*$.
+
+Vsaka normalna matrika je kvadratna.
+
+Vsaka normalna matrika je podobna diagonalni matriki.
+
+Lastni podprostori normalne matrike so poraoma ortogonalni.
+
+$A$ je normalna $\Leftrightarrow$ $\exists P, D \textmd{ (diagonalna)} : A = PDP^{-1} \textmd{ in } P^{-1} = P^*$
+
+
+\subsection{Izometirje}
+Izometirje so preslikave, ki ohranjajo razdaljo.
+
+Naj bosta $U$ in $V$ KVRP s skalarnim produktom. Linearna preslikava $L:U \to V$ je izometrija, če 
+\[\forall u \in U : \|Lu\|_V = \|u\|_U \]
+Naslednje trditve so ekvivalentne:
+\begin{itemize}
+    \item $L$ je izometrija
+    \item $\langle Lu, Lu' \rangle_V = \langle u, u \rangle_U$ za $\forall u,u' \in U$
+    \item $L^*L = id_U$
+    \item Za vsako ortonormirano bazo $\{u_1, ..., u_n\}$ v $U$ je $\{Lu_1, ..., Lu_n\}$ ortonormirana množica v $V$.
+\end{itemize}
+
+Če imamo KVRP $V$ in $U$ z \emph{orotonormiranima bazama} $\mathcal{B}$ in $\mathcal{C}$, je $L: U\to V$ izometrija
+natanko tedaj, ko za njeno matriko $A=[L]_{\mathcal{C \leftarrow B}}$ velja $A^*A = I$.
+
+\subsection{Ortogonalne in unitarne matrike}
+Kompleksni matriki $A$, ki zadošča $A^*A = I$ pravimo \textbf{unitarna}.
+Realni unitarni matriki pravimo \textbf{ortogonalna}.
+
+Za kvadratne matrike iz $A^*A = I$ sledi $AA^* = I$. Odtod sledijo lastnosti:
+\begin{itemize}
+    \item Vsaka unitarna matrika je normalna
+    \item Vsaka unitarna matrika je obrnljiva in $A^{-1} = A^*$
+    \item Če je $A$ unitarna je tudi $A^*$ unitarna.
+\end{itemize}
+
+Grupe:
+\begin{itemize}
+    \item $\textmd{GL}(n,F)$ \textbf{splošna linearna grupa} - gurpa vseh obrnljivih $n \times n$ matrik.
+    \item $\textmd{SL}(n,F)$ \textbf{specialna linearna grupa} - gurpa vseh obrnljivih $n \times n$ matrik z $\textmd{det}$ 1.
+    \item $\textmd{U}(n)$ \textbf{splošna unitarna grupa} - gurpa vseh unitarnih $n \times n$ matrik.
+    \item $\textmd{SU}(n)$ \textbf{specialna unitarna grupa} - gurpa vseh unitarnih $n \times n$ matrik z $\textmd{det}$ 1.
+    \item $\textmd{O}(n)$ \textbf{splošna ortogonalna grupa} - gurpa vseh ortogonalnih $n \times n$ matrik.
+    \item $\textmd{SO}(n)$ \textbf{specialna orotgonalna grupa} - gurpa vseh orotogonalnih $n \times n$ matrik z $\textmd{det}$ 1.
+\end{itemize}
+
+\begin{equation*}
+    \begin{aligned}
+        \begin{matrix}
+            \textmd{GL}(n, \mathbb{C}) & \supset & \textmd{U}(n) \\
+            \cup &  & \cup \\
+            \textmd{SL}(n, \mathbb{C}) & \supset & \textmd{SU}(n) \\
+        \end{matrix}
+        \qquad \qquad
+        \begin{matrix}
+            \textmd{GL}(n, \mathbb{R}) & \supset & \textmd{O}(n) \\
+            \cup &  & \cup \\
+            \textmd{SL}(n, \mathbb{R}) & \supset & \textmd{SO}(n) \\
+        \end{matrix}
+    \end{aligned}
+\end{equation*}
+
+Lastne vrednosti \emph{unitarne matrike} imajo absolutno vrednost 1.
+Različnim lastnim vrednostim unitarne matrike pripadajo \emph{ortogonalni} lastni vektorji.
+
+\subsection{Simetričnen in hermitske matrike}
+Linearna preslikava $L:U \to V$ je \textbf{sebiadjugirana}, če velja $L=L^*$. 
+
+Kompleksna matrika $A$ je \textbf{hermitska} če $A=A^*$.
+Realnim hermitskima matrikam rečemo \textbf{simetrične}.
+
+Kompleksna matrika je \emph{hermitska} $\Leftrightarrow$ ko obstaja taka unitarna matrika $P$ in realana matrika $D$, da $A = PDP^{-1}$.
+
+Realna matrika je \emph{simetrična} $\Leftrightarrow$ ko obstaja taka orotgonalna matrika $P$ in realana diagonalna matrika $D$, da $A = PDP^{-1}$.
+
+\subsection{Determinanta}
+\begin{equation*}
+    \det \begin{bmatrix}
+        a & b\\
+        c & d\\
+    \end{bmatrix}
+    = ad - cb
+    \qquad 
+    \det \begin{bmatrix}
+        a & b & c\\
+        d & e & f\\
+        g & h & i\\
+    \end{bmatrix}
+    = aei + bfg + cdh - gec - hfa - idb
+\end{equation*}
+
+Determinanta gornjetrikotne matrike je zmnožek diagonalnih elementov.
+
+\[ \det\alpha A = \alpha^n \det A\]
+
+
+\subsection{Sled}
+Sled matrike je vsota vseh diagonalnih elementov.
+\begin{equation*}
+    \begin{aligned}
+        \textmd{tr}(A+B) &= \textmd{tr}(A) + \textmd{tr}(B) & \textmd{tr}(AB) &= \textmd{tr}(BA)
+    \end{aligned}
+\end{equation*}
+
+\subsection{Transponiranje}
+\begin{equation*}
+    \begin{aligned}
+        (A+B)^T &= A^T+B^T  &  (AB)^T &= B^TA^T
+    \end{aligned}
+\end{equation*}
+
+\subsection{Vektorski produkt}
+\[a \times b = \begin{vmatrix}
+    i & j & k\\
+    a_1 & a_2 & a_3\\
+    b_1 & b_2 & b_3\\
+\end{vmatrix}\]
+
+$a\times b = -(b \times a)$\\
+$a \times (b+c) = (a\times b) + (a\times c)$\\
+$[a,b,c] = \langle a, b \times c \rangle$\\
+$[a,b,c] = -[c,b,a]$ Če zamenjamo 2 parametra se rezultat negira.
+
+\end{multicols}
+\end{document}

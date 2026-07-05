@@ -1,0 +1,1684 @@
+% arara: latexmk: { engine: lualatex, options: [-synctex=1, -aux-directory=./build] }
+\documentclass[polish,pretty,bibliography=totocnumbered]{angav}
+
+\title{Lean \& ITP}
+\author{Michał Dobranowski}
+\date{semestr zimowy 2025 \\ v1.0}
+
+\setmonofont{JetBrainsMono}[Scale=0.85,Contextuals=AlternateOff]  % disable ligatures
+
+\usepackage{ebproof}
+\usepackage{stmaryrd} % for \llbracket and \rrbracket
+\newcommand{\toto}{\twoheadrightarrow}
+\newcommand{\FV}{\opname{FV}}
+\newcommand{\Lean}[1]{\mintinline[fontsize=\normalsize]{lean4}{#1}}
+\newcommand{\centerLean}[2][]{\begin{center}\Lean{#2}#1\end{center}}
+
+\mdfdefinestyle{mdgoalbox}{
+    style=mdremarkbox, % inherit from remark
+    linecolor=MainColor,
+    backgroundcolor=MainColor!5,
+}
+\declaretheoremstyle[
+    headfont=\sffamily\bfseries,
+    bodyfont=\normalfont\small,
+    mdframed={style=mdgoalbox},
+    headpunct={\\[3pt]},
+    postheadspace={0pt}
+]{goalbox}
+\declaretheorem[style=goalbox,name=Cele,numbered=no]{lesson-goals}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+    imageposition={left},
+]{doclicense}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+    \noindent Niniejszy skrypt zawiera informacje dotyczące systemu Lean 4 oraz podstawy teoretyczne, które warto poznać, aby dowiedzieć się, na czym \textit{interactive theorem proving} w ogóle polega. Powstawał on przy okazji kursu, który miałem przyjemność przygotować i poprowadzić jako student czwartego roku na AGH w Krakowie.
+\end{abstract}
+\vspace*{\fill}
+{\footnotesize\doclicenseThis}
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Wstęp teoretyczny}
+
+Aby zrozumieć, dlaczego systemowi wspomagającego dowodzenie (ang. \textit{proof assistant}) możemy ufać bardziej niż tuszowi na papierze, należy zrozumieć narzędzia oferowane przez logikę, rachunek lambda oraz teorię typów, na których zbudowany jest każdy znany autorowi tego typu system.
+Chociaż ten kurs nigdy nie miał być teoretyczny, zdaniem autora formalizmy dotyczące (typowanego) rachunku lambda są niezwykle ciekawe, więc w odpowiednich miejscach Czytelnik jest zachęcany do pogłębienia wiedzy, w tym też przeprowadzenia lub przeczytania dowodów przytaczanych twierdzeń.
+
+\subsection{Logika intuicjonistyczna}
+
+Typowym przykładem ilustrującym różnicę między logiką klasyczną a intuicjonistyczną (konstruktywną) jest twierdzenie:
+\begin{displayquote}
+    Istnieją takie liczby niewymierne $a$ i $b$, że $a^b$ jest liczbą wymierną.
+\end{displayquote}
+oraz jego dowód:
+\begin{displayquote}
+    Jeśli $\sqrt{2}^{\sqrt{2}} \in \QQ$, to $a = b = \sqrt{2}$, w przeciwnym razie niech $a = \sqrt{2}^{\sqrt{2}}$ oraz $b = \sqrt{2}$, wtedy $a^b = 2 \in \QQ$.
+\end{displayquote}
+Dowód ten jest oczywiście słuszny na gruncie logiki klasycznej, ale nie jest konstruktywny, ponieważ dalej nie znamy odpowiednich liczb $a$ i $b$. W logice konstruktywnej zdanie jest prawdziwe, jeśli można podać jego \vocab{konstrukcję} (tzn. intuicyjny dowód), zgodnie z interpretacją Brouwera-Heytinga-Kolmogorowa:
+\begin{itemize}[noitemsep]
+    \item konstrukcja dla $A \land B$ to konstrukcja dla $A$ oraz konstrukcja dla $B$,
+    \item konstrukcja dla $A \lor B$ to konstrukcja dla $A$ lub konstrukcja dla $B$ wraz z zaznaczeniem, która z nich to jest,
+    \item konstrukcja dla $A \to B$ to przekształcenie każdej konstrukcji dla $A$ w konstrukcję dla $B$,
+    \item nie istnieje konstrukcja dla fałszu.
+\end{itemize}
+
+Formalnie, logika intuicjonistyczna to pewien system logiczny. Nie różni się od logiki klasycznej składnią, ale regułami wnioskowania.
+Fałsz oznaczamy przez $\bot$, a \vocab{osąd} zapisany w postaci $\Gamma \vdash A$ oznacza, że formuła $A$ jest wywodliwa ze zbioru formuł $\Gamma$.
+Zamiast $\Gamma \cup \{B\}$ będziemy często pisać $\Gamma, B$.
+
+\begin{figure}[H]
+    \[
+    \begin{prooftree}
+        \infer0[(Ax)]{\Gamma,A\vdash A}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash \bot}
+        \infer1[($\bot\!$ E)]{\Gamma\vdash A}
+    \end{prooftree}
+    \]
+
+    \[
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A}
+        \hypo{\Gamma\vdash B}
+        \infer2[($\land\!$ I)]{\Gamma\vdash A \land B}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A \land B}
+        \infer1[($\land\!$ E1)]{\Gamma\vdash A}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A \land B}
+        \infer1[($\land\!$ E2)]{\Gamma\vdash B}
+    \end{prooftree}
+    \]
+
+    \[
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A}
+        \infer1[($\lor\!$ I1)]{\Gamma\vdash A \lor B}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A}
+        \infer1[($\lor\!$ I2)]{\Gamma\vdash B \lor A}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A \lor B}
+        \hypo{\Gamma,A\vdash C}
+        \hypo{\Gamma,B\vdash C}
+        \infer3[($\lor\!$ E)]{\Gamma\vdash C}
+    \end{prooftree}
+    \]
+
+    \[
+    \begin{prooftree}
+        \hypo{\Gamma,A\vdash B}
+        \infer1[($\to\!$ I)]{\Gamma\vdash A \to B}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash A \to B}
+        \hypo{\Gamma\vdash A}
+        \infer2[($\to\!$ E)]{\Gamma\vdash B}
+    \end{prooftree}
+    \]
+    \caption{Reguły wnioskowania w intuicjonistycznym rachunku zdań (IRZ).}
+\end{figure}
+
+Oprócz tego definiujemy negację jako $\neg A \coloneqq A \to \bot$. Dzięki tej definicji oraz regule ($\to\!$~E) możemy wywieść
+\[
+\begin{prooftree}
+    \hypo{\Gamma\vdash A}
+    \hypo{\Gamma\vdash \neg A}
+    \infer2[($\neg\!$ E)]{\Gamma\vdash \bot}
+\end{prooftree}
+\]
+Oznaczamy również prawdę przez $\top \coloneqq \neg\bot = \bot \to \bot$.
+
+\begin{example}
+    Pokaż, że w IRZ zachodzi \vocab{słabe prawo podwójnej negacji}, czyli $A \to \neg\neg A$.
+\end{example}
+\begin{solution}
+    Z definicji negacji mamy $\neg\neg A = (A \to \bot) \to \bot$, więc musimy pokazać $A \to ((A\to\bot) \to \bot)$.
+    \[
+    \begin{prooftree}
+        \infer0[(Ax)]{A, A\to\bot \vdash A\to\bot}
+        \infer0[(Ax)]{A, A\to\bot \vdash A}
+        \infer2[($\to\!$ E)]{A, A\to\bot \vdash \bot}
+        \infer1[($\to\!$ I)]{A \vdash (A\to\bot) \to \bot}
+        \infer1[($\to\!$ I)]{\vdash A \to ((A\to\bot) \to \bot)}
+    \end{prooftree}
+    \]
+\end{solution}
+
+\begin{example}
+    Pokaż, że w IRZ zachodzi \vocab{prawo kontrapozycji}, czyli $(A \to B) \to (\neg B \to \neg A)$.
+\end{example}
+\begin{solution}
+    Z definicji negacji mamy $\neg B = B \to \bot$ oraz $\neg A = A \to \bot$, więc musimy pokazać $(A \to B) \to ((B\to\bot) \to (A\to\bot))$.
+    \[
+    \resizebox{\hsize}{!}{
+    \begin{prooftree}
+        \infer0[(Ax)]{A\to B, B \to \bot, A \vdash B \to \bot}
+        \infer0[(Ax)]{A\to B, B \to \bot, A \vdash A \to B}
+        \infer0[(Ax)]{A\to B, B \to \bot, A \vdash A}
+        \infer2[($\to\!$ E)]{A \to B, B \to \bot, A \vdash B}
+        \infer2[($\to\!$ E)]{A \to B, B \to \bot, A \vdash \bot}
+        \infer1[($\to\!$ I)]{A \to B, B \to \bot \vdash A\to\bot}
+        \infer1[($\to\!$ I)]{A \to B \vdash (B \to \bot) \to (A \to \bot)}
+        \infer1[($\to\!$ I)]{\vdash (A \to B) \to ((B \to \bot) \to (A \to \bot))}
+    \end{prooftree}
+    }
+    \]
+\end{solution}
+
+\subsubsection{Związek z logiką klasyczną}
+
+Dokładając do reguł wnioskowania IRZ \vocab{silne prawo podwójnej negacji} ($\neg\neg A \to A$) lub \vocab{prawo wyłączonego środka} ($A \lor \neg A$),  otrzymujemy logikę klasyczną.
+W przypadku prawa podwójnej negacji jest to oczywiste. W przypadku prawa wyłączonego środka (EM) można to pokazać następująco:
+\[
+\resizebox{\hsize}{!}{
+\begin{prooftree}
+    \infer0[(\textcolor{AccColor1}{EM})]{(A \to \bot) \to \bot \vdash A \lor (A \to \bot)}
+    \infer0[(Ax)]{(A \to \bot) \to \bot, A \vdash A}
+    \infer0[(Ax)]{\Gamma \vdash (A \to \bot) \to \bot}
+    \infer0[(Ax)]{\Gamma \vdash A \to \bot}
+    \infer2[($\to\!$ E)]{\Gamma \vdash \bot}
+    \infer1[($\bot\!$ E)]{\Gamma \vdash A}
+    \infer3[($\lor\!$ E)]{(A \to \bot) \to \bot \vdash A}
+    \infer1[($\to\!$ I)]{\vdash (A \to \bot) \to \bot \to A}
+\end{prooftree}
+}
+\]
+gdzie $\Gamma = \{(A \to \bot) \to \bot, A \to \bot\}$.
+
+\begin{problem}
+    Pokazać, że prawo wyłączonego środka nie jest dowodliwe w IRZ.
+\end{problem}
+
+\begin{remark*}[ciekawostka]
+    Istnieją tautologie KRZ, które nie są dowodliwe w IRZ, ale po dodaniu do IRZ jako aksjomaty nie prowadzą do logiki klasycznej, tworząc logiki \enquote{pomiędzy} intuicjonistyczną i klasyczną. Przykłady:
+    \begin{itemize}
+        \item IRZ + $(\neg A \lor \neg\neg A)$\footnote{słabe prawo wyłączonego środka} --- logika Jankova (de Morgana), w której zachodzą wszystkie cztery prawa de Morgana,
+        \item IRZ + $((A \to B) \lor (B \to A))$ --- logika Gödla-Dummeta, w której wartościowania formuł można interpretować jako liczby z przedziału $[0,1]$.
+    \end{itemize}
+\end{remark*}
+
+Skoro zbiór reguł wnioskowania IRZ jest podzbiorem zbioru reguł wnioskowania KRZ, to każda formuła dowodliwa IRZ jest również dowodliwa w KRZ.
+
+\subsubsection{Semantyka}
+
+Trochę zaniedbując formalizmy, skupimy się przez chwilę na wartościowaniach formuł logicznych.
+Możemy określić \vocab{semantykę} dla logiki klasycznej, przypisując formułom prawdziwym wartość $1$, a formułom fałszywym wartość $0$ (definiując przy okazji funkcje $\land, \lor, \to$).
+Dla logiki intuicjonistycznej jest to trudniejsze, ale i ciekawsze. Pokażemy dwa z (nieskończenie) wielu możliwych sposobów.
+Oba z nich są \vocab{algebrami Heytinga}, których nie będziemy tutaj definiować.
+Warto jednak wiedzieć, że formuła logiczna jest tautologią IRZ wtedy i tylko wtedy, gdy jest prawdziwa w każdej algebrze Heytinga.
+
+\paragraph{Semantyka topologiczna}
+Możemy zdefiniować semantykę za pomocą topologii na $\RR$:
+\begin{align*}
+    \llbracket \bot \rrbracket &= \emptyset, \\
+    \llbracket \top \rrbracket &= \RR, \\
+    \llbracket A \land B \rrbracket &= \llbracket A \rrbracket \cap \llbracket B \rrbracket, \\
+    \llbracket A \lor B \rrbracket &= \llbracket A \rrbracket \cup \llbracket B \rrbracket, \\
+    \llbracket A \to B \rrbracket &= \opname{int}\left(\llbracket A \rrbracket^\complement \cup \llbracket B \rrbracket\right), \\
+    \llbracket A \rrbracket &= \text{dowolny otwarty podzbiór $\RR$.}
+\end{align*}
+Wtedy
+\[ \llbracket \neg A \rrbracket = \llbracket A \to \bot \rrbracket = \opname{int}\left(\llbracket A \rrbracket^\complement \cup \emptyset\right) = \opname{int}\left(\llbracket A \rrbracket^\complement\right) \]
+
+Można przy pomocy takiej semantyki pokazać, że prawo wyłączonego środka nie jest dowodliwe w IRZ. Pod $\llbracket A \rrbracket$ możemy podstawić np. zbiór $(0, \infty)$, wtedy
+\[ \llbracket A \lor \neg A \rrbracket = \llbracket A \rrbracket \cup \llbracket \neg A \rrbracket = \llbracket A \rrbracket \cup \opname{int}\left(\llbracket A \rrbracket^\complement\right) = (0, \infty) \cup (-\infty, 0) \neq \RR \]
+
+\paragraph{Semantyka kraty dystrybutywnej}
+Krata to zbiór częściowo uporządkowany, w którym istnieją kresy dolne i górne dowolnych par elementów.
+Będziemy je przedstawiać za pomocą \vocab{diagramów Hassego}\footnote{Czym dokładnie jest diagram Hassego można dowiedzieć się na \href{https://pl.wikipedia.org/wiki/Diagram_Hassego}{Wikipedii}.}.
+Definiujemy działania
+\begin{align*}
+    a \land b &\coloneqq \inf\{a, b\}, \\
+    a \lor b &\coloneqq \sup\{a, b\}.
+\end{align*}
+
+Krata dystrybutywna to krata, w której zachodzą prawa rozdzielności:
+\begin{align*}
+    a \land (b \lor c) &= (a \land b) \lor (a \land c), \\
+    a \lor (b \land c) &= (a \lor b) \land (a \lor c).
+\end{align*}
+
+Można udowodnić, że każda niepusta i skończona krata jest ograniczona, czyli posiada elementy najmniejszy i największy. Krata, która jest niepusta, skończona i dystrybutywna posłuży nam do zdefiniowania semantyki:
+\begin{align*}
+    \llbracket \bot \rrbracket &= \text{element najmniejszy}, \\
+    \llbracket \top \rrbracket &= \text{element największy}, \\
+    \llbracket A \land B \rrbracket &= \llbracket A \rrbracket \land \llbracket B \rrbracket, \\
+    \llbracket A \lor B \rrbracket &= \llbracket A \rrbracket \lor \llbracket B \rrbracket, \\
+    \llbracket A \to B \rrbracket &= \sup\{c : c \land \llbracket A \rrbracket \leq \llbracket B \rrbracket\}, \\
+    \llbracket A \rrbracket &= \text{dowolny element kraty.}
+\end{align*}
+Wtedy
+\[ \llbracket \neg A \rrbracket = \llbracket A \to \bot \rrbracket = \sup\{c : c \land \llbracket A \rrbracket \leq \llbracket \bot \rrbracket\} = \sup\{c : c \land \llbracket A \rrbracket = \llbracket \bot \rrbracket\} \]
+
+Biorąc przykładową kratę
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=2]
+        \tikzset{dot/.style={circle, fill, inner sep=1.5pt}}
+        \tikzset{every label/.append style={font=\scriptsize}}
+
+        \node[dot,label=left:$a$]         (B) at (-0.5,0.5) {};
+        \node[dot,label=above:$\llbracket \top \rrbracket$] (D) at (0,1) {};
+        \node[dot,label=above right:$b$]  (C) at (0.5,0.5) {};
+        \node[dot,label=below left:$c$]   (A) at (0,0) {};
+        \node[dot,label=right:$d$]        (E) at (1,0) {};
+        \node[dot,label=below:$\llbracket \bot \rrbracket$] (F) at (0.5,-0.5) {};
+
+        \draw (B) -- (D) -- (C) -- (A) -- (B);
+        \draw (A) -- (C) -- (E) -- (F) -- (A);
+    \end{tikzpicture}
+\end{figure}
+możemy udowodnić, że prawo wyłączonego środka nie jest dowodliwe w IRZ. Jeśli weźmiemy $\llbracket A \rrbracket = c$, to $\llbracket \neg A \rrbracket = d$, więc $\llbracket A \lor \neg A \rrbracket = c \lor d = b \neq \llbracket \top \rrbracket$.
+
+\begin{problem}
+    Pokazać, że silne prawo podwójnej negacji nie jest dowodliwe w IRZ na podstawie dwóch powyższych semantyk.
+\end{problem}
+
+\begin{problem}
+    Stwierdzić, które z czterech praw de Morgana są dowodliwe w IRZ.
+\end{problem}
+
+\subsection{Rachunek lambda}
+
+Rachunek lambda to język złożony z termów, z których każdy to:
+\begin{itemize}
+    \item zmienna (zazwyczaj oznaczana małą literą, np. $x$),
+    \item $\lambda$-abstrakcja postaci $\lambda x\ldotp M$, gdzie $x$ jest zmienną, a $M$ jest termem,
+    \item aplikacja postaci $MN$, gdzie $M$ i $N$ są termami.
+\end{itemize}
+
+Formalnie termy można więc zdefiniować następująco:
+\[ M \Coloneqq x \mid (\lambda x\ldotp M) \mid (MM), \]
+gdzie $x$ reprezentuje dowolną zmienną.
+
+Aby uprościć zapis, będziemy pisać $MNP$ zamiast $(MN)P$ -- to znaczy stwierdzamy, że aplikacja jest łączna lewostronnie. Ponadto, wiele $\lambda$-abstrakcji zapisujemy jako $\lambda x_1 \ldots x_n\ldotp M$, co jest równoważne termowi $\lambda x_1\ldotp (\lambda x_2\ldotp (\ldots (\lambda x_n\ldotp M) \ldots))$. Kropka w tym zapisie jest bardzo istotna, np.
+\begin{align*}
+    \lambda xyz\ldotp M &= \lambda x\ldotp (\lambda y\ldotp (\lambda z\ldotp M)), \\
+    \lambda xy\ldotp z M &= \lambda x\ldotp (\lambda y\ldotp (z M)).
+\end{align*}
+
+W termie $\lambda x\ldotp M$ zmienna $x$ jest \vocab{zmienną związaną} w $M$.
+Zmienne występujące w $M$, które nie są związane przez żadną $\lambda$-abstrakcję, nazywamy \vocab{zmiennymi wolnymi}.
+Na przykład w termie $\lambda x\ldotp (x y)$ zmienna $x$ jest zmienną związaną, a $y$ jest zmienną wolną.
+W termie $xz(\lambda xy\ldotp (xyz))$ zmienna $x$ raz występuje jako zmienna wolna, a raz jako związana. Takich sytuacji będziemy unikać ze względów czysto estetycznych.
+
+Zbiór zmiennych wolnych termu $M$ oznaczamy jako $\FV(M)$.
+Term nazywamy \vocab{termem zamkniętym} lub \vocab{kombinatorem}, jeśli $\FV(M) = \emptyset$.
+
+\begin{remark}
+    Formalnie definiujemy $\FV(M)$ rekurencyjnie:
+    \begin{align*}
+        \FV(x) &= \{x\}, \\
+        \FV(\lambda x\ldotp M) &= \FV(M) \setminus \{x\}, \\
+        \FV(MN) &= \FV(M) \cup FV(N).
+    \end{align*}
+\end{remark}
+
+\subsubsection{Alfa-konwersja}
+
+\vocab{$\alpha$-konwersja} to przekształcenie termu, które polega na zmianie nazwy zmiennej (unikając kolizji oznaczeń zmiennych). Wprowadzamy relację równoważności $\equiv_\alpha$ w zbiorze termów $\Lambda$ w ten sposób, że dane dwa termy $M$ i $N$ są równoważne, jeśli można otrzymać jeden z drugiego poprzez (wielokrotne) $\alpha$-konwersje. Na przykład:
+\[ a (\lambda b\ldotp bc) \equiv_\alpha a (\lambda d\ldotp dc), \]
+natomiast
+\[ \lambda a\ldotp ab \nequiv_\alpha \lambda b\ldotp bb, \]
+ponieważ zamiana zmiennej $a$ na $b$ prowadzi do kolizji oznaczeń zmiennych.
+
+Od tej pory utożsamiamy ze sobą termy różniące się jedynie nazwami zmiennych, czyli jeśli $M \equiv_\alpha N$, to $M$ i $N$ są tym samym termem.
+
+\begin{remark}
+    Bardziej formalnie, od tej pory będziemy operować na klasach abstrakcji relacji $\equiv_\alpha$ (elementach zbioru $\Lambda/{\equiv_\alpha}$), podobnie jak przy działaniach modulo operujemy na klasach abstrakcji relacji przystawania modulo $p$ (elementach zbioru $\ZZ/{\equiv_p}$).
+\end{remark}
+
+Będziemy stosować dosyć uniwersalny zapis $M[x \coloneqq N]$ na term, który powstał z termu $M$ poprzez zastąpienie wszystkich \emph{wolnych} wystąpień zmiennej $x$ termem $N$.
+Zakładamy przy tym, że żadna zmienna wolna w $N$ nie zacznie być związana w $M[x \coloneqq N]$ (ponownie unikamy kolizji oznaczeń).
+
+\subsubsection{Beta-redukcja}
+
+\vocab{$\beta$-redukcja} to taka relacja $\to_\beta$ w zbiorze termów $\Lambda$, że $M \to_\beta N$, gdy \vocab{$\beta$-redeks} postaci $(\lambda x\ldotp P)Q$ w termie $M$ zostaje zastąpiony przez $P[x \coloneqq Q]$ w termie $N$.
+Bardziej formalnie, jest to najmniejsza relacja w zbiorze $\Lambda$ spełniająca następujące warunki:
+\begin{enumerate}
+    \item $(\lambda x\ldotp P)Q \to_\beta P[x \coloneqq Q]$,
+    \item jeśli $M \to_\beta M'$, to
+    \begin{itemize}[nosep]
+        \item $MN \to_\beta M'N$,
+        \item $NM \to_\beta NM'$,
+        \item $\lambda x\ldotp M \to_\beta \lambda x\ldotp M'$.
+    \end{itemize}
+\end{enumerate}
+
+Jeśli w termie występuje więcej niż jeden $\beta$-redeks, to $\beta$-redukcja nie jest deterministyczna -- możemy wybrać dowolny z nich i wykonać redukcję.
+Przez $\toto_\beta$ oznaczamy domknięcie przechodnio-zwrotne relacji $\to_\beta$ (czyli najmniejsza relacja przechodnia i zwrotna, która zawiera relację $\to_\beta$), a przez $=_\beta$ jej domknięcie równoważnościowe.
+
+\begin{example}
+    \label{eq:beta-reduction}
+    Pokazane poniżej są różne ścieżki redukcyjne dla podanego termu.
+    \tikzset{>={Computer Modern Rightarrow[scale=1.3]}}
+    \begin{center}
+        \begin{tikzpicture}
+            \node (start) at (0, 0) {$\left(\lambda x\ldotp xx\right)\left(\left(\lambda y\ldotp y\right) z\right)$};
+            \node (A) at (3, 2) {$\left(\lambda x\ldotp xx\right)z$};
+            \node (B) at (2, -2) {$\left(\left(\lambda y\ldotp y\right) z\right)\left(\left(\lambda y\ldotp y\right) z\right)$};
+            \node (B2) at (6, -2) {$\left(\left(\lambda y\ldotp y\right) z\right)z$};
+            \node (end) at (9, 0) {$zz$};
+            \draw[->] (start) to node[above left] {\footnotesize$\beta$} (A);
+            \draw[->] (start) to node[below left] {\footnotesize$\beta$} (B);
+            \draw[->] (B) to node[below] {\footnotesize$\beta$} (B2);
+            \draw[->] (B2) to node[below right] {\footnotesize$\beta$} (end);
+            \draw[->] (A) to node[above] {\footnotesize$\beta$} (end);
+        \end{tikzpicture}
+    \end{center}
+\end{example}
+
+\begin{theorem}[Churcha-Rossera]
+    Jeśli $M \toto_\beta P$ oraz $M \toto_\beta Q$, to istnieje takie $M'$, że $P \toto_\beta M'$ i $Q \toto_\beta M'$.
+\end{theorem}
+
+Jest to jedno z ważniejszych twierdzeń rachunku lambda, mówiące o tym, że relacja $\toto_\beta$ ma \vocab{własność rombu} (ang. \textit{diamond property}), której notabene nie ma relacja $\to_\beta$ (czego dowodzi przykład \ref{eq:beta-reduction}). Jeśli dopełnienie przechodnio-zwrotne relacji ma własność rombu, to mówimy, że relacja ta jest \vocab{konfluentna}. Powyższe twierdzenie mówi więc, że relacja $\to_\beta$ jest konfluentna.
+
+\begin{figure}[H]
+    \centering
+    \tikzset{>={Computer Modern Rightarrow[scale=1.3]}}
+    \begin{tikzpicture}[scale=0.8]
+        \node (M) at (0, 0) {$M$};
+        \node (P) at (-2, -2) {$P$};
+        \node (Q) at (2, -2) {$Q$};
+        \node (X) at (0, -4) {$\cdot$};
+        \draw[->>] (M) to node[above left] {\footnotesize$\beta$} (P);
+        \draw[->>] (M) to node[above right] {\footnotesize$\beta$} (Q);
+        \draw[->>] (P) to node[below left] {\footnotesize$\beta$} (X);
+        \draw[->>] (Q) to node[below right] {\footnotesize$\beta$} (X);
+    \end{tikzpicture}
+    \caption{Własność rombu relacji $\toto_\beta$.}
+    \label{fig:church-rosser}
+\end{figure}
+
+Prostym wnioskiem z tego twierdzenia jest fakt, że każdy term ma co najwyżej jedną postać normalną, to znaczy pozbawioną $\beta$-redeksów.
+Dlaczego \emph{co najwyżej}, a nie \emph{dokładnie}? Na przykład term
+\[ \symbf{\Omega} \coloneqq \left(\lambda x\ldotp xx\right)\left(\lambda x\ldotp xx\right) \]
+posiada tylko jeden $\beta$-redeks, a jego redukcja prowadzi do termu $\symbf{\Omega}$ (co Czytelnik raczy sprawdzić), czyli $\symbf{\Omega} \to_\beta \symbf{\Omega}$. Term $\symbf{\Omega}$ nie ma więc postaci normalnej.
+
+\subsubsection{Kombinator punktu stałego}
+Kombinator $\symbf{Y} \coloneqq \lambda f\ldotp (\lambda x\ldotp f (xx)) (\lambda x\ldotp f (xx))$ nazywamy \vocab{kombinatorem punktu stałego}. Ma on tę ciekawą własność, że dla każdego termu $F \in \Lambda$, zachodzi
+\[ F(\symbf{Y}(F)) =_\beta \symbf{Y}(F), \]
+ponieważ
+\[ F(\symbf{Y}(F)) \to_\beta F\left((\lambda x\ldotp F (xx)) (\lambda x\ldotp F (xx))\right) \]
+oraz
+\begin{align*}
+    \symbf{Y}(F) &\to_\beta (\lambda x\ldotp F (xx)) (\lambda x\ldotp F (xx)) \\
+    &\to_\beta F\left((\lambda x\ldotp F (xx)) (\lambda x\ldotp F (xx))\right).
+\end{align*}
+
+\begin{problem}
+    Znajdź term $P$ taki, że $Px =_\beta P$.
+\end{problem}
+
+\begin{problem}
+    Znajdź term $P$ taki, że $Px =_\beta xP$.
+\end{problem}
+
+\subsubsection{Eta-redukcja}
+
+\vocab{$\eta$-redukcja} to taka relacja $\to_\eta$ w zbiorze termów $\Lambda$, że $M \to_\eta N$, gdy \vocab{$\eta$-redeks} postaci $\lambda x\ldotp Px$ w termie M zostaje zastąpiony przez $P$ w termie $N$, zakładając $x \notin \FV(P)$.
+Bardziej formalnie, jest to najmniejsza relacja w zbiorze $\Lambda$ spełniająca następujące warunki:
+\begin{enumerate}
+    \item jeśli $x \notin \FV(P)$, to $\lambda x\ldotp Px \to_\eta P$,
+    \item jeśli $M \to_\eta M'$, to
+    \begin{itemize}[nosep]
+        \item $MN \to_\eta M'N$,
+        \item $NM \to_\eta NM'$,
+        \item $\lambda x\ldotp M \to_\eta \lambda x\ldotp M'$.
+    \end{itemize}
+\end{enumerate}
+
+Tak jak poprzednio, domknięcie przechodnio-zwrotne relacji $\to_\eta$ oznaczamy przez $\toto_\eta$. Ponadto, sumę relacji $\to_\beta$ i $\to_\eta$ oznaczamy przez $\to_{\beta\eta}$, a jej domknięcie przechodnio-zwrotne przez $\toto_{\beta\eta}$.
+
+\begin{theorem}[Churcha-Rossera dla $\eta$-redukcji i $\beta\eta$-redukcji]
+    Relacje $\to_\eta$ oraz $\to_{\beta\eta}$ są konfluentne.
+\end{theorem}
+
+\subsubsection{Wyrażalność algorytmów w rachunku lambda}
+
+Liczby naturalne możemy reprezentować w rachunku lambda za pomocą tzw. \vocab{liczebników Churcha}:
+\[ \symbf{n} = \lambda fx\ldotp f^n(x), \]
+na przykład
+\begin{align*}
+    \symbf{0} &= \lambda fx\ldotp x, \\
+    \symbf{1} &= \lambda fx\ldotp f(x), \\
+    \symbf{2} &= \lambda fx\ldotp f(f(x)), \\
+    \symbf{3} &= \lambda fx\ldotp f(f(f(x))).
+\end{align*}
+Wtedy operacja następnika jest reprezentowana przez term
+\[ \symbf{succ} = \lambda nfx\ldotp f(nfx), \]
+a dodawanie przez term
+\[ \symbf{add} = \lambda mnfx\ldotp mf(nfx). \]
+Instrukcje warunkowe można zaimplementować za pomocą termów
+\[ \symbf{true} = \lambda xy\ldotp x, \]
+\[ \symbf{false} = \lambda xy\ldotp y, \]
+wtedy instrukcja warunkowa \texttt{if B then M else N} jest reprezentowana przez term
+\[ \symbf{if} = \lambda B M N\ldotp B M N. \]
+Istotnie,
+\begin{align*}
+    \symbf{if}\ \symbf{true}\ M\ N &\to_\beta (\lambda xy\ldotp x) M N \to_\beta M, \\
+    \symbf{if}\ \symbf{false}\ M\ N &\to_\beta (\lambda xy\ldotp y) M N \to_\beta N.
+\end{align*}
+Porównanie liczby $n$ do zera można zaimplementować za pomocą termu
+\[ \symbf{iszero} = \lambda n\ldotp n (\lambda x\ldotp \symbf{false})\ \symbf{true}. \]
+
+\begin{problem}
+    Zdefiniuj w rachunku lambda negację, koniunkcję, alternatywę oraz implikację.
+\end{problem}
+
+\begin{problem}
+    Zdefiniuj w rachunku lambda funkcje mnożenia oraz potęgowania liczb naturalnych.
+\end{problem}
+
+\begin{problem}
+    Zdefiniuj w rachunku lambda funkcję poprzednika liczby naturalnej. Poprzednik zera powinien zwracać zero.
+\end{problem}
+
+\begin{problem}
+    Zdefiniuj w rachunku lambda funkcję obliczającą $n!$.
+\end{problem}
+
+\begin{theorem}[Kleene'a]
+    Każda funkcja częściowo rekurencyjna jest reprezentowalna w rachunku lambda.
+\end{theorem}
+Twierdzenie odwrotne również jest prawdziwe. Funkcje częściowo rekurencyjne to dokładnie te funkcje, które są obliczalne przez maszyny Turinga. Z powyższego twierdzenia wynika więc, że rachunek lambda jest modelem obliczalności równoważnym maszynom Turinga.
+
+\subsection{Typowany rachunek lambda}
+
+Do rachunku lambda będziemy chcieli dodać typy w następujący sposób. Każdy term rachunku lambda będzie miał przypisany pewien typ, co będziemy zapisywać jako $M : \tau$, gdzie $M$ jest termem, a $\tau$ jest typem. Niech $\symbb{A}$ będzie zbiorem \vocab{typów atomowych}. Zbiór wszystkich typów $\symbb{T}$ definiujemy rekurencyjnie:
+\begin{align*}
+    \alpha &\in \symbb{A} \implies \alpha \in \symbb{T}, \\
+    \sigma, \tau &\in \symbb{T} \implies (\sigma \to \tau) \in \symbb{T},
+\end{align*}
+gdzie druga reguła jest \vocab{konstruktorem typów funkcyjnych}. Zakładamy przy tym, że nie istnieją typy $\alpha, \beta, \gamma \in \symbb{A}$ takie, że $\alpha \to \beta = \gamma$. Zamiast pisać $\sigma \to (\tau \to \rho)$, będziemy pisać $\sigma \to \tau \to \rho$ (operator $\to$ jest łączny prawostronnie).
+
+\begin{figure}[H]
+    \[
+    \begin{prooftree}
+        \infer0[(Ax)]{\Gamma,x:A\vdash x:A}
+    \end{prooftree}
+    \]
+    \[
+    \begin{prooftree}
+        \hypo{\Gamma,x:A\vdash M:B}
+        \infer1[($\lambda$ abs)]{\Gamma\vdash \lambda x\ldotp M:(A\to B)}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+        \hypo{\Gamma\vdash M:(A \to B)}
+        \hypo{\Gamma\vdash N:A}
+        \infer2[($\lambda$ app)]{\Gamma\vdash MN:B}
+    \end{prooftree}
+    \]
+    \caption{Reguły przypisania typów.}
+\end{figure}
+
+\begin{example}
+    Niech $\symbb{A} = \{\alpha\}$. Wtedy term $\symbf{true} = \lambda x\ldotp \lambda y\ldotp x$ ma typ $\alpha \to \alpha \to \alpha$, ponieważ
+    \[
+    \begin{prooftree}
+        \infer0[(Ax)]{x:\alpha,y:\alpha\vdash x:\alpha}
+        \infer1[($\lambda$ abs)]{x:\alpha\vdash \lambda y\ldotp x:\alpha \to \alpha}
+        \infer1[($\lambda$ abs)]{\vdash \lambda x\ldotp \lambda y\ldotp x:\alpha \to \alpha \to \alpha}
+    \end{prooftree}
+    \]
+    Oznaczając $\alpha \to \alpha \to \alpha$ przez $\symbb{B}$ (typ boolowski), możemy pokazać, że term $\symbf{neg}\ \symbf{true}$ również ma typ $\symbb{B}$.
+\end{example}
+
+\subsubsection{Izomorfizm Curry'ego-Howarda}
+
+Pokazany powyżej system typów możemy rozszerzyć o konstruktory typów $\land$ i $\lor$ oraz dodać do $\symbb{A}$ specjalny typ $\bot$, który nie będzie przypisany żadnemu termowi.
+Reguły przypisania typów należałoby wtedy rozszerzyć o odpowiednie zasady konstrukcji i destrukcji dla tych nowych typów.
+
+Izomorfizm Curry'ego-Howarda to twierdzenie, które łączy logikę i tak zbudowaną teorię typów.
+Mówi ono, że jeśli formułom logicznym przypiszemy odpowiednie typy, a dowodom tych formuł przypiszemy odpowiednie termy, to otrzymamy izomorfizm postaci:
+\[ \text{formuła ma dowód} \iff \text{typ ma term}. \]
+W ten sposób możemy przepisać formułę logiczną do postaci typu i udowodnić ją, konstruując term tego typu.
+W tym właśnie procesie przydaje się oprogramowanie takie jak Lean.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ll}
+        \hline
+        logika intuicjonistyczna & typowany rachunek lambda \\
+        \hline
+        formuła $A$ & typ $A \in \symbb{T}$ \\
+        dowód formuły $A$ & term typu $A$ \\
+        implikacja & typ funkcyjny ($\to$) \\
+        formuła niedowodliwa & typ nieposiadający termu \\
+        tautologia & typ kombinatora \\
+        \hline
+    \end{tabular}
+    \caption{Odpowiadające sobie pojęcia w logice i w typowanym rachunku lambda.}
+\end{table}
+
+\section{Podstawy dowodzenia w Lean}
+
+Polecam używać VS Code z rozszerzeniem \textbf{Lean 4} lub Neovim z rozszerzeniem \textbf{lean.nvim}.
+Aby rozpocząć pracę, należy stworzyć projekt za pomocą
+\begin{minted}{bash}
+lake new project-name math-lax
+\end{minted}
+który od razu dodaje Mathlib (de facto bibliotekę standardową, zawierającą wiele twierdzeń z różnych działów matematyki) do wymaganych zależności.
+
+\subsection{Składnia -- bardzo krótki wstęp}
+
+Póki co nie będziemy się zagłębiać w składnię, a jedynie wymienimy kilka podstawowych elementów, które posłużą nam do w miarę swobodnego poruszania się w Leanie (a przynajmniej jego części dotyczącej dowodzenia twierdzeń matematycznych).
+
+\subparagraph{Funkcje i stałe}
+Funkcje (oraz stałe, które są funkcjami stałej wartości) definiujemy za pomocą słowa kluczowego \Lean{def}, na przykład:
+\begin{minted}{lean4}
+def add (a b : Nat) : Nat := a + b
+\end{minted}
+definiuje funkcję \Lean{add}, która przyjmuje dwie liczby naturalne (typ \Lean{Nat}) i zwraca ich sumę.
+
+\subparagraph{Twierdzenia i przykłady}
+Twierdzenia definiujemy za pomocą słowa kluczowego \Lean{theorem} lub \Lean{lemma}, na przykład:
+\begin{minted}{lean4}
+theorem add_zero (a : Nat) : add a 0 = a := -- dowód
+\end{minted}
+przy czym używanie \Lean{lemma} wymaga dodania Mathliba (\Lean{import Mathlib.Tactic}).
+Jeśli mamy pewne stwierdzenie (z dowodem), którego nie będziemy używać, więc nie potrzebuje nazwy, możemy użyć słowa kluczowego \Lean{example}:
+\begin{minted}{lean4}
+example (a : Nat) : add 0 a = a := -- dowód
+\end{minted}
+Samo sformułowanie twierdzeń, lematów i przykładów jest często pewną trudnością. Możemy być więc w sytuacji, gdy chcemy najpierw sformułować tezę, a jej dowód zostawić na później.
+W takim przypadku nieodzowne będzie słowo kluczowe \Lean{sorry}, dzięki któremu program się skompiluje (z ostrzeżeniem), mimo braku dowodu.
+\begin{minted}{lean4}
+theorem pow_comm (a b : Nat) : a ^ b = b ^ a :=
+  sorry
+\end{minted}
+Oczywiście, taka teza może być fałszywa (jak powyżej).
+
+\begin{remark}[Plausible]
+    Istnieje paczka Leana o nazwie \textbf{Plausible}, która pomaga w szybkim szukaniu kontrprzykładów do hipotez. Jej działania opiera się po prostu na losowym próbkowaniu argumentów i sprawdzaniu, czy teza zachodzi. Jeśli nie, to zwraca znaleziony kontrprzykład (przez informację diagnostyczną błędu kompilacji).
+    \begin{minted}{lean4}
+import Plausible
+
+theorem pow_comm (a b : Nat) : a ^ b = b ^ a := by
+  plausible
+    \end{minted}
+\end{remark}
+
+\subparagraph{Aksjomaty}
+Czasami będziemy chcieli wprowadzić pewne aksjomaty, czyli stwierdzenia przyjmowane bez dowodu. W tym celu używamy słowa kluczowego \Lean{axiom}:
+\begin{minted}{lean4}
+axiom add_comm (a b : Nat) : a + b = b + a
+\end{minted}
+
+\subparagraph{Komentarze}
+Komentować kod można i należy następująco:
+\begin{minted}{lean4}
+def foo : Nat := 42 -- to jest komentarz jednowierszowy
+/- to jest
+komentarz
+wielowierszowy -/
+\end{minted}
+
+\subparagraph{Sprawdzenie typu}
+Sprawdzić typ termu (czyli, przez izomorfizm Curry'ego-Howarda, również wypowiedź twierdzenia), możemy następująco:
+\begin{minted}{lean4}
+#check Nat -- Nat : Type
+#check Nat.add -- Nat.add : Nat → Nat → Nat
+#check Nat.add 1 -- Nat.add 1 : Nat → Nat
+#check Nat.add 1 2 -- Nat.add 1 2 : Nat
+#check Nat.add_comm -- Nat.add_comm (n m : Nat) : n + m = m + n
+\end{minted}
+
+\begin{problem}
+    \label{prob:type-of-type}
+    Skoro \Lean{Nat} jest typu \Lean{Type}, to jaki jest typ \Lean{Type}? Jaki jest typ tego typu?
+\end{problem}
+
+\subparagraph{Ewaluacja funkcji}
+Czasami, zamiast dowodzić twierdzeń, będziemy chcieli po prostu obliczyć wartość pewnej funkcji. Możemy to zrobić tak:
+\begin{minted}{lean4}
+#eval Nat.add 2 3 -- 5
+\end{minted}
+
+\subparagraph{Operatory potoku i odwróconego potoku}
+Jak na porządny język programowania przystało, Lean posiada operatory umożliwiające kontrolę kolejności ewaluacji wyrażeń. Operatory \texttt{<|} i \texttt{|>} zachowują się tak samo jak w F\# czy Elm, sam operator \texttt{|>} znajdziemy również w Elixirze czy OCamlu.
+W Haskellu odpowiadają one odpowiednio operatorom \texttt{\$} i \texttt{\&}. Przykłady użycia:
+\begin{minted}{lean4}
+#eval Nat.add 1 (Nat.mul 2 3)   -- 7
+#eval Nat.add 1 <| Nat.mul 2 3  -- 7
+#eval Nat.mul 2 3 |> Nat.add 1  -- 7
+\end{minted}
+
+\subsubsection{Tryby dowodzenia}
+
+Dowodząc twierdzenie, lemat, czy przykład, możemy wybrać jeden z dwóch trybów:
+\begin{itemize}
+    \item \vocab{tryb termowy} (ang. \textit{term mode}), w którym dowód jest pojedynczym (potencjalnie długim) termem,
+    \item \vocab{tryb taktyczny} (ang. \textit{tactic mode}), w którym dowód jest ciągiem \vocab{taktyk} modyfikujących stan dowodu.
+\end{itemize}
+Pierwszy jest zbliżony do rachunku lambda, drugi bardziej przypomina tradycyjne dowodzenie matematyczne. Często proste fakty łatwiej udowodnić w trybie termowym, a bardziej złożone w trybie taktycznym.
+Oto przykład dowodu (a właściwie zastosowania twierdzenia) w obu trybach:
+\begin{minted}{lean4}
+-- term mode (aplikacja 2a i 2b do twierdzenia Nat.add_comm)
+example (a b : Nat) : 2 * a + 2 * b = 2 * b + 2 * a := Nat.add_comm (2 * a) (2 * b)
+-- tactic mode (po by następuje taktyka rw)
+example (a b : Nat) : 2 * a + 2 * b = 2 * b + 2 * a := by rw [Nat.add_comm]
+\end{minted}
+
+\subsubsection{Argumenty i ich rodzaje}
+
+Czytelnik już zapewne zdążył zauważyć, że twierdzenia w Leanie zazwyczaj przyjmują argumenty. Na przykład w twierdzeniu \Lean{Nat.add_comm} mamy argumenty \Lean{(n : Nat)} i \Lean{(m : Nat)}, zapisywane jako \Lean{(n m : Nat)}.
+Takimi argumentami będą również założenia twierdzenia, na przykład w:
+\begin{minted}{lean4}
+theorem tw (a : Nat) (b : Nat) (c : Nat) (h₁ : a < b) (h₂ : b < c) : a < c := sorry
+\end{minted}
+Chcąc użyć takiego twierdzenia, musimy podać wszystkie argumenty, np.
+\begin{minted}{lean4}
+axiom one_lt_two : 1 < 2
+axiom two_lt_three : 2 < 3
+
+#check tw 1 2 3 one_lt_two two_lt_three
+\end{minted}
+
+Widać tutaj więc pewną redundancję -- argumenty \Lean{a}, \Lean{b} i \Lean{c} są w pełni określone przez założenia \Lean{h₁} i \Lean{h₂}.
+Aby tego uniknąć, Lean pozwala na definiowanie argumentów \textit{implicit}, czyli takich, które mogą być pominięte przy wywoływaniu danej funkcji lub twierdzenia. W tym celu używamy nawiasów klamrowych zamiast okrągłych:
+\begin{minted}{lean4}
+theorem tw {a : Nat} {b : Nat} {c : Nat} (h₁ : a < b) (h₂ : b < c) : a < c := sorry
+\end{minted}
+Teraz możemy użyć tego twierdzenia jako
+\begin{minted}{lean4}
+#check tw one_lt_two two_lt_three
+\end{minted}
+
+Oprócz argumentów \textit{explicit} i \textit{implicit} Lean pozwala na definiowanie argumentów \textit{instance implicit} oraz \textit{strict implicit}, oznaczanych odpowiednio przez $[\ldots]$ oraz $⦃\ldots⦄$. Zajmiemy się nimi później.
+
+\subsubsection{Typy Sort, Type i Prop}
+
+W ramach problemu \ref{prob:type-of-type} Czytelnik miał okazję zastanowić się nad typami \Lean{Type}, \Lean{Type 1}, \Lean{Type 2} itd.
+Są one częścią nieskończonej hierarchii typów \Lean{Sort u}, gdzie \Lean{u} jest zmienną uniwersalną oznaczającą poziom uniwersum.
+Typ \Lean{Sort u} jest więc typu \Lean{Sort (u + 1)}.
+\Lean{Type u} jest synonimem dla \Lean{Sort (u + 1)}, a \Lean{Prop} jest synonimem dla \Lean{Sort 0}.
+
+Skąd takie przesunięcie? Typy typu \Lean{Type u} (a więc sorty poziomu co najmniej 1) \enquote{trzymają} pewne obiekty matematyczne, np. term (liczba) $1$ jest \enquote{trzymana} przez typ \Lean{Nat : Type 0}.
+Typy typu \Lean{Prop} (czyli sorty poziomu 0) nie \enquote{trzymają} nic. Tego typu będą więc twierdzenia, od których nie wymagamy (albo nawet nie chcemy), żeby trzymały swój dowód (\textit{proof irrelevance}).
+
+\subsection{Rachunek zdań i pierwsze taktyki}
+
+Od tego miejsca będziemy stosować logikę klasyczną. Jak Lean radzi sobie z rozbieżnościami między logiką intuicjonistyczną a klasyczną? Definiuje aksjomat wyboru:
+\centerLean[,]{axiom Classical.choice {α : Sort u} : Nonempty α → α}
+z którego następnie, dzięki twierdzeniu Diaconescu, wyprowadza prawo wyłączonego środka \Lean{Classical.em} oraz wiele innych praw logiki klasycznej, jak chociażby silne prawo podwójnego przeczenia \Lean{Classical.not_not}. Niżej omawiane taktyki Leana korzystają z tych aksjomatów, gdy jest to konieczne.
+
+\subparagraph{Taktyki \texttt{intro}, \texttt{exact} i \texttt{apply}}
+Jeśli cel dowodzenia znajduje się wśród założeń, to wystarczy go wskazać za pomocą taktyki \Lean{exact}. Jeśli cel jest w postaci \Lean{P → Q}, to możemy użyć taktyki \Lean{intro}, aby wprowadzić do dowodu założenie \Lean{P} i zmienić cel na \Lean{Q}.
+\begin{minted}{lean4}
+example {P : Prop} (h : P) : P := by
+  exact h
+
+example {P : Prop} : P → P := by
+  intro h
+  exact h
+\end{minted}
+
+Jeśli celem jest \Lean{Q}, a mamy wśród założeń \Lean{P → Q}, to możemy użyć taktyki \Lean{apply}, aby zmienić cel na \Lean{P}. Możemy stosować również aplikację znaną z typowanego rachunku lambda.
+\begin{minted}{lean4}
+example {P Q : Prop} (h₁ : P → Q) (h₂ : P) : Q := by
+  apply h₁
+  exact h₂
+
+example {P Q : Prop} (h₁ : P → Q) (h₂ : P) : Q := by
+  exact h₁ h₂
+\end{minted}
+
+\subparagraph{Koniunkcja}
+W Lean istnieje struktura \Lean{And}, której jedynym konstrukturem jest
+\centerLean[.]{And.intro {a b : Prop} (left : a) (right : b) : a ∧ b}
+Jako że \Lean{And.intro} ma typ \Lean{a → b → a ∧ b}, to świetnie nadaje się do użycia z \Lean{apply}, które wprowadzi dwa cele (do rozwiązania jeden po drugim).
+
+Jeśli chcemy w ten sposób użyć konstruktora dowolnej struktury, to możemy użyć taktyki \Lean{constructor}.
+
+\begin{minted}{lean4}
+example {P Q : Prop} (hp : P) (hq : Q) : P ∧ Q := by
+  apply And.intro
+  · exact hp
+  · exact hq
+
+example {P Q : Prop} (hp : P) (hq : Q) : P ∧ Q := by
+  constructor
+  · exact hp
+  · exact hq
+
+example {P Q : Prop} (h : P ∧ Q) : P := by
+  exact h.left
+\end{minted}
+
+
+\subparagraph{Równoważność}
+Struktura \Lean{Iff}, która reprezentuje równoważność logiczną, ma konstruktor
+\centerLean[,]{Iff.intro {a b : Prop} (mp : a → b) (mpr : b → a) : a ↔ b}
+gdzie pierwszy argument to \textit{modus ponens} ($a \implies b$), a drugi to \textit{modus ponens reversed} ($b \implies a$). Sposób użycia jest analogiczny jak w przypadku koniunkcji. Na przykład
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P ↔ Q) : Q → P := by
+  exact h.mpr
+\end{minted}
+
+\subparagraph{Alternatywa}
+Istnieje również struktura \Lean{Or}, której konstruktorami są
+\centerLean{inl {a b : Prop} (h : a) : a ∨ b}
+oraz
+\centerLean[.]{inr {a b : Prop} (h : b) : a ∨ b}
+Aby ich użyć, skorzystamy z taktyki \Lean{cases} lub \Lean{rcases} (które rekurencyjnie wywołuje \Lean{cases} zgodnie z podanym wzorem).
+\begin{minted}{lean4}
+example {P Q R : Prop} (hpq : P ∨ Q) (hpr : P → R) (hqr : Q → R) : R := by
+  cases hpq with
+  | inl hp =>
+    apply hpr
+    exact hp
+  | inr hq =>
+    apply hqr
+    apply hq
+
+example {P Q R : Prop} (hpq : P ∨ Q) (hpr : P → R) (hqr : Q → R) : R := by
+  rcases hpq with hp | hq
+  · apply hpr
+    exact hp
+  · apply hqr
+    apply hq
+\end{minted}
+
+Taktyka \Lean{rcases} może się przydać również przy koniunkcjach i bardziej złożonych zdaniach, na przykład:
+\begin{minted}{lean4}
+example {P Q R S : Prop} (h : S ∧ R ∧ P ∨ S ∧ (Q ∧ R)) : R := by
+  rcases h with ⟨_, hr, _⟩ | ⟨_, ⟨_, hr⟩⟩
+  · exact hr
+  · exact hr
+\end{minted}
+
+Jeśli alternatywa jest naszym celem, a nie założeniem, to przydatne będą taktyki \Lean{left} i \Lean{right}.
+
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P) : P ∨ Q := by
+  left
+  exact h
+\end{minted}
+
+\begin{remark}
+    Dokładniej, taktyka \Lean{constructor} używa pierwszego pasującego konstruktora struktury, a taktyki \Lean{left} i \Lean{right} używają odpowiednio pierwszego i drugiego konstruktora struktury, która ma dokładnie dwa konstruktory. Nie są one przypisane do struktur \Lean{And} i \Lean{Or}. W szczególności, zamiast \Lean{left} zawsze można używać \Lean{constructor}, ale sensowność takiego działania pozostawiamy do oceny Czytelnikowi.
+\end{remark}
+
+\subparagraph{Negacja}
+Podobnie jak w IRZ, \Lean{¬P} definiujemy jako \Lean{P → False}, gdzie \Lean{False} jest typem bez termów (i bez konstruktora). Bardzo łatwo jest więc dowieść, że $\neg (P \land \neg P)$.
+\begin{minted}{lean4}
+example (P : Prop) : ¬(P ∧ ¬P) := by
+  intro h
+  exact h.right h.left
+\end{minted}
+
+Z fałszu możemy oczywiście dowieść wszystko. W Leanie \textit{ex falso quodlibet} jest realizowane przez \Lean{False.elim} lub \Lean{absurd}.
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P) (nh : ¬P) : Q := by
+  exact False.elim (nh h)
+\end{minted}
+
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P) (nh : ¬P) : Q := by
+  exact absurd h nh
+\end{minted}
+
+
+\subparagraph{Taktyki \texttt{assumption}, \texttt{contradiction}, \texttt{trivial} oraz operator \texttt{<;>}}
+Poniższy przykład (reguła \textit{modus tollendo ponens}) Czytelnik powinien już być w stanie zrozumieć. Pokażemy, jak udowodnić go trochę prościej.
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P ∨ Q) (not_p : ¬P) : Q := by
+  rcases h with hp | hq
+  · exact False.elim (not_p hp)
+  · exact hq
+\end{minted}
+
+Zamiast \Lean{exact hq} możemy użyć taktyki \Lean{assumption}, która sprawdza, czy cel jest wśród założeń (nie musimy go wskazywać). Zamiast \Lean{False.elim} możemy użyć taktyki \Lean{contradiction}, która sprawdza, czy wśród założeń znajdują się dwa trywialne sprzeczne stwierdzenia.
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P ∨ Q) (not_p : ¬P) : Q := by
+  rcases h with hp | hq
+  · contradiction
+  · assumption
+\end{minted}
+
+Jeśli nie używamy wprowadzonych założeń (w przykładzie \Lean{hp} i \Lean{hq}), to nie musimy ich nazywać -- dalej będą one dostępne dla taktyk \Lean{assumption} i \Lean{contradiction}.
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P ∨ Q) (not_p : ¬P) : Q := by
+  cases h
+  · contradiction
+  · assumption
+\end{minted}
+
+Istnieje również taktyka \Lean{trivial}, która próbuje rozwiązać cel używając kilku prostych taktyk, jak \Lean{assumption}, \Lean{contradiction} czy \Lean{rfl} (użyteczna przy równościach).
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P ∨ Q) (not_p : ¬P) : Q := by
+  cases h
+  · trivial
+  · trivial
+\end{minted}
+
+Jeśli chcemy użyć tej samej taktyki dla różnych przypadków, to możemy użyć \Lean{<;>} w następujący sposób:
+\begin{minted}{lean4}
+example {P Q : Prop} (h : P ∨ Q) (not_p : ¬P) : Q := by
+  cases h <;> trivial
+\end{minted}
+
+\begin{problem}
+    Zrobić pierwszy zestaw zadań:
+    \inputminted{lean4}{problemsets/problemset01.lean}
+\end{problem}
+
+\subsection{Przekształcenia algebraiczne i równości}
+
+Jeśli nasz cel jest trywialną równością, możemy użyć taktyki \Lean{rfl} (od ang. \textit{reflexivity}).
+\begin{minted}{lean4}
+example (a : Nat) : a = a := by
+  rfl
+
+example : 1 + 1 = 2 := by
+  rfl
+\end{minted}
+
+Jeśli nasz cel nie jest równością, ale wymaga jedynie \emph{obliczenia}, a nie dowodu (jak w drugim przykładzie powyżej), wystarczy użyć taktyki \Lean{decide}.
+\begin{minted}{lean4}
+example : 2 * 3 + 1 ≥ 4 := by
+  decide
+\end{minted}
+
+Często jednak będziemy chcieli użyć jakiejś równości do zmiany fragmentu bardziej skomplikowanej formuły. W tym celu możemy użyć taktyki \Lean{rewrite}, lub \Lean{rw}, która działa jak \Lean{rewrite}, ale próbuje użyć jeszcze \Lean{rfl}.
+\begin{minted}{lean4}
+example (h : a = b) : a^3 + 1 = b^3 + 1 := by
+  rewrite [h]
+  rfl
+
+example (h : a = b) : a^3 + 1 = b^3 + 1 := by
+  rw [h]
+\end{minted}
+Domyślnie te taktyki przepisują lewą stronę równości na prawą. Aby przepisać w drugą stronę, należy użyć \Lean{←} przed nazwą równości.
+\begin{minted}{lean4}
+example {a b c : Nat} (h₁ : 2 * b = a) (h₂ : b = 2 * c) : a = 4 * c := by
+  rewrite [←h₁]
+  rewrite [h₂]
+  rewrite [←Nat.mul_assoc]
+  rfl
+
+example {a b c : Nat} (h₁ : 2 * b = a) (h₂ : b = 2 * c) : a = 4 * c := by
+  rw [←h₁, h₂, ←Nat.mul_assoc]
+\end{minted}
+Jeśli chcemy przepisać nie część celu, a któregoś z założeń, wystarczy go wskazać za pomocą \Lean{at}. Możemy też przepisywać kilka formuł naraz, oddzielając je spacjami, gdzie cel oznaczamy przez \Lean{⊢}.
+\begin{minted}{lean4}
+example {a b c : Nat} (h₁ : 2 * b = a) (h₂ : b = 2 * c) : a = 4 * c := by
+  rw [h₂, ←Nat.mul_assoc] at h₁
+  rw [h₁]
+
+example {a b : Nat} (h_eq : a = b + 1) (h : a + b = 4) : 2 * a = 5 := by
+  rw [h_eq] at h ⊢
+  rw [Nat.two_mul]
+  rw [←Nat.add_assoc (b + 1) b 1]
+  rw [h]
+\end{minted}
+
+Bardzo często będziemy chcieli udowodnić najpierw jakiś cel pośredni, żeby następnie wykorzystać go do udowodnienia głównego celu. W takiej sytuacji nie trzeba definiować nowego lematu, a wystarczy użyć taktyki \Lean{have}.
+\begin{minted}{lean4}
+example {a : Nat} : a * 2 + 1 = 2 * a + 1 := by
+  -- h₁, h₂, h₃ to identyczne założenia
+  have h₁ : a * 2 = 2 * a := by rw [Nat.mul_comm]
+  have h₂ : a * 2 = 2 * a := Nat.mul_comm a 2
+  have h₃ := Nat.mul_comm a 2
+  apply Nat.add_left_inj.mpr
+  assumption
+
+\end{minted}
+Takie założenie działa jak każde inne twierdzenie, możemy je więc udowodnić w trybie termowym lub taktycznym.
+Jeśli udowadniamy je w trybie termowym, to oczywiście nie musimy nawet formułować jego pełnej treści.
+Możemy po \Lean{have} nie dać żadnej nazwy, wtedy Lean automatycznie nazwie to założenie \Lean{this}.
+
+\subsection{Rachunek kwantyfikatorów}
+
+\subparagraph{Kwantyfikator uniwersalny}
+Z kwantyfikatora $\forall$ korzystaliśmy już wielokrotnie, chociaż niebezpośrednio. Na przykład twierdzenie $\forall x \in \mathbb{N} (x + 0 = x)$ zapisywaliśmy jako
+\begin{minted}{lean4}
+theorem add_zero (x : Nat) : x + 0 = x := sorry
+\end{minted}
+Możemy je również zapisać i udowodnić jako
+\begin{minted}{lean4}
+theorem add_zero' : ∀ x : Nat, x + 0 = x := by
+  intro x
+  exact add_zero x
+\end{minted}
+korzystając z poznanej już taktyki \Lean{intro}. Przeciwieństwem \Lean{intro} w tym kontekście jest taktyka \Lean{revert}, która przenosi podaną zmienną z założeń do kwantyfikatora $\forall$ w celu.
+
+\subparagraph{Kwantyfikator egzystencjalny}
+Formuły z kwantyfikatorem $\exists$ najlepiej dowodzić za pomocą dostępnej w \Lean{Mathlib.Tactic.Use} taktyki \Lean{use}.
+\begin{minted}{lean4}
+example : ∃ n : Nat, n > 1000 := by
+  use 1001
+  decide
+\end{minted}
+
+\begin{problem}
+    Dowiedzieć się, jak działa kwantyfikator $\exists!$ w Leanie (zdefiniowany w pliku \Lean{Mathlib.Logic.ExistsUnique}).
+\end{problem}
+
+\begin{problem}
+    Zrobić drugi zestaw zadań:
+    \inputminted{lean4}{problemsets/problemset02.lean}
+\end{problem}
+
+\subsection{Taktyki automatyzujące dowodzenie}
+
+Lean posiada wiele taktyk automatyzujących dowodzenie, z których najważniejsze omówimy w tej sekcji.
+
+\paragraph{ring}
+Udowodnijmy, że dla każdych $a, b \in \NN$ zachodzi $(a + b)^2 = a^2 + 2ab + b^2$.
+
+\begin{minted}{lean4}
+example {a b : Nat} : (a + b)^2 = a^2 + 2 * a * b + b^2 := by
+  rw [Nat.pow_two]
+  rw [Nat.mul_add]
+  rw [Nat.add_mul]
+  rw [Nat.add_mul]
+  rw [←Nat.pow_two]
+  rw [←Nat.pow_two]
+  rw [←Nat.add_assoc]
+  rw [Nat.mul_comm]
+  rw [Nat.add_assoc (a^2)]
+  rw [←Nat.two_mul]
+  rw [Nat.mul_assoc]
+\end{minted}
+
+Aby udowadniać podobne tożsamości w pierścieniach przemiennych oraz półpierścieniach przemiennych (na przykład w $\NN$), możemy użyć taktyki \Lean{ring}.
+\begin{minted}{lean4}
+import Mathlib.Tactic.Ring
+
+example {a b : Nat} : (a + b)^2 = a^2 + 2 * a * b + b^2 := by
+  ring
+\end{minted}
+
+Jeśli nie chcemy od razu udowadniać równości, a jedynie uprościć cel (np. nierówność), zamiast \Lean{ring} możemy użyć taktyki \Lean{ring_nf} (od ang. \textit{normal form}).
+
+\paragraph{simp}
+Lean posiada taktykę \Lean{simp}, która upraszcza cel (lub założenie) za pomocą zbioru predefiniowanych reguł. Na przykład
+\begin{minted}{lean4}
+example {n : Nat} : n ∣ 1 ↔ n = 1 := by
+  exact Nat.dvd_one
+\end{minted}
+możemy udowodnić też jako
+\begin{minted}{lean4}
+example {n : Nat} : n ∣ 1 ↔ n = 1 := by
+  simp
+\end{minted}
+ponieważ twierdzenie \Lean{Nat.dvd_one} jest poprzedzone atrybutem \Lean{@[simp]} przy swojej definicji, a więc tym samym dodanym do zbioru reguł używanych przez \Lean{simp}.
+\centerLean{@[simp] theorem Nat.dvd_one {n : Nat} : n ∣ 1 ↔ n = 1}
+Twierdzenia otagowane przez \Lean{@[simp]} powinny być w postaci $A = B$ lub $A \Leftrightarrow B$, wtedy Lean zastąpi każde wystąpienie $A$ przez $B$ (nie odwrotnie).
+Zarówno sam Lean, jak i Mathlib posiadają wiele takich twierdzeń. Możemy również sami je dodawać; należy jednak przy tym uważać -- takie twierdzenie powinno \emph{zawsze} upraszczać formułę, prowadząc ją do pewnego rodzaju postaci normalnej.
+
+Zamiast prostego \Lean{simp} możemy użyć dowolnego z jego wariantów:
+\begin{itemize}[nosep]
+    \item \Lean{simp [a, b]}, który używa lematów oznaczonych przez \Lean{@[simp]} oraz dodatkowo podanych \Lean{a} i \Lean{b},
+    \item \Lean{simp [←a]}, który używa lematów oznaczonych przez \Lean{@[simp]} oraz \Lean{a} w odwrotną stronę,
+    \item \Lean{simp [-a]}, który używa lematów oznaczonych przez \Lean{@[simp]} z wyjątkiem \Lean{a},
+    \item \Lean{simp [*]}, który używa lematów oznaczonych przez \Lean{@[simp]} oraz wszystkich dostępnych w lokalnym kontekście,
+    \item \Lean{simp at h}, który upraszcza założenie \Lean{h},
+    \item \Lean{simp only [a, b]}, który używa tylko podanych lematów \Lean{a} i \Lean{b}.
+\end{itemize}
+
+\begin{remark}
+    Ponieważ z każdą aktualizacją Leana i Mathliba zbiór reguł używanych przez \Lean{simp} może się zmieniać, nie powinno się używać \Lean{simp} w środku dowodu. Można używać go na końcu, ponieważ zakładamy, że \Lean{simp} nie zacznie działać \emph{gorzej}.
+
+    W środku dowodu można użyć \Lean{simp only [...]}. Jeśli nie wiemy, jakich dokładnie twierdzeń chcemy użyć, możemy użyć \Lean{simp?}, która podpowie nam, jakie reguły zostały użyte do uproszczenia formuły.
+\end{remark}
+
+\paragraph{omega}
+Taktyka \Lean{omega} używa \vocab{testu omega} W. Pugha. Jest użyteczna do udowadniania nierówności liniowych z liczbami całkowitymi i naturalnymi.
+\begin{minted}{lean4}
+example {x y : Nat} : x ≤ y ∨ y ≤ x := by
+  omega
+
+example {x : Int} (h1 : 0 < x) (h2 : x < 1) : False := by
+  omega
+\end{minted}
+
+\paragraph{linarith}
+Taktyka \Lean{linarith} również służy do udowadniania nierówności liniowych, ale raczej na liczbach rzeczywistych i wymiernych. Na liczbach naturalnych i całkowitych również działa, ale jest mniej skuteczna niż \Lean{omega}.
+\begin{minted}{lean4}
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.Linarith
+
+example {x y : ℝ} (h : x < y) : x - 1 < y := by
+  linarith
+
+example {x y : ℝ} (h₁ : x < 4) (h₂ : y < 4) : x + y ≤ 10 := by
+  linarith
+\end{minted}
+
+\paragraph{nlinarith}
+Taktyka \Lean{nlinarith} działa tak jak \Lean{linarith}, ale potrafi też rozwiązać niektóre nieliniowe problemy arytmetyczne.
+\begin{minted}{lean4}
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.Linarith
+
+example {x : ℝ} (h₁ : x < 4) (h₂ : x > 0) : x ^ 2 < 16 := by
+  nlinarith
+\end{minted}
+
+\section{Studia przypadków}
+
+W ten sekcji zajmiemy wykazaniem kilku ciekawych faktów matematycznych.
+Każdy z tych przykładów będzie okazją do zaznajomienia się z pewnym fragmentem Mathliba oraz poznania nowych konstrukcji składniowych i taktyk Leana.
+
+\subsection{Zbiór z relacją równoważności}
+
+\begin{lesson-goals}[czego się nauczymy?]
+    Struktury, klasy typów, instancje.
+\end{lesson-goals}
+
+\begin{definition}[relacja równoważności]
+    Relację $\sim$ nazywamy relacją równoważności, jeśli spełnia następujące warunki dla dowolnych $a, b, c \in A$:
+    \begin{itemize}[nosep]
+        \item $a \sim a$ (zwrotność),
+        \item jeśli $a \sim b$, to $b \sim a$ (symetryczność),
+        \item jeśli $a \sim b$ oraz $b \sim c$, to $a \sim c$ (przechodniość).
+    \end{itemize}
+\end{definition}
+
+W języku angielskim zbiór z relacją równoważności nazywa się \textit{setoid} i tej właśnie nazwy będziemy używać.
+Sformalizujemy w Leanie poniższe twierdzenie.
+
+\begin{theorem}
+    Setoidem jest para $(\ZZ^2, \approx)$, gdzie $(x_1, y_1) \approx (x_2, y_2)$ wtedy i tylko wtedy, gdy
+    \[ x_1 + y_1 = x_2 + y_2. \]
+\end{theorem}
+
+Zdefiniujemy teraz swoją pierwszą strukturę w Leanie.
+\begin{minted}{lean4}
+structure Point where
+  x : Int
+  y : Int
+\end{minted}
+Elementy struktury tworzymy za pomocą jednego z trzech sposobów:
+\begin{minted}{lean4}
+def p := (⟨0, 1⟩ : Point)   -- lub def p : Point := ...
+def q := Point.mk 1 0       -- lub def q : Point := ...
+def r : Point := { x := 1, y := 1 }
+\end{minted}
+
+W Leanie istnieją \vocab{klasy typów} (ang. \textit{type classes}), które są trochę jak interfejsy w Javie czy C\#, ale z pewnymi różnicami. Między innymi: można dodawać instancję klasy typów do istniejącego typu bez jego modyfikacji, istnieją parametryzowane klasy typów, klasy typów mogą dziedziczyć po innych klasach typów, klasy typów mogą być instancjonowane automatycznie lub w wyniku dowodzenia.
+
+Udowodnienie, że para (\Lean{Point}, $\approx$) jest setoidem będzie polegało właśnie na zdefiniowaniu \vocab{instancji} klasy typów \Lean{Setoid} dla typu \Lean{Point}.
+
+\begin{minted}{lean4}
+instance : Setoid Point where
+  r a b := a.x + a.y = b.x + b.y
+  iseqv := by
+    constructor
+    · -- refl (zwrotność, reflexivity)
+      intro p
+      rfl
+    · -- symm (symetryczność, symmetry)
+      intro p q
+      intro h
+      rw [h]
+    · -- trans (przechodniość, transitivity)
+      intro p q r
+      intro h₁ h₂
+      rw [h₁, h₂]
+\end{minted}
+Pola \Lean{r} oraz \Lean{iseqv} odpowiadają odpowiednio relacji równoważności oraz dowodowi, że jest to relacja równoważności. Alternatywny, krótszy zapis dowodu pokazano poniżej.
+\begin{minted}{lean4}
+instance : Setoid Point where
+  r a b := a.x + a.y = b.x + b.y
+  iseqv := {
+    refl := by intro p; rfl
+    symm := by intro p q h; rw [h]
+    trans := by intro p q r h₁ h₂; rw [h₁, h₂]
+  }
+\end{minted}
+
+Teraz możemy używać relacji $\approx$ na elementach typu \Lean{Point} i korzystać z jej własności.
+\begin{minted}{lean4}
+example : p ≈ q := by
+  rfl
+\end{minted}
+
+\subsection{Grupa abelowa}
+
+\begin{lesson-goals}[czego się nauczymy?]
+  Typy zależne, koercja typów, inferencja klasy typów, taktyki \Lean{change}, \Lean{unfold}, \Lean{field_simp}, \Lean{infer_instance}.
+\end{lesson-goals}
+
+\begin{definition}[magma]
+    Niech $R$ będzie zbiorem niepustym oraz $\cdot : R \times R \to R$ działaniem wewnętrznym na $R$. Parę $(R, \cdot)$ nazywamy wtedy magmą lub grupoidem.
+\end{definition}
+
+\begin{definition}[półgrupa]
+    Magma $(R, \cdot)$ jest półgrupą, jeśli działanie $\cdot$ jest łączne, tzn. dla dowolnych $a, b, c \in R$ zachodzi
+    \[ (a \cdot b) \cdot c = a \cdot (b \cdot c). \]
+\end{definition}
+
+\begin{definition}[monoid]
+    Półgrupa $(R, \cdot)$ jest monoidem, jeśli istnieje element neutralny $e \in R$, tzn. dla dowolnego $a \in R$ zachodzi
+    \[ e \cdot a = a \cdot e = a. \]
+\end{definition}
+
+\begin{definition}[grupa]
+    Monoid $(R, \cdot)$ jest grupą, jeśli dla dowolnego $a \in R$ istnieje element odwrotny $a^{-1} \in R$, tzn. zachodzi
+    \[ a \cdot a^{-1} = a^{-1} \cdot a = e. \]
+\end{definition}
+
+\begin{definition}[grupa abelowa]
+    Grupa $(R, \cdot)$ jest grupą abelową, jeśli działanie $\cdot$ jest przemienne, tzn. dla dowolnych $a, b \in R$ zachodzi
+    \[ a \cdot b = b \cdot a. \]
+    Warunek przemienności możemy wprowadzić na dowolnym poziomie, tworząc magmy, półgrupy czy monoidy przemienne (abelowe).
+\end{definition}
+
+Będziemy chcieli udowodnić, że pewna przykładowa struktura jest grupą abelową.
+
+\begin{theorem}
+    Grupą abelową jest para $(A, \star)$, gdzie $A = \QQ \setminus \{1\}$, a działanie $\star$ jest zdefiniowane jako
+    \[ a \star b = ab - a - b + 2. \]
+\end{theorem}
+
+Czytelnik powinien w tym momencie udowodnić to twierdzenie na kartce.
+
+Zacznijmy od zdefiniowania działania $\star$. Najłatwiej będzie to zrobić w ten sposób, że zdefiniujemy specjalny typ $A$, a działanie $\star$ jako mnożenie na tym typie.
+\begin{minted}{lean4}
+import Mathlib.Data.Rat.Init
+
+def A : Type := {x : ℚ // x ≠ 1}
+\end{minted}
+
+Po raz pierwszy spotykamy się z \vocab{podtypami} (ang. \textit{subtypes}), które pozwalają nam definiować typy jako inne typy z dodatkowym warunkiem. Aby skonstruować element podtypu, musimy podać element typu bazowego oraz dowód spełnienia warunku. Na przykład, aby skonstruować element $0 : A$, napiszemy:
+\begin{minted}{lean4}
+#check (⟨0, by decide⟩ : A)
+\end{minted}
+Element podtypu jest automatycznie wyposażony w wiele przydatnych pól, w tym wartość i twierdzenie o spełnianiu warunku. Warto zauważyć, że $a : \QQ = b : \QQ \iff a : A = b : A$. Takie twierdzenie też jest oczywiście dostępne.
+\begin{minted}{lean4}
+def a0 := (⟨0, by decide⟩ : A)
+#check a0.val     -- ↑a0 : ℚ
+#check a0.prop    -- ↑a0 ≠ 1
+#check a0.coe_inj -- ↑a = ↑b ↔ a = b
+\end{minted}
+Strzałka w górę oznacza tutaj koercję (rzutowanie) typu z podtypu na typ bazowy.
+
+Zdefiniujmy działanie $\star$, póki co na liczbach wymiernych.
+\begin{minted}{lean4}
+def op (a b : ℚ) : ℚ := a * b - a - b + 2
+\end{minted}
+
+Teraz możemy pokazać, że $(A, \star)$ jest magmą, tzn. że $a \star b \in A$ dla dowolnych $a, b \in A$.
+
+\begin{minted}{lean4}
+lemma op_ne_one {a b : ℚ} (ha : a ≠ 1) (hb : b ≠ 1) : op a b ≠ 1 := by
+  intro h
+  unfold op at h
+  have : (a - 1) * (b - 1) = 0 := by linarith
+  rcases mul_eq_zero.mp this with ha' | hb'
+  · have : a = 1 := by linarith
+    contradiction
+  · have : b = 1 := by linarith
+    contradiction
+\end{minted}
+
+Użyliśmy tutaj taktyki \Lean{unfold}, która \emph{rozwija} definicję \Lean{op} w danym miejscu.
+
+Mając powyższy lemat, możemy już stwierdzić, że $(A, \star)$ rzeczywiście jest magmą. W Leanie magma multiplikatywna jest nazwana po prostu \Lean{Mul}, więc wystarczy zdeklarować instancję tej klasy typów dla naszego podtypu.
+\begin{minted}{lean4}
+instance : Mul A where
+  mul a b := ⟨op a.val b.val, op_ne_one a.prop b.prop⟩
+\end{minted}
+
+Teraz chcemy udowodnić, że $(A, \star)$ jest nie tylko magmą, ale i podgrupą, czyli że $\star$ jest łączne. Jest to nawet prostsze niż na karce.
+\begin{minted}{lean4}
+import Mathlib.Tactic.Ring
+
+instance : Semigroup A where
+  mul_assoc a b c := by
+    apply Subtype.ext
+    change op (op a.val b.val) c.val = op a.val (op b.val c.val)
+    unfold op
+    ring
+\end{minted}
+Musieliśmy użyć tutaj twierdzenia
+\centerLean{Subtype.ext {p : α → Prop} {a1 a2 : { x // p x }} : ↑a1 = ↑a2 → a1 = a2}
+oraz nowej taktyki, \Lean{change}, która pozwala nam zmienić cel na równoważny \emph{z definicji}.
+
+Teraz pokażemy, że $(A, \star)$ jest monoidem, czyli ma element neutralny. W tym celu należy powiedzieć, że typ $A$ ma jedynkę (równą $2$), a następnie, że ta jedynka istotnie jest elementem neutralnym, tzn. $2 \star a = a \star 2 = a$ dla każdego $a \in A$.
+\begin{minted}{lean4}
+instance : One A where
+  one := ⟨2, by decide⟩
+
+instance : Monoid A where
+  one_mul a := by
+    apply Subtype.ext
+    change op 2 a.val = a.val
+    unfold op
+    ring
+  mul_one a := by
+    apply Subtype.ext
+    change op a.val 2 = a.val
+    unfold op
+    ring
+\end{minted}
+
+Aby pokazać, że $(A, \star)$ jest grupą, trzeba najpierw udowodnić, że $a^{-1} = \frac{a}{a - 1} \in A$, wskazać wzór na odwrotność, a na końcu pokazać, że istotnie spełnia on $a^{-1}a = 2$.
+\begin{minted}{lean4}
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+
+lemma op_inv_ne_one {a : ℚ} (ha : a ≠ 1) : a / (a - 1) ≠ 1 := by
+  intro h
+  have a_sub_one_ne_zero : a - 1 ≠ 0 := sub_ne_zero.mpr ha
+  have := (div_eq_one_iff_eq a_sub_one_ne_zero).mp h
+  linarith
+
+instance : Inv A where
+  inv a := ⟨a.val / (a.val - 1), op_inv_ne_one a.prop⟩
+
+instance : Group A where
+  inv_mul_cancel a := by
+    apply Subtype.ext
+    change op (a.val / (a.val - 1)) a.val = 2
+    unfold op
+    field_simp
+    have : (a.val - 1) / (a.val - 1) = 1 := by
+      have a_sub_one_ne_zero : a.val - 1 ≠ 0 := sub_ne_zero.mpr a.prop
+      exact div_self a_sub_one_ne_zero
+    rw [this]
+    ring
+\end{minted}
+Użyliśmy tutaj taktyki \Lean{field_simp}, która próbuje sprowadzić wyrażenia do wspólnego mianownika.
+
+Na koniec zostało pokazać przemienność $\star$.
+\begin{minted}{lean4}
+instance : CommGroup A where
+  mul_comm a b := by
+    apply Subtype.ext
+    change op a.val b.val = op b.val a.val
+    unfold op
+    ring
+\end{minted}
+
+Z tych wszystkich własności możemy wyprowadzić inne fakty, np. że $(A, \star)$ jest przemiennym monoidem z własnością skracania ($ac = bc \implies a = b$). Jest to oczywiste, ale o tyle ciekawe, że nie każdy monoid przemienny ma własność skracania (np. $(\NN, \cdot)$) i nie każdy monoid przemienny z własnością skracania jest grupą (np. $(\NN, +)$). W Leanie takie instancje można \vocab{inferować} przy pomocy \Lean{infer_instance}.
+\begin{minted}{lean4}
+instance : CancelCommMonoid A := by
+  infer_instance
+\end{minted}
+Wbrew pozorom, nie będziemy z tego często korzystać, bo Lean automatycznie próbuje inferować instancje w momencie, kiedy jest to konieczne (np. przy aplikacji do twierdzenia).
+
+Warto wiedzieć, że zamiast budować dowód krok po kroku, można od razu stworzyć dużą deklarację \Lean{instance : CommGroup A}, w której należy udowodnić każdą konieczną własność.
+
+\begin{problem}
+    Zrobić trzeci zestaw zadań:
+    \inputminted{lean4}{problemsets/problemset03.lean}
+\end{problem}
+
+\subsection{Równanie funkcyjne}
+
+\begin{lesson-goals}[czego się nauczymy?]
+    Słowo kluczowe \Lean{obtain}, taktyki \Lean{specialize}, \Lean{funext}, \Lean{refine}, \Lean{simpa}.
+\end{lesson-goals}
+
+Zajmiemy się teraz pewnym zadaniem, które pojawiło się na shortliście Międzynarodowej Olimpiady Matematycznej w 2013 roku (\href{https://www.imo-official.org/problems/IMO2013SL.pdf#page=7}{zadanie N1}). Oryginalnie należało znaleźć wszystkie rozwiązania równania funkcyjnego, ale my ograniczymy się do pokazania, że podane rozwiązanie jest jedynym możliwym.
+
+\begin{theorem}
+    Funkcja $f(x) = x$ jest jedyną funkcją $f : \NN_+ \to \NN_+$ spełniającą
+    \[ m^2 + f(n) \mid mf(m) + n \]
+    dla wszystkich $m, n \in \NN_+$.
+\end{theorem}
+Jako że dowód może być trudniejszy, niż w poprzednich przykładach, najpierw przedstawimy go w języku naturalnym.
+\begin{proof}
+    Łatwo sprawdzić, że $f(x) = x$ spełnia warunek zadania. Pokażemy teraz, że jest to jedyne rozwiązanie.
+
+    Podstawmy $m = n = 2$. Otrzymujemy
+    \[ 4 + f(2) \mid 2f(2) + 2. \]
+    Z tego wynika, że istnieje $k \in \NN_+$ takie, że
+    \begin{align*}
+        k(4 + f(2)) &= 2f(2) + 2 \\
+        4k + kf(2) &= 2f(2) + 2 \\
+        (k - 2)f(2) &= 2 - 4k \\
+        f(2) &= \frac{2 - 4k}{k - 2},
+    \end{align*}
+    z czego wynika $k = 1$, więc dostajemy $f(2) = 2$.
+
+    Teraz podstawmy $m = 2$. Otrzymujemy
+    \begin{align*}
+        4 + f(n) &\mid 2f(2) + n \\
+        4 + f(n) &\mid 4 + n,
+    \end{align*}
+    więc $f(n) \leq n$.
+
+    Na koniec podstawmy $m = n$. Otrzymujemy
+    \begin{align*}
+        n^2 + f(n) &\mid nf(n) + n \\
+        n^2 + f(n) &\leq nf(n) + n \\
+        n(n - 1) &\leq f(n)(n - 1).
+    \end{align*}
+    Jeśli $n = 1$, to oczywiście $f(1) = 1$. Jeśli $n \neq 1$, to możemy podzielić przez $n - 1$ i otrzymujemy $n \leq f(n)$. Ostatecznie mamy $f(n) = n$ dla każdego $n \in \NN_+$.
+\end{proof}
+
+Sformalizowane twierdzenie wygląda następująco.
+\begin{minted}{lean4}
+import Mathlib.Data.PNat.Basic
+
+example {f : ℕ+ → ℕ+} : (∀ m n : ℕ+, m * m + f n ∣ m * f m + n) ↔ f = id := sorry
+\end{minted}
+Funkcja \Lean{id} to funkcja identycznościowa, to znaczy $\opname{id}(x) = x$ dla każdego $x$.
+
+Chcemy pokazać równoważność, więc musimy udowodnić oba kierunki. Możemy więc użyć taktyki \Lean{constructor}, która tworzy dwa cele do udowodnienia (z czego jeden będzie bardzo prosty).
+\begin{minted}{lean4}
+example {f : ℕ+ → ℕ+} : (∀ m n : ℕ+, m * m + f n ∣ m * f m + n) ↔ f = id := by
+  constructor
+  · intro h
+    sorry -- dowód trudniejszego kierunku
+  · intro h
+    simp [h]
+\end{minted}
+
+Zacznijmy od pokazania, że $f(2) = 2$. Aby to zrobić, należy podstawić $m = n = 2$, które można oczywiście zrealizować za pomocą \Lean{have} oraz aplikacji, ale my użyjemy taktyki \Lean{specialize}.
+\begin{minted}{lean4}
+have f2_eq_2 : f 2 = 2 := by
+  -- h : ∀ (m n : ℕ+), m * m + f n ∣ m * f m + n
+  specialize h 2 2
+  -- h : 2 * 2 + f 2 ∣ 2 * f 2 + 2
+  sorry
+\end{minted}
+
+Teraz musimy skorzystać z faktu, że $a \mid b$ wtedy i tylko wtedy, gdy istnieje $c$ takie, że $b = ca$. W Leanie takie twierdzenie jest dostępne jako \href{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Divisibility/Basic.html#exists_eq_mul_left_of_dvd}{\Lean{exists_eq_mul_left_of_dvd}}.
+Czytelnik powinien zwrócić uwagę na jego dokładne sformułowanie -- korzystamy z faktu, że $(\NN_+, \cdot)$ jest półgrupą przemienną.
+\begin{minted}{lean4}
+have f2_eq_2 : f 2 = 2 := by
+  specialize h 2 2
+  have := exists_eq_mul_left_of_dvd h
+  -- this : ∃ c, 2 * f 2 + 2 = c * (2 * 2 + f 2)
+  sorry
+\end{minted}
+Z założeniem, które zawiera kwantyfikator egzystencjalny, dosyć niewygodnie jest pracować. Wolelibyśmy mieć bezpośrednio zmienną i założenie o niej. Oby to osiągnąć, wystarczy zamienić \Lean{have} na \Lean{obtain}.
+\begin{minted}{lean4}
+have f2_eq_2 : f 2 = 2 := by
+  specialize h 2 2
+  obtain ⟨k, hk⟩ := exists_eq_mul_left_of_dvd h
+  -- k : ℕ+
+  -- hk : 2 * f 2 + 2 = k * (2 * 2 + f 2)
+  sorry
+\end{minted}
+
+Teraz możemy już pokazać, że $k = 1$. Z takim celem powinna poradzić sobie już taktyka \Lean{nlinarith}, ale, jak Czytelnik raczy sprawdzić, sobie nie radzi\footnote{Przynajmniej w wersji Lean v26.0.0, w przyszłości może się to zmienić.}. Problemem jest to, że pracujemy na podtypie typu \Lean{ℕ}, a nie na samym \Lean{ℕ}. Zmieńmy to za pomocą \Lean{PNat.dvd_iff} oraz \Lean{PNat.eq}, kończąc tę część dowodu.
+\begin{minted}{lean4}
+import Mathlib.Data.PNat.Basic
+import Mathlib.Tactic.Linarith
+
+example {f : ℕ+ → ℕ+} : (∀ m n : ℕ+, m * m + f n ∣ m * f m + n) ↔ f = id := by
+  constructor
+  · intro h
+    have f2_eq_2 : f 2 = 2 := by
+      specialize h 2 2
+      obtain ⟨k, hk⟩ := exists_eq_mul_left_of_dvd (PNat.dvd_iff.mp h)
+      have k_eq_1 : k = 1 := by
+        nlinarith
+      apply PNat.eq
+      nlinarith
+    sorry -- ⊢ f = id
+  · intro h
+    simp [h]
+\end{minted}
+
+Aktualny cel to $f = \opname{id}$. Wolelibyśmy pracować z celem postaci $f(x) = x$ dla każdego $x$. Aby wykonać takie przejście, możemy użyć taktyki \Lean{funext}, która zamienia równość funkcji na równość wartości funkcji dla dowolnego argumentu oraz twierdzenia \Lean{id_eq}, które upraszcza $\opname{id}(x)$ do $x$.
+\begin{minted}{lean4}
+have f2_eq_2 : f 2 = 2 := sorry -- ...
+funext x
+-- x : ℕ+
+-- ⊢ f x = id x
+rw [id_eq]
+-- x : ℕ+
+-- ⊢ f x = x
+sorry
+\end{minted}
+
+Teraz moglibyśmy kolejno udowodnić, że $f(x) \leq x$ oraz $f(x) \geq x$, następnie użyć \Lean{le_antisymm} ($f(x) \leq x \land f(x) \geq x \implies f(x) = x$), ale możemy od razu zasygnalizować do czego dążymy za pomocą \Lean{refine}, a Lean sam wygeneruje cele do udowodnienia.
+\begin{minted}{lean4}
+intro h
+have f2_eq_2 : f 2 = 2 := sorry -- ...
+funext x
+rw [id_eq]
+refine le_antisymm ?_ ?_
+· -- ⊢ f x ≤ x
+  sorry
+· -- ⊢ x ≤ f x
+  sorry
+\end{minted}
+
+Reszta dowodu jest już raczej prosta -- Czytelnik powinien spróbować go ukończyć samodzielnie (korzystając z twierdzenia \Lean{PNat.le_of_dvd} i taktyki \Lean{change} kiedy będzie to potrzebne). Cały dowód znajduje się poniżej.
+\inputminted{lean4}{case_studies/FunctionalEquation.lean}
+Taktyka \Lean{simpa} to połączenie \Lean{simp} oraz \Lean{assumption}, które domyślnie działa z hipotezą \Lean{this}. Zamiast \Lean{simpa} moglibyśmy więc napisać \Lean{simpa using this} albo \Lean{simp at this} i \Lean{assumption}.
+
+\subsection{Kongruencja modulo}
+
+\begin{lesson-goals}[czego się nauczymy?]
+    Typy induktywne, taktyki \Lean{induction} i \Lean{gcongr}, środowisko \Lean{calc}.
+\end{lesson-goals}
+
+W tej sekcji będziemy chcieli udowodnić proste twierdzenie dotyczące kongruencji modulo 9. Zanim jednak do tego przejdziemy, musimy się dowiedzieć, jak w Leanie są zdefiniowane liczby naturalne.
+
+Typ induktywny to typ definiowany przez podanie jego konstruktorów. Dotychczas stworzyliśmy jeden typ, \Lean{Point}, który miał dokładnie jeden konstruktor, domyślnie nazwany \Lean{Point.mk}.
+Korzystaliśmy już jednak z typów induktywnych z wieloma konstruktorami, np. \Lean{Or} z dwoma konstruktorami: \Lean{Or.inl} oraz \Lean{Or.inr}.
+Również \Lean{Nat} jest typem induktywnym, który, zgodnie z aksjomatyką Peano, ma dwa konstruktory: \Lean{Nat.zero} (liczba $0$) oraz \Lean{Nat.succ} (następnik liczby naturalnej). Każdą liczbę naturalną można więc zbudować, zaczynając od zera i wielokrotnie stosując następnika. Poniżej znajduje się definicja liczb naturalnych w Leanie.
+
+\begin{minted}{lean4}
+inductive Nat where
+  | zero : Nat
+  | succ (n : Nat) : Nat
+\end{minted}
+
+\begin{remark*}
+    Składnia \Lean{structure} (której użyliśmy do zdefiniowania \Lean{Point}) jest w rzeczywistości skróconą formą składni \Lean{inductive}. Oprócz uproszczenia zapisu, struktury automatycznie generują pola dostępu (tzn. możemy użyć \Lean{point.x}). Zamiast
+    \begin{minted}{lean4}
+structure Point where
+  x : Int
+  y : Int
+    \end{minted}
+    można więc napisać
+    \begin{minted}{lean4}
+inductive Point where
+  | mk (x : Int) (y : Int)
+
+def Point.x (p : Point) : Int :=
+  match p with
+  | Point.mk x _y => x
+
+def Point.y (p : Point) : Int :=
+  match p with
+  | Point.mk _x y => y
+    \end{minted}
+\end{remark*}
+
+Wracając do konguencji, będziemy chcieli udowodnić poniższe twierdzenie przez indukcję względem $n$.
+\begin{theorem}
+    Dla każdej liczby naturalnej $n$ zachodzi
+    \[ 4^n \equiv 1 + 3n \pmod{9}. \]
+\end{theorem}
+\begin{proof}
+    Dla $n = 0$ mamy $4^0 = 1$ oraz $1 + 3 \cdot 0 = 1$, więc teza zachodzi. Załóżmy więc, że teza zachodzi dla pewnego $n$ i udowodnijmy ją dla $n + 1$ (to znaczy dla następnika $n$). Mamy
+    \[ 4^{n+1} \equiv 1 + 3(n + 1) \pmod{9}. \]
+    Wykonajmy ciąg przekształceń:
+    \begin{align*}
+        4^{n+1} &= 4 \cdot 4^n \\
+        &\equiv 4(1 + 3n) \pmod{9} \\
+        &= 4 + 12n \\
+        &= 4 + 3n + 9n \\
+        &\equiv 4 + 3n + 0n \pmod{9} \\
+        &= 1 + 3(n + 1).
+    \end{align*}
+\end{proof}
+
+Teraz sformalizujemy ten dowód w Leanie. Ciąg przekształceń został tak przygotowany, żeby każdy krok był prosty do uzasadnienia.
+\begin{minted}{lean4}
+import Mathlib.Data.Nat.ModEq
+
+example {n : ℕ} : 4^n ≡ 1 + 3*n [MOD 9] := sorry
+\end{minted}
+
+Aby przeprowadzić dowód przez indukcję, użyjemy taktyki \Lean{induction}.
+\begin{minted}{lean4}
+example {n : ℕ} : 4^n ≡ 1 + 3*n [MOD 9] := by
+  induction n with
+  | zero => rfl
+  | succ n ih => sorry
+\end{minted}
+W tym przypadku \Lean{ih} to nasza hipoteza indukcyjna (ang. \textit{induction hypothesis}). Teraz możemy przeprowadzić ciąg przekształceń za pomocą środowiska \Lean{calc}, które pozwala na pisanie łańcuchów relacji równoważności (takich jak równość czy kongruencja modulo), gdzie każdy krok jest uzasadniony dowodem.
+\begin{minted}{lean4}
+example {n : ℕ} : 4^n ≡ 1 + 3*n [MOD 9] := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+    calc
+      -- ⊢ 4 ^ (n + 1) ≡ 1 + 3 * (n + 1) [MOD 9]
+      _ = 4 * 4^n := sorry
+      -- ...
+      _ ≡ 1 + 3*(n + 1) [MOD 9] := sorry
+\end{minted}
+
+Czytelnik powinien już być w stanie wypełnić luki samodzielnie, korzystając z twierdzeń dostępnych w \Lean{Mathlib.Data.Nat.ModEq} oraz taktyki \Lean{ring}. Cały dowód wygląda następująco.
+\begin{minted}{lean4}
+import Mathlib.Data.Nat.ModEq
+import Mathlib.Tactic.Ring
+
+example {n : ℕ} : 4^n ≡ 1 + 3*n [MOD 9] := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+    calc
+      _ = 4 * 4^n := by ring
+      _ ≡ 4 * (1 + 3*n) [MOD 9] := by
+        apply Nat.ModEq.mul_left
+        exact ih
+      _ = 4 + 12*n := by ring
+      _ = 4 + 3*n + 9*n := by ring
+      _ ≡ 4 + 3*n + 0*n [MOD 9] := by
+        apply Nat.ModEq.add_left
+        apply Nat.ModEq.mul_right
+        rfl
+      _ = 1 + 3*(n + 1) := by ring
+\end{minted}
+
+Sformułowanie ostatniego kroku można uprościć, pisząc \Lean{_ = _ := by ring}, ponieważ ostateczny wynik jest naszym celem, więc Lean go zna. Poza tym, w niektórych krokach możemy użyć taktyki \Lean{gcongr}, która automatycznie stosuje pewne twierdzenia dotyczące kongruencji. Ostatecznie otrzymujemy:
+\inputminted{lean4}{case_studies/CongruenceModulo.lean}
+
+\begin{problem}
+    Zrobić czwarty zestaw zadań:
+    \inputminted{lean4}{problemsets/problemset04.lean}
+\end{problem}
+
+Wstęp teoretyczny do zadania 1 znajduje się w dodatku \ref{ssec:finite-integral-domain}.
+
+\begin{thebibliography}{9}
+    \bibitem{mathinlean} J. Avigad, P. Massot. Mathematics in Lean, \url{https://leanprover-community.github.io/mathematics_in_lean/}.
+    \bibitem{theoremprovinginlean} J. Avigad, L. de Moura, S. Kong, S. Ullrich. Theorem Proving in Lean 4, \url{https://leanprover.github.io/theorem_proving_in_lean4/}.
+    \bibitem{Barendregt2013} H. Barendregt, W. Dekkers, R. Statman. Lambda Calculus with Types, \textit{Perspectives in Logic}, Cambridge University Press, 2013.
+    \bibitem{CsirmazGyenis2022} L. Csirmaz, Z. Gyenis. Mathematical Logic: Exercises and Solutions, \textit{Problem Books in Mathematics}, Springer, 2022.
+    \bibitem{Palmgren2009} E. Palmgren. Semantics of intuitionistic propositional logic: lecture notes for Applied Logic, 2009, \url{https://www2.math.uu.se/~palmgren/tillog/heyting3.pdf}.
+    \bibitem{SorensenUrzyczyn2006} M. H. Sørensen, P. Urzyczyn. Lectures on the Curry-Howard Isomorphism, \textit{Studies in Logic and the Foundations of Mathematics}, vol. 149, Elsevier, 2006.
+    \bibitem{Urzyczyn2025} P. Urzyczyn. Rachunek lambda: materiały do wykładu, 2025, \url{https://www.mimuw.edu.pl/~urzy/Lambda/erlambda.pdf}.
+    \bibitem{openlogic} R. Zach et. al, The Open Logic Text, \url{https://openlogicproject.org/}.
+\end{thebibliography}
+
+\appendix
+\section{Dodatek}
+
+\subsection{Pierścienie całkowite i ciała}
+\label{ssec:finite-integral-domain}
+
+W tej sekcji przedstawimy bardzo krótki wstęp teoretyczny dotyczący pierścieni całkowitych i ciał. Dowód twierdzenia mówiącego o tym, że każdy skończony pierścień całkowity jest ciałem, jest przedstawiony na końcu.
+
+\begin{definition}[pierścień]
+    Niech $R$ będzie zbiorem niepustym oraz $+$ i $\cdot$ działaniami wewnętrznymi na $R$. Trójkę $(R, +, \cdot)$ nazwiemy pierścieniem, jeśli spełnione są następujące warunki:
+    \begin{itemize}[nosep]
+        \item $(R, +)$ jest grupą abelową,
+        \item $(R, \cdot)$ jest półgrupą,
+        \item dla dowolnych $a, b, c \in R$ zachodzą prawa rozdzielności:
+        \begin{align*}
+            a \cdot (b + c) = a \cdot b + a \cdot c, \\
+            (b + c) \cdot a = b \cdot a + c \cdot a.
+        \end{align*}
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[pierścień całkowity]
+    Pierścień $(R, +, \cdot)$ jest pierścieniem całkowitym, jeśli:
+    \begin{itemize}[nosep]
+        \item jest nietrywialny (ma co najmniej dwa różne elementy),
+        \item jest przemienny (działanie $\cdot$ jest przemienne),
+        \item ma jedynkę (istnieje element neutralny dla działania $\cdot$),
+        \item nie ma dzielników zera (jeśli $a, b \in R$ oraz $a \cdot b = 0$, to $a = 0$ lub $b = 0$).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[ciało]
+    Pierścień $(R, +, \cdot)$ jest ciałem, jeśli:
+    \begin{itemize}[nosep]
+        \item jest nietrywialny (ma co najmniej dwa różne elementy),
+        \item jest przemienny (działanie $\cdot$ jest przemienne),
+        \item ma jedynkę (istnieje element neutralny dla działania $\cdot$),
+        \item każdy niezerowy element posiada element odwrotny.
+    \end{itemize}
+\end{definition}
+
+\begin{fact}
+    Dla każdego elementu $a$ pierścienia zachodzi $a \cdot 0 = 0$.
+\end{fact}
+\begin{proof}
+    \begin{align*}
+        a \cdot 0 &= a \cdot (0 + 0) \\
+        a \cdot 0 &= a \cdot 0 + a \cdot 0 \\
+        a \cdot 0 - a \cdot 0 &= a \cdot 0 + a \cdot 0 - a \cdot 0 \\
+        0 &= a \cdot 0 + 0 \\
+        0 &= a \cdot 0
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Każdy skończony pierścień całkowity jest ciałem.
+\end{theorem}
+\begin{proof}
+    Niech $(R, +, \cdot)$ będzie skończonym pierścieniem całkowitym.
+    Rozważmy funkcję $f : R \ni x \mapsto ax \in R$ dla dowolnie wybranego, niezerowego $a \in R$. Funkcja ta jest injekcją, ponieważ (skoro nie ma dzielników zera) z $ax_1 = ax_2$ wynika $x_1 = x_2$. Injekcja na zbiorze skończonym jest surjekcją, w szczególności istnieje $b \in R$ takie, że $f(b) = ab = 1$. Element $b$ jest wtedy elementem odwrotnym elementu $a$, więc $(R, +, \cdot)$ jest ciałem.
+\end{proof}
+
+Skończony pierścień całkowity można w Leanie opisać jako taki typ \Lean{R}, który spełnia \Lean{[CommRing R]}, \Lean{[IsDomain R]} i \Lean{[Finite R]}.
+Klasa typów \Lean{CommRing} opisuje przemienny pierścień z jedynką\footnote{Pierścienie i półpierścienie w Leanie domyślnie mają jedynkę. Istnieją natomiast ich odpowiedniki bez jedynki, nazwane \texttt{NonUnitalRing} i \texttt{NonUnitalSemiring}.}, a \Lean{IsDomain} to własność półpierścienia z jedynką (\Lean{Semiring}), która oznacza nietrywialność i brak dzielników zera. Pierścień całkowity to więc po prostu \Lean{CommRing} z własnością \Lean{IsDomain}, a skończony pierścień całkowity to \Lean{CommRing} z własnościami \Lean{IsDomain} i \Lean{Finite}.
+
+\subsection{Dalsza lektura}
+
+Jest kilka rzeczy, których w ramach tego kursu nie udało się omówić, a które mogą przydać się przy pierwszej okazji podczas samodzielnej pracy z Leanem. Lista (z pewnością niepełna) takich zagadnień znajduje się poniżej:
+\begin{itemize}
+    \item taktyka \Lean{nth_rw},
+    \item taktyka \Lean{by_cases},
+    \item taktyka \Lean{congr},
+    \item taktyka \Lean{contrapose!},
+    \item silna indukcja (\Lean{induction n using Nat.strongRecOn}),
+    \item (magiczne) taktyki \Lean{grind} i \Lean{aesop},
+    \item taktyki z pytajnikiem (oprócz poznanego \Lean{simp?} mamy \Lean{exact?}, \Lean{apply?}, \Lean{easop?}, itp.),
+    \item \Lean{structure} ... \Lean{deriving} ...,
+    \item komenda \Lean{print axioms} (raczej w ramach ciekawostki).
+\end{itemize}
+
+
+\end{document}

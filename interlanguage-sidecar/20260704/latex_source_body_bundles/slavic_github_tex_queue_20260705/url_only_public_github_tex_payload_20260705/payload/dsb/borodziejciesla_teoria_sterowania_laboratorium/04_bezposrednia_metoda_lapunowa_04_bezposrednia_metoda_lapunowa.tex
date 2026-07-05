@@ -1,0 +1,1769 @@
+\documentclass{article}
+
+\usepackage[margin=0.75in]{geometry}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[shortlabels]{enumitem}
+\usepackage{matlab-prettifier}
+\usepackage{tcolorbox}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title{
+    Teoria Sterowania\\
+    \Large Bezpośrednia Metoda Lapunowa
+}
+\author{Maciej Różewicz}
+\date{\today}
+
+\makeatletter         
+\def\@maketitle{
+\raggedright
+\begin{center}
+    \includegraphics[width=0.55\linewidth]{fig/agh_logo.PNG}\\[8ex]
+\end{center}
+\begin{center}
+    {\huge \bfseries \sffamily \@title }\\[4ex] 
+    {\large  \@author}\\[4ex] 
+    \@date\\[8ex]
+\end{center}}
+\makeatother
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Wprowadzenie}
+
+W niniejszym materiale kontynuujemy numerację twierdzeń i przykładów ze wstępu do pośredniej metody Lapunowa, gdyż treści te się uzupełniają i koncepcyjnie tworzą spójną całość.
+Kilka definicji wymaganych do wprowadzenie metody bezpośredniej zostało skopiowanych ze wstępu do metody pośredniej. Niemniej zaleca się,
+aby przed przystąpieniem do niniejszego materiału zapoznać się z wprowadzeniem do metody pośredniej, aby zrozumieć pojęcia wykorzystywane w niniejszym materiale.
+
+W ćwiczeniu tym rozważamy nieliniowe układy dynamiczne, które mogą być opisane skończonym układem równań różniczkowych zwyczajnych w postaci:
+\begin{equation}\label{eq:sys}
+    \dot{x}(t) = f(t, x)
+\end{equation}
+gdzie: $t\in \mathbb{R}$, $x\in\mathbb{R}^{n}$ i $f: \mathbb{R} \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$.
+
+\subsection{Twierdzenie Lapunowa}
+\textbf{Definicja 11}
+Funkcja $V: D \rightarrow \mathbb{R}$ jest nazywana:
+\begin{itemize}
+    \item dodatnio określoną, jeśli $V(0) = 0$ i $\forall_{x\neq 0}V(x) > 0$,
+    \item dodatnio półokreśloną, jeśli $V(0) = 0$ i $\forall_{x\neq 0}V(x) \geq 0$,
+    \item ujemnie określoną (półokreśloną), jeśli $-V(x)$ jest dodatnio określona (półokreślona).
+\end{itemize}
+
+Dalsze definicje i twierdzenia odnoszą się do systemów stacjonarnych:
+\begin{equation}\label{eq:sys_stac}
+    \dot{x} = f(x).
+\end{equation}
+\textbf{Definicja 12}
+Funkcja $\dot{V}: D \rightarrow \mathbb{R}$ oraz 
+$$
+    \dot{V}(x)=\nabla V(x)f(x) = \mathcal{L}_{f}V(x) = \begin{bmatrix} \frac{\partial V}{\partial x_{1}} & \frac{\partial V}{\partial x_{2}} & \cdots & \frac{\partial V}{\partial x_{n}} \end{bmatrix}
+    \begin{bmatrix} f_{1}(x) \\ f_{2}(x) \\ \vdots \\ f_{n}(x) \end{bmatrix}
+$$
+nazywana jest pochodną wzdłuż trajektorii systemu (\ref{eq:sys_stac}) lub pochodną systemową funkcji $V$ albo pochodną Lie'go wzdłuż pola wektorowego $f$ i oznacza $\mathcal{L}_{f}V(x)$.
+
+\textbf{Twierdzenie 1 (Lapunowa)}
+Jeżeli istnieje funkcja $V: D \rightarrow \mathbb{R}$, która jest:
+\begin{itemize}
+    \item różniczkowalna w sposób ciągły,
+    \item dodatnio określona w $D$,
+    \item jej pochodna systemowa $\dot{V}:D\rightarrow \mathbb{R}$ jest ujemnie półokreślona w $D$
+\end{itemize}
+to punkt równowagi $x_{e} = 0$ układu (\ref{eq:sys_stac}) jest stabilny.
+A jeśli pochodna systemowa jest ujemnie określona w $D$, to punkt równowagi $x_{e} = 0$ układu (\ref{eq:sys_stac}) jest asymptotycznie stabilny.
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!75!black, title=Ważne]
+Twierdzenie Lapunowa dostarcza warunek konieczny i wystarczający stabilności punktu równowagi, jednak nie dostarcza żadnej informacji o tym, jak odnaleźć funkcję $V(x)$. Odnalezienie tej funkcji jest zasadniczą trudnością w badaniu stabilności.
+W punkcie \ref{sec:dobor_funkcji} podano kilka metod poszukiwania funkcji Lapunowa.
+\end{tcolorbox}
+
+\textbf{\textit{Dowód:}}
+\textit{Stabilność:}
+Zgodnie z \textbf{\textit{Definicją 4}} weźmy liczbę $\epsilon > 0$.
+Załóżmy, że kula o promieniu $\epsilon$ zawiera się w~zbiorze $D$:
+$$
+    K_{\epsilon} = \left\{ x\in \mathbb{R}^{n}: \lVert x \rVert \leq \epsilon \right\} \subset D.
+$$
+Niech:
+$$
+    \alpha = \min_{\lVert x \rVert = \epsilon }V(x).
+$$
+Weźmy liczbę $\beta$, taką że $0 < \beta < \alpha$ i oznaczmy zbiór:
+$$
+    \Omega_{\beta} = \left\{ x \in K_{\epsilon}: V(x) < \beta \right\}.
+$$
+Zachodzi więc $\Omega_{\beta} \subset K_{\epsilon}$.
+Rozważając dowolną trajektorię $x(t) = x(t; t_{0}, x_{0})$ układu (\ref{eq:sys_stac}), taką że $x_{0} \in \Omega_{\beta}$.
+Wzdłuż tej trajektorii mamy $\dot{V}(x) \leq 0$, więc $V(x(t)) \leq V(x_{0}) \leq \beta$, czyli cała trajektoria $x(t)$ pozostanie w zbiorze $\Omega_{\beta} \subset K_{\epsilon}$ dla dowolnego $t$.
+Ponadto z ciągłości funkcji $V(x)$ wynika, że istnieje $\delta > 0$ taka, że:
+$$
+    \lVert x \rVert < \delta \implies V(x) < \beta
+$$
+czyli zachodzi $K_{\delta} = \left\{ x \in \mathbb{R}^{n}| \Vert x \rVert < \delta \right\} \subset \Omega_{\beta} \subset K_{\beta}$. Tak więc, z takim wyborem $\delta$ implikacja
+$$
+    \lVert x \rVert < \delta \implies \lVert x \rVert < \epsilon
+$$
+jest prawdziwa i zgodnie z \textbf{\textit{Definicją 4}} $x_{e} = 0$ jest stabilny w sensie Lapunowa.
+
+\textit{Asymptotyczna stabilność:}
+Jeżeli pochodna systemowa $\dot{V}:D \rightarrow \mathbb{R}$ jest ujemnie określona w $D$, to wzdłuż trajektorii $x(t) = x(t; t_{0}, x_{0})$ układ (\ref{eq:sys_stac}) funkcja $V(x)$ jest ściśle malejąca i ograniczona od dołu przez 0, więc zbiega do nieujemnej granicy $c$:
+$$
+    \lim_{t \rightarrow \infty} V(x(t)) = c \geq 0.
+$$
+Jeśli przypuścimy, że $c > 0$, to oznaczałoby to, że cała trajektoria $x(t)$ pozostaje na zewnątrz zbioru $\Omega_{c} = \left\{ x \in K_{\epsilon}: V(x) \leq c \right\}$, a tym samym na zewnątrz dowolnej kuli $K_{r} = \left\{ x \in \mathbb{R}^{n}: \Vert x \rVert \leq r \right\}$ zawartej w $\Omega_{c}$.
+Wtedy wzdłuż trajektorii $x(t)$
+$$
+    \dot{V}(x) \leq \max_{r \leq \lVert x \rVert \leq \epsilon} \dot{V}(x) = -v < 0
+$$
+czyli
+$$
+    V(x(t)) = V(x(t_{0})) + \int_{t_{0}}^{t}{\dot{V}(x(\tau))d\tau} \leq V(x(t_{0})) - v(t - t_{0}).
+$$
+Dla dostatecznie dużego $t$ funkcja $V(x(t))$ przyjmowałaby więc wartości ujemne, co jest sprzeczne z założeniami co do funkcji $V(x)$.
+Musi więc zachodzić:
+$$
+    \lim_{t \rightarrow \infty}V(x(t)) = 0
+$$
+co pociąga za sobą:
+$$
+    \lim_{t \rightarrow\infty} x(t) = 0
+$$
+i udowadnia asymptotyczną stabilność.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/lap_dowod_zbiory.PNG}
+    \caption{Zbiory definiowane w dowodzie twierdzenia Lapunowa o stabilności.}
+    \label{fig:enter-label}
+\end{figure}
+
+\textbf{Definicja 13}
+Funkcja $V:D\rightarrow\mathbb{R}$ spełniająca założenia twierdzenia Lapunowa jest nazywana \textbf{funkcją Lapunowa}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/funkcja_lapunowa.PNG}
+    \caption{Graficzna interpretacja funkcji Lapunowa dla $n=2$.}
+    \label{fig:lapunowa_interpretacja2}
+\end{figure}
+
+\textbf{Twierdzenie 2 (Lapunowa o niestabilności)}
+Jeżeli istnieje funkcja $V:D\rightarrow \mathbb{R}$ różniczkowalna w sposób ciągły, dodatnio określona w pewnym otoczeniu punktu równowagi $x_{e} = 0$ i taka, że jej pochodna systemowa $\dot{V}:D\rightarrow\mathbb{R}$ jest dodatnio określona w pewnym zbiorze $G = \left\{ x \in K_{\epsilon} : V(x) > 0 \right\}$, gdzie $K_{\epsilon} = \left\{ x \in \mathbb{R}^{n}: \lVert x \rVert \leq \epsilon \right\} \subset D$, to punkt równowagi $x_{e} = 0$ jest \textbf{niestabilny}.
+
+\textbf{Definicja 14}
+Funkcja $V:D\rightarrow\mathbb{R}$ jest nazywana radialnie nieograniczoną, jeśli $\lVert x \rVert \rightarrow \infty$ implikuje $V(x) \rightarrow \infty$.
+
+\textbf{Twierdzenie 4 (o globalnej stabilności asymptotycznej)}
+jeśli istnieje radialnie nieograniczona, ciągle różniczkowalna, dodatnio określona w $\mathbb{R}^{n}$ funkcja $V: D \rightarrow \mathbb{R}$, taka, że jej pochodna systemowa jest ujemnie określona w $\mathbb{R}^{n}$, to punkt równowagi $x_{e} = 0$ układu (\ref{eq:sys_stac}) jest \textbf{globalnie asymptotycznie stabilny (GAS)}.
+
+\begin{tcolorbox}[colback=green!5, colframe=green!75!black, title=Przykład]
+    Rozważmy układ opisany równaniami:
+    $$
+        \left\{
+        \begin{array}{l}
+             \dot{x}_{1} = x_{1} + x_{2}\\
+             \dot{x}_{2} = -\frac{x_{1}}{(1 + x_{1}^{2})^{2}} - x_{2}
+        \end{array}
+        \right\},
+    $$
+    posiadający jedyny punkt równowagi w początku układu współrzędnych,
+    dla którego kandydatem na funkcję Lapunowa jest:
+    $$
+        V(x) = \frac{x_{1}^{2}}{1 + x_{1}^{2}} + x_{2}^{2}.
+    $$
+    $V(x)$ jest dodatnio określona dla wszystkich $x \neq 0$, a jej pochodna systemowa ma postać:
+    $$
+        \dot{V}(x) = -\frac{2x_{1}^{2}}{(1 + x_{1}^{2})^{2}} - 2x_{2}^{2}
+    $$
+    jest ujemnie określona wszędzie poza punktem równowagi systemu.
+
+    Sprawdźmy granice. Jeśli $x_2=0$ i $x_1 \rightarrow \infty$:
+    $$
+        \lim_{x_1 \rightarrow \infty} V(x_1, 0) = \lim_{x_1 \rightarrow \infty}  \frac{x_{1}^{2}}{1 + x_{1}^{2}} = 1.
+    $$
+    Zatem funkcja Lapunowa nie jest radialnie nieograniczona, a tym samym nie możemy
+    wnioskować o globalnej stabilności asymptotycznej punktu równowagi.
+    Poziomice $V(x)=c$ dla $c<1$ są krzywymi zamkniętymi. Jednak dla $c=1$,
+    poziomica to $x_2^2 = 1 - \frac{x_1^2}{1 + x_1^2} = \frac{1}{1 + x_1^2}$,
+    czyli $x_2 = \pm \frac{1}{\sqrt{1 + x_1^2}}$. Ta krzywa rozciąga się do
+    nieskończoności wzdłuż osi $x_1$.
+    
+    Jeśli warunek radialnej nieograniczoności nie jest spełniony, nie możemy
+    zagwarantować, że trajektorie startujące z dalekich punktów (gdzie $V(x)\geq
+    1$) zostaną „ściągnięte” do początku układu. Mogą one uciec do
+    nieskończoności, mimo że ich „energia” $V$ stale maleje (dąży np. do wartości
+    $1$ od góry).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{fig/radialna_nieograniczonosc.eps}
+        \caption{Funkcja Lapunowa $V(x)$ jest radialnie ograniczona -
+        zbiór poziomicowy dla $V(x) = 1$ jest niedomknięty.}
+    \end{figure}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!75!black, title=Ważne]
+Aby udowodnić Globalną Stabilność Asymptotyczną (GAS), „miska” potencjału $V$
+musi rosnąć w nieskończoność w każdym kierunku. Jeśli miska ma „krawędź” na
+skończonej wysokości (tak jak funkcja $\frac{x_1^2}{1 + x_1^2}$), trajektoria
+może się z niej „wylać”, a udowodniona zostanie co najwyżej stabilność lokalna
+wewnątrz tej "miski".
+\end{tcolorbox}
+
+\textbf{Twierdzenie 5 (o stabilności wykładniczej)}
+Jeżeli istnieje funkcja $V:D\rightarrow\mathbb{R}$ różniczkowalna w sposób ciągły i taka, że dla pewnych dodatnich stałych $k_{1}$, $k_{2}$, $k_{3}$, $h$ są spełnione na zbiorze $D$ warunki:
+\begin{equation}\label{eq:stab_wyk}
+    \begin{array}{c}
+         k_{1}\lVert x \rVert^{h} \leq V(x) \leq k_{2}\lVert x \rVert^{h}\\
+         \dot{V}(x) \leq -k_{3}\lVert x \rVert^{h}
+    \end{array}
+\end{equation}
+to punkt równowagi $x_{e} = 0$ układu (\ref{eq:sys_stac}) jest \textbf{wykładniczo stabilny}. Jeżeli $D = \mathbb{R}^{n}$, to punkt równowagi jest globalnie wykładniczo stabilny.
+
+\textbf{Definicja 15}
+Zbiór $M$ w przestrzenie stanów układu (\ref{eq:sys_stac}) jest nazywany \textbf{niezmienniczym (inwariantnym)}, jeśli każda trajektoria rozpoczynająca się w $M$ w nim pozostaje, czyli:
+\begin{equation}\label{eq:zbior_inwariantny}
+    x(t_{0}) \in M \implies \forall_{t > t_{0}}x(t) \in M.
+\end{equation}
+
+Przykładami zbioru niezmienniczego są: cała przestrzeń stanów, punkt równowagi, cykl graniczny, czy zbiór zdefiniowany jako:
+$$
+    \omega_{p} = \left\{ x \in \mathbb{R}^{n}:V(x) \leq l \right\}
+$$
+gdzie $V(x)$ jest funkcją Lapunowa.
+
+\textbf{Definicja 16}
+Zbiór $N$ w przestrzeni stanów nazywamy \textbf{zbiorem granicznym} dla trajektorii $x(t)$ układu (\ref{eq:sys_stac}), jeśli dla dowolnego punktu $p \in N$ istnieje ciąg $x(t_{n}) \rightarrow p$, $t_{1} < t_{2} < \cdots$.
+
+Zbiorami granicznymi są zatem punkty asymptotycznie stabilnej równowagi i cykle graniczne dla trajektorii z ich obszarów atrakcji.
+
+\textbf{Twierdzenie 6 (LaSalle'a)}
+Jeżeli istnieje funkcja $V:D\rightarrow\mathbb{R}$, różniczkowalna w~sposób ciągły, która spełnia warunki:
+\begin{enumerate}[(a)]
+    \item $M \subset D$ jest ograniczonym, domkniętym zbiorem niezmienniczym układu (\ref{eq:sys_stac}),
+    \item $\dot{V}(x) \leq 0$ dla każdego $x\in M$,
+    \item $E = \left\{ x\in M:\dot{V}(x) = 0 \right\}$,
+    \item $N$ jest największym zbiorem niezmienniczym zawartym w $E$ (to znaczy każdy zbiór niezmienniczy zawarty w $E$ jest zawarty w $N$),
+\end{enumerate}
+to każda trajektoria rozpoczynająca się w zbiorze $M$ zbiega do zbioru $N$ dla $t\rightarrow\infty$.
+
+\textit{Dowód:}
+wzdłuż dowolnej trajektorii $x(t)$, rozpoczynającej się w zbiorze $M$ funkcja $V(x(t))$ jest nierosnąca (z założenia (b)), ograniczona z dołu (jako funkcja ciągła na zwartym zbiorze $M$), ma więc skończoną granicę $v$ dla $t \rightarrow \infty$.
+
+Niech $N_{x}$ będzie zbiorem granicznym trajektorii $x(t)$.
+Oczywiście $N_{x} \subset M$. Zgodnie z definicją 16, dla dowolnego punktu $p\in N_{x}$ istnieje ciąg $x(t_{n}) \rightarrow p$.
+Na mocy ciągłości funkcji $V: V(p) = v$, czyli na całym zbiorze $N_{x}$, funkcja $V$ przyjmuje stałą wartość $v$, więc dla $p \in N_{x} : \dot{V}(x)=0$.
+Ostatecznie
+$$
+    N_{x} \subset N \subset E \subset M.
+$$
+Jako że $x(t)$ zbiega do zbioru $N_{x}$, zbiega też do zbioru $N$.
+
+\textbf{Twierdzenie 7 (wniosek z twierdzenia LaSalle'a)}
+\begin{enumerate}
+    \item Jeżeli istnieje funkcja $V:D\rightarrow\mathbb{R}$ różniczkowalna w sposób ciągły i spełnione są warunki:
+    \begin{enumerate}[(a)]
+        \item $V$ jest dodatnio określona na $D$,
+        \item $\dot{V}(x) \leq 0$ w ograniczonym podzbiorze $S \subset D$, $0 \in S$,
+        \item $\dot{V}(x)$ nie staje się zerem wzdłuż żadnej trajektorii $x(t) \subset S$, z wyjątkiem $x(t) \equiv 0$,
+    \end{enumerate}
+    to punkt równowagi $x_{e} = 0$ układu (\ref{eq:sys_stac}) jest asymptotycznie stabilny.
+
+    \item Jeżeli założenia są spełnione w całej przestrzeni stanów ($S = \mathbb{R}^{n}$), a funkcja $V$ jest radialnie nieograniczona, to punkt równowagi $x_{e} = 0$ jest globalnie asymptotycznie stabilny.
+\end{enumerate}
+
+\textbf{Twierdzenie 8 (Barbaszina i Krasowskiego)}
+\begin{enumerate}
+    \item Jeżeli istnieje funkcja $V:D\rightarrow\mathbb{R}$ różniczkowalna w sposób ciągły i spełnione są warunki:
+    \begin{enumerate}[(a)]
+        \item $V$ jest dodatnio określona na $D$,
+        \item $\dot{V}(x) \leq 0$ w ograniczonym podzbiorze $S \subset D$, $0 \in Int(S)$,
+        \item $E = \left\{ x \in D: \dot{V}(x)=0 \right\}$ i żadna trajektoria $x(t)$ nie zawiera się w zbiorze $E$, z wyjątkiem $x(t) \equiv 0$,
+    \end{enumerate}
+    to punkt równowagi $x_{e} = 0$ układu (\ref{eq:sys_stac}) jest asymptotycznie stabilny.
+
+    \item Jeżeli założenia są spełnione w całej przestrzeni stanów ($S = \mathbb{R}^{n}$), a funkcja $V$ jest radialnie nieograniczona, to punkt równowagi $x_{e} = 0$ jest globalnie asymptotycznie stabilny.
+\end{enumerate}
+
+\textbf{Twierdzenie 9 (o zbiorze niezmienniczym i zbiorze przyciągania)}
+Jeżeli istnieje funkcja $V:D\rightarrow\mathbb{R}$ różniczkowalna w sposób ciągły i spełnione są warunki:
+\begin{enumerate}[(a)]
+    \item $M \subset D$ jest ograniczonym, domkniętym zbiorem niezmienniczym układu (\ref{eq:sys_stac}) i $0 \in M$,
+    \item $\dot{V}(x) < 0$ dla $0 \neq x \in M$, $\dot{V}(0) = 0$,
+\end{enumerate}
+to zbiór $M$ jest zawarty w zbiorze przyciągania punktu równowagi $x_{e} = 0$.
+
+\textbf{Twierdzenie 10 (o obszarze przyciągania)}
+Jeżeli istnieje funkcja Lapunowa $V(x)$ oraz zachodzą warunki:
+\begin{itemize}[(a)]
+    \item istnieje zbiór $G = \left\{x:  V(x) < \rho \right\}$,
+    \item dla każdego $x \in G$ zachodzi $\dot{V}(x) \leq 0$
+\end{itemize}
+to $G$ jest obszarem atrakcji, a trajektorie zbiegają do maksymalnego zbioru inwariantnego zawartego w $G$.
+
+
+\begin{tcolorbox}[colback=pink!5, colframe=pink!75!black, title=Intuicja]
+Z twierdzenia tego wynika, iż zbiór poziomicowy funkcji Lapunowa jest zbiorem niezmienniczym.
+Ponieważ warunek $\dot{V}(x) = <\nabla V(x), f(x)> < 0$ oznacza, że kąt pomiędzy gradientem funkcji Lapunowa a trajektorią systemu należy do przedziału $(\frac{\pi}{2}, \frac{3\pi}{2})$, a więc są skierowane do wewnątrz zbioru.
+Jak pokazano na rysunku \ref{fig:invariant_set}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{fig/invariant_set.png}
+    \caption{Geometryczna interpretacja warunku na inwariantność zbioru poziomicowego.}
+    \label{fig:invariant_set}
+\end{figure}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5, colframe=green!75!black, title=Przykład]
+Rozważmy prosty układ pierwszego rzędu:
+$$
+    \dot{x} = -x + x^3.
+$$
+Graficznie przedstawiono to na rysunku (\ref{fig:la_calle_przyklad}):
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\linewidth]{fig/la_salle_przyklad.PNG}
+    \caption{Ilustracja do twierdzenia o obszarze przyciągania.}
+    \label{fig:la_calle_przyklad}
+\end{figure}
+Dość łatwo zauważyć, że obszar pomiędzy $-1$ a $1$ jest stabilny - dla dodatnich
+położeń prędkość jest ujemna i ściąga stan do zera, dla ujemnych jest dodatnia i
+też przyciąga stan do zera.
+Natomiast poza tym obszarem stan oddala się do nieskończoności - położenia
+powyżej/ poniżej $1$/$-1$ powodują prędkości odpowiednio dodatnie/ujemne - czyli
+system oddala się od punktu równowagi.
+
+Można rozważyć funkcję Lapunowa:
+$$
+    V(x) = \frac{1}{2}x^{2}.
+$$
+Jej pochodna systemowa:
+$$
+    \dot{V}(x) = -x^{2}+x^{4} = x^{2}\left(x^{2}-1\right) \implies \dot{V}(x) \leq 0 \, dla \, x \in(-1, 1).
+$$
+Zatem $x \in(-1, 1)$ jest obszarem atrakcji stabilnego punktu równowagi.
+\end{tcolorbox}
+
+\textbf{Twierdzenie 11 (Poincare)}
+Jeżeli cykl graniczny istnieje, to musi okrążać co najmniej jeden punkt równowagi, a~do tego zachodzi równość:
+\begin{equation}
+    \label{eq:poincare}
+    N = S + 1,
+\end{equation}
+gdzie:
+\begin{itemize}
+    \item $N$ - liczba punktów równowagi typu węzeł, ognisko, gwiazda,
+    \item $S$ - liczba punktów równowagi typu siodło.
+\end{itemize}
+
+\begin{tcolorbox}[colback=pink!5, colframe=pink!75!black, title=Intuicja]
+Każdy zamknięty kontur posiada tak zwany indeks, czyli liczbę obiegów wektora $\varphi(x_{1}, x_{2}) = \arctan{\left( \frac{\dot{x}_{1}}{\dot{x}_{2}} \right)}$.
+Można pokazać, że dla konturu otaczającego pojedynczy punkt równowagi indeks ten wynosi 1 dla punktów równowagi typu węzeł, ognisko i gwiazda, natomiast dla punktu typu siodło indeks wynosi -1.
+Dodatkowo można udowodnić, że indeks konturu w przypadku okrążania wielu punktów równowagi jest równy sumie indeksów wszystkich punktów równowagi w konturze.
+Zatem jeśli ich suma wynosi 1 ($N-S = 1$), to  można je traktować poniekąd jak pojedynczy punkt równowagi - jeśli zawiera on stabilny cykl graniczny, to wszystkie trajektorie będą do niego zmierzać - jak do stabilnego punktu równowagi.
+\end{tcolorbox}
+
+\textbf{Twierdzenie 12 (Poincare-Bendixona)}
+Jeśli trajektorie nieliniowego, stacjonarnego układu drugiego rzędu (\ref{eq:sys_stac}) pozostają w ograniczonym obszarze $\Omega$, to wówczas zachodzi jedna z możliwości:
+\begin{enumerate}[(a)]
+    \item trajektoria zbiega do punktu równowagi,
+    \item zbiega do cyklu granicznego,
+    \item jest cyklem granicznym.
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.35\linewidth]{fig/poincare_bendixon.PNG}
+    \caption{Ilustracja do twierdzenia Poincare-Bendixona.}
+    \label{fig:poincare_bendixon}
+\end{figure}
+
+\textbf{Twierdzenie 13 (Bendixona)}
+Dla układu nieliniowego (\ref{eq:sys_stac}) drugiego rzędu, na obszarze $\Omega$ nie istnieje żaden cykl graniczny, jeśli $\frac{\partial f_{1}}{\partial x_{1}} + \frac{\partial f_{2}}{\partial x_{2}}$ nie zmienia na nim znaku ani nie zanika tożsamościowo do zera.
+
+\begin{tcolorbox}[colback=green!5, colframe=green!75!black, title=Przykład]
+Rozważmy układ:
+\begin{equation}
+    \label{eq:bendixon}
+    \left\{
+    \begin{array}{l}
+         \dot{x}_{1} = x_{2} + x_{1}\left( 1 - x_{1}^{2} - x_{2}^{2} \right)\\
+         \dot{x}_{2} = -x_{1} + x_{2}\left( 1 - x_{1}^{2} - x_{2}^{2} \right)
+    \end{array}
+    \right\}.
+\end{equation}
+Wówczas mamy pochodne cząstkowe:
+$$
+    \frac{\partial f_{1}}{\partial x_{1}} + \frac{\partial f_{2}}{\partial x_{2}} = 2 - 4(x_{1}^{2} + x_{2}^{2})
+$$
+suma ta zmienia znak na okręgu o środku w początku układu współrzędnych i promieniu $\frac{\sqrt{2}}{2}$.
+Zatem można szukać cyklu granicznego wokół punktu $(0,0)$.
+Portret fazowy tego układu pokazano na rysunku.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{fig/bendixon.png}
+    \caption{Portret fazowy układu (\ref{eq:bendixon}).}
+    \label{fig:bendixon}
+\end{figure}
+\end{tcolorbox}
+
+\newpage
+    %=======================================================
+    \subsection{Metody poszukiwania funkcji Lapunowa}\label{sec:dobor_funkcji}
+    Jak wcześniej wspomniano nie istnieje uniwersalna metoda poszukiwania funkcji Lapunowa i odnalezienie jej jest zasadniczym problemem udowodnienia stabilności danego punktu równowagi systemu nieliniowego.
+    Jednak w literaturze można odnaleźć szereg metod, które sugerują pewne obszary i metodologie poszukiwań.
+        %-------------------------------------------------------
+        \subsubsection{Energetyczna}
+        W celu zobrazowania metody energetycznej funkcji Lapunowa wykorzystany zostanie przykład układu masa-sprężyna, jak na rysunku (\ref{fig:masa-sprezyna}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.25\linewidth]{fig/energia_lapunow.PNG}
+            \caption{Układ masa-sprężyna.}
+            \label{fig:masa-sprezyna}
+        \end{figure}
+        Wówczas można założyć, że siły tarcia i sprężystości wyrażają się zależnością:
+        \begin{itemize}
+            \item $F_{t} = f(x, \dot{x})$,
+            \item $F_{s} = g(x)$.
+        \end{itemize}
+        Gdzie $f(x,\dot{x})$ i $g(x)$ są funkcjami ciągłymi oraz spełniony jest warunek:
+        \begin{itemize}
+            \item $g(0) = 0$,
+        \end{itemize}
+        Ostatecznie więc dynamika układu wyraża się równaniem:
+        \begin{equation}\label{eq:lienard}
+            \ddot{x} + f(x,\dot{x})\dot{x} + g(x) = 0
+        \end{equation}
+
+        Ponieważ występuje tarcie, to suma energii kinetycznej i potencjalnej powinna maleć.
+        Suma tych energii to:
+        $$
+            E = E_{k} + E_{p}
+        $$
+        gdzie:
+        \begin{itemize}
+            \item $E_{k} = \frac{\dot{x}^{2}}{2}$ - energia kinetyczna,
+            \item $E_{p} = \int_{0}^{x_{1}}{g(z)dz}$ - energia potencjalna.
+        \end{itemize}
+        Zatem potencjalnej funkcji Lapunowa można poszukiwać jako sumy energii układu:
+        \begin{equation}\label{eq:lap_en}
+            V(x_{1},x_{2}) = \frac{\dot{x}^{2}}{2} + \int_{0}^{x_{1}}{g(z)dz}.
+        \end{equation}
+
+        %-------------------------------------------------------
+        \subsubsection{Forma kwadratowa}
+        Często można szukać funkcji Lapunowa w postaci formy kwadratowej w oparciu o przybliżenie liniowe układu nieliniowego:
+        $$
+            V(x) = x^{T}Px
+        $$
+        gdzie $P$ jest rozwiązaniem równania Lapunowa.
+        
+        Bardzo często szuka się też funkcji Lapunowa w postaci sumy kwadratów poszczególnych zmiennych stanu:
+        $$
+            V(x) = \frac{1}{2}\sum_{1=1}^{n}{x_{i}^{2}}.
+        $$
+
+        %-------------------------------------------------------
+        \subsubsection{Metoda Krasowskiego}
+        Jeśli dla układu (\ref{eq:sys_stac}) macierz Jacobiego:
+        $$
+            A(x) = \frac{\partial f(x)}{\partial x}
+        $$
+        spełnia warunek:
+        $$
+            F = A^{T} + A < 0.
+        $$
+        To funkcji Lapunowa można poszukiwać w formie:
+        $$
+            V(x) = f(x)^{T}Pf(x).
+        $$
+        Ponieważ:
+        $$
+            \dot{V}(x) = f^{T}\dot{f} + \dot{f}^{T}f = f^{T}Af + f^{T}A^{T}f = f^{T}Ff < 0.
+        $$
+
+        %-------------------------------------------------------
+        \subsubsection{Metoda zmiennych gradientów}
+        Metoda zmiennych gradientów jest formalnym podejściem do konstrukcji funkcji Lapunowa.
+        Zakłada ona, że funkcja Lapunowa jest związana z jej nachyleniem $\nabla V$ przez zależność całkową:
+        \begin{equation}
+            \label{eq:mzg_0}
+            V(x) = \int_{0}^{x}{\nabla Vdx}
+        \end{equation}
+        gdzie $\nabla V = \begin{bmatrix} \frac{\partial V}{\partial x_{1}} & \frac{\partial V}{\partial x_{2}} & \cdots & \frac{\partial V}{\partial x_{n}}  \end{bmatrix}^{T}$.
+        Żeby uzyskać funkcję skalarną $V(x)$, gradient musi spełniać szereg warunków:
+        \begin{equation}
+            \label{eq:mzg_1}
+            \frac{\partial \nabla V_{i}}{\partial x_{j}} = \frac{\partial \nabla V_{j}}{\partial x_{i}}, \qquad \mathrm{dla} \qquad i,j=1, 2, ..., n
+        \end{equation}
+        gdzie $\nabla V_{i} = \frac{\partial V}{\partial x_{i}}$.
+        Metoda ta zakłada postać gradientu funkcji Lapunowa w postaci:
+        \begin{equation}
+            \label{eq:mzg_2}
+            \nabla V_{i} = \sum_{j=1}^{n}{a_{ij}x_{j}}
+        \end{equation}
+        gdzie $a_{ij}$ są określonymi współczynnikami.
+
+        Procedurę tą można zalgorytmizować w następujący sposób:
+        \begin{enumerate}
+            \item Zakładamy, że $\nabla V$ jest dane z zależności (\ref{eq:mzg_2}).
+            \item Rozwiązujemy równanie dla współczynników $a_{ij}$ tak, aby spełniały warunki (\ref{eq:mzg_1}).
+            \item Obliczamy $V$ przez całkowanie:
+            $$
+                V(x) = \int_{0}^{x_{1}}{\nabla V_{1}(x_{1}, 0,\cdots, 0)dx_1} + \int_{0}^{x_{2}}{\nabla V_{2}(x_{1}, x_{2}, 0 \cdots, 0)dx_2} + \cdots + \int_{0}^{x_{n}}{\nabla V_{n}(x_{1}, \cdots, x_{n})dx_n}.
+            $$
+            \item Sprawdzamy, czy $V$ jest dodatnio określona.
+        \end{enumerate}
+
+        \begin{tcolorbox}[colback=green!5, colframe=green!75!black, title=Przykład]
+        Dla zobrazowania tej metody rozważmy układ:
+        $$
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = -2x_{1}\\
+                 \dot{x}_{1} = -2x_{2} + 2x_{1}x_{2}^{2}
+            \end{array}
+            \right\}.
+        $$
+        Przyjmujemy, że gradienty funkcji Lapunowa mają postać:
+        $$
+            \begin{array}{l}
+                 \nabla V_{1} = a_{11}x_{1} + a_{12}x_{2}\\
+                 \nabla V_{2} = a_{21}x_{1} + a_{22}x_{2}
+            \end{array}
+        $$
+        Muszą one spełniać warunek:
+        $$
+            \frac{\partial \nabla V_{1}}{\partial x_{2}} = \frac{\partial \nabla V_{2}}{\partial x_{1}}
+        $$
+        czyli:
+        $$
+            x_{1}\frac{\partial a_{11}}{\partial x_{2}} + x_{2}\frac{\partial a_{12}}{\partial x_{2}} +a_{12} = a_{21} + x_{1}\frac{\partial a_{21}}{\partial x_{1}} +x_{2}\frac{\partial a_{22}}{\partial x_{1}}.
+        $$
+        
+        \textbf{Wybór A}
+
+        Współczynniki $a_{ij}$ można dobrać jako:
+        $$
+            a_{11} = a_{22} = 1, \quad a_{12}=a_{21}=0
+        $$
+        Mamy wówczas:
+        $$
+            \nabla V_{1} = x_{1},\,\nabla V_{2} = x_{2}.
+        $$
+        Funkcja Lapunowa ma postać:
+        $$
+            V(x) = \frac{1}{2}(x_{1}^{2} + x_{2}^{2}).
+        $$
+        a pochodna systemowa jest lokalnie ujemnie określona w obszarze $(1-x_1x_2)$, co wnioskujemy z jej równania:
+        $$
+            \dot{V}(x) = -2x_{1}^{2} - 2x_{2}^{2}(1-x_{1}x_{2}).
+        $$
+        \textbf{Wybór B}
+
+        Alternatywnie współczynniki $a_{ij}$ można dobrać następująco:
+        $$
+            a_{11} = 1, \quad a_{12} = x_2^2, \quad a_{21} = 3x_2^2, \quad a_{22}=3
+        $$
+        W tym wypadku:
+         $$
+            \begin{array}{l}
+                 \nabla V_{1} = x_{1} + x_2^3\\
+                 \nabla V_{2} = 3x_{1}x_2^2 + 3x_{2}
+            \end{array}
+        $$
+        Funkcja Lapunowa ma postać:
+        $$
+                V(x) = \int_{0}^{x_{1}}{(x_{1} + x_2^3)dx_1} + \int_{0}^{x_{2}}{(3x_{1}x_2^2 + 3x_{2})dx_2} = \frac{x_1^2}{2}+x_1x_2^3+\frac{3}{2}x_2^2
+        $$
+        Pochodna systemowa dla tego wyboru współczynników wynosi:
+        $$
+            \dot{V}(x) = -2x_1^2 - 6x_2^2 -2x_2^2(x_1x_2+3x_1^2x_2^2)
+        $$      
+        $\dot{V}(x)$ jest funkcją lokalnie ujemnie określoną.
+        
+
+        \end{tcolorbox}
+
+        %-------------------------------------------------------
+        \subsubsection{Neuralna}
+        Coraz częściej do poszukiwania funkcji Lapunowa wykorzystuje się metody uczenia maszynowego.
+        Można w tej kategorii wydzielić najogólniej dwie grupy metod:
+        \begin{itemize}
+            \item aproksymujące funkcję Lapunowa w konkretnych punktach, zakładając odpowiednią gładkość aproksymowanej funkcji,
+            \item wyznaczające funkcję Lapunowa i jej pochodną w postaci analitycznej - w tym podejściu ujemność pochodnej udowadniana jest za pomocą tzw. Satisfiability Modulo Theories - takie podejście pokazane jest między innymi w pracy \cite{Chang2019}. 
+        \end{itemize}        
+\newpage
+    %===========================================================
+    \subsection{Przykłady}
+        %-------------------------------------------------------
+        Kontynuujemy tu numerację listy przykładów dla pośredniej metody Lapunowa.
+        %-------------------------------------------------------
+        \subsubsection{Przykład 3}
+        Określić obszary stabilności asymptotycznej wokół stabilnych asymptotycznie punktów równowagi równania:
+        \begin{equation}\label{eq:example_1_sys}
+            \ddot{x} + \dot{x} + (x+1)x(x-1) = 0.
+        \end{equation}
+    
+        W pierwszej kolejności wprowadzamy zmienne $x_{1} = x$ i $x_{2} = \dot{x}$ i przekształcamy równanie do postaci:
+        \begin{equation}\label{eq:example_1_sys_transformed}
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = x_{2}\\
+                 \dot{x}_{2} = -(x_{1}+1)x_{1}(x_{1}-1) - x_{2}
+            \end{array}
+            \right\}.
+        \end{equation}
+        Jak pokazano w poprzednim przykładzie układ ten ma dwa stabilne punkty równowagi: $x_{e}^{1} = (-1, 0)$ i $x_{e}^{3} = (1, 0)$.
+        Będziemy rozważać każdy z nich osobno.
+
+        \begin{enumerate}
+            \item $x_{e}^{1}$: wprowadzamy nowe zmienne, aby rozważać środek układu współrzędnych jako punkt równowagi:
+            $$
+                z_{1} = x_{1} + 1,\, z_{2} = x_{2}.
+            $$
+            Wówczas uzyskujemy równania:
+            $$
+                \left\{
+                \begin{array}{l}
+                     \dot{z}_{1} = z_{2}\\
+                     \dot{z}_{2} = z_{2} - z_{1}(z_{1} - 1) (z_{1} - 2)
+                \end{array}
+                \right\}.
+            $$
+            Można przyjąć energetyczną funkcję Lapunowa:
+            $$
+                V(z) = \frac{z_{2}^{2}}{2} + \int_{0}^{z_{1}}{\gamma(\gamma - 1)(\gamma -2) d\gamma} = \frac{z_{2}^{2}}{2} + \frac{z_{1}^{4}}{4} - z_{1}^{3} + z_{1}^{2}.
+            $$
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_3_v.png}
+                \caption{Poziomice funkcji Lapunowa nałożone na portret fazowy układu z przykładu 3.}
+                \label{fig:przyklad_3_v}
+            \end{figure}
+            Jej pochodna systemowa wynosi:
+            $$
+                V(z) = -z_{2}^{2}.
+            $$
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_3_vp.png}
+                \caption{Poziomice pochodnej systemowej funkcji Lapunowa nałożone na portret fazowy układu z przykładu 3.}
+                \label{fig:przyklad_3_vp}
+            \end{figure}
+            Jest ona ujemna wszędzie poza osią $OX$, a jedynymi zbiorami inwariantnymi na niej są punkty równowagi.
+            Zatem poziomica ograniczająca obszar atrakcji "ociera się" o niestabilny punkt równowagi.
+            Mamy więc:
+            $$
+                D^{1} = \left\{ x \in \mathbb{R}^{2} : V(x_{1} + 1, x_{2}) < \frac{1}{4}\, i\, x_{1} < 0 \right\}.
+            $$
+            \item $x_{e}^{3}$: analogicznie postępujemy dla drugiego stabilnego punktu równowagi.
+            Wprowadzamy nowe zmienne:
+            $$
+                z_{1} = x_{1} - 1,\, z_{2} = x_{2}.
+            $$
+            Wówczas uzyskujemy równania:
+            $$
+                \left\{
+                \begin{array}{l}
+                     \dot{z}_{1} = z_{2}\\
+                     \dot{z}_{2} = z_{2} - z_{1}(z_{1} + 1) (z_{1} + 2)
+                \end{array}
+                \right\}.
+            $$
+            Można przyjąć energetyczną funkcję Lapunowa:
+            $$
+                V(z) = \frac{z_{2}^{2}}{2} + \int_{0}^{z_{1}}{\gamma(\gamma + 1)(\gamma +2) d\gamma} = \frac{z_{2}^{2}}{2} + \frac{z_{1}^{4}}{4} + z_{1}^{3} + z_{1}^{2}.
+            $$
+            Jej pochodna systemowa wynosi:
+            $$
+                V(z) = -z_{2}^{2}.
+            $$
+            Zatem obszar atrakcji jest symetryczny do poprzedniego względem osi $OY$.
+        \end{enumerate}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_3_obszar.png}
+            \caption{Granice estymowanego obszaru atrakcji dla stabilnych punktów równowagi z przykładu 3.}
+            \label{fig:przyklad_3_obszar}
+        \end{figure}
+        
+        %-------------------------------------------------------
+        \subsubsection{Przykład 4}
+        Rozpatrzmy raz jeszcze układ z \textbf{Przykładu 1} opracowany z wykorzystaniem ukazji pośredniej metody Lapunowa:
+        \begin{equation}\label{eq:example_2_sys}
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = x_{1}^{2} - x_{2}\\
+                 \dot{x}_{2} = x_{1} - x_{2}
+            \end{array}
+            \right\}.
+        \end{equation}
+        Pokazano tam, że punkt równowagi $x_{e}^{1} = \begin{bmatrix} 0 & 0 \end{bmatrix}^{T}$ jest asymptotycznie stabilny.
+        Spróbujmy teraz oszacować jego obszar atrakcji za pomocą narzędzi z bezpośredniej metody Lapunowa.
+
+
+        Rozważmy dwie funkcje Lapunowa:
+        \begin{enumerate}
+            \item Opartą na przybliżeniu liniowym i rozwiązaniu macierzowego równania Lapunowa:
+            $$
+                \dot{x}
+                =
+                \begin{bmatrix}
+                    0 & -1\\
+                    1 & -1
+                \end{bmatrix}
+                x
+                +
+                \begin{bmatrix}
+                    x_{1}^{2}\\
+                    0
+                \end{bmatrix}.
+            $$
+            Przypomnijmy równanie Lapunowa:
+            $$
+                A^{T}P + PA = -Q,
+            $$
+            gdzie poszukiwanym rozwiązaniem jest macierz $P = \begin{bmatrix} p_{11} & p_{12} \\ p_{12} & p_{22} \end{bmatrix}$.
+            
+
+            Przyjmując macierz $Q$ w postaci:
+            $$
+                Q
+                =
+                q
+                \begin{bmatrix}
+                    1 & 0\\
+                    0 & 1
+                \end{bmatrix},\,q>0.
+            $$
+            
+            Otrzymuje się macierz $P$:
+            $$
+                P
+                =
+                \frac{1}{2}
+                q
+                \begin{bmatrix}
+                    3 & -1\\
+                    -1 & 2
+                \end{bmatrix}.
+            $$
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_4_v_1.png}
+                \caption{Poziomice funkcji Lapunowa na tle portretu fazowago z przykładu 4.}
+                \label{fig:przyklad_4_obszar}
+            \end{figure}
+            Funkcja Lapunowa to $V(x) = x^T P x$, a jej pochodna systemowa ma postać:
+            $$
+                \dot{V}(x)
+                =
+                \frac{1}{2}q
+                x
+                \begin{bmatrix}
+                    6x_{1}-2 & -x_{1}\\
+                    -x_{1} & -2
+                \end{bmatrix}
+                x.
+            $$
+            Można zauważyć, że jej znak nie zależy od wartości parametru $q$ (z założenia $q>0$) oraz dla $x_{1} \in (12.36; 0.66)$.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_4_vp_1.png}
+                \caption{Poziomice pochodnej systemowej funkcji Lapunowa na tle portretu fazowago z przykładu 4.}
+                \label{fig:przyklad_4_vp}
+            \end{figure}
+            Na tej podstawie wybieramy największy zbiór poziomicowy $V(x)$ spełniający te warunki.
+            $$
+                D = \left\{ x \in \mathbb{R}^{2}: V(x) < \frac{4}{9} \right\}.
+            $$
+            Zbiór ten przedstawiono na rysunku (\ref{fig:przyklad_4_obszar}).
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_4_obszar_1.png}
+                \caption{Estymata obszaru atrakcji na tle portretu fazowago z przykładu 4.}
+                \label{fig:przyklad_4_obsza_obszar}
+            \end{figure}
+            
+            \item Funkcję Lapunowa w postaci:
+            \begin{equation}
+                \label{eq:przyklad_4_2}
+                V(x) = (-x_{1} + x_{2})^{2} + 2 \int_{0}^{x^{1}}{(-z^{2} + z)dz} = -\frac{2}{3}x_{1}^{3}+2x_{1}^{2}-2x_{1}x_{2}+x_{2}^{2}.
+            \end{equation}
+            Jest ona dodatnia na pewnym otoczeniu stabilnego punktu równowagi.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_4_v_2.png}
+                \caption{Poziomice funkcji Lapunowa (\ref{eq:przyklad_4_2}) na tle portretu fazowago z przykładu 4.}
+                \label{fig:przyklad_4_v_2}
+            \end{figure}
+            Jej pochodna systemowa wynosi:
+            $$
+                \dot{V}(x) = -2(x_{1}-1)^{2}x_{1}^{2}.
+            $$
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_4_vp_2.png}
+                \caption{Poziomice pochodnej systemowej funkcji Lapunowa (\ref{eq:przyklad_4_2}) na tle portretu fazowego z przykładu 4.}
+                \label{fig:przyklad_4_obszar_3}
+            \end{figure}
+            Jest ona ujemnie określona wszędzie poza prostymi $x=0$ i $x=1$. Badając te dwie proste można łatwo zauważyć, że tylko znajdujące się na nich punkty równowagi są zbiorami inwariantnymi.
+            Zatem dobierając zbiór poziomicowy w ten sposób, by "zahaczał" tylko o niestabilny punkt równowagi, uzyskujemy estymatę obszaru asymptotycznego przyciągania stabilnego punktu równowagi.
+            Zbiór ten został przedstawiony na rysunku (\ref{fig:przyklad_4_obszar_2}).
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_4_obszar_2.png}
+                \caption{Estymata obszaru atrakcji na podstawie funkcji Lapunowa (\ref{eq:przyklad_4_2}) na tle portretu fazowego z przykładu 4.}
+                \label{fig:przyklad_4_obszar_2}
+            \end{figure}
+            
+        \end{enumerate}
+
+        %-------------------------------------------------------
+        \subsubsection{Przykład 5}
+        Znaleźć obszar stabilności asymptotycznej wokół punktu równowagi $x_{1}=x_{2}=0$ dla układu równań:
+        \begin{equation}\label{eq:example_5_sys}
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = -x_{1} + 2x_{1}^{3}x_{2}\\
+                 \dot{x}_{2} = -x_{2}
+            \end{array}
+            \right\}.
+        \end{equation}
+
+        Również w tym przypadku, dla zobrazowania jak dobór funkcji Lapunowa wpływa na oszacowanie obszaru atrakcji, rozważymy dwie funkcje $V(x)$.
+        Obydwie będą uzyskane na podstawie przybliżenia liniowego układu i równania Lapunowa, lecz z innym doborem macierzy $Q$.
+        Zatem funkcje Lapunowa będą mieć postać:
+        $$
+            V(x) = x^{T}Px.
+        $$
+
+        Przed rozpoczęciem poszukiwania funkcji Lapunowa wyznaczymy przybliżenie liniowe systemu (\ref{eq:example_5_sys}):
+        $$
+            \begin{bmatrix} \dot{x}_{1} \\ \dot{x}_{2} \end{bmatrix}
+            =
+            \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}
+            \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix}.
+        $$
+
+        \begin{enumerate}
+            \item W pierwszym przypadku macierz $Q$ dobrana do równania Lapunowa miała postać (\ref{eq:przyklad_5_q_case_1}):
+            \begin{equation}\label{eq:przyklad_5_q_case_1}
+                Q = q\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix},\,q>0.
+            \end{equation}
+            Wówczas macierz $P$ wygląda następująco:
+            $$
+                P = \frac{q}{2}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}.
+            $$
+            Wykres poziomicowy funkcji Lapunowa nałożony na portret fazowy pokazano na rysunku (\ref{fig:przyklad_5_v_1}).
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_5_v_1.png}
+                \caption{Portret fazowy układu (\ref{eq:example_5_sys}) z naniesionymi poziomicami funkcji Lapunowa.}
+                \label{fig:przyklad_5_v_1}
+            \end{figure}
+
+            Dla uproszczenia zapisu można układ (\ref{eq:example_5_sys})  w postaci pseudoliniowej (\ref{eq:przyklad_5_form_pseudo}):
+            \begin{equation}\label{eq:przyklad_5_form_pseudo}
+                \begin{bmatrix} \dot{x}_{1} \\ \dot{x}_{2} \end{bmatrix}
+                =
+                \begin{bmatrix} -1 + 2x_{1}^{2}x_{2} & 0 \\ 0 & -1 \end{bmatrix}
+                \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix}
+                =
+                \hat{A}x.
+            \end{equation}
+            Pochodną systemową można wyznaczyć następująco:
+            $$
+                \dot{V}(x) = \dot{x}^{T}Px + x^{T}P\dot{x}
+                =
+                (\hat{A}x)^{T}Px + x^{T}P\hat{A}x
+                = x^{T}\left( \hat{A}P + P\hat{A} \right)x
+                = x^{T}2P\hat{A}x
+                = x^{T}Cx
+            $$
+            gdzie:
+            $$
+                C
+                =
+                q\begin{bmatrix} -1 + 2x_{1}^{2}x_{2} & 0 \\ 0 & -1 \end{bmatrix}.
+            $$
+            Łatwo zauważyć, że aby macierz $C$ była ściśle ujemnie określona wystarczy, żeby spełniona była nierówność:
+            \begin{equation}\label{eq:przyklad_5_negative_vp}
+                2x_{1}^2x_{2} - 1 < 0.
+            \end{equation}
+            Warunek ten jest niezależny od parametru $q$, ponadto zauważyć można, że kształt poziomic funkcji $V(x)$ również nie zależy od tego parametru.
+            %Zatem w dalszych rozważaniach można go pominąć.
+            Kształt poziomic pochodnej systemowej przedstawiono na rysunku (\ref{fig:przyklad_5_vp_1})
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_5_vp_1.png}
+                \caption{Portret fazowy okładu (\ref{eq:example_5_sys}) z naniesionymi poziomicami pochodnej systemowej funkcji Lapunowa.}
+                \label{fig:przyklad_5_vp_1}
+            \end{figure}
+
+            Zbiór $S$, w którym pochodna systemowa jest ujemna, można ustalić jako:
+            $$
+                S = \left\{ (x_{1}, x_{2}):2x_{1}^{2}x_{2}-1 < 0 \right\}.
+            $$
+            Szukamy zatem największego zbioru inwariantnego $D$ w $S$ dla którego zachodzi:
+            $$
+                D = \left\{ (x_{1},x_{2}): V(x) < l_{max} \right\}.
+            $$
+            Taki obszar zaznaczono na rysunku (\ref{fig:Przyklad_5_obszar_1}).
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_5_obszar_1.png}
+                \caption{Portret fazowy układu (\ref{eq:example_5_sys}) z obszarem atrakcji, wynikającym z funkcji Lapunowa.}
+                \label{fig:Przyklad_5_obszar_1}
+            \end{figure}
+
+            \item Drugą rozpatrywaną formą macierzy $Q$ jest:
+            $$
+                Q = \begin{bmatrix} a & 0\\ 0 & 1\end{bmatrix}, \, a > 0.
+            $$
+            Z równania Lapunowa wynika następująca postać macierzy $P$:
+            $$
+                P = \begin{bmatrix} \frac{1}{2}a & 0\\ 0 & 1 \end{bmatrix}.
+            $$
+            Funkcja Lapunowa natomiast ma postać:
+            $$
+                V(x) = x^{T} P x = \frac{1}{2}ax_{1}^{2} + x_{2}^{2}.
+            $$
+            Można więc zauważyć, że jej poziomice będą tworzyły elipsy, gdzie dla $a>1$ dłuższa będzie półoś wzdłuż osi $OY$, natomiast dla $a<1$ dłuższa będzie półoś wzdłuż osi $OX$.
+            
+            Jej pochodna systemowa ma formę:
+            $$
+                \dot{V}(x) = x^{T}\left( \hat{A}^{T}P + P\hat{A} \right)x
+                =
+                x^{T}
+                \begin{bmatrix} a(-1 + 2x_{1}^{2}x_{2}) & 0\\ 0 & -1 \end{bmatrix}
+                x.
+            $$
+            Identycznie jak poprzednio widać, że zbiór $S$, w którym pochodna systemowa funkcji Lapunowa jest ujemna, jest identyczny i nie zależy od parametru $a$.
+
+            Ponieważ dla różnych $a$ różne elipsy utworzą różne obszary atrakcji:
+            $$
+                D_{a} = \left\{ (x_{1},x_{2}): V(x) < l_{a,max} \right\}
+            $$
+            rozpatrując całą ich rodzinę - sumę tych obszarów, uzyskamy jeden większy obszar przyciągania asymptotycznego.
+            Obszar ten zaznaczono na rysunku (\ref{fig:przyklad_5_obszar_2}).
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_5_obszar_2a.png}
+                \caption{Portret fazowy układu (\ref{eq:example_5_sys}) z obszarem atrakcji wynikającym z funkcji Lapunowa}
+                \label{fig:przyklad_5_obszar_2}
+            \end{figure}
+            Poza obszarem atrakcji ograniczonym przez czerwone linie na rysunku (\ref{fig:przyklad_5_obszar_2}) pozostaje do rozważenia obszary:
+            \begin{itemize}
+                \item \textit{czerwone} - z warunku na ujemny znak pochodnej - równanie (\ref{eq:przyklad_5_negative_vp}) - są to obszary niestabilne,
+                \item \textit{zielone} - pochodna systemowa funkcji $V(x)$ jest tutaj ujemna, można więc sprawdzić jakie zachowanie wynika z równania dynamiki układu. A mianowicie widać, że $\dot{x}_{2} = -x_{2}$, zatem wszystkie trajektorie się tam zaczynające schodzą w kierunku osi $OX$, zatem wpadają ostatecznie przez obszar ograniczony liniami czerwonymi. Wnioskujemy więc, że obszary te należą do obszaru przyciągania punktu równowagi.
+            \end{itemize}   
+        \end{enumerate}
+    
+        %-------------------------------------------------------
+        \subsubsection{Przykład 6}
+        Dla układu regulacji automatycznej, przedstawionego na rysunku (\ref{fig:example_4_system_schem}), określić obszar stabilności asymptotycznej wokół stabilnego asymptotycznie punktu równowagi.
+        Nieliniowy element statyczny ma charakterystykę:
+        $$
+            g(e) = -e(e+1)(e-1).
+        $$
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.75\linewidth]{fig/example_system.PNG}
+            \caption{Schemat układu regulacji z przykładu 6.}
+            \label{fig:example_4_system_schem}
+        \end{figure}
+        Na podstawie podanego schematu układu sterowania można wyznaczyć równanie różniczkowe:
+        $$
+            \ddot{x} + \dot{x} - (x+1)x(x-1) = 0.
+        $$
+        A dalej, wprowadzając zmienne $x_{1} = x$ i $x_{2} = \dot{x}$, mamy układ równań:
+        \begin{equation} \label{eq:przyklad_6_rownanie}
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = x_{2}\\
+                 \dot{x}_{2} = -x_{2} + (x_{1}+1)x_{1}(x_{1}-1)
+            \end{array}
+            \right\}.
+        \end{equation}
+        Powyższy układ ma 3 punkty równowagi: $x_{e}^{1} = \begin{bmatrix} -1 & 0\end{bmatrix}^{T}$, $x_{e}^{2} = \begin{bmatrix} 0 & 0\end{bmatrix}^{T}$, $x_{e}^{3} = \begin{bmatrix} 1 & 0\end{bmatrix}^{T}$.
+        Na podstawie pośredniego kryterium Lapunowa łatwo stwierdzić, że tylko $x_{e}^{2}$ jest stabilnym punktem.
+        Portret fazowy rozważanego układu pokazany jest na rysunku (\ref{fig:przyklad_6_pf}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_6.png}
+            \caption{Portret fazowy układu z przykładu 6.}
+            \label{fig:przyklad_6_pf}
+        \end{figure}
+
+        Aby znaleźć obszar stabilności, rozważamy funkcję Lapunowa dla systemu.
+        %Podobnie jak poprzednio rozważane będą dwa przypadki.
+        %\begin{enumerate}
+            %\item 
+            
+            Funkcja Lapunowa uzyskana na podstawie interpretacji energetycznej:
+            \begin{equation}
+                \label{eq:przyklad_6_f_lap_1}
+                V(x) = \frac{x_{2}^{2}}{2} + \int_{0}^{x_{1}}{\left[-(z-1)z(z+1) \right]dz} = \frac{x_{2}^{2}}{2} - \frac{x_{1}^{4}}{4} + \frac{x_{1}^{2}}{2}.
+            \end{equation}
+            Poziomice tej funkcji nałożone na portret fazowy przedstawiono na rysunku:
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_6_v_1.png}
+                \caption{Portret fazowy układu (\ref{eq:przyklad_6_rownanie}) z naniesionymi poziomicami funkcji Lapunowa (\ref{eq:przyklad_6_rownanie}).}
+                \label{fig:przyklad_6_v_1}
+            \end{figure}
+            Jej pochodna systemowa ma postać:
+            \begin{equation}
+                \label{eq:przyklad_6_vp}
+                \dot{V}(x) = -x_{1}^{2}.
+            \end{equation}
+            Funkcja ta jest ujemna wszędzie poza całą osią $OX$.
+            Dlatego konieczne jest sprawdzenie istnienia zbiorów inwariantnych na niej - łatwo zauważyć, że jest to tylko punkt równowagi układu.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_6_vp_1.png}
+                \caption{Portret fazowy układu (\ref{eq:przyklad_6_rownanie}) z naniesionymi poziomicami pochodnej systemowej funkcji Lapunowa (\ref{eq:przyklad_6_rownanie}).}
+                \label{fig:przyklad_6_v_2}
+            \end{figure}
+            Dla wszystkich punktów równowagi wartości $V(x)$ są dodatnie, a $\dot{V}(x)$ równe 0. Dlatego ograniczamy zakres poszukiwań obszaru atrakcji do tych poziomic funkcji Lapunowa, które sięgają niestabilnych punktów równowagi, zatem:
+            $$
+                D = \left\{ x \in \mathbb{R}^{2}: V(x) < \frac{1}{4}, |x_{1}| < 1 \right\}.
+            $$
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{fig/przyklad_6_obszar_1.png}
+                \caption{Portret fazowy układu (\ref{eq:przyklad_6_rownanie}) z naniesionym obszarem atrakcji stabilnego punktu równowagi (obszar zaznaczony czerwoną przerywaną linią).}
+                \label{fig:przyklad_6_obszar_1}
+            \end{figure}
+            
+            %\item Funkcja Lapunowa uzyskana na podstawie przybliżenia liniowego.
+        %\end{enumerate}
+    
+        %-------------------------------------------------------
+        \subsubsection{Przykład 7}
+        Określić obszar atrakcji dla układu z przykładu 6, przy założeniu, że element nieliniowy ma charakterystykę:
+        $$
+            g(e) = e(e-1)^{2}.
+        $$
+        Analogicznie jak w \textbf{przykładzie 6} wyznaczamy równanie różniczkowe, opisujące układ:
+        $$
+            \ddot{x} + \dot{x} - x(x-1)^2 = 0
+        $$
+        oraz wprowadzamy zmienne $x_{1} = x$ i $x_{2} = \dot{x}$, uzyskując układ równań:
+        \begin{equation} \label{eq:przyklad_7_rownanie}
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = x_{2}\\
+                 \dot{x}_{2} = -x_{2} - x_{1}(x_{1}-1)^{2}
+            \end{array}
+            \right\}
+        \end{equation}
+        Z czego wynikają dwa punkty równowagi: $x_{e}^{1} = \begin{bmatrix} 1 & 0\end{bmatrix}^{T}$, $x_{e}^{2} = \begin{bmatrix} 0 & 0\end{bmatrix}^{T}$.
+        Z czego na podstawie pośredniej metody Lapunowa wynika, iż tylko $x_{e}^{2}$ jest stabilny.
+        Portret fazowy układu przedstawiono na rysunku (\ref{fig:przyklad_7_pf}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_7.png}
+            \caption{Portret fazowy układu (\ref{eq:przyklad_7_rownanie}).}
+            \label{fig:przyklad_7_pf}
+        \end{figure}
+        Również tym razem można przyjąć energetyczną funkcję Lapunowa:
+        \begin{equation}
+            \label{eq:przyklad_7_v}
+            V(x) = \frac{x_{2}^2}{2} + \int_{0}^{x_{1}}{z(z-1)dz} = \frac{x_{2}^{2}}{2} + \frac{x_{1}^{4}}{4} - \frac{2x_{1}^{3}}{3} + \frac{x_{1}^{2}}{2}
+        \end{equation}
+        Jej wykres poziomicowy naniesiony na portret fazowy pokazano na rysunku (\ref{fig:przyklad_7_v_1}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_7_v_1.png}
+            \caption{Portret fazowy układu (\ref{eq:przyklad_7_rownanie}) z naniesionymi poziomicami funkcji Lapunowa (\ref{eq:przyklad_7_v}).}
+            \label{fig:przyklad_7_v_1}
+        \end{figure}
+        Jej pochodna systemowa ma postać:
+        \begin{equation}
+            \label{eq:przyklad_7_vp}
+            \dot{V}(x) = -x_{2}^{2}.
+        \end{equation}
+        Jej wykres naniesiony na portret fazowy został przedstawiony na rysunku (\ref{fig:przyklad_7_v_2}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_7_vp_1.png}
+            \caption{Portret fazowy układu (\ref{eq:przyklad_7_rownanie}) z naniesionymi poziomicami pochodnej systemowej funkcji Lapunowa (\ref{eq:przyklad_7_v}).}
+            \label{fig:przyklad_7_v_2}
+        \end{figure}
+        Pochodna systemowa (\ref{eq:przyklad_7_vp}) zeruje się na osi $OX$, dlatego sprawdzamy, jak na niej zachowują się trajektorie systemu. Z tej analizy wynika, że zbiór inwariantny zawiera tylko punkty równowagi.
+        
+        Zatem obszar atrakcji jest ograniczony przez poziomicę funkcji Lapunowa, sięgającej do niestabilnego punktu równowagi. Otrzymujemy więc:
+        $$
+            D = \left\{ x \in \mathbb{R}^{2}: V(x) < \frac{1}{12} \right\}.
+        $$
+        Obszar ten został przedstawiony na rysunku (\ref{fig:przyklad_7_v_2}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_7_obszar_1.png}
+            \caption{Portret fazowy układu (\ref{eq:przyklad_7_rownanie}) z naniesionym obszarem atrakcji stabilnego punktu równowagi (obszar zaznaczony czerwoną przerywaną linią).}
+            \label{fig:przyklad_7_v_3}
+        \end{figure}
+
+        %-------------------------------------------------------
+        \subsubsection{Przykład 8}
+        Znaleźć cykl graniczny i zbadać jego stabilność dla układu:
+        \begin{equation}\label{eq:example_8}
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = x_{2} + x_{1}\left( 1 - x_{1}^{2} -x_{2}^{2} \right)\\
+                 \dot{x}_{2} = -x_{1} + x_{2}\left( 1 - x_{1}^{2} -x_{2}^{2} \right)
+            \end{array}
+            \right\}.
+        \end{equation}
+        Jest to ten sam układ, co w przykładzie dla zobrazowania kryterium Bendixona.
+        Zatem wiemy, że istnieje cykl graniczny - portret fazowy pokazany na rysunku (\ref{fig:przyklad_8}).
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_8_pf.png}
+            \caption{Portret fazowy układu z przykładu 8.}
+            \label{fig:przyklad_8}
+        \end{figure}
+
+        Można zauważyć, że jeżeli $(x_{1}, x_{2})$ znajduje się na okręgu o promieniu 1, to układ redukuje się do układu liniowego z punktem równowagi typu centrum.
+        Zatem możemy szukać cyklu granicznego na tym właśnie okręgu.
+
+        Aby to zrobić można sprawdzić, czy istnieje funkcja Lapunowa, która pokaże stabilność/niestabilność takiej trajektorii zamkniętej.
+        Można zaproponować funkcję:
+        \begin{equation}
+            \label{eq:przyklad_8_v}
+            V(x) = (1 - x_{1}^{2} -x_{2}^{2})^{2}.
+        \end{equation}
+        Jej kształt pokazano na rysunku (\ref{fig:przyklad_8_v}).
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_8_v.png}
+            \caption{Funkcja Lapunowa (\ref{eq:przyklad_8_v}) na tle portretu fazowego układu z przykładu 8.}
+            \label{fig:przyklad_8_v}
+        \end{figure}
+
+        Jej pochodna systemowa ma postać (rysunek (\ref{fig:przyklad_8_vp})):
+        \begin{equation}
+            \label{eq:przyklad_8_vp}
+            V(x) = -2(x_{1}^{2} + x_{2}^{2})(1 - x_{1}^{2} -x_{2}^{2})^{2}.
+        \end{equation}
+        Jest ona ujemna wszędzie poza okręgiem jednostkowym o środku w początku układu współrzędnych i poza tym właśnie początkiem, gdzie ma wartość 0.
+        Zatem na podstawie La Salle'a wszystkie trajektorie dążą do tego zbioru inwariantnego.
+        Ponadto na podstawie tej samej funkcji Lapunowa i twierdzenia o niestabilności można sprawdzić, że początek układu współrzędnych jest niestabilnym punktem równowagi (sprawdzić, czemu nie na podstawie pośredniej metody Lapunowa).
+        Ostatecznie mamy więc wniosek, że okrąg jednostkowy jest stabilnym cyklem granicznym.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{fig/przyklad_8_vp.png}
+            \caption{Poziomice pochodnej funkcji Lapunowa (\ref{eq:przyklad_8_v}) na tle portretu fazowego układu z przykładu 8.}
+            \label{fig:przyklad_8_vp}
+        \end{figure}
+
+        %-------------------------------------------------------
+        \subsubsection{Przykład 9}
+        Rozważmy równanie:
+        \begin{equation}
+            \ddot{x} + a\dot{x} + 2bx + 3x^{2} = 0,\,a, b>0.
+        \end{equation}
+        Wprowadzamy zmienne:
+        $$
+            x_{1} = x,\,x_{2} = \dot{x} = \dot{x}_{1}.
+        $$
+        Zatem:
+        $$
+            \left\{
+            \begin{array}{l}
+                 \dot{x}_{1} = x_{2}\\
+                 \dot{x}_{2} = -2bx_{1} - 3x_{1}^{2} - ax_{2}
+            \end{array}
+            \right\}.
+        $$
+        Układ ma dwa punkty równowagi, których stabilność można określić przy użyciu pośredniej metody Lapunowa:
+        \begin{enumerate}
+            \item $x_{e}^{1} = \left( 0, 0 \right)$: wówczas wielomian charakterystyczny ma postać:
+            $$
+                \begin{vmatrix}
+                    \lambda & -1\\ 2b & \lambda + a
+                \end{vmatrix}
+                =
+                \lambda^{2} + \lambda a + 2b.
+            $$
+            Z wzorów Viète’a otrzymuje się:
+            $$
+                \lambda_{1} + \lambda_{2} = -a,\, \lambda_{1}\lambda_{2}=2b.
+            $$
+            Oznacza to, że pierwiastki wielomianu charakterystycznego albo są rzeczywiste ujemne, albo sprężone z ujemnymi częściami rzeczywistymi.
+            Czyli punkt równowagi jest punktem stabilnym typu węzeł stabilny lob ognisko stabilne.
+            \item $x_{e}^{1} = \left( -\frac{2}{3}b, 0 \right)$: w tym przypadku wykonujemy zmianę zmiennych, aby rozpatrywać początek układu współrzędnych:
+            $$
+                z_{1} = x_{1} + \frac{2}{3}b,\,z_{2} = x_{2}.
+            $$
+            Mamy więc układ w postaci:
+            $$
+                \left\{
+                \begin{array}{l}
+                     \dot{z}_{1} = z_{2}\\
+                     \dot{z}_{2} = 2bz_{1} - 3x_{1}^{2} - az_{2}
+                \end{array}
+                \right\}.
+            $$
+            Zatem w tym przypadku wielomian charakterystyczny części liniowej układu ma postać:
+            $$
+                \begin{vmatrix}
+                    \lambda & -1\\ -2b & \lambda + a
+                \end{vmatrix}
+                =
+                \lambda^{2} + \lambda a - 2b.
+            $$
+            Z wzorów Viète’a otrzymuje się:
+            $$
+                \lambda_{1}\lambda_{2}=-2b,
+            $$
+            co oznacza, że pierwiastki są przeciwnego znaku - czyli punkt równowagi jest niestabilny, typu siodło.
+        \end{enumerate}
+        Tylko pierwszy punkt równowagi jest stabilny i dla niego szukamy estymaty obszaru atrakcji.
+        W tym celu sprawdzamy funkcję $V(x)$ w postaci:
+    \begin{equation}
+        \label{eq:przyklad_9_v}
+        V(x) = \frac{1}{2}x_{2} + bx_{1}^{2} + x_{1}^{3}.
+    \end{equation}
+    Jej pochodna systemowa ma postać:
+    \begin{equation}
+        \label{eq:przyklad_9_vp}
+        \dot{V}(x) = - ax_{2}^{2}.
+    \end{equation}
+    Pochodna ta jest ujemna wszędzie poza osią $OX$, jednak łatwo sprawdzić, że jedynymi zbiorami inwariantnymi na tej osi są punkty równowagi.
+    Ograniczeniem więc estymaty zbioru inwariantnego będzie poziomica funkcji Lapunowa (\ref{eq:przyklad_9_v}), "zahaczająca" o niestabilny punkt równowagi:
+    $$
+        V(x) = \frac{1}{2}x_{2} + bx_{1}^{2} + x_{1}^{3} = \frac{4}{27}b^{3}.
+    $$
+    Rysunki (\ref{fig:przyklad_9_a_1_b_1}), (\ref{fig:przyklad_9_a_1_b_2}), (\ref{fig:przyklad_9_a_2_b_1}) pokazują dobór estymaty obszaru przyciągania dla kilku doborów parametrów.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{fig/przyklad_9_obszara_1_b_1.png}
+        \caption{Oszacowanie obszaru przyciągania punktu równowagi układu z przykładu 9 dla funkcji Lapunowa w postaci (\ref{eq:przyklad_9_v}). Dla parametrów $a = 1$ i $b = 1$.}
+        \label{fig:przyklad_9_a_1_b_1}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{fig/przyklad_9_obszara_1_b_2.png}
+        \caption{Oszacowanie obszaru przyciągania punktu równowagi układu z przykładu 9 dla funkcji Lapunowa w postaci (\ref{eq:przyklad_9_v}). Dla parametrów $a = 1$ i $b = 2$.}
+        \label{fig:przyklad_9_a_1_b_2}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{fig/przyklad_9_obszara_2_b_1.png}
+        \caption{Oszacowanie obszaru przyciągania punktu równowagi układu z przykładu 9 dla funkcji Lapunowa w postaci (\ref{eq:przyklad_9_v}). Dla parametrów $a = 2$ i $b = 1$.}
+        \label{fig:przyklad_9_a_2_b_1}
+    \end{figure}
+
+    %-------------------------------------------------------
+    \subsubsection{Przykład 10 (Adaptacyjny tempomat samochodowy)}
+    Adaptacyjny tempomat samochodowy (ACC - Adaptive Cruise Control) jest
+    systemem, który automatycznie dostosowuje prędkość pojazdu do warunków
+    ruchu, utrzymując bezpieczną odległość od pojazdu poprzedzającego.
+    Wykorzystuje on różne czujniki, takie jak radar czy kamera, do
+    monitorowania otoczenia i podejmowania decyzji dotyczących przyspieszania
+    lub hamowania.
+    Schematycznie jest to przedstawione na rysunku (\ref{fig:acc}).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.25\linewidth]{fig/snipping_ACC_Case.png}
+        \caption{Schemat zachowanai adaptacyjnego tempomatu samochodowego.}
+        \label{fig:acc}
+    \end{figure}
+
+    Można rozważyć prosty model dynamiki pojazdu, który opisuje jego prędkość
+    $v$ i położenie $x$:
+    \begin{equation}
+        \label{eq:acc_model}
+        \begin{bmatrix}
+            \dot{x}\\
+            \dot{v}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            v\\
+            -\frac{1}{m}F_{r}(v)
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0\\
+            \frac{1}{m}
+        \end{bmatrix}u,
+    \end{equation}
+    gdzie:
+    \begin{itemize}
+        \item $x$ - położenie pojazdu,
+        \item $v$ - prędkość pojazdu,
+        \item $m$ - masa pojazdu,
+        \item $F_{r}(v) = f_{0} + f_{1}v + f_{2}v^{2}$ - siła oporu ruchu, która jest funkcją prędkości,
+        \item $u$ - siła sterująca (np. siła hamowania lub przyspieszania).
+    \end{itemize}
+    Znając dokładnie parametry siły oporu ruchu, można zaprojektować sterowanie,
+    które zapewni stabilność układu
+    $$
+        u = F_{r}(v) - K(v - v_{d}).
+    $$
+    Wówczas układ zamyka się w postaci:
+    \begin{equation}
+    \label{eq:acc_closed_loop}
+        \begin{bmatrix}
+            \dot{x}\\
+            \dot{v}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            v\\
+            -\frac{K}{m}(v - v_{d})
+        \end{bmatrix}.
+    \end{equation}
+    Wówczas można zaproponować funkcję Lapunowa w postaci:
+    \begin{equation}
+    \label{eq:acc_v}
+    V(x, v) = \frac{1}{2}(v - v_{d})^{2}.
+    \end{equation}
+    Jej pochodna systemowa ma postać:
+    \begin{equation}
+    \label{eq:acc_vp}
+    \dot{V}(x, v) = -\frac{K}{m}(v - v_{d})^{2}.
+    \end{equation}
+    Jest ona ujemna wszędzie poza osią $v = v_{d}$, gdzie jest równa 0.
+    Zatem na podstawie twierdzenia LaSalle'a sprawdzamy czy istnieją 
+    zbiory inwariantne na tej osi:
+    $$
+        \begin{bmatrix}
+            \dot{x}\\
+            \dot{v}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            v_{d}\\
+            0
+        \end{bmatrix},
+    $$
+    widać zatem, że jeśli prędkość pojazdu osiągnie wartość zadaną, to
+    pozostanie na niej, a~położenie będzie się zmieniać liniowo w~czasie.
+    Zatem jest to zbiór inwariantny (zbiór $E$) i na podstawie twierdzenia LaSalle'a wszystkie trajektorie dążą do tego zbioru, co oznacza, że prędkość pojazdu będzie dążyć do wartości zadanej $v_{d}$.
+    Portret fazowy z zaznaczonymi zbiorem inwariantnym pokazano na rysunku (\ref{fig:acc_pf}).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{fig/acc_pp.eps}
+        \caption{Portret fazowy układu z przykładu 10 z zaznaczonym zbiorem inwariantnym (czerwona linia).}
+        \label{fig:acc_pf}
+    \end{figure}
+    
+    %-------------------------------------------------------
+    \subsubsection{Przykład 11 (Model SI rozprzestrzeniania się epidemii)}
+    Model SI (Susceptible-Infected) jest jednym z najprostszych modeli
+    epidemiologicznych, który opisuje rozprzestrzenianie się choroby zakaźnej
+    (nie śmiertelnej, zatem populacja jest stała) w~populacji. W~modelu tym populacja jest podzielona na dwie grupy:
+    osoby podatne ($S$) i osoby zakażone ($I$). Model ten zakłada, że osoby zakażone
+    mogą zarażać osoby podatne, oraz pewne szanse ozdrowienia (ale nie nabierania
+    odporności).
+    Równania różniczkowe opisujące model SI są następujące:
+    \begin{equation}
+        \label{eq:si_model}
+        \left\{
+        \begin{array}{l}
+             \dot{S} = -\beta \frac{SI}{N} + \gamma I\\
+             \dot{I} = \beta \frac{SI}{N} - \gamma I
+        \end{array}
+        \right\},
+    \end{equation}
+    gdzie:
+    \begin{itemize}
+        \item $S$ - liczba osób podatnych,
+        \item $I$ - liczba osób zakażonych,
+        \item $\beta$ - współczynnik zarażania, który określa, jak szybko choroba rozprzestrzenia się w populacji,
+        \item $\gamma$ - współczynnik ozdrowień, który określa, jak szybko osoby zakażone zdrowieją.
+    \end{itemize}
+    Model ten ma nieskończenie wiele punktów równowagi, położonych na dwóch
+    prostych:
+    \begin{itemize}
+        \item $I=0$ i $S \in \mathbb{R}$ - oznacza to, że nie ma zakażonych
+        więch choroba nie może się rozprzestrzeniać,
+        \item $S = \frac{\gamma}{\beta}N$ i $I \in \mathbb{R}$ - oznacza to, że
+        liczba osób podatnych jest równa stosunkowi współczynnika ozdrowień do
+        współczynnika zarażania, co oznacza, że choroba jest w stanie utrzymać
+        się w~populacji na stałym poziomie.
+    \end{itemize}
+    Ponieważ choroba nie jest śmiertelna, to populacja jest stała $S+I=N$,
+    zatem można zadanie uprościć do zagadnienia jednowymiarowego,
+    rozważając tylko jedną z tych zmiennych, np. $I$:
+    \begin{equation}
+    \label{eq:si_model_reduced}
+        \dot{I} = \beta I(N - I) - \gamma I = I(\beta (N - I) - \gamma),
+    \end{equation}
+    wówczas mamy dwa punkty równowagi: $I_{e,1} = 0$ oraz $I_{e,2} =
+    \frac{\beta-\gamma}{\beta}N$.
+    
+    Stabilność każdego z tych punktów równowagi można określić na podstawie 
+    pośredniej metody Lapunowa. Dokonując takiej analizy stwierdzamy, że
+    punkt równowagi $I_{e,1} = 0$ jest niestabilny, a~punkt równowagi
+    $I_{e,2} = \frac{\beta-\gamma}{\beta}N$ jest stabilny.
+
+    A proponując funkcję Lapunowa w postaci:
+    \begin{equation}
+    \label{eq:si_v}
+    V(I) = \frac{1}{2}(I - I_{e,2})^{2},
+    \end{equation}
+    jej pochodna systemowa ma postać:
+    \begin{equation}
+        \label{eq:si_vp}
+        \dot{V}(I) = -\frac{I(\gamma - \beta + I\beta)^2}{\beta}
+    \end{equation}
+    i zeruje się jedynie w punktach równowagi, zatem na podstawie twierdzenia
+    LaSalle'a wszystkie trajektorie (poza punktem równowagi $I_{e,1} = 0$) dążą do stabilnego punktu równowagi
+    $I_{e,2} = \frac{\beta-\gamma}{\beta}N$.
+    Funkcję Lapunowa i jej pochodną systemową pokazano na rysunku (\ref{fig:si_v_vp}).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{fig/si_v_vp.eps}
+        \caption{Funkcja Lapunowa (\ref{eq:si_v}) i jej pochodna systemowa (\ref{eq:si_vp}) dla modelu SI.}
+        \label{fig:si_v_vp}
+    \end{figure}
+
+    Portret fazowy układu oryginalnego z zaznaczonymi punktami równowagi
+    pokazano na rysunku (\ref{fig:si_pf}).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{fig/si_pf.eps}
+        \caption{Portret fazowy modelu SI z zaznaczonymi punktami równowagi.}
+        \label{fig:si_pf}
+    \end{figure}
+    Można zauważyć, że w przeciwieństwie do przykładu poprzedniego, zaznaczone
+    odcinki nie są zbiorami przyciągania/odpychania. Są natomiast zbiorem punktów równowagi -
+    jeśli trajektoria wyląduje na zielonym odcinku to nie będzie się po nim
+    poruszać, ale pozostanie w punkcie, w którym się znalazła.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Jak wykorzystać to do projektowania sterowania?}
+    %=======================================================
+    \subsection{Sterująca Funkcja Lapunowa (Control Lyapunov Function - CLF)}
+    W znacznej ilości przypadków spotykanych w praktyce, model dynamiki układ może być zapisany w tzw. postaci afinicznej ze względu na sterowanie, pokazanej wzorem (\ref{eq:affine}):
+    \begin{equation} \label{eq:affine}
+        \dot{x} = f(x) + g(x)u,
+    \end{equation}
+    gdzie: $x \in \mathbb{R}^{n}$, $u \in \mathbb{R}$ oraz $f(0) = 0$.
+    
+    Wówczas, aby punkt równowagi $x_{e} = 0$ był asymptotycznie stabilny, pochodna systemowa musi spełniać warunek:
+    \begin{equation} \label{eq:affine_diff}
+        \dot{V}(x) = \mathcal{L}_{f}V(x) + \mathcal{L}_{g}V(x)u < 0.
+    \end{equation}
+    
+    Można zatem zauważyć, że sterowanie stabilizujące punkt równowagi zostanie osiągnięte, gdy zajdzie warunek: dla każdego $x \in \{ x \in \mathbb{R}^{n}: g(x) = 0 \land x \neq 0 \}$ musi zachodzić $\mathcal{L}_{f}V(x) < 0$.
+
+    Wówczas sterowanie można odnaleźć np.:
+    \begin{description}
+        \item[Metodą Sonntaga]:
+        Sterowanie można wyznaczyć za pomocą tzw. formuły Sonntaga:
+        $$
+            u(x)
+            =
+            \left\{
+            \begin{array}{cl}
+                 -\frac{\mathcal{L}_{f}V(x) + \sqrt{(\mathcal{L}_{f}V(x))^{2} + (\mathcal{L}_{g}V(x))^{4}}}{\mathcal{L}_{g}V(x)} &   \text{dla}\, \mathcal{L}_{g}V(x) \neq 0\\
+                 0  &   \text{dla}\, \mathcal{L}_{g}V(x) = 0
+            \end{array}
+            \right\}.
+        $$
+        Po podstawieniu takiego sterowania do równania (\ref{eq:affine_diff}) przyjmuje ono postać:
+        $$
+            \dot{V}(x) = - \sqrt{(\mathcal{L}_{f}V(x))^{2} + (\mathcal{L}_{g}V(x))^{4}} < 0
+        $$
+        co zapewnia asymptotyczną stabilność punktu równowagi.
+        Metodę tę można uogólnić dla $u \in \mathbb{R}^{m}$.
+
+        \begin{tcolorbox}[colback=green!5, colframe=green!75!black, title=Przykład]
+        Stabilizujemy układ w punkcie $x_{e} = 0$:
+        $$
+            \dot{x} = x - 2x^{3} + (x+1)u(x),
+        $$
+        dla którego zakładamy funkcję Lapunowa:
+        $$
+            V(x) = \frac{1}{2}x^{2}.
+        $$
+        Wówczas mamy:
+        \begin{itemize}
+            \item $f(x) = x - 2x^{3}$, $g(x) = x+1$
+            \item $\mathcal{L}_{f}V(x) = x(x - 2x^{3})$,
+            \item $\mathcal{L}_{g}V(x) = x(x+1)$, z tego wynika, że $\mathcal{L}_{g}V(x) = 0$ dla $x = 0$ i $x = -1$,
+            \item $\mathcal{L}_{f}V(0) = 0$ oraz $\mathcal{L}_{f}V(-1) = -1 < 0$ - zatem spełnione są warunki metody Sonntaga.
+        \end{itemize}
+        Definiujemy sterowanie jako:
+        $$
+            u(x)
+            =
+            \left\{
+            \begin{array}{cl}
+                 -\frac{x^{2} - 2x^{4} + \sqrt{(x^{2} - 2x^{4})^{2} + (x^{2} + x)^{4}}}{x^{2} + x} &   \text{dla}\, x \neq 0 \, i\, x \neq -1 \\\
+                 0  &   \text{inaczej}
+            \end{array}
+            \right\}.
+        $$
+        \end{tcolorbox}
+    
+        \item[Rozwiązywanie online problemu programowania kwadratowego]:
+        Obecnie, gdy sterowniki dysponują mikroprocesorami o dużej mocy obliczeniowej, można na bieżąco wyznaczać sterowanie poprzez rozwiązywanie problemu programowania kwadratowego.
+        Dla przykładu gdy chcemy zachować stabilność i minimalizować koszty sterowania odpowiada to następującemu problemowi:
+        $$
+            \begin{array}{c}
+                 u = \underset{u}{\mathrm{argmin}} (u)^{2}\\
+                 \text{przy ograniczeniu:}\, \mathcal{L}_{f}V(x) + \mathcal{L}_{g}V(x)u < 0
+            \end{array}.
+        $$
+        Dość łatwo zauważyć, że metoda ta jest bardzo elastyczna, można
+        wprowadzić inny wskaźnik jakości oraz inne ograniczenia.
+        
+
+        \begin{tcolorbox}[colback=magenta!5, colframe=magenta!75!black, title=Zastosowanie w robotyce]
+        Nowoczesne roboty, takie jak te z Boston Dynamics (np. Atlas),
+        wykorzystują koncepcję Sterujących Funkcji Lapunowa (CLF) połączoną z~Programowaniem Kwadratowym (QP).
+
+        \begin{description}
+            \item[Na czym to polega?] Robot kroczący jest skrajnie niestabilny - wystarczy
+            chwila, by upadł. Algorytm sterowania w~każdym ułamku sekundy (np. co 1
+            ms) rozwiązuje zadanie optymalizacyjne.
+            \item[Rola Lapunowa:] Funkcja Lapunowa definiuje tutaj "bezpieczny margines".
+            Sterownik szuka takich sił w~silnikach nóg, aby pochodna funkcji Lapunowa $V$
+            była jak najbardziej ujemna. To gwarantuje, że robot "pcha" swój stan
+            w~stronę stabilnego pionu, nawet jeśli ktoś go popchnie.
+            \item[Rola Programowania Kwadratowego:] W każdym kroku czasowym sterownik rozwiązuje
+            problem optymalizacji kwadratowej, aby znaleźć najlepsze możliwe siły
+            w~silnikach nóg.
+            Celem jest minimalizacja zużycia energii lub sił wymaganych do
+            utrzymania równowagi, przy jednoczesnym spełnieniu warunku stabilności
+            narzuconego przez funkcję Lapunowa.
+        \end{description}
+        
+        Dzięki temu robot może dynamicznie dostosowywać swoje ruchy, reagując na
+        zmiany w~terenie lub zewnętrzne zakłócenia, jednocześnie zachowując
+        stabilność
+        i~efektywność energetyczną.
+        \end{tcolorbox}
+    \end{description}
+    
+    %=======================================================
+    \subsection{Metoda "kroków wstecz" (Backstepping)}
+    Metoda "kroków wstecz" jest to rekursywna, systematyczna metoda projektowania stabilizującego sprzężenia zwrotnego w pewnej klasie układów nieliniowych.
+    W metodzie tej projektuje się kolejne elementy funkcji Lapunowa, zakładając, że możemy sterować poszczególnymi zmiennymi stanu i dzielimi wirtualnie układ na podsystemy i zaczynając od pierwszego idziemy "do końca".
+    Dokładny opis tej metody jest dość obszerny, dlatego tutaj zostanie zaprezentowany tyko przykład.
+
+    \begin{tcolorbox}[colback=green!5, colframe=green!75!black, title=Przykład]
+    Celem jest stabilizacja zerowego punktu równowagi układu:
+    $$
+        \left\{
+        \begin{array}{l}
+             \dot{x}_{1} = x_{1} - x_{1}^{3} + x_{2}\\
+             \dot{x}_{2} = u
+        \end{array}
+        \right\}
+    $$
+    \begin{itemize}
+        \item Zakładamy, że można sterować układem bezpośrednio za pomocą zmiennej $x_{2}$ - rozważamy tylko pierwsze równanie i stosujemy do niego funkcję Lapunowa:
+        $$
+            V_{1}(x_{1}) = \frac{1}{2}x_{1}^{2}.
+        $$
+        \item Jej pochodna na trajektoriach systemu wynosi:
+        $$
+            \dot{V}_{1} = x_{1}(x_{1} - x_{1}^{3} + x_{2}) = x_{1}^{2} - x_{1}^{4} + x_{1}x_{2}.
+        $$
+        \item Pochodna ta ma pożądany zawsze ujemny składnik $-x_{1}^{4}$ oraz "przeszkadzający" dodatni składnik $x_{1}^{2}$, który powinien być wyeliminowany przez dobór $x_{2}$, na przykład jako:
+        $$
+            x_{2} =\alpha(x_{1}) = -x_{1} - kx_{1}, \, k>0.
+        $$
+        Wówczas:
+        $$
+            \dot{V}_{1}(x_{1}) = -k{x}_{1}^{2} - x_{1}^{4},
+        $$
+        zatem układ asymptotycznie stabilny.
+        Jednak ponieważ nie możemy bezpośrednio sterować zmienną $x_{2}$ sterowanie $\alpha(x_{1})$ nazywamy sterowaniem wirtualnym.
+        \item Wyznaczona wartość $x_{2}$ może być uznana jako wartość zadana dla kolejnego równania dynamiki - będzie to zadanie nadążania za wartością zadaną.
+        \item Definiujemy uchyb regulacji:
+        $$
+            e = x_{2} - \alpha.
+        $$
+        Wówczas pierwsze równanie zapisujemy jako:
+        $$
+            \dot{x}_{1} = x_{1} - x_{1}^{3} + \alpha + e = -kx_{1} - x_{1}^{3} + e.
+        $$
+        Natomiast pochodna funkcji Lapunowa ma postać:
+        $$
+            \dot{V}(x_{1}) = x_{1}(-kx_{1} - x_{1}^{3} + e) = -kx_{1}^2 - x_{1}^{4} + x_{1}e.
+        $$
+        Dodatkowo dynamika błędu wynosi:
+        $$
+            \dot{e} = \dot{x}_{2} - \dot{\alpha} = u + (k+1)\dot{x}_{1} = u + (k+1)(-kx_{1} - x_{1}^{3} + e).
+        $$
+        \item Interesuje nas stabilizacja "w zerze" zmiennej $x_{1}$ oraz uchybu $e$, budujemy więc funkcję Lapunowa:
+        $$
+            V(x_{1}, e) = V_{1}(x_{1}) + \frac{1}{2}e^{2} = \frac{1}{2}x_{1}^2 + \frac{1}{2}e^{2}.
+        $$
+        Jej pochodna wynosi:
+        $$
+        \dot{V}(x_{1}, e) = \dot{V}_{1}(x_{1}) + e\dot{e} = -kx_{1}^2 - x_{1}^{4}+e \left[ u + x_{1} + (k+1)(-kx_{1} - x_{1}^{3} + e) \right]
+        $$
+        \item Dobierając sterowanie $u$ jako:
+        $$
+            u = -K - x_{1} + (k+1)(-kx_{1} - x_{1}^{3} + e), K>0
+        $$
+        redukujemy wyrażenie na pochodną funkcji Lapunowa do postaci:
+        $$
+            \dot{V}(x_{1}, e) = - kx_{1}^{2} - x_{1}^{4} - Ke^{2} < 0,
+        $$
+        zatem uzyskujemy stabilność asymptotyczną.
+    \end{itemize}
+    \end{tcolorbox}
+    Można ogólnie wymienić trzy kluczowe elementy metody "kroków wstecz":
+    \begin{itemize}
+        \item sterowanie wirtualne,
+        \item funkcja stabilizująca,
+        \item uchyb śledzenia zadanego przebiegu sterowania wirtualnego.
+    \end{itemize}
+
+    \begin{tcolorbox}[colback=magenta!5, colframe=magenta!75!black, title=Zastosowanie w robotyce]
+        W dronach (quadrocopterach) funkcje Lapunowa wykorzystuje się do projektowania tzw. algorytmów Backstepping. Pozwalają one na stabilne sterowanie dronem nawet podczas wykonywania gwałtownych uników czy lotu z dużymi prędkościami.
+        \begin{description}
+            \item [Na czym to polega?] Dron jest układem kaskadowym: najpierw sterujemy kątami nachylenia (orientacją), a to z kolei powoduje ruch w przestrzeni (pozycję).
+            \item[Rola Lapunowa:] Projektuje się funkcję Lapunowa dla "błędu orientacji", a następnie rozszerza ją o "błąd pozycji". Sumaryczna funkcja $V(e)$ gwarantuje, że błąd śledzenia trasy zawsze będzie dążył do zera, niezależnie od tego, jak mocno dronem "rzuci" wiatr.
+        \end{description}
+    \end{tcolorbox}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Jak to zrobić w MATLABie?}
+    %=======================================================
+    \subsection{Rysowanie zbiorów poziomicowych}
+    Przydatne może być wyznaczanie zbiorów poziomicowych funkcji Lapunowa.
+    Można to zrobić w następujący sposób:
+    \begin{lstlisting}[style=Matlab-editor]
+        [X1, X2] = mesh(-2:0.01:2, -2:0.01:2);  % Definiowanie obszaru, na ktorym obliczamy funkcje Lapunowa
+        V = X1.^2 + 2*X1.*X2 + X2.^2;   % Obliczenie wartosci funkcji Lapunowa
+
+        figure();
+        hold on;
+        grid on;
+        xlabel("x_{1}");
+        ylabel("x_{2}");
+        contour(X, Y, V, 20);       % Rysujemy 20 konturow funkcji Lapunowa
+        contour(X, Y, V, [1 1]);    % Rysujemy kontur, na ktorym V(x) == 1
+    \end{lstlisting}
+
+    %=======================================================
+    \subsection{Symboliczne obliczenia funkcji Lapunowa i jej pochodnej systemowej}
+    Niejednokrotnie obliczenie pochodnej systemowej funkcji Lapunowa może dostarczyć trudności. Dlatego warto skorzystać z możliwości obliczeń symbolicznych dostarczanych przez Symblic Toolbox MATLABa.
+    Można to zrobić w~następujący sposób:
+    \begin{lstlisting}[style=Matlab-editor]
+        % Definiowanie zmiennych symbolicznych
+        syms x1(t) x2(t)    % Funkcje zmiennej t
+
+        % Dodawanie zalozen o zmiennych symbolicznych
+        assume([x1(t) x2(t)], 'real')   % Zakladamy, ze x1(t) i x2(t) przyjmuja tylko wartosci rzeczywiste
+
+        % Definiujemy wektor zmiennych X i model obiektu
+        X = [x1; x2];
+        
+        dx1 = -x1;
+        dx2 = -x2;
+
+        % Definiowanie funkcji Lapunowa
+        P  = [1 0; 0 1];
+        V = X' * P * X;
+
+        % Wyznaczenie pochodnej systemowej
+        dV = diff(V, t);
+
+        % Uproszczenie postaci
+        dV = subs(dV, {diff(x1,t), diff(x2,t)}, {dx1, dx2});
+        dV = simplify(dV);
+
+        % Sprawdzamy czy ujemna
+        tf = isAlways(dV(t) <= 0)
+    \end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{Mitkowski2007}
+  Mitkowski W., Baranowski J., Hajduk K., Korytowski A., Tutaj A.,
+  \emph{Teoria Sterowania: Materiały Pomocnicze do Ćwiczeń Laboratoryjnych},
+  AGH Uczelniane wydawnictwo Naukowo-Dydaktyczne,
+  2007.
+
+\bibitem{Mitkowski2019}
+    Mitkowski W.,
+    \emph{Zarys Teorii Sterowania},
+    Wydawnictwa AGH,
+    2019.
+
+\bibitem{Amborski1978}
+  Amborski K., Marusak A.,
+  \emph{Teoria Sterowania w Ćwiczeniach},
+  Państwowe Wydawnictwo Naukowe,
+  1978.
+
+\bibitem{Gessing1981}
+  Gessing R., Latarnik M., Skrzywan-Kossek A.,
+  \emph{Zbiór Zadań z Teorii Nieliniowych Układów Regulacji i Sterowania},
+  Wydawnictwo Naukowo-Techniczne,
+  1981.
+
+\bibitem{Gibson1968}
+  Gibson J. E.,
+  \emph{Nieliniowe Układy Sterowania Automatycznego},
+  Wydawnictwo Naukowo-Techniczne,
+  1968.
+
+\bibitem{Kabzinski2018}
+  Kabziński J., Mosiołek P.,
+  \emph{Projektowanie Nieliniowych Układów Sterowania},
+  Wydawnictwo Naukowo PWN,
+  2018.
+
+\bibitem{LaSalle1966}
+  La Salle J., Lefschetz S.,
+  \emph{Zarys Teorii Stabilności Lapunowa i Jego Metody Bezpośredniej},
+  PWN,
+  1966.
+
+\bibitem{Shinners1992}
+  Shinners S. M.,
+  \emph{Modern Control System Theory and Design},
+  Wiley \& Sons,
+  1992.
+
+\bibitem{Kaczorek2005}
+  Kaczorek T.,
+  \emph{Podstawy Teorii Sterowania},
+  Wydawnictwo Naukowo-Techniczne,
+  2005.
+
+\bibitem{Chang2019}
+  Chang Y-C., Roohi N., Gao S., 
+  \emph{Neural Lyapunov Control},
+  33rd Conference on Neural Information Processing Systems, Vancouver, Canada.,
+  2019.
+
+\bibitem{Dai2021}
+  Dai H., Landry B., Yang L., Pavone M. i Tedrake R.,
+  \emph{Lyapunov-stable neural-network control},
+  Robotics: Science and Systems ,
+  2021.
+
+\end{thebibliography}
+
+\end{document}

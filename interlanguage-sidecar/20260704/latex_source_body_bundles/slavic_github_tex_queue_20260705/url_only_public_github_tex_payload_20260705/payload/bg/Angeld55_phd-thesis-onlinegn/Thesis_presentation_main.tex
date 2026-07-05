@@ -1,0 +1,964 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Unicode engine (LuaLaTeX or XeLaTeX) -> NO inputenc/fontenc
+\usepackage[main=bulgarian]{babel}
+\usepackage{tikz}
+
+% --- НОВ ШРИФТ: PT Sans (Модерна кирилица) ---
+\usepackage{fontspec}
+\setsansfont{PT Sans}   % beamer is sans by default
+\setmainfont{PT Sans}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- Полезни пакети ---
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+
+% --- ТЕМА И ЦВЕТОВЕ (Обновени) ---
+\usetheme{Madrid}
+% Използваме whale като солидна база за нашите цветове
+\usecolortheme{whale} 
+\setbeamertemplate{navigation symbols}{}
+
+% Дефиниране на новите цветове
+\definecolor{mainblue}{RGB}{0, 43, 92}    % Тъмносиньо
+\definecolor{accentblue}{RGB}{0, 102, 204} % Акцентно синьо
+\definecolor{softblue}{RGB}{230, 235, 245} % Светлосиньото, което заменя лилавото
+
+% Прилагане на цветовете върху темата
+\setbeamercolor{structure}{fg=mainblue}
+\setbeamercolor{title}{fg=mainblue, bg=softblue}
+\setbeamercolor{subtitle}{fg=mainblue!80, bg=softblue}
+\setbeamercolor{frametitle}{fg=mainblue, bg=softblue}
+
+% Настройка на блоковете (за научните ръководители и темата)
+\setbeamercolor{block title}{fg=white, bg=mainblue}
+\setbeamercolor{block body}{bg=mainblue!5}
+
+% --- Полета и типография ---
+\setbeamerfont{author in head/foot}{size=\tiny}
+\setbeamersize{text margin left=10pt, text margin right=10pt}
+\usefonttheme{professionalfonts}
+
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{subtitle}{series=\mdseries,size=\large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{block body}{size=\normalsize}
+
+% --- Блокове (чист дизайн със заоблени ъгли) ---
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% --- Списъци ---
+\setlength{\parskip}{2pt}
+\setlength{\itemsep}{4pt}
+\setlength{\topsep}{3pt}
+
+% --- Линкове ---
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=accentblue
+}
+
+
+% --- Заглавни данни ---
+\title[Защита на дисертационен труд]{Защита на дисертационен труд}
+\subtitle{Задочен докторант Ангел Иванов Димитриев}
+\author{Институт по биофизика и биомедицинско инженерство}
+\institute{ИБФБМИ–БАН \;|\; ФМИ към СУ „Св. Климент Охридски“}
+\date{03.07.2026 г.}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  
+  % --- Институт ---
+  \begin{beamercolorbox}[wd=.57\textwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}%
+    \hspace*{2.5ex}\insertauthor%
+  \end{beamercolorbox}%
+  
+  % --- Заглавие ---
+  \begin{beamercolorbox}[wd=.23\textwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\inserttitle%
+  \end{beamercolorbox}%
+  
+  % --- Дата + номер ---
+  \begin{beamercolorbox}[wd=.20\textwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}%
+    \insertdate\hspace{2.5ex}%
+    \insertframenumber{} / \inserttotalframenumber%
+  \end{beamercolorbox}%
+  
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+% ------------------------------------------------------------------
+% --- Слайд 1 (Title)
+\begin{frame}[plain]
+  \titlepage
+  \vspace{-1.0em}
+  \begin{block}{Научни ръководители}
+    \begin{itemize}
+      \item акад. дмн дтн Красимир Атанасов (ИБФБМИ–БАН)
+      \item доц. д-р Нора Ангелова (ФМИ към СУ „Св. Климент Охридски“)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 2 - Тема
+\begin{frame}{Тема на дисертационния труд}
+    \begin{center}
+        \begin{minipage}{0.8\textwidth}
+            \begin{block}{.} 
+                \centering
+                \vspace{0.2cm}
+                \large
+                Софтуерен продукт за реализация на\\ 
+                обобщеномрежови модели и негови приложения
+                \vspace{0.2cm}
+            \end{block}
+        \end{minipage}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Структура на дисертационния труд}
+    \begin{block}{Основни части на дисертационния труд}
+        \vspace{0.15cm}
+
+        \begin{itemize}
+            \setlength{\itemsep}{0.9em}
+
+            \item Увод
+            \item \textbf{Глава 1:} Обобщени мрежи - теоретични основи и софтуер за симулации
+            \item \textbf{Глава 2:} Нововъведени алгоритми за обобщени мрежи
+            \item \textbf{Глава 3:} \textit{OnlineGN}: симулатор за обобщеномрежови модели
+            \item \textbf{Глава 4:} Приложения на обобщените мрежи и симулатора \textit{OnlineGN}
+            \item Заключение
+            \item Научни приноси, публикации и библиография
+        \end{itemize}
+
+        \vspace{0.15cm}
+    \end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 3 - Недостатъци
+\begin{frame}{Анализ на съществуващите софтуерни решения}
+  \textbf{Основни недостатъци на текущите симулатори:}
+  \vspace{0.2cm}
+
+  \begin{columns}[T, totalwidth=\textwidth]
+    \column{0.48\textwidth}
+      \begin{block}{Неефективен процес на моделиране}
+        \small 
+        Ръчна работа при моделиране                                     и визуализация (извън \TeX).
+      \end{block}
+
+      \begin{block}{Трудна преносимост}
+        \small 
+        Проблеми с пренасяне/обмен на мрежи като файлове.
+      \end{block}
+
+    \column{0.48\textwidth}
+      \begin{block}{Технически бариери}
+        \small 
+        Необходимост от инсталация и допълнителни зависимости.
+      \end{block}
+
+      \begin{block}{Функционален дефицит}
+        \small 
+        Ограничени възможности и липса на ключови функционалности за реални приложения.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 4
+\begin{frame}{Цел на дисертационния труд}
+  
+  \begin{block}{Цел}
+    \centering \vspace{0.2cm} \large
+    Разработване на уеб базиран онлайн симулатор за обобщени мрежи --- \textbf{\textit{OnlineGN}}.
+    \vspace{0.2cm}
+  \end{block}
+
+  \vspace{0.4cm}
+
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+    \textbf{\color{mainblue}Среда и функционалност:}
+    \begin{itemize}
+      \item Интерактивна среда за създаване и визуализация.
+      \item Редактиране, споделяне и симулация на модели.
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \textbf{\color{mainblue}Валидация на приложимостта:}
+    \begin{itemize}
+      \item Разработване на реални ОМ модели.
+      \item Симулация и верификация на моделите в системата.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 5 - Задачи (НОМЕРИРАНИ)
+\begin{frame}{Цел и задачи на дисертационния труд}
+  \begin{columns}[T]
+    % Лява колона
+    \column{0.48\textwidth}
+      \begin{block}{Задача 1}
+        \vbox to 2cm{
+          \vspace{0.1cm}
+          \small Разработване и имплементация на алгоритъм за автоматично изчертаване на обобщени мрежи от структуриран текстов формат.
+          \vfil
+        }
+      \end{block}
+
+      \begin{block}{Задача 3}
+        \vbox to 2cm{
+          \vspace{0.1cm}
+          \small Формулиране на изисквания към уеб базирано интегрирано решение.
+          \vfil
+        }
+      \end{block}
+
+    % Дясна колона
+    \column{0.48\textwidth}
+          \begin{block}{Задача 2}
+        \vbox to 2cm{
+          \vspace{0.1cm}
+          \small Разработване и реализиране на алгоритъм за преобразуване на \textit{SVG} изображение на обобщена мрежа в \TeX{} формат за лесно използване в научни публикации.
+          \vfil
+        }
+      \end{block}
+
+      \begin{block}{Задача 4}
+        \vbox to 2cm{
+          \vspace{0.1cm}
+          \small Проектиране на архитектурата на системата \textit{OnlineGN} и определяне на основните модули.
+          \vfil
+        }
+      \end{block}
+    \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 6 - Задачи (НОМЕРИРАНИ)
+\begin{frame}{Цел и задачи на дисертационния труд}
+  \vspace{-0.25cm}
+  \begin{columns}[T]
+    % Горна лява колона
+    \column{0.48\textwidth}
+      \begin{block}{Задача 5}
+        \vbox to 1.4cm{
+          \vspace{0.1cm}
+          \small Реализация на уеб базиран интерфейс за визуализация, редакция и персонализиране на генерираното изображение.
+          \vfil
+        }
+      \end{block}
+
+      \begin{block}{Задача 7}
+        \vbox to 1.4cm{
+          \vspace{0.1cm}
+          \small Реализация на механизъм за онлайн съхранение и споделяне на мрежи чрез уникален линк в база данни.
+          \vfil
+        }
+      \end{block}
+
+    % Горна дясна колона
+    \column{0.48\textwidth}
+      \begin{block}{Задача 6}
+        \vbox to 1.4cm{
+          \vspace{0.1cm}
+          \small Реализация на удобен интерфейс за редакция на предикати в индексираната матрица и характеристични функции.
+          \vfil
+        }
+      \end{block}
+
+      \begin{block}{Задача 8}
+        \vbox to 1.4cm{
+          \vspace{0.1cm}
+          \small Създаване и формализиране на нови ОМ модели за реални процеси, непредставяни досега чрез обобщени мрежи.
+          \vfil
+        }
+      \end{block}
+  \end{columns}
+
+  \vspace{0.2cm}
+
+  % Долен широк блок за Задача 9
+  \begin{block}{Задача 9}
+    \centering
+    \vspace{0.1cm}
+    \small Симулация и верификация на моделите в \textit{OnlineGN} и оценка на точността и използваемостта на системата.
+    \vspace{0.1cm}
+  \end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 7 - (Задача 1)
+\begin{frame}{Алгоритъм за автоматично изчертаване на обобщени мрежи \\(Задача 1)}
+    \begin{tikzpicture}[remember picture, overlay]
+        
+        % 1. JSON код
+        \node (img1) at ([xshift=-3.5cm, yshift=-0.5cm]current page.center) {
+            \includegraphics[height=0.75\textheight, keepaspectratio]{json.png}
+        };
+
+        % 2. Мрежа 
+        \node (img2) at ([xshift=3.5cm, yshift=-0.5cm]current page.center) {
+            \includegraphics[width=0.45\textwidth, keepaspectratio]{drawing.png}
+        };
+
+        % 3. Стрелка
+        \draw[->, thick] ([xshift=0.7cm]img1.east) -- ([xshift=-0.1cm]img2.west);
+            
+    \end{tikzpicture}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 7.2 - (Задача 1)
+\begin{frame}{Алгоритъм за автоматично изчертаване на обобщени мрежи \\(решение на Задача 1)}
+    \begin{center}
+        \begin{minipage}{0.87\textwidth}
+            \begin{block}{Основни стъпки в алгоритъма}
+                \vbox to 4.3cm{
+                    \vspace{0.2cm}
+                    \begin{itemize}
+                        \setlength{\itemsep}{10pt}
+                        \item Представяне на обобщената мрежа (ОМ) като ориентиран граф.
+                        \item Създаване на текстова спецификация на графа с необходимите параметри за визуализация чрез Graphviz.
+                        \item Създаване на изображение на графа чрез Graphviz.
+                        \item Последваща обработка на полученото изображение с цел приближаване до конвенцията за графично представяне на ОМ.
+                    \end{itemize}
+                    \vfil
+                }
+            \end{block}
+        \end{minipage}
+    \end{center}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 8 - (Задача 2)
+\begin{frame}{Алгоритъм за преобразуване на \textit{SVG} изображение на обобщена мрежа в \TeX{} формат (Задача 2)}
+\begin{center}
+\begin{tikzpicture}[baseline]
+    \node (img1) at (-1,0) {\includegraphics[width=0.40\textwidth]{drawing.png}};
+    \node (img2) at (6,0) {\includegraphics[width=0.40\textwidth]{converter.png}};
+    \draw[->, thick] (img1.east) -- (img2.west);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+% --- Слайд 8.2 - (Задача 2)
+\begin{frame}{Алгоритъм за преобразуване на \textit{SVG} изображение на обобщена мрежа в \TeX{} формат (решение на Задача 2)}
+    \begin{center}
+        \begin{minipage}{0.75\textwidth}
+            \begin{block}{Основни стъпки в алгоритъма}
+                \vbox to 4.1cm{
+                    \vspace{0.2cm}
+                    \begin{itemize}
+                        \setlength{\itemsep}{10pt}
+                        \item Прилагане на глобални преобразувания.
+                        \item Нормализация към координатна система на \textit{picture}.
+                        \item Уеднаквяване на визуалните параметри.
+                        \item Корекция на краищата на ребрата.
+                        \item Създаване на \TeX{} изображение.
+                    \end{itemize}
+                    \vfil
+                }
+            \end{block}
+        \end{minipage}
+    \end{center}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 9 - (Задача 3)
+\begin{frame}{Изисквания към уеб базираното решение (Задача 3)}
+    \begin{columns}[T]
+        % Функционални изисквания
+        \column{0.45\textwidth}
+        \begin{block}{Функционални изисквания}
+            \vbox to 2.7cm{ 
+                \vspace{0.2cm}
+                \begin{itemize}
+                    \item Визуализация на ОМ
+                    \item Симулация на ОМ процес
+                    \item Графично редактиране
+                    \item Запис във файл
+                \end{itemize}
+                \vfil
+            }
+        \end{block}
+
+        % Нефункционални изисквания
+        \column{0.45\textwidth}
+        \begin{block}{Нефункционални изисквания}
+            \vbox to 2.7cm{
+                \vspace{0.2cm}
+                \begin{itemize}
+                    \item Висока производителност
+                    \item Висока надеждност
+                    \item Комуникационна сигурност
+                    \item GDPR съответствие
+                \end{itemize}
+                \vfil
+            }
+        \end{block}
+
+    \end{columns}
+\end{frame}
+
+
+% ------------------------------------------------------------------
+% --- Слайд 10 - (Задача 4)
+\begin{frame}{Проектиране на архитектурата на системата \textit{OnlineGN} и определяне на основните модули (Задача 4)}
+    \centering
+
+    % Първа секция
+    \textbf{Трислойна архитектура} \\
+    \vspace{0.2cm}
+    \includegraphics[width=0.5\textwidth]{arch-layers-overview.png} 
+    
+    \vspace{0.6cm} 
+
+    % Втора секция
+    \textbf{Топологично разположение и комуникация} \\
+    \vspace{0.2cm}
+    \includegraphics[width=0.5\textwidth]{cloud-deployment.png}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 11 - (Задача 4)
+\begin{frame}{Проектиране на архитектурата на системата \textit{OnlineGN} и определяне на основните модули (Задача 4)}
+    \textbf{Модули на \textit{OnlineGN}}:
+
+    \setbeamercolor{block body example}{bg=mainblue!15, fg=black}
+    \setbeamercolor{block title example}{bg=mainblue!30, fg=mainblue}
+
+    \vspace{0.2cm}
+    \centering
+    \begin{minipage}{0.70\textwidth} 
+
+        \begin{block}{}
+            \centering \small Модул за устойчивост на данните (\textit{GenNet Persistence})
+        \end{block}
+
+        \begin{exampleblock}{}
+            \centering \small Модул за графична визуализация (\textit{SVG/Graphviz})
+        \end{exampleblock}
+
+        \begin{block}{}
+            \centering \small Модул за симулация на движението на ядрата
+        \end{block}
+
+        \begin{exampleblock}{}
+            \centering \small Модул за импортиране и експортиране на ОМ
+        \end{exampleblock}
+
+        \begin{block}{}
+            \centering \small Модул за визуализация на динамични процеси и анимация
+        \end{block}
+
+    \end{minipage}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 12 - (Задача 5)
+\begin{frame}{Реализация на уеб базиран интерфейс (Задача 5)}
+\begin{figure}[h]
+    \centering
+    \setlength{\fboxsep}{0pt}
+    \setlength{\fboxrule}{1pt}
+    {\color{mainblue}\fbox{\includegraphics[width=0.9\textwidth]{ui-main-screen.png}}}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 13 - (Задача 6)
+\begin{frame}{Реализация на удобен интерфейс за редакция на предикати в индексираната матрица и характеристични функции на позициите (Задача 6)}
+    \begin{figure}[h]
+        \centering
+        \setlength{\fboxsep}{0pt}
+        \setlength{\fboxrule}{1pt}
+        {\color{mainblue}\fbox{\includegraphics[width=0.32\textwidth]{ui-edit-place-dialog.png}}}
+    \end{figure}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 14 - (Задача 7)
+\begin{frame}{Реализация на механизъм за онлайн съхранение и споделяне на мрежи чрез уникален линк в база данни (Задача 7)}
+    \begin{figure}
+        \centering
+        \setlength{\fboxsep}{0pt}
+        \setlength{\fboxrule}{1pt}
+        
+        \setbeamercolor{fboxcolor}{fg=mainblue}
+        {\color{mainblue}
+        
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \fbox{\includegraphics[width=\textwidth]{ui-save-error.png}}
+            \vspace{0.1cm}
+            \small Неуспешен опит за съхранение на мрежа в базата от данни (пример за грешка).
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \fbox{\includegraphics[width=\textwidth]{ui-save-success.png}}
+            \vspace{0.1cm}
+            \small Успешно запазване на мрежа; генерирана хипервръзка на запазената мрежа.
+        \end{minipage}
+        }
+    \end{figure}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 15 - (Задача 8 и Задача 9)
+\begin{frame}{ОМ модели и симулации (Задача 8 и Задача 9)}
+Представените модели са разработени с цел да адресират следните основни задачи:
+
+    \begin{columns}[T]
+        % Лява колона
+        \column{0.48\textwidth}
+            \begin{block}{Задача 8}
+                \vbox to 1.5cm{
+                    \vspace{0.1cm}
+                    \small Създаване и формализиране на нови ОМ модели за реални процеси, непредставяни досега чрез обобщени мрежи.
+                    \vfil
+                }
+            \end{block}
+
+        % Дясна колона
+        \column{0.48\textwidth}
+            \begin{block}{Задача 9}
+                \vbox to 1.5cm{
+                    \vspace{0.1cm}
+                    \small Симулация и верификация на моделите в \textit{OnlineGN} и оценка на точността и използваемостта на системата.
+                    \vfil
+                }
+            \end{block}
+    \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 16
+\begin{frame}{ОМ модели и симулации: Симулация на крайни автомати}
+    \vspace{-0.2cm}
+    \textbf{Идея на модела:}
+    \vspace{0.2cm}
+
+    \begin{block}{Логическо съответствие (Трансформация)}
+        \centering
+        \vspace{0.1cm}
+        \large
+        Състояния в автомат $\boldsymbol{\rightarrow}$ Преходии в ОМ \quad | \quad Преходи в автомат $\boldsymbol{\rightarrow}$ Позиции в ОМ
+        \vspace{0.1cm}
+    \end{block}
+
+    \vspace{0.3cm}
+
+    \begin{itemize}
+        \setlength\itemsep{0.7em} 
+        \item \textbf{Симулация:} Представяне на краен автомат чрез ОМ.
+        \item \textbf{Паралелизъм:} Моделиране на недетерминизъм (НКА) чрез едновременно движение на паралелни ядра.
+        \item \textbf{Критерий за успех:} Приемане на думата при достигане на финална позиция в мрежата.
+        \item \textbf{Универсалност:} Единен подход за работа с ДКА и НКА.
+    \end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 17 
+\begin{frame}{ОМ модели и симулации: Симулация на крайни автомати чрез ОМ }
+Строене на ОМ по автомат.
+\begin{center}
+\begin{tikzpicture}[baseline]
+    \node (img1) at (-1,0) {\includegraphics[width=0.40\textwidth]{aut.png}};
+    \node (img2) at (6,0) {\includegraphics[width=0.40\textwidth]{OM-avtomat.png}};
+    \draw[->, thick] (img1.east) -- (img2.west);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 18
+\begin{frame}{ОМ модели и симулации: Симулация на крайни автомати чрез обобщени мрежи }
+    \begin{columns}[c] 
+        \column{0.4\textwidth}
+        \centering
+        Начална конфигурация на ОМ, симулирана с \textit{OnlineGN}
+        
+        \column{0.6\textwidth}
+        \centering
+        \setlength{\fboxsep}{0pt}
+        \setlength{\fboxrule}{1pt}
+        {\color{mainblue}\fbox{\includegraphics[width=0.97\textwidth]{NFA-OGN-1.PNG}}}
+    \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 19 
+\begin{frame}{ОМ модели и симулации: Паралелизация на задачата за Ханойските кули чрез обобщени мрежи}
+    
+    % Концептуална рамка
+    \begin{block}{Идея на модела и разширение}
+        \begin{itemize}
+            \item Разширение на класическата задача
+            \item Едновременно преместване на до $k$ пръстена
+            \item Пръстените могат да се вземат от различни пръти
+            \item \textbf{Цел:} по-малко стъпки чрез паралелизъм
+        \end{itemize}
+    \end{block}
+
+    \vspace{0.1cm}
+
+    % Правила и механизъм
+    \begin{block}{Механизъм на симулацията}
+        \begin{itemize}
+            \item Едновременно повдигане на избраните пръстени
+            \item \textbf{Поставяне по приоритет:} най-голям $\rightarrow$ най-малък
+            \item Повдигане + поставяне = 1 паралелна стъпка
+            \item \textbf{Запазва се правилото:} по-голям пръстен не стои върху по-малък
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 20
+\begin{frame}{ОМ модели и симулации: Паралелизация на задачата за Ханойските кули чрез обобщени мрежи}
+    \begin{columns}[c] 
+        \column{0.35\textwidth}
+        \centering
+        \begin{itemize} 
+            \item $\rho$-ядро -- съответства на пръстен в задачата.
+            \item $\chi$-ядро -- съответства на „ръка“ за преместване на пръстен.
+        \end{itemize}
+
+        \vspace{-0.2cm}
+        \[
+            \text{Брой стъпки} = 2^{\bigl\lceil \textstyle \frac{n}{k} \bigr\rceil} - 1
+        \]
+
+        \vspace{0.5cm}
+        ОМ за Ханойските кули с $n=3$ $\rho$-ядра и $k=2$ $\chi$-ядра
+        \vspace{0.5cm}
+        \column{0.65\textwidth}
+        \centering
+        
+        \includegraphics[width=0.48\textwidth]{TH OM1.png}
+        \hspace{0.01\textwidth}
+        \includegraphics[width=0.48\textwidth]{TH OM2.png}
+    \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 21 
+\begin{frame}{ОМ модели и симулации: Паралелизация на задачата за Ханойските кули чрез обобщени мрежи }
+\begin{columns}
+    \column{0.4\textwidth}
+    \hfill 
+    \begin{minipage}{0.8\textwidth} 
+        \centering
+        ОМ за Ханойските кули с 3 \(\rho\)-ядра и 2 \(\chi\)-ядра в \textit{OnlineGN}
+    \end{minipage}
+
+    \column{0.6\textwidth}
+    \centering
+    \setlength{\fboxsep}{0pt}
+    \setlength{\fboxrule}{1pt}
+    
+    {\color{mainblue}\fbox{\includegraphics[width=0.5\textwidth]{s1_1.png}}}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 22
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на газови и полимерни продукти в нефтопреработвателна рафинерия }
+    \vspace{-0.2cm}
+    \textbf{Идея на модела:}
+    \vspace{0.3cm}
+
+    \begin{block}{Обхват на симулацията}
+        \begin{itemize}
+            \item \textbf{Продукти:} Газово гориво, втечнен петролен газ, пропилен и полипропилен
+            \item Моделиране на пълния производствен цикъл на газови и полимерни продукти в рафинерията
+        \end{itemize}
+    \end{block}
+
+    \vspace{0.4cm}
+
+    \begin{block}{Архитектура на ОМ модела}
+        \begin{itemize}
+            \item \textbf{Структура:} Преходите съответстват на инсталации в рефинерията
+            \item \textbf{Логика:} Ядрата имат характеристика - текущия продукт и съответното количество. 
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 23
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на газови и полимерни продукти в нефтопреработвателна рафинерия}
+    \begin{columns}[c] 
+        \column{0.3\textwidth}
+        \centering
+        {Технологична схема}
+
+        \column{0.7\textwidth}
+        \centering
+        \setlength{\fboxsep}{0pt}
+        \setlength{\fboxrule}{1pt}
+        
+        {\color{mainblue}\fbox{\includegraphics[width=0.95\textwidth]{Figure1.png}}}
+    \end{columns}
+\end{frame}
+
+
+% ------------------------------------------------------------------
+% --- Слайд 24
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на газови и полимерни продукти в нефтопреработвателна рафинерия }
+\begin{columns}
+\column{0.2\textwidth}
+\centering 
+ОМ модел
+
+\column{0.8\textwidth}
+\centering
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{1pt}
+
+{\color{mainblue}\fbox{\includegraphics[width=0.45\textwidth]{FG OM1.png}}}
+\hspace{0.02\textwidth}
+{\color{mainblue}\fbox{\includegraphics[width=0.45\textwidth]{FG OM2.png}}}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 25
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на газови и полимерни продукти в нефтопреработвателна рафинерия }
+\begin{columns}
+\column{0.2\textwidth}
+\centering 
+ОМ модел в \textit{OnlineGN}
+
+\column{0.8\textwidth}
+\centering
+
+\setlength{\fboxsep}{0pt}  
+\setlength{\fboxrule}{1pt}
+
+{\color{mainblue}\fbox{\includegraphics[width=0.45\textwidth]{sim_2.png}}}
+\hspace{0.03\textwidth}
+{\color{mainblue}\fbox{\includegraphics[width=0.45\textwidth]{sim_1.png}}}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 26
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на тежки нефтопродукти в нефтопреработвателна рафинерия}
+    \vspace{-0.2cm}
+    \textbf{Идея на модела:}
+    \vspace{0.3cm}
+    \begin{block}{Обхват на симулацията}
+        \begin{itemize}
+            \item \textbf{Продукти:}
+            \begin{itemize}
+                \item Горива с масово съдържание на сяра \( \leq 0.5\% \), \( \leq 1.0\% \) и \( \leq 2.5\% \).
+                \item Пътен битум: 50/70 и 70/100.
+            \end{itemize}
+            \item Моделиране на пълния производствен цикъл на тежки нефтопродукти в рафинерията
+        \end{itemize}
+    \end{block}
+
+    \vspace{0.4cm}
+
+    \begin{block}{Архитектура на ОМ модела}
+        \begin{itemize}
+            \item \textbf{Структура:} Преходите съответстват на инсталации в рефинерията
+            \item \textbf{Логика:} Ядрата имат характеристика - текущия продукт и съответното количество. 
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 27
+\begin{frame}{ОМ модели и симулации: ОМ на производството на тежки нефтопродукти в нефтопреработвателна рафинерия}
+    \begin{columns}[c] 
+        \column{0.45\textwidth}
+        \centering
+        {Технологична схема}
+
+        \column{0.55\textwidth}
+        \centering
+        \setlength{\fboxsep}{0pt}
+        \setlength{\fboxrule}{1pt}
+
+        {\color{mainblue}\fbox{\includegraphics[width=0.9\textwidth]{Figure_1.jpg}}}
+    \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 28
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на тежки нефтопродукти в нефтопреработвателна рафинерия }
+\begin{columns}
+\column{0.15\textwidth}
+\centering 
+ОМ модел
+
+\column{0.85\textwidth}
+\centering
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{1pt}
+
+{\color{mainblue}\fbox{\includegraphics[width=0.48\textwidth]{OM FG3.png}}}
+\hspace{0.02\textwidth}
+{\color{mainblue}\fbox{\includegraphics[width=0.46\textwidth]{OM FG4.png}}}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 29
+\begin{frame}{ОМ модели и симулации: Модел с ОМ на производството на тежки нефтопродукти в нефтопреработвателна рафинерия }
+\begin{columns}[c]
+    \column{0.4\textwidth} 
+    \centering 
+    ОМ модел в \textit{OnlineGN}
+
+    \column{0.6\textwidth}
+    \centering
+    \setlength{\fboxsep}{0pt}
+    \setlength{\fboxrule}{1pt}
+
+    {\color{mainblue}\fbox{\includegraphics[width=0.9\textwidth]{model5.png}}}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 30
+\begin{frame}{Научни приноси}
+\scriptsize
+\begin{enumerate}
+    \setlength{\itemsep}{0.8em}
+
+    \item \textbf{Алгоритми за автоматизация и визуализация на ОМ}
+    \begin{itemize}
+        \item Алгоритъм за автоматизирано изчертаване на ОМ по абстрактно описание.
+        \item Алгоритъм за преобразуване на SVG изображения на ОМ в \TeX{} формат.
+    \end{itemize}
+
+    \item \textbf{Паралелен вариант на задачата за Ханойските кули}
+    \begin{itemize}
+        \item Формализиран е вариант с едновременно преместване на до $k$ пръстена.
+        \item Доказана е теорема за минималния брой стъпки:
+        \[
+            H(n,k) = 2^{\bigl\lceil \textstyle \frac{n}{k} \bigr\rceil} - 1
+        \]
+    \end{itemize}
+
+    \item \textbf{ОМ моделиране и симулация на паралелната задача}
+    \begin{itemize}
+        \item Създаден е оригинален ОМ модел с $\rho$-ядра за обектите и $\chi$-ядра за ресурсите.
+        \item Приложимостта е доказана чрез симулации в \textit{OnlineGN}.
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 31
+\begin{frame}{Научно--приложни приноси}
+\scriptsize
+\begin{enumerate}
+    \setlength{\itemsep}{0.8em}
+
+    \item \textbf{Софтуерна система \textit{OnlineGN}}
+    \begin{itemize}
+        \item Реализирана е уеб базирана платформа за моделиране, симулация и визуализация на ОМ.
+        \item Разработен е интерактивен интерфейс за редактиране и проследяване на изпълнението.
+        \item Внедрен е експорт от SVG към \TeX{} за подготовка на публикации.
+    \end{itemize}
+
+    \item \textbf{Представяне на крайни автомати чрез ОМ}
+    \begin{itemize}
+        \item Разработена е методика за описание на детерминирани и недетерминирани крайни автомати чрез ОМ.
+    \end{itemize}
+
+    \item \textbf{Моделиране на процеси в нефтопреработвателна рафинерия}
+    \begin{itemize}
+        \item Разработени са ОМ модели на реални технологични процеси за газови, полимерни и тежки нефтени продукти.
+    \end{itemize}
+
+    \item \textbf{Верификация чрез \textit{OnlineGN}}
+    \begin{itemize}
+        \item Всички новосъздадени модели са верифицирани чрез симулации в \textit{OnlineGN}.
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+% ------------------------------------------------------------------
+% --- Слайд 30
+\begin{frame}{Публикации}
+\scriptsize
+\begin{itemize}
+    \setlength{\itemsep}{1.5em}
+
+    \item Dimitriev, A.I.; Terziev, G.I. \textbf{Automating Creativity: Enhancing Generalized Nets with Algorithmic Drawing.} In: Atanassov, K.T., et al. (eds.) \textit{Uncertainty and Imprecision in Decision Making and Decision Support -- New Advances, Challenges, and Perspectives}. IWIFSGN 2024. \textit{Lecture Notes in Networks and Systems}, vol. 1857. Springer, Cham, 2026, pp. 62--75. doi:\,10.1007/978-3-032-22232-9\_7.
+
+    \item Dimitriev, A. \textbf{Representing Finite-State Automata with Generalized Nets: Simulation via OnlineGN.} \textit{Proceedings of the Jangjeon Mathematical Society}, vol. 29, no. 1, 2026, pp. 155--167. doi:\,10.17777/pjms.2026.29.1.011.
+
+    \item Dimitriev, A.; Atanassov, K.; Angelova, N. \textbf{Parallel Towers of Hanoi via Generalized Nets: Simulated with OnlineGN.} \textit{Software}, vol. 4, no. 4, article 23, 2025. doi:\,10.3390/software4040023.
+
+    \item Stratiev, D.D.; Dimitriev, A.; Stratiev, D.; Atanassov, K. \textbf{Modeling the Production Process of Fuel Gas, LPG, Propylene, and Polypropylene in a Petroleum Refinery Using Generalized Nets.} \textit{Mathematics}, vol. 11, no. 17, article 3800, 2023. doi:\,10.3390/math11173800.
+
+    \item Stratiev, D.; Dimitriev, A.; Stratiev, D.; Atanassov, K. \textbf{Generalized Net Model of Heavy Oil Products' Manufacturing in Petroleum Refinery.} \textit{Mathematics}, vol. 11, no. 23, article 4753, 2023. doi:\,10.3390/math11234753.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+% --- Слайд 31 - ДОПЪЛНЕН
+\begin{frame}{Участия в научни конференции}
+\scriptsize
+
+\begin{block}{Участия, свързани с дисертационния труд}
+\begin{itemize}
+    \setlength{\itemsep}{0.7em}
+
+    \item \textbf{22nd International Workshop on Intuitionistic Fuzzy Sets and Generalized Nets}
+    (IWIFSGN'2024), Варшава, Полша -- 18.10.2024.
+
+    Доклад: \textit{Automating Creativity: Enhancing Generalized Nets with Algorithmic Drawing}.
+
+    \item \textbf{ИБФБМИ}, София, България -- 04.2024. Доклад: \textit{Представяне на OnlineGn}.
+
+    \item \textbf{ИБФБМИ}, София, България -- 03.2025. Доклад: \textit{Представяне на OnlineGn}.
+\end{itemize}
+\end{block}
+
+\vspace{0.3em}
+
+\begin{block}{Друго научно участие}
+\begin{itemize}
+    \setlength{\itemsep}{0.5em}
+
+    \item \textbf{International Symposium on Bioinformatics and Biomedicine}
+    (BioInfoMed'2022), Бургас, България -- 05-07.10.2022.
+
+    Доклади: \textit{ABO System Blood Groups Distribution in Bulgaria} и
+    \textit{InterCriteria Analysis of the Geographic Distribution of the ABO System Blood Groups}.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,204 @@
+\section{Доказивање теорема у TLA+}
+
+TLA+ не служи само за проверу модела \textit{(model checking)} тј. TLC проверава особине прегледом свих достижних стања,
+што је изводљиво само за коначне моделе са конкретним вредностима константи.
+За бесконачне системе или потпуно опште доказе користи се \textbf{TLAPS} (\textit{TLA+ Proof System}),
+алат за формалне дедуктивне доказе директно у TLA+ синтакси \cite{tlapsProofTactics}.
+
+TLAPS преводи доказе теорема на позадинске доказиваче теорема:
+\begin{itemize}
+    \item \textbf{Zenon} је аутоматски доказивач за логику првог реда,
+    \item \textbf{Isabelle/TLA+} је интерактивни доказивач теорема,
+    \item \textbf{SMT решавачи} нпр.\ Z3 за аритметичке леме.
+\end{itemize}
+
+\subsection{Инсталација TLAPS}
+TLAPS долази као посебна инсталација и није део додатка за VS Code едитор. Потребно га је скинути
+са званичног GitHub репозиторијума
+\url{https://github.com/tlaplus/tlapm}. Када се скине инсталациони фајл, тада се .bin фајл за инсталацију
+може локално инсталирати на следећи начин на десктопу
+\begin{lstlisting}[language=bash]
+./tlaps-*.bin -d $HOME/Desktop/tlaps
+\end{lstlisting}
+Када се заврши инсталација TLAPS можемо додати путању ка bin фолдеру како бисмо из тренутне сесије
+терминала могли да покрећемо tlapm.
+\begin{lstlisting}[language=bash]
+export PATH=$PATH:~/Desktop/tlaps/bin
+\end{lstlisting}
+Да би проверили да ли TLAPS систем ради можемо покренути команду
+\begin{lstlisting}[language=bash]
+tlapm --version
+\end{lstlisting}
+Ако се појави број верзије система то значи да смо успешно инсталирали програм.
+Напомињемо овде да је овде показана локална инсталација јер лако омогућава да се програм обрише без икаквих
+системских измена. Ако се прекине тренутна сесија терминала морамо опет команду export, на тај начин
+не дирамо системске путање. Овај приступ је одабран јер је релативно лаган да се уради без икакве шансе да се 
+направи неки проблем. 
+
+Могуће је повезати TLAPS са VS Code едитором и Toolbox-ом и покретати га тако или на начин који смо описали из терминала.
+
+Када све ради како треба и када имамо нашу спецификацију са доказом неке теореме тада покренемо tlapm 
+\begin{lstlisting}[language=bash]
+tlapm <ime>.tla
+\end{lstlisting}
+излаз који добијамо у терминлу
+\begin{lstlisting}[language=bash]
+aleksandar@aleksandar-A520M-K-V2:~/Desktop/FormalneMetodeSkritpa/TLA$ tlapm LightSwitchProof.tla 
+(* created new ".tlacache/TLAPS.tlaps/TLAPS.thy" *)
+(* fingerprints written in ".tlacache/TLAPS.tlaps/fingerprints" *)
+File "/home/aleksandar/Desktop/TLAPS/lib/tlaps/TLAPS.tla", line 1, character 1 to line 362, character 77:
+[INFO]: All 0 obligation proved.
+** Unexpanded symbols: ---
+
+** Unexpanded symbols: STATE_TypeInvariant_, ACTION_Toggle_
+
+** Unexpanded symbols: ---
+
+** Unexpanded symbols: ---
+
+(* created new ".tlacache/LightSwitchProof.tlaps/LightSwitchProof.thy" *)
+(* fingerprints written in ".tlacache/LightSwitchProof.tlaps/fingerprints" *)
+File "./LightSwitchProof.tla", line 1, character 1 to line 32, character 4:
+[INFO]: All 12 obligations proved.
+\end{lstlisting}
+где нам на самом крају пише да су све обавезе доказане. Такође се генеришу и неки додатни фајлови са Isabelle доказом,
+као што се може видети из порука са терминала.
+\subsection{Структура доказа}
+
+Доказ у TLA+ је \textbf{хијерархијски}. Разлаже се на нивое означене угластим заградама
+\texttt{<1>}, \texttt{<2>}, \texttt{<3>} итд.\ Сваки корак се означава бројем, нпр.\ \texttt{<1>1}, \texttt{<1>2}.
+
+Кључне конструкције:
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Конструкција} & \textbf{Значење} \\
+\hline
+\texttt{THEOREM P} & исказ теореме коју треба доказати \\
+\texttt{ASSUME H PROVE P} & доказ под претпоставком \texttt{H} \\
+\texttt{BY facts} & закључи корак из наведених чињеница \\
+\texttt{BY DEF Ime} & закључи разматрањем дефиниције \texttt{Ime} \\
+\texttt{<1>n. QED} & завршни корак нивоа, обједињује претходне кораке у доказ\\
+\texttt{PTL} & позива позадински доказивач за темпоралну логику \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Бројач са инваријантом}
+
+Моделујемо бројач који почиње од нуле и увећава се за један у сваком кораку.
+Желимо да формално докажемо да вредност бројача увек остаје природан број.
+То је особина која важи за \emph{све} вредности бројача, без обзира на величину.
+
+\begin{primer}[Доказ инваријанте бројача]
+
+\textbf{TLA+ модул (\texttt{CounterProof.tla}):}
+\begin{lstlisting}
+---- MODULE CounterProof ----
+EXTENDS Naturals, TLAPS
+
+VARIABLE x
+
+Init == x = 0
+Next == x' = x + 1
+Spec == Init /\ [][Next]_x
+
+Inv == x \in Nat
+
+THEOREM Spec => []Inv
+<1>1. Init => Inv
+      BY DEF Init, Inv
+<1>2. Inv /\ [Next]_x => Inv'
+      BY DEF Inv, Next
+<1>3. QED
+      BY <1>1, <1>2, PTL DEF Spec
+====
+\end{lstlisting}
+
+Теорема каже: ако систем задовољава спецификацију \texttt{Spec}, онда \texttt{Inv} важи у
+\emph{свим} стањима (темпорална формула \texttt{[]Inv}).
+
+Доказ се одвија у три корака на нивоу \texttt{<1>}:
+\begin{itemize}
+    \item \texttt{<1>1} --- \textbf{базни случај}: ако је \texttt{Init} тачно, онда је \texttt{Inv} тачно.
+    Разматрањем дефиниција: \texttt{Init} каже да је \texttt{x = 0}, а \texttt{Inv} каже да је \texttt{x \textbackslash in Nat} --- пошто је $0 \in \mathbb{N}$, следи тривијално.
+
+    \item \texttt{<1>2} --- \textbf{индуктивни корак}: ако \texttt{Inv} важи у тренутном стању и
+    систем изврши корак \texttt{[Next]\_x}, онда \texttt{Inv'} важи у следећем стању.
+    Ако је \texttt{x \textbackslash in Nat} и \texttt{x' = x + 1}, онда је \texttt{x' \textbackslash in Nat} јер је скуп природних бројева затворен за сабирање.
+
+    \item \texttt{<1>3. QED} --- обједињује \texttt{<1>1} и \texttt{<1>2} позивањем \texttt{PTL}
+    (\textit{Propositional Temporal Logic}) доказивача, који из базног и индуктивног случаја аутоматски изводи \texttt{[]Inv}.
+\end{itemize}
+
+Ово је образац \textbf{индуктивне инваријанте}, најчешћа техника доказивања safety особина у TLA+:
+\begin{enumerate}
+    \item Докажи да инваријанта важи у почетном стању (\textit{база индукције}).
+    \item Докажи да ако инваријанта важи пре прелаза, важи и после (\textit{индуктивни корак}).
+    \item Из ова два корака TLAPS аутоматски изводи да инваријанта важи увек.
+\end{enumerate}
+Приметимо из овог примера да ово нисмо могли да докажемо провером модела. Променљива \texttt{x} је типа 
+природних бројева и број стања је бесконачан и проверавач модела би се вртео заувек покушавајући да досегне 
+и провери сва стања. У оваком слуачју морамо да посегнемо за напреднијим техникама и да формулишемо оваква
+тврђења као теореме.
+\end{primer}
+\subsection{Прекидач за светло}
+\begin{primer}[Доказ безбедности прекидача за светло]
+Враћамо се на пример прекидача за светло и формално доказујемо да \texttt{light} увек остаје
+у скупу дозвољених вредности. Ово је особина коју смо раније само проверавали TLC-ом.
+
+\textbf{TLA+ модул (\texttt{LightSwitchProof.tla}):}
+\begin{lstlisting}
+---- MODULE LightSwitchProof ----
+EXTENDS TLAPS
+
+VARIABLE light
+
+Init == light = "off"
+
+Toggle ==
+    \/ /\ light = "off" /\ light' = "on"
+    \/ /\ light = "on"  /\ light' = "off"
+
+Next == Toggle
+
+Spec == Init /\ [][Next]_light
+
+TypeInvariant == light \in {"off", "on"}
+
+THEOREM Spec => []TypeInvariant
+<1>1. Init => TypeInvariant
+      BY DEF Init, TypeInvariant
+<1>2. TypeInvariant /\ [Next]_light => TypeInvariant'
+  <2>1. ASSUME TypeInvariant, Toggle
+        PROVE  TypeInvariant'
+        BY <2>1 DEF TypeInvariant, Toggle
+  <2>2. ASSUME TypeInvariant, UNCHANGED light
+        PROVE  TypeInvariant'
+        BY <2>2 DEF TypeInvariant
+  <2>3. QED
+        BY <2>1, <2>2 DEF Next
+<1>3. QED
+      BY <1>1, <1>2, PTL DEF Spec
+====
+\end{lstlisting}
+
+Доказ следи исти образац индуктивне инваријанте, али са мање корака јер систем има само једну акцију.
+
+\begin{itemize}
+    \item \texttt{<1>1} --- у почетном стању \texttt{light = "off"}, па \texttt{light \textbackslash in \{"off", "on"\}} тривијално важи.
+    \item \texttt{<1>2} --- индуктивни корак се рашчлањује на два подслучаја:
+    \begin{itemize}
+        \item \texttt{<2>1}: акција \texttt{Toggle} мења \texttt{light} из \texttt{"off"} у \texttt{"on"} или обрнуто, у оба случаја вредност остаје у \texttt{\{"off", "on"\}},
+        \item \texttt{<2>2}: ако \texttt{light} остаје непромењено, инваријанта тривијално важи.
+    \end{itemize}
+    \item \texttt{<1>3. QED} --- \texttt{PTL} обједињује базни и индуктивни случај у \texttt{[]TypeInvariant}.
+\end{itemize}
+\end{primer}
+
+
+Треба напоменути да провера модела (TLC) и доказивање теорема (TLAPS) се \textbf{допуњују}: TLC је бржи и аутоматски
+проналази грешке у конкретним моделима, док TLAPS даје потпун доказ за све могуће вредности параметара.
+Уобичајен ток корака је прво верификовати спецификацију са TLC-ом, а затим формално доказати кључне особине са TLAPS-ом.
+

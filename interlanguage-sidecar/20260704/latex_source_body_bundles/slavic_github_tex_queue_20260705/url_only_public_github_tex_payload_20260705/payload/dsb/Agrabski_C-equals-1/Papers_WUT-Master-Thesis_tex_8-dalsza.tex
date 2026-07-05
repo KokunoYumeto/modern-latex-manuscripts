@@ -1,0 +1,267 @@
+\section{Rozwój języka}
+
+Ta praca oferuje szereg ciekawych wniosków na temat zaproponowanego podejścia do projektowania języków programowania.
+Pozostawia jednak też kilka otwartych pytań.
+Odpowiedź na nie jest kluczowa dla dalszego rozwoju tej idei i stanowi barierę przed praktyczną jej aplikacją.
+
+\subsection{Obsługa rozszerzeń języka}
+\label{further:language_extension}
+Pierwszy poważny problem jest powiązany z możliwością rozszerzania języka, opisaną w rozdziale \ref{Language_extensibility}.
+Programista, tworzący własne adnotacje zapewniające statyczną analizę, nie ma obecnie możliwości adnotowania kodu bibliotecznego.
+Problem, który z tego wynika można zilustrować na przykładzie atrybutu \lstinline{const}.
+
+Załóżmy, że atrybut \lstinline{const} nie istnieje w bibliotece standardowej C-=-1.
+Programista, pracujący nad projektem A, tworzy taką adnotację, aby poprawić jakość produkowanego kodu.
+Problem pojawia się, kiedy próbuje użyć biblioteki standardowej.
+Funkcja \lstinline{indexof}, na przykład, przyjmuje wskazanie na tablicę oraz na szukany element.
+Ponieważ atrybut \lstinline{const} został zdefiniowany w bibliotece A, funkcje z biblioteki standardowej nie są nim adnotowane.
+
+Oznacza to, że programista pracujący nad biblioteką A ma obecnie następujące alternatywy:
+\begin{enumerate}
+	\item\label{option:abandon_attribute} Porzucenie atrybutu \lstinline{const} i dalszą pracę bez analizy statycznej.
+	\item\label{option:embed_in_attribute} Zaszycie które elementy biblioteki standardowej powinny mieć tą adnotację w kodzie atrybutu.
+	\item\label{option:std_library_fascade} Stworzenie 'nakładki' na bibliotekę standardową.
+	\item\label{option:analize_function_bodies} Implementacja atrybutu w taki sposób aby analizował też ciała wołanych funkcji.
+	\item\label{option:own_std_lib} Implementacja własnej biblioteki standardowej.
+\end{enumerate}
+Alternatywa \ref{option:abandon_attribute} jest oczywiście najprostsza, ale sprawia, że proponowany mechanizm atrybutów staje bezużyteczny. 
+Użytkownicy języka powinni mieć możliwość definiowania własnych analizatorów i ich zastosowanie bez ograniczeń.
+
+Możliwości \ref{option:embed_in_attribute} oraz \ref{option:std_library_fascade} zapewniają używalność stworzonego atrybutu, ale wymagają dużej ilości pracy.
+Programista musi uwzględnić w swoim kodzie, każdą funkcję ze wszytkich używanych bibliotek.
+Poza nakładem pracy, te rozwiązania wymuszają ścisłe powiązanie pomiędzy biblioteką A a wszystkimi jej zależnościami.
+Prowadzi to do drastycznego spatku utrzymwywalności projektu i zwiększenia kosztu dołączania kolejnych zależności.
+
+Alternatywa \ref{option:analize_function_bodies} wydaje się być najlepsza. 
+Wymaga ona bardzo dużego nakładu pracy, aby ustalić czy wywołanie danej funkcji wpływa na badany niezmiennik.
+Koniecznośc przeprowadzenia dużo trudniejszej analizy, nie jest optymalna ale w obecnej formie mechanizmu atrybutów jest najlepszą możliwością.
+
+W ramach opcji \ref{option:own_std_lib} programista może postanowić zaimplementować własną bibliotekę standardową.
+To podejście, z oczywistych powodów w większości przypadków jest nieakceptowalne.
+Nakład pracy, wymagana wiedza oraz dodatkowe możliwości popełnienia błędu niemalże gwarantują, że żaden zespół nie podejmie takiej decyzji.
+
+Analogiczny problem powstał z wprowadzeniem nie-nullowalnych typów referencyjnych do języka C\# w wersji 8 \cite{wagner_2021, strauss2019new_cs_new_features}.
+Zespół Microsoft podjął decyzję, aby traktować biblioteki niewspierające tej analizy w sposób pesymistyczny.
+Wszystkie referencje pochodzące z takiego pliku dll, są uznawane za potencjalnie przyjmujące wartość null.
+
+Warto zauważyć, że przypadek występujący w C\# jest jednym z prostszych.
+Brakująca analiza dotyczy wyłącznie danych 'wypływających' z biblioteki.
+Brak odpowiednich adnotacji nie wpływa natomiast na dane 'wpływające' do niej.
+Dla porównania adnotacja \lstinline{const} wymaga analizy danych 'wpływających' do biblioteki (w języku C++ wartość typu \lstinline{int const*} jest nieużywalna jako parametr funkcji przyjmującej typ \lstinline{int*}).
+
+\subsection{Modyfikowanie kodu}
+
+Jednym z celów tej pracy było zbadanie, jak umożliwienie modyfikowania kodu w trakcie kompilacji, wpływa na tworzone oprogramowanie.
+Niestety ze względu na błędną wycenę wielkości tego projektu, ten aspekt został pominięty.
+
+Większość potrzebnych prac została już wykonana.
+Model semantyczny programu jest trzymany w strukturach danych, które można modyfikować z interpretowanego kodu.
+Proces kompilacji został zaprojektowany z uwzględnieniem zmian w reprezentacji pośredniej.
+
+Aby skutecznie skorzystać z tej możliwości, należy jeszcze rozszerzyć bibliotekę podstawową języka (rozdział \ref{implementation:interpreter:basic_library}).
+Obecnie programista może zamieniać albo usuwać istniejące elementy modelu semantycznego.
+Aby umożliwić użytkownikom pełne wykorzystanie potencjału C-=-1, do biblioteki podstawowej należy dodać możliwość dynamicznego tworzenia elementów modelu.
+W przyszłości, do języka trzeba będzie dodać funkcje do tworzenia nowych funkcji, instrukcji oraz wyrażeń.
+
+\subsection{Ewaluacja stałych wyrażeń w trakcie kompilacji}
+\label{compile_time_constant_evaluation}
+Jednym z celów C-=-1 było umożliwienie ewaluacji dowolnie złożonego wyrażenia do stałej oraz wykonywania obliczeń i generowania dodatkowych plików w trakcie kompilacji.
+Z tego powodu, większość funkcji można wykonać zarówno w czasie kompilacji, jak i uruchomienia.
+
+Wśród nich są też procedury, mające efekty uboczne, na przykład interakcja z systemem plików czy nawet modyfikacja zmiennej globalnej.
+Programista musi wiedzieć w którym etapie życia programu, kompilacji czy uruchomienia, te funkcje zostaną wykonane.
+Jednak z punktu widzenia modelu semantycznego one w żaden sposób się nie wyróżniają.
+
+Ewaluacja wyrażeń, zawierających taki kod, w czasie kompilacji, prowadziłaby do błędnego zachowania programu.
+W czasie kompilacji dochodziłoby do zbędnych operacji na plikach, bądź nawet błędów kompilacji.
+Natomiast w czasie uruchomienia, program pomijałby pewne operacje, operując na przykład na plikach dostępnych w czasie kompilowania.
+
+Aby poprawnie zrealizować tą funkcjonalność, koniecznym jest wprowadzenie do języka wyróżnienia funkcji, które wpływają na, bądź zależą od globalnego stanu.
+W tym celu można zastosować koncepcję 'czystej' funkcji z funkcyjnych języków programowania \cite{McLoughlin1989ImperativeEF}.
+Dzięki temu, kompilator będzie w stanie ustalić, które wyrażenia może ewaluować jako część optymalizacji a które muszą pozostać w skompilowanym programie.
+
+Takie rozwiązanie omija problem powstały z wprowadzeniem słowa kluczowego \lstinline{constexpr} w C++\cite{Klimiankou:contexpr_great_good_wrong_idea}.
+Czystość funkcji niesie za sobą dużo więcej konsekwencji niż to, że funkcja może być częścią procesu optymalizacji.
+Oznacza to, że programista nie musi być świadomy transformacji, które wykonuje kompilator.
+
+\subsection{Integracja ze środowiskiem programistycznym}
+\label{IDE_integration}
+
+Language Server Protocol (LSP) \cite{bunder2019decoupling_lsp} to protokół umożliwiający rozwój narzędzi wspomagających programistę, niezależnie od zintegrowanego środowiska programistycznego.
+Serwer Języka ma zapewniać usługi takie jak podświetlanie składni, uzupełnianie kodu, refaktoring czy wspomaganie nawigacji.
+
+W wypadku większości języków programowania implementacja takiego serwera wymaga stworzenia dedykowanego oprogramowania.
+Ponieważ kompilator C-=-1 stanowi środowisko urchomieniowe dla tego języka, z wbudowanymi narzędziami do analizy kodu źródłowego, można go wykorzystać w tym celu.
+Takie zastosowanie wymaga pewnych zmian w kompilatorze, ale sam język jest do tego dobrze przystosowany.
+
+\subsection{System typów a atrybuty}
+\label{further:adnotated_type_system}
+
+Wyzwania opisane w rozdziale \ref{const} sugerują, że atrybuty są silnie powiązane z systemem typów.
+Podstawowym celem adnotacji aplikowanych do zmiennych, jest wymuszenie zachowania danych inwariantów.
+W paradygmacie obiektowym ten cel jest zwykle osiągany za pomocą klasy \cite{oop_paradignm}.
+W niektórych językach wspierających ten styl istnieją jednak też modyfikatory typów takie jak \lstinline{const} czy \lstinline{viotile} z C++ bądź \lstinline{mut} z Rust \cite{klabnik2019rust}.
+Te adnotacje są częścią systemu typów i niosą ze sobą informacje semantyczne bądź wymuszają pewne inwarianty, których nie da się wyrazić za pomocą systemu typów.
+
+Atrybuty z C-=-1, aplikowane do zmiennych i wartości, stanowią odpowiednik tych modyfikatorów, pisany przez użytkownika.
+Przenoszą informacje semantyczne i wymuszają inwarianty.
+Powinny więc stanowić rozszerzenie systemu typów, tak samo, jak modyfikatory \lstinline{const} czy \lstinline{viotile}.
+Takie rozszerzenie języka, wymaga poważnego przeprojektowania modelu semantycznego programu oraz samej składni.
+W szczególności należy rozwiązać problem przedstawiony w rozdziale \ref{const} oraz w listingu \ref{lst:const_problem_example}.
+Obecnie, wskazania są reprezentowane jako para typ-licznik poziomu referencji.
+Listing \ref{lst:further:type_reference_semantic_model} zawiera typ używany do reprezentacji wskazania w kompilatorze C-=-1.
+Model semantyczny dostępny programiście C-=-1 zawiera bardzo podobną strukturę danych.
+
+\begin{lstlisting}[
+	numbers=left,
+	firstnumber=0,
+	caption={Obiekt reprezentujący odniesienie do typu w kompilatorze C-=-1},
+	aboveskip=0pt,
+	tabsize=2,
+	label={lst:further:type_reference_semantic_model}
+	]
+struct TypeReference
+{
+	Type* type = nullptr;
+	size_t referenceCount = 0;
+	std::string typeName() const;
+	bool isVoidType() const noexcept;
+	TypeReference reference() const noexcept;
+	TypeReference dereference() const noexcept;
+	TypeReference baseType() const noexcept;
+	TypeReference() = default;
+	TypeReference(Type* t) noexcept;
+	TypeReference(Type* t, size_t refCount) noexcept;
+};
+\end{lstlisting}
+
+Prosta reprezentacja wskazań, taka jak w listingu \ref{lst:further:type_reference_semantic_model} uniemożliwia skuteczne wprowadzenie modyfikatorów typów takich jak \lstinline{const} z C++.
+W tym podejściu typ \lstinline{int*} jest traktowany jako specjalny przypadek typu \lstinline{int}.
+Z kolei \lstinline{int**} oraz \lstinline{int*} są postrzegane jako niemalże ten sam typ.
+Aby umożliwić tworzenie modyfikatorów takich jak \lstinline{const}, typy \lstinline{int}, \lstinline{int*} oraz \lstinline{int**} powinny być traktowane na równi w modelu semantycznym.
+
+\subsubsection{Równoważność atrybutów przy wybieraniu przeciążenia}
+\label{further:adnotated_type_system:attribute_equivalence}
+
+Zmiany w języku zaproponowane w rozdziale \ref{further:language_extension} wymagają dobrego zdefiniowania, w jaki sposób porównywać adnotacje aplikowane do parametrów.
+Atrybuty w C-=-1 mogą być konstruowane z parametrami.
+Przykład z listingu \ref{lst:further:attribute_comparison} przedstawia ten problem.
+Atrybut \lstinline{GreaterThan} zapewnia, że zmienna, do której został przyłączony, jest większa od zadanej stałej.
+Funkcja \lstinline{externalFunction} oczekuje natomiast parametru liczbowego o wartości większej niż pięć.
+Jednak w funkcji \lstinline{function} przekazywana mu jest wartość większa niż siedem.
+W wypadku tego wywołania inwariant \lstinline{GreaterThan} jest oczywiście zachowany, ale nie każdy sposób porównywania adnotacji doprowadzi kompilator do takiego wniosku.
+
+Najprostszy sposób porównywania instancji atrybutów sprawdzanie ich typów.
+Według tego algorytmu wszystkie wartości adnotowane jako \lstinline{GreaterThan} byłyby akceptowalnym argumentem wywołania funkcji \lstinline{externalFunction} z listingu \ref{lst:further:attribute_comparison}.
+To podejście sprawia, że parametryzowane adnotacje zmiennych tracą jakikolwiek sens.
+Niewykluczone, że możliwość definiowania takich atrybutów w praktycznym zastosowaniu jest zbędne.
+Zasadność takiej konstrukcji powinna być przedmiotem przyszłych badań.
+
+\begin{minipage}{\textwidth}
+	
+	\begin{lstlisting}[
+		numbers=left,
+		firstnumber=0,
+		caption={Przykład atrybutu w C-=-1},
+		aboveskip=0pt,
+		label={lst:further:attribute_comparison}
+		]
+	att<variable> GreaterThan {
+		private _limit: usize;
+		public fn construct(limit: usize)
+		...
+	}
+	public fn greaterThan<limit: usize>(value: usize) -> 
+		[GreaterThan(limit)] usize {
+		assert(value > limit);
+		return value;
+	}
+	public fn getParameter() -> usize;
+	public fn externalFunction([GreaterThan(5)]parameter: usize);
+	
+	public fn function() {
+		let parameter = getParameter();
+		externalFunction(greaterThan<7>(parameter));
+	}
+	\end{lstlisting}
+	
+\end{minipage}
+Alternatywnym podejściem do problemu porównywania atrybutów jest rozszerzenie zbioru ich metod o \lstinline{satisfiesInvariant(value: valueDescriptor*) -> bool}.
+Ta funkcja byłaby wywoływana na atrybucie powiązanym z parametrem wywoływanej procedury.
+Ta metoda ma za zadanie zweryfikować czy dana wartość spełnia wymagania narzucone przez daną adnotację.
+Takie rozwiązanie daje duże możliwości przy definiowaniu zasad, według których działa dany inwariant.
+Może to jednak prowadzić do nieprzewidywalnego wyboru przeciążenia funkcji oraz do sytuacji, w których tego wyboru nie da się dokonać jednoznacznie.
+Zapewnienie programiście dobrej diagnostyki, zawierającej informacje, dlaczego dane wywołanie jest niepoprawne.
+
+Listing \ref{lst:further:semantic_model_extension} zawiera deklaracje typów, o które należy rozszerzyć model semantyczny C-=-1, aby dodać do atrybutów metodę \lstinline{satisfiesInvariant}.
+Typ \lstinline{valueDescriptor} opisuje wartość wyrażenia na etapie kompilacji.
+Zawiera informacje o tym, czy jest to stała, na podstawie jakiego wyrażenia powstała oraz jakie atrybuty są z nią powiązane.
+Instancje tego typu będą tworzone przez kompilator, w celu wywołania metody \lstinline{satisfiesInvariant}, w trakcie wyboru przeciążenia funkcji.
+Klasa \lstinline{attributeInstance} zawiera natomiast informacje o instancji atrybutu.
+Składa się z referencji do typu atrybutu oraz wskazanie na obiekt będący jego instancją.
+Adnotacje mogą użyć \lstinline{attributeInstance} aby łatwiej identyfikować, które atrybuty powiązane z wartością analizować.
+
+\begin{minipage}{\textwidth}
+	
+\begin{lstlisting}[
+	numbers=left,
+	firstnumber=0,
+	caption={Proponowane rozszerzenie modelu semantycznego C-=-1},
+	aboveskip=0pt,
+	label={lst:further:semantic_model_extension}
+	]
+public class attributeInstance {
+	public attribute: attributeDescriptor;
+	public instance: void*;
+}
+public class valueDescriptor {
+	public type: typeReference;
+	public attributes: attributeInstance[];
+	public isConstant: bool;
+	public constantValue: void*;
+	public sourceExpression: IExpression*;
+}
+\end{lstlisting}
+	
+\end{minipage}
+
+Ten aspekt języka jest ciekawym, ale także trudnym problemem do rozwiązania.
+Należy znaleźć balans, pomiędzy zapewnieniem użytecznego mechanizmu do dostosowywania algorytmu wyboru przeciążeń a zdolnością programisty do zrozumienia tworzonego kodu oraz generowanych przez kompilator diagnostyk.
+
+\subsection{Reprezentacja pośrednia generyków}
+\label{further:generic_intermidiate_representation}
+
+W obecnej specyfikacji języka programista ma bardzo ograniczony wgląd w strukturę typów i funkcji generycznych.
+Wynika to z konfliktu pomiędzy precyzją reprezentacji pośredniej C-=-1 a niepewnością istniejącą w szablonach.
+Listing \ref{lst:further:generic_imprecision} zawiera przykład demonstrujący ten problem.
+Kod tego generyka jest poprawny, jednak instrukcja w linii pierwszej nie zawiera dostatecznie dużo informacji, aby określić która metoda zostanie wywołana.
+Kompilator wie jedynie, że wywoływana metoda nazywa się \lstinline{foo}.
+W normalnej reprezentacji pośredniej C-=-1 taka sytuacja jest niedozwolona.
+\begin{lstlisting}[
+	numbers=left,
+	firstnumber=0,
+	caption={Przykład niedoprecyzowania generyka w C-=-1},
+	aboveskip=0pt,
+	label={lst:further:generic_imprecision}
+	]
+public fn genericFunction<T>(value: T*, text: string) -> usize {
+	value.foo();
+	return text.length();
+}
+
+\end{lstlisting}
+
+W celu ograniczenia zakresu pracy, w obecnej definicji języka, programista ma dostęp jedynie do nazwy generyka oraz jego listy parametrów.
+Implementacja kompilatora trzyma szablony jako metadane oraz drzewo AST, które jest modyfikowane przy tworzeniu instancji, a następnie analizowane jak normalny plik źródłowy.
+
+Zapewnienie programiście możliwości analizy kodu generyków wymaga rozszerzenia specyfikacji języka o model kodu generycznego.
+Opis szablonów wymaga mniej precyzyjnych struktur danych.
+Na przykład powinien powstać odpowiednik typu \\\lstinline{functionCallExpression}, \lstinline{genericFunctionCallExpression}, który zamiast wskazywać na konkretną funkcję, przechowuje jedynie jej nazwę.
+W przykładzie z listingu \ref{lst:further:generic_imprecision} zostałyby wykorzystane obydwa typy wyrażeń.
+\lstinline{genericFunctionCallExpression} w linii pierwszej i \lstinline{functionCallExpression} w linii drugiej.
+
+Obecnie, ponieważ w modelu semantycznym istnieje bardzo ograniczona ilość informacji o generykach, nie można przyłączyć atrybutu do szablonu.
+Wszystkie adnotacje są uznawane za dotyczące konkretnej instancji.
+Rozszerzenie modelu o reprezentację kodu generyka, wymaga dodania możliwości adnotowania samych szablonów.
+Wymaga to dodania dwóch nowych celów dla atrybutów: \lstinline{genericFunction} oraz \lstinline{genericClass}.
+Ponadto, należy zaproponować składnię umożliwiającą rozróżnienie adnotacji aplikowanej do generyka a do jego instancji.

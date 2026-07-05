@@ -1,0 +1,25 @@
+\ulohahead{specializace UI-SU}{Splňování podmínek (CSP), hranová konzistence, AC-3}
+\begin{zadani}
+\begin{enumerate}[label=(\alph*)]
+  \item \bod{1} Definujte problém splňování podmínek (CSP) a pojem \emph{hranové konzistence} (arc consistency).
+  \item \bod{2} Popište algoritmus AC-3 (fronta hran, revize domény, šíření) a uveďte jeho časovou složitost.
+  \item \bod{3} Pro proměnné $X,Y,Z$ s doménami $\{1,2,3\}$ a omezeními $X<Y$, $Y<Z$ proveďte AC-3 a uveďte výsledné domény. Vysvětlete rozdíl mezi lokální (hranovou) a globální konzistencí a proč hranová konzistence nezaručí existenci řešení.
+\end{enumerate}
+\end{zadani}
+
+\begin{reseni}
+\textbf{(a) Definice.} CSP je trojice $(\mathcal{V},\mathcal{D},\mathcal{C})$: proměnné $\mathcal{V}=\{X_1,\dots,X_n\}$, jejich domény $\mathcal{D}=\{D_1,\dots,D_n\}$ a omezení $\mathcal{C}$ (každé omezuje přípustné kombinace hodnot podmnožiny proměnných). Řešení = přiřazení hodnot z domén splňující všechna omezení. Hrana $(X_i,X_j)$ (binární omezení) je \emph{hranově konzistentní}, pokud pro každou hodnotu $a\in D_i$ existuje hodnota $b\in D_j$ taková, že dvojice $(a,b)$ splňuje omezení. CSP je hranově konzistentní, jsou-li konzistentní všechny hrany.
+
+\textbf{(b) AC-3.} Udržuj frontu všech hran (orientovaně, obě strany každého omezení). Opakovaně vyjmi hranu $(X_i,X_j)$ a proveď \textsc{Revise}: odstraň z $D_i$ každou hodnotu, pro kterou v $D_j$ neexistuje podpora. Pokud se $D_i$ zmenšila, vlož zpět do fronty všechny hrany $(X_k,X_i)$ pro sousedy $X_k$ (mohla se porušit jejich konzistence). Konec, když je fronta prázdná, nebo nějaká doména zůstane prázdná (pak CSP nemá řešení). Složitost: $O(e\,d^3)$, kde $e$ je počet hran (binárních omezení) a $d$ velikost domény (každá z $O(e)$ hran se zařadí nejvýše $d$-krát, jedna \textsc{Revise} je $O(d^2)$).
+
+\textbf{(c) Průběh.} Z $X<Y$: $X$ nemůže být $3$ (nic většího v $Y$) $\Rightarrow D_X=\{1,2\}$; $Y$ nemůže být $1$ $\Rightarrow D_Y=\{2,3\}$. Z $Y<Z$: $Y$ nemůže být $3$ $\Rightarrow D_Y=\{2\}$; $Z$ nemůže být $1$ ani $2$ $\Rightarrow D_Z=\{3\}$. Zmenšení $D_Y$ vrátí do fronty hranu $(X,Y)$: $X$ nyní potřebuje $y>x$ s $y\in\{2\}$, takže $x=2$ vypadne $\Rightarrow D_X=\{1\}$. Výsledek: $D_X=\{1\},\,D_Y=\{2\},\,D_Z=\{3\}$ (zde jediné řešení).
+
+\emph{Lokální vs.\ globální.} Hranová konzistence je \emph{lokální} vlastnost (po dvojicích). Nezaručuje globální řešení: např.\ tři proměnné s doménami $\{1,2\}$ a omezeními ,,navzájem různé'' jsou hranově konzistentní (každá hodnota má podporu u souseda), ale tři po dvou různé hodnoty z dvouprvkové domény neexistují, takže CSP je nesplnitelný. Proto se AC-3 kombinuje s prohledáváním (backtracking), typicky algoritmus MAC = po každém přiřazení znovu udělat hranovou konzistenci.
+\end{reseni}
+
+\begin{jadro}
+CSP $=(V,D,C)$. Hranová konzistence: každá hodnota $a\in D_i$ má podporu $b\in D_j$ splňující omezení. AC-3 (fronta hran, revize, šíření při zúžení), $O(e\,d^3)$. Nezaručuje řešení -> nutný backtracking/MAC.
+\end{jadro}
+
+\kalibrace{Specializaci tvoří ~3 ML + 1 ,,Základy UI''. AI okruhy (CSP, minimax, Bayesovské sítě, A*, MDP, HMM) jsou jednotlivě vzácné, ale slot na jednu z nich je skoro vždy. Proto v úrovni 1 musí mít každá AI rodina aspoň 2-bodovou zálohu: přesná definice + jeden kanonický postup.}
+\past{Hranová konzistence \emph{nedokazuje} řešitelnost - to je oblíbená chytací podotázka. Vždy zmiň protipříklad (např.\ all-different na malé doméně) a roli backtrackingu/MAC.}

@@ -1,0 +1,239 @@
+\section{Неки основни примери}
+Овде дајемо неке примере из рачунарства који су довољно мали али илустративни да се покакжу неки концепти tla
+спецификације.
+
+\subsection{Прекидач за светло}
+\begin{primer}[Прекидач за светло]
+Прекидач за светло је класичан пример коначног аутомата са два стања: \texttt{off} и \texttt{on}.
+Једина акција је притискање прекидача (\texttt{Toggle}) која мења стање из \texttt{off} у \texttt{on} и обрнуто.
+
+\textbf{TLA+ модул (\texttt{LightSwitch.tla}):}
+\begin{lstlisting}
+---- MODULE LightSwitch ----
+VARIABLE light
+
+Init == light = "off"
+
+Toggle ==
+    \/ /\ light = "off"
+       /\ light' = "on"
+    \/ /\ light = "on"
+       /\ light' = "off"
+
+Next == Toggle
+
+Spec == Init /\ [][Next]_light
+
+TypeInvariant == light \in {"off", "on"}
+====
+\end{lstlisting}
+
+
+\textbf{TLC конфигурациони фајл (\texttt{LightSwitch.cfg}):}
+\begin{lstlisting}
+INIT Init
+NEXT Next
+INVARIANT TypeInvariant
+\end{lstlisting}
+
+Конфигурациони фајл говори TLC model checkeru:
+\begin{itemize}
+    \item \texttt{INIT} --- која формула описује почетна стања,
+    \item \texttt{NEXT} --- која формула описује прелазе стања,
+    \item \texttt{INVARIANT} --- које особине треба да важе у \emph{свим} достижним стањима.
+\end{itemize}
+Овде први пут видимо нови концепт \textbf{INVARIANT} у конфигурационом фајлу. Он нам говори да неки услов
+треба да важи у свим стањима наше спецификације и према томе је инваријантан. 
+Особина исправности је \textit{светло је увек у неком од два дозвољена стања}, тј. \texttt{TypeInvariant} дефиниција важи у сваком достижном стању.
+    
+Такође обратимо пажњу на дефиницију 
+\begin{lstlisting}
+    TypeInvariant == light \in {"off", "on"}
+\end{lstlisting}
+овде можемо видети такође везу са математиком. Наиме ово је чиста формула теорије скупова која каже променљива \texttt{light}
+припада неком скупу могућих вредности. Могли смо све ово записати као $x \in \{p, q\}$, идеја програма би имала исти смисао.
+\end{primer}
+
+\begin{primer}[Прекидач за светло --- булова варијанта]
+Исти прекидач можемо моделовати и са буловом променљивом уместо стрингова.
+Вредност \texttt{TRUE} представља укључено светло, \texttt{FALSE} искључено.
+Акција \texttt{Toggle} тада постаје знатно краћа јер нема потребе за две гране.
+
+\textbf{TLA+ модул (\texttt{LightSwitchBool.tla}):}
+\begin{lstlisting}
+---- MODULE LightSwitchBool ----
+VARIABLE light
+
+Init == light = FALSE
+
+Toggle == light' = ~light
+
+Next == Toggle
+
+Spec == Init /\ [][Next]_light
+
+TypeInvariant == light \in BOOLEAN
+====
+\end{lstlisting}
+
+Уочимо неколико ствари. \texttt{Toggle} је сада само \texttt{light' = \textasciitilde light} негација тренутне вредности.
+\texttt{TypeInvariant} користи уграђени скуп \texttt{BOOLEAN} $= \{\texttt{TRUE}, \texttt{FALSE}\}$ уместо ручно набројаног скупа стрингова.
+Обе варијанте су семантички еквивалентне; булова је компактнија, а стринг варијанта је читљивија када стања имају смислена имена. Приметимо
+да смо овде користили нови оператор \texttt{\~} који нам представља логичку негацију.
+\end{primer}
+
+\subsection{Брава на вратима}
+\begin{primer}[Брава на вратима]
+Брава на вратима је пример са три стања: \texttt{locked}, \texttt{unlocked} и \texttt{open}.
+За разлику од прекидача, овде \emph{нису све акције увек дозвољене} нпр.\ врата се не могу отворити ако су закључана.
+
+Акције су:
+\begin{itemize}
+    \item \texttt{Unlock} --- откључавање (само из стања \texttt{locked}),
+    \item \texttt{Lock} --- закључавање (само из стања \texttt{unlocked}),
+    \item \texttt{Open} --- отварање (само из стања \texttt{unlocked}),
+    \item \texttt{Close} --- затварање (само из стања \texttt{open}).
+\end{itemize}
+
+\textbf{TLA+ модул (\texttt{DoorLock.tla}):}
+\begin{lstlisting}
+---- MODULE DoorLock ----
+VARIABLE door
+
+Init == door = "locked"
+
+Unlock == /\ door = "locked"
+          /\ door' = "unlocked"
+
+Lock   == /\ door = "unlocked"
+          /\ door' = "locked"
+
+Open   == /\ door = "unlocked"
+          /\ door' = "open"
+
+Close  == /\ door = "open"
+          /\ door' = "unlocked"
+
+Next == Unlock \/ Lock \/ Open \/ Close
+
+Spec == Init /\ [][Next]_door
+
+TypeInvariant == door \in {"locked", "unlocked", "open"}
+
+CannotOpenWhenLocked == door = "locked" => door # "open"
+====
+\end{lstlisting}
+
+\textbf{TLC конфигурациони фајл (\texttt{DoorLock.cfg}):}
+\begin{lstlisting}
+INIT Init
+NEXT Next
+INVARIANT TypeInvariant
+INVARIANT CannotOpenWhenLocked
+\end{lstlisting}
+
+Кључна разлика у односу на прекидач је да свака акција садржи \textbf{услов изводљивости} (precondition) у првом конјункту.
+На пример, \texttt{Open} може да се изврши само ако је \texttt{door = "unlocked"} ако то не важи, акција је блокирана.
+TLC ће аутоматски проверити да у ниједном достижном стању \texttt{CannotOpenWhenLocked} не буде нарушена.
+\end{primer}
+
+\subsection{Узајамно искључење}
+\begin{primer}[Узајамно искључење]
+Узајамно искључење (\textit{mutual exclusion}) је класичан проблем у теорији конкурентних система.
+Два процеса се такмиче за приступ критичној секцији, делу кода који сме да извршава само један процес у времену.
+Сваки процес може бити у једном од три стања: \texttt{idle} (не покушава улазак), \texttt{trying} (чека на улазак) и \texttt{critical} (у критичној секцији).
+
+Овај пример је значајан јер уводи два кључна концепта:
+\begin{itemize}
+    \item моделовање \textbf{вишеструких процеса} --- стање система је функција која сваком процесу додељује његово тренутно стање,
+    \item \textbf{safety особина} --- гарантује да два процеса никад нису истовремено у критичној секцији.
+\end{itemize}
+
+\textbf{TLA+ модул (\texttt{MutualExclusion.tla}):}
+\begin{lstlisting}
+---- MODULE MutualExclusion ----
+EXTENDS Naturals
+
+CONSTANT N
+ASSUME N \in Nat /\ N > 0
+
+Procs == 1..N
+
+VARIABLE state
+
+States == {"idle", "trying", "critical"}
+
+Init == state = [p \in Procs |-> "idle"]
+
+TryEnter(p) ==
+    /\ state[p] = "idle"
+    /\ state' = [state EXCEPT ![p] = "trying"]
+
+Enter(p) ==
+    /\ state[p] = "trying"
+    /\ \A q \in Procs : q # p => state[q] # "critical"
+    /\ state' = [state EXCEPT ![p] = "critical"]
+
+Exit(p) ==
+    /\ state[p] = "critical"
+    /\ state' = [state EXCEPT ![p] = "idle"]
+
+Next == \E p \in Procs : TryEnter(p) \/ Enter(p) \/ Exit(p)
+
+Spec == Init /\ [][Next]_state
+
+TypeInvariant == \A p \in Procs : state[p] \in States
+
+MutualExclusion == \A p, q \in Procs : p # q => ~(state[p] = "critical" /\ state[q] = "critical")
+====
+\end{lstlisting}
+
+\textbf{TLC конфигурациони фајл (\texttt{MutualExclusion.cfg}):}
+\begin{lstlisting}
+CONSTANTS
+    N = 2
+
+INIT Init
+NEXT Next
+INVARIANT TypeInvariant
+INVARIANT MutualExclusion
+\end{lstlisting}
+
+Разложимо сваки сегмент спецификације.
+
+\textbf{Параметар и почетно стање.}
+\texttt{CONSTANT N} уводи број процеса као параметар чија вредност се задаје у конфиг фајлу.
+\texttt{ASSUME} гарантује да TLC не прихвата безначајне вредности попут \texttt{N = 0}.
+\texttt{Procs == 1..N} је скуп идентификатора процеса, нпр.\ за \texttt{N = 2} то је $\{1, 2\}$.
+Стање система је \textbf{функција} \texttt{state} дефинисана над скупом \texttt{Procs} израз
+\texttt{[p \textbackslash in Procs |-> "idle"]} прави функцију која сваком процесу додељује \texttt{"idle"}.
+
+\textbf{Акција \texttt{TryEnter(p)}.}
+Процес прелази из \texttt{idle} у \texttt{trying}  пријављује намеру да уђе у критичну секцију.
+Нема додатних предуслова: сваки \texttt{idle} процес може у сваком тренутку покушати улазак.
+\texttt{[state EXCEPT ![p] = "trying"]} прави нову функцију идентичну \texttt{state} осим за процес \texttt{p}.
+
+\textbf{Акција \texttt{Enter(p)}.}
+Процес прелази из \texttt{trying} у \texttt{critical}.
+Кључни предуслов је \texttt{\textbackslash A q \textbackslash in Procs : q \# p => state[q] \# "critical"},
+процес \texttt{p} може ући само ако \emph{ниједан} други процес тренутно није у критичној секцији.
+Ово је сама суштина узајамног искључења директно изражена у спецификацији.
+Важно је напоменути да ова спецификација \textbf{не описује механизам} (браве, семафоре) итд. она само
+описује \emph{шта} смеме да се деси, а не \emph{како} то постићи у имплементацији.
+
+\textbf{Акција \texttt{Exit(p)}.}
+Процес напушта критичну секцију и враћа се у \texttt{idle}.
+Нема услова осим да процес мора бити у \texttt{critical}, систем не моделује шта се дешава унутар критичне секције.
+
+\textbf{Акција \texttt{Next}.}
+\texttt{\textbackslash E p \textbackslash in Procs} означава да у сваком кораку TLC бира неки процес \texttt{p}
+и извршава једну од три акције за њега. Ово моделује \textbf{произвољно преплитање}, TLC ће
+истражити све могуће редоследе извршавања.
+
+\textbf{Особине.}
+\texttt{TypeInvariant} проверава да \texttt{state[p]} увек остаје у скупу \texttt{States} за све процесе.
+\texttt{MutualExclusion} је главна safety особина: за свака два \emph{различита} процеса \texttt{p} и \texttt{q}
+(\texttt{p \# q}), не може се десити да су оба у \texttt{critical} истовремено.
+Симбол \texttt{\textasciitilde} означава логичку негацију, цела формула је импликација: ако су \texttt{p} и \texttt{q} различити, онда њихова стања не могу оба бити \texttt{"critical"}.
+\end{primer}
+

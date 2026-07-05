@@ -1,0 +1,403 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,fit}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+% \title{\Huge\textsf{Math Exam -- PreIB 3.AB 2}\\
+%  \Large\textsf{Systems of Linear Equations}
+%  \author{Áďa Klepáčů}
+%  \date{March 6, 2023}
+% }
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+% \maketitle
+\thispagestyle{fancy}
+
+\section{Jak funguje GEVO E-Shop}
+\label{sec:jak-funguje-e-shop}
+
+\subsection{Databáze}
+\label{ssec:databaze}
+
+\textbf{Pravidla tvorby databází} (s klesající důležitostí):
+\begin{enumerate}[topsep=0pt]
+ \item Na údaje z cizí tabulky se \textbf{zásadně odkazuje pomocí
+  identifikátoru}, který je jedinečný a dostane ho každý řádek od databáze
+  automaticky.
+ \item V každé buňce je \textbf{jen jeden údaj}!
+ \item V žádné tabulce není \textbf{víc sloupců, než je třeba}!
+ \item V žádné tabulce není \textbf{víc řádků, než je třeba}!
+\end{enumerate}
+
+Potřebujeme si pamatovat tři typy údajů:
+\begin{itemize}[topsep=0pt]
+ \item uživatele,
+ \item produkty,
+ \item košík.
+\end{itemize}
+
+U uživatele si potřebujeme pamatovat pouze jméno a heslo. Pozor! Heslo si
+pamatuju zásadně nějak zakódované, aby se nedalo z databáze vyčíst, kdyby se k
+jejím údajům někdo dostal. Když se uživatel přihlašuje, tak to heslo, co zadá,
+taky zakóduju a zkontroluju, že je ten kód stejný jako ten uložený. Košík
+\textbf{nepatří} do tabulky uživatelů. Ukládat s uživateli košík by znamenalo v
+jedné buňce ukládat seznam produktů i s jejich za\-koupeným množstvím. To
+naprosto protiřečí bodu 1 pravidel tvorby databází.
+
+U produktů potřebujeme znát název, cenu, počet kusů na skladě a popis.
+
+Nejtěžší vymyslet je košík. Chybný postup by byl ukládat pro každého uživatele
+\textbf{seznam} za\-koupených produktů. Seznam totiž není jeden údaj! Místo toho
+bude jeden řádek v tabulce košíku odpovídat jen jednomu produktu. To znamená, že
+si musíme pamatovat na každém řádku, o který jde produkt (pomocí
+\textbf{identifikátoru} z tabulky produktů), kdo ho koupil (pomocí
+identifikátoru z~tabulky uživatelů), a zakoupené množství.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node[anchor=west] (uziv) at (-5,2) {
+   \begin{tabular}{|c|c|c|}
+    \multicolumn{3}{l}{\textcolor{red}{Tabulka uživatelů}}\\
+    \textsf{\textbf{id}} & \textsf{\textbf{jméno}} & \textsf{\textbf{heslo}}\\
+    \toprule
+    1 & cr1ng3M3m3r & pE\@\%qXlL8axV\textbackslash1\$P\\
+    \midrule
+    2 & tvojemama & M5x\textbackslash'\{MjR8yR"J7\textbackslash\\
+    \midrule
+    3 & bigBadBoi & p/gC8Y3cJi;hZ\}6U
+   \end{tabular}
+  };
+ \node[anchor=west] (prod) at (-5,-2) {
+   \begin{tabular}{|c|c|c|c|c|}
+    \multicolumn{5}{l}{\textcolor{blue}{Tabulka produktů}}\\
+    \textsf{\textbf{id}} & \textsf{\textbf{název}} & \textsf{\textbf{cena}} &
+    \textsf{\textbf{na skladě}} & \textsf{\textbf{popis}}\\
+    \toprule
+    1 & papoušek & 99 & 8 & Umí papouškovat.\\
+    \midrule
+    2 & prsten & 1399 & 2 & Konec svobody.\\
+    \midrule
+    3 & 100 \% z IVT & 9999 & 0 & Nope.
+   \end{tabular}
+  };
+ \node[anchor=east] (cart) at (10, 2) {
+   \begin{tabular}{|c|c|c|c|}
+    \multicolumn{4}{l}{Tabulka košíku}\\
+    \textsf{\textbf{id}} & \textsf{\textbf{\textcolor{blue}{id prod.}}} &
+    \textsf{\textbf{\textcolor{red}{id uživ.}}} & \textsf{\textbf{množství}}\\
+    \toprule
+    1 & \textcolor{blue}{2} & \textcolor{red}{1} & 1\\
+    \midrule
+    2 & \textcolor{blue}{2} & \textcolor{red}{3} & 1\\
+    \midrule
+    3 & \textcolor{blue}{1} & \textcolor{red}{3} & 5
+   \end{tabular}
+  };
+  \draw[circle,blue,thick] (-4.5, -2.51) circle (.25);
+  \draw[circle,blue,thick] (5.25, 1.49) circle (.25);
+  \draw[dashed,blue,->,thick] (-4.3,-2.41) -- (5.05, 1.39);
+
+  \draw[circle,red,thick] (-4.5, 0.8) circle (.25);
+  \draw[circle,red,thick] (7, 1.49) circle (.25);
+  \draw[dashed,red,->,thick] (-4.3, 0.7) to[bend right=20] (6.8, 1.39);
+ \end{tikzpicture}
+\end{figure}
+
+\subsection{Uživatelské rozhraní}
+\label{ssec:uzivatelske-rozhrani}
+
+Uživatelské rozhraní jsou jednoduše řečeno okna a tlačítka. Je třeba vymyslet,
+co uživatel uvidí, kam bude moct psát a co se stane když klikne na tlačítko.
+
+V E-Shopu chceme uživateli zobrazit tři okna:
+\begin{itemize}[topsep=0pt]
+ \item přihlášení/registrace,
+ \item seznam produktů,
+ \item košík/souhrn objednávky.
+\end{itemize}
+
+Okno s přihlášením/registrací může vypadat třeba takhle:
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node[draw,thick,minimum height=5mm,minimum width=4cm] (jmeno) at (0, 0) {};
+  \node[draw,thick,minimum height=5mm,minimum width=4cm] (heslo) at (0, -0.75) {};
+
+  \node[left=of jmeno] (jmenolabel) {Jméno:};
+  \node[left=of heslo] (heslolabel) {Heslo:};
+
+  \node[draw,red,thick,minimum height=7mm,minimum width=3cm] (prihlasit) at (-3,
+   -2) {Přihlásit};
+  \node[draw,blue,thick,right=4mm of prihlasit,minimum height=7mm,minimum
+   width=3cm] (registrovat) {Registrovat};
+
+  \node[draw,inner sep=4mm,fit=(jmenolabel) (heslo) (prihlasit)] {};
+ \end{tikzpicture}
+\end{figure}
+
+Při kliknutí na tlačítko \textcolor{red}{Přihlásit} se musejí stát následující
+věci.
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=0.8]
+  \node (userexist) at (0, 0) {Je uživatel v kolonce \uv{Jméno} v databázi?};
+
+  \node (usererror) at (4, -2) {Ukaž chybu/nabídni registraci.};
+  \node (userok) at (-4, -2) {Zakóduj to, co je v kolonce \uv{Heslo}.};
+
+  \node[align=center] (passcheck) at (-4, -4) {Zkontroluj, že kód odpovídá
+   tomu uloženému\\ v řádku tabulky uživatelů se zadaným jménem.};
+
+  \node (passerror) at (-2, -6) {Ukaž chybu.};
+  \node (passok) at (-6, -6) {Přihlaš uživatele.};
+
+ \draw[->] (userexist) to node[midway,above right] {ne} (usererror);
+ \draw[->] (userexist) to node[midway,above left] {ano} (userok);
+ \draw[->] (userok) -- (passcheck);
+ \draw[->] (passcheck) to node[midway,above left] {ano} (passok);
+ \draw[->] (passcheck) to node[midway,above right] {ne} (passerror);
+ \end{tikzpicture}
+\end{figure}
+
+Při kliknutí na tlačítko \textcolor{blue}{Registrovat} se musí stát toto:
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=0.8]
+  \node (userexist) at (0, 0) {Je uživatel v kolonce \uv{Jméno} v databázi?};
+
+  \node (usererror) at (-4, -2) {Ukaž chybu.};
+  \node (userok) at (4, -2) {Zakóduj to, co je v kolonce \uv{Heslo}.};
+
+  \node[align=center] (save) at (4, -4) {Vytvoř nový řádek v tabulce uživatelů\\
+   se zadaným jménem a zakódovaným heslem.};
+
+  \draw[->] (userexist) to node[midway,above left] {ano} (usererror);
+  \draw[->] (userexist) to node[midway,above right] {ne} (userok);
+  \draw[->] (userok) -- (save);
+ \end{tikzpicture}
+\end{figure}
+
+\newpage
+Okno s produkty může zas vypadat takhle:
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node (prod1nazev) at (0, 0) {\sffamily Papoušek};
+  \node[below=2mm of prod1nazev] (prod1popis) {\footnotesize Umí papouškovat.};
+  \node[below=2mm of prod1popis] (prod1cena) {99 Kč s DPH};
+  \node[below=1mm of prod1cena] (prod1ks) {Na skladě: 8 ks};
+
+  \node[draw,rectangle,red,below left=3mm and -16.5mm of prod1ks,minimum
+   height=7mm, minimum width=2cm] (prod1koupit) {Koupit};
+  \node[draw,rectangle,red,right=6mm of prod1koupit,minimum height=7mm,minimum
+   width=5mm] (prod1pocet) {};
+  \node[right=0mm of prod1pocet] (prod1uzivks) {ks};
+  \node[draw,thick,rectangle,inner sep=3mm,xshift=-1mm,fit=(prod1nazev)
+   (prod1koupit) (prod1uzivks),minimum height=5cm] (rect1) {};
+
+  \node (prod2nazev) at (5, 0) {\sffamily Prsten};
+  \node[below=2mm of prod2nazev] (prod2popis) {\footnotesize Konec svobody.};
+  \node[below=2mm of prod2popis] (prod2cena) {1399 Kč s DPH};
+  \node[below=1mm of prod2cena] (prod2ks) {Na skladě: 2 ks};
+
+  \node[draw,rectangle,red,below left=3mm and -16.5mm of prod2ks,minimum
+   height=7mm, minimum width=2cm] (prod2koupit) {Koupit};
+  \node[draw,rectangle,red,right=6mm of prod2koupit,minimum height=7mm,minimum
+   width=5mm] (prod2pocet) {};
+  \node[right=0mm of prod2pocet] (prod2uzivks) {ks};
+  \node[draw,thick,rectangle,inner sep=3mm,xshift=-1mm,fit=(prod2nazev)
+   (prod2koupit) (prod2uzivks),minimum height=5cm] (rect2) {};
+
+  \node (prod3nazev) at (10, 0) {\sffamily 100 \% z IVT};
+  \node[below=2mm of prod3nazev] (prod3popis) {\footnotesize Nope.};
+  \node[below=2mm of prod3popis] (prod3cena) {9999 Kč s DPH};
+  \node[below=1mm of prod3cena] (prod3ks) {Na skladě: 0 ks};
+
+  \node[draw,rectangle,red,below left=3mm and -16.5mm of prod3ks,minimum
+   height=7mm, minimum width=2cm] (prod3koupit) {Koupit};
+  \node[draw,rectangle,red,right=6mm of prod3koupit,minimum height=7mm,minimum
+   width=5mm] (prod3pocet) {};
+  \node[right=0mm of prod3pocet] (prod3uzivks) {ks};
+  \node[draw,thick,rectangle,inner sep=3mm,xshift=-1mm,fit=(prod3nazev)
+   (prod3koupit) (prod3uzivks),minimum height=5cm] (rect3) {};
+
+  \node[draw,rectangle,inner sep=6mm,fit=(rect1) (rect3)] {};
+ \end{tikzpicture}
+\end{figure}
+
+Při kliknutí na tlačítko \textcolor{red}{Koupit} u kteréhokoliv produktu se musí
+stát toto:
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node[align=center] (prodenough) at (0, 0) {Je v řádku s tímto produktem v
+   tabulce produktů číslo\\ \uv{na skladě} větší než to, které zadal uživatel?};
+  \node (proderror) at (4, -2) {Ukaž chybu.};
+  \node[align=center] (prodok) at (-4, -2) {Odečti počet zadaný uživatelem ze
+   sloupce\uv{na skladě} na\\ řádku odpovídajícím produktu v tabulce produktů.};
+  \node[align=center] (cartcheck) at (-4, -4) {Existuje v tabulce košíku řádek s
+   ID\\ přihlášeného uživatele a ID tohoto produktu?};
+  \node[align=center] (cartexist) at (-1, -7) {Vytvoř nový řádek v tabulce
+   košíku\\ s ID přihlášeného uživatele, ID\\ produktu a zakoupeným množstvím.};
+  \node[align=center] (cart!exist) at (-7, -7) {Připiš k počtu na
+   tomto řádku\\ množství produktu zakoupené\\ přihlášeným uživatelem.};
+
+  \draw[->] (prodenough) to node[midway,above right] {ne} (proderror);
+  \draw[->] (prodenough) to node[midway,above left] {ano} (prodok);
+  \draw[->] (prodok) -- (cartcheck);
+  \draw[->] (cartcheck) to node[midway,above left] {ano} (cart!exist);
+  \draw[->] (cartcheck) to node[midway,above right] {ne} (cartexist);
+ \end{tikzpicture}
+\end{figure}
+
+Košík jsem líný dělat, ten si domyslete sami. Je tam třeba vymyslet, jak funguje
+tlačítko \textcolor{red}{Odebrat} u každé položky a jak zobrazit pouze produkty,
+které zakoupil přihlášený uživatel.
+
+\section{Váš úkol -- rezervační systém letenek}
+\label{sec:vas-ukol-rezervacni-system-letenek}
+
+\begin{center}
+ \textcolor{red}{\textbf{ÚKOL SMÍTE VYPRACOVAT VE DVOJICÍCH!}}
+\end{center}
+
+Máte za úkol vymyslet \textbf{databázovou strukturu} a \textbf{rozhraní} k
+zjednodušenému programu na rezervaci letenek. Návrh obojího může být samozřejmě
+schematický a používat obrázky, podobně jako jsem popisoval ten e-shop.
+
+Program musí umět pracovat s následujícím.
+\begin{enumerate}[topsep=0pt]
+ \item \textbf{uživatelské účty}
+ \begin{enumerate}[topsep=0pt]
+  \item Uživatel se může registrovat a posléze přihlásit.
+  \item Uživatel má pod svým účtem uloženy zakoupené letenky.
+  \item Uživatel si musí se zakoupením letenky zvolit místo v letadle, nebo
+   zvolit mož\-nost automatického výběru.
+  \item Uživatel má možnost změnit vybrané místo v letadle u každé rezervované
+   letenky na kterékoliv volné. \textcolor{red}{\textbf{Třídy (Business,
+   Economy, ...) neřešíme!}}
+  \item Uživatel smí své letenky za poplatek (závislý na době před
+   odletem) stornovat, \textbf{pokud před odletem zbývají méně než dva dny!}
+  \item \textbf{\textcolor{red}{Check-in (tj. víza, pasy, zavazadla apod.)
+   neřešíme!}}
+ \end{enumerate}
+ \item \textbf{seznam letů}
+ \begin{enumerate}[topsep=0pt]
+  \item \textcolor{red}{\textbf{Přestupy a zpáteční letenky neřešíme! Všechna
+   letadla létají přímo.}}
+  \item Program musí umět zobrazit lety na základě:
+  \begin{itemize}[topsep=0pt]
+   \item ceny letenky,
+   \item počtu volných míst (když si uživatel přeje rezervovat let pro více
+    osob),
+   \item data a času odletu,
+   \item data a času příletu,
+   \item místa odletu,
+   \item místa příletu,
+   \item letecké společnosti,
+   \item libovolné kombinace těchto údajů.
+  \end{itemize}
+  \item Program neukazuje letadla, ve kterých už není místo.
+ \end{enumerate}
+ \item \textbf{letenky}
+ \begin{enumerate}[topsep=0pt]
+  \item Cena každé (nezakoupené) letenky se snižuje, čím méně času zbývá do
+   odletu.
+  \item Ke každé letence se váže místo v odpovídajícím letadle.
+  \item Každou zakoupenou letenku lze stornovat až do doby dvou dnů před odletem
+   za po\-platek zvyšující se s úbytkem času před odletem.
+ \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

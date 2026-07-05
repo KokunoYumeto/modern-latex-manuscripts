@@ -1,0 +1,661 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{verbatim}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[polish]{babel}  
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{amsmath, amssymb}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+
+\title{Zastosowanie metod formalnych}
+\author{Karol Kozlowski, Katarzyna Mielęcka, Jan Gawroński, Piotr Głowacki}
+\institute{Wydzial elektryczny, Politechnika Warszawska}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}{}
+\titlepage
+\end{frame}
+
+\begin{frame}{Spis treści}
+\tableofcontents
+\end{frame}
+
+\section{Wprowadzenie do metod formalnych}
+\begin{frame}{Czym są metody formalne?}
+\begin{block}{Definicja}
+  Metody formalne to techniki matematyczne służące do:
+\begin{itemize}
+\item Specyfikacji - precyzyjnego opisu systemów za pomocą języków matematycznych (np. logika temporalna, rachunek procesów)
+\item Weryfikacji - dowodzenia poprawności systemów poprzez np. model checking (np. narzędzie SPIN) lub dowody twierdzeń (np. Coq, Isabelle)
+\item Automatyzacji analizy  wykrywania sprzeczności lub luk w projektach na etapie modelowania (np. weryfikacja protokołów kryptograficznych)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{exampleblock}{Kluczowe zalety}
+\begin{itemize}
+\item Formalne gwarancje poprawności - zapewnienie matematycznie udowodnionej poprawności systemów, szczególnie w przypadku wymagań bezpieczeństwa.
+\item Precyzyjna specyfikacja wymagań - eliminacja niejednoznaczności dzięki matematycznym modelom i notacjom.
+\item Wykrywanie złożonych błędów - identyfikacja problemów takich jak zakleszczenia (deadlocks) czy warunki wyścigu (race conditions), które trudno wykryć tradycyjnymi metodami testowania.
+\end{itemize}
+\end{exampleblock}
+
+\end{frame}
+
+\section{Wykorzystanie metod formalnych w systemie PVS}
+\subsection{Wprowadzenie do systemu PVS}
+\begin{frame}[fragile]{System PVS w pigułce}
+  System PVS służy do opracowania i weryfikacji specyfikacji opisujących
+  różne zagadnienia. PVS posiada rozbudowaną składnię i umożliwia operowanie w
+  logice wyższego rzędu, definiowanie własnych typów i podtypów danych oraz
+  tworzenie teorii parametryzowanych \cite{paper}.
+
+\begin{verbatim}
+  pointer_env [P: TYPE, T: TYPE]: THEORY
+  BEGIN
+    pointer: TYPE = P + {nil}
+    env: TYPE = [pointer -> (T + {undefined})]
+  END pointer_env
+\end{verbatim}
+\end{frame}
+
+\subsection{Jaki problem rozwiazuje system PVS?}
+\begin{frame}{Problem: Weryfikacja struktur dynamicznych}
+\begin{alertblock}{Główne wyzwania}
+  \begin{itemize}
+  \item \textbf{Złożoność struktur wskaźnikowych}:
+  \begin{itemize}
+      \item Wycieki pamięci
+      \item Nieprawidłowe dereferencje
+      \item Zakleszczenia w systemach współbieżnych
+  \end{itemize}
+  
+  \item \textbf{Niejednoznaczność specyfikacji}:
+  \begin{itemize}
+      \item Niewystarczalność logiki pierwszego rzędu
+      \item Potrzeba logiki wyższego rzędu (PVS)
+  \end{itemize}
+  
+  \item \textbf{Krytyczne zastosowania}:
+  \begin{itemize}
+      \item Systemy sterowania (metro, koleje)
+      \item Aplikacje medyczne
+      \item Systemy awioniki i kosmiczne
+  \end{itemize}
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\subsection{Rozwiazanie PVS}
+\begin{frame}{Rozwiazanie PVS}
+
+    \begin{itemize}
+      \item Formalna specyfikacja niezmienników
+      \item Automatyczna weryfikacja warunków spójności
+      \item Półautomatyczne dowodzenie poprawności
+    \end{itemize}
+\end{frame}
+
+\subsection{Formalna specyfikacja niezmiennikow}
+\begin{frame}[fragile]{Przykład}
+  \begin{exampleblock}{Przykład}
+    
+  \begin{verbatim}
+    accessed_disjoint?(accessed? : pred[pointer[P]]) : 
+    boolean =
+    FORALL(v11,v12 : (valid_finseq_list?)) :
+       (accessed?(v11) AND accessed?(v12) AND v11 
+       /= v12 =>
+        FORALL(1 : pointer[P]) : value?(1) =>
+        NOT list_member?(1,v11) OR NOT 
+        list_member?(1,v12))
+    \end{verbatim}
+  \end{exampleblock}
+
+\end{frame}
+
+\subsection{Automatyczna weryfikacja warunkow spójności}
+
+\begin{frame}[fragile]{Przykład}
+  \begin{exampleblock}{TCC1 dla niepustosci listy, TCC2 dla zachowania typu w rekurencji, TCC3 dla warunku stopu rekurencji}
+ 
+    \begin{verbatim}
+      last_TCC1: OBLIGATION 
+      FORALL (vl: (valid_finseq_list?)): NOT empty?(vl)
+    \end{verbatim}
+
+    \begin{verbatim}
+      last_TCC2: OBLIGATION 
+      FORALL (vl: (valid_finseq_list?)): 
+        length(vl) > 1 IMPLIES valid_finseq_list?(tail(vl))
+    \end{verbatim}
+
+    \begin{verbatim}
+      last_TCC3: OBLIGATION 
+      FORALL (vl: (valid_finseq_list?)): 
+        length(vl) > 1 IMPLIES length(tail(vl)) < length(vl)
+    \end{verbatim}
+  \end{exampleblock}
+    
+\end{frame}
+
+\subsection{Półautomatyczne dowodzenie poprawności}
+
+% \begin{frame}[fragile]{Przykładdd}
+
+% \end{frame}
+
+
+\subsection{Podsumowanie}
+\begin{frame}
+\begin{block}{Podsumowanie}
+\begin{itemize}
+\item Metoda skuteczna dla list i drzew.
+\item Wymaga dużego nakładu pracy.
+\item Obiecujące wyniki dla systemów krytycznych.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Zastosowanie metod formalnych: TLA+}
+\begin{frame}{Czym jest TLA+?}
+  \begin{itemize}
+      \item TLA+ (Temporal Logic of Actions) - język specyfikacji formalnej opracowany przez Lesliego Lamporta.
+      \item Służy do opisu systemów współbieżnych i rozproszonych.
+      \item System definiowany jako zbiór zmiennych i akcji - przejść między stanami.
+      \item Deklaratywny - skupia się na zachowaniu, nie na implementacji.
+      \item Bazuje na logice temporalnej i matematyce zbiorów.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Narzędzie TLC i model checking}
+  \begin{itemize}
+      \item Weryfikacja poprawności specyfikacji odbywa się z użyciem narzędzia TLC.
+      \item TLC używa techniki model checking:
+      \begin{itemize}
+          \item automatyczne przeszukiwanie przestrzeni stanów,
+          \item sprawdzanie właściwości bezpieczeństwa i ciągłości.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Metoda 1: Modelowanie matematyczne (FIFO)}
+  \textbf{Fragment specyfikacji bufora w TLA+:}
+  \vspace{0.5em}
+
+  \begin{verbatim}
+VARIABLE queue
+
+Init == queue = << >>
+
+Enq(x) == queue' = Append(queue, x)
+
+Deq == /\ queue # << >>
+       /\ queue' = Tail(queue)
+  \end{verbatim}
+
+  \vspace{0.1em}
+  \begin{itemize}
+    \item Bufor jako lista (\texttt{queue}).
+    \item Akcje opisują przejścia między stanami.
+  \end{itemize}
+\end{frame}
+
+  
+  
+\begin{frame}[fragile]{Metoda 2: Inwariant bezpieczeństwa}
+  \textbf{Fragment definicji inwariantu w TLA+:}
+  \vspace{0.5em}
+
+  \begin{verbatim}
+TypeInvariant ==
+  /\ queue \in Seq(Int)
+  /\ Len(queue) >= 0
+
+Inv == TypeInvariant
+  \end{verbatim}
+
+  \vspace{0.1em}
+  \begin{itemize}
+    \item Bufor jest sekwencją liczb całkowitych.
+    \item Długość bufora nie może być ujemna.
+    \item Inwarianty są sprawdzane automatycznie przez TLC.
+    \item Chronią przed błędami, np. usunięciem z pustej kolejki.
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Metoda 3: Własności temporalne}
+  \textbf{Fragment specyfikacji własności temporalnych w TLA+:}
+  \vspace{0.5em}
+  \begin{verbatim}
+Safety == [](Len(queue) >= 0)
+
+Liveness == <>(queue = << >>)
+  \end{verbatim}
+
+  \vspace{0.1em}
+  \begin{itemize}
+    \item \texttt{Safety} (bezpieczeństwo): długość bufora nigdy nie jest ujemna.
+    \item \texttt{Liveness} (ciągłość): bufor w końcu się opróżni.
+    \item Temporalne właściwości opisują zachowanie w czasie.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Zastosowania TLA+}
+  \begin{itemize}
+      \item Firmy: Amazon, Microsoft, Google.
+      \item Projektowanie i weryfikacja systemów:
+      \begin{itemize}
+          \item rozproszonych,
+          \item bazodanowych,
+          \item komunikacyjnych,
+          \item chmurowych.
+      \end{itemize}
+      \item Identyfikacja błędów przed implementacją - kluczowa dla systemów krytycznych.
+  \end{itemize}
+\end{frame}
+
+\section{Zastosowanie metod formalnych w kolejnictwie}
+\subsection{Dlaczego warto?}
+\begin{frame}
+\frametitle{Korzyści metod formalnych w kolejnictwie}
+\begin{itemize}
+\item Gwarancja bezpieczeństwa
+\begin{itemize}
+\item Wczesne wykrywanie błędów
+\end{itemize}
+
+\item Redukcja ryzyka
+\begin{itemize}
+\item Minimalizacja ludzkich pomyłek
+\end{itemize}
+
+\item Spełnienie standardów
+\begin{itemize}
+\item Normy CENELEC EN 50128 (SIL 3/4)
+\end{itemize}
+
+\item Optymalizacja kosztów
+\begin{itemize}
+\item Tańsze poprawianie na etapie projektowania
+\end{itemize}
+
+\item Zarządzanie złożonością
+\begin{itemize}
+\item Współbieżność, czas rzeczywisty, interakcje
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Przegląd tematu}
+\begin{frame}
+\frametitle{Rodzaje metod formalnych w kolejnictwie}
+\begin{block}{Główne podejścia}
+\begin{itemize}
+\item Dowodzenie twierdzeń
+    \begin{itemize}
+        \item Coq
+        \item Isabelle
+        \item Metoda B (udoskonalanie oparte o stan)
+    \end{itemize}
+\item Sprawdzanie modeli
+    \begin{itemize}
+        \item Sieci Petriego
+        \item NuSMV
+        \item UPPAAL
+    \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Metoda B}
+\begin{frame}
+\frametitle{Metoda B}
+\begin{itemize}
+\item Specyfikacja (maszyny abstrakcyjne)
+\item Stopniowa udoskonalanie
+\item Generacja kodu z weryfikacją
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Maszyny abstrakcyjne}
+
+\begin{itemize}
+    \item zmienne
+    \item niezmienniki (inwarianty)
+    \item operacje
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Specyfikacja maszyny abstrakcyjnej dla silni (Cz. 1/3)}
+\begin{tcolorbox}[colback=white, colframe=blue!30!black, title=Machine FACTORIAL\_MAC]
+\textbf{Sets:} \\
+$\textit{factorial},\ m$
+
+\textbf{Constants:} \\
+$\textit{factorial}$
+
+\textbf{Properties:}
+\[
+\begin{aligned}
+& m \in \mathbb{N} \land \\
+& \textit{factorial} \in \mathbb{N} \leftrightarrow \mathbb{N} \land \\
+& f \in \mathbb{N} \leftrightarrow \mathbb{N} \land \\
+& 0 \mapsto 1 \in f \land \\
+\end{aligned}
+\]
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Specyfikacja maszyny abstrakcyjnej dla silni (Cz. 2/3)}
+\begin{tcolorbox}[colback=white, colframe=blue!30!black, title=Machine FACTORIAL\_MAC]
+\textbf{Properties (cont.):}
+\[
+\forall f.\ \begin{cases}
+\forall (n, fn).\ (n \mapsto fn \in f \Rightarrow n+1 \mapsto (n+1) \times fn \in f) \\
+\Rightarrow \\
+\textit{factorial} \subseteq f
+\end{cases}
+\]
+
+\textbf{Variables:}
+\begin{itemize}
+    \item $\textit{result}$
+\end{itemize}
+
+\textbf{Invariant:}
+\[
+\textit{result} \in \mathbb{N}
+\]
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Specyfikacja maszyny abstrakcyjnej dla silni (Cz. 3/3)}
+\begin{tcolorbox}[colback=white, colframe=blue!30!black, title=Machine FACTORIAL\_MAC]
+\textbf{Assertions:}
+\[
+\begin{aligned}
+& \textit{factorial} \in \mathbb{N} \rightarrow \mathbb{N}; \\
+& \textit{factorial}(0) = 1; \\
+& \forall n.\,(n \in \mathbb{N} \Rightarrow \textit{factorial}(n+1) = (n+1) \times \textit{factorial}(n))
+\end{aligned}
+\]
+
+\textbf{Initialisation:}
+\[
+\textit{result} := \mathbb{N}
+\]
+
+\textbf{Operations:}
+\[
+\textit{computation} = \text{\textbf{begin}}\ \textit{result} := \textit{factorial}(m)\ \text{\textbf{end}}
+\]
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Zastosowania i problemy}
+\begin{exampleblock}{Zastosowania}
+\begin{itemize}
+\item Metro paryskie (linia 14)
+\item Metro kopenhaskie
+\end{itemize}
+\end{exampleblock}
+
+\begin{alertblock}{Wyzwania}
+\begin{itemize}
+\item Wymaga ekspertyzy
+\item Czasochłonna
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\subsection{Model Checking}
+\begin{frame}
+\frametitle{Model Checking}
+\begin{itemize}
+\item Automatyczna weryfikacja modelu
+\item Graf stanów i własności systemu
+\item Narzędzia: NuSMV, UPPAAL
+\end{itemize}
+
+\begin{exampleblock}{Przykładowe zastosowania}
+\begin{itemize}
+\item System ERTMS (European Rail Traffic Management System)
+\
+\item Tramwaje we Florencji
+\item Weryfikacja bezpiecznych odległości
+\end{itemize}
+\end{exampleblock}
+
+\begin{alertblock}{Ograniczenia}
+Problem eksplozji stanów
+\end{alertblock}
+\end{frame}
+
+\subsection{Porównanie metod}
+\begin{frame}
+\frametitle{Porównanie metod}
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Metoda} & \textbf{Zalety} & \textbf{Wady} \\
+\hline
+Metoda B &
+Pełna weryfikacja, generacja kodu &
+Wymaga ekspertyzy, czasochłonne \\
+\hline
+Model Checking &
+Automatyzacja, szybkość &
+Problem eksplozji stanów \\
+\hline
+Sieci Petriego &
+Wizualizacja współbieżności &
+Słaba skalowalność \\
+\hline
+Dowodzenie &
+Precyzja dla złożonych systemów &
+Czasochłonne, manualne \\
+\hline
+\end{tabularx}
+\end{frame}
+
+\subsection{Podsumowanie}
+\begin{frame}
+\frametitle{Podsumowanie}
+\begin{itemize}
+\item Metody formalne - niezbędne narzędzie w kolejnictwie
+\item Kluczowe dla spełnienia standardów bezpieczeństwa
+\item Wybór metody zależy od:
+\begin{itemize}
+\item Złożoności systemu
+\item Dostępnych zasobów
+\item Wymagań standardów
+\end{itemize}
+\end{itemize}
+
+\begin{block}{Przyszłe kierunki}
+    \begin{itemize}
+        \item weryfikacja narzędzi AI
+        \item zmniejszenie dystansu między metodami semi-formalnymi a formalnymi
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\section{Metody formalne w systemach wbudowanych}
+\begin{frame}{Metody formalne w systemach wbudowanych}
+  \begin{itemize}
+    \item Metody formalne są kluczowe dla niezawodności i bezpieczeństwa systemów wbudowanych.
+    \item Systemy wbudowane działają w środowiskach krytycznych, takich jak motoryzacja, medycyna czy lotnictwo.
+    \item Wykorzystanie metod formalnych umożliwia:
+      \begin{itemize}
+        \item Precyzyjne modelowanie zachowań systemów.
+        \item Weryfikację zgodności z rygorystycznymi normami.
+        \item Walidację poprawności działania w różnych scenariuszach.
+      \end{itemize}
+    \item Zapobiega awariom, które mogą prowadzić do poważnych konsekwencji.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Metoda RT-EFSM - Wprowadzenie}
+  \begin{block}{Czym jest RT-EFSM?}
+    Rozszerzona Maszyna Stanów Skończonych Czasu Rzeczywistego (RT-EFSM) to formalny model stosowany do testowania oprogramowania wbudowanego czasu rzeczywistego,
+    łączący elementy tradycyjnych FSM i EFSM z aspektami czasowymi.
+  \end{block}
+  \begin{block}{Kluczowe cechy modelu RT-EFSM}
+    \begin{itemize}
+      \item \textbf{Stany (\(S^*\))}
+      \item \textbf{Zdarzenia wejściowe i wyjściowe (\(I, O\))}
+      \item \textbf{Warunki strażnicze (\(C\))}
+      \item \textbf{Zmienne środowiskowe (\(V\))}
+      \item \textbf{Globalny zegar (\(L\))}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Zastosowanie RT-EFSM w Testowaniu Systemów Wbudowanych}
+  \begin{block}{Praktyczne zastosowania}
+    Metoda RT-EFSM została skutecznie zastosowana w projektach takich jak testowanie systemu nawigacji bezwładnościowo-GPS dla lotnictwa,
+    poprawiając jakość i niezawodność oprogramowania.
+  \end{block}
+
+  \begin{block}{Proces testowania RT-EFSM}
+    \begin{itemize}
+      \item Tworzenie klas równoważności przejść z ograniczeniami czasowymi.
+      \item Generowanie drzew scenariuszy testowych i sekwencji testowych.
+      \item Definiowanie przypadków testowych według kryteriów pokrycia.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Sieci Petriego – Podstawy i Zalety}
+  \begin{block}{Czym są Sieci Petriego?}
+    Sieci Petriego (Petri Nets) to formalny model matematyczny używany do modelowania i weryfikacji systemów współbieżnych oraz czasowo-zależnych. Składają się z:
+  \begin{itemize}
+    \item \textbf{Miejsc (Places)} – reprezentujących stany lub zasoby.
+    \item \textbf{Tranzycji (Transitions)} – przedstawiających zdarzenia lub akcje.
+    \item \textbf{Łuków (Arcs)} – określających relacje pomiędzy miejscami i tranzycjami.
+    \item \textbf{Tokenów} – wskazujących aktualny stan systemu.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Zastosowania Sieci Petriego w systemach wbudowanych}
+  \begin{block}{Przykłady zastosowań}
+    \begin{itemize}
+      \item \textbf{Kontrolery systemów krytycznych} – np. kontroler świateł drogowych, który wymaga zapewnienia, że zielone światła nie świecą się jednocześnie w przecinających się kierunkach.
+      \item \textbf{Weryfikacja bezpieczeństwa} – narzędzia jak CPN Tools pozwalają sprawdzić zgodność systemu z zadanymi właściwościami bezpieczeństwa.
+      \item \textbf{Wczesna weryfikacja} – możliwość formalnego potwierdzenia poprawności na wczesnych etapach projektowania systemu, co znacząco redukuje koszty.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{Zastosowanie metody B w systemach wbudowanych}
+\begin{frame}{Zastosowanie metody B w systemach wbudowanych}
+\begin{itemize}
+  \item Metoda B znajduje szerokie zastosowanie w projektowaniu i weryfikacji systemów wbudowanych, szczególnie tych wymagających wysokiej niezawodności i bezpieczeństwa.
+  \item Przykłady zastosowań:
+  \begin{itemize}
+    \item Projektowanie jądra separacyjnego (Separation Kernel) dla systemów operacyjnych w bezpiecznych systemach wbudowanych.
+    \item Formalna specyfikacja komponentów systemowych, takich jak zarządzanie pamięcią czy interfejsy komunikacyjne.
+    \item Automatyczna weryfikacja poprawności systemu poprzez generowanie dowodów matematycznych.
+    \item Minimalizacja kodu krytycznego w jądrze, co ułatwia formalną weryfikację i zwiększa bezpieczeństwo.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Korzyści zastosowania metody B}
+\begin{itemize}
+  \item Zapewnienie izolacji komponentów systemu oraz spełnienie rygorystycznych wymagań bezpieczeństwa.
+  \item Tworzenie systemów wbudowanych spełniających najwyższe standardy jakości i bezpieczeństwa.
+  \item Zastosowania w przemyśle lotniczym, medycznym oraz w systemach o znaczeniu krytycznym.
+  \item Formalna weryfikacja zwiększa niezawodność i spójność oprogramowania.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bibliografia}
+  \scriptsize
+  \begin{thebibliography}{9}
+    \bibitem{lamport2002specifying}
+    Leslie Lamport, \emph{Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers}, Addison-Wesley, 2002.
+  
+    \bibitem{newcombe2015amazon}
+    Chris Newcombe et al., \emph{How Amazon Web Services Uses Formal Methods}, Communications of the ACM, 2015.
+  
+    \bibitem{konnov2019tla}
+    Igor Konnov, Jure Kukovec, Thanh-Hai Tran, \emph{TLA+ Model Checking Made Symbolic}, CAV 2019.
+    
+    \bibitem{newcombe2015formal}
+    Chris Newcombe, Tim Rath, Fan Zhang, Bogdan Munteanu, Marc Brooker, Michael Deardeuff, \emph{How Amazon Web Services Uses Formal Methods}, Communications of the ACM, Vol. 58, No. 4, pp. 66--73, 2015.
+
+    \bibitem{wayne2018practical}
+    Hillel Wayne, \emph{Practical TLA+: Planning Driven Development}, Lospinato Books, 2018.
+    
+    \bibitem{paper}
+    S. Poreda,
+    \textit{Wykorzystanie metod formalnych do specyfikacji struktur wskaźnikowych},
+    Uniwersytet Warszawski, 2023.
+  \end{thebibliography}
+\end{frame}
+
+\begin{frame}{Bibliografia (cd.)}
+  \scriptsize
+  \begin{thebibliography}{9}
+    \bibitem{spin_needham_schroeder}
+    Sławomir Lasota,
+    \textit{Weryfikacja protokołu Needhama-Schroedera przy użyciu narzędzi SPIN i UPPAAL},
+    Wydział Matematyki, Informatyki i Mechaniki, Uniwersytet Warszawski,
+    \url{https://www.mimuw.edu.pl/~sl/teaching/03_04/WPKWK/PREZENTACJE-SPIN_UPPAAL/NS/}.
+
+    \bibitem{wojnicki2019weryfikacja}
+    Igor Wojnicki,
+    \textit{Weryfikacja własności systemów współbieżnych z użyciem metod formalnych},
+    Praca doktorska, Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie, 2019,
+    \url{https://winntbg.bg.agh.edu.pl/rozprawy2/10463/full10463.pdf}.
+
+    % \bibitem{b-original}
+    % J.R Abrial. \emph{Modeling in Event-B}, Cambridge University Press, 2013.
+
+    \bibitem{b-other}
+    Abrial, J.R., Lee, M.K.O., Neilson, D.S., Scharbach, P.N., Sørensen, I.H. \emph{The B-method}. VDM '91 Formal Software Development Methods, 1991. \url{https://doi.org/10.1007/BFb0020001}
+
+    \bibitem{b-tutorial}
+    Dominique Cansell, Dominique Méry. \emph{Tutorial on the event-based B method}. IFIP FORTE 2006, Paris, 2006.
+
+    \bibitem{b-cenelec-railway}
+    A. Abdullah, \emph{CENELEC EN 50128: Railway Applications - Communication, signaling and processing systems, Software for railway control and protection systems}, Frankfurt University of Applied Sciences, 2020.
+  \end{thebibliography}
+\end{frame}
+
+\begin{frame}{Bibliografia (cd.)}
+  \scriptsize
+  \begin{thebibliography}{9}
+    \bibitem{RT-EFSM}
+    Y. Yin, B. Liu and H. Ni, "Real-time embedded software testing method based on extended finite state machine," in Journal of Systems Engineering and Electronics, vol. 23, no. 2, pp. 276-285, April 2012, doi: 10.1109/JSEE.2012.00035.
+    
+    \bibitem{petri-nets-embedded}
+    F. Moin, F. Azam and M. W. Anwar, "A Model-driven Approach for Formal Verification of Embedded Systems Using Timed Colored Petri Nets," 2018 IEEE 4th International Conference on Computer and Communications (ICCC), Chengdu, China, 2018, pp. 2580-2584, doi: 10.1109/CompComm.2018.8780731.
+
+    \bibitem{model-b-embedded}
+    J. R. Abrial, \emph{Modeling in Event-B: System and Software Engineering}, Cambridge University Press, 2010.Noguchi, Kenichiro. Application Of Formal Methods For Designing A Separation Kernel For Embedded Systems. Zenodo, 2010.
+
+    \bibitem{railways-analysis-just-ter-beek}
+    M. H. ter Beek, \emph{Models for formal methods and tools: the case of railway systems}, Springer, 2025.
+    \url{https://doi.org/10.1007/s10270-025-01276-3}
+
+    \bibitem{railways-analysis-ter-beek-ferrari}
+    A. Ferrari, M. H. ter Beek, \emph{Formal Methods in Railways: A Systematic Mapping Study}, ACM Computing Surveys, Volume 55, Issue 4, 2022, https://doi.org/10.1145/3520480
+  \end{thebibliography}
+\end{frame}
+
+\end{document}

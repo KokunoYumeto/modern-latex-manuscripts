@@ -1,3 +1,12 @@
+## 2026-07-05: Slavic GitHub URL-only public TeX source candidates
+
+Manifest: [20260705_slavic_github_url_only_public_tex_candidates.json](../manifests/pending-zenodo-uploads/20260705_slavic_github_url_only_public_tex_candidates.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Slavic_GitHub_URLOnly_PublicCandidates_20260705.zip`, 2,740,089 bytes, SHA256 `FE296EF42A8FDF3DAE696F9DF9B39A29A4251FB25B84041D1349D2597F3EAE08`.
+- Scope/result: 205 commit-pinned public GitHub raw TeX URLs from the Slavic URL-only queue were attempted and 205 downloaded successfully. The ZIP has 218 entries / 204 TeX-family entries. Language hints: `be=12`, `bg=37`, `bs=15`, `cnr=1`, `cs=28`, `dsb=20`, `hr=8`, `mk=24`, `pl=27`, `sk=8`, `sl=25`.
+- Caveat: public GitHub URL-only / unclear-license Slavic TeX source-candidate payload. Source-corpus/provenance and Web/Pro register support only; not license clearance, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage package 566 rolling delta
 
 Manifest: [20260705_noether_pc_package566_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package566_interlanguage_rollup.json)

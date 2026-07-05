@@ -1,0 +1,807 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\geometry{margin=2.5cm}
+
+% Styl pro otázky profesorů
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{profesorbox}[1][]{
+  enhanced,
+  breakable,
+  colback=gray!10,
+  colframe=gray!50,
+  title={#1},
+  fonttitle=\bfseries\small,
+  before skip=10pt,
+  after skip=10pt
+}
+
+% Styl pro kód
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\bfseries,
+  frame=single,
+  breaklines=true,
+  language=SQL,
+  inputencoding=utf8,
+  extendedchars=true,
+  literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'{\i}}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {ů}{{\r{u}}}1 {ý}{{\'y}}1 {č}{{\v{c}}}1 {ď}{{\v{d}}}1 {ě}{{\v{e}}}1
+    {ň}{{\v{n}}}1 {ř}{{\v{r}}}1 {š}{{\v{s}}}1 {ť}{{\v{t}}}1 {ž}{{\v{z}}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {Ů}{{\r{U}}}1 {Ý}{{\'Y}}1 {Č}{{\v{C}}}1 {Ď}{{\v{D}}}1 {Ě}{{\v{E}}}1
+    {Ň}{{\v{N}}}1 {Ř}{{\v{R}}}1 {Š}{{\v{S}}}1 {Ť}{{\v{T}}}1 {Ž}{{\v{Z}}}1
+}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{\textbf{Státnicové okruhy -- Databáze}\\
+\large Aplikovaná informatika}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+%=============================================================================
+\section{Databáze}
+%=============================================================================
+
+\subsection*{Obecné pojmy}
+
+\textbf{Databáze} je organizovaný systém souborů pro ukládání dat. Tyto soubory jsou mezi sebou navzájem
+propojeny. V širším smyslu jsou součástí databáze i softwarové prostředky, které umožňují manipulaci
+s uloženými daty a přístup k nim. Tento software se v české odborné literatuře nazývá \textbf{systém řízení
+báze dat (SŘBD)}. Běžně se označením databáze myslí jak uložená data, tak i software.
+
+\begin{itemize}
+  \item \textbf{data} -- formalizované a fyzicky zaznamenané znalosti, poznatky, zkušenosti, výsledky pozorování
+  \item \textbf{informace} -- smysluplná interpretace dat
+  \item \textbf{databáze} -- integrovaná počítačově zpracovaná množina persistentních dat
+  \item \textbf{relační model dat} -- založený na predikátové logice prvního řádu; k manipulaci s daty
+    lze použít relační kalkul nebo operace relační algebry
+  \item \textbf{dotazovací jazyk} -- slouží pro získání dat z databáze; v relační databázi je odpovědí relace,
+    jejíž n-tice splňují nadefinované podmínky
+  \item \textbf{systém řízení bází dat (SŘBD / DBMS)} -- množina programových prostředků, která umožňuje:
+    vytvoření databáze, použití databáze (manipulace s daty), údržbu a správu databáze
+  \item \textbf{databázový systém (DBS)} -- SŘBD + databáze
+\end{itemize}
+
+\subsubsection*{Dělení databází podle typu}
+
+Databáze se dají dělit podle typu a způsobu ukládání dat na tři hlavní kategorie:
+
+\begin{enumerate}
+  \item \textbf{Relační databáze} \\
+    Nejčastěji používaný typ databází. Data jsou modelována pomocí relačního modelu, tedy tabulek
+    s fixní strukturou jednotlivých záznamů, které jsou navzájem propojené pomocí relací.
+    V tomto typu databáze se používá relační model, což je matematický koncept ze 70. let, tvořený
+    množinami (tabulkami), přičemž každá tabulka má svůj primární klíč (jeden nebo více atributů --
+    composite primary key). Příklady: Oracle, MySQL, PostgreSQL, MS SQL Server.
+
+  \item \textbf{NoSQL databáze} \\
+    Nemají tabulky, jsou nestrukturované -- rychlejší, dávají všechna data dohromady.
+    \begin{itemize}
+      \item \textbf{Výhody:} rychlost, škálovatelnost
+      \item \textbf{Nevýhody:} NoSQL databáze nepoužívají tabulkové struktury, normalizaci a SQL;
+        namísto toho jsou tvořeny tzv. kolekcemi, ve kterých jsou uložené dokumenty. Dokument je
+        většinou komplexní objekt tvořený mnoha dílčími podobjekty. Nejpoužívanější NoSQL databáze:
+        MongoDB, CouchDB, Amazon DynamoDB.
+    \end{itemize}
+    Uložení dat do JSON nebo jeho efektivnější binární verze BSON.
+
+  \item \textbf{Specializované databáze} \\
+    Poslední, velice obecnou kategorií jsou specializované databáze. Jedná se často o databáze, které
+    řeší nějaký konkrétní problém a nehodí se pro obecné use cases jako RDBMS nebo NoSQL.
+    \begin{itemize}
+      \item \textbf{Graph Databases} -- databáze nativně podporující grafové struktury pro modelování
+        komplexních sítí (např. Neo4J)
+      \item \textbf{Key-Value databáze} -- ukládají vždy jednu hodnotu pro daný klíč (např. Redis,
+        Memcached); Key-Value se většinou používá jako cache nad „tradiční" databází
+      \item \textbf{Time-series databáze} -- optimalizované pro časové řady dat
+      \item \textbf{Sloupcové databáze} -- data ukládána po sloupcích (Cassandra, HBase)
+    \end{itemize}
+\end{enumerate}
+
+%=============================================================================
+\subsection{Analýza, návrh a realizace databáze}
+%=============================================================================
+
+\subsubsection{Databázový systém a jeho vlastnosti}
+
+\textbf{Databázový systém (DBS) = SŘBD + Databáze}
+
+Důvody pro vznik databázových systémů:
+\begin{itemize}
+  \item \textbf{Vyšší datová abstrakce} -- SŘDB zahrnují manipulační jazyky pro práci s datovými
+    strukturami vyšší úrovně
+  \item \textbf{Nezávislost aplikačních programů} na změnách ve fyzickém uložení dat -- při změnách
+    ve fyzické struktuře báze dat není třeba měnit aplikační programy, protože se na data obracejí
+    na logické úrovni
+  \item \textbf{Ochrana dat} před neoprávněným přístupem a poruchami
+  \item \textbf{Odstranění redundance} -- každý údaj je ve většině případů uložen pouze jedenkrát
+  \item \textbf{Sdílení dat} -- při využití SŘDB mohou být taktéž data používána několika uživateli
+  \item \textbf{Podpora transakčního zpracování}
+  \item \textbf{Údržba integrity databáze}
+\end{itemize}
+
+\subsubsection{Metodologie analýzy a návrhu databáze -- P3A}
+
+Návrh databáze vychází z principu tří architektur (\textbf{P3A}). Smyslem P3A je postupně upřesňovat
+datový model tak, aby zcela odpovídal požadavkům využívané databázové technologie. Stejně tak je
+naopak žádoucí, aby model v první vrstvě byl, pokud možno, abstraktní a technologicky nezávislý.
+
+\paragraph{1. Konceptuální model (model reality)}
+Model obsahu datové základny na konceptuální úrovni (tj.~nezatížený jakýmikoliv implementačními
+a technologickými implementacemi). Konceptuální schéma představuje přenesení reality do databáze.
+Neřeší implementační detaily, ale modeluje pouze entity a vazby mezi nimi.
+\begin{itemize}
+  \item \textbf{KSR} (Konceptuální schéma reality) -- hrubý model obsahující základní entitní množiny,
+    vztahy a jejich atributy. Jedná se o hrubý model vytvořený za účelem poznání zkoumané reality.
+  \item \textbf{KSD} (Konceptuální schéma dat / datový model) -- popis obsahu datové základny za účelem
+    přesné specifikace obsahu datové základny. Předběžný návrh datové základny.
+\end{itemize}
+
+Funkce konceptuálního schématu:
+\begin{itemize}
+  \item Zadání pro implementační fázi
+  \item Nástroj (záruka) pro zachování konsistence
+  \item Lze z něj odvozovat dílčí pohledy na obsah databáze
+  \item Východisko pro nové požadavky na data
+  \item Východisko pro zásahy do existující datové základny
+  \item Nástroj dokumentace
+\end{itemize}
+
+\paragraph{2. Logický (technologický) model}
+Popis způsobu realizace systému v termínech jisté třídy technologického prostředí (lineární, relační,
+hierarchické, síťové datové struktury). Formální matematický model reprezentující konceptuálního
+schématu za pomocí tabulek a jejich relací. Každá tabulka je vyjádřena pomocí schématu, který udává
+názvy a datové typy sloupců v ní.
+
+Pravidla transformace do relačního modelu:
+\begin{itemize}
+  \item Každá entitní množina je transformována do jedné relační tabulky; identifikátory entitní množiny
+    se stanou atributy tvořícími primární klíč relační tabulky
+  \item Vztah z konceptuálního modelu je v relačním modelu vyjádřen cizím klíčem
+  \item Vztah M:N z konceptuálního modelu je v relačním modelu vyjádřen vazební relační tabulkou
+    a dvěma cizími klíči
+  \item Generalizace/specializace je transformována do relačního modelu dat několika variantami:
+    \begin{itemize}
+      \item jednou relační tabulkou na úrovni celé hierarchie
+      \item relačními tabulkami na úrovni specializovaných entitních množin
+      \item relačními tabulkami na úrovni generalizující entitní množiny i na úrovni specializovaných
+        entitních množin
+    \end{itemize}
+  \item Využívá se taktéž metoda normalizace dat
+\end{itemize}
+
+Cíle logického modelu:
+\begin{itemize}
+  \item Vytvořit co nejvěrnější obraz v modelovaném světě existujících entitních množin
+  \item Zajistit interní konzistenci datového modelu, resp.~databáze
+  \item Minimalizovat redundanci
+  \item Maximalizovat stabilitu datových struktur
+  \item Sada normálních forem (1NF, 2NF, 3NF, BCNF, 4NF, 5NF)
+\end{itemize}
+
+\paragraph{3. Fyzický (implementační) model}
+Popis vlastní realizace systému v konkrétním implementačním prostředí (doplnění i typu indexu,
+velikosti, rozmístění pracovního prostoru apod.). Je dán:
+\begin{itemize}
+  \item \textbf{Způsobem uložení dat:}
+    \begin{itemize}
+      \item \textit{Sekvenční} -- způsob uložení dat není využíván pro uložení dat v databázových
+        systémech; bývá používán pro zálohování databázových souborů
+      \item \textit{Přímé} -- hodnotě primárního klíče jednotlivých záznamů je přiřazena (vypočtena)
+        určitým algoritmem (hashing algorithm) adresa uložení záznamu na paměťovém médiu
+    \end{itemize}
+  \item \textbf{Způsobem přístupu k datům:} sekvenční, přímé, s využitím dalších mechanismů
+    (řetězení, indexy)
+\end{itemize}
+
+\subsubsection{Návrh databáze}
+
+Návrh databáze spočívá v určení entit (tabulek), klíčů pro zajištění referenční integrity, vztahů
+neboli relací mezi tabulkami, dodržení normálních forem a definice indexů pro lepší výkon.
+
+\paragraph{Postup konceptuálního návrhu databáze}
+Cílem je vytvořit ER (Entity Relationship) model datových požadavků organizace (nebo části
+organizace), kterou má databáze podporovat. Každý ER model obsahuje:
+\begin{itemize}
+  \item Entity
+  \item Relace
+  \item Atributy a domény atributů
+  \item Primární klíče a alternativní klíče
+  \item Integritní omezení
+\end{itemize}
+
+Jednotlivé kroky konceptuálního návrhu:
+\begin{enumerate}
+  \item \textbf{Identifikace entit} -- identifikace a dokumentace hlavních entit v organizaci
+  \item \textbf{Identifikace relací} -- identifikace důležitých relací mezi entitami, určení omezení
+    multiplicity těchto relací
+  \item \textbf{Identifikace atributů a jejich spojení s entitami nebo relacemi} -- spojení atributů
+    s odpovídajícími entitami nebo relacemi; identifikace jednoduchých/složených atributů,
+    atributů s jedinou hodnotou/atributů s více hodnotami a odvozených atributů
+  \item \textbf{Určení domén atributů} -- domén (množina hodnot, z níž mohou čerpat své hodnoty
+    jeden nebo více atributů) pro atributy v ER modelu
+  \item \textbf{Určení kandidátních, primárních a alternativních klíčů}
+  \item \textbf{Specializace/generalizace entit (volitelný krok)} -- určení entit nadtříd a podtříd
+  \item \textbf{Kontrola redundance v modelu} -- kontrola ER modelu, zejména kontrola relací typu
+    1:1 a odstranění redundantních relací
+  \item \textbf{Kontrola, zda model podporuje uživatelské transakce}
+  \item \textbf{Posouzení konceptuálního návrhu databáze s uživateli}
+\end{enumerate}
+
+\subsubsection{Normalizace databáze}
+
+Normalizace je proces organizace dat v databázi tak, aby se minimalizovala redundance a zajistila
+konzistence dat. Normalizace se řídí sadou pravidel -- normálních forem.
+
+\paragraph{1. normální forma (1NF)}
+Relace je v 1NF, pokud:
+\begin{itemize}
+  \item Každý atribut obsahuje pouze atomické (nedělitelné) hodnoty
+  \item Neexistují opakující se skupiny atributů
+  \item Každý řádek je jednoznačně identifikovatelný (existuje primární klíč)
+\end{itemize}
+
+\paragraph{2. normální forma (2NF)}
+Relace je v 2NF, pokud:
+\begin{itemize}
+  \item Je v 1NF
+  \item Každý neklíčový atribut je plně funkčně závislý na celém primárním klíči (nikoliv pouze
+    na jeho části) -- eliminuje částečné závislosti
+\end{itemize}
+2NF je relevantní pouze tehdy, pokud má tabulka složený primární klíč.
+
+\paragraph{3. normální forma (3NF)}
+Relace je v 3NF, pokud:
+\begin{itemize}
+  \item Je v 2NF
+  \item Neexistují tranzitivní závislosti neklíčových atributů na primárním klíči (žádný neklíčový
+    atribut nesmí být funkčně závislý na jiném neklíčovém atributu) -- eliminuje tranzitivní závislosti
+\end{itemize}
+
+\paragraph{Boyce-Coddova normální forma (BCNF)}
+Relace je v BCNF, pokud:
+\begin{itemize}
+  \item Je v 3NF
+  \item Pro každou netriviální funkční závislost $X \to Y$ platí, že $X$ je nadmnožinou kandidátního
+    klíče (supraklíče) -- silnější verze 3NF
+\end{itemize}
+
+\paragraph{Denormalizace}
+Proces porušování pravidel daných normalizací dat (vzdalování se od modelu světa v databázi) s cílem
+zvýšení výkonnosti systému:
+\begin{itemize}
+  \item \textbf{Výhody:} snižování potřeby spojování tabulek, uchování aktuálních hodnot odvozených atributů
+  \item \textbf{Nevýhody:} snížení rychlosti aktualizačních operací (I, U, D), složitější aplikační řešení,
+    obtížnější zajištění integrity databáze
+\end{itemize}
+
+\subsubsection{Integrita a transakce}
+
+\paragraph{Integritní omezení}
+Pravidla pro zajištění správnosti a konzistence uložených dat:
+\begin{itemize}
+  \item \textbf{Entitní integrita} -- výskyt každé entity musí být jednoznačně identifikovatelný;
+    musí existovat primární klíč (UNIQUE, NOT NULL)
+  \item \textbf{Referenční integrita} -- cizí klíč obsahuje pouze hodnoty, které existují v jemu
+    odpovídajícím primárním klíči; odkazování pouze na existující záznamy v povolené kardinalitě
+  \item \textbf{Doménová integrita} -- atribut může obsahovat pouze přípustné hodnoty omezené
+    integritním pravidlem (CHECK, TRIGGER); stanovení povolených hodnot ve sloupci
+\end{itemize}
+
+\paragraph{Transakce a vlastnosti ACID}
+Transakce slouží k zajištění konzistence a řízení víceuživatelského přístupu.
+Vlastnosti transakce -- \textbf{ACID}:
+\begin{itemize}
+  \item \textbf{A (Atomicity)} -- transakce je jako celek, musí proběhnout celá nebo žádná
+  \item \textbf{C (Consistency)} -- transformuje DB z jednoho konzistentního stavu do jiného
+    konzistentního
+  \item \textbf{I (Isolation)} -- transakce jsou nezávislé, změny prováděné jsou neviditelné pro
+    ostatní transakce
+  \item \textbf{D (Durability)} -- efekty potvrzené transakce jsou uložené do databáze
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{OLAP} (Online Analytical Processing) -- zpracování vícedimenzionálních dotazů
+    (datové sklady); zaměřeno na analytické dotazy nad velkým množstvím historických dat
+  \item \textbf{OLTP} (Online Transaction Processing) -- zpracování velkého množství relativně
+    malých transakcí; zaměřeno na každodenní operace (INSERT, UPDATE, DELETE)
+\end{itemize}
+
+\subsubsection{Indexy}
+
+\textbf{Indexy} jsou databázové objekty sloužící ke zrychlení vyhledávacích a dotazovacích procesů
+v databázi, definování unikátní hodnoty sloupce tabulky nebo optimalizaci fulltextového vyhledávání.
+
+\begin{itemize}
+  \item Každý index zabírá v paměti vyhrazené pro databázi nezanedbatelné množství místa
+  \item Každý index zpomaluje operace, které mění obsah indexovaných sloupců (INSERT, UPDATE) --
+    databáze se v případě takové operace nad indexovaným sloupcem musí postarat nejen o změny
+    v datech tabulky, ale i o změny v datech indexu
+  \item Pro správné zvolení indexů by ten, kdo databázi navrhuje, měl vědět, jak často se vybírané
+    záznamy z dané tabulky třídí podle zamýšleného sloupce (kandidáta na index) a nakolik je
+    důležité, aby vyhledávání a třídění podle něj bylo rychlé
+\end{itemize}
+
+\begin{profesorbox}[Otázky profesorů k tématu: Analýza, návrh a realizace databáze]
+\textbf{Komise: Svátek, Chlapek, Zbořil}
+\begin{itemize}
+  \item Jaký by měl být správný postup analýzy, návrhu a realizace databáze?
+\end{itemize}
+
+\textbf{Máša Petr, RNDr. Ing., Ph.D.}
+\begin{itemize}
+  \item Jaké budou problémy aplikace vysoce náročné na data, jak řešit v tomto případě řešení databáze?
+  \item Co se rozumí principem 3NF?
+  \item Jaké aplikace by se daly doporučit pro realizaci dané aplikace?
+\end{itemize}
+
+\textbf{Sládek Pavel, Ing., Ph.D.}
+\begin{itemize}
+  \item Jaké jsou druhy databází a jak fungují?
+\end{itemize}
+
+\textbf{Chudán David, Ing., Ph.D.}
+\begin{itemize}
+  \item Jak se typicky strukturovaná data ukládají? Jaké znáte typy databází?
+  \item Jaké jsou další možnosti pro ukládání strukturovaných dat? Jaké jsou rozdíly mezi formáty CSV,
+    JSON a XML?
+\end{itemize}
+
+\textbf{Zeman Václav, Ing., Ph.D.}
+\begin{itemize}
+  \item Jak databáze zajistí konzistenci a integritu řešení?
+\end{itemize}
+
+\textbf{Strossa Petr, doc. RNDr., CSc.}
+\begin{itemize}
+  \item V čem se liší NoSQL od relačních databází?
+  \item Jaký je vyhledávací interface pro relační databáze?
+  \item K čemu slouží indexy v databázi?
+\end{itemize}
+
+\textbf{Komise: Strossa, Sedláček, Kučera}
+\begin{itemize}
+  \item Jaký je vztah mezi pojmy entitní množina a relační tabulka?
+\end{itemize}
+
+\textbf{Sudzina František, Mgr.\ et Mgr.\ Ing., Ph.D.}
+\begin{itemize}
+  \item Jaký druh databází byste použil pro ukládání informací předcházejících dopravní nehodě?
+  \item Jaké jsou výhody databází v porovnání s tabulkami např.\ v Excelu?
+\end{itemize}
+
+\textbf{Komise: Sklenák, Vojíř, Palovský}
+\begin{itemize}
+  \item Jaké jsou typy databází? Příklady relačních databází.
+\end{itemize}
+
+\textbf{Maryška Miloš, doc. Ing., Ph.D.}
+\begin{itemize}
+  \item Co je normalizace a denormalizace dat?
+\end{itemize}
+\end{profesorbox}
+
+%=============================================================================
+\subsection{Datové modelování}
+%=============================================================================
+
+\subsubsection{Základní pojmy}
+
+\begin{itemize}
+  \item \textbf{Entita} -- typ objektů, ať už konkrétních (osoby, místa, věci) či abstraktních
+    (katalogové položky, kategorie), natolik důležitých v dané realitě, že se o takových objektech
+    mají vést záznamy; tabulka (ale až v DB), která vykazuje stejné společné znaky. V ER modelech
+    modelujeme entitní typy (např.\ entitní typ: STUDENT, entita: Ondřej Horák).
+  \item \textbf{Objekt} -- jiné označení pro entitu
+  \item \textbf{Atribut} -- vlastnost nebo charakteristika objektu nebo vztahu v datovém modelu
+    (např.\ jméno a příjmení zaměstnance). Typy atributů/sloupce:
+    \begin{itemize}
+      \item \textit{Povinný} -- musí mít hodnotu (NOT NULL)
+      \item \textit{Volitelný} -- může nemít hodnotu (NULL)
+      \item \textit{Vícehodnotový} -- má hodnoty definované v dané doméně
+      \item \textit{Skupinový / složený} -- vnitřní struktura, např.\ u adresy (ulice, město, PSČ) --
+        obvykle se normalizuje
+      \item \textit{Atomický} -- není vícehodnotový ani skupinový
+    \end{itemize}
+  \item \textbf{Vztah (relace)} -- pojmenovaná spojitost mezi entitami; mezi entitami lze popsat
+    vztah větou, ve které vztah vyjádříme přísudkovou částí (např.\ „Zákazník vytváří Objednávku")
+  \item \textbf{Kardinalita} -- četnost vazby; nabývá hodnot 1:1, 1:N, M:N. Říká, kolik výskytů
+    entitního typu jednoho může být v daném vztahu s jedinou entitou druhého typu.
+  \item \textbf{Parcialita} -- volitelnost vztahu mezi entitami; říká, zda všechny výskyty entitního
+    typu, jenž je určen pro danou roli v tomto vztahu, musí do tohoto vztahu skutečně vstupovat
+  \item \textbf{Primární klíč (PK)} -- atribut nebo kombinace atributů jednoznačně identifikující
+    každý záznam v tabulce (NOT NULL, UNIQUE)
+  \item \textbf{Cizí klíč (FK)} -- atribut nebo kombinace atributů odkazující na primární klíč jiné
+    tabulky; zajišťuje referenční integritu
+\end{itemize}
+
+\subsubsection{ER (Entity Relationship) modelování}
+
+ER (Entity Relationship) modelování se používá pro abstraktní a konceptuální znázornění dat.
+Spočívá ve využití základních konstruktů jazyka pro tvorbu diagramů a v metodice tvorby těchto
+diagramů -- základní myšlenkou je, že databáze uchovává fakta o entitách a o vztazích mezi entitami.
+Výsledkem je \textbf{ERD} (Entity Relationship Diagram, ER diagram).
+
+\paragraph{Zásady ER modelování}
+\begin{itemize}
+  \item Minimalizace redundance (normalizace)
+  \item Maximalizovat znovupoužitelnost (dědičnost)
+  \item Maximalizovat výkonnost (de-normalizace, metody, database tuning)
+  \item Minimalizovat nároky na uložení dat (compression)
+\end{itemize}
+
+\subsubsection{Datové modelování -- činnosti}
+
+\begin{enumerate}
+  \item Rozlišení množin objektů (entitních množin)
+  \item Pojmenování entitních množin a identifikace entit
+  \item Rozlišení entitních podmnožin (zaměstnanec -- učitel, vědec, administrátor, zaměstnanec)
+  \item Určení vztahů mezi entitními množinami, určení kardinality (počet) a parciality
+    (volitelnost) vztahů
+  \item Určení atributů entitních množin a vztahů
+  \item Vyřešení problémů synonym a homonym
+\end{enumerate}
+
+\subsubsection{Transformace do relačního modelu dat}
+
+Data v tabulce jsou uložena v polích uspořádaných do řádků (= záznamy) a sloupců (= atributy).
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Konceptuální prvek} & \textbf{Relační prvek} \\
+\midrule
+Entity & Tabulky \\
+Atributy & Sloupce \\
+1:N vztahy & Cizí klíč (FK) \\
+M:N vztahy & Asociativní tabulky (vazební tabulka se 2 FK) \\
+Identifikátory & Primární klíče (PK) \\
+Volitelnost & Povolené hodnoty NULL pro FK \\
+Povinnost & NOT NULL pro FK \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Zpracování vztahů}
+\begin{itemize}
+  \item \textbf{1:1} -- záznam obsahuje sloupec pro zapsání právě jednoho primárního klíče jiného záznamu
+  \item \textbf{1:M} -- záznam obsahuje sloupec pro zapsání primárního klíče jiného záznamu; na onen jiný
+    záznam se může odkazovat více různých záznamů
+  \item \textbf{M:N} -- může existovat více vzájemných odkazů; realizováno pomocí samostatné vazební tabulky
+    (dekompozice, neboli rozdělení na dvojici vztahů 1:M)
+\end{itemize}
+
+\subsubsection{Modely databázových systémů}
+
+\paragraph{Hierarchický (stromový) model dat}
+Data jsou organizována do stromové struktury. Každý záznam představuje uzel ve stromové struktuře,
+vzájemný vztah mezi záznamy je typu rodič/potomek. Nalezení dat v hierarchické databázi vyžaduje
+navigaci přes záznamy směrem na potomka, zpět na rodiče nebo do strany na dalšího potomka.
+Největšími nevýhodami hierarchického uspořádání je složitá operace vkládání a rušení záznamů.
+
+\paragraph{Síťový model dat}
+Síťový model dat je v podstatě zobecněním hierarchického modelu, který doplňuje o mnohonásobné
+vztahy (sety). Tyto sety propojují záznamy různého či stejného typu, přičemž spojení může být
+realizováno na jeden nebo více záznamů.
+
+\paragraph{Relační model dat}
+V roce 1970 byl popsán Dr.~Coddem. V současnosti je nejčastěji využíván v komerčních SŘBD.
+Model má jednoduchou strukturu -- data jsou organizována v tabulkách, které se skládají z řádků
+a sloupců. V těchto tabulkách jsou prováděny všechny databázové operace.
+
+Databáze dle relačního modelu musí splňovat:
+\begin{itemize}
+  \item Databáze je chápána uživatelem jako množina relací a nic jiného
+  \item V relačním SŘBD jsou k dispozici minimálně operace selekce, projekce a spojení, aniž by se
+    vyžadovaly explicitně předdefinované přístupové cesty pro realizaci těchto operací
+\end{itemize}
+
+\paragraph{Objektově-orientované DBS (OODBS)}
+Data v OODBS jsou chápána jako objekty odpovídající přímo entitám reálného světa. Objekty zahrnují
+data i chování, tj.~funkčnost ve stávajících RDBS zajištenou aplikačními programy.
+\begin{itemize}
+  \item Komplexní objekty (kromě relačních tabulek i další typy objektů)
+  \item Identita objektů (DBS zajišťuje unikání identifikaci objektu v rámci celé DB -- OID)
+  \item Logická datová nezávislost (zapouzdření, skrývání dat + zveřejnění rozhraní)
+  \item Dědičnost (odvozování nových tříd z existujících)
+  \item Polymorfismus (schopnost operací fungovat na objektech více než jednoho typu)
+\end{itemize}
+
+\subsubsection{Trendy v databázových systémech}
+
+\paragraph{DaaS (Database as a Service)}
+\begin{itemize}
+  \item Služba by měla být k dispozici zákazníkovi on-demand (na vyžádání), bez nutnosti instalovat
+    a konfigurovat hardware nebo software
+  \item Poskytovatel je odpovědný za správu služby, zákazník nemusí systém upgradovat nebo spravovat
+  \item \textbf{Výhody:} škálovatelnost, snadné používání, nižší náklady na infrastrukturu
+  \item \textbf{Nevýhody:} bezpečnostní rizika, závislost na poskytovateli, nutnost spolehlivého
+    internetového připojení
+\end{itemize}
+
+\paragraph{Další trendy}
+\begin{itemize}
+  \item Přechod na NoSQL pro nestrukturovaná data
+  \item Databáze ve vnitřní paměti (in-memory databases) -- radikálně mění vyhodnocování dotazů
+  \item Paralelní zpracování, distribuované databáze
+  \item Federace milionů databázových systémů
+  \item Integrace strukturovaných a semistrukturovaných dat (XML)
+  \item Datové sklady (pumpování dat z OLTP databází, jejich čištění a uložení do speciálních --
+    OLAP databází)
+\end{itemize}
+
+\begin{profesorbox}[Otázky profesorů k tématu: Datové modelování]
+\textbf{Řepa Václav, prof. Ing., CSc.}
+\begin{itemize}
+  \item Najděte ve Vašem ``relačním'' modelu potenciální nedostatky (co nežádoucího model připouští).
+    Jaké jsou možné přístupy k eliminaci takových nedostatků?
+  \item Jak jsou realizovány vztahy mezi entitami v relačních databázích?
+  \item Jaký je rozdíl mezi datovým a procesním modelem?
+  \item Jaké architektury návrhu datového modelu znáte (princip 3 architektur)? Jaké typy modelů
+    byste vám mohly pomoci?
+  \item Jaké znáte normální formy? Jsou jádro datového skladu a data marty normalizované
+    a denormalizované?
+\end{itemize}
+
+\textbf{Kučera Jan, Ing., Ph.D.}
+\begin{itemize}
+  \item Jak je možné při vývoji aplikace, jako je ta, kterou jste vytvářel v rámci bakalářské práce,
+    využít modelování s využitím jazyka UML?
+  \item Znáte grafický prostředek, který se specificky používá pro konceptuální modelování?
+\end{itemize}
+
+\textbf{Pour Jan, doc. Ing., CSc.}
+\begin{itemize}
+  \item Jaké jsou principy a problémy datového modelování?
+  \item Co je principem datových modelů?
+  \item Modelování podnikových systémů, jaké jsou hlavní principy?
+  \item Kde jsou klíčové problémy s modelováním podnikových procesů?
+\end{itemize}
+
+\textbf{Maryška Miloš, doc. Ing., Ph.D.}
+\begin{itemize}
+  \item Datové modelování a jeho vrstvy.
+  \item Co je normalizace a denormalizace dat?
+\end{itemize}
+
+\textbf{Komise: Strossa, Sedláček, Kučera}
+\begin{itemize}
+  \item Jaký je vztah mezi pojmy entitní množina a relační tabulka?
+\end{itemize}
+\end{profesorbox}
+
+%=============================================================================
+\subsection{Databázové jazyky}
+%=============================================================================
+
+\subsubsection{Dělení databázových jazyků}
+
+Databázový jazyk je prostředek komunikace člověka s databázovým systémem.
+
+\textbf{Pravidlo komplexního datového jazyka:} Relační systémy mohou podporovat více jazyků a
+režimů přístupů, ale musí existovat minimálně jeden jazyk, jehož příkazy jsou vyjádřitelné dobře
+definovanou syntaxí jako řetězce znaků, který podporuje definici dat, manipulaci s daty, ochranu dat
+a omezení integrity (lze považovat za standard).
+
+Základní dělení jazyků podle nejčastěji identifikovaných částí:
+\begin{itemize}
+  \item \textbf{DDL (Data Definition Language)} -- definice databázových objektů; příkazy
+    \texttt{CREATE}, \texttt{ALTER}, \texttt{DROP}
+  \item \textbf{DML (Data Manipulation Language)} -- manipulace s daty; příkazy
+    \texttt{SELECT}, \texttt{INSERT}, \texttt{UPDATE}, \texttt{DELETE}
+  \item \textbf{DCL (Data Control Language)} -- řízení přístupu k datům; příkazy
+    \texttt{GRANT}, \texttt{REVOKE}
+  \item \textbf{TCL (Transaction Control Language)} -- řízení transakcí; příkazy
+    \texttt{COMMIT}, \texttt{ROLLBACK}, \texttt{SAVEPOINT}
+\end{itemize}
+
+\subsubsection{Databázové jazyky 4. generace (4GL)}
+
+Databázové jazyky 4.~generace (4GL: 4th Generation Language) jsou pokročilé programovací jazyky,
+které dovolí laikům (neprogramátorům) psát krátké programy extrahující data z databází a vytvářet
+reporty:
+\begin{itemize}
+  \item FOCUS, Informix-4GL, Quel, Progress 4GL
+  \item SQL (v současné době nejrozšířenější)
+\end{itemize}
+
+\subsubsection{SQL (Structured Query Language)}
+
+Standardizovaný dotazovací jazyk používaný pro práci s daty v relačních databázích. SQL je zkratka
+anglických slov \textbf{Structured Query Language} (strukturovaný dotazovací jazyk).
+
+V 70. letech 20. století probíhal ve firmě IBM výzkum relačních databází. Vznikl tak jazyk
+\textbf{SEQUEL} (Structured English Query Language). Relační databáze byly stále významnější a bylo
+nutné jejich jazyk standardizovat. Standardizován postupně organizacemi ISO, IEC a ANSI.
+
+\paragraph{Vývoj standardů SQL}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Rok} & \textbf{Označení} & \textbf{Charakteristika} \\
+\midrule
+1986 & SQL-86   & První verze (ANSI/ISO 1987) \\
+1989 & SQL-89   & Oprava a mírné rozšíření normy \\
+1992 & SQL-92   & Označení SQL2, komplexní pohled, tři úrovně \\
+1999 & SQL:1999 & SQL3 -- regulární výrazy, rekurzivní dotazy, triggery, OO vlastnosti \\
+2003 & SQL:2003 & Podpora XML, GUI funkce, multimédia \\
+2006 & SQL:2006 & Import/export XML dat, vazba na XML Query Language \\
+2008 & SQL:2008 & Kompletní přepracování všech hlavních částí \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Příklady použití SQL}
+
+\begin{lstlisting}[language=SQL, caption=Vytvoření tabulky]
+CREATE TABLE zamestnanci (
+    ID_zam   INT          PRIMARY KEY,
+    jmeno    VARCHAR(50)  NOT NULL,
+    prijmeni VARCHAR(50)  NOT NULL,
+    plat     DECIMAL(10,2)
+);
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL, caption=Vložení dat]
+INSERT INTO zamestnanci (ID_zam, jmeno, prijmeni, plat)
+VALUES (1, 'Jan', 'Novák', 45000.00);
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL, caption=Výběr dat]
+-- Všechny záznamy
+SELECT * FROM zamestnanci;
+
+-- Podmíněný výběr
+SELECT jmeno, prijmeni FROM zamestnanci
+WHERE plat > 40000
+ORDER BY prijmeni;
+
+-- Spojení tabulek (JOIN)
+SELECT z.jmeno, z.prijmeni, o.nazev AS oddeleni
+FROM zamestnanci z
+JOIN oddeleni o ON z.oddeleni_id = o.id;
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL, caption=Aktualizace a mazání dat]
+-- Aktualizace
+UPDATE zamestnanci
+SET plat = 50000.00
+WHERE ID_zam = 1;
+
+-- Mazání
+DELETE FROM zamestnanci
+WHERE ID_zam = 1;
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL, caption=Transakce]
+BEGIN TRANSACTION;
+    UPDATE ucty SET zustatek = zustatek - 1000 WHERE id = 1;
+    UPDATE ucty SET zustatek = zustatek + 1000 WHERE id = 2;
+COMMIT;
+-- nebo ROLLBACK; pro zrušení transakce
+\end{lstlisting}
+
+\subsubsection{PL/SQL}
+
+\textbf{Procedural Language / Structured Query Language} je procedurální nadstavba jazyka SQL od
+firmy Oracle, založená na programovacím jazyku Ada.
+
+Pomocí PL/SQL je možno vytvářet:
+\begin{itemize}
+  \item \textbf{Uložené procedury a funkce} -- předkompilované programové bloky uložené v databázi
+  \item \textbf{Programové balíky} -- skupiny příbuzných procedur a funkcí
+  \item \textbf{Triggery} -- automaticky spouštěné kódy při určitých databázových událostech
+    (INSERT, UPDATE, DELETE)
+  \item \textbf{Uživatelsky definované datové typy}
+\end{itemize}
+Tato nadstavba se rozšířila a její deriváty převzaly i jiné relační databáze.
+
+\subsubsection{OQL (Object Query Language)}
+
+Object Query Language (OQL) je standardizovaný dotazovací jazyk pro objektově-orientované databáze
+vytvořený podle SQL. OQL byl vyvinut Object Data Management Group (ODMG). Kvůli jeho komplexitě
+zatím žádný výrobce neimplementoval OQL v úplnosti.
+
+OQL je záměrně navržen tak, aby byl velmi podobný jazyku SQL-92. Část syntaxe SQL, která se týká
+manipulace s daty, je kompletně obsažena v OQL. OQL nezbývá tvorbou datových struktur -- příkazy
+SQL týkající se definice dat (create-table, create-index atd.) nemají v OQL žádný ekvivalent.
+
+\subsubsection{JPQL (Java Persistence Query Language)}
+
+Java Persistence Query Language je platformě nezávislý objektově-orientovaný dotazovací jazyk
+definovaný jako součást specifikace Java Persistence API (JPA). JPQL se používá k dotazování se na
+entity uložené v relační databázi. Je silně inspirován SQL a má podobnou syntaxi.
+
+JPQL odštiňuje programátora od specifik konkrétního datového úložiště -- programátor se nestará
+o to, zda jsou v konečném důsledku dotazy prováděny nad Oracle nebo MySQL databází.
+
+\subsubsection{XQuery}
+
+XQuery je dotazovací a funkcionální programovací jazyk navržený pro dotazování na kolekce dat v XML.
+XQuery poskytuje prostředky pro extrahování a manipulaci dat z XML dokumentů nebo jakéhokoli
+datového zdroje, který může být jako XML zobrazen (např.\ relační databáze nebo některé dokumenty
+jako OpenOffice, MS Office 2007).
+
+XQuery používá \textbf{syntax jazyka XPath} pro adresování konkrétních částí XML dokumentů.
+To je doplněno SQL-podobnými \textbf{„FLWOR" výrazy} pro provádění joinů. FLWOR výraz je sestaven
+z pěti klauzulí: \texttt{FOR}, \texttt{LET}, \texttt{WHERE}, \texttt{ORDER BY}, \texttt{RETURN}.
+
+\subsubsection{SQL injection -- bezpečnostní hrozba}
+
+SQL injection je jedna z nejčastějších útoků na databáze přes webové skriptovací jazyky.
+Útočník vloží škodlivý SQL kód do vstupního pole aplikace, který se pak vykoná v databázi.
+
+\paragraph{Příklad zranitelného kódu}
+\begin{lstlisting}[language=SQL]
+-- Zranitelný dotaz (vstup od uzivatele: ' OR '1'='1)
+SELECT * FROM users
+WHERE username = '' OR '1'='1' AND password = '';
+-- Vrátí všechny záznamy!
+\end{lstlisting}
+
+\paragraph{Ochrana proti SQL injection}
+\begin{itemize}
+  \item \textbf{Prepared statements (parametrizované dotazy)} -- oddělení SQL kódu od dat
+  \item \textbf{ORM frameworky} -- objektově-relační mapování eliminuje přímé SQL dotazy
+  \item \textbf{Validace vstupů} -- kontrola a sanitace uživatelských vstupů
+  \item \textbf{Nejmenší oprávnění} -- databázový uživatel má pouze nutná oprávnění
+  \item \textbf{WAF} (Web Application Firewall) -- filtrování škodlivých požadavků
+\end{itemize}
+
+\begin{profesorbox}[Otázky profesorů k tématu: Databázové jazyky]
+\textbf{Strossa Petr, doc. RNDr., CSc.}
+\begin{itemize}
+  \item V čem se liší NoSQL od relačních databází?
+  \item Jaký je vyhledávací interface pro relační databáze?
+  \item K čemu slouží indexy v databázi?
+\end{itemize}
+
+\textbf{Sedláček Jiří, Ing., Ph.D.}
+\begin{itemize}
+  \item Jaké typy útoků jsou časté při dotazování databází přes webové skriptovací jazyky?
+    Jak se jim bránit?
+\end{itemize}
+
+\textbf{Komise: Vojíř, Pour, Sudzina}
+\begin{itemize}
+  \item Jaké jsou výhody a nevýhody NoSQL databází?
+\end{itemize}
+
+\textbf{Zeman Václav, Ing., Ph.D.}
+\begin{itemize}
+  \item Jak databáze zajistí konzistenci a integritu řešení?
+\end{itemize}
+
+\textbf{Maryška Miloš, doc. Ing., Ph.D.}
+\begin{itemize}
+  \item Popište architekturu datově orientovaného řešení.
+\end{itemize}
+\end{profesorbox}
+
+\end{document}

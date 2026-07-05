@@ -1,0 +1,196 @@
+% ============================================================
+%  Příprava na maturitu – Elektrotechnika
+%  Okruh 19: Elektrotechnická měření
+% ============================================================
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.0cm, right=1.8cm, top=1.8cm, bottom=1.8cm]{geometry}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{circuitikz}
+
+\usetikzlibrary{arrows.meta, positioning, decorations.pathmorphing, shapes.geometric, calc}
+
+% --- Barvy ---
+\definecolor{accent}{HTML}{1A3A5C}
+\definecolor{lightblue}{HTML}{EAF2F8}
+\definecolor{lightyellow}{HTML}{FDFBE4}
+\definecolor{lightgreen}{HTML}{EAF7EA}
+\definecolor{lightred}{HTML}{FDE8E8}
+\definecolor{lightgray}{HTML}{F4F4F4}
+
+% --- Boxy ---
+\newmdenv[backgroundcolor=lightblue,linecolor=accent!40,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{pojmybox}
+\newmdenv[backgroundcolor=lightyellow,linecolor=accent!30,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{vysvetlenibox}
+\newmdenv[backgroundcolor=lightgreen,linecolor=accent!40,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{vzorcebox}
+\newmdenv[backgroundcolor=lightred,linecolor=accent!30,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{durazbox}
+
+\setlist[itemize]{noitemsep, leftmargin=1.4em, topsep=2pt}
+\setlist[enumerate]{noitemsep, leftmargin=1.4em, topsep=2pt}
+
+% --- Zkratka pro jednotky ---
+\newcommand{\jednotka}[1]{\,[\mathrm{#1}]}
+
+\begin{document}
+
+% ============================================================
+\section*{\large Okruh 19 – Elektrotechnická měření}
+
+\begin{pojmybox}
+\textbf{Klíčové pojmy:}
+absolutní a relativní chyba měření, třída přesnosti, voltmetr, ampérmetr, vnitřní odpor, bočník, předřadník, Ohmova metoda, Wheatstonův můstek, wattmetr, osciloskop (časová základna)
+\end{pojmybox}
+
+\begin{vysvetlenibox}
+
+% ================================================================
+\subsection*{1. Chyby měření a přesnost přístrojů}
+
+Žádné měření není naprosto přesné. Naměřená hodnota se vždy líší od skutečné hodnoty.
+
+\begin{itemize}
+    \item \textbf{Skutečná (správná) hodnota ($X_S$):} Tu nikdy přesně neznáme.
+    \item \textbf{Naměřená hodnota ($X_M$):} Hodnota přečtená z přístroje.
+\end{itemize}
+
+\begin{vzorcebox}
+\textbf{Absolutní chyba:} $\Delta X = X_M - X_S \jednotka{V, A, \Omega}$ \\
+\textbf{Relativní chyba (v procentech):} $\delta = \frac{\Delta X}{X_S} \cdot 100 \jednotka{\%}$
+\end{vzorcebox}
+
+\textbf{Třída přesnosti (TP):} Udává maximální povolenou relativní chybu přístroje v procentech z celého nastaveného rozsahu.
+\textit{Příklad: Analogový voltmetr má TP 1,5. Rozsah je nastaven na 100 V. Maximální absolutní chyba na tomto rozsahu bude $\pm 1{,}5\,\mathrm{V}$ bez ohledu na to, zda měříme 10 V nebo 90 V.}
+
+% ================================================================
+\subsection*{2. Měření napětí a proudu}
+
+Ideální měřicí přístroj nesmí ovlivňovat měřený obvod (nesmí měnit jeho proudy a napětí). Toho v realitě nelze zcela dosáhnout kvůli \textbf{vnitřnímu odporu} přístrojů.
+
+\begin{center}
+\begin{tabularx}{0.97\linewidth}{@{} l X X @{}}
+\toprule
+\textbf{Přístroj} & \textbf{Voltmetr (Měří napětí)} & \textbf{Ampérmetr (Měří proud)} \\
+\midrule
+\textbf{Zapojení do obvodu} & \textbf{Paralelně} (k měřené součástce) & \textbf{Do série} (s měřenou součástkou) \\
+\textbf{Ideální vnitřní odpor} & $R_V \to \infty$ (Nekonečný) & $R_A \to 0\,\Omega$ (Nulový) \\
+\textbf{Reálný vnitřní odpor} & Gigaohmy (multimetry), Megaohmy & Desetiny až setiny Ohmu \\
+\textbf{Změna rozsahu pomocí:} & \textbf{Předřadníku} (odpor do série) & \textbf{Bočníku} (odpor paralelně) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{center}
+\begin{circuitikz}[font=\small, thick]
+  % Zdroj a zátěž
+  \draw (0,0) to[battery1, l=$U_{zdroj}$] (0,3) -- (1.5,3);
+  \draw (1.5,3) to[ammeter, l=A] (3.5,3) -- (4,3);
+  \draw (4,3) to[R, l=$R_{z\acute{a}t\check{e}\check{z}}$] (4,0) -- (0,0);
+
+  % Voltmetr
+  \draw (4, 3) -- (5.5, 3) to[voltmeter, l=V] (5.5, 0) -- (4, 0);
+
+  % Uzly
+  \filldraw[black] (4,3) circle (2pt);
+  \filldraw[black] (4,0) circle (2pt);
+
+  \node[above=0.2cm, accent] at (2.5, 3) {V sérii};
+  \node[right=0.2cm, accent] at (5.5, 1.5) {Paralelně};
+\end{circuitikz}
+\end{center}
+
+\begin{durazbox}
+\textbf{Kritické chyby při měření:}
+\begin{itemize}
+    \item Připojení ampérmetru paralelně (např. rovnou do zásuvky) vytvoří \textbf{zkrat}! Téměř nulový vnitřní odpor přístroje propustí obrovský proud a shoří v něm pojistka.
+    \item Zapojení voltmetru do série obvod \textbf{přeruší} (přístroj má obrovský odpor).
+\end{itemize}
+\end{durazbox}
+
+% ================================================================
+\subsection*{3. Zvětšování měřicích rozsahů}
+
+Pokud chceme měřit větší proud/napětí, než na jaké je ručičkové měřidlo zkonstruováno:
+
+\begin{itemize}
+    \item \textbf{Bočník ($R_p$ pro Ampérmetr):} Rezistor zapojený **paralelně** k ampérmetru. Velká část proudu "obejde" ampérmetr přes bočník.
+    \item \textbf{Předřadník ($R_p$ pro Voltmetr):} Rezistor zapojený **do série** s voltmetrem. Část měřeného napětí se "ztratí" (úbytek) na předřadníku.
+    \item \textbf{Měřicí transformátory (MTP / MTN):} Pro měření obrovských AC proudů a napětí v energetice (\textit{viz Okruh 6 a Okruh 9}).
+\end{itemize}
+
+% ================================================================
+\subsection*{4. Měření odporu (Ohmova metoda a Můstek)}
+
+\textbf{A) Ohmova (V-A) metoda:}
+Odpor vypočítáme pomocí změřeni úbytku napětí na součástce a proudu, který jí protéká ($R = U/I$). Reálné měřáky ale měření ovlivňují (mají svůj vnitřní odpor).
+\begin{itemize}
+    \item \textbf{Měření malých odporů:} Voltmetr se zapojí **za** ampérmetr (přímo na odpor).
+    \item \textbf{Měření velkých odporů:} Voltmetr se zapojí **před** ampérmetr.
+\end{itemize}
+
+\textbf{B) Wheatstonův můstek:}
+Slouží k \textbf{velmi přesnému} měření středních odporů srovnávací (nulovou) metodou. Je nezávislý na napětí zdroje a vnitřním odporu měřáku.
+
+\begin{center}
+\begin{circuitikz}[font=\small, thick, scale=1.2]
+  % Můstek (kosočtverec)
+  \draw (2,4) to[R, l=$R_1$] (0,2)
+        to[R, l=$R_n$] (2,0)
+        to[pR, l=$R_2$] (4,2)
+        to[R, l=$R_x$] (2,4);
+
+  % Galvanometr (opravená značka)
+  \draw (0,2) to[galvanometer, l=G] (4,2);
+
+  % Napájení
+  \draw (2,4) -- (2,4.5) -- (-1.5, 4.5) to[battery1, l=$U$] (-1.5, -0.5) -- (2, -0.5) -- (2,0);
+
+  % Popisy
+  \node[left, blue] at (0,2) {Uzel A};
+  \node[right, blue] at (4,2) {Uzel B};
+\end{circuitikz}
+\end{center}
+
+\textbf{Princip vyvážení:} Měníme regulovatelný odpor $R_2$ tak dlouho, dokud galvanometrem neteče **žádný proud** ($I_G = 0$). V tu chvíli je napětí v uzlu A stejné jako v uzlu B. Obvod je "vyvážený".
+\begin{vzorcebox}
+Podmínka rovnováhy:
+\[
+R_1 \cdot R_2 = R_x \cdot R_n \qquad \implies \qquad R_x = R_n \cdot \frac{R_1}{R_2}
+\]
+\end{vzorcebox}
+
+% ================================================================
+\subsection*{5. Měření výkonu (Wattmetr)}
+
+Činný výkon se měří **wattmetrem**. Ten v sobě kombinuje vlastnosti ampérmetru a voltmetru.
+\begin{itemize}
+    \item **Proudová cívka:** Zapojuje se do série.
+    \item **Napěťová cívka:** Zapojuje se paralelně.
+\end{itemize}
+
+% ================================================================
+\subsection*{6. Osciloskop}
+
+Zatímco multimetr ukazuje většinou jen jedno číslo (efektivní hodnotu), osciloskop graficky zobrazuje \textbf{přesný průběh napětí v čase}. Je to základní nástroj pro hledání chyb v AC a digitálních obvodech.
+
+\textbf{Obrazovka (Grid):}
+\begin{itemize}
+    \item \textbf{Osa X (Horizontální):} Představuje **Čas**. Tlačítkem (Time/Div) nastavujeme časovou základnu. Slouží k odpočítání **periody $T$** $\implies f = 1/T$.
+    \item \textbf{Osa Y (Vertikální):} Představuje **Napětí**. Tlačítkem (Volts/Div) nastavujeme citlivost. Slouží ke změření **amplitudy $U_m$**.
+\end{itemize}
+
+\end{vysvetlenibox}
+
+\end{document}

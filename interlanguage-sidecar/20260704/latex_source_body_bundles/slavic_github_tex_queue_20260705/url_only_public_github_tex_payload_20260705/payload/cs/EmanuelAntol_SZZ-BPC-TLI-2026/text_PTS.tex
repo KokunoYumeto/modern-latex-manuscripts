@@ -1,0 +1,150 @@
+
+\section{Přístupové a transportní sítě}
+\subsection{Základní jednotky, pojmy a veličiny telekomunikační  techniky (dB, dBm0, útlum, zisk a úroveň, kanál, okruh, dvoudrát,                      čtyřdrát, komutace paketů a okruhů, FDM, TDM)}
+
+    \subsubsection{Základní jednotky a veličiny}
+        \begin{itemize}
+            \item \textbf{Decibel (dB):} Bezrozměrná poměrová jednotka přenosu založená na dekadickém logaritmu poměru dvou výkonů. Vyjadřuje logaritmickou míru útlumu nebo zisku.
+            \item \textbf{dBm:} Jednotka dB vztažená k referenční úrovni 1 mW.
+            \item \textbf{dBm0:} Výkon v dBm vztažený k bodu s nulovou přenosovou úrovní.
+            \item \textbf{Úroveň:} Absolutní nebo relativní napětí, proud nebo výkon v určitém místě. Obvykle se využívají úrovně H (High) a L (Low).
+        \end{itemize}
+    \subsubsection{Přenosové parametry a rušení}
+        \begin{itemize}
+            \item \textbf{Útlum:} Vlastnost pasivní soustavy způsobující snížení úrovně signálu. Závislost útlumu na kmitočtu se nazývá útlumová charakteristika; její nekonstantní průběh způsobuje útlumové zkreslení.
+            \item \textbf{Zisk:} Poměr výstupního proudu, napětí nebo výkonu ke vstupní hodnotě. Pokud je poměr menší než 1, je zisk v dB negativní (ztráta).
+            \item \textbf{Šum:} Rušivý signál omezující dosah přenosu užitečného signálu.
+            \item \textbf{Přeslech:} Nežádoucí přenos signálu mezi okruhy způsobený elektromagnetickou vazbou. Může být přímý (bezprostřední vliv) nebo nepřímý (přes třetí okruh).
+        \end{itemize}
+    \subsubsection{Kanály, okruhy a způsoby přenosu}
+        \begin{itemize}
+            \item \textbf{Telekomunikační kanál:} Souhrn prostředků umožňujících přenos signálu v jednom směru mezi dvěma body.
+            \item \textbf{Telekomunikační okruh:} Kombinace dvou kanálů umožňující obousměrný přenos.
+            \item \textbf{Dvoudrátový přenos:} Pro oba směry přenosu se používá stejná přenosová cesta (např. ISDN, ADSL).
+            \item \textbf{Čtyřdrátový přenos:} Každý směr přenosu využívá samostatnou cestu (např. HDSL).
+        \end{itemize}
+    \subsubsection{Komutace (Přepojování)}
+        \begin{itemize}
+            \item \textbf{Komutace okruhů:} Propojování zařízení nebo kanálů výhradně po dobu trvání volání nebo služby.
+            \item \textbf{Komutace paketů:} Zprávy se dělí na pakety s adresami, které se v uzlech přijímají, ukládají do paměti a následně vysílají dál. Na přijímací straně se z paketů obnoví původní zpráva.
+        \end{itemize}
+        \subsubsection{Multiplexování (FDM a TDM)}
+        \begin{itemize}
+            \item \textbf{FDM (Frequency Division Multiplex):} Každému směru přenosu je vyhrazena samostatná část frekvenčního pásma. Zamezuje se tak rušení mezi dopředným a zpětným kanálem (např. ADSL s analogovou linkou POTS).
+            \item \textbf{TDM (Time Division Multiplex):} Založeno na vzorkování vstupního signálu. V mezerách mezi vzorky jednoho vstupu se přenášejí vzorky dalších vstupů. V telefonii je při vzorkovací frekvenci $f_{vz} = 8$ kHz prodleva mezi vzorky $T_{vz} = 125$ us.
+        \end{itemize}
+\subsection{Základní blokové schéma digitálního přenosového systému, rámec a multirámec E1, kompandory a nelineární kodéry.}
+    \subsubsection{Základní blokové schéma digitálního přenosového systému}
+        Základní sestava se skládá z koncového zařízení digitálního přenosového systému (KZ DPS), linkového zakončení (LZ), linkového traktu (LT) a opakovačů (O). Hlavní funkcí opakovačů v digitálním traktu není pouhé zesílení, ale zopakování, tedy vytvoření zcela nového nezkresleného signálu na základě detekce přijatých pulzů.
+        Obnova signálu (tzv. 3R) v opakovači probíhá ve třech krocích: 
+        \begin{itemize}
+            \item \textbf{Reshaping (obnova tvaru a amplitudy):} Automatický korekční zesilovač (AKZ) kompenzuje frekvenčně závislý útlum vedení, přičemž zisk je dynamicky posouván špičkovým detektorem. Tím se obnovuje maximální výška a tvar přijímaných impulsů do podoby blízké vysílanému signálu.
+            \item \textbf{Retiming (obnova časování):} Taktovací obvody izolují ze signálu taktovací kmitočet a generují přesné a úzké taktovací impulsy a eliminují se fázové nestability.
+            \item \textbf{Regeneration (regenerace logických úrovní):} Pomocí koincidence signálu z taktovacího obvodu a přijatého data v rozhodovacím hradle se generuje finální signál, kterému koncový stupeň dodá předepsaný tvar a energii.
+        \end{itemize}
+        Dálkové napájení opakovacích stanic je realizováno přes vedení využitím stejnosměrného fantomního okruhu.
+    \subsubsection{Rámec a multirámec E1}
+        Přenosový systém 1. řádu (E1) poskytuje celkovou přenosovou rychlost 2,048 Mbit/s a umožňuje přenos 30 telefonních kanálů. Rámcová a multirámcová struktura je definována doporučeními ITU-T (CCITT).
+        
+        \begin{itemize}
+            \item \textbf{Multirámec (MR):} Trvá 2 ms a skládá se ze 16 rámců označených R0 až R15 (opakovací kmitočet je 500 Hz).
+            \item \textbf{Rámec (R):} Trvá 125 us a obsahuje 32 kanálových intervalů (\textit{Time Slots}), značených TS0 až TS31 (opakovací kmitočet je 8 kHz).
+            \item \textbf{Time Slot (TS):} Trvá 3,9 us a přenáší 8 symbolových intervalů (bitů S1 až S8), což tvoří rychlost 64 kbit/s pro každý TS.
+            \item \textbf{Rozložení kapacity:} Telefonní kanály (TK1--TK15 a TK16--TK30) jsou přenášeny v TS1--TS15 a TS17--TS31.
+            \item \textbf{Synchronizace (přenášena v TS0):} V sudých rámcích je v TS0 (bity S2--S8) umístěno synchronizační slovo FAS s pevnou kombinací 0011011. V lichých rámcích je na pozici S2 vysílána logická 1 z důvodu zamezení falešné synchronizace a bit S3 (Y) přenáší havarijní signalizaci o poruše vzdálené stanice.
+            \item \textbf{Signalizace (přenášena v TS16):} V rámci R0 přenáší TS16 multirámcovou synchronizaci (MFAS) v podobě bitů 0000 (na pozicích S1--S4). V ostatních rámcích R1--R15 slouží TS16 k přenosu signalizace (přidělené bity a, b, c, d) k jednotlivým telefonním kanálům.
+        \end{itemize}
+    \subsubsection{Kompandory a nelineární kodéry}
+        A/D převod klasickým lineárním kódováním by vedl ke skutečnosti, že vzorky malých amplitud (hlasitostí) by trpěly nadměrným kvantizačním zkreslením v porovnání s většími vzorky. Aby bylo dosaženo konstantního útlumu kvantizačního zkreslení, musí být slabší signály zesíleny (\textbf{komprimovány} před vysláním) a na straně příjmu opět potlačeny (\textbf{expandovány}).
+        
+        \begin{itemize}
+            \item \textbf{Nelineární kodér:} Na rozdíl od kombinace analogového kompresoru a lineárního kodéru přímo kóduje malé vzorky pomocí mnohem hustší sítě kvantizačních stupňů a pro vyšší amplitudy používá stupně řidší. Moderním hardwarovým řešením je lineární kódování na 12 bitů (4096 stupňů), u kterého je potřebného osmibitového formátu dosaženo pomocí číslicového digitálního kompresoru.
+        \end{itemize}
+\subsection{Spektrum vzorkovaného signálu, celkové zkreslení  digitálního přenosu E1 (kvantizační + omezením) pro harmonický a náhodný signál, charakteristiku mí a A.}
+    \subsubsection{Spektrum vzorkovaného signálu}
+        Vzorkování převádí spojitý signál na analogovou impulsovou modulaci (nejčastěji PAM -- pulsně amplitudová modulace). Spektrum vzorkovaného signálu se liší podle použitého druhu PAM a šířky vzorkovacích impulsů:
+        
+        \begin{itemize}
+            \item \textbf{PAM 1. druhu:} Vzorek svou výškou i tvarem přesně sleduje průběh analogového signálu po celou dobu vzorkovacího intervalu.
+            \item \textbf{PAM 2. druhu:} Vzorek má stálou (konstantní) výšku po celou dobu trvání.
+            \item \textbf{Vliv šířky impulsů:} Spektrum se analyzuje pro ideální případ nekonečně úzkých vzorků a pro praktický případ vzorků s konečnou šířkou (případně pro vzorky trvající po celou vzorkovací periodu). Při konečné šířce vzorku dochází k tvarování obálky spektra.
+        \end{itemize}
+    \subsubsection{Celkové zkreslení digitálního přenosu}
+        Celkové zkreslení se skládá ze zkreslení kvantovacího a zkreslení omezením.
+        \begin{itemize}
+            \item \textbf{Kvantizační zkreslení:} Je dáno principem digitalizace, kdy se nekonečnému počtu vstupních hodnot přiřazuje konečný počet výstupních kvantizačních stupňů (např. 256). Vzniká rozdílem mezi skutečnou a zakódovanou hodnotou vzorku.
+            \begin{itemize}
+                \item Útlum kvantizačního zkreslení (bez komprese) je dán vztahem: $A_{kv} = 6N_{kd} + C$ [dB], kde $N_{kd}$ je počet bitů kódové skupiny.
+                \item Snížení počtu bitů o jeden zhorší útlum kvantizačního zkreslení přesně o 6 dB.
+                \item Pro \textbf{harmonický signál}, který plně využívá rozsah kodéru, je konstanta $C = 1,8$.
+            \end{itemize}
+        
+            \item \textbf{Zkreslení omezením:} Vzniká v situaci, kdy výška vzorku přesáhne maximální rozsah kodéru a systém provede ostré amplitudové omezení (odříznutí špiček).
+            \begin{itemize}
+                \item Pro normovaný \textbf{harmonický signál} vzniká jednoduše při překročení meze $x_{max} > 1$.
+            \end{itemize}
+        
+            \item \textbf{Případ náhodného signálu a celkové zkreslení:}
+            \begin{itemize}
+                \item U náhodného šumového signálu dochází k omezování průběžně. Hodnoty signálu se teoreticky pohybují od $-\infty$ do $+\infty$, prakticky se však uvažuje dynamický rozsah od $-3\sigma$ do $+3\sigma$ (kde $\sigma$ je efektivní hodnota kódovaného signálu). Kodér pro tento rozsah má konstantu útlumu kvantizačního zkreslení $C = -7,2$.
+                \item \textbf{Poměr obou zkreslení:} V celkovém zkreslení převládá kvantizační zkreslení do poměrné hodnoty $0,1\sigma$. Nad tuto hranici ($> 0,1\sigma$) začíná strmě převládat zkreslení omezením, ke kterému dochází tím častěji, čím vyšší je efektivní hodnota signálu.
+            \end{itemize}
+        \end{itemize}
+    \subsubsection{Kompresní charakteristiky A a $\mu$}
+        Lineární kódování způsobuje nadměrné zkreslení u slabých signálů. Cílem nelineárních kompresních charakteristik je udržet útlum kvantizačního zkreslení konstantní pro všechny výšky vzorků tím, že menší vzorky jsou kódovány hustší sítí kvantizačních stupňů a větší vzorky řidší sítí.
+        
+        \begin{itemize}
+            \item \textbf{Kompresní charakteristika A:}
+            \begin{itemize}
+                \item Standardizována ITU-T pro Evropu, typická pro 32kanálové systémy E1.
+                \item Předepsaná konstanta $A = 87,6$.
+                \item Matematický popis: 
+                $y = \frac{Ax}{1+\ln(A)}$ (pro $0 < x < 1/A$) a 
+                $y = \frac{1+\ln(Ax)}{1+\ln(A)}$ (pro $1/A < x < 1$).
+                \item V praxi je ideální logaritmická křivka aproximována soustavou \textbf{13 přímkových úseků} (teoreticky 16 úseků pro oba kvadranty, ale střední 4 tvoří souvislou přímku). Poměr strmosti sousedních úseků je vždy $1:2$.
+                \item Poskytuje celkovou výhodu komprese \textbf{24,1 dB}.
+            \end{itemize}
+            
+            \item \textbf{Kompresní charakteristika $\mu$ (mí):}
+            \begin{itemize}
+                \item Používána v USA (např. standard T1) pro 24kanálové systémy.
+                \item Matematický popis: $y = \frac{\ln(1+\mu x)}{\ln(1+\mu)}$.
+                \item Běžně užívaná hodnota parametru je $\mu = 100$ (výhoda komprese 26,7 dB), pro velmi kvalitní aplikace se využívá $\mu = 255$ (výhoda komprese 33,2 dB). Čím vyšší je hodnota $\mu$, tím vyšší je výhoda komprese.
+            \end{itemize}
+        \end{itemize}
+\subsection{Systémy vyšších řádů, stuffing, Synchronní digitální hierarchie SDH.}
+    \subsubsection{Systémy vyšších řádů v Plesiochronní digitální hierarchii (PDH)}
+        Plesiochronní systémy pracují se signály, které mají stejnou jmenovitou přenosovou rychlost, avšak nepocházejí ze stejného taktovacího generátoru, pročež se fázový posuv charakteristických okamžiků může měnit. Systémy vyšších řádů vznikají hierarchickým skládáním systémů nižších řádů (v Evropě obvykle multiplexováním čtyř systémů nižšího řádu) na bázi prokládání po bitech.
+        
+        \begin{itemize}
+            \item \textbf{2. řád:} Sdružuje 4 systémy 1. řádu. Přenosová rychlost je 8,448 Mbit/s a kapacita činí 120 telefonních kanálů. K přenosu postačí nepupinovaný nízkofrekvenční symetrický kabel.
+            \item \textbf{3. řád:} Sdružuje 4 systémy 2. řádu. Přenosová rychlost je 34,368 Mbit/s s kapacitou 480 kanálů. Využívá se vysokofrekvenční symetrický kabel, mikrokoaxiální kabel, optická vlákna nebo radioreléové spoje.
+            \item \textbf{4. řád:} Sdružuje 4 systémy 3. řádu. Přenosová rychlost je 139,264 Mbit/s pro 1920 kanálů. Typickým médiem je malý koaxiální kabel, optický nebo radioreléový spoj.
+            \item \textbf{5. řád:} Sdružuje 4 systémy 4. řádu s rychlostí 564,160 Mbit/s a kapacitou 7680 kanálů. Využívá střední koaxiální kabel nebo vlnovod.
+        \end{itemize}
+        
+    \subsubsection*{Vyrovnávání přenosových rychlostí (Stuffing)}
+        
+        Z důvodu asynchronních taktovacích generátorů kolísá počet informačních bitů, a proto musí být rychlost vyššího řádu vyšší než prostý součet rychlostí nižších řádů (např. 8,448 Mbit/s $>$ 4 $\times$ 2,048 Mbit/s). Změny rychlostí se kompenzují stuffingem, o jehož provádění nese informaci tzv. stuffingová signalizace.
+        
+        \begin{itemize}
+            \item \textbf{Kladný stuffing:} V rámci vyššího řádu je vyhrazeno více bitových míst, než je příspěvkový signál schopen při jmenovité rychlosti obsadit. Čas od času se vyhrazený doplňkový bit neobsadí informační hodnotou.
+            \item \textbf{Záporný stuffing:} V rámci je vyhrazeno méně míst, než vyžaduje jmenovitá rychlost příspěvkového signálu. Informační bit musí být občas přenesen náhradní cestou na místě bitu jinak neinformačního.
+            \item \textbf{Kombinovaný stuffing:} Je vyhrazen přesný nominální počet míst; podle odchylky rychlosti se bit buď neobsadí (kladný), nebo se informace přenese v náhradním bitu (záporný).
+        \end{itemize}
+        
+        \textbf{Rámcová struktura 2. řádu (kladný stuffing):} Multirámec trvá 100,38 us a skládá se ze 4 rámců po 212 bitech. První rámec obsahuje 10 bitů synchronizace, 2 volné a 200 informačních bitů. Druhý a třetí rámec obsahují 4 bity stuffingové signalizace a 208 informačních bitů. Čtvrtý rámec obsahuje 4 bity signalizace a 208 informačních bitů, avšak první 4 z nich slouží jako doplňkové bity pro samotné dorovnání rychlosti.
+    \subsubsection{Synchronní digitální hierarchie (SDH)}
+        Hlavní nevýhodou PDH je nutnost složitého demultiplexování celé hierarchické struktury v případě potřeby vydělení jednoho individuálního okruhu nižšího řádu (např. 2 Mbit/s ze 565 Mbit/s toku). SDH tento problém odstraňuje.
+        
+        \begin{itemize}
+            \item \textbf{Princip a struktura:} SDH využívá prokládání po bytech (nikoliv po bitech jako PDH) a bezpodmínečně vyžaduje počítačové řízení a synchronizaci sítě. Základním stavebním blokem je Synchronní přepravní modul (STM), který nese užitečnou kapacitu i kapacitu pro pomocné a řídicí kanály.
+            \item \textbf{Přenosové rychlosti:} Základní modul je STM-1 s rychlostí 155 Mbit/s (odpovídá 4. řádu PDH). Vyšší moduly tvoří celé násobky, např. STM-4 (622 Mbit/s) a STM-16 (2,4 Gbit/s). Do SDH se vkládají nižší rychlosti již s příslušným hierarchickým označením z PDH.
+            \item \textbf{Výhody SDH:}
+            \begin{itemize}
+                \item Umožňuje jednoduché a přímé vydělování či vkládání individuálních okruhů pomocí synchronních multiplexorů bez nutnosti demultiplexování celého signálu.
+                \item Zavádí normalizaci optických rozhraní, což umožňuje kooperaci zařízení od různých výrobců v celosvětovém měřítku.
+                \item Podporuje budoucí rozvoj služeb, poskytuje kanály pro síťový management, zjednodušuje křížové propojování (\textit{cross-connects}) a zvyšuje spolehlivost sítě rychlou obnovou při poruše.
+                \item Snižuje nároky na hardware, vyžaduje méně náhradních dílů a přináší nižší provozní a údržbové náklady.
+            \end{itemize}
+        \end{itemize}

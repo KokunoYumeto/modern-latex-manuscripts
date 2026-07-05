@@ -1,0 +1,455 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[english, polish]{babel}
+\usepackage[utf8]{inputenc}   % lub utf8
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{enumerate}
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[justification=centering]{caption}
+\titlelabel{\thetitle.\quad}
+\usepackage{titlesec}
+\usepackage{titleps,kantlipsum}
+
+\newpagestyle{mypage}{%
+  \headrule
+  \sethead{\MakeUppercase{\thesection\quad \sectiontitle}}{}{\thesubsection\quad \subsectiontitle}
+  \setfoot{}{}{\thesubsubsection\quad \subsubsectiontitle}
+}
+\settitlemarks{section,subsection,subsubsection}
+\pagestyle{mypage}
+%\marginsize{left}{right}{top}{bottom}
+\marginsize{3cm}{3cm}{3cm}{3cm}
+\sloppy
+ 
+\begin{document}
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Druga metoda Lapunowa}} \\ \hline Dominik Wróbel & \textbf{17 IV 2018} & \textbf{Wt 09:30} \\ \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+\tableofcontents
+
+\section{Cel ćwiczenia}
+Celem ćwiczenia jest zapoznanie się z działaniem i stosowaniem drugiej metody Lapunowa do badania nieliniowych układów dynamicznych. Rozważane przykłady pozwolą na obserwacje działania drugiej metody Lapunowa oraz wyznaczenie jej wad i zalet, a także porównanie do metody pierwszej.
+\section{Przebieg ćwiczenia}
+\subsection{Zadanie 4.2}
+W zadaniu rozważany jest nieliniowy układ dynamiczny opisany układem równań: 
+\begin{equation*}
+\begin{cases}
+\dot{x_{1}}(t)=x_{2}(t)-x_{1}(t)+x_{1}^{3}(t) \\
+\dot{x_{2}}(t)=-x_{1}(t)
+\end{cases}
+\end{equation*}
+\newpage
+W zadaniu zostaną wykonane następujące punkty :
+\begin{itemize}
+\item Znalezienie punktów równowagi systemu,
+\item Zbadanie stabilności znalezionych punktów równowagi przy pomocy II metody Lapunowa, 
+\item Zbadanie stabilności znalezionych punktów równowagi przy pomocy metody linearyzacji i porównanie z II metodą Lapunowa,
+\item Wyznaczenie obszaru atrakcji punktów równowagi przy pomocy twierdzenia LaSalle'a,
+\item Wyznaczenie obszaru atrakcji punktów równowagi przy pomocy eksperymentów numerycznych
+\end{itemize}
+\subsubsection{Wyznaczenie punktów równowagi}
+Punkty równowagi: \\
+\begin{equation*}
+\begin{cases}
+-x_{1}=0 \\
+x_{2}-x_{1}+x_{1}^{3}=0
+\end{cases} \implies
+\begin{cases}
+x_{1}=0 \\
+x_{2}=0
+\end{cases}
+\end{equation*}
+Układ ma jeden, zerowy punkt równowagi.
+
+\subsubsection{Badanie stabilności za pomocą II metody Lapunowa}
+Zgodnie z zaleceniem w poleceniu do badania stabilności zostanie wykorzystany funkcjonał energetyczny:
+\begin{equation*}
+V(x)=\frac{1}{2}(x_{1}^{2}+x_{2}^{2})
+\end{equation*}
+Funkcjonał ten spełnia założenia :
+\begin{itemize}
+\item \( V : R^{2} \rightarrow R \)
+\item Funkcjonał jest ciągły wraz z pierwszymi pochodnymi cząstkowymi względem \(x_{1}\) oraz \(x_{2}\) w pewnym otoczeniu zerowego punktu równowagi systemu, 
+\item V(0) = 0 oraz V(0) > 0 w pewnym otoczeniu \(\Omega_{1}\) zera, z wyłączeniem zera 
+\end{itemize}
+Spełnienie tych warunków jest oczywiste dla funkcjonału energetycznego. Aby móc wnioskować o tym czy funkcjonał ten jest funkcjonałem Lapunowa dla badanego systemu, a później o stabilności tego systemu, poza powyższymi warunkami potrzebne jest jeszcze zbadanie znaku wyrażenia \( \dot{V}(x) \). \\ Funkcjonał będzie funkcjonałem Lapunowa badanego systemu jeśli spełniony będzie warunek :
+\begin{itemize}
+\item \( \dot{V}(x)\leq 0 \) w pewnym otoczeniu \( \Omega_{2}\) zera
+\end{itemize} 
+\begin{equation*}
+\dot{V}(x)=
+\begin{bmatrix}
+\frac{\partial V}{\partial x_{1}} \quad
+\frac{\partial V}{\partial x_{2}} 
+\end{bmatrix}
+\begin{bmatrix}
+f_{1}(x) \\
+f_{2}(x)
+\end{bmatrix}=
+\begin{bmatrix}
+x_{1} \quad
+x_{2}
+\end{bmatrix}
+\begin{bmatrix}
+x_{2}-x_{1}+x_{1}^{3} \\ 
+x_{1}
+\end{bmatrix}=
+x_{1}^{4}-x_{1}^{2}
+=x_{1}^{2}(x_{1}^{2}-1)=
+x_{1}^{2}(x_{1}-1)(x_{1}+1)
+\end{equation*}
+Z powyższego równania od razu widać, że powyższy warunek jest spełniony dla \( x \in [-1, 1] \) oraz dla dowolnego \( x_{2} \). Wiadomo więc, że funkcjonał ten jest funkcjonałem Lapunowa badanego systemu. \\
+Korzystając z twierdzenia Lapunowa można teraz określić stabilność tego punktu równowagi. Przed przystąpieniem do wyznaczania stabilności zauważyć należy, że równanie \( \dot{V}(x) = 0 \) jest spełnione dla wszystkich punktów postaci \( (0,x_{2}) \). Nie można zatem na podstawie twierdzenia Lapunowa wnioskować o stabilności asymptotycznej, a jedynie o stabilności, ponieważ nie można znaleźć otoczenia punktu \( (0,0) \) dla którego spełniona byłaby nierówność ostra \( \dot{V}(x) < 0 \) .
+\begin{center}
+\textit{Punkt (0,0) jest stabilnym punktem równowagi systemu, ponieważ w pewnym otoczeniu zera istnieje funkcjonał Lapunowa V(x) i zachodzi tam nierówność słaba \( \dot{V}(x) \leq 0 \), dla każdego x należącego do tego otoczenia i \( x \neq 0 \) } .
+\end{center}
+\subsubsection{Badanie stabilności metodą linearyzacji - porównanie metod}
+Zastosowanie metody linearyzacji pozwoli na porównanie działania obu metod.
+Macierz Jacobiego : 
+\begin{equation*}
+J=\begin{bmatrix}
+-1+3x_{1}^{2} & 1 \\
+-1 & 0 
+\end{bmatrix}
+\end{equation*}
+Dla x = ( 0,0 ) : \\
+\begin{equation*}
+A=\begin{bmatrix}
+-1 & 1 \\
+-1 & 0 
+\end{bmatrix}
+\end{equation*}
+Równanie charakterystyczne: 
+\begin{equation*}
+\det{(\lambda I-A)}=\lambda^{2}+\lambda+1
+\end{equation*}
+Wartości własne:
+\begin{equation*}
+\lambda_{1}=\frac{-1}{2}-\frac{\sqrt{3}i}{2}
+\end{equation*}
+\begin{equation*}
+\lambda_{2}=\frac{-1}{2}+\frac{\sqrt{3}i}{2}
+\end{equation*}
+Części rzeczywiste wszystkich wartości własnych macierzy stanu A liniowego przybliżenia nieliniowego systemu w punkcie równowagi są ujemne więc punkt równowagi nieliniowego systemu jest asymptotycznie stabilny. \\ 
+I metoda Lapunowa dała wiec w tym przypadku inny, dokładniejszy rezultat niż metoda II. 
+\subsubsection{Wyznaczenie obszaru atrakcji przy pomocy twierdzenia LaSalle'a}
+Z punktu 2.1.2 wiadomo, że w przypadku rozważanego funkcjonału spełnione są założenia: 
+\begin{itemize}
+\item \( V : R^{2} \rightarrow R \)
+\item Funkcjonał jest ciągły wraz z pierwszymi pochodnymi cząstkowymi względem \(x_{1}\) oraz \(x_{2}\) w pewnym otoczeniu zerowego punktu równowagi systemu, 
+\item V(0) = 0 oraz V(0) > 0 w pewnym otoczeniu \(\Omega_{1}\) zera, z wyłączeniem zera, 
+\item \( \dot{V}(x) \leq 0 \) w pewnym otoczeniu \( \Omega_{2}\) zera
+\end{itemize}
+Nie można więc zastosować uproszczonej wersji twierdzenia LaSalle'a. Zgodnie z zaleceniem w poleceniu przyjęto, że stała \( l = \frac{1}{2} \). Wyznaczenie zbioru \( Z_{l} \) będącego podzbiorem faktycznego obszaru przyciągania odbywa się przy pomocy rozwiązania nierówności \( V(x) < l \). 
+\begin{equation*}
+Z_{l}: \quad \frac{1}{2}(x_{1}^{2}+x_{2}^{2})<\frac{1}{2}
+\end{equation*}
+\begin{equation*}
+Z_{l}: \quad  x_{1}^{2}+x_{2}^{2}<1
+\end{equation*}
+Zbiór \(Z_{l}\) opisany powyższą nierównością jest kołem bez punktów brzegowych o promieniu 1.
+Następnie poszukiwany jest zbiór E, taki, że : 
+\begin{equation*}
+E = \{ x \in Z_{l} : \dot{V}(x)=\frac{\partial V(x)}{\partial x} f(x) =0 \}
+\end{equation*}
+\begin{equation*}
+x_{1}^{2}(x_{1}-1)(x_{1}+1)=0
+\end{equation*}
+Zauważyć należy, że choć rozwiązaniem powyższego równania są punkty dla których \( x_{1} = 1 \) lub \( x_{1} = -1 \), to nie należą one do zbioru \( Z_{l} \). Dlatego zbiór E to zbiór 
+\begin{equation}
+E = \{ (0,x_{2}), \quad x_{2} \in ( -1 , 1 ) \}
+\end{equation} 
+Zbiór ten to zbiór wszystkich punktów na osi \( x_{2} \), których wartość jest większa od -1 i mniejsza od 1. 
+Kolejną czynnością jest poszukiwanie największego zbioru inwariantnego \( M \subset E \).
+Jeżeli rozważymy niezerowy punkt należący do zbioru \( E \), to na podstawie pierwszego równania systemu na \( \dot{x_{1}}(t) \) otrzymamy, że  \( \dot{x}_{1}(t) \neq 0 \), a więc  \( \dot{x_{1}}(t) \) zmienia się z upływem czasu, co oznacza, trajektoria startująca z tego punktu nie pozostaje w zbiorze \( E \). 
+
+Jedynym punktem należącym do zbioru M jest więc punkt 0. Na podstawie twierdzenia LaSalle'a można więc stwierdzić, że każde rozwiązanie równania systemu startujące z punktu należącego do \( Z_{l} \) dąży do punktu 0 dla \( t \rightarrow \infty \). Przy pomocy twierdzenia LaSalle'a udało się więc pokazać asymptotyczną stabilność zerowego punktu równowagi, czyli własność silniejszą niż udało uzyskać się przy pomocy II metody Lapunowa. 
+\subsubsection{Wyznaczenie obszaru atrakcji przy pomocy eksperymentu}
+W celu eksperymentalnego wyznaczenia obszaru atrakcji zerowego punktu równowagi zbudowano model w programie Matlab, który przedstawia Rysunek \ref{fig:simulink_1}.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.8]{simulink_1.jpg}}
+\centering
+\caption{Model rozważanego systemu}
+\label{fig:simulink_1}
+\end{figure}
+Uzyskany portret fazowy przedstawia Rysunek \ref{fig:lap2_1}. 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.2]{lap2_1.jpg}}
+\caption{Portret fazowy badanego systemu, kolorem zielonym oznaczono granicę wyznaczonej analitycznie estymaty obszaru przyciągania, a kolorem brązowym wyznaczony zbiór E.}
+\label{fig:lap2_1}
+\end{figure}
+\newpage
+Na Rysunku \ref{fig:lap2_2} przedstawiono estymatę rzeczywistego obszaru przyciągania wyznaczonego na podstawie eksperymentu. Na rysunku widać, że obszar wyznaczony analitycznie jest podzbiorem rzeczywistego obszaru przyciągania.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.2]{lap2_2.jpg}}
+\caption{Kolorem pomarańczowym zaznaczono estymatę rzeczywsitego obszaru przyciągania wyznaczonego na podstawie przeprowadzonego eksperymentu}
+\label{fig:lap2_2}
+\end{figure}
+
+\subsection{Zadanie 4.1}
+W zadaniu rozważany jest nieliniowy układ dynamiczny opisany układem równań: 
+\begin{equation*}
+\begin{cases}
+\dot{x_{1}}(t)=-x_{1}(t)+2x_{1}^{2}(t)x_{2}(t) \\
+\dot{x_{2}}(t)=-x_{2}(t)
+\end{cases}
+\end{equation*}
+\newpage
+W zadaniu zostaną wykonane następujące punkty :
+\begin{itemize}
+\item Znalezienie punktów równowagi systemu,
+\item Zbadanie stabilności znalezionych punktów równowagi przy pomocy II metody Lapunowa dla dwóch różnych funkcjonałów podanych w zadaniu, 
+\item Analityczne wyznaczenie obszaru atrakcji punktów równowagi przy pomocy twierdzenia LaSalle'a dla obu funkcjonałów,
+\item Wyznaczenie obszaru atrakcji punktu równowagi przy pomocy eksperymentów numerycznych
+\end{itemize}
+\subsubsection{Wyznaczenie punktów równowagi}
+Wyznaczenie punktów równowagi: \\
+\begin{equation*}
+\begin{cases}
+-x_{2}=0 \\
+-x_{1}+2x_{1}^{2}x_{2}=0
+\end{cases} \implies
+\begin{cases}
+x_{1}=0 \\
+x_{2}=0
+\end{cases}
+\end{equation*}
+Układ ma jeden, zerowy punkt równowagi.
+\subsubsection{Badanie stabilności za pomocą II metody Lapunowa - funkcjonał I}
+Zgodnie z zaleceniem w poleceniu do badania stabilności zostanie wykorzystany funkcjonał postaci:
+\begin{equation*}
+V(x)=\frac{1}{2}x_{1}^{2}+x_{2}^{2}
+\end{equation*}
+Funkcjonał ten spełnia założenia :
+\begin{itemize}
+\item \( V : R^{2} \rightarrow R \)
+\item Funkcjonał jest ciągły wraz z pierwszymi pochodnymi cząstkowymi względem \(x_{1}\) oraz \(x_{2}\) w pewnym otoczeniu zerowego punktu równowagi systemu, 
+\item V(0) = 0 oraz V(x) > 0 w pewnym otoczeniu \(\Omega_{1}\) zera, z wyłączeniem zera 
+\end{itemize}
+Spełnienie tych warunków jest oczywiste dla przyjętego funkcjonału. Aby móc wnioskować o tym czy funkcjonał ten jest funkcjonałem Lapunowa dla badanego systemu, a później o stabilności tego systemu, poza powyższymi warunkami potrzebne jest jeszcze zbadanie znaku wyrażenia \( \dot{V}(x) \). \\ Funkcjonał będzie funkcjonałem Lapunowa badanego systemu jeśli spełniony będzie warunek :
+\begin{itemize}
+\item \( \dot{V}(x)\leq 0 \) w pewnym otoczeniu \( \Omega_{2}\) zera
+\end{itemize} 
+\begin{equation*}
+\dot{V}(x)=
+\begin{bmatrix}
+\frac{\partial V}{\partial x_{1}} \quad
+\frac{\partial V}{\partial x_{2}} 
+\end{bmatrix}
+\begin{bmatrix}
+f_{1}(x) \\
+f_{2}(x)
+\end{bmatrix}=
+\begin{bmatrix}
+x_{1} \quad
+2x_{2}
+\end{bmatrix}
+\begin{bmatrix}
+-x_{1}+2x_{1}^{2}x_{2} \\ 
+-x_{2}
+\end{bmatrix}=
+-x_{1}^{2}+2x_{1}^{3}x_{2}-2x_{2}^{2}
+\end{equation*}
+Z powyższego równania widać, że dla x należących do II lub IV ćwiartki układu współrzędnych (x1,x2) oraz dla punktów leżących na osiach tego układu całe wyrażenie jest ujemne.
+Rozważmy teraz sytuacje w której x należy do I lub III ćwiartki. Rozwiązanie nierówności w tej sytuacji nie jest łatwe dlatego posłużono się szacowaniem rozwiązania. W tym przypadku mamy gwarancję, że wyrażenie \( \frac{1}{x_{1}x_{2}} > 0 \) . Mnożąc przez to wyrażenie obie strony nierówności otrzymamy : 
+\begin{equation*}
+-x_{1}^{2}-2x_{2}^{2}+2x_{1}^{3} x_{2} < 0 
+\end{equation*} 
+\begin{equation*}
+\frac{-x_{1}}{x_{2}}-2\frac{x_{2}}{x_{1}}+2x_{1}^{2} < 0
+\end{equation*}
+\begin{equation*}
+2x_{1}^{2} < 2\frac{x_{2}}{x_{1}}+\frac{x_{1}}{x_{2}}
+\end{equation*}
+Rozważając powyższą nierówność dla liczb \(|x_{1}|<\frac{1}{\sqrt{2}}\) oraz \(|x_{2}|<\frac{1}{\sqrt{2}}\) należących do I lub III ćwiartki układu współrzędnych zauważamy, że nierówność ta jest zawsze spełniona, ponieważ:
+\begin{itemize}
+\item wyrażenie po lewej stronie musi mieć wartość mniejszą od 1, gdyż \(|x_{1}|<\frac{1}{\sqrt{2}}\) , 
+\item w wyrażeniu po prawej stronie mamy dzielenie przez siebie dwóch liczb mniejszych od 1 w wyniku czego jedno z tych dzieleń daje liczbę większą od 1, co gwarantuje, że prawa strona jest większa od lewej, a ponadto wyrażenia po stronie prawej są zawsze dodatnie w rozważanych ćwiartkach układu współrzędnych,
+\item w przypadku gdy x1 = x2 otrzymuje się wartość 3 po prawej stronie, co również spełnia nierówność
+\end{itemize}
+Nierówność wyjściowa jest więc spełniona w I i III ćwiartce w pewnym otoczeniu 0. \\
+Ostatecznie więc nierówność \( -x_{1}^{2}-2x_{2}^{2}+2x_{1}^{3} x_{2} < 0 \) jest spełnialna w każdej z ćwiartek układu w pewnym otoczeniu 0 \( \left( np.  \quad \Omega = \{ (x_{1},x_{2} ) : |x_{1}| < \frac{1}{\sqrt{2}}, \quad |x_{2}| < \frac{1}{\sqrt{2}} \} \right) \) , co dowodzi, że istnieje otoczenie 0 dla którego \( \dot{V}(x) < 0 \), a tym samym badany funkcjonał jest funkcjonałem Lapunowa tego systemu.\\ 
+Stosując teraz twierdzenie Lapunowa do badanego systemu otrzymamy wniosek : 
+\begin{center}
+\textit{Punkt (0,0) jest asymptotycznie stabilnym punktem równowagi systemu, ponieważ w pewnym otoczeniu zera istnieje funkcjonał Lapunowa V(x) i zachodzi tam nierówność silna \( \dot{V}(x)<0\), dla \( x \neq 0 \) . Punkt (0,0) nie jest globalnie asymptotycznie stabilny.} 
+\end{center}
+\subsubsection{Wyznaczenie obszaru atrakcji przy pomocy twierdzenia LaSalle'a - funkcjonał I}
+Z punktu 2.2.2 wiadomo, że w przypadku rozważanego systemu spełnione są założenia: 
+\begin{itemize}
+\item \( V : R^{2} \rightarrow R \)
+\item Funkcjonał jest ciągły wraz z pierwszymi pochodnymi cząstkowymi względem \(x_{1}\) oraz \(x_{2}\) w pewnym otoczeniu zerowego punktu równowagi systemu, 
+\item V(0) = 0 oraz V(0) > 0 w pewnym otoczeniu \(\Omega_{1}\) zera, z wyłączeniem zera, 
+\item \( \dot{V}(x)< 0 \) w pewnym otoczeniu \( \Omega_{2}\) zera
+\end{itemize}
+Można więc zastosować uproszczoną wersję twierdzenia LaSalle'a. Wyznaczenie zbioru dla którego spełnione są założenia twierdzenia zostanie przeprowadzone na podstawie rozważań z punktu 2.1.2, z którego wiadomo, że:
+\begin{itemize}
+\item Dla każdego punktu znajdującego się w II lub IV ćwiartce lub na osiach układu współrzędnych (x1,x2) są spełnione założenia twierdzenia LaSalle'a. 
+\item Założenia twierdzenia LaSalle'a są na pewno spełnione w ćwiartce I i III, o ile \( | x_{1} | < \frac{1}{\sqrt{2}} \) oraz \( | x_{2} | < \frac{1}{\sqrt{2}} \) , gdzie (x1,x2) to punkt z I lub III ćwiartki. 
+\end{itemize}
+Jeżeli zatem znaleziony zostanie zbiór \( Z_{l} \) zawierający się w zbiorze A opisanym warunkami : 
+\begin{equation*}
+A= \{ (x_{1},x_{2}) : \quad |x_{1}|<\frac{1}{\sqrt{2}} \quad , |x_{2}|<\frac{1}{\sqrt{2}} \}
+\end{equation*}
+to wówczas mamy gwarancję, że warunki twierdzenia LaSalle'a są spełnione dla zbioru \( Z_{l} \), ponieważ jest on podzbiorem zbioru dla którego założenia twierdzenia są spełnione. 
+Przyjmując \( l = \frac{1}{4} \) otrzymamy zbiór \( Z_{l} \) : 
+\begin{equation*}
+Z_{l} = \{ (x_{1},x_{2}) : \quad \frac{x_{1}^{2}}{2}+x_{2}^{2} < \frac{1}{4} \}
+\end{equation*}
+Zbiór ten spełnia założenia ponieważ jest podzbiorem zbioru A. Nierówność opisująca zbiór to elipsa, której połowa dłuższej półosi ma długość \( \frac{1}{\sqrt{2}} \) . Nie jest to w tym przypadku maksymalna możliwa wartość \( l \), ponieważ nie udało się rozwiązać w sposób dokładny nierówności \( \dot{V}(x) < 0 \) .
+\subsubsection{Badanie stabilności za pomocą II metody Lapunowa - funkcjonał II}
+Zgodnie z zaleceniem w poleceniu do badania stabilności zostanie wykorzystany funkcjonał postaci:
+\begin{equation*}
+V(x)=\frac{x_{1}^{2}}{1-x_{1}x_{2}}+x_{2}^{2}
+\end{equation*}
+Dziedzina tego funkcjonału : \\
+\( D = \{ (x_{1},x_{2}) \in R^{2} : 1-x_{1}x_{2} \neq 0 \} \) \\
+\( D = \{ (x_{1},x_{2}) \in R^{2} : x_{2} \neq \frac{1}{x_{1}} \} \) 
+\\
+Aby funkcjonał V(x) mógł być funkcjonałem Lapunowa muszą być spełnione założenia : 
+\begin{itemize}
+\item \( V : R^{n} \supset \Omega \rightarrow R \)
+\item Funkcjonał jest ciągły wraz z pierwszymi pochodnymi cząstkowymi względem \(x_{1}\) oraz \(x_{2}\) w pewnym otoczeniu zerowego punktu równowagi systemu, 
+\item V(0) = 0 oraz V(x) > 0 w pewnym otoczeniu \(\Omega_{1}\) zera, z wyłączeniem zera 
+\end{itemize}
+Założenie \( V(x)>0 \) można łatwo uzasadnić rozważając wartość wyrażenia \( -x_{1}x_{2} \). Wyrażenie to:
+\begin{itemize}
+\item Dla \(x_{1}, x_{2} \) należących do II lub IV ćwiartki ma wartość dodatnią więc V(x) ma wartość dodatnią,
+\item Dla \(x_{1}, x_{2} \) leżących na osiach układu współrzędnych ma wartość zerową więc V(x) ma wartość dodatnią,
+\item dla \(x_{1}, x_{2} \) należących do I lub III ćwiartki ma wartość ujemną, V(x) pozostanie dodatnie o ile spełnione będą warunki \(x_{2}<\frac{1}{x_{1}} \) w pierwszej ćwiartce oraz \(x_{2}>\frac{1}{x_{1}}\) w III ćwiartce. Warunki te wynikają z nierówności stanowiącej o tym, że mianownik pierwszego składnika V(x) ma być dodatni  
+\end{itemize}
+Dla spełnienia wszystkich założeń ograniczamy zbiór dziedziny do zbioru \( \Omega \): \\
+\( \Omega = \{ (x_{1},x_{2}): x_{2} \leq \frac{1}{x_{1}} \) dla \( x \in II,III \), \( x_{2}>\frac{1}{x_{1}} \) dla \( x \in I,IV \} \)
+Graficznie zbiór \( \Omega \) jest zaznaczony na Rysunku \ref{fig:lap2_3}.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.8]{lap2_3.jpg}}
+\centering
+\caption{Zbiór \( \Omega \) - bez czerwonych linii funkcji \(x_{2}=\frac{1}{x_{1}} \) }
+\label{fig:lap2_3}
+\end{figure}
+Aby móc wnioskować o tym czy funkcjonał ten jest funkcjonałem Lapunowa dla badanego systemu, a później o stabilności tego systemu, poza powyższymi warunkami potrzebne jest jeszcze zbadanie znaku wyrażenia \( \dot{V}(x) \). \\ Funkcjonał będzie funkcjonałem Lapunowa badanego systemu jeśli spełniony będzie warunek :
+\begin{itemize}
+\item \( \dot{V}(x)\leq 0 \) w pewnym otoczeniu \( \Omega_{2}\) zera
+\end{itemize} 
+\begin{equation*}
+\dot{V}(x)=
+\begin{bmatrix}
+\frac{\partial V}{\partial x_{1}} \quad
+\frac{\partial V}{\partial x_{2}} 
+\end{bmatrix}
+\begin{bmatrix}
+f_{1}(x) \\
+f_{2}(x)
+\end{bmatrix}=
+\begin{bmatrix}
+\frac{2x_{1}-x_{1}^{2}x_{2}}{(1-x_{1}x_{2})^{2}} \quad
+\frac{x_{1}^{3}}{(1-x_{1}x_{2})^{2}}+2x_{2}
+\end{bmatrix}
+\begin{bmatrix}
+-x_{1}+2x_{1}^{2}x_{2} \\ 
+-x_{2}
+\end{bmatrix}=
+\end{equation*}
+\begin{equation*}
+\frac{(2x_{1}-x_{1}^{2}x_{2})(-x_{1}+2x_{1}^{2}x_{2})}{(1-x_{1}x_{2})^{2}}+\frac{-x_{1}^{3}x_{2}}{(1-x_{1}x_{2})^{2}}-2x_{2}^{2}=
+\end{equation*}
+\begin{equation*}
+\frac{-2x_{1}^{4}x_{2}^{2}-2x_{2}^{2}x_{2}^{4}+4x_{1}x_{2}^{3}+4x_{1}^{3}x_{2}-2x_{1}^{2}-2x_{2}^{2}}{(1-x_{1}x_{2})^{2}}=
+\end{equation*}
+\begin{equation*}
+2\frac{-x_{1}^{4}x_{2}^{2}-x_{2}^{2}x_{2}^{4}+2x_{1}x_{2}^{3}+2x_{1}^{3}x_{2}-x_{1}^{2}-x_{2}^{2}}{(1-x_{1}x_{2})^{2}}=
+\end{equation*}
+\begin{equation*}
+2\frac{ -x_{1}^{4}x_{2}^{2}-x_{2}^{2}x_{2}^{4}  +  2x_{1}x_{2}(x_{2}^{2}+x_{1}^{2}) - (x_{1}^{2}+x_{2}^{2})}{(1-x_{1}x_{2})^{2}}=
+\end{equation*}
+\begin{equation*}
+2\frac{ -x_{1}^{2}x_{2}^{2}(x_{1}^{2}+x_{2}^{2})  +  2x_{1}x_{2}(x_{2}^{2}+x_{1}^{2}) - (x_{1}^{2}+x_{2}^{2})}{(1-x_{1}x_{2})^{2}}=
+\end{equation*}
+\begin{equation*}
+2\frac{(x_{1}^{2}+x_{2}^{2}) (-x_{1}^{2}x_{2}^{2}  +  2x_{1}x_{2} - 1 )}{(1-x_{1}x_{2})^{2}}=
+\end{equation*}
+\begin{equation*}
+-2\frac{(x_{1}^{2}+x_{2}^{2})(1-x_{1}x_{2})^{2}}{(1-x_{1}x_{2})^{2}}=
+\end{equation*}
+\begin{equation*}
+-2(x_{1}^{2}+x_{2}^{2}) \leq 0 \quad \forall x \in \Omega
+\end{equation*}
+Z powyższego równania widać, że dla dowolnych x \( \in \Omega \) różnych od 0 wyrażenie \(\dot{V}(x)\) ma wartość ujemną, a zatem badany funkcjonał jest funkcjonałem Lapunowa tego systemu.\\ 
+Stosując teraz twierdzenie Lapunowa do badanego systemu otrzymamy wniosek : 
+\begin{center}
+\textit{Punkt (0,0) jest asymptotycznie stabilnym punktem równowagi systemu, ponieważ w pewnym otoczeniu zera istnieje funkcjonał Lapunowa V(x) i zachodzi tam nierówność silna \( \dot{V}(x)<0\), dla \( x \neq 0 \) . Punkt (0,0) nie jest globalnie asymptotycznie stabilny, ponieważ rozważania są ograniczone do podzbioru \( R^{n} \)} 
+\end{center}
+\subsubsection{Wyznaczenie obszaru atrakcji przy pomocy zmodyfikowanego twierdzenia LaSalle'a - funkcjonał II}
+Z punktu 2.2.4 wiadomo, że w przypadku rozważanego systemu spełnione są założenia: 
+\begin{itemize}
+\item \( R^{n} \supset \Omega \rightarrow R \)
+\item Funkcjonał jest ciągły wraz z pierwszymi pochodnymi cząstkowymi względem \(x_{1}\) oraz \(x_{2}\) w pewnym otoczeniu zerowego punktu równowagi systemu, 
+\item V(0) = 0 oraz V(0) > 0 w pewnym otoczeniu \(\Omega_{1}\) zera, z wyłączeniem zera, 
+\item \( \dot{V}(x)< 0 \) w pewnym otoczeniu \( \Omega_{2}\) zera
+\end{itemize}
+Zbiór \( \Omega \) został wyznaczony w poprzednim punkcie. W tym przypadku konieczne jest zastosowanie zmodyfikowanego twierdzenia LaSalle'a, ponieważ \( \Omega \neq R^{n} \). Poszukiwany zbiór \( Z_{l} \) nie może mieć punktów wspólnych z wyznaczonym zbiorem \( \Omega \). \\
+\( \partial Z_{l} \cap \partial \Omega = \emptyset \) . 
+Z poprzedniego punktu wiadomo, że w zbiorze \( \Omega \) dla dowolnego \( x \in \Omega \) są spełnione warunki 
+\begin{itemize}
+\item \( V(x)>0 \)
+\item \( \dot{V}(x) < 0 \)
+\end{itemize}
+Wynika stąd, że ograniczając rozważania do tego zbioru można przyjąć dowolnie duże \( l \), a rozwiązania nierówności \( V(x) < l \) należące do zbioru \( \Omega \) będą spełniać powyższe warunki. 
+Pozostaje sprawdzić czy zbiory \( \Omega \) oraz \( Z_{l} \) mogą mieć punkty wspólne, a tym samym czy \( Z_{l} \) zawiera się w \( \Omega \).
+Zbiór \( Z_{l} \) dla dowolnie dużego \( l \) jest ograniczany przez poziomice opisaną równaniem :
+\begin{equation*}
+\frac{x_{1}^{2}}{1-x_{1}x_{2}}+x_{2}^{2}=l
+\end{equation*}
+Poszukujemy punktów wspólnych tej poziomicy oraz brzegu zbioru \( \Omega \) : 
+\begin{equation*}
+\begin{cases}
+\frac{x_{1}^{2}}{1-x_{1}x_{2}}+x_{2}^{2}=l \\
+x_{2}=\frac{1}{x_{1}}
+\end{cases}
+\end{equation*}
+Po podstawieniu drugiego z równań do pierwszego otrzymamy sprzeczność, dla dowolnego \( l \), co dowodzi, że brzegi zbiorów nie mają punktów wspólnych.
+Zatem zbiór \( Z_{l} \) opisany warunkami : 
+\begin{equation*}
+Z_{l}= \{ (x_{1},x_{2}) \in \Omega : \frac{x_{1}^{2}}{1-x_{1}x_{2}}+x_{2}^{2}<l \}
+\end{equation*}
+dla dowolnie dużego \(l\) jest estymatą obszaru atrakcji badanego systemu wyznaczoną analitycznie. 
+\subsubsection{Wyznaczenie obszaru atrakcji przy pomocy eksperymentu}
+W celu eksperymentalnego wyznaczenia obszaru atrakcji zerowego punktu równowagi zbudowano model w programie Matlab, który przedstawia Rysunek \ref{fig:simulink_2}
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.8]{simulink_2.jpg}}
+\centering
+\caption{Model rozważanego systemu}
+\label{fig:simulink_2}
+\end{figure}
+Na Rysunku \ref{fig:lap2_4} przedstawiono zachowanie systemu nieliniowego w pewnym otoczeniu punktu równowagi. Czerwonym kolorem zaznaczono brzeg obszaru \( \Omega \). 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.8]{lap2_4.jpg}}
+\caption{Portret fazowy rozważanego systemu, kolor czerwony to brzeg zbioru \( \Omega \).}
+\label{fig:lap2_4}
+\end{figure}
+\newpage
+Na Rysunku \ref{fig:lap2_4_kopia} przedstawiono ten sam portret z zaznaczonymi wyznaczonymi analitycznie obszarami przyciągania dla obu użytych funkcjonałów. Czerwonym kolorem zaznaczono brzeg obszaru \( \Omega \). Wnętrze obszaru zielonego to zbiór \(Z_{l}\) wyznaczony dla funkcjonału numer I, wnętrze obszaru pomarańczowego to zbiór \(Z_{l}\) wyznaczony dla funkcjonału numer II.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.2]{lap2_4_kopia.jpg}}
+\caption{Portret fazowy rozważanego systemu, kolor czerwony to brzeg zbioru \( \Omega \), wnętrze obszaru zielonego to zbiór \(Z_{l}\) wyznaczony dla funkcjonału numer I, wnętrze obszaru pomarańczowego to zbiór \(Z_{l}\) wyznaczony dla funkcjonały numer II ).}
+\label{fig:lap2_4_kopia}
+\end{figure}
+
+
+\section{Wnioski końcowe}
+Badanie systemów nieliniowych przy użyciu I metody Lapunowa jest łatwe, ale metodę tą można stosować tylko w określonych przypadkach. Nie można z niej korzystać gdy system liniowy nie poddaje się linearyzacji lub wśród wartości własnych macierzy stanu systemu zlinearyzowanego jest przynajmniej jedna o zerowej części rzeczywistej, a pozostałe mają części rzeczywiste ujemne. Oprócz tego wadą tej metody jest też to, że nie daje informacji o obszarze przyciągania. 
+
+Gdy nie można stosować I metody Lapunowa, często rozwiązaniem problemu jest zastosowanie II metody Lapunowa. Zaletą tej metody jest to, że może być stosowana w większej liczbie przypadków niż metoda pierwsza. Ponadto przy jej pomocy można wyznaczyć przybliżenie obszaru przyciągania. Wadą tej metody jest konieczność poszukiwania odpowiedniego funkcjonału oraz rozwiązywanie nierówności. Stosowanie tej metody jest w związku z tym często trudniejsze niż stosowanie metody pierwszej.
+
+Przeprowadzone eksperymenty i obliczenia pokazały, że dla różnych funkcjonałów stopień skomplikowania obliczeń może być różny, a także różne mogą być rezultaty stosowania metody LaSalle'a. Dla stosowanych funkcjonałów należy zawsze pamiętać o spełnieniu przez funkcjonały odpowiednich założeń.
+\end{document}

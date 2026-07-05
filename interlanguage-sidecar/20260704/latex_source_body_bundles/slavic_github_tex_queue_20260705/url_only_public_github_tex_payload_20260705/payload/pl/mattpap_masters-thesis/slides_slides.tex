@@ -1,0 +1,705 @@
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[OT4]{fontenc}
+
+\setbeamertemplate{navigation symbols}{}
+
+\usetheme[lang=pl,pasek=pasek2]{pwr}
+
+\usepackage{ragged2e}
+\usepackage{hyphenat}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{multibib}
+
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{highlight/axiomhighlight}
+\usepackage{highlight/maximahighlight}
+\usepackage{highlight/pythonhighlight}
+\usepackage{highlight/mathematicahighlight}
+
+\newcites{gcd,factor,groebner,books,manuals}{GCD,Factor,Groebner,Books,Manuals}
+
+\title{
+    Design and implementation issues \linebreak
+    of a computer algebra system \linebreak
+    in an interpreted, dynamically typed \linebreak
+    programming language
+}
+
+\author{Mateusz Paprocki \texttt{<mattpap@gmail.com>}}
+\institute[PWR]{Wrocław University of Technology}
+\date{\today}
+
+\newenvironment{jblock}[1]{
+    \begin{block}{#1}\justifying\nohyphens
+}{
+    \end{block}
+}
+
+\setbeamercovered{transparent}
+
+\begin{document}
+
+\begin{frame}[plain,t]
+    \maketitle
+\end{frame}
+
+\begin{frame}
+    \frametitle{Wprowadzenie}
+    \framesubtitle{}
+
+    \begin{center}
+        \structure{Design} and \structure{implementation} issues \linebreak
+        of a \structure{computer algebra system} \linebreak
+        in an \structure{interpreted}, dynamically typed \linebreak
+        programming language
+    \end{center}
+
+    \begin{itemize}
+        \item promotor: \structure{dr inż. Krzysztof Juszczyszyn}
+        \item język realizacji pracy: \structure{angielski}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Plan prezentacji}
+    \framesubtitle{Czyli jak spędzimy kolejne 30+ minut}
+
+    \begin{itemize}
+        \item Przykład motywacyjny
+        \item Wprowadzenie do SymPy
+        \item Cele pracy dyplomowej
+        \item Zadania do realizacji
+        \item Przegląd literatury
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{$k$--kolorowanie grafów metodami algebraicznymi}
+
+    \begin{columns}
+        \begin{column}[l]{0.5\textwidth}
+            Dany jest graf $G(V,E)$:
+                \begin{itemize}
+                    \item $V$ --- $\{ 1, \ldots, 12 \}$
+                    \item $E$ --- zbiór krawędzi
+                \end{itemize}
+            \pause
+            Pytanie:
+            \begin{itemize}
+                \item Czy da się pokolorować $G$ \structure{trzema} kolorami?
+                \pause
+                \item A może wystarczy \structure{dwoma}?
+            \end{itemize}
+        \end{column}
+        \begin{column}[r]{0.4\textwidth}
+            \onslide<1->
+            \begin{center}
+                \input{content/graph-nocolor.tex}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Jedno z dopuszczalnych 3--kolorowań grafu $G$}
+
+    \begin{columns}
+        \begin{column}[l]{0.5\textwidth}
+            Odpowiedź:
+                \begin{itemize}
+                    \item Wystarczą \structure{trzy} kolory \newline aby pokolorować graf $G$.
+                \end{itemize}
+            \onslide<2->{
+                Pytanie:
+                    \begin{itemize}
+                        \item Jak kolorować grafy \structure{systematycznie}?
+                    \end{itemize}
+            }
+        \end{column}
+        \begin{column}[r]{0.4\textwidth}
+            \begin{center}
+                \input{content/graph-color.tex}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Formalny opis problemu $k$--kolorowania grafów}
+
+    Graf $G(V, E)$ opisujemy układem równań algebraicznych:
+    \begin{equation*}
+        I_{G,k} = I_k + I_G
+    \end{equation*}
+    gdzie
+    \pause
+    \begin{itemize}
+        \item $I_k$ opisuje przypisanie kolorów do wierzchołków
+            \begin{equation*}
+                I_k = \{ x_i^k - 1 : i \in V \}
+            \end{equation*}
+            \pause
+        \item $I_G$ opisuje warunek dopuszczalności kolorowania
+            \begin{equation*}
+                I_G = \{ x_{i}^{k-1} + x_{i}^{k-2} x_{j} + \ldots + x_{i} x_{j}^{k-2} + x_{j}^{k-1} : (i, j) \in E \}
+            \end{equation*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Rozwiązanie problemu $k$--kolorowania grafów}
+
+    Układ $I_{G,k}$ sprowadzamy do postaci bazy Gr\"{o}bnera:
+    \begin{equation*}
+        I_{G,k} \rightarrow GB(I_{G,k})
+    \end{equation*}
+    \pause
+    Baza Gr\"{o}bnera dla $I_{G,k}$ ma użyteczne własności:
+    \begin{itemize}
+        \item jeśli $GB(I_{G,k}) = \{1\}$ to $G$ nie da się pokolorować $k$ kolorami
+        \pause
+        \item w przeciwnym wypadku otrzymujemy nowy układ równań, z którego można wyczytać
+        \structure{jak} należy kolorować graf $G(V, E)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Formalny opis dla grafu $G(V,E)$ z $k=3$}
+
+    Konstruujemy układ $I_{G,3}$ złożony z $12 + 23$ równań:
+    \begin{itemize}
+        \item zbiór równań $I_3$ ma postać
+            \begin{equation*}
+                I_3 = \{ x_i^3 - 1 : i \in V \}
+            \end{equation*}
+            \pause
+        \item zbiór równań $I_G$ ma postać
+            \begin{equation*}
+                I_G = \{ x_i^2 + x_i x_j + x_j^2 : (i,j) \in E \}
+            \end{equation*}
+    \end{itemize}
+    \pause
+    Następnie wyznaczamy bazę Gr\"{o}bnera dla $I_{G,3}$, np. algorytmem
+    Buchbergera, \structure{\ldots} (to może nie być takie łatwe)
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Baza Gr\"{o}bnera dla $I_{G,3}$}
+
+    \begin{columns}
+        \begin{column}[l]{0.4\textwidth}
+            \scriptsize
+            \begin{align*}
+                GB(I_{G,3}) =
+                \{& \structure{x_{1}} + x_{11} + x_{12},              \\
+                  & \structure{x_{2}} - x_{11},                       \\
+                  & \structure{x_{3}} - x_{12},                       \\
+                  & \structure{x_{4}} - x_{12},                       \\
+                  & \structure{x_{5}} + x_{11} + x_{12},              \\
+                  & \structure{x_{6}} - x_{11},                       \\
+                  & \structure{x_{7}} - x_{12},                       \\
+                  & \structure{x_{8}} + x_{11} + x_{12},              \\
+                  & \structure{x_{9}} - x_{11},                       \\
+                  & \structure{x_{10}} + x_{11} + x_{12},             \\
+                  & \structure{x_{11}}^2 + x_{11} x_{12} + x_{12}^2,  \\
+                  & \structure{x_{12}}^3 - 1 \}
+            \end{align*}
+        \end{column}
+        \begin{column}[r]{0.4\textwidth}
+            \begin{center}
+                \input{content/graph-color.tex}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Czy da się ten proces zautomatyzować?}
+
+    Ależ oczywiście! Wystarczy, że zaimplementujemy:
+    \begin{itemize}
+        \item arytmetykę i algebrę wielomianów
+        \item algorytm Buchbergera (albo F4, F5)
+    \end{itemize}
+    \pause
+    A może da się prościej? \newline
+    \pause
+    Dostępnych jest przecież wiele systemów matematycznych:
+    \pause
+    \begin{itemize}
+        \item systemy \structure{zamknięte}:
+            \begin{itemize}
+                \item Mathematica, Maple, Magma, \ldots
+            \end{itemize}
+            \pause
+        \item systemy \structure{otwarte}:
+            \begin{itemize}
+                \item AXIOM, GiNaC, Maxima, PARI, Sage, Singular, Yacas, \ldots
+            \end{itemize}
+    \end{itemize}
+    \pause
+    Zobaczmy jak to będzie wyglądało \structure{\ldots}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Kolorowanie grafów w systemie Mathematica}
+
+    \input{content/example-mathematica.tex}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Kolorowanie grafów w systemie Maxima}
+
+    \input{content/example-maxima.tex}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Kolorowanie grafów w systemie AXIOM}
+
+    \input{content/example-axiom.tex}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład motywacyjny}
+    \framesubtitle{Jakie problemy można dostrzec?}
+
+    Patrząc na sam kod źródłowy przykładów można zauważyć, że:
+    \begin{itemize}
+        \item systemy \structure{wprowadzają} własny język programowania
+            \begin{itemize}
+                \item należy się taki język nauczyć od podstaw
+                \item często jest to dosyć trudne
+                \item marnujemy cenny czas
+            \end{itemize}
+            \pause
+        \item \structure{wyjątki:} GiNaC i Sage, ale \structure{\ldots}
+    \end{itemize}
+    \pause
+    Są też inne problemy:
+    \begin{itemize}
+        \item wyłącznie systemy \structure{kompilowane}
+        \item występuje podział na:
+            \begin{itemize}
+                \item \structure{hermetyczne} i niedostępne jądro systemu
+                \item biblioteki pisane w języku danego systemu
+            \end{itemize}
+        \item \structure{\ldots}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Jakie rozwiązanie można zaproponować?}
+    \framesubtitle{Użyjmy język prosty i dobrze znany \ldots}
+
+    \input{content/example-sympy.tex}
+\end{frame}
+
+\begin{frame}
+    \frametitle{To jest właśnie SymPy}
+    \framesubtitle{Czyli właściwie co?}
+
+    SymPy jest to \structure{biblioteka} pisana w \structure{Pythonie} do wykonywania:
+    \begin{itemize}
+        \pause
+        \item obliczeń symbolicznych
+            \begin{itemize}
+                \item np. wyznaczanie całek, sum, granic
+            \end{itemize}
+        \pause
+        \item \structure<5->{obliczeń algebraicznych}
+            \begin{itemize}
+                \item np. faktoryzacja wielomianów
+            \end{itemize}
+        \pause
+        \item obliczeń numerycznych
+            \begin{itemize}
+                \item np. rozwiązywanie równań nieliniowych
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Co chcemy osiągnąć?}
+    \framesubtitle{Po części co już osiągnęliśmy \ldots}
+
+    \begin{itemize}
+        \item biblioteka pisana w Pythonie
+            \begin{itemize}
+                \item bez nowego środowiska, języka, \ldots
+                \item działa od razu na dowolnej platformie
+                \item moduły nie--Pythonowe mogą być opcjonalne
+            \end{itemize}
+            \pause
+        \item prostota architektury
+            \begin{itemize}
+                \item relatywnie mała baza kodu źródłowego
+                \item łatwość w rozbudowie na dowolnym poziomie
+            \end{itemize}
+            \pause
+        \item szeroka funkcjonalność
+            \begin{itemize}
+                \item obsługa najważniejszych działów matematyki
+                \item wspieranie zaawansowanych metod i algorytmów
+            \end{itemize}
+            \pause
+        \item optymalizacja wydajności Cythonem
+            \begin{itemize}
+                \item opcjonalnie, jako dodatek do wersji interpretowanej
+            \end{itemize}
+            \pause
+        \item liberalna licencja: BSD
+            \begin{itemize}
+                \item duża swoboda w użytkowaniu SymPy
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Moja rola w projekcie}
+    \framesubtitle{Czyli odrobina historii z moim udziałem}
+
+    \begin{itemize}
+        \item początek współpracy w marcu 2007 roku
+            \begin{itemize}
+                \item kilka prostych poprawek i rozszerzeń
+            \end{itemize}
+            \pause
+        \item następnie Google Summer of Code 2007
+            \begin{itemize}
+                \item algorytmy rozwiązywania równań rekurencyjnych
+                \item algorytmy sumowania nieznaczonego i oznaczonego
+            \end{itemize}
+            \pause
+        \item no i tak już zostało:
+            \begin{itemize}
+                \item algorytmy całkowania symbolicznego
+                \item struktury algebraiczne, wielomiany
+                \item upraszczanie wyrażeń, \ldots
+            \end{itemize}
+            \pause
+        \item poza tym:
+            \begin{itemize}
+                \item GSoC 2009 mentor (Portland State University)
+                \item prezentacja i krótki tutorial na EuroSciPy '09
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Cele pracy dyplomowej}
+    \framesubtitle{Czyli co chciałbym osiągnąć}
+
+    Zbudować moduł \structure{algebry komputerowej} dla SymPy:
+    \begin{itemize}
+        \item zgodnie z wymienionymi postulatami SymPy
+        \pause
+        \item wprowadzenie architektury wielowarstowej
+        \pause
+        \item wykorzystanie \structure{pure mode} Cython
+        \pause
+        \item $>99\%$ pokrycia kodu testami
+        \pause
+        \item \ldots
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zadania do realizacji}
+    \framesubtitle{Obsługa następujących dziedzin współczynników}
+
+    \begin{columns}
+        \begin{column}[l]{0.5\textwidth}
+            \begin{itemize}
+                \item ciała skończone $\mathbb{F}_q$
+                \item liczby całkowite $\mathbb{Z}$
+                \item liczby wymierne $\mathbb{Q}$
+                \item liczby ``rzeczywiste'' $\mathbb{R}$
+                    \begin{itemize}
+                        \item maszynowej precyzji
+                        \item dowolnej precyzji
+                    \end{itemize}
+                \item liczby ``zespolone'' $\mathbb{C}$
+                    \begin{itemize}
+                        \item maszynowej precyzji
+                        \item dowolnej precyzji
+                    \end{itemize}
+                \item liczby Gaussa
+                    \begin{itemize}
+                        \item liczby całkowite $\mathbb{Z}[\mathfrak{i}]$
+                        \item liczby wymierne $\mathbb{Q}(\mathfrak{i})$
+                    \end{itemize}
+            \end{itemize}
+        \end{column}
+        \begin{column}[r]{0.5\textwidth}
+            \begin{itemize}
+                \item pierścienie wielomianów
+                    \begin{itemize}
+                        \item $\mathbb{Z}[x_1,\ldots,x_n]$
+                        \item $\mathbb{Q}[x_1,\ldots,x_n]$
+                    \end{itemize}
+                \item ciała funkcji wymiernych
+                    \begin{itemize}
+                        \item $\mathbb{Z}(x_1,\ldots,x_n)$
+                        \item $\mathbb{Q}(x_1,\ldots,x_n)$
+                    \end{itemize}
+                \item ciała liczb algebraicznych
+                    \begin{itemize}
+                        \item $\mathbb{Q}(\alpha_1,\ldots,\alpha_n)$
+                    \end{itemize}
+                \item kwaterniony, \ldots
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zadania do realizacji}
+    \framesubtitle{Obsługa różnych typów danych do reprezentacji współczynników}
+
+    \begin{itemize}
+        \item liczby całkowite $\mathbb{Z}$
+            \begin{itemize}
+                \item Python --- \texttt{int}
+                \item SymPy --- \texttt{Integer}
+                \item GMPY  --- \texttt{mpz}
+                \item \ldots
+            \end{itemize}
+        \pause
+        \item liczby wymierne $\mathbb{Q}$
+            \begin{itemize}
+                \item Python --- \texttt{Fraction}
+                \item SymPy --- \texttt{Rational}
+                \item GMPY  --- \texttt{mpq}
+                \item \ldots
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zadania do realizacji}
+    \framesubtitle{Przegląd i implementacja struktur danych}
+
+    \begin{itemize}
+        \item wielomiany jednej zmiennej
+            \begin{itemize}
+                \item reprezentacja gęsta --- \structure{lista}
+                    \begin{equation*}
+                        [c_n, c_{n-1}, \ldots, c_1, c_0]
+                    \end{equation*}
+                \item reprezentacja rzadka --- \structure{słownik}
+                    \begin{equation*}
+                        \{k_n: c_n, k_{n-1}: c_{n-1}, \ldots, k_0: c_0\}
+                    \end{equation*}
+            \end{itemize}
+        \pause
+        \item wielomiany wielu zmiennych
+            \begin{itemize}
+                \item reprezentacja rekurencyjna gęsta --- \structure{lista list}
+                \item reprezentacja rekurencyjna rzadka --- \structure{słownik słowników}
+                \item reprezentacja \structure{rozproszona}
+                    \begin{equation*}
+                        [(M_n, c_n), (M_{n-1}, c_{n-1}) \ldots, (M_0, c_0)]_{ord}
+                    \end{equation*}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zadania do realizacji}
+    \framesubtitle{Przegląd i implementacja algorytmów}
+
+    \begin{itemize}
+        \item algorytmy podstawowe
+            \begin{itemize}
+                \item arytmetyka: $+, -, *, **$
+                \item dzielenie tradycyjne
+                \item pseudo dzielenie
+            \end{itemize}
+        \pause
+        \item algorytmy zaawansowane
+            \begin{itemize}
+                \item gcd, lcm, gcdex
+                \item rozkład bez kwadratowy
+                \item faktoryzacja, dekompozycja
+                \item bazy Gr\"{o}bnera
+                \item subresultants, resultant, discriminant
+                \item sekwencje ilorazowe (np. Sturm)
+                \item izolacja pierwiastków
+                \item wyznaczanie pierwiastków
+                \item \ldots
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zadania do realizacji}
+    \framesubtitle{Wybór odpowiednich algorytmów nie jest prostym zadaniem}
+
+    Algorytmy faktoryzacji wielomianów:
+    \begin{itemize}
+        \item wielomiany jednej zmiennej
+            \begin{itemize}
+                \item nad ciałami skończonymi
+                    \begin{itemize}
+                        \item Berlekamp, Cantor--Zassenhaus, Shoup--Kaltofen
+                    \end{itemize}
+                \item nad liczbami wymiernymi
+                    \begin{itemize}
+                        \item Kronecker, Zassenhaus, Lenstra--Lov\'{a}sz, van Hoeij
+                    \end{itemize}
+                \item nad liczbami algebraicznymi
+                    \begin{itemize}
+                        \item Trager, Zhi
+                    \end{itemize}
+            \end{itemize}
+        \pause
+        \item wielomiany wielu zmiennych
+            \begin{itemize}
+                \item nad liczbami wymiernymi
+                    \begin{itemize}
+                        \item Kronecker, Musser, Weinberg, Wang, Gao
+                    \end{itemize}
+                \item nad liczbami algebraicznymi
+                    \begin{itemize}
+                        \item Trager, Wang, Zhi
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przegląd literatury}
+    \framesubtitle{Krótkie omówienie najważniejszych źródeł wiedzy}
+
+    \begin{itemize}
+        \item podstawowe pozycje bibliograficzne
+        \pause
+        \item podręczniki systemów matematycznych
+        \pause
+        \item algorytmy i struktury danych:
+            \begin{itemize}
+                \item bazy Gr\"{o}bnera, ideały
+                \item faktoryzacja wielomianów
+                \item GCD wielomianów
+                \item \ldots
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Podstawowe pozycje bibliograficzne}
+    \framesubtitle{Przegląd literatury}
+
+    \nocitebooks{Geddes1992algorithms}
+    \nocitebooks{Gathen1999modern}
+    \nocitebooks{Davenport1988systems}
+
+    \bibliographystylebooks{plain}
+    \bibliographybooks{slides}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Podręczniki systemów matematycznych}
+    \framesubtitle{Przegląd literatury}
+
+    \nocitemanuals{Souza2004book}
+    \nocitemanuals{Daly2003horizon}
+    \nocitemanuals{Wolfram2003book}
+
+    \bibliographystylemanuals{plain}
+    \bibliographymanuals{slides}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Bazy Gr\"{o}bnera, ideały}
+    \framesubtitle{Przegląd literatury}
+
+    \nocitegroebner{Cox1997ideals}
+    \nocitegroebner{Ajwa95groebner}
+    \nocitegroebner{Adams1994intro}
+    \nocitegroebner{Buchberger2001introduction}
+    \nocitegroebner{Giovini1991sugar}
+    \nocitegroebner{Faugere1999f4}
+
+    \nocitegroebner{Faugere2002f5}
+
+    \bibliographystylegroebner{plain}
+    \bibliographygroebner{slides}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Faktoryzacja wielomianów}
+    \framesubtitle{Przegląd literatury}
+
+    \nocitefactor{Kaltofen1983factor}
+    \nocitefactor{Lenstra1982factor}
+
+    \nocitefactor{Trager1976algebraic}
+    \nocitefactor{vanHoeij2002knapsack}
+    \nocitefactor{Abbott2000searching}
+
+    \nocitefactor{Gathen1983polytime}
+    \nocitefactor{Shoup1993reality}
+    \nocitefactor{Gathen1992frobenious}
+    \nocitefactor{Shoup1995factor}
+    \nocitefactor{Kaltofen1995subquadratic}
+
+    \nocitefactor{Musser1975factor}
+    \nocitefactor{Wang1976algebraic}
+    \nocitefactor{Wang1978improved}
+
+    \bibliographystylefactor{plain}
+    \bibliographyfactor{slides}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{GCD wielomianów}
+    \framesubtitle{Przegląd literatury}
+
+    \nocitegcd{Brown1971gcd}
+    \nocitegcd{Moses1973ezgcd}
+    \nocitegcd{Wang1980eezgcd}
+    \nocitegcd{Gianni1985groebner}
+    \nocitegcd{Liao1995heuristic}
+    \nocitegcd{vanHoeij2002modgcd}
+    \nocitegcd{Javadi2007spmod}
+
+    \bibliographystylegcd{plain}
+    \bibliographygcd{slides}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dziękuję za uwagę!}
+    \framesubtitle{Pytania, uwagi, dyskusja \ldots}
+
+    \begin{center}
+        \includegraphics[scale=0.2]{images/sympy-logo.pdf}
+    \end{center}
+\end{frame}
+
+\end{document}
+

@@ -1,0 +1,144 @@
+\setcounter{chapter}{7}
+\chapter[Architektura sieci neuronowej do klasyfikacji figur szachowych {[\textit{Marcin Ziółkowski}]}]{Architektura sieci neuronowej do klasyfikacji figur szachowych}
+
+Współczesne systemy wizyjne opierają swoją skuteczność na splotowych sieciach neuronowych (ang. \textit{Convolutional Neural Networks} – CNN). W przeciwieństwie do klasycznych sieci gęstych (MLP), sieci CNN są zaprojektowane tak, aby wykorzystywać przestrzenną strukturę danych obrazowych poprzez mechanizm współdzielenia wag i lokalnej spójności.
+
+\section{Teoretyczne podstawy działania sieci CNN}
+
+Jak było dokładnie opisane w rozdziale 3, fundamentem działania warstwy konwolucyjnej jest operacja splotu. Polega ona na przesuwaniu małej macierzy wag, zwanej filtrem lub jądrem (ang. \textit{kernel}), nad obrazem wejściowym. Dzięki temu sieć jest w stanie wykrywać wzorce niezależnie od ich położenia w polu widzenia.
+
+\vspace{0.5cm}
+
+Fakty techniczne dotyczące ekstrakcji cech w modelu \texttt{ChessCNN}:
+\begin{itemize}
+    \item \textbf{Hierarchia cech:} Pierwsze warstwy splotowe uczą się rozpoznawać proste krawędzie i kontury symboli na tokenach. Warstwy głębsze identyfikują złożone piktogramy, takie jak charakterystyczne zwieńczenie korony hetmana czy krzywizny piktogramu skoczka.
+    \item \textbf{Inwariantność przestrzenna:} Dzięki zastosowaniu warstw \texttt{MaxPool2d}, sieć staje się odporna na niewielkie przesunięcia tokenu względem środka pola szachownicy.
+    \item \textbf{Normalizacja wsadowa (Batch Normalization):} Stabilizuje proces uczenia poprzez normalizację aktywacji, co zapobiega problemowi zanikającego gradientu i pozwala na stosowanie wyższych współczynników uczenia (\textit{learning rate}). Warstwa ta również została szczegółowo omówiona w rozdziale 3.
+\end{itemize}
+
+\newpage
+
+\section{Szczegółowa architektura ChessCNN}
+
+Model \texttt{ChessCNN} został zaprojektowany z myślą o efektywności obliczeniowej oraz maksymalnym wykorzystaniu lokalnych cech obrazu o niskiej rozdzielczości ($50 \times 50$ pikseli). Architektura opiera się na trzech blokach ekstrakcji cech, z których każdy realizuje specyficzne zadanie w procesie interpretacji piktogramu na tokenie.
+
+
+
+\subsection{Bloki splotowe i ekstrakcja cech}
+
+W modelu zastosowano strukturę podwójnych warstw splotowych przed każdą operacją próbkowania w dół (ang. \textit{downsampling}). Takie podejście, inspirowane architekturą VGG, pozwala na uzyskanie większego pola recepcyjnego przy mniejszej liczbie parametrów w porównaniu do pojedynczych warstw z większymi filtrami (np. $5 \times 5$).
+
+\begin{itemize}
+    \item \textbf{Blok 1 (Niskopoziomowy):} Składa się z dwóch warstw \texttt{Conv2d} po 32 filtry każda. Na tym etapie sieć skupia się na detekcji pierwotnych cech wizualnych, takich jak krawędzie symbolu oraz kontrast między czarnym nadrukiem piktogramu a białym/beżowym tłem tokenu.
+    \item \textbf{Blok 2 (Średniopoziomowy):} Zwiększa liczbę filtrów do 64. Tutaj następuje synteza krawędzi w proste kształty geometryczne – łuki, kąty ostre i przecięcia linii, które zaczynają formować unikalne sygnatury figur (np. ząbkowanie wieży).
+    \item \textbf{Blok 3 (Wysokopoziomowy):} Wykorzystuje 128 filtrów. Reprezentacje stają się tutaj na tyle abstrakcyjne, że pojedyncze mapy cech odpowiadają za detekcję całych komponentów symbolu, takich jak "głowa skoczka" czy "podstawa pionka".
+\end{itemize}
+
+\subsection{Redukcja wymiarowości i Global Average Pooling}
+
+Kluczowym elementem architektury jest przejście z przestrzennych map cech do wektora klasyfikacyjnego. W tradycyjnych podejściach stosowano warstwy \texttt{Flatten} bezpośrednio po ostatnim splocie, co generowało tysiące połączeń i sprawiało, że model był podatny na przeuczenie (ang. \textit{overfitting}). Z tego względu w \texttt{ChessCNN} zastosowano \textit{Global Average Pooling (GAP)}.
+
+
+Global Average Pooling to operacja, która zamiast spłaszczać mapy cech do jednego długiego wektora, oblicza średnią arytmetyczną ze wszystkich pikseli każdej mapy cech z osobna. Jeśli na wyjściu ostatniej warstwy splotowej otrzymujemy 128 map o wymiarach $7 \times 7$, to warstwa GAP zredukuje każdą taką mapę do pojedynczej liczby. 
+
+Matematycznie operację tę dla danej mapy cech $F_k$ o wymiarach $H \times W$ można zapisać jako:
+\begin{equation}
+    GAP(F_k) = \frac{1}{H \times W} \sum_{i=1}^{H} \sum_{j=1}^{W} F_{k}(i, j)
+\end{equation}
+
+Operacja \texttt{AdaptiveAvgPool2d} uśrednia każdą ze 128 map cech do pojedynczej wartości. Ma to trzy główne zalety:
+\begin{enumerate}
+    \item \textbf{Drastyczna redukcja parametrów:} Liczba wag w warstwie klasyfikatora zależy wyłącznie od liczby filtrów w ostatnim bloku (w tym przypadku 128), a nie od rozdzielczości obrazu wejściowego. Dzięki temu model zajmuje znacznie mniej pamięci.
+    \item \textbf{Odporność na przesunięcia (Inwariantność przestrzenna):} Ponieważ uśredniamy całą mapę, nie ma znaczenia, w którym dokładnie miejscu piktogramu sieć wykryła charakterystyczną cechę (np. krzywiznę skoczka). Liczy się jedynie fakt jej wystąpienia w obrębie pola.
+    \item \textbf{Regularność i interpretowalność:} GAP wymusza na warstwach splotowych bycie "detektorami konkretnych obiektów". Każda z 128 wartości w końcowym wektorze bezpośrednio reprezentuje pewność wystąpienia konkretnego wzorca wizualnego w całym obrazie, co naturalnie łączy mapy cech z końcowymi kategoriami figur szachowych.
+\end{enumerate}
+
+\subsection{Klasyfikator i regularyzacja}
+
+Ostatnim etapem jest dwuwarstwowy klasyfikator. Zastosowanie warstwy \texttt{Dropout} z parametrem $0.2$ przed warstwą liniową pełni rolę regularyzatora. 
+
+Podczas treningu losowo wyłączane jest 20\% neuronów, co wymusza na sieci tworzenie redundantnych ścieżek przepływu informacji i zapobiega sytuacji, w której model się przeucza.
+
+Finalna warstwa \texttt{Linear} mapuje 128 cech na 6 klas figur szachowych. W procesie uczenia funkcja \texttt{LogSoftmax} (zaszyta w \texttt{CrossEntropyLoss}) wyznacza rozkład prawdopodobieństwa dla każdej klasy. Należy jednak zaznaczyć, że podczas identyfikacji figur szachowych na szachownicy pomija się obliczanie prawdopodobieństw. Zamiast tego wybierany jest indeks o najwyższej wartości wyjściowej (logit) za pomocą operacji \texttt{argmax}.
+
+\begin{table}[h]
+\centering
+\caption{Podsumowanie przepływu danych przez model ChessCNN}
+\begin{tabular}{|l|c|r|}
+\hline
+\textbf{Warstwa} & \textbf{Rozmiar wyjściowy} & \textbf{Liczba parametrów} \\ \hline
+Wejście (Grayscale) & $30 \times 30 \times 1$ & 0 \\ \hline
+Blok 1 (2x Conv32 + BN) & $15 \times 15 \times 32$ & 9~728 \\ \hline
+Blok 2 (2x Conv64 + BN) & $7 \times 7 \times 64$ & 55~808 \\ \hline
+Blok 3 (2x Conv128 + BN) & $7 \times 7 \times 128$ & 222~208 \\ \hline
+Global Avg Pool (GAP) & $1 \times 1 \times 128$ & 0 \\ \hline
+Linear (Output) & 6 klas & 774 \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Strategia uczenia i obsługa nierównowagi klas}
+
+Jednym z najistotniejszych wyzwań w projektowaniu systemów klasyfikacji obrazów jest nierównowaga klas (ang. \textit{class imbalance}), szczególnie w szachach, gdzie w standardowej partii stosunek liczby pionów do królów wynosi 8:1. 
+
+Bez odpowiedniej strategii, sieć neuronowa dążąc do minimalizacji globalnej funkcji straty, mogłaby popaść w stan "lenistwa statystycznego", klasyfikując większość obiektów jako piony i wciąż osiągając relatywnie wysoką dokładność.
+
+\subsection{Ważona funkcja kosztu Cross-Entropy}
+
+Aby przeciwdziałać temu zjawisku, zastosowano ważoną postać funkcji kosztu \textit{Cross-Entropy}. Matematyczna definicja straty dla pojedynczej próbki $x$ z etykietą $y$ przyjmuje postać:
+
+\begin{equation}
+    L(x, y) = -w_{y} \log\left( \frac{e^{s_y}}{\sum_{j} e^{s_j}} \right)
+\end{equation}
+
+gdzie $s_y$ jest logitem zwróconym przez sieć dla poprawnej klasy, a $w_y$ jest przypisaną jej wagą. Wagi zostały obliczone jako odwrotność częstości występowania danej klasy w zbiorze treningowym:
+
+\begin{lstlisting}[style=codeListingStyle, caption={Implementacja wag klas w procesie treningowym}]
+# Obliczenie liczebnosci klas
+piece_cnt = collections.Counter([s[1] for s in dataset.samples])
+
+# Wyznaczenie wag - im rzadsza klasa, tym wyzsza waga
+piece_weights = 1. / torch.tensor([piece_cnt[p] for p in PIECES], dtype=torch.float32)
+
+# Normalizacja wag (opcjonalna, ale zalecana dla stabilnosci)
+piece_weights = piece_weights / piece_weights.sum() * len(PIECES)
+
+criterion = torch.nn.CrossEntropyLoss(weight=piece_weights.to(device))
+\end{lstlisting}
+
+Dzięki temu zabiegowi, błąd popełniony przy rozpoznawaniu Króla generuje znacznie silniejszy sygnał gradientu niż błąd przy Pionie, co wymusza na optymalizatorze \texttt{AdamW} znalezienie takich wag modelu, które precyzyjnie oddzielają rzadkie klasy od reszty zbioru.
+
+
+Warto podkreślić istotny szczegół implementacyjny: zastosowana w projekcie klasa \texttt{torch.nn.CrossEntropyLoss} w bibliotece PyTorch łączy w sobie operację \texttt{LogSoftmax} oraz \texttt{NLLLoss} (ang. \textit{Negative Log Likelihood Loss}). Z tego powodu architektura \texttt{ChessCNN} nie posiada jawnej warstwy Softmax na wyjściu. Sieć generuje surowe wyniki (logity), które są przekształcane na prawdopodobieństwa przez funkcję kosztu wyłącznie podczas obliczania straty w fazie treningu.
+
+\subsection{Optymalizacja i stabilizacja gradientu}
+
+W procesie uczenia wykorzystano optymalizator \texttt{AdamW} (Adam z poprawionym \textit{Weight Decay}), który łączy zalety adaptacyjnego współczynnika uczenia z poprawną regularyzacją $L_2$. 
+
+\begin{itemize}
+    \item \textbf{Weight Decay ($10^{-2}$):} Zapobiega nadmiernemu wzrostowi wartości wag, co jest kluczowe przy małych zbiorach danych (np. tokeny szachowe), chroniąc model przed overfittingiem.
+    \item \textbf{Cosine Annealing:} Zastosowanie harmonogramu cosinusoidalnego pozwoliło na "łagodne" lądowanie w lokalnym minimum funkcji straty. W początkowych fazach wysoki parametr $LR$ pozwalał na szybką eksplorację przestrzeni wag, natomiast w końcowych fazach (okolice 10-12 epoki) drastyczne zmniejszenie $LR$ pozwoliło na precyzyjne dostrojenie modelu.
+\end{itemize}
+
+
+
+Kombinacja ważonej funkcji kosztu oraz opisywanego harmonogramu uczenia, pozwoliła na uzyskanie modelu, który mimo wrażliwości na cienie i odblaski, wykazuje się wysoką czułością (ang. \textit{recall}) dla wszystkich figur, niezależnie od ich liczebności.
+
+\newpage
+
+\section{Analiza wyników i wrażliwość modelu}
+
+Proces uczenia trwał 15 epok z wykorzystaniem \texttt{CosineAnnealingLR}. Pomimo osiągnięcia wysokiej dokładności w warunkach testowych, model wykazuje wrażliwość na czynniki zewnętrzne charakterystyczne dla fizycznych tokenów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{chapters/chess_identification/images/training_chart.png}
+    \caption[Przebieg funkcji straty oraz dokładności]{Przebieg funkcji straty oraz dokładności. Stabilizacja dzięki harmonogramowi cosinusoidalnemu.}
+\end{figure}
+
+Głównym problemem są cienie i odbicia światła na powierzchni tokenów. Ponieważ model operuje na dwuwymiarowych symbolach, silne odblaski mogą zniekształcić kontury piktogramu, prowadząc do błędnej klasyfikacji (np. mylenia Gońca ze Skoczkiem, jeśli odblask "odcina" fragment piktogramu). Aby zminimalizować ten efekt, w procesie uczenia wykorzystano techniki augmentacji z biblioteki \textit{Albumentations} \cite{Albumentations}, takie jak zmiany jasności, kontrastu oraz dodawanie szumu Gaussa, co ma na celu symulację trudnych warunków oświetleniowych panujących w rzeczywistym środowisku rozgrywki.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{chapters/chess_identification/images/Matrix.png}
+    \caption[Macierz pomyłek modelu ChessCNN]{Macierz pomyłek modelu ChessCNN. Widoczne skupienie najwyższych wartości na przekątnej.}
+\end{figure}

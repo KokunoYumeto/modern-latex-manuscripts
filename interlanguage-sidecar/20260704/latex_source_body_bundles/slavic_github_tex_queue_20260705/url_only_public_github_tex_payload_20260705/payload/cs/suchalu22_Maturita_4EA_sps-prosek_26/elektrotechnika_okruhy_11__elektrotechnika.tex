@@ -1,0 +1,222 @@
+% ============================================================
+%  Příprava na maturitu – Elektrotechnika
+%  Okruh 11: Pasivní elektronické součástky
+% ============================================================
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.0cm, right=1.8cm, top=1.8cm, bottom=1.8cm]{geometry}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{circuitikz}
+
+\usetikzlibrary{arrows.meta, positioning, decorations.pathmorphing, shapes.geometric, calc}
+
+% --- Barvy ---
+\definecolor{accent}{HTML}{1A3A5C}
+\definecolor{lightblue}{HTML}{EAF2F8}
+\definecolor{lightyellow}{HTML}{FDFBE4}
+\definecolor{lightgreen}{HTML}{EAF7EA}
+\definecolor{lightred}{HTML}{FDE8E8}
+\definecolor{lightgray}{HTML}{F4F4F4}
+
+% --- Boxy ---
+\newmdenv[backgroundcolor=lightblue,linecolor=accent!40,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{pojmybox}
+\newmdenv[backgroundcolor=lightyellow,linecolor=accent!30,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{vysvetlenibox}
+\newmdenv[backgroundcolor=lightgreen,linecolor=accent!40,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{vzorcebox}
+\newmdenv[backgroundcolor=lightred,linecolor=accent!30,roundcorner=4pt,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,innerrightmargin=8pt]{durazbox}
+
+\setlist[itemize]{noitemsep, leftmargin=1.4em, topsep=2pt}
+\setlist[enumerate]{noitemsep, leftmargin=1.4em, topsep=2pt}
+
+% --- Zkratka pro jednotky ---
+\newcommand{\jednotka}[1]{\,[\mathrm{#1}]}
+
+\begin{document}
+
+% ============================================================
+\section*{\large Okruh 11 – Pasivní elektronické součástky}
+
+\begin{pojmybox}
+\textbf{Klíčové pojmy:}
+pasivní vs. aktivní součástka, rezistor, termistor (NTC/PTC), varistor (VDR), barevný kód, kondenzátor, elektrolytický kondenzátor, cívka, frekvenční filtry (LP, HP, BP, BS), propust, zádrž, SMD montáž
+\end{pojmybox}
+
+\begin{vysvetlenibox}
+
+% ================================================================
+\subsection*{1. Pasivní vs. Aktivní součástky}
+
+\begin{itemize}
+    \item \textbf{Pasivní:} Nedokážou signál zesilovat. Energii pouze spotřebovávají (mění na teplo) nebo ji dočasně akumulují v elektrickém či magnetickém poli. (Rezistory, kondenzátory, cívky).
+    \item \textbf{Aktivní:} Dokážou elektrický signál zesilovat nebo aktivně spínat, potřebují k tomu napájení. (Tranzistory, diody, integrované obvody – \textit{viz Okruh 12}).
+\end{itemize}
+
+% ================================================================
+\subsection*{2. Rezistory}
+
+Rezistor je součástka, která klade průchodu proudu elektrický odpor. Její hlavní funkcí je \textbf{omezení proudu} v obvodu nebo vytvoření \textbf{děliče napětí}.
+
+\textbf{Dělení podle provedení:}
+\begin{itemize}
+    \item \textbf{Pevné rezistory:} Odpor je dán z výroby (uhlíkové, metalizované, drátové pro velké výkony). Značení se provádí pomocí \textbf{barevných proužků} nebo SMD kódem.
+    \item \textbf{Proměnné rezistory:} Odpor lze měnit mechanicky.
+    \begin{itemize}
+        \item \textbf{Potenciometr:} Má hřídelku, slouží k časté regulaci uživatelem (např. hlasitost).
+        \item \textbf{Trimr:} Ovládá se šroubovákem, slouží k jednorázovému nastavení obvodu technikem ve výrobě.
+    \end{itemize}
+\end{itemize}
+
+\begin{center}
+\begin{circuitikz}[font=\small, thick]
+  \draw (0,0) to[R, l=Rezistor] (2,0);
+  \draw (3,0) to[pR, l=Potenciometr] (5,0);
+  \draw (7.5,0.7) node[circle, draw, inner sep=1pt] {A} -- (7.5,0) to[R, l=Dělič napětí] (7.5,-2) node[circle, draw, inner sep=1pt] {B};
+  \draw (7.5, -0.8) to[short, *-o] (9, -0.8) node[right] {$U_{out}$};
+\end{circuitikz}
+\end{center}
+
+% ================================================================
+\subsection*{3. Nelineární rezistory}
+
+Jejich odpor se nemění mechanicky, ale v závislosti na nějaké fyzikální veličině.
+
+\begin{center}
+\begin{tabularx}{0.97\linewidth}{@{} l X @{}}
+\toprule
+\textbf{Typ součástky} & \textbf{Vlastnost a použití} \\
+\midrule
+\textbf{Termistor NTC} & \textit{Negative Temperature Coefficient.} S rostoucí teplotou odpor \textbf{klesá}. Použití: Měření teploty (teploměry). \\
+\textbf{Termistor PTC} & \textit{Positive Temperature Coefficient.} S rostoucí teplotou odpor \textbf{roste}. Použití: Ochrana proti přehřátí, PTC topná tělíska. \\
+\textbf{Varistor (VDR)} & \textit{Voltage Dependent Resistor.} Při překročení určitého napětí odpor prudce \textbf{klesne} a zkratuje obvod. Použití: Ochrana proti přepětí (\textit{viz Okruh 10}). \\
+\textbf{Fotorezistor (LDR)}& \textit{Light Dependent Resistor.} S rostoucím osvětlením odpor \textbf{klesá}. Použití: Soumrakové spínače. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ================================================================
+\subsection*{4. Kondenzátory}
+
+Akumulují elektrický náboj v elektrostatickém poli.
+\textbf{Hlavní typy:}
+\begin{itemize}
+    \item \textbf{Keramické a fóliové:} Malé kapacity (pF až nF). Nejsou polarizované (lze je zapojit libovolně). Výborné pro vysoké frekvence (filtrace rušení).
+    \item \textbf{Elektrolytické:} Velké kapacity ($\mu$F až mF). Dosahují toho navinutím hliníkových fólií s elektrolytem. \textbf{Jsou polarizované (+ a $-$)}.
+\end{itemize}
+
+\begin{durazbox}
+\textbf{Kritické varování:} Elektrolytický kondenzátor se musí zapojit správnou polaritou. Při přepólování dojde uvnitř k chemické reakci, vývinu plynu a **explozi součástky**!
+\end{durazbox}
+
+% ================================================================
+\subsection*{5. Cívky (Induktory)}
+
+Akumulují energii do magnetického pole (\textit{viz Okruh 3}).
+\begin{itemize}
+    \item \textbf{Vzduchové cívky:} Mají malou indukčnost, používají se pro vysoké frekvence (vysílače, rádia).
+    \item \textbf{Cívky s feritovým jádrem:} Ferit výrazně zvyšuje indukčnost. Slouží často jako \textbf{tlumivky} – tlumí vysokofrekvenční rušení ve zdrojích.
+\end{itemize}
+
+% ================================================================
+\subsection*{6. Frekvenční filtry a jejich chování v AC a DC obvodech}
+
+Kombinací R, L a C obvodů tvoříme filtry. Využívá se faktu, že \textbf{odpor (reaktance) kondenzátoru pro vysoké frekvence klesá}, zatímco \textbf{reaktance cívky roste}. U stejnosměrného proudu (DC, $f=0\,\mathrm{Hz}$) se kondenzátor chová jako rozpojený obvod (nekonečný odpor) a cívka jako zkrat (kus drátu).
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, font=\small, thick]
+  % Dolní propust
+  \begin{scope}[xshift=0cm, yshift=5cm]
+    \draw (0,2.5) to[short, o-] (0.5,2.5) to[R, l=$R$] (2.5,2.5) coordinate (mid) to[short, -o] (3.5,2.5);
+    \draw (0,0) to[short, o-o] (3.5,0);
+    \draw (mid) to[C, l=$C$, *-*] (mid |- 0,0);
+    \node[above] at (1.75, 3) {\textbf{Dolní propust (Low-Pass)}};
+    % Graf
+    \draw[->] (4.5,0) -- (6.5,0) node[right] {$f$};
+    \draw[->] (4.5,0) -- (4.5,2.7) node[above] {$A_u$};
+    \draw[accent, line width=1.5pt] (4.5,2.2) to[out=0, in=150] (6.2,0.2);
+  \end{scope}
+
+  % Horní propust
+  \begin{scope}[xshift=8cm, yshift=5cm]
+    \draw (0,2.5) to[short, o-] (0.5,2.5) to[C, l=$C$] (2.5,2.5) coordinate (mid) to[short, -o] (3.5,2.5);
+    \draw (0,0) to[short, o-o] (3.5,0);
+    \draw (mid) to[R, l=$R$, *-*] (mid |- 0,0);
+    \node[above] at (1.75, 3) {\textbf{Horní propust (High-Pass)}};
+    % Graf
+    \draw[->] (4.5,0) -- (6.5,0) node[right] {$f$};
+    \draw[->] (4.5,0) -- (4.5,2.7) node[above] {$A_u$};
+    \draw[accent, line width=1.5pt] (4.5,0.2) to[out=30, in=180] (6.2,2.2);
+  \end{scope}
+
+  % Pásmová propust
+  \begin{scope}[xshift=0cm, yshift=0cm]
+    \draw (0,2.5) to[short, o-] (0.5,2.5) to[C, l=$C_1$] (2,2.5) to[R, l=$R_1$] (3.5,2.5) coordinate (mid) to[short, -o] (4.5,2.5);
+    \draw (0,0) to[short, o-o] (4.5,0);
+    \draw (mid) to[R, l=$R_2$, *-] (mid |- 0,1.25) to[C, l=$C_2$, -*] (mid |- 0,0);
+    \node[above] at (2.25, 3) {\textbf{Pásmová propust (Band-Pass)}};
+    % Graf
+    \draw[->] (5.5,0) -- (7.5,0) node[right] {$f$};
+    \draw[->] (5.5,0) -- (5.5,2.7) node[above] {$A_u$};
+    \draw[accent, line width=1.5pt] (5.5,0.2) to[out=70, in=180] (6.5,2.2) to[out=0, in=110] (7.3,0.2);
+  \end{scope}
+
+  % Pásmová zádrž
+  \begin{scope}[xshift=8cm, yshift=0cm]
+    \draw (0,2.5) to[short, o-] (0.5,2.5);
+    \draw (0.5, 3.2) to[L, l=$L$] (2.5, 3.2);
+    \draw (0.5, 1.8) to[C, l_=$C$] (2.5, 1.8);
+    \draw (0.5,2.5) -- (0.5,3.2); \draw (0.5,2.5) -- (0.5,1.8);
+    \draw (2.5,2.5) -- (2.5,3.2); \draw (2.5,2.5) -- (2.5,1.8);
+    \draw (2.5,2.5) coordinate (mid) to[short, -o] (3.5,2.5);
+    \draw (0,0) to[short, o-o] (3.5,0);
+    \draw (mid) to[R, l=$R$, *-*] (mid |- 0,0);
+    \node[above] at (1.75, 3.5) {\textbf{Pásmová zádrž (Notch)}};
+    % Graf
+    \draw[->] (4.5,0) -- (6.5,0) node[right] {$f$};
+    \draw[->] (4.5,0) -- (4.5,2.7) node[above] {$A_u$};
+    \draw[accent, line width=1.5pt] (4.5,2.2) to[out=0, in=110] (5.5,0.2) to[out=70, in=180] (6.3,2.2);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\textbf{Přehled propustnosti na různých frekvencích (DC vs AC):}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{} l X X X @{}}
+\toprule
+\textbf{Typ filtru} & \textbf{Chování na DC ($0\,\mathrm{Hz}$)} & \textbf{Nízké frekvence (AC)} & \textbf{Vysoké frekvence (AC)} \\
+\midrule
+\textbf{Dolní propust} & \textcolor{green!60!black}{\textbf{Propouští plně}} (Kondenzátor C je rozpojen) & Propouští & \textcolor{red}{\textbf{Blokuje}} (Signál se zkratuje přes C na zem) \\
+\midrule
+\textbf{Horní propust} & \textcolor{red}{\textbf{Blokuje}} (Sériový C zablokuje SS proud) & \textcolor{red}{\textbf{Blokuje}} & \textcolor{green!60!black}{\textbf{Propouští plně}} \\
+\midrule
+\textbf{Pásmová propust} & \textcolor{red}{\textbf{Blokuje}} (Zastaví jej C1) & \textcolor{red}{\textbf{Blokuje}} & \textcolor{red}{\textbf{Blokuje}} (Zkratuje jej C2) \\
+\midrule
+\textbf{Pásmová zádrž} & \textcolor{green!60!black}{\textbf{Propouští plně}} & \textcolor{green!60!black}{\textbf{Propouští}} & \textcolor{green!60!black}{\textbf{Propouští}} (Zablokuje jen střední frekvenci) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ================================================================
+\subsection*{7. Technologie montáže (THT vs. SMD)}
+
+\begin{itemize}
+    \item \textbf{THT (Through-Hole Technology):} Klasické součástky s drátovými vývody. Zasouvají se do děr v desce plošných spojů (DPS) a pájí z druhé strany.
+    \item \textbf{SMD (Surface Mount Devices):} Součástky pro \textbf{povrchovou montáž}. Nemají drátky, jen malé plošky. Pájí se přímo na povrch desky. Umožňují obrovskou miniaturizaci a automatickou výrobu stroji. Kódy na SMD rezistorech: $103 = 10 \cdot 10^3\,\Omega = 10\,\mathrm{k\Omega}$.
+\end{itemize}
+
+\end{vysvetlenibox}
+
+\end{document}
