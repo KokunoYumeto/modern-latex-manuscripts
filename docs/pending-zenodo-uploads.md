@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage packages 379-380 rolling deltas
+
+Manifest: [20260705_noether_pc_packages379_380_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages379_380_interlanguage_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages379_380/Noether_PC_Interlanguage_Packages379_380_R6_R9_RollingDeltas_20260705.zip`, 64,544 bytes, SHA256 `D28508E871C36499B727320B629A3F957108A297967C499AD19024732C98A364`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering packages 379-380 after package 378. Package 379 adds R6 Indigenous/Creole/Sign package-boundary/checksum material; package 380 adds R9 Africa/Horn/West durable/audit/package-index material.
+- Caveat: methodology/source-canon/access-governance coordination only. Not a bulk source-body corpus, language completion, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage package 378 rolling delta
 
 Manifest: [20260705_noether_pc_package378_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package378_interlanguage_refresh.json)
