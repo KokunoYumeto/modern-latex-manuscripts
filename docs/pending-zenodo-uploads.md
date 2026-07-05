@@ -1,3 +1,21 @@
+## 2026-07-05: SGA6 source-rescribe workpass evidence through idx169
+
+Manifest: [20260705_sga6_source_rescribe_idx169_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx169_refresh.json)
+
+- Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
+- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx169/SGA6_ClaudeCodex_SourceRescribe_idx169_20260705.zip`, 7,109,421 bytes, SHA256 `BFB1A2F5DB2C6630213A0676E40E790E6752AB72AC1FA25AD161073550B241B7`.
+- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through `CERT_LOG.md` entry #166, idx169 / volume p156 / Expose I p79. Next cursor is idx170 / volume p157 / Expose I p80.
+- Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
+## 2026-07-05: Noether-PC/interlanguage packages 381-383 rolling deltas
+
+Manifest: [20260705_noether_pc_packages381_383_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages381_383_interlanguage_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages381_383/Noether_PC_Interlanguage_Packages381_383_RollingDeltas_20260705.zip`, 245,552 bytes, SHA256 `216E9933135AA08D84754BFBD4FD5194431B50F2C231837CC855F35DBAE6BD90`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering packages 381-383 after package 380. Package 381 adds a non-Slavic interlanguage consolidation ledger; package 382 adds CJK source license/access boundary audit material and omits four Sorbian source-body cache files; package 383 adds OLP/direct-gated source-canon frontier and Slavic source-canon witness/cache-promotion ledgers.
+- Caveat: methodology/source-canon/access-governance coordination only. Not a bulk source-body corpus, language completion, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 379-380 rolling deltas
 
 Manifest: [20260705_noether_pc_packages379_380_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages379_380_interlanguage_refresh.json)
