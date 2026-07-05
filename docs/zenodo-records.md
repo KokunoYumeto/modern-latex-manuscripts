@@ -2,6 +2,8 @@
 
 The public project is intentionally split across a small number of logical Zenodo records rather than one unstructured dump.
 
+2026-07-05 Noether-PC packages-513-519 source check: `origin/codex/noether-pc-20260629` advanced through commit `ae11308a`, but packages 513-519 contain 77 changed paths with zero TeX-like source bodies, zero PDFs, and zero archives. The range is inventoried in `manifests/source-intake/20260705_noether_pc_packages513_519_source_check.*` and should not be promoted as a source corpus. A coordination directive requiring actual LaTeX payload uploads was pushed at `coordination/URGENT_OTHER_AI_UPLOAD_ALL_LATEX_SOURCES_EVERYWHERE_20260705.md`.
+
 Use the README's "Open First" table as the reader-facing quality order. That order is by completion and source confidence, not by DOI age, file count, upload size, or ambition. This page is a DOI registry and operational map; if a lower-confidence lane appears near a stronger lane here, that is not a quality equivalence.
 
 Current quality grouping in brief:
