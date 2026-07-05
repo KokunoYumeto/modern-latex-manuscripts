@@ -1,3 +1,9 @@
+## 2026-07-05 SGA6 source-rescribe idx200 support ZIP pending upload
+
+- Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
+- Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx200_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx200_Workpass_20260705.zip
+- Size/SHA256: 2911906 bytes / 6ED5B6449D4DB3A38CFF3B84F53CD71B2847B1F9C5ECC6CA322BD3350A12FAFC
+- Status: source-rescribe/workpass provenance only through CERT_LOG.md entry #197, idx200 / volume p187 / Expose II p28; next cursor idx201 / volume p188 / Expose II p29. Do not front above reader PDFs and do not describe as complete, critical, or globally source-faithful.
 # Zenodo Record Map
 
 The public project is intentionally split across a small number of logical Zenodo records rather than one unstructured dump.
@@ -174,21 +180,4 @@ Large artifact ZIPs are part of the public records for provenance. The file list
 - Latest interlanguage coordination addendum: packages 563-565 are staged as `Noether_PC_Interlanguage_Packages563_565_RollingDeltas_20260705.zip` (126,739 bytes, SHA256 `ED4C39E88AC90EDA53F278DCA71C3349557F85AD1F6C600C0506F1616C285792`, 29 files). They add Pan-Turkic low-authority trap/dictionary probe manifests/checksums and durable run-log updates, plus an interlanguage durable-run-log update. They contain zero TeX-like files, zero PDFs, and zero ZIP payloads, so classify them as methodology/source-canon/source-evidence/access-governance coordination only. This tranche does not satisfy the current request for bulk canonical/native LaTeX source anchors.
 
 - Classical Mathematics Lean 4 Formalization Sidecars: dedicated record <https://doi.org/10.5281/zenodo.21129946>, metadata tracked at [metadata_formalization_lean_candidates_current.json](../zenodo-metadata/metadata_formalization_lean_candidates_current.json). The current public package is `ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip`, a compact Lean/mathlib-style sidecar set for Noether/Steinitz/Weber/Jordan. This lane is useful formalization/library-candidate material, not proof or certification of the transcription/translation corpus, not source-fidelity audit evidence, and not a critical edition.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
