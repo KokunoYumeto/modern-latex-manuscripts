@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage package 378 rolling delta
+
+Manifest: [20260705_noether_pc_package378_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package378_interlanguage_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_package378/Noether_PC_Interlanguage_Package378_RollingDelta_20260705.zip`, 751,804 bytes, SHA256 `684462048CD3010CFE7925E55DE536EE9B72BC88A7E1AC3A4DA58E7B5A83BBD0`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering package 378 after package 377. It adds logs, rollups, source-canon probes, cross-lane ledgers, and omission ledgers across Arabic RTL, CJK, OLP/relation-function, Persianate/Tajik, Pan-Turkic, R3 Arabic/Persianate linear algebra, R6/R7, Romance, and Slavic baseline lanes.
+- Caveat: methodology/source-canon/access-governance coordination only. Not a bulk source-body corpus, language completion, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Interlanguage LaTeX source-body inventory refresh
 
 Manifest: [20260705_interlanguage_latex_source_body_inventory_refresh.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_latex_source_body_inventory_refresh.json)
