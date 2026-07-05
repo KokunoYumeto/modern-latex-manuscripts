@@ -8635,6 +8635,14 @@ Manifest: [20260705_noether_pc_packages410_412_interlanguage_refresh.json](../ma
 - Scope: packages 410-412 from `origin/codex/noether-pc-20260629` remote head `06dc5d30`, adding Arabic RTL durable run-log material and source-canon/source-probe checksum rows for corpus translation, Damascus linear algebra, GitHub/archive probes, MediaWiki/Wikibooks source-text probes, official PDF probing, and R3 cross-lane/current/gap/policy sync.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage packages 413-416 Pan-Turkic and Malay/SEA/Pacific coordination
+
+Manifest: [20260705_noether_pc_packages413_416_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages413_416_interlanguage_refresh.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages413_416_RollingDeltas_20260705.zip`, 120,680 bytes, SHA256 `13CF70345257978F2CC6C0DC3D9E52E8A23CD93D2932FCE8E9035E6DCACC6974`, 42 entries.
+- Scope: packages 413-416 from `origin/codex/noether-pc-20260629` remote head `22dd3cdb`, adding Pan-Turkic hard-blocker gap refreshes, Pan-Turkic durable run-log/checksum material, Malay PRPM/MABBIM comparator-boundary refreshes, Malay/SEA/Pacific coverage/next-action rows, and output manifest/checksum rows.
+- Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/access-governance coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 
