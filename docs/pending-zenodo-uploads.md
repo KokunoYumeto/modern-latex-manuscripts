@@ -416,7 +416,9 @@ Manifest: [20260705_sga6_source_rescribe_idx158_refresh.json](../manifests/pendi
 
 ## 2026-07-04: Noether R794 P15/P30 source-control integration
 
-- Artifact: `Noether_R794_LocalCodex_WebR780_P15P30_Integration_20260704.zip`, 63,395,468 bytes, SHA256 `FFCCE7F4CD2606AFE02B2054B099424D68B7AE27E04466B7D471BADDB78BFF32`.
+Manifest: [20260705_noether_r794_p15_p30_source_integration.json](../manifests/pending-zenodo-uploads/20260705_noether_r794_p15_p30_source_integration.json)
+
+- Artifact: `publish_staging/noether/20260705_noether_r794_p15_p30_source_integration/Noether_R794_LocalCodex_WebR780_P15P30_Integration_20260704.zip`, 63,395,468 bytes, SHA256 `FFCCE7F4CD2606AFE02B2054B099424D68B7AE27E04466B7D471BADDB78BFF32`.
 - Scope/result: narrow integration over LocalCodex R793, reconciling Web R780 P15 and WebB R779/R780 P30 evidence. It promotes only still-missing source-backed deltas: P15 printed p149 formula (7) equality repair, P30 printed pp.30-32 source-emphasis restorations, and the centered product dot in `\mR_\alpha\cdot\mR_\beta`.
 - Build/evidence: XeLaTeX passed twice; German cumulative PDF has 466 pages; changed output pages 161, 162, 276, 277, and 278 were rendered for QA.
 - Caveat: accepted loci are source-visible in supplied crops, but P15/P30 full-page witnesses remain roughly 400ppi class, below preferred native650/native1000 whole-paper certification. This is not a reader release, Noether closure, whole-corpus certification, multilingual synchronization, or critical-edition material. Because the Noether Zenodo record is at the 100-file ceiling, fold R794 into the next curated rollup rather than uploading it loose.
