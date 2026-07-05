@@ -1,0 +1,965 @@
+\documentclass{article}
+
+\input{../definitions.tex}
+
+\numberwithin{equation}{section}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\usepackage{tocloft}
+
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cfttoctitlefont{\sffamily\large\bfseries}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{El lema de Hensel y sus aplicaciones}
+\date{Universidad de El Salvador. Septiembre de 2018}
+
+\usepackage{multicol}
+
+\setlength{\columnseprule}{0.4pt}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+
+\newif\ifsolutions
+% \solutionstrue
+\solutionsfalse
+
+\usepackage{multirow}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+\section{Lema de Hensel}
+
+Sea $K$ un cuerpo completo respecto a una norma no arquimediana
+$\|\cdot\|$. Denotemos por
+$$\O_K \dfn \{ x\in K \mid \|x\| \le 1 \}$$
+el anillo de enteros correspondiente. Hay que tener en mente los siguientes dos
+ejemplos principales.
+
+\begin{enumerate}
+\item[1)] Sobre los números racionales $\QQ$ consideremos la norma $p$-ádica
+$$\left|\frac{m}{n}\right|_p \dfn 1/p^{v_p (m) - v_p (n)}.$$
+La completación de $\QQ$ respecto a $\QQ_p$ es el cuerpo de los números
+$p$-ádicos. El anillo $\ZZ_p\dfn \O_{\QQ_p}$ es el anillo de los enteros
+$p$-ádicos.
+
+\item[2)] Sea $k$ un cuerpo. Sobre el anillo de polinomios $k [X]$ definamos la
+  valuación $X$-ádica mediante
+  \[ v_X (0) \dfn \infty, \quad
+     v_X \left(\sum_{i\ge 0} a_i\,X^i\right) \dfn \min \{ i \mid a_i \ne 0 \},
+     \text{ si }\sum_{i\ge 0} a_i\,X^i \ne 0 \]
+  y la norma correspondiente sobre el cuerpo de funciones racionales $k (X)$
+  $$\left|\frac{f}{g}\right|_X \dfn \rho^{v_X (f) - v_X (g)}$$
+  para algún parametro fijo $0 < \rho < 1$. La completación de $k (X)$ respecto
+  a $|\cdot|_X$ es el cuerpo de las series de Laurent
+  \[ k (\!(X)\!) = \Bigl\{ \sum_{i \ge -n} a_i\,X^i \Bigm|
+                           a_i \in k, ~ n = 0,1,2,3,\ldots \Bigr\}, \]
+  mientras que $\O_{k (\!(X)\!)}$ es el anillo de las series formales
+  \[ k [\![X]\!] = \Bigl\{ \sum_{i \ge 0} a_i\,X^i \Bigm|
+                           a_i \in k, ~ n = 0,1,2,3,\ldots \Bigr\}. \]
+\end{enumerate}
+
+Para cualquier cuerpo completo no arquimediano se cumple el siguiente resultado
+importante.
+
+\begin{teorema}[Lema de
+  Hensel\footnote{\label{footnote:Hensel}\href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Hensel.html}{\personality{Kurt
+        Hensel}} (1861--1941), matemático alemán, estudiante de Kronecker y
+    Weierstrass. Descubrió los números $p$-ádicos en 1897.}]
+\label{teorema:Hensel}
+Sea $f (X) \in \O_K [X]$ un polinomio con coeficientes en $\O_K$. Supongamos que
+existe $x_0 \in \O_K$ tal que
+$$\|f (x_0)\| < \|f' (x_0)\|^2.$$
+Entonces existe único $x \in \O_K$ tal que $f (x) = 0$ y
+$\|x-x_0\| < \|f' (x_0)\|$.
+\end{teorema}
+
+Antes de demostrar el lema de Hensel, necesitamos un par de sencillos lemas.
+
+\begin{lema}
+  \label{lema:Hensel-lema-2}
+  Sea $h (X) \in \O_K [X]$ algún polinomio con coeficientes en $\O_K$. Entonces
+  para cualesquiera $x,y\in \O_K$ se tiene
+  $$\|h (x) - h (y)\| \le \|x-y\|.$$
+
+  \begin{proof}
+    Si $h (X) = \sum_{0 \le i \le d} a_i\,X^i$ para algunos $a_i\in \O_K$,
+    entonces
+    \[ h (x) - h (y) = \sum_{0 \le i \le d} a_i\,x^i - \sum_{0 \le i \le d}
+       a_i\,y^i = \sum_{1 \le i \le d} a_i\,(x^i - y^i) = (x-y)\,\phi (x,y), \]
+    donde $\phi (X,Y) \in \O_K [X,Y]$ es algún polinomio con coeficientes en
+    $\O_K$. Luego,
+    $$\|h (x) - h (y)\| = \|x-y\|\cdot \|\phi (x,y)\| \le \|x-y\|,$$
+    ya que $\phi (x,y) \in \O_K$ y $\|\phi (x,y)\| \le 1$.
+  \end{proof}
+\end{lema}
+
+\begin{lema}
+  \label{lema:Hensel-lema-1}
+  Sea $f (X) \in \O_K [X]$ algún polinomio con coeficientes en $\O_K$. Entonces
+  para cualesquiera $x,y\in \O_K$
+  $$f (x+y) = f (x) + f' (x)\,y + z\,y^2$$
+  para algún $z\in \O_K$.
+
+  \begin{proof}
+    Si $f (X) = \sum_{0 \le i \le d} a_i\,X^i$, entonces la fórmula del binomio
+    nos da
+    \[ f (X+Y) =
+       \sum_{0 \le i \le d} a_i\,(X+Y)^i =
+       \sum_{0 \le i \le d} a_i\,X^i + \sum_{1 \le i \le d} a_i\,i\,X^{i-1}\,Y +
+           \sum_{1 \le i \le d} a_i\,g_i (X,Y)\,Y^2, \]
+    donde $g_i (X,Y) \in \ZZ [X,Y]$ son ciertos polinomios con coeficientes
+    enteros. Notemos que $\sum_{1 \le i \le d} a_i\,i\,X^{i-1} = f' (X)$,
+    y la identidad de arriba puede ser escrita como
+    $$f (X+Y) = f (X) + f' (X)\,Y + g (X,Y)\,Y^2,$$
+    donde $g (X,Y) \dfn \sum_{1 \le i \le d} a_i\,g_i (X,Y) \in \O_K [X,Y]$ es
+    algún polinomio con coeficientes en $\O_K$.
+  \end{proof}
+\end{lema}
+
+\begin{proof}[Demostración del lema de Hensel (el método de Newton $p$-ádico)]
+  Notamos primero que si $\|x-x_0\| < \|f' (x_0)\|$, entonces según
+  \ref{lema:Hensel-lema-2} se cumple
+  $$\|f' (x) - f' (x_0)\| \le \|x - x_0\| < \|f' (x_0)\|,$$
+  así que
+  \[ \|f' (x)\| =
+     \|f' (x) - f' (x_0) + f' (x_0)\| =
+     \max \{ \|f' (x) - f' (x_0)\|, \|f' (x_0)\| \} = \|f' (x_0)\|. \]
+
+  Demostremos que $f$ puede tener solo una raíz $x$ tal que
+  $$\|x-x_0\| < \|f' (x_0)\|.$$
+  Supongamos que para algunos $x, x' \in \O_K$ se cumple
+  \[ f (x) = f (x') = 0, \quad
+     \|x-x_0\| < \|f' (x_0)\|, \quad
+     \|x'-x_0\| < \|f' (x_0)\|. \]
+  Tenemos
+  \[ \|x' - x\| = \|(x' - x_0) - (x - x_0)\| \le
+     \max \{ \|x' - x_0\|, \|x - x_0\| \} < \|f' (x_0)\|. \]
+  Escribamos $x' = x + y$. Según \ref{lema:Hensel-lema-1} tenemos
+  $$0 = f (x') = f (x + y) = f (x) + f' (x)\,(x'-x) + z\,(x' - x)^2$$
+  para algún $z \in \O_K$. Aquí $f (x) = 0$, entonces nos queda la identidad
+  $$f' (x)\,y = -z\,y^2.$$
+  Si $y \ne 0$, tenemos
+  $$f' (x) = -z\,y,$$
+  y en particular
+  \[ \|f' (x)\| = \|z\|\cdot \|y\| \le \|y\| =
+     \|x' - x\| < \|f' (x_0)\| = \|f' (x)\|, \]
+  que es una contradicción. Entonces, la única opción es $y = 0$ y $x = x'$.
+
+  \vspace{1em}
+
+  Ahora para demostrar que la raíz $x$ existe, consideremos la sucesión de los
+  elementos definidos a partir de $x_0$ por
+  $$x_{n+1} \dfn x_n - \frac{f (x_n)}{f' (x_n)}.$$
+  Note que es la misma fórmula que se usa en el análisis real en el método de
+  Newton. Denotemos
+  \[ \delta \dfn \left\|\frac{f (x_0)}{f' (x_0)^2}\right\| =
+     \|f (x_0)\|\cdot \|f' (x_0)\|^{-2} < 1. \]
+  Vamos a demostrar por inducción que los números $x_n$ satisfacen las
+  siguientes propiedades:
+
+  \begin{enumerate}
+  \item[$1_n$)] $\|x_n\| \le 1$; es decir, $x_n \in \O_K$,
+  \item[$2_n$)] $\|f' (x_n)\| = \|f' (x_0)\|$,
+  \item[$3_n$)] $\|f (x_n)\| \le \|f' (x_0)\|^2 \, \delta^{2^n}$.
+  \end{enumerate}
+
+  \vspace{1em}
+
+  Antes de verificar $1_n$), $2_n$), $3_n$), veamos por qué nuestra sucesión
+  $\{ x_n \}$ demuestra el teorema. Notemos que las desigualdades $2_n$) y
+  $3_n$) nos dan
+  \begin{equation}
+    \label{eqn:Hensel-proof-Cauchy-bound}
+     \|x_{n+1} - x_n\| =
+     \left\|\frac{f (x_n)}{f' (x_n)}\right\| =
+     \frac{\|f (x_n)\|}{\|f' (x_0)\|} \le \|f' (x_0)\| \, \delta^{2^n},
+  \end{equation}
+  lo que implica que $\{ x_n \}$ es una sucesión de Cauchy:
+  \[ \|x_m - x_n\| =
+     \|(x_m - x_{m-1}) + (x_{m-1} - x_{m-2}) + \cdots + (x_{n+1} - x_n) \| \le
+     \max \{ \|x_m - x_{m+1}\|, \ldots, \|x_{n+1} - x_n\| \}, \]
+  y por lo tanto podemos pasar al límite
+  $$x \dfn \lim_{n\to \infty} x_n.$$
+  Ya que $x_n \in \O_K$ para todo $n$, se tiene $x \in \O_K$. Luego,
+  $$\|f' (x)\| = \lim_{n\to \infty} \|f' (x_n)\| = \|f' (x_0)\|$$
+  gracias a $2_n$) y
+  \[ \|f (x)\| = \lim_{n\to \infty} \|f (x_n)\| \le
+     \lim_{n\to \infty} \|f' (x_0)\|^2\,\delta^{2^n} = 0 \]
+  gracias a $3_n$), y entonces $f (x) = 0$.
+
+  \vspace{1em}
+
+  Demostremos que
+  $$\|x - x_0\| = \left\|\frac{f (x_0)}{f' (x_0)}\right\|.$$
+  Será suficiente demostrar que para todo $n = 1,2,3,\ldots$ se cumple
+  $$\|x_n - x_0\| = \left\|\frac{f (x_0)}{f' (x_0)}\right\|,$$
+  y luego pasar al límite $n \to \infty$. Para $n = 1$ esto se cumple por
+  la definición $x_1 \dfn x_0 - \frac{f (x_0)}{f' (x_0)}$. Luego, notemos que
+  según \eqnref{eqn:Hensel-proof-Cauchy-bound}, tenemos la desigualdad estricta
+  \[ \|x_{n+1} - x_n\| \le \|f' (x_0)\| \, \delta^{2^n} <
+     \|f' (x_0)\| \, \delta =
+     \left\|\frac{f (x_0)}{f' (x_0)}\right\|. \]
+
+  Esto nos da el paso inductivo: si
+  $\|x_n - x_0\| = \left\|\frac{f (x_0)}{f' (x_0)}\right\|$, entonces
+  \[ \|x_{n+1} - x_0\| =
+     \|(x_{n+1} - x_n) + (x_n - x_0)\| \le
+     \max \{ \|x_{n+1} - x_n\|, \|x_n - x_0\| \} =
+     \left\|\frac{f (x_0)}{f' (x_0)}\right\|. \]
+
+  \vspace{1em}
+
+  Para terminar la demostración, nos queda solo ver que los números $x_n$
+  cumplen las propiedades $1_n$), $2_n$), $3_n$). Para $n = 0$, estas son
+  nuestras hipótesis sobre $x_0$. Para el paso inductivo, tenemos que ver que
+  $1_n$), $2_n$), $3_n$) implican $1_{n+1}$), $2_{n+1}$), $3_{n+1}$). Primero,
+  $x_{n+1}$ está bien definido, ya que según $2_n$),
+  $$\|f' (x_n)\| = \|f' (x_0)\| \ne 0,$$
+  y por lo tanto $f' (x_n) \ne 0$ (en efecto, la hipótesis
+  $\|f (x_0)\| < \|f' (x_0)\|^2$ implica que $\|f' (x_0)\| \ne 0$). Para
+  demostrar $1_{n+1}$):
+  \[ \|x_{n+1}\| = \left\|x_n - \frac{f (x_n)}{f' (x_n)}\right\| \le
+     \max \{\|x_n\|, \left\|\frac{f (x_n)}{f' (x_n)}\right\| \} \stackrel{???}{\le} 1 \]
+  es suficiente ver que $\left\|\frac{f (x_n)}{f' (x_n)}\right\| \le 1$. Esto
+  se sigue de las propiedades $2_n$) y $3_n$):
+  \[ \left\|\frac{f (x_n)}{f' (x_n)}\right\| =
+     \left\|\frac{f (x_n)}{f' (x_0)}\right\| \le
+     \|f' (x_0)\|\,\delta^{2^n} \le 1. \]
+
+  Para demostrar $2_{n+1}$), notemos que
+  $\|f (x_n)\| \le \|f' (x_0)\|^2 \, \delta^{2^n}$ según $3_n$), y ya que
+  $\delta < 1$, tenemos $\|f (x_n)\| < \|f' (x_0)\|^2$. La desigualdad
+  \ref{lema:Hensel-lema-2} para $f' (X)$ nos da
+  \[ \|f' (x_{n+1}) - f' (x_n)\| \le
+     \|x_{n+1} - x_n\| =
+     \left\|\frac{f (x_n)}{f' (x_n)}\right\| =
+     \left\|\frac{f (x_n)}{f' (x_0)}\right\| <
+     \|f' (x_0)\|. \]
+  Pero la desigualdad estricta
+  $$\|f' (x_{n+1}) - f' (x_n)\| < \max \{ \|f' (x_{n+1})\|, \|f' (x_n)\| \}$$
+  es posible solo si $\|f' (x_{n+1})\| = \|f' (x_n)\|$. Esto demuestra
+  $2_{n+1}$). Para ver $3_{n+1}$), podemos usar la identidad de
+  \ref{lema:Hensel-lema-1} para $x_n$ y $-\frac{f (x_n)}{f' (x_n)}$:
+  \[ f (x_{n+1}) =
+     f \left(x_n - \frac{f (x_n)}{f' (x_n)}\right) =
+     f (x_n) + f' (x_n)\,\left(- \frac{f (x_n)}{f' (x_n)}\right) + z\,\left(-\frac{f (x_n)}{f' (x_n)}\right)^2 =
+     z\,\left(- \frac{f (x_n)}{f' (x_n)}\right)^2 \]
+  para algún $z\in \O_K$ (es decir, $\|z\| \le 1$). Entonces, usando $2_n$) y la
+  desigualdad $3_n$), tenemos
+  \[ \|f (x_{n+1})\| \le
+     \left\|\frac{f (x_n)}{f' (x_n)}\right\|^2 \le
+     \frac{(\|f' (x_0)\|^2\,\delta^{2^n})^2}{\|f' (x_0)\|^2} =
+     \|f' (x_0)\|^2\,\delta^{2^{n+1}}. \]
+  Esto termina la demostración de $1_n$), $2_n$), $3_n$) para todo $n$.
+\end{proof}
+
+\begin{ejemplo}
+  Recordemos el método de Newton del análisis real. Para resolver una ecuación
+  $f (x) = 0$, se empieza por algún $x_0$ y luego se consideran las
+  aproximaciones consecutivas
+  $$x_{n+1} = x_n - \frac{f (x_n)}{f' (x_n)}.$$
+  Geométricamente, $x_{n+1}$ es la intersección del eje $x$ con la tangente
+  a $f (x)$ en $x = x_n$. Si la aproximación inicial $x_0$ es buena, los $x_n$
+  convergen a una raíz de $f$. Por ejemplo, si $f (x) = x^2 - 2$, entonces
+  $f' (x) = 2\,x$, y empezando por $x_0 = 1$, se obtiene
+  \[ x_1 = 1.5, \quad
+     x_2 = 1.416666\ldots, \quad
+     x_3 = 1.414215\ldots, \quad
+     x_4 = 1.414213\ldots, \quad
+     \ldots \]
+  lo que converge rápidamente a $\sqrt{2}$.
+
+  \begin{framed}\small
+\begin{verbatim}
+? x = 1.0;
+? for (i=0,6, printf ("x%d = %s\n", i,x); x = x - (x^2-2)/(2*x));
+x0 = 1.0000000000000000000000000000000000000
+x1 = 1.5000000000000000000000000000000000000
+x2 = 1.4166666666666666666666666666666666667
+x3 = 1.4142156862745098039215686274509803922
+x4 = 1.4142135623746899106262955788901349101
+x5 = 1.4142135623730950488016896235025302436
+x6 = 1.4142135623730950488016887242096980786
+
+? sqrt (2)                                                       
+% =  1.4142135623730950488016887242096980786
+\end{verbatim}
+  \end{framed}
+
+  Sin embargo, en algunos casos el método no converge. Por ejemplo,
+  si $f (x) = x^3 - x$ y empezamos por $x_0 = 1/\sqrt{5}$, entonces
+
+  \begin{align*}
+    x_1 & = \frac{1}{\sqrt{5}} - \frac{(1/\sqrt{5})^3 - 1/\sqrt{5}}{3\,(1/\sqrt{5})^2 - 1} =
+          \frac{1}{\sqrt{5}} - \frac{1}{\sqrt{5}}\cdot \frac{1/5 - 1}{3/5 - 1} =
+          -\frac{1}{\sqrt{5}},\\
+    x_2 & = -\frac{1}{\sqrt{5}} - \frac{(-1/\sqrt{5})^3 + 1/\sqrt{5}}{3\,(-1/\sqrt{5})^2 - 1} =
+          -\frac{1}{\sqrt{5}} + \frac{1}{\sqrt{5}}\cdot \frac{1/5 - 1}{3/5 - 1} =
+          \frac{1}{\sqrt{5}} = x_0,\\
+    x_2 & = x_1 = -\frac{1}{\sqrt{5}},\\
+        & \cdots
+  \end{align*}
+
+  \begin{center}
+    \begin{tikzpicture}[x=4cm,y=4cm]
+      \draw[domain=-1.1:1.1,samples=100,variable=\x] plot ({\x},{\x*\x*\x - \x});
+
+      \draw ({1/sqrt(5)}, {-4/(5*sqrt(5))}) -- ({-1/sqrt(5)}, 0);
+      \draw ({-1/sqrt(5)}, {4/(5*sqrt(5))}) -- ({1/sqrt(5)}, 0);
+      \draw[dashed] ({-1/sqrt(5)}, {4/(5*sqrt(5))}) -- ({-1/sqrt(5)}, 0);
+      \draw[dashed] ({1/sqrt(5)}, {-4/(5*sqrt(5))}) -- ({1/sqrt(5)}, 0);
+
+      \draw ({1/sqrt(5)}, 0) node[above] {$x_0$};
+      \draw ({-1/sqrt(5)}, 0) node[below] {$x_1$};
+
+      \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+      \draw[->] (0,-0.8) -- (0,0.8) node[above] {$f (x)$};
+    \end{tikzpicture}
+  \end{center}
+
+  En el caso no-arquimediano, el método de Newton siempre converge: la única
+  condición para la aproximación inicial es $\|f (x_0)\| < \|f' (x_0)\|^2$.
+\end{ejemplo}
+
+La demostración de arriba nos da un algoritmo concreto para calcular
+el resultado con una dada precisión. La desigualdad
+$$\|x_{n+1} - x_n\| \le \|f' (x_0)\| \, \delta^{2^n}$$
+de \eqnref{eqn:Hensel-proof-Cauchy-bound} implica que para todo $m > n$
+se cumple
+$$\|x_m - x_n\| \le \|f' (x_0)\| \, \delta^{2^n}$$
+(use la desigualdad ultramétrica). Para $m \to \infty$ esto nos da
+\[ \|x - x_n\| \le \|f' (x_0)\| \, \delta^{2^n} =
+   \|f' (x_0)\| \cdot \left\|\frac{f (x_0)}{f' (x_0)^2}\right\|^{2^n}, \]
+lo que significa que a cada paso la precisión por lo menos se dobla y
+el lgoritmo es bastante eficaz.
+
+\begin{ejemplo}
+  \label{ejemplo:raiz-cuadrada-3-adica-de-7}
+  Calculemos una raíz cuadrada $3$-ádica de $7$. Buscamos entonces las raíces
+  del polinomio $f (X) = X^2 - 7$ en $\ZZ_3$. Módulo $3$ tenemos dos soluciones:
+  $1^2 - 7 \equiv 0 \pmod{3}$ y $2^2 - 7 \equiv 0 \pmod{3}$. Consideremos, por
+  ejemplo, $x_0 = 1$. Tenemos
+  $$|f (x_0)|_3 = |-6|_3 = \frac{1}{3}, \quad |f' (x_0)|_3^2 = |2|_3^2 = 1,$$
+  entonces la condición $|f (x_0)|_3 < |f' (x_0)|_3^2$ se cumple, y el lema de
+  Hensel nos dice que existe único $x \in \ZZ_3$ tal que $f (x) = 0$ y
+  $|x - x_0|_3 < 1$; es decir, $x \equiv x_0 \pmod{3}$. Además, la demostración
+  nos da una sucesión específica $x_n$ tal que $x = \lim_{n\to\infty}
+  x_n$. Calculemos algunos de estos $x_n$ por la fórmula
+  $$x_{n+1} = x_n - \frac{f (x_n)}{f' (x_n)}.$$
+  Tenemos
+  \begin{align*}
+    x_1 & = 1 - \frac{1^2 - 7}{2\cdot 1} = 4,\\
+    x_2 & = 4 - \frac{4^2 - 7}{2\cdot 4} = \frac{23}{8},\\
+    x_3 & = \frac{977}{368},\\
+        & \ldots
+  \end{align*}
+
+  La expansión $3$-ádica de $x_3$ es dada por
+  $$1 + 3 + 3^2 + 2\cdot 3^4 + 2\cdot 3^7 + 3^9 + 3^{10} + 2\cdot 3^{11} + 2\cdot 3^{13} + \cdots$$
+  (esto se puede calcular en PARI/GP). Además, sabemos que el número de los
+  dígitos $p$-ádicos correctos en las aproximaciones $x_n$ por lo menos se dobla
+  a cada paso; es decir,
+  $$v_p (x-x_n) \ge 2^n \iff x \equiv x_n \pmod{p^{2^n}}.$$
+  En particular, en $x_3$ los dígitos hasta $a_7$ coinciden con los dígitos de
+  la verdadera raíz cuadrada $x$ de $7$ tal que $x \equiv 1 \pmod{3}$. Tenemos
+  $$x = 1 + 3 + 3^2 + 2\cdot 3^4 + 2\cdot 3^7 + \cdots$$
+  Si empezamos por $x_0' = 2$, se obtiene otro número $x' \in \ZZ_p$ tal que
+  $x'^2 = 7$ y $x' \equiv x_0' \pmod{3}$. Es la otra raíz cuadrada de $7$. Por
+  supuesto, $x = -x'$:
+  $$-x = 2 + 3 + 3^2 + 2\cdot 3^3 + 2\cdot 3^5 + 2\cdot 3^6 + 0\cdot 3^7 + \cdots$$
+
+  \begin{framed}
+    \noindent Podemos verificar nuestro cálculo en PARI/GP:
+
+    {\small
+\begin{verbatim}
+? (1 + 3 + 3^2 + 2*3^4 + 2*3^7 + O (3^8))^2
+% = 1 + 2*3 + O(3^8)
+
+? (2 + 3 + 3^2 + 2*3^3 + 2*3^5 + 2*3^6 + O(3^8))^2
+% = 1 + 2*3 + O(3^8)
+\end{verbatim}}
+
+      \noindent PARI/GP puede calcular raíces cuadradas de números $p$-ádicos directamente:
+
+      {\small
+\begin{verbatim}
+? sqrt (7 + O (3^10))
+% = 1 + 3 + 3^2 + 2*3^4 + 2*3^7 + 3^8 + 3^9 + O(3^10)
+\end{verbatim}}
+      \end{framed}
+\end{ejemplo}
+
+Vamos a escribir simplemente ``$\sqrt{x}$'' para denotar una raíz cuadrada de
+$x\in\QQ_p$. Esta notación viene del análisis real, donde $\sqrt{x}$ para
+$x > 0$ normalmente denota el número \emph{positivo} tal que
+$(\sqrt{x})^2 = x$. En el caso $p$-ádico, también hay dos posibilidades,
+y la diferencia es el signo $\pm 1$, pero ya no hay un modo tan canónico de
+elegir uno. Por ejemplo, la función \texttt{sqrt($x$)} en PARI/GP devuelve la
+raíz cuadrada con el primer dígito $p$-ádico $0 \le a_0 \le p/2$.
+
+\begin{framed}
+  \noindent En PARI/GP, la función \verb|padicappr(f,a)| devuelve las raíces
+  $p$-ádicas del polinomio $f$ congruentes a $a$ módulo $p$.
+
+  {\small
+\begin{verbatim}
+? padicappr(x^2-7, 1 + O (3^10))
+% = [1 + 3 + 3^2 + 2*3^4 + 2*3^7 + 3^8 + 3^9 + O(3^10)]~
+? padicappr(x^2-7, 2 + O (3^10))
+% = [2 + 3 + 3^2 + 2*3^3 + 2*3^5 + 2*3^6 + 3^8 + 3^9 + O(3^10)]~
+\end{verbatim}}
+\end{framed}
+
+\begin{ejerc}
+  Usando el método de Newton, calcule los primeros $8$ dígitos de las raíces
+  cuadradas $\pm\sqrt{-1}$ en $\QQ_5$ y $\pm\sqrt{-3}$ en $\QQ_7$.
+  (Use PARI/GP para hacer cálculos con números racionales y encontrar sus
+  expansiones $p$-ádicas).
+\end{ejerc}
+
+\begin{ejemplo}
+  \label{ejemplo:raiz-cuadrada-de-1+X}
+  Calculemos la raíz cuadrada $\sqrt{1+X}$ en $\QQ [\![X]\!]$; es decir,
+  encontremos las raíces del polinomio
+  $F (Z) = Z^2 - 1 - X \in \QQ [\![X]\!] [Z]$. Para $f_0 = 1$ tenemos
+  $$v_X (F (1)) = v_X (-X) = 1, \quad v_X (F' (1)) = v_X (2) = 0.$$
+  Entonces, se cumple $|F (1)|_X < |F' (1)|_X^2$ y podemos calcular las
+  aproximaciones
+  $$f_{n+1} = f_n - \frac{F (f_n)}{F' (f_n)} = f_n - \frac{f_n^2 - 1 - X}{2\,f_n}.$$
+
+  \pagebreak
+
+  Esta vez sería mejor hacerlo con ayuda de PARI/GP:
+
+  \begin{framed}\small
+\begin{verbatim}
+? f = 1;
+? for (n=1,3, f = f - (f^2-1-X)/(2*f); printf ("f_%d = %s\n", n,f));
+f_1 = 1/2*X + 1
+f_2 = (X^2 + 8*X + 8)/(4*X + 8)
+f_3 = (X^4 + 32*X^3 + 160*X^2 + 256*X + 128)/(8*X^3 + 80*X^2 + 192*X + 128)
+
+? f + O (X^8)
+% = 1 + 1/2*X - 1/8*X^2 + 1/16*X^3 - 5/128*X^4 + 7/256*X^5 - 21/1024*X^6
++ 33/2048*X^7 + O(X^8)
+\end{verbatim}
+  \end{framed}
+
+  Como sabemos, los coeficientes de $f_3$ coinciden con los coeficientes de
+  $\sqrt{X+1} = \sum_{i \ge 0} a_i\,X^i$ por lo menos hasta $a_7$. Entonces,
+  \[ \sqrt{X+1} = 1 + \frac{1}{2}\,X - \frac{1}{8}\,X^2 + \frac{1}{16}\,X^3 -
+                  \frac{5}{128}\,X^4 + \frac{7}{256}\,X^5 - \frac{21}{1024}\,X^6 +
+                  \frac{33}{2048}\,X^7 + \cdots\]
+  Lo que acabamos de calcular son los primeros coeficientes de la serie
+  binomial
+  $$(1+X)^{1/m} = \sum_{i \ge 0} {1/m \choose i}\,X^i,$$
+  donde
+  \[ {Y \choose i} \dfn \frac{Y\,(Y-1)\cdots (Y-i+1)}{i!} \in \QQ [Y]. \qedhere \]
+\end{ejemplo}
+
+\begin{framed}\small
+\begin{verbatim}
+? (1+X)^(1/2) + O (X^8)
+% = 1 + 1/2*X - 1/8*X^2 + 1/16*X^3 - 5/128*X^4 + 7/256*X^5 - 21/1024*X^6
++ 33/2048*X^7 + O(X^8)
+
+? vector (7,i,binomial(1/2,i))
+% = [1/2, -1/8, 1/16, -5/128, 7/256, -21/1024, 33/2048]
+\end{verbatim}
+\end{framed}
+
+El resto de este texto está dedicado a algunas aplicaciones típicas del lema de
+Hensel para los números $p$-ádicos.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Cuadrados en $\QQ_p$}
+
+\begin{proposicion}
+  \label{prop:cuadrados-en-Zp}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Para $p \ne 2$, un número $u \in \ZZ_p^\times$ es un cuadrado en
+    $\QQ_p$ (es decir, $u = x^2$ para algún $x \in \QQ_p$) si y solamente si $u$
+    es un cuadrado módulo $p$.
+
+  \item[2)] Un número $u\in\ZZ_2^\times$ es un cuadrado en $\QQ_2$ si y solamente
+    si $u \equiv 1 \pmod{8}$.
+  \end{enumerate}
+
+  \begin{proof}
+    Supongamos que $p\ne 2$. Si $u = x^2$ en $\QQ_p$, notamos que
+    $|x|_p^2 = |u|_p = 1$, y por lo tanto $x \in \ZZ_p^\times$. Luego, se tiene
+    $u \equiv x^2 \pmod{p}$. En la otra dirección, si la ecuación
+    $f (X) = X^2 - u$ tiene solución módulo $p$, esto significa que existe
+    un número $0 \le x_0 \le p-1$ tal que $x_0^2 - u \equiv 0 \pmod{p}$.
+    En términos de normas, $|f (x_0)|_p \le 1/p$, mientras que
+    $|f' (x_0)^2|_p = |2\,x_0|^2_p = 1$, puesto que $p \ne 2$. Entonces, podemos
+    aplicar el lema de Hensel que nos da un elemento $x\in \ZZ_p$ tal que
+    $f (x) = x^2 - u = 0$.
+
+    En el caso de $p = 2$, de la misma manera, $u = x^2$ para algún $x\in\QQ_2$
+    implica $x\in \ZZ_2^\times$ y podemos considerar la reducción módulo $8$.
+    En el anillo $\ZZ_2/8\ZZ_2 \isom \ZZ/8\ZZ$, los elementos invertibles son
+    $1, 3, 5, 7$, y todos sus cuadrados son congruentes a $1$ módulo $8$:
+    $$1^2 \equiv 3^2 \equiv 5^2 \equiv 7^2 \equiv 1 \pmod{8}.$$
+    Entonces, se tiene necesariamente $x^2 \equiv 1 \pmod{8}$. En la otra
+    dirección, si $u\in\ZZ_2^\times$ satisface $u \equiv 1 \pmod{8}$, esto quiere
+    decir que $|1-u|_2 \le 1/8$.  Apliquemos el lema de Hensel al polinomio
+    $f (X) = X^2 - u$. Para $x_0 = 1$ tenemos
+    $$|f (x_0)|_2 = |1-u|_2 \le 1/8 < |f' (x_0)|_2^2 = |2|_2^2 = 1/4,$$
+    así que existe $x\in\ZZ_2$ tal que $u = x^2$.
+  \end{proof}
+\end{proposicion}
+
+Hemos encontrado los cuadrados en $\ZZ_p^\times$, pero ¿qué sucede con
+los cuadrados en $\QQ_p$? Pues, todo elemento $x\in \QQ_p^\times$ puede ser
+escrito como $x = p^n\,u$, donde $n\in\ZZ$ y $u\in\ZZ_p^\times$. Luego,
+$|x|_p = |p^n\,u|_p = 1/p^n$. Note que si $x$ es un cuadrado, entonces $n$ tiene
+que ser par. Esto nos dice que los cuadrados en $\QQ_p^\times$ son precisamente
+los números $p^n\,u$ donde $n\in\ZZ$ es par y $u$ es un cuadrado en
+$\ZZ_p^\times$.
+
+\begin{ejerc}
+  Denotemos por $(\QQ_p^\times)^2$ el grupo multiplicativo de cuadrados en
+  $\QQ_p^\times$. Demuestre que
+  \begin{align*}
+    \RR^\times / (\RR^\times)^2 & \isom C_2,\\
+    \QQ_p^\times / (\QQ_p^\times)^2 & \isom C_2\times C_2, \quad\text{si } p\ne 2,\\
+    \QQ_2^\times / (\QQ_2^\times)^2 & \isom C_2\times C_2\times C_2.
+  \end{align*}
+
+  \ifsolutions\begin{solucion}
+    Para $p = \infty$ tenemos $\QQ_\infty = \RR$ y un número $x \in \RR^\times$
+    es un cuadrado si y solamente si $x > 0$. Así que
+    $$[\RR^\times : (\RR^\times)^2] = 2.$$
+
+    Luego, para $p < \infty$ tenemos
+    $$\QQ_p^\times \isom \left<p\right>\times\ZZ_p^\times,$$
+    donde $\left<p\right> = \{ p^n \mid n\in\ZZ \}$ es el grupo cíclico generado
+    por $p$. En efecto, todo número $x\in\QQ_p^\times$ puede ser escrito de modo
+    único como $x = p^m\,u$ donde $u \in \ZZ_p^\times$ y $m\in\ZZ$. Es un
+    cuadrado si y solamente si $m$ es par y $u$ es un cuadrado en
+    $\ZZ_p^\times$. Entonces,
+    $$\QQ_p^\times/(\QQ_p^\times)^2 \isom C_2\times \ZZ_p^\times/(\ZZ_p^\times)^2.$$
+    Para $p \ne 2$, hemos visto en \ref{prop:cuadrados-en-Zp} que
+    $u\in\ZZ_p^\times$ es un cuadrado en $\QQ_p$ si y solamente si es un
+    cuadrado módulo $p$. Entonces,
+    \[ [\ZZ_p^\times : (\ZZ_p^\times)^2] =
+       [(\ZZ/p\ZZ)^\times : ((\ZZ/p\ZZ)^\times)^2] = 2. \]
+    Para $p = 2$, hemos visto en \ref{aplicacion:cuadrados-en-Z2} que
+    $u\in\ZZ_2^\times$ es un cuadrado si y solamente si $u\equiv
+    1\pmod{8}$. Tenemos $(\ZZ/8\ZZ)^\times \isom C_2\times C_2$, así que
+    $$\ZZ_2^\times / (\ZZ_2^\times)^2 \isom C_2\times C_2.$$
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $p \equiv 2 \pmod{3}$, entonces para todo $a\in\ZZ$ tal que
+  $p\nmid a$ tenemos $\sqrt[3]{a} \in \QQ_p$. Para $p\not\equiv 2 \pmod{3}$,
+  encuentre algún $a$ tal que $p\nmid a$ y $\sqrt[3]{a} \notin \QQ_p$ .
+
+  \ifsolutions\begin{solucion}
+    De nuevo, el lema de Hensel nos dice que las raíces cúbicas en
+    $\ZZ_p^\times$ pueden ser levantadas de $\FF_p^\times$. La hipótesis
+    $p \equiv 2 \pmod{3}$ implica que $3 \nmid (p-1) = \#\FF_p^\times$, así que
+    para todo generador $a_0 \in \FF_p^\times$ el elemento $a_0^3$ es también
+    un generador de $\FF_p^\times$, y $a \equiv a_0^{3n} = (a_0^n)^3 \pmod{p}$.
+
+    Para $p = 7$ los cubos en $\FF_7^\times$ son $1$ y $6$. Por ejemplo,
+    $\sqrt[3]{2} \notin \QQ_7$.
+  \end{solucion}\fi
+\end{ejerc}
+
+El lector que todavía empieza a estudiar los números $p$-ádicos probablemente
+se había planteado la siguiente pregunta. El cuerpo $\QQ_p$ contiene el cuerpo
+$\QQ$ donde existe la noción de números positivos y negativos. ¿Se puede definir
+algo parecido para $\QQ_p$?
+
+Recordemos la siguiente definición. Se dice que un cuerpo $F$ es \term{ordenado}
+si está definido un subconjunto $P\subset F$ de \term{elementos positivos} con
+las siguientes propiedades:
+
+\begin{enumerate}
+\item[1)] Para $x\in F$ se cumple precisamente una de las siguientes relaciones:
+$$x\in P, \quad x = 0, \quad -x\in P.$$
+
+\item[2)] Si $x,y\in P$, entonces $x+y \in P$ y $xy\in P$.
+\end{enumerate}
+
+Normalmente si $x\ne 0$ y $x\in P$, se escribe ``$x > 0$''; si $x\ne 0$
+y $-x\in P$, se escribe ``$x < 0$''. De los axiomas se sigue que $1 > 0$
+y $-1 < 0$: de hecho, $1 = 1^2 = (-1)^2$. Luego, la propiedad 2) implica que
+para todo $n = 1,2,3,\ldots$ tenemos
+$$\underbrace{1 + \cdots + 1}_n > 0, \quad -\underbrace{(1 + \cdots + 1)}_n < 0.$$
+En particular, un cuerpo de característica positiva no puede ser ordenado.
+Para $x\ne 0$ tenemos $x^2 = (-x)^2$, lo que significa que $x^2 > 0$ para todo
+$x\ne 0$: \emph{todos los cuadrados de números no nulos tienen que ser
+  positivos}.
+
+Por ejemplo, $\QQ$ y $\RR$ son cuerpos ordenados. El cuerpo $\CC$ no es
+ordenado: tenemos $i^2 = -1 < 0$, un cuadrado que no es positivo. De la misma
+manera, se puede ver que los cuerpos $p$-ádicos $\QQ_p$ no son ordenados, ya que
+en cada uno de ellos se puede encontrar muchos cuadrados negativos.
+
+\begin{observacion}
+  $\QQ_p$ no puede ser ordenado para ningún primo finito $p$.
+
+  \begin{proof}
+    Por ejemplo, el cuerpo $\QQ_2$ contiene la raíz cuadrada $\pm\sqrt{-7}$,
+    y luego $(\sqrt{-7})^2 = -7 < 0$. Para $p > 2$, el cuerpo $\QQ_p$ contiene,
+    por ejemplo, $\pm\sqrt{1-p}$, y luego $(\sqrt{1-p})^2 = 1-p < 0$.
+  \end{proof}
+\end{observacion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Raíces de la unidad en $\QQ_p$}
+
+Una \term{raíz $n$-ésima de la unidad} es un número $\zeta \in \QQ_p$ tal que
+$\zeta^n = 1$. Notamos que esto implica que $|\zeta|_p = 1$, así que las raíces
+de la unidad en $\QQ_p$ forman un subgrupo $\mu (\QQ_p)$ del grupo
+multiplicativo $\ZZ_p^\times$. La reducción módulo $p$ nos da un homomorfismo
+de grupos
+\begin{equation}
+  \label{eqn:reduccion-mod-p-de-raices-de-unidad}
+  \phi\colon \mu (\QQ_p) \hookrightarrow \ZZ_p^\times \epi (\ZZ/p\ZZ)^\times.
+\end{equation}
+
+\begin{proposicion}
+  El homomorfismo $\phi$ es sobreyectivo; específicamente, en $\QQ_p$ hay raíces
+  de orden $p-1$ que dan diferentes restos módulo $p$.
+
+  \begin{proof}
+    Consideremos el polinomio
+    $$f (X) = X^p - X = X\,(X^{p-1} - 1) \in \ZZ_p [X]$$
+    cuyas raíces no nulas corresponden a las raíces de la unidad de orden
+    $p-1$. Según el pequeño teorema de Fermat la ecuación
+    $$x_0^p - x_0 \equiv 0 \pmod{p}$$
+    tiene $p$ soluciones $0 \le x_0 \le p-1$. Tenemos
+    $$|f (x_0)|_p \le 1/p < |f' (x_0)|_p^2 = |p\,x_0^{p-1} - 1|_p^2 = 1,$$
+    así que el lema de Hensel funciona y para cada $x_0$ produce un elemento
+    único $x\in\ZZ_p$ que satisface $x^p - x = 0$ y $x \equiv x_0 \pmod{p}$.
+  \end{proof}
+\end{proposicion}
+
+\begin{ejerc}
+  He aquí otro modo de encontrar las raíces de la unidad de orden
+  $p-1$. Demuestre que para todo $x\in\ZZ_p$ se cumple
+  $$x^{p^{n+1}} \equiv x^{p^n} \pmod{p^{n+1}}$$
+  y que el límite $\lim_{n\to\infty} x^{p^n}$ existe, y es precisamente la raíz
+  del polinomio $X^p - X$ que es congruente a $x$ modulo $p$.
+
+  \ifsolutions\begin{solucion}
+    Primero, por el pequeño teorema de Fermat,
+    $$x^p \equiv x \pmod{p}.$$
+    Esto implica que
+    $$x^{p^{n+1}} = (x^p)^{p^n} \equiv x^{p^n} \pmod{p^{n+1}}$$
+    para todo $n = 1,2,3,\ldots$ En términos de normas
+    $p$-ádicas, tenemos desigualdades
+    $$|x^{p^{n+1}} - x^{p^n}|_p \le \frac{1}{p^{n+1}},$$
+    lo que demuestra que la sucesión es de Cauchy y su límite
+    $$y = \lim_{n\to\infty} x^{p^n}$$
+    existe. Tenemos $y^n = y$. En efecto,
+    \[ y^p - y =
+       \left(\lim_{n\to\infty} x^{p^n}\right)^p - \lim_{n\to\infty} x^{p^n} =
+       \lim_{n\to\infty} (x^{p^n})^p - \lim_{n\to\infty} x^{p^n} =
+       \lim_{n\to\infty} (x^{p^{n+1}} - x^{p^n}) = 0 \]
+    por lo que acabamos de ver. Ahora para todo $n$
+    $$x^{p^n} \equiv x \pmod{p}.$$
+    ---si $n = 1$, es el pequeño teorema de Fermat, y luego por inducción
+    $$x^{p^n} = (x^{p^{n-1}})^p \equiv x^p \equiv x \pmod{p}.$$
+    Así que
+    $$y \equiv x \pmod{p}.$$
+  \end{solucion}\fi
+\end{ejerc}
+
+En $\QQ_p$ no hay otras raíces de la unidad.
+
+\begin{proposicion}
+  Las únicas raíces de la unidad en $\QQ_2$ son $\pm 1$.
+
+  Las únicas raíces de la unidad en $\QQ_p$ para $p \ne 2$ son las
+  $(p-1)$-ésimas raíces que acabamos de encontrar.
+
+  \begin{proof}
+    \noindent\textbf{Primero examinemos el caso $p = 2$}. Toda raíz de la unidad
+    $\zeta \in \mu (\QQ_2)$ es un producto de una raíz de la unidad de orden
+    $2^k$ y una raíz de la unidad de orden impar $n$, así que será suficiente
+    considerar las raíces de orden $2^k$ y orden impar por separado.
+
+    La raíz de la unidad primitiva de orden $2$ es $-1$, pero $-1$ no es un
+    cuadrado en $\ZZ_2^\times$, así que en $\ZZ_2^\times$ no hay raíces
+    de la unidad de orden $2^k$ para $k \ge 2$.
+
+    Ahora sea $\zeta \in \mu (\QQ_2)$ una raíz de la unidad tal que
+    $\zeta^n = 1$ para $n$ impar. Consideremos el polinomio
+    $f (X) = X^n - 1$. Tenemos $f (1) = 0$ y $f' (1) = n \not\equiv 0 \pmod{2}$,
+    y entonces el lema de Hensel nos dice que existe \emph{único} $x \in \ZZ_2$
+    tal que $f (x) = 0$ y $x \equiv 1 \pmod{2}$. Pero \emph{todo} elemento
+    de $\ZZ_2^\times$ se reduce a $1$ módulo $2$, así que $\zeta = 1$. Esto
+    demuestra que en $\ZZ_2^\times$ no hay raíces de la unidad no triviales
+    de orden impar.
+
+    \vspace{1em}
+
+    \noindent\textbf{Ahora examinemos el caso $p \ne 2$}. Hemos probado usando
+    el lema de Hensel que el homomorfismo
+    $\phi\colon \mu (\QQ_p) \to (\ZZ/p\ZZ)^\times$
+    de \eqnref{eqn:reduccion-mod-p-de-raices-de-unidad} es sobreyectivo, y hay
+    que demostrar que $\phi$ es también inyectivo. Sea $\zeta \in \mu (\QQ_p)$
+    una $n$-ésima raíz de la unidad tal que $\phi (\zeta) = 1$; a saber,
+    $\zeta = 1 + p\,x$ para algún $x\in\ZZ_p$. Necesitamos ver que
+    $x = 0$. Tenemos
+    $$\zeta^n = (1 + p\,x)^n = 1,$$
+    y entonces, aplicando el teorema del binomio,
+    $$n\,p\,x + {n\choose 2}\,p^2\,x^2 + {n\choose 3}\,p^3\,x^3 + \cdots + p^n\,x^n = 0.$$
+    Luego,
+    $$x\,\left(n + {n\choose 2}\,p\,x + {n\choose 3}\,p^2\,x^2 + \cdots + p^{n-1}\,x^{n-1}\right) = 0.$$
+    Si $p\nmid n$, entonces la expresión en paréntesis no puede ser nula y
+    $x = 0$. Si $p\mid n$, podemos reemplazar $\zeta$ por $\zeta^p$ y $n$ por
+    $n/p$. De nuevo, el mismo argumento demuestra que $x = 0$ o $p\mid
+    n$. Repitiendo este proceso, todo se reduce al caso $n = p$. Tenemos
+    entonces
+    $$x\,\left(p + {p\choose 2}\,p\,x + {p\choose 3}\,p^2\,x^2 + \cdots + p^{p-1}\,x^{p-1}\right) = 0.$$
+    Sin embargo, $p \ne 2$, así que todos los términos en la suma
+    $${p\choose 2}\,p\,x + {p\choose 3}\,p^2\,x^2 + \cdots + p^{p-1}\,x^{p-1}$$
+    son divisibles por $p^2$, la expresión en paréntesis no puede ser nula y $x = 0$.
+  \end{proof}
+\end{proposicion}
+
+\begin{corolario}
+  Los cuerpos $\QQ_p$ no son isomorfos para diferentes $p$.
+
+  \begin{proof}
+    El orden del grupo de las raíces de la unidad nos permite distinguir todos
+    los $\QQ_p$, excepto $\QQ_2$ y $\QQ_3$, donde las raíces de la unidad son
+    $\pm 1$. En este caso excepcional podemos notar, por ejemplo, que
+    $\sqrt{-2} \in \QQ_3$, mientras que $\sqrt{-2} \notin \QQ_2$.
+  \end{proof}
+\end{corolario}
+
+\begin{ejerc}
+  Sea $p$ un número primo.
+
+  \begin{enumerate}
+  \item[1)] Sea $n$ un número entero, posiblemente negativo. Demuestre que si
+    $p\nmid n$ y $x\in\ZZ_p$ satisface $x\equiv 1\pmod{p}$, entonces $x$ tiene
+    una raíz $n$-ésima: existe $y$ tal que $y^n = x$.
+
+  \item[2)] Demuestre que $1 + p$ no tiene raíces $p$-ésimas en $\QQ_p$.
+
+  \item[3)] Demuestre que $x\in\ZZ_p$ tiene una raíz $p$-ésima si
+    $x \equiv 1 \pmod{p^2}$ y $p \ne 2$.
+  \end{enumerate}
+
+  \noindent \emph{Indicación: use el lema de Hensel en 1). En 2), si
+    $y = b_0 + b_1\,p + b_2\,p^2 + \cdots$, calcule los primeros dígitos
+    $p$-ádicos de $y^p$. En 3), use el lema de Hensel con una buena aproximación
+    inicial.}
+
+  \ifsolutions\begin{solucion}
+    En 1), para $n > 0$, podemos aplicar el lema de Hensel al polinomio
+    $f (X) = X^n - x$. Su derivada es $f' (X) = n\,X^{n-1}$. Tenemos
+    $f (1) \equiv 1^n - 1 = 0 \pmod{p}$ y $f' (1) = n \not\equiv 0 \pmod{p}$ por
+    nuestra hipótesis. Entonces, existe único $y\in\ZZ_p$ tal que $y^n = x$ y
+    $y\equiv 1\pmod{p}$. Para $n < 0$, podemos aplicar el lema de Hensel
+    al polinomio $f (X) = x\,X^{-n} - 1$. Tenemos $f (1) \equiv 0 \pmod{p}$ y
+    $f' (1) \equiv -n \not\equiv 0 \pmod{p}$.
+
+    En 2), notemos que si
+    $y = b_0 + b_1\,p + b_2\,p^2 + b_3\,p^3 + \cdots\in\ZZ_p$, tenemos
+    $$y^p = b_0^p + \left(\sum_{i_1 + i_2 + \cdots + i_p = 1} b_{i_1} \, b_{i_2} \cdots b_{i_p}\right)\,p + \cdots,$$
+    pero el término
+    $\sum\limits_{i_1 + i_2 + \cdots + i_p = 1} b_{i_1}\,b_{i_2}\cdots b_{i_p}$
+    es igual a $p\cdot b_1\,b_0^{p-1}$, y entonces
+    $y^p = b_0^p + O (p^2)$, así que
+
+    \begin{align*}
+      y^p & \equiv b_0^p \equiv b_0 \pmod{p},\\
+      y^p & \equiv b_0^p \pmod{p^2}.
+    \end{align*}
+    Estas consideraciones demuestran en particular que para
+    $x = 1 + p$ no existe $y\in\ZZ_p$ tal que $x = y^p$.
+
+    En 3), para $x = 1 + a_2\,p^2 + a_3\,p^3 + \cdots$, podemos aplicar el lema
+    de Hensel al polinomio $f (X) = X^p - x$. Para la approximation inicial
+    $x_0 = 1 + a_2\,p$ tenemos
+    \[ x_0^p =
+       \sum_{0 \le k \le p} {p \choose k} \, a_2^k\,p^k =
+       1 + {p \choose 1}\,a_2\,p + {p \choose 2}\,a_2^2\,p^2 + \cdots + a_2^p\,p^p. \]
+    Ahora si $p > 2$ (!!!), entonces
+    $$x_0^p = 1 + a_2\,p^2 + O (p^3),$$
+    así que $x_0^p \equiv x \pmod{p^3}$; es decir,
+    $|f (x_0)|_p \le \frac{1}{p^3}$. Luego,
+    $$|f' (x_0)|_p = |p\,x_0^{p-1}|_p = |p|_p\cdot |x_0|_p^{p-1} = \frac{1}{p},$$
+    y las hipótesis del lema de Hensel se cumplen:
+    $$|f (x_0)|_p \le \frac{1}{p^3} < \frac{1}{p^2} = |f' (x_0)|_p^2,$$
+    y por lo tanto existe único $y\in\ZZ_p$ tal que $y^p = x$ y
+    $|y-x_0|_p < |f' (x_0)|_p$; es decir,
+    $y \equiv x_0 \equiv 1 + a_2\,p \pmod{p^2}$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  He aquí otro modo de demostrar que $\QQ_p$ no tiene raíces $p$-ésimas
+  de la unidad no triviales.
+
+  \begin{enumerate}
+  \item[1)] Recuerde el \term{criterio de Eisenstein} en la siguiente
+    versión. Sea
+    $$f (X) = a_n\,X^n + a_{n-1}\,X^{n-1} + \cdots + a_1\,X + a_0 \in R [X]$$
+    un polinomio con coeficientes en un dominio de factorización única $R$. Sea
+    $p\in R$ un elemento primo tal que
+
+    \begin{itemize}
+    \item $p\mid a_i$ para todo $i = 0,\ldots,n-1$,
+    \item $p\mid a_n$,
+    \item $p^2 \nmid a_0$.
+    \end{itemize}
+
+    Entonces $f (X)$ es irreducible en $K [X]$ donde $K$ es el cuerpo de
+    fracciones de $R$. Es decir, $f (X)$ no puede ser expresado como un producto
+    de dos polinomios de grado $< n$.
+
+  \item[2)] Usando el criterio de Eisenstein para $\ZZ_p [X]$, demuestre que
+    el polinomio ciclotómico
+    $$f (X) = \frac{X^p - 1}{X - 1} = X^{p-1} + X^{p-2} + \cdots + X + 1$$
+    es irreducible en $\QQ_p [X]$. Concluya que la única $p$-ésima raíz
+    de la unidad en $\QQ_p$ es $1$.
+  \end{enumerate}
+
+  \noindent \emph{Indicación: en 2), considere el polinomio $f (X+1)$.}
+
+  \ifsolutions\begin{solucion}
+    Las $p$-ésimas raíces de la unidad son las raíces
+    del polinomio
+    \[ X^p - 1 = (X - 1)\,\frac{X^p - 1}{X - 1}
+               = (X-1)\,(X^{p-1} + X^{p-2} + \cdots + X + 1), \]
+    así que en $\QQ_p$ no hay raíces de la unidad no triviales precisamente
+    cuando el polinomio
+    $$f (X) = \frac{X^p - 1}{X - 1} = X^{p-1} + X^{p-2} + \cdots + X + 1$$
+    es irreducible en $\QQ_p [X]$. El criterio de Eisenstein no se aplica
+    a $f (X)$, pero se aplica a
+    \[ f (X+1) = \frac{(X+1)^p - 1}{X}
+               = \sum_{0 \le k \le p-1} {p\choose k+1}\,X^k. \]
+    Efectivamente, $p\mid {p\choose k+1}$ para $k = 0,\ldots,p-2$,
+    $p \nmid {p\choose p}$, y $p^2 \nmid {p\choose 1}$, así que $f (X+1)$ es
+    irreducible y $f (X)$ es también irreducible.
+  \end{solucion}\fi
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Automorfismos de $\QQ_p$}
+
+\begin{proposicion}
+  \label{aplicacion:automorfismos-de-Qp}
+  El único automorfismo $f\colon \QQ_p\to\QQ_p$ es la aplicación identidad.
+\end{proposicion}
+
+\textbf{Primero notemos que todo automorfismo $f\colon \QQ_p\to\QQ_p$ deja $\QQ$
+  fijo}. Primero, para todo $n\in\NN$
+$$f (\pm n) = f (\pm \underbrace{1 + \cdots + 1}_n) = \pm n\,f (1) = \pm n.$$
+Luego, para $m/n \in \QQ$ tenemos
+$$n\,f \left(\frac{m}{n}\right) = f \left(n\,\frac{m}{n}\right) = f (m) = m,$$
+así que $f (m/n) = m/n$.
+
+\vspace{1em}
+
+Se sigue que \term{el único automorfismo \underline{continuo}
+  $f\colon \QQ_p\to\QQ_p$ es la aplicación identidad.} De hecho, ya que $\QQ$ es
+denso en $\QQ_p$, todo elemento $x\in \QQ_p$ puede ser representado como
+$x = \lim_{n\to\infty} x_n$ para $x_n\in \QQ$, y si $f$ es una aplicación
+continua,
+\[ f (x) =
+   f \left(\lim_{n\to\infty} x_n\right) =
+   \lim_{n\to\infty} f (x_n) = \lim_{n\to\infty} x_n = x, \]
+puesto que $f$ deja $\QQ$ fijo.
+
+\vspace{1em}
+
+Entonces, para demostrar \ref{aplicacion:automorfismos-de-Qp}, sería suficiente
+ver que todo automorfismo $f\colon \QQ_p\to\QQ_p$ es automáticamente
+continuo. Para esto nos va a servir una caracterización algebraica del grupo
+de unidades $\ZZ_p^\times$.
+
+\begin{lema}
+  Las siguientes condiciones son equivalentes para $x\in\QQ_p^\times$:
+
+  \begin{enumerate}
+  \item[1)] $x^{p-1}$ tiene $n$-ésimas raíces para un número infinito de $n$;
+
+  \item[2)] $x\in\ZZ_p^\times$.
+  \end{enumerate}
+
+  \begin{proof}
+    Si $x^{p-1} = y^n$ para algún $n$, entonces
+    $$(p-1)\,v_p (x) = n\,v_p (y).$$
+    Si esto se cumple para un número infinito de $n$, entonces las relaciones
+    $n \mid (p-1)\,v_p (x)$ implican que $v_p (x) = 0$; es decir, si
+    $x\in\ZZ_p^\times$.
+
+    En la otra dirección, si $x\in\ZZ_p^\times$, tenemos
+    $x\not\equiv 0 \pmod{p}$, y luego $x^{p-1} \equiv 1 \pmod{p}$ por el pequeño
+    teorema de Fermat. Luego, para $f (X) = X^n - x^{p-1} \in \ZZ_p [X]$ tenemos
+    $f (1) \equiv 0 \pmod{p}$ y $f' (1) \not\equiv 0$ si $p\nmid n$. El lema
+    de Hensel nos da entonces $y\in\ZZ_p$ tal que $y^n = x^{p-1}$.
+  \end{proof}
+\end{lema}
+
+El lema que acabamos de demostrar implica que
+$f (\ZZ_p^\times) \subseteq \ZZ_p^\times$. Ahora todo $x\in\QQ_p^\times$ puede
+ser escrito como $x = p^n\,u$, donde $n\in\ZZ$ y $u\in\ZZ_p^\times$. Tenemos
+$$f (x) = f (p^n\,u) = f (p^n)\,f (u) = p^n\,f (u).$$
+Luego,
+$$v_p (f (x)) = v_p (p^n\,f (u)) = n = v_p (x).$$
+Esto significa que para todo $x,y\in \QQ_p$
+$$|f (x) - f (y)|_p = |f (x-y)|_p = |x-y|_p.$$
+Entonces, $f$ es una aplicación continua, y esto termina la demostración. \qed
+
+\begin{ejerc}
+  Demuestre que el único automorfismo $f\colon \RR\to \RR$ es la aplicación
+  identidad.
+
+  \begin{enumerate}
+  \item[1)] Note que $f (x^2) = f (x)^2$, así que $f$ aplica números positivos
+    en números positivos y en general, preserva el orden:
+    $$x \le y \Longrightarrow f (x) \le f (y).$$
+
+  \item[2)] De nuevo, $f$ es identidad sobre $\QQ$. Demuestre que esto junto con
+    preservación del orden implica que $f$ es identidad sobre todo $\RR$.
+  \end{enumerate}
+
+  Note que $\CC$ ya tiene un número infinito de automorfismos no contínuos.
+
+  \ifsolutions\begin{solucion}
+    $f$ preserva productos, entonces $f (x^2) = f (x)^2$ y $f$ aplica cuadrados
+    a cuadrados. Pero $x$ es un cuadrado en $\RR$ si y solamente si $x\ge 0$,
+    así que
+    $$x\ge 0 \Longrightarrow f (x)\ge 0.$$
+    Luego,
+    \[ x \le y \iff y-x \ge 0 \iff f (y-x) =
+       f (y) - f (x) \ge 0 \iff f (x) \le f (y), \]
+    así que $f$ preserva el orden. Ahora para todo número real $z\in \RR$ y
+    $\epsilon > 0$ podemos encontrar $x,y\in \QQ$ tales que $x \le z \le y$ y
+    $y-x \le \epsilon$. Luego,
+    $$x \le z \le y \Longrightarrow x \le f (z) \le y$$
+    Entonces, $|f (z) - z| \le y-x \le \epsilon$. Esto implica que $f (z) = z$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\end{document}

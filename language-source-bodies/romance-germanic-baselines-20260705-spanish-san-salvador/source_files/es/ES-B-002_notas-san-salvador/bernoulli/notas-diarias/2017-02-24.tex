@@ -1,0 +1,254 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+\usepackage{diagbox}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Sumas de potencias de números naturales\\y los números de Bernoulli}
+\date{24 de Febrero de 2017}
+
+\usepackage{xcolor}
+\newcommand{\highlight}[1]{\colorbox{shadecolor}{$\displaystyle #1$}}
+
+\def\mystrut(#1,#2){\vrule height #1 depth #2 width 0pt}
+
+\newcolumntype{f}[1]{%
+>{\mystrut(3ex,2ex)\centering}%
+p{#1}%
+<{}}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+La suma de $n$ números naturales consecutivos puede ser calculada mediante la fórmula
+$$1+2+\cdots+n = \frac{(n+1)\,n}{2} = \frac{1}{2}\,n^2 + \frac{1}{2}\,n.$$
+Probablemente el lector también conoce la fórmula para las sumas de cuadrados:
+$$1^2 + 2^2 + \cdots + n^2 = \frac{n\,(n+1)\,(2n + 1)}{6} = \frac{1}{3}\,n^3 + \frac{1}{2}\,n^2 + \frac{1}{6}\,n.$$
+---es fácil demostrarla por inducción. Muchos matemáticos trataron de encontrar la fórmula similar para las sumas de cubos y otras potencias superiores. Es un problema muy natural, y la solución fue descubierta al principio del siglo XVIII por el matemático suizo \personality{Jacob Bernoulli} (1654--1705) y independientemente por el matemático japonés \personality{Seki Takakazu} (1642--1708). Denotemos por $S_k (n)$ la suma de las $k$-ésimas potencias de los números naturales hasta $n$:
+$$S_k (n) \dfn \sum_{1 \le i \le n} i^k = 1^k + 2^k + \cdots + n^k.$$
+En particular,
+$$S_0 (n) = n, \quad S_1 (n) = \frac{1}{2}\,n^2 + \frac{1}{2}\,n, \quad S_2 (n) = \frac{1}{3}\,n^3 + \frac{1}{2}\,n^2 + \frac{1}{6}\,n.$$
+Para obtener las fórmulas para $S_3 (n), S_4 (n), S_5 (n)$, etcétera, recordemos primero el \term{teorema del binomio}:
+$$(x+y)^k = \sum_{0 \le i \le k} {k \choose i} x^{k-i}\,y^i,$$
+donde
+$${k \choose i} = \frac{k!}{(k-i)!\,i!}$$
+denota un \term{coeficiente binomial}, definido como el número de posibilidades de escoger $i$ objetos entre un total de $k$ objetos.
+
+\begin{shaded}
+\small\noindent En PARI/GP, \verb|binomial(k,i)| $= {k\choose i}$.
+
+\begin{verbatim}
+/* vector (n,i,expr) devuelve un vector con la expresión
+   expr evaluada con i=1, i=2, ..., i=n: */
+? vector (7,i,binomial (6,i-1))
+% = [1, 6, 15, 20, 15, 6, 1]
+\end{verbatim}
+\end{shaded}
+
+En particular, tenemos
+$$(m+1)^{k+1} - m^{k+1} = \sum_{0 \le i \le k} {k+1 \choose i}\,m^i.$$
+La suma de estas identidades para $m = 1, 2, \ldots, n$ nos da
+$$(n+1)^{k+1} - 1 = \sum_{0 \le i \le k} {k+1 \choose i}\,S_i (n),$$
+de donde tenemos una expresión de $S_k (n)$ en términos de $S_0 (n), S_1 (n), \ldots, S_{k-1} (n)$:
+
+\begin{equation}
+\label{formula-para-Skn}
+S_k (n) = \frac{1}{k+1} \, \left((n+1)^{k+1} - 1 - \sum_{0 \le i \le k-1} {k+1\choose i} \, S_i (n)\right).
+\end{equation}
+
+Por inducción se ve que $S_k (n)$ es un polinomio en $n$ de grado $k+1$, con coeficiente principal $\frac{1}{k+1}$. Para evitar una posible confusión, denotemos la variable por $x$. El polinomio $S_k (x) \in \QQ [x]$ está determinado por sus valores en $x = n \in \NN$. Por la definición de $S_k (n)$, tenemos $S_k (n+1) - S_k (n) = (n+1)^k$ para $n = 1,2,3,\ldots$ Para los polinomios, esto nos da la relación
+
+\begin{equation}
+\label{eqn:Skn+1-y-Skn}
+S_k (x+1) - S_k (x) = (x+1)^k.
+\end{equation}
+
+En particular, $S_k (1) - S_k (0) = 1$, y ya que $S_k (1) = 1$, esto significa que $S_k (0) = 0$; es decir, el término constante del polinomio $S_k (x)$ es nulo (también podemos verlo por inducción de la fórmula \eqnref{formula-para-Skn}). Usando \eqnref{formula-para-Skn}, podemos calcular algunos $S_k (x)$.
+
+\begin{shaded}
+\small
+
+\noindent Implementemos nuestra fórmula para $S_k$ en PARI/GP:
+
+\begin{verbatim}
+S(k) = if (k == 0, x, 1/(k+1)*((x+1)^(k+1) - 1 - sum (i=0, k-1, binomial(k+1,i) * S(i))));
+
+? S(3)
+% = 1/4*x^4 + 1/2*x^3 + 1/4*x^2
+\end{verbatim}
+
+\noindent El lector que conoce un poco de programación puede notar que el código de arriba es muy ineficaz; por ejemplo, para calcular \verb|S(20)| ya se necesita mucho tiempo. He aquí otra versión mucho más rápida:
+
+\begin{verbatim}
+/* La tabla de S (k): */
+s_table = [];
+
+S (k) = {
+  if (k == 0, return (x));
+
+  /* Extender la tabla de valores, de ser necesario: */
+  if (length(s_table) < k, s_table = concat(s_table, vector(k-length(s_table))));
+
+  /* Devolver el valor, si está en la tabla;
+     sino, calcularlo y poner en la tabla: */	
+  if (s_table[k], s_table[k],
+      s_table[k] = 1/(k+1)*((x+1)^(k+1) - 1 - sum (i=0, k-1, binomial(k+1,i) * S(i))))
+}
+\end{verbatim}
+
+\noindent (Trate de calcular, por ejemplo, \verb|S(20)| usando ambas versiones.)
+\end{shaded}
+
+\begin{align*}
+S_0 (x) & = x,\\
+S_1 (x) & = \frac{1}{2}\,x^2\,+\highlight{\frac{1}{2}}\,x,\\
+S_2 (x) & = \frac{1}{3}\,x^3+\frac{1}{2}\,x^2+\highlight{\frac{1}{6}}\,x,\\
+S_3 (x) & = \frac{1}{4}\,x^4+\frac{1}{2}\,x^3+\frac{1}{4}\,x^2,\\
+S_4 (x) & = \frac{1}{5}\,x^5+\frac{1}{2}\,x^4+\frac{1}{3}\,x^3\highlight{-\frac{1}{30}}\,x,\\
+S_5 (x) & = \frac{1}{6}\,x^6+\frac{1}{2}\,x^5+\frac{5}{12}\,x^4-\frac{1}{12}\,x^2,\\
+S_6 (x) & = \frac{1}{7}\,x^7+\frac{1}{2}\,x^6+\frac{1}{2}\,x^5-\frac{1}{6}\,x^3+\highlight{\frac{1}{42}}\,x,\\
+S_7 (x) & = \frac{1}{8}\,x^8+\frac{1}{2}\,x^7+\frac{7}{12}\,x^6-\frac{7}{24}\,x^4+\frac{1}{12}\,x^2,\\
+S_8 (x) & = \frac{1}{9}\,x^9+\frac{1}{2}\,x^8+\frac{2}{3}\,x^7-\frac{7}{15}\,x^5+\frac{2}{9}\,x^3\highlight{-\frac{1}{30}}\,x,\\
+S_9 (x) & = \frac{1}{10}\,x^{10}+\frac{1}{2}\,x^9+\frac{3}{4}\,x^8-\frac{7}{10}\,x^6+\frac{1}{2}\,x^4-\frac{3}{20}\,x^2,\\
+S_{10} (x) & = \frac{1}{11}\,x^{11}+\frac{1}{2}\,x^{10}+\frac{5}{6}\,x^9-x^7+x^5-\frac{1}{2}\,x^3+\highlight{\frac{5}{66}}\,x.
+\end{align*}
+
+Las expresiones de arriba, también hasta $S_{10} (n)$, aparecen en la página 97 del libro de Bernoulli \href{http://books.google.com/books?id=kD4PAAAAQAAJ}{``Ars conjectandi''}, publicado póstumamente en 1713. Luego Bernoulli escribe que, usando sus fórmulas, calculó en un ``semi-cuarto de hora'' la suma
+$$1^{10} + 2^{10} + \cdots + 1000^{10} = S_{10} (1000) = 91\,409\,924\,241\,424\,243\,424\,241\,924\,242\,500.$$
+Con ayuda de una computadora, se puede verificar que ¡el resultado es correcto!
+
+\begin{shaded}
+\small
+\begin{verbatim}
+? { local(x); x = 1000; eval (S(10)) }
+% = 91409924241424243424241924242500
+
+? sum (i=1,1000,i^10)
+% = 91409924241424243424241924242500
+\end{verbatim}
+\end{shaded}
+
+\begin{definicion*}
+El \term{$k$-ésimo número de Bernoulli $B_k$} es el coeficiente de $x$ en el polinomio $S_k (x)$. En otras palabras,
+$$B_k \dfn S_k' (0).$$
+\end{definicion*}
+
+Euler leyó ``Ars Conjectandi'' y estudió los números $B_k$, llamándolos los ``números de Bernoulli'', en el capítulo II.5 de su libro \href{http://eulerarchive.maa.org/pages/E212.html}{``Institutiones calculi differentialis cum eius usu in analysi finitorum ac doctrina serierum''}. Varias identidades para $B_k$ que aparecen en nuestro curso fueron descubiertas por Euler. Por ejemplo, la derivada de \eqnref{formula-para-Skn} nos da
+$$S_k' (x) = \frac{1}{k+1} \, \left((k+1)\,(x+1)^k - \sum_{0 \le i \le k-1} {k+1\choose i} \, S_i' (x)\right),$$
+y para $x = 0$ tenemos
+$$B_k = S_k' (0) = 1 - \frac{1}{k+1} \, \sum_{0 \le i \le k-1} {k+1\choose i} \, B_i.$$
+
+\begin{proposicion*}
+Para todo $k \ge 0$ se tiene
+$$\sum_{0 \le i \le k} {k+1 \choose i}\,B_i = k+1.$$
+\end{proposicion*}
+
+Esto nos da una definición recursiva de los $B_k$:
+
+\begin{align*}
+B_0 & = 1,\\
+B_0 + 2\,B_1 & = 2,\\
+B_0 + 3\,B_1 + 3\,B_2 & = 3,\\
+B_0 + 4\,B_1 + 6\,B_2 + 4\,B_3 & = 4,\\
+ & ~~ \vdots
+\end{align*}
+
+A partir de estas identidades se pueden calcular sucesivamente $B_1, B_2, B_3, B_4, \ldots$
+
+\begin{shaded}
+\small
+\begin{verbatim}
+/* La tabla de B (k): */
+b_table = [];
+
+B (k) = {
+  if (k == 0, return (1));
+
+  if (length(b_table) < k, b_table = concat(b_table, vector(k-length(b_table))));
+  if (b_table[k], b_table[k],
+      b_table[k] = 1 - 1/(k+1)*sum (i=0, k-1, binomial(k+1,i)*B (i)))
+}
+
+? polcoeff (S(10),1,n)
+% = 5/66
+? B(10)
+% = 5/66
+\end{verbatim}
+\end{shaded}
+
+Luego los primeros números de Bernoulli son
+
+{\def\arraystretch{1.25}
+\[ \begin{array}{rx{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}x{0.7cm}}
+k\colon & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $\cdots$ \tabularnewline
+\hline
+B_k\colon & $1$ & $\frac{1}{2}$ & $\frac{1}{6}$ & $0$ & $-\frac{1}{30}$ & $0$ & $\frac{1}{42}$ & $0$ & $-\frac{1}{30}$ & $0$ & $\frac{5}{66}$ & $\cdots$
+\end{array} \]
+}
+
+\noindent (Bernoulli y Euler no usaban la notación $B_k$, sino que escribían $A = \frac{1}{6}$, $B = -\frac{1}{30}$, $C = \frac{1}{42}$, $D = -\frac{1}{30}$, etcétera.)
+
+La derivada de \eqnref{eqn:Skn+1-y-Skn} es
+$$S_k' (x+1) - S_k' (x) = k\,(x+1)^{k-1},$$
+y la suma de estas identidades para $x = 0,1,2,\ldots,n-1$ nos da
+$$S_k' (n) - S_k' (0) = k\,S_{k-1} (n).$$
+Entonces, los polinomios $S_k (x)$ satisfacen la identidad
+$$S_k' (x) = k\,S_{k-1} (x) + B_k.$$
+Esto, junto con $S_1 (x) = x$, define completamente a todos los $S_k (x)$ (el término constante es nulo).
+
+\begin{ejercicio*}
+\label{ejercicio:suma-de-potencias-y-Bk}
+Demuestre la identidad
+$$S_k (n) = \frac{1}{k+1}\,\sum_{0 \le i \le k} {k+1\choose i}\,B_i\,n^{k+1-i}.$$
+\noindent Indicación: si $p (x) \in \QQ [x]$ es un polinomio de grado $d$, entonces
+$$p (x) = \sum_{0 \le i \le d} \frac{p^{(i)} (0)}{i!}\,x^i,$$
+donde $p^{(i)} (x)$ es la $i$-ésima derivada iterada de $p (x)$:
+$$p^{(0)} (x) \dfn p (x), ~ p^{(1)} (x) \dfn p' (x), ~ p^{(2)} (x) \dfn p'' (x), ~ p^{(3)} (x) \dfn p''' (x), ~ \ldots$$
+\end{ejercicio*}
+
+Revisemos nuestra tabla de los primeros números de Bernoulli. Se observan dos patrones:
+
+\begin{itemize}
+\item $B_k = 0$ para $k \ge 3$ impar. Esto va a ser evidente más adelante a partir de otra representación de $B_k$ mediante una función generatriz par.
+
+\item $B_k \ne 0$ para $k$ par, y los signos se alternan.
+Es posible demostrar esto directamente de modo combinatorio o a partir de la fórmula con la \term{función zeta de Riemann}
+$$(-1)^{k+1} \, B_{2k}\,\frac{2^{2k-1}}{(2k)!}\,\pi^{2k} = \zeta (2k) \dfn \sum_{n \ge 1} \frac{1}{n^{2k}} > 0.$$
+\end{itemize}
+
+En cuanto a los valores de $B_k$, no se nota ningún patrón evidente. Por ejemplo, en $B_{12} = -\frac{691}{2730}$ el numerador $691$ es un número primo que aparentemente no tiene nada que ver con $12$. Sin embargo, si factorizamos los \emph{denominadores} de $B_k$, se revelan números primos relacionados con $k$ de alguna manera:
+
+{\def\arraystretch{1.25}
+\[ \begin{array}{rccccccccccccccc}
+k\colon & 0 & 1 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 16 & 18 & 20 & \cdots \\
+\hline
+B_k\colon & 1 & \frac{1}{2} & \frac{1}{2\cdot 3} & -\frac{1}{2\cdot 3\cdot 5} & \frac{1}{2\cdot 3\cdot 7} & -\frac{1}{2\cdot 3\cdot 5} & \frac{5}{2\cdot 3\cdot 11} & -\frac{691}{2\cdot 3\cdot 5\cdot 7\cdot 13} & \frac{7}{2\cdot 3} & -\frac{3617}{2\cdot 3\cdot 5\cdot 17} & \frac{43867}{2\cdot 3\cdot 7\cdot 19} & -\frac{174611}{2\cdot 3\cdot 5\cdot 11} & \cdots
+\end{array} \]
+}
+
+El lector puede formular su propia conjetura sobre los denominadores; más adelante vamos a ver la respuesta en el \term{teorema de Clausen--von Staudt}.
+
+\begin{shaded}
+\small\noindent Por supuesto, PARI/GP ya sabe calcular los números de Bernoulli. La función \verb|bernfrac(k)| devuelve $B_k$:
+
+\begin{verbatim}
+? bernfrac(1)
+% = -1/2
+? bernfrac(10)
+% = 5/66
+\end{verbatim}
+
+\noindent Atención: PARI/GP (y también muchos libros de texto) usa otra definición de $B_k$ según la cual $B_1 = -\frac{1}{2}$ (note el signo ``$-$''). Para $k > 1$, los $B_k$ de PARI/GP son los mismos que los nuestros. La función \verb|bernreal(k)| calcula el valor aproximado de $B_k$:
+
+\begin{verbatim}
+? bernreal(4)   
+% = -0.033333333333333333333333333333333333333
+\end{verbatim}
+\end{shaded}
+
+\end{document}

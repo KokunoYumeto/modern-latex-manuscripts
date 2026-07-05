@@ -1,0 +1,640 @@
+\documentclass{article}
+
+\def\exercisespersection{}
+\input{../definitions.tex}
+
+\usepackage{fullpage}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+\newenvironment{solucion}{\begin{proof}[Solución]}{\end{proof}}
+
+\begin{document}
+
+\mybanner{Álgebra computacional. Tarea 4. Fecha límite: 21/05/2019}{Universidad de El Salvador, ciclo impar 2019}
+
+Se puede usar Macaulay2 para \emph{comprobar} algunos cálculos, pero hay que
+justificar todas las respuestas.
+
+\section*{Descomposiciones primarias}
+
+\begin{ejerc}
+  Demuestre que en el anillo $A = \ZZ [x]$ el ideal $\mathfrak{m} \dfn (2,x)$ es
+  maximal y el ideal $\mathfrak{q} = (4,x)$ es $\mathfrak{m}$-primario, pero no
+  es una potencia de $\mathfrak{m}$.
+
+  \ifdefined\solutions\begin{solucion}
+    El ideal $\mathfrak{m} = (2,x)$ es maximal, puesto que
+    $\ZZ [x]/(2,x) \isom \ZZ/2\ZZ$ es un cuerpo. Calculemos
+    \[ \sqrt{\mathfrak{q}} =
+       \sqrt{\sqrt{4} + \sqrt{x}} =
+       \sqrt{(2,x)} =
+       \mathfrak{m}. \]
+    Recordemos que cuando el radical $\sqrt{\mathfrak{q}}$ es maximal, el ideal
+    $\mathfrak{q}$ es necesariamente primario. (Sin embargo, no olvidemos que en
+    general, para que $\mathfrak{q}$ sea primario, es necesario pero
+    \emph{no es suficiente} que $\mathfrak{p} = \sqrt{\mathfrak{q}}$ sea primo.)
+
+    Las potencias de $\mathfrak{m}$ forman una cadena descendente
+    \[ \mathfrak{m} \supset \mathfrak{m}^2 \supset \mathfrak{m}^3 \supset
+       \mathfrak{m}^4 \supset \cdots \]
+    En particular, $\mathfrak{m}^2 = (4, 2x, x^2)$. Además,
+    $$\mathfrak{m}^2 \subsetneq \mathfrak{q} \subsetneq \mathfrak{m}.$$
+    Aquí las inclusiones son esctrictas: por ejemplo, $2 \in \mathfrak{m}$, pero
+    $2 \notin \mathfrak{q}$. De la misma manera, $x \in \mathfrak{q}$, pero
+    $x \notin \mathfrak{m}^2$. Esto es suficiente para concluir que
+    $\mathfrak{q}$ no es una potencia de $\mathfrak{m}$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Para dos ideales $I$ e $J = (f_1, \ldots, f_s)$, demuestre que
+  $$(I : J) = \bigcap_{1 \le i \le s} (I : f_i),$$
+  y para $f \ne 0$ se tiene
+  $$(I : f) = \Bigl\{ \frac{g}{f} \Bigm| g \in I \cap (f) \Bigr\}.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Recordemos la definición:
+    $$(I : J) \dfn \{ g \in A \mid gJ \subseteq I \}.$$
+    Ahora si $g \in (I : f_i)$ para todo $i$, esto quiere decir que $gf_i \in I$
+    para todo $i$, y luego $gJ \subseteq I$. Esto establece la inclusión
+    $$\bigcap_{1 \le i \le s} (I : f_i) \subseteq (I : J).$$
+    Viceversa, tenemos $(f_i) \subseteq J$ para todo $i$, y luego
+    $(I : J) \subseteq (I : f_i)$.
+
+    Ahora para $f \ne 0$ se tiene
+    \[ (I : f) = \{ g \in A \mid gf \in I \} =
+       \Bigl\{ \frac{gf}{f} \Bigm| g \in A, \, gf \in I \cap (f) \Bigr\}. \]
+    De aquí se ve la inclusión
+    $$(I : f) \subseteq \Bigl\{ \frac{g}{f} \Bigm| g \in I \cap (f) \Bigr\}.$$
+    Viceversa, si $g \in I \cap (f)$, entonces $g = f\cdot \frac{g}{f} \in I$,
+    lo que nos da la otra inclusión.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Calcule el ideal cociente $(I : J)$ para $I = (xy^2, x^2z)$ y $J = (xy,z)$ en
+  el anillo $k [x,y,z]$.
+
+  \ifdefined\solutions\begin{solucion}
+    Según el ejercicio anterior, tenemos
+    $$(I : J) = (I : xy) \cap (I : z).$$
+    Luego,
+    \[ (I : xy) =
+       \Bigl\{ \frac{g}{xy} \Bigm| g \in I \cap (xy) \Bigr\} =
+       \Bigl\{ \frac{g}{xy} \Bigm| g \in (xy^2, \, x^2\,yz) \Bigr\} =
+       (y, \, xz) \]
+    y de manera similar,
+    \[ (I : z) =
+       \Bigl\{ \frac{g}{z} \Bigm| g \in I \cap (z) \Bigr\} =
+       \Bigl\{ \frac{g}{z} \Bigm| g \in (xy^2z, \, x^2z) \Bigr\} =
+       (xy^2, \, x^2). \]
+    Entonces,
+    \[ (I : J) = (y, \, xz) \cap (xy^2, \, x^2) = (x^2y, xy^2, x^2z). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $I$ es un ideal radical, entonces $I$ no tiene ideales
+  asociados encajados.
+
+  \ifdefined\solutions\begin{solucion}
+    Sea
+    $$I = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_s$$
+    una descomposición primaria minimal para $I$. El primer teorema de unicidad
+    implica que el número $s$ está definido de modo único. Ahora
+    \[ I = \sqrt{I} =
+       \sqrt{\mathfrak{q}_1} \cap \cdots \cap \sqrt{\mathfrak{q}_s} =
+       \mathfrak{p}_1 \cap \cdots \cap \mathfrak{p}_s \]
+    es también una descomposición primaria de $I$. Si
+    $\mathfrak{p}_i \subseteq \mathfrak{p}_j$ para algunos $i\ne j$, entonces la
+    descomposición de arriba nos da una descomposición primaria con $< s$
+    ideales en la intersección, lo que contradice la minimalidad de $s$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos el ideal monomial
+  $I = (x^2, \, xy^2z, \, yz^2) \subset k [x,y,z]$.
+
+  \begin{enumerate}
+  \item[1)] Encuentre una descomposición primaria minimal para $I$.
+
+  \item[2)] Encuentre los primos asociados.
+
+  \item[3)] Exprese cada primo asociado como $\mathfrak{p} = (I : f)$ para algún
+    polinomio $f \in k [x,y,z]$.
+
+  \item[4)] Encuentre los primos minimales y encajados correspondientes.
+
+  \item[5)] ¿Cómo se ve el conjunto algebraico
+    $\mathbf{V} (I) \subset \AA^3 (k)$?
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Primero escribamos
+    $$(x^2, \, xy^2z, \, yz^2) = (x^2, y) \cap (x^2, \, xy^2z, \, z^2).$$
+    Luego,
+    \[ (x^2, \, xy^2z, \, z^2) =
+       (x^2, \, y^2, \, z^2) \cap (x^2, \, xz, \, z^2). \]
+    Esto nos da una descomposición
+    $$I = (x^2, y) \cap (x^2, \, y^2, \, z^2) \cap (x^2, \, xz, \, z^2).$$
+    Es fácil verificar que los primeros dos ideales $(x^2,y)$ e
+    $(x^2, \, y^2, \, z^2)$ son primarios, porque estos están generados por
+    potencias de las variables. Notamos también que
+    $\sqrt{(x^2, \, y^2, \, z^2)} = (x,y,z)$ es maximal, lo que también implica
+    que $(x^2, \, y^2, \, z^2)$ es primario. El tercer ideal
+    $(x^2, \, xz, \, z^2)$ es el cuadrado de $(x, z)^2$, así que es también
+    primario por el ejercicio~7. Sin recurrir a este ejercicio, podemos escribir
+    $$(x^2, \, xz, \, z^2) = (x, z^2) \cap (x^2, z),$$
+    donde $(x,z^2)$ y $(x^2,z)$ son $(x,z)$-primarios, así que su intersección
+    es también un ideal $(x,z)$-primario.
+
+    Pongamos
+    \[ \mathfrak{q}_1 \dfn (x^2, y), \quad
+       \mathfrak{q}_2 \dfn (x^2, \, y^2, \, z^2), \quad
+       \mathfrak{q}_3 \dfn (x^2, \, xz, \, z^2). \]
+    Los radicales correspondientes son
+    \[ \sqrt{\mathfrak{q}_1} = (x,y), \quad
+       \sqrt{\mathfrak{q}_2} = (x,y,z), \quad
+       \sqrt{\mathfrak{q}_3} = \sqrt{(x,z)^2} = (x,z). \]
+    En particular, estos son ideales primos diferentes. Además, calculamos que
+    \begin{align*}
+      \mathfrak{q}_1 \cap \mathfrak{q}_2 & = (x^2, \, y^2, \, yz^2)
+                                           \not\subseteq \mathfrak{q}_3,\\
+      \mathfrak{q}_1 \cap \mathfrak{q}_3 & = (x^2, \, xyz, \, yz^2)
+                                           \not\subseteq \mathfrak{q}_2,\\
+      \mathfrak{q}_2 \cap \mathfrak{q}_3 & = (x^2, \, xy^2z, \, z^2)
+                                           \not\subseteq \mathfrak{q}_1.
+    \end{align*}
+    Podemos concluir que la descomposición primaria que hemos encontrado es
+    minimal.
+
+    Los primos asociados son
+    \[ \mathfrak{p}_1 = (x,y), \quad
+       \mathfrak{p}_2 = (x,y,z), \quad
+       \mathfrak{p}_3 = (x,z). \]
+    Los primos $\mathfrak{p}_1$ y $\mathfrak{p}_3$ son minimales, mientras que
+    $\mathfrak{p}_2$ es encajado.
+
+    Calculamos que
+    \[ \mathfrak{p}_1 = (I : xz^2), \quad
+       \mathfrak{p}_2 = (I : xyz), \quad
+       \mathfrak{p}_3 = (I : xy^2). \]
+
+    En fin, notamos que
+    \[ \mathbf{V} (I) = \mathbf{V} (\sqrt{I}) =
+       \mathbf{V} (x, \, yz) = \mathbf{V} (x,y) \cap \mathbf{V} (x,z). \]
+    Esta es la unión del eje $z$ con el eje $y$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Para un anillo $A$ y un ideal $I \subseteq A$, denotemos por
+  $I [x] \subseteq A [x]$ el ideal formado por los polinomios con coeficientes
+  en $I$. Demuestre las siguientes propiedades.
+
+  \begin{enumerate}
+  \item[1)] Si $\mathfrak{p}$ es un ideal primo en $A$, entonces
+    $\mathfrak{p}[x]$ es un ideal primo en $A [x]$.
+  \item[2)] Si $\mathfrak{q}$ es un ideal $\mathfrak{p}$-primario en $A$,
+    entonces $\mathfrak{q}[x]$ es un ideal $\mathfrak{p}[x]$-primario en
+    $A [x]$.
+  \item[3)] Si $I = \mathfrak{q}_1\cap\cdots\cap\mathfrak{q}_s$ es una
+    descomposición primaria minimal en $A$, entonces
+    $I [x] = \mathfrak{q}_1 [x]\cap\cdots\cap\mathfrak{q}_s [x]$ es una
+    descomposición primaria minimal en $A [x]$.
+  \item[4)] Si $\mathfrak{p}$ es un ideal primo minimal asociado a $I$, entonces
+    $\mathfrak{p} [x]$ es un ideal primo minimal asociado a $I [x]$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Primero, tenemos
+    $$A[x] / I [x] \isom (A/I) [x].$$
+    Ahora si $\mathfrak{p} \subset A$ es primo, entonces $A/\mathfrak{p}$ es un
+    dominio, y luego $(A/\mathfrak{p}) [x]$ es un dominio, así que el ideal
+    $\mathfrak{p} [x] \subset A [x]$ es primo. Esto establece la parte 1).
+
+    También sería útil observar que $J_1 [x] = J_2 [x]$ si y solamente si
+    $J_1 = J_2$, y que $(J_1 \cap J_2) [x] = J_1 [x] \cap J_2 [x]$.
+
+    Ahora si $\mathfrak{q} \subset A$ es un ideal $\mathfrak{p}$-primario,
+    entonces
+    \[ \sqrt{\mathfrak{q}[x]} =
+       \sqrt{\mathfrak{q} + \mathfrak{q}x} =
+       \sqrt{\sqrt{\mathfrak{q}} + \sqrt{\mathfrak{q}} \cap \sqrt{x}} =
+       \sqrt{\mathfrak{p} + \mathfrak{p}\cap (x)} =
+       \sqrt{\mathfrak{p} + \mathfrak{p}x} =
+       \sqrt{\mathfrak{p}[x]} = \mathfrak{p}[x]. \]
+
+    Antes de probar que $\mathfrak{q}[x]$ es también primario, recordemos cómo
+    se ven los divisores de cero y nilpotentes en el anillo de polinomios.
+
+    \begin{itemize}
+    \item \emph{Un polinomio $f = a_n\,x^n + \cdots + a_1\,x + a_0 \in A [x]$ es
+        un divisor de cero si y solamente si $cf = 0$ para alguna constante no
+        nula $c \in A$.}
+
+      Una de las imlplicaciones es trivial. Para la otra dirección, asumamos que
+      $f \in A[x]$ es un divisor de cero y procedamos por inducción sobre
+      $\deg f$. Vamos a probar la propiedad más fuerte: si
+      $$g = b_m\,x^m + \cdots + b_1\,x + b_0$$
+      es un polinomio del mínimo grado posible tal que $fg = 0$, entonces
+      $b_m f = 0$. Para la base de inducción, si $\deg f = 0$, entonces $f = a$
+      es constante. Luego, $fg = 0$ implica en particular que $b_m\cdot a = 0$.
+
+      Para el paso inductivo cuando $\deg f > 0$, notamos que
+      $$fg = a_n\,b_m\,x^{m+n} + \cdots = 0,$$
+      y en particular $a_n b_m = 0$, así que $\deg (a_n g) < m$. Luego,
+      $a_n g f = 0$, y por la minimalidad de $\deg g$, tenemos $a_n g =
+      0$. Podemos entonces escribir
+      $$(f - a_n\,x^n)\,g = gf - a_n\,x^n\,g = 0,$$
+      donde $\deg (f - a_n\,x^n) < \deg f$. Notamos que $g$ es también un
+      polinomio de grado mínimo posible tal que $(f - a_n\,x^n)\cdot g = 0$, así
+      que por la hipótesis inductiva, $b_m\cdot (f - a_n\,x^n) = 0$. Luego,
+      $$b_m\,f = b_m\,a_n\,x^n = 0.$$
+
+    \item \emph{Los nilpotentes en el anillo de polinomios vienen dados por
+        \[ N (A [x]) =
+           \{ a_n\,x^n + \cdots + a_1\,x + a_0 \mid a_0, a_1, \ldots, a_n \in N (A) \} =
+           N (A) [x]. \]}
+
+      En efecto, dado que $N (A [x])$ es un ideal, si
+      $a_i \in N (A) \subset N (A [x])$ para todo $i$, entonces
+      ${a_n\,x^n + \cdots + a_0 \in N (A[x])}$. Esto establece la inclusión
+      $$N (A) [x] \subseteq N (A[x]).$$
+      Viceversa,
+      \[ N (A [x]) =
+         \bigcap_{\mathfrak{P} \in \Spec A [x]} \mathfrak{P} \subseteq \bigcap_{\mathfrak{p} \in \Spec A} \mathfrak{p} [x] =
+         \left(\bigcap_{\mathfrak{p} \in \Spec A} \mathfrak{p}\right) [x] =
+         N (A) [x]. \]
+      Aquí hemos usado de nuevo que si $\mathfrak{p} \subset A$ es primo,
+      entonces $\mathfrak{p} [x] \subset A[x]$ es también primo.
+    \end{itemize}
+
+    Ahora bien, si $\mathfrak{q}$ es primario, entonces
+    $$A[x] / \mathfrak{q} [x] \isom (A/\mathfrak{q})[x],$$
+    donde los divisores de cero en $A/\mathfrak{q}$ son nilpotentes. Un divisor
+    de cero en $(A/\mathfrak{q}) [x]$ sería un polinomio
+    $$f = a_n\,x^n + \cdots + a_1\,x + a_0 \in (A/\mathfrak{q}) [x]$$
+    tal que $c f = 0$ para algún $c \in A/\mathfrak{q}$ no nulo. En particular,
+    $$c a_n = c a_1 = \cdots = c a_0 = 0.$$
+    Esto significa que $a_n, \ldots, a_0$ son divisores de cero en
+    $A/\mathfrak{q}$, y luego son nilpotentes, lo que implica que $f$ es
+    nilpotente en $(A/\mathfrak{q}) [x]$. Esto demuestra la parte 2).
+
+    \vspace{1em}
+
+    Ahora para una descomposición primaria minimal
+    $$I = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_s$$
+    tenemos
+    $$I [x] = \mathfrak{q}_1 [x] \cap \cdots \cap \mathfrak{q}_s [x],$$
+    que es una descomposición primaria en $A [x]$ según lo que acabamos de
+    probar. Hay que verificar su minimalidad. Primero, tenemos
+    $$\sqrt{\mathfrak{q}_i [x]} = \sqrt{\mathfrak{q}_i} [x],$$
+    así que $\sqrt{\mathfrak{q}_i [x]} = \sqrt{\mathfrak{q}_j [x]}$ implicaría
+    que $\sqrt{\mathfrak{q}_i} = \sqrt{\mathfrak{q}_j}$, lo que no es el
+    caso. De la misma manera, de
+    \[ \bigcap_{j\ne i} \mathfrak{q}_j [x] =
+       \left(\bigcap_{j\ne i} \mathfrak{q}_j\right) [x], \]
+    se ve la otra condición de minimalidad.
+
+    Ahora sea $\mathfrak{p} \in \Spec A$ un primo minimal asociado a $I$. Esto
+    significa que $\mathfrak{p}$ es minimal entre los primos tales que
+    $$I \subseteq \mathfrak{p} \subset A.$$
+    Luego, tenemos
+    $$I [x] \subseteq \mathfrak{p} [x] \subset A [x].$$
+    Si $\mathfrak{P} \subset A [x]$ es otro ideal primo tal que
+    $$I [x] \subseteq \mathfrak{P} \subseteq \mathfrak{p} [x] \subset A [x],$$
+    entonces tenemos
+    $$I \subseteq \mathfrak{P} \cap A \subseteq \mathfrak{p} \subset A,$$
+    y por la minimalidad de $\mathfrak{p}$ se cumple
+    $\mathfrak{P} \cap A = \mathfrak{p}$. En particular,
+    $\mathfrak{p} \subseteq \mathfrak{P}$, y luego
+    $\mathfrak{p} [x] = \mathfrak{p} + \mathfrak{p} [x] \subseteq
+    \mathfrak{P}$. Podemos concluir que $\mathfrak{P} = \mathfrak{p} [x]$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que en el anillo de polinomios $k [x_1,\ldots,x_n]$ para los ideales
+  primos $\mathfrak{p}_i \dfn (x_1,\ldots,x_i)$ (donde $i = 1,\ldots,n$) todas
+  las potencias $\mathfrak{p}_i^m$ son ideales primarios.
+
+  \ifdefined\solutions\begin{solucion}
+    Podemos escribir
+    \[ \mathfrak{p}_i^m =
+       ((\mathfrak{p}_i^m \cap k [x_1,\ldots,x_i]) [x_{i+1}] \cdots) [x_n]. \]
+    Luego, gracias al ejercicio anterior, bastaría verificar que
+    $(x_1,\ldots,x_i)^m$ es un ideal primario en el anillo $k
+    [x_1,\ldots,x_i]$. Tenemos
+    $$\sqrt{(x_1,\ldots,x_i)^m} = (x_1,\ldots,x_i),$$
+    y este ideal es maximal en $k [x_1,\ldots,x_i]$, lo que implica que
+    $(x_1,\ldots,x_i)^m$ es primario en $k [x_1,\ldots,x_i]$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\pagebreak
+
+\section*{Dimensión}
+
+\begin{ejerc}
+  Demuestre que si $X\ne \emptyset$ es un espacio noetheriano y $Z_1,\ldots,Z_s$
+  son sus componentes irreducibles, entonces
+  $$\dim X = \max \{ \dim Z_1, \ldots, \dim Z_s \}.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Dada una cadena de subconjuntos cerrados irreducibles
+    $$X_0 \subsetneq X_1 \subsetneq X_2 \subsetneq \cdots \subsetneq X_n \subset X,$$
+    tenemos necesariamente $X_n \subseteq Z_i$ para algún $i = 1,\ldots,s$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que para un subespacio $Y\subseteq X$ se tiene
+  $$\dim Y \le \dim X.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Primero recordemos que un subespacio $Z \subseteq X$ es irreducible si y
+    solo si su cerradura $\overline{Z} \subseteq X$ es irreducible (véanse los
+    apuntes de clase). Ahora si
+    \[ Z_0 \subsetneq Z_1 \subsetneq Z_2 \subsetneq \cdots \subsetneq
+       Z_n \subseteq Y \]
+    es una cadena de subconjuntos cerrados irreducibles en $Y$, entonces tenemos
+    $Z_i = Z_i \cap \overline{Z_i}$, así que al pasar a las cerraduras en $X$,
+    se obtiene una cadena
+    \[ \overline{Z_0} \subsetneq \overline{Z_1} \subsetneq
+       \overline{Z_2} \subsetneq \cdots \subsetneq \overline{Z_n} \subseteq X, \]
+    donde $\overline{Z_i}$ son irreducibles por el resultado mencionado al
+    inicio.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Sean $A$ un anillo e $I \subseteq A$ un ideal. Demuestre que
+  $\dim (A/I) \le \dim A$.
+
+  \ifdefined\solutions\begin{solucion}
+    Una cadena de ideales primos
+    \[ \overline{\mathfrak{p}_0} \subsetneq \overline{\mathfrak{p}_1} \subsetneq
+       \overline{\mathfrak{p}_2} \subsetneq \cdots \subsetneq
+       \overline{\mathfrak{p}_n} \subset A/I \]
+    corresponde a una cadena de ideales primos
+    \[ I \subseteq \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq
+       \mathfrak{p}_2 \subsetneq \cdots \subsetneq \mathfrak{p}_n \subset A. \]
+    Podemos también formularlo de otra manera: el homomorfismo $A \epi A/I$
+    induce una aplicación continua inyectiva
+    $\Spec A/I \hookrightarrow \Spec A$, y se puede usar el ejercicio anterior.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que para el producto de dos anillos se tiene
+  $$\dim (A\times B) = \max \{ \dim A, \dim B \}.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    \begin{equation}
+      \tag{*} \Spec (A\times B) =
+      \{ \mathfrak{p}\times B \mid \mathfrak{p} \in \Spec A \} \cup
+      \{ A\times \mathfrak{q} \mid \mathfrak{q} \in \Spec B \}.
+    \end{equation}
+    Ahora tenemos $\mathfrak{p}\times B \not\subseteq A\times \mathfrak{q}$ y
+    $A\times \mathfrak{q} \not\subseteq \mathfrak{p}\times B$, así que toda
+    cadena de ideales primos en $A\times B$ viene de una cadena en $A$ o una
+    cadena en $B$.
+
+    \vspace{1em}
+
+    Sería instructivo revisar una prueba directa de (*). El producto $A\times B$
+    viene con los homomorfismos canónicos
+    $$\pi_A\colon A\times B \to A, \quad \pi_B\colon A\times B \to B.$$
+    Ahora si
+    $$\mathfrak{p} \in \Spec A, ~ \mathfrak{q} \in \Spec B,$$
+    entonces
+    \[ \pi_A^{-1} (\mathfrak{p}) = \mathfrak{p} \times B, ~
+       \pi_A^{-1} (\mathfrak{q}) = A\times \mathfrak{q} \in \Spec (A\times B). \]
+
+    Viceversa, asumamos que $\mathfrak{P} \subset A\times B$ es un ideal
+    primo. Luego, para $e_1 \dfn (1,0)$ y $e_2 \dfn (0,1)$ se tiene
+    $e_1\,e_2 \in \mathfrak{P}$, así que por la primalidad de $\mathfrak{P}$
+    tenemos dos posibilidades:
+
+    \begin{itemize}
+    \item $e_1 \in \mathfrak{P}$, y luego
+      $\mathfrak{P} = A\times \pi_B (\mathfrak{P})$, donde
+      $\pi_B (\mathfrak{P}) \in \Spec B$;
+
+    \item $e_2 \in \mathfrak{P}$, y luego
+      $\mathfrak{P} = \pi_A (\mathfrak{P})\times B$, donde
+      $\pi_A (\mathfrak{P}) \in \Spec A$. \qedhere
+    \end{itemize}
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $k$ un cuerpo. Demuestre que el anillo de las series formales
+  $k [\![x]\!]$ y el anillo de polinomios de Laurent $k [x,x^{-1}]$ tienen
+  dimensión $1$.
+
+  \ifdefined\solutions\begin{solucion}
+    En el caso de $k [\![x]\!]$, tenemos simplemente
+    $$\Spec k [\![x]\!] = \{ (0), (x) \},$$
+    de donde es evidente que la dimensión es $1$.
+
+    A saber, es fácil entender cuáles son los ideales en $k
+    [\![x]\!]$. Recordemos que una serie $f = \sum_{i\ge 0} a_i\,x^i$ es
+    invertible en $k [\![x]\!]$ si y solo si $a_0 \ne 0$.
+    Para una serie no nula $f = \sum_{i\ge 0} a_i\,x^i$, pongamos
+    $$v (f) \dfn \min \{ i \mid a_i \ne 0 \}.$$
+    Este es el ``orden de anulación en $x=0$'' de la serie. Notamos que
+    $$v (f) = n \iff f = u\,x^n, \quad u \in k [\![x]\!]^\times.$$
+
+    Para un ideal no nulo $I \subseteq k [\![x]\!]$, sea $f \in I$ una serie no
+    nula con el mínimo posible valor de $v (f)$. Consideremos otra serie
+    $g \in I$. Escribamos
+    $$f = u\,x^{v (f)}, \quad g = w\,x^{v (g)}.$$
+    Luego,
+    $$g = w\,u^{-1}\,x^{v (g) - v (f)} \cdot (u\,x^{v (f)}) \in (f).$$
+    Entonces,
+    $$I = (f) = (x^{v (f)}).$$
+    Esto demuestra que los ideales no nulos en $k [\![x]\!]$ son $(x)^n = (x^n)$
+    para $n = 1,2,3,\ldots$ El único ideal primo entre ellos es $(x)$.
+
+    \vspace{1em}
+
+    En el caso de
+    $$k [x,x^{-1}] \isom k [x,y] / (xy-1),$$
+    podemos ocupar la caracterización de la dimensión de $k$-álgebras
+    finitamente generadas: el ideal $(xy-1) \subset k [x,y]$ no es nulo y
+    $$(xy-1) \cap k[x] = (xy-1) \cap k [y] = 0,$$
+    así que la dimensión es igual a $1$.
+
+    \vspace{1em}
+
+    También podemos notar que se trata de la localización
+    \[ k [x,x^{-1}] = S^{-1} (k [x]), \quad
+       \text{donde } S = \{ 1, x, x^2, x^3, \ldots \}.\]
+    Recordemos que los ideales primos en la localización vienen dados por
+    \[ \Spec S^{-1} A \isom
+       \{ \mathfrak{p} \in \Spec A \mid \mathfrak{p} \cap S = \emptyset \}, \]
+    y esta correspondencia preserva las inclusiones. En particular, toda cadena
+    de ideales primos en $S^{-1} A$ proviene de una cadena de ideales primos en
+    $A$, así que
+    $$\dim S^{-1} A \le \dim A.$$
+    (Otro modo de decir lo mismo: el homomorfismo canónico $A \to S^{-1} A$
+    induce una aplicación continua inyectiva
+    $\Spec S^{-1} A \hookrightarrow \Spec A$.)
+
+    Este resultado muy general implica que
+    $$\dim (k [x,x^{-1}]) \le \dim k [x] = 1,$$
+    y basta encontrar alguna cadena específica de longitud $1$, como por ejemplo
+    \[ (0) \subsetneq (x + x^{-1}) \subset k [x,x^{-1}]. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que el anillo $\ZZ [x]$ tiene dimensión $2$.
+
+  \ifdefined\solutions\begin{solucion}
+    Aquí puede ser útil la descripción completa de $\Spec \ZZ [x]$. Los ideales
+    primos en $\ZZ [x]$ son los siguientes:
+
+    \begin{enumerate}
+    \item[0)] el ideal nulo $(0)$,
+
+    \item[1)] $(p)$ para $p \in \ZZ$ primo,
+
+    \item[2)] $(f)$ para $f \in \ZZ [x]$ irreducible,
+
+    \item[3)] $(p,f)$ para $p \in \ZZ$ primo y $f \in \ZZ [x]$ tal que
+      $\overline{f}$ es irreducible en $\FF_p [x]$; estos ideales son maximales.
+    \end{enumerate}
+
+    Las cadenas maximales de ideales primos tendrán entonces forma
+    \[ (0) \subsetneq (p) \subsetneq (p,f) \subset \ZZ [x]
+       \quad\text{o}\quad
+       (0) \subsetneq (f) \subsetneq (p,f) \subset \ZZ [x]. \]
+
+    \vspace{1em}
+
+    Creo que sería interesante demostrar la descripción de $\Spec \ZZ [x]$ de
+    arriba. Esto tiene mucho que ver con la aritmética.
+
+    Primero, notemos que los ideales de la lista son primos. La parte 0) es
+    obvia: $\ZZ [x]$ es un dominio de integridad. Las partes 1) y 2) se siguen
+    de la descripción de los elementos irreducibles (primos) en $\ZZ [x]$. Para
+    la parte 3), notamos que
+    $$\ZZ [x]/(p,f) \isom \FF_p [x] / (\overline{f}),$$
+    que es un cuerpo gracias a la hipótesis de que $\overline{f}$ es irreducible
+    (primo) en $\FF_p [x]$. Podemos concluir que el ideal
+    $(p,f) \subset \ZZ [x]$ es maximal.
+
+    Lo más interesante es probar que todo ideal primo
+    $\mathfrak{p} \subset \ZZ [x]$ es de la forma 0)--3). Asumamos que
+    $\mathfrak{p} \ne (0)$. Consideremos el ideal primo
+    $\mathfrak{p} \cap \ZZ \subset \ZZ$.
+
+    \begin{itemize}
+    \item[i)] \textbf{Asumamos primero que $\mathfrak{p} \cap \ZZ \ne (0)$; es
+        decir que $\mathfrak{p} \cap \ZZ = (p)$ para algún primo $p\in \ZZ$}.
+
+      Tenemos en particular $p \in \mathfrak{p}$. El ideal
+      $\overline{\mathfrak{p}} \dfn \mathfrak{p} / (p\ZZ [x])$ es primo en el
+      anillo cociente $\ZZ [x]/(p) \isom \FF_p [x]$, lo que nos lleva a dos
+      posibilidades.
+
+      \begin{itemize}
+      \item[a)] $\overline{\mathfrak{p}} = (0)$, y luego
+        $\mathfrak{p} = p\ZZ[x]$, lo que corresponde al caso 1) de la lista;
+
+      \item[b)] $\overline{\mathfrak{p}} = \overline{f}\,\FF_p [x]$ donde
+        $\overline{f} \in \FF_p [x]$ es algún polinomio irreducible, y luego
+        $\mathfrak{p} = p\ZZ [x] + f\,\ZZ [x]$, lo que corresponde al caso 3) de
+        la lista.
+      \end{itemize}
+
+    \item[ii)] \textbf{Asumamos que $\mathfrak{p} \cap \ZZ = (0)$}.
+
+      Sea $h \in \mathfrak{p}$ un polinomio no nulo. Tenemos la factorización
+      única
+      $$h = \pm f_1 \cdots f_s,$$
+      donde $f_i \in \ZZ [x]$ son polinomios irreducibles (primos). Puesto que
+      $\mathfrak{p}$ es un ideal primo, se tiene necesariamente
+      $f \dfn f_i \in \mathfrak{p}$ para algún $i = 1,\ldots,s$. La hipótesis
+      que $\mathfrak{p} \cap \ZZ = (0)$ implica que este polinomio $f$ no es
+      constante. Nuestro objetivo es probar que $\mathfrak{p} = f \ZZ [x]$.
+      Sea entonces $g\in \mathfrak{p}$ cualquier polinomio no nulo.
+
+      Asumamos que $f$ no divide a $g$ en $\QQ [x]$. Dado que $f$ es un
+      polinomio no constante que es irreducible en $\ZZ [x]$, es también
+      irreducible en $\QQ [x]$, y por ende $\mcd (f, g) = 1$, lo que significa
+      que
+      $$h_1\,f + h_2\,g = 1$$
+      para algunos $h_1,h_2\in \QQ [x]$. Tomemos $n$ suficientemente grande tal
+      que los polinomios $n\,h_1\,f$ y $n\,h_2\,g$ tienen coeficientes
+      enteros. Luego,
+      $$n\,h_1\,f + n\,h_2\,g = n \in \mathfrak{p},$$
+      pero esto contradice nuestra hipótesis de que
+      $\mathfrak{p} \cap \ZZ = (0)$.
+
+      Entonces, $f$ tiene que dividir en $\QQ [x]$ a cualquier polinomio
+      $g \in \mathfrak{p}$: tenemos
+      $$g = f\,r$$
+      para algún $r \in \QQ [x]$. Sin embargo,
+      $$\cont (g) = \cont (f)\,\cont (r),$$
+      Donde $\cont (f) = 1$, dado que $f$ es un polinomio irreducible en
+      $\ZZ [x]$. Entonces, $\cont (r) = \cont (g) \in \ZZ$ y $r \in \ZZ
+      [x]$. Esto demuestra que $g \in f\ZZ [x]$, lo que corresponde al caso 2)
+      de la lista. \qedhere
+    \end{itemize}
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Encuentre la dimensión de las $k$-álgebras
+  $$k[x,y,z]/(xz, xy - 1), \quad k[x,y,z,w]/(zw - y^2 , xy - z^3)$$
+  usando la eliminación de variables.
+
+  \ifdefined\solutions\begin{solucion}
+    Pongamos
+    $$I \dfn (xz, \, xy-1) \subset k[x,y,z].$$
+    Sería mejor escribir
+    $$I = (z, \, xy - 1).$$
+    Esto se sigue de la expresión
+    $$z = y\,xz - z\,(xy-z) \in (xz, xy - 1).$$
+
+    Ahora se ve que
+    $$I \cap k[x] = I \cap k[y] = 0, \quad I \cap k[z] = (z) \ne 0.$$
+    Además,
+    $$I \cap k[x,y] = (xy-1) \ne 0.$$
+    Esto nos permite concluir que
+    $$\dim k[x,y,z]/I = 1.$$
+
+    Consideremos ahora
+    $$J \dfn (zw - y^2 , xy - z^3) \subset k [x,y,z,w].$$
+    Tenemos
+    $$J \cap k [x] = J \cap k [y] = J \cap k [z] = J \cap k [w] = 0.$$
+    Luego,
+    \[ J \cap k [x,y] =
+       J \cap k [x,z] =
+       J \cap k [x,w] =
+       J \cap k [y,z] =
+       J \cap k [y,w] =
+       J \cap k [z,w] = 0. \]
+    Ahora tenemos claramente
+    $$xy - z^3 \in J \cap k[x,y,z], \quad zw - y^2 \in J \cap k[y,z,w].$$
+    Con ayuda de Macaulay2 también notamos que
+    \[ xyw^3 - y^6 =
+       (y^4 + y^2 z w + z^2 w^2)\cdot (zw - y^2) + w^3\cdot (xy-z^3)
+       \in J \cap k [x,y,w] \]
+    y
+    \[ x^2 z w - z^6 =
+       x^2 \cdot (zw - y^2) + (z^3+xy)\cdot(xy - z^3)
+       \in J \cap k [x,z,w]. \]
+    Podemos concluir que
+    \[ \dim k [x,y,z,w]/I = 2. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\end{document}

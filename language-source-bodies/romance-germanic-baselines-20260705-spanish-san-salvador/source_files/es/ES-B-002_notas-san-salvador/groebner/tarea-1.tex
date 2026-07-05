@@ -1,0 +1,318 @@
+\documentclass{article}
+
+\def\exercisespersection{}
+\input{../definitions.tex}
+
+\usepackage{fullpage}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+\newenvironment{solucion}{\begin{proof}[Solución]}{\end{proof}}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\mybanner{Álgebra computacional. Tarea 1. Fecha límite: 21/03/2019}{Universidad de El Salvador, ciclo impar 2019}
+
+\begin{ejerc}
+  Implemente en Macaulay2 la función \texttt{mcd($f$,$g$)} que calcula el máximo
+  común divisor de $f,g \in k[x]$ usando el algoritmo de Euclides.
+  (Para el resto de división, use el operador \verb|%|.)
+
+  \ifdefined\solutions\begin{solucion}
+    ~
+
+\begin{verbatim}
+mcd = (f,g)-> (
+  while g != 0 do (
+    h := f;
+    f = g;
+    g = h%g
+  );
+
+  f//leadCoefficient(f)
+);
+\end{verbatim}
+
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que sobre los polinomios en una variable $k [x]$ hay un solo orden
+  monomial que viene dado por
+  $$1 \prec x \prec x^2 \prec x^3 \prec \cdots;$$
+  es decir, $x^m \prec x^n \iff m < n$.
+
+  \ifdefined\solutions\begin{solucion}
+    Asumamos que
+    $$x^m \succ x^n$$
+    para algún $m < n$. Luego, por la compatibilidad de $\succ$ con los
+    productos, se obtiene
+    \begin{align*}
+      x^n = x^m\,x^{n-m} & \succ x^n\,x^{n-m} = x^{2n - m},\\
+      x^{2n - m} = x^m\,x^{2\,(n-m)} & \succ x^n\,x^{2\,(n-m)} = x^{3\,n - 2m},\\
+      x^{3n - 2m} = x^{m}\,x^{3\,(n-m)} & \succ x^n\,x^{3\,(n-m)} = x^{4n - 3m},\\
+                         & \cdots
+    \end{align*}
+    Lo que nos da una cadena infinita decreciente
+    $$x^n \succ x^{2n-m} \succ x^{3n-2m} \succ x^{4n-3m} \succ \cdots$$
+    Esto contradice la condición de buen orden. Entonces, se tiene
+    necesariamente $x^m \prec x^n$ para cualesquiera $m < n$.
+
+    \vspace{1em}
+
+    Otro argumento un poco diferente: notamos que para $x$ hay dos
+    posibilidades: o $x \succ 1$, o $x \prec 1$. En el primer caso, la
+    compatibilidad con productos implica que
+    $$1 \prec x \prec x^2 \prec x^3 \prec \cdots,$$
+    mientras que en el segundo caso
+    $$1 \succ x \succ x^2 \succ x^3 \succ \cdots.$$
+    Pero en el segundo caso no se cumple la propiedad de buen orden.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que $\prec_{lex}, \prec_{grlex}, \prec_{grevlex}$ son órdenes
+  monomiales.
+
+  \ifdefined\solutions\begin{solucion}
+    Omitida. (Veo que la mayoría no probó que la relación en cada caso es una
+    relación de orden.)
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos la siguiente propiedad: para cualesquiera $\alpha,\beta$ existe
+  un número finito de monomios $x^\gamma$ tales que
+  $x^\alpha \prec x^\gamma \prec x^\beta$.  ¿Para cuáles órdenes monomiales
+  entre $\prec_{lex}$, $\prec_{grlex}$ y $\prec_{grevlex}$ esto es cierto?
+
+  \ifdefined\solutions\begin{solucion}
+    Esta propiedad no se cumple para el orden lexicográfico. Por ejemplo, para
+    el orden lexicográfico sobre $k [x,y]$ con $x \succ y$ se tiene
+    $$x \succ y^n \succ 1 \quad \text{para cualquier }n.$$
+
+    Para el orden graduado lexicográfico, la propiedad sí se cumple: si tenemos
+    $$x_1^{i_1}\cdots x_n^{i_n} \succ x_1^{j_1}\cdots x_n^{j_n} \succ x_1^{k_1}\cdots x_n^{k_n},$$
+    entonces en particular,
+    $$i_1+\cdots+i_n \ge j_1+\cdots+j_n \ge k_1+\cdots+k_n.$$
+    Entonces, para el grado total del monomio en el medio, hay un número finito
+    de posibilidades, y hay un número finito de monomios de grado total fijo.
+
+    Para el orden graduado inverso lexicográfico, la propiedad se cumple por las
+    mismas razones.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Fijemos algún orden monomial sobre $k [x_1,\ldots,x_n]$. Sean
+  $f,g \in k [x_1,\ldots,x_n]$ polinomios no nulos. Demuestre las siguientes
+  propiedades.
+
+  \begin{enumerate}
+  \item[1)] $\multideg(fg) = \multideg(f) + \multideg(g)$.
+
+  \item[2)] Si $f+g\ne 0$, entonces
+    $\multideg (f + g) \le \max (\multideg(f), \multideg(g))$. Además, si
+    $\multideg(f) \ne \multideg(g)$, entonces se cumple la igualdad.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+
+    Para $f = \sum_\alpha a_\alpha\,x^\alpha$ y
+    $g = \sum_\beta b_\beta x^\beta$, tenemos
+    $$fg = \sum_\gamma \left(\sum_{\alpha+\beta = \gamma} a_\alpha \, b_\beta\right)\,x^\gamma.$$
+    Ahora sea
+    \[ \alpha' \dfn \max \{ \alpha \mid a_\alpha \ne 0 \}, \quad
+       \beta' \dfn \max \{ \beta \mid b_\beta \ne 0 \}. \]
+    Luego, el término mayor de $fg$ será
+    $$a_{\alpha'} b_{\beta'} \, x^{\alpha' + \beta'}.$$
+
+    Para la suma $f+g$, basta notar que allí aparecen los mismos monomios que en
+    $f$ y $g$, salvo posible cancelación de términos.
+    Si $\multideg(f) \ne \multideg(g)$, entonces los terminos mayores no se
+    cancelan.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que para ideales monomiales $I,J \in k [x_1,\ldots,x_n]$ los ideales
+  $IJ, I+J, I\cap J$ son también monomiales.
+
+  \ifdefined\solutions\begin{solucion}
+    Pongamos
+    $$I = (x^\alpha \mid \alpha \in A), \quad J = (x^\beta \mid \beta \in B).$$
+
+    Por la definición, la suma $I+J$ es el ideal más pequeño que contiene a $I$
+    e $J$, y es más o menos inmediato que
+    $$I+J = (x^\gamma \mid \gamma \in A \cup B).$$
+
+    El producto $IJ$ es el ideal \emph{generado} por los productos $fg$ donde
+    $f\in I$, $g\in J$. Esto implica que los elementos de $IJ$ son las sumas
+    finitas
+    $$h = f_1 g_1 + \cdots + f_s g_s,$$
+    donde $f_1,\ldots,f_s \in I$, $g_1,\ldots,g_s \in J$. Recordamos que los
+    elementos de $I$ son precisamente las combinaciones $k$-lineales de monomios
+    de $I$, mientras que los elementos de $J$ son combinaciones $k$-lineales de
+    monomios en $J$. Al desarrollar la expresión para $h$, se ve que es una
+    combinación $k$-lineal de monomios $x^\gamma\,x^\delta$ donde
+    $x^\gamma \in I$, $x^\delta \in J$. Notamos que esto implica que
+    $x^\alpha x^\beta \mid x^\gamma x^\delta$ para algunos $\alpha \in A$,
+    $\beta \in B$. Esto demuestra que $I+J$ es monomial y además que
+    $$IJ = (x^\alpha x^\beta \mid \alpha \in A, \, \beta \in B).$$
+
+    \noindent\textbf{* Un recordatorio}: en general, el producto $IJ$ no
+    simplemente consiste en los productos $fg$ con $f\in I$, $g\in J$, sino
+    \emph{está generado} por estos productos. Por ejemplo, en el anillo
+    $\ZZ [x]$ consideremos el ideal
+    \[ I = (2,x) = \{ 2f + xg \mid f,g \in \ZZ [x] \} =
+       \{ f \in \ZZ [x] \mid f (0)\text{ es par} \}. \]
+     Luego,
+     $$I^2 = \Bigl\{ \text{sumas finitas }\sum_i f_i g_i \Bigm| f_i, g_i \in I \Bigr\}.$$
+     Ahora $2\in I$ y $x \in I$, así que $x^2 + 4 \in I$. Sin embargo, el
+     polinomio $x^2+4$ es irreducible y no puede ser escrito como un producto
+     $fg$ con $f,g\in I$.
+
+     Otro ejemplo parecido: consideremos el ideal $I = (x,y) \subset \QQ
+     [x,y]$. Luego, $x^2 + y^2 \in I^2$, pero este polinomio es irreducible. En
+     efecto, asumamos que
+     $$x^2 + y^2 = fg$$
+     para dos polinomios no constantes $f,g$. Estos polinomios tienen que ser
+     lineales y sin pérdida de generalidad, podemos asumir que ambos son
+     mónicos. Además, se ve que el término constante debe ser nulo, así que nos
+     queda
+     $$f = x + a\,y, \quad g \dfn x + b\,y.$$
+     Ahora
+     $$fg = x^2 + a b \, y^2 + (a + b)\,xy = x^2 + y^2$$
+     implica que $a^2 = -1$ o $b^2 = -1$, pero esto es imposible en nuestro
+     cuerpo de base $\QQ$. (Por otro lado, en $\QQ (i) [x]$ el polinomio es
+     claramente reducible: $x^2 + y^2 = (x+iy)\,(x-iy)$).
+
+     \vspace{1em}
+
+     En fin, para la intersección, recordamos que $I$ es monomial si y solo si
+     $f\in I$ implica que todos los monomios de $f$ pertenecen a $I$. Ahora si
+     $I$ e $J$ son monomiales y $f\in I\cap J$, entonces todos los monomios de
+     $f$ pertenecen a $I\cap J$. Esto es suficiente para concluir que $I\cap J$
+     es monomial. Para describir sus generadores, notamos que
+     $x^\gamma \in I\cap J$ si y solo si $x^\alpha \mid x^\gamma$ y
+     $x^\beta \mid x^\gamma$ para algunos $\alpha \in A$, $\beta \in B$. Luego,
+     $\mcm (x^\alpha,x^\beta) \mid x^\gamma$. De aquí se ve que
+     $$I \cap J = (\mcm (x^\alpha,x^\beta) \mid \alpha\in A, \, \beta\in B).$$
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que el lema de Dickson es equivalente al siguiente resultado: para
+  todo subconjunto $A \subseteq \NN^n$ existe un número finito de elementos
+  $\alpha (1), \ldots, \alpha (s) \in A$ tales que para todo $\alpha \in A$ se
+  tiene $\alpha = \alpha (i) + \gamma$ para algún $i = 1,\ldots,s$ y
+  $\gamma \in \NN^n$.
+
+  \ifdefined\solutions\begin{solucion}
+    Omitida.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Para un ideal monomial $I$ digamos que un conjunto de generadores
+  $\{ x^{\alpha (1)}, \ldots, x^{\alpha (s)} \}$ es \term{minimal} si
+  $x^{\alpha (i)} \nmid x^{\alpha (j)}$ para $i\ne j$. Demuestre que todo ideal
+  monomial posee un conjunto de generadores minimal y este es único.
+
+  \ifdefined\solutions\begin{solucion}
+    Por el lema de Dickson, sabemos que existe un conjunto de generadores finito
+    $\{ x^{\alpha (1)}, \ldots, x^{\alpha (s)} \}$. Si no es minimal y
+    $x^{\alpha (i)} \nmid x^{\alpha (j)}$, entonces podemos quitar
+    $x^{\alpha (j)}$. Esto no cambia el ideal. Procediendo de esta manera,
+    se obtiene un conjunto de generadores minimal.
+
+    Ahora si tenemos dos conjuntos de generadores minimales
+    \[ \{ x^{\alpha (1)}, \ldots, x^{\alpha (s)} \}, \quad
+       \{ x^{\beta (1)}, \ldots, x^{\beta (t)} \}, \]
+    entonces
+    \[ (x^{\alpha (1)}, \ldots, x^{\alpha (s)}) =
+       (x^{\beta (1)}, \ldots, x^{\beta (t)}). \]
+    En particular, para cualquier $i = 1,\ldots,s$ tenemos
+    $x^{\alpha (i)} \in (x^{\beta (1)}, \ldots, x^{\beta (t)})$, y por ende
+    existe $j = 1,\ldots,t$ tal que $x^{\beta (j)} \mid x^{\alpha (i)}$. Pero
+    $x^{\beta (j)} \in (x^{\alpha (1)}, \ldots, x^{\alpha (s)})$, lo que
+    significa que existe $k = 1,\ldots,s$ tal que
+    $$x^{\alpha (k)} \mid x^{\beta (j)} \mid x^{\alpha (i)}.$$
+    Pero por la minimalidad, se tiene necesariamente $k = i$ y luego
+    $\alpha (i) = \beta (j)$. Esto demuestra que
+    \[ \{ x^{\alpha (1)}, \ldots, x^{\alpha (s)} \} \subseteq
+       \{ x^{\beta (1)}, \ldots, x^{\beta (t)} \}. \]
+    El mismo argumento demuestra la otra inclusión.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos los ideales monomiales
+  \[ I_j \dfn (x_1,\ldots, \widehat{x_j}, \ldots, x_n) \subset
+     k [x_1,\ldots,x_n], \quad j = 1,\ldots,n, \]
+  donde $\widehat{x_j}$ significa que $x_j$ se omite de la lista. Encuentre el
+  conjunto de generadores minimal para el ideal
+  $$I_1\cap \cdots \cap I_n.$$
+  Por ejemplo, para $n = 2$ tenemos $(x_2)\cap (x_1) = (x_1 x_2)$; para $n = 3$
+  tenemos
+  $$(x_2,x_3) \cap (x_1,x_3) \cap (x_1,x_2) = (x_1 x_2, x_1 x_3, x_2 x_3)$$
+  (¡demuéstrelo!), etcétera.
+
+  \ifdefined\solutions\begin{solucion}
+    Podemos usar el ejercicio 6, pero con cuidado. La intersección será generada
+    por los monomios
+    $$x^\alpha = \mcm (x_{i_1},\ldots,x_{i_n}), \quad i_1 \ne 1, \ldots i_n \ne n.$$
+    Este mcm será igual al producto de todas las variables distintas que
+    aparecen entre $x_{i_1},\ldots,x_{i_n}$. Notamos que siempre hay
+    \emph{por lo menos} dos variables distintas, y de esta manera se pueden
+    obtener todos los monomios $x_i x_j$ con $i < j$. Por otra parte, para
+    cualquier mcm de arriba debe haber $1 \le i < j \le n$ tales que
+    $x_i x_j \mid x^\alpha$. Entonces, podemos tomar como un conjunto de
+    generadores
+    $$\{ x_i x_j \mid 1 \le i < j \le n \}.$$
+    Es evidente que es minimal.
+
+    En algunas soluciones la respuesta era que los generadores serán
+    $$\mcm (x_1,\ldots,\widehat{x_i},\ldots,x_n) = x_1\cdots\widehat{x_i}\cdots x_n,$$
+    estos monomios van a generar un ideal que es más pequeño que la verdadera
+    intersección $I_1\cap\cdots\cap I_n$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Fijemos un vector $u = (u_1,\ldots,u_n) \in \RR^n$ tal que los números $u_i$
+  son positivos y linealmente independientes sobre $\QQ$. Demuestre que
+  $$x^\alpha \prec_u x^\beta \iff u\cdot \alpha < u\cdot \beta,$$
+  donde $\cdot$ denota el producto escalar habitual, define un orden
+  monomial. ¿Qué sucede si los $u_i$ no son linealmente independientes?
+
+  \ifdefined\solutions\begin{solucion}
+    Primero, tenemos un orden total: para cualesquiera $\alpha,\beta \in \NN^n$
+    tendremos uno de los siguientes casos:
+    \[ u\cdot \alpha < u\cdot \beta, \quad
+       u\cdot \alpha > u\cdot \beta, \quad
+       u\cdot \alpha = u\cdot \beta. \]
+    Ahora si $u\cdot \alpha = u\cdot \beta$, entonces
+    $$u\cdot (\alpha-\beta) = \sum_{1 \le i \le n} u_i\,(\alpha_i - \beta_i) = 0,$$
+    y luego por la independencia lineal de los $u_i$ sobre $\QQ$, se tiene
+    necesariamente $\alpha_i = \beta_i$ para todo $i$.
+
+    Para la compatibilidad con los productos
+    $$x^\alpha \prec x^\beta \Longrightarrow x^\alpha x^\gamma \prec x^\beta x^\gamma,$$
+    notamos que si $u\cdot\alpha < u\cdot\beta$, entonces
+    \[ u\cdot (\alpha+\gamma) =
+       u\cdot\alpha + u\cdot\gamma <
+       u\cdot\beta + u\cdot\gamma =
+       u\cdot (\beta+\gamma). \]
+
+     En fin, hay que verificar la propiedad de buen orden. No es tan fácil
+     hacerlo directamente, pero recordemos que es suficiente comprobar que
+     $x^\alpha \succeq 1$ para todo $\alpha$. Y en efecto,
+     $$u\cdot \alpha \dfn u_1 \alpha_1 + \cdots + u_n \alpha_n \ge 0,$$
+     dado que $u_i > 0$ y $\alpha_i \in \NN$.
+   \end{solucion}\fi
+\end{ejerc}
+
+\end{document}

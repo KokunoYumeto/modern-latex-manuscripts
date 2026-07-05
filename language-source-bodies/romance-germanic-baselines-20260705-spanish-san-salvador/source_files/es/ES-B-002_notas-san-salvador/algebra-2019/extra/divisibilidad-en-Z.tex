@@ -1,0 +1,564 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+
+\numberwithin{equation}{section}
+
+\usepackage[numbers]{natbib}
+
+\usepackage[
+  top=2cm,
+  bottom=2cm,
+  left=3cm,
+  right=2cm,
+  marginparwidth=1.5cm,
+  headheight=17pt,
+  includehead,includefoot,
+  heightrounded,
+]{geometry}
+
+\hypersetup{
+  pdftitle = {Divisibilidad en Z},
+  pdfauthor = {Alexey Beshenov (cadadr@gmail.com)},
+  pdfdisplaydoctitle = true
+}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Divisibilidad en $\ZZ$}
+\date{Universidad de El Salvador. 2018}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+El propósito de esta nota es revisar algunas nociones básicas de la teoría de
+números elemental.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Subgrupos de $\ZZ$}
+
+Un \term{subgrupo} $A\subset \ZZ$ es un subconjunto de números enteros que
+satisface las siguientes condiciones:
+
+\begin{enumerate}
+\item[1)] $0 \in A$,
+
+\item[2)] para cualesquiera $a,b\in A$ tenemos $a+b \in A$,
+
+\item[3)] para cualquier $a\in A$ tenemos $-a\in A$.
+\end{enumerate}
+
+\begin{observacion}
+  Si $A$ y $B$ son dos subgrupos de $\ZZ$, entonces su intersección $A\cap B$ es
+  también un subgrupo.
+\end{observacion}
+
+Para $a_1,\ldots,a_n \in \ZZ$ el \term{subgrupo generado} por $a_1,\ldots,a_n$
+es el subconjunto $\langle a_1,\ldots,a_n\rangle \subseteq \ZZ$ que satisface
+una de las siguientes condiciones equivalentes.
+
+\begin{enumerate}
+\item[1)] $\langle a_1,\ldots,a_n\rangle$ es el mínimo subgrupo de $\ZZ$ que
+  contiene todos los números $a_1,\ldots,a_n$,
+
+\item[2)] $\langle a_1,\ldots,a_n\rangle$ es el conjunto de las combinaciones
+  $\ZZ$-lineales de $a_1,\ldots,a_n$:
+$$\langle a_1,\ldots,a_n\rangle = \Bigl\{ \sum_i n_i\,a_i \Bigm| n_i \in \ZZ \Bigr\}.$$
+\end{enumerate}
+
+Nos van a interesar dos casos particulares: los subgrupos generados por un
+número $d\in \ZZ$:
+$$\langle d\rangle = \{ md \mid m\in\ZZ \}$$
+y subgrupos generados por dos números:
+$$\langle a,b\rangle = \{ ma + nb \mid m,n\in\ZZ \}.$$
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{División con resto}
+
+\begin{teorema}[Euclides]
+  Sean $a,b\in\ZZ$ dos números enteros, con $b \ne 0$. Entonces, existen
+  $q,r\in\ZZ$ tales que
+  $$a = qb + r, \quad 0 \le r < |b|.$$
+
+  \begin{proof}
+    Para el conjunto
+    $$\{ a - xb \mid x\in \ZZ \}$$
+    sea
+    $$r = a - qb$$
+    su mínimo elemento tal que $r \ge 0$ (este existe, puesto que
+    $b\ne 0$). Supongamos que $r \ge |b|$. Si $b > 0$, tenemos
+    $$0 \le r - b = a - qb - b = a - (q+1)\,b < r.$$
+    De la misma manera, si $b < 0$, entonces
+    $$0 \le r + b = a - qb + b = a - (q-1)\,b < r.$$
+    En ambos casos se produce un elemento $a - (q\pm 1)\,b$, lo que contradice
+    nuestra elección de $r$. Podemos concluir que $r < |b|$.
+  \end{proof}
+\end{teorema}
+
+El resultado que acabamos de describir se llama
+la \term{división con resto}\index{división con resto} de $a$ por $b$.
+He aquí una de sus consecuencias importantes.
+
+\begin{proposicion}
+  \label{prop:Z-es-un-dominio-de-ideales-principales}
+  Todo subgrupo de $\ZZ$ es de la forma $\langle d\rangle$ para algún
+  $d\in \ZZ$. En particular, para cualesquiera $a,b\in\ZZ$ se tiene
+
+  \begin{enumerate}
+  \item[1)] $\langle a,b\rangle = \langle d\rangle$ para algún $d\in\ZZ$,
+
+  \item[2)] $\langle a\rangle \cap \langle b\rangle = \langle d\rangle$ para
+    algún $d\in\ZZ$.
+  \end{enumerate}
+
+  \begin{proof}
+    Sea $A\subseteq \ZZ$ un subgrupo. Si $A = 0$, entonces
+    $A = \langle 0\rangle$ y enunciado es trivial. Luego, si $A \ne 0$, entonces
+    $A$ contiene números no nulos. Para cada $x\in A$ también $-x\in A$, así que
+    $A$ contiene números positivos. Sea entonces
+    $$d \dfn \min \{ x\in A \mid x > 0 \}.$$
+    Está claro que $\langle d\rangle \subseteq A$. Para ver la otra inclusión,
+    consideremos un elemento arbitrario $c \in A$. La división con resto por $d$
+    nos da
+    $$c = qd + r, \quad 0 \le r < d.$$
+    Luego, puesto que $c, d \in A$, tenemos también $r = c-qd \in A$.
+    Por nuestra elección de $d$, podemos descartar el caso
+    $0 < r < d$. Entonces, $r = 0$ y $c = qd \in \langle d\rangle$.
+  \end{proof}
+\end{proposicion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Divisibilidad y los números primos}
+
+\begin{definicion}
+  Para dos números enteros $d,n\in \ZZ$ se dice que
+  \term{$d$ divide a $n$}\index{divisibilidad} y se escribe ``$d\mid n$'' si
+  $n = mx$ para algún $m\in \ZZ$. En este caso también se dice que $d$ es un
+  \term{divisor} de $n$ o que $n$ es \term{divisible por $d$}. Cuando $d$ no
+  divide a $n$, se escribe ``$d\nmid n$''.
+\end{definicion}
+
+Notamos que en términos de subgrupos de $\ZZ$,
+$$d\mid n \iff \langle n\rangle \subseteq \langle d\rangle.$$
+
+El lector puede comprobar las siguientes propiedades de la relación de
+divisibilidad.
+
+\begin{enumerate}
+\item[0)] $a\mid 0$ para todo\footnote{Algunas fuentes insisten que $0\nmid 0$,
+    pero la relación $0\mid 0$ no tiene nada de malo. De hecho
+    $0\in \langle d\rangle$ para cualquier $d\in\ZZ$, en particular para
+    $d = 0$.} $a\in\ZZ$. Esto caracteriza a $0$ de modo único. Tenemos
+  $0 \mid a$ solamente para $a = 0$.
+
+\item[1)] $a\mid a$ y $\pm 1\mid a$ para todo $a\in\ZZ$.
+
+\item[2)] Si $a\mid b$ y $b\mid a$, entonces $a = \pm b$.
+
+\item[3)] Si $a\mid b$ y $b\mid c$, entonces $a\mid c$.
+
+\item[4)] Si $a\mid b$, entonces $a\mid bc$ para cualquier $c\in \ZZ$.
+
+\item[5)] Si $a\mid b$ y $a\mid c$, entonces $a\mid (b+c)$.
+\end{enumerate}
+
+\begin{definicion}
+  Se dice que un número entero positivo $p > 0$ es
+  \term{primo}\index{número!primos} si $p\ne 1$ y los únicos divisores de $p$
+  son $\pm 1$ y $\pm p$.
+\end{definicion}
+
+En otras palabras, $p$ es primo si y solamente si para $m,n > 0$, si tenemos
+$p = mn$, entonces o bien $m = p$, $n = 1$ o bien $m = 1$, $n = p$. Los primeros
+números primos son
+$$2, ~ 3, ~ 5, ~ 7, ~ 11, ~ 13, ~ 17, ~ 19, ~ 23, ~ 29, ~ 31, ~ 37, ~ 41, ~ 43, ~ 47, ~ 53, ~ 59, ~ 61, ~ 67, ~ 71, ~ 73, ~ 79, ~ 83, ~ 89, ~ 97, ~ \ldots$$
+Por ejemplo, $57 = 3\cdot 19$ no es primo.
+
+\begin{proposicion}
+  \label{prop:todo-entero-es-producto-de-primos}
+  Todo entero no nulo puede ser expresado como
+  $$n = \pm p_1^{k_1}\,p_2^{k_2}\cdots p_\ell^{k_\ell}$$
+  donde $p_i$ son primos diferentes.
+
+  \begin{proof}
+    Sin pérdida de generalidad, podemos considerar el caso de $n > 0$. Sería
+    suficiente ver que $n$ es un producto de primos y juntando múltiplos
+    iguales, se obtiene la expresión de arriba.
+
+    Para $n = 1$ tenemos $n = p^0$ para cualquier primo $p$. Luego, se puede
+    proceder por inducción. Supongamos que el resultado se cumple para todos los
+    números positivos $< n$. Si $n$ es primo, no hay que demostrar nada. Si $n$
+    no es primo, entonces $n = ab$ donde $a < n$ y $b < n$. Por la hipótesis de
+    inducción, $a$ y $b$ son productos de números primos, y por lo tanto $n$ lo
+    es.
+  \end{proof}
+\end{proposicion}
+
+En este caso la palabra ``primo'' es un sinónimo de ``primero'' y refiere
+precisamente al hecho de que todo número entero sea un producto de primos. No se
+trata de ninguna relación de parentesco entre los números.
+
+\begin{teorema}[Euclides]
+  Hay un número infinito de primos.
+
+  \begin{proof}
+    Consideremos los primeros $n$ números primos
+    $$p_1 = 2, ~ p_2 = 3, ~ p_3 = 5, ~ p_4 = 7, ~ p_5 = 11, ~ \ldots, ~ p_n.$$
+    Luego, el número
+    $$N \dfn p_1 p_2 \cdots p_n + 1$$
+    no es divisible por ningún primo entre $p_1, \ldots, p_n$. Sin embargo, $N$
+    tiene que ser un producto de primos, así que es necesariamente divisible por
+    algún primo $p$ tal que $p_n < p \le N$.
+  \end{proof}
+\end{teorema}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{El máximo común divisor}
+
+\begin{definicion}
+  \label{dfn:maximo-comun-divisor}
+  Para dos números enteros $a,b\in \ZZ$ su \term{máximo común
+    divisor}\index{máximo común divisor}\index[notacion]{mcd} (\term{mcd}) es un
+  número $d \dfn \mcd (a,b)$ caracterizado por las siguientes propiedades:
+
+  \begin{enumerate}
+  \item[1)] $d \mid a$ y $d\mid b$,
+
+  \item[2)] si $d'$ es otro número tal que $d' \mid a$ y $d' \mid b$, entonces
+    $d' \mid d$.
+  \end{enumerate}
+\end{definicion}
+
+Las condiciones de arriba pueden ser escritas como
+
+\begin{enumerate}
+\item[1)] $\langle a\rangle \subseteq \langle d\rangle$ y $\langle b\rangle \subseteq \langle d\rangle$,
+
+\item[2)] si $\langle a\rangle \subseteq \langle d'\rangle$ y
+  $\langle b\rangle \subseteq \langle d'\rangle$, entonces
+  $\langle d\rangle \subseteq \langle d'\rangle$.
+\end{enumerate}
+
+El subgrupo mínimo de $\ZZ$ que contiene a $\langle a\rangle$ y
+$\langle b\rangle$ es $\langle a,b\rangle$. Gracias a
+\ref{prop:Z-es-un-dominio-de-ideales-principales}, sabemos que
+$\langle a,b\rangle = \langle d\rangle$ para algún $d\in \ZZ$.
+
+\[ \begin{tikzcd}[column sep=0.5em]
+    & \langle d\rangle = \langle a,b\rangle\ar[-]{dl}\ar[-]{dr} \\
+    \langle a\rangle & & \langle b\rangle
+  \end{tikzcd} \]
+
+Esto nos lleva al siguiente resultado.
+
+\begin{proposicion}
+  El mcd siempre existe: tenemos
+  $$\langle a,b\rangle = \langle d\rangle \quad\text{donde } d = \mcd (a,b).$$
+  En particular, se cumple
+  $$ax + by = \mcd (a,b)\quad\text{para algunos }x,y\in\ZZ$$
+  y $\mcd (a,b)$ es el mínimo número posible que puede ser representado como una
+  combinación $\ZZ$-lineal de $a$ y $b$.
+\end{proposicion}
+
+La última expresión se conoce como la
+\term{identidad de Bézout}\index{identidad!de Bézout}. Aquí los coeficientes $x$
+e $y$ no son únicos. Por ejemplo,
+$$2\cdot (-1) + 3\cdot 1 = 2\cdot (-4) + 3\cdot 3 = 2\cdot 2 + 3\cdot (-1) = \cdots = 1.$$
+
+He aquí algunas observaciones respecto a $\mcd (a,b)$.
+
+\begin{enumerate}
+\item[1)] La definición de $d \dfn \mcd (a,b)$ caracteriza a $d$
+  \emph{salvo signo}. De hecho, si $d$ y $d'$ satisfacen las condiciones de
+  $\mcd (a,b)$, entonces $d \mid d'$ y $d' \mid d$ (o la condición equivalente
+  $\langle d\rangle = \langle d'\rangle$) implica que $d' = \pm d$. Normalmente
+  se escoge $d > 0$, pero estrictamente hablando, todas las identidades con
+  $\mcd (a,b)$ pueden ser interpretadas salvo signo.
+
+\item[2)] La definición de $\mcd (a,b)$ es visiblemente simétrica en $a$ y $b$,
+  así que
+  $$\mcd (a,b) = \mcd (b,a).$$
+
+\item[3)] Para todo $a\in\ZZ$ se tiene
+  $$\mcd (a,0) = a.$$
+  En particular\footnote{Algunas fuentes insisten que $\mcd (0,0)$ no está
+    definido, pero como vemos, es lógico poner $\mcd (0,0) = 0$.},
+  $$\mcd (0,0) = 0.$$
+  Esto nada más significa que cualquier número divide a $0$, o de manera
+  equivalente, que $\langle 0\rangle \subseteq \langle a\rangle$ para todo
+  $a\in\ZZ$, y también para $a = 0$.
+\end{enumerate}
+
+\begin{definicion}
+  Si $\mcd (a,b) = 1$, se dice que $a$ y $b$ son
+  \term{coprimos}\index{números!coprimos}.
+\end{definicion}
+
+Si $a$ y $b$ son coprimos, entonces
+$\langle a,b\rangle = \langle 1\rangle = \ZZ$, y en particular tenemos
+$$ax + by = 1\quad\text{para algunos }x,y\in\ZZ.$$
+
+\begin{observacion}
+  Si $a\mid bc$ donde $a$ y $b$ son coprimos, entonces $a\mid c$.
+
+  \begin{proof}
+    Tenemos
+    $$ax + by = 1$$
+    para algunos $x,y\in\ZZ$. Luego,
+    $$axc + byc = c,$$
+    y la expresión a la izquierda es divisible por $a$.
+  \end{proof}
+\end{observacion}
+
+\begin{corolario}
+  \label{corr:primo-divide-producto}
+  Si $p$ es primo y $p\mid bc$, entonces $p\mid b$ o $p\mid c$.
+\end{corolario}
+
+Muy a menudo se usa el contrapuesto: si $p\nmid b$ y $p\nmid c$, entonces
+$p\nmid bc$.
+
+\begin{proof}
+  Ya que los únicos divisores de $p$ son $\pm 1$ y $\pm p$, tenemos dos casos
+  posibles. En el primer caso, $\mcd (p,b) = 1$ y luego $p\mid c$ por el
+  resultado precedente. En el segundo caso, $\mcd (p,b) = p$, lo que significa
+  que $p\mid b$.
+\end{proof}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{El mínimo común múltiplo}
+
+\begin{definicion}
+  \label{dfn:minimo-comun-multiplo}
+  Para dos números enteros $a,b\in \ZZ$ su \term{mínimo común múltiplo
+    (mcm)}\index{mínimo común múltiplo}\index[notacion]{mcm} es un número
+  $m \dfn \mcm (a,b)$ caracterizado por las siguientes propiedades:
+
+  \begin{enumerate}
+  \item[1)] $a\mid m$ y $b\mid m$,
+
+  \item[2)] si $m'$ es otro número tal que $a\mid m'$ y $b\mid m'$, entonces
+    $m \mid m'$.
+  \end{enumerate}
+\end{definicion}
+
+Las condiciones de arriba pueden ser escritas como
+
+\begin{enumerate}
+\item[1)] $\langle m\rangle \subseteq \langle a\rangle$ y
+  $\langle m\rangle \subseteq \langle b\rangle$,
+
+\item[2)] si $m'$ es otro número tal que
+  $\langle m'\rangle \subseteq \langle a\rangle$ y
+  $\langle m'\rangle \subseteq \langle b\rangle$, entonces
+  $\langle m'\rangle \subseteq \langle m\rangle$.
+\end{enumerate}
+
+El subgrupo máximo de $\ZZ$ que contiene a $\langle a\rangle$ y
+$\langle b\rangle$ es su intersección $\langle a\rangle \cap \langle
+b\rangle$. Gracias a \ref{prop:Z-es-un-dominio-de-ideales-principales} sabemos
+que es también de la forma $\langle m\rangle$ para algún $m\in \ZZ$.
+
+\[ \begin{tikzcd}[column sep=0.5em]
+    \langle a\rangle & & \langle b\rangle \\
+    & \langle m\rangle = \langle a\rangle \cap \langle b\rangle\ar[-]{ul}\ar[-]{ur}
+  \end{tikzcd} \]
+
+\begin{proposicion}
+  El mcm siempre existe: tenemos
+  $$\langle a\rangle \cap \langle b\rangle = \langle m\rangle \quad \text{donde } m = \mcm (a,b).$$
+\end{proposicion}
+
+Tenemos las siguientes propiedades.
+
+\begin{enumerate}
+\item[1)] La definición caracteriza a $\mcm (a,b)$ de modo único salvo signo.
+
+\item[2)] Para cualesquiera $a,b\in\ZZ$ se tiene
+$$\mcm (a,b) = \mcm (b,a).$$
+
+\item[3)] Para todo $a$ se cumple
+  $$\mcm (a,0) = a.$$
+  En particular,
+  $$\mcm (0,0) = 0.$$
+  (De hecho, $0 \mid m$ implica que $m = 0$.)
+\end{enumerate}
+
+\begin{proposicion}
+  Para cualesquiera $a,b\in\ZZ$ tenemos
+  $$\mcm (a,b)\cdot \mcd (a,b) = ab.$$
+  En particular,
+  $$\mcm (a,b) = ab\text{ si y solamente si }a\text{ y }b\text{ son coprimos}.$$
+\end{proposicion}
+
+\begin{proof}[Primera demostración]
+  El caso de $a = b = 0$ es trivial y podemos descartarlo. Sea
+  $d \dfn \mcd (a,b)$ y $m \dfn ab/d$. Vamos a ver que $m = \mcm (a,b)$.
+
+  Primero, puesto que $d\mid a$ y $d\mid b$, podemos escribir
+  $$a = d a',\quad b = d b'.$$
+  Luego,
+  $$m = d a' b' = a b' = b a',$$
+  así que $a \mid m$ y $b \mid m$.
+
+  Ahora notemos que
+  $$d = \mcd (a,b) = \mcd (da', db') = d\cdot \mcd (a', b'),$$
+  así que
+  $$\mcd (a', b') = 1$$
+  y los números $a'$ y $b'$ son coprimos.
+
+  Sea $m'$ otro número tal que $a\mid m'$ y $b\mid m'$. Queremos ver que
+  $m\mid m'$. Escribamos
+  $$m' = ax = by.$$
+  Luego,
+  $$m' b' = a b' x = mx, \quad m' a' = b a' y = my,$$
+  lo que nos da $m\mid m' b'$ y $m \mid m' a'$ y por lo tanto
+  $$m \mid \mcd (m' b', m' a') = m'\cdot \mcd (a', b') = m'.$$
+\end{proof}
+
+\begin{proof}[Segunda demostración, usando la teoría de grupos]
+  Consideremos los subgrupos $m\,\ZZ$ y $n\,\ZZ$ en $\ZZ$. Luego, el segundo
+  teorema de isomorfía nos dice que
+  $$a\ZZ/(a\ZZ\cap b\ZZ) \isom (a\ZZ + b\ZZ)/b\ZZ.$$
+  Tenemos $a\ZZ\cap b\ZZ = m\ZZ$
+  donde $m = \mcm (a,b)$ y $a\ZZ + b\ZZ = d\ZZ$ donde
+  $d = \mcd (a,b)$. Entonces,
+  $$a\ZZ/m\ZZ \isom d\ZZ/b\ZZ.$$
+  Lo que nos da la identidad $a/m = d/b$.
+\end{proof}
+
+Note que la última proposición nos dice básicamente que la existencia de
+$\mcd (a,b)$ es equivalente a la existencia de $\mcm (a,b)$.
+
+También se pueden definir mcd y mcm de $n$ números. El lector puede generalizar
+de manera evidente las definiciones \ref{dfn:maximo-comun-divisor} y
+\ref{dfn:minimo-comun-multiplo} y ver que estas generalizaciones son
+equivalentes a
+\begin{enumerate}
+\item[1)] $\langle a_1, \ldots, a_n\rangle = \langle d\rangle$ para
+  $d = \mcd (a_1, \ldots, a_n)$,
+
+\item[2)]
+  $\langle a_1\rangle \cap \cdots \cap \langle a_n\rangle = \langle m\rangle$
+  para $m = \mcm (a_1, \ldots, a_n)$.
+\end{enumerate}
+
+Por ejemplo, tenemos la siguiente generalización de la identidad de Bézout:
+existen $x_1,\ldots,x_n \in \ZZ$ tales que
+$$x_1 a_1 + \cdots + x_n a_n = \mcd (a_1, \ldots, a_n).$$
+
+Además, se puede ver que las operaciones $\mcd (-,-)$ y $\mcm (-,-)$ son
+asociativas y por lo tanto la definición generalizada se reduce al caso binario:
+\begin{enumerate}
+\item[1)] $\mcd (\mcd (a, b), c) = \mcd (a, \mcd (b, c)) = \mcd (a, b, c)$,
+
+\item[2)] $\mcm (\mcm (a, b), c) = \mcm (a, \mcm (b, c)) = \mcm (a, b, c)$.
+\end{enumerate}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{El teorema fundamental de la aritmética}
+
+\begin{definicion}
+  Sea $p$ un número primo fijo. Para un número entero no nulo $n$ su
+  \term{valuación $p$-ádica}\index{valuación $p$-ádica} es el número natural
+  máximo $k$ tal que $p^k$ divide a $n$:
+  $$v_p (n) \dfn \max \{ k ~ \mid ~ p^k \mid n \}.$$
+\end{definicion}
+
+\noindent (Para $n = 0$ normalmente se pone $v_p (0) \dfn +\infty$, pero no
+vamos a necesitar esta convención.)
+
+Notamos que $v_p (n) = 0$ si y solamente si $p\nmid n$. La valuación $p$-ádica
+se caracteriza por
+$$n = p^{v_p (n)}\,n',$$
+donde $p\nmid n'$ (véase \ref{corr:primo-divide-producto}).
+
+\begin{lema}
+  Para cualesquiera $m,n\in\ZZ$ se cumple
+  $$v_p (mn) = v_p (m) + v_p (n).$$
+
+  \begin{proof}
+    Tenemos
+    $$m = p^{v_p (m)}\,m', \quad n = p^{v_p (n)}\,n',$$
+    donde $p\nmid m'$ y $p\nmid n'$. Luego,
+    $$mn = p^{v_p (m) + v_p (n)}\,m' n',$$
+    donde $p\nmid (m'n')$, así que $v_p (mn) = v_p (m) + v_p (n)$.
+  \end{proof}
+\end{lema}
+
+\begin{teorema}
+  Todo número entero entero no nulo puede ser representado de modo único como
+  $$n = \pm p_1^{k_1}\,p_2^{k_2}\cdots p_\ell^{k_\ell}$$
+  donde $p_i$ son algunos primos diferentes. A saber, tenemos
+  $k_i = v_{p_i} (n)$.
+\end{teorema}
+
+\noindent (La unicidad se entiende salvo permutaciones de los factores
+$p_i^{k_i}$.)
+
+\begin{proof}
+  Ya hemos notado en \ref{prop:todo-entero-es-producto-de-primos} que todo
+  entero no nulo es un producto de primos; la parte interesante es la
+  unicidad. Dada una expresión
+  $$n = \pm p_1^{k_1}\,p_2^{k_2}\cdots p_\ell^{k_\ell},$$
+  para todo primo $p$ podemos calcular la valuación $p$-ádica correspondiente:
+  $$v_p (n) = v_p (p_1^{k_1}) + v_p (p_2^{k_2}) + \cdots + v_p (p_\ell^{k_\ell}).$$
+  Aquí
+  $$v_p (p_i^{k_i}) = \begin{cases}
+    k_i, & p = p_i,\\
+    0, & p \ne p_i.
+  \end{cases}$$
+  Entonces, $k_i = v_{p_i} (n)$.
+\end{proof}
+
+Entonces, podemos escribir
+$$n = \pm \prod_{p\text{ primo}} p^{v_p (n)},$$
+donde el producto es sobre todos los números primos, pero
+$v_p (n) \ne 0$ solamente para un número finito de $p$.
+
+El último resultado se conoce como el
+\term{teorema fundamental de la aritmética}\index{teorema!fundamental de la
+  aritmética}.  Su primera demostración completa fue publicada por Gauss en
+el tratado ``Disquisitiones Arithmeticae''.
+
+Notamos que
+$$\mcd (m,n) = \prod_{p\text{ primo}} p^{\min \{v_p (m), v_p (n)\}}$$
+y
+$$\mcm (m,n) = \prod_{p\text{ primo}} p^{\max \{v_p (m), v_p (n)\}}.$$
+Estas fórmulas no ayudan mucho para grandes valores de $m$ y $n$. En práctica
+se usa el \term{algoritmo de Euclides}\index{algoritmo!de Euclides} basado en
+la división con resto repetida (es algo parecido a nuestra demostración de
+\ref{prop:Z-es-un-dominio-de-ideales-principales}).
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Generalizaciones}
+
+Las definiciones \ref{dfn:maximo-comun-divisor} y
+\ref{dfn:minimo-comun-multiplo} de mcd y mcm tienen sentido en cualquier dominio
+de integridad $A$. En este caso $\mcm (a,b)$ y $\mcd (a,b)$ están definidos
+salvo un múltiplo $u\in A^\times$. Para $A = \ZZ$ tenemos
+$\ZZ^\times = \{ \pm 1 \}$. Sin embargo, la existencia de $\mcm (a,b)$ y
+$\mcd (a,b)$ no está garantizada en general.
+
+Un dominio de integridad donde se puede definir un análogo de la división con
+resto se llama un \term{dominio euclidiano}; en este caso mcd y mcm siempre
+existen gracias a los mismos argumentos que vimos arriba (solo hay que
+reemplazar los subgrupos $A \subseteq \ZZ$ por \term{ideales}
+$\mathfrak{a} \subseteq A$). Un ejemplo típico de dominios euclidianos, excepto
+$\ZZ$, es el anillo de polinomios $k [X]$ sobre un cuerpo $k$: para
+$f,g\in k [X]$, $g\ne 0$ existen $q,r\in k[X]$ tales que $f = qg + r$ donde
+$-\infty \le \deg r < \deg g$.
+
+Un dominio de integridad donde se cumple un análogo del teorema fundamental de
+la aritmética se llama un \term{dominio factorización única}. Un típico ejemplo
+es el anillo de polinomios $k [X_1,\ldots,X_n]$ en $n$ variables sobre un cuerpo
+$k$. Todos los dominios euclidianos son dominios de factorización única.
+
+\end{document}
