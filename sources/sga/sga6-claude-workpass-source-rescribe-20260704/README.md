@@ -1,14 +1,18 @@
-# SGA6 Claude/Codex Source-Rescribe Workpass Mirror
+# SGA6 Claude/Codex strict source-rescribe workpass refresh through idx209
 
-This folder mirrors the active local SGA6 source-rescribe workpass from `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`.
+This is a compact support/provenance package for the active SGA6 strict source-rescribe/workpass lane.
 
-Current public frontier, refreshed 2026-07-05:
+Current frontier:
 
-- `CERT_LOG.md` reaches entry #205.
-- Current source page: idx208 / volume p195 / Expose II p36.
-- Next cursor: idx209 / volume p196 / Expose II p37.
-- `sga6_fr_workpass.log` reports `Output written on sga6_fr_workpass.pdf (391 pages, 2734991 bytes).`
+- CERT_LOG.md highest entry: #206.
+- Last scribed page: idx209 / volume p196 / Expose II p37.
+- Next cursor: idx210 / volume p197 / Expose II p38.
+- Current compile gate: `sga6_fr_workpass.pdf` writes successfully; current observed log reports 390 pages and no fatal LaTeX stop in the searched diagnostics.
 
-Classification: source-rescribe/workpass provenance only. This is not completed SGA6 reader output, not English synchronization, not whole-volume source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+Public classification:
 
-The log records concrete page-level source-fidelity repairs against the better IA scan. The latest entry (#205) covers idx208 / volume p195 / Expose II p36, including Appendix I title/header repair, title footnote restoration, `\iota` to `\varphi`, dropped citations, display-to-inline restorations, long arrows, punctuation repairs, and source-faithful reversion of prose rewrites.
+This is source-rescribe/workpass provenance only. It is not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition. The log itself explicitly says never to certify complete. It should be uploaded as a support layer beneath reader-facing SGA PDFs.
+
+Important caveat:
+
+The active SGA6 audit identified that earlier SGA6 workpass material was a readable/paraphrastic rendering in places and is being corrected page-by-page toward symbol-level source completeness. Use this package as evidence of the ongoing correction stream, not as a completion claim.
