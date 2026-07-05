@@ -8,6 +8,8 @@ The public project is intentionally split across a small number of logical Zenod
 
 2026-07-05 Noether-PC packages-528-533 source check: `origin/codex/noether-pc-20260629` advanced through commit `0d244352`, but packages 528-533 contain 127 added paths with zero TeX-family source bodies, zero PDFs, and zero ZIP payloads. The range is inventoried in `manifests/source-intake/20260705_noether_pc_packages528_533_source_check.*` and should not be promoted as a source corpus.
 
+2026-07-05 Noether-PC packages-534-537 source check: `origin/codex/noether-pc-20260629` advanced through commit `2ac01d45`, but packages 534-537 contain 43 added paths with zero TeX-family source bodies, zero PDFs, and zero ZIP payloads. The range is inventoried in `manifests/source-intake/20260705_noether_pc_packages534_537_source_check.*` and should not be promoted as a source corpus.
+
 Use the README's "Open First" table as the reader-facing quality order. That order is by completion and source confidence, not by DOI age, file count, upload size, or ambition. This page is a DOI registry and operational map; if a lower-confidence lane appears near a stronger lane here, that is not a quality equivalence.
 
 Current quality grouping in brief:
