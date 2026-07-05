@@ -16,6 +16,20 @@ If your interface has a goal tool, use it now. If it has a visible "goal", "purs
 
 After setting the active goal, execute it. The next pushed output must be payload: literal source bodies, usable source-checked translation/transcription output, concrete repair artifacts, or a real package containing those things.
 
+## If There Are Multiple Sessions Open
+
+If you are the one active/moving other-PC session and other sessions are idle, your first execution task is not to do all work yourself.
+
+Your first execution task is to dispatch the idle sessions.
+
+Open and follow:
+
+`00_DISPATCH_ALL_IDLE_SESSIONS_NOW_20260705.md`
+
+Assign every visible idle session one concrete payload task from that file. Record each assignment in `ACTIVE_SESSIONS.md`, `SIBLING_TASKS.md`, and your local logbook. A session that is merely waiting, reading, or acknowledging is idle and must be assigned work.
+
+Do not let 11 sessions sit still while one session "thinks". Make them collect source bodies, package real outputs, audit body presence, repair known files, or build handoff ZIPs.
+
 Reading instructions is not output.
 
 Setting the goal is not the final output.
