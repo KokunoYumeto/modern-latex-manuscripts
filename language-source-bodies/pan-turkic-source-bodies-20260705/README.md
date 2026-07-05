@@ -104,3 +104,8 @@ This package includes a mutual-wake coordination ledger under generated-draft/mu
 ## Current-Web Hard-Row Source Recovery Addendum, 2026-07-05
 
 This package now includes current-web Uzbek and Kazakh hard-row source witnesses under odies/<language>/current-web-hard-row-20260705/ and text witnesses under ocr-witnesses/<language>/current-web-hard-row-20260705/. Recovery and search-attempt ledgers are in generated-draft/source-recovery/.
+
+<!-- PAN_TURKIC_FORCED_WAKE_TRANSFER_20260706 -->
+## Forced-Wake Transfer Addendum, 2026-07-06
+
+The exact forced-wake pursued goal was copied to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md because the goal tool refused replacement. This package includes source bodies and Fable/source-use ledgers; a transfer ZIP for B3/uploader is written outside the package under outputs/transfer/.
