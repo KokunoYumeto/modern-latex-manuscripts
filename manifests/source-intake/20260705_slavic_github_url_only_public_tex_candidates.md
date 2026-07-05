@@ -12,12 +12,12 @@ interlanguage-sidecar/20260704/latex_source_body_bundles/slavic_github_tex_queue
 - ZIP entries: 218.
 - TeX-family entries counted inside ZIP: 204.
 - Size: 2740089 bytes.
-- SHA256: $hash.
+- SHA256: `FE296EF42A8FDF3DAE696F9DF9B39A29A4251FB25B84041D1349D2597F3EAE08`.
 - Language distribution from download manifest: be=12, bg=37, bs=15, cnr=1, cs=28, dsb=20, hr=8, mk=24, pl=27, sk=8, sl=25.
 
 ## Staged ZIP
 
-$zipRel
+`interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Slavic_GitHub_URLOnly_PublicCandidates_20260705.zip`
 
 ## Classification
 

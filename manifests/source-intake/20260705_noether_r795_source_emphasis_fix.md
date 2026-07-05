@@ -2,9 +2,9 @@
 
 Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
 
-Staged ZIP: $r795Rel
+Staged ZIP: `publish_staging/noether/20260705_r795_p30p33_35_source_emphasis_fix/Noether_R795_LocalCodex_P30p33_35_SourceEmphasisFix_20260705.zip`
 
-Size/SHA256/entries: 84501977 bytes / $r795Hash / 139 entries.
+Size/SHA256/entries: 84501977 bytes / `5C5C0B3A4C485366431F1749CAE571A9D5FC7027A67B24332CB53D2AFA8144EE` / 139 entries.
 
 Local source folder: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R795_LocalCodex_P30p33_35_SourceEmphasisFix_20260705
 

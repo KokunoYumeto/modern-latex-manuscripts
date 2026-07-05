@@ -30,6 +30,6 @@ Public classification: methodology/source-canon/log and handoff coordination onl
 
 Staged support ZIP: publish_staging/interlanguage-methodology/20260705_noether_pc_packages627_631/Noether_PC_Interlanguage_Packages627_631_RollingDeltas_20260705.zip
 
-Size/SHA256/entries: 438262 bytes / $pkgHash / 66 entries.
+Size/SHA256/entries: 438262 bytes / `B4A372C1783143EBD0E13AFCF76603CC5F7AA4D02B1AE584AA60AF0B652ABCF7` / 66 entries.
 
 Next action: keep the Fable blocking directive active and require the other-PC session to upload the whole source corpus as-is, including raw LaTeX/source bodies and per-language ledgers, not only indexes or package summaries.
