@@ -12,6 +12,13 @@
 - Scope/result: selectively imports packages 632-633 from `origin/codex/noether-pc-20260629`, including lane logs, source-canon classifications, checksum/hash probes, source-sufficiency rows, and governance responses across Slavic, CJK, Arabic/RTL, Romance, Persianate/Tajik, Pan-Turkic, Indigenous/Creole/Sign, Malay/SEA/Pacific, and Africa/Horn/West lanes.
 - Caveat: package 633 explicitly excludes raw source bodies and binary primaries. This is coordination evidence only, not the requested full source-body corpus, not native review, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not reader output, and not a critical edition.
 
+## 2026-07-05 Noether-PC packages 634-635 imported evidence
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/noether/20260705_noether_pc_packages634_635/Noether_PC_Packages634_635_ImportedEvidence_20260705.zip`, 1,286,545 bytes, SHA256 `9DA5F2138B189027A3160AB900F7A5CF84C2E9D22A5CBAF6F16F9D5E1DCC1123`, 169 ZIP entries.
+- Scope/result: selectively imports packages 634-635 from `origin/codex/noether-pc-20260629`, including active-row sufficiency classifications, draft-support/action packets, source-acquisition rows, and governance ledgers across Slavic, CJK, Arabic/RTL, Romance, Persianate/Tajik, Pan-Turkic, Indigenous/Creole/Sign, Malay/SEA/Pacific, Africa/Horn/West, and OLP relation/function support lanes.
+- Caveat: package READMEs explicitly exclude raw source bodies, raw OCR dumps, runtime caches, and binary zip primaries. This is coordination evidence only, not the requested full source-body corpus, not native review, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not reader output, and not a critical edition. Fable/ChatGPT branch-weighting, marginal-intelligibility, and full-source-body requirements remain active blockers.
+
 ## 2026-07-05 Noether R795 P30 pp.33-35 source-emphasis candidate
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
